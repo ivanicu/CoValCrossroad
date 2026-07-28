@@ -1,8 +1,7 @@
 """A05 -- What KIND of value does compression silence?
 
-The prior analysis established that CoVal-core preserves consensus items better
-than polarized ones (embedding similarity 0.736 vs 0.520).  That says compression
-loses conflict.  It does not say WHICH VALUES the conflict was about -- and that
+CoVal-core preserves consensus items better than polarized ones.  That says
+compression loses conflict.  It does not say WHICH VALUES the conflict was about -- and that
 is the decision-relevant question, because "the core drops disputed items" is
 tolerable if the disputed items are stylistic, and serious if they are about
 autonomy, legality, or who gets harmed.
@@ -15,9 +14,36 @@ inspected and disputed line by line), then cross-tabulates family against:
   * polarization sign disagreement among raters
   * survival     does a semantically near item appear in the prompt's core
 
-Survival is computed lexically (token-overlap), NOT by embedding, so it is a
-different instrument from the one that produced the 0.736/0.520 result.  Two
-independent instruments agreeing is evidence; one instrument repeated is not.
+Survival is computed lexically (token-overlap).  Two independent instruments
+agreeing is evidence; one instrument repeated is not.
+
+  ** CORRECTION 2026-07-28. **  This docstring used to open with "The prior
+  analysis established that CoVal-core preserves consensus items better than
+  polarized ones (embedding similarity 0.736 vs 0.520)", and justified the
+  lexical measure as "a different instrument from the one that produced the
+  0.736/0.520 result".  A construct review went looking for that result.  It
+  appears in this one docstring, entered in the commit that created the file,
+  and is computed NOWHERE -- not in this repository and not in its history
+  (`git log --all -S"0.736"`).  It was inherited from the source package and
+  cited as established without ever being checked.
+
+  So this round's own argument was standing on ONE instrument, inside a
+  paragraph explaining that one instrument is not enough.  The number is not
+  refuted -- it is UNVERIFIED, which is not an acquittal, and it has been
+  removed from the reasoning rather than repaired.
+
+  `second_instrument.py` supplies the second measure that was always supposed
+  to be here: TF-IDF cosine against the same core, thresholded to match this
+  round's overall survival rate so the comparison tests the instrument and not
+  the cutoff.  Result: the polarization penalty is negative in 11 of 11
+  families under both, and the family ordering agrees at Spearman rho=+0.891
+  (p=2.3e-4).  The claim holds.
+
+  Residual gap, stated because the agreement does not close it: BOTH measures
+  are lexical.  A criterion that survives in meaning but not in wording is
+  invisible to both, so their agreement cannot rule out a shared blindness to
+  paraphrase -- and the embedding result that would have covered exactly that
+  gap is the one that could not be found.
 """
 from __future__ import annotations
 
