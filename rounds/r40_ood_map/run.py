@@ -44,9 +44,17 @@ Estimand
     corr( per-prompt attribution drop , distance )
 
 reported per lineage and per distance measure, with a prompt-level bootstrap,
-and then as a regression of the drop on distance with response length included,
-because length is the obvious confound: fresh generations are capped at 180 new
-tokens and the released candidates are not.
+and then as an OLS of the drop on distance WITH THE LENGTH GAP INCLUDED.
+
+The length control is necessary and the reason I first gave for it was wrong.
+I wrote that fresh generations are capped at 180 new tokens while the released
+candidates are not, so fresh would be systematically SHORTER. Measured, the gap
+runs the other way: original responses have a median of 76 words and fresh ones
+89, fresh is shorter in only 36% of prompts, and the cap never bound because the
+RELEASED candidates are the short ones. The confound is real -- a representation
+distance between two sets of different typical length is partly a length
+distance -- but the mechanism in the original sentence was asserted rather than
+checked, and it was backwards.
 
 What this round cannot do
 --------------------------
@@ -119,12 +127,13 @@ def main() -> None:
     print(f"prompts with both sets: {len(pids):,}\n")
 
     # LENGTH, which the docstring promised to control for and the first version
-    # of this file never computed -- the word appeared only in the prose. Fresh
-    # generations are capped at 180 new tokens and the released candidates are
-    # not, so the fresh set is systematically shorter and every representation
-    # distance is partly a length distance. Reporting a raw correlation between
-    # "distance" and the attribution drop, under a docstring claiming length was
-    # controlled, would have been a stated control that does not exist.
+    # of this file never computed -- the word appeared only in the prose.
+    # Measured: original responses median 76 words, fresh 89, fresh shorter in
+    # only 36% of prompts. The 180-token cap never bound; the RELEASED candidates
+    # are the short ones, which is the opposite of what the original justification
+    # claimed. The control is still required -- a representation distance between
+    # two sets of different typical length is partly a length distance -- but the
+    # stated mechanism was asserted, not checked, and was backwards.
     gen = json.loads(a.generations.read_text())
     lgap = {}
     for q, o, f in zip(gen["prompt_ids"], gen["original"], gen["fresh"]):
