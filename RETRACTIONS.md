@@ -55,6 +55,32 @@ twelve are theirs.
 | 25 | **Entry 6's entire argument** — "seed criteria carry attribution (CI excludes 0) and write-ins do not (CI includes 0), therefore seeds carry *more*", the asymmetry that made the response-set mechanism look dead | Entry 15's repair, then the interval I had never computed. **Both halves fail.** Write-ins clear zero after all (**+0.0262 [+0.0022, +0.0506]**). And the difference, bootstrapped paired on the 293 prompts carrying both arms, is **+0.0231 [−0.0079, +0.0541] — it includes zero.** The ordering is not established | Not the comparison. What survives is a **one-arm** argument, which is different and narrower: seed criteria — prepared alongside candidate generation and never tailored to those responses — carry **+0.0457 [+0.0234, +0.0687]** on their own. If the advantage were knowledge of the response set, response-blind criteria should carry ~none, and they carry as much as write-ins do. That still refuses the response-set mechanism; it no longer ranks the two. **And even that rests on a proxy**: "seed" is inferred from rating count, not read from a release field (below) |
 | 26 | **The direction of the correction itself** — that fixing a broken estimator makes a finding firmer | The same run. The point estimate rose at every repair — **+0.0102** broken, **+0.0194** unpaired means, **+0.0231** properly paired — while the claim got *weaker at every step*, because the uncertainty was never computed until last. A bigger number and a dead claim, from one bootstrap | The rule, in its sharpest form yet: **the size of an effect and the strength of a claim are independent quantities, and this repository spent twenty rounds reporting the first as though it were the second** |
 
+---
+
+## The pluralism question — five separators, four of them mine and wrong
+
+Entries 27–31 all belong to one question: **is r01's cross-prompt persistence value
+blocs (M2), or raters differing in reliability (M1b)?** It is the premise the r16/r17/r18
+arm rests on. It took five attempts, and the failures are more instructive than the
+answer.
+
+| # | The claim | What killed or scoped it | What survived |
+|---|---|---|---|
+| 27 | **r26's sign test**, and with it the claim that the pair-specific residual is *signed* — the one signature reliability heterogeneity cannot fake, since attenuation moves agreement toward zero and stops there | The statistic does not implement that reasoning. Mean raw agreement is **+0.2513**, so a pair with *zero* competence sits 0.25 below the mean and has a strongly negative **centred** residual **while never once disagreeing**. r26 scored "below average" and "actually anti-correlated" with the same number — and those are exactly the two worlds it existed to separate | Nothing. Re-asked on the raw scale by r27, where zero is a real boundary rather than a consequence of centring |
+| 28 | **That the sign test had returned an answer at all** | It returned **+1.40, +2.26, +2.68 and +10.26** on identical data, varying only with how many random half-splits were averaged and whether the null used the same number. Four answers to one question | The diagnosis: that is a reading of the estimator, not a measurement. [r26](rounds/r26_sign_no_split) removes the split entirely and works on each pair's full residual series |
+| 29 | **r27's actor control** — "the negative tail vanishes among pairs of two generally-agreeable raters, so it is an actor effect, not blocs" | Two defects. **(a)** A pair's own agreement feeds both members' actor scores, so selecting *both above median* selects directly on the outcome; fixed leave-one-out, which moved it only 0.20×→0.24×. **(b)** Fatal: under **unequal** bloc sizes a majority-bloc member agrees with most people and is therefore "agreeable" **by construction**, so both-high pairs are mostly *same-bloc* and the control could not have found blocs even if they were there | The observation (far tail at 0.24× the null among agreeable pairs, z=−10.00), not the inference |
+| 30 | **r27's verdict**, which printed `VALUE BLOCS` | Its own control, ten lines above it in the same output, saying the opposite. The verdict block ranked thresholds and never read the control | Nothing. **This is item 11 on the step-size checklist in my own skill file — *a script's own conclusion string saying what you wanted to hear* — committed inside the round written to avoid exactly that.** The verdict now consults the control and cannot outrank it |
+| 31 | **The additive decomposition itself**, and with it the residual r23, r25, r26 and r27 all read as "pair-specific structure" | Classical test theory. Under one latent target with heterogeneous reliability, agreement is a **product**: `A_ij = ρ_i ρ_j`. Fit `μ + a_i + a_j` to that and the residual is **not noise** — it is `(ρ_i−m)(ρ_j−m)`: positive when both raters are above average, positive when both are below, negative when they straddle. **A U-shape, generated entirely by the wrong functional form, with no blocs anywhere in the process.** r27 measured that U-shape (+0.0538 / −0.0567 / +0.0552) and I read the positive both-low arm as a minority bloc | [r28](rounds/r28_multiplicative) fits both forms on the same 6,193 dyads. Multiplicative wins **with one fewer parameter** (R² 0.6604 vs 0.5784). Under it `both_high` and `mixed` collapse to **exactly zero** (z=−0.73, −1.43) and one stratum survives: `both_low` **+0.0125 [+0.0004, +0.0241], z=+2.50**, replicated at +0.0208 (spearman) and +0.0122 (cosine). **A minority bloc is real and 4.4× smaller than the additive analysis implied** |
+| 32 | **r28's own model comparison on the fourth metric** | negative-mean-absolute-difference is bounded *above* by zero, so a rank-1 product of real factors cannot represent it; ALS diverged to **R² = −13.14**. My code compared that to 0.5717 and printed *"the ADDITIVE form fits better"* — which would have entered the record as one metric of four dissenting, **manufacturing a robustness caveat out of a numerical failure** | A guard: R² < 0 now reports `MULTIPLICATIVE_INAPPLICABLE` and states explicitly that the additive form is **not** thereby supported. Attacked; it fires and returns before touching the strata |
+
+**Why entry 31 is the most serious thing in this file.** Every other retraction is a
+statistical error — a wrong null, an unmatched pairing, a missing interval, a check that
+could not fail. Careful practice catches those. Entry 31 is the **model of the object**
+being wrong: four rounds asked a well-posed question, with correct nulls and honest
+intervals, about the residual of a functional form that *generates the effect they were
+measuring*. No amount of rigour about sampling units or multiplicity would have found
+it. Only asking **what produces agreement in the first place** does.
+
 ### Scoring the pre-registration
 
 The brief bet on which claims would fall. Its own stated purpose: *"if a challenger
@@ -117,10 +143,19 @@ and it is worse, because a claim with a missing scope is at least *measuring* so
   IDs, killing actor identity and dyad identity together, so an actor effect had
   nowhere to land except the "structure" column
 
+- **a statistic that scores both worlds identically** (27) — a centred residual cannot
+  tell "below average" from "actually disagreeing" when the mean is +0.25
+- **a control confounded by the thing it controls for** (29) — under unequal blocs, a
+  majority member is "agreeable" by construction
+- **a conclusion string that never reads its own control** (30)
+- **a model comparison against a diverged optimiser** (32)
+
 The diagnostic is one question, and it costs nothing: **name the world in which this
 check returns the other answer.** If you cannot, you have not built a check. Three of
-these four were invisible to twenty rounds of my own review and took an outsider, or a
-three-line piece of algebra, to see.
+the first four were invisible to twenty rounds of my own review and took an outsider, or
+a three-line piece of algebra, to see. The four added on the same day were found only
+because the adversary round had already made me look — and every one of them was
+committed *after* I wrote the checklist naming its own failure mode.
 
 ## What this costs and what it buys
 
