@@ -1,0 +1,23 @@
+{
+ "annotators": 1007,
+ "judgements": 11327,
+ "hit_rate": 0.5033106736117242,
+ "hit_ci": [
+  0.4977692671364192,
+  0.5089843583028127
+ ],
+ "permuted_null": 0.5015891233336276,
+ "permuted_ci": [
+  0.49575976289528584,
+  0.5073933968699441
+ ],
+ "difference": 0.0017215502780966174,
+ "difference_ci": [
+  -0.006106080719583361,
+  0.009734914366327988
+ ],
+ "top_longer_share": 0.5553103204732056,
+ "hit_top_longer": 0.513751987281399,
+ "hit_top_shorter": 0.4902719872940242,
+ "verdict": "NO EVIDENCE stated text predicts own choices"
+}
