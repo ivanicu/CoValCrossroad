@@ -58,14 +58,28 @@ is not an artifact of homogeneous generations. **What the released numbers measu
 response set the eval was validated against.**
 
 [r13](rounds/r13_seed_vs_writein) then refuted the obvious explanation. If the criteria simply encoded
-facts about those four candidates, criteria written *after* reading them should carry the advantage.
-They do not — the *seed* criteria, prepared alongside candidate generation and never tailored to them,
-carry more:
+facts about those four candidates, criteria written *before anyone saw them* should carry no advantage.
+They carry a clear one — the *seed* criteria, prepared alongside candidate generation and never tailored
+to the responses, are as informative as criteria authored after reading them:
 
 | criterion provenance | real | unrelated | advantage |
 |---|---:|---:|---:|
-| seed (response-blind) | 0.584 | 0.537 | **+0.039** [+0.009, +0.069] |
-| write-in (after reading) | 0.575 | 0.530 | +0.029 [−0.002, +0.060] |
+| seed (response-blind) | 0.583 | 0.537 | **+0.046** [+0.023, +0.069] |
+| write-in (after reading) | 0.559 | 0.533 | **+0.026** [+0.002, +0.051] |
+| **difference, paired on 293 shared prompts** | | | **+0.023 [−0.008, +0.054]** |
+
+**Both arms are corrected and the third row is the honest one.** An earlier version reported +0.039 vs
++0.029 and read the write-in interval as spanning zero, making seeds look *better*. Two errors: the
+attribution differenced a positional prefix of one array against a differently-ordered subset
+([entry 15](RETRACTIONS.md)), and the *difference* was quoted with no interval at all. Repaired, every
+point estimate rose — and the ordering died, because +0.023 spans zero. The surviving claim is one-armed:
+response-blind criteria carry real prompt-specific signal, so response-set knowledge is not the
+mechanism. Which of the two provenances carries *more* is **not established**.
+
+One further caveat this table cannot show: "seed" is **inferred from rating count**, not read from a
+release field. The bimodality is real — 9,684 criteria carry exactly one score and nothing sits between
+one and each prompt's majority threshold — but it measures *visibility*, and cannot separate "prepared
+response-blind" from "one annotator's write-in, later shown to everyone".
 
 So the bound is not about what the criteria encode. It is a property of the measurement apparatus off
 distribution — a transfer boundary for rubric-graded evaluation, which is the open question this
@@ -91,7 +105,7 @@ Each round is self-contained: its own question, runner, results and README.
 | [r10](rounds/r10_attribution_robustness) | Is the attribution an artifact? | stable across judge size and template; 23.7% of the gap is topic, not value |
 | [r11](rounds/r11_backbone_control) | Was r09 backbone leakage? | **retracts r09's rise** — it vanishes with an independent backbone |
 | [r12](rounds/r12_response_set) | Does the advantage transfer? | it **inverts** off-distribution: +0.102 → −0.042, discrimination control passed |
-| [r13](rounds/r13_seed_vs_writein) | Seed criteria vs write-ins | **refutes r12's own mechanism**: response-blind seeds carry more attribution (+0.039) than write-ins (+0.029) |
+| [r13](rounds/r13_seed_vs_writein) | Seed criteria vs write-ins | **refutes r12's own mechanism**: response-blind seeds carry real attribution (+0.046 [+0.023,+0.069]). The seed-vs-write-in *ordering* is NOT established — paired difference +0.023 [−0.008,+0.054] |
 | [r16](rounds/r16_minority_regret) | Conflict-aware, on its own turf | blocs are real (regret 2.07 vs 1.10 random), yet conflict-aware leaves the worst-off bloc **lowest of all rules** |
 | [r17](rounds/r17_conditional_core) | Does conditional encoding rescue it? | **partly** — routing learned from a rater's *other* prompts helps only the rules carrying contested items (+0.195), and does not close the gap |
 | [r18](rounds/r18_routing_difficulty) | Was r17's 84.6% routing accuracy free? | **inflated by +0.147, but real**: 0.666 [0.643, 0.688] where the blocs actually disagree |
