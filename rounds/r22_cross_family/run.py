@@ -213,6 +213,21 @@ def main() -> None:
                                  "usable": usable, "usable_families": fams,
                                  "judge_families": {k: v[1] for k, v in JUDGES.items()},
                                  "verdict": verdict}, indent=1))
+    # PERSIST THE PER-PROMPT ARRAYS.  Added 2026-07-28.  This round already had
+    # them in memory (`per_judge_prompt`) and threw them away, keeping only
+    # cell-level means and the CIs computed from them.  That is exactly the
+    # defect a statistics review found in r10/r19: the 27%-67% bracket rests on
+    # two cells whose per-prompt scores were never saved, so no prompt-level
+    # interval can be computed for it after the fact without paying the GPU cost
+    # again.  With these arrays the prompt-specific SHARE -- attribution divided
+    # by above-chance accuracy, which is the quantity the headline actually
+    # reports -- can be bootstrapped properly, jointly over numerator and
+    # denominator, instead of quoting a ratio of two point estimates.
+    npz = a.out.with_name(a.out.stem + "_per_prompt.npz")
+    np.savez_compressed(npz, **{f"{j}|{arm}": v
+                                for j, per in per_judge_prompt.items()
+                                for arm, v in per.items()})
+    print(f"wrote {npz}  ({len(per_judge_prompt)} judges x {len(arms)} arms)")
     print(f"wrote {a.out}")
 
 
