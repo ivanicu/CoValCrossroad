@@ -302,8 +302,24 @@ def main() -> None:
         "validity": {
             "construct": "satisfaction is a model judgement, not a human label; "
                          "validated only against held-out human RANKINGS",
-            "population": "1,012 English-reading online annotators in 19 countries; "
-                          "not a probability sample of any population",
+            # CORRECTED 2026-07-28 after an independent from-scratch recount of
+            # the raw JSONL, reproduced here.  This sentence named ONE population
+            # where the release has two.  The COMPARISON layer (rankings) is the
+            # 1,012 described in annotators.jsonl.  The RUBRIC-SCORING layer that
+            # r01/r04/r13/r16-r18 actually run on draws from 1,160 distinct
+            # raters, 148 of whom appear in no annotator record -- so 12.8% of
+            # the people whose scores drive those rounds have no demographic,
+            # country or consent metadata in the release at all.  That is not a
+            # footnote for r16: a bloc analysis cannot be checked against
+            # demographic strata for raters who have no demographics.
+            "population": "TWO populations, not one. Comparison rankings: 1,012 "
+                          "English-reading online annotators in 19 countries "
+                          "(annotators.jsonl), all of whom also scored criteria. "
+                          "Criterion scoring: 1,160 distinct raters, of whom 148 "
+                          "(12.8%) appear in no annotator record and therefore "
+                          "carry no demographic metadata. Neither is a probability "
+                          "sample of any population, and any rater-level claim "
+                          "must say which of the two it is about",
             "ecological": "synthetic value-sensitive prompts, not real traffic",
             "adversarial": "gaming probed by best-of-n selection only; no trained "
                            "adversary, no human red team",

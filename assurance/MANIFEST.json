@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-28T18:34:39.161111+00:00",
- "git": "49e68863e4554d12d1f50130aa0f00fce6a2c48d",
+ "generated_utc": "2026-07-28T18:35:51.805286+00:00",
+ "git": "2cbf653367ba20a49efa396c20d771ba3007b2a4",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -132,8 +132,8 @@
    "sha256": "0fcdd76a38525bd2dd9a976b66d6c508ee14474a28ff9b767623ed8697147ae8"
   },
   "assurance/manifest.py": {
-   "bytes": 20263,
-   "sha256": "061eebbf166ca5ef5ddcf1912ee52e07c0c5e611e40bba105e73ce1b71623d5c"
+   "bytes": 21528,
+   "sha256": "6c2db13f79ad8363dc79cbd05873c344f016ff4a48711356939433a45e118feb"
   },
   "data/fetch.py": {
    "bytes": 2337,
@@ -561,7 +561,7 @@
  },
  "validity": {
   "construct": "satisfaction is a model judgement, not a human label; validated only against held-out human RANKINGS",
-  "population": "1,012 English-reading online annotators in 19 countries; not a probability sample of any population",
+  "population": "TWO populations, not one. Comparison rankings: 1,012 English-reading online annotators in 19 countries (annotators.jsonl), all of whom also scored criteria. Criterion scoring: 1,160 distinct raters, of whom 148 (12.8%) appear in no annotator record and therefore carry no demographic metadata. Neither is a probability sample of any population, and any rater-level claim must say which of the two it is about",
   "ecological": "synthetic value-sensitive prompts, not real traffic",
   "adversarial": "gaming probed by best-of-n selection only; no trained adversary, no human red team"
  },

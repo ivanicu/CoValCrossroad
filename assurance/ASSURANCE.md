@@ -1,6 +1,6 @@
 # Assurance package
 
-generated 2026-07-28T18:34:39.161111+00:00 · git `49e68863e455` · seed 20260727
+generated 2026-07-28T18:35:51.805286+00:00 · git `2cbf653367ba` · seed 20260727
 
 ## Claims
 
@@ -48,7 +48,7 @@ Measured attribution **A = 0.4253**, of which 23.7% is topic rather than value (
 ## Validity boundaries
 
 - **construct**: satisfaction is a model judgement, not a human label; validated only against held-out human RANKINGS
-- **population**: 1,012 English-reading online annotators in 19 countries; not a probability sample of any population
+- **population**: TWO populations, not one. Comparison rankings: 1,012 English-reading online annotators in 19 countries (annotators.jsonl), all of whom also scored criteria. Criterion scoring: 1,160 distinct raters, of whom 148 (12.8%) appear in no annotator record and therefore carry no demographic metadata. Neither is a probability sample of any population, and any rater-level claim must say which of the two it is about
 - **ecological**: synthetic value-sensitive prompts, not real traffic
 - **adversarial**: gaming probed by best-of-n selection only; no trained adversary, no human red team
 
