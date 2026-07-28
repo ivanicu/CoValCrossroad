@@ -1,12 +1,12 @@
 # Assurance package
 
-generated 2026-07-28T03:42:43.949681+00:00 · git `uncommitted` · seed 20260727
+generated 2026-07-28T08:48:12.347567+00:00 · git `158546e63df8` · seed 20260727
 
 ## Claims
 
 | id | status | measured | test | claim |
 |---|---|---:|---|---|
-| C1 | **HOLDS** | 0.0791 | `< 0.5` | On the CoVal public release, less than half of a rubric's ability to predict held-out human rankings is attrib… |
+| C1 | **HOLDS** | 0.0791 | `< 0.5` | SCOPED BY C12. On the four RELEASED candidate responses, less than half of a rubric's ability to predict held-… |
 | C2 | **HOLDS** | 0.6860 | `> 0.55` | The rebuilt criterion-satisfaction layer predicts held-out human pairwise rankings above chance and above a le… |
 | C3 | **HOLDS** | 0.6387 | `~ 0.64` | Among defensible aggregation principles at k=4, out-of-sample predictive accuracy spans less than 3 percentage… |
 | C4 | **HOLDS** | 0.1471 | `> 0.05` | Cross-prompt persistence of pairwise rater agreement exceeds its permutation null and survives removal of per-… |
@@ -16,6 +16,8 @@ generated 2026-07-28T03:42:43.949681+00:00 · git `uncommitted` · seed 20260727
 | C11 | **FAILS** | False | `== True` | The A09 result is reproduced by a gold preference head built on a DIFFERENT backbone from the judge, ruling ou… |
 | C9 | **HOLDS** | 0.0638 | `> 0.03` | The attribution decomposition is not an artifact of one judge or one prompt template: across three judge/templ… |
 | C10 | **HOLDS** | 0.2374 | `> 0.1` | Part of what the random-donor control attributes to 'prompt-specific value content' is merely topic match: a n… |
+| C12 | **FAILS** | -0.0420 | `> 0.0` | The prompt-specific advantage in C1 survives on responses the criteria were NOT authored against. Measured as … |
+| C13 | **HOLDS** | True | `== True` | The fresh response set used by C12 admits an ordering at all, so a null there is a measurement rather than sil… |
 | C8 | **HOLDS** | True | `== True` | The instrument used for C6/C7 discriminates among the candidates it scores, so a null there is a measurement a… |
 
 ## Budget to reproduce

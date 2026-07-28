@@ -48,71 +48,86 @@ def git_rev() -> str:
 # (id, statement, source file, json path, direction, threshold)
 CLAIMS = [
     ("C1",
-     "On the CoVal public release, less than half of a rubric's ability to "
-     "predict held-out human rankings is attributable to prompt-specific "
-     "criterion content; the remainder is generic response quality obtainable "
-     "with an unrelated rubric.",
-     "work/a04_full.json", "rubric_contribution", "<", 0.5),
+     "SCOPED BY C12. On the four RELEASED candidate responses, less than half of "
+     "a rubric's ability to predict held-out human rankings is attributable to "
+     "prompt-specific criterion content; the remainder is generic response "
+     "quality obtainable with an unrelated rubric. C12 shows this prompt-specific "
+     "component does not extend to responses the criteria were not authored "
+     "against, so C1 must not be read as a property of the rubric in general.",
+     "rounds/r04_rebuild_satisfaction/results/a04_full.json", "rubric_contribution", "<", 0.5),
 
     ("C2",
      "The rebuilt criterion-satisfaction layer predicts held-out human pairwise "
      "rankings above chance and above a length-only baseline.",
-     "work/a04_full.json", "pairwise_accuracy", ">", 0.55),
+     "rounds/r04_rebuild_satisfaction/results/a04_full.json", "pairwise_accuracy", ">", 0.55),
 
     ("C3",
      "Among defensible aggregation principles at k=4, out-of-sample predictive "
      "accuracy spans less than 3 percentage points, and a lower-quartile "
      "consensus rule is indistinguishable from random selection of four shared "
      "criteria.",
-     "work/a06_rule_tournament.json", "rules.consensus.accuracy", "~", 0.64),
+     "rounds/r06_rule_tournament/results/a06_rule_tournament.json", "rules.consensus.accuracy", "~", 0.64),
 
     ("C4",
      "Cross-prompt persistence of pairwise rater agreement exceeds its "
      "permutation null and survives removal of per-rater response style, so "
      "disagreement carries a stable person-level component.",
-     "work/a01_rater_structure.json", "observed_style_removed.rho", ">", 0.05),
+     "rounds/r01_rater_structure/results/a01_rater_structure.json", "observed_style_removed.rho", ">", 0.05),
 
     ("C5",
      "Anthropomorphic style independently predicts human preference after "
      "controlling for the rubric score and response length, while fewer than "
      "1 percent of crowd-written criteria address it.",
-     "work/a07_anthropomorphism.json", "rubric_absorption_test.anthro_t", ">", 2.0),
+     "rounds/r07_anthropomorphism/results/a07_anthropomorphism.json", "rubric_absorption_test.anthro_t", ">", 2.0),
 
     ("C6",
      "PRE-REGISTERED AND REFUTED: optimizing selection against the rubric was "
      "predicted to raise lexical overlap with the criterion text (the gaming "
      "direction implied by C1). Test compares overlap at max strength against "
      "overlap at n=1; the prediction requires a rise of at least 0.02.",
-     "work/a09_overoptimization.json", "overlap_rise", ">", 0.02),
+     "rounds/r09_overoptimization/results/a09_overoptimization.json", "overlap_rise", ">", 0.02),
 
     ("C7",
      "RETRACTED BY C11. Within best-of-16 pressure the gold preference change is "
      "distinguishable from zero. This held only with a gold head sharing the "
      "judge's backbone; the independent-backbone control (C11) does not "
      "reproduce it, so the effect is NOT established in either direction.",
-     "work/a11_backbone_control.json", "gold_08b_independent.delta", ">", 0.30),
+     "rounds/r11_backbone_control/results/a11_backbone_control.json", "gold_08b_independent.delta", ">", 0.30),
 
     ("C11",
      "The A09 result is reproduced by a gold preference head built on a "
      "DIFFERENT backbone from the judge, ruling out shared-backbone leakage.",
-     "work/a11_backbone_control.json", "independent_reproduces", "==", True),
+     "rounds/r11_backbone_control/results/a11_backbone_control.json", "independent_reproduces", "==", True),
 
     ("C9",
      "The attribution decomposition is not an artifact of one judge or one "
      "prompt template: across three judge/template configurations the "
      "prompt-specific contribution stays positive with small spread.",
-     "work/a10_attribution.json", "attribution_mean", ">", 0.03),
+     "rounds/r10_attribution_robustness/results/a10_attribution.json", "attribution_mean", ">", 0.03),
 
     ("C10",
      "Part of what the random-donor control attributes to 'prompt-specific "
      "value content' is merely topic match: a nearest-topic donor recovers a "
      "material share of the gap.",
-     "work/a10_attribution.json", "topic_share_mean", ">", 0.10),
+     "rounds/r10_attribution_robustness/results/a10_attribution.json", "topic_share_mean", ">", 0.10),
+
+    ("C12",
+     "The prompt-specific advantage in C1 survives on responses the criteria were "
+     "NOT authored against. Measured as attribution on rubric-blind fresh "
+     "responses; requires a positive value.",
+     "rounds/r12_response_set/results/a12_response_set.json",
+     "sets.FRESH.attribution", ">", 0.0),
+
+    ("C13",
+     "The fresh response set used by C12 admits an ordering at all, so a null "
+     "there is a measurement rather than silence.",
+     "rounds/r12_response_set/results/a12_response_set.json",
+     "control_passed", "==", True),
 
     ("C8",
      "The instrument used for C6/C7 discriminates among the candidates it "
      "scores, so a null there is a measurement and not silence.",
-     "work/a09_overoptimization.json", "positive_control_passed", "==", True),
+     "rounds/r09_overoptimization/results/a09_overoptimization.json", "positive_control_passed", "==", True),
 ]
 
 
@@ -175,30 +190,46 @@ def main() -> None:
         inputs[f"data/{p.name}"] = {"bytes": p.stat().st_size, "sha256": sha256(p)}
 
     code = {}
-    for sub in ("analyses", "estimand", "adapters", "assurance"):
-        for p in sorted((root / sub).glob("*.py")):
-            code[f"{sub}/{p.name}"] = {"bytes": p.stat().st_size, "sha256": sha256(p)}
+    for p in sorted(root.glob("covalx/*.py")) + sorted(root.glob("rounds/*/run.py")) \
+             + sorted(root.glob("assurance/*.py")) + sorted(root.glob("data/*.py")):
+        code[str(p.relative_to(root))] = {"bytes": p.stat().st_size, "sha256": sha256(p)}
 
     outputs = {}
-    for p in sorted((root / "work").glob("*.json")):
-        outputs[f"work/{p.name}"] = {"bytes": p.stat().st_size, "sha256": sha256(p)}
+    for p in sorted(root.glob("rounds/*/results/*.json")):
+        outputs[str(p.relative_to(root))] = {"bytes": p.stat().st_size, "sha256": sha256(p)}
 
     claims = []
+    broken = []
     for cid, stmt, src, path, direction, thr in CLAIMS:
         f = root / src
-        val = None
-        if f.exists():
+        if not f.exists():
+            # Distinct from UNSUPPORTED. A missing source file means the harness
+            # is broken -- e.g. the repository was reorganised and these paths
+            # were not updated. Reporting that as "unsupported" reads like the
+            # claim was never measured, which is a different and much softer
+            # statement than "this package can no longer check itself".
+            status, val = "BROKEN_HARNESS", None
+            broken.append((cid, src))
+        else:
             val = dig(json.loads(f.read_text()), path)
+            status = check(val, direction, thr)
         claims.append({
             "id": cid, "statement": stmt, "source": src, "field": path,
-            "value": val, "test": f"{direction} {thr}", "status": check(val, direction, thr),
+            "value": val, "test": f"{direction} {thr}", "status": status,
         })
+    if broken:
+        print("BROKEN HARNESS -- these claims cannot be checked at all:")
+        for cid, src in broken:
+            print(f"    {cid}: missing {src}")
+        raise SystemExit(
+            f"{len(broken)} claim source(s) missing. Refusing to emit a manifest that "
+            "would read as if the claims were merely unmeasured.")
 
     # measured budget
     budget = {}
     for name, src, field in [
-        ("satisfaction_full", "work/a04_full.json", "seconds"),
-        ("satisfaction_core", "work/a04_core.json", "seconds"),
+        ("satisfaction_full", "rounds/r04_rebuild_satisfaction/results/a04_full.json", "seconds"),
+        ("satisfaction_core", "rounds/r04_rebuild_satisfaction/results/a04_core.json", "seconds"),
     ]:
         f = root / src
         if f.exists():
@@ -303,7 +334,9 @@ def main() -> None:
     manifest["deployment_gate"] = gate
 
     lines += ["", "## Deployment gate", "",
-              f"Measured attribution **A = {attribution:.4f}**"
+              (f"Measured attribution **A = {attribution:.4f}**"
+               if attribution is not None else
+               "Measured attribution **A = UNAVAILABLE** (source missing)")
               + (f", of which {topic_share:.1%} is topic rather than value "
                  f"(value-only A ~ {value_only:.4f})" if topic_share is not None else ""),
               ""]

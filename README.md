@@ -19,9 +19,24 @@ Grading responses against **an unrelated prompt's rubric** already recovers most
 | response length alone | 0.532 |
 | chance | 0.500 |
 
-Of the 18.6 points above chance, **7.9 are prompt-specific criterion content and 10.7 are generic response quality any rubric earns for free.** A further 23.7% of that prompt-specific part is recovered by a *same-topic* rubric, so the value-carrying share is smaller still.
+Of the 18.6 points above chance, **7.9 are prompt-specific criterion content and 10.7 are generic response quality any rubric earns for free.** A further 23.7% of that prompt-specific part is recovered by a *same-topic* rubric.
 
 Stable across three judge/template configurations (0.064 ± 0.017).
+
+### …and the prompt-specific part does not transfer
+
+The criteria were written by participants **after reading the four candidates**. Measured on
+rubric-blind responses those authors never saw, the advantage does not merely shrink — it inverts:
+
+| response set | real rubric | unrelated rubric | advantage |
+|---|---:|---:|---:|
+| the four released candidates | 0.657 | 0.555 | **+0.102** [+0.071, +0.133] |
+| fresh, rubric-blind, unseen | 0.478 | 0.520 | **−0.042** [−0.068, −0.015] |
+
+A discrimination control confirms the fresh set is *more* separable than the released one, so this
+is not an artifact of homogeneous generations. **What the released numbers measure is bounded to the
+response set the rubric was authored against** — the mechanism behind that bound is still open
+(see [r13](rounds/r13_seed_vs_writein)).
 
 ---
 
@@ -42,7 +57,8 @@ Each round is self-contained: its own question, runner, results and README.
 | [r09](rounds/r09_overoptimization) | Optimize the rubric, watch preference | pre-registered gaming prediction **refuted**: markers fell |
 | [r10](rounds/r10_attribution_robustness) | Is the attribution an artifact? | stable across judge size and template; 23.7% of the gap is topic, not value |
 | [r11](rounds/r11_backbone_control) | Was r09 backbone leakage? | **retracts r09's rise** — it vanishes with an independent backbone |
-| [r12](rounds/r12_response_set) | Values, or these four responses? | criteria were written *after* seeing the candidates; tested on unseen responses |
+| [r12](rounds/r12_response_set) | Values, or these four responses? | the advantage **inverts** off-distribution: +0.102 → −0.042, discrimination control passed |
+| [r13](rounds/r13_seed_vs_writein) | Seed criteria vs write-ins | seeds were prepared alongside the candidates, write-ins after reading them — a natural experiment on r12 |
 
 ---
 
@@ -57,8 +73,15 @@ Every round carries its own null, and several of the killed claims are the autho
 - a no-compression control and a random-selection floor (r06)
 - a pre-registered prediction that failed, reported as failed (r09)
 - an independent-backbone control that retracted the author's own result (r11)
+- an out-of-distribution transfer test that scoped the repository's own headline (r12)
 
-`assurance/` freezes eleven claims against stated thresholds. **Three fail.** An assurance package with no failures is not an assurance package.
+`assurance/` freezes thirteen claims against stated thresholds. **Four fail** — including the one that
+scopes this repository's own headline. An assurance package with no failures is not an assurance package.
+
+It also distinguishes `BROKEN_HARNESS` from `UNSUPPORTED`: when the repository was reorganised, every
+claim source moved and the manifest silently resolved them all to "unmeasured". A package that cannot
+tell "we never measured this" from "I can no longer find my own evidence" is not an assurance package
+either.
 
 ---
 

@@ -164,6 +164,44 @@ def main() -> None:
     del em
     torch.cuda.empty_cache()
 
+    # ---- MANDATORY DISCRIMINATION CONTROL ----------------------------
+    # Both FRESH arms sitting near 0.5 is the signature of an UNDECIDABLE
+    # comparison, not of a failing rubric. If the fresh responses are too
+    # homogeneous for gold to separate them, this test measures nothing.
+    def spread(gd):
+        return float(np.mean(gd.std(axis=1)))
+
+    def decidable(gd, n_resp, tol=1e-9):
+        tot = dec = 0
+        for k in range(n):
+            for x, y in combinations(range(n_resp), 2):
+                tot += 1
+                dec += int(abs(gd[k, x] - gd[k, y]) > tol)
+        return dec / max(tot, 1)
+
+    def self_sim(texts_of, n_resp):
+        """mean pairwise token-Jaccard within a prompt's response set"""
+        import re as _re
+        out = []
+        for k in range(n):
+            toks = [set(_re.findall(r"[a-z']{4,}", texts_of(k, r).lower()))
+                    for r in range(n_resp)]
+            for x, y in combinations(range(n_resp), 2):
+                u = toks[x] | toks[y]
+                out.append(len(toks[x] & toks[y]) / max(len(u), 1))
+        return float(np.mean(out))
+
+    ss_o = self_sim(lambda k, r: items[k]["orig"][r], 4)
+    ss_f = self_sim(lambda k, r: fresh[k * a.fresh + r], a.fresh)
+    print("\n=== DISCRIMINATION CONTROL (does the FRESH set admit an ordering at all?) ===")
+    print(f"  gold within-prompt sd   ORIGINAL={spread(g_orig):.4f}   FRESH={spread(g_fresh):.4f}")
+    print(f"  lexical self-similarity ORIGINAL={ss_o:.4f}   FRESH={ss_f:.4f}"
+          f"   (higher = the four responses are more alike)")
+    ratio = spread(g_fresh) / max(spread(g_orig), 1e-9)
+    control_ok = ratio > 0.5 and ss_f < ss_o * 1.5
+    print(f"  fresh/original gold spread ratio = {ratio:.3f}")
+    print(f"  -> FRESH set is {'USABLE' if control_ok else 'DEGENERATE -- the comparison below is void'}")
+
     def agreement(sc, gd, n_resp):
         per = []
         for k in range(n):
@@ -196,7 +234,10 @@ def main() -> None:
         if res["ORIGINAL"]["attribution"] > 1e-9 else float("nan")
     print(f"\n  drop from ORIGINAL to FRESH: {dd:+.4f}  "
           f"({share:.1%} of the advantage does not transfer to unseen responses)")
-    verdict = ("RESPONSE-SET-SPECIFIC: most of the advantage does not transfer; the "
+    verdict = ("VOID: the fresh response set is too homogeneous for any ordering to "
+               "be measured, so nothing about transfer is established"
+               if not control_ok else
+               "RESPONSE-SET-SPECIFIC: most of the advantage does not transfer; the "
                "value-carrying share of A04's headline shrinks"
                if share > 0.5 else
                "TRANSFERS: the advantage survives on responses the authors never saw, "
@@ -208,6 +249,11 @@ def main() -> None:
 
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(json.dumps({"prompts": n, "fresh_per_prompt": a.fresh,
+                                 "control_gold_spread_original": spread(g_orig),
+                                 "control_gold_spread_fresh": spread(g_fresh),
+                                 "control_selfsim_original": ss_o,
+                                 "control_selfsim_fresh": ss_f,
+                                 "control_passed": bool(control_ok),
                                  "sets": res, "drop": float(dd),
                                  "non_transferring_share": float(share),
                                  "verdict": verdict}, indent=1))
