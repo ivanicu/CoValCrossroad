@@ -37,28 +37,30 @@
    "positive_control_passed": true
   },
   "phi-3.5-mini-instruct": {
-   "own": 0.0,
-   "near": 0.0,
-   "random": 0.0,
-   "attribution_vs_random": 0.0,
+   "own": 0.6409626320962251,
+   "near": 0.621723694655909,
+   "random": 0.6052928692527342,
+   "attribution_vs_random": 0.035669762843491055,
    "ci": [
-    0.0,
-    0.0
+    0.018566506888414203,
+    0.054058470227479304
    ],
-   "attribution_vs_near": 0.0,
+   "attribution_vs_near": 0.01923893744031623,
    "ci_near": [
-    0.0,
-    0.0
+    0.004366598228893559,
+    0.03467511247478265
    ],
    "prompts": 300,
-   "positive_control_passed": false
+   "positive_control_passed": true
   }
  },
  "usable": [
   "qwen3.5-2b-base(ref)",
-  "qwen2.5-3b-instruct"
+  "qwen2.5-3b-instruct",
+  "phi-3.5-mini-instruct"
  ],
  "usable_families": [
+  "phi",
   "qwen"
  ],
  "judge_families": {
@@ -67,5 +69,5 @@
   "phi-3.5-mini-instruct": "phi",
   "internlm2-chat-1.8b": "internlm"
  },
- "verdict": "UNRESOLVED -- SINGLE FAMILY: 2 judge(s) passed their positive control but all are 'qwen'. The attribution reproduces across a generation change WITHIN that lineage, which is a weaker statement than family-independence and must not be reported as it. Every non-qwen judge failed to load or failed its own-rubric floor, so this round has NOT tested the thing its title names."
+ "verdict": "SURVIVES A CHANGE OF FAMILY: usable judges span 2 families (phi, qwen) and every one shows a positive attribution with an interval clear of zero, so the decomposition is not an artifact of a single lineage."
 }

@@ -41,7 +41,37 @@ Neither endpoint is clean — the far donor is adversarially selected and may si
 judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so any
 single figure must name its floor.**
 
-Stable across three judge/template configurations (0.064 ± 0.017) *at a fixed floor*.
+### …and the judge moves it as much as the floor does
+
+[r22](rounds/r22_cross_family) grades the same 300 prompts with judges from **two model families**.
+The decomposition survives — every judge shows a positive attribution with an interval clear of zero,
+so it is **not an artifact of the Qwen lineage**. But the magnitude is not portable:
+
+| judge | family | own | random floor | attribution | prompt-specific share |
+|---|---|---|---:|---:|---:|
+| qwen3.5-2b-base | qwen | 0.6522 | 0.5759 | +0.0763 [+0.0585, +0.0944] | 50.1% |
+| qwen2.5-3b-instruct | qwen | 0.6660 | 0.5767 | +0.0894 [+0.0672, +0.1114] | 53.8% |
+| phi-3.5-mini-instruct | **phi** | 0.6410 | **0.6053** | +0.0357 [+0.0186, +0.0541] | **25.3%** |
+
+phi clears its own positive control at 0.641, level with the Qwen judges — but its *unrelated-rubric
+floor* is 0.605 against their 0.576. It extracts more generic response quality for free, leaving less
+room for prompt-specific content.
+
+**So the share has two independent sources of variation, and they multiply:**
+
+```
+floor choice, fixed judge     2.47×      (r19)
+judge family, fixed floor     2.13×      (r22)
+observed range, both varying  13.6% (phi, near floor) … ~74% (qwen, far floor)   ≈ 5.4×
+```
+
+**This is the headline's real scope.** "Less than half of a values evaluation measures values" is not
+a property of the dataset. It is a property of *(dataset, floor donor, judge family)*, and the last
+two — both of them analyst choices, neither reported in the source package — move the answer more
+than fivefold. A single figure here does not constrain anything unless it names both.
+
+⚠ `internlm2-chat-1.8b` could not be loaded at all (tokenizer parse error) and is reported as a
+**load failure, not a judge verdict**. A third family remains untested.
 
 ### …and the prompt-specific part does not transfer
 
@@ -115,7 +145,7 @@ Each round is self-contained: its own question, runner, results and README.
 | [r20](rounds/r20_paraphrase_transfer) | Is the advantage content or wording? | **content** — reword every criterion and **97.4%** of the advantage survives; original−paraphrased +0.002 [−0.007, +0.011] |
 | [r21](rounds/r21_donor_distance) | Is the "near-topic" donor actually near? | **yes, near the ceiling** — it sits at the 97.86th percentile of all pairs and covers **91.6%** of the distance from a random prompt to the same question reworded |
 
-| [r22](rounds/r22_cross_family) | Does the attribution survive a change of judge family? | **not yet answered** — the first run said it did, on two judges that were both Qwen, because "family" was `name.split("-")[0]`. Gate rewritten to count *declared* families; rerunning with the two non-Qwen judges now that their tokenizers load |
+| [r22](rounds/r22_cross_family) | Does the attribution survive a change of judge family? | **yes, and the magnitude does not** — positive on qwen and phi with intervals clear of zero, but the prompt-specific share runs 25.3% (phi) to 53.8% (qwen2.5-3b) at a fixed floor, a **2.13× judge span** on top of r19's 2.47× floor span. The first run falsely claimed this on two Qwen judges because "family" was `name.split("-")[0]`; phi was scoreable only after a tokenizer fix |
 | [r23](rounds/r23_actor_vs_dyad) | Is r01's persistence about people or about pairs? | **mostly people**: an additive actor model takes 47.2% of dyad variance and actor-only persistence (0.254) *exceeds* the headline. Pair-specific residual 0.034, z=+4.67 — real, and a fifth of what r01 reported. Its sharper test (reliably-disagreeing pairs) is **null at z=+1.40** |
 | [r24](rounds/r24_regime_receipt) | Receipt for "step R²=0.964 vs trend 0.448" | the number existed in no script. Reproduced, **and given the control it never had**: a null that re-searches the breakpoint on every shuffle reaches only 0.172. Observed 0.964, p=0.0001, breakpoint found at position 6 by search |
 | [r25](rounds/r25_actor_dyad_sweep) | Is r23's residual stable, or a property of Pearson? | 144-cell sweep: 4 agreement metrics × 3 overlap thresholds × 3 shared-item thresholds × style × centring — *running* |

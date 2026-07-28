@@ -1,0 +1,28 @@
+{
+ "cfg": {
+  "metric": "spearman",
+  "min_overlap": 3,
+  "standardize": true,
+  "centre": true,
+  "thr": "majority",
+  "min_prompts": 4
+ },
+ "null_reps": 200,
+ "tail_cut": -0.27693774588253767,
+ "n_pairs": 4130,
+ "median_prompts_per_pair": 4.0,
+ "s1_observed": 0.03318670506208183,
+ "s1_null_mean": 0.030617610458724652,
+ "s1_null_sd": 0.0006341489089941668,
+ "s1_z": 4.051248157756527,
+ "s1_p": 0.0,
+ "s2_observed": 0.059322033898305086,
+ "s2_null_mean": 0.05,
+ "s2_null_sd": 0.0033164842568484815,
+ "s2_z": 2.810818075268842,
+ "s2_p": 0.005,
+ "pair_structure": true,
+ "structure_is_signed": true,
+ "verdict": "M2: pair identity carries structure AND that structure is signed -- there are pairs that reliably disagree, which attenuation toward zero cannot produce",
+ "note": "no split-half anywhere. r23/r25 estimated the same quantity through a random half-split and returned z = 1.40, 2.26, 2.68 and 10.26 for the same data depending only on how many splits were averaged and whether the null used the same number. This uses each pair's full residual series, so there is no split variance to tune."
+}
