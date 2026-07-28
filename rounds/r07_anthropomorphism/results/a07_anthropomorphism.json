@@ -1,7 +1,13 @@
 {
  "criteria_total": 15248,
- "criteria_tier1_anthropomorphism": 24,
- "criteria_tier1_share": 0.0015739769150052466,
+ "criteria_tier1_regex_recall": 24,
+ "criteria_tier1_anthropomorphism": 7,
+ "criteria_tier1_polarity": {
+  "anti": 4,
+  "pro": 3
+ },
+ "criteria_tier1_share_regex_upper_bound": 0.0015739769150052466,
+ "criteria_tier1_share": 0.0004590766002098636,
  "criteria_tier2_affective": 120,
  "criteria_tier2_share": 0.007869884575026232,
  "term_hits": {

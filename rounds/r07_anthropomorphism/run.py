@@ -35,6 +35,7 @@ Design
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from collections import defaultdict
@@ -152,6 +153,7 @@ def main() -> None:
     # ---- 1. does the rubric corpus even mention this axis? -------------
     total_crit = 0
     t1_crit = t2_crit = 0
+    t1_texts = []
     hits = defaultdict(int)
     examples = []
     for line in open(a.rubrics, encoding="utf-8"):
@@ -165,14 +167,55 @@ def main() -> None:
             f2 = [w for w in RUBRIC_ANTHRO_T2 if re.search(w, t)]
             if f1:
                 t1_crit += 1
+                t1_texts.append(it["criterion"])
                 for w in f1:
                     hits[w] += 1
                 if len(examples) < 8:
                     examples.append(it["criterion"][:100])
             if f2:
                 t2_crit += 1
+
+    # ---- 1b. ADJUDICATION ------------------------------------------------
+    # The lexicon has now failed twice: substrings (retraction 2, 2.96% -> 0.16%)
+    # and, at word boundaries, matching a phrase whose SENSE is off-construct.
+    # Of 24 regex hits only 7 concern the model's own personhood; 9 are stance
+    # ("avoid giving personal opinion"), 4 are user-requested roleplay, 2 refer
+    # to a human in the scenario, 2 are regex artifacts.  A third regex would
+    # fail a third time, because the distinction is semantic and 24 items is
+    # small enough to adjudicate by hand.  So the regex is demoted to a RECALL
+    # device and the rate comes from a stored, auditable per-hit table.
+    #
+    # Polarity is recorded but does NOT reduce the count: a criterion telling
+    # the model to AVOID sounding human still ADDRESSES the axis, and the claim
+    # is about whether the crowd addresses it at all.  (The review that found
+    # this treated reversed-polarity hits as false positives; that conflates two
+    # different things.)
+    adj_path = _HERE / "tier1_adjudication.json"
+    adj = json.loads(adj_path.read_text())["hits"]
+    t1_on, pol = 0, defaultdict(int)
+    missing = []
+    for c in t1_texts:
+        k = hashlib.sha1(c.encode()).hexdigest()[:12]
+        if k not in adj:
+            missing.append((k, c[:90]))
+            continue
+        if adj[k]["verdict"] == "ON":
+            t1_on += 1
+            pol[adj[k].get("polarity", "?")] += 1
+    if missing:
+        raise SystemExit(
+            f"REFUSING TO REPORT: {len(missing)} Tier-1 regex hit(s) are not in "
+            f"{adj_path.name}.\n  An unadjudicated hit would be silently counted as "
+            f"on-construct, which is how this lexicon failed twice already.\n"
+            + "\n".join(f"    {k}  {t}" for k, t in missing[:10]))
+
     print("=== 1. does the crowd-written rubric talk about anthropomorphism? ===")
-    print(f"  TIER 1 (model presenting AS a person): {t1_crit:,} / {total_crit:,} = {t1_crit/total_crit:.2%}")
+    print(f"  TIER 1 regex recall:                   {t1_crit:,} / {total_crit:,} = "
+          f"{t1_crit/total_crit:.2%}   <- UPPER BOUND, not the rate")
+    print(f"  TIER 1 adjudicated on-construct:       {t1_on:,} / {total_crit:,} = "
+          f"{t1_on/total_crit:.3%}   <- the rate")
+    print(f"    of which {pol.get('anti',0)} instruct the model to AVOID sounding human "
+          f"and {pol.get('pro',0)} to sound MORE human -- the crowd is split on direction")
     print(f"  TIER 2 (relational/affective style):   {t2_crit:,} / {total_crit:,} = {t2_crit/total_crit:.2%}")
     for w, n in sorted(hits.items(), key=lambda kv: -kv[1])[:8]:
         print(f"     {w:34s} {n:,}")
@@ -284,8 +327,11 @@ def main() -> None:
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(json.dumps({
         "criteria_total": total_crit,
-        "criteria_tier1_anthropomorphism": t1_crit,
-        "criteria_tier1_share": t1_crit / total_crit,
+        "criteria_tier1_regex_recall": t1_crit,
+        "criteria_tier1_anthropomorphism": t1_on,
+        "criteria_tier1_polarity": dict(pol),
+        "criteria_tier1_share_regex_upper_bound": t1_crit / total_crit,
+        "criteria_tier1_share": t1_on / total_crit,
         "criteria_tier2_affective": t2_crit,
         "criteria_tier2_share": t2_crit / total_crit,
         "term_hits": dict(hits),

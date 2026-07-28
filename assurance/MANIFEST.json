@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-28T18:23:01.927517+00:00",
- "git": "87ef2ab312967def4f281359596625e5c4548cd7",
+ "generated_utc": "2026-07-28T18:34:39.161111+00:00",
+ "git": "49e68863e4554d12d1f50130aa0f00fce6a2c48d",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -60,8 +60,8 @@
    "sha256": "6675743bba5ed274ae5e3667d158ef4bd47c9d51c50a6b183afeb4246e055369"
   },
   "rounds/r07_anthropomorphism/run.py": {
-   "bytes": 12569,
-   "sha256": "e1bfbec1ce3b38a23f3f9857a01c59c90d243126c84cf7207edf70b0377dba76"
+   "bytes": 15012,
+   "sha256": "aa17a1ba7994fccf5d1f8aac4a46220b01af8935e895759358a50141f4df3955"
   },
   "rounds/r08_gold_preference/run.py": {
    "bytes": 8086,
@@ -84,8 +84,8 @@
    "sha256": "d6de984fc522ae9fe42a3dab6d734e06b0d9e598306b80b21901d78b674339e9"
   },
   "rounds/r13_seed_vs_writein/run.py": {
-   "bytes": 11275,
-   "sha256": "0cd9c9b3d5d72f82c8c160d105601cf9b8a3686f94d5a84f15965ee369e6bdff"
+   "bytes": 12848,
+   "sha256": "ca99d201adf1194f74beb71fefe5d9e83b661082ab9c2fc8e53ac8b6e61af31a"
   },
   "rounds/r14_paraphrase_gauge/run.py": {
    "bytes": 8561,
@@ -120,8 +120,8 @@
    "sha256": "8fda68cda0471f9c485b4ef183805a7c378f9b9824568e1512a9e3e19212d1bb"
   },
   "rounds/r22_cross_family/run.py": {
-   "bytes": 8640,
-   "sha256": "acf3767affd85b4202b1501b0f2375c6dc76561f6dfc4c47fe694cb0b0de9130"
+   "bytes": 10031,
+   "sha256": "a9605883d4b4785e4bac37e9eb868236848f3906fba7e11712e1a773364a981d"
   },
   "rounds/r23_actor_vs_dyad/run.py": {
    "bytes": 10266,
@@ -202,8 +202,8 @@
    "sha256": "090a9afe53cd344076669559c483954a5211debe0b36258031b09695817e9236"
   },
   "rounds/r07_anthropomorphism/results/a07_anthropomorphism.json": {
-   "bytes": 1520,
-   "sha256": "71661b56738b9195991fea7362eb5b0349811c34ed26b6c2f9f44b88b7384bfd"
+   "bytes": 1679,
+   "sha256": "147afbed4e4c01b18f6144ef96ef784e156e949dfeae9ca7a67bb654121745a8"
   },
   "rounds/r08_gold_preference/results/a08_gold.json": {
    "bytes": 416,
@@ -230,8 +230,8 @@
    "sha256": "6c4cb60e74e89ea4a9e571bf2800d570a3cd8e20a63f213d49bc26caa2622568"
   },
   "rounds/r13_seed_vs_writein/results/r13_seed_vs_writein.json": {
-   "bytes": 588,
-   "sha256": "3a0bc9b51f502e68ae1543c80ef852b5def425749683a16542e5bbfbbd8ca560"
+   "bytes": 890,
+   "sha256": "de3ef0c1411b64608569d42b41d39b9a70ed63d77b945c0de380add56b06811c"
   },
   "rounds/r14_paraphrase_gauge/results/r14_paraphrase_gauge.json": {
    "bytes": 492,
@@ -265,6 +265,10 @@
    "bytes": 489,
    "sha256": "2f7801f648aaabac5ebf6a9abfa42a84b6f03314f1e196ff4b2492752b861d82"
   },
+  "rounds/r22_cross_family/results/r22_cross_family.json": {
+   "bytes": 1409,
+   "sha256": "f76c708e79b4b1531e503abf012230f6b9f88660418437f0dc48b927242da2a7"
+  },
   "rounds/r23_actor_vs_dyad/results/r23_actor_vs_dyad.json": {
    "bytes": 2075,
    "sha256": "98aac6d914f421b5f53680a8b9a60c41726eb1d693a1926ef5ea2e74b304084b"
@@ -272,6 +276,150 @@
   "rounds/r24_regime_receipt/results/r24_regime_receipt.json": {
    "bytes": 1009,
    "sha256": "64da32a46db4a4d95c5e2f99a89cf4a1b012c7d1802904c2cd340208e2c67487"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov3_thr2_std0_ctr0.json": {
+   "bytes": 584,
+   "sha256": "ef4e3d6fa51aef4172b8a4865bf4371f8e953bc4174a30482be63fb163a9140a"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov3_thr2_std0_ctr1.json": {
+   "bytes": 583,
+   "sha256": "cec74830780eb6ccdad4d7ef64c19484bf2bb39a36b85ab8eb49db5805cc769a"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov3_thr2_std1_ctr0.json": {
+   "bytes": 585,
+   "sha256": "49f8b592df47abd8008802a6780e1259c36c207c590930e5dbb0e9adec5022ca"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov3_thr2_std1_ctr1.json": {
+   "bytes": 582,
+   "sha256": "16f52cc797b75dcf9a6a0c8ced9da389c268ab026d9f8d42bf17dfae575c2748"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov3_thr3_std0_ctr0.json": {
+   "bytes": 584,
+   "sha256": "3ed0051025635c994835f3989bdaabe8e0eca93184927190c3d7af3d485295cc"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov3_thr3_std0_ctr1.json": {
+   "bytes": 583,
+   "sha256": "b342a3d33266c63b7a9f72a8b0102563c16fdba5ec5d3b8bb382728c3fef2962"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov3_thr3_std1_ctr0.json": {
+   "bytes": 585,
+   "sha256": "31b304f151164ae9e94c2790e31d0ec0a926806a5f8c671242777fe2ecda1a3c"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov3_thr3_std1_ctr1.json": {
+   "bytes": 582,
+   "sha256": "2595953d29bff9a621e1f01ac7bced53414c00d07721c384932365602869cc68"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov3_thrmajority_std0_ctr0.json": {
+   "bytes": 598,
+   "sha256": "67a5db623625bb8bf912aac3ba39e5318868bfa94884ea120ca55e397d5676c4"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov3_thrmajority_std0_ctr1.json": {
+   "bytes": 597,
+   "sha256": "caa6a2d9a418d4547df57c204dd0d40029531cad2751c26e38c5bf16d109846c"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov3_thrmajority_std1_ctr0.json": {
+   "bytes": 599,
+   "sha256": "9cba030f088cb1d15e22b416e11f4e2cad88693d2acef3134b89038a7d677581"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov3_thrmajority_std1_ctr1.json": {
+   "bytes": 596,
+   "sha256": "76a98c424ce7b3dd238e922d112c8669d51fe83ff19e33291524470ed6e78edd"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov4_thr2_std0_ctr0.json": {
+   "bytes": 582,
+   "sha256": "a57cd5c7cdc563af1ce3bddb9a3e339c31e6d156aa593cf40384addf83966a28"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov4_thr2_std0_ctr1.json": {
+   "bytes": 580,
+   "sha256": "58a4c8df7d081e0f9ea3682174652c882da7bc4b0cb3658d65ff6e701b69cb04"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov4_thr2_std1_ctr0.json": {
+   "bytes": 582,
+   "sha256": "9304c68608591468bacb6ea1cbfd80f8143481bb5625d3e1e0d7e0aea098866f"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov4_thr2_std1_ctr1.json": {
+   "bytes": 582,
+   "sha256": "af577664e4c6a7d63b079778736f97ccf111fa8ff2b8eb740c67a0916afd07b9"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov4_thr3_std0_ctr0.json": {
+   "bytes": 582,
+   "sha256": "aefe5b084fc50c7566b52fca3e4956f4ad8b1909923a32124d07e99843866b1f"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov4_thr3_std0_ctr1.json": {
+   "bytes": 580,
+   "sha256": "14d020465c12f53b7de82c20f3dbb713161a4780293479c91cce74e1448300b0"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov4_thr3_std1_ctr0.json": {
+   "bytes": 582,
+   "sha256": "f7905c356c863b6de6698f4c1d428e78c903ea40aa552b2f9e2d77f11fc49a56"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov4_thr3_std1_ctr1.json": {
+   "bytes": 582,
+   "sha256": "a39253a37612829bc1204784cf02b28f170c30571dc5c4ebb3cd1d19e32234ce"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov4_thrmajority_std0_ctr0.json": {
+   "bytes": 596,
+   "sha256": "7c2865771c64b9dfbef6c7a0133a1c21f5b3643228827e8c1756cf885f2f3ca3"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov4_thrmajority_std0_ctr1.json": {
+   "bytes": 594,
+   "sha256": "bfa39351a14e5f8fe5677b5f7584dd1574b2175af0ece418f7a0b501265ac23a"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov4_thrmajority_std1_ctr0.json": {
+   "bytes": 596,
+   "sha256": "d3f53e4255af856ec557b84c3f499e7a24f564db9bf66ba8b8b7c1870ac0782a"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov4_thrmajority_std1_ctr1.json": {
+   "bytes": 596,
+   "sha256": "62216ae52f5dfec0a5d8709043fd6f2c1fb53545dc1b5d0ad938e6c1b19802e4"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov5_thr2_std0_ctr0.json": {
+   "bytes": 584,
+   "sha256": "a383a6338cae197ad05e7357ee84c9571b59b7c2998e3886f240cb51ca6784fe"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov5_thr2_std0_ctr1.json": {
+   "bytes": 581,
+   "sha256": "308729d63ff5d58b168156734da7deb10bd5516e68dc42c613032a003b01fc7e"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov5_thr2_std1_ctr0.json": {
+   "bytes": 584,
+   "sha256": "6989593be9b0426e3c840c4bf6ecfd90c6e885743de71e615328404d8b0d5027"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov5_thr2_std1_ctr1.json": {
+   "bytes": 581,
+   "sha256": "a570d28abd58bd15a9cfcf7085b0cb54e2a159c54f8bb15c21852cf92343432f"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov5_thr3_std0_ctr0.json": {
+   "bytes": 584,
+   "sha256": "edb6f362dfa0dfb934bd86d8c6d3e4ac1045df8ba2a8ced9ed90f833f0cbd9f3"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov5_thr3_std0_ctr1.json": {
+   "bytes": 581,
+   "sha256": "e64e5d74412d77ff9b0ce70e308a9172ed071a2567d9be0529914dd94ad65817"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov5_thr3_std1_ctr0.json": {
+   "bytes": 584,
+   "sha256": "3edd742ffd28532f833d957e892574c29cbe56174090f475b3fa8bf221795b5d"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov5_thr3_std1_ctr1.json": {
+   "bytes": 581,
+   "sha256": "c43749f158fe6654983d47f6d2606ef8fc836cc5dc5719af77d922986c325b57"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov5_thrmajority_std0_ctr0.json": {
+   "bytes": 598,
+   "sha256": "d02d2d20cdeb5fb1792c602e139704a7f51651a69e3c4ec2afda979b97ffeb11"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov5_thrmajority_std0_ctr1.json": {
+   "bytes": 595,
+   "sha256": "fb71f2af10e381f15cb56947a8bcb34a339d47aebc11694af4a9c2ffad9daa17"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov5_thrmajority_std1_ctr0.json": {
+   "bytes": 598,
+   "sha256": "516b9dfa329b6821ab427c7dd6d6434453bf2191a6c166860d76a38144f6d5b8"
+  },
+  "rounds/r25_actor_dyad_sweep/results/cell_pearson_ov5_thrmajority_std1_ctr1.json": {
+   "bytes": 595,
+   "sha256": "54febf2454a1e3b910744284f575884b1c9535fde9ca95d031a743fc26a6c6bb"
   }
  },
  "claims": [
@@ -325,7 +473,7 @@
    "statement": "Fewer than one percent of crowd-written CoVal-full criteria address anthropomorphic self-presentation, under a word-boundary lexicon whose Tier-1 term list is known to over-count: at least 13 of its 24 matches are off-construct or polarity-reversed, so this rate is an upper bound.",
    "source": "rounds/r07_anthropomorphism/results/a07_anthropomorphism.json",
    "field": "criteria_tier1_share",
-   "value": 0.0015739769150052466,
+   "value": 0.0004590766002098636,
    "test": "< 0.01",
    "status": "HOLDS"
   },

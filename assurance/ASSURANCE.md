@@ -1,6 +1,6 @@
 # Assurance package
 
-generated 2026-07-28T18:23:01.927517+00:00 · git `87ef2ab31296` · seed 20260727
+generated 2026-07-28T18:34:39.161111+00:00 · git `49e68863e455` · seed 20260727
 
 ## Claims
 
@@ -11,7 +11,7 @@ generated 2026-07-28T18:23:01.927517+00:00 · git `87ef2ab31296` · seed 2026072
 | C3 | **HOLDS** | 0.6387 | `~ 0.64` | Among defensible aggregation principles at k=4, out-of-sample predictive accuracy spans less than 3 percentage… |
 | C4 | **HOLDS** | 4.6677 | `> 2.0` | Beyond an additive per-rater (actor) effect, pairwise rater agreement carries a PAIR-specific component that p… |
 | C5 | **HOLDS** | 4.0224 | `> 2.0` | Anthropomorphic style independently predicts human preference after controlling for the rubric score and respo… |
-| C14 | **HOLDS** | 0.0016 | `< 0.01` | Fewer than one percent of crowd-written CoVal-full criteria address anthropomorphic self-presentation, under a… |
+| C14 | **HOLDS** | 0.0005 | `< 0.01` | Fewer than one percent of crowd-written CoVal-full criteria address anthropomorphic self-presentation, under a… |
 | C6 | **FAILS** | -0.0229 | `> 0.02` | PRE-REGISTERED AND REFUTED: optimizing selection against the rubric was predicted to raise lexical overlap wit… |
 | C7 | **FAILS** | 0.0499 | `> 0.3` | RETRACTED BY C11. Within best-of-16 pressure the gold preference change is distinguishable from zero. This hel… |
 | C11 | **FAILS** | False | `== True` | The A09 result is reproduced by a gold preference head built on a DIFFERENT backbone from the judge, ruling ou… |

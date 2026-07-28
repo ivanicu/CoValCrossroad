@@ -184,7 +184,15 @@ def main() -> None:
             alo, ahi = np.percentile(bsd, [2.5, 97.5])
             rec.update({"real_paired": float(x.mean()), "shuffled": float(y.mean()),
                         "attribution": attr, "attribution_ci": [float(alo), float(ahi)],
-                        "paired_prompts": len(common), "paired": True})
+                        "paired_prompts": len(common), "paired": True,
+                        # per-prompt differences kept so the seed-vs-write-in GAP
+                        # can get an interval of its own.  The two arms sit on
+                        # different prompt subsets (a prompt with no usable
+                        # write-in criteria appears in one and not the other), so
+                        # the gap must be bootstrapped on their INTERSECTION --
+                        # otherwise it is two unpaired means differenced, which is
+                        # the exact defect this round was just repaired for.
+                        "per_prompt_diff": {p: float(v) for p, v in zip(common, dif)}})
             print(f"{which:12s} {arr.mean():>9.4f} {x.mean():>10.4f} {y.mean():>9.4f} "
                   f"{attr:>+12.4f} {f'[{alo:+.4f},{ahi:+.4f}]':>22} {len(common):>5}")
         else:
@@ -197,8 +205,23 @@ def main() -> None:
     out["writein_minus_seed"] = float(d)
     if out["seed"].get("paired") and out["writein"].get("paired"):
         gap = out["seed"]["attribution"] - out["writein"]["attribution"]
-        print(f"  seed minus write-in ATTRIBUTION (the load-bearing quantity): {gap:+.4f}")
+        print(f"  seed minus write-in ATTRIBUTION (unpaired means): {gap:+.4f}")
         out["attribution_gap_seed_minus_writein"] = float(gap)
+        ds, dw = out["seed"]["per_prompt_diff"], out["writein"]["per_prompt_diff"]
+        both = sorted(set(ds) & set(dw))
+        if len(both) >= 30:
+            g = np.array([ds[p] - dw[p] for p in both])
+            gb = np.array([g[rng.integers(0, len(g), size=len(g))].mean()
+                           for _ in range(a.boot)])
+            glo, ghi = np.percentile(gb, [2.5, 97.5])
+            print(f"  seed minus write-in, PAIRED on {len(both)} shared prompts: "
+                  f"{g.mean():+.4f} [{glo:+.4f},{ghi:+.4f}]"
+                  f"   {'excludes zero' if glo > 0 or ghi < 0 else 'INCLUDES ZERO'}")
+            out["gap_paired"] = {"mean": float(g.mean()), "ci": [float(glo), float(ghi)],
+                                 "prompts": len(both),
+                                 "excludes_zero": bool(glo > 0 or ghi < 0)}
+        else:
+            print(f"  gap CI unavailable: only {len(both)} prompts carry both arms")
     Path(_RES).mkdir(parents=True, exist_ok=True)
     # GUARD, added 2026-07-28 after an independent reproducibility review ran
     # this round the way the README documents it -- with no flags -- and watched
