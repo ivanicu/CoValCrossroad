@@ -35,8 +35,21 @@ rubric-blind responses those authors never saw, the advantage does not merely sh
 
 A discrimination control confirms the fresh set is *more* separable than the released one, so this
 is not an artifact of homogeneous generations. **What the released numbers measure is bounded to the
-response set the rubric was authored against** — the mechanism behind that bound is still open
-(see [r13](rounds/r13_seed_vs_writein)).
+response set the eval was validated against.**
+
+[r13](rounds/r13_seed_vs_writein) then refuted the obvious explanation. If the criteria simply encoded
+facts about those four candidates, criteria written *after* reading them should carry the advantage.
+They do not — the *seed* criteria, prepared alongside candidate generation and never tailored to them,
+carry more:
+
+| criterion provenance | real | unrelated | advantage |
+|---|---:|---:|---:|
+| seed (response-blind) | 0.584 | 0.537 | **+0.039** [+0.009, +0.069] |
+| write-in (after reading) | 0.575 | 0.530 | +0.029 [−0.002, +0.060] |
+
+So the bound is not about what the criteria encode. It is a property of the measurement apparatus off
+distribution — a transfer boundary for rubric-graded evaluation, which is the open question this
+repository now points at.
 
 ---
 
@@ -57,8 +70,8 @@ Each round is self-contained: its own question, runner, results and README.
 | [r09](rounds/r09_overoptimization) | Optimize the rubric, watch preference | pre-registered gaming prediction **refuted**: markers fell |
 | [r10](rounds/r10_attribution_robustness) | Is the attribution an artifact? | stable across judge size and template; 23.7% of the gap is topic, not value |
 | [r11](rounds/r11_backbone_control) | Was r09 backbone leakage? | **retracts r09's rise** — it vanishes with an independent backbone |
-| [r12](rounds/r12_response_set) | Values, or these four responses? | the advantage **inverts** off-distribution: +0.102 → −0.042, discrimination control passed |
-| [r13](rounds/r13_seed_vs_writein) | Seed criteria vs write-ins | seeds were prepared alongside the candidates, write-ins after reading them — a natural experiment on r12 |
+| [r12](rounds/r12_response_set) | Does the advantage transfer? | it **inverts** off-distribution: +0.102 → −0.042, discrimination control passed |
+| [r13](rounds/r13_seed_vs_writein) | Seed criteria vs write-ins | **refutes r12's own mechanism**: response-blind seeds carry more attribution (+0.039) than write-ins (+0.029) |
 
 ---
 

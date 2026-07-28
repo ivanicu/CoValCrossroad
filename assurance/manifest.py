@@ -114,7 +114,11 @@ CLAIMS = [
     ("C12",
      "The prompt-specific advantage in C1 survives on responses the criteria were "
      "NOT authored against. Measured as attribution on rubric-blind fresh "
-     "responses; requires a positive value.",
+     "responses; requires a positive value. FAILS -- but note r13 refutes the "
+     "response-set-knowledge explanation for that failure: response-blind seed "
+     "criteria carry more attribution than criteria written after reading the "
+     "candidates, so the non-transfer is a property of the measurement off "
+     "distribution, not of what the criteria encode.",
      "rounds/r12_response_set/results/a12_response_set.json",
      "sets.FRESH.attribution", ">", 0.0),
 

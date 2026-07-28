@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-28T08:48:12.347567+00:00",
- "git": "158546e63df8c3b8b8c69f33603a2110498b06ef",
+ "generated_utc": "2026-07-28T09:32:34.087037+00:00",
+ "git": "e66dd19824beb1a24eda5ca47aa74b2cfca5f7ca",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -88,8 +88,8 @@
    "sha256": "60d737730208b567d91188b78eb8ffae30b9e2bf74a1e442a8d8e5e7d035e316"
   },
   "assurance/manifest.py": {
-   "bytes": 16936,
-   "sha256": "84296f06ef82c59dda49623b2abf81321f1421ec0b93ac0f4486a84282e9e551"
+   "bytes": 17263,
+   "sha256": "6847788d82f6d47d1b499a5d0000d9ab90292467cc95a5b7d0b8a431af84d1ec"
   },
   "data/fetch.py": {
    "bytes": 2337,
@@ -182,12 +182,12 @@
    "sha256": "d97f5634a20d883a0a04fbaa7f3b1db64729d8be9f512cffc75a6265775e4974"
   },
   "rounds/r12_response_set/results/a12_response_set.json": {
-   "bytes": 824,
-   "sha256": "59643d3009cb994b8363b9d9d198967b9a2cf7b941d71289923bbb49e05266a0"
+   "bytes": 1239,
+   "sha256": "6c4cb60e74e89ea4a9e571bf2800d570a3cd8e20a63f213d49bc26caa2622568"
   },
   "rounds/r13_seed_vs_writein/results/r13_seed_vs_writein.json": {
-   "bytes": 294,
-   "sha256": "d9be7e8f9f483761974e1616ee854589df962f6a0e62a678953406134131a670"
+   "bytes": 588,
+   "sha256": "3a0bc9b51f502e68ae1543c80ef852b5def425749683a16542e5bbfbbd8ca560"
   }
  },
  "claims": [
@@ -283,7 +283,7 @@
   },
   {
    "id": "C12",
-   "statement": "The prompt-specific advantage in C1 survives on responses the criteria were NOT authored against. Measured as attribution on rubric-blind fresh responses; requires a positive value.",
+   "statement": "The prompt-specific advantage in C1 survives on responses the criteria were NOT authored against. Measured as attribution on rubric-blind fresh responses; requires a positive value. FAILS -- but note r13 refutes the response-set-knowledge explanation for that failure: response-blind seed criteria carry more attribution than criteria written after reading the candidates, so the non-transfer is a property of the measurement off distribution, not of what the criteria encode.",
    "source": "rounds/r12_response_set/results/a12_response_set.json",
    "field": "sets.FRESH.attribution",
    "value": -0.042,

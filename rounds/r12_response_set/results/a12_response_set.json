@@ -30,5 +30,7 @@
  },
  "drop": 0.144,
  "non_transferring_share": 1.411764705882353,
- "verdict": "RESPONSE-SET-SPECIFIC: most of the advantage does not transfer; the value-carrying share of A04's headline shrinks"
+ "verdict": "NON-TRANSFER ESTABLISHED, MECHANISM RETRACTED. The advantage does not survive on unseen responses (datum stands). The 'response-set-specific' reading is refuted by r13: seed criteria, authored without sight of the four candidates, carry MORE attribution (+0.039, CI excludes 0) than write-ins authored after reading them (+0.029, CI includes 0).",
+ "verdict_original": "RESPONSE-SET-SPECIFIC: most of the advantage does not transfer; the value-carrying share of A04's headline shrinks",
+ "refuted_by": "rounds/r13_seed_vs_writein"
 }
