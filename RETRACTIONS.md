@@ -5,7 +5,7 @@ it happened, with what did the killing.
 
 The rounds are numbered by when they ran, not by what survived. Read in that order
 the repository looks like a sequence of findings. It is not. **Eleven of these
-thirty-two entries are a later round destroying an earlier round's conclusion, and in
+thirty-five entries are a later round destroying an earlier round's conclusion, and in
 all eleven both rounds are mine.** Nine more were found by outside challengers in
 roughly 45 minutes each, against twenty rounds of self-review that had already passed
 over every one of them.
@@ -13,7 +13,9 @@ over every one of them.
 This file exists because the git log has all of it and nobody reads a git log.
 
 **Reading order matters.** Entries 1–12 are one failure mode; 13–26 add a second;
-27–32 add a third that neither of the first two can warn you about. Where a later
+27–32 add a third that neither of the first two can warn you about; 33–35 are the
+largest untested assumption finally being tested, and the answer widening the headline
+rather than confirming it. Where a later
 entry supersedes an earlier one the earlier text is **annotated, never rewritten** —
 a ledger that edits its own history is the thing it exists to prevent.
 
@@ -79,6 +81,16 @@ answer.
 | 30 | **r27's verdict**, which printed `VALUE BLOCS` | Its own control, ten lines above it in the same output, saying the opposite. The verdict block ranked thresholds and never read the control | Nothing. **This is item 11 on the step-size checklist in my own skill file — *a script's own conclusion string saying what you wanted to hear* — committed inside the round written to avoid exactly that.** The verdict now consults the control and cannot outrank it |
 | 31 | **The additive decomposition itself**, and with it the residual r23, r25, r26 and r27 all read as "pair-specific structure" | Classical test theory. Under one latent target with heterogeneous reliability, agreement is a **product**: `A_ij = ρ_i ρ_j`. Fit `μ + a_i + a_j` to that and the residual is **not noise** — it is `(ρ_i−m)(ρ_j−m)`: positive when both raters are above average, positive when both are below, negative when they straddle. **A U-shape, generated entirely by the wrong functional form, with no blocs anywhere in the process.** r27 measured that U-shape (+0.0538 / −0.0567 / +0.0552) and I read the positive both-low arm as a minority bloc | [r28](rounds/r28_multiplicative) fits both forms on the same 6,193 dyads. Multiplicative wins **with one fewer parameter** (R² 0.6604 vs 0.5784). Under it `both_high` and `mixed` collapse to **exactly zero** (z=−0.73, −1.43) and one stratum survives: `both_low` **+0.0125 [+0.0004, +0.0241], z=+2.50**, replicated at +0.0208 (spearman) and +0.0122 (cosine). **A minority bloc is real and 4.4× smaller than the additive analysis implied** |
 | 32 | **r28's own model comparison on the fourth metric** | negative-mean-absolute-difference is bounded *above* by zero, so a rank-1 product of real factors cannot represent it; ALS diverged to **R² = −13.14**. My code compared that to 0.5717 and printed *"the ADDITIVE form fits better"* — which would have entered the record as one metric of four dissenting, **manufacturing a robustness caveat out of a numerical failure** | A guard: R² < 0 now reports `MULTIPLICATIVE_INAPPLICABLE` and states explicitly that the additive form is **not** thereby supported. Attacked; it fires and returns before touching the strata |
+
+---
+
+## The cross-family question — a false claim, then a false acquittal, then an answer
+
+| # | The claim | What killed or scoped it | What survived |
+|---|---|---|---|
+| 33 | **"SURVIVES A CHANGE OF FAMILY"** — r22's first verdict, on the project's single largest untested assumption: every judge had been Qwen | Reading which judges it meant. Both were Qwen. `fams = {k.split("-")[0] for k in usable}` turns `"qwen3.5-2b-base"` and `"qwen2.5-3b-instruct"` into two different **strings**, so one lineage counted as two families — and the gate checked `len(usable) >= 2`, never that the families differed | Nothing. Family is now **declared**, never inferred from a nickname, and the gate counts distinct families. A single-family outcome gets its own verdict that says the round *has not tested the thing its title names* |
+| 34 | **`phi-3.5-mini: positive_control_passed = False`**, own accuracy 0.0000 — recorded as a fact about phi | One line in `covalx/judge.py`. `yes_id, no_id = tok.encode(" Yes")[0], tok.encode(" No")[0]` is right for BPE (`[7179]` vs `[2233]`) and wrong for SentencePiece, which emits the whitespace as its own token: phi gives `[29871, 3869]` and `[29871, 1939]`, **so both ids were 29871 and the logit gap was identically zero.** Every score was exactly 0.5, every response tied, accuracy 0.0000 **by construction** | phi passes its control at **0.6410**, level with both Qwen judges. **The zero was not a wrong number, it was a mislabelled one** — and the question it silently closed was the only one this project had never answered. A judge emitting constant output has not failed a control, it has not been measured; r22 now detects sd < 1e-6 and files it as `DEGENERATE_OUTPUT_HARNESS_FAILURE` |
+| 35 | **"27%–67%"** as the prompt-specific share, with the floor named as its only degree of freedom | r22, once phi could be scored. phi's *unrelated-rubric* floor is **0.6053** against Qwen's 0.5759/0.5767 — it earns more generic response quality for free — so the share runs **25.3% (phi) to 53.8% (qwen2.5-3b) at a fixed floor, a 2.13× span**, independent of r19's 2.47× across floors | The direction: attribution is positive on **both** families with intervals clear of zero, so the decomposition is not a Qwen artifact. Not the magnitude. Observed cells span **13.6%** (phi, near floor) to **~74%** (qwen, far floor) — **≈5.4×**. The quantity is a property of *(dataset, floor donor, judge family)*, and the last two are analyst choices the source package never reports |
 
 **Why entry 31 is the most serious thing in this file.** Every other retraction is a
 statistical error — a wrong null, an unmatched pairing, a missing interval, a check that
