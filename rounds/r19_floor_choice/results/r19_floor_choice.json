@@ -1,0 +1,25 @@
+{
+ "per_cell": {
+  "qwen3.5-2b/A": {
+   "vs_near": 0.06079121789560893,
+   "vs_random": 0.08688898094449049,
+   "vs_far": 0.1390845070422535
+  },
+  "qwen3.5-2b/B": {
+   "vs_near": 0.03277754763877383,
+   "vs_random": 0.05944490472245234,
+   "vs_far": 0.09165285832642922
+  },
+  "qwen3.5-0.8b/A": {
+   "vs_near": 0.04660314830157419,
+   "vs_random": 0.044946147473073794,
+   "vs_far": 0.07518641259320635
+  }
+ },
+ "means": {
+  "vs_near": 0.04672397127865232,
+  "vs_random": 0.06376001104667221,
+  "vs_far": 0.10197459265396303
+ },
+ "note": "attribution depends on which donor defines the generic-quality floor; the reported 0.079 used the random donor, which is not a clean floor because a randomly chosen prompt sometimes shares topic"
+}

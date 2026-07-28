@@ -19,9 +19,24 @@ Grading responses against **an unrelated prompt's rubric** already recovers most
 | response length alone | 0.532 |
 | chance | 0.500 |
 
-Of the 18.6 points above chance, **7.9 are prompt-specific criterion content and 10.7 are generic response quality any rubric earns for free.** A further 23.7% of that prompt-specific part is recovered by a *same-topic* rubric.
+Of the 18.6 points above chance, **7.9 are prompt-specific criterion content and 10.7 are generic response quality any rubric earns for free** — using a randomly chosen prompt as the floor.
 
-Stable across three judge/template configurations (0.064 ± 0.017).
+**That floor is a choice, and the number moves 2.2× with it.** [r19](rounds/r19_floor_choice)
+reads r10's donors as a decay curve: a random prompt's rubric still retains 47–60% of the signal,
+because a random prompt sometimes shares topic. Grading against a nearest-topic donor instead gives
+attribution 0.047; against the most dissimilar donor, 0.102.
+
+| floor | attribution | prompt-specific share |
+|---|---:|---:|
+| nearest-topic donor | 0.047 | ~29% |
+| random donor *(reported)* | 0.064 | ~43% |
+| most dissimilar donor | 0.102 | ~63% |
+
+Neither endpoint is clean — the far donor is adversarially selected and may simply be refused by the
+judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so the
+honest statement is 29–63% and any single figure must name its floor.**
+
+Stable across three judge/template configurations (0.064 ± 0.017) *at a fixed floor*.
 
 ### …and the prompt-specific part does not transfer
 
@@ -75,6 +90,7 @@ Each round is self-contained: its own question, runner, results and README.
 | [r16](rounds/r16_minority_regret) | Conflict-aware, on its own turf | blocs are real (regret 2.07 vs 1.10 random), yet conflict-aware leaves the worst-off bloc **lowest of all rules** |
 | [r17](rounds/r17_conditional_core) | Does conditional encoding rescue it? | **partly** — routing learned from a rater's *other* prompts helps only the rules carrying contested items (+0.195), and does not close the gap |
 | [r18](rounds/r18_routing_difficulty) | Was r17's 84.6% routing accuracy free? | **inflated by +0.147, but real**: 0.666 [0.643, 0.688] where the blocs actually disagree |
+| [r19](rounds/r19_floor_choice) | Which donor is the generic floor? | the headline moves **2.2×** with that choice; prompt-specific share is 29–63%, not 43% |
 
 ---
 
