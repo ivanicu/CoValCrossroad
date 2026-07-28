@@ -1,0 +1,9 @@
+.venv/
+logs/
+_archive/
+data/*.jsonl
+data/DATASET_CARD.md
+*.emb.npz
+__pycache__/
+*.pyc
+.DS_Store
