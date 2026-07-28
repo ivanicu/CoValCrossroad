@@ -49,6 +49,39 @@ Neither endpoint is clean — the far donor is adversarially selected and may si
 judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so any
 single figure must name its floor.**
 
+### The human experiment is frame-limited, not power-limited
+
+Everything above leaves one question, and it needs people. [r38](rounds/r38_human_sampling_power)
+decides which prompts to send them and how many, **before** anyone is paid to rank anything.
+
+**Power is not the constraint.** Clustering on prompt — six comparisons from one rater's
+ranking of four responses are *one object*, not six draws — with variance components measured
+from r22's per-prompt arrays (total sd 0.149 → between-prompt 0.140, binomial 0.049):
+
+| effect | 40p × 8r | 60p × 8r | 100p × 8r |
+|---:|---:|---:|---:|
+| +0.03 | 0.51 | 0.69 | 0.88 |
+| +0.05 | 0.91 | **0.98** | 1.00 |
+| +0.16 *(r12's observed drop)* | 1.00 | 1.00 | 1.00 |
+
+**60 prompts × 8 raters detects +0.05 at 98% power**, and r12's 0.16 is detectable in every
+cell of the grid.
+
+**The frame is the constraint.** The tempting sample is the prompts where r12's inversion is
+largest — which yields a number about the strangest prompts that reads as a number about
+transport. So prompts are stratified on original–fresh distance (and, once r12's per-prompt
+attribution lands, on rubric–proxy disagreement), sampled **equally within cells**, and carry
+**sampling weights** so one collection yields both a population estimate and an anomaly-subset
+estimate.
+
+Two bugs in this round are worth recording because both would have silently set the sample.
+A feature with zero spread across released responses — *refusal markers*, identically zero —
+was being divided by a `1e-9` guard, giving one prompt a distance of **1e9** and letting a
+single unchecked feature decide the whole axis. And the per-prompt variance was **hardcoded at
+0.16** under a comment claiming it was measured; the real value is 0.149, and the round now
+refuses to emit a power grid when the between-prompt component would clip to a floor. That
+guard fired on its author's own wrong divisor before producing anything.
+
 ### The endogeneity map is flat all the way to the edge of what this data can isolate
 
 "Is it leakage?" is one rung of a ladder. What matters for anyone reusing a CoVal rubric is
@@ -474,6 +507,8 @@ Each round is self-contained: its own question, runner, results and README.
 | [r36](rounds/r36_channel_shapley) | Channel split without order dependence | all 16 coalitions. **Magnitude without direction reaches 0.628 vs sign's 0.644** — near-substitutes, so r32's sequential split over-attributed to polarity. φ_S(same)−φ_S(cross) = **+0.0008**, tiny under every ordering. Visibility ≈ 0 |
 
 | [r37](rounds/r37_leakage_topology) | How does the signal decay with isolation? | **it doesn't.** A0→A1→A2→A3 all non-significant; cross-**country** weights cost **+0.0007 [−0.0033,+0.0048]**. Not individual, not small-sample, not country/usage/age-conditional. `A4` response-blind is **undefined, not zero** |
+
+| [r38](rounds/r38_human_sampling_power) | Which prompts to send to humans, and how many? | **frame-limited, not power-limited.** 60 prompts × 8 raters detects **+0.05 at 98%** power clustered on prompt; r12's 0.16 is detectable everywhere. Equal-cell stratified frame with sampling weights so one collection gives both a population and an anomaly estimate |
 
 ---
 

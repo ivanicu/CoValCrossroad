@@ -245,7 +245,19 @@ def main() -> None:
         lo, hi = np.percentile(bs, [2.5, 97.5])
         res[name] = {"real": float(ar.mean()), "shuffled": float(ash.mean()),
                      "attribution": float(d.mean()), "ci": [float(lo), float(hi)],
-                     "prompts": int(len(d))}
+                     "prompts": int(len(d)),
+                     # PER-PROMPT ARRAYS, added 2026-07-28. `agreement()` already
+                     # returned these and the round threw them away, keeping only
+                     # the four cell means -- the third time in this project an
+                     # expensive GPU round discarded values it had in hand (r10/r19,
+                     # r22, now r12). Without them the rubric-vs-proxy disagreement
+                     # per prompt cannot be recovered, and that is one of the two
+                     # axes the human-ranking sampling frame has to stratify on.
+                     "per_prompt": {
+                         "pids": [it["pid"] for it in items][:len(d)],
+                         "real": [float(x) for x in ar],
+                         "shuffled": [float(x) for x in ash],
+                         "attribution": [float(x) for x in d]}}
         print(f"\n  {name:9s} real={ar.mean():.4f}  shuffled={ash.mean():.4f}  "
               f"attribution={d.mean():+.4f} [{lo:+.4f},{hi:+.4f}]")
 

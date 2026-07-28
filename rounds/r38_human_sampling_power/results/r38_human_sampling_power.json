@@ -1,0 +1,264 @@
+{
+ "prompts_available": 250,
+ "axis1_disagreement_available": false,
+ "distance": {
+  "median": 3.6322559376737167,
+  "p25": 2.674428486977672,
+  "p75": 4.413147031039925,
+  "max": 14.372099197849042
+ },
+ "cells": {
+  "low_dist": 125,
+  "high_dist": 125
+ },
+ "sampling_weights": {
+  "low_dist": 8.333333333333334,
+  "high_dist": 8.333333333333334
+ },
+ "frame": [
+  {
+   "pid": "097f1be1-3e62-5063-9cd4-01b2f44e15dd",
+   "cell": "low_dist",
+   "distance": 2.894102867942464,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "5b7164c9-2162-52b5-bd21-b4eeb59b5bdb",
+   "cell": "low_dist",
+   "distance": 3.243625265236341,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "0b9d833e-0a08-5ff5-8916-91b11e89f55b",
+   "cell": "low_dist",
+   "distance": 1.3628041530603967,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "04414715-5487-5885-9313-e7cc3f4601cb",
+   "cell": "low_dist",
+   "distance": 1.8981801569994772,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "891b52be-2984-519f-9fb4-1623698e92a7",
+   "cell": "low_dist",
+   "distance": 1.9145913146652147,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "1f41f1bf-4db9-51cd-9f1b-174e9280389d",
+   "cell": "low_dist",
+   "distance": 2.508193854401888,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "1ab2bab7-bd8e-5931-8b95-59cc2ce386b7",
+   "cell": "low_dist",
+   "distance": 3.0201518645577603,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "684b8f05-d8d8-5a6f-971b-6f682688439d",
+   "cell": "low_dist",
+   "distance": 1.5760021749121185,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "b9b66601-c2e2-556e-9554-e04a3446c289",
+   "cell": "low_dist",
+   "distance": 3.2616040913500566,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "a804b3cf-7785-56f5-a8da-6834a995ef0d",
+   "cell": "low_dist",
+   "distance": 1.8691350151523756,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "e2f75cd2-20da-5695-92bf-88f9deb596cf",
+   "cell": "low_dist",
+   "distance": 2.1936989751835996,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "0c61965e-60ff-50d7-8d6b-33111a599f65",
+   "cell": "low_dist",
+   "distance": 3.5148642948695006,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "a200464c-d725-5e82-b585-44c57dc80d82",
+   "cell": "low_dist",
+   "distance": 2.1119068825098637,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "bfd717f7-ecbf-5dd7-ac8b-626950b2277e",
+   "cell": "low_dist",
+   "distance": 3.3304811921313555,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "b7c1c827-591e-5347-aea8-2dff511a1536",
+   "cell": "low_dist",
+   "distance": 2.7612503816932157,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "5f3a5be7-46d9-55c1-8a29-b0ecc3844b94",
+   "cell": "high_dist",
+   "distance": 5.42590532683277,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "2720d0fa-c8f8-598d-a849-e73e3ddccabb",
+   "cell": "high_dist",
+   "distance": 6.232229397657421,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "1df8fde4-31c9-5c43-ba73-2c72dfa19359",
+   "cell": "high_dist",
+   "distance": 4.268049856009007,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "624848de-19cb-5cf5-8107-2b884367994a",
+   "cell": "high_dist",
+   "distance": 4.686317820817745,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "d9ad4c6a-b2c1-55a6-a1c0-dbb82d09ed6d",
+   "cell": "high_dist",
+   "distance": 4.239414554767605,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "5d85371c-2ec5-53bb-a661-7a9d3f3c99a4",
+   "cell": "high_dist",
+   "distance": 4.756173147567811,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "ace17bbb-120c-555c-861f-7d98ac4ee649",
+   "cell": "high_dist",
+   "distance": 5.279757277280496,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "2507298e-b0e9-52be-8b15-391091db170f",
+   "cell": "high_dist",
+   "distance": 6.206209513769054,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "5313598a-039e-5e5f-887d-a0265b2008f0",
+   "cell": "high_dist",
+   "distance": 4.105397079896759,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "43eca826-6afc-5ca2-9a2f-b8ba18f5babb",
+   "cell": "high_dist",
+   "distance": 4.007943534729662,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "27230ceb-2680-5d35-840b-5a37fdf7b68e",
+   "cell": "high_dist",
+   "distance": 3.666200909753914,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "841c3010-cf89-52db-a392-5b4a695f35e8",
+   "cell": "high_dist",
+   "distance": 6.654286059444852,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "056c0641-f071-502b-83a1-160910e38e56",
+   "cell": "high_dist",
+   "distance": 4.26455357265554,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "868731ab-efd7-5a0e-9a45-c0fd3eca6997",
+   "cell": "high_dist",
+   "distance": 4.45342600000717,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  },
+  {
+   "pid": "430b7f05-2233-54de-b22e-084e1af45ebb",
+   "cell": "high_dist",
+   "distance": 3.728000104681985,
+   "disagreement": null,
+   "sampling_weight": 8.333333333333334
+  }
+ ],
+ "variance": {
+  "observed_sd": 0.14861485601840446,
+  "between_prompt_sd": 0.14038763786518088,
+  "binomial_sd": 0.048761527498694314,
+  "pairs_per_rater": 6
+ },
+ "power": {
+  "eff0.03_p40_r8": 0.506,
+  "eff0.03_p40_r12": 0.674,
+  "eff0.03_p60_r8": 0.6886666666666666,
+  "eff0.03_p60_r12": 0.858,
+  "eff0.03_p100_r8": 0.8766666666666667,
+  "eff0.03_p100_r12": 0.9706666666666667,
+  "eff0.05_p40_r8": 0.912,
+  "eff0.05_p40_r12": 0.982,
+  "eff0.05_p60_r8": 0.9846666666666667,
+  "eff0.05_p60_r12": 0.9993333333333333,
+  "eff0.05_p100_r8": 0.9986666666666667,
+  "eff0.05_p100_r12": 1.0,
+  "eff0.08_p40_r8": 0.9993333333333333,
+  "eff0.08_p40_r12": 1.0,
+  "eff0.08_p60_r8": 1.0,
+  "eff0.08_p60_r12": 1.0,
+  "eff0.08_p100_r8": 1.0,
+  "eff0.08_p100_r12": 1.0,
+  "eff0.16_p40_r8": 1.0,
+  "eff0.16_p40_r12": 1.0,
+  "eff0.16_p60_r8": 1.0,
+  "eff0.16_p60_r12": 1.0,
+  "eff0.16_p100_r8": 1.0,
+  "eff0.16_p100_r12": 1.0
+ },
+ "verdict": "60 prompts x 8 raters detects a transport effect of +0.05 at 80% power, clustering on prompt. r12's observed drop is 0.16, which is detectable at every cell in this grid -- so the binding constraint on the human experiment is NOT statistical power. It is the sampling frame: with equal cells and weights, 30 prompts give both a population estimate and an anomaly-subset estimate from one collection, and without them an anomaly-selected sample would return a transport number that is really a number about the strangest prompts.",
+ "note": "Power is clustered on PROMPT, not binomial on pairs: six comparisons from one rater's ranking of four responses are one object, and raters within a prompt share its difficulty. Surface distance only; representation distance from three backbones is G33 and is deliberately not done here."
+}
