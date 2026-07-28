@@ -176,13 +176,31 @@ def main() -> None:
             print(f"  [{name}] SKIP -- not on disk at {path}")
             continue
         print(f"=== {name} ({lineage}) ===", flush=True)
+        # trust_remote_code PER MODEL, not globally. internlm2 needs it; phi does
+        # NOT, and forcing it sends phi down a bundled modeling_phi3.py that calls
+        # DynamicCache.from_legacy_cache -- removed in transformers 5.14 -- so a
+        # model that loads fine natively (as it did in r22, whose loader never set
+        # the flag) fails with an AttributeError that reads like a broken model.
+        # Native first, remote code only as a fallback.
+        model = tok = None
+        for remote in (False, True):
+            try:
+                tok = AutoTokenizer.from_pretrained(path, trust_remote_code=remote)
+                if tok.pad_token_id is None:
+                    tok.pad_token = tok.eos_token
+                model = AutoModelForCausalLM.from_pretrained(
+                    path, dtype=torch.bfloat16, device_map="cuda",
+                    trust_remote_code=remote).eval()
+                model.config.use_cache = False      # no cache needed for features
+                print(f"  loaded with trust_remote_code={remote}")
+                break
+            except Exception as e:
+                last = e
+                model = None
+                torch.cuda.empty_cache()
         try:
-            tok = AutoTokenizer.from_pretrained(path, trust_remote_code=True)
-            if tok.pad_token_id is None:
-                tok.pad_token = tok.eos_token
-            model = AutoModelForCausalLM.from_pretrained(
-                path, dtype=torch.bfloat16, device_map="cuda",
-                trust_remote_code=True).eval()
+            if model is None:
+                raise last
         except Exception as e:
             # A load failure is a claim about the ENVIRONMENT until proven
             # otherwise. Three of them in this project were missing pip packages.

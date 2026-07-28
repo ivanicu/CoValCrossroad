@@ -1,230 +1,444 @@
 {
  "prompts_available": 250,
- "axis1_disagreement_available": false,
+ "axis1_disagreement_available": true,
  "distance": {
-  "median": 3.6322559376737167,
-  "p25": 2.674428486977672,
-  "p75": 4.413147031039925,
-  "max": 14.372099197849042
+  "median": 3.31163910040131,
+  "p25": 2.4459563658491863,
+  "p75": 4.367617762218458,
+  "max": 12.385962569905084
  },
  "cells": {
-  "low_dist": 125,
-  "high_dist": 125
+  "low_disagree_low_dist": 42,
+  "low_disagree_high_dist": 55,
+  "high_disagree_low_dist": 83,
+  "high_disagree_high_dist": 70
  },
  "sampling_weights": {
-  "low_dist": 8.333333333333334,
-  "high_dist": 8.333333333333334
+  "low_disagree_low_dist": 2.8,
+  "low_disagree_high_dist": 3.6666666666666665,
+  "high_disagree_low_dist": 5.533333333333333,
+  "high_disagree_high_dist": 4.666666666666667
  },
  "frame": [
   {
-   "pid": "097f1be1-3e62-5063-9cd4-01b2f44e15dd",
-   "cell": "low_dist",
-   "distance": 2.894102867942464,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "a78b5a3d-61c6-50dc-826c-83ea7005696c",
+   "cell": "low_disagree_low_dist",
+   "distance": 1.1759208302192774,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
   },
   {
-   "pid": "5b7164c9-2162-52b5-bd21-b4eeb59b5bdb",
-   "cell": "low_dist",
-   "distance": 3.243625265236341,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "a1bf4447-8759-55bf-86da-8929404741ca",
+   "cell": "low_disagree_low_dist",
+   "distance": 3.1883684771764482,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
   },
   {
-   "pid": "0b9d833e-0a08-5ff5-8916-91b11e89f55b",
-   "cell": "low_dist",
-   "distance": 1.3628041530603967,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "3a2969df-726a-5466-9039-ded9606aec00",
+   "cell": "low_disagree_low_dist",
+   "distance": 2.0730406350041197,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
   },
   {
-   "pid": "04414715-5487-5885-9313-e7cc3f4601cb",
-   "cell": "low_dist",
-   "distance": 1.8981801569994772,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "818cbf93-e7a2-52c2-9a46-ff8d433a3658",
+   "cell": "low_disagree_low_dist",
+   "distance": 1.482792156459333,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
   },
   {
-   "pid": "891b52be-2984-519f-9fb4-1623698e92a7",
-   "cell": "low_dist",
-   "distance": 1.9145913146652147,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
-  },
-  {
-   "pid": "1f41f1bf-4db9-51cd-9f1b-174e9280389d",
-   "cell": "low_dist",
-   "distance": 2.508193854401888,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
-  },
-  {
-   "pid": "1ab2bab7-bd8e-5931-8b95-59cc2ce386b7",
-   "cell": "low_dist",
-   "distance": 3.0201518645577603,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
-  },
-  {
-   "pid": "684b8f05-d8d8-5a6f-971b-6f682688439d",
-   "cell": "low_dist",
-   "distance": 1.5760021749121185,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
-  },
-  {
-   "pid": "b9b66601-c2e2-556e-9554-e04a3446c289",
-   "cell": "low_dist",
-   "distance": 3.2616040913500566,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
-  },
-  {
-   "pid": "a804b3cf-7785-56f5-a8da-6834a995ef0d",
-   "cell": "low_dist",
-   "distance": 1.8691350151523756,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
-  },
-  {
-   "pid": "e2f75cd2-20da-5695-92bf-88f9deb596cf",
-   "cell": "low_dist",
-   "distance": 2.1936989751835996,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "651d87af-47b4-5bd5-b14c-5b4a7acc61bc",
+   "cell": "low_disagree_low_dist",
+   "distance": 2.566984808788407,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
   },
   {
    "pid": "0c61965e-60ff-50d7-8d6b-33111a599f65",
-   "cell": "low_dist",
-   "distance": 3.5148642948695006,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "cell": "low_disagree_low_dist",
+   "distance": 2.220652839701592,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
   },
   {
-   "pid": "a200464c-d725-5e82-b585-44c57dc80d82",
-   "cell": "low_dist",
-   "distance": 2.1119068825098637,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "11433d08-b184-5f49-a13a-ab0adfcfa300",
+   "cell": "low_disagree_low_dist",
+   "distance": 1.6371978072524853,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
   },
   {
-   "pid": "bfd717f7-ecbf-5dd7-ac8b-626950b2277e",
-   "cell": "low_dist",
-   "distance": 3.3304811921313555,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "52228a38-fb25-5b46-a159-042d2bec777f",
+   "cell": "low_disagree_low_dist",
+   "distance": 3.007286013004323,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
+  },
+  {
+   "pid": "097f1be1-3e62-5063-9cd4-01b2f44e15dd",
+   "cell": "low_disagree_low_dist",
+   "distance": 1.121547481915563,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
+  },
+  {
+   "pid": "e66c612c-18ed-58e7-a7dd-91884c8e5401",
+   "cell": "low_disagree_low_dist",
+   "distance": 1.9721928995655695,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
+  },
+  {
+   "pid": "a77ea870-1af5-51bf-a095-4a968c5edd53",
+   "cell": "low_disagree_low_dist",
+   "distance": 2.5492088605606398,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
+  },
+  {
+   "pid": "30c002cd-c261-5c6a-9f3c-ecf58b9a073d",
+   "cell": "low_disagree_low_dist",
+   "distance": 2.632566288267126,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
+  },
+  {
+   "pid": "773492fb-29b5-521e-bb19-2076ba73628c",
+   "cell": "low_disagree_low_dist",
+   "distance": 3.1486388941702277,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
+  },
+  {
+   "pid": "8f795c2c-1a5b-5c39-8fbd-491d84e20b1b",
+   "cell": "low_disagree_low_dist",
+   "distance": 2.554878649377212,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
+  },
+  {
+   "pid": "2e588f08-1bfb-535e-996a-4e43fe11d699",
+   "cell": "low_disagree_low_dist",
+   "distance": 2.2773343023270383,
+   "disagreement": 0.0,
+   "sampling_weight": 2.8
+  },
+  {
+   "pid": "49249059-216c-547c-94cb-2df81743bbd2",
+   "cell": "low_disagree_high_dist",
+   "distance": 3.3203381412093917,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "fb3f0b6e-df94-54c1-84bb-3afecbdb9f5f",
+   "cell": "low_disagree_high_dist",
+   "distance": 3.824620794136127,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "9435fee8-53a5-541a-8436-1fce0e4995be",
+   "cell": "low_disagree_high_dist",
+   "distance": 5.8505747937007255,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "9dc66a2e-8049-599f-bfc5-ae31b9fdf26f",
+   "cell": "low_disagree_high_dist",
+   "distance": 5.2781269950282805,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "65a072ee-d11e-5c19-b86c-f7519ad8a0fc",
+   "cell": "low_disagree_high_dist",
+   "distance": 4.451129054504263,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "57e7ada4-033b-5b5c-ba59-0bac9397d8bf",
+   "cell": "low_disagree_high_dist",
+   "distance": 5.31574245244818,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "c7856a24-3975-5e0c-bd92-f2bde48034e3",
+   "cell": "low_disagree_high_dist",
+   "distance": 3.3416322487128247,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "ef187c2c-cb97-5acd-aa75-0313f2075066",
+   "cell": "low_disagree_high_dist",
+   "distance": 3.9763455269917505,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "82144680-ff48-546d-b031-a2207aa393f1",
+   "cell": "low_disagree_high_dist",
+   "distance": 4.2259986847658535,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "328c8178-420d-524f-a52b-4a95ecda15b4",
+   "cell": "low_disagree_high_dist",
+   "distance": 4.420923212248459,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "4ad69078-1d65-5b87-a59a-a1958853f6b2",
+   "cell": "low_disagree_high_dist",
+   "distance": 12.385962569905084,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "0d51b0d2-33ca-528c-bb52-540f969c117d",
+   "cell": "low_disagree_high_dist",
+   "distance": 8.266902858486864,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "caaf1e06-4250-56e5-bc1d-51af1a6e7e6a",
+   "cell": "low_disagree_high_dist",
+   "distance": 4.435878199036959,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "b9b66601-c2e2-556e-9554-e04a3446c289",
+   "cell": "low_disagree_high_dist",
+   "distance": 3.7210026241266285,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "b2d74511-0a04-5532-8ba4-bc846ae4d92c",
+   "cell": "low_disagree_high_dist",
+   "distance": 4.258196130477986,
+   "disagreement": 0.0,
+   "sampling_weight": 3.6666666666666665
+  },
+  {
+   "pid": "1490495e-cf9c-5792-8fc0-d057e355a3af",
+   "cell": "high_disagree_low_dist",
+   "distance": 2.780401237898406,
+   "disagreement": 0.16666666666666669,
+   "sampling_weight": 5.533333333333333
+  },
+  {
+   "pid": "85ae5c64-a1c2-58f8-9fb0-8ee875802998",
+   "cell": "high_disagree_low_dist",
+   "distance": 2.1308925034897324,
+   "disagreement": 0.5,
+   "sampling_weight": 5.533333333333333
+  },
+  {
+   "pid": "707dc205-5a4e-56bc-b54b-7608be6f654b",
+   "cell": "high_disagree_low_dist",
+   "distance": 2.122849252561308,
+   "disagreement": 0.16666666666666669,
+   "sampling_weight": 5.533333333333333
   },
   {
    "pid": "b7c1c827-591e-5347-aea8-2dff511a1536",
-   "cell": "low_dist",
-   "distance": 2.7612503816932157,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
-  },
-  {
-   "pid": "5f3a5be7-46d9-55c1-8a29-b0ecc3844b94",
-   "cell": "high_dist",
-   "distance": 5.42590532683277,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
-  },
-  {
-   "pid": "2720d0fa-c8f8-598d-a849-e73e3ddccabb",
-   "cell": "high_dist",
-   "distance": 6.232229397657421,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
-  },
-  {
-   "pid": "1df8fde4-31c9-5c43-ba73-2c72dfa19359",
-   "cell": "high_dist",
-   "distance": 4.268049856009007,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
-  },
-  {
-   "pid": "624848de-19cb-5cf5-8107-2b884367994a",
-   "cell": "high_dist",
-   "distance": 4.686317820817745,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "cell": "high_disagree_low_dist",
+   "distance": 1.4735619429585154,
+   "disagreement": 0.16666666666666663,
+   "sampling_weight": 5.533333333333333
   },
   {
    "pid": "d9ad4c6a-b2c1-55a6-a1c0-dbb82d09ed6d",
-   "cell": "high_dist",
-   "distance": 4.239414554767605,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "cell": "high_disagree_low_dist",
+   "distance": 3.2602410003708835,
+   "disagreement": 0.16666666666666663,
+   "sampling_weight": 5.533333333333333
   },
   {
-   "pid": "5d85371c-2ec5-53bb-a661-7a9d3f3c99a4",
-   "cell": "high_dist",
-   "distance": 4.756173147567811,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "9363738e-6ffb-5119-be26-7626d59de5de",
+   "cell": "high_disagree_low_dist",
+   "distance": 2.422770440688882,
+   "disagreement": 0.16666666666666674,
+   "sampling_weight": 5.533333333333333
   },
   {
-   "pid": "ace17bbb-120c-555c-861f-7d98ac4ee649",
-   "cell": "high_dist",
-   "distance": 5.279757277280496,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "7255a6dd-a0d0-52b4-b3cf-b6315b704cec",
+   "cell": "high_disagree_low_dist",
+   "distance": 1.7216451992041473,
+   "disagreement": 0.16666666666666663,
+   "sampling_weight": 5.533333333333333
   },
   {
-   "pid": "2507298e-b0e9-52be-8b15-391091db170f",
-   "cell": "high_dist",
-   "distance": 6.206209513769054,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "82d11280-bebf-5c86-a5f2-6b22d21eab54",
+   "cell": "high_disagree_low_dist",
+   "distance": 3.1466579644909127,
+   "disagreement": 0.16666666666666669,
+   "sampling_weight": 5.533333333333333
   },
   {
-   "pid": "5313598a-039e-5e5f-887d-a0265b2008f0",
-   "cell": "high_dist",
-   "distance": 4.105397079896759,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "b2aff1c0-bb5a-51a2-b58b-64952d833d51",
+   "cell": "high_disagree_low_dist",
+   "distance": 2.092077271317129,
+   "disagreement": 0.16666666666666674,
+   "sampling_weight": 5.533333333333333
   },
   {
-   "pid": "43eca826-6afc-5ca2-9a2f-b8ba18f5babb",
-   "cell": "high_dist",
-   "distance": 4.007943534729662,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "a804b3cf-7785-56f5-a8da-6834a995ef0d",
+   "cell": "high_disagree_low_dist",
+   "distance": 1.9679841984857367,
+   "disagreement": 0.3333333333333333,
+   "sampling_weight": 5.533333333333333
   },
   {
-   "pid": "27230ceb-2680-5d35-840b-5a37fdf7b68e",
-   "cell": "high_dist",
-   "distance": 3.666200909753914,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "02451869-4588-5b04-b704-9a6e82e88432",
+   "cell": "high_disagree_low_dist",
+   "distance": 3.1439890114751603,
+   "disagreement": 0.16666666666666663,
+   "sampling_weight": 5.533333333333333
   },
   {
-   "pid": "841c3010-cf89-52db-a392-5b4a695f35e8",
-   "cell": "high_dist",
-   "distance": 6.654286059444852,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "ffcc4f60-65fb-5b1b-9250-9bb15af7581e",
+   "cell": "high_disagree_low_dist",
+   "distance": 2.9908893509469268,
+   "disagreement": 0.3333333333333333,
+   "sampling_weight": 5.533333333333333
   },
   {
-   "pid": "056c0641-f071-502b-83a1-160910e38e56",
-   "cell": "high_dist",
-   "distance": 4.26455357265554,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "6116ad73-abce-5fae-b955-ccd02c59c201",
+   "cell": "high_disagree_low_dist",
+   "distance": 2.510886032176138,
+   "disagreement": 0.16666666666666669,
+   "sampling_weight": 5.533333333333333
+  },
+  {
+   "pid": "82932495-6963-5762-b8e3-2fd893526771",
+   "cell": "high_disagree_low_dist",
+   "distance": 3.1604558965358023,
+   "disagreement": 0.33333333333333337,
+   "sampling_weight": 5.533333333333333
+  },
+  {
+   "pid": "51141a71-2256-5ce6-bc5c-c1b740abfef8",
+   "cell": "high_disagree_low_dist",
+   "distance": 1.691864125129304,
+   "disagreement": 0.6666666666666667,
+   "sampling_weight": 5.533333333333333
+  },
+  {
+   "pid": "b18bb85a-01bf-5cb1-b116-a557b019a39c",
+   "cell": "high_disagree_high_dist",
+   "distance": 4.144280145426907,
+   "disagreement": 0.33333333333333337,
+   "sampling_weight": 4.666666666666667
+  },
+  {
+   "pid": "7f319afa-f8cf-50be-8255-6d281ce5b370",
+   "cell": "high_disagree_high_dist",
+   "distance": 3.60447884694794,
+   "disagreement": 0.33333333333333337,
+   "sampling_weight": 4.666666666666667
   },
   {
    "pid": "868731ab-efd7-5a0e-9a45-c0fd3eca6997",
-   "cell": "high_dist",
-   "distance": 4.45342600000717,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "cell": "high_disagree_high_dist",
+   "distance": 3.495970341386817,
+   "disagreement": 0.16666666666666669,
+   "sampling_weight": 4.666666666666667
   },
   {
-   "pid": "430b7f05-2233-54de-b22e-084e1af45ebb",
-   "cell": "high_dist",
-   "distance": 3.728000104681985,
-   "disagreement": null,
-   "sampling_weight": 8.333333333333334
+   "pid": "ace48b2a-3b9f-50a0-8d3c-b038e3468c4a",
+   "cell": "high_disagree_high_dist",
+   "distance": 4.754736776425398,
+   "disagreement": 0.16666666666666674,
+   "sampling_weight": 4.666666666666667
+  },
+  {
+   "pid": "7b91a984-c66d-599d-93df-24a992814c16",
+   "cell": "high_disagree_high_dist",
+   "distance": 3.8615292137477204,
+   "disagreement": 0.16666666666666663,
+   "sampling_weight": 4.666666666666667
+  },
+  {
+   "pid": "0fee8548-e44a-57af-a28e-1c6726997722",
+   "cell": "high_disagree_high_dist",
+   "distance": 4.317128897004715,
+   "disagreement": 0.16666666666666666,
+   "sampling_weight": 4.666666666666667
+  },
+  {
+   "pid": "a134a489-2b94-5195-ace8-1aff0c6f4717",
+   "cell": "high_disagree_high_dist",
+   "distance": 4.557072877165409,
+   "disagreement": 0.16666666666666674,
+   "sampling_weight": 4.666666666666667
+  },
+  {
+   "pid": "b1e93da3-67a8-5ea3-892e-15d4a960458b",
+   "cell": "high_disagree_high_dist",
+   "distance": 3.4861035310924957,
+   "disagreement": 0.5,
+   "sampling_weight": 4.666666666666667
+  },
+  {
+   "pid": "684b8f05-d8d8-5a6f-971b-6f682688439d",
+   "cell": "high_disagree_high_dist",
+   "distance": 3.430879723549033,
+   "disagreement": 0.5,
+   "sampling_weight": 4.666666666666667
+  },
+  {
+   "pid": "5f3a5be7-46d9-55c1-8a29-b0ecc3844b94",
+   "cell": "high_disagree_high_dist",
+   "distance": 4.553378357216426,
+   "disagreement": 0.16666666666666669,
+   "sampling_weight": 4.666666666666667
+  },
+  {
+   "pid": "583df814-82ed-5e3a-9fcb-b92f606752e6",
+   "cell": "high_disagree_high_dist",
+   "distance": 3.75291379657743,
+   "disagreement": 0.16666666666666674,
+   "sampling_weight": 4.666666666666667
+  },
+  {
+   "pid": "47e14a9d-a1a4-51cb-a560-596bc26671f2",
+   "cell": "high_disagree_high_dist",
+   "distance": 4.887845450783629,
+   "disagreement": 0.16666666666666669,
+   "sampling_weight": 4.666666666666667
+  },
+  {
+   "pid": "69270abe-288e-5f9e-ab10-948c91f38865",
+   "cell": "high_disagree_high_dist",
+   "distance": 4.864279512901667,
+   "disagreement": 0.16666666666666669,
+   "sampling_weight": 4.666666666666667
+  },
+  {
+   "pid": "3d5d1c8d-5c14-5080-878c-b3edec82d4b5",
+   "cell": "high_disagree_high_dist",
+   "distance": 5.473860613978078,
+   "disagreement": 0.33333333333333337,
+   "sampling_weight": 4.666666666666667
+  },
+  {
+   "pid": "71337cb3-ee51-50b3-8358-fe73f550b088",
+   "cell": "high_disagree_high_dist",
+   "distance": 3.637853063203286,
+   "disagreement": 0.3333333333333333,
+   "sampling_weight": 4.666666666666667
   }
  ],
  "variance": {
@@ -234,19 +448,19 @@
   "pairs_per_rater": 6
  },
  "power": {
-  "eff0.03_p40_r8": 0.506,
-  "eff0.03_p40_r12": 0.674,
-  "eff0.03_p60_r8": 0.6886666666666666,
-  "eff0.03_p60_r12": 0.858,
-  "eff0.03_p100_r8": 0.8766666666666667,
-  "eff0.03_p100_r12": 0.9706666666666667,
-  "eff0.05_p40_r8": 0.912,
-  "eff0.05_p40_r12": 0.982,
-  "eff0.05_p60_r8": 0.9846666666666667,
-  "eff0.05_p60_r12": 0.9993333333333333,
-  "eff0.05_p100_r8": 0.9986666666666667,
+  "eff0.03_p40_r8": 0.54,
+  "eff0.03_p40_r12": 0.7175,
+  "eff0.03_p60_r8": 0.6891666666666667,
+  "eff0.03_p60_r12": 0.8341666666666666,
+  "eff0.03_p100_r8": 0.8833333333333333,
+  "eff0.03_p100_r12": 0.9733333333333334,
+  "eff0.05_p40_r8": 0.9075,
+  "eff0.05_p40_r12": 0.9808333333333333,
+  "eff0.05_p60_r8": 0.9816666666666667,
+  "eff0.05_p60_r12": 0.9991666666666666,
+  "eff0.05_p100_r8": 1.0,
   "eff0.05_p100_r12": 1.0,
-  "eff0.08_p40_r8": 0.9993333333333333,
+  "eff0.08_p40_r8": 1.0,
   "eff0.08_p40_r12": 1.0,
   "eff0.08_p60_r8": 1.0,
   "eff0.08_p60_r12": 1.0,
@@ -259,6 +473,6 @@
   "eff0.16_p100_r8": 1.0,
   "eff0.16_p100_r12": 1.0
  },
- "verdict": "60 prompts x 8 raters detects a transport effect of +0.05 at 80% power, clustering on prompt. r12's observed drop is 0.16, which is detectable at every cell in this grid -- so the binding constraint on the human experiment is NOT statistical power. It is the sampling frame: with equal cells and weights, 30 prompts give both a population estimate and an anomaly-subset estimate from one collection, and without them an anomaly-selected sample would return a transport number that is really a number about the strangest prompts.",
+ "verdict": "60 prompts x 8 raters detects a transport effect of +0.05 at 80% power, clustering on prompt. r12's observed drop is 0.16, which is detectable at every cell in this grid -- so the binding constraint on the human experiment is NOT statistical power. It is the sampling frame: with equal cells and weights, 60 prompts give both a population estimate and an anomaly-subset estimate from one collection, and without them an anomaly-selected sample would return a transport number that is really a number about the strangest prompts.",
  "note": "Power is clustered on PROMPT, not binomial on pairs: six comparisons from one rater's ranking of four responses are one object, and raters within a prompt share its difficulty. Surface distance only; representation distance from three backbones is G33 and is deliberately not done here."
 }
