@@ -49,6 +49,46 @@ Neither endpoint is clean — the far donor is adversarially selected and may si
 judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so any
 single figure must name its floor.**
 
+### The direction transfers across people — so it is not the raters' own rankings coming back
+
+The sharpest of the three live worlds was **same-sample target leakage**: the ratings that
+build the weights and the rankings being predicted come from the *same people on the same
+prompt*, so `ranking → polarity → rubric score → predicts ranking` is a closed loop.
+
+[r34](rounds/r34_global_rater_crossfit) breaks the loop. Annotators are split into 5 global
+folds — a person belongs to exactly one fold for the whole run, never re-randomised per
+prompt. Weights come from **train** raters; the evaluation target is each **test** rater's
+*individual* ranking, never an aggregate that would carry their own choices back in.
+
+| arm | weights from | accuracy |
+|---|---|---:|
+| attribute-only | none (direction-free) | 0.5834 |
+| **cross-fit sign** | **raters disjoint from the target** | **0.6419** |
+| same-sample sign | everyone, incl. the target rater | 0.6465 |
+| leave-one-rater-out sign | everyone except the target rater | 0.6414 |
+| random sign *(null)* | signs shuffled, ratio preserved | 0.5687 |
+| donor-prompt sign *(null)* | another prompt's signs | 0.5533 |
+
+```
+D_population  crossfit − attribute   +0.0578 [+0.0490, +0.0671]
+D_same        same     − attribute   +0.0631 [+0.0542, +0.0730]
+D_leakage     same     − crossfit    +0.0053 [+0.0024, +0.0082]    ← 8% of the effect
+```
+
+**Roughly 92% of the polarity gain survives rater-disjoint cross-fitting.** Both nulls sit
+*below* the direction-free arm — shuffled signs −0.018, donor-prompt signs −0.034 — so the
+sign channel is not a free parameter; the specific directions carry the signal.
+
+**So same-sample circularity is not the explanation.** The post-choice direction generalises
+across people, and "leakage" is the wrong word for the bulk of it.
+
+**What this does not settle**, and cannot: *every* rater in this dataset saw the four
+candidates before rating the criteria. So the two remaining worlds — a **stable population
+value direction** versus a direction **constructed by seeing the menu** — are still both live,
+and no split of these annotators can separate them. That needs weights from people who never
+saw a response, which is the cheapest outstanding human experiment and now the highest-value
+one.
+
 ### Post-ranking polarity nearly doubles the concordance — and what that means is unidentified
 
 CoVal's protocol is sequential: participants **ranked the four candidates first**, and only
@@ -309,6 +349,8 @@ Each round is self-contained: its own question, runner, results and README.
 | [r32](rounds/r32_channel_decomposition) | Text or post-choice weights? | post-ranking **polarity nearly doubles** above-chance concordance (9.0 → 17.8 pts, +0.0876 [+0.0784,+0.0976]). Whether that is stable cross-rater value direction, preference construction, or **same-sample leakage is unidentified** — cross-fitting queued |
 
 | [r33](rounds/r33_core_launders_polarity) | What is CoVal-core? | **a transformation, not a subset.** Scored with *no ratings*, core reaches 0.6563 against full's 0.5899 — recovering ~76% of the post-choice polarity channel **in its sentences**. It ships with no weights, so nothing marks that |
+
+| [r34](rounds/r34_global_rater_crossfit) | Is the polarity signal leakage? | **no.** Global rater-disjoint 5-fold cross-fitting keeps **92%** of it: D_population +0.0578 [+0.0490,+0.0671] against a same-sample premium of only **+0.0053**. Both nulls fall below the direction-free arm |
 
 ---
 

@@ -1,0 +1,146 @@
+{
+ "prompts": 968,
+ "raters": 1159,
+ "folds": 5,
+ "seeds": 3,
+ "arms": {
+  "attribute_only": {
+   "mean": 0.5833886987245398,
+   "sd_over_seeds": 0.0,
+   "seeds": 3
+  },
+  "same_sign": {
+   "mean": 0.6465241572649763,
+   "sd_over_seeds": 0.0,
+   "seeds": 3
+  },
+  "same_magnitude": {
+   "mean": 0.6615038308992908,
+   "sd_over_seeds": 0.0,
+   "seeds": 3
+  },
+  "crossfit_sign": {
+   "mean": 0.6418742422991248,
+   "sd_over_seeds": 0.0010462432864959666,
+   "seeds": 3
+  },
+  "crossfit_magnitude": {
+   "mean": 0.6571867247355637,
+   "sd_over_seeds": 0.0006953763909906363,
+   "seeds": 3
+  },
+  "crossfit_visibility": {
+   "mean": 0.6573263968718678,
+   "sd_over_seeds": 0.0007724567498271559,
+   "seeds": 3
+  },
+  "loo_sign": {
+   "mean": 0.6414122619269921,
+   "sd_over_seeds": 0.0010010943905811754,
+   "seeds": 3
+  },
+  "random_sign": {
+   "mean": 0.5687227001206674,
+   "sd_over_seeds": 0.002579050803058219,
+   "seeds": 3
+  },
+  "donor_sign": {
+   "mean": 0.5533033451605562,
+   "sd_over_seeds": 0.0030935917038777887,
+   "seeds": 3
+  }
+ },
+ "estimands": {
+  "D_population (crossfit_sign - attribute_only)": {
+   "delta": 0.057833725853920784,
+   "ci": [
+    0.048980670687232435,
+    0.06712522358032108
+   ],
+   "prompts": 968,
+   "excludes_zero": true
+  },
+  "D_same (same_sign - attribute_only)": {
+   "delta": 0.06313545854043641,
+   "ci": [
+    0.054220270637591106,
+    0.07303843963442781
+   ],
+   "prompts": 968,
+   "excludes_zero": true
+  },
+  "D_leakage (same_sign - crossfit_sign)": {
+   "delta": 0.005301732686515613,
+   "ci": [
+    0.0024153561174480856,
+    0.008192797885842797
+   ],
+   "prompts": 968,
+   "excludes_zero": true
+  },
+  "D_magnitude (crossfit_mag - crossfit_sign)": {
+   "delta": 0.015070375797081537,
+   "ci": [
+    0.011009822732389993,
+    0.019517747966752118
+   ],
+   "prompts": 968,
+   "excludes_zero": true
+  },
+  "null: random_sign - attribute_only": {
+   "delta": -0.017477138908493756,
+   "ci": [
+    -0.02515864947500378,
+    -0.00990376579085931
+   ],
+   "prompts": 968,
+   "excludes_zero": true
+  },
+  "null: donor_sign - attribute_only": {
+   "delta": -0.03351376211525132,
+   "ci": [
+    -0.04374338325326275,
+    -0.02239437354532246
+   ],
+   "prompts": 960,
+   "excludes_zero": true
+  }
+ },
+ "per_seed": [
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6410498087034562,
+   "crossfit_magnitude": 0.6572787264718049,
+   "crossfit_visibility": 0.657471989839098,
+   "loo_sign": 0.6406002391477248,
+   "random_sign": 0.5681157166195484,
+   "donor_sign": 0.5523254308325709
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6433504936154577,
+   "crossfit_magnitude": 0.6579886473593438,
+   "crossfit_visibility": 0.6581912229996748,
+   "loo_sign": 0.6428226384010163,
+   "random_sign": 0.5721408239264077,
+   "donor_sign": 0.5574852993622939
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6412224245784606,
+   "crossfit_magnitude": 0.6562928003755423,
+   "crossfit_visibility": 0.6563159777768305,
+   "loo_sign": 0.640813908232235,
+   "random_sign": 0.5659115598160461,
+   "donor_sign": 0.550099305286804
+  }
+ ],
+ "verdict": "CROSS-RATER DIRECTION SURVIVES. Weights built from raters who never contributed to the rankings being predicted still beat the direction-free arm by +0.0578 [0.048980670687232435, 0.06712522358032108], and the same-sample premium is +0.0053 [0.0024153561174480856, 0.008192797885842797]. The post-choice polarity is therefore not mainly the test rater's own ranking returning through a weight -- its CONTENT transfers across people. 'Leakage' is the wrong word for the bulk of it. Whether the direction was CONSTRUCTED by seeing the menu is a separate question this design cannot reach: every rater here saw the four candidates before rating. That needs response-blind weights from new humans.",
+ "note": "Global fold assignment over annotator ids -- a person is in exactly one fold for the whole run, never re-randomised per prompt. Evaluated against INDIVIDUAL test-rater rankings, never an aggregate, which would carry the test raters' own choices into the target. Shared seed criteria only: a singleton write-in has no weight estimable from anyone but its author."
+}
