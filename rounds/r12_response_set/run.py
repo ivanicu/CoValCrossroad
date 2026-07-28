@@ -113,6 +113,26 @@ def main() -> None:
     torch.cuda.empty_cache()
     print(f"fresh responses (rubric-blind): {len(fresh)}")
 
+    # PERSIST THE GENERATIONS.  Added 2026-07-28.  r12 is the most anomalous
+    # result in this repository -- the attribution does not merely shrink on
+    # unseen responses, it inverts -- and its generations were thrown away,
+    # so nobody could re-analyse them without regenerating a DIFFERENT set at
+    # temperature 0.9.  r09 saved its generations, which is the only reason
+    # r11 could later run the independent-backbone control that retracted it
+    # (entry 4).  The same control was unavailable here purely because of a
+    # missing file write.  An expensive stochastic artifact that is not saved
+    # is a result nobody can attack, including its author.
+    gen_path = Path(_RES) / "a12_fresh_generations.json"
+    Path(_RES).mkdir(parents=True, exist_ok=True)
+    gen_path.write_text(json.dumps(
+        {"n_prompts": n, "per_prompt": a.fresh, "temperature": 0.9, "top_p": 0.95,
+         "max_new_tokens": a.max_new, "generator": MODEL_DIR,
+         "prompt_ids": [it.get("pid") for it in items],
+         "original": [it["orig"] for it in items],
+         "fresh": [fresh[k * a.fresh:(k + 1) * a.fresh] for k in range(n)]},
+        indent=1))
+    print(f"  saved generations -> {gen_path}")
+
     # ---- judge both sets under real and shuffled rubrics --------------
     judge = Judge(MODEL_DIR, batch=32)
 
