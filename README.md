@@ -225,14 +225,15 @@ raters agreed on direction, then compares three ways of scoring:
 | rule, cross-fitted | accuracy | criteria kept |
 |---|---:|---:|
 | attribute-only | 0.5834 | 100% |
-| **forced** — every criterion gets a direction | 0.6419 | 100% |
-| **confident** — abstain unless ≥90% agree | **0.6419** | **45.7%** |
-| **posterior** — weight by `p₊ − p₋` | **0.6503** | 97.4% |
+| **forced** — every criterion gets a direction | 0.6423 | 100% |
+| **confident** — abstain unless ≥90% agree | **0.6406** | **45.8%** |
+| **posterior** — weight by `p₊ − p₋` | **0.6505** | 97.4% |
 
 ```
-confident − forced   −0.0003 [−0.0074, +0.0063]   spans zero
-posterior − forced   +0.0084 [+0.0043, +0.0124]   excludes zero
+confident − forced   −0.0017 [−0.0084, +0.0051]   spans zero
+posterior − forced   +0.0082 [+0.0042, +0.0121]   excludes zero
 ```
+*(10-seed full run.)*
 
 **Abstaining on 54% of the criteria costs nothing measurable.** And down-weighting contested
 criteria instead of forcing them to ±1 *improves* concordance. So the signal lives where
@@ -260,19 +261,20 @@ prompt. Weights come from **train** raters; the evaluation target is each **test
 | arm | weights from | accuracy |
 |---|---|---:|
 | attribute-only | none (direction-free) | 0.5834 |
-| **cross-fit sign** | **raters disjoint from the target** | **0.6419** |
-| same-sample sign | everyone, incl. the target rater | 0.6465 |
-| leave-one-rater-out sign | everyone except the target rater | 0.6414 |
+| **cross-fit sign** | **raters disjoint from the target** | **0.6421** |
+| same-sample sign | everyone, incl. the target rater | 0.6466 |
+| leave-one-rater-out sign | everyone except the target rater | 0.6415 |
 | random sign *(null)* | signs shuffled, ratio preserved | 0.5687 |
-| donor-prompt sign *(null)* | another prompt's signs | 0.5533 |
+| donor-prompt sign *(null)* | another prompt's signs | 0.5556 |
 
 ```
-D_population  crossfit − attribute   +0.0578 [+0.0490, +0.0671]
-D_same        same     − attribute   +0.0631 [+0.0542, +0.0730]
-D_leakage     same     − crossfit    +0.0053 [+0.0024, +0.0082]    ← 8% of the effect
+D_population  crossfit − attribute   +0.0576 [+0.0486, +0.0671]
+D_same        same     − attribute   +0.0631 [+0.0540, +0.0720]
+D_leakage     same     − crossfit    +0.0055 [+0.0025, +0.0085]    ← 9% of the effect
 ```
+*(25-seed full run; fold-seed sd of the arm is 0.0012.)*
 
-**Roughly 92% of the polarity gain survives rater-disjoint cross-fitting.** Both nulls sit
+**Roughly 91% of the polarity gain survives rater-disjoint cross-fitting.** Both nulls sit
 *below* the direction-free arm — shuffled signs −0.018, donor-prompt signs −0.034 — so the
 sign channel is not a free parameter; the specific directions carry the signal.
 
@@ -547,9 +549,9 @@ Each round is self-contained: its own question, runner, results and README.
 
 | [r33](rounds/r33_core_launders_polarity) | What is CoVal-core? | **a transformation, not a subset.** Scored with *no ratings*, core reaches 0.6563 against full's 0.5899 — recovering ~76% of the post-choice polarity channel **in its sentences**. It ships with no weights, so nothing marks that |
 
-| [r34](rounds/r34_global_rater_crossfit) | Is the polarity signal leakage? | **no.** Global rater-disjoint 5-fold cross-fitting keeps **92%** of it: D_population +0.0578 [+0.0490,+0.0671] against a same-sample premium of only **+0.0053**. Both nulls fall below the direction-free arm |
+| [r34](rounds/r34_global_rater_crossfit) | Is the polarity signal leakage? | **no.** Global rater-disjoint 5-fold cross-fitting keeps **91%** of it: D_population +0.0576 [+0.0486,+0.0671] against a same-sample premium of only **+0.0055**. Both nulls fall below the direction-free arm |
 
-| [r35](rounds/r35_polarity_abstention) | Does it depend on forcing a direction? | **no.** Abstaining wherever raters split (dropping **54%** of criteria) moves cross-fitted accuracy by **−0.0003 [−0.0074,+0.0063]**, and down-weighting contested criteria *helps* (+0.0084). The scale's neutral point is used **once in 102,147 ratings** |
+| [r35](rounds/r35_polarity_abstention) | Does it depend on forcing a direction? | **no.** Abstaining wherever raters split (dropping **54%** of criteria) moves cross-fitted accuracy by **−0.0017 [−0.0084,+0.0051]**, and down-weighting contested criteria *helps* (+0.0082). The scale's neutral point is used **once in 102,147 ratings** |
 
 | [r36](rounds/r36_channel_shapley) | Channel split without order dependence | all 16 coalitions. **Magnitude without direction reaches 0.628 vs sign's 0.644** — near-substitutes, so r32's sequential split over-attributed to polarity. φ_S(same)−φ_S(cross) = **+0.0008**, tiny under every ordering. Visibility ≈ 0 |
 
