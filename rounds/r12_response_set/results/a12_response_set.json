@@ -2,9 +2,9 @@
  "prompts": 250,
  "fresh_per_prompt": 4,
  "control_gold_spread_original": 2.0002958420120773,
- "control_gold_spread_fresh": 3.392178134512911,
+ "control_gold_spread_fresh": 3.2948680021045664,
  "control_selfsim_original": 0.1078264420745625,
- "control_selfsim_fresh": 0.08417433210291585,
+ "control_selfsim_fresh": 0.08324119611409779,
  "control_passed": true,
  "sets": {
   "ORIGINAL": {
@@ -18,19 +18,17 @@
    "prompts": 250
   },
   "FRESH": {
-   "real": 0.478,
-   "shuffled": 0.52,
-   "attribution": -0.042,
+   "real": 0.4813333333333334,
+   "shuffled": 0.5393333333333333,
+   "attribution": -0.058,
    "ci": [
-    -0.068,
-    -0.014666666666666666
+    -0.08466666666666667,
+    -0.03133333333333334
    ],
    "prompts": 250
   }
  },
- "drop": 0.144,
- "non_transferring_share": 1.411764705882353,
- "verdict": "NON-TRANSFER ESTABLISHED, MECHANISM RETRACTED. The advantage does not survive on unseen responses (datum stands). The 'response-set-specific' reading is refuted by r13: seed criteria, authored without sight of the four candidates, carry MORE attribution (+0.039, CI excludes 0) than write-ins authored after reading them (+0.029, CI includes 0).",
- "verdict_original": "RESPONSE-SET-SPECIFIC: most of the advantage does not transfer; the value-carrying share of A04's headline shrinks",
- "refuted_by": "rounds/r13_seed_vs_writein"
+ "drop": 0.16,
+ "non_transferring_share": 1.5686274509803924,
+ "verdict": "RESPONSE-SET-SPECIFIC: most of the advantage does not transfer; the value-carrying share of A04's headline shrinks"
 }

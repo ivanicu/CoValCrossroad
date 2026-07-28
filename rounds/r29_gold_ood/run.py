@@ -168,6 +168,20 @@ def main() -> None:
     torch.cuda.empty_cache()
 
     # ---- train one head per fold on that fold's HUMAN pairs -------------
+    # human_pairs() yields RESPONSE LABELS ("A"/"B"/...), not positions into the
+    # response list.  The first version of this round indexed Xo with them
+    # directly and died on `'>=' not supported between str and int`.  It failed
+    # loudly, which was luck: had the labels been integers 0-3 in a different
+    # order from `comp["responses"]`, every pair would have silently referred to
+    # the wrong response and the concordance would have been noise reported as a
+    # measurement.  The order in `orig[k]` is the order of comp["responses"], so
+    # the map is recoverable here rather than needing another regeneration.
+    labpos = {}
+    for k in range(n):
+        comp = joined.get(pids[k])
+        if comp:
+            labpos[k] = {r["response_index"]: i for i, r in enumerate(comp["responses"])}
+
     heads = {}
     for fid in (0, 1):
         D, y = [], []
@@ -177,8 +191,10 @@ def main() -> None:
             comp = joined.get(pids[k])
             if not comp:
                 continue
-            for x, z in human_pairs(comp["metadata"]["assessments"]):
-                if x >= no or z >= no:
+            lp = labpos.get(k, {})
+            for xl, zl in human_pairs(comp["metadata"]["assessments"]):
+                x, z = lp.get(xl), lp.get(zl)
+                if x is None or z is None or x >= no or z >= no:
                     continue
                 D.append(Xo[k * no + x] - Xo[k * no + z]); y.append(1)
                 D.append(Xo[k * no + z] - Xo[k * no + x]); y.append(0)
@@ -212,9 +228,11 @@ def main() -> None:
             comp = joined.get(pids[k])
             if not comp:
                 continue
+            lp = labpos.get(k, {})
             s = Xo[k * no:(k + 1) * no] @ w
-            for x, z in human_pairs(comp["metadata"]["assessments"]):
-                if x >= no or z >= no:
+            for xl, zl in human_pairs(comp["metadata"]["assessments"]):
+                x, z = lp.get(xl), lp.get(zl)
+                if x is None or z is None or x >= no or z >= no:
                     continue
                 tot += 1; ok += int(s[x] > s[z])
         anchor[tag] = ok / tot if tot else float("nan")

@@ -4,7 +4,15 @@
 
 An independent, reproducible audit of [OpenAI's CoVal release](https://huggingface.co/datasets/openai/coval) — a dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to contentious prompts *and wrote down the criteria they judged by*.
 
-The release ships prompts, four candidate responses, crowd-written value rubrics and 18,384 human rankings. It does **not** ship the criterion-by-response satisfaction labels, so its published scoring cannot be reproduced. This repository rebuilds that layer locally, validates it against held-out human preference, and then asks what the rubric is actually made of.
+The release ships prompts, four candidate responses, crowd-written value rubrics and 18,384 human rankings. It does **not** ship the criterion-by-response satisfaction labels, so its published scoring cannot be reproduced. This repository rebuilds that layer locally, measures its concordance with the released rankings, and then asks what the rubric is actually made of.
+
+> **⚠ Scope correction, 2026-07-28.** Earlier versions called the 80,542 pairs "held-out human
+> preference". They are **pairwise decompositions of the same rankings**, on the same prompts and the
+> same four candidates the criteria were written about, by participants who had already ranked them.
+> Holding out individual *pairs* does not break that dependence. OpenAI ran a **separate** validation
+> study with new raters and new completions precisely because the original rankings are unsuitable for
+> out-of-sample rubric validity. So r04 establishes **internal reconstructive concordance on the
+> elicitation manifold** — which is real and useful — and not out-of-sample human preference validity.
 
 ---
 
@@ -12,7 +20,7 @@ The release ships prompts, four candidate responses, crowd-written value rubrics
 
 Grading responses against **an unrelated prompt's rubric** already recovers most of the apparent signal.
 
-| grading the same responses with… | agreement with held-out human rankings |
+| grading the same responses with… | concordance with the original human rankings |
 |---|---:|
 | the real, prompt-specific rubric | **0.686** |
 | an unrelated prompt's rubric | 0.607 |
@@ -84,8 +92,18 @@ rubric-blind responses those authors never saw, the advantage does not merely sh
 | fresh, rubric-blind, unseen | 0.478 | 0.520 | **−0.042** [−0.068, −0.015] |
 
 A discrimination control confirms the fresh set is *more* separable than the released one, so this
-is not an artifact of homogeneous generations. **What the released numbers measure is bounded to the
-response set the eval was validated against.**
+is not an artifact of homogeneous generations. Re-run on an entirely new temperature-0.9 sample the
+inversion replicates at **−0.058 [−0.085, −0.031]**.
+
+> **⚠ What this is NOT.** There are **no human rankings on the fresh responses** and there cannot be
+> without new data collection. The yardstick is a learned preference head fitted on human rankings of
+> the *original* responses. So the measured object is **disagreement between the rubric score and an
+> original-distribution-trained proxy, under a response-distribution shift** — not inversion of human
+> preference. A discrimination control shows the proxy is *more discriminative* on the fresh set; it
+> does **not** show it is *correct* there. Variance is not calibration, and a broken thermometer reads
+> a wide range on unfamiliar objects. The two gold heads correlate only **+0.4775**, which is evidence
+> for this concern rather than a curiosity. **Human rankings on the exact saved fresh responses are the
+> single highest-information next action in this project.**
 
 [r13](rounds/r13_seed_vs_writein) then refuted the obvious explanation. If the criteria simply encoded
 facts about those four candidates, criteria written *before anyone saw them* should carry no advantage.
@@ -102,9 +120,29 @@ to the responses, are as informative as criteria authored after reading them:
 +0.029 and read the write-in interval as spanning zero, making seeds look *better*. Two errors: the
 attribution differenced a positional prefix of one array against a differently-ordered subset
 ([entry 15](RETRACTIONS.md)), and the *difference* was quoted with no interval at all. Repaired, every
-point estimate rose — and the ordering died, because +0.023 spans zero. The surviving claim is one-armed:
-response-blind criteria carry real prompt-specific signal, so response-set knowledge is not the
-mechanism. Which of the two provenances carries *more* is **not established**.
+point estimate rose — and the ordering died, because +0.023 spans zero. Which of the two provenances
+carries *more* is **not established**.
+
+> **⚠ Retracted claim.** This round previously concluded *"response-set knowledge is not the
+> mechanism."* **That is too strong and is withdrawn.** What it rules out is only the narrowest channel:
+> literal memorisation of the final candidate *strings*. At least three others survive, and the release
+> cannot close them:
+>
+> - **post-choice weighting** — seed criteria were *rated* after participants ranked the candidates.
+>   *(Closed in this estimator, and stated because it must be: r13 scores by an unweighted mean of
+>   judge satisfaction and uses no human rating sign or magnitude anywhere.)*
+> - **shared viewpoint generator** — OpenAI produced candidates by first generating varying *viewpoints*
+>   on the ideal answer. Nothing establishes that seed criteria were generated independently of that
+>   scaffold, so a criterion can know the candidate *distribution* without knowing any candidate.
+> - **prompt-construction manifold** — prompts were synthesised for specific Model-Spec tensions and
+>   candidates instantiate them. A seed rubric can be predictive on that designed manifold and not on a
+>   free generation occupying a different one.
+> - **post-choice selection into core** — CoVal-core is an LM-assisted synthesis of *highly rated*
+>   criteria, so which response-blind sentences survive is decided by post-response ratings.
+>
+> The defensible claim is: **multiply-rated seed criteria carry local predictive signal without literal
+> string memorisation. Seed provenance, post-choice weighting, shared viewpoint generation and
+> manifold dependence remain unresolved.**
 
 One further caveat this table cannot show: "seed" is **inferred from rating count**, not read from a
 release field. The bimodality is real — 9,684 criteria carry exactly one score and nothing sits between
@@ -124,12 +162,12 @@ Each round is self-contained: its own question, runner, results and README.
 | round | question | headline |
 |---|---|---|
 | [r01](rounds/r01_rater_structure) | Is disagreement noise or structure? | persists across disjoint prompts, ρ=0.147, z=+16.6 — but see r23/r28: **most of it is rater reliability, not value blocs**, and the "survives removing response style" control was invariant by construction |
-| [r02](rounds/r02_label_and_regime) | Label bias; fatigue or regime change? | label B wins 22.5% vs 25% expected; effort steps −38.6% at task 6 (step R²=0.964 vs trend 0.448) |
+| [r02](rounds/r02_label_and_regime) | Label bias; fatigue or regime change? | label B wins 22.5% vs 25% expected. The task-6 effort drop is **real and within-person** (r31) but its **mechanism is unidentified** — position 6 is the study's minimum-task boundary |
 | [r03](rounds/r03_stated_vs_revealed) | Do stated ideals predict own choices? | no lexical signal: +0.0017 [−0.006, +0.010] over a permuted-identity null |
 | [r04](rounds/r04_rebuild_satisfaction) | Rebuild the withheld layer | 119,868 judgements, validated on 80,542 held-out human pairs at 0.686 |
 | [r05](rounds/r05_value_taxonomy) | What does compression silence? | not a value family — the penalty for being contested is −0.31…−0.46 in *every* family |
 | [r06](rounds/r06_rule_tournament) | Which aggregation rule wins? | four rules span 1.9 points; a consensus rule ties random selection |
-| [r07](rounds/r07_anthropomorphism) | Is the rubric blind to anthropomorphism? | style predicts preference independently of the rubric (t=+4.02); **0.046%** of criteria address it (7 of 15,248, hand-adjudicated — the 0.16% regex count is an upper bound), and those 7 split 4 anti / 3 pro |
+| [r07](rounds/r07_anthropomorphism) | Does the rubric see anthropomorphic style? | a **residual association**, not established blindness: a response-level marker retains t=+4.02 after controlling for rubric score and length, but the effect is carried by `user_directed_warmth`, which is **warmth, not anthropomorphism**. **0.046%** of criteria address the construct (7 of 15,248, hand-adjudicated), split 4 anti / 3 pro. Measures immediate preference, **not impacts** — trust, reliance, disclosure and attachment are untested |
 | [r08](rounds/r08_gold_preference) | A gold model that never sees the rubric | held-out 0.661 vs 0.529 length baseline |
 | [r09](rounds/r09_overoptimization) | Optimize the rubric, watch preference | pre-registered gaming prediction **refuted**: markers fell |
 | [r10](rounds/r10_attribution_robustness) | Is the attribution an artifact? | stable across judge size and template; 23.7% of the gap is topic, not value |
@@ -153,6 +191,9 @@ Each round is self-contained: its own question, runner, results and README.
 | [r26](rounds/r26_sign_no_split) | Are there pairs that reliably *disagree*? | the split-half estimator returned **z = 1.40, 2.26, 2.68 and 10.26 on identical data**, varying only with how many coin flips were averaged. Rebuilt without any split |
 | [r27](rounds/r27_raw_negative_tail) | Anti-correlation on the *raw* scale | the negative tail is real and grows with depth (1.20×→1.43×), and 3.02% of pairs are negative on **every** shared prompt vs a 1.93% null. Its actor control was confounded — under unequal blocs a majority member is "agreeable" by construction |
 | [r28](rounds/r28_multiplicative) | Was the functional form wrong? | **yes.** Agreement is a **product** `ρ_i·ρ_j`, not a sum. Multiplicative fits better with one *fewer* parameter (R² 0.660 vs 0.578); the U-shape four rounds read as bloc evidence was the additive misfit. **A minority bloc survives at +0.0125 [+0.0004,+0.0241] — 4.4× smaller**, replicated on spearman (+0.021) and cosine (+0.012) |
+
+| [r30](rounds/r30_scope_grid) | The headline, with an interval in every cell | replaces three successive point-estimate ranges (43%, 27–67%, 13.6–74%) with a (judge × floor) grid, each cell a ratio-of-means bootstrap over prompts |
+| [r31](rounds/r31_within_person) | Is the task-6 drop composition or behaviour? | **within-person and real** — the same 933 people drop **−179 chars [−196, −162], −53.3%**, against only **6.1% attrition**. But position 6 is the study's minimum-task boundary and, with no session id in the release, is **perfectly confounded with "first task of a later session"** |
 
 ---
 

@@ -5,7 +5,7 @@ it happened, with what did the killing.
 
 The rounds are numbered by when they ran, not by what survived. Read in that order
 the repository looks like a sequence of findings. It is not. **Eleven of these
-thirty-five entries are a later round destroying an earlier round's conclusion, and in
+forty entries are a later round destroying an earlier round's conclusion, and in
 all eleven both rounds are mine.** Nine more were found by outside challengers in
 roughly 45 minutes each, against twenty rounds of self-review that had already passed
 over every one of them.
@@ -15,7 +15,9 @@ This file exists because the git log has all of it and nobody reads a git log.
 **Reading order matters.** Entries 1–12 are one failure mode; 13–26 add a second;
 27–32 add a third that neither of the first two can warn you about; 33–35 are the
 largest untested assumption finally being tested, and the answer widening the headline
-rather than confirming it. Where a later
+rather than confirming it; **36–40 are a fourth, found by reading OpenAI's protocol
+documentation rather than by running anything** — five measurements named for what they
+were meant to capture instead of what they compute. Where a later
 entry supersedes an earlier one the earlier text is **annotated, never rewritten** —
 a ledger that edits its own history is the thing it exists to prevent.
 
@@ -91,6 +93,33 @@ answer.
 | 33 | **"SURVIVES A CHANGE OF FAMILY"** — r22's first verdict, on the project's single largest untested assumption: every judge had been Qwen | Reading which judges it meant. Both were Qwen. `fams = {k.split("-")[0] for k in usable}` turns `"qwen3.5-2b-base"` and `"qwen2.5-3b-instruct"` into two different **strings**, so one lineage counted as two families — and the gate checked `len(usable) >= 2`, never that the families differed | Nothing. Family is now **declared**, never inferred from a nickname, and the gate counts distinct families. A single-family outcome gets its own verdict that says the round *has not tested the thing its title names* |
 | 34 | **`phi-3.5-mini: positive_control_passed = False`**, own accuracy 0.0000 — recorded as a fact about phi | One line in `covalx/judge.py`. `yes_id, no_id = tok.encode(" Yes")[0], tok.encode(" No")[0]` is right for BPE (`[7179]` vs `[2233]`) and wrong for SentencePiece, which emits the whitespace as its own token: phi gives `[29871, 3869]` and `[29871, 1939]`, **so both ids were 29871 and the logit gap was identically zero.** Every score was exactly 0.5, every response tied, accuracy 0.0000 **by construction** | phi passes its control at **0.6410**, level with both Qwen judges. **The zero was not a wrong number, it was a mislabelled one** — and the question it silently closed was the only one this project had never answered. A judge emitting constant output has not failed a control, it has not been measured; r22 now detects sd < 1e-6 and files it as `DEGENERATE_OUTPUT_HARNESS_FAILURE` |
 | 35 | **"27%–67%"** as the prompt-specific share, with the floor named as its only degree of freedom | r22, once phi could be scored. phi's *unrelated-rubric* floor is **0.6053** against Qwen's 0.5759/0.5767 — it earns more generic response quality for free — so the share runs **25.3% (phi) to 53.8% (qwen2.5-3b) at a fixed floor, a 2.13× span**, independent of r19's 2.47× across floors | The direction: attribution is positive on **both** families with intervals clear of zero, so the decomposition is not a Qwen artifact. Not the magnitude. Observed cells span **13.6%** (phi, near floor) to **~74%** (qwen, far floor) — **≈5.4×**. The quantity is a property of *(dataset, floor donor, judge family)*, and the last two are analyst choices the source package never reports |
+
+---
+
+## External methodological review — 2026-07-28, entries 36–40
+
+A reviewer read the whole repository against the CoVal protocol documentation and the
+dataset card, rather than against its own code, and named five claims the evidence does
+not support. **Four of the five were established by reading OpenAI's documentation — not
+by running anything.** That is a different failure surface from every earlier entry here:
+not a bad null or an unmatched pairing, but *not having read the protocol that produced
+the data*.
+
+| # | The claim | What killed or scoped it | What survived |
+|---|---|---|---|
+| 36 | **"validated against 80,542 held-out human pairs"** — r04, and the word "held-out" throughout | The pairs are **pairwise decompositions of the same rankings**: same prompts, same four candidates, and the criteria were written *by those participants after ranking those candidates*. Holding out individual pairs does not break that path. **OpenAI ran a separate validation study with new raters and new completions precisely because the original rankings are unsuitable for out-of-sample rubric validity** | The number, under its real name: **internal reconstructive concordance on the elicitation manifold**, 0.686. That is substantial and it is endogenous. The round's title changes; the measurement does not |
+| 37 | **"the advantage inverts on fresh responses"** — r12, the repository's most-cited anomaly | There are **no human rankings on the fresh responses**, and cannot be without new collection. The yardstick is a head fitted on human rankings of the *original* responses. So the object measured is **rubric-vs-proxy disagreement under response-distribution shift**, not inversion of human preference. The discrimination control shows the proxy is more *discriminative* there — it does not show it is *correct*. **Variance is not calibration** | The datum, replicated on a fresh sample: **−0.058 [−0.085, −0.031]**. And its status as the project's highest-value open question. **Human rankings on the exact saved fresh responses now outrank every remaining computational round** |
+| 38 | **"response-set knowledge is not the mechanism"** — r13 | It rules out only the narrowest channel, literal memorisation of candidate *strings*. Three survive: a **shared viewpoint generator** (candidates were produced from generated viewpoints; nothing establishes the seeds were independent of that scaffold), the **prompt-construction manifold** (prompts synthesised for specific Model-Spec tensions, candidates instantiating them), and **post-choice selection into core** (LM synthesis of *highly rated* criteria, so which response-blind sentences survive is decided post-response) | The narrow claim, plus one channel genuinely closed and now stated: **r13's estimator uses an unweighted mean of judge satisfaction and no human rating sign or magnitude anywhere**, so post-choice *weighting* cannot enter this particular number. The reviewer also **corrected me in my own favour**: the release states write-ins were never shown to others, so singletons *are* write-ins by protocol, and the provenance proxy is firmer than I had scoped it |
+| 39 | **"effort steps −38.6% at task 6 — a regime change"** — r02, defended by r24 | `DATASET_CARD.md:81`: *"a minimum of 5 tasks and up to 20 per session"*. **The breakpoint is the study's continuation boundary.** Positions 1–5 hold everyone who started; 6 holds only those who continued. And r24's null shuffles positions globally, which **destroys the censoring process that creates the confound** — it could not have detected this | [r31](rounds/r31_within_person) runs the repair. On the **933 people present at both**, the paired drop is **−179.2 chars [−196.2, −162.3], −53.3%**, against **6.1% attrition**; between-person is −53.2%, essentially identical. **Composition is excluded.** But the mechanism is not: with sessions of 5 or 15 prompts and **no session identifier or timestamp anywhere in the release** (verified — the only assessment fields are annotator_id, conversation_id, importance, ranking_blocks, representativeness, subjectivity), position 6 is the **first task of a later session** for anyone whose first batch held five. Within-session fatigue and between-session habituation are **not separable from this data** |
+| 40 | **"the rubric is blind to anthropomorphism"** — r07 | Three overreaches at once. **Construct**: the effect is carried by `user_directed_warmth`, and warmth is not anthropomorphism — claims of subjective experience, agency, relational reciprocity and identity confusion are all distinct and untested. **Causal**: a positive residual after controlling for rubric score and length can arise from omitted response quality, safety posture, specificity or discourse structure. **Outcome**: it measures immediate *preference*, not *impacts* — trust calibration, reliance, disclosure, attachment | A **residual association**: a marker retains t=+4.02 after controlling for rubric score and length, while 0.046% of criteria address the construct. Excellent motivation for a randomised warmth × agency-claim experiment. Not its conclusion |
+
+**The pattern in these five.** Every one is the same error in a new place: **a measurement
+was named for the thing it was meant to capture rather than the thing it computes.**
+"Held-out" for pairs that share every causal path with the training data. "Inversion of
+preference" for disagreement with a proxy. "Not the mechanism" for one of four channels.
+"Regime change" for a discontinuity at a design boundary. "Blind to anthropomorphism" for
+a residual on a warmth marker. The instruments were fine. **The names were claims, and
+nobody checked them against the protocol that produced the data.**
 
 **Why entry 31 is the most serious thing in this file.** Every other retraction is a
 statistical error — a wrong null, an unmatched pairing, a missing interval, a check that
