@@ -125,6 +125,22 @@ def main() -> None:
     gen = json.loads(a.generations.read_text())
     orig, fresh = gen["original"], gen["fresh"]
     pids = gen["prompt_ids"]
+
+    # Drop prompts carrying an empty response. Generation at temperature 0.9
+    # produced exactly one empty string in 1,000, and an empty string's
+    # mean-pooled embedding is degenerate -- it is not a response the gold model
+    # can be right or wrong about, so including it would put a coin flip inside a
+    # concordance measure. One prompt out of 250; the count is printed rather
+    # than the exclusion being silent, because a filter is a scope claim.
+    bad = [k for k in range(len(orig))
+           if any(not t.strip() for t in orig[k]) or any(not t.strip() for t in fresh[k])]
+    if bad:
+        print(f"  excluding {len(bad)} prompt(s) with an empty response: "
+              f"{[pids[k] for k in bad][:3]}{'...' if len(bad) > 3 else ''}")
+        keepk = [k for k in range(len(orig)) if k not in set(bad)]
+        orig = [orig[k] for k in keepk]
+        fresh = [fresh[k] for k in keepk]
+        pids = [pids[k] for k in keepk]
     n = len(orig)
 
     joined = {pid: comp for pid, comp, _rub in load_join(a.comparisons, a.rubrics)}
