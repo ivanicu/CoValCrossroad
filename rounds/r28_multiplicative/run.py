@@ -184,6 +184,36 @@ def main() -> None:
     print(f"{'model':26s} {'free params':>12} {'R^2':>8} {'resid sd':>10}")
     print(f"{'additive   a_i + a_j':26s} {len(A)+1:>12} {r2_add:>8.4f} {(y-add_hat).std():>10.4f}")
     print(f"{'multiplicative  c_i c_j':26s} {len(A):>12} {r2_mul:>8.4f} {(y-mult_hat).std():>10.4f}")
+    # APPLICABILITY GUARD, added 2026-07-28 after the metric sweep.
+    # negl1 (negative mean absolute difference) is bounded ABOVE by zero: every
+    # agreement value is <= 0.  A rank-1 product c_i c_j cannot represent a
+    # strictly negative surface without imaginary factors, so ALS diverges and
+    # returns R^2 = -13.14 -- a fit worse than predicting the mean.  The first
+    # version of this block compared that number to the additive R^2 and printed
+    # "the ADDITIVE form fits better", which is true only in the sense that
+    # anything beats a diverged optimiser.  A model comparison between a fit and
+    # a failure is not a model comparison.  Report inapplicability instead: the
+    # multiplicative form is a claim about CORRELATION-type agreement, which is
+    # what classical test theory is about, not about a distance.
+    if r2_mul < 0:
+        print(f"\n  -> MULTIPLICATIVE MODEL INAPPLICABLE to metric '{a.metric}': the "
+              f"rank-1 fit returns R^2={r2_mul:.4f}, i.e. worse than predicting the "
+              f"mean, because this metric is bounded above by zero and a product of "
+              f"real factors cannot represent it. This is NOT evidence for the "
+              f"additive form. Excluded from the comparison.")
+        _RES.mkdir(parents=True, exist_ok=True)
+        a.out.write_text(json.dumps(
+            {"metric": a.metric, "raters": len(keep), "dyads": int(len(y)),
+             "r2_additive": r2_add, "r2_multiplicative": r2_mul,
+             "status": "MULTIPLICATIVE_INAPPLICABLE",
+             "verdict": "INAPPLICABLE: this agreement measure is bounded above by "
+                        "zero, so a rank-1 product cannot represent it and the fit "
+                        "diverges. No comparison between the two forms is available "
+                        "on this metric, and the additive form is not thereby "
+                        "supported."}, indent=1))
+        print(f"\nwrote {a.out}")
+        return
+
     better = r2_mul > r2_add
     print(f"\n  -> the {'MULTIPLICATIVE' if better else 'ADDITIVE'} form fits better, "
           f"with {'FEWER' if better else 'more'} parameters. Classical test theory "

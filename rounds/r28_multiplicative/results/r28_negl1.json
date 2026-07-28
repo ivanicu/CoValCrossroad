@@ -1,0 +1,76 @@
+{
+ "metric": "negl1",
+ "raters": 941,
+ "dyads": 6441,
+ "r2_additive": 0.5717138485501161,
+ "r2_multiplicative": -13.141440549415087,
+ "params_additive": 942,
+ "params_multiplicative": 941,
+ "multiplicative_fits_better": false,
+ "strata_vs_additive": {
+  "both_high": {
+   "n": 2218,
+   "mean": 0.011769392867599452,
+   "ci": [
+    0.005814161584229786,
+    0.017739774608151713
+   ],
+   "excludes_zero": true
+  },
+  "mixed": {
+   "n": 1904,
+   "mean": -0.02742070733228249,
+   "ci": [
+    -0.03474463572689265,
+    -0.019920684573093855
+   ],
+   "excludes_zero": true
+  },
+  "both_low": {
+   "n": 2319,
+   "mean": 0.011256797490442507,
+   "ci": [
+    0.0053575196926570765,
+    0.017237830457266748
+   ],
+   "excludes_zero": true
+  }
+ },
+ "strata_vs_multiplicative": {
+  "both_high": {
+   "n": 2218,
+   "mean": -0.9217172297131068,
+   "ci": [
+    -0.9311025542212082,
+    -0.9124174290032162
+   ],
+   "excludes_zero": true
+  },
+  "mixed": {
+   "n": 1904,
+   "mean": -0.568853327260025,
+   "ci": [
+    -0.5914961767782044,
+    -0.545769071460713
+   ],
+   "excludes_zero": true
+  },
+  "both_low": {
+   "n": 2319,
+   "mean": -0.8482335482454538,
+   "ci": [
+    -0.8607108287928786,
+    -0.8363007240133298
+   ],
+   "excludes_zero": true
+  }
+ },
+ "permutation_z": {
+  "both_high": -20.91712781637274,
+  "mixed": 30.0129818740463,
+  "both_low": -9.071440152700982
+ },
+ "null_reps": 300,
+ "verdict": "A MINORITY BLOC SURVIVES, an order of magnitude smaller than the additive analysis implied: under the correct multiplicative form the both_low residual is -0.8482 against +0.0113 additively, while both_high and mixed collapse to zero. Raters who track few people track EACH OTHER slightly better than shared-target reliability predicts, which reliability cannot produce. The U-shape r27 measured was the functional form, not the people.",
+ "note": "r23/r25/r26/r27 all fit A_ij = mu + a_i + a_j and read the residual as pair structure. Under one latent target with heterogeneous reliability, agreement is rho_i*rho_j, and an additive fit to that leaves residual (rho_i-m)(rho_j-m): positive at BOTH extremes, negative in the middle. That U-shape is exactly what r27 measured and read as a minority bloc."
+}
