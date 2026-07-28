@@ -84,6 +84,38 @@ so its seed-vs-write-in comparison was genuinely a comparison of *text*. That na
 [entry 38](RETRACTIONS.md) withdrew: the polarity channel is closed for r13's specific number,
 and open for the released scoring rule.
 
+### What CoVal-core actually is
+
+The dataset card says core is built by a process that **"first rewrites all rubric items to
+have positive weight"** (`DATASET_CARD.md:74`). That makes core not a *subset* of full but a
+**transformation** — and one of its steps takes the sign a participant supplied *after*
+ranking the candidates and rewrites it into the criterion's wording.
+
+[r33](rounds/r33_core_launders_polarity) pre-registered three predictions and tested them on
+the satisfaction matrices r04 already computed:
+
+| rubric | weighting | accuracy |
+|---|---|---:|
+| full | equal — **no human ratings used** | 0.5899 |
+| **core** | equal — **no human ratings used** | **0.6563** |
+| full | + post-choice sign and magnitude | 0.6831 |
+
+**P1 confirmed: +0.0663 [+0.0574, +0.0754].** Core scored with *no ratings at all* recovers
+about **76%** of the +0.0876 that full only reaches once the post-choice weights are applied.
+
+Two things this settles.
+
+**The released core rubric ships with no weights.** Its items carry only `criterion` — no
+`scores`, no ids — verified field by field. So equal weighting is the *only* rule defined on
+core, and P2 (`core/signed ≈ core/equal`) is **tautological, not evidence**: there is nothing
+to apply.
+
+**Core is therefore the artifact most likely to be misread.** It is short, readable,
+positively phrased, four items — it looks exactly like a hand-written value checklist
+authored independently of any response. It is the one where that reading is least available,
+because the information making it work was produced by people who had already chosen.
+P3 shows it does not recover everything: full-with-weights still leads core by 0.0268.
+
 ### …and the judge moves it as much as the floor does
 
 [r22](rounds/r22_cross_family) grades the same 300 prompts with judges from **two model families**.
@@ -231,6 +263,8 @@ Each round is self-contained: its own question, runner, results and README.
 | [r31](rounds/r31_within_person) | Is the task-6 drop composition or behaviour? | **within-person and real** — the same 933 people drop **−179 chars [−196, −162], −53.3%**, against only **6.1% attrition**. But position 6 is the study's minimum-task boundary and, with no session id in the release, is **perfectly confounded with "first task of a later session"** |
 
 | [r32](rounds/r32_channel_decomposition) | Text or post-choice weights? | **about half and half.** Criterion text alone gives 0.590; the human-rated **sign** adds **+0.0876 [+0.0784,+0.0976]** — more than the whole prompt-specific attribution — and that sign was supplied after the rater had ranked the candidates |
+
+| [r33](rounds/r33_core_launders_polarity) | What is CoVal-core? | **a transformation, not a subset.** Scored with *no ratings*, core reaches 0.6563 against full's 0.5899 — recovering ~76% of the post-choice polarity channel **in its sentences**. It ships with no weights, so nothing marks that |
 
 ---
 

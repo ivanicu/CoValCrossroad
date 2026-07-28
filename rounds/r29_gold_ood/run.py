@@ -146,13 +146,31 @@ def main() -> None:
     joined = {pid: comp for pid, comp, _rub in load_join(a.comparisons, a.rubrics)}
     r08 = _r08()
 
-    # ---- three disjoint folds of PROMPTS --------------------------------
+    # ---- disjoint halves of ANNOTATORS, not of prompts -------------------
+    # The first design split PROMPTS three ways: head A on fold 1, head B on
+    # fold 2, both evaluated on fold 3. That starved both heads. Each saw ~83
+    # prompts where r08 used 968, and the anchor said so immediately -- held-out
+    # human accuracy came back 0.5141 and 0.4823, i.e. AT CHANCE, one of them
+    # below it. Two heads that cannot predict human preference where humans
+    # actually labelled cannot be used to diagnose anything about a distribution
+    # where they did not.
+    #
+    # Splitting by ANNOTATOR instead: both heads see every prompt, but disjoint
+    # halves of the human labels. That isolates exactly what this diagnostic
+    # needs -- how much the verdict depends on WHICH half of the human signal a
+    # head saw -- without halving the prompts either head learns from. Every
+    # prompt is then usable for evaluation, so n goes from 83 to all of them.
     rng = np.random.default_rng(20260728)
-    order = rng.permutation(n)
-    fold = {int(i): (k % 3) for k, i in enumerate(order)}
-    f3 = [k for k in range(n) if fold[k] == 2]
-    print(f"prompts: {n}   folds: {sum(1 for k in fold if fold[k]==0)} / "
-          f"{sum(1 for k in fold if fold[k]==1)} / {len(f3)} (eval)\n")
+    all_ann = sorted({asm.get("annotator_id")
+                      for comp in joined.values()
+                      for asm in comp["metadata"]["assessments"]
+                      if asm.get("annotator_id")})
+    perm = rng.permutation(len(all_ann))
+    side = {all_ann[i]: int(perm[j] % 2) for j, i in enumerate(range(len(all_ann)))}
+    f3 = list(range(n))
+    print(f"prompts: {n}   annotators: {len(all_ann):,} split "
+          f"{sum(1 for v in side.values() if v==0)} / "
+          f"{sum(1 for v in side.values() if v==1)}   evaluated on all {n} prompts\n")
 
     # ---- embed every response once --------------------------------------
     flat_o = [t for k in range(n) for t in orig[k]]
@@ -186,13 +204,15 @@ def main() -> None:
     for fid in (0, 1):
         D, y = [], []
         for k in range(n):
-            if fold[k] != fid:
-                continue
             comp = joined.get(pids[k])
             if not comp:
                 continue
             lp = labpos.get(k, {})
-            for xl, zl in human_pairs(comp["metadata"]["assessments"]):
+            mine = [asm for asm in comp["metadata"]["assessments"]
+                    if side.get(asm.get("annotator_id")) == fid]
+            if not mine:
+                continue
+            for xl, zl in human_pairs(mine):
                 x, z = lp.get(xl), lp.get(zl)
                 if x is None or z is None or x >= no or z >= no:
                     continue
@@ -248,9 +268,25 @@ def main() -> None:
 
     drop = rows["ORIGINAL"]["concordance"] - rows["FRESH"]["concordance"]
     fresh_near_chance = rows["FRESH"]["ci"][1] < 0.60
+    # THE ANCHOR GATES EVERYTHING BELOW IT. The first version computed this
+    # number, printed it, and then wrote a verdict that never consulted it --
+    # the third time in one day a conclusion string outranked its own control.
+    # If the heads cannot beat chance on ORIGINAL responses, where humans DID
+    # label, then their agreement on FRESH responses is two broken instruments
+    # concurring and says nothing about the gold's transportability.
+    anchor_ok = min(anchor.values()) > 0.55
     print(f"  concordance drop ORIGINAL -> FRESH: {drop:+.4f}")
 
     verdict = (
+        f"UNVERIFIED -- THE DIAGNOSTIC IS UNFIT. Held-out human accuracy of the two "
+        f"heads on ORIGINAL responses is {anchor['head_A']:.4f} and "
+        f"{anchor['head_B']:.4f}, at or below chance, so neither head predicts human "
+        "preference even where humans labelled. Their concordance on the fresh set is "
+        "therefore two uninformative scorers agreeing, and says nothing about whether "
+        "the gold transports. This is NOT evidence that the gold is fine off "
+        "distribution, and it is NOT evidence that it is broken -- it is an instrument "
+        "that failed its positive control, which is silence, not an acquittal."
+        if not anchor_ok else
         "GOLD IS OOD ON FRESH: two heads fitted on disjoint halves of the same human "
         f"signal agree at {rows['ORIGINAL']['concordance']:.3f} on released responses and "
         f"{rows['FRESH']['concordance']:.3f} on generated ones, the latter near chance. "

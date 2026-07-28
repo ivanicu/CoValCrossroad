@@ -1,0 +1,92 @@
+{
+ "negative_share": {
+  "full": 0.24832948153403686,
+  "core": NaN
+ },
+ "grid": {
+  "full": {
+   "equal": {
+    "accuracy": 0.5899092679784564,
+    "ci": [
+     0.5783055027787228,
+     0.6007672858408993
+    ],
+    "prompts": 968
+   },
+   "sign": {
+    "accuracy": 0.6775467365253874,
+    "ci": [
+     0.6681175139267218,
+     0.6869496240563358
+    ],
+    "prompts": 968
+   },
+   "signed_magnitude": {
+    "accuracy": 0.6830826685074977,
+    "ci": [
+     0.6740119871446618,
+     0.6919063531879951
+    ],
+    "prompts": 968
+   }
+  },
+  "core": {
+   "equal": {
+    "accuracy": 0.656254647418647,
+    "ci": [
+     0.6465298726138838,
+     0.6659352572891636
+    ],
+    "prompts": 968
+   },
+   "sign": {
+    "accuracy": 0.656254647418647,
+    "ci": [
+     0.6464062608288436,
+     0.665944954665505
+    ],
+    "prompts": 968
+   },
+   "signed_magnitude": {
+    "accuracy": 0.656254647418647,
+    "ci": [
+     0.6463325184601193,
+     0.6657428281094898
+    ],
+    "prompts": 968
+   }
+  }
+ },
+ "predictions": {
+  "P1 core/equal >> full/equal": {
+   "delta": 0.06634537944019049,
+   "ci": [
+    0.057427676820162143,
+    0.07544362815027902
+   ],
+   "n": 968,
+   "excludes_zero": true
+  },
+  "P2 core/signed ~ core/equal": {
+   "delta": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "n": 968,
+   "excludes_zero": false
+  },
+  "P3 full/signed ~ core/equal": {
+   "delta": -0.02682802108885056,
+   "ci": [
+    -0.03362952837377501,
+    -0.020210499501678397
+   ],
+   "n": 968,
+   "excludes_zero": true
+  }
+ },
+ "verdict": "CORE LAUNDERS POST-CHOICE POLARITY INTO TEXT. Scored with EQUAL weights -- no human ratings used at all -- core beats full by +0.0663, and applying ratings to core adds +0.0000 more. The sign a participant supplied AFTER ranking the candidates now lives in the criterion's wording, where nothing marks it as post-choice. Core is the artifact most likely to be read as a clean, response-independent value specification -- readable, positively-phrased, four items -- and it is the one where that reading is least available.",
+ "card_quote": "core 'first rewrites all rubric items to have positive weight' (DATASET_CARD.md:74)",
+ "scope": "Evaluation pairs come from the ORIGINAL rankings: internal concordance on the elicitation manifold (entry 36). Both sources share that limitation; the comparison is between them."
+}
