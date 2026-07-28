@@ -132,13 +132,31 @@ phi clears its own positive control at 0.641, level with the Qwen judges — but
 floor* is 0.605 against their 0.576. It extracts more generic response quality for free, leaving less
 room for prompt-specific content.
 
-**So the share has two independent sources of variation, and they multiply:**
+**So the share has two independent sources of variation, and they multiply.**
+[r30](rounds/r30_scope_grid) puts an interval in every cell — a ratio-of-means bootstrap
+resampling prompts, replacing three successive point-estimate ranges (43%, 27–67%, 13.6–74%)
+that never carried one:
+
+| judge | family | vs nearest-topic floor | vs random floor |
+|---|---|---:|---:|
+| phi-3.5-mini | phi | **13.6%** [3.2%, 23.7%] | 25.3% [13.7%, 37.2%] |
+| qwen2.5-3b | qwen | 30.5% [20.1%, 41.0%] | **53.8%** [42.1%, 65.8%] |
+| qwen3.5-2b | qwen | 36.9% [26.4%, 47.7%] | 50.1% [39.4%, 61.2%] |
 
 ```
-floor choice, fixed judge     2.47×      (r19)
-judge family, fixed floor     2.13×      (r22)
-observed range, both varying  13.6% (phi, near floor) … ~74% (qwen, far floor)   ≈ 5.4×
+point estimates alone      13.6% .. 53.8%   = 3.94×
+including sampling error    3.2% .. 65.8%
 ```
+
+**The second line is the defensible one**, and the grid's true upper corner is not even in
+it: the farthest-donor floor (~74% on Qwen, r19) was never run against phi, and internlm2
+could not be loaded at all. Every cell also shares one 300-prompt panel, so the span is not
+a confidence statement about a population of judges.
+
+**What that means for the headline.** "Less than half of a values evaluation measures values"
+is not a finding about CoVal. The quantity is **unidentified without naming the floor donor,
+the judge family, and the sampling uncertainty** — and no published version of this number,
+including three of my own, named any of them.
 
 **This is the headline's real scope.** "Less than half of a values evaluation measures values" is not
 a property of the dataset. It is a property of *(dataset, floor donor, judge family)*, and the last
