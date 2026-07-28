@@ -49,6 +49,38 @@ Neither endpoint is clean — the far donor is adversarially selected and may si
 judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so any
 single figure must name its floor.**
 
+### The endogeneity map is flat all the way to the edge of what this data can isolate
+
+"Is it leakage?" is one rung of a ladder. What matters for anyone reusing a CoVal rubric is
+how the signal decays as the people supplying the direction are moved further from the people
+whose choices are being predicted. [r37](rounds/r37_leakage_topology) draws the whole ladder,
+reporting `L(k) = A0 − Ak` rather than a single bias number.
+
+| isolation level | weights come from | accuracy | `L(k)` |
+|---|---|---:|---|
+| **A0** same participants | everyone | 0.6465 | — |
+| **A1** leave-one-rater-out | everyone except the target | 0.6460 | +0.0005 [−0.0017, +0.0026] |
+| **A2** held-out rater folds | a disjoint 5-fold | 0.6438 | +0.0027 [−0.0002, +0.0056] |
+| **A3** held-out **country** | every *other* country | 0.6458 | +0.0007 [−0.0033, +0.0048] |
+| A3 held-out AI-usage | other usage bands | 0.6437 | +0.0028 [−0.0009, +0.0066] |
+| A3 held-out age | other age bands | 0.6425 | +0.0040 [−0.0001, +0.0080] |
+
+**Every rung is non-significant.** Where the drop happens is the diagnosis, and there is no
+drop: not individual circularity, not small-sample group fitting, not population dependence.
+Weights estimated in Mexico, the Netherlands or South Africa predict the choices of raters in
+the United States about as well as those raters' own ratings do. Within the isolation this
+release permits, criterion direction behaves like a **population-level property**.
+
+**The rung that matters most cannot be climbed here.** `A4` — weights from people who never
+saw a response — is **undefined, not zero**: nobody in this dataset rated a criterion without
+first seeing four candidates. The map is flat right up to the boundary of what is measurable,
+and the one question left sits on the other side of it.
+
+⚠ 148 of 1,160 criterion raters (12.8%) have no annotator record and therefore no country
+([entry 22](RETRACTIONS.md)). They can supply *weights* but can never be a held-out stratum,
+so A3 covers 87.2% of the pool and the excluded eighth is not random with respect to anything
+known.
+
 ### The channels overlap, so the sequential split was attributing to direction what importance also explains
 
 r32 added channels in one order — text, then sign, then magnitude, then visibility — and
@@ -440,6 +472,8 @@ Each round is self-contained: its own question, runner, results and README.
 | [r35](rounds/r35_polarity_abstention) | Does it depend on forcing a direction? | **no.** Abstaining wherever raters split (dropping **54%** of criteria) moves cross-fitted accuracy by **−0.0003 [−0.0074,+0.0063]**, and down-weighting contested criteria *helps* (+0.0084). The scale's neutral point is used **once in 102,147 ratings** |
 
 | [r36](rounds/r36_channel_shapley) | Channel split without order dependence | all 16 coalitions. **Magnitude without direction reaches 0.628 vs sign's 0.644** — near-substitutes, so r32's sequential split over-attributed to polarity. φ_S(same)−φ_S(cross) = **+0.0008**, tiny under every ordering. Visibility ≈ 0 |
+
+| [r37](rounds/r37_leakage_topology) | How does the signal decay with isolation? | **it doesn't.** A0→A1→A2→A3 all non-significant; cross-**country** weights cost **+0.0007 [−0.0033,+0.0048]**. Not individual, not small-sample, not country/usage/age-conditional. `A4` response-blind is **undefined, not zero** |
 
 ---
 
