@@ -93,7 +93,7 @@ Each round is self-contained: its own question, runner, results and README.
 
 | round | question | headline |
 |---|---|---|
-| [r01](rounds/r01_rater_structure) | Is disagreement noise or structure? | persists across disjoint prompts, ρ=0.147, z=+16.6 — but **[r23](rounds/r23_actor_vs_dyad) shows 77–80% of that is an additive *actor* effect**, and the "survives removing response style" control was invariant by construction |
+| [r01](rounds/r01_rater_structure) | Is disagreement noise or structure? | persists across disjoint prompts, ρ=0.147, z=+16.6 — but see r23/r28: **most of it is rater reliability, not value blocs**, and the "survives removing response style" control was invariant by construction |
 | [r02](rounds/r02_label_and_regime) | Label bias; fatigue or regime change? | label B wins 22.5% vs 25% expected; effort steps −38.6% at task 6 (step R²=0.964 vs trend 0.448) |
 | [r03](rounds/r03_stated_vs_revealed) | Do stated ideals predict own choices? | no lexical signal: +0.0017 [−0.006, +0.010] over a permuted-identity null |
 | [r04](rounds/r04_rebuild_satisfaction) | Rebuild the withheld layer | 119,868 judgements, validated on 80,542 held-out human pairs at 0.686 |
@@ -119,6 +119,10 @@ Each round is self-contained: its own question, runner, results and README.
 | [r23](rounds/r23_actor_vs_dyad) | Is r01's persistence about people or about pairs? | **mostly people**: an additive actor model takes 47.2% of dyad variance and actor-only persistence (0.254) *exceeds* the headline. Pair-specific residual 0.034, z=+4.67 — real, and a fifth of what r01 reported. Its sharper test (reliably-disagreeing pairs) is **null at z=+1.40** |
 | [r24](rounds/r24_regime_receipt) | Receipt for "step R²=0.964 vs trend 0.448" | the number existed in no script. Reproduced, **and given the control it never had**: a null that re-searches the breakpoint on every shuffle reaches only 0.172. Observed 0.964, p=0.0001, breakpoint found at position 6 by search |
 | [r25](rounds/r25_actor_dyad_sweep) | Is r23's residual stable, or a property of Pearson? | 144-cell sweep: 4 agreement metrics × 3 overlap thresholds × 3 shared-item thresholds × style × centring — *running* |
+
+| [r26](rounds/r26_sign_no_split) | Are there pairs that reliably *disagree*? | the split-half estimator returned **z = 1.40, 2.26, 2.68 and 10.26 on identical data**, varying only with how many coin flips were averaged. Rebuilt without any split |
+| [r27](rounds/r27_raw_negative_tail) | Anti-correlation on the *raw* scale | the negative tail is real and grows with depth (1.20×→1.43×), and 3.02% of pairs are negative on **every** shared prompt vs a 1.93% null. Its actor control was confounded — under unequal blocs a majority member is "agreeable" by construction |
+| [r28](rounds/r28_multiplicative) | Was the functional form wrong? | **yes.** Agreement is a **product** `ρ_i·ρ_j`, not a sum. Multiplicative fits better with one *fewer* parameter (R² 0.660 vs 0.578); the U-shape four rounds read as bloc evidence was the additive misfit. **A minority bloc survives at +0.0125 [+0.0004,+0.0241] — 4.4× smaller**, replicated on spearman (+0.021) and cosine (+0.012) |
 
 ---
 
