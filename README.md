@@ -1,0 +1,90 @@
+# CoVal Crossroads
+
+**Does a public-input values rubric actually measure values?**
+
+An independent, reproducible audit of [OpenAI's CoVal release](https://huggingface.co/datasets/openai/coval) — a dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to contentious prompts *and wrote down the criteria they judged by*.
+
+The release ships prompts, four candidate responses, crowd-written value rubrics and 18,384 human rankings. It does **not** ship the criterion-by-response satisfaction labels, so its published scoring cannot be reproduced. This repository rebuilds that layer locally, validates it against held-out human preference, and then asks what the rubric is actually made of.
+
+---
+
+## Headline
+
+Grading responses against **an unrelated prompt's rubric** already recovers most of the apparent signal.
+
+| grading the same responses with… | agreement with held-out human rankings |
+|---|---:|
+| the real, prompt-specific rubric | **0.686** |
+| an unrelated prompt's rubric | 0.607 |
+| response length alone | 0.532 |
+| chance | 0.500 |
+
+Of the 18.6 points above chance, **7.9 are prompt-specific criterion content and 10.7 are generic response quality any rubric earns for free.** A further 23.7% of that prompt-specific part is recovered by a *same-topic* rubric, so the value-carrying share is smaller still.
+
+Stable across three judge/template configurations (0.064 ± 0.017).
+
+---
+
+## Rounds
+
+Each round is self-contained: its own question, runner, results and README.
+
+| round | question | headline |
+|---|---|---|
+| [r01](rounds/r01_rater_structure) | Is disagreement noise or structure? | persists across disjoint prompts, ρ=0.147, survives removing response style, z=+16.6 |
+| [r02](rounds/r02_label_and_regime) | Label bias; fatigue or regime change? | label B wins 22.5% vs 25% expected; effort steps −38.6% at task 6 (step R²=0.964 vs trend 0.448) |
+| [r03](rounds/r03_stated_vs_revealed) | Do stated ideals predict own choices? | no lexical signal: +0.0017 [−0.006, +0.010] over a permuted-identity null |
+| [r04](rounds/r04_rebuild_satisfaction) | Rebuild the withheld layer | 119,868 judgements, validated on 80,542 held-out human pairs at 0.686 |
+| [r05](rounds/r05_value_taxonomy) | What does compression silence? | not a value family — the penalty for being contested is −0.31…−0.46 in *every* family |
+| [r06](rounds/r06_rule_tournament) | Which aggregation rule wins? | four rules span 1.9 points; a consensus rule ties random selection |
+| [r07](rounds/r07_anthropomorphism) | Is the rubric blind to anthropomorphism? | style predicts preference independently of the rubric (t=+4.02); 0.16% of criteria mention it |
+| [r08](rounds/r08_gold_preference) | A gold model that never sees the rubric | held-out 0.661 vs 0.529 length baseline |
+| [r09](rounds/r09_overoptimization) | Optimize the rubric, watch preference | pre-registered gaming prediction **refuted**: markers fell |
+| [r10](rounds/r10_attribution_robustness) | Is the attribution an artifact? | stable across judge size and template; 23.7% of the gap is topic, not value |
+| [r11](rounds/r11_backbone_control) | Was r09 backbone leakage? | **retracts r09's rise** — it vanishes with an independent backbone |
+| [r12](rounds/r12_response_set) | Values, or these four responses? | criteria were written *after* seeing the candidates; tested on unseen responses |
+
+---
+
+## What is unusual here
+
+Every round carries its own null, and several of the killed claims are the author's own:
+
+- a permutation null, a response-style control and a prompt-difficulty control (r01)
+- a step-versus-trend model comparison rather than a fitted slope (r02)
+- a permuted-identity null, not a chance baseline (r03)
+- a shuffled-rubric arm and a length-only arm before any headline (r04)
+- a no-compression control and a random-selection floor (r06)
+- a pre-registered prediction that failed, reported as failed (r09)
+- an independent-backbone control that retracted the author's own result (r11)
+
+`assurance/` freezes eleven claims against stated thresholds. **Three fail.** An assurance package with no failures is not an assurance package.
+
+---
+
+## Reproducing
+
+```bash
+python -m venv .venv && .venv/bin/pip install numpy pandas scipy scikit-learn torch transformers
+python data/fetch.py                            # downloads + verifies the release by SHA-256
+python rounds/r01_rater_structure/run.py        # CPU only
+python rounds/r04_rebuild_satisfaction/run.py   # needs a GPU
+python assurance/manifest.py                    # regenerate the claim table
+```
+
+Judge and gold models are read from `COVALX_MODEL_2B` / `COVALX_MODEL_08B`, defaulting to the Hugging Face ids.
+
+**Measured cost of the full pipeline: 0.36 GPU-hours on one consumer GPU, zero API spend.** No paid inference is used anywhere.
+
+---
+
+## Boundaries
+
+- The judge is a 2B base model. It reaches 0.686 pairwise against the ~0.60 the release authors report, but only 0.61 on picking a single best response against their ~0.75. Both numbers belong in any citation of this work.
+- The gold preference model is learned from the same 18,384 rankings. It is not fresh human data and inherits the label bias and two-regime split found in r02.
+- No new human data was collected. Nothing here establishes what any population would say.
+- `consensus` in r06 is this repository's operationalisation, not OpenAI's LM-assisted synthesis. The official core scores 0.660, level with the best simple rule.
+
+## Attribution
+
+CoVal is © OpenAI, released under CC BY 4.0. This repository redistributes none of it; `data/fetch.py` downloads it and verifies the exact bytes the results were computed from.

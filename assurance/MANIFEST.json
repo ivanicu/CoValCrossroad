@@ -1,0 +1,299 @@
+{
+ "generated_utc": "2026-07-28T03:42:43.949681+00:00",
+ "git": "uncommitted",
+ "python": "3.13.13",
+ "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
+ "seed": 20260727,
+ "inputs": {
+  "data/annotators.jsonl": {
+   "bytes": 16044141,
+   "sha256": "6d99f1ba780da88eafb9f63857d0f88aa0be683c807ff536768409f92bc96057"
+  },
+  "data/comparisons.jsonl": {
+   "bytes": 18403444,
+   "sha256": "e107b7d233baedbc8c1b9c3f9aef9739592b93f6f202b9e4503b9cd3ca00d759"
+  },
+  "data/conversation_rubrics.jsonl": {
+   "bytes": 11418028,
+   "sha256": "1ecc5f54d475f288edf6508ed64b5f89e9b40cbd6555acc107316721714e2979"
+  },
+  "data/merged_comparisons_annotators.jsonl": {
+   "bytes": 26009185,
+   "sha256": "9f3225ef03decd164008bca143053438bef4fa3bb8c032c79ff07429490740b5"
+  }
+ },
+ "code": {
+  "analyses/a01_rater_structure.py": {
+   "bytes": 8267,
+   "sha256": "573b5afab9307ca4c099f2d1bf539afb9230ea5a56f62e9add00d03926c20d9e"
+  },
+  "analyses/a02_position_bias.py": {
+   "bytes": 7054,
+   "sha256": "adad6412cdc0a48207dae61cf0d916a4ed0de4ab835f060a3a4fe22b8e94fe7e"
+  },
+  "analyses/a03_stated_vs_revealed.py": {
+   "bytes": 8288,
+   "sha256": "f4070c421b76e05efe08fd45eba0035612bf63edd2025413f36f4025e18835ba"
+  },
+  "analyses/a04_satisfaction_judge.py": {
+   "bytes": 15828,
+   "sha256": "f4aab973b0db49c8284a416ae8adda2ccc75b92f72e2f0a4c32152b8268a022d"
+  },
+  "analyses/a05_value_taxonomy.py": {
+   "bytes": 9266,
+   "sha256": "14b04993dd31001a7c1e09f4bb3e68337daf1f0f867862b60c442583281db506"
+  },
+  "analyses/a06_rule_tournament.py": {
+   "bytes": 9006,
+   "sha256": "4a57fa8088c9ef41d6de3a594218ac506e7e031e39840442d043d0befa4d4e7d"
+  },
+  "analyses/a07_anthropomorphism.py": {
+   "bytes": 12392,
+   "sha256": "a63083efeb97d8803203d4d9867e16d5cdcf9c110c15b726d25197beb0e15a91"
+  },
+  "analyses/a08_gold_preference.py": {
+   "bytes": 7988,
+   "sha256": "2dbce33e520c721c58caf6b90601c1960b00194bc60dc7b97b0eac1cd0ca46fb"
+  },
+  "analyses/a09_overoptimization.py": {
+   "bytes": 12614,
+   "sha256": "bf7813a1a160a50fd284f32cc446b6d7f9c27cd5e3e9af786d10e6fa72cdbd4b"
+  },
+  "analyses/a10_attribution_robustness.py": {
+   "bytes": 8705,
+   "sha256": "88f22f4681300b5413aa5d0fe3ed017b2693efa378eae39831357bbff39c5913"
+  },
+  "analyses/a11_backbone_control.py": {
+   "bytes": 5628,
+   "sha256": "88d1da50b07caeed4d7437c6588bfeab0adce45c55cc47f5f5c0419bbda70dd3"
+  },
+  "estimand/core.py": {
+   "bytes": 10277,
+   "sha256": "2d765522071bd46c8acbcec4ae97ee015e1feb3e4b15a0b91fe03087f166adaa"
+  },
+  "estimand/machine.py": {
+   "bytes": 9496,
+   "sha256": "371d2a6ea00fbff227c79b69c540e440efaa002135d5466d35e6cccbd22021d0"
+  },
+  "estimand/rules.py": {
+   "bytes": 2786,
+   "sha256": "d5b4237c0ff46ef74aa19fcf44ad9a97f7673254a8a05214157624647439f7f8"
+  },
+  "adapters/coval.py": {
+   "bytes": 8890,
+   "sha256": "d99dbaaa738fe249279e28e28b3a9f137dc4607b8e67fa3c54008480855f3a37"
+  },
+  "assurance/manifest.py": {
+   "bytes": 14662,
+   "sha256": "2f55d23c19a677d99655b8b6669cc646d7e8a1af5c0dd0621c54111435d20914"
+  }
+ },
+ "outputs": {
+  "work/a01_rater_structure.json": {
+   "bytes": 805,
+   "sha256": "2396242617ba57ed95e72f556be9c5eb7f46d48b4dfbdcde025d98d811feafe5"
+  },
+  "work/a02_position_bias.json": {
+   "bytes": 3503,
+   "sha256": "6001246d15be6e4b95765d94ab4c5776501fa3c9a51673f814e637ad4448bd8b"
+  },
+  "work/a03_stated_vs_revealed.json": {
+   "bytes": 531,
+   "sha256": "d2ea1ea373a0f8e9677734e6994872adeb5b824cb76cb4b5ff2a530b83ebc35e"
+  },
+  "work/a04_core.json": {
+   "bytes": 578,
+   "sha256": "4ba0dd48f2254ffc75e9eb5c99d932327e5e0c5d5b52d70182ee556ca86a92e3"
+  },
+  "work/a04_full.json": {
+   "bytes": 578,
+   "sha256": "e3ce28db5fabe1b3efec416243e9cd36c0f68cf26cb8167170617e12a77ad25a"
+  },
+  "work/a04_nulls.json": {
+   "bytes": 564,
+   "sha256": "0c3e5a70b9c06131e4ec8a7b487ee844b41e769619cec2bad0d6885ca4635791"
+  },
+  "work/a04_smoke.json": {
+   "bytes": 406,
+   "sha256": "c795e6edb5738dce5246f3a6be2ede292cb0fec6622ecf756e0ae4775ac7d15e"
+  },
+  "work/a05_t0.20.json": {
+   "bytes": 5773,
+   "sha256": "47605b3c9b195e832de0cb8d2e72c6520abd3a316024a5773746e4590cadf990"
+  },
+  "work/a05_t0.27.json": {
+   "bytes": 5791,
+   "sha256": "f914e94b9a48ee2ad342bb5057441e031ed7dad8c23fa9915e7ef6374ef07534"
+  },
+  "work/a05_t0.34.json": {
+   "bytes": 5767,
+   "sha256": "5326c39d115ba8ebc71102de456d7703f040a3303273350efc9cb17253b2127e"
+  },
+  "work/a05_t0.45.json": {
+   "bytes": 5799,
+   "sha256": "7471e10fc83c517c05b0e2491d240a510d294e5b025271ecb37b1fb91775152b"
+  },
+  "work/a05_t0.60.json": {
+   "bytes": 5785,
+   "sha256": "31aebd084eaaebdd16a6be928eb5dbf30eedf9f1a45a1a6f3bf77d13e0c24dae"
+  },
+  "work/a05_value_taxonomy.json": {
+   "bytes": 5767,
+   "sha256": "5326c39d115ba8ebc71102de456d7703f040a3303273350efc9cb17253b2127e"
+  },
+  "work/a06_dryrun.json": {
+   "bytes": 2059,
+   "sha256": "cbc81fd1383d0590d904b12d5c9093fe8c714a9beee1f16a1e5e206e03e878cf"
+  },
+  "work/a06_rule_tournament.json": {
+   "bytes": 2030,
+   "sha256": "090a9afe53cd344076669559c483954a5211debe0b36258031b09695817e9236"
+  },
+  "work/a07_anthropomorphism.json": {
+   "bytes": 1520,
+   "sha256": "71661b56738b9195991fea7362eb5b0349811c34ed26b6c2f9f44b88b7384bfd"
+  },
+  "work/a08_gold.json": {
+   "bytes": 416,
+   "sha256": "d1d9228f25e110e2977f8e9c1aacf0f08d16553b2e2cc2a4d80c275dba3003a8"
+  },
+  "work/a08_gold_08b.json": {
+   "bytes": 414,
+   "sha256": "2ba9f5c7cc08b75102bfedd7c55f5479a0971dfb2929a9941684a8155e017c63"
+  },
+  "work/a09_overoptimization.json": {
+   "bytes": 1980,
+   "sha256": "8aea9f916278af6099e28e3118d40f6e3e99d265c8cc43529f429cc03fa825a0"
+  },
+  "work/a10_attribution.json": {
+   "bytes": 1085,
+   "sha256": "4ca3981a5579ab0c135102975ec3ec4db90660f154223d78c245751297fc3cf4"
+  },
+  "work/a11_backbone_control.json": {
+   "bytes": 1053,
+   "sha256": "d97f5634a20d883a0a04fbaa7f3b1db64729d8be9f512cffc75a6265775e4974"
+  }
+ },
+ "claims": [
+  {
+   "id": "C1",
+   "statement": "On the CoVal public release, less than half of a rubric's ability to predict held-out human rankings is attributable to prompt-specific criterion content; the remainder is generic response quality obtainable with an unrelated rubric.",
+   "source": "work/a04_full.json",
+   "field": "rubric_contribution",
+   "value": 0.0791015867497703,
+   "test": "< 0.5",
+   "status": "HOLDS"
+  },
+  {
+   "id": "C2",
+   "statement": "The rebuilt criterion-satisfaction layer predicts held-out human pairwise rankings above chance and above a length-only baseline.",
+   "source": "work/a04_full.json",
+   "field": "pairwise_accuracy",
+   "value": 0.6860023341858906,
+   "test": "> 0.55",
+   "status": "HOLDS"
+  },
+  {
+   "id": "C3",
+   "statement": "Among defensible aggregation principles at k=4, out-of-sample predictive accuracy spans less than 3 percentage points, and a lower-quartile consensus rule is indistinguishable from random selection of four shared criteria.",
+   "source": "work/a06_rule_tournament.json",
+   "field": "rules.consensus.accuracy",
+   "value": 0.6387379246267612,
+   "test": "~ 0.64",
+   "status": "HOLDS"
+  },
+  {
+   "id": "C4",
+   "statement": "Cross-prompt persistence of pairwise rater agreement exceeds its permutation null and survives removal of per-rater response style, so disagreement carries a stable person-level component.",
+   "source": "work/a01_rater_structure.json",
+   "field": "observed_style_removed.rho",
+   "value": 0.14706642337979528,
+   "test": "> 0.05",
+   "status": "HOLDS"
+  },
+  {
+   "id": "C5",
+   "statement": "Anthropomorphic style independently predicts human preference after controlling for the rubric score and response length, while fewer than 1 percent of crowd-written criteria address it.",
+   "source": "work/a07_anthropomorphism.json",
+   "field": "rubric_absorption_test.anthro_t",
+   "value": 4.022353963516904,
+   "test": "> 2.0",
+   "status": "HOLDS"
+  },
+  {
+   "id": "C6",
+   "statement": "PRE-REGISTERED AND REFUTED: optimizing selection against the rubric was predicted to raise lexical overlap with the criterion text (the gaming direction implied by C1). Test compares overlap at max strength against overlap at n=1; the prediction requires a rise of at least 0.02.",
+   "source": "work/a09_overoptimization.json",
+   "field": "overlap_rise",
+   "value": -0.022924511162629946,
+   "test": "> 0.02",
+   "status": "FAILS"
+  },
+  {
+   "id": "C7",
+   "statement": "RETRACTED BY C11. Within best-of-16 pressure the gold preference change is distinguishable from zero. This held only with a gold head sharing the judge's backbone; the independent-backbone control (C11) does not reproduce it, so the effect is NOT established in either direction.",
+   "source": "work/a11_backbone_control.json",
+   "field": "gold_08b_independent.delta",
+   "value": 0.04986555007180198,
+   "test": "> 0.3",
+   "status": "FAILS"
+  },
+  {
+   "id": "C11",
+   "statement": "The A09 result is reproduced by a gold preference head built on a DIFFERENT backbone from the judge, ruling out shared-backbone leakage.",
+   "source": "work/a11_backbone_control.json",
+   "field": "independent_reproduces",
+   "value": false,
+   "test": "== True",
+   "status": "FAILS"
+  },
+  {
+   "id": "C9",
+   "statement": "The attribution decomposition is not an artifact of one judge or one prompt template: across three judge/template configurations the prompt-specific contribution stays positive with small spread.",
+   "source": "work/a10_attribution.json",
+   "field": "attribution_mean",
+   "value": 0.06376001104667221,
+   "test": "> 0.03",
+   "status": "HOLDS"
+  },
+  {
+   "id": "C10",
+   "statement": "Part of what the random-donor control attributes to 'prompt-specific value content' is merely topic match: a nearest-topic donor recovers a material share of the gap.",
+   "source": "work/a10_attribution.json",
+   "field": "topic_share_mean",
+   "value": 0.2373658269546561,
+   "test": "> 0.1",
+   "status": "HOLDS"
+  },
+  {
+   "id": "C8",
+   "statement": "The instrument used for C6/C7 discriminates among the candidates it scores, so a null there is a measurement and not silence.",
+   "source": "work/a09_overoptimization.json",
+   "field": "positive_control_passed",
+   "value": true,
+   "test": "== True",
+   "status": "HOLDS"
+  }
+ ],
+ "budget": {
+  "satisfaction_full_gpu_seconds": 1012.6721069812775,
+  "satisfaction_core_gpu_seconds": 269.1180799007416,
+  "total_measured_gpu_hours": 0.356,
+  "gpu": "1x RTX 5080 16GB",
+  "judge_model": "Qwen3.5-2B-Base (local weights, no API)",
+  "api_dollars": 0.0,
+  "note": "no paid API is used; a third party reproducing this needs one consumer GPU and the public CoVal release"
+ },
+ "validity": {
+  "construct": "satisfaction is a model judgement, not a human label; validated only against held-out human RANKINGS",
+  "population": "1,012 English-reading online annotators in 19 countries; not a probability sample of any population",
+  "ecological": "synthetic value-sensitive prompts, not real traffic",
+  "adversarial": "gaming probed by best-of-n selection only; no trained adversary, no human red team"
+ },
+ "invalidated_by": [
+  "any change to the four release files (hashes above)",
+  "a different judge model or prompt template",
+  "a different shuffle scheme for the attribution control",
+  "a different definition of the shared-criterion threshold"
+ ]
+}
