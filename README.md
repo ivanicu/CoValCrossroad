@@ -49,6 +49,41 @@ Neither endpoint is clean — the far donor is adversarially selected and may si
 judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so any
 single figure must name its floor.**
 
+### Half of it is the weights, and the weights are post-choice
+
+CoVal's protocol is sequential: participants **ranked the four candidates first**, and only
+then saw the seeded criteria, rated them, and could write their own. So a criterion's
+*sentence* can predate the candidates while the *sign and magnitude* attached to it cannot.
+
+[r32](rounds/r32_channel_decomposition) holds the judge, the responses and the criterion text
+fixed and varies **only the weighting**, using the satisfaction matrix r04 already computed:
+
+| what the score uses | accuracy | above chance |
+|---|---:|---:|
+| criterion **text** only (equal weights) | 0.5899 | 9.0 pts |
+| + post-choice **polarity** (human-rated sign) | 0.6775 | 17.8 pts |
+| + post-choice **magnitude** (mean rating) | 0.6831 | 18.3 pts |
+| + **visibility** (× n raters) | 0.6697 | *worse* |
+
+**Polarity alone is worth +0.0876 [+0.0784, +0.0976]** — paired on prompts, and **larger than
+the entire prompt-specific attribution of +0.0791** that this repository's headline is about.
+Magnitude adds +0.0055 on top; weighting by how many people saw a criterion actively *hurts*.
+
+So of the 18.3 points above chance in r04's number, **about 9 come from what the criteria say
+and about 9 from ratings supplied after the rater had already chosen.** A rubric score built
+on those weights is not response-blind however early its sentences were written.
+
+Two things follow that were not visible before.
+
+**r04's unweighted alternative is not neutral.** An equal-weight mean *rewards* a response for
+satisfying a criterion the raters marked **negative** — "the model should not moralise" scored
+as something to maximise. That is why the equal arm sits at 0.590.
+
+**r13 was measured at equal weights**, which is the most response-blind configuration available,
+so its seed-vs-write-in comparison was genuinely a comparison of *text*. That narrows what
+[entry 38](RETRACTIONS.md) withdrew: the polarity channel is closed for r13's specific number,
+and open for the released scoring rule.
+
 ### …and the judge moves it as much as the floor does
 
 [r22](rounds/r22_cross_family) grades the same 300 prompts with judges from **two model families**.
@@ -194,6 +229,8 @@ Each round is self-contained: its own question, runner, results and README.
 
 | [r30](rounds/r30_scope_grid) | The headline, with an interval in every cell | replaces three successive point-estimate ranges (43%, 27–67%, 13.6–74%) with a (judge × floor) grid, each cell a ratio-of-means bootstrap over prompts |
 | [r31](rounds/r31_within_person) | Is the task-6 drop composition or behaviour? | **within-person and real** — the same 933 people drop **−179 chars [−196, −162], −53.3%**, against only **6.1% attrition**. But position 6 is the study's minimum-task boundary and, with no session id in the release, is **perfectly confounded with "first task of a later session"** |
+
+| [r32](rounds/r32_channel_decomposition) | Text or post-choice weights? | **about half and half.** Criterion text alone gives 0.590; the human-rated **sign** adds **+0.0876 [+0.0784,+0.0976]** — more than the whole prompt-specific attribution — and that sign was supplied after the rater had ranked the candidates |
 
 ---
 
