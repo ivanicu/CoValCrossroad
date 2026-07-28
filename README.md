@@ -49,6 +49,49 @@ Neither endpoint is clean — the far donor is adversarially selected and may si
 judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so any
 single figure must name its floor.**
 
+### The channels overlap, so the sequential split was attributing to direction what importance also explains
+
+r32 added channels in one order — text, then sign, then magnitude, then visibility — and
+reported the increments. Pairwise accuracy is not additive, so those are the value of adding
+each channel **last** to whatever preceded it, not contributions.
+[r36](rounds/r36_channel_shapley) computes all sixteen coalitions.
+
+The cells r32 never ran are the informative ones:
+
+| coalition | what it is | accuracy |
+|---|---|---:|
+| `T` | criterion text, direction-free | 0.5839 |
+| **`MT`** | **magnitude *without* direction** | **0.6277** |
+| `ST` | sign | 0.6438 |
+| `MST` | sign + magnitude | 0.6594 |
+| `TV` | visibility alone | 0.5839 |
+
+**Weighting by how *strongly* people rated a criterion — ignoring which way — already reaches
+0.628 against direction's 0.644.** The two channels are near-substitutes, so the +0.0876 r32
+attributed to polarity was largely the value of *any* informative weighting arriving first.
+
+Shapley values, averaged over every arrival order:
+
+```
+channel   φ same    φ cross    φ_same − φ_cross
+T         0.1277    0.1264     +0.0013 [-0.0002, +0.0029]   spans zero
+S         0.0214    0.0205     +0.0008 [+0.0000, +0.0017]
+M         0.0128    0.0126     +0.0002 [-0.0009, +0.0015]   spans zero
+V         0.0002    0.0001     +0.0001 [-0.0001, +0.0004]   spans zero
+```
+
+**φ_S(same) − φ_S(cross) = +0.0008** — the plan's target estimand, and it is tiny under every
+ordering, not just the one r34 tested. Visibility is worth essentially nothing (φ_V = 0.0002),
+confirming r32's finding that it *hurts* when applied multiplicatively.
+
+⚠ **One caveat that must travel with these numbers.** φ_T is large partly by construction:
+sign, magnitude and visibility are all unusable without criteria, so `v(C) = 0.5` for every
+coalition lacking T, and the orderings where a weight channel arrives before the text
+contribute nothing to it. **φ_T therefore absorbs the "you need criteria at all" value, and
+"text is six times sign" is not a licensed reading.** What the decomposition does establish is
+order-independence of the same-vs-cross gap, and the near-substitutability of sign and
+magnitude.
+
 ### …and it is not an artifact of forced-choice elicitation either
 
 One measured fact makes that question urgent. Across all **102,147** criterion ratings in the
@@ -395,6 +438,8 @@ Each round is self-contained: its own question, runner, results and README.
 | [r34](rounds/r34_global_rater_crossfit) | Is the polarity signal leakage? | **no.** Global rater-disjoint 5-fold cross-fitting keeps **92%** of it: D_population +0.0578 [+0.0490,+0.0671] against a same-sample premium of only **+0.0053**. Both nulls fall below the direction-free arm |
 
 | [r35](rounds/r35_polarity_abstention) | Does it depend on forcing a direction? | **no.** Abstaining wherever raters split (dropping **54%** of criteria) moves cross-fitted accuracy by **−0.0003 [−0.0074,+0.0063]**, and down-weighting contested criteria *helps* (+0.0084). The scale's neutral point is used **once in 102,147 ratings** |
+
+| [r36](rounds/r36_channel_shapley) | Channel split without order dependence | all 16 coalitions. **Magnitude without direction reaches 0.628 vs sign's 0.644** — near-substitutes, so r32's sequential split over-attributed to polarity. φ_S(same)−φ_S(cross) = **+0.0008**, tiny under every ordering. Visibility ≈ 0 |
 
 ---
 

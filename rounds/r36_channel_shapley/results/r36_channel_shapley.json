@@ -1,0 +1,89 @@
+{
+ "prompts": 968,
+ "coalitions": 16,
+ "folds": 5,
+ "seeds": 2,
+ "coalition_values": {
+  "same_sample": {
+   "empty": 0.5,
+   "T": 0.5833886987245398,
+   "S": 0.5,
+   "M": 0.5,
+   "V": 0.5,
+   "ST": 0.6465241572649763,
+   "MT": 0.6289070629003344,
+   "TV": 0.5835748220352838,
+   "MS": 0.5,
+   "SV": 0.5,
+   "MV": 0.5,
+   "MST": 0.6615038308992908,
+   "STV": 0.6463275672466636,
+   "MTV": 0.6294859141677056,
+   "MSV": 0.5,
+   "MSTV": 0.6621279502758838
+  },
+  "crossfit": {
+   "empty": 0.5,
+   "T": 0.5838838111041472,
+   "S": 0.5,
+   "M": 0.5,
+   "V": 0.5,
+   "ST": 0.6438442493299794,
+   "MT": 0.6276705801399093,
+   "TV": 0.5838891815835761,
+   "MS": 0.5,
+   "SV": 0.5,
+   "MV": 0.5,
+   "MST": 0.6593583286194628,
+   "STV": 0.6436037820542775,
+   "MTV": 0.6279345682941867,
+   "MSV": 0.5,
+   "MSTV": 0.6596023050426987
+  }
+ },
+ "shapley": {
+  "T": {
+   "phi_same": 0.1277394417929604,
+   "phi_cross": 0.12639658653849403,
+   "gap": 0.0013428552544663644,
+   "gap_ci": [
+    -0.00024595706764744265,
+    0.002924072838214767
+   ],
+   "gap_excludes_zero": false
+  },
+  "S": {
+   "phi_same": 0.021367590006275614,
+   "phi_cross": 0.02053049978513527,
+   "gap": 0.0008370902211403485,
+   "gap_ci": [
+    1.3983417084361585e-05,
+    0.0016826316661521785
+   ],
+   "gap_excludes_zero": true
+  },
+  "M": {
+   "phi_same": 0.012817523252515934,
+   "phi_cross": 0.012611817000093282,
+   "gap": 0.00020570625242265217,
+   "gap_ci": [
+    -0.0009425395631403637,
+    0.001463112674864465
+   ],
+   "gap_excludes_zero": false
+  },
+  "V": {
+   "phi_same": 0.00020339522413174107,
+   "phi_cross": 6.34017189759882e-05,
+   "gap": 0.0001399935051557529,
+   "gap_ci": [
+    -8.846251782650757e-05,
+    0.00038230094037944177
+   ],
+   "gap_excludes_zero": false
+  }
+ },
+ "verdict": "SIGN IS THE LARGEST PREDICTIVE CHANNEL AND IT IS MOSTLY NOT SAME-SAMPLE. Averaged over all 16 coalitions rather than one entry order, phi_S = 0.0214 same-sample and 0.0205 cross-fitted; the gap is +0.0008 [1.3983417084361585e-05, 0.0016826316661521785]. r32's +0.0876 was the value of adding sign LAST to text alone -- one path through the lattice, not the channel's average worth. This is a predictive decomposition and not a causal one: no channel here produces any amount of value, and text without direction is not a complete normative statement.",
+ "note": "PREDICTIVE decomposition, not causal. v(C)=0.5 for any coalition without T, because with no criterion information every response scores alike. {T} alone is an attribute diagnostic, not a rubric with weights removed: a criterion sentence carries no normative direction until someone supplies one.",
+ "scope": "Internal concordance on the original candidate set (entry 36); cross-fitted arm evaluates individual test-fold rankings."
+}
