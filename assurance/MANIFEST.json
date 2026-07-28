@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-28T09:32:34.087037+00:00",
- "git": "e66dd19824beb1a24eda5ca47aa74b2cfca5f7ca",
+ "generated_utc": "2026-07-28T18:23:01.927517+00:00",
+ "git": "87ef2ab312967def4f281359596625e5c4548cd7",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -84,12 +84,56 @@
    "sha256": "d6de984fc522ae9fe42a3dab6d734e06b0d9e598306b80b21901d78b674339e9"
   },
   "rounds/r13_seed_vs_writein/run.py": {
-   "bytes": 8216,
-   "sha256": "60d737730208b567d91188b78eb8ffae30b9e2bf74a1e442a8d8e5e7d035e316"
+   "bytes": 11275,
+   "sha256": "0cd9c9b3d5d72f82c8c160d105601cf9b8a3686f94d5a84f15965ee369e6bdff"
+  },
+  "rounds/r14_paraphrase_gauge/run.py": {
+   "bytes": 8561,
+   "sha256": "deaf1d0819b1a061dcaa58c4fd9d5d9d3b77a12b3e03cc5be6673ca17ca74511"
+  },
+  "rounds/r15_indistribution_transfer/run.py": {
+   "bytes": 7634,
+   "sha256": "cd5f0aae3bf8ecb567af49560370452a13675a6f08cc880e63024d810210ed65"
+  },
+  "rounds/r16_minority_regret/run.py": {
+   "bytes": 7847,
+   "sha256": "73197ceb39c53a0fe4018c447a4fa562b64873199ec539ea57b2ca2fe8eb0471"
+  },
+  "rounds/r17_conditional_core/run.py": {
+   "bytes": 8746,
+   "sha256": "edb98e450a50547939e9188cf37888cadbda215184972aee08d8638c78dcc962"
+  },
+  "rounds/r18_routing_difficulty/run.py": {
+   "bytes": 8296,
+   "sha256": "f8c96acbcd3a59bb13619bed00efe653a2bdf235a4bd2071cec7f51310d99c63"
+  },
+  "rounds/r19_floor_choice/run.py": {
+   "bytes": 4643,
+   "sha256": "bfee6d52e1cd57706e27af6270e7124ed950b0b23cba190e8ce438403be78764"
+  },
+  "rounds/r20_paraphrase_transfer/run.py": {
+   "bytes": 10226,
+   "sha256": "8344b416c3fb574ceedacd3408932f039561afeff81d51ef3f885116c76d2c22"
+  },
+  "rounds/r21_donor_distance/run.py": {
+   "bytes": 7209,
+   "sha256": "8fda68cda0471f9c485b4ef183805a7c378f9b9824568e1512a9e3e19212d1bb"
+  },
+  "rounds/r22_cross_family/run.py": {
+   "bytes": 8640,
+   "sha256": "acf3767affd85b4202b1501b0f2375c6dc76561f6dfc4c47fe694cb0b0de9130"
+  },
+  "rounds/r23_actor_vs_dyad/run.py": {
+   "bytes": 10266,
+   "sha256": "878487419b7255735006122497660a9986eb1a29471e3edea080143d0040972c"
+  },
+  "rounds/r24_regime_receipt/run.py": {
+   "bytes": 7647,
+   "sha256": "0fcdd76a38525bd2dd9a976b66d6c508ee14474a28ff9b767623ed8697147ae8"
   },
   "assurance/manifest.py": {
-   "bytes": 17263,
-   "sha256": "6847788d82f6d47d1b499a5d0000d9ab90292467cc95a5b7d0b8a431af84d1ec"
+   "bytes": 20263,
+   "sha256": "061eebbf166ca5ef5ddcf1912ee52e07c0c5e611e40bba105e73ce1b71623d5c"
   },
   "data/fetch.py": {
    "bytes": 2337,
@@ -188,6 +232,46 @@
   "rounds/r13_seed_vs_writein/results/r13_seed_vs_writein.json": {
    "bytes": 588,
    "sha256": "3a0bc9b51f502e68ae1543c80ef852b5def425749683a16542e5bbfbbd8ca560"
+  },
+  "rounds/r14_paraphrase_gauge/results/r14_paraphrase_gauge.json": {
+   "bytes": 492,
+   "sha256": "ec80f63afd9e9bf9e57f239b28b7efc75ba18adb466bd77538f04079ade1927e"
+  },
+  "rounds/r15_indistribution_transfer/results/r15_indistribution_transfer.json": {
+   "bytes": 1814,
+   "sha256": "13654890286d3a2fb3ba0d396265973246f27a2f288ac3577cdd617b23e331ad"
+  },
+  "rounds/r16_minority_regret/results/r16_minority_regret.json": {
+   "bytes": 2714,
+   "sha256": "aeda7f93c48436b3d787c323878577ec0ef8a5c044a3cf2e4687f6f0b95055dc"
+  },
+  "rounds/r17_conditional_core/results/r17_conditional_core.json": {
+   "bytes": 1476,
+   "sha256": "8a30309593522b4193fcc668f060e4cd1a296fd1247bf8fb2707a4f40596aadc"
+  },
+  "rounds/r18_routing_difficulty/results/r18_routing_difficulty.json": {
+   "bytes": 1520,
+   "sha256": "1a7b469b753040a01a4ee7e82804a1087c67bb425c261d6af36b725c66e846e9"
+  },
+  "rounds/r19_floor_choice/results/r19_floor_choice.json": {
+   "bytes": 1396,
+   "sha256": "f01096ee8f2f6a935c64b33b7bce2a7ac898c66f86f0a6fb6e8903564dd32e23"
+  },
+  "rounds/r20_paraphrase_transfer/results/r20_paraphrase_transfer.json": {
+   "bytes": 1367,
+   "sha256": "eab9dc13ee9beb7602da804198b27ec02175a2641942d4c689c562222b200942"
+  },
+  "rounds/r21_donor_distance/results/r21_donor_distance.json": {
+   "bytes": 489,
+   "sha256": "2f7801f648aaabac5ebf6a9abfa42a84b6f03314f1e196ff4b2492752b861d82"
+  },
+  "rounds/r23_actor_vs_dyad/results/r23_actor_vs_dyad.json": {
+   "bytes": 2075,
+   "sha256": "98aac6d914f421b5f53680a8b9a60c41726eb1d693a1926ef5ea2e74b304084b"
+  },
+  "rounds/r24_regime_receipt/results/r24_regime_receipt.json": {
+   "bytes": 1009,
+   "sha256": "64da32a46db4a4d95c5e2f99a89cf4a1b012c7d1802904c2cd340208e2c67487"
   }
  },
  "claims": [
@@ -195,8 +279,8 @@
    "id": "C1",
    "statement": "SCOPED BY C12. On the four RELEASED candidate responses, less than half of a rubric's ability to predict held-out human rankings is attributable to prompt-specific criterion content; the remainder is generic response quality obtainable with an unrelated rubric. C12 shows this prompt-specific component does not extend to responses the criteria were not authored against, so C1 must not be read as a property of the rubric in general.",
    "source": "rounds/r04_rebuild_satisfaction/results/a04_full.json",
-   "field": "rubric_contribution",
-   "value": 0.0791015867497703,
+   "field": "rubric_contribution_share",
+   "value": 0.42527201121420455,
    "test": "< 0.5",
    "status": "HOLDS"
   },
@@ -220,11 +304,11 @@
   },
   {
    "id": "C4",
-   "statement": "Cross-prompt persistence of pairwise rater agreement exceeds its permutation null and survives removal of per-rater response style, so disagreement carries a stable person-level component.",
-   "source": "rounds/r01_rater_structure/results/a01_rater_structure.json",
-   "field": "observed_style_removed.rho",
-   "value": 0.14706642337979528,
-   "test": "> 0.05",
+   "statement": "Beyond an additive per-rater (actor) effect, pairwise rater agreement carries a PAIR-specific component that persists across disjoint prompt sets above a dyad-permutation null. The actor component is the larger of the two; the pair-specific residual is roughly a quarter of the raw persistence r01 reported, and it is the only part that bears on whether a single core rubric is the wrong object.",
+   "source": "rounds/r23_actor_vs_dyad/results/r23_actor_vs_dyad.json",
+   "field": "style_removed.resid_z",
+   "value": 4.667747516877456,
+   "test": "> 2.0",
    "status": "HOLDS"
   },
   {
@@ -234,6 +318,15 @@
    "field": "rubric_absorption_test.anthro_t",
    "value": 4.022353963516904,
    "test": "> 2.0",
+   "status": "HOLDS"
+  },
+  {
+   "id": "C14",
+   "statement": "Fewer than one percent of crowd-written CoVal-full criteria address anthropomorphic self-presentation, under a word-boundary lexicon whose Tier-1 term list is known to over-count: at least 13 of its 24 matches are off-construct or polarity-reversed, so this rate is an upper bound.",
+   "source": "rounds/r07_anthropomorphism/results/a07_anthropomorphism.json",
+   "field": "criteria_tier1_share",
+   "value": 0.0015739769150052466,
+   "test": "< 0.01",
    "status": "HOLDS"
   },
   {

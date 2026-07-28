@@ -25,10 +25,66 @@ This file exists because the git log has all of it and nobody reads a git log.
 | 11 | **"Less than half of a values evaluation measures values"** — reported as 43% | r19. The shuffled arm used a **random** donor, which retains 47–60% of the self signal because a random prompt sometimes shares topic. Against a nearest-topic floor the attribution is 0.047; against the farthest, 0.115. **Span 2.47×** | The bracket, 27%–67%, and the rule that any single figure must name its floor |
 | 12 | **r19's own first bracket**, 29%–63% | r19's proper runner. The inline version averaged in a judge cell whose self accuracy was **0.5405** — barely above chance, therefore not decomposable. Excluding it *widened* the spread to 27%–67% | The direction is worth noting: the reported interval was too **narrow**, and it was narrow because noise had been averaged in as data |
 
+---
+
+## The adversary round — 2026-07-28
+
+Entries 1–12 were found by me. Every one of them.
+
+On 2026-07-28 three independent clean-context challengers were given a frozen clone
+at `87ef2ab`, one lens each — statistics, construct validity, reproducibility — and
+**no sight of [ADVERSARY_BRIEF.md](assurance/ADVERSARY_BRIEF.md)**, which had been
+withheld precisely so that what they found could be scored against what I predicted
+they would find. In roughly 45 minutes each they produced the following. Nine of the
+twelve are theirs.
+
+| # | The claim | What killed or scoped it | What survived |
+|---|---|---|---|
+| 13 | **r01's response-style control**, reported as one of three independent ways the persistence could have died (0.1479 → 0.1471) | My own gauge test, prompted by the reviews. **Pearson correlation is invariant to per-rater affine rescaling**, so z-scoring each rater within a prompt cannot move a Pearson-based agreement — ever. Measured: **131,771 of 131,771 dyads unchanged, median \|Δ\| = 5.55e-17**, machine epsilon | The persistence. But it was defended by **two** controls, not three; the third was algebra wearing the costume of evidence |
+| 14 | **r01's ρ=0.147 as evidence for structured plurality (M2)**, the premise the whole r16/r17/r18 arm is built on | Statistics review, then [r23](rounds/r23_actor_vs_dyad). Agreement persists with **no blocs at all** if raters merely differ in reliability — a careful rater agrees with everyone. That is an additive **actor** effect, and r01's null (shuffling rater IDs) destroys actor and dyad identity together, so it had nowhere to land but "structure". Fitting `A_ij = μ + a_i + a_j` per prompt: the actor model takes **47.2%** of dyad variance and actor-only persistence is **0.254** — *higher than the headline itself* | Only the residual: pair-specific ρ=**0.034**, z=**+4.67** against a dyad-permutation null. Real, and **20–23% of what r01 reported**. The sharper test — an excess of pairs reliably negative in *both* halves, which reliability heterogeneity cannot produce because noise attenuates toward zero and never below it — **returns null at z=+1.40**. So the residual is equally consistent with unequal-size blocs and with a second axis of rater competence. **M2 is weakened, not rescued** |
+| 15 | **r13's attribution, +0.039 seed vs +0.029 write-in** — the numbers that killed entry 6's mechanism | Statistics review; confirmed at the object. `run.py:164` computed `arr[:len(sa)].mean() - sa.mean()`: a **positional prefix** of an all-prompts array minus a differently-ordered subset, printed beside a `real` spanning all 968. The columns do not subtract to the published figure — **0.5835 − 0.5368 = 0.0468, but 0.0391 was reported**. A comment asserted pairing was unavailable; the pids were in hand and simply never recorded | Nothing yet. Rewritten to difference **per prompt** with a paired bootstrap; refit queued. **Entry 6 is provisional until it lands** |
+| 16 | **Assurance claim C1 HOLDS** | Reproducibility review. C1 asserts a **proportion** ("less than half of a rubric's ability") and tested `rubric_contribution` — a raw 0.0791 accuracy-point difference — against 0.5. Pairwise accuracy differences cannot reach 0.5, so **the test returns HOLDS at a true share of 90%** | The claim (42.5% < 50%), not the check. Rewired to test the share. **Second live instance of the exact class entry 5 claimed to have generalised away** |
+| 17 | **That r13 is a CPU round that reproduces as documented** | Reproducibility review, by running it. Without `--with-shuffled` it wrote a 4-line JSON over the 20-line one, **silently deleting the attribution fields entry 6 stands on**, and exited 0 | A guard that refuses to overwrite a richer result, writes the partial elsewhere, and names the missing flag. Attacked before being believed |
+| 18 | **Three README numbers** | Reproducibility review. Span **2.2×** where three other places in the repo say 2.47×; most-dissimilar-donor **0.102**, which is r12's in-distribution figure transplanted (r19 says 0.115); "the official core scores 0.660, **level with** the best simple rule" | The 0.660 is real — but it is r04-core, released rubric, 968 prompts, against r06's k=4 compression of `coval_full` on 945. **Nothing ever measured them against each other.** Two of the three are entry 12 not propagated to the prose |
+| 19 | **"step R²=0.964 vs trend 0.448"** | Both reviews independently: **no script in the repository computed it.** `git log --all -S"0.964"` finds it only in prose. Worse, a free-breakpoint step charges nothing for choosing its breakpoint, so beating a straight line is close to automatic | [r24](rounds/r24_regime_receipt) supplies the receipt and the control it never had: breakpoint found by **search** (independently at position 6), against a null that **re-searches the breakpoint on every shuffle**. Null best-step R² = 0.172; observed 0.964, z=+7.09, **p=0.0001**. Within-segment slopes +6.84 and +1.04. The claim survives, stronger than when it was asserted |
+| 20 | **r07's Tier-1 anthropomorphism rate, 0.16%** | Construct review, by reading all 24 hits. 7–8 of the 9 `personal opinion` matches **instruct the model to avoid** opinions; one `as an ai` hit is literally an anti-anthropomorphism disclosure rule; 4 `persona` hits are content roleplay on request. At most 11/24 are on-construct — true rate **~0.05–0.09%** | The direction, more extremely. **The same lexicon that produced entry 2 failed a second time**, in the same way, after being "fixed" |
+| 21 | **That r16's blocs are a constituency** | Construct review, substituting demographic strata the release actually ships. Gender split regret **1.145**, country split **1.198** — both below r16's **own** 1.15×-random bar of 1.267 | The regret arithmetic and r18's contested-item router (0.6656, reproduced exactly). Not the word "minority", which no test in this repository supports |
+| 22 | **ASSURANCE's population boundary, "1,012 annotators"** | Reproducibility review's from-scratch recount of the raw JSONL. The criterion-scoring layer several rounds run on draws from **1,160** distinct raters, of whom **148 (12.8%) are absent from `annotators.jsonl` entirely** | The comparison rounds, which do use the 1,012. The scope sentence, which named the wrong population for the rubric layer |
+| 23 | **That this file is complete** — "Every claim this repository made and then killed" | Reproducibility review. `r15`'s stored result carries both `conclusion` and `conclusion_original`, the latter headed **SCOPE CORRECTION**, and the commit message names it. `grep -in "r15" RETRACTIONS.md` → **zero hits** | Nothing. A ledger of retractions that omits a retraction is the failure it exists to catch |
+| 24 | **r05's stated justification for using two instruments** — "embedding similarity 0.736 vs 0.520" | Construct review, confirmed by grep and `git log --all -S`. The number appears in **one docstring**, entered in the commit that created the file, and is computed **nowhere** | **UNVERIFIED**, which is not an acquittal. Separately: r05's actual headline *survived* a genuinely different instrument (TF-IDF cosine, family ranking ρ=0.93) — the round I most expected to fall |
+
+### Scoring the pre-registration
+
+The brief bet on which claims would fall. Its own stated purpose: *"if a challenger
+overturns something from the safe column, my sense of my own work is worse calibrated
+than I think — and that is the more useful result."*
+
+| | Predicted | Outcome |
+|---|---|---|
+| **A1** blocs | falls | **fell**, by the exact attack named (demographic strata) |
+| **A2** r05 compression | falls | **held** under a different lexical instrument |
+| **A3** r07 lexicon | falls | **fell**, harder — hits are not merely noisy, several are *reversed* |
+| **A4/A5** judge, gold model | falls | untested — GPU was withheld from the challengers |
+| **B1** r01 persistence | safest | **hit twice**: interpretation overturned, and one of its three controls was algebra |
+| **B2** singleton arithmetic | safe | **exact**, on an independent from-scratch recount |
+| **B3** two-regime step | safe | **UNVERIFIED** — no code existed — then confirmed by r24 |
+| **B4** r19 span 2.47× | safe | **exact**, twice — while the README quoted 2.2× |
+
+**Two of four "safest" claims went down; two of three testable "likely to fall" fell.**
+Calibration on the risky column was good and on the safe column was bad, which is the
+worse of the two ways to be wrong: the claims I defended hardest were the ones I had
+stopped attacking.
+
+---
+
 ## The pattern
 
-Eleven of the twelve are the same failure, and it is the one this repository's North
-Star names:
+Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
+
+### First: a number reported without the scope over which it holds
+
+Eleven of the first twelve, and 14 · 18 · 19 · 20 · 21 · 22 of the second batch. It is
+the failure this repository's North Star names:
 
 > **a number was reported without the scope over which it holds.**
 
@@ -44,13 +100,39 @@ Star names:
 
 The exception is 3 — a prediction that was simply wrong.
 
+### Second: an instrument that could not have returned the other answer
+
+This class does not appear once in entries 1–12. It appears **four times** in 13–24,
+and it is worse, because a claim with a missing scope is at least *measuring* something:
+
+- **a control invariant by construction** (13) — Pearson cannot see a per-rater
+  rescaling, so the control could only ever return "survived"
+- **a check whose threshold is unreachable** (16) — a proportion claim tested as a raw
+  difference against 0.5, on a quantity bounded far below it
+- **a null that shares the observed statistic's selection advantage** (19) — a
+  free-breakpoint step compared against a fixed-form line
+- **a permutation null that destroys two things at once** (14) — r01 shuffled rater
+  IDs, killing actor identity and dyad identity together, so an actor effect had
+  nowhere to land except the "structure" column
+
+The diagnostic is one question, and it costs nothing: **name the world in which this
+check returns the other answer.** If you cannot, you have not built a check. Three of
+these four were invisible to twenty rounds of my own review and took an outsider, or a
+three-line piece of algebra, to see.
+
 ## What this costs and what it buys
 
-Seven of the twelve were caught by a **later round of my own**, which is the only
-reason they are here rather than in the published headline. Two were caught only
-because a control was run that nobody would have asked for: r11's independent
-backbone and r18's contested-item restriction.
+Of the first twelve, **seven were caught by a later round of my own**. Of the next
+twelve, **nine were caught by outsiders in about forty-five minutes each** — against
+roughly twenty rounds of self-review that had already passed over every one of them.
 
-Both of those controls were cheap. Neither was obvious. **The expensive part of this
-project was not any experiment — it was noticing which number had not been asked
-where it stops being true.**
+That ratio is the finding. Not because the challengers were better, but because they
+were **elsewhere**: a reviewer sampled from the process that produced the material can
+only attack what that process already anticipated, which is exactly why those parts
+read as fluent. The three defects I found myself in this round (13, and the design
+weaknesses repaired in r23 and r24) all came *after* reading someone else's attack —
+the outsider did not have to name them, only to point near them.
+
+**The expensive part of this project was never any experiment. It was noticing which
+number had not been asked where it stops being true — and that turned out to be a
+thing I cannot reliably do to my own work.**

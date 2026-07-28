@@ -21,10 +21,10 @@ Grading responses against **an unrelated prompt's rubric** already recovers most
 
 Of the 18.6 points above chance, **7.9 are prompt-specific criterion content and 10.7 are generic response quality any rubric earns for free** — using a randomly chosen prompt as the floor.
 
-**That floor is a choice, and the number moves 2.2× with it.** [r19](rounds/r19_floor_choice)
+**That floor is a choice, and the number moves 2.47× with it.** [r19](rounds/r19_floor_choice)
 reads r10's donors as a decay curve: a random prompt's rubric still retains 47–60% of the signal,
 because a random prompt sometimes shares topic. Grading against a nearest-topic donor instead gives
-attribution 0.047; against the most dissimilar donor, 0.102.
+attribution 0.047; against the most dissimilar donor, 0.115.
 
 Measured on r10's 300-prompt panel, excluding one judge cell whose own accuracy (0.5405) sits too
 close to chance to be decomposed at all:
@@ -158,7 +158,7 @@ Judge and gold models are read from `COVALX_MODEL_2B` / `COVALX_MODEL_08B`, defa
 - The judge is a 2B base model. It reaches 0.686 pairwise against the ~0.60 the release authors report, but only 0.61 on picking a single best response against their ~0.75. Both numbers belong in any citation of this work.
 - The gold preference model is learned from the same 18,384 rankings. It is not fresh human data and inherits the label bias and two-regime split found in r02.
 - No new human data was collected. Nothing here establishes what any population would say.
-- `consensus` in r06 is this repository's operationalisation, not OpenAI's LM-assisted synthesis. The official core scores 0.660, level with the best simple rule.
+- `consensus` in r06 is this repository's operationalisation, not OpenAI's LM-assisted synthesis. The released CoVal-core rubric scores **0.660** ([r04](rounds/r04_rebuild_satisfaction), `a04_core.json`) — but that is **not comparable to r06's 0.6575 arm**: r04-core is the released 3,899-criterion rubric on 968 prompts, r06's arms are k=4 compressions of `coval_full` on 945. Different rubric source, different panel, different compression. An earlier version of this line called them "level"; nothing in this repository has measured them against each other.
 
 ## Attribution
 

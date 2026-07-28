@@ -54,7 +54,7 @@ CLAIMS = [
      "quality obtainable with an unrelated rubric. C12 shows this prompt-specific "
      "component does not extend to responses the criteria were not authored "
      "against, so C1 must not be read as a property of the rubric in general.",
-     "rounds/r04_rebuild_satisfaction/results/a04_full.json", "rubric_contribution", "<", 0.5),
+     "rounds/r04_rebuild_satisfaction/results/a04_full.json", "rubric_contribution_share", "<", 0.5),
 
     ("C2",
      "The rebuilt criterion-satisfaction layer predicts held-out human pairwise "
@@ -68,17 +68,46 @@ CLAIMS = [
      "criteria.",
      "rounds/r06_rule_tournament/results/a06_rule_tournament.json", "rules.consensus.accuracy", "~", 0.64),
 
+    # REWRITTEN 2026-07-28.  The old C4 read: "...exceeds its permutation null
+    # and survives removal of per-rater response style, so disagreement carries
+    # a stable person-level component", tested as r01's style-removed rho > 0.05.
+    # Two defects.  (a) The style-removal clause is unfalsifiable: Pearson
+    # correlation is invariant to per-rater affine rescaling, so that control
+    # returns "survived" on any input (131,771/131,771 dyads unchanged, median
+    # |delta| 5.6e-17).  (b) The tested number conflates an additive ACTOR
+    # effect -- raters differing in reliability, which is compatible with a
+    # single shared target -- with the PAIR-specific structure the pluralism
+    # argument actually needs.  r23 separates them; the actor part is the larger
+    # one.  C4 now asserts and tests only the part that was ever in question.
     ("C4",
-     "Cross-prompt persistence of pairwise rater agreement exceeds its "
-     "permutation null and survives removal of per-rater response style, so "
-     "disagreement carries a stable person-level component.",
-     "rounds/r01_rater_structure/results/a01_rater_structure.json", "observed_style_removed.rho", ">", 0.05),
+     "Beyond an additive per-rater (actor) effect, pairwise rater agreement "
+     "carries a PAIR-specific component that persists across disjoint prompt "
+     "sets above a dyad-permutation null. The actor component is the larger of "
+     "the two; the pair-specific residual is roughly a quarter of the raw "
+     "persistence r01 reported, and it is the only part that bears on whether a "
+     "single core rubric is the wrong object.",
+     "rounds/r23_actor_vs_dyad/results/r23_actor_vs_dyad.json", "style_removed.resid_z", ">", 2.0),
 
     ("C5",
      "Anthropomorphic style independently predicts human preference after "
      "controlling for the rubric score and response length, while fewer than "
      "1 percent of crowd-written criteria address it.",
      "rounds/r07_anthropomorphism/results/a07_anthropomorphism.json", "rubric_absorption_test.anthro_t", ">", 2.0),
+
+    # ADDED 2026-07-28.  C5's sentence makes TWO assertions and its test gated
+    # only the first.  A construct review then read all 24 Tier-1 hits and found
+    # at least 13 off-construct or reversed in polarity -- `personal opinion`
+    # mostly appears in instructions to AVOID opinions, one `as an ai` hit is an
+    # anti-anthropomorphism disclosure rule, and all four `persona` hits are
+    # content roleplay on request.  The rate claim survives either way (both
+    # 0.157% and the ~0.07% floor are under 1%), but it must be gated, not
+    # merely written.
+    ("C14",
+     "Fewer than one percent of crowd-written CoVal-full criteria address "
+     "anthropomorphic self-presentation, under a word-boundary lexicon whose "
+     "Tier-1 term list is known to over-count: at least 13 of its 24 matches are "
+     "off-construct or polarity-reversed, so this rate is an upper bound.",
+     "rounds/r07_anthropomorphism/results/a07_anthropomorphism.json", "criteria_tier1_share", "<", 0.01),
 
     ("C6",
      "PRE-REGISTERED AND REFUTED: optimizing selection against the rubric was "
@@ -143,6 +172,20 @@ def derived(doc, path: str):
             return None
         k = "mk_criterion_lexical_overlap"
         return float(c[-1].get(k, 0.0) - c[0].get(k, 0.0))
+    if path == "rubric_contribution_share":
+        # ADDED 2026-07-28 after an independent reproducibility review.
+        # C1 asserts a PROPORTION ("less than half of a rubric's ability") but
+        # was tested against `rubric_contribution`, a raw accuracy-point
+        # difference of 0.0791, compared to a threshold of 0.5.  Pairwise
+        # accuracy differences on this task cannot approach 0.5, so the test
+        # returned HOLDS for every reachable value of the quantity -- it would
+        # have passed at a true share of 90%.  A check that cannot fail is not
+        # a check.  This is the second live instance of the defect RETRACTIONS
+        # entry 5 claimed to have generalised away.
+        acc, con = doc.get("pairwise_accuracy"), doc.get("rubric_contribution")
+        if acc is None or con is None or acc <= 0.5:
+            return None
+        return float(con) / float(acc - 0.5)
     return None
 
 

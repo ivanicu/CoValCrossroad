@@ -122,7 +122,7 @@ def main() -> None:
         shuf = {}
         for (which, pid, ci, lab), s in zip(meta, sat):
             shuf.setdefault((which, pid), {}).setdefault(lab, []).append(float(s))
-        shuf_acc = {"seed": [], "writein": []}
+        shuf_acc = {"seed": {}, "writein": {}}
         for which in ("seed", "writein"):
             for pid in sub:
                 d0 = shuf.get((which, pid))
@@ -135,50 +135,96 @@ def main() -> None:
                         tot += 1
                         ok += int(score[x] > score[y])
                 if tot:
-                    shuf_acc[which].append(ok / tot)
+                    shuf_acc[which][pid] = ok / tot
         del judge
         torch.cuda.empty_cache()
     else:
-        shuf_acc = {"seed": [], "writein": []}
+        shuf_acc = {"seed": {}, "writein": {}}
 
     out = {}
-    print(f"{'provenance':12s} {'real':>8} {'shuffled':>9} {'attribution':>12} {'95% CI':>22} {'n':>6}")
+    # CORRECTED 2026-07-28 after an independent statistics review.  The previous
+    # version computed `arr[:len(sa)].mean() - sa.mean()`: a POSITIONAL prefix of
+    # the all-prompts array minus the mean of a differently-ordered subset, and
+    # then reported it next to a `real` computed over ALL prompts.  The printed
+    # columns therefore did not subtract to the printed attribution (0.5835 -
+    # 0.5368 = 0.0468, but 0.0391 was published).  A comment asserted that pairing
+    # was unavailable; it was not -- the shuffled arm iterates `sub`, so the pids
+    # were in hand and simply were not recorded.  Both arms are now keyed by pid
+    # and differenced PER PROMPT, and the bootstrap resamples prompts (one unit),
+    # not two independent sets.  This is retraction #1's failure recurring: an
+    # uncertainty compared against a differently-paired uncertainty.
+    print(f"{'provenance':12s} {'real(all)':>9} {'real(pair)':>10} {'shuffled':>9} "
+          f"{'attribution':>12} {'95% CI':>22} {'n':>5}")
     for which in ("seed", "writein"):
-        rows = []
+        real_by_pid = {}
         for pid in prompts:
-            # NOTE: a shuffled rubric must be scored on THIS prompt's responses.
-            # The saved satisfaction matrix only holds (own prompt x own criteria),
-            # so the shuffled arm is unavailable here and is computed in r10/r12.
             r = agree(pid, pid, which)
             if r is not None:
-                rows.append(r)
-        arr = np.array(rows)
+                real_by_pid[pid] = r
+        arr = np.array(list(real_by_pid.values()))
         bs = np.array([arr[rng.integers(0, len(arr), size=len(arr))].mean()
                        for _ in range(a.boot)])
         lo, hi = np.percentile(bs, [2.5, 97.5])
-        sa = np.array(shuf_acc[which]) if shuf_acc[which] else None
-        rec = {"real": float(arr.mean()), "ci": [float(lo), float(hi)],
-               "prompts": int(len(arr))}
-        if sa is not None and len(sa):
-            # paired on prompts is unavailable (different subsets), so compare means
-            attr = float(arr[: len(sa)].mean() - sa.mean())
-            bsd = np.array([arr[rng.integers(0, len(sa), size=len(sa))].mean()
-                            - sa[rng.integers(0, len(sa), size=len(sa))].mean()
+        rec = {"real_all_prompts": float(arr.mean()), "ci": [float(lo), float(hi)],
+               "prompts": int(len(arr)),
+               # deprecated alias: `real` used to mean the all-prompts mean, and
+               # was printed beside a shuffled arm computed on a subset.  Kept so
+               # the overwrite guard below sees no field disappear across the
+               # rename, and so an older reader gets the value it expected.
+               "real": float(arr.mean())}
+        sd = shuf_acc[which]
+        common = sorted(set(real_by_pid) & set(sd))
+        if common:
+            x = np.array([real_by_pid[p] for p in common])
+            y = np.array([sd[p] for p in common])
+            dif = x - y                      # PAIRED on the prompt
+            attr = float(dif.mean())
+            bsd = np.array([dif[rng.integers(0, len(dif), size=len(dif))].mean()
                             for _ in range(a.boot)])
             alo, ahi = np.percentile(bsd, [2.5, 97.5])
-            rec.update({"shuffled": float(sa.mean()), "attribution": attr,
-                        "attribution_ci": [float(alo), float(ahi)]})
-            print(f"{which:12s} {arr.mean():>8.4f} {sa.mean():>9.4f} {attr:>+12.4f} "
-                  f"{f'[{alo:+.4f},{ahi:+.4f}]':>22} {len(sa):>6}")
+            rec.update({"real_paired": float(x.mean()), "shuffled": float(y.mean()),
+                        "attribution": attr, "attribution_ci": [float(alo), float(ahi)],
+                        "paired_prompts": len(common), "paired": True})
+            print(f"{which:12s} {arr.mean():>9.4f} {x.mean():>10.4f} {y.mean():>9.4f} "
+                  f"{attr:>+12.4f} {f'[{alo:+.4f},{ahi:+.4f}]':>22} {len(common):>5}")
         else:
-            print(f"{which:12s} {arr.mean():>8.4f} {'--':>9} {'--':>12} "
-                  f"{f'[{lo:.4f},{hi:.4f}]':>22} {len(arr):>6}")
+            print(f"{which:12s} {arr.mean():>9.4f} {'--':>10} {'--':>9} {'--':>12} "
+                  f"{f'[{lo:.4f},{hi:.4f}]':>22} {len(arr):>5}")
         out[which] = rec
 
-    d = out["writein"]["real"] - out["seed"]["real"]
-    print(f"\n  write-in minus seed: {d:+.4f}")
+    d = out["writein"]["real_all_prompts"] - out["seed"]["real_all_prompts"]
+    print(f"\n  write-in minus seed (real, all prompts): {d:+.4f}")
     out["writein_minus_seed"] = float(d)
+    if out["seed"].get("paired") and out["writein"].get("paired"):
+        gap = out["seed"]["attribution"] - out["writein"]["attribution"]
+        print(f"  seed minus write-in ATTRIBUTION (the load-bearing quantity): {gap:+.4f}")
+        out["attribution_gap_seed_minus_writein"] = float(gap)
     Path(_RES).mkdir(parents=True, exist_ok=True)
+    # GUARD, added 2026-07-28 after an independent reproducibility review ran
+    # this round the way the README documents it -- with no flags -- and watched
+    # it silently replace a 20-line result with a 4-line one, deleting the very
+    # `attribution` fields that RETRACTIONS entry 6 and the r13 headline stand
+    # on.  Without --with-shuffled there is no shuffled arm and no attribution;
+    # that is a legitimate partial run, but it must never be allowed to
+    # overwrite a complete one in place.  A round that destroys its own evidence
+    # when invoked as documented is worse than a round that fails.
+    if a.out.exists():
+        try:
+            prior = json.loads(a.out.read_text())
+        except Exception:
+            prior = {}
+        lost = sorted({k for w in ("seed", "writein")
+                       for k in (prior.get(w) or {})} - {k for w in ("seed", "writein")
+                                                         for k in (out.get(w) or {})})
+        if lost:
+            alt = a.out.with_name(a.out.stem + "_partial.json")
+            alt.write_text(json.dumps(out, indent=1))
+            raise SystemExit(
+                f"REFUSING TO OVERWRITE {a.out}\n"
+                f"  the existing result carries fields this run did not produce: {lost}\n"
+                f"  this run had no shuffled arm -- pass --with-shuffled (needs a GPU and\n"
+                f"  the local judge model) to reproduce the full result.\n"
+                f"  the partial result was written to {alt} instead.")
     a.out.write_text(json.dumps(out, indent=1))
     print(f"wrote {a.out}")
 

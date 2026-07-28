@@ -1,16 +1,17 @@
 # Assurance package
 
-generated 2026-07-28T09:32:34.087037+00:00 · git `e66dd19824be` · seed 20260727
+generated 2026-07-28T18:23:01.927517+00:00 · git `87ef2ab31296` · seed 20260727
 
 ## Claims
 
 | id | status | measured | test | claim |
 |---|---|---:|---|---|
-| C1 | **HOLDS** | 0.0791 | `< 0.5` | SCOPED BY C12. On the four RELEASED candidate responses, less than half of a rubric's ability to predict held-… |
+| C1 | **HOLDS** | 0.4253 | `< 0.5` | SCOPED BY C12. On the four RELEASED candidate responses, less than half of a rubric's ability to predict held-… |
 | C2 | **HOLDS** | 0.6860 | `> 0.55` | The rebuilt criterion-satisfaction layer predicts held-out human pairwise rankings above chance and above a le… |
 | C3 | **HOLDS** | 0.6387 | `~ 0.64` | Among defensible aggregation principles at k=4, out-of-sample predictive accuracy spans less than 3 percentage… |
-| C4 | **HOLDS** | 0.1471 | `> 0.05` | Cross-prompt persistence of pairwise rater agreement exceeds its permutation null and survives removal of per-… |
+| C4 | **HOLDS** | 4.6677 | `> 2.0` | Beyond an additive per-rater (actor) effect, pairwise rater agreement carries a PAIR-specific component that p… |
 | C5 | **HOLDS** | 4.0224 | `> 2.0` | Anthropomorphic style independently predicts human preference after controlling for the rubric score and respo… |
+| C14 | **HOLDS** | 0.0016 | `< 0.01` | Fewer than one percent of crowd-written CoVal-full criteria address anthropomorphic self-presentation, under a… |
 | C6 | **FAILS** | -0.0229 | `> 0.02` | PRE-REGISTERED AND REFUTED: optimizing selection against the rubric was predicted to raise lexical overlap wit… |
 | C7 | **FAILS** | 0.0499 | `> 0.3` | RETRACTED BY C11. Within best-of-16 pressure the gold preference change is distinguishable from zero. This hel… |
 | C11 | **FAILS** | False | `== True` | The A09 result is reproduced by a gold preference head built on a DIFFERENT backbone from the judge, ruling ou… |
@@ -32,7 +33,7 @@ generated 2026-07-28T09:32:34.087037+00:00 · git `e66dd19824be` · seed 2026072
 
 ## Deployment gate
 
-Measured attribution **A = 0.0791**, of which 23.7% is topic rather than value (value-only A ~ 0.0603)
+Measured attribution **A = 0.4253**, of which 23.7% is topic rather than value (value-only A ~ 0.3243)
 
 | band | reading | decision |
 |---|---|---|
