@@ -89,20 +89,47 @@ CLAIMS = [
     # that survives the CORRECT form -- the both_low stratum, which is the one
     # blocs predict and reliability cannot produce, since attenuation only ever
     # moves agreement toward zero.
+    # WITHDRAWN 2026-07-28, same day it was written, after an adversarial audit.
+    # C4 asserted that agreement is multiplicative and that a minority-bloc
+    # residual survives under that form.  Three defects, each fatal to the claim
+    # as stated:
+    #   (a) the supporting comparison rested on "one FEWER parameter", and the
+    #       additive design is rank-deficient by exactly one, so the effective
+    #       degrees of freedom are EQUAL;
+    #   (b) the reported z came from a pipeline whose rater-to-row assignment
+    #       depended on frozenset iteration order, i.e. on PYTHONHASHSEED.  The
+    #       committed value 2.5049 sat at the top of a 2.22-2.50 spread; the
+    #       deterministic value is 2.12;
+    #   (c) out of sample the multiplicative fit is unstable -- over ten held-out
+    #       splits its R^2 spans [-1.64, +0.51] against the additive shape's
+    #       [+0.34, +0.42] -- so it is not established as the better form and the
+    #       residual computed under it is not a measurement of anything.
+    # The claim is replaced by the honest one: the QUESTION is open.  A claim
+    # that has been withdrawn must stay visible with its reason, not vanish.
     ("C4",
-     "Rater agreement is MULTIPLICATIVE in per-rater reliability, not additive. "
-     "Under the correct form, the pair-specific structure that four earlier "
-     "rounds measured collapses to zero in two of three strata. What survives is "
-     "a minority-bloc residual among low-reliability pairs -- raters who track "
-     "few people track each other better than a single shared target allows -- "
-     "at roughly a quarter of the magnitude the additive analysis reported.",
-     "rounds/r28_multiplicative/results/r28_pearson.json", "permutation_z.both_low", ">", 2.0),
+     "WITHDRAWN. Whether pairwise rater agreement carries pair-specific structure "
+     "beyond per-rater effects is UNRESOLVED. The additive decomposition four "
+     "rounds relied on is demonstrably misspecifiable -- fitting a sum to a "
+     "product leaves a U-shaped residual with no blocs in the generating process "
+     "-- but the multiplicative alternative is not validated either: equal "
+     "effective degrees of freedom, and out-of-sample instability spanning "
+     "R^2 [-1.64, +0.51]. No number here should be read as measuring a bloc.",
+     "rounds/r28_multiplicative/results/r28_pearson.json", "multiplicative_generalises_better", "==", True),
 
+    # REWRITTEN 2026-07-28.  C15 previously asserted the multiplicative form wins
+    # "while using one FEWER free parameter".  That arithmetic is false: the
+    # additive design has 925 columns and numerical rank 924, with the exact null
+    # direction mu -> mu-2t, a_i -> a_i+t.  Effective dof are EQUAL.  The claim
+    # now tests the thing that actually distinguishes the two shapes -- held-out
+    # prediction -- and it FAILS, which is the correct outcome and the reason it
+    # is kept rather than deleted.
     ("C15",
-     "The multiplicative form is not merely a better story: it fits the same "
-     "observed dyads better than the additive form while using one FEWER free "
-     "parameter, so the comparison is not the larger model winning.",
-     "rounds/r28_multiplicative/results/r28_pearson.json", "r2_multiplicative", ">", 0.60),
+     "The multiplicative form should predict held-out dyads at least as well as "
+     "the additive one, averaged over ten masked splits. It does not: additive "
+     "+0.3879 against multiplicative +0.2514, because roughly one split in ten "
+     "collapses when thin raters receive a c_i pinned to the initialisation "
+     "fallback. In-sample R^2 favours the multiplicative shape and is not the test.",
+     "rounds/r28_multiplicative/results/r28_pearson.json", "cv_multiplicative_mean", ">", 0.3879),
 
     ("C5",
      "Anthropomorphic style independently predicts human preference after "

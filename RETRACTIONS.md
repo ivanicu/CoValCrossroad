@@ -5,7 +5,7 @@ it happened, with what did the killing.
 
 The rounds are numbered by when they ran, not by what survived. Read in that order
 the repository looks like a sequence of findings. It is not. **Eleven of these
-forty entries are a later round destroying an earlier round's conclusion, and in
+forty-one entries are a later round destroying an earlier round's conclusion, and in
 all eleven both rounds are mine.** Nine more were found by outside challengers in
 roughly 45 minutes each, against twenty rounds of self-review that had already passed
 over every one of them.
@@ -17,7 +17,8 @@ This file exists because the git log has all of it and nobody reads a git log.
 largest untested assumption finally being tested, and the answer widening the headline
 rather than confirming it; **36–40 are a fourth, found by reading OpenAI's protocol
 documentation rather than by running anything** — five measurements named for what they
-were meant to capture instead of what they compute. Where a later
+were meant to capture instead of what they compute; **41 is the round written to fix four
+rounds, audited eight hours later, and substantially withdrawn.** Where a later
 entry supersedes an earlier one the earlier text is **annotated, never rewritten** —
 a ledger that edits its own history is the thing it exists to prevent.
 
@@ -120,6 +121,35 @@ preference" for disagreement with a proxy. "Not the mechanism" for one of four c
 "Regime change" for a discontinuity at a design boundary. "Blind to anthropomorphism" for
 a residual on a warmth marker. The instruments were fine. **The names were claims, and
 nobody checked them against the protocol that produced the data.**
+
+---
+
+## Entry 41 — the round written to fix four rounds, audited eight hours later
+
+An adversary was given a frozen clone of **the seven rounds written that same day**, none
+of which any outsider had seen. It was handed the two attacks I most expected to land and
+found both — plus one I had not thought to ask for, which is the one that inverted the
+conclusion.
+
+| # | The claim | What killed or scoped it | What survived |
+|---|---|---|---|
+| 41 | **Entry 31's headline** — "agreement is multiplicative, the multiplicative form fits better *with one fewer parameter*, and a minority bloc survives at +0.0125, z=+2.50" | Three independent defects, each verified here rather than taken on report. **(a) The parameter claim is arithmetically false.** The additive design has 925 columns and numerical rank **924**: `μ → μ−2t` with `a_i → a_i+t` leaves every fitted value unchanged, and `‖X·(that direction)‖ = 0.000e+00` exactly. Effective dof are **equal** — and that sentence was the one written specifically to pre-empt *"it's just the bigger model"*. **(b) The reported z came from a non-deterministic pipeline.** `u, v = tuple(pair)` on a `frozenset` makes rater→row assignment depend on `PYTHONHASHSEED`, and `fit_rank1` is coordinate descent over row index. The adversary measured z ranging **2.2177–2.4409** across five seeds; I had committed **2.5049**, the top of the spread. Deterministic value after `sorted(pair)`: **2.1226**. **(c) It does not generalise.** Over ten held-out splits the multiplicative R² spans **[−1.64, +0.51]** against the additive shape's tight **[+0.34, +0.42]**; ~1 split in 10 collapses when thin raters get a `c_i` pinned to the `0.1` initialisation fallback — **a silent imputation**. In-sample fit was never the test | **The algebra only.** Fitting `μ + a_i + a_j` to a product genuinely leaves residual `(ρ_i−m)(ρ_j−m)` — positive at both extremes, negative in the middle — so the additive decomposition r23/r25/r26/r27 relied on **is** misspecifiable, and r27's U-shape **is** what that produces. **But the multiplicative alternative is not thereby established, so the question those four rounds existed to settle is OPEN.** C4 is withdrawn; C15 rewritten to test held-out prediction and now **FAILS** at 0.2514 against 0.3879 |
+
+**Three things worth keeping from how this one went.**
+
+**The round's own stability check could not fire.** It cross-validated on three splits, and
+seeds 1–3 all land on well-behaved masks. A guard that samples too little to observe the
+failure it guards against is the same defect as a threshold that cannot be reached — it is
+now ten splits, and the catastrophic mode appears.
+
+**My first replication of the adversary's finding contradicted it.** Three splits gave
+multiplicative R² of 0.487/0.499/0.458 — all positive, all beating additive. Only at ten
+splits did split 5 return **−1.64**. Had I stopped at three, I would have filed their
+finding as unreproducible and been wrong, with a clean-looking run to point at.
+
+**The script looked reproducible, which is why nobody checked.** It sets
+`np.random.default_rng(20260728)` at the top. A visible seed on the wrong source of
+randomness is worse than no seed, because it answers the question before it is asked.
 
 **Why entry 31 is the most serious thing in this file.** Every other retraction is a
 statistical error — a wrong null, an unmatched pairing, a missing interval, a check that

@@ -46,9 +46,15 @@ Design notes
   matrix is ~93% missing (924 raters, 6,193 observed dyads), so no dense
   eigendecomposition is available and imputing zeros would invent agreement
   where there is none.
-* Parameter counts are reported because the comparison only means something if
-  the better-fitting model is not simply the bigger one.  It is not: the
-  multiplicative model has 924 free values against the additive model's 925.
+* Parameter counts WERE reported as 925 additive against 924 multiplicative,
+  and that was wrong.  The additive design is rank-deficient by exactly one:
+  mu -> mu - 2t together with a_i -> a_i + t leaves every fitted value
+  unchanged for any t, so the intercept column is redundant.  Verified: 925
+  columns, numerical rank 924, and ||X @ (that direction)|| = 0 exactly.  The
+  effective degrees of freedom are EQUAL.  The multiplicative form does not win
+  on a parameter handicap, and the sentence claiming it did was the one written
+  to pre-empt "it is just the bigger model" -- which needed checking, not
+  asserting.
 * The strata are defined by the MULTIPLICATIVE parameter c_i, not by raw mean
   agreement, so the split does not select on the outcome the way r27's first
   control did.
@@ -82,7 +88,18 @@ def _cell():
 def build_matrix(raw, min_partners: int):
     by = defaultdict(dict)
     for pair, vals in raw.items():
-        u, v = tuple(pair)
+        # sorted(), not tuple().  `pair` is a frozenset, and frozenset ITERATION
+        # ORDER depends on Python's per-process hash randomization, so
+        # `u, v = tuple(pair)` assigned raters to matrix rows differently on
+        # every run.  fit_rank1 is Gauss-Seidel coordinate descent over row
+        # index, so its update order -- and its answer -- moved with it.  An
+        # adversary measured the damage: with everything else fixed, including
+        # the numpy seed, C4's permutation z ranged 2.2177..2.4409 over five
+        # PYTHONHASHSEED values, and the value committed to ASSURANCE.md was
+        # 2.5049, the top of the observed spread.  The script LOOKED
+        # reproducible -- it sets np.random.default_rng(20260728) -- which is
+        # exactly why nobody checked.
+        u, v = sorted(pair)
         m = float(np.mean(vals))
         by[u][v] = m
         by[v][u] = m
@@ -150,7 +167,12 @@ def strata_residuals(y, hat, cvec, rows, cols, rng, boot=4000):
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--data", type=Path, default=_ROOT / "data/conversation_rubrics.jsonl")
-    p.add_argument("--out", type=Path, default=_RES / "r28_multiplicative.json")
+    # default names the metric, so the documented invocation regenerates exactly
+    # the file the assurance manifest reads.  It previously wrote
+    # r28_multiplicative.json while the manifest checked r28_pearson.json, so
+    # `python rounds/r28_multiplicative/run.py` did not refresh the claim it
+    # was supposed to support.
+    p.add_argument("--out", type=Path, default=None)
     p.add_argument("--metric", default="pearson",
                    choices=["pearson", "spearman", "cosine", "negl1"])
     p.add_argument("--min-overlap", type=int, default=3)
@@ -160,6 +182,8 @@ def main() -> None:
     p.add_argument("--null-reps", type=int, default=100)
     a = p.parse_args()
 
+    if a.out is None:
+        a.out = _RES / f"r28_{a.metric}.json"
     cell = _cell()
     rng = np.random.default_rng(20260728)
     data = cell.load(a.data, a.thr)
@@ -172,6 +196,58 @@ def main() -> None:
     raw = {k: v for k, v in raw.items() if len(v) >= a.min_prompts}
 
     A, mask, keep = build_matrix(raw, a.min_partners)
+    # ---- HELD-OUT VALIDATION, added 2026-07-28 after an adversary ran it -----
+    # This round originally compared the two shapes on IN-SAMPLE R^2 alone and
+    # concluded the multiplicative one is correct because it fits better "with
+    # one fewer parameter".  Both halves were wrong.  The additive design is
+    # rank-deficient by exactly one (mu -> mu-2t, a_i -> a_i+t leaves every
+    # fitted value unchanged; numerical rank 924 of 925 columns, null direction
+    # verified exactly), so effective degrees of freedom are EQUAL.  And a
+    # rank-1 factorization carrying ~1 parameter per rater over ~13 dyads per
+    # rater will win in-sample almost regardless of whether it is the right
+    # generative shape.  The question was never fit.  It is prediction.
+    def cv_r2(seed, frac=0.2):
+        rr, cc = np.where(np.triu(mask, 1))
+        g = np.random.default_rng(seed)
+        held = g.random(len(rr)) < frac
+        trmask = np.zeros_like(mask)
+        trmask[rr[~held], cc[~held]] = True
+        trmask[cc[~held], rr[~held]] = True
+        yte = A[rr[held], cc[held]]
+        ss = float(((yte - yte.mean()) ** 2).sum())
+        ytr, _ahat, _r, _c = fit_additive(A, trmask)
+        Xall = np.zeros((len(rr), len(A) + 1))
+        Xall[:, 0] = 1.0
+        Xall[np.arange(len(rr)), rr + 1] += 1.0
+        Xall[np.arange(len(rr)), cc + 1] += 1.0
+        b, *_ = np.linalg.lstsq(Xall[~held], ytr, rcond=None)
+        add_te = Xall[held] @ b
+        with np.errstate(invalid="ignore"):
+            ctr = fit_rank1(A, trmask)
+        mul_te = ctr[rr[held]] * ctr[cc[held]]
+        return (1 - float(((yte - add_te) ** 2).sum()) / ss,
+                1 - float(((yte - mul_te) ** 2).sum()) / ss)
+
+    print("  HELD-OUT (20% of dyads masked, both shapes refit on the remainder):")
+    cv = []
+    # TEN splits, not three.  The first version used seeds 1-3, which all happen
+    # to land on well-behaved masks, so `cv_stable` could not fire and the round
+    # printed its optimistic verdict.  A stability check that cannot observe the
+    # instability is not a check: the catastrophic mode appears in roughly one
+    # split in ten, and an adversary running its own three splits hit it twice.
+    for sd in range(1, 11):
+        ra, rm_ = cv_r2(sd)
+        cv.append({"seed": sd, "additive": ra, "multiplicative": rm_})
+        print(f"    split {sd}:  additive test R^2 = {ra:>8.4f}    "
+              f"multiplicative test R^2 = {rm_:>9.4f}")
+    add_cv = float(np.mean([c["additive"] for c in cv]))
+    mul_cv = float(np.mean([c["multiplicative"] for c in cv]))
+    print(f"    mean:     additive {add_cv:>+8.4f}                "
+          f"multiplicative {mul_cv:>+9.4f}")
+    generalises = mul_cv > add_cv
+    print(f"    -> out of sample the {'MULTIPLICATIVE' if generalises else 'ADDITIVE'} "
+          f"shape predicts better; in-sample R^2 says the opposite.\n")
+
     y, add_hat, rows, cols = fit_additive(A, mask)
     cvec = fit_rank1(A, mask)
     mult_hat = cvec[rows] * cvec[cols]
@@ -215,9 +291,10 @@ def main() -> None:
         return
 
     better = r2_mul > r2_add
-    print(f"\n  -> the {'MULTIPLICATIVE' if better else 'ADDITIVE'} form fits better, "
-          f"with {'FEWER' if better else 'more'} parameters. Classical test theory "
-          f"predicts a product under one latent target.\n")
+    print(f"\n  -> IN SAMPLE the {'MULTIPLICATIVE' if better else 'ADDITIVE'} shape fits "
+          f"better, at EQUAL effective degrees of freedom (the additive design is "
+          f"rank-deficient by one; 925 columns, rank 924). In-sample fit is not the "
+          f"test -- see the held-out block above.\n")
 
     add_str, _ = strata_residuals(y, add_hat, cvec, rows, cols, rng)
     mul_str, lab = strata_residuals(y, mult_hat, cvec, rows, cols, rng)
@@ -251,7 +328,27 @@ def main() -> None:
               f"{nv.std():>9.4f} {z:>+8.2f}")
 
     low = mul_str.get("both_low", {})
-    verdict = (
+    cv_stable = min(c["multiplicative"] for c in cv) > 0
+    if not cv_stable or not generalises:
+        verdict = (
+            "FUNCTIONAL FORM UNRESOLVED. The algebra stands: fitting mu + a_i + a_j to a "
+            "multiplicative surface leaves residual (rho_i - m)(rho_j - m), a U-shape with "
+            "no blocs in the generating process, and that is what r27 measured. So the "
+            "ADDITIVE decomposition four rounds relied on is demonstrably misspecifiable. "
+            "But the multiplicative alternative is NOT thereby established. It wins only "
+            "in sample, at equal effective degrees of freedom, and out of sample it is "
+            f"unstable: over ten held-out splits its R^2 ranges "
+            f"[{min(c['multiplicative'] for c in cv):+.4f}, "
+            f"{max(c['multiplicative'] for c in cv):+.4f}] against the additive shape's "
+            f"tight [{min(c['additive'] for c in cv):+.4f}, "
+            f"{max(c['additive'] for c in cv):+.4f}]. Raters with one or two training "
+            "edges receive a c_i pinned to the 0.1 initialisation fallback -- a silent "
+            "imputation -- and a single such split drags the mean below the additive "
+            "model. Neither shape is validated, so the pair-specific residual question "
+            "this round was built to settle is OPEN, and the both_low number below must "
+            "not be read as a measurement of anything.")
+    else:
+        verdict = (
         "A MINORITY BLOC SURVIVES, an order of magnitude smaller than the additive "
         f"analysis implied: under the correct multiplicative form the both_low residual "
         f"is {low.get('mean', float('nan')):+.4f} against {add_str.get('both_low', {}).get('mean', float('nan')):+.4f} "
@@ -272,7 +369,12 @@ def main() -> None:
         {"metric": a.metric, "raters": len(keep), "dyads": int(len(y)),
          "r2_additive": r2_add, "r2_multiplicative": r2_mul,
          "params_additive": len(A) + 1, "params_multiplicative": len(A),
-         "multiplicative_fits_better": bool(better),
+         "multiplicative_fits_better_in_sample": bool(better),
+         "additive_design_rank_deficient_by": 1,
+         "effective_params_equal": True,
+         "cv_folds": cv, "cv_additive_mean": add_cv,
+         "cv_multiplicative_mean": mul_cv,
+         "multiplicative_generalises_better": bool(generalises),
          "strata_vs_additive": add_str, "strata_vs_multiplicative": mul_str,
          "permutation_z": zs, "null_reps": a.null_reps, "verdict": verdict,
          "note": "r23/r25/r26/r27 all fit A_ij = mu + a_i + a_j and read the residual "

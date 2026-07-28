@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-28T19:20:13.917033+00:00",
- "git": "151fe870026839b90ec68744bb54bcfbeda86135",
+ "generated_utc": "2026-07-28T19:45:29.939193+00:00",
+ "git": "5f56cfe2ff2cf8116175cb79e6ef9c4a60205322",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -120,8 +120,8 @@
    "sha256": "8fda68cda0471f9c485b4ef183805a7c378f9b9824568e1512a9e3e19212d1bb"
   },
   "rounds/r22_cross_family/run.py": {
-   "bytes": 11366,
-   "sha256": "4c4b713f9c61f1d8fd1907db4c5e17cfcfd44ca6f30e4c843c99c23ceb0cf716"
+   "bytes": 12453,
+   "sha256": "ccc148ca894849ab25c7b9f10f3dd7c9892aa9edaeed8bc7c26669e9d1ce55a1"
   },
   "rounds/r23_actor_vs_dyad/run.py": {
    "bytes": 10266,
@@ -140,16 +140,24 @@
    "sha256": "5bf8907e2e162aefec36d2161e1e35bacd0e66f785abd6316331d4b689adbef3"
   },
   "rounds/r28_multiplicative/run.py": {
-   "bytes": 12990,
-   "sha256": "2f1b51d797e94219cf1f60e5ff6e5315d78b7fdd2fc9fa892bc9ce38c09ef0bf"
+   "bytes": 19248,
+   "sha256": "685f26e5475e8b55c20739cff3088a3118cc7b579b63c394abd4c8e3c3474d7a"
   },
   "rounds/r29_gold_ood/run.py": {
-   "bytes": 10899,
-   "sha256": "e0331bab40672ddb44584010b6360582bd6a8e0886dd15dbc64acbac519c407d"
+   "bytes": 12881,
+   "sha256": "2dfdd70a2348ee5ea74c5711c297f2c02b8fe7b6bb52e568ab04fb96717a99d0"
+  },
+  "rounds/r30_scope_grid/run.py": {
+   "bytes": 7282,
+   "sha256": "370fd858dbed12d9ae66cc89923124dbb463494e0ca4d925bf46b4400ee8af7f"
+  },
+  "rounds/r31_within_person/run.py": {
+   "bytes": 8143,
+   "sha256": "ebea3aa0a1dfa42424394e466a302305d8f0c8cf9d4d5d87526756975edc47f4"
   },
   "assurance/manifest.py": {
-   "bytes": 25436,
-   "sha256": "88f3f2fc2d11e0472f2b330a324471cc37c4891298fbad3aecda643bd3ffc0a7"
+   "bytes": 27428,
+   "sha256": "b98349af2c1a2b5a880cb892e62ed6ab78c6ff619439f789c58cc0137d29a2a7"
   },
   "data/fetch.py": {
    "bytes": 2337,
@@ -245,9 +253,13 @@
    "bytes": 1053,
    "sha256": "d97f5634a20d883a0a04fbaa7f3b1db64729d8be9f512cffc75a6265775e4974"
   },
+  "rounds/r12_response_set/results/a12_fresh_generations.json": {
+   "bytes": 1077859,
+   "sha256": "5b5cd68d6c0092e171d062902c30d8d0b220590bf83197ac73595b53c5698cd6"
+  },
   "rounds/r12_response_set/results/a12_response_set.json": {
-   "bytes": 1239,
-   "sha256": "6c4cb60e74e89ea4a9e571bf2800d570a3cd8e20a63f213d49bc26caa2622568"
+   "bytes": 865,
+   "sha256": "bc3f5e2ca7f738ee91e0d798a517f1ab19f5d5d73b0ceef9960de1c0c54c3a7b"
   },
   "rounds/r13_seed_vs_writein/results/r13_seed_vs_writein.json": {
    "bytes": 36423,
@@ -286,8 +298,8 @@
    "sha256": "2f7801f648aaabac5ebf6a9abfa42a84b6f03314f1e196ff4b2492752b861d82"
   },
   "rounds/r22_cross_family/results/r22_cross_family.json": {
-   "bytes": 1807,
-   "sha256": "2067b5f607e97092b2b82e5eee9390a5a76c7a131760c9b50a9a6d0155f4ef01"
+   "bytes": 1819,
+   "sha256": "465bc665b6a0a8daad411795a220a200de2e51200b3bbfa5beaab6b108659a0a"
   },
   "rounds/r23_actor_vs_dyad/results/r23_actor_vs_dyad.json": {
    "bytes": 2075,
@@ -905,6 +917,14 @@
    "bytes": 1110,
    "sha256": "ba08e4a92728e555e30502f75ef904e8d6b902a186f8e6d709bc9cdb7cf42e36"
   },
+  "rounds/r26_sign_no_split/results/r26_spearman_mp3.json": {
+   "bytes": 1099,
+   "sha256": "61be2200bf380819bb71f5b2714f09c858bbd1309a9a818c92712cce932f651e"
+  },
+  "rounds/r26_sign_no_split/results/r26_spearman_mp4.json": {
+   "bytes": 1104,
+   "sha256": "3462b3a404883f983a7994afda8fda255d28949b915a8ad4990bab993f644494"
+  },
   "rounds/r27_raw_negative_tail/results/r27_cosine.json": {
    "bytes": 3167,
    "sha256": "763f087f8e1a7772c12c3ecfef6ce49900c1e8cb72bb734ddc2d1b44546a0b7b"
@@ -921,6 +941,10 @@
    "bytes": 3174,
    "sha256": "6933803580e8e3f3967c47283a02127bf0d2db9257771513f244489e53cfc8ac"
   },
+  "rounds/r27_raw_negative_tail/results/r27_spearman.json": {
+   "bytes": 3166,
+   "sha256": "92fb5bd25949d4322d2182d598203d8051e3b935b8a95d20428d2b90d6c6461b"
+  },
   "rounds/r28_multiplicative/results/r28_cosine.json": {
    "bytes": 2214,
    "sha256": "67526500045d3fd7be3b7e4a8d38469bc6156b20db08eb1de814efc73f018008"
@@ -934,12 +958,16 @@
    "sha256": "c837cd42f4f8228b5e63b27d1b5fdbadc048e362119a352269926111ce43aaa0"
   },
   "rounds/r28_multiplicative/results/r28_pearson.json": {
-   "bytes": 2217,
-   "sha256": "75089a2fd4965b5a7b98e371063f14ed695c51735eb3e787cea7b78481bf9dfc"
+   "bytes": 3956,
+   "sha256": "1475082ddc59d9890b77f32ad0013d9a83e8e2738bb0e30c9b32ace72d709b94"
   },
   "rounds/r28_multiplicative/results/r28_spearman.json": {
    "bytes": 2214,
    "sha256": "ebd17fb4b3ac2b77d59a0f42f976bfafda959b450fd6454fe78c5c795d58543b"
+  },
+  "rounds/r31_within_person/results/r31_within_person.json": {
+   "bytes": 2590,
+   "sha256": "a34c09aabf5ec07ce7bdaee487dc635471b72afc7a304f96dad0745a5bf530b0"
   }
  },
  "claims": [
@@ -978,25 +1006,25 @@
   },
   {
    "id": "C4",
-   "statement": "Rater agreement is MULTIPLICATIVE in per-rater reliability, not additive. Under the correct form, the pair-specific structure that four earlier rounds measured collapses to zero in two of three strata. What survives is a minority-bloc residual among low-reliability pairs -- raters who track few people track each other better than a single shared target allows -- at roughly a quarter of the magnitude the additive analysis reported.",
+   "statement": "WITHDRAWN. Whether pairwise rater agreement carries pair-specific structure beyond per-rater effects is UNRESOLVED. The additive decomposition four rounds relied on is demonstrably misspecifiable -- fitting a sum to a product leaves a U-shaped residual with no blocs in the generating process -- but the multiplicative alternative is not validated either: equal effective degrees of freedom, and out-of-sample instability spanning R^2 [-1.64, +0.51]. No number here should be read as measuring a bloc.",
    "source": "rounds/r28_multiplicative/results/r28_pearson.json",
-   "field": "permutation_z.both_low",
-   "value": 2.5049386260022297,
-   "test": "> 2.0",
-   "status": "HOLDS",
-   "direction": ">",
-   "threshold": 2.0
+   "field": "multiplicative_generalises_better",
+   "value": false,
+   "test": "== True",
+   "status": "FAILS",
+   "direction": "==",
+   "threshold": true
   },
   {
    "id": "C15",
-   "statement": "The multiplicative form is not merely a better story: it fits the same observed dyads better than the additive form while using one FEWER free parameter, so the comparison is not the larger model winning.",
+   "statement": "The multiplicative form should predict held-out dyads at least as well as the additive one, averaged over ten masked splits. It does not: additive +0.3879 against multiplicative +0.2514, because roughly one split in ten collapses when thin raters receive a c_i pinned to the initialisation fallback. In-sample R^2 favours the multiplicative shape and is not the test.",
    "source": "rounds/r28_multiplicative/results/r28_pearson.json",
-   "field": "r2_multiplicative",
-   "value": 0.6603871295854497,
-   "test": "> 0.6",
-   "status": "MARGINAL",
+   "field": "cv_multiplicative_mean",
+   "value": 0.25137017492360514,
+   "test": "> 0.3879",
+   "status": "FAILS",
    "direction": ">",
-   "threshold": 0.6
+   "threshold": 0.3879
   },
   {
    "id": "C5",
@@ -1080,7 +1108,7 @@
    "statement": "The prompt-specific advantage in C1 survives on responses the criteria were NOT authored against. Measured as attribution on rubric-blind fresh responses; requires a positive value. FAILS -- but note r13 refutes the response-set-knowledge explanation for that failure: response-blind seed criteria carry more attribution than criteria written after reading the candidates, so the non-transfer is a property of the measurement off distribution, not of what the criteria encode.",
    "source": "rounds/r12_response_set/results/a12_response_set.json",
    "field": "sets.FRESH.attribution",
-   "value": -0.042,
+   "value": -0.058,
    "test": "> 0.0",
    "status": "FAILS",
    "direction": ">",
