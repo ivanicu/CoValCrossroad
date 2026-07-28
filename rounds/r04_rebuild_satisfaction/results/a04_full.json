@@ -1,0 +1,17 @@
+{
+ "model": "Qwen3.5-2B-Base",
+ "source": "full",
+ "prompts": 968,
+ "judgements": 59936,
+ "seconds": 1012.6721069812775,
+ "satisfaction_mean": 0.5547515153884888,
+ "satisfaction_sd": 0.23650339245796204,
+ "pairwise_accuracy": 0.6860023341858906,
+ "pairwise_n": 80542,
+ "prompt_concordance": 0.612603305785124,
+ "null_shuffled_rubric": 0.6069007474361203,
+ "null_length_only": 0.5316853318765364,
+ "rubric_contribution": 0.0791015867497703,
+ "over_length": 0.1543170023093542,
+ "positive_control_passed": true
+}

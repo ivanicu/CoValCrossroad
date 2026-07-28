@@ -1,0 +1,17 @@
+{
+ "responses": 4312,
+ "pairs": 94982,
+ "folds": 5,
+ "heldout_accuracy": 0.6612361499730637,
+ "heldout_sd": 0.01138391060091813,
+ "per_fold": [
+  0.6409634452529895,
+  0.670279794959419,
+  0.6590569292696953,
+  0.673442882150319,
+  0.6624376982328953
+ ],
+ "length_baseline": 0.52877346890226,
+ "usable": true,
+ "caveat": "learned gold, not fresh humans; inherits label bias and the two-regime split found in A02"
+}
