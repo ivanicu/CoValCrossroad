@@ -79,14 +79,30 @@ CLAIMS = [
     # single shared target -- with the PAIR-specific structure the pluralism
     # argument actually needs.  r23 separates them; the actor part is the larger
     # one.  C4 now asserts and tests only the part that was ever in question.
+    # REWIRED AGAIN 2026-07-28, same day.  The previous C4 tested r23's
+    # ADDITIVE residual z.  Entry 31 then established that the additive model is
+    # the wrong functional form: under one latent target with heterogeneous
+    # reliability, agreement is a PRODUCT rho_i*rho_j, and fitting a sum to that
+    # leaves residual (rho_i-m)(rho_j-m), which is positive at both extremes and
+    # negative in the middle.  So r23's resid_z was measuring the misfit, and a
+    # claim resting on it was resting on an artifact.  C4 now tests the residual
+    # that survives the CORRECT form -- the both_low stratum, which is the one
+    # blocs predict and reliability cannot produce, since attenuation only ever
+    # moves agreement toward zero.
     ("C4",
-     "Beyond an additive per-rater (actor) effect, pairwise rater agreement "
-     "carries a PAIR-specific component that persists across disjoint prompt "
-     "sets above a dyad-permutation null. The actor component is the larger of "
-     "the two; the pair-specific residual is roughly a quarter of the raw "
-     "persistence r01 reported, and it is the only part that bears on whether a "
-     "single core rubric is the wrong object.",
-     "rounds/r23_actor_vs_dyad/results/r23_actor_vs_dyad.json", "style_removed.resid_z", ">", 2.0),
+     "Rater agreement is MULTIPLICATIVE in per-rater reliability, not additive. "
+     "Under the correct form, the pair-specific structure that four earlier "
+     "rounds measured collapses to zero in two of three strata. What survives is "
+     "a minority-bloc residual among low-reliability pairs -- raters who track "
+     "few people track each other better than a single shared target allows -- "
+     "at roughly a quarter of the magnitude the additive analysis reported.",
+     "rounds/r28_multiplicative/results/r28_pearson.json", "permutation_z.both_low", ">", 2.0),
+
+    ("C15",
+     "The multiplicative form is not merely a better story: it fits the same "
+     "observed dyads better than the additive form while using one FEWER free "
+     "parameter, so the comparison is not the larger model winning.",
+     "rounds/r28_multiplicative/results/r28_pearson.json", "r2_multiplicative", ">", 0.60),
 
     ("C5",
      "Anthropomorphic style independently predicts human preference after "
@@ -207,14 +223,38 @@ def dig(doc, path: str):
     return cur
 
 
+# A claim that clears its threshold by this fraction or less is reported as
+# MARGINAL, not HOLDS.  Added 2026-07-28: C4 sits at 2.5049 against a bar of
+# 2.0 and was printed identically to C5's 4.02 and C10's 0.2374-against-0.1.
+# Those are not the same epistemic object, and a manifest whose only positive
+# verdict is HOLDS erases the difference at exactly the point where it matters
+# -- a claim 25% above its bar is one re-run, one seed or one estimator choice
+# from failing, and this project has watched precisely that happen (the sign
+# test returned 1.40, 2.26, 2.68 and 10.26 on identical data).  MARGINAL still
+# counts as holding for the deployment gate; it changes what a reader is told,
+# not what the gate decides.
+MARGIN_FRAC = 0.25
+
+
+def _margin(val, thr, direction):
+    """How far past the threshold, as a fraction of the threshold's scale."""
+    scale = abs(thr) if abs(thr) > 1e-9 else 1.0
+    if direction == ">":
+        return (val - thr) / scale
+    if direction == "<":
+        return (thr - val) / scale
+    return float("inf")
+
+
 def check(val, direction, thr):
     if val is None:
         return "UNSUPPORTED"
     try:
-        if direction == ">":
-            return "HOLDS" if val > thr else "FAILS"
-        if direction == "<":
-            return "HOLDS" if val < thr else "FAILS"
+        if direction in (">", "<"):
+            passed = val > thr if direction == ">" else val < thr
+            if not passed:
+                return "FAILS"
+            return "MARGINAL" if _margin(val, thr, direction) <= MARGIN_FRAC else "HOLDS"
         if direction == "==":
             return "HOLDS" if val == thr else "FAILS"
         if direction == "~":
@@ -263,6 +303,7 @@ def main() -> None:
         claims.append({
             "id": cid, "statement": stmt, "source": src, "field": path,
             "value": val, "test": f"{direction} {thr}", "status": status,
+            "direction": direction, "threshold": thr,
         })
     if broken:
         print("BROKEN HARNESS -- these claims cannot be checked at all:")
@@ -420,12 +461,39 @@ def main() -> None:
         lines.append(f"- {v}")
     a.md.write_text("\n".join(lines) + "\n")
 
+    # Adding MARGINAL silently broke this line: it counted only HOLDS, so the
+    # same evidence that previously printed "11/15 HOLDS" printed "8/15" and
+    # read as seven failures when four fail.  A new status is not free -- every
+    # aggregate that consumes the old one has to be found and updated, and the
+    # summary is the part most readers stop at.
     ok = sum(1 for c in claims if c["status"] == "HOLDS")
-    print(f"claims: {ok}/{len(claims)} HOLDS")
+    marg = sum(1 for c in claims if c["status"] == "MARGINAL")
+    bad = sum(1 for c in claims if c["status"] == "FAILS")
+    other = len(claims) - ok - marg - bad
+    print(f"claims: {ok + marg}/{len(claims)} supported "
+          f"({ok} HOLDS, {marg} MARGINAL) · {bad} FAIL"
+          + (f" · {other} unsupported" if other else ""))
+    margins = [_margin(c["value"], c["threshold"], c["direction"])
+               for c in claims
+               if c["status"] in ("HOLDS", "MARGINAL")
+               and isinstance(c.get("value"), float)
+               and c.get("direction") in (">", "<")]
+    if margins:
+        print(f"  weakest supported claim clears its threshold by {min(margins):+.1%}")
+    print(f"  MARGINAL = clears by <= {MARGIN_FRAC:.0%}. That cutoff was chosen AFTER "
+          f"seeing the values, so it is advisory: the margin column is the number to "
+          f"read. C4 (+25.2%) and C2 (+24.7%) sit half a point apart and carry "
+          f"different labels, which is what an arbitrary cutoff does at the boundary.")
     for c in claims:
         v = c["value"]
         vs = f"{v:.4f}" if isinstance(v, float) else str(v)
-        print(f"  {c['id']} {c['status']:12s} {vs:>10} {c['test']:>10}")
+        m = ""
+        if isinstance(v, float) and c.get("direction") in (">", "<"):
+            try:
+                m = f"{_margin(v, c['threshold'], c['direction']):+.0%}"
+            except Exception:
+                m = ""
+        print(f"  {c['id']} {c['status']:12s} {vs:>10} {c['test']:>10} {m:>8}")
     print(f"\ninputs {len(inputs)} · code {len(code)} · outputs {len(outputs)}")
     print(f"measured GPU hours: {budget['total_measured_gpu_hours']}")
     print(f"wrote {a.out} and {a.md}")

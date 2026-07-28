@@ -1,15 +1,16 @@
 # Assurance package
 
-generated 2026-07-28T18:35:51.805286+00:00 · git `2cbf653367ba` · seed 20260727
+generated 2026-07-28T19:20:13.917033+00:00 · git `151fe8700268` · seed 20260727
 
 ## Claims
 
 | id | status | measured | test | claim |
 |---|---|---:|---|---|
-| C1 | **HOLDS** | 0.4253 | `< 0.5` | SCOPED BY C12. On the four RELEASED candidate responses, less than half of a rubric's ability to predict held-… |
-| C2 | **HOLDS** | 0.6860 | `> 0.55` | The rebuilt criterion-satisfaction layer predicts held-out human pairwise rankings above chance and above a le… |
+| C1 | **MARGINAL** | 0.4253 | `< 0.5` | SCOPED BY C12. On the four RELEASED candidate responses, less than half of a rubric's ability to predict held-… |
+| C2 | **MARGINAL** | 0.6860 | `> 0.55` | The rebuilt criterion-satisfaction layer predicts held-out human pairwise rankings above chance and above a le… |
 | C3 | **HOLDS** | 0.6387 | `~ 0.64` | Among defensible aggregation principles at k=4, out-of-sample predictive accuracy spans less than 3 percentage… |
-| C4 | **HOLDS** | 4.6677 | `> 2.0` | Beyond an additive per-rater (actor) effect, pairwise rater agreement carries a PAIR-specific component that p… |
+| C4 | **HOLDS** | 2.5049 | `> 2.0` | Rater agreement is MULTIPLICATIVE in per-rater reliability, not additive. Under the correct form, the pair-spe… |
+| C15 | **MARGINAL** | 0.6604 | `> 0.6` | The multiplicative form is not merely a better story: it fits the same observed dyads better than the additive… |
 | C5 | **HOLDS** | 4.0224 | `> 2.0` | Anthropomorphic style independently predicts human preference after controlling for the rubric score and respo… |
 | C14 | **HOLDS** | 0.0005 | `< 0.01` | Fewer than one percent of crowd-written CoVal-full criteria address anthropomorphic self-presentation, under a… |
 | C6 | **FAILS** | -0.0229 | `> 0.02` | PRE-REGISTERED AND REFUTED: optimizing selection against the rubric was predicted to raise lexical overlap wit… |
