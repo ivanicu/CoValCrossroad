@@ -49,7 +49,7 @@ Neither endpoint is clean — the far donor is adversarially selected and may si
 judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so any
 single figure must name its floor.**
 
-### Half of it is the weights, and the weights are post-choice
+### Post-ranking polarity nearly doubles the concordance — and what that means is unidentified
 
 CoVal's protocol is sequential: participants **ranked the four candidates first**, and only
 then saw the seeded criteria, rated them, and could write their own. So a criterion's
@@ -65,13 +65,39 @@ fixed and varies **only the weighting**, using the satisfaction matrix r04 alrea
 | + post-choice **magnitude** (mean rating) | 0.6831 | 18.3 pts |
 | + **visibility** (× n raters) | 0.6697 | *worse* |
 
-**Polarity alone is worth +0.0876 [+0.0784, +0.0976]** — paired on prompts, and **larger than
-the entire prompt-specific attribution of +0.0791** that this repository's headline is about.
-Magnitude adds +0.0055 on top; weighting by how many people saw a criterion actively *hurts*.
+**Polarity alone is worth +0.0876 [+0.0784, +0.0976]**, paired on prompts.
 
-So of the 18.3 points above chance in r04's number, **about 9 come from what the criteria say
-and about 9 from ratings supplied after the rater had already chosen.** A rubric score built
-on those weights is not response-blind however early its sentences were written.
+**⚠ What this does and does not say.** It says: *adding a direction measured after the rater
+ranked the candidates raises above-chance concordance on the original candidate set from 9.0
+to 17.8 points.* It does **not** say half the rubric's ability is post-choice leakage, and
+three earlier drafts of this section did. Four reasons:
+
+- **A criterion sentence is usually an *attribute*, not a value judgement.** "Response
+  moralises" has no direction until someone supplies one. So equal weighting is an
+  **attribute-only diagnostic**, not a "text-only value score", and its 0.5899 is not the
+  rubric-minus-weights counterfactual.
+- **Accuracy is not additive.** 0.5899 → 0.6775 is not a causal contribution, and the
+  decomposition depends on the order channels are added. A Shapley-style all-coalitions
+  version is queued.
+- **Measured after ≠ generated after.** The polarity could be a stable value direction that
+  merely happened to be recorded post-ranking.
+- **+0.0876 and the +0.0791 own-vs-shuffled attribution are different contrasts** — a
+  sequential increment against an arm difference. They are numerically comparable and not
+  algebraically substitutable.
+
+At least three worlds remain live and this experiment cannot separate them: **stable
+cross-rater value direction**, **response-induced preference construction**, and **same-sample
+target leakage** — the last because the ratings that build the weights and the rankings being
+predicted come from *the same people on the same prompt*:
+
+```
+ranking  →  criterion polarity  →  rubric score  →  predicts ranking
+```
+
+The sharpest defensible statement is therefore about r04, not about values:
+**a large share of r04's internal concordance is driven by post-outcome information, and until
+rater-disjoint cross-fitting is run, that share cannot be counted as independent predictive
+ability.**
 
 Two things follow that were not visible before.
 
@@ -280,7 +306,7 @@ Each round is self-contained: its own question, runner, results and README.
 | [r30](rounds/r30_scope_grid) | The headline, with an interval in every cell | replaces three successive point-estimate ranges (43%, 27–67%, 13.6–74%) with a (judge × floor) grid, each cell a ratio-of-means bootstrap over prompts |
 | [r31](rounds/r31_within_person) | Is the task-6 drop composition or behaviour? | **within-person and real** — the same 933 people drop **−179 chars [−196, −162], −53.3%**, against only **6.1% attrition**. But position 6 is the study's minimum-task boundary and, with no session id in the release, is **perfectly confounded with "first task of a later session"** |
 
-| [r32](rounds/r32_channel_decomposition) | Text or post-choice weights? | **about half and half.** Criterion text alone gives 0.590; the human-rated **sign** adds **+0.0876 [+0.0784,+0.0976]** — more than the whole prompt-specific attribution — and that sign was supplied after the rater had ranked the candidates |
+| [r32](rounds/r32_channel_decomposition) | Text or post-choice weights? | post-ranking **polarity nearly doubles** above-chance concordance (9.0 → 17.8 pts, +0.0876 [+0.0784,+0.0976]). Whether that is stable cross-rater value direction, preference construction, or **same-sample leakage is unidentified** — cross-fitting queued |
 
 | [r33](rounds/r33_core_launders_polarity) | What is CoVal-core? | **a transformation, not a subset.** Scored with *no ratings*, core reaches 0.6563 against full's 0.5899 — recovering ~76% of the post-choice polarity channel **in its sentences**. It ships with no weights, so nothing marks that |
 
