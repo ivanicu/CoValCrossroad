@@ -132,13 +132,19 @@ reporting `L(k) = A0 − Ak` rather than a single bias number.
 |---|---|---:|---|
 | **A0** same participants | everyone | 0.6465 | — |
 | **A1** leave-one-rater-out | everyone except the target | 0.6460 | +0.0005 [−0.0017, +0.0026] |
-| **A2** held-out rater folds | a disjoint 5-fold | 0.6438 | +0.0027 [−0.0002, +0.0056] |
+| **A2** held-out rater folds | a disjoint 5-fold | 0.6439 | **+0.0026 [+0.0004, +0.0049]** |
 | **A3** held-out **country** | every *other* country | 0.6458 | +0.0007 [−0.0033, +0.0048] |
 | A3 held-out AI-usage | other usage bands | 0.6437 | +0.0028 [−0.0009, +0.0066] |
 | A3 held-out age | other age bands | 0.6425 | +0.0040 [−0.0001, +0.0080] |
 
-**Every rung is non-significant.** Where the drop happens is the diagnosis, and there is no
-drop: not individual circularity, not small-sample group fitting, not population dependence.
+**One rung is significant and it is not the one that would matter.** A2 — moving to
+rater-disjoint folds — costs **+0.0026 [+0.0004, +0.0049]**, about **0.4%** of a 0.6465 base.
+Every other rung spans zero, including held-out **country** (+0.0007), which costs *less* than
+A2 does. So there is a detectable small-sample group-fitting effect and no individual
+circularity and no population dependence.
+
+⚠ This corrects the first published version, which reported A2 as non-significant from a
+**2-seed** run whose interval was wider. The full 8-seed run is above.
 Weights estimated in Mexico, the Netherlands or South Africa predict the choices of raters in
 the United States about as well as those raters' own ratings do. Within the isolation this
 release permits, criterion direction behaves like a **population-level property**.
@@ -178,11 +184,13 @@ Shapley values, averaged over every arrival order:
 
 ```
 channel   φ same    φ cross    φ_same − φ_cross
-T         0.1277    0.1264     +0.0013 [-0.0002, +0.0029]   spans zero
-S         0.0214    0.0205     +0.0008 [+0.0000, +0.0017]
-M         0.0128    0.0126     +0.0002 [-0.0009, +0.0015]   spans zero
-V         0.0002    0.0001     +0.0001 [-0.0001, +0.0004]   spans zero
+T         0.1277    0.1261     +0.0017 [+0.0005, +0.0028]
+S         0.0214    0.0205     +0.0008 [+0.0001, +0.0015]
+M         0.0128    0.0123     +0.0005 [-0.0005, +0.0016]   spans zero
+V         0.0002    0.0000     +0.0002 [-0.0000, +0.0004]   spans zero
 ```
+*(5-seed full run. An earlier version of this table came from a 2-seed smoke run in which the
+T gap spanned zero; it does not.)*
 
 **φ_S(same) − φ_S(cross) = +0.0008** — the plan's target estimand, and it is tiny under every
 ordering, not just the one r34 tested. Visibility is worth essentially nothing (φ_V = 0.0002),
@@ -545,7 +553,7 @@ Each round is self-contained: its own question, runner, results and README.
 
 | [r36](rounds/r36_channel_shapley) | Channel split without order dependence | all 16 coalitions. **Magnitude without direction reaches 0.628 vs sign's 0.644** — near-substitutes, so r32's sequential split over-attributed to polarity. φ_S(same)−φ_S(cross) = **+0.0008**, tiny under every ordering. Visibility ≈ 0 |
 
-| [r37](rounds/r37_leakage_topology) | How does the signal decay with isolation? | **it doesn't.** A0→A1→A2→A3 all non-significant; cross-**country** weights cost **+0.0007 [−0.0033,+0.0048]**. Not individual, not small-sample, not country/usage/age-conditional. `A4` response-blind is **undefined, not zero** |
+| [r37](rounds/r37_leakage_topology) | How does the signal decay with isolation? | **almost not at all.** Only A2 (rater folds) is significant, at **+0.0026 [+0.0004,+0.0049]** ≈0.4%; cross-**country** costs **+0.0007**, spanning zero. `A4` response-blind is **undefined, not zero** |
 
 | [r38](rounds/r38_human_sampling_power) | Which prompts to send to humans, and how many? | **frame-limited, not power-limited.** 60 prompts × 8 raters detects **+0.05 at 98%** power clustered on prompt; r12's 0.16 is detectable everywhere. Equal-cell stratified frame with sampling weights so one collection gives both a population and an anomaly estimate |
 

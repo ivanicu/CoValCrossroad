@@ -40,8 +40,8 @@
     "confident - forced": {
      "delta": 0.0019423077216379485,
      "ci": [
-      -0.006324004238059571,
-      0.009981396287655191
+      -0.006303129974472368,
+      0.009969640227384847
      ],
      "excludes_zero": false,
      "prompts": 871
@@ -49,8 +49,8 @@
     "posterior - forced": {
      "delta": 0.008546390723055445,
      "ci": [
-      0.003673759450297096,
-      0.01361747193568187
+      0.0035106111601827727,
+      0.0136348094529916
      ],
      "excludes_zero": true,
      "prompts": 968
@@ -58,8 +58,8 @@
     "forced - attribute_only": {
      "delta": 0.06313545854043641,
      "ci": [
-      0.05406947115229249,
-      0.07207272793548758
+      0.054275879743029415,
+      0.07238565992028781
      ],
      "excludes_zero": true,
      "prompts": 968
@@ -68,49 +68,49 @@
   },
   "crossfit": {
    "attribute_only": {
-    "accuracy": 0.5833886987245398,
+    "accuracy": 0.5833889814972516,
     "coverage": 1.0,
     "prompts": 968
    },
    "forced": {
-    "accuracy": 0.6418742422991248,
+    "accuracy": 0.6423479117479348,
     "coverage": 1.0,
     "prompts": 968
    },
    "confident": {
-    "accuracy": 0.6418628675504737,
-    "coverage": 0.457333868164193,
-    "prompts": 958
+    "accuracy": 0.6405519940422059,
+    "coverage": 0.4580146202353697,
+    "prompts": 965
    },
    "posterior": {
-    "accuracy": 0.6503070860406527,
-    "coverage": 0.9740637247786326,
+    "accuracy": 0.650509100963662,
+    "coverage": 0.9740561478477628,
     "prompts": 968
    },
    "comparisons": {
     "confident - forced": {
-     "delta": -0.0002641387529817466,
+     "delta": -0.0016944187536397895,
      "ci": [
-      -0.00744094854238967,
-      0.006344662315845886
+      -0.008425062484429728,
+      0.005125620241401861
      ],
      "excludes_zero": false,
-     "prompts": 958
+     "prompts": 965
     },
     "posterior - forced": {
-     "delta": 0.008432843741527795,
+     "delta": 0.008161189215727196,
      "ci": [
-      0.004263262935251916,
-      0.012419970410230186
+      0.004224456039007294,
+      0.012058661530408318
      ],
      "excludes_zero": true,
      "prompts": 968
     },
     "forced - attribute_only": {
-     "delta": 0.05848554357458499,
+     "delta": 0.058958930250683134,
      "ci": [
-      0.049898767492973804,
-      0.06694300154754264
+      0.05042120742858609,
+      0.06805462841706203
      ],
      "excludes_zero": true,
      "prompts": 968
@@ -118,7 +118,7 @@
    }
   }
  },
- "verdict": "CONCORDANCE DOES NOT DEPEND ON FORCING CONTESTED CRITERIA. Abstaining wherever raters split on direction changes cross-fitted accuracy by -0.0003 [-0.00744094854238967, 0.006344662315845886], while dropping 54% of criteria. The signal lives where people agree, and the forced direction on the rest is not carrying it.",
+ "verdict": "CONCORDANCE DOES NOT DEPEND ON FORCING CONTESTED CRITERIA. Abstaining wherever raters split on direction changes cross-fitted accuracy by -0.0017 [-0.008425062484429728, 0.005125620241401861], while dropping 54% of criteria. The signal lives where people agree, and the forced direction on the rest is not carrying it.",
  "scale_note": "The rating scale runs -10..+10 and the value 0 occurs exactly once in 102,147 ratings, so the neutral point is effectively unavailable: 'no general direction' has no representation in this data.",
  "scope": "Evaluation is against individual rater rankings on the original candidate set; internal concordance on the elicitation manifold (entry 36)."
 }

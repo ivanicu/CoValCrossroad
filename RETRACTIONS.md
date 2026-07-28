@@ -5,7 +5,7 @@ it happened, with what did the killing.
 
 The rounds are numbered by when they ran, not by what survived. Read in that order
 the repository looks like a sequence of findings. It is not. **Eleven of these
-forty-one entries are a later round destroying an earlier round's conclusion, and in
+forty-two entries are a later round destroying an earlier round's conclusion, and in
 all eleven both rounds are mine.** Nine more were found by outside challengers in
 roughly 45 minutes each, against twenty rounds of self-review that had already passed
 over every one of them.
@@ -150,6 +150,24 @@ finding as unreproducible and been wrong, with a clean-looking run to point at.
 **The script looked reproducible, which is why nobody checked.** It sets
 `np.random.default_rng(20260728)` at the top. A visible seed on the wrong source of
 randomness is worse than no seed, because it answers the question before it is asked.
+
+---
+
+## Entry 42 — the smoke-run habit, caught by auditing instead of by an adversary
+
+| # | The claim | What killed or scoped it | What survived |
+|---|---|---|---|
+| 42 | **"Every rung is non-significant"** (C36/r37) and **"φ_T gap spans zero"** (C35/r36) | Auditing whether each committed result was its *full* run. Both were published from **smoke runs** — 2 seeds where the design called for 8 and 5 — launched in the background while the smoke numbers went into the README. The full runs finished afterward and **both calls flip**: r37's `A2` held-out-rater-folds rung is **+0.0026 [+0.0004, +0.0049]**, and r36's `φ_T` gap is **+0.0017 [+0.0005, +0.0028]**. Neither interval contains zero | The direction and the magnitudes, which barely moved. What did not survive is the *significance* language, and the correct C36 statement is now narrower: **one rung is significant** — a small-sample group-fitting effect of about 0.4% — while individual circularity and population dependence remain absent, and held-out **country** costs *less* than held-out rater folds |
+
+**This is [entry 41's](#) failure repeating in the opposite direction.** There, a 2-null-rep
+smoke read `z=+10.26` where 40 reps read `+1.40` — the smoke **overstated**. Here the smoke
+runs had *wider* intervals and **understated**, so three claims were published as null that
+are not. Both directions have the same cause: **a smoke run is a number whose uncertainty is
+wrong, and its point estimate being close is exactly what makes it dangerous.**
+
+Worth noting how it was found. No adversary this time — it came from asking one question of
+the repository's own artifacts: *is every committed result the full run its design specifies?*
+That check costs nothing and had never been run.
 
 **Why entry 31 is the most serious thing in this file.** Every other retraction is a
 statistical error — a wrong null, an unmatched pairing, a missing interval, a check that
