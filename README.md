@@ -93,27 +93,32 @@ Each round is self-contained: its own question, runner, results and README.
 
 | round | question | headline |
 |---|---|---|
-| [r01](rounds/r01_rater_structure) | Is disagreement noise or structure? | persists across disjoint prompts, ρ=0.147, survives removing response style, z=+16.6 |
+| [r01](rounds/r01_rater_structure) | Is disagreement noise or structure? | persists across disjoint prompts, ρ=0.147, z=+16.6 — but **[r23](rounds/r23_actor_vs_dyad) shows 77–80% of that is an additive *actor* effect**, and the "survives removing response style" control was invariant by construction |
 | [r02](rounds/r02_label_and_regime) | Label bias; fatigue or regime change? | label B wins 22.5% vs 25% expected; effort steps −38.6% at task 6 (step R²=0.964 vs trend 0.448) |
 | [r03](rounds/r03_stated_vs_revealed) | Do stated ideals predict own choices? | no lexical signal: +0.0017 [−0.006, +0.010] over a permuted-identity null |
 | [r04](rounds/r04_rebuild_satisfaction) | Rebuild the withheld layer | 119,868 judgements, validated on 80,542 held-out human pairs at 0.686 |
 | [r05](rounds/r05_value_taxonomy) | What does compression silence? | not a value family — the penalty for being contested is −0.31…−0.46 in *every* family |
 | [r06](rounds/r06_rule_tournament) | Which aggregation rule wins? | four rules span 1.9 points; a consensus rule ties random selection |
-| [r07](rounds/r07_anthropomorphism) | Is the rubric blind to anthropomorphism? | style predicts preference independently of the rubric (t=+4.02); 0.16% of criteria mention it |
+| [r07](rounds/r07_anthropomorphism) | Is the rubric blind to anthropomorphism? | style predicts preference independently of the rubric (t=+4.02); **0.046%** of criteria address it (7 of 15,248, hand-adjudicated — the 0.16% regex count is an upper bound), and those 7 split 4 anti / 3 pro |
 | [r08](rounds/r08_gold_preference) | A gold model that never sees the rubric | held-out 0.661 vs 0.529 length baseline |
 | [r09](rounds/r09_overoptimization) | Optimize the rubric, watch preference | pre-registered gaming prediction **refuted**: markers fell |
 | [r10](rounds/r10_attribution_robustness) | Is the attribution an artifact? | stable across judge size and template; 23.7% of the gap is topic, not value |
 | [r11](rounds/r11_backbone_control) | Was r09 backbone leakage? | **retracts r09's rise** — it vanishes with an independent backbone |
 | [r12](rounds/r12_response_set) | Does the advantage transfer? | it **inverts** off-distribution: +0.102 → −0.042, discrimination control passed |
 | [r13](rounds/r13_seed_vs_writein) | Seed criteria vs write-ins | **refutes r12's own mechanism**: response-blind seeds carry real attribution (+0.046 [+0.023,+0.069]). The seed-vs-write-in *ordering* is NOT established — paired difference +0.023 [−0.008,+0.054] |
-| [r16](rounds/r16_minority_regret) | Conflict-aware, on its own turf | blocs are real (regret 2.07 vs 1.10 random), yet conflict-aware leaves the worst-off bloc **lowest of all rules** |
+| [r16](rounds/r16_minority_regret) | Conflict-aware, on its own turf | profile splits show regret 2.07 vs 1.10 random, yet conflict-aware leaves the worst-off group **lowest of all rules**. ⚠ These are **not** a demographic constituency: gender (1.145) and country (1.198) splits both fail r16's own bar |
 | [r17](rounds/r17_conditional_core) | Does conditional encoding rescue it? | **partly** — routing learned from a rater's *other* prompts helps only the rules carrying contested items (+0.195), and does not close the gap |
 | [r18](rounds/r18_routing_difficulty) | Was r17's 84.6% routing accuracy free? | **inflated by +0.147, but real**: 0.666 [0.643, 0.688] where the blocs actually disagree |
-| [r19](rounds/r19_floor_choice) | Which donor is the generic floor? | the headline moves **2.5×** with that choice; prompt-specific share is 27–67%, not a single figure |
+| [r19](rounds/r19_floor_choice) | Which donor is the generic floor? | the headline moves **2.47×** with that choice; prompt-specific share is 27–67%, not a single figure. ⚠ rests on **2 usable judge cells** with no prompt-level CI |
 | [r14](rounds/r14_paraphrase_gauge) | Is the judge paraphrase-invariant? | **no** — a semantically faithful rewording flips **15.4%** of Yes/No verdicts, so part of "criterion content" is criterion wording |
 | [r15](rounds/r15_indistribution_transfer) | Do criteria transfer to a near-topic prompt? | **no** — own criteria +0.073 [+0.056, +0.091] over the floor, nearest-topic criteria +0.018 [−0.001, +0.037]. Real responses, real human rankings, no gold model. r21 shows that neighbour is 91.6% of the way to being the same question |
 | [r20](rounds/r20_paraphrase_transfer) | Is the advantage content or wording? | **content** — reword every criterion and **97.4%** of the advantage survives; original−paraphrased +0.002 [−0.007, +0.011] |
 | [r21](rounds/r21_donor_distance) | Is the "near-topic" donor actually near? | **yes, near the ceiling** — it sits at the 97.86th percentile of all pairs and covers **91.6%** of the distance from a random prompt to the same question reworded |
+
+| [r22](rounds/r22_cross_family) | Does the attribution survive a change of judge family? | **not yet answered** — the first run said it did, on two judges that were both Qwen, because "family" was `name.split("-")[0]`. Gate rewritten to count *declared* families; rerunning with the two non-Qwen judges now that their tokenizers load |
+| [r23](rounds/r23_actor_vs_dyad) | Is r01's persistence about people or about pairs? | **mostly people**: an additive actor model takes 47.2% of dyad variance and actor-only persistence (0.254) *exceeds* the headline. Pair-specific residual 0.034, z=+4.67 — real, and a fifth of what r01 reported. Its sharper test (reliably-disagreeing pairs) is **null at z=+1.40** |
+| [r24](rounds/r24_regime_receipt) | Receipt for "step R²=0.964 vs trend 0.448" | the number existed in no script. Reproduced, **and given the control it never had**: a null that re-searches the breakpoint on every shuffle reaches only 0.172. Observed 0.964, p=0.0001, breakpoint found at position 6 by search |
+| [r25](rounds/r25_actor_dyad_sweep) | Is r23's residual stable, or a property of Pearson? | 144-cell sweep: 4 agreement metrics × 3 overlap thresholds × 3 shared-item thresholds × style × centring — *running* |
 
 ---
 
