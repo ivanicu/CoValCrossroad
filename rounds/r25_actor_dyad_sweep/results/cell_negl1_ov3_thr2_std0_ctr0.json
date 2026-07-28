@@ -1,0 +1,23 @@
+{
+ "cfg": {
+  "metric": "negl1",
+  "min_overlap": 3,
+  "thr": "2",
+  "standardize": false,
+  "centre": false
+ },
+ "tag": "negl1_ov3_thr2_std0_ctr0",
+ "prompts": 975,
+ "actor_model_r2": 0.4952515470704811,
+ "raw_rho": 0.24147225813385795,
+ "actor_rho": 0.26814641912399717,
+ "resid_rho": 0.16903974086762066,
+ "resid_rho_sd": 0.0030024734362096447,
+ "n_pairs": 17391,
+ "resid_z": 21.129359870138742,
+ "neg_both": 0.3128790753838192,
+ "neg_both_z": 10.044286005857918,
+ "pair_specific_share": 0.7000379346844681,
+ "null_mean": -0.00023570596715515117,
+ "null_sd": 0.008011385477554221
+}

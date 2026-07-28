@@ -169,9 +169,43 @@ class Judge:
             model_dir, dtype=dtype, device_map="cuda"
         ).eval()
         self.batch = batch
+        # Read the logit gap at the position where " Yes" and " No" actually
+        # DIVERGE, not at token 0 of each.
+        #
+        # FIXED 2026-07-28.  The old code took yes[0] and no[0].  That is correct
+        # for a BPE tokenizer where " Yes" -> [7179] and " No" -> [2233], which is
+        # every Qwen model, which is every judge this project had ever used.  It
+        # is wrong for a SentencePiece tokenizer, which emits the whitespace as
+        # its own token first:
+        #
+        #     phi-3.5-mini:  " Yes" -> [29871, 3869]      yes_id = 29871
+        #                    " No"  -> [29871, 1939]      no_id  = 29871
+        #
+        # so the gap was identically zero, every satisfaction score was exactly
+        # 0.5, every response tied, and the round recorded phi's accuracy as
+        # 0.0000 and filed it as `positive_control_passed: False`.  That reads as
+        # "phi is a bad judge".  It was this line.  A measured zero from an
+        # instrument that has never returned non-zero is silence, not a verdict --
+        # and the question it silently closed was the only one this project has
+        # never been able to answer: does the attribution survive a change of
+        # model family?
         yes = self.tok.encode(" Yes", add_special_tokens=False)
         no = self.tok.encode(" No", add_special_tokens=False)
-        self.yes_id, self.no_id = yes[0], no[0]
+        k = 0
+        while k < min(len(yes), len(no)) and yes[k] == no[k]:
+            k += 1
+        if k >= len(yes) or k >= len(no):
+            raise ValueError(
+                f"' Yes'={yes} and ' No'={no}: one encoding is a prefix of the "
+                "other, so no single position distinguishes them")
+        # tokens both labels share BEFORE diverging must be appended to the input,
+        # or the logits are read one position too early -- the model would put its
+        # mass on the shared token, not on the answer.
+        self.prefix_ids = yes[:k]
+        self.yes_id, self.no_id = yes[k], no[k]
+        if self.prefix_ids:
+            print(f"  [judge] label tokens diverge at position {k}; forcing prefix "
+                  f"{self.prefix_ids} before reading the gap", flush=True)
 
     @torch.inference_mode()
     def score(self, prompts: list[str]) -> np.ndarray:
@@ -180,6 +214,12 @@ class Judge:
             chunk = prompts[i : i + self.batch]
             enc = self.tok(chunk, return_tensors="pt", padding=True,
                            truncation=True, max_length=1024).to("cuda")
+            if self.prefix_ids:
+                n = len(chunk)
+                pre = torch.tensor(self.prefix_ids, device="cuda").repeat(n, 1)
+                enc["input_ids"] = torch.cat([enc["input_ids"], pre], dim=1)
+                enc["attention_mask"] = torch.cat(
+                    [enc["attention_mask"], torch.ones_like(pre)], dim=1)
             # only the final position is read, so do not materialise logits for
             # the whole sequence: batch x seq x 248k vocab is ~10 GB at batch 48.
             logits = self.model(**enc, logits_to_keep=1).logits[:, -1, :].float()

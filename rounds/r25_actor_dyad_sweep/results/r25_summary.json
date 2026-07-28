@@ -1,0 +1,85 @@
+{
+ "cells": 138,
+ "usable": 138,
+ "resid_z_gt2": 138,
+ "resid_z_gt2_frac": 1.0,
+ "share_median": 0.2650216530729456,
+ "share_range": [
+  0.20184988778344762,
+  0.7000379346844681
+ ],
+ "gauge": {
+  "cosine": {
+   "max_delta": 0.0338510857308697,
+   "invariant": false,
+   "expected_invariant": false,
+   "as_predicted": true
+  },
+  "negl1": {
+   "max_delta": 0.09071872911113599,
+   "invariant": false,
+   "expected_invariant": false,
+   "as_predicted": true
+  },
+  "pearson": {
+   "max_delta": 2.7755575615628914e-17,
+   "invariant": true,
+   "expected_invariant": true,
+   "as_predicted": true
+  },
+  "spearman": {
+   "max_delta": 0.0,
+   "invariant": true,
+   "expected_invariant": true,
+   "as_predicted": true
+  }
+ },
+ "neg_both_z_gt2": 136,
+ "neg_both_n": 138,
+ "by_metric": {
+  "cosine": {
+   "n": 36,
+   "resid_rho": [
+    0.03591762373314101,
+    0.13074217922333614
+   ],
+   "resid_z": [
+    3.4550577630119266,
+    18.979768349466926
+   ]
+  },
+  "negl1": {
+   "n": 30,
+   "resid_rho": [
+    0.03210914446812367,
+    0.17339272721856835
+   ],
+   "resid_z": [
+    4.698034768773245,
+    22.506162211943735
+   ]
+  },
+  "pearson": {
+   "n": 36,
+   "resid_rho": [
+    0.03585368798290209,
+    0.04353118794873844
+   ],
+   "resid_z": [
+    5.813256389855457,
+    6.206588659714472
+   ]
+  },
+  "spearman": {
+   "n": 36,
+   "resid_rho": [
+    0.03281753228985238,
+    0.03908113358897302
+   ],
+   "resid_z": [
+    5.060814925841794,
+    5.782051858678653
+   ]
+  }
+ }
+}

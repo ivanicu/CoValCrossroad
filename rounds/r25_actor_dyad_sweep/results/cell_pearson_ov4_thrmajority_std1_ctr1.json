@@ -1,0 +1,23 @@
+{
+ "cfg": {
+  "metric": "pearson",
+  "min_overlap": 4,
+  "thr": "majority",
+  "standardize": true,
+  "centre": true
+ },
+ "tag": "pearson_ov4_thrmajority_std1_ctr1",
+ "prompts": 975,
+ "actor_model_r2": 0.4767617211285487,
+ "raw_rho": 0.15765985468348562,
+ "actor_rho": 0.253226502213987,
+ "resid_rho": 0.04234900783199471,
+ "resid_rho_sd": 0.0037171729641643746,
+ "n_pairs": 16138,
+ "resid_z": 6.206588659714472,
+ "neg_both": 0.26116743090841493,
+ "neg_both_z": 2.679524468704031,
+ "pair_specific_share": 0.26860996362716194,
+ "null_mean": -0.002729032747302717,
+ "null_sd": 0.007262933479977809
+}

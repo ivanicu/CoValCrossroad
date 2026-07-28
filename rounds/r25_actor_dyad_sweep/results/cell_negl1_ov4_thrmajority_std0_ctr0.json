@@ -1,0 +1,23 @@
+{
+ "cfg": {
+  "metric": "negl1",
+  "min_overlap": 4,
+  "thr": "majority",
+  "standardize": false,
+  "centre": false
+ },
+ "tag": "negl1_ov4_thrmajority_std0_ctr0",
+ "prompts": 975,
+ "actor_model_r2": 0.4971719888073135,
+ "raw_rho": 0.24915451150597395,
+ "actor_rho": 0.2771586953820196,
+ "resid_rho": 0.17339272721856835,
+ "resid_rho_sd": 0.003026702635820147,
+ "n_pairs": 16848,
+ "resid_z": 19.78042839329404,
+ "neg_both": 0.3136823361823362,
+ "neg_both_z": 10.232014120937212,
+ "pair_specific_share": 0.6959244934820734,
+ "null_mean": -0.0018276686311424304,
+ "null_sd": 0.008858271031649321
+}

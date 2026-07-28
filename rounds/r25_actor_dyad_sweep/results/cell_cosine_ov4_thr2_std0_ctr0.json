@@ -1,0 +1,23 @@
+{
+ "cfg": {
+  "metric": "cosine",
+  "min_overlap": 4,
+  "thr": "2",
+  "standardize": false,
+  "centre": false
+ },
+ "tag": "cosine_ov4_thr2_std0_ctr0",
+ "prompts": 975,
+ "actor_model_r2": 0.5285179404232215,
+ "raw_rho": 0.18950626871448076,
+ "actor_rho": 0.20067941076043716,
+ "resid_rho": 0.13074217922333614,
+ "resid_rho_sd": 0.0030867305101569585,
+ "n_pairs": 16848,
+ "resid_z": 18.979768349466926,
+ "neg_both": 0.28430674264007594,
+ "neg_both_z": 6.294259606862358,
+ "pair_specific_share": 0.6899095217811427,
+ "null_mean": -0.0011308818985110145,
+ "null_sd": 0.006948085913101844
+}

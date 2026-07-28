@@ -1,0 +1,71 @@
+{
+ "prompts": 300,
+ "floor": 0.55,
+ "judges": {
+  "qwen3.5-2b-base(ref)": {
+   "own": 0.6521684899986517,
+   "near": 0.5960886482167034,
+   "random": 0.5759068568489004,
+   "attribution_vs_random": 0.07626163314975128,
+   "ci": [
+    0.058472471211672004,
+    0.0944187051761592
+   ],
+   "attribution_vs_near": 0.05607984178194826,
+   "ci_near": [
+    0.03952019573244384,
+    0.07319760514171719
+   ],
+   "prompts": 300,
+   "positive_control_passed": true
+  },
+  "qwen2.5-3b-instruct": {
+   "own": 0.6660217087656912,
+   "near": 0.6153496058547535,
+   "random": 0.5766652249053985,
+   "attribution_vs_random": 0.08935648386029263,
+   "ci": [
+    0.06719664201538006,
+    0.11136792316740425
+   ],
+   "attribution_vs_near": 0.05067210291093761,
+   "ci_near": [
+    0.031890428620260224,
+    0.07043823306724309
+   ],
+   "prompts": 300,
+   "positive_control_passed": true
+  },
+  "phi-3.5-mini-instruct": {
+   "own": 0.0,
+   "near": 0.0,
+   "random": 0.0,
+   "attribution_vs_random": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "attribution_vs_near": 0.0,
+   "ci_near": [
+    0.0,
+    0.0
+   ],
+   "prompts": 300,
+   "positive_control_passed": false
+  }
+ },
+ "usable": [
+  "qwen3.5-2b-base(ref)",
+  "qwen2.5-3b-instruct"
+ ],
+ "usable_families": [
+  "qwen"
+ ],
+ "judge_families": {
+  "qwen3.5-2b-base(ref)": "qwen",
+  "qwen2.5-3b-instruct": "qwen",
+  "phi-3.5-mini-instruct": "phi",
+  "internlm2-chat-1.8b": "internlm"
+ },
+ "verdict": "UNRESOLVED -- SINGLE FAMILY: 2 judge(s) passed their positive control but all are 'qwen'. The attribution reproduces across a generation change WITHIN that lineage, which is a weaker statement than family-independence and must not be reported as it. Every non-qwen judge failed to load or failed its own-rubric floor, so this round has NOT tested the thing its title names."
+}

@@ -1,0 +1,23 @@
+{
+ "cfg": {
+  "metric": "spearman",
+  "min_overlap": 5,
+  "thr": "3",
+  "standardize": true,
+  "centre": true
+ },
+ "tag": "spearman_ov5_thr3_std1_ctr1",
+ "prompts": 975,
+ "actor_model_r2": 0.45278585941271965,
+ "raw_rho": 0.1403104073727877,
+ "actor_rho": 0.23785198510868505,
+ "resid_rho": 0.03611698132957609,
+ "resid_rho_sd": 0.0034268895552755445,
+ "n_pairs": 15088,
+ "resid_z": 5.060814925841794,
+ "neg_both": 0.2634252386002121,
+ "neg_both_z": 2.6936164879684337,
+ "pair_specific_share": 0.25740771483627484,
+ "null_mean": -0.003697704117347727,
+ "null_sd": 0.007867247869223432
+}
