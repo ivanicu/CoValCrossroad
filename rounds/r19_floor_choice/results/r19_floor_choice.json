@@ -1,25 +1,50 @@
 {
  "per_cell": {
   "qwen3.5-2b/A": {
+   "self": 0.6629556752278376,
+   "near": 0.6021644573322287,
+   "random": 0.5760666942833471,
+   "far": 0.5238711681855841,
+   "degenerate": false,
    "vs_near": 0.06079121789560893,
    "vs_random": 0.08688898094449049,
    "vs_far": 0.1390845070422535
   },
   "qwen3.5-2b/B": {
+   "self": 0.6485604805302403,
+   "near": 0.6157829328914665,
+   "random": 0.589115575807788,
+   "far": 0.5569076222038111,
+   "degenerate": false,
    "vs_near": 0.03277754763877383,
    "vs_random": 0.05944490472245234,
    "vs_far": 0.09165285832642922
   },
   "qwen3.5-0.8b/A": {
+   "self": 0.5405447390223695,
+   "near": 0.49394159072079535,
+   "random": 0.49559859154929575,
+   "far": 0.4653583264291632,
+   "degenerate": true,
    "vs_near": 0.04660314830157419,
    "vs_random": 0.044946147473073794,
    "vs_far": 0.07518641259320635
   }
  },
+ "usable_cells": [
+  "qwen3.5-2b/A",
+  "qwen3.5-2b/B"
+ ],
  "means": {
-  "vs_near": 0.04672397127865232,
-  "vs_random": 0.06376001104667221,
-  "vs_far": 0.10197459265396303
+  "vs_near": 0.04678438276719138,
+  "vs_random": 0.07316694283347142,
+  "vs_far": 0.11536868268434136
  },
- "note": "attribution depends on which donor defines the generic-quality floor; the reported 0.079 used the random donor, which is not a clean floor because a randomly chosen prompt sometimes shares topic"
+ "prompt_specific_share": {
+  "vs_near": 0.30036569148936165,
+  "vs_random": 0.4697473404255319,
+  "vs_far": 0.7406914893617023
+ },
+ "span": 2.4659656889872723,
+ "note": "attribution depends on which donor defines the generic-quality floor; the reported figure used the random donor, which retains 47-60% of the self signal and is therefore not a clean floor"
 }

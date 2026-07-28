@@ -26,15 +26,20 @@ reads r10's donors as a decay curve: a random prompt's rubric still retains 47�
 because a random prompt sometimes shares topic. Grading against a nearest-topic donor instead gives
 attribution 0.047; against the most dissimilar donor, 0.102.
 
-| floor | attribution | prompt-specific share |
+Measured on r10's 300-prompt panel, excluding one judge cell whose own accuracy (0.5405) sits too
+close to chance to be decomposed at all:
+
+| floor | attribution | relative to the random floor |
 |---|---:|---:|
-| nearest-topic donor | 0.047 | ~29% |
-| random donor *(reported)* | 0.064 | ~43% |
-| most dissimilar donor | 0.102 | ~63% |
+| nearest-topic donor | 0.047 | ×0.64 |
+| random donor *(what the headline used)* | 0.073 | ×1.00 |
+| most dissimilar donor | 0.115 | ×1.58 |
+
+Applying that range to the headline's own 42.5% prompt-specific share gives **27%–67%**.
 
 Neither endpoint is clean — the far donor is adversarially selected and may simply be refused by the
-judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so the
-honest statement is 29–63% and any single figure must name its floor.**
+judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so any
+single figure must name its floor.**
 
 Stable across three judge/template configurations (0.064 ± 0.017) *at a fixed floor*.
 
@@ -90,7 +95,7 @@ Each round is self-contained: its own question, runner, results and README.
 | [r16](rounds/r16_minority_regret) | Conflict-aware, on its own turf | blocs are real (regret 2.07 vs 1.10 random), yet conflict-aware leaves the worst-off bloc **lowest of all rules** |
 | [r17](rounds/r17_conditional_core) | Does conditional encoding rescue it? | **partly** — routing learned from a rater's *other* prompts helps only the rules carrying contested items (+0.195), and does not close the gap |
 | [r18](rounds/r18_routing_difficulty) | Was r17's 84.6% routing accuracy free? | **inflated by +0.147, but real**: 0.666 [0.643, 0.688] where the blocs actually disagree |
-| [r19](rounds/r19_floor_choice) | Which donor is the generic floor? | the headline moves **2.2×** with that choice; prompt-specific share is 29–63%, not 43% |
+| [r19](rounds/r19_floor_choice) | Which donor is the generic floor? | the headline moves **2.5×** with that choice; prompt-specific share is 27–67%, not a single figure |
 
 ---
 
@@ -118,6 +123,9 @@ either.
 ---
 
 ## Reproducing
+
+Verified from a clean clone: `git clone`, `python data/fetch.py`, then every CPU round and the
+manifest run without further setup.
 
 ```bash
 python -m venv .venv && .venv/bin/pip install numpy pandas scipy scikit-learn torch transformers
