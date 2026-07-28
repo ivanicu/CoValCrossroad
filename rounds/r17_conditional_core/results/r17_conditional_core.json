@@ -1,0 +1,64 @@
+{
+ "utility": {
+  "single": 3.608588695296917,
+  "learned": 3.5925239517894507,
+  "oracle": 3.778444672278904,
+  "delta": -0.01606474350746587,
+  "ci": [
+   -0.08405919757840243,
+   0.04827684120031661
+  ],
+  "verdict": "no gain",
+  "prompts": 742
+ },
+ "majority": {
+  "single": 3.554869557666054,
+  "learned": 3.5448918322991774,
+  "oracle": 3.7514934666636153,
+  "delta": -0.009977725366876307,
+  "ci": [
+   -0.07347526392632524,
+   0.05453213242844308
+  ],
+  "verdict": "no gain",
+  "prompts": 742
+ },
+ "consensus": {
+  "single": 3.5441532355784378,
+  "learned": 3.5281446466082587,
+  "oracle": 3.740321624317582,
+  "delta": -0.01600858897017925,
+  "ci": [
+   -0.08112296038698495,
+   0.047757522033970844
+  ],
+  "verdict": "no gain",
+  "prompts": 742
+ },
+ "constituency": {
+  "single": 3.17555057064828,
+  "learned": 3.323457456552133,
+  "oracle": 3.612745577460874,
+  "delta": 0.1479068859038536,
+  "ci": [
+   0.050009612093506975,
+   0.24096095454691316
+  ],
+  "verdict": "helps",
+  "prompts": 742
+ },
+ "conflict_aware": {
+  "single": 2.803889184153672,
+  "learned": 2.9992066053892197,
+  "oracle": 3.374950519306988,
+  "delta": 0.19531742123554793,
+  "ci": [
+   0.08748308246391977,
+   0.2992969440945772
+  ],
+  "verdict": "helps",
+  "prompts": 742
+ },
+ "router_matches_oracle": 0.8463611859838275,
+ "conclusion": "CONDITIONAL ENCODING RESCUES IT: learned routing beats a single signed core, so r16 measured the encoding rather than the preservation of disagreement."
+}
