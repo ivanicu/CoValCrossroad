@@ -239,28 +239,57 @@ def main() -> None:
             agree[nm] = {"r_by_lineage": rs, "mean_r": float(np.mean(rs)),
                          "n_significant": int(sum(sig)), "n_lineages": len(rs),
                          "sign_agreement": bool(len(set(np.sign(rs))) == 1)}
-    print(f"\n{'measure':20s} {'r per lineage':>34} {'sig':>5} {'same sign':>10}")
+    print(f"\n  drop = attribution(ORIGINAL) - attribution(FRESH); POSITIVE r = anomaly "
+          f"grows with distance,\n  NEGATIVE r = anomaly is worst where fresh responses "
+          f"most resemble the released ones.\n")
+    print(f"{'measure':20s} {'r per lineage':>34} {'sig':>5} {'same sign':>10}")
     for nm, v in agree.items():
         print(f"{nm:20s} {str([round(x,3) for x in v['r_by_lineage']]):>34} "
               f"{v['n_significant']}/{v['n_lineages']:>3} {str(v['sign_agreement']):>10}")
 
     best = max(agree.items(), key=lambda kv: abs(kv[1]["mean_r"])) if agree else (None, {})
     strong = best[1].get("n_significant", 0) >= 2 and best[1].get("sign_agreement")
-    verdict = (
-        f"THE INVERSION IS LOCALISED. `{best[0]}` correlates with the per-prompt attribution "
-        f"drop at mean r={best[1]['mean_r']:+.3f}, significant in "
-        f"{best[1]['n_significant']}/{best[1]['n_lineages']} lineages with agreeing sign. "
-        "The inversion concentrates where fresh responses sit further from the original "
-        "support, which is what MEASUREMENT failure predicts and what genuine transport "
-        "failure does not require. It does not prove measurement failure: distance and "
-        "genuine value-mismatch can covary. It does say the human sample must span the "
-        "distance axis rather than being drawn from its tail."
-        if strong else
-        "THE INVERSION IS NOT LOCALISED BY DISTANCE. No measure reaches significance in a "
-        "majority of lineages with a consistent sign, so on this evidence the r12 inversion "
-        "is not concentrated in out-of-distribution responses. That is the reading LESS "
-        "favourable to a pure measurement-failure explanation, and it is not evidence FOR "
-        "genuine transport failure either -- only that this axis does not separate them.")
+    # THE SIGN IS THE FINDING, AND THE FIRST VERSION OF THIS BLOCK DID NOT READ IT.
+    # The outcome is drop = attribution(ORIGINAL) - attribution(FRESH), so a LARGER
+    # drop is a WORSE inversion. A POSITIVE correlation with distance means the
+    # inversion worsens as fresh responses move away from the original support --
+    # the measurement-failure prediction. A NEGATIVE one means it worsens where
+    # they are CLOSEST, which is the opposite prediction and the reading LESS
+    # favourable to measurement failure. The original text asserted "concentrates
+    # where fresh responses sit further from the original support" for either
+    # sign, which would have inverted the conclusion on this data.
+    mr = best[1].get("mean_r", float("nan"))
+    if not strong:
+        verdict = (
+            "THE INVERSION IS NOT LOCALISED BY DISTANCE. No measure reaches significance in "
+            "a majority of lineages with a consistent sign, so on this evidence the r12 "
+            "inversion is not concentrated by distance in either direction. Not evidence "
+            "for measurement failure and not evidence against it -- this axis does not "
+            "separate them.")
+    elif mr > 0:
+        verdict = (
+            f"THE INVERSION GROWS WITH DISTANCE. `{best[0]}` correlates with the attribution "
+            f"drop at mean r={mr:+.3f}, significant in {best[1]['n_significant']}/"
+            f"{best[1]['n_lineages']} lineages with agreeing sign. The anomaly is worst where "
+            "fresh responses sit FURTHEST from the original support, which is what "
+            "MEASUREMENT failure predicts. It does not prove it -- distance and genuine "
+            "value-mismatch can covary -- but the human sample must span the axis rather "
+            "than be drawn from its tail.")
+    else:
+        verdict = (
+            f"THE INVERSION IS WORST AT SHORT DISTANCE -- THE OPPOSITE OF THE "
+            f"MEASUREMENT-FAILURE PREDICTION. `{best[0]}` correlates with the attribution "
+            f"drop at mean r={mr:+.3f}, significant in {best[1]['n_significant']}/"
+            f"{best[1]['n_lineages']} lineages and agreeing in sign across all "
+            f"{best[1]['n_lineages']}. Because the drop is attribution(ORIGINAL) minus "
+            "attribution(FRESH), a negative correlation means the anomaly SHRINKS as fresh "
+            "responses move away from the original support and is WORST on fresh responses "
+            "that most resemble the released ones. If the inversion were an artifact of "
+            "judging out-of-distribution text, it should have run the other way. The effect "
+            "is small (|r| about 0.13) and this is one axis, so it does not establish "
+            "genuine transport failure -- but it removes the easiest explanation for it, and "
+            "it means the human sample must NOT be drawn from the far tail, where the "
+            "anomaly is mildest.")
     print(f"\n  -> {verdict}")
 
     _RES.mkdir(parents=True, exist_ok=True)

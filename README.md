@@ -49,6 +49,45 @@ Neither endpoint is clean — the far donor is adversarially selected and may si
 judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so any
 single figure must name its floor.**
 
+### r12's inversion is worst where the fresh responses look MOST like the released ones
+
+The easiest explanation for r12 — the rubric's advantage inverting on fresh responses — is
+that the judge and the preference proxy are being asked about text unlike anything they were
+validated on. That predicts a specific geography: **the anomaly should grow with distance from
+the original support.**
+
+[r39](rounds/r39_feature_cache) caches representations of all 2,000 responses from **three
+unrelated pretraining lineages** (Qwen · Phi · InternLM) in one GPU pass and analyses nothing.
+[r40](rounds/r40_ood_map) does the map on CPU, with the PCA basis fitted on **original
+responses only** so fresh ones cannot define the space they are then measured in.
+
+`drop = attribution(ORIGINAL) − attribution(FRESH)`, so **positive** r means the anomaly grows
+with distance and **negative** r means it is worst where fresh responses most resemble the
+released ones.
+
+| distance measure | r per lineage | sig | same sign |
+|---|---|---:|---|
+| **nearest neighbour** | **−0.132, −0.143, −0.101** | **2/3** | **yes** |
+| log-likelihood gap | −0.139, −0.099, −0.059 | 0/3 | yes |
+| Mahalanobis | −0.046, +0.043, +0.180 | 1/3 | **no** |
+| conditional ll gap | −0.014, −0.033, +0.005 | 0/3 | no |
+
+**The sign runs the wrong way for measurement failure.** The inversion *shrinks* as fresh
+responses move away from the original support and is worst on the ones that look most like the
+released candidates. If it were an artifact of judging out-of-distribution text it should have
+run the other way.
+
+The effect is small (|r| ≈ 0.13) and this is a single axis, so it does **not** establish
+genuine transport failure — it removes the easiest alternative to it. Two consequences follow.
+**Mahalanobis disagrees in sign across lineages, so it is a property of a representation, not
+of the responses** — which is exactly why every distance is reported per lineage and never
+averaged. And **the human sample must not be drawn from the far tail**, where the anomaly is
+mildest.
+
+⚠ Length is partialled out throughout, because fresh responses are systematically *longer*
+(89 vs 76 median words) — the 180-token cap never bound, and the released candidates are the
+short ones.
+
 ### The human experiment is frame-limited, not power-limited
 
 Everything above leaves one question, and it needs people. [r38](rounds/r38_human_sampling_power)
@@ -509,6 +548,9 @@ Each round is self-contained: its own question, runner, results and README.
 | [r37](rounds/r37_leakage_topology) | How does the signal decay with isolation? | **it doesn't.** A0→A1→A2→A3 all non-significant; cross-**country** weights cost **+0.0007 [−0.0033,+0.0048]**. Not individual, not small-sample, not country/usage/age-conditional. `A4` response-blind is **undefined, not zero** |
 
 | [r38](rounds/r38_human_sampling_power) | Which prompts to send to humans, and how many? | **frame-limited, not power-limited.** 60 prompts × 8 raters detects **+0.05 at 98%** power clustered on prompt; r12's 0.16 is detectable everywhere. Equal-cell stratified frame with sampling weights so one collection gives both a population and an anomaly estimate |
+
+| [r39](rounds/r39_feature_cache) | Cache representations, analyse nothing | one GPU pass, three lineages (qwen/phi/internlm), 2,000 responses. Load failures recorded as **environment claims**, not model properties |
+| [r40](rounds/r40_ood_map) | Is r12's inversion an OOD artifact? | **no — the sign runs the wrong way.** Nearest-neighbour distance correlates at **−0.125**, 2/3 lineages, same sign 3/3: the anomaly is **worst where fresh responses most resemble the released ones** |
 
 ---
 
