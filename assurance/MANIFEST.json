@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-28T19:45:29.939193+00:00",
- "git": "5f56cfe2ff2cf8116175cb79e6ef9c4a60205322",
+ "generated_utc": "2026-07-28T23:07:30.784904+00:00",
+ "git": "c4609082af9c96873f32ba49fc174d90c1a81223",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -80,8 +80,8 @@
    "sha256": "057fb75ca4f53173e436311f9137708a224fe02c89814fa2dc74de3b656e4702"
   },
   "rounds/r12_response_set/run.py": {
-   "bytes": 13470,
-   "sha256": "0fd8bb1aef30b92a265c75253d7d1d383ab9b828fb811e0099c8ef5a21bac50c"
+   "bytes": 14337,
+   "sha256": "7ee7c601aaa45f297d3bd3a0b42c461461278e530b6da7ca91b0f9ccd61f81ab"
   },
   "rounds/r13_seed_vs_writein/run.py": {
    "bytes": 12848,
@@ -144,8 +144,8 @@
    "sha256": "685f26e5475e8b55c20739cff3088a3118cc7b579b63c394abd4c8e3c3474d7a"
   },
   "rounds/r29_gold_ood/run.py": {
-   "bytes": 12881,
-   "sha256": "2dfdd70a2348ee5ea74c5711c297f2c02b8fe7b6bb52e568ab04fb96717a99d0"
+   "bytes": 15362,
+   "sha256": "f8804b0d1963e6cbb5236f63b862ca3509c01cd12e33d3468bd8db14b142079d"
   },
   "rounds/r30_scope_grid/run.py": {
    "bytes": 7282,
@@ -155,9 +155,53 @@
    "bytes": 8143,
    "sha256": "ebea3aa0a1dfa42424394e466a302305d8f0c8cf9d4d5d87526756975edc47f4"
   },
+  "rounds/r32_channel_decomposition/run.py": {
+   "bytes": 10268,
+   "sha256": "5993b7d07231d791d6e3e1daec7abcd4a260a8da8f7999856daf27e463f5f7d1"
+  },
+  "rounds/r33_core_launders_polarity/run.py": {
+   "bytes": 12111,
+   "sha256": "1c45a411b9b30c9543bfe8630367143b5603f46bd7ed4ded82ce7c5996387ec5"
+  },
+  "rounds/r34_global_rater_crossfit/run.py": {
+   "bytes": 15239,
+   "sha256": "2bc3669772b242d946772bcfd41cf9bb61db7e50c37c579409ec86d45a369fbd"
+  },
+  "rounds/r35_polarity_abstention/run.py": {
+   "bytes": 13721,
+   "sha256": "cd292bf9829b0bf56d3ac75712564dd8e78977826603aee951b8eed4439c2620"
+  },
+  "rounds/r36_channel_shapley/run.py": {
+   "bytes": 13060,
+   "sha256": "897e1057b0dd0aeb5e4c83fe92ad3373ab465794e0b0e08e5d838546d8c95739"
+  },
+  "rounds/r37_leakage_topology/run.py": {
+   "bytes": 13385,
+   "sha256": "db5669483fcedc12ca473a11eb262b7c2bc231930f46c207051e8fc11dfee626"
+  },
+  "rounds/r38_human_sampling_power/run.py": {
+   "bytes": 14317,
+   "sha256": "7dc6aec7c43bb9c37a8ae735f3f6c4709cc7deec88997a89736ef4198774dc1a"
+  },
+  "rounds/r39_feature_cache/run.py": {
+   "bytes": 12868,
+   "sha256": "f79a9d64bdc5ee868ecbbf0e7d45b3a1748b6648d4fc37f2eff0374963affb51"
+  },
+  "rounds/r40_ood_map/run.py": {
+   "bytes": 16500,
+   "sha256": "a1ded7b2d7286e789dcd816f541deaa6af95103e7be665f7d4f17b46f5a0a80d"
+  },
   "assurance/manifest.py": {
-   "bytes": 27428,
-   "sha256": "b98349af2c1a2b5a880cb892e62ed6ab78c6ff619439f789c58cc0137d29a2a7"
+   "bytes": 31522,
+   "sha256": "31f4122b571a5506972f5d937b62947d4356715be6bb5f17598e14fa3f23859a"
+  },
+  "assurance/readme_agrees_with_results.py": {
+   "bytes": 5509,
+   "sha256": "47187fb0353ec865e758c3a70aede593a2d4913ed5aad64d919a19a5b7c9b494"
+  },
+  "assurance/results_match_their_code.py": {
+   "bytes": 4817,
+   "sha256": "ea60c2d1900a2954ce6f1420582ffed14902e1bdd7fb609f37e94298a1caf3d0"
   },
   "data/fetch.py": {
    "bytes": 2337,
@@ -254,12 +298,12 @@
    "sha256": "d97f5634a20d883a0a04fbaa7f3b1db64729d8be9f512cffc75a6265775e4974"
   },
   "rounds/r12_response_set/results/a12_fresh_generations.json": {
-   "bytes": 1077859,
-   "sha256": "5b5cd68d6c0092e171d062902c30d8d0b220590bf83197ac73595b53c5698cd6"
+   "bytes": 1103106,
+   "sha256": "c2bc90300160ca66b79976223b755c1c7f30132d92ab3d1bea94fdaf1f2b98b2"
   },
   "rounds/r12_response_set/results/a12_response_set.json": {
-   "bytes": 865,
-   "sha256": "bc3f5e2ca7f738ee91e0d798a517f1ab19f5d5d73b0ceef9960de1c0c54c3a7b"
+   "bytes": 53330,
+   "sha256": "5257835dbe73141b6376edbf82ea618557e4110e174746879f65b4adca2c8850"
   },
   "rounds/r13_seed_vs_writein/results/r13_seed_vs_writein.json": {
    "bytes": 36423,
@@ -965,9 +1009,53 @@
    "bytes": 2214,
    "sha256": "ebd17fb4b3ac2b77d59a0f42f976bfafda959b450fd6454fe78c5c795d58543b"
   },
+  "rounds/r29_gold_ood/results/r29_gold_ood.json": {
+   "bytes": 1231,
+   "sha256": "20b9b1ef10516affd551d4e01c09b0a49bfada7bd4cc7ceaa2ef144b98e2fbbe"
+  },
+  "rounds/r30_scope_grid/results/r30_scope_grid.json": {
+   "bytes": 2070,
+   "sha256": "1c0f045326a0934c14012017634ae038293458d9a41d7eff1effa44c87360616"
+  },
   "rounds/r31_within_person/results/r31_within_person.json": {
    "bytes": 2590,
    "sha256": "a34c09aabf5ec07ce7bdaee487dc635471b72afc7a304f96dad0745a5bf530b0"
+  },
+  "rounds/r32_channel_decomposition/results/r32_channel_decomposition.json": {
+   "bytes": 4792,
+   "sha256": "1ea9a69357cb88b2fefd8b62a144953ea19ec3a04921dbe14731a03ca05c71d0"
+  },
+  "rounds/r33_core_launders_polarity/results/r33_core_launders_polarity.json": {
+   "bytes": 2333,
+   "sha256": "abac6e6c3d2c68c4cdbbcf5d6d13d2e7adbd6a64d58b06f47aec0432836233a7"
+  },
+  "rounds/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json": {
+   "bytes": 12566,
+   "sha256": "d16f805271b105a7ec494391b5ca2b087ef604e18fc4d7a94269f1ad1626caa6"
+  },
+  "rounds/r35_polarity_abstention/results/r35_polarity_abstention.json": {
+   "bytes": 3250,
+   "sha256": "3c265117d0b1f45bcf8c7508399b3f8081aedacfa5efe14edb0bb74dec447573"
+  },
+  "rounds/r36_channel_shapley/results/r36_channel_shapley.json": {
+   "bytes": 2757,
+   "sha256": "770dbdaaaf5c4a458e279c7c720cd149d20a3f066d67ab014893a9fe96e25fe7"
+  },
+  "rounds/r37_leakage_topology/results/r37_leakage_topology.json": {
+   "bytes": 2775,
+   "sha256": "82b5915cb7ec60c1d83b9cd66ec9cd9e0502b0bbbdf9658e3cb25a3a8f96f813"
+  },
+  "rounds/r38_human_sampling_power/results/_pairs_per_prompt.json": {
+   "bytes": 87435,
+   "sha256": "2ec041d345a2fcf8c6d414f95b243b18cf0dc6696c6e9b0fe674917aa25c22d0"
+  },
+  "rounds/r38_human_sampling_power/results/r38_human_sampling_power.json": {
+   "bytes": 14211,
+   "sha256": "5c37ba2a5d7d5eff1503067c8f17e1aba82163d736ddf25d9115173c829eafeb"
+  },
+  "rounds/r40_ood_map/results/r40_ood_map.json": {
+   "bytes": 7558,
+   "sha256": "6d7ada498a759dced9c68500ec1bd565ad9629efab6022983bb7ee8fe6d1b36d"
   }
  },
  "claims": [
@@ -1025,6 +1113,61 @@
    "status": "FAILS",
    "direction": ">",
    "threshold": 0.3879
+  },
+  {
+   "id": "C16",
+   "statement": "The post-ranking criterion direction is NOT same-sample leakage. Weights estimated from raters who never contributed to the rankings being predicted (global 5-fold split by annotator, a person in exactly one fold) still beat the direction-free arm; the same-sample premium is under a fifth of what survives, and both nulls -- shuffled signs and donor-prompt signs -- fall BELOW the direction-free arm, so the sign channel is not a free parameter.",
+   "source": "rounds/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+   "field": "estimands.D_population (crossfit_sign - attribute_only).delta",
+   "value": 0.057649169432686984,
+   "test": "> 0.04",
+   "status": "HOLDS",
+   "direction": ">",
+   "threshold": 0.04
+  },
+  {
+   "id": "C17",
+   "statement": "The same-sample premium is small in absolute terms: the gap between weights built from everyone and weights built from disjoint raters is under one accuracy point.",
+   "source": "rounds/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+   "field": "estimands.D_leakage (same_sign - crossfit_sign).delta",
+   "value": 0.005486289107749416,
+   "test": "< 0.01",
+   "status": "HOLDS",
+   "direction": "<",
+   "threshold": 0.01
+  },
+  {
+   "id": "C18",
+   "statement": "Concordance does not depend on forcing a direction where raters disagreed. Abstaining on every criterion whose raters split below 90 percent agreement -- which drops more than half of them -- changes cross-fitted accuracy by less than one point in either direction. Scope note that must travel with this: the elicitation scale runs -10..+10 and the value 0 appears exactly once in 102,147 ratings, so 'no general direction' is not representable in the source data and this claim is about the aggregate, not the instrument.",
+   "source": "rounds/r35_polarity_abstention/results/r35_polarity_abstention.json",
+   "field": "abs_confident_minus_forced",
+   "value": 0.0016944187536397895,
+   "test": "< 0.01",
+   "status": "HOLDS",
+   "direction": "<",
+   "threshold": 0.01
+  },
+  {
+   "id": "C19",
+   "statement": "The direction is not population-conditional at the resolution this release permits. Weights estimated entirely outside a held-out COUNTRY predict that country's raters about as well as weights including them. Six countries with at least 40 raters. NOT established: response-blind weights, which no rater in this dataset could supply -- every one saw four candidates before rating.",
+   "source": "rounds/r37_leakage_topology/results/r37_leakage_topology.json",
+   "field": "levels.A3_held_out_country.L",
+   "value": 0.0007236586445763022,
+   "test": "< 0.01",
+   "status": "HOLDS",
+   "direction": "<",
+   "threshold": 0.01
+  },
+  {
+   "id": "C20",
+   "statement": "r12's inversion is NOT concentrated in out-of-distribution responses. Across three unrelated pretraining lineages the nearest-neighbour distance between fresh and released responses correlates NEGATIVELY with the per-prompt attribution drop: the anomaly is worst where fresh responses most RESEMBLE the released ones, which is the opposite of what a measurement artifact predicts. Small effect and one axis, so this removes the easiest explanation rather than establishing genuine transport failure.",
+   "source": "rounds/r40_ood_map/results/r40_ood_map.json",
+   "field": "cross_lineage.nearest_neighbour.mean_r",
+   "value": -0.12542822934132145,
+   "test": "< 0.0",
+   "status": "MARGINAL",
+   "direction": "<",
+   "threshold": 0.0
   },
   {
    "id": "C5",
@@ -1108,7 +1251,7 @@
    "statement": "The prompt-specific advantage in C1 survives on responses the criteria were NOT authored against. Measured as attribution on rubric-blind fresh responses; requires a positive value. FAILS -- but note r13 refutes the response-set-knowledge explanation for that failure: response-blind seed criteria carry more attribution than criteria written after reading the candidates, so the non-transfer is a property of the measurement off distribution, not of what the criteria encode.",
    "source": "rounds/r12_response_set/results/a12_response_set.json",
    "field": "sets.FRESH.attribution",
-   "value": -0.058,
+   "value": -0.064,
    "test": "> 0.0",
    "status": "FAILS",
    "direction": ">",

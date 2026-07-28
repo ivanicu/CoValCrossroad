@@ -1,6 +1,6 @@
 # Assurance package
 
-generated 2026-07-28T19:45:29.939193+00:00 · git `5f56cfe2ff2c` · seed 20260727
+generated 2026-07-28T23:07:30.784904+00:00 · git `c4609082af9c` · seed 20260727
 
 ## Claims
 
@@ -11,6 +11,11 @@ generated 2026-07-28T19:45:29.939193+00:00 · git `5f56cfe2ff2c` · seed 2026072
 | C3 | **HOLDS** | 0.6387 | `~ 0.64` | Among defensible aggregation principles at k=4, out-of-sample predictive accuracy spans less than 3 percentage… |
 | C4 | **FAILS** | False | `== True` | WITHDRAWN. Whether pairwise rater agreement carries pair-specific structure beyond per-rater effects is UNRESO… |
 | C15 | **FAILS** | 0.2514 | `> 0.3879` | The multiplicative form should predict held-out dyads at least as well as the additive one, averaged over ten … |
+| C16 | **HOLDS** | 0.0576 | `> 0.04` | The post-ranking criterion direction is NOT same-sample leakage. Weights estimated from raters who never contr… |
+| C17 | **HOLDS** | 0.0055 | `< 0.01` | The same-sample premium is small in absolute terms: the gap between weights built from everyone and weights bu… |
+| C18 | **HOLDS** | 0.0017 | `< 0.01` | Concordance does not depend on forcing a direction where raters disagreed. Abstaining on every criterion whose… |
+| C19 | **HOLDS** | 0.0007 | `< 0.01` | The direction is not population-conditional at the resolution this release permits. Weights estimated entirely… |
+| C20 | **MARGINAL** | -0.1254 | `< 0.0` | r12's inversion is NOT concentrated in out-of-distribution responses. Across three unrelated pretraining linea… |
 | C5 | **HOLDS** | 4.0224 | `> 2.0` | Anthropomorphic style independently predicts human preference after controlling for the rubric score and respo… |
 | C14 | **HOLDS** | 0.0005 | `< 0.01` | Fewer than one percent of crowd-written CoVal-full criteria address anthropomorphic self-presentation, under a… |
 | C6 | **FAILS** | -0.0229 | `> 0.02` | PRE-REGISTERED AND REFUTED: optimizing selection against the rubric was predicted to raise lexical overlap wit… |
@@ -18,7 +23,7 @@ generated 2026-07-28T19:45:29.939193+00:00 · git `5f56cfe2ff2c` · seed 2026072
 | C11 | **FAILS** | False | `== True` | The A09 result is reproduced by a gold preference head built on a DIFFERENT backbone from the judge, ruling ou… |
 | C9 | **HOLDS** | 0.0638 | `> 0.03` | The attribution decomposition is not an artifact of one judge or one prompt template: across three judge/templ… |
 | C10 | **HOLDS** | 0.2374 | `> 0.1` | Part of what the random-donor control attributes to 'prompt-specific value content' is merely topic match: a n… |
-| C12 | **FAILS** | -0.0580 | `> 0.0` | The prompt-specific advantage in C1 survives on responses the criteria were NOT authored against. Measured as … |
+| C12 | **FAILS** | -0.0640 | `> 0.0` | The prompt-specific advantage in C1 survives on responses the criteria were NOT authored against. Measured as … |
 | C13 | **HOLDS** | True | `== True` | The fresh response set used by C12 admits an ordering at all, so a null there is a measurement rather than sil… |
 | C8 | **HOLDS** | True | `== True` | The instrument used for C6/C7 discriminates among the candidates it scores, so a null there is a measurement a… |
 

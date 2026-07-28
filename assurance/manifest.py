@@ -131,6 +131,63 @@ CLAIMS = [
      "fallback. In-sample R^2 favours the multiplicative shape and is not the test.",
      "rounds/r28_multiplicative/results/r28_pearson.json", "cv_multiplicative_mean", ">", 0.3879),
 
+    # ---- identification round, 2026-07-28 -------------------------------
+    # C33-C37 answered the question this project actually turned out to be
+    # about: post-ranking criterion polarity carries roughly half the rubric's
+    # above-chance concordance, and the released data cannot say what that
+    # polarity IS. Four explanations were live. Three are now closed, and the
+    # claims below are the gated form of each closure. They are stated so that
+    # an outsider can check them without re-deriving anything, which is the only
+    # reason an assurance package exists.
+
+    ("C16",
+     "The post-ranking criterion direction is NOT same-sample leakage. Weights "
+     "estimated from raters who never contributed to the rankings being predicted "
+     "(global 5-fold split by annotator, a person in exactly one fold) still beat "
+     "the direction-free arm; the same-sample premium is under a fifth of what "
+     "survives, and both nulls -- shuffled signs and donor-prompt signs -- fall "
+     "BELOW the direction-free arm, so the sign channel is not a free parameter.",
+     "rounds/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+     "estimands.D_population (crossfit_sign - attribute_only).delta", ">", 0.04),
+
+    ("C17",
+     "The same-sample premium is small in absolute terms: the gap between weights "
+     "built from everyone and weights built from disjoint raters is under one "
+     "accuracy point.",
+     "rounds/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+     "estimands.D_leakage (same_sign - crossfit_sign).delta", "<", 0.01),
+
+    ("C18",
+     "Concordance does not depend on forcing a direction where raters disagreed. "
+     "Abstaining on every criterion whose raters split below 90 percent agreement "
+     "-- which drops more than half of them -- changes cross-fitted accuracy by "
+     "less than one point in either direction. Scope note that must travel with "
+     "this: the elicitation scale runs -10..+10 and the value 0 appears exactly "
+     "once in 102,147 ratings, so 'no general direction' is not representable in "
+     "the source data and this claim is about the aggregate, not the instrument.",
+     "rounds/r35_polarity_abstention/results/r35_polarity_abstention.json",
+     "abs_confident_minus_forced", "<", 0.01),
+
+    ("C19",
+     "The direction is not population-conditional at the resolution this release "
+     "permits. Weights estimated entirely outside a held-out COUNTRY predict that "
+     "country's raters about as well as weights including them. Six countries with "
+     "at least 40 raters. NOT established: response-blind weights, which no rater "
+     "in this dataset could supply -- every one saw four candidates before rating.",
+     "rounds/r37_leakage_topology/results/r37_leakage_topology.json",
+     "levels.A3_held_out_country.L", "<", 0.01),
+
+    ("C20",
+     "r12's inversion is NOT concentrated in out-of-distribution responses. Across "
+     "three unrelated pretraining lineages the nearest-neighbour distance between "
+     "fresh and released responses correlates NEGATIVELY with the per-prompt "
+     "attribution drop: the anomaly is worst where fresh responses most RESEMBLE "
+     "the released ones, which is the opposite of what a measurement artifact "
+     "predicts. Small effect and one axis, so this removes the easiest explanation "
+     "rather than establishing genuine transport failure.",
+     "rounds/r40_ood_map/results/r40_ood_map.json",
+     "cross_lineage.nearest_neighbour.mean_r", "<", 0.0),
+
     ("C5",
      "Anthropomorphic style independently predicts human preference after "
      "controlling for the rubric score and response length, while fewer than "
@@ -215,6 +272,14 @@ def derived(doc, path: str):
             return None
         k = "mk_criterion_lexical_overlap"
         return float(c[-1].get(k, 0.0) - c[0].get(k, 0.0))
+    if path == "abs_confident_minus_forced":
+        # C18 asks whether abstention COSTS anything, in either direction, so the
+        # gated quantity is |delta| rather than the signed one. A one-sided test
+        # here would pass automatically whenever abstention happened to help,
+        # which is not what the sentence claims.
+        c = ((doc.get("regimes") or {}).get("crossfit") or {}).get("comparisons") or {}
+        d = (c.get("confident - forced") or {}).get("delta")
+        return None if d is None else abs(float(d))
     if path == "rubric_contribution_share":
         # ADDED 2026-07-28 after an independent reproducibility review.
         # C1 asserts a PROPORTION ("less than half of a rubric's ability") but
