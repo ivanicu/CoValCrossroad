@@ -116,6 +116,10 @@ Every round carries its own null, and several of the killed claims are the autho
 - an independent-backbone control that retracted the author's own result (r11)
 - an out-of-distribution transfer test that scoped the repository's own headline (r12)
 
+**[assurance/ADVERSARY_BRIEF.md](assurance/ADVERSARY_BRIEF.md)** is what an independent challenger
+should be handed, including a pre-registered list of what I expect them to overturn — so their
+actual findings can be scored against my sense of my own work.
+
 `assurance/` freezes thirteen claims against stated thresholds. **Four fail** — including the one that
 scopes this repository's own headline. An assurance package with no failures is not an assurance package.
 
