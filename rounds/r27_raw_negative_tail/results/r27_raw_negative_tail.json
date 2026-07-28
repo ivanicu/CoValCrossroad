@@ -1,0 +1,98 @@
+{
+ "cfg": {
+  "metric": "pearson",
+  "min_overlap": 3,
+  "standardize": true,
+  "thr": "majority",
+  "min_prompts": 3
+ },
+ "null_reps": 15,
+ "pairs": 6457,
+ "mean_raw_agreement": 0.2512625197468561,
+ "thresholds": {
+  "+0.00": {
+   "observed": 0.22332352485674462,
+   "null_mean": 0.1866191729905529,
+   "null_sd": 0.002967164932243045,
+   "ratio": 1.1966804979253112,
+   "z": 12.370175804846376,
+   "p": 0.0
+  },
+  "-0.05": {
+   "observed": 0.18476072479479635,
+   "null_mean": 0.14638376955242371,
+   "null_sd": 0.0033576116463931672,
+   "ratio": 1.2621667371984766,
+   "z": 11.429837417965926,
+   "p": 0.0
+  },
+  "-0.10": {
+   "observed": 0.1451138299519901,
+   "null_mean": 0.1108357854524805,
+   "null_sd": 0.002790347786957225,
+   "ratio": 1.3092687470889615,
+   "z": 12.284506127676678,
+   "p": 0.0
+  },
+  "-0.20": {
+   "observed": 0.07991327241753136,
+   "null_mean": 0.059398069278818855,
+   "null_sd": 0.0029714012283906226,
+   "ratio": 1.3453850165131236,
+   "z": 6.904218432634822,
+   "p": 0.0
+  },
+  "-0.30": {
+   "observed": 0.041660213721542515,
+   "null_mean": 0.029229260234370964,
+   "null_sd": 0.002220269284053108,
+   "ratio": 1.425291416460615,
+   "z": 5.598849459773619,
+   "p": 0.0
+  }
+ },
+ "all_negative_observed": 0.03019978318104383,
+ "all_negative_null": 0.019255588250477514,
+ "all_negative_z": 5.074152250149963,
+ "shape": {
+  "near_ratio": 1.1966804979253112,
+  "near_z": 12.370175804846376,
+  "far_ratio": 1.3453850165131236,
+  "far_z": 6.904218432634822
+ },
+ "actor_control_both_high": {
+  "+0.00": {
+   "observed": 0.06513194834362718,
+   "null_mean": 0.15706531910911473,
+   "ratio": 0.41468064823641565,
+   "z": -12.179327649543252
+  },
+  "-0.05": {
+   "observed": 0.047164514317798986,
+   "null_mean": 0.12221598352985213,
+   "ratio": 0.38591117917304746,
+   "z": -11.396829475473604
+  },
+  "-0.10": {
+   "observed": 0.029758562605277934,
+   "null_mean": 0.09212053153658992,
+   "ratio": 0.3230394148720033,
+   "z": -13.218892104212571
+  },
+  "-0.20": {
+   "observed": 0.011791128579449747,
+   "null_mean": 0.04866180048661801,
+   "ratio": 0.24230769230769228,
+   "z": -9.996008469470327
+  },
+  "-0.30": {
+   "observed": 0.0050533408197641775,
+   "null_mean": 0.022534156840726186,
+   "ratio": 0.22425249169435213,
+   "z": -5.437589601629447
+  }
+ },
+ "actor_control_n_pairs": 1781,
+ "verdict": "ACTOR EFFECT, NOT BLOCS: the raw negative tail is real against a within-prompt null (1.20x just below zero, 1.35x below -0.20) but it VANISHES among pairs of two generally-agreeable raters (far-tail z=-10.00, leave-one-out). It is carried by pairs involving generally-disagreeable raters. Under blocs, two raters could each sit inside a large bloc and still oppose each other; the data says that essentially does not happen.",
+ "note": "r23/r25/r26 tested the sign of the CENTRED residual, which scores 'below average' and 'actually disagreeing' identically -- and those are the two worlds the test existed to separate. Mean agreement is +0.25, so a zero-competence pair has a strongly negative residual while never once disagreeing. This asks on the raw scale, where zero is a real boundary, and reads the SHAPE of the excess across depth."
+}
