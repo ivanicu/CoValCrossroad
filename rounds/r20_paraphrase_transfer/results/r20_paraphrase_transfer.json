@@ -1,0 +1,67 @@
+{
+ "prompts": 291,
+ "fidelity_threshold": 0.8,
+ "paraphrase_kept": 0.9924178601516428,
+ "original": {
+  "accuracy": 0.6506473700448738,
+  "ci": [
+   0.6339518783104765,
+   0.6677108020291992
+  ]
+ },
+ "paraphrased": {
+  "accuracy": 0.6487052444609703,
+  "ci": [
+   0.6313852500328887,
+   0.6662988161838993
+  ]
+ },
+ "neighbour": {
+  "accuracy": 0.5974615973793782,
+  "ci": [
+   0.5771994442137192,
+   0.617558442427734
+  ]
+ },
+ "random": {
+  "accuracy": 0.5763642888759535,
+  "ci": [
+   0.55603776396249,
+   0.5962419419210322
+  ]
+ },
+ "original_minus_random": {
+  "delta": 0.07428308116892035,
+  "ci": [
+   0.05633543656947567,
+   0.09210508928752426
+  ],
+  "verdict": "higher"
+ },
+ "paraphrased_minus_random": {
+  "delta": 0.07234095558501685,
+  "ci": [
+   0.05367003808601954,
+   0.0911289956714465
+  ],
+  "verdict": "higher"
+ },
+ "original_minus_paraphrased": {
+  "delta": 0.0019421255839034938,
+  "ci": [
+   -0.006954773854872495,
+   0.010562896923241048
+  ],
+  "verdict": "indistinguishable"
+ },
+ "neighbour_minus_random": {
+  "delta": 0.021097308503424648,
+  "ci": [
+   0.002110388391710613,
+   0.04031836429131804
+  ],
+  "verdict": "higher"
+ },
+ "advantage_retained_under_paraphrase": 0.9738550750272853,
+ "conclusion": "CONTENT: the advantage survives rewording largely intact, so it is not vocabulary overlap and the transfer boundary is real specificity."
+}

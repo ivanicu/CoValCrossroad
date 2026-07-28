@@ -98,6 +98,7 @@ Each round is self-contained: its own question, runner, results and README.
 | [r19](rounds/r19_floor_choice) | Which donor is the generic floor? | the headline moves **2.5×** with that choice; prompt-specific share is 27–67%, not a single figure |
 | [r14](rounds/r14_paraphrase_gauge) | Is the judge paraphrase-invariant? | **no** — a semantically faithful rewording flips **15.4%** of Yes/No verdicts, so part of "criterion content" is criterion wording |
 | [r15](rounds/r15_indistribution_transfer) | Do criteria transfer to a near-topic prompt? | **no** — own criteria +0.073 [+0.056, +0.091] over the floor, nearest-topic criteria +0.018 [−0.001, +0.037]. Real responses, real human rankings, no gold model |
+| [r20](rounds/r20_paraphrase_transfer) | Is the advantage content or wording? | **content** — reword every criterion and **97.4%** of the advantage survives; original−paraphrased +0.002 [−0.007, +0.011] |
 
 ---
 
