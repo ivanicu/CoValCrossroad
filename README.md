@@ -49,6 +49,48 @@ Neither endpoint is clean — the far donor is adversarially selected and may si
 judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so any
 single figure must name its floor.**
 
+### …and it is not an artifact of forced-choice elicitation either
+
+One measured fact makes that question urgent. Across all **102,147** criterion ratings in the
+release, the value **0 appears exactly once**. The scale runs −10…+10 and its neutral point is
+in practice unavailable — every rater assigned a direction to every criterion they saw.
+*"This property has no general direction"*, *"it depends"*, and *"I can't say without seeing a
+response"* have **no representation in this data**. Forced-choice elicitation is a known way
+to turn weak or absent preference into apparently stable preference.
+
+[r35](rounds/r35_polarity_abstention) classifies every shared seed criterion by how much its
+raters agreed on direction, then compares three ways of scoring:
+
+| polarity class | share |
+|---|---:|
+| stable (≥90% one direction) | 40.5% |
+| leaning (60–90%) | 48.0% |
+| **contested (<60%)** | **11.5%** |
+
+| rule, cross-fitted | accuracy | criteria kept |
+|---|---:|---:|
+| attribute-only | 0.5834 | 100% |
+| **forced** — every criterion gets a direction | 0.6419 | 100% |
+| **confident** — abstain unless ≥90% agree | **0.6419** | **45.7%** |
+| **posterior** — weight by `p₊ − p₋` | **0.6503** | 97.4% |
+
+```
+confident − forced   −0.0003 [−0.0074, +0.0063]   spans zero
+posterior − forced   +0.0084 [+0.0043, +0.0124]   excludes zero
+```
+
+**Abstaining on 54% of the criteria costs nothing measurable.** And down-weighting contested
+criteria instead of forcing them to ±1 *improves* concordance. So the signal lives where
+raters agree, and the forced direction on the rest is not carrying it — **the forced-choice
+concern does not bite.**
+
+Read with r34, the polarity channel now looks like a genuine cross-rater direction: it
+survives rater-disjoint cross-fitting (92%), it concentrates in criteria with agreement, and
+it is robust to abstention. **Two of the three worlds are closed.** What remains is the one
+no split of these annotators can reach — every one of them saw the four candidates before
+rating — so *stable population value* versus *direction constructed by seeing the menu* still
+needs weights from people who never saw a response.
+
 ### The direction transfers across people — so it is not the raters' own rankings coming back
 
 The sharpest of the three live worlds was **same-sample target leakage**: the ratings that
@@ -351,6 +393,8 @@ Each round is self-contained: its own question, runner, results and README.
 | [r33](rounds/r33_core_launders_polarity) | What is CoVal-core? | **a transformation, not a subset.** Scored with *no ratings*, core reaches 0.6563 against full's 0.5899 — recovering ~76% of the post-choice polarity channel **in its sentences**. It ships with no weights, so nothing marks that |
 
 | [r34](rounds/r34_global_rater_crossfit) | Is the polarity signal leakage? | **no.** Global rater-disjoint 5-fold cross-fitting keeps **92%** of it: D_population +0.0578 [+0.0490,+0.0671] against a same-sample premium of only **+0.0053**. Both nulls fall below the direction-free arm |
+
+| [r35](rounds/r35_polarity_abstention) | Does it depend on forcing a direction? | **no.** Abstaining wherever raters split (dropping **54%** of criteria) moves cross-fitted accuracy by **−0.0003 [−0.0074,+0.0063]**, and down-weighting contested criteria *helps* (+0.0084). The scale's neutral point is used **once in 102,147 ratings** |
 
 ---
 

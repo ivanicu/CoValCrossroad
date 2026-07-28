@@ -2,60 +2,60 @@
  "prompts": 968,
  "raters": 1159,
  "folds": 5,
- "seeds": 3,
+ "seeds": 25,
  "arms": {
   "attribute_only": {
-   "mean": 0.5833886987245398,
-   "sd_over_seeds": 0.0,
-   "seeds": 3
+   "mean": 0.5834073750416351,
+   "sd_over_seeds": 6.45095874143303e-05,
+   "seeds": 25
   },
   "same_sign": {
-   "mean": 0.6465241572649763,
-   "sd_over_seeds": 0.0,
-   "seeds": 3
+   "mean": 0.6465516883636536,
+   "sd_over_seeds": 0.00020748264062426692,
+   "seeds": 25
   },
   "same_magnitude": {
-   "mean": 0.6615038308992908,
-   "sd_over_seeds": 0.0,
-   "seeds": 3
+   "mean": 0.6615327394084365,
+   "sd_over_seeds": 0.00025690987133807053,
+   "seeds": 25
   },
   "crossfit_sign": {
-   "mean": 0.6418742422991248,
-   "sd_over_seeds": 0.0010462432864959666,
-   "seeds": 3
+   "mean": 0.6421078061142648,
+   "sd_over_seeds": 0.0011871443072644107,
+   "seeds": 25
   },
   "crossfit_magnitude": {
-   "mean": 0.6571867247355637,
-   "sd_over_seeds": 0.0006953763909906363,
-   "seeds": 3
+   "mean": 0.656966212707736,
+   "sd_over_seeds": 0.0009652240258612129,
+   "seeds": 25
   },
   "crossfit_visibility": {
-   "mean": 0.6573263968718678,
-   "sd_over_seeds": 0.0007724567498271559,
-   "seeds": 3
+   "mean": 0.6570153708509152,
+   "sd_over_seeds": 0.0009229761423280942,
+   "seeds": 25
   },
   "loo_sign": {
-   "mean": 0.6414122619269921,
-   "sd_over_seeds": 0.0010010943905811754,
-   "seeds": 3
+   "mean": 0.6414839556461658,
+   "sd_over_seeds": 0.0011407468224561856,
+   "seeds": 25
   },
   "random_sign": {
-   "mean": 0.5687227001206674,
-   "sd_over_seeds": 0.002579050803058219,
-   "seeds": 3
+   "mean": 0.5687074542625145,
+   "sd_over_seeds": 0.0025839256537290517,
+   "seeds": 25
   },
   "donor_sign": {
-   "mean": 0.5533033451605562,
-   "sd_over_seeds": 0.0030935917038777887,
-   "seeds": 3
+   "mean": 0.5556424546950427,
+   "sd_over_seeds": 0.00432531640560081,
+   "seeds": 25
   }
  },
  "estimands": {
   "D_population (crossfit_sign - attribute_only)": {
-   "delta": 0.057833725853920784,
+   "delta": 0.057649169432686984,
    "ci": [
-    0.048980670687232435,
-    0.06712522358032108
+    0.048567683407557634,
+    0.06713841624497588
    ],
    "prompts": 968,
    "excludes_zero": true
@@ -63,46 +63,46 @@
   "D_same (same_sign - attribute_only)": {
    "delta": 0.06313545854043641,
    "ci": [
-    0.054220270637591106,
-    0.07303843963442781
+    0.053984654597011045,
+    0.07200034275791362
    ],
    "prompts": 968,
    "excludes_zero": true
   },
   "D_leakage (same_sign - crossfit_sign)": {
-   "delta": 0.005301732686515613,
+   "delta": 0.005486289107749416,
    "ci": [
-    0.0024153561174480856,
-    0.008192797885842797
+    0.0025315468415856904,
+    0.008459085929269817
    ],
    "prompts": 968,
    "excludes_zero": true
   },
   "D_magnitude (crossfit_mag - crossfit_sign)": {
-   "delta": 0.015070375797081537,
+   "delta": 0.014497635114232637,
    "ci": [
-    0.011009822732389993,
-    0.019517747966752118
+    0.009936847768778038,
+    0.01907946306555025
    ],
    "prompts": 968,
    "excludes_zero": true
   },
   "null: random_sign - attribute_only": {
-   "delta": -0.017477138908493756,
+   "delta": -0.018376478723043717,
    "ci": [
-    -0.02515864947500378,
-    -0.00990376579085931
+    -0.025573743876750963,
+    -0.011173529069730395
    ],
    "prompts": 968,
    "excludes_zero": true
   },
   "null: donor_sign - attribute_only": {
-   "delta": -0.03351376211525132,
+   "delta": -0.03351901366947857,
    "ci": [
-    -0.04374338325326275,
-    -0.02239437354532246
+    -0.04363682925830396,
+    -0.02288408148260517
    ],
-   "prompts": 960,
+   "prompts": 959,
    "excludes_zero": true
   }
  },
@@ -139,8 +139,250 @@
    "loo_sign": 0.640813908232235,
    "random_sign": 0.5659115598160461,
    "donor_sign": 0.550099305286804
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6427026847339118,
+   "crossfit_magnitude": 0.65758676663767,
+   "crossfit_visibility": 0.6574385448582375,
+   "loo_sign": 0.6417405076434911,
+   "random_sign": 0.5664843574662106,
+   "donor_sign": 0.5446845610429818
+  },
+  {
+   "attribute_only": 0.5834165748887796,
+   "same_sign": 0.6472915716687543,
+   "same_magnitude": 0.6624778568733168,
+   "crossfit_sign": 0.6449868401168264,
+   "crossfit_magnitude": 0.6588527867665561,
+   "crossfit_visibility": 0.658696084682424,
+   "loo_sign": 0.6443163551089205,
+   "random_sign": 0.5713080280589677,
+   "donor_sign": 0.5551310325745265
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6416689444212036,
+   "crossfit_magnitude": 0.6577996495196402,
+   "crossfit_visibility": 0.6579179600808642,
+   "loo_sign": 0.6412945082663349,
+   "random_sign": 0.5717746476137096,
+   "donor_sign": 0.5589416612226271
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6404093854691266,
+   "crossfit_magnitude": 0.656798215843114,
+   "crossfit_visibility": 0.6565812643598198,
+   "loo_sign": 0.6404727919640543,
+   "random_sign": 0.5695227479308094,
+   "donor_sign": 0.5585023423651757
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6425447211316863,
+   "crossfit_magnitude": 0.6574052064212301,
+   "crossfit_visibility": 0.6577767669608424,
+   "loo_sign": 0.6420348756789894,
+   "random_sign": 0.5692239985764171,
+   "donor_sign": 0.5667639062784385
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6430033112383986,
+   "crossfit_magnitude": 0.65577297449522,
+   "crossfit_visibility": 0.6559791910002623,
+   "loo_sign": 0.6411819152826205,
+   "random_sign": 0.5689977555597021,
+   "donor_sign": 0.5561101589601442
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6431728401164059,
+   "crossfit_magnitude": 0.6576232336618267,
+   "crossfit_visibility": 0.6577176872801431,
+   "loo_sign": 0.6422046864178519,
+   "random_sign": 0.5666410723223276,
+   "donor_sign": 0.5585635063718437
+  },
+  {
+   "attribute_only": 0.5835198806739036,
+   "same_sign": 0.6459830317238507,
+   "same_magnitude": 0.6607905290496253,
+   "crossfit_sign": 0.6411139900639674,
+   "crossfit_magnitude": 0.6542737060652049,
+   "crossfit_visibility": 0.6544521821551558,
+   "loo_sign": 0.6408663896556419,
+   "random_sign": 0.5719710850204849,
+   "donor_sign": 0.5529735433730336
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6420748383850196,
+   "crossfit_magnitude": 0.6559320971238105,
+   "crossfit_visibility": 0.6560302190847608,
+   "loo_sign": 0.6416482344040326,
+   "random_sign": 0.5675351512838946,
+   "donor_sign": 0.5522555451021176
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.641427616186707,
+   "crossfit_magnitude": 0.6565388784348856,
+   "crossfit_visibility": 0.6566789327615595,
+   "loo_sign": 0.6412020160434262,
+   "random_sign": 0.5668165671682461,
+   "donor_sign": 0.5604033885020396
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6422741551967149,
+   "crossfit_magnitude": 0.6565761268750604,
+   "crossfit_visibility": 0.656696975635994,
+   "loo_sign": 0.6409612891852994,
+   "random_sign": 0.5665654620679852,
+   "donor_sign": 0.5511869854060057
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6430959241134104,
+   "crossfit_magnitude": 0.6565441935292147,
+   "crossfit_visibility": 0.6565876363671914,
+   "loo_sign": 0.6418530165570582,
+   "random_sign": 0.5738695141322439,
+   "donor_sign": 0.5553394377412784
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6412931762329384,
+   "crossfit_magnitude": 0.6563000801993989,
+   "crossfit_visibility": 0.6565380980300486,
+   "loo_sign": 0.6404414323350257,
+   "random_sign": 0.5712772847263846,
+   "donor_sign": 0.5552530189975522
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6400687298290235,
+   "crossfit_magnitude": 0.6568680492902269,
+   "crossfit_visibility": 0.6568962037890733,
+   "loo_sign": 0.640174304969726,
+   "random_sign": 0.571533148268641,
+   "donor_sign": 0.5523394325089214
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6420902459889147,
+   "crossfit_magnitude": 0.658093715063763,
+   "crossfit_visibility": 0.6579320588216292,
+   "loo_sign": 0.6417895863682282,
+   "random_sign": 0.5682661234563339,
+   "donor_sign": 0.5565287061539075
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.642058289752234,
+   "crossfit_magnitude": 0.658005695071303,
+   "crossfit_visibility": 0.6575101180745995,
+   "loo_sign": 0.6414024046654667,
+   "random_sign": 0.5639637250375761,
+   "donor_sign": 0.5596214171328202
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6425581181092199,
+   "crossfit_magnitude": 0.6571233325078092,
+   "crossfit_visibility": 0.6568633321312167,
+   "loo_sign": 0.6420236151336812,
+   "random_sign": 0.5705599324449122,
+   "donor_sign": 0.5592564830371405
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6412172879233563,
+   "crossfit_magnitude": 0.6574134098367804,
+   "crossfit_visibility": 0.6575103125073234,
+   "loo_sign": 0.6409740340550111,
+   "random_sign": 0.5680789341973692,
+   "donor_sign": 0.5569005450862483
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6441260496090384,
+   "crossfit_magnitude": 0.6577931723786736,
+   "crossfit_visibility": 0.6578052477989919,
+   "loo_sign": 0.6437506334412315,
+   "random_sign": 0.5649700937666479,
+   "donor_sign": 0.5564081738736232
+  },
+  {
+   "attribute_only": 0.5836965485383186,
+   "same_sign": 0.6469861458692574,
+   "same_magnitude": 0.6619658195035719,
+   "crossfit_sign": 0.6435640578060156,
+   "crossfit_magnitude": 0.6573104399294839,
+   "crossfit_visibility": 0.657581493583217,
+   "loo_sign": 0.6432157204214899,
+   "random_sign": 0.5669991454413024,
+   "donor_sign": 0.5534220458860022
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6405833513778992,
+   "crossfit_magnitude": 0.6564479105643786,
+   "crossfit_visibility": 0.6567917785769881,
+   "loo_sign": 0.6392787405894991,
+   "random_sign": 0.5701472616591975,
+   "donor_sign": 0.559834798066278
+  },
+  {
+   "attribute_only": 0.5833886987245398,
+   "same_sign": 0.6465241572649763,
+   "same_magnitude": 0.6615038308992908,
+   "crossfit_sign": 0.6410378681572269,
+   "crossfit_magnitude": 0.6555355032714595,
+   "crossfit_visibility": 0.6554229921169318,
+   "loo_sign": 0.6400350471860882,
+   "random_sign": 0.5650122200014961,
+   "donor_sign": 0.5507306422116909
   }
  ],
- "verdict": "CROSS-RATER DIRECTION SURVIVES. Weights built from raters who never contributed to the rankings being predicted still beat the direction-free arm by +0.0578 [0.048980670687232435, 0.06712522358032108], and the same-sample premium is +0.0053 [0.0024153561174480856, 0.008192797885842797]. The post-choice polarity is therefore not mainly the test rater's own ranking returning through a weight -- its CONTENT transfers across people. 'Leakage' is the wrong word for the bulk of it. Whether the direction was CONSTRUCTED by seeing the menu is a separate question this design cannot reach: every rater here saw the four candidates before rating. That needs response-blind weights from new humans.",
+ "verdict": "CROSS-RATER DIRECTION SURVIVES. Weights built from raters who never contributed to the rankings being predicted still beat the direction-free arm by +0.0576 [0.048567683407557634, 0.06713841624497588], and the same-sample premium is +0.0055 [0.0025315468415856904, 0.008459085929269817]. The post-choice polarity is therefore not mainly the test rater's own ranking returning through a weight -- its CONTENT transfers across people. 'Leakage' is the wrong word for the bulk of it. Whether the direction was CONSTRUCTED by seeing the menu is a separate question this design cannot reach: every rater here saw the four candidates before rating. That needs response-blind weights from new humans.",
  "note": "Global fold assignment over annotator ids -- a person is in exactly one fold for the whole run, never re-randomised per prompt. Evaluated against INDIVIDUAL test-rater rankings, never an aggregate, which would carry the test raters' own choices into the target. Shared seed criteria only: a singleton write-in has no weight estimable from anyone but its author."
 }
