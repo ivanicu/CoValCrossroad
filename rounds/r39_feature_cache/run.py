@@ -135,6 +135,29 @@ def main() -> None:
     pids, orig, fresh = gen["prompt_ids"], gen["original"], gen["fresh"]
     n = len(pids)
 
+    # The generations file stores prompt IDS, not prompt TEXT, so the question
+    # has to come from the release. The first version appended "" for every
+    # prompt, which would have made `ll_cond` -- the prompt-conditioned response
+    # likelihood -- condition on nothing at all: a silent duplicate of `ll_resp`,
+    # produced by a SECOND forward pass over every response, and then reported
+    # by r40 as an independent distance measure. Caught before it spent the GPU
+    # rather than after.
+    import sys as _sys
+    _sys.path.insert(0, str(_ROOT))
+    from covalx import load_join  # noqa: E402
+    qtext = {}
+    for pid, comp, _rub in load_join(_ROOT / "data/comparisons.jsonl",
+                                     _ROOT / "data/conversation_rubrics.jsonl"):
+        q = [m["content"] for m in comp["prompt"]["messages"] if m["role"] == "user"]
+        if q:
+            qtext[pid] = q[-1].strip()
+    missing = [q for q in pids if q not in qtext]
+    if missing:
+        raise SystemExit(
+            f"REFUSING TO CACHE: {len(missing)} of {len(pids)} prompts have no question "
+            "text, so their prompt-conditioned likelihood would silently equal the "
+            "unconditioned one. Fix the join before spending GPU.")
+
     # flatten, keeping (prompt index, set, slot) alignment recoverable
     texts, meta, prompts_for = [], [], []
     for k in range(n):
@@ -142,7 +165,7 @@ def main() -> None:
             for j, t in enumerate(block):
                 texts.append(t if t.strip() else " ")
                 meta.append(f"{pids[k]}|{s}|{j}")
-                prompts_for.append("")
+                prompts_for.append(qtext[pids[k]])
     print(f"prompts {n}   responses {len(texts):,} "
           f"({sum(1 for m in meta if '|original|' in m):,} original, "
           f"{sum(1 for m in meta if '|fresh|' in m):,} fresh)\n")
@@ -167,15 +190,28 @@ def main() -> None:
             print("  -> recorded as a load failure, NOT as a property of this model.")
             store[f"{name}|load_failed"] = np.array([str(e)[:300]])
             continue
-        ml, ft, mm, lr, lc = extract(model, tok, prompts_for, texts,
-                                     a.batch, a.max_len)
+        # Hidden states for ALL layers are materialised, and each response gets
+        # two forward passes. Scale the batch down for the larger backbones
+        # rather than discovering the ceiling by dying halfway through.
+        nparam = sum(x.numel() for x in model.parameters())
+        b = a.batch if nparam < 2.5e9 else max(2, a.batch // 4)
+        print(f"  {nparam/1e9:.1f}B params -> batch {b}", flush=True)
+        ml, ft, mm, lr, lc = extract(model, tok, prompts_for, texts, b, a.max_len)
         store[f"{name}|mean_last"] = ml.astype(np.float16)
         store[f"{name}|final_tok"] = ft.astype(np.float16)
         store[f"{name}|mean_mid"] = mm.astype(np.float16)
         store[f"{name}|ll_resp"] = lr.astype(np.float32)
         store[f"{name}|ll_cond"] = lc.astype(np.float32)
-        print(f"  cached {ml.shape} mean_last, dim {ml.shape[1]}   "
-              f"ll_resp mean {lr.mean():.3f}")
+        # POSITIVE CONTROL on the second forward pass. If conditioning on the
+        # question changes nothing, the pass was wasted and the feature is a
+        # duplicate wearing a different name. Correlation near 1.0 is the
+        # signature of exactly the bug fixed above.
+        rr = float(np.corrcoef(lr, lc)[0, 1])
+        flag = "  <- SUSPICIOUS: conditioning changed almost nothing" if rr > 0.995 else ""
+        print(f"  cached {ml.shape} mean_last, dim {ml.shape[1]}")
+        print(f"  ll_resp {lr.mean():+.3f}   ll_cond {lc.mean():+.3f}   "
+              f"corr {rr:+.4f}{flag}")
+        store[f"{name}|ll_corr"] = np.array([rr])
         del model
         torch.cuda.empty_cache()
 

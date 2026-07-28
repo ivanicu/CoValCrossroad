@@ -87,6 +87,8 @@ def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--cache", type=Path,
                    default=_ROOT / "rounds/r39_feature_cache/results/r39_feature_cache.npz")
+    p.add_argument("--generations", type=Path,
+                   default=_ROOT / "rounds/r12_response_set/results/a12_fresh_generations.json")
     p.add_argument("--r12", type=Path,
                    default=_ROOT / "rounds/r12_response_set/results/a12_response_set.json")
     p.add_argument("--out", type=Path, default=_RES / "r40_ood_map.json")
@@ -115,6 +117,20 @@ def main() -> None:
         idx[pid][s].append(i)
     pids = [q for q, d in idx.items() if d["original"] and d["fresh"]]
     print(f"prompts with both sets: {len(pids):,}\n")
+
+    # LENGTH, which the docstring promised to control for and the first version
+    # of this file never computed -- the word appeared only in the prose. Fresh
+    # generations are capped at 180 new tokens and the released candidates are
+    # not, so the fresh set is systematically shorter and every representation
+    # distance is partly a length distance. Reporting a raw correlation between
+    # "distance" and the attribution drop, under a docstring claiming length was
+    # controlled, would have been a stated control that does not exist.
+    gen = json.loads(a.generations.read_text())
+    lgap = {}
+    for q, o, f in zip(gen["prompt_ids"], gen["original"], gen["fresh"]):
+        lo = float(np.mean([len(t.split()) for t in o]))
+        lf = float(np.mean([len(t.split()) for t in f]))
+        lgap[q] = lf - lo
 
     r12 = json.loads(a.r12.read_text())
     pp_o = (r12["sets"]["ORIGINAL"] or {}).get("per_prompt")
@@ -152,6 +168,7 @@ def main() -> None:
             d_llc.append(float(LC[o].mean() - LC[f].mean()))
             keys.append(q)
         y = np.array([drop[q] for q in keys])
+        Lg = np.array([lgap.get(q, np.nan) for q in keys])
         rng = np.random.default_rng(20260728)
         row = {}
         for nm, x in (("mahalanobis", np.array(d_maha)), ("nearest_neighbour", np.array(d_nn)),
@@ -163,18 +180,52 @@ def main() -> None:
             bs = np.array([np.corrcoef(*np.array([x[ok], y[ok]])[:, rng.integers(
                 0, ok.sum(), ok.sum())])[0, 1] for _ in range(a.boot // 4)])
             lo, hi = np.percentile(bs, [2.5, 97.5])
+
+            # length-controlled: OLS of the drop on [1, distance, length gap],
+            # bootstrapped on prompts. beta_dist is the estimand the docstring
+            # actually promised.
+            ok2 = ok & np.isfinite(Lg)
+
+            def _beta(idx):
+                X = np.column_stack([np.ones(len(idx)), x[ok2][idx], Lg[ok2][idx]])
+                b, *_ = np.linalg.lstsq(X, y[ok2][idx], rcond=None)
+                return float(b[1])
+
+            if ok2.sum() >= 30:
+                nn2 = int(ok2.sum())
+                b0 = _beta(np.arange(nn2))
+                bb = np.array([_beta(rng.integers(0, nn2, nn2))
+                               for _ in range(a.boot // 4)])
+                blo, bhi = np.percentile(bb, [2.5, 97.5])
+                # how much of the raw correlation is length?
+                r_len = float(np.corrcoef(x[ok2], Lg[ok2])[0, 1])
+            else:
+                b0 = blo = bhi = r_len = float("nan")
+                nn2 = int(ok2.sum())
+
             row[nm] = {"r": r, "ci": [float(lo), float(hi)], "n": int(ok.sum()),
-                       "excludes_zero": bool(lo > 0 or hi < 0)}
+                       "excludes_zero": bool(lo > 0 or hi < 0),
+                       "beta_distance_length_controlled": b0,
+                       "beta_ci": [float(blo), float(bhi)],
+                       "beta_excludes_zero": bool(blo > 0 or bhi < 0)
+                       if blo == blo else False,
+                       "corr_distance_with_length": r_len, "n_controlled": nn2}
         rows[lin] = row
         print(f"=== {lin} ===   corr(distance, attribution drop)")
         for nm, v in row.items():
             print(f"  {nm:20s} r={v['r']:+.3f} [{v['ci'][0]:+.3f}, {v['ci'][1]:+.3f}]"
-                  f"  n={v['n']}{'' if v['excludes_zero'] else '   (ns)'}")
+                  f"{'' if v['excludes_zero'] else ' ns'}"
+                  f"   | length-controlled beta={v['beta_distance_length_controlled']:+.4f} "
+                  f"[{v['beta_ci'][0]:+.4f}, {v['beta_ci'][1]:+.4f}]"
+                  f"{'' if v['beta_excludes_zero'] else ' ns'}"
+                  f"   corr(dist,len)={v['corr_distance_with_length']:+.2f}")
 
     agree = {}
     for nm in ("mahalanobis", "nearest_neighbour", "loglik_gap", "loglik_cond_gap"):
         rs = [rows[l][nm]["r"] for l in rows if nm in rows[l]]
-        sig = [rows[l][nm]["excludes_zero"] for l in rows if nm in rows[l]]
+        # significance is judged on the LENGTH-CONTROLLED coefficient, not the
+        # raw correlation, because the raw one is partly a length comparison
+        sig = [rows[l][nm]["beta_excludes_zero"] for l in rows if nm in rows[l]]
         if rs:
             agree[nm] = {"r_by_lineage": rs, "mean_r": float(np.mean(rs)),
                          "n_significant": int(sum(sig)), "n_lineages": len(rs),
