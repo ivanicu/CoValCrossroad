@@ -101,6 +101,10 @@ Each round is self-contained: its own question, runner, results and README.
 
 ## What is unusual here
 
+**[RETRACTIONS.md](RETRACTIONS.md) lists every claim this repository made and then killed.**
+Twelve entries; nine are a later round destroying an earlier round's conclusion, and in seven of
+those both rounds are mine. Read by round number this looks like a sequence of findings. It is not.
+
 Every round carries its own null, and several of the killed claims are the author's own:
 
 - a permutation null, a response-style control and a prompt-difficulty control (r01)
