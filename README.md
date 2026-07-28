@@ -72,6 +72,7 @@ Each round is self-contained: its own question, runner, results and README.
 | [r11](rounds/r11_backbone_control) | Was r09 backbone leakage? | **retracts r09's rise** — it vanishes with an independent backbone |
 | [r12](rounds/r12_response_set) | Does the advantage transfer? | it **inverts** off-distribution: +0.102 → −0.042, discrimination control passed |
 | [r13](rounds/r13_seed_vs_writein) | Seed criteria vs write-ins | **refutes r12's own mechanism**: response-blind seeds carry more attribution (+0.039) than write-ins (+0.029) |
+| [r16](rounds/r16_minority_regret) | Conflict-aware, on its own turf | blocs are real (regret 2.07 vs 1.10 random), yet conflict-aware leaves the worst-off bloc **lowest of all rules** |
 
 ---
 
