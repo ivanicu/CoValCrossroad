@@ -3761,3 +3761,51 @@ round bears on that. That is the rival I cannot construct from this data.
 substitutes for the experiments: association *within* a rater, still unable to separate a menu that
 **created** the direction from one that **supplied the words**. **That is S_pre, and I have now run out
 of ways to attack this claim from my own side of the desk.**
+
+## Entry 133 — the fifth rival, built on the GPU, and it is the weakest support so far
+
+**Entry 132 named the one attack I had left**: every control on the r75 line varied the *tokeniser*,
+never the decision to measure specificity by lexical overlap at all. *"A semantic measure could
+disagree with every cell here."* The GPU was idle and this is not a response-generation sweep, so it
+was built.
+
+**What was run.** Lexical containment replaced by **embedding cosine** between each criterion and each
+response, using the three backbones already in this project's evidence chain (r39 cached them, r40 built
+on them, r68 measured their inter-lineage agreement at **0.9132**). Same 9,122 write-ins, same
+per-rater rankings, same length residualisation. Backbones used as passive **encoders** — no criterion
+satisfaction scored, no attribution number touched, nothing generated.
+
+| lineage | gap | 95% CI | shuffled null |
+|---|---:|---|---:|
+| qwen | **+0.00626** | [+0.00388, +0.00867] | −0.00073 |
+| phi | **+0.00043** | [+0.00013, +0.00074] | +0.00008 |
+| internlm | — | **failed to load** | — |
+
+**Both positive, both excluding zero — and they differ by 15×.** That ratio is the number worth
+carrying. r68 measured these same backbones agreeing at 0.9132 on a different quantity, so an
+order-of-magnitude spread here is informative rather than routine: **the semantic effect is real in
+direction and instrument-dependent in size.** The world label was changed from `A AGREES` to
+`A AGREES IN SIGN ONLY` for exactly this reason — sign agreement is the weakest possible reading of
+"agree," and the first label carried confidence the numbers do not support.
+
+**No comparison to the lexical +0.02114 is licensed.** Cosine and containment share no scale. Only the
+sign and the exclusion of zero transfer, and saying more would be the unit error this project has
+logged before.
+
+**internlm could not run and is named, not omitted.** Its bundled `modeling_internlm2.py` calls
+`DynamicCache.from_legacy_cache`, removed in transformers 5.x. So this is a **two-lineage** result
+where three were designed, and the third is exactly the one that would have broken a tie.
+
+**A bug worth carving, because I wrote the promise and not the code.** The round's scope note said
+*"lineages that fail to load are counted and reported, never silently dropped."* There was no
+`try/except`: internlm's exception escaped and destroyed the qwen and phi embeddings already computed,
+losing the whole run. **A promise about failure handling has to be executable or it is a comment.**
+Fixed with per-lineage isolation plus an embedding cache, so a third lineage can be added later without
+recomputing the two that work.
+
+**Where this leaves the line.** Five rivals built: length, absence, topicality, tokeniser, semantics.
+The first four failed cleanly. **The fifth supports the direction and weakens the magnitude claim** —
+which is the honest outcome and not the one I expected. The scope is unchanged and is why none of this
+substitutes for the experiments: association *within* a rater, unable to separate a menu that
+**created** the direction from one that **supplied the words**. That is S_pre, and it needs people, not
+FLOPs.
