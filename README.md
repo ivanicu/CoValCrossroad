@@ -82,8 +82,8 @@ still accurate on fresh responses, whether the preference proxy is still valid t
 the responses sit inside the rubric's own **criterion-satisfaction support** — which is the
 distance that actually matters. A fresh response can be close in embedding, style, length and
 likelihood while combining criterion satisfactions that no original candidate exhibited. Generic
-embedding distance cannot see that; **criterion-space support geometry can, and has not been
-run.**
+embedding distance cannot see that. **[r41](rounds/r41_criterion_support) now measures it, and
+the answer is that criterion space does not explain r12 either** — see below.
 
 The effect is small (|r| ≈ 0.13) and this is a single axis, so it does **not** establish
 genuine transport failure — it removes the easiest alternative to it. Two consequences follow.
@@ -95,6 +95,128 @@ mildest.
 ⚠ Length is partialled out throughout, because fresh responses are systematically *longer*
 (89 vs 76 median words) — the 180-token cap never bound, and the released candidates are the
 short ones.
+
+### Criterion space is a different axis from embedding space, and it does not explain r12 either
+
+A rubric does not measure responses where an embedding does. It measures them in the space its
+own criteria span:
+
+```
+z_R(r) = ( s(c₁,r), …, s(c_K,r) )        s ∈ (0,1)
+```
+
+r12 computed that tensor and threw it away on the line that aggregated it
+(`rounds/r12_response_set/run.py:152`). [r41](rounds/r41_criterion_support) rebuilds it on the
+**saved** fresh responses — no regeneration, because r12's generation is stochastic and unseeded
+and a re-run would replace the response set r39/r40/r41 are all built on.
+
+**The rebuild had to prove it was r12's instrument, not a lookalike.** bf16 batched inference is
+composition-dependent; a last-bit difference flips a near-tied pairwise comparison and moves a
+per-prompt accuracy by 1/6. So the pass rescores in r12's exact task order at r12's exact batch
+size, including the shuffled arm it never uses, purely to keep batch composition identical.
+**All 1,500 published per-prompt values reproduce with max |diff| = 0.00e+00.**
+
+| measure | length-controlled | **+ discriminating-power control** |
+|---|---:|---:|
+| hull violation (outside the originals' criterion support) | **−0.1837** (p=0.003) | −0.0653 (p=0.31) |
+| rank instability under criterion bootstrap | **+0.1993** (p=0.002) | +0.0793 (p=0.21) |
+| criterion-combination novelty, thresholds 0.3–0.7 | flat at every threshold | flat |
+| cross-lineage judge disagreement (qwen vs phi) | +0.0550 (p=0.38) | +0.0345 (p=0.60) |
+
+**Both survivors die to one control, and it is the control the result demanded.** A rubric that
+cannot *separate* the four fresh responses must score near chance against gold — so "unstable
+ranking" and "large drop" risk being two views of one quantity rather than a relationship
+between two. Partialling out the rubric's own score spread removes both effects, and their
+correlations with that spread are **+0.563** and **−0.597**. The geometry collapses into a single
+fact: **the rubric separates the fresh responses less than it separated the originals**
+(corr with the drop = −0.2246).
+
+The round still earns its cost. Criterion space correlates with generic embedding distance at
+only **+0.25** and **+0.19** — roughly 5% shared variance — so this was a genuinely different
+axis and it is now checked rather than assumed. And **two unrelated judge lineages disagree
+0.0077 *less* on fresh responses than on the originals**, and their disagreement does not track
+the drop, so the discrepancy is not where the judges fall apart. That is a non-rejection of the
+judge-incoherence reading, **not** an exclusion of it: two lineages can be wrong the same way.
+
+⚠ Everything here is **judge-relative**. `z_R` comes from the same judge whose off-distribution
+validity is the open question, so this round cannot separate *"fresh responses occupy new
+normative territory"* from *"the judge scores them incoherently"*. It establishes that the
+discrepancy is **not spatially organised** in criterion space. r12 remains unexplained.
+
+### Non-significance was doing the work of equivalence, in eleven places
+
+Several load-bearing statements here are **null claims** — "no detected loss", "costs nothing
+measurable", "the decay is flat". Every one was read off a non-significant result, which says
+the study could not see an effect, not that one is absent.
+
+Testing that needs the paired per-prompt vectors, and r34/r35/r36/r37 each bootstrapped one,
+printed a 95% CI and discarded it — and a 95% CI is the interval for the *significance*
+question, not for a TOST at α = 0.05. All four rounds take 4–23 seconds, so they were patched to
+persist the vector and re-run; **all four reproduce their published numbers byte-identically.**
+
+[r42](rounds/r42_equivalence) then tests `H₀: |Δ| ≥ δ` at δ = 0.01 over all **21** contrasts:
+
+| | equivalent at δ | not equivalent |
+|---|---|---|
+| **significant** | 4 — real but negligible | 8 — real and material |
+| **not significant** | 9 — no material effect | **0 — inconclusive** |
+
+**Nothing lands in the inconclusive cell.** Every non-significant result in this package is also
+*bounded* inside the margin, so the null readings survive — which is the first time that was a
+finding rather than an assumption. The four "real but negligible" cells are the ones significance
+alone would have misreported: `D_leakage` +0.0055, `A2` +0.0026, `φ_T` +0.0017, `φ_S` +0.0008.
+
+⚠ **δ is a stipulation, not a measurement.** Nothing in the data says 0.01 accuracy points is
+where a rubric becomes unfit, because no purpose has been specified that precisely. So the round
+sweeps it, and the sweep is the honest form: **12/21 equivalent at 0.01, but 7/21 at 0.005 and
+4/21 at 0.0025.** The nulls hold at the declared margin and at no tighter one.
+
+Both controls ran before any row was read: `D_population` (+0.0576, 5.8× the margin) must return
+NOT EQUIVALENT, and a zero vector must return EQUIVALENT. An equivalence test that cannot say
+"not equivalent" reports every claim as tightly bounded, which is silence dressed as precision.
+
+⚠ This is **aggregate** equivalence. A contrast can be equivalent in aggregate and heterogeneous
+underneath — criterion-level sign reversals and minority-only criteria are
+[r43](rounds/r43_criterion_heterogeneity), not this.
+
+### Groups disagree about criteria, and it does not change which response wins
+
+r42's equivalence is **aggregate**, which is exactly the result that can coexist with real
+disagreement underneath. [r43](rounds/r43_criterion_heterogeneity) asks three questions of
+country, generative-AI usage and age, and only the third can move a decision.
+
+**The positive control comes first, because a heterogeneity detector that has never returned
+"heterogeneous" cannot be believed when it returns "homogeneous".** Injecting a synthetic group
+whose ratings are sign-flipped on a random 20% of criteria lifts the reversal rate from
+**0.122 to 0.283**. The instrument works; a low rate on the real groups therefore means
+something.
+
+| axis | sign-reversal rate | label-permutation null | excess |
+|---|---:|---:|---:|
+| **country** | **0.2363** | 0.2172 [0.2087, 0.2247] | **+0.0190, above** |
+| generative-AI usage | 0.2177 | 0.2158 [0.2081, 0.2247] | +0.0018, inside |
+| age | 0.2012 | 0.2033 [0.1945, 0.2109] | −0.0022, inside |
+
+The null permutes **group labels within each (prompt, criterion)**, holding cell sizes and the
+rating multiset fixed, because with a handful of raters per cell sign disagreement happens by
+sampling alone and a raw reversal rate is uninterpretable.
+
+**But the decisive question is whether a group's own weights predict that group better**, and
+they do not. Across 17 group tests — rater-disjoint folds, pooled arm subsampled to the same
+number of raters so the shared rubric cannot win on sample size — **0 survive Benjamini-Hochberg
+at q = 0.05.** Uncorrected, 2 are significantly positive and **2 significantly negative**; a
+group predicted *worse* by its own weights has no mechanism, so that symmetry is what the noise
+distribution looks like, and quoting only the positives would be reporting half of it.
+
+So: **countries do assign opposite signs to the same criterion more often than chance, and it
+does not change which response wins.** The aggregate equivalence is not hiding a decision.
+
+⚠ These are **demographic proxies, not value constituencies** — r16–r18's latent partition was
+frozen precisely because it named no constituency, and using country instead makes the label
+honest without making it the right object. Scoped to raters with an annotator record
+(87.2%). And the "minority-only criteria" measure at a 90% concentration threshold **never
+fires**, so its zero is reported as **inert**, not as evidence: the largest group supplies on
+average 0.40–0.46 of a cell's raters, p95 0.57–0.66.
 
 ### The human experiment is frame-limited, not power-limited
 
@@ -618,6 +740,9 @@ not from estimation noise, so no further computation narrows it.
 
 | [r39](rounds/r39_feature_cache) | Cache representations, analyse nothing | one GPU pass, three lineages (qwen/phi/internlm), 2,000 responses. Load failures recorded as **environment claims**, not model properties |
 | [r40](rounds/r40_ood_map) | Is r12's inversion an OOD artifact? | **no — the sign runs the wrong way.** Nearest-neighbour distance correlates at **−0.125**, 2/3 lineages, same sign 3/3: the anomaly is **worst where fresh responses most resemble the released ones** |
+| [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **no, and the effects that looked real were one quantity.** Hull violation −0.1837 and rank instability +0.1993 both die to the discriminating-power control (−0.065, +0.079). Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly. Cross-lineage judge disagreement does not track the drop |
+| [r42](rounds/r42_equivalence) | Are the null claims equivalent, or just non-significant? | **equivalent at δ=0.01 — 0 of 21 contrasts inconclusive.** 4 are significant AND negligible. But only 7/21 hold at δ=0.005 and 4/21 at 0.0025, and **δ is stipulated, not measured** |
+| [r43](rounds/r43_criterion_heterogeneity) | Does aggregate equivalence hide group conflict? | **conflict without consequence.** Country sign-reversals run **+0.0190 above** a label-permutation null; **0 of 17** group tests survive BH, and the significant ones split **2 positive / 2 negative** — symmetric noise. Positive control recovers an injected 20% flip (0.122→0.283) |
 
 ---
 
