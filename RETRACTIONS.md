@@ -6261,3 +6261,27 @@ changes.
 **The sign test is unaffected and still returns nothing:** among rounds that cite something, 6 of 21
 omissions are opposite-signed against 6/30 = 0.200 cited, P(≥6) = 0.23. **No directional bias
 established** — the omissions look like silence, not selection.
+
+**⚠ Addendum to entry 186 — the NEXT it ended on was wrong, and reading r28's verdict is what showed it.**
+That NEXT proposed giving all five silent rounds a `build_verdict` so they state their numbers. **For at
+least two of the five that would make them worse.**
+
+**r28 declines deliberately, and says so.** Its verdict ends: *"the both_low number below **must not be
+read as a measurement of anything**."* The round's conclusion is FUNCTIONAL FORM UNRESOLVED — printing
+the strata values as findings would contradict its own argument. **A verdict that explicitly refuses to
+cite a number, with a reason, is not the defect this check exists to catch**, and `cited()` — which
+looks for the point estimate as a printed string — cannot tell it apart from silence.
+
+**r31 cites its contrast in different units.** Its verdict carries *"−53.3%, CI excludes zero"*, which
+is the same quantity the census stores as a raw delta. **A numeric-string match misses a number written
+as a percentage.**
+
+**So the proxy ledger needs a second unsound direction recorded:** absent ⇒ uncited is what the check
+gates on, but *uncited* now demonstrably includes (a) deliberate, argued refusal and (b) the same
+number in another unit. **r11, r17 and r20 are NOT checked here** and may still be genuine omissions —
+that is stated rather than assumed.
+
+**The correction to my own reasoning is the useful part.** I moved from *"a check reported findings
+nobody read"* to *"therefore fix the rounds"* without reading the rounds. **Reading one verdict
+overturned the plan.** The count went 12 → 4 by fixing the population, and then 4 → *not a defect at
+all* by reading the object — the same lesson twice in one entry, at two different levels.
