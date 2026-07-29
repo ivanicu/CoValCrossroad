@@ -1659,6 +1659,46 @@ set, **+0.0847 → −0.0716** on 250 held-out prompts with **zero** overlap. Th
 significance and every conclusion drawn from them stand. What was wrong was the magnitude a reader
 was given, in the three places they were most likely to read it.
 
+## Entry 82 — re-auditing the batch I dismissed: one real error, and my row-splitting had caused half the blindness
+
+Entry 81 found I had retired a flag with a null that answered a different question. So I re-asked the
+original question — *is this token in the pool of the round its block cites?* — for all 28 tokens in
+that batch.
+
+**No second `0.042`.** The 19 that came back unbacked resolve into three harmless classes:
+
+| class | example | why it is not an error |
+|---|---|---|
+| cross-attributed | r04's block quoting **18,384**, **0.6575**, **945** | they are r02's and r06's, and the prose *says so* — the block links only r04 |
+| derived, never stored | r48's **63.5% / 36.4%** | 9684/15248 and 5546/15248, computed shares |
+| derived, never stored | r06's *"four rules span **1.9** points"* | ×100 of a spread between stored accuracies |
+
+`0.042` remains the only genuine defect in that batch. **The dismissal cost one error, not a class.**
+
+**But the audit found the structural cause of the blindness, and it was mine.** Entry 69's
+row-splitting fixed tables being skipped whole — and *detached every row from its table's
+attribution*. 426 claim-like numbers across 145 blocks became unattributable, and **entry 81's two
+invisible stale figures were exactly there**. Table rows now inherit their table's round ids as bare
+**mentions**, so a header-attributed row is checkable at union strength.
+
+One guard was needed and measured: applying inheritance to rows that already cite a round widened
+them into the union arm and **collapsed the strong arm from 166 checked numbers to 39**. A row that
+names its own source keeps the stronger test.
+
+Both paths are controlled: a plant in a row citing r01 still fires, and a plant in the r12 table's
+header-attributed row — *the exact block that hid −0.042* — now surfaces as `0.913 cited: r12`.
+
+**And two tables were mixing two rounds' outputs under one round's name.** The judge-family tables
+carry r22's accuracies beside r30's prompt-specific shares; only r22 was linked, so the six share
+percentages sat in no pool. All six verify against r30. Both headers now cite both sources.
+
+| | coverage |
+|---|---|
+| entry 69, before | 8% |
+| entry 69, after | 44% |
+| entry 81, table link | 49% |
+| **this entry** | **55%** |
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

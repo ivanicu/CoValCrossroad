@@ -853,7 +853,7 @@ P3 shows it does not recover everything: full-with-weights still leads core by 0
 The decomposition survives — every judge shows a positive attribution with an interval clear of zero,
 so it is **not an artifact of the Qwen lineage**. But the magnitude is not portable:
 
-| judge | family | own | random floor | attribution | prompt-specific share |
+| judge | family | own | random floor | attribution ([r22](rounds/r22_cross_family)) | prompt-specific share ([r30](rounds/r30_scope_grid)) |
 |---|---|---|---:|---:|---:|
 | qwen3.5-2b-base | qwen | 0.6522 | 0.5759 | +0.0763 [+0.0585, +0.0944] | 50.1% |
 | qwen2.5-3b-instruct | qwen | 0.6660 | 0.5767 | +0.0894 [+0.0672, +0.1114] | 53.8% |
@@ -868,7 +868,7 @@ room for prompt-specific content.
 resampling prompts, replacing three successive point-estimate ranges (43%, 27–67%, 13.6–74%)
 that never carried one:
 
-| judge | family | vs nearest-topic floor | vs random floor |
+| judge ([r30](rounds/r30_scope_grid)) | family | vs nearest-topic floor | vs random floor |
 |---|---|---:|---:|
 | phi-3.5-mini | phi | **13.6%** [3.2%, 23.7%] | 25.3% [13.7%, 37.2%] |
 | qwen2.5-3b | qwen | 30.5% [20.1%, 41.0%] | **53.8%** [42.1%, 65.8%] |

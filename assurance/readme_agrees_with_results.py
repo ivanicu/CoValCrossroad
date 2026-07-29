@@ -95,16 +95,34 @@ def split_blocks(text: str) -> list[str]:
     table and was skipped for being ambiguous -- so the most claim-dense prose in
     the document was the least checked. Splitting rows restores the one-row,
     one-round case to the strong per-round test.
+
+    ROWS FROM A TABLE INHERIT THE TABLE'S ATTRIBUTION (entry 82). Splitting rows
+    solved one problem and made another: a table whose HEADER or caption cites a
+    round lost that citation for every row, so 426 claim-like numbers across 145
+    blocks became unattributable -- and entry 81's two invisible stale figures
+    were exactly there. Each row now carries its table's round ids appended as
+    bare MENTIONS, which routes it to the weaker union arm unless the row cites a
+    round itself. Inherited attribution should be weaker than direct: the header
+    says which round the table is about, not which round each cell came from.
     """
     out = []
     for para in re.split(r"\n\s*\n", text):
         lines = para.splitlines()
         if sum(1 for ln in lines if ln.lstrip().startswith("|")) >= 2:
+            inherited = sorted(set(ROUND_LINK.findall(para)))
+            suffix = ("  " + " ".join(inherited)) if inherited else ""
             for ln in lines:
-                if ln.lstrip().startswith("|"):
-                    out.append(ln)          # one row = one block
-                else:
+                if not ln.lstrip().startswith("|"):
                     out.append(ln)
+                elif ROUND_LINK.search(ln):
+                    # The row cites a round itself. Inheriting the table's other
+                    # links as well would widen it into the union arm and DEMOTE
+                    # a test that was strong -- measured: the strong arm fell
+                    # 166 -> 39 checked numbers before this guard. A row that
+                    # names its own source keeps the stronger test.
+                    out.append(ln)
+                else:
+                    out.append(ln + suffix)
         else:
             out.append(para)
     return out
