@@ -73,6 +73,27 @@ def main() -> int:
               "detect corruption and a pass would mean nothing.")
         return 1
 
+    # ---- the SAMPLING DESIGN, which item 7 freezes alongside the payload -------
+    # Judgement-free arithmetic, same standard as the hashes: cell sizes must match the
+    # declared counts, every prompt must carry its own cell's weight, and the weights
+    # must be exact inverse-probability weights -- sum(weight x cell_size) recovers the
+    # 250-prompt population r12 drew from, and each weight equals stratum/sample.
+    sizes: dict = {}
+    for r in rows:
+        sizes[r["cell"]] = sizes.get(r["cell"], 0) + 1
+    w, decl = d["sampling_weights"], d["cells"]
+    wrong_w = [(r["pid"], r["cell"]) for r in rows
+               if abs(r["sampling_weight"] - w[r["cell"]]) > 1e-12]
+    pop = sum(w[k] * decl[k] for k in decl)
+    strata = {k: w[k] * decl[k] for k in decl}
+    non_int = [k for k, v in strata.items() if abs(v - round(v)) > 1e-9]
+    resp_shape = {(len(r["original"]), len(r["fresh"])) for r in rows}
+    print(f"  cell sizes match declared          : {sizes == decl}")
+    print(f"  prompts carrying their cell weight : {len(rows) - len(wrong_w)}/{len(rows)}")
+    print(f"  sum(weight x cell) = population    : {pop:.1f}  strata "
+          f"{ {k: round(v) for k, v in strata.items()} }")
+    print(f"  responses per prompt (orig, fresh) : {resp_shape}")
+
     bad_r = [(r["pid"], arm, i) for r in rows for arm in ("original", "fresh")
              for i, x in enumerate(r[arm]) if sha(x["text"]) != x["sha256"]]
     bad_p = [r["pid"] for r in rows if sha(r["prompt_text"]) != r["prompt_sha256"]]
@@ -96,6 +117,22 @@ def main() -> int:
         fail = 1
         print(f"\nFINDING: the manifest recomputes to {got}, not the stored "
               f"{d['manifest_sha256']}. The frame no longer defines the object H_fresh refers to.")
+    if sizes != decl:
+        fail = 1
+        print(f"\nFINDING: observed cell sizes {sizes} do not match the declared {decl}. The "
+              f"stratification the sampling weights assume is not the one in the file.")
+    if wrong_w:
+        fail = 1
+        print(f"\nFINDING: {len(wrong_w)} prompt(s) carry a weight that is not their cell's. Every "
+              f"weighted estimate drawn from this frame would be wrong: {wrong_w[:5]}")
+    if non_int:
+        fail = 1
+        print(f"\nFINDING: weight x cell_size is not an integer for {non_int}, so the weights are "
+              f"not inverse-probability weights over whole strata.")
+    if len(resp_shape) != 1:
+        fail = 1
+        print(f"\nFINDING: prompts differ in response counts {resp_shape}; the frame is not the "
+              f"balanced 4-original/4-fresh design it declares.")
     if n_leaves != n_resp + len(rows):
         fail = 1
         print(f"\nFINDING: {n_leaves} leaves against {n_resp} responses + {len(rows)} prompts.")

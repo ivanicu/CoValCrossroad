@@ -7123,3 +7123,46 @@ step from reporting that **the freeze has no source and its manifest cannot be r
 is `freeze.py`. **I had assumed the naming convention instead of listing the directory**, which is the
 same wrong-object error this session has now logged six times, arriving on the one artifact where a
 false alarm would have been most alarming.
+
+---
+
+## Entry 203 — item 7 freezes the sampling design too, and it reconstructs r12's 250 prompts exactly
+
+Entry 202 verified the freeze's **payload** — hashes and manifest. **Item 7 also names sampling
+weights**, and those had never been checked. A prompt carrying the wrong cell's weight would corrupt
+every weighted estimate drawn from the frame, silently, and it is a *measurement*-affecting defect
+rather than a summariser one.
+
+**All consistent:**
+
+| | |
+|---|---|
+| cell sizes vs declared | **4 × 15 = 60, exact** |
+| prompts carrying their own cell's weight | **60 / 60** |
+| responses per prompt | **(4 original, 4 fresh) for all 60** |
+
+### The weights are a coherent design, not four constants
+
+**sum(weight × cell_size) = 250.0 — exactly r12's slice.** And the per-cell reconstructions are whole
+numbers: **42 + 55 + 83 + 70 = 250**. So the four cells partition r12's 250 prompts into strata of those
+sizes, 15 were drawn from each, and every weight is exactly stratum ÷ 15 — **42/15 = 2.8, 55/15 = 3.667,
+83/15 = 5.533, 70/15 = 4.667.** Inverse-probability weights over whole strata, verified by arithmetic
+rather than accepted from the document.
+
+**This is what lets one collection yield both estimates** the preregistration promises — a population
+figure and an anomaly-subset figure — and until now that was a claim in prose with nothing checking it.
+
+### Folded into the guard, on the same standard
+
+The frozen-frame check now also fails on: an observed cell size differing from the declared one; any
+prompt whose weight is not its cell's; a weight × cell product that is **not an integer** (which would
+mean the weights are not inverse-probability weights over whole strata); and a frame whose prompts
+differ in response counts.
+
+**Attacked on three further vectors, all caught:** a prompt given the wrong weight; a cell weight
+nudged to 5.6 so its stratum stops being whole; a declared cell size altered to 14. **Seven vectors
+total now, all caught, baseline and restore clean.**
+
+**Why these belong beside the hashes:** they are the same kind of statement — **arithmetic over stated
+values, no reading required.** The frame declares a stratified design; either the numbers in it are that
+design or they are not, and 250 either falls out of the weights or it does not.
