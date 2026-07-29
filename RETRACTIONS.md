@@ -2550,6 +2550,40 @@ correction of r32 was made long before the registry existed and was never added.
 now, which is the only part of this that generalises: *registering is part of correcting*, stated in
 the check's own output since entry 83, and still not done for a correction made before it.
 
+## Entry 105 — a missing import plus a bare `except Exception` produced a clean zero
+
+Entry 104's defect — r36's verdict correcting r32, never reaching the summaries — is invisible to
+every mechanism in `corrections_propagated.py`. The **registry** only knows what someone added to it,
+and entry 84's **RETRACTIONS sweep** only sees corrections written as retraction entries. That one
+lived in one round's verdict, about another round.
+
+**Sweeping all 65 verdicts finds exactly four such sentences**, and three are corrections this
+session already handled (r36→r32 in entry 104, r66→r56 twice in 101/102). The fourth is r15's
+*"the two are different questions and r15 neither confirms nor refutes r12"* — already carried in
+r15's README row since entry 72, and r15 and r12 are never co-cited anywhere else. **The class is
+small and currently clean**, which is why the detection was folded into an existing check as a
+standing list rather than becoming a thirteenth file.
+
+**And the folded version reported 0.**
+
+My scratchpad sweep found 4. The same loop, run inline with the module's own compiled constants,
+found 4. The module's own function returned **0**. The constants were right, the regexes fired on
+the exact sentence, 238 files were reached.
+
+**`json` was never imported at module level.** The function calls `json.loads` inside
+`try: … except Exception: continue`. Every one of the 238 files raised `NameError`, every one was
+swallowed, and the check printed a confident **zero** — *"cross-round corrections stated in verdicts:
+0"* — which reads exactly like a clean result.
+
+**A bare `except Exception` around a body that can raise NameError converts a broken function into a
+passing one.** The narrowed version catches `OSError` and `json.JSONDecodeError` — what a bad *file*
+raises — and lets a broken *function* crash, which is the only way the failure becomes visible.
+
+**It survived because the answer was plausible.** Zero cross-round corrections is a perfectly
+believable number for a package where verdicts mostly discuss their own round. I only caught it
+because I had a scratchpad sweep from ten minutes earlier that said 4 — **the check was validated
+against a prior run, not against a control**, and without that accident it would have shipped.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

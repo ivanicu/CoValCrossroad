@@ -36,6 +36,7 @@ something is wrong.
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -87,6 +88,54 @@ CORRECTED = [
 ]
 
 
+# ---- cross-round corrections, discovered from VERDICTS -------------------
+#
+# Entry 104: r36's verdict corrects r32 -- "r32's +0.0876 was the value of adding
+# sign LAST to text alone -- one path through the lattice, not the channel's
+# average worth" -- and that correction never reached the layer table or the
+# preregistration, both of which kept r32's figure.
+#
+# Neither of this file's other mechanisms could see it. The REGISTRY above only
+# knows what someone added to it, and entry 84's RETRACTIONS sweep only sees
+# corrections written as retraction entries. This one lived in one round's
+# verdict, about another round.
+#
+# Reported as a STANDING LIST, not a gate: a verdict can name another round to
+# agree with it, and telling agreement from correction is not mechanical. The
+# swept class is small -- four sentences across every verdict in the package --
+# so the list is short enough to re-read whenever it changes.
+NAMES_ROUND = re.compile(r"\br(\d{2})'?s?\b")
+CORRECTIVE = re.compile(
+    r"(over-?attribut|under-?attribut|was the value of|one path|not the channel|retract|"
+    r"supersed|corrects?\b|refut|overturn|was wrong|too strong|withdraw|is not what|"
+    r"rather than what|inflat|weaker than|does not survive|neither confirms)", re.I)
+PROVISIONAL_RE = re.compile(r"smoke|dry[_-]?run|draft|scratch|trial|pilot|prelim|wip", re.I)
+
+
+def cross_round_corrections() -> list[tuple[str, list[str], str]]:
+    out = []
+    for f in sorted(_ROOT.glob("rounds/*/results/*.json")):
+        if PROVISIONAL_RE.search(f.name):
+            continue
+        rid = f.parts[-3].split("_")[0]
+        try:
+            doc = json.loads(f.read_text())
+        except (OSError, json.JSONDecodeError):
+            # NOT `except Exception`. This function returned 0 for its whole first
+            # life because `json` was not imported at module level, every file
+            # raised NameError, and a bare except swallowed all 238 of them into a
+            # clean zero. Catch what a bad file raises; let a broken function crash.
+            continue
+        v = doc.get("verdict") or doc.get("conclusion")
+        if not isinstance(v, str):
+            continue
+        for sent in re.split(r"(?<=[.;])\s+", v.split(" || ")[0]):
+            named = sorted({f"r{m}" for m in NAMES_ROUND.findall(sent)} - {rid})
+            if named and CORRECTIVE.search(sent):
+                out.append((rid, named, sent.strip()[:150]))
+    return out
+
+
 def _floor(n: int, what: str) -> int:
     if n == 0:
         print(f"\nOBSERVED NOTHING: {what} is empty. This is exit 2, not success -- "
@@ -116,6 +165,14 @@ def main() -> int:
     floor = _floor(len(files) * len(CORRECTED), "the watched-document x correction grid")
     if floor:
         return floor
+
+    xr = cross_round_corrections()
+    print(f"cross-round corrections stated in verdicts: {len(xr)}")
+    for rid, named, sent in xr:
+        print(f"  {rid} -> {', '.join(named)}: {sent[:110]}")
+    print("  A standing list, not a gate -- a verdict can name another round to AGREE with it,")
+    print("  and telling agreement from correction is not mechanical. Re-read when it changes;")
+    print("  entry 104 is what happens when one of these never reaches the summaries.\n")
 
     if not hits:
         print("No superseded form survives in a watched document.")
