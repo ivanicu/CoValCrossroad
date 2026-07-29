@@ -5276,3 +5276,65 @@ prompts are the long-form head (entry 159).
 
 **The sentence that can no longer be written:** *"the headline's floor is an unrelated prompt's
 rubric"* — without saying **which** unrelated prompts, out of the ~63% that a single draw happens to use.
+
+---
+
+## Entry 168 — three draw-scope corrections in one session is the threshold for infrastructure, not a fourth patch
+
+**The same defect landed three times today**: r86's form gap, r87's pairing offset, and entry 164's
+"half a point short of the top edge" were each a **single donor draw** written as a quantity. Three of
+one defect is where a fourth patch is the wrong move.
+
+**`assurance/donor_numbers_carry_their_draw_scope.py`** — two gates, different in kind:
+
+- **GATE 1, completeness.** Every round whose source constructs a donor mapping must appear in the
+  registry. **The registry is verified against the source tree on every run, never trusted.** A hand-written
+  population turns an objective check into self-report, and this ledger has already logged that exact
+  failure. A new donor round nobody classified **fails**; it does not pass silently.
+- **GATE 2, scope carried.** Every registry entry marked `needs_scope` must have a README row citing
+  r88 or r89.
+
+**One pattern would have missed a round.** Idiom A — `(i + 1 + rng.integers(0, n-1)) % n`, sampling
+*with* replacement — catches 14. **r04 uses idiom B**, `rng.permutation` plus a `shuffle_map`, and was
+found only by deliberately looking for what idiom A could not see. Both are matched; a third idiom
+trips GATE 1 rather than passing.
+
+**Seven rounds were publishing a donor-difference number with no draw scope** — r10, r12, r20, r21,
+r22, r46, r86 — and each now carries one. Five are registered as **not** needing scope, each with a
+stated reason, because their donor arm is a control rather than the published number. That
+classification is a **human reading** and the registry records the reason so it is reviewable rather
+than implicit.
+
+### Attacked on five vectors; the fifth found a real hole
+
+| vector | result |
+|---|---|
+| registry drops a real donor round | **caught** (exit 1) |
+| a new unregistered round appears using idiom A | **caught** (exit 1) |
+| scope clause stripped from a README row | **caught** (exit 1) |
+| registry drifted to a round that does not exist | **caught** (exit 1) |
+| a bare `⚠ donor draw` with no content | **PASSED — a real hole** |
+
+**V5 is the one worth recording.** The first version matched the *words* "donor draw", so a marker
+with no content satisfied it — a keyword gate cannot prove presence, only absence. Hardened to require
+an actual **link** to r88/r89, which kills that witness and no more.
+
+**The proxy ledger, now in the check's own docstring.** PROPERTY: the row states its number's draw
+scope. PROXY: the row links r88 or r89. **Link absent ⇒ scope absent is sound, and is what it gates
+on. Link present ⇒ scope stated is NOT sound** — a row can cite r88 and say nothing useful. So the
+check may report a *missing* scope and may **never** certify a present one as adequate.
+
+**Registered in `attack_the_suite` expecting exit 1, not 2**, and the difference is the point: hiding
+the rounds does not empty this check's input, it makes all 15 registry entries stale and fires the
+completeness gate. **A check that knows what ought to exist cannot be silenced by deleting what does.**
+Suite now **12/12**.
+
+### Two errors of my own while applying it
+
+**The first pass edited 12 rows instead of 7.** I keyed on "the row contains a link to the round",
+which also matches rows that are *about a different round* and merely cite it — five rows received a
+scope clause belonging to someone else's number. Re-keyed on the row's **first cell**.
+
+**The second pass edited 8, and the extra one was a table header** — the clause landed inside the
+`advantage` column label. Guarded by skipping any row followed by a markdown separator. **Both were
+caught by reading the diff rather than the exit code**, which had gone green after each attempt.

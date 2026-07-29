@@ -125,6 +125,13 @@ CASES = [
      "zero results files to read -> nothing to check (entry 137)"),
     ("retired_framing_in_emittable_source", hide_rounds, 2,
      "zero source files to parse -> nothing to check (entry 143)"),
+    # Expect 1, not 2, and the difference is the point. Its registry names the 15
+    # rounds that construct a donor mapping, so hiding the rounds does not empty
+    # its input -- it makes every entry STALE and the completeness gate fires. A
+    # check that knows what ought to exist cannot be silenced by deleting what
+    # does, which is the same property registries_are_satisfied has (entry 168).
+    ("donor_numbers_carry_their_draw_scope", hide_rounds, 1,
+     "rounds hidden -> 15 registry entries go stale: a DETECTED failure, not silence"),
     # Entry 144: four checks had a _floor that had never been exercised THROUGH
     # THE CALLING PATH. Verifying a floor by calling it directly proves it raises
     # when handed a zero, not that the check ever hands it one -- which is exactly
