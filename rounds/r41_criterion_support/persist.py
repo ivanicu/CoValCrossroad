@@ -86,16 +86,23 @@ def main() -> None:
     ap.add_argument("--prompts", type=int, default=250)
     ap.add_argument("--batch", type=int, default=32)
     ap.add_argument("--limit", type=int, default=0, help="smoke only; forces a SMOKE tag")
+    ap.add_argument("--offset", type=int, default=0,
+                    help="skip this many joined prompts; non-zero means a DIFFERENT "
+                         "sample than r12's, so the r12 reproduction control cannot "
+                         "apply and is reported as skipped")
+    ap.add_argument("--stem", default=None, help="output stem override")
     a = ap.parse_args()
 
     judge_dir = PANEL[a.tag]
-    primary = a.tag == "qwen2b"
+    # A non-zero offset is a different slice of prompts, so it cannot reproduce
+    # r12 and must not be allowed to look like it did.
+    primary = a.tag == "qwen2b" and a.offset == 0
     smoke = a.limit > 0
     if smoke:
         print("*** SMOKE RUN -- output is tagged and must never reach the README ***")
 
     # ---- rebuild r12's item list, in r12's order ----------------------
-    joined = load_join(a.comparisons, a.rubrics)[: a.prompts]
+    joined = load_join(a.comparisons, a.rubrics)[a.offset: a.offset + a.prompts]
     items = []
     for pid, comp, rub in joined:
         q = [m["content"] for m in comp["prompt"]["messages"] if m["role"] == "user"]
@@ -230,6 +237,9 @@ def main() -> None:
     if not control["attempted"]:
         control["skipped_because"] = (
             "smoke run" if smoke else
+            f"offset={a.offset} is a different prompt slice than r12's, so "
+            f"reproduction is impossible by construction and is NOT claimed"
+            if a.offset else
             f"judge '{a.tag}' is not the instrument r12 used; reproduction is "
             f"impossible by construction and is NOT claimed")
         print(f"\n  reproduction control SKIPPED: {control['skipped_because']}")
@@ -261,7 +271,7 @@ def main() -> None:
 
     # ---- persist ------------------------------------------------------
     _RES.mkdir(parents=True, exist_ok=True)
-    stem = f"r41_satisfaction_{a.tag}" + ("_SMOKE" if smoke else "")
+    stem = a.stem or (f"r41_satisfaction_{a.tag}" + ("_SMOKE" if smoke else ""))
     np.savez_compressed(
         _RES / f"{stem}.npz",
         z_orig_real=Zo["real"], z_orig_shuf=Zo["shuf"],
