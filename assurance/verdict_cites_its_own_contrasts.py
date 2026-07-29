@@ -18,6 +18,22 @@ underneath everything else the suite validates.
 
 WHAT THIS CHECK IS SOUND FOR
 ----------------------------
+  ⚠ A NON-ZERO EXIT IS A LIST TO READ, NOT A LIST TO FIX (entry 187).
+  Of the five rounds this check first reported as citing NONE of their significant
+  contrasts, exactly ONE was a defect. The others:
+    r28  says "the both_low number below must not be read as a measurement of
+         anything" -- an ARGUED REFUSAL, and citing the value would contradict the
+         round's own conclusion
+    r17  declines under its own FROZEN LINE: read the partition as a latent profile
+         split, never as a bloc
+    r11  the uncited number is precisely the one its conclusion discounts
+    r31  cites the same quantity as "-53.3%", which a numeric-string match misses
+  Only r20 stated no quantity at all, and it was fixed with a build_conclusion.
+  So `uncited` includes argued refusal, frozen readings, discounted numbers and unit
+  mismatches. Read the round before concluding it has a defect -- three times in that
+  thread a count was turned into a plan without reading the objects, and each reading
+  changed the plan.
+
   PROPERTY   a verdict states its round's significant findings rather than the
              flattering ones
   PROXY      each significant contrast's point estimate appears somewhere in the
