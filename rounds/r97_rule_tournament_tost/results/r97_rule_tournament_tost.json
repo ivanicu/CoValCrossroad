@@ -1,0 +1,113 @@
+{
+ "rules": {
+  "utility": {
+   "delta": 0.006694185525039242,
+   "ci90": [
+    0.0020318959250168987,
+    0.01140535459735883
+   ],
+   "ci95": [
+    0.0011804470352628465,
+    0.012292427812930051
+   ],
+   "equivalent_at_delta": false,
+   "significant": true,
+   "verdict": "DISTINGUISHED",
+   "answerable_margin": 0.01140535459735883
+  },
+  "majority": {
+   "delta": 0.004397713190208272,
+   "ci90": [
+    -0.000768050899395146,
+    0.00951645983412048
+   ],
+   "ci95": [
+    -0.0016935090076458748,
+    0.01041836421839283
+   ],
+   "equivalent_at_delta": true,
+   "significant": false,
+   "verdict": "EQUIVALENT at 0.01",
+   "answerable_margin": 0.00951645983412048
+  },
+  "consensus": {
+   "delta": -0.011294184930254822,
+   "ci90": [
+    -0.01796572195309221,
+    -0.0046263481038834
+   ],
+   "ci95": [
+    -0.019187388620093393,
+    -0.0033573449603800233
+   ],
+   "equivalent_at_delta": false,
+   "significant": true,
+   "verdict": "DISTINGUISHED",
+   "answerable_margin": 0.01796572195309221
+  },
+  "constituency": {
+   "delta": 0.006983704746868534,
+   "ci90": [
+    0.0014590153211187678,
+    0.012536605225942398
+   ],
+   "ci95": [
+    0.00033801180684678463,
+    0.01354312019700309
+   ],
+   "equivalent_at_delta": false,
+   "significant": true,
+   "verdict": "DISTINGUISHED",
+   "answerable_margin": 0.012536605225942398
+  },
+  "conflict_aware": {
+   "delta": -0.005820251926800041,
+   "ci90": [
+    -0.011055227712983754,
+    -0.0005846661258192977
+   ],
+   "ci95": [
+    -0.012093016668536035,
+    0.00040392941567281515
+   ],
+   "equivalent_at_delta": false,
+   "significant": false,
+   "verdict": "neither -- margin 0.0111",
+   "answerable_margin": 0.011055227712983754
+  },
+  "random_k4": {
+   "delta": -0.011568916550721921,
+   "ci90": [
+    -0.0171863164032087,
+    -0.005864224813736613
+   ],
+   "ci95": [
+    -0.018274005637046946,
+    -0.00484728339855063
+   ],
+   "equivalent_at_delta": false,
+   "significant": true,
+   "verdict": "DISTINGUISHED",
+   "answerable_margin": 0.0171863164032087
+  }
+ },
+ "n_rules": 6,
+ "n_equivalent": 1,
+ "n_distinguished": 4,
+ "delta": 0.01,
+ "n_boot": 20000,
+ "prompts": 945,
+ "rebuild_passed": true,
+ "worst_accuracy_diff": 0.0,
+ "worst_delta_diff": 0.0,
+ "r58_rows_from_dryrun_artifact": 6,
+ "worst_pairs_diff": 0,
+ "per_prompt_cells": "rounds/r97_rule_tournament_tost/results/r97_per_prompt_rule_cells.npz",
+ "resolves_r58_unverified": 6,
+ "r58_r06_rows_total": 8,
+ "r58_r06_rows_from_dryrun": 2,
+ "world": "MIXED",
+ "outcome_variable_scope": "Pairwise accuracy against REAL HUMAN world rankings, satisfaction from r04's tensor. Replays r06 exactly and adds the paired bootstrap r06 did not run.",
+ "scope": "Eight of r58's 23 UNVERIFIED contrasts. The other 15 belong to r28, r17, r20, r01, r11, r13, r15, r32 and r50 and are untouched here. Inherits r06's own restriction to majority-rated criteria (36.5%, entry 173) and its k=4 core size.",
+ "verdict": "MIXED. r58's census left 23 of 125 contrasts UNVERIFIED, every one for the same stated reason -- 'the 90% CI is required and no raw vector was stored'. Eight belong to r06, whose result the preregistration cites when it treats the aggregation rule as a live choice. r06 BUILDS per-prompt cells and discards them before writing, and its inputs -- r04's tensor and the release join -- are on disk, so this needed a replay rather than a measurement. REBUILD CONTROL, strict because rng order matters (build_cores consumes the generator inside the prompt loop, so any drift in join order, threshold or k changes the cores and hence the accuracy): the replay reproduces a06's per-rule accuracy to 0e+00, its pair counts exactly, and its prompt count 945 = 945. So this IS r06's method, not a lookalike -- and had it missed, the round publishes nothing and says so, as r66 did for r56. THE DELTA IS REBUILD-CONTROLLED TOO, and that mattered: r06's contrast is the MEAN OF PER-PROMPT RATIO DIFFERENCES, not a pooled difference, and a first pass here used the pooled one -- a different estimand than the rows r58 flagged. The delta control reproduces a06's to 0e+00, so the quantity tested is r06's own. AND A FINDING ABOUT THE CENSUS ITSELF: of r58's eight r06 rows, TWO come from a06_dryrun.json -- a dryrun artifact. Six of r58's 125 contrasts are sourced from it. This round therefore resolves SIX, not eight, and the other two should never have been counted, because smoke and dryrun runs are not published results. RESULT, at the 90% CI that TOST requires: utility +0.0067 [+0.0020,+0.0114] -> DISTINGUISHED; majority +0.0044 [-0.0008,+0.0095] -> EQUIVALENT at 0.01; consensus -0.0113 [-0.0180,-0.0046] -> DISTINGUISHED; constituency +0.0070 [+0.0015,+0.0125] -> DISTINGUISHED; conflict_aware -0.0058 [-0.0111,-0.0006] -> neither -- margin 0.0111; random_k4 -0.0116 [-0.0172,-0.0059] -> DISTINGUISHED. So 1 of 6 rule contrasts are EQUIVALENT to no-compression at delta=0.01 and 4 are DISTINGUISHED. SIGNIFICANCE AND EQUIVALENCE ARE REPORTED SEPARATELY: a contrast can be neither, and those carry an answerable margin instead of a verdict. ROOT CAUSE FIXED, NOT JUST THE INSTANCE: the per-prompt cells are persisted here, so the next question about r06 does not need this replay -- which is the defect r58 named 23 times and r96 found once."
+}

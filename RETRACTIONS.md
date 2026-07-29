@@ -6114,3 +6114,56 @@ the two**: near<random holds in 3 of 3 judges.
 **The recurring error, fifth instance this session:** a claim about an object formed without checking
 the object. `r48_selection_partition` (173), r91's population (178), ASSURANCE vs README (181), and now
 a whole distribution declared missing while sitting in a sibling round's results directory.
+
+---
+
+## Entry 184 — six of r58's twenty-three UNVERIFIED contrasts recovered by replay, and two of its rows were never real
+
+r96 resolved r95's UNVERIFIED by finding a vector a sibling round had kept. **The census that followed
+found r58's 23 blocked on exactly the same thing** — every one carrying the identical stated reason,
+*"the 90% CI is required and no raw vector was stored"*. Eight belong to **r06**, whose result the
+preregistration cites when it treats the aggregation rule as a live choice.
+
+**r06 builds per-prompt cells and discards them before writing.** Its inputs — r04's satisfaction
+tensor and the release join — are on disk and CPU-only. So this needed a **replay**, not a measurement.
+
+### Resolved, at the 90% CI that TOST requires
+
+| rule | delta | 90% CI | verdict |
+|---|---:|---|---|
+| **majority** | **+0.0044** | [−0.0008, +0.0095] | **EQUIVALENT at δ=0.01** |
+| utility | +0.0067 | [+0.0020, +0.0114] | DISTINGUISHED |
+| constituency | +0.0070 | [+0.0015, +0.0125] | DISTINGUISHED |
+| consensus | −0.0113 | [−0.0180, −0.0046] | DISTINGUISHED |
+| random_k4 | −0.0116 | [−0.0172, −0.0059] | DISTINGUISHED |
+| conflict_aware | −0.0058 | [−0.0111, −0.0006] | neither — margin 0.0111 |
+
+**One rule's compression is provably harmless at the preregistered margin; four are not.**
+
+### Two rebuild controls, and the second one changed the answer
+
+**Accuracy and pairs.** The replay reproduces a06's per-rule accuracy to **0.0e+00**, its pair counts
+exactly, and its prompt count **945 = 945**. This is strict because **rng order matters** —
+`build_cores` consumes the generator inside the prompt loop, so any drift in join order, threshold or k
+changes the cores and therefore the accuracy.
+
+**The delta, and this is the one that earned its place.** r06's contrast is the **mean of per-prompt
+ratio differences**, not a pooled difference. **A first pass here used the pooled one** and reported
+`majority` as "neither" with a margin of 0.0113. Under r06's own estimator it is **EQUIVALENT at 0.01**.
+*The verdict flipped on the estimator, not on the data* — and controlling the delta against a06 caught
+it by instrument rather than by eye. Without that control this round would have published a confident
+answer to a question r58 never asked.
+
+### A finding about the census itself
+
+**Two of r58's eight r06 rows come from `a06_dryrun.json`.** Across the whole census, **6 of 125
+contrasts are sourced from that dryrun artifact.** This package's standing rule is that smoke and
+dryrun runs never reach the README; a census that counts them inflates its own denominator and marks
+UNVERIFIED against numbers that were never published. **So this round resolves 6, not 8** — and the
+other two should be struck rather than resolved.
+
+### The root cause, fixed rather than the instance
+
+**The per-prompt cells are persisted** (`r97_per_prompt_rule_cells.npz`). r58 named this defect 23
+times, r96 found it once, and r06 will not need another replay. **The remaining 15 UNVERIFIED belong to
+r28, r17, r20, r01, r11, r13, r15, r32 and r50 and are untouched here.**
