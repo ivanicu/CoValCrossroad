@@ -6175,3 +6175,35 @@ case**, after it caught r90 for the donor registry one turn after being built. r
 artifact already disclosed the restriction in its scope note (*"inherits r06's own restriction to
 majority-rated criteria, 36.5%"*), so only GATE 1 was outstanding. **A replay inherits the original's
 scope along with its method, and the gate is what makes that automatic rather than remembered.**
+
+---
+
+## Entry 185 — "suite 14/14" means something narrower than it sounds, and I have been quoting it every round
+
+Sweeping **every** assurance script for the first time — rather than the six or seven I habitually run
+— produced two surprises, one trivial and one about my own reporting.
+
+**The trivial one:** `pueue_wait.py` lives in `assurance/` but is a **CLI utility**, not a check. Its
+non-zero was an argparse usage error. A sweep that treats every file in a directory as a check will
+count it wrong; this one did.
+
+**The one that matters.** The package holds **24 real checks**. **23 return 0.**
+`verdict_cites_its_own_contrasts` returns **1**, by its own contract — `return 1 if (tot_opp or silent)
+else 0`, i.e. non-zero means *findings exist*, not *the package is broken*. Its findings are about
+**r28** (12 significant contrasts, 0 cited) and **r31**, rounds this session never touched, and it was
+already present at this session's first commit. **It is pre-existing and it is a report, not a gate.**
+
+**So "suite 14/14", which I have quoted at the end of nearly every round, is `attack_the_suite`'s
+count** — 14 checks registered in its empty-population test, each verified to refuse to pass when its
+population is emptied. **It is not the number of checks in the package, and it was never a statement
+that every check returns 0.** Both facts are true and they are different sentences; quoting the first
+while a reader could hear the second is the kind of imprecision this ledger exists to catch, and it is
+worse for being about the instrument that certifies everything else.
+
+**Corrected form, to be used from here:** *24 checks, 23 green, 1 report-contract check carrying
+pre-existing findings on r28/r31; `attack_the_suite` covers 14 of them for empty-population refusal.*
+
+**Why it went unnoticed for so long:** I ran a fixed habitual subset after each change — the checks I
+expected my edit to touch. That is exactly the population error this package logs against others: *a
+check is only as good as the population it iterates over*, and my sweep's population was chosen by
+what I thought I had changed.
