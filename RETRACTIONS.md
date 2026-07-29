@@ -2747,6 +2747,39 @@ number I had already asserted.
 different kind. **Both are the same move — carrying a number across a boundary it does not cross —
 and neither was caught by any check, because both produce perfectly plausible values.**
 
+## Entry 111 — the defect in entries 108 and 110 is not mechanically detectable, and I measured that before building the check
+
+Entries 108 and 110 share one shape: **a number computed correctly and applied to the wrong object.**
+`raw[0]`'s interval where the row cited `raw[1]`; a criteria-split reliability applied to an embedding
+distance. Neither was caught by any check. The obvious response is a thirteenth check, and entry 108's
+own lesson is that instrumentation needs a cost meter, so I measured first.
+
+**The candidate:** a derived number should NAME its derivation, as entry 82 started doing
+(*"2.13×, derived as 53.8 ÷ 25.3 from r30's shares"*). Mechanically: unmatched in every pool **and**
+no derivation phrase nearby.
+
+**What it would flag: 82 numbers.** Scanning them, most are model version strings (`3.5` from
+`qwen3.5`, `-3.5` from `phi-3.5-mini`), prompt counts, and derived values whose explanation sits in
+the adjacent block rather than the same one — the row-splitting from entry 69 puts each table row in
+its own block, so a table's explanatory paragraph is never in the row's block.
+
+**And it would have caught neither motivating case.** Entry 108's error was choosing `raw[0]`'s
+half-width over `raw[1]`'s: **both are derived, both unmatched, and the check flags them
+identically** — it cannot say which interval the row was about. Entry 110's `1.23×` and `0.222` are
+likewise unmatched, and the flag would carry no information about whether the multiplier belonged to
+that predictor.
+
+**So: 82 flags, near-zero precision, and zero recall on the two cases it was designed for.** Not
+built.
+
+**What actually caught both** was running the number before asserting it — entry 108's r41 half-width
+fell out of a verification loop I ran to confirm the table I had just committed, and entry 110's SD
+fell out of computing a figure I had already written down. **That is a practice, not an instrument**,
+and this package now has twelve instruments and one demonstrated way of catching this class.
+
+**Recording a check I did not build, with its measured miss rate**, because the alternative is
+building it, watching it flag 82 things, and adding it to the suite as evidence of diligence.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
