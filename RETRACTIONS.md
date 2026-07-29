@@ -2328,6 +2328,42 @@ registered so it cannot drift back.
 instrument read — except here the bound was one level further down, in a comment, where no instrument
 in this package looks at all.
 
+## Entry 99 — two versions of a check failed their controls before one worked, and the second failure is the useful one
+
+Entry 98 found a bound stated in a code comment that reached no reader. This builds the instrument
+for that class — and the first two attempts could not have found the case they were built for.
+
+**Version 1 failed a planted positive control.** It flagged a source line when its distinctive words
+overlapped the README's prose about that round by fewer than two. Planting a bound in r59 — *"a
+stand-in for the quantity humans would supply and cannot be recovered from any judge output"* — did
+**not** flag, because `flip`, `judge` and `rate` appear in r59's row for unrelated reasons.
+
+**Version 2 failed a retrospective control, and that one is the lesson.** It ranked lines by how
+little of their vocabulary reached the README. Rebuilding the **pre-fix README from git** and
+re-running put `r44:110` — the exact line the check exists for — at **rank 30 of 33**. It would have
+been invisible.
+
+**Why, and it generalises:** the comment says *"polarity rewrite"*, and so does the README. **A bound
+stated in the same words as the finding it bounds cannot be told apart from that finding by counting
+words.** Vocabulary overlap measures topic, and a bound shares its subject's topic by definition —
+that is what makes it a bound rather than a digression.
+
+**Version 3 scores the matched BOUND PHRASE** — *"cannot be simulated"*, *"upper bound"*,
+*"stand-in for"* — not the line's vocabulary. Against the pre-fix README it flags r44; against the
+current one it does not. **The instrument would have found what it was built for**, which is the only
+control that settles a check written after its motivating case was already fixed.
+
+**13 of 33 bound phrases are absent from the README's prose about their round.** The three lowest on
+the first pass were instructive false positives, and each states a limitation *together with its
+repair*: r23's *"the parameters are not identified … but the FITTED VALUES are, and only those are
+used"*, r31's confound followed by a section headed *"The repair"*, r07's upper bound on a figure the
+README does not quote. **No mechanical rule separates a hidden bound from a stated-and-repaired one**,
+so this reports and never gates.
+
+**Both dead versions are documented in the file rather than deleted.** A check's failure modes are
+the part a future reader most needs, and they are invisible once the working version is the only one
+on disk.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
