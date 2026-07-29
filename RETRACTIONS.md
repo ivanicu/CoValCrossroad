@@ -5911,3 +5911,40 @@ release-scale rounds, **one did not transfer (r91's, fixed) and one did (r88's, 
 the argument against the guard, not for it — the defect is not "a number was quoted elsewhere", it is
 "a number was quoted elsewhere *without checking whether its population holds*", and the check is the
 checking.
+
+---
+
+## Entry 180 — the audit finished: H_fresh is powered for its own target and for nothing else here
+
+Entry 179 left five release-scale rounds unaudited. **Finished, and four of the five are used soundly:**
+r89 as a *law* (the 1/√n scaling) rather than a number; r46 already flagged uncontrolled cross-form
+evidence; r83 and r06 supporting design choices rather than promising precision.
+
+**The fifth produced the finding, and it is a boundary the document did not state.**
+
+r94 fixed H_fresh's achievable margin at **0.0446** (60 prompts, m ≥ 10). Comparing that against every
+effect size this preregistration cites, **ten fall below it** — and one of them is a *decision*:
+
+| effect cited | value | vs H_fresh's 0.0446 |
+|---|---:|---|
+| **whole best-to-worst aggregation-rule span** ([r06](rounds/r06_rule_tournament)) | **0.0188** | **42% of the margin** |
+| containment asymmetry, residualised ([r50](rounds/r50_response_anchoring)) | +0.0203 | 46% |
+| write-in vs seeded transfer gap ([r49](rounds/r49_provenance_crossfit)) | +0.0172 | 39% |
+| compatibility selection vs size-matched random ([r44](rounds/r44_compiler_lineage)) | +0.0149 | 33% |
+
+**So H_fresh cannot distinguish any two of the five aggregation rules — not even the best from the
+worst.** No design at the frozen frame can; that resolution needs the release-scale n from r91's budget.
+
+**The general statement, now in the document:** *H_fresh is powered for its own target — r12's
+inversion at 0.16, roughly 3.6× the margin — and for nothing else in this package.* It is written down
+so that **an H_fresh null on any sub-margin number is read as uninformative by construction**, never as
+evidence of absence. That is the same defect r91 was built to prevent, arriving from the opposite
+direction: not a precision claimed that cannot be delivered, but a **null** that would look like a
+result.
+
+**What the audit settles about the guard entry 178 proposed.** Of the numbers this preregistration
+imports from release-scale rounds: **one did not transfer** (r91's 5.3×, fixed in 178), **one did**
+(r88's m ≥ 10, confirmed in 179), **four are used soundly**, and **one exposed a resolution boundary
+nobody had drawn.** A mechanical "is this number quoted outside its round" check would have flagged all
+seven identically and distinguished none of them. **The defect was never the quoting — it was quoting
+without checking whether the population holds, and only the checking does that.**
