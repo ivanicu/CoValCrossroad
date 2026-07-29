@@ -5414,3 +5414,40 @@ are **orthogonal**, and both apply.
 
 **The sentence that can no longer be written:** *"the interval is ±0.012"* — without saying **over what
 it resamples**.
+
+---
+
+## Entry 170 — the J layer cannot be given an interval from this release, and my own NEXT pointed at frozen work
+
+**Entry 169's commit closed with a NEXT: give the judge axis J a sampling distribution the way the
+donor and resampling-unit axes now have. That NEXT is wrong twice**, and correcting it immediately is
+cheaper than letting it sit in the git log as a plan.
+
+**First, it is frozen.** "More judges" is on the standing frozen list. A round that adds judge families
+to estimate a between-judge component is exactly the frozen work.
+
+**Second, and this survives the freeze being lifted: n=3.** r30's grid holds precisely three judge
+families — `phi-3.5-mini-instruct`, `qwen2.5-3b-instruct`, `qwen3.5-2b-base(ref)`. A between-judge
+variance component from three points is not an estimate.
+
+**What r30 does and does not have, stated precisely.** It stores per-cell intervals, and those are
+**within-judge** — prompt resampling at a fixed judge. That is what lets the headline say source
+specificity runs **3.2% – 65.8%** with an interval in every cell. What does **not** exist, and cannot
+be built from this release, is the **between-judge** component. The headline's **2.13×** judge-family
+movement is therefore a **range over three points, not an estimate carrying uncertainty**, and it
+should never be read as one.
+
+**So the J layer's status is a DATA LIMIT, not an unrun test** — the same category r89 assigned to
+redrawing r10's cells, and the same category the three counterfactuals sit in. Of the five arguments
+of M(R, J, π, Q, P):
+
+| layer | uncertainty status |
+|---|---|
+| R rubric | donor draw measured (r88, r89) |
+| **J judge** | **within-judge intervals only; between-judge not estimable at n=3** |
+| π protocol | bounded across the two collection forms (r85, r86) |
+| Q responses | the r12 discrepancy remains open; needs H_fresh |
+| P population | resampling unit settled (r90); two-way understates by 2–8% |
+
+**The sentence that can no longer be written:** *"the judge family moves it 2.13×"* — without saying
+that three points have no spread.
