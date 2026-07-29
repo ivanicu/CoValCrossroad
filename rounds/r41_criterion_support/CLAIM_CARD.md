@@ -194,3 +194,31 @@ to the axis along which the new ones differ.
 
 Neither check makes this confirmatory. The measure is still post-hoc and still proxy-world;
 r46 tests generalisation to unseen prompts, and H_fresh is what would make it about people.
+
+---
+
+## OUTCOME (2026-07-28) — the addendum's effect did NOT replicate
+
+r46 committed a numeric prediction to git before generating any data, then tested `D_spread_loss`
+on 250 prompts nothing in this project had touched.
+
+| | discovery (r12's 250) | held out (250) |
+|---|---:|---:|
+| spread loss → drop, length-controlled | +0.2309 [+0.107, +0.343] | **+0.0496 [−0.068, +0.169]** |
+| donor arm alone | −0.0351 (ns) | +0.0318 (ns) |
+
+Predicted [+0.12, +0.34] with the CI excluding zero. **NOT REPLICATED.** Entry 48 is downgraded
+to a single-sample artifact and nothing in this card's addendum may be cited as a finding.
+
+**The two "confirmations" recorded above did not confirm anything**, and understanding why is the
+only thing worth keeping. Both — the phi lineage and the response-heterogeneity measures — varied
+the *instrument* and the *alternative explanation* while holding the **sample** fixed. So did the
+donor-arm control. Three independent-looking checks, one sample, one correlation.
+
+**Robustness to the instrument is not generalisation across samples.** The card's own "What would
+confirm it" section named held-out prompts first and I ran the two cheaper checks before it,
+which is how a selection artifact accumulates supporting evidence.
+
+The claim card's *preregistered* hypothesis — novelty — was refuted by the round. The post-hoc
+measure that replaced it has now been refuted too. **The card's original prediction and its
+addendum are both dead**, and r12's discrepancy remains unexplained.

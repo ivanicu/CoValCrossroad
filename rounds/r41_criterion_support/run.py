@@ -678,6 +678,23 @@ def main() -> None:
                 "mechanical loss of discriminating power on unfamiliar text")
     else:
         sl_v = "Spread loss was not testable against the donor arm"
+    # If an out-of-sample test of this round's surviving measure exists, its
+    # outcome is READ and appended -- not summarised by hand.  Without this the
+    # sentence above keeps announcing a finding on the sample that produced it,
+    # which is exactly how a selection artifact outlives its refutation.
+    rep = _ROOT / "rounds/r46_spread_replication/results/r46_spread_replication.json"
+    if rep.exists():
+        rd = json.loads(rep.read_text())
+        h = rd["spread_loss_length_controlled"]
+        sl_v += (f". REPLICATION: {'HELD' if rd['replicated'] else 'FAILED'} -- on "
+                 f"{rd['held_out_prompts']} prompts this project had never touched, the "
+                 f"same measure gives {h['r']:+.4f} {h['ci']}"
+                 + ("" if rd["replicated"] else
+                    ", so the effect above is SELECTION on this sample and must not be "
+                    "cited as a finding (r46)"))
+    else:
+        sl_v += (". REPLICATION: not yet tested out of sample, so the effect above is "
+                 "a correlation on the sample that produced it")
     verdict = f"{support_v}. {rank_v}. {fam_v}. {sl_v}."
     print(f"\n-> {verdict}")
     if fam["status"] != "MEASURED":
