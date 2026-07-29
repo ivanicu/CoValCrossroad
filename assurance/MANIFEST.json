@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T02:42:31.868921+00:00",
- "git": "196fb5c1e66453f09a7b34d3c57769906ff4ad74",
+ "generated_utc": "2026-07-29T02:48:14.258861+00:00",
+ "git": "3572d008e702d3af1a9cd8a600bd32a11dbaefbf",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -84,8 +84,8 @@
    "sha256": "4a550f93a3ab667ca5745301acde6dab38a8262c67af60285177d2ffb42961c2"
   },
   "rounds/r13_seed_vs_writein/run.py": {
-   "bytes": 12848,
-   "sha256": "ca99d201adf1194f74beb71fefe5d9e83b661082ab9c2fc8e53ac8b6e61af31a"
+   "bytes": 13294,
+   "sha256": "9ebb77c470f28e577e994683935d652149b4d13a9fcbff8855dd2d80df4aabaa"
   },
   "rounds/r14_paraphrase_gauge/run.py": {
    "bytes": 8561,
@@ -156,8 +156,8 @@
    "sha256": "ebea3aa0a1dfa42424394e466a302305d8f0c8cf9d4d5d87526756975edc47f4"
   },
   "rounds/r32_channel_decomposition/run.py": {
-   "bytes": 10268,
-   "sha256": "5993b7d07231d791d6e3e1daec7abcd4a260a8da8f7999856daf27e463f5f7d1"
+   "bytes": 10471,
+   "sha256": "610ac7ce0f33c02a02229ec8bc7448e7773cebf7582f1d6f73ee5d36f986318b"
   },
   "rounds/r33_core_launders_polarity/run.py": {
    "bytes": 12396,
@@ -215,6 +215,10 @@
    "bytes": 23328,
    "sha256": "af8a315fd24ce1ed376096ec97194c220c45dc3fd070fe0c94fa097921b37a33"
   },
+  "rounds/r48_provenance_identified/run.py": {
+   "bytes": 7055,
+   "sha256": "26718245f76cee115be2d8f58c658b71b011a470e668db6b756472c0844b5ed0"
+  },
   "assurance/apply_outcome_scope.py": {
    "bytes": 3041,
    "sha256": "217098e2c26704075c767ffb17235d8124a9e9ad12ca6855c0dd6111837ea9b0"
@@ -244,8 +248,8 @@
    "sha256": "47187fb0353ec865e758c3a70aede593a2d4913ed5aad64d919a19a5b7c9b494"
   },
   "assurance/results_match_their_code.py": {
-   "bytes": 4817,
-   "sha256": "ea60c2d1900a2954ce6f1420582ffed14902e1bdd7fb609f37e94298a1caf3d0"
+   "bytes": 5745,
+   "sha256": "9a39487048e7dd405fe3462d9aef27876a8cc764736943f87554258f6a7f5e04"
   },
   "data/fetch.py": {
    "bytes": 2337,
@@ -1148,6 +1152,10 @@
   "rounds/r47_gold_is_length/results/r47_gold_is_length_SMOKE.json": {
    "bytes": 3447,
    "sha256": "a5f7b8f76ea892afe6bed7d2c62f6a34555c23f6d70c5da93ddf4341cf1be038"
+  },
+  "rounds/r48_provenance_identified/results/r48_provenance_identified.json": {
+   "bytes": 1800,
+   "sha256": "7a3beea2dc3fe0e5c76677c7bc130c003ca0762fc891e2eb316afa22273aa1f2"
   }
  },
  "claims": [

@@ -112,10 +112,27 @@ def main() -> None:
     if untracked:
         print(f"\n  untracked or uncommitted: {untracked}")
 
+    # A NOTE MECHANISM, because the advice below used to ask for something the
+    # script could not read.  A round may declare, in NO_RERUN.md beside its
+    # run.py, why an edit could not have moved its numbers.  The note is
+    # REPORTED, never silently honoured -- a stale round with a note is still
+    # printed as stale, with its reason, so a reader judges the reason instead
+    # of the script judging it for them.
+    noted, unnoted = [], []
+    for name in stale:
+        n = _ROOT / "rounds" / name / "NO_RERUN.md"
+        (noted if n.exists() else unnoted).append(name)
+
     print(f"\n  rounds whose code changed after their results: {stale or 'none'}")
-    if stale:
-        print("  Each needs one of: a re-run, or a note saying why the edit could not "
-              "affect\n  the numbers (docstring, comment, renamed path).")
+    for name in noted:
+        first = (_ROOT / "rounds" / name / "NO_RERUN.md").read_text().strip().split("\n")
+        why = next((l for l in first if l.strip() and not l.startswith("#")), "(empty)")
+        print(f"    {name}: NOTE -> {why[:96]}")
+    if unnoted:
+        print(f"  WITHOUT a note: {unnoted}")
+        print("  Each needs one of: a re-run, or a NO_RERUN.md beside its run.py saying "
+              "why\n  the edit could not affect the numbers (docstring, comment, renamed "
+              "path).")
     print("\n  Not a gate. A round can legitimately be edited without re-running, and making")
     print("  this fail a build would push those edits toward not being made at all.")
 
