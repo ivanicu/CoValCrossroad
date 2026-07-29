@@ -1,0 +1,80 @@
+{
+ "n_prompts": 968,
+ "n_annotators": 1011,
+ "n_links": 15103,
+ "n_pairs": 80542,
+ "agreement_point": 0.6860023341858906,
+ "attribution_point": 0.12146457748752204,
+ "designs": {
+  "prompt": {
+   "agreement_ci": [
+    0.6767587196897341,
+    0.6953870787339944
+   ],
+   "attribution_ci": [
+    0.10921978743375843,
+    0.13376730080498891
+   ],
+   "agreement_half": 0.00931417952213015,
+   "attribution_half": 0.012273756685615242,
+   "n_draws": 2000
+  },
+  "annotator": {
+   "agreement_ci": [
+    0.6803212660577259,
+    0.691432786694446
+   ],
+   "attribution_ci": [
+    0.11597187796128691,
+    0.12692770537215692
+   ],
+   "agreement_half": 0.005555760318360026,
+   "attribution_half": 0.005477913705435003,
+   "n_draws": 2000
+  },
+  "pair": {
+   "agreement_ci": [
+    0.6820059645331006,
+    0.6899917668236953
+   ],
+   "attribution_ci": [
+    0.11649200408524499,
+    0.12629250905618614
+   ],
+   "agreement_half": 0.003992901145297378,
+   "attribution_half": 0.004900252485470574,
+   "n_draws": 2000
+  }
+ },
+ "annotator_over_prompt_halfwidth_attribution": 0.4463110884261768,
+ "annotator_over_prompt_halfwidth_agreement": 0.5964841353078649,
+ "material_threshold": 1.25,
+ "materially_wider": false,
+ "pair_level_is_narrowest": true,
+ "annotators_in_both_forms": 931,
+ "positive_control": {
+  "published_short_form_half": 0.014745726409305403,
+  "here_prompt_half": 0.012273756685615242
+ },
+ "twoway_crossed_half": {
+  "agreement": 0.010083508978992154,
+  "attribution": 0.01251559696221147
+ },
+ "twoway_over_prompt": {
+  "agreement": 1.0825976625245526,
+  "attribution": 1.0197038512975953
+ },
+ "prompt_coverage_per_draw": {
+  "annotator_design": 1.0,
+  "prompt_design": 0.6323106610358409
+ },
+ "crossing": {
+  "median_prompts_per_annotator": 16,
+  "single_prompt_annotators_pct": 1.5,
+  "top_decile_link_share_pct": 12.7
+ },
+ "world": "P PROMPT-DOMINATED",
+ "outcome_variable_scope": "Agreement with REAL HUMAN pairwise rankings and own-minus-donor attribution, satisfaction from r04's tensor, donor under seed 20260727. Only the RESAMPLING UNIT varies.",
+ "scope": "This is about intervals, not estimates: no point estimate in this package changes. It also does not license replacing published prompt-bootstrap intervals wholesale. The two-way crossed half-width IS estimated here, but by applying the CGM decomposition to bootstrap percentile half-widths as sd proxies -- an approximation valid for near-symmetric draws, which is why the three one-way inputs are stored alongside it.",
+ "verdict": "P PROMPT-DOMINATED. The reframed object is M(R,J,pi,Q,P) with each layer validated separately, and P is the human population -- yet every interval in this package resamples PROMPTS. Measured before writing the round: 1011 annotators over 968 prompts, median 16 prompts each, only 1.5% rating a single prompt, and the top 10% of annotators holding just 12.7% of the links. The design is CROSSED and crossed almost uniformly, so prompt resampling accounts for prompt sampling and NOTHING for annotator sampling. Identical counts, three resampling units: by prompt, attribution half-width 0.0123 and agreement 0.0093; by ANNOTATOR, 0.0055 and 0.0056; by individual PAIR, 0.0049 and 0.0040. The annotator-clustered interval is 0.45x the prompt-clustered one on attribution and 0.60x on agreement, against a threshold of 1.25x fixed before the run. THE POINT ESTIMATES DO NOT MOVE -- agreement 0.6860, attribution +0.1215 under all three, because all three resample the same precomputed counts; a point shift would have been a bug, not a finding. DEGENERATE CONTROL: the pair-level design ignores both clusterings and is the NARROWEST of the three, as it must be -- the round refuses to run otherwise, because a bootstrap that cannot order its own designs cannot be used to compare two of them. THE CONFOUND, WRITTEN BEFORE THE RUN: annotators are not randomly assigned to prompts, and this release is ordered by collection form, so an annotator-clustered interval could absorb prompt composition. Measured: 931 of 1011 annotators (92.1%) contribute to BOTH forms, and the near-uniform crossing with no whales is evidence against a few annotators driving the width. It does not eliminate the confound; it bounds how much room it has. WHY NARROWER, MECHANISM NOT MYSTERY: an annotator draw still touches 100% of prompts, because each annotator spans ~16 of them, so between-prompt variance is averaged out WITHIN each draw; a prompt draw touches only 63% and exposes it fully. The dominant variance component here is BETWEEN PROMPTS, not between people. THE ACTUAL ANSWER IS THE TWO-WAY INTERVAL, and it is computed rather than conceded: Cameron-Gelbach-Miller gives a crossed half-width of 0.0125 on attribution against the prompt-only 0.0123, i.e. the published interval understates by 2%; on agreement 0.0101 against 0.0093, 8%. That is an APPROXIMATION -- it applies the CGM decomposition to percentile half-widths as though they were sds, which holds only for near-symmetric draws -- so the three inputs are stored for recomputation. SCOPE: this changes no point estimate anywhere in the package. It changes what the intervals beside them mean, and the change is small."
+}

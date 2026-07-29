@@ -5338,3 +5338,79 @@ scope clause belonging to someone else's number. Re-keyed on the row's **first c
 **The second pass edited 8, and the extra one was a table header** — the clause landed inside the
 `advantage` column label. Guarded by skipping any row followed by a markdown separator. **Both were
 caught by reading the diff rather than the exit code**, which had gone green after each attempt.
+
+---
+
+## Entry 169 — the resampling unit was wrong, and correcting it made the intervals *narrower*
+
+**The reframed object is M(R, J, π, Q, P) with each layer validated separately, and P is the human
+population — yet every interval in this package resamples PROMPTS.** Measured before writing anything:
+
+| | |
+|---|---:|
+| annotators / prompts | **1011** / 968 |
+| prompts per annotator | min 1, **median 16**, max 31 |
+| annotators rating exactly one prompt | **15 (1.5%)** |
+| links held by the top decile of annotators | **12.7%** |
+
+**Crossed, near-uniformly, with no whales.** Prompt-level resampling accounts for prompt sampling and
+nothing for annotator sampling — the "name the estimand before the bound" defect applied to the
+package's own headline.
+
+**Identical counts, three resampling units.** `agree()` is a pure additive loop over pairs, so
+per-(prompt, annotator) counts were computed once and every draw is a summation — no draw re-scores
+anything, so no two draws can differ for any reason except which units they drew.
+
+| design | agreement half-width | attribution half-width |
+|---|---:|---:|
+| by **prompt** (what the package publishes) | 0.0093 | 0.0123 |
+| by **annotator** | **0.0056** | **0.0055** |
+| by individual **pair** (degenerate control) | 0.0040 | 0.0049 |
+
+### I expected wider. It came back 0.45×
+
+**The annotator-clustered interval is narrower, not wider**, against a threshold of 1.25× fixed before
+the run. **Mechanism, not mystery:** an annotator draw touches **100%** of prompts — each annotator
+spans ~16 — so between-prompt variance is averaged out *within* each draw. A prompt draw touches only
+**63.2%** and exposes it fully. **The dominant variance component in this package is between prompts,
+not between people.** So the published intervals are the *conservative* choice on this axis.
+
+### The two-way interval is the actual answer, so it is computed rather than conceded
+
+A one-way annotator bootstrap is not the right reply to "is the published interval too narrow" in a
+crossed design. Cameron–Gelbach–Miller (V_prompt + V_annotator − V_pair):
+
+- **attribution 0.0125** against the published 0.0123 — understates by **2.0%**
+- **agreement 0.0101** against 0.0093 — understates by **8.3%**
+
+**Stated as an approximation, because it is one:** CGM is applied to bootstrap *percentile half-widths
+as though they were sds*, which holds only for near-symmetric draws. All three one-way inputs are
+stored so it can be recomputed another way.
+
+### Two controls, and one of them could have voided the round
+
+**Degenerate control.** The pair-level design ignores both clusterings and must be the narrowest of
+the three. It is — and **the round refuses to run if it is not**, because a bootstrap that cannot order
+its own designs cannot be used to compare two of them.
+
+**Positive control.** The prompt-clustered design gives 0.0123 against r86's published 0.0147 — same
+order, same machinery.
+
+**The point estimates do not move.** 0.6860 and +0.1215 under all three designs, as they must, since
+all three resample the same precomputed counts. A point shift would have been a bug, not a finding.
+
+### The confound is bounded, not eliminated
+
+Annotators are not randomly assigned to prompts and this release is form-ordered, so an
+annotator-clustered interval can absorb prompt composition. Measured: **92.1%** of annotators span
+**both** collection forms. That bounds how much room the confound has; it does not close it.
+
+### The infrastructure built one round ago caught its own first new case
+
+r90 constructs a donor mapping, so `donor_numbers_carry_their_draw_scope` flagged it as **unregistered**
+the first time it ran — exactly the completeness gate entry 168 built, firing on a round written after
+it. Registered with its reason, and its row carries both scopes: the donor draw and the resampling unit
+are **orthogonal**, and both apply.
+
+**The sentence that can no longer be written:** *"the interval is ±0.012"* — without saying **over what
+it resamples**.
