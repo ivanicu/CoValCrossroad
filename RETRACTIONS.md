@@ -3718,3 +3718,46 @@ presence-type negatives do not track the worst answer, and absence-shaped wordin
 corpus), and **topicality** (here — 104% retained). The scope is unchanged and is not a formality: this
 is association *within* a rater, and it still cannot separate a menu that **created** the direction
 from one that **supplied the words** for a direction already held. That is S_pre.
+
+## Entry 132 — the last checkable rival: the stoplist I typed by hand
+
+**Why this was the right thing to attack.** Four rounds (r74–r77) now rest on `containment`, which
+tokenises at **≥4 characters** and filters through a stoplist **I typed by hand** — including
+`response answer model user should must`, words a criterion can legitimately be about. This
+repository's own case law says *a hand-written population turns an objective check into self-report*,
+and no round had varied it. A reviewer without my context would attack this first.
+
+**The grid.** min token length {3, 4, 5} × stoplist {this project's, none, sklearn's English} × unit
+{unigram, bigram} = 18 cells, each recomputing the prompt-stripped, length-residualised
+positive-minus-negative gap over the same 9,122 write-ins.
+
+**All 18 positive; all 18 exclude zero at 95%.** Largest shuffled-sign null across cells: **0.0047**.
+
+**⚠ The spread is one axis, not scatter — and saying "median +0.0121" would have hidden it.**
+
+| axis | values |
+|---|---|
+| **unit** | unigram **+0.01982** (sd 0.00188) · bigram **+0.00737** (sd 0.00036) — **2.69×** |
+| min length (unigram) | 3: +0.01935 · 4: +0.01972 · 5: +0.02041 |
+| stoplist (unigram) | project: +0.02094 · none: +0.01730 · sklearn: +0.02123 |
+
+**The two things I hand-chose barely matter, which is exactly what the round was built to find out.**
+Token length moves the gap by 0.001 across its whole range. Dropping the stoplist **entirely** costs
+the most of the three and still leaves +0.0173, clear of zero. The published cell (+0.02114) is typical
+*of its unit*, not favourable within the grid.
+
+**Why bigram is smaller and why that is not a failure.** Adjacent word pairs must match exactly, so a
+paraphrase sharing content shares far fewer bigrams than unigrams. A stricter measure of the same
+construct returning a smaller positive number is what a stricter measure should do — and all nine
+bigram cells still exclude zero.
+
+**What this does not touch, stated because the round's title over-promises otherwise.** It varies the
+*tokeniser*. It does not vary the decision to measure specificity by **lexical overlap at all**. A
+semantic measure — embeddings, entailment — could disagree with every cell here, and nothing in this
+round bears on that. That is the rival I cannot construct from this data.
+
+**Where the line closes.** Four rivals built and four failed on their own terms: length (r74), absence
+(r76), topicality (r77), tokeniser (here). The scope is unchanged and is the reason none of this
+substitutes for the experiments: association *within* a rater, still unable to separate a menu that
+**created** the direction from one that **supplied the words**. **That is S_pre, and I have now run out
+of ways to attack this claim from my own side of the desk.**

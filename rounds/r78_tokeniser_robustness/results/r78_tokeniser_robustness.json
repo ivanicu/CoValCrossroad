@@ -1,0 +1,211 @@
+{
+ "n_prompts": 957,
+ "n_write_ins": 9122,
+ "cells": {
+  "len>=3 stop=project unigram": {
+   "n": 9116,
+   "dropped_empty": 6,
+   "gap": 0.020272472459099897,
+   "ci": [
+    0.015619537732177287,
+    0.02567822732264005
+   ],
+   "shuffled_null": 0.0010927628440032255
+  },
+  "len>=3 stop=project bigram": {
+   "n": 9118,
+   "dropped_empty": 4,
+   "gap": 0.007568059204330962,
+   "ci": [
+    0.004967004098442178,
+    0.01024938054003338
+   ],
+   "shuffled_null": -0.0016241684651309653
+  },
+  "len>=3 stop=none unigram": {
+   "n": 9117,
+   "dropped_empty": 5,
+   "gap": 0.016496512834669227,
+   "ci": [
+    0.011598301076525956,
+    0.02182967799842516
+   ],
+   "shuffled_null": -0.0006274690763097843
+  },
+  "len>=3 stop=none bigram": {
+   "n": 9118,
+   "dropped_empty": 4,
+   "gap": 0.006707840938371935,
+   "ci": [
+    0.0041689914674592835,
+    0.00930958354159327
+   ],
+   "shuffled_null": -0.0016541130677087791
+  },
+  "len>=3 stop=sklearn unigram": {
+   "n": 9102,
+   "dropped_empty": 20,
+   "gap": 0.021271718692385387,
+   "ci": [
+    0.01647765577211326,
+    0.026841783356197805
+   ],
+   "shuffled_null": -0.0017516837623006458
+  },
+  "len>=3 stop=sklearn bigram": {
+   "n": 9113,
+   "dropped_empty": 9,
+   "gap": 0.007627244034960436,
+   "ci": [
+    0.005124821903006596,
+    0.010326603915833127
+   ],
+   "shuffled_null": -0.0007022330023187815
+  },
+  "len>=4 stop=project unigram": {
+   "n": 9108,
+   "dropped_empty": 14,
+   "gap": 0.02113770893798025,
+   "ci": [
+    0.016153066088286604,
+    0.026358715579231695
+   ],
+   "shuffled_null": 0.0029442930809884882
+  },
+  "len>=4 stop=project bigram": {
+   "n": 9113,
+   "dropped_empty": 9,
+   "gap": 0.00772133534196931,
+   "ci": [
+    0.005521677858968416,
+    0.010309455041985754
+   ],
+   "shuffled_null": 0.001043575280229948
+  },
+  "len>=4 stop=none unigram": {
+   "n": 9114,
+   "dropped_empty": 8,
+   "gap": 0.016918482107717278,
+   "ci": [
+    0.011624989700482804,
+    0.022404838961392212
+   ],
+   "shuffled_null": 0.0001847877037699005
+  },
+  "len>=4 stop=none bigram": {
+   "n": 9118,
+   "dropped_empty": 4,
+   "gap": 0.006773206048343833,
+   "ci": [
+    0.004825162777693905,
+    0.009271339123059465
+   ],
+   "shuffled_null": -0.001299004782445908
+  },
+  "len>=4 stop=sklearn unigram": {
+   "n": 9099,
+   "dropped_empty": 23,
+   "gap": 0.021103986006525306,
+   "ci": [
+    0.01578599949823987,
+    0.026686342968412765
+   ],
+   "shuffled_null": 0.0032281164649397695
+  },
+  "len>=4 stop=sklearn bigram": {
+   "n": 9112,
+   "dropped_empty": 10,
+   "gap": 0.0073804280153171465,
+   "ci": [
+    0.005198449031239375,
+    0.010028848705325239
+   ],
+   "shuffled_null": -0.0006370412245539001
+  },
+  "len>=5 stop=project unigram": {
+   "n": 9098,
+   "dropped_empty": 24,
+   "gap": 0.02141394903971933,
+   "ci": [
+    0.015705895237862734,
+    0.027575386774003514
+   ],
+   "shuffled_null": -0.004673809236535874
+  },
+  "len>=5 stop=project bigram": {
+   "n": 9088,
+   "dropped_empty": 34,
+   "gap": 0.007715998742522387,
+   "ci": [
+    0.005227135114285874,
+    0.010221076608568913
+   ],
+   "shuffled_null": 0.0004868949075482543
+  },
+  "len>=5 stop=none unigram": {
+   "n": 9107,
+   "dropped_empty": 15,
+   "gap": 0.018481839474786144,
+   "ci": [
+    0.013272710102971458,
+    0.024478080680357357
+   ],
+   "shuffled_null": -0.0010010991137036343
+  },
+  "len>=5 stop=none bigram": {
+   "n": 9105,
+   "dropped_empty": 17,
+   "gap": 0.007345150449222085,
+   "ci": [
+    0.004988738574727166,
+    0.009887424803366709
+   ],
+   "shuffled_null": 0.001129790107024056
+  },
+  "len>=5 stop=sklearn unigram": {
+   "n": 9094,
+   "dropped_empty": 28,
+   "gap": 0.0213240993302685,
+   "ci": [
+    0.015451184065448742,
+    0.02736827223551491
+   ],
+   "shuffled_null": 0.004387746598183527
+  },
+  "len>=5 stop=sklearn bigram": {
+   "n": 9093,
+   "dropped_empty": 29,
+   "gap": 0.0074477552222832095,
+   "ci": [
+    0.005067176472383519,
+    0.009909435522977175
+   ],
+   "shuffled_null": 0.002244925520728928
+  }
+ },
+ "gap_min": 0.006707840938371935,
+ "gap_max": 0.02141394903971933,
+ "gap_median": 0.012108924088319269,
+ "cells_excluding_zero": 18,
+ "n_cells": 18,
+ "unigram_mean": 0.019824529875905703,
+ "unigram_sd": 0.0018783871824697993,
+ "bigram_mean": 0.007365224221924589,
+ "bigram_sd": 0.000357419467802787,
+ "unigram_by_min_length": {
+  "3": 0.01934690132871817,
+  "4": 0.01972005901740761,
+  "5": 0.020406629281591326
+ },
+ "unigram_by_stoplist": {
+  "project": 0.02094137681226649,
+  "none": 0.017298944805724217,
+  "sklearn": 0.021233268009726396
+ },
+ "max_abs_shuffled_null": 0.004673809236535874,
+ "published_cell_gap": 0.02113770893798025,
+ "world": "S STABLE",
+ "outcome_variable_scope": "Sign is the single author's own score; ranking is that same author's own world block. Every cell strips prompt vocabulary first, as r77 does.",
+ "scope": "This varies the TOKENISER only. It does not vary the choice to measure specificity by lexical overlap at all -- a semantic measure could disagree with every cell here, and that possibility is untouched by this round. Bigram cells drop more criteria to empty after prompt-stripping; each cell reports its own drop count.",
+ "verdict": "S STABLE. The r75-r77 line rests entirely on `containment`, which uses tokens of at least four characters and a stoplist I typed by hand -- including `response answer model user should must`, words a criterion can legitimately be about. This repository's own case law says a hand-written population turns an objective check into self-report, and three rounds were built on this one without varying it. Recomputing the prompt-stripped, length-residualised positive-minus-negative gap across 18 cells -- minimum token length 3/4/5 x stoplist project/none/sklearn x unigram/bigram -- gives a range of +0.00671 to +0.02141, median +0.01211, with 18 of 18 cells excluding zero at 95% and a largest shuffled-sign null of 0.00467. THE SPREAD IS NOT SCATTER, IT IS ONE AXIS: the gaps are bimodal by UNIT -- unigram cells average +0.01982 (sd 0.00188), bigram cells +0.00737 (sd 0.00036), a ratio of 2.69x -- so quoting the +0.01211 median across all 18 would hide the only choice that moves the number. THE TWO THINGS I HAND-CHOSE BARELY MATTER, which is what this round was built to find out: across unigram cells the minimum token length gives 3: +0.01935, 4: +0.01972, 5: +0.02041 and the stoplist gives project: +0.02094, none: +0.01730, sklearn: +0.02123. Dropping the stoplist entirely costs the least of the three and still leaves the gap clear of zero. The published configuration sits at +0.02114, which is typical of its unit rather than favourable within the whole grid; it is NOT near the all-cell median, and that is because of bigram, not because of a lucky stoplist. WHY BIGRAM IS SMALLER AND WHY THAT IS NOT A FAILURE: adjacent word pairs must match exactly, so a paraphrase that shares content shares far fewer bigrams than unigrams. A stricter measure of the same construct returning a smaller positive number is what a stricter measure should do; all nine bigram cells still exclude zero."
+}
