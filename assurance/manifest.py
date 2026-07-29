@@ -46,6 +46,12 @@ def git_rev() -> str:
 
 # ---------------------------------------------------------------- claims
 # (id, statement, source file, json path, direction, threshold)
+POP_NOTE = (
+    "POPULATION (entry 51): computed on the PRE-SEEDED criteria only -- the majorit"
+    "y-rated 36.5%, six per prompt, shown identically to every participant. The 63."
+    "5% participant-authored write-ins are excluded by a rater-count threshold, not"
+    " by choice. ")
+
 CLAIMS = [
     ("C1",
      "SCOPED BY C12. On the four RELEASED candidate responses, less than half of "
@@ -146,6 +152,7 @@ CLAIMS = [
     # directions that agree across raters and are still constructed by the menu.
     # Cross-rater agreement refutes the INDIVIDUAL loop only.
     ("C16",
+     POP_NOTE +
      "The post-ranking criterion direction is not PRIMARILY SAME-RATER "
      "circularity. Weights estimated from raters who never contributed to the "
      "rankings being predicted (global 5-fold split by annotator, a person in "
@@ -158,6 +165,7 @@ CLAIMS = [
      "estimands.D_population (crossfit_sign - attribute_only).delta", ">", 0.04),
 
     ("C17",
+     POP_NOTE +
      "The same-sample premium is small in absolute terms: the gap between weights "
      "built from everyone and weights built from disjoint raters is under one "
      "accuracy point.",
@@ -170,6 +178,7 @@ CLAIMS = [
     # format changes the response it elicits, and that is not recoverable by
     # filtering the responses it already produced.
     ("C18",
+     POP_NOTE +
      "Concordance is ROBUST TO POST-HOC CRITERION ABSTENTION. Dropping every "
      "criterion whose raters split below 90 percent agreement -- more than half of "
      "them -- changes cross-fitted accuracy by less than one point in either "
@@ -185,6 +194,7 @@ CLAIMS = [
     # alike for different reasons. Establishing invariance needs an equivalence
     # test against a declared margin plus a criterion-level heterogeneity model.
     ("C19",
+     POP_NOTE +
      "NO AGGREGATE LOSS WAS DETECTED in the population splits tested. Weights "
      "estimated entirely outside a held-out COUNTRY predict that country's raters "
      "about as well as weights including them, across six countries with at least "

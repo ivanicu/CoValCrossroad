@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T02:48:14.258861+00:00",
- "git": "3572d008e702d3af1a9cd8a600bd32a11dbaefbf",
+ "generated_utc": "2026-07-29T02:58:52.900998+00:00",
+ "git": "58f5600ecca92f54b9fd5297eb6c5d966f244c53",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -164,20 +164,20 @@
    "sha256": "d14863681ed57d5f664bd6bea55c5fbbac4b670d1e5eb16284d03e156039dbf1"
   },
   "rounds/r34_global_rater_crossfit/run.py": {
-   "bytes": 15678,
-   "sha256": "b71053afcdccc4908307c23b96f9935a93cffffb2dc90a40fd3b4869ffec5c20"
+   "bytes": 16487,
+   "sha256": "05458e2d0de6744400a9782928b3f865680f50335c0744b3c28a90c2ea1afa24"
   },
   "rounds/r35_polarity_abstention/run.py": {
-   "bytes": 14521,
-   "sha256": "e5e64ff768e3cadbabcb1de564258f5ce0c9d5fe60bffca00ebae7516e68f037"
+   "bytes": 15357,
+   "sha256": "aadb1f55efb49021af3e7ba7e273dd17bda3756ed587b078ab78b50f2f223164"
   },
   "rounds/r36_channel_shapley/run.py": {
-   "bytes": 13503,
-   "sha256": "2caa82cf3bdce48520d3c26d52be82e297babd6bb1df59abedaa0208cb4dc706"
+   "bytes": 14339,
+   "sha256": "f0d57282e0aa84160c8d68893f05843e7da14161b1b527533ee93d90816185ab"
   },
   "rounds/r37_leakage_topology/run.py": {
-   "bytes": 13849,
-   "sha256": "fb7c3ca7a048614b1d7d15d82382e92923b323aa6958afd1fef929ae6db48c68"
+   "bytes": 14658,
+   "sha256": "dc25ea6d0390df9ab96a40b95003f9adb19e1b60a5540468a0e413e1a7cf4b53"
   },
   "rounds/r38_human_sampling_power/run.py": {
    "bytes": 14317,
@@ -200,8 +200,8 @@
    "sha256": "186f4b37f66c1cfa9cf91cdc993ca48c453d6937a658a50cbcf6822874bc75b5"
   },
   "rounds/r43_criterion_heterogeneity/run.py": {
-   "bytes": 24620,
-   "sha256": "58e90248b64a3d8a1875bf08ca41a41e67e3fb46d55f574f90851f64cf41209f"
+   "bytes": 25445,
+   "sha256": "ed2ebe107cd17501cb2b6e405ca950ad3ae7905b3717bfaa3491af40a3d19292"
   },
   "rounds/r44_compiler_lineage/run.py": {
    "bytes": 18220,
@@ -219,6 +219,10 @@
    "bytes": 7055,
    "sha256": "26718245f76cee115be2d8f58c658b71b011a470e668db6b756472c0844b5ed0"
   },
+  "rounds/r49_provenance_crossfit/run.py": {
+   "bytes": 16688,
+   "sha256": "ebd94c1c0f7d21e4ac478637f8aabddc62df88629735f1fe1254ebef6ab072a2"
+  },
   "assurance/apply_outcome_scope.py": {
    "bytes": 3041,
    "sha256": "217098e2c26704075c767ffb17235d8124a9e9ad12ca6855c0dd6111837ea9b0"
@@ -232,8 +236,8 @@
    "sha256": "dbdf4198865268afaab4aa93406dfa15abd3ca65af35596dc20096c0e367b5d4"
   },
   "assurance/manifest.py": {
-   "bytes": 33279,
-   "sha256": "d4347d7536815a440ea524990ea349e71daf3087b96b0df61ac33fc7ef6bfff5"
+   "bytes": 33632,
+   "sha256": "2b9f99700d4daff7ec80004ab4378c322999260a4d6a869a218c9d7d1a6bca6e"
   },
   "assurance/no_withdrawn_framings.py": {
    "bytes": 9030,
@@ -1078,20 +1082,20 @@
    "sha256": "6c3abaa8f784c6594e8cbb758cc40f24381293a681d3e78f12dd458e34ad3539"
   },
   "rounds/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json": {
-   "bytes": 109915,
-   "sha256": "a2e1be89fe56477724fb5d0792f37111b0f1bf5dd37ebbaf44992d651894053f"
+   "bytes": 110572,
+   "sha256": "a2533a11deb7a7807664e95a2ff6318a38a3bbe1340f351835d23c504472068f"
   },
   "rounds/r35_polarity_abstention/results/r35_polarity_abstention.json": {
-   "bytes": 119783,
-   "sha256": "a81214100b4a944662f924c740d27648e77a3bb9e81fd9ee3f9b953821ddac2d"
+   "bytes": 120451,
+   "sha256": "1b48c39af65f120c4afa1306ed50f562949f86f549b9e146aaf9c4a020911776"
   },
   "rounds/r36_channel_shapley/results/r36_channel_shapley.json": {
-   "bytes": 80571,
-   "sha256": "e1045564063e1c2555818fdb7ba0591ceea99e4a050defe06f1f769fbe941360"
+   "bytes": 81239,
+   "sha256": "6d63e10946204b61b6965b6bbf9f03b45bdb34082f073011ff105cf0964b7617"
   },
   "rounds/r37_leakage_topology/results/r37_leakage_topology.json": {
-   "bytes": 129636,
-   "sha256": "08c28b5fe6b1f6dfa05b035b5452b3169c3c2efc1b4e2d08da8c7f6929a636a8"
+   "bytes": 130293,
+   "sha256": "f75fc13e8bd257bdad773dc487c2869e362dd0a3d7886c5a18d92c817f4e2dd8"
   },
   "rounds/r38_human_sampling_power/results/_pairs_per_prompt.json": {
    "bytes": 87435,
@@ -1126,8 +1130,8 @@
    "sha256": "8c26fbe1dff70fcf1e435a7e463d5ffca77c5eb1b56d8cc6e03a036f59c47d80"
   },
   "rounds/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json": {
-   "bytes": 257812,
-   "sha256": "fdd8ba5a898a85bd3be1cb7bb7f75d695dd9cb2ea106993823469f4e79ce0b49"
+   "bytes": 258480,
+   "sha256": "e4f9b177faa395c567857dd31a7301451b1d6055091d85c1313870c7e7872473"
   },
   "rounds/r44_compiler_lineage/results/r44_compiler_lineage.json": {
    "bytes": 152437,
@@ -1156,6 +1160,10 @@
   "rounds/r48_provenance_identified/results/r48_provenance_identified.json": {
    "bytes": 1800,
    "sha256": "7a3beea2dc3fe0e5c76677c7bc130c003ca0762fc891e2eb316afa22273aa1f2"
+  },
+  "rounds/r49_provenance_crossfit/results/r49_provenance_crossfit.json": {
+   "bytes": 116887,
+   "sha256": "50b16466d61c93e8301214091bc12aacea180a1e988a12c474be9d3f35b1f7fc"
   }
  },
  "claims": [
@@ -1216,7 +1224,7 @@
   },
   {
    "id": "C16",
-   "statement": "The post-ranking criterion direction is not PRIMARILY SAME-RATER circularity. Weights estimated from raters who never contributed to the rankings being predicted (global 5-fold split by annotator, a person in exactly one fold) still beat the direction-free arm, and both nulls -- shuffled signs and donor-prompt signs -- fall BELOW it, so the sign channel is not a free parameter. NOT ESTABLISHED: that the direction pre-exists the menu. Shared-menu endogeneity is untouched by any split of these annotators, because none of them rated a criterion before seeing responses.",
+   "statement": "POPULATION (entry 51): computed on the PRE-SEEDED criteria only -- the majority-rated 36.5%, six per prompt, shown identically to every participant. The 63.5% participant-authored write-ins are excluded by a rater-count threshold, not by choice. The post-ranking criterion direction is not PRIMARILY SAME-RATER circularity. Weights estimated from raters who never contributed to the rankings being predicted (global 5-fold split by annotator, a person in exactly one fold) still beat the direction-free arm, and both nulls -- shuffled signs and donor-prompt signs -- fall BELOW it, so the sign channel is not a free parameter. NOT ESTABLISHED: that the direction pre-exists the menu. Shared-menu endogeneity is untouched by any split of these annotators, because none of them rated a criterion before seeing responses.",
    "source": "rounds/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
    "field": "estimands.D_population (crossfit_sign - attribute_only).delta",
    "value": 0.057649169432686984,
@@ -1227,7 +1235,7 @@
   },
   {
    "id": "C17",
-   "statement": "The same-sample premium is small in absolute terms: the gap between weights built from everyone and weights built from disjoint raters is under one accuracy point.",
+   "statement": "POPULATION (entry 51): computed on the PRE-SEEDED criteria only -- the majority-rated 36.5%, six per prompt, shown identically to every participant. The 63.5% participant-authored write-ins are excluded by a rater-count threshold, not by choice. The same-sample premium is small in absolute terms: the gap between weights built from everyone and weights built from disjoint raters is under one accuracy point.",
    "source": "rounds/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
    "field": "estimands.D_leakage (same_sign - crossfit_sign).delta",
    "value": 0.005486289107749416,
@@ -1238,7 +1246,7 @@
   },
   {
    "id": "C18",
-   "statement": "Concordance is ROBUST TO POST-HOC CRITERION ABSTENTION. Dropping every criterion whose raters split below 90 percent agreement -- more than half of them -- changes cross-fitted accuracy by less than one point in either direction. NOT ESTABLISHED: the absence of a forced-choice effect. The scale runs -10..+10 and 0 appears exactly once in 102,147 ratings, so 'no general direction' was never available to a participant; testing that requires the option AT ELICITATION TIME, not a filter afterwards.",
+   "statement": "POPULATION (entry 51): computed on the PRE-SEEDED criteria only -- the majority-rated 36.5%, six per prompt, shown identically to every participant. The 63.5% participant-authored write-ins are excluded by a rater-count threshold, not by choice. Concordance is ROBUST TO POST-HOC CRITERION ABSTENTION. Dropping every criterion whose raters split below 90 percent agreement -- more than half of them -- changes cross-fitted accuracy by less than one point in either direction. NOT ESTABLISHED: the absence of a forced-choice effect. The scale runs -10..+10 and 0 appears exactly once in 102,147 ratings, so 'no general direction' was never available to a participant; testing that requires the option AT ELICITATION TIME, not a filter afterwards.",
    "source": "rounds/r35_polarity_abstention/results/r35_polarity_abstention.json",
    "field": "abs_confident_minus_forced",
    "value": 0.0016944187536397895,
@@ -1249,7 +1257,7 @@
   },
   {
    "id": "C19",
-   "statement": "NO AGGREGATE LOSS WAS DETECTED in the population splits tested. Weights estimated entirely outside a held-out COUNTRY predict that country's raters about as well as weights including them, across six countries with at least 40 raters. NOT ESTABLISHED: population invariance. This is a non-rejection, not an equivalence result, and aggregate accuracy can hide criterion sign reversals and minority-only criteria. Also not established: response-blind weights, which no rater in this dataset could supply.",
+   "statement": "POPULATION (entry 51): computed on the PRE-SEEDED criteria only -- the majority-rated 36.5%, six per prompt, shown identically to every participant. The 63.5% participant-authored write-ins are excluded by a rater-count threshold, not by choice. NO AGGREGATE LOSS WAS DETECTED in the population splits tested. Weights estimated entirely outside a held-out COUNTRY predict that country's raters about as well as weights including them, across six countries with at least 40 raters. NOT ESTABLISHED: population invariance. This is a non-rejection, not an equivalence result, and aggregate accuracy can hide criterion sign reversals and minority-only criteria. Also not established: response-blind weights, which no rater in this dataset could supply.",
    "source": "rounds/r37_leakage_topology/results/r37_leakage_topology.json",
    "field": "levels.A3_held_out_country.L",
    "value": 0.0007236586445763022,

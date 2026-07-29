@@ -9869,6 +9869,7 @@
   }
  },
  "verdict": "CONFLICT WITHOUT CONSEQUENCE: sign reversals exceed the label-permutation null on country, but no group is predicted better by its own weights. Groups do disagree about individual criteria and it does not change which response wins -- so the aggregate equivalence in r42 is not hiding a decision",
+ "criterion_population_scope": "CRITERION POPULATION (added 2026-07-28, entry 51): this round keeps only criteria rated by a majority of the prompt's raters, which discards 9,684 of 15,248 criteria (63.5%). r48 identified what that filter selects: the partition is structural and the surviving class is capped at exactly six per prompt -- it is the PRE-SEEDED set, shown identically to every participant. The excluded 63.5% are participant-authored write-ins. r49 tested those separately and found they transfer BETTER across raters (+0.0777 vs +0.0599, paired gap +0.0172 [+0.0034,+0.0307]), so the exclusion understates the direction rather than manufacturing it.",
  "multiplicity": {
   "n_group_tests": 17,
   "n_significant_positive": 2,
