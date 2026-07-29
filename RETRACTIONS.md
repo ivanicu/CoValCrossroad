@@ -7715,3 +7715,40 @@ donors were sampled, even though each bin's level carries r88's 0.0055.
 **Third time this gate has caught a round written after it** — r90 (entry 169), r97 (entry 184), now
 r103. Every time the round was mine and every time the gate, not my memory, noticed. *A completeness
 check verified against the source tree keeps working on authors who know it exists.*
+
+---
+
+## Entry 217 — every ⚠ caveat I wrote this session was in a column the table header never declared
+
+Entry 216's NEXT asked for a guard on table shape, since content checks cannot see it. **Built, and it
+found far more than the row that motivated it.**
+
+**The rounds table declares three columns — `round | question | headline`. Twenty-four rows had four.**
+Every round row added this session carries a fourth ⚠ cell: the scope limits, the confounds, the
+"reported not attributed" qualifications. **Markdown truncates a row at the header's column count, so
+those cells were being dropped.** The content this project cares about most was the content not
+rendering.
+
+**Fixed by declaring the column the rows already used** — `| round | question | headline | scope and
+caveats |`. The 91 older three-cell rows render an empty fourth cell, which is harmless.
+
+**And two rows were losing content for the original reason**: unescaped absolute-value bars in prose —
+`|w|` in r82's row, `|ΔK|` in r87's. **That is the third and fourth instance of the same mistake**,
+after the R layer row (entry 216). Repaired structurally, by rejoining the split cells with `\|`.
+
+### The guard gates on excess only, and that distinction is the design
+
+**A row with MORE cells than its header loses content** — the excess is discarded silently. **A row with
+FEWER renders the missing ones empty**, which is harmless. Gating on both would have flagged **91**
+legitimately short rows and trained the reader to skip the check. **It gates on the 2, not the 93.**
+
+**Positive control** plants four rows — well-formed, extra-cell, escaped-bar, and short — and must flag
+**exactly** the extra-cell one. **Live: 197 tables, 794 body rows, zero violations.**
+
+### Why this one was worth building when three others were declined
+
+Entries 176, 199 and 201 turned down guards that would have had to **guess**. This guesses nothing: a
+row either has the header's cell count or it does not, and `\|` is not a separator by the same rule the
+renderer applies. **And the defect it catches is invisible to every other check in the suite** — all of
+which validate content, and none of which can see shape. **It survived fifteen entries and twenty-four
+rows precisely because no instrument was looking at the right property.**

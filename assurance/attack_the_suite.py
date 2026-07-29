@@ -160,6 +160,11 @@ CASES = [
     # absent frame is a DETECTED failure -- H_fresh would have no admissibility gate
     # and the responses it refers to would be undefined. There is no benign reading of
     # this file being missing, so it must never report "nothing to check".
+    # Entry 217. Its population is the DOCUMENTS, which hide_rounds does not touch, so it
+    # keeps finding all 794 rows and returns 0. It returns 2 only if a document genuinely
+    # contains no table rows.
+    ("markdown_tables_are_well_formed", hide_rounds, 0,
+     "documents untouched by hiding rounds -> still checks all 794 rows"),
     ("frozen_frame_verifies", hide_rounds, 1,
      "frame hidden -> H_fresh has no admissibility gate: DETECTED, never nothing-to-check"),
     # Entry 144: four checks had a _floor that had never been exercised THROUGH
