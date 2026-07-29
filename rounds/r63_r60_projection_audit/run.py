@@ -79,7 +79,14 @@ def main() -> None:
 
     # NULL: same pairs, uniformly redistributed -> the estimator must return ~1
     rng = np.random.default_rng(11)
-    flat = [v for vs in r["per_prompt"].values() for v in vs]
+    # SORTED BEFORE SHUFFLING, and this was a live defect (entry 224). The dict's
+    # insertion order traces back to a set iteration upstream, so `flat` arrived in a
+    # different order in every process and a fixed seed shuffled a different list. Two
+    # runs of this unchanged, fully-seeded file put this null at 0.7839 and 0.8626 -- a
+    # 10% swing in the floor the empirical 1.4992 is judged against. The empirical value
+    # itself never moved. Sorting first makes the input canonical; the multiset the null
+    # redistributes is unchanged, so the estimand is untouched.
+    flat = sorted(v for vs in r["per_prompt"].values() for v in vs)
     rng.shuffle(flat)
     sizes = counts.tolist()
     uni, i = [], 0

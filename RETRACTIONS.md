@@ -8125,3 +8125,57 @@ scope error on the most-quoted number in the package.
 `gap()`. Every statement in entries 218–222 about "an unrelated rubric" is a statement about **an
 unrelated weight vector over this prompt's own criteria** — the README rows say "unrelated rubric" in
 at least two places, and they are now wrong in the same way r86's paragraph was.
+
+---
+
+## Entry 224 — the determinism sweep: 82 of 83 rounds reproduce, and the one that does not was quoting an unreproducible floor
+
+Entry 218 found that r104 was fully seeded and still not reproducible — Python's per-process string
+hashing changed a set's iteration order, which changed the pair indices a seeded generator then
+consumed. It asked the class question and declined to answer it with a grep: **the static detector
+flagged 12 rounds and all 12 turned out clean, a 12/12 false-positive rate.** A dynamic sweep was
+launched instead.
+
+**It died when the session was interrupted and its scratchpad was wiped.** Relaunched detached, and
+this time it finished: **every model-free round run twice under `PYTHONHASHSEED=11` and `=77`, and
+the two JSONs diffed field by field.**
+
+**83 rounds compared. 82 byte-stable. 1 moves.**
+
+### The one
+
+`r63_r60_projection_audit`, on `uniform_redistribution_null_design_effect`: **0.7839 under one hash
+seed, 0.8626 under the other** — a **10% swing**, worst drift 7.87e-02.
+
+**Its empirical value never moved**: the design effect stayed at `1.4992443749840096` to the last
+digit under both. **What was unreproducible was the null the empirical value is judged against** —
+the floor, not the measurement.
+
+**Same mechanism as r104, one step further upstream.** The round builds
+`flat = [v for vs in per_prompt.values() for v in vs]` and shuffles it with a fixed seed. A dict
+preserves insertion order, so this looked safe — but the insertion order traces back to a set
+iteration further up, so `flat` arrived in a different order in every process and **a fixed seed
+shuffled a different list.**
+
+**Fixed by sorting before shuffling.** The multiset the null redistributes is unchanged, so the
+estimand is untouched; only the input order becomes canonical. **Stable at 0.8879388665781655 across
+three hash seeds**, and the README figure moves 0.886 → 0.888.
+
+### What the sweep settles
+
+**The class is real but rare: 2 instances in 83 rounds, both in the same family** — a seeded draw
+consuming an order that a set decided. **And the static grep would have caught neither of them**: r63
+does not iterate a set anywhere near its RNG, which is exactly why the detector was declined in entry
+218 and why the dynamic sweep was the honest form of the claim.
+
+**Both instances damaged a floor, not a measurement.** r104's was a gradient built from per-pair
+splits; r63's is a null. **A floor is where nobody looks** — entries 202 and 211 already recorded
+that a floor treated as measured when it was chosen is one of this project's recurring defects, and
+this adds a third variant: *a floor that is neither measured nor chosen but redrawn differently every
+run.*
+
+**NEXT:** the sweep covers only the 83 rounds that take `--out` and load no model. **The 18 excluded
+rounds are the GPU ones — r04, r10, r12, r22 and the rest — which are precisely the rounds whose
+numbers cannot be cheaply recomputed and therefore the ones where an unreproducible figure would
+survive longest.** They need the same two-seed treatment before the judge panel is frozen, because
+freezing a panel on top of an unreproducible pipeline freezes the irreproducibility with it.
