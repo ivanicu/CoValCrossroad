@@ -2213,6 +2213,43 @@ random baseline. Corrected, with the count and both spreads stated.
 all excluded from the hit rate. Objections 3 and 4 remain, and 3 is the one I still expect to cost
 the most.
 
+## Entry 96 — sizing the escape hatch found it could never have worked in the first place
+
+`ADVERSARY_FORECAST.md` objection 4, P=0.70: Experiment 2's satisfaction sub-study is *"if that
+sub-study is not run, the primary result is reported as…"* — no n, no power, no sampling frame, so it
+can be skipped and the headline merely reworded. A caveat wearing the costume of a commitment.
+
+**Sizing it exposed a deeper defect than the objection named.** The sub-study was one-armed: humans
+adjudicate satisfaction on **fresh** (criterion, response) pairs, yielding a human-vs-judge agreement
+rate. And that number has **nothing to be compared against** — **the release ships no satisfaction
+labels at all**, which is the entire reason r04 exists to rebuild them. The judge's agreement with
+humans is unmeasured on **original** responses too. A lone fresh-arm rate would have been a number
+with no referent, and I had written it into the protocol as the thing that would rescue the headline.
+
+**So it is two-armed now, and the estimand is a difference:** `Δ_sat` = agreement on **original**
+minus agreement on **fresh**, in which the judge's unknown absolute accuracy cancels.
+
+| base rate | d=0.05 | d=0.10 | d=0.15 |
+|---:|---:|---:|---:|
+| 0.60 | 2,099 | 531 | 237 |
+| 0.70 | 1,884 | 488 | 223 |
+| **0.80** | 1,497 | **402** | 189 |
+| 0.90 | 939 | 273 | 137 |
+
+**402 pairs per arm, 804 total** at base 0.80 and d=0.10, α=0.05, power 0.80, design effect 1.37 from
+r61. The base rate is **unmeasured and swept** — 273 to 531 per arm across 0.60–0.90 — so the pilot
+estimates it before n is fixed.
+
+**And the escape hatch is closed by a rule, not a promise.** If `Δ_sat` is significantly positive
+**and** exceeds the observed change in the own-minus-reference gap, the transport failure is
+attributable to the **satisfaction layer**, and H_fresh's primary result is reported **UNVERIFIED for
+transport** — not annotated, not reworded. That is the difference between a commitment and a caveat:
+a stated outcome that invalidates rather than qualifies.
+
+**Five of six forecast items self-examined** — 1 answered, 2 upheld, 4 answered, 5 answered, 6 not
+upheld — all excluded from the hit rate. **Only objection 3 remains**, the τ_c edit-symmetry problem,
+and it is the one I expect to cost the most because the fix is not writing but constructibility.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

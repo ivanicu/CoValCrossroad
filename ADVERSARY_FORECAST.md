@@ -68,7 +68,14 @@ fraction excluded; or make both arms insertions of matched length — but that i
 constructible, and where it is not, the design should say τ_c is not identified for that criterion
 rather than estimating it anyway.
 
-### 4 — Experiment 2's satisfaction sub-study is an escape hatch, not a design · **0.70**
+### 4 — Experiment 2's satisfaction sub-study is an escape hatch, not a design · **0.70**  ·  ⚠ SELF-ANSWERED AFTER FORECASTING
+
+> [r64](rounds/r64_satisfaction_substudy_power) sized it **after** this forecast was committed,
+> and working it through found something the objection did not: the one-arm design could never
+> have worked, because **the release ships no satisfaction labels at all**, so a fresh-arm rate
+> has no referent. Now two-armed, 402 pairs per arm, with an invalidation rule that reports the
+> primary UNVERIFIED rather than rewording it. **A scorer should exclude this from the hit
+> rate.** Forecast text unchanged below.
 
 It is specified as *"if that sub-study is not run, the primary result is reported as human rankings
 against a model-scored rubric"*. **No n, no power, no sampling frame.** As written it can be skipped

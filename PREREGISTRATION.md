@@ -214,11 +214,25 @@ the satisfaction layer against human rankings on the **released** responses — 
 satisfaction layer whose own transport is unestablished. That is not a reason to abandon the
 experiment; it is a reason not to describe its result as human-measured without qualification.
 
-**Committed: a satisfaction sub-study, or the headline is scoped.** On a sub-sample of
-(criterion, fresh response) pairs, humans answer the satisfaction question directly, giving a
-human-vs-judge agreement rate **on fresh responses** — the quantity r04 supplies for originals and
-nobody supplies here. If that sub-study is not run, the primary result is reported as
-*"human rankings against a model-scored rubric"*, never as *"human-measured"*.
+**Committed: a TWO-ARM satisfaction sub-study, sized, with an invalidation rule
+([r64](rounds/r64_satisfaction_substudy_power)).** The earlier one-arm version could not have
+worked: **the release ships no satisfaction labels at all** — rebuilding them is why r04 exists —
+so the judge's agreement with humans is unmeasured on ORIGINAL responses too, and a lone
+fresh-arm number would have had nothing to be compared against.
+
+- **Estimand:** `Δ_sat` = human-judge satisfaction agreement on **original** pairs **minus** the
+  same on **fresh** pairs. The judge's unknown absolute accuracy cancels in the difference.
+- **Size:** **402 adjudicated (criterion, response) pairs per arm, 804 total**, at a base rate of
+  0.80 and a difference of 0.10, α = 0.05, power 0.80, design effect 1.37 from r61. The base rate
+  is **unmeasured** and swept 0.60–0.90, over which the requirement runs **273–531** per arm, so
+  the pilot estimates it before n is fixed.
+- **Sampling frame:** pairs drawn from the frozen 60-prompt frame, stratified by its four cells,
+  balanced across the two arms so the same criteria appear in both.
+- **INVALIDATION RULE.** If `Δ_sat` is significantly positive **and** its magnitude exceeds the
+  observed change in the own-minus-reference gap, the transport failure is attributable to the
+  **satisfaction layer** and H_fresh's primary result is reported **UNVERIFIED for transport** —
+  not annotated, not reworded. If the sub-study is not run at all, the primary result is reported
+  as *"human rankings against a model-scored rubric"*, never as *"human-measured"*.
 
 **Committed in advance:**
 - **response length is recorded for every response and reported with every estimate**, and the
