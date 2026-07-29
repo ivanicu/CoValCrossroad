@@ -511,6 +511,22 @@ comparability, and any departure is stated in the same sentence as the estimate 
 > participant and not after, or (b) apply it uniformly and state that the released rankings are a
 > **mixture** of primed and unprimed conditions in a 27/73 split. Option (a) is chosen; (b) is
 > recorded so the choice is visible rather than assumed.
+>
+> **⚠ THE SAME BOUNDARY GOVERNS THE `personal` RANKING** (entry 156): it is present on the *identical*
+> 4,901 assessments and on none past task five. So the release has a **long form** (world + personal +
+> unacceptable) for a rater's first ~5 tasks and a **short form** (world only) after. Experiment 2, if
+> it wants personal rankings, inherits the same choice — collect them on early tasks only and match the
+> release, or collect them throughout and accept that its rankings are not comparable to 73% of the
+> released ones.
+>
+> **And the boundary is visible in the data, which is why it must be designed around rather than
+> noted** (entry 157). Mean rationale length is **269.1** characters across the long form and **164.7**
+> across the short — a **−104.5** step at the boundary. Within the long form the trend is
+> **−3.81 chars/task [−17.21, +9.95]**, covering zero; within the short form **−1.44 [−3.05, −0.38]**,
+> excluding it. So there is a small real decline *inside* the short form, and the step at the boundary
+> is about **73 tasks' worth** of it in a single move. **Any experiment that changes form mid-session
+> will produce a discontinuity of that size in its own data**, and must either hold the form fixed or
+> report the step.
 
 **Compensation is reported because it is part of the instrument.** The release paid $60 for the
 survey plus 5 tasks (≈2 h), then $30/task with a $90 bonus for 15 within 7 days, to a maximum of

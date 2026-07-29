@@ -4772,3 +4772,42 @@ encounter it. The README row carries it too, and the suite is green, checked bef
 **What this does not claim.** Why the protocol changed after task five is not established here, and
 r24's fatigue reading stays frozen. Which fields exist at which positions is a fact about the data's
 shape; why the designers shortened the form is not in the release.
+
+## Entry 157 — the position-curve discontinuity sits exactly on a protocol change, and it is a step rather than a decay
+
+**Found while extending entry 156, not by reopening anything.** r02 records rationale length by task
+position; its position-6 value is 157 characters against ~260 for positions 1–4. Position 6 is
+precisely where the release switches from the long form to the short one (entry 156).
+
+**Measured across all 18,384 assessments:**
+
+| | mean rationale (chars) | within-form trend |
+|---|---:|---|
+| **long form**, positions 1–5 | **269.1** | −3.81 chars/task **[−17.21, +9.95]** — covers zero |
+| **short form**, positions 6+ | **164.7** | −1.44 chars/task **[−3.05, −0.38]** — excludes zero |
+| **step at the boundary** | **−104.5** | — |
+
+Per-position, the long form runs 292 · 262 · 258 · 257 · 268 — flat, with position 5 *above* 3 and 4 —
+and the short form runs 163 · 171 · 168 · 168, flat and slightly rising at the start.
+
+**So the shape is a step with plateaus, not a decay.** There *is* a genuine within-form decline in the
+short form, small and excluding zero. The boundary step is about **73 tasks' worth of that decline
+delivered in one move**. A curve that falls 38.5% in a single position and is flat on both sides of it
+is the signature of the instrument changing, not of the rater tiring.
+
+**What this does and does not do to the frozen reading.** r24's fatigue reading is **frozen and stays
+frozen** — this does not reinterpret it, does not claim fatigue is absent, and spends no further
+compute on identifying the ontology. What it adds is a structural fact discovered elsewhere: **task
+position and protocol form are perfectly confounded at position 6 in this release**, so no
+position-based analysis can separate them. That is not a challenge to the freeze; it is an explanation
+of the freeze's own stated cause, which was three consecutive failures to identify the ontology.
+
+**Why a small real decline matters anyway.** The short-form slope excludes zero, so "fatigue-shaped
+decline exists" is supportable *within a fixed form* — at −1.44 chars per task. Quoting the −104.5
+step as evidence of it would overstate by roughly two orders of magnitude, and quoting the flat
+long-form slope as evidence against it would ignore an interval that spans −17 to +10 and therefore
+establishes nothing.
+
+**Landed in the preregistration**, where it is actionable: any experiment that changes form
+mid-session will produce a discontinuity of this size in its own data, and must hold the form fixed or
+report the step.
