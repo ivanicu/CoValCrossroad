@@ -4968,3 +4968,41 @@ the entry that was about exactly this confusion. Corrected in place.
 **Why this is a scope block in the README rather than a per-row caveat.** It qualifies ten rows at
 once, and a reader meeting any one of them needs the same fact. Ten copies of a caveat is how a caveat
 stops being read.
+
+## Entry 162 — "untestable from this data" was too strong by one word, and bounding it is worth more than repeating it
+
+**What entry 161 said.** Ten rounds head-slice a form-sorted file and run on ≥97% long-form prompts;
+generalisation to the other 70% is "untested — and, because no prompt exists under both forms,
+**untestable from this data**."
+
+**The first half is exact and the second is too strong.** No *prompt* appears under both forms, so a
+prompt-for-prompt contrast is impossible and always will be. But **rounds using the whole join hold
+both populations**, and 293 against 675 is far more n than the r12-vs-r46 comparison entry 159 already
+leaned on. I asserted an impossibility that applied to one design and not to the other.
+
+**Measured.** The rubric's pairwise agreement with **real human** rankings, computed separately:
+
+| | agreement | n |
+|---|---|---:|
+| long-form prompts | **0.6879** [0.6721, 0.7034] | 293 |
+| short-form prompts | **0.6854** [0.6738, 0.6965] | 675 |
+| **gap** | **+0.0025** [−0.0173, +0.0231] | — |
+| form-label shuffle null | [−0.0211, +0.0226] | 400 draws |
+
+The observed gap sits inside the shuffle null — indistinguishable from a random relabelling of the same
+split sizes.
+
+**And the honest verdict is neither "equivalent" nor "unresolved."** The interval is twice δ, so
+equivalence at 0.01 is **not** established. Reporting only that would waste the result. The
+**answerable margin is δ≈0.020**, limited by 293 long-form prompts and not improvable from this
+release. So: **any form-associated difference in this quantity is under 0.020**, and the point estimate
+is 0.4% of the agreement level. That is a bound, and a bound is what entry 161's scope block needed.
+
+**The confound was written before the run and is not resolved by the result.** The forms cover disjoint
+prompts, so this compares instruments *and* questions together. It **bounds** a form-associated
+difference; it cannot **attribute** one — the same limit that withdrew entry 157's attribution, applied
+in advance this time rather than afterwards.
+
+**What it does not license.** "Form does not matter." A null here means the rubric agrees with humans
+at a similar rate on both prompt sets, in one quantity. The ten sliced rounds measure several others,
+and nothing here covers them.
