@@ -5088,3 +5088,64 @@ span the headline already published.
 so 65.3% is not the same axis as r30's cells — it is another cell of the same grid, not a replication
 of a specific one. It is recorded as such. The forms cover disjoint prompts, so r85's two figures
 bracket 0.686 across questions as well as instruments.
+
+---
+
+## Entry 165 — a confound the package named and never controlled, killed by the absence of a dose-response
+
+**Fifteen consecutive rounds had confirmed the same story** — the number is bounded, the scope is
+provenance and not a warning. That is a basin, not a result. The escape is a step whose *positive*
+outcome would be unwelcome, and r86's own scope note had one sitting in it:
+
+> *"a donor rubric brings its own criterion count, so the arms differ in K as well as in source"*
+
+**Why that is not a footnote.** In the package's central contrast, the OWN arm always evaluates prompt
+*i* at **its own** criterion count K, while the DONOR arm evaluates it at a scrambled one. A
+permutation preserves the K multiset, so the arms are perfectly matched in *mean* count — the mean was
+never the threat. The threat is the **pairing**: if K tracks a prompt's intrinsic gradability (people
+with more to say about a question may also rank it more consistently), the own arm enjoys a matched
+pairing the donor arm structurally cannot, and **that alone yields positive attribution with zero
+source specificity.** Every attribution figure in the package rides on this, and no round had tested
+it — r44 size-matches, but only *inside* the compiler lineage.
+
+**Three donor pairings, identical tensor, identical human rankings, only the pairing intervened on.**
+
+| donor pairing | mean \|ΔK\| | attribution | 95% CI |
+|---|---:|---:|---|
+| K-**matched** (neighbour in K-sorted order) | **0.07** | **+0.1297** | [+0.1171, +0.1432] |
+| **unrestricted** (r86's free permutation) | 5.97 | +0.1215 | [+0.1096, +0.1331] |
+| K-**mismatched** (half a distribution away) | **8.42** | **+0.1287** | [+0.1156, +0.1418] |
+
+**A 120× spread in ΔK moves attribution not at all.** Paired on the same bootstrap draws:
+matched−unrestricted **+0.0084** [−0.0063, +0.0231]; mismatched−matched **−0.0011** [−0.0163, +0.0136].
+
+**The design's strength is that it is a dose-response, not a single control.** A real count channel
+must order the three arms monotonically by |ΔK|. They are not ordered: matched and mismatched — the
+two *extremes* — land within 0.0011 of each other, and the point estimate moves **upward** under
+matching, the **opposite** sign to the confound's own prediction, which required matching to *remove*
+an advantage. A single control can be explained away; a flat dose-response across three arms cannot.
+
+**Stated as a bound, because the interval straddles zero.** Any effect of the donor's criterion count
+is **under 0.0231**, which is **19.0%** of the attribution level. That is wider than δ=0.01, so
+equivalence at 0.01 is **not** established and is **not** claimed.
+
+**The pre-registered confound was checked in the same iteration, and it could have inverted the
+reading.** K strata are not random subsets: similar-K prompts might share topic, and r19 established
+that a nearest-topic donor *lowers* attribution (0.047 vs 0.115). So a drop under matching would have
+been the topic channel wearing the K channel's clothes. Measured: mean donor TF-IDF cosine **0.0064**
+matched against **0.0073** unrestricted — K-matched donors are **less** topically similar, not more.
+The topic explanation is excluded, and in the direction that could not have manufactured this answer.
+
+**The rebuild control was exact.** Recomputing r86's unrestricted permutation here reproduces
+**+0.121465** against its stored **+0.121465**, delta 0.0e+00 — the arms differ only in pairing, and
+nothing else drifted.
+
+**What this round does not settle, stated because it is the one thing the design does not separate.**
+Both *deterministic* pairings sit ~+0.008 above the *random* one — equally, despite opposite K
+treatment. That offset is therefore a property of structured-versus-random pairing rather than of K,
+and it is not identified here. And this tests the count channel in the **donor** arm only; the own arm
+has no counterfactual in this release, because every prompt has exactly one own rubric with exactly
+one K.
+
+**The sentence that can no longer be written:** *"the attribution may partly be an artifact of the
+donor's criterion count."*
