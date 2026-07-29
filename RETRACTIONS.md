@@ -7752,3 +7752,87 @@ row either has the header's cell count or it does not, and `\|` is not a separat
 renderer applies. **And the defect it catches is invisible to every other check in the suite** — all of
 which validate content, and none of which can see shape. **It survived fifteen entries and twenty-four
 rows precisely because no instrument was looking at the right property.**
+
+---
+
+## Entry 218 — r103's gradient is 74% real, and the round that showed it broke twice on the way
+
+r103 named its own residual and could not resolve it: **a noisy target attenuates every estimator
+toward chance**, so specificity rising with human consensus is expected even when the underlying
+specificity is constant. It offered the over-chance ratio spanning 2.95× as weak evidence against
+pure attenuation — but that ratio's denominator is the donor arm's over-chance accuracy, **0.0041 in
+the lowest bin**. A ratio of noise is not a statistic.
+
+**Attenuation does not have to be argued about. It can be measured.** Split each pair's raters in
+**three**: one third supplies the scoring label, one third measures that label's reliability, one
+third does the binning. The binning third touches neither of the others, which is what removes
+r103's "conditioning on the outcome's own reliability". Under independent label noise the two probe
+thirds' agreement `h` gives the attenuation factor **√(2h−1)** directly, with no model of a latent
+truth.
+
+**Probe agreement 0.652 / 0.735 / 0.865 → factors 0.552 / 0.685 / 0.855.** Deattenuated attribution
+**+0.1546 / +0.2038 / +0.2491**. The low-to-high rise falls from **+0.1276 raw to +0.0945**, 95% CI
+over *pairs* **[+0.0607, +0.1281]**. **26% of the gradient was the target's noise. The other 74% is
+not.**
+
+### The control is two-sided, and only the second one makes a flat answer mean anything
+
+A planted **constant-accuracy** arm produces a rising raw curve that the correction flattens to
+**+0.0002**, recovering the planted 0.750. A planted **genuinely-rising** arm keeps a corrected rise
+of **+0.1110**. **An instrument that flattened everything would report "pure attenuation" whatever
+the truth** — so the first control alone would have been worthless.
+
+### Both arms rise after correction, which is a second reading of the same table
+
+Own **0.7225 → 0.8641**; donor **0.5679 → 0.6151**. Under the noise model a constant-accuracy arm is
+flat after correction, and neither arm is. **An unrelated rubric also resolves consensual pairs
+better than contested ones** — a general normative backbone behaving as one would expect. The
+attribution's rise is the **excess** of one over the other.
+
+### Two defects in my own design, both caught before publication
+
+**(1) The consensus bins were a rater-count partition.** The first version kept every pair with ≥9
+raters and split it in thirds — but a third of size 3 admits only consensus 0.667 or 1.000, and size
+4 only 0.500/0.750/1.000. So bin [0.5,0.6) held **only 12–14-rater pairs** and bin [0.6,0.7) **only
+9–11-rater pairs**, and label size drives label reliability directly. **The tell was the attenuation
+factor being higher in the lowest-consensus bin (0.723) than the next (0.615)** — which a consensus
+ladder cannot do. Fixed by subsampling every pair to a fixed pool of 12, so `|A|=|B|=|C|=4` in every
+bin and the bins differ in consensus and nothing else.
+
+**(2) The round was fully seeded and still not reproducible.** Pairs were collected by iterating a
+set, whose order follows python's **per-process string hashing** — so the pair indices, and every
+three-way split drawn from the seeded generator, differed run to run. **Four runs of the unchanged
+file returned +0.0968, +0.1179, +0.1056 and +0.1114.** The verdict was stable across all four; the
+number was not. **Every seed in the file was correct and the round was still not seeded.** Sorted;
+now byte-identical under three `PYTHONHASHSEED`s.
+
+### The class question, asked and answered — and the guard declined
+
+Twelve other rounds use a seeded RNG *and* iterate an unsorted set, including **r34**, the same-rater
+crossfit the package leans on hardest. Each was run under two hash seeds and the JSONs diffed:
+**0 of 12 move; worst numeric drift 0.000e+00.** The pattern only bites when set order determines an
+**index** that a seeded draw then consumes, which was unique to this round.
+
+**So the static detector has a measured false-positive rate of 12/12 here, and is not being shipped
+as a gate.** Entry 217's guard earned its place because it guesses nothing; this one would flag
+twelve clean rounds and train the reader to skip it — the exact failure that guard was designed to
+avoid. **A dynamic sweep over all 83 model-free rounds is running instead**, because the honest form
+of this claim is a measured count, not a grep.
+
+### What changes
+
+r103's caveat — *"cannot separate larger specificity from lighter attenuation"* — is **discharged in
+the direction that costs more**. The rubric genuinely resolves consensual comparisons better than
+contested ones, **which is the reverse of what a normative instrument should do**: contested pairs
+are exactly where prompt-specific values would earn their keep, and the measured specificity is
+concentrated where it matters least.
+
+**And the two confounds both push toward flatness**, not away from it: correlated arm/label errors
+make the correction under-correct where correlation is high, and the binning third's 4 raters smear
+the bins toward the pooled mean. **+0.0945 is a lower bound, not an estimate.**
+
+**NEXT:** the corrected own-arm accuracy is **0.7225 even in the lowest-consensus bin** — far above
+chance on pairs where humans barely agree. Nothing here says what it is tracking there. If the
+donor arm's **0.5679** is the general backbone, the **0.1546 excess** on contested pairs is the
+sharpest available estimate of prompt-specific normative content, and it has never been reported
+separately from the pooled figure.
