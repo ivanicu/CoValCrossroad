@@ -7485,3 +7485,40 @@ a year.
 (207, with two figures sourced weakly), every source that is *asserted* resolves to a round (211), and
 the one that did not has been built and its discrepancy explained (208 → r100 → r101). **The
 preregistration's arithmetic is closed.** What remains open is not arithmetic.
+
+---
+
+## Entry 212 — the tie convention that moved reliability by 0.034 moves the headline by exactly nothing, and the reason is structural
+
+r101 found the preregistration's reliability figures are consistent with scoring tied pairs at **0.5**,
+and that r100's convention (ties count as agreement) explains the whole 0.034 offset. **The obvious
+follow-up: does the package's most-quoted number carry the same dependence?**
+
+`covalx`'s `agree()` **drops** ties (`if sa == sb: continue`). Re-scored under all three conventions on
+the whole join:
+
+| convention | agreement | pairs scored |
+|---|---:|---:|
+| drop ties (the package's) | **0.6860** | 80,542 |
+| ties count 0.5 | **0.6860** | 80,542 |
+| ties count as agreement | **0.6860** | 80,542 |
+
+**Identical to four decimals — and the identical pair count is the proof, not a coincidence.** The
+`drop` arm skips ties, so if any existed its denominator would be *smaller* than the other two. It is
+not. **There are zero ties in 80,542 comparisons.**
+
+### Why, and where r101's finding therefore does and does not generalise
+
+`sa` and `sb` are **float sums of weight × satisfaction over criteria**. Exact equality requires two
+responses to score identically on every weighted criterion — which does not happen once. r101's
+statistic compares **rater-majority counts**, which are small integers, where ties are common by
+construction.
+
+**So the tie convention matters exactly where the comparison is discrete.** The reliability figures are
+convention-sensitive because they count raters; the headline is convention-free because it sums floats.
+**That is a statement about the estimator's arithmetic, not about the data**, which is why it can be
+settled without any judgement.
+
+**What this closes:** r101's result raised a live worry that a convention buried in one helper might be
+silently shaping the package's headline. **It is not** — and the check that establishes it is the pair
+count, which no amount of reasoning about floating point would have settled as cleanly.
