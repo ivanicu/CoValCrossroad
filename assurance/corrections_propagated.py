@@ -52,6 +52,18 @@ WATCHED = ("README.md", "FROZEN.md", "PREREGISTRATION.md", "assurance/ASSURANCE.
 
 # (pattern, correcting entry, what the correct statement is)
 CORRECTED = [
+    # r68's 0.9132 and r40's 0.188 depend on encoder features that cannot be
+    # regenerated (entries 134-135). Any document stating either number without
+    # the not-regenerable caveat is stating it as if it were repeatable.
+    # `[\s\S]` not `.`: the caveat sits on the FOLLOWING line, and `.` does not
+    # cross a newline, so the lookahead never saw it. The first version of this
+    # pattern fired identically with and without the caveat present -- a check
+    # with no discriminating power, caught by attacking it rather than by
+    # reading it (P7).
+    (r"Spearman-Brown \*\*0\.9132\*\*(?![\s\S]{0,600}?[Nn]ot regenerable)", 135,
+     "0.9132 rests on r39's cached encoder features; internlm returns 100% NaN under "
+     "transformers 5.14.1, so the three-lineage agreement is NOT regenerable on this machine"),
+
     (r"r14\s*/\s*r20|r14 and r20|\(r14, r20\)", 66,
      "97.4% retention is r20 ALONE; r14 supplies the fidelity filter and measures "
      "a 15.4% model-paraphrase flip rate against 2.5% mechanical"),

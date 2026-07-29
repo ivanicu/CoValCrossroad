@@ -3914,3 +3914,43 @@ NaN diagnosis lives in entry 134 and in the shim's own header.
 freeze too expensive to run, and config plus tokenizer hashes with sizes already detect a swapped
 checkpoint. The positive control is one pair: it catches a dead or inverted judge, not a subtly
 miscalibrated one.
+
+## Entry 136 — the caveat reached the entry and not the number, and my first enforcement of it had no power
+
+**The gap.** Entries 134–135 established that r68's **0.9132** — the inter-lineage agreement that sets
+r40's floor at **0.188**, the strongest row in the exhaustion ledger — rests on r39's cached encoder
+features, one of whose three lineages **cannot be rerun in this environment**, in an environment no
+receipt records. That reached the retraction entries and r79's summary row. **It did not reach the
+places the number is used**, which is where a reader meets it.
+
+**Three use sites, and I found two.** The floors table (row 3), the r68 summary row — and the ledger
+paragraph at README:199, which I missed. **The registered correction caught it within a minute of being
+registered**, which is the argument for registering rather than remembering: *"registering is part of
+correcting"* is the check's own closing line, and this is the first time it has been true for me rather
+than about me.
+
+**Then the enforcement itself failed its attack.** The pattern was
+
+```
+Spearman-Brown \*\*0\.9132\*\*(?!.{0,600}?[Nn]ot regenerable)
+```
+
+and `.` **does not cross a newline**. The caveat sits on the following line, so the lookahead never saw
+it: the check fired **identically with and without the caveat present**. A check with no discriminating
+power, dressed as an enforcement. Caught by attacking it — strip the caveat, confirm it fires; restore
+it, confirm it passes — not by reading it, which I had already done and which told me it was fine.
+
+| | with caveat | caveat stripped |
+|---|---|---|
+| first pattern (`.`) | fires (exit 1) | fires (exit 1) |
+| fixed pattern (`[\s\S]`) | **passes (exit 0)** | **fires (exit 1)** |
+
+**What the number's status now is, stated wherever it appears.** 0.9132 and the 0.188 it produces are
+**not impugned** — the cached vectors are the vectors r40 and r68 used. They are **unrepeatable on this
+machine**, which is a different and quieter status than every other row in that table carries, and the
+two facts now sit in the same sentence at each of the three sites.
+
+**The general form.** A correction is not propagated when it is written down; it is propagated when it
+reaches every place the corrected claim is *used* — and an enforcement that has never been shown to
+fail is not an enforcement. Both halves failed here in the same pass, and both were caught by the same
+move: attack the thing, do not re-read it.
