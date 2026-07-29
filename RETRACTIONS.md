@@ -916,6 +916,39 @@ printed twice and could have been read as success.
 instruction was written, delivered to prose, stamped into artifacts — and the word it forbids was
 sitting in twelve field names the whole time, in the same files carrying the freeze text.
 
+## Entry 63 — a wait loop whose condition can never be true is indistinguishable from a wait that finished
+
+**What happened.** I launched nine r26 cells in parallel, then waited on them with
+
+```
+until [ "$(pueue status | grep -c 'r26-.*-rename.*Running\|r26-.*-rename.*Queued')" = "0" ]; do sleep 30; done
+```
+
+`pueue status` prints the **status column before the label**, so `r26-…-rename.*Running` can never
+match. `grep -c` returned 0 on the first evaluation, the loop exited immediately, and the
+verification that followed ran against the **pre-rename** files — reporting *"old key present in 9,
+new key in 0"* as though the re-runs had completed and failed.
+
+They had not completed. They were still running.
+
+**Why this is the same defect twice in two turns.** Last turn: a guard aborted before its write
+while the commands after it ran anyway, so `C17 HOLDS` printed from an unchanged repository. This
+turn: a wait condition that cannot be satisfied exits at once, so a verification prints from
+unchanged files. **Both produce a confident, specific, wrong report — and in both cases the shell
+gave no error at all**, because nothing failed. A pattern that matches nothing is not an error; a
+loop that runs zero times is not an error.
+
+**What distinguishes them from the earlier entries.** Entries 57–62 are about instruments reporting
+completeness over a visible subset. This pair is narrower and more embarrassing: **the instrument
+never ran, and its silence was formatted as a result.**
+
+**Fixed** by waiting through `pueue status --json` and testing the status field directly, rather
+than grepping a table whose column order I had assumed.
+
+**The general form, since this is now the working rule's second corollary:** a check that reports
+"nothing outstanding" must be able to distinguish *nothing outstanding* from *nothing observed*.
+Neither the grep nor the loop could.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
