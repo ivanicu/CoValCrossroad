@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T13:54:35.985256+00:00",
- "git": "8b2c44153044e591825fa8d5b522874ffc975755",
+ "generated_utc": "2026-07-29T14:12:03.417533+00:00",
+ "git": "4a1e4242e8db84a84c94a95a9359d578656f6127",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -260,8 +260,8 @@
    "sha256": "9db1de5603f715c648e3ceee9b967e10559fca37a9cccb49834e6b6356762f4d"
   },
   "rounds/r58_equivalence_census/run.py": {
-   "bytes": 21041,
-   "sha256": "380e56e9085a997eb3eb00850b77e29562c9f228fa2cde7b453bcfd61f0a46cc"
+   "bytes": 22620,
+   "sha256": "73c89cf95781ae538c48f705dc27ff6fab8e5a18db576054a5f2662c6f682e5a"
   },
   "rounds/r59_criterion_influence/run.py": {
    "bytes": 16014,
@@ -435,6 +435,10 @@
    "bytes": 3449,
    "sha256": "c20b0f232bb5c59da087fe5b735b9e4bc1e9c177148a426467279d0f8b032966"
   },
+  "assurance/artifacts_are_internally_coherent.py": {
+   "bytes": 11908,
+   "sha256": "a5acf0fc8b7620937fb441c84df98ea7377619e190293f5f67fb6ddd1c0cdd6d"
+  },
   "assurance/attack_every_check.py": {
    "bytes": 13204,
    "sha256": "2dd09b6b11c1faca23b78be305d18681f48df45242468faf67630c9d199fabd1"
@@ -452,8 +456,8 @@
    "sha256": "82b5eebb2af188322a5a3cecc03d1e5932fe9c9e98c6af1091fdad9b36c66066"
   },
   "assurance/attack_the_suite.py": {
-   "bytes": 9586,
-   "sha256": "88eadbe1b25f49e5bffecdf8fe5171eada3e667f4419bca6adc59a12ca860352"
+   "bytes": 10036,
+   "sha256": "d67a7f1cf70c6ac51c3ebbd8aa9fbdbed4e06747e60bd47fdef8794c970ee220"
   },
   "assurance/code_states_a_bound_the_reader_never_sees.py": {
    "bytes": 10615,
@@ -1454,8 +1458,8 @@
    "sha256": "1122cd0f851bd7d5bffd803e7b9ea14909cd65b8def80e8d23a34d39dea55df4"
   },
   "rounds/r58_equivalence_census/results/r58_equivalence_census.json": {
-   "bytes": 91653,
-   "sha256": "d318c4fabb8e7f5440ce1a1d7d1e09a034e365a72d99bcd7607cd34bd6caaed1"
+   "bytes": 88534,
+   "sha256": "4376c3acb1ee0c7e1fa71178fe838d535ed6a16a36a3e87c71e23c1d858b6e7e"
   },
   "rounds/r59_criterion_influence/results/r59_criterion_influence.json": {
    "bytes": 3401,
@@ -1618,8 +1622,8 @@
    "sha256": "715eb669169fd8e191091386026d060bb1d8d90d9b9710eec933b6511292fdd0"
   },
   "rounds/r99_harvester_pairing/results/r99_harvester_pairing.json": {
-   "bytes": 7983,
-   "sha256": "8693849769962cceba57a2bdaca2609d9920462a0a2e49a33f79e0fb2ebca815"
+   "bytes": 5801,
+   "sha256": "e15a9ef2309e19e4c6b010cb401d26b44127faa127aaa9dfbb13751045ea839a"
   }
  },
  "claims": [
