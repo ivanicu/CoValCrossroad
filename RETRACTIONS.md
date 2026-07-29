@@ -7891,3 +7891,65 @@ factor, and this round declines to reproduce the same unstable statistic in the 
 prompt-specific** — has never been reported anywhere in this package, and it inherits r104's single
 donor draw. r88 measured the pooled attribution's draw-to-draw sd at 0.0055; **the share's sd under
 redraw is unmeasured**, and unlike the across-bin difference, the level depends on it entirely.
+
+---
+
+## Entry 220 — r105's cancellation argument is false: the donor draw does not cancel from a comparison across bins
+
+r105 declined to quote the prompt-specific share's **level** because it inherits r104's single donor
+draw, and quoted the **across-bin difference** instead, on the stated ground that *every bin inherits
+the same draw, so it cancels from a comparison it enters identically on both sides.*
+
+**It does not cancel. One assignment meets different pairs in different bins**, so it enters the two
+sides of the comparison differently. Measurable for free, because every redraw already produces a
+per-bin share.
+
+**Over 200 independent redraws the high-minus-low share is −0.1070, sd 0.0596, 95% [−0.2301,
++0.0021], with 193 of 200 draws negative.** r105's canonical draw gave **−0.0108, at +1.61 sd — an
+unusually flat draw.**
+
+So the **typical** draw says the prompt-specific share **falls** with consensus: prompt-specific
+content carries relatively **more where humans disagree**, which is the reverse of the absolute
+reading in r104 and entry 218.
+
+**r105's verdict of ANSWERABLE MARGIN survives** — the draw interval still crosses zero at its upper
+edge — **but for a larger reason than it gave, and its interval was too NARROW, not too wide.** The
+draw spread (0.0596) is on the same scale as the pair-bootstrap half-width r105 reported (0.1260)
+and was omitted from it entirely.
+
+### And the level is not a number either
+
+**Pooled share 0.6772, sd 0.0296 across draws, 95% [0.6219, 0.7290].** r88's **0.0055** — the figure
+that has justified a single donor draw everywhere in this package — **is magnified 5.4× by the
+division**, because the denominator `own − 0.5` is 0.12 in the lowest bin. **A ratio's variance is
+not its numerator's**, and that arithmetic had never been done. World **W WIDE**: at sd 0.0296 the
+draw moves the share by more than the 0.02 a quotable level would need.
+
+### Why this was cheap, and it matters for reading it
+
+The donor arm scores **this** prompt's satisfaction values with the **donor's weight vector** — so a
+redraw changes only weights, never a satisfaction. Build the per-criterion satisfaction differences
+once and each draw is a dot product: **200 draws, not 200 rebuilds.**
+
+### The controls are exact, which is what makes the redraws comparable to r104 at all
+
+**Rebuild control**: the round recovers each split record's *label direction* from r104's persisted
+own-arm hits, then recomputes the **canonical** donor arm from scratch — **0 mismatches in 47,148
+records**. Without that, every redraw would be scored against a label this round invented.
+**Degenerate control**: a draw in which every prompt donates to **itself** returns a share of exactly
+**0.00e+00**; a pipeline that cannot return 0 when the two arms coincide is not measuring their
+difference.
+
+### What this says about the last four entries
+
+r103 → r104 → r105 → r106 is one claim getting **narrower at every step**, and each narrowing came
+from a *different* uncertainty source that the previous round had not counted: label noise (r104),
+the significance/equivalence distinction (r105), and now donor-draw variance (r106). **Three
+successive rounds each believed they had bounded the thing.** The pattern worth carving is that a
+round's own interval only covers the source it modelled — and **the next source is never visible
+from inside it.**
+
+**NEXT:** every interval on this axis now counts *one* source at a time. The pair bootstrap holds the
+draw fixed; the redraw holds the pairs fixed. **A joint resample — redraw the donor and bootstrap the
+pairs in the same iteration — has never been run**, and it is the only one whose width could be
+quoted without a caveat naming what it omits.

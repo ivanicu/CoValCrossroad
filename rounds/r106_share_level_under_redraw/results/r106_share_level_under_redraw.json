@@ -1,0 +1,71 @@
+{
+ "n_draws": 200,
+ "n_pairs": 3929,
+ "n_prompts": 968,
+ "n_records": 47148,
+ "canonical_pooled_share": 0.6899728997289974,
+ "redraw_mean": 0.6771906052393858,
+ "redraw_sd": 0.029593989058088795,
+ "redraw_ci95": [
+  0.6218608852755194,
+  0.7290018066847335
+ ],
+ "canonical_z": 0.43192198471526866,
+ "bins": [
+  {
+   "lo": 0.49,
+   "hi": 0.6,
+   "canonical": 0.6947988223748774,
+   "redraw_mean": 0.7510893032384692,
+   "sd": 0.055457003432490444,
+   "ci95": [
+    0.6427379784102061,
+    0.8559371933267912
+   ]
+  },
+  {
+   "lo": 0.6,
+   "hi": 0.9,
+   "canonical": 0.6991089787525704,
+   "redraw_mean": 0.7146607265250171,
+   "sd": 0.03453888238531349,
+   "ci95": [
+    0.650143934201508,
+    0.7789102124742977
+   ]
+  },
+  {
+   "lo": 0.9,
+   "hi": 1.0,
+   "canonical": 0.6840009369875851,
+   "redraw_mean": 0.6440876083391897,
+   "sd": 0.033898885897089705,
+   "ci95": [
+    0.5810689466697903,
+    0.7061880221753728
+   ]
+  }
+ ],
+ "worst_bin_sd": 0.055457003432490444,
+ "across_bin_difference_over_draws": {
+  "mean": -0.10700169489927963,
+  "sd": 0.059587880783315415,
+  "ci95": [
+   -0.2301255282144914,
+   0.0021076511993984226
+  ],
+  "n_negative": 193,
+  "canonical": -0.010797885387292316,
+  "canonical_z": 1.614486171472041
+ },
+ "tight_threshold": 0.02,
+ "r88_attribution_sd": 0.0055,
+ "magnification": 5.380725283288872,
+ "rebuild_mismatches": 0,
+ "self_donation_share": 0.0,
+ "persisted_vector": "rounds/r106_share_level_under_redraw/results/r106_share_draws.npz",
+ "world": "W WIDE",
+ "outcome_variable_scope": "The sampling distribution over DONOR ASSIGNMENTS of (own - donor)/(own - 0.5), on r104's population and third-rater labels. Own arm, labels, population and bins are held fixed; only the donor assignment moves.",
+ "scope": "Spread over ASSIGNMENTS from a fixed pool of weight vectors -- a lower bound on the uncertainty a different corpus of rubrics would carry. Does not revisit r105's across-bin difference -- it MEASURES that difference's draw spread, and finds r105's cancellation argument false: one assignment meets different pairs in different bins.",
+ "verdict": "W WIDE. r105 declined to quote the prompt-specific share's LEVEL because it inherits r104's single donor draw, and r88's reassurance -- pooled ATTRIBUTION sd 0.0055 over 120 draws -- does not transfer to a RATIO, whose denominator (own - 0.5) is as small as 0.12 in the lowest bin. Measured directly over 200 independent redraws on r104's population and label: the pooled share is 0.6772 with sd 0.0296, 95% of draws in [0.6219,0.7290], and r104's canonical draw sits at +0.43 sd -- an ordinary draw. Per bin the sd runs 0.0555, 0.0345, 0.0339. SO THE LEVEL IS NOT QUOTABLE AS A NUMBER: at sd 0.0296 the draw moves the share by more than the 0.02 a level would need, and the 0.0055 that justified a single draw for the attribution is magnified 5.4x by the division. Only r105's ACROSS-BIN difference survives, because every bin there inherits the SAME draw and the draw cancels from a comparison it enters identically on both sides. AND IT OVERTURNS r105's REASON, THOUGH NOT ITS VERDICT. r105 quoted the ACROSS-BIN difference and justified ignoring the donor draw on the ground that every bin inherits the SAME draw, so it cancels from a comparison it enters identically on both sides. IT DOES NOT CANCEL: one assignment meets DIFFERENT pairs in different bins. Over these 200 draws the high-minus-low share is -0.1070 with sd 0.0596, 95% in [-0.2301,+0.0021], and 193 of 200 draws are NEGATIVE -- so the typical draw says the prompt-specific share FALLS with consensus, i.e. prompt-specific content carries relatively MORE where humans disagree, which is the reverse of r104's absolute reading. r105's canonical draw gave -0.0108, sitting at +1.61 sd of this distribution: an unusually FLAT draw. r105's verdict of ANSWERABLE MARGIN survives -- the draw interval still crosses zero at its upper edge -- but for a LARGER reason than it gave, and its cancellation argument is retracted. The draw spread (0.0596) is on the same scale as the pair-bootstrap half-width r105 reported (0.1260) and was omitted from it entirely, so r105's interval is too NARROW, not too wide. REBUILD CONTROL: the round recovers each split record's LABEL DIRECTION from r104's stored own-arm hits and recomputes the CANONICAL donor arm from scratch -- 0 mismatches in 47,148 records, so the redraws are scored against r104's actual labels rather than an invented one. DEGENERATE CONTROL: a draw in which every prompt donates to ITSELF returns a share of 0e+00; a pipeline that cannot return 0 when the two arms coincide is not measuring their difference. WHY THIS IS CHEAP, AND IT MATTERS FOR READING IT: the donor arm scores THIS prompt's satisfaction values with the DONOR's weight vector, so a redraw changes only weights. The per-criterion satisfaction differences are built once and each draw is a dot product -- 200 draws, not 200 rebuilds. THE CONFOUND, WRITTEN BEFORE THE RUN: every draw reuses the SAME 968 weight vectors, so only the ASSIGNMENT moves and the donor POOL is fixed. This spread is over assignments, not over hypothetical other corpora of rubrics, and is therefore a LOWER BOUND on the uncertainty a different corpus would carry."
+}
