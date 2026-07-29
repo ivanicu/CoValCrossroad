@@ -12,8 +12,12 @@ manifest `313044eafe5d18a9335408f7c35a0e76f2b08e4a436f765cede756e78b3dfa4b`, 60 
 540 hashed responses, four equal cells of 15.
 
 Everything in this repository is now blocked on one of the three counterfactuals below. They do
-not exist in any public data and cannot be computed from it — 45 rounds have established that by
-exhausting the alternatives, which is the only argument for spending money on people.
+not exist in any public data and cannot be computed from it — **74 rounds** now carry a non-smoke
+result, and the exhaustion ledger in the README enumerates the thirteen mechanisms tried, five
+genuinely refuted and five limited by their own detection floors. ⚠ *"Exhausting the alternatives"*
+was asserted here for a long time as **45 rounds** without either updating the count or enumerating
+what had been exhausted; both are now done, and the honest form of the argument is the ledger with its
+floors, not the round count.
 
 ---
 
@@ -117,6 +121,28 @@ before seeing responses, which is why S_pre needs an experiment — so it is **s
 0.50–0.95 and every figure is conditional on the swept value. Across that sweep the room above
 chance never falls below **0.2569**, so sign agreement is not ceiling-compressed.
 
+**The baseline needs no further adjustment for the seed class, and this was checked rather than
+assumed ([r73](rounds/r73_direction_from_text_alone)).** A worry the design does not address on its own:
+if a criterion's direction were recoverable from its *wording*, a PRE participant could score well
+above 0.6459 while reproducing a phrasing convention rather than a prior. Measured on exactly the class
+an S_pre participant faces — pre-written, response-blind seed criteria — a text-only predictor with
+prompts held out captures **1.2% of available headroom** (+0.0020 [−0.0007, +0.0049]), and its
+*in-sample* fit clears the marginal by only +0.0160, so this bounds learnable signal rather than
+reporting a held-out miss. **r61's 0.6459 stands for the seed arm.**
+
+⚠ **It does not stand for any arm built on write-in text.** There a text-only predictor captures
+**26.4%** of headroom (+0.0821 [+0.0746, +0.0904]). Any variant of this experiment that shows
+participants participant-authored criteria must use a **text-only predictor as its baseline**, not the
+marginal. Registered here because discovering it after the data would make the choice of baseline a
+narrative.
+
+**Registered directional prediction, from [r74](rounds/r74_specificity_vs_exposure).** Text-only
+predictability within write-ins is strongly moderated by length — short criteria capture **33.3%** of
+headroom, long ones **0.5%** — while seeds and write-ins are already length-matched in the release
+(14.6 vs 14.9 words). So: **if the PRE arm's criteria come out systematically shorter than the POST
+arm's, the two arms are not comparable on sign agreement alone** and criterion length must be reported
+and matched. This is a design failure mode, not a hypothesis, and it is cheap to monitor.
+
 **Stopping rule.** Fixed n, decided from a pilot of 20 participants per arm, **and the target n
 is now derived rather than guessed**: state the departure worth detecting, read the pair count
 off the table above, divide by the expected match rate. No optional stopping.
@@ -124,6 +150,34 @@ off the table above, divide by the expected match rate. No optional stopping.
 ---
 
 ## Experiment 2 — H_fresh: do the criteria predict choices on responses nobody wrote them for?
+
+**⚠ REGISTERED BEFORE THE DATA: positive and negative criteria must be collected and analysed
+separately, and here is the prediction that says why.** [r75](rounds/r75_menu_read_direction) joined
+each write-in to *its own author's* ranking — 9,122 criteria, no aggregation across people — and found
+that overlap with the response that rater ranked **best**, minus the one they ranked **worst**, is
+**+0.0407** for criteria they scored positive and **+0.0039** for negative; gap **+0.0368** [+0.0298,
++0.0439], **+0.0203** [+0.0147, +0.0257] after residualising containment on response length within
+prompt. The effect is **asymmetric**: praise tracks the preferred answer (+0.0176 residualised),
+criticism is flat (−0.0027).
+
+[r76](rounds/r76_absence_cannot_overlap) tested the mechanical rival — an absence has no words to
+overlap — on the prediction only that rival makes, and it failed: presence-type negatives do **not**
+track the worst answer (−0.0028 [−0.0073, +0.0017]), absence-shaped wording is only **4.1%** of
+write-ins, and absence-type *positives* carry the **largest** effect (+0.0381).
+
+**So the registered expectations for H_fresh are:**
+
+1. **Pooling positive and negative criteria will understate whatever is measured**, because the two
+   classes do not behave alike. Report them separately as a primary analysis, not a subgroup.
+2. **Predicted, with a way to be wrong**: on the saved fresh responses, criteria whose direction was
+   assigned positively will show a *larger* association with the new rankings than negative ones. If
+   the difference is **zero or reversed**, the menu-reading account developed in r75/r76 does not
+   transfer off the original menu, and that is a result about construction, not a nuisance.
+3. **⚠ The one thing none of this settles**, stated so it is not quietly assumed later: r75 measures
+   association *within* a rater and cannot separate a menu that **created** the direction from one that
+   **supplied the words** for a direction already held. Only Experiment 1 separates those. H_fresh must
+   not be read as evidence on that question in either direction.
+
 
 **The question.** r12 found the own-rubric advantage *inverts* on fresh responses, replicated on
 250 untouched prompts by r46. r40 ruled out monotone degradation under three generic distance
