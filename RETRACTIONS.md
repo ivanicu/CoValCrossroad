@@ -1974,6 +1974,45 @@ magnitude short. The world-vs-personal contrast is **out of reach of both the re
 protocol as designed**, and that belongs in the preregistration rather than being discovered after
 collection.
 
+## Entry 90 — the protocol specified instruments and outcomes and never said who would be recruited
+
+Three experiments, each attacked and repaired, and none of them contained the words *recruitment*,
+*eligibility*, *onboarding*, *quiz*, *compensation* or *platform*. π is one of the five layers the
+research object names, and the preregistration specified every layer but that one — so it could have
+been executed against a different population, under different training, and the comparison to r12
+would have broken with nothing to notice it.
+
+**The onboarding quiz is the sharp part, and it is a fork.** CoVal participants could not reach the
+tasks until they passed a rubric-writing quiz teaching *objective vs subjective*, *prompt-specific vs
+generic*, *both polarities*, and *weight calibration*. **Every released criterion was therefore
+written by a trained participant.** "What people write as criteria" in this dataset means "what
+people write **after that training**" — and the training is part of what the rubric measures.
+
+So Experiment 1 has to choose deliberately: the PRE arm **takes the quiz too**, because S_pre asks
+whether direction pre-exists the **menu**, not whether it pre-exists the **training**, and dropping
+it would confound the arms with a variable the released data never varied. A **quiz-free third arm**
+is worth running and is labelled exploratory, because *"the quiz is part of what the rubric
+measures"* is an untested claim about π and this is the cheapest place it will ever be testable.
+
+**Task position becomes a controlled variable, on this project's own evidence.** r31 measured the
+same **933** people dropping **−179 characters [−196, −162], −53.3%** at task 6 — within-person, and
+exactly at the platform's minimum-task boundary, so effort is confounded with a pay threshold. A
+protocol that let position ride along would reproduce the release's own artefact and report it as a
+finding. Position is now randomised within participant, recorded, and its effect reported.
+
+**Also committed:** the released task-flow *order* (unacceptable-content check before rankings,
+personal before world) for any arm claiming comparability; the same intake instrument, with achieved
+demographics reported **against the release's own distribution**; and pay at or above the release's
+rate, stated — $60 for survey plus 5 tasks, then $30/task with a $90 bonus, median 22 minutes per
+task. **Attention is bought, and a cheaper study is not measuring the same thing.**
+
+r31's figures were checked against its artifact before commit: 5/5 backed.
+
+**What this entry is really about.** Nine entries of work went into naming the instrument behind
+every verification step — and the protocol still had no answer to *who is in the room*. Specifying
+the measurement is not specifying the measurement **program**, and π was the layer this project
+named first and audited last.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

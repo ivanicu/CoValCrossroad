@@ -297,6 +297,55 @@ while group-specific weights did not beat pooled ones; a pooled τ would average
 
 ---
 
+## Recruitment and protocol fidelity — the layer π, which none of this specified
+
+Every number these experiments are compared against was produced by a **specific elicitation
+protocol**, and π is one of the five layers the research object names. The design above specified
+instruments and outcomes and said **nothing** about who is recruited or what they are put through
+before they answer — so it could have been executed against a different population and a different
+procedure and the comparison to r12 would have silently broken.
+
+**Recruited to match, and the deviation reported either way.** CoVal used an online platform with an
+English-reading requirement, aiming for a diverse global pool within that constraint, and ran an
+intake survey covering age bucket, gender, race/ethnicity, employment, education, country of
+residence, country of origin, generative-AI usage frequency and AI-concern level. Committed: **the
+same intake instrument**, and the achieved demographics **reported against the release's own
+distribution**, so a reader sees the deviation rather than being told there isn't one.
+
+**⚠ The onboarding quiz is part of π, and it is a fork this design has to take deliberately.**
+Participants could not reach the tasks until they passed a rubric-writing quiz teaching *objective
+vs subjective*, *prompt-specific vs generic*, *both polarities*, and *weight calibration*. So every
+released criterion was written by a **trained** participant, and "what people write as criteria" in
+this dataset means "what people write **after that training**".
+
+- The **POST** arm must take the quiz. It *is* the released procedure; without it the arm is not
+  replicating anything.
+- The **PRE** arm takes it too. S_pre asks whether direction pre-exists the **menu**, not whether it
+  pre-exists the **training** — omitting it would confound the arms with a variable the released
+  data never varied.
+- **A quiz-free third arm is worth running and is labelled exploratory.** That the quiz is part of
+  what the rubric measures is itself an untested claim about π, and this is the cheapest place it
+  will ever be testable.
+
+**Task position is a controlled variable, not a nuisance.** r31 measured that the same **933**
+people drop **−179 characters [−196, −162], −53.3%** at task 6 — within-person, and exactly at the
+platform's minimum-task boundary, so effort is confounded with a pay threshold. Committed: **position
+randomised within participant**, recorded for every response, and its effect reported. A protocol
+that let position ride along would reproduce the release's own artefact and call it a finding.
+
+**The released task flow is replicated in order or the ranking is not the released ranking.** An
+unacceptable-content check came *before* the rankings and primes attention toward safety; the
+personal ranking came before the world one. Both are kept in that order for the arms that claim
+comparability, and any departure is stated in the same sentence as the estimate it affects.
+
+**Compensation is reported because it is part of the instrument.** The release paid $60 for the
+survey plus 5 tasks (≈2 h), then $30/task with a $90 bonus for 15 within 7 days, to a maximum of
+$540, at a median 22 minutes per task. Committed: **at or above that rate**, and stated — attention
+is bought, the release's numbers were produced at that price, and a cheaper study is not measuring
+the same thing.
+
+---
+
 ## Rules binding all three
 
 1. **The frozen manifest is the admissibility gate.** Rankings of responses that do not hash to
