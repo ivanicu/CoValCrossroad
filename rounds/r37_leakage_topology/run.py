@@ -265,14 +265,17 @@ def main() -> None:
     biggest = max(("A1", l1), ("A2", out["A2_held_out_rater_folds"]["L"]),
                   ("A3", l3), key=lambda t: t[1])
     verdict = (
-        f"THE DECAY IS FLAT. Moving from same-participant weights all the way to "
-        f"cross-country weights costs {l3:+.4f}, and the largest single rung is {biggest[0]} "
-        f"at {biggest[1]:+.4f}. The direction people assign to a criterion is neither the "
-        "individual's own choice returning, nor a small-sample artifact, nor "
-        "country-conditional. Within the isolation this release permits, it behaves like a "
-        "population-level property. The rung that matters most cannot be climbed here: NOBODY "
-        "in this dataset rated a criterion without first seeing four candidate responses, so "
-        "L(4) -- the cost of response-blind elicitation -- is undefined, not zero."
+        f"THE DECAY IS FLAT WITHIN THE TESTED SPLITS. Moving from same-participant "
+        f"weights all the way to cross-country weights costs {l3:+.4f}, and the largest "
+        f"single rung is {biggest[0]} at {biggest[1]:+.4f}. Every rung is bounded inside "
+        "0.01 accuracy points by an equivalence test at that margin (r42), so this is a "
+        "BOUND, not a non-detection -- but the margin is a stipulation and the same rungs "
+        "are NOT equivalent at 0.0025. NOT ESTABLISHED: population invariance. Aggregate "
+        "accuracy can conceal criterion-level sign reversals, minority-only criteria, and "
+        "groups choosing alike for different reasons; none of those are tested here. And "
+        "the rung that matters most cannot be climbed at all: NOBODY in this dataset rated "
+        "a criterion without first seeing four candidate responses, so L(4) -- the cost of "
+        "response-blind elicitation -- is undefined, not zero."
         if max(abs(l1), abs(l3)) < 0.02 else
         f"THE DECAY IS STRUCTURED. L(1)={l1:+.4f} individual, L(3)={l3:+.4f} cross-country; "
         f"the largest rung is {biggest[0]}. Read the rung, not the total: where the drop "

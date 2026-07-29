@@ -267,11 +267,17 @@ def main() -> None:
 
     cf = out["crossfit"]["comparisons"]["confident - forced"]
     verdict = (
-        f"CONCORDANCE DOES NOT DEPEND ON FORCING CONTESTED CRITERIA. Abstaining wherever "
-        f"raters split on direction changes cross-fitted accuracy by {cf['delta']:+.4f} "
-        f"{cf['ci']}, while dropping "
-        f"{1 - out['crossfit']['confident']['coverage']:.0%} of criteria. The signal lives "
-        "where people agree, and the forced direction on the rest is not carrying it."
+        f"ROBUST TO POST-HOC CRITERION ABSTENTION. Abstaining wherever raters split "
+        f"on direction changes cross-fitted accuracy by {cf['delta']:+.4f} {cf['ci']}, "
+        f"while dropping {1 - out['crossfit']['confident']['coverage']:.0%} of criteria. "
+        "The signal lives where people agree, and the forced direction on the rest is "
+        "not carrying the aggregate. NOT ESTABLISHED: the absence of a forced-choice "
+        "effect. Dropping low-consensus criteria AFTER collection cannot simulate what "
+        "a participant would have written had 'no general direction', 'depends on "
+        "implementation' or 'cannot judge without seeing a response' been on the "
+        "screen. Elicitation format changes the response it elicits, and that is not "
+        "recoverable by filtering the responses it already produced -- testing it "
+        "needs the option AT ELICITATION TIME."
         if not cf["excludes_zero"] or cf["delta"] >= 0 else
         f"CONCORDANCE DEPENDS ON FORCING A DIRECTION WHERE RATERS DISAGREED. Abstaining on "
         f"contested criteria costs {cf['delta']:+.4f} {cf['ci']}. Part of what reads as a "

@@ -5838,7 +5838,7 @@
    }
   }
  },
- "verdict": "CONCORDANCE DOES NOT DEPEND ON FORCING CONTESTED CRITERIA. Abstaining wherever raters split on direction changes cross-fitted accuracy by -0.0017 [-0.008425062484429728, 0.005125620241401861], while dropping 54% of criteria. The signal lives where people agree, and the forced direction on the rest is not carrying it.",
+ "verdict": "ROBUST TO POST-HOC CRITERION ABSTENTION. Abstaining wherever raters split on direction changes cross-fitted accuracy by -0.0017 [-0.008425062484429728, 0.005125620241401861], while dropping 54% of criteria. The signal lives where people agree, and the forced direction on the rest is not carrying the aggregate. NOT ESTABLISHED: the absence of a forced-choice effect. Dropping low-consensus criteria AFTER collection cannot simulate what a participant would have written had 'no general direction', 'depends on implementation' or 'cannot judge without seeing a response' been on the screen. Elicitation format changes the response it elicits, and that is not recoverable by filtering the responses it already produced -- testing it needs the option AT ELICITATION TIME.",
  "scale_note": "The rating scale runs -10..+10 and the value 0 occurs exactly once in 102,147 ratings, so the neutral point is effectively unavailable: 'no general direction' has no representation in this data.",
  "scope": "Evaluation is against individual rater rankings on the original candidate set; internal concordance on the elicitation manifold (entry 36)."
 }
