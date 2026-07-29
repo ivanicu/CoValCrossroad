@@ -439,7 +439,9 @@ Stated now so that it cannot be softened later. The computational programme has 
 
 - the rebuilt satisfaction layer predicts held-out human rankings well above chance (r04)
 - the own-rubric advantage is **semantic, not lexical** — 97.4% survives faithful paraphrase (**r20** measures the retention; **r14** supplies the fidelity filter and measures something else — that a *model* paraphrase flips 15.4% of the judge's Yes/No verdicts while a *mechanical* one flips 2.5%)
-- post-ranking polarity carries roughly half the above-chance concordance, and it is **not
+- post-ranking polarity is the largest predictive channel — **+0.0876 (47%) when added last to
+  text alone (r32), but a Shapley value of +0.0214 (12%) averaged over all 16 coalitions (r36),
+  whose verdict states r32's split "over-attributed to polarity"** — and it is **not
   primarily same-rater circularity** (r34/r36/r37)
 - that advantage **does not transfer** to responses the criteria authors never saw — replicated on
   250 untouched prompts (r46) — and neither generic distance (r40) nor criterion-space support

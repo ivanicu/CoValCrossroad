@@ -2519,6 +2519,37 @@ the source is the wrong one.
 
 Coverage of `readme_agrees_with_results` is now **59%**, up from 8% when this session began.
 
+## Entry 104 — "polarity carries roughly half" cited the round that corrects it
+
+The layer table's **R** row and the preregistration's closing list both said *"post-ranking polarity
+carries roughly half the above-chance concordance ([r32], [r36])"* — citing **r36** for a figure
+**r36 exists to correct**.
+
+| | value | share of the 18.6 above-chance points |
+|---|---:|---:|
+| sign added **last to text alone** (r32) | **+0.0876** | **47%** |
+| Shapley value over **all 16 coalitions** (r36) | **+0.0214** | **12%** |
+
+r36's own verdict: *"r32's +0.0876 was the value of adding sign LAST to text alone — **one path
+through the lattice, not the channel's average worth**."* Its README row says so too — *"r32's
+sequential split **over-attributed** to polarity"*. **The correction was published in the row and
+never reached the two summaries that sit above it.**
+
+**"Roughly half" is the maximum over entry orders**, not the channel's contribution. Four-fold
+apart, and the summaries picked the larger and credited both rounds for it.
+
+**This is entry 79's shape, third occurrence.** There it was compatibility selection: the row quoted
+*"+0.0149 better than random"* and omitted *"−0.0181 cost"*. Here it is polarity: the summaries quote
+the path-maximal +0.0876 and omit the order-averaged +0.0214. **Both times a two-number result
+reached the top of the document as its flattering half, and both times the corrected figure was
+already sitting one table lower.**
+
+**Why `corrections_propagated` did not catch it:** entry 83 built that check to stop a correction
+landing in one document and not another — and it only knows what is **registered** in it. r36's
+correction of r32 was made long before the registry existed and was never added. It is registered
+now, which is the only part of this that generalises: *registering is part of correcting*, stated in
+the check's own output since entry 83, and still not done for a correction made before it.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

@@ -67,6 +67,9 @@ CORRECTED = [
     # superseded state of knowledge without any individual sentence being false.
     # The pattern targets the specific unqualified framing, and its absence is
     # weaker evidence than for the others, which is why it says so here.
+    (r"polarity carries roughly half the above-chance", 104,
+     "+0.0876 (47%) is sign added LAST to text alone (r32); the Shapley value over all 16 "
+     "coalitions is +0.0214 (12%) (r36), whose verdict says r32 over-attributed to polarity"),
     (r"r56'?s? (?:held-out )?(?:value|interval|result) (?:is|was|of) \+?0\.0198(?!.{0,200}UNVERIFIED)", 101,
      "r56's numbers have no artifact and no committed code; r66 could not recompute them. Its "
      "CONCLUSION survives an independent method, its INTERVAL does not"),
