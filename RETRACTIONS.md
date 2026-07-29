@@ -2717,6 +2717,36 @@ round, the row and the ledger.
 not.** The distinction is the whole content of both entries: 0.657 was not predictable from anything
 already written, and it changed four published figures.
 
+## Entry 110 — the 1.23× correction was itself mis-applied to a predictor with nothing to split
+
+Entry 109 measured predictor reliability at **0.657** by splitting each prompt's criteria 2-2, and
+multiplied all four ledger floors by 1.23×. **That transfer is wrong for one of them.**
+
+**r40's predictor is an embedding distance.** It has no criteria to split — it is one number per
+prompt from a deterministic computation over response text. A criteria-split reliability measures how
+much a quantity moves when you average a different handful of judge scores; there is no such handful
+here, so the 0.657 does not describe it and applying it inflated r40's floor from 0.180 to 0.222 on
+no evidence.
+
+**What r40 does have is three unrelated pretraining runs, and they agree.** Nearest-neighbour
+correlates with the attribution drop at **−0.1324, −0.1428, −0.1011** — same sign, **SD 0.0217** on a
+mean of −0.1254, a coefficient of variation of **0.173**. That is a consistent instrument, which
+points the other way: r40's true floor sits nearer the **0.180** end, and its refutation of the
+generic-distance mechanism is *stronger* than entry 109 left it.
+
+**So it is a range now, 0.180–0.222**, with the upper bound retained only because predictor
+reliability is genuinely **not measurable from persisted data** for this row — the embeddings were
+never saved. A range with both ends earned beats a point estimate with one end assumed.
+
+**And the SD was wrong in the first draft of this fix.** I wrote 0.0173 into two places in the README
+before computing it; `np.std(ddof=1)` gives **0.0217**. Corrected before the commit, by running the
+number I had already asserted.
+
+**The pattern, twice in three entries.** Entry 108 took `raw[0]`'s interval where the row cited
+`raw[1]`. This one took a reliability estimate from two predictors and applied it to a third of a
+different kind. **Both are the same move — carrying a number across a boundary it does not cross —
+and neither was caught by any check, because both produce perfectly plausible values.**
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
