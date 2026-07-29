@@ -562,6 +562,26 @@ the same thing.
 1. **The frozen manifest is the admissibility gate.** Rankings of responses that do not hash to
    `r45_frozen_frame.json` are not analysable as H_fresh.
 2. **No optional stopping.** n fixed from a pilot, before the main collection.
+   **⚠ And δ = 0.01 must be sized, not merely declared** ([r91](rounds/r91_precision_budget),
+   2026-07-29). Three rounds preceding this document fixed δ = 0.01 and then could not reach it
+   (r86 fell back to 0.026, r87 to 0.0231, r90 to a two-way crossed width). Under half ∝ 1/√n —
+   **verified, not assumed**, by [r89](rounds/r89_floor_draw_at_panel_size) across three panel
+   sizes at 11.5% worst deviation — on this release's own published half-widths:
+   **a LEVEL reaches δ = 0.01 at ≈1.6× the current 968-prompt join; a DIFFERENCE needs ≈5.3×**,
+   because a difference carries two intervals and so costs about 4× a level.
+   **All three experiments below are differences**, so the 5.3× figure is the binding one, not
+   the 1.6×. Two consequences for this protocol:
+   - **Part of the cost is compute, not annotators.** The donor draw is **20%** of the attribution
+     interval's variance and does *not* shrink with more prompts under a single draw
+     ([r88](rounds/r88_donor_draw_variance)). Averaging **m = 10** draws cuts the requirement
+     1458 → **1195** prompts; m = 100 buys only 27 more. **Donor-averaging at m ≥ 10 is therefore
+     required of the analysis, and it is the cheapest precision available here.**
+   - **This sizes PRECISION, not power.** It states when an interval reaches ±0.01, never what
+     effect is detectable — that needs a prior on τ_c, which is one of the quantities being
+     measured. So n fixed from the pilot governs; this bounds the pilot rather than replacing it.
+   The same arithmetic is already applied to the world-vs-personal contrast below, which needs
+   **14,358** reversed pairs against the **2,444** the release holds — the one place where it
+   returns *out of reach* rather than a number to collect.
 3. **Every outcome above is primary or it is exploratory**, and exploratory results are labelled
    as such in the same sentence as their number.
 4. **Analysis code is written and committed against synthetic data before real data arrives**, so
