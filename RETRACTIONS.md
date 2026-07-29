@@ -1219,6 +1219,44 @@ large-integer tokens are informative (`18,384` at 0.2%, `945` at 7.0%, `0.6575` 
 coincidence detector run against a large enough pool detects coincidences**, and without that null I
 would have published fifteen "possible transplants" of which eleven are arithmetic.
 
+## Entry 70 — the equivalence round tested 21 contrasts and its verdict said "this package". There are 125.
+
+r42 exists so that a non-significant result is never read as "no effect". Its population is
+`SOURCES`, a **hand-written list of four rounds**. Its verdict reads *"the null readings in this
+package are supported at this stipulated margin"* — and *this package* is four rounds.
+
+**Its internal guard could not catch this.** After r36's contrasts were silently missed, I added:
+*"REFUSING: this file contains N paired vectors but the walk reached M."* That compares counts
+**inside files it already opened**. r13 stores zero nodes named `paired_differences`, so the guard
+was satisfied at 0 == 0 while r13's seed-vs-write-in gap — the contrast the README uses to refute
+r12's own mechanism — was never equivalence-tested at all.
+
+**r58 enumerates instead of listing.** Every results node carrying an interval estimate:
+
+| | at δ = 0.01 |
+|---|---|
+| interval contrasts in the package | **125** |
+| tested by r42 | **21 (17%)** |
+| real and material | 60 |
+| real but negligible | 9 |
+| no material effect | 24 |
+| **INCONCLUSIVE** | **9** |
+| **UNVERIFIED** | **23** |
+
+**All 9 inconclusive contrasts are r43 group-weight cells** — the round whose verdict says *"no
+group is predicted better by its own weights"*. For those 9, non-significance is **not** equivalence:
+`ai_usage[3]` is −0.0014 **[−0.0323, +0.0290]**, an interval three times the margin wide. The claim
+survives as *no detected effect*; it does not survive as *no effect*. This is the queue's
+"p>0.05 is not equivalence" showing up inside the round built to study populations.
+
+**UNVERIFIED is 23 and is not a pass.** Those rounds published a mean and a 95% CI but no raw paired
+vector, so the 90% CI that TOST requires cannot be recovered. Folding them into "fine" would
+manufacture 23 false acquittals; they are reported as their own class.
+
+**What is NOT retracted.** r42's verdict is correct on its own 21 contrasts, and the arithmetic was
+never wrong. What was wrong is the noun *package*. The instrument measured what it measured; the
+sentence claimed a universe nobody had enumerated.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
