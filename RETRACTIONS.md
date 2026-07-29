@@ -2291,6 +2291,43 @@ with **18.6% as the floor it must clear**.
 5 answered, 6 not upheld — every one excluded from the hit rate. **What an independent reviewer
 would find remains entirely unmeasured**, and that was always the number that matters.
 
+## Entry 98 — the project's largest single effect is an upper bound, and the code said so in a comment nobody carried forward
+
+r65 ended by showing that *positive weight is not affirmative wording*. That sent me back to the
+number that phrase is attached to: r44's **+0.0733**, the largest single increment in this package
+and the answer to queue item 6.
+
+**`rounds/r44_compiler_lineage/run.py:112` states the limitation in its own comment:**
+
+> *"C1 polarity rewrite. The text rewrite cannot be simulated; its EFFECT can: a criterion carrying a
+> negative weight becomes a positively-phrased criterion whose satisfaction is the complement."*
+
+and implements it as `s1 = -1.0 if mean_train_rating < 0 else 1.0`. **The stage applies the crowd's
+rating sign numerically**, on rater-disjoint folds.
+
+**That is a different information condition from the artifact it stands for.** The reconstruction is
+*handed* the polarity at scoring time. The real CoVal-core has no such channel: it must encode
+polarity **in rewritten words** and rely on a judge that never sees a rating to recover it. So
+**+0.0733 measures what having the polarity is worth, and bounds from above what putting it into
+prose can achieve.**
+
+**r65 supplies the reason to think the gap is real.** If the rewrite converted prohibitions into
+affirmations, the judge's job would be easy. It does not: **18.62%** of core criteria still read
+*"do not X"* — **more** than the 12.85% in the un-rewritten full set. The rewrite changes weights and
+leaves the wording, so the polarity the judge must recover from text is exactly the polarity that
+was hardest to phrase away.
+
+**What was wrong was nothing, and that is the point.** r44's scope field is correct
+(*"RECONSTRUCTION, not decomposition"*), the README row carried it, and the code comment is exemplary.
+The defect is that **a limitation stated in a code comment is not stated to a reader** — three
+documents quoted +0.0733 as *the polarity rewrite's* contribution, and none said the stage never
+rewrote anything. Now stated in the README table, the round row, and the preregistration, and
+registered so it cannot drift back.
+
+**This is the same shape as entry 73**, where six rounds' bounds sat in `caveat` and `note` fields no
+instrument read — except here the bound was one level further down, in a comment, where no instrument
+in this package looks at all.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

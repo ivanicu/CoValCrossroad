@@ -67,6 +67,9 @@ CORRECTED = [
     # superseded state of knowledge without any individual sentence being false.
     # The pattern targets the specific unqualified framing, and its absence is
     # weaker evidence than for the others, which is why it says so here.
+    (r"attributes\s*\n?\s*\+0\.0733 of it to the polarity rewrite \(r44\)\. Compatibility", 98,
+     "the +0.0733 stage applies the crowd's RATING SIGN numerically (r44 run.py:112); it bounds "
+     "from above what a text rewrite could achieve and does not measure one"),
     (r"personal ranking (?:is present|exists) for \*\*76\.9%\*\*", 89,
      "26.7% -- 4,901 of 18,384. The 76.9% came from sampling the head of "
      "comparisons.jsonl instead of reading all of it"),

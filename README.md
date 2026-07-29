@@ -347,7 +347,7 @@ measures each simulated stage, and reports **the residual it cannot explain**.
 
 | reconstructed stage | Δ | 95% CI |
 |---|---:|---|
-| **polarity rewrite** | **+0.0733** | [+0.0647, +0.0822] |
+| **polarity rewrite** (see ⚠ below) | **+0.0733** | [+0.0647, +0.0822] |
 | cleanup | +0.0052 | [+0.0029, +0.0075] |
 | dedup | −0.0053 | [−0.0092, −0.0014] |
 | compatibility selection | −0.0181 | [−0.0241, −0.0125] |
@@ -358,6 +358,15 @@ measures each simulated stage, and reports **the residual it cannot explain**.
 The rewrite alone is **larger than the entire full→core gap**; later stages give part of it back.
 The reconstruction accounts for **83%** of the total, and the +0.0662 independently reproduces
 r33's +0.0663 through a different code path.
+
+> **⚠ The +0.0733 is an upper bound on the rewrite, not a measurement of it.** `run.py:112` says so
+> in its own comment — *"The text rewrite cannot be simulated; its EFFECT can"* — and implements the
+> stage as `s1 = -1 if mean_train_rating < 0 else 1`: it **complements satisfaction using the crowd's
+> rating sign**, on rater-disjoint folds. The real compiler has no such channel. It must encode
+> polarity **in rewritten words** and hope a judge that never sees a rating recovers it — and
+> [r65](rounds/r65_edit_symmetry_floor) shows the rewrite leaves **18.62%** of core criteria still
+> phrased as prohibitions, *more* than the 12.85% in the un-rewritten full set. So +0.0733 measures
+> **what having the polarity is worth**, and bounds from above what putting it into prose can achieve.
 
 **Selection is damage control, not gain — and the two numbers must be read together.** The stage
 itself **costs −0.0181** (0.6647 → 0.6465): truncating to four criteria throws information away.
@@ -1099,7 +1108,7 @@ not from estimation noise, so no further computation narrows it.
 | [r47](rounds/r47_gold_is_length) | Is the inversion a property of the gold PROXY? | **partly — and the round's own verdict says this is a SHARE, not a verdict: near enough to half that no binary reading is licensed.** gold↔length rises +0.08→+0.46 and +0.03→+0.55 across two samples; ~57% of the inversion survives length-residualisation against the procedure's own null; the fresh arm stops being negative in the held-out sample. Proxy matches human rankings on the ORIGINAL arm, which is where its length channel is weakest |
 | [r46](rounds/r46_spread_replication) | Does the spread-loss effect hold out of sample? | **no — prediction committed to git first, then falsified.** +0.0496 [−0.068, +0.169] on 250 untouched prompts against a predicted [+0.12, +0.34]. Controls passed, and **r12's inversion itself replicated**: +0.0847 original, −0.0716 fresh |
 | [r42](rounds/r42_equivalence) | Are the null claims equivalent, or just non-significant? | **equivalent at δ=0.01 — 0 of 21 contrasts inconclusive.** 4 are significant AND negligible. But only 7/21 hold at δ=0.005 and 4/21 at 0.0025, and **δ is stipulated, not measured**. ⚠ **Those 21 are four hand-listed rounds, not the package** — see [r58](rounds/r58_equivalence_census) |
-| [r44](rounds/r44_compiler_lineage) | Which compiler step makes core beat full? | **polarity rewrite, +0.0733** — alone larger than the whole full→core total of +0.0662, and every reconstructed stage after it nets **−0.0183**. ⚠ Compatibility selection **costs −0.0181** [−0.0241, −0.0125]; it beats a **size-matched random** choice by **+0.0149** [+0.0082, +0.0221], so choosing *which* four survive **recovers most of what truncating to four destroys and does not repay it** — membership is mitigation, not gain. Reconstruction explains 83%; **C1–C5 are unobservable**, so this describes my pipeline, not OpenAI's |
+| [r44](rounds/r44_compiler_lineage) | Which compiler step makes core beat full? | **polarity rewrite, +0.0733** — alone larger than the whole full→core total of +0.0662, and every reconstructed stage after it nets **−0.0183**. ⚠ That stage **applies the crowd's rating sign numerically** (`run.py:112`, *"the text rewrite cannot be simulated; its EFFECT can"*), so it is an **upper bound on what a text rewrite could achieve** — the real core must carry polarity in words to a judge that never sees a rating. ⚠ Compatibility selection **costs −0.0181** [−0.0241, −0.0125]; it beats a **size-matched random** choice by **+0.0149** [+0.0082, +0.0221], so choosing *which* four survive **recovers most of what truncating to four destroys and does not repay it** — membership is mitigation, not gain. Reconstruction explains 83%; **C1–C5 are unobservable**, so this describes my pipeline, not OpenAI's |
 | [r45](rounds/r45_protocol_freeze) | What exactly do the humans rank? | 60 prompts, 4 equal cells, **540 responses hashed**, manifest `313044ea…`. r12's generation is unseeded, so this file is the only definition of the object H_fresh refers to. ⚠ `frozen_at_commit` was **hard-coded to `None`** and never stamped; `69bda3b9` is *recovered from git history* and bounds only when the frame entered the repository, not what tree the freeze ran against. `freeze.py` now stamps HEAD and a tree-dirty flag |
 | [r43](rounds/r43_criterion_heterogeneity) | Does aggregate equivalence hide group conflict? | **conflict without consequence.** Country sign-reversals run **+0.0190 above** a label-permutation null; **0 of 17** group tests survive BH, and the significant ones split **2 positive / 2 negative** — symmetric noise. Positive control recovers an injected 20% flip (0.122→0.283) |
 

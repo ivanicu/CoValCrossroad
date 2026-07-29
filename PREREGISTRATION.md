@@ -457,7 +457,9 @@ Stated now so that it cannot be softened later. The computational programme has 
   selected them so: dropping one changes the judge's top choice for **14.7%** of criteria against
   **26.1%** under permutation, and criteria borrowed from *other prompts* flip at **14.9%** (r59)
 - CoVal-core **internalises polarity into criterion semantics**, and a reconstruction attributes
-  +0.0733 of it to the polarity rewrite (r44). Compatibility selection **costs −0.0181** and
+  +0.0733 of it to the polarity rewrite (r44) — ⚠ a stage that applies the crowd's rating **sign
+  numerically**, so it bounds from above what a text rewrite could achieve rather than measuring
+  it. Compatibility selection **costs −0.0181** and
   beats a size-matched random choice by **+0.0149**, so choosing *which* items survive **recovers
   most of what truncating to four destroys and does not repay it** — membership is mitigation,
   not gain
