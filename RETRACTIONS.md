@@ -1540,6 +1540,42 @@ intervention, which no release data reaches.
 show the world-decomposition itself is wrong. Here one did, on the first run, and the honest move was
 to name the missing world rather than pick the nearest of three.
 
+## Entry 79 — "selection is a real second term" reported the favourable half of a two-number result
+
+r59's open question was whether CoVal-core's C5 compatibility selection does anything the generic
+backbone does not. **r44 already answered it, and the README reported one side of the answer.**
+
+| | accuracy |
+|---|---:|
+| S3 dedup | 0.6647 |
+| **S5 compatibility selection** | **0.6465** |
+| S5 null — random, same size | 0.6317 |
+| C6 **real** core | 0.6577 |
+
+Two contrasts, both significant, both real:
+
+  * the selection stage **costs −0.0181** [−0.0241, −0.0125] — truncating to four criteria throws
+    information away
+  * it beats a **size-matched random** four by **+0.0149** [+0.0082, +0.0221]
+
+The round-table row carried only the second: *"Selection also beats a size-matched random choice by
++0.0149, so item membership carries signal too."* The body's heading said *"Selection is a real
+second term."* Both read as **selection helps**. The stage is **net negative**, and choosing which
+four survive **recovers most of what truncating to four destroys without repaying it**. Membership
+is mitigation, not contribution.
+
+The −0.0181 was in the body table the whole time, two lines above the sentence that omitted it — so
+this is not a missing measurement, it is **a summary that kept the flattering number**. Every check
+in this package passed on it, including `readme_row_carries_the_verdict`, because r44's verdict says
+*"selection is a real second term"* too: **the artifact and the prose agreed with each other and
+both were one-sided.** A check that compares a row to its verdict cannot catch a verdict that
+already dropped the qualifier.
+
+**The arc, stated once.** Polarity rewrite takes 0.5915 → 0.6648. **Every reconstructed stage after
+it nets −0.0183**, landing at 0.6465. The real core sits at 0.6577, +0.0112 above the reconstruction
+— the part of OpenAI's compiler this cannot see. So queue item 6's answer is: **the compiler's gain
+is the polarity rewrite; compression is a cost that careful selection partly limits.**
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
