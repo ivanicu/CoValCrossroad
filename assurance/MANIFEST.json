@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T14:12:03.417533+00:00",
- "git": "4a1e4242e8db84a84c94a95a9359d578656f6127",
+ "generated_utc": "2026-07-29T14:14:34.935077+00:00",
+ "git": "79a5dc8a6e48d5269880862c855c44e36fafb0a4",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -456,8 +456,8 @@
    "sha256": "82b5eebb2af188322a5a3cecc03d1e5932fe9c9e98c6af1091fdad9b36c66066"
   },
   "assurance/attack_the_suite.py": {
-   "bytes": 10036,
-   "sha256": "d67a7f1cf70c6ac51c3ebbd8aa9fbdbed4e06747e60bd47fdef8794c970ee220"
+   "bytes": 10401,
+   "sha256": "7bfa0b95fd0c8370f992dd74b6fddeec9bc4e7c2e729ccda9090f6e0d024da7f"
   },
   "assurance/code_states_a_bound_the_reader_never_sees.py": {
    "bytes": 10615,
@@ -530,6 +530,10 @@
   "assurance/seed_filter_is_disclosed.py": {
    "bytes": 5659,
    "sha256": "12929202dbdb59cc54ca9f39feb13301e0cc4dba2d5c5b8384d1e765d3334d1a"
+  },
+  "assurance/synthesis_cites_recent_work.py": {
+   "bytes": 4534,
+   "sha256": "cee1d042181f3803f1f045cccab69b3f018fdeb5a386679359d7fe6312512283"
   },
   "assurance/verdict_cites_its_own_contrasts.py": {
    "bytes": 11034,
