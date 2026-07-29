@@ -69,6 +69,42 @@ should would will shall have has had having there here now still yet even both e
 same other another one two three four five six seven eight nine ten""".split())
 
 
+# BOUNDED LENIENCY (not suppression).
+#
+# A check that can never pass gets ignored, and a check that silently drops its
+# awkward cases is worse. Each entry below is a flag I read and judged not to be
+# an omission, with the reason, keyed to a distinctive FRAGMENT of the verdict
+# sentence. If that sentence is ever edited the key stops matching and the flag
+# returns -- the exemption expires with the text it was granted for, so it cannot
+# outlive the judgement behind it.
+#
+# Two kinds appear here, and only these two are legitimate:
+#   NOT-A-LIMITATION  the regex caught a "does not"/"cannot" inside ordinary
+#                     reasoning or a strength claim
+#   PARAPHRASED       the row carries the qualifier in different words, which a
+#                     lexical proxy cannot see. This is the instrument's own
+#                     stated blind spot, so it must not also be a failure.
+REVIEWED = {
+    ("r27", "essentially does not happen"):
+        "NOT-A-LIMITATION: this is the round's finding, not a bound on it.",
+    ("r48", "established HERE from the data, not read from the card"):
+        "NOT-A-LIMITATION: a provenance strength claim -- the count was measured, not quoted.",
+    ("r54", "shifts every prompt equally would correlate with nothing"):
+        "PARAPHRASED: the row says 'a uniform contribution is not ruled out', which is this "
+        "sentence's exact point with no shared vocabulary.",
+    ("r55", "cannot explain r12"):
+        "PARAPHRASED: the row leads with 'no, equivalently so' and closes r54's escape; the "
+        "row for r54 carries 'the mechanism is real and does not explain it' verbatim.",
+}
+
+
+def reviewed_reason(rid: str, sentence: str) -> str | None:
+    for (r, frag), why in REVIEWED.items():
+        if r == rid and frag.lower() in sentence.lower():
+            return why
+    return None
+
+
 def content_words(s: str) -> set[str]:
     return {w for w in re.findall(r"[a-z][a-z_]{3,}", s.lower()) if w not in STOP}
 
@@ -124,7 +160,7 @@ def main() -> int:
     print("  An uncheckable row is hand-written prose with nothing in the artifact to")
     print("  compare it against. That is not a pass; it is the absence of an instrument.\n")
 
-    flagged, n_limits = [], 0
+    flagged, reviewed, n_limits = [], [], 0
     for rid in both:
         row_words = content_words(rows[rid])
         for s in sentences(verdicts[rid]):
@@ -134,18 +170,35 @@ def main() -> int:
             sw = content_words(s)
             if not sw:
                 continue
-            overlap = sw & row_words
-            if len(overlap) < a.min_overlap:
-                flagged.append((rid, s, sorted(sw)[:8]))
+            if len(sw & row_words) >= a.min_overlap:
+                continue
+            why = reviewed_reason(rid, s)
+            (reviewed if why else flagged).append((rid, s, sorted(sw)[:8], why))
 
     print(f"limitation sentences found in verdicts: {n_limits}")
+
+    if reviewed:
+        print(f"\n{len(reviewed)} flagged and REVIEWED -- exemption keyed to the sentence text, so "
+              f"an edit re-flags it:")
+        for rid, s, _sw, why in reviewed:
+            print(f"  {rid}: {s[:104]}")
+            print(f"       {why}")
+    stale = [k for k in REVIEWED
+             if not any(k[0] == rid and k[1].lower() in s.lower()
+                        for rid, s, _sw, _w in reviewed)]
+    if stale:
+        print(f"\n  {len(stale)} exemption(s) match nothing any more -- the verdict changed and the")
+        print("  judgement behind them no longer applies. Remove or re-justify:")
+        for r, frag in stale:
+            print(f"    {r}: \"{frag}\"")
+
     if flagged:
-        print(f"\n{len(flagged)} carry NO lexical echo in their README row:\n")
-        for rid, s, sw in flagged:
+        print(f"\n{len(flagged)} carry NO lexical echo in their README row and are NOT reviewed:\n")
+        for rid, s, sw, _ in flagged:
             print(f"  {rid}: {s[:150]}")
             print(f"       distinctive words: {', '.join(sw)}\n")
     else:
-        print("\nEvery limitation sentence has some echo in its round's README row.")
+        print("\nEvery unreviewed limitation sentence has some echo in its round's README row.")
 
     print("  An echo is not preservation. A row that says \"largely established\" echoes")
     print("  \"not established\" and passes this check while inverting the claim -- the")
@@ -154,7 +207,7 @@ def main() -> int:
     floor = _floor(len(both), "the set of rounds with both a README row and a verdict")
     if floor:
         return floor
-    return 1 if flagged else 0
+    return 1 if (flagged or stale) else 0
 
 
 if __name__ == "__main__":
