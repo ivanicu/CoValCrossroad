@@ -125,5 +125,6 @@
  },
  "blocs_are_real": true,
  "regret_profile": 2.0699287465691016,
- "regret_random": 1.1016956933396649
+ "regret_random": 1.1016956933396649,
+ "frozen_line": "FROZEN LINE (queue item 2, see FROZEN.md): the bloc / minority / constituency reading of r16-r18 is FROZEN. The partition is a median split on a principal component carrying 0.541% of the singular mass and is not any nameable constituency -- gender (1.145) and country (1.198) both fail r16's own 1.267 bar, and 148 of 1,160 criterion raters (12.8%) have no demographics at all. Read the partition as a 'latent profile split', never as a bloc, minority or constituency. SCHEMA NOTE: this file has no verdict string, and its key `blocs_are_real` names the very claim the freeze withdraws. Read that key as 'the profile split behaved differently from random splits', which is what it measures."
 }

@@ -719,8 +719,20 @@ not** — 36 rounds share no status grammar, and a keyword checker on that would
 switched off. But the survey printed the leading tokens, and "A MINORITY BLOC SURVIVES" sat next to
 a queue that lists r28's ontology as frozen.
 
-**Fixed by a register rounds can read.** `covalx/frozen.py` holds the freeze text once; each
-affected round appends it to its own generated verdict. The finding about a round's own data is
+**Fixed by a register rounds can read, in two passes.** `covalx/frozen.py` holds the freeze text
+once; each affected round appends it to its own generated verdict. That fixes the DEFAULT output
+only — sweep rounds write one file per setting (r26 nine, r27 five, r28 four) and refreshing those
+means re-running each cell, which the metric-sweep freeze forbids. So
+`assurance/apply_freeze_status.py` stamps the register's text into every existing cell, by the same
+mechanism and for the same reason as `apply_outcome_scope.py`: the string lives once, in code, and
+the utility copies it.
+
+**And the stamper's own first version reported 20/20 while missing three rounds.** It looked only
+for a `verdict` field. r17 and r18 use `conclusion`; **r16 has neither — and has a key literally
+named `blocs_are_real`, putting the frozen claim in the schema rather than in prose.** "20/20" was
+coverage of what the stamper could see, not of the register it was given. All three shapes are now
+handled, and r16's file carries an explicit note that its key name asserts what the freeze
+withdraws. The finding about a round's own data is
 untouched and still correct — what is appended is the status of the **line** the finding belongs
 to. No conclusion string was hand-edited.
 
