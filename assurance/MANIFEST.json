@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T01:58:10.944593+00:00",
- "git": "69bda3b9cbbd5840f9f96e213f009e370d395efe",
+ "generated_utc": "2026-07-29T02:25:26.165966+00:00",
+ "git": "8a88f60a7adde48cc185cdd0c0c8d1c7ffe70db4",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -192,8 +192,8 @@
    "sha256": "a1ded7b2d7286e789dcd816f541deaa6af95103e7be665f7d4f17b46f5a0a80d"
   },
   "rounds/r41_criterion_support/run.py": {
-   "bytes": 32919,
-   "sha256": "1ba3b8863b2876b9e5a6f7f2f23667c371412774c3596a75b3dc83f5caef40c8"
+   "bytes": 40411,
+   "sha256": "da57b1c5ef78979f11d3773b8fd4d9eb108926099c9601965bfdc5476ee38bcc"
   },
   "rounds/r42_equivalence/run.py": {
    "bytes": 11330,
@@ -207,17 +207,21 @@
    "bytes": 18220,
    "sha256": "eb8889e79e150272bebe789f2186e7f4ff622be7838c08398c22ed5a3d9eee18"
   },
+  "rounds/r46_spread_replication/run.py": {
+   "bytes": 17677,
+   "sha256": "57f7f5ac8f4e01836a11f853691504945abc3a0851a8669747c13818b0ee0e59"
+  },
   "assurance/attack_no_withdrawn_framings.py": {
-   "bytes": 2291,
-   "sha256": "104a471b4e649d7e46fc60316d00b0e06238bc4bfbd8db2254e31a5d0a242f8c"
+   "bytes": 3739,
+   "sha256": "602ab0d8d3f40cc9b442840081012a3cdc07cd128ee6589e08a303732e94158f"
   },
   "assurance/manifest.py": {
    "bytes": 33279,
    "sha256": "d4347d7536815a440ea524990ea349e71daf3087b96b0df61ac33fc7ef6bfff5"
   },
   "assurance/no_withdrawn_framings.py": {
-   "bytes": 7036,
-   "sha256": "d0e17332c69a33153568a1f8473e291848f6d33fdbe052c9ad4f05c41d812616"
+   "bytes": 9030,
+   "sha256": "83e19f881cc0d0aea1deb6feac61355e719a79c4e15645e3004c4321aea4d5b5"
   },
   "assurance/readme_agrees_with_results.py": {
    "bytes": 5509,
@@ -1082,8 +1086,8 @@
    "sha256": "6d7ada498a759dced9c68500ec1bd565ad9629efab6022983bb7ee8fe6d1b36d"
   },
   "rounds/r41_criterion_support/results/r41_criterion_support.json": {
-   "bytes": 54809,
-   "sha256": "8916bde74e327ac1cc03f778686eb16a4a177475c1b8ae94e9962887f6502b3d"
+   "bytes": 75522,
+   "sha256": "e77b1008819afad6c3a14943d113391f71d21ad83dda9d9f151855416a45ed6f"
   },
   "rounds/r41_criterion_support/results/r41_satisfaction_phi_receipt.json": {
    "bytes": 114764,
@@ -1108,6 +1112,14 @@
   "rounds/r45_protocol_freeze/results/r45_frozen_frame.json": {
    "bytes": 345008,
    "sha256": "dc885e94ce44feb34f5c8c4ab79665dc24df129e990de5929e7c35e03874cd9f"
+  },
+  "rounds/r46_spread_replication/results/r46_fresh_generations.json": {
+   "bytes": 1106474,
+   "sha256": "f00bbf9dbd474dc3457351e2d2ea273c03a586b8c3399157e65b1be939d8771d"
+  },
+  "rounds/r46_spread_replication/results/r46_spread_replication.json": {
+   "bytes": 2258,
+   "sha256": "eb6bffc7108d78277b4da0812abb22c8a5f49665fbd222cea1575befee097895"
   }
  },
  "claims": [
