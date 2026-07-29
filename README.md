@@ -560,6 +560,27 @@ not simply break the instrument.
 This is the only **interventional** round in the project. Everything else is observational on a
 fixed release.
 
+**Does that channel explain r12?** It is the obvious candidate — own criteria were written by
+people looking at the original four responses, so they share vocabulary with them; donor criteria
+come from another prompt and share vocabulary with neither. On fresh responses the own-rubric
+overlap advantage should evaporate. [r54](rounds/r54_overlap_transfer) measures it:
+
+| criterion set × response set | mean containment |
+|---|---:|
+| own × original | 0.1482 |
+| own × fresh | 0.1158 |
+| donor × original | 0.0189 |
+| donor × fresh | 0.0213 |
+
+The advantage really does collapse, **+0.1294 → +0.0945** (drop +0.0349 [+0.0266, +0.0434]), and
+given r52's causal +0.2507 that collapse must depress own-rubric satisfaction on fresh responses.
+
+**But it does not explain r12.** The per-prompt collapse does not predict which prompts show the
+attribution drop: **corr = −0.0736 [−0.2059, +0.0612]**. ⚠ A zero correlation does **not** exclude
+a *uniform* contribution — a component shifting every prompt equally correlates with nothing while
+still moving the aggregate, and this design cannot see it. Separating that needs an intervention
+on overlap in the transfer setting, not an observation of it.
+
 **This gives r50's anchoring effect a live instrument explanation**: anchored criteria may
 transfer better because they are the ones the judge scores accurately. It does **not** establish
 that overlap-driven scoring is *wrong* — overlap and genuine satisfaction are correlated in the
@@ -957,6 +978,7 @@ not from estimation noise, so no further computation narrows it.
 | [r39](rounds/r39_feature_cache) | Cache representations, analyse nothing | one GPU pass, three lineages (qwen/phi/internlm), 2,000 responses. Load failures recorded as **environment claims**, not model properties |
 | [r40](rounds/r40_ood_map) | Is r12's inversion an OOD artifact? | **no — the sign runs the wrong way.** Nearest-neighbour distance correlates at **−0.125**, 2/3 lineages, same sign 3/3: the anomaly is **worst where fresh responses most resemble the released ones** |
 | [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **no.** Hull violation −0.1837 and rank instability +0.1993 die to the discriminating-power control; spread loss looked like it survived at +0.2309 but **failed to replicate** (r46). Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly |
+| [r54](rounds/r54_overlap_transfer) | Does the judge's overlap channel explain r12? | **the mechanism is real and does not explain it.** The own-vs-donor overlap advantage collapses from **+0.1294 to +0.0945** on fresh responses (drop +0.0349 [+0.0266, +0.0434]) — but it does not predict *which* prompts drop: corr **−0.0736 [−0.2059, +0.0612]**. A uniform contribution is **not** ruled out |
 | [r53](rounds/r53_join_audit) | Is the rubric↔prompt join every round rests on correct? | **yes, and the cutoff is not what defines the population.** Both fuzzy pairs are the same prompt up to a typo (0.9896, 0.9903). The 18 unmatched rubrics have median best-similarity **0.7727** to *any* released prompt — absent from the comparison file, not narrowly missed. Analysed set: **968 of 1,078 (89.8%)** |
 | [r52](rounds/r52_overlap_intervention) | Does overlap *cause* the judge's score to move? | **yes.** Appending six distinctive tokens from response A rather than B moves the A-vs-B satisfaction gap by **+0.2507 [+0.2300, +0.2714]** for the *same* criterion; unrelated-token null **−0.0045**, spanning zero. The project's only interventional round. ⚠ bounds overlap-sensitivity on *perturbed* text |
 | [r51](rounds/r51_judge_lexical) | What is the satisfaction judge actually using? | **it tracks lexical overlap.** Within a fixed (prompt, criterion), satisfaction across the four responses correlates with word overlap at **+0.2068** against a permutation null of −0.0034; **+0.1886** with response length partialled out. Gives r50's anchoring effect a live instrument explanation. ⚠ NOT shown to be error — overlap and real satisfaction covary, and the release has no satisfaction ground truth |

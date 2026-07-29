@@ -1,0 +1,52 @@
+{
+ "prompts": 250,
+ "containment": {
+  "own_x_original": [
+   0.14824614565073158,
+   0.139563153755304,
+   0.15713000954613307
+  ],
+  "own_x_fresh": [
+   0.11576311843936651,
+   0.107486938402352,
+   0.12438780150527755
+  ],
+  "donor_x_original": [
+   0.01889072948322174,
+   0.01683912318652208,
+   0.021021271404464126
+  ],
+  "donor_x_fresh": [
+   0.021301065723492194,
+   0.0188805078778792,
+   0.02382109533950526
+  ]
+ },
+ "advantage_original": [
+  0.1293554161675098,
+  0.12086796812320806,
+  0.1379759812225904
+ ],
+ "advantage_fresh": [
+  0.09446205271587431,
+  0.08622393059280975,
+  0.10270012767368224
+ ],
+ "collapse": [
+  0.03489336345163551,
+  0.026647360861971208,
+  0.043394343806053136
+ ],
+ "collapse_sd": 0.06758180043632253,
+ "corr_collapse_with_drop": [
+  -0.07355130364979857,
+  -0.2059178513730709,
+  0.06120326504811463
+ ],
+ "n_corr": 250,
+ "mechanism_real": true,
+ "mechanism_explains_r12": false,
+ "verdict": "THE MECHANISM IS REAL AND DOES NOT EXPLAIN r12. Own criteria contain 0.1482 of their words in the original responses and 0.1158 in fresh ones, while donor criteria sit near 0.0189 on both -- so the own-rubric overlap advantage really does collapse, by +0.0349 [+0.0266,+0.0434]. Given r52's causal +0.2507, that collapse must depress own-rubric satisfaction on fresh responses. But it does NOT predict WHICH prompts show the attribution drop: corr = -0.0736 [-0.2059,+0.0612]. WHAT THIS DOES NOT RULE OUT: a UNIFORM contribution. The collapse varies across prompts with sd 0.0676; a component that shifts every prompt equally would correlate with nothing while still moving the aggregate, and this design cannot see it",
+ "outcome_variable_scope": "The overlap quantities are exact text statistics. The ATTRIBUTION they are correlated against is scored by the r08 model gold head, not by humans -- see entry 50 and r47 -- so that half of every correlation here is proxy-world.",
+ "scope": "A zero per-prompt correlation does not exclude a UNIFORM contribution: a component shifting every prompt's attribution equally correlates with nothing while still moving the aggregate. Separating that needs an intervention on overlap in the transfer setting, not an observation of it. Half of every correlation here is proxy-world (entry 50)."
+}
