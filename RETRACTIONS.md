@@ -5,7 +5,7 @@ it happened, with what did the killing.
 
 The rounds are numbered by when they ran, not by what survived. Read in that order
 the repository looks like a sequence of findings. It is not. **Eleven of these
-forty-two entries are a later round destroying an earlier round's conclusion, and in
+forty-seven entries are a later round destroying an earlier round's conclusion, and in
 all eleven both rounds are mine.** Nine more were found by outside challengers in
 roughly 45 minutes each, against twenty rounds of self-review that had already passed
 over every one of them.
@@ -168,6 +168,35 @@ wrong, and its point estimate being close is exactly what makes it dangerous.**
 Worth noting how it was found. No adversary this time — it came from asking one question of
 the repository's own artifacts: *is every committed result the full run its design specifies?*
 That check costs nothing and had never been run.
+
+---
+
+## Entries 43–47 — the framing itself, and four claims scoped to what was actually tested
+
+A second methodological review reframed the research object. The project had been asking *what
+fraction of a rubric's accuracy is values*; the object is really **a scoped, compiled,
+context-indexed normative measurement program** `M(R, J, π, Q, P)` whose layers do not preserve
+one invariant. Four claims and one framing were rescoped as a result.
+
+| # | The claim | What killed or scoped it | What survived |
+|---|---|---|---|
+| 43 | **"Less than half of a values evaluation measures values"** — the framing this project was named for | The contrast is `own-rubric performance − SELECTED reference-rubric performance`. It is not `values − non-values`. Whatever an unrelated prompt's rubric recovers is itself made of accuracy, clarity, caution, non-deception, relevance, proportionality — **norms, not the absence of them** | The subtraction, under its real name: **source specificity**, or incremental prompt-conditioned information. Every number stands; the name never did. The framing is retired, not corrected |
+| 44 | **"Not same-sample leakage"** (C16) | It excludes the *individual* loop only. **Every participant saw the same four-response menu**, so `menu → shared salience → Sᵢ` produces directions that agree across raters *and* are still menu-constructed. Cross-rater agreement is evidence against individual circularity and **is not evidence for a pre-existing norm** | *Not primarily same-**rater** circularity* — which is what C33/C36 actually measured. Shared-menu endogeneity is untouched, and no split of these annotators can touch it |
+| 45 | **"Not a forced-choice artifact"** (C18) | Dropping low-consensus criteria **after collection** cannot simulate what a participant would have written had *"no general direction"* or *"depends on implementation"* been on the screen. Elicitation format changes the response it elicits, and that is not recoverable by filtering the responses it already produced | *Robust to **post-hoc** criterion abstention* — dropping 54% of criteria costs under one point. The real test needs the option **at elicitation time** |
+| 46 | **"Not population-conditional"** (C19) | **`p > 0.05` is not equivalence.** Six countries is silence about anything smaller than the design can see, and aggregate accuracy conceals criterion-level **sign reversals**, minority-only criteria, and groups choosing alike *for different reasons* | *No aggregate loss detected in the splits tested* — a non-rejection. Invariance needs an equivalence test against a declared margin and a criterion-level heterogeneity model, neither run |
+| 47 | **"r12's inversion is not an OOD artifact"** (C20) | The three metrics tested are **generic** — hidden-state geometry and likelihood. A fresh response can be close in embedding, style, length *and* likelihood while combining criterion satisfactions **no original candidate exhibited**. That is a normative-support shift and generic distance cannot see it | *Not explained by monotone degradation under the tested generic distances.* Silent on judge accuracy on fresh, proxy validity on fresh, and rubric-conditioned support — the last being the distance a rubric failure would actually live in |
+
+**The pattern, which is the same one as entries 36–40 one level up.** Each of these four was a
+measurement named for the *hypothesis it was aimed at* rather than the *contrast it computed*.
+"Not leakage" for a test of one leakage path. "Not a forced-choice artifact" for a filter applied
+afterwards. "Not population-conditional" for a non-rejection. "Not an OOD artifact" for three
+generic distances. **The numbers were right in every case. The nouns were the claims.**
+
+Also retired: describing CoVal-core as **laundering** polarity. It imputes intent. The accurate
+statement is that core **internalises polarity into rewritten criterion semantics while
+discarding most of the original rating and disagreement provenance** — an artifact-design
+consequence, not a deception. And the 76% figure is **not decomposed**: rewrite, merge, dedup,
+compatibility-selection and truncation are confounded inside it.
 
 **Why entry 31 is the most serious thing in this file.** Every other retraction is a
 statistical error — a wrong null, an unmatched pairing, a missing interval, a check that

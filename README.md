@@ -72,10 +72,18 @@ released ones.
 | Mahalanobis | −0.046, +0.043, +0.180 | 1/3 | **no** |
 | conditional ll gap | −0.014, −0.033, +0.005 | 0/3 | no |
 
-**The sign runs the wrong way for measurement failure.** The inversion *shrinks* as fresh
-responses move away from the original support and is worst on the ones that look most like the
-released candidates. If it were an artifact of judging out-of-distribution text it should have
-run the other way.
+**The sign runs the wrong way for the simplest measurement-failure story.** The discrepancy
+*shrinks* as fresh responses move away from the original support and is worst on the ones that
+look most like the released candidates.
+
+**⚠ The defensible statement is narrow: the discrepancy is not explained by monotone degradation
+under the three generic distance metrics tested.** It says nothing about whether the judge is
+still accurate on fresh responses, whether the preference proxy is still valid there, or whether
+the responses sit inside the rubric's own **criterion-satisfaction support** — which is the
+distance that actually matters. A fresh response can be close in embedding, style, length and
+likelihood while combining criterion satisfactions that no original candidate exhibited. Generic
+embedding distance cannot see that; **criterion-space support geometry can, and has not been
+run.**
 
 The effect is small (|r| ≈ 0.13) and this is a single axis, so it does **not** establish
 genuine transport failure — it removes the easiest alternative to it. Two consequences follow.
@@ -140,8 +148,15 @@ reporting `L(k) = A0 − Ak` rather than a single bias number.
 **One rung is significant and it is not the one that would matter.** A2 — moving to
 rater-disjoint folds — costs **+0.0026 [+0.0004, +0.0049]**, about **0.4%** of a 0.6465 base.
 Every other rung spans zero, including held-out **country** (+0.0007), which costs *less* than
-A2 does. So there is a detectable small-sample group-fitting effect and no individual
-circularity and no population dependence.
+A2 does.
+
+**⚠ Non-significance is not equivalence, and the earlier wording treated it as such.** The
+defensible claim is **no detected aggregate loss in the splits tested** — not "not
+population-conditional". `p > 0.05` on six countries is silence about anything smaller than this
+design can see, and an aggregate accuracy can conceal criterion-level **sign reversals**,
+minority-only criteria, and groups choosing alike *for different reasons*. Establishing
+population invariance needs an equivalence test against a pre-declared margin and a
+criterion-level heterogeneity model, neither of which has been run.
 
 ⚠ This corrects the first published version, which reported A2 as non-significant from a
 **2-seed** run whose interval was wider. The full 8-seed run is above.
@@ -236,9 +251,15 @@ posterior − forced   +0.0082 [+0.0042, +0.0121]   excludes zero
 *(10-seed full run.)*
 
 **Abstaining on 54% of the criteria costs nothing measurable.** And down-weighting contested
-criteria instead of forcing them to ±1 *improves* concordance. So the signal lives where
-raters agree, and the forced direction on the rest is not carrying it — **the forced-choice
-concern does not bite.**
+criteria instead of forcing them to ±1 *improves* concordance.
+
+**⚠ What this establishes is robustness to POST-HOC abstention, not the absence of a
+forced-choice effect.** Dropping low-consensus criteria after collection cannot simulate what a
+participant would have written had *"no general direction"*, *"depends on implementation"* or
+*"cannot judge without seeing a response"* been on the screen. Elicitation format changes the
+response it elicits; that is not recoverable by filtering the responses it already produced. The
+real test requires those options **at elicitation time** — which is the PRE arm of the
+outstanding human experiment.
 
 Read with r34, the polarity channel now looks like a genuine cross-rater direction: it
 survives rater-disjoint cross-fitting (92%), it concentrates in criteria with agreement, and
@@ -278,8 +299,22 @@ D_leakage     same     − crossfit    +0.0055 [+0.0025, +0.0085]    ← 9% of t
 *below* the direction-free arm — shuffled signs −0.018, donor-prompt signs −0.034 — so the
 sign channel is not a free parameter; the specific directions carry the signal.
 
-**So same-sample circularity is not the explanation.** The post-choice direction generalises
-across people, and "leakage" is the wrong word for the bulk of it.
+**So SAME-RATER circularity is not the explanation.** The post-choice direction generalises
+across people.
+
+**⚠ This does not exclude menu-induced construction, and the earlier wording implied it did.**
+What is ruled out is the individual loop — *this rater's own weight predicting this rater's own
+ranking*. What is untouched is the shared one: **every participant saw the same four-response
+menu**, so
+
+```
+menu  →  shared salience  →  Sᵢ
+```
+
+can produce directions that agree across people *and* are still constructed by the menu. Cross-rater
+agreement is evidence against individual circularity and **is not evidence for a pre-existing
+norm**. No split of these annotators can separate those, because none of them rated a criterion
+before seeing responses.
 
 **What this does not settle**, and cannot: *every* rater in this dataset saw the four
 candidates before rating the criteria. So the two remaining worlds — a **stable population
@@ -349,7 +384,12 @@ so its seed-vs-write-in comparison was genuinely a comparison of *text*. That na
 [entry 38](RETRACTIONS.md) withdrew: the polarity channel is closed for r13's specific number,
 and open for the released scoring rule.
 
-### What CoVal-core actually is
+### What CoVal-core actually is — a normative compiler
+
+*(The round's directory is named `r33_core_launders_polarity`. "Launders" imputes intent and is
+withdrawn as a description: the accurate statement is that **core internalises polarity into
+rewritten criterion semantics while discarding most of the original rating and disagreement
+provenance.** That is an artifact-design consequence, not a deception.)*
 
 The dataset card says core is built by a process that **"first rewrites all rubric items to
 have positive weight"** (`DATASET_CARD.md:74`). That makes core not a *subset* of full but a
@@ -418,15 +458,23 @@ it: the farthest-donor floor (~74% on Qwen, r19) was never run against phi, and 
 could not be loaded at all. Every cell also shares one 300-prompt panel, so the span is not
 a confidence statement about a population of judges.
 
-**What that means for the headline.** "Less than half of a values evaluation measures values"
-is not a finding about CoVal. The quantity is **unidentified without naming the floor donor,
-the judge family, and the sampling uncertainty** — and no published version of this number,
-including three of my own, named any of them.
+**⚠ The quantity was misnamed from the start, and the name is retired.** This contrast is
 
-**This is the headline's real scope.** "Less than half of a values evaluation measures values" is not
-a property of the dataset. It is a property of *(dataset, floor donor, judge family)*, and the last
-two — both of them analyst choices, neither reported in the source package — move the answer more
-than fivefold. A single figure here does not constrain anything unless it names both.
+```
+own-rubric predictive performance  −  SELECTED reference-rubric performance
+```
+
+It is **not** `values − non-values`. Whatever an unrelated prompt's rubric recovers is itself
+made of accuracy, clarity, caution, non-deception, relevance, proportionality — norms, not the
+absence of them. The correct name is **source specificity**, or incremental prompt-conditioned
+information. *"Less than half of a values evaluation measures values"* was never a licensed
+reading of this subtraction and is withdrawn as a framing, independently of the numbers, which
+stand.
+
+**This is the quantity's real scope.** Source specificity is not a property of the dataset. It
+is a property of *(dataset, floor donor, judge family)*, and the last two — both analyst choices,
+neither reported in the source package — move the answer more than fivefold. A single figure
+constrains nothing unless it names both.
 
 ⚠ `internlm2-chat-1.8b` could not be loaded at all (tokenizer parse error) and is reported as a
 **load failure, not a judge verdict**. A third family remains untested.
@@ -547,7 +595,7 @@ Each round is self-contained: its own question, runner, results and README.
 
 | [r32](rounds/r32_channel_decomposition) | Text or post-choice weights? | post-ranking **polarity nearly doubles** above-chance concordance (9.0 → 17.8 pts, +0.0876 [+0.0784,+0.0976]). Whether that is stable cross-rater value direction, preference construction, or **same-sample leakage is unidentified** — cross-fitting queued |
 
-| [r33](rounds/r33_core_launders_polarity) | What is CoVal-core? | **a transformation, not a subset.** Scored with *no ratings*, core reaches 0.6563 against full's 0.5899 — recovering ~76% of the post-choice polarity channel **in its sentences**. It ships with no weights, so nothing marks that |
+| [r33](rounds/r33_core_launders_polarity) | What is CoVal-core? | **a normative compiler, not a subset.** Scored with *no ratings*, core reaches 0.6563 against full's 0.5899 — it **internalises polarity into rewritten criterion text** while discarding rating and disagreement provenance. ⚠ the 76% figure is not decomposed: rewrite, merge, dedup, compatibility-selection and truncation are confounded |
 
 | [r34](rounds/r34_global_rater_crossfit) | Is the polarity signal leakage? | **no.** Global rater-disjoint 5-fold cross-fitting keeps **91%** of it: D_population +0.0576 [+0.0486,+0.0671] against a same-sample premium of only **+0.0055**. Both nulls fall below the direction-free arm |
 

@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-28T23:07:30.784904+00:00",
- "git": "c4609082af9c96873f32ba49fc174d90c1a81223",
+ "generated_utc": "2026-07-29T01:02:40.857841+00:00",
+ "git": "cb91458c748ad2a8b50dfcb7296ff9e9542a509f",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -192,8 +192,8 @@
    "sha256": "a1ded7b2d7286e789dcd816f541deaa6af95103e7be665f7d4f17b46f5a0a80d"
   },
   "assurance/manifest.py": {
-   "bytes": 31522,
-   "sha256": "31f4122b571a5506972f5d937b62947d4356715be6bb5f17598e14fa3f23859a"
+   "bytes": 33279,
+   "sha256": "d4347d7536815a440ea524990ea349e71daf3087b96b0df61ac33fc7ef6bfff5"
   },
   "assurance/readme_agrees_with_results.py": {
    "bytes": 5509,
@@ -1116,7 +1116,7 @@
   },
   {
    "id": "C16",
-   "statement": "The post-ranking criterion direction is NOT same-sample leakage. Weights estimated from raters who never contributed to the rankings being predicted (global 5-fold split by annotator, a person in exactly one fold) still beat the direction-free arm; the same-sample premium is under a fifth of what survives, and both nulls -- shuffled signs and donor-prompt signs -- fall BELOW the direction-free arm, so the sign channel is not a free parameter.",
+   "statement": "The post-ranking criterion direction is not PRIMARILY SAME-RATER circularity. Weights estimated from raters who never contributed to the rankings being predicted (global 5-fold split by annotator, a person in exactly one fold) still beat the direction-free arm, and both nulls -- shuffled signs and donor-prompt signs -- fall BELOW it, so the sign channel is not a free parameter. NOT ESTABLISHED: that the direction pre-exists the menu. Shared-menu endogeneity is untouched by any split of these annotators, because none of them rated a criterion before seeing responses.",
    "source": "rounds/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
    "field": "estimands.D_population (crossfit_sign - attribute_only).delta",
    "value": 0.057649169432686984,
@@ -1138,7 +1138,7 @@
   },
   {
    "id": "C18",
-   "statement": "Concordance does not depend on forcing a direction where raters disagreed. Abstaining on every criterion whose raters split below 90 percent agreement -- which drops more than half of them -- changes cross-fitted accuracy by less than one point in either direction. Scope note that must travel with this: the elicitation scale runs -10..+10 and the value 0 appears exactly once in 102,147 ratings, so 'no general direction' is not representable in the source data and this claim is about the aggregate, not the instrument.",
+   "statement": "Concordance is ROBUST TO POST-HOC CRITERION ABSTENTION. Dropping every criterion whose raters split below 90 percent agreement -- more than half of them -- changes cross-fitted accuracy by less than one point in either direction. NOT ESTABLISHED: the absence of a forced-choice effect. The scale runs -10..+10 and 0 appears exactly once in 102,147 ratings, so 'no general direction' was never available to a participant; testing that requires the option AT ELICITATION TIME, not a filter afterwards.",
    "source": "rounds/r35_polarity_abstention/results/r35_polarity_abstention.json",
    "field": "abs_confident_minus_forced",
    "value": 0.0016944187536397895,
@@ -1149,7 +1149,7 @@
   },
   {
    "id": "C19",
-   "statement": "The direction is not population-conditional at the resolution this release permits. Weights estimated entirely outside a held-out COUNTRY predict that country's raters about as well as weights including them. Six countries with at least 40 raters. NOT established: response-blind weights, which no rater in this dataset could supply -- every one saw four candidates before rating.",
+   "statement": "NO AGGREGATE LOSS WAS DETECTED in the population splits tested. Weights estimated entirely outside a held-out COUNTRY predict that country's raters about as well as weights including them, across six countries with at least 40 raters. NOT ESTABLISHED: population invariance. This is a non-rejection, not an equivalence result, and aggregate accuracy can hide criterion sign reversals and minority-only criteria. Also not established: response-blind weights, which no rater in this dataset could supply.",
    "source": "rounds/r37_leakage_topology/results/r37_leakage_topology.json",
    "field": "levels.A3_held_out_country.L",
    "value": 0.0007236586445763022,
@@ -1160,7 +1160,7 @@
   },
   {
    "id": "C20",
-   "statement": "r12's inversion is NOT concentrated in out-of-distribution responses. Across three unrelated pretraining lineages the nearest-neighbour distance between fresh and released responses correlates NEGATIVELY with the per-prompt attribution drop: the anomaly is worst where fresh responses most RESEMBLE the released ones, which is the opposite of what a measurement artifact predicts. Small effect and one axis, so this removes the easiest explanation rather than establishing genuine transport failure.",
+   "statement": "r12's discrepancy is NOT EXPLAINED BY MONOTONE DEGRADATION under the three generic distance metrics tested. Across three unrelated pretraining lineages nearest-neighbour distance correlates NEGATIVELY with the per-prompt attribution drop. NOT ESTABLISHED: that the judge is accurate on fresh responses, that the preference proxy is valid there, or that the responses lie inside the rubric's own criterion-satisfaction support -- which is the distance a rubric-conditioned failure would live in, and which has not been measured.",
    "source": "rounds/r40_ood_map/results/r40_ood_map.json",
    "field": "cross_lineage.nearest_neighbour.mean_r",
    "value": -0.12542822934132145,

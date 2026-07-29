@@ -140,13 +140,20 @@ CLAIMS = [
     # an outsider can check them without re-deriving anything, which is the only
     # reason an assurance package exists.
 
+    # RESCOPED. The earlier statement said "NOT same-sample leakage", which reads
+    # as excluding menu-induced construction. It does not. Every participant saw
+    # the SAME four-response menu, so menu -> shared salience -> S_i can produce
+    # directions that agree across raters and are still constructed by the menu.
+    # Cross-rater agreement refutes the INDIVIDUAL loop only.
     ("C16",
-     "The post-ranking criterion direction is NOT same-sample leakage. Weights "
-     "estimated from raters who never contributed to the rankings being predicted "
-     "(global 5-fold split by annotator, a person in exactly one fold) still beat "
-     "the direction-free arm; the same-sample premium is under a fifth of what "
-     "survives, and both nulls -- shuffled signs and donor-prompt signs -- fall "
-     "BELOW the direction-free arm, so the sign channel is not a free parameter.",
+     "The post-ranking criterion direction is not PRIMARILY SAME-RATER "
+     "circularity. Weights estimated from raters who never contributed to the "
+     "rankings being predicted (global 5-fold split by annotator, a person in "
+     "exactly one fold) still beat the direction-free arm, and both nulls -- "
+     "shuffled signs and donor-prompt signs -- fall BELOW it, so the sign channel "
+     "is not a free parameter. NOT ESTABLISHED: that the direction pre-exists the "
+     "menu. Shared-menu endogeneity is untouched by any split of these annotators, "
+     "because none of them rated a criterion before seeing responses.",
      "rounds/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
      "estimands.D_population (crossfit_sign - attribute_only).delta", ">", 0.04),
 
@@ -157,34 +164,51 @@ CLAIMS = [
      "rounds/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
      "estimands.D_leakage (same_sign - crossfit_sign).delta", "<", 0.01),
 
+    # RESCOPED. "Does not depend on forcing a direction" overclaims: dropping
+    # low-consensus criteria AFTER collection cannot simulate what a participant
+    # would have written had a neutral option been on the screen. Elicitation
+    # format changes the response it elicits, and that is not recoverable by
+    # filtering the responses it already produced.
     ("C18",
-     "Concordance does not depend on forcing a direction where raters disagreed. "
-     "Abstaining on every criterion whose raters split below 90 percent agreement "
-     "-- which drops more than half of them -- changes cross-fitted accuracy by "
-     "less than one point in either direction. Scope note that must travel with "
-     "this: the elicitation scale runs -10..+10 and the value 0 appears exactly "
-     "once in 102,147 ratings, so 'no general direction' is not representable in "
-     "the source data and this claim is about the aggregate, not the instrument.",
+     "Concordance is ROBUST TO POST-HOC CRITERION ABSTENTION. Dropping every "
+     "criterion whose raters split below 90 percent agreement -- more than half of "
+     "them -- changes cross-fitted accuracy by less than one point in either "
+     "direction. NOT ESTABLISHED: the absence of a forced-choice effect. The scale "
+     "runs -10..+10 and 0 appears exactly once in 102,147 ratings, so 'no general "
+     "direction' was never available to a participant; testing that requires the "
+     "option AT ELICITATION TIME, not a filter afterwards.",
      "rounds/r35_polarity_abstention/results/r35_polarity_abstention.json",
      "abs_confident_minus_forced", "<", 0.01),
 
+    # RESCOPED. p > 0.05 is not equivalence. An aggregate accuracy can conceal
+    # criterion-level sign reversals, minority-only criteria, and groups choosing
+    # alike for different reasons. Establishing invariance needs an equivalence
+    # test against a declared margin plus a criterion-level heterogeneity model.
     ("C19",
-     "The direction is not population-conditional at the resolution this release "
-     "permits. Weights estimated entirely outside a held-out COUNTRY predict that "
-     "country's raters about as well as weights including them. Six countries with "
-     "at least 40 raters. NOT established: response-blind weights, which no rater "
-     "in this dataset could supply -- every one saw four candidates before rating.",
+     "NO AGGREGATE LOSS WAS DETECTED in the population splits tested. Weights "
+     "estimated entirely outside a held-out COUNTRY predict that country's raters "
+     "about as well as weights including them, across six countries with at least "
+     "40 raters. NOT ESTABLISHED: population invariance. This is a non-rejection, "
+     "not an equivalence result, and aggregate accuracy can hide criterion sign "
+     "reversals and minority-only criteria. Also not established: response-blind "
+     "weights, which no rater in this dataset could supply.",
      "rounds/r37_leakage_topology/results/r37_leakage_topology.json",
      "levels.A3_held_out_country.L", "<", 0.01),
 
+    # RESCOPED. The tested distances are GENERIC -- hidden-state geometry and
+    # likelihood. The distance that matters for a rubric is whether a fresh
+    # response sits inside the criterion-satisfaction support of the originals,
+    # and a response can be close in embedding, style, length and likelihood while
+    # combining criterion satisfactions no original candidate exhibited.
     ("C20",
-     "r12's inversion is NOT concentrated in out-of-distribution responses. Across "
-     "three unrelated pretraining lineages the nearest-neighbour distance between "
-     "fresh and released responses correlates NEGATIVELY with the per-prompt "
-     "attribution drop: the anomaly is worst where fresh responses most RESEMBLE "
-     "the released ones, which is the opposite of what a measurement artifact "
-     "predicts. Small effect and one axis, so this removes the easiest explanation "
-     "rather than establishing genuine transport failure.",
+     "r12's discrepancy is NOT EXPLAINED BY MONOTONE DEGRADATION under the three "
+     "generic distance metrics tested. Across three unrelated pretraining lineages "
+     "nearest-neighbour distance correlates NEGATIVELY with the per-prompt "
+     "attribution drop. NOT ESTABLISHED: that the judge is accurate on fresh "
+     "responses, that the preference proxy is valid there, or that the responses "
+     "lie inside the rubric's own criterion-satisfaction support -- which is the "
+     "distance a rubric-conditioned failure would live in, and which has not been "
+     "measured.",
      "rounds/r40_ood_map/results/r40_ood_map.json",
      "cross_lineage.nearest_neighbour.mean_r", "<", 0.0),
 

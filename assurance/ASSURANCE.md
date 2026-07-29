@@ -1,6 +1,6 @@
 # Assurance package
 
-generated 2026-07-28T23:07:30.784904+00:00 · git `c4609082af9c` · seed 20260727
+generated 2026-07-29T01:02:40.857841+00:00 · git `cb91458c748a` · seed 20260727
 
 ## Claims
 
@@ -11,11 +11,11 @@ generated 2026-07-28T23:07:30.784904+00:00 · git `c4609082af9c` · seed 2026072
 | C3 | **HOLDS** | 0.6387 | `~ 0.64` | Among defensible aggregation principles at k=4, out-of-sample predictive accuracy spans less than 3 percentage… |
 | C4 | **FAILS** | False | `== True` | WITHDRAWN. Whether pairwise rater agreement carries pair-specific structure beyond per-rater effects is UNRESO… |
 | C15 | **FAILS** | 0.2514 | `> 0.3879` | The multiplicative form should predict held-out dyads at least as well as the additive one, averaged over ten … |
-| C16 | **HOLDS** | 0.0576 | `> 0.04` | The post-ranking criterion direction is NOT same-sample leakage. Weights estimated from raters who never contr… |
+| C16 | **HOLDS** | 0.0576 | `> 0.04` | The post-ranking criterion direction is not PRIMARILY SAME-RATER circularity. Weights estimated from raters wh… |
 | C17 | **HOLDS** | 0.0055 | `< 0.01` | The same-sample premium is small in absolute terms: the gap between weights built from everyone and weights bu… |
-| C18 | **HOLDS** | 0.0017 | `< 0.01` | Concordance does not depend on forcing a direction where raters disagreed. Abstaining on every criterion whose… |
-| C19 | **HOLDS** | 0.0007 | `< 0.01` | The direction is not population-conditional at the resolution this release permits. Weights estimated entirely… |
-| C20 | **MARGINAL** | -0.1254 | `< 0.0` | r12's inversion is NOT concentrated in out-of-distribution responses. Across three unrelated pretraining linea… |
+| C18 | **HOLDS** | 0.0017 | `< 0.01` | Concordance is ROBUST TO POST-HOC CRITERION ABSTENTION. Dropping every criterion whose raters split below 90 p… |
+| C19 | **HOLDS** | 0.0007 | `< 0.01` | NO AGGREGATE LOSS WAS DETECTED in the population splits tested. Weights estimated entirely outside a held-out … |
+| C20 | **MARGINAL** | -0.1254 | `< 0.0` | r12's discrepancy is NOT EXPLAINED BY MONOTONE DEGRADATION under the three generic distance metrics tested. Ac… |
 | C5 | **HOLDS** | 4.0224 | `> 2.0` | Anthropomorphic style independently predicts human preference after controlling for the rubric score and respo… |
 | C14 | **HOLDS** | 0.0005 | `< 0.01` | Fewer than one percent of crowd-written CoVal-full criteria address anthropomorphic self-presentation, under a… |
 | C6 | **FAILS** | -0.0229 | `> 0.02` | PRE-REGISTERED AND REFUTED: optimizing selection against the rubric was predicted to raise lexical overlap wit… |
