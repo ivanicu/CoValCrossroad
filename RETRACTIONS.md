@@ -7610,3 +7610,47 @@ Every recent thread confirmed the package's numbers were sound. **This one found
 did not know about its own headline** — and it came from a quantity that existed inside the estimator
 all along and was discarded one line after being computed. **The audits established the numbers are
 right; this establishes one of them says more than was claimed.**
+
+---
+
+## Entry 215 — extending the calibration result to the two-arm contrast produces an artifact, and the control caught it before it was published
+
+Entry 214's NEXT proposed using r102's margin as a confidence filter on downstream claims. **The first
+attempt looked like a finding**: binning the own-vs-donor contrast by the own rubric's decision margin,
+attribution rises monotonically from **+0.0618 to +0.1753** — a 2.8× concentration of source specificity
+where the rubric is most confident.
+
+**It is a selection artifact, and the control reverses it.**
+
+| binning | Q1 | Q5 | direction |
+|---|---:|---:|---|
+| **own** margin | +0.0618 | **+0.1753** | rises 2.8× |
+| **donor** margin | +0.1534 | **+0.0909** | **falls** |
+| **mean of both** (neither arm privileged) | +0.0582 | +0.1430 | non-monotone: .058, .122, .112, .172, .143 |
+
+**The direction flips with the choice of conditioning arm.** r102 established that margin predicts
+correctness, so binning on an arm's margin *selects for that arm being right* by construction. The gap
+therefore widens when own is selected and narrows when donor is — and under the symmetric measure there
+is no clean trend at all.
+
+### Why r102 stands and this does not
+
+**r102 conditions one arm's correctness on that same arm's margin** — a calibration curve, where the
+selection *is* the question. **This conditions a DIFFERENCE between two arms on one of them**, which
+biases the difference in the direction of whichever arm was chosen. *The same operation is valid in the
+first case and invalid in the second, and nothing about the code changes between them.*
+
+**No claim is made from the neutral binning either.** Its pattern (.058 / .122 / .112 / .172 / .143) is
+non-monotone and this round does not fit a story to it — an unstructured sequence is what "no effect
+established" looks like, not a subtler effect.
+
+### What this cost and what it bought
+
+It cost one run of the naive version and one run of the control, in the same iteration. **It bought not
+publishing a 2.8× concentration effect that would have read as a real property of source specificity**
+— and it would have been quotable, memorable, and wrong.
+
+**The rule, stated generally because the next instance will not look like this one:** *conditioning a
+contrast on a quantity derived from one side of it is selection, not stratification.* A confidence
+signal that is valid for calibrating an estimator is not automatically valid for filtering a comparison
+that estimator participates in.
