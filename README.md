@@ -131,64 +131,41 @@ correlations with that spread are **+0.563** and **−0.597**. The geometry coll
 fact: **the rubric separates the fresh responses less than it separated the originals**
 (corr with the drop = −0.2246).
 
-**One criterion-space quantity does survive, and it was sitting in the control column.**
-`D_spread_loss` — how much *less* the prompt's own rubric separates the four fresh responses than
-it separated the originals — predicts the drop at **+0.2309** length-controlled (p = 0.0010), the
-largest effect in the round. It entered as a nuisance variable and was promoted to a measure only
-after it explained the others, so it is **exploratory**: the claim card preregistered *novelty*,
-and novelty is refuted.
+**One criterion-space quantity looked like it survived — and it did not replicate.**
+`D_spread_loss`, how much *less* the prompt's own rubric separates the fresh responses than it
+separated the originals, reached **+0.2309** length-controlled (p = 0.0010) on r12's 250 prompts:
+the largest effect in the round, orthogonal to embedding distance (−0.056), surviving a donor-arm
+control (+0.2693 while the donor alone gave −0.0351 ns), recovered independently by a second judge
+lineage (phi, +0.1724), and not attributable to the fresh responses being more homogeneous — they
+are measurably *less* alike (lexical self-similarity 0.083 vs 0.108) and *more* spread by the gold
+head (3.44 vs 2.00).
 
-It is not mechanical, and the donor arm is what shows that. A rubric that stops separating
-responses scores nearer chance — but the attribution *subtracts* a donor rubric on the same
-responses, so if both arms degraded together the difference would not move:
+It entered as a nuisance control and was promoted to a measure after it explained the others, so
+it was labelled **exploratory** and a numeric prediction was committed to git *before* testing it
+on prompts nothing in this project had touched.
 
-| | |
-|---|---:|
-| corr(own spread loss, donor spread loss) | +0.4509 |
-| **donor** spread loss → drop | −0.0351 (p = 0.59) |
-| **own** spread loss → drop, donor partialled out | **+0.2693 [+0.154, +0.380]** (p = 0.0002) |
+**[r46](rounds/r46_spread_replication) tested it on 250 held-out prompts and it is gone:**
 
-Only the own-rubric arm predicts it. So r12's discrepancy concentrates where the **prompt-specific
-criteria stop discriminating** among responses they were not written for, while an unrelated
-rubric keeps working — which is a statement about the *scope* of the measurement program, and the
-first mechanism-bearing lead this project has for r12.
-
-Its correlation with generic embedding distance is **−0.056**, so r40 could not have seen it, and
-r40 cannot corroborate it either.
-
-**And the obvious reading of it is wrong.** "The rubric separates them less" has two
-explanations that say opposite things: either the fresh responses are more *alike* — a fact about
-my generator, not about CoVal — or they differ at least as much and the criteria are **blind to
-how**. Two rubric-independent measures of how varied each response set actually is settle it:
-
-| | original | fresh |
+| | r12's 250 (discovery) | 250 held out |
 |---|---:|---:|
-| lexical self-similarity | 0.1078 | **0.0828** (fresh *less* alike) |
-| gold-head spread | 2.0003 | **3.4398** (fresh *more* spread) |
+| spread loss → drop, length-controlled | +0.2309 [+0.107, +0.343] | **+0.0496 [−0.068, +0.169]** (ns) |
+| donor arm alone | −0.0351 (ns) | +0.0318 (ns) |
 
-The fresh responses are **more** heterogeneous on both. And neither predicts the drop — gold
-spread loss **−0.0145** (ns), lexical homogenisation **+0.0869** (ns) — while own spread loss
-controlling for both is **+0.2310** [+0.108, +0.343], unmoved from +0.2309. It correlates with
-gold spread loss at +0.051 and with lexical homogenisation at +0.016.
+Predicted range was [+0.12, +0.34]. The result is outside it and the interval includes zero, which
+is the declared **NOT REPLICATED** branch. Retraction entry 48 is downgraded to a single-sample
+artifact: **the effect was found by selection and does not generalise.**
 
-So the responses vary *more*, and the prompt's own criteria stop discriminating anyway. **The
-criteria are blind to the axis along which the new responses differ** — which is a statement
-about the rubric's scope, not about the generator.
+**What that costs, and what it does not.** Four separate checks agreed with the effect — donor
+control, second judge lineage, two rubric-independent heterogeneity measures — and all four ran on
+the *same 250 prompts*. Robustness to the instrument is not generalisation across samples, and
+stacking same-sample checks felt like accumulating evidence when it was not. That is the lesson,
+and it is worth more than the effect would have been.
 
-**It is not a property of one judge.** The effect is *measured by* a judge, so "is this qwen
-rather than the rubric?" is a live alternative — and an out-of-sample test over new prompts
-cannot answer it, because that holds the instrument fixed. phi-3.5-mini scoring the **same**
-prompts varies the instrument instead:
-
-| lineage | spread loss → drop (length-controlled) | donor arm alone |
-|---|---:|---:|
-| qwen3.5-2B | **+0.2309** [+0.107, +0.343] | −0.0351 (ns) |
-| phi-3.5-mini | **+0.1724** [+0.040, +0.295] | +0.0297 (p = 0.64) |
-
-Both recover it, both donor arms stay null — and the two lineages agree with **each other** only
-at **+0.4088**. These are substantially different measurements of the same quantity, which makes
-their agreement on the outcome stronger evidence than it would be if they tracked each other
-closely.
+**r12's phenomenon itself replicated cleanly**, which is the part that matters. On the held-out
+prompts the own-rubric advantage is **+0.0847** on the original candidates (r12: +0.102) and
+**−0.0716** on fresh ones (r12: −0.064). The inversion is real, independent of the specific
+prompts, and **still unexplained** — generic distance (r40), criterion-space novelty (r41) and
+now discriminating-power loss (r46) have each been ruled out.
 
 The round still earns its cost. Criterion space correlates with generic embedding distance at
 only **+0.25** and **+0.19** — roughly 5% shared variance — so this was a genuinely different
@@ -831,7 +808,8 @@ not from estimation noise, so no further computation narrows it.
 
 | [r39](rounds/r39_feature_cache) | Cache representations, analyse nothing | one GPU pass, three lineages (qwen/phi/internlm), 2,000 responses. Load failures recorded as **environment claims**, not model properties |
 | [r40](rounds/r40_ood_map) | Is r12's inversion an OOD artifact? | **no — the sign runs the wrong way.** Nearest-neighbour distance correlates at **−0.125**, 2/3 lineages, same sign 3/3: the anomaly is **worst where fresh responses most resemble the released ones** |
-| [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **not as novelty — as loss of discriminating power.** Hull violation −0.1837 and rank instability +0.1993 both die to the control; **spread loss survives at +0.2309** (+0.2693 with the donor arm partialled out, donor alone −0.0351 ns), orthogonal to embedding distance. **Exploratory** — the card preregistered novelty. Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly |
+| [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **no.** Hull violation −0.1837 and rank instability +0.1993 die to the discriminating-power control; spread loss looked like it survived at +0.2309 but **failed to replicate** (r46). Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly |
+| [r46](rounds/r46_spread_replication) | Does the spread-loss effect hold out of sample? | **no — prediction committed to git first, then falsified.** +0.0496 [−0.068, +0.169] on 250 untouched prompts against a predicted [+0.12, +0.34]. Controls passed, and **r12's inversion itself replicated**: +0.0847 original, −0.0716 fresh |
 | [r42](rounds/r42_equivalence) | Are the null claims equivalent, or just non-significant? | **equivalent at δ=0.01 — 0 of 21 contrasts inconclusive.** 4 are significant AND negligible. But only 7/21 hold at δ=0.005 and 4/21 at 0.0025, and **δ is stipulated, not measured** |
 | [r44](rounds/r44_compiler_lineage) | Which compiler step makes core beat full? | **polarity rewrite, +0.0733** — alone larger than the whole full→core total of +0.0662. Selection also beats a **size-matched random** choice by +0.0149, so item membership carries signal too. Reconstruction explains 83%; **C1–C5 are unobservable**, so this describes my pipeline, not OpenAI's |
 | [r45](rounds/r45_protocol_freeze) | What exactly do the humans rank? | 60 prompts, 4 equal cells, **540 responses hashed**, manifest `313044ea…`. r12's generation is unseeded, so this file is the only definition of the object H_fresh refers to |

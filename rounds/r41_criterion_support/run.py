@@ -710,6 +710,14 @@ def main() -> None:
         "per_prompt": {"pids": pids[:n], "drop": drop.tolist(),
                        "D_nn": D_nn.tolist(), "D_hull": D_hull.tolist(),
                        "D_rank": D_rank.tolist(),
+                       # The measure that survived every control was the one this
+                       # block did not save -- the seventh time in this repository
+                       # a round discarded a per-item array it already had. Anyone
+                       # wanting to stratify on it, or check the frozen human frame
+                       # against it, would have had to re-run the GPU pass.
+                       "D_spread_loss": D_spread_loss.tolist(),
+                       "D_spread_loss_donor": D_spread_loss_donor.tolist(),
+                       "gold_spread_loss": gold_spread_loss.tolist(),
                        "D_combo_0.5": D_combo[0.5].tolist(),
                        "generic_nn": generic.tolist()},
         "verdict": verdict,

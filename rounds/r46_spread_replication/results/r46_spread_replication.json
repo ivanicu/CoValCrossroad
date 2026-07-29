@@ -1,0 +1,73 @@
+{
+ "held_out_prompts": 250,
+ "offset": 250,
+ "overlap_with_r12": 0,
+ "prediction_committed_before_run": {
+  "spread_loss_len_controlled": {
+   "lo": 0.12,
+   "hi": 0.34,
+   "must_exclude_zero": true
+  },
+  "donor_arm_ns_below": 0.12,
+  "orthogonality_below": 0.15
+ },
+ "controls": {
+  "original_attribution": 0.08466666666666665,
+  "fresh_attribution": -0.07160000000000001,
+  "gold_spread_ratio": 1.665125860672157,
+  "positive_control_n": 250,
+  "positive_control_se": 0.01558466482725175,
+  "positive_control_powered": true,
+  "positive_control_status": "pass",
+  "positive_control_passed": true
+ },
+ "spread_loss_raw": {
+  "label": "spread_loss raw",
+  "n": 250,
+  "r": 0.04550948685255301,
+  "ci": [
+   -0.07215916786952263,
+   0.16286944871365372
+  ],
+  "excludes_zero": false,
+  "perm_p": 0.4798800299925019
+ },
+ "spread_loss_length_controlled": {
+  "label": "spread_loss | length",
+  "n": 250,
+  "r": 0.04959960605276834,
+  "ci": [
+   -0.06808960389397807,
+   0.16894255580733392
+  ],
+  "excludes_zero": false,
+  "perm_p": 0.43739065233691576
+ },
+ "spread_loss_length_and_donor_controlled": {
+  "label": "spread_loss | length + donor",
+  "n": 250,
+  "r": 0.03642164481152996,
+  "ci": [
+   -0.0820553836089521,
+   0.1487731772225907
+  ],
+  "excludes_zero": false,
+  "perm_p": 0.5628592851787053
+ },
+ "donor_spread_loss": {
+  "label": "donor_spread_loss",
+  "n": 250,
+  "r": 0.03178131632017171,
+  "ci": [
+   -0.09618727148791692,
+   0.1598081318912097
+  ],
+  "excludes_zero": false,
+  "perm_p": 0.6243439140214946
+ },
+ "replicated": false,
+ "in_predicted_range": false,
+ "donor_arm_null_as_predicted": true,
+ "verdict": "NOT REPLICATED. On 250 prompts this project had never touched, spread loss vs the drop is +0.0496 [-0.06808960389397807, 0.16894255580733392] -- the interval includes zero. Entry 48 is downgraded to a single-sample artifact: the effect was found by selection on r12's 250 prompts and does not hold out of sample",
+ "scope": "Proxy world only. The outcome is attribution against a model gold head and the spread is measured by the same judge whose off-distribution validity is the open question. A clean replication here shows the effect is real and stable in the proxy, NOT that it is about human preference -- that is H_fresh."
+}

@@ -268,7 +268,24 @@ difference would not move. Both arms had been persisted:
 
 They move together and only the own-rubric arm predicts the drop. Not mechanical.
 
-**Status: EXPLORATORY, and labelled so everywhere it appears** — in the generated
+**STATUS UPDATED 2026-07-28: NOT REPLICATED — downgraded to a single-sample artifact.**
+r46 committed a numeric prediction to git (`ecf3576`), then tested the effect on 250 prompts
+nothing in this project had touched. Predicted `r ∈ [+0.12, +0.34]` with the CI excluding zero;
+observed **+0.0496 [−0.068, +0.169]**, p = 0.44. That is the declared NOT REPLICATED branch.
+
+The controls passed, so this is a clean negative rather than a broken run — and **r12's own
+phenomenon replicated**: own-rubric advantage +0.0847 on the held-out originals (r12: +0.102) and
+−0.0716 on fresh (r12: −0.064).
+
+**What made it look solid.** Four checks agreed with it — the donor-arm control, a second judge
+lineage (phi, +0.1724), and two rubric-independent heterogeneity measures showing the fresh
+responses were *more* varied rather than less. **All four ran on the same 250 prompts.** Each
+varied the instrument, the control, or the alternative explanation; none varied the sample. I
+treated them as accumulating evidence, and they were four views of one correlation. **Robustness
+to the instrument is not generalisation across samples**, and nothing in the checklist said so.
+
+*Original status, kept for the record:*
+**EXPLORATORY, and labelled so everywhere it appears** — in the generated
 verdict, in the README, and in a post-hoc addendum appended to the claim card. The card
 preregistered *novelty*; novelty is refuted and this does not rescue it. A post-hoc
 measure with a good p-value and no stated provenance reads exactly like a prediction,
