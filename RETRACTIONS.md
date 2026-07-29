@@ -1051,6 +1051,36 @@ premise is that a corrected claim should be visible as corrected.
 made and not delivered somewhere. Six instances, each found by accident, in a project whose central
 finding is that **a measurement's scope must travel with its number.**
 
+---
+
+### "Unwatchable by construction" was wrong too — the seventh boundary I asserted and could test
+
+I closed this entry saying the prose surface is unwatchable. The reason given was real: README
+legitimately *discusses* withdrawn framings, so assertion cannot be told from mention. But there is
+a sound narrower population — **structural position.** A title, a subtitle, a header and a table
+cell assert by where they sit; body prose can be a mention.
+
+Measured before building anything:
+
+| document | headers/subtitle | table cells | body prose |
+|---|---:|---:|---:|
+| README.md | 0 | 0 | 3 |
+| FROZEN.md | 0 | 0 | 0 |
+| PREREGISTRATION.md | 0 | 0 | 0 |
+
+The three body hits are the withdrawal discussions. So the assertion positions are already clean and
+a check over them fires **zero false positives** while catching exactly what entry 65 records.
+`RETRACTIONS.md` is excluded: quoting withdrawn claims is its function, and 5 of its table cells do
+so deliberately.
+
+`retired_framing_in_assertion_positions.py` scans 256 such positions across three documents.
+Attacked, 3 vectors: entry 65's **exact subtitle** restored → fires and names `README.md:3
+(subtitle)`; a retired phrase in a section header → fires; the same phrase in body prose → **does
+not** fire, which is required, or the check would flag every withdrawal and be switched off.
+
+**It narrows the unwatchable surface; it does not close it.** A retired framing asserted in a full
+body sentence is still invisible, and the module says so on every clean run.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
