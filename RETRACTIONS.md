@@ -597,6 +597,10 @@ nothing is being correlated. r47's length residualisation and r55's equivalence 
 **2. Conclusions resting on an underpowered CORRELATION — much weaker than I reported.** r40,
 r41's criterion-space NN, r54 and r56's held-out value all have disattenuated intervals spanning
 from meaningfully negative to meaningfully positive. Calling these "ruled out" was wrong.
+**⚠ r56's interval is itself UNVERIFIED (entry 101):** its code was never committed, its bounds
+0.1592 and 0.2880 appear in no artifact, and [r66](rounds/r66_r56_reconstruction) could not
+recompute them. Its *conclusion* survives an independent method; the *interval quoted here* has
+no artifact behind it and should not be used as a measured quantity.
 
 **3. Conclusions that failed a PREREGISTERED replication — the magnitude dies, the effect may
 not.** Entry 48 and r56 both failed their declared intervals, which no amount of power correction
@@ -2443,6 +2447,46 @@ lives, and I found it only by listing the directory after r66 refused to run.
 **What this costs.** This project's answer to *"why should anyone believe you"* is that every number
 has an artifact and every artifact has code. **One round breaks that, and it is the one whose
 discipline I would have cited as proof.**
+
+## Entry 102 — r56's code is unrecoverable, so its interval is marked and the blind spot is closed
+
+Entry 101 found r56 has no code in the repository. Recovery first, marking second.
+
+**Unrecoverable, and the search settles it.** `git log --all -S"semantic_selectivity"` returns
+exactly one commit — my own, from entry 101. `git log --all -S"selectivity" -- 'rounds/**/*.py'`
+returns that plus r55's, which computes a **different** quantity (containment overlap, not judge
+satisfaction). The computation was never committed in any form, under any round.
+
+**So the marking.** RETRACTIONS entry 56 lists *"r41's criterion-space NN, r54 and r56's held-out
+value"* as conclusions resting on underpowered correlations. That use quotes r56's **interval**,
+which has no artifact behind it. Marked in place: *its conclusion survives an independent method; the
+interval quoted here does not, and should not be used as a measured quantity.* Registered so it
+cannot be quoted unqualified again.
+
+**Entry 56's other two uses of r56 are fine and stay unmarked** — they cite that it *failed its
+preregistered interval*, which is a statement about a comparison r66 independently reproduces the
+direction of. **The conclusion and the number have different evidential status and only one needed
+touching.**
+
+**And the blind spot is closed where it can be seen.** Every enumeration in this package starts from
+results files, so a round with no code and no results is invisible to all of them —
+`every_round_reaches_the_readme` is the only check that walks **directories**, so the report lives
+there:
+
+```
+round directories: 66   with a non-smoke result: 64
+⚠ 1 round(s) contain NO .py FILE: r56_semantic_selectivity
+⚠ 2 round(s) have no non-smoke result: r39_feature_cache, r56_semantic_selectivity
+```
+
+r39 is legitimate — it caches representations as `.npz` and analyses nothing, which its own README
+row says. r56 is not.
+
+**The general shape, worth naming once.** An instrument that enumerates from artifacts cannot see a
+missing artifact. Every check here starts from `results/**/*.json` because that is where the claims
+are — and the failure mode that produces is exactly **a claim with no artifact**, which is the one
+thing that enumeration is structurally blind to. It took auditing a stale round count in a headline
+to find it.
 
 ## The pattern
 

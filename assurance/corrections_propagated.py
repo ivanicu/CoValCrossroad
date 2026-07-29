@@ -67,6 +67,9 @@ CORRECTED = [
     # superseded state of knowledge without any individual sentence being false.
     # The pattern targets the specific unqualified framing, and its absence is
     # weaker evidence than for the others, which is why it says so here.
+    (r"r56'?s? (?:held-out )?(?:value|interval|result) (?:is|was|of) \+?0\.0198(?!.{0,200}UNVERIFIED)", 101,
+     "r56's numbers have no artifact and no committed code; r66 could not recompute them. Its "
+     "CONCLUSION survives an independent method, its INTERVAL does not"),
     (r"attributes\s*\n?\s*\+0\.0733 of it to the polarity rewrite \(r44\)\. Compatibility", 98,
      "the +0.0733 stage applies the crowd's RATING SIGN numerically (r44 run.py:112); it bounds "
      "from above what a text rewrite could achieve and does not measure one"),

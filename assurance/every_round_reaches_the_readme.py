@@ -68,8 +68,25 @@ def main() -> int:
         if d.name not in readme:
             missing.append((d.name, len(res)))
 
-    print(f"rounds with a non-smoke result: {with_results}")
+    # A round with NO CODE is invisible to every enumeration in this package,
+    # because all of them start from results files. r56 published a preregistered
+    # NOT REPLICATED whose run.py was never committed -- its numbers exist in a
+    # commit message and nowhere else, and r66 could not recompute them
+    # (entry 101). Reported here because this is the check that enumerates from
+    # DIRECTORIES rather than from results, so it is the only one that can see it.
+    codeless = [d.name for d in rounds if not list(d.glob("*.py"))]
+    resultless = [d.name for d in rounds
+                  if not [f for f in d.glob("results/**/*.json")
+                          if not PROVISIONAL.search(f.name) and "_smoke" not in str(f)]]
+
+    print(f"round directories: {len(rounds)}   with a non-smoke result: {with_results}")
     print(f"named in README.md: {with_results - len(missing)}")
+    if codeless:
+        print(f"\n⚠ {len(codeless)} round(s) contain NO .py FILE: {', '.join(codeless)}")
+        print("  A round with no code cannot be recomputed, and every other enumeration in")
+        print("  this package starts from results files, so nothing else can see it.")
+    if resultless:
+        print(f"⚠ {len(resultless)} round(s) have no non-smoke result: {', '.join(resultless)}")
     floor = _floor(with_results, "the set of rounds with a non-smoke result")
     if floor:
         return floor
