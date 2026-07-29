@@ -7654,3 +7654,53 @@ publishing a 2.8× concentration effect that would have read as a real property 
 contrast on a quantity derived from one side of it is selection, not stratification.* A confidence
 signal that is valid for calibrating an estimator is not automatically valid for filtering a comparison
 that estimator participates in.
+
+---
+
+## Entry 216 — source specificity is diluted by pairs humans disagree about, and adding that clause exposed a table I broke fifteen entries ago
+
+Entry 215 closed by asserting the release carries **no confidence measure independent of both arms**.
+**That was assuming an absence**, which is the error this project logs most often. **Human consensus is
+one** — the share of raters ordering a pair the same way, computed from rankings alone, touching neither
+rubric nor the judge.
+
+**r103.** Conditioned on it:
+
+| human consensus | n | own | donor | attribution |
+|---|---:|---:|---:|---:|
+| [0.5, 0.6) | 847 | 0.5325 | 0.5041 | **+0.0283** |
+| [0.7, 0.8) | 1,052 | 0.7310 | 0.5456 | +0.1854 |
+| [0.9, 1.0) | 1,471 | 0.8939 | 0.6479 | **+0.2461** [+0.2203, +0.2712] |
+
+**4 of 4 steps monotone, against +0.1738 pooled on the same population.** So the pooled figure averages
+over pairs whose human target is itself a coin flip, and **the figure describing comparisons humans
+actually agree on is roughly twice it.**
+
+**This is not entry 215's artifact.** That binned on a rubric's own decision margin, which selects for
+that rubric being right and flipped direction when the donor was used instead. **Consensus is symmetric
+between the arms**, and the donor arm is reported in every bin for exactly that reason.
+
+**The confound, written before the run and NOT resolved:** conditioning on consensus conditions on the
+**outcome's** reliability, and a noisy target attenuates every estimator toward chance — so a rising
+contrast is expected even at constant specificity. The over-chance ratio spans **2.95×** rather than
+staying constant, which is *not* what pure attenuation of a single effect gives, **but the round does
+not claim that settles it.** What is established: the pooled number is diluted. What is not: whether
+that is larger specificity or lighter attenuation.
+
+**And +0.1738 ≠ the headline's +0.1215** — majority-pairs, not rater-weighted pairs. Different
+population, stated in the row.
+
+### The clause could not be added, because entry 200 had broken the row
+
+Appending to the **R** layer row failed an assertion: **8 cells in a 6-column table.** Entry 200 wrote
+`|ΔK|` in prose — **absolute-value bars, which markdown reads as cell separators.** That row has been
+rendering with two extra columns for fifteen entries, and **no check caught it**: `readme_agrees_with_results`,
+`readme_row_carries_the_verdict` and the rest validate *content*, never *cell count*.
+
+**Repaired structurally** (rejoin the split cells with `\|`) rather than by string-matching, after two
+attempts to `.replace()` the literal failed — **the `Δ` did not survive the shell heredoc identically**,
+which is its own small lesson about matching on unicode passed through a shell.
+
+**And the verification needed fixing too:** `str.split("|")` still counts an escaped `\|`, so the
+repaired row *looks* broken to a naive check while rendering correctly. Counting **unescaped** pipes
+gives 6 for every layer row.
