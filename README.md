@@ -539,6 +539,27 @@ scoring it satisfied is correct.
 ⚠ Read the **signed** value. At four responses, two independent vectors give E|r| ≈ 0.50, so a
 bare magnitude here would repeat [entry 49](RETRACTIONS.md).
 
+**And the mechanism is causal, not just correlational.**
+[r52](rounds/r52_overlap_intervention) intervenes: take the *same* criterion, append six
+distinctive tokens from response A in one arm and from response B in the other, and read the
+judge's A-vs-B satisfaction gap. The appendage is the same kind of object in both arms, so its
+semantic effect cancels — only the *source* of the words differs.
+
+| | |
+|---|---:|
+| baseline gap `s(c,A) − s(c,B)` | +0.0234 [−0.0098, +0.0570] |
+| **intervention Δ** | **+0.2507 [+0.2300, +0.2714]** |
+| unrelated-token null | −0.0045 [−0.0181, +0.0094] |
+| absolute shift from appending unrelated tokens | A −0.0648, B −0.0603 |
+
+Six copied words move the gap by a quarter of the 0–1 scale. The unrelated-donor arm — equally
+rare tokens matching neither response — does nothing, so this is the **source** of the tokens and
+not the act of appending; and the absolute shifts are small and symmetric, so the perturbation did
+not simply break the instrument.
+
+This is the only **interventional** round in the project. Everything else is observational on a
+fixed release.
+
 **This gives r50's anchoring effect a live instrument explanation**: anchored criteria may
 transfer better because they are the ones the judge scores accurately. It does **not** establish
 that overlap-driven scoring is *wrong* — overlap and genuine satisfaction are correlated in the
@@ -936,6 +957,7 @@ not from estimation noise, so no further computation narrows it.
 | [r39](rounds/r39_feature_cache) | Cache representations, analyse nothing | one GPU pass, three lineages (qwen/phi/internlm), 2,000 responses. Load failures recorded as **environment claims**, not model properties |
 | [r40](rounds/r40_ood_map) | Is r12's inversion an OOD artifact? | **no — the sign runs the wrong way.** Nearest-neighbour distance correlates at **−0.125**, 2/3 lineages, same sign 3/3: the anomaly is **worst where fresh responses most resemble the released ones** |
 | [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **no.** Hull violation −0.1837 and rank instability +0.1993 die to the discriminating-power control; spread loss looked like it survived at +0.2309 but **failed to replicate** (r46). Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly |
+| [r52](rounds/r52_overlap_intervention) | Does overlap *cause* the judge's score to move? | **yes.** Appending six distinctive tokens from response A rather than B moves the A-vs-B satisfaction gap by **+0.2507 [+0.2300, +0.2714]** for the *same* criterion; unrelated-token null **−0.0045**, spanning zero. The project's only interventional round. ⚠ bounds overlap-sensitivity on *perturbed* text |
 | [r51](rounds/r51_judge_lexical) | What is the satisfaction judge actually using? | **it tracks lexical overlap.** Within a fixed (prompt, criterion), satisfaction across the four responses correlates with word overlap at **+0.2068** against a permutation null of −0.0034; **+0.1886** with response length partialled out. Gives r50's anchoring effect a live instrument explanation. ⚠ NOT shown to be error — overlap and real satisfaction covary, and the release has no satisfaction ground truth |
 | [r50](rounds/r50_response_anchoring) | Is the transfer carried by criteria ABOUT the four responses? | **a design exists; it does not attribute yet.** Anchored write-ins carry more direction than generic ones (**+0.0271 [+0.0134, +0.0405]**), but the pre-seeded control trends the same way (+0.0106) and the **excess spans zero** (+0.0141 [−0.0050, +0.0326]). Withdraws my "no design permits this" claim (entry 52); does not settle the channel |
 | [r49](rounds/r49_provenance_crossfit) | Does the direction transfer on criteria nobody else saw? | **yes, and better.** Size-matched, write-in criteria — one author, one rater — transfer at **+0.0777** vs **+0.0599** for the shared six; paired gap **+0.0172 [+0.0034, +0.0307]**. Control reproduces r34 (+0.0599 vs +0.0576); both shuffled-sign nulls strongly negative. Narrows shared-menu endogeneity to the RESPONSE channel |

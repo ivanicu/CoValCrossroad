@@ -1,0 +1,28 @@
+{
+ "prompts": 249,
+ "tokens_appended": 6,
+ "judge": "Qwen/Qwen3.5-2B-Base",
+ "batch": 32,
+ "baseline_gap": [
+  0.02335854368022527,
+  -0.009835140591292795,
+  0.0570269041638597
+ ],
+ "intervention_D": [
+  0.25072992389954357,
+  0.2300001913842457,
+  0.27135161134016034
+ ],
+ "unrelated_token_null": [
+  -0.004544226314318946,
+  -0.01814146985685131,
+  0.009380959221030993
+ ],
+ "absolute_shift_unrelated": {
+  "A": -0.0648015758142354,
+  "B": -0.06025734949991646
+ },
+ "verdict": "THE JUDGE READS OVERLAP, CAUSALLY. Appending six distinctive tokens from response A rather than from B moves the judge's A-vs-B satisfaction gap by +0.2507 [+0.2300,+0.2714] for the SAME criterion. The appendage is the same kind of object in both arms, so its semantic effect cancels; what differs is only which response donated the words. The unrelated-token null is -0.0045 [-0.01814146985685131, 0.009380959221030993], spanning zero, so this is the SOURCE of the tokens and not the act of appending. r51's +0.2068 correlation now has a demonstrated mechanism, and r50's anchoring effect has a concrete instrument explanation. BOUND, NOT EQUALITY: this shows overlap-sensitivity on PERTURBED text; natural high-overlap criteria are not perturbed and this does not measure the judge's behaviour on them",
+ "outcome_variable_scope": "Descriptive on the judge's own outputs under intervention. No human rankings and no preference proxy enter this round.",
+ "scope": "Interventional on the judge. Shows overlap-sensitivity on PERTURBED criterion text -- a criterion with a token list glued to it is not a natural criterion, so this BOUNDS the judge's overlap sensitivity rather than measuring its behaviour on naturally high-overlap criteria. Token rarity is a live alternative to token matching, addressed only partly by the unrelated-donor arm whose tokens are equally rare."
+}

@@ -458,6 +458,36 @@ participant-authored" does not establish "not response-derived."
 This one outran its evidence about *what could be measured*, which is a claim I have less standing
 to make than any other, because it is a claim about my own failure to think of something.
 
+## Entry 53 — not a retraction: the instrument was never characterised, and now it is
+
+This register holds claims that outran their evidence. This entry is the opposite shape and is
+recorded here because it changes the scope of nearly every other one.
+
+**What was never asked.** Every cross-rater result in this repository runs through one judge:
+*"does response r satisfy criterion c?"*. r04 validated it in aggregate against held-out human
+rankings — which establishes it predicts something, not what it reads. Across 51 rounds, nobody
+asked what it was using. The instrument had been fixed since r04 and had stopped looking like a
+choice, exactly as the gold head had (entry 50).
+
+**What it is using, in part.** r51 measured the correlation: within a fixed (prompt, criterion),
+satisfaction across the four responses tracks criterion↔response lexical overlap at **+0.2068**
+(null −0.0034, +0.1886 with length partialled out). r52 then **intervened** — appending six
+distinctive tokens from response A rather than B, to the *same* criterion, moves the A-vs-B
+satisfaction gap by **+0.2507 [+0.2300, +0.2714]**, with an unrelated-token null of −0.0045.
+
+**What this does and does not license.** It does not show the judge is *wrong*: overlap and
+genuine satisfaction covary in the world, and the release has no satisfaction ground truth. It
+does not measure behaviour on natural high-overlap criteria — the intervention perturbs the text,
+so it **bounds** overlap-sensitivity rather than measuring it in situ. What it does establish is
+that the satisfaction layer has a demonstrated surface-form channel of substantial size, and every
+claim in this repository that passes through that layer inherits the fact.
+
+**Why it belongs in this register.** Entries 49–52 are each a case of a quantity being trusted
+because nobody had asked what it was made of — the n=4 null, the gold head's length feature, the
+criterion population, the space of designs. This is the fifth, and the largest: the judge itself.
+The common failure is not over-claiming from evidence. It is **not noticing that a fixed part of
+the apparatus was ever a choice.**
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
