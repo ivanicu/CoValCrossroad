@@ -173,35 +173,62 @@ contradicts.
 **The question.** Everything in CoVal is observational. No contrast in it distinguishes
 *"this criterion explains the choice"* from *"this criterion co-occurs with what explains it"*.
 
-**Design.** For a prompt with rubric criteria c₁…c_K, generate **minimal pairs**: a response
-edited to change satisfaction of exactly one criterion, verified by (a) a judge panel of ≥2
-unrelated lineages agreeing the target criterion changed, and (b) agreeing the others did not.
-Participants choose between the pair.
+**Design — SYMMETRIC pairs, not base-vs-edited.** For a prompt with rubric criteria c₁…c_K and a
+base response R, generate **two** edits of the same base:
 
-**Primary outcome.** `τ_c` = change in choice probability per unit change in criterion `c`'s
-satisfaction, per criterion.
+| arm | construction |
+|---|---|
+| **R⁺** | edited to *satisfy* criterion c |
+| **R⁻** | edited to *violate* criterion c, matched to R⁺ in length and in lexical distance from R |
 
-**The manipulation check is the experiment.** If the edit moves other criteria too, τ_c is not
-identified, and pairs failing the check are **excluded before any outcome is examined** and their
-count reported. An unreported exclusion rate would turn a failed manipulation into a clean-looking
-effect.
+Participants choose between **R⁺ and R⁻**. The base R is never shown as an option.
 
-**⚠ And the check's instrument is known to respond to the edit itself (r51, r52).** The judges that
-verify *"the other criteria did not change"* score **lexical overlap, causally**: appending six
-distinctive tokens taken from response A rather than from B moves the A-vs-B satisfaction gap by
-**+0.2507** [+0.2300, +0.2714] **for the same criterion**, with an unrelated-token null of
-**−0.0045** [−0.0181, +0.0094] spanning zero — so the effect is *which response donated the words*,
-not the act of appending. A minimal-pair edit necessarily changes the text. The judge will therefore
-read *other* criteria as having moved whenever the wording moved, whether or not their satisfaction
-did.
+**Why symmetric, and not the obvious base-vs-edited pair.** Two reasons, and the first was nearly
+missed.
 
-**The consequence is a selection effect on the estimand, not just noise.** Check (b) will
-over-reject, and the pairs that survive are those achievable with the **least lexical change**. τ_c
-would then be estimated on the subset of criterion manipulations expressible without moving
-vocabulary — a scope this experiment must state in its headline, not discover afterwards. Committed
-now: **the lexical distance between each pair is recorded, the exclusion rate is reported against
-it, and τ_c is reported both overall and stratified by it.** A human adjudication sub-sample is
-required to bound how much of the exclusion is instrument rather than manipulation.
+1. **The manipulation check's instrument responds to editing itself.** r51/r52 show the judge scores
+   lexical overlap *causally*, so comparing an edited response against an unedited one makes every
+   criterion's judged satisfaction move — the check for *"the others did not change"* would be
+   reading the edit, not the criteria. Under symmetry the check becomes
+   `s(c_j, R⁺) − s(c_j, R⁻)` for each j ≠ c: both arms are **the same kind of object**, so whatever
+   effect editing has cancels in the difference. **This is exactly r52's own design logic** — *"the
+   appendage is the same KIND of object in both arms, so whatever effect gluing a token list onto a
+   criterion has cancels"* — turned on the check instead of on the judge.
+2. **Base-vs-edited also confounds the OUTCOME.** One response would be machine-edited and the other
+   not, so a participant could prefer the unedited one for fluency artifacts having nothing to do
+   with criterion c. Symmetry removes that confound outright rather than controlling for it.
+
+**Verification, in three layers, because no single one is sound alone.**
+
+- **Mechanical locality.** The diff between R⁺ and R⁻ must be confined to a bounded span, checked on
+  the text, not by a model. This is the only layer with no instrument in it.
+- **Differential judge check.** `|s(c_j, R⁺) − s(c_j, R⁻)|` below a pre-set threshold for every
+  j ≠ c, and *above* it for j = c. **Its own positive control:** a placebo pair edited on a criterion
+  *not* in the rubric must show the difference ≈ 0 for all rubric criteria — if it does not, the
+  check is reading the edit and the round reports UNVERIFIED rather than a τ.
+- **Human adjudication on a sub-sample**, to bound how much of the exclusion is instrument rather
+  than manipulation.
+
+**Primary outcome.** `τ_c` = P(choose R⁺) − ½, per criterion.
+
+**The manipulation check is the experiment.** Pairs failing verification are **excluded before any
+outcome is examined** and their count reported. An unreported exclusion rate would turn a failed
+manipulation into a clean-looking effect.
+
+**Symmetry removes the first-order edit effect, not every order of it.** The differential check
+cancels whatever editing does *in common* to both arms. What it cannot cancel is a systematic
+difference in the lexical character of a satisfy-edit versus a violate-edit — if satisfying criterion
+c reliably imports the criterion's own vocabulary and violating it does not, the difference
+`s(c_j, R⁺) − s(c_j, R⁻)` still moves for j ≠ c sharing that vocabulary. So, committed now:
+
+- **lexical distance from the base is recorded for both arms and reported with every τ**, and the
+  two arms' distances are matched by construction rather than checked afterwards
+- **the exclusion rate is reported against lexical distance**, so a reader can see whether surviving
+  pairs are the low-change ones
+- **τ_c is reported overall and stratified by lexical distance**; if the strata disagree, the
+  headline is the stratified result
+- **a human adjudication sub-sample** bounds how much exclusion is instrument rather than
+  manipulation
 
 **⚠ Expect small effects, and power for them (r59).** Leave-one-criterion-out on the judge's induced
 ranking flips the top choice for only **14.7%** [12.6%, 17.1%] of 991 criteria — **below** the

@@ -1811,6 +1811,44 @@ r43's group cells are INCONCLUSIVE at δ = 0.01**.
 All 29 numbers added here were checked against their artifacts before the commit: **r54 8/8, r55
 3/3, r59 5/5, r58 2/2 backed.** The preregistration now cites **29** rounds.
 
+## Entry 86 — Experiment 3 redesigned: the fix for its broken check was already in the project
+
+Entry 85 established that Experiment 3's manipulation check is performed by an instrument that
+responds causally to the edit it is checking. Naming a threat is not repairing one, and the repair
+turned out to be a design this project had already validated.
+
+**r52's stated principle, verbatim from its own docstring:** *"The appendage is the same KIND of
+object in both arms, so whatever effect gluing a token list onto a criterion has cancels in the
+difference. That symmetry is the design."* r52 used it to neutralise the overlap confound while
+measuring the judge. **Turn it on the check instead of the judge and the problem dissolves.**
+
+**Old design.** Base response `R` versus an edit `R'` that changes criterion `c`. Judge verifies the
+others did not move.
+
+**New design.** Two edits of the same base — `R⁺` satisfying `c`, `R⁻` violating it, matched in
+length and lexical distance from `R`. Participants choose between them; **`R` is never shown**. The
+check becomes `s(c_j, R⁺) − s(c_j, R⁻)`: both arms are the same kind of object, so the generic
+"the text was edited" response cancels.
+
+**And it removes a second confound the old design never mentioned.** Base-vs-edited puts a
+machine-edited response against an unedited one, so a participant can prefer the unedited one for
+fluency artifacts having nothing to do with criterion `c`. That is a confound in the **outcome**, not
+the check, and symmetry removes it outright rather than controlling for it. I did not notice it until
+the symmetric design made it visible — which is the argument for fixing a design rather than
+annotating it.
+
+**Verification is now three layers, because no single one is sound.** A **mechanical locality** check
+on the diff — the only layer with no instrument in it; the **differential judge check**, with its own
+positive control (a placebo pair edited on a criterion *not* in the rubric must show ≈0 difference on
+every rubric criterion, or the round reports **UNVERIFIED** rather than a τ); and **human
+adjudication on a sub-sample**.
+
+**What symmetry does not fix, stated rather than assumed.** It cancels what editing does *in common*
+to both arms. If satisfying `c` reliably imports `c`'s own vocabulary while violating it does not,
+a second-order difference survives for criteria sharing that vocabulary. So lexical distance is
+matched by construction, the exclusion rate is reported against it, and **τ_c is reported stratified
+by it — with the stratified result as the headline if the strata disagree**.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
