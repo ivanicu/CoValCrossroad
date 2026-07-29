@@ -658,6 +658,35 @@ that are not:
 Both are smaller than the ASSURANCE.md case. The point of recording them is that the assertion
 came first and the check came second, which is the habit this entry exists to break.
 
+## Entry 58 — a round answered a question the project later spent four rounds on, and nobody had ever mentioned it
+
+**How it was found.** Entry 57 closed the delivery gap for the *generated* package. My commit body
+conceded that hand-written surfaces "remain governed by review", which names a gap rather than
+closing it. The crisp checkable part: **a round that ran, produced a verdict, and appears nowhere
+in README.md is undelivered.** 55 rounds have a non-smoke result. One was invisible.
+
+**`r29_gold_ood`.** It asked whether the gold preference head is unstable off-distribution — the
+exact question r47, r54, r55 and entry 50 later circled — and answered it:
+
+> GOLD IS STABLE OFF-DISTRIBUTION: two independently-fitted heads agree about as well on generated
+> responses (0.590) as on released ones (0.543). **RELIABILITY only — the two heads share an
+> architecture and an embedding model, so a bias common to both is invisible here.**
+
+**The caveat was prescient and r47 is its answer.** Length is an *explicit feature* of the
+architecture both heads share, so both read it, and their agreement could never have revealed it.
+r29 named the blind spot; r47 measured what was in it, eighteen rounds later; **nothing connected
+them, because one end of the connection was not in the document.**
+
+**What that cost.** r47 was framed as opening a question about the proxy. It was partly *closing*
+one r29 had already posed and explicitly deferred. The project re-derived the question instead of
+inheriting it, and the register is where that should have been visible.
+
+**Two checks, two surfaces.** `scope_reaches_the_reader.py` guards the generated package, where a
+renderer can silently truncate. `every_round_reaches_the_readme.py` guards the hand-written
+surface, where the failure is plainer — a result nobody writes down. Both flag omission only, and
+both say so: named is not accurately summarised, and **nothing in this package checks a round's
+wording against its own verdict.** That gap is now stated rather than assumed away.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

@@ -115,6 +115,14 @@ vs 10.1–10.2), and gold's within-prompt correlation with length tracks that, o
 size — the excesses are only +0.104 and +0.192. An earlier version of this section quoted the
 bare magnitudes (entry 49).
 
+**A prescient caveat, filled in eighteen rounds later.** [r29](rounds/r29_gold_ood) had already
+asked whether the gold head is unstable off-distribution and found it is not: two independently
+fitted heads agree about as well on generated responses (0.590) as on released ones (0.543). It
+recorded its own limit — *"RELIABILITY only — the two heads share an architecture and an embedding
+model, so a bias common to both is invisible here."* r47 is that bias: **length is an explicit
+feature of the shared architecture**, so both heads read it and their agreement could never have
+revealed it. Two heads agreeing is not two instruments.
+
 **The proxy is sound where it can be checked — which is the wrong place.** Human rankings exist
 only for the original candidates, so:
 
@@ -999,6 +1007,7 @@ not from estimation noise, so no further computation narrows it.
 | [r57](rounds/r57_outcome_reliability) | Could those searches have found anything? | **only large effects.** The per-prompt attribution drop has split-half reliability **0.302 / 0.422** across two samples, so observed correlations are attenuated by ~0.55–0.65. At n=250 the smallest *true* correlation distinguishable from zero is **≈0.2** — every "no mechanism" result is bounded by that (entry 55) |
 | [r55](rounds/r55_overlap_selectivity) | …and can it move an *ordering*? | **no, equivalently so.** Own criteria are as selective about fresh responses (0.0776) as about the originals (0.0738); the own-minus-donor advantage goes +0.0518 → +0.0517, collapse **+0.0002 [−0.0056, +0.0059]**, equivalent to zero at δ=0.01. Closes r54's uniform-contribution escape |
 | [r54](rounds/r54_overlap_transfer) | Does the judge's overlap channel explain r12? | **the mechanism is real and does not explain it.** The own-vs-donor overlap advantage collapses from **+0.1294 to +0.0945** on fresh responses (drop +0.0349 [+0.0266, +0.0434]) — but it does not predict *which* prompts drop: corr **−0.0736 [−0.2059, +0.0612]**. A uniform contribution is **not** ruled out |
+| [r29](rounds/r29_gold_ood) | Is the gold head itself unstable on fresh responses? | **stable — but that is reliability, not validity.** Two independently-fitted heads agree about as well on generated responses (0.590) as on released ones (0.543). Its own caveat: *"a bias common to both is invisible here"* — and [r47](rounds/r47_gold_is_length) later found one (length is an explicit feature of the shared architecture) |
 | [r53](rounds/r53_join_audit) | Is the rubric↔prompt join every round rests on correct? | **yes, and the cutoff is not what defines the population.** Both fuzzy pairs are the same prompt up to a typo (0.9896, 0.9903). The 18 unmatched rubrics have median best-similarity **0.7727** to *any* released prompt — absent from the comparison file, not narrowly missed. Analysed set: **968 of 1,078 (89.8%)** |
 | [r52](rounds/r52_overlap_intervention) | Does overlap *cause* the judge's score to move? | **yes.** Appending six distinctive tokens from response A rather than B moves the A-vs-B satisfaction gap by **+0.2507 [+0.2300, +0.2714]** for the *same* criterion; unrelated-token null **−0.0045**, spanning zero. The project's only interventional round. ⚠ bounds overlap-sensitivity on *perturbed* text |
 | [r51](rounds/r51_judge_lexical) | What is the satisfaction judge actually using? | **it tracks lexical overlap.** Within a fixed (prompt, criterion), satisfaction across the four responses correlates with word overlap at **+0.2068** against a permutation null of −0.0034; **+0.1886** with response length partialled out. Gives r50's anchoring effect a live instrument explanation. ⚠ NOT shown to be error — overlap and real satisfaction covary, and the release has no satisfaction ground truth |
