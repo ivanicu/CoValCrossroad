@@ -521,6 +521,46 @@ pattern look more damning than the evidence supports. One borderline remains and
 round's own verdict: the closest unmatched record sits at 0.9364, which a 0.90 cutoff would admit
 and which nothing here proves is a different prompt.
 
+## Entry 55 — "every mechanism failed" was half a claim about the mechanisms and half about an instrument I never checked
+
+**What was said, repeatedly and to the user:** that r12's transfer failure "has defeated" generic
+distance (r40), criterion-space novelty (r41), spread loss (r46), the length channel (r47),
+lexical overlap (r54/r55) and semantic selectivity (r56) — and that this is "an argument for
+H_fresh, not for a seventh mechanism."
+
+**What was never checked.** Every one of those searched for a **per-prompt correlate** of the
+attribution drop. That drop is a difference of two pairwise accuracies, each over the 6
+comparisons among 4 responses, so each takes values in {0, ⅙, …, 1} and the difference inherits
+both quantisations. Nobody asked how much of its per-prompt variation is signal.
+
+**It is mostly not.** Split-half reliability (3 pairs vs 3, 200 random splits, Spearman-Brown to
+full length), on both independent samples:
+
+| | discovery | held out |
+|---|---:|---:|
+| reliability | **0.302** | **0.422** |
+| attenuation √rel | 0.549 | 0.649 |
+| a true 0.50 is observed at | 0.275 | 0.325 |
+| a true 0.30 is observed at | 0.165 | 0.195 |
+| smallest true r distinguishable from 0 at n=250 | **0.23** | **0.19** |
+
+**So the six nulls do not say what I said they say.** They show no mechanism with a *true*
+per-prompt correlation above roughly **0.2** explains r12. A moderate real mechanism — true
+correlation 0.15, 0.20 — would have been invisible to every single one of them, and I would have
+reported it as absent each time.
+
+**What this does NOT rescue.** The two mechanisms that failed to **replicate** — entry 48's spread
+loss and r56's semantic selectivity — failed against their own *preregistered* intervals. That is
+a different and stronger kind of failure than being underpowered, and low reliability does not
+undo it. Low reliability attenuates true effects; it does not manufacture a +0.23 on one sample
+and a +0.05 on another.
+
+**The class.** Entries 49–54 were each a fixed part of the apparatus that stopped looking like a
+choice. This is the same failure applied to a **conclusion drawn across rounds**: six nulls were
+aggregated into a claim about the world without anyone asking whether the shared outcome variable
+could have detected the thing being ruled out. The aggregate was weaker than any of its parts
+looked.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

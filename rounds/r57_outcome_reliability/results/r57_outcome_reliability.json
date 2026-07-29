@@ -1,0 +1,31 @@
+{
+ "samples": {
+  "r12 (discovery)": {
+   "n": 250,
+   "drop_mean": 0.166,
+   "drop_sd": 0.32642780382668246,
+   "split_half_r": 0.17755647002163602,
+   "spearman_brown": 0.30156765223900245,
+   "attenuation_factor": 0.5491517570207733,
+   "observed_if_true_0.50": 0.2745758785103867,
+   "observed_if_true_0.30": 0.164745527106232,
+   "ci_halfwidth_at_n": 0.12471181354325243,
+   "smallest_detectable_true_r": 0.22709899758826563
+  },
+  "r46 (held out)": {
+   "n": 250,
+   "drop_mean": 0.146,
+   "drop_sd": 0.35918982910618913,
+   "split_half_r": 0.26724868787631584,
+   "spearman_brown": 0.4217778095697653,
+   "attenuation_factor": 0.6494442313007063,
+   "observed_if_true_0.50": 0.32472211565035314,
+   "observed_if_true_0.30": 0.19483326939021187,
+   "ci_halfwidth_at_n": 0.12471181354325243,
+   "smallest_detectable_true_r": 0.19202851843564725
+  }
+ },
+ "verdict": "THE OUTCOME VARIABLE IS BARELY RELIABLE, AND THAT CAPS EVERY SEARCH BUILT ON IT. Split-half reliability of the per-prompt attribution drop is 0.302-0.422 at full length across two independent samples. Observed correlations are attenuated by sqrt(reliability) ~ 0.55-0.65, so a TRUE correlate of 0.30 shows up as roughly 0.17-0.20 and a true 0.50 as 0.28-0.33. At n=250 the smallest true correlation distinguishable from zero is about 0.23. CONSEQUENCE FOR THE SIX NULLS: r40, r41, r46, r47, r54, r55 and r56 did not show that no mechanism explains r12's per-prompt pattern. They showed that no mechanism with a TRUE per-prompt correlation above roughly 0.2 does. A moderate real mechanism would have been invisible to every one of them. NOT A RESCUE OF ANY PARTICULAR MECHANISM: the two that failed to REPLICATE (entry 48, r56) failed against their own preregistered intervals, which is a different and stronger kind of failure than being underpowered.",
+ "outcome_variable_scope": "The quantity whose reliability is measured is itself scored by the r08 model gold head (entry 50). This is the reliability of a proxy-world outcome.",
+ "scope": "Reliability is not validity -- a perfectly reliable measure can still measure the wrong thing. The 6 pairs come from 4 responses and carry transitivity constraints, so the halves are not strictly parallel and Spearman-Brown is an approximation. A DIFFERENCE of two accuracies is inherently less reliable than either."
+}
