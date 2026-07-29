@@ -1502,6 +1502,44 @@ than no anchor at all.
 **The manifest is untouched**: `313044ea…`, 60 prompts, 540 hashed responses. What was missing was
 provenance for the freeze, not integrity of the frozen payload.
 
+## Entry 78 — the world the claim card did not contain: the rubric flips LESS than its own permutation
+
+r59 asks what a criterion is worth to the judge's ranking: leave one out of the persisted r41 tensor
+and see whether the winner changes. No GPU — that tensor reproduced all 1,500 of r12's per-prompt
+values exactly, so the judge pass was already paid for.
+
+The claim card enumerated three worlds: **A** a minority of criteria decide it, **B** influence is
+spread, **C** influence just tracks discriminating power. **All three assume the real rubric flips
+at least as often as a permuted one.**
+
+| | top-1 flip rate |
+|---|---|
+| real rubric | **14.7%** [12.6%, 17.1%] |
+| within-prompt column permutation | **26.1%** |
+| shuffled arm (criteria from *other* prompts) | 14.9% |
+
+Paired difference **−0.1140 [−0.1483, −0.0797]**. The rubric is **more** robust to losing a
+criterion than a version of itself with each criterion's four values shuffled — a null that
+preserves every criterion's own spread exactly and destroys only its association with the responses.
+That is a fourth world, **D CONCORDANT**, and it was not on the card. Recorded as added-after, with
+its own flag in the artifact, rather than folded into B — which would have reported *"influence is
+diffuse"* for what is actually *"the criteria agree with each other."*
+
+**And the shuffled arm kills the interesting version of D.** At 14.9% against the real 14.7%, the
+concordance is **not** a product of CoVal-core's compatibility selection: criteria borrowed from
+*other prompts entirely* agree about these four responses just as strongly. So what the leave-one-out
+measures is the **generic normative backbone this project already documented from the other
+direction** — unrelated rubrics beating chance — arriving here as *robustness*, and it says nothing
+about whether the compiler's C5 selection is doing anything.
+
+**What it does not touch.** Judge-relative, equal-weight. The released scoring rule is not
+equal-weight, and this is **not τ_c** — the change in *human* preference under a criterion
+intervention, which no release data reaches.
+
+**The meta-separator earned its place.** The instruction is to ask whether a credible outcome would
+show the world-decomposition itself is wrong. Here one did, on the first run, and the honest move was
+to name the missing world rather than pick the nearest of three.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
