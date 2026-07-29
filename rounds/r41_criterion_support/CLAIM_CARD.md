@@ -153,3 +153,44 @@ could not have found it, and which is also why it cannot be checked against r40.
 Held-out prompts this analysis never saw, and ultimately **H_fresh** — whether the same
 concentration appears against *human* rankings of the frozen fresh responses rather than against
 a model proxy.
+
+---
+
+## Confirmations added after the addendum (2026-07-28, still pre-r46)
+
+Two checks that do **not** overlap with the out-of-sample test, because each varies something
+the out-of-sample test holds fixed.
+
+**1. Instrument independence.** r46 generalises across *prompts* with the judge held fixed, so it
+structurally cannot answer "is this a property of qwen?". phi-3.5-mini scoring the **same**
+prompts varies the instrument instead:
+
+| lineage | spread loss → drop (length-controlled) | donor arm |
+|---|---:|---:|
+| qwen3.5-2B | +0.2309 [+0.107, +0.343] | −0.0351 (ns) |
+| phi-3.5-mini | +0.1724 [+0.040, +0.295] | +0.0297 (p = 0.64) |
+
+Both recover it; both donor arms null. The two lineages agree with **each other** only at
++0.4088 — different measurements, same outcome.
+
+**2. What the collapse actually is.** "The rubric separates them less" had two readings that say
+opposite things — the fresh responses are more alike (a fact about my generator), or they differ
+at least as much and the criteria cannot see how (a fact about rubric scope). Two
+rubric-independent measures of response variety settle it:
+
+| | original | fresh |
+|---|---:|---:|
+| lexical self-similarity | 0.1078 | 0.0828 (**less** alike) |
+| gold-head spread | 2.0003 | 3.4398 (**more** spread) |
+
+The fresh responses are more heterogeneous on both, so the first reading is refuted by its own
+premise. Neither predicts the drop (−0.0145 ns; +0.0869 ns), and own spread loss controlling for
+both is **+0.2310 [+0.108, +0.343]** — unmoved. It correlates with gold spread loss at +0.051 and
+with lexical homogenisation at +0.016.
+
+**The surviving statement:** responses generated for the same prompt vary *more* than the four
+the criteria were written against, and the criteria stop separating them anyway — they are blind
+to the axis along which the new ones differ.
+
+Neither check makes this confirmatory. The measure is still post-hoc and still proxy-world;
+r46 tests generalisation to unseen prompts, and H_fresh is what would make it about people.
