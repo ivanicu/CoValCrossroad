@@ -199,10 +199,17 @@ def main() -> None:
         sig = bool(l95 > 0 or h95 < 0)
         v = ("EQUIVALENT at 0.01" if equiv else
              ("DISTINGUISHED" if sig else f"neither -- margin {max(abs(l90), abs(h90)):.4f}"))
-        rows[r] = {"delta": float(pt), "ci90": [float(l90), float(h90)],
+        # KEY NAMES ARE AN INTERFACE (entry 189). r58 harvests a contrast only when the
+        # node carries a key matching ^(ci|.*_ci|ci_.*|interval)$ -- so `ci95` and `ci90`
+        # are both invisible to it, which is why this round was absent from the census
+        # entirely while r06's six contrasts stayed UNVERIFIED. `ci` is the legible name,
+        # and `paired_differences` is the per-prompt vector r58's tost_vector resamples.
+        rows[r] = {"delta": float(pt), "ci": [float(l95), float(h95)],
+                   "ci90": [float(l90), float(h90)],
                    "ci95": [float(l95), float(h95)], "equivalent_at_delta": equiv,
                    "significant": sig, "verdict": v,
-                   "answerable_margin": float(max(abs(l90), abs(h90)))}
+                   "answerable_margin": float(max(abs(l90), abs(h90))),
+                   "paired_differences": [float(x) for x in diff]}
         print(f"  {r:<16} {pt:>+9.4f} {f'[{l90:+.4f},{h90:+.4f}]':>22} "
               f"{f'[{l95:+.4f},{h95:+.4f}]':>22}  {v}")
 

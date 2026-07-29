@@ -242,6 +242,45 @@ def main() -> None:
         rows.append({**{k: v for k, v in c.items() if k != "vector"},
                      "vector_stored": c["vector"] is not None, **r})
 
+    # ---- VERIFIED SUPERSESSION (entry 189) -------------------------------------
+    # A round can RESOLVE another round's contrast by replaying it and storing the
+    # vector the original discarded -- r97 does this for r06. Without a supersession
+    # relation the census carries both: the original still UNVERIFIED and the replay
+    # resolved, one estimand counted twice, and the UNVERIFIED total never moves no
+    # matter how many are actually settled.
+    #
+    # Supersession is VERIFIED, never declared: the superseding row must carry a vector
+    # AND its delta must match the superseded row's to DELTA_MATCH. A replay whose
+    # numbers differ is a different method (the r66 outcome) and supersedes nothing.
+    SUPERSEDES = {                      # (superseding round, superseded round): path map
+        ("r97", "r06"): lambda p: f"rules.{p.split('.')[-1]}.vs_no_compression"
+                                  if p.startswith("rules.") else None,
+    }
+    DELTA_MATCH = 1e-9
+    idx = {(r["round"], r["path"]): r for r in rows}
+    n_sup, n_refused = 0, 0
+    for (new, old), fn in SUPERSEDES.items():
+        for r in rows:
+            if r["round"] != new or not r["vector_stored"]:
+                continue
+            tgt = fn(r["path"])
+            victim = idx.get((old, tgt)) if tgt else None
+            if victim is None or victim.get("superseded_by"):
+                continue
+            if victim["delta_hat"] is None or abs(victim["delta_hat"] - r["delta_hat"]) > DELTA_MATCH:
+                n_refused += 1
+                victim["supersession_refused"] = (
+                    f"{new}.{r['path']} carries a vector but its delta "
+                    f"{r['delta_hat']:+.6f} does not match {old}.{tgt}'s "
+                    f"{victim['delta_hat']:+.6f}; a replay whose numbers differ is a "
+                    f"different method and supersedes nothing")
+                continue
+            victim["superseded_by"] = f"{new}.{r['path']}"
+            victim["cell"] = "SUPERSEDED"
+            n_sup += 1
+    print(f"supersession: {n_sup} row(s) superseded by a verified replay, {n_refused} refused "
+          f"on a delta mismatch")
+
     by_cell = {}
     for r in rows:
         by_cell.setdefault(r["cell"], []).append(r)

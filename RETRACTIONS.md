@@ -6413,3 +6413,57 @@ for r97's target and falls for my own two rounds**, and I could not tell the dif
 declared missing that was on disk), and now this. **Each time the NEXT named a fix before the mechanism
 was read.** The pattern is stable enough to state as a rule: *a NEXT that proposes a fix is a
 hypothesis about a mechanism, and hypotheses get checked before they get scheduled.*
+
+---
+
+## Entry 189 — key names are an interface, and a census with no supersession can never show progress
+
+Entry 188's NEXT was to classify r58's 33 UNVERIFIED into recoverable and structural. **Starting that
+found something upstream of the classification: r97 was not in the census at all.**
+
+**Because of a regex.** r58 harvests a contrast only from a node carrying a key matching
+`^(ci|.*_ci|ci_.*|interval)$`. **r97 stored `ci90` and `ci95` — neither matches.** So the round built
+specifically to resolve r06's UNVERIFIED contrasts was invisible to the census that counts them, and
+r06's six sat unverified beside a resolution that existed. **A key name is an interface, not a
+label**, and nothing warned about it because an absent contrast looks exactly like a contrast that was
+never computed.
+
+Fixed by emitting `ci` alongside, plus **`paired_differences`** — the per-prompt vector r58's
+`tost_vector` resamples, which r97 already computed as `RATE[r] − RATE[BASE]`.
+
+### That alone made it worse, which is why it was measured
+
+| | before | after legibility | after supersession |
+|---|---:|---:|---:|
+| contrasts | 164 | **170** | 170 |
+| with a stored vector | 56 | **62** | 62 |
+| **UNVERIFIED** | 33 | **33** | **27** |
+
+**Making r97 visible added six resolved contrasts and left r06's six unverified beside them** — one
+estimand counted twice, and the UNVERIFIED total unmoved. **r58 had no supersession relation**, so a
+round that resolves another round's contrast appears *alongside* it. **The census could never show
+progress on UNVERIFIED except by the original round storing its own vector**, which for a completed
+round is impossible by definition.
+
+### Supersession is verified, never declared
+
+A superseding row must carry a vector **and** its `delta_hat` must match the superseded row's to
+**1e-9**. *A replay whose numbers differ is a different method — the r66 outcome — and supersedes
+nothing.* Result: **6 superseded, 0 refused, UNVERIFIED 33 → 27.**
+
+### The attack that mattered was the second one
+
+**First attempt: a no-op.** I perturbed r97's stored `delta` field by +0.002 and supersession still
+reported 6/0. **The field is not read** — with `paired_differences` present, `delta_hat` comes from the
+vector's mean. **Exactly the failure entry 176 recorded**: a mutation that does not land produces a
+green result that means nothing, and I made it again while holding the rule.
+
+**Second attempt, against the vector:** mean +0.006694 → +0.008694 gives **5 superseded, 1 refused**,
+UNVERIFIED 28. Restored: 6/0, 27. **The verification can refuse.**
+
+**The rule needs its scope widened, since stating it once did not stop me repeating it:** an attack must
+mutate *the input the code actually reads*, and the way to know that is to trace the value, not the
+field name. `delta` and `delta_hat` were one keystroke apart and one of them was decorative.
+
+**Still open, and now smaller:** 27 UNVERIFIED, of which r87's 3 and r96's 3 are **structurally**
+unverifiable (pooled ratios, entry 188's addendum) and the rest are unclassified.

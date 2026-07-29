@@ -1,15 +1,16 @@
 {
  "delta": 0.01,
  "boot": 20000,
- "n_contrasts": 164,
+ "n_contrasts": 170,
  "n_in_r42": 21,
- "n_outside_r42": 143,
- "n_with_raw_vector": 56,
+ "n_outside_r42": 149,
+ "n_with_raw_vector": 62,
  "cells": {
-  "INCONCLUSIVE": 9,
-  "UNVERIFIED": 33,
-  "no material effect": 23,
-  "real and material": 86,
+  "INCONCLUSIVE": 10,
+  "SUPERSEDED": 6,
+  "UNVERIFIED": 27,
+  "no material effect": 24,
+  "real and material": 90,
   "real but negligible": 13
  },
  "inconclusive_outside_r42": [
@@ -93,14 +94,23 @@
     -0.014626146811597613,
     0.0416620178167309
    ]
+  },
+  {
+   "round": "r97",
+   "path": "rules.conflict_aware",
+   "delta_hat": -0.005820251926800041,
+   "ci95": [
+    -0.012136353911522044,
+    0.00034246303726758864
+   ]
   }
  ],
  "delta_sweep_n_equivalent": {
   "0.0025": 9,
   "0.005": 12,
-  "0.01": 36,
-  "0.02": 62,
-  "0.05": 99
+  "0.01": 37,
+  "0.02": 68,
+  "0.05": 105
  },
  "positive_control": {
   "known_equivalent": {
@@ -167,7 +177,8 @@
    "equivalent": null,
    "significant": true,
    "sound": true,
-   "cell": "UNVERIFIED"
+   "cell": "SUPERSEDED",
+   "superseded_by": "r97.rules.utility"
   },
   {
    "round": "r06",
@@ -185,7 +196,8 @@
    "equivalent": null,
    "significant": false,
    "sound": true,
-   "cell": "UNVERIFIED"
+   "cell": "SUPERSEDED",
+   "superseded_by": "r97.rules.majority"
   },
   {
    "round": "r06",
@@ -203,7 +215,8 @@
    "equivalent": null,
    "significant": true,
    "sound": true,
-   "cell": "UNVERIFIED"
+   "cell": "SUPERSEDED",
+   "superseded_by": "r97.rules.consensus"
   },
   {
    "round": "r06",
@@ -221,7 +234,8 @@
    "equivalent": null,
    "significant": true,
    "sound": true,
-   "cell": "UNVERIFIED"
+   "cell": "SUPERSEDED",
+   "superseded_by": "r97.rules.constituency"
   },
   {
    "round": "r06",
@@ -239,7 +253,8 @@
    "equivalent": null,
    "significant": false,
    "sound": true,
-   "cell": "UNVERIFIED"
+   "cell": "SUPERSEDED",
+   "superseded_by": "r97.rules.conflict_aware"
   },
   {
    "round": "r06",
@@ -257,7 +272,8 @@
    "equivalent": null,
    "significant": true,
    "sound": true,
-   "cell": "UNVERIFIED"
+   "cell": "SUPERSEDED",
+   "superseded_by": "r97.rules.random_k4"
   },
   {
    "round": "r11",
@@ -3364,8 +3380,146 @@
    "significant": true,
    "sound": true,
    "cell": "real and material"
+  },
+  {
+   "round": "r97",
+   "file": "rounds/r97_rule_tournament_tost/results/r97_rule_tournament_tost.json",
+   "path": "rules.utility",
+   "mean": 0.006694185525039242,
+   "ci95": [
+    0.0010875456234229947,
+    0.012332356725193016
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.006694185525039242,
+   "n": 945,
+   "ci90": [
+    0.0019723397464066514,
+    0.011403880327131815
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r97",
+   "file": "rounds/r97_rule_tournament_tost/results/r97_rule_tournament_tost.json",
+   "path": "rules.majority",
+   "mean": 0.004397713190208272,
+   "ci95": [
+    -0.0016829693987267245,
+    0.010595687680660304
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.004397713190208272,
+   "n": 945,
+   "ci90": [
+    -0.0006744601887342313,
+    0.009584641168520225
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r97",
+   "file": "rounds/r97_rule_tournament_tost/results/r97_rule_tournament_tost.json",
+   "path": "rules.consensus",
+   "mean": -0.011294184930254822,
+   "ci95": [
+    -0.01916702938202514,
+    -0.0035308596506795774
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.011294184930254822,
+   "n": 945,
+   "ci90": [
+    -0.017948240607898975,
+    -0.004749511304479383
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r97",
+   "file": "rounds/r97_rule_tournament_tost/results/r97_rule_tournament_tost.json",
+   "path": "rules.constituency",
+   "mean": 0.006983704746868534,
+   "ci95": [
+    0.0004810443280078474,
+    0.013533565964191476
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.006983704746868534,
+   "n": 945,
+   "ci90": [
+    0.0015009964641572063,
+    0.012484866250972003
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r97",
+   "file": "rounds/r97_rule_tournament_tost/results/r97_rule_tournament_tost.json",
+   "path": "rules.conflict_aware",
+   "mean": -0.005820251926800041,
+   "ci95": [
+    -0.012136353911522044,
+    0.00034246303726758864
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.005820251926800041,
+   "n": 945,
+   "ci90": [
+    -0.011086541757382953,
+    -0.0005776962991344853
+   ],
+   "equivalent": false,
+   "significant": false,
+   "sound": true,
+   "cell": "INCONCLUSIVE"
+  },
+  {
+   "round": "r97",
+   "file": "rounds/r97_rule_tournament_tost/results/r97_rule_tournament_tost.json",
+   "path": "rules.random_k4",
+   "mean": -0.011568916550721921,
+   "ci95": [
+    -0.018143004837392347,
+    -0.004926895271035324
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.011568916550721921,
+   "n": 945,
+   "ci90": [
+    -0.017081250923458132,
+    -0.006037018180685008
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
   }
  ],
  "scope": "delta=0.01 is STIPULATED, not measured. An equivalence verdict inherits the estimator of the round it came from. UNVERIFIED contrasts published no raw vector and are unresolved, not clean.",
- "verdict": "SCOPE, NOT SIGNIFICANCE: the package holds 164 interval contrasts and r42 tested 21 of them (13%), because its population was a hand-written list of four rounds rather than an enumeration. Classifying all 164 at delta=0.01: 86 real and material, 13 real but negligible, 23 no material effect, 9 INCONCLUSIVE, 33 UNVERIFIED. 9 of the inconclusive contrasts sit OUTSIDE r42's four rounds and so had never been equivalence-tested. UNVERIFIED means the round published a mean and a 95% CI but no raw paired vector, so the 90% CI required for TOST cannot be recovered -- that is an absence of evidence and is NOT folded into any pass. r42's own verdict is unchanged ON ITS OWN 21 CONTRASTS; what is corrected is the sentence that made it a claim about this package. delta=0.01 remains STIPULATED, and the sweep shows 36 contrasts equivalent at that margin versus 99 at 0.05 and 9 at 0.0025."
+ "verdict": "SCOPE, NOT SIGNIFICANCE: the package holds 170 interval contrasts and r42 tested 21 of them (12%), because its population was a hand-written list of four rounds rather than an enumeration. Classifying all 170 at delta=0.01: 90 real and material, 13 real but negligible, 24 no material effect, 10 INCONCLUSIVE, 27 UNVERIFIED. 10 of the inconclusive contrasts sit OUTSIDE r42's four rounds and so had never been equivalence-tested. UNVERIFIED means the round published a mean and a 95% CI but no raw paired vector, so the 90% CI required for TOST cannot be recovered -- that is an absence of evidence and is NOT folded into any pass. r42's own verdict is unchanged ON ITS OWN 21 CONTRASTS; what is corrected is the sentence that made it a claim about this package. delta=0.01 remains STIPULATED, and the sweep shows 37 contrasts equivalent at that margin versus 105 at 0.05 and 9 at 0.0025."
 }
