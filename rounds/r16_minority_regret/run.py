@@ -171,14 +171,30 @@ def main() -> None:
     pr = np.mean([out["profile"][nm]["regret"] for nm in names])
     rr = np.mean([out["random_blocs"][nm]["regret"] for nm in names])
     print(f"\n  mean regret, profile blocs = {pr:.3f}   random blocs = {rr:.3f}")
-    real = pr > rr * 1.15
-    print(f"  -> blocs are {'a real constituency' if real else 'INDISTINGUISHABLE from a random split -- no minority to protect'}")
+    # NAME AND WORDING CORRECTED (FROZEN.md section 3). What this compares is the
+    # PROFILE SPLIT's mean regret against a RANDOM split's, at a 1.15x bar. It
+    # does not establish a constituency: the partition is a median split on a
+    # principal component carrying 0.541% of the singular mass, and it matches no
+    # nameable group -- gender (1.145) and country (1.198) both fail this very
+    # bar. Calling the output "blocs_are_real" put the frozen claim in the schema,
+    # where no prose annotation could reach it.
+    exceeds = pr > rr * 1.15
+    print(f"  -> the profile split's regret {'EXCEEDS' if exceeds else 'does NOT exceed'} "
+          f"a random split's by the 1.15x bar"
+          f"{'' if exceeds else ' -- indistinguishable from an arbitrary partition'}")
 
     ca = out["profile"]["conflict_aware"]; co = out["profile"]["consensus"]
     ut = out["profile"]["utility"]
     print(f"\n  conflict_aware min-bloc {ca['min_bloc']:+.3f} vs consensus {co['min_bloc']:+.3f} "
           f"vs utility {ut['min_bloc']:+.3f}")
-    out["blocs_are_real"] = bool(real)
+    out["profile_regret_exceeds_random_by_1.15x"] = bool(exceeds)
+    out["schema_note"] = (
+        "This key was called `blocs_are_real` until 2026-07-28. The name asserted "
+        "the constituency reading that FROZEN.md section 3 withdraws, and a name is "
+        "not reachable by any prose annotation. What the boolean means is exactly "
+        "what it now says: the profile split's mean regret exceeds a random split's "
+        "by the 1.15x bar. Read the partition as a latent profile split, never as a "
+        "bloc, minority or constituency.")
     out["regret_profile"] = float(pr)
     out["regret_random"] = float(rr)
     Path(_RES).mkdir(parents=True, exist_ok=True)

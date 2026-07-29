@@ -829,6 +829,39 @@ visible subset. The fix — enumerate from the registry — has the same failure
 level against the level that authorises it, and to say where that chain stops: `FROZEN.md` is
 hand-maintained and nothing checks *it* against the queue.
 
+## Entry 61 — "unfixable without re-running a frozen round" was the sixth boundary I asserted and could have tested
+
+**The working rule, arrived at the hard way over five entries:** *when I say something cannot be
+checked, that claim is the next thing to check.* This entry is that rule applied to my own most
+recent ceiling.
+
+**What I said, twice:** that r16's key `blocs_are_real` "remains unfixable without re-running a
+frozen round", and later that it "stays unfixable… so the note is the honest ceiling."
+
+**Both wrong, for two independent reasons.**
+
+1. **The freeze is on the interpretation, not on execution.** Renaming a field so it stops
+   asserting the withdrawn claim *implements* the freeze; it does not extend the frozen line. I had
+   collapsed "this line is frozen" into "this round may not be touched."
+2. **The cost claim was never checked.** r16 is a **190-line CPU round** with no torch or CUDA, the
+   key was written in **exactly one place** and read **nowhere**. Ninety seconds of work sat behind
+   a ceiling I had recorded twice.
+
+**Done.** The key is now `profile_regret_exceeds_random_by_1.15x` — which is precisely what the
+boolean computes: the profile split's mean regret against a random split's, at a 1.15× bar. The
+round's console line no longer says "blocs are a real constituency". Numbers unchanged: regret
+**2.0699** profile vs **1.1017** random. A `schema_note` records the old name and why it went.
+
+**Why the schema mattered more than the prose.** Every annotation this session — freeze text,
+outcome scope, population note — is a *string in a field*. A misleading **field name** is
+unreachable by all of it: no stamper can annotate a key. That is why it survived the freeze, the
+stamping, the registry check and the registry-completeness check, and was visible only as a line in
+my own detection logic.
+
+**Sixth instance.** Truncation, `max()`, field-name, registry coverage, "a human comparison", and
+now this. Each was a place I declared the boundary of what could be verified, and each was one step
+short of where the boundary actually was.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

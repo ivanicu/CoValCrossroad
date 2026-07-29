@@ -67,11 +67,18 @@ def main() -> int:
                 # reader meets it, and name the schema problem where it applies
                 if doc.get("frozen_line"):
                     continue
+                # r16's key WAS `blocs_are_real`, which put the frozen claim in the
+                # schema where no prose annotation could reach it. I recorded that
+                # as an unfixable ceiling; it was not -- r16 is a 190-line CPU
+                # round, the key was written in one place and read nowhere, and
+                # renaming it IMPLEMENTS the freeze rather than extending the
+                # frozen line. Renamed and re-run; this detection is kept so an
+                # older artifact still gets the note.
                 doc["frozen_line"] = status + (
-                    " SCHEMA NOTE: this file has no verdict string, and its key "
-                    "`blocs_are_real` names the very claim the freeze withdraws. "
-                    "Read that key as 'the profile split behaved differently from "
-                    "random splits', which is what it measures."
+                    " SCHEMA NOTE: this file predates the 2026-07-28 rename and its key "
+                    "`blocs_are_real` asserts the claim the freeze withdraws. The current "
+                    "round writes `profile_regret_exceeds_random_by_1.15x`, which is what "
+                    "the boolean actually measures."
                     if "blocs_are_real" in doc else "")
             f.write_text(json.dumps(doc, indent=1))
             changed += 1
