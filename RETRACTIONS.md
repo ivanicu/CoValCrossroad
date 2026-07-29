@@ -6578,3 +6578,42 @@ round refuses to run if under half reproduce.
 90" includes rows whose point estimate is a permutation null. And it lands on top of entry 190's finding
 that "UNVERIFIED: 27" is not a backlog — **both of the census's headline numbers now carry a stated
 contamination.**
+
+---
+
+## Entry 192 — the 28 "resisting" rows were my inspector's blind spot; 22 were fine and 6 are a path-encoding collision
+
+Entry 191's NEXT said *"28 rows could not be reproduced by the re-walk at all, and why they resist is
+unexamined — that is a different defect from the 17."* **It framed them as an r58 defect. They were
+mine.**
+
+| what they actually were | n |
+|---|---:|
+| my walker did **dict lookups only**, so every path through a list (`…weight_specificity.[0]`) failed | 17 → fixed |
+| r58 stored **no mean** because the round names its estimate `own_minus_pooled`, which MEANISH doesn't match — **and r58 harvested it via its stored vector**, exactly as its rule allows (`ci is not None and (mean is not None or vec is not None)`) | 22 → **legitimate** |
+| **genuine**: r58's dotted path is ambiguous when a key contains a dot | **6** |
+
+**After both fixes: 164 of 170 rows accounted for, 6 unresolved.** The suspect count is **unchanged at
+17** — the finding of entry 191 stands untouched; only my accounting of the remainder was wrong.
+
+### The residual 6 are real, and they are r58's encoding meeting my key names
+
+r96's contrast path is `pairwise.phi-3.5-mini-instruct - qwen2.5-3b-instruct`. Split on `.` that
+becomes `['pairwise', 'phi-3', '5-mini-instruct - qwen2', '5-3b-instruct']`. **The separator appears
+inside the key**, because the judge names carry version dots. r58's path is not a resolvable address
+for any node whose key contains a dot — it is a display string that looks like one.
+
+**Both halves are mine**: r95 and r96 chose keys with dots, and r58 chose `.` as a separator without
+escaping. **Not fixed here** — it needs either an escaped path or a key list, and changing r58's path
+format would invalidate every stored row's `path` field, including the supersession map keyed on it.
+
+### What this corrects about how I read my own instrument
+
+I published "28 unresolved" beside "17 suspect" **in the same table**, which invited reading both as
+r58 defects. **22 of the 28 were r58 behaving correctly and my inspector not knowing its rules** — I
+re-implemented `walk()` from its shape and missed the vector clause, which is written plainly three
+lines below the part I copied.
+
+**The check that caught it was in the round already:** `unresolved` rows were reported with a *reason*
+rather than a count, and reading the reasons — `node not a dict`, 23 of them — was what exposed it.
+*A count of failures with no reason attached would have shipped this as a finding about someone else.*

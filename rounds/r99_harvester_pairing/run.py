@@ -69,10 +69,27 @@ NULLISH = re.compile(r"null|shuffl|permut|chance|placebo", re.I)
 
 
 def node_at(doc, path):
+    """Resolve r58's dotted path, INCLUDING list indices written as `[i]`.
+
+    The first version did dict lookups only, so every path through a list --
+    `axes.country.weight_specificity.[0]` and 22 others -- came back "node not a
+    dict" and was counted as resisting the re-walk. That was this inspector's gap,
+    not r58's defect, and reporting it as the latter would have been the wrong
+    object entirely.
+    """
     if path == "<root>":
         return doc
     n = doc
     for k in path.split("."):
+        if k.startswith("[") and k.endswith("]"):
+            try:
+                i = int(k[1:-1])
+            except ValueError:
+                return None
+            if not isinstance(n, list) or not (-len(n) <= i < len(n)):
+                return None
+            n = n[i]
+            continue
         if not isinstance(n, dict) or k not in n:
             return None
         n = n[k]
@@ -93,7 +110,7 @@ def main() -> None:
         raise SystemExit("REFUSING: r58's census is absent; this round inspects its harvest.")
     rows = json.load(open(R58))["contrasts"]
 
-    reproduced, unresolved, flagged = 0, [], []
+    reproduced, unresolved, flagged, vector_backed = 0, [], [], 0
     for r in rows:
         f = _ROOT / r["file"]
         if not f.exists():
@@ -112,8 +129,23 @@ def main() -> None:
         ck = [k for k in node if CIISH.match(k) and isinstance(node[k], list) and len(node[k]) == 2]
         picked_m = mk[0] if mk else None
         picked_c = ck[0] if ck else None
+        # VECTOR-BACKED ROWS ARE LEGITIMATE, not unresolved. r58 emits a contrast when
+        # `ci is not None and (mean is not None or vec is not None)`, so a node naming
+        # its estimate something MEANISH does not match -- r43's `own_minus_pooled` --
+        # is still harvested, with mean None, and TOSTed from its stored vector. The
+        # first version of this round counted all 22 such rows as "resisting the
+        # re-walk", which read as an r58 defect and was this inspector's blind spot.
+        vec_backed = isinstance(node.get("paired_differences"), list)
+        if r["mean"] is None:
+            if vec_backed:
+                reproduced += 1
+                vector_backed += 1
+            else:
+                unresolved.append({**{k: r[k] for k in ("round", "path")},
+                                   "why": "r58 stored no mean and the node carries no vector"})
+            continue
         # POSITIVE CONTROL: did we recover the value r58 recorded?
-        if picked_m is None or r["mean"] is None or abs(node[picked_m] - r["mean"]) > 1e-12:
+        if picked_m is None or abs(node[picked_m] - r["mean"]) > 1e-12:
             unresolved.append({**{k: r[k] for k in ("round", "path")},
                                "why": "re-walk did not reproduce r58's stored mean"})
             continue
@@ -137,7 +169,8 @@ def main() -> None:
                             "picked_mean": picked_m, "picked_ci": picked_c,
                             "mean_candidates": mk, "ci_candidates": ck, "why": why})
 
-    print(f"rows {len(rows)}   re-walk reproduced r58's mean for {reproduced}   "
+    print(f"rows {len(rows)}   accounted for {reproduced} "
+          f"({vector_backed} vector-backed, mean legitimately absent)   "
           f"unresolved {len(unresolved)}")
     if reproduced < 0.5 * len(rows):
         raise SystemExit("REFUSING: the re-walk reproduced fewer than half of r58's stored means, so "
@@ -185,6 +218,7 @@ def main() -> None:
 
     doc = {
         "rows_in_census": len(rows), "reproduced": reproduced,
+        "vector_backed_no_mean": vector_backed,
         "unresolved": unresolved, "n_unresolved": len(unresolved),
         "suspect": flagged, "n_suspect": len(flagged), "suspect_by_cell": by_cell,
         "world": world,
