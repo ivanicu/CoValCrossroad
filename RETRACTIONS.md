@@ -7836,3 +7836,58 @@ chance on pairs where humans barely agree. Nothing here says what it is tracking
 donor arm's **0.5679** is the general backbone, the **0.1546 excess** on contested pairs is the
 sharpest available estimate of prompt-specific normative content, and it has never been reported
 separately from the pooled figure.
+
+---
+
+## Entry 219 — the attribution rises 150% across consensus and its composition does not move; but the interval is wider than the margin, so that is a question, not a finding
+
+r103 measured the size of the signal on contested versus consensual pairs. r104 established
+that 74% of that gradient survives the label's own noise. **Neither says what the signal is made
+of.**
+
+The **prompt-specific share** of over-chance accuracy — `(own − donor)/(own − 0.5)`, the fraction of
+everything the own rubric achieves above chance that its own prompt's criteria contribute — reads
+**0.6948 / 0.6991 / 0.6840** across the same three bins. **Span 0.0151, while the attribution it is a
+share of rises +150%.**
+
+### The property that makes this the strongest statement on this axis
+
+**The attenuation factor cancels.** Deattenuation divides *both* arms' over-chance accuracy by the
+same number, so the share computed from raw accuracies is identically the share computed from r104's
+deattenuated ones — **verified to 2.2e-16, executed rather than asserted**. This statistic needs no
+noise model, no independence assumption, and **none of r104's confounds reach it**. Everything r104
+had to caveat, this does not.
+
+### And it is still not a finding
+
+**Bootstrap over pairs: high-minus-low share −0.0101, 95% CI [−0.1335, +0.1185].** The interval
+covers zero — so the data do not *show* a compositional shift. **It is also wider than the ±0.05
+margin pre-registered before the run** — so the data do not *exclude* one. A shift as large as
+**0.13** remains compatible with these records.
+
+**Reading the 0.0151 point span as invariance would be a claim 8× larger than the measurement
+supports.** That is the η-too-large failure the frontier skill names, and it is the single most
+common retraction cause in this ledger: *a number reported without the scope over which it holds*.
+The verdict is **M ANSWERABLE MARGIN**, and the round carries three worlds rather than two precisely
+so that this outcome has a name to land in.
+
+**What survives**: composition does not move in step with magnitude. **What does not**: any claim
+that it is constant.
+
+**What it would take**: 24,959 pairs, **6.4× the 3,929 available** — from r91's precision budget,
+where halving an interval costs 4× the units. That is a preregistration number, not a result.
+
+### The controls are two-sided again, and the second one is the load-bearing one
+
+Planted **constant-share** arms read span **0.0145**; planted **shifting-share** arms (0.30 → 0.70)
+read **0.4805**. An instrument that reported invariance whatever the data could not report
+invariance. And a **denominator floor** refuses any bin whose own-arm accuracy is within 0.05 of
+chance rather than printing a large number — **that is exactly the failure that made r103's 2.95×
+over-chance ratio span unreadable**, its lowest bin having a donor arm 0.0041 above chance. r103's
+own weak evidence against pure attenuation is now formally retired: r104 replaced it with a measured
+factor, and this round declines to reproduce the same unstable statistic in the other direction.
+
+**NEXT:** the share's *level* — roughly **0.69 of the own arm's over-chance accuracy is
+prompt-specific** — has never been reported anywhere in this package, and it inherits r104's single
+donor draw. r88 measured the pooled attribution's draw-to-draw sd at 0.0055; **the share's sd under
+redraw is unmeasured**, and unlike the across-bin difference, the level depends on it entirely.
