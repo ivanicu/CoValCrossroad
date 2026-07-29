@@ -4425,3 +4425,43 @@ true, and reporting only one of them would mislead in a different direction depe
 because the question felt new — it *was* new as a question about **r82's** finding, and old as a
 measurement. **A question I have not asked before is not the same as a number nobody has computed**,
 and the second is what the gate is for. Two commands cost less than a round.
+
+## Entry 148 — the document that spends the money had never had its numbers checked, and it overstated the frozen artifact by 12.5%
+
+**The instrument existed and had never been aimed here.** `readme_agrees_with_results` compares every
+number in a document against the artifacts of the rounds it cites. Its default target is README.md.
+**PREREGISTRATION.md — the document the human experiments will be run and costed from — had never been
+passed through it.** Entry 147's near-miss (an uncited empirical claim written into that file) is what
+prompted pointing it there.
+
+**Four findings, of four different kinds.**
+
+1. **A real error in the frozen frame's description.** The header read *"60 prompts, 540 hashed
+   responses"*. `r45_frozen_frame.json` holds **4 original + 4 fresh per prompt** and its records sum to
+   240 + 240 = **480**. The 540 is the count of hashed **objects** — 480 responses plus one
+   `prompt_sha256` each. So the figure overstated the responses by **60, or 12.5%**, in the file
+   Experiment 2's per-response budget is read from. **Corrected to 480, with the derivation stated.**
+
+2. **Two mis-attributions I created one turn earlier.** Entry 147's edit put r82's distribution numbers
+   (**29.55%**, **16.96%**) into a bullet citing only r32, and quoted r82's rating count (**102,147**)
+   inside r61's paragraph. Both now name r82. A number in the right document attached to the wrong
+   round is still a provenance failure, and this one was **one commit old**.
+
+3. **A tolerance artifact, not an error.** `+0.0176` in r75's paragraph is r75's own **0.01754594**,
+   printed to four decimals. The checker's tolerance is `0.5 × 10⁻ᵈᵉᶜ` = 0.00005, and the rounding gap
+   is 0.000054 — it misses by four hundred-thousandths. Recorded rather than "fixed", because the
+   document is right and the instrument is behaving exactly as specified at a boundary.
+
+4. **Hex digest fragments read as numbers.** `313044`, `9335408`, `436`, `765`, `756` are digit runs
+   inside the manifest SHA-256. The number regex cannot know a hash from a quantity. A permanent false
+   positive of this instrument on any document quoting a digest, and worth stating once so it is not
+   re-investigated.
+
+**Coverage on the file: 75%** of eligible numbers reached a pool — higher than the README's 64%,
+because the preregistration cites rounds more densely. The calibration table travels with it: a match
+at 4 decimals carries a 1.8% chance rate, at 1 decimal 53.2%, and **38% of this document's numbers are
+4-decimal**.
+
+**The general form.** An instrument built for one document is not a check on the others, and the
+document with the highest stakes is the one nobody had aimed it at. *Where a check points is a scope
+claim, and mine had been silently narrow for the file that spends money.*

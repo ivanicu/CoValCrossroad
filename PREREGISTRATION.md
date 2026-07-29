@@ -9,7 +9,7 @@
 Written **before** any human data exists, which is the only time a preregistration means
 anything. Frozen frame: `rounds/r45_protocol_freeze/results/r45_frozen_frame.json`,
 manifest `313044eafe5d18a9335408f7c35a0e76f2b08e4a436f765cede756e78b3dfa4b`, 60 prompts,
-540 hashed responses, four equal cells of 15.
+**480 hashed responses** (60 prompts × 4 original + 4 fresh), four equal cells of 15. ⚠ This read **540** until 2026-07-29. 540 is the count of hashed **objects** — the 480 responses plus one `prompt_sha256` each — so the old figure overstated the responses by **60**, or 12.5%, in the document Experiment 2's per-response budget is read from. Found by pointing `readme_agrees_with_results` at this file for the first time.
 
 Everything in this repository is now blocked on one of the three counterfactuals below. They do
 not exist in any public data and cannot be computed from it — **74 rounds** now carry a non-smoke
@@ -105,8 +105,9 @@ measured rather than assumed:
 1. **The neutral option is not a refinement, it is the missing level.** A participant with no view had
    no way to say so, and every such view was recorded as a signed weight. That is the state this arm
    exists to change.
-2. **The scale carries far less resolution than its 21 points suggest.** **29.55%** of all weight mass
-   falls on just **5 or 10**, and **16.96%** on \|w\| = 10 alone.
+2. **The scale carries far less resolution than its 21 points suggest**
+   ([r82](rounds/r82_scale_use_by_provenance)). **29.55%** of all weight mass falls on just **5 or
+   10**, and **16.96%** on \|w\| = 10 alone.
    ⚠ **And the magnitudes' predictive contribution is already measured — I nearly rebuilt it.**
    [r32](rounds/r32_channel_decomposition) has the cell: moving from **sign** to **signed magnitude**
    is worth **+0.0055 [+0.0018, +0.0094]**, against **+0.0876** for the sign itself — so magnitude is
@@ -138,7 +139,8 @@ contributed by a round that explicitly could not test its own hypothesis.
 **at elicitation time**. Their usage rates are a primary outcome, not a nuisance.
 
 **Power, computed from the release rather than deferred to the pilot ([r61](rounds/r61_s_pre_power)).**
-The POST arm's sign marginal is **measured**: **77.01%** positive across 102,147 released ratings,
+The POST arm's sign marginal is **measured**: **77.01%** positive across 102,147 released ratings
+(the count is [r82](rounds/r82_scale_use_by_provenance)'s; r61 stores the marginal, not the total),
 with the neutral point used **once**. So if the PRE arm shared that marginal, two independent
 sign-assigners would agree **0.6459** of the time **by marginals alone** — a test against 0.5
 would report agreement far above chance while measuring nothing but a shared tendency to write
