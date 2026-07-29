@@ -3242,3 +3242,39 @@ retraction least likely to be audited, because it looks like bookkeeping rather 
 **One control detail worth keeping.** The shuffled null is re-run on **every** draw and reported as a
 **maximum** (0.2016), never a mean. A control averaged over 200 draws would hide one bad draw, which
 is precisely the failure r71 exists to close.
+
+## Entry 122 — the ledger's 224 numbered citations all resolve; the risk was never in the numbered ones
+
+**Why this ran.** Entry 121's correction found a fabricated precedent — two prior instances cited
+from memory that are not in this ledger. The obvious follow-up is whether that is systematic.
+
+**It is not.** Every `entry N` reference in RETRACTIONS.md was resolved against the document:
+
+- **224** numbered citations, across **85** distinct entry numbers
+- **0 dangling** — every cited number has a record
+- entries **1–40** live as **table rows**, **41–121** as `## Entry` headings; a first pass indexed
+  only the headings and reported **14 false dangles**, which is this project's own catalogued failure
+  (*a check is only as good as its population*) committed inside the audit of a citation error
+- the row extractor over-matches one number (**400**, a data row, not an entry). No citation
+  references it, so no resolution passes through junk — checked rather than assumed, since an
+  over-broad population turns a dangling citation into a false pass
+
+**Where the risk actually lives.** Precedent claims made in **prose with no entry number** — a
+resolver cannot check those, and the fabricated one was exactly that shape. There are **two** in the
+whole document:
+
+1. entry 121's *"already logged twice…"* — **fabricated, corrected above**
+2. entry 59's *"The third instance of one failure."* — **fully specified**, because the very next
+   sentence names both precedents by number (51 and 57) and states what each was
+
+So the defect rate on unnumbered precedent claims is 1 of 2, and on numbered citations 0 of 224.
+**The failure mode is not "citations rot" — it is "a precedent asserted without a number is not a
+citation at all."**
+
+**What this changes.** Nothing retroactive. Going forward, a precedent claim in this ledger names its
+entry number, so it lands in the 0-of-224 population rather than the 1-of-2 one.
+
+**What was NOT built, deliberately.** A citation resolver. It would have scored 224/224 clean and
+**zero recall on the one real defect**, which named no number — the same shape as the check measured
+and declined at entry 108. Measuring it cost one command; building it would have bought a green light
+on the population that was never at risk.
