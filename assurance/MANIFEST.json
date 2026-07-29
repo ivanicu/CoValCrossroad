@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T14:54:32.077833+00:00",
- "git": "f0d9f100a0818d63552e961d453b3fa2f98d8acc",
+ "generated_utc": "2026-07-29T15:04:20.327167+00:00",
+ "git": "452bbf73f010d2087013bab35e98d0cb2642ff7d",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -90,6 +90,10 @@
   "rounds/r102_margin_calibration/run.py": {
    "bytes": 10439,
    "sha256": "6ac4cebde6bf4ae7587976b3f661b0d5d5737426fb4487e252987709f1d965c2"
+  },
+  "rounds/r103_consensus_conditioned/run.py": {
+   "bytes": 11820,
+   "sha256": "2e4df7b139cdd52dbb562b7188552f12ce0454fcdc506fe24128e41999b5ef50"
   },
   "rounds/r10_attribution_robustness/run.py": {
    "bytes": 8761,
@@ -644,6 +648,10 @@
   "rounds/r102_margin_calibration/results/r102_margin_calibration.json": {
    "bytes": 3795,
    "sha256": "fe9bd4df530e7d06093e180854f12dbf764c947a3ee30022da4874803f358c85"
+  },
+  "rounds/r103_consensus_conditioned/results/r103_consensus_conditioned.json": {
+   "bytes": 4129,
+   "sha256": "8f8908fc33984f54d064c56fbd081151f43829570a5b33bbbab1ebf880e9833e"
   },
   "rounds/r10_attribution_robustness/results/a10_attribution.json": {
    "bytes": 1085,
