@@ -55,7 +55,7 @@ def main() -> int:
             continue
         scope = load_constant(run, "OUTCOME_SCOPE")
         files = [f for f in d.glob("results/**/*.json")
-                 if "SMOKE" not in f.name and "_smoke_archive" not in f.parts]
+                 if "smoke" not in f.name.lower() and "_smoke_archive" not in f.parts]
         if not files:
             print(f"  ! {d.name}: OUTCOME_SCOPE declared but no results file to stamp")
             continue

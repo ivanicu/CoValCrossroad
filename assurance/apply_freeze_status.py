@@ -39,7 +39,7 @@ def main() -> int:
             print(f"  ! {round_dir}: no such round -- SKIPPED, and skipped is unstamped")
             continue
         files = [f for f in d.glob("results/**/*.json")
-                 if "SMOKE" not in f.name
+                 if "smoke" not in f.name.lower()
                  and not any(p.startswith("_") for p in f.parts)]
         for f in files:
             try:

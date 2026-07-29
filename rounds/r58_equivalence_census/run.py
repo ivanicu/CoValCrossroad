@@ -203,8 +203,13 @@ def main() -> None:
     a = ap.parse_args()
     if a.smoke:
         a.boot = 200
-        a.out = a.out.with_name(a.out.stem + "_SMOKE.json")
-        print("*** SMOKE -- must never reach the README ***")
+        # entry 71: smoke output goes to results/_smoke/, a directory the checks
+        # exclude by its leading underscore. Marking a smoke run only by its
+        # FILENAME failed twice -- a04_smoke.json was lowercase and slipped past
+        # every uppercase "SMOKE" filter for the life of the project.
+        (_RES / "_smoke").mkdir(parents=True, exist_ok=True)
+        a.out = _RES / "_smoke" / (a.out.stem + "_SMOKE.json")
+        print("*** SMOKE -> results/_smoke/ -- must never reach the README ***")
     _RES.mkdir(exist_ok=True)
     rng = np.random.default_rng(20260728)
 

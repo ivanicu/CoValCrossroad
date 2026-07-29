@@ -52,7 +52,7 @@ def main() -> int:
     missing, with_results = [], 0
     for d in rounds:
         res = [f for f in d.glob("results/**/*.json")
-               if "SMOKE" not in f.name and "_smoke" not in str(f)
+               if "smoke" not in f.name.lower() and "_smoke" not in str(f)
                and "_partial" not in str(f)]
         if not res:
             continue

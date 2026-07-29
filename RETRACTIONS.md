@@ -1257,6 +1257,35 @@ manufacture 23 false acquittals; they are reported as their own class.
 never wrong. What was wrong is the noun *package*. The instrument measured what it measured; the
 sentence claimed a universe nobody had enumerated.
 
+## Entry 71 — the smoke filter was case-sensitive, and one smoke file was lowercase
+
+Two commits after deleting r47's smoke artifact for being a hazard, I committed one of my own with
+r58. Looking for it found the older, worse instance.
+
+**`a04_smoke.json` is lowercase.** Every check filtered on the uppercase literal
+`"SMOKE" not in f.name` — seven of them — so `"SMOKE" in "a04_smoke.json"` is **False** and the file
+was treated as a real result for the life of the project. It contributes **8 floats present in no
+real r04 artifact**, and it carries `pairwise_accuracy: 0.6853540772532188` — the **same key** as the
+project's most-quoted number at a different value.
+
+**0.686 is safe**: it is backed by `a04_full.json` at 0.6860023. The smoke value sits one decimal
+away, so a README quoting 0.685 would have been "verified" by a warm-up.
+
+**Why the filter class fails.** Marking a run as provisional in its **filename** makes correctness
+depend on spelling. The rule was written once as `_SMOKE` and once as `_smoke`, and nothing compared
+them. Two independent exclusions now:
+
+  * the name is matched **case-insensitively** (7 checks fixed)
+  * smoke output is written to **`results/_smoke/`**, a directory four checks already exclude by its
+    leading underscore, and which the non-recursive `results/*.json` glob cannot reach at all
+
+Artifacts were **moved, not deleted** — they stay tracked at the new path.
+
+**The pattern this belongs to.** Entry 69 found a check blind to markdown tables. This one was blind
+to a lowercase letter. Both are *the check's population being narrower than its sentence*, and in
+both the sentence read as coverage. **A filter is a scope claim, and a case-sensitive filter is a
+scope claim about spelling.**
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

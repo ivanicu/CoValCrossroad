@@ -41,7 +41,7 @@ from covalx.frozen import REGISTRY as FROZEN  # noqa: E402
 
 def results_of(round_dir: Path):
     return [f for f in round_dir.glob("results/**/*.json")
-            if "SMOKE" not in f.name and not any(p.startswith("_") for p in f.parts)]
+            if "smoke" not in f.name.lower() and not any(p.startswith("_") for p in f.parts)]
 
 
 def carries(path: Path, marker: str) -> bool:

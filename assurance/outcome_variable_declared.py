@@ -86,7 +86,7 @@ def main() -> int:
         if not gold:
             continue
         results = [f for f in d.glob("results/**/*.json")
-                   if "SMOKE" not in f.name and "_smoke_archive" not in f.parts]
+                   if "smoke" not in f.name.lower() and "_smoke_archive" not in f.parts]
         declared, where = False, None
         for f in results:
             try:

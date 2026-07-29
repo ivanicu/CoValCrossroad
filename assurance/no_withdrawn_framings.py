@@ -154,7 +154,7 @@ def main() -> int:
     # the flat glob never saw it.  A checker's population must be the files
     # that exist, not the layout I assumed.
     files = sorted(_ROOT.glob("rounds/*/results/**/*.json"))
-    files = [f for f in files if "_smoke_archive" not in f.parts and "SMOKE" not in f.name]
+    files = [f for f in files if "_smoke_archive" not in f.parts and "smoke" not in f.name.lower()]
     hits, scanned, fields = [], 0, 0
     excluded = {}
     for f in files:

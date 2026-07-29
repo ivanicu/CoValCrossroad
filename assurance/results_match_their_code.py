@@ -85,7 +85,7 @@ def main() -> None:
                # SMOKE outputs are excluded everywhere else in this package and
                # were not excluded here, so a stray smoke file made a round look
                # stale. Archived directories likewise.
-               and "SMOKE" not in f.name
+               and "smoke" not in f.name.lower()
                and not any(part.startswith("_") for part in f.parts)
                # MODEL WEIGHTS are frozen INPUTS, not conclusions. r08's gold
                # head is consumed by r12/r29/r41/r46/r47; re-fitting it would
