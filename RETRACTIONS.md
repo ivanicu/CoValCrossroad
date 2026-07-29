@@ -1286,6 +1286,41 @@ to a lowercase letter. Both are *the check's population being narrower than its 
 both the sentence read as coverage. **A filter is a scope claim, and a case-sensitive filter is a
 scope claim about spelling.**
 
+## Entry 72 — the check for entries 66/67/70, and it fires on the two claims the queue ordered rescoped
+
+Three entries in a row were the same defect, all found by hand: *a qualifier the round itself wrote,
+absent from the prose a reader meets*. Entry 67 observed the hand audit "found more than any
+automated check in this package" — which argues for building the check, not for keeping the audit
+manual. `assurance/readme_row_carries_the_verdict.py` extracts every **limitation sentence** from a
+round's verdict and asks whether it has any lexical echo in that round's README row.
+
+**The population is the first finding.** 57 README rows; **42** have a verdict to check against.
+**15 do not** — r02, r04, r06, r07, r08, r09, r10, r13, r14, r16, r19, r25, r30, r39, r45 — so their
+rows are hand-written prose with nothing in the artifact to compare against. Two have already
+produced retractions on exactly that account: r04 in entry 66, and r13's *"as informative as"*
+equivalence claim, asserted from a paired gap of +0.0231 **[−0.0079, +0.0541]**. They are reported
+as UNCHECKABLE, never dropped from the denominator.
+
+**Of 55 limitation sentences, 9 have no echo. Two are the queue's own [NOW] items:**
+
+| round | its verdict says | its README row says |
+|---|---|---|
+| **r35** | *"NOT ESTABLISHED: the absence of a forced-choice effect"* | **"no."** — answering *does it depend on forcing a direction?* |
+| **r37** | *"NOT ESTABLISHED: population invariance"* | **"almost not at all."** |
+
+The r35 row **asserts the thing its own round says is not established.** The queue's second bullet —
+*"not a forced-choice artifact" → ROBUST TO POST-HOC CRITERION ABSTENTION only* — was written into
+the verdict and never reached the row. Same for the third bullet at r37.
+
+Also flagged: **r15** (*"SCOPE CORRECTION: this does NOT resolve r12"* — the row never mentions r12),
+**r47** (*"a SHARE, not a verdict … no binary reading is licensed"* — the row reads
+*"partly, and the strangest part does not survive"*), r54, r55. Two flags are false positives from
+the broad `does not` / `cannot` pattern (r27, r48), which is the price of a proxy that over-flags.
+
+**What it cannot do, stated on every run.** An echo is not preservation. A row reading *"largely
+established"* echoes *"not established"* and passes while inverting the claim. The weakened
+paraphrase is the likelier and more dangerous failure and this instrument is blind to it.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
