@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T13:26:12.473891+00:00",
- "git": "2d66c70a98904ae10fdfcff7250c0becda7c0416",
+ "generated_utc": "2026-07-29T13:31:27.013537+00:00",
+ "git": "4e1b57344c8ce68b0075228c264a9e42b1feb3dc",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -260,8 +260,8 @@
    "sha256": "9db1de5603f715c648e3ceee9b967e10559fca37a9cccb49834e6b6356762f4d"
   },
   "rounds/r58_equivalence_census/run.py": {
-   "bytes": 14858,
-   "sha256": "ecc37671a12c43d2ad9a4a83669ef44be2cc570f9ada7437c9a140f68f4122e4"
+   "bytes": 17030,
+   "sha256": "a98405ca1b92555018cfc36cc485c00c75c7eaa4ce8da11c937c765b4a8ac0ba"
   },
   "rounds/r59_criterion_influence/run.py": {
    "bytes": 16014,
@@ -416,8 +416,8 @@
    "sha256": "6b5db5bb2edb7fbaa7efc9773fcfcaa6b83a601c5e31a0dd5f50cf7e6f9de5c6"
   },
   "rounds/r97_rule_tournament_tost/run.py": {
-   "bytes": 15200,
-   "sha256": "345015ad5a47ae2f7a0b9550a4a053e5e0d8522abd4b77c8614fd08e3387a6d4"
+   "bytes": 15762,
+   "sha256": "fee50dac216604d8f470ad7026c3024e55805c6da8a7c80e2a11772979a2c5c1"
   },
   "assurance/apply_freeze_status.py": {
    "bytes": 4855,
@@ -1446,8 +1446,8 @@
    "sha256": "1122cd0f851bd7d5bffd803e7b9ea14909cd65b8def80e8d23a34d39dea55df4"
   },
   "rounds/r58_equivalence_census/results/r58_equivalence_census.json": {
-   "bytes": 89212,
-   "sha256": "f811130f989eb858440bd42857a3dca2adf85d0c416ef8e448322513cbe8c9fa"
+   "bytes": 93111,
+   "sha256": "79d87948895670fa67ed3385e1e3e513f94f371545d9d6adbd938c2ecf50fa1d"
   },
   "rounds/r59_criterion_influence/results/r59_criterion_influence.json": {
    "bytes": 3401,
@@ -1602,8 +1602,8 @@
    "sha256": "08eea433faa69279c5a5ce160b1634111347d87e7a7a9617d0cc2caf3c62d0df"
   },
   "rounds/r97_rule_tournament_tost/results/r97_rule_tournament_tost.json": {
-   "bytes": 5258,
-   "sha256": "f1d46a8dea2f28a5b9c7118aa8521ce873354e630af658cedf8f63353687f46f"
+   "bytes": 99310,
+   "sha256": "43c6ffbc5241e29459143b05dff883aef3ebbcbf29a95427d8b90ee9e7af5837"
   }
  },
  "claims": [
