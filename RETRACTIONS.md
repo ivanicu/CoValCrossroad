@@ -6617,3 +6617,23 @@ lines below the part I copied.
 **The check that caught it was in the round already:** `unresolved` rows were reported with a *reason*
 rather than a count, and reading the reasons — `node not a dict`, 23 of them — was what exposed it.
 *A count of failures with no reason attached would have shipped this as a finding about someone else.*
+
+**⚠ Addendum to entry 192 — who actually keys on `path`, and the answer bounds the damage.**
+Three consumers, checked rather than assumed:
+
+- **[r98](rounds/r98_unverified_triage)** uses `(round, path, file)` purely as an **identity tuple** for
+  its partition-distinctness control. An ambiguous display string is a perfectly good uniqueness key.
+  **Safe.**
+- **`verdict_cites_its_own_contrasts`** uses `(round, path)` to collapse metric-variant repeats.
+  Uniqueness only. **Safe.**
+- **r58's own `SUPERSEDES`** builds its target by `f"rules.{p.split('.')[-1]}.vs_no_compression"` —
+  **it splits on the separator.** It works today only because r97's rule names (`utility`, `majority`,
+  `consensus`…) contain no dots. **Latent, not broken**, and it would fail silently — the target would
+  simply not be found and the supersession would be skipped, which reads identically to "nothing to
+  supersede."
+
+**So nothing currently resolves a path to a node except this inspector**, which is why six unresolvable
+paths cost nothing today. **The exposure is that r58's supersession would go quietly no-op on a dotted
+rule name** — recorded here so the next round that supersedes something with a versioned key does not
+have to rediscover it. *The cheapest possible fix, if it ever bites, is to key supersession on the
+`file` plus an explicit key list rather than on a dotted string.*
