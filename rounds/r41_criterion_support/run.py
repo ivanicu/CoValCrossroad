@@ -286,6 +286,23 @@ def main() -> None:
     spread_score_o = ms_o.std(axis=1)
     spread_score_f = ms_f.std(axis=1)
     d_spread = spread_score_f - spread_score_o
+    # ...and it is ALSO a measure, which the first version of this round missed.
+    # "The rubric separates the fresh responses less than it separated the
+    # originals" is itself a criterion-space property, not a nuisance imported
+    # from outside.  Reporting it only as a control, with a bare correlation and
+    # no interval, meant this round controlled away its own candidate finding
+    # and then described the result as an absence.  Sign flipped so that
+    # POSITIVE = the rubric lost discriminating power on the fresh set.
+    D_spread_loss = spread_score_o - spread_score_f
+    # THE CONTROL D_spread_loss ITSELF DEMANDS.  A rubric that stops separating
+    # the fresh responses scores nearer chance on them, so its accuracy falls --
+    # but the attribution SUBTRACTS a donor rubric scored on the same responses,
+    # and if the donor's discriminating power collapsed equally the difference
+    # would not move.  So the mechanical reading predicts own and donor spread
+    # loss are interchangeable.  Both arms were persisted, so this is testable
+    # rather than arguable.
+    dsh_o, dsh_f = d["mean_orig_shuf"], d["mean_fresh_shuf"]
+    D_spread_loss_donor = dsh_o.std(axis=1) - dsh_f.std(axis=1)
 
     print(f"  criteria per prompt: min={Kvec.min()} median={int(np.median(Kvec))} max={Kvec.max()}")
     print(f"  K==1 prompts (excluded from the rank-bootstrap measure): {int((Kvec == 1).sum())}")
@@ -367,7 +384,8 @@ def main() -> None:
 
     # ---- correlations -------------------------------------------------
     measures = {"D_nn_criterion_space": D_nn, "D_hull_violation": D_hull,
-                "D_rank_instability_excess": D_rank}
+                "D_rank_instability_excess": D_rank,
+                "D_spread_loss": D_spread_loss}
     for t in thresholds:
         measures[f"D_combo_novelty@{t}"] = D_combo[t]
     if np.isfinite(D_fam).any():
@@ -414,6 +432,10 @@ def main() -> None:
                 & np.isfinite(d_spread))
         if keep.sum() < 20:
             continue
+        if name == "D_spread_loss":
+            # Controlling a measure for itself is degenerate; it would report
+            # the round's one surviving effect as exactly zero.
+            continue
         xr = partial_out(x[keep], dlen[keep], d_spread[keep])
         yr = partial_out(drop[keep], dlen[keep], d_spread[keep])
         row = analyse(name, xr, yr, RNG, a.boot, a.perm)
@@ -423,14 +445,37 @@ def main() -> None:
         print(f"{name:44s} {row['n']:4d} {row['pearson_r']:+8.4f} "
               f"{row['spearman_r']:+8.4f} {ci:>20s} {row['perm_p']:8.4f}"
               f"   (corr with dspread {row['corr_measure_with_spread']:+.3f})")
-    print(f"  corr(score spread change, attribution drop) = "
-          f"{pearson(d_spread[np.isfinite(d_spread)], drop[np.isfinite(d_spread)]):+.4f}")
+    print("  (D_spread_loss is skipped above -- a measure cannot be its own control)")
+
+    # ---- is the spread effect mechanical? -------------------------------
+    print("\n=== D_spread_loss against the DONOR arm's own spread loss ===")
+    kk = (np.isfinite(D_spread_loss) & np.isfinite(D_spread_loss_donor)
+          & np.isfinite(drop) & np.isfinite(dlen))
+    mech = {}
+    if kk.sum() >= 30:
+        r_own_don = pearson(D_spread_loss[kk], D_spread_loss_donor[kk])
+        don_row = analyse("donor_spread_loss", D_spread_loss_donor[kk], drop[kk],
+                          RNG, a.boot, a.perm)
+        xr = partial_out(D_spread_loss[kk], dlen[kk], D_spread_loss_donor[kk])
+        yr = partial_out(drop[kk], dlen[kk], D_spread_loss_donor[kk])
+        own_row = analyse("D_spread_loss | donor + length", xr, yr, RNG, a.boot, a.perm)
+        print(f"  corr(own spread loss, donor spread loss) = {r_own_don:+.4f}")
+        print(f"  donor spread loss vs drop                = {don_row['pearson_r']:+.4f} "
+              f"[{don_row['ci'][0]:+.3f},{don_row['ci'][1]:+.3f}] p={don_row['perm_p']:.4f}")
+        print(f"  OWN spread loss, donor partialled out    = {own_row['pearson_r']:+.4f} "
+              f"[{own_row['ci'][0]:+.3f},{own_row['ci'][1]:+.3f}] p={own_row['perm_p']:.4f}")
+        mech = {"corr_own_with_donor": r_own_don, "donor_vs_drop": don_row,
+                "own_controlling_donor": own_row,
+                "survives": bool(own_row["excludes_zero"] and own_row["perm_p"] < 0.05)}
+        print(f"  -> {'SURVIVES: not explained by both arms losing power together'
+                      if mech['survives'] else
+                      'DOES NOT SURVIVE: consistent with a mechanical loss of power'}")
 
     # ---- is criterion space a DIFFERENT axis? ---------------------------
     collin = {}
     if np.isfinite(generic).any():
         print("\n=== collinearity: does criterion space add an axis embedding distance lacks? ===")
-        for name in ("D_nn_criterion_space", "D_hull_violation"):
+        for name in ("D_nn_criterion_space", "D_hull_violation", "D_spread_loss"):
             x = np.asarray(measures[name], dtype=float)
             keep = np.isfinite(x) & np.isfinite(generic)
             r = pearson(x[keep], generic[keep])
@@ -520,7 +565,31 @@ def main() -> None:
             f"({fr['pearson_r']:+.4f}, p={fr['perm_p']:.3f}) -- so the drop is not "
             f"where the judges fall apart. NOT EXCLUDED: this is a non-rejection, and "
             f"two lineages agreeing can still be two lineages wrong the same way")
-    verdict = f"{support_v}. {rank_v}. {fam_v}."
+    # The one measure that survived every control gets its own clause, and it
+    # gets the word EXPLORATORY, because the claim card preregistered NOVELTY
+    # and this is not that.  It was discovered while being used as a nuisance
+    # control -- which is exactly the provenance a reader must be told about.
+    sl = by.get("D_spread_loss") or {}
+    if mech.get("survives"):
+        sl_v = (
+            f"EXPLORATORY, AND THE ONE THING THAT SURVIVES: the drop concentrates where "
+            f"the prompt's OWN rubric loses its ability to separate the responses "
+            f"(r={sl.get('pearson_r', float('nan')):+.4f} length-controlled, "
+            f"p={sl.get('perm_p', float('nan')):.4f}; "
+            f"{mech['own_controlling_donor']['pearson_r']:+.4f} with the donor arm "
+            f"partialled out). This is NOT mechanical: the DONOR rubric's own loss of "
+            f"discriminating power does not predict the drop at all "
+            f"({mech['donor_vs_drop']['pearson_r']:+.4f}, "
+            f"p={mech['donor_vs_drop']['perm_p']:.3f}), so it is not both arms degrading "
+            f"on unfamiliar text. And it is nearly orthogonal to generic embedding "
+            f"distance, so r40 could not have seen it. EXPLORATORY because the claim card "
+            f"preregistered NOVELTY, not this -- it was found while serving as a control")
+    elif mech:
+        sl_v = ("Spread loss does not survive the donor-arm control, consistent with a "
+                "mechanical loss of discriminating power on unfamiliar text")
+    else:
+        sl_v = "Spread loss was not testable against the donor arm"
+    verdict = f"{support_v}. {rank_v}. {fam_v}. {sl_v}."
     print(f"\n-> {verdict}")
     if fam["status"] != "MEASURED":
         print("   world (b) -- the judge scores fresh responses incoherently -- "
@@ -540,6 +609,7 @@ def main() -> None:
         "thresholds_swept": thresholds,
         "raw": rows, "length_controlled": ctrl_rows,
         "length_and_spread_controlled": spread_rows,
+        "spread_loss_mechanical_control": mech,
         "spread_control_note": (
             "d_spread = sd of the own-rubric mean satisfaction across the four "
             "responses, fresh minus original. A rubric that cannot separate the "

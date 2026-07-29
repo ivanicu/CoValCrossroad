@@ -99,3 +99,57 @@ One GPU pass to persist the criterion×response satisfaction matrices for both r
 the **already-saved** fresh responses — no regeneration, no new sampling. All analysis on CPU.
 If the null-permuted correlations are indistinguishable from the observed ones, the axis is
 dropped from the human protocol and this line is frozen.
+
+---
+
+# POST-HOC ADDENDUM (2026-07-28, after the round ran)
+
+**This section is not part of the preregistration. It exists because the round found something
+the card did not predict, and burying that provenance would be the whole problem.**
+
+## What the card predicted, and what happened to it
+
+The card predicted **novelty**: fresh responses landing outside the originals' criterion-
+satisfaction support. Every novelty measure — nearest-original distance, convex-hull violation,
+criterion-combination novelty at five thresholds — is **dead**. Hull violation looked significant
+at −0.1837 and did not survive the discriminating-power control.
+
+**That hypothesis is refuted, and nothing below rescues it.**
+
+## What survived, and why it is exploratory
+
+`D_spread_loss` — how much *less* the prompt's own rubric separates the four fresh responses than
+it separated the originals — predicts the attribution drop at **+0.2309** length-controlled
+(p = 0.0010), the largest effect in the round.
+
+**It entered the round as a nuisance control**, introduced to test whether the novelty measures
+were restatements of low discriminating power. They were. Then it was promoted to a measure,
+which is a post-hoc decision made after seeing that it explained the others. It is therefore
+**exploratory and requires independent confirmation on data this round did not touch.**
+
+## The control it demanded, run before it was reported
+
+A rubric that stops separating responses scores nearer chance, so its accuracy falls — but the
+attribution *subtracts* a donor rubric scored on the same responses. If both arms lost
+discriminating power together, the difference would not move. Both arms were persisted, so:
+
+| | |
+|---|---:|
+| corr(own spread loss, donor spread loss) | +0.4509 |
+| **donor** spread loss → drop | −0.0351, p = 0.586 |
+| **own** spread loss → drop, donor partialled out | **+0.2693 [+0.154, +0.380], p = 0.0002** |
+
+The two arms do move together, and only the own-rubric arm predicts the drop. **The effect is not
+both rubrics degrading on unfamiliar text.**
+
+## Scope, unchanged
+
+Still judge-relative: the spread is measured by the same judge whose off-distribution validity is
+unestablished. It is nearly orthogonal to generic embedding distance (−0.056), which is why r40
+could not have found it, and which is also why it cannot be checked against r40.
+
+## What would confirm it
+
+Held-out prompts this analysis never saw, and ultimately **H_fresh** — whether the same
+concentration appears against *human* rankings of the frozen fresh responses rather than against
+a model proxy.

@@ -131,6 +131,31 @@ correlations with that spread are **+0.563** and **−0.597**. The geometry coll
 fact: **the rubric separates the fresh responses less than it separated the originals**
 (corr with the drop = −0.2246).
 
+**One criterion-space quantity does survive, and it was sitting in the control column.**
+`D_spread_loss` — how much *less* the prompt's own rubric separates the four fresh responses than
+it separated the originals — predicts the drop at **+0.2309** length-controlled (p = 0.0010), the
+largest effect in the round. It entered as a nuisance variable and was promoted to a measure only
+after it explained the others, so it is **exploratory**: the claim card preregistered *novelty*,
+and novelty is refuted.
+
+It is not mechanical, and the donor arm is what shows that. A rubric that stops separating
+responses scores nearer chance — but the attribution *subtracts* a donor rubric on the same
+responses, so if both arms degraded together the difference would not move:
+
+| | |
+|---|---:|
+| corr(own spread loss, donor spread loss) | +0.4509 |
+| **donor** spread loss → drop | −0.0351 (p = 0.59) |
+| **own** spread loss → drop, donor partialled out | **+0.2693 [+0.154, +0.380]** (p = 0.0002) |
+
+Only the own-rubric arm predicts it. So r12's discrepancy concentrates where the **prompt-specific
+criteria stop discriminating** among responses they were not written for, while an unrelated
+rubric keeps working — which is a statement about the *scope* of the measurement program, and the
+first mechanism-bearing lead this project has for r12.
+
+Its correlation with generic embedding distance is **−0.056**, so r40 could not have seen it, and
+r40 cannot corroborate it either.
+
 The round still earns its cost. Criterion space correlates with generic embedding distance at
 only **+0.25** and **+0.19** — roughly 5% shared variance — so this was a genuinely different
 axis and it is now checked rather than assumed. And **two unrelated judge lineages disagree
@@ -772,7 +797,7 @@ not from estimation noise, so no further computation narrows it.
 
 | [r39](rounds/r39_feature_cache) | Cache representations, analyse nothing | one GPU pass, three lineages (qwen/phi/internlm), 2,000 responses. Load failures recorded as **environment claims**, not model properties |
 | [r40](rounds/r40_ood_map) | Is r12's inversion an OOD artifact? | **no — the sign runs the wrong way.** Nearest-neighbour distance correlates at **−0.125**, 2/3 lineages, same sign 3/3: the anomaly is **worst where fresh responses most resemble the released ones** |
-| [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **no, and the effects that looked real were one quantity.** Hull violation −0.1837 and rank instability +0.1993 both die to the discriminating-power control (−0.065, +0.079). Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly. Cross-lineage judge disagreement does not track the drop |
+| [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **not as novelty — as loss of discriminating power.** Hull violation −0.1837 and rank instability +0.1993 both die to the control; **spread loss survives at +0.2309** (+0.2693 with the donor arm partialled out, donor alone −0.0351 ns), orthogonal to embedding distance. **Exploratory** — the card preregistered novelty. Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly |
 | [r42](rounds/r42_equivalence) | Are the null claims equivalent, or just non-significant? | **equivalent at δ=0.01 — 0 of 21 contrasts inconclusive.** 4 are significant AND negligible. But only 7/21 hold at δ=0.005 and 4/21 at 0.0025, and **δ is stipulated, not measured** |
 | [r44](rounds/r44_compiler_lineage) | Which compiler step makes core beat full? | **polarity rewrite, +0.0733** — alone larger than the whole full→core total of +0.0662. Selection also beats a **size-matched random** choice by +0.0149, so item membership carries signal too. Reconstruction explains 83%; **C1–C5 are unobservable**, so this describes my pipeline, not OpenAI's |
 | [r45](rounds/r45_protocol_freeze) | What exactly do the humans rank? | 60 prompts, 4 equal cells, **540 responses hashed**, manifest `313044ea…`. r12's generation is unseeded, so this file is the only definition of the object H_fresh refers to |
