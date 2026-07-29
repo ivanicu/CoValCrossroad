@@ -33,6 +33,22 @@ forecloses:
 endogeneity: every participant saw the same four responses, so `menu → shared salience → Sᵢ` can
 produce cross-rater agreement that is still menu-induced construction.
 
+**Two scopes on that +0.0576, both established after this section was first written.**
+
+- r34's estimate is computed on the **majority-rated 36.5%** of criteria — 5,564 of 15,248 — a
+  filter five rounds shared without stating it (entry 51). r48 then showed that subset is
+  **structurally identified**: the pre-seeded six per prompt, 0.1% ambiguous.
+- **r49 tested the discarded 63.5%** and the direction transfers *better* there: write-in criteria,
+  authored by **one** participant and rated by **only** that participant, carry **+0.0777**
+  [+0.0674, +0.0883] against **+0.0599** [+0.0514, +0.0687] for the shared six — paired gap
+  **+0.0172** [+0.0034, +0.0307], excluding zero.
+
+**So one channel of shared-menu endogeneity is already closed and this experiment must not be sold
+as testing it.** Shared criterion *text* is excluded: a criterion no other participant ever saw
+still transfers. What survives is shared **response exposure** — every write-in was still authored
+after reading the same four candidates, and there *"shared-response artifact"* and *"population
+property"* make the same prediction (r49). **That, and only that, is what the PRE arm separates.**
+
 **Design.** Two arms, between-subjects, same prompts.
 
 | arm | procedure |

@@ -62,6 +62,15 @@ CORRECTED = [
      "the held-out replication is +0.0847 -> -0.0716 (r46 controls)"),
     (r"filtered at 99\.2%", 76,
      "r14's fidelity_kept.model is 0.9911616 -- 99.1%"),
+    # Entry 84: not a wrong FORM but a stale PREMISE -- a document may state a
+    # superseded state of knowledge without any individual sentence being false.
+    # The pattern targets the specific unqualified framing, and its absence is
+    # weaker evidence than for the others, which is why it says so here.
+    (r"It does \*\*not\*\* touch shared-menu\s+endogeneity: every participant saw the same four "
+     r"responses, so `menu → shared salience → S\u1d62` can\s+produce cross-rater agreement that is "
+     r"still menu-induced construction\.\s*\n\s*\n\*\*Design", 84,
+     "r49 closed the shared-criterion-TEXT channel (+0.0777 vs +0.0599, paired +0.0172 excluding "
+     "zero); only shared RESPONSE exposure survives, and that is what the PRE arm separates"),
 ]
 
 

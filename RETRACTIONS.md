@@ -1732,6 +1732,40 @@ pattern registry.
 repo root; the generated ledger lives at `assurance/ASSURANCE.md`. It printed *"3 of 4"* and skipped
 the file silently. A missing watched document is now named and called **unscanned, not clean**.
 
+## Entry 84 — sweeping all 38 entries: 15 hits, 14 were the corrected form, and the one that wasn't is a stale PREMISE
+
+Entry 83's registry started at five, so I swept every quoted span in RETRACTIONS against the four
+watched documents. 102 spans, **15 found verbatim in a live document**.
+
+**Fourteen are the sweep working as designed and finding nothing.** An entry quotes both the
+withdrawn claim and its replacement, so a hit is a question, not a verdict — and on reading, the
+README's subtitle is entry 65's *replacement* (the withdrawn form was *"Does a public-input values
+rubric actually **measure values**?"*), entry 66's phrase appears as *"**not** held-out human
+preference"*, entry 42's retired headline appears inside the sentence retracting it, and entry 70's
+r43 quote carries the INCONCLUSIVE qualifier I added. **The dismissal rate is the point: 14 of 15
+correct is what a high-recall proxy looks like, and entry 81 is why each one got read.**
+
+**The fifteenth is a different kind of defect.** Entry 51 established that r34's +0.0576 is computed
+on the **majority-rated 36.5%** of criteria — a filter five rounds shared without stating it.
+`PREREGISTRATION.md` states r34's result, and contains **no mention of 36.5%, 63.5%, 9,684, or the
+majority filter**. The README carries it (lines 666–667); the preregistration never received it.
+
+**And the sharper miss underneath.** Experiment 1's motivation says shared-menu endogeneity is
+untouched. **r49 has since narrowed it** — write-in criteria authored by *one* participant and rated
+by *only* that participant transfer at **+0.0777** [+0.0674, +0.0883] against **+0.0599**
+[+0.0514, +0.0687] for the shared six, paired gap **+0.0172** [+0.0034, +0.0307] excluding zero. So
+**shared criterion TEXT is already excluded**; what survives is shared **response exposure**.
+r49 is not cited anywhere in the preregistration — nor are r48, r51, r52, r54, r55, r58, r59.
+
+The experiment does not change. **What it can claim does**: the PRE arm separates shared response
+exposure, not shared-menu endogeneity entire, and selling it as the latter would overclaim a
+counterfactual that has already been half-answered.
+
+**A stale premise is not a wrong sentence.** Every sentence in that paragraph was true when written
+and no check could flag it, because nothing in it is false — it is a document describing a state of
+knowledge that moved. The registered pattern for it is correspondingly weaker than the others, and
+says so where it sits.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
