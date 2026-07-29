@@ -106,19 +106,12 @@ def share_of(own_hit, don_hit, cons, edges=EDGES, min_bin=MIN_BIN, min_denom=MIN
     return pooled, out
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--out", type=Path, default=_RES / "r106_share_level_under_redraw.json")
-    ap.add_argument("--smoke", action="store_true")
-    a = ap.parse_args()
-    if a.smoke:
-        (_RES / "_smoke").mkdir(parents=True, exist_ok=True)
-        a.out = _RES / "_smoke" / (a.out.stem + "_SMOKE.json")
-        print("*** SMOKE -> results/_smoke/ -- must never reach the README ***")
-    _RES.mkdir(parents=True, exist_ok=True)
-    if not VEC.exists():
-        raise SystemExit("REFUSING: r104's split records are absent; this round redraws its donor arm.")
-
+def build():
+    """Per-pair criterion-difference vectors, own-arm directions, and the prompt weight
+    matrix. Lifted to module level so r107 IMPORTS this rather than reimplementing it --
+    two hand-written copies of a construction is two chances to diverge silently. Its
+    correctness is checked at every use by the rebuild control against r104's stored
+    donor hits."""
     z = np.load(SAT, allow_pickle=True)
     sat = defaultdict(dict)
     for m, s_ in zip(z["meta"], z["sat"]):
@@ -132,11 +125,6 @@ def main() -> None:
         if pr and items and pid_ in sat:
             keep.append((pid_, items, pr))
     n = len(keep)
-
-    # ---- per-pair criterion-difference vectors, built ONCE ---------------------
-    # gap() scores THIS prompt's satisfactions with the DONOR's weights, so a redraw is a
-    # dot product against these. Same pair ORDER as r104 -- sorted, because set iteration
-    # order follows per-process string hashing (entry 218).
     maxK = max(len(it) for _, it, _ in keep)
     D, own_dir, pair_prompt = [], [], []
     for i, (pid_, items, pr) in enumerate(keep):
@@ -144,6 +132,7 @@ def main() -> None:
         cnt: dict = defaultdict(int)
         for x, y in pr:
             cnt[(x, y)] += 1
+        # SORTED: set iteration order follows per-process string hashing (entry 218).
         for k in sorted({tuple(sorted(t)) for t in cnt}):
             if cnt.get((k[0], k[1]), 0) + cnt.get((k[1], k[0]), 0) < MIN_RATERS:
                 continue
@@ -155,15 +144,28 @@ def main() -> None:
             D.append(d)
             own_dir.append(float(np.dot(w, d[:len(w)]) > 0))
             pair_prompt.append(i)
-    D = np.array(D)
-    own_dir = np.array(own_dir)
-    pair_prompt = np.array(pair_prompt)
-    print(f"pairs {len(D):,}   criterion slots {maxK}   prompts {n}")
-
     W = np.zeros((n, maxK))
     for i, (_, items, _) in enumerate(keep):
         w = weights(items)
         W[i, :len(w)] = w
+    return np.array(D), np.array(own_dir), np.array(pair_prompt), W, n, maxK
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", type=Path, default=_RES / "r106_share_level_under_redraw.json")
+    ap.add_argument("--smoke", action="store_true")
+    a = ap.parse_args()
+    if a.smoke:
+        (_RES / "_smoke").mkdir(parents=True, exist_ok=True)
+        a.out = _RES / "_smoke" / (a.out.stem + "_SMOKE.json")
+        print("*** SMOKE -> results/_smoke/ -- must never reach the README ***")
+    _RES.mkdir(parents=True, exist_ok=True)
+    if not VEC.exists():
+        raise SystemExit("REFUSING: r104's split records are absent; this round redraws its donor arm.")
+
+    D, own_dir, pair_prompt, W, n, maxK = build()
+    print(f"pairs {len(D):,}   criterion slots {maxK}   prompts {n}")
 
     rec = np.load(VEC)
     rpid, cons, own_hit, don_hit = rec["pid"], rec["cons"], rec["own"], rec["donor"]

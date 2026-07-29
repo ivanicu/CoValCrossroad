@@ -7953,3 +7953,58 @@ from inside it.**
 draw fixed; the redraw holds the pairs fixed. **A joint resample — redraw the donor and bootstrap the
 pairs in the same iteration — has never been run**, and it is the only one whose width could be
 quoted without a caveat naming what it omits.
+
+---
+
+## Entry 221 — the joint width is 1.45× the one r105 published, and the two sources are additive
+
+Entry 220's NEXT. r105 bootstrapped **pairs** with the donor fixed; r106 redrew **donors** with the
+pairs fixed. Composing both in the same iteration, on the high-minus-low-consensus share difference:
+
+| source | sd | 95% |
+|---|---|---|
+| donor redraw only | 0.0596 | [−0.2301, +0.0021] |
+| pair bootstrap only | 0.0643 | [−0.1417, +0.1068] |
+| **joint** | **0.0930** | **[−0.2816, +0.0857]** |
+
+**Variance ratio 1.13 against additivity** — the two sources are effectively independent, so each
+earlier interval was too narrow by a knowable factor: **1.45× for r105's, 1.56× for r106's.**
+
+### The verdict is unchanged in kind, and that is the finding
+
+Still **neither significant nor equivalent** at the pre-registered ±0.05 — still an answerable
+margin. **Four rounds of narrowing produced no change of world, only an honest width.** The point
+estimate moved from **−0.0108** on one draw to **−0.1023** over many, which is the substantive
+movement; the interval simply stopped pretending.
+
+### The controls are identities, not tolerances
+
+- **both sources off** → the canonical value every iteration, sd **0.0e+00**
+- **draw on, pairs off** → reproduces r106's persisted draws **seed for seed, max drift 0.0e+00**
+- **pairs on, draw off** → centres on the canonical **0.6900**
+
+The second is a **cross-round rebuild control**: had it drifted, this round's "draw source" would not
+be the one r106 measured and the composition would be a third unrelated number rather than a sum.
+**Switching each source off recovers the round that measured it alone** — that is what makes the
+joint condition a composition at all.
+
+### A defect that only exists because of how this repository is laid out
+
+Every round's script is named `run.py`. r107 imports r106's construction rather than reimplementing
+it — **two hand-written copies of a construction are two chances to diverge silently** — and
+`import run` inside r106 then resolved back to **r106 itself**, a circular import. Fixed by loading
+r106 under an explicit module name with its directory kept **off** `sys.path`, so r106's own
+`from run import weights` still finds r85's, which is what it means. **The convention that makes
+every round self-contained is the same convention that makes them un-importable by name.**
+
+### What this closes
+
+r103 → r107 is one question — *does the composition of the signal change with human consensus?* —
+and it ends **answerable and unanswered**, with the width finally counting both measured sources and
+**naming the four it does not count**: the judge lineage, r04's satisfaction reconstruction, the
+rater split, and the fixed donor pool.
+
+**NEXT:** of those four, exactly one is cheap. r104's **twelve rater splits are averaged over, not
+resampled** — so the split is currently a *fixed* choice contributing zero measured variance,
+exactly the position the donor draw was in before r106. **The same round that found the donor draw
+does not cancel would apply verbatim to the split**, and its records are already persisted.
