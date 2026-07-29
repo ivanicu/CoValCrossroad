@@ -45,5 +45,6 @@
   "verdict": "indistinguishable from zero"
  },
  "conclusion": "WEAKENED: the independent backbone cannot distinguish the change from zero, so A09's rise is not established; the no-gaming reading stands only as 'no effect detected either way'",
- "independent_reproduces": false
+ "independent_reproduces": false,
+ "outcome_variable_scope": "Scored against the r08 MODEL GOLD HEAD, not against human rankings -- no human ranked these generated responses. The retraction it establishes is therefore a statement about the proxy-world measurement, which is the correct scope for overturning r09 (also proxy-world), but is not a statement about human preference."
 }

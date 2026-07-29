@@ -30,6 +30,14 @@ import numpy as np
 import torch
 from transformers import AutoModel, AutoTokenizer
 
+OUTCOME_SCOPE = (
+    "Scored against the r08 MODEL GOLD HEAD, not against human rankings -- no hum"
+    "an ranked these generated responses. The retraction it establishes is theref"
+    "ore a statement about the proxy-world measurement, which is the correct scop"
+    "e for overturning r09 (also proxy-world), but is not a statement about human"
+    " preference."
+)
+
 _HERE = Path(__file__).resolve().parent
 _ROOT = str(_HERE.parents[1])
 _RES = str(_HERE / "results")

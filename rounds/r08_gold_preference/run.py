@@ -42,6 +42,16 @@ import numpy as np
 import torch
 from transformers import AutoModel, AutoTokenizer
 
+OUTCOME_SCOPE = (
+    "This round FITS the gold head that later rounds use as an outcome. It is a M"
+    "ODEL PROXY for preference, trained on released human rankings, and its featu"
+    "re vector includes response length explicitly (hstack([embedding, [char_len,"
+    " word_len]]) @ w). r47 measured what that costs: the head's within-prompt co"
+    "rrelation with length rises from ~+0.05 on released candidates to ~+0.50 on "
+    "generated ones. Any round scoring generated responses against this head inhe"
+    "rits that channel."
+)
+
 _HERE = Path(__file__).resolve().parent
 _ROOT = str(_HERE.parents[1])
 _RES = str(_HERE / "results")

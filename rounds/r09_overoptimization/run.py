@@ -48,6 +48,14 @@ from transformers import AutoModel, AutoModelForCausalLM, AutoTokenizer
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from covalx import MODEL_DIR, Judge, build_prompt, load_join  # noqa: E402
 
+OUTCOME_SCOPE = (
+    "Scored against the r08 MODEL GOLD HEAD, not against human rankings -- no hum"
+    "an ranked these generated responses. That head has response length as an exp"
+    "licit feature, and best-of-n selection raises gold score partly by raising l"
+    "ength (r47, entry 50). This round's finding was separately RETRACTED by r11'"
+    "s independent-backbone control."
+)
+
 _HERE = Path(__file__).resolve().parent
 _ROOT = str(_HERE.parents[1])
 _RES = str(_HERE / "results")

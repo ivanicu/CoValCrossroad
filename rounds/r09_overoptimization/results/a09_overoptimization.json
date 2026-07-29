@@ -86,5 +86,6 @@
   4,
   8,
   16
- ]
+ ],
+ "outcome_variable_scope": "Scored against the r08 MODEL GOLD HEAD, not against human rankings -- no human ranked these generated responses. That head has response length as an explicit feature, and best-of-n selection raises gold score partly by raising length (r47, entry 50). This round's finding was separately RETRACTED by r11's independent-backbone control."
 }

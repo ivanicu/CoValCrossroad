@@ -48,6 +48,17 @@ from transformers import AutoModel, AutoModelForCausalLM, AutoTokenizer
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from covalx import MODEL_DIR, Judge, build_prompt, load_join  # noqa: E402
 
+OUTCOME_SCOPE = (
+    "The FRESH arm is scored against the r08 MODEL GOLD HEAD, not against human r"
+    "ankings -- the release contains none for generated responses. r47 showed tha"
+    "t head's correlation with response length rises from +0.077 on the released "
+    "candidates to +0.458 on these, and that roughly half the ORIGINAL-minus-FRES"
+    "H gap rides on that channel; on held-out prompts (r46) the fresh arm stops b"
+    "eing negative once length is removed. So the licensed reading is that the ow"
+    "n-rubric advantage DOES NOT TRANSFER, not that an unrelated rubric BEATS it "
+    "(entry 50)."
+)
+
 _HERE = Path(__file__).resolve().parent
 _ROOT = str(_HERE.parents[1])
 _RES = str(_HERE / "results")
