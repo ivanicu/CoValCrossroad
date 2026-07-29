@@ -418,6 +418,46 @@ to chase, not a result.
 r34's number before any per-class figure could be read. It refused, and the reason it refused was
 the finding.
 
+## Entry 52 — I claimed a universal about *designs*, and a design existed
+
+**What was said**, in a turn report rather than in any artifact: that "shared-response artifact"
+and "population property" *"make identical predictions in every design this release permits."*
+
+That is a claim about the space of possible designs, asserted by the only person who would have
+had to find the counterexample, one turn after being caught twice on exactly that pattern (S_pre's
+unreachability, entry 51's population).
+
+**A design exists.** Write-in criteria vary in how much they are *about* the four candidates —
+*"invents a statute"* versus *"maintain a respectful tone"*. If the transferable direction were a
+shared-response artifact it should concentrate in the response-anchored ones. r50 measures
+anchoring as lexical containment of a criterion's content words in the best-matching response and
+splits at the within-prompt median.
+
+| | gap: anchored − generic |
+|---|---:|
+| write-ins | **+0.0271 [+0.0134, +0.0405]** |
+| pre-seeded control | +0.0106 [−0.0008, +0.0226] |
+| **excess (write-in − seeded)** | **+0.0141 [−0.0050, +0.0326]** |
+
+So the design returns a signal: anchored write-in criteria carry more of the cross-rater direction
+than generic ones. **What it cannot do is attribute it** — the seeded class shows the same
+tendency and the excess spans zero.
+
+**The error the round nearly published.** The first verdict branched on "seed gap significant?"
+first, found it was not while the write-in gap was, and declared the effect specific to
+participants — **difference of significance read as significance of difference**. The quantity that
+actually separates the worlds is the excess, and it does not exclude zero. The branch order now
+reads the excess first and nothing downstream can overrule it.
+
+**Status.** The universal is **withdrawn as stated**: a design exists. The substantive separation
+is **not achieved**: this one is underpowered to attribute its own signal, and its control is not
+airtight either — the release never says how the seeded six were produced, so "not
+participant-authored" does not establish "not response-derived."
+
+**The class.** Entries 48, 50 and 51 are all claims that outran their evidence about *the world*.
+This one outran its evidence about *what could be measured*, which is a claim I have less standing
+to make than any other, because it is a claim about my own failure to think of something.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

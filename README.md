@@ -543,8 +543,15 @@ write-in's sign comes from a single rater while a seeded item's averages ~17.
 
 So the transferable direction is **not an artifact of shared criterion text**. ⚠ It narrows
 shared-menu endogeneity to the **response** channel; it does not remove it. Every write-in was
-still authored after seeing the same four candidates, and "shared-response artifact" and
-"population property" make the *same* prediction here.
+still authored after seeing the same four candidates.
+
+⚠ **I originally added that this channel was unreachable by any design this release permits. That
+was wrong** ([entry 52](RETRACTIONS.md)). [r50](rounds/r50_response_anchoring) builds one — split
+write-ins by how much their words overlap the four candidates — and it returns a signal: anchored
+criteria carry **+0.0271 [+0.0134, +0.0405]** more direction than generic ones. It still cannot
+*attribute* that signal, because the pre-seeded control trends the same way and the excess spans
+zero. A design existing and a design deciding are different things, and only the first is
+established.
 
 ### The direction transfers across people — so it is not the raters' own rankings coming back
 
@@ -897,6 +904,7 @@ not from estimation noise, so no further computation narrows it.
 | [r39](rounds/r39_feature_cache) | Cache representations, analyse nothing | one GPU pass, three lineages (qwen/phi/internlm), 2,000 responses. Load failures recorded as **environment claims**, not model properties |
 | [r40](rounds/r40_ood_map) | Is r12's inversion an OOD artifact? | **no — the sign runs the wrong way.** Nearest-neighbour distance correlates at **−0.125**, 2/3 lineages, same sign 3/3: the anomaly is **worst where fresh responses most resemble the released ones** |
 | [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **no.** Hull violation −0.1837 and rank instability +0.1993 die to the discriminating-power control; spread loss looked like it survived at +0.2309 but **failed to replicate** (r46). Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly |
+| [r50](rounds/r50_response_anchoring) | Is the transfer carried by criteria ABOUT the four responses? | **a design exists; it does not attribute yet.** Anchored write-ins carry more direction than generic ones (**+0.0271 [+0.0134, +0.0405]**), but the pre-seeded control trends the same way (+0.0106) and the **excess spans zero** (+0.0141 [−0.0050, +0.0326]). Withdraws my "no design permits this" claim (entry 52); does not settle the channel |
 | [r49](rounds/r49_provenance_crossfit) | Does the direction transfer on criteria nobody else saw? | **yes, and better.** Size-matched, write-in criteria — one author, one rater — transfer at **+0.0777** vs **+0.0599** for the shared six; paired gap **+0.0172 [+0.0034, +0.0307]**. Control reproduces r34 (+0.0599 vs +0.0576); both shuffled-sign nulls strongly negative. Narrows shared-menu endogeneity to the RESPONSE channel |
 | [r48](rounds/r48_provenance_identified) | Is the seed/write-in split a heuristic? | **no — identified.** 63.5% of criteria have 1 rater, 36.4% have ≥5, **18 (0.1%)** lie between and **zero** are ambiguous under the rounds' own rule. The many-rated class is capped at exactly **6 per prompt** (728/986 at the cap), matching documented pre-seeding. Does **not** reach S_pre: pre-populated ≠ response-blind |
 | [r47](rounds/r47_gold_is_length) | Is the inversion a property of the gold PROXY? | **partly, and the strangest part does not survive.** gold↔length rises +0.08→+0.46 and +0.03→+0.55 across two samples; ~57% of the inversion survives length-residualisation against the procedure's own null; the fresh arm stops being negative in the held-out sample. Proxy matches human rankings on the ORIGINAL arm, which is where its length channel is weakest |

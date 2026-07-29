@@ -260,45 +260,49 @@ def main() -> None:
           f"[{excess['ci'][0]:+.4f},{excess['ci'][1]:+.4f}]"
           f"{'  SIGNIFICANT' if excess['excludes_zero'] else '  (ns)'}"
           f"   <- concreteness alone predicts 0")
-    if not w_gap["excludes_zero"]:
+    # THE BRANCH ORDER IS THE TEST.  A previous version checked "seed gap
+    # significant?" first and, finding it was not while the write-in gap was,
+    # declared the effect specific to participants.  That is difference-of-
+    # significance masquerading as significance-of-difference, and the quantity
+    # that actually separates the worlds -- the EXCESS -- spans zero.  So the
+    # excess is now read FIRST and nothing downstream may overrule it.
+    if excess["excludes_zero"] and excess["writein_gap_minus_seed_gap"] > 0:
         verdict = (
-            f"ANCHORING DOES NOT CARRY THE DIRECTION. Among write-ins, criteria whose "
-            f"words overlap the four candidates transfer {w_gap['high_minus_low']:+.4f} "
-            f"{w_gap['ci']} more than generic ones -- an interval spanning zero. Both "
-            f"strata transfer ({out['writein']['high']['delta']:+.4f} anchored, "
-            f"{out['writein']['low']['delta']:+.4f} generic). The shared-response story "
-            f"has to explain why its natural carrier does not matter. NOT AN EXCLUSION: "
-            f"lexical containment is a coarse proxy for aboutness, a criterion can be "
-            f"about a response while sharing few of its words, and this is a "
-            f"non-rejection at this sample size")
-    elif s_gap["excludes_zero"] and not excess["excludes_zero"]:
+            f"PARTICIPANT-SIDE RESPONSE ANCHORING. The write-in anchoring gap exceeds the "
+            f"seeded one by {excess['writein_gap_minus_seed_gap']:+.4f} {excess['ci']}, and "
+            f"concreteness alone predicts zero excess. The shared-response channel is "
+            f"showing itself in criteria participants wrote, so my claim that the two "
+            f"worlds are indistinguishable in this release is WITHDRAWN, and so is the "
+            f"reading that r49 narrowed endogeneity to a channel nothing could reach")
+    elif w_gap["excludes_zero"]:
         verdict = (
-            f"ANCHORING PREDICTS TRANSFER IN BOTH CLASSES ({w_gap['high_minus_low']:+.4f} "
-            f"write-in, {s_gap['high_minus_low']:+.4f} seeded) and the DIFFERENCE between "
-            f"those gaps is {excess['writein_gap_minus_seed_gap']:+.4f} {excess['ci']}, "
-            f"which spans zero. Participant-authored criteria show no MORE "
-            f"response-anchoring effect than pre-populated ones do, so what anchoring "
-            f"tracks is CONCRETENESS rather than menu-induced construction. ⚠ THE CONTROL "
-            f"IS NOT AIRTIGHT: the release never says how the seeded six were produced, "
-            f"so 'not authored by participants' does not establish 'not derived from the "
-            f"responses'. If OpenAI generated seeds after seeing the candidates, both "
-            f"classes could be response-derived and this control would be blind to it")
+            f"A DESIGN EXISTS, AND IT DOES NOT SEPARATE THE WORLDS YET. Anchoring predicts "
+            f"transfer among write-ins ({w_gap['high_minus_low']:+.4f} {w_gap['ci']}): "
+            f"criteria whose words overlap the four candidates carry more of the "
+            f"cross-rater direction than generic ones do. But the seeded control shows the "
+            f"same tendency ({s_gap['high_minus_low']:+.4f} {s_gap['ci']}) and the EXCESS "
+            f"is {excess['writein_gap_minus_seed_gap']:+.4f} {excess['ci']}, spanning zero "
+            f"-- so this is not shown to be participant-side rather than concreteness. "
+            f"WHAT CHANGES ANYWAY: my claim that the two worlds are indistinguishable in "
+            f"EVERY design this release permits was wrong as stated -- a design exists and "
+            f"returns a signal. What it cannot yet do is attribute that signal. ⚠ The "
+            f"control is also not airtight: the release never says how the seeded six were "
+            f"produced, so 'not participant-authored' does not establish 'not "
+            f"response-derived'")
     elif s_gap["excludes_zero"]:
         verdict = (
-            f"ANCHORING PREDICTS TRANSFER IN BOTH CLASSES, BUT MORE FOR PARTICIPANTS' OWN "
-            f"CRITERIA: the write-in gap exceeds the seeded gap by "
-            f"{excess['writein_gap_minus_seed_gap']:+.4f} {excess['ci']}. Concreteness "
-            f"alone predicts zero excess, so this is participant-side response anchoring "
-            f"on top of it -- evidence FOR the shared-response channel, and my claim that "
-            f"the two worlds are indistinguishable in this release is WITHDRAWN")
+            f"ANCHORING PREDICTS TRANSFER ONLY IN THE SEEDED CLASS "
+            f"({s_gap['high_minus_low']:+.4f}) and not among write-ins "
+            f"({w_gap['high_minus_low']:+.4f}), which no version of the shared-response "
+            f"story predicts and needs its own explanation")
     else:
         verdict = (
-            f"THE DIRECTION CONCENTRATES IN RESPONSE-ANCHORED WRITE-INS "
-            f"({w_gap['high_minus_low']:+.4f} {w_gap['ci']}) and not in the seeded "
-            f"control ({s_gap['high_minus_low']:+.4f}). That is the shared-response "
-            f"artifact showing itself, and my claim that the two worlds are "
-            f"indistinguishable in this release is WITHDRAWN -- as is the reading that "
-            f"r49 narrowed endogeneity to a channel nothing could reach")
+            f"ANCHORING DOES NOT CARRY THE DIRECTION in either class (write-in "
+            f"{w_gap['high_minus_low']:+.4f} {w_gap['ci']}, seeded "
+            f"{s_gap['high_minus_low']:+.4f}). Both strata transfer. The shared-response "
+            f"story has to explain why its natural carrier does not matter. NOT AN "
+            f"EXCLUSION: lexical containment is a coarse proxy for aboutness and this is a "
+            f"non-rejection at this sample size")
     print(f"\n-> {verdict}")
 
     _RES.mkdir(parents=True, exist_ok=True)
