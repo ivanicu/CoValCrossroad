@@ -48,6 +48,38 @@ FEWSHOT = (
 )
 
 
+def build_conclusion(res: dict) -> str:
+    """The conclusion as a pure function of the stored quantities.
+
+    Added 2026-07-29 (entry 187). The CONTENT branch previously stated NO NUMBER at all,
+    so `verdict_cites_its_own_contrasts` counted three significant deltas as uncited --
+    correctly. A conclusion that names no quantity cannot be compared to its own round,
+    and every prose check in this package agrees with it by default. Hand-writing the
+    replacement is not allowed either, so this computes it.
+    """
+    r = float(res["advantage_retained_under_paraphrase"])
+    o_r, p_r, n_r = (res["original_minus_random"], res["paraphrased_minus_random"],
+                     res["neighbour_minus_random"])
+    nums = (f"Original beats a random donor by {o_r['delta']:+.4f} "
+            f"[{o_r['ci'][0]:+.4f},{o_r['ci'][1]:+.4f}]; after rewording every criterion, "
+            f"{p_r['delta']:+.4f} [{p_r['ci'][0]:+.4f},{p_r['ci'][1]:+.4f}] -- {r:.1%} retained. "
+            f"A nearest-topic donor keeps only {n_r['delta']:+.4f} "
+            f"[{n_r['ci'][0]:+.4f},{n_r['ci'][1]:+.4f}], so the advantage is not generic quality "
+            f"either. On {res.get('prompts', '?')} prompts, with "
+            f"{float(res.get('paraphrase_kept', float('nan'))):.1%} of paraphrases clearing "
+            f"fidelity.")
+    if p_r["verdict"] != "higher":
+        return ("LEXICAL: the own-prompt advantage does not survive rewording the criteria, so "
+                "the attribution reported throughout this repository is substantially a "
+                "vocabulary measurement and every headline needs restating in those terms. " + nums)
+    if r > 0.7:
+        return ("CONTENT: the advantage survives rewording largely intact, so it is not "
+                "vocabulary overlap and the transfer boundary is real specificity. " + nums)
+    return (f"MIXED: rewording costs {1 - r:.0%} of the advantage but does not remove it. Part of "
+            f"what was called prompt-specific criterion content is wording, and part is not. "
+            + nums)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--comparisons", type=Path, default=Path(_ROOT) / "data/comparisons.jsonl")
@@ -56,7 +88,20 @@ def main() -> None:
     ap.add_argument("--prompts", type=int, default=300)
     ap.add_argument("--fidelity", type=float, default=0.80)
     ap.add_argument("--boot", type=int, default=4000)
+    ap.add_argument("--reconclude", action="store_true",
+                    help="rebuild the conclusion from the STORED artifact and exit. Re-running "
+                         "this round would redo the paraphrase scoring, and more paraphrase "
+                         "sweeps are frozen -- so the measurement is never touched.")
     a = ap.parse_args()
+    if a.reconclude:
+        doc = json.loads(Path(a.out).read_text())
+        doc["conclusion"] = build_conclusion(doc)
+        doc["conclusion_rebuilt_without_rerun"] = (
+            "Only the conclusion was rebuilt, from the numbers already in this file. The "
+            "measurement is untouched; what changed is that the conclusion now states it.")
+        Path(a.out).write_text(json.dumps(doc, indent=1))
+        print(doc["conclusion"])
+        return
 
     joined = load_join(a.comparisons, a.rubrics)[: a.prompts]
     items = []
@@ -204,19 +249,7 @@ def main() -> None:
     retained = a_para / a_orig if abs(a_orig) > 1e-9 else float("nan")
     res["advantage_retained_under_paraphrase"] = float(retained)
     print(f"\n  advantage retained under paraphrase: {retained:.1%}")
-    if res["paraphrased_minus_random"]["verdict"] != "higher":
-        concl = ("LEXICAL: the own-prompt advantage does not survive rewording the "
-                 "criteria, so the attribution reported throughout this repository "
-                 "is substantially a vocabulary measurement and every headline needs "
-                 "restating in those terms.")
-    elif retained > 0.7:
-        concl = ("CONTENT: the advantage survives rewording largely intact, so it is "
-                 "not vocabulary overlap and the transfer boundary is real "
-                 "specificity.")
-    else:
-        concl = (f"MIXED: rewording costs {1-retained:.0%} of the advantage but does "
-                 "not remove it. Part of what was called prompt-specific criterion "
-                 "content is wording, and part is not.")
+    concl = build_conclusion(res)
     res["conclusion"] = concl
     print(f"  -> {concl}")
     Path(_RES).mkdir(parents=True, exist_ok=True)

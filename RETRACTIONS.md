@@ -6285,3 +6285,47 @@ that is stated rather than assumed.
 nobody read"* to *"therefore fix the rounds"* without reading the rounds. **Reading one verdict
 overturned the plan.** The count went 12 → 4 by fixing the population, and then 4 → *not a defect at
 all* by reading the object — the same lesson twice in one entry, at two different levels.
+
+---
+
+## Entry 187 — all five examined: one real defect, four that were never defects
+
+Entry 186's addendum left r11, r17 and r20 unread. **Read.** The five rounds that cite none of their
+significant contrasts are **not one category**, and calling them one was the error:
+
+| round | why it cites nothing | is it a defect? |
+|---|---|---|
+| **r28** | verdict says *"the both_low number below **must not be read as a measurement of anything**"* — its conclusion is FUNCTIONAL FORM UNRESOLVED | **no** — argued refusal |
+| **r17** | conclusion carries its own FROZEN LINE: read the partition as a *"latent profile split, never as a bloc"* | **no** — declining to quote numbers it has frozen the reading of |
+| **r31** | cites the contrast as **"−53.3%, CI excludes zero"**, the same quantity the census stores as a raw delta | **no** — unit mismatch, an instrument limitation |
+| **r11** | *"WEAKENED: the independent backbone cannot distinguish the change from zero"* — the uncited number is the one it discounts | **no** — the number's absence is the point |
+| **r20** | *"CONTENT: the advantage survives rewording largely intact, so it is not vocabulary overlap"* — **no quantity at all**, with three significant deltas stored | **YES** |
+
+### r20 fixed, and the constraint shaped the fix
+
+**"More paraphrase sweeps" is frozen**, so re-running was not available. **"Conclusion strings are never
+hand-written"**, so typing the numbers in was not available either. The fix is `build_conclusion(res)`
+— a pure function of the stored quantities — plus a **`--reconclude`** path that rebuilds from the
+artifact and never touches the measurement. r43's pattern, and the only route the two constraints leave
+open. The conclusion now reads:
+
+> CONTENT: … **+0.0743** [+0.0563, +0.0921]; after rewording every criterion, **+0.0723**
+> [+0.0537, +0.0911] — **97.4%** retained. A nearest-topic donor keeps only **+0.0211**
+> [+0.0021, +0.0403], so the advantage is not generic quality either. On **291** prompts, with
+> **99.2%** of paraphrases clearing fidelity.
+
+**r20 now cites 3 of 3.** The silent set falls **5 → 4**; omissions **19 → 11 → 8** across the three
+corrections of this thread.
+
+### What the whole thread cost and bought
+
+The finding began as *"r28 has 12 uncited significant contrasts"*. It went **12 → 4** by correcting the
+instrument's inherited population (entry 186), then **4 → not a defect** by reading r28's verdict, and
+the same reading disqualified three of the other four. **One genuine instance survived out of an
+initial nineteen omissions**, and it was in a round nobody had flagged.
+
+**The generalisable part is about my sequencing, not about r20.** Three times in this thread I moved
+from a count to a plan without reading the objects the count was about. Each time reading them changed
+the plan. **A count is a pointer to objects, not a substitute for them** — and the check itself now
+carries that in its proxy ledger: *uncited* includes argued refusal, frozen readings, discounted
+numbers and unit mismatches, so a non-zero exit is a list to read, never a list to fix.
