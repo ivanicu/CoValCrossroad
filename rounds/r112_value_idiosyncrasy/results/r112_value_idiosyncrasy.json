@@ -1,6 +1,7 @@
 {
  "attenuation": {
   "beta_x1_deattenuated": 0.14574134349477186,
+  "deattenuation_quotable": false,
   "n_cells_split": 10123,
   "spearman_brown": 0.2888218053757759,
   "split_half_h": 0.16878534701010572
@@ -29,7 +30,7 @@
    0.0200011343050192
   ]
  ],
- "conclusion": "On 14,637 of 15,202 analysis cells (96.3%) carrying the rater's own signed criterion scores, with prompt fixed effects absorbing every prompt-level quantity and two-way clustering on prompt and rater: a rater's value divergence from the leave-one-out consensus predicts their compilation gain with beta_x1 +0.04209 (95% CI [+0.03028,+0.05391]) and their sign-disagreement share with beta_x2 +0.01279 (95% CI [-0.01158,+0.03717]), positive meaning a SMALLER gain. The within-prompt profile permutation excludes the observed effect. corr(alpha_full, alpha_core) = 0.6925. In interpretable units, +1 sd of value divergence withholds +0.02024 of gain, 29.3% of the mean gain -0.06900; x1's split-half reliability is 0.1688 (Spearman-Brown 0.2888) because CoVal caps a rater's shared criteria at six, so the deattenuated coefficient is +0.14574 and the raw one is a floor. WORLD: W-DESCRIBABLE. The withheld improvement is DESCRIBABLE: compilation returns less to raters whose own stated values sit further from the consensus it compresses toward. CoVal ends with a subject.",
+ "conclusion": "On 14,637 of 15,202 analysis cells (96.3%) carrying the rater's own signed criterion scores, with prompt fixed effects absorbing every prompt-level quantity and two-way clustering on prompt and rater: a rater's value divergence from the leave-one-out consensus predicts their compilation gain with beta_x1 +0.04209 (95% CI [+0.03028,+0.05391]) and their sign-disagreement share with beta_x2 +0.01279 (95% CI [-0.01158,+0.03717]), positive meaning a SMALLER gain. The within-prompt profile permutation excludes the observed effect. corr(alpha_full, alpha_core) = 0.6925. In interpretable units, +1 sd of value divergence withholds +0.02024 of gain, 29.3% of the mean gain -0.06900; x1's split-half reliability is 0.1688 (Spearman-Brown 0.2888) because CoVal caps a rater's shared criteria at six, so the raw coefficient is a FLOOR; the deattenuated +0.14574 is reported to fix the sign of that bias and is NOT quotable at a reliability of 0.2888. WORLD: W-DESCRIBABLE. The withheld improvement is DESCRIBABLE: compilation returns less to raters whose own stated values sit further from the consensus it compresses toward. CoVal ends with a subject.",
  "corr_alpha_arms": 0.6924558373248597,
  "coverage": 0.9628338376529404,
  "dropped": {
