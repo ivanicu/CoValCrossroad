@@ -557,6 +557,15 @@ repository now points at.
 
 Each round is self-contained: its own question, runner, results and README.
 
+⚠ **Several lines are frozen — see [FROZEN.md](FROZEN.md).** A line is frozen when further
+computation cannot identify what it is measuring, which is a statement about the object rather
+than about the estimate. Each entry records what would *unfreeze* it, because a freeze without
+an unfreeze condition is abandonment with better manners. The rater-structure ontology
+(r23/r25/r26/r27/r28) failed **four consecutive separators for four different reasons** and is
+frozen UNRESOLVED — neither "no pair structure" nor "blocs exist". The computational headline is
+frozen at **3.2%–65.8%**: its width comes from analyst choices the source package never reports,
+not from estimation noise, so no further computation narrows it.
+
 | round | question | headline |
 |---|---|---|
 | [r01](rounds/r01_rater_structure) | Is disagreement noise or structure? | persists across disjoint prompts, ρ=0.147, z=+16.6. Most of it is an additive per-rater effect (r23). Whether anything **pair**-specific survives is **UNRESOLVED** — r28 showed the decomposition's functional form is itself unvalidated. The "survives removing response style" control was invariant by construction |
