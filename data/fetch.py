@@ -37,10 +37,10 @@ FILES = {
 # could obtain every number and none of the text those readings depend on.
 #
 # On the Hub a dataset's card is README.md at the repo root, so it is fetched
-# from there and written under its local name. THAT REMOTE PATH IS UNVERIFIED --
-# it has not been fetched from a clean state in this session, only hashed
-# locally. If the download 404s, the card is at
-# huggingface.co/datasets/openai/coval and the hash below still checks it.
+# from there and written under its local name. VERIFIED 2026-07-29: that URL
+# returns HTTP 200, 27,509 bytes, sha256 92ba4a96... -- byte-identical to the
+# local copy, so the quotations entries 74, 88 and 90 rest on are checkable
+# against the live source and not only against a file on this disk.
 CARD_LOCAL = "DATASET_CARD.md"
 CARD_REMOTE = "README.md"
 CARD = ("92ba4a96087b719e80ccbd0803a6d9bd6ab0582d963e95c20579efbb5a769de0", 27509)

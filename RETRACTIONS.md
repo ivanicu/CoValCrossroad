@@ -2890,15 +2890,38 @@ text three of this session's findings rest on**:
 sentence in that file. A reader who could not obtain it could not check the withdrawal.
 
 **Fixed:** `fetch.py` now fetches and hash-verifies the card as a fifth file
-(`92ba4a96…`, 27,509 bytes), and reports 5 of 5. **Its remote path is marked UNVERIFIED in the
-code** — on the Hub a dataset card is `README.md` at the repo root, and I have hashed the local copy
-but not fetched it from a clean state this session. If that 404s, the script says where the card
-lives and the hash still checks whatever a reader saves there.
+(`92ba4a96…`, 27,509 bytes), and reports 5 of 5.
+
+**And the remote path, flagged UNVERIFIED when this entry was written, is now verified**
+(entry 116): `huggingface.co/datasets/openai/coval/resolve/main/README.md` returns HTTP 200,
+27,509 bytes, **hash identical to the local copy**. So the quotations entries 74, 88 and 90 rest on
+are checkable against the live source, not only against a file on this disk.
 
 **The shape.** Entry 102: an enumeration over artifacts cannot see a missing artifact. Entry 113: a
 timer cannot see rounds that never started one. This one: **a fetch script's file list is a claim
 about what the work depends on, and it was three entries out of date within one session.** Every
 instance is a container that only knows what was put in it.
+
+## Entry 116 — the last unverified assertion took one request, and the card is byte-identical to the live source
+
+Entry 115 fixed `fetch.py` to fetch the dataset card and flagged one thing as unverified: **the remote
+path**. On the Hub a dataset card is `README.md` at the repo root, and I had hashed the local file
+without ever fetching it.
+
+**One request settled it.** `huggingface.co/datasets/openai/coval/resolve/main/README.md` →
+**HTTP 200, 27,509 bytes, sha256 `92ba4a96…`** — identical to the local copy, byte for byte.
+
+**That is worth more than tidying a comment.** Entries 74, 88 and 90 quote that file as evidence:
+*"In parallel, we prepared initial rubric items"*, the personal-vs-world ranking instructions, the
+onboarding quiz. Until now those quotations were checkable only against **a file on this disk**, with
+no established relationship to what OpenAI published. They are now checkable against the live source,
+and the hash makes the relationship exact rather than assumed.
+
+**The whole chain is short and it was worth walking.** Entry 113 marked a claim stale. Entry 114 ran
+the clone rather than leaving it stale, and found a real defect. Entry 115 found the card missing from
+the fetch list and flagged its remote path. This one fetched it. **Four entries, each closing exactly
+the thing the previous one deferred** — and the only reason any of it happened is that "stale" was
+treated as a state to be exited rather than a label to apply.
 
 ## The pattern
 
