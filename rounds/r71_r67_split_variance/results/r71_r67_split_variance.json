@@ -1,0 +1,58 @@
+{
+ "predictors": {
+  "spread_loss": {
+   "mean_raw": 0.52074744724917,
+   "sd_across_splits": 0.0294184846114243,
+   "min": 0.45526103267070017,
+   "max": 0.5973903360252528,
+   "spearman_brown": 0.6848572367372806,
+   "n_draws": 200
+  },
+  "criterion_space_geometry": {
+   "mean_raw": 0.4984235405888867,
+   "sd_across_splits": 0.030372042130637412,
+   "min": 0.400670514229194,
+   "max": 0.5728967184193122,
+   "spearman_brown": 0.6652638951374245,
+   "n_draws": 200
+  }
+ },
+ "n_splits": 200,
+ "mean_predictor_reliability": 0.6750605659373525,
+ "r67_published": 0.657,
+ "delta_vs_published": 0.018060565937352502,
+ "floor_multiplier": 1.2171066362701535,
+ "floor_multiplier_published": 1.2337220169960086,
+ "prompts_skipped_K_lt_4": 9,
+ "floors": {
+  "r41 criterion-space support": {
+   "pessimistic": {
+    "published": 0.2267436939204045,
+    "reaveraged": 0.2236899810501036
+   },
+   "optimistic": {
+    "published": 0.19181495467539564,
+    "reaveraged": 0.18923165109732984
+   }
+  },
+  "r46 spread loss (held out)": {
+   "pessimistic": {
+    "published": 0.2637859805509656,
+    "reaveraged": 0.26023339379591254
+   },
+   "optimistic": {
+    "published": 0.22315106113226718,
+    "reaveraged": 0.22014573271224014
+   }
+  }
+ },
+ "controls": {
+  "self": 0.9999999999999998,
+  "prompt_shuffled_max_over_draws": 0.20159781733890833,
+  "all_pass": true
+ },
+ "world": "A STABLE",
+ "outcome_variable_scope": "Predictor-side only. The outcome these predictors are correlated against is the attribution drop scored by the r08 model gold head, not by humans (entry 50, r47).",
+ "scope": "r67's estimator verbatim, run 200 times: same two predictors, same K<4 exclusion, same hull PROXY (a real hull is not computable on a 2-criterion half). Only the number of draws changes. The across-split spread is reported for each predictor and the shuffled control as a maximum over draws.",
+ "verdict": "A STABLE. Entry 120 established that a split-half from ONE random split is a point estimate of a quantity that varies several-fold across splits, and corrected r69 and r70 under it the moment it was written. r67 had the same defect and was NOT corrected, which matters more than the other two because 0.657 is the only predictor reliability available for r41 and r46 and is where the ledger's 1.23x multiplier comes from. Re-running r67's own estimator verbatim -- same predictors, same K<4 exclusion, same hull proxy -- 200 times instead of once: spread_loss 0.6849 (sd 0.0294, range +0.4553 to +0.5974), criterion_space_geometry 0.6653 (sd 0.0304, range +0.4007 to +0.5729), mean 0.6751 against the published 0.657, a shift of +0.0181. The floor multiplier is 1.217x rather than 1.234x. At the pessimistic outcome reliability r41's floor moves 0.227 -> 0.224 and r46's 0.264 -> 0.260. ALL THREE RELIABILITY ROUNDS WERE SINGLE DRAWS -- r67, r69 and r70 -- and all three are now averaged. The shuffled null was re-run on every draw and is reported as a MAXIMUM (0.2016), not a mean, because averaging a control over 200 draws would hide one bad draw, which is the very failure this round exists to correct."
+}
