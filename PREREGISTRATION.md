@@ -97,6 +97,41 @@ reported, but it never produces the primary number.
 | direction is menu-constructed | agreement near the marginal-matched baseline; PRE weights predict poorly |
 | partially constructed | agreement above baseline but PRE weights strictly worse — the expected outcome, and the one requiring an effect *size*, not a test |
 
+**⚠ THE SCALE'S MIDPOINT IS NOT A HYPOTHETICAL — it was measured and it is unavailable in practice
+([r82](rounds/r82_scale_use_by_provenance)).** Across **102,147** released ratings on a 21-point
+−10…+10 scale, the midpoint **w = 0 was used exactly once**. Two consequences for this design, both
+measured rather than assumed:
+
+1. **The neutral option is not a refinement, it is the missing level.** A participant with no view had
+   no way to say so, and every such view was recorded as a signed weight. That is the state this arm
+   exists to change.
+2. **The scale carries far less resolution than its 21 points suggest.** **29.55%** of all weight mass
+   falls on just **5 or 10**, and **16.96%** on \|w\| = 10 alone.
+   ⚠ **And the magnitudes' predictive contribution is already measured — I nearly rebuilt it.**
+   [r32](rounds/r32_channel_decomposition) has the cell: moving from **sign** to **signed magnitude**
+   is worth **+0.0055 [+0.0018, +0.0094]**, against **+0.0876** for the sign itself — so magnitude is
+   **6.3%** of the sign channel. Reported the way this document requires: the effect **differs from
+   zero** *and* is **practically equivalent to zero at the preregistered δ = 0.01**, its whole interval
+   lying inside the margin. So the correct statement is not that magnitude carries nothing, but that
+   **asking for a number on a −10…+10 scale buys about a sixteenth of what asking for a direction
+   buys** — which bears on Experiment 3's design as much as on this one.
+
+**Registered directional prediction, with its way to be wrong.** r82 found that low-magnitude ratings
+(\|w\| = 1 or 2) are **19.21%** of *pre-seeded* criteria against **6.98%** of *participant-authored*
+ones — a gap of **+0.1223** against a within-prompt permutation null of [−0.0016, +0.0095]. **Two
+explanations survive that finding and r82 cannot separate them**: displacement (people with no view
+were forced to a signed weight, and reached for the smallest one) or selection (you author a criterion
+*because* you already care, so it earns a strong weight).
+
+> **Prediction:** if displacement is doing the work, adding *"no general direction"* will absorb a much
+> larger share of the **seed** low-magnitude mass than of the **write-in** low-magnitude mass.
+> **If it absorbs both roughly equally, displacement is not the explanation** and r82's gap is
+> selection — a result that would retire the forced-choice worry rather than confirm it.
+
+This is registered now, before any data, because the same evidence supports both readings and choosing
+between them afterwards would be a narrative. It is also the **only** prediction in this document
+contributed by a round that explicitly could not test its own hypothesis.
+
 **A neutral option must be on the screen in both arms.** r35 established only that abstention
 *after the fact* costs nothing; it could not simulate what a participant would do given
 "no general direction", "depends on implementation", or "cannot judge without seeing a response"

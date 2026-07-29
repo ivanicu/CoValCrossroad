@@ -4390,3 +4390,38 @@ rule exists precisely because the rival is easiest to see once the number agrees
 missing midpoint is doing the work, offering *"no general direction"* at elicitation should absorb most
 of the **seed** low-magnitude mass and little of the write-in mass. That is a directional prediction
 Experiment 1 can test and this round cannot.
+
+## Entry 147 — the prior-art gate stopped me building a round that already existed, and the existing number corrected my claim
+
+**What I was about to build.** Entry 146 ended by writing into the preregistration that treating the
+released weights as interval-scaled *"is reading precision the raters did not supply"* — an assertion
+about this package's own analyses, made from r82's distribution shape. The obvious next round: compare
+a sign-only aggregation against a magnitude-weighted one, and show the magnitude channel is inert.
+
+**It exists.** [r32](rounds/r32_channel_decomposition) has the cell:
+
+| aggregation | accuracy |
+|---|---:|
+| equal weights | 0.5899 |
+| **sign** | 0.6775 |
+| **signed magnitude** | 0.6831 |
+| signed magnitude × visibility | 0.6697 |
+
+Sign is worth **+0.0876**. Magnitude on top of sign is worth **+0.0055 [+0.0018, +0.0094]** — **6.3%
+of the sign channel**.
+
+**And it corrects what I wrote.** Magnitude is **not** inert: its interval excludes zero. My
+preregistration sentence implied it carried nothing, and that was an overstatement written from a
+distribution's shape rather than from a measurement of its consequence. Corrected in place to the
+precise form: *asking for a number on a −10…+10 scale buys about a sixteenth of what asking for a
+direction buys.*
+
+**It is also a clean exemplar of the rule this project keeps having to apply.** The magnitude channel
+**differs from zero** *and* is **practically equivalent to zero at δ = 0.01** — its entire interval,
+[+0.0018, +0.0094], lies inside the margin. Significance and practical equivalence disagree, both are
+true, and reporting only one of them would mislead in a different direction depending on which.
+
+**Why this is an entry rather than a silent edit.** The prior-art gate is cheap and I nearly skipped it
+because the question felt new — it *was* new as a question about **r82's** finding, and old as a
+measurement. **A question I have not asked before is not the same as a number nobody has computed**,
+and the second is what the gate is for. Two commands cost less than a round.
