@@ -10,7 +10,13 @@ authored after the annotator read all four. So the released corpus already
 contains the experiment: split the rubric by provenance and measure attribution
 separately.
 
-Provenance proxy, stated honestly: the release does not flag seed vs write-in.
+Provenance: the release does not FLAG seed vs write-in, so this splits on rater
+count -- and r48 shows that split is an IDENTIFICATION rather than a heuristic.
+The two classes are separated by a structural gap (18 of 15,248 criteria lie
+between them; ZERO are ambiguous under the per-prompt rule below), and the
+many-rated class is capped at exactly 6 per prompt with 728/986 prompts at the
+cap -- the signature of a fixed set pre-populated for every participant, which
+is what DATASET_CARD.md:357 documents as 'pre-seeded'.
 Seeds were shown to every rater for a prompt, write-ins to nobody, so rating
 count separates them cleanly -- the visibility distribution is perfectly bimodal
 (9,684 items with one score, 5,564 rated by at least half, nothing between).

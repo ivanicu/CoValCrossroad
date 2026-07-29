@@ -22,6 +22,9 @@ judgements -- which is the point: if the answer moves, it moves because of what
 the weights carry, not because anything was re-measured.
 
     provenance   seed (rated by a majority) | writein (single rater) | all
+                the split is structural, not a threshold choice: r48 finds a
+                clean gap and a fixed 6-per-prompt seeded set, so no
+                threshold-sensitivity sweep is owed here
     weighting    equal            w_c = 1                       text only
                  sign             w_c = sign(mean rating)       + polarity
                  signed magnitude w_c = mean rating             + how much
