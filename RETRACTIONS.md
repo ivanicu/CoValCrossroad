@@ -1932,6 +1932,48 @@ model gold head says so. This is a different axis entirely — *which human orde
 instrument in the package has ever had an opinion about it. The rounds' `outcome_variable_scope`
 fields distinguish gold-proxy from human; none distinguishes world from personal.
 
+## Entry 89 — I sampled the head of a file and published the number; and the contrast it pointed to is out of the release's reach
+
+**The correction first.** Entry 88 said the personal ranking is present for **76.9%** of
+assessments. It is **26.7%** — 4,901 of 18,384. I measured it by breaking out of the read loop after
+400 lines and reported the result as a property of the file. The head of `comparisons.jsonl` is not
+a random sample of it. Corrected in README and PREREGISTRATION, and registered so it cannot return.
+
+**What the full pass shows, and it is the part worth keeping.** Where both orderings exist they
+disagree constantly:
+
+| | |
+|---|---|
+| assessments with both orderings | 4,901 (26.7%) |
+| the two orderings **identical** | 53.2% |
+| **top choice differs** | **29.0%** |
+| strict world pairs **reversed** in personal | **9.70%** |
+
+Asking the same person for an impartial judgement instead of their taste changes their ordering
+about half the time. Entry 88's finding — that every number here is measured against one of these
+and no document said so — is therefore material, not bookkeeping.
+
+**r60 then runs the contrast on the only clean estimand this project has.** On the pairs where the
+two orderings are *reversed*, they make opposite predictions, so the rubric must pick a side and
+chance is **exactly 1/2** rather than estimated. Paired within person: population, prompt, response
+set and rubric all held fixed by construction. No GPU — r41's persisted tensor already covers it.
+
+**Result: the rubric sides with world on 0.5267 [0.4951, 0.5587]. INCONCLUSIVE.** The shuffled-rubric
+arm gives 0.5183 [0.4840, 0.5527].
+
+**And the power statement is the actual finding.** The observed half-width is **0.0318**, so
+resolving δ = 0.01 would need about **14,358** reversed pairs. **The entire release contains 2,444.**
+Using every one of them reaches a half-width of ~0.0242 — an answerable margin of roughly
+**δ = 0.024**, and **0.17×** the data required for 0.01. So *"inconclusive"* here is a fact about the
+**data**, not about the rubric, and reporting it without that number would have been the
+uninterpretable kind of null this project keeps finding in other people's work and its own.
+
+**It also bounds the planned human study.** H_fresh is 60 prompts × ≥8 raters ≈ 480 assessments,
+which at the observed reversal rate yields on the order of **10²** reversed pairs — two orders of
+magnitude short. The world-vs-personal contrast is **out of reach of both the release and the
+protocol as designed**, and that belongs in the preregistration rather than being discovered after
+collection.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

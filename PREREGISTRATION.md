@@ -134,8 +134,10 @@ overall… rather than just their personal taste"*). Every number this experimen
 H_fresh must therefore collect the **world** ranking or it is not comparable to the quantity it
 exists to check.
 
-**Committed: collect BOTH, with world as primary.** The personal ranking exists for **76.9%** of
-released assessments and this project has never used it. Collecting both costs one extra screen and
+**Committed: collect BOTH, with world as primary.** The personal ranking exists for **26.7%** of
+released assessments (4,901 of 18,384) and this project has never used it. **Where both exist they disagree often**: the two orderings are identical in only **53.2%** of cases, the top choice differs in **29.0%**, and **9.70%** of strict world pairs are *reversed* in the personal ordering.
+
+**⚠ But the world-vs-personal CONTRAST is out of reach, and that is committed now rather than discovered after collection.** r60 ran it on the release: on the 1,422 reversed pairs it could reach, the rubric sides with world on **0.5267** [0.4951, 0.5587] — inconclusive, with a half-width of 0.0318. Resolving δ = 0.01 needs about **14,358** reversed pairs; the *entire* release holds **2,444**. H_fresh at 60 prompts × ≥8 raters yields on the order of **10²**. So collecting the personal ranking is worth its one extra screen for **descriptive** reporting and for reuse, and **it is not powered to answer whether the rubric tracks the normative or the preference ordering**. That must not be claimed from it. Collecting both costs one extra screen and
 yields a contrast the release can support and nobody has run — *does a values rubric predict the
 normative ordering better than the preference ordering?* Personal is **secondary and labelled
 exploratory**; world is the primary outcome, because that is the one r12 measured.

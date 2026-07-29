@@ -66,6 +66,9 @@ CORRECTED = [
     # superseded state of knowledge without any individual sentence being false.
     # The pattern targets the specific unqualified framing, and its absence is
     # weaker evidence than for the others, which is why it says so here.
+    (r"personal ranking (?:is present|exists) for \*\*76\.9%\*\*", 89,
+     "26.7% -- 4,901 of 18,384. The 76.9% came from sampling the head of "
+     "comparisons.jsonl instead of reading all of it"),
     (r"It does \*\*not\*\* touch shared-menu\s+endogeneity: every participant saw the same four "
      r"responses, so `menu → shared salience → S\u1d62` can\s+produce cross-rater agreement that is "
      r"still menu-induced construction\.\s*\n\s*\n\*\*Design", 84,
