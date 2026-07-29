@@ -100,6 +100,11 @@ def conflict_aware_core(M, k):
     return out
 
 
+# SCHEMA (entry 61/62): "bloc" is the frozen word -- FROZEN.md section 3
+# says read this partition as a LATENT PROFILE SPLIT, never as a bloc,
+# minority or constituency. A field NAME is unreachable by any prose
+# annotation, so the freeze cannot be delivered to it; it has to be
+# renamed. Values and computation are unchanged.
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--rubrics", type=Path, default=Path(_ROOT) / "data/conversation_rubrics.jsonl")
@@ -133,10 +138,10 @@ def main() -> None:
 
     names = list(RULES) + ["conflict_aware", "random_k"]
     out = {}
-    for split_kind in ("profile", "random_blocs"):
+    for split_kind in ("profile", "random_splits"):
         rows = {nm: {"min": [], "regret": [], "mean": []} for nm in names}
         for M in mats:
-            A, B = blocs_by_profile(M, rng, random_split=(split_kind == "random_blocs"))
+            A, B = blocs_by_profile(M, rng, random_split=(split_kind == "random_splits"))
             cores = {nm: make_core(M, nm, a.k) for nm in RULES}
             cores["conflict_aware"] = conflict_aware_core(M, a.k)
             idx = rng.permutation(M.shape[1])[: a.k]
@@ -159,17 +164,17 @@ def main() -> None:
             bs = np.array([mn[rng.integers(0, len(mn), size=len(mn))].mean()
                            for _ in range(a.boot)])
             lo, hi = np.percentile(bs, [2.5, 97.5])
-            out[split_kind][nm] = {"min_bloc": float(mn.mean()),
-                                   "min_bloc_ci": [float(lo), float(hi)],
+            out[split_kind][nm] = {"min_segment": float(mn.mean()),
+                                   "min_segment_ci": [float(lo), float(hi)],
                                    "regret": float(rg.mean()),
-                                   "mean_bloc": float(mean.mean()),
+                                   "mean_segment": float(mean.mean()),
                                    "prompts": int(len(mn))}
             print(f"{nm:16s} {mn.mean():>10.3f} {f'[{lo:.3f},{hi:.3f}]':>20} "
                   f"{rg.mean():>9.3f} {mean.mean():>8.3f}")
 
     # CONTROL: is the profile split finding a real constituency?
     pr = np.mean([out["profile"][nm]["regret"] for nm in names])
-    rr = np.mean([out["random_blocs"][nm]["regret"] for nm in names])
+    rr = np.mean([out["random_splits"][nm]["regret"] for nm in names])
     print(f"\n  mean regret, profile blocs = {pr:.3f}   random blocs = {rr:.3f}")
     # NAME AND WORDING CORRECTED (FROZEN.md section 3). What this compares is the
     # PROFILE SPLIT's mean regret against a RANDOM split's, at a 1.15x bar. It
@@ -185,8 +190,8 @@ def main() -> None:
 
     ca = out["profile"]["conflict_aware"]; co = out["profile"]["consensus"]
     ut = out["profile"]["utility"]
-    print(f"\n  conflict_aware min-bloc {ca['min_bloc']:+.3f} vs consensus {co['min_bloc']:+.3f} "
-          f"vs utility {ut['min_bloc']:+.3f}")
+    print(f"\n  conflict_aware min-bloc {ca['min_segment']:+.3f} vs consensus {co['min_segment']:+.3f} "
+          f"vs utility {ut['min_segment']:+.3f}")
     out["profile_regret_exceeds_random_by_1.15x"] = bool(exceeds)
     out["schema_note"] = (
         "This key was called `blocs_are_real` until 2026-07-28. The name asserted "

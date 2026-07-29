@@ -55,6 +55,11 @@ def conflict_aware(M, k):
     return out
 
 
+# SCHEMA (entry 61/62): "bloc" is the frozen word -- FROZEN.md section 3
+# says read this partition as a LATENT PROFILE SPLIT, never as a bloc,
+# minority or constituency. A field NAME is unreachable by any prose
+# annotation, so the freeze cannot be delivered to it; it has to be
+# renamed. Values and computation are unchanged.
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--rubrics", type=Path, default=Path(_ROOT) / "data/conversation_rubrics.jsonl")
@@ -150,7 +155,7 @@ def main() -> None:
             if cn:
                 stat[nm]["con_hit"].append(ch); stat[nm]["con_n"].append(cn)
 
-    out = {"bloc_axis_singular_share": float(s[0]**2/(s**2).sum())}
+    out = {"profile_axis_singular_share": float(s[0]**2/(s**2).sum())}
     print(f"\n{'rule':16s} {'contested%':>11} {'acc ALL':>9} {'acc CONTESTED':>15} "
           f"{'95% CI':>20} {'n':>8}")
     for nm in names:

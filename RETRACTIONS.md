@@ -862,6 +862,38 @@ my own detection logic.
 now this. Each was a place I declared the boundary of what could be verified, and each was one step
 short of where the boundary actually was.
 
+## Entry 62 — the sweep behind entry 61: 35 schema-level assertions, and the frozen words are in field names
+
+Entry 61 renamed one misleading key and identified the class: **every annotation this project
+produces is a string in a field, so a misleading field NAME is unreachable by all of it.** That was
+an anecdote. This is the measurement.
+
+Across every non-smoke results file: **1,217 distinct keys, 35 whose name asserts something.**
+Most are honest and describe what was measured — `positive_control_passed`, `threshold_is_inert`,
+`delta_is_a_stipulation`, `cutoff_is_binding`, `partition_is_structural`. Some are questions whose
+value answers them, which is fine: r28's `multiplicative_generalises_better` is **False**, and r54's
+`mechanism_explains_r12` is **False**.
+
+**The ones that assert a frozen or retired claim in the name:**
+
+| key | round(s) | status |
+|---|---|---|
+| `min_bloc`, `mean_bloc`, `min_bloc_ci`, `random_blocs` | r16 | **renamed** → `min_segment`, `mean_segment`, `min_segment_ci`, `random_splits` |
+| `bloc_axis_singular_share` | r18 | **renamed** → `profile_axis_singular_share` |
+| `structure_is_signed` = **True** | r26 (9 cells) | **outstanding** — asserts exactly what FROZEN.md §1 withdraws, and r26's centred residual gives "below average" and "actually disagreeing" the same number |
+| `constituency` | r06 + 4 | **outstanding** — the frozen term, though here it names a *rule* being compared, not a finding |
+| `D_leakage` | r34 | **outstanding** — "leakage" is retired by queue item 1; gated by manifest C17, so renaming means updating the gate |
+
+**Costs, stated rather than used as an excuse.** r16 and r18 are single-file CPU rounds and were
+renamed and re-run; both now have zero keys containing "bloc". r26 has **nine cells** at ~10 minutes
+each, so refreshing them is ~90 minutes; `D_leakage` requires a coordinated edit to
+`assurance/manifest.py` because C17 gates on that path.
+
+**Why this is worth a register entry rather than a silent fix.** FROZEN.md section 3 instructs:
+*read the partition as a latent profile split, never as a bloc, minority or constituency.* That
+instruction was written, delivered to prose, stamped into artifacts — and the word it forbids was
+sitting in twelve field names the whole time, in the same files carrying the freeze text.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
