@@ -8008,3 +8008,62 @@ rater split, and the fixed donor pool.
 resampled** — so the split is currently a *fixed* choice contributing zero measured variance,
 exactly the position the donor draw was in before r106. **The same round that found the donor draw
 does not cancel would apply verbatim to the split**, and its records are already persisted.
+
+---
+
+## Entry 222 — the first zero this line has ever produced, and a claim card corrected by its own run
+
+Four rounds were spent narrowing an interval. **None asked whether the measurement can return
+*nothing* when there is nothing** — and the data to ask it had been persisted the whole time.
+
+r104 broke a tied labelling third **at random** rather than dropping it, because dropping conditions
+on the label being decisive. That choice was right, and it means **8,041 of 47,148 records carry a
+label that is literally a coin flip.**
+
+**On that stratum the chain returns nothing.** Own **0.4981**, donor **0.5021**, attribution
+**−0.0040** — each within **0.3 standard errors** of chance. That is a **null recovery on 8,041 real
+records**, not a simulation: where the target carries no information, the instrument reports none.
+
+**The complementary control is what stops it passing for the wrong reason.** The informative stratum
+sits **+112 se** from chance with attribution **+0.1961**. A partition whose halves both read 0.5
+would mean the partition separates nothing, or the arms are dead.
+
+**A second null, on the reliability probe itself**: a coin-flip labelling third agrees with a real
+probe third **0.4971** of the time against **0.8347** on informative records — chance, as a coin flip
+against a real majority must be. **So r104's attenuation factor correctly reads this stratum as
+carrying no reliability at all**, without being told about it.
+
+### The tie-rate confound is measured and dismissed
+
+The tie rate is **not** flat: 0.258 / 0.202 / 0.107 from low to high consensus. A tied record
+contributes attribution exactly 0, so each bin's raw attribution is `(1 − tie_rate)` times its untied
+one — **a mechanism for a gradient with no arms in it at all.** Deleting every tied record moves the
+rise **+0.1276 → +0.1268**, a change of **0.6%** against a pre-registered 30%. The gradient is
+carried by records that all had a real majority.
+
+### The claim card was wrong, and the run is what showed it
+
+Its first draft called the untied-only gradient an **independent route** to r104's deattenuated
++0.0945 — two ways of removing label noise, one dividing and one deleting rows, whose agreement would
+be strong evidence for the noise model. **It is not a second route.** Deleting ties removes only the
+**zero**-information records; an untied third is still an unreliable majority.
+
+**The number that proves it: A=B agreement among the surviving records is 0.8347, not 1.0** — an
+attenuation factor of **0.8181** that the stratification leaves untouched and r104's division does
+not. The tell was arithmetic: the untied-only rise landed **0.0008** from the raw rise, which is what
+a re-slicing that removes almost no noise looks like.
+
+**The card is kept with the correction written into it rather than rewritten**, because a claim card
+that silently becomes right is not a record of anything.
+
+### The pattern this closes
+
+Entries 218–221 were four consecutive widenings of one interval. **This one goes the other way**: it
+is the first result in the line that makes the chain *more* believable rather than less, and it does
+so by finding the place where the answer had to be zero and checking that it was.
+
+**NEXT:** the informative stratum's A=B agreement of **0.8347** means the surviving labels are still
+only ~82% attenuation-reliable — so **r104's correction is doing most of its work on records that
+were never tied**. The correction's magnitude has never been decomposed into "removes the ties" (now
+known: 0.6%) versus "removes the residual unreliability of untied majorities" (the other 99.4%), and
+that decomposition is one subtraction away.
