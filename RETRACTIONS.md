@@ -5518,3 +5518,67 @@ presented with equal confidence.
 
 **The sentence that can no longer be written:** *"we preregister δ=0.01"* — without saying how many
 prompts that takes.
+
+---
+
+## Entry 172 — r43 defended excluding 63.5% of the criteria with a transfer argument; the real reason is structural
+
+**Queue item 1 is marked [NOW]** and requires "not population-conditional" to be rescoped to **"no
+detected aggregate loss in the tested splits"**, because aggregate accuracy can hide criterion sign
+reversals and minority-only criteria. **r43 is the round that addressed exactly that** — and it ran on
+**36.5%** of the criteria.
+
+**Its stated defence of the exclusion:**
+
+> *"r49 tested those separately and found they transfer BETTER across raters (+0.0777 vs +0.0599,
+> paired gap +0.0172 [+0.0034,+0.0307]), so the exclusion understates the direction rather than
+> manufacturing it."*
+
+**That is a transfer argument answering a heterogeneity question.** Average predictive power and
+systematic between-group difference are different quantities and **neither bounds the other** — better
+transfer is equally consistent with less heterogeneity and with more of it concentrated in a minority.
+
+### Counted instead of argued
+
+| | seeded | write-in |
+|---|---:|---:|
+| criteria | 5,465 | **9,519 (63.5%)** |
+| median raters per criterion | **17** | **1** |
+| usable cells, country / ai_usage / age at r43's min_cell=3 | 3,949 / 4,818 / 4,644 | **0 / 0 / 0** |
+| usable cells at **min_cell = 1** | 5,465 / 5,464 / 5,465 | **0 / 0 / 0** |
+
+**Zero at min_cell = 1 — the most permissive setting that exists** — because a between-group comparison
+needs at least two raters on one criterion, and a write-in has one. **This is not a threshold choice.**
+
+### The mechanism is sharper than the logic
+
+r49's transfer design needs **one** rater per criterion (its author) plus **other** raters' rankings —
+and the write-ins have exactly that shape. Heterogeneity needs **many raters on the same criterion**,
+and they do not. **So r49's result is valid and simply cannot bear on this question** — not because the
+inference is loose, but because the data structure that would answer it does not exist on that
+population. That is a stronger defence of r43 than r43 gave itself, and it does not depend on r49 at
+all.
+
+### The positive control is the whole design
+
+A zero from an instrument that has never returned non-zero is **silence, not an acquittal**. The
+identical counter returns **3,949 / 4,818 / 4,644** on the seeded arm, and **the round refuses to
+report the write-in zero if the seeded arm is also empty.**
+
+### What this changes, and it is queue item 1's business
+
+r43's conclusion — *conflict without consequence* — stands unaltered. Its **scope** hardens from a
+defended choice into a **structural limit**, and that limit is load-bearing: **the only criteria on
+which any population claim can be made are the pre-seeded ones, shown identically to every
+participant** — which are precisely the criteria most exposed to the shared-menu construction that item
+1's first bullet is about. The population claim and the menu-endogeneity claim meet on the same 63.5%.
+
+**So the rescoping needs one more clause:** *no detected aggregate loss in the tested splits*, **in the
+pre-seeded criterion class** — and that restriction is structural, not a choice anyone made.
+
+**What it does not establish:** nothing about whether write-in criteria carry group structure a
+*different* design could detect. That is a data-collection question, and the concrete change is
+nameable — **route each write-in to several raters, not only its author.**
+
+**The sentence that can no longer be written:** *"the excluded criteria transfer better, so the
+exclusion is conservative"* — transfer is not the property being excluded.
