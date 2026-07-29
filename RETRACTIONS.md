@@ -687,6 +687,47 @@ surface, where the failure is plainer — a result nobody writes down. Both flag
 both say so: named is not accurately summarised, and **nothing in this package checks a round's
 wording against its own verdict.** That gap is now stated rather than assumed away.
 
+## Entry 59 — queue item 2 froze a line, and five rounds went on asserting it in their own artifacts
+
+**The third instance of one failure.** Entry 51: a rescope reached README and the manifest, not the
+rounds. Entry 57: scope clauses reached MANIFEST.json, not the rendered document. This: **queue
+item 2's freeze reached FROZEN.md and the README, and not the rounds** — which regenerate their
+verdicts at run time and so kept emitting the frozen conclusions into their results files.
+
+What the artifacts still said, against a freeze recording the line as **UNRESOLVED**:
+
+| round | its own verdict |
+|---|---|
+| r01 | "STRUCTURE (M2): agreement persists across prompts beyond the null" |
+| r23 | "M2 WEAKENED: …" |
+| r26 | "M2: pair identity carries structure AND that structure is signed — **there are pairs that reliably disagree**" |
+| r27 | "**ACTOR EFFECT, NOT BLOCS**: …" |
+| r28 | "**A MINORITY BLOC SURVIVES**, an order of magnitude smaller than …" |
+
+FROZEN.md meanwhile records why each of those four separators *could not* separate: r23's z read
++10.26 at 2 null reps and +1.40 at 40; r26's centred residual gives "below average" and "actually
+disagreeing" the same number; r27's control selects same-bloc pairs under unequal bloc sizes and so
+could not have found blocs if they existed; r28 was rank-deficient by exactly 1, its z moved with
+`PYTHONHASHSEED`, and its held-out R² spanned [−1.64, +0.51].
+
+So r27 asserts "NOT BLOCS" from a control that could not detect blocs, and r28 asserts "A MINORITY
+BLOC SURVIVES" from a fit the register calls unusable — **in the files an outsider opens**.
+
+**How it was found.** Not by looking for it. Entry 58 left "wording" as the one unchecked surface,
+so I surveyed the verdict vocabulary to see whether a wording check was soundly buildable. **It is
+not** — 36 rounds share no status grammar, and a keyword checker on that would misfire and be
+switched off. But the survey printed the leading tokens, and "A MINORITY BLOC SURVIVES" sat next to
+a queue that lists r28's ontology as frozen.
+
+**Fixed by a register rounds can read.** `covalx/frozen.py` holds the freeze text once; each
+affected round appends it to its own generated verdict. The finding about a round's own data is
+untouched and still correct — what is appended is the status of the **line** the finding belongs
+to. No conclusion string was hand-edited.
+
+**The uncomfortable arithmetic.** Item 2 was completed many turns ago and reported as done. It was
+done in two of three places. Each of these three entries was found by a different accident, and
+none by a check that existed at the time.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

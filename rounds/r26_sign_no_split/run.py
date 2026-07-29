@@ -64,6 +64,10 @@ import importlib.util
 import json
 from collections import defaultdict
 from pathlib import Path
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))
+from covalx.frozen import append_to as _freeze  # noqa: E402
+
 
 import numpy as np
 
@@ -198,7 +202,7 @@ def main() -> None:
          "s2_observed": obs["s2"], "s2_null_mean": float(null_s2.mean()),
          "s2_null_sd": float(null_s2.std()), "s2_z": float(z2), "s2_p": p2,
          "pair_structure": bool(structure), "structure_is_signed": bool(signed),
-         "verdict": verdict,
+         "verdict": _freeze(verdict, "r26_sign_no_split"),
          "note": "no split-half anywhere. r23/r25 estimated the same quantity through a "
                  "random half-split and returned z = 1.40, 2.26, 2.68 and 10.26 for the "
                  "same data depending only on how many splits were averaged and whether "

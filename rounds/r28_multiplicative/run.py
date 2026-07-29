@@ -69,6 +69,10 @@ import importlib.util
 import json
 from collections import defaultdict
 from pathlib import Path
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))
+from covalx.frozen import append_to as _freeze  # noqa: E402
+
 
 import numpy as np
 
@@ -282,11 +286,12 @@ def main() -> None:
             {"metric": a.metric, "raters": len(keep), "dyads": int(len(y)),
              "r2_additive": r2_add, "r2_multiplicative": r2_mul,
              "status": "MULTIPLICATIVE_INAPPLICABLE",
-             "verdict": "INAPPLICABLE: this agreement measure is bounded above by "
+             "verdict": _freeze(
+                 "INAPPLICABLE: this agreement measure is bounded above by "
                         "zero, so a rank-1 product cannot represent it and the fit "
                         "diverges. No comparison between the two forms is available "
                         "on this metric, and the additive form is not thereby "
-                        "supported."}, indent=1))
+                        "supported.", "r28_multiplicative")}, indent=1))
         print(f"\nwrote {a.out}")
         return
 
@@ -376,7 +381,8 @@ def main() -> None:
          "cv_multiplicative_mean": mul_cv,
          "multiplicative_generalises_better": bool(generalises),
          "strata_vs_additive": add_str, "strata_vs_multiplicative": mul_str,
-         "permutation_z": zs, "null_reps": a.null_reps, "verdict": verdict,
+         "permutation_z": zs, "null_reps": a.null_reps,
+         "verdict": _freeze(verdict, "r28_multiplicative"),
          "note": "r23/r25/r26/r27 all fit A_ij = mu + a_i + a_j and read the residual "
                  "as pair structure. Under one latent target with heterogeneous "
                  "reliability, agreement is rho_i*rho_j, and an additive fit to that "

@@ -56,6 +56,10 @@ import importlib.util
 import json
 from collections import defaultdict
 from pathlib import Path
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))
+from covalx.frozen import append_to as _freeze  # noqa: E402
+
 
 import numpy as np
 
@@ -214,7 +218,7 @@ def main() -> None:
     )
     print(f"VERDICT: {verdict}")
     _RES.mkdir(parents=True, exist_ok=True)
-    out["verdict"] = verdict
+    out["verdict"] = _freeze(verdict, "r23_actor_vs_dyad")
     out["note"] = ("r01's permutation null shuffles rater ids, destroying actor and "
                    "dyad identity together, so an additive actor effect was scored as "
                    "structure. This round separates them. The sign-concordance test is "

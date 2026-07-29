@@ -37,6 +37,10 @@ import json
 from collections import defaultdict
 from itertools import combinations
 from pathlib import Path
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))
+from covalx.frozen import append_to as _freeze  # noqa: E402
+
 
 import numpy as np
 
@@ -210,7 +214,7 @@ def main() -> None:
         "null_ci": [float(np.percentile(null, 2.5)), float(np.percentile(null, 97.5))],
         "resample_spread": [float(boot.min()), float(boot.max())] if len(boot) else None,
         "z_vs_null": float(z),
-        "verdict": verdict,
+        "verdict": _freeze(verdict, "r01_rater_structure"),
     }, indent=1))
     print(f"wrote {a.out}")
 

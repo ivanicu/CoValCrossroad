@@ -49,6 +49,10 @@ import importlib.util
 import json
 from collections import defaultdict
 from pathlib import Path
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))
+from covalx.frozen import append_to as _freeze  # noqa: E402
+
 
 import numpy as np
 
@@ -276,7 +280,7 @@ def main() -> None:
                    "far_ratio": far_r, "far_z": far_z},
          "actor_control_both_high": hi_rows,
          "actor_control_n_pairs": obs_hi["n"] if obs_hi else 0,
-         "verdict": verdict,
+         "verdict": _freeze(verdict, "r27_raw_negative_tail"),
          "note": "r23/r25/r26 tested the sign of the CENTRED residual, which scores "
                  "'below average' and 'actually disagreeing' identically -- and those "
                  "are the two worlds the test existed to separate. Mean agreement is "
