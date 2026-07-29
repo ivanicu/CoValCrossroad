@@ -6854,3 +6854,39 @@ a check** — r58's harvester, r99's own truthiness bug, a stale README row, a m
 behind, a positive control that tested the wrong stage. **Not one lived in a measurement.** That is a
 real result about where this package's risk actually sits, and it was worth the twelve turns to
 establish rather than assume.
+
+---
+
+## Entry 197 — I quoted 148 as the checked population when 10 were checked, and building the guard is what printed both
+
+Entries 195 (addendum) and 196 both state: *"148 nodes carry both a mean and a CI. ZERO have the mean
+outside its own interval."* **The two halves of that sentence describe different populations.**
+
+**148** is the number of nodes carrying *some* mean and *some* CI. **Invariant 1 only checks
+STEM-MATCHED pairs** — a mean and a CI the round names together, `gap`/`gap_ci` — because cross-key
+pairing is exactly what r58's harvester got wrong and guessing would import that defect. **The
+stem-matched pair count is 10.**
+
+| invariant | population I quoted | population actually checked | violations |
+|---|---:|---:|---|
+| mean inside its own interval | ~~148~~ | **10 stem-matched pairs** | 0 |
+| significance flag agrees with its interval | 145 | **145 nodes** | 0 |
+| interval bounds ordered | 145 | 145 | 0 |
+
+**Invariant 2's 145 was right. Invariant 1's was not, and by a factor of fifteen.** A zero over 10 pairs
+is a far weaker statement than a zero over 148, and I published the stronger one twice.
+
+**What exposed it:** the one-off scan printed only the node count and the violation count — never the
+number of pairs it actually tested. **Turning it into a guard forced both onto the same line**, and they
+did not match. *This is the population error this package logs against other checks, committed while
+quoting that very lesson.*
+
+**The corrected claim, stated at its real strength:** the significance-flag invariant is well covered
+(145 nodes, clean). **The mean-inside-its-interval invariant is thinly covered — 10 pairs — because few
+rounds name a mean and its CI with a shared stem.** It found the 8 incoherent rows inside r58 because
+r58's harvest is dense in such pairs; across the rounds themselves it has almost nothing to check.
+
+**`assurance/artifacts_are_internally_coherent.py`** now carries both invariants with a built-in
+positive control that plants one violation and one clean case of each, and **refuses to report a zero
+unless it fires on the plants first.** It prints the checked population on every run, which is the only
+reason this entry exists.
