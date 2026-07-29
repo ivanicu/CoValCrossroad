@@ -6812,3 +6812,45 @@ pairing keys **across** quantities — `shuffled_gap` with `gap_ci`, a word-coun
 a `share_ci`. **No producing round publishes a mean outside its own named interval.** The defect lived
 in the summariser, never in the measurements it summarised — which is the same containment result this
 session has now reached from five independent directions.
+
+---
+
+## Entry 196 — aimed the free invariants at the measurements instead of the summariser, and they hold
+
+Twelve consecutive rounds of instrument auditing had reached one conclusion from five directions: **the
+instruments had defects, the measurements did not.** That is a basin, and the escape is a step whose
+*positive* outcome would be unwelcome. **A summariser mispairing keys costs a census row. A round whose
+stored verdict contradicts its own interval is a published claim being wrong.**
+
+**So the same technique, aimed at the rounds:**
+
+| invariant | scope | result |
+|---|---:|---|
+| a point estimate lies **inside** the interval published with it (entry 195) | 148 nodes | **0 violations** |
+| a stored **significance flag** agrees with its own interval | **145 nodes** | **0 contradictions** |
+| an interval's bounds are **ordered** (lo ≤ hi) | 145 nodes | **0 inverted** |
+
+**Both scanners were made to fire before being believed.** The second was planted with three nodes — `ci
+[0.02, 0.05]` with `excludes_zero: True` (coherent), `ci [-0.02, 0.05]` with `False` (coherent), and
+`ci [0.02, 0.05]` with `False` (broken) — and it flags exactly the broken one. *A null from an
+instrument that has never returned non-zero is silence*, and neither of these is.
+
+**Why these two invariants and not others:** both are checkable **without knowing what any quantity
+means**. They need no estimand, no population, no judgement about what a round intended — which is
+precisely why they can be run over every artifact at once, and why a violation would be unarguable.
+
+### What this settles, and what it does not
+
+**Settles:** across every results file in the package, no round publishes a point estimate outside its
+own interval, no stored significance flag contradicts its own interval, and no interval is inverted.
+**The measurements are internally coherent on every property that can be checked for free.**
+
+**Does not settle:** whether any measurement is *correct*. These invariants catch incoherence, not
+error — a round can be perfectly self-consistent and wrong about the world, and nothing here touches
+that. The three counterfactuals remain the only things that would.
+
+**The honest summary of twelve turns:** every defect found lived in a **summariser, an index, a row, or
+a check** — r58's harvester, r99's own truthiness bug, a stale README row, a manifest eleven rounds
+behind, a positive control that tested the wrong stage. **Not one lived in a measurement.** That is a
+real result about where this package's risk actually sits, and it was worth the twelve turns to
+establish rather than assume.
