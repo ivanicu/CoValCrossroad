@@ -3809,3 +3809,52 @@ which is the honest outcome and not the one I expected. The scope is unchanged a
 substitutes for the experiments: association *within* a rater, unable to separate a menu that
 **created** the direction from one that **supplied the words**. That is S_pre, and it needs people, not
 FLOPs.
+
+## Entry 134 — I fixed internlm, it started running, and everything it returned was NaN
+
+**This started as an r79 detail and is the queue's GPU item.** The queue asks me to *"fix the
+three-lineage judge panel and freeze it (checkpoint, tokenizer, template, verbalizer,
+divergence-token extraction, precision, batch, code hash)."* r79 found the panel does not currently
+exist: **internlm cannot load under transformers 5.14.1**, because its vendored
+`modeling_internlm2.py` calls `DynamicCache.from_legacy_cache` and `.to_legacy_cache()`, both removed
+in 5.x.
+
+**Why that is not a local nuisance.** internlm is one of the three pretraining lineages behind r39's
+feature cache, r40's OOD map, and **r68's inter-lineage reliability of 0.9132** — the number that sets
+r40's detection floor at 0.188 and makes row 3 the strongest refutation in the exhaustion ledger. The
+cache still contains internlm because it was built when internlm still loaded. **No receipt in this
+repository records the transformers or torch version of any run.** So the environment that produced
+the package's strongest multi-lineage claim was never captured and has since changed — the claim is
+not wrong, it is **unrepeatable**, which is quieter and easier to miss.
+
+**I wrote the shim.** Both methods, implemented against the structure read off the live object
+(`DynamicCache.layers` → `DynamicLayer.keys/.values`), raising rather than returning an empty cache if
+the internals move. It round-trips exactly. internlm loaded. The forward pass completed.
+
+**Every value it returned was NaN.** 26,611,712 of 26,611,712 — 100.0%. Diagnosed layer by layer in
+**float32**, with **eager** attention, on a **single unpadded** input:
+
+| | |
+|---|---|
+| `hidden_states[0]` — embedding output | finite |
+| `hidden_states[1]` — after the first block | **already NaN** |
+
+So the incompatibility is not the cache API alone. The vendored attention/MLP code is broken against
+this transformers version in a way no shim reaches.
+
+**The shim made things worse before the check caught it, and that is the lesson.** A crash is honest:
+it cannot be averaged into a result. A model that loads, runs, and emits NaN is a silent numerical
+corruption — and my first guarded run **counted internlm as one of three lineages and carried a NaN
+into the verdict**, producing `world = M MIXED` from a number that did not exist. *A lineage that RUNS
+is not a lineage that WORKS*, and the guard that now refuses non-finite embeddings is the executable
+form of that sentence. The shim's docstring says the same in its own header, because the next person
+to reach for it will be me.
+
+**What is now true about the panel.** It is a **two-lineage** panel: qwen and phi. Restoring internlm
+needs a separate environment with a pinned older transformers — not a patch to this one, and not
+before S_pre, which is what the whole line is waiting on. Recorded here rather than fixed, because
+pretending the panel has three lineages is the failure this entry exists to prevent.
+
+**What does not change.** r39's cached internlm vectors are still the vectors r40 and r68 used; nothing
+about their past correctness is impugned. What is established is that **they cannot be regenerated on
+this machine today**, and that no artifact in this repository would have told anyone so.

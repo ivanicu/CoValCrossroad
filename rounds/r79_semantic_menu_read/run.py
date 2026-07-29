@@ -89,6 +89,11 @@ def embed(texts, model_dir, batch, dtype):
     """Mean-pooled last hidden state, the same summary r39 cached."""
     import torch
     from transformers import AutoModel, AutoTokenizer
+    # internlm2's vendored modeling code calls DynamicCache methods removed in
+    # transformers 5.x, so without this it cannot run AT ALL in this environment
+    # -- which silently made the three-lineage argument a two-lineage one.
+    from covalx.legacy_cache_shim import install as _install_cache_shim
+    _install_cache_shim()
     tok = AutoTokenizer.from_pretrained(model_dir, trust_remote_code=True)
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
@@ -105,7 +110,12 @@ def embed(texts, model_dir, batch, dtype):
             chunk = texts[i:i + batch]
             enc = tok(chunk, return_tensors="pt", padding=True, truncation=True,
                       max_length=MAX_TOK).to("cuda")
-            h = mdl(**enc).last_hidden_state
+            # hidden_states[-1], not `.last_hidden_state`: for internlm the
+            # AutoModel mapping returns a CausalLM output which has no such
+            # field. Asking for the hidden states explicitly works for every
+            # backbone and does not depend on which head the mapping picks.
+            out_ = mdl(**enc, output_hidden_states=True)
+            h = out_.hidden_states[-1]
             m = enc["attention_mask"].unsqueeze(-1).to(h.dtype)
             v = (h * m).sum(1) / m.sum(1).clamp(min=1)
             if out is None:
@@ -228,6 +238,18 @@ def main() -> None:
         except Exception as e:
             failed[name] = f"{type(e).__name__}: {e}"
             print(f"  ⚠ {name} FAILED and is recorded: {type(e).__name__}: {e}", flush=True)
+            continue
+        # A lineage that RUNS is not a lineage that WORKS. internlm loads under
+        # the cache shim and returns embeddings that are 100% NaN -- clean at
+        # hidden_states[0], already NaN after the first transformer block. Without
+        # this guard it was counted as one of three lineages and carried a NaN
+        # into the verdict, which is a check failing toward PASS.
+        bad = int((~np.isfinite(C)).sum() + (~np.isfinite(R)).sum())
+        if bad:
+            failed[name] = (f"produced {bad} non-finite embedding values "
+                            f"({bad / (C.size + R.size):.1%}) -- ran but did not work")
+            print(f"  ⚠ {name} REFUSED: {failed[name]}", flush=True)
+            per_lineage.pop(name, None)
             continue
         d = np.empty(len(rows), np.float32)
         for k, r in enumerate(rows):
