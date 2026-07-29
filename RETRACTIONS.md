@@ -3278,3 +3278,53 @@ entry number, so it lands in the 0-of-224 population rather than the 1-of-2 one.
 **zero recall on the one real defect**, which named no number — the same shape as the check measured
 and declined at entry 108. Measuring it cost one command; building it would have bought a green light
 on the population that was never at risk.
+
+## Entry 123 — the only human-validated number in the package was computed, stored, and never read out
+
+**The standing line.** Every correlational round carries a scope sentence: *"scored by the r08 model
+gold head, not by humans (entry 50, r47)."* It reads as a limitation being honestly declared. It is —
+but it is declared alongside a **measurement of how much that limitation costs**, which nobody
+surfaced.
+
+**What was sitting there.** `rounds/r47_gold_is_length/results/r47_gold_is_length.json` →
+`samples[*].proxy_validation_on_original`. It ran on **all 250 prompts, in both samples**. Its
+per-prompt correlations — **0.6029** and **0.6509** — return **zero** matches across README.md,
+RETRACTIONS.md and PREREGISTRATION.md. So does the human-scored attribution itself.
+
+**Recomputed independently** (r72), from the released `ranking_blocks["world"]` rankings. The gold
+side reproduces r47's stored 0.1020 to **0.0e+00**, so this is the same quantity, not a lookalike.
+
+| attribution, original arm | value | 95% CI |
+|---|---:|---|
+| scored by the model gold head | +0.1020 | [+0.0727, +0.1320] |
+| scored by **real human rankings** | +0.0876 | [+0.0678, +0.1075] |
+| human − gold | **−0.0144** | [−0.0392, +0.0086] |
+
+**Significance and equivalence disagree, and only one was ever quoted.** r47 stored `differ: False`.
+That is a *non-significance* call. Tested for practical equivalence at the preregistered **δ=0.01**,
+the 90% interval is **[−0.0344, +0.0060]** — **2.0× wider than the margin**, with the point estimate
+alone at **1.4× the margin**. So it is **NOT EQUIVALENT**. A field named `differ` holding `False`
+invites exactly the reading the data does not support, and the whole point of queue item 4 is that
+non-significance is not equivalence.
+
+**The number that matters more.** The per-prompt **validity coefficient is 0.6029** — gold-scored and
+human-scored attribution share about **36%** of their variance across prompts. Every correlational
+row in the exhaustion ledger operates at per-prompt resolution.
+
+**What I refuse to do with it, explicitly.** Apply it to those rows as a third attenuation term. Their
+outcome is the **drop** (original − fresh); this coefficient is measured on the **original
+attribution** alone, because the release contains no human rankings for generated responses. That is
+the boundary-crossing error of entries 110, 119 and 120 — and unlike those three, this boundary
+**cannot be crossed by any recomputation.** Only H_fresh crosses it. Stating the coefficient and
+refusing to transfer it is the whole discipline here.
+
+**What it does establish.** The proxy is validated exactly where it is **least stressed** — the
+original candidates — and applied where it is most stressed. r47 identified that asymmetry for its
+*length* channel. It holds for its *validity* too, and now has a number.
+
+**How nearly I misread it.** Locating the field, I twice read `None` off the wrong level of the JSON:
+once by indexing a dict as if it were a list, once by asking for `human_validation` (the *function's*
+name) instead of `proxy_validation_on_original` (the *key*). Either misread would have produced a
+much more dramatic entry — *"the validation silently returned nothing"* — and I was one command from
+writing it. The object was fine both times; the reader was wrong. **A `None` from an accessor is a
+claim about the accessor until the accessor has been shown to return something.**

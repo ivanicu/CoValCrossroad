@@ -1,0 +1,33 @@
+{
+ "n_prompts": 250,
+ "n_with_human_pairs": 250,
+ "rebuild_gap_vs_r47": 0.0,
+ "attribution_gold": [
+  0.102,
+  0.07266666666666667,
+  0.132
+ ],
+ "attribution_human": [
+  0.0876039172320385,
+  0.06778611691475633,
+  0.10745211249257244
+ ],
+ "human_minus_gold_95": [
+  -0.014396082767961517,
+  -0.039234870904460706,
+  0.008583153829017663
+ ],
+ "equivalence_90_interval": [
+  -0.034360451378523185,
+  0.0059879023902536365
+ ],
+ "delta": 0.01,
+ "significant": false,
+ "equivalent": false,
+ "per_prompt_validity_coefficient": 0.6029075301425432,
+ "shared_variance": 0.36349748990258157,
+ "world": "N NOT EQUIVALENT",
+ "outcome_variable_scope": "ORIGINAL arm only. The release has human rankings for the four released candidates and none for generated responses, so the human-scored side of any DROP is unobservable. Every figure here is about the original attribution, not about the drop.",
+ "scope": "The human side uses ranking_blocks['world'], the same block every other number in this package is measured against. Ties are skipped pairwise on both sides. The validity coefficient is NOT an attenuation term for the ledger's rows and is not used as one: it is measured on a different quantity (original attribution, not the drop) and the boundary cannot be crossed by recomputation, only by H_fresh.",
+ "verdict": "N NOT EQUIVALENT. THE ONLY DIRECT HUMAN VALIDATION IN THIS PACKAGE WAS COMPUTED, STORED AND NEVER SURFACED: r47's `proxy_validation_on_original` ran on all 250 prompts in both samples, and its per-prompt correlations, 0.6029 and 0.6509, appear nowhere in README.md, RETRACTIONS.md or PREREGISTRATION.md. Recomputed here from the released human rankings (rebuild control: the gold side reproduces r47's stored value to 0e+00), the attribution on the original arm is +0.1020 [+0.0727,+0.1320] scored by the model gold head and +0.0876 [+0.0678,+0.1075] scored by real human rankings. SIGNIFICANCE AND EQUIVALENCE, REPORTED SEPARATELY as the process rules require: the difference -0.0144 [-0.0392,+0.0086] does not differ from zero, and it is NOT equivalent at the preregistered delta=0.01 -- the 90% interval [-0.0344,+0.0060] is about 2.0x wider than the margin, and the point estimate itself is 1.4x the margin. r47's stored `differ: False` is therefore a NON-RESULT, not the reassurance the phrasing invites. THE NUMBER THAT MATTERS MORE is the per-prompt validity coefficient, 0.6029: the gold-scored and human-scored attributions share about 36% of their variance ACROSS PROMPTS, and per-prompt is the resolution at which every correlational row in the exhaustion ledger operates. REFUSED HERE, EXPLICITLY: transferring 0.6029 onto those rows as a third attenuation term. Their outcome is the DROP (original minus fresh) and this coefficient is measured on the ORIGINAL attribution alone, because the release contains no human rankings for generated responses. Carrying a coefficient across that boundary is the error of entries 110, 119 and 120, three times over, and the boundary here is not crossable by any recomputation -- only by H_fresh. What this DOES establish is that the proxy is validated exactly where it is least stressed, which is the same asymmetry r47 identified for its length channel, now shown to hold for its validity as well."
+}
