@@ -1893,6 +1893,45 @@ reads "human rankings against a model-scored rubric", never "human-measured."**
 Every figure above was checked against its artifact before commit: r04 2/2, r14 2/2, and the r12
 line quoted from the file.
 
+## Entry 88 — every number in this project is measured against the WORLD ranking, and no document said so
+
+Auditing the human protocol for recruitment sent me to the dataset card's task flow, where CoVal
+asks each participant for **two** orderings of the same four responses:
+
+| block | the instruction participants were given |
+|---|---|
+| **personal** | rank them *"according to their own personal values and preferences"* |
+| **world** | rank them again for *"what would be best for the world overall (a more impartial or societal perspective, rather than just their personal taste)"* |
+
+**This project uses the world ranking, everywhere.** `covalx/judge.py:245` reads
+`ranking_blocks["world"]`, and the function's own docstring says *"strict pairwise preferences from
+world rankings"*. So **0.686**, **+0.102 → −0.064**, **+0.0576**, **97.4%** — every concordance
+number in the package — means *agreement with what people said is best for the world*, **not**
+*agreement with what people preferred*.
+
+**Neither README.md nor PREREGISTRATION.md mentioned either word.** The choice was made once, in a
+helper function, and never surfaced. A reader takes "predicts human rankings" to mean preference;
+it means an explicitly impartial judgement that participants were asked to give *instead of* their
+taste.
+
+**And the unused half is the one the reframed object is about.** The personal ranking is present for
+**76.9%** of assessments and **has never been touched here**. The literature framing this project
+adopted turns on *preference is not value* — and CoVal collected both orderings, from the same
+person, about the same four responses. That contrast has been sitting in the release the whole time.
+
+**Consequences recorded, not just noted:**
+
+- the README now states the outcome variable in its opening paragraph and in a block above the layer
+  table, with the file and line
+- H_fresh must collect the **world** ranking or it is not comparable to r12. Now committed — and
+  committed to collect **both**, world primary, personal secondary and labelled exploratory, because
+  the second screen is nearly free and yields a contrast nobody has run
+
+**Why no check caught it.** `outcome_variable_declared.py` asks whether a round scoring against the
+model gold head says so. This is a different axis entirely — *which human ordering* — and no
+instrument in the package has ever had an opinion about it. The rounds' `outcome_variable_scope`
+fields distinguish gold-proxy from human; none distinguishes world from personal.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

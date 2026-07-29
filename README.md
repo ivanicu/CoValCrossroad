@@ -12,7 +12,7 @@
 
 An independent, reproducible audit of [OpenAI's CoVal release](https://huggingface.co/datasets/openai/coval) — a dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to contentious prompts *and wrote down the criteria they judged by*.
 
-The release ships prompts, four candidate responses, crowd-written value rubrics and 18,384 human rankings. It does **not** ship the criterion-by-response satisfaction labels, so its published scoring cannot be reproduced. This repository rebuilds that layer locally, measures its concordance with the released rankings, and then asks what the rubric is actually made of — layer by layer, since a rubric is a measurement program `M(R, J, π, Q, P)` rather than a value function.
+The release ships prompts, four candidate responses, crowd-written value rubrics and 18,384 human rankings — **two per assessment: a *personal* ranking and a *world* ranking**, and every number in this repository is measured against the **world** one (`covalx/judge.py:245`, `ranking_blocks["world"]`). It does **not** ship the criterion-by-response satisfaction labels, so its published scoring cannot be reproduced. This repository rebuilds that layer locally, measures its concordance with the released rankings, and then asks what the rubric is actually made of — layer by layer, since a rubric is a measurement program `M(R, J, π, Q, P)` rather than a value function.
 
 > **⚠ Scope correction, 2026-07-28.** Earlier versions called the 80,542 pairs "held-out human
 > preference". They are **pairwise decompositions of the same rankings**, on the same prompts and the
@@ -23,6 +23,25 @@ The release ships prompts, four candidate responses, crowd-written value rubrics
 > elicitation manifold** — which is real and useful — and not out-of-sample human preference validity.
 
 ---
+
+> ### ⚠ The outcome variable is the WORLD ranking, and that was never stated
+>
+> CoVal asked each participant for **two** orderings of the same four responses: a **personal**
+> one — *"according to their own personal values and preferences"* — and a **world** one — *"what
+> would be best for the world overall (a more impartial or societal perspective, rather than just
+> their personal taste)"* (`data/DATASET_CARD.md`, task flow).
+>
+> **This project has used the world ranking throughout.** `covalx/judge.py:245` reads
+> `ranking_blocks["world"]`; the function's own docstring says *"strict pairwise preferences from
+> world rankings"*. So **0.686**, **+0.102 → −0.064**, **+0.0576** and every other concordance
+> number here means *agreement with what people said is best for the world*, **not** *agreement
+> with what people preferred*.
+>
+> Neither this README nor `PREREGISTRATION.md` said so until now. The personal ranking is present
+> for **76.9%** of assessments and **has never been used in this project** — an entire second
+> outcome, and the one that speaks directly to the distinction the reframed object rests on:
+> a preference ordering and a normative ordering are different objects, and only one of them has
+> been measured.
 
 ## The object, layer by layer
 

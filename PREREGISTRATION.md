@@ -127,6 +127,19 @@ why length is a recorded variable below, not a covariate chosen afterwards.
 **Design.** Participants rank the **four frozen fresh responses** for a prompt. Exactly the
 responses in the manifest — this is why they are hashed.
 
+**⚠ WHICH ranking, and it was never specified.** CoVal collected **two** orderings per assessment:
+*personal* (*"their own personal values and preferences"*) and *world* (*"best for the world
+overall… rather than just their personal taste"*). Every number this experiment is compared against
+— r12's +0.102 → −0.064 included — is measured on the **world** ranking (`covalx/judge.py:245`).
+H_fresh must therefore collect the **world** ranking or it is not comparable to the quantity it
+exists to check.
+
+**Committed: collect BOTH, with world as primary.** The personal ranking exists for **76.9%** of
+released assessments and this project has never used it. Collecting both costs one extra screen and
+yields a contrast the release can support and nobody has run — *does a values rubric predict the
+normative ordering better than the preference ordering?* Personal is **secondary and labelled
+exploratory**; world is the primary outcome, because that is the one r12 measured.
+
 **Sampling.** The r38 frame: 60 prompts, four equal cells crossing rubric-vs-proxy disagreement
 with surface distance, sampling weights 2.80 / 3.67 / 5.53 / 4.67, ≥8 raters per prompt. Weights
 are reported with every estimate so one collection yields **both** a population estimate and an
