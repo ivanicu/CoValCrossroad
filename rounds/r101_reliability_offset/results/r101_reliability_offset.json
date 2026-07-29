@@ -1,0 +1,61 @@
+{
+ "k": 8,
+ "target_stated": 0.707,
+ "tolerance": 0.01,
+ "arms": {
+  "baseline (r100: ties->first, min_raters=8)": {
+   "reliability_k8": 0.6731699207385603,
+   "diff_vs_target": -0.03383007926143966,
+   "split_half_r": 0.6667047803456837,
+   "n_prompts": 937,
+   "n_half_pairs": 187400,
+   "min_raters": 8,
+   "ties": "first"
+  },
+  "TIES: tied pairs count 0.5": {
+   "reliability_k8": 0.7039526881893088,
+   "diff_vs_target": -0.003047311810691178,
+   "split_half_r": 0.6978231344497753,
+   "n_prompts": 937,
+   "n_half_pairs": 187400,
+   "min_raters": 8,
+   "ties": "half"
+  },
+  "TIES: tied pairs dropped": {
+   "reliability_k8": 0.6744579204671431,
+   "diff_vs_target": -0.032542079532856816,
+   "split_half_r": 0.6680159583857347,
+   "n_prompts": 937,
+   "n_half_pairs": 187380,
+   "min_raters": 8,
+   "ties": "drop"
+  },
+  "QUALIFYING: min_raters=2": {
+   "reliability_k8": 0.6715663474791308,
+   "diff_vs_target": -0.03543365252086916,
+   "split_half_r": 0.6603438894781559,
+   "n_prompts": 968,
+   "n_half_pairs": 193600,
+   "min_raters": 2,
+   "ties": "first"
+  },
+  "QUALIFYING: min_raters=12": {
+   "reliability_k8": 0.6933133014929944,
+   "diff_vs_target": -0.013686698507005546,
+   "split_half_r": 0.7035695978981156,
+   "n_prompts": 784,
+   "n_half_pairs": 156800,
+   "min_raters": 12,
+   "ties": "first"
+  }
+ },
+ "rebuild_drift_vs_r100": 0.0,
+ "arms_within_tolerance": [
+  "TIES: tied pairs count 0.5"
+ ],
+ "baseline_already_closes": false,
+ "world": "T TIES",
+ "outcome_variable_scope": "Spearman-Brown reliability at k=8 of a per-prompt human agreement score, over the released ratings. Arms differ by exactly one of r100's stated choices.",
+ "scope": "Can show which candidate REPRODUCES the stated value; cannot show the original used it, since several methods can share a number and the original method is gone. The eliminating direction is the stronger one.",
+ "verdict": "T TIES. r100 found the stated reliability figures high by a systematic 0.03-0.04 and refused to attribute the offset, because the method behind them no longer exists. Three of r100's choices are stated explicitly, so each can be varied ALONE. At k=8, against the stated 0.707: baseline (r100: ties->first, min_raters=8) -> 0.6732 (-0.0338); TIES: tied pairs count 0.5 -> 0.7040 (-0.0030); TIES: tied pairs dropped -> 0.6745 (-0.0325); QUALIFYING: min_raters=2 -> 0.6716 (-0.0354); QUALIFYING: min_raters=12 -> 0.6933 (-0.0137). REBUILD CONTROL: the baseline arm reproduces r100's 0.6732 to 0e+00, so each arm differs from it only by the choice it varies and the comparison is genuinely one-at-a-time. CONSISTENT WITH: ['TIES: tied pairs count 0.5'] lands within 0.01 of the stated value. That is CONSISTENT WITH the original having made that choice and is NOT an identification -- several methods can share a value, and the original is unrecoverable. The claim is directional: this choice can produce the stated figure, whereas r100's cannot. SCOPE: every arm scores the same released ratings; nothing here is a new measurement, and none of it changes the frozen protocol's rater count, which both figures support."
+}

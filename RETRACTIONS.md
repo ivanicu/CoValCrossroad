@@ -7396,3 +7396,49 @@ wrong is now the specific thing the control tests.
 **And the output contract was designed in, not added after** (the lesson of entry 188): the split-half
 statistic, the half size, and the per-prompt rater counts are persisted, so the next question about
 these figures needs no replay.
+
+---
+
+## Entry 210 — the unattributable offset is attributed: it is the tie convention, and only that
+
+r100 found the stated reliability figures high by a systematic 0.03–0.04 and **refused to attribute the
+gap**, because the method behind them no longer exists. But r100 had **stated its own three choices
+explicitly**, which makes each of them varyable alone.
+
+At k=8, against the stated **0.707**:
+
+| arm | k=8 reliability | vs 0.707 |
+|---|---:|---:|
+| baseline (r100: ties→agreement, min_raters=8) | 0.6732 | −0.0338 |
+| **tied pairs scored 0.5** | **0.7040** | **−0.0030** |
+| tied pairs dropped | 0.6745 | −0.0325 |
+| min_raters = 2 | 0.6716 | −0.0354 |
+| min_raters = 12 | 0.6933 | −0.0137 |
+
+**Only the half-credit tie rule lands within tolerance.** The other three move the number the wrong way
+or not far enough.
+
+**Rebuild control:** the baseline arm reproduces r100 to **0.0e+00**, so each arm differs from it by
+exactly the choice it varies — the comparison really is one-at-a-time, not four different estimators.
+
+### The mechanism is coherent, which matters more than the match
+
+Counting a tie as *agreement* pushes scores toward 1.0 and **compresses their variance**; a split-half
+correlation is a variance-dependent statistic, so it **falls** (0.6667 → 0.6978 when ties are halved).
+**The tie rule moves reliability through variance, not through level** — so the direction of the effect
+was predictable and is not a coincidence of one arm landing near a target.
+
+### Stated at exactly the strength available
+
+**Consistent with, never an identification.** Several methods can share a value, and the original is
+gone. **The eliminating direction is the stronger one**: the tie-drop convention and both
+qualifying-set variants are ruled out as the sole cause.
+
+**And nothing about the protocol changes** — 8 raters/prompt is supported by both figures. What changes
+is that a number the frozen protocol cites went from *no artifact* (entry 208) to *an artifact* (r100)
+to *an artifact plus a named reason for the discrepancy* (r101), across three turns and no new data.
+
+**The thread that produced this** began four turns ago with entry 207's audit finding "no precision
+figure lacks a source" — a claim that was **true only because "sourced by prose" was counted as
+sourced.** Pulling that one thread found a figure with no artifact, built the artifact, and then
+explained why the two disagree.
