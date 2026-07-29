@@ -189,7 +189,7 @@ while group-specific weights did not beat pooled ones; a pooled τ would average
 Stated now so that it cannot be softened later. The computational programme has established:
 
 - the rebuilt satisfaction layer predicts held-out human rankings well above chance (r04)
-- the own-rubric advantage is **semantic, not lexical** — 97.4% survives faithful paraphrase (r14/r20)
+- the own-rubric advantage is **semantic, not lexical** — 97.4% survives faithful paraphrase (**r20** measures the retention; **r14** supplies the fidelity filter and measures something else — that a *model* paraphrase flips 15.4% of the judge's Yes/No verdicts while a *mechanical* one flips 2.5%)
 - post-ranking polarity carries roughly half the above-chance concordance, and it is **not
   primarily same-rater circularity** (r34/r36/r37)
 - that advantage **does not transfer** to responses the criteria authors never saw — replicated on
@@ -201,7 +201,10 @@ Stated now so that it cannot be softened later. The computational programme has 
 - source specificity is **3.2%–65.8%** depending on floor donor and judge family — analyst
   choices the source package never reports
 - CoVal-core **internalises polarity into criterion semantics**, and a reconstruction attributes
-  +0.0733 of it to the polarity rewrite with a further +0.0149 to **which items survive** (r44)
+  +0.0733 of it to the polarity rewrite (r44). Compatibility selection **costs −0.0181** and
+  beats a size-matched random choice by **+0.0149**, so choosing *which* items survive **recovers
+  most of what truncating to four destroys and does not repay it** — membership is mitigation,
+  not gain
 
 And it cannot say what that polarity **is**, because no rater in the release rated a criterion
 before seeing responses. **That is the finding.** The measurement program is well-specified,

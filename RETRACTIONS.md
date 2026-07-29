@@ -1699,6 +1699,39 @@ percentages sat in no pool. All six verify against r30. Both headers now cite bo
 | entry 81, table link | 49% |
 | **this entry** | **55%** |
 
+## Entry 83 — two corrections from this session never reached the document that "cannot be softened later"
+
+`PREREGISTRATION.md` opens by stating its conclusions are written down now *"so that they cannot be
+softened later."* It was carrying two claims this session had already corrected elsewhere.
+
+| claim as it stood | corrected by | where the fix landed | where it did not |
+|---|---|---|---|
+| *"97.4% survives faithful paraphrase (**r14/r20**)"* | entry 66 | README | **PREREGISTRATION, FROZEN** |
+| *"+0.0733 to the polarity rewrite with a further +0.0149 to which items survive"* | entry 79 | README | **PREREGISTRATION** |
+
+The first credits 97.4% to two rounds when **r20 alone** measures retention — r14 supplies the
+fidelity filter and measures a different thing entirely (a *model* paraphrase flips 15.4% of the
+judge's verdicts, a *mechanical* one 2.5%). The second is entry 79's one-sided reading: it omits that
+compatibility selection **costs −0.0181**, so selection reads as gain when it is mitigation.
+
+**Nothing scanned for this.** `retired_framing_in_assertion_positions.py` watches the same three
+documents — but only for retired *framings*, and only in headers, bold leads and table cells. These
+were **number and attribution corrections in body prose**. Every check passed while the un-softenable
+document stated two superseded claims.
+
+`corrections_propagated.py` registers each corrected claim as a pattern with its entry number and the
+correct statement, and scans every watched document. A hit tells a reader **what to write**, not just
+that something is wrong. Five are registered — including entry 81's `+0.102 → −0.042` and
+`replicates at −0.058`, and entry 76's `filtered at 99.2%`, so those cannot come back either.
+
+**Its own limit, stated on every run:** it only knows the corrections registered in it. *Registering
+is part of correcting* — an unregistered fix is invisible to it, which is the honest boundary of a
+pattern registry.
+
+**And it under-covered on its first run.** `WATCHED` listed `ASSURANCE.md`, which resolves to the
+repo root; the generated ledger lives at `assurance/ASSURANCE.md`. It printed *"3 of 4"* and skipped
+the file silently. A missing watched document is now named and called **unscanned, not clean**.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

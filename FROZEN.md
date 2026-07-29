@@ -85,7 +85,7 @@ Frozen because more of the same produces agreement, not ground truth.
 - **more judges** — three unrelated lineages already answer "is this a single-lineage artifact". A fourth cannot produce human ground truth, and judge agreement is not criterion validity
 - **more gold backbones** — two disagree at r=+0.4775 already; a third adjudicates nothing
 - **more donor floors** — r19/r30 established the floor is a *choice* spanning 2.47×. More points map the same choice
-- **more paraphrase sweeps** — r14/r20 settled that the advantage is semantic rather than lexical at 97.4%
+- **more paraphrase sweeps** — **r20** settled that the advantage is semantic rather than lexical at 97.4%; r14 supplies the fidelity filter and measures a different thing (a *model* paraphrase flips 15.4% of the judge's verdicts, a *mechanical* one 2.5%)
 - **more best-of-n** — this failed once already: r09's rise vanished under r11's independent backbone. Without fresh human rankings and a human-calibrated judge, optimising a proxy and adjudicating with another proxy touches no target variable
 
 ---
