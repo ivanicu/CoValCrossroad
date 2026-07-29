@@ -50,6 +50,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 CIISH = re.compile(r"^(ci|.*_ci|ci_.*|interval)$", re.I)
 MEANISH = re.compile(r"^(mean|diff|delta|gap|advantage|drop|attribution|effect|"
                      r".*_mean|.*_diff|.*_delta|.*_gap)$", re.I)
+NULLNAME = re.compile(r"null|shuffl|permut|placebo|random_drop", re.I)
 BOOLISH = re.compile(r"^(excludes_zero|significant|.*_significant|significant_.*|"
                      r"excludes_0|is_significant)$", re.I)
 
@@ -60,7 +61,8 @@ def is_ci(v):
 
 
 def scan(root: pathlib.Path):
-    out = {"outside": [], "contradict": [], "inverted": [], "n_pairs": 0, "n_flagged": 0}
+    out = {"outside": [], "contradict": [], "inverted": [], "n_pairs": 0, "n_flagged": 0,
+           "n_stem": 0, "n_sole": 0, "skipped_sole_null": []}
 
     def walk(o, rid, path):
         if isinstance(o, list):
@@ -76,13 +78,44 @@ def scan(root: pathlib.Path):
         for ck, cv in cks:
             if cv[0] > cv[1]:
                 out["inverted"].append((rid, path or "<root>", ck, cv))
-        for mk, mv in mks:                                   # invariant 1, stem-matched only
+        # invariant 1 pairs a mean with a CI when the pairing is UNAMBIGUOUS, by either
+        # of two routes (entry 198):
+        #   (a) STEM-MATCHED   -- the round names them together, `gap` / `gap_ci`
+        #   (b) SOLE CANDIDATE -- exactly one mean-ish and one ci-ish key in the node
+        # (b) is the same unambiguity standard invariant 2 already uses, and it is what
+        # lifts coverage off the floor: the commonest shape in this package is
+        # {"delta": x, "ci": [...]}, which no stem rule can match because "delta" is not
+        # a substring of "ci". Restricting to stem matches alone checked 10 pairs.
+        stem_hits = set()
+        for mk, mv in mks:
             for ck, cv in cks:
                 if mk.lower() in ck.lower() or ck.lower().replace("_ci", "") == mk.lower():
+                    stem_hits.add((mk, ck))
                     lo, hi = sorted(cv)
                     out["n_pairs"] += 1
+                    out["n_stem"] += 1
                     if not (lo <= mv <= hi):
                         out["outside"].append((rid, path or "<root>", mk, mv, ck, [lo, hi]))
+        # ...but NOT when the sole mean candidate is a NULL summary (entry 198). r84's
+        # root matches exactly one mean-ish key, `shuffled_gap`, and one ci-ish key,
+        # `gap_ci` -- yet its real estimate is `core_minus_full_pred_positive`, which
+        # MEANISH does not match. Pairing those two invents a contrast the round never
+        # asserted, which is r58's harvester defect reproduced inside this guard. If the
+        # only mean we can see is a null's, the real one is somewhere we cannot see, and
+        # the node is NOT unambiguous.
+        # Count only nodes this actually DECLINES to pair -- one mean, one CI, no stem
+        # match. Testing sole_is_null before the CI condition counted 201 nodes that
+        # would never have been paired at all, which overstates what the guard refuses.
+        sole_is_null = len(mks) == 1 and bool(NULLNAME.search(mks[0][0]))
+        if sole_is_null and len(cks) == 1 and not stem_hits:
+            out["skipped_sole_null"].append((rid, path or "<root>", mks[0][0]))
+        if len(mks) == 1 and len(cks) == 1 and not stem_hits and not sole_is_null:
+            (mk, mv), (ck, cv) = mks[0], cks[0]
+            lo, hi = sorted(cv)
+            out["n_pairs"] += 1
+            out["n_sole"] += 1
+            if not (lo <= mv <= hi):
+                out["outside"].append((rid, path or "<root>", mk, mv, ck, [lo, hi]))
         if len(cks) == 1 and len(bks) == 1:                  # invariant 2, unambiguous only
             (ck, cv), (bk, bv) = cks[0], bks[0]
             lo, hi = sorted(cv)
@@ -133,8 +166,10 @@ def main() -> int:
         return 1
 
     r = scan(ROOT)
-    print(f"\n{r['n_pairs']} stem-matched mean/CI pairs; {r['n_flagged']} nodes with exactly one CI "
-          f"and one significance flag")
+    print(f"\n{r['n_pairs']} unambiguous mean/CI pairs ({r['n_stem']} stem-matched, "
+          f"{r['n_sole']} sole-candidate); {r['n_flagged']} nodes with exactly one CI and one "
+          f"significance flag; {len(r['skipped_sole_null'])} node(s) skipped because their only "
+          f"visible mean was a null summary")
     # FLOOR: an empty population is "nothing to check" (2), never "clean" (0). With no
     # artifacts to scan this check finds no violations, and reporting that as a pass
     # would be silence mistaken for an acquittal -- the exact failure attack_the_suite

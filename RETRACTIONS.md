@@ -6902,3 +6902,45 @@ still passes, since that plants a temporary tree and never touches the real one,
 not save it**. The floor returns **2 (nothing to check)** when zero pairs and zero flagged nodes are
 found. *A check whose population can vanish needs a floor even when it has a positive control — they
 guard different failures.* Suite now **15/15**.
+
+---
+
+## Entry 198 — lifted the thin invariant's coverage 10 → 134, and the first violation it found was my own false positive
+
+Entry 197 left invariant 1 covering **10 pairs**, because it required a shared stem (`gap`/`gap_ci`).
+**The commonest shape in this package is `{"delta": x, "ci": [...]}`** — unambiguous, but unmatchable by
+any stem rule, since "delta" is not a substring of "ci".
+
+**Extended it to SOLE-CANDIDATE nodes: exactly one mean-ish and one ci-ish key.** That is the same
+unambiguity standard invariant 2 already used, not a new guess. **Coverage 10 → 139.**
+
+### It immediately found a violation, and the violation was mine
+
+**r84's root: `shuffled_gap = −0.0001` against `gap_ci = [0.0381, 0.0515]`.** Checking the object rather
+than filing the flag: r84 stores its real estimate as **`core_minus_full_pred_positive`**, which MEANISH
+does not match. So the node has exactly one *visible* mean — **the null's** — and one CI, and my rule
+paired them.
+
+**That is r58's harvester defect reproduced inside the guard built to catch it.** "Sole candidate" is
+not unambiguous when the regex cannot see the real mean; it is unambiguous only among the keys the
+regex happens to match.
+
+**Fixed by refusing the pairing when the only visible mean is null-named** — if the sole mean we can see
+is a null's, the real one is somewhere we cannot see, and the node is not unambiguous. Final coverage
+**134 pairs (10 stem-matched, 124 sole-candidate)**, **5 nodes declined**, **0 violations**.
+
+### A second, smaller correction in the same round
+
+The declined-node counter first read **201**, because I tested `sole_is_null` *before* checking a CI
+existed — counting nodes that would never have been paired at all. **The true figure is 5.** *A
+diagnostic that overstates what a guard refuses is the same defect as a count quoting the wrong
+population*, which is what entry 197 was about.
+
+### Attacked on both new routes
+
+**V4** — a sole-candidate mean outside its CI: **caught**. **V5** — a sole mean that is a null summary:
+**correctly not flagged**, which is the false-positive guard doing its job. Baseline and restore clean;
+suite **15/15**.
+
+**Corrected coverage claim, superseding entry 197's table:** invariant 1 now checks **134** unambiguous
+pairs, not 10 and not 148. All three invariants remain clean across every artifact.
