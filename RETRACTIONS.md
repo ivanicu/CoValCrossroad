@@ -3206,8 +3206,7 @@ unreliability", citing relative spreads of 5.8% / 14% / 24% against raw correlat
 The **absolute** sd spans 0.0294 to 0.0448 — a 1.5× range across six quantities whose correlations
 differ by 3.3×. So the relative column moves because its **denominator** moves. I built a ratio,
 watched the denominator drive it, and reported the ratio as a property of the numerator — which is
-the same defect this repository has already logged twice (a ratio of noisy reciprocals; a
-path-dependent per-cause percentage).
+the same defect this repository has already logged (see the correction below).
 
 **The corrected statement, which reaches the same practical place.** A single split perturbs a raw
 correlation by roughly **±0.04 regardless of the quantity**. That is negligible at r≈0.51 and
@@ -3216,8 +3215,29 @@ error is a **constant additive** term, not because volatility scales with anythi
 
 **Why this entry exists at all.** The overstatement changed no number and no decision. It is logged
 because the failure mode — *a ratio whose movement belongs to its denominator, reported as a finding
-about its numerator* — has now occurred three times in this project, and the third occurrence was
-inside a commit whose whole subject was correcting a measurement error.
+about its numerator* — has occurred before in this project, and this occurrence was inside a commit
+whose whole subject was correcting a measurement error.
+
+**⚠ CORRECTION to this entry, made the same day, and it is the sharper lesson.** As first written
+this entry said the defect *"has now occurred three times in this project"* and named two
+precedents: a ratio of noisy reciprocals, and a path-dependent per-cause percentage. **Neither is in
+this ledger.** `grep -niE "noisy reciprocal|per-cause|decomposition is path" RETRACTIONS.md` returns
+only the sentence that names them. Both live in my cross-project memory files, one of which does
+concern CoVal — and I cited them as if they were entries *here*, from memory, without looking.
+
+The genuine precedent, and there is exactly one, is **[Entry 68](#entry-68)** — *under-replication
+does not move the estimate, it inflates the TEST STATISTIC*: every ratio there was unchanged because
+ratios are means, while the **z** moved 23% because its denominator is a null SD estimated from 15
+draws. Same class, verified by reading it.
+
+So the count in this repository is **two, not three** — Entry 68 and this one. That matters
+operationally: *"same bug three times → build infrastructure, not a third patch"* is a standing rule,
+and at two instances **it does not fire.** No check is built. Had I not verified the citation I would
+have built one on a count I invented.
+
+The lesson is one level up from the entry it corrects: I wrote an entry about a number I had not
+checked, and inside it cited two precedents I had also not checked. **The citation is the part of a
+retraction least likely to be audited, because it looks like bookkeeping rather than a claim.**
 
 **One control detail worth keeping.** The shuffled null is re-run on **every** draw and reported as a
 **maximum** (0.2016), never a mean. A control averaged over 200 draws would hide one bad draw, which
