@@ -7277,3 +7277,37 @@ H_fresh's actual data could settle which.
 **What made this findable:** the freeze stores the weights and the cell sizes, so the design effect is
 arithmetic on numbers already frozen — no data, no model, no judgement. **The same property that let
 entries 203–205 verify the design lets it be costed.**
+
+---
+
+## Entry 207 — attacked my own "every precision figure is sourced" claim; it holds, after the checker was wrong twice
+
+Entry 206 closed by asserting **every precision figure in the preregistration is measured or bounded**.
+That is the kind of claim this session has repeatedly shown should be attacked rather than banked.
+
+**The checker was wrong twice before the claim survived.**
+
+| pass | method | result | why it was wrong |
+|---:|---|---:|---|
+| 1 | markdown links only | **13 uncited** | missed inline `(r59)`, `(r57)`, `(r04)` — most citations here are bare |
+| 2 | links **and** inline | **5 uncited** | tables and continuation caveats are split from their citing paragraph by the blank line |
+| 3 | check each against its **preceding** paragraph | **0 genuinely unsourced** | — |
+
+**Resolved:** three of the five sit directly after paragraphs citing rounds — the MDE table after r61/r82,
+the write-in caveat after r61/r73, the equivalence-reading paragraph after r12/r91/r94.
+
+**Two are thinner and are named rather than waved through.** The *"PRE marginal is unobserved"* caveat is
+**two hops** from a citation (it follows the MDE table, which follows the cited paragraph). The
+raters/prompt attenuation table follows a paragraph that declares its provenance **in prose** —
+*"measured directly on the released ratings for the original responses rather than assumed"* — not with
+a round tag. **Traceable, but by adjacency and by sentence rather than by pointer.**
+
+**So the claim stands with a stated qualification:** no precision figure lacks a source, and **two are
+sourced more weakly than the rest.** That is a different sentence from "all sourced", and the difference
+is exactly what two rounds of fixing my own checker bought.
+
+**The recurring shape, one more time:** the first two answers were artifacts of how I *split* and how I
+*matched* — not properties of the document. **A count produced by a checker is a claim about the
+checker until the objects are read**, which is entry 187's lesson arriving for the fourth time, and the
+only reason it cost three passes instead of one bad conclusion is that I read the five before reporting
+them.
