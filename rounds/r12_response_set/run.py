@@ -63,6 +63,59 @@ FEWSHOT = (
 )
 
 
+def build_verdict(control_ok: bool, share: float, res: dict) -> str:
+    """The verdict as a pure function of stored quantities.
+
+    Factored out so it can be recomputed by --reverdict without regenerating
+    responses.  A conclusion that cannot be re-derived from the numbers is a
+    hand-written conclusion wearing a JSON field.
+    """
+    return ("VOID: the fresh response set is too homogeneous for any ordering to "
+            "be measured, so nothing about transfer is established"
+            if not control_ok else
+            # States what fell, and names it correctly.  It deliberately does NOT
+            # narrate which older wording was withdrawn: a results file is where a
+            # round asserts its finding, and a withdrawal narrated here would put
+            # the retired phrase back into the artifact an outsider greps.  The
+            # withdrawal belongs in RETRACTIONS.md, which is the file for it.
+            "RESPONSE-SET-SPECIFIC: most of the own-rubric advantage does not "
+            "transfer to responses the criteria authors never saw. What falls is "
+            "SOURCE SPECIFICITY -- own-rubric minus reference-rubric performance -- "
+            "which is a contrast between two rubrics, not between rubric content and "
+            "its absence"
+            if share > 0.5 else
+            "TRANSFERS: the advantage survives on responses the authors never saw, "
+            "so it is prompt/value-specific rather than response-set-specific"
+            if res["FRESH"]["ci"][0] > 0 else
+            "UNRESOLVED: attribution on fresh responses is not distinguishable "
+            "from zero, so neither reading is established")
+
+
+def reverdict(path) -> None:
+    """Recompute ONLY the verdict from an existing results file.
+
+    Exists because this round's generation step is stochastic and unseeded: a
+    re-run would produce a DIFFERENT fresh response set and silently invalidate
+    every downstream artifact built on the saved one (r39's feature cache, r40,
+    r41's satisfaction tensor).  So when a framing is withdrawn, the verdict is
+    recomputed from the stored numbers and everything else is left untouched.
+    """
+    import json as _json
+    doc = _json.loads(path.read_text())
+    old = doc.get("verdict")
+    new = build_verdict(bool(doc["control_passed"]),
+                        float(doc["non_transferring_share"]), doc["sets"])
+    doc["verdict"] = new
+    doc["verdict_recomputed_without_rerun"] = (
+        "The generation step is stochastic and unseeded, so re-running would "
+        "replace the response set that r39/r40/r41 are all built on. Only the "
+        "verdict was recomputed, from the numbers already in this file.")
+    path.write_text(_json.dumps(doc, indent=1))
+    print(f"verdict recomputed in {path}")
+    print(f"  was: {old[:90]}...")
+    print(f"  now: {new[:90]}...")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--comparisons", type=Path, default=Path(_ROOT + "/data/comparisons.jsonl"))
@@ -72,7 +125,14 @@ def main() -> None:
     ap.add_argument("--prompts", type=int, default=250)
     ap.add_argument("--fresh", type=int, default=4)
     ap.add_argument("--max-new", type=int, default=180)
+    ap.add_argument("--reverdict", action="store_true",
+                    help="recompute the verdict from the stored numbers; no GPU, "
+                         "no regeneration, nothing else touched")
     a = ap.parse_args()
+
+    if a.reverdict:
+        reverdict(a.out)
+        return
 
     joined = load_join(a.comparisons, a.rubrics)[: a.prompts]
     items = []
@@ -269,8 +329,11 @@ def main() -> None:
     verdict = ("VOID: the fresh response set is too homogeneous for any ordering to "
                "be measured, so nothing about transfer is established"
                if not control_ok else
-               "RESPONSE-SET-SPECIFIC: most of the advantage does not transfer; the "
-               "value-carrying share of A04's headline shrinks"
+               "RESPONSE-SET-SPECIFIC: most of the own-rubric advantage does not "
+               "transfer to responses the criteria authors never saw. This is a fall in "
+               "SOURCE SPECIFICITY -- own-rubric minus reference-rubric performance -- "
+               "and NOT a fall in 'the value-carrying share', which was never what this "
+               "subtraction measured"
                if share > 0.5 else
                "TRANSFERS: the advantage survives on responses the authors never saw, "
                "so it is prompt/value-specific rather than response-set-specific"

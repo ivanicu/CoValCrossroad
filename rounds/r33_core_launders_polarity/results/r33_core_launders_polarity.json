@@ -86,7 +86,7 @@
    "excludes_zero": true
   }
  },
- "verdict": "CORE LAUNDERS POST-CHOICE POLARITY INTO TEXT. Scored with EQUAL weights -- no human ratings used at all -- core beats full by +0.0663, and applying ratings to core adds +0.0000 more. The sign a participant supplied AFTER ranking the candidates now lives in the criterion's wording, where nothing marks it as post-choice. Core is the artifact most likely to be read as a clean, response-independent value specification -- readable, positively-phrased, four items -- and it is the one where that reading is least available.",
+ "verdict": "CORE INTERNALISES POST-CHOICE POLARITY INTO CRITERION SEMANTICS. Scored with EQUAL weights -- no human ratings used at all -- core beats full by +0.0663, and applying ratings to core adds +0.0000 more. The sign a participant supplied AFTER ranking the candidates now lives in the criterion's wording, where nothing marks it as post-choice. Core is the artifact most likely to be read as a clean, response-independent value specification -- readable, positively-phrased, four items -- and it is the one where that reading is least available. This is an artifact-design consequence, NOT a claim about intent: the rewriting is documented in the dataset card. And the share is NOT decomposed -- rewrite, merge, dedup, compatibility selection and truncation are confounded here.",
  "card_quote": "core 'first rewrites all rubric items to have positive weight' (DATASET_CARD.md:74)",
  "scope": "Evaluation pairs come from the ORIGINAL rankings: internal concordance on the elicitation manifold (entry 36). Both sources share that limitation; the comparison is between them."
 }

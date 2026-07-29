@@ -2050,5 +2050,6 @@
  },
  "drop": 0.16599999999999998,
  "non_transferring_share": 1.6274509803921569,
- "verdict": "RESPONSE-SET-SPECIFIC: most of the advantage does not transfer; the value-carrying share of A04's headline shrinks"
+ "verdict": "RESPONSE-SET-SPECIFIC: most of the own-rubric advantage does not transfer to responses the criteria authors never saw. What falls is SOURCE SPECIFICITY -- own-rubric minus reference-rubric performance -- which is a contrast between two rubrics, not between rubric content and its absence",
+ "verdict_recomputed_without_rerun": "The generation step is stochastic and unseeded, so re-running would replace the response set that r39/r40/r41 are all built on. Only the verdict was recomputed, from the numbers already in this file."
 }

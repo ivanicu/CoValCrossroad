@@ -234,14 +234,17 @@ def main() -> None:
         print(f"\nwrote {a.out}")
         return
     verdict = (
-        "CORE LAUNDERS POST-CHOICE POLARITY INTO TEXT. Scored with EQUAL weights -- no human "
+        "CORE INTERNALISES POST-CHOICE POLARITY INTO CRITERION SEMANTICS. Scored with EQUAL "
+        "weights -- no human "
         f"ratings used at all -- core beats full by {p1.get('delta', float('nan')):+.4f}, and "
         f"applying ratings to core adds {p2.get('delta', float('nan')):+.4f} more. The sign a "
         "participant supplied AFTER ranking the candidates now lives in the criterion's "
         "wording, where nothing marks it as post-choice. Core is the artifact most likely to "
         "be read as a clean, response-independent value specification -- readable, "
         "positively-phrased, four items -- and it is the one where that reading is least "
-        "available."
+        "available. This is an artifact-design consequence, NOT a claim about intent: the "
+        "rewriting is documented in the dataset card. And the share is NOT decomposed -- "
+        "rewrite, merge, dedup, compatibility selection and truncation are confounded here."
         if p1.get("excludes_zero") and p1.get("delta", 0) > 0 else
         "PREDICTION P1 FAILS: core scored with equal weights does not beat full scored the "
         "same way, so the positive-weight rewriting does not, by itself, relocate the "
