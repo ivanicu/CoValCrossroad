@@ -2488,6 +2488,37 @@ are — and the failure mode that produces is exactly **a claim with no artifact
 thing that enumeration is structurally blind to. It took auditing a stale round count in a headline
 to find it.
 
+## Entry 103 — the headline led with a point split for a quantity that spans twenty-fold, and the span I cited was mis-attributed
+
+Queue item 1 is the [NOW] task and says the values-vs-non-values contrast **must never be a headline
+again**. The nouns were corrected long ago. The **structure** was not: the Headline opened by
+splitting 18.6 points into *"**7.9** are prompt-specific criterion content and **10.7** are generic
+response quality any rubric earns for free"* — a point decomposition, presented before any scope.
+
+**The scoping did arrive, one paragraph later, and it was too narrow.** The section said the floor
+is a choice moving the number **2.47×** and gave **27%–67%**. That is the **floor dimension alone**.
+The package also establishes a **judge** dimension, and with an interval in every cell r30 gives
+**3.2%–65.8%** — a twenty-fold span, not a two-fold one.
+
+**So the lead now states what is robust and what is not.** The *ordering* — own 0.686 > unrelated
+0.607 > length 0.532 > chance 0.500 — holds across every judge and floor tested. The *split* is one
+cell of a grid. And **7.9 and 10.7 are not two quantities, they are one cell**: the second is not
+identified as "generic quality" by anything measured here, since r59 finds criteria borrowed from
+other prompts are just as concordant about these responses as a prompt's own.
+
+**And the number I reached for was mis-attributed, which I found by checking before committing.**
+I wrote *"the judge family moves it **2.13×** ([r22])"*. **2.13 is not in r22's artifact.** It is
+derived from **r30's** shares: 53.8% ÷ 25.3% = 2.1265. The README's r22 row had carried the same
+mis-attribution — *"a 2.13× judge span"* — since long before this entry. Both now say where the
+number comes from and that r22 does not store it.
+
+**This is the third instance of one shape**: r30's prompt-specific shares living inside r22's tables
+(entry 82), and now r30's derived judge span credited to r22 twice more. **r22 measures accuracies;
+r30 measures shares.** Every span in this package is r30's, and the row that reads most naturally as
+the source is the wrong one.
+
+Coverage of `readme_agrees_with_results` is now **59%**, up from 8% when this session began.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

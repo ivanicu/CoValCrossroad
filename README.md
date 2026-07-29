@@ -72,7 +72,8 @@ so any mechanism with a true per-prompt correlation below ≈0.2 is invisible to
 
 ## Headline
 
-Grading responses against **an unrelated prompt's rubric** already recovers most of the apparent signal.
+**What is robust here is an ordering, not a share.** Grading responses against **an unrelated
+prompt's rubric** already recovers most of the apparent signal.
 
 | grading the same responses with… | concordance with the original human rankings |
 |---|---:|
@@ -81,7 +82,20 @@ Grading responses against **an unrelated prompt's rubric** already recovers most
 | response length alone | 0.532 |
 | chance | 0.500 |
 
-Of the 18.6 points above chance, **7.9 are prompt-specific criterion content and 10.7 are generic response quality any rubric earns for free** — using a randomly chosen prompt as the floor.
+That ordering holds across every judge and every floor tested. **The split of the 18.6 points above
+chance does not.** Against a randomly chosen prompt as the floor it is 7.9 / 10.7 — but that is one
+cell of a grid, and the grid spans a factor of twenty:
+
+- the **floor donor** moves it **2.47×** ([r19](rounds/r19_floor_choice))
+- the **judge family** moves it **2.13×** on top of that — derived from [r30](rounds/r30_scope_grid)'s shares (53.8% qwen2.5-3b ÷ 25.3% phi), *not* a value r22 stores
+- with an interval in every cell, source specificity runs **3.2% – 65.8%** ([r30](rounds/r30_scope_grid))
+
+So **7.9 and 10.7 are not two quantities, they are one cell**, and the second is *not* identified as
+"generic quality" by anything measured here — [r59](rounds/r59_criterion_influence) finds criteria
+borrowed from other prompts are just as concordant about these responses as a prompt's own, which is
+consistent with a shared normative backbone and with several other things. **The contrast is
+own-rubric minus reference-rubric performance, and naming its parts is an interpretation, not a
+measurement.**
 
 **That floor is a choice, and the number moves 2.47× with it.** [r19](rounds/r19_floor_choice)
 reads r10's donors as a decay curve: a random prompt's rubric still retains 47–60% of the signal,
@@ -97,7 +111,9 @@ close to chance to be decomposed at all:
 | random donor *(what the headline used)* | 0.073 | ×1.00 |
 | most dissimilar donor | 0.115 | ×1.58 |
 
-Applying that range to the headline's own 42.5% prompt-specific share gives **27%–67%**.
+Applying that range to the 42.5% prompt-specific share of the random-floor cell gives **27%–67%**
+— **floor variation alone**. Crossing it with the judge dimension — 2.13×, derived from r30's own shares — is
+what produces r30's **3.2%–65.8%**, and that is the figure any single number must be read against.
 
 Neither endpoint is clean — the far donor is adversarially selected and may simply be refused by the
 judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so any
@@ -1057,7 +1073,7 @@ not from estimation noise, so no further computation narrows it.
 | [r20](rounds/r20_paraphrase_transfer) | Is the advantage content or wording? | **content** — reword every criterion and **97.4%** of the advantage survives; original−paraphrased +0.002 [−0.007, +0.011] |
 | [r21](rounds/r21_donor_distance) | Is the "near-topic" donor actually near? | **yes, near the ceiling** — it sits at the 97.86th percentile of all pairs and covers **91.6%** of the distance from a random prompt to the same question reworded |
 
-| [r22](rounds/r22_cross_family) | Does the attribution survive a change of judge family? | **yes, and the magnitude does not** — positive on qwen and phi with intervals clear of zero, but the prompt-specific share runs 25.3% (phi) to 53.8% (qwen2.5-3b) at a fixed floor, a **2.13× judge span** on top of r19's 2.47× floor span. The first run falsely claimed this on two Qwen judges because "family" was `name.split("-")[0]`; phi was scoreable only after a tokenizer fix |
+| [r22](rounds/r22_cross_family) | Does the attribution survive a change of judge family? | **yes, and the magnitude does not** — positive on qwen and phi with intervals clear of zero, but the prompt-specific share runs 25.3% (phi) to 53.8% (qwen2.5-3b) at a fixed floor, a **2.13× judge span** (derived as 53.8÷25.3 from [r30](rounds/r30_scope_grid)'s shares, not stored by r22) on top of r19's 2.47× floor span. The first run falsely claimed this on two Qwen judges because "family" was `name.split("-")[0]`; phi was scoreable only after a tokenizer fix |
 | [r23](rounds/r23_actor_vs_dyad) | Is r01's persistence about people or about pairs? | **mostly people**: an additive actor model takes 47.2% of dyad variance and actor-only persistence (0.254) *exceeds* the headline. Pair-specific residual 0.034, z=+4.67 — real, and a fifth of what r01 reported. Its sharper test (reliably-disagreeing pairs) is **null at z=+1.40** |
 | [r24](rounds/r24_regime_receipt) | Receipt for "step R²=0.964 vs trend 0.448" | the number existed in no script. Reproduced, **and given the control it never had**: a null that re-searches the breakpoint on every shuffle reaches only 0.172. Observed 0.964, p=0.0001, breakpoint found at position 6 by search |
 | [r25](rounds/r25_actor_dyad_sweep) | Is r23's residual stable, or a property of Pearson? | **complete — and the answer is both.** All **144** cells ran (4 metrics × 3 overlaps × 3 shared-item thresholds × standardise × centre); **138 usable, and the residual clears z>2 in 100% of them**, so it is not a Pearson artifact. But its *share* spans **0.2018–0.7000** (median **0.2650**) — a **3.5× range** — so the residual's *existence* is metric-invariant and its *size* is not. Gauge control behaved as predicted: Pearson invariant to centring (Δ=2.8e-17), cosine and negl1 not (Δ=0.0339, 0.0907). ⚠ This row reports the sweep's own numbers only; the rater-structure ontology it feeds stays **FROZEN as UNRESOLVED** |
