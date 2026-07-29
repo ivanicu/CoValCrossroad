@@ -515,6 +515,38 @@ no split of these annotators can reach — every one of them saw the four candid
 rating — so *stable population value* versus *direction constructed by seeing the menu* still
 needs weights from people who never saw a response.
 
+### What the satisfaction judge is using
+
+Every cross-rater result here runs through one instrument — the judge answering *"does response r
+satisfy criterion c?"*. r04 validated it in aggregate against held-out human rankings. Nothing
+asked what it was **using**, and r50 gave a reason to.
+
+[r51](rounds/r51_judge_lexical) measures, within a fixed (prompt, criterion), whether satisfaction
+across the four responses tracks lexical overlap between criterion and response:
+
+| | |
+|---|---:|
+| mean **signed** corr(overlap, satisfaction) | **+0.2068 [+0.1966, +0.2161]** |
+| response-permutation null | −0.0034 [−0.0090, +0.0020] |
+| with response **length** partialled out | +0.1886 [+0.1768, +0.2010] |
+| criteria with positive human rating | +0.2252 |
+| criteria with **negative** human rating | +0.1527 |
+
+Both polarities are positive, so there is no negation trap hiding two opposing mechanisms — for a
+criterion like *"the model moralises"*, a response that moralises does contain the words, and
+scoring it satisfied is correct.
+
+⚠ Read the **signed** value. At four responses, two independent vectors give E|r| ≈ 0.50, so a
+bare magnitude here would repeat [entry 49](RETRACTIONS.md).
+
+**This gives r50's anchoring effect a live instrument explanation**: anchored criteria may
+transfer better because they are the ones the judge scores accurately. It does **not** establish
+that overlap-driven scoring is *wrong* — overlap and genuine satisfaction are correlated in the
+world, and the release contains no satisfaction ground truth against which to set the ceiling a
+correct judge would show. And the claim card's real positive control — having the judge score a
+criterion copied out of a response — **was not run**; it needs a GPU pass, and the round says so
+in its own output rather than passing off an estimator check as the control.
+
 ### …and it transfers on criteria nobody but the author ever saw
 
 Item 1 rescoped "not leakage" to leave **shared-menu endogeneity** open, because every
@@ -904,6 +936,7 @@ not from estimation noise, so no further computation narrows it.
 | [r39](rounds/r39_feature_cache) | Cache representations, analyse nothing | one GPU pass, three lineages (qwen/phi/internlm), 2,000 responses. Load failures recorded as **environment claims**, not model properties |
 | [r40](rounds/r40_ood_map) | Is r12's inversion an OOD artifact? | **no — the sign runs the wrong way.** Nearest-neighbour distance correlates at **−0.125**, 2/3 lineages, same sign 3/3: the anomaly is **worst where fresh responses most resemble the released ones** |
 | [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **no.** Hull violation −0.1837 and rank instability +0.1993 die to the discriminating-power control; spread loss looked like it survived at +0.2309 but **failed to replicate** (r46). Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly |
+| [r51](rounds/r51_judge_lexical) | What is the satisfaction judge actually using? | **it tracks lexical overlap.** Within a fixed (prompt, criterion), satisfaction across the four responses correlates with word overlap at **+0.2068** against a permutation null of −0.0034; **+0.1886** with response length partialled out. Gives r50's anchoring effect a live instrument explanation. ⚠ NOT shown to be error — overlap and real satisfaction covary, and the release has no satisfaction ground truth |
 | [r50](rounds/r50_response_anchoring) | Is the transfer carried by criteria ABOUT the four responses? | **a design exists; it does not attribute yet.** Anchored write-ins carry more direction than generic ones (**+0.0271 [+0.0134, +0.0405]**), but the pre-seeded control trends the same way (+0.0106) and the **excess spans zero** (+0.0141 [−0.0050, +0.0326]). Withdraws my "no design permits this" claim (entry 52); does not settle the channel |
 | [r49](rounds/r49_provenance_crossfit) | Does the direction transfer on criteria nobody else saw? | **yes, and better.** Size-matched, write-in criteria — one author, one rater — transfer at **+0.0777** vs **+0.0599** for the shared six; paired gap **+0.0172 [+0.0034, +0.0307]**. Control reproduces r34 (+0.0599 vs +0.0576); both shuffled-sign nulls strongly negative. Narrows shared-menu endogeneity to the RESPONSE channel |
 | [r48](rounds/r48_provenance_identified) | Is the seed/write-in split a heuristic? | **no — identified.** 63.5% of criteria have 1 rater, 36.4% have ≥5, **18 (0.1%)** lie between and **zero** are ambiguous under the rounds' own rule. The many-rated class is capped at exactly **6 per prompt** (728/986 at the cap), matching documented pre-seeding. Does **not** reach S_pre: pre-populated ≠ response-blind |

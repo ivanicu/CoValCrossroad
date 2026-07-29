@@ -1,0 +1,47 @@
+{
+ "cells": 12420,
+ "mean_signed_corr": [
+  0.2067962451968559,
+  0.19653987853509522,
+  0.21706051215421038
+ ],
+ "permutation_null": [
+  -0.003384172648183851,
+  -0.009206176768937226,
+  0.002363167101083606
+ ],
+ "length_controlled": [
+  0.18855561787572192,
+  0.17683827406446842,
+  0.20103917848966726
+ ],
+ "estimator_recovery_planted": [
+  0.9945601428224021,
+  0.994364839728399,
+  0.9947444315792533
+ ],
+ "positive_control_status": "NOT RUN. The claim card's control requires the JUDGE to score a criterion copied out of a response; that is a GPU pass and was not done. The check reported here only shows a 4-point correlation recovers a planted link, which is nearly tautological and does not license reading a null as absence.",
+ "by_polarity": {
+  "positive": {
+   "mean": 0.22523473540539335,
+   "ci": [
+    0.2129741978725198,
+    0.23701531714789587
+   ],
+   "n": 9263
+  },
+  "negative": {
+   "mean": 0.1526956006603713,
+   "ci": [
+    0.13320223242474585,
+    0.17352258701998405
+   ],
+   "n": 3157
+  }
+ },
+ "excess_over_null": 0.21018041784503977,
+ "strong_threshold_is_stipulated": 0.15,
+ "verdict": "THE JUDGE SCORES LEXICAL OVERLAP. Within a fixed (prompt, criterion), its satisfaction across the four responses tracks word overlap at +0.2068 against a response-permutation null of -0.0034 -- an excess of +0.2102 -- and +0.1886 with response length partialled out. r50's anchoring result must be reread as a property of J, and every round using the satisfaction layer inherits the scope note. \u26a0 'LARGE' HERE IS A STIPULATION: the excess is called large because it clears 0.15, a threshold I chose and not one the data supplies -- the number to carry is +0.2102. NOT ESTABLISHED that this is ERROR: overlap and genuine satisfaction are correlated in the world, and this release has no satisfaction ground truth to set the honest ceiling",
+ "outcome_variable_scope": "Descriptive on the judge's own outputs. No human rankings and no model preference proxy enter this round; the quantity is the judge's satisfaction score and a text statistic.",
+ "scope": "Signed correlation only; at n=4 responses a bare |r| is ~0.50 under independence (entry 49). This measures whether the judge's output MOVES with lexical overlap. It does NOT establish that overlap-driven scoring is erroneous: overlap and genuine satisfaction are correlated in the world, and the release contains no satisfaction ground truth against which to set the ceiling a correct judge would show."
+}
