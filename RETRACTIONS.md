@@ -7204,3 +7204,38 @@ not the strata present.
 **Attacked by swapping two prompts across the distance boundary** and giving each the other's correct
 cell weight — so every earlier check still passes and only separability breaks. **Caught.** Eight
 vectors now, all caught.
+
+---
+
+## Entry 205 — the two sampling axes are not equally balanced, and one of them is not a half
+
+Entry 204's NEXT sent me to r38 for the thresholds. **They are declared**: `d_hi = dist >= np.median(dist)`
+and `g_hi = disagree >= np.nanmedian(disagree)`. A median split predicts **125 / 125** marginals, and the
+strata sizes test that prediction without needing the 250 prompts:
+
+| axis | marginal | verdict |
+|---|---|---|
+| **distance** | **125 / 125** | exact median split, no ties at the boundary |
+| **disagreement** | **97 / 153** | **28 prompts tie at the median**, and `>=` sends ties high |
+
+**So the low-disagreement stratum is 97 of 250 — 38.8%, not half.** Combined with entry 204's finding
+that every sampled low-disagreement prompt sits at **exactly zero**, that axis is **none versus some**,
+not *below versus above*.
+
+**Why this is a claim and not trivia:** a weighted estimate on that cell represents **38.8%** of the
+population. **Reading it as half overstates its reach by a quarter**, and nothing in the preregistration
+or the frame said otherwise — the phrase was "four equal cells of 15", which is true of the *sample* and
+false of the *strata*.
+
+**Recorded where it is used**, in the preregistration's sampling paragraph, and **reported by the guard
+on every run** so the asymmetry stays visible rather than being rediscovered.
+
+**What the guard now gates on:** the marginals must sum to the reconstructed population. **What it only
+reports:** the imbalance itself, since 97/153 is a legitimate consequence of tie-handling and not a
+defect — the defect would be assuming it was 125/125.
+
+**The chain that produced this** is worth noting because no step was expensive: entry 202 verified the
+freeze's hashes; 203 found the weights reconstruct 250; 204 found the cells are threshold-separable and
+corrected "unverifiable" to "unstored"; **205 read the threshold rule and found the strata are not the
+halves the document implied.** Four turns, no new measurement, one substantive correction to a document
+the human experiments will be read against.

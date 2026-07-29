@@ -291,7 +291,16 @@ normative ordering better than the preference ordering?* Personal is **secondary
 exploratory**; world is the primary outcome, because that is the one r12 measured.
 
 **Sampling.** The r38 frame: 60 prompts, four equal cells crossing rubric-vs-proxy disagreement
-with surface distance, sampling weights 2.80 / 3.67 / 5.53 / 4.67, ≥8 raters per prompt. Weights
+with surface distance, sampling weights 2.80 / 3.67 / 5.53 / 4.67, ≥8 raters per prompt.
+**⚠ The two axes are not equally balanced, and one of them is not a half** (verified 2026-07-29 from
+the frozen frame against [r38](rounds/r38_human_sampling_power)'s declared `>= median` rule). The
+weights reconstruct the source population exactly — **42 + 55 + 83 + 70 = 250**, r12's slice — and each
+weight is stratum ÷ 15. But the marginals differ: **distance splits 125 / 125**, an exact median cut,
+while **disagreement splits 97 / 153**, because **28 prompts tie at the median** and `>=` sends ties to
+the high side. So the *low-disagreement* stratum is **97 of 250 (38.8%)**, not half — and every sampled
+low-disagreement prompt sits at **exactly zero** disagreement, making that axis *none versus some*
+rather than *below versus above*. A weighted estimate on that cell represents 38.8% of the population;
+reading it as half would overstate its reach by a quarter. Weights
 are reported with every estimate so one collection yields **both** a population estimate and an
 anomaly-subset estimate. Power ≈0.98 for +0.05 clustered on prompt; r12's 0.16 is detectable in
 every cell.

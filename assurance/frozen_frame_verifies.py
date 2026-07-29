@@ -114,6 +114,23 @@ def main() -> int:
                  else f"  OVERLAP {a['max_low'] - a['min_high']:+.6f}"))
     unsep = [k for k, v in axes.items() if not v["separable"]]
 
+    # The strata marginals test r38's declared rule (`>= median` on each axis) without
+    # needing the 250 prompts themselves. A median split gives 125/125 -- unless values
+    # are TIED at the median, which `>=` sends to the high side. Reported because the
+    # asymmetry is a design fact a reader would otherwise mis-assume (entry 205).
+    S = {k: round(w[k] * decl[k]) for k in decl}
+    marg = {
+        "disagreement": (S["low_disagree_low_dist"] + S["low_disagree_high_dist"],
+                         S["high_disagree_low_dist"] + S["high_disagree_high_dist"]),
+        "distance": (S["low_disagree_low_dist"] + S["high_disagree_low_dist"],
+                     S["low_disagree_high_dist"] + S["high_disagree_high_dist"]),
+    }
+    half = round(pop / 2)
+    for axis, (a, b) in marg.items():
+        note = "exact median split" if a == b == half else f"{b - half} tied at the median -> high"
+        print(f"  {axis:<13} strata marginal {a}/{b} of {round(pop)}   ({note})")
+    bad_marg = [k for k, (a, b) in marg.items() if a + b != round(pop)]
+
     bad_r = [(r["pid"], arm, i) for r in rows for arm in ("original", "fresh")
              for i, x in enumerate(r[arm]) if sha(x["text"]) != x["sha256"]]
     bad_p = [r["pid"] for r in rows if sha(r["prompt_text"]) != r["prompt_sha256"]]
@@ -153,6 +170,10 @@ def main() -> int:
         fail = 1
         print(f"\nFINDING: prompts differ in response counts {resp_shape}; the frame is not the "
               f"balanced 4-original/4-fresh design it declares.")
+    if bad_marg:
+        fail = 1
+        print(f"\nFINDING: on {bad_marg} the strata marginals do not sum to the population "
+              f"{round(pop)}; the 2x2 does not partition what the weights say it does.")
     if unsep:
         fail = 1
         print(f"\nFINDING: on {unsep} the cell labels are NOT separable by any threshold on the "
