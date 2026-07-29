@@ -1849,6 +1849,50 @@ a second-order difference survives for criteria sharing that vocabulary. So lexi
 matched by construction, the exclusion rate is reported against it, and **τ_c is reported stratified
 by it — with the stratified result as the headline if the strata disagree**.
 
+## Entry 87 — the same attack on Experiments 1 and 2: an unnamed matcher, and a "human" experiment with a model in it
+
+Entry 86 fixed Experiment 3 by asking one question: **which instrument performs each verification
+step, and does it respond to the manipulation?** Asked of the other two experiments, it finds one
+defect each.
+
+**Experiment 1 — "the same criterion" is a step nobody specified.** The primary outcome is sign
+agreement between arms *"on the same criterion"*. But PRE participants **write their own** criteria
+and POST participants **rate pre-seeded** ones — different objects. Every comparison therefore passes
+through a **matcher**, and the design named none. The obvious choice is the worst available: r14
+measured that a *model* paraphrase flips **15.4%** of this judge's verdicts where a *mechanical*
+rewording flips **2.5%**, so a model asked *"are these the same criterion?"* is operating in its
+least stable regime.
+
+Now committed: matching is **human, blind to both arms' directions, two annotators plus a third for
+disagreements**, with inter-matcher agreement reported. A model matcher may run alongside and have
+its disagreement rate reported; it never produces the primary number.
+
+**And the fix exposed a signal the design was about to discard.** A POST criterion with no PRE
+counterpart is a criterion that **only arises after seeing the responses** — which is menu-induced
+construction, measured directly. The unmatched rate is now a **primary outcome**, not an exclusion.
+An experiment that quietly dropped unmatchable criteria would have thrown away its strongest
+evidence for the very world it exists to test.
+
+**Experiment 2 — it replaces one model in the chain, not both.** r12 scores both response sets with
+`Judge(MODEL_DIR, batch=32)` (`rounds/r12_response_set/run.py:208`). Human rankings replace the
+**gold head**; the **satisfaction layer** stays model-produced. The rubric side of "own-rubric
+concordance" is still a judge answering *does response r satisfy criterion c?* — and that judge reads
+lexical overlap **causally** (r51, r52).
+
+**The instrument carries exactly the validity gap the experiment exists to measure.** r04 validates
+the satisfaction layer against human rankings on the **released** responses (0.686 on 80,542 pairs).
+**Nothing validates it on fresh ones.** So H_fresh would measure transport failure using a
+satisfaction layer whose own transport is unestablished — the project's central finding reappearing
+inside the experiment designed to settle it.
+
+Now committed: a **satisfaction sub-study** in which humans answer the satisfaction question directly
+on a sub-sample of (criterion, fresh response) pairs — the human-vs-judge agreement rate on fresh
+responses that r04 supplies for originals and nobody supplies here. **If it is not run, the headline
+reads "human rankings against a model-scored rubric", never "human-measured."**
+
+Every figure above was checked against its artifact before commit: r04 2/2, r14 2/2, and the r12
+line quoted from the file.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

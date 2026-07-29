@@ -62,6 +62,26 @@ chance baseline computed from each arm's own marginal sign distribution — **no
 because the POST arm's signs are overwhelmingly positive and a naive baseline would manufacture
 agreement.
 
+**⚠ "The same criterion" names a step this design did not specify, and it is load-bearing.** PRE
+participants **write their own** criteria; POST participants **rate pre-seeded** ones. Those are not
+the same objects, so every PRE/POST sign comparison passes through a **matcher**, and an unnamed
+matcher is exactly the defect that broke Experiment 3's check. A semantic matcher is the obvious
+choice and the worst one available here: r14 measured that a *model* paraphrase flips **15.4%** of
+this judge's Yes/No verdicts where a *mechanical* rewording flips **2.5%**, so a model asked whether
+two criterion texts "are the same criterion" is operating in its least stable regime.
+
+**Committed: matching is HUMAN, blind, and adjudicated.** Two annotators who see neither arm's
+directions match PRE criteria to POST criteria; disagreements go to a third. Inter-matcher agreement
+is reported. A model matcher may be run **alongside** and its disagreement rate with the humans
+reported, but it never produces the primary number.
+
+**And the unmatched rate is not an exclusion — it is the measurement.** A PRE criterion with no POST
+counterpart is a criterion someone produced *without having seen the responses*; a POST criterion
+with no PRE counterpart is one that **only arises after seeing them**. The second rate is
+menu-induced construction, measured directly, and it is a **primary outcome** rather than a
+housekeeping figure. An experiment that quietly dropped unmatchable criteria would discard its own
+strongest signal.
+
 **Predictions, committed before data.**
 
 | world | prediction |
@@ -142,6 +162,24 @@ primary.
 
 **Primary outcome.** Own-rubric minus reference-rubric concordance against **human** rankings on
 fresh responses — the quantity r12 estimated against a model proxy.
+
+**⚠ This replaces ONE model in the chain, not both.** r12 scores both sets with
+`Judge(MODEL_DIR, batch=32)` (`rounds/r12_response_set/run.py:208`). Human rankings replace the
+**gold head** — the ranking target — and leave the **satisfaction layer** model-produced. The
+rubric side of "own-rubric concordance" is still a judge deciding *does response r satisfy criterion
+c?*, and that judge scores lexical overlap **causally** (r51, r52).
+
+**The instrument carries exactly the validity gap this experiment exists to measure.** r04 validates
+the satisfaction layer against human rankings on the **released** responses — 0.686 on 80,542 pairs
+— and nothing validates it on **fresh** ones. So H_fresh would measure transport failure using a
+satisfaction layer whose own transport is unestablished. That is not a reason to abandon the
+experiment; it is a reason not to describe its result as human-measured without qualification.
+
+**Committed: a satisfaction sub-study, or the headline is scoped.** On a sub-sample of
+(criterion, fresh response) pairs, humans answer the satisfaction question directly, giving a
+human-vs-judge agreement rate **on fresh responses** — the quantity r04 supplies for originals and
+nobody supplies here. If that sub-study is not run, the primary result is reported as
+*"human rankings against a model-scored rubric"*, never as *"human-measured"*.
 
 **Committed in advance:**
 - **response length is recorded for every response and reported with every estimate**, and the
