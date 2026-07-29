@@ -6480,3 +6480,47 @@ diff of **1 line in ASSURANCE.md and 2 in MANIFEST.json — the timestamp and th
 when the only diff is provenance metadata.** Three turns of "the index went stale again" were partly
 real content and partly this treadmill, and I did not separate them until I read the diff instead of
 the status line. *`git status` says a file changed; only `git diff` says whether anything did.*
+
+---
+
+## Entry 190 — "UNVERIFIED: 27" is not a backlog, and a cost-only reading would have mislabelled the two I already knew
+
+Entry 189 left 27 UNVERIFIED and named two rounds structural. **Quoting "27" invites reading it as 27
+pieces of outstanding work.** It is not, in two directions at once.
+
+| class | n | what it means |
+|---|---:|---|
+| **structural** | **6** | r87, r96 — estimands are **pooled ratios of prompt-means**. A nonlinear function of aggregates has **no per-unit paired vector**, so r58's TOST cannot consume them *in principle*. No persistence, no compute, no replay helps. |
+| **candidate (CPU)** | **16** | inputs on disk, no model, an r97-style replay is seconds |
+| needs a model | 3 | r11, r13, r15 |
+| needs a model **and frozen** | 2 | r20 — *more paraphrase sweeps are frozen* |
+
+**Partition control:** 27 classified against 27, all distinct, and the round refuses to run if the
+classes overlap or leak — *a triage that is not a partition cannot be quoted.*
+
+### The word "candidate" is doing work, and I nearly skipped it
+
+My first pass classified by a **grep signature** for pooled-vs-paired estimators. It reported r96 as
+"paired-mean" with 6 matches — and r96 is one of the two rounds I had **proved structural the turn
+before**. The scan counts occurrences file-wide, not at the contrast's computation site. **I discarded
+it rather than publishing from it.**
+
+That near-miss is the reason the recoverable class is labelled **CANDIDATE**: cheap-to-replay says
+nothing about whether the estimand is a mean of paired units, and **the two proven-structural rounds
+are both pure CPU** — precisely the pair a cost-only reading mislabels as recoverable. Estimand type
+has been **read for 2 of 13 rounds**; for the other 11 it is unverified. **So 16 is an upper bound on
+recoverable work, not a work queue**, and a candidate whose estimand turns out pooled simply joins the
+structural class with no compute wasted on it.
+
+### One artifact already knows the convention and applied it selectively
+
+Scanning for hidden per-unit arrays — the r96 move, where r22 held the vector r30 discarded — found
+**exactly one**: r50 stores `paired_differences` (901 elements) at `.results.seed.high` and
+`.results.seed.low`. **Its UNVERIFIED contrast is `results.anchoring_excess_over_control`, which has
+none.** The round knew the convention and applied it to some nodes and not others. **No round holds a
+hidden vector for its own unverified contrast**, so the r96-style free recovery is unavailable across
+the whole pool and every candidate needs an actual replay.
+
+**What this changes:** *"UNVERIFIED: 27"* should never again be quoted as a backlog figure. **At most
+16 is actionable without a model; at least 6 is not actionable at all**, and that difference is
+invisible in the census's own label.
