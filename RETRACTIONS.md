@@ -1766,6 +1766,51 @@ and no check could flag it, because nothing in it is false — it is a document 
 knowledge that moved. The registered pattern for it is correspondingly weaker than the others, and
 says so where it sits.
 
+## Entry 85 — the eight rounds the preregistration had never heard of, and one of them attacks its own linchpin
+
+Entry 84 left the preregistration citing 21 rounds while the package holds 59. The eight absent ones
+— r48, r49, r51, r52, r54, r55, r58, r59 — are all *later* than the document, and two change what
+its experiments can claim.
+
+**r52 attacks Experiment 3's linchpin.** That experiment states, in its own words, *"the
+manipulation check is the experiment"*: minimal-pair edits are admitted only if a judge panel agrees
+the target criterion moved **and the others did not**. But the judges performing that check score
+**lexical overlap, causally** — appending six distinctive tokens from response A rather than B moves
+the A-vs-B satisfaction gap by **+0.2507** [+0.2300, +0.2714] *for the same criterion*, against an
+unrelated-token null of **−0.0045** [−0.0181, +0.0094] spanning zero. A minimal-pair edit necessarily
+changes the text. **The instrument verifying "nothing else moved" responds causally to the thing the
+edit does.**
+
+The consequence is not noise, it is **selection on the estimand**: check (b) over-rejects, and the
+surviving pairs are the ones achievable with the **least lexical change**, so τ_c would be estimated
+on the subset of manipulations expressible without moving vocabulary. Now committed in advance —
+lexical distance recorded per pair, exclusion rate reported against it, τ_c reported stratified by
+it, and a human adjudication sub-sample to bound how much exclusion is instrument rather than
+manipulation.
+
+**r59 supplies a prior Experiment 3 needs and does not have.** Leave-one-criterion-out flips the
+judge's top choice for **14.7%** [12.6%, 17.1%] of 991 criteria — *below* the **26.1%** from
+permutation, because a rubric's criteria agree with each other. That is judge-relative and **not** a
+measurement of humans, so it enters as a **prior, not a result**: if human choices are similarly
+concordant, single-criterion manipulations move them rarely, and an underpowered τ_c would read as
+*"criteria do not cause choices"* when it means *"this design could not have seen it."* The pilot
+must estimate the human flip rate **before** n is fixed.
+
+**r54 and r55 strengthen Experiment 2 instead of threatening it.** The judge's lexical channel is
+real and causal and *still* fails to explain r12: the own-vs-donor overlap advantage collapses
+**+0.1294 → +0.0945** on fresh responses but does not predict *which* prompts drop (corr −0.0736
+[−0.2059, +0.0612], r54), and the ordering component is equivalent to zero at δ = 0.01 (**+0.0002**
+[−0.0056, +0.0059], r55). A mechanism with a measured causal effect on the judge cannot account for
+the transport failure — the strongest available argument that H_fresh is not answerable by any
+further computational round.
+
+**r58 corrects a conclusion the document was about to carry.** Its closing list now records that the
+population nulls are **not equivalence**: 125 interval contrasts exist, 21 were tested, and **9 of
+r43's group cells are INCONCLUSIVE at δ = 0.01**.
+
+All 29 numbers added here were checked against their artifacts before the commit: **r54 8/8, r55
+3/3, r59 5/5, r58 2/2 backed.** The preregistration now cites **29** rounds.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

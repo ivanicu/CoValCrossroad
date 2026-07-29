@@ -89,6 +89,16 @@ variable itself carries part of it: roughly half the inversion rides on the gold
 channel, and on held-out prompts the fresh arm stops being negative once length is removed
 (entry 50).
 
+**One more mechanism was proposed and closed after this section was written.** The judge's lexical
+channel is real and **causal** (r51, r52) — the obvious candidate for r12. It does not explain it:
+the own-vs-donor overlap advantage collapses from **+0.1294 to +0.0945** on fresh responses
+(drop +0.0349 [+0.0266, +0.0434]) but **does not predict which prompts drop** (corr −0.0736
+[−0.2059, +0.0612], r54), and the ordering component is **equivalent to zero at δ = 0.01** — own
+criteria are as selective about fresh responses as about originals, collapse **+0.0002**
+[−0.0056, +0.0059] (r55). So a mechanism with a measured causal effect on the judge still fails to
+account for the transport failure, which is the strongest available argument that H_fresh is not
+answerable by any further computational round.
+
 **So what needs humans is now sharper.** That the advantage *fails to transfer* replicates on two
 samples. That an unrelated rubric *beats* the own rubric there is **withdrawn**. H_fresh decides
 whether the failure to transfer is a fact about rubrics or about model-scored proxies — which is
@@ -176,6 +186,31 @@ identified, and pairs failing the check are **excluded before any outcome is exa
 count reported. An unreported exclusion rate would turn a failed manipulation into a clean-looking
 effect.
 
+**⚠ And the check's instrument is known to respond to the edit itself (r51, r52).** The judges that
+verify *"the other criteria did not change"* score **lexical overlap, causally**: appending six
+distinctive tokens taken from response A rather than from B moves the A-vs-B satisfaction gap by
+**+0.2507** [+0.2300, +0.2714] **for the same criterion**, with an unrelated-token null of
+**−0.0045** [−0.0181, +0.0094] spanning zero — so the effect is *which response donated the words*,
+not the act of appending. A minimal-pair edit necessarily changes the text. The judge will therefore
+read *other* criteria as having moved whenever the wording moved, whether or not their satisfaction
+did.
+
+**The consequence is a selection effect on the estimand, not just noise.** Check (b) will
+over-reject, and the pairs that survive are those achievable with the **least lexical change**. τ_c
+would then be estimated on the subset of criterion manipulations expressible without moving
+vocabulary — a scope this experiment must state in its headline, not discover afterwards. Committed
+now: **the lexical distance between each pair is recorded, the exclusion rate is reported against
+it, and τ_c is reported both overall and stratified by it.** A human adjudication sub-sample is
+required to bound how much of the exclusion is instrument rather than manipulation.
+
+**⚠ Expect small effects, and power for them (r59).** Leave-one-criterion-out on the judge's induced
+ranking flips the top choice for only **14.7%** [12.6%, 17.1%] of 991 criteria — **below** the
+**26.1%** produced by within-prompt permutation, because a rubric's criteria **agree with each
+other**. That is judge-relative and is *not* a measurement of humans, so it is a **prior, not a
+result**: if human choices are similarly concordant, a single-criterion manipulation moves them
+rarely, and an underpowered τ_c would read as "criteria do not cause choices" when it means "this
+design could not have seen it." The pilot must estimate the human flip rate **before** n is fixed.
+
 **Committed in advance.** τ_c is expected to be **heterogeneous across prompts** and will not be
 pooled into a single number. r43 found country-level sign reversals above a permutation null even
 while group-specific weights did not beat pooled ones; a pooled τ would average over exactly that.
@@ -216,6 +251,13 @@ Stated now so that it cannot be softened later. The computational programme has 
   prompts the fresh arm stops being negative once length is removed (r47)
 - source specificity is **3.2%–65.8%** depending on floor donor and judge family — analyst
   choices the source package never reports
+- the population nulls are **not equivalence**: enumerating every interval contrast in the package
+  finds **125**, of which the equivalence round tested **21**, and **9 of r43's group cells are
+  INCONCLUSIVE at δ = 0.01** — non-significant *and* not bounded inside the margin (r58). "No group
+  is predicted better by its own weights" survives as *no detected effect*, not as *no effect*
+- a rubric's criteria **agree with each other more than chance**, and not because the compiler
+  selected them so: dropping one changes the judge's top choice for **14.7%** of criteria against
+  **26.1%** under permutation, and criteria borrowed from *other prompts* flip at **14.9%** (r59)
 - CoVal-core **internalises polarity into criterion semantics**, and a reconstruction attributes
   +0.0733 of it to the polarity rewrite (r44). Compatibility selection **costs −0.0181** and
   beats a size-matched random choice by **+0.0149**, so choosing *which* items survive **recovers
