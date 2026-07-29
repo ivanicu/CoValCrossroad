@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T15:04:20.327167+00:00",
- "git": "452bbf73f010d2087013bab35e98d0cb2642ff7d",
+ "generated_utc": "2026-07-29T15:05:54.266384+00:00",
+ "git": "fc9c878600da7793a95d52ea07a9c8891653b49e",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -484,8 +484,8 @@
    "sha256": "b9104d996c7d2cb1c306833c6f26089943dbb6e1cc72ae60821893926670bb3d"
   },
   "assurance/donor_numbers_carry_their_draw_scope.py": {
-   "bytes": 8917,
-   "sha256": "94e345b72f0095f1cd48203873501a0b6420183b5b930c5ebcaf0b4bcb1505bd"
+   "bytes": 9052,
+   "sha256": "1003f800353bd4d550dc5a11c08bde8c4cba86df2388ceda76576c2ae610ceaa"
   },
   "assurance/every_round_reaches_the_readme.py": {
    "bytes": 5097,
