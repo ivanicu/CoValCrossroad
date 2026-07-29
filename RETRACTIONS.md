@@ -6524,3 +6524,57 @@ the whole pool and every candidate needs an actual replay.
 **What this changes:** *"UNVERIFIED: 27"* should never again be quoted as a backlog figure. **At most
 16 is actionable without a model; at least 6 is not actionable at all**, and that difference is
 invisible in the census's own label.
+
+---
+
+## Entry 191 — the census pairs the first mean it finds with the first interval it finds, and 14 "real and material" rows are suspect
+
+Entry 190's NEXT was to read the estimand of each UNVERIFIED contrast. **Reading them one at a time
+reached r01, and stopped being about r01.**
+
+r01's row is `<root>`, mean **0.0022974697186539934**. That value is **`null_mean`**, and its interval
+is **`null_ci`**. **The row is r01's permutation null, harvested as a contrast and classified
+UNVERIFIED.** `MEANISH` matches `.*_mean` and `CIISH` matches `.*_ci`, so any node storing a null
+summary is picked up as though it were a finding — and r58's harvester takes the **first** match of
+each within a node **with no requirement that they describe the same quantity.**
+
+### Measured across the whole census
+
+**170 rows, 142 reproduced, 28 UNRESOLVED (excluded, not assumed clean). 17 of 142 suspect:**
+
+| reason | n |
+|---|---:|
+| **AMBIGUOUS** — several mean-ish and/or ci-ish keys in one node, paired by **dict order** | 12 |
+| point estimate is a null summary | 5 |
+| interval is a null summary | 4 |
+| mismatch — one side null, the other not | 1 |
+
+**By cell: 14 in "real and material", 2 "real but negligible", 1 UNVERIFIED.** So **15.6% of the cell
+this package quotes as its material-effect count** rests on a pairing that may not name one quantity.
+The three shapes, each found: **r01** (pure null), **r43 ×3** (`reversal_null_mean` + `reversal_null_ci`
+landing in *real and material*), **r84** (`shuffled_gap` paired with the real `gap_ci`).
+
+### My own check shipped a truthiness bug, and reading the output caught it
+
+The first run flagged **r06's `delta + ci`** as a mismatch — neither key contains "null". The cause:
+
+```python
+NULLISH.search(picked_m) != bool(NULLISH.search(picked_c))   # Match-or-None vs bool
+```
+
+**`None != False` is True**, so every clean row was flagged. **The count alone looked plausible**; only
+the per-row output showed `delta + ci` marked as a null mismatch. *A count is a pointer to objects, not
+a substitute for them* — entry 187's lesson, arriving this time inside my own instrument.
+
+### Stated as a bound, because the flag is a proxy
+
+**SUSPECT, not an error count.** The flag is **name-based**: a round could legitimately name a real
+contrast `null_hypothesis_gap` and be over-reported. Every flagged row is emitted with its actual key
+names so the classification is reviewable rather than asserted. **Positive control:** the re-walk
+reproduces r58's own stored mean to 1e-12 for 142 rows, so this inspects r58's actual harvest; the
+round refuses to run if under half reproduce.
+
+**What this changes:** **no cell total of r58's may be quoted without this caveat.** "Real and material:
+90" includes rows whose point estimate is a permutation null. And it lands on top of entry 190's finding
+that "UNVERIFIED: 27" is not a backlog — **both of the census's headline numbers now carry a stated
+contamination.**

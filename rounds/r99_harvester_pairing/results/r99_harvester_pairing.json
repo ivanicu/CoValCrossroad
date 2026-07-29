@@ -1,0 +1,460 @@
+{
+ "rows_in_census": 170,
+ "reproduced": 142,
+ "unresolved": [
+  {
+   "round": "r37",
+   "path": "levels.A1_leave_one_rater_out",
+   "why": "re-walk did not reproduce r58's stored mean"
+  },
+  {
+   "round": "r37",
+   "path": "levels.A2_held_out_rater_folds",
+   "why": "re-walk did not reproduce r58's stored mean"
+  },
+  {
+   "round": "r37",
+   "path": "levels.A3_held_out_country",
+   "why": "re-walk did not reproduce r58's stored mean"
+  },
+  {
+   "round": "r37",
+   "path": "levels.A3_held_out_ai_usage",
+   "why": "re-walk did not reproduce r58's stored mean"
+  },
+  {
+   "round": "r37",
+   "path": "levels.A3_held_out_age",
+   "why": "re-walk did not reproduce r58's stored mean"
+  },
+  {
+   "round": "r43",
+   "path": "axes.country.weight_specificity.[0]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.country.weight_specificity.[1]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.country.weight_specificity.[2]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.country.weight_specificity.[3]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.country.weight_specificity.[4]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.country.weight_specificity.[5]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.ai_usage.weight_specificity.[0]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.ai_usage.weight_specificity.[1]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.ai_usage.weight_specificity.[2]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.ai_usage.weight_specificity.[3]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.ai_usage.weight_specificity.[4]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.ai_usage.weight_specificity.[5]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.age.weight_specificity.[0]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.age.weight_specificity.[1]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.age.weight_specificity.[2]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.age.weight_specificity.[3]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r43",
+   "path": "axes.age.weight_specificity.[4]",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r95",
+   "path": "rows.phi-3.5-mini-instruct",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r95",
+   "path": "rows.qwen2.5-3b-instruct",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r95",
+   "path": "rows.qwen3.5-2b-base(ref)",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r96",
+   "path": "pairwise.phi-3.5-mini-instruct - qwen2.5-3b-instruct",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r96",
+   "path": "pairwise.phi-3.5-mini-instruct - qwen3.5-2b-base(ref)",
+   "why": "node not a dict"
+  },
+  {
+   "round": "r96",
+   "path": "pairwise.qwen2.5-3b-instruct - qwen3.5-2b-base(ref)",
+   "why": "node not a dict"
+  }
+ ],
+ "n_unresolved": 28,
+ "suspect": [
+  {
+   "round": "r01",
+   "path": "<root>",
+   "cell": "UNVERIFIED",
+   "picked_mean": "null_mean",
+   "picked_ci": "null_ci",
+   "mean_candidates": [
+    "null_mean"
+   ],
+   "ci_candidates": [
+    "null_ci"
+   ],
+   "why": [
+    "point estimate is a NULL summary (null_mean)",
+    "interval is a NULL summary (null_ci)"
+   ]
+  },
+  {
+   "round": "r13",
+   "path": "seed",
+   "cell": "real and material",
+   "picked_mean": "attribution",
+   "picked_ci": "ci",
+   "mean_candidates": [
+    "attribution"
+   ],
+   "ci_candidates": [
+    "ci",
+    "attribution_ci"
+   ],
+   "why": [
+    "AMBIGUOUS: 1 mean-ish and 2 ci-ish keys in one node, paired by dict order"
+   ]
+  },
+  {
+   "round": "r13",
+   "path": "writein",
+   "cell": "real and material",
+   "picked_mean": "attribution",
+   "picked_ci": "ci",
+   "mean_candidates": [
+    "attribution"
+   ],
+   "ci_candidates": [
+    "ci",
+    "attribution_ci"
+   ],
+   "why": [
+    "AMBIGUOUS: 1 mean-ish and 2 ci-ish keys in one node, paired by dict order"
+   ]
+  },
+  {
+   "round": "r43",
+   "path": "axes.country",
+   "cell": "real and material",
+   "picked_mean": "reversal_null_mean",
+   "picked_ci": "reversal_null_ci",
+   "mean_candidates": [
+    "reversal_null_mean"
+   ],
+   "ci_candidates": [
+    "reversal_null_ci"
+   ],
+   "why": [
+    "point estimate is a NULL summary (reversal_null_mean)",
+    "interval is a NULL summary (reversal_null_ci)"
+   ]
+  },
+  {
+   "round": "r43",
+   "path": "axes.ai_usage",
+   "cell": "real and material",
+   "picked_mean": "reversal_null_mean",
+   "picked_ci": "reversal_null_ci",
+   "mean_candidates": [
+    "reversal_null_mean"
+   ],
+   "ci_candidates": [
+    "reversal_null_ci"
+   ],
+   "why": [
+    "point estimate is a NULL summary (reversal_null_mean)",
+    "interval is a NULL summary (reversal_null_ci)"
+   ]
+  },
+  {
+   "round": "r43",
+   "path": "axes.age",
+   "cell": "real and material",
+   "picked_mean": "reversal_null_mean",
+   "picked_ci": "reversal_null_ci",
+   "mean_candidates": [
+    "reversal_null_mean"
+   ],
+   "ci_candidates": [
+    "reversal_null_ci"
+   ],
+   "why": [
+    "point estimate is a NULL summary (reversal_null_mean)",
+    "interval is a NULL summary (reversal_null_ci)"
+   ]
+  },
+  {
+   "round": "r74",
+   "path": "length_matched_write_ins",
+   "cell": "real and material",
+   "picked_mean": "seed_length_mean",
+   "picked_ci": "share_ci",
+   "mean_candidates": [
+    "seed_length_mean",
+    "matched_length_mean"
+   ],
+   "ci_candidates": [
+    "share_ci"
+   ],
+   "why": [
+    "AMBIGUOUS: 2 mean-ish and 1 ci-ish keys in one node, paired by dict order"
+   ]
+  },
+  {
+   "round": "r75",
+   "path": "arms.raw",
+   "cell": "real and material",
+   "picked_mean": "positive_mean",
+   "picked_ci": "gap_ci",
+   "mean_candidates": [
+    "positive_mean",
+    "negative_mean",
+    "gap"
+   ],
+   "ci_candidates": [
+    "gap_ci"
+   ],
+   "why": [
+    "AMBIGUOUS: 3 mean-ish and 1 ci-ish keys in one node, paired by dict order"
+   ]
+  },
+  {
+   "round": "r75",
+   "path": "arms.length_residualised",
+   "cell": "real and material",
+   "picked_mean": "positive_mean",
+   "picked_ci": "gap_ci",
+   "mean_candidates": [
+    "positive_mean",
+    "negative_mean",
+    "gap"
+   ],
+   "ci_candidates": [
+    "gap_ci"
+   ],
+   "why": [
+    "AMBIGUOUS: 3 mean-ish and 1 ci-ish keys in one node, paired by dict order"
+   ]
+  },
+  {
+   "round": "r77",
+   "path": "arms.full vocabulary",
+   "cell": "real and material",
+   "picked_mean": "positive_mean",
+   "picked_ci": "ci",
+   "mean_candidates": [
+    "positive_mean",
+    "negative_mean",
+    "gap"
+   ],
+   "ci_candidates": [
+    "ci"
+   ],
+   "why": [
+    "AMBIGUOUS: 3 mean-ish and 1 ci-ish keys in one node, paired by dict order"
+   ]
+  },
+  {
+   "round": "r77",
+   "path": "arms.prompt-stripped",
+   "cell": "real and material",
+   "picked_mean": "positive_mean",
+   "picked_ci": "ci",
+   "mean_candidates": [
+    "positive_mean",
+    "negative_mean",
+    "gap"
+   ],
+   "ci_candidates": [
+    "ci"
+   ],
+   "why": [
+    "AMBIGUOUS: 3 mean-ish and 1 ci-ish keys in one node, paired by dict order"
+   ]
+  },
+  {
+   "round": "r79",
+   "path": "per_lineage.qwen",
+   "cell": "real but negligible",
+   "picked_mean": "positive_mean",
+   "picked_ci": "ci",
+   "mean_candidates": [
+    "positive_mean",
+    "negative_mean",
+    "gap"
+   ],
+   "ci_candidates": [
+    "ci"
+   ],
+   "why": [
+    "AMBIGUOUS: 3 mean-ish and 1 ci-ish keys in one node, paired by dict order"
+   ]
+  },
+  {
+   "round": "r79",
+   "path": "per_lineage.phi",
+   "cell": "real but negligible",
+   "picked_mean": "positive_mean",
+   "picked_ci": "ci",
+   "mean_candidates": [
+    "positive_mean",
+    "negative_mean",
+    "gap"
+   ],
+   "ci_candidates": [
+    "ci"
+   ],
+   "why": [
+    "AMBIGUOUS: 3 mean-ish and 1 ci-ish keys in one node, paired by dict order"
+   ]
+  },
+  {
+   "round": "r83",
+   "path": "<root>",
+   "cell": "real and material",
+   "picked_mean": "random_drop_mean",
+   "picked_ci": "random_drop_ci",
+   "mean_candidates": [
+    "random_drop_mean",
+    "delta"
+   ],
+   "ci_candidates": [
+    "random_drop_ci"
+   ],
+   "why": [
+    "AMBIGUOUS: 2 mean-ish and 1 ci-ish keys in one node, paired by dict order"
+   ]
+  },
+  {
+   "round": "r84",
+   "path": "<root>",
+   "cell": "real and material",
+   "picked_mean": "shuffled_gap",
+   "picked_ci": "gap_ci",
+   "mean_candidates": [
+    "shuffled_gap"
+   ],
+   "ci_candidates": [
+    "gap_ci"
+   ],
+   "why": [
+    "point estimate is a NULL summary (shuffled_gap)",
+    "MISMATCH: one side is a null summary and the other is not"
+   ]
+  },
+  {
+   "round": "r85",
+   "path": "<root>",
+   "cell": "real and material",
+   "picked_mean": "gap",
+   "picked_ci": "long_form_ci",
+   "mean_candidates": [
+    "gap",
+    "delta"
+   ],
+   "ci_candidates": [
+    "long_form_ci",
+    "short_form_ci",
+    "gap_ci",
+    "shuffle_null_ci"
+   ],
+   "why": [
+    "AMBIGUOUS: 2 mean-ish and 4 ci-ish keys in one node, paired by dict order"
+   ]
+  },
+  {
+   "round": "r86",
+   "path": "<root>",
+   "cell": "real and material",
+   "picked_mean": "gap",
+   "picked_ci": "attribution_long_ci",
+   "mean_candidates": [
+    "gap",
+    "delta"
+   ],
+   "ci_candidates": [
+    "attribution_long_ci",
+    "attribution_short_ci",
+    "gap_ci",
+    "shuffle_null_ci"
+   ],
+   "why": [
+    "AMBIGUOUS: 2 mean-ish and 4 ci-ish keys in one node, paired by dict order"
+   ]
+  }
+ ],
+ "n_suspect": 17,
+ "suspect_by_cell": {
+  "UNVERIFIED": 1,
+  "real and material": 14,
+  "real but negligible": 2
+ },
+ "world": "P PROMISCUOUS",
+ "outcome_variable_scope": "A re-walk of r58's stored contrast rows against their source nodes, recovering which keys its harvester paired. No measurement, no model, no new data.",
+ "scope": "The suspect flag is NAME-BASED and can over-report; flagged rows carry their key names so the classification is reviewable. Rows whose mean the re-walk could not reproduce are excluded from all counts as UNRESOLVED, never assumed clean. This does not repair r58 -- it measures how far its cell totals can be trusted.",
+ "verdict": "P PROMISCUOUS. r58 harvests a contrast with `walk()`: the FIRST key matching MEANISH and the FIRST matching CIISH inside a node, emitted as one pair, with NO requirement that they describe the same quantity. Re-walking its 170 stored rows and reproducing r58's own recorded mean for 142 of them: 17 pairings are SUSPECT, by cell real and material=14, real but negligible=2, UNVERIFIED=1. THE THREE FAILURE SHAPES, each found: a PURE NULL counted as a contrast -- r01's row is `null_mean` paired with `null_ci`, which is r01's permutation null classified UNVERIFIED; a NULL CLASSIFIED AS AN EFFECT -- r43's three axes pair `reversal_null_mean` with `reversal_null_ci` and land in 'real and material'; and a MISMATCHED PAIR -- r84 pairs `shuffled_gap`, a null point estimate, with `gap_ci`, the REAL gap's interval. Rounds storing several candidates of each kind at one node are paired by DICT ORDER, which is not a measurement decision at all. POSITIVE CONTROL: the re-walk reproduces r58's stored mean for 142 rows to 1e-12, so this inspects r58's actual harvest; 28 rows could not be reproduced and are reported UNRESOLVED and excluded from every count rather than assumed clean. The round refuses to run if under half reproduce. SCOPE, AND IT IS A PROXY: the flag is NAME-BASED -- a key containing 'null' or 'shuffl' is treated as a null summary -- so it can OVER-report, and a round could legitimately name a real contrast that way. Every flagged row carries its actual key names so the call is reviewable rather than asserted, and the count is SUSPECT rather than an error count. WHAT THIS CHANGES: no cell total of r58's may be quoted without this caveat. 'Real and material: 90' includes rows whose point estimate is a permutation null."
+}
