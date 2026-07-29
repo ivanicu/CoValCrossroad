@@ -4465,3 +4465,37 @@ at 4 decimals carries a 1.8% chance rate, at 1 decimal 53.2%, and **38% of this 
 **The general form.** An instrument built for one document is not a check on the others, and the
 document with the highest stakes is the one nobody had aimed it at. *Where a check points is a scope
 claim, and mine had been silently narrow for the file that spends money.*
+
+## Entry 149 — the same check means different things in different documents, and that had never been written down
+
+**Finishing entry 148's sweep.** `readme_agrees_with_results` had been aimed at README.md and (last
+entry) PREREGISTRATION.md. The two remaining documents:
+
+| document | coverage | strong-arm unmatched | what unmatched MEANS there |
+|---|---:|---:|---|
+| README.md | 64% | — | **suspicious** — its job is to state current findings |
+| PREREGISTRATION.md | 75% | 0 after entry 148's fixes | **suspicious**, and highest-stakes |
+| **FROZEN.md** | 54% | **0** | **expected** — see below |
+| ADVERSARY_FORECAST.md | 45% | **0** | mixed: current and derived numbers |
+
+**FROZEN.md's unmatched numbers are its function, not its defect.** It records *why* a line was frozen,
+and it does that by quoting the reading that failed — r23's `z = +10.26 at 2 null reps`, r26's `+0.25`.
+Those are **superseded by design** and absent from the current artifacts for exactly that reason. The
+corroboration is in the rounds themselves: r23 and r26 both carry `FROZEN LINE (queue item 2, see
+FROZEN.md)` appended to their own verdicts.
+
+**So the instrument's verdict is document-dependent, and nothing said so.** A narration document —
+FROZEN.md, and RETRACTIONS.md for the same reason `retired_framing_in_assertion_positions` excludes it
+— cannot be read the way README is. Pointing the checker at one and treating unmatched as a defect
+would produce false alarms permanently. **Now written into the check's own docstring with the measured
+coverage for each file, so it is decided once instead of rediscovered.**
+
+**And one false reading of mine, the third of its kind this session.** Inspecting r16 I printed
+`(d.get("verdict") or "")[:200]` and saw an empty string, and briefly took it for a round with a blank
+verdict. r16's file has **no verdict field at all** — `.get` returned `None` and `or ""` converted a
+*missing key* into an *empty value*. Counted properly: **76** results files carry a verdict, **178**
+have no such field (side-files, caches, per-metric outputs), and **0** carry an empty one.
+
+The three this session, all the same shape: a `None` read off the wrong JSON level (entry 123), a
+piped `$?` that was `tail`'s (entry 145), and now a defaulting `.get`. **Each time the accessor answered
+instead of failing, and each time the answer was the one that looked like a finding.**

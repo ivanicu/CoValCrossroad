@@ -79,6 +79,33 @@ is strong; a match on a 1-decimal figure is nearly free, and on the largest pool
 it is free outright. The table is recomputed at run time and printed with the
 results, so the PASS side can never again be read as if it were uniform.
 
+WHAT AN UNMATCHED NUMBER MEANS DEPENDS ON THE DOCUMENT (entry 149)
+------------------------------------------------------------------
+`--readme` accepts any file, and the verdict it supports is NOT the same for all
+of them. Measured by pointing it at each:
+
+  README.md              64% coverage.  Unmatched = SUSPICIOUS. Its job is to
+                         state current findings, so a number with no artifact
+                         behind it is a question about that number.
+  PREREGISTRATION.md     75% coverage.  Same reading, higher stakes -- it found
+                         the frozen frame described as 540 hashed responses when
+                         the artifact holds 480 (entry 148).
+  FROZEN.md              54% coverage.  Unmatched = EXPECTED. This file records
+                         WHY a line was frozen, and it does that by quoting the
+                         reading that failed: r23's `z=+10.26 at 2 null reps`,
+                         r26's `+0.25`. Those values are superseded BY DESIGN and
+                         are absent from the current artifacts for the same
+                         reason. r23 and r26 carry `FROZEN LINE (queue item 2)`
+                         in their own verdicts, which is the corroboration.
+  ADVERSARY_FORECAST.md  45% coverage.  Mixed: it quotes both current numbers and
+                         derived ones (r06's 0.0188 is 0.6575 - 0.6387, stored
+                         nowhere).
+
+So a narration document -- FROZEN.md, and RETRACTIONS.md for the same reason the
+framing check excludes it -- cannot be read the way README is. **Pointing this at
+one and treating unmatched as a defect would generate false alarms permanently.**
+This paragraph exists so that is decided once rather than rediscovered.
+
 WHY THE CONVERSE CHECK WAS NOT BUILT
 ------------------------------------
 The mirror direction -- do the ROUNDS' stored findings reach the documents? --
