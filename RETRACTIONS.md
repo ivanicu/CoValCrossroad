@@ -1576,6 +1576,52 @@ it nets −0.0183**, landing at 0.6465. The real core sits at 0.6577, +0.0112 ab
 — the part of OpenAI's compiler this cannot see. So queue item 6's answer is: **the compiler's gain
 is the polarity rewrite; compression is a cost that careful selection partly limits.**
 
+## Entry 80 — I predicted verdicts hide unfavourable numbers. They don't. They omit numbers entirely.
+
+Entry 79 found r44's verdict citing +0.0733, +0.0662, +0.0149 and omitting **−0.0181**, its only
+negative contrast. The obvious hypothesis: verdicts across this package keep the flattering half.
+`verdict_cites_its_own_contrasts.py` tests it against r58's census of every significant contrast.
+
+**The hypothesis is refuted.**
+
+| | |
+|---|---|
+| omissions in rounds that cite *something* | 19 |
+| of which opposite-signed to their headline | **5** |
+| base rate among CITED contrasts | 4/23 = 0.174 → expected **3.3** |
+| P(≥5 \| citation independent of sign) | **0.2249** |
+
+r44 is a real instance and **not** a pattern. World A survives.
+
+**And the check's first run had a denominator bug that made the null look four times stronger.** A
+round citing *no* contrast has no headline sign, so its omissions can never be counted as
+opposite-signed — **by construction, not by balance**. Counting all 47 omissions gave **p = 0.9294**;
+counting only the 19 that could ever have been classified gives **p = 0.2249**. Same conclusion,
+one-quarter the evidence. *An unclassifiable case folded into a null is a manufactured acquittal* —
+the same error as folding UNVERIFIED into OVERTURNED, in a new place.
+
+**What the check found instead is worse than what I was looking for. Seven rounds cite NONE of their
+own significant contrasts:**
+
+| round | significant contrasts | cited |
+|---|---:|---:|
+| **r12** | 2 — the project's central inversion **+0.102 → −0.064** | **0** |
+| **r28** | 12 | 0 |
+| **r43** | 7 | 0 |
+| r11, r17, r20, r31 | 1–3 each | 0 |
+
+r12's and r43's verdicts contain **zero numeric tokens**. r28's contains five, and **none of them is
+one of its twelve significant contrasts** — it quotes different quantities entirely.
+
+A verdict that states no number **cannot be compared to its round**, and every prose check in this
+package will agree with it happily: `readme_row_carries_the_verdict` compares a README row to the
+verdict, and if the verdict is qualitative the comparison is vacuous. **The chain of checks I built
+this session bottoms out in strings that are, for seven rounds, connected to their own measurements
+by nothing at all.**
+
+This is not a claim that those verdicts are wrong. It is the statement that **nothing in this
+repository could tell.**
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
