@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T14:44:07.862987+00:00",
- "git": "23b7af8f8de404a550515471eabbfbd7da41558b",
+ "generated_utc": "2026-07-29T14:54:32.077833+00:00",
+ "git": "f0d9f100a0818d63552e961d453b3fa2f98d8acc",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -86,6 +86,10 @@
   "rounds/r101_reliability_offset/run.py": {
    "bytes": 10807,
    "sha256": "be48150d053c5e3db116561619d26928302bd675555da6a4a7bcaa2ab02f03bc"
+  },
+  "rounds/r102_margin_calibration/run.py": {
+   "bytes": 10439,
+   "sha256": "6ac4cebde6bf4ae7587976b3f661b0d5d5737426fb4487e252987709f1d965c2"
   },
   "rounds/r10_attribution_robustness/run.py": {
    "bytes": 8761,
@@ -636,6 +640,10 @@
   "rounds/r101_reliability_offset/results/r101_reliability_offset.json": {
    "bytes": 3112,
    "sha256": "f0f1b0a3b56899b127c6a12a60871808f05131c4a50cf000ab7c09c35222f2bb"
+  },
+  "rounds/r102_margin_calibration/results/r102_margin_calibration.json": {
+   "bytes": 3795,
+   "sha256": "fe9bd4df530e7d06093e180854f12dbf764c947a3ee30022da4874803f358c85"
   },
   "rounds/r10_attribution_robustness/results/a10_attribution.json": {
    "bytes": 1085,
