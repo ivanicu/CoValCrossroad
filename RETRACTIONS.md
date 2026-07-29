@@ -5957,3 +5957,51 @@ plainly. Applied in the following commit. **The assertion did its job; what fail
 suite's exit codes and the commit's file list separately instead of together** — the traceback was
 printed above the check results and scrolled past. Second time this session that a `.replace()`
 contract mattered, and the first time it mattered *after* the commit rather than before.
+
+---
+
+## Entry 181 — audited the ledger's own claims about the documents; they hold, and the positive control arrived by accident
+
+Entry 180's addendum recorded a ledger entry that claimed a document contained something it did not.
+**One instance is an incident; the question is whether it is a class.** The ledger makes **44**
+document-state assertions across entries 41–180 — *"now says"*, *"is now"*, *"each now carries"* — and
+none had ever been checked against the documents.
+
+**Sampled the most precisely falsifiable and verified each against the file it names:**
+
+| entry | claim | verdict |
+|---|---|---|
+| **57** | ASSURANCE.md carries exactly 4 `NOT ESTABLISHED`, 8 `POPULATION (entry 51)`, 1 `DETECTION FLOOR`, and no truncation | **4 / 8 / 1, zero `…` markers — exact, 123 entries later** |
+| 81 | the r12 table header carries an `[r12]` link | present |
+| 88 | README states the outcome variable in its opening paragraph *and* above the layer table | both present |
+| 103 | the lead states the ordering and that the split is one cell | 0.686 / 0.607 / 0.532 / "one cell" / 3.2% all present |
+| 168 | seven rounds each carry a draw scope | gated by `donor_numbers_carry_their_draw_scope`, passing |
+
+**So the ledger's record of the documents is accurate.** Entry 180 was the exception, and it was caught
+the same day by reading `git show --stat`.
+
+### The positive control arrived by accident, and it is the part worth keeping
+
+**A null from an instrument that has never returned non-zero is silence.** I got the control for free
+by making an error: I first counted entry 57's clauses in **README.md**, because I read "the
+human-readable half of the assurance package" as the README. It is `assurance/ASSURANCE.md`. The same
+method returned **2 / 0 / 0 — DIVERGED** against the wrong document and **4 / 8 / 1 — exact** against
+the right one. **The instrument can distinguish, demonstrated rather than assumed.**
+
+**The error itself is the recurring one:** a claim read correctly and applied to the wrong object. Same
+shape as citing `r48_selection_partition` from memory (entry 173) and as quoting r91's release-scale
+number into a 60-prompt experiment (entry 178). *Reading the object is not the same as reading about
+it, and neither is remembering which object it was.*
+
+### No guard, and the reason is the same as entry 176's
+
+A standing check over these 44 claims would re-verify **historical** counts. Entry 57's numbers are true
+of the file *as it stands*, but a ledger is a record of state at a moment — a future edit that changes
+a count does not falsify the entry that measured it then. Such a check would fire on stale-but-correct
+entries, which is the cry-wolf failure already declined once.
+
+**What is durable is procedural, so it is written here rather than automated:** entry 180 happened
+because an edit script, the assurance suite and the commit ran in **one shell block**, and the failing
+`assert` printed above the check results and scrolled past. **A commit must be conditional on its
+edit's exit status, not merely adjacent to it.** The assertion did its job both times; what failed was
+reading the traceback and the file list separately.
