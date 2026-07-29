@@ -2098,6 +2098,45 @@ the swept value, and the round says so in its scope.
 answering my own item is not evidence about what an independent reviewer would find. The forecast
 text is left exactly as written.
 
+## Entry 93 — the floor under Experiment 1's primary outcome is 87%, and I forecast this objection myself
+
+`ADVERSARY_FORECAST.md` objection 2, at P=0.80: promoting the PRE/POST unmatched rate to a primary
+outcome conflates *"this criterion could only arise after seeing responses"* with *"this criterion is
+too woolly to match anything"*. The forecast said a within-arm baseline would settle it. r62 measures
+that baseline on the release.
+
+**Two people who saw the same four responses, on the same prompt, under the same protocol:**
+
+| Jaccard threshold | fail to match each other | cross-prompt null | excess |
+|---:|---:|---:|---:|
+| 0.10 | **53.3%** | 93.8% | +40.4 |
+| **0.20** | **87.3%** | 99.6% | +12.3 |
+| 0.30 | 96.9% | 100.0% | +3.1 |
+
+Measured over 938 prompts carrying two or more write-in authors. **Even at the most lenient
+threshold, more than half of criteria match nothing another same-condition author wrote.**
+
+**The cross-prompt null is what makes the number mean anything.** At 0.10 the matcher separates
+same-prompt from different-prompt criteria by 40 points, so it is tracking prompt-specific content
+rather than matching generic language to everything. Without that arm a high unmatched rate would be
+indistinguishable from a broken matcher.
+
+**Objection 2 is upheld and the design changes.** The unmatched rate is now reported as an **excess
+over a within-arm floor measured in the same study with the same human matchers** — PRE against PRE,
+POST against POST — and the raw rate is never quoted without both. A design reporting the PRE/POST
+rate alone would be reporting mostly the idiosyncrasy of free-text criterion writing and calling it
+menu-induced construction.
+
+**Two forecast items in two entries, both self-answered, both excluded from the hit rate.** Entry 92
+answered #5, this one confirms #2, and both are annotated in the forecast as raised-by-me with the
+forecast text left unchanged. That leaves four unexamined — and the number that will matter is still
+**what a reviewer raises that is not on the list at all**.
+
+**The absolute figure is matcher-relative and says so.** A lexical Jaccard counts two criteria
+meaning the same thing in different words as unmatched, so 87.3% is a lower bound on agreement. What
+survives that caveat is the *comparison*: the same matcher at the same threshold applied to both
+arms, which is why the floor is usable even though the matcher is not trustworthy alone.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

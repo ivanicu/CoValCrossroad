@@ -28,7 +28,13 @@ justification.
 *What would answer it:* name a decision — a deployment threshold, a rubric-acceptance rule — whose
 outcome flips between 0.01 and 0.02, or drop the pretence and report the sweep as primary.
 
-### 2 — "The unmatched rate is the measurement" conflates two failures · **0.80**
+### 2 — "The unmatched rate is the measurement" conflates two failures · **0.80**  ·  ⚠ SELF-CONFIRMED AFTER FORECASTING
+
+> [r62](rounds/r62_matching_floor) measured the within-arm floor **after** this forecast was
+> committed: **87.3%** unmatched between two authors of the same prompt at Jaccard ≥ 0.20,
+> **53.3%** at the most lenient threshold. The objection is upheld and the design changed —
+> the unmatched rate is now reported as an excess over an in-study floor. **A scorer should
+> count this raised-by-me and exclude it from the hit rate.** Forecast text unchanged below.
 
 Experiment 1 promotes the PRE/POST unmatched rate from an exclusion to a primary outcome, arguing
 that a POST criterion with no PRE counterpart is menu-induced construction. **It is also what a

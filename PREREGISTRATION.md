@@ -81,12 +81,9 @@ directions match PRE criteria to POST criteria; disagreements go to a third. Int
 is reported. A model matcher may be run **alongside** and its disagreement rate with the humans
 reported, but it never produces the primary number.
 
-**And the unmatched rate is not an exclusion — it is the measurement.** A PRE criterion with no POST
-counterpart is a criterion someone produced *without having seen the responses*; a POST criterion
-with no PRE counterpart is one that **only arises after seeing them**. The second rate is
-menu-induced construction, measured directly, and it is a **primary outcome** rather than a
-housekeeping figure. An experiment that quietly dropped unmatchable criteria would discard its own
-strongest signal.
+**And the unmatched rate is not an exclusion — but it is only interpretable as an EXCESS.** A POST criterion with no PRE counterpart *may* be one that only arises after seeing the responses. It may equally be one nobody could match to anything. [r62](rounds/r62_matching_floor) measured that floor on the release: two authors who saw the **same four responses on the same prompt** write criteria that fail to match each other **87.3%** of the time at Jaccard ≥ 0.20, and **53.3%** at the most lenient threshold tested — against a cross-prompt null of 99.6%, so the matcher is tracking real content and the floor is real too.
+
+**So: committed.** The unmatched rate is reported as an **excess over a within-arm floor measured in the same study with the same human matchers** — PRE participants matched against each other, POST against each other, and the raw rate never quoted without both. A design that reported the PRE/POST rate alone would be reporting mostly the idiosyncrasy of free-text criterion writing and calling it menu-induced construction.
 
 **Predictions, committed before data.**
 

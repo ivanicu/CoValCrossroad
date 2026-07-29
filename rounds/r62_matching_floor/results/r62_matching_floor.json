@@ -1,0 +1,52 @@
+{
+ "n_prompts_with_two_authors": 938,
+ "thresholds": {
+  "0.1": {
+   "within_unmatched": 0.5334302325581395,
+   "within_n": 9632,
+   "cross_unmatched": 0.9376038205980066,
+   "cross_n": 9632,
+   "excess": 0.40417358803986714
+  },
+  "0.2": {
+   "within_unmatched": 0.8730274086378738,
+   "within_n": 9632,
+   "cross_unmatched": 0.9955357142857143,
+   "cross_n": 9632,
+   "excess": 0.12250830564784054
+  },
+  "0.3": {
+   "within_unmatched": 0.9685423588039868,
+   "within_n": 9632,
+   "cross_unmatched": 0.9995847176079734,
+   "cross_n": 9632,
+   "excess": 0.031042358803986647
+  },
+  "0.4": {
+   "within_unmatched": 0.9914867109634552,
+   "within_n": 9632,
+   "cross_unmatched": 1.0,
+   "cross_n": 9632,
+   "excess": 0.008513289036544802
+  },
+  "0.5": {
+   "within_unmatched": 0.9964700996677741,
+   "within_n": 9632,
+   "cross_unmatched": 1.0,
+   "cross_n": 9632,
+   "excess": 0.003529900332225888
+  }
+ },
+ "reference_threshold": 0.2,
+ "within_prompt_unmatched_floor": 0.8730274086378738,
+ "cross_prompt_null": 0.9955357142857143,
+ "excess_over_null": 0.12250830564784054,
+ "world": "H HIGH FLOOR",
+ "positive_control": {
+  "self_match": 1.0,
+  "unrelated_match": 0.0,
+  "all_pass": true
+ },
+ "scope": "Write-ins only, all of them POST criteria -- every author had seen the four responses -- so this measures disagreement WITHIN a condition and never between conditions. The matcher is lexical Jaccard on content words: two criteria meaning the same thing in different words count as unmatched here and would not to a human, so the absolute rate is a lower bound on agreement. The PRE/POST rate is unobserved by anyone; this bounds one side of that comparison only.",
+ "verdict": "H HIGH FLOOR. At a Jaccard threshold of 0.20 on content words, 0.8730 of write-in criteria match NOTHING written by a different author on the SAME prompt -- both authors having seen the same four responses under the same protocol. The cross-prompt null is 0.9955, an excess of +0.1225, so the matcher is tracking prompt-specific content rather than matching generic language to anything; without that separation the within-prompt figure would be vacuous. Measured over 9,632 criteria across 938 prompts carrying two or more write-in authors. CONSEQUENCE FOR EXPERIMENT 1: the PRE/POST unmatched rate is promoted to a primary outcome on the argument that an unmatched criterion is menu-induced, and this is the floor it must clear -- people in the SAME condition already fail to match at 0.8730. The absolute figure is MATCHER-RELATIVE: a lexical matcher counts two criteria meaning the same thing in different words as unmatched, so this is a lower bound on agreement and an upper bound on informativeness. What survives that caveat is the comparison, because the same matcher at the same threshold would be applied to both arms."
+}
