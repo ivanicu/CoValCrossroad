@@ -6060,3 +6060,57 @@ one distribution r30 threw away.
 ones.** That is precisely the distinction the headline already draws — *"what is robust here is an
 ordering, not a share"* — reached here from the **separability** side rather than the floor side, which
 is why it is worth having twice.
+
+---
+
+## Entry 183 — r95 proposed GPU work to rebuild a distribution that was already on disk
+
+Entry 182 closed by pricing the fix for r95's UNVERIFIED: *"re-score the same three judges r80 froze,
+on the same 300 prompts, persisting per-draw ratios… the first GPU work this project has had a reason
+for since the freeze."*
+
+**Wrong, and wrong in the expensive direction.** `rounds/r22_cross_family/results/r22_cross_family_per_prompt.npz`
+— **17 KB** — holds per-prompt `own` / `near` / `random` cells for all three judges over the same 300
+prompts. **The joint structure r95 called discarded was never discarded; it was written by a different
+round.** Asking the filesystem cost one `find`. *This is the prior-art gate's exact purpose, and I
+proposed the rebuild before running it.*
+
+### Resolved, on CPU, in a minute
+
+Joint prompt bootstrap, 8000 draws, same indices across every judge and arm:
+
+| judge | near/random ratio | 95% CI |
+|---|---:|---|
+| phi-3.5-mini-instruct | 0.539 | [0.139, 1.073] |
+| qwen2.5-3b-instruct | 0.567 | [0.376, 0.799] |
+| qwen3.5-2b-base(ref) | 0.735 | [0.530, 0.989] |
+
+**All three pairwise differences straddle zero**, the largest being −0.188 [−0.606, +0.296].
+
+### But the plant fixes what that non-rejection is worth
+
+**The test detects a ratio difference of 0.270. The largest observed difference is 0.188 — below its
+own demonstrated threshold.** So the multiplicative model is **not refuted rather than established**,
+and the 1.36× point spread is **neither confirmed real nor shown to be noise**. r95 moves from
+**UNVERIFIED** to a **bounded non-rejection**, which is progress and is not separability established.
+
+### Three controls, each able to void the round
+
+- **REBUILD.** r22's cells reproduce r30's six stored shares to **0.0e+00** via `(own−donor)/(own−0.5)`.
+  Without this they would be a lookalike, not r30's cells.
+- **GAIN-INVARIANCE**, a *negative* control. Scaling one judge's deviations from chance by 3.7× moves
+  its ratio by **4×10⁻¹⁵**. *The statistic is blind to pure scale — which is precisely what makes it a
+  test of interaction rather than of magnitude.* Had it moved, every conclusion here would be void.
+- **PLANT**, a *positive* control. A judge built with ratio 0.270 against 0.539 is detected at −0.277
+  [−0.536, −0.070]. A test that has never returned "different" cannot be trusted when it returns
+  "same"; the round refuses to run if it fails.
+
+### Where this leaves the framing
+
+Layer-at-a-time validation of R is **not shown to fail for cardinal claims** — weaker than sound, and
+stronger than r95's UNVERIFIED. **The ordinal result from r95 is unaffected and remains the firmer of
+the two**: near<random holds in 3 of 3 judges.
+
+**The recurring error, fifth instance this session:** a claim about an object formed without checking
+the object. `r48_selection_partition` (173), r91's population (178), ASSURANCE vs README (181), and now
+a whole distribution declared missing while sitting in a sibling round's results directory.
