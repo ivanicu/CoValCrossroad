@@ -132,6 +132,13 @@ CASES = [
     # does, which is the same property registries_are_satisfied has (entry 168).
     ("donor_numbers_carry_their_draw_scope", hide_rounds, 1,
      "rounds hidden -> 15 registry entries go stale: a DETECTED failure, not silence"),
+    # Same shape, same reason (entry 173): its registry names the 17 rounds that apply
+    # the majority/seed filter, so hiding the rounds makes every entry stale rather
+    # than emptying its input. Unlike the donor check it carries NO per-round
+    # judgement -- applying the filter is a property of the source, so the rule is
+    # flat: apply it, disclose it.
+    ("seed_filter_is_disclosed", hide_rounds, 1,
+     "rounds hidden -> 17 registry entries go stale: a DETECTED failure, not silence"),
     # Entry 144: four checks had a _floor that had never been exercised THROUGH
     # THE CALLING PATH. Verifying a floor by calling it directly proves it raises
     # when handed a zero, not that the check ever hands it one -- which is exactly

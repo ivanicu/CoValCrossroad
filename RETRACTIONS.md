@@ -5582,3 +5582,61 @@ nameable — **route each write-in to several raters, not only its author.**
 
 **The sentence that can no longer be written:** *"the excluded criteria transfer better, so the
 exclusion is conservative"* — transfer is not the property being excluded.
+
+---
+
+## Entry 173 — sixteen rounds analyse 36.5% of the criteria; six said so nowhere
+
+Entry 172's NEXT asked whether the write-in blind spot bounds claims beyond r43's. **It bounds
+sixteen.** A census of the source tree for the majority filter —
+
+```
+thr = max(2, (len(raters) + 1) // 2)   ...   if len(scores) >= thr
+```
+
+— finds it in **17 rounds** (16 plus r92 itself). Of the 16: **10 disclosed the restriction somewhere,
+6 disclosed it nowhere** — not in their stored artifact, not in their README row.
+
+| undisclosed | why it matters |
+|---|---|
+| **r16_minority_regret** | a **population** claim, computed on the pre-seeded class only |
+| **r05_value_taxonomy** | a taxonomy of criteria that then covers **36.5%** of them |
+| r01_rater_structure, r06_rule_tournament, r17_conditional_core, r18_routing_difficulty | rater/criterion structure claims inheriting the same restriction |
+
+**r34 already disclosed it**, which matters because r34 is what queue item 1's *leakage* bullet rests
+on. So both of item 1's live bullets — leakage and population — are established on the pre-seeded
+criteria, and only one of them said so.
+
+### The check has no per-round judgement, and that is deliberate
+
+`assurance/seed_filter_is_disclosed.py`. The donor-scope check (entry 168) needs a `needs_scope`
+decision per round, because whether a round *publishes* a donor difference is a reading of its claim.
+**This one does not.** Applying the filter is a property of the **source**, and a round that applies it
+analysed 36.5% of the criteria whatever it concluded. So the rule is flat — **apply the filter,
+disclose the filter** — and the registry is a verified list rather than a set of judgements. Fewer
+places to be wrong.
+
+Two gates, same shape as entry 168: **completeness**, verified against the source tree so an
+unregistered new round fails; and **disclosure**. Registered in `attack_the_suite` expecting **exit 1**
+— hiding the rounds makes all 17 entries stale rather than emptying the input. Suite now **13/13**.
+
+**Proxy ledger, in the check's docstring.** PROPERTY: the round tells its reader it analysed only the
+pre-seeded criteria. PROXY: artifact or row matches a disclosure phrase. **No match ⇒ not disclosed is
+sound and is what it gates on; match ⇒ adequately disclosed is NOT** — a passing mention of "write-in"
+in another context satisfies the pattern. It may report a missing disclosure and may never certify a
+present one.
+
+**Attacked on four vectors, all caught:** registry drops a filtered round; a new unregistered round
+appears applying the filter; a disclosure stripped from a row; registry names a round that does not
+exist.
+
+### An invented path, caught by checking rather than by reading
+
+The disclosure note I added to all six rows cited **`rounds/r48_selection_partition`**. **No such
+directory exists** — r48 is `r48_provenance_identified`. I had the round's *content* right and its
+*path* invented, which is the guessed-path failure exactly: a plausible name, written from memory,
+never asked of the filesystem. Caught by resolving every `rounds/…` link in the README against the
+tree; **6 links fixed, 0 broken remain.**
+
+**The sentence that can no longer be written:** *"criteria rated by a majority of the prompt's raters"*
+— as a methods aside, without saying that is 36.5% of them and the rest cannot be analysed at all.
