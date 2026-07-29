@@ -1,17 +1,17 @@
 {
  "delta": 0.01,
  "boot": 20000,
- "n_contrasts": 166,
+ "n_contrasts": 158,
  "n_in_r42": 21,
- "n_outside_r42": 145,
+ "n_outside_r42": 137,
  "n_with_raw_vector": 62,
  "cells": {
   "INCONCLUSIVE": 10,
   "SUPERSEDED": 6,
-  "UNVERIFIED": 26,
+  "UNVERIFIED": 29,
   "no material effect": 24,
-  "real and material": 87,
-  "real but negligible": 13
+  "real and material": 78,
+  "real but negligible": 11
  },
  "inconclusive_outside_r42": [
   {
@@ -106,11 +106,11 @@
   }
  ],
  "delta_sweep_n_equivalent": {
-  "0.0025": 9,
-  "0.005": 12,
-  "0.01": 37,
-  "0.02": 67,
-  "0.05": 104
+  "0.0025": 8,
+  "0.005": 11,
+  "0.01": 35,
+  "0.02": 65,
+  "0.05": 103
  },
  "positive_control": {
   "known_equivalent": {
@@ -162,6 +162,17 @@
   "r43:axes.country",
   "rZZ:null_only"
  ],
+ "incoherent_nodes_skipped": [
+  "r74:length_matched_write_ins (mean +14.63 outside ci [+0.1359,+0.1885])",
+  "r77:arms.prompt-stripped (mean +0.01386 outside ci [+0.01569,+0.02647])",
+  "r79:per_lineage.phi (mean -0.001702 outside ci [+0.0001253,+0.0007437])",
+  "r79:per_lineage.qwen (mean -0.01145 outside ci [+0.003883,+0.008673])",
+  "r84:<root> (mean -0.0001062 outside ci [+0.03806,+0.05155])",
+  "r95:rows.phi-3.5-mini-instruct (mean -0.1166 outside ci [+0.03232,+0.2375])",
+  "r95:rows.qwen2.5-3b-instruct (mean -0.233 outside ci [+0.2013,+0.4101])",
+  "r95:rows.qwen3.5-2b-base(ref) (mean -0.1326 outside ci [+0.264,+0.4768])"
+ ],
+ "n_incoherent_nodes_skipped": 8,
  "n_null_summary_nodes_skipped": 5,
  "contrasts": [
   {
@@ -356,8 +367,8 @@
    "path": "seed",
    "mean": 0.0456878753649038,
    "ci95": [
-    0.572587844936234,
-    0.5945269546381342
+    0.02341909277348787,
+    0.06873658545355327
    ],
    "in_r42": false,
    "vector_stored": false,
@@ -374,17 +385,17 @@
    "path": "writein",
    "mean": 0.02623813387776631,
    "ci95": [
-    0.5631815465228663,
-    0.5864477955205458
+    0.002172714598593096,
+    0.05055557579294519
    ],
    "in_r42": false,
    "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
    "delta_hat": 0.02623813387776631,
-   "equivalent": false,
+   "equivalent": null,
    "significant": true,
    "sound": true,
-   "cell": "real and material"
+   "cell": "UNVERIFIED"
   },
   {
    "round": "r13",
@@ -2521,24 +2532,6 @@
    "cell": "real and material"
   },
   {
-   "round": "r74",
-   "file": "rounds/r74_specificity_vs_exposure/results/r74_specificity_vs_exposure.json",
-   "path": "length_matched_write_ins",
-   "mean": 14.626923790098276,
-   "ci95": [
-    0.13587893424018713,
-    0.18846487411035232
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": 14.626923790098276,
-   "equivalent": false,
-   "significant": true,
-   "sound": true,
-   "cell": "real and material"
-  },
-  {
    "round": "r75",
    "file": "rounds/r75_menu_read_direction/results/r75_menu_read_direction.json",
    "path": "arms.raw",
@@ -2695,24 +2688,6 @@
    "vector_stored": false,
    "method": "sound bound from the published 95% CI",
    "delta_hat": 0.01754594316897278,
-   "equivalent": false,
-   "significant": true,
-   "sound": true,
-   "cell": "real and material"
-  },
-  {
-   "round": "r77",
-   "file": "rounds/r77_topicality_control/results/r77_topicality_control.json",
-   "path": "arms.prompt-stripped",
-   "mean": 0.013864137945612002,
-   "ci95": [
-    0.015693119419801987,
-    0.026473794510690436
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": 0.013864137945612002,
    "equivalent": false,
    "significant": true,
    "sound": true,
@@ -3043,42 +3018,6 @@
    "cell": "real but negligible"
   },
   {
-   "round": "r79",
-   "file": "rounds/r79_semantic_menu_read/results/r79_semantic_menu_read.json",
-   "path": "per_lineage.qwen",
-   "mean": -0.011453676968812943,
-   "ci95": [
-    0.0038832249119877815,
-    0.008672983385622501
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": -0.011453676968812943,
-   "equivalent": true,
-   "significant": true,
-   "sound": true,
-   "cell": "real but negligible"
-  },
-  {
-   "round": "r79",
-   "file": "rounds/r79_semantic_menu_read/results/r79_semantic_menu_read.json",
-   "path": "per_lineage.phi",
-   "mean": -0.0017024826956912875,
-   "ci95": [
-    0.00012528862862382084,
-    0.0007436980959028006
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": -0.0017024826956912875,
-   "equivalent": true,
-   "significant": true,
-   "sound": true,
-   "cell": "real but negligible"
-  },
-  {
    "round": "r83",
    "file": "rounds/r83_low_magnitude_drop/results/r83_low_magnitude_drop.json",
    "path": "<root>",
@@ -3097,40 +3036,22 @@
    "cell": "real and material"
   },
   {
-   "round": "r84",
-   "file": "rounds/r84_core_polarity_in_words/results/r84_core_polarity_in_words.json",
-   "path": "<root>",
-   "mean": -0.00010624303875184093,
-   "ci95": [
-    0.03805536600594997,
-    0.05154571637749256
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": -0.00010624303875184093,
-   "equivalent": false,
-   "significant": true,
-   "sound": true,
-   "cell": "real and material"
-  },
-  {
    "round": "r85",
    "file": "rounds/r85_agreement_by_form/results/r85_agreement_by_form.json",
    "path": "<root>",
    "mean": 0.0024520434222442544,
    "ci95": [
-    0.6721162793684601,
-    0.7033906429819493
+    -0.0172529327895533,
+    0.02310250978559107
    ],
    "in_r42": false,
    "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
    "delta_hat": 0.0024520434222442544,
-   "equivalent": false,
-   "significant": true,
+   "equivalent": null,
+   "significant": false,
    "sound": true,
-   "cell": "real and material"
+   "cell": "UNVERIFIED"
   },
   {
    "round": "r86",
@@ -3138,17 +3059,17 @@
    "path": "<root>",
    "mean": 0.005604321865897988,
    "ci95": [
-    0.10377375000465604,
-    0.148348155552236
+    -0.020870613527804602,
+    0.031048471742026323
    ],
    "in_r42": false,
    "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
    "delta_hat": 0.005604321865897988,
-   "equivalent": false,
-   "significant": true,
+   "equivalent": null,
+   "significant": false,
    "sound": true,
-   "cell": "real and material"
+   "cell": "UNVERIFIED"
   },
   {
    "round": "r87",
@@ -3203,60 +3124,6 @@
    "significant": false,
    "sound": true,
    "cell": "UNVERIFIED"
-  },
-  {
-   "round": "r95",
-   "file": "rounds/r95_layer_separability/results/r95_layer_separability.json",
-   "path": "rows.phi-3.5-mini-instruct",
-   "mean": -0.11656156783422375,
-   "ci95": [
-    0.03231566271815214,
-    0.2374858166764431
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": -0.11656156783422375,
-   "equivalent": false,
-   "significant": true,
-   "sound": true,
-   "cell": "real and material"
-  },
-  {
-   "round": "r95",
-   "file": "rounds/r95_layer_separability/results/r95_layer_separability.json",
-   "path": "rows.qwen2.5-3b-instruct",
-   "mean": -0.23300796767458165,
-   "ci95": [
-    0.20127954820437707,
-    0.41014277783316233
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": -0.23300796767458165,
-   "equivalent": false,
-   "significant": true,
-   "sound": true,
-   "cell": "real and material"
-  },
-  {
-   "round": "r95",
-   "file": "rounds/r95_layer_separability/results/r95_layer_separability.json",
-   "path": "rows.qwen3.5-2b-base(ref)",
-   "mean": -0.1326279268985437,
-   "ci95": [
-    0.2639822361726591,
-    0.4768140262121822
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": -0.1326279268985437,
-   "equivalent": false,
-   "significant": true,
-   "sound": true,
-   "cell": "real and material"
   },
   {
    "round": "r96",
@@ -3470,5 +3337,5 @@
   }
  ],
  "scope": "delta=0.01 is STIPULATED, not measured. An equivalence verdict inherits the estimator of the round it came from. UNVERIFIED contrasts published no raw vector and are unresolved, not clean.",
- "verdict": "SCOPE, NOT SIGNIFICANCE: the package holds 166 interval contrasts and r42 tested 21 of them (13%), because its population was a hand-written list of four rounds rather than an enumeration. Classifying all 166 at delta=0.01: 87 real and material, 13 real but negligible, 24 no material effect, 10 INCONCLUSIVE, 26 UNVERIFIED. 10 of the inconclusive contrasts sit OUTSIDE r42's four rounds and so had never been equivalence-tested. UNVERIFIED means the round published a mean and a 95% CI but no raw paired vector, so the 90% CI required for TOST cannot be recovered -- that is an absence of evidence and is NOT folded into any pass. r42's own verdict is unchanged ON ITS OWN 21 CONTRASTS; what is corrected is the sentence that made it a claim about this package. delta=0.01 remains STIPULATED, and the sweep shows 37 contrasts equivalent at that margin versus 104 at 0.05 and 9 at 0.0025."
+ "verdict": "SCOPE, NOT SIGNIFICANCE: the package holds 158 interval contrasts and r42 tested 21 of them (13%), because its population was a hand-written list of four rounds rather than an enumeration. Classifying all 158 at delta=0.01: 78 real and material, 11 real but negligible, 24 no material effect, 10 INCONCLUSIVE, 29 UNVERIFIED. 10 of the inconclusive contrasts sit OUTSIDE r42's four rounds and so had never been equivalence-tested. UNVERIFIED means the round published a mean and a 95% CI but no raw paired vector, so the 90% CI required for TOST cannot be recovered -- that is an absence of evidence and is NOT folded into any pass. r42's own verdict is unchanged ON ITS OWN 21 CONTRASTS; what is corrected is the sentence that made it a claim about this package. delta=0.01 remains STIPULATED, and the sweep shows 35 contrasts equivalent at that margin versus 103 at 0.05 and 8 at 0.0025."
 }

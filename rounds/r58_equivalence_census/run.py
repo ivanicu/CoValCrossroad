@@ -69,6 +69,7 @@ MEANISH = re.compile(r"^(mean|diff|delta|gap|advantage|drop|attribution|effect|"
 CIISH = re.compile(r"^(ci|.*_ci|ci_.*|interval)$", re.I)
 NULLNAME = re.compile(r"null|shuffl|permut|placebo", re.I)
 _NULL_SKIPPED: list = []
+_INCOHERENT: list = []
 
 
 def is_ci(v):
@@ -95,10 +96,21 @@ def enumerate_contrasts(root: Path):
 
         def walk(node, path):
             if isinstance(node, dict):
-                ci = next((v for k, v in node.items() if CIISH.match(k) and is_ci(v)), None)
-                mean = next((v for k, v in node.items()
-                             if MEANISH.match(k) and isinstance(v, (int, float))
-                             and not isinstance(v, bool)), None)
+                # Prefer a CI whose NAME CONTAINS the mean's name -- `gap` -> `gap_ci`
+                # (entry 195). Taking the first CI by dict order paired r85's and r86's
+                # form `gap` with the LONG-FORM ARM's interval, because the arm CIs are
+                # written first. This uses the round's own naming rather than inventing
+                # a pairing rule: if no CI names the mean, the old first-match stands.
+                mname = next((k for k, v in node.items()
+                              if MEANISH.match(k) and isinstance(v, (int, float))
+                              and not isinstance(v, bool)), None)
+                mean = node[mname] if mname is not None else None
+                cands = [(k, v) for k, v in node.items() if CIISH.match(k) and is_ci(v)]
+                ci = None
+                if cands:
+                    stem = (mname or "").lower()
+                    named = [v for k, v in cands if stem and stem in k.lower()]
+                    ci = named[0] if named else cands[0][1]
                 vec = node.get("paired_differences")
                 # A node whose ONLY candidates are null-named is a NULL SUMMARY, not a
                 # contrast (entry 194). r01's row was `null_mean` + `null_ci` -- its own
@@ -113,8 +125,17 @@ def enumerate_contrasts(root: Path):
                 pure_null = (bool(mks) and bool(cks)
                              and all(NULLNAME.search(k) for k in mks)
                              and all(NULLNAME.search(k) for k in cks))
+                # A point estimate OUTSIDE its own interval is definitively mispaired --
+                # no naming heuristic required (entry 195). r84 paired `shuffled_gap`
+                # (-0.0001) with `gap_ci` [0.0381, 0.0515] and was classified "real and
+                # material": the mean is not even inside the interval it was given.
+                incoherent = (ci is not None and mean is not None
+                              and not (ci[0] <= mean <= ci[1]))
                 if pure_null:
                     _NULL_SKIPPED.append(f"{rid}:{'.'.join(path) or '<root>'}")
+                elif incoherent:
+                    _INCOHERENT.append(f"{rid}:{'.'.join(path) or '<root>'} "
+                                       f"(mean {mean:+.4g} outside ci [{ci[0]:+.4g},{ci[1]:+.4g}])")
                 elif ci is not None and (mean is not None or vec is not None):
                     out.append({
                         "round": rid,
@@ -400,6 +421,8 @@ def main() -> None:
         "delta_sweep_n_equivalent": sweep,
         "positive_control": pc, "harvester_control": hc,
         "null_summary_nodes_skipped": sorted(set(_NULL_SKIPPED)),
+        "incoherent_nodes_skipped": sorted(set(_INCOHERENT)),
+        "n_incoherent_nodes_skipped": len(set(_INCOHERENT)),
         "n_null_summary_nodes_skipped": len(set(_NULL_SKIPPED)),
         "contrasts": rows,
         "scope": ("delta=0.01 is STIPULATED, not measured. An equivalence verdict inherits the "

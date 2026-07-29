@@ -1,23 +1,8 @@
 {
- "rows_in_census": 166,
- "reproduced": 160,
+ "rows_in_census": 158,
+ "reproduced": 155,
  "vector_backed_no_mean": 22,
  "unresolved": [
-  {
-   "round": "r95",
-   "path": "rows.phi-3.5-mini-instruct",
-   "why": "node not a dict"
-  },
-  {
-   "round": "r95",
-   "path": "rows.qwen2.5-3b-instruct",
-   "why": "node not a dict"
-  },
-  {
-   "round": "r95",
-   "path": "rows.qwen3.5-2b-base(ref)",
-   "why": "node not a dict"
-  },
   {
    "round": "r96",
    "path": "pairwise.phi-3.5-mini-instruct - qwen2.5-3b-instruct",
@@ -34,7 +19,7 @@
    "why": "node not a dict"
   }
  ],
- "n_unresolved": 6,
+ "n_unresolved": 3,
  "suspect": [
   {
    "round": "r13",
@@ -56,7 +41,7 @@
   {
    "round": "r13",
    "path": "writein",
-   "cell": "real and material",
+   "cell": "UNVERIFIED",
    "picked_mean": "attribution",
    "picked_ci": "ci",
    "mean_candidates": [
@@ -68,23 +53,6 @@
    ],
    "why": [
     "AMBIGUOUS: 1 mean-ish and 2 ci-ish keys in one node, paired by dict order"
-   ]
-  },
-  {
-   "round": "r74",
-   "path": "length_matched_write_ins",
-   "cell": "real and material",
-   "picked_mean": "seed_length_mean",
-   "picked_ci": "share_ci",
-   "mean_candidates": [
-    "seed_length_mean",
-    "matched_length_mean"
-   ],
-   "ci_candidates": [
-    "share_ci"
-   ],
-   "why": [
-    "AMBIGUOUS: 2 mean-ish and 1 ci-ish keys in one node, paired by dict order"
    ]
   },
   {
@@ -142,60 +110,6 @@
    ]
   },
   {
-   "round": "r77",
-   "path": "arms.prompt-stripped",
-   "cell": "real and material",
-   "picked_mean": "positive_mean",
-   "picked_ci": "ci",
-   "mean_candidates": [
-    "positive_mean",
-    "negative_mean",
-    "gap"
-   ],
-   "ci_candidates": [
-    "ci"
-   ],
-   "why": [
-    "AMBIGUOUS: 3 mean-ish and 1 ci-ish keys in one node, paired by dict order"
-   ]
-  },
-  {
-   "round": "r79",
-   "path": "per_lineage.qwen",
-   "cell": "real but negligible",
-   "picked_mean": "positive_mean",
-   "picked_ci": "ci",
-   "mean_candidates": [
-    "positive_mean",
-    "negative_mean",
-    "gap"
-   ],
-   "ci_candidates": [
-    "ci"
-   ],
-   "why": [
-    "AMBIGUOUS: 3 mean-ish and 1 ci-ish keys in one node, paired by dict order"
-   ]
-  },
-  {
-   "round": "r79",
-   "path": "per_lineage.phi",
-   "cell": "real but negligible",
-   "picked_mean": "positive_mean",
-   "picked_ci": "ci",
-   "mean_candidates": [
-    "positive_mean",
-    "negative_mean",
-    "gap"
-   ],
-   "ci_candidates": [
-    "ci"
-   ],
-   "why": [
-    "AMBIGUOUS: 3 mean-ish and 1 ci-ish keys in one node, paired by dict order"
-   ]
-  },
-  {
    "round": "r83",
    "path": "<root>",
    "cell": "real and material",
@@ -213,26 +127,9 @@
    ]
   },
   {
-   "round": "r84",
-   "path": "<root>",
-   "cell": "real and material",
-   "picked_mean": "shuffled_gap",
-   "picked_ci": "gap_ci",
-   "mean_candidates": [
-    "shuffled_gap"
-   ],
-   "ci_candidates": [
-    "gap_ci"
-   ],
-   "why": [
-    "point estimate is a NULL summary (shuffled_gap)",
-    "MISMATCH: one side is a null summary and the other is not"
-   ]
-  },
-  {
    "round": "r85",
    "path": "<root>",
-   "cell": "real and material",
+   "cell": "UNVERIFIED",
    "picked_mean": "gap",
    "picked_ci": "long_form_ci",
    "mean_candidates": [
@@ -252,7 +149,7 @@
   {
    "round": "r86",
    "path": "<root>",
-   "cell": "real and material",
+   "cell": "UNVERIFIED",
    "picked_mean": "gap",
    "picked_ci": "attribution_long_ci",
    "mean_candidates": [
@@ -270,13 +167,13 @@
    ]
   }
  ],
- "n_suspect": 13,
+ "n_suspect": 8,
  "suspect_by_cell": {
-  "real and material": 11,
-  "real but negligible": 2
+  "real and material": 5,
+  "UNVERIFIED": 3
  },
  "world": "P PROMISCUOUS",
  "outcome_variable_scope": "A re-walk of r58's stored contrast rows against their source nodes, recovering which keys its harvester paired. No measurement, no model, no new data.",
  "scope": "The suspect flag is NAME-BASED and can over-report; flagged rows carry their key names so the classification is reviewable. Rows whose mean the re-walk could not reproduce are excluded from all counts as UNRESOLVED, never assumed clean. This does not repair r58 -- it measures how far its cell totals can be trusted.",
- "verdict": "P PROMISCUOUS. r58 harvests a contrast with `walk()`: the FIRST key matching MEANISH and the FIRST matching CIISH inside a node, emitted as one pair, with NO requirement that they describe the same quantity. Re-walking its 166 stored rows and reproducing r58's own recorded mean for 160 of them: 13 pairings are SUSPECT, by cell real and material=11, real but negligible=2. THE THREE FAILURE SHAPES, each found: a PURE NULL counted as a contrast -- r01's row is `null_mean` paired with `null_ci`, which is r01's permutation null classified UNVERIFIED; a NULL CLASSIFIED AS AN EFFECT -- r43's three axes pair `reversal_null_mean` with `reversal_null_ci` and land in 'real and material'; and a MISMATCHED PAIR -- r84 pairs `shuffled_gap`, a null point estimate, with `gap_ci`, the REAL gap's interval. Rounds storing several candidates of each kind at one node are paired by DICT ORDER, which is not a measurement decision at all. POSITIVE CONTROL: the re-walk reproduces r58's stored mean for 160 rows to 1e-12, so this inspects r58's actual harvest; 6 rows could not be reproduced and are reported UNRESOLVED and excluded from every count rather than assumed clean. The round refuses to run if under half reproduce. SCOPE, AND IT IS A PROXY: the flag is NAME-BASED -- a key containing 'null' or 'shuffl' is treated as a null summary -- so it can OVER-report, and a round could legitimately name a real contrast that way. Every flagged row carries its actual key names so the call is reviewable rather than asserted, and the count is SUSPECT rather than an error count. WHAT THIS CHANGES: no cell total of r58's may be quoted without this caveat. 'Real and material: 90' includes rows whose point estimate is a permutation null."
+ "verdict": "P PROMISCUOUS. r58 harvests a contrast with `walk()`: the FIRST key matching MEANISH and the FIRST matching CIISH inside a node, emitted as one pair, with NO requirement that they describe the same quantity. Re-walking its 158 stored rows and reproducing r58's own recorded mean for 155 of them: 8 pairings are SUSPECT, by cell real and material=5, UNVERIFIED=3. THE THREE FAILURE SHAPES, each found: a PURE NULL counted as a contrast -- r01's row is `null_mean` paired with `null_ci`, which is r01's permutation null classified UNVERIFIED; a NULL CLASSIFIED AS AN EFFECT -- r43's three axes pair `reversal_null_mean` with `reversal_null_ci` and land in 'real and material'; and a MISMATCHED PAIR -- r84 pairs `shuffled_gap`, a null point estimate, with `gap_ci`, the REAL gap's interval. Rounds storing several candidates of each kind at one node are paired by DICT ORDER, which is not a measurement decision at all. POSITIVE CONTROL: the re-walk reproduces r58's stored mean for 155 rows to 1e-12, so this inspects r58's actual harvest; 3 rows could not be reproduced and are reported UNRESOLVED and excluded from every count rather than assumed clean. The round refuses to run if under half reproduce. SCOPE, AND IT IS A PROXY: the flag is NAME-BASED -- a key containing 'null' or 'shuffl' is treated as a null summary -- so it can OVER-report, and a round could legitimately name a real contrast that way. Every flagged row carries its actual key names so the call is reviewable rather than asserted, and the count is SUSPECT rather than an error count. WHAT THIS CHANGES: no cell total of r58's may be quoted without this caveat. 'Real and material: 90' includes rows whose point estimate is a permutation null."
 }

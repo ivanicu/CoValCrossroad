@@ -6742,3 +6742,55 @@ traceback instead of the summary line.
 **The lesson is narrow and I will state it narrowly:** *a positive control must exercise the code path,
 not re-derive its rule.* The first version would have passed forever while the harvester rotted,
 because it was testing my understanding of `walk()` rather than `walk()`.
+
+---
+
+## Entry 195 — a point estimate outside its own interval needs no naming heuristic, and eight rows had one
+
+Entry 194's NEXT asked whether the 13 remaining suspect pairings reach a published claim. **Listing them
+answered a different and better question**: three were fixable, and one was fixable *without any
+judgement at all*.
+
+### Two fixes, in increasing order of how little they assume
+
+**1. Prefer a CI whose name contains the mean's** (`gap` → `gap_ci`). Not an invented rule — it uses the
+round's own naming, and falls back to first-match when nothing matches. **This was mine to fix**: r85
+and r86 both store `gap_ci`, but their long-form *arm* CIs are written first, so r58 paired the form
+**gap** with the **arm's** interval and classified both **real and material**. Correctly paired, they
+now read **+0.0025 [−0.0173, +0.0231]** and **+0.0056 [−0.0209, +0.0310]** — **exactly the rounds' own
+stored values, both of which report `significant=False`.** r58 now agrees with the rounds it summarises.
+
+**2. Skip rows whose point estimate lies outside its own interval.** No heuristic, no naming, no
+judgement — a contrast whose mean is not inside its CI is definitively mispaired. **Eight rows:**
+
+| row | mean | interval |
+|---|---:|---|
+| **r74** `length_matched_write_ins` | **+14.63** | [+0.136, +0.189] |
+| r84 `<root>` | −0.0001 | [+0.0381, +0.0515] |
+| r95 ×3 (mine) | −0.117 / −0.233 / −0.133 | all strictly positive |
+| r77, r79 ×2 | — | — |
+
+**r74's was a word-count paired with a share interval — off by two orders of magnitude, and classified
+"real and material".**
+
+### What the whole thread did to a published artifact
+
+| | start | now |
+|---|---:|---:|
+| contrasts | 170 | **158** |
+| **real and material** | **90** | **78** |
+| UNVERIFIED | 27 | 29 |
+| r99 suspect | 17 of 164 | **8 of 155** |
+| …inside *real and material* | 14 | **5** |
+
+**Twelve rows removed and three reclassified**, from following one thread that began with a single
+UNVERIFIED row belonging to r01.
+
+**The blast-radius answer is unchanged and now firmer**: every mispairing lived **inside r58's census**.
+The producing rounds' own artifacts and README rows carry their correct numbers — r85's and r86's rows
+quote `gap` with `gap_ci`, which is why the corrected census now matches them. **No published claim
+inherited a mispaired value.**
+
+**The generalisable check is the second fix, and it is nearly free:** *a point estimate must lie inside
+the interval it is published with.* It requires no knowledge of what either quantity means, and it
+caught eight rows that name-based reasoning had left standing — including three of my own.
