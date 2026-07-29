@@ -1462,6 +1462,46 @@ table that entries 66 and 67 already audited twice.
 because nothing had ever looked. Rounds with no recorded limitation are not clean; they are
 **unexamined**, and the two categories are indistinguishable from the outside.
 
+## Entry 77 — the last four unaudited rounds: a "running" round that finished, and a freeze with no anchor
+
+Completing the audit of rounds that carry a README row, no claim field, and no limitation recorded
+anywhere. r02 and r07 hold up — r07's row is among the best-scoped in the document. The other two
+do not.
+
+**r25 said "*running*". It had finished.** All **144** cells are on disk (4 metrics × 3 overlaps ×
+3 shared-item thresholds × standardise × centre = 144 exactly, 144 distinct configs), plus a
+summary. The README has been reporting a completed sweep as in progress.
+
+Its own numbers answer the question, and the answer is *both*:
+
+| | |
+|---|---|
+| usable cells | 138 of 144 |
+| residual clears z>2 | **138 of 138 — 100%** |
+| share of variance | **0.2018 – 0.7000**, median 0.2650 |
+
+So the residual is **not** a Pearson artifact — it survives every metric — and its **size** is
+metric-dependent across a **3.5× range**. Existence invariant, magnitude not. The gauge control
+behaved as predicted: Pearson is invariant to centring (Δ=2.8e-17), cosine and negl1 are not
+(Δ=0.0339, 0.0907). The row now reports the sweep's numbers only; the rater-structure ontology it
+feeds stays FROZEN as UNRESOLVED, which is a separate question this does not reopen.
+
+**r45's freeze had `"frozen_at_commit": None` — hard-coded, never populated.** `freeze.py:91` set
+the literal `None`. A field with that name holding null reads as *"the anchor was recorded"* while
+recording nothing, and this is the artifact whose own row calls it *"the only definition of the
+object H_fresh refers to"* — one of the three counterfactuals that end this project.
+
+What can and cannot be recovered: `69bda3b9` is the commit that **introduced** the file, from git
+history. That bounds when the frame entered the repository. It does **not** establish what tree the
+freeze was computed against, which is what a stamped anchor would prove. So the null is **left in
+place beside it**, with the recovered value under its own key and the difference stated, rather than
+overwritten to look like an anchor that was never taken. `freeze.py` now stamps HEAD **and a
+tree-dirty flag** — a freeze from a dirty tree names a state that was never what ran, which is worse
+than no anchor at all.
+
+**The manifest is untouched**: `313044ea…`, 60 prompts, 540 hashed responses. What was missing was
+provenance for the freeze, not integrity of the frozen payload.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

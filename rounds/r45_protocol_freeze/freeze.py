@@ -21,11 +21,33 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import pathlib
 from pathlib import Path
 
 _HERE = Path(__file__).resolve().parent
 _ROOT = _HERE.parents[1]
 _RES = _HERE / "results"
+
+
+def _git_anchor() -> dict:
+    """The commit this freeze was taken at, and whether the tree was clean.
+
+    A freeze whose anchor is null cannot be checked against anything later. A
+    freeze taken from a DIRTY tree is worse than one with no anchor at all,
+    because the hash names a state that was never what ran -- so the flag is
+    recorded beside it, not inferred.
+    """
+    import subprocess
+    here = pathlib.Path(__file__).resolve().parents[2]
+    def git(*a):
+        r = subprocess.run(["git", *a], cwd=here, capture_output=True, text=True)
+        return r.stdout.strip() if r.returncode == 0 else None
+    head = git("rev-parse", "HEAD")
+    status = git("status", "--porcelain")
+    return {
+        "frozen_at_commit": head,
+        "frozen_tree_dirty": None if status is None else bool(status.strip()),
+    }
 
 
 def sha(s: str) -> str:
@@ -88,7 +110,13 @@ def main() -> None:
         cells[r["cell"]] = cells.get(r["cell"], 0) + 1
 
     doc = {
-        "frozen_at_commit": None,
+        # Was hard-coded to None for the life of this round (entry 77). A field
+        # named `frozen_at_commit` holding null reads as "the anchor was
+        # recorded" while recording nothing -- and this artifact is, in its own
+        # README row, "the only definition of the object H_fresh refers to".
+        # A freeze taken from a dirty tree is not a freeze, so the dirty flag is
+        # stamped beside the hash rather than being left for a reader to assume.
+        **_git_anchor(),
         "n_prompts": len(rows),
         "n_missing_from_frame": len(missing),
         "missing_pids": missing,

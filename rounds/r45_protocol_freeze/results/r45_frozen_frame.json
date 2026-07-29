@@ -2728,5 +2728,7 @@
     }
    ]
   }
- ]
+ ],
+ "frozen_at_commit_recovered": "69bda3b9cbbd5840f9f96e213f009e370d395efe",
+ "frozen_at_commit_note": "The freeze ran with `frozen_at_commit` hard-coded to None, so no anchor was ever stamped. 69bda3b9 is the commit that INTRODUCED this file, recovered from git history -- it bounds when the frame entered the repository and does NOT establish what tree the freeze was computed against, which is strictly weaker than a stamped anchor and is why the null is left in place beside it rather than overwritten. freeze.py now stamps HEAD and the tree-dirty flag, so a re-run would carry a real anchor."
 }
