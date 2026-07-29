@@ -3634,3 +3634,46 @@ cannot separate *the menu created the direction* from *the menu supplied the voc
 already held*. **That separation is exactly S_pre**, and nothing in the release performs it. What the
 round removes is the option of treating shared-menu endogeneity as a theoretical worry with no
 measured footprint: it has one, it is +0.0203 after the obvious confound, and it is asymmetric.
+
+## Entry 130 — I attacked my own headline with a mechanical rival, and the rival lost on its own prediction
+
+**What was at risk.** Entry 129 read r75's asymmetry as a fact about raters: *praise is drawn from the
+menu; criticism is not.* There is a rival that needs no psychology at all. A criterion about an
+**absence** — *"fails to mention X"*, *"omits Y"* — **cannot lexically overlap the text that lacks it**.
+If most negative criteria are absence-shaped, they would look flat for a purely mechanical reason, and
+entry 129's sentence would be a claim about `containment`'s blind spot dressed as a claim about people.
+
+**Under that rival, containment would not be a neutral instrument here** — it would be systematically
+blind to exactly one of the two things being compared, and every overlap-based positive-vs-negative
+contrast in this package would inherit the blindness.
+
+**The rival makes a prediction the attention story does not, and that is what was tested.** If absence
+is the explanation, then **presence-type negatives** — *"is preachy"*, *"too long"*, properties the text
+**has** — should track the response the rater ranked **worst**, giving a negative cell mean.
+
+| cell | n | best-minus-worst overlap (length-residualised) |
+|---|---:|---|
+| positive / presence-type | 6,015 | +0.01677 [+0.01423, +0.01929] |
+| positive / **absence-type** | 227 | **+0.03814** [+0.02285, +0.05432] |
+| negative / **presence-type** | 2,736 | **−0.00278** [−0.00733, +0.00168] |
+| negative / absence-type | 144 | −0.00131 [−0.01718, +0.01581] |
+
+**Three ways it fails.** Presence-type negatives do **not** track the worst answer — the CI spans zero.
+Absence-shaped wording is only **4.1%** of write-ins (3.6% of positives, 5.0% of negatives), far too
+rare to flatten 2,880 negatives even if it worked perfectly. And absence-type **positives** carry the
+**largest** effect of any cell, which is the opposite of what "an absence has no words to overlap"
+predicts.
+
+**So entry 129 survives, on the rival's own terms rather than mine.** The positive-minus-negative gap
+holds in both partitions: presence **+0.01955** [+0.01388, +0.02500], absence **+0.03945** [+0.01691,
++0.06134]. The asymmetry is about what raters write, not about what containment can see.
+
+**One number I am not rounding away.** The shuffled-sign null for the presence-type partition is
+**+0.00409** — it passed the pre-set threshold of 0.006, but it is about a fifth of the observed gap,
+not zero. The absence-type null is −0.00284 on a much smaller cell. A null that is small but not
+negligible belongs in the record at its size, because "the null collapsed" and "the null was 21% of the
+effect" are different sentences and only one of them is true here.
+
+**Scope unchanged.** Still association within a rater. Still unable to separate a menu that *created*
+the direction from a menu that *supplied the words* for one already held. That is S_pre, and no
+partition of this data performs it.
