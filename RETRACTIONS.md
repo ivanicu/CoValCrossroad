@@ -4545,3 +4545,40 @@ the cheaper query, because a fact has fewer synonyms than a technique.
 stopped a duplicate round before it was built. Entry 58 (older): a round answered a question the
 project later spent four rounds on. This one: the gate **ran and missed**, which is the failure mode
 that leaves no trace unless someone reads the neighbouring round for another reason.
+
+## Entry 151 — the weakest fifth of all ratings can be deleted for nothing
+
+**The question r82 left.** It found low-magnitude ratings (\|w\| ≤ 2) are **19.21%** of pre-seeded
+ratings against **6.98%** of write-ins, and could not separate displacement from selection. Neither it
+nor anything else asked whether those ratings **matter**.
+
+**Prior-art searched claim-first this time**, per entry 150: nothing in the package deletes ratings by
+weight *size*. r35 abstains on low-**consensus** criteria — a different population, since a criterion
+can have perfect consensus at \|w\| = 1 and terrible consensus at \|w\| = 10.
+
+| arm | agreement with real human rankings |
+|---|---:|
+| baseline, all ratings | **0.6860** |
+| delete every \|w\| ≤ 2 (18,154 of 100,530, **18.06%**) | **0.6860** (**−0.00003**) |
+| size-matched **random** deletion, 200 repeats | 0.6832 [0.6803, 0.6865] |
+
+**Deleting the weakest fifth of all ratings costs nothing** — the change is equivalent to zero at
+δ=0.01 by a factor of about 300 — while deleting as much arbitrary data costs ≈0.003. The matched
+random arm is the entire design: without it, "accuracy barely moved" would have been a statement about
+the size of my own intervention.
+
+**A discriminator thinner than its own resolution, caught before it was published.** The first run used
+**40** random deletions and the targeted value landed **0.0003** past the band's upper edge, which
+labelled the round `H HELPFUL — dropping them beats random`. At **200** draws the band widens to
+[0.6803, 0.6865] and the targeted value sits **inside** it. The verdict logic was also inverted to lead
+with the **cost** (the comparison against baseline) and let the band only qualify it — an earlier
+version read a percentile edge as a direction while the excess itself, +0.0027, was well inside δ.
+
+**What it gives the preregistration.** If a neutral option absorbs these ratings, Experiment 1 loses
+**no predictive signal at the aggregate level** — the neutral option is free to add, on this evidence.
+That is a design fact the arm can now claim rather than assume.
+
+**What it cannot do, and this is not a formality.** Deletion is an intervention on the **rating set**,
+not on people. It says what the rubric loses without these numbers; it says nothing about what a rater
+would have written given another option. **r82's displacement-versus-selection question is exactly
+where it was**, and only the human arm moves it.

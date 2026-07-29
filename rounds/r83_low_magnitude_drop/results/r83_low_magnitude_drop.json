@@ -1,0 +1,24 @@
+{
+ "prompts": 968,
+ "human_pairs": 80542,
+ "ratings_total": 100530,
+ "ratings_low": 18154,
+ "low_share": 0.18058291057395803,
+ "low_threshold": 2,
+ "baseline_accuracy": 0.6860023341858906,
+ "targeted_drop_accuracy": 0.6859775024210971,
+ "random_drop_mean": 0.6832461324526335,
+ "random_drop_ci": [
+  0.6803009609892975,
+  0.6864517891286533
+ ],
+ "n_random_deletions": 200,
+ "targeted_minus_random": 0.0027313699684635706,
+ "outside_random_band": false,
+ "equivalent_at_delta": true,
+ "delta": 0.01,
+ "world": "D DEAD WEIGHT",
+ "outcome_variable_scope": "Agreement is against REAL HUMAN pairwise rankings, not a model gold head. The satisfaction values come from r04's tensor, so the judge is in the loop for s(c,r) but the target is human.",
+ "scope": "A criterion whose every rating is deleted gets weight 0 and leaves the aggregation; it is not treated as neutral, because a criterion nobody rated is not a criterion everybody rated zero. Weights are r32's signed_magnitude recomputed from survivors. The random arm matches the deletion COUNT per prompt, not its distribution across criteria.",
+ "verdict": "D DEAD WEIGHT. r82 found that low-magnitude ratings are 19.21% of pre-seeded ratings against 6.98% of write-ins and could not separate displacement from selection. Neither it nor any other round asked whether those ratings MATTER. Deleting every rating with |w| <= 2 (18,154 of 100,530, 18.06%) and recomputing each criterion's weight from the survivors moves pairwise agreement with real human rankings from 0.6860 to 0.6860 (-0.0000). THAT NUMBER ALONE MEANS NOTHING -- any deletion removes data. The arm that carries the finding is a SIZE-MATCHED RANDOM DELETION of the same count, repeated 200 times: 0.6832 [0.6803,0.6865]. The targeted deletion is +0.0027 from the random mean and lands INSIDE that band. THE HEADLINE IS THE COST, NOT THE BAND: deleting 18.06% of all ratings changes agreement by -0.00002, which is practically equivalent to zero at delta=0.01 by a factor of 403. The band says only whether that cost is smaller than removing as much arbitrary data, and it is. SO THE WEAKEST RATINGS ARE WORTH NO MORE AND NO LESS THAN ANY OTHER RATING, and the difference is practically equivalent to zero at delta=0.01. WHAT THIS DOES FOR THE PREREGISTRATION: if a neutral option absorbs these ratings, Experiment 1 will neither gain nor lose predictive signal -- the neutral option is free at the aggregate level. WHAT IT CANNOT DO: deletion is an intervention on the RATING SET, not on people. It says what the rubric loses without these numbers, never what a rater would have written given another option -- and r82's displacement-versus-selection question stays exactly where it was."
+}
