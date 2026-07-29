@@ -6987,3 +6987,42 @@ earned their place by catching real false positives:
 it"* is exactly right about the symptom and exactly wrong about the cure. **The thinness is not a defect
 in the rule — it is the rule refusing to guess**, and the measurement that looked like a coverage gap
 was a map of where guessing would be required.
+
+---
+
+## Entry 200 — the layer table is the reframed object's deliverable, and four of its five rows were fifteen turns behind
+
+The reframed object is **M(R, J, π, Q, P)** with *"each layer validated separately"*, and the README's
+layer table is where that statement lives. **It cited nothing past r58 in four of five rows** — the P
+row had been updated (entry 175), the other four had not, while r85–r97 landed.
+
+**Brought current, one clause per row, each naming what it settles and what it does not:**
+
+- **R — rubric.** Two rivals closed. The **criterion-count channel is dead**: a **120×** spread in |ΔK|
+  moves attribution not at all, and the two *extremes* land within **0.0011** of each other, so a flat
+  dose-response across three arms replaces a single control (r87). The advantage's **ordinal** structure
+  survives a change of judge, **3 of 3** (r95).
+- **J — judge.** The ordinal world is refuted-against: near<random holds in **3 of 3** (r95). Whether
+  the judge is a **pure gain** is **not refuted rather than established** — pairwise ratio differences
+  straddle zero, but the test resolves **0.270** while the largest observed is **0.188**, *below its own
+  demonstrated threshold* (r96). And the **between-judge component is not estimable at n=3** — a data
+  limit, not an unrun test (entry 170).
+- **π — protocol.** Both quantities are **bounded across the release's two collection forms**: agreement
+  0.6879 / 0.6854 (r85), source specificity +0.1258 / +0.1202, **positive in both** (r86) — at answerable
+  margins **0.020** and **0.026**, so bounds and not equivalence at δ=0.01. The forms cover **disjoint
+  prompts**, so this compares questions as well as instruments.
+- **Q — responses.** **H_fresh cannot settle it at δ=0.01.** The frozen 60-prompt frame resolves
+  **≈0.0446** with m≥10 donor-averaging — **86× short** of the ~5,148 prompts δ=0.01 would require (r91,
+  r94). H_fresh is powered for r12's inversion at **0.16 and for nothing else in this package**, so an
+  H_fresh null on any sub-margin number is **uninformative by construction**.
+
+### Why this was the right thing to do after fifteen turns of auditing
+
+Every one of those fifteen turns found its defect in a **summariser, index, row, or check** — never in a
+measurement. **The layer table was the same class of defect, and the largest instance**: not a wrong
+number, but the package's central organising claim quoting evidence fifteen turns stale, in the one
+place a reader looks to see what each layer is known to support.
+
+**The four clauses change no measurement.** They move already-established results into the row that is
+supposed to carry them — which is the same defect entry 193 found in r58's row and entry 175 found in
+the leakage passage, at the level of the object's own frame.
