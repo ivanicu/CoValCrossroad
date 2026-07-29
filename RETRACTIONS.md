@@ -608,6 +608,38 @@ class-1 statement made about a set that is mostly class 2 and 3. The strongest h
 **no mechanism with a large true per-prompt correlation survives, two specific mechanisms failed
 at their claimed magnitudes, and moderate effects are uniformly undetectable in this design.**
 
+## Entry 57 — the assurance document truncated every claim at 110 characters, and the scope lives after character 110
+
+**What happened.** `ASSURANCE.md` is the human-readable half of the assurance package — the
+document an outsider opens. Its claim table rendered each statement as `statement[:110]…`.
+
+Every scope clause added over the last several days sits **after** the headline sentence, by
+construction: you state what was found, then what it does not establish. So:
+
+| clause | in MANIFEST.json | in ASSURANCE.md |
+|---|---|---|
+| `NOT ESTABLISHED: …` (item 1's four rescopes) | yes | **0 occurrences** |
+| `POPULATION (entry 51): …` | yes | **0 occurrences** |
+| `DETECTION FLOOR: …` (entry 56) | yes | **0 occurrences** |
+
+Item 1 was the queue's first and highest-priority task. Entry 51 was a repository-wide population
+correction. Entry 56 was the power classification. **All three landed in the JSON and none of them
+reached the page a reader reads.**
+
+**Why it is the same failure as the container ones.** A cap that deletes from one end is not
+neutral about *what* it deletes. Prose puts the claim first and the qualification second, so a
+tail-truncating renderer removes qualifications specifically — it cannot remove headlines. The
+truncation was there from the start and looked like formatting.
+
+**Fixed.** The table now carries the first sentence only and is followed by every statement in
+full, under a heading saying why. Verified by counting the clauses in the rendered file: 4
+`NOT ESTABLISHED`, 8 `POPULATION (entry 51)`, 1 `DETECTION FLOOR`, and **0** remaining ellipses.
+
+**What it says about the rescoping work.** Nine turns of scope corrections were being written into
+a file whose reader-facing view could not display them. The corrections were real; their delivery
+was not. Writing the caveat and shipping the caveat are different acts, and only the first was
+ever checked.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

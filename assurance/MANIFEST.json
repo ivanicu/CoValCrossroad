@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T02:58:52.900998+00:00",
- "git": "58f5600ecca92f54b9fd5297eb6c5d966f244c53",
+ "generated_utc": "2026-07-29T03:34:49.569663+00:00",
+ "git": "19efa01189f1d3883e82c7773ad82b898b9ea9ff",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -223,6 +223,34 @@
    "bytes": 16688,
    "sha256": "ebd94c1c0f7d21e4ac478637f8aabddc62df88629735f1fe1254ebef6ab072a2"
   },
+  "rounds/r50_response_anchoring/run.py": {
+   "bytes": 16695,
+   "sha256": "bceff877057c296c6113ff332f72c13e53bb8cc26911cf235b4391fd441d039e"
+  },
+  "rounds/r51_judge_lexical/run.py": {
+   "bytes": 12272,
+   "sha256": "f182d7fa1468df3d4178be442bdde5ffef157cc4681abf4b7a3e7d9f5d9be529"
+  },
+  "rounds/r52_overlap_intervention/run.py": {
+   "bytes": 9933,
+   "sha256": "ad7b766963f5ca5d98bb1e124c2ce92a92714c02eb205a87d597db6f83367e10"
+  },
+  "rounds/r53_join_audit/run.py": {
+   "bytes": 8368,
+   "sha256": "3b8d66658af656e3da289501cb37013109f9dd58531ed235edb4b82f327202e3"
+  },
+  "rounds/r54_overlap_transfer/run.py": {
+   "bytes": 9389,
+   "sha256": "49573617f6c4002264965e2313df3a10ddf2df6ec646f0c8137e5bfb4387f985"
+  },
+  "rounds/r55_overlap_selectivity/run.py": {
+   "bytes": 9789,
+   "sha256": "ef045baa4c9b76384cb3aca4a844887feec823968c568439f0a2a026daa5e06e"
+  },
+  "rounds/r57_outcome_reliability/run.py": {
+   "bytes": 7603,
+   "sha256": "9db1de5603f715c648e3ceee9b967e10559fca37a9cccb49834e6b6356762f4d"
+  },
   "assurance/apply_outcome_scope.py": {
    "bytes": 3041,
    "sha256": "217098e2c26704075c767ffb17235d8124a9e9ad12ca6855c0dd6111837ea9b0"
@@ -236,8 +264,8 @@
    "sha256": "dbdf4198865268afaab4aa93406dfa15abd3ca65af35596dc20096c0e367b5d4"
   },
   "assurance/manifest.py": {
-   "bytes": 33632,
-   "sha256": "2b9f99700d4daff7ec80004ab4378c322999260a4d6a869a218c9d7d1a6bca6e"
+   "bytes": 35623,
+   "sha256": "5fac285c262ce3c072fdba5b27836afff8b7b679864e6bcfb0be3aa5a23a312b"
   },
   "assurance/no_withdrawn_framings.py": {
    "bytes": 9030,
@@ -1164,6 +1192,34 @@
   "rounds/r49_provenance_crossfit/results/r49_provenance_crossfit.json": {
    "bytes": 116887,
    "sha256": "50b16466d61c93e8301214091bc12aacea180a1e988a12c474be9d3f35b1f7fc"
+  },
+  "rounds/r50_response_anchoring/results/r50_response_anchoring.json": {
+   "bytes": 96522,
+   "sha256": "7aaf473c232a9abc6a45aea0eae5ccc9e6b75cf54b159f0e2492442d1796ee24"
+  },
+  "rounds/r51_judge_lexical/results/r51_judge_lexical.json": {
+   "bytes": 2482,
+   "sha256": "0368a9372f1a6acbc7d097aecc472c3782ba0785ad04ffce31c229eaeaac400b"
+  },
+  "rounds/r52_overlap_intervention/results/r52_overlap_intervention.json": {
+   "bytes": 1858,
+   "sha256": "26e8c53f231c6461916c64fdea113b934e2fcd201a0f605180cc1adceb75bb7a"
+  },
+  "rounds/r53_join_audit/results/r53_join_audit.json": {
+   "bytes": 6154,
+   "sha256": "fa2bb75352bcb0d008938e480e16eda26e61bfd889e26a622532c19da92e37d8"
+  },
+  "rounds/r54_overlap_transfer/results/r54_overlap_transfer.json": {
+   "bytes": 2268,
+   "sha256": "fd5af28fbb513e2b212763da5e38362d790ae82b3f3f38459cb8258e7a2789aa"
+  },
+  "rounds/r55_overlap_selectivity/results/r55_overlap_selectivity.json": {
+   "bytes": 2228,
+   "sha256": "90d1fb42ebf32fa0a2be2873c0c2716a6a53402320222b1e326bf3bba632d496"
+  },
+  "rounds/r57_outcome_reliability/results/r57_outcome_reliability.json": {
+   "bytes": 2335,
+   "sha256": "1122cd0f851bd7d5bffd803e7b9ea14909cd65b8def80e8d23a34d39dea55df4"
   }
  },
  "claims": [
@@ -1268,7 +1324,7 @@
   },
   {
    "id": "C20",
-   "statement": "r12's discrepancy is NOT EXPLAINED BY MONOTONE DEGRADATION under the three generic distance metrics tested. Across three unrelated pretraining lineages nearest-neighbour distance correlates NEGATIVELY with the per-prompt attribution drop. NOT ESTABLISHED: that the judge is accurate on fresh responses, that the preference proxy is valid there, or that the responses lie inside the rubric's own criterion-satisfaction support -- which is the distance a rubric-conditioned failure would live in, and which has not been measured.",
+   "statement": "r12's discrepancy is NOT EXPLAINED BY MONOTONE DEGRADATION under the three generic distance metrics tested. Across three unrelated pretraining lineages nearest-neighbour distance correlates NEGATIVELY with the per-prompt attribution drop. DETECTION FLOOR: the outcome's reliability is 0.302-0.422, so a mechanism with a true per-prompt correlation below about 0.2 would be invisible here and this claim does not exclude one. NOT ESTABLISHED: that the judge is accurate on fresh responses, that the preference proxy is valid there, or that the responses lie inside the rubric's own criterion-satisfaction support -- which is the distance a rubric-conditioned failure would live in, and which has not been measured.",
    "source": "rounds/r40_ood_map/results/r40_ood_map.json",
    "field": "cross_lineage.nearest_neighbour.mean_r",
    "value": -0.12542822934132145,

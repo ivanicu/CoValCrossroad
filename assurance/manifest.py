@@ -210,11 +210,21 @@ CLAIMS = [
     # response sits inside the criterion-satisfaction support of the originals,
     # and a response can be close in embedding, style, length and likelihood while
     # combining criterion satisfactions no original candidate exhibited.
+    # POWER (entry 55/56): this claim rests on a CORRELATION with the per-prompt
+    # attribution drop, and that outcome's split-half reliability is 0.302-0.422
+    # (r57, two independent samples). Observed correlations are attenuated by
+    # ~0.55-0.65, so the smallest TRUE correlation this design can distinguish
+    # from zero is about 0.2. The claim is therefore about LARGE mechanisms only,
+    # and its own point estimate disattenuates to roughly -0.23 -- which is why
+    # the sentence says "not explained by" rather than "unrelated to".
     ("C20",
      "r12's discrepancy is NOT EXPLAINED BY MONOTONE DEGRADATION under the three "
      "generic distance metrics tested. Across three unrelated pretraining lineages "
      "nearest-neighbour distance correlates NEGATIVELY with the per-prompt "
-     "attribution drop. NOT ESTABLISHED: that the judge is accurate on fresh "
+     "attribution drop. DETECTION FLOOR: the outcome's reliability is 0.302-0.422, "
+     "so a mechanism with a true per-prompt correlation below about 0.2 would be "
+     "invisible here and this claim does not exclude one. NOT ESTABLISHED: that the "
+     "judge is accurate on fresh "
      "responses, that the preference proxy is valid there, or that the responses "
      "lie inside the rubric's own criterion-satisfaction support -- which is the "
      "distance a rubric-conditioned failure would live in, and which has not been "
@@ -508,7 +518,28 @@ def main() -> None:
     for c in claims:
         v = c["value"]
         vs = f"{v:.4f}" if isinstance(v, float) else str(v)
-        lines.append(f"| {c['id']} | **{c['status']}** | {vs} | `{c['test']}` | {c['statement'][:110]}… |")
+        # NO TRUNCATION.  This line used to cut every claim at 110 characters,
+        # which silently deleted the SCOPE clauses -- "NOT ESTABLISHED: ...",
+        # "DETECTION FLOOR: ...", the criterion-population note -- because those
+        # come AFTER the headline sentence by construction. Item 1, entry 51 and
+        # entry 56 all landed in MANIFEST.json and were invisible in the document
+        # a human actually reads. A container with a silent cap deletes from one
+        # end, and that end is where the qualifications live.
+        #
+        # The table holds the headline; the scope goes underneath it in full, so
+        # neither the overview nor the caveat can be read without the other.
+        head = c["statement"].split(". ")[0]
+        lines.append(f"| {c['id']} | **{c['status']}** | {vs} | `{c['test']}` | {head}. |")
+    lines.append("")
+    lines.append("### Claim statements in full")
+    lines.append("")
+    lines.append("Every clause after the first sentence is scope. It is reproduced here "
+                 "because the table above cannot hold it, and because a claim read "
+                 "without its scope is the failure this package exists to prevent.")
+    lines.append("")
+    for c in manifest["claims"]:
+        lines.append(f"**{c['id']}** — {c['statement']}")
+        lines.append("")
     lines += ["", "## Budget to reproduce", ""]
     for k, v in budget.items():
         lines.append(f"- **{k}**: {v}")
