@@ -6890,3 +6890,15 @@ r58's harvest is dense in such pairs; across the rounds themselves it has almost
 positive control that plants one violation and one clean case of each, and **refuses to report a zero
 unless it fires on the plants first.** It prints the checked population on every run, which is the only
 reason this entry exists.
+
+**⚠ Addendum to entry 197 — the guard is now attacked and registered.**
+Three vectors, all caught: a planted artifact whose **mean lies outside its interval** (exit 1); one
+whose **flag contradicts its interval** (exit 1); and the **positive control sabotaged**, which makes
+the check refuse rather than report a clean tree (exit 1). Baseline and restore both 0.
+
+**Registering it required a floor it did not have.** With the artifacts hidden, the live scan finds no
+violations *because it finds nothing*, and would have returned **0 — clean**. Its own positive control
+still passes, since that plants a temporary tree and never touches the real one, so **the control could
+not save it**. The floor returns **2 (nothing to check)** when zero pairs and zero flagged nodes are
+found. *A check whose population can vanish needs a floor even when it has a positive control — they
+guard different failures.* Suite now **15/15**.

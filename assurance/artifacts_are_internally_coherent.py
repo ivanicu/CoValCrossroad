@@ -135,6 +135,14 @@ def main() -> int:
     r = scan(ROOT)
     print(f"\n{r['n_pairs']} stem-matched mean/CI pairs; {r['n_flagged']} nodes with exactly one CI "
           f"and one significance flag")
+    # FLOOR: an empty population is "nothing to check" (2), never "clean" (0). With no
+    # artifacts to scan this check finds no violations, and reporting that as a pass
+    # would be silence mistaken for an acquittal -- the exact failure attack_the_suite
+    # exists to prevent.
+    if r["n_pairs"] == 0 and r["n_flagged"] == 0:
+        print("\nZERO pairs and ZERO flagged nodes found -- nothing to check, not a clean bill.")
+        return 2
+
     fail = 0
     for key, label in (("outside", "point estimate OUTSIDE the interval published with it"),
                        ("contradict", "significance flag CONTRADICTS its own interval"),

@@ -145,6 +145,12 @@ CASES = [
     # links at all, which is the genuine "nothing to check".
     ("round_links_resolve", hide_rounds, 1,
      "rounds hidden -> every one of the 257 links stops resolving: DETECTED, not silence"),
+    # Entry 198. Its population IS the artifacts, so hiding them empties it -- and its
+    # floor returns 2 rather than 0, because "no violations found in nothing" is
+    # silence. Its own positive control still passes (it plants a temp tree), which is
+    # why the floor has to exist separately.
+    ("artifacts_are_internally_coherent", hide_rounds, 2,
+     "artifacts hidden -> zero pairs and zero flagged nodes: nothing to check, not clean"),
     # Entry 144: four checks had a _floor that had never been exercised THROUGH
     # THE CALLING PATH. Verifying a floor by calling it directly proves it raises
     # when handed a zero, not that the check ever hands it one -- which is exactly
