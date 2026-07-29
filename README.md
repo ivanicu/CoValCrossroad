@@ -1,10 +1,18 @@
 # CoVal Crossroads
 
-**Does a public-input values rubric actually measure values?**
+**What does a public-input values rubric actually measure, and at what scope?**
+
+> ⚠ This repository's original subtitle was *"Does a public-input values rubric actually measure
+> values?"* — the framing this project withdrew and then left standing as its own headline for
+> fourteen turns. The contrast every number here computes is **own-rubric minus reference-rubric
+> performance**: a comparison between two rubrics, never between rubric content and its absence.
+> Whatever an unrelated prompt's rubric recovers is itself made of accuracy, clarity, caution,
+> non-deception, relevance and proportionality — norms, not the lack of them. The correct name is
+> **source specificity**, and the layer table below is what replaced the question.
 
 An independent, reproducible audit of [OpenAI's CoVal release](https://huggingface.co/datasets/openai/coval) — a dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to contentious prompts *and wrote down the criteria they judged by*.
 
-The release ships prompts, four candidate responses, crowd-written value rubrics and 18,384 human rankings. It does **not** ship the criterion-by-response satisfaction labels, so its published scoring cannot be reproduced. This repository rebuilds that layer locally, measures its concordance with the released rankings, and then asks what the rubric is actually made of.
+The release ships prompts, four candidate responses, crowd-written value rubrics and 18,384 human rankings. It does **not** ship the criterion-by-response satisfaction labels, so its published scoring cannot be reproduced. This repository rebuilds that layer locally, measures its concordance with the released rankings, and then asks what the rubric is actually made of — layer by layer, since a rubric is a measurement program `M(R, J, π, Q, P)` rather than a value function.
 
 > **⚠ Scope correction, 2026-07-28.** Earlier versions called the 80,542 pairs "held-out human
 > preference". They are **pairwise decompositions of the same rankings**, on the same prompts and the

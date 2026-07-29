@@ -1021,6 +1021,36 @@ The invariant is therefore weaker and truer than "empty must be 2": *emptied mus
 either the check says it observed nothing, or it detects a failure from a population it did not
 lose.
 
+## Entry 65 — the retired framing was the README's headline for fourteen turns
+
+**Queue item 1, the first and highest-priority task, says the values-vs-non-values contrast "must
+never be a headline again."** It was the README's subtitle, on line 3, the whole time:
+
+> **Does a public-input values rubric actually measure values?**
+
+Item 1 was worked through eight places in the prose, four claims in the manifest, the round verdicts
+(entry 59), the assurance renderer (entry 57) and the gated statements (entry 51). **Every one of
+those was downstream of the sentence that states the project's question.**
+
+**Why no check could have caught it.** `no_withdrawn_framings` scans results JSONs and deliberately
+excludes prose — because README legitimately *discusses* withdrawn framings in order to withdraw
+them, and a checker that cannot tell assertion from mention would either flag that forever or be
+taught to ignore the sentences it exists to police. That exemption is correct and it is exactly the
+hole this fell through. The one surface no instrument watches is the one a reader meets first.
+
+**How it was found.** Not by looking. I added the layer table above the headline, printed the first
+eight lines to confirm it landed, and the retired question was sitting directly beneath the title in
+the output.
+
+**Fixed.** The subtitle is now *"What does a public-input values rubric actually measure, and at
+what scope?"*, with the withdrawal recorded inline — because deleting it silently would leave a
+reader of the git history unable to tell that the framing was ever wrong, and the register's whole
+premise is that a corrected claim should be visible as corrected.
+
+**The uncomfortable count.** Entries 51, 57, 59, 61, 62 and now 65 are all one failure: a correction
+made and not delivered somewhere. Six instances, each found by accident, in a project whose central
+finding is that **a measurement's scope must travel with its number.**
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
