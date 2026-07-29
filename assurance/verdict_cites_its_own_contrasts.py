@@ -113,10 +113,33 @@ def main() -> int:
         if isinstance(v, str) and v.strip():
             verdicts[rid] = v.split(" || ")[0]
 
+    # POPULATION, corrected 2026-07-29 (entry 186). This check reads r58's census, and
+    # that census counts two things it should not:
+    #   (a) rows sourced from a DRYRUN artifact -- smoke and dryrun runs are not
+    #       published results, so a verdict cannot be faulted for not citing them;
+    #   (b) the SAME (round, path) contrast repeated once per metric file. r28's twelve
+    #       "significant contrasts" are four contrasts under cosine, pearson and
+    #       spearman -- and metric cells are FROZEN, so they are one finding displayed
+    #       three ways, not three findings. Citing one satisfies the property.
+    # Both inflate the denominator and manufacture uncited findings. A check is only as
+    # good as the population it iterates over; this one inherited someone else's.
+    _dropped_dry, _collapsed = 0, 0
+    seen: set = set()
     by_round: dict[str, list] = {}
     for c in census:
-        if c["round"] in verdicts and c.get("significant") and c.get("delta_hat") is not None:
-            by_round.setdefault(c["round"], []).append(c)
+        if not (c["round"] in verdicts and c.get("significant") and c.get("delta_hat") is not None):
+            continue
+        if "dryrun" in str(c.get("file", "")) or "smoke" in str(c.get("file", "")).lower():
+            _dropped_dry += 1
+            continue
+        k = (c["round"], c.get("path"))
+        if k in seen:
+            _collapsed += 1
+            continue
+        seen.add(k)
+        by_round.setdefault(c["round"], []).append(c)
+    print(f"population: dropped {_dropped_dry} dryrun-sourced row(s), collapsed {_collapsed} "
+          f"metric-variant repeat(s) of an already-counted (round, path)")
 
     rows, tot_opp, tot_om = [], 0, 0
     for rid in sorted(by_round, key=lambda r: int(r[1:])):

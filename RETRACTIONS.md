@@ -6207,3 +6207,57 @@ pre-existing findings on r28/r31; `attack_the_suite` covers 14 of them for empty
 expected my edit to touch. That is exactly the population error this package logs against others: *a
 check is only as good as the population it iterates over*, and my sweep's population was chosen by
 what I thought I had changed.
+
+---
+
+## Entry 186 — the check that reports on everyone else was counting one finding three times
+
+Entry 185's NEXT: *r28's twelve significant contrasts are cited by nothing in its own verdict, which
+`verdict_cites_its_own_contrasts` has been reporting all along and nobody read.* **Reading it turned
+out to mean checking it, and the twelve were not twelve.**
+
+**r28's "12 significant contrasts" are 4 distinct contrasts under 3 metrics** — cosine, pearson,
+spearman:
+
+| contrast | cosine | pearson | spearman |
+|---|---:|---:|---:|
+| `strata_vs_additive.both_high` | +0.0531 | +0.0538 | +0.0571 |
+| `strata_vs_additive.mixed` | −0.0560 | −0.0567 | −0.0617 |
+| `strata_vs_additive.both_low` | +0.0547 | +0.0552 | +0.0607 |
+| `strata_vs_multiplicative.both_low` | +0.0122 | +0.0125 | +0.0213 |
+
+**Metric cells are frozen.** These are one finding displayed three ways, not three findings, and citing
+one satisfies the property the check is testing.
+
+### The population was inherited, not chosen
+
+`verdict_cites_its_own_contrasts` reads **r58's census**, and that census counts two things it should
+not: rows sourced from a **dryrun artifact** (entry 184 — 6 of its 125), and the **same (round, path)
+repeated once per metric file**. Measured across the census: **125 contrasts → 107 distinct**;
+**76 significant rows → 68 distinct**.
+
+**A check is only as good as the population it iterates over** — a law this package already enforces
+against other people's checks. This one inherited someone else's population and never examined it.
+Corrected: dryrun-sourced rows dropped, metric-variant repeats of an already-counted `(round, path)`
+collapsed, and both counts printed on every run so the population is visible rather than assumed.
+
+### What survives the correction, which is the part that matters
+
+**r28 falls from 12 uncited to 4.** But it does not fall to zero, and neither do the others. **Five
+rounds still cite none of their significant contrasts** — r11 (1), r17 (2), r20 (3), r28 (4), r31 (1),
+**11 omissions rather than 19**.
+
+**And r28's is a real instance, not an artifact.** Its verdict says *"the both_low number below"* — **a
+pointer where a number belongs.** That is precisely the defect the check was built for: a verdict that
+does not state its number cannot be compared to its round, and every prose check in this package will
+happily agree with it.
+
+**Not fixed here, and named rather than left implicit:** repairing those five means giving each a
+`build_verdict` computed from its stored quantities, as r12, r03 and r43 have, because **conclusion
+strings are never hand-written.** That is five rounds of work and it is Closure, not a reopening —
+r28's multiplicative ontology stays frozen; only the connection between its verdict and its numbers
+changes.
+
+**The sign test is unaffected and still returns nothing:** among rounds that cite something, 6 of 21
+omissions are opposite-signed against 6/30 = 0.200 cited, P(≥6) = 0.23. **No directional bias
+established** — the omissions look like silence, not selection.
