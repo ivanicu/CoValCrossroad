@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T13:21:03.267385+00:00",
- "git": "95d321fcbbe6aee8b6e173d7a213853d55e399b5",
+ "generated_utc": "2026-07-29T13:26:12.473891+00:00",
+ "git": "2d66c70a98904ae10fdfcff7250c0becda7c0416",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -1446,8 +1446,8 @@
    "sha256": "1122cd0f851bd7d5bffd803e7b9ea14909cd65b8def80e8d23a34d39dea55df4"
   },
   "rounds/r58_equivalence_census/results/r58_equivalence_census.json": {
-   "bytes": 69778,
-   "sha256": "bf23e819065c8df0fde2c9785b1c45b6621c3f530616d2e76ceec1b6038a1c6c"
+   "bytes": 89212,
+   "sha256": "f811130f989eb858440bd42857a3dca2adf85d0c416ef8e448322513cbe8c9fa"
   },
   "rounds/r59_criterion_influence/results/r59_criterion_influence.json": {
    "bytes": 3401,
