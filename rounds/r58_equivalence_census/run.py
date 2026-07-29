@@ -67,6 +67,8 @@ R42_SOURCES = {"r34", "r35", "r36", "r37"}
 MEANISH = re.compile(r"^(mean|diff|delta|gap|advantage|drop|attribution|effect|"
                      r".*_mean|.*_diff|.*_delta|.*_gap)$", re.I)
 CIISH = re.compile(r"^(ci|.*_ci|ci_.*|interval)$", re.I)
+NULLNAME = re.compile(r"null|shuffl|permut|placebo", re.I)
+_NULL_SKIPPED: list = []
 
 
 def is_ci(v):
@@ -98,7 +100,22 @@ def enumerate_contrasts(root: Path):
                              if MEANISH.match(k) and isinstance(v, (int, float))
                              and not isinstance(v, bool)), None)
                 vec = node.get("paired_differences")
-                if ci is not None and (mean is not None or vec is not None):
+                # A node whose ONLY candidates are null-named is a NULL SUMMARY, not a
+                # contrast (entry 194). r01's row was `null_mean` + `null_ci` -- its own
+                # permutation null, classified UNVERIFIED; r43's three axes were
+                # `reversal_null_mean` + `reversal_null_ci`, classified "real and
+                # material". Minimal fix: skip when EVERY candidate on both sides is
+                # null-named. Mismatched pairs (one side null) are left to r99's report
+                # rather than guessed at here -- picking a "better" pairing would be
+                # inventing semantics the source does not carry.
+                mks = [k for k in node if MEANISH.match(k)]
+                cks = [k for k in node if CIISH.match(k) and is_ci(node[k])]
+                pure_null = (bool(mks) and bool(cks)
+                             and all(NULLNAME.search(k) for k in mks)
+                             and all(NULLNAME.search(k) for k in cks))
+                if pure_null:
+                    _NULL_SKIPPED.append(f"{rid}:{'.'.join(path) or '<root>'}")
+                elif ci is not None and (mean is not None or vec is not None):
                     out.append({
                         "round": rid,
                         "file": str(f.relative_to(root)),
@@ -173,6 +190,42 @@ def cell(sig, eq):
     return "INCONCLUSIVE"
 
 
+def harvester_control():
+    """Positive control for walk(), by RUNNING IT -- not by re-deriving its rule.
+
+    Added 2026-07-29 (entry 194), and fixed the same day. The first version recomputed
+    the MEANISH/CIISH match itself and reported that. Disabling walk()'s null-skip then
+    changed nothing in the control: two implementations of one rule agreed, which says
+    nothing about the implementation that actually runs. This version plants a temporary
+    results tree and calls `enumerate_contrasts` on it, so the control observes the real
+    harvester end to end and fails when the harvester changes.
+    """
+    import shutil
+    import tempfile
+    tmp = Path(tempfile.mkdtemp(prefix="r58_hc_"))
+    try:
+        d = tmp / "rounds" / "rZZ_planted" / "results"
+        d.mkdir(parents=True)
+        (d / "planted.json").write_text(json.dumps({
+            "clean": {"delta": 0.05, "ci": [0.04, 0.06]},
+            "null_only": {"null_mean": 0.001, "null_ci": [-0.01, 0.01]},
+            "ambiguous": {"gap": 0.1, "other_mean": 0.2,
+                          "gap_ci": [0.08, 0.12], "shuffle_null_ci": [-0.02, 0.02]},
+        }))
+        got = {c["path"]: c for c in enumerate_contrasts(tmp)}
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    out = {"paths_harvested": sorted(got)}
+    out["clean_harvested"] = "clean" in got
+    out["clean_mean"] = got["clean"]["mean"] if "clean" in got else None
+    out["null_only_is_harvested"] = "null_only" in got
+    out["ambiguous_harvested"] = "ambiguous" in got
+    out["ambiguous_mean"] = got["ambiguous"]["mean"] if "ambiguous" in got else None
+    out["clean_pairs_correctly"] = bool(out["clean_harvested"] and out["clean_mean"] == 0.05)
+    out["clean_survives_the_skip"] = out["clean_harvested"]
+    return out
+
+
 def positive_control(delta, boot, rng):
     """Three synthetic contrasts of known class. A census that cannot separate
     these has measured nothing, and its zero-inconclusive answer would be silence."""
@@ -231,6 +284,18 @@ def main() -> None:
                   f"{'ok' if v['pass'] else 'MISMATCH'}")
     if not pc["all_pass"]:
         raise SystemExit("REFUSING: the census cannot classify contrasts of known class.")
+
+    hc = harvester_control()
+    print(f"\nharvester control (entry 194): clean node pairs correctly = {hc['clean_pairs_correctly']}; "
+          f"a NULL-ONLY node is harvested as a contrast = {hc['null_only_is_harvested']}; "
+          f"an AMBIGUOUS node (gap=0.1, other_mean=0.2) is harvested with mean "
+          f"{hc['ambiguous_mean']} -- picked by dict order, still unfixed and reported by r99")
+    if not hc["clean_pairs_correctly"] or not hc["clean_survives_the_skip"]:
+        raise SystemExit("REFUSING: the harvester cannot pair a clean node, or the null-skip "
+                         "swallows one, so nothing it emits can be trusted.")
+    if hc["null_only_is_harvested"]:
+        raise SystemExit("REFUSING: a node whose only candidates are null-named is still harvested "
+                         "as a contrast (entry 194). The skip is not doing its job.")
 
     rows = []
     for c in ctr:
@@ -333,7 +398,9 @@ def main() -> None:
             {"round": r["round"], "path": r["path"], "delta_hat": r["delta_hat"],
              "ci95": r["ci95"]} for r in inc_outside],
         "delta_sweep_n_equivalent": sweep,
-        "positive_control": pc,
+        "positive_control": pc, "harvester_control": hc,
+        "null_summary_nodes_skipped": sorted(set(_NULL_SKIPPED)),
+        "n_null_summary_nodes_skipped": len(set(_NULL_SKIPPED)),
         "contrasts": rows,
         "scope": ("delta=0.01 is STIPULATED, not measured. An equivalence verdict inherits the "
                   "estimator of the round it came from. UNVERIFIED contrasts published no raw "

@@ -1,6 +1,6 @@
 {
- "rows_in_census": 170,
- "reproduced": 164,
+ "rows_in_census": 166,
+ "reproduced": 160,
  "vector_backed_no_mean": 22,
  "unresolved": [
   {
@@ -37,23 +37,6 @@
  "n_unresolved": 6,
  "suspect": [
   {
-   "round": "r01",
-   "path": "<root>",
-   "cell": "UNVERIFIED",
-   "picked_mean": "null_mean",
-   "picked_ci": "null_ci",
-   "mean_candidates": [
-    "null_mean"
-   ],
-   "ci_candidates": [
-    "null_ci"
-   ],
-   "why": [
-    "point estimate is a NULL summary (null_mean)",
-    "interval is a NULL summary (null_ci)"
-   ]
-  },
-  {
    "round": "r13",
    "path": "seed",
    "cell": "real and material",
@@ -85,57 +68,6 @@
    ],
    "why": [
     "AMBIGUOUS: 1 mean-ish and 2 ci-ish keys in one node, paired by dict order"
-   ]
-  },
-  {
-   "round": "r43",
-   "path": "axes.country",
-   "cell": "real and material",
-   "picked_mean": "reversal_null_mean",
-   "picked_ci": "reversal_null_ci",
-   "mean_candidates": [
-    "reversal_null_mean"
-   ],
-   "ci_candidates": [
-    "reversal_null_ci"
-   ],
-   "why": [
-    "point estimate is a NULL summary (reversal_null_mean)",
-    "interval is a NULL summary (reversal_null_ci)"
-   ]
-  },
-  {
-   "round": "r43",
-   "path": "axes.ai_usage",
-   "cell": "real and material",
-   "picked_mean": "reversal_null_mean",
-   "picked_ci": "reversal_null_ci",
-   "mean_candidates": [
-    "reversal_null_mean"
-   ],
-   "ci_candidates": [
-    "reversal_null_ci"
-   ],
-   "why": [
-    "point estimate is a NULL summary (reversal_null_mean)",
-    "interval is a NULL summary (reversal_null_ci)"
-   ]
-  },
-  {
-   "round": "r43",
-   "path": "axes.age",
-   "cell": "real and material",
-   "picked_mean": "reversal_null_mean",
-   "picked_ci": "reversal_null_ci",
-   "mean_candidates": [
-    "reversal_null_mean"
-   ],
-   "ci_candidates": [
-    "reversal_null_ci"
-   ],
-   "why": [
-    "point estimate is a NULL summary (reversal_null_mean)",
-    "interval is a NULL summary (reversal_null_ci)"
    ]
   },
   {
@@ -338,14 +270,13 @@
    ]
   }
  ],
- "n_suspect": 17,
+ "n_suspect": 13,
  "suspect_by_cell": {
-  "UNVERIFIED": 1,
-  "real and material": 14,
+  "real and material": 11,
   "real but negligible": 2
  },
  "world": "P PROMISCUOUS",
  "outcome_variable_scope": "A re-walk of r58's stored contrast rows against their source nodes, recovering which keys its harvester paired. No measurement, no model, no new data.",
  "scope": "The suspect flag is NAME-BASED and can over-report; flagged rows carry their key names so the classification is reviewable. Rows whose mean the re-walk could not reproduce are excluded from all counts as UNRESOLVED, never assumed clean. This does not repair r58 -- it measures how far its cell totals can be trusted.",
- "verdict": "P PROMISCUOUS. r58 harvests a contrast with `walk()`: the FIRST key matching MEANISH and the FIRST matching CIISH inside a node, emitted as one pair, with NO requirement that they describe the same quantity. Re-walking its 170 stored rows and reproducing r58's own recorded mean for 164 of them: 17 pairings are SUSPECT, by cell real and material=14, real but negligible=2, UNVERIFIED=1. THE THREE FAILURE SHAPES, each found: a PURE NULL counted as a contrast -- r01's row is `null_mean` paired with `null_ci`, which is r01's permutation null classified UNVERIFIED; a NULL CLASSIFIED AS AN EFFECT -- r43's three axes pair `reversal_null_mean` with `reversal_null_ci` and land in 'real and material'; and a MISMATCHED PAIR -- r84 pairs `shuffled_gap`, a null point estimate, with `gap_ci`, the REAL gap's interval. Rounds storing several candidates of each kind at one node are paired by DICT ORDER, which is not a measurement decision at all. POSITIVE CONTROL: the re-walk reproduces r58's stored mean for 164 rows to 1e-12, so this inspects r58's actual harvest; 6 rows could not be reproduced and are reported UNRESOLVED and excluded from every count rather than assumed clean. The round refuses to run if under half reproduce. SCOPE, AND IT IS A PROXY: the flag is NAME-BASED -- a key containing 'null' or 'shuffl' is treated as a null summary -- so it can OVER-report, and a round could legitimately name a real contrast that way. Every flagged row carries its actual key names so the call is reviewable rather than asserted, and the count is SUSPECT rather than an error count. WHAT THIS CHANGES: no cell total of r58's may be quoted without this caveat. 'Real and material: 90' includes rows whose point estimate is a permutation null."
+ "verdict": "P PROMISCUOUS. r58 harvests a contrast with `walk()`: the FIRST key matching MEANISH and the FIRST matching CIISH inside a node, emitted as one pair, with NO requirement that they describe the same quantity. Re-walking its 166 stored rows and reproducing r58's own recorded mean for 160 of them: 13 pairings are SUSPECT, by cell real and material=11, real but negligible=2. THE THREE FAILURE SHAPES, each found: a PURE NULL counted as a contrast -- r01's row is `null_mean` paired with `null_ci`, which is r01's permutation null classified UNVERIFIED; a NULL CLASSIFIED AS AN EFFECT -- r43's three axes pair `reversal_null_mean` with `reversal_null_ci` and land in 'real and material'; and a MISMATCHED PAIR -- r84 pairs `shuffled_gap`, a null point estimate, with `gap_ci`, the REAL gap's interval. Rounds storing several candidates of each kind at one node are paired by DICT ORDER, which is not a measurement decision at all. POSITIVE CONTROL: the re-walk reproduces r58's stored mean for 160 rows to 1e-12, so this inspects r58's actual harvest; 6 rows could not be reproduced and are reported UNRESOLVED and excluded from every count rather than assumed clean. The round refuses to run if under half reproduce. SCOPE, AND IT IS A PROXY: the flag is NAME-BASED -- a key containing 'null' or 'shuffl' is treated as a null summary -- so it can OVER-report, and a round could legitimately name a real contrast that way. Every flagged row carries its actual key names so the call is reviewable rather than asserted, and the count is SUSPECT rather than an error count. WHAT THIS CHANGES: no cell total of r58's may be quoted without this caveat. 'Real and material: 90' includes rows whose point estimate is a permutation null."
 }

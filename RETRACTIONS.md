@@ -6696,3 +6696,49 @@ row**, and the defect was contained to the artifact I regenerated without lookin
 change* — and it costs one pass over the rows whose round was re-run. **It works at 3–4 decimals and
 would not have caught r58**, whose figures were integers; that gap is real and is the reason the rule is
 stated as a habit rather than delegated to a check.
+
+---
+
+## Entry 194 — the census had a positive control that could not see the stage that was broken
+
+r99 found r58's harvester promiscuous. **r58 has a positive control, and it passed throughout.**
+Reading it explains why: `positive_control` feeds three synthetic **vectors** straight to
+`tost_vector`. **It certifies the CLASSIFIER and never touches `walk()`.** The broken stage was
+upstream of everything the control tested — *a control that cannot fail on the defect it is meant to
+catch is silence*, and this one was structurally incapable of it.
+
+### Fixed at the source, and the counts moved
+
+A node whose **only** mean candidates and **only** CI candidates are all null-named is a null summary,
+not a contrast. Skipping those removes exactly the 4 nodes r99 identified — **`r01:<root>`,
+`r43:axes.country`, `r43:axes.ai_usage`, `r43:axes.age`**:
+
+| | before | after |
+|---|---:|---:|
+| contrasts | 170 | **166** |
+| real and material | 90 | **87** |
+| UNVERIFIED | 27 | **26** |
+| r99 suspect pairings | 17 of 164 | **13 of 160** |
+| …of those, inside *real and material* | 14 | **11** |
+
+**Mismatched pairs are left alone deliberately** — picking a "better" pairing would invent semantics
+the source does not carry. They stay in r99's report.
+
+### The control I wrote to catch this failed the same way, twice
+
+**First version:** it recomputed the MEANISH/CIISH match itself and reported that. **Disabling
+`walk()`'s skip changed nothing** — two implementations of one rule agreed, which says nothing about
+the one that runs. I had written the comment *"Report what walk() ACTUALLY does now, not the raw
+pairing rule"* directly above code that did the opposite.
+
+**Second version** plants a temporary results tree and calls **`enumerate_contrasts`** on it, so the
+control observes the real harvester end to end. **Then it took two more failures to work** — a
+`pathlib.Path` reference in a module that imports `Path`, and a print reading a key the rewritten
+function no longer returns. Both surfaced only because the baseline exit code was wrong and I read the
+traceback instead of the summary line.
+
+**Now attacked and caught:** baseline **0**, skip disabled **1**, restored **0**. It gates.
+
+**The lesson is narrow and I will state it narrowly:** *a positive control must exercise the code path,
+not re-derive its rule.* The first version would have passed forever while the harvester rotted,
+because it was testing my understanding of `walk()` rather than `walk()`.

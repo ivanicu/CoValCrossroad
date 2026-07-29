@@ -1,16 +1,16 @@
 {
  "delta": 0.01,
  "boot": 20000,
- "n_contrasts": 170,
+ "n_contrasts": 166,
  "n_in_r42": 21,
- "n_outside_r42": 149,
+ "n_outside_r42": 145,
  "n_with_raw_vector": 62,
  "cells": {
   "INCONCLUSIVE": 10,
   "SUPERSEDED": 6,
-  "UNVERIFIED": 27,
+  "UNVERIFIED": 26,
   "no material effect": 24,
-  "real and material": 90,
+  "real and material": 87,
   "real but negligible": 13
  },
  "inconclusive_outside_r42": [
@@ -109,8 +109,8 @@
   "0.0025": 9,
   "0.005": 12,
   "0.01": 37,
-  "0.02": 68,
-  "0.05": 105
+  "0.02": 67,
+  "0.05": 104
  },
  "positive_control": {
   "known_equivalent": {
@@ -142,25 +142,28 @@
   },
   "all_pass": true
  },
+ "harvester_control": {
+  "paths_harvested": [
+   "ambiguous",
+   "clean"
+  ],
+  "clean_harvested": true,
+  "clean_mean": 0.05,
+  "null_only_is_harvested": false,
+  "ambiguous_harvested": true,
+  "ambiguous_mean": 0.1,
+  "clean_pairs_correctly": true,
+  "clean_survives_the_skip": true
+ },
+ "null_summary_nodes_skipped": [
+  "r01:<root>",
+  "r43:axes.age",
+  "r43:axes.ai_usage",
+  "r43:axes.country",
+  "rZZ:null_only"
+ ],
+ "n_null_summary_nodes_skipped": 5,
  "contrasts": [
-  {
-   "round": "r01",
-   "file": "rounds/r01_rater_structure/results/a01_rater_structure.json",
-   "path": "<root>",
-   "mean": 0.0022974697186539934,
-   "ci95": [
-    -0.014304056340866629,
-    0.01520261732204111
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
-   "delta_hat": 0.0022974697186539934,
-   "equivalent": null,
-   "significant": false,
-   "sound": true,
-   "cell": "UNVERIFIED"
-  },
   {
    "round": "r06",
    "file": "rounds/r06_rule_tournament/results/a06_rule_tournament.json",
@@ -1661,24 +1664,6 @@
   {
    "round": "r43",
    "file": "rounds/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
-   "path": "axes.country",
-   "mean": 0.21722852721176167,
-   "ci95": [
-    0.20866004642765024,
-    0.2246582409079185
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": 0.21722852721176167,
-   "equivalent": false,
-   "significant": true,
-   "sound": true,
-   "cell": "real and material"
-  },
-  {
-   "round": "r43",
-   "file": "rounds/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
    "path": "axes.country.weight_specificity.[0]",
    "mean": null,
    "ci95": [
@@ -1817,24 +1802,6 @@
   {
    "round": "r43",
    "file": "rounds/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
-   "path": "axes.ai_usage",
-   "mean": 0.21583991683991685,
-   "ci95": [
-    0.20807692307692308,
-    0.22474532224532226
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": 0.21583991683991685,
-   "equivalent": false,
-   "significant": true,
-   "sound": true,
-   "cell": "real and material"
-  },
-  {
-   "round": "r43",
-   "file": "rounds/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
    "path": "axes.ai_usage.weight_specificity.[0]",
    "mean": null,
    "ci95": [
@@ -1969,24 +1936,6 @@
    "significant": false,
    "sound": true,
    "cell": "no material effect"
-  },
-  {
-   "round": "r43",
-   "file": "rounds/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
-   "path": "axes.age",
-   "mean": 0.2033193186718413,
-   "ci95": [
-    0.19448037947391117,
-    0.2108721431651574
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": 0.2033193186718413,
-   "equivalent": false,
-   "significant": true,
-   "sound": true,
-   "cell": "real and material"
   },
   {
    "round": "r43",
@@ -3521,5 +3470,5 @@
   }
  ],
  "scope": "delta=0.01 is STIPULATED, not measured. An equivalence verdict inherits the estimator of the round it came from. UNVERIFIED contrasts published no raw vector and are unresolved, not clean.",
- "verdict": "SCOPE, NOT SIGNIFICANCE: the package holds 170 interval contrasts and r42 tested 21 of them (12%), because its population was a hand-written list of four rounds rather than an enumeration. Classifying all 170 at delta=0.01: 90 real and material, 13 real but negligible, 24 no material effect, 10 INCONCLUSIVE, 27 UNVERIFIED. 10 of the inconclusive contrasts sit OUTSIDE r42's four rounds and so had never been equivalence-tested. UNVERIFIED means the round published a mean and a 95% CI but no raw paired vector, so the 90% CI required for TOST cannot be recovered -- that is an absence of evidence and is NOT folded into any pass. r42's own verdict is unchanged ON ITS OWN 21 CONTRASTS; what is corrected is the sentence that made it a claim about this package. delta=0.01 remains STIPULATED, and the sweep shows 37 contrasts equivalent at that margin versus 105 at 0.05 and 9 at 0.0025."
+ "verdict": "SCOPE, NOT SIGNIFICANCE: the package holds 166 interval contrasts and r42 tested 21 of them (13%), because its population was a hand-written list of four rounds rather than an enumeration. Classifying all 166 at delta=0.01: 87 real and material, 13 real but negligible, 24 no material effect, 10 INCONCLUSIVE, 26 UNVERIFIED. 10 of the inconclusive contrasts sit OUTSIDE r42's four rounds and so had never been equivalence-tested. UNVERIFIED means the round published a mean and a 95% CI but no raw paired vector, so the 90% CI required for TOST cannot be recovered -- that is an absence of evidence and is NOT folded into any pass. r42's own verdict is unchanged ON ITS OWN 21 CONTRASTS; what is corrected is the sentence that made it a claim about this package. delta=0.01 remains STIPULATED, and the sweep shows 37 contrasts equivalent at that margin versus 104 at 0.05 and 9 at 0.0025."
 }
