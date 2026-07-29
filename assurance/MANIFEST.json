@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T13:40:50.248654+00:00",
- "git": "ebaa2aff46e8a607bf47f8c0b6652db51e9fac14",
+ "generated_utc": "2026-07-29T13:54:35.985256+00:00",
+ "git": "8b2c44153044e591825fa8d5b522874ffc975755",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -260,8 +260,8 @@
    "sha256": "9db1de5603f715c648e3ceee9b967e10559fca37a9cccb49834e6b6356762f4d"
   },
   "rounds/r58_equivalence_census/run.py": {
-   "bytes": 17030,
-   "sha256": "a98405ca1b92555018cfc36cc485c00c75c7eaa4ce8da11c937c765b4a8ac0ba"
+   "bytes": 21041,
+   "sha256": "380e56e9085a997eb3eb00850b77e29562c9f228fa2cde7b453bcfd61f0a46cc"
   },
   "rounds/r59_criterion_influence/run.py": {
    "bytes": 16014,
@@ -424,8 +424,8 @@
    "sha256": "20349c6fd6fff0d4a112bb71621dc268e8b2d8645c1fab8cb82b0d9823308997"
   },
   "rounds/r99_harvester_pairing/run.py": {
-   "bytes": 11180,
-   "sha256": "4bb71800d29647d8435111d615bbd432e7897c24c7184832163cd62b99c8de43"
+   "bytes": 12918,
+   "sha256": "ec72408ee7f8edf50651e8eb098411cb4d7dd1f7debdcd71ffadb2364d5bc949"
   },
   "assurance/apply_freeze_status.py": {
    "bytes": 4855,
@@ -1454,8 +1454,8 @@
    "sha256": "1122cd0f851bd7d5bffd803e7b9ea14909cd65b8def80e8d23a34d39dea55df4"
   },
   "rounds/r58_equivalence_census/results/r58_equivalence_census.json": {
-   "bytes": 93111,
-   "sha256": "79d87948895670fa67ed3385e1e3e513f94f371545d9d6adbd938c2ecf50fa1d"
+   "bytes": 91653,
+   "sha256": "d318c4fabb8e7f5440ce1a1d7d1e09a034e365a72d99bcd7607cd34bd6caaed1"
   },
   "rounds/r59_criterion_influence/results/r59_criterion_influence.json": {
    "bytes": 3401,
@@ -1618,8 +1618,8 @@
    "sha256": "715eb669169fd8e191091386026d060bb1d8d90d9b9710eec933b6511292fdd0"
   },
   "rounds/r99_harvester_pairing/results/r99_harvester_pairing.json": {
-   "bytes": 11931,
-   "sha256": "5eb2525a1fe22b3d1940a26076d4ef47ceaea4c6043ae4e920dcb84086cc4ecb"
+   "bytes": 7983,
+   "sha256": "8693849769962cceba57a2bdaca2609d9920462a0a2e49a33f79e0fb2ebca815"
   }
  },
  "claims": [
