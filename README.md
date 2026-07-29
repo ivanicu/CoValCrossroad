@@ -156,6 +156,21 @@ first mechanism-bearing lead this project has for r12.
 Its correlation with generic embedding distance is **−0.056**, so r40 could not have seen it, and
 r40 cannot corroborate it either.
 
+**It is not a property of one judge.** The effect is *measured by* a judge, so "is this qwen
+rather than the rubric?" is a live alternative — and an out-of-sample test over new prompts
+cannot answer it, because that holds the instrument fixed. phi-3.5-mini scoring the **same**
+prompts varies the instrument instead:
+
+| lineage | spread loss → drop (length-controlled) | donor arm alone |
+|---|---:|---:|
+| qwen3.5-2B | **+0.2309** [+0.107, +0.343] | −0.0351 (ns) |
+| phi-3.5-mini | **+0.1724** [+0.040, +0.295] | +0.0297 (p = 0.64) |
+
+Both recover it, both donor arms stay null — and the two lineages agree with **each other** only
+at **+0.4088**. These are substantially different measurements of the same quantity, which makes
+their agreement on the outcome stronger evidence than it would be if they tracked each other
+closely.
+
 The round still earns its cost. Criterion space correlates with generic embedding distance at
 only **+0.25** and **+0.19** — roughly 5% shared variance — so this was a genuinely different
 axis and it is now checked rather than assumed. And **two unrelated judge lineages disagree
