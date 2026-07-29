@@ -268,7 +268,13 @@ difference would not move. Both arms had been persisted:
 
 They move together and only the own-rubric arm predicts the drop. Not mechanical.
 
-**STATUS UPDATED 2026-07-28: NOT REPLICATED — downgraded to a single-sample artifact.**
+**STATUS UPDATED 2026-07-28: NOT REPLICATED — the claimed magnitude is withdrawn.**
+⚠ *Sharpened again after r57/entry 55:* "single-sample artifact" was itself too strong. The
+held-out estimate, corrected for the outcome's measured reliability, is **+0.076 [−0.105, +0.260]**
+— which excludes the discovery magnitude but is consistent with a *moderate* real effect. What
+failed is the preregistered size, not the existence of any effect. The distinction matters because
+the two licence different next steps.
+
 r46 committed a numeric prediction to git (`ecf3576`), then tested the effect on 250 prompts
 nothing in this project had touched. Predicted `r ∈ [+0.12, +0.34]` with the CI excluding zero;
 observed **+0.0496 [−0.068, +0.169]**, p = 0.44. That is the declared NOT REPLICATED branch.
@@ -560,6 +566,47 @@ choice. This is the same failure applied to a **conclusion drawn across rounds**
 aggregated into a claim about the world without anyone asking whether the shared outcome variable
 could have detected the thing being ruled out. The aggregate was weaker than any of its parts
 looked.
+
+## Entry 56 — "six mechanisms failed" resolves into three different kinds of failure
+
+Entry 55 established the outcome's reliability caps every per-prompt search. It stopped there,
+leaving six results as undifferentiated nulls. Dividing each observed correlation by
+√(outcome reliability) turns them into bounded statements — and they do not all say the same thing.
+
+| round | mechanism | observed | disattenuated (lower bound) |
+|---|---|---:|---:|
+| r40 | generic NN distance | −0.125 | −0.228 |
+| r41 | criterion-space NN | −0.083 [−0.188, +0.028] | −0.151 [−0.342, +0.051] |
+| r41 | hull violation | −0.184 [−0.275, −0.082] | **−0.334 [−0.501, −0.149]** |
+| r41 | rank instability | +0.199 [+0.065, +0.333] | **+0.363 [+0.119, +0.606]** |
+| r41 | spread loss (discovery) | +0.231 [+0.105, +0.344] | **+0.420 [+0.192, +0.626]** |
+| r46 | spread loss (HELD OUT) | +0.050 [−0.068, +0.169] | +0.076 [−0.105, +0.260] |
+| r54 | mean lexical overlap collapse | −0.074 [−0.206, +0.061] | −0.134 [−0.375, +0.111] |
+| r55 | lexical selectivity collapse | +0.007 [−0.122, +0.141] | +0.012 [−0.222, +0.257] |
+
+Disattenuation divides by √reliability of the **outcome** only. The covariates' own reliabilities
+are unmeasured, so every figure is a **lower bound** on the true correlation.
+
+**The three kinds:**
+
+**1. Conclusions resting on a tight DIRECT estimate — these hold.** r55's argument was never the
+correlation; it was that lexical selectivity does not collapse *at all* (+0.0002, equivalent to
+zero at δ = 0.01). A tightly-bounded quantity does not need the outcome to be reliable, because
+nothing is being correlated. r47's length residualisation and r55's equivalence are in this class.
+
+**2. Conclusions resting on an underpowered CORRELATION — much weaker than I reported.** r40,
+r41's criterion-space NN, r54 and r56's held-out value all have disattenuated intervals spanning
+from meaningfully negative to meaningfully positive. Calling these "ruled out" was wrong.
+
+**3. Conclusions that failed a PREREGISTERED replication — the magnitude dies, the effect may
+not.** Entry 48 and r56 both failed their declared intervals, which no amount of power correction
+undoes. But "failed to replicate at the claimed size" is not "shown absent", and I had been
+writing the second. Entry 48's status is corrected above.
+
+**What this costs.** My repeated summary that "every computational mechanism has failed" was a
+class-1 statement made about a set that is mostly class 2 and 3. The strongest honest version:
+**no mechanism with a large true per-prompt correlation survives, two specific mechanisms failed
+at their claimed magnitudes, and moderate effects are uniformly undetectable in this design.**
 
 ## The pattern
 
