@@ -147,17 +147,22 @@ number.** [r57](rounds/r57_outcome_reliability) measured the per-prompt attribut
 reliability at **0.302 / 0.422**. Each correlational row's own published interval gives its own
 detection floor — the smallest |r| it could have separated from zero:
 
-| row | published 95% half-width | disattenuated floor (rel 0.422 → 0.302) |
-|---|---:|---:|
-| 3 · generic distance (r40) | 0.0988 | 0.152 → 0.180 |
-| 4 · criterion-space support (r41) | 0.1010 | 0.155 → 0.184 |
-| 5 · spread loss, held out (r46) | 0.1175 | 0.181 → 0.214 |
-| 10 · overlap transfer (r54) | 0.1336 | 0.206 → 0.243 |
+| row | half-width | floor, predictor assumed perfect | **floor, predictor reliability measured** |
+|---|---:|---:|---:|
+| 3 · generic distance (r40) | 0.0988 | 0.180 | **0.222** ⚠ |
+| 4 · criterion-space support (r41) | 0.1010 | 0.184 | **0.227** |
+| 5 · spread loss, held out (r46) | 0.1175 | 0.214 | **0.264** |
+| 10 · overlap transfer (r54) | 0.1336 | 0.243 | **0.300** |
 
-**Derived from each row's own CI, not stored anywhere** — half-width ÷ √(outcome reliability), taking
-the predictor as perfectly reliable, so every figure is a **lower bound on the true floor**. The
-shared "≈0.2" of [entry 55](RETRACTIONS.md) sits mid-band and hides a **1.35× spread across rows**;
-r54 could not have detected a true correlation below ≈0.21 even in the optimistic case.
+*(at r57's pessimistic outcome reliability, 0.302)*
+
+**[r67](rounds/r67_predictor_reliability) measured the missing term.** The middle column takes the
+**predictor** as perfectly reliable — stated as a lower bound when it was published. Splitting each
+prompt's criteria 2-2 and recomputing gives a Spearman-Brown reliability of **0.657**, which
+multiplies every floor by **1.23×**. So **r54 could not have detected a true correlation below
+≈0.30**, and *"the overlap channel does not explain r12"* rules out considerably less than it sounds
+like. ⚠ r40's predictor is an embedding distance whose embeddings are **not persisted**, so its
+corrected figure uses the mean of the two measurable predictors — an assumption, not a measurement.
 
 **Those rows say "not detected above their own floor", not "absent".** Rows 1, 2, 6, 11 and 13 rest
 on tightly-bounded contrasts rather than correlations and do not inherit this limit.
@@ -1151,6 +1156,7 @@ not from estimation noise, so no further computation narrows it.
 | [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **no.** Hull violation −0.1837 and rank instability +0.1993 die to the discriminating-power control; spread loss looked like it survived at +0.2309 but **failed to replicate** (r46). Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly. ⚠ Its own caveat: `z_R` is produced by **the same judge whose off-distribution validity is unestablished**, so this round **cannot separate** "new normative territory" from the judge behaving incoherently on fresh responses |
 | — | **What the six searches actually establish** | see [entry 56](RETRACTIONS.md): disattenuated, they split three ways — conclusions on tight *direct* estimates hold (r47, r55), conclusions on *correlations* are much weaker than reported (r40, r41, r54), and two failed *preregistered* replications at their claimed magnitude without being shown absent (entry 48, r56) |
 | [r57](rounds/r57_outcome_reliability) | Could those searches have found anything? | **only large effects.** The per-prompt attribution drop has split-half reliability **0.302 / 0.422** across two samples, so observed correlations are attenuated by ~0.55–0.65. At n=250 the smallest *true* correlation distinguishable from zero is **≈0.2** — every "no mechanism" result is bounded by that (entry 55) |
+| [r67](rounds/r67_predictor_reliability) | How reliable are the predictors behind the "refuted" rows? | **0.657 Spearman-Brown**, so every detection floor in the exhaustion ledger **multiplies by 1.23×**. Split-half on a prompt's criteria, 2-2, 241 prompts (9 excluded for K<4); controls: self-correlation 1.0000, shuffled half +0.0992. r54's floor becomes **0.300** — it could not have seen a true r of 0.3. ⚠ r40's embedding predictor is **unmeasured** (embeddings not persisted) and uses the mean of the other two |
 | [r66](rounds/r66_r56_reconstruction) | Can r56's preregistered failure be recomputed? | **no, and r56 has no code in this repository.** `rounds/r56_semantic_selectivity/` has held only `PREDICTION.md` in every commit it has ever appeared in; its CI bounds **0.1592** and **0.2880** appear in no artifact anywhere. Reconstructing from the persisted tensors gives discovery **+0.0365** vs published +0.1806 and held-out **+0.0985** vs +0.0198 — **neither reproduces**, so by this round's pre-declared null it is **UNVERIFIED about r56, not a refutation**. ⚠ r56's *conclusion* survives: the recomputed held-out CI **[−0.0188, +0.2124] includes zero**, failing its own preregistered criterion. ⚠ This reconstructs a **number** and does not re-adjudicate whether the quantity was worth measuring |
 | [r56](rounds/r56_semantic_selectivity) | Does semantic selectivity collapse explain the drop? | **NOT REPLICATED** (+0.1806 discovery → +0.0198 held out, predicted [+0.06,+0.30] with CI excluding zero). ⚠ **No code and no results file exist for this round** — the numbers live in commit `664c568`, `PREDICTION.md` and RETRACTIONS prose only, and [r66](rounds/r66_r56_reconstruction) could not recompute them |
 | [r65](rounds/r65_edit_symmetry_floor) | Can τ_c's two arms be the same kind of edit? | **not for at least 18.62% of core criteria** — they carry a **deontic prohibition** (*"do not X"*), so satisfying is an **absence** and violating a **presence**, and the arms must insert categorically different content. ⚠ **A floor only**, and squeezed from both sides: a looser negation regex gives 21.31%, but its **105** extra matches are affirmative criteria with an incidental negation (*"Explain that… has **no** effect"*), while an affirmative surface still does not imply a symmetric edit. The null is its own finding — `coval_full`, **not** polarity-rewritten, sits at **12.85%**, so core is **1.45×** as prohibitive as the set it was compiled from: r44's +0.0733 rewrite changes **weights, not wording**. Upholds [ADVERSARY_FORECAST](ADVERSARY_FORECAST.md) objection 3 |

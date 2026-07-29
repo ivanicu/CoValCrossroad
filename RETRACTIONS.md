@@ -2681,6 +2681,42 @@ measurement whose result is known in advance to agree with what is already writt
 ceremony attached. The band is now in the ledger, derived in place, with its own bound stated, and
 there is no r67.
 
+## Entry 109 — the term entry 108 left out was worth 1.23×, and r54's refutation could not have seen r = 0.3
+
+Entry 108 published per-row detection floors and stated plainly that each takes the **predictor** as
+perfectly reliable, making every figure a lower bound. It also declined to build a round whose answer
+was already known. **This is the round whose answer was not**: if the predictors were as noisy as the
+outcome, those five refutations would rule out almost nothing.
+
+**Measured: Spearman-Brown reliability 0.657**, from splitting each prompt's criteria 2-2 and
+recomputing the quantity on each half — spread loss +0.6512, criterion-space geometry +0.6629, over
+241 prompts with 9 excluded for having fewer than four criteria. Controls first: self-correlation
+**1.0000**, one half against a shuffled other half **+0.0992**.
+
+**Neither extreme world.** Not A (>0.7, floors barely move), not B (≈0.35, floors double). **World C:
+floors multiply by 1.23×.**
+
+| row | published as a lower bound | measured |
+|---|---:|---:|
+| 3 · generic distance (r40) | 0.180 | **0.222** |
+| 4 · criterion-space support (r41) | 0.184 | **0.227** |
+| 5 · spread loss, held out (r46) | 0.214 | **0.264** |
+| 10 · overlap transfer (r54) | 0.243 | **0.300** |
+
+**r54 could not have detected a true correlation of 0.30.** Its verdict — *"the mechanism is real and
+does not explain r12"* — is a real result about a real causal channel, and what it rules out is
+mechanisms above 0.30, not mechanisms in general. That row has been the strongest-sounding refutation
+in the ledger and is the weakest test in it.
+
+**What r67 does not measure, and says so.** r40's predictor is an embedding distance and the
+embeddings were never persisted, so its reliability is **unmeasured**; its corrected floor borrows
+the mean of the two that could be measured. That is an assumption wearing a number, flagged in the
+round, the row and the ledger.
+
+**Entry 108 declined a round because its answer was known; this one earned its place because it was
+not.** The distinction is the whole content of both entries: 0.657 was not predictable from anything
+already written, and it changed four published figures.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
