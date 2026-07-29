@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T14:21:27.543494+00:00",
- "git": "99c1b73c10dd66fdd6078f9abcc0cd822a4821a2",
+ "generated_utc": "2026-07-29T14:23:40.867971+00:00",
+ "git": "be39c84695fd30402fdc9c493a8a58247a84117f",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -476,8 +476,8 @@
    "sha256": "c2d4dd37e8365b342a701f7c5a33b18a514bbca354bf5c4994fca755b1d77ead"
   },
   "assurance/frozen_frame_verifies.py": {
-   "bytes": 6886,
-   "sha256": "06618aec89f3b413f530f60f2975579514b3b4afe7a67d9e47a171f1125792ff"
+   "bytes": 8462,
+   "sha256": "04f03139e330951545d5c367c34dd65ffd054d02712529be0c896eeaabeb9c36"
   },
   "assurance/manifest.py": {
    "bytes": 35635,
