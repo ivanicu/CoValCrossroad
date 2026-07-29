@@ -156,6 +156,8 @@ detection floor — the smallest |r| it could have separated from zero:
 
 *(at r57's pessimistic outcome reliability, 0.302)*
 
+**The other half of every floor was audited too, and it holds.** Each floor divides by `rel_predictor × rel_outcome`, and the outcome term is [r57](rounds/r57_outcome_reliability)'s single number applied to all four rows — the same shape as the predictor mistake above. It is legitimate here: r40, r41, r46 and r54 all correlate against **the same quantity r57 measured**, the per-prompt attribution drop, and each row's half-width comes from that round's *raw* arm, not a partialled one. One imprecision found and not worth a correction: row 4's verdict (*confounded*) is carried by r41's length-and-spread-controlled arm, half-width **0.1028**, while the table used the raw arm's **0.1010** — a floor of 0.231 rather than 0.227. The rule it illustrates is worth more than the number: **a floor must be read off the arm that carries the verdict.**
+
 **[r67](rounds/r67_predictor_reliability) measured the missing term.** The middle column takes the
 **predictor** as perfectly reliable — stated as a lower bound when it was published. Splitting each
 prompt's criteria 2-2 and recomputing gives a Spearman-Brown reliability of **0.657**, which
