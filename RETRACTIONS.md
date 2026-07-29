@@ -7166,3 +7166,41 @@ total now, all caught, baseline and restore clean.**
 **Why these belong beside the hashes:** they are the same kind of statement — **arithmetic over stated
 values, no reading required.** The frame declares a stratified design; either the numbers in it are that
 design or they are not, and 250 either falls out of the weights or it does not.
+
+---
+
+## Entry 204 — "unverifiable" was wrong: the cell boundaries are unstored, which is a different thing
+
+Entry 203 closed by saying the frame's four cells cross disagreement with distance but **the boundaries
+are not stored, "so which threshold produced the split is unverifiable from the file."**
+
+**Unstored, yes. Unverifiable, no.** The frame stores every prompt's `distance`, `disagreement` *and*
+its cell. If the 2×2 is a threshold split, then on each axis **max(low) < min(high)** — and the
+boundary is recoverable to the interval between them.
+
+| axis | low group | high group | separable | boundary lies in |
+|---|---|---|---|---|
+| **disagreement** | n=30, max **0.000000** | n=30, min **0.166667** | **yes** | (0.000000, 0.166667) |
+| **distance** | n=30, max 3.260241 | n=30, min 3.320338 | **yes** | (3.260241, 3.320338) |
+
+**Both axes separate cleanly**, so the labels *are* a threshold cross and the design is what it claims.
+
+**And the disagreement axis is sharper than "low vs high" suggested:** every one of the 30 low-disagreement
+prompts sits at **exactly zero**. The split is *no disagreement at all* versus some — a fact about the
+frame that neither the file nor the preregistration states, and that a reader would otherwise have to
+assume was a median cut.
+
+### The distinction is worth keeping
+
+**Unstored** means a reader cannot look the value up. **Unverifiable** means no evidence in the artifact
+bears on it. I conflated them, and the difference is exactly one arithmetic step: *a partition claimed to
+be a threshold split is checkable against the values it partitions, whether or not the threshold itself
+was written down.*
+
+**Folded into the guard**, which now fails if either axis's groups overlap — because that would mean the
+labels correspond to no threshold on the stored values, and the strata the sampling weights assume are
+not the strata present.
+
+**Attacked by swapping two prompts across the distance boundary** and giving each the other's correct
+cell weight — so every earlier check still passes and only separability breaks. **Caught.** Eight
+vectors now, all caught.

@@ -94,6 +94,26 @@ def main() -> int:
           f"{ {k: round(v) for k, v in strata.items()} }")
     print(f"  responses per prompt (orig, fresh) : {resp_shape}")
 
+    # ---- the cell labels must BE a threshold cross ------------------------------
+    # The boundaries are not stored, but they are recoverable: if the 2x2 is a threshold
+    # split on the stored `distance` and `disagreement`, then max(low) < min(high) on
+    # each axis. If the groups overlap, the labels do not correspond to any threshold on
+    # the values in the file, and the strata the weights assume are not the strata
+    # present. Entry 203 called this unverifiable; it is not -- it is unstored, which is
+    # a different thing (entry 204).
+    axes = {}
+    for axis, low, hi in (("disagreement", "low_disagree", "high_disagree"),
+                          ("distance", "low_dist", "high_dist")):
+        L = [r[axis] for r in rows if low in r["cell"]]
+        H = [r[axis] for r in rows if hi in r["cell"]]
+        axes[axis] = {"n_low": len(L), "n_high": len(H), "max_low": max(L), "min_high": min(H),
+                      "separable": max(L) < min(H)}
+        a = axes[axis]
+        print(f"  {axis:<13} threshold-separable: {a['separable']}"
+              + (f"  boundary in ({a['max_low']:.6f}, {a['min_high']:.6f})" if a["separable"]
+                 else f"  OVERLAP {a['max_low'] - a['min_high']:+.6f}"))
+    unsep = [k for k, v in axes.items() if not v["separable"]]
+
     bad_r = [(r["pid"], arm, i) for r in rows for arm in ("original", "fresh")
              for i, x in enumerate(r[arm]) if sha(x["text"]) != x["sha256"]]
     bad_p = [r["pid"] for r in rows if sha(r["prompt_text"]) != r["prompt_sha256"]]
@@ -133,6 +153,11 @@ def main() -> int:
         fail = 1
         print(f"\nFINDING: prompts differ in response counts {resp_shape}; the frame is not the "
               f"balanced 4-original/4-fresh design it declares.")
+    if unsep:
+        fail = 1
+        print(f"\nFINDING: on {unsep} the cell labels are NOT separable by any threshold on the "
+              f"stored values -- the groups overlap. The strata the sampling weights assume are "
+              f"not the strata present in the file.")
     if n_leaves != n_resp + len(rows):
         fail = 1
         print(f"\nFINDING: {n_leaves} leaves against {n_resp} responses + {len(rows)} prompts.")
