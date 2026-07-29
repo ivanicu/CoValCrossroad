@@ -19,8 +19,16 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import re
 import sys
 from pathlib import Path
+
+# A provisional run is not a result. Matching one WORD failed twice: once on
+# case (a04_smoke.json, entry 71) and once on vocabulary (a06_dryrun.json,
+# entry 75). Match the class, and prefer the results/_smoke/ directory rule,
+# which does not depend on the name at all.
+PROVISIONAL = re.compile(r"smoke|dry[_-]?run|draft|scratch|trial|pilot|prelim|wip",
+                         re.I)
 
 _ROOT = Path(__file__).resolve().parents[1]
 FIELD = "outcome_variable_scope"
@@ -55,7 +63,7 @@ def main() -> int:
             continue
         scope = load_constant(run, "OUTCOME_SCOPE")
         files = [f for f in d.glob("results/**/*.json")
-                 if "smoke" not in f.name.lower() and "_smoke_archive" not in f.parts]
+                 if not PROVISIONAL.search(f.name) and "_smoke_archive" not in f.parts]
         if not files:
             print(f"  ! {d.name}: OUTCOME_SCOPE declared but no results file to stamp")
             continue

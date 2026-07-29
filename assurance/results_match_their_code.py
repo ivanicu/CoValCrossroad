@@ -43,8 +43,16 @@ a gate would push those edits toward not being made. It prints what to check.
 from __future__ import annotations
 
 import argparse
+import re
 import subprocess
 from pathlib import Path
+
+# A provisional run is not a result. Matching one WORD failed twice: once on
+# case (a04_smoke.json, entry 71) and once on vocabulary (a06_dryrun.json,
+# entry 75). Match the class, and prefer the results/_smoke/ directory rule,
+# which does not depend on the name at all.
+PROVISIONAL = re.compile(r"smoke|dry[_-]?run|draft|scratch|trial|pilot|prelim|wip",
+                         re.I)
 
 _ROOT = Path(__file__).resolve().parents[1]
 
@@ -85,7 +93,7 @@ def main() -> None:
                # SMOKE outputs are excluded everywhere else in this package and
                # were not excluded here, so a stray smoke file made a round look
                # stale. Archived directories likewise.
-               and "smoke" not in f.name.lower()
+               and not PROVISIONAL.search(f.name)
                and not any(part.startswith("_") for part in f.parts)
                # MODEL WEIGHTS are frozen INPUTS, not conclusions. r08's gold
                # head is consumed by r12/r29/r41/r46/r47; re-fitting it would

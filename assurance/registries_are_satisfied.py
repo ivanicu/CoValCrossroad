@@ -38,10 +38,17 @@ _ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(_ROOT))
 from covalx.frozen import REGISTRY as FROZEN  # noqa: E402
 
+# A provisional run is not a result. Matching one WORD failed twice: once on
+# case (a04_smoke.json, entry 71) and once on vocabulary (a06_dryrun.json,
+# entry 75). Match the class, and prefer the results/_smoke/ directory rule,
+# which does not depend on the name at all.
+PROVISIONAL = re.compile(r"smoke|dry[_-]?run|draft|scratch|trial|pilot|prelim|wip",
+                         re.I)
+
 
 def results_of(round_dir: Path):
     return [f for f in round_dir.glob("results/**/*.json")
-            if "smoke" not in f.name.lower() and not any(p.startswith("_") for p in f.parts)]
+            if not PROVISIONAL.search(f.name) and not any(p.startswith("_") for p in f.parts)]
 
 
 def carries(path: Path, marker: str) -> bool:

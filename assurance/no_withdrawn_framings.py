@@ -52,6 +52,13 @@ import re
 import sys
 from pathlib import Path
 
+# A provisional run is not a result. Matching one WORD failed twice: once on
+# case (a04_smoke.json, entry 71) and once on vocabulary (a06_dryrun.json,
+# entry 75). Match the class, and prefer the results/_smoke/ directory rule,
+# which does not depend on the name at all.
+PROVISIONAL = re.compile(r"smoke|dry[_-]?run|draft|scratch|trial|pilot|prelim|wip",
+                         re.I)
+
 _ROOT = Path(__file__).resolve().parents[1]
 
 # EVERY string value is scanned, not a whitelist of field names.
@@ -154,7 +161,7 @@ def main() -> int:
     # the flat glob never saw it.  A checker's population must be the files
     # that exist, not the layout I assumed.
     files = sorted(_ROOT.glob("rounds/*/results/**/*.json"))
-    files = [f for f in files if "_smoke_archive" not in f.parts and "smoke" not in f.name.lower()]
+    files = [f for f in files if "_smoke_archive" not in f.parts and not PROVISIONAL.search(f.name)]
     hits, scanned, fields = [], 0, 0
     excluded = {}
     for f in files:

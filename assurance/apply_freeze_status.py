@@ -21,12 +21,20 @@ Idempotent: a second run changes nothing.
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
 _ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(_ROOT))
 from covalx.frozen import REGISTRY  # noqa: E402
+
+# A provisional run is not a result. Matching one WORD failed twice: once on
+# case (a04_smoke.json, entry 71) and once on vocabulary (a06_dryrun.json,
+# entry 75). Match the class, and prefer the results/_smoke/ directory rule,
+# which does not depend on the name at all.
+PROVISIONAL = re.compile(r"smoke|dry[_-]?run|draft|scratch|trial|pilot|prelim|wip",
+                         re.I)
 
 SEP = " || "
 
@@ -39,7 +47,7 @@ def main() -> int:
             print(f"  ! {round_dir}: no such round -- SKIPPED, and skipped is unstamped")
             continue
         files = [f for f in d.glob("results/**/*.json")
-                 if "smoke" not in f.name.lower()
+                 if not PROVISIONAL.search(f.name)
                  and not any(p.startswith("_") for p in f.parts)]
         for f in files:
             try:

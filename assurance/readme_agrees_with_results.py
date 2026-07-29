@@ -70,6 +70,10 @@ from pathlib import Path
 
 _ROOT = Path(__file__).resolve().parents[1]
 
+# A provisional run is not a result. This check had NO name filter at all and
+# relied on its non-recursive glob, which a06_dryrun.json -- written straight
+# into results/ -- defeated for the life of the round (entry 75).
+PROVISIONAL = re.compile(r"smoke|dry[_-]?run|draft|scratch|trial|pilot|prelim|wip", re.I)
 NUM = re.compile(r"[-+]?\d+(?:,\d{3})*(?:\.\d+)?%?")
 ROUND_LINK = re.compile(r"rounds/(r\d+)_[a-z0-9_]+")
 # A round named in plain text -- "r06's 0.6575 arm", "found in r02". Prose names
@@ -150,6 +154,8 @@ def main() -> None:
 
     pools: dict[str, set[float]] = {}
     for f in sorted(_ROOT.glob("rounds/*/results/*.json")):
+        if PROVISIONAL.search(f.name):
+            continue
         rid = f.parts[-3].split("_")[0]
         pools.setdefault(rid, set())
         try:

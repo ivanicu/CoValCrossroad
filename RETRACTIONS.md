@@ -1390,6 +1390,34 @@ now "participant-blind", with the design coupling stated where a reader meets th
 **What this costs.** The package's nearest approach to S_pre is weaker than it read. S_pre remains
 what r48 already said it was: **unreachable from this release.**
 
+## Entry 75 — entry 71 fixed the spelling and the next provisional file used a different word
+
+Entry 71 made the smoke filter case-insensitive and concluded: *"a filter is a scope claim, and a
+case-sensitive filter is a scope claim about spelling."* The conclusion was right and the fix was
+still one word wide.
+
+**`a06_dryrun.json`** sits in `rounds/r06_rule_tournament/results/`. Its name contains no form of
+"smoke", so it survived entry 71's fix and was in the results pools **at the moment that entry was
+written**. It reports rule accuracies of **~0.115** where the real run reports **~0.657** — a dry
+run whose numbers are nothing like the round's.
+
+Found by auditing the rounds that have never had a limitation recorded anywhere, not by any check.
+
+**Two fixes, and only the second is real.**
+
+  * every filter now matches a **class** — `smoke|dry[_-]?run|draft|scratch|trial|pilot|prelim|wip`
+  * the artifact is moved to **`results/_smoke/`**, excluded by the leading-underscore rule, which
+    does not depend on the name at all
+
+The pattern is belt and braces. **Naming is what keeps failing** — twice now — so the exclusion that
+survives is the one keyed to location.
+
+**And one check had no name filter at all.** `readme_agrees_with_results.py` relied entirely on its
+non-recursive `results/*.json` glob, which `a06_dryrun.json` defeated by being written straight into
+`results/`. Verified end to end: a planted `a06_dryrun2.json` no longer reaches r06's float pool.
+
+**The audit that found it also found two unscoped rows** — see entry 76.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
