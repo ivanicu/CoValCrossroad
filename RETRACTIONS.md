@@ -4074,6 +4074,15 @@ claims for the life of the round.
 95% is *wider*, so equivalence established on it holds a fortiori. The margin is thin — **0.0003** to
 spare on the tighter side — and the verdict states that rather than rounding it away.
 
+**⚠ CORRECTION from [r81](rounds/r81_stated_signal_by_length): the split below is in the NULL, not
+in the effect.** This entry called it *"two subpopulations that do not behave alike"*. Tested against
+**each stratum's own** permuted null, they behave alike: longer **+0.0005** [−0.0101, +0.0111], shorter
+**+0.0033** [−0.0083, +0.0148], difference of differences **−0.0028** [−0.0180, +0.0120]. The *nulls*
+split 0.5133 / 0.4870 — a **different person's** stated text also predicts better when the top pick is
+longer, because longer text shares more vocabulary with anything. **A raw split against a common
+baseline is not a split in the effect**, and I read one as the other. The warning was right to be
+raised and wrong in what it implied.
+
 **And the recomputation surfaced something the old verdict hid entirely.** The top pick is the longer
 response in **55.5%** of judgements, and the hit rate splits **0.5138** when the top pick is longer
 against **0.4903** when it is shorter — a gap of **+0.0235**, more than ten times the aggregate
@@ -4089,3 +4098,44 @@ immediately demanded the document catch up.
 **Method, not typing.** `build_verdict` is a pure function of the stored quantities with a
 `--reverdict` path, following r12's pattern. No data was re-read and no number changed — what changed
 is that the conclusion now states them.
+
+## Entry 140 — I flagged a split ten times the effect, tested it, and it was a split in the null
+
+**Entry 139 raised it and resolved nothing.** Recomputing r03's verdict surfaced that the top pick is
+the longer response in 55.5% of judgements and the hit rate splits **0.5138** against **0.4903** — a
+gap of **+0.0235**, more than ten times r03's aggregate difference of +0.0017. I wrote it into the
+verdict, the README row and the entry, called it *"two subpopulations that do not behave alike"*, and
+tested it in none of them.
+
+**Tested, each stratum against its own permuted null:**
+
+| stratum | n | hit | its own null | difference | 95% CI (annotator-clustered) |
+|---|---:|---:|---:|---|---|
+| ALL | 11,327 | 0.5033 | 0.5016 | +0.0017 | [−0.0060, +0.0097] — **equivalent at δ=0.01** |
+| top pick **longer** | 6,290 | 0.5138 | **0.5133** | **+0.0005** | [−0.0101, +0.0111] |
+| top pick **shorter** | 5,037 | 0.4903 | **0.4870** | **+0.0033** | [−0.0083, +0.0148] |
+
+Difference of differences: **−0.0028** [−0.0180, +0.0120] — covers zero.
+
+**The nulls split too, and that is the whole answer.** A **different person's** stated text also
+"predicts" better when the top pick is longer (0.5133 vs 0.4870), because longer text shares more
+vocabulary with anything. The +0.0235 was a difference in *chance level*, not in prediction. **A raw
+split against a common baseline is not a split in the effect** — and computing each stratum's null
+within the stratum is what separates them. A pooled null would have imported the other stratum's
+baseline and manufactured exactly the finding I was worried about.
+
+**Equivalence turns out to be n-dependent, which is worth stating plainly.** The aggregate clears
+δ=0.01; **neither half does**, because splitting halves the sample and widens both intervals past the
+margin. That is not a contradiction — it is what a practical-equivalence claim means, and it is a
+reason to report the n alongside every such claim rather than the verdict alone.
+
+**The round's first version was measuring a different quantity, and had no control to catch it.** It
+scored ties as misses where r03 scores them **0.5**, giving an aggregate hit rate of **0.1943** against
+r03's stored **0.5033** — and I nearly read stratified numbers off it. There was no rebuild control
+until it failed. Added: the ALL stratum must reproduce r03's stored hit rate and difference before any
+stratum is read, and it now matches to 1e-16.
+
+**One false statement about another round's code, corrected in the same pass.** r81's scope note
+originally said r03's interval is judgement-level and therefore not comparable. r03 builds `by_ann` and
+resamples raters — **it already clusters on annotator**. I wrote that about code I had not read, in a
+section whose purpose is to state limits precisely.
