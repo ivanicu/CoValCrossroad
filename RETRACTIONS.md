@@ -488,6 +488,39 @@ criterion population, the space of designs. This is the fifth, and the largest: 
 The common failure is not over-claiming from evidence. It is **not noticing that a fixed part of
 the apparatus was ever a choice.**
 
+## Entry 54 — the last fixed component, interrogated, and it was fine
+
+Entry 53 named the failure behind 49–52: a fixed part of the apparatus stops looking like a
+choice, and then nobody interrogates it. Having named it, the obligation is to finish the list
+rather than to stop at the instances that happened to yield findings.
+
+The remaining component was **the join**. `covalx.load_join` pairs every rubric to a comparison
+record, and every round in the repository is built on that pairing. It has printed the same line
+on each of 52 runs — `{'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}` — and nobody
+had asked what those numbers were.
+
+The stakes were the highest available: a mispaired rubric means criteria scored against responses
+they were never written for, in every downstream round, with no symptom.
+
+**It is fine.**
+
+- both fuzzy pairs differ by a typo and are plainly the same prompt (0.9896: *"should people stop
+  eat beef"* vs *"stop eating beef"*; 0.9903: *"mrna vaccines?"* vs *"mrna vaccines???"*)
+- the 18 unmatched rubrics are **not** excluded by the 0.95 cutoff. Their best available
+  similarity to *any* released prompt has median **0.7727** and max **0.9364** — those prompts are
+  absent from `comparisons.jsonl` rather than narrowly missed. Only one would be recovered even at
+  0.90, and the threshold is therefore not what defines the analysed set
+
+**What the audit produces instead of a defect** is the population statement, which entry 51 shows
+is worth having explicit: **968 of 1,078 released prompts (89.8%)**, the shortfall being 92
+prompts with no rubric record at all plus 18 rubrics whose prompts are not in the comparison file.
+
+**Recorded because a negative audit is a result.** Four of the five components interrogated under
+this pattern produced findings; this one did not, and reporting only the four would make the
+pattern look more damning than the evidence supports. One borderline remains and is named in the
+round's own verdict: the closest unmatched record sits at 0.9364, which a 0.90 cutoff would admit
+and which nothing here proves is a different prompt.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
