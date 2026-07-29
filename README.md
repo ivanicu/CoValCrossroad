@@ -16,6 +16,32 @@ The release ships prompts, four candidate responses, crowd-written value rubrics
 
 ---
 
+## The object, layer by layer
+
+A CoVal rubric is not a value function. It is a **scoped, compiled, context-indexed normative
+measurement program** — `M(R, J, π, Q, P)` — and each layer needs validating separately. This
+table is the project's state; every cell points at the round that settled or failed to settle it.
+
+| layer | what it is | established | **not** established |
+|---|---|---|---|
+| **R** rubric | the criteria and their weights | the own-rubric advantage is **semantic, not lexical** — 97.4% survives faithful paraphrase ([r14](rounds/r14_paraphrase_gauge), [r20](rounds/r20_paraphrase_transfer)). Post-ranking **polarity** carries roughly half the above-chance concordance ([r32](rounds/r32_channel_decomposition), [r36](rounds/r36_channel_shapley)), and it transfers across people even on **private** write-in criteria ([r49](rounds/r49_provenance_crossfit)) | **what the polarity IS.** No rater in the release rated a criterion before seeing four responses, so a response-blind direction is unreachable — that is **S_pre**. Also: r34–r37 and r43 are computed on the **pre-seeded 36.5%** of criteria, not the participant-authored remainder ([entry 51](RETRACTIONS.md)) |
+| **J** judge | the satisfaction instrument | predicts held-out human rankings above chance ([r04](rounds/r04_rebuild_satisfaction)); three unrelated lineages agree in direction ([r39](rounds/r39_feature_cache), [r40](rounds/r40_ood_map)) | **a measured defect, not a gap:** it reads lexical overlap — **+0.2068** correlationally ([r51](rounds/r51_judge_lexical)) and **+0.2507 causally** under intervention ([r52](rounds/r52_overlap_intervention)). Whether that is *error* is unknown: the release has no satisfaction ground truth to set the ceiling. Accuracy on generated responses is unvalidated |
+| **π** protocol | how criteria were elicited and rated | the seed/write-in partition is **exactly identified** — 0.1% in the gap, six pre-seeded per prompt ([r48](rounds/r48_provenance_identified)). Concordance is **robust to post-hoc abstention** ([r35](rounds/r35_polarity_abstention)) | **the forced-choice effect at elicitation time.** The scale runs −10..+10 and 0 appears **once in 102,147 ratings**, so "no general direction" was never available to a participant. Filtering afterwards cannot simulate having had the option |
+| **Q** responses | which response distribution is scored | the own-rubric advantage **does not transfer** to responses the criteria authors never saw — +0.102 → −0.064 ([r12](rounds/r12_response_set)), replicated on 250 untouched prompts at +0.085 → −0.072 ([r46](rounds/r46_spread_replication)) | **whether that is about rubrics or about proxies.** The outcome is a model gold head that reads length (+0.077 → +0.458 across response sets, [r47](rounds/r47_gold_is_length)), and every mechanism tested — generic distance, criterion novelty, spread loss, overlap — has failed or failed to replicate. That is **H_fresh** |
+| **P** population | whose values are measured | no aggregate loss in the splits tested, and **equivalent to zero at δ = 0.01** rather than merely non-significant ([r37](rounds/r37_leakage_topology), [r42](rounds/r42_equivalence)) | **value constituencies.** Country sign-reversals exceed a label-permutation null (+0.0190) but **0 of 17** group tests survive BH correction, with significant results splitting 2 positive / 2 negative — symmetric noise ([r43](rounds/r43_criterion_heterogeneity)). These are demographic proxies, not constituencies |
+
+**What ties the "not established" column together.** Four of the five gaps are the *same three*
+counterfactuals: **S_pre** (R), **H_fresh** (Q), **τ_c** — the causal effect of intervening on one
+criterion, which no observational contrast in this release identifies. π's gap needs a neutral
+option on the screen at elicitation time, which is S_pre's PRE arm. **None of them is computable
+from this release**, and 57 rounds establish that by exhausting the alternatives rather than by
+assertion.
+
+⚠ One cross-cutting scope note that belongs on every row: the per-prompt attribution drop these
+rounds correlate against has **split-half reliability 0.302–0.422** ([r57](rounds/r57_outcome_reliability)),
+so any mechanism with a true per-prompt correlation below ≈0.2 is invisible to all of them
+([entry 55](RETRACTIONS.md)).
+
 ## Headline
 
 Grading responses against **an unrelated prompt's rubric** already recovers most of the apparent signal.
