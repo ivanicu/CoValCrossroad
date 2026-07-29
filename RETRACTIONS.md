@@ -6677,3 +6677,22 @@ it lagged the artifact for two commits, so the staleness is visible rather than 
 
 **The generalisable rule:** *regenerating an artifact is half the change.* The row that quotes it is the
 other half, and nothing in the suite will reliably catch a stale integer.
+
+**⚠ Addendum to entry 193 — swept the other regenerated artifacts; r58 was the only stale row.**
+Five artifacts were regenerated this session (r20, r58, r87, r96, r97). Comparing each row's
+**high-precision** figures (3–4 decimals, where a chance match is 6.9% / 1.9% rather than the 51% that
+let r58's integers through) against its own results file:
+
+| round | high-precision figures in row | not found in artifact |
+|---|---:|---|
+| r20, r58, r97 | 0 / 0 / 6 | **none** |
+| r87 | 6 | `0.0055` — **r88's donor-draw sd, cross-cited**, and the row says so |
+| r96 | 5 | `0.188` — `0.1874581505369539` at display precision |
+
+**Both flags are benign and were verified rather than waved through.** So **r58 was the only stale
+row**, and the defect was contained to the artifact I regenerated without looking at its row.
+
+**The sweep is the cheap generalisation of entry 193's rule** — *regenerating an artifact is half the
+change* — and it costs one pass over the rows whose round was re-run. **It works at 3–4 decimals and
+would not have caught r58**, whose figures were integers; that gap is real and is the reason the rule is
+stated as a habit rather than delegated to a check.
