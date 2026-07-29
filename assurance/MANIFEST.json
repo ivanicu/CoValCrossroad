@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T13:17:08.357892+00:00",
- "git": "d9bc8dad27e65fc1fd424ff2106c71b4404416ed",
+ "generated_utc": "2026-07-29T13:21:03.267385+00:00",
+ "git": "95d321fcbbe6aee8b6e173d7a213853d55e399b5",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -120,8 +120,8 @@
    "sha256": "bfee6d52e1cd57706e27af6270e7124ed950b0b23cba190e8ce438403be78764"
   },
   "rounds/r20_paraphrase_transfer/run.py": {
-   "bytes": 10226,
-   "sha256": "8344b416c3fb574ceedacd3408932f039561afeff81d51ef3f885116c76d2c22"
+   "bytes": 12304,
+   "sha256": "8d247740a63b2d763ba96368594cdd970a47dbb562ceb38512a947031094b106"
   },
   "rounds/r21_donor_distance/run.py": {
    "bytes": 8038,
@@ -520,8 +520,8 @@
    "sha256": "12929202dbdb59cc54ca9f39feb13301e0cc4dba2d5c5b8384d1e765d3334d1a"
   },
   "assurance/verdict_cites_its_own_contrasts.py": {
-   "bytes": 10005,
-   "sha256": "b6262f9d349e21e9da5e632eaf52ee2bf4ece7744dae0b9cabe94824fa0d214f"
+   "bytes": 11034,
+   "sha256": "3bc1cf78feb8c4f6118b7900c651a90dd216d570982e68e2aeb4ee4cbba868e4"
   },
   "data/fetch.py": {
    "bytes": 3902,
@@ -646,8 +646,8 @@
    "sha256": "f01096ee8f2f6a935c64b33b7bce2a7ac898c66f86f0a6fb6e8903564dd32e23"
   },
   "rounds/r20_paraphrase_transfer/results/r20_paraphrase_transfer.json": {
-   "bytes": 1367,
-   "sha256": "eab9dc13ee9beb7602da804198b27ec02175a2641942d4c689c562222b200942"
+   "bytes": 1867,
+   "sha256": "22947eebd5a33bb208beee86f123382a1d7c0101fa2c84fde369368d6232b38e"
   },
   "rounds/r21_donor_distance/results/r21_donor_distance.json": {
    "bytes": 489,
