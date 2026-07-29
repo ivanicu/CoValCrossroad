@@ -5706,3 +5706,51 @@ correction. The ledger records *that* a claim changed; the claim itself is what 
 173's own gate — disclosure in the artifact or the README row — passed on all sixteen rounds while the
 two sentences that rest on them stayed unqualified, because those sentences are **prose**, not rows,
 and no check reads prose for this.
+
+---
+
+## Entry 176 — one guard was warranted, one was not, and my first attack on the warranted one tested nothing
+
+Entry 175 closed with the gap: *every guard here reads rows, artifacts or source; the load-bearing
+claims are prose.* Two follow-ups, and they went opposite ways.
+
+### The prose guard: measured, then DECLINED
+
+A blanket rule was available — *any prose paragraph citing a seed-filtered round must carry the 36.5%
+restriction.* Eleven prose citations exist across nine rounds. Measured before building: **4 disclose,
+7 do not.** But reading the seven rather than counting them:
+
+| paragraph | what it actually is |
+|---|---|
+| two citing r43 | **routing sentences** — *"sign reversals are r43, not this"* |
+| r32, r36, r34 | **methods descriptions** — what the round holds fixed and varies |
+| r37 | introduces the leakage ladder |
+| r49 | discloses **in substance** — *"it was their entire population"* — and only misses the regex |
+
+**None states a conclusion drawn from a seed-filtered round.** The restriction belongs where a round's
+*result* is asserted — its README row (gated since entry 173) and the M-layer rows (fixed in entry
+175) — and those now carry it.
+
+**So the guard is declined, and the reason is recorded so it is not built later by someone counting
+instead of reading:** it would fire on seven methods paragraphs, and *a check that cries wolf is worse
+than no check, because it trains its reader to skip the output.* The suite's value rests on 14/14
+meaning something.
+
+**What would change this:** a prose paragraph that asserts a seed-filtered round's *finding* without
+the restriction. That is a real defect and entry 175 fixed the one instance of it. One instance is not
+three.
+
+### The link guard: extended, and the extension was almost unattacked
+
+The invented-path failure was never specific to `rounds/` — `data/`, `assurance/`, `covalx/`,
+`scripts/` are cited the same way and were unguarded. Now covered: **263 relative links across 4
+documents**, up from 257, all resolving.
+
+**⚠ And my first attack on the new coverage tested nothing.** I mutated a `](data/…)` link — *there is
+no `data/` link in any document*, so the edit was a no-op and its clean `exit=0` meant only that
+nothing had changed. **A green result from a mutation that did not apply is the purest form of a check
+that cannot fail.** Re-attacked against the two real non-`rounds/` links
+(`assurance/ADVERSARY_BRIEF.md`), renaming one to a plausible wrong name: **caught, exit 1.**
+
+**The lesson is about attacks, not links:** an attack must assert that its mutation landed. Mine
+assumed it, and the assumption was false in exactly the way that produces a false acquittal.
