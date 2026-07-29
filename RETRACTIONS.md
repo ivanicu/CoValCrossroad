@@ -4863,13 +4863,13 @@ argument for the confound being written *before* the run, and against my having 
 by form**: lines **0–320** are long-form (world + personal + unacceptable), **321–1077** short-form
 (world only), **no interleaving**. First short-form prompt at position 321; last long-form at 320.
 
-**r12 takes `load_join(...)[:250]` — a head slice of a sorted file.**
+**r12 takes `load_join(...)[:250]` — a head slice of a sorted file.** ⚠ The span in the table below read **0–249** when this entry was written; it is **1–279** (entry 161). The join drops 18 unmatched prompts *before* the slice, so 250 joined entries span 279 file lines — a slice index is not a file position, and I equated them.
 
 | population | n | long-form | file positions |
 |---|---:|---:|---|
 | whole file | 1,078 | 29.8% | — |
 | join population | 968 | 30.3% | — |
-| **r12 / r39 / r40 / r41** | 250 | **100.0%** | 0–249 |
+| **r12 / r39 / r40 / r41** | 250 | **100.0%** | 1–279 ⚠ |
 | **r45 frozen frame** | 60 | **100.0%** | — |
 | **r46 held-out** | 250 | **16.4%** | **280–556** |
 
@@ -4932,3 +4932,39 @@ and the frame was correct to exclude it.
 step (attribution later withdrawn), 158 the disjoint prompt sets, 159 the sorted file and the head
 slice. This one closes it: the structure is now traced from the raw file through every load-bearing
 population to the experiment that will be paid for, and each stage says what it can and cannot support.
+
+## Entry 161 — it was never just r12: ten rounds run on the long-form third of the release
+
+**Completing entry 159's sweep.** That entry found r12's head slice selects 100% long-form prompts and
+checked three populations. The obvious question was which *other* rounds slice. Twelve do —
+`load_join(...)[: a.prompts]` — and the joined list's first **291** entries are long-form:
+
+| cut | long-form share | rounds |
+|---:|---:|---|
+| 120 | **100.0%** | r09 |
+| 200 | **100.0%** | r14 |
+| 250 | **100.0%** | r12, r13, r52 |
+| 300 | **97.0%** | r10, r15, r20, r21, r22 |
+| whole join | 30.3% | r04, r32, r33, r35, r43, r44, r58 and the rest |
+
+**Ten rounds, at ≥97% long-form against a 30.3% baseline** — including r10 (attribution robustness),
+r13 (seed vs write-in), r15 (in-distribution transfer), r20 (paraphrase transfer), r21 (donor
+distance), r22 (cross-family judges) and r52 (overlap intervention). Not one of them chose that
+population; each asked for the first *n* prompts of a file that happens to be sorted by collection
+instrument.
+
+**What changes and what does not.** **No number is wrong.** What is narrower than stated is the
+population each result describes: "the release" in those ten rows means "the long-form third of it".
+Generalisation to the other 70% is untested — and, because no prompt exists under both forms
+(entry 158), **untestable from this data**. The single exception remains r46 at 83.6% short-form,
+reproducing r12's inversion there; uncontrolled, and the only cross-form evidence available. **Rounds
+using the whole join are unaffected**: 30.3% against the file's 29.8%.
+
+**⚠ And it corrects entry 159's own table.** That entry recorded r12's span as file positions
+**0–249**. It is **1–279**: the join drops 18 unmatched prompts *before* the slice, so 250 joined
+entries cover 279 file lines. **A slice index is not a file position**, and I wrote one as the other in
+the entry that was about exactly this confusion. Corrected in place.
+
+**Why this is a scope block in the README rather than a per-row caveat.** It qualifies ten rows at
+once, and a reader meeting any one of them needs the same fact. Ten copies of a caveat is how a caveat
+stops being read.

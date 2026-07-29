@@ -167,6 +167,18 @@ detection floor — the smallest |r| it could have separated from zero:
 
 **So text-recoverable direction is a product of exposure, not evidence against it.** A rater who has read the four responses writes the direction into the sentence; a criterion drafted before anyone saw them does not carry one. ⚠ This does **not** contradict the R-layer row above, and does not measure S_pre: no person in this release rated anything pre-exposure, and nothing here can see whether they held a direction. What it removes is the reading that text-predictability would have demonstrated one. **For the preregistration it is a positive result** — S_pre's PRE arm faces exactly the response-blind seed class, where a text-only predictor adds **1.2% of headroom**, so r61's chance baseline needs no adjustment there. Any arm built on **write-in** text would need one.
 
+**⚠ TEN ROUNDS RUN ON THE LONG-FORM THIRD OF THE RELEASE, BY AN ARTIFACT OF SLICING.** `data/comparisons.jsonl` is **sorted by collection form** — the release used a **long form** (world + personal + unacceptable) for 321 prompts and a **short form** (world only) for 757, the two sets are **disjoint**, and the long-form ones come **first** in the file ([r60](rounds/r60_world_vs_personal), entries 156–159). Ten rounds take a head slice `[:n]` of the joined list, whose first **291** entries are long-form:
+
+| cut | long-form share | rounds |
+|---:|---:|---|
+| 120 | **100.0%** | r09 |
+| 200 | **100.0%** | r14 |
+| 250 | **100.0%** | r12, r13, r52 |
+| 300 | **97.0%** | r10, r15, r20, r21, r22 |
+| *whole join* | *30.3%* | r04, r32, r33, r35, r43, r44, r58 and the rest |
+
+**No number above is wrong; the population each describes is narrower than "the release."** These ten establish their results on prompts collected with one instrument, and generalisation to the other **70%** is untested — because no prompt exists under both forms, it is also **untestable from this data**. The one exception is [r46](rounds/r46_spread_replication), whose held-out set is **83.6% short-form** and which reproduces r12's inversion there (+0.0847 → −0.0716); that is the only cross-form evidence available, and it is uncontrolled. **Rounds using the whole join are unaffected** — its composition matches the file at 30.3% against 29.8%.
+
 **And underneath every floor sits a proxy that was validated once, and the validation was never read out.** Every row above scores its outcome with the r08 model gold head, and says so. The release does contain **real human rankings** for the four released candidates, so on the *original* arm the proxy is checkable — [r47](rounds/r47_gold_is_length) computed that check, stored it as `proxy_validation_on_original`, and **its numbers appear nowhere in this document**. [r72](rounds/r72_proxy_validity_coefficient) recomputes them independently (the gold side reproduces r47's stored 0.1020 exactly) and reports the two halves the process rules require to be kept apart:
 
 | | gold head | real humans | human − gold |
