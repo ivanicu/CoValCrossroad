@@ -3487,3 +3487,56 @@ the day the count crosses the threshold, and on that day the symptom is silence.
 **Class closed, with its bound stated.** Two instances found, both fixed, positive control passed,
 rule widened once. What is *not* established: that this rule catches every way a finding can fail to
 reach a reader — a check could filter before it ever builds the list, and no slice-detector sees that.
+
+## Entry 127 — I left the basin, and the answer inverted the question
+
+**Why this round exists.** Eight consecutive turns had produced assurance and meta-work, every one
+finding something real and every one confirming the same story. That is a basin. The meta-separator
+asks whether any credible outcome would show the world-decomposition itself wrong, and the premise I
+had never attacked was the flattest one in the project: **S_pre is blocked**.
+
+**The premise is exactly right, and narrower than it reads.** The README's R-layer row says *"no rater
+in the release rated a criterion before seeing four responses, so a response-blind direction is
+unreachable."* True as stated. But seed criteria were **pre-written and shown to every rater**, so
+their *text* is response-blind even though every *score* is post-exposure. That gap is measurable.
+
+**What r73 asks.** Can sign(mean score) be predicted from criterion text alone, with prompts held out
+entirely and no response or judge entering the computation? Not "did a person hold this direction" —
+that remains unreachable — but "is the direction a function of the criterion's semantics".
+
+**My prediction was wrong, and the two worlds I wrote did not contain the result.** I expected
+response-blind seed text to carry the direction. Headroom-normalised, because the arms have very
+different marginals (0.8400 vs 0.6886) and raw margins are not comparable:
+
+| class | n | marginal | accuracy | above marginal | headroom captured |
+|---|---:|---:|---:|---|---:|
+| seeds — pre-written, response-blind | 5,506 | 0.8400 | 0.8420 | **+0.0020** [−0.0007, +0.0049] | **1.2%** |
+| write-ins — authored after reading all four | 9,683 | 0.6886 | 0.7707 | **+0.0821** [+0.0746, +0.0904] | **26.4%** |
+
+**The direction is recoverable from wording precisely where the wording was composed with the menu in
+view.** That is the signature of construction: a rater who has read the four responses writes the
+direction into the sentence, and a criterion drafted before anyone saw them does not carry one.
+
+**Third world, named only because the result forced it.** `P PRIOR-CARRIED` and `C MENU-REQUIRED` both
+assumed the two arms would agree. `W WRITTEN-IN` had no label to land in — the same one-sided-fork
+error as entry 119, caught here by the provenance split rather than by a threshold. Naming it after
+the fact is worse than naming it before; not naming it would have been worse still.
+
+**Why the seed null is admissible.** Its *in-sample* fit clears the marginal by only **+0.0160** — the
+pipeline cannot learn direction from response-blind text even when allowed to memorise it. That bounds
+the learnable signal for this model class rather than reporting a held-out miss, which is the
+difference between a null and silence. Both other controls ran first: shuffling labels inside training
+collapses every arm to its marginal (−0.0006, +0.0000, −0.0026).
+
+**The confound was written before the run and did not survive contact.** A shared phrasing convention
+— *"avoid X"* carrying its sign in its grammar — would produce text-predictability with no prior
+involved. Restricted to the 7,266 criteria with **no overt negation marker**, the write-in margin is
+**+0.0954**: larger, not smaller. Grammar is not what is doing the work.
+
+**What it changes, and what it does not.** It does not contradict the R-layer row and does not measure
+S_pre. What it removes is the reading that text-predictability would have *demonstrated* a prior
+direction. For the preregistration it is a **positive** result: S_pre's PRE arm faces exactly the
+response-blind seed class, where a text-only predictor adds 1.2% of headroom, so r61's chance baseline
+of 0.6459 needs no adjustment there. Any arm built on **write-in** text would need one, because a
+text-only predictor already captures a quarter of the available headroom and a human PRE arm could
+score well while measuring the same phrasing convention twice.
