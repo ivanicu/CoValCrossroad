@@ -1081,6 +1081,42 @@ not** fire, which is required, or the check would flag every withdrawal and be s
 **It narrows the unwatchable surface; it does not close it.** A retired framing asserted in a full
 body sentence is still invisible, and the module says so on every clean run.
 
+## Entry 66 — the layer table I built to state the object reproduced a correction the same file already carries
+
+**One turn after adding it.** The `M(R,J,π,Q,P)` table's **J** row read:
+
+> predicts **held-out human rankings** above chance (r04)
+
+The README's own scope correction, in a blockquote **twenty lines above it**, says:
+
+> Earlier versions called the 80,542 pairs "held-out human preference". They are **pairwise
+> decompositions of the same rankings**, on the same prompts and the same four candidates the
+> criteria were written about, by participants who had already ranked them. Holding out individual
+> *pairs* does not break that dependence.
+
+I wrote the withdrawn phrasing into the document's new authoritative summary, in the same file,
+below the paragraph withdrawing it.
+
+**How it was found.** Verifying that each cited round *supports* its claim rather than merely
+containing its number — which is the audit I had described as unbuildable as a general check and
+did by hand for five rows. r04 turned out to have **no verdict field at all**; its result is
+`pairwise_accuracy = 0.6860` on 80,542 pairs, and what that quantity *means* lives only in the
+scope correction, not in the round.
+
+**Corrected** to "reconstructs the missing satisfaction layer well enough to reach **0.686**
+pairwise concordance — **internal reconstructive concordance on the elicitation manifold**, not
+held-out human preference."
+
+**A second, smaller repair in the same pass.** The **R** row cited "r14/r20" jointly for 97.4%.
+Only r20 measures it — `advantage_retained_under_paraphrase = 0.9739`. r14 measures *paraphrase
+fidelity* (99.2% kept) and has no verdict. The row now attributes each to the round that produced
+it.
+
+**What this says about the check I declined to build.** I concluded a wording-vs-verdict check was
+unbuildable because 36 rounds share no status grammar — which is true. But the *hand* audit of five
+rows found a withdrawn framing in the project's headline summary within minutes. **Unbuildable as an
+automated check is not the same as not worth doing**, and I had let the first stand for the second.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
