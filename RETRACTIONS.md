@@ -2644,6 +2644,40 @@ one at a time, "refuted" looks uniform; in a table with the floor stated once at
 splits five-and-five. **The strongest thing this project can say — "nothing explains the remainder" —
 is five real refutations and five undetected-below-a-floor, and it now reads that way.**
 
+## Entry 108 — one shared detection floor hid a 1.35× spread, and the round I did not build is the point
+
+Entry 107's ledger carried a single caveat: *"a mechanism with a true per-prompt correlation below
+≈0.2 is invisible to all of them."* Each correlational row has its own n and its own interval, so
+each has its own floor.
+
+**Computed from each row's published CI:**
+
+| row | half-width | disattenuated floor (rel 0.422 → 0.302) |
+|---|---:|---:|
+| 3 · generic distance (r40) | 0.0988 | 0.152 → 0.180 |
+| 4 · criterion-space support (r41) | 0.1080 | 0.166 → 0.196 |
+| 5 · spread loss, held out (r46) | 0.1175 | 0.181 → 0.214 |
+| 10 · overlap transfer (r54) | 0.1336 | 0.206 → 0.243 |
+
+**A 1.35× spread**, and "≈0.2" sits mid-band. r54 could not have detected a true correlation below
+**≈0.21 even optimistically** — so *"the overlap channel does not explain r12"* is a weaker statement
+than the neighbouring rows' refutations, and the shared caveat made all four read alike.
+
+**Every figure is a LOWER bound on the true floor**: it takes the predictor as perfectly reliable,
+which none of them is. The real floors are higher, by an unmeasured amount.
+
+**And the decision not to build a round for this is the entry's actual content.** I had r67 scoped —
+per-mechanism detection floors, claim card, positive control. Then I computed the band and found it
+**confirms the existing caveat rather than changing it**: 0.15–0.24 around a stated ≈0.2. A round
+would have produced an artifact, a verdict, a README row and a retraction entry, to say what four
+lines of arithmetic on already-published intervals say.
+
+**The cost meter has to run on instrumentation too.** This session has added nine rounds and two
+checks, and the discipline that justifies them is the same one that has to be able to say *no* — a
+measurement whose result is known in advance to agree with what is already written is Closure with a
+ceremony attached. The band is now in the ledger, derived in place, with its own bound stated, and
+there is no r67.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

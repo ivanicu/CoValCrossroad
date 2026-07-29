@@ -142,12 +142,25 @@ not a proof that the set is complete.
 | 12 | **semantic selectivity** collapse explains r12 | r56 | **failed to replicate** — ⚠ and r56's numbers have no artifact; [r66](rounds/r66_r56_reconstruction) could not recompute them |
 | 13 | criteria carry **independent** normative content | [r59](rounds/r59_criterion_influence) | **refuted** — they are concordant, and *not* own-rubric-specifically (14.7% vs 14.9% borrowed) |
 
-**⚠ Read every "refuted" in rows 3, 4, 5, 10 and 12 against a floor.**
-[r57](rounds/r57_outcome_reliability) measured the per-prompt attribution drop's split-half
-reliability at **0.302 / 0.422**, so a mechanism with a true per-prompt correlation below ≈**0.2** is
-invisible to *all* of them ([entry 55](RETRACTIONS.md)). **Those rows say "not detected above the
-floor", not "absent".** Rows 1, 2, 6, 11 and 13 rest on tightly-bounded contrasts rather than
-correlations and do not inherit that limit.
+**⚠ Read every "refuted" in rows 3, 4, 5, 10 and 12 against a floor, and the floor is not one
+number.** [r57](rounds/r57_outcome_reliability) measured the per-prompt attribution drop's split-half
+reliability at **0.302 / 0.422**. Each correlational row's own published interval gives its own
+detection floor — the smallest |r| it could have separated from zero:
+
+| row | published 95% half-width | disattenuated floor (rel 0.422 → 0.302) |
+|---|---:|---:|
+| 3 · generic distance (r40) | 0.0988 | 0.152 → 0.180 |
+| 4 · criterion-space support (r41) | 0.1080 | 0.166 → 0.196 |
+| 5 · spread loss, held out (r46) | 0.1175 | 0.181 → 0.214 |
+| 10 · overlap transfer (r54) | 0.1336 | 0.206 → 0.243 |
+
+**Derived from each row's own CI, not stored anywhere** — half-width ÷ √(outcome reliability), taking
+the predictor as perfectly reliable, so every figure is a **lower bound on the true floor**. The
+shared "≈0.2" of [entry 55](RETRACTIONS.md) sits mid-band and hides a **1.35× spread across rows**;
+r54 could not have detected a true correlation below ≈0.21 even in the optimistic case.
+
+**Those rows say "not detected above their own floor", not "absent".** Rows 1, 2, 6, 11 and 13 rest
+on tightly-bounded contrasts rather than correlations and do not inherit this limit.
 
 **What survives:** the inversion replicates (+0.102 → −0.064; held out +0.0847 → −0.0716), the
 outcome variable carries roughly half of it (row 7), and **nothing proposed explains the remainder**.
