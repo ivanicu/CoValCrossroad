@@ -910,14 +910,15 @@ constrains nothing unless it names both.
 The criteria were written by participants **after reading the four candidates**. Measured on
 rubric-blind responses those authors never saw, the advantage does not merely shrink — it inverts:
 
-| response set | real rubric | unrelated rubric | advantage |
+| response set ([r12](rounds/r12_response_set)) | real rubric | unrelated rubric | advantage |
 |---|---:|---:|---:|
 | the four released candidates | 0.657 | 0.555 | **+0.102** [+0.071, +0.133] |
-| fresh, rubric-blind, unseen | 0.478 | 0.520 | **−0.042** [−0.068, −0.015] |
+| fresh, rubric-blind, unseen | 0.481 | 0.545 | **−0.064** [−0.092, −0.037] |
 
 A discrimination control confirms the fresh set is *more* separable than the released one, so this
-is not an artifact of homogeneous generations. Re-run on an entirely new temperature-0.9 sample the
-inversion replicates at **−0.058 [−0.085, −0.031]**.
+is not an artifact of homogeneous generations. Re-run on an entirely new temperature-0.9 sample
+([r46](rounds/r46_spread_replication), `controls`) the inversion replicates: **+0.0847 → −0.0716**
+on 250 prompts this project had never touched, overlap with r12 exactly **0**.
 
 > **⚠ What this is NOT.** There are **no human rankings on the fresh responses** and there cannot be
 > without new data collection. The yardstick is a learned preference head fitted on human rankings of
@@ -1016,7 +1017,7 @@ not from estimation noise, so no further computation narrows it.
 | [r09](rounds/r09_overoptimization) | Optimize the rubric, watch preference | pre-registered gaming prediction **refuted**: markers fell |
 | [r10](rounds/r10_attribution_robustness) | Is the attribution an artifact? | **the own-vs-unrelated advantage survives every cell** — +0.0869, +0.0594, +0.0449 (mean +0.0638, sd 0.0174) — though it nearly **halves** from the 2B judge to the 0.8B. ⚠ The **topic share is not stable in the dimension the word "stable" names**: +0.3004, +0.4486, **−0.0369** across those same three cells, so the previously quoted **23.7% is a mean over a quantity that inverts sign**, and in the 0.8B cell `near` sits *below* `random`. This is own-rubric vs reference-rubric, never values vs non-values |
 | [r11](rounds/r11_backbone_control) | Was r09 backbone leakage? | **retracts r09's rise** — it vanishes with an independent backbone. ⚠ Its own caveat: this is a statement about the **proxy-world measurement** — the correct scope for overturning r09, which is also proxy-world, and **not** a statement about human preference |
-| [r12](rounds/r12_response_set) | Does the advantage transfer? | it **inverts** off-distribution: +0.102 → −0.042, discrimination control passed |
+| [r12](rounds/r12_response_set) | Does the advantage transfer? | it **inverts** off-distribution: **+0.102 [+0.071, +0.133] → −0.064 [−0.092, −0.037]**, discrimination control passed. Replicated on held-out prompts at +0.0847 → −0.0716 ([r46](rounds/r46_spread_replication)) |
 | [r13](rounds/r13_seed_vs_writein) | Seed criteria vs write-ins | **refutes r12's own mechanism**: participant-blind seeds carry real attribution (+0.046 [+0.023,+0.069]) — ⚠ the card says these were prepared *in parallel with* candidate generation, so they are blind to participant exposure, **not** independent of the responses by design. The seed-vs-write-in *ordering* is NOT established — paired difference +0.023 [−0.008,+0.054] |
 | [r16](rounds/r16_minority_regret) | Conflict-aware, on its own turf | profile splits show regret 2.07 vs 1.10 random, yet conflict-aware leaves the worst-off group **lowest of all rules**. ⚠ These are **not** a demographic constituency: gender (1.145) and country (1.198) splits both fail r16's own bar |
 | [r17](rounds/r17_conditional_core) | Does conditional encoding rescue it? | **partly** — routing learned from a rater's *other* prompts helps only the rules carrying contested items (+0.195), and does not close the gap |

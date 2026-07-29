@@ -1622,6 +1622,43 @@ by nothing at all.**
 This is not a claim that those verdicts are wrong. It is the statement that **nothing in this
 repository could tell.**
 
+## Entry 81 — the project's headline number was wrong in three places, and my own check flagged one of them
+
+Following r12 because its verdict cites no numbers, I compared the README to the artifact.
+
+| where | fresh-arm attribution | correct? |
+|---|---|---|
+| layer table, **Q** row | −0.064 | ✅ |
+| body, line 265 | −0.0716 (r46), r12 −0.064 | ✅ |
+| **the central r12 table** | **−0.042** [−0.068, −0.015] | ❌ stored: **−0.0640** [−0.092, −0.0367] |
+| **the replication sentence** | **−0.058** [−0.085, −0.031] | ❌ r46 stores **−0.0716** (original +0.0847) |
+| **the r12 round row** | **−0.042** | ❌ |
+
+`0.042` does not appear anywhere in r12's results — **no stored value lies within [0.038, 0.047]**.
+The same table's ORIGINAL row (0.657 / 0.555 / +0.102) matches the artifact exactly, so one row was
+updated and the other was not.
+
+**The check found it, and I dismissed it.** On the first run of the repaired
+`readme_agrees_with_results`, `r12 0.042` appeared in the unmatched list. I triaged it under
+"matches a different round — possible transplant", measured the chance-match null, found that a
+3-decimal token matches something in a 32,164-value pool with probability ~1.00, and dropped the
+flag as noise.
+
+**The null answered a different question than the flag asked.** The flag said *0.042 is not in r12's
+pool*. My triage asked *is 0.042 appearing elsewhere evidence of a transplant?* — and correctly
+answered no. Refuting one interpretation of a signal is not refuting the signal. **A null scopes to
+the reading it was built for**, and I let it retire the whole flag. That is the same shape as folding
+UNVERIFIED into OVERTURNED, arriving through a correct piece of statistics.
+
+**Why the other two were invisible.** Neither the table row nor the replication sentence cited a
+round, so both sat in the 56% of README numbers that reach no pool. The table now carries a
+`[r12]` link in its header — coverage 44% → **49%** — so its rows are attributable from here on.
+
+**What does not change.** The inversion is real and replicates: **+0.102 → −0.064** on the released
+set, **+0.0847 → −0.0716** on 250 held-out prompts with **zero** overlap. The direction, the
+significance and every conclusion drawn from them stand. What was wrong was the magnitude a reader
+was given, in the three places they were most likely to read it.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
