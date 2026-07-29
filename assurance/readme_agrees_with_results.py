@@ -35,6 +35,31 @@ places it went wrong were both found by hand, late.
 
 Exit code is 0 always. This is a report, not a gate: making it a gate would
 create pressure to delete inconvenient prose rather than check it.
+
+THE COVERAGE BUG (entry 69)
+---------------------------
+For its whole life this check split the README on blank lines and skipped any
+block citing != 1 round. A markdown TABLE contains no blank lines, so an entire
+table is one block citing every round in it -- and every table was skipped whole.
+Measured before the fix: **58 of 760 eligible numbers tested, 8%**. The three
+largest skipped blocks were the round-summary table (53 numbers, 21 rounds), the
+r39 table (88, 19) and the layer table (22, 18) -- i.e. the densest, most
+checkable, most load-bearing prose in the document, invisible because it was
+well-organised.
+
+Two changes:
+  * markdown table ROWS are split into their own blocks, so a row citing one
+    round gets the strong per-round test
+  * a block still citing several rounds is no longer skipped. Its numbers are
+    tested against the UNION of those rounds' pools and reported separately.
+
+  PROPERTY     no README number contradicts the artifact it came from
+  PROXY        per-round pool match (strong) or union-of-cited-rounds (weak)
+  IMPLICATION  unmatched under the UNION => unbacked by any cited round,
+               definitely.  matched under the UNION => SOME cited round holds
+               that value, and NOT that the right one does.
+  SAFE SIDE    the union arm is reported apart from the per-round arm and never
+               folded into it, because a union match is a weaker fact.
 """
 from __future__ import annotations
 
@@ -47,9 +72,38 @@ _ROOT = Path(__file__).resolve().parents[1]
 
 NUM = re.compile(r"[-+]?\d+(?:,\d{3})*(?:\.\d+)?%?")
 ROUND_LINK = re.compile(r"rounds/(r\d+)_[a-z0-9_]+")
+# A round named in plain text -- "r06's 0.6575 arm", "found in r02". Prose names
+# rounds without linking them, and four numbers were flagged against the linked
+# round's pool while the sentence itself said which OTHER round they came from.
+# Such a block goes to the UNION arm, never the strong arm: naming widens the
+# pool, and a wider pool is a weaker test (P6).
+ROUND_MENTION = re.compile(r"\br(\d{2})\b(?!\d)")
 # numbers that are never claims about a result
 IGNORE_EXACT = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "100",
                 "2026", "0.05", "95", "1.0", "0.5"}
+
+
+def split_blocks(text: str) -> list[str]:
+    """Paragraph blocks, but a markdown table row is its own block (entry 69).
+
+    `re.split(r"\\n\\s*\\n", text)` alone makes every table a single block, because
+    a table has no blank line in it. The block then cites every round in the
+    table and was skipped for being ambiguous -- so the most claim-dense prose in
+    the document was the least checked. Splitting rows restores the one-row,
+    one-round case to the strong per-round test.
+    """
+    out = []
+    for para in re.split(r"\n\s*\n", text):
+        lines = para.splitlines()
+        if sum(1 for ln in lines if ln.lstrip().startswith("|")) >= 2:
+            for ln in lines:
+                if ln.lstrip().startswith("|"):
+                    out.append(ln)          # one row = one block
+                else:
+                    out.append(ln)
+        else:
+            out.append(para)
+    return out
 
 
 def collect_floats(obj, out):
@@ -106,24 +160,45 @@ def main() -> None:
           f"stored values: {sum(len(v) for v in pools.values()):,}\n")
 
     text = a.readme.read_text()
-    blocks = re.split(r"\n\s*\n", text)
+    blocks = split_blocks(text)
     flagged, checked = {}, 0
+    union_flagged, union_checked = [], 0
+    eligible = 0
     for b in blocks:
-        rids = set(ROUND_LINK.findall(b))
-        if len(rids) != 1:
-            continue                       # ambiguous or unattributed: skip
-        rid = rids.pop()
-        pool = pools.get(rid)
-        if not pool:
+        linked = set(ROUND_LINK.findall(b))
+        # A round NAMED in prose is not an attribution. A paragraph about r12's
+        # anomaly carries r41's measurements of it, so letting a bare mention
+        # drive the strong arm produced 33 false flags. Mentions may only WIDEN
+        # a block into the weak union arm; the strong arm requires a link and
+        # nothing else named alongside it.
+        named = {f"r{m}" for m in ROUND_MENTION.findall(b)} & set(pools)
+        rids = linked | named
+        toks = [t for t in NUM.findall(b)
+                if t.strip("+-") not in IGNORE_EXACT
+                and not re.fullmatch(r"[-+]?\d{1,2}", t)]
+        eligible += len(toks)
+        if not rids or not toks:
             continue
-        for tok in NUM.findall(b):
-            if tok.strip("+-") in IGNORE_EXACT:
+        if len(linked) == 1 and len(rids) == 1:
+            rid = next(iter(rids))
+            pool = pools.get(rid)
+            if not pool:
                 continue
-            if re.fullmatch(r"[-+]?\d{1,2}", tok):     # bare small ints
+            for tok in toks:
+                checked += 1
+                if not matches(tok, pool):
+                    flagged.setdefault(rid, []).append(tok)
+        else:
+            # entry 69: no longer skipped. Weaker test, reported apart.
+            pool = set()
+            for r in rids:
+                pool |= pools.get(r, set())
+            if not pool:
                 continue
-            checked += 1
-            if not matches(tok, pool):
-                flagged.setdefault(rid, []).append(tok)
+            for tok in toks:
+                union_checked += 1
+                if not matches(tok, pool):
+                    union_flagged.append((tok, sorted(rids)[:4]))
 
     print(f"{'round':7s} {'unmatched':>10}   sample")
     for rid in sorted(flagged, key=lambda r: int(r[1:])):
@@ -133,7 +208,27 @@ def main() -> None:
     if not flagged:
         print("  (none)")
 
-    print(f"\n  numbers checked: {checked:,}   unmatched: {sum(len(v) for v in flagged.values())}")
+    print(f"\n  numbers checked against ONE round's pool: {checked:,}   "
+          f"unmatched: {sum(len(v) for v in flagged.values())}")
+
+    print(f"\nUNION ARM -- blocks citing several rounds (weaker: a match names no round)")
+    print(f"  numbers checked against the union: {union_checked:,}   "
+          f"unmatched: {len(union_flagged)}")
+    # Entry 57 was a renderer that truncated claims and so deleted exactly the
+    # clauses that qualify them. Truncating THIS list hid a planted value from
+    # its own positive control, which is the same failure wearing a new hat: a
+    # finding the check made and did not show. Print all of them.
+    for tok, rids in union_flagged:
+        print(f"    {tok:>10}   cited: {', '.join(rids)}")
+    if not union_flagged:
+        print("    (none unmatched)")
+
+    cov = (checked + union_checked) / eligible if eligible else 0.0
+    print(f"\n  COVERAGE: {checked + union_checked:,} of {eligible:,} eligible numbers "
+          f"reached a pool ({cov:.0%}).")
+    print(f"  The remainder sit in blocks citing NO round and cannot be attributed. That is a")
+    print(f"  limit of the instrument, not a clean bill -- before entry 69 this figure was 8%,")
+    print(f"  because every markdown table was one unsplittable block.")
     print("  An unmatched number is a QUESTION, not a verdict: a paragraph may legitimately")
     print("  carry a threshold, a count, or a figure derived from two rounds. What this")
     print("  catches is the case nothing else in the repository can -- prose that no longer")

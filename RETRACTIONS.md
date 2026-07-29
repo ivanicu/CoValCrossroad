@@ -1177,6 +1177,48 @@ branch overriding a 4000 default. The one real small count is r47's `nrep = 20`,
 **So: r27 was the only round with an under-replicated published null** — and that conclusion rests
 on the hand-check, not on the automated sweep, which was unfit.
 
+## Entry 69 — the check that verifies README numbers tested 8% of them, because tables have no blank lines
+
+`readme_agrees_with_results.py` exists to catch prose that no longer matches the artifact it was
+read from (entries 18, 42). It split the README on blank lines and skipped any block citing ≠1
+round. **A markdown table contains no blank line**, so every table was one block citing every round
+in it — and was skipped whole.
+
+| | numbers reached a pool |
+|---|---|
+| before | **58 of 760 — 8%** |
+| after row-splitting + a union arm | **336 of 760 — 44%** |
+
+The three largest skipped blocks were the round-summary table (53 numbers, 21 rounds), the r39 table
+(88, 19) and the **layer table I added two commits ago** (22, 18). The densest, most checkable,
+most load-bearing prose in the document was invisible **because it was well-organised.**
+
+**Three changes.** Table rows are split into their own blocks. A block citing several rounds is no
+longer skipped but tested against the union of their pools, reported separately — *unmatched under
+the union ⇒ unbacked by any cited round; matched ⇒ **some** cited round holds it, not the right one.*
+A round **named in prose** may only widen a block into the weak arm, never drive the strong one: a
+paragraph about r12's anomaly carries r41's measurements of it, and letting a bare mention attribute
+them produced 33 false flags in one pass.
+
+**The positive control failed first, and for the right reason.** Planting a fabricated value in a
+table row, the check *found* it and **did not print it** — the union arm truncated its own flagged
+list at 18 entries and the plant fell in the tail. That is entry 57 exactly (a renderer deleting
+what it was built to deliver) reappearing inside the fix for a different bug. The list is now
+printed in full.
+
+**What it found in the README: nothing wrong.** Of 35 first-pass flags — 17 were values that appear
+as JSON *keys*, invisible to `collect_floats`; 4 were correct prose the instrument mis-attributed
+(line 1115 says *"r06's 0.6575 arm … on 945"* and the numbers are r06's, but only r04 was linked);
+the rest were chance.
+
+**The chance rate is the part worth keeping.** "This number also appears in a different round" felt
+like entry 18's transplant. Against 32,164 stored values across 55 pools, the measured null match
+rate for the flagged tokens was **62–100% for anything printed to one or two decimals** — `1.9`,
+`0.75`, `91.6%` and `25.3%` all match something with probability 1.00. Only high-precision or
+large-integer tokens are informative (`18,384` at 0.2%, `945` at 7.0%, `0.6575` at 25.5%). **A
+coincidence detector run against a large enough pool detects coincidences**, and without that null I
+would have published fifteen "possible transplants" of which eleven are arithmetic.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
