@@ -3540,3 +3540,49 @@ response-blind seed class, where a text-only predictor adds 1.2% of headroom, so
 of 0.6459 needs no adjustment there. Any arm built on **write-in** text would need one, because a
 text-only predictor already captures a quarter of the available headroom and a human PRE arm could
 score well while measuring the same phrasing convention twice.
+
+## Entry 128 — r74's own control nearly overturned r73, and the decisive arm was the one measuring the confound's absence
+
+**The gap r73 left.** It read the seed/write-in contrast as **exposure**: a rater who has seen the four
+responses writes the direction into the sentence. But the two classes differ in *what they say* as well
+as *when they were written* — seeds are generic pre-written properties, write-ins are often complaints
+about a particular answer. A classifier could be reading the second difference while I reported the
+first.
+
+**Holding exposure constant and varying specificity.** Every criterion in these arms is a single-rated
+write-in. Split by lexical containment into the four responses:
+
+| containment tertile | n | marginal | headroom captured |
+|---|---:|---:|---:|
+| low | 3,179 | 0.7194 | **8.9%** [6.0%, 11.6%] |
+| mid | 3,182 | 0.7008 | 16.5% [13.6%, 19.6%] |
+| high | 3,131 | 0.6401 | **24.0%** [20.5%, 27.6%] |
+
+Specificity clearly moderates it — but the **least** response-specific third still captures **8.9%**,
+about ten times the seed class's 0.9% measured through the same pipeline. **World B is refuted: the
+effect does not require the criterion to refer to the responses.**
+
+**Then the control I ran for a third world nearly took r73 down.** Splitting the same write-ins by
+word count gives **short 33.3%, medium 14.5%, long 0.5%** — a spread of −32.8pp against containment's
++15.1pp. Larger, and pointing the other way. And long write-ins at 0.5% sit at seed level. The obvious
+reading: **seeds are unpredictable because they are long, not because they are response-blind**, which
+would have made r73's headline an artifact.
+
+**It is not, and the arm that settles it is the one that measures the confound's absence rather than
+asserting it.** Seeds and write-ins are already length-matched in the release — means **14.6 vs 14.9**
+words, medians 14 and 14. That is a claim, so it was tested rather than stated: write-ins resampled
+decile-by-decile to the seed length distribution still capture **16.2% [13.6%, 18.8%]** against seeds'
+**0.9% [−0.7%, 2.6%]**. Non-overlapping. Length is a strong *within*-class moderator and **cannot** be
+the *between*-class explanation.
+
+**What this leaves.** r73's exposure reading survives two serious threats. The mechanism is sharper
+than r73 could state: predictability is highest in **short, low-marginal, response-specific** write-ins
+— terse and frequently negative — which is what a rater produces after reading an answer they did not
+like. Direction gets written into the sentence at the moment of judgement.
+
+**The bound, unchanged from r74's pre-run scope.** Containment is a *lexical* proxy for specificity and
+is weakest exactly where a criterion paraphrases rather than quotes. A flat gradient would have been
+clean evidence for exposure; the observed gradient is steep, so specificity's role is established while
+its magnitude is not. And every in-sample fit was checked: seeds and long write-ins clear their marginal
+by only +0.0146 and +0.0149, so those two nulls are **ceilings on learnable signal**, not held-out
+misses.
