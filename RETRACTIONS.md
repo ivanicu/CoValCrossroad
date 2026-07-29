@@ -8067,3 +8067,61 @@ only ~82% attenuation-reliable — so **r104's correction is doing most of its w
 were never tied**. The correction's magnitude has never been decomposed into "removes the ties" (now
 known: 0.6%) versus "removes the residual unreliability of untied majorities" (the other 99.4%), and
 that decomposition is one subtraction away.
+
+---
+
+## Entry 223 — the headline's donor arm cannot see one word of the donor's rubric, and "confirmed" overstates what r86 did
+
+The README quotes r86's **+0.1215** as *"CONFIRMED, not revised, by the largest-n cell available"* —
+own-minus-donor over the whole 968-prompt join, presented as the contrast r10 and r12 measured on
+fewer prompts. r86's own comment above the line calls the donor *"a rubric written for another
+question."*
+
+**Replacing every donor criterion's text with `'zzzz qqqq xxxx vvvv'` moves the number by `0.0e+00`.**
+Not approximately — **bit-identical**, with **9,325 of 14,984** strings genuinely overwritten and the
+overwrite asserted before recomputing.
+
+It is not a property of the data. **`agree()` scores with THIS prompt's satisfaction values from
+r04's tensor, indexed by the DONOR's criterion positions, and `weights()` reads only each item's
+`scores` list. Neither ever touches `criterion`.**
+
+### The positive control is what makes that null worth anything
+
+Randomising the **donor's ratings** instead — 9,026 of 14,984 weight values changed — moves the
+attribution **0.0548**, from 0.1215 to 0.0667. **The harness reaches the computation; the text simply
+is not in it.** This project has produced three no-op attacks that "proved" a null for the most boring
+possible reason, and that is why arm 3 exists.
+
+**Rebuild control**: arm 1 reproduces r86's stored `0.12146457748752204` at **0.0e+00** drift.
+
+### Two constructions carry one name
+
+- **r10** (`r10:152-157`) pairs the **donor's criterion text** with these responses and sends it
+  through the judge. **r12** (`r12:231-232`) does the same. Those arms vary criterion **content**.
+- **The CPU line** — r85, r86, r103–r108 — holds content fixed at **this prompt's own criteria** and
+  varies the **weight vector** and criterion count. And [r87] already showed a 120× spread in
+  criterion count moves attribution not at all, which leaves the weight vector.
+
+**So +0.1215 is a weight-specificity number**: the value of knowing *which of this prompt's criteria
+matter and in which direction*, not the value of having this prompt's criteria at all. **It cannot
+confirm a transplant contrast, because it is provably insensitive to the variable a transplant
+varies.**
+
+### What this is not
+
+**It does not show the two constructions disagree numerically.** They may land in the same place, and
+checking that needs the judge, which is frozen until the human protocol is. **It shows they cannot be
+the same measurement.** A scope claim, not a value claim — and the README correction is written that
+way.
+
+### How it was found, which is the part worth carving
+
+r106 established the donor arm's construction and **used the fact only to make a redraw cheap**. Its
+consequence for what the package *measures* went unexamined for three rounds. **A mechanism
+discovered for one purpose was never asked what else it implied** — and the thing it implied was a
+scope error on the most-quoted number in the package.
+
+**NEXT:** the same blindness applies to r103–r108's entire consensus line, whose donor arm is the same
+`gap()`. Every statement in entries 218–222 about "an unrelated rubric" is a statement about **an
+unrelated weight vector over this prompt's own criteria** — the README rows say "unrelated rubric" in
+at least two places, and they are now wrong in the same way r86's paragraph was.
