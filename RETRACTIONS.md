@@ -5948,3 +5948,12 @@ imports from release-scale rounds: **one did not transfer** (r91's 5.3×, fixed 
 nobody had drawn.** A mechanical "is this number quoted outside its round" check would have flagged all
 seven identically and distinguished none of them. **The defect was never the quoting — it was quoting
 without checking whether the population holds, and only the checking does that.**
+
+**⚠ Addendum to entry 180 (same day).** The entry above said the general statement was *"now in the
+document."* **It was not.** The edit that would have put it there failed its own `assert` on a
+three-space indentation mismatch, the commit staged both files, and only RETRACTIONS.md had changed —
+so the ledger described an intended state as an accomplished one, and `git show --stat` said so
+plainly. Applied in the following commit. **The assertion did its job; what failed is that I read the
+suite's exit codes and the commit's file list separately instead of together** — the traceback was
+printed above the check results and scrolled past. Second time this session that a `.replace()`
+contract mattered, and the first time it mattered *after* the commit rather than before.

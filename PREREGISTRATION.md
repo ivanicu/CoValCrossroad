@@ -649,6 +649,19 @@ the same thing.
    the entire distance between the best and worst aggregation rule anyone has proposed**, and larger
    in magnitude than three of the five rules' effects against no-compression.
 
+   **⚠ And it fixes something else, which follows from H_fresh's own margin rather than from δ**
+   ([r94](rounds/r94_donor_averaging_at_frame_size), 2026-07-29). H_fresh resolves **0.0446** at the
+   frozen 60-prompt frame with m ≥ 10 donor draws. **The entire best-to-worst aggregation-rule span is
+   0.0188 — less than half of that.** So **H_fresh cannot distinguish any two of the five rules**, not
+   even the best from the worst, and no design at this frame size can. The same holds for every other
+   sub-margin effect this document cites: the write-in vs seeded transfer gap (**+0.0172**), the
+   containment asymmetry after residualising (**+0.0203**), compatibility selection against a
+   size-matched random choice (**+0.0149**). **H_fresh is powered for its own target — r12's inversion
+   at 0.16, roughly 3.6× the margin — and for nothing else in this package.** Stated here so that an
+   H_fresh null on any of those numbers is read as **uninformative by construction** and never as
+   evidence of absence. Resolving the rule choice needs the release-scale n from r91's budget, not this
+   frame.
+
    **That fixes the reading of every equivalence claim in this package.** "Equivalent to zero at
    δ = 0.01" now means *"smaller than half the swing you get from changing the aggregation rule"* —
    which is a decision somebody makes, with a number attached, rather than a threshold chosen
