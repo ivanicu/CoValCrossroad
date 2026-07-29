@@ -2813,6 +2813,33 @@ to keep a habit**, and a habit nobody recorded is one the next reader has no rea
 artifact. This is the same blind spot one level up: **an apparatus that checks claims about the
 research cannot see claims about the apparatus.**
 
+## Entry 113 — "0.36 GPU-hours for the full pipeline" was one round of seventeen
+
+Continuing entry 112's audit of the sections that describe the apparatus rather than the research.
+
+**The cost claim counts one round and names the whole.** `r04` is the **only** round in this
+repository that records its own elapsed time — 1,352 s across three result files, **0.375 h**.
+**Seventeen rounds use the GPU** (r04, r08–r15, r20–r22, r29, r39, r41, r46, r52) and **sixteen of
+them measure nothing**. The true total is unmeasured and strictly larger than the figure published as
+*"measured cost of the full pipeline"*.
+
+**Same shape as entry 102**, one level over: a number computed on what could be reached, presented as
+a property of everything. There the enumeration could not see a missing artifact; here the timer could
+not see sixteen rounds that never started one.
+
+**What survives exactly: "zero API spend."** No paid inference is used anywhere, and that is checkable
+and true.
+
+**The clean-clone claim is stale, not false, and the distinction is the point.** *"Verified from a
+clean clone"* was true when written. **Ten rounds have been added since** and nobody has re-run it —
+including [r66](rounds/r66_r56_reconstruction), which imports from another round's module and needs
+the repository root on `sys.path`. The `__init__.py` files for that exist; a clean-clone execution
+does not. Marked as unverified rather than quietly kept or quietly deleted.
+
+**One Boundaries claim checked out exactly**: *"0.61 on picking a single best response"* against
+`prompt_concordance = 0.6126`. Verified rather than assumed, which is the practice entry 112 wrote
+into the section directly above it.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

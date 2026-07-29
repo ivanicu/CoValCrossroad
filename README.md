@@ -1236,8 +1236,12 @@ either.
 
 ## Reproducing
 
-Verified from a clean clone: `git clone`, `python data/fetch.py`, then every CPU round and the
-manifest run without further setup.
+Verified from a clean clone **at the time that line was written**: `git clone`,
+`python data/fetch.py`, then every CPU round and the manifest run without further setup.
+⚠ **Ten rounds have been added since and that verification has not been repeated.** One of them,
+[r66](rounds/r66_r56_reconstruction), imports from another round's module and needs the repository
+root on `sys.path`; `rounds/__init__.py` files exist for it but a clean-clone run has not been
+executed. Treat the claim as **stale, not false** — the difference is that nobody has checked.
 
 ```bash
 python -m venv .venv && .venv/bin/pip install numpy pandas scipy scikit-learn torch transformers
@@ -1249,7 +1253,15 @@ python assurance/manifest.py                    # regenerate the claim table
 
 Judge and gold models are read from `COVALX_MODEL_2B` / `COVALX_MODEL_08B`, defaulting to the Hugging Face ids.
 
-**Measured cost of the full pipeline: 0.36 GPU-hours on one consumer GPU, zero API spend.** No paid inference is used anywhere.
+**Zero API spend — no paid inference is used anywhere.** That part is exact.
+
+⚠ **The GPU-hours figure was one round's runtime described as the pipeline's.** `r04` is the only
+round in this repository that records its own elapsed time — **1,352 s = 0.375 h** across its three
+result files. **17 rounds use the GPU** (r04, r08, r09, r10, r11, r12, r13, r14, r15, r20, r21, r22,
+r29, r39, r41, r46, r52) and **16 of them measure nothing**, so the true total is unmeasured and
+strictly larger. The earlier "0.36 GPU-hours" is retained here only as what r04 cost; it was never
+a pipeline measurement. **A cost claim that counts one round and names the whole is the same shape as
+a population that counts what it can reach** — see [entry 102](RETRACTIONS.md).
 
 ---
 
