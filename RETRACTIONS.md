@@ -3059,3 +3059,66 @@ the outsider did not have to name them, only to point near them.
 **The expensive part of this project was never any experiment. It was noticing which
 number had not been asked where it stops being true — and that turned out to be a
 thing I cannot reliably do to my own work.**
+
+## Entry 119 — the ledger's one reliability column was wrong in both directions, and I predicted the wrong one
+
+**The claim.** The exhaustion ledger published r54's detection floor as **0.300**, computed by
+applying r67's predictor reliability of **0.657** to r54's half-width of 0.1336.
+
+**Why I went looking.** Entry 110 caught this exact transfer onto r40 and entry 117 measured r40's
+own predictor at **0.9132**. r54 was the same move, unchecked: r67 measured *spread loss* and
+*criterion-space geometry*, both judge outputs, and r54's predictor is a word count. r54's own
+scope line says so — *"The overlap quantities are exact text statistics."*
+
+**What I predicted, in writing, before running it.** That the reliability would come back **above**
+0.657 — because a deterministic text statistic has no judge noise in it — and that r54's floor would
+fall to ≈0.256. I wrote both alternative worlds *above* 0.657.
+
+**What it is.** **0.3794** (split-half +0.2341 over the 241 prompts with four core criteria;
++0.2200 → 0.3606 over all 250). Far **below** the transferred value. r54's floor **rises to 0.395**.
+
+**The error in my reasoning, which is the point of this entry.** I conflated two things that share a
+word. *Determinism* is a property of the **instrument**: given the text, `containment()` returns the
+same number every time, with zero measurement error. *Split-half reliability* here is a property of
+the **criteria sample**: how much of the per-prompt variance survives swapping one half of a
+prompt's criteria for the other. A function with zero measurement error still scores low when a
+prompt's own criteria disagree about the quantity — and they do. Two criteria from one rubric share
+about a quarter of their collapse variance.
+
+**The instability is not the contrast's fault.** The raw containment **level**, split the same way,
+is already **0.4104** — before any difference is taken. So it is not that a difference-of-differences
+amplifies noise; two criteria from one rubric simply do not have similar lexical overlap with the
+same responses.
+
+**The world I failed to name.** My first world assignment read
+`world = "D DETERMINISTIC" if rel > R67_REL + 0.10 else "T TRANSFERS"` — a one-sided threshold, so
+0.3794 was labelled *"the transfer was harmless"*. Both worlds I wrote sat above 0.657, and the
+outcome that happened had nowhere to land. Same family as entry 96: a check that can only fire in
+the direction I expected. Fixed to a three-way test; the third world is named `U UNDER-CREDITED`
+and is named only because the result forced it.
+
+**The control that made this readable.** My first reading — *"the collapse is unstable"* — was drawn
+from a **second low number** (the level's 0.4104), which is silence, not a measurement: a low
+split-half is evidence about the criteria only if the estimator can return a high one. Splitting the
+**responses** instead of the criteria, keeping every criterion, returns **0.8020** (shuffled
++0.0039). The machinery works. The criterion axis is genuinely the noisy one.
+
+**What this does to the ledger.** The single reliability column moved **two rows in opposite
+directions**: r40 up (0.657 → 0.9132, floor 0.222 → 0.188), r54 down (0.657 → 0.3794, floor
+0.300 → 0.395). A ledger-wide reliability is therefore not a conservative simplification — it is a
+number with no sign guarantee, and only measuring each predictor against its own construct says
+which way a given row moves. r67's 0.657 stands for **r41 and r46 only**, whose predictors are
+judge outputs.
+
+**Corrected.** README ledger row 10 → 0.395; the r67 paragraph rewritten to scope 1.23× to r41/r46;
+r67's summary row marked superseded; r69 row added.
+
+**Still true.** r54's own headline is untouched: the overlap mechanism is real (+0.1294 → +0.0945 on
+fresh, drop +0.0349 [+0.0266, +0.0434]) and does not predict *which* prompts drop. What changes is
+how much that failure rules out — less than published, on a row that was already the weakest in the
+table.
+
+**A repository note found on the way.** `rounds/r54_overlap_transfer/run.py` defaults `--gen` to
+`a12_response_set.json`, which has no `prompt_ids` key and raises KeyError; r54 was run with an
+explicit `--gen a12_fresh_generations.json`. The committed default cannot reproduce the committed
+result. Recorded, not silently repaired, because the fix belongs to whoever re-runs r54.
