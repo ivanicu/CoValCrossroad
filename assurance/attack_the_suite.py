@@ -151,6 +151,11 @@ CASES = [
     # why the floor has to exist separately.
     ("artifacts_are_internally_coherent", hide_rounds, 2,
      "artifacts hidden -> zero pairs and zero flagged nodes: nothing to check, not clean"),
+    # Entry 201. A REPORT check -- it never gates, so its non-empty exit is 0. With the
+    # rounds hidden there is no newest round to measure staleness against, and it
+    # returns 2 rather than reporting every section as current.
+    ("synthesis_cites_recent_work", hide_rounds, 2,
+     "rounds hidden -> no newest round to measure against: nothing to check"),
     # Entry 144: four checks had a _floor that had never been exercised THROUGH
     # THE CALLING PATH. Verifying a floor by calling it directly proves it raises
     # when handed a zero, not that the check ever hands it one -- which is exactly

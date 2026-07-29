@@ -7026,3 +7026,50 @@ place a reader looks to see what each layer is known to support.
 **The four clauses change no measurement.** They move already-established results into the row that is
 supposed to carry them — which is the same defect entry 193 found in r58's row and entry 175 found in
 the leakage passage, at the level of the object's own frame.
+
+---
+
+## Entry 201 — made the staleness indicator, and proved it on the defect that motivated it
+
+Entry 200 named a class seen three times: **an established finding never reaching the section supposed
+to carry it** — r58's own row (193), the leakage passage (175), the layer table (200). Three is this
+package's threshold for infrastructure over a fourth patch.
+
+**But not the obvious infrastructure.** A check that a finding reached the *right* section would have to
+decide which layer a round bears on — a reading. **Entry 199 established what happens when a name-based
+rule is pushed past what it can decide: it invents pairings and reports them as findings.** So this does
+not attempt it.
+
+**What is mechanical is staleness.** For each named synthesis section, report the highest round cited
+and the gap to the newest round in the package. `assurance/synthesis_cites_recent_work.py`.
+
+### Proved retrospectively, against the state that motivated it
+
+Run against the README **as it stood before entry 200's update**:
+
+| section | newest citation | gap | flagged |
+|---|---|---:|---|
+| layer R | r49 | **50** | ✓ |
+| layer J | r52 | **47** | ✓ |
+| layer π | r48 | **51** | ✓ |
+| layer Q | r47 | **52** | ✓ |
+| layer P | r92 | 7 | — |
+
+**It flags exactly the four rows I had to update and spares layer P**, which entry 175 had already
+brought current. *A check that has never fired on the defect it was built for is silence*; this one
+fires on the historical instance and only on it.
+
+### It reports and never gates, deliberately
+
+**A section citing only old rounds may be legitimately settled by early work.** And the converse
+failure is worse and invisible to it: **a row citing r99 can still omit what r99 found** — which is
+exactly what the layer table did while citing r58. So the proxy ledger records that this **raises a
+question and answers none**.
+
+Registered in `attack_the_suite` expecting **2** with rounds hidden: with no newest round there is
+nothing to measure staleness against, and reporting every section as current would be the silence the
+suite exists to prevent. Suite now **16/16**.
+
+**What the class still needs, and this does not provide:** the habit of asking, when a round lands,
+*which synthesis carries this?* The indicator will catch the case where nothing recent is cited at all.
+It will not catch a stale clause sitting beside a fresh citation.
