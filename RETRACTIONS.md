@@ -702,7 +702,7 @@ What the artifacts still said, against a freeze recording the line as **UNRESOLV
 | r23 | "M2 WEAKENED: …" |
 | r26 | "M2: pair identity carries structure AND that structure is signed — **there are pairs that reliably disagree**" |
 | r27 | "**ACTOR EFFECT, NOT BLOCS**: …" |
-| r28 | "**A MINORITY BLOC SURVIVES**, an order of magnitude smaller than …" |
+| r28 | "**A MINORITY BLOC SURVIVES**, an order of magnitude smaller than …" — ⚠ **see the correction below; this was not r28's verdict** |
 
 FROZEN.md meanwhile records why each of those four separators *could not* separate: r23's z read
 +10.26 at 2 null reps and +1.40 at 40; r26's centred residual gives "below average" and "actually
@@ -727,6 +727,36 @@ to. No conclusion string was hand-edited.
 **The uncomfortable arithmetic.** Item 2 was completed many turns ago and reported as done. It was
 done in two of three places. Each of these three entries was found by a different accident, and
 none by a check that existed at the time.
+
+---
+
+### CORRECTION to this entry, one turn later — I misattributed r28
+
+**r28's own verdict was already right.** `r28_pearson.json`, the primary output, reads:
+
+> FUNCTIONAL FORM UNRESOLVED. The algebra stands … But the multiplicative alternative is NOT
+> thereby established. It wins only in sample … out of sample its R² ranges [−1.6442, +0.5109]
+> against the additive shape's tight [+0.3377, +0.4208] … **the both_low number below must not be
+> read as a measurement of anything.**
+
+That is more self-critical than the freeze text I appended to it.
+
+**What I actually quoted** was `r28_cosine.json` / `r28_spearman.json` / `r28_multiplicative.json`
+— **secondary metric cells written 07-28 12:05–12:09 and never re-run** after r28's verdict logic
+was corrected. They carried the withdrawn "A MINORITY BLOC SURVIVES" wording because they predated
+the fix, not because r28 asserted it.
+
+**So the entry above overstated one of its five rows**, in a register whose purpose is to stop
+exactly that. The other four rows stand: r01, r23, r26 and r27 did assert the frozen conclusions in
+their primary artifacts.
+
+**Fixed:** all four metric cells re-run and now carrying both the corrected verdict and the freeze;
+the duplicate `r28_multiplicative.json` archived under `_superseded/`.
+
+**The lesson is not "check harder".** It is that *"a round's verdict"* is not well-defined when a
+round writes five results files, and I read one directory listing's first match as though it were.
+The frozen list in the queue names "r25 metric cells" for exactly this reason — metric sweeps
+produce cells that go stale independently of the round that made them.
 
 ## The pattern
 

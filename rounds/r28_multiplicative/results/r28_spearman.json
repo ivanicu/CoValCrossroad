@@ -2,36 +2,93 @@
  "metric": "spearman",
  "raters": 924,
  "dyads": 6193,
- "r2_additive": 0.5527764430420986,
- "r2_multiplicative": 0.6372332346922581,
+ "r2_additive": 0.5527764430420987,
+ "r2_multiplicative": 0.6370671542866353,
  "params_additive": 925,
  "params_multiplicative": 924,
- "multiplicative_fits_better": true,
+ "multiplicative_fits_better_in_sample": true,
+ "additive_design_rank_deficient_by": 1,
+ "effective_params_equal": true,
+ "cv_folds": [
+  {
+   "seed": 1,
+   "additive": 0.3508703820534326,
+   "multiplicative": 0.43510921319595286
+  },
+  {
+   "seed": 2,
+   "additive": 0.3688408958932292,
+   "multiplicative": 0.40776473068016916
+  },
+  {
+   "seed": 3,
+   "additive": 0.3840566824465267,
+   "multiplicative": 0.3323046747529841
+  },
+  {
+   "seed": 4,
+   "additive": 0.3446193090058408,
+   "multiplicative": 0.5044016289710327
+  },
+  {
+   "seed": 5,
+   "additive": 0.3614404666108121,
+   "multiplicative": -0.592772004244448
+  },
+  {
+   "seed": 6,
+   "additive": 0.2999421198725434,
+   "multiplicative": 0.4148729533673292
+  },
+  {
+   "seed": 7,
+   "additive": 0.4047758754357573,
+   "multiplicative": -22.182461497730685
+  },
+  {
+   "seed": 8,
+   "additive": 0.3502007555237935,
+   "multiplicative": 0.4608101150602568
+  },
+  {
+   "seed": 9,
+   "additive": 0.34138626503893565,
+   "multiplicative": 0.41422645497261246
+  },
+  {
+   "seed": 10,
+   "additive": 0.3447636154777505,
+   "multiplicative": 0.45737720920355884
+  }
+ ],
+ "cv_additive_mean": 0.35508963673586214,
+ "cv_multiplicative_mean": -1.9348366521771236,
+ "multiplicative_generalises_better": false,
  "strata_vs_additive": {
   "both_high": {
    "n": 1634,
-   "mean": 0.057051340806642425,
+   "mean": 0.05705134080664253,
    "ci": [
-    0.05000597040203856,
-    0.06419902929642504
+    0.04996914444510901,
+    0.06404873414721744
    ],
    "excludes_zero": true
   },
   "mixed": {
-   "n": 3021,
-   "mean": -0.06171591584114816,
+   "n": 3022,
+   "mean": -0.061695493632067624,
    "ci": [
-    -0.06853826790189496,
-    -0.05496171684314989
+    -0.0683201030565106,
+    -0.05507095408131871
    ],
    "excludes_zero": true
   },
   "both_low": {
-   "n": 1538,
-   "mean": 0.060612412794573564,
+   "n": 1537,
+   "mean": 0.06065184832664543,
    "ci": [
-    0.04848267213509577,
-    0.07299553574188085
+    0.04865155353071262,
+    0.0726908848317594
    ],
    "excludes_zero": true
   }
@@ -39,38 +96,38 @@
  "strata_vs_multiplicative": {
   "both_high": {
    "n": 1634,
-   "mean": 0.001775500197618413,
+   "mean": 0.00175461043513175,
    "ci": [
-    -0.004373069687374189,
-    0.007860393033878008
+    -0.004611656064383735,
+    0.007845624871480522
    ],
    "excludes_zero": false
   },
   "mixed": {
-   "n": 3021,
-   "mean": -0.004596697477005802,
+   "n": 3022,
+   "mean": -0.004597174631764049,
    "ci": [
-    -0.011215180627330613,
-    0.001367824411408632
+    -0.010549180751123832,
+    0.0016882727433139494
    ],
    "excludes_zero": false
   },
   "both_low": {
-   "n": 1538,
-   "mean": 0.020823146583335703,
+   "n": 1537,
+   "mean": 0.0213299133777045,
    "ci": [
-    0.009235438708850217,
-    0.03267259027722153
+    0.009670486742340854,
+    0.032948972192817054
    ],
    "excludes_zero": true
   }
  },
  "permutation_z": {
-  "both_high": -0.43502183201062267,
-  "mixed": -3.475644413329732,
-  "both_low": 4.386222487160343
+  "both_high": -0.5285143916121717,
+  "mixed": -3.5101736158148076,
+  "both_low": 4.207141349059127
  },
- "null_reps": 300,
- "verdict": "A MINORITY BLOC SURVIVES, an order of magnitude smaller than the additive analysis implied: under the correct multiplicative form the both_low residual is +0.0208 against +0.0606 additively, while both_high and mixed collapse to zero. Raters who track few people track EACH OTHER slightly better than shared-target reliability predicts, which reliability cannot produce. The U-shape r27 measured was the functional form, not the people.",
+ "null_reps": 100,
+ "verdict": "FUNCTIONAL FORM UNRESOLVED. The algebra stands: fitting mu + a_i + a_j to a multiplicative surface leaves residual (rho_i - m)(rho_j - m), a U-shape with no blocs in the generating process, and that is what r27 measured. So the ADDITIVE decomposition four rounds relied on is demonstrably misspecifiable. But the multiplicative alternative is NOT thereby established. It wins only in sample, at equal effective degrees of freedom, and out of sample it is unstable: over ten held-out splits its R^2 ranges [-22.1825, +0.5044] against the additive shape's tight [+0.2999, +0.4048]. Raters with one or two training edges receive a c_i pinned to the 0.1 initialisation fallback -- a silent imputation -- and a single such split drags the mean below the additive model. Neither shape is validated, so the pair-specific residual question this round was built to settle is OPEN, and the both_low number below must not be read as a measurement of anything. || FROZEN LINE (queue item 2, see FROZEN.md): this round belongs to the rater-structure ontology -- r01, r23, r25, r26, r27, r28 -- which is FROZEN as UNRESOLVED. Four separators failed for four unrelated reasons: r23's sharper test read z=+10.26 at 2 null reps and +1.40 at 40; r26's centred residual gives 'below average' and 'actually disagreeing' the same number when mean agreement is +0.25; r27's agreeable-pair control selects same-bloc pairs under unequal bloc sizes and so could not have found blocs if they existed; r28's design was rank-deficient by exactly 1, its z moved with PYTHONHASHSEED, and its held-out R2 spanned [-1.64,+0.51]. The numbers below are correct about this round's own data. They do NOT establish that value blocs exist, and they do not establish that they do not. Neither reading is available from this release.",
  "note": "r23/r25/r26/r27 all fit A_ij = mu + a_i + a_j and read the residual as pair structure. Under one latent target with heterogeneous reliability, agreement is rho_i*rho_j, and an additive fit to that leaves residual (rho_i-m)(rho_j-m): positive at BOTH extremes, negative in the middle. That U-shape is exactly what r27 measured and read as a minority bloc."
 }
