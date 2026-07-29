@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T15:09:21.924792+00:00",
- "git": "c01aa23e2b3c8ce45377f5b8f40ff2362f3d2710",
+ "generated_utc": "2026-07-29T15:26:13.624355+00:00",
+ "git": "e1ab8c8621d6e25508d840b140325f985ab1d319",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -94,6 +94,10 @@
   "rounds/r103_consensus_conditioned/run.py": {
    "bytes": 11820,
    "sha256": "2e4df7b139cdd52dbb562b7188552f12ce0454fcdc506fe24128e41999b5ef50"
+  },
+  "rounds/r104_deattenuated_consensus/run.py": {
+   "bytes": 25755,
+   "sha256": "aec55ee70698f34df74bf410bbb5062b176a8671e63d987484f759cfcbdec465"
   },
   "rounds/r10_attribution_robustness/run.py": {
    "bytes": 8761,
@@ -656,6 +660,10 @@
   "rounds/r103_consensus_conditioned/results/r103_consensus_conditioned.json": {
    "bytes": 4129,
    "sha256": "8f8908fc33984f54d064c56fbd081151f43829570a5b33bbbab1ebf880e9833e"
+  },
+  "rounds/r104_deattenuated_consensus/results/r104_deattenuated_consensus.json": {
+   "bytes": 7108,
+   "sha256": "dc267657679f383784adca43a89ab9e2396502b45e132c8ebb4cc88a490430ba"
   },
   "rounds/r10_attribution_robustness/results/a10_attribution.json": {
    "bytes": 1085,
