@@ -130,16 +130,28 @@
    "perm_p": 0.6708322919270182
   },
   {
+   "measure": "D_judge_family_disagreement_excess",
+   "n": 250,
+   "pearson_r": 0.052853313734586294,
+   "spearman_r": 0.03900756437867919,
+   "ci": [
+    -0.060757486014452175,
+    0.16620406538352617
+   ],
+   "excludes_zero": false,
+   "perm_p": 0.41039740064983754
+  },
+  {
    "measure": "generic_nn_embedding (r40-style, recomputed)",
    "n": 250,
    "pearson_r": -0.10112434850687908,
    "spearman_r": -0.07772839627800514,
    "ci": [
-    -0.22332051271767764,
-    0.021353299306530172
+    -0.21885713920816346,
+    0.02374326317567314
    ],
    "excludes_zero": false,
-   "perm_p": 0.12621844538865284
+   "perm_p": 0.1087228192951762
   }
  ],
  "length_controlled": [
@@ -149,11 +161,11 @@
    "pearson_r": -0.08281931337473028,
    "spearman_r": -0.10363030156996238,
    "ci": [
-    -0.1900589286223845,
-    0.031148189556818858
+    -0.19118740345550087,
+    0.028950988396675165
    ],
    "excludes_zero": false,
-   "perm_p": 0.1804548862784304,
+   "perm_p": 0.1989502624343914,
    "corr_measure_with_length": -0.1703072388794581
   },
   {
@@ -162,8 +174,8 @@
    "pearson_r": -0.18366925420540073,
    "spearman_r": -0.17461006538678941,
    "ci": [
-    -0.27618854161464634,
-    -0.08068304840167884
+    -0.2766385320047117,
+    -0.08312466058104118
    ],
    "excludes_zero": true,
    "perm_p": 0.0032491877030742314,
@@ -175,8 +187,8 @@
    "pearson_r": 0.19930416317735142,
    "spearman_r": 0.18557460334535825,
    "ci": [
-    0.059411206536528066,
-    0.3311898424547004
+    0.061068935497680256,
+    0.3286360297363092
    ],
    "excludes_zero": true,
    "perm_p": 0.0022494376405898524,
@@ -188,11 +200,11 @@
    "pearson_r": -0.07714886094179924,
    "spearman_r": -0.07899595044705555,
    "ci": [
-    -0.20652544833788844,
-    0.05358369038218841
+    -0.21084638102723624,
+    0.05865347237777845
    ],
    "excludes_zero": false,
-   "perm_p": 0.2279430142464384,
+   "perm_p": 0.23369157710572358,
    "corr_measure_with_length": -0.07778145813385359
   },
   {
@@ -201,11 +213,11 @@
    "pearson_r": -0.051424479106208225,
    "spearman_r": -0.06294927734522986,
    "ci": [
-    -0.17189060790095909,
-    0.0684495941025172
+    -0.16816546588910822,
+    0.06960291485192949
    ],
    "excludes_zero": false,
-   "perm_p": 0.42939265183704073,
+   "perm_p": 0.4173956510872282,
    "corr_measure_with_length": -0.007775046365292496
   },
   {
@@ -214,11 +226,11 @@
    "pearson_r": 0.016103490067571825,
    "spearman_r": -0.0210128888267898,
    "ci": [
-    -0.11153137556949273,
-    0.14557642882245297
+    -0.10978097038959517,
+    0.14424968133638683
    ],
    "excludes_zero": false,
-   "perm_p": 0.7970507373156711,
+   "perm_p": 0.8135466133466633,
    "corr_measure_with_length": -0.09813698327998548
   },
   {
@@ -227,11 +239,11 @@
    "pearson_r": 0.02426949612384783,
    "spearman_r": -0.003791881774856284,
    "ci": [
-    -0.1014092713568466,
-    0.1464632820084621
+    -0.09896113383350287,
+    0.14766915273488876
    ],
    "excludes_zero": false,
-   "perm_p": 0.6983254186453387,
+   "perm_p": 0.6990752311922019,
    "corr_measure_with_length": -0.15365797298060907
   },
   {
@@ -240,12 +252,25 @@
    "pearson_r": 0.038878288505309,
    "spearman_r": 0.014429278276907612,
    "ci": [
-    -0.08615797324584587,
-    0.16217821695244777
+    -0.08960510079278552,
+    0.15826073579728409
    ],
    "excludes_zero": false,
-   "perm_p": 0.5368657835541115,
+   "perm_p": 0.5411147213196701,
    "corr_measure_with_length": -0.17258371929595828
+  },
+  {
+   "measure": "D_judge_family_disagreement_excess",
+   "n": 250,
+   "pearson_r": 0.05500902840204145,
+   "spearman_r": 0.045735175668600414,
+   "ci": [
+    -0.06544322895845182,
+    0.17225892463253722
+   ],
+   "excludes_zero": false,
+   "perm_p": 0.37565608597850536,
+   "corr_measure_with_length": -0.031590856346250536
   },
   {
    "measure": "generic_nn_embedding (r40-style, recomputed)",
@@ -253,11 +278,11 @@
    "pearson_r": -0.10144011687683521,
    "spearman_r": -0.06743883976275344,
    "ci": [
-    -0.22472016686358146,
-    0.025492884161938033
+    -0.2276486996583008,
+    0.025479341295631744
    ],
    "excludes_zero": false,
-   "perm_p": 0.10972256935766059,
+   "perm_p": 0.10322419395151212,
    "corr_measure_with_length": 0.0017050643608277677
   }
  ],
@@ -268,11 +293,11 @@
    "pearson_r": -0.011561007046046373,
    "spearman_r": -0.04197609561752988,
    "ci": [
-    -0.12811901917024837,
-    0.09752601926218933
+    -0.12178398764357064,
+    0.09972660974828776
    ],
    "excludes_zero": false,
-   "perm_p": 0.860284928767808,
+   "perm_p": 0.8587853036740815,
    "corr_measure_with_spread": 0.293182452139802
   },
   {
@@ -281,11 +306,11 @@
    "pearson_r": -0.06530844296286001,
    "spearman_r": -0.03171007536120577,
    "ci": [
-    -0.16838569475400628,
-    0.04188819165399407
+    -0.16997558159336684,
+    0.039756484543825875
    ],
    "excludes_zero": false,
-   "perm_p": 0.30567358160459884,
+   "perm_p": 0.29667583104223944,
    "corr_measure_with_spread": 0.5632628796895622
   },
   {
@@ -294,11 +319,11 @@
    "pearson_r": 0.07925369498825217,
    "spearman_r": 0.07879998079969279,
    "ci": [
-    -0.059778969371156725,
-    0.2130874168139813
+    -0.05340447386638416,
+    0.2120775329133772
    ],
    "excludes_zero": false,
-   "perm_p": 0.2079480129967508,
+   "perm_p": 0.21069732566858285,
    "corr_measure_with_spread": -0.5965825005299555
   },
   {
@@ -307,8 +332,8 @@
    "pearson_r": -0.046494383467352046,
    "spearman_r": -0.047205491287860606,
    "ci": [
-    -0.17700491466163842,
-    0.09073839071102952
+    -0.1773694892296052,
+    0.0878315437896025
    ],
    "excludes_zero": false,
    "perm_p": 0.4601349662584354,
@@ -320,11 +345,11 @@
    "pearson_r": -0.027255719929187197,
    "spearman_r": -0.03452330437286996,
    "ci": [
-    -0.1475236265197893,
-    0.09621445279660083
+    -0.14990625283584386,
+    0.09487430392991494
    ],
    "excludes_zero": false,
-   "perm_p": 0.6620844788802799,
+   "perm_p": 0.6633341664583854,
    "corr_measure_with_spread": 0.10755736830928889
   },
   {
@@ -333,11 +358,11 @@
    "pearson_r": 0.06409812654481456,
    "spearman_r": 0.03798627178034848,
    "ci": [
-    -0.07122947330586324,
-    0.19073773531736452
+    -0.07111859719550047,
+    0.2008198370802461
    ],
    "excludes_zero": false,
-   "perm_p": 0.30042489377655585,
+   "perm_p": 0.31167208197950513,
    "corr_measure_with_spread": 0.18572064571025515
   },
   {
@@ -346,11 +371,11 @@
    "pearson_r": 0.08454575390431658,
    "spearman_r": 0.07569106705707292,
    "ci": [
-    -0.046133102496500475,
-    0.20475756409994433
+    -0.042829647521358094,
+    0.2086472760025112
    ],
    "excludes_zero": false,
-   "perm_p": 0.18370407398150462,
+   "perm_p": 0.17720569857535617,
    "corr_measure_with_spread": 0.22473209376626618
   },
   {
@@ -359,12 +384,25 @@
    "pearson_r": 0.10540738936413967,
    "spearman_r": 0.08801305620889933,
    "ci": [
-    -0.019964677198704366,
-    0.22704239623494546
+    -0.021803015179037606,
+    0.22902933881778537
    ],
    "excludes_zero": false,
-   "perm_p": 0.09597600599850037,
+   "perm_p": 0.10172456885778555,
    "corr_measure_with_spread": 0.24188529096937553
+  },
+  {
+   "measure": "D_judge_family_disagreement_excess",
+   "n": 250,
+   "pearson_r": 0.034522163101993825,
+   "spearman_r": 0.03063716219459511,
+   "ci": [
+    -0.07830478826937354,
+    0.14994385527899484
+   ],
+   "excludes_zero": false,
+   "perm_p": 0.5973506623344164,
+   "corr_measure_with_spread": -0.09557956756762352
   },
   {
    "measure": "generic_nn_embedding (r40-style, recomputed)",
@@ -372,11 +410,11 @@
    "pearson_r": -0.09105279445987662,
    "spearman_r": -0.0702535400566409,
    "ci": [
-    -0.2130177689614572,
-    0.026765730915649998
+    -0.2118636366410024,
+    0.033139436478898374
    ],
    "excludes_zero": false,
-   "perm_p": 0.15871032241939514,
+   "perm_p": 0.15371157210697325,
    "corr_measure_with_spread": 0.05620272805504777
   }
  ],
@@ -392,8 +430,9 @@
   }
  },
  "judge_family": {
-  "status": "UNVERIFIED",
-  "why": "no second judge lineage persisted; world (b) 'the judge scores fresh responses incoherently' is NOT excluded"
+  "status": "MEASURED",
+  "second_judge": "rounds/r41_criterion_support/results/r41_satisfaction_phi.npz",
+  "mean_excess_disagreement_on_fresh": -0.007652559679105094
  },
  "per_prompt": {
   "pids": [
@@ -2161,6 +2200,6 @@
    56.93803024291992
   ]
  },
- "verdict": "SUPPORT CONFOUNDED: criterion-space novelty tracks the drop before the discriminating-power control (D_hull_violation = -0.1837) and does NOT survive it. What looked like geometry is the rubric separating the fresh responses less than it separated the originals -- one quantity, not a relationship between two. DETERMINACY CONFOUNDED: rank instability tracks the drop (+0.1993) but does NOT survive controlling for the rubric's own score spread, so it may be a restatement of low discriminating power rather than a relationship.",
+ "verdict": "SUPPORT CONFOUNDED: criterion-space novelty tracks the drop before the discriminating-power control (D_hull_violation = -0.1837) and does NOT survive it. What looked like geometry is the rubric separating the fresh responses less than it separated the originals -- one quantity, not a relationship between two. DETERMINACY CONFOUNDED: rank instability tracks the drop (+0.1993) but does NOT survive controlling for the rubric's own score spread, so it may be a restatement of low discriminating power rather than a relationship. Judge incoherence NOT DETECTED: two unrelated lineages disagree 0.0077 LESS on fresh responses than on the originals, and their disagreement does not track the drop (+0.0345, p=0.597) -- so the drop is not where the judges fall apart. NOT EXCLUDED: this is a non-rejection, and two lineages agreeing can still be two lineages wrong the same way.",
  "scope": "judge-relative. z_R is produced by the same judge whose off-distribution validity is unestablished, so this round cannot separate 'new normative territory' from 'the judge scores fresh responses incoherently'. It measures whether the discrepancy is spatially organised, nothing more."
 }

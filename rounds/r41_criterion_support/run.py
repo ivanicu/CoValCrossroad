@@ -337,7 +337,17 @@ def main() -> None:
     D_fam = np.full(n, np.nan)
     if a.sat2 and Path(a.sat2).exists():
         d2 = np.load(a.sat2)
-        if np.array_equal(d2["off_real"], off):
+        # A judge stuck near a constant produces large, meaningless
+        # "disagreement" with any other judge.  Then this measure would report
+        # the second lineage's FAILURE as evidence about the first one's
+        # coherence.  phi's earlier tokenizer defect did exactly that: every
+        # score 0.5, every pair tied.
+        sd2 = float(np.concatenate([d2["z_orig_real"].ravel(),
+                                    d2["z_fresh_real"].ravel()]).std())
+        if sd2 < 0.02:
+            fam["why"] = (f"second lineage is degenerate (sd={sd2:.4f}); its "
+                          "disagreement would measure its own failure")
+        elif np.array_equal(d2["off_real"], off):
             Zf2 = d2["z_fresh_real"]
             Zo2 = d2["z_orig_real"]
             for k in range(n):
@@ -492,7 +502,25 @@ def main() -> None:
                   f"length gap and the rubric's own score spread. Where the ranking "
                   f"depends on WHICH criteria were drawn, the advantage falls -- a "
                   f"failure to determine an order, not a failure to cover the region")
-    verdict = f"{support_v}. {rank_v}."
+    # World (b) -- "the judge scores fresh responses incoherently" -- is the one
+    # alternative this round can put any evidence against, so it goes in the
+    # verdict rather than a side field.  A non-significant result is NOT an
+    # exclusion, and the sentence says which one it is.
+    if fam["status"] != "MEASURED":
+        fam_v = ("Judge incoherence off-distribution is UNVERIFIED: no usable second "
+                 f"lineage ({fam['why']})")
+    else:
+        fr = by_sp.get("D_judge_family_disagreement_excess") or \
+            by.get("D_judge_family_disagreement_excess")
+        ex = fam["mean_excess_disagreement_on_fresh"]
+        fam_v = (
+            f"Judge incoherence NOT DETECTED: two unrelated lineages disagree "
+            f"{abs(ex):.4f} {'LESS' if ex < 0 else 'MORE'} on fresh responses than on "
+            f"the originals, and their disagreement does not track the drop "
+            f"({fr['pearson_r']:+.4f}, p={fr['perm_p']:.3f}) -- so the drop is not "
+            f"where the judges fall apart. NOT EXCLUDED: this is a non-rejection, and "
+            f"two lineages agreeing can still be two lineages wrong the same way")
+    verdict = f"{support_v}. {rank_v}. {fam_v}."
     print(f"\n-> {verdict}")
     if fam["status"] != "MEASURED":
         print("   world (b) -- the judge scores fresh responses incoherently -- "
