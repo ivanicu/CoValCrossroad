@@ -96,7 +96,10 @@ def main() -> None:
         how["unmatched"] += 1
         best = difflib.get_close_matches(ck, keys, n=1, cutoff=0.0)
         r = difflib.SequenceMatcher(None, ck, best[0]).ratio() if best else 0.0
-        unmatched.append({"rubric": ck[:160], "best_available_ratio": r,
+        # NOT truncated (entry 57): this string is persisted, and a reader
+        # checking whether an unmatched prompt is genuinely absent needs all of
+        # it. Console display is truncated below; the artifact is not.
+        unmatched.append({"rubric": ck, "best_available_ratio": r,
                           "criteria": len(rec.get("coval_full") or [])})
 
     matched = how["role_canonical"] + how["content_only"] + how["fuzzy"]

@@ -640,6 +640,24 @@ a file whose reader-facing view could not display them. The corrections were rea
 was not. Writing the caveat and shipping the caveat are different acts, and only the first was
 ever checked.
 
+**ADDENDUM — I then asserted "no other renderer truncates" without checking, and swept for it.**
+That sentence went into the commit body one turn after this entry documented the failure mode.
+The sweep found most `[:N]` slices are console output, which is transient and harmless, and two
+that are not:
+
+- `r53_join_audit` persisted the unmatched prompt text as `ck[:160]` into its results JSON — mine,
+  from this session, fixed.
+- `r21_donor_distance` cuts the **generation input** at 400 characters, which is data rather than
+  display. **52 of 968 prompts (5.4%) exceed it**, up to 829 characters, so for those the
+  paraphrase — the round's "known-related" anchor — is a paraphrase of a *fragment*. Direction of
+  the bias: a fragment paraphrase is less similar to the full prompt, so the anchor is weaker and
+  the distance scale it calibrates is compressed, which works *against* r21 finding transfer
+  rather than for it. Left in place with the bound stated, because changing it would change
+  published numbers.
+
+Both are smaller than the ASSURANCE.md case. The point of recording them is that the assertion
+came first and the check came second, which is the habit this entry exists to break.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

@@ -63,6 +63,17 @@ def main() -> None:
                                               device_map="cuda").eval()
     para = []
     with torch.inference_mode():
+        # ⚠ SCOPE (entry 57 sweep): this 400-character cut is on the GENERATION
+        # INPUT, not on a display string. 52 of 968 prompts (5.4%) exceed it,
+        # up to 829 characters, so for those the paraphrase -- this round's
+        # "known-related" anchor -- is a paraphrase of a FRAGMENT.
+        # Direction of the bias: a fragment paraphrase is less similar to the
+        # full prompt than a complete one would be, so the known-related anchor
+        # is WEAKER for those 52 and the distance scale they calibrate is
+        # compressed. That inflates how far "related" looks, which works
+        # AGAINST this round finding transfer rather than for it.
+        # Left in place rather than silently changed: altering it would change
+        # the published numbers, and the honest move is to state the bound.
         pr = [FEWSHOT + f"Question: {q.strip()[:400]}\nRewrite:" for q in qs]
         for i in range(0, len(pr), 24):
             enc = tok(pr[i:i+24], return_tensors="pt", padding=True,
