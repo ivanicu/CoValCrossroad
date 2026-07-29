@@ -489,6 +489,29 @@ unacceptable-content check came *before* the rankings and primes attention towar
 personal ranking came before the world one. Both are kept in that order for the arms that claim
 comparability, and any departure is stated in the same sentence as the estimate it affects.
 
+> **⚠ THE UNACCEPTABLE CHECK WAS NOT ASKED ON EVERY TASK, and this paragraph assumed it was**
+> (measured 2026-07-29, entry 155). Counting `ranking_blocks["unacceptable"]` by each rater's task
+> position across all **18,384** released assessments:
+>
+> | task position | assessments | with a `world` ranking | with an `unacceptable` block |
+> |---:|---:|---:|---:|
+> | 1 | 1,012 | 1,012 | **1,012** |
+> | 2 | 1,012 | 1,012 | **1,012** |
+> | 3 | 997 | 997 | 997 |
+> | 4 | 995 | 995 | 993 |
+> | 5 | 990 | 990 | **887** |
+> | 6 and beyond | — | all present | **0** |
+>
+> Only **26.66%** of released assessments carry it, and always a rater's **earliest** tasks. So the
+> safety priming applied to roughly the first five tasks per participant and to nothing after.
+>
+> **Consequence for this commitment, stated as a design decision rather than a detail:** replicating
+> the check on *every* task would **over-apply** a priming the release applied to a quarter of its
+> assessments. The arms claiming comparability must either (a) apply it to the first five tasks per
+> participant and not after, or (b) apply it uniformly and state that the released rankings are a
+> **mixture** of primed and unprimed conditions in a 27/73 split. Option (a) is chosen; (b) is
+> recorded so the choice is visible rather than assumed.
+
 **Compensation is reported because it is part of the instrument.** The release paid $60 for the
 survey plus 5 tasks (≈2 h), then $30/task with a $90 bonus for 15 within 7 days, to a maximum of
 $540, at a median 22 minutes per task. Committed: **at or above that rate**, and stated — attention

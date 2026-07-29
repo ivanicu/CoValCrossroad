@@ -4689,3 +4689,50 @@ already use and which I should have reached for first.
 a model trained on crowd phrasing reads core's wording, and that model carries the crowd's conventions
 with it. What it can do is fill a cell that has been `NaN` since r33 — using the only evidence
 available, and saying so.
+
+## Entry 155 — surveying declared gaps found a protocol fact the preregistration had assumed away
+
+**The survey.** r84 filled a cell that had been `NaN` since r33. That suggested a question: **what
+other declared gaps are there?** Every scalar `NaN` or `null` in a results file is a round saying *"I
+could not compute this."* `results_are_not_degenerate` cannot see them — it requires size ≥ 3, so
+scalars are invisible to it. Positive control: r33's `negative_share.core`, and the survey finds it.
+
+**45 declared gaps across 6 rounds, and the triage is almost entirely reassuring.**
+
+| round | n | what they are |
+|---|---:|---|
+| r58 | 21 | `contrasts[i].equivalent = null` — the **inconclusive** cells: neither significant nor bounded inside δ. A correct three-valued result, not a hole |
+| r02 | 15 | `position_drift[i].veto_rate = NaN` — see below |
+| r41 | 6 | `reproduction_control.{passed, worst_abs_diff, skipped_because}` — controls **deliberately not run** when the judge is not r12's instrument. `passed: null` rather than `false` is the UNVERIFIED-is-not-OVERTURNED discipline, in code |
+| r31 | 1 | `attrition_ratio` at position 1 — structural, nothing precedes it |
+| r45 | 1 | `frozen_at_commit` — known, documented, and already recovered in a sibling field |
+| r33 | 1 | the one genuinely fillable gap, filled by r84 |
+
+**r02's fifteen are the interesting ones, and they are not a bug.** `veto_rate` is `NaN` wherever **no
+assessment at that position carries an `unacceptable` block** — and position 6 has **n = 933**, so this
+is not a zero denominator. Counting across all **18,384** released assessments:
+
+| task position | with a `world` ranking | with an `unacceptable` block |
+|---:|---:|---:|
+| 1–3 | all | **all** |
+| 4 | 995 | 993 |
+| 5 | 990 | **887** |
+| **6 and beyond** | **all present** | **0** |
+
+**The unacceptable-content check was asked only on a rater's first ~5 tasks.** It covers **26.66%** of
+released assessments, and always the earliest ones.
+
+**Why that matters more than an unfilled cell.** PREREGISTRATION.md commits: *"An unacceptable-content
+check came before the rankings and primes attention toward safety… Both are kept in that order for the
+arms that claim comparability."* **That sentence assumed the check was universal.** Replicating it on
+every task would **over-apply** a priming the release applied to a quarter of its assessments — and the
+released rankings are a **27/73 mixture** of primed and unprimed conditions. The document now records
+the measurement, both options, and which was chosen.
+
+**Containment checked before alarm.** Only **r02** consumes the `unacceptable` block in code; no other
+round reads it, so nothing downstream is contaminated. The two document mentions are about task
+*order*, and one of them is the commitment corrected here.
+
+**What this does not touch.** r24's fatigue reading is frozen, and nothing above interprets fatigue —
+which block exists at which position is a fact about the data's shape, not about why raters behaved as
+they did.
