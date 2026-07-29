@@ -3448,3 +3448,42 @@ watches exactly the three files the plants touch, no more and no fewer.
 **What is NOT established.** That a firing check catches *every* instance of its defect. That is
 recall across the defect space, and it is unmeasured for all six. What is established is the prior
 question, which had no answer either way: **does this check ever say no?**
+
+## Entry 126 — swept the suite for the truncation class; one real, one latent, and the latent one is in the file that documents the fix
+
+**Why this ran.** Entry 125's last correction found a check hiding 12 of 20 findings behind a
+`--show 8` default. *A finding an instrument does not print is a finding it did not make.* That is a
+class, not an incident, so the whole suite was swept for it.
+
+**With a positive control first.** The rule was run against the **pre-fix** version of the repaired
+check (`absent[:a.show]`, default 8) and caught it. A truncation-detector that cannot see the known
+case would have made its zeros meaningless.
+
+**The rule's own population had to be widened once.** The first version required the slice to sit in a
+`for` loop and found nothing beyond the known case. Truncation also happens inside a `join(...)`, and
+dropping the `for` requirement immediately surfaced the one below. A rule that scans only the shape of
+the instance you already fixed will always report the class as closed.
+
+**What the sweep found: `readme_agrees_with_results.py:267`.**
+
+```
+print(f"{rid:7s} {len(vals):>10}   {', '.join(vals[:a.show])}{' ...' if len(vals) > a.show else ''}")
+```
+
+The per-round unmatched list, truncated at 6. **In the file whose own docstring says**, of the union
+arm: *"Entry 57 was a renderer that truncated claims and so deleted exactly the clauses that qualify
+them. Truncating THIS list hid a planted value from its own positive control … Print all of them."*
+The fix was applied to the **union arm only**. The per-round arm kept the defect the paragraph was
+written about.
+
+**It is currently inert, and that is the interesting part.** No round has more than 6 unmatched values,
+so **0 are hidden today**. It has never eaten a finding — which is precisely why it survived a file
+whose author had just written a paragraph condemning it. A latent truncation shows no symptom until
+the day the count crosses the threshold, and on that day the symptom is silence.
+
+**Fixed.** Both arms now default to showing everything, and a non-zero `--show` prints
+`⚠ N NOT SHOWN` rather than an ellipsis. An ellipsis is not a warning; it is punctuation.
+
+**Class closed, with its bound stated.** Two instances found, both fixed, positive control passed,
+rule widened once. What is *not* established: that this rule catches every way a finding can fail to
+reach a reader — a check could filter before it ever builds the list, and no slice-detector sees that.

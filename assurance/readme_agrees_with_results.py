@@ -197,7 +197,15 @@ def matches(tok: str, pool: set[float]) -> bool:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--readme", type=Path, default=_ROOT / "README.md")
-    ap.add_argument("--show", type=int, default=6, help="max unmatched shown per round")
+    # Default 0 = show every unmatched value. It was 6. The docstring below the
+    # union arm already says why -- "Truncating THIS list hid a planted value
+    # from its own positive control ... Print all of them" -- and that fix was
+    # applied to the union arm ONLY, leaving the per-round arm truncated. It is
+    # currently inert (no round has more than 6 unmatched, so nothing is hidden
+    # today) which is exactly why it survived: a latent truncation shows no
+    # symptom until the day it eats a finding.
+    ap.add_argument("--show", type=int, default=0,
+                    help="max unmatched shown per round; 0 = all")
     a = ap.parse_args()
 
     pools: dict[str, set[float]] = {}
@@ -264,8 +272,9 @@ def main() -> None:
     print(f"{'round':7s} {'unmatched':>10}   sample")
     for rid in sorted(flagged, key=lambda r: int(r[1:])):
         vals = flagged[rid]
-        print(f"{rid:7s} {len(vals):>10}   {', '.join(vals[:a.show])}"
-              f"{' ...' if len(vals) > a.show else ''}")
+        shown = vals if a.show == 0 else vals[:a.show]
+        print(f"{rid:7s} {len(vals):>10}   {', '.join(shown)}"
+              f"{f'   ⚠ {len(vals) - len(shown)} NOT SHOWN' if len(vals) > len(shown) else ''}")
     if not flagged:
         print("  (none)")
 
