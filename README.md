@@ -119,6 +119,40 @@ Neither endpoint is clean — the far donor is adversarially selected and may si
 judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so any
 single figure must name its floor.**
 
+### The exhaustion ledger — every mechanism proposed for r12's inversion, and what happened to it
+
+The claim that these rounds *"exhaust the alternatives"* is only meaningful if the alternatives can
+be listed. They can. **A list bounds exhaustiveness from below and can never prove it** — no
+enumeration shows that no other mechanism exists — so this is the set that was proposed and tested,
+not a proof that the set is complete.
+
+| # | proposed mechanism | round | outcome |
+|---|---|---|---|
+| 1 | criteria memorise the four candidate **strings** | [r13](rounds/r13_seed_vs_writein) | **refuted** — participant-blind seeds carry +0.046 [+0.023, +0.069] |
+| 2 | criteria are merely **topic**-specific | [r15](rounds/r15_indistribution_transfer) | **refuted** — near-topic criteria +0.018 [−0.001, +0.037]. ⚠ r15's own verdict: this does **not** resolve r12 |
+| 3 | fresh responses are **off-distribution** by generic distance | [r40](rounds/r40_ood_map) | **refuted, and inverted** — the drop is worst at *short* distance, r=−0.125 |
+| 4 | fresh responses leave the rubric's **criterion-space support** | [r41](rounds/r41_criterion_support) | **confounded** — hull violation −0.1837 does not survive the discriminating-power control |
+| 5 | the rubric loses **discriminating power** on fresh responses | [r41](rounds/r41_criterion_support) → [r46](rounds/r46_spread_replication) | **failed to replicate** — +0.2309 discovery, +0.0496 [−0.068, +0.169] held out |
+| 6 | the **gold head is unstable** off-distribution | [r29](rounds/r29_gold_ood) | **refuted** — 0.590 fresh vs 0.543 original. ⚠ reliability, not validity |
+| 7 | the **gold head reads length** | [r47](rounds/r47_gold_is_length) | **PARTLY CONFIRMED** — ~half the inversion rides on it; the "unrelated rubric beats it" reading is withdrawn |
+| 8 | the **judge scores lexical overlap** (correlational) | [r51](rounds/r51_judge_lexical) | **confirmed as a channel** — +0.2068 vs a −0.0034 null |
+| 9 | …and **causally** | [r52](rounds/r52_overlap_intervention) | **confirmed** — +0.2507 [+0.2300, +0.2714] under intervention |
+| 10 | that overlap channel **explains r12** | [r54](rounds/r54_overlap_transfer) | **refuted** — real, but does not predict *which* prompts drop (−0.0736 [−0.2059, +0.0612]) |
+| 11 | its **ordering component** explains r12 | [r55](rounds/r55_overlap_selectivity) | **refuted** — collapse +0.0002 [−0.0056, +0.0059], equivalent to zero at δ=0.01 |
+| 12 | **semantic selectivity** collapse explains r12 | r56 | **failed to replicate** — ⚠ and r56's numbers have no artifact; [r66](rounds/r66_r56_reconstruction) could not recompute them |
+| 13 | criteria carry **independent** normative content | [r59](rounds/r59_criterion_influence) | **refuted** — they are concordant, and *not* own-rubric-specifically (14.7% vs 14.9% borrowed) |
+
+**⚠ Read every "refuted" in rows 3, 4, 5, 10 and 12 against a floor.**
+[r57](rounds/r57_outcome_reliability) measured the per-prompt attribution drop's split-half
+reliability at **0.302 / 0.422**, so a mechanism with a true per-prompt correlation below ≈**0.2** is
+invisible to *all* of them ([entry 55](RETRACTIONS.md)). **Those rows say "not detected above the
+floor", not "absent".** Rows 1, 2, 6, 11 and 13 rest on tightly-bounded contrasts rather than
+correlations and do not inherit that limit.
+
+**What survives:** the inversion replicates (+0.102 → −0.064; held out +0.0847 → −0.0716), the
+outcome variable carries roughly half of it (row 7), and **nothing proposed explains the remainder**.
+That is the state H_fresh exists to resolve.
+
 ### r12's inversion is worst where the fresh responses look MOST like the released ones
 
 The easiest explanation for r12 — the rubric's advantage inverting on fresh responses — is

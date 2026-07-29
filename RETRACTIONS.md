@@ -2615,6 +2615,35 @@ returns 1 whenever any round cites none of its own significant contrasts — sev
 had not been in my batch list, so adding it here surfaced its designed state as if it were a failure.
 Recorded so the next person reading a suite run does not chase it.
 
+## Entry 107 — "exhausting the alternatives" was asserted for 64 rounds and never enumerated
+
+The README's closing claim is that **none of the three counterfactuals is computable from this
+release, and 64 rounds establish that by exhausting the alternatives rather than by assertion**.
+That sentence is itself an assertion unless the alternatives can be listed. **Nothing listed them.**
+
+**They enumerate to thirteen.** Every mechanism ever proposed for r12's inversion, its round, and its
+outcome — now a table in the README. Mechanical enumeration was not enough to build it: only **8
+rounds name r12** in a verdict or scope field, while r40, r41, r50–r52 and r59 test mechanisms for it
+without saying so there. The ledger had to be assembled by reading, and each row checked against its
+artifact.
+
+**All 28 numbers in it verify: 0 unbacked.**
+
+**The ledger's own limit is the first thing in it.** A list bounds exhaustiveness **from below** and
+can never prove it — no enumeration shows that no other mechanism exists. What the table shows is the
+set that was *proposed and tested*, which is a weaker and honest claim than "exhausted".
+
+**And it makes visible something the scattered rows did not.** Five of the thirteen — rows 3, 4, 5,
+10, 12 — are **correlational**, and r57 measured the per-prompt outcome's split-half reliability at
+**0.302 / 0.422**, so any mechanism with a true correlation below ≈**0.2** is invisible to all of
+them. Those five say *"not detected above the floor"*, not *"absent"*. The other five refutations
+(rows 1, 2, 6, 11, 13) rest on **tightly-bounded contrasts** and do not inherit that limit.
+
+**That distinction existed in entry 55 and had never been applied per-mechanism.** Reading the rounds
+one at a time, "refuted" looks uniform; in a table with the floor stated once at the bottom, it
+splits five-and-five. **The strongest thing this project can say — "nothing explains the remainder" —
+is five real refutations and five undetected-below-a-floor, and it now reads that way.**
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
