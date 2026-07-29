@@ -7239,3 +7239,41 @@ freeze's hashes; 203 found the weights reconstruct 250; 204 found the cells are 
 corrected "unverifiable" to "unstored"; **205 read the threshold rule and found the strata are not the
 halves the document implied.** Four turns, no new measurement, one substantive correction to a document
 the human experiments will be read against.
+
+---
+
+## Entry 206 — the unequal weights cost the population estimate 3% of its precision and the subset estimate nothing
+
+The preregistration promises that **one collection yields both a population estimate and an
+anomaly-subset estimate**. Entry 205 established the strata are unequal (97/153 on one axis). The
+unstated consequence: **unequal weights inflate the variance of the population figure.**
+
+Kish's design effect for unequal weights, `n·Σw²/(Σw)²`, on the realized sample — n=60, Σw=250,
+Σw²=1105.2:
+
+| | |
+|---|---|
+| design effect | **1.0610** |
+| effective sample size for a population estimate | **56.6, not 60** |
+| half-width, unweighted (r94) → weighted | **0.0446 → 0.0459** (+3.0%) |
+| **anomaly-subset estimate** (one cell, equal weights within) | **deff = 1.000, unaffected** |
+
+**So the two-estimates promise is not free, and it is not costly either** — 3% on the population figure,
+nothing on the subset figure. That is worth stating precisely because a reader who saw "0.0446" in the
+sizing paragraph and applied it to a weighted population claim would be quoting an unweighted number.
+
+### The caveat is load-bearing and is stated as one
+
+**Kish's formula measures the weighting penalty ALONE.** It assumes constant within-stratum variance,
+and **stratification normally *reduces* variance when strata are homogeneous** — a gain this does not
+measure. So **1.061 is an upper bound on the net design effect, not an estimate of it.** If the cells
+separate the outcome well, the true figure could be below 1 and the weighted estimate *more* precise
+than the unweighted one, not less.
+
+**Which means the honest form is a bound in a direction:** the weighting cannot cost more than 3%, and
+may cost nothing. That is a different sentence from "it costs 3%", and only the frozen design plus
+H_fresh's actual data could settle which.
+
+**What made this findable:** the freeze stores the weights and the cell sizes, so the design effect is
+arithmetic on numbers already frozen — no data, no model, no judgement. **The same property that let
+entries 203–205 verify the design lets it be costed.**

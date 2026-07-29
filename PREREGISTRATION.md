@@ -300,7 +300,19 @@ while **disagreement splits 97 / 153**, because **28 prompts tie at the median**
 the high side. So the *low-disagreement* stratum is **97 of 250 (38.8%)**, not half — and every sampled
 low-disagreement prompt sits at **exactly zero** disagreement, making that axis *none versus some*
 rather than *below versus above*. A weighted estimate on that cell represents 38.8% of the population;
-reading it as half would overstate its reach by a quarter. Weights
+reading it as half would overstate its reach by a quarter.
+**And the unequal weights cost the POPULATION estimate about 3% of its precision, while costing the
+anomaly-subset estimate nothing.** Kish's design effect for unequal weights, `n·Σw²/(Σw)²`, is
+**1.0610** on the realized sample (n=60, Σw=250, Σw²=1105.2), so the effective sample size for a
+population figure is **56.6, not 60**, and the ≈0.0446 half-width above becomes **≈0.0459** when the
+weights are applied. A single-cell estimate carries **equal weights within the cell** and therefore
+**deff = 1.000** — the "one collection, two estimates" promise costs 3% on one of them and nothing on
+the other.
+⚠ **Stated as the weighting penalty ALONE.** Kish's formula assumes constant within-stratum variance
+and measures only the cost of unequal weights; **stratification itself normally *reduces* variance when
+strata are homogeneous, and that gain is not measured here.** So 1.061 is an upper bound on the net
+penalty, not an estimate of it — the true design effect could be lower and, if the strata separate the
+outcome well, below 1. Weights
 are reported with every estimate so one collection yields **both** a population estimate and an
 anomaly-subset estimate. Power ≈0.98 for +0.05 clustered on prompt; r12's 0.16 is detectable in
 every cell.
