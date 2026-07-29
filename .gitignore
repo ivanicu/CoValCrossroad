@@ -9,3 +9,7 @@ data/DATASET_CARD.md
 __pycache__/
 *.pyc
 .DS_Store
+
+# r79 embedding caches: 308 MB, regenerable from the checkpoints in r80_panel_freeze.
+# Kept out of git deliberately -- the derived per-prompt values (r79_d_*.npy) are committed.
+rounds/*/results/r79_emb_*.npy
