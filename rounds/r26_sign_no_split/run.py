@@ -179,16 +179,23 @@ def main() -> None:
     print(f"  S2  left-tail mass          observed {obs['s2']:.4f}   "
           f"null {null_s2.mean():.4f} +- {null_s2.std():.4f}   z={z2:+.2f}  p={p2:.4g}")
 
-    structure = p1 < 0.05
-    signed = p2 < 0.05
+    # NAMES DESCRIBE THE TESTS, not the interpretation (FROZEN.md section 1,
+    # entry 62). These are two dyad-permutation tail probabilities. The keys they
+    # feed were called `pair_structure` and `structure_is_signed`, which asserted
+    # the reading the freeze withdraws -- and a field NAME is unreachable by the
+    # freeze text this file already carries. FROZEN.md records why s2 cannot bear
+    # that reading: mean agreement is +0.25, so a centred residual gives "below
+    # average" and "actually disagreeing" the SAME number.
+    s1_exceeds_null = p1 < 0.05
+    s2_exceeds_null = p2 < 0.05
     verdict = (
         "M2: pair identity carries structure AND that structure is signed -- there are "
         "pairs that reliably disagree, which attenuation toward zero cannot produce"
-        if structure and signed else
+        if s1_exceeds_null and s2_exceeds_null else
         "M1b-PRIME: pair identity carries structure but it is NOT signed. A second axis "
         "of rater competence explains it as well as blocs do, and this observable cannot "
         "separate them"
-        if structure else
+        if s1_exceeds_null else
         "NO PAIR STRUCTURE: the residual is indistinguishable from a dyad-permutation null")
     print(f"\n  -> {verdict}")
 
@@ -201,7 +208,8 @@ def main() -> None:
          "s1_null_sd": float(null_s1.std()), "s1_z": float(z1), "s1_p": p1,
          "s2_observed": obs["s2"], "s2_null_mean": float(null_s2.mean()),
          "s2_null_sd": float(null_s2.std()), "s2_z": float(z2), "s2_p": p2,
-         "pair_structure": bool(structure), "structure_is_signed": bool(signed),
+         "s1_exceeds_dyad_permutation_null": bool(s1_exceeds_null),
+         "s2_exceeds_dyad_permutation_null": bool(s2_exceeds_null),
          "verdict": _freeze(verdict, "r26_sign_no_split"),
          "note": "no split-half anywhere. r23/r25 estimated the same quantity through a "
                  "random half-split and returned z = 1.40, 2.26, 2.68 and 10.26 for the "

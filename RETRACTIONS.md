@@ -880,7 +880,7 @@ value answers them, which is fine: r28's `multiplicative_generalises_better` is 
 |---|---|---|
 | `min_bloc`, `mean_bloc`, `min_bloc_ci`, `random_blocs` | r16 | **renamed** → `min_segment`, `mean_segment`, `min_segment_ci`, `random_splits` |
 | `bloc_axis_singular_share` | r18 | **renamed** → `profile_axis_singular_share` |
-| `structure_is_signed` = **True** | r26 (9 cells) | **outstanding** — asserts exactly what FROZEN.md §1 withdraws, and r26's centred residual gives "below average" and "actually disagreeing" the same number |
+| `structure_is_signed` = **True**, `pair_structure` | r26 (9 cells) | **DONE** → `s2_exceeds_dyad_permutation_null`, `s1_exceeds_dyad_permutation_null` — names that describe the *tests* (two dyad-permutation tail probabilities) rather than the reading FROZEN.md §1 withdraws |
 | `constituency` | r06 + 4 | **outstanding** — the frozen term, though here it names a *rule* being compared, not a finding |
 | `D_leakage` | r34 | **DONE** → `D_same_sample_premium`, with manifest C17's gate path updated in the same edit; r34, r42 and the manifest all re-run, C17 still HOLDS at 0.0055 < 0.01 |
 
@@ -888,7 +888,19 @@ value answers them, which is fine: r28's `multiplicative_generalises_better` is 
 renamed and re-run; both now have zero keys containing "bloc". `D_leakage` needed a coordinated
 edit — r34, `assurance/manifest.py`'s C17 gate path, r42 (which walks r34's estimand keys) and the
 README — and is **done**: C17 still HOLDS at 0.0055 < 0.01, and r42 still lists the contrast in its
-"real but negligible" cell. **r26 remains**: nine cells at ~10 minutes each.
+"real but negligible" cell. **r26 is done too, and my cost estimate for it was wrong in the usual direction.** I said "nine
+cells at ~10 minutes each, so ~90 minutes", which assumed sequential execution. The historical
+pueue timings show the eight original cells ran **in parallel** — all started 11:52:27, all finished
+by 12:24 — so the wall-clock is ~30 minutes, and `cpu-run` has parallelism 20. A cost asserted
+without checking, used to defer work, and wrong by 3×.
+
+**And the rename itself failed once first, in a way worth recording.** My first attempt used a
+word-level regex on `structure` and `signed`. Those words appear throughout r26's docstring and
+inside its verdict *prose*, where they are correct English — so the substitution produced
+`"M2: pair identity carries s1_exceeds_null AND that s1_exceeds_null is s2_exceeds_null"`. Not a
+rename: corruption of the conclusion text. Reverted via git and redone against the two assignments,
+the two dict keys and the three branch conditions only, with an assertion that no bare
+`structure`/`signed` assignment survives in code. The verdict prose is verbatim unchanged.
 
 **Two self-inflicted stumbles worth recording, because both are the same shape as findings above.**
 My first rename attempt asserted `"D_leakage" not in source` and fired — the *comment explaining
