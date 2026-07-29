@@ -2013,6 +2013,50 @@ every verification step — and the protocol still had no answer to *who is in t
 the measurement is not specifying the measurement **program**, and π was the layer this project
 named first and audited last.
 
+## Entry 91 — the preregistration is `[unchallenged]`, and I wrote down what an adversary should find
+
+Ten entries of design work on three experiments, all of it produced by the process that also
+reviewed it. **A reviewer sampled from the weights that wrote a document can only attack what that
+process already anticipated** — which is precisely why the anticipated parts read as fluent. Nothing
+in `PREREGISTRATION.md` has been read by anyone but me.
+
+I could not dispatch an independent reviewer in this session. The rule for that case is explicit:
+say so, mark the work **`[unchallenged]`, never "clean"**, and pre-register what the adversary is
+expected to overturn — because when one eventually runs, its findings score **my calibration about
+my own work**, which is worth more than any single verdict.
+
+`ADVERSARY_FORECAST.md` records six objections with probabilities, written before any review:
+
+| # | objection | P(raised unprompted) |
+|---|---|---:|
+| 1 | δ=0.01 is stipulated in four places and connected to **no decision** | 0.85 |
+| 2 | "the unmatched rate is the measurement" conflates *menu-induced* with *too vague to match* | 0.80 |
+| 3 | **the τ_c symmetric design assumes both edits are the same kind of object, and often they are not** | 0.75 |
+| 4 | Experiment 2's satisfaction sub-study has no n — an escape hatch dressed as a commitment | 0.70 |
+| 5 | Experiment 1 has **no power calculation at all** | 0.65 |
+| 6 | r60's "not answerable" assumes reversed pairs are spread evenly across prompts | 0.55 |
+
+**Number 3 is the one that costs most, and it is an attack on the fix I was pleased with two entries
+ago.** The symmetric design borrows r52's *"same kind of object"* logic, where both arms genuinely
+were two token lists differing only in source. A satisfy-edit and a violate-edit usually are not:
+for *"contains no factual errors"*, satisfying is leaving the text alone and violating means
+inserting a falsehood. Insertion and deletion have different fluency signatures, and a participant
+may be responding to the operation rather than the criterion.
+
+**Number 5 is the plainest.** Experiment 2 carries reliability, attenuation and per-rater-count
+detection floors. Experiment 3 now carries a flip-rate prior. Experiment 1 — the one addressing
+S_pre, which this project calls one of the three counterfactuals that end it — has *"fixed n,
+decided from a pilot"* and nothing else.
+
+**Two predictions of survival** are recorded too, so the forecast is falsifiable in both directions
+rather than a list of hedges: the world-vs-personal *documentation* finding, and the *logic* (not the
+constructibility) of the symmetric fix.
+
+**And the scoring rule matters more than the hit rate.** What counts is **what a reviewer raises
+that is not on this list** — that number measures what this process cannot see about itself. A high
+hit rate on six objections I wrote myself proves only that I can enumerate my own anticipated
+weaknesses, which was never in doubt.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

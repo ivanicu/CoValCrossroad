@@ -46,7 +46,8 @@ _ROOT = Path(__file__).resolve().parents[1]
 # not exist -- so the check would have reported 3 of 4 watched and silently
 # skipped the generated claim ledger, which is exactly the kind of quiet
 # under-coverage this whole session has been about.
-WATCHED = ("README.md", "FROZEN.md", "PREREGISTRATION.md", "assurance/ASSURANCE.md")
+WATCHED = ("README.md", "FROZEN.md", "PREREGISTRATION.md", "assurance/ASSURANCE.md",
+           "ADVERSARY_FORECAST.md")
 
 # (pattern, correcting entry, what the correct statement is)
 CORRECTED = [

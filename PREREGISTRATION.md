@@ -1,5 +1,11 @@
 # Preregistration — the three human experiments
 
+> **Review status: `[unchallenged]`, not clean.** Every experiment below was designed, attacked
+> and repaired by the same process that wrote it, and no independent reviewer has read it. What
+> I expect an adversary to overturn is written down in advance in
+> [`ADVERSARY_FORECAST.md`](ADVERSARY_FORECAST.md), so that when one runs, its findings score
+> this document's calibration rather than being absorbed into it.
+
 Written **before** any human data exists, which is the only time a preregistration means
 anything. Frozen frame: `rounds/r45_protocol_freeze/results/r45_frozen_frame.json`,
 manifest `313044eafe5d18a9335408f7c35a0e76f2b08e4a436f765cede756e78b3dfa4b`, 60 prompts,
