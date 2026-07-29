@@ -4349,3 +4349,44 @@ working-as-designed report BROKEN for the one reason that is not a fault.
 Three false accusations, all from my instruments rather than the checks. That ratio is now consistent
 across this session — every harness I build accuses working machinery before it finds anything broken,
 and the one genuine defect it did find (entry 143's) was found the same way.
+
+## Entry 146 — the midpoint of a 21-point scale was used once in 102,147 ratings, and nobody had looked
+
+**Eight of the last ten turns were assurance work.** That is a basin, and the escape is the object. The
+least-examined layer is **π**, where queue item 1 records that *"not a forced-choice artifact"* survives
+only as *"robust to POST-HOC criterion abstention"* — r35 dropped low-consensus criteria after the fact
+and could not simulate an elicitation-time neutral option.
+
+**The released weight distribution had never been read out.** r61 mentioned the neutral point in
+passing while computing power. Nothing plotted it.
+
+| | all | seed | write-in |
+|---|---:|---:|---:|
+| midpoint (w = 0) | **0.0000** — **1 rating in 102,147** | 0.0000 | 0.0001 |
+| low magnitude (\|w\| = 1 or 2) | 0.1805 | **0.1921** | **0.0698** |
+| extreme (\|w\| = 10) | 0.1696 | 0.1645 | 0.2172 |
+| positive share | 0.7701 | 0.7787 | 0.6886 |
+| on 5 or 10 | **0.2955** | 0.2907 | 0.3405 |
+
+**Two facts stand on their own, independent of any contrast.** A 21-point scale whose midpoint is
+effectively unavailable — used **once** — and **29.55% of all weight mass landing on two of the
+twenty-one values**. That second one bounds how much resolution any weighted aggregation over these
+numbers can carry, and it is a property of the instrument rather than of anyone's values.
+
+**The contrast is large and its interpretation is not settled.** Seeds carry **+0.1223** more
+low-magnitude mass than write-ins, against a within-prompt permutation null of [−0.0016, +0.0095]. I
+predicted that, on the reasoning that a rater handed a criterion may have no opinion about it while a
+rater who wrote one does.
+
+**⚠ And I failed to write the rival that predicts the same thing.** **Selection**: you author a write-in
+*because* you already care, so it gets a strong weight; you are handed a seed regardless. That produces
+exactly this gap with no forced-choice pressure anywhere. The permutation null does not touch it — it
+scrambles *which class* a criterion is in, not *why the class exists*. So the world label reads
+`B/S UNSEPARATED` rather than the one I predicted. **Writing the confound after seeing the result is
+worse than writing it before; not writing it at all would be worse still**, and the strongest-confound
+rule exists precisely because the rival is easiest to see once the number agrees with you.
+
+**What would separate them, contributed to the preregistration rather than claimed here.** If the
+missing midpoint is doing the work, offering *"no general direction"* at elicitation should absorb most
+of the **seed** low-magnitude mass and little of the write-in mass. That is a directional prediction
+Experiment 1 can test and this round cannot.

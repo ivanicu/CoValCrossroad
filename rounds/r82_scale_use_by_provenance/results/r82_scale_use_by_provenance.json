@@ -1,0 +1,70 @@
+{
+ "total_ratings": 102147,
+ "histogram": {
+  "-10": 4272,
+  "-9": 1158,
+  "-8": 2152,
+  "-7": 1447,
+  "-6": 1951,
+  "-5": 2837,
+  "-4": 2166,
+  "-3": 2390,
+  "-2": 2851,
+  "-1": 2260,
+  "0": 1,
+  "1": 6012,
+  "2": 7314,
+  "3": 7307,
+  "4": 7599,
+  "5": 10025,
+  "6": 7905,
+  "7": 6380,
+  "8": 8532,
+  "9": 4540,
+  "10": 13048
+ },
+ "profiles": {
+  "all": {
+   "n_ratings": 102147,
+   "midpoint_rate": 9.78981272088265e-06,
+   "low_magnitude_rate": 0.1804947771349134,
+   "extreme_rate": 0.16955955632568748,
+   "positive_share": 0.770086248250071,
+   "mean_abs": 5.726472632578539,
+   "round_number_rate": 0.2954761275416801
+  },
+  "seed": {
+   "n_ratings": 92306,
+   "midpoint_rate": 0.0,
+   "low_magnitude_rate": 0.19205685437566355,
+   "extreme_rate": 0.16452884969557774,
+   "positive_share": 0.7787467770242454,
+   "mean_abs": 5.6277490087318265,
+   "round_number_rate": 0.29072866335882824
+  },
+  "write_in": {
+   "n_ratings": 9684,
+   "midpoint_rate": 0.00010326311441553078,
+   "low_magnitude_rate": 0.0698058653448988,
+   "extreme_rate": 0.2171623296158612,
+   "positive_share": 0.6885584469227591,
+   "mean_abs": 6.6700743494423795,
+   "round_number_rate": 0.34045848822800495
+  }
+ },
+ "low_magnitude_values": [
+  1,
+  2
+ ],
+ "seed_minus_writein_low_rate": 0.12225098903076476,
+ "permutation_null_ci": [
+  -0.0015842307635916297,
+  0.009476258339147508
+ ],
+ "n_perm": 400,
+ "outside_null": true,
+ "world": "B/S UNSEPARATED -- displacement and selection both predict this, and this design cannot tell them apart",
+ "outcome_variable_scope": "Released human weights only. No judge, no model, no ranking enters this round.",
+ "scope": "Provenance is r48's identification by rating count -- criteria rated by at least 6 raters are the pre-seeded set shown to everyone, singly-rated ones are participant write-ins. The permutation is WITHIN prompt, so a prompt whose criteria are all rated softly cannot create a provenance effect. This measures scale USE, not what a neutral option would have produced -- that arm does not exist in this release and is preregistered.",
+ "verdict": "B/S UNSEPARATED -- displacement and selection both predict this, and this design cannot tell them apart. THE MIDPOINT OF A 21-POINT SCALE WAS USED ONCE IN 102,147 RATINGS (0.000010), and no round in this package had read that distribution out. Queue item 1 rescoped 'not a forced-choice artifact' to 'robust to POST-HOC criterion abstention' precisely because r35 could not simulate an elicitation-time neutral option; this round cannot simulate one either, and does not try. What it asks instead is whether the scale is used DIFFERENTLY where the pressure should differ -- a rater has an opinion about a criterion they wrote and may have none about one they were shown. Low-magnitude ratings (|w| in (1, 2)) are 0.1921 of seed ratings against 0.0698 of write-in ratings, a difference of +0.1223 against a within-prompt provenance-permutation null of [-0.0016,+0.0095]. SCALE-USE FACTS WORTH HAVING SEPARATELY FROM THE CONTRAST: 0.7701 of ratings are positive, 0.1696 sit at the extreme |w|=10, and 0.2955 fall on 5 or 10 -- so more than a third of all weight mass lands on two of the twenty-one available values, which is coarse mental rounding and bears on how much resolution any weighted aggregation can actually carry. \u26a0 THE RIVAL I DID NOT WRITE BEFORE THE RUN, and it predicts the same direction: SELECTION. A rater authors a write-in because they already care about it, so it gets a strong weight; a rater is HANDED a seed regardless of whether they care. That yields more low-magnitude mass on seeds with no forced-choice pressure involved at all. The permutation null does not touch it -- it scrambles which class a criterion is in, not why the class exists -- so displacement and selection are UNSEPARATED here and the world label says so instead of naming the one I predicted. WHAT THIS CANNOT DO, unchanged from before the run: nobody in this release was offered a neutral option, so what they WOULD have done is unobservable. A null here would say the pressure is uniform across provenance, not that there is no pressure. WHAT WOULD SEPARATE THEM: the preregistered neutral-option arm. If the missing midpoint is doing the work, offering 'no general direction' should absorb most of the seed low-magnitude mass and little of the write-in mass -- a directional prediction this round contributes to Experiment 1 and cannot itself test."
+}
