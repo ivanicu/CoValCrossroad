@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T14:40:23.356773+00:00",
- "git": "cdf218ca71a4e3a8dc587a3986e9d0dfe0fedf17",
+ "generated_utc": "2026-07-29T14:44:07.862987+00:00",
+ "git": "23b7af8f8de404a550515471eabbfbd7da41558b",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -82,6 +82,10 @@
   "rounds/r100_rater_reliability/run.py": {
    "bytes": 11536,
    "sha256": "83559fed18f001d214509d6552ab602cc98cf0ce807f5ffeb403845cac2afe0b"
+  },
+  "rounds/r101_reliability_offset/run.py": {
+   "bytes": 10807,
+   "sha256": "be48150d053c5e3db116561619d26928302bd675555da6a4a7bcaa2ab02f03bc"
   },
   "rounds/r10_attribution_robustness/run.py": {
    "bytes": 8761,
@@ -628,6 +632,10 @@
   "rounds/r100_rater_reliability/results/r100_rater_reliability.json": {
    "bytes": 3145,
    "sha256": "898d0165d5e51608c23b74e0d9910d75646b639b38b933d5fd9068bddc1c8601"
+  },
+  "rounds/r101_reliability_offset/results/r101_reliability_offset.json": {
+   "bytes": 3112,
+   "sha256": "f0f1b0a3b56899b127c6a12a60871808f05131c4a50cf000ab7c09c35222f2bb"
   },
   "rounds/r10_attribution_robustness/results/a10_attribution.json": {
    "bytes": 1085,
