@@ -4224,3 +4224,48 @@ three candidate checks were also for, and it dies here like two of them did.
 **Verified after:** both files parse, both `--reverdict` paths reproduce their corrected strings, and
 the full suite returns to green including `no_withdrawn_framings` and
 `retired_framing_in_assertion_positions`.
+
+## Entry 143 — the surface between "withdrawn" and "written down" was unguarded
+
+**The gap entry 142 exposed.** r12's inline verdict copy carried the retired phrase **"the
+value-carrying share"** in a string literal assigned to `verdict`. A rerun would have written it into a
+results file. Neither framing check could see it:
+
+| check | scans | why it missed |
+|---|---|---|
+| `no_withdrawn_framings` | results JSONs | the phrase was not in one **yet** |
+| `retired_framing_in_assertion_positions` | prose (README, headings, cells) | the phrase was in **source** |
+
+So there was no guard on the surface where a rerun converts *withdrawn* into *published*.
+
+**Measured before building, as the last four candidates were.** Positive control — r12's source at
+HEAD~1 — yields exactly **1** hit, `value-carrying share` at line 361. Current tree: **0**. A zero from
+an instrument that has demonstrated it speaks.
+
+**The precision problem, and how it is solved rather than tolerated.** Retired framings *legitimately*
+appear in comments and docstrings — r12's own fix comment names the phrase on purpose, and that is the
+only correct place to explain a withdrawal. So the check scans **emittable** strings only: literals
+reachable by an assignment or a return, with docstrings at module, class and function level excluded
+and literals under 25 characters ignored. **A check that could not tell those apart would punish the
+documentation of the correction it exists to enforce.**
+
+**Attacked on four vectors, including the one it must NOT fire on:**
+
+| attack | want | got |
+|---|---|---|
+| retired framing in an assigned literal | exit 1, names it | ✅ |
+| same phrase in a **docstring** | **exit 0** — narration is legitimate | ✅ |
+| retired framing in a returned f-string | exit 1 | ✅ |
+| empty population | exit **2**, never 0 | ✅ |
+| restore | exit 0, target file clean | ✅ |
+
+Registered in `attack_the_suite`; **7/7 checks now refuse an empty population.**
+
+**Its bound, in its own output.** String **literals** only. A framing assembled at run time from
+fragments is invisible to it and always will be. A clean run means no literal carries a retired
+framing — not that no run can produce one.
+
+**Scorecard on five candidate checks, since the pattern is now the point.** Two declined on precision
+(94% chance-match; 971 findings dominated by legitimate data). One declined on recall (224/224 clean,
+blind to the only real defect). One declined for disagreeing with hand-verified ground truth. **Two
+built** — and both were built because the measurement came first and said so.

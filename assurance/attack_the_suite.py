@@ -91,6 +91,8 @@ CASES = [
      "empty registry is a DETECTED FAILURE: FROZEN.md still names 11 rounds"),
     ("results_are_not_degenerate", hide_rounds, 2,
      "zero results files to read -> nothing to check (entry 137)"),
+    ("retired_framing_in_emittable_source", hide_rounds, 2,
+     "zero source files to parse -> nothing to check (entry 143)"),
 ]
 
 
