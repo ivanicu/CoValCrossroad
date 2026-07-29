@@ -99,6 +99,7 @@ _RES = _HERE / "results"
 sys.path.insert(0, str(_ROOT))
 
 from covalx import load_join  # noqa: E402
+from covalx.stamp import stamp  # noqa: E402
 
 FULL = _ROOT / "rounds/r04_rebuild_satisfaction/results/a04_full.npz"
 CORE = _ROOT / "rounds/r04_rebuild_satisfaction/results/a04_core.npz"
@@ -413,7 +414,7 @@ def main() -> int:
            "x2_alone": {"beta": float(b2[0]), "se": float(s2[0])},
            "core_ci": [float(ci_core[0]), float(ci_core[1])],
            "oracle_inside_core_ci": bool(inside), "kill_floor": CORE_CI_LOWER,
-           "world": world, "conclusion": conclusion}
+           "world": world, "conclusion": conclusion, **stamp(__file__)}
     Path(args.out).write_text(json.dumps(out, indent=1, sort_keys=True))
     # PERSIST EVERY ARM'S PER-CELL ERROR, which is the thing r112 computed and threw away.
     np.savez_compressed(_RES / "r113_cells.npz", gp=gp, gr=gr, x1=x1, x2=x2,

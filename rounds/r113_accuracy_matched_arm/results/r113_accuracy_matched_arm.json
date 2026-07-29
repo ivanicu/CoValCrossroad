@@ -151,6 +151,8 @@
   }
  },
  "sign_agreement": 6,
+ "source_name": "run.py",
+ "source_sha256": "cd5b5f0a8c2dac5d4ef842d883f791f9c561579080bd0aec674a356468ca4c58",
  "world": "UNVERIFIED",
  "x2_alone": {
   "beta": 0.03110253266423571,
