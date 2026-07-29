@@ -355,20 +355,21 @@ def main() -> None:
         if res["ORIGINAL"]["attribution"] > 1e-9 else float("nan")
     print(f"\n  drop from ORIGINAL to FRESH: {dd:+.4f}  "
           f"({share:.1%} of the advantage does not transfer to unseen responses)")
-    verdict = ("VOID: the fresh response set is too homogeneous for any ordering to "
-               "be measured, so nothing about transfer is established"
-               if not control_ok else
-               "RESPONSE-SET-SPECIFIC: most of the own-rubric advantage does not "
-               "transfer to responses the criteria authors never saw. This is a fall in "
-               "SOURCE SPECIFICITY -- own-rubric minus reference-rubric performance -- "
-               "and NOT a fall in 'the value-carrying share', which was never what this "
-               "subtraction measured"
-               if share > 0.5 else
-               "TRANSFERS: the advantage survives on responses the authors never saw, "
-               "so it is prompt/value-specific rather than response-set-specific"
-               if res["FRESH"]["ci"][0] > 0 else
-               "UNRESOLVED: attribution on fresh responses is not distinguishable "
-               "from zero, so neither reading is established")
+    # ONE verdict path, not two. This line used to be a full inline COPY of
+    # build_verdict's conditional, and the two had drifted apart:
+    #
+    #   * `--reverdict` used the function, which entry 138 corrected to state the
+    #     numbers and to say the arm INVERTS rather than "most does not transfer";
+    #   * a real rerun used this copy, which still said "most", and additionally
+    #     carried the retired phrase "the value-carrying share" -- a framing the
+    #     queue withdrew, sitting in source, ready to be written into an artifact
+    #     by the next run.
+    #
+    # So entry 138's fix landed on one path of two and a rerun would have silently
+    # reverted it. `no_withdrawn_framings` scans results JSONs and
+    # `retired_framing_in_assertion_positions` scans prose; neither reads SOURCE
+    # STRINGS, so nothing in the suite could see the retired phrase here.
+    verdict = build_verdict(bool(control_ok), float(share), res)
     print(f"  -> {verdict}")
 
     a.out.parent.mkdir(parents=True, exist_ok=True)

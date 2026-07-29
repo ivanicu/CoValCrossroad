@@ -274,7 +274,32 @@ def verdict_from_doc(doc: dict) -> str:
     out = doc["axes"]
     meas = {k: v for k, v in out.items() if v.get("status") == "MEASURED"}
     any_rev = [k for k, v in meas.items() if v.get("reversal_above_null")]
+    any_bet = [k for k, v in meas.items() if v.get("n_groups_better_with_own_weights", 0) > 0]
     mult, pcd = doc["multiplicity"], doc["positive_control"]
+    # ALL FOUR branches, because a partial rebuilder is worse than none: it would
+    # emit the CONFLICT verdict for data that had moved to another branch, and
+    # --reverdict is exactly the path used when nobody wants to re-run.
+    if not meas:
+        return ("UNVERIFIED: no axis had two groups large enough to compare, so nothing about "
+                "heterogeneity was tested in either direction")
+    if any_bet:
+        return (f"HETEROGENEITY THAT MATTERS: on {', '.join(any_bet)} at least one group is "
+                f"predicted better by its OWN rater-disjoint, size-matched weights than by "
+                f"pooled ones, surviving Benjamini-Hochberg across all "
+                f"{mult['n_group_tests']} group tests "
+                f"({mult['n_surviving_bh_fdr_5pct']} survive). Calibration: "
+                f"{mult['n_significant_positive']} positive and "
+                f"{mult['n_significant_negative']} negative before correction, and a negative "
+                f"has no mechanism")
+    if not any_rev:
+        return (f"NO DETECTED HETEROGENEITY: reversal rates sit inside the label-permutation "
+                f"null on every axis and no group's own weights beat pooled ones after "
+                f"correcting across {mult['n_group_tests']} group tests "
+                f"({mult['n_significant_positive']} positive and "
+                f"{mult['n_significant_negative']} negative survived uncorrected, which is what "
+                f"a symmetric noise distribution looks like). Positive control: planting "
+                f"{pcd['flip_fraction']:.0%} flips moves the rate "
+                f"{pcd['rate_without']:.4f} -> {pcd['rate_with_flip']:.4f}")
     rev_bits = "; ".join(
         f"{k} {v['reversal_rate']:.4f} vs null {v['reversal_null_mean']:.4f} "
         f"[{v['reversal_null_ci'][0]:.4f},{v['reversal_null_ci'][1]:.4f}] "
@@ -503,60 +528,19 @@ def main() -> None:
                 if s.get("survives_bh_fdr_5pct") and s["own_minus_pooled"] > 0)
 
     # ---- verdict, computed ------------------------------------------------
-    measured = [v for v in out.values() if v.get("status") == "MEASURED"]
-    any_rev = [k for k, v in out.items() if v.get("reversal_above_null")]
-    any_bet = [k for k, v in out.items() if v.get("n_groups_better_with_own_weights", 0) > 0]
-    if not measured:
-        verdict = ("UNVERIFIED: no axis had two groups large enough to compare, so "
-                   "nothing about heterogeneity was tested in either direction")
-    elif any_bet:
-        verdict = (f"HETEROGENEITY THAT MATTERS: on {', '.join(any_bet)} at least one "
-                   "group is predicted better by its OWN rater-disjoint, size-matched "
-                   f"weights than by pooled ones, surviving Benjamini-Hochberg across "
-                   f"all {len(flat)} group tests. A single shared rubric is not optimal "
-                   f"for those groups and the aggregation question becomes live. "
-                   f"Calibration: {n_pos} positive and {n_neg} negative results were "
-                   f"significant before correction, and a negative has no mechanism")
-    elif any_rev:
-        # NUMBERS. Every sibling branch of this conditional cites its counts; this
-        # one did not, and it is the branch that fires. So the round answering
-        # queue item 5 -- report the group sign-reversal rate, minority-only
-        # criteria, and whether group-specific weights improve group-specific
-        # prediction -- computed all three and stated none of them. A verdict that
-        # cites nothing cannot be compared to its own artifact by any check here.
-        rev_bits = "; ".join(
-            f"{k} {out[k]['reversal_rate']:.4f} vs null {out[k]['reversal_null_mean']:.4f} "
-            f"[{out[k]['reversal_null_ci'][0]:.4f},{out[k]['reversal_null_ci'][1]:.4f}] "
-            f"(excess {out[k]['reversal_excess']:+.4f})"
-            for k in out if out[k].get("status") == "MEASURED")
-        verdict = (f"CONFLICT WITHOUT CONSEQUENCE. Sign reversals exceed the label-permutation "
-                   f"null on {', '.join(any_rev)} and on no other axis: {rev_bits}. "
-                   f"BUT NO GROUP IS PREDICTED BETTER BY ITS OWN WEIGHTS on any axis -- "
-                   f"{sum(v.get('n_groups_better_with_own_weights', 0) for v in measured)} of "
-                   f"the {len(flat)} group tests, using rater-disjoint size-matched weights. "
-                   f"THE CALIBRATION IS THE ARGUMENT: {n_pos} positive and {n_neg} negative "
-                   f"results were significant before correction and {n_bh} survive "
-                   f"Benjamini-Hochberg at 5%. A group predicted WORSE by its own weights has no "
-                   f"mechanism, so the negatives measure the positives: a symmetric split is what "
-                   f"noise looks like, and this one is symmetric. "
-                   f"POSITIVE CONTROL: planting {a.flip:.0%} synthetic sign flips raises the "
-                   f"reversal rate from {base_rate:.4f} to {pc_rate:.4f}, so an instrument that "
-                   f"found nothing here is one that can find something. "
-                   f"So groups do disagree about individual criteria and it does not change which "
-                   f"response wins -- the aggregate equivalence in r42 is not hiding a decision. "
-                   f"SCOPED, and the scope is load-bearing: demographic proxies rather than value "
-                   f"constituencies, groups above a {a.min_group}-rater floor, and criteria rated "
-                   f"by a majority of a prompt's raters, which discards 63.5% of them (entry 51)")
-    else:
-        verdict = (f"NO DETECTED HETEROGENEITY: reversal rates sit inside the "
-                   f"label-permutation null and no group's own weights beat pooled "
-                   f"ones after correcting across {len(flat)} group tests "
-                   f"({n_pos} positive and {n_neg} negative survived uncorrected, "
-                   f"which is what a symmetric noise distribution looks like). "
-                   "Scoped to demographic proxies, to groups above the size "
-                   "floor, and to raters with an annotator record -- this is not a "
-                   "statement about value constituencies, which this release cannot "
-                   "identify")
+    # ONE path. This block used to be a full inline copy of the same four-branch
+    # conditional that `verdict_from_doc` implements -- created last commit, when
+    # the rebuilder was added and the original left in place. r12 had the identical
+    # defect and its two copies had already drifted: the function said the arm
+    # INVERTS while the inline copy still said "most does not transfer" and carried
+    # a retired framing. Two copies of a conclusion drift; they never converge.
+    verdict = verdict_from_doc({
+        "axes": out, "multiplicity": {
+            "n_group_tests": len(flat), "n_significant_positive": n_pos,
+            "n_significant_negative": n_neg, "n_surviving_bh_fdr_5pct": n_bh},
+        "positive_control": {"flip_fraction": a.flip, "rate_with_flip": pc_rate,
+                             "rate_without": base_rate},
+        "min_group": a.min_group})
     print(f"\n-> {verdict}")
 
     _RES.mkdir(parents=True, exist_ok=True)

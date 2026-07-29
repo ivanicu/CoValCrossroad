@@ -4181,3 +4181,46 @@ Corrected in the artifact, and r81 re-run — rebuild control still exact (0.0e+
 
 **Three of four numberless verdicts remain** (r05, r21, r22). None is a null claim and none carries
 r03's danger, but the count is stated rather than rounded to "a few".
+
+## Entry 142 — entry 138's fix landed on one path of two, and I built the same defect again one commit later
+
+**What the scan was for.** Entry 141 found that r43's verdict had four branches and only the *live*
+one lacked numbers — dormant branches being landmines that fire when the data moves. I wrote an AST
+scan to count numberless branches across all rounds. **It reported r12 and r43 as numberless, and I had
+fixed both by hand this session.** Ground truth said the scan was wrong.
+
+**It was wrong about the count and right about something better.** Chasing the false positive found a
+`verdict = "VOID: …"` **assignment** in r12 that I did not know existed — because I had edited
+`build_verdict`, the *function*.
+
+**r12 had two verdict paths, and they had drifted.**
+
+| path | used by | said |
+|---|---|---|
+| `build_verdict()` | `--reverdict` | *"AND IT INVERTS … 163% of the original advantage"* (entry 138) |
+| inline copy | **a real rerun** | *"most of the own-rubric advantage does not transfer"* — **and** *"NOT a fall in 'the value-carrying share'"* |
+
+So **entry 138's correction would have been silently reverted by the next full run**, and the inline
+copy carried a **retired framing** in source. `no_withdrawn_framings` scans results JSONs;
+`retired_framing_in_assertion_positions` scans prose. **Neither reads source strings**, so nothing in
+the suite could see it sitting there waiting to be written into an artifact.
+
+**Then the sweep for the same shape found r43 — which I created one commit earlier.** Adding
+`verdict_from_doc` last turn while leaving the inline conditional in place produced exactly the defect
+I had just diagnosed in r12. One commit between building the fix and rebuilding the fault.
+
+**Worse, my rebuilder was partial.** `verdict_from_doc` implemented only the CONFLICT branch. It would
+have emitted *"CONFLICT WITHOUT CONSEQUENCE"* for data that had moved to any other branch — and
+`--reverdict` is precisely the path taken when nobody wants to re-run and check. **A partial rebuilder
+is worse than none**: it always answers, and it answers from the wrong branch. Now all four branches
+are implemented and `main()` calls the same function it does.
+
+**The rule, which is why this is an entry and not a commit note.** *Two copies of a conclusion drift;
+they never converge.* r12's had drifted by one framing and one magnitude claim. The scan that found it
+was too imprecise to publish a count from — 36 flagged branches, unverified — and it is not being built
+into a check. It did its job as a **measurement that pointed somewhere**, which is what the previous
+three candidate checks were also for, and it dies here like two of them did.
+
+**Verified after:** both files parse, both `--reverdict` paths reproduce their corrected strings, and
+the full suite returns to green including `no_withdrawn_framings` and
+`retired_framing_in_assertion_positions`.
