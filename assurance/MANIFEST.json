@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T03:34:49.569663+00:00",
- "git": "19efa01189f1d3883e82c7773ad82b898b9ea9ff",
+ "generated_utc": "2026-07-29T03:40:41.367413+00:00",
+ "git": "3fcf8c49fd8bbf983f2f71b4a51546060dcac2cf",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -116,8 +116,8 @@
    "sha256": "8344b416c3fb574ceedacd3408932f039561afeff81d51ef3f885116c76d2c22"
   },
   "rounds/r21_donor_distance/run.py": {
-   "bytes": 7209,
-   "sha256": "8fda68cda0471f9c485b4ef183805a7c378f9b9824568e1512a9e3e19212d1bb"
+   "bytes": 8038,
+   "sha256": "2e2c6c647242db6e94f709f4c630326f9a219deefe2d70a86cb5bd9b5ef4dcdb"
   },
   "rounds/r22_cross_family/run.py": {
    "bytes": 12453,
@@ -236,8 +236,8 @@
    "sha256": "ad7b766963f5ca5d98bb1e124c2ce92a92714c02eb205a87d597db6f83367e10"
   },
   "rounds/r53_join_audit/run.py": {
-   "bytes": 8368,
-   "sha256": "3b8d66658af656e3da289501cb37013109f9dd58531ed235edb4b82f327202e3"
+   "bytes": 8588,
+   "sha256": "27e6b9222864bb88970d6d8aebcc10f5fce217bd424d5231eb0402bc83ab9d55"
   },
   "rounds/r54_overlap_transfer/run.py": {
    "bytes": 9389,
@@ -282,6 +282,10 @@
   "assurance/results_match_their_code.py": {
    "bytes": 5745,
    "sha256": "9a39487048e7dd405fe3462d9aef27876a8cc764736943f87554258f6a7f5e04"
+  },
+  "assurance/scope_reaches_the_reader.py": {
+   "bytes": 3866,
+   "sha256": "739b09a9a7a42b2ec71fad37e1bd51fd87c039d30826e6d6bc8bea3091adc6d2"
   },
   "data/fetch.py": {
    "bytes": 2337,
@@ -1206,8 +1210,8 @@
    "sha256": "26e8c53f231c6461916c64fdea113b934e2fcd201a0f605180cc1adceb75bb7a"
   },
   "rounds/r53_join_audit/results/r53_join_audit.json": {
-   "bytes": 6154,
-   "sha256": "fa2bb75352bcb0d008938e480e16eda26e61bfd889e26a622532c19da92e37d8"
+   "bytes": 6876,
+   "sha256": "d487448312a0d6510d0165e842bc2467db011f95e4e7c8fd863e409bf73c7255"
   },
   "rounds/r54_overlap_transfer/results/r54_overlap_transfer.json": {
    "bytes": 2268,
