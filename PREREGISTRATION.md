@@ -65,10 +65,18 @@ agreement.
 
 ## Experiment 2 — H_fresh: do the criteria predict choices on responses nobody wrote them for?
 
-**The question.** r12 found the own-rubric advantage *inverts* on fresh responses. r40 ruled out
-monotone degradation under three generic distance metrics; r41 ruled out criterion-space support
-and found the whole geometry collapses into the rubric simply separating fresh responses less.
-**The discrepancy is unexplained, and every remaining explanation requires humans.**
+**The question.** r12 found the own-rubric advantage *inverts* on fresh responses, replicated on
+250 untouched prompts by r46. r40 ruled out monotone degradation under three generic distance
+metrics; r41 ruled out criterion-space support, and its one apparent survivor —
+discriminating-power loss — **failed to replicate** (r46, entry 48). r47 then found the outcome
+variable itself carries part of it: roughly half the inversion rides on the gold proxy's length
+channel, and on held-out prompts the fresh arm stops being negative once length is removed
+(entry 50).
+
+**So what needs humans is now sharper.** That the advantage *fails to transfer* replicates on two
+samples. That an unrelated rubric *beats* the own rubric there is **withdrawn**. H_fresh decides
+whether the failure to transfer is a fact about rubrics or about model-scored proxies — which is
+why length is a recorded variable below, not a covariate chosen afterwards.
 
 **Design.** Participants rank the **four frozen fresh responses** for a prompt. Exactly the
 responses in the manifest — this is why they are hashed.
@@ -97,10 +105,13 @@ fresh responses — the quantity r12 estimated against a model proxy.
   the floor as much as the donor does
 - significance and equivalence at δ = 0.01 are reported **separately**, per r42
 
-**The decisive comparison.** If the human-measured advantage on fresh responses is positive while
-the proxy-measured one is negative, **r12 was a proxy failure** and the transport claim dissolves.
-If both are negative, transport failure is real and this project's central negative result stands
-on human data for the first time.
+**The decisive comparison.** If the human-measured advantage on fresh responses is clearly positive
+while the proxy-measured one is at or below zero, **r12 was a proxy failure** and the transport
+claim dissolves. If the human-measured advantage is at or below zero too, transport failure is
+real and this project's central negative result stands on human data for the first time. Note the
+predicted quantity is now **zero, not negative**: after r47 the licensed proxy-side claim is
+absence of advantage, not inversion, so a human result near zero *confirms* rather than
+contradicts.
 
 ---
 
