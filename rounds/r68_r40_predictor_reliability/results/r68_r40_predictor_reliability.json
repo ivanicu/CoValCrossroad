@@ -1,0 +1,35 @@
+{
+ "n_prompts": 250,
+ "lineages": [
+  "qwen",
+  "phi",
+  "internlm"
+ ],
+ "pairwise_agreement": {
+  "qwen~phi": 0.9022776699839639,
+  "qwen~internlm": 0.7234209228232759,
+  "phi~internlm": 0.708452655415103
+ },
+ "mean_pairwise": 0.7780504160741142,
+ "spearman_brown_k3": 0.9131686899302198,
+ "half_width_from_r40": 0.0988,
+ "floors": {
+  "optimistic": {
+   "assumed_perfect": 0.15209002073634856,
+   "measured": 0.15915680524156825
+  },
+  "pessimistic": {
+   "assumed_perfect": 0.17978500773596923,
+   "measured": 0.18813862555249775
+  }
+ },
+ "world": "H HIGH",
+ "controls": {
+  "self": 1.0,
+  "prompt_shuffled": -0.09798827885176083,
+  "all_pass": true
+ },
+ "cache_is_tracked_in_git": true,
+ "scope": "Inter-instrument reliability across three pretraining lineages, NOT split-half consistency across criteria (r67). It measures agreement between instruments. PCA basis fitted on ORIGINAL responses only, 48 dims, following r40 exactly.",
+ "verdict": "H HIGH: r40's predictor is a RELIABLE instrument, and its floor was published as a range only because I twice asserted the embeddings were not persisted without looking. They are: `rounds/r39_feature_cache/results/r39_feature_cache.npz`, 57 MB, TRACKED IN GIT, holding mean_last for 3 lineages over 2,000 responses. Recomputing r40's nearest-neighbour distance per lineage on 250 prompts and treating the three unrelated pretraining runs as three measurements of one construct, the pairwise agreements are qwen~phi +0.9023, qwen~internlm +0.7234, phi~internlm +0.7085, mean +0.7781, Spearman-Brown 0.9132. So r40's floor is 0.188 at the pessimistic outcome reliability and 0.159 at the optimistic one -- against the 0.180 it would be with a perfect predictor. THE RANGE 0.180-0.222 IS REPLACED BY A MEASUREMENT. Inter-instrument agreement is not the same quantity as r67's split-half consistency and is the right one here: r40's predictor has no internal parts to split, which is why entry 110 was right to refuse r67's 1.23x and wrong about why the correct number was unavailable."
+}

@@ -2923,6 +2923,45 @@ the fetch list and flagged its remote path. This one fetched it. **Four entries,
 the thing the previous one deferred** — and the only reason any of it happened is that "stale" was
 treated as a state to be exited rather than a label to apply.
 
+## Entry 117 — I asserted an absence twice without looking, and the file was 57 MB, tracked in git
+
+Entries 109 and 110 both said r40's predictor reliability could not be measured because *"the
+embeddings are not persisted"*. Entry 110 built a whole argument on it, publishing a **range**
+0.180–0.222 where every other row got a point estimate, with the upper bound retained solely because
+the number was supposedly unobtainable.
+
+**`rounds/r39_feature_cache/results/r39_feature_cache.npz` is 57 MB and tracked in git.** It holds
+`mean_last` for **qwen, phi and internlm** over all 2,000 responses. r39's entire job is caching
+representations — its README row says so — and I had audited that row in entry 102, four hours
+earlier, for having no results JSON.
+
+**Measured, and the estimator is better than the one I could not use.** r40's predictor has no
+internal parts to split, but it has **three unrelated pretraining runs**, which is agreement between
+*instruments* rather than internal consistency:
+
+| | |
+|---|---:|
+| qwen ~ phi | **+0.9023** |
+| qwen ~ internlm | +0.7234 |
+| phi ~ internlm | +0.7085 |
+| Spearman-Brown, k=3 | **0.9132** |
+
+Controls first: a lineage against itself **1.0000**, against a prompt-shuffled copy **−0.0980**.
+
+**So r40's floor is 0.188**, not a range and not 0.222. **The row I marked as vaguest is the
+strongest refutation in the ledger.**
+
+**The failure is not the arithmetic, it is the assertion.** Nothing forced me to claim the
+embeddings were gone; I inferred it from r40 not storing them and never checked the round whose only
+purpose is storing them. **Twice.** Entry 111 concluded that the practice which catches this class is
+*running the number before asserting it* — and this was an assertion about a **file**, where the
+check is `ls`.
+
+**One more, smaller:** my first parser assumed the cache's `meta` was JSON. It is
+`"<prompt_id>|<kind>|<n>"`. It crashed on the first row, which is the correct failure and cost one
+minute — the opposite of entry 105, where a bare `except` turned the same class of mistake into a
+confident zero.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

@@ -149,7 +149,7 @@ detection floor — the smallest |r| it could have separated from zero:
 
 | row | half-width | floor, predictor assumed perfect | **floor, predictor reliability measured** |
 |---|---:|---:|---:|
-| 3 · generic distance (r40) | 0.0988 | 0.180 | **0.180 – 0.222** ⚠ |
+| 3 · generic distance (r40) | 0.0988 | 0.180 | **0.188** |
 | 4 · criterion-space support (r41) | 0.1010 | 0.184 | **0.227** |
 | 5 · spread loss, held out (r46) | 0.1175 | 0.214 | **0.264** |
 | 10 · overlap transfer (r54) | 0.1336 | 0.243 | **0.300** |
@@ -161,13 +161,15 @@ detection floor — the smallest |r| it could have separated from zero:
 prompt's criteria 2-2 and recomputing gives a Spearman-Brown reliability of **0.657**, which
 multiplies every floor by **1.23×**. So **r54 could not have detected a true correlation below
 ≈0.30**, and *"the overlap channel does not explain r12"* rules out considerably less than it sounds
-like. ⚠ **r40 is a range, not a point, and applying the 1.23× to it was wrong.** Its predictor is an
-embedding distance with no criteria to split, so the criteria-split reliability does not transfer.
-What r40 *does* have is three unrelated pretraining runs, and they agree: nearest-neighbour
-correlates with the drop at **−0.1324, −0.1428, −0.1011** — same sign, SD **0.0217** on a mean of
-−0.1254. A consistent instrument, so its true floor sits nearer the **0.180** end. The upper bound
-is retained only because predictor reliability is **not measurable from persisted data** for this
-row; the embeddings were never saved.
+like. ⚠ **r40's floor is measured, not assumed, and the 1.23× never applied to it.** Its predictor is an
+embedding distance with no criteria to split, so r67's criteria-split reliability does not
+transfer. The right estimator is agreement between **instruments**, and
+[r68](rounds/r68_r40_predictor_reliability) computes it from r39's cached representations:
+recomputing the per-prompt distance in each of three unrelated pretraining lineages gives
+pairwise agreements of **+0.9023, +0.7234, +0.7085** (mean +0.7781, Spearman-Brown **0.9132**).
+A highly reliable instrument, so the floor is **0.188** — below the assumed-perfect 0.180 only by
+the small correction reliability 0.91 implies, and **well below the 0.222 an earlier version
+published**. Row 3 is the strongest refutation in this table, not the vaguest.
 
 **Those rows say "not detected above their own floor", not "absent".** Rows 1, 2, 6, 11 and 13 rest
 on tightly-bounded contrasts rather than correlations and do not inherit this limit.
@@ -1161,6 +1163,7 @@ not from estimation noise, so no further computation narrows it.
 | [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **no.** Hull violation −0.1837 and rank instability +0.1993 die to the discriminating-power control; spread loss looked like it survived at +0.2309 but **failed to replicate** (r46). Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly. ⚠ Its own caveat: `z_R` is produced by **the same judge whose off-distribution validity is unestablished**, so this round **cannot separate** "new normative territory" from the judge behaving incoherently on fresh responses |
 | — | **What the six searches actually establish** | see [entry 56](RETRACTIONS.md): disattenuated, they split three ways — conclusions on tight *direct* estimates hold (r47, r55), conclusions on *correlations* are much weaker than reported (r40, r41, r54), and two failed *preregistered* replications at their claimed magnitude without being shown absent (entry 48, r56) |
 | [r57](rounds/r57_outcome_reliability) | Could those searches have found anything? | **only large effects.** The per-prompt attribution drop has split-half reliability **0.302 / 0.422** across two samples, so observed correlations are attenuated by ~0.55–0.65. At n=250 the smallest *true* correlation distinguishable from zero is **≈0.2** — every "no mechanism" result is bounded by that (entry 55) |
+| [r68](rounds/r68_r40_predictor_reliability) | Is r40's distance predictor reliable? | **yes — Spearman-Brown 0.9132.** Recomputing the per-prompt nearest-neighbour distance in three unrelated pretraining lineages from r39's 57 MB cache gives pairwise agreement **+0.9023, +0.7234, +0.7085** over 250 prompts; controls self 1.0000, prompt-shuffled −0.0980. r40's floor is **0.188**, replacing a published range of 0.180–0.222. ⚠ Written because entries 109 and 110 both asserted these embeddings were not persisted — **they are, and tracked in git** |
 | [r67](rounds/r67_predictor_reliability) | How reliable are the predictors behind the "refuted" rows? | **0.657 Spearman-Brown**, so every detection floor in the exhaustion ledger **multiplies by 1.23×**. Split-half on a prompt's criteria, 2-2, 241 prompts (9 excluded for K<4); controls: self-correlation 1.0000, shuffled half +0.0992. r54's floor becomes **0.300** — it could not have seen a true r of 0.3. ⚠ The 1.23× does **not** apply to r40: an embedding distance has no criteria to split, and its three lineages agree (−0.1324, −0.1428, −0.1011, SD 0.0217), so its floor is reported as the range **0.180–0.222** |
 | [r66](rounds/r66_r56_reconstruction) | Can r56's preregistered failure be recomputed? | **no, and r56 has no code in this repository.** `rounds/r56_semantic_selectivity/` has held only `PREDICTION.md` in every commit it has ever appeared in; its CI bounds **0.1592** and **0.2880** appear in no artifact anywhere. Reconstructing from the persisted tensors gives discovery **+0.0365** vs published +0.1806 and held-out **+0.0985** vs +0.0198 — **neither reproduces**, so by this round's pre-declared null it is **UNVERIFIED about r56, not a refutation**. ⚠ r56's *conclusion* survives: the recomputed held-out CI **[−0.0188, +0.2124] includes zero**, failing its own preregistered criterion. ⚠ This reconstructs a **number** and does not re-adjudicate whether the quantity was worth measuring |
 | [r56](rounds/r56_semantic_selectivity) | Does semantic selectivity collapse explain the drop? | **NOT REPLICATED** (+0.1806 discovery → +0.0198 held out, predicted [+0.06,+0.30] with CI excluding zero). ⚠ **No code and no results file exist for this round** — the numbers live in commit `664c568`, `PREDICTION.md` and RETRACTIONS prose only, and [r66](rounds/r66_r56_reconstruction) could not recompute them |
