@@ -5006,3 +5006,42 @@ in advance this time rather than afterwards.
 **What it does not license.** "Form does not matter." A null here means the rubric agrees with humans
 at a similar rate on both prompt sets, in one quantity. The ten sliced rounds measure several others,
 and nothing here covers them.
+
+## Entry 163 — source specificity is positive in both collection forms, which turns the scope block from a warning into provenance
+
+**Closing what entry 162 left open.** r85 bounded the form difference in *agreement with human
+rankings* and its own verdict named the limit: "a null here means the rubric agrees with humans at a
+similar rate on both prompt sets, **in one quantity**. The ten sliced rounds measure several others."
+This takes the one that matters — **own-minus-donor attribution**, the source-specificity contrast the
+package is about.
+
+| | attribution | n |
+|---|---|---:|
+| whole join | **+0.1215** | 968 |
+| long-form prompts | **+0.1258** [+0.1038, +0.1483] | 293 |
+| short-form prompts | **+0.1202** [+0.1056, +0.1351] | 675 |
+| **gap** | **+0.0056** [−0.0209, +0.0310] | — |
+| form-label shuffle null | [−0.0260, +0.0270] | 400 draws |
+
+**Positive and clear of zero in both forms**, gap inside the shuffle null, **answerable margin 0.026**.
+
+**What that does to entry 161's scope block.** Ten rounds run on the long-form third by an artifact of
+head-slicing a sorted file. That is still true and still worth stating — but their **central contrast**
+behaves the same in the two-thirds they exclude, to a resolution of 0.026. So the block describes
+**where** those rounds were measured **without implying their result is peculiar to it**. Provenance,
+not a warning.
+
+**Stated as a bound, not as equivalence.** The answerable margin is 0.026, limited by 293 long-form
+prompts — larger than δ=0.01 and not improvable from this release. "Equivalent at δ=0.01" is **not**
+established and is not claimed; "any form-associated difference is under 0.026, with a point estimate
+4.6% of the attribution level" is.
+
+**Two design choices that could have manufactured the answer, made the other way.** Donors are drawn
+from the **whole join** rather than within form — restricting them would confound the donor arm with
+the split under test. And the donor construction is left **exactly as the package's other attribution
+numbers use it**, including that a donor rubric brings its own criterion count, rather than improved
+here where an improvement would make this number incomparable to the ones it is meant to reassure about.
+
+**The confound is unchanged and repetition does not weaken it.** The forms cover disjoint prompts, so
+this compares questions as well as instruments. It **bounds** a form-associated difference and cannot
+**attribute** one — the same sentence as r85's, and true for the same reason.
