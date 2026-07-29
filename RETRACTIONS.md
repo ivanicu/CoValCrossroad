@@ -2137,6 +2137,43 @@ meaning the same thing in different words as unmatched, so 87.3% is a lower boun
 survives that caveat is the *comparison*: the same matcher at the same threshold applied to both
 arms, which is why the floor is usable even though the matcher is not trustworthy alone.
 
+## Entry 94 — a forecast item examined and found NOT to bite, which is what makes the forecast mean anything
+
+`ADVERSARY_FORECAST.md` objection 6, P=0.55, written by me: r60 scales its half-width by √n to
+conclude the world-vs-personal contrast is unanswerable from this release, and that step assumes
+reversed pairs are spread evenly across prompts. If they concentrate, the effective n is below the
+pair count and the published requirement is **too small**.
+
+**Checked. It does not bite.**
+
+| | |
+|---|---|
+| design effect implied by r60's own cluster bootstrap | **1.499** (half-width 0.03178 vs binomial 0.02595) |
+| uniform-redistribution null | **0.886** |
+| prompts contributing reversed pairs | **238 of 250**, mean 5.97, max 21 |
+| concentration | top 26% carry half, top 54% carry 80% |
+
+Three things follow. **The clustering was already inside the interval the projection scaled from** —
+it was not omitted and then re-derivable, it was in the published half-width all along. **The
+inflation is a property of the data, not the estimator**, because redistributing the same pairs
+uniformly returns a design effect of 0.886. And **the growth mode settles it**: the release's
+remaining reversed pairs live in the other 718 prompts, so scaling from 1,422 to 2,444 adds
+*prompts* at a similar cluster size and holds DEFF at 1.499 — precisely the condition √n needs.
+
+Had the extra pairs come from more raters on the **same** prompts, the mean cluster would double and
+DEFF would rise to **2.099**, inflating the requirement by **1.40×**. That is the version of the
+objection that would have bitten, and it is not the version the release offers.
+
+**This is the entry I would have been tempted to skip.** It confirms a number I already published,
+and produces no correction. But a forecast in which every item is upheld is not a forecast, it is a
+list of things I already believed — and objection 6 was worth raising precisely because I could not
+tell from the armchair which way it would go. **Recorded as negative, excluded from the hit rate,
+forecast text unchanged.**
+
+Three of six forecast items are now self-examined: **5 answered, 2 upheld, 6 not upheld.** All three
+excluded from scoring, because what an independent reviewer would find is still entirely unmeasured
+— and the number that matters remains **what they raise that is not on the list**.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

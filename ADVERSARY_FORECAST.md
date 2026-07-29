@@ -87,7 +87,14 @@ experiment addressing S_pre, which this project calls one of three counterfactua
 today; the minimum detectable departure from it at plausible n should be in the document before the
 pilot, not after.
 
-### 6 — r60's "not answerable from this release" assumes the reversal rate is homogeneous · **0.55**
+### 6 — r60's "not answerable from this release" assumes the reversal rate is homogeneous · **0.55**  ·  ⚠ SELF-EXAMINED AND **NOT UPHELD**
+
+> [r63](rounds/r63_r60_projection_audit) checked it **after** this forecast was committed. The
+> design effect is **1.499** and was already inside r60's published CI; pairs come from 238 of
+> 250 prompts; the release's growth is prompt-extensive, which is exactly the condition the
+> √n step needs. **The objection does not bite.** Recorded as a forecast item that was worth
+> raising and turned out negative — a forecast only means something if some of it is wrong.
+> **A scorer should exclude this from the hit rate.** Text unchanged below.
 
 The projection scales the observed half-width by √(n) to conclude that δ = 0.01 needs ~14,358
 reversed pairs against 2,444 available. **The bootstrap clusters on prompt, so if reversed pairs
