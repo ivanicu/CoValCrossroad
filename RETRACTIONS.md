@@ -4648,3 +4648,44 @@ the document for the instrument. The caveats cite the round that *supports the c
 correct; the numbers they quote belong to the round being qualified, which is also correct. **A check
 whose flags are mostly a stylistic consequence should be read with that stated, not silenced by
 changing the prose.**
+
+## Entry 154 — a cell that had been `NaN` since r33, and the regex and the classifier disagree without either being wrong
+
+**The gap, found by reading r33's artifact rather than its verdict.** r33 established the predictive
+half of queue item 1's replacement wording — with **equal weights and no ratings at all**, core beats
+full by **+0.0663**, and applying ratings to core adds **+0.0000**. Then it stored
+`negative_share: {"full": 0.2483, "core": NaN}`. **Core carries no ratings, so its polarity has no
+numeric home**, and nothing in eighty-four rounds had tried to read it from the only evidence core
+leaves behind — its text.
+
+**Filled.** A sign classifier trained on **15,223** full criteria, GroupKFold on prompt so no core
+criterion is scored by a model that saw its own prompt's full criteria:
+
+| | predicted positive |
+|---|---:|
+| full criteria | 0.9222 |
+| **core criteria** | **0.9669** |
+| gap | **+0.0447** [+0.0381, +0.0515] |
+
+Full is already read as 92% positive, so only **0.0778** of headroom exists — **core captures 57% of
+it**. Shuffling the training labels collapses accuracy to **0.7432** against the **0.7435** marginal,
+and the gap to **−0.0001**.
+
+**And it reconciles r65 instead of contradicting it, which is the part worth keeping.** r65 found core
+carries **more** prohibitive phrasing than full — **18.62%** against **12.85%** — which reads like the
+opposite of this result. It is not. *"Avoid moralising"* is **prohibitive in form and positive in
+direction**. A criterion can state a desirable property using a prohibition, and core does exactly
+that. **A regex over grammatical form and a classifier over direction can disagree with neither being
+wrong**, and "internalises polarity into rewritten criterion semantics" is precisely the state in which
+they do.
+
+**An arbitrary threshold caught before it published the wrong word.** The first version tested
+`lo > 0.05` and, with the interval at [+0.0381, +0.0515], labelled the round **UNREADABLE** — for an
+estimate that cleanly excludes zero and whose shuffled control collapses. **The threshold was the only
+unreadable thing.** Replaced by a zero-excluding test plus headroom normalisation, which r73 and r74
+already use and which I should have reached for first.
+
+**Scope, unchanged from before the run.** A predicted-positive rate is **not** a rating. It reports how
+a model trained on crowd phrasing reads core's wording, and that model carries the crowd's conventions
+with it. What it can do is fill a cell that has been `NaN` since r33 — using the only evidence
+available, and saying so.
