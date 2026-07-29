@@ -5854,3 +5854,60 @@ wrong where it is quoted. Entry 175 was a clause that never left the ledger; ent
 that needed its transfer checked; this is a *number* whose denominator changed between documents.
 **A figure carries its population with it, and quoting it moves it somewhere the population may not
 hold.**
+
+---
+
+## Entry 179 — the audit entry 178 implied, run: seven release-scale rounds, one requirement, and it holds
+
+Entry 178's NEXT proposed infrastructure for *"a number quoted outside the round that measured it."*
+**A check of the obvious shape would not have caught its own motivating case** — 5,148 *is* r91's
+number, present in r91's artifact, and wrong only in the document that quoted it. Building a guard
+that misses the instances that motivated it is the encode-the-instance failure this ledger already
+records. **So the audit was run instead of the guard.**
+
+**Seven release-scale rounds are cited in PREREGISTRATION.md** (r06 945, r32 968, r46 250, r83 968,
+r88 968, r89 300, r90 968, r91 968). Entry 178 fixed r91's. **The one that matters most is r88's,
+because it became a binding requirement rather than a description** — *donor-averaging at m ≥ 10 is
+required of the analysis* — and **a requirement inherited from the wrong population is worse than a
+number: it is an instruction.**
+
+### It transfers, for a reason that was worth checking rather than assuming
+
+The donor component and the prompt-sampling component **both** carry 1/√n, so their ratio cancels:
+
+| n | donor sd | prompt half | donor share of variance |
+|---:|---:|---:|---:|
+| 968 | 0.00550 | 0.01227 | **20.1%** |
+| 300 | 0.00988 | 0.02205 | **20.1%** |
+| 60 | 0.02210 | 0.04930 | **20.1%** |
+
+**Spread 8×10⁻¹⁷ — invariant to machine precision — while both absolute sizes grow 4×.** The
+prediction was written before the run, so the agreement is a check and not a construction.
+
+### Restated in H_fresh's own numbers, which is what the document should have said
+
+At the frozen 60-prompt frame: unaveraged half-width **0.0493**; **m=10 → 0.0446, 9.5% better**;
+ceiling **10.5%** at m=100. **So m ≥ 10 stands and the diminishing return lands in the same place** as
+it did on the release.
+
+### Two controls, either of which could have voided it
+
+**Positive control.** The scaling step must recover a value r89 *actually measured*: predicted donor sd
+**0.00988** at n=300 against r89's measured **0.00948** — **4.0%**, inside r89's own **11.5%** band. *A
+law that cannot reproduce a measured value makes everything extrapolated from it inadmissible*, and the
+round refuses to run in that case.
+
+**Degenerate control.** At m=1 the decomposition must return the unaveraged half-width exactly. It does
+— a variance decomposition that cannot reproduce its own starting point is wrong.
+
+### The honest split, kept in front of the numbers
+
+**The share is algebraically exact. The absolute figures are not** — they extrapolate past r89's
+verified 300–968 range. So the *transfer* claim rests on the share; **0.0446** is an estimate. And both
+assume H_fresh's estimator matches the release's, which only H_fresh's data can settle.
+
+**Where this leaves the pattern from entry 178:** of the two preregistration numbers imported from
+release-scale rounds, **one did not transfer (r91's, fixed) and one did (r88's, confirmed).** That is
+the argument against the guard, not for it — the defect is not "a number was quoted elsewhere", it is
+"a number was quoted elsewhere *without checking whether its population holds*", and the check is the
+checking.

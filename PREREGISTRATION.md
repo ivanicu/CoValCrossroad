@@ -605,6 +605,15 @@ the same thing.
      ([r88](rounds/r88_donor_draw_variance)). Averaging **m = 10** draws cuts the requirement
      1458 → **1195** prompts; m = 100 buys only 27 more. **Donor-averaging at m ≥ 10 is therefore
      required of the analysis, and it is the cheapest precision available here.**
+     **⚠ Those two figures are the RELEASE's. Restated at the frozen frame**
+     ([r94](rounds/r94_donor_averaging_at_frame_size), 2026-07-29): the requirement **transfers**, and
+     for a reason worth checking rather than assuming — the donor component and the prompt-sampling
+     component **both** carry 1/√n, so their ratio cancels and the donor draw is **20.1%** of the
+     attribution variance at 968 prompts *and* at 60, while both absolute sizes grow **4×**. At the
+     **60-prompt frame** the unaveraged half-width is **0.0493**; **m = 10 gives 0.0446 (9.5% better)**
+     against a ceiling of 10.5% at m = 100. So m ≥ 10 stands, and the diminishing return arrives in the
+     same place. The **share** is algebraically exact; the absolute figures extrapolate past r89's
+     verified 300–968 range and are estimates.
    - **This sizes PRECISION, not power.** It states when an interval reaches ±0.01, never what
      effect is detectable — that needs a prior on τ_c, which is one of the quantities being
      measured. So n fixed from the pilot governs; this bounds the pilot rather than replacing it.
