@@ -53,3 +53,37 @@ Selectivity is measured from judge satisfaction, and the attribution it is corre
 scored by the r08 model gold head (entry 50). **Both sides of this correlation are proxy-world.**
 A held-out replication would establish the mechanism is real and stable in the proxy; it would not
 establish it is about human preference. That remains H_fresh.
+
+---
+
+# OUTCOME (computed after the above was committed as `5cb7426`)
+
+| | discovery | held out |
+|---|---:|---:|
+| corr(selectivity collapse, attribution drop) | +0.1806 [+0.0708, +0.2880] | **+0.0198 [−0.1196, +0.1592]** |
+
+**NOT REPLICATED.** The CI includes zero and the point estimate falls far below the predicted
+floor of +0.06. Per the declared failure condition, **the discovery correlation is withdrawn**: it
+was selection on the sample that produced it.
+
+## What survives, and it is not nothing
+
+The **collapse itself replicated** — +0.0139 [+0.0053, +0.0226] on discovery and +0.0230
+[+0.0146, +0.0316] held out, both excluding zero, the held-out value larger. So:
+
+> Per-criterion semantic selectivity really does fall on fresh responses. It does **not** predict
+> which prompts show the attribution drop.
+
+That is the same shape r54 found for mean lexical overlap: a real mechanism with no per-prompt
+link to the outcome. Two different channels, same verdict.
+
+## What this says about the process rather than the data
+
+This is the **second** time a promising r12 mechanism has been killed by writing the prediction
+down first — entry 48 was the first. In both cases the discovery-sample number was significant,
+positive, and had a plausible story; in both cases the held-out number was near zero.
+
+The relevant fact is not that I was wrong twice. It is that **without the preregistration both
+would have been reported as findings**, and the second would have been reported more confidently
+than the first, because the collapse underneath it genuinely replicates and would have lent it
+borrowed credibility.
