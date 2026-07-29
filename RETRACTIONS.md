@@ -5045,3 +5045,46 @@ here where an improvement would make this number incomparable to the ones it is 
 **The confound is unchanged and repetition does not weaken it.** The forms cover disjoint prompts, so
 this compares questions as well as instruments. It **bounds** a form-associated difference and cannot
 **attribute** one — the same sentence as r85's, and true for the same reason.
+
+---
+
+## Entry 164 — the headline was frozen thirteen rounds ago, and the largest-n cell since lands where it said cells land
+
+**Not a retraction. A frozen claim, re-checked against evidence collected after it was frozen, and it
+holds.** Queue item 2 froze the computational headline. Thirteen rounds have landed since (r73–r86),
+including two that recompute the headline's own two quantities on the whole join. Nine consecutive
+turns had been spent on the population thread, so the thing never checked was whether the headline
+still says what the package establishes.
+
+**Both of the headline's numbers reproduce.**
+
+| headline says | independently recomputed since | where |
+|---|---|---|
+| real prompt-specific rubric **0.686** | **0.6879** long-form, **0.6854** short-form | [r85](rounds/r85_agreement_by_form) |
+| the split of the 18.6 points is **one cell of a grid spanning 3.2%–65.8%** | a new cell at **65.3%** | [r86](rounds/r86_attribution_by_form) |
+
+r85's two form-partitioned agreement figures **bracket** the frozen 0.686 — the headline's central
+number was measured on r10's 300-prompt panel and reappears on both halves of the 968-prompt join.
+
+**The second row is the one worth stating carefully.** r86 computed own-minus-donor attribution over
+the whole join against **real human** rankings, with r12's donor permutation rather than r10's panel
+donors: **+0.1215**. That is **1.54×** the headline's 7.9-point cell, and **65.3%** of the 18.6 points
+above chance.
+
+**A 1.54× discrepancy is exactly what the headline predicts, which is why it is confirmation and not a
+correction.** The headline's whole argument is that 7.9 and 10.7 are *one cell of a grid*, that the
+floor donor alone moves the number 2.47×, and that with an interval in every cell source specificity
+runs 3.2%–65.8%. A different donor rule on three times the prompts landing at 65.3% is a cell of that
+grid falling inside the stated span — near its top edge, 0.5 points short of it. Had this been written
+before r19 and r30, it would have been the finding; written after them, it is a prediction coming true.
+
+**What would have made this a retraction, and did not happen.** If r86 had returned an attribution
+*outside* 3.2%–65.8%, or a whole-join agreement that did not bracket 0.686, the frozen headline would
+have been over-extended and the freeze would have had to break. Neither occurred. The headline is not
+edited; a confirmation block is added beneath it naming the new cell, its size, and its position in the
+span the headline already published.
+
+**The scope that keeps this honest.** r86's donor rule is not r30's, and its population is not r10's,
+so 65.3% is not the same axis as r30's cells — it is another cell of the same grid, not a replication
+of a specific one. It is recorded as such. The forms cover disjoint prompts, so r85's two figures
+bracket 0.686 across questions as well as instruments.

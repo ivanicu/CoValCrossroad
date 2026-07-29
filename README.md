@@ -90,6 +90,16 @@ cell of a grid, and the grid spans a factor of twenty:
 - the **judge family** moves it **2.13×** on top of that — derived from [r30](rounds/r30_scope_grid)'s shares (53.8% qwen2.5-3b ÷ 25.3% phi), *not* a value r22 stores
 - with an interval in every cell, source specificity runs **3.2% – 65.8%** ([r30](rounds/r30_scope_grid))
 
+**⚠ CONFIRMED, not revised, by the largest-n cell available** ([r86](rounds/r86_attribution_by_form),
+2026-07-29). Computing own-minus-donor attribution against **real human** rankings over the **whole
+968-prompt join** — r12's donor permutation rather than r10's panel — gives **+0.1215**, which is
+**1.54×** the 7.9-point cell above and **65.3%** of the 18.6 points over chance. That lands at the top
+of the span this section already states, **3.2% – 65.8%**, from an independent donor rule on three
+times the prompts. The headline is frozen (queue item 2) and this does not revise it: it is one more
+cell of the grid the headline says exists, and it falls where the headline says cells fall. Agreement
+itself reproduces too — **0.6879** long-form and **0.6854** short-form ([r85](rounds/r85_agreement_by_form))
+bracket the **0.686** above.
+
 So **7.9 and 10.7 are not two quantities, they are one cell**, and the second is *not* identified as
 "generic quality" by anything measured here — [r59](rounds/r59_criterion_influence) finds criteria
 borrowed from other prompts are just as concordant about these responses as a prompt's own, which is
