@@ -101,6 +101,35 @@ def main() -> int:
                 if f not in good:
                     problems.append(f"{d.name}: {f.relative_to(_ROOT)} lacks the outcome scope")
 
+    # ---- registry 3: is the registry COMPLETE against its own source? ----
+    # A registry can be internally satisfied and still miss a whole frozen line.
+    # FROZEN.md's numbered sections 1-3 are INTERPRETATION freezes and name the
+    # rounds they cover in their headers. Sections 4 and 5 freeze activities
+    # ("more best-of-n") and a headline, which are not round annotations, so they
+    # are deliberately not required here -- and that exemption is stated rather
+    # than silently applied.
+    print("\nFREEZE REGISTRY vs FROZEN.md sections 1-3 (interpretation freezes):")
+    fro = (_ROOT / "FROZEN.md")
+    if not fro.exists():
+        print("  ! FROZEN.md absent -- completeness UNCHECKED, not clean")
+        problems.append("FROZEN.md absent: registry completeness unverified")
+    else:
+        txt = fro.read_text()
+        named = set()
+        for m in re.finditer(r"^## ([123])\.[^\n]*$", txt, re.M):
+            named |= set(re.findall(r"`(r\d+)`", m.group(0)))
+        have = {re.match(r"r\d+", k).group(0) for k in FROZEN}
+        missing = sorted(named - have)
+        print(f"  rounds named in sections 1-3: {len(named)}   in the registry: "
+              f"{len(named & have)}")
+        if missing:
+            print(f"  NOT IN THE REGISTRY: {missing}")
+            for m_ in missing:
+                problems.append(f"{m_}: named in a FROZEN.md interpretation freeze, "
+                                f"absent from covalx/frozen.py")
+        else:
+            print("  every round named in an interpretation freeze is in the registry")
+
     print(f"\nregistry entries checked: freeze {len(FROZEN)}, "
           f"outcome-scope {len(declarers)}")
     if not problems:

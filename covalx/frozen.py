@@ -41,6 +41,21 @@ BLOC_INTERPRETATION = (
     "constituency."
 )
 
+TASK_POSITION = (
+    "FROZEN LINE (FROZEN.md section 2): the task-position regime reading -- r02, "
+    "r24, r31 -- is FROZEN as MECHANISM-UNIDENTIFIABLE. What survives is "
+    "established: the discontinuity is real and WITHIN-PERSON, -179.2 chars "
+    "[-196.2,-162.3], -53.3%, on the 933 people present at both positions against "
+    "6.1% attrition, so composition is excluded. What is frozen is the "
+    "INTERPRETATION. DATASET_CARD.md:81 sets a five-task minimum and sessions of 5 "
+    "or 15 prompts, and the release carries NO session identifier and NO timestamp "
+    "-- verified field by field. So for anyone whose first batch held five prompts, "
+    "position 6 is the first task of a LATER SESSION, and within-session fatigue is "
+    "not separable from between-session habituation. Do not call this fatigue. It "
+    "unfreezes only with session ids or timestamps, which would have to come from "
+    "OpenAI."
+)
+
 REGISTRY = {
     "r01_rater_structure": RATER_STRUCTURE,
     "r23_actor_vs_dyad": RATER_STRUCTURE,
@@ -56,6 +71,14 @@ REGISTRY = {
     "r16_minority_regret": BLOC_INTERPRETATION,
     "r17_conditional_core": BLOC_INTERPRETATION,
     "r18_routing_difficulty": BLOC_INTERPRETATION,
+    # ADDED after checking the registry against its OWN authoritative source.
+    # FROZEN.md names five frozen lines; this registry covered two of them.
+    # Section 2 -- the task-position reading -- had never been delivered to any
+    # round, which is the same failure the rater-structure line had until this
+    # session. A registry can be internally satisfied and still incomplete.
+    "r02_label_and_regime": TASK_POSITION,
+    "r24_regime_receipt": TASK_POSITION,
+    "r31_within_person": TASK_POSITION,
 }
 
 

@@ -18,6 +18,6 @@
   "after": 1.0389046719078578
  },
  "rises_within_every_segment": true,
- "verdict": "REGIME: the step survives a breakpoint-selection-matched null AND effort rises within each segment",
+ "verdict": "REGIME: the step survives a breakpoint-selection-matched null AND effort rises within each segment || FROZEN LINE (FROZEN.md section 2): the task-position regime reading -- r02, r24, r31 -- is FROZEN as MECHANISM-UNIDENTIFIABLE. What survives is established: the discontinuity is real and WITHIN-PERSON, -179.2 chars [-196.2,-162.3], -53.3%, on the 933 people present at both positions against 6.1% attrition, so composition is excluded. What is frozen is the INTERPRETATION. DATASET_CARD.md:81 sets a five-task minimum and sessions of 5 or 15 prompts, and the release carries NO session identifier and NO timestamp -- verified field by field. So for anyone whose first batch held five prompts, position 6 is the first task of a LATER SESSION, and within-session fatigue is not separable from between-session habituation. Do not call this fatigue. It unfreezes only with session ids or timestamps, which would have to come from OpenAI.",
  "note": "README carried step R^2=0.964 vs trend 0.448 with no code behind it. The arithmetic reproduces, but comparing a free-breakpoint step against a line charges the step nothing for choosing its breakpoint. The null here re-searches the breakpoint on every shuffle, so it absorbs that advantage."
 }

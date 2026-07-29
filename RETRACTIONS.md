@@ -802,6 +802,33 @@ overstated themselves: carried is not correct and not prominent. This flags omis
 cannot judge whether a given freeze is the *right* annotation for a round — only that the round was
 not skipped.
 
+---
+
+### EXTENSION — the registry was internally satisfied and covered two of five frozen lines
+
+The check above verifies registry entries are *satisfied*. It never asked whether the **registry
+matches its own authoritative source**. `FROZEN.md` names five frozen lines; `covalx/frozen.py`
+covered two.
+
+**Section 2 — the task-position regime reading, `r02`, `r24`, `r31` — had never been delivered to
+any round.** That freeze is not cosmetic: the discontinuity is real and within-person (−179.2
+chars [−196.2, −162.3], −53.3%, on the 933 people present at both positions), but the release has
+**no session identifier and no timestamp**, so within-session fatigue is not separable from
+between-session habituation. All three rounds now carry it, with the instruction *do not call this
+fatigue*.
+
+The check gained a third section comparing the registry against `FROZEN.md` sections 1–3 — the
+**interpretation** freezes, which name their rounds in the header. Sections 4 and 5 freeze
+*activities* ("more best-of-n") and a headline, which are not round annotations; that exemption is
+stated in the code rather than silently applied. 11 rounds named, 11 in the registry.
+Positive-controlled: deleting r24 from the registry makes it fire and name r24.
+
+**The recursion is the point.** Entry 60 was about instruments reporting completeness over their
+visible subset. The fix — enumerate from the registry — has the same failure one level up, because
+**a registry is itself a visible subset of what should be in it.** The only exit is to check each
+level against the level that authorises it, and to say where that chain stops: `FROZEN.md` is
+hand-maintained and nothing checks *it* against the queue.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
