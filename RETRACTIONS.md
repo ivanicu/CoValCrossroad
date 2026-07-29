@@ -4139,3 +4139,45 @@ stratum is read, and it now matches to 1e-16.
 originally said r03's interval is judgement-level and therefore not comparable. r03 builds `by_ann` and
 resamples raters — **it already clusters on annotator**. I wrote that about code I had not read, in a
 section whose purpose is to state limits precisely.
+
+## Entry 141 — the round answering queue item 5 computed all three of its required outputs and stated none
+
+**Queue item 5 asks for three things**: the group sign-reversal rate, minority-only criteria, and
+whether group-specific weights improve group-specific prediction. **r43 computes all three.** Its
+verdict — `CONFLICT WITHOUT CONSEQUENCE: sign reversals exceed the label-permutation null on country,
+but no group is predicted better by its own weights` — reported **none** of the numbers.
+
+**And it was the only branch that didn't.** r43's verdict is already a computed function with four
+branches; the other three cite their counts. The branch that actually fires was the bare one. A round
+does not have to be careless to end up with an uncheckable conclusion — it only has to be careless in
+the branch that runs.
+
+**What the numbers say, now that the verdict says them:**
+
+| axis | reversal rate | label-permutation null | excess |
+|---|---:|---|---:|
+| **country** | 0.2363 | 0.2172 [0.2087, 0.2247] | **+0.0190** |
+| ai_usage | 0.2177 | 0.2158 [0.2081, 0.2247] | +0.0018 |
+| age | 0.2012 | 0.2033 [0.1945, 0.2109] | −0.0022 |
+
+**0 of 17** group tests show a group predicted better by its own rater-disjoint, size-matched weights.
+**2 positive / 2 negative** significant before correction, **0** surviving BH at 5% — and the symmetry
+is the argument: *a group predicted **worse** by its own weights has no mechanism*, so the negatives
+calibrate the positives, and a symmetric split is what noise looks like. **Positive control**: planting
+20% synthetic sign flips lifts the reversal rate 0.1219 → 0.2831, so the instrument that found nothing
+here can find something.
+
+**Rebuilt without re-running, and that mattered.** Re-running r43 redraws 200 permutation nulls and
+would move every value in the file. A `--reverdict` path rebuilds the string from the stored numbers —
+the same pattern as r12 and r03, now three rounds deep.
+
+**Then the suite caught something I had half-fixed.** Strengthening r43's verdict made
+`readme_row_carries_the_verdict` fire — **on r81, not r43**. Entry 140 recorded that r81's scope note
+falsely claimed r03's interval is judgement-level. I corrected the **docstring** and left the identical
+sentence in the artifact's `scope` field. The narrative was fixed and the object was not, which is the
+propagation failure this ledger logs more than any other, committed inside the entry that logged it.
+Corrected in the artifact, and r81 re-run — rebuild control still exact (0.0e+00 on the hit rate,
+3.4e-17 on the difference).
+
+**Three of four numberless verdicts remain** (r05, r21, r22). None is a null claim and none carries
+r03's danger, but the count is stated rather than rounded to "a few".

@@ -263,6 +263,43 @@ def bh_fdr(pvals, q=0.05):
     return keep
 
 
+def verdict_from_doc(doc: dict) -> str:
+    """The CONFLICT-WITHOUT-CONSEQUENCE verdict, rebuilt from stored values.
+
+    Kept in step with the inline branch in main() by construction: both read the
+    same fields. This exists because re-running the round redraws 200 permutation
+    nulls and would move every number in the file, so a verdict that states its
+    numbers must be obtainable without a rerun.
+    """
+    out = doc["axes"]
+    meas = {k: v for k, v in out.items() if v.get("status") == "MEASURED"}
+    any_rev = [k for k, v in meas.items() if v.get("reversal_above_null")]
+    mult, pcd = doc["multiplicity"], doc["positive_control"]
+    rev_bits = "; ".join(
+        f"{k} {v['reversal_rate']:.4f} vs null {v['reversal_null_mean']:.4f} "
+        f"[{v['reversal_null_ci'][0]:.4f},{v['reversal_null_ci'][1]:.4f}] "
+        f"(excess {v['reversal_excess']:+.4f})" for k, v in meas.items())
+    return (
+        f"CONFLICT WITHOUT CONSEQUENCE. Sign reversals exceed the label-permutation null on "
+        f"{', '.join(any_rev)} and on no other axis: {rev_bits}. BUT NO GROUP IS PREDICTED BETTER "
+        f"BY ITS OWN WEIGHTS on any axis -- "
+        f"{sum(v.get('n_groups_better_with_own_weights', 0) for v in meas.values())} of the "
+        f"{mult['n_group_tests']} group tests, using rater-disjoint size-matched weights. "
+        f"THE CALIBRATION IS THE ARGUMENT: {mult['n_significant_positive']} positive and "
+        f"{mult['n_significant_negative']} negative results were significant before correction and "
+        f"{mult['n_surviving_bh_fdr_5pct']} survive Benjamini-Hochberg at 5%. A group predicted "
+        f"WORSE by its own weights has no mechanism, so the negatives measure the positives: a "
+        f"symmetric split is what noise looks like, and this one is symmetric. POSITIVE CONTROL: "
+        f"planting {pcd['flip_fraction']:.0%} synthetic sign flips raises the reversal rate from "
+        f"{pcd['rate_without']:.4f} to {pcd['rate_with_flip']:.4f}, so an instrument that found "
+        f"nothing here is one that can find something. So groups do disagree about individual "
+        f"criteria and it does not change which response wins -- the aggregate equivalence in r42 "
+        f"is not hiding a decision. SCOPED, and the scope is load-bearing: demographic proxies "
+        f"rather than value constituencies, groups above a {doc['min_group']}-rater floor, and "
+        f"criteria rated by a majority of a prompt's raters, which discards 63.5% of them "
+        f"(entry 51)")
+
+
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--sat", type=Path,
@@ -279,7 +316,24 @@ def main() -> None:
     p.add_argument("--match-reps", type=int, default=3)
     p.add_argument("--flip", type=float, default=0.20)
     p.add_argument("--smoke", action="store_true")
+    p.add_argument("--reverdict", action="store_true",
+                   help="rebuild ONLY the verdict from the stored numbers. Re-running the "
+                        "round would redraw 200 permutation nulls and move every value in "
+                        "the file, so a verdict fix must not require it.")
     a = p.parse_args()
+    if a.reverdict:
+        doc = json.loads(a.out.read_text())
+        old = doc.get("verdict")
+        doc["verdict"] = verdict_from_doc(doc)
+        doc["verdict_recomputed_without_rerun"] = (
+            "Only the verdict was rebuilt, from the numbers already in this file. Re-running "
+            "would redraw the permutation nulls and change every value; the measurement is "
+            "untouched and what changed is that the conclusion now states it.")
+        a.out.write_text(json.dumps(doc, indent=1))
+        print(f"verdict rebuilt in {a.out}")
+        print(f"  was: {old[:100]}...")
+        print(f"  now: {doc['verdict'][:100]}...")
+        return
     if a.smoke:
         a.null_reps, a.match_reps = 10, 1
         a.out = a.out.with_name(a.out.stem + "_SMOKE.json")
@@ -464,11 +518,35 @@ def main() -> None:
                    f"Calibration: {n_pos} positive and {n_neg} negative results were "
                    f"significant before correction, and a negative has no mechanism")
     elif any_rev:
-        verdict = (f"CONFLICT WITHOUT CONSEQUENCE: sign reversals exceed the "
-                   f"label-permutation null on {', '.join(any_rev)}, but no group is "
-                   "predicted better by its own weights. Groups do disagree about "
-                   "individual criteria and it does not change which response wins -- "
-                   "so the aggregate equivalence in r42 is not hiding a decision")
+        # NUMBERS. Every sibling branch of this conditional cites its counts; this
+        # one did not, and it is the branch that fires. So the round answering
+        # queue item 5 -- report the group sign-reversal rate, minority-only
+        # criteria, and whether group-specific weights improve group-specific
+        # prediction -- computed all three and stated none of them. A verdict that
+        # cites nothing cannot be compared to its own artifact by any check here.
+        rev_bits = "; ".join(
+            f"{k} {out[k]['reversal_rate']:.4f} vs null {out[k]['reversal_null_mean']:.4f} "
+            f"[{out[k]['reversal_null_ci'][0]:.4f},{out[k]['reversal_null_ci'][1]:.4f}] "
+            f"(excess {out[k]['reversal_excess']:+.4f})"
+            for k in out if out[k].get("status") == "MEASURED")
+        verdict = (f"CONFLICT WITHOUT CONSEQUENCE. Sign reversals exceed the label-permutation "
+                   f"null on {', '.join(any_rev)} and on no other axis: {rev_bits}. "
+                   f"BUT NO GROUP IS PREDICTED BETTER BY ITS OWN WEIGHTS on any axis -- "
+                   f"{sum(v.get('n_groups_better_with_own_weights', 0) for v in measured)} of "
+                   f"the {len(flat)} group tests, using rater-disjoint size-matched weights. "
+                   f"THE CALIBRATION IS THE ARGUMENT: {n_pos} positive and {n_neg} negative "
+                   f"results were significant before correction and {n_bh} survive "
+                   f"Benjamini-Hochberg at 5%. A group predicted WORSE by its own weights has no "
+                   f"mechanism, so the negatives measure the positives: a symmetric split is what "
+                   f"noise looks like, and this one is symmetric. "
+                   f"POSITIVE CONTROL: planting {a.flip:.0%} synthetic sign flips raises the "
+                   f"reversal rate from {base_rate:.4f} to {pc_rate:.4f}, so an instrument that "
+                   f"found nothing here is one that can find something. "
+                   f"So groups do disagree about individual criteria and it does not change which "
+                   f"response wins -- the aggregate equivalence in r42 is not hiding a decision. "
+                   f"SCOPED, and the scope is load-bearing: demographic proxies rather than value "
+                   f"constituencies, groups above a {a.min_group}-rater floor, and criteria rated "
+                   f"by a majority of a prompt's raters, which discards 63.5% of them (entry 51)")
     else:
         verdict = (f"NO DETECTED HETEROGENEITY: reversal rates sit inside the "
                    f"label-permutation null and no group's own weights beat pooled "

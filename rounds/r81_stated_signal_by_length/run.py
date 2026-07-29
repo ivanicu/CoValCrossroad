@@ -275,8 +275,12 @@ def main() -> None:
             "Length is measured in characters of the response text, and 'longer' means the rater's "
             "TOP pick is longer than their BOTTOM pick -- not longer than all four. The null is "
             "r03's C1 control (same prompt, same pair, a different person's stated text) computed "
-            "within each stratum. Bootstrap clusters on annotator, so these intervals are wider "
-            "than r03's judgement-level one by design and are not comparable to it."),
+            "within each stratum. Bootstrap clusters on annotator, as r03's own does -- r03 "
+            "builds `by_ann` and resamples raters, so these intervals ARE comparable to its "
+            "published one. An earlier draft of this field claimed r03 was judgement-level and "
+            "therefore incomparable; that was written about code I had not read, and it survived "
+            "in the artifact after being corrected in the docstring, which is the propagation "
+            "failure this repository logs most often."),
         "verdict": verdict,
     }
     try:
