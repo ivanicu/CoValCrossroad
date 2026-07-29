@@ -80,7 +80,7 @@ answer.
 |---|---|---|---|
 | 27 | **r26's sign test**, and with it the claim that the pair-specific residual is *signed* — the one signature reliability heterogeneity cannot fake, since attenuation moves agreement toward zero and stops there | The statistic does not implement that reasoning. Mean raw agreement is **+0.2513**, so a pair with *zero* competence sits 0.25 below the mean and has a strongly negative **centred** residual **while never once disagreeing**. r26 scored "below average" and "actually anti-correlated" with the same number — and those are exactly the two worlds it existed to separate | Nothing. Re-asked on the raw scale by r27, where zero is a real boundary rather than a consequence of centring |
 | 28 | **That the sign test had returned an answer at all** | It returned **+1.40, +2.26, +2.68 and +10.26** on identical data, varying only with how many random half-splits were averaged and whether the null used the same number. Four answers to one question | The diagnosis: that is a reading of the estimator, not a measurement. [r26](rounds/r26_sign_no_split) removes the split entirely and works on each pair's full residual series |
-| 29 | **r27's actor control** — "the negative tail vanishes among pairs of two generally-agreeable raters, so it is an actor effect, not blocs" | Two defects. **(a)** A pair's own agreement feeds both members' actor scores, so selecting *both above median* selects directly on the outcome; fixed leave-one-out, which moved it only 0.20×→0.24×. **(b)** Fatal: under **unequal** bloc sizes a majority-bloc member agrees with most people and is therefore "agreeable" **by construction**, so both-high pairs are mostly *same-bloc* and the control could not have found blocs even if they were there | The observation (far tail at 0.24× the null among agreeable pairs, z=−10.00), not the inference |
+| 29 | **r27's actor control** — "the negative tail vanishes among pairs of two generally-agreeable raters, so it is an actor effect, not blocs" | Two defects. **(a)** A pair's own agreement feeds both members' actor scores, so selecting *both above median* selects directly on the outcome; fixed leave-one-out, which moved it only 0.20×→0.24×. **(b)** Fatal: under **unequal** bloc sizes a majority-bloc member agrees with most people and is therefore "agreeable" **by construction**, so both-high pairs are mostly *same-bloc* and the control could not have found blocs even if they were there | The observation (far tail at 0.24× the null among agreeable pairs, z=−7.72 — **the −10.00 first published here was computed against a null estimated from 15 replicates; at 200 it is 23% smaller**), not the inference |
 | 30 | **r27's verdict**, which printed `VALUE BLOCS` | Its own control, ten lines above it in the same output, saying the opposite. The verdict block ranked thresholds and never read the control | Nothing. **This is item 11 on the step-size checklist in my own skill file — *a script's own conclusion string saying what you wanted to hear* — committed inside the round written to avoid exactly that.** The verdict now consults the control and cannot outrank it |
 | 31 | **The additive decomposition itself**, and with it the residual r23, r25, r26 and r27 all read as "pair-specific structure" | Classical test theory. Under one latent target with heterogeneous reliability, agreement is a **product**: `A_ij = ρ_i ρ_j`. Fit `μ + a_i + a_j` to that and the residual is **not noise** — it is `(ρ_i−m)(ρ_j−m)`: positive when both raters are above average, positive when both are below, negative when they straddle. **A U-shape, generated entirely by the wrong functional form, with no blocs anywhere in the process.** r27 measured that U-shape (+0.0538 / −0.0567 / +0.0552) and I read the positive both-low arm as a minority bloc | [r28](rounds/r28_multiplicative) fits both forms on the same 6,193 dyads. Multiplicative wins **with one fewer parameter** (R² 0.6604 vs 0.5784). Under it `both_high` and `mixed` collapse to **exactly zero** (z=−0.73, −1.43) and one stratum survives: `both_low` **+0.0125 [+0.0004, +0.0241], z=+2.50**, replicated at +0.0208 (spearman) and +0.0122 (cosine). **A minority bloc is real and 4.4× smaller than the additive analysis implied** |
 | 32 | **r28's own model comparison on the fourth metric** | negative-mean-absolute-difference is bounded *above* by zero, so a rank-1 product of real factors cannot represent it; ALS diverged to **R² = −13.14**. My code compared that to 0.5717 and printed *"the ADDITIVE form fits better"* — which would have entered the record as one metric of four dissenting, **manufacturing a robustness caveat out of a numerical failure** | A guard: R² < 0 now reports `MULTIPLICATIVE_INAPPLICABLE` and states explicitly that the additive form is **not** thereby supported. Attacked; it fires and returns before touching the strata |
@@ -1146,6 +1146,36 @@ time was **the qualifier the round itself had already written**, which is the sa
 
 **Five rows audited, three defective.** The hand audit cost minutes and found more than any
 automated check in this package has.
+
+## Entry 68 — under-replication does not move the estimate, it inflates the TEST STATISTIC
+
+r27's null was estimated from **15 replicates**. Re-run at 200:
+
+| quantity | 15 reps | 200 reps | moved |
+|---|---|---|---|
+| ratio just below zero | 1.1967 | **1.2019** | no (both round to 1.20) |
+| ratio below −0.20 | 1.3519 | **1.3519** | no |
+| far-tail actor-control **z** | **−10.00** | **−7.72** | **yes, 23%** |
+
+**The mechanism is the point.** Under-replication left every *ratio* essentially unchanged — those
+are means, and 15 draws estimate a mean adequately. What it corrupted is the **z**, whose
+denominator is the null **SD**, and an SD from 15 draws is the unstable quantity. So the effect of
+too few replicates ran entirely into the statistic that expresses *confidence*, and in the direction
+of more of it. A reader auditing the ratios would have found nothing wrong.
+
+**Where it had reached.** RETRACTIONS entry 29 — the document whose job is to say what survives a
+retraction — recorded `z=−10.00` as *"the observation, not the inference"*. The thing I kept was
+carrying the inflated number. Repaired inline, with the cause named.
+
+**The sweep, and its own defect.** I then checked every round for under-replicated nulls. The first
+instrument was wrong in both directions: it read booleans as counts (`isinstance(v, int)` is True
+for `bool`, so `reversal_above_null: False` surfaced as *"min=0"*) and its regex mis-captured
+argparse lines. Its output is not published. Hand-reading the flagged call sites settles it: every
+other small count — `a.boot = 200`, `a.seeds = 3`, `a.prompts = 8` — sits inside an `if smoke:`
+branch overriding a 4000 default. The one real small count is r47's `nrep = 20`, already declared.
+
+**So: r27 was the only round with an under-replicated published null** — and that conclusion rests
+on the hand-check, not on the automated sweep, which was unfit.
 
 ## The pattern
 
