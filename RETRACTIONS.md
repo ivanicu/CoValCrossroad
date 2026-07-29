@@ -1321,6 +1321,39 @@ the broad `does not` / `cannot` pattern (r27, r48), which is the price of a prox
 established"* echoes *"not established"* and passes while inverting the claim. The weakened
 paraphrase is the likelier and more dangerous failure and this instrument is blind to it.
 
+## Entry 73 — the check built to catch narrow populations had a narrow population, one commit later
+
+`readme_row_carries_the_verdict.py` read a round's claim from `verdict` or `conclusion` and reported
+**15 rounds UNCHECKABLE**. Six of those fifteen state their bounds in the artifact under a different
+key: `caveat` (r08), `note` (r19, r30), `schema_note` (r16), `outcome_variable_scope` (r08, r09).
+
+**A round states its bounds wherever it states them.** Reading two field names and calling the rest
+"uncheckable" is the same defect the check exists to catch, committed inside the check, one commit
+after writing the docstring that names the defect.
+
+Widening to `CLAIM_FIELDS` — verdict · conclusion · caveat · note · schema_note ·
+outcome_variable_scope · scope — moved **42 → 47 checkable** and **55 → 76 limitation sentences**,
+and surfaced **six omissions the narrower version could not see**:
+
+| round | the sentence its README row did not carry |
+|---|---|
+| **r05** | *"the cited embedding result (0.736 vs 0.520) is **computed nowhere in this repository or its history** and remains UNVERIFIED"* |
+| **r05** | *"both instruments here are lexical, so a shared blindness to paraphrase is not excluded"* |
+| **r11** | the retraction is *"a statement about the **proxy-world measurement**"*, not about human preference |
+| **r41** | *"`z_R` is produced by **the same judge whose off-distribution validity is unestablished**, so this round cannot separate 'new normative territory' from the judge behaving incoherently on fresh responses"* |
+| **r55** | *"it does not establish that no semantic selectivity changed"* |
+| **r58** | *"δ=0.01 is STIPULATED, not measured"* |
+
+**r41's is the one that matters.** It is queue item 3's round — criterion-space support geometry —
+and the caveat that its entire measurement is judge-relative, on a judge whose off-distribution
+validity is exactly what is in question, was in the artifact and not in the row.
+
+**r58's is mine, from this session.** I wrote the stipulation into the round's scope field, wrote
+the README row by hand in the same hour, and left it out.
+
+`frozen_line` is deliberately excluded: it is bloc-level boilerplate already enforced by
+`registries_are_satisfied.py`, and demanding a per-row echo of it would drown the signal.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

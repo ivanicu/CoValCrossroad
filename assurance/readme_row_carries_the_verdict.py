@@ -55,6 +55,13 @@ from pathlib import Path
 _ROOT = Path(__file__).resolve().parents[1]
 
 ROW = re.compile(r"^\|\s*\[(r\d+)\]\(rounds/")
+# Fields in which a round states a claim or a bound. `frozen_line` is
+# DELIBERATELY absent: it is package-level boilerplate identical across a
+# bloc, already enforced by registries_are_satisfied.py, and requiring a
+# per-row echo of it would flood this check with noise that is not about
+# the round.
+CLAIM_FIELDS = ("verdict", "conclusion", "caveat", "note", "schema_note",
+                "outcome_variable_scope", "scope")
 # A sentence that exists to bound the claim.
 LIMIT = re.compile(
     r"(NOT REACHED|NOT ESTABLISHED|not established|UNVERIFIED|not a verdict|"
@@ -137,19 +144,27 @@ def main() -> int:
             rows.setdefault(m.group(1), ln)
 
     verdicts: dict[str, str] = {}
-    for f in sorted(_ROOT.glob("rounds/*/results/*.json")):
+    for f in sorted(_ROOT.glob("rounds/*/results/**/*.json")):
         if "smoke" in f.name.lower() or any(p.startswith("_") for p in f.parts):
             continue
-        rid = f.parts[-3].split("_")[0]
-        if rid in verdicts:
-            continue
+        rid = f.parts[-3].split("_")[0] if f.parent.name == "results" \
+            else f.parts[1].split("_")[0]
         try:
             doc = json.loads(f.read_text())
         except Exception:
             continue
-        v = doc.get("verdict") or doc.get("conclusion")
-        if isinstance(v, str) and v.strip():
-            verdicts[rid] = v
+        # A round states its bounds wherever it states them. Reading only
+        # `verdict`/`conclusion` made six rounds "UNCHECKABLE" that in fact
+        # carry limitation prose under another name -- the same
+        # population-narrower-than-the-sentence defect this check exists for,
+        # in the check itself, one commit after writing it.
+        parts = [v for k in CLAIM_FIELDS
+                 for v in [doc.get(k)] if isinstance(v, str) and v.strip()]
+        if not parts:
+            continue
+        prev = verdicts.get(rid, "")
+        merged = "\n".join(dict.fromkeys([prev, *parts]).keys()).strip()
+        verdicts[rid] = merged
 
     both = sorted(set(rows) & set(verdicts), key=lambda r: int(r[1:]))
     uncheckable = sorted(set(rows) - set(verdicts), key=lambda r: int(r[1:]))
