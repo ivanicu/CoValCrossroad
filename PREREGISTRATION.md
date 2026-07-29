@@ -590,7 +590,16 @@ the same thing.
    **a LEVEL reaches δ = 0.01 at ≈1.6× the current 968-prompt join; a DIFFERENCE needs ≈5.3×**,
    because a difference carries two intervals and so costs about 4× a level.
    **All three experiments below are differences**, so the 5.3× figure is the binding one, not
-   the 1.6×. Two consequences for this protocol:
+   the 1.6×.
+   **⚠ And for H_fresh that figure is not a target — it is 86× out of reach, which is why the
+   protocol's own margin is 0.05 and not 0.01** (corrected 2026-07-29; the paragraph first implied
+   5.3× was something to hit). 5.3× the join is **5,148 prompts**; item 7 froze the frame at **60**.
+   Extrapolating the release's half-width down to 60 prompts under the same verified law gives
+   **0.0493** — and this document's power section, written independently and before r91 existed,
+   states power ≈0.98 for **+0.05**. **Two routes, one margin**, which is a cross-validation of both
+   rather than a conflict. So: **δ = 0.01 governs claims made on the release; H_fresh's honest margin
+   is ≈0.05**, and an H_fresh null must be reported at 0.05, never at 0.01.
+   Two further consequences for this protocol:
    - **Part of the cost is compute, not annotators.** The donor draw is **20%** of the attribution
      interval's variance and does *not* shrink with more prompts under a single draw
      ([r88](rounds/r88_donor_draw_variance)). Averaging **m = 10** draws cuts the requirement

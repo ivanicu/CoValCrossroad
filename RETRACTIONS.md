@@ -5816,3 +5816,41 @@ survives exactly when its single rater is drawn. It does, and the round refuses 
 **Scope, and it is the limit that matters:** this transfers r90's **mechanism**, which is combinatorial
 and design-determined. It does **not** transfer r90's variance components — whether prompt clustering
 dominates in H_fresh's actual data is measurable only from H_fresh's actual data, and is not assumed.
+
+---
+
+## Entry 178 — δ=0.01 governs the release; H_fresh's honest margin is 0.05, and I had implied otherwise
+
+Entry 177's NEXT asked whether r91's precision budget transfers to H_fresh the way r93 showed r90's
+clustering does. **It does not, and the paragraph I added to PREREGISTRATION.md two commits earlier
+implied it did.**
+
+r91 concluded *"a difference costs 5.3× the current join"* and I carried it over as: **all three
+experiments are differences, so 5.3× is the binding figure.** That reads as a target. **5.3× of 968 is
+5,148 prompts. Item 7 froze the H_fresh frame at 60.** A shortfall of **86×**, in a frame that is
+frozen by design and not a budget line.
+
+### The check turned an apparent contradiction into a cross-validation
+
+Extrapolating the release's attribution half-width down to 60 prompts under the law r89 verified:
+
+| n | predicted half-width |
+|---:|---:|
+| 968 (release) | 0.0123 |
+| 250 | 0.0242 |
+| **60 (H_fresh)** | **0.0493** |
+
+**And this document's power section — written independently, before r91 existed — states power ≈0.98
+for +0.05 clustered on prompt.** Two routes to the same margin. That is a cross-validation of both the
+scaling law and the original power calculation, not a conflict between them.
+
+**So the correction is a boundary, not a number:** **δ = 0.01 governs claims made on the release.
+H_fresh's honest margin is ≈0.05**, and an H_fresh null must be reported at 0.05 and never at 0.01.
+Reporting one at 0.01 would be claiming a precision the frozen frame cannot deliver — the exact defect
+r91 was built to prevent, reintroduced by quoting r91 in the wrong document.
+
+**The pattern, third instance this session:** a result is correct in the round that produced it and
+wrong where it is quoted. Entry 175 was a clause that never left the ledger; entry 177 was a mechanism
+that needed its transfer checked; this is a *number* whose denominator changed between documents.
+**A figure carries its population with it, and quoting it moves it somewhere the population may not
+hold.**
