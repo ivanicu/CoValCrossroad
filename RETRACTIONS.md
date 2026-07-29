@@ -3677,3 +3677,44 @@ effect" are different sentences and only one of them is true here.
 **Scope unchanged.** Still association within a rater. Still unable to separate a menu that *created*
 the direction from a menu that *supplied the words* for one already held. That is S_pre, and no
 partition of this data performs it.
+
+## Entry 131 — the third rival against the same claim, and the one that could actually have killed it
+
+**What r76 left standing.** It tested one rival to r75's asymmetry (an absence has no words to overlap)
+and refuted it. It did not test the stronger one: **a response ranked best is plausibly the one that
+engages the question most fully**, so it reuses the prompt's vocabulary most — and a criterion is about
+that same question. Both would overlap the prompt's words, containment would report an association
+between criterion and best-response, and **no rater would have read anything**. That mechanism produces
+r75's result exactly and needs no psychology at all.
+
+**The test.** Remove from every criterion the tokens the **prompt** already supplied, so any remaining
+overlap is response-specific vocabulary. On average the prompt supplies **16.1%** of a criterion's
+content words; only **14 of 9,122** criteria (0.2%) are emptied entirely and dropped.
+
+| vocabulary | n | positive | negative | gap |
+|---|---:|---:|---:|---|
+| full | 9,122 | +0.01755 | −0.00271 | +0.02025 [+0.01488, +0.02588] |
+| **prompt-stripped** | 9,108 | +0.01386 | −0.00727 | **+0.02114** [+0.01569, +0.02647] |
+
+**104% retained.** The gap does not merely survive — it is marginally larger without the prompt's
+words. Shuffled signs give **+0.00052**, an order of magnitude tighter than r76's +0.00409. **So the
+overlap is with what that *answer* said, not with what the *question* was about.**
+
+**The pre-registered caveat barely bites, and that is why this arm is strong.** Stripping is lossy as
+well as conservative: a criterion made entirely of prompt vocabulary is emptied, and those are exactly
+the ones for which topicality is most likely true. Had that been 30% of the corpus the arm would prove
+little. It is **0.2%**.
+
+**One small thing the strip revealed.** With prompt words gone, negative criteria move from −0.00271 to
+−0.00727 — slightly *more* toward the response the rater ranked worst. Still small and still spanning
+little, but the direction is the one r76's mechanical rival predicted and failed to find at full
+vocabulary. Recorded, not interpreted: it is a shift of 0.0046 and nothing in this package licenses a
+reading of it.
+
+**Where the r73–r77 line now stands.** Three independent rivals have been constructed against the same
+claim and all three have failed on their own terms: **length** (r74 — the classes are already
+length-matched, and length-matched write-ins still capture 16.2% vs seeds' 0.9%), **absence** (r76 —
+presence-type negatives do not track the worst answer, and absence-shaped wording is 4.1% of the
+corpus), and **topicality** (here — 104% retained). The scope is unchanged and is not a formality: this
+is association *within* a rater, and it still cannot separate a menu that **created** the direction
+from one that **supplied the words** for a direction already held. That is S_pre.
