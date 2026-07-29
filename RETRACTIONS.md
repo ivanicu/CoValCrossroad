@@ -303,6 +303,44 @@ work left was attacking this session's own results — which is the one conditio
 which I have historically found my own defects: when there was nothing else to do
 except look.
 
+## Entry 49 — a magnitude quoted without asking what the sample size does by itself
+
+**What was reported** (to the user, in a turn summary, before any file said it): that r08's
+gold head "orders responses by length at |r| ≈ 0.6–0.7 **in both sets**", offered as evidence
+that the project's outcome variable is substantially a length detector everywhere.
+
+**What was wrong.** Each prompt has **four** responses. Two *independent* 4-vectors already
+correlate at
+
+```
+E|r| = 0.5005          (200,000 draws, n = 4)
+```
+
+So the observed magnitudes are excesses of **+0.115** (original) and **+0.191** (fresh), not
+0.616 and 0.691. **The "in both sets" half of the sentence was the null.** The magnitude on the
+original candidates — the one that made the claim sound general — is barely above what four
+arbitrary points produce.
+
+**What survives, and it was always the part doing the work.** The *signed* correlation moves
+**+0.0770 → +0.4579** between released candidates and generated responses, and the signed null
+is 0 by symmetry. The shift is real and large; the magnitude was mostly sample size.
+
+**Why it happened.** I reached for |r| because the signed mean on the originals (+0.077) looked
+too small to matter, and I wanted a statistic that would show the channel was present anyway.
+That is the shape of the error: **a magnitude was recruited to rescue a signed result**, and the
+thing recruited had a floor I never checked.
+
+**Class.** Same family as the "fancy invariant vs trivial scalar" entries, but the trivial
+scalar here is not intrinsic dimension or variance — it is **n**. Sample size is the most
+trivial confound available and the easiest to skip, because it does not look like a variable.
+
+**Fixed.** r47 computes the null for its own n and prints the **excess** beside every raw
+magnitude, so the bare number cannot be quoted again.
+
+**Caught by:** noticing that the human win-rate showed |r| = 0.5733 against length while its
+signed correlation was +0.041 with a CI spanning zero. Two quantities that disagree that badly
+about the same relationship meant one of them was not measuring it.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
