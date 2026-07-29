@@ -288,6 +288,16 @@ def main() -> None:
          "raters_without_demographics": len(no_demo), "levels": out,
          "strata": {k: v["groups"] for k, v in strata_out.items()},
          "verdict": verdict,
+         "criterion_population_scope": (
+             "CRITERION POPULATION (added 2026-07-28, entry 51): this round keeps only"
+             " criteria rated by a majority of the prompt's raters, which discards 9,6"
+             "84 of 15,248 criteria (63.5%). r48 identified what that filter selects: "
+             "the partition is structural and the surviving class is capped at exactly"
+             " six per prompt -- it is the PRE-SEEDED set, shown identically to every "
+             "participant. The excluded 63.5% are participant-authored write-ins. So e"
+             "very number here is computed on the criteria OpenAI supplied, and cross-"
+             "rater agreement among them is agreement about the same six sentences eve"
+             "ryone saw. r49 tests the write-ins separately."),
          "A4_note": "A4 (response-blind humans) is UNDEFINED in this release: every rater "
                     "saw four candidates before rating any criterion. L(3) is the largest "
                     "isolation the data permits and is not the isolation the question needs.",

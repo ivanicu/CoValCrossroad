@@ -320,6 +320,16 @@ def main() -> None:
          "per_seed": [{k: v for k, v in r.items() if k != "_per_prompt"}
                       for r in per_seed],
          "verdict": verdict,
+         "criterion_population_scope": (
+             "CRITERION POPULATION (added 2026-07-28, entry 51): this round keeps only"
+             " criteria rated by a majority of the prompt's raters, which discards 9,6"
+             "84 of 15,248 criteria (63.5%). r48 identified what that filter selects: "
+             "the partition is structural and the surviving class is capped at exactly"
+             " six per prompt -- it is the PRE-SEEDED set, shown identically to every "
+             "participant. The excluded 63.5% are participant-authored write-ins. So e"
+             "very number here is computed on the criteria OpenAI supplied, and cross-"
+             "rater agreement among them is agreement about the same six sentences eve"
+             "ryone saw. r49 tests the write-ins separately."),
          "note": "Global fold assignment over annotator ids -- a person is in exactly one "
                  "fold for the whole run, never re-randomised per prompt. Evaluated against "
                  "INDIVIDUAL test-rater rankings, never an aggregate, which would carry the "

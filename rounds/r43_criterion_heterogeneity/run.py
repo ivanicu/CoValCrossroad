@@ -490,6 +490,17 @@ def main() -> None:
         "positive_control": {"flip_fraction": a.flip, "rate_with_flip": pc_rate,
                              "rate_without": base_rate, "passed": pc_passed},
         "axes": out, "verdict": verdict,
+        "criterion_population_scope": (
+            "CRITERION POPULATION (added 2026-07-28, entry 51): this round keeps on"
+            "ly criteria rated by a majority of the prompt's raters, which discards"
+            " 9,684 of 15,248 criteria (63.5%). r48 identified what that filter sel"
+            "ects: the partition is structural and the surviving class is capped at"
+            " exactly six per prompt -- it is the PRE-SEEDED set, shown identically"
+            " to every participant. The excluded 63.5% are participant-authored wri"
+            "te-ins. r49 tested those separately and found they transfer BETTER acr"
+            "oss raters (+0.0777 vs +0.0599, paired gap +0.0172 [+0.0034,+0.0307]),"
+            " so the exclusion understates the direction rather than manufacturing "
+            "it."),
         "multiplicity": {
             "n_group_tests": len(flat), "n_significant_positive": n_pos,
             "n_significant_negative": n_neg, "n_surviving_bh_fdr_5pct": n_bh,

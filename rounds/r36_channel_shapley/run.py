@@ -304,6 +304,17 @@ def main() -> None:
                                   for c, vv in R["v"].items()}
                               for r, R in regimes.items()},
          "shapley": out, "verdict": verdict,
+         "criterion_population_scope": (
+             "CRITERION POPULATION (added 2026-07-28, entry 51): this round keeps on"
+             "ly criteria rated by a majority of the prompt's raters, which discards"
+             " 9,684 of 15,248 criteria (63.5%). r48 identified what that filter sel"
+             "ects: the partition is structural and the surviving class is capped at"
+             " exactly six per prompt -- it is the PRE-SEEDED set, shown identically"
+             " to every participant. The excluded 63.5% are participant-authored wri"
+             "te-ins. r49 tested those separately and found they transfer BETTER acr"
+             "oss raters (+0.0777 vs +0.0599, paired gap +0.0172 [+0.0034,+0.0307]),"
+             " so the exclusion understates the direction rather than manufacturing "
+             "it."),
          "note": "PREDICTIVE decomposition, not causal. v(C)=0.5 for any coalition without "
                  "T, because with no criterion information every response scores alike. "
                  "{T} alone is an attribute diagnostic, not a rubric with weights removed: "

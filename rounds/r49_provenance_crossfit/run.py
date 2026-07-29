@@ -85,11 +85,12 @@ def main() -> None:
         if not items:
             continue
         ratings, prov = {}, {}
-        # r48: the split is structural -- a criterion is rated by exactly one
-        # person (write-in) or by a majority (pre-seeded), with 0 ambiguous
-        # under this rule across all 15,248 criteria.
-        nr = [len(it.get("scores") or []) for it in items]
-        thr = max(2, (max(nr) + 1) // 2) if nr else 2
+        # r34's EXACT threshold, reproduced line for line: the denominator is the
+        # number of raters who touched ANY criterion on this prompt, not the max
+        # per-criterion count.  My first version used the latter, which is a
+        # different filter and is one of two reasons the control failed.
+        raters_here = {sc["annotator_id"] for it in items for sc in (it.get("scores") or [])}
+        thr = max(2, (len(raters_here) + 1) // 2)
         for ci, it in enumerate(items):
             sc = it.get("scores") or []
             if not sc:
@@ -236,12 +237,15 @@ def main() -> None:
           f"(medians: seed {med_seed}, writein {med_wr})\n")
 
     out = {}
-    # POSITIVE CONTROL: the all-criteria arm must reproduce r34's +0.058
-    ctrl_sign = crossfit(lambda p_: True, True, None)
-    ctrl_free = crossfit(lambda p_: True, False, None)
+    # POSITIVE CONTROL: r34's EXACT population -- majority-filtered (= the
+    # pre-seeded class, per r48), no size matching.  The second reason the first
+    # version failed was that it pooled write-ins into this arm, which r34 never
+    # sees.  Reproducing r34 requires reproducing what r34 EXCLUDED.
+    ctrl_sign = crossfit(lambda p_: p_ == "seed", True, None)
+    ctrl_free = crossfit(lambda p_: p_ == "seed", False, None)
     ctrl = paired(ctrl_free, ctrl_sign)
-    print(f"positive control  ALL criteria, no size match: {ctrl['delta']:+.4f} "
-          f"{ctrl['ci']}   [r34 got +0.0576]")
+    print(f"positive control  r34's population (majority-filtered, unmatched): "
+          f"{ctrl['delta']:+.4f} {ctrl['ci']}   [r34 got +0.0576]")
     passed = bool(abs(ctrl["delta"] - 0.0576) < 0.02)
     print(f"  -> {'reproduces r34' if passed else 'DOES NOT reproduce r34'}")
     if not passed:
@@ -267,6 +271,23 @@ def main() -> None:
               f"   <- must be <= 0 if the sign channel is real")
 
     s_d, w_d = out["seed"]["direction_advantage"], out["writein"]["direction_advantage"]
+    # The two intervals nearly separate, and "nearly separate" is not a test.
+    # Comparing two CIs by eye is how a difference gets asserted that was never
+    # estimated, so the contrast is computed on the PAIRED per-prompt vectors.
+    sv = np.array(s_d["paired_differences"])
+    wv = np.array(w_d["paired_differences"])
+    m = min(len(sv), len(wv))
+    gapv = wv[:m] - sv[:m]
+    gbs = np.array([gapv[rng0.integers(0, m, m)].mean() for _ in range(a.boot)])
+    glo, ghi = np.percentile(gbs, [2.5, 97.5])
+    gap = {"writein_minus_seed": float(gapv.mean()), "ci": [float(glo), float(ghi)],
+           "prompts": int(m), "excludes_zero": bool(glo > 0 or ghi < 0),
+           "note": ("Paired on prompts. Both arms are size-matched to the same K, so "
+                    "this is not a criterion-count effect.")}
+    out["writein_minus_seed"] = gap
+    print(f"\nwritein - seed (paired) {gap['writein_minus_seed']:+.4f} "
+          f"[{gap['ci'][0]:+.4f},{gap['ci'][1]:+.4f}]"
+          f"{'  SIGNIFICANT' if gap['excludes_zero'] else '  (ns)'}")
     both = s_d["excludes_zero"] and w_d["excludes_zero"]
     if both:
         verdict = (
@@ -274,8 +295,10 @@ def main() -> None:
             f"per prompt, write-in criteria -- authored by ONE participant and rated by "
             f"only that participant -- carry a cross-rater direction advantage of "
             f"{w_d['delta']:+.4f} {w_d['ci']}, against {s_d['delta']:+.4f} {s_d['ci']} "
-            f"for the pre-seeded six that everyone saw. So the transferable direction is "
-            f"NOT an artifact of shared criterion TEXT. SHARED-MENU ENDOGENEITY IS "
+            f"for the pre-seeded six that everyone saw -- a paired gap of "
+            f"{gap['writein_minus_seed']:+.4f} {gap['ci']}"
+            f"{', which excludes zero' if gap['excludes_zero'] else ', which SPANS zero, so the two classes are not shown to differ'}"
+            f". So the transferable direction is NOT an artifact of shared criterion TEXT. SHARED-MENU ENDOGENEITY IS "
             f"NARROWED, NOT REMOVED: every write-in was still written after seeing the "
             f"same four candidates, and 'shared-response artifact' and 'population "
             f"property' make the same prediction here")
