@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T15:26:13.624355+00:00",
- "git": "e1ab8c8621d6e25508d840b140325f985ab1d319",
+ "generated_utc": "2026-07-29T15:31:13.575960+00:00",
+ "git": "9c03abcbc5221cb16df0e97862d356f7dcf83e95",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -98,6 +98,10 @@
   "rounds/r104_deattenuated_consensus/run.py": {
    "bytes": 25755,
    "sha256": "aec55ee70698f34df74bf410bbb5062b176a8671e63d987484f759cfcbdec465"
+  },
+  "rounds/r105_specific_share_invariance/run.py": {
+   "bytes": 19622,
+   "sha256": "8e0978b6c62428456910059a59fb7b3bf4fa46d2fa1c0d75442d926dbbeda12f"
   },
   "rounds/r10_attribution_robustness/run.py": {
    "bytes": 8761,
@@ -664,6 +668,10 @@
   "rounds/r104_deattenuated_consensus/results/r104_deattenuated_consensus.json": {
    "bytes": 7108,
    "sha256": "dc267657679f383784adca43a89ab9e2396502b45e132c8ebb4cc88a490430ba"
+  },
+  "rounds/r105_specific_share_invariance/results/r105_specific_share_invariance.json": {
+   "bytes": 5485,
+   "sha256": "f55e5cc2a698ad5d4c19af17a2df9f4448104a20c50e2a151c08055afa76871f"
   },
   "rounds/r10_attribution_robustness/results/a10_attribution.json": {
    "bytes": 1085,
