@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T13:35:51.407913+00:00",
- "git": "6988424ce20b6dd3e24c0bc9097c0134a104dc4a",
+ "generated_utc": "2026-07-29T13:40:50.248654+00:00",
+ "git": "ebaa2aff46e8a607bf47f8c0b6652db51e9fac14",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -422,6 +422,10 @@
   "rounds/r98_unverified_triage/run.py": {
    "bytes": 9478,
    "sha256": "20349c6fd6fff0d4a112bb71621dc268e8b2d8645c1fab8cb82b0d9823308997"
+  },
+  "rounds/r99_harvester_pairing/run.py": {
+   "bytes": 11180,
+   "sha256": "4bb71800d29647d8435111d615bbd432e7897c24c7184832163cd62b99c8de43"
   },
   "assurance/apply_freeze_status.py": {
    "bytes": 4855,
@@ -1612,6 +1616,10 @@
   "rounds/r98_unverified_triage/results/r98_unverified_triage.json": {
    "bytes": 4518,
    "sha256": "715eb669169fd8e191091386026d060bb1d8d90d9b9710eec933b6511292fdd0"
+  },
+  "rounds/r99_harvester_pairing/results/r99_harvester_pairing.json": {
+   "bytes": 11931,
+   "sha256": "5eb2525a1fe22b3d1940a26076d4ef47ceaea4c6043ae4e920dcb84086cc4ecb"
   }
  },
  "claims": [
