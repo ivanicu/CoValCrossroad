@@ -60,13 +60,84 @@ def parse_ranking(s: str) -> list[list[str]]:
     return out
 
 
+DELTA = 0.01   # the preregistered practical margin, queue item 4
+
+
+def build_verdict(d: dict) -> str:
+    """The verdict as a pure function of the stored quantities.
+
+    REPLACES a 44-character string that read, in full: "NO EVIDENCE stated text
+    predicts own choices". Three things were wrong with it.
+
+    It cited NO NUMBER, so no prose check in this package could compare it to its
+    own artifact -- the population `verdict_cites_its_own_contrasts` reports as
+    unclassifiable.
+
+    It reported NON-SIGNIFICANCE as though that were the finding, when the data
+    supports something considerably stronger: the difference is +0.0017 with a
+    95% interval of [-0.0061, +0.0097] on 11,327 judgements, which sits INSIDE
+    the preregistered +/-0.01 margin. That is PRACTICAL EQUIVALENCE, not absence
+    of evidence, and the two are the distinction queue item 4 exists to enforce.
+    Using the 95% interval where TOST wants the 90% is deliberately conservative:
+    the 90% interval is narrower, so equivalence established on the 95% holds a
+    fortiori.
+
+    And it stated a null with NO POWER, in a repository whose own case law says a
+    null without power is silence. The interval is the power statement, and it
+    was in the file the whole time.
+    """
+    lo, hi = d["difference_ci"]
+    equivalent = lo > -DELTA and hi < DELTA
+    significant = lo > 0 or hi < 0
+    margin = min(DELTA - abs(lo), DELTA - abs(hi))
+    head = ("STATED PREDICTS REVEALED" if significant and d["difference"] > 0 else
+            "STATED ANTI-PREDICTS REVEALED" if significant else
+            "EQUIVALENT TO CHANCE AT THE PREREGISTERED MARGIN" if equivalent else
+            "NOT DISTINGUISHABLE FROM CHANCE, AND NOT SHOWN EQUIVALENT")
+    return (
+        f"{head}. Over {d['judgements']:,} judgements from {d['annotators']:,} annotators, a "
+        f"rater's own stated criteria predict their own choice {d['hit_rate']:.4f} of the time "
+        f"against a label-permuted null of {d['permuted_null']:.4f} -- a difference of "
+        f"{d['difference']:+.4f} [{lo:+.4f},{hi:+.4f}]. SIGNIFICANCE AND EQUIVALENCE, REPORTED "
+        f"SEPARATELY: the difference "
+        f"{'differs from zero' if significant else 'does not differ from zero'}, and it "
+        f"{'IS' if equivalent else 'is NOT'} practically equivalent to chance at the "
+        f"preregistered delta={DELTA} -- the interval lies inside the margin with "
+        f"{margin:.4f} to spare on its tighter side, so this is a TIGHT null and not an "
+        f"unpowered one. The 95% interval is used where TOST asks for the 90%, which is "
+        f"conservative: the 90% is narrower and equivalence holds a fortiori. "
+        f"⚠ ONE ASYMMETRY THE HEADLINE HIDES: the top pick is the longer response in "
+        f"{d['top_longer_share']:.1%} of judgements, and the hit rate splits "
+        f"{d['hit_top_longer']:.4f} when it is longer against {d['hit_top_shorter']:.4f} when it "
+        f"is shorter, a gap of {d['hit_top_longer'] - d['hit_top_shorter']:+.4f}. The aggregate "
+        f"equivalence is therefore an average over two subpopulations that do not behave alike, "
+        f"and this round does not test whether that gap is itself distinguishable from zero."
+    )
+
+
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--comparisons", type=Path, default=Path(_ROOT + "/data/comparisons.jsonl"))
     p.add_argument("--annotators", type=Path, default=Path(_ROOT + "/data/annotators.jsonl"))
     p.add_argument("--out", type=Path, default=Path(_RES + "/a03_stated_vs_revealed.json"))
+    p.add_argument("--reverdict", action="store_true",
+                   help="recompute ONLY the verdict from the stored numbers; reads no data "
+                        "and touches nothing else")
     p.add_argument("--boot", type=int, default=2000)
     a = p.parse_args()
+    if a.reverdict:
+        doc = json.loads(a.out.read_text())
+        old = doc.get("verdict")
+        doc["verdict"] = build_verdict(doc)
+        doc["verdict_recomputed_without_rerun"] = (
+            "Only the verdict was recomputed, from the numbers already in this file. "
+            "The measurement is unchanged; what changed is that the conclusion now states "
+            "them, and reports equivalence separately from significance.")
+        a.out.write_text(json.dumps(doc, indent=1))
+        print(f"verdict recomputed in {a.out}")
+        print(f"  was: {old}")
+        print(f"  now: {doc['verdict'][:110]}...")
+        return
 
     stated: dict[str, str] = {}
     for line in open(a.annotators, encoding="utf-8"):
@@ -176,9 +247,14 @@ def main() -> None:
     for lab, mask in (("top longer", longer), ("top shorter", ~longer)):
         print(f"     {lab:12s} hit={hit[mask].mean():.4f}  perm={perm[mask].mean():.4f}  n={mask.sum():,}")
 
-    verdict = ("STATED PREDICTS REVEALED" if d_lo > 0 else
-               "NO EVIDENCE stated text predicts own choices" if d_hi < 0 or (d_lo < 0 < d_hi)
-               else "UNVERIFIED")
+    verdict = build_verdict({
+        "annotators": len(stated), "judgements": len(rows),
+        "hit_rate": float(hit.mean()), "permuted_null": float(perm.mean()),
+        "difference": float(hit.mean() - perm.mean()),
+        "difference_ci": [float(d_lo), float(d_hi)],
+        "top_longer_share": float(longer.mean()),
+        "hit_top_longer": float(hit[longer].mean()),
+        "hit_top_shorter": float(hit[~longer].mean())})
     print(f"\n  -> {verdict}")
 
     a.out.parent.mkdir(parents=True, exist_ok=True)

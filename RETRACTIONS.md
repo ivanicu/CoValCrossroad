@@ -4031,8 +4031,61 @@ r39, r40 and r41 are all built on that exact response set and the generation ste
 Above 100% means the arm does not merely fail to transfer, it changes sign, so 'most of it does not
 transfer' understates what the numbers say."*
 
-**What this does not fix.** Nine other rounds still carry number-free verdicts, and the check's larger
+**⚠ CORRECTION: five, not nine, and I checked the excuse only afterwards.** This entry said *"nine
+other rounds"* and gave a reason for not fixing them — *"recomputing a verdict requires that round to
+have a `build_verdict` function, and most do not"* — **without verifying either**. Counted properly
+(any decimal or percentage, not the 2+-decimal rule that false-flagged rounds citing one-decimal
+percentages): **five**, namely r03, r05, r21, r22, r43. The excuse itself is correct — **0 of 5** have a
+factored verdict function — but it was offered before it was checked, which is the move this ledger
+exists to catch, given as a reason for inaction.
+
+**What this does not fix.** Four other rounds still carry number-free verdicts, and the check's larger
 finding stands: 28 verdicts cite nothing, and among the 19 omissions in rounds that *do* cite something,
 5 are opposite-signed — **P = 0.2249, sign bias NOT established**. That is a null with its power stated,
 not a clean bill. I fixed the one that carries the headline; the rest are named and left, because
 recomputing a verdict requires that round to have a `build_verdict` function, and most do not.
+
+## Entry 139 — a 44-character null said "no evidence"; the numbers in the same file said EQUIVALENT
+
+**The verdict, in full:** `NO EVIDENCE stated text predicts own choices`. Forty-four characters, no
+number, no interval, no power — the form this repository has more case law against than any other. *A
+null needs power. A measured zero from an instrument with no positive control is silence.* And it sat
+on **r03**, the round asking whether stated ideals predict revealed choices, which is the π layer's
+most direct question.
+
+**The numbers were in the same file the whole time.** 11,327 judgements, 1,007 annotators, hit rate
+**0.5033** against a label-permuted null of **0.5016**, difference **+0.0017** with a 95% interval of
+**[−0.0061, +0.0097]**.
+
+**That interval lies inside the preregistered δ=0.01.** So the finding is not *absence of evidence* —
+it is **practical equivalence to chance**, which is strictly stronger and is exactly the distinction
+queue item 4 was added to enforce. The verdict had been reporting the weaker of the two available
+claims for the life of the round.
+
+**Three defects, one recomputation.**
+
+| | before | after |
+|---|---|---|
+| cites its own numbers | no — invisible to every prose check here | yes |
+| significance vs equivalence | conflated as "no evidence" | reported separately |
+| power | unstated | the interval **is** the power statement, and it was in the file |
+
+**Conservative on purpose, and it says so.** TOST wants the 90% interval; only the 95% is stored. The
+95% is *wider*, so equivalence established on it holds a fortiori. The margin is thin — **0.0003** to
+spare on the tighter side — and the verdict states that rather than rounding it away.
+
+**And the recomputation surfaced something the old verdict hid entirely.** The top pick is the longer
+response in **55.5%** of judgements, and the hit rate splits **0.5138** when the top pick is longer
+against **0.4903** when it is shorter — a gap of **+0.0235**, more than ten times the aggregate
+difference. **The aggregate equivalence is an average over two subpopulations that do not behave
+alike**, and r03 does not test whether that gap is itself distinguishable from zero. Stated in the
+verdict, in the README row, and here — not resolved.
+
+**The propagation worked the way it is supposed to.** Strengthening the verdict made
+`readme_row_carries_the_verdict` **fire**, because the row no longer carried the limitation its own
+verdict now states. That is the check earning its place: I improved an artifact and the suite
+immediately demanded the document catch up.
+
+**Method, not typing.** `build_verdict` is a pure function of the stored quantities with a
+`--reverdict` path, following r12's pattern. No data was re-read and no number changed — what changed
+is that the conclusion now states them.
