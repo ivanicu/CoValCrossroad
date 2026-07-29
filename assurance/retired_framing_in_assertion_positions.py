@@ -53,6 +53,20 @@ RETIRED = [
      "-> no aggregate loss detected in the tested splits"),
     (r"\bnot\s+(?:an\s+)?OOD artifact\b", "-> not explained by monotone degradation"),
     (r"\blaunder(?:s|ed|ing)\b", "-> core INTERNALISES polarity into criterion semantics"),
+    # r10's row read "23.7% of the gap is topic, not value" and cleared every
+    # framing check for the life of the project: the list held "measures values"
+    # and "value-carrying share", and the DECOMPOSITION form of the same retired
+    # contrast was on neither (entry 76). Matched narrowly enough that the
+    # legitimate "demographic proxies, not value constituencies" is untouched --
+    # that sentence denies a constituency, it does not decompose an accuracy.
+    (r"\b(?:topic|quality|generic|format|style|wording)\s*,?\s+not\s+values?\b",
+     "values/non-values DECOMPOSITION -> own-rubric vs reference-rubric"),
+    # A pattern for the literal phrase "values vs non-values" was written here and
+    # REMOVED the same minute: its only firing was on r10's replacement text,
+    # "never values vs non-values", i.e. on a DISAVOWAL of the framing. A rule
+    # that fires only on correct prose teaches you to phrase disavowals
+    # awkwardly, which is worse than not having it. The decomposition pattern
+    # above is the one with a demonstrated catch.
 ]
 PAT = [(re.compile(p, re.I), why) for p, why in RETIRED]
 

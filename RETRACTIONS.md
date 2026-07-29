@@ -1418,6 +1418,50 @@ non-recursive `results/*.json` glob, which `a06_dryrun.json` defeated by being w
 
 **The audit that found it also found two unscoped rows** — see entry 76.
 
+## Entry 76 — auditing the rounds nothing had ever attacked: a mean over a sign inversion, and a 6.2× arm choice
+
+Seven rounds have a README row, no claim field in the artifact, and **no limitation recorded
+anywhere in this repository** — not in RETRACTIONS, not in the row, nowhere. Nothing has ever
+attacked them. Reading three of the load-bearing ones against their own numbers:
+
+**r10 — "stable across judge size and template; 23.7% of the gap is topic, not value".** Three
+defects in eleven words.
+
+| cell | attribution vs random | topic share |
+|---|---:|---:|
+| qwen3.5-2b/A | +0.0869 | +0.3004 |
+| qwen3.5-2b/B | +0.0594 | +0.4486 |
+| qwen3.5-0.8b/A | +0.0449 | **−0.0369** |
+
+  * **"stable"** — the attribution survives in every cell, which is the real finding, but it nearly
+    **halves** from the 2B judge to the 0.8B. A 1.9× range is not what "stable" conveys.
+  * **"23.7%"** is `topic_share_mean` — the mean of a quantity that **inverts sign** across the very
+    dimension the word "stable" names. In the 0.8B cell `near` (0.4939) sits *below* `random`
+    (0.4956), which is what makes it negative.
+  * **"topic, not value"** is the retired framing the queue's first line forbids: *never values vs
+    non-values*. It survived every framing check because those scan results strings and a fixed
+    phrase list, and this phrasing was on neither.
+
+**r14 — "a semantically faithful rewording flips 15.4%".** The round has two arms and the row quotes
+one without naming it:
+
+| arm | sign-flip rate | r | fidelity kept |
+|---|---:|---:|---:|
+| model paraphrase | **15.4%** | 0.871 | 99.1% |
+| mechanical rewording | **2.5%** | 0.989 | **100%** |
+
+**6.2× apart, and the arm with the *higher* measured fidelity is the one that barely moves.** The
+15.4% is quoted throughout this repository — including the frontier-skill worked example — as the
+judge's instability. It is the model arm.
+
+**And a third number.** The layer table's **R** row said r14 filtered paraphrases at *"99.2% kept"*.
+The artifact says `fidelity_kept.model = 0.9911616` — **99.1%**. Third defect found in the layer
+table that entries 66 and 67 already audited twice.
+
+**The population is the point.** These rounds were not wrong because they were hard. They were wrong
+because nothing had ever looked. Rounds with no recorded limitation are not clean; they are
+**unexamined**, and the two categories are indistinguishable from the outside.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
