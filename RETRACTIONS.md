@@ -7522,3 +7522,47 @@ settled without any judgement.
 **What this closes:** r101's result raised a live worry that a convention buried in one helper might be
 silently shaping the package's headline. **It is not** — and the check that establishes it is the pair
 count, which no amount of reasoning about floating point would have settled as cleanly.
+
+---
+
+## Entry 213 — no comparison behind the headline is decided by float dust, and the near-ties behave exactly like coin flips
+
+Entry 212 established `agree()`'s tie branch never fires: zero exact ties in 80,542 comparisons. **The
+sharper consequence is the one worth checking** — if nothing ties, then every pair is decided by a float
+difference, and a difference of 10⁻¹⁷ counts as a confident ordering. **How many of the headline's pairs
+are decided by a margin too small to mean anything?**
+
+| | |
+|---|---|
+| minimum margin \|sa−sb\| | **6.9×10⁻⁴** |
+| 1st percentile | 0.122 |
+| median | **8.30** (scale max 94.8) |
+
+| threshold | pairs below | share | agreement on those | agreement above |
+|---:|---:|---:|---:|---:|
+| 10⁻⁶ | **0** | 0.00% | — | 0.6860 |
+| 10⁻³ | 18 | 0.02% | **0.5000** | 0.6860 |
+| 10⁻² | 66 | 0.08% | 0.6061 | 0.6861 |
+
+**Nothing is decided by float dust.** The smallest margin in the whole join is 6.9×10⁻⁴ — thirteen orders
+of magnitude above where floating point stops being meaningful — because satisfaction values are
+quantised and the weighted sums land on a coarse lattice rather than a continuum.
+
+### The near-ties validate the margin as a confidence measure, for free
+
+**The 18 pairs below 10⁻³ agree at exactly 0.5000 — chance.** That is precisely what a genuine coin flip
+looks like, and it is an internal control I did not have to build: *if the margin measured nothing, those
+pairs would agree at the overall 0.686 like everything else.* They do not. **The margin is measuring
+decision confidence, and the pairs it calls unconfident behave accordingly.**
+
+**Dropping every one of them changes the headline from 0.6860 to 0.6860.**
+
+### What this closes
+
+Entry 212 removed one worry (a tie convention shaping the headline) and immediately created a sharper
+one (decisions made at arbitrarily small margins). **Both are now closed by the same measurement**, and
+the second closed with a control that arrived from the data rather than from a plant.
+
+**The residual, stated:** this bounds *numerical* confidence, not *statistical* confidence. A margin of
+8.3 says the estimator is not guessing; it says nothing about whether the satisfaction values it sums
+are right. That is r04's question and is unaffected by anything here.
