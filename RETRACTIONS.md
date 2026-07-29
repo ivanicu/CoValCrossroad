@@ -3409,22 +3409,33 @@ appending *"and no isotonic control was run"* pushed the overlap over threshold 
 carrying a limitation it does not carry. **Adding words to a plant can weaken it.** A plant must be as
 lexically foreign as the defect is.
 
-**Result: 4 of 6 fire.** `every_round_reaches_the_readme`, `retired_framing_in_assertion_positions`,
+**Result: 5 of 6 fire.** `every_round_reaches_the_readme`, `retired_framing_in_assertion_positions`,
 `corrections_propagated` and `readme_row_carries_the_verdict` each exit non-zero on their planted
 defect and cleanly on restore. Working tree verified clean by `git diff --quiet` after every run —
 a plant surviving its restore would be worse than any check being tested.
 
-**Two do not, and for different reasons.**
+**One does not.**
 
 1. `code_states_a_bound_the_reader_never_sees` — **zero recall on a valid plant.** A bound stated in a
    round's source using vocabulary appearing nowhere in README produced no flag. This is consistent
    with what the check already documents about itself: *"PRECISION ON THIS CORPUS: 0 of 13 — all
    current flags were triaged and are false positives."* It now has a measured recall to match its
    measured precision, and both are zero.
-2. `results_match_their_code` — **saturated.** It names **71 of 72 rounds** on a clean tree. A report
-   whose population is that saturated cannot signal anything by naming one more; no plant is
-   detectable against that background. Same shape as entry 124's 94% chance-match rate, reached by a
-   different route.
+2. ~~`results_match_their_code` — **saturated.** It names 71 of 72 rounds on a clean tree.~~
+   **⚠ WRONG, corrected within the hour — and it is the fourth population error in this harness's
+   short life.** That check prints a **table row for every round**, 72 of them, mostly `ok`; its
+   actual finding is the `WITHOUT a note:` list, which holds **six** rounds. I tested for the round's
+   name *anywhere in stdout* and read inventory as findings. Parsing the finding line instead, the
+   check **fires correctly**: it flags the planted round and not the clean one. `results_match_their_code`
+   is a working check that I published as broken.
+
+**So the harness has now mistaken its population four times**, and only once was the check at fault:
+a layer-table row read as a round's row; a table row read as a flag; `git diff --quiet` over the whole
+tree reporting *"a plant survived"* when the only dirty file was **this script, edited between runs**;
+and the vocabulary-overlap plant that disarmed itself. Every one of those produced a **false
+accusation against working machinery** — the mirror of the false acquittal this suite exists to
+prevent, and evidently the easier error to make when the tool being built is an accuser. The guard now
+watches exactly the three files the plants touch, no more and no fewer.
 
 **What is NOT established.** That a firing check catches *every* instance of its defect. That is
 recall across the defect space, and it is unmeasured for all six. What is established is the prior

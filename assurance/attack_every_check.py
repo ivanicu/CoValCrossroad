@@ -72,6 +72,16 @@ def run(check: str, cwd: Path = ROOT):
     return p.returncode, p.stdout + p.stderr
 
 
+def flagged(out: str, token: str) -> bool:
+    """Is `token` in a FINDING line, rather than anywhere in the output?
+
+    A finding line is one this check uses to report a problem -- here, the
+    `WITHOUT a note:` list. Everything else it prints is inventory.
+    """
+    return any(token in ln for ln in out.splitlines()
+               if "WITHOUT a note" in ln or "stale cell" in ln)
+
+
 def verify(name, contract, rc_bad, out_bad, rc_good, out_good, token, why):
     """One place where 'fired' is defined, per contract."""
     if contract == "gate":
@@ -80,15 +90,17 @@ def verify(name, contract, rc_bad, out_bad, rc_good, out_good, token, why):
         if rc_good != 0:
             return name, False, f"fires on the CLEAN tree too (exit {rc_good}) -- not specific"
         return name, True, f"exit {rc_bad} on {why}; clean after restore"
-    named_bad, named_good = token in out_bad, token in out_good
+    # FLAGGED, not merely PRESENT. This check prints a table row for EVERY round
+    # -- 72 of them, mostly "ok" -- and its actual finding is the WITHOUT-a-note
+    # list. A substring test over stdout therefore reported it as naming 71 of 72
+    # rounds and concluded it was saturated; it flags SIX. Presence in an
+    # instrument's output is not the same as being flagged by it, and reading one
+    # as the other is how a working check gets called broken (twice, now).
+    named_bad, named_good = flagged(out_bad, token), flagged(out_good, token)
     if not named_bad:
-        return name, False, f"DID NOT NAME the planted item on {why}"
+        return name, False, f"DID NOT FLAG the planted item on {why}"
     if named_good:
-        # Measured: this check names 71 of 72 rounds on a clean tree. A report
-        # whose population is saturated cannot signal anything by naming one more
-        # -- the same shape as a 94% chance-match rate (entry 124).
-        return name, False, (f"SATURATED -- names {token} on the CLEAN tree too; "
-                             f"no plant is detectable against that background")
+        return name, False, f"flags {token} on the CLEAN tree too -- not specific"
     return name, True, f"named {token} on {why} (report contract: exit 0 by design)"
 
 
@@ -224,10 +236,22 @@ def main() -> int:
         tag = "INVALID" if ok is None else ("YES" if ok else "NO")
         print(f"{name:44s} {tag:>8}  {detail}")
 
-    dirty = subprocess.run(["git", "diff", "--quiet"], cwd=ROOT).returncode
-    print(f"\nrestore verification: working tree {'CLEAN' if dirty == 0 else 'DIRTY'}")
+    # SCOPED TO WHAT THIS SCRIPT PLANTS IN. `git diff --quiet` over the whole
+    # tree reported "a plant survived" when the only dirty file was this script,
+    # edited between runs -- a false accusation about its own operation, and the
+    # THIRD population error in this harness's short life (the others: a layer
+    # row read as a round's row, and a table row read as a flag). The guard must
+    # watch exactly the files the plants touch, no more and no fewer.
+    PLANTED = ["README.md",
+               "rounds/r72_proxy_validity_coefficient/run.py",
+               "rounds/r72_proxy_validity_coefficient/results/"
+               "r72_proxy_validity_coefficient.json"]
+    dirty = subprocess.run(["git", "diff", "--quiet", "--"] + PLANTED, cwd=ROOT).returncode
+    print(f"\nrestore verification: planted files {'CLEAN' if dirty == 0 else 'DIRTY'}"
+          f"  ({len(PLANTED)} watched)")
     if dirty != 0:
         print("  A plant survived the restore. That is worse than any check tested here.")
+        subprocess.run(["git", "diff", "--stat", "--"] + PLANTED, cwd=ROOT)
         return 2
 
     fired = [n for n, ok, _ in results if ok is True]
