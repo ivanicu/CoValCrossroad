@@ -3850,7 +3850,22 @@ is not a lineage that WORKS*, and the guard that now refuses non-finite embeddin
 form of that sentence. The shim's docstring says the same in its own header, because the next person
 to reach for it will be me.
 
-**What is now true about the panel.** It is a **two-lineage** panel: qwen and phi. Restoring internlm
+**⚠ CORRECTION, same day, from the artifacts rather than the phrase.** This entry said *"the
+three-lineage judge panel"*, following the queue's wording. **There is no three-lineage judge panel and
+there never was.** [r80](rounds/r80_panel_freeze) separates two things the phrase conflates:
+
+| panel | members | evidence | status |
+|---|---|---|---|
+| **judge** (satisfaction scoring) | qwen + phi | r22's own verdict: `usable_families=['phi','qwen']`, internlm configured and **not** in `usable`; judge receipts exist for qwen2b and phi only; `covalx/judge.py` contains **no** `trust_remote_code`, so it could never have loaded internlm | **at full size — nothing broke** |
+| **encoder** (r39 cache → r40, r68's 0.9132) | qwen + phi + internlm | `r39_feature_cache.npz` holds `mean_last` for all three | **not regenerable today** |
+
+So internlm breaking did **not** break the judge panel. It broke the ability to **regenerate the
+encoder features** — narrower and more precise than this entry originally claimed, and the correction
+came from reading r22's artifact instead of trusting the queue's phrase. *A label is not a description*
+applies to the label I was handed as much as to one I write.
+
+**What is now true about the panel.** The judge panel is **two-lineage** — qwen and phi — and that is
+its full designed size, not a loss. Restoring internlm
 needs a separate environment with a pinned older transformers — not a patch to this one, and not
 before S_pre, which is what the whole line is waiting on. Recorded here rather than fixed, because
 pretending the panel has three lineages is the failure this entry exists to prevent.
@@ -3858,3 +3873,44 @@ pretending the panel has three lineages is the failure this entry exists to prev
 **What does not change.** r39's cached internlm vectors are still the vectors r40 and r68 used; nothing
 about their past correctness is impugned. What is established is that **they cannot be regenerated on
 this machine today**, and that no artifact in this repository would have told anyone so.
+
+## Entry 135 — the panel is frozen, and freezing it showed the phrase I had been repeating was wrong
+
+**The queue's GPU item, delivered.** [r80](rounds/r80_panel_freeze) records every element it names —
+checkpoint (config/tokenizer file hashes, weight file names and sizes), tokenizer class and vocab,
+template, verbalizer, divergence-token extraction, precision, batch, code hashes — each read from the
+live object rather than from memory.
+
+**Plus the one thing the queue did not ask for and no receipt in this repository has ever carried:
+the environment.** python 3.13, torch 2.11.0+cu128, transformers 5.14.1, CUDA 12.8, RTX 5080. Entry
+134 could only establish that r39's cache was built somewhere unrecorded *because* nothing recorded
+it. A freeze that omitted the environment would have reproduced the omission it exists to prevent.
+
+**Each lineage passes or is refused on a positive control, not on an import.** A hand-built pair — a
+reply that plainly satisfies a criterion versus one that plainly does not — must be ordered correctly
+and finitely. That is entry 134's lesson made executable: *a lineage that loads is not a lineage that
+works.*
+
+**And freezing it corrected the phrase.** I had written *"the three-lineage judge panel"*, taking the
+queue's wording. Reading the artifacts instead:
+
+- the **judge** panel is **qwen + phi** and always was — r22's verdict says
+  `usable_families=['phi','qwen']` with internlm configured and **not** usable; the only judge receipts
+  are qwen2b and phi; `covalx/judge.py` contains no `trust_remote_code`, so it **could never have
+  loaded internlm at all**;
+- the **encoder** panel behind r39's cache, r40's OOD map and r68's 0.9132 **is** three lineages.
+
+**So internlm breaking did not break the judge panel.** It broke the ability to *regenerate encoder
+features*. Entry 134 is corrected above to say so. *A label is not a description* — and it applies to a
+label handed to me exactly as much as to one I write, which is the part I had not internalised.
+
+**One inaccuracy this round still carries, stated rather than hidden.** internlm's recorded refusal
+reason is `ValueError: ... requires trust_remote_code`, which is the failure the **judge pipeline**
+hits — not the NaN fault entry 134 diagnosed through a direct load. Both are real, they occur at
+different layers, and the artifact records the one this round's code path actually encountered. The
+NaN diagnosis lives in entry 134 and in the shim's own header.
+
+**Scope.** Weight files are indexed by name and size, not hashed — 24 GB per freeze would make the
+freeze too expensive to run, and config plus tokenizer hashes with sizes already detect a swapped
+checkpoint. The positive control is one pair: it catches a dead or inverted judge, not a subtly
+miscalibrated one.
