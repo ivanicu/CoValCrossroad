@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-07-29T15:39:35.805392+00:00",
- "git": "bdb71d79a7d28b1bb0635a3ba6338bdec84ca4c4",
+ "generated_utc": "2026-07-29T15:51:57.164088+00:00",
+ "git": "93764dae8de53b6f7c9b1324081e79e054d9cf6f",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -110,6 +110,10 @@
   "rounds/r107_joint_resample/run.py": {
    "bytes": 14950,
    "sha256": "97131407e3eeba65cc7043728845b6d0cf3dec569f643b5b41cdd3dd606bd923"
+  },
+  "rounds/r108_coinflip_stratum/run.py": {
+   "bytes": 17513,
+   "sha256": "3e465af3ace3260db305e33706830154b63620559cd288a6cbea53b3086bdb5e"
   },
   "rounds/r10_attribution_robustness/run.py": {
    "bytes": 8761,
@@ -688,6 +692,10 @@
   "rounds/r107_joint_resample/results/r107_joint_resample.json": {
    "bytes": 3990,
    "sha256": "e44c3e9499cfc0eb7e344ce9ac3a73ca31db06650d70b58a11bea926dd62c6c9"
+  },
+  "rounds/r108_coinflip_stratum/results/r108_coinflip_stratum.json": {
+   "bytes": 5247,
+   "sha256": "29d35cabac2a5b2ea81a89565a652efd39e44f04d19d56776b04820bab00bb07"
   },
   "rounds/r10_attribution_robustness/results/a10_attribution.json": {
    "bytes": 1085,
