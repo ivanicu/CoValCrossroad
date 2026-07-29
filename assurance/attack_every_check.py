@@ -66,8 +66,8 @@ README = ROOT / "README.md"
 R72 = ROOT / "rounds/r72_proxy_validity_coefficient/results/r72_proxy_validity_coefficient.json"
 
 
-def run(check: str, cwd: Path = ROOT):
-    p = subprocess.run([PY, f"assurance/{check}.py"], cwd=cwd,
+def run(check: str, cwd: Path = ROOT, args: list[str] | None = None):
+    p = subprocess.run([PY, f"assurance/{check}.py", *(args or [])], cwd=cwd,
                        capture_output=True, text=True)
     return p.returncode, p.stdout + p.stderr
 
@@ -79,7 +79,8 @@ def flagged(out: str, token: str) -> bool:
     `WITHOUT a note:` list. Everything else it prints is inventory.
     """
     return any(token in ln for ln in out.splitlines()
-               if "WITHOUT a note" in ln or "stale cell" in ln)
+               if "WITHOUT a note" in ln or "stale cell" in ln
+               or ln.startswith("         ") or ".py:" in ln)
 
 
 def verify(name, contract, rc_bad, out_bad, rc_good, out_good, token, why):
@@ -155,10 +156,15 @@ def bound_plant():
     try:
         target.write_text(original + "\n# This estimator cannot distinguish a heteroskedastic"
                                      " kurtosis shift from an isotonic monotonic drift.\n")
-        rc_bad, out_bad = run(name)
+        # REPORT contract, and --show 0. This check exits 0 by design ("Exit 0
+        # always -- a report") and used to truncate its flag list at 8, so the
+        # plant was BOTH outside the exit contract and off the end of the display.
+        # It was recorded as the suite's one broken check on that basis; its
+        # recall is 1 of 1.
+        rc_bad, out_bad = run(name, args=["--show", "0"])
         target.write_text(original)
-        rc_good, out_good = run(name)
-        return verify(name, "gate", rc_bad, out_bad, rc_good, out_good, "",
+        rc_good, out_good = run(name, args=["--show", "0"])
+        return verify(name, "report", rc_bad, out_bad, rc_good, out_good, "kurtosis",
                       "a source bound whose words appear nowhere in README")
     finally:
         target.write_text(original)

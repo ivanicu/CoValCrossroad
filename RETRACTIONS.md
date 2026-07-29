@@ -3409,18 +3409,26 @@ appending *"and no isotonic control was run"* pushed the overlap over threshold 
 carrying a limitation it does not carry. **Adding words to a plant can weaken it.** A plant must be as
 lexically foreign as the defect is.
 
-**Result: 5 of 6 fire.** `every_round_reaches_the_readme`, `retired_framing_in_assertion_positions`,
+**Result: 6 of 6 fire. No check in this suite is broken.** `every_round_reaches_the_readme`, `retired_framing_in_assertion_positions`,
 `corrections_propagated` and `readme_row_carries_the_verdict` each exit non-zero on their planted
 defect and cleanly on restore. Working tree verified clean by `git diff --quiet` after every run —
 a plant surviving its restore would be worse than any check being tested.
 
-**One does not.**
+**⚠ The last "failure" was the fifth false accusation, and it exposed a real defect in the check —
+just not the one I charged it with.**
 
-1. `code_states_a_bound_the_reader_never_sees` — **zero recall on a valid plant.** A bound stated in a
-   round's source using vocabulary appearing nowhere in README produced no flag. This is consistent
-   with what the check already documents about itself: *"PRECISION ON THIS CORPUS: 0 of 13 — all
-   current flags were triaged and are false positives."* It now has a measured recall to match its
-   measured precision, and both are zero.
+`code_states_a_bound_the_reader_never_sees` was recorded as having **zero recall**. It has **1 of 1**.
+The plant was invisible to the harness for two compounding reasons, neither of them the check's
+verdict: it **exits 0 by design** (*"Exit 0 always — a report"*, its own last line) so the gate
+contract could never see it; and its flag list **truncated at `--show 8`**, hiding **12 of its 20
+findings** — the planted one sorted last. Run with `--show 0`, it names the plant.
+
+**The real defect, found by accident.** A finding an instrument does not print is a finding it did not
+make. Entry 57 is the same failure in a renderer, and `readme_agrees_with_results` prints all of its
+union flags for exactly this reason — this check truncated. **Fixed:** `--show` now defaults to 0
+(show everything), and a non-zero `--show` prints a loud `⚠ N FLAGS NOT SHOWN` line. Its **precision
+remains 0 of 13**, self-triaged, which is a fair description of a low-yield report — but low precision
+and no recall are different diagnoses, and it had been given the wrong one.
 2. ~~`results_match_their_code` — **saturated.** It names 71 of 72 rounds on a clean tree.~~
    **⚠ WRONG, corrected within the hour — and it is the fourth population error in this harness's
    short life.** That check prints a **table row for every round**, 72 of them, mostly `ok`; its
@@ -3429,7 +3437,7 @@ a plant surviving its restore would be worse than any check being tested.
    check **fires correctly**: it flags the planted round and not the clean one. `results_match_their_code`
    is a working check that I published as broken.
 
-**So the harness has now mistaken its population four times**, and only once was the check at fault:
+**So the harness has now mistaken its population five times**, and only once was the check at fault:
 a layer-table row read as a round's row; a table row read as a flag; `git diff --quiet` over the whole
 tree reporting *"a plant survived"* when the only dirty file was **this script, edited between runs**;
 and the vocabulary-overlap plant that disarmed itself. Every one of those produced a **false

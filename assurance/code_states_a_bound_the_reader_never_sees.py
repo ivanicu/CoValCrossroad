@@ -122,7 +122,13 @@ def words(s: str) -> set[str]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--show", type=int, default=8)
+    # Default 0 = show every flag. It was 8, and that hid 12 of 20 findings --
+    # including a PLANTED one, which is how this check was recorded as having
+    # zero recall when its recall is 1 of 1. Entry 57 is the same failure in a
+    # renderer; `readme_agrees_with_results` prints all of its union flags for
+    # exactly this reason. A finding an instrument does not print is a finding it
+    # did not make.
+    ap.add_argument("--show", type=int, default=0, help="0 = all")
     a = ap.parse_args()
 
     readme = (_ROOT / "README.md").read_text()
@@ -169,11 +175,11 @@ def main() -> int:
     absent = [f for f in found if f[0] == 0.0]
     print(f"bound phrases NOT present in the README's prose about their round: "
           f"{len(absent)} of {len(found)}\n")
-    for ov, rid, path, ln, s, phrase in absent[:a.show]:
+    for ov, rid, path, ln, s, phrase in (absent if a.show == 0 else absent[:a.show]):
         print(f"  {path}:{ln}  ({rid})   phrase: \"{phrase}\"")
         print(f"         {s}")
-    if len(absent) > a.show:
-        print(f"\n  ... {len(absent) - a.show} more")
+    if a.show and len(absent) > a.show:
+        print(f"\n  ⚠ {len(absent) - a.show} FLAGS NOT SHOWN -- rerun with --show 0")
 
     print("\n  Exit 0 always -- a report. Two earlier versions failed their controls: a")
     print("  binary echo test let a planted bound through, and a vocabulary ranking put")
