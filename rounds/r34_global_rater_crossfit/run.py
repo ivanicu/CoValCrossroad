@@ -270,7 +270,13 @@ def main() -> None:
                        for _ in range(a.boot)])
         lo, hi = np.percentile(bs, [2.5, 97.5])
         return {"delta": float(d.mean()), "ci": [float(lo), float(hi)],
-                "prompts": len(common), "excludes_zero": bool(lo > 0 or hi < 0)}
+                "prompts": len(common), "excludes_zero": bool(lo > 0 or hi < 0),
+                # PAIRED VECTOR PERSISTED 2026-07-28.  Non-significance is not
+                # equivalence, and testing H0: |delta| >= margin needs the
+                # resamplable vector, not a 95% CI printed for a different
+                # question.  Discarding it made every "no effect" reading in
+                # this round untestable by anyone including its author.
+                "paired_differences": [float(x) for x in d]}
 
     est = {
         "D_population (crossfit_sign - attribute_only)": paired("attribute_only", "crossfit_sign"),

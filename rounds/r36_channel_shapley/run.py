@@ -269,7 +269,13 @@ def main() -> None:
         m_c, _, _ = ci(a_c)
         d, lo, hi = ci(a_s - a_c)
         out[j] = {"phi_same": m_s, "phi_cross": m_c, "gap": d, "gap_ci": [lo, hi],
-                  "gap_excludes_zero": bool(lo > 0 or hi < 0)}
+                  "gap_excludes_zero": bool(lo > 0 or hi < 0),
+                  # PAIRED VECTOR PERSISTED 2026-07-28.  phi_S(same) - phi_S(cross)
+                  # is quoted as evidence that sign is "mostly not same-sample",
+                  # which is a claim about a SMALL difference and therefore only
+                  # means something against a declared margin.  The vector is
+                  # what makes that testable.
+                  "paired_differences": [float(x) for x in (a_s - a_c)]}
         print(f"{j:10s} {m_s:>10.4f} {m_c:>11.4f} "
               f"{f'{d:+.4f} [{lo:+.4f}, {hi:+.4f}]':>32}"
               f"{'' if (lo > 0 or hi < 0) else '  (spans zero)'}")

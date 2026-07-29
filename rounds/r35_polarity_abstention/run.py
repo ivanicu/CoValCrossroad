@@ -250,7 +250,11 @@ def main() -> None:
                            for _ in range(a.boot)])
             lo, hi = np.percentile(bs, [2.5, 97.5])
             return {"delta": float(d_.mean()), "ci": [float(lo), float(hi)],
-                    "excludes_zero": bool(lo > 0 or hi < 0), "prompts": len(common)}
+                    "excludes_zero": bool(lo > 0 or hi < 0), "prompts": len(common),
+                    # see r34 -- the abstention claim is a NULL claim, so it is
+                    # exactly the kind that needs an equivalence test to mean
+                    # anything, and that needs this vector.
+                    "paired_differences": [float(x) for x in d_]}
 
         cmp_ = {"confident - forced": paired("forced", "confident"),
                 "posterior - forced": paired("forced", "posterior"),

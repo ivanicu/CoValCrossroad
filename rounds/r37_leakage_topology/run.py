@@ -232,7 +232,10 @@ def main() -> None:
         bs = np.array([d[rng.integers(0, len(d), len(d))].mean() for _ in range(a.boot)])
         lo, hi = np.percentile(bs, [2.5, 97.5])
         return {"L": float(d.mean()), "ci": [float(lo), float(hi)],
-                "prompts": len(common), "excludes_zero": bool(lo > 0 or hi < 0)}
+                "prompts": len(common), "excludes_zero": bool(lo > 0 or hi < 0),
+                # see r34.  The held-out-country rung is the load-bearing "no
+                # population dependence" number in the whole package.
+                "paired_differences": [float(x) for x in d]}
 
     print(f"\n{'isolation level':26s} {'accuracy':>9} {'L(k) = A0 - Ak':>28}")
     out = {}

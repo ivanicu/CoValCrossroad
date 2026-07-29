@@ -1,0 +1,495 @@
+{
+ "delta": 0.01,
+ "boot": 20000,
+ "alpha": 0.05,
+ "delta_is_a_stipulation": true,
+ "margin_source": "external methodological review, 2026-07-28; not derived from any decision this project specifies",
+ "controls": {
+  "positive": {
+   "contrast": "D_population",
+   "delta_hat": 0.057649169432686984,
+   "n": 968,
+   "ci90": [
+    0.05013793351228743,
+    0.06529013640476383
+   ],
+   "ci95": [
+    0.04862949374309654,
+    0.06671446281753277
+   ],
+   "p_tost": 1.0,
+   "equivalent": false,
+   "significant": true,
+   "ci95_width_over_delta": 1.8084969074436228,
+   "must_be": "not equivalent",
+   "passed": true
+  },
+  "negative": {
+   "contrast": "exact zeros",
+   "delta_hat": 0.0,
+   "n": 500,
+   "ci90": [
+    0.0,
+    0.0
+   ],
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "p_tost": 0.0,
+   "equivalent": true,
+   "significant": false,
+   "ci95_width_over_delta": 0.0,
+   "must_be": "equivalent",
+   "passed": true
+  }
+ },
+ "contrasts": [
+  {
+   "round": "r34",
+   "contrast": "estimands.D_population (crossfit_sign - attribute_only)",
+   "scope": "cross-fitted concordance vs individual rater rankings, original menu",
+   "cell": "real and material",
+   "delta_hat": 0.057649169432686984,
+   "n": 968,
+   "ci90": [
+    0.050281611464776284,
+    0.0651341580254158
+   ],
+   "ci95": [
+    0.04888512249178227,
+    0.06665509942649679
+   ],
+   "p_tost": 1.0,
+   "equivalent": false,
+   "significant": true,
+   "ci95_width_over_delta": 1.776997693471452
+  },
+  {
+   "round": "r34",
+   "contrast": "estimands.D_same (same_sign - attribute_only)",
+   "scope": "cross-fitted concordance vs individual rater rankings, original menu",
+   "cell": "real and material",
+   "delta_hat": 0.06313545854043641,
+   "n": 968,
+   "ci90": [
+    0.05526915902671249,
+    0.07102222179576156
+   ],
+   "ci95": [
+    0.05379370287557731,
+    0.07248159182376576
+   ],
+   "p_tost": 1.0,
+   "equivalent": false,
+   "significant": true,
+   "ci95_width_over_delta": 1.8687888948188451
+  },
+  {
+   "round": "r34",
+   "contrast": "estimands.D_leakage (same_sign - crossfit_sign)",
+   "scope": "cross-fitted concordance vs individual rater rankings, original menu",
+   "cell": "real but negligible",
+   "delta_hat": 0.005486289107749416,
+   "n": 968,
+   "ci90": [
+    0.003106123042481554,
+    0.007924743293972523
+   ],
+   "ci95": [
+    0.002635288007164841,
+    0.008400460355505113
+   ],
+   "p_tost": 0.00205,
+   "equivalent": true,
+   "significant": true,
+   "ci95_width_over_delta": 0.5765172348340272
+  },
+  {
+   "round": "r34",
+   "contrast": "estimands.D_magnitude (crossfit_mag - crossfit_sign)",
+   "scope": "cross-fitted concordance vs individual rater rankings, original menu",
+   "cell": "real and material",
+   "delta_hat": 0.014497635114232637,
+   "n": 968,
+   "ci90": [
+    0.01064029154823553,
+    0.018309739361462175
+   ],
+   "ci95": [
+    0.009878613496586818,
+    0.019048403279579365
+   ],
+   "p_tost": 0.97195,
+   "equivalent": false,
+   "significant": true,
+   "ci95_width_over_delta": 0.9169789782992547
+  },
+  {
+   "round": "r34",
+   "contrast": "estimands.null: random_sign - attribute_only",
+   "scope": "cross-fitted concordance vs individual rater rankings, original menu",
+   "cell": "real and material",
+   "delta_hat": -0.018376478723043717,
+   "n": 968,
+   "ci90": [
+    -0.024285527181319783,
+    -0.012299750344709036
+   ],
+   "ci95": [
+    -0.02552910964306436,
+    -0.011198240251026198
+   ],
+   "p_tost": 0.9883,
+   "equivalent": false,
+   "significant": true,
+   "ci95_width_over_delta": 1.4330869392038161
+  },
+  {
+   "round": "r34",
+   "contrast": "estimands.null: donor_sign - attribute_only",
+   "scope": "cross-fitted concordance vs individual rater rankings, original menu",
+   "cell": "real and material",
+   "delta_hat": -0.03351901366947857,
+   "n": 959,
+   "ci90": [
+    -0.0423593378890411,
+    -0.024809222189813022
+   ],
+   "ci95": [
+    -0.04399755568034213,
+    -0.02316676820998578
+   ],
+   "p_tost": 1.0,
+   "equivalent": false,
+   "significant": true,
+   "ci95_width_over_delta": 2.083078747035635
+  },
+  {
+   "round": "r35",
+   "contrast": "regimes.same_sample.comparisons.confident - forced",
+   "scope": "post-hoc abstention only; not elicitation-time neutrality",
+   "cell": "no material effect",
+   "delta_hat": 0.0019423077216379485,
+   "n": 871,
+   "ci90": [
+    -0.00498266605322241,
+    0.008904107205077198
+   ],
+   "ci95": [
+    -0.006304365632482117,
+    0.010267397728873126
+   ],
+   "p_tost": 0.02925,
+   "equivalent": true,
+   "significant": false,
+   "ci95_width_over_delta": 1.6571763361355243
+  },
+  {
+   "round": "r35",
+   "contrast": "regimes.same_sample.comparisons.posterior - forced",
+   "scope": "post-hoc abstention only; not elicitation-time neutrality",
+   "cell": "real and material",
+   "delta_hat": 0.008546390723055445,
+   "n": 968,
+   "ci90": [
+    0.004293904835519639,
+    0.012842072100827594
+   ],
+   "ci95": [
+    0.0034547785155719084,
+    0.013680299789743802
+   ],
+   "p_tost": 0.2841,
+   "equivalent": false,
+   "significant": true,
+   "ci95_width_over_delta": 1.0225521274171894
+  },
+  {
+   "round": "r35",
+   "contrast": "regimes.same_sample.comparisons.forced - attribute_only",
+   "scope": "post-hoc abstention only; not elicitation-time neutrality",
+   "cell": "real and material",
+   "delta_hat": 0.06313545854043641,
+   "n": 968,
+   "ci90": [
+    0.05543497021229228,
+    0.07095179201717317
+   ],
+   "ci95": [
+    0.05383055669032446,
+    0.07242190492814322
+   ],
+   "p_tost": 1.0,
+   "equivalent": false,
+   "significant": true,
+   "ci95_width_over_delta": 1.8591348237818766
+  },
+  {
+   "round": "r35",
+   "contrast": "regimes.crossfit.comparisons.confident - forced",
+   "scope": "post-hoc abstention only; not elicitation-time neutrality",
+   "cell": "no material effect",
+   "delta_hat": -0.0016944187536397895,
+   "n": 965,
+   "ci90": [
+    -0.007457482960830812,
+    0.0041026840947992775
+   ],
+   "ci95": [
+    -0.00853037533438359,
+    0.005197982615988835
+   ],
+   "p_tost": 0.00825,
+   "equivalent": true,
+   "significant": false,
+   "ci95_width_over_delta": 1.3728357950372425
+  },
+  {
+   "round": "r35",
+   "contrast": "regimes.crossfit.comparisons.posterior - forced",
+   "scope": "post-hoc abstention only; not elicitation-time neutrality",
+   "cell": "real and material",
+   "delta_hat": 0.008161189215727196,
+   "n": 968,
+   "ci90": [
+    0.004889642712886896,
+    0.011433661837108505
+   ],
+   "ci95": [
+    0.0042308605565001545,
+    0.012064069392259935
+   ],
+   "p_tost": 0.1764,
+   "equivalent": false,
+   "significant": true,
+   "ci95_width_over_delta": 0.7833208835759781
+  },
+  {
+   "round": "r35",
+   "contrast": "regimes.crossfit.comparisons.forced - attribute_only",
+   "scope": "post-hoc abstention only; not elicitation-time neutrality",
+   "cell": "real and material",
+   "delta_hat": 0.058958930250683134,
+   "n": 968,
+   "ci90": [
+    0.051638427488202736,
+    0.06647733371527052
+   ],
+   "ci95": [
+    0.05029350323729704,
+    0.06796702573173738
+   ],
+   "p_tost": 1.0,
+   "equivalent": false,
+   "significant": true,
+   "ci95_width_over_delta": 1.767352249444034
+  },
+  {
+   "round": "r36",
+   "contrast": "shapley.T",
+   "scope": "Shapley over 16 coalitions; predictive, not causal",
+   "cell": "real but negligible",
+   "delta_hat": 0.0016585384184834688,
+   "n": 968,
+   "ci90": [
+    0.0006599661126849567,
+    0.002648021501629379
+   ],
+   "ci95": [
+    0.000478895035991919,
+    0.0028301491800703377
+   ],
+   "p_tost": 0.0,
+   "equivalent": true,
+   "significant": true,
+   "ci95_width_over_delta": 0.23512541440784185
+  },
+  {
+   "round": "r36",
+   "contrast": "shapley.S",
+   "scope": "Shapley over 16 coalitions; predictive, not causal",
+   "cell": "real but negligible",
+   "delta_hat": 0.0008213028595405437,
+   "n": 968,
+   "ci90": [
+    0.00021887342109260785,
+    0.0014123720427157438
+   ],
+   "ci95": [
+    0.00011555760263594836,
+    0.001533891424922277
+   ],
+   "p_tost": 0.0,
+   "equivalent": true,
+   "significant": true,
+   "ci95_width_over_delta": 0.14183338222863284
+  },
+  {
+   "round": "r36",
+   "contrast": "shapley.M",
+   "scope": "Shapley over 16 coalitions; predictive, not causal",
+   "cell": "no material effect",
+   "delta_hat": 0.0005076505859130538,
+   "n": 968,
+   "ci90": [
+    -0.0003689532908372635,
+    0.0013786874353674814
+   ],
+   "ci95": [
+    -0.0005454723404171068,
+    0.0015377839564662992
+   ],
+   "p_tost": 0.0,
+   "equivalent": true,
+   "significant": false,
+   "ci95_width_over_delta": 0.20832562968834062
+  },
+  {
+   "round": "r36",
+   "contrast": "shapley.V",
+   "scope": "Shapley over 16 coalitions; predictive, not causal",
+   "cell": "no material effect",
+   "delta_hat": 0.00018615750220064048,
+   "n": 968,
+   "ci90": [
+    -6.697764608177017e-07,
+    0.00038248172707752205
+   ],
+   "ci95": [
+    -3.4678322941283215e-05,
+    0.00042344532928484483
+   ],
+   "p_tost": 0.0,
+   "equivalent": true,
+   "significant": false,
+   "ci95_width_over_delta": 0.045812365222612804
+  },
+  {
+   "round": "r37",
+   "contrast": "levels.A1_leave_one_rater_out",
+   "scope": "isolation rungs A0->A3; L(4) response-blind is undefined, not zero",
+   "cell": "no material effect",
+   "delta_hat": 0.0004750271600093255,
+   "n": 968,
+   "ci90": [
+    -0.0013400234217951098,
+    0.0022869057824680458
+   ],
+   "ci95": [
+    -0.0016898820035105733,
+    0.002634666270538569
+   ],
+   "p_tost": 0.0,
+   "equivalent": true,
+   "significant": false,
+   "ci95_width_over_delta": 0.4324548274049142
+  },
+  {
+   "round": "r37",
+   "contrast": "levels.A2_held_out_rater_folds",
+   "scope": "isolation rungs A0->A3; L(4) response-blind is undefined, not zero",
+   "cell": "real but negligible",
+   "delta_hat": 0.002586217707728534,
+   "n": 968,
+   "ci90": [
+    0.0007015690243883679,
+    0.004518558599684198
+   ],
+   "ci95": [
+    0.0003632957643662512,
+    0.004900902247278959
+   ],
+   "p_tost": 0.0,
+   "equivalent": true,
+   "significant": true,
+   "ci95_width_over_delta": 0.4537606482912708
+  },
+  {
+   "round": "r37",
+   "contrast": "levels.A3_held_out_country",
+   "scope": "isolation rungs A0->A3; L(4) response-blind is undefined, not zero",
+   "cell": "no material effect",
+   "delta_hat": 0.0007236586445763022,
+   "n": 968,
+   "ci90": [
+    -0.002615777786602202,
+    0.004089359406813507
+   ],
+   "ci95": [
+    -0.003255360384379187,
+    0.004804845648380667
+   ],
+   "p_tost": 0.0,
+   "equivalent": true,
+   "significant": false,
+   "ci95_width_over_delta": 0.8060206032759853
+  },
+  {
+   "round": "r37",
+   "contrast": "levels.A3_held_out_ai_usage",
+   "scope": "isolation rungs A0->A3; L(4) response-blind is undefined, not zero",
+   "cell": "no material effect",
+   "delta_hat": 0.0028330066611434467,
+   "n": 968,
+   "ci90": [
+    -0.00033858903028702856,
+    0.006020878330243007
+   ],
+   "ci95": [
+    -0.0009272497385491122,
+    0.006608490729463001
+   ],
+   "p_tost": 0.0,
+   "equivalent": true,
+   "significant": false,
+   "ci95_width_over_delta": 0.7535740468012113
+  },
+  {
+   "round": "r37",
+   "contrast": "levels.A3_held_out_age",
+   "scope": "isolation rungs A0->A3; L(4) response-blind is undefined, not zero",
+   "cell": "no material effect",
+   "delta_hat": 0.003977277462674595,
+   "n": 968,
+   "ci90": [
+    0.0004447861480270129,
+    0.00747541583567784
+   ],
+   "ci95": [
+    -0.0001921019697300479,
+    0.00810098932637736
+   ],
+   "p_tost": 0.002,
+   "equivalent": true,
+   "significant": false,
+   "ci95_width_over_delta": 0.8293091296107408
+  }
+ ],
+ "delta_sweep": {
+  "0.0025": {
+   "n_equivalent": 4,
+   "n_total": 21
+  },
+  "0.005": {
+   "n_equivalent": 7,
+   "n_total": 21
+  },
+  "0.01": {
+   "n_equivalent": 12,
+   "n_total": 21
+  },
+  "0.02": {
+   "n_equivalent": 15,
+   "n_total": 21
+  },
+  "0.05": {
+   "n_equivalent": 17,
+   "n_total": 21
+  }
+ },
+ "n_inconclusive": 0,
+ "n_negligible": 4,
+ "verdict": "No contrast is INCONCLUSIVE at delta=0.01: every non-significant result is also bounded inside the margin, so the null readings in this package are supported at this stipulated margin and at no other.",
+ "scope": "Aggregate equivalence only. A contrast can be equivalent in aggregate and heterogeneous underneath -- criterion-level sign reversals and minority-only criteria are NOT tested here and are queue item 5. An equivalence result here is not a population-invariance result."
+}
