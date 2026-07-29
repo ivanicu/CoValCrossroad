@@ -3178,3 +3178,47 @@ the independent-sources product (+0.0463) and excluding the shared-source value 
 
 **The rule.** A split-half reported from one split is a point estimate of a quantity that varies by
 3.5× across splits. Average it, report the spread, or do not report it.
+
+## Entry 121 — r67 survives its re-run, and I overstated the reason within the hour
+
+**The audit.** Entry 120's rule — *average a split-half or do not report it* — corrected r69 and r70
+but not **r67**, which is the one the README still leans on: 0.657 is the only predictor reliability
+available for r41 and r46, and the ledger's 1.23× comes from it.
+
+**It survives.** r67's estimator re-run verbatim, 200 draws instead of one: spread loss **0.6849**
+(sd 0.0294), criterion-space geometry **0.6653** (sd 0.0304), mean **0.6751** against the published
+0.657 — a shift of **+0.018**. Multiplier 1.217× not 1.234×. r41's floor 0.227 → **0.224**, r46's
+0.264 → **0.260**. World `A STABLE`. All three reliability rounds are now averaged.
+
+**What I got wrong in the same commit.** I wrote that "across-split volatility scales with
+unreliability", citing relative spreads of 5.8% / 14% / 24% against raw correlations of 0.51 / 0.28 /
+0.18, and called the pattern the finding. It is mostly arithmetic:
+
+| quantity | mean raw | sd across splits | relative |
+|---|---:|---:|---:|
+| r67 spread loss | +0.5207 | 0.0294 | 5.6% |
+| r67 geometry | +0.4984 | 0.0304 | 6.1% |
+| r70 accuracy | +0.4773 | 0.0321 | 6.7% |
+| r69 r54 predictor | +0.2805 | 0.0399 | 14.2% |
+| r70 drop | +0.1774 | 0.0426 | 24.0% |
+| r70 attribution | +0.1557 | 0.0448 | 28.8% |
+
+The **absolute** sd spans 0.0294 to 0.0448 — a 1.5× range across six quantities whose correlations
+differ by 3.3×. So the relative column moves because its **denominator** moves. I built a ratio,
+watched the denominator drive it, and reported the ratio as a property of the numerator — which is
+the same defect this repository has already logged twice (a ratio of noisy reciprocals; a
+path-dependent per-cause percentage).
+
+**The corrected statement, which reaches the same practical place.** A single split perturbs a raw
+correlation by roughly **±0.04 regardless of the quantity**. That is negligible at r≈0.51 and
+material at r≈0.18 — so averaging matters most for the least reliable quantities, but because the
+error is a **constant additive** term, not because volatility scales with anything.
+
+**Why this entry exists at all.** The overstatement changed no number and no decision. It is logged
+because the failure mode — *a ratio whose movement belongs to its denominator, reported as a finding
+about its numerator* — has now occurred three times in this project, and the third occurrence was
+inside a commit whose whole subject was correcting a measurement error.
+
+**One control detail worth keeping.** The shuffled null is re-run on **every** draw and reported as a
+**maximum** (0.2016), never a mean. A control averaged over 200 draws would hide one bad draw, which
+is precisely the failure r71 exists to close.
