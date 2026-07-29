@@ -381,6 +381,43 @@ licenses nothing about generated text.
 **Consequence.** `PREREGISTRATION.md` now requires response length to be recorded for every
 response in H_fresh and reported with every estimate.
 
+## Entry 51 — five rounds silently analysed 36.5% of the criteria, and it is the shared 36.5%
+
+**What was published.** C16–C19 and the README all state that the post-ranking criterion
+direction "generalises across people" (+0.0576 cross-fitted, r34), that the decay across
+isolation rungs is flat (r37), that abstention costs nothing (r35), that sign is the largest
+Shapley channel (r36), and that group heterogeneity does not change which response wins (r43).
+
+**What none of them said.** All five filter the criterion set the same way —
+`rounds/r34_global_rater_crossfit/run.py:132`, `if len(sc) >= thr` — keeping only criteria rated
+by a majority of the prompt's raters. That discards **9,684 of 15,248 criteria (63.5%)**.
+
+r48 then established what that filter selects. The partition is structural (0.1% in the gap) and
+the surviving class is capped at exactly six per prompt: it is the **pre-seeded** set, the
+criteria OpenAI pre-populated and showed to *every* participant. The discarded 63.5% are the
+**write-ins** — authored by one participant and rated by that participant alone.
+
+**Why this sharpens the rescope rather than merely annotating it.** Item 1 rescoped "not leakage"
+to leave shared-menu endogeneity open, on the grounds that every participant saw the same four
+responses. The sharper statement is that r34's cross-rater agreement is agreement **about the same
+six sentences everyone was shown**. The shared-criterion channel is not a residual worry in those
+results — it is the entire population they were computed on.
+
+**Direction of the error.** The filter is defensible: a criterion rated by one person has a sign
+from a sample of one. But "we restricted to reliably-rated criteria" and "we restricted to the
+criteria OpenAI supplied" are the same operation described two ways, and only the first was ever
+said. Nobody chose to exclude participant-authored criteria; the rater-count threshold did it.
+
+**Not yet established, and the reason this entry is not larger.** Whether the direction also
+transfers on the private write-ins is a live question (r49). A first pass including them gave
+**+0.0800** against r34's **+0.0576** — suggesting private criteria *add* to cross-rater transfer
+rather than dilute it — but that arm was not r34's estimator in other respects, so it is a signal
+to chase, not a result.
+
+**How it was caught.** r49's positive control, which required a reimplementation to reproduce
+r34's number before any per-class figure could be read. It refused, and the reason it refused was
+the finding.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
