@@ -1,0 +1,55 @@
+{
+ "prompts": 60,
+ "raters_per_prompt": 8,
+ "links": 480,
+ "grid": {
+  "1": {
+   "n_raters": 480,
+   "coverage": 0.9996673251347292
+  },
+  "2": {
+   "n_raters": 240,
+   "coverage": 0.9996700974031466
+  },
+  "4": {
+   "n_raters": 120,
+   "coverage": 0.9996755956036926
+  },
+  "8": {
+   "n_raters": 60,
+   "coverage": 0.9996864076901225
+  },
+  "15": {
+   "n_raters": 32,
+   "coverage": 0.9997047437009647
+  },
+  "30": {
+   "n_raters": 16,
+   "coverage": 0.9997415816321598
+  },
+  "60": {
+   "n_raters": 8,
+   "coverage": 0.9998056809433629
+  }
+ },
+ "coverage_spread_across_k": 0.00013835580863363894,
+ "floor_sensitivity_at_k8": {
+  "1": 0.6352076892466563,
+  "2": 0.866926570015236,
+  "3": 0.9514558359759846,
+  "5": 0.9935400615875812,
+  "8": 0.9996864076901225
+ },
+ "degenerate_control": {
+  "rpp_1_coverage": 0.6321223982317534,
+  "expected_1_minus_1_over_e": 0.6321205588285577
+ },
+ "r90_twoway_over_prompt": {
+  "agreement": 1.0825976625245526,
+  "attribution": 1.0197038512975953
+ },
+ "world": "F FLOOR-BOUND",
+ "outcome_variable_scope": "Expected share of prompts surviving a with-replacement annotator draw, computed exactly from the design. No data, no judge, no model.",
+ "scope": "Transfers r90's MECHANISM, which is combinatorial. It does not transfer r90's variance components: whether prompt clustering dominates in H_fresh's data is measurable only from H_fresh's data, and this round does not claim it will.",
+ "verdict": "F FLOOR-BOUND. PREREGISTRATION.md states H_fresh's power 'clustered on prompt' without saying why prompt is the right unit; r90 supplies the reason, having measured on the release that prompt clustering dominates and that the two-way crossed interval is only 2.0% wider than prompt-only on attribution and 8.3% on agreement. But r90 measured a study with ~16 raters per prompt and annotators spanning ~16 prompts, while H_fresh fixes >=8 raters per prompt and leaves PROMPTS-PER-RATER unspecified -- so the question is whether the justification silently depends on a parameter nobody chose. It does not. r90's mechanism is that an annotator bootstrap still covers ~every prompt and therefore barely resamples the prompt axis, and a prompt is lost only when ALL its raters are missed: P = [(1-1/n)^n]^RPP ~ e^-RPP. Across k from 1 to 60 -- two orders of magnitude of crossing -- coverage moves by 0.01%, from 99.9667% to 99.9806%. SO THE BINDING PARAMETER IS RATERS-PER-PROMPT, WHICH IS ALREADY FIXED AT >=8, AND NOT THE CROSSING. The consequence for item 7 is a freedom rather than a constraint: prompts-per-rater may be chosen on fatigue, recruitment cost and order-effect grounds, and clustering on prompt stays justified at whatever value is picked. THE SENSITIVITY, so the claim is bounded rather than absolute: at k=8 the coverage falls to 63.5% at 1 raters/prompt, 86.7% at 2 raters/prompt, 95.1% at 3 raters/prompt -- so a design that dropped the floor to 1 or 2 raters per prompt WOULD become crossing-sensitive, and the >=8 floor is doing the work. DEGENERATE CONTROL: at one rater per prompt the formula returns 1-1/e exactly, since a prompt then survives precisely when its single rater is drawn; the round refuses to run otherwise. SCOPE, and it is the limit that matters: this transfers r90's MECHANISM, which is combinatorial and design-determined. It does NOT transfer r90's variance components -- whether prompt clustering dominates in H_fresh's actual data is measurable only from H_fresh's actual data."
+}

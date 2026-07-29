@@ -296,6 +296,26 @@ are reported with every estimate so one collection yields **both** a population 
 anomaly-subset estimate. Power ≈0.98 for +0.05 clustered on prompt; r12's 0.16 is detectable in
 every cell.
 
+**Why PROMPT is the clustering unit, and what that frees**
+([r90](rounds/r90_resampling_unit), [r93](rounds/r93_clustering_unit_transfers), 2026-07-29). r90
+measured all three units on the release: prompt clustering **dominates**, the annotator-clustered
+interval is **0.45×** the prompt one, and the two-way crossed interval is only **2.0%** wider than
+prompt-only on attribution and **8.3%** on agreement. The mechanism is that an annotator bootstrap
+still covers ~every prompt, so it barely resamples the prompt axis.
+**r93 checks that this transfers to *this* design rather than assuming it.** A prompt is lost only
+when **all** its raters are missed — `P = [(1−1/n)ⁿ]^RPP ≈ e^−RPP` — so the binding parameter is
+**raters-per-prompt**, already fixed at **≥8**, and *not* the crossing. Across prompts-per-rater from
+**1 to 60**, two orders of magnitude, coverage moves by **0.01%** (99.9667% → 99.9806%).
+- **Consequence, and it is a freedom rather than a constraint: prompts-per-rater is NOT fixed here.**
+  Choose it on fatigue, recruitment cost and order-effect grounds — clustering on prompt stays
+  justified at any value. Note the order-effect evidence below is itself per-participant, so k
+  interacts with the priming window, not with the clustering choice.
+- **The ≥8 floor is doing the work, so it is not negotiable downward.** At k=8, coverage falls to
+  **95.2%** at 3 raters per prompt, **86.7%** at 2, and **63.5%** at 1. A design that thinned the floor
+  below ~5 would become crossing-sensitive and this justification would lapse.
+- **What does not transfer:** r90's variance *components*. Whether prompt clustering dominates in
+  H_fresh's actual data is measurable only from H_fresh's actual data, and is not assumed here.
+
 **Power for PER-PROMPT correlate analyses, which is a different question and was nearly missed.**
 r38's power figure is for a **mean difference**. Any analysis that correlates a per-prompt
 covariate with the per-prompt attribution is limited instead by the *reliability* of that

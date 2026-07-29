@@ -5754,3 +5754,65 @@ that cannot fail.** Re-attacked against the two real non-`rounds/` links
 
 **The lesson is about attacks, not links:** an attack must assert that its mutation landed. Mine
 assumed it, and the assumption was false in exactly the way that produces a false acquittal.
+
+---
+
+## Entry 177 — two wrong hypotheses in one turn, and the second one produced the result
+
+Entry 176 closed with a NEXT: *every attack script this session mutated by string replacement without
+asserting the count, so the same no-op risk applies to all of them.*
+
+**That NEXT was wrong, and demonstrating it took four lines.** An attack that expects the check to
+**fire** can only return exit=1 if the mutation landed — a no-op leaves the tree pristine and yields
+exit=0. Shown by construction against a working guard:
+
+| | exit |
+|---|---:|
+| baseline, no mutation | 0 |
+| **no-op** mutation, working check | **0** — looks like the check missed it |
+| **real** mutation, working check | **1** — unreachable unless the edit landed |
+
+**So the no-op risk produces false ALARMS, not false acquittals**, and every vector recorded this
+session as "caught, exit=1" is sound. The proposed sweep was not warranted. *A working check looking
+broken is the safe direction* — and it is exactly what happened with the `data/` link in entry 176,
+which is how it was caught.
+
+### The second wrong hypothesis, which was worth having
+
+Reading PREREGISTRATION.md for a different reason, its **design effect 1.37** looked like it might
+contradict r90 — r90 found annotator clustering *narrower* than prompt clustering, while a DEFF inflates
+n for rater clustering. **No conflict:** 1.37 = 1 + (5−1)×0.0915 is Experiment 1's, where the cluster is
+a participant writing **5 criteria**. A different design, not a contradiction.
+
+But it surfaced the real gap. H_fresh's power is stated *"clustered on prompt"* with **no stated
+reason**, and r90 is the reason — measured on a study with ~16 raters per prompt and annotators
+spanning ~16 prompts. **H_fresh fixes ≥8 raters per prompt and leaves prompts-per-rater unspecified**,
+so the justification risked resting on a parameter nobody chose.
+
+### It does not, and my guess about which parameter was wrong too
+
+r90's mechanism is that an annotator bootstrap still covers ~every prompt. A prompt is lost only when
+**all** its raters are missed:
+
+```
+P(prompt lost) = [(1 − 1/n)ⁿ]^RPP  ≈  e^−RPP
+```
+
+**k enters only through n, and n cancels.** Across prompts-per-rater from **1 to 60** — two orders of
+magnitude of crossing — coverage moves **0.01%**, from 99.9667% to 99.9806%. **I had predicted crossing
+was load-bearing. It is the raters-per-prompt floor**, already fixed at ≥8.
+
+**Two consequences for item 7, in opposite directions:**
+
+- **A freedom.** Prompts-per-rater is *not* fixed by this argument — choose it on fatigue, recruitment
+  cost and order-effect grounds. Clustering on prompt stays justified at any value.
+- **A constraint that was invisible before.** The ≥8 floor is doing all the work and is **not
+  negotiable downward**: at k=8, coverage falls to **95.2%** at 3 raters per prompt, **86.7%** at 2,
+  **63.5%** at 1. Below ~5 the design becomes crossing-sensitive and this justification lapses.
+
+**Degenerate control:** at one rater per prompt the formula must return **1 − 1/e**, since a prompt then
+survives exactly when its single rater is drawn. It does, and the round refuses to run otherwise.
+
+**Scope, and it is the limit that matters:** this transfers r90's **mechanism**, which is combinatorial
+and design-determined. It does **not** transfer r90's variance components — whether prompt clustering
+dominates in H_fresh's actual data is measurable only from H_fresh's actual data, and is not assumed.
