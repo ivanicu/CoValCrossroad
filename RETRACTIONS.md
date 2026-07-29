@@ -3586,3 +3586,51 @@ clean evidence for exposure; the observed gradient is steep, so specificity's ro
 its magnitude is not. And every in-sample fit was checked: seeds and long write-ins clear their marginal
 by only +0.0146 and +0.0149, so those two nulls are **ceilings on learnable signal**, not held-out
 misses.
+
+## Entry 129 — the M → S_i path, measured for the first time, and it is asymmetric
+
+**The standing gap.** Queue item 1 records shared-menu endogeneity as **not excluded**: *"every
+participant saw the same four-response menu, so M → shared salience → S_i can produce cross-rater
+agreement that is still menu-induced construction."* r34 ruled out **same-rater circularity** (crossfit
+0.6421 vs same-rater 0.6466, a difference of +0.0055). r49 showed direction transfers across people.
+Neither measured the path **from the menu into the criterion** — and it turns out the release contains
+it exactly.
+
+**The join is exact and needs no aggregation.** A write-in has a single score carrying its author's
+`annotator_id`, and that same annotator's own `ranking_blocks["world"]` for that prompt is released. So
+the criterion, the sign its author gave it, and that author's own ordering of the four responses join
+person by person. **9,122** write-ins qualify; 147 dropped for a missing ranking, 0 for a missing
+author.
+
+**The result.** Lexical overlap with the response *that rater ranked best*, minus the one *they ranked
+worst*:
+
+| | overlap(best) − overlap(worst) |
+|---|---:|
+| criteria the rater scored **positive** | **+0.04070** |
+| criteria the rater scored **negative** | +0.00386 |
+| **gap** | **+0.03684** [+0.02976, +0.04386] |
+
+**The confound was written before the run and controlled in the same iteration.** Longer responses
+overlap everything more *and* are ranked higher, which would produce this with no construction
+involved. Residualising containment on response word count within prompt leaves **+0.02025** [+0.01474,
++0.02568] — about 55% of the raw gap survives. Shuffling the signs collapses it to **−0.00334**.
+
+**The asymmetry is the part I did not predict, and it is the finding.** Positive criteria track the
+rater's preferred answer (+0.01755 residualised); negative criteria are essentially flat and very
+slightly negative (−0.00271). **Praise is drawn from the menu; criticism is not, or much less so.** A
+rater writing what they liked reaches for the answer in front of them; a rater writing what they
+disliked apparently does not reach equally for the one they rejected. That is a sharper description of
+the mechanism than "the menu induces salience" and it was not visible in any aggregate.
+
+**What this is, precisely.** The first direct observation of the M → S_i path in this project. It
+converts queue item 1's *"not excluded"* from an inference about study design into a measured
+association with a size and an interval.
+
+**What it is not, and the bound is not rhetorical.** It is an association **within a rater**, not
+causation. A person with a firm prior, shown four answers, will still describe that prior using the
+answer in front of them — the words would track the menu whether or not the direction did. This round
+cannot separate *the menu created the direction* from *the menu supplied the vocabulary for a direction
+already held*. **That separation is exactly S_pre**, and nothing in the release performs it. What the
+round removes is the option of treating shared-menu endogeneity as a theoretical worry with no
+measured footprint: it has one, it is +0.0203 after the obvious confound, and it is asymmetric.
