@@ -1,4 +1,4 @@
-"""A link to a round that does not exist transfers the package's credibility to nothing.
+"""A link to a path that does not exist transfers the package's credibility to nothing.
 
 WHY THIS EXISTS
 ---------------
@@ -17,8 +17,9 @@ clothes.
 
 WHAT IS CHECKED
 ---------------
-Every `](rounds/<name>)` link in the emittable documents must resolve to a directory
-under rounds/. Deep links (`rounds/<name>/results/x.json`) must resolve to the file.
+Every relative link in the emittable documents -- `rounds/`, `data/`, `assurance/`,
+`covalx/`, `scripts/` -- must resolve. Directory links resolve to a directory, deep
+links (`rounds/<name>/results/x.json`) to the file.
 
 THE PROXY LEDGER
 ----------------
@@ -39,7 +40,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ["README.md", "RETRACTIONS.md", "PREREGISTRATION.md", "FROZEN.md"]
-LINK = re.compile(r"\]\((rounds/[A-Za-z0-9_./-]+)\)")
+# Extended beyond rounds/ (entry 176): the invented-path failure is not specific to
+# round links -- any relative path this package emits can be written from memory. These
+# are the directories the documents actually cite.
+LINK = re.compile(r"\]\(((?:rounds|data|assurance|covalx|scripts)/[A-Za-z0-9_./-]+)\)")
 
 
 def main() -> int:
@@ -61,10 +65,10 @@ def main() -> int:
         print("no emittable documents found -- nothing to check")
         return 2
     if not total:
-        print(f"{scanned} document(s) scanned, ZERO round links found -- nothing to check")
+        print(f"{scanned} document(s) scanned, ZERO relative links found -- nothing to check")
         return 2
 
-    print(f"{scanned} document(s), {total} round links")
+    print(f"{scanned} document(s), {total} relative links")
     if bad:
         print(f"\nFINDING: {len(bad)} link(s) point at a path that does not exist. A broken "
               f"relative link renders as ordinary text, so a reader sees a citation and cannot "
@@ -73,7 +77,7 @@ def main() -> int:
             print(f"    {d}:{ln}  ->  {t}")
         print(f"\n1 gate(s) failed.")
         return 1
-    print("\nevery round link resolves.")
+    print("\nevery relative link resolves.")
     return 0
 
 
