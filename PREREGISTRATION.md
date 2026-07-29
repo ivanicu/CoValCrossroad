@@ -291,6 +291,14 @@ missed.
 
 **Verification, in three layers, because no single one is sound alone.**
 
+- **Constructibility screen, before anything else, with its rate as a headline.** Each criterion is
+  judged for whether a matched two-sided edit exists at all — and it often does not.
+  [r65](rounds/r65_edit_symmetry_floor) measures a **floor of 18.62%**: that share of core criteria
+  is prohibitive on its surface (*"do not provide step-by-step tactics"*), so satisfying is an
+  **absence** and violating a **presence**, and the two arms must insert categorically different
+  kinds of content. That is a floor, not an estimate — an affirmative surface does not imply a
+  symmetric edit. **Criteria failing the screen are reported as τ_c NOT IDENTIFIED, never
+  estimated anyway**, and the excluded share is stated beside every τ.
 - **Mechanical locality.** The diff between R⁺ and R⁻ must be confined to a bounded span, checked on
   the text, not by a model. This is the only layer with no instrument in it.
 - **Differential judge check.** `|s(c_j, R⁺) − s(c_j, R⁻)|` below a pre-set threshold for every

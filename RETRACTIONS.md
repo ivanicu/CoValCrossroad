@@ -2250,6 +2250,47 @@ a stated outcome that invalidates rather than qualifies.
 upheld — all excluded from the hit rate. **Only objection 3 remains**, the τ_c edit-symmetry problem,
 and it is the one I expect to cost the most because the fix is not writing but constructibility.
 
+## Entry 97 — the last forecast objection, upheld at 18.62% — and my own check caught the round's regex over-firing
+
+`ADVERSARY_FORECAST.md` objection 3, P=0.75, the one I predicted would cost most: τ_c's symmetric
+design borrows r52's *"same kind of object"* logic, but a satisfy-edit and a violate-edit often are
+not. r65 bounds how often.
+
+**18.62% of CoVal-core criteria carry a deontic prohibition** — *"do not provide step-by-step
+tactics"* — so satisfying them is an **absence** and violating them a **presence**. The two arms must
+insert categorically different content (a refusal against the prohibited material), which is exactly
+what the design assumes they are not.
+
+**The first run said 21.31%, and this package's own check caught why.**
+`readme_row_carries_the_verdict` flagged that r65's scope sentence — admitting the regex fires on
+*"not only… but also"* constructions — had no echo in the README row. Following the flag found 105
+matches that are affirmative criteria with an incidental negation: *"Explain that stepping on cracks
+has **no** effect"*, *"Make clear that AI is **not** a substitute"*. Those are prescriptions. The
+defensible figure is the **strict deontic 18.62%**; the loose 21.31% is an over-count, and both are
+now published side by side.
+
+**The floor is squeezed from both directions and says so.** Prohibitive surface ⇒ asymmetric, so it
+is a floor. Affirmative surface ⇏ symmetric, so it is *only* a floor. Neither bound is tight.
+
+**And the null turned into a finding.** `coval_full`, which the compiler has **not** polarity-
+rewritten, carries **12.85%** — so **core is 1.45× as prohibitive as the raw set it was compiled
+from**. r44's +0.0733 polarity rewrite, core's single largest source of advantage, changes **weights
+to positive and leaves prohibitive phrasing in place**, increasing its share. **Positive weight is
+not affirmative wording**, and I had been reading r44's "rewrites all rubric items to have positive
+weight" as though it were.
+
+**A hand-written clause had to go too.** The verdict said the two shares were *"essentially the
+same"* — true at the loose threshold, false at the strict one (18.62% vs 12.85%). Replaced with a
+computed ratio, which is what the no-hand-written-conclusions rule is for.
+
+**Design consequence:** τ_c runs a **per-criterion constructibility screen first**, criteria failing
+it are reported **τ_c NOT IDENTIFIED** rather than estimated, and the exclusion rate is a headline
+with **18.6% as the floor it must clear**.
+
+**All six forecast objections are now self-examined:** 1 answered, 2 upheld, 3 upheld, 4 answered,
+5 answered, 6 not upheld — every one excluded from the hit rate. **What an independent reviewer
+would find remains entirely unmeasured**, and that was always the number that matters.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

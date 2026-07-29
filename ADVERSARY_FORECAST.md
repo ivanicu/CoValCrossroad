@@ -53,7 +53,14 @@ anything"*, and the design gives it no way to.
 separated from unmatched-and-vague; or a within-arm matching baseline — how often do two PRE
 participants' criteria fail to match **each other**? — which bounds the vagueness floor.
 
-### 3 — the τ_c symmetric design assumes both edits are the same kind of object, and for many criteria they are not · **0.75**
+### 3 — the τ_c symmetric design assumes both edits are the same kind of object, and for many criteria they are not · **0.75**  ·  ⚠ SELF-CONFIRMED AFTER FORECASTING
+
+> [r65](rounds/r65_edit_symmetry_floor) measured it **after** this forecast was committed:
+> **18.62%** of core criteria carry a deontic prohibition, a FLOOR on the share for which
+> the two arms cannot be matched objects. The objection is upheld and the design changed — a
+> constructibility screen now runs first, and failing criteria are reported **τ_c NOT
+> IDENTIFIED** rather than estimated. **A scorer should exclude this from the hit rate.**
+> Text unchanged below.
 
 This is the strongest attack I can see on my own work. The symmetric design rests on `R⁺` and `R⁻`
 being *"the same kind of object"*, borrowed from r52 where both arms genuinely were — two token
