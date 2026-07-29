@@ -170,7 +170,7 @@ CLAIMS = [
      "built from everyone and weights built from disjoint raters is under one "
      "accuracy point.",
      "rounds/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
-     "estimands.D_leakage (same_sign - crossfit_sign).delta", "<", 0.01),
+     "estimands.D_same_sample_premium (same_sign - crossfit_sign).delta", "<", 0.01),
 
     # RESCOPED. "Does not depend on forcing a direction" overclaims: dropping
     # low-consensus criteria AFTER collection cannot simulate what a participant

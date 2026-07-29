@@ -2009,7 +2009,7 @@
     0.0
    ]
   },
-  "D_leakage (same_sign - crossfit_sign)": {
+  "D_same_sample_premium (same_sign - crossfit_sign)": {
    "delta": 0.005486289107749416,
    "ci": [
     0.0025315468415856904,

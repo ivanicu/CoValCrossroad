@@ -882,12 +882,22 @@ value answers them, which is fine: r28's `multiplicative_generalises_better` is 
 | `bloc_axis_singular_share` | r18 | **renamed** → `profile_axis_singular_share` |
 | `structure_is_signed` = **True** | r26 (9 cells) | **outstanding** — asserts exactly what FROZEN.md §1 withdraws, and r26's centred residual gives "below average" and "actually disagreeing" the same number |
 | `constituency` | r06 + 4 | **outstanding** — the frozen term, though here it names a *rule* being compared, not a finding |
-| `D_leakage` | r34 | **outstanding** — "leakage" is retired by queue item 1; gated by manifest C17, so renaming means updating the gate |
+| `D_leakage` | r34 | **DONE** → `D_same_sample_premium`, with manifest C17's gate path updated in the same edit; r34, r42 and the manifest all re-run, C17 still HOLDS at 0.0055 < 0.01 |
 
 **Costs, stated rather than used as an excuse.** r16 and r18 are single-file CPU rounds and were
-renamed and re-run; both now have zero keys containing "bloc". r26 has **nine cells** at ~10 minutes
-each, so refreshing them is ~90 minutes; `D_leakage` requires a coordinated edit to
-`assurance/manifest.py` because C17 gates on that path.
+renamed and re-run; both now have zero keys containing "bloc". `D_leakage` needed a coordinated
+edit — r34, `assurance/manifest.py`'s C17 gate path, r42 (which walks r34's estimand keys) and the
+README — and is **done**: C17 still HOLDS at 0.0055 < 0.01, and r42 still lists the contrast in its
+"real but negligible" cell. **r26 remains**: nine cells at ~10 minutes each.
+
+**Two self-inflicted stumbles worth recording, because both are the same shape as findings above.**
+My first rename attempt asserted `"D_leakage" not in source` and fired — the *comment explaining
+the rename* contained the retired token, so the guard rejected its own documentation. That is
+exactly the r12 case from earlier in this register, where a withdrawal narrative put the retired
+phrase back into the artifact an outsider greps. The assertion now checks **code lines only**, and
+the comment is written to avoid repeating the token anyway. And both failed attempts aborted
+*before* the write while the subsequent commands ran regardless — so an unchanged `C17 HOLDS`
+printed twice and could have been read as success.
 
 **Why this is worth a register entry rather than a silent fix.** FROZEN.md section 3 instructs:
 *read the partition as a latent profile split, never as a bloc, minority or constituency.* That

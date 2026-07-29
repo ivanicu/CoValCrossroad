@@ -87,7 +87,7 @@
   },
   {
    "round": "r34",
-   "contrast": "estimands.D_leakage (same_sign - crossfit_sign)",
+   "contrast": "estimands.D_same_sample_premium (same_sign - crossfit_sign)",
    "scope": "cross-fitted concordance vs individual rater rankings, original menu",
    "cell": "real but negligible",
    "delta_hat": 0.005486289107749416,

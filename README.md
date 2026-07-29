@@ -265,7 +265,7 @@ persist the vector and re-run; **all four reproduce their published numbers byte
 **Nothing lands in the inconclusive cell.** Every non-significant result in this package is also
 *bounded* inside the margin, so the null readings survive — which is the first time that was a
 finding rather than an assumption. The four "real but negligible" cells are the ones significance
-alone would have misreported: `D_leakage` +0.0055, `A2` +0.0026, `φ_T` +0.0017, `φ_S` +0.0008.
+alone would have misreported: `D_same_sample_premium` +0.0055, `A2` +0.0026, `φ_T` +0.0017, `φ_S` +0.0008.
 
 ⚠ **δ is a stipulation, not a measurement.** Nothing in the data says 0.01 accuracy points is
 where a rubric becomes unfit, because no purpose has been specified that precisely. So the round
@@ -675,7 +675,7 @@ prompt. Weights come from **train** raters; the evaluation target is each **test
 ```
 D_population  crossfit − attribute   +0.0576 [+0.0486, +0.0671]
 D_same        same     − attribute   +0.0631 [+0.0540, +0.0720]
-D_leakage     same     − crossfit    +0.0055 [+0.0025, +0.0085]    ← 9% of the effect
+D_same_sample_premium     same     − crossfit    +0.0055 [+0.0025, +0.0085]    ← 9% of the effect
 ```
 *(25-seed full run; fold-seed sd of the arm is 0.0012.)*
 

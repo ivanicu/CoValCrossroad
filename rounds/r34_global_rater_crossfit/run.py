@@ -49,10 +49,10 @@ Estimands -- differences, not a table of accuracies
 ----------------------------------------------------
     D_population = crossfit_sign - attribute_only     transferable direction
     D_same       = same_sign     - attribute_only     maximal internal fit
-    D_leakage    = same_sign     - crossfit_sign      THE ONE THAT MATTERS
+    D_same_sample_premium    = same_sign     - crossfit_sign      THE ONE THAT MATTERS
     D_magnitude  = crossfit_magnitude - crossfit_sign does size add over direction
 
-Reading D_leakage
+Reading D_same_sample_premium
 -----------------
     ~ 0   the post-choice direction generalises across people. It was recorded
           after the ranking but its CONTENT is not the rater's own choice coming
@@ -281,7 +281,12 @@ def main() -> None:
     est = {
         "D_population (crossfit_sign - attribute_only)": paired("attribute_only", "crossfit_sign"),
         "D_same (same_sign - attribute_only)": paired("attribute_only", "same_sign"),
-        "D_leakage (same_sign - crossfit_sign)": paired("crossfit_sign", "same_sign"),
+        # RENAMED (queue item 1, entry 62) from the field name that used the
+        # retired framing. This gap measures the SAME-SAMPLE premium and refutes
+        # only the individual loop, never shared-menu endogeneity. C17's own claim
+        # text already read "same-sample premium" while the field it gates on did
+        # not -- a field NAME is unreachable by a prose rescope.
+        "D_same_sample_premium (same_sign - crossfit_sign)": paired("crossfit_sign", "same_sign"),
         "D_magnitude (crossfit_mag - crossfit_sign)": paired("crossfit_sign", "crossfit_magnitude"),
         "null: random_sign - attribute_only": paired("attribute_only", "random_sign"),
         "null: donor_sign - attribute_only": paired("attribute_only", "donor_sign"),
@@ -292,7 +297,7 @@ def main() -> None:
               f"{f'[{v[chr(99)+chr(105)][0]:+.4f}, {v[chr(99)+chr(105)][1]:+.4f}]':>22}"
               f"{'' if v['excludes_zero'] else '  (spans zero)'}")
 
-    lk = est["D_leakage (same_sign - crossfit_sign)"]
+    lk = est["D_same_sample_premium (same_sign - crossfit_sign)"]
     pop = est["D_population (crossfit_sign - attribute_only)"]
     verdict = (
         f"CROSS-RATER DIRECTION SURVIVES. Weights built from raters who never contributed to "
