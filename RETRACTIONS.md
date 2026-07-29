@@ -7442,3 +7442,46 @@ to *an artifact plus a named reason for the discrepancy* (r101), across three tu
 figure lacks a source" — a claim that was **true only because "sourced by prose" was counted as
 sourced.** Pulling that one thread found a figure with no artifact, built the artifact, and then
 explained why the two disagree.
+
+---
+
+## Entry 211 — attacked the "nothing unsourced" claim on a third axis, and this time it holds with a proper control
+
+Entry 206's version of this claim broke in 207. Entry 207's version broke in 208. **So the third
+statement of it gets attacked on an axis neither previous pass used.**
+
+Not *citation presence* — checked twice — but **claims that assert a measurement was made**. That
+phrasing is what exposed entry 208: *"measured directly on the released ratings for the original
+responses rather than assumed"*, sitting above figures that existed nowhere.
+
+**Five paragraphs in the preregistration assert a measurement. All five cite a round:**
+
+| assertion | cites |
+|---|---|
+| the scale's midpoint "was measured and it is unavailable in practice" | r82 |
+| "the cost side of that arm is now measured, not assumed" | r83 |
+| "power, computed from the release rather than deferred to the pilot" | r61, r82 |
+| "measured directly on the released ratings…" | **r100, r101** |
+| "the round reports UNVERIFIED rather than a τ" | r65 |
+
+### The control is what makes the zero mean anything
+
+**One of those five is the paragraph this thread just repaired**, so a clean sweep proves nothing on its
+own. Run against the document **as it stood before entry 208's fix**, the same audit flags **exactly one
+paragraph — that one — and nothing else.** Current document: **zero.**
+
+**So the instrument fires on the historical defect, fires on nothing spurious, and returns clean now.**
+That is the difference between a null and a silence, and it is the third axis on which this claim has
+been tested rather than the third time it has been asserted.
+
+### No guard, and the reason is the population
+
+**The population is five paragraphs.** A standing check over five paragraphs is over-engineering, and
+entry 199 established what happens when a name-based rule is stretched for coverage. **The audit is
+four lines and re-runnable**; recording the method here is worth more than a check that would fire once
+a year.
+
+**What the three axes have now established between them:** every precision figure carries a source
+(207, with two figures sourced weakly), every source that is *asserted* resolves to a round (211), and
+the one that did not has been built and its discrepancy explained (208 → r100 → r101). **The
+preregistration's arithmetic is closed.** What remains open is not arithmetic.
