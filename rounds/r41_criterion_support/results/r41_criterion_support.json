@@ -39,11 +39,11 @@
    "pearson_r": -0.09231226599599564,
    "spearman_r": -0.13108106327292895,
    "ci": [
-    -0.19986630842373046,
-    0.017081389116527256
+    -0.19922018054484844,
+    0.016838540290671417
    ],
    "excludes_zero": false,
-   "perm_p": 0.1417145713571607
+   "perm_p": 0.1514621344663834
   },
   {
    "measure": "D_hull_violation",
@@ -51,11 +51,11 @@
    "pearson_r": -0.18590224277373182,
    "spearman_r": -0.19530489932376127,
    "ci": [
-    -0.2792379918399694,
-    -0.08607199006297551
+    -0.2867955869934992,
+    -0.08482814005346664
    ],
    "excludes_zero": true,
-   "perm_p": 0.002749312671832042
+   "perm_p": 0.004498875281179705
   },
   {
    "measure": "D_rank_instability_excess",
@@ -63,11 +63,11 @@
    "pearson_r": 0.18172095223543533,
    "spearman_r": 0.15449307268516127,
    "ci": [
-    0.043899868858139325,
-    0.3085422731173515
+    0.03580278451915086,
+    0.31445201384262517
    ],
    "excludes_zero": true,
-   "perm_p": 0.004498875281179705
+   "perm_p": 0.005748562859285179
   },
   {
    "measure": "D_spread_loss",
@@ -75,11 +75,11 @@
    "pearson_r": 0.22459404488057974,
    "spearman_r": 0.2071229792691468,
    "ci": [
-    0.0983164392508898,
-    0.3436781081480038
+    0.1045406047529322,
+    0.3425471198967146
    ],
    "excludes_zero": true,
-   "perm_p": 0.0007498125468632841
+   "perm_p": 0.00024993751562109475
   },
   {
    "measure": "D_combo_novelty@0.3",
@@ -87,11 +87,11 @@
    "pearson_r": -0.08172244495097088,
    "spearman_r": -0.0756069766479247,
    "ci": [
-    -0.2074912079026398,
-    0.05235098257725047
+    -0.21177908484123362,
+    0.051154813165884404
    ],
    "excludes_zero": false,
-   "perm_p": 0.18820294926268433
+   "perm_p": 0.2036990752311922
   },
   {
    "measure": "D_combo_novelty@0.4",
@@ -99,11 +99,11 @@
    "pearson_r": -0.05181430468197424,
    "spearman_r": -0.05297278627614388,
    "ci": [
-    -0.17685611708253832,
-    0.07627994935772148
+    -0.16867142166642288,
+    0.0700260646406892
    ],
    "excludes_zero": false,
-   "perm_p": 0.4176455886028493
+   "perm_p": 0.41114721319670083
   },
   {
    "measure": "D_combo_novelty@0.5",
@@ -111,11 +111,11 @@
    "pearson_r": 0.00972985431402288,
    "spearman_r": -0.035824640083276085,
    "ci": [
-    -0.1203765596561156,
-    0.13621379613159987
+    -0.11793810652562262,
+    0.13075524270445185
    ],
    "excludes_zero": false,
-   "perm_p": 0.8870282429392652
+   "perm_p": 0.8725318670332417
   },
   {
    "measure": "D_combo_novelty@0.6",
@@ -123,11 +123,11 @@
    "pearson_r": 0.014125729615681981,
    "spearman_r": -0.0188581778614453,
    "ci": [
-    -0.10375435493963353,
-    0.13568233646970632
+    -0.108729056000742,
+    0.14101412029742186
    ],
    "excludes_zero": false,
-   "perm_p": 0.8317920519870032
+   "perm_p": 0.8242939265183704
   },
   {
    "measure": "D_combo_novelty@0.7",
@@ -135,11 +135,11 @@
    "pearson_r": 0.027202323044157872,
    "spearman_r": -0.009024289730272299,
    "ci": [
-    -0.09643562231174595,
-    0.14775219769457842
+    -0.09326268795470888,
+    0.14602437691896927
    ],
    "excludes_zero": false,
-   "perm_p": 0.651587103224194
+   "perm_p": 0.6533366658335417
   },
   {
    "measure": "D_judge_family_disagreement_excess",
@@ -147,11 +147,11 @@
    "pearson_r": 0.052853313734586294,
    "spearman_r": 0.03900756437867919,
    "ci": [
-    -0.06644880540544328,
-    0.16617075809704385
+    -0.060699080464915546,
+    0.16506131863544482
    ],
    "excludes_zero": false,
-   "perm_p": 0.4106473381654586
+   "perm_p": 0.4098975256185953
   },
   {
    "measure": "generic_nn_embedding (r40-style, recomputed)",
@@ -159,11 +159,11 @@
    "pearson_r": -0.10112434850687908,
    "spearman_r": -0.07772839627800514,
    "ci": [
-    -0.22738060421346332,
-    0.02156168709526544
+    -0.22270989869710342,
+    0.020741736618419607
    ],
    "excludes_zero": false,
-   "perm_p": 0.10997250687328168
+   "perm_p": 0.10622344413896526
   }
  ],
  "length_controlled": [
@@ -173,11 +173,11 @@
    "pearson_r": -0.08281931337473028,
    "spearman_r": -0.10363030156996238,
    "ci": [
-    -0.19172274879379844,
-    0.028788686636961502
+    -0.18763908358593417,
+    0.028140717223913054
    ],
    "excludes_zero": false,
-   "perm_p": 0.18445388652836792,
+   "perm_p": 0.20294926268432892,
    "corr_measure_with_length": -0.1703072388794581
   },
   {
@@ -186,11 +186,11 @@
    "pearson_r": -0.18366925420540073,
    "spearman_r": -0.17461006538678941,
    "ci": [
-    -0.27726777990010515,
-    -0.08569518202684888
+    -0.2750368433781117,
+    -0.08196907625582271
    ],
    "excludes_zero": true,
-   "perm_p": 0.003749062734316421,
+   "perm_p": 0.00424893776555861,
    "corr_measure_with_length": -0.04358421519231816
   },
   {
@@ -199,11 +199,11 @@
    "pearson_r": 0.19930416317735142,
    "spearman_r": 0.18557460334535825,
    "ci": [
-    0.05849223403865607,
-    0.32927909565555263
+    0.06529202288193887,
+    0.33273830990760833
    ],
    "excludes_zero": true,
-   "perm_p": 0.000999750062484379,
+   "perm_p": 0.0007498125468632841,
    "corr_measure_with_length": -0.20375963563296098
   },
   {
@@ -212,11 +212,11 @@
    "pearson_r": 0.23091791111584137,
    "spearman_r": 0.18749693994818792,
    "ci": [
-    0.10825201683641833,
-    0.34147992947875877
+    0.10517163233398376,
+    0.3436762801864409
    ],
    "excludes_zero": true,
-   "perm_p": 0.000999750062484379,
+   "perm_p": 0.0007498125468632841,
    "corr_measure_with_length": -0.08010668593808738
   },
   {
@@ -225,11 +225,11 @@
    "pearson_r": -0.07714886094179924,
    "spearman_r": -0.07899595044705555,
    "ci": [
-    -0.2084409430691388,
-    0.05333316357752477
+    -0.20501794664658446,
+    0.059296612326087066
    ],
    "excludes_zero": false,
-   "perm_p": 0.22819295176205948,
+   "perm_p": 0.22594351412146962,
    "corr_measure_with_length": -0.07778145813385359
   },
   {
@@ -238,11 +238,11 @@
    "pearson_r": -0.051424479106208225,
    "spearman_r": -0.06294927734522986,
    "ci": [
-    -0.1676657172800026,
-    0.07032043649765055
+    -0.17032348722535887,
+    0.06831399326675963
    ],
    "excludes_zero": false,
-   "perm_p": 0.4181454636340915,
+   "perm_p": 0.41789552611847036,
    "corr_measure_with_length": -0.007775046365292496
   },
   {
@@ -251,11 +251,11 @@
    "pearson_r": 0.016103490067571825,
    "spearman_r": -0.0210128888267898,
    "ci": [
-    -0.11608642213433498,
-    0.14593138919113055
+    -0.11648424423453443,
+    0.1452879772437193
    ],
    "excludes_zero": false,
-   "perm_p": 0.8035491127218195,
+   "perm_p": 0.8125468632841789,
    "corr_measure_with_length": -0.09813698327998548
   },
   {
@@ -264,11 +264,11 @@
    "pearson_r": 0.02426949612384783,
    "spearman_r": -0.003791881774856284,
    "ci": [
-    -0.10185352289413115,
-    0.14835324131925948
+    -0.10438534620534971,
+    0.14477114279180914
    ],
    "excludes_zero": false,
-   "perm_p": 0.6960759810047488,
+   "perm_p": 0.6980754811297176,
    "corr_measure_with_length": -0.15365797298060907
   },
   {
@@ -277,11 +277,11 @@
    "pearson_r": 0.038878288505309,
    "spearman_r": 0.014429278276907612,
    "ci": [
-    -0.08403619818630369,
-    0.15661419764434525
+    -0.08792361304575669,
+    0.16364768085349118
    ],
    "excludes_zero": false,
-   "perm_p": 0.5506123469132717,
+   "perm_p": 0.530367408147963,
    "corr_measure_with_length": -0.17258371929595828
   },
   {
@@ -290,11 +290,11 @@
    "pearson_r": 0.05500902840204145,
    "spearman_r": 0.045735175668600414,
    "ci": [
-    -0.06185186641046265,
-    0.16701199511755999
+    -0.0648111651206814,
+    0.16580895011665714
    ],
    "excludes_zero": false,
-   "perm_p": 0.37790552361909524,
+   "perm_p": 0.393151712071982,
    "corr_measure_with_length": -0.031590856346250536
   },
   {
@@ -303,11 +303,11 @@
    "pearson_r": -0.10144011687683521,
    "spearman_r": -0.06743883976275344,
    "ci": [
-    -0.22736806376019475,
-    0.022686278524075502
+    -0.22568138815146516,
+    0.023331820925580338
    ],
    "excludes_zero": false,
-   "perm_p": 0.11097225693576605,
+   "perm_p": 0.11897025743564109,
    "corr_measure_with_length": 0.0017050643608277677
   }
  ],
@@ -318,8 +318,8 @@
    "pearson_r": -0.011561007046046373,
    "spearman_r": -0.04197609561752988,
    "ci": [
-    -0.12193347863286036,
-    0.10059454197348229
+    -0.12497631737518497,
+    0.0978336472690247
    ],
    "excludes_zero": false,
    "perm_p": 0.8512871782054486,
@@ -331,11 +331,11 @@
    "pearson_r": -0.06530844296286001,
    "spearman_r": -0.03171007536120577,
    "ci": [
-    -0.1694072865782579,
-    0.03769630669034642
+    -0.16750612747367988,
+    0.03803950817971557
    ],
    "excludes_zero": false,
-   "perm_p": 0.30617345663584106,
+   "perm_p": 0.30717320669832543,
    "corr_measure_with_spread": 0.5632628796895622
   },
   {
@@ -344,11 +344,11 @@
    "pearson_r": 0.07925369498825217,
    "spearman_r": 0.07879998079969279,
    "ci": [
-    -0.05947198592460931,
-    0.20988883197011415
+    -0.05238815468895441,
+    0.2112307039903125
    ],
    "excludes_zero": false,
-   "perm_p": 0.22994251437140714,
+   "perm_p": 0.20894776305923518,
    "corr_measure_with_spread": -0.5965825005299555
   },
   {
@@ -357,11 +357,11 @@
    "pearson_r": -0.046494383467352046,
    "spearman_r": -0.047205491287860606,
    "ci": [
-    -0.1782193752994888,
-    0.0893820390674644
+    -0.17541666771749737,
+    0.0891631052808058
    ],
    "excludes_zero": false,
-   "perm_p": 0.4588852786803299,
+   "perm_p": 0.4636340914771307,
    "corr_measure_with_spread": 0.13302080852157847
   },
   {
@@ -370,11 +370,11 @@
    "pearson_r": -0.027255719929187197,
    "spearman_r": -0.03452330437286996,
    "ci": [
-    -0.1487295797400107,
-    0.09846248594977769
+    -0.14216229518390922,
+    0.09193170400427832
    ],
    "excludes_zero": false,
-   "perm_p": 0.6548362909272681,
+   "perm_p": 0.6670832291927018,
    "corr_measure_with_spread": 0.10755736830928889
   },
   {
@@ -383,11 +383,11 @@
    "pearson_r": 0.06409812654481456,
    "spearman_r": 0.03798627178034848,
    "ci": [
-    -0.07376060766694968,
-    0.19196275654573358
+    -0.07018684327271314,
+    0.1934564909677607
    ],
    "excludes_zero": false,
-   "perm_p": 0.32066983254186454,
+   "perm_p": 0.31092226943264184,
    "corr_measure_with_spread": 0.18572064571025515
   },
   {
@@ -396,11 +396,11 @@
    "pearson_r": 0.08454575390431658,
    "spearman_r": 0.07569106705707292,
    "ci": [
-    -0.04475184120609423,
-    0.2042573760812519
+    -0.03824248476352635,
+    0.20990553094996992
    ],
    "excludes_zero": false,
-   "perm_p": 0.18295426143464133,
+   "perm_p": 0.1902024493876531,
    "corr_measure_with_spread": 0.22473209376626618
   },
   {
@@ -409,11 +409,11 @@
    "pearson_r": 0.10540738936413967,
    "spearman_r": 0.08801305620889933,
    "ci": [
-    -0.019464451482686135,
-    0.2282304099027448
+    -0.01403343613104559,
+    0.23140749241589015
    ],
    "excludes_zero": false,
-   "perm_p": 0.10022494376405898,
+   "perm_p": 0.09222694326418396,
    "corr_measure_with_spread": 0.24188529096937553
   },
   {
@@ -422,11 +422,11 @@
    "pearson_r": 0.034522163101993825,
    "spearman_r": 0.03063716219459511,
    "ci": [
-    -0.07595268483419228,
-    0.14653638991466078
+    -0.07910528545964798,
+    0.14783842464538405
    ],
    "excludes_zero": false,
-   "perm_p": 0.5928517870532367,
+   "perm_p": 0.5773556610847288,
    "corr_measure_with_spread": -0.09557956756762352
   },
   {
@@ -435,11 +435,11 @@
    "pearson_r": -0.09105279445987662,
    "spearman_r": -0.0702535400566409,
    "ci": [
-    -0.21644830376629332,
-    0.026470457523987523
+    -0.21812216498092132,
+    0.03218390557472744
    ],
    "excludes_zero": false,
-   "perm_p": 0.14046488377905525,
+   "perm_p": 0.15021244688827792,
    "corr_measure_with_spread": 0.05620272805504777
   }
  ],
@@ -451,11 +451,11 @@
    "pearson_r": -0.035066780587428355,
    "spearman_r": -0.03134787617015032,
    "ci": [
-    -0.15497008683592572,
-    0.08345299253062008
+    -0.156212116784679,
+    0.0860863649486013
    ],
    "excludes_zero": false,
-   "perm_p": 0.5863534116470882
+   "perm_p": 0.580604848787803
   },
   "own_controlling_donor": {
    "measure": "D_spread_loss | donor + length",
@@ -463,8 +463,8 @@
    "pearson_r": 0.2692922737703399,
    "spearman_r": 0.2116730187683003,
    "ci": [
-    0.1539037335551956,
-    0.38016799602258194
+    0.1512869525257647,
+    0.37542093264488957
    ],
    "excludes_zero": true,
    "perm_p": 0.00024993751562109475
@@ -489,7 +489,32 @@
  "judge_family": {
   "status": "MEASURED",
   "second_judge": "rounds/r41_criterion_support/results/r41_satisfaction_phi.npz",
-  "mean_excess_disagreement_on_fresh": -0.007652559679105094
+  "mean_excess_disagreement_on_fresh": -0.007652559679105094,
+  "spread_loss_second_lineage": {
+   "measure": "D_spread_loss (second lineage)",
+   "n": 250,
+   "pearson_r": 0.17241775038749668,
+   "spearman_r": 0.14801876639834632,
+   "ci": [
+    0.039932211619909674,
+    0.29494213089004584
+   ],
+   "excludes_zero": true,
+   "perm_p": 0.005748562859285179
+  },
+  "donor_spread_loss_second_lineage": {
+   "measure": "donor spread loss (second lineage)",
+   "n": 250,
+   "pearson_r": 0.029655795181271805,
+   "spearman_r": 0.029461376860427116,
+   "ci": [
+    -0.10174288946265349,
+    0.155795836529793
+   ],
+   "excludes_zero": false,
+   "perm_p": 0.6360909772556861
+  },
+  "corr_spread_loss_between_lineages": 0.4088291673567206
  },
  "per_prompt": {
   "pids": [
@@ -2257,6 +2282,6 @@
    56.93803024291992
   ]
  },
- "verdict": "SUPPORT CONFOUNDED: criterion-space novelty tracks the drop before the discriminating-power control (D_hull_violation = -0.1837) and does NOT survive it. What looked like geometry is the rubric separating the fresh responses less than it separated the originals -- one quantity, not a relationship between two. DETERMINACY CONFOUNDED: rank instability tracks the drop (+0.1993) but does NOT survive controlling for the rubric's own score spread, so it may be a restatement of low discriminating power rather than a relationship. Judge incoherence NOT DETECTED: two unrelated lineages disagree 0.0077 LESS on fresh responses than on the originals, and their disagreement does not track the drop (+0.0345, p=0.593) -- so the drop is not where the judges fall apart. NOT EXCLUDED: this is a non-rejection, and two lineages agreeing can still be two lineages wrong the same way. EXPLORATORY, AND THE ONE THING THAT SURVIVES: the drop concentrates where the prompt's OWN rubric loses its ability to separate the responses (r=+0.2309 length-controlled, p=0.0010; +0.2693 with the donor arm partialled out). This is NOT mechanical: the DONOR rubric's own loss of discriminating power does not predict the drop at all (-0.0351, p=0.586), so it is not both arms degrading on unfamiliar text. And it is nearly orthogonal to generic embedding distance, so r40 could not have seen it. EXPLORATORY because the claim card preregistered NOVELTY, not this -- it was found while serving as a control.",
+ "verdict": "SUPPORT CONFOUNDED: criterion-space novelty tracks the drop before the discriminating-power control (D_hull_violation = -0.1837) and does NOT survive it. What looked like geometry is the rubric separating the fresh responses less than it separated the originals -- one quantity, not a relationship between two. DETERMINACY CONFOUNDED: rank instability tracks the drop (+0.1993) but does NOT survive controlling for the rubric's own score spread, so it may be a restatement of low discriminating power rather than a relationship. Judge incoherence NOT DETECTED: two unrelated lineages disagree 0.0077 LESS on fresh responses than on the originals, and their disagreement does not track the drop (+0.0345, p=0.577) -- so the drop is not where the judges fall apart. NOT EXCLUDED: this is a non-rejection, and two lineages agreeing can still be two lineages wrong the same way. EXPLORATORY, AND THE ONE THING THAT SURVIVES: the drop concentrates where the prompt's OWN rubric loses its ability to separate the responses (r=+0.2309 length-controlled, p=0.0007; +0.2693 with the donor arm partialled out). This is NOT mechanical: the DONOR rubric's own loss of discriminating power does not predict the drop at all (-0.0351, p=0.581), so it is not both arms degrading on unfamiliar text. And it is nearly orthogonal to generic embedding distance, so r40 could not have seen it. EXPLORATORY because the claim card preregistered NOVELTY, not this -- it was found while serving as a control.",
  "scope": "judge-relative. z_R is produced by the same judge whose off-distribution validity is unestablished, so this round cannot separate 'new normative territory' from 'the judge scores fresh responses incoherently'. It measures whether the discrepancy is spatially organised, nothing more."
 }

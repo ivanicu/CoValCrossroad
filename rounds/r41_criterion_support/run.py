@@ -377,8 +377,32 @@ def main() -> None:
                 do = np.mean([np.linalg.norm(Zo_all[lo:hi, r] - Zo2[lo:hi, r]) / rt
                               for r in range(4)])
                 D_fam[k] = float(df - do)
+            # The spread-loss effect is measured BY a judge, so "is it a property
+            # of this judge?" is a live alternative that r46's out-of-sample test
+            # cannot answer -- r46 uses the same judge.  An unrelated lineage
+            # scoring the SAME prompts can.
+            sl2 = d2["mean_orig_real"].std(axis=1) - d2["mean_fresh_real"].std(axis=1)
+            sd2_ = d2["mean_orig_shuf"].std(axis=1) - d2["mean_fresh_shuf"].std(axis=1)
+            kk2 = (np.isfinite(sl2) & np.isfinite(drop) & np.isfinite(dlen)
+                   & np.isfinite(sd2_))
+            row2 = analyse("D_spread_loss (second lineage)",
+                           partial_out(sl2[kk2], dlen[kk2]),
+                           partial_out(drop[kk2], dlen[kk2]), RNG, a.boot, a.perm)
+            don2 = analyse("donor spread loss (second lineage)",
+                           sd2_[kk2], drop[kk2], RNG, a.boot, a.perm)
             fam = {"status": "MEASURED", "second_judge": str(a.sat2),
-                   "mean_excess_disagreement_on_fresh": float(np.nanmean(D_fam))}
+                   "mean_excess_disagreement_on_fresh": float(np.nanmean(D_fam)),
+                   "spread_loss_second_lineage": row2,
+                   "donor_spread_loss_second_lineage": don2,
+                   "corr_spread_loss_between_lineages": pearson(
+                       D_spread_loss[kk2], sl2[kk2])}
+            print(f"\n=== spread loss under the SECOND judge lineage ===")
+            print(f"  spread_loss|len   {row2['pearson_r']:+.4f} "
+                  f"[{row2['ci'][0]:+.3f},{row2['ci'][1]:+.3f}] p={row2['perm_p']:.4f}")
+            print(f"  donor alone       {don2['pearson_r']:+.4f} "
+                  f"[{don2['ci'][0]:+.3f},{don2['ci'][1]:+.3f}] p={don2['perm_p']:.4f}")
+            print(f"  corr between the two lineages' spread-loss measurements: "
+                  f"{fam['corr_spread_loss_between_lineages']:+.4f}")
         else:
             fam["why"] = "second lineage has different criterion offsets; not comparable"
 
