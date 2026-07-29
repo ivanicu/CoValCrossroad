@@ -89,6 +89,8 @@ CASES = [
      "zero gold-scored rounds -> nothing to check"),
     ("registries_are_satisfied", empty_frozen_registry, 1,
      "empty registry is a DETECTED FAILURE: FROZEN.md still names 11 rounds"),
+    ("results_are_not_degenerate", hide_rounds, 2,
+     "zero results files to read -> nothing to check (entry 137)"),
 ]
 
 

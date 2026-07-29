@@ -89,11 +89,29 @@ def build_verdict(control_ok: bool, share: float, res: dict) -> str:
             # round asserts its finding, and a withdrawal narrated here would put
             # the retired phrase back into the artifact an outsider greps.  The
             # withdrawal belongs in RETRACTIONS.md, which is the file for it.
-            "RESPONSE-SET-SPECIFIC: most of the own-rubric advantage does not "
-            "transfer to responses the criteria authors never saw. What falls is "
-            "SOURCE SPECIFICITY -- own-rubric minus reference-rubric performance -- "
-            "which is a contrast between two rubrics, not between rubric content and "
-            "its absence"
+            # NUMBERS, and the right WORD for them. Two defects, one fix.
+            #
+            # (1) This verdict cited no number at all -- so no prose check in the
+            #     package could compare it to its own data, which is exactly the
+            #     population `verdict_cites_its_own_contrasts` reports as
+            #     unclassifiable. The most-cited round in the repository was in it.
+            # (2) "most ... does not transfer" describes a PARTIAL loss. The stored
+            #     share is 1.63: the fresh arm does not merely lose the advantage,
+            #     it INVERTS. More than all of it goes. "Most" is weaker than the
+            #     finding, and a verdict weaker than its own numbers is the quiet
+            #     direction of the same error this project logs in the loud one.
+            f"RESPONSE-SET-SPECIFIC, AND IT INVERTS: the own-rubric advantage is "
+            f"{res['ORIGINAL']['attribution']:+.4f} "
+            f"[{res['ORIGINAL']['ci'][0]:+.4f},{res['ORIGINAL']['ci'][1]:+.4f}] on the four "
+            f"released candidates and {res['FRESH']['attribution']:+.4f} "
+            f"[{res['FRESH']['ci'][0]:+.4f},{res['FRESH']['ci'][1]:+.4f}] on responses the "
+            f"criteria authors never saw -- a drop of "
+            f"{res['ORIGINAL']['attribution'] - res['FRESH']['attribution']:+.4f}, which is "
+            f"{share:.0%} of the original advantage. Above 100% means the arm does not merely "
+            f"fail to transfer, it changes sign, so 'most of it does not transfer' understates "
+            f"what the numbers say. What falls is SOURCE SPECIFICITY -- own-rubric minus "
+            f"reference-rubric performance -- which is a contrast between two rubrics, not "
+            f"between rubric content and its absence"
             if share > 0.5 else
             "TRANSFERS: the advantage survives on responses the authors never saw, "
             "so it is prompt/value-specific rather than response-set-specific"

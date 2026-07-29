@@ -3998,3 +3998,41 @@ in this repository and this entry does not pretend otherwise.
 **The rule these three checks now illustrate together.** Measure a proposed check against the case that
 motivated it *before* writing it. Two of three died at that step — one on precision, one on recall —
 and the survivor was narrowed by a factor of nearly 500 by the same measurement.
+
+## Entry 138 — the most-cited round in the package had a verdict that stated no number, and understated its own result
+
+**Found by reading the one check that exits non-zero by design.** `verdict_cites_its_own_contrasts`
+reports a population it cannot classify: verdicts that state **no number at all**, which therefore *"cannot
+be compared to their round, and every prose check in this package will happily agree with them."*
+**r12 was in that population** — the round behind the whole Q layer, the +0.102 → −0.064 inversion, the
+number the README leads with.
+
+**Its verdict said:** *"RESPONSE-SET-SPECIFIC: most of the own-rubric advantage does not transfer to
+responses the criteria authors never saw."* No figure anywhere in it.
+
+**Two defects, one fix.**
+
+1. **Uncheckable.** A verdict with no numbers is invisible to every prose check here — it can drift from
+   its own artifact indefinitely and nothing would notice. The most load-bearing round in the repository
+   was the least checkable.
+2. **It understated itself.** *"Most … does not transfer"* describes a **partial** loss. The stored
+   `non_transferring_share` is **1.63**: the fresh arm does not merely lose the advantage, it **changes
+   sign**. More than all of it goes. A verdict weaker than its own numbers is the same error as one
+   stronger than them, in the direction nobody audits — because an understatement reads as caution.
+
+**Fixed by recomputation, not by typing.** `build_verdict` was already a pure function of stored
+quantities with a `--reverdict` path — *"a conclusion that cannot be re-derived from the numbers is a
+hand-written conclusion wearing a JSON field"*, in the round's own words. The function was amended and
+the verdict regenerated from the file's own values; no responses were touched, which matters because
+r39, r40 and r41 are all built on that exact response set and the generation step is unseeded.
+
+**Now:** *"RESPONSE-SET-SPECIFIC, AND IT INVERTS: the own-rubric advantage is +0.1020 [+0.0713,
++0.1327] … and −0.0640 [−0.0920, −0.0367] … a drop of +0.1660, which is 163% of the original advantage.
+Above 100% means the arm does not merely fail to transfer, it changes sign, so 'most of it does not
+transfer' understates what the numbers say."*
+
+**What this does not fix.** Nine other rounds still carry number-free verdicts, and the check's larger
+finding stands: 28 verdicts cite nothing, and among the 19 omissions in rounds that *do* cite something,
+5 are opposite-signed — **P = 0.2249, sign bias NOT established**. That is a null with its power stated,
+not a clean bill. I fixed the one that carries the headline; the rest are named and left, because
+recomputing a verdict requires that round to have a `build_verdict` function, and most do not.
