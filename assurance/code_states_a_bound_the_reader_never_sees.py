@@ -58,10 +58,40 @@ r44 (17 of 33 phrases absent); against the current one it does not (13 of 33).
 **The instrument would have found the case it was built for.** The two earlier
 versions would not have, and both are described above rather than deleted.
 
-The instructive false positives on the first real run: r23's *"the parameters are
-not identified … but the FITTED VALUES are, and only those are used"*, r31's
-confound followed by a section headed *"The repair"*, and r07's upper bound on a
-figure the README does not quote.
+PRECISION ON THE CURRENT CORPUS: 0 OF 13
+----------------------------------------
+All 13 flags were triaged by hand and every one is a false positive, in five
+classes. They are listed because the classes are what a future triage needs:
+
+  1. STATED WITH ITS REPAIR      r23 -- "the parameters are not identified … but
+                                 the FITTED VALUES are, and only those are used";
+                                 r31 -- a confound followed by a section headed
+                                 "The repair"; r07 -- an upper bound on a figure
+                                 the README does not quote.
+  2. QUOTED IN ORDER TO REFUTE   r02 -- quotes a PRIOR analysis's "we cannot
+                                 separate model quality from label" and answers
+                                 "but label bias does not need source identity.
+                                 Randomization already did the work."
+  3. UNTAKEN CONDITIONAL BRANCH  r11's "WEAKENED" and r29's "UNVERIFIED -- THE
+                                 DIAGNOSTIC IS UNFIT" are branches of a computed
+                                 verdict. Neither fired.
+  4. DESIGN RATIONALE            r22 explaining why the gate is distinct families;
+                                 r41's "a rubric does not measure responses in
+                                 embedding space -- it measures them in the space
+                                 its own criteria span", which is the round's
+                                 motivation; r46's rationale for a power floor.
+  5. ALREADY IN THE ROW          r54, r62, r65 -- the bound is in the README in
+                                 different words.
+
+**Class 3 is the dangerous one to triage.** Reading a branch's text as a round's
+verdict nearly produced a false retraction of r29 here: its source builds an
+"UNVERIFIED -- THE DIAGNOSTIC IS UNFIT" string, but its anchor values are 0.7098
+and 0.6527 against a 0.55 gate, so that branch never runs and the stored verdict
+is correct. **Check which branch executed before reading source text as a claim.**
+
+So this check currently has one demonstrated true positive -- r44, retrospectively
+-- and thirteen false ones. That is a tripwire for future drift, not a source of
+findings, and the precision belongs next to the output.
 """
 from __future__ import annotations
 
@@ -150,7 +180,10 @@ def main() -> int:
     print("  r44:110 -- the line this exists for -- at rank 30 of 33 against the pre-fix")
     print("  README. This scores the BOUND PHRASE, and against that same pre-fix README it")
     print("  flags r44. A limitation stated together with its repair is not a hidden bound,")
-    print("  and no mechanical rule separates the two.")
+    print("  and no mechanical rule separates the two. PRECISION ON THIS CORPUS: 0 of 13 --")
+    print("  all current flags were triaged and are false positives in five documented")
+    print("  classes (see the docstring). Check which BRANCH executed before reading source")
+    print("  text as a claim; that mistake nearly produced a false retraction of r29.")
     return 0
 
 

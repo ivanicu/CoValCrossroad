@@ -2364,6 +2364,45 @@ so this reports and never gates.
 the part a future reader most needs, and they are invisible once the working version is the only one
 on disk.
 
+## Entry 100 — I documented the "untaken branch" false positive and then fell for it on the next case
+
+Triaging entry 99's 13 flags. All 13 are false positives, in five classes — and the way I nearly
+mishandled one is worth more than the triage.
+
+**r29 looked like the worst defect of the session.** Its source builds a verdict reading
+*"UNVERIFIED — THE DIAGNOSTIC IS UNFIT … their concordance on the fresh set is therefore two
+uninformative scorers agreeing … an instrument that failed its positive control, which is silence,
+not an acquittal."* The README row says **"stable"**. A round declaring itself unfit, presented as
+having produced a result — I had the retraction half-written.
+
+**It is a branch that never runs.** `anchor_ok = min(anchor.values()) > 0.55`, and the stored anchors
+are **0.7098** and **0.6527**. The gate passes, the UNVERIFIED branch is skipped, and the stored
+*"GOLD IS STABLE OFF-DISTRIBUTION"* verdict is the correct one. The results file is also **newer**
+than the code, so nothing was stale.
+
+**And I had identified this exact class two commands earlier**, from r11's `"WEAKENED: the
+independent backbone cannot distinguish…"` — likewise a branch of a computed conclusion that did not
+fire. I named the failure mode and walked into it on the next case, because the r29 text was
+*dramatic* and the r11 text was not.
+
+**Grep shows you source, not execution.** A conclusion string assembled inside an `if` is not a
+claim the round makes; it is a claim the round would make under a condition. **Check which branch
+executed before reading source text as a verdict.**
+
+**The five classes, recorded in the check for the next triage:**
+
+| | |
+|---|---|
+| stated with its repair | r23, r31, r07 |
+| quoted in order to refute | r02 |
+| **untaken conditional branch** | **r11, r29, r46** |
+| design rationale or motivation | r22, r41 |
+| already in the row, different words | r54, r62, r65 |
+
+**Precision on the current corpus: 0 of 13.** One demonstrated true positive (r44, retrospectively)
+and thirteen false ones. That is a **tripwire for future drift, not a source of findings**, and the
+number now prints beside the output so nobody reads thirteen flags as thirteen problems.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
