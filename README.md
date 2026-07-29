@@ -96,6 +96,63 @@ mildest.
 (89 vs 76 median words) — the 180-token cap never bound, and the released candidates are the
 short ones.
 
+### The inversion is at least partly a property of the gold proxy, not the rubric
+
+r40, r41 and r46 each tested a property of the **rubric** and each came back empty. None tested
+the **outcome variable**. r08's gold head is `hstack([embedding, [char_len, word_len]]) @ w` —
+length is one of its *inputs*, at |w| = 0.2085 against a mean embedding weight of 0.0620.
+
+Fresh responses vary **3.4×** more in length than the released candidates (word-count sd 34.2–34.4
+vs 10.1–10.2), and gold's within-prompt correlation with length tracks that, on **both** samples:
+
+| | discovery (250) | held out (250) |
+|---|---:|---:|
+| corr(gold, word count), **originals** | +0.0770 | +0.0259 |
+| corr(gold, word count), **fresh** | **+0.4579** | **+0.5482** |
+
+⚠ Read the *signed* correlation, not the magnitude. At four responses per prompt, two
+**independent** vectors already give E|r| = 0.5005, so a raw |r| of 0.62 is mostly the sample
+size — the excesses are only +0.104 and +0.192. An earlier version of this section quoted the
+bare magnitudes (entry 49).
+
+**The proxy is sound where it can be checked — which is the wrong place.** Human rankings exist
+only for the original candidates, so:
+
+| | discovery | held out |
+|---|---:|---:|
+| attribution vs GOLD | +0.1020 | +0.0853 |
+| attribution vs HUMAN rankings | +0.0876 | +0.0742 |
+| difference | −0.0144 [−0.0376, +0.0095] | −0.0112 [−0.0355, +0.0132] |
+
+Indistinguishable in both, per-prompt r = +0.60 and +0.65. And humans do **not** systematically
+prefer longer responses there (signed +0.041, CI spans zero). So the proxy is validated exactly
+where its length channel is weakest, and applied where it is strongest.
+
+**Removing length, against the procedure's own null.** Residualising four responses on *any*
+variable removes one of three degrees of freedom and costs ≈0.025 by itself, so
+length-residualisation is measured against **noise**-residualisation rather than against raw:
+
+| | discovery | held out |
+|---|---:|---:|
+| inversion, raw | +0.1660 | +0.1460 |
+| inversion, noise-residualised (the null) | +0.1303 | +0.1153 |
+| inversion, **length**-residualised | +0.0833 | +0.0567 |
+| share surviving vs the null | 64.0% | 49.1% |
+
+**And the sharpest point does not replicate**, which is itself the finding:
+
+| fresh arm, length-residualised | discovery | held out |
+|---|---:|---:|
+| | −0.0307 [−0.0567, −0.0053] | **+0.0047 [−0.0213, +0.0320]** |
+
+On the held-out sample the fresh arm stops being negative once length is removed. So **"the own
+rubric is *beaten* by an unrelated one on generated responses" — the bizarre claim that made r12
+worth chasing — is not established.** What replicates across both samples is the ordinary one:
+the own-rubric advantage **does not transfer**. The inversion itself is at least partly length.
+
+**Consequence for the human experiment:** r12 cannot be cited as evidence of rubric transport
+failure without recording response length, and H_fresh must collect it.
+
 ### Criterion space is a different axis from embedding space, and it does not explain r12 either
 
 A rubric does not measure responses where an embedding does. It measures them in the space its
@@ -809,6 +866,7 @@ not from estimation noise, so no further computation narrows it.
 | [r39](rounds/r39_feature_cache) | Cache representations, analyse nothing | one GPU pass, three lineages (qwen/phi/internlm), 2,000 responses. Load failures recorded as **environment claims**, not model properties |
 | [r40](rounds/r40_ood_map) | Is r12's inversion an OOD artifact? | **no — the sign runs the wrong way.** Nearest-neighbour distance correlates at **−0.125**, 2/3 lineages, same sign 3/3: the anomaly is **worst where fresh responses most resemble the released ones** |
 | [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **no.** Hull violation −0.1837 and rank instability +0.1993 die to the discriminating-power control; spread loss looked like it survived at +0.2309 but **failed to replicate** (r46). Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly |
+| [r47](rounds/r47_gold_is_length) | Is the inversion a property of the gold PROXY? | **partly, and the strangest part does not survive.** gold↔length rises +0.08→+0.46 and +0.03→+0.55 across two samples; ~57% of the inversion survives length-residualisation against the procedure's own null; the fresh arm stops being negative in the held-out sample. Proxy matches human rankings on the ORIGINAL arm, which is where its length channel is weakest |
 | [r46](rounds/r46_spread_replication) | Does the spread-loss effect hold out of sample? | **no — prediction committed to git first, then falsified.** +0.0496 [−0.068, +0.169] on 250 untouched prompts against a predicted [+0.12, +0.34]. Controls passed, and **r12's inversion itself replicated**: +0.0847 original, −0.0716 fresh |
 | [r42](rounds/r42_equivalence) | Are the null claims equivalent, or just non-significant? | **equivalent at δ=0.01 — 0 of 21 contrasts inconclusive.** 4 are significant AND negligible. But only 7/21 hold at δ=0.005 and 4/21 at 0.0025, and **δ is stipulated, not measured** |
 | [r44](rounds/r44_compiler_lineage) | Which compiler step makes core beat full? | **polarity rewrite, +0.0733** — alone larger than the whole full→core total of +0.0662. Selection also beats a **size-matched random** choice by +0.0149, so item membership carries signal too. Reconstruction explains 83%; **C1–C5 are unobservable**, so this describes my pipeline, not OpenAI's |

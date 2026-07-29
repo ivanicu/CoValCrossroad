@@ -207,7 +207,8 @@ def main() -> None:
 
     # r46 saved generations but collapsed its satisfaction to means it did not
     # persist, so the held-out sample enters only if a tensor exists for it.
-    r46 = _ROOT / "rounds/r46_spread_replication/results/r46_satisfaction.npz"
+    # persist.py writes into its OWN round's results directory, not r46's.
+    r46 = _ROOT / "rounds/r41_criterion_support/results/r46_satisfaction.npz"
     if r46.exists():
         print("  note: the held-out tensor's donor permutation comes from persist.py's "
               "seed, not r46's, so its RAW attribution need not equal r46's published "
@@ -281,27 +282,53 @@ def main() -> None:
         rm_o, rlo_o, rhi_o = boot_mean(r_o, rng, a.boot)
         rm_f, rlo_f, rhi_f = boot_mean(r_f, rng, a.boot)
 
-        # POSITIVE CONTROL: residualising on noise gold does not encode must
-        # barely move anything.  If it does, residualisation destroys signal by
-        # construction and no comparison here is licensed.
-        nz_o = within_prompt_resid(S["gold_o"], rng.normal(size=S["gold_o"].shape))
-        nz_f = within_prompt_resid(S["gold_f"], rng.normal(size=S["gold_f"].shape))
-        cm_o = float(np.nanmean(attribution(S["real_o"], S["shuf_o"], nz_o)))
-        cm_f = float(np.nanmean(attribution(S["real_f"], S["shuf_f"], nz_f)))
-        ctrl_ok = bool(abs(cm_o - m_o) < 0.02 and abs(cm_f - m_f) < 0.02)
-        print(f"  control: residualise on NOISE            original {cm_o:+.4f} "
-              f"(was {m_o:+.4f})   fresh {cm_f:+.4f} (was {m_f:+.4f}) -> "
-              f"{'pass' if ctrl_ok else 'FAIL'}")
-        if not ctrl_ok:
-            raise SystemExit("REFUSING TO REPORT: residualising on noise moved the "
-                             "attribution, so the procedure destroys signal by "
-                             "construction")
+        # THE PROCEDURE'S OWN NULL, and it is not a pass/fail gate.
+        #
+        # Residualising four responses on ANY variable removes one of three
+        # degrees of freedom and perturbs the ordering by itself.  The first
+        # version of this block tested that against an arbitrary 0.02 threshold
+        # and flipped between pass and FAIL purely on the RNG state -- which is
+        # the honest answer that the damage is real and comparable to the effect
+        # being measured.
+        #
+        # So noise residualisation is not a gate, it is the BASELINE: the length
+        # effect is length-residualised vs NOISE-residualised, never vs raw.
+        # Averaged over several draws because a single noise vector is itself
+        # a high-variance quantity at n = 4.
+        nrep = 20
+        no_o, no_f = [], []
+        for _ in range(nrep):
+            no_o.append(attribution(S["real_o"], S["shuf_o"],
+                                    within_prompt_resid(S["gold_o"],
+                                                        rng.normal(size=S["gold_o"].shape))))
+            no_f.append(attribution(S["real_f"], S["shuf_f"],
+                                    within_prompt_resid(S["gold_f"],
+                                                        rng.normal(size=S["gold_f"].shape))))
+        noise_o = np.nanmean(np.vstack(no_o), axis=0)
+        noise_f = np.nanmean(np.vstack(no_f), axis=0)
+        cm_o, clo_o, chi_o = boot_mean(noise_o, rng, a.boot)
+        cm_f, clo_f, chi_f = boot_mean(noise_f, rng, a.boot)
+        ctrl_ok = True
+        print(f"  procedure null (residualise on NOISE, {nrep} draws)   original "
+              f"{cm_o:+.4f} [{clo_o:+.4f},{chi_o:+.4f}]   fresh {cm_f:+.4f} "
+              f"[{clo_f:+.4f},{chi_f:+.4f}]")
+        print(f"    ^ raw was {m_o:+.4f} / {m_f:+.4f}, so removing ONE degree of freedom "
+              f"costs {cm_o - m_o:+.4f} / {cm_f - m_f:+.4f} by itself")
 
         print(f"  attribution ORIGINAL   raw {m_o:+.4f} [{lo_o:+.4f},{hi_o:+.4f}]   "
               f"length-residualised {rm_o:+.4f} [{rlo_o:+.4f},{rhi_o:+.4f}]")
         print(f"  attribution FRESH      raw {m_f:+.4f} [{lo_f:+.4f},{hi_f:+.4f}]   "
               f"length-residualised {rm_f:+.4f} [{rlo_f:+.4f},{rhi_f:+.4f}]")
         inv_raw, inv_res = m_o - m_f, rm_o - rm_f
+        inv_noise = cm_o - cm_f
+        # The quantity that isolates LENGTH: how much of the inversion survives
+        # length-residualisation, measured against what survives residualising
+        # on nothing in particular.
+        share_vs_noise = (inv_res / inv_noise) if abs(inv_noise) > 1e-9 else float("nan")
+        print(f"  inversion   raw {inv_raw:+.4f}   NOISE-residualised {inv_noise:+.4f}   "
+              f"LENGTH-residualised {inv_res:+.4f}")
+        print(f"    -> vs the procedure's own null, length residualisation leaves "
+              f"{share_vs_noise:.1%} of the inversion")
         print(f"  the INVERSION (orig - fresh)   raw {inv_raw:+.4f}   "
               f"residualised {inv_res:+.4f}   "
               f"({inv_res / inv_raw:.1%} of it survives)" if abs(inv_raw) > 1e-9 else "")
@@ -321,14 +348,31 @@ def main() -> None:
             "attribution_fresh_residualised": [rm_f, rlo_f, rhi_f],
             "inversion_raw": inv_raw, "inversion_residualised": inv_res,
             "share_surviving": (inv_res / inv_raw) if abs(inv_raw) > 1e-9 else float("nan"),
-            "noise_control": {"original": cm_o, "fresh": cm_f, "passed": ctrl_ok},
+            "procedure_null_noise_residualised": {
+                "original": [cm_o, clo_o, chi_o], "fresh": [cm_f, clo_f, chi_f],
+                "cost_of_one_dof_original": cm_o - m_o,
+                "cost_of_one_dof_fresh": cm_f - m_f,
+                "inversion_under_noise": inv_noise,
+                "note": ("Not a pass/fail gate. Residualising 4 responses on ANY variable "
+                         "removes one of three degrees of freedom and perturbs the "
+                         "ordering, so this is the BASELINE the length effect is measured "
+                         "against, never a threshold to clear.")},
+            "share_surviving_vs_noise": share_vs_noise,
+            # The decisive distinction: "own rubric does WORSE than an unrelated
+            # one on fresh responses" is a bizarre claim demanding explanation.
+            # "own rubric has NO advantage on fresh responses" is ordinary
+            # transport failure.  Whether the length-residualised fresh arm is
+            # still NEGATIVE is what separates them.
+            "fresh_still_inverted_after_length": bool(rhi_f < 0),
+            "fresh_residualised_ci": [rm_f, rlo_f, rhi_f],
             "proxy_validation_on_original": hv,
         }
         print()
 
     # ---- verdict, computed ------------------------------------------
     tags = list(out)
-    shares = [out[t]["share_surviving"] for t in tags]
+    # Against the procedure's own null, not against raw.
+    shares = [out[t]["share_surviving_vs_noise"] for t in tags]
     lifts = [out[t]["corr_gold_length_fresh"] - out[t]["corr_gold_length_original"]
              for t in tags]
     orig_kept = [out[t]["attribution_original_residualised"][0]
@@ -370,6 +414,24 @@ def main() -> None:
           f"that channel is strongest. CONSEQUENCE EITHER WAY: r12 cannot be cited as "
           f"evidence of rubric transport failure without recording response length, and "
           f"H_fresh must collect it")
+    inverted = [out[t]["fresh_still_inverted_after_length"] for t in tags]
+    if all(inverted):
+        inv_v = ("In BOTH samples the fresh arm stays NEGATIVE after length is removed, so "
+                 "the own rubric really is out-performed by an unrelated one on generated "
+                 "responses and that is not a length artifact")
+    elif not any(inverted):
+        inv_v = ("In BOTH samples the fresh arm stops being negative once length is "
+                 "removed -- it becomes indistinguishable from zero. The INVERSION is a "
+                 "length artifact; what survives is the weaker and far more ordinary "
+                 "claim that the own-rubric advantage does not TRANSFER")
+    else:
+        inv_v = (f"The samples disagree on the sharpest point: the length-residualised "
+                 f"fresh arm is still negative in {sum(inverted)} of {len(inverted)} "
+                 f"samples. So 'the own rubric is BEATEN by an unrelated one on fresh "
+                 f"responses' is not established -- what replicates is only that its "
+                 f"advantage does not transfer. The inversion itself is at least partly "
+                 f"length")
+    verdict += ". " + inv_v
     if len(samples) == 1:
         verdict += (". ONE SAMPLE ONLY -- r46 persisted no satisfaction tensor, so this "
                     "carries exactly the weakness that killed the spread-loss effect and "
