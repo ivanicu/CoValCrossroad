@@ -10,3 +10,16 @@ disappears leaves no evidence that it once sat in `results/` looking like a resu
 exactly how a superseded number gets quoted (entry 42, and r28's five metric files).
 
 Do not read it as a measurement. It is the shape of a failure.
+
+## The two internlm embedding caches, moved 2026-07-29
+
+`r79_emb_crit_internlm.npy` (72 MB) and `r79_emb_resp_internlm.npy` (31 MB) are **entirely
+NaN** — 26,611,712 values, every one. They are the cache written before the finite guard
+existed.
+
+They were **poison for r79's own reuse path**: `if cc.exists() and rc.exists(): C, R =
+np.load(...)` would load them on the next run, and the guard would then report internlm as
+"produced non-finite embeddings" — true, but attributing to the *model* what came from a
+*cache*. A correct refusal for the wrong reason is still a wrong reason.
+
+Moved rather than deleted, on the same principle as the d-array above.

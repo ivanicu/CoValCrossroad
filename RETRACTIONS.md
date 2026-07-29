@@ -3954,3 +3954,47 @@ two facts now sit in the same sentence at each of the three sites.
 reaches every place the corrected claim is *used* — and an enforcement that has never been shown to
 fail is not an enforcement. Both halves failed here in the same pass, and both were caught by the same
 move: attack the thing, do not re-read it.
+
+## Entry 137 — the third candidate check, and the first one worth building
+
+**Two were measured and declined.** Entry 124: an artifact→README matcher, chance-match rate **94.1%**
+— it would report almost everything as surfaced and fails toward PASS. Entry 122: a citation resolver,
+**224/224** clean and **zero recall** on the only real defect, which named no entry number. Both were
+measured first and neither was built.
+
+**This one measured differently.** Nothing in the suite reads results **content**.
+`results_match_their_code.py` compares commit timestamps and **cannot see an untracked file at all** —
+and an orphan of a superseded run is exactly what "untracked in `results/`" looks like. r79 had just
+produced three of them, every value NaN.
+
+**The first version was the entry-108 flood again.** Flagging constant arrays as well gave **971
+findings on 275 files**, almost all `_pairs_per_prompt.json`, where every prompt legitimately has the
+same pair count. Narrowed to **non-finite content only**, and applying the repository's own convention
+that a path part beginning `_` is not a result: **2 findings on 285 files, both real**, zero false
+positives.
+
+**And the 2 were something I had missed.** `r79_emb_crit_internlm.npy` and `r79_emb_resp_internlm.npy`
+— 26,611,712 NaN values — were still sitting in `results/` after I gitignored them. They were **poison
+for r79's own cache-reuse path**: the next run would load them and the finite guard would report
+internlm as producing non-finite embeddings, which is true of the *cache* and not of the *model*. **A
+correct refusal for the wrong reason is still a wrong reason.** Both moved to `_stale/` with the reason
+written beside them.
+
+**Attacked on three vectors before being trusted**, because a zero from an instrument that has never
+fired is silence:
+
+| attack | want | got |
+|---|---|---|
+| plant an all-NaN `.npy` in a results dir | exit 1, names it | ✅ |
+| plant a NaN inside a results JSON list | exit 1, names it | ✅ |
+| empty population | exit **2**, never 0 | ✅ |
+| restore | exit 0 | ✅ |
+
+**Its soundness is one-directional and the check says so in its own output.** Non-finite content cannot
+be a measurement; finite content is **not thereby correct**. It catches the instrument that never
+switched on — never the one that switched on and lied. That second failure has no mechanical detector
+in this repository and this entry does not pretend otherwise.
+
+**The rule these three checks now illustrate together.** Measure a proposed check against the case that
+motivated it *before* writing it. Two of three died at that step — one on precision, one on recall —
+and the survivor was narrowed by a factor of nearly 500 by the same measurement.
