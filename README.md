@@ -179,6 +179,38 @@ NOT EQUIVALENT, and a zero vector must return EQUIVALENT. An equivalence test th
 underneath — criterion-level sign reversals and minority-only criteria are
 [r43](rounds/r43_criterion_heterogeneity), not this.
 
+### The polarity rewrite is where core's advantage comes from — and membership carries some too
+
+r33 found CoVal-core scored with **no ratings at all** beats CoVal-full by **+0.0663**. That is a
+sum: the dataset card documents polarity rewriting, cleanup, semantic merging, compatibility
+selection and truncation to ≤4, and nothing said which step did the work.
+
+**The intermediate artifacts do not exist.** The release ships C0 and C6; C1–C5 live inside a
+compiler OpenAI did not publish. So [r44](rounds/r44_compiler_lineage) cannot decompose that
+compiler and does not claim to — it builds a **reconstruction** from the documented operations,
+measures each simulated stage, and reports **the residual it cannot explain**.
+
+| reconstructed stage | Δ | 95% CI |
+|---|---:|---|
+| **polarity rewrite** | **+0.0733** | [+0.0647, +0.0822] |
+| cleanup | +0.0052 | [+0.0029, +0.0075] |
+| dedup | −0.0053 | [−0.0092, −0.0014] |
+| compatibility selection | −0.0181 | [−0.0241, −0.0125] |
+| **selection vs SIZE-MATCHED random** | **+0.0149** | [+0.0082, +0.0221] |
+| total, full → **real** core | +0.0662 | [+0.0571, +0.0752] |
+| **residual, reconstruction → real** | **+0.0112** | [+0.0039, +0.0184] |
+
+The rewrite alone is **larger than the entire full→core gap**; later stages give part of it back.
+The reconstruction accounts for **83%** of the total, and the +0.0662 independently reproduces
+r33's +0.0663 through a different code path.
+
+**Selection is a real second term.** Keeping any 4 criteria changes the score, so the selection
+stage is run against a **size-matched random** choice — and beats it by +0.0149. Core encodes the
+post-choice ranking partly through **which items survive**, not only through wording.
+
+The identity control — a stage that does nothing — returns Δ = **0.000000**, so none of these
+increments is re-scoring noise.
+
 ### Groups disagree about criteria, and it does not change which response wins
 
 r42's equivalence is **aggregate**, which is exactly the result that can coexist with real
@@ -742,6 +774,8 @@ not from estimation noise, so no further computation narrows it.
 | [r40](rounds/r40_ood_map) | Is r12's inversion an OOD artifact? | **no — the sign runs the wrong way.** Nearest-neighbour distance correlates at **−0.125**, 2/3 lineages, same sign 3/3: the anomaly is **worst where fresh responses most resemble the released ones** |
 | [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **no, and the effects that looked real were one quantity.** Hull violation −0.1837 and rank instability +0.1993 both die to the discriminating-power control (−0.065, +0.079). Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly. Cross-lineage judge disagreement does not track the drop |
 | [r42](rounds/r42_equivalence) | Are the null claims equivalent, or just non-significant? | **equivalent at δ=0.01 — 0 of 21 contrasts inconclusive.** 4 are significant AND negligible. But only 7/21 hold at δ=0.005 and 4/21 at 0.0025, and **δ is stipulated, not measured** |
+| [r44](rounds/r44_compiler_lineage) | Which compiler step makes core beat full? | **polarity rewrite, +0.0733** — alone larger than the whole full→core total of +0.0662. Selection also beats a **size-matched random** choice by +0.0149, so item membership carries signal too. Reconstruction explains 83%; **C1–C5 are unobservable**, so this describes my pipeline, not OpenAI's |
+| [r45](rounds/r45_protocol_freeze) | What exactly do the humans rank? | 60 prompts, 4 equal cells, **540 responses hashed**, manifest `313044ea…`. r12's generation is unseeded, so this file is the only definition of the object H_fresh refers to |
 | [r43](rounds/r43_criterion_heterogeneity) | Does aggregate equivalence hide group conflict? | **conflict without consequence.** Country sign-reversals run **+0.0190 above** a label-permutation null; **0 of 17** group tests survive BH, and the significant ones split **2 positive / 2 negative** — symmetric noise. Positive control recovers an injected 20% flip (0.122→0.283) |
 
 ---
