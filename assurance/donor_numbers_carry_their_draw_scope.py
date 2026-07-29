@@ -81,6 +81,7 @@ REGISTRY = {
     "r87_criterion_count_channel":  (True,  "row publishes attribution under three donor pairings"),
     "r88_donor_draw_variance":      (True,  "the round IS the draw measurement"),
     "r89_floor_draw_at_panel_size": (True,  "the round IS the draw measurement at panel size"),
+    "r103_consensus_conditioned": (True,  "publishes own-minus-donor attribution per consensus bin under a single donor permutation"),
     "r90_resampling_unit":          (True,  "reports agreement and attribution INTERVALS around a single-draw attribution point; the draw is orthogonal to the resampling unit it varies, and both scopes apply"),
 }
 

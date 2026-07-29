@@ -7704,3 +7704,14 @@ which is its own small lesson about matching on unicode passed through a shell.
 **And the verification needed fixing too:** `str.split("|")` still counts an escaped `\|`, so the
 repaired row *looks* broken to a naive check while rendering correctly. Counting **unescaped** pipes
 gives 6 for every layer row.
+
+**⚠ Addendum to entry 216 — the donor gate caught r103, its third new case.**
+`donor_numbers_carry_their_draw_scope` fired immediately: r103 builds a donor mapping with idiom A and
+nobody had classified it. **Registered** (its published numbers *are* own-minus-donor differences), and
+its README row now carries the draw scope — with the one qualification that matters here: **every
+consensus bin inherits the same single draw**, so the *gradient across bins* is unaffected by which
+donors were sampled, even though each bin's level carries r88's 0.0055.
+
+**Third time this gate has caught a round written after it** — r90 (entry 169), r97 (entry 184), now
+r103. Every time the round was mine and every time the gate, not my memory, noticed. *A completeness
+check verified against the source tree keeps working on authors who know it exists.*
