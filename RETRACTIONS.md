@@ -6167,3 +6167,11 @@ other two should be struck rather than resolved.
 **The per-prompt cells are persisted** (`r97_per_prompt_rule_cells.npz`). r58 named this defect 23
 times, r96 found it once, and r06 will not need another replay. **The remaining 15 UNVERIFIED belong to
 r28, r17, r20, r01, r11, r13, r15, r32 and r50 and are untouched here.**
+
+**⚠ Addendum to entry 184 (same run).** `seed_filter_is_disclosed` fired on r97 immediately — it
+replays r06's loop verbatim, which means it inherits r06's `thr = max(2, (len(raters)+1)//2)` filter,
+and no one had registered it. **That is the completeness gate from entry 173 catching its second new
+case**, after it caught r90 for the donor registry one turn after being built. r97 is registered; its
+artifact already disclosed the restriction in its scope note (*"inherits r06's own restriction to
+majority-rated criteria, 36.5%"*), so only GATE 1 was outstanding. **A replay inherits the original's
+scope along with its method, and the gate is what makes that automatic rather than remembered.**

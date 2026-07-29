@@ -70,6 +70,7 @@ ROUNDS = {
     "r35_polarity_abstention", "r36_channel_shapley", "r37_leakage_topology",
     "r43_criterion_heterogeneity", "r49_provenance_crossfit", "r50_response_anchoring",
     "r62_matching_floor", "r92_writein_analysability",
+    "r97_rule_tournament_tost",
 }
 
 FILTER = re.compile(r"len\(raters\)\s*\+\s*1\)\s*//\s*2|>=\s*thr\b")
