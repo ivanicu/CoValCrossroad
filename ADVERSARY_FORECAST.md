@@ -16,7 +16,14 @@ Confidence is my probability that an independent reviewer raises the objection *
 
 ## The six I expect
 
-### 1 — δ = 0.01 is stipulated everywhere and connected to no decision · **0.85**
+### 1 — δ = 0.01 is stipulated everywhere and connected to no decision · **0.85**  ·  ⚠ SELF-ANSWERED AFTER FORECASTING
+
+> Answered **after** this forecast was committed, and I had written here that no data could
+> settle it — which was wrong. r06's aggregation-rule tournament is the decision: five rules
+> span **0.0188**, so δ = 0.01 is **53%** of the best-to-worst distance and larger than three of
+> the five rules' effects against no-compression. "Equivalent at δ = 0.01" now reads *smaller
+> than half the swing from changing the aggregation rule*. **A scorer should exclude this from
+> the hit rate.** Forecast text unchanged below.
 
 Every experiment reports significance and equivalence at δ = 0.01, the sweep is published, and the
 stipulation is flagged in four places. **None of them says what decision changes at 0.01 that does

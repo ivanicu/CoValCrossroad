@@ -383,8 +383,31 @@ the same thing.
    question is never an acquittal.
 6. **Positive controls before nulls.** Any instrument reporting "no effect" must first have
    returned a non-zero effect on something.
-7. **δ = 0.01 is a stipulation.** It is swept, and the sweep is reported, because at δ = 0.0025
-   only 4 of 21 existing contrasts are equivalent.
+7. **δ = 0.01 is a stipulation, now ANCHORED to a decision this project can point at.** It is
+   swept and the sweep is reported, because at δ = 0.0025 only 4 of 21 existing contrasts are
+   equivalent. But a margin should encode *"an effect this small would not change what anyone
+   does"*, and until now nothing said who or what.
+
+   **The decision is which aggregation rule to use** — a live choice the release explicitly invites,
+   calling CoVal-core *"an invitation for others to develop and validate better synthesis and
+   aggregation methods"*. [r06](rounds/r06_rule_tournament) ran five of them:
+
+   | | accuracy | vs no-compression |
+   |---|---:|---:|
+   | utility | 0.6575 | **+0.0067** |
+   | constituency | 0.6567 | **+0.0070** |
+   | majority | 0.6552 | +0.0044 |
+   | conflict-aware | 0.6446 | −0.0058 |
+   | consensus | 0.6387 | **−0.0113** |
+
+   The five span **0.0188**, and consensus ties random selection (0.6384). So **δ = 0.01 is 53% of
+   the entire distance between the best and worst aggregation rule anyone has proposed**, and larger
+   in magnitude than three of the five rules' effects against no-compression.
+
+   **That fixes the reading of every equivalence claim in this package.** "Equivalent to zero at
+   δ = 0.01" now means *"smaller than half the swing you get from changing the aggregation rule"* —
+   which is a decision somebody makes, with a number attached, rather than a threshold chosen
+   because it is round.
 
 ---
 

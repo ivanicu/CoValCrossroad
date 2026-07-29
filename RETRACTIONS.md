@@ -2174,6 +2174,45 @@ Three of six forecast items are now self-examined: **5 answered, 2 upheld, 6 not
 excluded from scoring, because what an independent reviewer would find is still entirely unmeasured
 — and the number that matters remains **what they raise that is not on the list**.
 
+## Entry 95 — I wrote that no data could anchor δ, and the anchor was in r06 the whole time
+
+`ADVERSARY_FORECAST.md` objection 1, P=0.85, the highest on the list: every experiment reports
+equivalence at δ = 0.01, the stipulation is flagged in four places, and **none of them says what
+decision changes at 0.01 that does not change at 0.02**. When I closed the last entry I wrote that
+this was *"the one no data can settle"*. That was wrong, and it was wrong in the laziest available
+way — I had not looked.
+
+**The decision is which aggregation rule to use.** The release explicitly invites it, calling
+CoVal-core *"an invitation for others to develop and validate better synthesis and aggregation
+methods for this format"*. r06 ran five:
+
+| | accuracy | vs no-compression |
+|---|---:|---:|
+| utility | 0.6575 | **+0.0067** |
+| constituency | 0.6567 | **+0.0070** |
+| majority | 0.6552 | +0.0044 |
+| conflict-aware | 0.6446 | −0.0058 |
+| consensus | 0.6387 | **−0.0113** |
+
+They span **0.0188**, and consensus ties random selection (0.6384). So **δ = 0.01 is 53% of the
+entire best-to-worst distance across every aggregation rule anyone has proposed**, and larger in
+magnitude than three of the five rules' own effects against no-compression.
+
+**That fixes the reading of every equivalence claim in the package.** *"Equivalent to zero at
+δ = 0.01"* now means *"smaller than half the swing you get from changing the aggregation rule"* —
+a decision somebody actually makes, with a number attached, instead of a threshold chosen because it
+is round. The margin was never arbitrary; it was **unjustified**, which is a different and fixable
+thing, and four rounds of flagging it as *stipulated* had been standing in for the fix.
+
+**And the row I went to for the anchor was wrong.** It read *"four rules span 1.9 points"*. The
+artifact holds **seven** entries — five aggregation rules plus `no_compression` and `random_k4`
+baselines — so it is **five** rules, spanning 0.0188; the 1.9 points was the span *including* the
+random baseline. Corrected, with the count and both spreads stated.
+
+**Four of six forecast items now self-examined** — 1 answered, 2 upheld, 5 answered, 6 not upheld —
+all excluded from the hit rate. Objections 3 and 4 remain, and 3 is the one I still expect to cost
+the most.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
