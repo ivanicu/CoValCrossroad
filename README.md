@@ -755,7 +755,9 @@ cannot explain r12.**
 **This gives r50's anchoring effect a live instrument explanation**: anchored criteria may
 transfer better because they are the ones the judge scores accurately. It does **not** establish
 that overlap-driven scoring is *wrong* — overlap and genuine satisfaction are correlated in the
-world, and the release contains no satisfaction ground truth against which to set the ceiling a
+world, and the release contains no satisfaction ground truth against which to set the ceiling
+(**verified**: streaming every field name from all four release files — 1,078 + 986 + 18,384 +
+1,012 lines, 103 distinct fields — returns no satisfaction-, meets- or per-criterion-score field) a
 correct judge would show. And the claim card's real positive control — having the judge score a
 criterion copied out of a response — **was not run**; it needs a GPU pass, and the round says so
 in its own output rather than passing off an estimator check as the control.

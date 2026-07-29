@@ -2962,6 +2962,35 @@ check is `ls`.
 minute — the opposite of entry 105, where a bare `except` turned the same class of mistake into a
 confident zero.
 
+## Entry 118 — auditing the other asserted absences: three verified, one already wrong
+
+Entry 117's failure was an **asserted absence** — r40's embeddings, claimed missing twice, sitting in
+a tracked 57 MB file. That is a class, so the rest of the session's absence claims got the same
+treatment.
+
+| claim | how it was established | verdict |
+|---|---|---|
+| r56's **code** was never committed | `git log --all -S"semantic_selectivity"` over all history (entry 102) | **verified** |
+| r56's **CI bounds** appear in no artifact | search of every results file; both 4-decimal, where the chance-match null is low (entry 101) | **verified** |
+| `0.042` appears nowhere in r12's results | pool search, no value within [0.038, 0.047] (entry 81) | **verified** |
+| the release ships **no satisfaction labels** | **this entry** | **verified** |
+| r40's embeddings were never persisted | *inferred from r40 not storing them* | **WRONG** (entry 117) |
+
+**The satisfaction claim is load-bearing and had never been checked directly.** r04 exists to rebuild
+that layer; r64's two-arm design exists because a fresh-arm agreement rate has no referent without
+it. Streaming every field name from all four release files — 1,078 + 986 + 18,384 + 1,012 lines,
+**103 distinct fields** — returns **no** satisfaction-, meets-, fulfils- or per-criterion-score field
+in any of them.
+
+**Streamed, not sampled.** Entry 89 published 76.9% from the head of one file when the true figure
+was 26.7%; this reads every line of all four and accumulates only field names, which is
+memory-safe.
+
+**The distinguishing feature of the one that was wrong is visible in the table.** Four were
+established by *searching for the thing*. The fifth was established by *noticing it wasn't where I
+happened to look*. Absence of evidence became evidence of absence in exactly the case where no search
+was run — and the search, when finally run, took one `ls`.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
