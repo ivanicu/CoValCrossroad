@@ -5451,3 +5451,70 @@ of M(R, J, π, Q, P):
 
 **The sentence that can no longer be written:** *"the judge family moves it 2.13×"* — without saying
 that three points have no spread.
+
+---
+
+## Entry 171 — δ=0.01 was preregistered without anyone computing the n that delivers it
+
+**Queue item 4 fixes a practical margin of δ=0.01. Three consecutive rounds could not reach it** — r86
+fell back to 0.026, r87 to 0.0231, r90 reported a two-way crossed width instead. **Item 7 asks for a
+preregistration**, and committing to a margin without knowing the n that achieves it is exactly how a
+non-result becomes indistinguishable from an underpowered one.
+
+**This round measures nothing new.** Every input is a half-width already published here, and the round
+**refuses to run if any is missing** rather than substituting a typed-in value.
+
+| contrast | half | n now | n for δ=0.01 | kind |
+|---|---:|---:|---:|---|
+| agreement, whole join | 0.0093 | 968 | **840** | level — *already finer than 0.01* |
+| agreement, two-way crossed | 0.0101 | 968 | 984 | level |
+| attribution, whole join | 0.0123 | 968 | 1458 | level |
+| attribution, two-way crossed | 0.0125 | 968 | **1516** | level |
+| long- vs short-form attribution gap | 0.0260 | 293 | 1975 | **difference** |
+| criterion-count channel bound | 0.0231 | 968 | **5148** ⚠ | **difference**, extrapolated |
+
+**A level costs 1.6× the current join. A difference costs 5.3×** — because a difference carries two
+intervals, so it runs about 4× the price of a level. That single sentence is what item 7 needs.
+
+### The design lever: some of this is compute, not data
+
+The donor draw is **20%** of the attribution interval's variance (r88), and **it does not shrink by
+collecting more prompts** if the protocol keeps a single draw. Averaging over m draws costs GPU time
+rather than annotator time:
+
+| m draws | half | n for δ=0.01 |
+|---:|---:|---:|
+| 1 | 0.0123 | 1458 |
+| **10** | 0.0111 | **1195** |
+| 100 | 0.0110 | 1168 |
+
+**m=10 captures nearly the whole benefit; m=100 buys 27 more prompts.** Diminishing returns arrive
+early, which is itself the useful part of the recommendation.
+
+### Two controls, and the confound was checked rather than conceded
+
+**Degenerate control.** `need(half, n, δ=half)` must return **n**. It returns 968.0 — this catches an
+inverted exponent, which would have made every number here wrong in the most plausible direction.
+
+**Positive control.** The 1/√n law is **verified, not assumed**: r89 tested it across 300/500/968 with
+a worst deviation of **11.5%** inside a 20% band declared in advance.
+
+**The confound written before the run** was that 1/√n assumes new prompts are exchangeable, and this
+release is form-ordered with two protocols that differ. Computed per form: long-form needs **1455**,
+short-form **1468** — a spread of **1.01×**. Stable across the two protocols actually observed.
+
+### The label is knife-edge and the round says so
+
+The feasibility threshold of 5000 was fixed before the run — but the result landed at **5148, 3% away
+from it.** *A world label decided by a 3% margin is a coin flip wearing a name.* The round now reports
+the margin and labels the outcome KNIFE-EDGE rather than resolving it, and states that the durable
+findings are the **ratios** (1.6× / 5.3×), not which side of an arbitrary line they fall.
+
+**Two scope limits kept in front of the numbers.** This sizes **precision, not power** — it says when
+an interval reaches ±0.01, never what effect would be detectable, so agreement already being finer
+than 0.01 is a precision fact and **not** an equivalence claim. And r89 verified the scaling over a
+3.2× range, so the **5148** row is an extrapolation past it and is flagged per-row rather than
+presented with equal confidence.
+
+**The sentence that can no longer be written:** *"we preregister δ=0.01"* — without saying how many
+prompts that takes.

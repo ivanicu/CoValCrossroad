@@ -1,0 +1,102 @@
+{
+ "delta": 0.01,
+ "rows": [
+  {
+   "contrast": "agreement with human rankings (whole join)",
+   "half_width": 0.00931417952213015,
+   "n_current": 968,
+   "n_required": 839.7781408501364,
+   "multiple": 0.8675394017046864,
+   "kind": "single quantity",
+   "beyond_verified_range": false
+  },
+  {
+   "contrast": "agreement, two-way crossed",
+   "half_width": 0.010083508978992154,
+   "n_current": 968,
+   "n_required": 984.2348442287412,
+   "multiple": 1.016771533294154,
+   "kind": "single quantity",
+   "beyond_verified_range": false
+  },
+  {
+   "contrast": "attribution (whole join)",
+   "half_width": 0.012273756685615242,
+   "n_current": 968,
+   "n_required": 1458.2445987599895,
+   "multiple": 1.5064510317768487,
+   "kind": "single quantity",
+   "beyond_verified_range": false
+  },
+  {
+   "contrast": "attribution, two-way crossed",
+   "half_width": 0.01251559696221147,
+   "n_current": 968,
+   "n_required": 1516.2768196626043,
+   "multiple": 1.5664016732051698,
+   "kind": "single quantity",
+   "beyond_verified_range": false
+  },
+  {
+   "contrast": "long-form vs short-form attribution gap",
+   "half_width": 0.025959542634915463,
+   "n_current": 293,
+   "n_required": 1974.5207116750014,
+   "multiple": 6.7389785381399365,
+   "kind": "DIFFERENCE, limited by the smaller arm",
+   "beyond_verified_range": false
+  },
+  {
+   "contrast": "criterion-count channel bound",
+   "half_width": 0.023061556031007274,
+   "n_current": 968,
+   "n_required": 5148.166348410066,
+   "multiple": 5.318353665712879,
+   "kind": "DIFFERENCE",
+   "beyond_verified_range": true
+  }
+ ],
+ "worst_single_quantity_n": 1516.2768196626043,
+ "worst_difference_n": 5148.166348410066,
+ "feasibility_threshold": 5000,
+ "margin_from_threshold": 0.02963326968201327,
+ "label_is_knife_edge": true,
+ "ratio_single": 1.5664016732051698,
+ "ratio_difference": 5.318353665712879,
+ "current_join_n": 968,
+ "donor_share_of_attribution_variance": 0.2009518466526212,
+ "donor_averaging_lever": {
+  "1": {
+   "half": 0.012273756685615242,
+   "n_required": 1458.2445987599895
+  },
+  "10": {
+   "half": 0.011108552231151793,
+   "n_required": 1194.511348267162
+  },
+  "100": {
+   "half": 0.010985236256980627,
+   "n_required": 1168.138023217879
+  }
+ },
+ "prompts_saved_by_m100": 290.1065755421105,
+ "form_sensitivity": {
+  "long": {
+   "half": 0.022287202773789976,
+   "n": 293,
+   "n_required": 1455.3878639164927
+  },
+  "short": {
+   "half": 0.014745726409305403,
+   "n": 675,
+   "n_required": 1467.696019532086
+  }
+ },
+ "form_requirement_spread": 1.0084569590833825,
+ "verified_scaling_range_max_n": 3097.6000000000004,
+ "sqrt_n_worst_deviation_r89": 0.11502502469764508,
+ "world": "I INFEASIBLE -- KNIFE-EDGE, 3% from the threshold: the RATIOS are the finding, not the side of 5000",
+ "outcome_variable_scope": "Interval half-widths already published in this package, extrapolated under a scaling law verified in r89. No new measurement, no new data, no judge call.",
+ "scope": "This sizes PRECISION, not power: it says when an interval reaches +-0.01, not what effect would be detectable. It also assumes the estimator and protocol stay fixed -- a different donor construction or judge changes the half-width and therefore the requirement.",
+ "verdict": "I INFEASIBLE -- KNIFE-EDGE, 3% from the threshold: the RATIOS are the finding, not the side of 5000. Queue item 4 fixes delta=0.01, and three consecutive rounds could not reach it -- r86 fell back to 0.026, r87 to 0.0231, r90 reported a two-way crossed width instead. Item 7 asks for a PREREGISTRATION, and preregistering a margin without knowing the n that delivers it is how a non-result becomes indistinguishable from an underpowered one. Under half ~ 1/sqrt(n), which r89 VERIFIED rather than assumed (worst deviation 11.5% across three panel sizes): SINGLE QUANTITIES reach delta=0.01 by n=1516, only 1.6x the current join -- agreement is essentially there already. DIFFERENCES need n=5148, 5.3x, because a difference carries two intervals and therefore costs about 4x a level. THE FEASIBILITY LABEL IS KNIFE-EDGE AND MUST NOT BE QUOTED ALONE: the threshold of 5000 was fixed before the run but the result landed 3% from it, so which side it falls on is arbitrary. The durable findings are the RATIOS -- 1.6x the current join for a level, 5.3x for a difference -- and the fact that agreement's interval is ALREADY finer than 0.01 at the current n, which is a precision fact and NOT an equivalence claim. THE DESIGN LEVER: the donor draw is 20% of the attribution interval's variance and does NOT shrink by collecting prompts if the protocol keeps a single draw. Averaging over 100 draws costs compute rather than data and cuts the requirement from 1458 to 1168 prompts, a saving of 290. THE CONFOUND, WRITTEN BEFORE THE RUN: 1/sqrt(n) assumes new prompts are exchangeable, and this release is form-ordered with two protocols that differ. Computed per form, the requirement differs by 1.01x, so the extrapolation is stable across the two protocols actually observed. SCOPE OF THE EXTRAPOLATION: r89 verified the law over 300-968, a range of 3.2x. Requirements beyond n=3098 are extrapolations past that range and are flagged as such per row rather than presented with equal confidence. This round measures nothing new -- every input is a half-width already published here, and the round refuses to run if any is missing."
+}
