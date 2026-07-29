@@ -230,6 +230,62 @@ stopped attacking.
 
 ---
 
+## Entry 48 — a control is a claim about what does not matter, and I never tested it
+
+**What was published.** r41 concluded that criterion space does not explain r12: every
+novelty measure died, and the two that had looked significant — hull violation −0.1837
+and rank instability +0.1993 — dissolved once I partialled out the rubric's own score
+spread. The round was written up as a negative result whose value was closing a door.
+
+**What was wrong.** The variable I partialled out is not a nuisance imported from
+outside the question. *"The rubric separates the fresh responses less than it separated
+the originals"* is itself a criterion-space property — arguably the most basic one. I
+introduced it as a control, used it to kill two measures, printed its correlation with
+the drop as a bare **−0.2246** with no confidence interval, no permutation test and no
+length control, and then described the round as finding nothing.
+
+Given the same scrutiny as the measures it killed:
+
+| | |
+|---|---:|
+| spread loss → drop | **+0.2246** [+0.098, +0.344], p = 0.0007 |
+| length-controlled | **+0.2309** [+0.108, +0.341], p = 0.0010 |
+| correlation with generic embedding distance | **−0.056** |
+
+It is the **largest effect in the round**, and it is nearly orthogonal to the distance
+r40 measured — which is precisely the gap r41 existed to fill.
+
+**The control it demanded, run before publishing it.** A rubric that stops separating
+responses scores nearer chance, so its accuracy falls — but the attribution *subtracts*
+a donor rubric scored on the same responses, and if both arms degraded together the
+difference would not move. Both arms had been persisted:
+
+| | |
+|---|---:|
+| corr(own spread loss, donor spread loss) | +0.4509 |
+| **donor** spread loss → drop | −0.0351, p = 0.586 |
+| **own** spread loss → drop, donor partialled out | **+0.2693** [+0.154, +0.380], p = 0.0002 |
+
+They move together and only the own-rubric arm predicts the drop. Not mechanical.
+
+**Status: EXPLORATORY, and labelled so everywhere it appears** — in the generated
+verdict, in the README, and in a post-hoc addendum appended to the claim card. The card
+preregistered *novelty*; novelty is refuted and this does not rescue it. A post-hoc
+measure with a good p-value and no stated provenance reads exactly like a prediction,
+and that is the failure this register exists for.
+
+**The general lesson, which is new here.** Every earlier entry is a claim asserted
+beyond its evidence. This one is the opposite shape: **a claim asserted by omission.**
+Choosing a control is asserting that the controlled variable does not carry the effect
+— a substantive claim, made silently, tested never. Nothing in the checklist covered
+it, because the checklist was built to catch numbers that say too much, and a control
+says nothing at all.
+
+**How it was caught.** Not by an outsider. The ordered queue had emptied, and the only
+work left was attacking this session's own results — which is the one condition under
+which I have historically found my own defects: when there was nothing else to do
+except look.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
