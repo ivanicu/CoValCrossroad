@@ -1,0 +1,96 @@
+{
+ "n_comparisons": 80542,
+ "overall_agreement": 0.6860023341858906,
+ "n_bins": 10,
+ "bins": [
+  {
+   "decile": 1,
+   "lo": 0.000692684879354033,
+   "hi": 1.413795360922812,
+   "n": 8048,
+   "agreement": 0.5375248508946322
+  },
+  {
+   "decile": 2,
+   "lo": 1.413795360922812,
+   "hi": 2.7821616970002694,
+   "n": 8053,
+   "agreement": 0.5580528995405439
+  },
+  {
+   "decile": 3,
+   "lo": 2.7821616970002694,
+   "hi": 4.396410308778286,
+   "n": 8050,
+   "agreement": 0.5980124223602484
+  },
+  {
+   "decile": 4,
+   "lo": 4.396410308778286,
+   "hi": 6.232379189395644,
+   "n": 8060,
+   "agreement": 0.6126550868486352
+  },
+  {
+   "decile": 5,
+   "lo": 6.232379189395644,
+   "hi": 8.297285665757954,
+   "n": 8056,
+   "agreement": 0.6596325719960278
+  },
+  {
+   "decile": 6,
+   "lo": 8.297285665757954,
+   "hi": 10.918097486205042,
+   "n": 8051,
+   "agreement": 0.6945721028443672
+  },
+  {
+   "decile": 7,
+   "lo": 10.918097486205042,
+   "hi": 14.306784926716123,
+   "n": 8059,
+   "agreement": 0.7513339123960789
+  },
+  {
+   "decile": 8,
+   "lo": 14.306784926716123,
+   "hi": 18.937061580950804,
+   "n": 8041,
+   "agreement": 0.7726650914065415
+  },
+  {
+   "decile": 9,
+   "lo": 18.937061580950804,
+   "hi": 26.1354288475381,
+   "n": 8059,
+   "agreement": 0.817843404888944
+  },
+  {
+   "decile": 10,
+   "lo": 26.1354288475381,
+   "hi": 94.84746411304347,
+   "n": 8065,
+   "agreement": 0.8574085554866708
+  }
+ ],
+ "decile_1": 0.5375248508946322,
+ "decile_last": 0.8574085554866708,
+ "rise": 0.31988370459203863,
+ "monotone_steps": 9,
+ "point_biserial_r": 0.20714671840906748,
+ "shuffle": {
+  "n": 400,
+  "rise_ci95": [
+   -0.013647322127372206,
+   0.015088296938764092
+  ],
+  "max_monotone_steps": 7,
+  "observed_outside": true
+ },
+ "persisted_vector": "rounds/r102_margin_calibration/results/r102_margin_correct.npz",
+ "world": "C CALIBRATED",
+ "outcome_variable_scope": "Agreement with REAL HUMAN pairwise rankings, conditioned on the estimator's own weighted score gap. Satisfaction from r04's tensor; no new measurement.",
+ "scope": "Establishes that the margin PREDICTS correctness. Does NOT separate estimator calibration from item difficulty -- a large margin and an easy human judgement have a common cause, and no difficulty measure independent of the estimator exists in this release.",
+ "verdict": "C CALIBRATED. The package reports agreement with human rankings as one number, 0.6860, and every claim built on it treats the estimator as a single coin. Conditioned on the DECISION MARGIN the estimator itself produces -- the weighted-score gap `agree()` thresholds at zero and then discards -- it is not one coin. Across margin deciles agreement runs 0.5375 to 0.8574, a rise of +0.3199, with 9 of 9 steps non-decreasing and a point-biserial correlation of +0.2071. THE BOTTOM DECILE SITS AT 0.5375, near chance; THE TOP AT 0.8574. So the score's MAGNITUDE carries information and not only its sign, which is strictly stronger than the ordinal results this package already has. SHUFFLE CONTROL: permuting correctness against margin 400 times puts the rise in [-0.0136,+0.0151] and never produces more than 7 of 9 monotone steps; the observed rise is OUTSIDE that null, and the round refuses to report calibration otherwise. THE CONFOUND, WRITTEN BEFORE THE RUN AND NOT SOFTENED: margin is not independent of item difficulty. Two responses that differ wildly produce both a large margin and an easy human judgement, so this gradient may reflect EASINESS rather than the estimator knowing anything. What is established is that the margin PREDICTS correctness -- usable as a confidence signal regardless of which mechanism produces it -- not that the estimator is self-aware. Separating those needs an item-difficulty measure independent of the estimator, which this release does not carry."
+}

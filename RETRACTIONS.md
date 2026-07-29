@@ -7566,3 +7566,47 @@ the second closed with a control that arrived from the data rather than from a p
 **The residual, stated:** this bounds *numerical* confidence, not *statistical* confidence. A margin of
 8.3 says the estimator is not guessing; it says nothing about whether the satisfaction values it sums
 are right. That is r04's question and is unaffected by anything here.
+
+---
+
+## Entry 214 — the headline is not one coin: the estimator's confidence is calibrated, and `agree()` was throwing that away
+
+Entry 213 closed the numerical worry and named its own residual: *a large margin says the estimator is
+not guessing, and says nothing about whether it is right.* **That residual is answerable from the same
+data, and the answer changes what 0.686 means.**
+
+`agree()` computes a weighted-score gap, thresholds it at zero, and **discards it**. Kept and binned:
+
+| decile | margin range | n | agreement |
+|---:|---|---:|---:|
+| 1 | [0.00, 1.41) | 8,048 | **0.5375** |
+| 5 | [6.23, 8.30) | 8,056 | 0.6596 |
+| 10 | [26.14, 94.85) | 8,065 | **0.8574** |
+
+**9 of 9 steps non-decreasing**, rise **+0.3199**, corr(margin, correct) **+0.2071**.
+
+**So 0.686 is not a uniform 69% coin.** Its bottom decile is near chance and its top is 0.857 — the
+score's **magnitude** carries information, not only its sign, which is **strictly stronger than every
+ordinal result this package already had.**
+
+### The shuffle control is what makes it a finding
+
+400 permutations of correctness against margin put the rise in **[−0.0136, +0.0151]** and never produce
+more than **7 of 9** monotone steps. **Observed: +0.3199 with 9/9 — twenty times outside its own null**,
+and the round refuses to report calibration if it is not.
+
+### What it is not, stated before the run and not softened after
+
+**Margin is not independent of item difficulty.** Two responses that differ wildly produce both a large
+margin *and* an easy human judgement, so this gradient may reflect **easiness** rather than the
+estimator knowing anything. **What is established is that the margin PREDICTS correctness** — usable as
+a confidence signal whichever mechanism produces it — **not that the estimator is self-aware.**
+Separating those needs an item-difficulty measure independent of the estimator, and this release carries
+none.
+
+### Why this was worth doing after six audit axes came back clean
+
+Every recent thread confirmed the package's numbers were sound. **This one found something the package
+did not know about its own headline** — and it came from a quantity that existed inside the estimator
+all along and was discarded one line after being computed. **The audits established the numbers are
+right; this establishes one of them says more than was claimed.**
