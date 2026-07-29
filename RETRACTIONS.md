@@ -7311,3 +7311,46 @@ is exactly what two rounds of fixing my own checker bought.
 checker until the objects are read**, which is entry 187's lesson arriving for the fourth time, and the
 only reason it cost three passes instead of one bad conclusion is that I read the five before reporting
 them.
+
+---
+
+## Entry 208 — the reliability figures behind the frozen 8-rater protocol have no artifact, and "sourced by prose" was too generous
+
+Entry 207 classified the attenuation table as **"sourced by prose"** — the paragraph above it says the
+figures were *"measured directly on the released ratings for the original responses rather than
+assumed."* **Chasing that sentence to its object shows there is no object.**
+
+**`0.707` appears exactly once in the entire repository: in the preregistration table itself.** No round
+computed it, no results file stores it. The ledger's only attenuation table is a **different**
+measurement — r57's, on the attribution drop (reliability 0.302/0.422), not on human ratings.
+
+### Recomputed independently: close, but not reproduced
+
+Split-half over raters, 200 draws, Spearman–Brown, on the 937 prompts carrying ≥8 rating raters:
+
+| k raters/prompt | recomputed | stated | diff |
+|---:|---:|---:|---:|
+| 6 | 0.607 | 0.644 | −0.037 |
+| **8 — the frozen protocol** | **0.673** | **0.707** | **−0.034** |
+| 12 | 0.755 | 0.783 | −0.028 |
+
+**Same ordering, same shape, systematically 0.03–0.04 low** — a **methodological difference**
+(agreement statistic, prompt filter, tie handling), **not a fabrication.** And it **cannot be
+adjudicated**, because the code behind the stated figures does not exist.
+
+**What it threatens and what it does not.** It does **not** undermine the choice of 8 raters/prompt —
+both figures sit in the same range and the reasoning survives either. It **does** mean a number the
+frozen protocol is justified by is **an estimate with a provenance gap**, while the document called it a
+measurement. Annotated at the table itself, not only here.
+
+### My first reproduction was wrong and I nearly published it
+
+The first attempt returned **0.454 for all three k** — I had set the half-size to `k/2` for each k,
+making the Spearman–Brown lengthening factor exactly 2 every time. **That is arithmetic of mine, not
+evidence about the figure**, and reporting it would have claimed the values were unreproducible when the
+correct computation lands within 0.04. **The tell was in the output: three different k giving one
+identical number.**
+
+**Entry 207's lesson, one turn later and sharper:** *"sourced by prose"* was too generous a category. **A
+sentence claiming a measurement is not a source — it is a claim that a source exists**, and the only way
+to tell them apart is to go looking.
