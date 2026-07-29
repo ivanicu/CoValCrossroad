@@ -4736,3 +4736,39 @@ round reads it, so nothing downstream is contaminated. The two document mentions
 **What this does not touch.** r24's fatigue reading is frozen, and nothing above interprets fatigue —
 which block exists at which position is a fact about the data's shape, not about why raters behaved as
 they did.
+
+## Entry 156 — the release has two protocols, and r60's "not answerable" is structural rather than merely underpowered
+
+**Extending entry 155's method.** That entry counted one field by task position. Counting **all** of
+them, across the full 18,384 assessments:
+
+| field | coverage | present at |
+|---|---:|---|
+| `world` ranking | **100.00%** | every task |
+| `importance`, `representativeness`, `subjectivity` | **100.00%** | every task |
+| **`personal` ranking** | **26.66%** | positions 1–4 complete, 5 partial (887/990), **0 from 6** |
+| **`unacceptable` check** | **26.66%** | *the identical 4,901 assessments* |
+
+**The release has a long form and a short form.** `personal` and `unacceptable` appear on exactly the
+same 4,901 assessments — a rater's first ~5 tasks — and never again. Everything else is universal.
+That is a π-layer fact about the instrument, and nothing in eighty-five rounds had stated it.
+
+**What it does to r60.** That round asks which ordering the rubric follows when a participant's world
+and personal rankings disagree, and reports **INCONCLUSIVE**: δ=0.01 needs ~14,358 reversed pairs and
+the release holds 2,444. Its scope noted that the reversed-pair subset is *"selected by construction"*
+— but not that the **assessment** population is selected by task position.
+
+**So "not answerable from this release" is stronger than it read.** The missing pairs are not merely
+absent; **they were never collected**, because the question stopped being asked after task five. And
+the pairs that do exist come from a rater's **earliest** tasks — the same ones carrying the safety
+priming of the unacceptable check (entry 155). The contrast is confined to a primed, earliest-task
+subsample, and no amount of this release extends it.
+
+**Landed in the artifact, not only in prose.** r60 re-runs in three seconds, so it now stores a
+`personal_block_coverage` field and opens its scope with the population fact — following entry 141's
+rule that a limitation belongs where the round asserts its finding, not only where a reader might
+encounter it. The README row carries it too, and the suite is green, checked before committing.
+
+**What this does not claim.** Why the protocol changed after task five is not established here, and
+r24's fatigue reading stays frozen. Which fields exist at which positions is a fact about the data's
+shape; why the designers shortened the form is not in the release.

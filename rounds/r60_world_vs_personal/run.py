@@ -267,7 +267,29 @@ def main() -> None:
         "answerable_from_this_release_at_delta": None,
         "reachable_half_width_using_whole_release": None,
         "positive_control": pc,
-        "scope": ("Equal weights over CoVal-core, judge-scored satisfaction (r41's persisted tensor, "
+        # ⚠ POPULATION FACT ADDED 2026-07-29 (entry 156). This round can only ever
+        # run on assessments carrying BOTH a world and a personal ranking, and
+        # that is not a random subset of the release: `personal` is present on
+        # 4,901 of 18,384 assessments (26.66%) and on NONE past a rater's fifth
+        # task -- positions 1-4 complete, position 5 partial (887 of 990), zero
+        # from 6 onward. The same 4,901 carry the `unacceptable` block, so the
+        # release has a LONG form for early tasks and a SHORT form after.
+        #
+        # So the world-versus-personal question is structurally confined to a
+        # rater's EARLIEST tasks, which are also the only tasks carrying the
+        # safety priming of the unacceptable-content check. The shortage this
+        # round reports is therefore not merely a sample-size problem: more of
+        # this release cannot supply the missing pairs, because the question was
+        # not asked after task five.
+        "personal_block_coverage": {
+            "assessments_with_personal": 4901, "assessments_total": 18384,
+            "share": 4901 / 18384, "present_at_positions": "1-4 complete, 5 partial, 0 from 6",
+            "same_assessments_as_unacceptable_block": True},
+        "scope": ("POPULATION: assessments carrying both a world and a personal ranking exist only "
+                  "for a rater's first ~5 tasks -- 26.66% of the release, and the same subset that "
+                  "carries the unacceptable-content check. This contrast is confined to earliest, "
+                  "safety-primed tasks and no amount of this release can extend it. "
+                  "Equal weights over CoVal-core, judge-scored satisfaction (r41's persisted tensor, "
                   "reproduction control 1500/1500 exact). The rubric-induced ordering is the "
                   "JUDGE's, so a null is a statement about this judge on these criteria. The "
                   "reversed-pair subset is selected by construction: it is the pairs a participant "
