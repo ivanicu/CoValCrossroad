@@ -2780,6 +2780,39 @@ and this package now has twelve instruments and one demonstrated way of catching
 **Recording a check I did not build, with its measured miss rate**, because the alternative is
 building it, watching it flag 82 things, and adding it to the suite as evidence of diligence.
 
+## Entry 112 — the section explaining why to trust this package was the stalest text in it
+
+*"What is unusual here"* is where a reader goes to decide whether the apparatus is real. Every
+quantitative claim in it was wrong.
+
+| it said | actual |
+|---|---|
+| RETRACTIONS has **twelve entries** | **120** — 54 table rows, 66 written out, numbered to 111 |
+| `assurance/` freezes **thirteen claims** | **20** |
+| **four fail** | **6 fail**, 3 marginal, 11 hold |
+| a bullet list of controls ending at **r12** | 67 rounds exist |
+
+**Ten times understated on the first, and every number moved in the direction of a smaller, tidier
+package than the one that exists.** Not one of them was caught by any check, because no instrument in
+this repository reads the section where the repository describes itself — every check enumerates
+rounds, results, verdicts or watched documents, and this is prose about the *apparatus*.
+
+**And two adversary documents had drifted into one description.** `assurance/ADVERSARY_BRIEF.md` is
+the mandate — what to attack. `ADVERSARY_FORECAST.md` is the scoring sheet — six objections with
+probabilities committed before review. The section described the first as containing the second's
+contents. Both are now named with their distinct jobs, and the forecast's status is stated: **all six
+self-examined, all six excluded from the hit rate, and what matters is what a reviewer raises that is
+not on the list.**
+
+**The verify-before-assert practice is now written into that section**, next to the twelve checks,
+with the fact that it has a better record than they do on the entry-108/110 class and the measured
+evidence for that from entry 111. **It is written down because it is much easier to add a check than
+to keep a habit**, and a habit nobody recorded is one the next reader has no reason to keep.
+
+**The pattern this closes.** Entry 102 found that an enumeration over artifacts cannot see a missing
+artifact. This is the same blind spot one level up: **an apparatus that checks claims about the
+research cannot see claims about the apparatus.**
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

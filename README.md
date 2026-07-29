@@ -1193,8 +1193,9 @@ not from estimation noise, so no further computation narrows it.
 ## What is unusual here
 
 **[RETRACTIONS.md](RETRACTIONS.md) lists every claim this repository made and then killed.**
-Twelve entries; nine are a later round destroying an earlier round's conclusion, and in seven of
-those both rounds are mine. Read by round number this looks like a sequence of findings. It is not.
+**120 entries** — 54 as table rows, 66 written out, numbered to 111. Most are a later round
+destroying an earlier round's conclusion, and in every one of those both rounds are mine. Read by
+round number this looks like a sequence of findings. It is not.
 
 Every round carries its own null, and several of the killed claims are the author's own:
 
@@ -1207,12 +1208,24 @@ Every round carries its own null, and several of the killed claims are the autho
 - an independent-backbone control that retracted the author's own result (r11)
 - an out-of-distribution transfer test that scoped the repository's own headline (r12)
 
-**[assurance/ADVERSARY_BRIEF.md](assurance/ADVERSARY_BRIEF.md)** is what an independent challenger
-should be handed, including a pre-registered list of what I expect them to overturn — so their
-actual findings can be scored against my sense of my own work.
+**Two documents exist for the reviewer who has not read this**, and they do different jobs.
+[assurance/ADVERSARY_BRIEF.md](assurance/ADVERSARY_BRIEF.md) is the mandate — what to attack and what
+I most want checked. [ADVERSARY_FORECAST.md](ADVERSARY_FORECAST.md) is the scoring sheet: **six
+objections with probabilities, committed before any review**, so a challenger's findings measure my
+calibration rather than being absorbed into the text. All six have since been **self-examined and are
+excluded from the hit rate** — what will matter is what a reviewer raises that is **not on the list**.
 
-`assurance/` freezes thirteen claims against stated thresholds. **Four fail** — including the one that
-scopes this repository's own headline. An assurance package with no failures is not an assurance package.
+`assurance/` freezes **20 claims** against stated thresholds: **11 hold, 3 are marginal, 6 fail** —
+including the one that scopes this repository's own headline. **An assurance package with no failures
+is not an assurance package.** Twelve executable checks run beside it; their own defect histories are
+in RETRACTIONS, because a check that has never been wrong has never been tested.
+
+**And one thing that works is not an instrument at all.** The two most recent errors — a half-width
+taken from the wrong interval, a reliability applied to the wrong kind of predictor — were caught by
+**running the number before asserting it**, after twelve checks passed on both. Entry 111 measures a
+thirteenth check built for that class: it would have flagged 82 numbers and caught **neither**. The
+practice has a better record here than the apparatus, and it is written down because it is easier to
+add a check than to keep a habit.
 
 It also distinguishes `BROKEN_HARNESS` from `UNSUPPORTED`: when the repository was reorganised, every
 claim source moved and the manifest silently resolved them all to "unmeasured". A package that cannot
