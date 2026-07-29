@@ -139,6 +139,12 @@ CASES = [
     # flat: apply it, disclose it.
     ("seed_filter_is_disclosed", hide_rounds, 1,
      "rounds hidden -> 17 registry entries go stale: a DETECTED failure, not silence"),
+    # Entry 174. Its population is the DOCUMENTS, which hide_rounds does not touch, so
+    # it still finds all 257 links and reports them unresolvable -- a detected failure
+    # from a population it did not lose. It returns 2 only if a document has no round
+    # links at all, which is the genuine "nothing to check".
+    ("round_links_resolve", hide_rounds, 1,
+     "rounds hidden -> every one of the 257 links stops resolving: DETECTED, not silence"),
     # Entry 144: four checks had a _floor that had never been exercised THROUGH
     # THE CALLING PATH. Verifying a floor by calling it directly proves it raises
     # when handed a zero, not that the check ever hands it one -- which is exactly

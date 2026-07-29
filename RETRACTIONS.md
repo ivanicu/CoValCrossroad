@@ -5640,3 +5640,29 @@ tree; **6 links fixed, 0 broken remain.**
 
 **The sentence that can no longer be written:** *"criteria rated by a majority of the prompt's raters"*
 — as a methods aside, without saying that is 36.5% of them and the rest cannot be analysed at all.
+
+---
+
+## Entry 174 — the thing that caught the invented path was a command, not a guard
+
+Entry 173 found `rounds/r48_selection_partition` in six freshly-written README rows and fixed it. **The
+finding was made by a one-off shell command**, which protects nothing after the terminal scrolls.
+
+`assurance/round_links_resolve.py` makes it a gate: every `](rounds/…)` link in README, RETRACTIONS,
+PREREGISTRATION and FROZEN must resolve — directories for round links, files for deep links.
+**Currently 257 links across 4 documents, all resolving.**
+
+**Why a broken link is worse than a missing one.** It renders as ordinary text in most viewers, so a
+reader sees a citation and cannot tell it points nowhere. This package's convention is *pointer or D2*
+— every claim cites the object. **A pointer that does not resolve is the same defect as no pointer,
+wearing a citation's clothes.**
+
+**Proxy ledger.** PROPERTY: the link points at the round the sentence is about. PROXY: the path exists.
+**Missing ⇒ wrong is sound and is what it gates on; exists ⇒ right is NOT** — *a link to the wrong
+existing round resolves cleanly and this check cannot see it.* It reports unresolvable links and never
+certifies a resolving one as correct.
+
+**Attacked on two vectors, both caught:** an invented round name, and a deep link to a missing results
+file. Registered in `attack_the_suite` expecting **exit 1** — its population is the *documents*, which
+hiding the rounds does not remove, so it still finds all 257 links and reports them broken rather than
+falling silent. It returns 2 only when a document genuinely contains no round links. Suite **14/14**.
