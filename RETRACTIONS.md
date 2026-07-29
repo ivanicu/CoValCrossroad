@@ -3379,3 +3379,53 @@ the matcher would usually speak. This repository has a law about that for nulls 
 inadmissible until the instrument has passed a positive control* — and it had never been applied to
 **agreement** instruments, only to measurement ones. A check that says *"these numbers agree"* needs a
 chance-match null exactly as much as an ablation needs a positive control.
+
+## Entry 125 — eight checks had never been shown to fire; the harness that tested them made three false accusations first
+
+**The gap.** `attack_the_suite.py` covers one axis — empty the input, require exit 2. Three checks
+have dedicated attack scripts. That left **eight checks green with no evidence they can fire at all**.
+A check that has never said no is silent, not passing, and this repository has produced fourteen
+broken checks in a day, every one failing toward PASS.
+
+**The harness's own first version was wrong three times, which is the more useful half of this entry.**
+It reported three of six checks as never firing. All three were **bad plants**:
+
+| reported | actual cause |
+|---|---|
+| `code_states_a_bound…` never fires | the planted "unstated bound" used *donor, permutation, separate, uniform, contribution, absent* — README contains them **28, 7, 16, 5, 7 and 6** times. The bound *did* reach the reader. The check was right. |
+| `readme_row_carries_the_verdict` never fires | the plant stripped the first table row with a ⚠ — the **layer table's**, not a round's. The check maps rounds to rows by link and never tracked it. |
+| `results_match_their_code` never fires | it **did** detect the planted round and named it. It exits 0 **by design**: *"Not a gate… making this fail a build would push those edits toward not being made at all."* |
+
+Three false accusations, produced by a harness built to catch false passes. Two fixes followed, and
+they are the reason the file is worth keeping: **every plant now self-validates** (it proves it planted
+something the target check could care about, and reports `PLANT INVALID` rather than "check broken"),
+and **each check declares its contract** — `gate` (non-zero exit) or `report` (exit 0 by design; must
+*name* the planted item).
+
+**A third lesson, found while fixing the second.** The corrected verdict plant *still* failed until a
+trailing clause was removed. `readme_row_carries_the_verdict` scores **vocabulary overlap** between a
+limitation sentence and the README row; the words `control` and `run` already appear in that row, so
+appending *"and no isotonic control was run"* pushed the overlap over threshold and the row counted as
+carrying a limitation it does not carry. **Adding words to a plant can weaken it.** A plant must be as
+lexically foreign as the defect is.
+
+**Result: 4 of 6 fire.** `every_round_reaches_the_readme`, `retired_framing_in_assertion_positions`,
+`corrections_propagated` and `readme_row_carries_the_verdict` each exit non-zero on their planted
+defect and cleanly on restore. Working tree verified clean by `git diff --quiet` after every run —
+a plant surviving its restore would be worse than any check being tested.
+
+**Two do not, and for different reasons.**
+
+1. `code_states_a_bound_the_reader_never_sees` — **zero recall on a valid plant.** A bound stated in a
+   round's source using vocabulary appearing nowhere in README produced no flag. This is consistent
+   with what the check already documents about itself: *"PRECISION ON THIS CORPUS: 0 of 13 — all
+   current flags were triaged and are false positives."* It now has a measured recall to match its
+   measured precision, and both are zero.
+2. `results_match_their_code` — **saturated.** It names **71 of 72 rounds** on a clean tree. A report
+   whose population is that saturated cannot signal anything by naming one more; no plant is
+   detectable against that background. Same shape as entry 124's 94% chance-match rate, reached by a
+   different route.
+
+**What is NOT established.** That a firing check catches *every* instance of its defect. That is
+recall across the defect space, and it is unmeasured for all six. What is established is the prior
+question, which had no answer either way: **does this check ever say no?**
