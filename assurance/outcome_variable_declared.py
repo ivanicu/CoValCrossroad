@@ -61,6 +61,19 @@ def strings(doc, path=""):
         yield path, doc
 
 
+def _floor(n: int, what: str) -> int:
+    """Refuse to report success on an empty observation (entry 63/64).
+
+    "Nothing outstanding" and "nothing observed" are different states, and every
+    check in this package returned 0 for both. A check whose population is empty
+    has measured nothing; that is exit 2, distinct from pass (0) and fail (1).
+    """
+    if n == 0:
+        print(f"\nOBSERVED NOTHING: {what} is empty. This is exit 2, not success -- "
+              f"a check with no population has not passed, it has not run.")
+        return 2
+    return 0
+
 def main() -> int:
     rows, flagged = [], []
     for d in sorted(_ROOT.glob("rounds/*/")):
@@ -97,6 +110,9 @@ def main() -> int:
             "  (no results files)" if nres == 0 else "")
         print(f"  {name:34s} human_rankings={'yes' if human else 'NO ':3s} {tag}{extra}")
 
+    floor = _floor(len(rows), "the set of rounds evaluating against the gold head")
+    if floor:
+        return floor
     if not flagged:
         print("\nEvery gold-scored round declares its outcome.")
         print("  This says nothing about whether those declarations are ACCURATE or "

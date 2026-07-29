@@ -136,6 +136,19 @@ def claim_strings(doc, path=""):
         yield path, doc
 
 
+def _floor(n: int, what: str) -> int:
+    """Refuse to report success on an empty observation (entry 63/64).
+
+    "Nothing outstanding" and "nothing observed" are different states, and every
+    check in this package returned 0 for both. A check whose population is empty
+    has measured nothing; that is exit 2, distinct from pass (0) and fail (1).
+    """
+    if n == 0:
+        print(f"\nOBSERVED NOTHING: {what} is empty. This is exit 2, not success -- "
+              f"a check with no population has not passed, it has not run.")
+        return 2
+    return 0
+
 def main() -> int:
     # ** rather than * : an attack put a results file one directory deeper and
     # the flat glob never saw it.  A checker's population must be the files
@@ -172,6 +185,9 @@ def main() -> int:
         for why, cnt in sorted(excluded.items()):
             print(f"    {cnt:6d}  {why}")
         print("    ^ a claim written inside these paths would be INVISIBLE here")
+    floor = _floor(scanned, "the set of results files scanned")
+    if floor:
+        return floor
     if not hits:
         print("NO LISTED PHRASE FOUND.")
         print("  This is NOT a certificate that no withdrawn framing is asserted -- the "

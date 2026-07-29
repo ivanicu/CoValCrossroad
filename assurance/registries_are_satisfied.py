@@ -51,6 +51,19 @@ def carries(path: Path, marker: str) -> bool:
         return False
 
 
+def _floor(n: int, what: str) -> int:
+    """Refuse to report success on an empty observation (entry 63/64).
+
+    "Nothing outstanding" and "nothing observed" are different states, and every
+    check in this package returned 0 for both. A check whose population is empty
+    has measured nothing; that is exit 2, distinct from pass (0) and fail (1).
+    """
+    if n == 0:
+        print(f"\nOBSERVED NOTHING: {what} is empty. This is exit 2, not success -- "
+              f"a check with no population has not passed, it has not run.")
+        return 2
+    return 0
+
 def main() -> int:
     problems = []
 
@@ -157,6 +170,9 @@ def main() -> int:
 
     print(f"\nregistry entries checked: freeze {len(FROZEN)}, "
           f"outcome-scope {len(declarers)}")
+    floor = _floor(len(FROZEN) + len(declarers), "the registries being checked")
+    if floor:
+        return floor
     if not problems:
         print("Every artifact entitled to an annotation carries it.")
         print("  Carried is not correct, and not prominent -- this flags omission only.")

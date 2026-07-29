@@ -963,6 +963,37 @@ status field, so column order cannot fool it, and it **returns exit 2 — not su
 matches no task at all**, because that is precisely the state this entry is about. Both behaviours
 are positive-controlled above rather than asserted.
 
+## Entry 64 — every check in this package returned success on an empty observation
+
+Entry 63's corollary was stated as a rule: *a check reporting "nothing outstanding" must be able to
+distinguish nothing outstanding from nothing observed.* I wrote that about a shell loop and did not
+apply it to the six checks in `assurance/`.
+
+**Tested, not read.** Emptying `MANIFEST.json`'s claim list and running the delivery check:
+
+```
+claims in manifest: 0   carrying a scope clause: 0
+reproduced verbatim in ASSURANCE.md: 0
+Every claim statement reaches the document in full.        exit 0
+```
+
+A check built two turns earlier **specifically to catch delivery failures** passed on a manifest
+containing nothing. The same defect was present in `every_round_reaches_the_readme`,
+`no_withdrawn_framings`, `outcome_variable_declared` and `registries_are_satisfied` — five of six.
+
+**The one exception is instructive.** `registries_are_satisfied` already treats a registry entry
+with no inspectable files as a **loud failure**, because entry 60 forced that design. It got the
+per-entry case right and still returned 0 if the registry itself were empty. Getting the principle
+right in one place does not propagate it.
+
+**Fixed** with a shared `_floor(n, what)` in each: an empty population now returns **exit 2**,
+distinct from pass (0) and fail (1), printing *"a check with no population has not passed, it has
+not run."* Verified by re-running the emptied-manifest control: **exit 0 → exit 2**.
+
+**Why this matters more than the individual bugs.** Six checks, six turns, each written to catch
+the previous one's failure — and all six shared a defect that any one of them would have caught if
+pointed at itself. The suite was never tested against the state it exists to detect: **absence.**
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

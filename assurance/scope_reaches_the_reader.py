@@ -48,6 +48,19 @@ def norm(s: str) -> str:
     return re.sub(r"\s+", " ", s).strip()
 
 
+def _floor(n: int, what: str) -> int:
+    """Refuse to report success on an empty observation (entry 63/64).
+
+    "Nothing outstanding" and "nothing observed" are different states, and every
+    check in this package returned 0 for both. A check whose population is empty
+    has measured nothing; that is exit 2, distinct from pass (0) and fail (1).
+    """
+    if n == 0:
+        print(f"\nOBSERVED NOTHING: {what} is empty. This is exit 2, not success -- "
+              f"a check with no population has not passed, it has not run.")
+        return 2
+    return 0
+
 def main() -> int:
     if not MANIFEST.exists() or not DOC.exists():
         print("  ! manifest or document missing -- run assurance/manifest.py first")
@@ -75,6 +88,9 @@ def main() -> int:
     print(f"claims in manifest: {len(man.get('claims', []))}   "
           f"carrying a scope clause: {scoped}")
     print(f"reproduced verbatim in ASSURANCE.md: {delivered}")
+    floor = _floor(len(man.get("claims", [])), "the manifest's claim list")
+    if floor:
+        return floor
     if not missing:
         print("\nEvery claim statement reaches the document in full.")
         print("  Present is not the same as legible or prominent -- this check flags "

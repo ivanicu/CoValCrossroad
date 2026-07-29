@@ -32,6 +32,19 @@ from pathlib import Path
 _ROOT = Path(__file__).resolve().parents[1]
 
 
+def _floor(n: int, what: str) -> int:
+    """Refuse to report success on an empty observation (entry 63/64).
+
+    "Nothing outstanding" and "nothing observed" are different states, and every
+    check in this package returned 0 for both. A check whose population is empty
+    has measured nothing; that is exit 2, distinct from pass (0) and fail (1).
+    """
+    if n == 0:
+        print(f"\nOBSERVED NOTHING: {what} is empty. This is exit 2, not success -- "
+              f"a check with no population has not passed, it has not run.")
+        return 2
+    return 0
+
 def main() -> int:
     readme = (_ROOT / "README.md").read_text()
     rounds = sorted(d for d in (_ROOT / "rounds").iterdir()
@@ -49,6 +62,9 @@ def main() -> int:
 
     print(f"rounds with a non-smoke result: {with_results}")
     print(f"named in README.md: {with_results - len(missing)}")
+    floor = _floor(with_results, "the set of rounds with a non-smoke result")
+    if floor:
+        return floor
     if not missing:
         print("\nEvery completed round reaches the README.")
         print("  Named is not the same as accurately summarised -- this flags omission "
