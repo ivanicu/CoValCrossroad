@@ -1,0 +1,67 @@
+{
+ "samples": {
+  "r12 (discovery)": {
+   "corr_gold_length_original": 0.07696957692176047,
+   "corr_gold_length_fresh": 0.45794476639650183,
+   "abs_corr_gold_length_original": 0.6156267408862587,
+   "abs_corr_gold_length_fresh": 0.6913784150599679,
+   "abs_corr_null_for_n": 0.5006600386014592,
+   "abs_corr_excess_original": 0.11496670228479944,
+   "abs_corr_excess_fresh": 0.19071837645850864,
+   "wordcount_sd_original": 10.190150006771924,
+   "wordcount_sd_fresh": 34.3972536283999,
+   "attribution_original_raw": [
+    0.102,
+    0.07266666666666666,
+    0.13143333333333335
+   ],
+   "attribution_fresh_raw": [
+    -0.064,
+    -0.09468333333333334,
+    -0.03333333333333333
+   ],
+   "attribution_original_residualised": [
+    0.052666666666666674,
+    0.02128333333333333,
+    0.08006666666666669
+   ],
+   "attribution_fresh_residualised": [
+    -0.03066666666666666,
+    -0.050699999999999995,
+    -0.006633333333333324
+   ],
+   "inversion_raw": 0.16599999999999998,
+   "inversion_residualised": 0.08333333333333334,
+   "share_surviving": 0.5020080321285142,
+   "noise_control": {
+    "original": 0.10066666666666667,
+    "fresh": -0.048,
+    "passed": true
+   },
+   "proxy_validation_on_original": {
+    "n": 250,
+    "gold": [
+     0.102,
+     0.07398333333333333,
+     0.1300666666666667
+    ],
+    "human": [
+     0.0876039172320385,
+     0.06873112244701933,
+     0.10639634167887876
+    ],
+    "human_minus_gold": [
+     -0.014396082767961517,
+     -0.037949139385067054,
+     0.009660590082921321
+    ],
+    "differ": false,
+    "per_prompt_corr": 0.6029075301425432
+   }
+  }
+ },
+ "n_samples": 1,
+ "verdict": "ROUGHLY HALF THE INVERSION IS CARRIED BY THE GOLD PROXY'S LENGTH CHANNEL: 50% of it survives residualising gold on within-prompt word count. This is a SHARE, not a verdict -- it is near enough to half that no binary reading is licensed, and the earlier draft of this round would have branched on it at 0.5. The ORIGINAL-set advantage keeps 52% of its size under the same treatment, so the loss is NOT specific to the fresh comparison (difference +1%) -- length is load-bearing in both, which is itself a scope fact about the proxy. gold-length correlation moves +0.381 in signed mean between the released candidates and generated ones. THE ASYMMETRY THAT MATTERS: the proxy can only be validated against human rankings on the ORIGINAL arm, because the release contains no human rankings for generated responses -- so it is validated exactly where its length channel is WEAKEST and applied where that channel is strongest. CONSEQUENCE EITHER WAY: r12 cannot be cited as evidence of rubric transport failure without recording response length, and H_fresh must collect it. ONE SAMPLE ONLY -- r46 persisted no satisfaction tensor, so this carries exactly the weakness that killed the spread-loss effect and is not established until it runs on the held-out set",
+ "gold_head_note": "r08's gold head is hstack([embedding, [char_len, word_len]]) @ w with char-length |w| = 0.2085 against a mean embedding weight of 0.0620 -- length is an explicit feature, not an incidental correlate",
+ "scope": "Length is not a nuisance by definition: a longer answer is often genuinely better, so residualising it removes real signal along with any artifact. A shrinking inversion shows the inversion is CARRIED BY the length-aligned component, which is weaker than showing it is spurious. Human preference on these responses is unobserved."
+}

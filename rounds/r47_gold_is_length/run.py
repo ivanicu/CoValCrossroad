@@ -33,6 +33,23 @@ _RES = _HERE / "results"
 sys.path.insert(0, str(_ROOT))
 
 
+def null_abs_r(n: int, rng, reps: int = 40000) -> float:
+    """E|r| between two INDEPENDENT n-vectors.
+
+    At n = 4 this is ~0.50, so any raw |r| near 0.6 is mostly the sample size.
+    A magnitude reported without this floor invites exactly the reading the
+    first draft of this round produced.
+    """
+    a = rng.normal(size=(reps, n))
+    b = rng.normal(size=(reps, n))
+    a = a - a.mean(1, keepdims=True)
+    b = b - b.mean(1, keepdims=True)
+    num = (a * b).sum(1)
+    den = np.sqrt((a ** 2).sum(1) * (b ** 2).sum(1))
+    ok = den > 1e-12
+    return float(np.abs(num[ok] / den[ok]).mean())
+
+
 def within_prompt_resid(gold: np.ndarray, x: np.ndarray) -> np.ndarray:
     """Regress gold on x within each prompt; return the residual ordering."""
     out = np.empty_like(gold)
@@ -94,10 +111,81 @@ def load_sample(tag, sat_npz, gen_json, means):
             "wl_o": wl_o, "wl_f": wl_f}
 
 
+def human_validation(pids, real, shuf, gold, comparisons, rubrics, rng, reps):
+    """Attribution against GOLD vs against the released HUMAN rankings.
+
+    Only possible on the ORIGINAL candidates -- the release contains no human
+    rankings for generated responses, which is the whole reason a proxy is used
+    on the fresh set.  So the proxy can be validated exactly where it is least
+    length-driven, and is then applied where it is most length-driven.  That
+    asymmetry is the point of computing this.
+    """
+    from covalx import load_join, parse_ranking
+    LAB = ["A", "B", "C", "D"]
+
+    def ipairs(asm):
+        w = (asm.get("ranking_blocks") or {}).get("world") or []
+        if not w:
+            return []
+        r = parse_ranking(w[0].get("ranking", ""))
+        flat = [(l, gi) for gi, g in enumerate(r) for l in g]
+        return [(x, y) for x, gx in flat for y, gy in flat if gx < gy]
+
+    want = set(pids)
+    human = {}
+    for pid, comp, _rub in load_join(comparisons, rubrics):
+        if pid not in want:
+            continue
+        prs = [pr for asm in comp["metadata"]["assessments"] for pr in ipairs(asm)]
+        if prs:
+            human[pid] = prs
+    idx = {p: i for i, p in enumerate(pids)}
+
+    def a_gold(sc, k):
+        ok = tot = 0
+        for x, y in combinations(range(4), 2):
+            if gold[k, x] == gold[k, y]:
+                continue
+            tot += 1
+            ok += int((sc[k, x] > sc[k, y]) == (gold[k, x] > gold[k, y]))
+        return ok / tot if tot else np.nan
+
+    def a_human(sc, k, prs):
+        ok = tot = 0
+        for x, y in prs:
+            ix, iy = LAB.index(x), LAB.index(y)
+            if sc[k, ix] == sc[k, iy]:
+                continue
+            tot += 1
+            ok += int(sc[k, ix] > sc[k, iy])
+        return ok / tot if tot else np.nan
+
+    ag, ah = [], []
+    for pid, prs in human.items():
+        k = idx[pid]
+        g = a_gold(real, k) - a_gold(shuf, k)
+        h = a_human(real, k, prs) - a_human(shuf, k, prs)
+        if np.isfinite(g) and np.isfinite(h):
+            ag.append(g)
+            ah.append(h)
+    if len(ag) < 30:
+        return None
+    ag, ah = np.array(ag), np.array(ah)
+    mg, lg, hg = boot_mean(ag, rng, reps)
+    mh, lh, hh = boot_mean(ah, rng, reps)
+    md, ld, hd = boot_mean(ah - ag, rng, reps)
+    return {"n": len(ag), "gold": [mg, lg, hg], "human": [mh, lh, hh],
+            "human_minus_gold": [md, ld, hd],
+            "differ": bool(ld > 0 or hd < 0),
+            "per_prompt_corr": float(np.corrcoef(ag, ah)[0, 1])}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=_RES / "r47_gold_is_length.json")
     ap.add_argument("--boot", type=int, default=4000)
+    ap.add_argument("--comparisons", type=Path, default=_ROOT / "data/comparisons.jsonl")
+    ap.add_argument("--rubrics", type=Path, default=_ROOT / "data/conversation_rubrics.jsonl")
     ap.add_argument("--smoke", action="store_true")
     a = ap.parse_args()
     if a.smoke:
@@ -106,6 +194,11 @@ def main() -> None:
         print("*** SMOKE -- must never reach the README ***")
     rng = np.random.default_rng(20260728)
 
+    receipts = {
+        "r12 (discovery)": _ROOT / "rounds/r41_criterion_support/results/"
+                                   "r41_satisfaction_qwen2b_receipt.json",
+        "r46 (held out)": _ROOT / "rounds/r41_criterion_support/results/"
+                                  "r46_satisfaction_receipt.json"}
     samples = [load_sample(
         "r12 (discovery)",
         _ROOT / "rounds/r41_criterion_support/results/r41_satisfaction_qwen2b.npz",
@@ -139,10 +232,36 @@ def main() -> None:
         # beside it.  Residualisation responds to magnitude, not to the sign.
         print(f"  within-prompt corr(gold, word count)   original {np.nanmean(c_o):+.4f}   "
               f"fresh {np.nanmean(c_f):+.4f}")
+        # |r| MUST be read against its own null.  With four responses per prompt,
+        # two INDEPENDENT vectors already give E|r| ~ 0.50, so a raw |r| of 0.62
+        # is mostly the sample size.  The first draft reported these magnitudes
+        # bare and they read as though gold were a length detector in BOTH sets;
+        # half of that was n = 4.
+        nullr = null_abs_r(S["gold_o"].shape[1], rng)
         print(f"  ...same, in MAGNITUDE |r|              original "
-              f"{np.nanmean(np.abs(c_o)):.4f}   fresh {np.nanmean(np.abs(c_f)):.4f}")
+              f"{np.nanmean(np.abs(c_o)):.4f}   fresh {np.nanmean(np.abs(c_f)):.4f}"
+              f"   (null for n={S['gold_o'].shape[1]}: {nullr:.4f})")
+        print(f"  ...EXCESS over that null               original "
+              f"{np.nanmean(np.abs(c_o)) - nullr:+.4f}   fresh "
+              f"{np.nanmean(np.abs(c_f)) - nullr:+.4f}"
+              f"   <- the SIGNED shift is the interpretable one; |r| is mostly n")
         print(f"  within-prompt word-count sd (mean)     original "
               f"{S['wl_o'].std(axis=1).mean():.1f}   fresh {S['wl_f'].std(axis=1).mean():.1f}")
+
+        # PROXY VALIDATION, only possible on the ORIGINAL arm.
+        rp = receipts.get(tag)
+        if rp and Path(rp).exists():
+            pids = [c["pid"] for c in json.loads(Path(rp).read_text())["criteria"]]
+            hv = human_validation(pids, S["real_o"], S["shuf_o"], S["gold_o"],
+                                  a.comparisons, a.rubrics, rng, a.boot)
+            if hv:
+                print(f"  proxy check on ORIGINAL: gold {hv['gold'][0]:+.4f} vs human "
+                      f"{hv['human'][0]:+.4f}   diff {hv['human_minus_gold'][0]:+.4f} "
+                      f"[{hv['human_minus_gold'][1]:+.4f},{hv['human_minus_gold'][2]:+.4f}]"
+                      f" -> {'DIFFER' if hv['differ'] else 'indistinguishable'}"
+                      f"   per-prompt r={hv['per_prompt_corr']:+.3f}")
+        else:
+            hv = None
 
         base_o = attribution(S["real_o"], S["shuf_o"], S["gold_o"])
         base_f = attribution(S["real_f"], S["shuf_f"], S["gold_f"])
@@ -191,6 +310,9 @@ def main() -> None:
             "corr_gold_length_fresh": float(np.nanmean(c_f)),
             "abs_corr_gold_length_original": float(np.nanmean(np.abs(c_o))),
             "abs_corr_gold_length_fresh": float(np.nanmean(np.abs(c_f))),
+            "abs_corr_null_for_n": nullr,
+            "abs_corr_excess_original": float(np.nanmean(np.abs(c_o))) - nullr,
+            "abs_corr_excess_fresh": float(np.nanmean(np.abs(c_f))) - nullr,
             "wordcount_sd_original": float(S["wl_o"].std(axis=1).mean()),
             "wordcount_sd_fresh": float(S["wl_f"].std(axis=1).mean()),
             "attribution_original_raw": [m_o, lo_o, hi_o],
@@ -200,6 +322,7 @@ def main() -> None:
             "inversion_raw": inv_raw, "inversion_residualised": inv_res,
             "share_surviving": (inv_res / inv_raw) if abs(inv_raw) > 1e-9 else float("nan"),
             "noise_control": {"original": cm_o, "fresh": cm_f, "passed": ctrl_ok},
+            "proxy_validation_on_original": hv,
         }
         print()
 
@@ -240,9 +363,13 @@ def main() -> None:
            if abs(selective) < 0.15 else
            f"specific to the fresh comparison (difference {selective:+.0%})")
         + f". gold-length correlation moves {np.nanmean(lifts):+.3f} in signed mean between "
-          f"the released candidates and generated ones. CONSEQUENCE EITHER WAY: r12 cannot "
-          f"be cited as evidence of rubric transport failure without recording response "
-          f"length, and H_fresh must collect it")
+          f"the released candidates and generated ones. THE ASYMMETRY THAT MATTERS: the "
+          f"proxy can only be validated against human rankings on the ORIGINAL arm, "
+          f"because the release contains no human rankings for generated responses -- so "
+          f"it is validated exactly where its length channel is WEAKEST and applied where "
+          f"that channel is strongest. CONSEQUENCE EITHER WAY: r12 cannot be cited as "
+          f"evidence of rubric transport failure without recording response length, and "
+          f"H_fresh must collect it")
     if len(samples) == 1:
         verdict += (". ONE SAMPLE ONLY -- r46 persisted no satisfaction tensor, so this "
                     "carries exactly the weakness that killed the spread-loss effect and "
