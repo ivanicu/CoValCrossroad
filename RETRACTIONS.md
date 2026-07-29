@@ -1117,6 +1117,36 @@ unbuildable because 36 rounds share no status grammar — which is true. But the
 rows found a withdrawn framing in the project's headline summary within minutes. **Unbuildable as an
 automated check is not the same as not worth doing**, and I had let the first stand for the second.
 
+## Entry 67 — the layer table's other three rows, audited: two more omissions, both toward "more settled"
+
+Entry 66 audited the **R** and **J** rows and found a withdrawn framing. The remaining three,
+checked the same way — reading each cited round's own verdict rather than its numbers:
+
+**π — correct.** r48's *"IDENTIFIED, NOT PROXIED… 18 of 15,248 (0.1%)"* and r35's *"ROBUST TO
+POST-HOC CRITERION ABSTENTION"* both say what the row says.
+
+**P — omitted r42's own qualifier.** The row said the population contrasts are *"equivalent to zero
+at δ = 0.01 rather than merely non-significant"*. r42's verdict ends: *"supported at this stipulated
+margin **and at no other**"* — and its sweep is **12/21 equivalent at 0.01, 7/21 at 0.005, 4/21 at
+0.0025**. A reader of the row would take the equivalence as a property of the data; it is a property
+of the data *and a margin I chose*. Now stated inline.
+
+**Q — understated its own round.** The row said the gold head "reads length (+0.077 → +0.458)".
+r47's headline is stronger and cuts the other way: **roughly half the inversion rides on that
+channel** — 57% survives residualisation against the procedure's own null, and on held-out prompts
+the fresh arm **stops being negative** once length is removed (`fresh_still_inverted_after_length`
+is `True, False` across the two samples). So *"the advantage does not transfer"* replicates and
+*"an unrelated rubric beats it"* does not. Omitting that made the transport failure look more solid
+than r47 supports.
+
+**The direction is the finding.** Both omissions ran toward *more settled than the evidence*. Not a
+number wrong anywhere — the numbers were verified before the table shipped. What was missing each
+time was **the qualifier the round itself had already written**, which is the same defect as entries
+51, 57, 59 and 66, now inside a table built to prevent exactly that.
+
+**Five rows audited, three defective.** The hand audit cost minutes and found more than any
+automated check in this package has.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
