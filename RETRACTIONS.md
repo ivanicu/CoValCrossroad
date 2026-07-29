@@ -6467,3 +6467,16 @@ field name. `delta` and `delta_hat` were one keystroke apart and one of them was
 
 **Still open, and now smaller:** 27 UNVERIFIED, of which r87's 3 and r96's 3 are **structurally**
 unverifiable (pooled ratios, entry 188's addendum) and the rest are unclassified.
+
+**⚠ Addendum to entry 189 — the generated index cannot be clean, and chasing it is a treadmill.**
+`ASSURANCE.md` and `MANIFEST.json` embed `generated_utc` **and the current `HEAD` hash**. So committing
+them changes the hash they are supposed to contain: regenerate → commit → the file now records the
+*previous* HEAD → regenerate → commit. **A fixed point that does not exist.**
+
+Verified rather than assumed: after the commit that stored them, re-running `manifest.py` produced a
+diff of **1 line in ASSURANCE.md and 2 in MANIFEST.json — the timestamp and the hash, nothing else.**
+
+**So the rule is: regenerate and commit when a round's CONTENT changed, and restore rather than commit
+when the only diff is provenance metadata.** Three turns of "the index went stale again" were partly
+real content and partly this treadmill, and I did not separate them until I read the diff instead of
+the status line. *`git status` says a file changed; only `git diff` says whether anything did.*
