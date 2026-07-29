@@ -27,6 +27,16 @@ VECTORS = [
      "v5.json", {"verdict": "the value carrying share of the headline shrinks"}),
 ]
 
+# Vectors that are EXPECTED to be missed, because the checker's declared payload
+# exclusions make them invisible.  They are run anyway so the gap is measured on
+# every attack rather than remembered from a docstring, and a MISS here is the
+# documented behaviour -- a CATCH would mean the exclusions stopped working and
+# the false positives on generated text are back.
+KNOWN_GAPS = [
+    ("6 claim hidden inside a declared payload field",
+     "v6_generations.json", {"fresh": [["core launders polarity into the text"]]}),
+]
+
 
 def run():
     r = subprocess.run([PY, "assurance/no_withdrawn_framings.py"],
@@ -52,11 +62,30 @@ def main():
                 print(f"      planted: {json.dumps(doc)[:100]}")
     finally:
         shutil.rmtree(TMP.parent, ignore_errors=True)
+    gaps = []
+    try:
+        for name, rel, doc in KNOWN_GAPS:
+            shutil.rmtree(TMP.parent, ignore_errors=True)
+            p = TMP / rel
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text(json.dumps(doc, indent=1))
+            rc, out = run()
+            caught = rc == 1
+            gaps.append((name, caught))
+            print(f"  {'CAUGHT ' if caught else 'MISSED  (expected)'} {name}")
+    finally:
+        shutil.rmtree(TMP.parent, ignore_errors=True)
+
     rc, out = run()
     print(f"\n  cleanup verified: repo scan back to exit {rc}")
     n = sum(c for _, c in results)
     print(f"\n{n}/{len(results)} vectors caught")
-    return 0 if n == len(results) else 1
+    print(f"{sum(1 for _, c in gaps if not c)}/{len(gaps)} KNOWN GAPS still open, as "
+          f"documented -- a claim inside a declared payload path is invisible")
+    # A caught known-gap means the payload exclusions stopped applying, which
+    # brings back the false positives on generated text that made the check
+    # unusable.  That is a failure too, in the other direction.
+    return 0 if (n == len(results) and not any(c for _, c in gaps)) else 1
 
 
 if __name__ == "__main__":

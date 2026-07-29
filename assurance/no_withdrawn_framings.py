@@ -64,9 +64,38 @@ _ROOT = Path(__file__).resolve().parents[1]
 # direction -- it can flag, it can never clear -- so the extra flags are paid
 # for by an explicit, reasoned allowlist below rather than by narrowing what is
 # looked at.
-ALLOW = {
-    # (file suffix, json path, phrase) -> why this occurrence is legitimate
-}
+# PAYLOAD FIELDS -- quoted data, not claims this repository makes.
+#
+# Widening the scan to every string was right (a field whitelist had missed real
+# cases), but results files also carry MODEL OUTPUT and DATASET TEXT, and a
+# generated response that happens to discuss "money laundering" is not this
+# repository asserting anything.  That fired on r46's saved generations.
+#
+# Re-adding a claim-field whitelist would restore the hole the widening closed.
+# So instead: an enumerated list of PAYLOAD paths, each with a reason, PRINTED
+# on every run.  This is bounded leniency -- the exclusions are visible, finite
+# and justified, rather than a silent narrowing of what gets looked at.
+#
+# THE GAP THIS LEAVES, stated because an unstated gap is a false acquittal: a
+# claim written INSIDE one of these paths is invisible to this check.  The
+# attack suite has a vector for exactly that, and it is recorded as a KNOWN
+# ACCEPTED GAP rather than as a pass.
+PAYLOAD = [
+    (r"generations\.json$", ("original", "fresh"),
+     "verbatim model output and released response text"),
+    (r"r45_frozen_frame\.json$", ("prompts",),
+     "the frozen human-experiment payload: prompt and response text plus hashes"),
+    (r"_receipt\.json$", ("criteria",),
+     "verbatim CoVal criterion text, quoted from the release"),
+]
+
+
+def payload_rule(relpath: str, jpath: str):
+    """Return the matching payload rule, or None."""
+    for rx, roots, why in PAYLOAD:
+        if re.search(rx, relpath) and jpath.split(".")[0].split("[")[0] in roots:
+            return (rx, roots, why)
+    return None
 
 # (regex, what was withdrawn and what replaced it)
 WITHDRAWN = [
@@ -114,6 +143,7 @@ def main() -> int:
     files = sorted(_ROOT.glob("rounds/*/results/**/*.json"))
     files = [f for f in files if "_smoke_archive" not in f.parts and "SMOKE" not in f.name]
     hits, scanned, fields = [], 0, 0
+    excluded = {}
     for f in files:
         try:
             doc = json.loads(f.read_text())
@@ -122,7 +152,12 @@ def main() -> int:
                   f"skipped file is unchecked, not clean")
             continue
         scanned += 1
+        rel = str(f.relative_to(_ROOT))
         for jp, text in claim_strings(doc):
+            rule = payload_rule(rel, jp)
+            if rule is not None:
+                excluded[rule[2]] = excluded.get(rule[2], 0) + 1
+                continue
             fields += 1
             for rx, why in WITHDRAWN:
                 m = re.search(rx, text, flags=re.I)
@@ -131,7 +166,12 @@ def main() -> int:
                     hits.append((f.relative_to(_ROOT), jp, m.group(0),
                                  text[lo:m.end() + 60].replace("\n", " "), why))
 
-    print(f"scanned {scanned} results files, {fields} conclusion fields")
+    print(f"scanned {scanned} results files, {fields} strings")
+    if excluded:
+        print(f"  excluded {sum(excluded.values())} payload strings (quoted data, not claims):")
+        for why, cnt in sorted(excluded.items()):
+            print(f"    {cnt:6d}  {why}")
+        print("    ^ a claim written inside these paths would be INVISIBLE here")
     if not hits:
         print("NO LISTED PHRASE FOUND.")
         print("  This is NOT a certificate that no withdrawn framing is asserted -- the "
