@@ -994,6 +994,33 @@ not run."* Verified by re-running the emptied-manifest control: **exit 0 → exi
 the previous one's failure — and all six shared a defect that any one of them would have caught if
 pointed at itself. The suite was never tested against the state it exists to detect: **absence.**
 
+---
+
+### The floor, verified for all five rather than the one I demonstrated
+
+`assurance/attack_the_suite.py` empties each check's population, asserts the exit code, restores,
+and re-runs the live suite so a broken restore cannot pass silently. **5/5.**
+
+| check | emptied | expected | why |
+|---|---:|---:|---|
+| `scope_reaches_the_reader` | 2 | 2 | zero claims → nothing to check |
+| `every_round_reaches_the_readme` | 2 | 2 | zero rounds → nothing to check |
+| `no_withdrawn_framings` | 2 | 2 | zero files → nothing to check |
+| `outcome_variable_declared` | 2 | 2 | zero gold-scored rounds → nothing to check |
+| `registries_are_satisfied` | **1** | **1** | **a detected failure, not blindness** |
+
+**The last row is the design working, and my first harness got it wrong.** I asserted empty→2
+uniformly and marked `registries_are_satisfied` BROKEN. Reading its output instead of trusting my
+expectation: with an empty registry it reports **11 rounds that `FROZEN.md` names and the registry
+no longer contains**. It enumerates from the *requirement*, so deleting what exists cannot silence
+it — which is exactly what entry 60 built it to do. **A check that knows what ought to exist is
+immune to the entry-64 defect on that input**, and the harness now records why rather than
+flattening it.
+
+The invariant is therefore weaker and truer than "empty must be 2": *emptied must never be 0* —
+either the check says it observed nothing, or it detects a failure from a population it did not
+lose.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
