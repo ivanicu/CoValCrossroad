@@ -13,3 +13,8 @@ __pycache__/
 # r79 embedding caches: 308 MB, regenerable from the checkpoints in r80_panel_freeze.
 # Kept out of git deliberately -- the derived per-prompt values (r79_d_*.npy) are committed.
 rounds/*/results/r79_emb_*.npy
+# ...including the quarantined copies. The rule above did not match the
+# _stale/ path, so 103 MB of all-NaN arrays kept the tree permanently dirty
+# while looking committed-adjacent. results/_stale/WHY.md is the durable
+# record of what they were; the bytes are NaN and carry nothing.
+rounds/*/results/_stale/r79_emb_*.npy
