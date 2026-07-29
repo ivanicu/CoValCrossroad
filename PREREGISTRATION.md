@@ -101,7 +101,28 @@ strongest signal.
 "no general direction", "depends on implementation", or "cannot judge without seeing a response"
 **at elicitation time**. Their usage rates are a primary outcome, not a nuisance.
 
-**Stopping rule.** Fixed n, decided from a pilot of 20 participants per arm. No optional stopping.
+**Power, computed from the release rather than deferred to the pilot ([r61](rounds/r61_s_pre_power)).**
+The POST arm's sign marginal is **measured**: **77.01%** positive across 102,147 released ratings,
+with the neutral point used **once**. So if the PRE arm shared that marginal, two independent
+sign-assigners would agree **0.6459** of the time **by marginals alone** — a test against 0.5
+would report agreement far above chance while measuring nothing but a shared tendency to write
+positive criteria. Rater clustering is real: ICC **0.0915** across 1,108 raters, giving a design
+effect of **1.37** at 5 criteria per participant.
+
+| matched criterion pairs | minimum detectable departure from baseline |
+|---:|---:|
+| 400 | **0.0548** |
+| 1,600 | 0.0274 |
+| **3,001** | **0.02** |
+
+⚠ **The PRE marginal is unobserved by anyone** — no participant in this release wrote a criterion
+before seeing responses, which is why S_pre needs an experiment — so it is **swept** across
+0.50–0.95 and every figure is conditional on the swept value. Across that sweep the room above
+chance never falls below **0.2569**, so sign agreement is not ceiling-compressed.
+
+**Stopping rule.** Fixed n, decided from a pilot of 20 participants per arm, **and the target n
+is now derived rather than guessed**: state the departure worth detecting, read the pair count
+off the table above, divide by the expected match rate. No optional stopping.
 
 ---
 

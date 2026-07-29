@@ -2057,6 +2057,47 @@ that is not on this list** — that number measures what this process cannot see
 hit rate on six objections I wrote myself proves only that I can enumerate my own anticipated
 weaknesses, which was never in doubt.
 
+## Entry 92 — answering my own forecast, and getting the design effect wrong from the release's cluster size
+
+`ADVERSARY_FORECAST.md` objection 5 (P=0.65): Experiment 1 has no power calculation, and the baseline
+is computable from the release today. So I computed it rather than waiting for a reviewer.
+
+**The baseline is 0.6459, not 0.5.** The POST arm writes **77.01%** positive criteria across 102,147
+released ratings — the neutral point used **once**. Two independent sign-assigners with that marginal
+agree ~65% of the time **by marginals alone**, so a naive test against 0.5 would have reported huge
+agreement while measuring nothing but a shared tendency to write positive criteria. The
+preregistration warned about this in words; it is now a number.
+
+**And I got the design effect wrong on the first run.** I computed
+`DEFF = 1 + (m−1)·ICC` with **m = 91.9**, the release's mean ratings per rater, and reported
+**9.32** — which would have put the required sample at **20,482** pairs.
+
+**Cluster size is a design parameter, not a property of the release.** An Experiment 1 participant
+writes a handful of criteria, not ninety. At the planned **m = 5**, DEFF is **1.37** and the required
+sample is **3,001** — I had inflated it **~7×** by importing a number from the data instead of from
+the design. The ICC is the transferable quantity; the cluster size belongs to whoever runs the study.
+The corrected round sweeps m ∈ {3, 5, 10, 20} and prints the release's own value beside them, marked
+as *not this experiment's*.
+
+| matched criterion pairs | minimum detectable departure |
+|---:|---:|
+| 400 | 0.0548 |
+| 1,600 | 0.0274 |
+| **3,001** | **0.02** |
+
+**World B, and world C is ruled out.** Across the swept PRE marginal (0.50–0.95) the room above
+chance never falls below **0.2569**, so sign agreement is *not* ceiling-compressed — the experiment
+needs a derived n, not a different outcome variable.
+
+**The PRE marginal is swept, never assumed.** Nobody in this release wrote a criterion before seeing
+responses — which is why S_pre needs an experiment at all — so every figure here is conditional on
+the swept value, and the round says so in its scope.
+
+**The forecast is annotated, not edited.** Objection 5 now carries a note that it was self-answered
+*after* the forecast was committed, and that **a scorer should exclude it from the hit rate**:
+answering my own item is not evidence about what an independent reviewer would find. The forecast
+text is left exactly as written.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

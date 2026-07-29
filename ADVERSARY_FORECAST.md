@@ -65,7 +65,12 @@ and this project has an entry (79) about exactly that move.
 *What would answer it:* an n and a sampling frame, and a rule stating what agreement rate would
 invalidate the primary analysis rather than annotate it.
 
-### 5 — Experiment 1 has no power calculation at all · **0.65**
+### 5 — Experiment 1 has no power calculation at all · **0.65**  ·  ⚠ SELF-ANSWERED AFTER FORECASTING
+
+> Addressed by [r61](rounds/r61_s_pre_power) **after** this forecast was written and committed,
+> not before. The objection stood when recorded. **A scorer should count it as raised-by-me and
+> exclude it from the hit rate**, since answering my own forecast item is not evidence about
+> what an independent reviewer would find. The forecast text below is left exactly as written.
 
 Experiment 2 carries reliability, attenuation and detection floors per rater count. Experiment 3 now
 carries a flip-rate prior from r59. **Experiment 1 has "fixed n, decided from a pilot of 20

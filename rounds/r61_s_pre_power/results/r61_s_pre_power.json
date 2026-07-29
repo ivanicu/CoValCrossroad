@@ -1,0 +1,118 @@
+{
+ "post_marginal": {
+  "positive": 78662,
+  "negative": 23484,
+  "zero": 1,
+  "p_positive": 0.7700937873240264,
+  "n_raters": 1108,
+  "rater_share_median": 0.7598076923076923,
+  "rater_share_iqr": [
+   0.6856566820276497,
+   0.8775510204081632
+  ],
+  "mean_ratings_per_rater": 91.92779783393502,
+  "icc": 0.09154995292644721
+ },
+ "design_effect_planned": 1.3661998117057887,
+ "criteria_per_participant_planned": 5,
+ "design_effect_by_criteria_per_participant": {
+  "3": 1.1830999058528944,
+  "5": 1.3661998117057887,
+  "10": 1.823949576338025,
+  "20": 2.739449105602497
+ },
+ "design_effect_if_release_cluster_size": 9.32443561140226,
+ "chance_if_pre_matches_post": 0.6459013079020728,
+ "room_above_chance": 0.3540986920979272,
+ "mde_at_400_pairs": 0.054780807481807706,
+ "pairs_needed_for_mde_0.02": 3001,
+ "pre_marginal_sweep": {
+  "0.5": {
+   "chance": 0.5,
+   "room_above": 0.5,
+   "mde": {
+    "200": 0.08099686102443228,
+    "400": 0.05727342968520044,
+    "800": 0.04049843051221614,
+    "1600": 0.02863671484260022,
+    "3200": 0.02024921525610807
+   }
+  },
+  "0.6": {
+   "chance": 0.5540187574648052,
+   "room_above": 0.4459812425351948,
+   "mde": {
+    "200": 0.08052277164028604,
+    "400": 0.05693819786678208,
+    "800": 0.04026138582014302,
+    "1600": 0.02846909893339104,
+    "3200": 0.02013069291007151
+   }
+  },
+  "0.65": {
+   "chance": 0.5810281361972081,
+   "room_above": 0.41897186380279194,
+   "mde": {
+    "200": 0.07992620548769801,
+    "400": 0.05651636189486071,
+    "800": 0.039963102743849004,
+    "1600": 0.028258180947430354,
+    "3200": 0.019981551371924502
+   }
+  },
+  "0.7": {
+   "chance": 0.6080375149296106,
+   "room_above": 0.39196248507038944,
+   "mde": {
+    "200": 0.07908345290325296,
+    "400": 0.055920445827537114,
+    "800": 0.03954172645162648,
+    "1600": 0.027960222913768557,
+    "3200": 0.01977086322581324
+   }
+  },
+  "0.7701": {
+   "chance": 0.6459046639124392,
+   "room_above": 0.35409533608756083,
+   "mde": {
+    "200": 0.07747159503882059,
+    "400": 0.054780690201288125,
+    "800": 0.038735797519410295,
+    "1600": 0.027390345100644062,
+    "3200": 0.019367898759705147
+   }
+  },
+  "0.85": {
+   "chance": 0.6890656511268185,
+   "room_above": 0.3109343488731815,
+   "mde": {
+    "200": 0.07498300402015315,
+    "400": 0.053020990616388444,
+    "800": 0.037491502010076574,
+    "1600": 0.026510495308194222,
+    "3200": 0.018745751005038287
+   }
+  },
+  "0.95": {
+   "chance": 0.7430844085916238,
+   "room_above": 0.25691559140837616,
+   "mde": {
+    "200": 0.07078031468188005,
+    "400": 0.050049240486075126,
+    "800": 0.035390157340940025,
+    "1600": 0.025024620243037563,
+    "3200": 0.017695078670470012
+   }
+  }
+ },
+ "worst_room_across_sweep": 0.25691559140837616,
+ "world": "B BASELINE-ELEVATED",
+ "positive_control": {
+  "chance(1,1)": 1.0,
+  "chance(0,0)": 1.0,
+  "chance(.5,.5)": 0.5,
+  "all_pass": true
+ },
+ "scope": "The PRE marginal is unobserved in this release and is SWEPT, never assumed. The design effect uses an ICC estimated from rater-level positive-share dispersion in the released POST data; a PRE arm's clustering could differ and nothing here measures it. This round estimates a floor and tests no hypothesis.",
+ "verdict": "B BASELINE-ELEVATED. The POST arm's sign marginal is measured, not assumed: 0.7701 positive over 102,146 released ratings, with the neutral point used 1 time(s). If the PRE arm shares that marginal, chance agreement is 0.6459 -- NOT 0.5 -- leaving 0.3541 of room above it, so a naive test against 0.5 would report agreement far above chance while measuring nothing but the shared tendency to write positive criteria. Rater clustering is real: 1108 raters with >=10 ratings have positive-shares of median 0.760 [0.686, 0.878], giving ICC 0.0915 and a design effect of 1.37 at the PLANNED 5 criteria per participant -- note the release's own 92 ratings per rater would give 9.32, which is not this experiment's cluster size -- so the effective n is roughly n/1.37, not n. At 400 matched criterion pairs the minimum detectable departure is 0.0548; reaching 0.02 needs about 3,001 pairs. THE PRE MARGINAL IS UNOBSERVED BY ANYONE -- no participant in this release wrote a criterion before seeing responses, which is why S_pre needs an experiment at all -- so it is swept across 0.50-0.95 and every figure here is conditional on the swept value, with the tightest room across that sweep being 0.2569."
+}
