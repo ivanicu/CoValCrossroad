@@ -6005,3 +6005,58 @@ because an edit script, the assurance suite and the commit ran in **one shell bl
 `assert` printed above the check results and scrolled past. **A commit must be conditional on its
 edit's exit status, not merely adjacent to it.** The assertion did its job both times; what failed was
 reading the traceback and the file list separately.
+
+---
+
+## Entry 182 — the meta-separator, finally run on the framing rather than on my account of it
+
+Three attacks this session tested **my framing of what remains** — queue item 3, queue item 5, the
+preregistration's imports. **None tested the framing itself.** The constitution asks once per
+programme: *is there a credible outcome showing the world-decomposition is wrong?*
+
+For **M(R, J, π, Q, P)** that outcome is concrete. The phrase *"each layer must be validated
+separately"* **presumes** the layers are separable. If the rubric's measured ordering depends on which
+judge measures it, layer-at-a-time validation is not merely incomplete — it is **ill-posed**, because R
+would have no value to validate independently of J.
+
+**r30 already paid for the test**: 3 judge families × 2 donor conditions, 300 prompts.
+
+| judge | near | random | near − random | **near/random** |
+|---|---:|---:|---:|---:|
+| phi-3.5-mini-instruct | 0.1365 | 0.2530 | −0.1166 | **0.539** |
+| qwen2.5-3b-instruct | 0.3052 | 0.5382 | −0.2330 | **0.567** |
+| qwen3.5-2b-base(ref) | 0.3685 | 0.5012 | −0.1326 | **0.735** |
+
+### Ordinally, the framing survives
+
+**The near<random ordering holds in 3 of 3 judges.** The world in which there is no judge-invariant
+property at all is **refuted at the ordinal level**. The null is weak and is reported as weak: with
+three judges, P(all agree by chance) = **0.25** — evidence, not proof, and not a p-value dressed up.
+
+### Cardinally, it is UNVERIFIED — and the reason is a storage gap, not a data limit
+
+The near/random ratio spans **1.36×**. **If the judge were a pure multiplicative gain, that ratio would
+be constant** and R would be separable from J up to scale. In the point estimates it is not.
+
+**But this cannot be settled from what exists.** The paired ratio's sampling distribution needs the
+**joint** bootstrap draws, and r30 persisted only the rep count — `boot` = **8000**, an integer — plus
+marginal CIs. **Marginal CIs cannot substitute**, and r30's own note says why: the bootstrap resampled
+prompts **jointly across numerator and denominator**, so the arms are correlated by construction and
+marginal intervals overstate the ratio's uncertainty **in the direction that makes a real interaction
+look untestable.**
+
+**Three-valued, and UNVERIFIED is not an acquittal.** The multiplicative world is neither confirmed nor
+excluded.
+
+**What would settle it, priced rather than wished for:** re-score the **same three judges** — the panel
+r80 already froze — on the **same 300 prompts**, persisting per-draw ratios. That is **not "more
+judges"**, which is frozen; it is the frozen panel re-scored to store what r30 discarded. **The first
+GPU work this project has had a reason for since the panel was frozen**, and its entire deliverable is
+one distribution r30 threw away.
+
+### Where it leaves the framing
+
+**Layer-at-a-time validation is defensible for ORDINAL claims about R and UNVERIFIED for CARDINAL
+ones.** That is precisely the distinction the headline already draws — *"what is robust here is an
+ordering, not a share"* — reached here from the **separability** side rather than the floor side, which
+is why it is worth having twice.
