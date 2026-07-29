@@ -1256,7 +1256,7 @@ import across round modules — both run from the clone.
 
 ```bash
 python -m venv .venv && .venv/bin/pip install numpy pandas scipy scikit-learn torch transformers
-python data/fetch.py                            # downloads + verifies the release by SHA-256
+python data/fetch.py                            # downloads + verifies 5 files by SHA-256, incl. the dataset card
 python rounds/r01_rater_structure/run.py        # CPU only
 python rounds/r04_rebuild_satisfaction/run.py   # needs a GPU
 python assurance/manifest.py                    # regenerate the claim table

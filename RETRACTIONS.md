@@ -2870,6 +2870,36 @@ happened yet** — rewritten as `PY = sys.executable`, with the near-miss record
 and r67 — which import across round modules and needed `rounds/__init__.py` — both run from the
 clone. That was the specific unverified thing, and it is now verified rather than annotated.
 
+## Entry 115 — the repository cites a file its own fetch script does not fetch
+
+`data/fetch.py` verifies the release byte-for-byte, and running it against the files on disk passes:
+all four `.jsonl` files match their recorded hashes. **The data these results were computed on is the
+released data**, checked rather than assumed.
+
+**But the dataset CARD is neither fetched nor committed.** It was gitignored *and* absent from
+`FILES`, so a reproducer following the README's own instructions gets every number and **none of the
+text three of this session's findings rest on**:
+
+| entry | what it reads from the card |
+|---|---|
+| **74** | *"In parallel, we prepared initial rubric items"* (L73) — the provenance that turned "response-blind" into "participant-blind" |
+| **88** | the personal-vs-world ranking instructions — every concordance number in this package is against the **world** ordering |
+| **90** | recruitment, the onboarding rubric quiz, task order, compensation — the whole π layer |
+
+**Those are not decorative citations.** Entry 74 withdrew an S_pre reading on the strength of one
+sentence in that file. A reader who could not obtain it could not check the withdrawal.
+
+**Fixed:** `fetch.py` now fetches and hash-verifies the card as a fifth file
+(`92ba4a96…`, 27,509 bytes), and reports 5 of 5. **Its remote path is marked UNVERIFIED in the
+code** — on the Hub a dataset card is `README.md` at the repo root, and I have hashed the local copy
+but not fetched it from a clean state this session. If that 404s, the script says where the card
+lives and the hash still checks whatever a reader saves there.
+
+**The shape.** Entry 102: an enumeration over artifacts cannot see a missing artifact. Entry 113: a
+timer cannot see rounds that never started one. This one: **a fetch script's file list is a claim
+about what the work depends on, and it was three entries out of date within one session.** Every
+instance is a container that only knows what was put in it.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

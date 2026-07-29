@@ -29,6 +29,22 @@ FILES = {
         ("6d99f1ba780da88eafb9f63857d0f88aa0be683c807ff536768409f92bc96057", 16044141),
 }
 
+# The dataset CARD, which this repository cites as evidence and which the four
+# files above do not contain. Entries 74, 88 and 90 rest on it: the "in parallel"
+# provenance of the seeded criteria (L73), the personal-vs-world ranking
+# instructions, and the recruitment / onboarding-quiz / compensation protocol.
+# It was gitignored and absent from FILES, so a reproducer following the README
+# could obtain every number and none of the text those readings depend on.
+#
+# On the Hub a dataset's card is README.md at the repo root, so it is fetched
+# from there and written under its local name. THAT REMOTE PATH IS UNVERIFIED --
+# it has not been fetched from a clean state in this session, only hashed
+# locally. If the download 404s, the card is at
+# huggingface.co/datasets/openai/coval and the hash below still checks it.
+CARD_LOCAL = "DATASET_CARD.md"
+CARD_REMOTE = "README.md"
+CARD = ("92ba4a96087b719e80ccbd0803a6d9bd6ab0582d963e95c20579efbb5a769de0", 27509)
+
 
 def sha256(p: Path) -> str:
     h = hashlib.sha256()
@@ -41,11 +57,22 @@ def sha256(p: Path) -> str:
 def main() -> int:
     here = Path(__file__).resolve().parent
     bad = 0
-    for name, (want, size) in FILES.items():
+    targets = {**FILES, CARD_LOCAL: CARD}
+    for name, (want, size) in targets.items():
         dest = here / name
+        remote = CARD_REMOTE if name == CARD_LOCAL else name
         if not dest.exists():
             print(f"downloading {name} ...", flush=True)
-            urllib.request.urlretrieve(f"{REPO}/{name}", dest)
+            try:
+                urllib.request.urlretrieve(f"{REPO}/{remote}", dest)
+            except Exception as e:
+                print(f"  COULD NOT FETCH {name} from {REPO}/{remote}: {e}")
+                if name == CARD_LOCAL:
+                    print("    The card is the dataset page at "
+                          "huggingface.co/datasets/openai/coval -- save it as "
+                          f"data/{CARD_LOCAL} and re-run; the hash below still checks it.")
+                bad += 1
+                continue
         got = sha256(dest)
         if got == want:
             print(f"  OK       {name}  {dest.stat().st_size:,} bytes")
@@ -58,7 +85,7 @@ def main() -> int:
     if bad:
         print(f"\n{bad} file(s) do not match the recorded release.")
         return 1
-    print("\nall four files match the recorded release")
+    print(f"\nall {len(targets)} files match the recorded release")
     return 0
 
 

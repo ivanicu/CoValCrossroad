@@ -2,6 +2,8 @@
 logs/
 _archive/
 data/*.jsonl
+# data/DATASET_CARD.md -- still not redistributed, but data/fetch.py now
+# fetches and hash-verifies it, because entries 74, 88 and 90 cite it as evidence
 data/DATASET_CARD.md
 *.emb.npz
 __pycache__/
