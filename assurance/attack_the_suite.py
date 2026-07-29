@@ -156,6 +156,12 @@ CASES = [
     # returns 2 rather than reporting every section as current.
     ("synthesis_cites_recent_work", hide_rounds, 2,
      "rounds hidden -> no newest round to measure against: nothing to check"),
+    # Entry 202. Expect 1, not 2: with the rounds hidden the frame is ABSENT, and an
+    # absent frame is a DETECTED failure -- H_fresh would have no admissibility gate
+    # and the responses it refers to would be undefined. There is no benign reading of
+    # this file being missing, so it must never report "nothing to check".
+    ("frozen_frame_verifies", hide_rounds, 1,
+     "frame hidden -> H_fresh has no admissibility gate: DETECTED, never nothing-to-check"),
     # Entry 144: four checks had a _floor that had never been exercised THROUGH
     # THE CALLING PATH. Verifying a floor by calling it directly proves it raises
     # when handed a zero, not that the check ever hands it one -- which is exactly

@@ -7073,3 +7073,53 @@ suite exists to prevent. Suite now **16/16**.
 **What the class still needs, and this does not provide:** the habit of asking, when a round lands,
 *which synthesis carries this?* The indicator will catch the case where nothing recent is cited at all.
 It will not catch a stale clause sitting beside a fresh citation.
+
+---
+
+## Entry 202 — verified item 7's freeze for the first time, and guarded it because losing it is unrecoverable
+
+Item 7 asks for the frame to be **frozen**, and I have edited the preregistration around it four times
+this session — sizing, clustering, donor-averaging, the H_fresh margin — **without once checking the
+freeze itself verifies.**
+
+**It does, completely:**
+
+| | |
+|---|---|
+| manifest recomputes to the stored value | **exact** |
+| response text → sha256 | **480 / 480** |
+| prompt text → sha256 | **60 / 60** |
+| manifest leaves | **540 = 480 responses + 60 prompts** |
+
+**That last row independently confirms entry 12's correction.** The document read "540 hashed responses"
+until it was fixed to 480; **540 is the leaf count, and the 60-object difference is exactly the prompt
+hashes.** Two separate routes to the same decomposition.
+
+### Why this one earns a guard when three others were declined
+
+Entries 176, 199 and 201 each declined a guard that would have had to **guess** — which section a
+finding belongs in, which quantity a CI describes, whether an omission was deliberate. **This one
+guesses nothing: it recomputes SHA-256 over stated bytes and compares. A mismatch is arithmetic, not a
+reading.**
+
+And the stakes are asymmetric in a way nothing else here is. The frame's own verification block says:
+*"r12's generation is stochastic and unseeded, so 'the fresh responses' is not recoverable by re-running
+anything — this file is the only definition of the object H_fresh refers to."* **Silent corruption is
+not expensive to redo. It is unrecoverable**, and the experiment it gates would become rankings of some
+responses, comparable to nothing.
+
+**Positive control runs before any pass is reported:** one character edited in memory must move the
+manifest. A hash check that cannot detect a changed byte is checking nothing.
+
+**Attacked on four vectors, all caught:** a response text edited; the stored manifest altered; a response
+removed; the frame absent. Registered expecting **exit 1** with rounds hidden — **an absent frame has no
+benign reading**, so it must never report "nothing to check" the way the other population-dependent
+checks correctly do. Suite now **17/17**.
+
+### A near-miss worth recording
+
+I first grepped `rounds/r45_protocol_freeze/run.py` and got *"No such file or directory"* — and was one
+step from reporting that **the freeze has no source and its manifest cannot be recomputed.** The source
+is `freeze.py`. **I had assumed the naming convention instead of listing the directory**, which is the
+same wrong-object error this session has now logged six times, arriving on the one artifact where a
+false alarm would have been most alarming.
