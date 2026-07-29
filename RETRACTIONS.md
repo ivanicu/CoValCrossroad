@@ -2403,6 +2403,47 @@ executed before reading source text as a verdict.**
 and thirteen false ones. That is a **tripwire for future drift, not a source of findings**, and the
 number now prints beside the output so nobody reads thirteen flags as thirteen problems.
 
+## Entry 101 — the round that best exemplifies this project's discipline has no code in the repository
+
+Auditing the README's headline found *"57 rounds establish that"* against 65 round directories. Chasing
+the count found something worse: **`rounds/r56_semantic_selectivity/` contains one file,
+`PREDICTION.md`, and has contained exactly that in every commit it has ever appeared in.** No `run.py`,
+no results.
+
+**r56 is the round I would have held up as the model.** A prediction committed to git *before* the
+held-out number existed (`5cb7426`), then an honest **NOT REPLICATED** (`664c568`):
++0.1806 [+0.0708, +0.2880] on discovery, **+0.0198 [−0.1196, +0.1592]** held out, against a
+preregistered [+0.06, +0.30] with a CI excluding zero. It is also the only round whose code was never
+committed, and **its CI bounds 0.1592 and 0.2880 appear in no artifact in this package** — both are
+4-decimal values, where entry 81's chance-match null is low, so that absence is real.
+
+**RETRACTIONS entries 55 and 56 rest on it.** A published analysis depends on a number whose
+computation exists in a commit message and prose.
+
+**r66 tries to recompute it from the persisted tensors, and cannot.**
+
+| | recomputed | published | |
+|---|---:|---:|---|
+| discovery | **+0.0365** [−0.0916, +0.1651] | +0.1806 | diverges by 0.144 |
+| held out | **+0.0985** [−0.0188, +0.2124] | +0.0198 | diverges by 0.079 |
+
+**Neither arm reproduces, so by the null r66 declared before running, it says nothing about whether
+r56 was correct — UNVERIFIED, not overturned.** A reconstruction that does not share the original's
+method cannot refute it, and building that rule into the world classification before seeing the
+numbers is the only reason I can say so cleanly now.
+
+**r56's conclusion survives anyway, by a different route.** The recomputed held-out CI
+**[−0.0188, +0.2124] includes zero**, so the preregistered criterion fails under this method too.
+The *number* is unverifiable; the *NOT REPLICATED* holds.
+
+**A side finding worth its own line:** r46's tensor is persisted under **r41's** results directory.
+The round that wrote it is not the round that names it, nothing in the package records where a tensor
+lives, and I found it only by listing the directory after r66 refused to run.
+
+**What this costs.** This project's answer to *"why should anyone believe you"* is that every number
+has an artifact and every artifact has code. **One round breaks that, and it is the one whose
+discipline I would have cited as proof.**
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
