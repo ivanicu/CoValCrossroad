@@ -6377,3 +6377,39 @@ card next to the null, not in a later census's complaint list.
 
 **Named, not done:** r87 and r96 need their draws persisted and re-run — both are seconds of CPU. The
 other 4 new UNVERIFIED sit in r78 (5) and elsewhere and are untouched.
+
+**⚠ Addendum to entry 188 — the NEXT was wrong, for the third time this session, and the reason is worth more than the fix.**
+
+That NEXT said r87 and r96 *"need their draws persisted and re-run, both seconds of CPU."* **Checking
+what r58 does with a stored vector kills it.** `tost_vector(d, …)` resamples **the n elements of d**:
+
+```python
+bs = np.array([d[rng.integers(0, n, n)].mean() for _ in range(boot)])
+```
+
+So `paired_differences` must be **per-observation paired differences**, not bootstrap draws — storing
+draws would make r58 bootstrap a bootstrap.
+
+**And r87's and r96's contrasts have no such vector to store.** Both are **pooled ratios**: r96's
+statistic is `share_near/share_random` per judge, differenced across judges, where each share is a ratio
+of prompt-*means*. **A nonlinear function of pooled means has no per-prompt decomposition** — there is
+no vector of paired units whose mean is the estimand. The same holds for r87's attribution arms.
+
+**So r58's UNVERIFIED cell conflates two different things:**
+
+| kind | example | fixable by persistence? |
+|---|---|---|
+| **no vector was stored** though the estimand is a mean of paired units | r06's rule contrasts, resolved in [r97](rounds/r97_rule_tournament_tost) | **yes** |
+| **no paired vector exists** because the estimand is a pooled ratio | r87, r96 | **no** — structural |
+
+**That is a real defect in the census, not in the rounds**: it labels structurally-unverifiable
+contrasts identically to lazily-undocumented ones, so its UNVERIFIED count reads as a backlog when part
+of it is a category error. **Entry 188's self-criticism was therefore half wrong** — I did not "discard
+vectors that should have been kept" in r87 and r96; those vectors never existed. **The criticism stands
+for r97's target and falls for my own two rounds**, and I could not tell the difference until I read
+`tost_vector`.
+
+**Third time this session**: entry 177 (a transfer that needed checking), entry 183 (a distribution
+declared missing that was on disk), and now this. **Each time the NEXT named a fix before the mechanism
+was read.** The pattern is stable enough to state as a rule: *a NEXT that proposes a fix is a
+hypothesis about a mechanism, and hypotheses get checked before they get scheduled.*
