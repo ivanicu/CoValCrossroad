@@ -576,10 +576,27 @@ The advantage really does collapse, **+0.1294 → +0.0945** (drop +0.0349 [+0.02
 given r52's causal +0.2507 that collapse must depress own-rubric satisfaction on fresh responses.
 
 **But it does not explain r12.** The per-prompt collapse does not predict which prompts show the
-attribution drop: **corr = −0.0736 [−0.2059, +0.0612]**. ⚠ A zero correlation does **not** exclude
-a *uniform* contribution — a component shifting every prompt equally correlates with nothing while
-still moving the aggregate, and this design cannot see it. Separating that needs an intervention
-on overlap in the transfer setting, not an observation of it.
+attribution drop: **corr = −0.0736 [−0.2059, +0.0612]**. That left one escape — a *uniform*
+contribution, invisible to a per-prompt correlation.
+
+[r55](rounds/r55_overlap_selectivity) closes it by measuring the right quantity instead of the
+same one again. Attribution is an **ordering** statistic, and a shift that raises all four
+responses equally cannot move an ordering. What can is **selectivity** — the sd of containment
+across the four, high when a criterion overlaps the one response it was written about:
+
+| | original | fresh |
+|---|---:|---:|
+| own criteria | 0.0738 | **0.0776** |
+| donor criteria | 0.0220 | 0.0259 |
+| **own − donor** | **+0.0518** | **+0.0517** |
+
+**Collapse: +0.0002 [−0.0056, +0.0059] — equivalent to zero at δ = 0.01**, tested rather than
+merely non-significant. Own criteria are as selective about responses they were never written for
+as about the ones they were.
+
+So the component that could have acted uniformly is the one that does not vary, and the component
+that would have to vary does not change. **The judge's overlap channel is real (r51, r52) and
+cannot explain r12.**
 
 **This gives r50's anchoring effect a live instrument explanation**: anchored criteria may
 transfer better because they are the ones the judge scores accurately. It does **not** establish
@@ -978,6 +995,7 @@ not from estimation noise, so no further computation narrows it.
 | [r39](rounds/r39_feature_cache) | Cache representations, analyse nothing | one GPU pass, three lineages (qwen/phi/internlm), 2,000 responses. Load failures recorded as **environment claims**, not model properties |
 | [r40](rounds/r40_ood_map) | Is r12's inversion an OOD artifact? | **no — the sign runs the wrong way.** Nearest-neighbour distance correlates at **−0.125**, 2/3 lineages, same sign 3/3: the anomaly is **worst where fresh responses most resemble the released ones** |
 | [r41](rounds/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **no.** Hull violation −0.1837 and rank instability +0.1993 die to the discriminating-power control; spread loss looked like it survived at +0.2309 but **failed to replicate** (r46). Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly |
+| [r55](rounds/r55_overlap_selectivity) | …and can it move an *ordering*? | **no, equivalently so.** Own criteria are as selective about fresh responses (0.0776) as about the originals (0.0738); the own-minus-donor advantage goes +0.0518 → +0.0517, collapse **+0.0002 [−0.0056, +0.0059]**, equivalent to zero at δ=0.01. Closes r54's uniform-contribution escape |
 | [r54](rounds/r54_overlap_transfer) | Does the judge's overlap channel explain r12? | **the mechanism is real and does not explain it.** The own-vs-donor overlap advantage collapses from **+0.1294 to +0.0945** on fresh responses (drop +0.0349 [+0.0266, +0.0434]) — but it does not predict *which* prompts drop: corr **−0.0736 [−0.2059, +0.0612]**. A uniform contribution is **not** ruled out |
 | [r53](rounds/r53_join_audit) | Is the rubric↔prompt join every round rests on correct? | **yes, and the cutoff is not what defines the population.** Both fuzzy pairs are the same prompt up to a typo (0.9896, 0.9903). The 18 unmatched rubrics have median best-similarity **0.7727** to *any* released prompt — absent from the comparison file, not narrowly missed. Analysed set: **968 of 1,078 (89.8%)** |
 | [r52](rounds/r52_overlap_intervention) | Does overlap *cause* the judge's score to move? | **yes.** Appending six distinctive tokens from response A rather than B moves the A-vs-B satisfaction gap by **+0.2507 [+0.2300, +0.2714]** for the *same* criterion; unrelated-token null **−0.0045**, spanning zero. The project's only interventional round. ⚠ bounds overlap-sensitivity on *perturbed* text |

@@ -1,0 +1,54 @@
+{
+ "prompts": 250,
+ "selectivity": {
+  "own_x_original": [
+   0.07381254965134157,
+   0.06971111110002183,
+   0.07795879741543679
+  ],
+  "own_x_fresh": [
+   0.07755484593743146,
+   0.07292096264651488,
+   0.08215047275582157
+  ],
+  "donor_x_original": [
+   0.021969381902225863,
+   0.01990146462224095,
+   0.02407325390189574
+  ],
+  "donor_x_fresh": [
+   0.025863962866006916,
+   0.023329738245239057,
+   0.028449094950998316
+  ]
+ },
+ "advantage_original": [
+  0.05184316774911571,
+  0.04756622271593517,
+  0.05614588401239937
+ ],
+ "advantage_fresh": [
+  0.05169088307142457,
+  0.04701210587629076,
+  0.05639021129607666
+ ],
+ "collapse": [
+  0.00015228467769115006,
+  -0.005628856781646168,
+  0.005940221888205102
+ ],
+ "collapse_ci90": [
+  -0.004524320720061904,
+  0.00503195442199491
+ ],
+ "equivalence_delta": 0.01,
+ "equivalent_to_zero": true,
+ "corr_with_attribution_drop": [
+  0.006575257541975551,
+  -0.12184246412740382,
+  0.14101656696659118
+ ],
+ "verdict": "THE ORDERING COMPONENT DOES NOT COLLAPSE, AND IS EQUIVALENT TO ZERO AT delta=0.01. Own criteria are as SELECTIVE about fresh responses (0.0776) as about the originals they were written for (0.0738); the own-minus-donor advantage is +0.0518 then +0.0517, a change of +0.0002 [-0.0056,+0.0059]. r54 found the MEAN overlap advantage really does fall, but attribution is an ORDERING statistic and a shift that moves all four responses equally cannot move an ordering. So the uniform-contribution escape r54 left open is now CLOSED: the component that could have acted uniformly is the one that does not vary, and the component that would have to vary does not change. The judge's overlap channel is real (r51, r52) and cannot explain r12",
+ "outcome_variable_scope": "Selectivity is an exact text statistic. The attribution it is correlated against is scored by the r08 model gold head, not by humans (entry 50).",
+ "scope": "Lexical containment only -- a criterion can be selectively ABOUT one response while sharing few of its words, and this measure is blind to that. What it establishes is that the SURFACE-FORM channel r51 and r52 demonstrated has no ordering-relevant change between response sets; it does not establish that no semantic selectivity changed."
+}
