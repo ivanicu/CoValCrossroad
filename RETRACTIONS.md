@@ -6794,3 +6794,21 @@ inherited a mispaired value.**
 **The generalisable check is the second fix, and it is nearly free:** *a point estimate must lie inside
 the interval it is published with.* It requires no knowledge of what either quantity means, and it
 caught eight rows that name-based reasoning had left standing — including three of my own.
+
+**⚠ Addendum to entry 195 — the invariant generalised across the package, and the rounds are clean.**
+Applying *"a point estimate must lie inside the interval it is published with"* to **every** results
+file, restricted to **stem-matched** pairs (a mean and a CI the round itself names together, e.g. `gap`
+/ `gap_ci`):
+
+**148 nodes carry both a mean and a CI. ZERO have the mean outside its own interval.**
+
+**The zero is admissible because the scanner was made to fire first.** Planted a synthetic tree with one
+coherent node (`gap` 0.05 in [0.04, 0.06]) and one broken (`gap` 0.50 in [0.04, 0.06]): it flags the
+broken one and spares the coherent one. *A null from an instrument that has never returned non-zero is
+silence*, and this one is not.
+
+**So the eight incoherent rows were entirely r58's own doing.** Every one arose from the harvester
+pairing keys **across** quantities — `shuffled_gap` with `gap_ci`, a word-count `seed_length_mean` with
+a `share_ci`. **No producing round publishes a mean outside its own named interval.** The defect lived
+in the summariser, never in the measurements it summarised — which is the same containment result this
+session has now reached from five independent directions.
