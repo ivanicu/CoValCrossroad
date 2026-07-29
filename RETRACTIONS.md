@@ -5666,3 +5666,43 @@ certifies a resolving one as correct.
 file. Registered in `attack_the_suite` expecting **exit 1** — its population is the *documents*, which
 hiding the rounds does not remove, so it still finds all 257 links and reports them broken rather than
 falling silent. It returns 2 only when a document genuinely contains no round links. Suite **14/14**.
+
+---
+
+## Entry 175 — I wrote the clause into the ledger and never carried it into the claims
+
+Entries 172 and 173 established that every population and leakage round runs on the **pre-seeded**
+criteria — 36.5% of the total — and that the restriction is **structural**, because the excluded 63.5%
+carry a median of one rater. **Both entries stated the consequence for queue item 1. Neither carried it
+to where item 1's claims actually live.** Sixteen README rows got the disclosure (entry 173); the two
+claims that *depend* on it did not.
+
+**The P row of the M(R, J, π, Q, P) table** read *"no aggregate loss in the splits tested"* with no
+mention of which criteria were in those splits. Now it says **in the pre-seeded criterion class**, with
+the structural reason.
+
+### The same-rater passage: the two caveats compound, they do not stack
+
+This is the part worth more than bookkeeping. The passage already carried the menu caveat — cross-rater
+agreement is evidence against *individual* circularity and is not evidence for a pre-existing norm,
+because `menu → shared salience → Sᵢ` can produce agreement across people that the menu still
+constructed.
+
+**What was missing changes the force of that.** r34 applies the majority filter, so the cross-fitting
+runs on the pre-seeded criteria — and by r48 those are exactly the **six items shown identically to
+every participant**. So:
+
+> *Cross-rater agreement is measured on precisely the criteria the shared menu supplied to everyone.*
+
+That is the configuration in which shared salience is **most** able to manufacture agreement, not
+least. The criterion population does not merely narrow the leakage result — it places it exactly where
+its own stated confound is strongest.
+
+**And it cannot be repaired by analysing the other 63.5%**: zero between-rater cells at every
+threshold, including the most permissive. **Only S_pre separates these worlds.**
+
+**The failure mode, named because it will recur:** a correction written in the ledger is not a
+correction. The ledger records *that* a claim changed; the claim itself is what a reader acts on. Entry
+173's own gate — disclosure in the artifact or the README row — passed on all sixteen rounds while the
+two sentences that rest on them stayed unqualified, because those sentences are **prose**, not rows,
+and no check reads prose for this.
