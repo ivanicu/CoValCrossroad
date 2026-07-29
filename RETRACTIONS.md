@@ -4314,3 +4314,38 @@ surface was unguarded, r12's pre-fix source is caught, the current tree is clean
 docstring-narration case correctly does not fire. What failed was my report of its registration, and
 then my verification of that report. **A number I did not read is not a number I checked**, and the
 distance between "the harness ran" and "the harness passed" is exactly one line of output.
+
+## Entry 145 — four floors had never been exercised through the path that calls them; none of the four was broken, and three of my emptiers were
+
+**The debt entry 144 left.** *Testing a guard in isolation is not testing the path to the guard.* Four
+checks had a `_floor` and were **not** registered in `attack_the_suite`: `corrections_propagated`,
+`readme_row_carries_the_verdict`, `retired_framing_in_assertion_positions`,
+`verdict_cites_its_own_contrasts`. Their floors had only ever been read, never fired.
+
+**Registered all four. Three came back BROKEN. All three were mine.**
+
+| reported BROKEN | actual cause |
+|---|---|
+| `retired_framing_in_assertion_positions` | my emptier blanked **only README.md** and wrote `# README` into it. The check also scans FROZEN.md and PREREGISTRATION.md — **and a heading IS an assertion position**, so the population was never empty. |
+| `corrections_propagated` | its floor is `len(files) × len(CORRECTED)` — a **grid size**. Blanking documents cannot empty it because the files still exist. Only emptying the registry can. I registered it *predicting* this and let the harness print BROKEN anyway, which conflates "check is broken" with "my lever doesn't reach it". |
+| `verdict_cites_its_own_contrasts` | it exits **1** on a missing census input — a *detected failure*, the same convention `registries_are_satisfied` uses. I had registered it wanting 2. |
+
+**And on the third I briefly published the opposite of the truth.** Investigating, I ran it with rounds
+hidden, piped the output through `tail`, and read `$?` — which is **tail's** exit status, not python's.
+It printed 0, and I wrote that the check *"exits 0 with its entire population absent — the
+fails-toward-PASS defect."* Re-measured without the pipeline: **exit 1**, both empty and live. **`$?`
+after a pipe is the last command's status** — the same defect this ledger already carries for a
+redaction pipeline whose `sed | cat -s` blanked eight repos and exited 0.
+
+**Fixed:** an emptier that blanks all three scanned documents leaving no heading; an emptier that
+empties the `CORRECTED` registry rather than the documents; and the expectation corrected to 1 for the
+report that signals a detected failure. The harness also no longer asserts `live == 0` for every check —
+`verdict_cites_its_own_contrasts` exits 1 by design, and requiring a clean live run would have called a
+working-as-designed report BROKEN for the one reason that is not a fault.
+
+**Result: 11/11 checks refuse to pass on an empty population**, verified by reading the line.
+
+**The score that matters.** Four floors newly exercised through their real calling path: **four sound**.
+Three false accusations, all from my instruments rather than the checks. That ratio is now consistent
+across this session — every harness I build accuses working machinery before it finds anything broken,
+and the one genuine defect it did find (entry 143's) was found the same way.

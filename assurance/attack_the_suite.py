@@ -68,6 +68,38 @@ def empty_frozen_registry():
     return lambda: p.write_text(bak)
 
 
+def empty_prose():
+    """Blank EVERY document the framing check scans, and leave no heading behind.
+
+    A first version blanked only README.md and wrote "# README" into it. That
+    failed twice over: the check also scans FROZEN.md and PREREGISTRATION.md, and
+    a heading IS an assertion position, so the population it floors on was never
+    empty. The check was reported BROKEN for my emptier's fault.
+    """
+    paths = [ROOT / n for n in ("README.md", "FROZEN.md", "PREREGISTRATION.md")]
+    baks = {p_: p_.read_text() for p_ in paths if p_.exists()}
+    for p_ in baks:
+        p_.write_text("")
+    def restore():
+        for p_, t in baks.items():
+            p_.write_text(t)
+    return restore
+
+
+def empty_corrections_registry():
+    """Empty the CORRECTED registry corrections_propagated floors on.
+
+    Its floor is `len(files) * len(CORRECTED)` -- a GRID SIZE. Blanking documents
+    cannot empty it, because the files still exist. Only the registry can.
+    """
+    q = ROOT / "assurance/corrections_propagated.py"
+    bak = q.read_text()
+    i = bak.index("CORRECTED = [")
+    j = bak.index("\n]", i)
+    q.write_text(bak[:i] + "CORRECTED = []" + bak[j + 2:])
+    return lambda: q.write_text(bak)
+
+
 # (check, how to empty its population, expected exit when emptied, why)
 #
 # Expected 2 = "observed nothing", the entry-64 floor.
@@ -93,6 +125,24 @@ CASES = [
      "zero results files to read -> nothing to check (entry 137)"),
     ("retired_framing_in_emittable_source", hide_rounds, 2,
      "zero source files to parse -> nothing to check (entry 143)"),
+    # Entry 144: four checks had a _floor that had never been exercised THROUGH
+    # THE CALLING PATH. Verifying a floor by calling it directly proves it raises
+    # when handed a zero, not that the check ever hands it one -- which is exactly
+    # how retired_framing_in_emittable_source shipped broken and was caught here.
+    ("readme_row_carries_the_verdict", hide_rounds, 2,
+     "zero rounds with a row and a verdict -> nothing to compare"),
+    # Expect 1, not 2. With rounds gone its census input is missing and it returns
+    # 1 -- a DETECTED failure, the same convention registries_are_satisfied uses.
+    # I first registered it wanting 2, saw BROKEN, and read a piped exit status
+    # that reported tail's 0 rather than python's 1, which briefly turned a
+    # working check into "it fails toward PASS". `$?` after a pipe is the LAST
+    # command's status.
+    ("verdict_cites_its_own_contrasts", hide_rounds, 1,
+     "missing census input -> detected failure, not a silent pass"),
+    ("retired_framing_in_assertion_positions", empty_prose, 2,
+     "no prose in ANY scanned document -> no assertion position exists"),
+    ("corrections_propagated", empty_corrections_registry, 2,
+     "empty registry -> a zero-size document x correction grid"),
 ]
 
 
@@ -111,7 +161,13 @@ def main() -> int:
             if restore:
                 restore()
         back = run(check)
-        ok = (before == 0 and after == want and back == 0)
+        # `before` is not always 0. `verdict_cites_its_own_contrasts` exits 1 by
+        # design -- it is a report of an open population, not a gate. The harness
+        # asserted live==0 for everything, which would have called a
+        # working-as-designed check BROKEN for the one reason that is not a fault.
+        # What must hold is that emptying CHANGES the answer to the floor value
+        # and restoring returns it to whatever it was.
+        ok = (after == want and back == before)
         results.append((check, before, after, back, ok))
         print(f"  {'OK    ' if ok else 'BROKEN'} {check:32s} live={before} "
               f"empty={after} (want {want}) restored={back}   ({what})")
