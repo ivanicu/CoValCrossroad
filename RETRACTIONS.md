@@ -5216,3 +5216,63 @@ has already logged. They are reported side by side, and nothing here averages th
 the spread cannot be an artifact of a drifted re-implementation. The round refuses to run otherwise.
 
 **The sentence that can no longer be written:** *"attribution is +0.1215"* — without saying which draw.
+
+---
+
+## Entry 167 — the headline's own floor is one draw too, and it is noisier than the whole join
+
+**r88 measured the donor draw on the whole join. The headline does not quote the whole join.** It
+quotes **7.9 / 10.7**, which comes from r19 reading r10 — and r10 builds its random donor with the
+**identical line**, `(i + 1 + rng.integers(0, n-1)) % n` under seed **20260727**, on its **first 300**
+prompts. A third of the prompts carries *more* draw noise, not less.
+
+| panel | attribution | draw sd | central 95% |
+|---|---:|---:|---|
+| n=300 (r10's panel) | +0.1370 | **0.00948** | [+0.1199, +0.1555] |
+| n=500 | +0.1274 | 0.00658 | [+0.1150, +0.1407] |
+| n=968 (whole join) | +0.1252 | 0.00535 | [+0.1150, +0.1357] |
+
+### The transfer to 7.9 is not settled, so both answers are given
+
+r04's tensor is **not** r10's judge configuration, and this round's attribution level (+0.1370) is not
+r10's (0.079). Carrying the noise across therefore needs an assumption:
+
+- **absolute transfer** (noise is a property of the donor ensemble, carries at measured size) → **12%** of 7.9
+- **proportional transfer** (noise scales with the attribution level) → **6.9%**
+
+**Reporting one alone would repeat the path-dependent-decomposition error already logged in this
+ledger.** Both say the same qualitative thing — the headline's most-quoted number carries a Monte
+Carlo component in the several-percent range — and **neither is settled here.**
+
+### What is *not* at risk, separated before the run
+
+r10's **near** and **far** donors are `argmax`/`argmin` of a similarity matrix. They carry **no draw
+noise whatsoever.** r19's **2.47× floor span** runs between them, so the headline's *structural* claim
+— **the floor is a choice, and the number moves 2.47× with it** — is untouched by anything measured
+here. Only the random-donor cell moves. Writing this down first is what stops a null from being read
+as a general acquittal and a positive from being read as a general indictment.
+
+### Two controls, one of them a genuine falsifiable prediction
+
+**Cross-round positive control.** At n=968 this estimator gives **0.00535** against r88's **0.00550** —
+gap **−0.00016** against a standard error of **0.00044**. Consistent. A spread measured by a
+differently-behaving estimator would have said nothing about r88's.
+
+**The 1/√n prediction.** r88's result implies the sd should scale as 1/√n. That is falsifiable and was
+checked at three panel sizes: worst deviation **11.5%**, inside the 20% band declared in advance. This
+matters beyond bookkeeping — it is the evidence that the noise is a property of the **donor sampling**
+rather than of any particular judge, which is the only thing that licenses discussing r10's floor at
+all using r04's tensor.
+
+### A composition effect, and a denominator I got wrong first
+
+The n=300 panel's mean attribution (+0.1370) exceeds the whole join's (+0.1252) by **+0.0118**. The
+first version of this round divided that by the **single-draw sd**, reported "+1.2 draw-sd", and
+concluded "COMPOSITION, not draw" — **a right conclusion resting on arithmetic that contradicted it,
+since 1.2 sd is an ordinary draw.** Both quantities are averages over 200 draws, so the correct scale
+is the standard error of a draw-averaged mean, **0.00077**: the gap is **15.3 standard errors**. It is
+composition, and it is expected — the release file is ordered by collection form and the first 300
+prompts are the long-form head (entry 159).
+
+**The sentence that can no longer be written:** *"the headline's floor is an unrelated prompt's
+rubric"* — without saying **which** unrelated prompts, out of the ~63% that a single draw happens to use.
