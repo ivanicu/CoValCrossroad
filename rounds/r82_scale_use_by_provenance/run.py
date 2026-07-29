@@ -178,9 +178,13 @@ def main() -> None:
         world = "I INVERTED -- write-ins hedge more"
 
     verdict = (
-        f"{world}. THE MIDPOINT OF A 21-POINT SCALE WAS USED ONCE IN {total:,} RATINGS "
-        f"({prof['all']['midpoint_rate']:.6f}), and no round in this package had read that "
-        f"distribution out. Queue item 1 rescoped 'not a forced-choice artifact' to 'robust to "
+        f"{world}. The midpoint of a 21-point scale was used once in {total:,} ratings "
+        f"({prof['all']['midpoint_rate']:.6f}). ⚠ THAT FACT WAS ALREADY IN THE PACKAGE -- r35's "
+        f"`scale_note` states it verbatim, and an earlier draft of this verdict claimed no round had "
+        f"read it out, because the prior-art search used the words 'magnitude' and 'histogram' rather "
+        f"than the claim being made. What IS new here is the shape: the full histogram, "
+        f"{prof['all']['round_number_rate']:.4f} of all mass on 5 or 10, and the provenance split "
+        f"below. Queue item 1 rescoped 'not a forced-choice artifact' to 'robust to "
         f"POST-HOC criterion abstention' precisely because r35 could not simulate an "
         f"elicitation-time neutral option; this round cannot simulate one either, and does not try. "
         f"What it asks instead is whether the scale is used DIFFERENTLY where the pressure should "
