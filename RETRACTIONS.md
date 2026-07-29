@@ -5149,3 +5149,70 @@ one K.
 
 **The sentence that can no longer be written:** *"the attribution may partly be an artifact of the
 donor's criterion count."*
+
+---
+
+## Entry 166 — the donor arm was never a measurement, and two things written today were one draw
+
+**This project has retracted three single-realisation results — r57, r69, r71 — and every one was the
+response/criterion axis.** The donor axis was never checked. It is the axis the headline rides on.
+
+**What the free donor construction actually is.** `donor(i) = (i + 1 + U{0..n−2}) mod n` draws
+**independently for each prompt**, so it samples *with replacement* — it is **not** a permutation. On
+this release a single draw uses **611 ± 10 of 968** prompts as donors; roughly **357 never serve at
+all**. Every published attribution number is therefore computed against about **63%** of the available
+donor rubrics, chosen at random.
+
+**Across 120 independent draws** (identical tensor, identical human rankings, identical judge; only
+the seed varies):
+
+| | |
+|---|---:|
+| donor-averaged attribution | **+0.1249** |
+| sd across draws | **0.00550** |
+| central 95% of draws | **[+0.1141, +0.1352]** |
+| canonical seed 20260727 | **+0.1215** (**−0.62 sd**) |
+
+**Judged against three contrasts named before the run** — because a non-zero spread is arithmetic, not
+a finding, so the question was only ever whether it is large *against what has been published*:
+
+| published contrast | value | donor-draw sd is |
+|---|---:|---:|
+| r86 long-form vs short-form attribution gap | +0.0056 | **0.98×** it |
+| r87 deterministic-vs-random pairing offset | +0.0084 | **0.66×** it |
+| r86 single-seed bootstrap CI half-width | +0.0118 | 0.47× it |
+
+### Correction 1 — entry 165's caveat is withdrawn, and r87 gets *stronger*
+
+Entry 165 and r87's README row closed with a caveat: both *deterministic* pairings sat ~+0.008 above
+the *random* one, equally, despite opposite K treatment, so the offset was "a property of
+structured-versus-random pairing, not of K." **That is wrong.** It was one low draw. Against the draw
+*mean* rather than the single canonical seed, r87's matched arm is **+0.88 sd** and its mismatched arm
+**+0.69 sd** — both ordinary. **No residual offset survives**, so r87's null is cleaner than it was
+written: the criterion-count channel is flat *and* nothing structured is left over.
+
+### Correction 2 — entry 164 was too precise by exactly the amount of one draw
+
+Entry 164 confirmed the frozen headline by noting r86's whole-join cell lands at **65.3%** of the 18.6
+points, "half a point short of the top edge" of the headline's published **3.2% – 65.8%** span. **That
+phrasing was a single-draw number given two-decimal authority.** Donor-averaged, the cell is **67.2%**
+— *above* the edge — and the central 95% of draws spans **61.3% – 72.7%**. The correct statement:
+**the whole-join cell straddles the top of the grid.**
+
+**What this does and does not do to the headline.** It does not overturn it. The headline's claim is
+that the split of the 18.6 points is *not identified* and spans a factor of twenty; a cell that
+straddles the top edge is still a cell of that grid and still refuses to identify the split. What it
+overturns is **my own gloss**, which claimed the cell fell *inside* a published interval when it sits
+on the boundary and moves across it with the seed. Entry 164's evidence stands; its adverb does not.
+
+### The two uncertainties are not interchangeable and are not combined
+
+The bootstrap CI printed beside every attribution number resamples **prompts** at a fixed donor draw.
+This resamples **donor draws** at a fixed prompt set. Neither contains the other, and adding them
+would be the "uncertainty compared against a differently-paired uncertainty" overshoot this package
+has already logged. They are reported side by side, and nothing here averages them.
+
+**Rebuild control.** Seed 20260727 reproduces r86's stored **+0.121465** exactly (delta 0.0e+00), so
+the spread cannot be an artifact of a drifted re-implementation. The round refuses to run otherwise.
+
+**The sentence that can no longer be written:** *"attribution is +0.1215"* — without saying which draw.

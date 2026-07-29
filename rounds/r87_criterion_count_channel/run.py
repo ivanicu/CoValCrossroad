@@ -35,10 +35,13 @@ Null       (i) r86's UNRESTRICTED permutation under seed 20260727 is recomputed 
 
 WHY THIS IS THE STEP
 --------------------
-Under a free permutation the OWN arm always evaluates prompt i at ITS OWN K, while
-the DONOR arm evaluates it at a scrambled K. The K marginal is identical across arms
--- a permutation preserves the multiset -- so the mean count is NOT the issue. The
-issue is the PAIRING: if K_i correlates with prompt i's intrinsic gradability (people
+Under the free donor construction the OWN arm always evaluates prompt i at ITS OWN K,
+while the DONOR arm evaluates it at a scrambled K. The mean count is NOT the issue: it
+is matched to within a draw -- MEASURED, not assumed, because the free construction
+draws independently per prompt and is therefore sampling WITH REPLACEMENT rather than a
+permutation (a given draw uses ~612 of 968 prompts as donors and ~356 never serve),
+giving donor mean K 15.467 +- 0.178 against the own arm's 15.479. The issue is the
+PAIRING: if K_i correlates with prompt i's intrinsic gradability (people
 with more to say about a question may also rank it more consistently), then the own
 arm enjoys a matched pairing the donor arm does not, and that alone yields positive
 attribution with ZERO source specificity.
@@ -241,8 +244,9 @@ def main() -> None:
     verdict = (
         f"{world}. The package's central contrast is own-minus-donor attribution, and r86's own scope "
         f"note names a confound it declined to control: the OWN arm always evaluates prompt i at ITS OWN "
-        f"criterion count K, while the DONOR arm evaluates it at a scrambled K. A permutation preserves "
-        f"the K multiset, so the arms are matched in MEAN count -- what differs is the PAIRING, and if K "
+        f"criterion count K, while the DONOR arm evaluates it at a scrambled K. The arms are matched in MEAN "
+        f"count to within a draw -- measured, not assumed, since the free construction samples WITH "
+        f"REPLACEMENT rather than permuting. What differs is the PAIRING, and if K "
         f"tracks a prompt's intrinsic gradability that pairing alone yields positive attribution with zero "
         f"source specificity. No round has tested this: r44 size-matches only within the compiler lineage. "
         f"Three donor pairings on the identical tensor and the identical human rankings, ordered by "
