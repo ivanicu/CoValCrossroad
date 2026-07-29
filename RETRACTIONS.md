@@ -1354,6 +1354,42 @@ the README row by hand in the same hour, and left it out.
 `frozen_line` is deliberately excluded: it is bloc-level boilerplate already enforced by
 `registries_are_satisfied.py`, and demanding a per-row echo of it would drown the signal.
 
+## Entry 74 — "response-blind" was carrying an S_pre reading the dataset card does not support
+
+r13 is the closest thing in this package to **S_pre**, one of the three counterfactuals that end this
+project. Its README passage had three defects, and the passage contradicted itself.
+
+**① The lead sentence claimed equivalence from a non-significant difference.** It said the seed
+criteria *"are as informative as criteria authored after reading them"* — from a paired gap of
+**+0.0231 [−0.0079, +0.0541]**, `excludes_zero: False`. Eleven lines below, the same passage says
+*"which of the two provenances carries more is **not established**"*. Both sentences, same page.
+r58 settles it: the 95% interval spans **0.062, which is 3.1× the ±0.01 window** — this contrast is
+**INCONCLUSIVE**, neither an ordering nor a null.
+
+**② "Written *before anyone saw them*" is not what the card says.** Verbatim, `DATASET_CARD.md`:
+
+> L72 **Candidates**: For each prompt, we pre-generated four candidate responses (labeled A–D).
+>     These candidates represent a range of potential model behaviors to be evaluated.
+> L73 **Full rubrics**: **In parallel**, we prepared initial rubric items as examples of possible
+>     objective, prompt-specific evaluation criteria.
+
+**In parallel**, not before. Same *"we"*. The team writing example criteria for a prompt was
+simultaneously choosing four candidates *"to represent a range of potential model behaviors"* for
+that same prompt.
+
+**③ "Never tailored to the responses" appears nowhere in the card.** It was my inference, printed as
+provenance.
+
+**The distinction that matters.** The seeds are blind with respect to **participant exposure** — no
+participant had read the four responses when the seed text was written — and that is exactly what
+the leakage argument needs, so **r13's refutation of r12's mechanism stands**. They are **not**
+independent of the responses by **design**, which is what an S_pre reading needs. Two different
+properties, and one word was carrying both. Every occurrence of "response-blind" for the seed arm is
+now "participant-blind", with the design coupling stated where a reader meets the number.
+
+**What this costs.** The package's nearest approach to S_pre is weaker than it read. S_pre remains
+what r48 already said it was: **unreachable from this release.**
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

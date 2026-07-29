@@ -922,13 +922,22 @@ inversion replicates at **−0.058 [−0.085, −0.031]**.
 > single highest-information next action in this project.**
 
 [r13](rounds/r13_seed_vs_writein) then refuted the obvious explanation. If the criteria simply encoded
-facts about those four candidates, criteria written *before anyone saw them* should carry no advantage.
-They carry a clear one — the *seed* criteria, prepared alongside candidate generation and never tailored
-to the responses, are as informative as criteria authored after reading them:
+facts about those four candidates, criteria not written by someone who had read them should carry no
+advantage. They carry a clear one — and **which provenance carries more is not established**, because
+the paired difference spans zero:
+
+> **⚠ What "response-blind" means here, exactly.** The dataset card (line 73) says the seed items were
+> prepared ***in parallel*** with candidate generation — not before it, and not by anyone blind to it.
+> The same team was simultaneously writing four candidates chosen "to represent a range of potential
+> model behaviors" and writing example criteria for that prompt. So the seeds are response-blind with
+> respect to **participant exposure**, which is what the leakage argument needs, and **not** independent
+> of the responses by **design**, which is what an S_pre reading would need. An earlier draft of this
+> paragraph said the seeds were "written *before anyone saw them*" and "never tailored to the
+> responses"; the card supports neither.
 
 | criterion provenance | real | unrelated | advantage |
 |---|---:|---:|---:|
-| seed (response-blind) | 0.583 | 0.537 | **+0.046** [+0.023, +0.069] |
+| seed (participant-blind) | 0.583 | 0.537 | **+0.046** [+0.023, +0.069] |
 | write-in (after reading) | 0.559 | 0.533 | **+0.026** [+0.002, +0.051] |
 | **difference, paired on 293 shared prompts** | | | **+0.023 [−0.008, +0.054]** |
 
@@ -937,7 +946,9 @@ to the responses, are as informative as criteria authored after reading them:
 attribution differenced a positional prefix of one array against a differently-ordered subset
 ([entry 15](RETRACTIONS.md)), and the *difference* was quoted with no interval at all. Repaired, every
 point estimate rose — and the ordering died, because +0.023 spans zero. Which of the two provenances
-carries *more* is **not established**.
+carries *more* is **not established** — and neither is their *equivalence*: the 95% interval spans
+0.062, **3.1× the ±0.01 window**, so this contrast is **INCONCLUSIVE**, not a null
+([r58](rounds/r58_equivalence_census)).
 
 > **⚠ Retracted claim.** This round previously concluded *"response-set knowledge is not the
 > mechanism."* **That is too strong and is withdrawn.** What it rules out is only the narrowest channel:
@@ -998,7 +1009,7 @@ not from estimation noise, so no further computation narrows it.
 | [r10](rounds/r10_attribution_robustness) | Is the attribution an artifact? | stable across judge size and template; 23.7% of the gap is topic, not value |
 | [r11](rounds/r11_backbone_control) | Was r09 backbone leakage? | **retracts r09's rise** — it vanishes with an independent backbone. ⚠ Its own caveat: this is a statement about the **proxy-world measurement** — the correct scope for overturning r09, which is also proxy-world, and **not** a statement about human preference |
 | [r12](rounds/r12_response_set) | Does the advantage transfer? | it **inverts** off-distribution: +0.102 → −0.042, discrimination control passed |
-| [r13](rounds/r13_seed_vs_writein) | Seed criteria vs write-ins | **refutes r12's own mechanism**: response-blind seeds carry real attribution (+0.046 [+0.023,+0.069]). The seed-vs-write-in *ordering* is NOT established — paired difference +0.023 [−0.008,+0.054] |
+| [r13](rounds/r13_seed_vs_writein) | Seed criteria vs write-ins | **refutes r12's own mechanism**: participant-blind seeds carry real attribution (+0.046 [+0.023,+0.069]) — ⚠ the card says these were prepared *in parallel with* candidate generation, so they are blind to participant exposure, **not** independent of the responses by design. The seed-vs-write-in *ordering* is NOT established — paired difference +0.023 [−0.008,+0.054] |
 | [r16](rounds/r16_minority_regret) | Conflict-aware, on its own turf | profile splits show regret 2.07 vs 1.10 random, yet conflict-aware leaves the worst-off group **lowest of all rules**. ⚠ These are **not** a demographic constituency: gender (1.145) and country (1.198) splits both fail r16's own bar |
 | [r17](rounds/r17_conditional_core) | Does conditional encoding rescue it? | **partly** — routing learned from a rater's *other* prompts helps only the rules carrying contested items (+0.195), and does not close the gap |
 | [r18](rounds/r18_routing_difficulty) | Was r17's 84.6% routing accuracy free? | **inflated by +0.147, but real**: 0.666 [0.643, 0.688] where the blocs actually disagree |
