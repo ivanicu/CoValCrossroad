@@ -513,7 +513,9 @@ comparability, and any departure is stated in the same sentence as the estimate 
 > recorded so the choice is visible rather than assumed.
 >
 > **⚠ THE SAME BOUNDARY GOVERNS THE `personal` RANKING** (entry 156): it is present on the *identical*
-> 4,901 assessments and on none past task five. So the release has a **long form** (world + personal +
+> 4,901 assessments and on none past task five. **And the partition is by PROMPT** (entry 158): 1,078
+> prompts split into **321 long-form** and **757 short-form** with **intersection zero**, so no prompt
+> was ever collected under both instruments and no cross-form comparison exists in this release. So the release has a **long form** (world + personal +
 > unacceptable) for a rater's first ~5 tasks and a **short form** (world only) after. Experiment 2, if
 > it wants personal rankings, inherits the same choice — collect them on early tasks only and match the
 > release, or collect them throughout and accept that its rankings are not comparable to 73% of the

@@ -284,11 +284,21 @@ def main() -> None:
         "personal_block_coverage": {
             "assessments_with_personal": 4901, "assessments_total": 18384,
             "share": 4901 / 18384, "present_at_positions": "1-4 complete, 5 partial, 0 from 6",
-            "same_assessments_as_unacceptable_block": True},
-        "scope": ("POPULATION: assessments carrying both a world and a personal ranking exist only "
-                  "for a rater's first ~5 tasks -- 26.66% of the release, and the same subset that "
-                  "carries the unacceptable-content check. This contrast is confined to earliest, "
-                  "safety-primed tasks and no amount of this release can extend it. "
+            "same_assessments_as_unacceptable_block": True,
+            # STRONGER THAN A SHARE (entry 158): the forms cover DISJOINT PROMPTS.
+            # 1,078 prompts partition into 321 long-form and 757 short-form with
+            # intersection zero. So the personal ranking does not exist for 757
+            # prompts at all -- not sparsely, not at all -- and no prompt has data
+            # under both instruments.
+            "prompts_long_form": 321, "prompts_short_form": 757,
+            "prompts_total": 1078, "prompt_set_intersection": 0},
+        "scope": ("POPULATION: the personal ranking exists for 321 of the release's 1,078 prompts "
+                  "and for NONE of the other 757 -- the long-form and short-form prompt sets are "
+                  "DISJOINT, intersection zero. It is also confined to a rater's first ~5 tasks and "
+                  "to the same assessments carrying the unacceptable-content check, so form, task "
+                  "position and prompt identity are all three perfectly confounded. This contrast "
+                  "cannot be extended by collecting more of this release, and cannot be compared "
+                  "across forms because no prompt appears under both. "
                   "Equal weights over CoVal-core, judge-scored satisfaction (r41's persisted tensor, "
                   "reproduction control 1500/1500 exact). The rubric-induced ordering is the "
                   "JUDGE's, so a null is a statement about this judge on these criteria. The "

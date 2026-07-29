@@ -4790,6 +4790,14 @@ precisely where the release switches from the long form to the short one (entry 
 Per-position, the long form runs 292 · 262 · 258 · 257 · 268 — flat, with position 5 *above* 3 and 4 —
 and the short form runs 163 · 171 · 168 · 168, flat and slightly rising at the start.
 
+**⚠ CORRECTION (entry 158): the step cannot be attributed to the FORM over the PROMPTS.** The two
+forms cover **completely disjoint prompt sets** — 1,078 prompts partition into **321 long-form** and
+**757 short-form**, intersection **zero**. So the −104.5 comparison is between different prompts as
+well as different forms, and the 321 long-form prompts may simply elicit longer rationales. Form,
+position and prompt are **all three** perfectly confounded in this release, and no rater ever saw the
+same prompt under both instruments. The paragraph below stands as a description of the position curve's
+**shape**; its attribution of that shape to the instrument is withdrawn.
+
 **So the shape is a step with plateaus, not a decay.** There *is* a genuine within-form decline in the
 short form, small and excluding zero. The boundary step is about **73 tasks' worth of that decline
 delivered in one move**. A curve that falls 38.5% in a single position and is flat on both sides of it
@@ -4811,3 +4819,40 @@ establishes nothing.
 **Landed in the preregistration**, where it is actionable: any experiment that changes form
 mid-session will produce a discontinuity of this size in its own data, and must hold the form fixed or
 report the step.
+
+## Entry 158 — the two protocols cover disjoint prompts, which withdraws my own attribution from one entry earlier
+
+**Chasing entry 157's boundary further.** If the long and short forms differ, the world rankings they
+produce might differ too. The tie rate looked like it did — **0.5254** [0.5053, 0.5465] long against
+**0.4899** [0.4707, 0.5077] short. Then the prompt coverage came back:
+
+| | prompts |
+|---|---:|
+| long form | **321** |
+| short form | **757** |
+| **intersection** | **0** |
+| total in file | 1,078 |
+
+**The release partitions its prompts by form.** Every prompt is collected under exactly one instrument,
+and **no prompt exists under both**.
+
+**Which withdraws entry 157's attribution, written one entry ago.** That entry measured a −104.5
+character step in rationale length at the form boundary and called it *"the instrument changing, not
+the rater tiring."* The step is real and its **shape** — flat plateaus either side — stands. But the
+comparison is between **disjoint prompt sets**, so the 321 long-form prompts may simply elicit longer
+rationales. **Form, task position and prompt identity are all three perfectly confounded**, and I
+attributed the step to one of them while holding neither of the others fixed. My own tie-rate
+comparison above has exactly the same defect, and is reported here as uninterpretable rather than
+quietly dropped.
+
+**What it does to r60, which is the opposite of weakening it.** *"Not answerable from this release"*
+becomes considerably stronger: the personal ranking does not exist for **757 prompts at all** — not
+sparsely, not at all — and no prompt has data under both instruments, so there is no cross-form
+comparison available to recover anything. r60's artifact now stores the partition and opens its scope
+with it; the README row and preregistration carry it.
+
+**The general shape, and it is the third time this session.** A structural fact discovered while
+looking at something else immediately qualified a claim I had just published. Entry 150 (prior art
+searched with the wrong vocabulary), entry 152 (a number read off a rounded printout), and now this.
+**The interval between making a claim and finding its confound was one entry each time** — which is an
+argument for the confound being written *before* the run, and against my having done so here.
