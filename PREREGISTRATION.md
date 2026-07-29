@@ -202,6 +202,25 @@ off the table above, divide by the expected match rate. No optional stopping.
 
 ## Experiment 2 — H_fresh: do the criteria predict choices on responses nobody wrote them for?
 
+**⚠ WHAT THIS EXPERIMENT CANNOT TEST, AND WHY THAT IS CORRECT** (entry 160). The frozen frame is
+**100% long-form** prompts, and the inheritance is traceable: `data/comparisons.jsonl` is sorted by
+collection form (lines 0–320 long, 321–1077 short); r12 takes a head slice `[:250]`, so its prompts are
+entirely long-form; `r45/freeze.py` draws the 60 from **r12's saved generations**. H_fresh is *defined*
+as human rankings on **r12's exact saved fresh responses**, so it could not have been otherwise.
+
+- **What it will therefore establish:** whether r12's inversion survives replacing the model gold head
+  with real humans, **on r12's instrument**.
+- **What it will not:** anything about the **757 short-form prompts**. Those have no personal ranking,
+  no unacceptable check, and were never in r12's slice.
+- **The only cross-form evidence available** stays [r46](rounds/r46_spread_replication) — 83.6%
+  short-form, showing the same inversion (+0.0847 → −0.0716). Uncontrolled, since no prompt exists
+  under both forms, and not upgradeable by this experiment.
+
+**This is registered rather than fixed.** Extending H_fresh to short-form prompts would require
+generating a new fresh response set, which breaks comparability with r12 — the one thing this
+experiment exists to test against. The bound is the right trade and is stated so that a later reader
+does not mistake H_fresh's silence about the short form for evidence about it.
+
 **⚠ REGISTERED BEFORE THE DATA: positive and negative criteria must be collected and analysed
 separately, and here is the prediction that says why.** [r75](rounds/r75_menu_read_direction) joined
 each write-in to *its own author's* ranking — 9,122 criteria, no aggregation across people — and found

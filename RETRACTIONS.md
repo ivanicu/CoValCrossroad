@@ -4897,3 +4897,38 @@ all measured. The source carries the same fact in a comment for whoever runs it 
 **What is still confounded.** Form, task position and prompt identity remain perfectly entangled, so
 "the inversion holds in both forms" cannot be sharpened into "form does not matter". It means the
 effect is not *confined* to the instrument r12 happened to slice.
+
+## Entry 160 — H_fresh inherits a head slice, and the right response is to bound it rather than fix it
+
+**Tracing entry 159's slice forward.** `r45/freeze.py` draws its 60 prompts from
+`rounds/r12_response_set/results/a12_fresh_generations.json` — **r12's 250**. So the chain is:
+
+> file sorted by form → `load_join(...)[:250]` → **100% long-form** → frozen frame → **H_fresh**
+
+**And it could not have been otherwise.** H_fresh is *defined* as human rankings on **r12's exact saved
+fresh responses**. Drawing the frame from anywhere else would test a different response set than the
+one whose inversion is in question. The head slice is a real selection artifact (entry 159) and its
+inheritance here is a **consequence of the experiment's definition**, not a second mistake.
+
+**So the honest move is a bound, not a repair.** Registered in Experiment 2:
+
+- **will establish** — whether r12's inversion survives replacing the model gold head with **real
+  humans**, on r12's instrument;
+- **will not** — anything about the **757 short-form prompts**, which have no personal ranking, no
+  unacceptable check, and were never in the slice;
+- **only cross-form evidence remains r46** — 83.6% short-form, same inversion (+0.0847 → −0.0716),
+  uncontrolled because no prompt exists under both forms, and **not upgradeable by this experiment**.
+
+**Why not extend the frame.** Adding short-form prompts requires generating a **new fresh response
+set**, which destroys comparability with r12 — the single thing H_fresh exists to test against. Paying
+for a broader population by making it unanswerable is the wrong trade, and the queue's own rule
+("generate response sets ONLY after the human protocol is frozen") points the same way.
+
+**What this is guarding against.** A later reader finding H_fresh silent about short-form prompts and
+reading that silence as evidence. It is not evidence; it is a population that was never in the frame,
+and the frame was correct to exclude it.
+
+**Five entries, one thread.** 155 found the field coverage, 156 the two protocols, 157 the boundary
+step (attribution later withdrawn), 158 the disjoint prompt sets, 159 the sorted file and the head
+slice. This one closes it: the structure is now traced from the raw file through every load-bearing
+population to the experiment that will be paid for, and each stage says what it can and cannot support.
