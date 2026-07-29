@@ -130,6 +130,31 @@ def main() -> int:
         else:
             print("  every round named in an interpretation freeze is in the registry")
 
+    # ---- registry 4: does FROZEN.md cover the QUEUE's frozen list? --------
+    # Last turn I said this was "a human comparison". It is not -- the queue is
+    # stable and reproduced verbatim in every task prompt, so it can be encoded
+    # and diffed. Doing so found "anthropomorphism regex" frozen by the queue and
+    # recorded nowhere in FROZEN.md: 11 of 12 items present, one absent.
+    #
+    # This is where the chain of authorisation stops being mechanical. The list
+    # below is transcribed BY HAND from the queue, so it verifies FROZEN.md
+    # against a transcription, not against the queue itself.
+    QUEUE_FROZEN = ["r25", "r16", "r17", "r18", "r28", "r24", "anthropomorphism",
+                    "best-of-n", "gold backbone", "donor floor", "paraphrase sweep",
+                    "more judges"]
+    print("\nFROZEN.md vs the QUEUE's frozen list (hand-transcribed):")
+    if fro.exists():
+        low = txt.lower()
+        absent = [q for q in QUEUE_FROZEN if q.lower() not in low]
+        print(f"  queue items: {len(QUEUE_FROZEN)}   recorded in FROZEN.md: "
+              f"{len(QUEUE_FROZEN) - len(absent)}")
+        if absent:
+            print(f"  ABSENT: {absent}")
+            for q in absent:
+                problems.append(f"'{q}': frozen by the queue, absent from FROZEN.md")
+        else:
+            print("  every queue-frozen item is recorded")
+
     print(f"\nregistry entries checked: freeze {len(FROZEN)}, "
           f"outcome-scope {len(declarers)}")
     if not problems:

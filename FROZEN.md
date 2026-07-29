@@ -90,6 +90,31 @@ Frozen because more of the same produces agreement, not ground truth.
 
 ---
 
+## 4b. The anthropomorphism lexicon — `r07`
+
+**Frozen by the queue and, until now, recorded nowhere here.** Found by comparing the queue's
+frozen list against this file: 11 of 12 items were present, this one was not.
+
+**Why it is frozen: the same instrument failed twice, in the same way, after being fixed.**
+
+- **[Entry 2]** the first lexicon reported *"2.96% of crowd-written criteria address
+  anthropomorphism"*. It was substring matching: `persona` caught *personal*, *personality*,
+  *personalities*; `friend` caught *friendly*, *friendships*. **321 of 452 hits were false.**
+  Word-boundary regexes gave **0.16%** — twelve times smaller. The finding got *stronger* through
+  a bug.
+- **[Entry 20]** the fixed lexicon's 0.16% failed too, on construct review of all 24 hits. Seven
+  or eight of the nine `personal opinion` matches **instruct the model to avoid** opinions; one
+  `as an ai` hit is literally an anti-anthropomorphism disclosure rule; four `persona` hits are
+  content roleplay on request. At most 11 of 24 are on-construct — true rate **~0.05–0.09%**.
+
+**Status: a keyword lexicon cannot measure this construct.** Both failures were the same shape —
+the match rule is not the concept — and fixing the match rule did not fix that. The second failure
+came *after* the repair, which is the reason to stop rather than to iterate again.
+
+**What would unfreeze it.** Not a better regex. A construct-validated instrument: annotator
+adjudication of a labelled sample with an inter-rater figure, against which any automatic matcher
+is scored before its rate is quoted.
+
 ## 5. The computational headline
 
 **Frozen as of 2026-07-28.** Source specificity is **3.2%–65.8%** including sampling error,
