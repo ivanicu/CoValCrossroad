@@ -2840,6 +2840,36 @@ does not. Marked as unverified rather than quietly kept or quietly deleted.
 `prompt_concordance = 0.6126`. Verified rather than assumed, which is the practice entry 112 wrote
 into the section directly above it.
 
+## Entry 114 — ran the clean-clone verification instead of marking it stale, and it found the one check that could not survive a clone
+
+Entry 113 marked *"verified from a clean clone"* as stale and stopped there. **Stale is a state you
+can leave things in; it is not an answer.** So: local clone, no virtualenv inside it, `data/*.jsonl`
+absent because they are gitignored.
+
+| | |
+|---|---|
+| round + assurance + `covalx` files parsed | **94, 0 syntax errors** |
+| assurance checks running from a bare clone | **11 of 12** |
+| data-free rounds running from a bare clone | **5 of 7** |
+
+**The two rounds that failed are not defects.** r61 and r63 open `data/conversation_rubrics.jsonl`
+and `data/comparisons.jsonl`, which the README's own instructions fetch in the step before — I
+skipped `python data/fetch.py` deliberately, and they failed exactly there. **A failure at the
+documented step is the instructions working.**
+
+**The one real defect:** `assurance/attack_the_suite.py` invoked `<repo>/.venv/bin/python` — a path
+that exists only in a working copy. The check whose job is to attack the other checks was the single
+one that could not run from a clone.
+
+**And the first patch for it was accidentally correct.** I wrote `PY = str(ROOT / sys.executable)`,
+which works only because `pathlib` discards the left operand when the right is absolute. It passed
+both runs. **Code that works for a reason other than the one you intended is a defect that has not
+happened yet** — rewritten as `PY = sys.executable`, with the near-miss recorded in the file.
+
+**What the run settled that entry 113 could only flag:** the `.npz` tensors *are* committed, so r66
+and r67 — which import across round modules and needed `rounds/__init__.py` — both run from the
+clone. That was the specific unverified thing, and it is now verified rather than annotated.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

@@ -23,7 +23,13 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PY = str(ROOT / ".venv/bin/python")
+# The interpreter that is RUNNING this file, not a path guessed relative to the
+# repo. A clean-clone run (entry 114) found this was the only check that could
+# not run from a fresh clone: it invoked <repo>/.venv/bin/python, which exists
+# only in the working copy. The first patch wrote `ROOT / sys.executable`, which
+# works only because pathlib discards the left side when the right is absolute --
+# accidentally correct, so it is written plainly instead.
+PY = sys.executable
 
 
 def run(check: str) -> int:
@@ -86,6 +92,9 @@ CASES = [
 ]
 
 
+# Uses sys.executable, NOT a hardcoded .venv path (entry 114). A clean-clone
+# run found this check was the only one that could not run from a fresh clone:
+# it invoked <repo>/.venv/bin/python, which exists only in the working copy.
 def main() -> int:
     results = []
     for check, emptier, want, what in CASES:

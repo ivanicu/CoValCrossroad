@@ -1236,12 +1236,23 @@ either.
 
 ## Reproducing
 
-Verified from a clean clone **at the time that line was written**: `git clone`,
-`python data/fetch.py`, then every CPU round and the manifest run without further setup.
-⚠ **Ten rounds have been added since and that verification has not been repeated.** One of them,
-[r66](rounds/r66_r56_reconstruction), imports from another round's module and needs the repository
-root on `sys.path`; `rounds/__init__.py` files exist for it but a clean-clone run has not been
-executed. Treat the claim as **stale, not false** — the difference is that nobody has checked.
+**Re-verified from a fresh local clone**, with no virtualenv inside it and `data/*.jsonl` absent
+(they are gitignored — `python data/fetch.py` fetches them):
+
+| | |
+|---|---|
+| round + assurance + `covalx` source files parsed | **94, 0 syntax errors** |
+| assurance checks that run from a bare clone | **12 of 12** |
+| data-free rounds that run from a bare clone | **5 of 7** |
+| the other 2 (r61, r63) | fail on missing `data/*.jsonl` — the documented `fetch.py` step, deliberately skipped here |
+
+**One real defect found and fixed:** `assurance/attack_the_suite.py` invoked
+`<repo>/.venv/bin/python`, a path that exists only in a working copy, so it was the single check that
+could not run from a clone. It now uses the interpreter that is running it.
+
+**And the thing entry 113 flagged as unverified is now verified:** the persisted `.npz` tensors *are*
+committed, so [r66](rounds/r66_r56_reconstruction) and [r67](rounds/r67_predictor_reliability) — which
+import across round modules — both run from the clone.
 
 ```bash
 python -m venv .venv && .venv/bin/pip install numpy pandas scipy scikit-learn torch transformers
