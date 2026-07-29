@@ -60,6 +60,35 @@ Two changes:
                that value, and NOT that the right one does.
   SAFE SIDE    the union arm is reported apart from the per-round arm and never
                folded into it, because a union match is a weaker fact.
+
+HOW MUCH A "MATCH" IS WORTH (measured, not assumed)
+---------------------------------------------------
+For its whole life this check reported matches without ever calibrating them. A
+match is only evidence if a value that CANNOT have come from the round would
+usually MISS. Drawing random values and testing them against real round pools:
+
+    decimals   chance-match rate (mean over 70 pools)   worst pool
+        1                56.5%                            100.0%
+        2                22.8%                             98.5%
+        3                 8.4%                             56.5%
+        4                 2.3%                             24.5%
+
+So the verdict depends almost entirely on printed precision, and the README's
+tokens are 25.6% at <=1 decimal and 63.8% at >=3. A match on a 4-decimal figure
+is strong; a match on a 1-decimal figure is nearly free, and on the largest pool
+it is free outright. The table is recomputed at run time and printed with the
+results, so the PASS side can never again be read as if it were uniform.
+
+WHY THE CONVERSE CHECK WAS NOT BUILT
+------------------------------------
+The mirror direction -- do the ROUNDS' stored findings reach the documents? --
+was measured and declined. Testing artifact values for presence anywhere in
+README+RETRACTIONS (354,586 chars) has a chance-match rate of 94.1% for
+correlation-like values and 100.0% for small effects: a number that never
+existed "appears" as often as one that did. Such a check reports almost
+everything as surfaced, and it fails toward PASS. The real case that motivated
+it -- r47's `proxy_validation_on_original`, measured and never read out for many
+rounds -- was found by reading the artifact, not by any matcher.
 """
 from __future__ import annotations
 
@@ -254,6 +283,22 @@ def main() -> None:
         print(f"    {tok:>10}   cited: {', '.join(rids)}")
     if not union_flagged:
         print("    (none unmatched)")
+
+    # Calibration, computed here so it always travels with the verdict.
+    import numpy as _np
+    _rng = _np.random.default_rng(20260805)
+    print(f"\nWHAT A MATCH IS WORTH -- chance-match rate of values that came from NO round:")
+    _decs = [len(t.split(".")[1].rstrip("%")) if "." in t else 0
+             for t in NUM.findall(text)
+             if t.strip("+-") not in IGNORE_EXACT and not re.fullmatch(r"[-+]?\d{1,2}", t)]
+    for _d in (1, 2, 3, 4):
+        _r = [float(_np.mean([matches(f"{x:.{_d}f}", pool)
+                              for x in _rng.uniform(-1, 1, 120)]))
+              for pool in pools.values() if pool]
+        _share = float(_np.mean([q == _d for q in _decs])) if _decs else 0.0
+        print(f"    {_d} decimal(s): {_np.mean(_r):6.1%} mean, {_np.max(_r):6.1%} worst pool"
+              f"   ({_share:.0%} of README tokens are at this precision)")
+    print("    A match is evidence in proportion to precision. At 1 decimal it is nearly free.")
 
     cov = (checked + union_checked) / eligible if eligible else 0.0
     print(f"\n  COVERAGE: {checked + union_checked:,} of {eligible:,} eligible numbers "

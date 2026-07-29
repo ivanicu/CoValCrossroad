@@ -3328,3 +3328,54 @@ name) instead of `proxy_validation_on_original` (the *key*). Either misread woul
 much more dramatic entry — *"the validation silently returned nothing"* — and I was one command from
 writing it. The object was fine both times; the reader was wrong. **A `None` from an accessor is a
 claim about the accessor until the accessor has been shown to return something.**
+
+## Entry 124 — the repository's most-used check never calibrated its own PASS side, and the check I was about to build fails 94% of the time
+
+**What prompted this.** Entry 123 found a measured qualifier — r47's `proxy_validation_on_original` —
+that no document ever quoted. The obvious follow-up is a mirror check: `readme_agrees_with_results`
+tests **README → artifact**; nobody has tested **artifact → README**, the direction that hides
+*findings* rather than *errors*.
+
+**I measured that check before building it, and it fails.** Testing whether an artifact value appears
+anywhere in README + RETRACTIONS (354,586 chars):
+
+| draw | chance-match rate |
+|---|---:|
+| correlation-like, U(−1, 1) | **94.1%** |
+| accuracy-like, U(0.4, 0.8) | **93.2%** |
+| small-effect-like, U(−0.15, 0.15) | **100.0%** |
+
+A value that never existed "appears" as often as one that did. The instrument would report almost
+everything as surfaced, and it **fails toward PASS**. Its nominal positive control made this concrete:
+of r47's 22 `proxy_validation` values, it flagged **2** against the pre-r72 documents — the other 20
+"passed" by coincidence, including **0.1020** and **0.0876**, which I had established by grep an hour
+earlier were *other quantities* in the README. **Not built.** The real case was found by reading the
+artifact, which no matcher did or could.
+
+**Then the same question, turned on the check already in production.** `readme_agrees_with_results`
+has run for many rounds and its *matches* have been read as agreement. Its pools are one round's
+values, not a 354k-char corpus, so its chance rate should be lower — but *should be* is not a
+measurement:
+
+| decimals | chance-match rate (mean over 70 pools) | worst pool | share of README tokens |
+|---|---:|---:|---:|
+| 1 | **56.8%** | 100.0% | 12% |
+| 2 | 23.0% | 100.0% | 11% |
+| 3 | 8.1% | 52.5% | 19% |
+| 4 | **2.4%** | 27.5% | 44% |
+
+**So the check is strong exactly where most of the README lives and nearly worthless at the margin.**
+A match on a 4-decimal figure is real evidence; a match on a 1-decimal figure is close to free, and
+against the largest pool it is free outright. 44% of README tokens sit in the strong band, 23% in the
+two weak ones.
+
+**What changed.** The table is now **recomputed at run time and printed with every result**, so the
+PASS side cannot be read as uniform again. Nothing about the check's flags changes — the *unmatched*
+side was always the informative one, and it still is. What changes is that its **matched** side now
+arrives with a price tag.
+
+**The general form, which is the reason this entry exists.** A matcher's silence is only evidence if
+the matcher would usually speak. This repository has a law about that for nulls — *a measured zero is
+inadmissible until the instrument has passed a positive control* — and it had never been applied to
+**agreement** instruments, only to measurement ones. A check that says *"these numbers agree"* needs a
+chance-match null exactly as much as an ablation needs a positive control.
