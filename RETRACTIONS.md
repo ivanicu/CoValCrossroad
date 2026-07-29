@@ -6637,3 +6637,43 @@ paths cost nothing today. **The exposure is that r58's supersession would go qui
 rule name** — recorded here so the next round that supersedes something with a versioned key does not
 have to rediscover it. *The cheapest possible fix, if it ever bites, is to key supersession on the
 `file` plus an explicit key list rather than on a dotted string.*
+
+---
+
+## Entry 193 — I regenerated the census and left its README row quoting the old one for two commits
+
+Bounding r99's blast radius — *do any published claims cite r58's cell counts?* — found the answer was
+**yes, exactly one, and it was stale.**
+
+**r58's own README row still read: "125 … 60 real and material, 9 real but negligible, 24 no material
+effect, 9 INCONCLUSIVE, 23 UNVERIFIED."** The artifact has said **170 / 90 / 13 / 24 / 10 / 27 / 6
+SUPERSEDED** since entry 188 regenerated it. **Every number but one was wrong**, and "24 no material
+effect" survived only by coincidence.
+
+**The blast radius is otherwise nil**, which was worth establishing rather than assuming: the README's
+4 / 8 / 9 / 0 equivalence table at L459 is **r42's own 21 contrasts**, not r58's, and the only other
+citation (L1147) uses r58 for a single contrast's INCONCLUSIVE status, not a count.
+
+### Why `readme_agrees_with_results` passed on it, which is not a bug
+
+The check matches README numbers against a pool drawn from the cited round, and **it publishes its own
+chance-match calibration**: at 1 decimal, **51.1% mean / 100% worst-pool**. The stale figures —
+`125, 60, 9, 24, 23` — are **0-decimal integers**, which appear somewhere in any large artifact
+essentially for free. The instrument states plainly that *"a match is evidence in proportion to
+precision. At 1 decimal it is nearly free."*
+
+**So it did not fail; I over-read it.** `exit 0` on that check means *no high-precision contradiction
+found*, never *every number is current*. **Same error as entry 185**, where "suite 14/14" was quoted as
+though it meant every check passes. Twice now I have taken an exit code as a stronger statement than the
+instrument makes about itself — and both times the instrument's own output said so, in text I did not
+read because the exit code was green.
+
+### Fixed, and the row now carries what it inherits
+
+Synced to the artifact, **plus both stated contaminations**, because a count quoted without them is the
+defect entries 190 and 191 documented: r99's **17 of 164 suspect pairings, 14 inside *real and
+material***, and r98's finding that the UNVERIFIED cell is **not a backlog**. The row also records that
+it lagged the artifact for two commits, so the staleness is visible rather than silently repaired.
+
+**The generalisable rule:** *regenerating an artifact is half the change.* The row that quotes it is the
+other half, and nothing in the suite will reliably catch a stale integer.
