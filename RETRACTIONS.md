@@ -770,6 +770,38 @@ round writes five results files, and I read one directory listing's first match 
 The frozen list in the queue names "r25 metric cells" for exactly this reason — metric sweeps
 produce cells that go stale independently of the round that made them.
 
+## Entry 60 — three instruments in three turns reported completeness over their own visible subset, and the fix is to enumerate from the requirement
+
+**The shape, now attested three times:**
+
+| turn | instrument | what it reported | what it could not see |
+|---|---|---|---|
+| −3 | `ASSURANCE.md` renderer | claims present | everything after character 110 — i.e. every scope clause |
+| −2 | `results_match_their_code.py` | round "ok" | four stale cells, because it took `max()` over results |
+| −1 | `apply_freeze_status.py` | "20/20 verdicts" | three rounds using `conclusion` or no verdict field at all |
+
+None was wrong about what it saw. **Each was wrong about what it had been asked to cover**, and
+each was built to catch the previous one.
+
+**The structural fix.** `registries_are_satisfied.py` enumerates from the **registry** — the list
+of things that *must* carry an annotation — and checks each. A registry entry with nothing to
+inspect is then a **loud failure** rather than an absence from the denominator. That inversion is
+the whole content of the check.
+
+**It found a real one on its first run.** `covalx/frozen.py` named `r25_metric_sweep`. The round is
+**`r25_actor_dyad_sweep`** — I guessed the directory when writing the registry. It has no `run.py`
+(it is `cell.py` + `collect.py`), and **145 sweep cells, none of which carry a verdict string**, so
+every string-stamping utility passed over it in silence while reporting totals that looked
+complete. 145 cells of a frozen line, asserting nothing but annotated with nothing either.
+
+Now stamped: **145/145**, and the registry-side check passes with 9 freeze entries and 13
+outcome-scope declarers, all satisfied.
+
+**What it still cannot do**, stated because the entries above are all about instruments that
+overstated themselves: carried is not correct and not prominent. This flags omission only, and it
+cannot judge whether a given freeze is the *right* annotation for a round — only that the round was
+not skipped.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

@@ -44,7 +44,12 @@ BLOC_INTERPRETATION = (
 REGISTRY = {
     "r01_rater_structure": RATER_STRUCTURE,
     "r23_actor_vs_dyad": RATER_STRUCTURE,
-    "r25_metric_sweep": RATER_STRUCTURE,
+    # NAME CORRECTED: I guessed "r25_metric_sweep" when writing this registry.
+    # The round is r25_actor_dyad_sweep, it has no run.py (cell.py + collect.py),
+    # and 145 sweep cells -- NONE of which carry a verdict string, so every
+    # string-stamping utility passed over it silently. Caught only by enumerating
+    # from the registry side (assurance/registries_are_satisfied.py).
+    "r25_actor_dyad_sweep": RATER_STRUCTURE,
     "r26_sign_no_split": RATER_STRUCTURE,
     "r27_raw_negative_tail": RATER_STRUCTURE,
     "r28_multiplicative": RATER_STRUCTURE,

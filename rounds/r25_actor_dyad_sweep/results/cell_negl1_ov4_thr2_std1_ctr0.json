@@ -19,5 +19,6 @@
  "neg_both_z": 2.6378285175765916,
  "pair_specific_share": 0.23862887354418405,
  "null_mean": -0.0006066832579002053,
- "null_sd": 0.005385923468720834
+ "null_sd": 0.005385923468720834,
+ "frozen_line": "FROZEN LINE (queue item 2, see FROZEN.md): this round belongs to the rater-structure ontology -- r01, r23, r25, r26, r27, r28 -- which is FROZEN as UNRESOLVED. Four separators failed for four unrelated reasons: r23's sharper test read z=+10.26 at 2 null reps and +1.40 at 40; r26's centred residual gives 'below average' and 'actually disagreeing' the same number when mean agreement is +0.25; r27's agreeable-pair control selects same-bloc pairs under unequal bloc sizes and so could not have found blocs if they existed; r28's design was rank-deficient by exactly 1, its z moved with PYTHONHASHSEED, and its held-out R2 spanned [-1.64,+0.51]. The numbers below are correct about this round's own data. They do NOT establish that value blocs exist, and they do not establish that they do not. Neither reading is available from this release."
 }
