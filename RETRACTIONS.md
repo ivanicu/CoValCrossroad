@@ -6329,3 +6329,51 @@ from a count to a plan without reading the objects the count was about. Each tim
 the plan. **A count is a pointer to objects, not a substitute for them** — and the check itself now
 carries that in its proxy ledger: *uncited* includes argued refusal, frozen readings, discounted
 numbers and unit mismatches, so a non-zero exit is a list to read, never a list to fix.
+
+---
+
+## Entry 188 — the census was 46 rounds stale and counted a file deleted 19 minutes after it ran
+
+r58's published headline reads *"the package holds **125** interval contrasts"*. **It holds 164.**
+
+**Two independent staleness failures, and the first is nearly comic in its timing.** r58's artifact was
+written at **22:42**. Commit `eded802` — *"Entry 71 fixed the spelling and the next provisional file
+used a different word: a06_dryrun.json was in the pools while I wrote that entry"* — removed that file
+at **23:01**, **nineteen minutes later.** The contamination was found and fixed **at the source**, and
+the derived census was never regenerated. **Its 6 dryrun rows have cited a nonexistent file ever
+since**, and entry 184 rediscovered them as if they were new.
+
+**Second:** the census covered rounds up to **r51**. There are now **97**. It was blind to **46
+rounds**, including every round of this session.
+
+### Regenerated
+
+| | before | after |
+|---|---:|---:|
+| contrasts | 125 | **164** |
+| rounds represented | 21 | **34** |
+| rows citing a deleted file | 6 | **0** |
+| real and material | 60 | 86 |
+| **UNVERIFIED** | 23 | **33** |
+
+**UNVERIFIED went up, not down** — 46 new rounds brought contrasts, and almost none brought vectors.
+
+### The part that implicates this session directly
+
+**Of the 14 contrasts contributed by rounds written recently, ZERO stored a raw vector, and 6 are
+UNVERIFIED** — three from **r87** and three from **r96**, both of which I wrote. I spent this session
+establishing that discarded per-prompt vectors are the single blocker behind r58's UNVERIFIED pool,
+built **r97** specifically to fix that root cause for r06 — **and wrote ten rounds that discard their
+own.**
+
+r96 is the sharpest case: it computes 8000 joint bootstrap draws per judge, uses them, reports 95%
+intervals, and **throws the draws away** — leaving its own pairwise contrasts un-TOST-able at δ=0.01
+for exactly the reason it criticised r30 for.
+
+**The lesson is not "persist more"; it is that a round's OUTPUT CONTRACT is part of its design and I
+was treating it as an afterthought.** r97 persists cells because I noticed the cost *after* paying it
+twice. Every round that computes a paired distribution should store it, and that belongs in the claim
+card next to the null, not in a later census's complaint list.
+
+**Named, not done:** r87 and r96 need their draws persisted and re-run — both are seconds of CPU. The
+other 4 new UNVERIFIED sit in r78 (5) and elsewhere and are untouched.

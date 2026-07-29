@@ -1,16 +1,16 @@
 {
  "delta": 0.01,
  "boot": 20000,
- "n_contrasts": 125,
+ "n_contrasts": 164,
  "n_in_r42": 21,
- "n_outside_r42": 104,
+ "n_outside_r42": 143,
  "n_with_raw_vector": 56,
  "cells": {
   "INCONCLUSIVE": 9,
-  "UNVERIFIED": 23,
-  "no material effect": 24,
-  "real and material": 60,
-  "real but negligible": 9
+  "UNVERIFIED": 33,
+  "no material effect": 23,
+  "real and material": 86,
+  "real but negligible": 13
  },
  "inconclusive_outside_r42": [
   {
@@ -96,11 +96,11 @@
   }
  ],
  "delta_sweep_n_equivalent": {
-  "0.0025": 8,
-  "0.005": 11,
-  "0.01": 33,
-  "0.02": 53,
-  "0.05": 74
+  "0.0025": 9,
+  "0.005": 12,
+  "0.01": 36,
+  "0.02": 62,
+  "0.05": 99
  },
  "positive_control": {
   "known_equivalent": {
@@ -150,114 +150,6 @@
    "significant": false,
    "sound": true,
    "cell": "UNVERIFIED"
-  },
-  {
-   "round": "r06",
-   "file": "rounds/r06_rule_tournament/results/a06_dryrun.json",
-   "path": "rules.utility.vs_no_compression",
-   "mean": -0.00062644706413394,
-   "ci95": [
-    -0.005261773296971392,
-    0.004164311322108551
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": -0.00062644706413394,
-   "equivalent": true,
-   "significant": false,
-   "sound": true,
-   "cell": "no material effect"
-  },
-  {
-   "round": "r06",
-   "file": "rounds/r06_rule_tournament/results/a06_dryrun.json",
-   "path": "rules.majority.vs_no_compression",
-   "mean": 0.0027971640326160912,
-   "ci95": [
-    -0.0020620873847118706,
-    0.00783043549815078
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": 0.0027971640326160912,
-   "equivalent": true,
-   "significant": false,
-   "sound": true,
-   "cell": "no material effect"
-  },
-  {
-   "round": "r06",
-   "file": "rounds/r06_rule_tournament/results/a06_dryrun.json",
-   "path": "rules.consensus.vs_no_compression",
-   "mean": 0.008226495345739309,
-   "ci95": [
-    0.0018508142219100074,
-    0.014157653878600227
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
-   "delta_hat": 0.008226495345739309,
-   "equivalent": null,
-   "significant": true,
-   "sound": true,
-   "cell": "UNVERIFIED"
-  },
-  {
-   "round": "r06",
-   "file": "rounds/r06_rule_tournament/results/a06_dryrun.json",
-   "path": "rules.constituency.vs_no_compression",
-   "mean": -0.0056536336952635186,
-   "ci95": [
-    -0.010643825482546915,
-    -0.0006622261770780996
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
-   "delta_hat": -0.0056536336952635186,
-   "equivalent": null,
-   "significant": true,
-   "sound": true,
-   "cell": "UNVERIFIED"
-  },
-  {
-   "round": "r06",
-   "file": "rounds/r06_rule_tournament/results/a06_dryrun.json",
-   "path": "rules.conflict_aware.vs_no_compression",
-   "mean": -0.004743196496872101,
-   "ci95": [
-    -0.008324040210351574,
-    -0.0014398041342122022
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": -0.004743196496872101,
-   "equivalent": true,
-   "significant": true,
-   "sound": true,
-   "cell": "real but negligible"
-  },
-  {
-   "round": "r06",
-   "file": "rounds/r06_rule_tournament/results/a06_dryrun.json",
-   "path": "rules.random_k4.vs_no_compression",
-   "mean": -0.0038190021746352353,
-   "ci95": [
-    -0.0076193134419136116,
-    -2.1154496152011117e-06
-   ],
-   "in_r42": false,
-   "vector_stored": false,
-   "method": "sound bound from the published 95% CI",
-   "delta_hat": -0.0038190021746352353,
-   "equivalent": true,
-   "significant": true,
-   "sound": true,
-   "cell": "real but negligible"
   },
   {
    "round": "r06",
@@ -2662,8 +2554,818 @@
    "significant": true,
    "sound": true,
    "cell": "real and material"
+  },
+  {
+   "round": "r74",
+   "file": "rounds/r74_specificity_vs_exposure/results/r74_specificity_vs_exposure.json",
+   "path": "length_matched_write_ins",
+   "mean": 14.626923790098276,
+   "ci95": [
+    0.13587893424018713,
+    0.18846487411035232
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 14.626923790098276,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r75",
+   "file": "rounds/r75_menu_read_direction/results/r75_menu_read_direction.json",
+   "path": "arms.raw",
+   "mean": 0.04070242338248123,
+   "ci95": [
+    0.029755204593795454,
+    0.043857356871674705
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.04070242338248123,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r75",
+   "file": "rounds/r75_menu_read_direction/results/r75_menu_read_direction.json",
+   "path": "arms.length_residualised",
+   "mean": 0.01754594316897278,
+   "ci95": [
+    0.014736585337332513,
+    0.025682624873772725
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.01754594316897278,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r76",
+   "file": "rounds/r76_absence_cannot_overlap/results/r76_absence_cannot_overlap.json",
+   "path": "cells.positive/presence-type",
+   "mean": 0.016768744628136788,
+   "ci95": [
+    0.014229445663510813,
+    0.019293995238012382
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.016768744628136788,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r76",
+   "file": "rounds/r76_absence_cannot_overlap/results/r76_absence_cannot_overlap.json",
+   "path": "cells.positive/absence-type",
+   "mean": 0.03813999261006747,
+   "ci95": [
+    0.02285089606422942,
+    0.05432069176010544
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.03813999261006747,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r76",
+   "file": "rounds/r76_absence_cannot_overlap/results/r76_absence_cannot_overlap.json",
+   "path": "cells.negative/presence-type",
+   "mean": -0.002780829604777225,
+   "ci95": [
+    -0.00732577647645995,
+    0.001684074742530661
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.002780829604777225,
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r76",
+   "file": "rounds/r76_absence_cannot_overlap/results/r76_absence_cannot_overlap.json",
+   "path": "cells.negative/absence-type",
+   "mean": -0.0013116773539731683,
+   "ci95": [
+    -0.017178971931548537,
+    0.015805691354990305
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.0013116773539731683,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r76",
+   "file": "rounds/r76_absence_cannot_overlap/results/r76_absence_cannot_overlap.json",
+   "path": "gaps.presence-type",
+   "mean": 0.019549574232914015,
+   "ci95": [
+    0.013875217796549872,
+    0.025004117258458358
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.019549574232914015,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r76",
+   "file": "rounds/r76_absence_cannot_overlap/results/r76_absence_cannot_overlap.json",
+   "path": "gaps.absence-type",
+   "mean": 0.03945166996404064,
+   "ci95": [
+    0.016908321714450673,
+    0.061337031644693236
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.03945166996404064,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r77",
+   "file": "rounds/r77_topicality_control/results/r77_topicality_control.json",
+   "path": "arms.full vocabulary",
+   "mean": 0.01754594316897278,
+   "ci95": [
+    0.014880716255896589,
+    0.025876429359858944
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.01754594316897278,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r77",
+   "file": "rounds/r77_topicality_control/results/r77_topicality_control.json",
+   "path": "arms.prompt-stripped",
+   "mean": 0.013864137945612002,
+   "ci95": [
+    0.015693119419801987,
+    0.026473794510690436
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.013864137945612002,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=3 stop=project unigram",
+   "mean": 0.020272472459099897,
+   "ci95": [
+    0.015619537732177287,
+    0.02567822732264005
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.020272472459099897,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=3 stop=project bigram",
+   "mean": 0.007568059204330962,
+   "ci95": [
+    0.004967004098442178,
+    0.01024938054003338
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.007568059204330962,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=3 stop=none unigram",
+   "mean": 0.016496512834669227,
+   "ci95": [
+    0.011598301076525956,
+    0.02182967799842516
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.016496512834669227,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=3 stop=none bigram",
+   "mean": 0.006707840938371935,
+   "ci95": [
+    0.0041689914674592835,
+    0.00930958354159327
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.006707840938371935,
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=3 stop=sklearn unigram",
+   "mean": 0.021271718692385387,
+   "ci95": [
+    0.01647765577211326,
+    0.026841783356197805
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.021271718692385387,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=3 stop=sklearn bigram",
+   "mean": 0.007627244034960436,
+   "ci95": [
+    0.005124821903006596,
+    0.010326603915833127
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.007627244034960436,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=4 stop=project unigram",
+   "mean": 0.02113770893798025,
+   "ci95": [
+    0.016153066088286604,
+    0.026358715579231695
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.02113770893798025,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=4 stop=project bigram",
+   "mean": 0.00772133534196931,
+   "ci95": [
+    0.005521677858968416,
+    0.010309455041985754
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.00772133534196931,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=4 stop=none unigram",
+   "mean": 0.016918482107717278,
+   "ci95": [
+    0.011624989700482804,
+    0.022404838961392212
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.016918482107717278,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=4 stop=none bigram",
+   "mean": 0.006773206048343833,
+   "ci95": [
+    0.004825162777693905,
+    0.009271339123059465
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.006773206048343833,
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=4 stop=sklearn unigram",
+   "mean": 0.021103986006525306,
+   "ci95": [
+    0.01578599949823987,
+    0.026686342968412765
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.021103986006525306,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=4 stop=sklearn bigram",
+   "mean": 0.0073804280153171465,
+   "ci95": [
+    0.005198449031239375,
+    0.010028848705325239
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.0073804280153171465,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=5 stop=project unigram",
+   "mean": 0.02141394903971933,
+   "ci95": [
+    0.015705895237862734,
+    0.027575386774003514
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.02141394903971933,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=5 stop=project bigram",
+   "mean": 0.007715998742522387,
+   "ci95": [
+    0.005227135114285874,
+    0.010221076608568913
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.007715998742522387,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=5 stop=none unigram",
+   "mean": 0.018481839474786144,
+   "ci95": [
+    0.013272710102971458,
+    0.024478080680357357
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.018481839474786144,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=5 stop=none bigram",
+   "mean": 0.007345150449222085,
+   "ci95": [
+    0.004988738574727166,
+    0.009887424803366709
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.007345150449222085,
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=5 stop=sklearn unigram",
+   "mean": 0.0213240993302685,
+   "ci95": [
+    0.015451184065448742,
+    0.02736827223551491
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.0213240993302685,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "rounds/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=5 stop=sklearn bigram",
+   "mean": 0.0074477552222832095,
+   "ci95": [
+    0.005067176472383519,
+    0.009909435522977175
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.0074477552222832095,
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r79",
+   "file": "rounds/r79_semantic_menu_read/results/r79_semantic_menu_read.json",
+   "path": "per_lineage.qwen",
+   "mean": -0.011453676968812943,
+   "ci95": [
+    0.0038832249119877815,
+    0.008672983385622501
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.011453676968812943,
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r79",
+   "file": "rounds/r79_semantic_menu_read/results/r79_semantic_menu_read.json",
+   "path": "per_lineage.phi",
+   "mean": -0.0017024826956912875,
+   "ci95": [
+    0.00012528862862382084,
+    0.0007436980959028006
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.0017024826956912875,
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r83",
+   "file": "rounds/r83_low_magnitude_drop/results/r83_low_magnitude_drop.json",
+   "path": "<root>",
+   "mean": 0.6832461324526335,
+   "ci95": [
+    0.6803009609892975,
+    0.6864517891286533
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.6832461324526335,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r84",
+   "file": "rounds/r84_core_polarity_in_words/results/r84_core_polarity_in_words.json",
+   "path": "<root>",
+   "mean": -0.00010624303875184093,
+   "ci95": [
+    0.03805536600594997,
+    0.05154571637749256
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.00010624303875184093,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r85",
+   "file": "rounds/r85_agreement_by_form/results/r85_agreement_by_form.json",
+   "path": "<root>",
+   "mean": 0.0024520434222442544,
+   "ci95": [
+    0.6721162793684601,
+    0.7033906429819493
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.0024520434222442544,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r86",
+   "file": "rounds/r86_attribution_by_form/results/r86_attribution_by_form.json",
+   "path": "<root>",
+   "mean": 0.005604321865897988,
+   "ci95": [
+    0.10377375000465604,
+    0.148348155552236
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.005604321865897988,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r87",
+   "file": "rounds/r87_criterion_count_channel/results/r87_criterion_count_channel.json",
+   "path": "matched_minus_unrestricted",
+   "mean": 0.00838263393143997,
+   "ci95": [
+    -0.00633016976027306,
+    0.023061556031007274
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.00838263393143997,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r87",
+   "file": "rounds/r87_criterion_count_channel/results/r87_criterion_count_channel.json",
+   "path": "mismatched_minus_unrestricted",
+   "mean": 0.007255765083514697,
+   "ci95": [
+    -0.0069736672298102926,
+    0.020711531461649717
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.007255765083514697,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r87",
+   "file": "rounds/r87_criterion_count_channel/results/r87_criterion_count_channel.json",
+   "path": "mismatched_minus_matched",
+   "mean": -0.0011268688479252752,
+   "ci95": [
+    -0.016292382959903824,
+    0.013623497961580647
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.0011268688479252752,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r95",
+   "file": "rounds/r95_layer_separability/results/r95_layer_separability.json",
+   "path": "rows.phi-3.5-mini-instruct",
+   "mean": -0.11656156783422375,
+   "ci95": [
+    0.03231566271815214,
+    0.2374858166764431
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.11656156783422375,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r95",
+   "file": "rounds/r95_layer_separability/results/r95_layer_separability.json",
+   "path": "rows.qwen2.5-3b-instruct",
+   "mean": -0.23300796767458165,
+   "ci95": [
+    0.20127954820437707,
+    0.41014277783316233
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.23300796767458165,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r95",
+   "file": "rounds/r95_layer_separability/results/r95_layer_separability.json",
+   "path": "rows.qwen3.5-2b-base(ref)",
+   "mean": -0.1326279268985437,
+   "ci95": [
+    0.2639822361726591,
+    0.4768140262121822
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.1326279268985437,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r96",
+   "file": "rounds/r96_separability_resolved/results/r96_separability_resolved.json",
+   "path": "pairwise.phi-3.5-mini-instruct - qwen2.5-3b-instruct",
+   "mean": -0.016846194776124028,
+   "ci95": [
+    -0.42333586089947056,
+    0.47374559156159113
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.016846194776124028,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r96",
+   "file": "rounds/r96_separability_resolved/results/r96_separability_resolved.json",
+   "path": "pairwise.phi-3.5-mini-instruct - qwen3.5-2b-base(ref)",
+   "mean": -0.1874581505369539,
+   "ci95": [
+    -0.6055374349122244,
+    0.2956452828224778
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.1874581505369539,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r96",
+   "file": "rounds/r96_separability_resolved/results/r96_separability_resolved.json",
+   "path": "pairwise.qwen2.5-3b-instruct - qwen3.5-2b-base(ref)",
+   "mean": -0.17061195576082988,
+   "ci95": [
+    -0.42292393990099436,
+    0.06565623350096708
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.17061195576082988,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r96",
+   "file": "rounds/r96_separability_resolved/results/r96_separability_resolved.json",
+   "path": "control_plant",
+   "mean": -0.2771611077781161,
+   "ci95": [
+    -0.5363403791453487,
+    -0.069578211654339
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.2771611077781161,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
   }
  ],
  "scope": "delta=0.01 is STIPULATED, not measured. An equivalence verdict inherits the estimator of the round it came from. UNVERIFIED contrasts published no raw vector and are unresolved, not clean.",
- "verdict": "SCOPE, NOT SIGNIFICANCE: the package holds 125 interval contrasts and r42 tested 21 of them (17%), because its population was a hand-written list of four rounds rather than an enumeration. Classifying all 125 at delta=0.01: 60 real and material, 9 real but negligible, 24 no material effect, 9 INCONCLUSIVE, 23 UNVERIFIED. 9 of the inconclusive contrasts sit OUTSIDE r42's four rounds and so had never been equivalence-tested. UNVERIFIED means the round published a mean and a 95% CI but no raw paired vector, so the 90% CI required for TOST cannot be recovered -- that is an absence of evidence and is NOT folded into any pass. r42's own verdict is unchanged ON ITS OWN 21 CONTRASTS; what is corrected is the sentence that made it a claim about this package. delta=0.01 remains STIPULATED, and the sweep shows 33 contrasts equivalent at that margin versus 74 at 0.05 and 8 at 0.0025."
+ "verdict": "SCOPE, NOT SIGNIFICANCE: the package holds 164 interval contrasts and r42 tested 21 of them (13%), because its population was a hand-written list of four rounds rather than an enumeration. Classifying all 164 at delta=0.01: 86 real and material, 13 real but negligible, 23 no material effect, 9 INCONCLUSIVE, 33 UNVERIFIED. 9 of the inconclusive contrasts sit OUTSIDE r42's four rounds and so had never been equivalence-tested. UNVERIFIED means the round published a mean and a 95% CI but no raw paired vector, so the 90% CI required for TOST cannot be recovered -- that is an absence of evidence and is NOT folded into any pass. r42's own verdict is unchanged ON ITS OWN 21 CONTRASTS; what is corrected is the sentence that made it a claim about this package. delta=0.01 remains STIPULATED, and the sweep shows 36 contrasts equivalent at that margin versus 99 at 0.05 and 9 at 0.0025."
 }
