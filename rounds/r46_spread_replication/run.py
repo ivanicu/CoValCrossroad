@@ -328,6 +328,20 @@ def main() -> None:
     print(f"\n-> {verdict}")
 
     a.out.write_text(json.dumps({
+        # FORM COMPOSITION (entry 159). data/comparisons.jsonl is ordered by
+        # collection form -- lines 0-320 long-form (world + personal +
+        # unacceptable), 321-1077 short-form (world only), no interleaving -- so
+        # a head slice selects one instrument. r12's [:250] is 100% long-form;
+        # this held-out set at offset 250 spans file positions 280-556 and is
+        # 83.6% SHORT-form. The replication therefore crosses the form boundary,
+        # which makes it a broader test than "untouched prompts" implies, and is
+        # the only cross-form evidence the release can give since no prompt
+        # appears under both forms (entry 158).
+        "form_composition": {"long_form": 41, "short_form": 209,
+                             "long_form_share": 41 / 250,
+                             "r12_long_form_share": 1.0,
+                             "file_is_ordered_by_form": True,
+                             "form_boundary_at_file_line": 321},
         "held_out_prompts": int(keep.sum()), "offset": a.offset,
         "overlap_with_r12": 0,
         "prediction_committed_before_run": PREDICTION,

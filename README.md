@@ -392,7 +392,14 @@ and it is worth more than the effect would have been.
 
 **r12's phenomenon itself replicated cleanly**, which is the part that matters. On the held-out
 prompts the own-rubric advantage is **+0.0847** on the original candidates (r12: +0.102) and
-**−0.0716** on fresh ones (r12: −0.064). The inversion is real, independent of the specific
+**−0.0716** on fresh ones (r12: −0.064). ⚠ **And the replication is stronger than "untouched
+prompts" says** (entry 159): `data/comparisons.jsonl` is **perfectly ordered by collection form** —
+lines 0–320 are long-form (world + personal + unacceptable), 321–1077 short-form (world only), with
+**no interleaving**. r12 takes a head slice `[:250]`, so its prompts are **100% long-form**; r46's
+held-out set at offset 250 spans file positions 280–556 and is **83.6% short-form**. So the inversion
+survives a change of **collection instrument**, not merely a change of prompts — and since no prompt
+exists under both forms (entry 158), that is the only cross-form evidence this release can supply.
+The inversion is real, independent of the specific
 prompts, and **still unexplained** — generic distance (r40), criterion-space novelty (r41) and
 now discriminating-power loss (r46) have each been ruled out.
 

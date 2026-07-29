@@ -4856,3 +4856,44 @@ looking at something else immediately qualified a claim I had just published. En
 searched with the wrong vocabulary), entry 152 (a number read off a rounded printout), and now this.
 **The interval between making a claim and finding its confound was one entry each time** — which is an
 argument for the confound being written *before* the run, and against my having done so here.
+
+## Entry 159 — the release file is sorted by collection form, so a head slice picked one instrument — and that makes the replication stronger, not weaker
+
+**Following entry 158's partition to its consequence.** `data/comparisons.jsonl` is **perfectly ordered
+by form**: lines **0–320** are long-form (world + personal + unacceptable), **321–1077** short-form
+(world only), **no interleaving**. First short-form prompt at position 321; last long-form at 320.
+
+**r12 takes `load_join(...)[:250]` — a head slice of a sorted file.**
+
+| population | n | long-form | file positions |
+|---|---:|---:|---|
+| whole file | 1,078 | 29.8% | — |
+| join population | 968 | 30.3% | — |
+| **r12 / r39 / r40 / r41** | 250 | **100.0%** | 0–249 |
+| **r45 frozen frame** | 60 | **100.0%** | — |
+| **r46 held-out** | 250 | **16.4%** | **280–556** |
+
+**The join itself is unbiased** — 30.3% long against 29.8% in the file — so the 968-prompt analyses are
+representative. **The head slices are not.**
+
+**And the consequence runs the good way.** r12's inversion (+0.102 → −0.064) is measured on a
+**100% long-form** population; r46's held-out replication (+0.0847 → −0.0716) is measured on one that
+is **83.6% short-form**. So the inversion **survives a change of collection instrument**, not merely a
+change of prompts — and since entry 158 established that no prompt exists under both forms, **this is
+the only cross-form evidence the release can supply**. The README described r46 as "250 untouched
+prompts"; it understated what changed.
+
+**It also bounds entry 158's pessimism.** That entry said no cross-form comparison is available. That
+is true at the *prompt* level and remains true. At the *effect* level, r12 and r46 are two populations
+dominated by different instruments showing the same inversion — not a controlled contrast, but not
+nothing either, and worth stating as the weaker thing it is.
+
+**Recorded without re-running, deliberately.** r46 regenerates its response set on every run, and
+r39/r40/r41 are built on that exact set — the same hazard r12 documents. The `form_composition` field
+was therefore **computed from the released file and the stored prompt ids** and written alone, with a
+note in the artifact saying so. Nothing was typed: the counts, the boundary line and the file span are
+all measured. The source carries the same fact in a comment for whoever runs it next.
+
+**What is still confounded.** Form, task position and prompt identity remain perfectly entangled, so
+"the inversion holds in both forms" cannot be sharpened into "form does not matter". It means the
+effect is not *confined* to the instrument r12 happened to slice.
