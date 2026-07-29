@@ -83,6 +83,12 @@ every cell.
 fresh responses — the quantity r12 estimated against a model proxy.
 
 **Committed in advance:**
+- **response length is recorded for every response and reported with every estimate**, and the
+  primary outcome is reported both raw and with within-prompt length partialled out. r47 showed
+  the model proxy's correlation with length rises from ~+0.05 on released candidates to ~+0.50 on
+  generated ones, and that roughly half the observed inversion rides on that channel. Without
+  length, human rankings on the frozen responses **cannot** separate "the rubric fails to
+  transport" from "the proxy was reading length"
 - the contrast is **own-rubric vs reference-rubric**, and it will **never** be described as
   values vs non-values
 - the reference rubric is drawn by the r19/r30 donor procedure, and the **floor donor is named in
@@ -148,8 +154,12 @@ Stated now so that it cannot be softened later. The computational programme has 
 - the own-rubric advantage is **semantic, not lexical** — 97.4% survives faithful paraphrase (r14/r20)
 - post-ranking polarity carries roughly half the above-chance concordance, and it is **not
   primarily same-rater circularity** (r34/r36/r37)
-- that advantage **does not transfer** to responses the criteria authors never saw, and neither
-  generic distance (r40) nor criterion-space support (r41) explains why
+- that advantage **does not transfer** to responses the criteria authors never saw — replicated on
+  250 untouched prompts (r46) — and neither generic distance (r40) nor criterion-space support
+  (r41) explains why
+- the stronger reading, that an *unrelated* rubric **beats** the own rubric there, is **not
+  established**: roughly half of it rides on the gold proxy's length channel, and on held-out
+  prompts the fresh arm stops being negative once length is removed (r47)
 - source specificity is **3.2%–65.8%** depending on floor donor and judge family — analyst
   choices the source package never reports
 - CoVal-core **internalises polarity into criterion semantics**, and a reconstruction attributes

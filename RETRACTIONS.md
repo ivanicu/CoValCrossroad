@@ -341,6 +341,46 @@ magnitude, so the bare number cannot be quoted again.
 signed correlation was +0.041 with a CI spanning zero. Two quantities that disagree that badly
 about the same relationship meant one of them was not measuring it.
 
+## Entry 50 — the anomaly that drove four rounds was partly a property of the outcome variable
+
+**What was published.** r12's inversion — that on generated responses the own rubric scores
+*below* an unrelated one, attribution −0.064 — reported as the project's most robust unexplained
+result, replicated on held-out prompts by r46 at −0.072, and chased by r40, r41 and r46 in turn.
+
+**What was missed.** All three of those rounds tested a property of the **rubric**. Every one held
+the **outcome variable** fixed, and the outcome is agreement with r08's gold head — which is
+`hstack([embedding, [char_len, word_len]]) @ w`, with length as an explicit input at |w| = 0.2085
+against a mean embedding weight of 0.0620. Generated responses vary 3.4× more in length than the
+released candidates, and gold's within-prompt correlation with length rises from **+0.077 → +0.458**
+(discovery) and **+0.026 → +0.548** (held out).
+
+**What changes.** Measured against the procedure's own null, ~57% of the inversion survives
+length-residualisation. More importantly, the **sharpest** part does not replicate:
+
+| fresh arm, length-residualised | discovery | held out |
+|---|---:|---:|
+| | −0.0307 [−0.0567, −0.0053] | **+0.0047 [−0.0213, +0.0320]** |
+
+On held-out prompts the fresh arm stops being negative. So **"an unrelated rubric beats the own
+rubric on generated responses" is withdrawn** — it is not established. What survives, on both
+samples, is the ordinary claim that **the advantage does not transfer**.
+
+**Why it took this long.** The strangeness of the result is what made it interesting, and the
+strangeness was the part least supported. Four rounds searched the rubric for an explanation of a
+number produced jointly by the rubric *and* the proxy, and nothing in the process rules asks
+"is this a property of the outcome variable?" — they ask about construction data reaching
+evaluation, about instruments, about populations. The outcome had been fixed since r08 and had
+stopped looking like a choice.
+
+**The proxy is not broken, which is what made it invisible.** On the original candidates — the
+only arm with human rankings — gold and humans agree: +0.1020 vs +0.0876 and +0.0853 vs +0.0742,
+both differences spanning zero, per-prompt r = +0.60 and +0.65. It is validated exactly where its
+length channel is weakest and applied where it is strongest, and validating it on originals
+licenses nothing about generated text.
+
+**Consequence.** `PREREGISTRATION.md` now requires response length to be recorded for every
+response in H_fresh and reported with every estimate.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
