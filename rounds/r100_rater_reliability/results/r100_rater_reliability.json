@@ -1,0 +1,37 @@
+{
+ "min_raters": 8,
+ "n_prompts": 937,
+ "median_raters_per_prompt": 16,
+ "split_half_r": 0.6667047803456837,
+ "mean_half_size": 7.769477054429029,
+ "n_half_pairs": 187400,
+ "n_draws": 200,
+ "by_k": {
+  "6": {
+   "reliability": 0.607037243893146,
+   "attenuation_sqrt_rel": 0.7791259486714237,
+   "stated_in_preregistration": 0.644,
+   "diff": -0.03696275610685407
+  },
+  "8": {
+   "reliability": 0.6731699207385603,
+   "attenuation_sqrt_rel": 0.8204693295538599,
+   "stated_in_preregistration": 0.707,
+   "diff": -0.03383007926143966
+  },
+  "12": {
+   "reliability": 0.7554737716253062,
+   "attenuation_sqrt_rel": 0.869179942028868,
+   "stated_in_preregistration": 0.783,
+   "diff": -0.027526228374693873
+  }
+ },
+ "worst_abs_diff_from_stated": 0.03696275610685407,
+ "all_diffs_same_sign": true,
+ "tolerance": 0.01,
+ "world": "D DIVERGENT",
+ "persisted_vector": "rounds/r100_rater_reliability/results/r100_split_half_pairs.npz",
+ "outcome_variable_scope": "Spearman-Brown reliability of a per-prompt human agreement score, from a split-half over RATERS on the released ratings for the original responses. No judge, no model, no generated text.",
+ "scope": "Reliability depends on the agreement score, the tie convention and the qualifying prompt set; all three are fixed here and stated. This round does NOT claim they match the method behind the preregistration's table, which no longer exists -- so the systematic offset is reported and not attributed.",
+ "verdict": "D DIVERGENT. The preregistration states reliability 0.644 / 0.707 / 0.783 at k = 6 / 8 / 12 raters per prompt, above a sentence claiming they were measured directly on the released ratings. Entry 208 established that `0.707` appears exactly once in this repository -- in that table -- so no round computed them and no artifact stores them. Recomputed here: k=6 -> 0.6070, k=8 -> 0.6732, k=12 -> 0.7555, from a split-half r of +0.6667 over 187,400 equal-size half-pairs of mean size 7.77, on the 937 prompts carrying at least 8 rating raters. The worst absolute difference from the stated figures is 0.0370 against a tolerance of 0.01, and all three differences share a sign (True) -- a SYSTEMATIC offset rather than scatter, which reads as a methodological difference in the agreement score, the tie convention, or the qualifying prompt set. THIS ROUND DOES NOT CLAIM ITS CHOICES ARE THE ONES BEHIND THE STATED TABLE: that method no longer exists, so the gap cannot be adjudicated, only reported. WHAT IT CHANGES FOR THE PROTOCOL: nothing about the choice of 8 raters per prompt, since 0.673 and 0.707 sit in the same range and the attenuation they imply differs by 0.020. What it changes is that the figure now has an artifact behind it. POSITIVE CONTROL: the Spearman-Brown step reproduces its own closed form at a doubling and is monotone in the lengthening factor -- the first attempt at this (entry 208) pinned that factor at 2 for every k and returned one identical number three times. SCOPE: reliability is not one quantity. The score, the tie convention and the qualifying set are fixed and stated here so a future divergence is attributable rather than mysterious."
+}

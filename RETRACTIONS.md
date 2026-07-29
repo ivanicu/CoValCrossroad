@@ -7354,3 +7354,45 @@ identical number.**
 **Entry 207's lesson, one turn later and sharper:** *"sourced by prose"* was too generous a category. **A
 sentence claiming a measurement is not a source — it is a claim that a source exists**, and the only way
 to tell them apart is to go looking.
+
+---
+
+## Entry 209 — the replacement figure is now a round, because a shell command is exactly the defect it was diagnosing
+
+Entry 208 found the frozen protocol's reliability figures have no artifact, and **recomputed them at a
+shell prompt.** The numbers scrolled past. **That is the same defect it had just diagnosed** — a
+quantity the protocol depends on, with nothing behind it.
+
+**r100 makes it a round**: claim card, positive control, persisted vector, stated scope.
+
+| k raters/prompt | r100 | stated | diff |
+|---:|---:|---:|---:|
+| 6 | 0.6070 | 0.644 | −0.0370 |
+| **8 — the frozen protocol** | **0.6732** | **0.707** | **−0.0338** |
+| 12 | 0.7555 | 0.783 | −0.0275 |
+
+From a split-half **r = +0.6667** over **187,400** equal-size half-pairs (mean size 7.77) on the **937**
+prompts carrying ≥8 rating raters. **World: D DIVERGENT** — worst |diff| **0.0370** against a tolerance
+of 0.01, and **all three diffs share a sign.** A systematic offset, not scatter.
+
+### Reported, not attributed — and the distinction is the whole point
+
+**Reliability is not one quantity.** It depends on the agreement score being split, the tie convention,
+and which prompts qualify. **r100 fixes all three and states them**, so a future divergence is
+attributable. It does **not** claim they match the method behind the stated table — **that method no
+longer exists**, so the offset can be reported and never adjudicated.
+
+**The protocol is unaffected**: 0.673 and 0.707 sit in the same range, and the attenuation they imply
+differs by 0.02. **What changed is that the figure now has an artifact.**
+
+### The positive control exists because of last turn's error
+
+Entry 208's first attempt returned **one identical number for all three k** — it had pinned the
+Spearman–Brown lengthening factor at 2. So r100's control checks exactly that step: SB must reproduce
+its own closed form at a doubling **and** be monotone in the factor. **A reliability figure from an
+estimator that has never recovered a known value is not a measurement**, and the specific way I got it
+wrong is now the specific thing the control tests.
+
+**And the output contract was designed in, not added after** (the lesson of entry 188): the split-half
+statistic, the half size, and the per-prompt rater counts are persisted, so the next question about
+these figures needs no replay.
