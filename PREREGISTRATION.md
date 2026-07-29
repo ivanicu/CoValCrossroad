@@ -87,6 +87,33 @@ are reported with every estimate so one collection yields **both** a population 
 anomaly-subset estimate. Power ≈0.98 for +0.05 clustered on prompt; r12's 0.16 is detectable in
 every cell.
 
+**Power for PER-PROMPT correlate analyses, which is a different question and was nearly missed.**
+r38's power figure is for a **mean difference**. Any analysis that correlates a per-prompt
+covariate with the per-prompt attribution is limited instead by the *reliability* of that
+per-prompt quantity — and r57 (entry 55) found the model-proxy version is barely reliable
+(0.302 / 0.422 across two samples), which silently capped six mechanism searches at a detection
+floor of true *r* ≈ 0.2.
+
+The human outcome is **much better**, measured directly on the released ratings for the original
+responses rather than assumed:
+
+| raters/prompt | reliability | attenuation √rel | smallest true *r* detectable at n=60·weights |
+|---:|---:|---:|---:|
+| 6 | 0.644 | 0.802 | 0.16 |
+| **8 (the frozen protocol)** | **0.707** | **0.841** | **0.15** |
+| 12 (median in the release) | 0.783 | 0.885 | 0.14 |
+| gold proxy, for comparison | 0.302 | 0.549 | 0.23 |
+
+Averaging 8 humans per prompt buys a per-prompt outcome roughly **2.3× more reliable** than the
+single gold ordering every computational round has used. So H_fresh can support per-prompt
+correlate analyses that the proxy could not — and any such analysis must still **state its
+detection floor before it runs**, because a null below that floor is silence.
+
+⚠ The detection floors above use the n=250 CI half-width for comparability with r57. H_fresh has
+**60** prompts, so its own floors are larger by roughly √(250/60) ≈ 2.0×; the *ranking* of the
+outcomes is unaffected but no per-prompt correlate analysis on 60 prompts should be planned as
+primary.
+
 **Primary outcome.** Own-rubric minus reference-rubric concordance against **human** rankings on
 fresh responses — the quantity r12 estimated against a model proxy.
 
