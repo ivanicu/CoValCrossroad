@@ -495,6 +495,71 @@ def main() -> None:
                       if mech['survives'] else
                       'DOES NOT SURVIVE: consistent with a mechanical loss of power'}")
 
+    # ---- WHY does the rubric's spread collapse? -------------------------
+    # Two readings, and they say opposite things about the measurement program.
+    #   A  the fresh responses are more ALIKE, so any rubric separates them less
+    #      -- a fact about my generator, not about CoVal
+    #   B  the fresh responses differ at least as much, and the prompt's own
+    #      criteria are BLIND to the way they differ -- a fact about the scope
+    #      of the rubric
+    # Separated with two rubric-INDEPENDENT measures of how varied each response
+    # set actually is: the gold head's spread, and lexical self-similarity.
+    import re as _re
+    gold_o, gold_f = d["gold_orig"], d["gold_fresh"]
+    gold_spread_loss = gold_o.std(axis=1) - gold_f.std(axis=1)
+
+    def _selfsim(rows):
+        out = []
+        for texts in rows:
+            tk = [set(_re.findall(r"[a-z']{4,}", t.lower())) for t in texts]
+            v = [len(tk[i] & tk[j]) / max(len(tk[i] | tk[j]), 1)
+                 for i in range(len(tk)) for j in range(i + 1, len(tk))]
+            out.append(float(np.mean(v)) if v else np.nan)
+        return np.array(out)
+
+    ss_o, ss_f = _selfsim(gen["original"]), _selfsim(gen["fresh"])
+    lex_homog = ss_f - ss_o          # positive = fresh responses MORE alike
+    kh = (np.isfinite(D_spread_loss) & np.isfinite(drop) & np.isfinite(dlen)
+          & np.isfinite(gold_spread_loss) & np.isfinite(lex_homog))
+    print("\n=== why does the rubric's spread collapse? ===")
+    print(f"  lexical self-similarity  original {ss_o[kh].mean():.4f} -> fresh "
+          f"{ss_f[kh].mean():.4f}   ({'fresh MORE alike' if ss_f[kh].mean() > ss_o[kh].mean() else 'fresh LESS alike'})")
+    print(f"  gold-head spread         original {gold_o[kh].std(axis=1).mean():.4f} -> fresh "
+          f"{gold_f[kh].std(axis=1).mean():.4f}")
+    mech2 = {}
+    if kh.sum() >= 30:
+        g_row = analyse("gold_spread_loss", partial_out(gold_spread_loss[kh], dlen[kh]),
+                        partial_out(drop[kh], dlen[kh]), RNG, a.boot, a.perm)
+        l_row = analyse("lexical_homogenisation", partial_out(lex_homog[kh], dlen[kh]),
+                        partial_out(drop[kh], dlen[kh]), RNG, a.boot, a.perm)
+        o_row = analyse("own | length + gold + lexical",
+                        partial_out(D_spread_loss[kh], dlen[kh], gold_spread_loss[kh],
+                                    lex_homog[kh]),
+                        partial_out(drop[kh], dlen[kh], gold_spread_loss[kh],
+                                    lex_homog[kh]), RNG, a.boot, a.perm)
+        for r_ in (g_row, l_row, o_row):
+            print(f"  {r_['measure']:30s} {r_['pearson_r']:+.4f} "
+                  f"[{r_['ci'][0]:+.3f},{r_['ci'][1]:+.3f}]"
+                  f"{'' if r_['excludes_zero'] else '  (ns)'}")
+        mech2 = {"fresh_more_alike_lexically": bool(ss_f[kh].mean() > ss_o[kh].mean()),
+                 "lexical_selfsim_original": float(ss_o[kh].mean()),
+                 "lexical_selfsim_fresh": float(ss_f[kh].mean()),
+                 "gold_spread_original": float(gold_o[kh].std(axis=1).mean()),
+                 "gold_spread_fresh": float(gold_f[kh].std(axis=1).mean()),
+                 "gold_spread_loss_vs_drop": g_row,
+                 "lexical_homogenisation_vs_drop": l_row,
+                 "own_controlling_response_heterogeneity": o_row,
+                 "corr_own_with_gold_spread_loss": pearson(D_spread_loss[kh],
+                                                           gold_spread_loss[kh]),
+                 "corr_own_with_lexical": pearson(D_spread_loss[kh], lex_homog[kh])}
+        mech2["reading"] = (
+            "B: the fresh responses vary AT LEAST AS MUCH by rubric-independent "
+            "measures, and the prompt's own criteria are blind to how they differ"
+            if (not mech2["fresh_more_alike_lexically"]
+                and o_row["excludes_zero"] and not g_row["excludes_zero"])
+            else "A or mixed: response heterogeneity explains part of the collapse")
+        print(f"  -> {mech2['reading']}")
+
     # ---- is criterion space a DIFFERENT axis? ---------------------------
     collin = {}
     if np.isfinite(generic).any():
@@ -634,6 +699,7 @@ def main() -> None:
         "raw": rows, "length_controlled": ctrl_rows,
         "length_and_spread_controlled": spread_rows,
         "spread_loss_mechanical_control": mech,
+        "spread_loss_why_it_collapses": mech2,
         "spread_control_note": (
             "d_spread = sd of the own-rubric mean satisfaction across the four "
             "responses, fresh minus original. A rubric that cannot separate the "

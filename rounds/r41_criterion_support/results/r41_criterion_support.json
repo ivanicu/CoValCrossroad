@@ -471,6 +471,52 @@
   },
   "survives": true
  },
+ "spread_loss_why_it_collapses": {
+  "fresh_more_alike_lexically": false,
+  "lexical_selfsim_original": 0.1078264420745625,
+  "lexical_selfsim_fresh": 0.08282247993942948,
+  "gold_spread_original": 2.0002958420120773,
+  "gold_spread_fresh": 3.439819955157679,
+  "gold_spread_loss_vs_drop": {
+   "measure": "gold_spread_loss",
+   "n": 250,
+   "pearson_r": -0.014452732986209766,
+   "spearman_r": -0.01058936359561146,
+   "ci": [
+    -0.13847307157094835,
+    0.1081828682614309
+   ],
+   "excludes_zero": false,
+   "perm_p": 0.8167958010497376
+  },
+  "lexical_homogenisation_vs_drop": {
+   "measure": "lexical_homogenisation",
+   "n": 250,
+   "pearson_r": 0.08693209824141516,
+   "spearman_r": 0.11910845207940214,
+   "ci": [
+    -0.06484683019752498,
+    0.23707241867173948
+   ],
+   "excludes_zero": false,
+   "perm_p": 0.16520869782554362
+  },
+  "own_controlling_response_heterogeneity": {
+   "measure": "own | length + gold + lexical",
+   "n": 250,
+   "pearson_r": 0.23095422575870936,
+   "spearman_r": 0.194918062689003,
+   "ci": [
+    0.10827373916579223,
+    0.3428053007480111
+   ],
+   "excludes_zero": true,
+   "perm_p": 0.00024993751562109475
+  },
+  "corr_own_with_gold_spread_loss": 0.05069591176916485,
+  "corr_own_with_lexical": 0.016248642693773366,
+  "reading": "B: the fresh responses vary AT LEAST AS MUCH by rubric-independent measures, and the prompt's own criteria are blind to how they differ"
+ },
  "spread_control_note": "d_spread = sd of the own-rubric mean satisfaction across the four responses, fresh minus original. A rubric that cannot separate the fresh responses must score near chance against gold, so this control asks whether any measure predicts the drop beyond that necessity.",
  "collinearity_with_generic_embedding": {
   "D_nn_criterion_space": {

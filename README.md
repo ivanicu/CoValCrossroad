@@ -156,6 +156,25 @@ first mechanism-bearing lead this project has for r12.
 Its correlation with generic embedding distance is **−0.056**, so r40 could not have seen it, and
 r40 cannot corroborate it either.
 
+**And the obvious reading of it is wrong.** "The rubric separates them less" has two
+explanations that say opposite things: either the fresh responses are more *alike* — a fact about
+my generator, not about CoVal — or they differ at least as much and the criteria are **blind to
+how**. Two rubric-independent measures of how varied each response set actually is settle it:
+
+| | original | fresh |
+|---|---:|---:|
+| lexical self-similarity | 0.1078 | **0.0828** (fresh *less* alike) |
+| gold-head spread | 2.0003 | **3.4398** (fresh *more* spread) |
+
+The fresh responses are **more** heterogeneous on both. And neither predicts the drop — gold
+spread loss **−0.0145** (ns), lexical homogenisation **+0.0869** (ns) — while own spread loss
+controlling for both is **+0.2310** [+0.108, +0.343], unmoved from +0.2309. It correlates with
+gold spread loss at +0.051 and with lexical homogenisation at +0.016.
+
+So the responses vary *more*, and the prompt's own criteria stop discriminating anyway. **The
+criteria are blind to the axis along which the new responses differ** — which is a statement
+about the rubric's scope, not about the generator.
+
 **It is not a property of one judge.** The effect is *measured by* a judge, so "is this qwen
 rather than the rubric?" is a live alternative — and an out-of-sample test over new prompts
 cannot answer it, because that holds the instrument fixed. phi-3.5-mini scoring the **same**
