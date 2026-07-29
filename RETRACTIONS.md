@@ -6944,3 +6944,46 @@ suite **15/15**.
 
 **Corrected coverage claim, superseding entry 197's table:** invariant 1 now checks **134** unambiguous
 pairs, not 10 and not 148. All three invariants remain clean across every artifact.
+
+---
+
+## Entry 199 — tried to double the invariant's coverage; every new pair it found was invented, so the extension is reverted
+
+Entry 198's NEXT observed that **134 is a floor set by the regex, not by the artifacts**. Measured: **148
+nodes carry exactly one CI and NO mean the regex can see** — a blind spot as large as the coverage. The
+invisible names are real estimates: `accuracy` (48), `pearson_r`/`spearman_r` (78), `own_minus_pooled`
+(17) — **and p-values**, `perm_p` (43) and `p_two_sided` (17), which must never be paired with an
+interval.
+
+**Extending MEANISH to the estimate names roughly doubled nominal coverage. Every violation it then
+reported was a false positive**, in three distinct shapes:
+
+| flagged | why it was wrong |
+|---|---|
+| `regret` vs **`min_segment_ci`** (r16) | the CI belongs to `min_segment`, which the regex cannot see as a mean |
+| `accuracy` vs **`ci`** (r37) | the interval is a delta's — it sits near zero while accuracy is 0.64 |
+| `accuracy` vs **`share_ci`** (r74) | the interval belongs to a `share` |
+
+**Each is the guard inventing a pairing the round never asserted — r58's harvester defect, reproduced
+by the instrument built to catch it, three times in one round.**
+
+### So the extension is reverted, and that is the result
+
+**This package's naming is too heterogeneous for a name-based rule to identify which quantity a CI
+belongs to.** Every loosening widens the false-positive surface faster than real coverage. **134 sound
+pairs beat ~200 with invented ones**, because a guard that manufactures findings is worse than one with
+gaps: the gaps are honest, the manufactures are not.
+
+**Two mechanical guards were kept**, since both are membership tests rather than judgements and both
+earned their place by catching real false positives:
+
+- **sole mean is null-named** → refuse (5 nodes)
+- **the CI's own stem names another key in the node** (`min_segment_ci` → `min_segment` exists) → refuse
+  (**20 nodes**)
+
+**Final state: 134 pairs, 145 flag-nodes, 25 declined, 0 violations, suite 15/15.**
+
+**What I would tell the next person tempted by the same idea:** the intuition *"the guard is thin, widen
+it"* is exactly right about the symptom and exactly wrong about the cure. **The thinness is not a defect
+in the rule — it is the rule refusing to guess**, and the measurement that looked like a coverage gap
+was a map of where guessing would be required.

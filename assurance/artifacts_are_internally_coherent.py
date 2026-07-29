@@ -48,8 +48,24 @@ import tempfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CIISH = re.compile(r"^(ci|.*_ci|ci_.*|interval)$", re.I)
+# Extended 2026-07-29 (entry 199) after measuring the blind spot: 148 nodes carried
+# exactly one CI and NO match, i.e. the regex could not see the estimate at all -- a
+# gap as large as the coverage. The additions are estimate names this package actually
+# uses: accuracy, correlation coefficients, and explicit `x_minus_y` contrasts.
+# ⚠ REVERTED, and the reversal is the finding (entry 199). Extending this to
+# `accuracy`, correlation coefficients and `x_minus_y` doubled the nominal coverage and
+# produced only FALSE POSITIVES: `regret` paired with `min_segment_ci`, `accuracy` with
+# a delta's `ci`, `accuracy` with a `share_ci`. Each is the guard INVENTING a pairing
+# the round never asserted -- r58's harvester defect, reproduced by the instrument built
+# to catch it, three times in one round. This package's naming is too heterogeneous for
+# a name-based rule to identify which quantity a CI belongs to. 134 sound pairs beat
+# ~200 with invented ones.
 MEANISH = re.compile(r"^(mean|diff|delta|gap|advantage|drop|attribution|effect|"
                      r".*_mean|.*_diff|.*_delta|.*_gap)$", re.I)
+# A p-value is NOT an estimate and must never be paired with an interval. Named
+# explicitly because `perm_p` (43 nodes) and `p_two_sided` (17) sit beside CIs
+# throughout, and a lenient MEANISH would pair them.
+PVALUE = re.compile(r"^(p|p_.*|.*_p|perm_p|pval|p_value|.*_pvalue)$", re.I)
 NULLNAME = re.compile(r"null|shuffl|permut|placebo|random_drop", re.I)
 BOOLISH = re.compile(r"^(excludes_zero|significant|.*_significant|significant_.*|"
                      r"excludes_0|is_significant)$", re.I)
@@ -62,7 +78,7 @@ def is_ci(v):
 
 def scan(root: pathlib.Path):
     out = {"outside": [], "contradict": [], "inverted": [], "n_pairs": 0, "n_flagged": 0,
-           "n_stem": 0, "n_sole": 0, "skipped_sole_null": []}
+           "n_stem": 0, "n_sole": 0, "skipped_sole_null": [], "skipped_ci_spoken_for": []}
 
     def walk(o, rid, path):
         if isinstance(o, list):
@@ -73,7 +89,8 @@ def scan(root: pathlib.Path):
             return
         cks = [(k, o[k]) for k in o if CIISH.match(k) and is_ci(o[k])]
         mks = [(k, o[k]) for k in o
-               if MEANISH.match(k) and isinstance(o[k], (int, float)) and not isinstance(o[k], bool)]
+               if MEANISH.match(k) and not PVALUE.match(k)
+               and isinstance(o[k], (int, float)) and not isinstance(o[k], bool)]
         bks = [(k, o[k]) for k in o if BOOLISH.match(k) and isinstance(o[k], bool)]
         for ck, cv in cks:
             if cv[0] > cv[1]:
@@ -109,7 +126,18 @@ def scan(root: pathlib.Path):
         sole_is_null = len(mks) == 1 and bool(NULLNAME.search(mks[0][0]))
         if sole_is_null and len(cks) == 1 and not stem_hits:
             out["skipped_sole_null"].append((rid, path or "<root>", mks[0][0]))
-        if len(mks) == 1 and len(cks) == 1 and not stem_hits and not sole_is_null:
+        # ...and NOT when the CI's own stem names a different key in the node (entry
+        # 199). r16 carries `regret`, `min_segment` and `min_segment_ci`: the regex sees
+        # `regret` as the only mean, so sole-candidate paired it with an interval that
+        # plainly belongs to `min_segment`. Stripping `_ci` and testing membership is
+        # mechanical -- if the stem is a key here, the CI is spoken for.
+        ci_stem = re.sub(r"_ci$|^ci_", "", cks[0][0], flags=re.I) if len(cks) == 1 else None
+        ci_spoken_for = bool(ci_stem and ci_stem != cks[0][0] and ci_stem in o
+                             and not any(ci_stem == m for m, _ in mks))
+        if ci_spoken_for:
+            out["skipped_ci_spoken_for"].append((rid, path or "<root>", cks[0][0], ci_stem))
+        if (len(mks) == 1 and len(cks) == 1 and not stem_hits and not sole_is_null
+                and not ci_spoken_for):
             (mk, mv), (ck, cv) = mks[0], cks[0]
             lo, hi = sorted(cv)
             out["n_pairs"] += 1
@@ -169,7 +197,8 @@ def main() -> int:
     print(f"\n{r['n_pairs']} unambiguous mean/CI pairs ({r['n_stem']} stem-matched, "
           f"{r['n_sole']} sole-candidate); {r['n_flagged']} nodes with exactly one CI and one "
           f"significance flag; {len(r['skipped_sole_null'])} node(s) skipped because their only "
-          f"visible mean was a null summary")
+          f"visible mean was a null summary, {len(r['skipped_ci_spoken_for'])} because the CI's own "
+          f"stem names another key")
     # FLOOR: an empty population is "nothing to check" (2), never "clean" (0). With no
     # artifacts to scan this check finds no violations, and reporting that as a pass
     # would be silence mistaken for an acquittal -- the exact failure attack_the_suite
