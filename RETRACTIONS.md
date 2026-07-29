@@ -3122,3 +3122,59 @@ table.
 `a12_response_set.json`, which has no `prompt_ids` key and raises KeyError; r54 was run with an
 explicit `--gen a12_fresh_generations.json`. The committed default cannot reproduce the committed
 result. Recorded, not silently repaired, because the fix belongs to whoever re-runs r54.
+
+## Entry 120 — a single split-half is one realisation, and I published two of them the same day
+
+**The claim.** r69, committed hours ago, reported r54's predictor reliability as **0.3794** and its
+detection floor as **0.395**. r70's first version reported the outcome's criterion-axis reliability
+as **0.3911**.
+
+**Both were single draws.** Each split every prompt's four criteria 2-2 **once**, from one seed, and
+reported the resulting correlation as the reliability. r57 — the round whose number sits on the other
+side of the very same formula — averages over **200 random splits**, and says so in its own method
+line. I read that line, reused r57's role in the arithmetic, and did not reuse its method.
+
+**What averaging does.**
+
+| quantity | single draw | 200-split mean | sd | range across draws |
+|---|---:|---:|---:|---|
+| r54 predictor (r69) | +0.2341 | **+0.2805** | 0.0399 | +0.183 … +0.387 |
+| attribution drop (r70) | +0.2431 | **+0.1774** | 0.0426 | +0.092 … +0.323 |
+
+The two errors went in **opposite** directions — r69's draw was unfavourable, r70's favourable — so
+this is not a bias with a sign I could have corrected for. It is variance I did not measure.
+
+**Corrected numbers.** r54's predictor reliability **0.3794 → 0.4381**; its floor **0.395 → 0.367**.
+r54 is still the ledger's weakest row and r69's world (`U UNDER-CREDITED`) is unchanged: 0.4381 is
+still far below the 0.657 transferred onto it, so entry 119's finding stands and only its magnitude
+moves.
+
+**Why the spread is not sampling noise.** For K=4 there are exactly three distinct 2-2 partitions.
+More draws would not shrink the range; it is the real heterogeneity between one prompt's criteria.
+Which is the same fact entry 119 reported — measured properly, it is *larger* than entry 119 said.
+
+**What r70 found that motivated the recheck.** The ledger's floor formula is
+`half-width / sqrt(rel_predictor × rel_outcome)` — and **the two reliabilities are estimated along
+different axes**. r57 splits the six *pairs*; r67 and r69 split *criteria*. Nobody wrote that down,
+including me, in either round. Rebuilding the attribution drop from criteria halves (on a tensor
+whose full-criteria rebuild reproduces every one of r12's published per-prompt values to 0.0e+00)
+gives a criterion-axis outcome reliability of **0.3013**, close to r57's 0.302/0.422 — so for the
+outcome the two axes happen to agree, even though they differ roughly twofold for r54's predictor.
+
+**The ladder, which is the more useful result.** Same criteria halves, three quantities:
+accuracy **0.6462**, attribution **0.2695**, drop **0.3013**. The criterion split does not destroy
+signal by itself, so the reliability is lost in the *contrast* — confirming r57's own stated worry,
+which r57 never tested: *"A DIFFERENCE of two accuracies is inherently less reliable than either."*
+
+**What is left open, deliberately.** Whether a floor is *entitled* to divide by criterion-axis
+reliability at all is **not an empirical question** — it asks what `M(R,J,π,Q,P)` holds fixed.
+Under **F** (R is part of the program, so this rubric's criteria are not error) the 1.23× multiplier
+is an over-correction. Under **S** (criteria sampled from a repertoire) the current floors stand.
+Under **B** (the rows are mechanism claims, so both axes are error) r54's floor would be **0.669**.
+r70 reports all three columns and declares no winner, because that is a decision about the research
+object and r70 measured a correlation. What r70 *did* settle is that world B's arithmetic is at least
+valid on its own terms: splitting both axes at once gives **+0.0785 [+0.0061, +0.1480]**, covering
+the independent-sources product (+0.0463) and excluding the shared-source value (+0.1808).
+
+**The rule.** A split-half reported from one split is a point estimate of a quantity that varies by
+3.5× across splits. Average it, report the spread, or do not report it.

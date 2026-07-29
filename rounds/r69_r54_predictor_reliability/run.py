@@ -76,6 +76,7 @@ RUBRICS = _ROOT / "data/conversation_rubrics.jsonl"
 HALF_WIDTH = 0.1336          # r54's published corr CI half-width
 REL_OUTCOME = {"optimistic": 0.422, "pessimistic": 0.302}
 R67_REL = 0.657              # what the ledger transferred onto this row
+N_SPLITS = 200               # r57's own convention; one draw is not a measurement
 
 STOP = set("""about above after again against because been before being below between both cannot could
 does doing down during each further having here itself more most other over same should such than
@@ -153,21 +154,36 @@ def main() -> None:
     # Halves, per prompt, keyed by POSITION. The same split is used in the own
     # arm and the donor arm: otherwise the two arms would differ by the split as
     # well as by the criteria, and the correlation would measure the wrong thing.
+    #
+    # AVERAGED OVER N_SPLITS DRAWS (corrected). The first version of this round
+    # drew ONE split and reported 0.3794. r57 averages 200; r70 found that a
+    # single draw moved the OUTCOME's reliability from 0.3048 to 0.3911, about
+    # 1.5 SD, so a one-draw split-half is one realisation and not a measurement
+    # -- the same error as taking four points off one realisation and calling it
+    # replication. Both the mean and the across-split spread are reported.
     split = np.random.default_rng(20260729)
-    selA, selB, k_lt_4 = [], [], 0
-    for it in items:
-        cs = it["crits"]
-        if len(cs) < 4:
-            k_lt_4 += 1
-        o = split.permutation(len(cs))
-        h = len(cs) // 2
-        selA.append([cs[i] for i in o[:h]])
-        selB.append([cs[i] for i in o[h:2 * h]])
-
-    cA = collapse_for(selA, items, donor, gen)
-    cB = collapse_for(selB, items, donor, gen)
-    ok = np.isfinite(cA) & np.isfinite(cB)
+    k_lt_4 = sum(1 for it in items if len(it["crits"]) < 4)
     splittable = np.array([len(it["crits"]) >= 4 for it in items])
+
+    def corr_on(x, y, mask):
+        m = np.isfinite(x) & np.isfinite(y) & mask
+        return float(np.corrcoef(x[m], y[m])[0, 1])
+
+    def draw():
+        selA, selB = [], []
+        for it in items:
+            cs = it["crits"]
+            o = split.permutation(len(cs))
+            h = len(cs) // 2
+            selA.append([cs[i] for i in o[:h]])
+            selB.append([cs[i] for i in o[h:2 * h]])
+        return (selA, selB, collapse_for(selA, items, donor, gen),
+                collapse_for(selB, items, donor, gen))
+
+    all_draws = [draw() for _ in range(N_SPLITS)]
+    draws = [(x, y) for _, _, x, y in all_draws]
+    selA, selB, cA, cB = all_draws[0]
+    ok = np.isfinite(cA) & np.isfinite(cB)
 
     # ---- controls, before any reliability is read ------------------------
     self_r = float(np.corrcoef(cA[ok], cA[ok])[0, 1])
@@ -212,23 +228,30 @@ def main() -> None:
         raise SystemExit("REFUSING: the split-half estimator fails its own controls.")
 
     m4 = ok & splittable
-    raw = float(np.corrcoef(cA[m4], cB[m4])[0, 1])
+    per_split = np.array([corr_on(x, y, splittable) for x, y in draws])
+    raw = float(per_split.mean())
     rel = spearman_brown(raw)
+    single = corr_on(cA, cB, splittable)
+    print(f"across {N_SPLITS} splits: raw mean {raw:+.4f}  sd {per_split.std():.4f}  "
+          f"range [{per_split.min():+.4f},{per_split.max():+.4f}]  "
+          f"(the single split first published: {single:+.4f})")
 
     # Is the instability specific to the COLLAPSE (a difference of differences),
     # or does it already sit in the raw containment LEVEL? A difference of four
     # noisy terms would be unstable even if each term were prompt-stable, so this
     # separates "the contrast amplifies noise" from "the criterion axis is noisy".
-    lvlA = np.array([containment(selA[k], gen["original"][it["i"]])
-                     for k, it in enumerate(items)], float)
-    lvlB = np.array([containment(selB[k], gen["original"][it["i"]])
-                     for k, it in enumerate(items)], float)
-    lm = np.isfinite(lvlA) & np.isfinite(lvlB) & splittable
-    lvl_raw = float(np.corrcoef(lvlA[lm], lvlB[lm])[0, 1])
+    lvl_per = []
+    for sA, sB, _, _ in all_draws:
+        lvlA = np.array([containment(sA[k], gen["original"][it["i"]])
+                         for k, it in enumerate(items)], float)
+        lvlB = np.array([containment(sB[k], gen["original"][it["i"]])
+                         for k, it in enumerate(items)], float)
+        lvl_per.append(corr_on(lvlA, lvlB, splittable))
+    lvl_raw = float(np.mean(lvl_per))
     lvl_rel = spearman_brown(lvl_raw)
     print(f"raw containment LEVEL, same criteria split: {lvl_raw:+.4f} "
           f"-> Spearman-Brown {lvl_rel:.4f}")
-    raw_all = float(np.corrcoef(cA[ok], cB[ok])[0, 1])
+    raw_all = float(np.array([corr_on(x, y, ok) for x, y in draws]).mean())
     rel_all = spearman_brown(raw_all)
     print(f"\nK>=4 only (n={int(m4.sum())}): split-half {raw:+.4f}  Spearman-Brown {rel:.4f}")
     print(f"all joined (n={int(ok.sum())}): split-half {raw_all:+.4f}  "
