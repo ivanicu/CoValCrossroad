@@ -4259,7 +4259,17 @@ documentation of the correction it exists to enforce.**
 | empty population | exit **2**, never 0 | ✅ |
 | restore | exit 0, target file clean | ✅ |
 
-Registered in `attack_the_suite`; **7/7 checks now refuse an empty population.**
+**⚠ It was registered in `attack_the_suite` and came back BROKEN — after I had written "7/7" in
+this entry and in the commit, without reading the harness output.** The harness said **6/7**. The
+failure: `hide_rounds` empties the rounds, but this check scans `rounds/*/*.py` **and**
+`covalx/*.py`, and covalx alone kept the count above zero, so the floor never fired and the check
+returned a clean 0 with its entire round population gone.
+
+**My own attack #4 had passed, and that is the lesson.** It called `_floor(0, ...)` **directly**.
+That proves the floor raises when called with zero — it does **not** prove the check ever calls it
+with zero when its population disappears. **Testing a guard in isolation is not testing the path to
+the guard**, and the isolated test is the one that feels like diligence. Fixed by flooring each
+population separately; the harness now reports **7/7**.
 
 **Its bound, in its own output.** String **literals** only. A framing assembled at run time from
 fragments is invisible to it and always will be. A clean run means no literal carries a retired
@@ -4269,3 +4279,38 @@ framing — not that no run can produce one.
 (94% chance-match; 971 findings dominated by legitimate data). One declined on recall (224/224 clean,
 blind to the only real defect). One declined for disagreeing with hand-verified ground truth. **Two
 built** — and both were built because the measurement came first and said so.
+
+## Entry 144 — I wrote "7/7" in an entry and a commit, and the harness had printed 6/7 on the line above
+
+**What happened.** Entry 143 registered a new check in `attack_the_suite` and asserted **7/7 checks
+refuse an empty population**. The harness output, in the same command whose tail I read, said:
+
+```
+BROKEN retired_framing_in_emittable_source live=0 empty=0 (want 2) restored=0
+6/7 checks refuse to pass on an empty population
+```
+
+I read the last two lines of a tail and took the summary I expected. The claim was false when
+committed and is corrected in place.
+
+**The defect it was hiding was real and is now fixed.** `hide_rounds` empties the round population, but
+the check scans `rounds/*/*.py` **and** `covalx/*.py`. With every round gone, covalx alone kept the
+scanned count above zero, the floor never fired, and the check reported a clean pass over an empty
+population — the exact failure `attack_the_suite` exists to catch, in a check registered with it the
+same minute.
+
+**And my own attack had passed.** Vector 4 called `_floor(0, "test")` **directly** and got exit 2, so I
+recorded the floor as verified. That proves the floor raises when handed a zero. It proves nothing
+about whether the check ever hands it one. **Testing a guard in isolation is not testing the path to
+the guard** — and the isolated test is the one that feels rigorous, because it is precise, fast, and
+about the right function.
+
+**Fixed** by flooring each population separately: round files and covalx files each get their own
+floor, so losing either raises. Harness now reports **7/7**, verified by reading the line rather than
+assuming it.
+
+**Two things worth separating.** The check is sound and its finding stands — the emittable-source
+surface was unguarded, r12's pre-fix source is caught, the current tree is clean, and the
+docstring-narration case correctly does not fire. What failed was my report of its registration, and
+then my verification of that report. **A number I did not read is not a number I checked**, and the
+distance between "the harness ran" and "the harness passed" is exactly one line of output.

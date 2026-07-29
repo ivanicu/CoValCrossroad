@@ -94,7 +94,18 @@ def _floor(n: int, what: str) -> int:
 
 
 def main() -> int:
-    files = sorted(list(_ROOT.glob("rounds/*/*.py")) + list(_ROOT.glob("covalx/*.py")))
+    # TWO POPULATIONS, FLOORED SEPARATELY. A single combined count let the check
+    # pass with every round hidden, because covalx/*.py alone kept it above zero
+    # -- `attack_the_suite` caught it as BROKEN on the first run. My own attack
+    # had called `_floor(0, ...)` directly and passed: that proves the floor
+    # raises when called with zero, NOT that the check calls it with zero when its
+    # population disappears. Testing a guard in isolation is not testing the path
+    # to the guard.
+    round_files = sorted(_ROOT.glob("rounds/*/*.py"))
+    covalx_files = sorted(_ROOT.glob("covalx/*.py"))
+    _floor(len(round_files), "the set of round source files")
+    _floor(len(covalx_files), "the set of covalx source files")
+    files = round_files + covalx_files
     hits, scanned, unparsed = [], 0, []
     for f in files:
         try:
@@ -108,7 +119,7 @@ def main() -> int:
                 m = pat.search(txt)
                 if m:
                     hits.append((f.relative_to(_ROOT), lineno, m.group(0), why, txt[:80]))
-    _floor(scanned, "the set of round and covalx source files")
+    _floor(scanned, "the set of PARSEABLE round and covalx source files")
     if unparsed:
         print(f"  ⚠ {len(unparsed)} file(s) did not parse and were SKIPPED, not passed: "
               f"{'; '.join(unparsed[:3])}")
