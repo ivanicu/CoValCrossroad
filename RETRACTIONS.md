@@ -4613,3 +4613,38 @@ costs **−0.0000248**, which is **403×** inside the δ = 0.01 margin.
 r45 hits are hex-digest fragments and derived counts (entry 148); `+0.0176` is r75's 0.01754594 at the
 checker's rounding boundary (entry 148). They are named here so the next reader does not re-investigate
 them.
+
+## Entry 153 — triaging the README's 31 unmatched numbers: zero are wrong, and the count was never the finding
+
+**Why this ran.** Entry 152 caught a published difference that was wrong because no artifact stored it.
+That class is exactly what `readme_agrees_with_results` flags, and the README's strong arm carries
+**31** unmatched numbers across 19 rounds. A count that size looks like a backlog. It is not one, and
+establishing that is worth more than leaving it ambiguous.
+
+**Verified individually, most-suspicious first.**
+
+| flag | cause | verified how |
+|---|---|---|
+| **r65: +0.0733 ×2** | **mis-attribution, not a missing number.** The value is r44's polarity-rewrite stage — `stage_increments.S0_full_equal -> S1_polarity_rewrite.delta = +0.07330`. The table row matches under r44; the two flags are the ⚠ paragraph *below* it, which cites **r65** while quoting **r44's** number | found the exact key in r44's artifact |
+| **r65: 112** | **not a number.** It is `run.py:112`, a **line reference** in prose. The number regex cannot tell a citation from a quantity | read the sentence |
+| **r62: +12.3** | **unit rescaling.** r62 stores `excess_over_null = 0.12250830`; the README states it as percentage points | read the stored key |
+| **r26: 1.40, 2.26, 2.68, 10.26**; **r16: 1.145, 1.198** | **frozen-round narration** — the readings that *caused* the freeze, superseded by design (entry 149) | r23/r26 carry `FROZEN LINE` in their own verdicts |
+| **r35 / r61: 102,147** | **the count lives in r82**, which measured the full distribution; quoted inside r35's and r61's paragraphs | same class as entry 148's preregistration fix |
+| **r48: 63.5%, 36.4%** | derived shares (9,684 / 15,248 and its complement) | arithmetic on stored counts |
+
+**So the strong arm currently contains no r83-class error** — no number that is simply wrong. It
+contains attribution drift, a line reference, a unit change, and deliberate narration. **31 unmatched
+is not 31 problems**, and the check's own docstring says so: *"an unmatched number is a QUESTION, not a
+verdict."* This entry is the answer to 31 of those questions.
+
+**What the triage actually shows about the instrument.** Its dominant failure mode is not missing real
+errors — it is **flagging correct prose whose attribution is inherited from a neighbouring sentence**.
+The ⚠ paragraph pattern this repository uses constantly, where a caveat cites a *different* round than
+the claim it qualifies, produces these systematically. That is a property of how the README is written,
+not a defect in either the document or the check, and it caps how low the unmatched count can go.
+
+**One thing I am not doing.** Rewriting those ⚠ paragraphs to satisfy the checker would be optimising
+the document for the instrument. The caveats cite the round that *supports the caveat*, which is
+correct; the numbers they quote belong to the round being qualified, which is also correct. **A check
+whose flags are mostly a stylistic consequence should be read with that stated, not silenced by
+changing the prose.**
