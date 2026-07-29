@@ -53,6 +53,7 @@ import sys
 from pathlib import Path
 
 _ROOT = Path(__file__).resolve().parents[1]
+_SKIPPED: list[str] = []   # files a parse error skipped; printed if non-empty
 
 ROW = re.compile(r"^\|\s*\[(r\d+)\]\(rounds/")
 # Fields in which a round states a claim or a bound. `frozen_line` is
@@ -151,7 +152,11 @@ def main() -> int:
             else f.parts[1].split("_")[0]
         try:
             doc = json.loads(f.read_text())
-        except Exception:
+        except (OSError, json.JSONDecodeError):
+            # NOT `except Exception` (entry 105): a bare except here swallowed a
+            # NameError on every one of 238 files and printed a clean zero.
+            # Catch what a bad FILE raises; let a broken FUNCTION crash.
+            _SKIPPED.append(str(f))
             continue
         # A round states its bounds wherever it states them. Reading only
         # `verdict`/`conclusion` made six rounds "UNCHECKABLE" that in fact
@@ -169,6 +174,8 @@ def main() -> int:
     both = sorted(set(rows) & set(verdicts), key=lambda r: int(r[1:]))
     uncheckable = sorted(set(rows) - set(verdicts), key=lambda r: int(r[1:]))
 
+    if _SKIPPED:
+        print(f"  ⚠ {len(_SKIPPED)} results file(s) could not be parsed and were SKIPPED")
     print(f"README rows: {len(rows)}   rounds with a verdict string: {len(verdicts)}")
     print(f"  checkable (row AND verdict): {len(both)}")
     print(f"  UNCHECKABLE (row, no verdict): {len(uncheckable)}  {', '.join(uncheckable)}")

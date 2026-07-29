@@ -2584,6 +2584,37 @@ believable number for a package where verdicts mostly discuss their own round. I
 because I had a scratchpad sweep from ten minutes earlier that said 4 — **the check was validated
 against a prior run, not against a control**, and without that accident it would have shipped.
 
+## Entry 106 — sweeping the hazard entry 105 named: 21 bare excepts, four of the dangerous shape
+
+Entry 105's bug was a missing import swallowed by `except Exception`. The sweep for the same shape
+finds **21 bare `except Exception:` / `except:` sites**, in four classes:
+
+| class | sites | hazard |
+|---|---|---|
+| **file-parsing loops that skip** | 4 | **the exact bug** — one broken name silently empties the population |
+| optional `from covalx.frozen import append_to` | 9 | deliberate optional dependency; swallows errors *inside* `append_to` too |
+| subprocess/git wrappers | 3 | legitimately broad; git fails many ways |
+| manifest path/format helpers | 5 | mild |
+
+**The four dangerous ones are narrowed** to `(OSError, json.JSONDecodeError)` — what a bad *file*
+raises — so a broken *function* crashes instead of skipping.
+
+**And each now counts what it skipped.** Narrowing fixes the cause I found; counting reveals causes I
+have not. A parse failure prints `⚠ N results file(s) could not be parsed and were SKIPPED`, verified
+by planting a corrupt JSON and watching it appear, then removing it and watching it go.
+
+**One site was worse than the others and the sweep nearly missed it.**
+`readme_agrees_with_results` used `except Exception: **pass**`, not `continue` — so my pattern did not
+match and the first pass skipped the file entirely. `pass` is the more dangerous of the two: it hides
+the file **and leaves an empty pool entry behind**, so the round looks present with no values in it.
+A check whose population silently empties one round at a time reports "rounds with results: 55"
+either way.
+
+**One check exits 1 by design and that is not a regression.** `verdict_cites_its_own_contrasts`
+returns 1 whenever any round cites none of its own significant contrasts — seven do (entry 80). It
+had not been in my batch list, so adding it here surfaced its designed state as if it were a failure.
+Recorded so the next person reading a suite run does not chase it.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.

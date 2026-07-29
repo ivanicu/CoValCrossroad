@@ -69,6 +69,7 @@ import re
 from pathlib import Path
 
 _ROOT = Path(__file__).resolve().parents[1]
+_SKIPPED: list[str] = []   # files a parse error skipped; printed if non-empty
 
 # A provisional run is not a result. This check had NO name filter at all and
 # relied on its non-recursive glob, which a06_dryrun.json -- written straight
@@ -178,8 +179,15 @@ def main() -> None:
         pools.setdefault(rid, set())
         try:
             collect_floats(json.loads(f.read_text()), pools[rid])
-        except Exception:
-            pass
+        except (OSError, json.JSONDecodeError):
+            # NOT `except Exception` (entry 105). A bare except here swallowed a
+            # NameError on all 238 files in a sibling check and printed a clean
+            # zero. `pass` is worse than `continue`: it hides the file AND keeps
+            # an empty pool entry, so the round looks present with no values.
+            _SKIPPED.append(str(f))
+    if _SKIPPED:
+        print(f"  ⚠ {len(_SKIPPED)} results file(s) could not be parsed and were SKIPPED: "
+              f"{', '.join(_SKIPPED[:3])}{' …' if len(_SKIPPED) > 3 else ''}")
     print(f"rounds with results: {len(pools)}   "
           f"stored values: {sum(len(v) for v in pools.values()):,}\n")
 

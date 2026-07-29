@@ -48,6 +48,7 @@ from math import comb
 from pathlib import Path
 
 _ROOT = Path(__file__).resolve().parents[1]
+_SKIPPED: list[str] = []   # files a parse error skipped; printed if non-empty
 CENSUS = _ROOT / "rounds/r58_equivalence_census/results/r58_equivalence_census.json"
 PROVISIONAL = re.compile(r"smoke|dry[_-]?run|draft|scratch|trial|pilot|prelim|wip", re.I)
 
@@ -102,7 +103,11 @@ def main() -> int:
             continue
         try:
             doc = json.loads(f.read_text())
-        except Exception:
+        except (OSError, json.JSONDecodeError):
+            # NOT `except Exception` (entry 105): a bare except here swallowed a
+            # NameError on every one of 238 files and printed a clean zero.
+            # Catch what a bad FILE raises; let a broken FUNCTION crash.
+            _SKIPPED.append(str(f))
             continue
         v = doc.get("verdict") or doc.get("conclusion")
         if isinstance(v, str) and v.strip():
@@ -128,6 +133,8 @@ def main() -> int:
         tot_opp += len(opp)
         tot_om += len(no)
 
+    if _SKIPPED:
+        print(f"  ⚠ {len(_SKIPPED)} results file(s) could not be parsed and were SKIPPED")
     print(f"rounds with a verdict AND significant contrasts: {len(rows)}")
     print(f"{'round':7s} {'sig':>4} {'cited':>6} {'omitted':>8}   omitted-and-opposite-signed")
     for rid, n, y, o, head, opp in rows:

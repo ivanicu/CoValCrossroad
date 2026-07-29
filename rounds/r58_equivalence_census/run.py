@@ -56,6 +56,7 @@ import numpy as np
 
 _HERE = Path(__file__).resolve().parent
 _ROOT = _HERE.parents[1]
+_SKIPPED: list[str] = []   # files a parse error skipped; printed if non-empty
 _RES = _HERE / "results"
 sys.path.insert(0, str(_ROOT))
 
@@ -83,7 +84,11 @@ def enumerate_contrasts(root: Path):
         rid = f.parts[-3].split("_")[0]
         try:
             doc = json.loads(f.read_text())
-        except Exception:
+        except (OSError, json.JSONDecodeError):
+            # NOT `except Exception` (entry 105): a bare except here swallowed a
+            # NameError on every one of 238 files and printed a clean zero.
+            # Catch what a bad FILE raises; let a broken FUNCTION crash.
+            _SKIPPED.append(str(f))
             continue
 
         def walk(node, path):
