@@ -949,6 +949,20 @@ than grepping a table whose column order I had assumed.
 "nothing outstanding" must be able to distinguish *nothing outstanding* from *nothing observed*.
 Neither the grep nor the loop could.
 
+**Demonstrated side by side, against nine genuinely pending jobs**, which is a control only
+available while they were still running:
+
+```
+OLD grep pattern   matches = 0   -> until-loop exits immediately, reports "done"
+NEW waiter         exit    = 3   -> still waiting
+ground truth       9 tasks actually pending
+```
+
+`assurance/pueue_wait.py` replaces the pattern: it reads `pueue status --json` and inspects the
+status field, so column order cannot fool it, and it **returns exit 2 — not success — when it
+matches no task at all**, because that is precisely the state this entry is about. Both behaviours
+are positive-controlled above rather than asserted.
+
 ## The pattern
 
 Entries 1–12 were one failure. Entries 13–24 are **two**, and the second is new.
