@@ -129,6 +129,20 @@ were forced to a signed weight, and reached for the smallest one) or selection (
 > **If it absorbs both roughly equally, displacement is not the explanation** and r82's gap is
 > selection — a result that would retire the forced-choice worry rather than confirm it.
 
+**And the cost side of that arm is now measured, not assumed
+([r83](rounds/r83_low_magnitude_drop)).** A neutral option only helps if absorbing those ratings does
+not throw away signal the rubric is using. Deleting **every** rating with \|w\| ≤ 2 — **18,154 of
+100,530**, 18.06% of all ratings — and recomputing each criterion's weight from the survivors moves
+agreement with **real human** pairwise rankings by **−0.0000248**, equivalent to zero at δ = 0.01 by a
+factor of **403**. The arm that makes that mean anything is a **size-matched random deletion**
+repeated 200×: **0.6832** [0.6803, 0.6865] against the targeted **0.6860**. So removing the weakest
+fifth of all ratings costs nothing, while removing as much arbitrary data costs ≈0.003.
+
+> **Design consequence, claimable rather than hoped for:** adding *"no general direction"* is **free at
+> the aggregate level**. If it absorbs the low-magnitude mass, Experiment 1 loses no predictive signal.
+> ⚠ It does **not** follow that it is free at the *criterion* level — r83 deleted ratings and measured
+> the aggregate, so a neutral option could still change which individual criteria survive compilation.
+
 This is registered now, before any data, because the same evidence supports both readings and choosing
 between them afterwards would be a narrative. It is also the **only** prediction in this document
 contributed by a round that explicitly could not test its own hypothesis.

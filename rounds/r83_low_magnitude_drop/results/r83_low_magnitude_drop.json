@@ -7,6 +7,8 @@
  "low_threshold": 2,
  "baseline_accuracy": 0.6860023341858906,
  "targeted_drop_accuracy": 0.6859775024210971,
+ "cost_vs_baseline": -2.4831764793509237e-05,
+ "equivalence_factor": 402.7100000002374,
  "random_drop_mean": 0.6832461324526335,
  "random_drop_ci": [
   0.6803009609892975,

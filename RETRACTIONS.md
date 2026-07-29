@@ -4559,11 +4559,11 @@ can have perfect consensus at \|w\| = 1 and terrible consensus at \|w\| = 10.
 | arm | agreement with real human rankings |
 |---|---:|
 | baseline, all ratings | **0.6860** |
-| delete every \|w\| ≤ 2 (18,154 of 100,530, **18.06%**) | **0.6860** (**−0.00003**) |
+| delete every \|w\| ≤ 2 (18,154 of 100,530, **18.06%**) | **0.6860** (**−0.0000248**) |
 | size-matched **random** deletion, 200 repeats | 0.6832 [0.6803, 0.6865] |
 
 **Deleting the weakest fifth of all ratings costs nothing** — the change is equivalent to zero at
-δ=0.01 by a factor of about 300 — while deleting as much arbitrary data costs ≈0.003. The matched
+δ=0.01 by a factor of **403** — while deleting as much arbitrary data costs ≈0.003. The matched
 random arm is the entire design: without it, "accuracy barely moved" would have been a statement about
 the size of my own intervention.
 
@@ -4582,3 +4582,34 @@ That is a design fact the arm can now claim rather than assume.
 not on people. It says what the rubric loses without these numbers; it says nothing about what a rater
 would have written given another option. **r82's displacement-versus-selection question is exactly
 where it was**, and only the human arm moves it.
+
+## Entry 152 — I read a number off a rounded printout and wrote it into three documents
+
+**Registering r83's result in the preregistration surfaced two wrong numbers of mine**, both in the
+sentence I had just written into the file that spends money — and both caught by
+`readme_agrees_with_results` the moment r83 was made to **store** what it had only been reporting.
+
+| I wrote | it is | source of the error |
+|---|---|---|
+| cost **−0.00003** | **−0.0000248** | the run printed `-0.0000`; I rounded a rounded value |
+| *"a factor of about 300"* | **403** | estimated from the wrong cost, then softened with "about" |
+
+The factor was understated by **25%** — in the direction that makes the claim *weaker*, which is why
+nothing about it felt wrong. **An estimate that flatters caution is still an estimate**, and this
+ledger already carries the same shape: an SD written down before it was computed (0.0173 against an
+actual 0.0217).
+
+**What made it findable.** r83 published a *difference* and stored only its two operands, so
+`−0.00003` was a derived number in no pool by construction — the checker's own documented blind spot.
+Adding `cost_vs_baseline` and `equivalence_factor` to the artifact turned an unverifiable claim into a
+checkable one, and it failed immediately. **A round that publishes a difference should store the
+difference**, and the reason is not tidiness: an unstored quantity cannot be contradicted.
+
+**Corrected in all three places** — preregistration, README row, and entry 151's table and prose. The
+finding itself is unchanged and slightly stronger than I reported: deleting **18.06%** of all ratings
+costs **−0.0000248**, which is **403×** inside the δ = 0.01 margin.
+
+**Two remaining unmatched numbers in the preregistration, both understood and neither an error.** The
+r45 hits are hex-digest fragments and derived counts (entry 148); `+0.0176` is r75's 0.01754594 at the
+checker's rounding boundary (entry 148). They are named here so the next reader does not re-investigate
+them.

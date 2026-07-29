@@ -270,6 +270,13 @@ def main() -> None:
         "ratings_total": n_all, "ratings_low": n_low, "low_share": share,
         "low_threshold": LOW,
         "baseline_accuracy": base, "targeted_drop_accuracy": targeted,
+        # STORED, not left to the reader to subtract. The preregistration quotes
+        # this cost and the equivalence factor; both were derived numbers that no
+        # artifact held, so `readme_agrees_with_results` flagged them as unbacked
+        # -- correctly, since a derived number is in no pool by construction. A
+        # round that publishes a difference should store the difference.
+        "cost_vs_baseline": float(targeted - base),
+        "equivalence_factor": float(DELTA / max(abs(targeted - base), 1e-12)),
         "random_drop_mean": float(rand.mean()),
         "random_drop_ci": [lo, hi], "n_random_deletions": N_RANDOM,
         "targeted_minus_random": float(excess),
