@@ -150,7 +150,7 @@ detection floor — the smallest |r| it could have separated from zero:
 | row | published 95% half-width | disattenuated floor (rel 0.422 → 0.302) |
 |---|---:|---:|
 | 3 · generic distance (r40) | 0.0988 | 0.152 → 0.180 |
-| 4 · criterion-space support (r41) | 0.1080 | 0.166 → 0.196 |
+| 4 · criterion-space support (r41) | 0.1010 | 0.155 → 0.184 |
 | 5 · spread loss, held out (r46) | 0.1175 | 0.181 → 0.214 |
 | 10 · overlap transfer (r54) | 0.1336 | 0.206 → 0.243 |
 

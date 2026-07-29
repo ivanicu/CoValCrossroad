@@ -2655,11 +2655,14 @@ each has its own floor.
 | row | half-width | disattenuated floor (rel 0.422 → 0.302) |
 |---|---:|---:|
 | 3 · generic distance (r40) | 0.0988 | 0.152 → 0.180 |
-| 4 · criterion-space support (r41) | 0.1080 | 0.166 → 0.196 |
+| 4 · criterion-space support (r41) | 0.1010 | 0.155 → 0.184 |
 | 5 · spread loss, held out (r46) | 0.1175 | 0.181 → 0.214 |
 | 10 · overlap transfer (r54) | 0.1336 | 0.206 → 0.243 |
 
-**A 1.35× spread**, and "≈0.2" sits mid-band. r54 could not have detected a true correlation below
+**A 1.35× spread**, and "≈0.2" sits mid-band. ⚠ **r41's figure was wrong in the first version of
+this entry and of the ledger**: I took `raw[0]`'s interval (half-width 0.1080) when the row cites
+`D_hull_violation`, which is `raw[1]` — half-width **0.1010**, floor 0.155 → 0.184. Caught by the
+same per-round CI verification I ran to confirm the table, minutes after committing it. r54 could not have detected a true correlation below
 **≈0.21 even optimistically** — so *"the overlap channel does not explain r12"* is a weaker statement
 than the neighbouring rows' refutations, and the shared caveat made all four read alike.
 
