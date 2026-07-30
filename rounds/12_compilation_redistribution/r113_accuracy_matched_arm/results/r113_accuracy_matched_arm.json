@@ -1,4 +1,11 @@
 {
+ "arithmetic_line_null": {
+  "max_abs_z": 1.5756476760983895,
+  "mean_abs_resid": 0.006357024136067972,
+  "mean_se": 0.008580376322882537,
+  "n_exceeding_own_se": 1,
+  "resid_sd": 0.007434422258747241
+ },
  "arms": [
   "full",
   "core",
@@ -7,7 +14,7 @@
   "first4"
  ],
  "compiled_beats_full": true,
- "conclusion": "On 7,275 even-rater cells, an accuracy-matched NON-COMPILED arm -- 4 of full's own criteria chosen on the odd-rater half and evaluated only on the even half -- reaches mean error 0.27616 against compiled core's 0.33415 and full's 0.40408. Running r112's identical regression: the compiled contrast gives beta_x1 +0.03955 (se 0.00799, CI [+0.02390,+0.05520]) and the NON-COMPILED contrast gives +0.06156 (se 0.01017) -- outside that CI. x1 raises every arm's error (full +0.0408, core +0.0804, oracle +0.1024, rand4 +0.0412, first4 +0.0254), so d is a difference of two quantities it pushes the same way, and the arithmetic prediction k*beta_sum tracks the observed coefficient across 7 arm pairs at corr +0.9783 while the accuracy gap tracks it at -0.9822. Purging the common shrink toward chance leaves +0.00718 (t 0.80) on the compiled contrast, and the purge is shown to retain a planted one-armed effect (117.3% at g=0.04, t 5.48). WORLD: UNVERIFIED. The non-compiled coefficient is neither inside the compiled CI nor below the pre-registered floor. UNVERIFIED, and it is not an acquittal for entry 23.",
+ "conclusion": "On 7,275 even-rater cells, an accuracy-matched NON-COMPILED arm -- 4 of full's own criteria chosen on the odd-rater half and evaluated only on the even half -- reaches mean error 0.27616 against compiled core's 0.33415 and full's 0.40408. Running r112's identical regression: the compiled contrast gives beta_x1 +0.03955 (se 0.00799, CI [+0.02390,+0.05520]) and the NON-COMPILED contrast gives +0.06156 (se 0.01017) -- outside that CI. x1 raises every arm's error (full +0.0408, core +0.0804, oracle +0.1024, rand4 +0.0412, first4 +0.0254), so d is a difference of two quantities it pushes the same way, and the arithmetic prediction k*beta_sum tracks the observed coefficient across 7 arm pairs at corr +0.9783 -- and more sharply, NO pair departs from that line by more than its own standard error (1 of 7, max |z| 1.58, residual sd 0.00743 against mean se 0.00858) -- while the accuracy gap tracks it at -0.9822. Purging the common shrink toward chance leaves +0.00718 (t 0.80) on the compiled contrast, and the purge is shown to retain a planted one-armed effect (117.3% at g=0.04, t 5.48). WORLD: UNVERIFIED. The non-compiled coefficient is neither inside the compiled CI nor below the pre-registered floor. UNVERIFIED, and it is not an acquittal for entry 23.",
  "core_ci": [
   0.023897914516605903,
   0.055201569932010044
@@ -152,10 +159,15 @@
  },
  "sign_agreement": 6,
  "source_name": "run.py",
- "source_sha256": "cd5b5f0a8c2dac5d4ef842d883f791f9c561579080bd0aec674a356468ca4c58",
+ "source_sha256": "113275c76a62af92a6bbbb61b350d5f22b3e807d5640c39af99497905a91ce80",
  "world": "UNVERIFIED",
  "x2_alone": {
   "beta": 0.03110253266423571,
   "se": 0.01800655059121475
+ },
+ "x2_alone_purged": {
+  "beta": 0.017024153298044315,
+  "se": 0.019838487330533814,
+  "t": 0.8581376701963611
  }
 }

@@ -336,6 +336,35 @@ def main() -> int:
         print(f"  {a+' - '+b_:<20}{d.mean():>+10.5f}{pred:>+12.5f}{b:>+11.5f}{s:>9.5f}"
               f"{b/max(s,1e-12):>7.2f}{bp:>+10.5f}{bp/max(sp,1e-12):>7.2f}")
 
+    # ---- THE ARITHMETIC LINE AS A NULL, which is stronger than the correlation --
+    # A correlation across 7 non-independent pairs invites the charge that two extremes carry it.
+    # The sharper statement: does ANY pair depart from the pure accuracy-gap prediction by more
+    # than its own noise? If none does, the observed coefficients are not merely correlated with
+    # the arithmetic -- they are indistinguishable from it.
+    resid = np.array([r["beta"] - r["pred"] for r in rows.values()])
+    ses = np.array([r["se"] for r in rows.values()])
+    line = {"resid_sd": float(resid.std(ddof=1)), "mean_abs_resid": float(np.abs(resid).mean()),
+            "mean_se": float(ses.mean()),
+            "n_exceeding_own_se": int(np.sum(np.abs(resid) > ses)),
+            "max_abs_z": float(np.max(np.abs(resid) / np.maximum(ses, 1e-12)))}
+    print(f"\n  THE ARITHMETIC LINE AS A NULL: residuals about k*beta_sum have sd "
+          f"{line['resid_sd']:.5f} and mean |resid| {line['mean_abs_resid']:.5f}, against a mean "
+          f"standard error of {line['mean_se']:.5f}")
+    print(f"    pairs departing from the line by more than their OWN se: "
+          f"{line['n_exceeding_own_se']} of {len(resid)}   max |z| {line['max_abs_z']:.2f}")
+
+    # ---- x2 alone, PURGED -- the receipt the retraction cited and did not have ----
+    d_cf = E["core"] - E["full"]; s_cf = E["core"] + E["full"]
+    k_cf = float(d_cf.mean() / (s_cf.mean() - 1.0))
+    y2p = demean(d_cf - k_cf * s_cf, gp)
+    X2p = np.column_stack([demean(x2, gp), demean(COV[2], gp)])
+    b2p, s2p = twoway_ols(y2p, X2p, gp, gr)
+    x2_purged = {"beta": float(b2p[0]), "se": float(s2p[0]),
+                 "t": float(b2p[0] / max(s2p[0], 1e-12))}
+    print(f"  x2 ALONE, PURGED of the common shrink: beta {x2_purged['beta']:+.5f}  "
+          f"se {x2_purged['se']:.5f}  t {x2_purged['t']:.2f}  -- the ledger asserted this purged to "
+          f"nothing while no artifact carried the number")
+
     obs = np.array([r["beta"] for r in rows.values()])
     prd = np.array([r["pred"] for r in rows.values()])
     gap = np.array([r["gap"] for r in rows.values()])
@@ -390,7 +419,10 @@ def main() -> int:
         f"{'INSIDE' if inside else 'outside'} that CI. x1 raises every arm's error "
         f"({', '.join(f'{a} {lev[a]['beta']:+.4f}' for a in ARMS)}), so d is a difference of two "
         f"quantities it pushes the same way, and the arithmetic prediction k*beta_sum tracks the "
-        f"observed coefficient across {len(obs)} arm pairs at corr {corr_pred:+.4f} while the "
+        f"observed coefficient across {len(obs)} arm pairs at corr {corr_pred:+.4f} -- and more "
+        f"sharply, NO pair departs from that line by more than its own standard error "
+        f"({line['n_exceeding_own_se']} of {len(resid)}, max |z| {line['max_abs_z']:.2f}, residual sd "
+        f"{line['resid_sd']:.5f} against mean se {line['mean_se']:.5f}) -- while the "
         f"accuracy gap tracks it at {corr_gap:+.4f}. Purging the common shrink toward chance leaves "
         f"{core_row['purged']:+.5f} (t {core_row['purged_t']:.2f}) on the compiled contrast, and the "
         f"purge is shown to retain a planted one-armed effect ({pc[0.04]['retained']:.1%} at "
@@ -412,6 +444,7 @@ def main() -> int:
            "sign_agreement": sign_agree, "purge_positive_control": {str(k): v for k, v in pc.items()},
            "purge_has_power": bool(purge_has_power),
            "x2_alone": {"beta": float(b2[0]), "se": float(s2[0])},
+           "x2_alone_purged": x2_purged, "arithmetic_line_null": line,
            "core_ci": [float(ci_core[0]), float(ci_core[1])],
            "oracle_inside_core_ci": bool(inside), "kill_floor": CORE_CI_LOWER,
            "world": world, "conclusion": conclusion, **stamp(__file__)}
