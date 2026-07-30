@@ -7,7 +7,7 @@
 > this document's calibration rather than being absorbed into it.
 
 Written **before** any human data exists, which is the only time a preregistration means
-anything. Frozen frame: `rounds/05_human_protocol_and_power/r45_protocol_freeze/results/r45_frozen_frame.json`,
+anything. Frozen frame: `05_human_protocol_and_power/r45_protocol_freeze/results/r45_frozen_frame.json`,
 manifest `313044eafe5d18a9335408f7c35a0e76f2b08e4a436f765cede756e78b3dfa4b`, 60 prompts,
 **480 hashed responses** (60 prompts × 4 original + 4 fresh), four equal cells of 15. ⚠ This read **540** until 2026-07-29. 540 is the count of hashed **objects** — the 480 responses plus one `prompt_sha256` each — so the old figure overstated the responses by **60**, or 12.5%, in the document Experiment 2's per-response budget is read from. Found by pointing `readme_agrees_with_results` at this file for the first time.
 
@@ -85,7 +85,7 @@ directions match PRE criteria to POST criteria; disagreements go to a third. Int
 is reported. A model matcher may be run **alongside** and its disagreement rate with the humans
 reported, but it never produces the primary number.
 
-**And the unmatched rate is not an exclusion — but it is only interpretable as an EXCESS.** A POST criterion with no PRE counterpart *may* be one that only arises after seeing the responses. It may equally be one nobody could match to anything. [r62](rounds/07_floors_for_the_counterfactuals/r62_matching_floor) measured that floor on the release: two authors who saw the **same four responses on the same prompt** write criteria that fail to match each other **87.3%** of the time at Jaccard ≥ 0.20, and **53.3%** at the most lenient threshold tested — against a cross-prompt null of 99.6%, so the matcher is tracking real content and the floor is real too.
+**And the unmatched rate is not an exclusion — but it is only interpretable as an EXCESS.** A POST criterion with no PRE counterpart *may* be one that only arises after seeing the responses. It may equally be one nobody could match to anything. [r62](07_floors_for_the_counterfactuals/r62_matching_floor) measured that floor on the release: two authors who saw the **same four responses on the same prompt** write criteria that fail to match each other **87.3%** of the time at Jaccard ≥ 0.20, and **53.3%** at the most lenient threshold tested — against a cross-prompt null of 99.6%, so the matcher is tracking real content and the floor is real too.
 
 **So: committed.** The unmatched rate is reported as an **excess over a within-arm floor measured in the same study with the same human matchers** — PRE participants matched against each other, POST against each other, and the raw rate never quoted without both. A design that reported the PRE/POST rate alone would be reporting mostly the idiosyncrasy of free-text criterion writing and calling it menu-induced construction.
 
@@ -98,7 +98,7 @@ reported, but it never produces the primary number.
 | partially constructed | agreement above baseline but PRE weights strictly worse — the expected outcome, and the one requiring an effect *size*, not a test |
 
 **⚠ THE SCALE'S MIDPOINT IS NOT A HYPOTHETICAL — it was measured and it is unavailable in practice
-([r82](rounds/08_direction_from_text/r82_scale_use_by_provenance)).** Across **102,147** released ratings on a 21-point
+([r82](08_direction_from_text/r82_scale_use_by_provenance)).** Across **102,147** released ratings on a 21-point
 −10…+10 scale, the midpoint **w = 0 was used exactly once**. Two consequences for this design, both
 measured rather than assumed:
 
@@ -106,10 +106,10 @@ measured rather than assumed:
    no way to say so, and every such view was recorded as a signed weight. That is the state this arm
    exists to change.
 2. **The scale carries far less resolution than its 21 points suggest**
-   ([r82](rounds/08_direction_from_text/r82_scale_use_by_provenance)). **29.55%** of all weight mass falls on just **5 or
+   ([r82](08_direction_from_text/r82_scale_use_by_provenance)). **29.55%** of all weight mass falls on just **5 or
    10**, and **16.96%** on \|w\| = 10 alone.
    ⚠ **And the magnitudes' predictive contribution is already measured — I nearly rebuilt it.**
-   [r32](rounds/03_person_or_pair/r32_channel_decomposition) has the cell: moving from **sign** to **signed magnitude**
+   [r32](03_person_or_pair/r32_channel_decomposition) has the cell: moving from **sign** to **signed magnitude**
    is worth **+0.0055 [+0.0018, +0.0094]**, against **+0.0876** for the sign itself — so magnitude is
    **6.3%** of the sign channel. Reported the way this document requires: the effect **differs from
    zero** *and* is **practically equivalent to zero at the preregistered δ = 0.01**, its whole interval
@@ -130,7 +130,7 @@ were forced to a signed weight, and reached for the smallest one) or selection (
 > selection — a result that would retire the forced-choice worry rather than confirm it.
 
 **And the cost side of that arm is now measured, not assumed
-([r83](rounds/08_direction_from_text/r83_low_magnitude_drop)).** A neutral option only helps if absorbing those ratings does
+([r83](08_direction_from_text/r83_low_magnitude_drop)).** A neutral option only helps if absorbing those ratings does
 not throw away signal the rubric is using. Deleting **every** rating with \|w\| ≤ 2 — **18,154 of
 100,530**, 18.06% of all ratings — and recomputing each criterion's weight from the survivors moves
 agreement with **real human** pairwise rankings by **−0.0000248**, equivalent to zero at δ = 0.01 by a
@@ -152,9 +152,9 @@ contributed by a round that explicitly could not test its own hypothesis.
 "no general direction", "depends on implementation", or "cannot judge without seeing a response"
 **at elicitation time**. Their usage rates are a primary outcome, not a nuisance.
 
-**Power, computed from the release rather than deferred to the pilot ([r61](rounds/07_floors_for_the_counterfactuals/r61_s_pre_power)).**
+**Power, computed from the release rather than deferred to the pilot ([r61](07_floors_for_the_counterfactuals/r61_s_pre_power)).**
 The POST arm's sign marginal is **measured**: **77.01%** positive across 102,147 released ratings
-(the count is [r82](rounds/08_direction_from_text/r82_scale_use_by_provenance)'s; r61 stores the marginal, not the total),
+(the count is [r82](08_direction_from_text/r82_scale_use_by_provenance)'s; r61 stores the marginal, not the total),
 with the neutral point used **once**. So if the PRE arm shared that marginal, two independent
 sign-assigners would agree **0.6459** of the time **by marginals alone** — a test against 0.5
 would report agreement far above chance while measuring nothing but a shared tendency to write
@@ -173,7 +173,7 @@ before seeing responses, which is why S_pre needs an experiment — so it is **s
 chance never falls below **0.2569**, so sign agreement is not ceiling-compressed.
 
 **The baseline needs no further adjustment for the seed class, and this was checked rather than
-assumed ([r73](rounds/08_direction_from_text/r73_direction_from_text_alone)).** A worry the design does not address on its own:
+assumed ([r73](08_direction_from_text/r73_direction_from_text_alone)).** A worry the design does not address on its own:
 if a criterion's direction were recoverable from its *wording*, a PRE participant could score well
 above 0.6459 while reproducing a phrasing convention rather than a prior. Measured on exactly the class
 an S_pre participant faces — pre-written, response-blind seed criteria — a text-only predictor with
@@ -187,7 +187,7 @@ participants participant-authored criteria must use a **text-only predictor as i
 marginal. Registered here because discovering it after the data would make the choice of baseline a
 narrative.
 
-**Registered directional prediction, from [r74](rounds/08_direction_from_text/r74_specificity_vs_exposure).** Text-only
+**Registered directional prediction, from [r74](08_direction_from_text/r74_specificity_vs_exposure).** Text-only
 predictability within write-ins is strongly moderated by length — short criteria capture **33.3%** of
 headroom, long ones **0.5%** — while seeds and write-ins are already length-matched in the release
 (14.6 vs 14.9 words). So: **if the PRE arm's criteria come out systematically shorter than the POST
@@ -212,7 +212,7 @@ as human rankings on **r12's exact saved fresh responses**, so it could not have
   with real humans, **on r12's instrument**.
 - **What it will not:** anything about the **757 short-form prompts**. Those have no personal ranking,
   no unacceptable check, and were never in r12's slice.
-- **The only cross-form evidence available** stays [r46](rounds/06_the_judges_mechanism/r46_spread_replication) — 83.6%
+- **The only cross-form evidence available** stays [r46](06_the_judges_mechanism/r46_spread_replication) — 83.6%
   short-form, showing the same inversion (+0.0847 → −0.0716). Uncontrolled, since no prompt exists
   under both forms, and not upgradeable by this experiment.
 
@@ -222,7 +222,7 @@ experiment exists to test against. The bound is the right trade and is stated so
 does not mistake H_fresh's silence about the short form for evidence about it.
 
 **⚠ REGISTERED BEFORE THE DATA: positive and negative criteria must be collected and analysed
-separately, and here is the prediction that says why.** [r75](rounds/08_direction_from_text/r75_menu_read_direction) joined
+separately, and here is the prediction that says why.** [r75](08_direction_from_text/r75_menu_read_direction) joined
 each write-in to *its own author's* ranking — 9,122 criteria, no aggregation across people — and found
 that overlap with the response that rater ranked **best**, minus the one they ranked **worst**, is
 **+0.0407** for criteria they scored positive and **+0.0039** for negative; gap **+0.0368** [+0.0298,
@@ -230,7 +230,7 @@ that overlap with the response that rater ranked **best**, minus the one they ra
 prompt. The effect is **asymmetric**: praise tracks the preferred answer (+0.0176 residualised),
 criticism is flat (−0.0027).
 
-[r76](rounds/08_direction_from_text/r76_absence_cannot_overlap) tested the mechanical rival — an absence has no words to
+[r76](08_direction_from_text/r76_absence_cannot_overlap) tested the mechanical rival — an absence has no words to
 overlap — on the prediction only that rival makes, and it failed: presence-type negatives do **not**
 track the worst answer (−0.0028 [−0.0073, +0.0017]), absence-shaped wording is only **4.1%** of
 write-ins, and absence-type *positives* carry the **largest** effect (+0.0381).
@@ -293,7 +293,7 @@ exploratory**; world is the primary outcome, because that is the one r12 measure
 **Sampling.** The r38 frame: 60 prompts, four equal cells crossing rubric-vs-proxy disagreement
 with surface distance, sampling weights 2.80 / 3.67 / 5.53 / 4.67, ≥8 raters per prompt.
 **⚠ The two axes are not equally balanced, and one of them is not a half** (verified 2026-07-29 from
-the frozen frame against [r38](rounds/05_human_protocol_and_power/r38_human_sampling_power)'s declared `>= median` rule). The
+the frozen frame against [r38](05_human_protocol_and_power/r38_human_sampling_power)'s declared `>= median` rule). The
 weights reconstruct the source population exactly — **42 + 55 + 83 + 70 = 250**, r12's slice — and each
 weight is stratum ÷ 15. But the marginals differ: **distance splits 125 / 125**, an exact median cut,
 while **disagreement splits 97 / 153**, because **28 prompts tie at the median** and `>=` sends ties to
@@ -318,7 +318,7 @@ anomaly-subset estimate. Power ≈0.98 for +0.05 clustered on prompt; r12's 0.16
 every cell.
 
 **Why PROMPT is the clustering unit, and what that frees**
-([r90](rounds/09_form_donor_draw_and_unit/r90_resampling_unit), [r93](rounds/09_form_donor_draw_and_unit/r93_clustering_unit_transfers), 2026-07-29). r90
+([r90](09_form_donor_draw_and_unit/r90_resampling_unit), [r93](09_form_donor_draw_and_unit/r93_clustering_unit_transfers), 2026-07-29). r90
 measured all three units on the release: prompt clustering **dominates**, the annotator-clustered
 interval is **0.45×** the prompt one, and the two-way crossed interval is only **2.0%** wider than
 prompt-only on attribution and **8.3%** on agreement. The mechanism is that an annotator bootstrap
@@ -346,7 +346,7 @@ floor of true *r* ≈ 0.2.
 
 The human outcome is **much better**, measured directly on the released ratings for the original
 responses rather than assumed:
-**⚠ These three figures have NO persisted artifact** (entry 208, 2026-07-29). `0.707` appears exactly once in this repository — in the table below. No round computed them and no results file stores them, so "measured directly" is a claim about work that was not kept. An independent recomputation now has an artifact — [r100](rounds/11_reliability_and_the_width_chain/r100_rater_reliability): split-half over raters, 200 draws, Spearman–Brown, 937 prompts with ≥8 rating raters, split-half r = **+0.6667** over 187,400 equal-size half-pairs. It gives **0.607 / 0.673 / 0.755** against the stated **0.644 / 0.707 / 0.783** — same ordering, same shape, systematically **0.03–0.04 lower**. That reads as a methodological difference (agreement statistic, prompt filter, or tie handling), **not** a fabrication, and it cannot be adjudicated because the original code does not exist. **⚠ The gap is now attributed** ([r101](rounds/11_reliability_and_the_width_chain/r101_reliability_offset)): varying r100's three stated choices one at a time, **scoring tied response pairs as 0.5 rather than as agreement** gives **0.7040 at k=8 — within 0.003 of the stated 0.707**, while the tie-drop and both qualifying-set variants stay 0.013–0.035 away. The mechanism is coherent: counting ties as agreement compresses the score's variance and so *lowers* the split-half correlation (0.6667 → 0.6978). **So the stated table is consistent with a half-credit tie rule**, which is a defensible convention and not an error — it is simply not the one r100 used. This is *consistent with*, never an identification: several methods can share a value and the original is gone. **Read the table as an estimate whose method is now narrowed to one choice**; the choice of 8 raters/prompt is unaffected, since both figures sit in the same range.
+**⚠ These three figures have NO persisted artifact** (entry 208, 2026-07-29). `0.707` appears exactly once in this repository — in the table below. No round computed them and no results file stores them, so "measured directly" is a claim about work that was not kept. An independent recomputation now has an artifact — [r100](11_reliability_and_the_width_chain/r100_rater_reliability): split-half over raters, 200 draws, Spearman–Brown, 937 prompts with ≥8 rating raters, split-half r = **+0.6667** over 187,400 equal-size half-pairs. It gives **0.607 / 0.673 / 0.755** against the stated **0.644 / 0.707 / 0.783** — same ordering, same shape, systematically **0.03–0.04 lower**. That reads as a methodological difference (agreement statistic, prompt filter, or tie handling), **not** a fabrication, and it cannot be adjudicated because the original code does not exist. **⚠ The gap is now attributed** ([r101](11_reliability_and_the_width_chain/r101_reliability_offset)): varying r100's three stated choices one at a time, **scoring tied response pairs as 0.5 rather than as agreement** gives **0.7040 at k=8 — within 0.003 of the stated 0.707**, while the tie-drop and both qualifying-set variants stay 0.013–0.035 away. The mechanism is coherent: counting ties as agreement compresses the score's variance and so *lowers* the split-half correlation (0.6667 → 0.6978). **So the stated table is consistent with a half-credit tie rule**, which is a defensible convention and not an error — it is simply not the one r100 used. This is *consistent with*, never an identification: several methods can share a value and the original is gone. **Read the table as an estimate whose method is now narrowed to one choice**; the choice of 8 raters/prompt is unaffected, since both figures sit in the same range.
 
 | raters/prompt | reliability | attenuation √rel | smallest true *r* detectable at n=60·weights |
 |---:|---:|---:|---:|
@@ -369,7 +369,7 @@ primary.
 fresh responses — the quantity r12 estimated against a model proxy.
 
 **⚠ This replaces ONE model in the chain, not both.** r12 scores both sets with
-`Judge(MODEL_DIR, batch=32)` (`rounds/02_attribution_under_attack/r12_response_set/run.py:208`). Human rankings replace the
+`Judge(MODEL_DIR, batch=32)` (`02_attribution_under_attack/r12_response_set/run.py:208`). Human rankings replace the
 **gold head** — the ranking target — and leave the **satisfaction layer** model-produced. The
 rubric side of "own-rubric concordance" is still a judge deciding *does response r satisfy criterion
 c?*, and that judge scores lexical overlap **causally** (r51, r52).
@@ -381,7 +381,7 @@ satisfaction layer whose own transport is unestablished. That is not a reason to
 experiment; it is a reason not to describe its result as human-measured without qualification.
 
 **Committed: a TWO-ARM satisfaction sub-study, sized, with an invalidation rule
-([r64](rounds/07_floors_for_the_counterfactuals/r64_satisfaction_substudy_power)).** The earlier one-arm version could not have
+([r64](07_floors_for_the_counterfactuals/r64_satisfaction_substudy_power)).** The earlier one-arm version could not have
 worked: **the release ships no satisfaction labels at all** — rebuilding them is why r04 exists —
 so the judge's agreement with humans is unmeasured on ORIGINAL responses too, and a lone
 fresh-arm number would have had nothing to be compared against.
@@ -459,7 +459,7 @@ missed.
 
 - **Constructibility screen, before anything else, with its rate as a headline.** Each criterion is
   judged for whether a matched two-sided edit exists at all — and it often does not.
-  [r65](rounds/07_floors_for_the_counterfactuals/r65_edit_symmetry_floor) measures a **floor of 18.62%**: that share of core criteria
+  [r65](07_floors_for_the_counterfactuals/r65_edit_symmetry_floor) measures a **floor of 18.62%**: that share of core criteria
   is prohibitive on its surface (*"do not provide step-by-step tactics"*), so satisfying is an
   **absence** and violating a **presence**, and the two arms must insert categorically different
   kinds of content. That is a floor, not an estimate — an affirmative surface does not imply a
@@ -604,10 +604,10 @@ the same thing.
 1. **The frozen manifest is the admissibility gate.** Rankings of responses that do not hash to
    `r45_frozen_frame.json` are not analysable as H_fresh.
 2. **No optional stopping.** n fixed from a pilot, before the main collection.
-   **⚠ And δ = 0.01 must be sized, not merely declared** ([r91](rounds/09_form_donor_draw_and_unit/r91_precision_budget),
+   **⚠ And δ = 0.01 must be sized, not merely declared** ([r91](09_form_donor_draw_and_unit/r91_precision_budget),
    2026-07-29). Three rounds preceding this document fixed δ = 0.01 and then could not reach it
    (r86 fell back to 0.026, r87 to 0.0231, r90 to a two-way crossed width). Under half ∝ 1/√n —
-   **verified, not assumed**, by [r89](rounds/09_form_donor_draw_and_unit/r89_floor_draw_at_panel_size) across three panel
+   **verified, not assumed**, by [r89](09_form_donor_draw_and_unit/r89_floor_draw_at_panel_size) across three panel
    sizes at 11.5% worst deviation — on this release's own published half-widths:
    **a LEVEL reaches δ = 0.01 at ≈1.6× the current 968-prompt join; a DIFFERENCE needs ≈5.3×**,
    because a difference carries two intervals and so costs about 4× a level.
@@ -624,11 +624,11 @@ the same thing.
    Two further consequences for this protocol:
    - **Part of the cost is compute, not annotators.** The donor draw is **20%** of the attribution
      interval's variance and does *not* shrink with more prompts under a single draw
-     ([r88](rounds/09_form_donor_draw_and_unit/r88_donor_draw_variance)). Averaging **m = 10** draws cuts the requirement
+     ([r88](09_form_donor_draw_and_unit/r88_donor_draw_variance)). Averaging **m = 10** draws cuts the requirement
      1458 → **1195** prompts; m = 100 buys only 27 more. **Donor-averaging at m ≥ 10 is therefore
      required of the analysis, and it is the cheapest precision available here.**
      **⚠ Those two figures are the RELEASE's. Restated at the frozen frame**
-     ([r94](rounds/09_form_donor_draw_and_unit/r94_donor_averaging_at_frame_size), 2026-07-29): the requirement **transfers**, and
+     ([r94](09_form_donor_draw_and_unit/r94_donor_averaging_at_frame_size), 2026-07-29): the requirement **transfers**, and
      for a reason worth checking rather than assuming — the donor component and the prompt-sampling
      component **both** carry 1/√n, so their ratio cancels and the donor draw is **20.1%** of the
      attribution variance at 968 prompts *and* at 60, while both absolute sizes grow **4×**. At the
@@ -657,7 +657,7 @@ the same thing.
 
    **The decision is which aggregation rule to use** — a live choice the release explicitly invites,
    calling CoVal-core *"an invitation for others to develop and validate better synthesis and
-   aggregation methods"*. [r06](rounds/01_object_and_rebuild/r06_rule_tournament) ran five of them:
+   aggregation methods"*. [r06](01_object_and_rebuild/r06_rule_tournament) ran five of them:
 
    | | accuracy | vs no-compression |
    |---|---:|---:|
@@ -672,7 +672,7 @@ the same thing.
    in magnitude than three of the five rules' effects against no-compression.
 
    **⚠ And it fixes something else, which follows from H_fresh's own margin rather than from δ**
-   ([r94](rounds/09_form_donor_draw_and_unit/r94_donor_averaging_at_frame_size), 2026-07-29). H_fresh resolves **0.0446** at the
+   ([r94](09_form_donor_draw_and_unit/r94_donor_averaging_at_frame_size), 2026-07-29). H_fresh resolves **0.0446** at the
    frozen 60-prompt frame with m ≥ 10 donor draws. **The entire best-to-worst aggregation-rule span is
    0.0188 — less than half of that.** So **H_fresh cannot distinguish any two of the five rules**, not
    even the best from the worst, and no design at this frame size can. The same holds for every other

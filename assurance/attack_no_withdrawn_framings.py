@@ -14,7 +14,7 @@ ROOT = Path("/home/ivan/research.trustworthy-ai.coval-deep-analysis.build.lg.pri
 import sys as _s
 _s.path.insert(0, str(ROOT))
 from covalx.rounds import fixture_dir  # noqa: E402
-TMP = fixture_dir(ROOT, "_attack_tmp") / "results"
+TMP = fixture_dir(ROOT, "r90_attack_tmp") / "results"
 PY = str(ROOT / ".venv/bin/python")
 
 VECTORS = [

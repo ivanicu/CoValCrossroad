@@ -57,7 +57,7 @@ def load_constant(run_py: Path, name: str):
 
 def main() -> int:
     changed = total = 0
-    for d in sorted(_ROOT.glob("rounds/*/*/")):
+    for d in sorted(_ROOT.glob("[0-9][0-9]_*/r*/")):
         run = d / "run.py"
         if not run.exists() or "OUTCOME_SCOPE" not in run.read_text():
             continue

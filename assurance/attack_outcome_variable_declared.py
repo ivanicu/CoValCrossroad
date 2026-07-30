@@ -6,7 +6,7 @@ ROOT = Path("/home/ivan/research.trustworthy-ai.coval-deep-analysis.build.lg.pri
 import sys as _s
 _s.path.insert(0, str(ROOT))
 from covalx.rounds import fixture_dir  # noqa: E402
-TMP = fixture_dir(ROOT, "_attack_outcome")
+TMP = fixture_dir(ROOT, "r91_attack_outcome")
 PY = str(ROOT / ".venv/bin/python")
 
 # (name, run.py source, results doc, must_be_flagged)

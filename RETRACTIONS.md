@@ -53,12 +53,12 @@ twelve are theirs.
 | # | The claim | What killed or scoped it | What survived |
 |---|---|---|---|
 | 13 | **r01's response-style control**, reported as one of three independent ways the persistence could have died (0.1479 → 0.1471) | My own gauge test, prompted by the reviews. **Pearson correlation is invariant to per-rater affine rescaling**, so z-scoring each rater within a prompt cannot move a Pearson-based agreement — ever. Measured: **131,771 of 131,771 dyads unchanged, median \|Δ\| = 5.55e-17**, machine epsilon | The persistence. But it was defended by **two** controls, not three; the third was algebra wearing the costume of evidence |
-| 14 | **r01's ρ=0.147 as evidence for structured plurality (M2)**, the premise the whole r16/r17/r18 arm is built on | Statistics review, then [r23](rounds/03_person_or_pair/r23_actor_vs_dyad). Agreement persists with **no blocs at all** if raters merely differ in reliability — a careful rater agrees with everyone. That is an additive **actor** effect, and r01's null (shuffling rater IDs) destroys actor and dyad identity together, so it had nowhere to land but "structure". Fitting `A_ij = μ + a_i + a_j` per prompt: the actor model takes **47.2%** of dyad variance and actor-only persistence is **0.254** — *higher than the headline itself* | Only the residual: pair-specific ρ=**0.034**, z=**+4.67** against a dyad-permutation null. Real, and **20–23% of what r01 reported**. The sharper test — an excess of pairs reliably negative in *both* halves, which reliability heterogeneity cannot produce because noise attenuates toward zero and never below it — **returns null at z=+1.40**. So the residual is equally consistent with unequal-size blocs and with a second axis of rater competence. **M2 is weakened, not rescued** — ⚠ **and this whole cell is superseded by [31](#the-pluralism-question--five-separators-four-of-them-mine-and-wrong): the additive model it rests on is the wrong functional form, and the `z=+1.40` sign test could not have separated those two worlds in either direction.** Kept as written because the ledger annotates and does not rewrite |
+| 14 | **r01's ρ=0.147 as evidence for structured plurality (M2)**, the premise the whole r16/r17/r18 arm is built on | Statistics review, then [r23](03_person_or_pair/r23_actor_vs_dyad). Agreement persists with **no blocs at all** if raters merely differ in reliability — a careful rater agrees with everyone. That is an additive **actor** effect, and r01's null (shuffling rater IDs) destroys actor and dyad identity together, so it had nowhere to land but "structure". Fitting `A_ij = μ + a_i + a_j` per prompt: the actor model takes **47.2%** of dyad variance and actor-only persistence is **0.254** — *higher than the headline itself* | Only the residual: pair-specific ρ=**0.034**, z=**+4.67** against a dyad-permutation null. Real, and **20–23% of what r01 reported**. The sharper test — an excess of pairs reliably negative in *both* halves, which reliability heterogeneity cannot produce because noise attenuates toward zero and never below it — **returns null at z=+1.40**. So the residual is equally consistent with unequal-size blocs and with a second axis of rater competence. **M2 is weakened, not rescued** — ⚠ **and this whole cell is superseded by [31](#the-pluralism-question--five-separators-four-of-them-mine-and-wrong): the additive model it rests on is the wrong functional form, and the `z=+1.40` sign test could not have separated those two worlds in either direction.** Kept as written because the ledger annotates and does not rewrite |
 | 15 | **r13's attribution, +0.039 seed vs +0.029 write-in** — the numbers that killed entry 6's mechanism | Statistics review; confirmed at the object. `run.py:164` computed `arr[:len(sa)].mean() - sa.mean()`: a **positional prefix** of an all-prompts array minus a differently-ordered subset, printed beside a `real` spanning all 968. The columns do not subtract to the published figure — **0.5835 − 0.5368 = 0.0468, but 0.0391 was reported**. A comment asserted pairing was unavailable; the pids were in hand and simply never recorded | Refit per prompt with a paired bootstrap: seed **+0.0457** [+0.0234,+0.0687] (n=300), write-in **+0.0262** [+0.0022,+0.0506] (n=293), gap **+0.0194**. The reviewer predicted the gap would collapse ~5× under a matched computation; **it roughly doubled** — their diagnosis of the bug was exact and their forecast of its direction was not, which is why a bug must be fixed and re-run rather than argued about. **But the write-in interval now excludes zero**, and *"write-ins carry no significant attribution"* was half of entry 6's argument. See the amendment below |
 | 16 | **Assurance claim C1 HOLDS** | Reproducibility review. C1 asserts a **proportion** ("less than half of a rubric's ability") and tested `rubric_contribution` — a raw 0.0791 accuracy-point difference — against 0.5. Pairwise accuracy differences cannot reach 0.5, so **the test returns HOLDS at a true share of 90%** | The claim (42.5% < 50%), not the check. Rewired to test the share. **Second live instance of the exact class entry 5 claimed to have generalised away** |
 | 17 | **That r13 is a CPU round that reproduces as documented** | Reproducibility review, by running it. Without `--with-shuffled` it wrote a 4-line JSON over the 20-line one, **silently deleting the attribution fields entry 6 stands on**, and exited 0 | A guard that refuses to overwrite a richer result, writes the partial elsewhere, and names the missing flag. Attacked before being believed |
 | 18 | **Three README numbers** | Reproducibility review. Span **2.2×** where three other places in the repo say 2.47×; most-dissimilar-donor **0.102**, which is r12's in-distribution figure transplanted (r19 says 0.115); "the official core scores 0.660, **level with** the best simple rule" | The 0.660 is real — but it is r04-core, released rubric, 968 prompts, against r06's k=4 compression of `coval_full` on 945. **Nothing ever measured them against each other.** Two of the three are entry 12 not propagated to the prose |
-| 19 | **"step R²=0.964 vs trend 0.448"** | Both reviews independently: **no script in the repository computed it.** `git log --all -S"0.964"` finds it only in prose. Worse, a free-breakpoint step charges nothing for choosing its breakpoint, so beating a straight line is close to automatic | [r24](rounds/03_person_or_pair/r24_regime_receipt) supplies the receipt and the control it never had: breakpoint found by **search** (independently at position 6), against a null that **re-searches the breakpoint on every shuffle**. Null best-step R² = 0.172; observed 0.964, z=+7.09, **p=0.0001**. Within-segment slopes +6.84 and +1.04. The claim survives, stronger than when it was asserted |
+| 19 | **"step R²=0.964 vs trend 0.448"** | Both reviews independently: **no script in the repository computed it.** `git log --all -S"0.964"` finds it only in prose. Worse, a free-breakpoint step charges nothing for choosing its breakpoint, so beating a straight line is close to automatic | [r24](03_person_or_pair/r24_regime_receipt) supplies the receipt and the control it never had: breakpoint found by **search** (independently at position 6), against a null that **re-searches the breakpoint on every shuffle**. Null best-step R² = 0.172; observed 0.964, z=+7.09, **p=0.0001**. Within-segment slopes +6.84 and +1.04. The claim survives, stronger than when it was asserted |
 | 20 | **r07's Tier-1 anthropomorphism rate, 0.16%** | Construct review, by reading all 24 hits. 7–8 of the 9 `personal opinion` matches **instruct the model to avoid** opinions; one `as an ai` hit is literally an anti-anthropomorphism disclosure rule; 4 `persona` hits are content roleplay on request. At most 11/24 are on-construct — true rate **~0.05–0.09%** | The direction, more extremely. **The same lexicon that produced entry 2 failed a second time**, in the same way, after being "fixed" |
 | 21 | **That r16's blocs are a constituency** | Construct review, substituting demographic strata the release actually ships. Gender split regret **1.145**, country split **1.198** — both below r16's **own** 1.15×-random bar of 1.267 | The regret arithmetic and r18's contested-item router (0.6656, reproduced exactly). Not the word "minority", which no test in this repository supports |
 | 22 | **ASSURANCE's population boundary, "1,012 annotators"** | Reproducibility review's from-scratch recount, reproduced independently here. The release has **two** populations, not one. Comparison rankings: 1,012, every one of whom also scored criteria. Criterion scoring: **1,160** distinct raters, of whom **148 (12.8%) appear in no annotator record** and therefore carry **no demographic, country or consent metadata at all** | The comparison rounds. Not the scope sentence — and this is load-bearing for entry 21: the demographic substitution that showed r16's blocs are not a gender or country constituency **could only be computed on the 87.2% who have demographics.** A bloc analysis cannot be checked against strata for raters who have none. Both the original bloc claim and its refutation are scoped to that subset |
@@ -79,10 +79,10 @@ answer.
 | # | The claim | What killed or scoped it | What survived |
 |---|---|---|---|
 | 27 | **r26's sign test**, and with it the claim that the pair-specific residual is *signed* — the one signature reliability heterogeneity cannot fake, since attenuation moves agreement toward zero and stops there | The statistic does not implement that reasoning. Mean raw agreement is **+0.2513**, so a pair with *zero* competence sits 0.25 below the mean and has a strongly negative **centred** residual **while never once disagreeing**. r26 scored "below average" and "actually anti-correlated" with the same number — and those are exactly the two worlds it existed to separate | Nothing. Re-asked on the raw scale by r27, where zero is a real boundary rather than a consequence of centring |
-| 28 | **That the sign test had returned an answer at all** | It returned **+1.40, +2.26, +2.68 and +10.26** on identical data, varying only with how many random half-splits were averaged and whether the null used the same number. Four answers to one question | The diagnosis: that is a reading of the estimator, not a measurement. [r26](rounds/03_person_or_pair/r26_sign_no_split) removes the split entirely and works on each pair's full residual series |
+| 28 | **That the sign test had returned an answer at all** | It returned **+1.40, +2.26, +2.68 and +10.26** on identical data, varying only with how many random half-splits were averaged and whether the null used the same number. Four answers to one question | The diagnosis: that is a reading of the estimator, not a measurement. [r26](03_person_or_pair/r26_sign_no_split) removes the split entirely and works on each pair's full residual series |
 | 29 | **r27's actor control** — "the negative tail vanishes among pairs of two generally-agreeable raters, so it is an actor effect, not blocs" | Two defects. **(a)** A pair's own agreement feeds both members' actor scores, so selecting *both above median* selects directly on the outcome; fixed leave-one-out, which moved it only 0.20×→0.24×. **(b)** Fatal: under **unequal** bloc sizes a majority-bloc member agrees with most people and is therefore "agreeable" **by construction**, so both-high pairs are mostly *same-bloc* and the control could not have found blocs even if they were there | The observation (far tail at 0.24× the null among agreeable pairs, z=−7.72 — **the −10.00 first published here was computed against a null estimated from 15 replicates; at 200 it is 23% smaller**), not the inference |
 | 30 | **r27's verdict**, which printed `VALUE BLOCS` | Its own control, ten lines above it in the same output, saying the opposite. The verdict block ranked thresholds and never read the control | Nothing. **This is item 11 on the step-size checklist in my own skill file — *a script's own conclusion string saying what you wanted to hear* — committed inside the round written to avoid exactly that.** The verdict now consults the control and cannot outrank it |
-| 31 | **The additive decomposition itself**, and with it the residual r23, r25, r26 and r27 all read as "pair-specific structure" | Classical test theory. Under one latent target with heterogeneous reliability, agreement is a **product**: `A_ij = ρ_i ρ_j`. Fit `μ + a_i + a_j` to that and the residual is **not noise** — it is `(ρ_i−m)(ρ_j−m)`: positive when both raters are above average, positive when both are below, negative when they straddle. **A U-shape, generated entirely by the wrong functional form, with no blocs anywhere in the process.** r27 measured that U-shape (+0.0538 / −0.0567 / +0.0552) and I read the positive both-low arm as a minority bloc | [r28](rounds/03_person_or_pair/r28_multiplicative) fits both forms on the same 6,193 dyads. Multiplicative wins **with one fewer parameter** (R² 0.6604 vs 0.5784). Under it `both_high` and `mixed` collapse to **exactly zero** (z=−0.73, −1.43) and one stratum survives: `both_low` **+0.0125 [+0.0004, +0.0241], z=+2.50**, replicated at +0.0208 (spearman) and +0.0122 (cosine). **A minority bloc is real and 4.4× smaller than the additive analysis implied** |
+| 31 | **The additive decomposition itself**, and with it the residual r23, r25, r26 and r27 all read as "pair-specific structure" | Classical test theory. Under one latent target with heterogeneous reliability, agreement is a **product**: `A_ij = ρ_i ρ_j`. Fit `μ + a_i + a_j` to that and the residual is **not noise** — it is `(ρ_i−m)(ρ_j−m)`: positive when both raters are above average, positive when both are below, negative when they straddle. **A U-shape, generated entirely by the wrong functional form, with no blocs anywhere in the process.** r27 measured that U-shape (+0.0538 / −0.0567 / +0.0552) and I read the positive both-low arm as a minority bloc | [r28](03_person_or_pair/r28_multiplicative) fits both forms on the same 6,193 dyads. Multiplicative wins **with one fewer parameter** (R² 0.6604 vs 0.5784). Under it `both_high` and `mixed` collapse to **exactly zero** (z=−0.73, −1.43) and one stratum survives: `both_low` **+0.0125 [+0.0004, +0.0241], z=+2.50**, replicated at +0.0208 (spearman) and +0.0122 (cosine). **A minority bloc is real and 4.4× smaller than the additive analysis implied** |
 | 32 | **r28's own model comparison on the fourth metric** | negative-mean-absolute-difference is bounded *above* by zero, so a rank-1 product of real factors cannot represent it; ALS diverged to **R² = −13.14**. My code compared that to 0.5717 and printed *"the ADDITIVE form fits better"* — which would have entered the record as one metric of four dissenting, **manufacturing a robustness caveat out of a numerical failure** | A guard: R² < 0 now reports `MULTIPLICATIVE_INAPPLICABLE` and states explicitly that the additive form is **not** thereby supported. Attacked; it fires and returns before touching the strata |
 
 ---
@@ -111,7 +111,7 @@ the data*.
 | 36 | **"validated against 80,542 held-out human pairs"** — r04, and the word "held-out" throughout | The pairs are **pairwise decompositions of the same rankings**: same prompts, same four candidates, and the criteria were written *by those participants after ranking those candidates*. Holding out individual pairs does not break that path. **OpenAI ran a separate validation study with new raters and new completions precisely because the original rankings are unsuitable for out-of-sample rubric validity** | The number, under its real name: **internal reconstructive concordance on the elicitation manifold**, 0.686. That is substantial and it is endogenous. The round's title changes; the measurement does not |
 | 37 | **"the advantage inverts on fresh responses"** — r12, the repository's most-cited anomaly | There are **no human rankings on the fresh responses**, and cannot be without new collection. The yardstick is a head fitted on human rankings of the *original* responses. So the object measured is **rubric-vs-proxy disagreement under response-distribution shift**, not inversion of human preference. The discrimination control shows the proxy is more *discriminative* there — it does not show it is *correct*. **Variance is not calibration** | The datum, replicated on a fresh sample: **−0.058 [−0.085, −0.031]**. And its status as the project's highest-value open question. **Human rankings on the exact saved fresh responses now outrank every remaining computational round** |
 | 38 | **"response-set knowledge is not the mechanism"** — r13 | It rules out only the narrowest channel, literal memorisation of candidate *strings*. Three survive: a **shared viewpoint generator** (candidates were produced from generated viewpoints; nothing establishes the seeds were independent of that scaffold), the **prompt-construction manifold** (prompts synthesised for specific Model-Spec tensions, candidates instantiating them), and **post-choice selection into core** (LM synthesis of *highly rated* criteria, so which response-blind sentences survive is decided post-response) | The narrow claim, plus one channel genuinely closed and now stated: **r13's estimator uses an unweighted mean of judge satisfaction and no human rating sign or magnitude anywhere**, so post-choice *weighting* cannot enter this particular number. The reviewer also **corrected me in my own favour**: the release states write-ins were never shown to others, so singletons *are* write-ins by protocol, and the provenance proxy is firmer than I had scoped it |
-| 39 | **"effort steps −38.6% at task 6 — a regime change"** — r02, defended by r24 | `DATASET_CARD.md:81`: *"a minimum of 5 tasks and up to 20 per session"*. **The breakpoint is the study's continuation boundary.** Positions 1–5 hold everyone who started; 6 holds only those who continued. And r24's null shuffles positions globally, which **destroys the censoring process that creates the confound** — it could not have detected this | [r31](rounds/03_person_or_pair/r31_within_person) runs the repair. On the **933 people present at both**, the paired drop is **−179.2 chars [−196.2, −162.3], −53.3%**, against **6.1% attrition**; between-person is −53.2%, essentially identical. **Composition is excluded.** But the mechanism is not: with sessions of 5 or 15 prompts and **no session identifier or timestamp anywhere in the release** (verified — the only assessment fields are annotator_id, conversation_id, importance, ranking_blocks, representativeness, subjectivity), position 6 is the **first task of a later session** for anyone whose first batch held five. Within-session fatigue and between-session habituation are **not separable from this data** |
+| 39 | **"effort steps −38.6% at task 6 — a regime change"** — r02, defended by r24 | `DATASET_CARD.md:81`: *"a minimum of 5 tasks and up to 20 per session"*. **The breakpoint is the study's continuation boundary.** Positions 1–5 hold everyone who started; 6 holds only those who continued. And r24's null shuffles positions globally, which **destroys the censoring process that creates the confound** — it could not have detected this | [r31](03_person_or_pair/r31_within_person) runs the repair. On the **933 people present at both**, the paired drop is **−179.2 chars [−196.2, −162.3], −53.3%**, against **6.1% attrition**; between-person is −53.2%, essentially identical. **Composition is excluded.** But the mechanism is not: with sessions of 5 or 15 prompts and **no session identifier or timestamp anywhere in the release** (verified — the only assessment fields are annotator_id, conversation_id, importance, ranking_blocks, representativeness, subjectivity), position 6 is the **first task of a later session** for anyone whose first batch held five. Within-session fatigue and between-session habituation are **not separable from this data** |
 | 40 | **"the rubric is blind to anthropomorphism"** — r07 | Three overreaches at once. **Construct**: the effect is carried by `user_directed_warmth`, and warmth is not anthropomorphism — claims of subjective experience, agency, relational reciprocity and identity confusion are all distinct and untested. **Causal**: a positive residual after controlling for rubric score and length can arise from omitted response quality, safety posture, specificity or discourse structure. **Outcome**: it measures immediate *preference*, not *impacts* — trust calibration, reliance, disclosure, attachment | A **residual association**: a marker retains t=+4.02 after controlling for rubric score and length, while 0.046% of criteria address the construct. Excellent motivation for a randomised warmth × agency-claim experiment. Not its conclusion |
 
 **The pattern in these five.** Every one is the same error in a new place: **a measurement
@@ -395,7 +395,7 @@ isolation rungs is flat (r37), that abstention costs nothing (r35), that sign is
 Shapley channel (r36), and that group heterogeneity does not change which response wins (r43).
 
 **What none of them said.** All five filter the criterion set the same way —
-`rounds/04_what_core_is/r34_global_rater_crossfit/run.py:132`, `if len(sc) >= thr` — keeping only criteria rated
+`04_what_core_is/r34_global_rater_crossfit/run.py:132`, `if len(sc) >= thr` — keeping only criteria rated
 by a majority of the prompt's raters. That discards **9,684 of 15,248 criteria (63.5%)**.
 
 r48 then established what that filter selects. The partition is structural (0.1% in the gap) and
@@ -598,7 +598,7 @@ nothing is being correlated. r47's length residualisation and r55's equivalence 
 r41's criterion-space NN, r54 and r56's held-out value all have disattenuated intervals spanning
 from meaningfully negative to meaningfully positive. Calling these "ruled out" was wrong.
 **⚠ r56's interval is itself UNVERIFIED (entry 101):** its code was never committed, its bounds
-0.1592 and 0.2880 appear in no artifact, and [r66](rounds/07_floors_for_the_counterfactuals/r66_r56_reconstruction) could not
+0.1592 and 0.2880 appear in no artifact, and [r66](07_floors_for_the_counterfactuals/r66_r56_reconstruction) could not
 recompute them. Its *conclusion* survives an independent method; the *interval quoted here* has
 no artifact behind it and should not be used as a measured quantity.
 
@@ -1400,7 +1400,7 @@ Entry 71 made the smoke filter case-insensitive and concluded: *"a filter is a s
 case-sensitive filter is a scope claim about spelling."* The conclusion was right and the fix was
 still one word wide.
 
-**`a06_dryrun.json`** sits in `rounds/01_object_and_rebuild/r06_rule_tournament/results/`. Its name contains no form of
+**`a06_dryrun.json`** sits in `01_object_and_rebuild/r06_rule_tournament/results/`. Its name contains no form of
 "smoke", so it survived entry 71's fix and was in the results pools **at the moment that entry was
 written**. It reports rule accuracies of **~0.115** where the real run reports **~0.657** — a dry
 run whose numbers are nothing like the round's.
@@ -1878,7 +1878,7 @@ An experiment that quietly dropped unmatchable criteria would have thrown away i
 evidence for the very world it exists to test.
 
 **Experiment 2 — it replaces one model in the chain, not both.** r12 scores both response sets with
-`Judge(MODEL_DIR, batch=32)` (`rounds/02_attribution_under_attack/r12_response_set/run.py:208`). Human rankings replace the
+`Judge(MODEL_DIR, batch=32)` (`02_attribution_under_attack/r12_response_set/run.py:208`). Human rankings replace the
 **gold head**; the **satisfaction layer** stays model-produced. The rubric side of "own-rubric
 concordance" is still a judge answering *does response r satisfy criterion c?* — and that judge reads
 lexical overlap **causally** (r51, r52).
@@ -2301,7 +2301,7 @@ r65 ended by showing that *positive weight is not affirmative wording*. That sen
 number that phrase is attached to: r44's **+0.0733**, the largest single increment in this package
 and the answer to queue item 6.
 
-**`rounds/05_human_protocol_and_power/r44_compiler_lineage/run.py:112` states the limitation in its own comment:**
+**`05_human_protocol_and_power/r44_compiler_lineage/run.py:112` states the limitation in its own comment:**
 
 > *"C1 polarity rewrite. The text rewrite cannot be simulated; its EFFECT can: a criterion carrying a
 > negative weight becomes a positively-phrased criterion whose satisfaction is the complement."*
@@ -2410,7 +2410,7 @@ number now prints beside the output so nobody reads thirteen flags as thirteen p
 ## Entry 101 — the round that best exemplifies this project's discipline has no code in the repository
 
 Auditing the README's headline found *"57 rounds establish that"* against 65 round directories. Chasing
-the count found something worse: **`rounds/06_the_judges_mechanism/r56_semantic_selectivity/` contains one file,
+the count found something worse: **`06_the_judges_mechanism/r56_semantic_selectivity/` contains one file,
 `PREDICTION.md`, and has contained exactly that in every commit it has ever appeared in.** No `run.py`,
 no results.
 
@@ -2832,7 +2832,7 @@ and true.
 
 **The clean-clone claim is stale, not false, and the distinction is the point.** *"Verified from a
 clean clone"* was true when written. **Ten rounds have been added since** and nobody has re-run it —
-including [r66](rounds/07_floors_for_the_counterfactuals/r66_r56_reconstruction), which imports from another round's module and needs
+including [r66](07_floors_for_the_counterfactuals/r66_r56_reconstruction), which imports from another round's module and needs
 the repository root on `sys.path`. The `__init__.py` files for that exist; a clean-clone execution
 does not. Marked as unverified rather than quietly kept or quietly deleted.
 
@@ -2930,7 +2930,7 @@ embeddings are not persisted"*. Entry 110 built a whole argument on it, publishi
 0.180–0.222 where every other row got a point estimate, with the upper bound retained solely because
 the number was supposedly unobtainable.
 
-**`rounds/05_human_protocol_and_power/r39_feature_cache/results/r39_feature_cache.npz` is 57 MB and tracked in git.** It holds
+**`05_human_protocol_and_power/r39_feature_cache/results/r39_feature_cache.npz` is 57 MB and tracked in git.** It holds
 `mean_last` for **qwen, phi and internlm** over all 2,000 responses. r39's entire job is caching
 representations — its README row says so — and I had audited that row in entry 102, four hours
 earlier, for having no results JSON.
@@ -3118,7 +3118,7 @@ fresh, drop +0.0349 [+0.0266, +0.0434]) and does not predict *which* prompts dro
 how much that failure rules out — less than published, on a row that was already the weakest in the
 table.
 
-**A repository note found on the way.** `rounds/06_the_judges_mechanism/r54_overlap_transfer/run.py` defaults `--gen` to
+**A repository note found on the way.** `06_the_judges_mechanism/r54_overlap_transfer/run.py` defaults `--gen` to
 `a12_response_set.json`, which has no `prompt_ids` key and raises KeyError; r54 was run with an
 explicit `--gen a12_fresh_generations.json`. The committed default cannot reproduce the committed
 result. Recorded, not silently repaired, because the fix belongs to whoever re-runs r54.
@@ -3286,7 +3286,7 @@ gold head, not by humans (entry 50, r47)."* It reads as a limitation being hones
 but it is declared alongside a **measurement of how much that limitation costs**, which nobody
 surfaced.
 
-**What was sitting there.** `rounds/06_the_judges_mechanism/r47_gold_is_length/results/r47_gold_is_length.json` →
+**What was sitting there.** `06_the_judges_mechanism/r47_gold_is_length/results/r47_gold_is_length.json` →
 `samples[*].proxy_validation_on_original`. It ran on **all 250 prompts, in both samples**. Its
 per-prompt correlations — **0.6029** and **0.6509** — return **zero** matches across README.md,
 RETRACTIONS.md and PREREGISTRATION.md. So does the human-scored attribution itself.
@@ -3852,7 +3852,7 @@ to reach for it will be me.
 
 **⚠ CORRECTION, same day, from the artifacts rather than the phrase.** This entry said *"the
 three-lineage judge panel"*, following the queue's wording. **There is no three-lineage judge panel and
-there never was.** [r80](rounds/08_direction_from_text/r80_panel_freeze) separates two things the phrase conflates:
+there never was.** [r80](08_direction_from_text/r80_panel_freeze) separates two things the phrase conflates:
 
 | panel | members | evidence | status |
 |---|---|---|---|
@@ -3876,7 +3876,7 @@ this machine today**, and that no artifact in this repository would have told an
 
 ## Entry 135 — the panel is frozen, and freezing it showed the phrase I had been repeating was wrong
 
-**The queue's GPU item, delivered.** [r80](rounds/08_direction_from_text/r80_panel_freeze) records every element it names —
+**The queue's GPU item, delivered.** [r80](08_direction_from_text/r80_panel_freeze) records every element it names —
 checkpoint (config/tokenizer file hashes, weight file names and sizes), tokenizer class and vocab,
 template, verbalizer, divergence-token extraction, precision, batch, code hashes — each read from the
 live object rather than from memory.
@@ -4074,7 +4074,7 @@ claims for the life of the round.
 95% is *wider*, so equivalence established on it holds a fortiori. The margin is thin — **0.0003** to
 spare on the tighter side — and the verdict states that rather than rounding it away.
 
-**⚠ CORRECTION from [r81](rounds/08_direction_from_text/r81_stated_signal_by_length): the split below is in the NULL, not
+**⚠ CORRECTION from [r81](08_direction_from_text/r81_stated_signal_by_length): the split below is in the NULL, not
 in the effect.** This entry called it *"two subpopulations that do not behave alike"*. Tested against
 **each stratum's own** permuted null, they behave alike: longer **+0.0005** [−0.0101, +0.0111], shorter
 **+0.0033** [−0.0083, +0.0148], difference of differences **−0.0028** [−0.0180, +0.0120]. The *nulls*
@@ -4353,7 +4353,7 @@ and the one genuine defect it did find (entry 143's) was found the same way.
 ## Entry 146 — the midpoint of a 21-point scale was used once in 102,147 ratings ~~and nobody had looked~~
 
 > **⚠ CORRECTION (entry 150).** The title's second clause is **false**, and the paragraph below repeats
-> it. [r35](rounds/04_what_core_is/r35_polarity_abstention) carries a `scale_note` recording exactly this: *"the value
+> it. [r35](04_what_core_is/r35_polarity_abstention) carries a `scale_note` recording exactly this: *"the value
 > 0 occurs exactly once in 102,147 ratings, so the neutral point is effectively unavailable: 'no
 > general direction' has no representation in this data."* I ran a prior-art grep before building r82
 > and searched for `magnitude`, `abs(score)` and `histogram` — **not for the claim I was about to
@@ -4408,7 +4408,7 @@ released weights as interval-scaled *"is reading precision the raters did not su
 about this package's own analyses, made from r82's distribution shape. The obvious next round: compare
 a sign-only aggregation against a magnitude-weighted one, and show the magnitude channel is inert.
 
-**It exists.** [r32](rounds/03_person_or_pair/r32_channel_decomposition) has the cell:
+**It exists.** [r32](03_person_or_pair/r32_channel_decomposition) has the cell:
 
 | aggregation | accuracy |
 |---|---:|
@@ -4515,7 +4515,7 @@ instead of failing, and each time the answer was the one that looked like a find
 **The claim.** Entry 146, its title, r82's verdict and the README row all said the midpoint fact — the
 value 0 used once in 102,147 ratings — had never been read out.
 
-**It had.** [r35](rounds/04_what_core_is/r35_polarity_abstention) stores a `scale_note` saying it verbatim: *"the value
+**It had.** [r35](04_what_core_is/r35_polarity_abstention) stores a `scale_note` saying it verbatim: *"the value
 0 occurs exactly once in 102,147 ratings, so the neutral point is effectively unavailable: 'no general
 direction' has no representation in this data."*
 
@@ -4901,7 +4901,7 @@ effect is not *confined* to the instrument r12 happened to slice.
 ## Entry 160 — H_fresh inherits a head slice, and the right response is to bound it rather than fix it
 
 **Tracing entry 159's slice forward.** `r45/freeze.py` draws its 60 prompts from
-`rounds/02_attribution_under_attack/r12_response_set/results/a12_fresh_generations.json` — **r12's 250**. So the chain is:
+`02_attribution_under_attack/r12_response_set/results/a12_fresh_generations.json` — **r12's 250**. So the chain is:
 
 > file sorted by form → `load_join(...)[:250]` → **100% long-form** → frozen frame → **H_fresh**
 
@@ -5060,8 +5060,8 @@ still says what the package establishes.
 
 | headline says | independently recomputed since | where |
 |---|---|---|
-| real prompt-specific rubric **0.686** | **0.6879** long-form, **0.6854** short-form | [r85](rounds/09_form_donor_draw_and_unit/r85_agreement_by_form) |
-| the split of the 18.6 points is **one cell of a grid spanning 3.2%–65.8%** | a new cell at **65.3%** | [r86](rounds/09_form_donor_draw_and_unit/r86_attribution_by_form) |
+| real prompt-specific rubric **0.686** | **0.6879** long-form, **0.6854** short-form | [r85](09_form_donor_draw_and_unit/r85_agreement_by_form) |
+| the split of the 18.6 points is **one cell of a grid spanning 3.2%–65.8%** | a new cell at **65.3%** | [r86](09_form_donor_draw_and_unit/r86_attribution_by_form) |
 
 r85's two form-partitioned agreement figures **bracket** the frozen 0.686 — the headline's central
 number was measured on r10's 300-prompt panel and reappears on both halves of the 968-prompt join.
@@ -5927,10 +5927,10 @@ effect size this preregistration cites, **ten fall below it** — and one of the
 
 | effect cited | value | vs H_fresh's 0.0446 |
 |---|---:|---|
-| **whole best-to-worst aggregation-rule span** ([r06](rounds/01_object_and_rebuild/r06_rule_tournament)) | **0.0188** | **42% of the margin** |
-| containment asymmetry, residualised ([r50](rounds/06_the_judges_mechanism/r50_response_anchoring)) | +0.0203 | 46% |
-| write-in vs seeded transfer gap ([r49](rounds/06_the_judges_mechanism/r49_provenance_crossfit)) | +0.0172 | 39% |
-| compatibility selection vs size-matched random ([r44](rounds/05_human_protocol_and_power/r44_compiler_lineage)) | +0.0149 | 33% |
+| **whole best-to-worst aggregation-rule span** ([r06](01_object_and_rebuild/r06_rule_tournament)) | **0.0188** | **42% of the margin** |
+| containment asymmetry, residualised ([r50](06_the_judges_mechanism/r50_response_anchoring)) | +0.0203 | 46% |
+| write-in vs seeded transfer gap ([r49](06_the_judges_mechanism/r49_provenance_crossfit)) | +0.0172 | 39% |
+| compatibility selection vs size-matched random ([r44](05_human_protocol_and_power/r44_compiler_lineage)) | +0.0149 | 33% |
 
 **So H_fresh cannot distinguish any two of the five aggregation rules — not even the best from the
 worst.** No design at the frozen frame can; that resolution needs the release-scale n from r91's budget.
@@ -6069,7 +6069,7 @@ Entry 182 closed by pricing the fix for r95's UNVERIFIED: *"re-score the same th
 on the same 300 prompts, persisting per-draw ratios… the first GPU work this project has had a reason
 for since the freeze."*
 
-**Wrong, and wrong in the expensive direction.** `rounds/02_attribution_under_attack/r22_cross_family/results/r22_cross_family_per_prompt.npz`
+**Wrong, and wrong in the expensive direction.** `02_attribution_under_attack/r22_cross_family/results/r22_cross_family_per_prompt.npz`
 — **17 KB** — holds per-prompt `own` / `near` / `random` cells for all three judges over the same 300
 prompts. **The joint structure r95 called discarded was never discarded; it was written by a different
 round.** Asking the filesystem cost one `find`. *This is the prior-art gate's exact purpose, and I
@@ -6399,7 +6399,7 @@ no vector of paired units whose mean is the estimand. The same holds for r87's a
 
 | kind | example | fixable by persistence? |
 |---|---|---|
-| **no vector was stored** though the estimand is a mean of paired units | r06's rule contrasts, resolved in [r97](rounds/10_meta_separator_and_triage/r97_rule_tournament_tost) | **yes** |
+| **no vector was stored** though the estimand is a mean of paired units | r06's rule contrasts, resolved in [r97](10_meta_separator_and_triage/r97_rule_tournament_tost) | **yes** |
 | **no paired vector exists** because the estimand is a pooled ratio | r87, r96 | **no** — structural |
 
 **That is a real defect in the census, not in the rounds**: it labels structurally-unverifiable
@@ -6621,7 +6621,7 @@ rather than a count, and reading the reasons — `node not a dict`, 23 of them �
 **⚠ Addendum to entry 192 — who actually keys on `path`, and the answer bounds the damage.**
 Three consumers, checked rather than assumed:
 
-- **[r98](rounds/10_meta_separator_and_triage/r98_unverified_triage)** uses `(round, path, file)` purely as an **identity tuple** for
+- **[r98](10_meta_separator_and_triage/r98_unverified_triage)** uses `(round, path, file)` purely as an **identity tuple** for
   its partition-distinctness control. An ambiguous display string is a perfectly good uniqueness key.
   **Safe.**
 - **`verdict_cites_its_own_contrasts`** uses `(round, path)` to collapse metric-variant repeats.
@@ -7118,7 +7118,7 @@ checks correctly do. Suite now **17/17**.
 
 ### A near-miss worth recording
 
-I first grepped `rounds/05_human_protocol_and_power/r45_protocol_freeze/run.py` and got *"No such file or directory"* — and was one
+I first grepped `05_human_protocol_and_power/r45_protocol_freeze/run.py` and got *"No such file or directory"* — and was one
 step from reporting that **the freeze has no source and its manifest cannot be recomputed.** The source
 is `freeze.py`. **I had assumed the naming convention instead of listing the directory**, which is the
 same wrong-object error this session has now logged six times, arriving on the one artifact where a

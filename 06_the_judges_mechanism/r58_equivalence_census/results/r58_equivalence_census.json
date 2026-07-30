@@ -1,0 +1,3341 @@
+{
+ "delta": 0.01,
+ "boot": 20000,
+ "n_contrasts": 158,
+ "n_in_r42": 21,
+ "n_outside_r42": 137,
+ "n_with_raw_vector": 62,
+ "cells": {
+  "INCONCLUSIVE": 10,
+  "SUPERSEDED": 6,
+  "UNVERIFIED": 29,
+  "no material effect": 24,
+  "real and material": 78,
+  "real but negligible": 11
+ },
+ "inconclusive_outside_r42": [
+  {
+   "round": "r43",
+   "path": "axes.country.weight_specificity.[2]",
+   "delta_hat": 0.007967468882635274,
+   "ci95": [
+    -0.007580920691345589,
+    0.023386593913246365
+   ]
+  },
+  {
+   "round": "r43",
+   "path": "axes.country.weight_specificity.[4]",
+   "delta_hat": 0.004918087869596906,
+   "ci95": [
+    -0.01436858540909267,
+    0.02422139768423048
+   ]
+  },
+  {
+   "round": "r43",
+   "path": "axes.ai_usage.weight_specificity.[0]",
+   "delta_hat": 0.0005143670492550682,
+   "ci95": [
+    -0.015502876475999185,
+    0.01629777358296748
+   ]
+  },
+  {
+   "round": "r43",
+   "path": "axes.ai_usage.weight_specificity.[1]",
+   "delta_hat": -0.0026936189647797067,
+   "ci95": [
+    -0.016040981626674007,
+    0.010875186660642914
+   ]
+  },
+  {
+   "round": "r43",
+   "path": "axes.ai_usage.weight_specificity.[2]",
+   "delta_hat": -0.007147019245376512,
+   "ci95": [
+    -0.023357962947767607,
+    0.009319619519087321
+   ]
+  },
+  {
+   "round": "r43",
+   "path": "axes.ai_usage.weight_specificity.[3]",
+   "delta_hat": -0.0014255542833441317,
+   "ci95": [
+    -0.03228844458430056,
+    0.029031923084798992
+   ]
+  },
+  {
+   "round": "r43",
+   "path": "axes.ai_usage.weight_specificity.[4]",
+   "delta_hat": 0.006586534068469038,
+   "ci95": [
+    -6.24103724751975e-05,
+    0.01333281817276434
+   ]
+  },
+  {
+   "round": "r43",
+   "path": "axes.age.weight_specificity.[3]",
+   "delta_hat": 0.0033419851122200098,
+   "ci95": [
+    -0.010819402895373014,
+    0.017684799522949633
+   ]
+  },
+  {
+   "round": "r43",
+   "path": "axes.age.weight_specificity.[4]",
+   "delta_hat": 0.013408647363565404,
+   "ci95": [
+    -0.014626146811597613,
+    0.0416620178167309
+   ]
+  },
+  {
+   "round": "r97",
+   "path": "rules.conflict_aware",
+   "delta_hat": -0.005820251926800041,
+   "ci95": [
+    -0.012136353911522044,
+    0.00034246303726758864
+   ]
+  }
+ ],
+ "delta_sweep_n_equivalent": {
+  "0.0025": 8,
+  "0.005": 11,
+  "0.01": 35,
+  "0.02": 65,
+  "0.05": 103
+ },
+ "positive_control": {
+  "known_equivalent": {
+   "expected": "no material effect",
+   "observed": "no material effect",
+   "pass": true,
+   "ci90": [
+    -0.0005170860877758929,
+    0.0026988636699364953
+   ]
+  },
+  "known_inconclusive": {
+   "expected": "INCONCLUSIVE",
+   "observed": "INCONCLUSIVE",
+   "pass": true,
+   "ci90": [
+    -0.07133981526141317,
+    0.029993871236949025
+   ]
+  },
+  "known_significant": {
+   "expected": "real and material",
+   "observed": "real and material",
+   "pass": true,
+   "ci90": [
+    0.244163878604894,
+    0.2522600230511365
+   ]
+  },
+  "all_pass": true
+ },
+ "harvester_control": {
+  "paths_harvested": [
+   "ambiguous",
+   "clean"
+  ],
+  "clean_harvested": true,
+  "clean_mean": 0.05,
+  "null_only_is_harvested": false,
+  "ambiguous_harvested": true,
+  "ambiguous_mean": 0.1,
+  "clean_pairs_correctly": true,
+  "clean_survives_the_skip": true
+ },
+ "null_summary_nodes_skipped": [
+  "r01:<root>",
+  "r43:axes.age",
+  "r43:axes.ai_usage",
+  "r43:axes.country",
+  "rZZ:null_only"
+ ],
+ "incoherent_nodes_skipped": [
+  "r74:length_matched_write_ins (mean +14.63 outside ci [+0.1359,+0.1885])",
+  "r77:arms.prompt-stripped (mean +0.01386 outside ci [+0.01569,+0.02647])",
+  "r79:per_lineage.phi (mean -0.001702 outside ci [+0.0001253,+0.0007437])",
+  "r79:per_lineage.qwen (mean -0.01145 outside ci [+0.003883,+0.008673])",
+  "r84:<root> (mean -0.0001062 outside ci [+0.03806,+0.05155])",
+  "r95:rows.phi-3.5-mini-instruct (mean -0.1166 outside ci [+0.03232,+0.2375])",
+  "r95:rows.qwen2.5-3b-instruct (mean -0.233 outside ci [+0.2013,+0.4101])",
+  "r95:rows.qwen3.5-2b-base(ref) (mean -0.1326 outside ci [+0.264,+0.4768])"
+ ],
+ "n_incoherent_nodes_skipped": 8,
+ "n_null_summary_nodes_skipped": 5,
+ "contrasts": [
+  {
+   "round": "r06",
+   "file": "01_object_and_rebuild/r06_rule_tournament/results/a06_rule_tournament.json",
+   "path": "rules.utility.vs_no_compression",
+   "mean": 0.006694185525039242,
+   "ci95": [
+    0.0009602766612180312,
+    0.012468186586629496
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.006694185525039242,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "SUPERSEDED",
+   "superseded_by": "r97.rules.utility"
+  },
+  {
+   "round": "r06",
+   "file": "01_object_and_rebuild/r06_rule_tournament/results/a06_rule_tournament.json",
+   "path": "rules.majority.vs_no_compression",
+   "mean": 0.004397713190208272,
+   "ci95": [
+    -0.0018030739854528034,
+    0.010477124766131617
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.004397713190208272,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "SUPERSEDED",
+   "superseded_by": "r97.rules.majority"
+  },
+  {
+   "round": "r06",
+   "file": "01_object_and_rebuild/r06_rule_tournament/results/a06_rule_tournament.json",
+   "path": "rules.consensus.vs_no_compression",
+   "mean": -0.011294184930254822,
+   "ci95": [
+    -0.019302872010576844,
+    -0.003594380594450349
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.011294184930254822,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "SUPERSEDED",
+   "superseded_by": "r97.rules.consensus"
+  },
+  {
+   "round": "r06",
+   "file": "01_object_and_rebuild/r06_rule_tournament/results/a06_rule_tournament.json",
+   "path": "rules.constituency.vs_no_compression",
+   "mean": 0.006983704746868534,
+   "ci95": [
+    0.0005441192237080205,
+    0.013320617077970104
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.006983704746868534,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "SUPERSEDED",
+   "superseded_by": "r97.rules.constituency"
+  },
+  {
+   "round": "r06",
+   "file": "01_object_and_rebuild/r06_rule_tournament/results/a06_rule_tournament.json",
+   "path": "rules.conflict_aware.vs_no_compression",
+   "mean": -0.005820251926800041,
+   "ci95": [
+    -0.012162003888494534,
+    0.0005611671022695607
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.005820251926800041,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "SUPERSEDED",
+   "superseded_by": "r97.rules.conflict_aware"
+  },
+  {
+   "round": "r06",
+   "file": "01_object_and_rebuild/r06_rule_tournament/results/a06_rule_tournament.json",
+   "path": "rules.random_k4.vs_no_compression",
+   "mean": -0.011568916550721921,
+   "ci95": [
+    -0.018385003987255958,
+    -0.004967354407899209
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.011568916550721921,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "SUPERSEDED",
+   "superseded_by": "r97.rules.random_k4"
+  },
+  {
+   "round": "r11",
+   "file": "02_attribution_under_attack/r11_backbone_control/results/a11_backbone_control.json",
+   "path": "gold_2b_shared",
+   "mean": 0.526393858084396,
+   "ci95": [
+    0.06329949619020805,
+    0.9698547081269051
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.526393858084396,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r11",
+   "file": "02_attribution_under_attack/r11_backbone_control/results/a11_backbone_control.json",
+   "path": "gold_08b_independent",
+   "mean": 0.04986555007180198,
+   "ci95": [
+    -0.4447454976436732,
+    0.528667009531577
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.04986555007180198,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r12",
+   "file": "02_attribution_under_attack/r12_response_set/results/a12_response_set.json",
+   "path": "sets.ORIGINAL",
+   "mean": 0.102,
+   "ci95": [
+    0.07133333333333335,
+    0.13266666666666665
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.102,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r12",
+   "file": "02_attribution_under_attack/r12_response_set/results/a12_response_set.json",
+   "path": "sets.FRESH",
+   "mean": -0.064,
+   "ci95": [
+    -0.09201666666666668,
+    -0.036666666666666674
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.064,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r13",
+   "file": "02_attribution_under_attack/r13_seed_vs_writein/results/r13_seed_vs_writein.json",
+   "path": "seed",
+   "mean": 0.0456878753649038,
+   "ci95": [
+    0.02341909277348787,
+    0.06873658545355327
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.0456878753649038,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r13",
+   "file": "02_attribution_under_attack/r13_seed_vs_writein/results/r13_seed_vs_writein.json",
+   "path": "writein",
+   "mean": 0.02623813387776631,
+   "ci95": [
+    0.002172714598593096,
+    0.05055557579294519
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.02623813387776631,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r13",
+   "file": "02_attribution_under_attack/r13_seed_vs_writein/results/r13_seed_vs_writein.json",
+   "path": "gap_paired",
+   "mean": 0.023084237734559667,
+   "ci95": [
+    -0.007891370184719379,
+    0.05411587241771248
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.023084237734559667,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r15",
+   "file": "02_attribution_under_attack/r15_indistribution_transfer/results/r15_indistribution_transfer.json",
+   "path": "authored_minus_random",
+   "mean": 0.07341702060832542,
+   "ci95": [
+    0.05613035633723982,
+    0.09117720169260209
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.07341702060832542,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r15",
+   "file": "02_attribution_under_attack/r15_indistribution_transfer/results/r15_indistribution_transfer.json",
+   "path": "neighbour_minus_random",
+   "mean": 0.018144434597024278,
+   "ci95": [
+    -0.0006695337382876931,
+    0.03700222360053891
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.018144434597024278,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r15",
+   "file": "02_attribution_under_attack/r15_indistribution_transfer/results/r15_indistribution_transfer.json",
+   "path": "authored_minus_neighbour",
+   "mean": 0.055272586011301146,
+   "ci95": [
+    0.03931102721069833,
+    0.07144417238057409
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.055272586011301146,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r17",
+   "file": "02_attribution_under_attack/r17_conditional_core/results/r17_conditional_core.json",
+   "path": "utility",
+   "mean": -0.01606474350746587,
+   "ci95": [
+    -0.08405919757840243,
+    0.04827684120031661
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.01606474350746587,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r17",
+   "file": "02_attribution_under_attack/r17_conditional_core/results/r17_conditional_core.json",
+   "path": "majority",
+   "mean": -0.009977725366876307,
+   "ci95": [
+    -0.07347526392632524,
+    0.05453213242844308
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.009977725366876307,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r17",
+   "file": "02_attribution_under_attack/r17_conditional_core/results/r17_conditional_core.json",
+   "path": "consensus",
+   "mean": -0.01600858897017925,
+   "ci95": [
+    -0.08112296038698495,
+    0.047757522033970844
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.01600858897017925,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r17",
+   "file": "02_attribution_under_attack/r17_conditional_core/results/r17_conditional_core.json",
+   "path": "constituency",
+   "mean": 0.1479068859038536,
+   "ci95": [
+    0.050009612093506975,
+    0.24096095454691316
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.1479068859038536,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r17",
+   "file": "02_attribution_under_attack/r17_conditional_core/results/r17_conditional_core.json",
+   "path": "conflict_aware",
+   "mean": 0.19531742123554793,
+   "ci95": [
+    0.08748308246391977,
+    0.2992969440945772
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.19531742123554793,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r20",
+   "file": "02_attribution_under_attack/r20_paraphrase_transfer/results/r20_paraphrase_transfer.json",
+   "path": "original_minus_random",
+   "mean": 0.07428308116892035,
+   "ci95": [
+    0.05633543656947567,
+    0.09210508928752426
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.07428308116892035,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r20",
+   "file": "02_attribution_under_attack/r20_paraphrase_transfer/results/r20_paraphrase_transfer.json",
+   "path": "paraphrased_minus_random",
+   "mean": 0.07234095558501685,
+   "ci95": [
+    0.05367003808601954,
+    0.0911289956714465
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.07234095558501685,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r20",
+   "file": "02_attribution_under_attack/r20_paraphrase_transfer/results/r20_paraphrase_transfer.json",
+   "path": "original_minus_paraphrased",
+   "mean": 0.0019421255839034938,
+   "ci95": [
+    -0.006954773854872495,
+    0.010562896923241048
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.0019421255839034938,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r20",
+   "file": "02_attribution_under_attack/r20_paraphrase_transfer/results/r20_paraphrase_transfer.json",
+   "path": "neighbour_minus_random",
+   "mean": 0.021097308503424648,
+   "ci95": [
+    0.002110388391710613,
+    0.04031836429131804
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.021097308503424648,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_cosine.json",
+   "path": "strata_vs_additive.both_high",
+   "mean": 0.05311404980027274,
+   "ci95": [
+    0.04592404654898199,
+    0.060112344901368346
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.05311404980027274,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_cosine.json",
+   "path": "strata_vs_additive.mixed",
+   "mean": -0.05599973245323465,
+   "ci95": [
+    -0.062753514339438,
+    -0.04936156135587818
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.05599973245323465,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_cosine.json",
+   "path": "strata_vs_additive.both_low",
+   "mean": 0.0546501245052937,
+   "ci95": [
+    0.042745338089554684,
+    0.06695294653343181
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.0546501245052937,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_cosine.json",
+   "path": "strata_vs_multiplicative.both_high",
+   "mean": -0.0008621848574564348,
+   "ci95": [
+    -0.007032117026763155,
+    0.005434683811423714
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.0008621848574564348,
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_cosine.json",
+   "path": "strata_vs_multiplicative.mixed",
+   "mean": 1.3707156228264894e-06,
+   "ci95": [
+    -0.0061801407231825934,
+    0.00606235642328484
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 1.3707156228264894e-06,
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_cosine.json",
+   "path": "strata_vs_multiplicative.both_low",
+   "mean": 0.012166125696746312,
+   "ci95": [
+    0.0005167636140758182,
+    0.023880623299641954
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.012166125696746312,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_pearson.json",
+   "path": "strata_vs_additive.both_high",
+   "mean": 0.053849420771717754,
+   "ci95": [
+    0.04659167186899476,
+    0.061108821326246884
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.053849420771717754,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_pearson.json",
+   "path": "strata_vs_additive.mixed",
+   "mean": -0.05674149839471287,
+   "ci95": [
+    -0.06372758897441713,
+    -0.05025322382277822
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.05674149839471287,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_pearson.json",
+   "path": "strata_vs_additive.both_low",
+   "mean": 0.05523106081717541,
+   "ci95": [
+    0.043427431115956656,
+    0.06696086316111362
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.05523106081717541,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_pearson.json",
+   "path": "strata_vs_multiplicative.both_high",
+   "mean": -0.00034115876340497605,
+   "ci95": [
+    -0.006414043045381711,
+    0.00565571952338283
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.00034115876340497605,
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_pearson.json",
+   "path": "strata_vs_multiplicative.mixed",
+   "mean": -0.0007806220309049334,
+   "ci95": [
+    -0.006868239362861881,
+    0.005347502930251628
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.0007806220309049334,
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_pearson.json",
+   "path": "strata_vs_multiplicative.both_low",
+   "mean": 0.012533115751121126,
+   "ci95": [
+    0.0007187275054149368,
+    0.023840090483460613
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.012533115751121126,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_spearman.json",
+   "path": "strata_vs_additive.both_high",
+   "mean": 0.05705134080664253,
+   "ci95": [
+    0.04996914444510901,
+    0.06404873414721744
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.05705134080664253,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_spearman.json",
+   "path": "strata_vs_additive.mixed",
+   "mean": -0.061695493632067624,
+   "ci95": [
+    -0.0683201030565106,
+    -0.05507095408131871
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.061695493632067624,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_spearman.json",
+   "path": "strata_vs_additive.both_low",
+   "mean": 0.06065184832664543,
+   "ci95": [
+    0.04865155353071262,
+    0.0726908848317594
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.06065184832664543,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_spearman.json",
+   "path": "strata_vs_multiplicative.both_high",
+   "mean": 0.00175461043513175,
+   "ci95": [
+    -0.004611656064383735,
+    0.007845624871480522
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.00175461043513175,
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_spearman.json",
+   "path": "strata_vs_multiplicative.mixed",
+   "mean": -0.004597174631764049,
+   "ci95": [
+    -0.010549180751123832,
+    0.0016882727433139494
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.004597174631764049,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r28",
+   "file": "03_person_or_pair/r28_multiplicative/results/r28_spearman.json",
+   "path": "strata_vs_multiplicative.both_low",
+   "mean": 0.0213299133777045,
+   "ci95": [
+    0.009670486742340854,
+    0.032948972192817054
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.0213299133777045,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r31",
+   "file": "03_person_or_pair/r31_within_person/results/r31_within_person.json",
+   "path": "within_person",
+   "mean": -179.2272240085745,
+   "ci95": [
+    -196.21808681672024,
+    -162.329474812433
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -179.2272240085745,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r32",
+   "file": "03_person_or_pair/r32_channel_decomposition/results/r32_channel_decomposition.json",
+   "path": "channels.all.polarity  (equal -> sign)",
+   "mean": 0.08763746854693091,
+   "ci95": [
+    0.07844746955632484,
+    0.09758068063554881
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.08763746854693091,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r32",
+   "file": "03_person_or_pair/r32_channel_decomposition/results/r32_channel_decomposition.json",
+   "path": "channels.all.magnitude (sign -> signed_magnitude)",
+   "mean": 0.005535931982110127,
+   "ci95": [
+    0.0017960936399726995,
+    0.00941372974572213
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.005535931982110127,
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r32",
+   "file": "03_person_or_pair/r32_channel_decomposition/results/r32_channel_decomposition.json",
+   "path": "channels.all.visibility(signed_mag -> x n_raters)",
+   "mean": -0.013408361106457104,
+   "ci95": [
+    -0.019527139483348676,
+    -0.007304049593730918
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.013408361106457104,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r32",
+   "file": "03_person_or_pair/r32_channel_decomposition/results/r32_channel_decomposition.json",
+   "path": "channels.seed.polarity  (equal -> sign)",
+   "mean": 0.06303264843913016,
+   "ci95": [
+    0.05394916860125085,
+    0.07264236655573131
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.06303264843913016,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r32",
+   "file": "03_person_or_pair/r32_channel_decomposition/results/r32_channel_decomposition.json",
+   "path": "channels.seed.magnitude (sign -> signed_magnitude)",
+   "mean": 0.015242334015133549,
+   "ci95": [
+    0.010363368562916428,
+    0.02035446779147582
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.015242334015133549,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r32",
+   "file": "03_person_or_pair/r32_channel_decomposition/results/r32_channel_decomposition.json",
+   "path": "channels.seed.visibility(signed_mag -> x n_raters)",
+   "mean": 0.0006260596440848743,
+   "ci95": [
+    -5.2788402452384586e-05,
+    0.001396093641470965
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.0006260596440848743,
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r32",
+   "file": "03_person_or_pair/r32_channel_decomposition/results/r32_channel_decomposition.json",
+   "path": "channels.writein.polarity  (equal -> sign)",
+   "mean": 0.09365867268588232,
+   "ci95": [
+    0.08127761724439214,
+    0.10631958517688668
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.09365867268588232,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r32",
+   "file": "03_person_or_pair/r32_channel_decomposition/results/r32_channel_decomposition.json",
+   "path": "channels.writein.magnitude (sign -> signed_magnitude)",
+   "mean": -0.00217287863953889,
+   "ci95": [
+    -0.006436572414483626,
+    0.002038214820046348
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.00217287863953889,
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r32",
+   "file": "03_person_or_pair/r32_channel_decomposition/results/r32_channel_decomposition.json",
+   "path": "channels.writein.visibility(signed_mag -> x n_raters)",
+   "mean": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.0,
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r33",
+   "file": "04_what_core_is/r33_core_launders_polarity/results/r33_core_launders_polarity.json",
+   "path": "predictions.P1 core/equal >> full/equal",
+   "mean": 0.06634537944019049,
+   "ci95": [
+    0.057427676820162143,
+    0.07544362815027902
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.06634537944019049,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r33",
+   "file": "04_what_core_is/r33_core_launders_polarity/results/r33_core_launders_polarity.json",
+   "path": "predictions.P2 core/signed ~ core/equal",
+   "mean": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.0,
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r33",
+   "file": "04_what_core_is/r33_core_launders_polarity/results/r33_core_launders_polarity.json",
+   "path": "predictions.P3 full/signed ~ core/equal",
+   "mean": -0.02682802108885056,
+   "ci95": [
+    -0.03362952837377501,
+    -0.020210499501678397
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.02682802108885056,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r34",
+   "file": "04_what_core_is/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+   "path": "estimands.D_population (crossfit_sign - attribute_only)",
+   "mean": 0.057649169432686984,
+   "ci95": [
+    0.04869355011294735,
+    0.06659748401351906
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.057649169432686984,
+   "n": 968,
+   "ci90": [
+    0.050129682430441296,
+    0.06507503366622104
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r34",
+   "file": "04_what_core_is/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+   "path": "estimands.D_same (same_sign - attribute_only)",
+   "mean": 0.06313545854043641,
+   "ci95": [
+    0.0539886985678891,
+    0.07262287120538691
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.06313545854043641,
+   "n": 968,
+   "ci90": [
+    0.05540955333176601,
+    0.07107197438390052
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r34",
+   "file": "04_what_core_is/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+   "path": "estimands.D_same_sample_premium (same_sign - crossfit_sign)",
+   "mean": 0.005486289107749416,
+   "ci95": [
+    0.002689699875110396,
+    0.008475802271994333
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.005486289107749416,
+   "n": 968,
+   "ci90": [
+    0.0030967035385069865,
+    0.007977918416456403
+   ],
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r34",
+   "file": "04_what_core_is/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+   "path": "estimands.D_magnitude (crossfit_mag - crossfit_sign)",
+   "mean": 0.014497635114232637,
+   "ci95": [
+    0.00992335553547312,
+    0.019053718986300892
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.014497635114232637,
+   "n": 968,
+   "ci90": [
+    0.010677542773633546,
+    0.018305984443677654
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r34",
+   "file": "04_what_core_is/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+   "path": "estimands.null: random_sign - attribute_only",
+   "mean": -0.018376478723043717,
+   "ci95": [
+    -0.025464892232698946,
+    -0.011229270173883527
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.018376478723043717,
+   "n": 968,
+   "ci90": [
+    -0.02434185564314587,
+    -0.012399704575961285
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r34",
+   "file": "04_what_core_is/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+   "path": "estimands.null: donor_sign - attribute_only",
+   "mean": -0.03351901366947857,
+   "ci95": [
+    -0.04402084675957161,
+    -0.023291286129191468
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.03351901366947857,
+   "n": 959,
+   "ci90": [
+    -0.042301862036006534,
+    -0.0248191577115779
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r35",
+   "file": "04_what_core_is/r35_polarity_abstention/results/r35_polarity_abstention.json",
+   "path": "regimes.same_sample.comparisons.confident - forced",
+   "mean": 0.0019423077216379485,
+   "ci95": [
+    -0.006433173036979315,
+    0.010307688676096449
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.0019423077216379485,
+   "n": 871,
+   "ci90": [
+    -0.0050520482307772,
+    0.008880081174626275
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r35",
+   "file": "04_what_core_is/r35_polarity_abstention/results/r35_polarity_abstention.json",
+   "path": "regimes.same_sample.comparisons.posterior - forced",
+   "mean": 0.008546390723055445,
+   "ci95": [
+    0.003516045633635149,
+    0.013614530172390324
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.008546390723055445,
+   "n": 968,
+   "ci90": [
+    0.004328337033580014,
+    0.012799098563272576
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r35",
+   "file": "04_what_core_is/r35_polarity_abstention/results/r35_polarity_abstention.json",
+   "path": "regimes.same_sample.comparisons.forced - attribute_only",
+   "mean": 0.06313545854043641,
+   "ci95": [
+    0.0538979396868155,
+    0.07259461686436634
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.06313545854043641,
+   "n": 968,
+   "ci90": [
+    0.05544732874760813,
+    0.071114931495886
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r35",
+   "file": "04_what_core_is/r35_polarity_abstention/results/r35_polarity_abstention.json",
+   "path": "regimes.crossfit.comparisons.confident - forced",
+   "mean": -0.0016944187536397895,
+   "ci95": [
+    -0.008619649989690559,
+    0.005253023034589315
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.0016944187536397895,
+   "n": 965,
+   "ci90": [
+    -0.007560580701074428,
+    0.004095499494210634
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r35",
+   "file": "04_what_core_is/r35_polarity_abstention/results/r35_polarity_abstention.json",
+   "path": "regimes.crossfit.comparisons.posterior - forced",
+   "mean": 0.008161189215727196,
+   "ci95": [
+    0.004261806669522389,
+    0.012052267081595342
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.008161189215727196,
+   "n": 968,
+   "ci90": [
+    0.004894046030976374,
+    0.011410152569240944
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r35",
+   "file": "04_what_core_is/r35_polarity_abstention/results/r35_polarity_abstention.json",
+   "path": "regimes.crossfit.comparisons.forced - attribute_only",
+   "mean": 0.058958930250683134,
+   "ci95": [
+    0.050381464778239446,
+    0.06775313186247608
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.058958930250683134,
+   "n": 968,
+   "ci90": [
+    0.051741151995694554,
+    0.06631309804984022
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r36",
+   "file": "04_what_core_is/r36_channel_shapley/results/r36_channel_shapley.json",
+   "path": "shapley.T",
+   "mean": 0.0016585384184834688,
+   "ci95": [
+    0.000476466184724491,
+    0.002818735240445426
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.0016585384184834688,
+   "n": 968,
+   "ci90": [
+    0.0006662622436913978,
+    0.002635732602771011
+   ],
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r36",
+   "file": "04_what_core_is/r36_channel_shapley/results/r36_channel_shapley.json",
+   "path": "shapley.S",
+   "mean": 0.0008213028595405437,
+   "ci95": [
+    0.00011533972134990413,
+    0.0015350746054929234
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.0008213028595405437,
+   "n": 968,
+   "ci90": [
+    0.00022663296209245783,
+    0.0014227212026651321
+   ],
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r36",
+   "file": "04_what_core_is/r36_channel_shapley/results/r36_channel_shapley.json",
+   "path": "shapley.M",
+   "mean": 0.0005076505859130538,
+   "ci95": [
+    -0.0005271270902205503,
+    0.0015628293634639139
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.0005076505859130538,
+   "n": 968,
+   "ci90": [
+    -0.00036145753262265175,
+    0.0013975677362480898
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r36",
+   "file": "04_what_core_is/r36_channel_shapley/results/r36_channel_shapley.json",
+   "path": "shapley.V",
+   "mean": 0.00018615750220064048,
+   "ci95": [
+    -4.024395686825672e-05,
+    0.0004208407207144781
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.00018615750220064048,
+   "n": 968,
+   "ci90": [
+    -3.0398398559002875e-06,
+    0.0003818750985755124
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r37",
+   "file": "04_what_core_is/r37_leakage_topology/results/r37_leakage_topology.json",
+   "path": "levels.A1_leave_one_rater_out",
+   "mean": null,
+   "ci95": [
+    -0.0016507223377365291,
+    0.002671389479283141
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.0004750271600093255,
+   "n": 968,
+   "ci90": [
+    -0.001324825505805283,
+    0.0023077152954316784
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r37",
+   "file": "04_what_core_is/r37_leakage_topology/results/r37_leakage_topology.json",
+   "path": "levels.A2_held_out_rater_folds",
+   "mean": null,
+   "ci95": [
+    0.00034760789167825076,
+    0.004868841876904932
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.002586217707728534,
+   "n": 968,
+   "ci90": [
+    0.0007053026237402112,
+    0.004479544559865893
+   ],
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r37",
+   "file": "04_what_core_is/r37_leakage_topology/results/r37_leakage_topology.json",
+   "path": "levels.A3_held_out_country",
+   "mean": null,
+   "ci95": [
+    -0.0032946412140725336,
+    0.004788277023314796
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.0007236586445763022,
+   "n": 968,
+   "ci90": [
+    -0.0026341287890017475,
+    0.004141398709374702
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r37",
+   "file": "04_what_core_is/r37_leakage_topology/results/r37_leakage_topology.json",
+   "path": "levels.A3_held_out_ai_usage",
+   "mean": null,
+   "ci95": [
+    -0.0009548245829898314,
+    0.006705986166564092
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.0028330066611434467,
+   "n": 968,
+   "ci90": [
+    -0.0003468212693289638,
+    0.0061037642970589185
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r37",
+   "file": "04_what_core_is/r37_leakage_topology/results/r37_leakage_topology.json",
+   "path": "levels.A3_held_out_age",
+   "mean": null,
+   "ci95": [
+    -0.0001944905782451081,
+    0.008133420959052944
+   ],
+   "in_r42": true,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.003977277462674595,
+   "n": 968,
+   "ci90": [
+    0.0004826708722312343,
+    0.007463664378615015
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.country.weight_specificity.[0]",
+   "mean": null,
+   "ci95": [
+    0.0012137848180242953,
+    0.04573058207723199
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.023357513855960767,
+   "n": 303,
+   "ci90": [
+    0.004630211859888145,
+    0.04194974996449225
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.country.weight_specificity.[1]",
+   "mean": null,
+   "ci95": [
+    0.00648620525627538,
+    0.0324578532184158
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.019377687532889275,
+   "n": 615,
+   "ci90": [
+    0.008489138166432281,
+    0.030389353076052505
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.country.weight_specificity.[2]",
+   "mean": null,
+   "ci95": [
+    -0.007580920691345589,
+    0.023386593913246365
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.007967468882635274,
+   "n": 459,
+   "ci90": [
+    -0.005009491816615013,
+    0.02094016385829536
+   ],
+   "equivalent": false,
+   "significant": false,
+   "sound": true,
+   "cell": "INCONCLUSIVE"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.country.weight_specificity.[3]",
+   "mean": null,
+   "ci95": [
+    -0.028724605435874996,
+    -0.004372520231938751
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.01639810692476869,
+   "n": 578,
+   "ci90": [
+    -0.026733100506167264,
+    -0.006208084826652848
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.country.weight_specificity.[4]",
+   "mean": null,
+   "ci95": [
+    -0.01436858540909267,
+    0.02422139768423048
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.004918087869596906,
+   "n": 306,
+   "ci90": [
+    -0.011409028483975623,
+    0.02091956115895225
+   ],
+   "equivalent": false,
+   "significant": false,
+   "sound": true,
+   "cell": "INCONCLUSIVE"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.country.weight_specificity.[5]",
+   "mean": null,
+   "ci95": [
+    -0.0051429749389603156,
+    0.00862789501574301
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.0017204490462220336,
+   "n": 911,
+   "ci90": [
+    -0.00401840313977319,
+    0.007432542927191025
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.ai_usage.weight_specificity.[0]",
+   "mean": null,
+   "ci95": [
+    -0.015502876475999185,
+    0.01629777358296748
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.0005143670492550682,
+   "n": 478,
+   "ci90": [
+    -0.012788227989090323,
+    0.0137122720744649
+   ],
+   "equivalent": false,
+   "significant": false,
+   "sound": true,
+   "cell": "INCONCLUSIVE"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.ai_usage.weight_specificity.[1]",
+   "mean": null,
+   "ci95": [
+    -0.016040981626674007,
+    0.010875186660642914
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.0026936189647797067,
+   "n": 499,
+   "ci90": [
+    -0.013913223688786159,
+    0.008746944712067358
+   ],
+   "equivalent": false,
+   "significant": false,
+   "sound": true,
+   "cell": "INCONCLUSIVE"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.ai_usage.weight_specificity.[2]",
+   "mean": null,
+   "ci95": [
+    -0.023357962947767607,
+    0.009319619519087321
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.007147019245376512,
+   "n": 415,
+   "ci90": [
+    -0.020690506765845215,
+    0.006636891765052018
+   ],
+   "equivalent": false,
+   "significant": false,
+   "sound": true,
+   "cell": "INCONCLUSIVE"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.ai_usage.weight_specificity.[3]",
+   "mean": null,
+   "ci95": [
+    -0.03228844458430056,
+    0.029031923084798992
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.0014255542833441317,
+   "n": 184,
+   "ci90": [
+    -0.027393773614335204,
+    0.02424423997567114
+   ],
+   "equivalent": false,
+   "significant": false,
+   "sound": true,
+   "cell": "INCONCLUSIVE"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.ai_usage.weight_specificity.[4]",
+   "mean": null,
+   "ci95": [
+    -6.24103724751975e-05,
+    0.01333281817276434
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.006586534068469038,
+   "n": 925,
+   "ci90": [
+    0.0009709569720232159,
+    0.012227482760860425
+   ],
+   "equivalent": false,
+   "significant": false,
+   "sound": true,
+   "cell": "INCONCLUSIVE"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.ai_usage.weight_specificity.[5]",
+   "mean": null,
+   "ci95": [
+    -0.010922634534403676,
+    0.006097319429998635
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.002438520470136686,
+   "n": 815,
+   "ci90": [
+    -0.009568286542877377,
+    0.0047470594196940925
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.age.weight_specificity.[0]",
+   "mean": null,
+   "ci95": [
+    -0.02317616513549793,
+    -0.0011581337574722655
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.011941318809162386,
+   "n": 630,
+   "ci90": [
+    -0.02135709244177283,
+    -0.002737027438399764
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.age.weight_specificity.[1]",
+   "mean": null,
+   "ci95": [
+    -0.004169331974542782,
+    0.0078124089950488106
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.0018142036531547771,
+   "n": 930,
+   "ci90": [
+    -0.0032114898636281084,
+    0.006859605142297423
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.age.weight_specificity.[2]",
+   "mean": null,
+   "ci95": [
+    -0.009202845879219497,
+    0.008797479781263705
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.00013801097281724626,
+   "n": 795,
+   "ci90": [
+    -0.007700440928555609,
+    0.007407355268974004
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.age.weight_specificity.[3]",
+   "mean": null,
+   "ci95": [
+    -0.010819402895373014,
+    0.017684799522949633
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.0033419851122200098,
+   "n": 469,
+   "ci90": [
+    -0.00861694471083484,
+    0.015308478621238688
+   ],
+   "equivalent": false,
+   "significant": false,
+   "sound": true,
+   "cell": "INCONCLUSIVE"
+  },
+  {
+   "round": "r43",
+   "file": "05_human_protocol_and_power/r43_criterion_heterogeneity/results/r43_criterion_heterogeneity.json",
+   "path": "axes.age.weight_specificity.[4]",
+   "mean": null,
+   "ci95": [
+    -0.014626146811597613,
+    0.0416620178167309
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.013408647363565404,
+   "n": 183,
+   "ci90": [
+    -0.01000026908428547,
+    0.03712971538176458
+   ],
+   "equivalent": false,
+   "significant": false,
+   "sound": true,
+   "cell": "INCONCLUSIVE"
+  },
+  {
+   "round": "r44",
+   "file": "05_human_protocol_and_power/r44_compiler_lineage/results/r44_compiler_lineage.json",
+   "path": "identity_control",
+   "mean": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.0,
+   "n": 968,
+   "ci90": [
+    0.0,
+    0.0
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r44",
+   "file": "05_human_protocol_and_power/r44_compiler_lineage/results/r44_compiler_lineage.json",
+   "path": "stage_increments.S0_full_equal -> S1_polarity_rewrite",
+   "mean": 0.07329781942440769,
+   "ci95": [
+    0.06453424503919175,
+    0.08203627543503812
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.07329781942440769,
+   "n": 968,
+   "ci90": [
+    0.06596787878575525,
+    0.08057295932990223
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r44",
+   "file": "05_human_protocol_and_power/r44_compiler_lineage/results/r44_compiler_lineage.json",
+   "path": "stage_increments.S1_polarity_rewrite -> S2_cleanup",
+   "mean": 0.005180059286033301,
+   "ci95": [
+    0.002864618167808436,
+    0.007543665938735025
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.005180059286033301,
+   "n": 968,
+   "ci90": [
+    0.003233122646152497,
+    0.007177875064002433
+   ],
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r44",
+   "file": "05_human_protocol_and_power/r44_compiler_lineage/results/r44_compiler_lineage.json",
+   "path": "stage_increments.S2_cleanup -> S3_dedup",
+   "mean": -0.00534889428079679,
+   "ci95": [
+    -0.009230917735576827,
+    -0.0015324135642499149
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.00534889428079679,
+   "n": 968,
+   "ci90": [
+    -0.00860618418548058,
+    -0.0021190666727887867
+   ],
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r44",
+   "file": "05_human_protocol_and_power/r44_compiler_lineage/results/r44_compiler_lineage.json",
+   "path": "stage_increments.S3_dedup -> S5_compatibility_selection",
+   "mean": -0.01814057369687371,
+   "ci95": [
+    -0.0238979131053236,
+    -0.012385003969972622
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.01814057369687371,
+   "n": 968,
+   "ci90": [
+    -0.022887622902130537,
+    -0.013285497879274943
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r44",
+   "file": "05_human_protocol_and_power/r44_compiler_lineage/results/r44_compiler_lineage.json",
+   "path": "selection_vs_size_matched_random",
+   "mean": 0.014878926425842143,
+   "ci95": [
+    0.007933877943217345,
+    0.021915665050470677
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.014878926425842143,
+   "n": 968,
+   "ci90": [
+    0.009077049200267005,
+    0.02080313743314143
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r44",
+   "file": "05_human_protocol_and_power/r44_compiler_lineage/results/r44_compiler_lineage.json",
+   "path": "residual_reconstruction_to_real_core",
+   "mean": 0.011170378314408954,
+   "ci95": [
+    0.0038091127445033894,
+    0.018555224161467997
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.011170378314408954,
+   "n": 968,
+   "ci90": [
+    0.00500976997280159,
+    0.01730271207133665
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r44",
+   "file": "05_human_protocol_and_power/r44_compiler_lineage/results/r44_compiler_lineage.json",
+   "path": "total_full_to_real_core",
+   "mean": 0.06615878904717946,
+   "ci95": [
+    0.05718654549007315,
+    0.07539439034861793
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.06615878904717946,
+   "n": 968,
+   "ci90": [
+    0.05856394831417385,
+    0.07385497694263221
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r49",
+   "file": "06_the_judges_mechanism/r49_provenance_crossfit/results/r49_provenance_crossfit.json",
+   "path": "results.control_all",
+   "mean": 0.05993782018118341,
+   "ci95": [
+    0.05109865021745527,
+    0.06896658044350785
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.05993782018118341,
+   "n": 968,
+   "ci90": [
+    0.05249871041508834,
+    0.0675513540190401
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r49",
+   "file": "06_the_judges_mechanism/r49_provenance_crossfit/results/r49_provenance_crossfit.json",
+   "path": "results.seed.direction_advantage",
+   "mean": 0.05993782018118341,
+   "ci95": [
+    0.05109042010882151,
+    0.06897147397109323
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.05993782018118341,
+   "n": 968,
+   "ci90": [
+    0.05244069249949156,
+    0.06751031503203742
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r49",
+   "file": "06_the_judges_mechanism/r49_provenance_crossfit/results/r49_provenance_crossfit.json",
+   "path": "results.seed.shuffled_sign_null",
+   "mean": -0.08309355742752753,
+   "ci95": [
+    -0.0945073951009262,
+    -0.07173190451210518
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.08309355742752753,
+   "n": 968,
+   "ci90": [
+    -0.09271349309758337,
+    -0.07353325947606663
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r49",
+   "file": "06_the_judges_mechanism/r49_provenance_crossfit/results/r49_provenance_crossfit.json",
+   "path": "results.writein.direction_advantage",
+   "mean": 0.07771101511449585,
+   "ci95": [
+    0.06764674484690776,
+    0.08789226063662516
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.07771101511449585,
+   "n": 961,
+   "ci90": [
+    0.06922322814590234,
+    0.086250460642228
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r49",
+   "file": "06_the_judges_mechanism/r49_provenance_crossfit/results/r49_provenance_crossfit.json",
+   "path": "results.writein.shuffled_sign_null",
+   "mean": -0.06680159129963674,
+   "ci95": [
+    -0.07674636181562446,
+    -0.0566307397130804
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.06680159129963674,
+   "n": 961,
+   "ci90": [
+    -0.07509402717050148,
+    -0.05824517703409917
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r50",
+   "file": "06_the_judges_mechanism/r50_response_anchoring/results/r50_response_anchoring.json",
+   "path": "results.control_pooled_writein",
+   "mean": 0.09047876998891788,
+   "ci95": [
+    0.07906409988320313,
+    0.10195940676327724
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.09047876998891788,
+   "n": 851,
+   "ci90": [
+    0.08086009166612403,
+    0.10015433600491083
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r50",
+   "file": "06_the_judges_mechanism/r50_response_anchoring/results/r50_response_anchoring.json",
+   "path": "results.writein.high",
+   "mean": 0.08932270325709753,
+   "ci95": [
+    0.07676914466285398,
+    0.10256548856890167
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.08932270325709753,
+   "n": 851,
+   "ci90": [
+    0.07870484354121494,
+    0.10035707318251401
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r50",
+   "file": "06_the_judges_mechanism/r50_response_anchoring/results/r50_response_anchoring.json",
+   "path": "results.writein.low",
+   "mean": 0.06221314844348837,
+   "ci95": [
+    0.05186427084659462,
+    0.07256357789213068
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.06221314844348837,
+   "n": 851,
+   "ci90": [
+    0.05360695265325521,
+    0.070912335692229
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r50",
+   "file": "06_the_judges_mechanism/r50_response_anchoring/results/r50_response_anchoring.json",
+   "path": "results.seed.high",
+   "mean": 0.05546367903811575,
+   "ci95": [
+    0.045366062910358704,
+    0.06581093973743611
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.05546367903811575,
+   "n": 901,
+   "ci90": [
+    0.04694011696373515,
+    0.06412132962607685
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r50",
+   "file": "06_the_judges_mechanism/r50_response_anchoring/results/r50_response_anchoring.json",
+   "path": "results.seed.low",
+   "mean": 0.044819530482366386,
+   "ci95": [
+    0.036282270005531705,
+    0.05367252532710693
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.044819530482366386,
+   "n": 901,
+   "ci90": [
+    0.03758855835372459,
+    0.05223525281384312
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r50",
+   "file": "06_the_judges_mechanism/r50_response_anchoring/results/r50_response_anchoring.json",
+   "path": "results.anchoring_excess_over_control",
+   "mean": 0.014128954851029208,
+   "ci95": [
+    -0.004976185930214506,
+    0.032565890024736234
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.014128954851029208,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r51",
+   "file": "06_the_judges_mechanism/r51_judge_lexical/results/r51_judge_lexical.json",
+   "path": "by_polarity.positive",
+   "mean": 0.22523473540539335,
+   "ci95": [
+    0.2129741978725198,
+    0.23701531714789587
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.22523473540539335,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r51",
+   "file": "06_the_judges_mechanism/r51_judge_lexical/results/r51_judge_lexical.json",
+   "path": "by_polarity.negative",
+   "mean": 0.1526956006603713,
+   "ci95": [
+    0.13320223242474585,
+    0.17352258701998405
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.1526956006603713,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r75",
+   "file": "08_direction_from_text/r75_menu_read_direction/results/r75_menu_read_direction.json",
+   "path": "arms.raw",
+   "mean": 0.04070242338248123,
+   "ci95": [
+    0.029755204593795454,
+    0.043857356871674705
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.04070242338248123,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r75",
+   "file": "08_direction_from_text/r75_menu_read_direction/results/r75_menu_read_direction.json",
+   "path": "arms.length_residualised",
+   "mean": 0.01754594316897278,
+   "ci95": [
+    0.014736585337332513,
+    0.025682624873772725
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.01754594316897278,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r76",
+   "file": "08_direction_from_text/r76_absence_cannot_overlap/results/r76_absence_cannot_overlap.json",
+   "path": "cells.positive/presence-type",
+   "mean": 0.016768744628136788,
+   "ci95": [
+    0.014229445663510813,
+    0.019293995238012382
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.016768744628136788,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r76",
+   "file": "08_direction_from_text/r76_absence_cannot_overlap/results/r76_absence_cannot_overlap.json",
+   "path": "cells.positive/absence-type",
+   "mean": 0.03813999261006747,
+   "ci95": [
+    0.02285089606422942,
+    0.05432069176010544
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.03813999261006747,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r76",
+   "file": "08_direction_from_text/r76_absence_cannot_overlap/results/r76_absence_cannot_overlap.json",
+   "path": "cells.negative/presence-type",
+   "mean": -0.002780829604777225,
+   "ci95": [
+    -0.00732577647645995,
+    0.001684074742530661
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.002780829604777225,
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r76",
+   "file": "08_direction_from_text/r76_absence_cannot_overlap/results/r76_absence_cannot_overlap.json",
+   "path": "cells.negative/absence-type",
+   "mean": -0.0013116773539731683,
+   "ci95": [
+    -0.017178971931548537,
+    0.015805691354990305
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.0013116773539731683,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r76",
+   "file": "08_direction_from_text/r76_absence_cannot_overlap/results/r76_absence_cannot_overlap.json",
+   "path": "gaps.presence-type",
+   "mean": 0.019549574232914015,
+   "ci95": [
+    0.013875217796549872,
+    0.025004117258458358
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.019549574232914015,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r76",
+   "file": "08_direction_from_text/r76_absence_cannot_overlap/results/r76_absence_cannot_overlap.json",
+   "path": "gaps.absence-type",
+   "mean": 0.03945166996404064,
+   "ci95": [
+    0.016908321714450673,
+    0.061337031644693236
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.03945166996404064,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r77",
+   "file": "08_direction_from_text/r77_topicality_control/results/r77_topicality_control.json",
+   "path": "arms.full vocabulary",
+   "mean": 0.01754594316897278,
+   "ci95": [
+    0.014880716255896589,
+    0.025876429359858944
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.01754594316897278,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=3 stop=project unigram",
+   "mean": 0.020272472459099897,
+   "ci95": [
+    0.015619537732177287,
+    0.02567822732264005
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.020272472459099897,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=3 stop=project bigram",
+   "mean": 0.007568059204330962,
+   "ci95": [
+    0.004967004098442178,
+    0.01024938054003338
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.007568059204330962,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=3 stop=none unigram",
+   "mean": 0.016496512834669227,
+   "ci95": [
+    0.011598301076525956,
+    0.02182967799842516
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.016496512834669227,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=3 stop=none bigram",
+   "mean": 0.006707840938371935,
+   "ci95": [
+    0.0041689914674592835,
+    0.00930958354159327
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.006707840938371935,
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=3 stop=sklearn unigram",
+   "mean": 0.021271718692385387,
+   "ci95": [
+    0.01647765577211326,
+    0.026841783356197805
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.021271718692385387,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=3 stop=sklearn bigram",
+   "mean": 0.007627244034960436,
+   "ci95": [
+    0.005124821903006596,
+    0.010326603915833127
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.007627244034960436,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=4 stop=project unigram",
+   "mean": 0.02113770893798025,
+   "ci95": [
+    0.016153066088286604,
+    0.026358715579231695
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.02113770893798025,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=4 stop=project bigram",
+   "mean": 0.00772133534196931,
+   "ci95": [
+    0.005521677858968416,
+    0.010309455041985754
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.00772133534196931,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=4 stop=none unigram",
+   "mean": 0.016918482107717278,
+   "ci95": [
+    0.011624989700482804,
+    0.022404838961392212
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.016918482107717278,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=4 stop=none bigram",
+   "mean": 0.006773206048343833,
+   "ci95": [
+    0.004825162777693905,
+    0.009271339123059465
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.006773206048343833,
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=4 stop=sklearn unigram",
+   "mean": 0.021103986006525306,
+   "ci95": [
+    0.01578599949823987,
+    0.026686342968412765
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.021103986006525306,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=4 stop=sklearn bigram",
+   "mean": 0.0073804280153171465,
+   "ci95": [
+    0.005198449031239375,
+    0.010028848705325239
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.0073804280153171465,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=5 stop=project unigram",
+   "mean": 0.02141394903971933,
+   "ci95": [
+    0.015705895237862734,
+    0.027575386774003514
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.02141394903971933,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=5 stop=project bigram",
+   "mean": 0.007715998742522387,
+   "ci95": [
+    0.005227135114285874,
+    0.010221076608568913
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.007715998742522387,
+   "equivalent": null,
+   "significant": true,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=5 stop=none unigram",
+   "mean": 0.018481839474786144,
+   "ci95": [
+    0.013272710102971458,
+    0.024478080680357357
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.018481839474786144,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=5 stop=none bigram",
+   "mean": 0.007345150449222085,
+   "ci95": [
+    0.004988738574727166,
+    0.009887424803366709
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.007345150449222085,
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=5 stop=sklearn unigram",
+   "mean": 0.0213240993302685,
+   "ci95": [
+    0.015451184065448742,
+    0.02736827223551491
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.0213240993302685,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r78",
+   "file": "08_direction_from_text/r78_tokeniser_robustness/results/r78_tokeniser_robustness.json",
+   "path": "cells.len>=5 stop=sklearn bigram",
+   "mean": 0.0074477552222832095,
+   "ci95": [
+    0.005067176472383519,
+    0.009909435522977175
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.0074477552222832095,
+   "equivalent": true,
+   "significant": true,
+   "sound": true,
+   "cell": "real but negligible"
+  },
+  {
+   "round": "r83",
+   "file": "08_direction_from_text/r83_low_magnitude_drop/results/r83_low_magnitude_drop.json",
+   "path": "<root>",
+   "mean": 0.6832461324526335,
+   "ci95": [
+    0.6803009609892975,
+    0.6864517891286533
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": 0.6832461324526335,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r85",
+   "file": "09_form_donor_draw_and_unit/r85_agreement_by_form/results/r85_agreement_by_form.json",
+   "path": "<root>",
+   "mean": 0.0024520434222442544,
+   "ci95": [
+    -0.0172529327895533,
+    0.02310250978559107
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.0024520434222442544,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r86",
+   "file": "09_form_donor_draw_and_unit/r86_attribution_by_form/results/r86_attribution_by_form.json",
+   "path": "<root>",
+   "mean": 0.005604321865897988,
+   "ci95": [
+    -0.020870613527804602,
+    0.031048471742026323
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.005604321865897988,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r87",
+   "file": "09_form_donor_draw_and_unit/r87_criterion_count_channel/results/r87_criterion_count_channel.json",
+   "path": "matched_minus_unrestricted",
+   "mean": 0.00838263393143997,
+   "ci95": [
+    -0.00633016976027306,
+    0.023061556031007274
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.00838263393143997,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r87",
+   "file": "09_form_donor_draw_and_unit/r87_criterion_count_channel/results/r87_criterion_count_channel.json",
+   "path": "mismatched_minus_unrestricted",
+   "mean": 0.007255765083514697,
+   "ci95": [
+    -0.0069736672298102926,
+    0.020711531461649717
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": 0.007255765083514697,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r87",
+   "file": "09_form_donor_draw_and_unit/r87_criterion_count_channel/results/r87_criterion_count_channel.json",
+   "path": "mismatched_minus_matched",
+   "mean": -0.0011268688479252752,
+   "ci95": [
+    -0.016292382959903824,
+    0.013623497961580647
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.0011268688479252752,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r96",
+   "file": "10_meta_separator_and_triage/r96_separability_resolved/results/r96_separability_resolved.json",
+   "path": "pairwise.phi-3.5-mini-instruct - qwen2.5-3b-instruct",
+   "mean": -0.016846194776124028,
+   "ci95": [
+    -0.42333586089947056,
+    0.47374559156159113
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.016846194776124028,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r96",
+   "file": "10_meta_separator_and_triage/r96_separability_resolved/results/r96_separability_resolved.json",
+   "path": "pairwise.phi-3.5-mini-instruct - qwen3.5-2b-base(ref)",
+   "mean": -0.1874581505369539,
+   "ci95": [
+    -0.6055374349122244,
+    0.2956452828224778
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.1874581505369539,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r96",
+   "file": "10_meta_separator_and_triage/r96_separability_resolved/results/r96_separability_resolved.json",
+   "path": "pairwise.qwen2.5-3b-instruct - qwen3.5-2b-base(ref)",
+   "mean": -0.17061195576082988,
+   "ci95": [
+    -0.42292393990099436,
+    0.06565623350096708
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "UNVERIFIED -- the 90% CI is required and no raw vector was stored",
+   "delta_hat": -0.17061195576082988,
+   "equivalent": null,
+   "significant": false,
+   "sound": true,
+   "cell": "UNVERIFIED"
+  },
+  {
+   "round": "r96",
+   "file": "10_meta_separator_and_triage/r96_separability_resolved/results/r96_separability_resolved.json",
+   "path": "control_plant",
+   "mean": -0.2771611077781161,
+   "ci95": [
+    -0.5363403791453487,
+    -0.069578211654339
+   ],
+   "in_r42": false,
+   "vector_stored": false,
+   "method": "sound bound from the published 95% CI",
+   "delta_hat": -0.2771611077781161,
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r97",
+   "file": "10_meta_separator_and_triage/r97_rule_tournament_tost/results/r97_rule_tournament_tost.json",
+   "path": "rules.utility",
+   "mean": 0.006694185525039242,
+   "ci95": [
+    0.0010875456234229947,
+    0.012332356725193016
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.006694185525039242,
+   "n": 945,
+   "ci90": [
+    0.0019723397464066514,
+    0.011403880327131815
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r97",
+   "file": "10_meta_separator_and_triage/r97_rule_tournament_tost/results/r97_rule_tournament_tost.json",
+   "path": "rules.majority",
+   "mean": 0.004397713190208272,
+   "ci95": [
+    -0.0016829693987267245,
+    0.010595687680660304
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.004397713190208272,
+   "n": 945,
+   "ci90": [
+    -0.0006744601887342313,
+    0.009584641168520225
+   ],
+   "equivalent": true,
+   "significant": false,
+   "sound": true,
+   "cell": "no material effect"
+  },
+  {
+   "round": "r97",
+   "file": "10_meta_separator_and_triage/r97_rule_tournament_tost/results/r97_rule_tournament_tost.json",
+   "path": "rules.consensus",
+   "mean": -0.011294184930254822,
+   "ci95": [
+    -0.01916702938202514,
+    -0.0035308596506795774
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.011294184930254822,
+   "n": 945,
+   "ci90": [
+    -0.017948240607898975,
+    -0.004749511304479383
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r97",
+   "file": "10_meta_separator_and_triage/r97_rule_tournament_tost/results/r97_rule_tournament_tost.json",
+   "path": "rules.constituency",
+   "mean": 0.006983704746868534,
+   "ci95": [
+    0.0004810443280078474,
+    0.013533565964191476
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": 0.006983704746868534,
+   "n": 945,
+   "ci90": [
+    0.0015009964641572063,
+    0.012484866250972003
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  },
+  {
+   "round": "r97",
+   "file": "10_meta_separator_and_triage/r97_rule_tournament_tost/results/r97_rule_tournament_tost.json",
+   "path": "rules.conflict_aware",
+   "mean": -0.005820251926800041,
+   "ci95": [
+    -0.012136353911522044,
+    0.00034246303726758864
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.005820251926800041,
+   "n": 945,
+   "ci90": [
+    -0.011086541757382953,
+    -0.0005776962991344853
+   ],
+   "equivalent": false,
+   "significant": false,
+   "sound": true,
+   "cell": "INCONCLUSIVE"
+  },
+  {
+   "round": "r97",
+   "file": "10_meta_separator_and_triage/r97_rule_tournament_tost/results/r97_rule_tournament_tost.json",
+   "path": "rules.random_k4",
+   "mean": -0.011568916550721921,
+   "ci95": [
+    -0.018143004837392347,
+    -0.004926895271035324
+   ],
+   "in_r42": false,
+   "vector_stored": true,
+   "method": "bootstrap TOST on the stored paired vector",
+   "delta_hat": -0.011568916550721921,
+   "n": 945,
+   "ci90": [
+    -0.017081250923458132,
+    -0.006037018180685008
+   ],
+   "equivalent": false,
+   "significant": true,
+   "sound": true,
+   "cell": "real and material"
+  }
+ ],
+ "scope": "delta=0.01 is STIPULATED, not measured. An equivalence verdict inherits the estimator of the round it came from. UNVERIFIED contrasts published no raw vector and are unresolved, not clean.",
+ "verdict": "SCOPE, NOT SIGNIFICANCE: the package holds 158 interval contrasts and r42 tested 21 of them (13%), because its population was a hand-written list of four rounds rather than an enumeration. Classifying all 158 at delta=0.01: 78 real and material, 11 real but negligible, 24 no material effect, 10 INCONCLUSIVE, 29 UNVERIFIED. 10 of the inconclusive contrasts sit OUTSIDE r42's four rounds and so had never been equivalence-tested. UNVERIFIED means the round published a mean and a 95% CI but no raw paired vector, so the 90% CI required for TOST cannot be recovered -- that is an absence of evidence and is NOT folded into any pass. r42's own verdict is unchanged ON ITS OWN 21 CONTRASTS; what is corrected is the sentence that made it a claim about this package. delta=0.01 remains STIPULATED, and the sweep shows 35 contrasts equivalent at that margin versus 103 at 0.05 and 8 at 0.0025."
+}

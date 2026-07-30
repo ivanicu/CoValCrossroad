@@ -43,7 +43,7 @@ DOCS = ["README.md", "RETRACTIONS.md", "PREREGISTRATION.md", "FROZEN.md"]
 # Extended beyond rounds/ (entry 176): the invented-path failure is not specific to
 # round links -- any relative path this package emits can be written from memory. These
 # are the directories the documents actually cite.
-LINK = re.compile(r"\]\(((?:rounds|data|assurance|covalx|scripts)/[A-Za-z0-9_./-]+)\)")
+LINK = re.compile(r"\]\(((?:\d\d_[a-z0-9_]+|rounds|data|assurance|covalx|scripts)/[A-Za-z0-9_./-]+)\)")
 
 
 def main() -> int:

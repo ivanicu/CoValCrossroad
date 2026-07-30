@@ -2,7 +2,7 @@
 
 Why this exists (entry 98)
 --------------------------
-`rounds/05_human_protocol_and_power/r44_compiler_lineage/run.py:112` carries this comment:
+`05_human_protocol_and_power/r44_compiler_lineage/run.py:112` carries this comment:
 
     # C1 polarity rewrite.  The text rewrite cannot be simulated; its EFFECT can:
     # a criterion carrying a negative weight becomes a positively-phrased
@@ -144,7 +144,7 @@ def main() -> int:
         return " ".join(out)
 
     found = []
-    for src in sorted(_ROOT.glob("rounds/*/*/*.py")):
+    for src in sorted(_ROOT.glob("[0-9][0-9]_*/r*/*.py")):
         rid = src.parts[-2].split("_")[0]
         about_raw = readme_about(rid)
         about = words(about_raw)

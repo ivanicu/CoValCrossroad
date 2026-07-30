@@ -63,7 +63,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PY = sys.executable
 README = ROOT / "README.md"
-R72 = ROOT / "rounds/07_floors_for_the_counterfactuals/r72_proxy_validity_coefficient/results/r72_proxy_validity_coefficient.json"
+R72 = ROOT / "07_floors_for_the_counterfactuals/r72_proxy_validity_coefficient/results/r72_proxy_validity_coefficient.json"
 
 
 def run(check: str, cwd: Path = ROOT, args: list[str] | None = None):
@@ -125,7 +125,7 @@ def readme_plant(name, contract, mutate, why, token="", validate=None):
 
 
 def drop_round_link(text):
-    return text.replace("rounds/07_floors_for_the_counterfactuals/r72_proxy_validity_coefficient", "rounds/_no_such_round")
+    return text.replace("07_floors_for_the_counterfactuals/r72_proxy_validity_coefficient", "rounds/_no_such_round")
 
 
 def insert_retired_framing(text):
@@ -151,7 +151,7 @@ def bound_plant():
     present = [w for w in words if w in readme]
     if present:
         return name, None, f"PLANT INVALID -- README already contains {present}"
-    target = ROOT / "rounds/07_floors_for_the_counterfactuals/r72_proxy_validity_coefficient/run.py"
+    target = ROOT / "07_floors_for_the_counterfactuals/r72_proxy_validity_coefficient/run.py"
     original = target.read_text()
     try:
         target.write_text(original + "\n# This estimator cannot distinguish a heteroskedastic"
@@ -213,7 +213,7 @@ def clone_plant():
                        capture_output=True, check=True)
         c = tmp / "c"
         rc_good, out_good = run(name, c)
-        rp = c / "rounds/07_floors_for_the_counterfactuals/r70_outcome_criterion_axis/run.py"
+        rp = c / "07_floors_for_the_counterfactuals/r70_outcome_criterion_axis/run.py"
         rp.write_text(rp.read_text() + "\n# planted: code newer than its results\n")
         subprocess.run(["git", "-c", "user.name=a", "-c", "user.email=a@b",
                         "commit", "-q", "--no-verify", "-am", "plant"],
@@ -249,8 +249,8 @@ def main() -> int:
     # row read as a round's row, and a table row read as a flag). The guard must
     # watch exactly the files the plants touch, no more and no fewer.
     PLANTED = ["README.md",
-               "rounds/07_floors_for_the_counterfactuals/r72_proxy_validity_coefficient/run.py",
-               "rounds/07_floors_for_the_counterfactuals/r72_proxy_validity_coefficient/results/"
+               "07_floors_for_the_counterfactuals/r72_proxy_validity_coefficient/run.py",
+               "07_floors_for_the_counterfactuals/r72_proxy_validity_coefficient/results/"
                "r72_proxy_validity_coefficient.json"]
     dirty = subprocess.run(["git", "diff", "--quiet", "--"] + PLANTED, cwd=ROOT).returncode
     print(f"\nrestore verification: planted files {'CLEAN' if dirty == 0 else 'DIRTY'}"

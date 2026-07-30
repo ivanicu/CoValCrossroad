@@ -38,7 +38,7 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
-CITE = re.compile(r"rounds/r(\d+)_")
+CITE = re.compile(r"(?:\d\d_[a-z0-9_]+/)?r(\d+)_")
 # Synthesis sections: the layer table rows and the headline block. Named explicitly --
 # a regex over "important-looking" prose would be exactly the guess this avoids.
 SECTIONS = [
@@ -52,7 +52,7 @@ STALE_GAP = 20          # rounds behind the newest before it is worth a look
 
 
 def main() -> int:
-    newest = max((int(p.name.split("_")[0][1:]) for p in ROOT.glob("rounds/*/r*/")
+    newest = max((int(p.name.split("_")[0][1:]) for p in ROOT.glob("[0-9][0-9]_*/r*/")
                   if p.name.split("_")[0][1:].isdigit()), default=0)
     if not newest:
         print("no rounds found -- nothing to check")

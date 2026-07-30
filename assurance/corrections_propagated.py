@@ -126,7 +126,7 @@ PROVISIONAL_RE = re.compile(r"smoke|dry[_-]?run|draft|scratch|trial|pilot|prelim
 
 def cross_round_corrections() -> list[tuple[str, list[str], str]]:
     out = []
-    for f in sorted(_ROOT.glob("rounds/*/*/results/*.json")):
+    for f in sorted(_ROOT.glob("[0-9][0-9]_*/r*/results/*.json")):
         if PROVISIONAL_RE.search(f.name):
             continue
         rid = f.parts[-3].split("_")[0]

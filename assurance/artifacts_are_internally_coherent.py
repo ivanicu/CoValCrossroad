@@ -153,7 +153,7 @@ def scan(root: pathlib.Path):
         for k, v in o.items():
             walk(v, rid, f"{path}.{k}" if path else k)
 
-    for f in sorted(root.glob("rounds/*/*/results/*.json")):
+    for f in sorted(root.glob("[0-9][0-9]_*/r*/results/*.json")):
         if "_smoke" in str(f) or f.stat().st_size > 6_000_000:
             continue
         try:

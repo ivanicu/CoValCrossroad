@@ -47,14 +47,23 @@ def empty_manifest_claims():
 
 
 def hide_rounds():
-    src = ROOT / "rounds"
+    """Empty the round population. There is no longer a single `rounds/` directory to move -- the 12
+    campaigns sit at the repository root -- so each is moved separately and restored separately. A
+    version that moved one path would silently hide NOTHING and report every check as refusing on an
+    empty population it still had."""
+    import re as _re
+    camps = sorted(p for p in ROOT.iterdir()
+                   if p.is_dir() and _re.match(r'^\d\d_', p.name))
+    assert camps, "no campaign directories found: this harness would test nothing"
     tmp = Path(tempfile.mkdtemp(prefix="attack_rounds_"))
-    dst = tmp / "rounds"
-    shutil.move(str(src), str(dst))
-    src.mkdir()
+    moved = []
+    for c in camps:
+        shutil.move(str(c), str(tmp / c.name))
+        moved.append(c)
     def restore():
-        shutil.rmtree(src, ignore_errors=True)
-        shutil.move(str(dst), str(src))
+        for c in moved:
+            shutil.rmtree(c, ignore_errors=True)
+            shutil.move(str(tmp / c.name), str(c))
         shutil.rmtree(tmp, ignore_errors=True)
     return restore
 
