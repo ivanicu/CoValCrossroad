@@ -1,0 +1,66 @@
+{
+ "arms": {
+  "discovery": {
+   "corr": 0.03646002465979032,
+   "ci95": [
+    -0.0916393223276404,
+    0.16508732126768685
+   ],
+   "n": 250,
+   "mean_selectivity_original": 0.15277695368037653,
+   "mean_selectivity_fresh": 0.16136631335534038,
+   "mean_collapse": -0.008589359674963855,
+   "published_corr": 0.1806,
+   "published_ci95": [
+    0.0708,
+    0.288
+   ],
+   "abs_diff_from_published": 0.1441399753402097,
+   "reproduces": false
+  },
+  "held_out": {
+   "corr": 0.09853304740422586,
+   "ci95": [
+    -0.01880758397287967,
+    0.21235775469045634
+   ],
+   "n": 250,
+   "mean_selectivity_original": 0.1546868587644093,
+   "mean_selectivity_fresh": 0.1534405515533691,
+   "mean_collapse": 0.001246307211040164,
+   "published_corr": 0.0198,
+   "published_ci95": [
+    -0.1196,
+    0.1592
+   ],
+   "abs_diff_from_published": 0.07873304740422586,
+   "reproduces": false
+  }
+ },
+ "published": {
+  "discovery": {
+   "corr": 0.1806,
+   "ci95": [
+    0.0708,
+    0.288
+   ]
+  },
+  "held_out": {
+   "corr": 0.0198,
+   "ci95": [
+    -0.1196,
+    0.1592
+   ]
+  }
+ },
+ "predicted_interval": [
+  0.06,
+  0.3
+ ],
+ "tolerance": 0.05,
+ "world": "M METHOD-MISMATCH",
+ "r56_has_code_in_repo": false,
+ "r56_ci_bounds_found_in_any_artifact": false,
+ "scope": "Judge-relative and equal-weight, inheriting r41's tensor. It reconstructs a NUMBER and does not re-adjudicate whether the quantity was worth measuring. If the discovery arm fails to reproduce, this round is UNVERIFIED about r56 rather than a refutation of it -- a reconstruction that does not share the original's method cannot overturn it.",
+ "verdict": "M METHOD-MISMATCH. r56's numbers exist in a commit message, in its PREDICTION.md, and in RETRACTIONS prose -- and in NO ARTIFACT: `rounds/06_the_judges_mechanism/r56_semantic_selectivity/` has contained only PREDICTION.md in every commit it has ever appeared in, and a search of every results file in this package for its CI bounds 0.1592 and 0.2880 returns nothing. Recomputing the quantity its own PREDICTION.md defines, from r41's and r46's persisted tensors: discovery +0.0365 [-0.0916, 0.1651] against a published +0.1806, held out +0.0985 [-0.0188, 0.2124] against a published +0.0198. Neither arm reproduces, so this reconstruction does not share r56 method and says NOTHING about whether r56 was correct -- UNVERIFIED, not overturned. THE DIRECTION OF r56'S CONCLUSION SURVIVES this reconstruction: its preregistered interval was [0.06, 0.3] with a CI excluding zero, and the recomputed held-out CI includes zero. WHAT THIS ROUND IS REALLY ABOUT: a preregistered failure that cannot be recomputed is a claim resting on prose, and r56 is the round that best exemplifies this project's discipline while being the only one whose code was never committed."
+}

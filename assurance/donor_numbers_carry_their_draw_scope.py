@@ -101,7 +101,7 @@ def rows_for(readme: str, rnd: str) -> list[str]:
 def main() -> int:
     readme = README.read_text()
     found = {}
-    for run in sorted((ROOT / "rounds").glob("*/run.py")):
+    for run in sorted((ROOT / "rounds").glob("*/*/run.py")):
         src = run.read_text()
         idiom = "A" if IDIOM_A.search(src) else ("B" if IDIOM_B.search(src) else None)
         if idiom:

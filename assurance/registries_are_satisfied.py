@@ -71,14 +71,18 @@ def _floor(n: int, what: str) -> int:
         return 2
     return 0
 
+from covalx.rounds import (fixture_dir, iter_round_dirs,  # noqa: E402
+                            round_dir)
+
+
 def main() -> int:
     problems = []
 
     # ---- registry 1: the freeze -------------------------------------
     print("FREEZE REGISTRY (covalx/frozen.py) -- enumerated from the registry:")
     for name in sorted(FROZEN):
-        d = _ROOT / "rounds" / name
-        if not d.exists():
+        d = round_dir(_ROOT, name)
+        if d is None:
             print(f"  {name:28s} ROUND ABSENT ON DISK")
             problems.append(f"{name}: named in the freeze registry, no such round")
             continue
@@ -100,7 +104,7 @@ def main() -> int:
     # Enumerated from the CODE that declares OUTCOME_SCOPE, so a round that
     # declares one and never stamps it is caught.
     print("\nOUTCOME_SCOPE declarations -- enumerated from the code that declares them:")
-    declarers = sorted(d for d in (_ROOT / "rounds").iterdir()
+    declarers = sorted(d for d in iter_round_dirs(_ROOT)
                        if (d / "run.py").exists()
                        and "OUTCOME_SCOPE" in (d / "run.py").read_text())
     if not declarers:

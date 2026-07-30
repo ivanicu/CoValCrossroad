@@ -1,0 +1,56 @@
+{
+ "n_records": 47148,
+ "n_coinflip": 8041,
+ "coinflip_rate": 0.17054806142360227,
+ "coinflip_stratum": {
+  "n": 8041,
+  "own": 0.4980723790573312,
+  "donor": 0.5020519835841313,
+  "attribution": -0.0039796045268000735,
+  "se_of_a_chance_arm": 0.005575899960152277,
+  "own_z": -0.34570579752943636,
+  "donor_z": 0.3680093973700416
+ },
+ "informative_stratum": {
+  "n": 39107,
+  "own": 0.7834658756744317,
+  "donor": 0.5873373053417547,
+  "attribution": 0.19612857033267705,
+  "se_of_a_chance_arm": 0.0025283823714619055,
+  "own_z": 112.11353111536383,
+  "donor_z": 34.54275995891255
+ },
+ "null_pass": true,
+ "complementary_control_pass": true,
+ "null_se_threshold": 3.0,
+ "ab_agreement_coinflip": 0.4970774779256311,
+ "ab_agreement_informative": 0.8346587567443169,
+ "raw_pooled_rise": 0.12757821472981468,
+ "untied_only_rise": 0.12676479864634926,
+ "tie_deletion_moves_rise_by": -0.0008134160834654125,
+ "fraction_of_raw_rise_moved": 0.006375822746760223,
+ "explains_threshold": 0.3,
+ "tie_rate_explains_gradient": false,
+ "r104_deattenuated_rise_NOT_COMMENSURABLE": 0.09448555036460682,
+ "residual_attenuation_after_deleting_ties": 0.8181182759776447,
+ "untied_rise_ci95_over_pairs": [
+  0.09928983955012961,
+  0.1551764131056596
+ ],
+ "n_boot": 400,
+ "untied_bins": [
+  0.11316772203279746,
+  0.17595388416140545,
+  0.23993252067914672
+ ],
+ "raw_bins": [
+  0.08526011560693647,
+  0.13961127840131404,
+  0.21283833033675115
+ ],
+ "persisted_vector": "rounds/11_reliability_and_the_width_chain/r108_coinflip_stratum/results/r108_untied_rise_draws.npz",
+ "world": "N NULL + S SURVIVES",
+ "outcome_variable_scope": "Own and donor accuracy against a third of each pair's human raters, partitioned by whether that third TIED and had its label decided by a coin flip. Both quantities come from r104's persisted records; nothing is remeasured.",
+ "scope": "Inherits r104's single canonical donor draw unchanged. Deleting tied records removes proportionally more from the low-consensus end, since the tie rate is not flat -- which is the confound this tests, and it is compared against the RAW gradient because that is the only quantity it is commensurable with. It is NOT a second route to r104's deattenuated figure: A=B agreement among the surviving records is 0.8347, leaving an attenuation factor of 0.82 that deletion does not touch and division does.",
+ "verdict": "N NULL + S SURVIVES. r104 broke a tied labelling third AT RANDOM rather than dropping it -- dropping conditions on the label being decisive -- so 8,041 of 47,148 records (17.1%) carry a label that is literally a coin flip, and four rounds computed across them without asking what they contribute. ON THAT STRATUM THE CHAIN RETURNS NOTHING: own 0.4981 and donor 0.5021, each within 0.4 standard errors of chance, attribution -0.0040. That is a NULL RECOVERY on 8,041 real records rather than a simulation: where the target carries no information the instrument reports none, which no round in this line had ever demonstrated. COMPLEMENTARY CONTROL, and it is what stops the null passing for the wrong reason: the informative stratum is +112 standard errors from chance with attribution +0.1961. A partition whose halves BOTH read 0.5 would mean the partition separates nothing, or the arms are dead. SECOND NULL, on the reliability probe itself: a coin-flip labelling third agrees with a real probe third 0.4971 of the time against 0.8347 on informative records -- chance, as a coin flip against a real majority must be, so the attenuation factor r104 divides by correctly reads this stratum as carrying no reliability at all. AND THE TIE-RATE CONFOUND IS MEASURED AND DISMISSED. The tie rate is NOT flat -- 0.258 / 0.202 / 0.107 from low to high consensus -- and a tied record contributes attribution exactly 0, so each bin's raw attribution is (1 - tie_rate) times its untied one and the two ends are shrunk by different amounts. That is a mechanism for a gradient with no arms in it. Deleting every tied record moves the rise from +0.1276 to +0.1268, a change of -0.0008 or 0.6% of it, against a pre-registered threshold of 30%: the differential tie rate does NOT explain the gradient. It is carried by records that all had a real majority, and 95% CI over pairs on the untied-only rise is [+0.0993,+0.1552]. A CORRECTION TO THIS ROUND'S OWN CLAIM CARD, KEPT RATHER THAN REWRITTEN: its first draft called the untied-only gradient an INDEPENDENT ROUTE to r104's deattenuated +0.0945 -- two ways of removing label noise, one dividing and one deleting rows, whose agreement would be strong evidence for the noise model. THAT WAS WRONG. Deleting ties removes only the ZERO-information records; an untied third is still an unreliable majority. The number that proves it is A=B agreement among the SURVIVING records, 0.8347 rather than 1.0, an attenuation factor of 0.8181 that this stratification leaves untouched and r104's division does not. The two are not commensurable and the comparison here is against the RAW gradient instead. SCOPE: a partition of r104's persisted records. No new measurement, no judge call, and no donor redraw -- the single canonical draw of r104 is inherited unchanged, so r106's finding that a ratio magnifies draw variance does not apply here, these being differences rather than ratios."
+}

@@ -65,7 +65,7 @@ def _floor(n: int, what: str) -> int:
 
 def scan(root: Path):
     hits, scanned = [], 0
-    for f in sorted(root.glob("rounds/*/results/**/*")):
+    for f in sorted(root.glob("rounds/*/*/results/**/*")):
         if not f.is_file() or PROVISIONAL.search(str(f)):
             continue
         if any(p.startswith("_") for p in f.parts):

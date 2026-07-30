@@ -160,7 +160,7 @@ def main() -> int:
     # ** rather than * : an attack put a results file one directory deeper and
     # the flat glob never saw it.  A checker's population must be the files
     # that exist, not the layout I assumed.
-    files = sorted(_ROOT.glob("rounds/*/results/**/*.json"))
+    files = sorted(_ROOT.glob("rounds/*/*/results/**/*.json"))
     files = [f for f in files if "_smoke_archive" not in f.parts and not PROVISIONAL.search(f.name)]
     hits, scanned, fields = [], 0, 0
     excluded = {}

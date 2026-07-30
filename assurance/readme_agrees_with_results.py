@@ -236,7 +236,7 @@ def main() -> None:
     a = ap.parse_args()
 
     pools: dict[str, set[float]] = {}
-    for f in sorted(_ROOT.glob("rounds/*/results/*.json")):
+    for f in sorted(_ROOT.glob("rounds/*/*/results/*.json")):
         if PROVISIONAL.search(f.name):
             continue
         rid = f.parts[-3].split("_")[0]

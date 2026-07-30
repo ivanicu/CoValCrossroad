@@ -53,10 +53,18 @@ def _floor(n: int, what: str) -> int:
         return 2
     return 0
 
+import sys as _s
+_s.path.insert(0, str(_ROOT))
+from covalx.rounds import (fixture_dir, iter_round_dirs,  # noqa: E402
+                            round_dir)
+
+
 def main() -> int:
     readme = (_ROOT / "README.md").read_text()
-    rounds = sorted(d for d in (_ROOT / "rounds").iterdir()
-                    if d.is_dir() and not d.name.startswith("_"))
+    # iterdir() over rounds/ now yields the twelve CAMPAIGN directories, not rounds -- and the
+    # failure was silent in the worst way: the glob still matched, so this reported twelve rounds
+    # with no results, a completeness verdict computed over the wrong population.
+    rounds = [d for d in iter_round_dirs(_ROOT) if not d.name.startswith("_")]
     missing, with_results = [], 0
     for d in rounds:
         res = [f for f in d.glob("results/**/*.json")

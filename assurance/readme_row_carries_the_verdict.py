@@ -145,7 +145,7 @@ def main() -> int:
             rows.setdefault(m.group(1), ln)
 
     verdicts: dict[str, str] = {}
-    for f in sorted(_ROOT.glob("rounds/*/results/**/*.json")):
+    for f in sorted(_ROOT.glob("rounds/*/*/results/**/*.json")):
         if "smoke" in f.name.lower() or any(p.startswith("_") for p in f.parts):
             continue
         rid = f.parts[-3].split("_")[0] if f.parent.name == "results" \

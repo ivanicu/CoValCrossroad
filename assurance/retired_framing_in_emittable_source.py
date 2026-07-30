@@ -101,7 +101,7 @@ def main() -> int:
     # raises when called with zero, NOT that the check calls it with zero when its
     # population disappears. Testing a guard in isolation is not testing the path
     # to the guard.
-    round_files = sorted(_ROOT.glob("rounds/*/*.py"))
+    round_files = sorted(_ROOT.glob("rounds/*/*/*.py"))
     covalx_files = sorted(_ROOT.glob("covalx/*.py"))
     _floor(len(round_files), "the set of round source files")
     _floor(len(covalx_files), "the set of covalx source files")

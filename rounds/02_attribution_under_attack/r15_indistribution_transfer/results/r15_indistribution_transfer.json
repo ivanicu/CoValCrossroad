@@ -1,0 +1,55 @@
+{
+ "prompts": 300,
+ "note": "graded against REAL human world rankings; no gold model",
+ "authored": {
+  "accuracy": 0.6517759993770522,
+  "ci": [
+   0.6354055239924636,
+   0.668671427714977
+  ],
+  "prompts": 300
+ },
+ "neighbour": {
+  "accuracy": 0.596503413365751,
+  "ci": [
+   0.5768397934935586,
+   0.6168815993718391
+  ],
+  "prompts": 300
+ },
+ "random": {
+  "accuracy": 0.5783589787687268,
+  "ci": [
+   0.5586473611689403,
+   0.5974288217103393
+  ],
+  "prompts": 300
+ },
+ "authored_minus_random": {
+  "delta": 0.07341702060832542,
+  "ci": [
+   0.05613035633723982,
+   0.09117720169260209
+  ],
+  "verdict": "higher"
+ },
+ "neighbour_minus_random": {
+  "delta": 0.018144434597024278,
+  "ci": [
+   -0.0006695337382876931,
+   0.03700222360053891
+  ],
+  "verdict": "indistinguishable"
+ },
+ "authored_minus_neighbour": {
+  "delta": 0.055272586011301146,
+  "ci": [
+   0.03931102721069833,
+   0.07144417238057409
+  ],
+  "verdict": "higher"
+ },
+ "conclusion": "CRITERIA ARE PROMPT-SPECIFIC, NOT MERELY TOPIC-SPECIFIC. Only a prompt's own criteria beat the floor (+0.0734 [+0.0561,+0.0912]); criteria from the most topically similar other prompt do not (+0.0181 [-0.0007,+0.0370]). Measured on released responses against real human rankings, so no gold model or generator is involved. SCOPE CORRECTION: this does NOT resolve r12. r12 asked about NEW responses to the SAME prompt; this asks about responses to a DIFFERENT prompt. The two are different questions and r15 neither confirms nor refutes r12.",
+ "conclusion_original": "BOUND IS REAL: only criteria authored against these very responses beat the floor. Topically matched criteria do not transfer, so the boundary is a property of rubric-graded evaluation, not of the generator used in r12.",
+ "does_not_resolve": "rounds/02_attribution_under_attack/r12_response_set -- different question"
+}

@@ -80,7 +80,7 @@ DISCLOSE = re.compile(
 
 
 def main() -> int:
-    found = {p.parent.name for p in ROOT.glob("rounds/*/run.py")
+    found = {p.parent.name for p in ROOT.glob("rounds/*/*/run.py")
              if FILTER.search(p.read_text())}
     readme = README.read_text()
     print(f"rounds applying the majority/seed filter: {len(found)}   registry: {len(ROUNDS)}")
@@ -102,14 +102,14 @@ def main() -> int:
     missing = []
     for r in sorted(ROUNDS & found):
         txt = ""
-        for f in glob.glob(str(ROOT / f"rounds/{r}/results/*.json")):
+        for f in glob.glob(str(ROOT / f"rounds/*/{r}/results/*.json")):
             if Path(f).stat().st_size < 4_000_000:
                 try:
                     txt += json.dumps(json.load(open(f)))
                 except Exception:
                     pass
         rows = [l for l in readme.splitlines()
-                if l.lstrip().startswith("|") and f"rounds/{r})" in l.lstrip()[1:].split("|")[0]]
+                if l.lstrip().startswith("|") and f"/{r})" in l.lstrip()[1:].split("|")[0]]
         if not (DISCLOSE.search(txt) or any(DISCLOSE.search(l) for l in rows)):
             missing.append(r)
 

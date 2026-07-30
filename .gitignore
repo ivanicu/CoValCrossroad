@@ -12,9 +12,17 @@ __pycache__/
 
 # r79 embedding caches: 308 MB, regenerable from the checkpoints in r80_panel_freeze.
 # Kept out of git deliberately -- the derived per-prompt values (r79_d_*.npy) are committed.
-rounds/*/results/r79_emb_*.npy
+rounds/*/*/results/r79_emb_*.npy
 # ...including the quarantined copies. The rule above did not match the
 # _stale/ path, so 103 MB of all-NaN arrays kept the tree permanently dirty
 # while looking committed-adjacent. results/_stale/WHY.md is the durable
 # record of what they were; the bytes are NaN and carry nothing.
-rounds/*/results/_stale/r79_emb_*.npy
+rounds/*/*/results/_stale/r79_emb_*.npy
+
+# Third-party PRISM release, pulled by an adversary agent to check whether that dataset
+# could carry this project's estimand (it cannot: 0 of 8,011 conversations have more than
+# one rater). 153 MB of someone else's data, never ours to redistribute.
+utterances.jsonl
+metadata.jsonl
+conversations.jsonl
+survey.jsonl

@@ -153,7 +153,7 @@ def scan(root: pathlib.Path):
         for k, v in o.items():
             walk(v, rid, f"{path}.{k}" if path else k)
 
-    for f in sorted(root.glob("rounds/*/results/*.json")):
+    for f in sorted(root.glob("rounds/*/*/results/*.json")):
         if "_smoke" in str(f) or f.stat().st_size > 6_000_000:
             continue
         try:
@@ -168,7 +168,7 @@ def positive_control() -> tuple[bool, str]:
     never returned non-zero cannot be trusted when it returns zero."""
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="coh_ctrl_"))
     try:
-        d = tmp / "rounds" / "rZZ_plant" / "results"
+        d = fixture_dir(tmp, "rZZ_plant") / "results"   # a planted round must sit where real ones do
         d.mkdir(parents=True)
         (d / "p.json").write_text(json.dumps({
             "clean_pair":   {"gap": 0.05, "gap_ci": [0.04, 0.06]},
@@ -183,6 +183,12 @@ def positive_control() -> tuple[bool, str]:
     got_c = [x[1] for x in r["contradict"]]
     ok = got_o == ["outside_pair"] and got_c == ["broken_flag"]
     return ok, f"outside={got_o} contradict={got_c}"
+
+
+import sys as _s
+_s.path.insert(0, str(ROOT))
+from covalx.rounds import (fixture_dir, iter_round_dirs,  # noqa: E402
+                            round_dir)
 
 
 def main() -> int:
