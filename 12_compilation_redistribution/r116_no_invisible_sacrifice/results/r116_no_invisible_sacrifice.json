@@ -1,0 +1,156 @@
+{
+ "bootstrap_H": {
+  "ci": [
+   0.10385756676557864,
+   0.14540059347181009
+  ],
+  "eps": 0.01,
+  "n": 2000,
+  "point": 0.12462908011869436
+ },
+ "conclusion": "On 15,202 assessments over 15,103 cells, 968 prompts and 1011 people, the compiled rule changes individual service by a median of -0.0667 and a mean of -0.07193, with the 1st-to-99th percentile running -0.2702 to +0.0994. ABSOLUTE HARM at the pre-registered eps=0.01: 12.46% of people are worse off, bootstrap [10.39%,14.54%], against a paired-shuffle floor of 10.63% whose 97.5th percentile is 12.07%: excess +1.83%, permutation p = 0.0100. The replicated cells give an independent, permutation-free floor: 95 cells, 99 df, per-person resolution 0.0742 at the median workload, and deconvolving that noise leaves a true harmed fraction of 8.18%. The worst-served 10% carry mean loss 0.5533 under full and 0.5059 under core (-0.0474). Gains are concentrated at Gini 0.463, the top decile taking 27% of all improvement. The positive control plants harm on 10% of raters and needs g=0.1 before it recovers half the plant -- an increment of +5.84% on a 10% plant -- so the harm rate resolves only shifts of that size and larger. ",
+ "cvar": {
+  "0.05": {
+   "core": 0.542522204536865,
+   "delta": -0.04374725869436913,
+   "full": 0.5862694632312341
+  },
+  "0.1": {
+   "core": 0.5059440676309718,
+   "delta": -0.04740043049159692,
+   "full": 0.5533444981225687
+  },
+  "0.2": {
+   "core": 0.4669114304644835,
+   "delta": -0.05290567200474511,
+   "full": 0.5198171024692286
+  }
+ },
+ "deconvolved": {
+  "eps": 0.01,
+  "noise": 0.0021146105018024714,
+  "sd_true": 0.058810163053502694,
+  "true_harmed_fraction": 0.08180101516702848,
+  "var_delta": 0.005573245780182045
+ },
+ "eps_decisive": 0.01,
+ "eps_grid": [
+  0.0,
+  0.005,
+  0.01,
+  0.02
+ ],
+ "floor_A_shuffle": {
+  "0": {
+   "ci": [
+    0.11866963402571712,
+    0.1513353115727003
+   ],
+   "mean": 0.13581355093966374,
+   "p97_5": 0.1513353115727003,
+   "p_perm": 0.012468827930174564
+  },
+  "0.005": {
+   "ci": [
+    0.10583580613254204,
+    0.13649851632047477
+   ],
+   "mean": 0.12113996043521269,
+   "p97_5": 0.13649851632047477,
+   "p_perm": 0.014962593516209476
+  },
+  "0.01": {
+   "ci": [
+    0.09198813056379822,
+    0.12069732937685458
+   ],
+   "mean": 0.106337784371909,
+   "p97_5": 0.12069732937685458,
+   "p_perm": 0.00997506234413965
+  },
+  "0.02": {
+   "ci": [
+    0.06822453016815035,
+    0.09495548961424333
+   ],
+   "mean": 0.08160731948565775,
+   "p97_5": 0.09495548961424333,
+   "p_perm": 0.032418952618453865
+  }
+ },
+ "floor_B_replicates": {
+  "df": 99,
+  "n_replicated": 95,
+  "resolution_at_median": 0.07418742322949422,
+  "se_person_median": 0.03785072613749705,
+  "var_within": 0.022922839506172837
+ },
+ "gini_of_gain": 0.463363732785403,
+ "harm_observed": {
+  "0": 0.1533135509396637,
+  "0.005": 0.13847675568743817,
+  "0.01": 0.12462908011869436,
+  "0.02": 0.09495548961424333
+ },
+ "mean_L_core": 0.33365645326654275,
+ "mean_L_full": 0.4055824645777765,
+ "mean_delta": -0.07192601131123369,
+ "median_delta": -0.06666666666666671,
+ "n_assessments": 15202,
+ "n_cells": 15103,
+ "n_people": 1011,
+ "n_prompts": 968,
+ "n_replicated_cells": 95,
+ "percentiles": {
+  "1": -0.2701960784313725,
+  "10": -0.16666666666666669,
+  "25": -0.11666666666666664,
+  "5": -0.19999999999999996,
+  "50": -0.06666666666666671,
+  "75": -0.0236694677871149,
+  "90": 0.01764705882352946,
+  "95": 0.04285714285714287,
+  "99": 0.09937499999999984
+ },
+ "positive_control": {
+  "by_g": {
+   "0.0": {
+    "H": 0.12462908011869436,
+    "increment": 0.0,
+    "recovery_of_plant": 0.0
+   },
+   "0.02": {
+    "H": 0.12957467853610286,
+    "increment": 0.004945598417408492,
+    "recovery_of_plant": 0.04945598417408492
+   },
+   "0.05": {
+    "H": 0.1414441147378833,
+    "increment": 0.01681503461918893,
+    "recovery_of_plant": 0.1681503461918893
+   },
+   "0.1": {
+    "H": 0.18298714144411474,
+    "increment": 0.058358061325420374,
+    "recovery_of_plant": 0.5835806132542037
+   },
+   "0.15": {
+    "H": 0.19386745796241345,
+    "increment": 0.06923837784371908,
+    "recovery_of_plant": 0.6923837784371908
+   },
+   "0.2": {
+    "H": 0.20375865479723046,
+    "increment": 0.0791295746785361,
+    "recovery_of_plant": 0.791295746785361
+   }
+  },
+  "mde_g_half_recovery": 0.1,
+  "recovers": true,
+  "share": 0.1
+ },
+ "source_name": "run.py",
+ "source_sha256": "ad41cd1b1c4f69f8ac7d28a1d23fe0cf11293f29ae22bd834f7cef5e7e2ccd56",
+ "top_decile_share_of_gain": 0.27021553143276983,
+ "world": "W-VISIBLE-COST"
+}
