@@ -1,0 +1,69 @@
+{
+ "block": "world",
+ "cutoff": 0.8,
+ "pairs": 1181,
+ "prompts_with_pairs": 702,
+ "arms": {
+  "rewritten": {
+   "concordance": 0.6116,
+   "ci95": [
+    0.6073,
+    0.6159
+   ],
+   "n": 11335
+  },
+  "raw_source": {
+   "concordance": 0.5941,
+   "ci95": [
+    0.5897,
+    0.5985
+   ],
+   "n": 11335
+  },
+  "other_raw_same_n": {
+   "concordance": 0.5502,
+   "ci95": [
+    0.5457,
+    0.5548
+   ],
+   "n": 11335
+  }
+ },
+ "paired_delta": {
+  "delta": 0.0175,
+  "ci95": [
+   0.0148,
+   0.0202
+  ],
+  "z": 12.75,
+  "n": 11335
+ },
+ "dose_response": {
+  "heavier": {
+   "n": 2810,
+   "delta": 0.0269,
+   "ci95": [
+    0.0208,
+    0.033
+   ]
+  },
+  "moderate": {
+   "n": 4010,
+   "delta": 0.0169,
+   "ci95": [
+    0.0123,
+    0.0216
+   ]
+  },
+  "near-identical": {
+   "n": 4450,
+   "delta": 0.0121,
+   "ci95": [
+    0.0083,
+    0.0158
+   ]
+  }
+ },
+ "selection_caveat": "a pair exists only when the rewrite stayed within the cutoff of its source, so this measures LIGHT rewriting; the heavily rewritten 69% are unmatched by construction and invisible here",
+ "instrument": "one rebuilt 2B judge for both arms on the same responses"
+}
