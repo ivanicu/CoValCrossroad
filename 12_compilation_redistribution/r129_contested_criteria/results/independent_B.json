@@ -1,0 +1,460 @@
+{
+  "estimand": "Among full criteria rated by >=2 participants, does rater disagreement (min-side-fraction >= 0.20) predict whether the criterion is behaviourally retained into the compiled 4-item coval_core (via satisfaction-fingerprint nearest-neighbour matching, confidence-gated by a tau calibrated on known verbatim-copy pairs), adjusting for |mean rating| and log(n_raters); and among contested criteria, does retention track the raw-vote majority side or the higher-intensity minority side when the two disagree (sign_conflict)?",
+  "provenance_gap": "coval_core carries no rubric_item_id/scores/link back to coval_full. Only 7.8% of core criteria are exact-text duplicates of a full criterion; the rest are paraphrased. Item-level ground truth is NOT recoverable from the release. All 'retained' claims below are a validated behavioural PROXY (satisfaction-fingerprint nearest neighbour), not provenance.",
+  "preregistration": {
+    "contested_min_side_fraction_threshold": 0.2,
+    "min_raters_for_contested_analysis": 2,
+    "tau_percentile_of_known_pair_distance": 95,
+    "positive_control_min_accuracy_multiple_of_chance": 3.0,
+    "positive_control_min_absolute_accuracy": 0.15,
+    "n_boot": 1000,
+    "boot_seeds": [
+      4409,
+      4410,
+      4411,
+      4412,
+      4413
+    ],
+    "multiplicity_family": [
+      "estimand1(drop-prediction) x euclidean",
+      "estimand1(drop-prediction) x correlation",
+      "estimand2(whose-side)      x euclidean",
+      "estimand2(whose-side)      x correlation"
+    ],
+    "multiplicity_method": "holm-bonferroni",
+    "rater_count_regime_split": {
+      "thin": [
+        2,
+        9
+      ],
+      "dense": [
+        10,
+        1000000000
+      ]
+    }
+  },
+  "strongest_confound": "Split (any-dissent) criteria mechanically have a SMALLER |mean| than unanimous criteria purely by cancellation -- this is arithmetic, not a finding -- and criteria with a smaller |mean| are plausibly less likely to be selected by ANY magnitude/utility-driven compiler for reasons that have nothing to do with representing dissent. A second, related confound: the rater-count distribution is structurally bimodal with a genuine gap (no criterion in this release has exactly 2 or 3 raters -- it is 1, or >=4), so criteria that attracted many raters may be a systematically different population (e.g. templated/recurring across many conversations) whose retention odds differ for reasons unrelated to disagreement. Both are controlled in every regression below via standardized |mean| and standardized log(n_raters) covariates, and the 0.20 contested threshold was chosen from the predictor's own distribution specifically because it is empirically uncorrelated with n_raters (checked before any outcome was touched).",
+  "facts_verified": {
+    "n_full_criteria": 14984,
+    "fraction_exactly_1_rater": 0.6352776294714362,
+    "fraction_10_or_more_raters": 0.34016284036305394,
+    "fraction_2_to_9_raters": 0.024559530165509876,
+    "rater_count_gap_note": "no criterion in this release has exactly 2 or 3 raters (verified min multi-rated n=4)",
+    "n_multirated_negative_mean": 860,
+    "fraction_negative_mean_with_ge1_positive_rater": 0.9918604651162791
+  },
+  "ground_truth_pairs": {
+    "n": 298,
+    "n_ambiguous_gt1_candidate": 6,
+    "n_core_total": 3828
+  },
+  "contested_predictor_sanity": {
+    "spearman_rho_min_frac_vs_n_raters": 0.014788557504055867,
+    "spearman_p": 0.2743660356650158,
+    "contested_base_rate_at_0.20_threshold": 0.4087831655992681
+  },
+  "positive_control": {
+    "euclidean": {
+      "n_eval": 298,
+      "top1_accuracy": 0.9966442953020134,
+      "top3_accuracy": 1.0,
+      "chance_top1_accuracy": 0.07917478958217589,
+      "accuracy_over_chance_multiple": 12.58789951399355,
+      "tau_from_known_pairs_p95": 0.06787146172730844,
+      "true_pair_distance_median": 0.02835969626903534
+    },
+    "correlation": {
+      "n_eval": 298,
+      "top1_accuracy": 0.9328859060402684,
+      "top3_accuracy": 0.9899328859060402,
+      "chance_top1_accuracy": 0.07917478958217589,
+      "accuracy_over_chance_multiple": 11.78261301309834,
+      "tau_from_known_pairs_p95": 0.04989773188489067,
+      "true_pair_distance_median": 0.00106049499191041
+    }
+  },
+  "positive_control_gate_passed": true,
+  "placebo_confident_match_rate": {
+    "euclidean": 0.004440961337513062,
+    "correlation": 0.22309299895506793
+  },
+  "placebo_regression": {
+    "euclidean": {
+      "n": 5465,
+      "confident_retention_rate": 0.0010978956999085087,
+      "adjusted_logit_coef_contested": -0.2042641235980341,
+      "adjusted_odds_ratio": 0.8152470167730966
+    },
+    "correlation": {
+      "n": 5465,
+      "confident_retention_rate": 0.05489478499542543,
+      "adjusted_logit_coef_contested": 0.33264066066335285,
+      "adjusted_odds_ratio": 1.3946460572282875
+    }
+  },
+  "real_confident_match_rate": {
+    "euclidean": 0.17946708463949843,
+    "correlation": 0.7873563218390804
+  },
+  "regression_n_rows": 5465,
+  "estimand1_drop_prediction": {
+    "euclidean": {
+      "n": 5465,
+      "n_contested": 2234,
+      "n_uncontested": 3231,
+      "raw_retention_rate_contested": 0.026410026857654433,
+      "raw_retention_rate_uncontested": 0.1392757660167131,
+      "raw_absolute_diff_pp": -11.286573915905866,
+      "unadjusted_logit_coef_contested": -1.7859282278372128,
+      "unadjusted_odds_ratio": 0.16764137936235604,
+      "adjusted_logit_coef_contested": -1.0373868438741032,
+      "adjusted_odds_ratio": 0.3543795220756971,
+      "adjusted_logit_coef_abs_mean_z": 0.48285180718142967,
+      "adjusted_logit_coef_log_nraters_z": -0.10781127801231381,
+      "cluster_bootstrap": {
+        "n_boot_total": 5000,
+        "ci95": [
+          -1.399060134399746,
+          -0.7069407799370337
+        ],
+        "p_boot": "<0.00020 (0/5000 crossed zero)",
+        "per_seed_ci95": [
+          [
+            -1.3953223947113458,
+            -0.7187714157732107
+          ],
+          [
+            -1.3916657391718996,
+            -0.6956928425661084
+          ],
+          [
+            -1.399980226342718,
+            -0.6962936522509536
+          ],
+          [
+            -1.3819203606180224,
+            -0.7235839879250356
+          ],
+          [
+            -1.4186414134576346,
+            -0.7044498721908891
+          ]
+        ],
+        "seed_spread_ci_low_min_max": [
+          -1.4186414134576346,
+          -1.3819203606180224
+        ],
+        "seed_spread_ci_high_min_max": [
+          -0.7235839879250356,
+          -0.6956928425661084
+        ]
+      }
+    },
+    "correlation": {
+      "n": 5465,
+      "n_contested": 2234,
+      "n_uncontested": 3231,
+      "raw_retention_rate_contested": 0.11996418979409132,
+      "raw_retention_rate_uncontested": 0.372330547818013,
+      "raw_absolute_diff_pp": -25.236635802392172,
+      "unadjusted_logit_coef_contested": -1.4705376713850755,
+      "unadjusted_odds_ratio": 0.22980189406132254,
+      "adjusted_logit_coef_contested": -0.6715323226029666,
+      "adjusted_odds_ratio": 0.5109250756090223,
+      "adjusted_logit_coef_abs_mean_z": 0.527034488255732,
+      "adjusted_logit_coef_log_nraters_z": -0.11624689268921203,
+      "cluster_bootstrap": {
+        "n_boot_total": 5000,
+        "ci95": [
+          -0.9039009156565335,
+          -0.4505307887358061
+        ],
+        "p_boot": "<0.00020 (0/5000 crossed zero)",
+        "per_seed_ci95": [
+          [
+            -0.930697990506432,
+            -0.4538486324480796
+          ],
+          [
+            -0.8989767846446061,
+            -0.45180555249018417
+          ],
+          [
+            -0.9118140011443094,
+            -0.4568512921651424
+          ],
+          [
+            -0.8929799788886266,
+            -0.4458368971277323
+          ],
+          [
+            -0.8996458917399631,
+            -0.45623728472490765
+          ]
+        ],
+        "seed_spread_ci_low_min_max": [
+          -0.930697990506432,
+          -0.8929799788886266
+        ],
+        "seed_spread_ci_high_min_max": [
+          -0.4568512921651424,
+          -0.4458368971277323
+        ]
+      }
+    }
+  },
+  "estimand2_whose_side": {
+    "euclidean": {
+      "n": 2102,
+      "n_sign_conflict": 139,
+      "n_sign_consistent": 1963,
+      "raw_retention_rate_sign_conflict": 0.014388489208633094,
+      "raw_retention_rate_sign_consistent": 0.029037187977585328,
+      "raw_absolute_diff_pp": -1.4648698768952233,
+      "unadjusted_logit_coef_sign_conflict": -0.7171229257554387,
+      "unadjusted_odds_ratio": 0.48815469483205837,
+      "adjusted_logit_coef_sign_conflict": -0.18186008486921434,
+      "adjusted_odds_ratio": 0.8337179820160747,
+      "cluster_bootstrap": {
+        "n_boot_total": 5000,
+        "ci95": [
+          -14.480819247659054,
+          0.98450347594237
+        ],
+        "p_boot": 0.7132,
+        "per_seed_ci95": [
+          [
+            -14.468632132360334,
+            0.9220936011513381
+          ],
+          [
+            -14.505353004622286,
+            1.0206765933166226
+          ],
+          [
+            -14.509184168539171,
+            0.9384305595440983
+          ],
+          [
+            -14.405571496031296,
+            1.013361367020057
+          ],
+          [
+            -14.473832223356679,
+            1.0168288479277334
+          ]
+        ],
+        "seed_spread_ci_low_min_max": [
+          -14.509184168539171,
+          -14.405571496031296
+        ],
+        "seed_spread_ci_high_min_max": [
+          0.9220936011513381,
+          1.0206765933166226
+        ]
+      }
+    },
+    "correlation": {
+      "n": 2102,
+      "n_sign_conflict": 139,
+      "n_sign_consistent": 1963,
+      "raw_retention_rate_sign_conflict": 0.05755395683453238,
+      "raw_retention_rate_sign_consistent": 0.12888436067244013,
+      "raw_absolute_diff_pp": -7.133040383790775,
+      "unadjusted_logit_coef_sign_conflict": -0.8848966196249606,
+      "unadjusted_odds_ratio": 0.4127568420305851,
+      "adjusted_logit_coef_sign_conflict": -0.5123533816944498,
+      "adjusted_odds_ratio": 0.5990840450997617,
+      "cluster_bootstrap": {
+        "n_boot_total": 5000,
+        "ci95": [
+          -1.5079633320595554,
+          0.1345763112279146
+        ],
+        "p_boot": 0.132,
+        "per_seed_ci95": [
+          [
+            -1.416408230395051,
+            0.11285575420812007
+          ],
+          [
+            -1.6076361377445672,
+            0.13526247588144835
+          ],
+          [
+            -1.4296925827189488,
+            0.13688438373209294
+          ],
+          [
+            -1.4986671403197507,
+            0.11656589249159806
+          ],
+          [
+            -1.5744892573671243,
+            0.1444665095691341
+          ]
+        ],
+        "seed_spread_ci_low_min_max": [
+          -1.6076361377445672,
+          -1.416408230395051
+        ],
+        "seed_spread_ci_high_min_max": [
+          0.11285575420812007,
+          0.1444665095691341
+        ]
+      }
+    }
+  },
+  "multiplicity_raw_p": {
+    "estimand1_euclidean": 0.0002,
+    "estimand1_correlation": 0.0002,
+    "estimand2_euclidean": 0.7132,
+    "estimand2_correlation": 0.132
+  },
+  "multiplicity_holm_adjusted_p": {
+    "estimand1_euclidean": 0.0008,
+    "estimand1_correlation": 0.0008,
+    "estimand2_correlation": 0.264,
+    "estimand2_euclidean": 0.7132
+  },
+  "four_scopes": {
+    "A_primary_full_population_euclidean": {
+      "n": 5465,
+      "n_contested": 2234,
+      "n_uncontested": 3231,
+      "raw_retention_rate_contested": 0.026410026857654433,
+      "raw_retention_rate_uncontested": 0.1392757660167131,
+      "raw_absolute_diff_pp": -11.286573915905866,
+      "unadjusted_logit_coef_contested": -1.7859282278372128,
+      "unadjusted_odds_ratio": 0.16764137936235604,
+      "adjusted_logit_coef_contested": -1.0373868438741032,
+      "adjusted_odds_ratio": 0.3543795220756971,
+      "adjusted_logit_coef_abs_mean_z": 0.48285180718142967,
+      "adjusted_logit_coef_log_nraters_z": -0.10781127801231381,
+      "cluster_bootstrap": {
+        "n_boot_total": 5000,
+        "ci95": [
+          -1.399060134399746,
+          -0.7069407799370337
+        ],
+        "p_boot": "<0.00020 (0/5000 crossed zero)",
+        "per_seed_ci95": [
+          [
+            -1.3953223947113458,
+            -0.7187714157732107
+          ],
+          [
+            -1.3916657391718996,
+            -0.6956928425661084
+          ],
+          [
+            -1.399980226342718,
+            -0.6962936522509536
+          ],
+          [
+            -1.3819203606180224,
+            -0.7235839879250356
+          ],
+          [
+            -1.4186414134576346,
+            -0.7044498721908891
+          ]
+        ],
+        "seed_spread_ci_low_min_max": [
+          -1.4186414134576346,
+          -1.3819203606180224
+        ],
+        "seed_spread_ci_high_min_max": [
+          -0.7235839879250356,
+          -0.6956928425661084
+        ]
+      }
+    },
+    "B_ground_truth_only_verbatim_subset": {
+      "description": "contested rate among criteria with CERTAIN (verbatim-text) retention, vs population base rate",
+      "n_verbatim_retained_multirated": 286,
+      "contested_rate_among_verbatim_retained": 0.11188811188811189,
+      "contested_rate_population_base": 0.4087831655992681,
+      "z": -10.21329983322311,
+      "p_two_sided": 0.0,
+      "caveat": "verbatim-copy retention is a SPECIAL (likely crisper-worded / possibly less-contested) subset of all retention, not a random sample of it -- selection bias in the OPPOSITE direction from the compiler paraphrasing effort is plausible here."
+    },
+    "C_robustness_correlation_metric": {
+      "n": 5465,
+      "n_contested": 2234,
+      "n_uncontested": 3231,
+      "raw_retention_rate_contested": 0.11996418979409132,
+      "raw_retention_rate_uncontested": 0.372330547818013,
+      "raw_absolute_diff_pp": -25.236635802392172,
+      "unadjusted_logit_coef_contested": -1.4705376713850755,
+      "unadjusted_odds_ratio": 0.22980189406132254,
+      "adjusted_logit_coef_contested": -0.6715323226029666,
+      "adjusted_odds_ratio": 0.5109250756090223,
+      "adjusted_logit_coef_abs_mean_z": 0.527034488255732,
+      "adjusted_logit_coef_log_nraters_z": -0.11624689268921203,
+      "cluster_bootstrap": {
+        "n_boot_total": 5000,
+        "ci95": [
+          -0.9039009156565335,
+          -0.4505307887358061
+        ],
+        "p_boot": "<0.00020 (0/5000 crossed zero)",
+        "per_seed_ci95": [
+          [
+            -0.930697990506432,
+            -0.4538486324480796
+          ],
+          [
+            -0.8989767846446061,
+            -0.45180555249018417
+          ],
+          [
+            -0.9118140011443094,
+            -0.4568512921651424
+          ],
+          [
+            -0.8929799788886266,
+            -0.4458368971277323
+          ],
+          [
+            -0.8996458917399631,
+            -0.45623728472490765
+          ]
+        ],
+        "seed_spread_ci_low_min_max": [
+          -0.930697990506432,
+          -0.8929799788886266
+        ],
+        "seed_spread_ci_high_min_max": [
+          -0.4568512921651424,
+          -0.4458368971277323
+        ]
+      }
+    },
+    "D_rater_count_regime_split": {
+      "thin": {
+        "n": 368,
+        "raw_retention_rate_contested": 0.046357615894039736,
+        "raw_retention_rate_uncontested": 0.17511520737327188,
+        "adjusted_odds_ratio_contested": 0.38672732015759137
+      },
+      "dense": {
+        "n": 5097,
+        "raw_retention_rate_contested": 0.024963994239078253,
+        "raw_retention_rate_uncontested": 0.1366954213669542,
+        "adjusted_odds_ratio_contested": 0.35633221266778975
+      }
+    }
+  },
+  "verdict": "CONFIRMED",
+  "verdict_note": "Contested criteria are retained at LOWER odds than agreed criteria after adjusting for |mean| and log(n_raters), holding across both distance metrics and surviving multiplicity correction -- disagreement predicts being dropped.",
+  "runtime_seconds": 15.962134838104248,
+  "seed": 4409,
+  "boot_seeds": [
+    4409,
+    4410,
+    4411,
+    4412,
+    4413
+  ]
+}

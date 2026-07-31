@@ -1,0 +1,397 @@
+{
+  "seed": 4409,
+  "seeds_used": [
+    4409,
+    4410,
+    4411,
+    4412,
+    4413
+  ],
+  "n_boot_per_seed": 2000,
+  "n_prompts": 968,
+  "n_instances_total": 18811,
+  "n_instances_full": 14983,
+  "n_instances_core": 3828,
+  "n_prompts_skipped_zero_human_pairs": 0,
+  "estimand": "per-criterion pairwise ranking accuracy against pooled strict human world-pairs; core-vs-full gap decomposed by criterion text length (chars).",
+  "positive_control": {
+    "description": "prompt-level aggregate ranking accuracy vs pooled human world-pairs; must clear chance=0.5 in BOTH arms or the whole pipeline is untrusted (reproduces r04's own positive control).",
+    "full_arm": {
+      "mean": 0.5899092679784564,
+      "ci95": [
+        0.579131693231045,
+        0.6010482813184536
+      ],
+      "beats_chance": true
+    },
+    "core_arm": {
+      "mean": 0.6563481569655265,
+      "ci95": [
+        0.6466228422211703,
+        0.6662287998535296
+      ],
+      "beats_chance": true
+    },
+    "n_prompts_full": 968,
+    "n_prompts_core": 968
+  },
+  "placebos": {
+    "shuffled_length_vs_decisiveness_corr": 0.002181503185805421,
+    "expect": "~0 (|r| < 0.1)",
+    "list_position_accuracy_gap_full_only": 0.004032021348043036,
+    "list_position_length_gap_full_only": 6.721041002064595,
+    "expect_position": "no reason to differ from 0"
+  },
+  "descriptive": {
+    "mean_len_full": 97.69905893345792,
+    "mean_len_core": 88.17345872518287,
+    "mean_dec_full": 0.2090643325504551,
+    "mean_dec_core": 0.21883646776579035,
+    "mean_acc_full_all": 0.5544468225361775,
+    "mean_acc_core": 0.6236430927973221,
+    "corr_length_decisiveness_pooled": -0.03676467215731375,
+    "corr_length_importance_within_full": 0.18563774322082222
+  },
+  "hypotheses": {
+    "H1_beta_arm_raw_accuracy": {
+      "point": 0.06919627026114457,
+      "ci95_pooled": [
+        0.06371099285409261,
+        0.07456184445972322
+      ],
+      "per_seed_ci95": {
+        "4409": [
+          0.0635953003676939,
+          0.07448155430250823
+        ],
+        "4410": [
+          0.06366522068230342,
+          0.07446019157900811
+        ],
+        "4411": [
+          0.06387641973082964,
+          0.0745313625576919
+        ],
+        "4412": [
+          0.06394835664061536,
+          0.0748142719808752
+        ],
+        "4413": [
+          0.06353728147976791,
+          0.0745687889068779
+        ]
+      },
+      "raw_p": 0.0,
+      "p_holm": 0.0,
+      "reject_0.05": true
+    },
+    "H2_beta_length_on_decisiveness": {
+      "point": -0.006864236750738153,
+      "ci95_pooled": [
+        -0.010577840098156235,
+        -0.003292127384813982
+      ],
+      "per_seed_ci95": {
+        "4409": [
+          -0.010753375403781728,
+          -0.0033133237752081767
+        ],
+        "4410": [
+          -0.010516552994996233,
+          -0.003201690984160506
+        ],
+        "4411": [
+          -0.010496945095557372,
+          -0.0034013574703241427
+        ],
+        "4412": [
+          -0.010407768699528756,
+          -0.0032920571704545113
+        ],
+        "4413": [
+          -0.010672622494168013,
+          -0.0032949625572089654
+        ]
+      },
+      "raw_p": 0.0,
+      "p_holm": 0.0,
+      "reject_0.05": true
+    },
+    "H3_beta_arm_after_length_KEY": {
+      "point": 0.07165034068219288,
+      "ci95_pooled": [
+        0.06602573858248006,
+        0.07716427248138226
+      ],
+      "per_seed_ci95": {
+        "4409": [
+          0.06595785005525556,
+          0.07704736885929103
+        ],
+        "4410": [
+          0.0659776902722196,
+          0.077214099235423
+        ],
+        "4411": [
+          0.06620545659696785,
+          0.07697576136708804
+        ],
+        "4412": [
+          0.06618419349720561,
+          0.07738899327504767
+        ],
+        "4413": [
+          0.06586938392679655,
+          0.07720241046884001
+        ]
+      },
+      "raw_p": 0.0,
+      "p_holm": 0.0,
+      "reject_0.05": true
+    },
+    "H4_beta_arm_after_decisiveness": {
+      "point": 0.0676290195862912,
+      "ci95_pooled": [
+        0.062144689318952444,
+        0.07301371104099363
+      ],
+      "per_seed_ci95": {
+        "4409": [
+          0.06209663018635393,
+          0.07303252219086752
+        ],
+        "4410": [
+          0.06212689746493108,
+          0.072809287830124
+        ],
+        "4411": [
+          0.062272620909713874,
+          0.07288939630575968
+        ],
+        "4412": [
+          0.06222991578163251,
+          0.07315770073411604
+        ],
+        "4413": [
+          0.062046234726056436,
+          0.07298090522282914
+        ]
+      },
+      "raw_p": 0.0,
+      "p_holm": 0.0,
+      "reject_0.05": true
+    },
+    "H5_beta_length_within_full_ctrl_importance": {
+      "point": -0.017068637609448965,
+      "ci95_pooled": [
+        -0.026753736747224057,
+        -0.007692464195809259
+      ],
+      "per_seed_ci95": {
+        "4409": [
+          -0.02650460136863215,
+          -0.007912462646179693
+        ],
+        "4410": [
+          -0.026927693265900304,
+          -0.00804371349496499
+        ],
+        "4411": [
+          -0.026556428172320175,
+          -0.007723516065517486
+        ],
+        "4412": [
+          -0.026598626450132758,
+          -0.0075187149733086
+        ],
+        "4413": [
+          -0.027056782537069512,
+          -0.007568856683155423
+        ]
+      },
+      "raw_p": 0.0002,
+      "p_holm": 0.0002,
+      "reject_0.05": true
+    },
+    "H6_matched_gap_short_full_minus_core": {
+      "point": -0.08079484156474726,
+      "ci95_pooled": [
+        -0.08846108098944565,
+        -0.07263055056945764
+      ],
+      "per_seed_ci95": {
+        "4409": [
+          -0.0882772389926265,
+          -0.07249584837196767
+        ],
+        "4410": [
+          -0.08837514581120395,
+          -0.07249692328457133
+        ],
+        "4411": [
+          -0.08839664393524131,
+          -0.07284336394912562
+        ],
+        "4412": [
+          -0.08848366677135197,
+          -0.07284115657319146
+        ],
+        "4413": [
+          -0.08865137139024314,
+          -0.07223054184966606
+        ]
+      },
+      "raw_p": 0.0,
+      "p_holm": 0.0,
+      "reject_0.05": true,
+      "matched_gap_fraction_of_delta_raw": 1.167618446194138,
+      "mean_len_short_full": 63.86235294117647,
+      "p33_full_len_threshold": 82.0,
+      "mean_acc_short_full": 0.5428482512325749,
+      "mean_acc_long_full": 0.5597678836055298,
+      "within_full_len_gap_short_minus_long": {
+        "point": -0.016919632372954907,
+        "ci95_pooled": [
+          -0.025944040662513913,
+          -0.007711980478987303
+        ],
+        "per_seed_ci95": {
+          "4409": [
+            -0.025615044191299383,
+            -0.007415240951443814
+          ],
+          "4410": [
+            -0.025891181535011847,
+            -0.007952662314189337
+          ],
+          "4411": [
+            -0.02588617228990727,
+            -0.007968903104681156
+          ],
+          "4412": [
+            -0.025744675892182566,
+            -0.007591429900939181
+          ],
+          "4413": [
+            -0.026228217995828577,
+            -0.007914843036935036
+          ]
+        }
+      }
+    }
+  },
+  "headline": {
+    "r_style": {
+      "point": 1.0354653569012713,
+      "ci95_pooled": [
+        1.021565358879836,
+        1.0500768790104582
+      ],
+      "per_seed_ci95": {
+        "4409": [
+          1.0212091695430063,
+          1.0495416324256541
+        ],
+        "4410": [
+          1.021603637204616,
+          1.0507576185586618
+        ],
+        "4411": [
+          1.0217767388897934,
+          1.049302432902899
+        ],
+        "4412": [
+          1.0215650069718905,
+          1.0497621747854282
+        ],
+        "4413": [
+          1.0217821876174529,
+          1.050872822352202
+        ]
+      }
+    },
+    "delta_raw_accuracy_points": {
+      "point": 0.06919627026114457,
+      "ci95_pooled": [
+        0.06371099285409261,
+        0.07456184445972322
+      ],
+      "per_seed_ci95": {
+        "4409": [
+          0.0635953003676939,
+          0.07448155430250823
+        ],
+        "4410": [
+          0.06366522068230342,
+          0.07446019157900811
+        ],
+        "4411": [
+          0.06387641973082964,
+          0.0745313625576919
+        ],
+        "4412": [
+          0.06394835664061536,
+          0.0748142719808752
+        ],
+        "4413": [
+          0.06353728147976791,
+          0.0745687889068779
+        ]
+      }
+    },
+    "interpretation": "r_style = beta_arm(accuracy~arm+log(length)) / beta_arm(accuracy~arm). 0 = fully explained by length; 1 = arm effect untouched by length control."
+  },
+  "holm_bonferroni": {
+    "family_size": 6,
+    "alpha": 0.05,
+    "raw_p": {
+      "H1_beta_arm_raw": 0.0,
+      "H2_beta_length_on_dec": 0.0,
+      "H3_beta_arm_after_length": 0.0,
+      "H4_beta_arm_after_dec": 0.0,
+      "H5_beta_length_within_full": 0.0002,
+      "H6_matched_gap": 0.0
+    },
+    "p_holm": {
+      "H1_beta_arm_raw": 0.0,
+      "H2_beta_length_on_dec": 0.0,
+      "H3_beta_arm_after_length": 0.0,
+      "H4_beta_arm_after_dec": 0.0,
+      "H5_beta_length_within_full": 0.0002,
+      "H6_matched_gap": 0.0
+    },
+    "reject_0.05": {
+      "H1_beta_arm_raw": true,
+      "H2_beta_length_on_dec": true,
+      "H3_beta_arm_after_length": true,
+      "H4_beta_arm_after_dec": true,
+      "H5_beta_length_within_full": true,
+      "H6_matched_gap": true
+    }
+  },
+  "scopes": {
+    "population": "968 OpenAI Collective Alignment release prompts joined across comparisons.jsonl and conversation_rubrics.jsonl, restricted to those with a nonzero pooled strict human world-ranking and at least one scored full criterion; full criteria without human importance scores are excluded (mirrors r04's own filter).",
+    "instrument": "local Qwen3.5-2B-Base logit-gap judge as implemented in covalx.judge.Judge/build_prompt (few-shot, 1400-char reply truncation), read from the precomputed a04_full.npz/a04_core.npz satisfaction tensors -- not re-run here, no LLM calls made by this script.",
+    "baseline": "per-criterion pairwise accuracy against POOLED (all-annotator, tie-dropped) human 'world' ranking blocks via covalx.judge.human_pairs -- not prompt-level concordance, not the official arm-aggregate CoVal scoring rule, not the 'personal'/'unacceptable' ranking blocks.",
+    "regime": "OBSERVATIONAL/quasi-experimental only: naturally-occurring length variation within already-existing full criteria, no randomized or LLM-rewritten length manipulation; conclusions about full's short tercile do not extrapolate beyond the length range actually present in full (see mean_len_short_full vs mean_len_core for residual gap)."
+  },
+  "strongest_confound": "Text length may proxy for content severity/verifiability (terse criteria could just be objectively simpler content, not merely tersely PHRASED content) rather than pure style. H5 partials out the human importance score as a content-severity covariate within full; this is an imperfect control (importance = how much annotators cared, not verifiability/complexity), so residual confounding by unmeasured content properties cannot be fully ruled out without the disallowed LLM rewrite.",
+  "sensitivity_prompt_weighted": {
+    "description": "Robustness check, NOT part of the pre-registered Holm family: equal weight per PROMPT (mean accuracy per arm within prompt, then averaged) instead of equal weight per criterion instance, to check the headline gap is not an artefact of full having ~15.8x more criteria/prompt.",
+    "n_prompts": 968,
+    "delta_raw_prompt_weighted": 0.07057026341268263,
+    "delta_raw_prompt_weighted_ci95": [
+      0.065522106104915,
+      0.07568397195749728
+    ],
+    "delta_raw_criterion_weighted_for_comparison": 0.06919627026114457,
+    "slope_of_per_prompt_gap_on_full_mean_loglength": 0.0031473742604875704,
+    "slope_ci95": [
+      -0.03004244615000736,
+      0.03664101748214623
+    ],
+    "note": "if this slope's CI excludes 0 with a sign that would erase delta_raw_prompt_weighted, length is a live confound under prompt-weighting too; otherwise the criterion-weighted verdict is not an artefact of the weighting choice."
+  },
+  "verdict": "CONFIRMED",
+  "verdict_reason": "core's advantage survives a length control: the arm effect on accuracy remains large and significant net of log(length) (r_style>=0.60, H3 significant), and length-matching full down to core's regime does not close the gap."
+}

@@ -353,10 +353,20 @@ def build():
         "A sign is bootstrap-stable partly BECAUSE its magnitude is large: mean -8 survives "
         "resampling where mean -0.7 does not. The per-criterion ordering STABLE > SINGLE could "
         "therefore be an effect of |mean rating| and of across-response discriminability rather "
-        "than of how many people backed the sign.",
-        "aggregation", None, "open")
-    edge(N["CONF_MAG"], N["C_COLLECTIVE"], "confounds", 7, None,
-         "named before the control was written; the control is queued, not reported")
+        "than of how many people backed the sign. RAN, and the prediction was BACKWARDS: SINGLE "
+        "carries |mean| 7.26 against STABLE's 3.92, because a lone rater who marks a criterion "
+        "negative uses the scale's -10 ceiling while averaging ten raters pulls toward the middle. "
+        "Magnitude works against the finding rather than explaining it.",
+        "aggregation", 8, "settled")
+    evid(N["CONF_MAG"], "r127-whose-sign",
+         "STABLE per 1000 = +0.0496 against a magnitude- and discriminability-matched SINGLE draw "
+         "at +0.0221 (sd 0.0009 over 20 seeds), z = +29.48. Covariate means: SINGLE |mean rating| "
+         "7.26 / discriminability 0.134; STABLE 3.92 / 0.179. The evidential-basis reading survives "
+         "matching on both.", 8)
+    edge(N["CONF_MAG"], N["C_COLLECTIVE"], "acquits", 8, None,
+         "named before the control was written, then run in the same round and refuted")
+    edge(N["CONF_MAG"], N["C_COLLECTIVE"], "confounds", 2, None,
+         "kept at low confidence so the ruled-out alternative stays in the audit trail")
 
     N["C_INSTR_CLEAN"] = node(
         "the-judges-implementation-carries-no-established-defect", "my_claim",
@@ -377,7 +387,162 @@ def build():
          "the 1400-character cut. Each is an acquittal of the CODE and of nothing else.", 8)
 
     build_triple_blind(N)
+    build_wave2(N)
     return N
+
+
+def build_wave2(N):
+    """K18 and K8, two clean-context designs each, plus the corrections they forced on me."""
+
+    # ---- K18 dies, and takes one of my own reported numbers with it --------------------------
+    N["F_ECOLOGICAL"] = node(
+        "fact-the-length-decisiveness-correlation-was-ecological", "fact",
+        "The -0.95 correlation between criterion text length and judge decisiveness, which two "
+        "K13 designs reported and which I passed on as K18's mechanism, is an ARM-LEVEL "
+        "correlation over roughly thirteen points, each an arm's mean. At the level the mechanism "
+        "would have to operate -- the individual criterion -- it is -0.036 over 14,984 instances "
+        "and -0.037 over 18,811, i.e. r-squared about 0.001. An ecological correlation was read as "
+        "an individual one, by them and then by me.",
+        "instrument", 8, "settled")
+    evid(N["F_ECOLOGICAL"], "independent-design-K18-A-seed-8101",
+         "Within-arm criterion-level rho = -0.036 (n=14,984), partial rho = -0.052 controlling a "
+         "hedge/conjunction/comma density proxy for content complexity.", 8)
+    evid(N["F_ECOLOGICAL"], "independent-design-K18-B-seed-4409",
+         "Per-instance rho = -0.037 (n=18,811), reached independently and independently diagnosed "
+         "as an arm-level artefact of the project's wider battery of arms.", 8)
+
+    N["C_CONTENT_NOT_STYLE"] = node(
+        "cores-advantage-is-content-and-the-style-mechanism-runs-backwards", "my_claim",
+        "Holding authorship and criterion count fixed and varying only text length inside "
+        "coval_full, the SHORTER four-criterion subset scores WORSE, not better: -0.0287 "
+        "[-0.0424, -0.0149]. Core beats the terse human subset by +0.1009 [+0.0892, +0.1126], more "
+        "than it beats full at large. Controlling for log length does not shrink core's advantage "
+        "at all -- the style-explained share is 1.035 [1.022, 1.050], i.e. slightly negative. And "
+        "core (88.2 chars, decisiveness 0.219) is MORE decisive than a 65.1-char human subset "
+        "(0.211), so decisiveness does not track brevity.",
+        "instrument", 8, "settled")
+    evid(N["C_CONTENT_NOT_STYLE"], "independent-design-K18-A-seed-8101",
+         "short4 - long4 = -0.0287, Wilcoxon p=3.1e-5, survives BH over 6 cells; core - short4 = "
+         "+0.1009 (rank-biserial +0.50); style-attributable share -26% vs sham and -43% vs long4, "
+         "both NEGATIVE. Label-shuffle negative control returns 0.4992; list-position placebo "
+         "+0.0009 (p=0.78) despite a real length gap.", 8)
+    evid(N["C_CONTENT_NOT_STYLE"], "independent-design-K18-B-seed-4409",
+         "r_style = 1.035 [1.022, 1.050] over 5 seeds x 2000 draws; length-matched tercile (63.9 "
+         "chars, shorter than core's 88.2) still trails core by -0.081 [-0.088,-0.073], which is "
+         "117% of the raw gap. All 6 pre-registered tests reject under Holm.", 8)
+    edge(N["F_ECOLOGICAL"], N["C_CONTENT_NOT_STYLE"], "supports", 8, None,
+         "the mechanism K18 needed does not exist at the criterion level")
+    if "K18" in N:
+        edge(N["C_CONTENT_NOT_STYLE"], N["K18"], "overturns", 8, None,
+             "two independent designs, both CONFIRMED, and the direction is reversed")
+        q("UPDATE node SET status='refuted' WHERE id=" + str(N["K18"]))
+        # the confound edges K18 held over two claims are now discharged, and the discharge is
+        # recorded as its own control rather than by deleting the edge -- a ruled-out alternative
+        # is part of the audit trail, not something to erase.
+        for tgt in ("C_LADDER", "C_POL"):
+            if tgt in N:
+                edge(N["C_CONTENT_NOT_STYLE"], N[tgt], "acquits", 8, None,
+                     "the style confound was named, run, and refuted in the same iteration")
+
+    # ---- K8: the criterion-level sacrifice ---------------------------------------------------
+    N["F_VERBATIM"] = node(
+        "fact-7.8pct-of-core-criteria-are-verbatim-copies", "fact",
+        "298 of coval_core's 3,828 criteria (7.8%) match a coval_full criterion exactly after "
+        "normalisation. The release carries no provenance link, but that subset IS provenance for "
+        "7.8% of the compilation, and it makes one proxy-free retention test possible.",
+        "provenance", 9, "settled")
+    evid(N["F_VERBATIM"], "independent-design-K8-B-seed-4409",
+         "298/3828 exact-text matches after normalisation; the remaining 92% are paraphrased or "
+         "synthesised and are not recoverable by reading text.", 9)
+
+    N["F_RATER_GAP"] = node(
+        "fact-no-criterion-has-two-or-three-raters", "fact",
+        "The rater-count distribution has a literal hole: 63.5% of criteria carry exactly one "
+        "rating, ZERO carry two or three, about 2.4% carry four to nine, and 34.0% carry ten or "
+        "more. My earlier statement that 0.2% lie between counted only n=2 and n=3 and understated "
+        "the 4-9 band by an order of magnitude. The jump from 1 straight to 4 is a protocol "
+        "signature, not a sampling curve: two collection regimes were glued together.",
+        "aggregation", 9, "settled")
+    evid(N["F_RATER_GAP"], "independent-design-K8-B-seed-4409",
+         "Verified independently while checking the facts it was handed rather than taking them "
+         "from the brief -- which is why the understatement was caught.", 9)
+    if "F_SINGLE" in N:
+        edge(N["F_RATER_GAP"], N["F_SINGLE"], "refines", 9, None,
+             "corrects the size of the middle band without touching the bimodality")
+
+    N["C_MAJORITY_CAPTURE"] = node(
+        "when-a-contested-criterion-survives-the-majority-captures-it", "my_claim",
+        "Among 4,127 coval_full criteria on which raters split by sign, the ones whose satisfaction "
+        "fingerprint survives detectably into the compiled arm side with the rater MAJORITY 88.7% "
+        "of the time [86.7%, 90.7%], and the rate scales monotonically with how lopsided the split "
+        "is: 58.1% at the weakest splits, 98.1% at the strongest. The failure mode is not that "
+        "dissent is erased at random -- it is that the majority takes the compiled criterion.",
+        "redistribution", 7, "partial")
+    evid(N["C_MAJORITY_CAPTURE"], "independent-design-K8-A-seed-8101",
+         "997 majority-side / 127 minority-side / 3,003 washed out; binomial p=5.7e-168; "
+         "prompt-clustered bootstrap CI [86.7%, 90.7%]; stable at rater thresholds 5/10/15 "
+         "(88.1% / 88.7% / 88.6%). Positive control on 304 exact-text matches: median r=0.866 "
+         "against a null median of 0.007.", 7)
+    edge(N["C_MAJORITY_CAPTURE"], N["A3"], "attacks", 7, None,
+         "a standard that reliably resolves splits toward the majority is an aggregation rule, "
+         "not a representation of the participants")
+
+    N["C_CONTESTED_DROPPED"] = node(
+        "whether-disagreement-ITSELF-predicts-being-dropped-is-unsettled", "my_claim",
+        "Both K8 designs find the raw association -- contested criteria are retained far less "
+        "often. They DISAGREE on whether it survives adjustment for rating magnitude, and the "
+        "disagreement is a design difference, not noise: A regresses a continuous matchability "
+        "score linearly on |mean rating| and gets +0.003 [-0.019, 0.025], a magnitude-mediated "
+        "null; B fits a logistic on a thresholded nearest-neighbour retention indicator with "
+        "standardised |mean| and log rater count and gets OR 0.354 [0.247, 0.493]. B additionally "
+        "has a proxy-free arm A did not use as an outcome: among the 286 multi-rated criteria KNOWN "
+        "to have been copied verbatim into core, 11.2% are contested against a 40.9% population "
+        "base rate, z=-10.2 -- but that arm is unadjusted for magnitude, which is exactly the "
+        "quantity in dispute.",
+        "redistribution", 4, "partial",
+        {"resolution": "an adjusted analysis on the verbatim-copy subset would settle it; neither "
+                       "design ran one"})
+    evid(C := N["C_CONTESTED_DROPPED"], "independent-design-K8-A-seed-8101",
+         "Raw -0.098 [-0.117,-0.079]; magnitude-adjusted +0.003 [-0.019,0.025]; "
+         "magnitude-quintile-matched +0.008 with no consistent sign; robust at rater thresholds "
+         "5/10/15. Verdict UNVERIFIED on its own pre-registered bar.", 5)
+    evid(C, "independent-design-K8-B-seed-4409",
+         "Adjusted OR 0.354 [0.247,0.493], retention 2.6% vs 13.9% (-11.3pp); unadjusted OR 0.168, "
+         "so the magnitude confound is real and large but the effect survives it; stable in both "
+         "rater-count regimes (4-9: 0.387; >=10: 0.356); mismatched-prompt placebo returns "
+         "OR ~0.82, near null. Verdict CONFIRMED.", 6)
+    edge(N["F_VERBATIM"], C, "supports", 6, None, "the proxy-free arm exists only because of it")
+
+    N["K19"] = node(
+        "K19-the-judges-fewshot-only-demonstrates-positive-criteria", "knife",
+        "Both exemplars in the judge's two-shot prompt state a criterion in positive prescriptive "
+        "form. If the judge is a systematically noisier reader of criteria that describe an "
+        "undesirable behaviour, that alone attenuates every measurement on the negative quarter -- "
+        "the same quarter that carries the polarity result, the sign-flip result, and most of the "
+        "contested criteria. Named by an independent design as the most credible way its own "
+        "conclusion could be an underestimate.",
+        "instrument", None, "open")
+    edge(N["K19"], N["INSTR"], "attacks", None, None, None)
+    edge(N["K19"], C, "confounds", 6, None,
+         "would attenuate matchability specifically for majority-negative criteria")
+    edge(N["K19"], N["C_POL"], "confounds", 5, None,
+         "would attenuate the negative block's loading for an instrument reason")
+
+    N["D_GAUGE_PROMPTS"] = node(
+        "defect-my-own-gauge-variants-were-malformed", "defect",
+        "The first draft of the gauge round built its prompt variants by chained .replace on a "
+        "template. Two of five came out broken: the negated-question variant's second and third "
+        "replacements cancelled, leaving a Yes exemplar under a 'does the reply VIOLATE' question, "
+        "and the reordered-fewshot variant lost its second exemplar's question line. Both then "
+        "reported large concordance drifts that were my own malformed prompts, not the judge's "
+        "gauge dependence. Caught by reading the constructed strings, not by the numbers -- the "
+        "numbers looked like a finding.",
+        "instrument", 9, "refuted")
+    evid(N["D_GAUGE_PROMPTS"], "session-self-audit-2026-07-30",
+         "Rebuilt from a structured exemplar spec; the malformed run's max drift 0.2131 fell to "
+         "0.1736 and relocated entirely to the negated-question x sign-flipped cell, which is a "
+         "double negation rather than a template artefact. A prompt template is code: it gets "
+         "built, not patched.", 9)
 
 
 # ---------------------------------------------------------------------------------------------

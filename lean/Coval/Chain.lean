@@ -129,26 +129,85 @@ opaque weighted_and_unweighted_full_are_near_collinear_in_this_release : Prop
     of data already collected. -/
 opaque a_zero_LLM_importance_sort_matches_the_compiler : Prop
 
+/-- **fact** · status `settled` · D8
+    The -0.95 correlation between criterion text length and judge decisiveness, which two K13
+    designs reported and which I passed on as K18's mechanism, is an ARM-LEVEL correlation over
+    roughly thirteen points, each an arm's mean. At the level the mechanism would have to
+    operate -- the individual criterion -- it is -0.036 over 14,984 instances and -0.037 over
+    18,811, i.e. r-squared about 0.001. An ecological correlation was read as an individual one,
+    by them and then by me. -/
+opaque fact_the_length_decisiveness_correlation_was_ecological : Prop
+
+/-- **my_claim** · status `settled` · D8
+    Holding authorship and criterion count fixed and varying only text length inside coval_full,
+    the SHORTER four-criterion subset scores WORSE, not better: -0.0287 [-0.0424, -0.0149]. Core
+    beats the terse human subset by +0.1009 [+0.0892, +0.1126], more than it beats full at
+    large. Controlling for log length does not shrink core's advantage at all -- the
+    style-explained share is 1.035 [1.022, 1.050], i.e. slightly negative. And core (88.2 chars,
+    decisiveness 0.219) is MORE decisive than a 65.1-char human subset (0.211), so decisiveness
+    does not track brevity. -/
+opaque cores_advantage_is_content_and_the_style_mechanism_runs_backwards : Prop
+
+/-- **fact** · status `settled` · D9
+    298 of coval_core's 3,828 criteria (7.8%) match a coval_full criterion exactly after
+    normalisation. The release carries no provenance link, but that subset IS provenance for
+    7.8% of the compilation, and it makes one proxy-free retention test possible. -/
+opaque fact_7_8pct_of_core_criteria_are_verbatim_copies : Prop
+
+/-- **fact** · status `settled` · D9
+    The rater-count distribution has a literal hole: 63.5% of criteria carry exactly one rating,
+    ZERO carry two or three, about 2.4% carry four to nine, and 34.0% carry ten or more. My
+    earlier statement that 0.2% lie between counted only n=2 and n=3 and understated the 4-9
+    band by an order of magnitude. The jump from 1 straight to 4 is a protocol signature, not a
+    sampling curve: two collection regimes were glued together. -/
+opaque fact_no_criterion_has_two_or_three_raters : Prop
+
+/-- **my_claim** · status `partial` · D7
+    Among 4,127 coval_full criteria on which raters split by sign, the ones whose satisfaction
+    fingerprint survives detectably into the compiled arm side with the rater MAJORITY 88.7% of
+    the time [86.7%, 90.7%], and the rate scales monotonically with how lopsided the split is:
+    58.1% at the weakest splits, 98.1% at the strongest. The failure mode is not that dissent is
+    erased at random -- it is that the majority takes the compiled criterion. -/
+opaque when_a_contested_criterion_survives_the_majority_captures_it : Prop
+
+/-- **my_claim** · status `partial` · D4
+    Both K8 designs find the raw association -- contested criteria are retained far less often.
+    They DISAGREE on whether it survives adjustment for rating magnitude, and the disagreement
+    is a design difference, not noise: A regresses a continuous matchability score linearly on
+    |mean rating| and gets +0.003 [-0.019, 0.025], a magnitude-mediated null; B fits a logistic
+    on a thresholded nearest-neighbour retention indicator with standardised |mean| and log
+    rater count and gets OR 0.354 [0.247, 0.493]. B additionally has a proxy-free arm A did not
+    use as an outcome: among the 286 multi-rated criteria KNOWN to have been copied verbatim
+    into core, 11.2% are contested against a 40.9% population base rate, z=-10.2 -- but that arm
+    is unadjusted for magnitude, which is exactly the quantity in dispute. -/
+opaque whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled : Prop
+
+/-- **defect** · status `refuted` · D9
+    The first draft of the gauge round built its prompt variants by chained .replace on a
+    template. Two of five came out broken: the negated-question variant's second and third
+    replacements cancelled, leaving a Yes exemplar under a 'does the reply VIOLATE' question,
+    and the reordered-fewshot variant lost its second exemplar's question line. Both then
+    reported large concordance drifts that were my own malformed prompts, not the judge's gauge
+    dependence. Caught by reading the constructed strings, not by the numbers -- the numbers
+    looked like a finding. -/
+opaque defect_my_own_gauge_variants_were_malformed : Prop
+
 /-! ## Confounds that are named but not yet ruled out.
     No term of type `¬c` exists for any of these, so every theorem below that needs
     one is stated with it as a hypothesis and cannot be discharged today. -/
-
-/-- A sign is bootstrap-stable partly BECAUSE its magnitude is large: mean -8 survives
-    resampling where mean -0.7 does not. The per-criterion ordering STABLE > SINGLE could
-    therefore be an effect of |mean rating| and of across-response discriminability rather than
-    of how many people backed the sign. -/
-opaque confound_stability_is_magnitude : Prop
 
 /-- The second K3 design's positive control failed, so its near-zero result is silence rather
     than acquittal and may never be folded in with design A's as agreement. Recorded so that no
     later reader counts two designs where there is one measurement and one refusal. -/
 opaque K3_design_B_returned_UNVERIFIED_not_a_null : Prop
 
-/-- coval_core's criteria are the shortest text of any arm and the judge is most decisive on
-    them. If terse, LLM-authored phrasing makes this judge more confident, part of core's
-    advantage over every full-derived arm is style rather than content -- and the effect runs
-    the right way to manufacture exactly the advantage the release claims. -/
-opaque K18_judge_decisiveness_tracks_text_style : Prop
+/-- Both exemplars in the judge's two-shot prompt state a criterion in positive prescriptive
+    form. If the judge is a systematically noisier reader of criteria that describe an
+    undesirable behaviour, that alone attenuates every measurement on the negative quarter --
+    the same quarter that carries the polarity result, the sign-flip result, and most of the
+    contested criteria. Named by an independent design as the most credible way its own
+    conclusion could be an underestimate. -/
+opaque K19_the_judges_fewshot_only_demonstrates_positive_criteria : Prop
 
 /-! ## Evidence. A witness for a claim, never the claim itself. -/
 
@@ -282,6 +341,66 @@ axiom ev_a_zero_LLM_importance_sort_matches_the_compiler_by_independent_design_A
     core. -/
 axiom ev_a_zero_LLM_importance_sort_matches_the_compiler_by_independent_design_B_seed_4409 : Evidence a_zero_LLM_importance_sort_matches_the_compiler
 
+/-- Experiment `independent-design-K18-A-seed-8101` (D8).
+    Within-arm criterion-level rho = -0.036 (n=14,984), partial rho = -0.052 controlling a
+    hedge/conjunction/comma density proxy for content complexity. -/
+axiom ev_fact_the_length_decisiveness_correlation_was_ecological_by_independent_design_K18_A_seed_8101 : Evidence fact_the_length_decisiveness_correlation_was_ecological
+
+/-- Experiment `independent-design-K18-B-seed-4409` (D8).
+    Per-instance rho = -0.037 (n=18,811), reached independently and independently diagnosed as
+    an arm-level artefact of the project's wider battery of arms. -/
+axiom ev_fact_the_length_decisiveness_correlation_was_ecological_by_independent_design_K18_B_seed_4409 : Evidence fact_the_length_decisiveness_correlation_was_ecological
+
+/-- Experiment `independent-design-K18-A-seed-8101` (D8).
+    short4 - long4 = -0.0287, Wilcoxon p=3.1e-5, survives BH over 6 cells; core - short4 =
+    +0.1009 (rank-biserial +0.50); style-attributable share -26% vs sham and -43% vs long4, both
+    NEGATIVE. Label-shuffle negative control returns 0.4992; list-position placebo +0.0009
+    (p=0.78) despite a real length gap. -/
+axiom ev_cores_advantage_is_content_and_the_style_mechanism_runs_backwards_by_independent_design_K18_A_seed_8101 : Evidence cores_advantage_is_content_and_the_style_mechanism_runs_backwards
+
+/-- Experiment `independent-design-K18-B-seed-4409` (D8).
+    r_style = 1.035 [1.022, 1.050] over 5 seeds x 2000 draws; length-matched tercile (63.9
+    chars, shorter than core's 88.2) still trails core by -0.081 [-0.088,-0.073], which is 117%
+    of the raw gap. All 6 pre-registered tests reject under Holm. -/
+axiom ev_cores_advantage_is_content_and_the_style_mechanism_runs_backwards_by_independent_design_K18_B_seed_4409 : Evidence cores_advantage_is_content_and_the_style_mechanism_runs_backwards
+
+/-- Experiment `independent-design-K8-B-seed-4409` (D9).
+    298/3828 exact-text matches after normalisation; the remaining 92% are paraphrased or
+    synthesised and are not recoverable by reading text. -/
+axiom ev_fact_7_8pct_of_core_criteria_are_verbatim_copies_by_independent_design_K8_B_seed_4409 : Evidence fact_7_8pct_of_core_criteria_are_verbatim_copies
+
+/-- Experiment `independent-design-K8-B-seed-4409` (D9).
+    Verified independently while checking the facts it was handed rather than taking them from
+    the brief -- which is why the understatement was caught. -/
+axiom ev_fact_no_criterion_has_two_or_three_raters_by_independent_design_K8_B_seed_4409 : Evidence fact_no_criterion_has_two_or_three_raters
+
+/-- Experiment `independent-design-K8-A-seed-8101` (D7).
+    997 majority-side / 127 minority-side / 3,003 washed out; binomial p=5.7e-168;
+    prompt-clustered bootstrap CI [86.7%, 90.7%]; stable at rater thresholds 5/10/15 (88.1% /
+    88.7% / 88.6%). Positive control on 304 exact-text matches: median r=0.866 against a null
+    median of 0.007. -/
+axiom ev_when_a_contested_criterion_survives_the_majority_captures_it_by_independent_design_K8_A_seed_8101 : Evidence when_a_contested_criterion_survives_the_majority_captures_it
+
+/-- Experiment `independent-design-K8-A-seed-8101` (D5).
+    Raw -0.098 [-0.117,-0.079]; magnitude-adjusted +0.003 [-0.019,0.025];
+    magnitude-quintile-matched +0.008 with no consistent sign; robust at rater thresholds
+    5/10/15. Verdict UNVERIFIED on its own pre-registered bar. -/
+axiom ev_whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled_by_independent_design_K8_A_seed_8101 : Evidence whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled
+
+/-- Experiment `independent-design-K8-B-seed-4409` (D6).
+    Adjusted OR 0.354 [0.247,0.493], retention 2.6% vs 13.9% (-11.3pp); unadjusted OR 0.168, so
+    the magnitude confound is real and large but the effect survives it; stable in both
+    rater-count regimes (4-9: 0.387; >=10: 0.356); mismatched-prompt placebo returns OR ~0.82,
+    near null. Verdict CONFIRMED. -/
+axiom ev_whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled_by_independent_design_K8_B_seed_4409 : Evidence whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled
+
+/-- Experiment `session-self-audit-2026-07-30` (D9).
+    Rebuilt from a structured exemplar spec; the malformed run's max drift 0.2131 fell to 0.1736
+    and relocated entirely to the negated-question x sign-flipped cell, which is a double
+    negation rather than a template artefact. A prompt template is code: it gets built, not
+    patched. -/
+axiom ev_defect_my_own_gauge_variants_were_malformed_by_session_self_audit_2026_07_30 : Evidence defect_my_own_gauge_variants_were_malformed
+
 /-! ## Establishing rules. The arity of each is how many independent measurements
     the graph actually holds for that claim -- read it off the type. -/
 
@@ -341,26 +460,35 @@ theorem weighted_and_unweighted_full_are_near_collinear_in_this_release_holds : 
 axiom a_zero_LLM_importance_sort_matches_the_compiler_established : Evidence a_zero_LLM_importance_sort_matches_the_compiler → Evidence a_zero_LLM_importance_sort_matches_the_compiler → a_zero_LLM_importance_sort_matches_the_compiler
 theorem a_zero_LLM_importance_sort_matches_the_compiler_holds : a_zero_LLM_importance_sort_matches_the_compiler := a_zero_LLM_importance_sort_matches_the_compiler_established ev_a_zero_LLM_importance_sort_matches_the_compiler_by_independent_design_A_seed_8101 ev_a_zero_LLM_importance_sort_matches_the_compiler_by_independent_design_B_seed_4409
 
+/-- 2 independent measurement(s) establish `fact_the_length_decisiveness_correlation_was_ecological`. -/
+axiom fact_the_length_decisiveness_correlation_was_ecological_established : Evidence fact_the_length_decisiveness_correlation_was_ecological → Evidence fact_the_length_decisiveness_correlation_was_ecological → fact_the_length_decisiveness_correlation_was_ecological
+theorem fact_the_length_decisiveness_correlation_was_ecological_holds : fact_the_length_decisiveness_correlation_was_ecological := fact_the_length_decisiveness_correlation_was_ecological_established ev_fact_the_length_decisiveness_correlation_was_ecological_by_independent_design_K18_A_seed_8101 ev_fact_the_length_decisiveness_correlation_was_ecological_by_independent_design_K18_B_seed_4409
+
+/-- 2 independent measurement(s) establish `cores_advantage_is_content_and_the_style_mechanism_runs_backwards`. -/
+axiom cores_advantage_is_content_and_the_style_mechanism_runs_backwards_established : Evidence cores_advantage_is_content_and_the_style_mechanism_runs_backwards → Evidence cores_advantage_is_content_and_the_style_mechanism_runs_backwards → cores_advantage_is_content_and_the_style_mechanism_runs_backwards
+theorem cores_advantage_is_content_and_the_style_mechanism_runs_backwards_holds : cores_advantage_is_content_and_the_style_mechanism_runs_backwards := cores_advantage_is_content_and_the_style_mechanism_runs_backwards_established ev_cores_advantage_is_content_and_the_style_mechanism_runs_backwards_by_independent_design_K18_A_seed_8101 ev_cores_advantage_is_content_and_the_style_mechanism_runs_backwards_by_independent_design_K18_B_seed_4409
+
+/-- 1 independent measurement(s) establish `fact_7_8pct_of_core_criteria_are_verbatim_copies`. -/
+axiom fact_7_8pct_of_core_criteria_are_verbatim_copies_established : Evidence fact_7_8pct_of_core_criteria_are_verbatim_copies → fact_7_8pct_of_core_criteria_are_verbatim_copies
+theorem fact_7_8pct_of_core_criteria_are_verbatim_copies_holds : fact_7_8pct_of_core_criteria_are_verbatim_copies := fact_7_8pct_of_core_criteria_are_verbatim_copies_established ev_fact_7_8pct_of_core_criteria_are_verbatim_copies_by_independent_design_K8_B_seed_4409
+
+/-- 1 independent measurement(s) establish `fact_no_criterion_has_two_or_three_raters`. -/
+axiom fact_no_criterion_has_two_or_three_raters_established : Evidence fact_no_criterion_has_two_or_three_raters → fact_no_criterion_has_two_or_three_raters
+theorem fact_no_criterion_has_two_or_three_raters_holds : fact_no_criterion_has_two_or_three_raters := fact_no_criterion_has_two_or_three_raters_established ev_fact_no_criterion_has_two_or_three_raters_by_independent_design_K8_B_seed_4409
+
+/-- 1 independent measurement(s) establish `when_a_contested_criterion_survives_the_majority_captures_it`. -/
+axiom when_a_contested_criterion_survives_the_majority_captures_it_established : Evidence when_a_contested_criterion_survives_the_majority_captures_it → when_a_contested_criterion_survives_the_majority_captures_it
+theorem when_a_contested_criterion_survives_the_majority_captures_it_holds : when_a_contested_criterion_survives_the_majority_captures_it := when_a_contested_criterion_survives_the_majority_captures_it_established ev_when_a_contested_criterion_survives_the_majority_captures_it_by_independent_design_K8_A_seed_8101
+
+/-- 2 independent measurement(s) establish `whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled`. -/
+axiom whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled_established : Evidence whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled → Evidence whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled → whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled
+theorem whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled_holds : whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled := whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled_established ev_whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled_by_independent_design_K8_A_seed_8101 ev_whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled_by_independent_design_K8_B_seed_4409
+
+/-- 1 independent measurement(s) establish `defect_my_own_gauge_variants_were_malformed`. -/
+axiom defect_my_own_gauge_variants_were_malformed_established : Evidence defect_my_own_gauge_variants_were_malformed → defect_my_own_gauge_variants_were_malformed
+theorem defect_my_own_gauge_variants_were_malformed_holds : defect_my_own_gauge_variants_were_malformed := defect_my_own_gauge_variants_were_malformed_established ev_defect_my_own_gauge_variants_were_malformed_by_session_self_audit_2026_07_30
+
 /-! ## Inference rules, and what they close. -/
-
-/-- REFUTES (d_forward 8). faithfulness on the polarity axis fails
-    Blocked on unresolved confound(s): K18_judge_decisiveness_tracks_text_style. -/
-axiom core_retains_the_negative_quarter_at_one_tenth_weight_refutes_A1_core_is_a_faithful_compilation : ¬K18_judge_decisiveness_tracks_text_style → core_retains_the_negative_quarter_at_one_tenth_weight → ¬A1_core_is_a_faithful_compilation
-theorem A1_core_is_a_faithful_compilation_is_refuted_via_core_retains_the_negative_quarter_at_one_tenth_weight (h0 : ¬K18_judge_decisiveness_tracks_text_style) : ¬A1_core_is_a_faithful_compilation := core_retains_the_negative_quarter_at_one_tenth_weight_refutes_A1_core_is_a_faithful_compilation h0 core_retains_the_negative_quarter_at_one_tenth_weight_holds
-
-/-- REFUTES (d_forward 5). a zero-LLM rule reproduces the compiler on this axis -- but at D5, one design -/
-axiom core_is_indistinguishable_from_dropping_the_negatives_refutes_A1_core_is_a_faithful_compilation : core_is_indistinguishable_from_dropping_the_negatives → ¬A1_core_is_a_faithful_compilation
-theorem A1_core_is_a_faithful_compilation_is_refuted_via_core_is_indistinguishable_from_dropping_the_negatives : ¬A1_core_is_a_faithful_compilation := core_is_indistinguishable_from_dropping_the_negatives_refutes_A1_core_is_a_faithful_compilation core_is_indistinguishable_from_dropping_the_negatives_holds
-
-/-- SUPPORTS (d_forward 6). the sign's value tracks collective backing, which is what A3 needs
-    Blocked on unresolved confound(s): confound_stability_is_magnitude. -/
-axiom a_negative_signs_value_rises_with_the_number_of_raters_behind_it_supports_A3_aggregation_yields_a_collective_standard : ¬confound_stability_is_magnitude → a_negative_signs_value_rises_with_the_number_of_raters_behind_it → A3_aggregation_yields_a_collective_standard
-theorem A3_aggregation_yields_a_collective_standard_is_supported_via_a_negative_signs_value_rises_with_the_number_of_raters_behind_it (h0 : ¬confound_stability_is_magnitude) : A3_aggregation_yields_a_collective_standard := a_negative_signs_value_rises_with_the_number_of_raters_behind_it_supports_A3_aggregation_yields_a_collective_standard h0 a_negative_signs_value_rises_with_the_number_of_raters_behind_it_holds
-
-/-- SUPPORTS (d_forward 6). locates where in the negative block the sign-flip advantage lives
-    Blocked on unresolved confound(s): confound_stability_is_magnitude. -/
-axiom a_negative_signs_value_rises_with_the_number_of_raters_behind_it_supports_the_full_vs_core_verdict_depends_on_the_analysts_sign_treatment : ¬confound_stability_is_magnitude → a_negative_signs_value_rises_with_the_number_of_raters_behind_it → the_full_vs_core_verdict_depends_on_the_analysts_sign_treatment
-theorem the_full_vs_core_verdict_depends_on_the_analysts_sign_treatment_is_supported_via_a_negative_signs_value_rises_with_the_number_of_raters_behind_it (h0 : ¬confound_stability_is_magnitude) : the_full_vs_core_verdict_depends_on_the_analysts_sign_treatment := a_negative_signs_value_rises_with_the_number_of_raters_behind_it_supports_the_full_vs_core_verdict_depends_on_the_analysts_sign_treatment h0 a_negative_signs_value_rises_with_the_number_of_raters_behind_it_holds
 
 /-- SUPPORTS (d_forward 8). an attack that failed -/
 axiom defect_yes_no_token_id_supports_the_judges_implementation_carries_no_established_defect : defect_yes_no_token_id → the_judges_implementation_carries_no_established_defect
@@ -392,21 +520,45 @@ theorem A6_ratings_are_meaningful_importance_weights_is_supported_via_core_behav
 axiom core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual_refutes_A1_core_is_a_faithful_compilation : ¬K3_design_B_returned_UNVERIFIED_not_a_null → core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual → ¬A1_core_is_a_faithful_compilation
 theorem A1_core_is_a_faithful_compilation_is_refuted_via_core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual (h0 : ¬K3_design_B_returned_UNVERIFIED_not_a_null) : ¬A1_core_is_a_faithful_compilation := core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual_refutes_A1_core_is_a_faithful_compilation h0 core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual_holds
 
+/-- SUPPORTS (d_forward 9). corrects the size of the middle band without touching the bimodality -/
+axiom fact_no_criterion_has_two_or_three_raters_supports_fact_63pct_of_criteria_have_one_rater : fact_no_criterion_has_two_or_three_raters → fact_63pct_of_criteria_have_one_rater
+theorem fact_63pct_of_criteria_have_one_rater_is_supported_via_fact_no_criterion_has_two_or_three_raters : fact_63pct_of_criteria_have_one_rater := fact_no_criterion_has_two_or_three_raters_supports_fact_63pct_of_criteria_have_one_rater fact_no_criterion_has_two_or_three_raters_holds
+
+/-- REFUTES (d_forward 8). faithfulness on the polarity axis fails
+    Blocked on unresolved confound(s): K19_the_judges_fewshot_only_demonstrates_positive_criteria. -/
+axiom core_retains_the_negative_quarter_at_one_tenth_weight_refutes_A1_core_is_a_faithful_compilation : ¬K19_the_judges_fewshot_only_demonstrates_positive_criteria → core_retains_the_negative_quarter_at_one_tenth_weight → ¬A1_core_is_a_faithful_compilation
+theorem A1_core_is_a_faithful_compilation_is_refuted_via_core_retains_the_negative_quarter_at_one_tenth_weight (h0 : ¬K19_the_judges_fewshot_only_demonstrates_positive_criteria) : ¬A1_core_is_a_faithful_compilation := core_retains_the_negative_quarter_at_one_tenth_weight_refutes_A1_core_is_a_faithful_compilation h0 core_retains_the_negative_quarter_at_one_tenth_weight_holds
+
 /-- SUPPORTS (d_forward 7). explains why design A had to orthogonalise, and why design B could not resolve at all -/
 axiom weighted_and_unweighted_full_are_near_collinear_in_this_release_supports_core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual : weighted_and_unweighted_full_are_near_collinear_in_this_release → core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual
 theorem core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual_is_supported_via_weighted_and_unweighted_full_are_near_collinear_in_this_release : core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual := weighted_and_unweighted_full_are_near_collinear_in_this_release_supports_core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual weighted_and_unweighted_full_are_near_collinear_in_this_release_holds
 
-/-- REFUTES (d_forward 7). the compiler's output is reachable without the compiler
-    Blocked on unresolved confound(s): K18_judge_decisiveness_tracks_text_style. -/
-axiom a_zero_LLM_importance_sort_matches_the_compiler_refutes_A1_core_is_a_faithful_compilation : ¬K18_judge_decisiveness_tracks_text_style → a_zero_LLM_importance_sort_matches_the_compiler → ¬A1_core_is_a_faithful_compilation
-theorem A1_core_is_a_faithful_compilation_is_refuted_via_a_zero_LLM_importance_sort_matches_the_compiler (h0 : ¬K18_judge_decisiveness_tracks_text_style) : ¬A1_core_is_a_faithful_compilation := a_zero_LLM_importance_sort_matches_the_compiler_refutes_A1_core_is_a_faithful_compilation h0 a_zero_LLM_importance_sort_matches_the_compiler_holds
+/-- REFUTES (d_forward 7). the compiler's output is reachable without the compiler -/
+axiom a_zero_LLM_importance_sort_matches_the_compiler_refutes_A1_core_is_a_faithful_compilation : a_zero_LLM_importance_sort_matches_the_compiler → ¬A1_core_is_a_faithful_compilation
+theorem A1_core_is_a_faithful_compilation_is_refuted_via_a_zero_LLM_importance_sort_matches_the_compiler : ¬A1_core_is_a_faithful_compilation := a_zero_LLM_importance_sort_matches_the_compiler_refutes_A1_core_is_a_faithful_compilation a_zero_LLM_importance_sort_matches_the_compiler_holds
+
+/-- SUPPORTS (d_forward 8). the mechanism K18 needed does not exist at the criterion level -/
+axiom fact_the_length_decisiveness_correlation_was_ecological_supports_cores_advantage_is_content_and_the_style_mechanism_runs_backwards : fact_the_length_decisiveness_correlation_was_ecological → cores_advantage_is_content_and_the_style_mechanism_runs_backwards
+theorem cores_advantage_is_content_and_the_style_mechanism_runs_backwards_is_supported_via_fact_the_length_decisiveness_correlation_was_ecological : cores_advantage_is_content_and_the_style_mechanism_runs_backwards := fact_the_length_decisiveness_correlation_was_ecological_supports_cores_advantage_is_content_and_the_style_mechanism_runs_backwards fact_the_length_decisiveness_correlation_was_ecological_holds
+
+/-- SUPPORTS (d_forward 6). the proxy-free arm exists only because of it -/
+axiom fact_7_8pct_of_core_criteria_are_verbatim_copies_supports_whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled : fact_7_8pct_of_core_criteria_are_verbatim_copies → whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled
+theorem whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled_is_supported_via_fact_7_8pct_of_core_criteria_are_verbatim_copies : whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled := fact_7_8pct_of_core_criteria_are_verbatim_copies_supports_whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled fact_7_8pct_of_core_criteria_are_verbatim_copies_holds
+
+/-- REFUTES (d_forward 5). a zero-LLM rule reproduces the compiler on this axis -- but at D5, one design -/
+axiom core_is_indistinguishable_from_dropping_the_negatives_refutes_A1_core_is_a_faithful_compilation : core_is_indistinguishable_from_dropping_the_negatives → ¬A1_core_is_a_faithful_compilation
+theorem A1_core_is_a_faithful_compilation_is_refuted_via_core_is_indistinguishable_from_dropping_the_negatives : ¬A1_core_is_a_faithful_compilation := core_is_indistinguishable_from_dropping_the_negatives_refutes_A1_core_is_a_faithful_compilation core_is_indistinguishable_from_dropping_the_negatives_holds
+
+/-- SUPPORTS (d_forward 6). the sign's value tracks collective backing, which is what A3 needs -/
+axiom a_negative_signs_value_rises_with_the_number_of_raters_behind_it_supports_A3_aggregation_yields_a_collective_standard : a_negative_signs_value_rises_with_the_number_of_raters_behind_it → A3_aggregation_yields_a_collective_standard
+theorem A3_aggregation_yields_a_collective_standard_is_supported_via_a_negative_signs_value_rises_with_the_number_of_raters_behind_it : A3_aggregation_yields_a_collective_standard := a_negative_signs_value_rises_with_the_number_of_raters_behind_it_supports_A3_aggregation_yields_a_collective_standard a_negative_signs_value_rises_with_the_number_of_raters_behind_it_holds
+
+/-- SUPPORTS (d_forward 6). locates where in the negative block the sign-flip advantage lives -/
+axiom a_negative_signs_value_rises_with_the_number_of_raters_behind_it_supports_the_full_vs_core_verdict_depends_on_the_analysts_sign_treatment : a_negative_signs_value_rises_with_the_number_of_raters_behind_it → the_full_vs_core_verdict_depends_on_the_analysts_sign_treatment
+theorem the_full_vs_core_verdict_depends_on_the_analysts_sign_treatment_is_supported_via_a_negative_signs_value_rises_with_the_number_of_raters_behind_it : the_full_vs_core_verdict_depends_on_the_analysts_sign_treatment := a_negative_signs_value_rises_with_the_number_of_raters_behind_it_supports_the_full_vs_core_verdict_depends_on_the_analysts_sign_treatment a_negative_signs_value_rises_with_the_number_of_raters_behind_it_holds
 
 /-! ## The audit. Each line prints the COMPLETE dependency set of one conclusion. -/
 
-#print axioms A1_core_is_a_faithful_compilation_is_refuted_via_core_retains_the_negative_quarter_at_one_tenth_weight
-#print axioms A1_core_is_a_faithful_compilation_is_refuted_via_core_is_indistinguishable_from_dropping_the_negatives
-#print axioms A3_aggregation_yields_a_collective_standard_is_supported_via_a_negative_signs_value_rises_with_the_number_of_raters_behind_it
-#print axioms the_full_vs_core_verdict_depends_on_the_analysts_sign_treatment_is_supported_via_a_negative_signs_value_rises_with_the_number_of_raters_behind_it
 #print axioms the_judges_implementation_carries_no_established_defect_is_supported_via_defect_yes_no_token_id
 #print axioms the_judges_implementation_carries_no_established_defect_is_supported_via_defect_right_truncation_1024
 #print axioms the_judges_implementation_carries_no_established_defect_is_supported_via_defect_1400_char_reply_cut
@@ -414,8 +566,15 @@ theorem A1_core_is_a_faithful_compilation_is_refuted_via_a_zero_LLM_importance_s
 #print axioms the_full_vs_core_verdict_depends_on_the_analysts_sign_treatment_is_supported_via_the_flip_reading_of_a_negative_rating_is_measured_not_assumed
 #print axioms A6_ratings_are_meaningful_importance_weights_is_supported_via_core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual
 #print axioms A1_core_is_a_faithful_compilation_is_refuted_via_core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual
+#print axioms fact_63pct_of_criteria_have_one_rater_is_supported_via_fact_no_criterion_has_two_or_three_raters
+#print axioms A1_core_is_a_faithful_compilation_is_refuted_via_core_retains_the_negative_quarter_at_one_tenth_weight
 #print axioms core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual_is_supported_via_weighted_and_unweighted_full_are_near_collinear_in_this_release
 #print axioms A1_core_is_a_faithful_compilation_is_refuted_via_a_zero_LLM_importance_sort_matches_the_compiler
+#print axioms cores_advantage_is_content_and_the_style_mechanism_runs_backwards_is_supported_via_fact_the_length_decisiveness_correlation_was_ecological
+#print axioms whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled_is_supported_via_fact_7_8pct_of_core_criteria_are_verbatim_copies
+#print axioms A1_core_is_a_faithful_compilation_is_refuted_via_core_is_indistinguishable_from_dropping_the_negatives
+#print axioms A3_aggregation_yields_a_collective_standard_is_supported_via_a_negative_signs_value_rises_with_the_number_of_raters_behind_it
+#print axioms the_full_vs_core_verdict_depends_on_the_analysts_sign_treatment_is_supported_via_a_negative_signs_value_rises_with_the_number_of_raters_behind_it
 #print axioms defect_yes_no_token_id_holds
 #print axioms defect_right_truncation_1024_holds
 #print axioms defect_1400_char_reply_cut_holds
@@ -430,5 +589,12 @@ theorem A1_core_is_a_faithful_compilation_is_refuted_via_a_zero_LLM_importance_s
 #print axioms core_behaves_as_a_flat_summary_with_a_small_real_weighted_residual_holds
 #print axioms weighted_and_unweighted_full_are_near_collinear_in_this_release_holds
 #print axioms a_zero_LLM_importance_sort_matches_the_compiler_holds
+#print axioms fact_the_length_decisiveness_correlation_was_ecological_holds
+#print axioms cores_advantage_is_content_and_the_style_mechanism_runs_backwards_holds
+#print axioms fact_7_8pct_of_core_criteria_are_verbatim_copies_holds
+#print axioms fact_no_criterion_has_two_or_three_raters_holds
+#print axioms when_a_contested_criterion_survives_the_majority_captures_it_holds
+#print axioms whether_disagreement_ITSELF_predicts_being_dropped_is_unsettled_holds
+#print axioms defect_my_own_gauge_variants_were_malformed_holds
 
 end Coval
