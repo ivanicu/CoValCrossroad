@@ -1,0 +1,212 @@
+{
+  "estimand": "rho = |corr(S_neg_within_prompt_centered, S_core_within_prompt_centered)| / |corr(S_pos_within_prompt_centered, S_core_within_prompt_centered)|, pooled over (prompt,response) units, prompt-clustered inference",
+  "seed_base": 8101,
+  "seeds": [
+    8101,
+    8102,
+    8103,
+    8104,
+    8105
+  ],
+  "n_boot_per_seed": 2000,
+  "alpha": 0.05,
+  "preregistered_thresholds": {
+    "MIN_PROMPTS": 100,
+    "RHO_CONFIRM": 0.5,
+    "RHO_RESCUE": 0.5,
+    "POS_CTRL_MIN_ACC": 0.5,
+    "PLACEBO_TARGET_R": 0.6,
+    "PLACEBO_TOL": 0.12
+  },
+  "data_coverage": {
+    "n_prompts_joined": 968,
+    "n_prompts_seen": 968,
+    "n_prompts_qualifying": 924,
+    "n_units": 3696,
+    "skip_reasons": {
+      "n_pos==0": 0,
+      "n_neg==0": 44,
+      "core_empty": 0,
+      "missing_full_key": 0,
+      "missing_core_key": 0,
+      "not_all_4_labels": 0
+    },
+    "mean_n_pos_criteria_per_prompt": 11.603896103896103,
+    "mean_n_neg_criteria_per_prompt": 4.1504329004329
+  },
+  "primary": {
+    "r_pos": 0.89218211997263,
+    "r_pos_95ci": [
+      0.8826338065031821,
+      0.9009096106746937
+    ],
+    "r_neg": -0.17804778633910737,
+    "r_neg_95ci": [
+      -0.22207167709803705,
+      -0.1334920886505194
+    ],
+    "r_neg_ci_excludes_0": true,
+    "rho": 0.1995643964985192,
+    "rho_95ci": [
+      0.14984404300902224,
+      0.24898520816841832
+    ],
+    "per_seed_r_neg_ci": [
+      [
+        -0.2186880509795023,
+        -0.1340197083333366
+      ],
+      [
+        -0.22189304416176459,
+        -0.13228669577256633
+      ],
+      [
+        -0.22211444051467805,
+        -0.13435690307956297
+      ],
+      [
+        -0.22221825868260167,
+        -0.1331819745740769
+      ],
+      [
+        -0.22391503710762845,
+        -0.13402191561484988
+      ]
+    ]
+  },
+  "confound_control_A_size_matched": {
+    "description": "POS subsampled to min(n_pos,n_neg) items per prompt before averaging",
+    "rho_matched_per_seed": [
+      0.23354028923053996,
+      0.23668060171386657,
+      0.23760485980416993,
+      0.2344734179772112,
+      0.231728972618761
+    ],
+    "rho_matched_mean": 0.23480562826890972,
+    "rho_matched_std": 0.002122662439334789,
+    "r_pos_matched_per_seed": [
+      0.7623857404892865,
+      0.7522702961282693,
+      0.7493440432399046,
+      0.759351690588705,
+      0.7683449519798736
+    ]
+  },
+  "confound_control_B_reliability_correction": {
+    "description": "split-half Spearman-Brown reliability per group; r attenuation-corrected assuming core reliability=1 (best case for core, conservative for rho)",
+    "reliability_pos": 0.8604709169850157,
+    "reliability_neg": 0.692899984564575,
+    "r_pos_corrected": 0.9618014274324506,
+    "r_neg_corrected": -0.2138953299864037,
+    "rho_corrected": 0.2223903228729883
+  },
+  "positive_control": {
+    "n_pairs": 77671,
+    "acc_pos_alone": 0.6539763875835254,
+    "acc_pos_alone_95ci": [
+      0.6430498642427728,
+      0.6647185511401188
+    ],
+    "acc_neg_aligned_alone": 0.6103092516601727,
+    "acc_neg_aligned_95ci": [
+      0.5987890541102117,
+      0.6217022815947908
+    ],
+    "acc_neg_unflipped_alone": 0.3896907483398273,
+    "acc_neg_unflipped_95ci": [
+      0.37829771840520915,
+      0.40121094588978834
+    ],
+    "pos_ctrl_pos_ok": true,
+    "pos_ctrl_neg_ok": true,
+    "sign_convention_ok": true,
+    "positive_control_passed": true
+  },
+  "placebo_arithmetic_reference": {
+    "target_r_strong": 0.6,
+    "recovered_r_strong_mean_over_seeds": 0.6511315876387144,
+    "recovered_r_strong_per_seed": [
+      0.638172160939792,
+      0.6577113602484359,
+      0.658360370311785,
+      0.6471835425046691,
+      0.6542305041888901
+    ],
+    "recovered_r_null_mean_over_seeds": -0.012983101370678835,
+    "recovered_r_null_95ci": [
+      -0.052898544494518016,
+      0.028149864016816083
+    ],
+    "placebo_strong_ok": true,
+    "placebo_null_ci_includes_0": true,
+    "placebo_passed": true
+  },
+  "secondary_robustness_holm_bonferroni_family_of_3": {
+    "joint_regression": {
+      "beta_pos_std": 0.8833329943697121,
+      "beta_neg_std": -0.09944161550632633,
+      "beta_neg_cluster_boot_95ci": [
+        -0.12053141608217023,
+        -0.07719741786546848
+      ],
+      "beta_neg_excludes_0": true,
+      "p_raw": 0.0
+    },
+    "spearman": {
+      "r_pos": 0.8848566845657512,
+      "r_neg": -0.15679202604360903,
+      "rho_spearman": 0.17719482575933262,
+      "r_neg_95ci": [
+        -0.19902656691281193,
+        -0.11407383908917901
+      ],
+      "p_raw": 0.0
+    },
+    "size_matched_gap": {
+      "p_raw": 1e-06
+    },
+    "holm_bonferroni_adjusted": [
+      {
+        "name": "joint_regression_beta_neg",
+        "p_raw": 0.0,
+        "p_adj": 0.0
+      },
+      {
+        "name": "spearman_r_neg",
+        "p_raw": 0.0,
+        "p_adj": 0.0
+      },
+      {
+        "name": "size_matched_r_pos_vs_r_neg",
+        "p_raw": 1e-06,
+        "p_adj": 1e-06
+      }
+    ],
+    "reject_at_0.05_after_correction": {
+      "joint_regression_beta_neg": true,
+      "spearman_r_neg": true,
+      "size_matched_r_pos_vs_r_neg": true
+    }
+  },
+  "absolute_effect_sizes": {
+    "mean_S_pos": 0.5662079469353218,
+    "mean_S_neg": 0.5219695929216637,
+    "mean_S_core": 0.5288173975755593,
+    "sd_S_pos_centered": 0.10733628902133127,
+    "sd_S_neg_centered": 0.12871831833458855,
+    "sd_S_core_centered": 0.13653092376060547,
+    "slope_core_per_1sd_pos": 1.1348487087936376,
+    "slope_core_per_1sd_neg": -0.18885446187403332,
+    "mean_n_pos_per_prompt": 11.603896103896103,
+    "mean_n_neg_per_prompt": 4.1504329004329
+  },
+  "verdict": "OVERTURNED",
+  "verdict_reason": "rho_hat=0.200, CI(r_neg)=(-0.22207167709803705, -0.1334920886505194) (excludes_0=True); does not clear the pre-registered CONFIRM bar even accounting for controls (matched=0.235, corrected=0.222).",
+  "scopes": {
+    "population": "924 of 968 joined OpenAI Collective Alignment conversation_rubrics prompts that have >=1 positively-rated AND >=1 negatively-rated coval_full criterion (mean score != 0) and complete 4-response coverage in both satisfaction tensors; NOT the full release ({'n_pos==0': 0, 'n_neg==0': 44, 'core_empty': 0, 'missing_full_key': 0, 'missing_core_key': 0, 'not_all_4_labels': 0} excluded).",
+    "instrument": "local Qwen3.5-2B-Base judge, sigmoid(logit-gap('Yes','No')) reading of whether a response literally satisfies a criterion's text -- a proxy for satisfaction, not ground truth; validated above chance against held-out human 'world' pairwise rankings (positive control) but not perfectly reliable, especially on the smaller NEG criterion group (see control B).",
+    "baseline": "comparator is the POSITIVELY-rated criteria of the SAME prompts' coval_full, not an absolute 'faithfulness score' -- rho is a RELATIVE retention-weight ratio, silent on whether even the positive arm is compiled perfectly.",
+    "regime": "within-prompt, 4-way RELATIVE response discrimination (does core distinguish responses the same way NEG full criteria do), not a between-prompt or absolute-level statement about compilation quality; centered estimator, so results say nothing about prompts excluded from the qualifying set."
+  }
+}
