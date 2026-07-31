@@ -1,0 +1,75 @@
+% ============================================================================
+% PAPER SKELETON -- instantiate with tools/new_paper.sh, never edit in place.
+% The section list is not a suggestion. Each one exists because a paper was
+% wrong in a specific way without it; see ../README.md.
+% ============================================================================
+\input{preamble.tex}
+
+\title{\sffamily\bfseries What survives an adversarial audit of a public-input values rubric\\[0.35em]
+  {\large\mdseries Three measurements on OpenAI's Collective Alignment release, and the rounds that did not}}
+\author{\sffamily Ivan GAN\\[3pt]
+\small\mdseries
+\href{mailto:ivan@ivan.icu}{ivan@ivan.icu}
+\quad
+\href{https://www.ivan.icu}{www.ivan.icu}
+\quad
+\href{https://github.com/ivanicu}{github.com/ivanicu}}
+\date{2026-07-30}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+% Four moves, in this order, and no others:
+%  1. what is missing / what was audited, in one sentence with a number in it
+%  2. the object and the measurement contract -- what a claim here CAN mean
+%  3. what survived, with its scope attached to it rather than deferred
+%  4. the rejection condition: what result would end this
+% TODO
+\end{abstract}
+
+\section{Introduction}
+\subsection{The question, and why the obvious version of it is the wrong one}
+\subsection{Scope, identity, and contributions}
+\subsection{Relation to neighbouring work}
+\subsection{Roadmap}
+
+\section{The object}
+\subsection{What was released, and what was not}
+\subsection{What a claim about it can mean}
+
+\section{Measurement contracts and the Evidence Firewall}
+\input{evidence_firewall.tex}
+\subsection{Multi-axis evidence coding}
+% every claim is coded in supplement/evidence_atlas.csv on axes that can VETO it,
+% not on axes that can only support it.
+
+\section{Findings}
+% One subsection per finding. Each ENDS with its confidence card (P14):
+%   n_eff | MDE | effect/floor | CI_width/|eff| | spec_survival | seed_spread/|eff|
+%   held_out | instrument | prior_art | multiplicity
+% A missing entry reads UNCOMPUTED. Never blank, never omitted.
+
+\section{What did not survive}
+% Withdrawn claims with what killed them. Cross-referenced to
+% supplement/exclusion_log.csv. A paper with no retractions is a paper whose
+% ontology has no word for error.
+
+\section{Falsification and contradiction handling}
+% What result would end the central claim, stated before it is defended.
+
+\section{Discussion}
+\subsection{The claim and its novelty boundary}
+% state explicitly what is NOT new, including anything already in the object's
+% own documentation.
+\subsection{Why method relativity is not relativism}
+
+\section{Limitations and epistemic status}
+% Structural limits, named as structural. "We did not run X" and "X cannot be
+% run at this site" are different sentences and must not be merged.
+
+\section{Conclusion}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}
