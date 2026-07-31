@@ -356,6 +356,23 @@ def apply_adversary_verdicts() -> None:
          "is r=-0.153, p=0.0056, and it SURVIVES BH over the full 14-feature family, agreeing on "
          "sign in four of five held-out splits. It was withdrawn on the phantom population where it "
          "read -0.066 -- withdrawn for the right reason on the wrong data."),
+        ("group-not-individual", "partial",
+         "GROUP level CONFIRMED and hardened by an adversary: 136 South African annotators across "
+         "953 of 1,078 prompts, 16.3pp on the world block and 15.6pp on personal, surviving "
+         "stratification inside every level of five demographic axes at 11-27pp, cluster-bootstrap "
+         "CI [13.5, 19.3], still 10.4pp after dropping the 30 largest contributors of 136. "
+         "INDIVIDUAL level UNDECIDED: under the corrected 1/2 floor scaling the ratio is 1.49 "
+         "against a 1.50 threshold, not the 1.06 first reported, so the design cannot decide rather "
+         "than having decided. Blind spot: the release carries no batch or timestamp field, so a "
+         "recruitment-batch confound can be neither ruled out nor confirmed."),
+        ("menu-is-binding", "settled",
+         "No aggregation rule could have served them, and the control is now multi-seed. A chooser "
+         "optimising specifically for the group reaches 0.669; a size-matched random subgroup "
+         "reaches 0.740 over 25 draws per prompt across 722 prompts, excess -0.071 [-0.089, "
+         "-0.053]. An independent adversary reproduced it with a stronger control -- relabelling "
+         "136 fake-SA annotators onto their REAL assessments, preserving co-occurrence, 300 "
+         "permutations: real 0.668 against null 0.751 +- 0.011, z = -7.57, below 100% of "
+         "permutations."),
         ("menu-can-fail", "settled",
          "Concentration of full rejection on particular prompts is real and highly significant, but "
          "the ratio is 2.56x rather than 5.01x, and on the corrected 326-prompt population the "
