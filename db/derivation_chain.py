@@ -737,6 +737,28 @@ def build_wave2(N):
          "same-string arm conflates 'identical ranking' with 'no personal block at all' (13,378 vs "
          "1,829 cells), so its 0.00979 derivation check is not clean; the differ-subset comparison "
          "is, because both arms require the block to exist.", 7)
+    evid(N["C_SHARED_NOT_PERSONAL"], "independent-design-A2-B-seed-4409",
+         "Same number from an independent design over 286,433 units covering 1,010 of 1,012 "
+         "annotators: own 0.665-0.673 against stranger 0.628-0.633, +3.8 to +4.1pp, z 7.3-16.3, "
+         "p to 1e-59. Its decisive addition is a criterion I did not have: the stranger-vs-stranger "
+         "FLOOR has SD 0.29, so the own-advantage is 0.13-0.14 of it -- an eighth of the natural "
+         "spread between any two people predicting the same person. Its pre-registered rule "
+         "required significance AND index > 2; all six grid cells passed significance and all six "
+         "failed the floor. Verdict OVERTURNED. Its subjectivity stratification points the same way "
+         "as my personal-block contrast from a different angle: the own-advantage is 0.0425 on "
+         "prompts with a single correct answer against 0.0370 on values-and-culture prompts -- "
+         "LARGER where values should matter least, which is consistency, not values.", 8)
+    N["LIMIT_WRITEINS"] = node(
+        "limit-both-individuation-designs-are-blind-to-the-single-rater-write-ins", "control",
+        "An own-versus-stranger contrast requires two people to have rated the same criterion, so "
+        "both designs are restricted to the multiply-rated pool -- about 5.6 criteria per prompt. "
+        "The 65% of criteria that carry exactly one rating are structurally excluded, and they are "
+        "the part of the elicitation most likely to hold idiosyncratic personal content. "
+        "W-SHARED-ONLY is therefore a statement about the shared-criteria regime and is not "
+        "evidence that the write-in layer is equally impersonal.",
+        "aggregation", None, "open")
+    edge(N["LIMIT_WRITEINS"], N["C_SHARED_NOT_PERSONAL"], "confounds", 7, None,
+         "the excluded 65% is exactly where the effect would live if it existed")
     edge(N["C_SHARED_NOT_PERSONAL"], N["A2"], "refines", 7, None,
          "something was captured, but not the thing the assumption names")
     edge(N["C_SHARED_NOT_PERSONAL"], N["A3"], "attacks", 7, None,

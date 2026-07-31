@@ -273,46 +273,44 @@ def mean_diff(rows):
     return float(np.mean([r[7] for r in rows]))
 
 
+def _cluster_boot_means(codes, diffs, n_clusters, rng, n_boot):
+    """Vectorized cluster bootstrap: resample `n_clusters` clusters with
+    replacement (a multinomial draw of cluster multiplicities), then the
+    resampled grand mean is (multiplicities . per-cluster sum) /
+    (multiplicities . per-cluster count) -- exact, no per-draw Python loop
+    over records, which is what makes B=2000 x tens-of-thousands-of-clusters
+    tractable."""
+    S = np.bincount(codes, weights=diffs, minlength=n_clusters)
+    Cnt = np.bincount(codes, minlength=n_clusters).astype(float)
+    M = rng.multinomial(n_clusters, np.full(n_clusters, 1.0 / n_clusters), size=n_boot)
+    num = M @ S
+    den = M @ Cnt
+    return num / den
+
+
 def multiway_cluster_bootstrap(rows, seeds, n_boot=N_BOOT):
     """Cameron-Gelbach-Miller two-way cluster bootstrap: person-cluster +
     prompt-cluster - cell-cluster (cell = (prompt,person) pair, i.e. the
-    focal unit itself, its own aggregated mean-diff)."""
+    focal unit itself, its own aggregated mean-diff). Vectorized per cluster
+    axis via multinomial resampling (see _cluster_boot_means)."""
     if not rows:
         return None
     diffs = np.array([r[7] for r in rows])
-    prompts = np.array([r[0] for r in rows])
-    persons = np.array([r[1] for r in rows])  # focal person P
-    cells = np.array([f"{r[0]}|{r[1]}" for r in rows])
+    prompts_raw = [r[0] for r in rows]
+    persons_raw = [r[1] for r in rows]
+    cells_raw = [f"{r[0]}|{r[1]}" for r in rows]
 
-    uniq_prompts = np.unique(prompts)
-    uniq_persons = np.unique(persons)
-    uniq_cells = np.unique(cells)
-
-    prompt_to_idx = defaultdict(list)
-    for i, p in enumerate(prompts):
-        prompt_to_idx[p].append(i)
-    person_to_idx = defaultdict(list)
-    for i, p in enumerate(persons):
-        person_to_idx[p].append(i)
-    cell_to_idx = defaultdict(list)
-    for i, c in enumerate(cells):
-        cell_to_idx[c].append(i)
-
-    def boot_var(cluster_keys, cluster_to_idx, rng, n_boot):
-        means = np.empty(n_boot)
-        n_clusters = len(cluster_keys)
-        for b in range(n_boot):
-            draw = rng.choice(cluster_keys, size=n_clusters, replace=True)
-            idxs = np.concatenate([cluster_to_idx[k] for k in draw])
-            means[b] = diffs[idxs].mean()
-        return means
+    _, prompt_codes = np.unique(prompts_raw, return_inverse=True)
+    _, person_codes = np.unique(persons_raw, return_inverse=True)
+    _, cell_codes = np.unique(cells_raw, return_inverse=True)
+    n_prompts, n_persons, n_cells = prompt_codes.max() + 1, person_codes.max() + 1, cell_codes.max() + 1
 
     per_seed = []
     for sd in seeds:
         rng = np.random.default_rng(sd)
-        m_prompt = boot_var(uniq_prompts, prompt_to_idx, rng, n_boot)
-        m_person = boot_var(uniq_persons, person_to_idx, rng, n_boot)
-        m_cell = boot_var(uniq_cells, cell_to_idx, rng, n_boot)
+        m_prompt = _cluster_boot_means(prompt_codes, diffs, n_prompts, rng, n_boot)
+        m_person = _cluster_boot_means(person_codes, diffs, n_persons, rng, n_boot)
+        m_cell = _cluster_boot_means(cell_codes, diffs, n_cells, rng, n_boot)
         v_prompt, v_person, v_cell = m_prompt.var(ddof=1), m_person.var(ddof=1), m_cell.var(ddof=1)
         v_combined = max(v_prompt + v_person - v_cell, v_cell)  # floor at the finest estimate
         se = float(np.sqrt(v_combined))
