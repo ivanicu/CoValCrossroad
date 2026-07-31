@@ -51,13 +51,24 @@ def q(sql: str, args: tuple = ()) -> list[tuple]:
     # non-SELECT statement even under -t -A, and a stray "SET" line at the head of the result set
     # silently becomes row 0.
     env = dict(os.environ, PGOPTIONS=f"-c search_path={SCHEMA},public")
-    p = subprocess.run(["psql", "-d", DB, "-t", "-A", "-F", "\x1f", "-v", "ON_ERROR_STOP=1",
+    # The separator must NOT be a character Python calls whitespace. \x1f is: Python treats the
+    # C0 separators \x1c-\x1f as whitespace, so stdout.strip() silently ate the trailing empty
+    # field of whichever row happened to land last, and exactly one row in sixty-two came back with
+    # four columns instead of five. It surfaced as an unpack error in a downstream generator, which
+    # is lucky -- a tuple one short is otherwise a value shifted into the wrong name.
+    SEP = "\x01"
+    p = subprocess.run(["psql", "-d", DB, "-t", "-A", "-F", SEP, "-v", "ON_ERROR_STOP=1",
                         "-c", payload], capture_output=True, text=True, env=env)
     if p.returncode != 0:
         raise RuntimeError(f"psql failed:\n{payload}\n{p.stderr}")
     tags = {"SET", "BEGIN", "COMMIT", "DELETE", "UPDATE", "INSERT"}
-    return [tuple(l.split("\x1f")) for l in p.stdout.strip().splitlines()
-            if l and l.split()[0] not in tags]
+    out = []
+    for l in p.stdout.split("\n"):
+        l = l.rstrip("\r")
+        if not l or (SEP not in l and l.split(" ")[0] in tags):
+            continue
+        out.append(tuple(l.split(SEP)))
+    return out
 
 
 # ---------------------------------------------------------------------------------------------
