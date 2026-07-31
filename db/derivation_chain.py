@@ -767,8 +767,15 @@ def build_wave2(N):
         "so the compiled standard violates LESS often than a human peer in the same position. What "
         "loses the veto is aggregation across people, not the compilation step. Every collective "
         "standard pays roughly one veto in six, and it is invisible in every aggregate concordance "
-        "number the field reports.",
-        "redistribution", 8, "settled")
+        "number the field reports. DOWNGRADED by a held-out split swept over 12 partitions: the "
+        "ORDERING is stable everywhere -- 0.039 self, 0.138 full_signed, 0.155 core, 0.278 "
+        "full_equal, 0.378 chance -- but the specific core-versus-peer comparison FAILS in 7 of 12 "
+        "held-out halves, with the confirmation-half mean at -0.0105 over a range of [-0.0417, "
+        "+0.0132] that crosses zero. On the full sample it was -0.0172 [-0.0311, -0.0040] at "
+        "p 0.0155, i.e. a small effect whose CI barely excluded zero, and halving the data was "
+        "enough to unmake it. The sentence 'core beats a human peer, significantly' is withdrawn; "
+        "'core is not worse than a human peer' survives.",
+        "redistribution", 6, "partial")
     evid(N["C_VETO"], "r133-the-veto",
          "Cluster-bootstrapped over prompts, 4,000 fits across 5 seeds. core 0.1547 "
          "[0.1298,0.1831]; full_signed 0.1380 [0.1165,0.1595]; full_equal 0.2778 [0.2397,0.3190]; "
@@ -876,6 +883,33 @@ def build_wave2(N):
          "project forbids.", 7)
     edge(N["C_TARGET_NEUTRAL"], N["A4"], "supports", 7, None,
          "an attack that failed, recorded as support rather than quietly dropped")
+
+    N["C_HELDOUT"] = node(
+        "six-headlines-survive-a-held-out-split-and-one-does-not", "my_claim",
+        "The campaign's own standard detector reported `confirmatory` ABSENT in all 128 rounds: "
+        "every finding was discovered and tested on the same prompts. Splitting them by a sha256 of "
+        "the prompt id and recomputing every settled headline on the half it was not found on, "
+        "swept over 12 independent salts because the partition is itself a researcher degree of "
+        "freedom: full_equal accuracy 11/12 CONFIRMED, core accuracy 10/12, full_signed 10/12, the "
+        "contested-criteria log-odds 10/12 (always negative, range -1.85 to -0.69), the polarity "
+        "ratio 8/12 (always between +0.087 and +0.119, never near the 0.362 a faithful compilation "
+        "would give), own-minus-stranger 7/12 (always positive, always tiny). The veto arm's "
+        "core-versus-peer comparison FAILED in 7 of 12.",
+        "redistribution", 8, "settled")
+    evid(N["C_HELDOUT"], "r136-held-out-confirmation",
+         "12 salts, each a deterministic partition fixed before scoring. Pre-registered: CONFIRMED "
+         "if the held-out half reproduces the sign and its CI contains the discovery point; FAILED "
+         "if the sign flips or the confirmation CI contains zero when discovery's did not. WHAT IT "
+         "DOES NOT BUY, stated in the artifact: both halves are one release, one panel, one judge, "
+         "so a survivor is shown not to be an artifact of WHICH PROMPTS were read and nothing more. "
+         "The word replication is not available for it.", 8)
+    if "C_VETO" in N:
+        edge(N["C_HELDOUT"], N["C_VETO"], "refines", 8, None,
+             "kills the core-versus-peer comparison specifically; the ordering survives")
+    for k in ("C_POL", "C_SIGNFLIP", "C_ADJUDICATED", "C_SHARED_NOT_PERSONAL"):
+        if k in N:
+            edge(N["C_HELDOUT"], N[k], "supports", 8, None,
+                 "survives on prompts it was not found on")
 
     N["K19"] = node(
         "K19-the-judges-fewshot-only-demonstrates-positive-criteria", "knife",
