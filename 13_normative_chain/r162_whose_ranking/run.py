@@ -134,9 +134,17 @@ def agg(S, w):
 
 
 def run(block: str, sat, authored, seed: int):
+    """Rows now carry their prompt and rater so the SE can be clustered on both.
+
+    The first version reported iid intervals over (author, ranking) rows. Those rows share a prompt
+    -- same four responses, same criterion pool -- and share a rater, whose ranking style travels
+    with them. An adversary showed that inflates the SE by 2.6 to 3.1x elsewhere in this phase, and
+    the contamination gap here is small enough that it matters.
+    """
     rank = load_rankings(block)
     rng = np.random.default_rng(seed)
     within, cross, others, floor = [], [], [], []
+    cl_w, cl_c = [], []          # (prompt, rater) keys for two-way clustering
     n_pairs = 0
     for pid, by_author in authored.items():
         M = sat.get(pid)
@@ -152,10 +160,12 @@ def run(block: str, sat, authored, seed: int):
                 continue
             s = agg(M[idx], w)
             within.append(concordance(s, rank[pid][a]))
+            cl_w.append((pid, a))
             for b in auths:
                 if b == a:
                     continue
                 cross.append(concordance(s, rank[pid][b]))
+                cl_c.append((pid, b))          # cluster on the RATER whose ranking is scored
                 n_pairs += 1
                 # control: a same-size rubric of criteria authored by SOMEONE ELSE on this prompt
                 pool = [(i, wt) for c in auths if c != a
@@ -165,7 +175,7 @@ def run(block: str, sat, authored, seed: int):
                     so = agg(M[[i for i, _ in pick]], np.array([x for _, x in pick], float))
                     others.append(concordance(so, rank[pid][b]))
                 floor.append(concordance(rng.permutation(s), rank[pid][b]))
-    return within, cross, others, floor, n_pairs
+    return within, cross, others, floor, n_pairs, cl_w, cl_c
 
 
 def ms(v):
@@ -187,13 +197,16 @@ def main() -> int:
 
     res = {}
     for block in ("personal", "world"):
-        within, cross, others, floor, npairs = run(block, sat, authored, args.seed)
+        within, cross, others, floor, npairs, cl_w, cl_c = run(block, sat, authored, args.seed)
+        from covalx.cluster import two_way_se
+        cw = two_way_se(within, [p for p, _r in cl_w], [r for _p, r in cl_w])
+        cc = two_way_se(cross, [p for p, _r in cl_c], [r for _p, r in cl_c])
         mw, sw, nw = ms(within)
         mc, sc, nc = ms(cross)
         mo, so, no = ms(others)
         mf, sf, nf = ms(floor)
         gap = mw - mc
-        gap_se = math.sqrt(sw ** 2 + sc ** 2)
+        gap_se = math.sqrt(cw["se_2way"] ** 2 + cc["se_2way"] ** 2)   # clustered, not iid
         res[block] = {
             "within": {"c": round(mw, 4), "ci": [round(mw - 1.96 * sw, 4),
                                                  round(mw + 1.96 * sw, 4)], "n": nw},
@@ -201,6 +214,7 @@ def main() -> int:
                                                 round(mc + 1.96 * sc, 4)], "n": nc},
             "others_criteria": {"c": round(mo, 4), "n": no},
             "floor": {"c": round(mf, 4), "n": nf},
+            "within_clustered": cw, "cross_clustered": cc,
             "contamination_gap": round(gap, 4),
             "gap_ci": [round(gap - 1.96 * gap_se, 4), round(gap + 1.96 * gap_se, 4)],
             "cross_over_floor": round(mc - mf, 4),
@@ -212,15 +226,28 @@ def main() -> int:
               f"[{mc - 1.96 * sc:.4f},{mc + 1.96 * sc:.4f}]  n={nc}")
         print(f"  control others' criteria vs that ranking {mo:.4f}  n={no}")
         print(f"  floor   shuffled score                   {mf:.4f}")
+        print(f"  SE inflation from two-way clustering: within x{cw['inflation']}  "
+              f"cross x{cc['inflation']}")
         print(f"  CONTAMINATION GAP within - cross = {gap:+.4f} "
-              f"[{gap - 1.96 * gap_se:+.4f},{gap + 1.96 * gap_se:+.4f}]")
+              f"[{gap - 1.96 * gap_se:+.4f},{gap + 1.96 * gap_se:+.4f}]  (CLUSTERED)  "
+              f"z={gap / gap_se:.2f}")
         print(f"  cross above floor: {mc - mf:+.4f}  <- what actually transfers between people")
 
     p, w = res["personal"]["contamination_gap"], res["world"]["contamination_gap"]
+    pr = res["personal"]["gap_ci"][0] > 0 or res["personal"]["gap_ci"][1] < 0
+    wr = res["world"]["gap_ci"][0] > 0 or res["world"]["gap_ci"][1] < 0
     print(f"\nprediction made before the run: personal is ranked FIRST in the session, so if "
           f"rationalisation drives this, personal should be MORE contaminated than world.")
-    print(f"  personal gap {p:+.4f}   world gap {w:+.4f}   "
-          f"{'PREDICTION HELD' if p > w else 'PREDICTION FAILED'}")
+    print(f"  personal gap {p:+.4f} {'resolved' if pr else 'CI SPANS ZERO'}   "
+          f"world gap {w:+.4f} {'resolved' if wr else 'CI SPANS ZERO'}")
+    # A COMPARISON BETWEEN TWO POINT ESTIMATES, ONE OF WHICH IS NOT DISTINGUISHABLE FROM ZERO, IS
+    # NOT A TEST. Under iid SEs both gaps excluded zero and this printed PREDICTION HELD. Clustered,
+    # the personal block spans zero -- it carries a fifth of the world block's rows -- so the
+    # ordering of the two point estimates decides nothing.
+    print("  VERDICT: " + ("both resolved and personal > world -- prediction held"
+                           if (pr and wr and p > w) else
+                           "UNDECIDED -- the personal gap is not resolved, so comparing the two "
+                           "point estimates tests nothing"))
 
     (OUT / "whose_ranking.json").write_text(json.dumps(
         {"results": res, "prediction_personal_more_contaminated": bool(p > w),
