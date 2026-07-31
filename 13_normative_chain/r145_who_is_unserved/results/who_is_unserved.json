@@ -4,8 +4,8 @@
  "prompts": 1100,
  "overall_unserved_rate": 0.3404,
  "between_person_sd": 0.15346,
- "within_person_split_half_floor": 0.14544,
- "sd_over_floor": 1.055,
+ "within_person_split_half_floor": 0.10284,
+ "sd_over_floor": 1.492,
  "label_permutation_null_sd": 0.10874,
  "null_sd_by_seed": [
   0.10853,
@@ -18,33 +18,33 @@
  "held_out_person_rate_correlation": [
   {
    "salt": 1,
-   "r": 0.3384,
-   "n": 930
-  },
-  {
-   "salt": 2,
-   "r": 0.348,
-   "n": 928
-  },
-  {
-   "salt": 3,
-   "r": 0.3121,
-   "n": 927
-  },
-  {
-   "salt": 4,
-   "r": 0.3475,
-   "n": 930
-  },
-  {
-   "salt": 5,
-   "r": 0.3296,
+   "r": 0.4,
    "n": 926
   },
   {
+   "salt": 2,
+   "r": 0.352,
+   "n": 925
+  },
+  {
+   "salt": 3,
+   "r": 0.3763,
+   "n": 928
+  },
+  {
+   "salt": 4,
+   "r": 0.3498,
+   "n": 929
+  },
+  {
+   "salt": 5,
+   "r": 0.349,
+   "n": 929
+  },
+  {
    "salt": 6,
-   "r": 0.3542,
-   "n": 930
+   "r": 0.3782,
+   "n": 925
   }
  ],
  "demographic_scan_between_person": [
