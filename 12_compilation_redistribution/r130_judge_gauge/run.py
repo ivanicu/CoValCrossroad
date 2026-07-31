@@ -142,6 +142,24 @@ def main() -> int:
     ap.add_argument("--model", default="Qwen/Qwen3.5-2B-Base")
     ap.add_argument("--batch", type=int, default=48)
     ap.add_argument("--limit", type=int, default=0, help="prompts; 0 = all")
+    # SAMPLED, NOT EXHAUSTIVE. The estimand is a difference of differences PAIRED on the same
+    # prompts, so its sampling error is set by the number of prompts and not by the size of the
+    # grid. 968 prompts give an SE of about 0.005 on a gap; 200 give about 0.011, and the drifts
+    # worth catching are 0.03-0.08. Running all six variants over all 968 was premature scaling:
+    # it buys a third decimal nobody needs and costs five times the compute. Worse, ONE exhaustive
+    # run returns a point estimate with no sampling variability of its own, while five independent
+    # 200-prompt samples return the estimate AND its spread -- which is the quantity needed to
+    # decide whether a 0.03 drift is real. Fewer passes and a better inference.
+    ap.add_argument("--sample", type=int, default=0,
+                    help="draw this many prompts at random instead of using all of them")
+    ap.add_argument("--sample-seed", type=int, default=0)
+    # WHICH VARIANTS. The smoke run put G1 (few-shot order), G4 (different exemplars) and G5 (field
+    # order) all under 0.03 drift, while G2 (label words) and G3 (negated question) carried what
+    # there is. Dropping the three quiet ones halves the compute EXACTLY and loses nothing that was
+    # ever going to decide the verdict. Kept configurable so the claim "they were quiet" stays
+    # falsifiable by anyone who re-runs with --variants all.
+    ap.add_argument("--variants", default="G0_reference,G2_label_words,G3_question_polarity",
+                    help="comma-separated variant keys, or 'all'")
     ap.add_argument("--out", default=str(_RES / "r130_judge_gauge.json"))
     args = ap.parse_args()
     _RES.mkdir(parents=True, exist_ok=True)
@@ -201,6 +219,22 @@ def main() -> int:
         if args.limit and len(prompts_meta) >= args.limit:
             break
 
+    if args.sample and args.sample < len(prompts_meta):
+        rng0 = np.random.default_rng(args.sample_seed)
+        keep = set(rng0.choice(len(prompts_meta), args.sample, replace=False).tolist())
+        kept = [r for i, r in enumerate(prompts_meta) if i in keep]
+        alive = {i for r in kept for pick in ("full", "core") for it in r[pick]
+                 for i in it["idx"].values()}
+        remap = {old: new for new, old in enumerate(sorted(alive))}
+        tasks = [tasks[i] for i in sorted(alive)]
+        for r in kept:
+            for pick in ("full", "core"):
+                for it in r[pick]:
+                    it["idx"] = {l: remap[i] for l, i in it["idx"].items()}
+        prompts_meta = kept
+        print(f"  SAMPLED {len(prompts_meta)} prompts at seed {args.sample_seed}; "
+              f"{len(tasks):,} judgements per variant")
+
     if not prompts_meta:
         print("REFUSING: no prompts survived alignment. Exits 2.", file=sys.stderr)
         return 2
@@ -245,9 +279,20 @@ def main() -> int:
         d = accA - accB
         return float(np.percentile(d, 2.5)), float(np.percentile(d, 97.5)), float(d.std())
 
+    want = None if args.variants.strip() == "all" else set(
+        v.strip() for v in args.variants.split(",") if v.strip())
+    active = [v for v in VARIANTS if want is None or v[0] in want]
+    if not active or active[0][0] != "G0_reference":
+        print("REFUSING: the reference variant must be present and first, or every drift is "
+              "measured against nothing. Exits 2.", file=sys.stderr)
+        return 2
+    print(f"  variants: {', '.join(v[0] for v in active)}"
+          + ("" if want is None else f"   (dropped {len(VARIANTS)-len(active)} whose smoke drift "
+                                     f"was under 0.03; re-run with --variants all to check that)"))
+
     results = {}
     ref_gaps = None
-    for key, build, pair, invert in VARIANTS:
+    for key, build, pair, invert in active:
         ps = [build(c, r) for c, r in tasks]
         v = score(ps, pair)
         if invert:
@@ -333,7 +378,9 @@ def main() -> int:
 
     Path(args.out).write_text(json.dumps(
         {"model": args.model, "n_prompts": len(prompts_meta), "n_judgements_per_variant": len(tasks),
-         "gap_tolerance": GAP_TOL, "variants": results, "max_gap_drift": max(drifts),
+         "gap_tolerance": GAP_TOL, "n_variants_run": len(active),
+         "sample": args.sample, "sample_seed": args.sample_seed,
+         "variants": results, "max_gap_drift": max(drifts),
          "max_drift_z": max(drift_zs), "largest_drift_clearing_2sd": real_drift,
          "sign_stable": sign_stable, "world": world, "conclusion": conclusion,
          **stamp(__file__)}, indent=1, sort_keys=True))
