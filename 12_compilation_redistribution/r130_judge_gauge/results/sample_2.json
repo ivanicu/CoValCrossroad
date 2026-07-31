@@ -1,0 +1,121 @@
+{
+ "conclusion": "The satisfaction judge was re-run over 15,748 (criterion, response) pairs under 8 gauge variants -- few-shot order, label words, question polarity, few-shot content, field order -- none of which changes what is being asked. Mean satisfaction ranges 0.5495 to 0.5715. The largest drift in any core-minus-full concordance gap against the reference is 0.0860 on a pre-registered tolerance of 0.01; the gap signs are NOT stable across variants. K18's mechanism, the correlation between criterion length and judge decisiveness, ranges -0.084 to -0.022 across the same variants. WORLD: W-GAUGE-DEPENDENT. At least one concordance gap moves further than the tolerance or changes sign, so every comparison in this campaign is conditional on a prompt-template choice that was never registered as a choice, and each downstream claim is downgraded accordingly.",
+ "gap_tolerance": 0.01,
+ "largest_drift_clearing_2sd": 0.08604113365961374,
+ "max_drift_z": 7.234450785620894,
+ "max_gap_drift": 0.08604113365961374,
+ "model": "Qwen/Qwen3.5-2B-Base",
+ "n_judgements_per_variant": 15748,
+ "n_prompts": 200,
+ "n_variants_run": 3,
+ "sample": 200,
+ "sample_seed": 2,
+ "sign_stable": false,
+ "source_name": "run.py",
+ "source_sha256": "ddff0b675ab45f25b7d6822b0a360dc263bfe4e43784468fc3863d20381094ed",
+ "variants": {
+  "G0_reference": {
+   "acc_core": 0.6750707022083158,
+   "acc_full_equal": 0.6091822612672242,
+   "acc_full_signed": 0.6936037066008784,
+   "core_minus_full_equal": 0.06588844094109159,
+   "core_minus_full_signed": -0.01853300439256267,
+   "decisiveness_core": 0.2263033539056778,
+   "decisiveness_full": 0.21070849895477295,
+   "drift_vs_reference": {
+    "core_minus_full_equal": 0.0,
+    "core_minus_full_signed": 0.0
+   },
+   "drift_z": {
+    "core_minus_full_equal": 0.0,
+    "core_minus_full_signed": 0.0
+   },
+   "gap_equal_ci": [
+    0.04739306232275639,
+    0.08647849426969653
+   ],
+   "gap_sd": {
+    "core_minus_full_equal": 0.01001604121019778,
+    "core_minus_full_signed": 0.007601159144868651
+   },
+   "gap_signed_ci": [
+    -0.03334092255335818,
+    -0.0034429396004537656
+   ],
+   "length_decisiveness_r": -0.03270542127477023,
+   "length_decisiveness_slope": -0.00011004460953621624,
+   "mean_sat": 0.5494634509086609,
+   "n_pairs": 16619,
+   "sd_sat": 0.24299028515815735
+  },
+  "G2_label_words": {
+   "acc_core": 0.6834947951140261,
+   "acc_full_equal": 0.6350562609061917,
+   "acc_full_signed": 0.6949876647211024,
+   "core_minus_full_equal": 0.048438534207834394,
+   "core_minus_full_signed": -0.011492869607076295,
+   "decisiveness_core": 0.25404712557792664,
+   "decisiveness_full": 0.23607955873012543,
+   "drift_vs_reference": {
+    "core_minus_full_equal": -0.017449906733257192,
+    "core_minus_full_signed": 0.007040134785486374
+   },
+   "drift_z": {
+    "core_minus_full_equal": -1.3331964971222683,
+    "core_minus_full_signed": 0.6576573336944439
+   },
+   "gap_equal_ci": [
+    0.03100456855346767,
+    0.06728846449932893
+   ],
+   "gap_sd": {
+    "core_minus_full_equal": 0.009255160367427325,
+    "core_minus_full_signed": 0.007569484581460801
+   },
+   "gap_signed_ci": [
+    -0.025928994721420316,
+    0.0032513709148512563
+   ],
+   "length_decisiveness_r": -0.022225253894964478,
+   "length_decisiveness_slope": -8.06427833046467e-05,
+   "mean_sat": 0.5715097784996033,
+   "n_pairs": 16619,
+   "sd_sat": 0.26583465933799744
+  },
+  "G3_question_polarity": {
+   "acc_core": 0.6422117817130466,
+   "acc_full_equal": 0.643480353811902,
+   "acc_full_signed": 0.5747036524459955,
+   "core_minus_full_equal": -0.0012685720988554472,
+   "core_minus_full_signed": 0.06750812926705108,
+   "decisiveness_core": 0.11457374691963196,
+   "decisiveness_full": 0.10736402124166489,
+   "drift_vs_reference": {
+    "core_minus_full_equal": -0.06715701303994703,
+    "core_minus_full_signed": 0.08604113365961374
+   },
+   "drift_z": {
+    "core_minus_full_equal": -7.234450785620894,
+    "core_minus_full_signed": 5.205085372367466
+   },
+   "gap_equal_ci": [
+    -0.013938172709158581,
+    0.011537234375387584
+   ],
+   "gap_sd": {
+    "core_minus_full_equal": 0.0065640337783712446,
+    "core_minus_full_signed": 0.011688620785103196
+   },
+   "gap_signed_ci": [
+    0.0460761103575367,
+    0.09173647943837056
+   ],
+   "length_decisiveness_r": -0.08444139699996275,
+   "length_decisiveness_slope": -0.00020210782939107368,
+   "mean_sat": 0.5650613903999329,
+   "n_pairs": 16602,
+   "sd_sat": 0.1248290166258812
+  }
+ },
+ "world": "W-GAUGE-DEPENDENT"
+}
