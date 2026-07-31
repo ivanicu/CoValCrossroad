@@ -103,8 +103,17 @@ def load_ratings() -> dict[str, tuple[np.ndarray, list[str]]]:
 RANK_MAP = {"A": 0, "B": 1, "C": 2, "D": 3}
 
 
-def load_rankings() -> dict[str, dict[str, np.ndarray]]:
-    """Human rankings per (conversation, annotator) as a score vector over the four responses."""
+def load_rankings(prefer=("world", "personal")) -> dict[str, dict[str, np.ndarray]]:
+    """Human rankings per (conversation, annotator) as a score vector over the four responses.
+
+    THE BLOCK CHOICE WAS SILENT AND IS NOT NEUTRAL. `world` is populated for all 18,678
+    assessments; `personal` for only 5,006. Preferring world therefore ALWAYS took world and never
+    once fell through -- so every number in this round is about what people said the model should do
+    IN GENERAL, not about what they personally preferred, and nothing in the output said so.
+
+    Those are different questions. `prefer=("personal",)` runs the whole chain on the smaller
+    personal-preference population instead, which is the robustness check the silent default hid.
+    """
     out: dict[str, dict[str, np.ndarray]] = defaultdict(dict)
     with (ROOT / "data" / "annotators.jsonl").open() as fh:
         for line in fh:
@@ -112,7 +121,7 @@ def load_rankings() -> dict[str, dict[str, np.ndarray]]:
             aid = rec["annotator_id"]
             for a in rec.get("assessments", []):
                 blocks = a.get("ranking_blocks") or {}
-                for key in ("world", "personal"):
+                for key in prefer:
                     for b in blocks.get(key, []) or []:
                         txt = b.get("ranking")
                         if not txt:
@@ -208,6 +217,9 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--cutoffs", type=float, nargs="+", default=[0.5, 0.7, 0.9])
     ap.add_argument("--seeds", type=int, nargs="+", default=[0, 1, 2, 3, 4])
+    ap.add_argument("--block", choices=["world", "personal"], default="world",
+                    help="which ranking block the chain's terminal stage Y is read from; the "
+                         "default was previously silent and always resolved to world")
     args = ap.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
 
@@ -215,7 +227,7 @@ def main() -> int:
     sat_full = load_sat(base / "a04_full.npz")
     sat_core = load_sat(base / "a04_core.npz")
     ratings = load_ratings()
-    rankings = load_rankings()
+    rankings = load_rankings((args.block,))
 
     cids = [c for c in sat_full if c in sat_core and c in ratings and c in rankings]
     print(f"conversations usable end to end: {len(cids)}")
@@ -288,6 +300,7 @@ def main() -> int:
     # pairwise share a best response while no response is best for all of them.
     from covalx.chain.cohomology import analyse
     rows, nerve = [], []
+    skipped_Y = 0
     for cid in cids:
         Mr, ann = ratings[cid]
         SF, SC = sat_full[cid], sat_core[cid]
@@ -299,6 +312,12 @@ def main() -> int:
         d_N, d_F = direction(W.T @ np.nan_to_num(SF[:n])), direction(SF)
         d_C = direction(SC)
         Yr = np.array([rankings[cid][a] for a in ann if a in rankings[cid]], float)
+        if Yr.ndim != 2 or Yr.shape[0] == 0:
+            # On the personal block many prompts have NO ranking at all -- it covers 5,006 of
+            # 18,678 assessments -- so the chain's terminal stage is undefined there. Counted and
+            # reported rather than dropped, because a silently smaller n is a different study.
+            skipped_Y += 1
+            continue
         d_Y = direction(Yr)
         rows.append({"N->R_full": align(d_N, d_F), "R_full->R_core": align(d_F, d_C),
                      "R_core->Y": align(d_C, d_Y), "N->Y": align(d_N, d_Y),
@@ -338,6 +357,8 @@ def main() -> int:
         return round(float(v.mean()), 4), [round(float(v.mean()) - 1.96 * se, 4),
                                            round(float(v.mean()) + 1.96 * se, 4)], len(v)
 
+    print(f"\nterminal stage Y read from the {args.block!r} block; prompts with no Y at all: "
+          f"{skipped_Y} of {len(cids)}")
     print("\nDIRECTION TRANSMITTED ALONG THE CHAIN (cosine, 1 = fully transmitted, 0 = orthogonal)")
     align_summary = {}
     for k in ("N->R_full", "R_full->R_core", "R_core->Y", "N->Y"):
