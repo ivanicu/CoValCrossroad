@@ -48,10 +48,16 @@ OUT = pathlib.Path(__file__).resolve().parent / "results"
 RANK_MAP = {"A": 0, "B": 1, "C": 2, "D": 3}
 MIN_PROMPTS = 6
 
+from covalx.floors import (SCALE as FLOOR_SCALE,  # noqa: E402
+                           read as floor_read)
+
 
 def parse_unacceptable(blocks):
+    """THE FIX. Not-asked is an EMPTY LIST, never a missing key, so `blk is None` never fires and
+    13,672 never-posed questions were being counted as answered-zero. The question was asked iff
+    the unacceptable or personal block is a NON-EMPTY list."""
     blk = blocks.get("unacceptable")
-    if blk is None:
+    if not (blk or blocks.get("personal")):
         return set(), [], False
     out, rats = set(), []
     for b in blk or []:
@@ -123,7 +129,7 @@ def split_half_floor(rows, seeds) -> float:
             i = rng.permutation(len(x))
             h = len(x) // 2
             d.append(abs(x[i[:h]].mean() - x[i[h:]].mean()))
-        out.append(float(np.mean(d)) * math.sqrt(math.pi / 4))
+        out.append(float(np.mean(d)) * FLOOR_SCALE)   # see covalx.floors
     return float(np.mean(out)), by
 
 
@@ -159,8 +165,9 @@ def main() -> int:
     sd_obs = float(np.std([np.mean(v) for v in by_a.values()], ddof=1))
     print(f"\nperson side: {len(by_a)} people with >={MIN_PROMPTS} prompts")
     print(f"  between-person sd of rejection rate {sd_obs:.4f}")
-    print(f"  within-person split-half floor      {floor:.4f}   ratio "
-          f"{sd_obs / floor if floor else float('nan'):.2f}  (needs >=1.50 for a count)")
+    rd = floor_read(sd_obs, floor)
+    print(f"  within-person split-half floor      {floor:.4f}   ratio {rd['ratio']}")
+    print(f"  -> {rd['verdict']}")
 
     # ---- PROMPT SIDE, against the within-person permutation
     obs = concentration(rows, "pid", "all4")

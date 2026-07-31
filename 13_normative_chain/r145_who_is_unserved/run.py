@@ -40,7 +40,10 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 OUT = pathlib.Path(__file__).resolve().parent / "results"
 RANK_MAP = {"A": 0, "B": 1, "C": 2, "D": 3}
-MIN_PROMPTS = 6          # a person needs enough prompts for a within-person split to mean anything
+MIN_PROMPTS = 6
+
+from covalx.floors import (SCALE as FLOOR_SCALE,  # noqa: E402
+                           read as floor_read)          # a person needs enough prompts for a within-person split to mean anything
 
 
 def parse_ranking(txt: str) -> np.ndarray | None:
@@ -170,7 +173,9 @@ def split_half_floor(by: dict[str, list[int]], seeds: list[int]) -> float:
             h = len(x) // 2
             d.append(abs(x[i[:h]].mean() - x[i[h:]].mean()))
         # the between-person sd implied by within-person noise alone
-        out.append(float(np.mean(d)) * math.sqrt(math.pi / 4))
+        # CORRECTED. sqrt(pi/4) compares a full-data spread against a HALF-data floor;
+        # the derivation lives in covalx.floors and the correct scale is sqrt(pi/8).
+        out.append(float(np.mean(d)) * FLOOR_SCALE)
     return float(np.mean(out))
 
 
