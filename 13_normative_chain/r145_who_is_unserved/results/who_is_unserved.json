@@ -1,0 +1,412 @@
+{
+ "person_prompt_rows": 18561,
+ "people_with_enough_prompts": 933,
+ "prompts": 1100,
+ "overall_unserved_rate": 0.3404,
+ "between_person_sd": 0.15346,
+ "within_person_split_half_floor": 0.14544,
+ "sd_over_floor": 1.055,
+ "label_permutation_null_sd": 0.10874,
+ "null_sd_by_seed": [
+  0.10853,
+  0.10771,
+  0.112,
+  0.10707,
+  0.1084
+ ],
+ "sd_over_null": 1.411,
+ "held_out_person_rate_correlation": [
+  {
+   "salt": 1,
+   "r": 0.3384,
+   "n": 930
+  },
+  {
+   "salt": 2,
+   "r": 0.348,
+   "n": 928
+  },
+  {
+   "salt": 3,
+   "r": 0.3121,
+   "n": 927
+  },
+  {
+   "salt": 4,
+   "r": 0.3475,
+   "n": 930
+  },
+  {
+   "salt": 5,
+   "r": 0.3296,
+   "n": 926
+  },
+  {
+   "salt": 6,
+   "r": 0.3542,
+   "n": 930
+  }
+ ],
+ "demographic_scan_between_person": [
+  {
+   "axis": "country_of_residence",
+   "group": "South Africa",
+   "n": 134,
+   "delta": 0.1706,
+   "z": 11.305,
+   "p": 0.0,
+   "bh_significant": true
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "Netherlands",
+   "n": 105,
+   "delta": -0.0665,
+   "z": -5.71,
+   "p": 1.1277747624660606e-08,
+   "bh_significant": true
+  },
+  {
+   "axis": "education_level",
+   "group": "College or university degree",
+   "n": 354,
+   "delta": -0.0474,
+   "z": -4.845,
+   "p": 1.268344292704171e-06,
+   "bh_significant": true
+  },
+  {
+   "axis": "education_level",
+   "group": "Post-graduate degree",
+   "n": 179,
+   "delta": 0.0601,
+   "z": 4.388,
+   "p": 1.1426674567216466e-05,
+   "bh_significant": true
+  },
+  {
+   "axis": "generative_ai_usage",
+   "group": "Almost constantly",
+   "n": 92,
+   "delta": 0.0539,
+   "z": 3.058,
+   "p": 0.002230641822355439,
+   "bh_significant": true
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "Mexico",
+   "n": 140,
+   "delta": -0.0363,
+   "z": -3.034,
+   "p": 0.002412190595943109,
+   "bh_significant": true
+  },
+  {
+   "axis": "generative_ai_usage",
+   "group": "A few times a month",
+   "n": 108,
+   "delta": -0.04,
+   "z": -2.93,
+   "p": 0.0033891615643575346,
+   "bh_significant": true
+  },
+  {
+   "axis": "gender",
+   "group": "Female",
+   "n": 432,
+   "delta": 0.029,
+   "z": 2.873,
+   "p": 0.004064499539349953,
+   "bh_significant": true
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "United Kingdom",
+   "n": 74,
+   "delta": -0.0397,
+   "z": -2.766,
+   "p": 0.005667735930471984,
+   "bh_significant": true
+  },
+  {
+   "axis": "generative_ai_usage",
+   "group": "Several times a day",
+   "n": 321,
+   "delta": 0.0281,
+   "z": 2.565,
+   "p": 0.010315556999260789,
+   "bh_significant": true
+  }
+ ],
+ "demographic_scan_within_prompt": [
+  {
+   "axis": "country_of_residence",
+   "group": "South Africa",
+   "n_prompts": 973,
+   "n_rows": 2660,
+   "delta_within_prompt": 0.1632,
+   "ci95": [
+    0.1376,
+    0.1889
+   ],
+   "z": 12.48,
+   "p": 0.0,
+   "bh_significant": true
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "Netherlands",
+   "n_prompts": 904,
+   "n_rows": 2062,
+   "delta_within_prompt": -0.0807,
+   "ci95": [
+    -0.1049,
+    -0.0566
+   ],
+   "z": -6.549,
+   "p": 5.796563229409912e-11,
+   "bh_significant": true
+  },
+  {
+   "axis": "education_level",
+   "group": "College or university degree",
+   "n_prompts": 1094,
+   "n_rows": 6955,
+   "delta_within_prompt": -0.0512,
+   "ci95": [
+    -0.0673,
+    -0.035
+   ],
+   "z": -6.216,
+   "p": 5.113709455883964e-10,
+   "bh_significant": true
+  },
+  {
+   "axis": "education_level",
+   "group": "Post-graduate degree",
+   "n_prompts": 1048,
+   "n_rows": 3666,
+   "delta_within_prompt": 0.0625,
+   "ci95": [
+    0.0422,
+    0.0829
+   ],
+   "z": 6.033,
+   "p": 1.6045627049265931e-09,
+   "bh_significant": true
+  },
+  {
+   "axis": "gender",
+   "group": "Female",
+   "n_prompts": 1099,
+   "n_rows": 8534,
+   "delta_within_prompt": 0.0306,
+   "ci95": [
+    0.0155,
+    0.0456
+   ],
+   "z": 3.984,
+   "p": 6.786146816684102e-05,
+   "bh_significant": true
+  },
+  {
+   "axis": "generative_ai_usage",
+   "group": "Almost constantly",
+   "n_prompts": 862,
+   "n_rows": 1888,
+   "delta_within_prompt": 0.0559,
+   "ci95": [
+    0.0283,
+    0.0834
+   ],
+   "z": 3.972,
+   "p": 7.132743446813805e-05,
+   "bh_significant": true
+  },
+  {
+   "axis": "gender",
+   "group": "Male",
+   "n_prompts": 1099,
+   "n_rows": 9647,
+   "delta_within_prompt": -0.0272,
+   "ci95": [
+    -0.0425,
+    -0.0119
+   ],
+   "z": -3.493,
+   "p": 0.0004767597194039741,
+   "bh_significant": true
+  },
+  {
+   "axis": "generative_ai_usage",
+   "group": "A few times a month",
+   "n_prompts": 909,
+   "n_rows": 2143,
+   "delta_within_prompt": -0.0418,
+   "ci95": [
+    -0.0661,
+    -0.0175
+   ],
+   "z": -3.375,
+   "p": 0.0007369077566927729,
+   "bh_significant": true
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "United Kingdom",
+   "n_prompts": 779,
+   "n_rows": 1454,
+   "delta_within_prompt": -0.0437,
+   "ci95": [
+    -0.0712,
+    -0.0162
+   ],
+   "z": -3.114,
+   "p": 0.0018446767924404917,
+   "bh_significant": true
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "Mexico",
+   "n_prompts": 989,
+   "n_rows": 2771,
+   "delta_within_prompt": -0.0322,
+   "ci95": [
+    -0.0541,
+    -0.0102
+   ],
+   "z": -2.868,
+   "p": 0.004126269801291826,
+   "bh_significant": true
+  }
+ ],
+ "decisiveness_matched": [
+  {
+   "axis": "country_of_residence",
+   "group": "South Africa",
+   "n_strata": 967,
+   "n_rows": 2450,
+   "delta_matched": 0.1557,
+   "ci95": [
+    0.1292,
+    0.1822
+   ],
+   "z": 11.521
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "Netherlands",
+   "n_strata": 879,
+   "n_rows": 1805,
+   "delta_matched": -0.0738,
+   "ci95": [
+    -0.0995,
+    -0.0482
+   ],
+   "z": -5.64
+  },
+  {
+   "axis": "education_level",
+   "group": "College or university degree",
+   "n_strata": 1157,
+   "n_rows": 6272,
+   "delta_matched": -0.0536,
+   "ci95": [
+    -0.0704,
+    -0.0367
+   ],
+   "z": -6.231
+  },
+  {
+   "axis": "education_level",
+   "group": "Post-graduate degree",
+   "n_strata": 1072,
+   "n_rows": 3382,
+   "delta_matched": 0.0567,
+   "ci95": [
+    0.0355,
+    0.0779
+   ],
+   "z": 5.251
+  },
+  {
+   "axis": "gender",
+   "group": "Female",
+   "n_strata": 1167,
+   "n_rows": 7822,
+   "delta_matched": 0.0313,
+   "ci95": [
+    0.0153,
+    0.0472
+   ],
+   "z": 3.849
+  },
+  {
+   "axis": "generative_ai_usage",
+   "group": "Almost constantly",
+   "n_strata": 856,
+   "n_rows": 1736,
+   "delta_matched": 0.0579,
+   "ci95": [
+    0.0289,
+    0.0868
+   ],
+   "z": 3.921
+  },
+  {
+   "axis": "gender",
+   "group": "Male",
+   "n_strata": 1165,
+   "n_rows": 8648,
+   "delta_matched": -0.0278,
+   "ci95": [
+    -0.0437,
+    -0.0118
+   ],
+   "z": -3.416
+  },
+  {
+   "axis": "generative_ai_usage",
+   "group": "A few times a month",
+   "n_strata": 910,
+   "n_rows": 1968,
+   "delta_matched": -0.05,
+   "ci95": [
+    -0.075,
+    -0.025
+   ],
+   "z": -3.923
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "United Kingdom",
+   "n_strata": 763,
+   "n_rows": 1354,
+   "delta_matched": -0.0542,
+   "ci95": [
+    -0.0821,
+    -0.0262
+   ],
+   "z": -3.802
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "Mexico",
+   "n_strata": 995,
+   "n_rows": 2496,
+   "delta_matched": -0.0258,
+   "ci95": [
+    -0.0489,
+    -0.0027
+   ],
+   "z": -2.193
+  }
+ ],
+ "n_groups_tested": 29,
+ "n_groups_bh_between": 11,
+ "n_groups_bh_within_prompt": 15,
+ "instrument": "none -- no model is executed anywhere in this round",
+ "verdict_individual_level": "ROTATING",
+ "verdict_note": "the individual-level verdict and the group-level scan answer different questions and may legitimately disagree: a group of 130 averages away the within-person noise that makes an individual rate inadmissible. Only the WITHIN-PROMPT scan is free of the prompt-assignment confound."
+}
