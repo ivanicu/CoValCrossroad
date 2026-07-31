@@ -1,0 +1,145 @@
+{
+ "conclusion": "Everything in this release and this campaign is scored against the `world` ranking. Each participant also gave a `personal` one, and 1,588 of 3,471 assessments (45.8%) that carry both give DIFFERENT rankings. On those cells -- the only place the question exists, because on the other 51.6% every arm scores identically against both by construction -- the compiled arm reaches 0.6482 against `world` and 0.6391 against `personal`, a gap of +0.0091 [-0.0039, +0.0221]. The difficulty control -- the pooled crowd's own Borda ordering, which was fitted to neither block -- shows a gap of +0.0441 [+0.0305, +0.0581], so part of any arm's gap is simply that `world` is the easier target. The compiled arm's EXCESS over that control is -0.0350. WORLD: W-NOT-MEASURABLE. The differing subset cannot resolve the contrast.",
+ "core_excess_over_difficulty_control": -0.03501259445843829,
+ "material": 0.02,
+ "n_cells": 3471,
+ "n_differing": 1588,
+ "results": {
+  "all_cells": {
+   "core": {
+    "acc_personal": 0.6579612023432249,
+    "acc_world": 0.6621146643618553,
+    "ci": [
+     -0.0019333786519020331,
+     0.010061574003404078
+    ],
+    "gap": 0.004153462018630557,
+    "n": 3471
+   },
+   "crowd_borda": {
+    "acc_personal": 0.7605157015269375,
+    "acc_world": 0.7806876020359166,
+    "ci": [
+     0.013725977065855382,
+     0.02678658208088529
+    ],
+    "gap": 0.02017190050897916,
+    "n": 3471
+   },
+   "full_equal": {
+    "acc_personal": 0.5743589743589744,
+    "acc_world": 0.5776529338327092,
+    "ci": [
+     -0.0029790130609309577,
+     0.009465121654176782
+    ],
+    "gap": 0.003293959473734756,
+    "n": 3471
+   },
+   "full_signed": {
+    "acc_personal": 0.6777009507346586,
+    "acc_world": 0.6804955344281187,
+    "ci": [
+     -0.0033628687295879736,
+     0.009064784179293734
+    ],
+    "gap": 0.0027945836934600977,
+    "n": 3471
+   }
+  },
+  "differing_cells": {
+   "core": {
+    "acc_personal": 0.6391162888329135,
+    "acc_world": 0.6481947942905121,
+    "ci": [
+     -0.0039430880982894555,
+     0.022060051781306846
+    ],
+    "gap": 0.009078505457598656,
+    "n": 1588
+   },
+   "crowd_borda": {
+    "acc_personal": 0.7052686817800168,
+    "acc_world": 0.7493597816960538,
+    "ci": [
+     0.03054820195523792,
+     0.05805925091961484
+    ],
+    "gap": 0.04409109991603694,
+    "n": 1588
+   },
+   "full_equal": {
+    "acc_personal": 0.5650923593618807,
+    "acc_world": 0.5722921914357683,
+    "ci": [
+     -0.006391855065891209,
+     0.020602911361219188
+    ],
+    "gap": 0.0071998320738874905,
+    "n": 1588
+   },
+   "full_signed": {
+    "acc_personal": 0.6450461796809404,
+    "acc_world": 0.6511544920235096,
+    "ci": [
+     -0.007486821410579379,
+     0.020458912990923273
+    ],
+    "gap": 0.006108312342569269,
+    "n": 1588
+   }
+  },
+  "same_cells": {
+   "core": {
+    "acc_personal": 0.6738537794299877,
+    "acc_world": 0.6738537794299877,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "gap": 0.0,
+    "n": 1883
+   },
+   "crowd_borda": {
+    "acc_personal": 0.8071074526464861,
+    "acc_world": 0.8071074526464861,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "gap": 0.0,
+    "n": 1883
+   },
+   "full_equal": {
+    "acc_personal": 0.5821738360771818,
+    "acc_world": 0.5821738360771818,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "gap": 0.0,
+    "n": 1883
+   },
+   "full_signed": {
+    "acc_personal": 0.7052398654629138,
+    "acc_world": 0.7052398654629138,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "gap": 0.0,
+    "n": 1883
+   }
+  }
+ },
+ "seeds": [
+  8101,
+  4409,
+  20260730,
+  31337,
+  271828
+ ],
+ "source_name": "run.py",
+ "source_sha256": "1ac1a0f992549d6d92a43ef538f6b57e561b9897484754d074cc0e25ad455aa6",
+ "world": "W-NOT-MEASURABLE"
+}

@@ -844,6 +844,34 @@ def build_wave2(N):
              "my own consensus gradient reads the ratings as a proxy for a person's values, and "
              "this says they are not one; the gradient may be about expression rather than values")
 
+    N["A4"] = node(
+        "A4-the-world-ranking-is-the-right-aggregation-target", "their_assumption",
+        "The release aggregates each participant's `best for the world` ranking. Each participant "
+        "also gave a `best for me` ranking, and the two differ on 45.8% of the assessments carrying "
+        "both.",
+        "aggregation", 6, "partial")
+    N["C_TARGET_NEUTRAL"] = node(
+        "the-compiled-rubric-does-not-inherit-the-aggregation-targets-bias", "my_claim",
+        "An attack on A4 that FAILED, and informatively. On the 1,588 assessments where a person's "
+        "`world` and `personal` rankings actually differ -- the only cells where the question "
+        "exists, since on the rest every arm scores identically against both by construction -- the "
+        "compiled arm reaches 0.6482 against `world` and 0.6391 against `personal`, a gap of "
+        "+0.0091 whose CI [-0.0039, +0.0221] includes zero. The difficulty control, the pooled "
+        "crowd's own Borda ordering, shows +0.0441 [+0.0305, +0.0581]: direct aggregation of world "
+        "rankings IS strongly world-biased. The rubric is not. Choosing `world` as the target costs "
+        "little at the rubric level, and this is a point in the release's favour.",
+        "aggregation", 7, "settled")
+    evid(N["C_TARGET_NEUTRAL"], "r135-which-target",
+         "Derivation check passes exactly: on cells where the two rankings are the same string every "
+         "arm's gap is 0.00e+00. Core's excess over the difficulty control is -0.0350. PARTITION "
+         "FLAW STATED IN THE ARTIFACT: the pre-registered world set had no branch for a materially "
+         "NEGATIVE excess, so the run labels this W-NOT-MEASURABLE, which is wrong for what "
+         "happened. The fourth world is written into the file dated rather than retro-fitted into "
+         "the branch, because repairing a partition after seeing the result is the move this "
+         "project forbids.", 7)
+    edge(N["C_TARGET_NEUTRAL"], N["A4"], "supports", 7, None,
+         "an attack that failed, recorded as support rather than quietly dropped")
+
     N["K19"] = node(
         "K19-the-judges-fewshot-only-demonstrates-positive-criteria", "knife",
         "Both exemplars in the judge's two-shot prompt state a criterion in positive prescriptive "
