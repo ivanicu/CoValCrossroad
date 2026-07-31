@@ -1,0 +1,245 @@
+{
+ "summary": {
+  "N->R_full": {
+   "0.5": {
+    "n_conversations": 968,
+    "dim_up": 3.0,
+    "dim_down": 3.0,
+    "preserved": 3.0,
+    "preserved_ci95": [
+     3.0,
+     3.0
+    ],
+    "null": 3.0,
+    "excess_over_null": 0.0,
+    "lost": 0.0,
+    "invented": 0.0
+   },
+   "0.7": {
+    "n_conversations": 968,
+    "dim_up": 3.0,
+    "dim_down": 3.0,
+    "preserved": 3.0,
+    "preserved_ci95": [
+     3.0,
+     3.0
+    ],
+    "null": 3.0,
+    "excess_over_null": 0.0,
+    "lost": 0.0,
+    "invented": 0.0
+   },
+   "0.9": {
+    "n_conversations": 968,
+    "dim_up": 3.0,
+    "dim_down": 3.0,
+    "preserved": 3.0,
+    "preserved_ci95": [
+     3.0,
+     3.0
+    ],
+    "null": 3.0,
+    "excess_over_null": 0.0,
+    "lost": 0.0,
+    "invented": 0.0
+   }
+  },
+  "R_full->R_core": {
+   "0.5": {
+    "n_conversations": 968,
+    "dim_up": 3.0,
+    "dim_down": 2.999,
+    "preserved": 2.999,
+    "preserved_ci95": [
+     2.997,
+     3.001
+    ],
+    "null": 2.999,
+    "excess_over_null": 0.0,
+    "lost": 0.001,
+    "invented": 0.0
+   },
+   "0.7": {
+    "n_conversations": 968,
+    "dim_up": 3.0,
+    "dim_down": 2.999,
+    "preserved": 2.999,
+    "preserved_ci95": [
+     2.997,
+     3.001
+    ],
+    "null": 2.999,
+    "excess_over_null": 0.0,
+    "lost": 0.001,
+    "invented": 0.0
+   },
+   "0.9": {
+    "n_conversations": 968,
+    "dim_up": 3.0,
+    "dim_down": 2.999,
+    "preserved": 2.999,
+    "preserved_ci95": [
+     2.997,
+     3.001
+    ],
+    "null": 2.999,
+    "excess_over_null": 0.0,
+    "lost": 0.001,
+    "invented": 0.0
+   }
+  },
+  "R_core->Y": {
+   "0.5": {
+    "n_conversations": 968,
+    "dim_up": 2.999,
+    "dim_down": 2.999,
+    "preserved": 2.998,
+    "preserved_ci95": [
+     2.995,
+     3.001
+    ],
+    "null": 2.998,
+    "excess_over_null": -0.0,
+    "lost": 0.001,
+    "invented": 0.001
+   },
+   "0.7": {
+    "n_conversations": 968,
+    "dim_up": 2.999,
+    "dim_down": 2.999,
+    "preserved": 2.998,
+    "preserved_ci95": [
+     2.995,
+     3.001
+    ],
+    "null": 2.998,
+    "excess_over_null": -0.0,
+    "lost": 0.001,
+    "invented": 0.001
+   },
+   "0.9": {
+    "n_conversations": 968,
+    "dim_up": 2.999,
+    "dim_down": 2.999,
+    "preserved": 2.998,
+    "preserved_ci95": [
+     2.995,
+     3.001
+    ],
+    "null": 2.998,
+    "excess_over_null": -0.0,
+    "lost": 0.001,
+    "invented": 0.001
+   }
+  },
+  "N->Y": {
+   "0.5": {
+    "n_conversations": 968,
+    "dim_up": 3.0,
+    "dim_down": 2.999,
+    "preserved": 2.999,
+    "preserved_ci95": [
+     2.997,
+     3.001
+    ],
+    "null": 2.999,
+    "excess_over_null": -0.0,
+    "lost": 0.001,
+    "invented": 0.0
+   },
+   "0.7": {
+    "n_conversations": 968,
+    "dim_up": 3.0,
+    "dim_down": 2.999,
+    "preserved": 2.999,
+    "preserved_ci95": [
+     2.997,
+     3.001
+    ],
+    "null": 2.999,
+    "excess_over_null": -0.0,
+    "lost": 0.001,
+    "invented": 0.0
+   },
+   "0.9": {
+    "n_conversations": 968,
+    "dim_up": 3.0,
+    "dim_down": 2.999,
+    "preserved": 2.999,
+    "preserved_ci95": [
+     2.997,
+     3.001
+    ],
+    "null": 2.999,
+    "excess_over_null": -0.0,
+    "lost": 0.001,
+    "invented": 0.0
+   }
+  }
+ },
+ "alignment": {
+  "N->R_full": {
+   "cosine": 0.6969,
+   "ci95": [
+    0.6706,
+    0.7231
+   ],
+   "n_eff": 968
+  },
+  "R_full->R_core": {
+   "cosine": 0.7103,
+   "ci95": [
+    0.6863,
+    0.7344
+   ],
+   "n_eff": 968
+  },
+  "R_core->Y": {
+   "cosine": 0.5335,
+   "ci95": [
+    0.5021,
+    0.5648
+   ],
+   "n_eff": 968
+  },
+  "N->Y": {
+   "cosine": 0.571,
+   "ci95": [
+    0.5408,
+    0.6011
+   ],
+   "n_eff": 968
+  },
+  "share_of_people_aligned_with_core": {
+   "share": 0.8753,
+   "ci95": [
+    0.8652,
+    0.8855
+   ],
+   "n_eff": 968
+  }
+ },
+ "obstruction": {
+  "n_prompts": 968,
+  "no_global_section": 952,
+  "H1_nonzero": 8,
+  "mean_residual_G0": 5.264
+ },
+ "degenerate_control_note": "the subspace table above reads 3.00 everywhere INCLUDING the null: in a 3-dimensional ambient space every stage spans everything, so principal angles cannot discriminate. Kept as a documented instance of a check that cannot fail.",
+ "n_conversations": 968,
+ "mean_rank_expressed": 10.952,
+ "channel_ceiling": 3,
+ "derivation_note": "the 3-dimensional ceiling is arithmetic: contrasts among four responses span three dimensions. It is not evidence.",
+ "cutoffs": [
+  0.5,
+  0.7,
+  0.9
+ ],
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ]
+}
