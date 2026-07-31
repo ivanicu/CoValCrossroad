@@ -667,6 +667,37 @@ def build_wave2(N):
     edge(N["DISC_SHAM"], N["C_LADDER"], "confounds", 1, None,
          "kept at minimum confidence so the resolved alternative stays in the audit trail")
 
+    N["C_VETO"] = node(
+        "the-veto-is-lost-by-aggregation-not-by-compilation", "my_claim",
+        "The release's third ranking block is a VETO -- 'C is unacceptable' with a rationale -- "
+        "carried by 2,422 of 15,593 assessments, and 132 rounds of this campaign never opened it. "
+        "A veto is not a preference: no ordering expresses 'never produce this'. Measured on the "
+        "2,275 cells where a person ruled out some but not all responses: the person's OWN world "
+        "ranking puts one of their own vetoed responses first only 3.90% of the time, so the veto "
+        "IS expressible in the ranking task. The compiled arm does it 15.47% of the time, the "
+        "sign-corrected uncompiled arm 13.80%, and a RANDOM top 37.82%. But a DIFFERENT annotator's "
+        "own top choice on the same prompt lands on this person's vetoed set 17.19% of the time -- "
+        "so the compiled standard violates LESS often than a human peer in the same position. What "
+        "loses the veto is aggregation across people, not the compilation step. Every collective "
+        "standard pays roughly one veto in six, and it is invisible in every aggregate concordance "
+        "number the field reports.",
+        "redistribution", 8, "settled")
+    evid(N["C_VETO"], "r133-the-veto",
+         "Cluster-bootstrapped over prompts, 4,000 fits across 5 seeds. core 0.1547 "
+         "[0.1298,0.1831]; full_signed 0.1380 [0.1165,0.1595]; full_equal 0.2778 [0.2397,0.3190]; "
+         "self 0.0390 [0.0311,0.0474] n=2,076; peer 0.1719 [0.1570,0.1871] n=2,275 at 11.1 peers "
+         "per cell. Positive control: an arm that simply refuses vetoed responses scores exactly "
+         "0.0000. Placebo: a uniformly random top lands at 0.3728 (sd 0.0088) against an arithmetic "
+         "chance of 0.3782, |diff| 0.0054. The FIRST run, without the peer comparator, returned "
+         "W-COMPILER-FAILS -- a verdict that was unearned, because the self-rate is a same-person "
+         "consistency floor and not a target any external rule could reach.", 8)
+    edge(N["C_VETO"], N["A3"], "attacks", 8, None,
+         "a collective standard cannot carry a categorical veto, and this one does not")
+    if "C_MAJORITY_CAPTURE" in N:
+        edge(N["C_VETO"], N["C_MAJORITY_CAPTURE"], "supports", 7, None,
+             "the same object seen at the response level rather than the criterion level")
+    edge(N["C_VETO"], N["INSTR"], "depends_on", 8, None, None)
+
     N["K19"] = node(
         "K19-the-judges-fewshot-only-demonstrates-positive-criteria", "knife",
         "Both exemplars in the judge's two-shot prompt state a criterion in positive prescriptive "

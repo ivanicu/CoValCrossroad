@@ -1,0 +1,67 @@
+{
+ "arms": {
+  "core": {
+   "ci": [
+    0.12976338768809276,
+    0.18306190803130473
+   ],
+   "rate": 0.15472527472527473,
+   "vs_chance": -0.22351648351648354
+  },
+  "full_equal": {
+   "ci": [
+    0.23965498253076106,
+    0.31898536919443066
+   ],
+   "rate": 0.2778021978021978,
+   "vs_chance": -0.10043956043956048
+  },
+  "full_signed": {
+   "ci": [
+    0.11654204082670475,
+    0.15953663408937244
+   ],
+   "rate": 0.13802197802197802,
+   "vs_chance": -0.24021978021978024
+  },
+  "peer": {
+   "ci": [
+    0.1569749882641122,
+    0.18709491166206096
+   ],
+   "n": 2275,
+   "rate": 0.17190221159667968,
+   "vs_chance": -0.2063395466450786
+  },
+  "self": {
+   "ci": [
+    0.031110787172011663,
+    0.04743527123616718
+   ],
+   "n": 2076,
+   "rate": 0.03901734104046243,
+   "vs_chance": -0.3392244172012958
+  }
+ },
+ "chance_rate": 0.37824175824175826,
+ "conclusion": "The release's third ranking block is a VETO, and this campaign had never opened it: 2,422 of 15,593 assessments carry one, giving 2,275 cells where a person ruled out some but not all responses. A random top would violate at 0.3782. The compiled arm's top is a response that person vetoed 0.1547 of the time [0.1298, 0.1831]; the uncompiled equal-weight arm 0.2778 and the sign-corrected arm 0.1380. The decisive comparison is not against chance but against the person themselves: THEIR OWN world ranking puts one of their own vetoed responses first 0.0390 of the time [0.0311, 0.0474], n=2,076. WORLD: W-AGGREGATION-INTRINSIC. A DIFFERENT annotator's own top choice on the same prompt lands on this person's vetoed set 0.1719 of the time [0.1570, 0.1871], which is the achievable ceiling for any non-personalised rule, since the self-rate is a same-person consistency floor rather than a target. The compiled arm violates no more often than a human peer does, but both violate far more than the person themselves: the veto is real and expressible, and what loses it is aggregation across people rather than the compilation step. Every collective standard pays this, and naming the compiler for it would be wrong.",
+ "gap_core_minus_peer": -0.017176936871404952,
+ "gap_worst_minus_self": 0.23878485676173536,
+ "material": 0.05,
+ "n_assessments": 15593,
+ "n_cells": 2275,
+ "n_with_veto": 2422,
+ "placebo_mean": 0.3728351648351649,
+ "placebo_sd": 0.008779772781535937,
+ "positive_control_rate": 0.0,
+ "seeds": [
+  8101,
+  4409,
+  20260730,
+  31337,
+  271828
+ ],
+ "source_name": "run.py",
+ "source_sha256": "3f3d4adb4f9e1ae48358ebf266b2430bd23309b11fd4c1a00d0a12c0ca503d4f",
+ "world": "W-AGGREGATION-INTRINSIC"
+}
