@@ -190,7 +190,7 @@ def build() -> dict:
         ("control-annotator-positive",
          "Same annotator, same wording, on criteria whose field value is unambiguous by "
          "construction: both families score 0.833-1.000 against chances of 0.167-0.333.",
-         "force-never-elicited",
+         "force-was-never-elicited",
          "Without it, near-chance agreement on real criteria would have been silence rather than "
          "evidence about the text."),
         ("control-leave-one-out-line",
@@ -213,7 +213,15 @@ def build() -> dict:
     ]
     for name, stmt, target, why in ctrl:
         cid = node(name, "control", stmt, d=8, status="settled")
-        edge(cid, N[target], "acquits" if target in N else "supports", note=why)
+        # LOUD, NOT SILENT. The first version indexed N[target] directly and threw a KeyError the
+        # moment a node was renamed -- which is correct behaviour. What was not correct was that I
+        # ran the builder with output redirected to /dev/null twice afterwards and then read the
+        # STALE graph as though it were the rebuild's result. A build step whose output you discard
+        # is a build step you have stopped checking.
+        if target not in N:
+            raise KeyError(f"control {name!r} points at unknown node {target!r}; rename it or fix "
+                           f"the control, but do not let the graph keep an edge to nothing")
+        edge(cid, N[target], "acquits", note=why)
         N[name] = cid
 
     # ---------------------------------------------------------------- my own method defects
@@ -348,8 +356,13 @@ def apply_adversary_verdicts() -> None:
          "is r=-0.153, p=0.0056, and it SURVIVES BH over the full 14-feature family, agreeing on "
          "sign in four of five held-out splits. It was withdrawn on the phantom population where it "
          "read -0.066 -- withdrawn for the right reason on the wrong data."),
-        ("menu-can-fail", "partial",
-         "Concentration is real and highly significant but the ratio is about 2.6x, not 5.01x: the "
+        ("menu-can-fail", "settled",
+         "Concentration of full rejection on particular prompts is real and highly significant, but "
+         "the ratio is 2.56x rather than 5.01x, and on the corrected 326-prompt population the "
+         "MECHANISM reverses: disagreement between raters is the strongest predictor at +0.188, "
+         "above the non-rejectors' veto mean at +0.172, while the veto SHARE falls to +0.118 and no "
+         "longer clears BH. The SHARED INADEQUACY verdict is withdrawn in favour of DISPERSED "
+         "DEMAND. Superseded text follows: the ratio is about 2.6x, not 5.01x, because the "
          "permutation spread each person's flag across never-asked slots where the outcome was "
          "structurally forced to zero, shrinking the null."),
     ]:
@@ -377,16 +390,20 @@ def apply_adversary_verdicts() -> None:
     # file and then two rounds later restored the subjectivity claim by hand anyway; the next
     # rebuild silently reset it to refuted and the ledger's withdrawn count jumped from 3 to 5. A
     # rule you state and then do not encode is a rule you will break while quoting it.
-    for name in ("subjectivity-inversion-prompt-level", "content-preserved-force-lost"):
-        rows = q("SELECT id FROM node WHERE name=%s AND status='refuted'", (name,))
+    # UNCONDITIONAL. The first version only acted when the node was still `refuted`, so once the
+    # status loop above had already set it to `partial` the edge deletion never ran and the node sat
+    # in the ledger as WITHDRAWN with a live kill edge from a killer that had itself been withdrawn.
+    # A restoration has to remove the edge whether or not it also has to change the status.
+    for name in ("subjectivity-inversion-prompt-level", "content-preserved-force-lost",
+                 "veto-block-partial-coverage"):
+        rows = q("SELECT id FROM node WHERE name=%s", (name,))
         if rows:
-            q("UPDATE node SET status='partial' WHERE id=%s", (rows[0][0],))
             q("DELETE FROM edge WHERE dst=%s AND kind='overturns'", (rows[0][0],))
 
     # the retraction that was itself issued by the broken instrument
     rows = q("SELECT id FROM node WHERE name='veto-block-partial-coverage'")
     if rows:
-        q("UPDATE node SET status='settled', statement=%s WHERE id=%s",
+        q("UPDATE node SET kind='fact', status='settled', statement=%s WHERE id=%s",
           ("UN-RETRACTED. Coverage is 26.8%, not 100%. r150 overturned this figure using the "
            "broken parser, so the retraction is retracted and the original statement stands closer "
            "to the truth than its replacement did.", rows[0][0]))
