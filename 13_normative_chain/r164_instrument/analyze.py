@@ -142,6 +142,44 @@ def arms_and_weight_effect(sf, sc, W, rank, restrict=None):
     return rows, keys, we
 
 
+def rewriting_contrast(sf, sc, rank, texts, cutoff=0.80):
+    """The rewriting effect under an arbitrary judge, with cluster keys.
+
+    The matched pair set is TEXT-ONLY and therefore identical across judges by construction, so a
+    difference between judges here is the judge and cannot be the matching.
+    """
+    import difflib
+    rows, keys, bands = [], [], defaultdict(list)
+    B = [(0.80, 0.88, "heavier"), (0.88, 0.95, "moderate"), (0.95, 1.01, "near-identical")]
+    for cid, (ft, ct) in texts.items():
+        if cid not in sf or cid not in sc or cid not in rank:
+            continue
+        low = [t.lower() for t in ft]
+        found = []
+        for ci, c in enumerate(ct):
+            if ci >= sc[cid].shape[0]:
+                continue
+            h = difflib.get_close_matches(c.lower(), low, n=1, cutoff=cutoff)
+            if not h:
+                continue
+            fi = low.index(h[0])
+            if fi < sf[cid].shape[0]:
+                found.append((ci, fi, difflib.SequenceMatcher(None, c.lower(), h[0]).ratio()))
+        if not found:
+            continue
+        rw = np.nan_to_num(sc[cid][[p_[0] for p_ in found]], nan=0.0).mean(axis=0)
+        raw = np.nan_to_num(sf[cid][[p_[1] for p_ in found]], nan=0.0).mean(axis=0)
+        msim = float(np.mean([p_[2] for p_ in found]))
+        bd = next((b[2] for b in B if b[0] <= msim < b[1]), None)
+        for aid, pref in rank[cid]:
+            d = conc(rw, pref) - conc(raw, pref)
+            rows.append(d)
+            keys.append((cid, aid))
+            if bd:
+                bands[bd].append((d, cid, aid))
+    return rows, keys, bands
+
+
 def main() -> int:
     W, rank = load_weights(), load_rankings()
     ref_f, ref_c = load_sat(REF / "a04_full.npz"), load_sat(REF / "a04_core.npz")
@@ -189,6 +227,31 @@ def main() -> int:
             tag = "  <- POSITIVE CONTROL: must match the reference" if v == "default" else ""
             print(f"  {v:14s} {s['mean']:+.4f} z {s['z_2way']}   "
                   f"reference on the same prompts {s2['mean']:+.4f} z {s2['z_2way']}{tag}")
+
+    # the rewriting effect across judges, clustered -- the claim I overstated on phi alone
+    from covalx.judge import load_join
+    texts = {pid: ([it["criterion"].strip() for it in r["coval_full"]],
+                   [c["criterion"].strip() for c in r["coval_core"]])
+             for pid, _p, r in load_join(ROOT / "data" / "comparisons.jsonl",
+                                         ROOT / "data" / "conversation_rubrics.jsonl")}
+    print("\nREWRITING EFFECT across judges, two-way clustered "
+          "(matched pair set is text-only, identical across judges by construction)")
+    out["rewriting"] = {}
+    for name, (sf, sc) in judges.items():
+        rows, keys, bands = rewriting_contrast(sf, sc, rank, texts)
+        s = two_way_se(rows, [p for p, _r in keys], [r for _p, r in keys])
+        bs = {}
+        for b, vals in bands.items():
+            sb = two_way_se([v for v, _c, _a in vals], [c for _v, c, _a in vals],
+                            [a for _v, _c, a in vals])
+            bs[b] = {"mean": sb["mean"], "z": sb["z_2way"]}
+        mono = (bs.get("heavier", {}).get("mean", 0) > bs.get("moderate", {}).get("mean", 0)
+                > bs.get("near-identical", {}).get("mean", 0)) if len(bs) == 3 else None
+        out["rewriting"][name] = {"overall": s, "bands": bs, "monotonic": mono}
+        print(f"  {name:10s} {s['mean']:+.4f} z {s['z_2way']:>6}   bands "
+              + " ".join(f"{b[:4]}={bs[b]['mean']:+.4f}" for b in
+                         ("heavier", "moderate", "near-identical") if b in bs)
+              + f"   monotonic: {mono}")
 
     (HERE / "results" / "instrument_clustered.json").write_text(json.dumps(out, indent=1))
     print("\nNOTE: every z above is two-way clustered on prompt and rater. The harness's own "
