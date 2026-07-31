@@ -42,19 +42,27 @@ def build() -> dict:
          "empty band at n=2,3 where a single-population binomial expects 1,235; prohibition share "
          "31.1% self-authored vs 16.0% pre-seeded as an independent second signature", 8)
 
-    N["force-never-elicited"] = node(
-        "force-never-elicited", "fact",
-        "Normative force was never collected. Across all 15,248 criteria, absolute-force markers "
-        "appear in 0.72%, scope qualifiers in 0.60%, exceptions in 0.72%. Only 'should' is common "
-        "at 13.06%, and it does not distinguish a veto from a mild preference.",
-        d=8, status="settled")
-    evid(N["force-never-elicited"], "r143-markers",
-         "measured on the full population, not the study corpus, because selecting on extreme "
-         "weight could select terse criteria and manufacture the result", 8)
-    evid(N["force-never-elicited"], "r143-annotator-control",
-         "two model families agree at kappa 0.152 on force and 0.010 on generality for real "
-         "criteria, while both score 0.833-1.000 on constructed criteria that state the value -- "
-         "so the instruments read these fields when the text carries them", 7)
+    # THE MEASUREMENT AND THE INFERENCE ARE SEPARATE NODES. They were one, and the conflation let
+    # a false reading inherit a sound count's credibility -- caught only because a `fact` may not
+    # carry status `refuted` and the domain check refused it.
+    N["force-wording-is-rare"] = node(
+        "force-wording-is-rare", "fact",
+        "MEASUREMENT ONLY. Absolute-force wording appears in 0.72% of 15,248 criteria, scope "
+        "qualifiers in 0.60%, exceptions in 0.72%, must in 0.71%, should in 13.06%. Measured on "
+        "the full population. A fact about WORDING; it licenses nothing about whether force was "
+        "elicited.", d=8, status="settled")
+    evid(N["force-wording-is-rare"], "r143-markers",
+         "full population, not the study corpus, because selecting on extreme weight could select "
+         "terse criteria and manufacture the result", 8)
+
+    N["force-was-never-elicited"] = node(
+        "force-was-never-elicited", "my_claim",
+        "WITHDRAWN. Read off the wording count: that the release never collected normative force. "
+        "False. Force is carried by the SIGNED WEIGHT exactly as the dataset card states -- 28.32% "
+        "of criteria reach |mean score| >= 8 and 98.68% of those carry no force wording at all.",
+        d=4, status="refuted")
+    evid(N["force-was-never-elicited"], "r154-the-empty-list",
+         "PROPERTY force-present vs PROXY force-wording: a one-way implication used backwards", 8)
 
     N["veto-is-distinct"] = node(
         "veto-is-distinct", "fact",
@@ -145,7 +153,7 @@ def build() -> dict:
         ("content-preserved-force-lost",
          "A pipeline that records only content preserves content and loses force, and the loss is "
          "invisible to any audit that reads text.",
-         "force-never-elicited",
+         "force-wording-is-rare",
          "Force never entered the pipeline, so compilation cannot have lost it. The accusation was "
          "aimed one stage too late.",
          "r143-markers"),
@@ -249,6 +257,7 @@ def build() -> dict:
 def main() -> int:
     N = build()
     apply_adversary_verdicts()
+    build_compilation_thread()
     print(f"normative-chain phase written: {len(N)} nodes")
     for kind, cnt in q("SELECT kind, count(*) FROM node GROUP BY kind ORDER BY 2 DESC"):
         print(f"   {kind:20s} {cnt}")
@@ -324,10 +333,6 @@ def apply_adversary_verdicts() -> None:
                "affects": "every effect-over-floor number in this phase"})
 
     for name, status, stmt in [
-        ("force-never-elicited", "refuted",
-         "WITHDRAWN. Force IS elicited, through the signed weight. The lexical measurement stands "
-         "only as a measurement of WORDING -- absolute-force markers in 0.72% of criteria -- and "
-         "licenses no claim about the construct."),
         ("content-preserved-force-lost", "partial",
          "RESTORED. Force was collected in the signed weight, and coval_core items carry exactly "
          "one key -- criterion -- in 3,899 of 3,899 cases. Compilation does delete force. The r143 "
@@ -338,6 +343,11 @@ def apply_adversary_verdicts() -> None:
          "nothing, 3.90% veto all four, people veto their own top choice 9.25% of the time, and the "
          "rank-only pseudo-R2 is 0.128. Still not merely the bottom of the ranking, but far less "
          "distinct than the withdrawn 82.9% / 1.1% / 2.6% / 0.0559."),
+        ("subjectivity-inversion-prompt-level", "partial",
+         "RESTORED AND STRONGER. On the corrected 326-prompt population the prompt-level inversion "
+         "is r=-0.153, p=0.0056, and it SURVIVES BH over the full 14-feature family, agreeing on "
+         "sign in four of five held-out splits. It was withdrawn on the phantom population where it "
+         "read -0.066 -- withdrawn for the right reason on the wrong data."),
         ("menu-can-fail", "partial",
          "Concentration is real and highly significant but the ratio is about 2.6x, not 5.01x: the "
          "permutation spread each person's flag across never-asked slots where the outcome was "
@@ -348,8 +358,9 @@ def apply_adversary_verdicts() -> None:
             q("UPDATE node SET status=%s, statement=%s WHERE id=%s", (status, stmt, rows[0][0]))
 
     for defect, target, note in [
-        (d2, "force-never-elicited",
-         "28.32% of criteria reach |mean|>=8 and 98.68% of those carry no wording"),
+        (d2, "force-was-never-elicited",
+         "28.32% of criteria reach |mean|>=8 and 98.68% of those carry no wording; a lexical scan "
+         "cannot see a numeric channel"),
         (d1, "veto-is-distinct",
          "the withdrawn figures counted 13,672 never-asked assessments as answered-zero"),
         (d1, "menu-can-fail", "permutation exchangeability violated by never-asked slots"),
@@ -361,6 +372,16 @@ def apply_adversary_verdicts() -> None:
         if rows:
             edge(defect, rows[0][0],
                  "refines" if target == "group-not-individual" else "overturns", note=note)
+
+    # RESTORATIONS MUST LIVE HERE, NOT IN A PSQL SESSION. I wrote exactly that warning into this
+    # file and then two rounds later restored the subjectivity claim by hand anyway; the next
+    # rebuild silently reset it to refuted and the ledger's withdrawn count jumped from 3 to 5. A
+    # rule you state and then do not encode is a rule you will break while quoting it.
+    for name in ("subjectivity-inversion-prompt-level", "content-preserved-force-lost"):
+        rows = q("SELECT id FROM node WHERE name=%s AND status='refuted'", (name,))
+        if rows:
+            q("UPDATE node SET status='partial' WHERE id=%s", (rows[0][0],))
+            q("DELETE FROM edge WHERE dst=%s AND kind='overturns'", (rows[0][0],))
 
     # the retraction that was itself issued by the broken instrument
     rows = q("SELECT id FROM node WHERE name='veto-block-partial-coverage'")
@@ -378,6 +399,76 @@ def apply_adversary_verdicts() -> None:
          "average, anti-correlated with the rate ratio at r=-0.86. And it is a central tendency, "
          "not a law: 8 to 10 of 34 groups come in under 1.0, a net win even after the externality.",
          d=7, status="settled")
+
+def build_compilation_thread() -> None:
+    """r155-r160: what compilation does, once the audit stopped asking only what it destroys.
+
+    This thread reverses the phase's own direction. It began as an attempt to price the deletion of
+    force and ended by measuring two things the compiler does WELL and one it does not pay for.
+    """
+    n1 = node("weight-deletion-is-free", "fact",
+              "Deleting the weight from the compiled rubric costs nothing measurable: core_keep "
+              "minus core_drop is +0.0015 [-0.0021, +0.0051], z=0.83. Not because the weights are "
+              "uninformative -- randomising their signs collapses concordance to the shuffled "
+              "floor, 0.5003 against 0.5021, and real-versus-random is +0.1393 at z=50.5.",
+              d=7, status="settled")
+    evid(n1, "r155-does-the-weight-matter", "one judge shared by every arm, so it cannot produce a "
+         "between-arm difference", 7)
+
+    n2 = node("the-compiler-does-not-select-by-weight", "fact",
+              "Of core items matching a source at 0.80, only 27.9% came from the top magnitude "
+              "slots and the mean normalised magnitude rank is 0.471 where 0.5 is chance. The "
+              "documented selection rule is not visible in the artefact.",
+              d=6, status="partial",
+              props={"limitation": "only 30.9% of core items match anything, because the compiler "
+                                   "rewrites; if the unmatched 69% are disproportionately "
+                                   "high-magnitude the rule could hold on the part not visible"})
+    evid(n2, "r156-the-compression-curve", "and top-k beats random-k by at most 0.021 anywhere on "
+         "the sweep, so selecting by magnitude would not buy much even if it were done", 6)
+
+    n3 = node("compilation-does-two-things-well", "my_claim",
+              "Selection and rewriting are separable and both positive. On criteria matched to "
+              "their own source: random criteria 0.5502, surviving criteria in original wording "
+              "0.5941, the same criteria as rewritten 0.6116. Selection +0.0439, rewriting +0.0175 "
+              "[+0.0148, +0.0202] at z=12.75. The rewriting effect is dose-responsive -- +0.0121 "
+              "near-identical, +0.0169 moderate, +0.0269 heavier, outer intervals disjoint.",
+              d=7, status="settled")
+    evid(n3, "r158-the-rewriting-itself", "selection held fixed by construction: it is literally "
+         "the same criterion in two wordings", 7)
+    evid(n3, "r157-is-it-a-quality-detector", "the deflationary rival is refuted -- core beats a "
+         "generic goodness index by +0.057, response length by +0.109, and its criteria are no more "
+         "inter-correlated than raw ones", 7)
+
+    n4 = node("compilation-is-a-net-loss-on-accuracy", "my_claim",
+              "Against the only alternative that matters -- not compiling -- compilation loses "
+              "0.0229 on the mean rater, 0.0078 on the worst-served, 0.0197 at the tenth "
+              "percentile, and buys 0.0011 in equality. The ordering of arms is identical under "
+              "utilitarian, maximin and p10 outcomes, so compression is not distributively "
+              "selective here. Held out on raters who contributed nothing to the weights the gap "
+              "narrows to +0.0095 but does not close.",
+              d=7, status="settled")
+    evid(n4, "r159-which-outcome", "four outcomes, same arms, same prompts, same judge", 7)
+    evid(n4, "r160-out-of-sample", "57% of the in-sample advantage was fitting the panel; the "
+         "four-weight arm shrinks by 0.0001 against fifteen weights' 0.0125, so what overfits is "
+         "the weighting and not the selection", 7)
+    edge(n1, n4, "supports", note="the weight is not where the loss is")
+    edge(n3, n4, "confounds", note="two real gains that are still not enough to pay for the "
+         "discarding")
+
+    node("legibility-is-unpriced", "fact",
+         "Compilation's only remaining justification is one this release cannot price: whether a "
+         "human can hold four criteria in mind and not fifteen. It is a real cost and it may well "
+         "dominate the 0.01-0.02 concordance loss. It is simply not in the data.",
+         d=8, status="settled")
+
+    d = node("defect-two-baselines-summed", "defect",
+             "I reported compilation as 'nearly balancing' by adding -0.027 for discarding criteria "
+             "to +0.061 for selection and rewriting. The first is measured against keeping "
+             "everything and the second against random criteria. Summing them compares one object "
+             "to two different alternatives and reports the total as a single quantity.",
+             d=8, status="settled",
+             props={"caught_by": "scoring the arms directly against each other in the next round"})
+    edge(d, n4, "refines", note="the direct comparison replaces the summed one")
 
 
 if __name__ == "__main__":
