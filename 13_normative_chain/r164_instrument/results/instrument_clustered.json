@@ -1,0 +1,105 @@
+{
+ "model_axis": {
+  "reference": {
+   "arms": {
+    "full_weighted": 0.6601,
+    "core_compiled": 0.638,
+    "raw_topk_weighted": 0.6396,
+    "full_unweighted": 0.581
+   },
+   "top_bottom_gap": 0.0791,
+   "weight_effect": {
+    "mean": 0.00152,
+    "se_iid": 0.00184,
+    "se_2way": 0.00425,
+    "inflation": 2.31,
+    "ci95_2way": [
+     -0.00681,
+     0.00986
+    ],
+    "z_2way": 0.36,
+    "n": 15593,
+    "n_prompts": 968,
+    "n_raters": 1012
+   }
+  },
+  "phi": {
+   "arms": {
+    "full_weighted": 0.6427,
+    "core_compiled": 0.6399,
+    "raw_topk_weighted": 0.6085,
+    "full_unweighted": 0.6019
+   },
+   "top_bottom_gap": 0.0407,
+   "weight_effect": {
+    "mean": -0.03135,
+    "se_iid": 0.0021,
+    "se_2way": 0.00519,
+    "inflation": 2.47,
+    "ci95_2way": [
+     -0.04153,
+     -0.02118
+    ],
+    "z_2way": -6.04,
+    "n": 15593,
+    "n_prompts": 968,
+    "n_raters": 1012
+   }
+  },
+  "qwen3b": {
+   "arms": {
+    "full_weighted": 0.6626,
+    "core_compiled": 0.644,
+    "raw_topk_weighted": 0.6265,
+    "full_unweighted": 0.625
+   },
+   "top_bottom_gap": 0.0375,
+   "weight_effect": {
+    "mean": -0.01754,
+    "se_iid": 0.00202,
+    "se_2way": 0.00488,
+    "inflation": 2.41,
+    "ci95_2way": [
+     -0.02711,
+     -0.00797
+    ],
+    "z_2way": -3.59,
+    "n": 15593,
+    "n_prompts": 968,
+    "n_raters": 1012
+   }
+  }
+ },
+ "prompt_axis": {
+  "default": {
+   "variant": {
+    "mean": 0.01043,
+    "se_iid": 0.00325,
+    "se_2way": 0.00731,
+    "inflation": 2.25,
+    "ci95_2way": [
+     -0.00389,
+     0.02475
+    ],
+    "z_2way": 1.43,
+    "n": 4874,
+    "n_prompts": 300,
+    "n_raters": 977
+   },
+   "reference_same_prompts": {
+    "mean": 0.00928,
+    "se_iid": 0.00324,
+    "se_2way": 0.00762,
+    "inflation": 2.35,
+    "ci95_2way": [
+     -0.00564,
+     0.02421
+    ],
+    "z_2way": 1.22,
+    "n": 4874,
+    "n_prompts": 300,
+    "n_raters": 977
+   }
+  }
+ }
+}
