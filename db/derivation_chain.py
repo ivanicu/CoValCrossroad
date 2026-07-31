@@ -1017,6 +1017,47 @@ def build_wave2(N):
              "stranger advantage of one seventh of the between-rater floor looks like from the "
              "other side")
 
+    N["C_POL_NOJUDGE"] = node(
+        "the-negative-quarters-content-is-underrepresented-in-core-without-any-model", "my_claim",
+        "The polarity route rebuilt with no benchmark and no judge, after both were challenged and "
+        "both objections landed. Verbatim retention gives a decisive but SEMANTICALLY AMBIGUOUS "
+        "fact: 0 of 3,905 negatively-rated criteria appear verbatim in core against 372 of 11,343 "
+        "positive ones, Fisher exact one-sided p 3.26e-49. It does not establish dropping, because "
+        "full's negative criteria state the bad behaviour affirmatively and such a line must be "
+        "negated before it can sit in a rubric at all -- a fact about phrasing. (The reading that "
+        "core cannot write prohibitions is separately FALSE: 21.7% of core's criteria carry "
+        "prohibition markers, above full's own 19.1% and 19.7%.) The channel that does work is "
+        "lexical presence: strip negation from both sides, and each full criterion's maximum "
+        "Jaccard overlap against its OWN prompt's core criteria is 0.1246 for negatives against "
+        "0.1911 for a magnitude-matched positive subset, z = -32.8 over 20 draws. Their content is "
+        "not there in rephrased form either.",
+        "polarity", 8, "settled")
+    evid(N["C_POL_NOJUDGE"], "r140-polarity-without-the-judge",
+         "No model is run and no benchmark is chosen. The comparison is relative, so a uniformly "
+         "weak lexical proxy cancels. The one confound that could manufacture it runs BACKWARDS: "
+         "negative criteria are shorter (88 chars against 101) and Jaccard divides by the union, so "
+         "brevity should INFLATE their overlap. It is lower anyway. Limit stated rather than argued "
+         "away: lexical overlap is a weak proxy for content and establishing more would require "
+         "semantic matching, i.e. a second model between the claim and the data.", 8)
+    edge(N["C_POL_NOJUDGE"], N["A1"], "overturns", 8, None,
+         "a fifth route, and the first one that does not route through the instrument")
+    if "C_POL" in N:
+        edge(N["C_POL_NOJUDGE"], N["C_POL"], "supports", 8, None,
+             "same direction reached without the judge whose polarity symmetry has since failed")
+    N["D_PERFECT_SEP"] = node(
+        "defect-i-reported-a-logistic-OR-under-perfect-separation", "defect",
+        "The first pass at the verbatim polarity test reported OR 0.0000 with a 95% CI of "
+        "[0.0000, 0.0000] across four specifications. Zero of 3,905 is PERFECT SEPARATION, where "
+        "the logistic is undefined and the fit diverges; a zero-width interval at zero is the "
+        "signature of that divergence, not a precise estimate. Replaced by Fisher's exact test "
+        "(p 3.26e-49) and a one-sided upper bound on the rate (7.67e-04).",
+        "polarity", 9, "refuted")
+    evid(N["D_PERFECT_SEP"], "session-self-audit-2026-07-30",
+         "A confidence interval of exactly zero width is never an estimate. Caught by reading the "
+         "interval rather than the point.", 9)
+    edge(N["D_PERFECT_SEP"], N["C_POL_NOJUDGE"], "refines", 9, None,
+         "the number was right and the statistic was wrong")
+
     N["K19"] = node(
         "K19-the-judges-fewshot-only-demonstrates-positive-criteria", "knife",
         "Both exemplars in the judge's two-shot prompt state a criterion in positive prescriptive "
