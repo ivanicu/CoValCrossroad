@@ -944,6 +944,32 @@ def build_wave2(N):
                  "conditional on one local 2B judge that is not the release's own scorer; the "
                  "claim is about a rubric-scoring pipeline built this way, not about CoVal")
 
+    N["C_BATCH"] = node(
+        "the-judges-batching-dependence-is-real-per-judgement-and-immaterial-per-claim", "my_claim",
+        "The judge is exactly deterministic given a batching and not across batchings: on 480 fixed "
+        "prompts, batch=1 disagrees with batch=48 on 165 of 480 judgements up to 5.4e-02, and "
+        "length-sorting on 158 up to 6.2e-02, because Qwen3.5's gated-delta recurrence does not "
+        "fully mask left-pad tokens. The stored tensors were produced at batch 48 in file order, an "
+        "unregistered implementation choice under every published number. Re-scoring the ENTIRE "
+        "grid under length-sorted batching changes every single one of 75,244 judgements -- zero "
+        "identical, mean |delta| 9.5e-03, max 6.4e-02 -- and moves the arm concordances and their "
+        "gaps by at most 0.0007 against a pre-registered tolerance of 0.005. A defect that touches "
+        "100% of the values is immaterial where the claims are, because ~16 criteria and tens of "
+        "thousands of ordered pairs average it away. Bounds one dimension of the instrument's "
+        "arbitrariness at under 0.001.",
+        "instrument", 8, "settled")
+    evid(N["C_BATCH"], "r137-batch-gauge",
+         "core 0.6604 -> 0.6607; full_equal 0.5941 -> 0.5937; full_signed 0.6806 -> 0.6803; "
+         "core-minus-full_equal 0.0663 -> 0.0670; core-minus-full_signed -0.0202 -> -0.0196. Found "
+         "while optimising for speed: the optimised judge disagreed with the reference by 4.2e-02 "
+         "and the only behavioural difference was length-sorted batching, so the REFERENCE was "
+         "re-run under five batchings to locate it.", 8)
+    edge(N["C_BATCH"], N["INSTR"], "supports", 8, None,
+         "the instrument survives one arbitrariness check at the level that matters")
+    if "INSTR_FREE" in N:
+        edge(N["C_BATCH"], N["INSTR_FREE"], "refines", 8, None,
+             "instrument-dependent does not mean unbounded: this dimension is bounded at <0.001")
+
     N["K19"] = node(
         "K19-the-judges-fewshot-only-demonstrates-positive-criteria", "knife",
         "Both exemplars in the judge's two-shot prompt state a criterion in positive prescriptive "
