@@ -399,7 +399,83 @@ def build():
 
     build_triple_blind(N)
     build_wave2(N)
+    N.update(build_retractions(N))
     return N
+
+
+def build_retractions(N):
+    """This project's own retracted claims, as first-class REFUTED nodes.
+
+    The graph's first shape audit showed 17 my_claims of which 0 were refuted, while 5 of 5 alleged
+    defects were. That is not a record of a careful project; it is an ontology that cannot express
+    its own retractions. `person-level-harm-COUNTS-are-withdrawn` was entered as a SETTLED claim
+    about a withdrawal, so the thing withdrawn had no node and nothing pointed at it. A reader --
+    including a later me -- would see a campaign that never got anything wrong.
+
+    Each retracted claim gets a node with status='refuted' and an `overturns` edge from whatever
+    killed it, so the kill is queryable and the corrected number travels with it."""
+    R = {}
+    R["r116_harm"] = node(
+        "RETRACTED-12.46pct-of-people-are-harmed-by-compilation", "my_claim",
+        "Rounds r116 through r119 reported that 12.46% of people suffer a concordance loss above "
+        "0.01 under compilation, and built a multidimensional sacrifice programme on counts of that "
+        "shape. The number was computed against ONE baseline (full_equal, which reads a criterion "
+        "rated -10 as if satisfying it were good) and with NO within-person floor. Both defects are "
+        "individually fatal to it.",
+        "redistribution", 3, "refuted")
+    evid(R["r116_harm"], "r123-the-baseline-was-crippled",
+         "Against the sign-corrected baseline the same quantity is 57.07%, not 12.46% -- the "
+         "convention, not the world, was choosing the number.", 8)
+    evid(R["r116_harm"], "r131-who-is-served",
+         "Between-person spread 0.06870 against a within-person split-half floor of 0.06130 "
+         "(equal) and 0.05348 against 0.05062 (signed): neither clears. The count was a statement "
+         "about how many prompts each person happened to see.", 8)
+    if "R_HARM_COUNTS" in N:
+        edge(N["R_HARM_COUNTS"], R["r116_harm"], "overturns", 8, None,
+             "the floor the original rounds never had")
+
+    R["r117_prompt"] = node(
+        "RETRACTED-17.05pct-prompt-level-harm", "my_claim",
+        "The prompt-level companion to the person-level count, 17.05% against full_equal. It "
+        "inherits the baseline defect exactly (35.54% against full_signed) and was never given a "
+        "within-prompt floor of its own.",
+        "redistribution", 3, "refuted")
+    evid(R["r117_prompt"], "r123-the-baseline-was-crippled",
+         "17.05% -> 35.54% purely by correcting how a negative rating is read.", 8)
+    if "R_HARM_COUNTS" in N:
+        edge(N["R_HARM_COUNTS"], R["r117_prompt"], "overturns", 7, None,
+             "the same missing floor, one level up; the audit caught this node standing with "
+             "evidence and no incoming kill edge")
+
+    R["nat_med"] = node(
+        "RETRACTED-the-natural-mediator-reading-of-the-arm-gap", "my_claim",
+        "An earlier reading treated core's advantage over full as evidence that compilation adds "
+        "information. Three independent designs now put core statistically level with a "
+        "deterministic sort of the release's own importance ratings, and the advantage itself is "
+        "conditional on handing full its worst configuration.",
+        "substitution", 3, "refuted")
+    if "C_LADDER" in N:
+        edge(N["C_LADDER"], R["nat_med"], "overturns", 7, None,
+             "a zero-LLM sort reaches the same place")
+    if "C_SIGNFLIP" in N:
+        edge(N["C_SIGNFLIP"], R["nat_med"], "overturns", 8, None,
+             "the sign convention decides the direction of the gap")
+
+    R["gradient"] = node(
+        "RETRACTED-the-consensus-gradient-as-first-reported", "my_claim",
+        "Reported as partial r +0.099 at p 0.0025 without naming a baseline and without a "
+        "predictability control. Both were wrong: adding the person's own best-arm accuracy kills "
+        "it entirely under full_equal (-0.003, p 0.92) and attenuates it to +0.074 (p 0.0205) "
+        "under full_signed, and an independent design showed the ratings are not a personal-values "
+        "proxy at all, so even the surviving version may be about expression rather than values.",
+        "redistribution", 2, "refuted")
+    if "C_CONSENSUS_GRADIENT" in N:
+        edge(N["C_CONSENSUS_GRADIENT"], R["gradient"], "overturns", 7, None,
+             "the same round, one control later")
+    if "C_SHARED_NOT_PERSONAL" in N:
+        edge(N["C_SHARED_NOT_PERSONAL"], R["gradient"], "overturns", 7, None,
+             "and the covariate is not the thing it was read as")
+    return R
 
 
 def build_wave2(N):
@@ -956,6 +1032,20 @@ def audit():
                          (SELECT count(*) FROM edge x WHERE x.dst=n.id)
                   FROM node n ORDER BY n.kind, n.name"""):
         print(f"  {r[0]:<18}{r[1]:<62}{r[2]:<9}D{r[3]:<3}ev={r[4]:<3}in={r[5]}")
+
+    print("\n  ── this project's OWN retracted claims ──")
+    for r in q("""SELECT name, coalesce(d_level::text,'-'),
+                         (SELECT count(*) FROM edge x WHERE x.dst=n.id AND x.kind='overturns')
+                  FROM node n WHERE kind='my_claim' AND status='refuted' ORDER BY name"""):
+        print(f"  {r[0]:<58} D{r[1]:<3} killed by {r[2]} edge(s)")
+
+    orphan_retract = q("""SELECT name FROM node n WHERE kind='my_claim' AND status='refuted'
+                          AND NOT EXISTS (SELECT 1 FROM edge x WHERE x.dst=n.id
+                                          AND x.kind='overturns')""")
+    if orphan_retract:
+        print("  !! retracted with NO incoming kill edge -- a retraction nobody can trace back:")
+        for r in orphan_retract:
+            print(f"     {r[0]}")
 
     print("\n  ── claims asserted with NO evidence row (standing on nothing measured) ──")
     bad = q("""SELECT n.name FROM node n LEFT JOIN evidence e ON e.node_id=n.id
