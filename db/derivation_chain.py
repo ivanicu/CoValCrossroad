@@ -513,6 +513,106 @@ def build_wave2(N):
          "OR ~0.82, near null. Verdict CONFIRMED.", 6)
     edge(N["F_VERBATIM"], C, "supports", 6, None, "the proxy-free arm exists only because of it")
 
+    # ---- K5: the north star, and the retraction it forces ------------------------------------
+    N["R_HARM_COUNTS"] = node(
+        "person-level-harm-COUNTS-are-withdrawn", "my_claim",
+        "Rounds r116-r119 reported counts of harmed people under compilation. Re-measured with a "
+        "within-person floor -- split each annotator's own prompt set in half at random and compute "
+        "the identical gain on each half -- the between-person spread does NOT exceed that floor "
+        "under either baseline: 0.06870 against 0.06130 (full_equal), 0.05348 against 0.05062 "
+        "(full_signed). '12.8% of people are harmed' and '59.4% of people are harmed' are "
+        "statements about how many prompts each person happened to see, not about people. Every "
+        "person-level sacrifice COUNT this project has published on this data is withdrawn.",
+        "redistribution", 8, "settled")
+    evid(N["R_HARM_COUNTS"], "r131-who-is-served",
+         "975 annotators with >=4 prompts and >=8 ordered pairs, 15,103 person-prompt cells, 200 "
+         "random half-splits per person. Mean gain +0.06809 [+0.06373,+0.07242] against full_equal "
+         "and -0.01887 [-0.02218,-0.01545] against full_signed; worst decile -0.04907 and -0.11114. "
+         "WORLD: W-UNIFORM under the pre-registered 1.5x-floor rule.", 8)
+
+    N["C_CONSENSUS_GRADIENT"] = node(
+        "core-serves-the-people-furthest-from-consensus-relatively-better", "my_claim",
+        "The person-level spread is noise-dominated, but it is not structureless: if it were, no "
+        "covariate could predict it. Two do, after partialling out a person's prompt count -- the "
+        "noise-shrinkage confound, named before the control ran and only weakly related to either "
+        "covariate. Against the signed baseline, where the aggregate favours full, a person's "
+        "deviation from their peers' rating means predicts a HIGHER gain (partial r +0.099, "
+        "permutation p 0.0025) and the number of criteria they rated predicts a LOWER one "
+        "(-0.129, p 0.0000). full's ratings encode the majority's view, so the ratings-free "
+        "compiled arm is relatively kinder to the people furthest from it. About 1% of variance.",
+        "redistribution", 6, "partial")
+    evid(N["C_CONSENSUS_GRADIENT"], "r131-who-is-served",
+         "dev_from_mean raw +0.109 -> partial +0.099 (p 0.0025); n_rated raw -0.133 -> partial "
+         "-0.129 (p 0.0000); correlations of each covariate with prompt count are -0.085 and "
+         "+0.037, so exposure is not the driver. Under full_equal the same gradients appear with "
+         "the opposite sign, so the direction is baseline-conditional and may never be stated "
+         "without naming the convention.", 6)
+    edge(N["R_HARM_COUNTS"], N["C_CONSENSUS_GRADIENT"], "refines", 8, None,
+         "a COUNT of losers needs the spread to clear the floor and does not; a GRADIENT on a "
+         "person characteristic does not need that, and two are real")
+    if "C_MAJORITY_CAPTURE" in N:
+        edge(N["C_CONSENSUS_GRADIENT"], N["C_MAJORITY_CAPTURE"], "supports", 6, None,
+             "the same asymmetry reached from the opposite direction: the ratings carry the "
+             "majority, so distance from the majority is what the compiled arm relieves")
+    edge(N["C_CONSENSUS_GRADIENT"], N["A3"], "attacks", 6, None,
+         "a standard whose benefit depends on distance from consensus is redistributive")
+    evid(N["R_HARM_COUNTS"], "independent-design-K5-A-seed-8101",
+         "Reached the same conclusion from a different direction and more starkly: median "
+         "WITHIN-person sd of the person-prompt gain is 23.15pp against a BETWEEN-person sd of "
+         "8.51pp, so the between-person spread is about a THIRD of its own resampling floor. "
+         "ICC 0.022 with permutation p 0.0 over 5 seeds -- real structure, tiny share of variance, "
+         "and it warns against over-reading that p at n=15,031.", 8)
+    evid(N["C_CONSENSUS_GRADIENT"], "independent-design-K5-A-seed-8101",
+         "Distance from pooled consensus predicts a LESS negative person-level gain, rho +0.133 "
+         "(p 2.6e-5), the same sign as the +0.099 partial found here; engagement (criteria rated "
+         "per prompt) rho -0.215, also the same sign as -0.129. CRUCIALLY it baselines against the "
+         "person's OWN importance-weighted full arm, not the pooled one, and offers a rival reading "
+         "for its own version: an idiosyncratic rater's own ratings predict their own ranking more "
+         "noisily, which weakens their personal baseline rather than core serving them better. "
+         "That reading cannot explain the pooled-baseline version, so the two designs agreeing on "
+         "sign across DIFFERENT baselines is worth more than either alone.", 7)
+
+    N["C_ITEM_COUNT_DOMINATES"] = node(
+        "most-of-the-compiled-arms-shortfall-is-item-count-not-lost-personalisation", "my_claim",
+        "Compilation reproduces a person's own ranking 1.25pp worse than that person's own "
+        "importance-weighted full arm [-2.01, -0.48], which is BH-significant and Cohen's d -0.047. "
+        "But core also trails a NON-personalised pooled full arm by 2.05pp, a LARGER gap. So the "
+        "shortfall is dominated by having four criteria instead of fifteen, not by losing the "
+        "person's own weighting. The redistribution story, at the level this project originally "
+        "posed it, is not what the data shows.",
+        "redistribution", 6, "partial")
+    evid(N["C_ITEM_COUNT_DOMINATES"], "independent-design-K5-A-seed-8101",
+         "core vs personal -1.25pp (p 0.0014, two-way cluster on person x prompt, 15,031 rows, "
+         "79,640 pairs); core vs full_pooled -2.05pp (p 1.6e-8). Below its own pre-registered 2.0pp "
+         "practical floor, hence UNVERIFIED rather than OVERTURNED. Sign-convention spec cell: "
+         "against UNSIGNED pooled full, core WINS by +6.89pp -- the negative-quarter fact is "
+         "load-bearing, not cosmetic.", 6)
+    edge(N["C_ITEM_COUNT_DOMINATES"], N["R_HARM_COUNTS"], "supports", 6, None, None)
+
+    N["DISC_SHAM"] = node(
+        "discrepancy-core-vs-random-subset-differs-6x-between-designs", "control",
+        "Two designs measured the same-looking quantity -- core against a random count-matched "
+        "subset of that prompt's own full criteria -- and got +1.40pp and +9.14pp. A 6.5x gap on "
+        "nominally the same comparison looked like a design difference somewhere. LOCATED, in one "
+        "line: r131/independent_A.py:359 builds its random subset as sat_full_arr[idx].mean(axis=0) "
+        "with NO sign applied -- its own result JSON says 'unsigned mean satisfaction' -- while the "
+        "ladder's random-4 is direction-signed by each criterion\'s polarity. So core beats an "
+        "arbitrary count-matched subset by +1.40pp when that subset gets the free sign information "
+        "and by +9.14pp when it does not. The 7.74pp difference matches the independently measured "
+        "cost of dropping sign orientation (8.87pp on full, 9.6pp on top-importance-4) to within a "
+        "point. RESOLVED: not a discrepancy, two answers to two questions. The one that bears on "
+        "whether the compiler does work is the signed one, because the sign is free and any real "
+        "substitute would use it.",
+        "substitution", 9, "settled")
+    evid(N["DISC_SHAM"], "session-source-diff-2026-07-30",
+         "r131/independent_A.py:359 unsigned; r126/independent_A.py signs every full-derived rung "
+         "by sign(mean importance). Magnitude of the gap reproduces the sign-orientation cost "
+         "measured independently by a third design.", 9)
+    edge(N["DISC_SHAM"], N["C_LADDER"], "acquits", 9, None,
+         "the ladder's lowest rung is one number once the sign convention is named")
+    edge(N["DISC_SHAM"], N["C_LADDER"], "confounds", 1, None,
+         "kept at minimum confidence so the resolved alternative stays in the audit trail")
+
     N["K19"] = node(
         "K19-the-judges-fewshot-only-demonstrates-positive-criteria", "knife",
         "Both exemplars in the judge's two-shot prompt state a criterion in positive prescriptive "
