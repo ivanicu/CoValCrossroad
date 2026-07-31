@@ -513,6 +513,50 @@ def build_wave2(N):
          "OR ~0.82, near null. Verdict CONFIRMED.", 6)
     edge(N["F_VERBATIM"], C, "supports", 6, None, "the proxy-free arm exists only because of it")
 
+    N["C_ADJUDICATED"] = node(
+        "disagreement-itself-costs-a-criterion-its-place-on-ground-truth", "my_claim",
+        "The dispute is settled on the one ground truth the release offers. 365 of 3,899 coval_core "
+        "criteria (9.4%) have a verbatim twin in coval_full, so for those retention is a fact and "
+        "not a proxy. Among the 5,564 full criteria with at least four raters, 10.9% of the copied "
+        "are contested against 43.0% of the not-copied; adjusted for |mean rating|, log rater count "
+        "and the criterion's own across-response discriminability, contested carries OR 0.3164 "
+        "[0.1958, 0.4786]. The release's own documented selection signal moves as it must "
+        "(|mean rating| OR 1.5379 [1.3188, 1.8055]), so the contested coefficient is a measurement "
+        "and not a silence. Neither earlier design ran this: one had ground truth but no "
+        "adjustment, the other had adjustment but only a proxy.",
+        "redistribution", 8, "settled")
+    evid(N["C_ADJUDICATED"], "r132-verbatim-adjudication",
+         "Logistic, cluster-bootstrapped over 986 prompts, 4,000 fits across 5 seeds whose mean "
+         "contested coefficients agree to three decimals (-1.1569 to -1.1627). Within-prompt "
+         "permutation of the outcome puts the coefficient at -0.0618 (sd 0.1461) and the observed "
+         "value at z = -7.46. STRUCTURAL LIMIT stated in the artifact: verbatim copying is ONE "
+         "retention pathway and 92% of core is rewritten, so a pathway shift would read as a drop "
+         "-- a limit that cuts identically for both disputants.", 8)
+    edge(N["C_ADJUDICATED"], C, "refines", 8, None,
+         "the unsettled claim is settled in design B's direction, on ground truth rather than "
+         "either proxy")
+    edge(N["C_ADJUDICATED"], N["A3"], "overturns", 7, None,
+         "an aggregation that systematically drops the criteria people disagree about is not "
+         "producing a collective standard; it is producing the uncontested residue")
+    if "C_MAJORITY_CAPTURE" in N:
+        edge(N["C_ADJUDICATED"], N["C_MAJORITY_CAPTURE"], "supports", 7, None,
+             "dropped when contested, and captured by the majority when retained")
+
+    N["D_DEAD_COVARIATE"] = node(
+        "defect-a-covariate-i-claimed-to-adjust-for-was-silently-all-zero", "defect",
+        "The adjudication's first run looked the satisfaction tensor up by CONVERSATION id while "
+        "the tensor is keyed by PROMPT id, so every discriminability value was 0.0 and an "
+        "adjustment I had stated in the docstring was never made. The verdict did not change when "
+        "fixed (OR 0.3083 -> 0.3164), but the claim 'adjusted for discriminability' was false as "
+        "printed. The tell was a reported p of 2.0000 -- not a small p, an IMPOSSIBLE one, from "
+        "2*min(a,b) with one side exactly 1.0 on a degenerate constant column.",
+        "provenance", 9, "refuted")
+    evid(N["D_DEAD_COVARIATE"], "session-self-audit-2026-07-30",
+         "Found by reading an out-of-range p-value rather than by the result looking wrong; the "
+         "result looked fine. A p above 1 is a free assertion that a column is dead.", 9)
+    edge(N["D_DEAD_COVARIATE"], N["C_ADJUDICATED"], "refines", 9, None,
+         "the defect was in the same round and is recorded beside its own correction")
+
     # ---- K5: the north star, and the retraction it forces ------------------------------------
     N["R_HARM_COUNTS"] = node(
         "person-level-harm-COUNTS-are-withdrawn", "my_claim",

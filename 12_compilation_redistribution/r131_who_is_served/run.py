@@ -260,6 +260,20 @@ def main() -> int:
         # therefore reported both raw and PARTIALLED on the person's prompt count, and only the
         # partial one may be read as structure.
         n_prompts = {a: float(len(people[a])) for a in g}
+        # SECOND CONFOUND, found only after three designs agreed on the gradient and none had
+        # controlled it: a person far from consensus may simply be HARDER TO PREDICT AT ALL. Both
+        # arms then regress toward chance for them, and the gap between the better arm and the
+        # worse one shrinks toward zero -- which raises `gain` for a reason that has nothing to do
+        # with core serving them. Control: the person's own BEST-arm accuracy, i.e. how predictable
+        # they are by anything, partialled out alongside exposure.
+        best_acc = {}
+        for a, rows_ in people.items():
+            best = 0.0
+            for k in ("core", "full_equal", "full_signed"):
+                gg = sum(d[k][0] for _p, d in rows_); tt = sum(d[k][1] for _p, d in rows_)
+                if tt:
+                    best = max(best, gg / tt)
+            best_acc[a] = best
 
         def partial(xs, ys, zs):
             X = np.column_stack([np.asarray(zs, float), np.ones(len(zs))])
@@ -283,11 +297,21 @@ def main() -> int:
                 r2 = np.random.default_rng(args.seed + 99)
                 nul = [abs(np.corrcoef(xs, r2.permutation(ys))[0, 1]) for _ in range(2000)]
                 pr, rx, ry = partial(xs, ys, zs)
+                zs2 = np.column_stack([np.asarray(zs, float),
+                                       np.array([best_acc[a] for a in g if
+                                                 (person_cov[a].get(name) or [])], float)])
+                pr2, rx2, ry2 = partial(xs, ys, zs2)
+                nulp2 = [abs(np.corrcoef(rx2, r2.permutation(ry2))[0, 1]) for _ in range(2000)]
                 nulp = [abs(np.corrcoef(rx, r2.permutation(ry))[0, 1]) for _ in range(2000)]
                 cov[name] = {"r": r, "p_perm": float((np.array(nul) >= abs(r)).mean()),
                              "r_partial_on_n_prompts": pr,
                              "p_perm_partial": float((np.array(nulp) >= abs(pr)).mean()),
+                             "r_partial_on_n_and_predictability": pr2,
+                             "p_perm_partial2": float((np.array(nulp2) >= abs(pr2)).mean()),
                              "r_with_n_prompts": float(np.corrcoef(xs, zs)[0, 1]),
+                             "r_with_predictability": float(np.corrcoef(
+                                 xs, [best_acc[a] for a in g
+                                      if (person_cov[a].get(name) or [])])[0, 1]),
                              "n": len(xs)}
         subj = defaultdict(list)
         for a, v in g.items():
@@ -299,12 +323,13 @@ def main() -> int:
             k: {"n": len(v), "mean": float(np.mean(v))} for k, v in subj.items() if len(v) >= 10}
         if cov:
             print(f"    do the losers share anything?")
-            print(f"      {'covariate':<16}{'raw r':>9}{'p':>9}{'partial r':>11}{'p':>9}"
-                  f"{'r w/ nprompts':>15}")
+            print(f"      {'covariate':<16}{'raw r':>9}{'p':>8}{'+expo':>9}{'p':>8}"
+                  f"{'+predict':>10}{'p':>8}{'r(x,pred)':>11}")
             for k2, v2 in cov.items():
-                print(f"      {k2:<16}{v2['r']:>+9.3f}{v2['p_perm']:>9.4f}"
-                      f"{v2['r_partial_on_n_prompts']:>+11.3f}{v2['p_perm_partial']:>9.4f}"
-                      f"{v2['r_with_n_prompts']:>+15.3f}")
+                print(f"      {k2:<16}{v2['r']:>+9.3f}{v2['p_perm']:>8.4f}"
+                      f"{v2['r_partial_on_n_prompts']:>+9.3f}{v2['p_perm_partial']:>8.4f}"
+                      f"{v2['r_partial_on_n_and_predictability']:>+10.3f}"
+                      f"{v2['p_perm_partial2']:>8.4f}{v2['r_with_predictability']:>+11.3f}")
 
     eq, sg = out["full_equal"], out["full_signed"]
     world = ("W-REDISTRIBUTES" if eq["spread_clears_floor"] and sg["spread_clears_floor"] else
