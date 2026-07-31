@@ -1,0 +1,164 @@
+{
+ "k_fit_on_this_outcome": 0.50746,
+ "residual_sd": 0.03449,
+ "n_groups": 43,
+ "n_bh_significant": 0,
+ "target": "South Africa",
+ "target_row": {
+  "n": 851,
+  "gap_full": 0.05535,
+  "gap_core": 0.09711,
+  "diff": 0.04176,
+  "level": 0.07623,
+  "diff_se": 0.01271,
+  "departure": 0.00348,
+  "se": 0.01271,
+  "z": 0.27411,
+  "p": 0.784,
+  "k_loo": 0.50209,
+  "ci95": [
+   -0.02142316393423848,
+   0.028389455773846946
+  ],
+  "bh_significant": false
+ },
+ "positive_control": [
+  {
+   "g": 0.01,
+   "departure": 0.010972684709889304,
+   "z": 0.863494518353636,
+   "retention": 0.7489538790085071
+  },
+  {
+   "g": 0.02,
+   "departure": 0.018462223499974402,
+   "z": 1.4528831557950055,
+   "retention": 0.7489538790085084
+  },
+  {
+   "g": 0.04,
+   "departure": 0.03344130108014455,
+   "z": 2.6316604306777407,
+   "retention": 0.748953879008508
+  }
+ ],
+ "mde": 0.04750685408791142,
+ "negative_control_band": [
+  -0.05177272926842921,
+  0.02423585287115004
+ ],
+ "n_synthetic": 200,
+ "verdict": "INHERITED -- r146 headline retracted",
+ "top_departures": [
+  {
+   "axis": "country_of_residence",
+   "group": "Chile",
+   "departure": -0.03969,
+   "ci95": [
+    -0.06866,
+    -0.01072
+   ],
+   "p": 0.007245236568096836,
+   "bh": false
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "Netherlands",
+   "departure": 0.0306,
+   "ci95": [
+    0.00711,
+    0.05408
+   ],
+   "p": 0.010657624874533589,
+   "bh": false
+  },
+  {
+   "axis": "education_level",
+   "group": "Graduate degree",
+   "departure": -0.02087,
+   "ci95": [
+    -0.03698,
+    -0.00477
+   ],
+   "p": 0.011067157091444901,
+   "bh": false
+  },
+  {
+   "axis": "education_level",
+   "group": "Some college or university",
+   "departure": 0.02921,
+   "ci95": [
+    0.00328,
+    0.05513
+   ],
+   "p": 0.02725255362636725,
+   "bh": false
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "India",
+   "departure": -0.03747,
+   "ci95": [
+    -0.07472,
+    -0.00022
+   ],
+   "p": 0.04867058721150963,
+   "bh": false
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "Argentina",
+   "departure": 0.13707,
+   "ci95": [
+    -0.00724,
+    0.28138
+   ],
+   "p": 0.0626478656824685,
+   "bh": false
+  },
+  {
+   "axis": "generative_ai_usage",
+   "group": "A few times a month",
+   "departure": 0.02094,
+   "ci95": [
+    -0.00259,
+    0.04447
+   ],
+   "p": 0.08114927016878193,
+   "bh": false
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "Malaysia",
+   "departure": 0.14361,
+   "ci95": [
+    -0.03014,
+    0.31736
+   ],
+   "p": 0.10522197136258571,
+   "bh": false
+  },
+  {
+   "axis": "generative_ai_usage",
+   "group": "About once a day",
+   "departure": -0.01921,
+   "ci95": [
+    -0.04397,
+    0.00555
+   ],
+   "p": 0.12832003643443635,
+   "bh": false
+  },
+  {
+   "axis": "ai_concern_level",
+   "group": "Not sure / No answer",
+   "departure": 0.03798,
+   "ci95": [
+    -0.01147,
+    0.08742
+   ],
+   "p": 0.13223553864721538,
+   "bh": false
+  }
+ ]
+}
