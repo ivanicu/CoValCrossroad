@@ -1,0 +1,25 @@
+{
+ "assessments": 18678,
+ "full_rejections": 195,
+ "rate": 0.01044,
+ "prompts_touched": 68,
+ "prompts": 1100,
+ "prompts_touched_share": 0.0618,
+ "worst_prompt_share": 0.6667,
+ "person_between_sd": 0.02578,
+ "person_split_half_floor": 0.01497,
+ "person_sd_over_floor": 1.722,
+ "prompt_concentration_observed": 0.004162657704615709,
+ "prompt_concentration_null": 0.0008303122162472051,
+ "prompt_concentration_ratio": 5.013,
+ "prompt_null_by_seed": [
+  0.0008140637116082005,
+  0.0007935787459405429,
+  0.0008846637024172732,
+  0.0007775451095143399,
+  0.0008817098117556687
+ ],
+ "rationale_full_n": 195,
+ "rationale_partial_n": 2988,
+ "instrument": "none -- veto blocks and rationale text only"
+}
