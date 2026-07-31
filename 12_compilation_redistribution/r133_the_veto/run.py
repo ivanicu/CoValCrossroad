@@ -275,6 +275,52 @@ def main() -> int:
     print(f"  PLACEBO  a uniformly random top violates at {pl.mean():.4f} (sd {pl.std():.4f}) "
           f"against the arithmetic chance of {chance:.4f}, |diff| {abs(pl.mean()-chance):.4f}")
 
+    # MULTIPLICITY. The verdict is read off SIX quantities compared against each other (three arms,
+    # the person themselves, a human peer, and chance), and the round shipped without controlling
+    # for that. Added after the standard's own detector reported it absent -- and it was absent,
+    # unlike the multi-seed criterion the same detector got wrong about these rounds. Each arm is
+    # tested against the peer ceiling, which is the comparison the verdict actually turns on.
+    fam = []
+    peer_v = np.array([c["peer_violates"] for c in cells if c["peer_violates"] is not None], float)
+    pmap = {i: j for j, i in enumerate(
+        [i for i, c in enumerate(cells) if c["peer_violates"] is not None])}
+    for k in ("core", "full_equal", "full_signed", "self"):
+        if k == "self":
+            v = np.array([c["self_violates"] for c in cells
+                          if c["self_violates"] is not None and c["peer_violates"] is not None],
+                         float)
+            pv = np.array([c["peer_violates"] for c in cells
+                           if c["self_violates"] is not None and c["peer_violates"] is not None],
+                          float)
+        else:
+            idx = [i for i, c in enumerate(cells) if c["peer_violates"] is not None]
+            v = np.array([int(cells[i]["tops"][k] in cells[i]["veto"]) for i in idx], float)
+            pv = peer_v
+        d = v - pv
+        bs = []
+        for s2 in SEEDS:
+            rng2 = np.random.default_rng(s2 + 7)
+            for _ in range(N_BOOT // len(SEEDS)):
+                bs.append(float(d[rng2.integers(0, len(d), len(d))].mean()))
+        bs = np.array(bs)
+        pv_ = 2 * min((bs <= 0).mean(), (bs >= 0).mean())
+        fam.append((k, float(d.mean()), float(np.percentile(bs, 2.5)),
+                    float(np.percentile(bs, 97.5)), float(max(pv_, 1.0 / (len(bs) + 1)))))
+    order = sorted(range(len(fam)), key=lambda i: fam[i][4])
+    keep = [False] * len(fam)
+    for rank, i in enumerate(order, 1):
+        if fam[i][4] <= 0.05 * rank / len(fam):
+            for j in order[:rank]:
+                keep[j] = True
+    print(f"\n  MULTIPLICITY  each arm against the HUMAN PEER ceiling, BH q=0.05 over "
+          f"{len(fam)} comparisons")
+    print(f"  {'arm - peer':<16}{'delta':>10}{'95% CI':>22}{'p':>9}  BH")
+    mult = {}
+    for (k, dm, lo, hi, pp), kp in zip(fam, keep):
+        mult[k] = {"delta_vs_peer": dm, "ci": [lo, hi], "p": pp, "bh_survivor": bool(kp)}
+        print(f"  {k:<16}{dm:>+10.4f}   [{lo:+.4f}, {hi:+.4f}]{pp:>9.4f}  "
+              f"{'yes' if kp else 'no'}")
+
     worst = max(res[k]["rate"] for k in ("core", "full_equal", "full_signed"))
     best = min(res[k]["rate"] for k in ("core", "full_equal", "full_signed"))
     gap_to_self = worst - res["self"]["rate"]
@@ -322,7 +368,8 @@ def main() -> int:
     Path(args.out).write_text(json.dumps(
         {"n_assessments": n_seen, "n_with_veto": n_veto_assess, "n_cells": len(cells),
          "chance_rate": chance, "material": MATERIAL, "seeds": list(SEEDS),
-         "arms": res, "positive_control_rate": pc, "gap_core_minus_peer": float(gap_to_peer),
+         "arms": res, "multiplicity_vs_peer": mult,
+         "positive_control_rate": pc, "gap_core_minus_peer": float(gap_to_peer),
          "gap_worst_minus_self": float(gap_to_self),
          "placebo_mean": float(pl.mean()), "placebo_sd": float(pl.std()),
          "world": world, "conclusion": conclusion, **stamp(__file__)}, indent=1, sort_keys=True))

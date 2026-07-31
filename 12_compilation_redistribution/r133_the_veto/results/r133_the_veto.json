@@ -48,6 +48,44 @@
  "gap_core_minus_peer": -0.017176936871404952,
  "gap_worst_minus_self": 0.23878485676173536,
  "material": 0.05,
+ "multiplicity_vs_peer": {
+  "core": {
+   "bh_survivor": true,
+   "ci": [
+    -0.03114771748846571,
+    -0.003991858213185143
+   ],
+   "delta_vs_peer": -0.01717693687140494,
+   "p": 0.0155
+  },
+  "full_equal": {
+   "bh_survivor": true,
+   "ci": [
+    0.0875858984017151,
+    0.123652845652431
+   ],
+   "delta_vs_peer": 0.10589998620551813,
+   "p": 0.00024993751562109475
+  },
+  "full_signed": {
+   "bh_survivor": true,
+   "ci": [
+    -0.04662004427531891,
+    -0.02113776807354785
+   ],
+   "delta_vs_peer": -0.03388023357470164,
+   "p": 0.00024993751562109475
+  },
+  "self": {
+   "bh_survivor": true,
+   "ci": [
+    -0.14531097531925913,
+    -0.12260109952636718
+   ],
+   "delta_vs_peer": -0.1341677585204335,
+   "p": 0.00024993751562109475
+  }
+ },
  "n_assessments": 15593,
  "n_cells": 2275,
  "n_with_veto": 2422,
@@ -62,6 +100,6 @@
   271828
  ],
  "source_name": "run.py",
- "source_sha256": "3f3d4adb4f9e1ae48358ebf266b2430bd23309b11fd4c1a00d0a12c0ca503d4f",
+ "source_sha256": "7a7c29d99b0001e58622d5f426b622a5bc0be21556f0e886f72c7d8523cce895",
  "world": "W-AGGREGATION-INTRINSIC"
 }

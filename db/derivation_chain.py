@@ -777,7 +777,12 @@ def build_wave2(N):
          "0.0000. Placebo: a uniformly random top lands at 0.3728 (sd 0.0088) against an arithmetic "
          "chance of 0.3782, |diff| 0.0054. The FIRST run, without the peer comparator, returned "
          "W-COMPILER-FAILS -- a verdict that was unearned, because the self-rate is a same-person "
-         "consistency floor and not a target any external rule could reach.", 8)
+         "consistency floor and not a target any external rule could reach. MULTIPLICITY added "
+         "after the standard's own detector reported it absent, and it was: BH q=0.05 over the four "
+         "arm-versus-peer comparisons, all four survive. core - peer = -0.0172 [-0.0311,-0.0040] "
+         "p 0.0155, so the compiled standard respects vetoes SIGNIFICANTLY BETTER than a human peer "
+         "rather than merely no worse; full_signed - peer = -0.0339; full_equal - peer = +0.1059, "
+         "so the naive unsigned arm is significantly WORSE than a person; self - peer = -0.1342.", 8)
     edge(N["C_VETO"], N["A3"], "attacks", 8, None,
          "a collective standard cannot carry a categorical veto, and this one does not")
     if "C_MAJORITY_CAPTURE" in N:
