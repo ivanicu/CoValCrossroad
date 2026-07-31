@@ -248,6 +248,7 @@ def build() -> dict:
 
 def main() -> int:
     N = build()
+    apply_adversary_verdicts()
     print(f"normative-chain phase written: {len(N)} nodes")
     for kind, cnt in q("SELECT kind, count(*) FROM node GROUP BY kind ORDER BY 2 DESC"):
         print(f"   {kind:20s} {cnt}")
@@ -274,6 +275,109 @@ def main() -> int:
         if c:
             print(f"   {name:34s} caught by {c}")
     return 0
+
+
+
+
+def apply_adversary_verdicts() -> None:
+    """Two independent clean-context adversaries, given the claims and the raw data and told to
+    refute them. Applied idempotently here so re-running the builder reproduces the corrected state
+    rather than the pre-adversary one -- a verdict that lives only in a psql session I once typed is
+    a verdict the next rebuild silently discards.
+
+    Adversary A, on the instrument-free set: three of four OVERTURNED.
+    Adversary B, on the distributive set:    four of four CONFIRMED, three materially corrected.
+
+    The asymmetry is itself the result. The claims that fell were the ones resting on a PARSER --
+    on my reading of how the release encodes an unanswered question. The claims that held were the
+    ones resting on human rankings, which are present for every assessment and need no
+    interpretation to count.
+    """
+    d1 = node(
+        "defect-not-asked-is-an-empty-list", "defect",
+        "A guard written specifically to separate a missing answer from an empty one tested whether "
+        "the block IS NONE. The key is always present and not-asked is encoded as an EMPTY LIST, so "
+        "the guard never fired once and 13,672 of 18,678 assessments where the veto question was "
+        "never posed were counted as asked-and-answered-zero. The same hole exists in any "
+        ".get(key, []) default.",
+        d=8, status="settled",
+        props={"caught_by": "an independent adversary told to refute the claims",
+               "affects": "r150 coverage, r150 veto distribution, r151 concentration ratio, "
+                          "and r150's retraction of r149"})
+    d2 = node(
+        "defect-absence-of-proxy-certified-absence-of-property", "defect",
+        "Force was declared never elicited because under 1% of criteria carry absolute-force "
+        "wording. The release elicits force through the SIGNED WEIGHT, exactly as its own dataset "
+        "card states: 28.32% of criteria reach |mean score| >= 8 and 98.68% of those carry no such "
+        "wording. PROPERTY force-present vs PROXY force-wording: the implication runs one way and "
+        "it was used backwards.",
+        d=8, status="settled",
+        props={"caught_by": "an independent adversary reading the object's own documentation"})
+    d3 = node(
+        "defect-split-half-floor-scaling", "defect",
+        "The within-person split-half floor was scaled by 1/sqrt(2). For a statistic computed on "
+        "FULL data the defensible scaling is 1/2, because a half-sample carries twice the variance "
+        "of the full estimate. The lenient scaling inflates the floor and deflates the ratio: 1.06 "
+        "becomes 1.44-1.53, moving an effect from comfortably inadmissible to sitting on the line.",
+        d=8, status="settled",
+        props={"caught_by": "an independent adversary re-deriving the floor instead of reusing it",
+               "affects": "every effect-over-floor number in this phase"})
+
+    for name, status, stmt in [
+        ("force-never-elicited", "refuted",
+         "WITHDRAWN. Force IS elicited, through the signed weight. The lexical measurement stands "
+         "only as a measurement of WORDING -- absolute-force markers in 0.72% of criteria -- and "
+         "licenses no claim about the construct."),
+        ("content-preserved-force-lost", "partial",
+         "RESTORED. Force was collected in the signed weight, and coval_core items carry exactly "
+         "one key -- criterion -- in 3,899 of 3,899 cases. Compilation does delete force. The r143 "
+         "withdrawal rested on the mistaken finding that force was never collected, and is itself "
+         "withdrawn."),
+        ("veto-is-distinct", "partial",
+         "NARROWED. On the 5,006 assessments where the question was actually asked: 36.42% veto "
+         "nothing, 3.90% veto all four, people veto their own top choice 9.25% of the time, and the "
+         "rank-only pseudo-R2 is 0.128. Still not merely the bottom of the ranking, but far less "
+         "distinct than the withdrawn 82.9% / 1.1% / 2.6% / 0.0559."),
+        ("menu-can-fail", "partial",
+         "Concentration is real and highly significant but the ratio is about 2.6x, not 5.01x: the "
+         "permutation spread each person's flag across never-asked slots where the outcome was "
+         "structurally forced to zero, shrinking the null."),
+    ]:
+        rows = q("SELECT id FROM node WHERE name=%s", (name,))
+        if rows:
+            q("UPDATE node SET status=%s, statement=%s WHERE id=%s", (status, stmt, rows[0][0]))
+
+    for defect, target, note in [
+        (d2, "force-never-elicited",
+         "28.32% of criteria reach |mean|>=8 and 98.68% of those carry no wording"),
+        (d1, "veto-is-distinct",
+         "the withdrawn figures counted 13,672 never-asked assessments as answered-zero"),
+        (d1, "menu-can-fail", "permutation exchangeability violated by never-asked slots"),
+        (d3, "group-not-individual",
+         "only the INDIVIDUAL half of this claim depends on the floor scaling; the group half does "
+         "not depend on it at all"),
+    ]:
+        rows = q("SELECT id FROM node WHERE name=%s", (target,))
+        if rows:
+            edge(defect, rows[0][0],
+                 "refines" if target == "group-not-individual" else "overturns", note=note)
+
+    # the retraction that was itself issued by the broken instrument
+    rows = q("SELECT id FROM node WHERE name='veto-block-partial-coverage'")
+    if rows:
+        q("UPDATE node SET status='settled', statement=%s WHERE id=%s",
+          ("UN-RETRACTED. Coverage is 26.8%, not 100%. r150 overturned this figure using the "
+           "broken parser, so the retraction is retracted and the original statement stands closer "
+           "to the truth than its replacement did.", rows[0][0]))
+        q("DELETE FROM edge WHERE dst=%s AND kind='overturns'", (rows[0][0],))
+
+    node("price-of-inclusion-is-per-capita", "fact",
+         "The 1.48 exchange rate is a RATE RATIO -- cost share over gain share -- not a headcount. "
+         "Read literally as people the trade is 7.85 losing per 1 gaining for South Africa and 6.2 "
+         "on average. The population-imbalance attack FAILS: pop ratio is 5.4 for SA and 7.4 on "
+         "average, anti-correlated with the rate ratio at r=-0.86. And it is a central tendency, "
+         "not a law: 8 to 10 of 34 groups come in under 1.0, a net win even after the externality.",
+         d=7, status="settled")
 
 
 if __name__ == "__main__":
