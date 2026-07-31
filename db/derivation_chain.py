@@ -970,6 +970,40 @@ def build_wave2(N):
         edge(N["C_BATCH"], N["INSTR_FREE"], "refines", 8, None,
              "instrument-dependent does not mean unbounded: this dimension is bounded at <0.001")
 
+    N["C_STANDARD_SIZE"] = node(
+        "the-collective-standard-exists-and-is-27-percent-of-what-people-said-mattered", "my_claim",
+        "No model anywhere in this. Over 5,564 coval_full criteria rated by at least four people "
+        "(92,463 ratings from 1,158 raters), the share of rating variance that is BETWEEN criteria "
+        "rather than between raters of the same criterion is ICC(1) = 0.2698 [0.2586, 0.2809]. "
+        "There IS a shared object -- a rater-style null that reassigns each person's own numbers "
+        "across the criteria they rated, preserving their scale usage and extremeness exactly, "
+        "returns 0.0008 (sd 0.0012) -- but it accounts for barely a quarter of what people said "
+        "mattered. Seventy-three percent of the variance is about WHO IS RATING. So an aggregate "
+        "is a summary of a minority of the variance and may not be stated as the panel's view. "
+        "This sizes A3 rather than killing it, which is the more useful thing to have done.",
+        "aggregation", 9, "settled")
+    evid(N["C_STANDARD_SIZE"], "r138-is-there-a-standard",
+         "Estimator recovers planted ICCs of 0.0, 0.3 and 0.7 as 0.0002, 0.2975, 0.6996. The "
+         "arithmetic check -- permuting within a criterion preserves its own numbers, so the value "
+         "must be unchanged -- returns 0.00e+00. CI clustered on prompt over 2,000 fits across 5 "
+         "seeds; the null is 400 permutations across the same 5 seeds. On the scale itself, which "
+         "A6 rests on: only 16.5% of ratings are exactly +/-10, 20 of the 21 available values are "
+         "used, mean +3.29 sd 5.44 -- the scale is genuinely used and is not a two-valued vote in "
+         "a 21-point costume, which is a point FOR A6.", 9)
+    edge(N["C_STANDARD_SIZE"], N["A3"], "refines", 9, None,
+         "the standard exists and is 27% of the variance; the assumption is not false, it is "
+         "quantified, and the quantity is small")
+    edge(N["C_STANDARD_SIZE"], N["A6"], "supports", 8, None,
+         "the -10..+10 range is genuinely exercised rather than collapsed to its endpoints")
+    if "INSTR_FREE" in N:
+        edge(N["INSTR_FREE"], N["C_STANDARD_SIZE"], "supports", 9, None,
+             "second member of the instrument-free half, and it is about the release itself")
+    if "C_SHARED_NOT_PERSONAL" in N:
+        edge(N["C_STANDARD_SIZE"], N["C_SHARED_NOT_PERSONAL"], "supports", 7, None,
+             "a shared component that is only 27% of the variance is exactly what an own-versus-"
+             "stranger advantage of one seventh of the between-rater floor looks like from the "
+             "other side")
+
     N["K19"] = node(
         "K19-the-judges-fewshot-only-demonstrates-positive-criteria", "knife",
         "Both exemplars in the judge's two-shot prompt state a criterion in positive prescriptive "
