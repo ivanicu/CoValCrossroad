@@ -72,8 +72,11 @@ def parse_ranking(txt: str):
 
 
 def parse_unacc(blocks):
+    """THE FIX, shared with r151 and r154. Not-asked is an EMPTY LIST, never a missing key, so a
+    `blk is None` guard never fires and 13,672 never-posed questions get counted as answered-zero.
+    The question was asked iff the unacceptable or personal block is a NON-EMPTY list."""
     blk = blocks.get("unacceptable")
-    if blk is None:
+    if not (blk or blocks.get("personal")):
         return set(), False
     out = set()
     for b in blk or []:
