@@ -99,12 +99,15 @@ def load():
     return rank, unacc, demo
 
 
+N_ORACLE_DRAWS = 25
+
+
 def analyse(rank, unacc, demo, axis_filter=None, seed: int = 7):
     rng = np.random.default_rng(seed)
     """Per group: plurality service, group-oracle service, and the price of switching."""
     acc: dict[tuple[str, str], dict] = defaultdict(
-        lambda: {"plur_in": [], "orac_in": [], "orac_rand": [], "price_out": [], "plur_out": [],
-                 "unacc_in": [], "unacc_out": [], "n_prompts": 0})
+        lambda: {"plur_in": [], "orac_in": [], "orac_rand": [], "orac_rand_sd": [],
+                 "price_out": [], "plur_out": [], "unacc_in": [], "unacc_out": [], "n_prompts": 0})
     for pid, per in rank.items():
         if len(per) < 6:
             continue
@@ -133,17 +136,28 @@ def analyse(rank, unacc, demo, axis_filter=None, seed: int = 7):
                 # computed for a RANDOM subgroup of the SAME SIZE drawn from this prompt's panel.
                 # That carries the identical internal-heterogeneity penalty and no group identity,
                 # and is the only thing that makes the group's own oracle readable.
-                idx = rng.permutation(len(per))[: len(ins)]
+                # MULTI-SEED. The first version drew ONE random subgroup per prompt, so the whole
+                # -0.078 excess rested on a single draw and its seed spread was UNCOMPUTED -- which
+                # I recorded as a limitation rather than as a small number, because those are
+                # different things. Averaging N independent draws per prompt turns the control
+                # from one realisation into an estimate with a spread that can be reported.
                 people = list(per)
-                rand = [people[i] for i in idx]
-                sr = [sum(1 for a in rand if r in tops[a]) for r in range(4)]
-                d_rand = np.mean([1 if int(np.argmax(sr)) in tops[a] else 0 for a in rand])
+                draws = []
+                for _s in range(N_ORACLE_DRAWS):
+                    idx = rng.permutation(len(people))[: len(ins)]
+                    rand = [people[i] for i in idx]
+                    sr = [sum(1 for a in rand if r in tops[a]) for r in range(4)]
+                    draws.append(float(np.mean(
+                        [1 if int(np.argmax(sr)) in tops[a] else 0 for a in rand])))
+                d_rand = float(np.mean(draws))
+                d_rand_sd = float(np.std(draws, ddof=1)) if len(draws) > 1 else float("nan")
                 d = acc[(k, g)]
                 d["n_prompts"] += 1
                 d["plur_in"].append(np.mean([1 if plur in tops[a] else 0 for a in ins]))
                 d["plur_out"].append(np.mean([1 if plur in tops[a] else 0 for a in outs]))
                 d["orac_in"].append(np.mean([1 if orac in tops[a] else 0 for a in ins]))
                 d["orac_rand"].append(float(d_rand))
+                d["orac_rand_sd"].append(d_rand_sd)
                 # price: what the OUT-group loses when the choice moves to the group optimum
                 d["price_out"].append(
                     np.mean([1 if plur in tops[a] else 0 for a in outs])
@@ -167,13 +181,17 @@ def analyse(rank, unacc, demo, axis_filter=None, seed: int = 7):
         pr, pr_se = ms(d["price_out"])
         p_out, _ = ms(d["plur_out"])
         o_rnd, o_rnd_se = ms(d["orac_rand"])
+        o_rnd_sd, _ = ms(d["orac_rand_sd"])
         u_in, _ = ms(d["unacc_in"])
         u_out, _ = ms(d["unacc_out"])
         res[key] = {
             "n_prompts": d["n_prompts"],
             "served_plurality": p_in, "served_plurality_se": p_in_se,
             "served_oracle": o_in, "served_oracle_se": o_in_se,
-            "served_oracle_size_matched_random": o_rnd, "oracle_excess_over_random":
+            "served_oracle_size_matched_random": o_rnd,
+            "random_oracle_within_prompt_sd": o_rnd_sd,
+            "random_oracle_se_across_prompts": o_rnd_se,
+            "oracle_excess_over_random":
                 (o_in - o_rnd) if (o_in is not None and o_rnd is not None) else None,
             "recoverable": (o_in - p_in) if (o_in is not None and p_in is not None) else None,
             "out_group_served_plurality": p_out,
@@ -215,8 +233,13 @@ def main() -> int:
         print(f"  recoverable by switching {t['recoverable']:+.3f}")
         print(f"  price paid by others     {t['price_to_out_group']:+.3f} "
               f"+- {1.96 * t['price_se']:.3f}")
+        exc_se = math.sqrt((t["served_oracle_se"] or 0) ** 2
+                           + (t["random_oracle_se_across_prompts"] or 0) ** 2)
         print(f"  size-matched RANDOM oracle {t['served_oracle_size_matched_random']:.3f}"
-              f"   excess {t['oracle_excess_over_random']:+.3f}")
+              f"  ({N_ORACLE_DRAWS} draws/prompt, within-prompt sd "
+              f"{t['random_oracle_within_prompt_sd']:.3f})")
+        print(f"  excess {t['oracle_excess_over_random']:+.3f}  +- "
+              f"{1.96 * exc_se:.3f}   -> the limitation recorded as UNCOMPUTED is now a number")
         exc = t["oracle_excess_over_random"]
         verdict = ("HETEROGENEITY ONLY -- the group's own oracle matches a random subgroup of the "
                    "same size, so nothing about this group is special"
