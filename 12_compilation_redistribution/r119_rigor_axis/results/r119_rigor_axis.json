@@ -1,0 +1,1284 @@
+{
+ "base_survivors": 126,
+ "conclusion": "The rigor criteria are an AXIS, not a checklist: 60 criteria, of which 43 can vary the grid, 5 are properties of protocol or reporting and cannot be survived, and 12 are STRUCTURALLY IMPOSSIBLE on this release -- one dataset, no model in the loop, no timestamps, no presentation-order field, no external criterion. 12 variations were executed and every base survivor carries a survival depth over them. 111 of 126 purged base survivors hold at full depth 12/12, concentrated on prompt (107), label (2), person (2). Depth is unweighted on purpose: weighting the criteria would smuggle a taste judgement into a count.",
+ "depth_distribution": {
+  "0": 0,
+  "1": 0,
+  "2": 0,
+  "3": 0,
+  "4": 0,
+  "5": 1,
+  "6": 0,
+  "7": 0,
+  "8": 0,
+  "9": 2,
+  "10": 3,
+  "11": 9,
+  "12": 111
+ },
+ "full_depth_by_bearer": {
+  "label": 2,
+  "person": 2,
+  "prompt": 107
+ },
+ "full_depth_cells": [
+  [
+   "full_population",
+   "label",
+   "core-full",
+   "cvar",
+   "0.0",
+   true
+  ],
+  [
+   "full_population",
+   "label",
+   "core-full",
+   "spread",
+   "0.0",
+   true
+  ],
+  [
+   "full_population",
+   "prompt",
+   "core-full",
+   "gini",
+   "0.0",
+   true
+  ],
+  [
+   "full_population",
+   "prompt",
+   "core-full",
+   "nobenefit",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "person",
+   "full-core",
+   "withheld",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "person",
+   "rand4-first4",
+   "rate",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "first4-core",
+   "cvar",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "first4-core",
+   "gini",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "first4-core",
+   "nobenefit",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "first4-core",
+   "nobenefit",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "first4-core",
+   "nobenefit",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "first4-core",
+   "nobenefit",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "first4-core",
+   "nobenefit",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "first4-core",
+   "rate",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "first4-core",
+   "rate",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "first4-core",
+   "rate",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "first4-core",
+   "rate",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "first4-core",
+   "rate",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "first4-core",
+   "tailmass",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-core",
+   "cvar",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-core",
+   "gini",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-core",
+   "nobenefit",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-core",
+   "nobenefit",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-core",
+   "nobenefit",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-core",
+   "nobenefit",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-core",
+   "rate",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-core",
+   "rate",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-core",
+   "rate",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-core",
+   "rate",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-core",
+   "rate",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-core",
+   "tailmass",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-first4",
+   "cvar",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-first4",
+   "gini",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-first4",
+   "nobenefit",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-first4",
+   "nobenefit",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-first4",
+   "nobenefit",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-first4",
+   "nobenefit",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-first4",
+   "rate",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "full-first4",
+   "rate",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-core",
+   "cvar",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-core",
+   "gini",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-core",
+   "nobenefit",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-core",
+   "nobenefit",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-core",
+   "rate",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-first4",
+   "cvar",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-first4",
+   "gini",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-first4",
+   "nobenefit",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-first4",
+   "nobenefit",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-first4",
+   "nobenefit",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-first4",
+   "nobenefit",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-first4",
+   "nobenefit",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-first4",
+   "rate",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-first4",
+   "rate",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-first4",
+   "rate",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-first4",
+   "rate",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-full",
+   "cvar",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-full",
+   "gini",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-full",
+   "nobenefit",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-full",
+   "nobenefit",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-full",
+   "nobenefit",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-full",
+   "nobenefit",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-full",
+   "nobenefit",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-full",
+   "rate",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-full",
+   "rate",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-full",
+   "rate",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "oracle-full",
+   "rate",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-core",
+   "cvar",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-core",
+   "gini",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-core",
+   "nobenefit",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-core",
+   "nobenefit",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-core",
+   "nobenefit",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-core",
+   "nobenefit",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-core",
+   "nobenefit",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-core",
+   "rate",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-core",
+   "rate",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-core",
+   "rate",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-core",
+   "rate",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-core",
+   "rate",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-core",
+   "tailmass",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-first4",
+   "cvar",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-first4",
+   "gini",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-first4",
+   "nobenefit",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-first4",
+   "nobenefit",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-first4",
+   "rate",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-first4",
+   "rate",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-first4",
+   "rate",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-first4",
+   "rate",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-first4",
+   "tailmass",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-full",
+   "cvar",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-full",
+   "gini",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-full",
+   "nobenefit",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-full",
+   "nobenefit",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-full",
+   "nobenefit",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-full",
+   "rate",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-full",
+   "rate",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-full",
+   "rate",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-full",
+   "rate",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-full",
+   "tailmass",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-oracle",
+   "cvar",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-oracle",
+   "nobenefit",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-oracle",
+   "nobenefit",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-oracle",
+   "nobenefit",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-oracle",
+   "nobenefit",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-oracle",
+   "nobenefit",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-oracle",
+   "rate",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-oracle",
+   "rate",
+   "0.005",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-oracle",
+   "rate",
+   "0.01",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-oracle",
+   "rate",
+   "0.02",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-oracle",
+   "rate",
+   "0.05",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-oracle",
+   "tailmass",
+   "0.0",
+   true
+  ],
+  [
+   "matched_even_rater",
+   "prompt",
+   "rand4-oracle",
+   "withheld",
+   "0.0",
+   true
+  ]
+ ],
+ "n_impossible": 12,
+ "n_property": 5,
+ "n_run": 43,
+ "n_variants_executed": 12,
+ "per_variant": {
+  "fold0": {
+   "jaccard": 0.9689922480620154,
+   "kept_from_base": 125,
+   "variant_survivors": 128
+  },
+  "fold1": {
+   "jaccard": 0.9841269841269841,
+   "kept_from_base": 124,
+   "variant_survivors": 124
+  },
+  "fold2": {
+   "jaccard": 0.9921259842519685,
+   "kept_from_base": 126,
+   "variant_survivors": 127
+  },
+  "jitter02": {
+   "jaccard": 0.9920634920634921,
+   "kept_from_base": 125,
+   "variant_survivors": 125
+  },
+  "jitter05": {
+   "jaccard": 0.9921259842519685,
+   "kept_from_base": 126,
+   "variant_survivors": 127
+  },
+  "ood_both": {
+   "jaccard": 0.9603174603174603,
+   "kept_from_base": 121,
+   "variant_survivors": 121
+  },
+  "ood_world": {
+   "jaccard": 0.9841269841269841,
+   "kept_from_base": 124,
+   "variant_survivors": 124
+  },
+  "scale25": {
+   "jaccard": 0.905511811023622,
+   "kept_from_base": 115,
+   "variant_survivors": 116
+  },
+  "scale50": {
+   "jaccard": 0.968503937007874,
+   "kept_from_base": 123,
+   "variant_survivors": 124
+  },
+  "seed11": {
+   "jaccard": 1.0,
+   "kept_from_base": 126,
+   "variant_survivors": 126
+  },
+  "seed4242": {
+   "jaccard": 0.9920634920634921,
+   "kept_from_base": 125,
+   "variant_survivors": 125
+  },
+  "seed77": {
+   "jaccard": 0.9841269841269841,
+   "kept_from_base": 124,
+   "variant_survivors": 124
+  }
+ },
+ "register": [
+  {
+   "criterion": "full-scale",
+   "note": "15,202 cells / 80,521 decisions, the whole release",
+   "status": "RUN"
+  },
+  {
+   "criterion": "large-sample",
+   "note": "same",
+   "status": "RUN"
+  },
+  {
+   "criterion": "multi-seed",
+   "note": "4 independent seeds of the whole grid",
+   "status": "RUN"
+  },
+  {
+   "criterion": "seed-robust",
+   "note": "survivor-set Jaccard across those seeds",
+   "status": "RUN"
+  },
+  {
+   "criterion": "multi-run",
+   "note": "same four runs",
+   "status": "RUN"
+  },
+  {
+   "criterion": "independently-replicated",
+   "note": "requires a second team or a second release",
+   "status": "IMPOSSIBLE"
+  },
+  {
+   "criterion": "effect-size-powered",
+   "note": "planted-effect sweep gives an MDE per bearer",
+   "status": "RUN"
+  },
+  {
+   "criterion": "uncertainty-quantified",
+   "note": "permutation p per cell, 20,000 draws",
+   "status": "RUN"
+  },
+  {
+   "criterion": "distribution-complete",
+   "note": "full percentile profile, never a mean alone",
+   "status": "RUN"
+  },
+  {
+   "criterion": "hierarchically-modelled",
+   "note": "per-unit means vs shrunk (James-Stein) means",
+   "status": "RUN"
+  },
+  {
+   "criterion": "multiplicity-controlled",
+   "note": "BH over the whole grid at once",
+   "status": "PROPERTY"
+  },
+  {
+   "criterion": "preregisterable",
+   "note": "thresholds and kills written before the run",
+   "status": "PROPERTY"
+  },
+  {
+   "criterion": "confirmatory",
+   "note": "held-out prompt half confirms the discovery half",
+   "status": "RUN"
+  },
+  {
+   "criterion": "causally-identified",
+   "note": "no intervention on the compiler exists; observational contrast only",
+   "status": "IMPOSSIBLE"
+  },
+  {
+   "criterion": "interventionally-validated",
+   "note": "would require re-running the human protocol under a modified compiler",
+   "status": "IMPOSSIBLE"
+  },
+  {
+   "criterion": "counterfactually-grounded",
+   "note": "non-compiled arms are the counterfactual rule",
+   "status": "RUN"
+  },
+  {
+   "criterion": "mechanistically-diagnostic",
+   "note": "the r115 purge separates geometry from mechanism",
+   "status": "RUN"
+  },
+  {
+   "criterion": "necessity-and-sufficiency",
+   "note": "remove the arm gap (necessity); plant it alone (sufficiency)",
+   "status": "RUN"
+  },
+  {
+   "criterion": "dose-response",
+   "note": "planted effect swept over a grid of sizes",
+   "status": "RUN"
+  },
+  {
+   "criterion": "temporally-resolved",
+   "note": "the release carries NO timestamps on any assessment",
+   "status": "IMPOSSIBLE"
+  },
+  {
+   "criterion": "control-saturated",
+   "note": "positive, negative, sham and random-baseline per bearer",
+   "status": "RUN"
+  },
+  {
+   "criterion": "sham-controlled",
+   "note": "a sham compiler: same criterion COUNT, no compilation",
+   "status": "RUN"
+  },
+  {
+   "criterion": "placebo-controlled",
+   "note": "arm pairs where no effect should exist",
+   "status": "RUN"
+  },
+  {
+   "criterion": "nuisance-matched",
+   "note": "units matched on workload and own-error",
+   "status": "RUN"
+  },
+  {
+   "criterion": "norm-matched",
+   "note": "arms scored at identical equal weights",
+   "status": "RUN"
+  },
+  {
+   "criterion": "compute-matched",
+   "note": "arms matched on criterion count (rand4/first4 vs core)",
+   "status": "RUN"
+  },
+  {
+   "criterion": "positive-control-calibrated",
+   "note": "planted effect must be recovered per bearer",
+   "status": "RUN"
+  },
+  {
+   "criterion": "negative-control-calibrated",
+   "note": "per-bearer permutation floor",
+   "status": "RUN"
+  },
+  {
+   "criterion": "random-baseline-calibrated",
+   "note": "rand4 arm",
+   "status": "RUN"
+  },
+  {
+   "criterion": "measurement-calibrated",
+   "note": "replicate cells give the within-cell floor directly",
+   "status": "RUN"
+  },
+  {
+   "criterion": "instrument-validated",
+   "note": "each statistic shown to move on a planted effect",
+   "status": "RUN"
+  },
+  {
+   "criterion": "construct-validated",
+   "note": "no external criterion for 'good response' exists here",
+   "status": "IMPOSSIBLE"
+  },
+  {
+   "criterion": "criterion-validated",
+   "note": "same: no gold standard outside the raters themselves",
+   "status": "IMPOSSIBLE"
+  },
+  {
+   "criterion": "measurement-error-aware",
+   "note": "deconvolution using the replicate variance",
+   "status": "RUN"
+  },
+  {
+   "criterion": "noise-floor-calibrated",
+   "note": "95 replicated cells, 99 df",
+   "status": "RUN"
+  },
+  {
+   "criterion": "judge-audited",
+   "note": "satisfaction tensor held fixed; arms differ only in criteria",
+   "status": "RUN"
+  },
+  {
+   "criterion": "leakage-audited",
+   "note": "oracle selected on odd raters, evaluated on even",
+   "status": "RUN"
+  },
+  {
+   "criterion": "contamination-audited",
+   "note": "selection and evaluation rater sets are disjoint by construction",
+   "status": "RUN"
+  },
+  {
+   "criterion": "shortcut-resistant",
+   "note": "length and label shortcuts tested as separate bearers",
+   "status": "RUN"
+  },
+  {
+   "criterion": "artifact-resistant",
+   "note": "every cell computed raw AND purged of the r115 line",
+   "status": "RUN"
+  },
+  {
+   "criterion": "counterbalanced",
+   "note": "label permutation within prompt",
+   "status": "RUN"
+  },
+  {
+   "criterion": "position-randomized",
+   "note": "no presentation-order field exists to randomise against",
+   "status": "IMPOSSIBLE"
+  },
+  {
+   "criterion": "label-randomized",
+   "note": "the U5 null",
+   "status": "RUN"
+  },
+  {
+   "criterion": "benchmark-degeneracy-audited",
+   "note": "contest bins expose where both arms sit at chance",
+   "status": "RUN"
+  },
+  {
+   "criterion": "specification-robust",
+   "note": "this IS a specification curve: 628 specifications",
+   "status": "RUN"
+  },
+  {
+   "criterion": "implementation-robust",
+   "note": "statistics recomputed by a second implementation",
+   "status": "RUN"
+  },
+  {
+   "criterion": "estimator-robust",
+   "note": "6 statistics per bearer",
+   "status": "RUN"
+  },
+  {
+   "criterion": "metric-robust",
+   "note": "pairwise discordance vs top-1 disagreement",
+   "status": "RUN"
+  },
+  {
+   "criterion": "prompt-robust",
+   "note": "leave-one-prompt-fold-out, 5 folds",
+   "status": "RUN"
+  },
+  {
+   "criterion": "perturbation-robust",
+   "note": "satisfaction scores jittered",
+   "status": "RUN"
+  },
+  {
+   "criterion": "cross-model",
+   "note": "no model in the loop for this measurement",
+   "status": "IMPOSSIBLE"
+  },
+  {
+   "criterion": "cross-scale",
+   "note": "grid re-run at 50% and 25% subsamples",
+   "status": "RUN"
+  },
+  {
+   "criterion": "cross-architecture",
+   "note": "same as cross-model",
+   "status": "IMPOSSIBLE"
+  },
+  {
+   "criterion": "cross-dataset",
+   "note": "one release; DICES is published on this estimand, PRISM cannot form it",
+   "status": "IMPOSSIBLE"
+  },
+  {
+   "criterion": "cross-task",
+   "note": "one task",
+   "status": "IMPOSSIBLE"
+  },
+  {
+   "criterion": "cross-domain",
+   "note": "one domain",
+   "status": "IMPOSSIBLE"
+  },
+  {
+   "criterion": "out-of-distribution-tested",
+   "note": "world-only stratum vs both-forms stratum, disjoint",
+   "status": "RUN"
+  },
+  {
+   "criterion": "adversarially-stress-tested",
+   "note": "independent navigator dispatched per iteration",
+   "status": "PROPERTY"
+  },
+  {
+   "criterion": "falsification-oriented",
+   "note": "502 of 628 cells reported as non-survivors",
+   "status": "PROPERTY"
+  },
+  {
+   "criterion": "hostile-peer-review-ready",
+   "note": "every non-survivor and every impossible criterion named",
+   "status": "PROPERTY"
+  }
+ ],
+ "source_name": "run.py",
+ "source_sha256": "55152f13d65fa471558c2f0fd9923f2fe583f364554248890282a5717db321d5"
+}
