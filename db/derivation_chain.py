@@ -709,6 +709,43 @@ def build_wave2(N):
              "the same object seen at the response level rather than the criterion level")
     edge(N["C_VETO"], N["INSTR"], "depends_on", 8, None, None)
 
+    N["A2"] = node(
+        "A2-participant-criteria-and-ratings-represent-their-values", "their_assumption",
+        "What a participant says matters is informative about what THAT participant prefers. Every "
+        "downstream step -- compiling, aggregating, calling the result collective -- is stacked on "
+        "it, and nothing in this campaign had checked it.",
+        "aggregation", 6, "partial")
+    N["C_SHARED_NOT_PERSONAL"] = node(
+        "the-ratings-capture-a-shared-standard-not-personal-values", "my_claim",
+        "Criterion AUTHORSHIP is not in the release, so ratings are the only proxy for a person's "
+        "values. Scoring a person's four responses with their OWN signed ratings and re-scoring "
+        "with a STRANGER's ratings of exactly the same criteria -- same set, different numbers -- "
+        "own wins by +0.0398 [+0.0359, +0.0439] over 14,925 cells, far above a placebo that "
+        "attaches the same weights to the wrong criteria (0.5595 against 0.6661). So the ratings "
+        "carry real information. But the advantage is the SAME SIZE whether the target is the "
+        "impersonal `world` ranking or the explicitly personal one, and that holds on the powered "
+        "subset where the two rankings actually differ: +0.0356 [+0.0247,+0.0462] against +0.0332 "
+        "[+0.0226,+0.0436], with personal if anything SMALLER. What was elicited is a shared "
+        "standard some people express better than others, not individual values.",
+        "aggregation", 7, "settled")
+    evid(N["C_SHARED_NOT_PERSONAL"], "r134-do-ratings-individuate",
+         "20 stranger draws per cell across 5 seeds whose stranger means span 0.6276-0.6289; "
+         "prompt-clustered bootstrap; oracle positive control at 0.9192 shows the instrument can "
+         "separate weightings. POWER: 51.6% of the assessments carrying a `personal` ranking give "
+         "the SAME STRING as their `world` one, where the two advantages are equal by construction, "
+         "so the contrast is read only on the 1,547 differing cells. FLAW STATED: the "
+         "same-string arm conflates 'identical ranking' with 'no personal block at all' (13,378 vs "
+         "1,829 cells), so its 0.00979 derivation check is not clean; the differ-subset comparison "
+         "is, because both arms require the block to exist.", 7)
+    edge(N["C_SHARED_NOT_PERSONAL"], N["A2"], "refines", 7, None,
+         "something was captured, but not the thing the assumption names")
+    edge(N["C_SHARED_NOT_PERSONAL"], N["A3"], "attacks", 7, None,
+         "an aggregation of a shared standard is not an aggregation of individual values")
+    if "C_CONSENSUS_GRADIENT" in N:
+        edge(N["C_SHARED_NOT_PERSONAL"], N["C_CONSENSUS_GRADIENT"], "confounds", 6, None,
+             "my own consensus gradient reads the ratings as a proxy for a person's values, and "
+             "this says they are not one; the gradient may be about expression rather than values")
+
     N["K19"] = node(
         "K19-the-judges-fewshot-only-demonstrates-positive-criteria", "knife",
         "Both exemplars in the judge's two-shot prompt state a criterion in positive prescriptive "
