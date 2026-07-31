@@ -583,14 +583,24 @@ def build_wave2(N):
         "deviation from their peers' rating means predicts a HIGHER gain (partial r +0.099, "
         "permutation p 0.0025) and the number of criteria they rated predicts a LOWER one "
         "(-0.129, p 0.0000). full's ratings encode the majority's view, so the ratings-free "
-        "compiled arm is relatively kinder to the people furthest from it. About 1% of variance.",
-        "redistribution", 6, "partial")
+        "compiled arm is relatively kinder to the people furthest from it. SECOND CONTROL, which "
+        "three agreeing designs had all skipped: a person far from consensus may simply be HARDER "
+        "TO PREDICT AT ALL, and if both arms regress toward chance for them the gap between the "
+        "better arm and the worse one shrinks for a reason that has nothing to do with compilation. "
+        "The confound is real -- distance from consensus correlates -0.199 with a person's own "
+        "best-arm accuracy -- and it splits the two baselines. Against full_equal both gradients "
+        "vanish entirely (-0.003, p 0.92; -0.006, p 0.84): they WERE the artifact. Against "
+        "full_signed both survive attenuated: dev_from_mean +0.074 (p 0.0205) and n_rated -0.109 "
+        "(p 0.0005). About half a percent of variance, on one baseline convention only.",
+        "redistribution", 5, "partial")
     evid(N["C_CONSENSUS_GRADIENT"], "r131-who-is-served",
          "dev_from_mean raw +0.109 -> partial +0.099 (p 0.0025); n_rated raw -0.133 -> partial "
          "-0.129 (p 0.0000); correlations of each covariate with prompt count are -0.085 and "
-         "+0.037, so exposure is not the driver. Under full_equal the same gradients appear with "
-         "the opposite sign, so the direction is baseline-conditional and may never be stated "
-         "without naming the convention.", 6)
+         "+0.037, so exposure is not the driver. Adding the person's own best-arm accuracy as a "
+         "second control kills both gradients under full_equal and attenuates both under "
+         "full_signed to +0.074 (p 0.0205) and -0.109 (p 0.0005). The claim as first stated here "
+         "-- +0.099 at p 0.0025, unqualified -- was an overstatement on both counts: it was one "
+         "control short, and it was baseline-conditional.", 5)
     edge(N["R_HARM_COUNTS"], N["C_CONSENSUS_GRADIENT"], "refines", 8, None,
          "a COUNT of losers needs the spread to clear the floor and does not; a GRADIENT on a "
          "person characteristic does not need that, and two are real")
