@@ -599,6 +599,7 @@ def build_wave2(N):
          "rater-count regimes (4-9: 0.387; >=10: 0.356); mismatched-prompt placebo returns "
          "OR ~0.82, near null. Verdict CONFIRMED.", 6)
     edge(N["F_VERBATIM"], C, "supports", 6, None, "the proxy-free arm exists only because of it")
+    N["C_DISAGREE_UNSETTLED"] = C   # both its designs route through the judge proxy; flagged below
 
     N["C_ADJUDICATED"] = node(
         "disagreement-itself-costs-a-criterion-its-place-on-ground-truth", "my_claim",
@@ -937,8 +938,15 @@ def build_wave2(N):
     if "C_ADJUDICATED" in N:
         edge(N["INSTR_FREE"], N["C_ADJUDICATED"], "supports", 9, None,
              "the claim survives with the instrument removed, so it is about the artifact")
+    # The first version of this list missed five claims that also route through the judge --
+    # content-not-style, core-equals-drop-negatives, majority-captures, item-count-dominates and
+    # the flip-reading result -- so they sat in the graph looking instrument-free when they are not.
+    # A partition that is applied by hand is a partition with holes in it, and this one had five.
     for k in ("C_POL", "C_SIGNFLIP", "C_VETO", "C_SHARED_NOT_PERSONAL", "C_LADDER", "C_FLAT",
-              "R_HARM_COUNTS", "C_CONSENSUS_GRADIENT", "C_TARGET_NEUTRAL", "C_COLLECTIVE"):
+              "R_HARM_COUNTS", "C_CONSENSUS_GRADIENT", "C_TARGET_NEUTRAL", "C_COLLECTIVE",
+              "C_CONTENT_NOT_STYLE", "C_CORE_EQ_DROP", "C_MAJORITY_CAPTURE",
+              "C_ITEM_COUNT_DOMINATES", "C_FLIP_MEASURED", "C_HELDOUT", "C_BATCH",
+              "C_INSTR_CLEAN", "C_DISAGREE_UNSETTLED"):
         if k in N:
             edge(N["INSTR_FREE"], N[k], "confounds", 7, None,
                  "conditional on one local 2B judge that is not the release's own scorer; the "
@@ -969,6 +977,11 @@ def build_wave2(N):
     if "INSTR_FREE" in N:
         edge(N["C_BATCH"], N["INSTR_FREE"], "refines", 8, None,
              "instrument-dependent does not mean unbounded: this dimension is bounded at <0.001")
+        # and this claim is itself instrument-dependent -- it is ABOUT the judge and measured WITH
+        # it. The partition loop runs before this node exists, so the edge is added here rather
+        # than left off; a claim about the apparatus is not a claim about the release.
+        edge(N["INSTR_FREE"], N["C_BATCH"], "confounds", 7, None,
+             "a claim about the apparatus, measured with the apparatus")
 
     N["C_STANDARD_SIZE"] = node(
         "the-collective-standard-exists-and-is-27-percent-of-what-people-said-mattered", "my_claim",
