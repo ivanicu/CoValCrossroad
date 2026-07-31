@@ -200,10 +200,10 @@ RATE_STATS = ("rate", "withheld", "nobenefit", "tailmass", "cvar", "gini")
 LOW_STATS = ("spread", "cvar")
 
 
-def _run_sweep(job, idx, nperm):
+def _run_sweep(job, idx, nperm, seed=SEED):
     """One (block, bearer, arms, scale) sweep. Module level so it pickles to a worker process."""
     block, bearer, key, n_units, a_arm, b_arm, group, arms_name, purge = job
-    rng = np.random.default_rng([SEED, idx])
+    rng = np.random.default_rng([seed, idx])
     out, bad = [], []
     d_cell = b_arm - a_arm
     if purge:
@@ -249,11 +249,92 @@ def main() -> int:
     ap.add_argument("--out", default=str(_RES / "r118_sacrifice_factorial.json"))
     ap.add_argument("--nperm", type=int, default=N_PERM)
     ap.add_argument("--jobs", type=int, default=20)
+    # A seed FLAG, because three background runs of a module-level constant are three IDENTICAL runs.
+    # I launched exactly that and came within one command of reporting it as multi-seed replication --
+    # which would have been a determinism check relabelled, the same shape as certifying determinism
+    # and calling it currency. Seed robustness requires the generator to actually differ.
+    ap.add_argument("--seed", type=int, default=SEED)
+    # Data transforms that each constitute one RIGOR-AXIS variation of the whole grid. They are
+    # flags rather than separate scripts so the variant and the base are provably the same code.
+    ap.add_argument("--subsample", type=float, default=1.0, help="cross-scale: fraction of cells")
+    ap.add_argument("--jitter", type=float, default=0.0, help="perturbation-robust: sd of noise")
+    ap.add_argument("--fold", default="", help="prompt-robust: k/K, hold OUT prompt fold k of K")
+    ap.add_argument("--stratum", default="", help="OOD: world_only | both_forms")
+    # POSITIVE CONTROL AS A GRID VARIATION. Without it every non-surviving cell is UNVERIFIED rather
+    # than null: a cell that fails may be measuring nothing, or may be an instrument that has never
+    # been shown to return non-zero. Planting a KNOWN effect on a KNOWN bearer and re-running the
+    # whole grid is the only way to tell those apart at 628-cell scale, and sweeping g turns it into
+    # a dose-response curve and an MDE per cell at the same time.
+    ap.add_argument("--plant", default="", help="positive control: bearer:share:g")
     args = ap.parse_args()
     _RES.mkdir(parents=True, exist_ok=True)
     rng = np.random.default_rng(SEED)
 
     cells, pairs = build_full()
+    # --- rigor-axis variations, applied to the population BEFORE any statistic is computed ---
+    vrng = np.random.default_rng([args.seed, 999])
+    if args.stratum:
+        want = (args.stratum == "both_forms")
+        keep_p = {c["pid"] for c in cells if c["pers"] == want}
+        cells = [c for c in cells if c["pid"] in keep_p]
+        pairs = [q for q in pairs if q["pid"] in keep_p]
+        print(f"  OOD variation: stratum={args.stratum} -> {len(cells):,} cells")
+    if args.fold:
+        k, K = (int(x) for x in args.fold.split("/"))
+        allp = sorted({c["pid"] for c in cells})
+        fold_of = {p_: i % K for i, p_ in enumerate(vrng.permutation(allp))}
+        cells = [c for c in cells if fold_of[c["pid"]] != k]
+        pairs = [q for q in pairs if fold_of.get(q["pid"], -1) != k]
+        print(f"  prompt-robust variation: holding out fold {k} of {K} -> {len(cells):,} cells")
+    if args.subsample < 1.0:
+        idx = vrng.random(len(cells)) < args.subsample
+        keep_c = {(c["pid"], c["rid"]) for c, m in zip(cells, idx) if m}
+        cells = [c for c in cells if (c["pid"], c["rid"]) in keep_c]
+        pairs = [q for q in pairs if (q["pid"], q["rid"]) in keep_c]
+        print(f"  cross-scale variation: {args.subsample:.0%} -> {len(cells):,} cells")
+    if args.plant:
+        pb, psh, pg = args.plant.split(":")
+        psh, pg = float(psh), float(pg)
+        if pb == "person":
+            units = sorted({c["rid"] for c in cells})
+            hit = set(vrng.choice(units, max(1, int(psh * len(units))), replace=False).tolist())
+            for c in cells:
+                if c["rid"] in hit:
+                    c["core"] = float(min(1.0, c["core"] + pg))
+        elif pb == "prompt":
+            units = sorted({c["pid"] for c in cells})
+            hit = set(vrng.choice(units, max(1, int(psh * len(units))), replace=False).tolist())
+            for c in cells:
+                if c["pid"] in hit:
+                    c["core"] = float(min(1.0, c["core"] + pg))
+            for q in pairs:
+                if q["pid"] in hit:
+                    q["core"] = float(min(1.0, q["core"] + pg))
+        elif pb == "label":
+            labs = sorted({q["win"] for q in pairs})
+            hit = set(vrng.choice(labs, max(1, int(psh * len(labs))), replace=False).tolist())
+            for q in pairs:
+                if q["win"] in hit:
+                    q["core"] = float(min(1.0, q["core"] + pg))
+        elif pb == "stratum":
+            for c in cells:
+                if c["pers"]:
+                    c["core"] = float(min(1.0, c["core"] + pg))
+        elif pb == "subjectivity":
+            lv = sorted({c["subj"] for c in cells})
+            hit = {lv[0]}
+            for c in cells:
+                if c["subj"] in hit:
+                    c["core"] = float(min(1.0, c["core"] + pg))
+        else:
+            raise SystemExit(f"REFUSING: unknown plant bearer {pb!r}")
+        print(f"  POSITIVE CONTROL: planted g={pg} on {psh:.0%} of bearer '{pb}'")
+
+    if args.jitter > 0:
+        for c in cells:
+            c["full"] = float(np.clip(c["full"] + vrng.normal(0, args.jitter), 0, 1))
+            c["core"] = float(np.clip(c["core"] + vrng.normal(0, args.jitter), 0, 1))
+        print(f"  perturbation-robust variation: jitter sd={args.jitter}")
     if not cells:
         print("REFUSING: empty population. Exits 2, never 0.", file=sys.stderr)
         return 2
@@ -365,7 +446,8 @@ def main() -> int:
     from concurrent.futures import ProcessPoolExecutor
     print(f"\n  {len(JOBS)} sweeps x {args.nperm} permutations, across {args.jobs} workers")
     with ProcessPoolExecutor(max_workers=args.jobs) as ex:
-        futs = [ex.submit(_run_sweep, j, i, args.nperm) for i, j in enumerate(JOBS)]
+        futs = [ex.submit(_run_sweep, j, i, args.nperm, args.seed)
+                for i, j in enumerate(JOBS)]
         for f in futs:
             g_, bad = f.result()
             grid.extend(g_)
@@ -473,7 +555,7 @@ def main() -> int:
          "n_purged_survivors": len(surv_purged),
          "by_bearer": {k: v for k, v in by_bearer.items()},
          "by_statistic": {k: v for k, v in by_stat.items()},
-         "grid": grid, "world": world, "conclusion": conclusion,
+         "seed": args.seed, "plant": args.plant, "grid": grid, "world": world, "conclusion": conclusion,
          "toy_proof": {"r116_is_cell": "bearer=person,stat=rate,arms=core-full,null=within_prompt",
                        "r117_is_column": "stat in {rate,tailmass}, arms=core-full, all bearers",
                        "cells_they_covered": 2, "cells_in_this_grid": n_cells},
