@@ -911,6 +911,39 @@ def build_wave2(N):
             edge(N["C_HELDOUT"], N[k], "supports", 8, None,
                  "survives on prompts it was not found on")
 
+    # ---- the partition that should have existed from the start ------------------------------
+    N["INSTR_FREE"] = node(
+        "instrument-free-vs-instrument-dependent-is-the-partition-that-matters", "fact",
+        "The release does NOT ship its own satisfaction scores, so r04 rebuilt one with a local "
+        "Qwen3.5-2B. Every claim routed through it is therefore a claim about what a 2B model "
+        "thinks, not about what CoVal's compilation does -- and this campaign has been stating the "
+        "second while measuring the first. The corpus splits cleanly. INSTRUMENT-FREE, counted "
+        "directly off the release: 63.5% of criteria have exactly one rater and ZERO have two or "
+        "three; 25.6% carry a negative mean; among multi-rated negatives 99.1% have at least one "
+        "rater on the positive side; 7.8-9.4% of core criteria are verbatim copies of a full "
+        "criterion; 48.4% of people's world and personal rankings differ; 26.7% of assessments "
+        "carry a veto; and contested criteria are 2.3-3.2x less likely to be copied verbatim. "
+        "INSTRUMENT-DEPENDENT, i.e. conditional on one local judge: the polarity ratio, every arm "
+        "concordance, own-versus-stranger, the veto violation rates, and the whole person-level "
+        "analysis.",
+        "instrument", 9, "settled")
+    evid(N["INSTR_FREE"], "session-partition-2026-07-30",
+         "The load-bearing result was re-fitted with the judge removed entirely: contested -> "
+         "verbatim retention OR 0.3083 [0.1906, 0.4681] controlling |mean rating| and log rater "
+         "count linearly, and OR 0.4343 [0.2610, 0.6627] with |mean rating| entered as quintile "
+         "dummies, a non-parametric control. Both intervals exclude 1 over 3,000 prompt-clustered "
+         "bootstrap fits across 5 seeds. Outcome is a normalised text match; predictor is the "
+         "release's own ratings; no forward pass anywhere.", 9)
+    if "C_ADJUDICATED" in N:
+        edge(N["INSTR_FREE"], N["C_ADJUDICATED"], "supports", 9, None,
+             "the claim survives with the instrument removed, so it is about the artifact")
+    for k in ("C_POL", "C_SIGNFLIP", "C_VETO", "C_SHARED_NOT_PERSONAL", "C_LADDER", "C_FLAT",
+              "R_HARM_COUNTS", "C_CONSENSUS_GRADIENT", "C_TARGET_NEUTRAL", "C_COLLECTIVE"):
+        if k in N:
+            edge(N["INSTR_FREE"], N[k], "confounds", 7, None,
+                 "conditional on one local 2B judge that is not the release's own scorer; the "
+                 "claim is about a rubric-scoring pipeline built this way, not about CoVal")
+
     N["K19"] = node(
         "K19-the-judges-fewshot-only-demonstrates-positive-criteria", "knife",
         "Both exemplars in the judge's two-shot prompt state a criterion in positive prescriptive "
