@@ -1,0 +1,117 @@
+{
+ "acc_core": 0.6603991505321594,
+ "acc_signed_all": 0.6805765935785056,
+ "acc_unwt": 0.5940999726850587,
+ "block_counts": {
+  "FEW": 5,
+  "MIDDLE": 75,
+  "SINGLE": 2975,
+  "STABLE": 336,
+  "UNSTABLE": 444
+ },
+ "blocks": [
+  {
+   "bh_survivor": true,
+   "block": "SINGLE",
+   "ci": [
+    0.055631880006607466,
+    0.07254283428763865
+   ],
+   "gain": 0.06394396024512963,
+   "k": 2975,
+   "null_mean": 0.07253544734424282,
+   "null_sd": 0.0015398132624708837,
+   "p_boot": 0.0004997501249375312,
+   "per_1k": 0.021493768149623404,
+   "z_vs_count_matched": -5.579564294261715
+  },
+  {
+   "bh_survivor": false,
+   "block": "FEW",
+   "ci": [
+    0.0,
+    0.00029667644915487833
+   ],
+   "gain": 0.00010050798361186885,
+   "k": 5,
+   "null_mean": 0.00015457773583975044,
+   "null_sd": 0.00019122389492960925,
+   "p_boot": 0.273,
+   "per_1k": 0.02010159672237377,
+   "z_vs_count_matched": -0.28275625411659466
+  },
+  {
+   "bh_survivor": true,
+   "block": "STABLE",
+   "ci": [
+    0.012613231586190482,
+    0.02095704550793138
+   ],
+   "gain": 0.01665095038682361,
+   "k": 336,
+   "null_mean": 0.010255518859725426,
+   "null_sd": 0.001587450226938109,
+   "p_boot": 0.0004997501249375312,
+   "per_1k": 0.04955639996078455,
+   "z_vs_count_matched": 4.02874459845822
+  },
+  {
+   "bh_survivor": true,
+   "block": "MIDDLE",
+   "ci": [
+    0.0013519402864224455,
+    0.005318029261268305
+   ],
+   "gain": 0.0031421541770076927,
+   "k": 75,
+   "null_mean": 0.00214856844875973,
+   "null_sd": 0.0008657583779178249,
+   "p_boot": 0.0004997501249375312,
+   "per_1k": 0.04189538902676924,
+   "z_vs_count_matched": 1.1476478352280766
+  },
+  {
+   "bh_survivor": true,
+   "block": "UNSTABLE",
+   "ci": [
+    0.011022148027424744,
+    0.01930608866150338
+   ],
+   "gain": 0.015074813515662738,
+   "k": 444,
+   "null_mean": 0.012508380720617879,
+   "null_sd": 0.0011965273639744692,
+   "p_boot": 0.0004997501249375312,
+   "per_1k": 0.03395228269293409,
+   "z_vs_count_matched": 2.1449010464081786
+  }
+ ],
+ "conclusion": "63.5% of coval_full's criteria were rated by exactly one person and the rater-count distribution is bimodal (n=1 or n>=10, 0.2% between); 77.2% of the negatively-rated criteria are single-rater, against 58.8% of the positive ones, so the sign that carries the signed arm's advantage is entangled with how many people ever saw the criterion. Splitting the negatives by the evidential basis of their sign -- SINGLE (one rater), STABLE (>= 5 raters, bootstrap sign-flip < 5%), UNSTABLE (>= 10%) -- and flipping each block alone against a count-matched null of the same size drawn from the whole negative pool gives: SINGLE k=2975 gain +0.06394 (+0.0215 per 1000 flipped, z=-5.58 vs count-matched); FEW k=5 gain +0.00010 (+0.0201 per 1000 flipped, z=-0.28 vs count-matched); STABLE k=336 gain +0.01665 (+0.0496 per 1000 flipped, z=+4.03 vs count-matched); MIDDLE k=75 gain +0.00314 (+0.0419 per 1000 flipped, z=+1.15 vs count-matched); UNSTABLE k=444 gain +0.01507 (+0.0340 per 1000 flipped, z=+2.14 vs count-matched). WORLD: W-COLLECTIVE. The stable multi-rater signs beat their count-matched null and outperform single-rater signs per criterion flipped, so the advantage is a collective quantity and the r123 finding stands as stated. Stability is UNDEFINED for a single rater, not zero: every resample of one rater returns that rater, so an n=1 sign scores as maximally stable under any bootstrap blind to n. SINGLE is therefore never admitted to STABLE, and a run that skipped this would have concluded that the most reliable signs in the dataset are the ones held by one person.",
+ "n_criteria": 14984,
+ "n_negative": 3835,
+ "n_pairs": 80542,
+ "n_prompts": 968,
+ "placebo_empty_flip_diff": 0.0,
+ "positive_control": {
+  "ci": [
+   0.07710719213225141,
+   0.09585688108198924
+  ],
+  "delta": 0.08643974177434777,
+  "moved": true,
+  "p": 0.0004997501249375312
+ },
+ "preregistered": {
+  "bh_q": 0.05,
+  "min_multi": 5,
+  "n_boot_ci": 2000,
+  "n_boot_sign": 2000,
+  "n_null_seeds": 20,
+  "stable_max_flip": 0.05,
+  "unstable_min_flip": 0.1
+ },
+ "seed": 20260730,
+ "source_name": "run.py",
+ "source_sha256": "973fada1c7a48e7604bfdba2a10e274841083279638a68bca722ccc5d5d719e9",
+ "world": "W-COLLECTIVE"
+}
