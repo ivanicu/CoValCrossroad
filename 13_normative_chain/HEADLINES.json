@@ -1,0 +1,90 @@
+{
+ "tol": 0.005,
+ "rows": [
+  {
+   "round": "r177",
+   "claim": "longest response ranked first",
+   "published_as": "observation",
+   "observation": 0.3729563614013522,
+   "group": 0.3562459311758051,
+   "gap": 0.01671043022554708,
+   "n": 16270,
+   "n_groups": 1078,
+   "max_share": 0.05709895513214505,
+   "guard_refuses": true
+  },
+  {
+   "round": "r178",
+   "claim": "crowd rubric picks the human top choice",
+   "published_as": "observation",
+   "observation": 0.5028708481721055,
+   "group": 0.493542046716827,
+   "gap": 0.00932880145527848,
+   "n": 13759,
+   "n_groups": 968,
+   "max_share": 0.003052547423504615,
+   "guard_refuses": true
+  },
+  {
+   "round": "r179",
+   "claim": "leave-one-out modal oracle (the ceiling)",
+   "published_as": "observation",
+   "observation": 0.6171625276616671,
+   "group": 0.612000143816639,
+   "gap": 0.005162383845028096,
+   "n": 16268,
+   "n_groups": 1077,
+   "max_share": 0.057105974920088516,
+   "guard_refuses": true
+  },
+  {
+   "round": "r179",
+   "claim": "two raters pick the same best response",
+   "published_as": "group",
+   "observation": 0.4776266442675089,
+   "group": 0.4776266442675089,
+   "gap": 0.0,
+   "n": 1078,
+   "n_groups": 1078,
+   "max_share": 0.0009276437847866419,
+   "guard_refuses": false
+  },
+  {
+   "round": "r192",
+   "claim": "an assessment flags something unacceptable",
+   "published_as": "observation",
+   "observation": 0.6358369956052736,
+   "group": 0.6754271143624291,
+   "gap": -0.03959011875715546,
+   "n": 5006,
+   "n_groups": 331,
+   "max_share": 0.20215741110667199,
+   "guard_refuses": true
+  },
+  {
+   "round": "r192",
+   "claim": "a given response is flagged when seen",
+   "published_as": "observation",
+   "observation": 0.2636336396324411,
+   "group": 0.2855568931427594,
+   "gap": -0.02192325351031832,
+   "n": 20024,
+   "n_groups": 1324,
+   "max_share": 0.050539352776667996,
+   "guard_refuses": true
+  },
+  {
+   "round": "r190",
+   "claim": "assessment says only slightly likely to be asked",
+   "published_as": "observation",
+   "observation": 0.33538963984396264,
+   "group": 0.33361662548407117,
+   "gap": 0.0017730143598914672,
+   "n": 11023,
+   "n_groups": 1093,
+   "max_share": 0.05325229066497324,
+   "guard_refuses": false
+  }
+ ],
+ "refused": 5
+}
