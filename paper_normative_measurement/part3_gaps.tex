@@ -1,0 +1,173 @@
+% ===========================================================================
+% PART 3 -- the five things an audit of the first draft found missing.
+% Four are measured here; the fifth is a foundational assumption that had been
+% used without being named.
+% ===========================================================================
+\section{Five things the first draft assumed}
+\label{sec:gaps}
+
+An audit of this paper against its own standard found five loads being carried by
+statements that were never made. Four are now measured. The fifth is not
+measurable and is instead named, because using it silently is the error.
+
+\subsection{G0 --- interpersonal comparability, the assumption under
+\texorpdfstring{§\ref{sec:agg}}{the aggregation section}}
+
+Every aggregate in §\ref{sec:agg} adds one person's numbers to another's. That
+operation is meaningless unless the numbers live on a common scale, and
+\textbf{nothing in the elicitation supplies one}. Person $1$ writing $+8$ and
+person $2$ writing $+8$ are two marks on two private rulers.
+
+\step{What the paper actually did.} It min--max normalised each person to
+$[0,1]$ (§\ref{sec:notation}), so that everyone's best option is worth $1$ and
+worst worth $0$. That is a \emph{stipulation of equal stakes}: it asserts that
+every participant cares equally much about the whole question.
+
+\step{Why the stipulation is not innocent.} Consider two participants: one for
+whom all four responses are nearly equivalent, and one for whom the choice is
+grave. Min--max gives them identical influence over the aggregate. A different
+and equally defensible stipulation --- normalise by a common scale factor, so
+that intensity counts --- gives the second participant more. The two produce
+different winners.
+
+\begin{proposition}[The deficiency figure is scale-relative]
+The Blackwell deficiency of $0.1298$ reported in §\ref{sec:agg} is a number about
+the pair (data, interpersonal scale). It is not identified by the data alone,
+because the data contain no information distinguishing ``this person's $+8$ means
+what that person's $+8$ means'' from any other calibration.
+\end{proposition}
+
+\step{Why this is the deepest limitation in the paper.} Arrow's theorem is
+precisely a theorem about what can be done \emph{without} interpersonal
+comparison; Harsanyi's utilitarian representation requires it. So the choice made
+here silently determines which side of a hundred-year-old divide the analysis
+sits on. It is now stated. It cannot be resolved at this site: resolving it needs
+an elicitation that measures intensity on a shared anchor, which is a design
+requirement and appears in §\ref{sec:design}.
+
+\mesoboundary{Every aggregate quantity in this paper --- the deficiency, the rule
+comparisons, the maximin figures --- is conditional on min--max interpersonal
+normalisation. The \emph{ordinal} results (Condorcet structure, IIA rate,
+agreement rates) are not, because they never add across people.}
+
+\subsection{G1 --- ties, asserted and now measured}
+
+The paper's decision rules use $\argmax$, and exact ties would make them
+ill-defined. The first draft asserted that ties occur with probability zero.
+Measured over all $968$ prompts:
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lr}
+\toprule
+exact ties between the top two scores & $\mathbf{0}$ of $968$\\
+relative gaps below $10^{-6}$ & $0$ of $968$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\step{Why it needed checking rather than asserting.} ``Probability zero'' is a
+statement about a continuous model; the data are finite and produced by a
+tie-prone construction (sums of a few dozen products of bounded numbers). The
+claim happened to be true. It was not entitled to be assumed, and an assertion
+that turns out true is still an assertion until it is run.
+
+\subsection{G2 --- manipulability, and what it does to ``sincere''}
+
+Every number in this paper reads the elicited weights as what people believe.
+Gibbard--Satterthwaite guarantees that any non-dictatorial rule over three or
+more alternatives \emph{can} be manipulated; it says nothing about how often, and
+the rate is what decides whether the sincerity reading is safe.
+
+\begin{protocol}[Crudest manipulation]
+For each (annotator, prompt): compute the collective winner honestly, then
+replace \emph{all} of that annotator's weights by $+10$, and separately by $-10$,
+and recompute. Score both outcomes by that annotator's own stated ranking.
+\end{protocol}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lr}
+\toprule
+(annotator, prompt) pairs tested & $15{,}482$\\
+pairs where saturating the weights yields a \emph{strictly better} outcome & \\
+\quad by that annotator's own ranking & $604 = \mathbf{3.9\%}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}[This is a lower bound, and that is the point]
+The manipulation tested is the least intelligent one available --- push everything
+to one end. A participant choosing which criteria to inflate can only do better.
+So $3.9\%$ is a floor on the rate at which a participant had something to gain by
+misreporting, and the sincerity reading of the weights is safe only to that
+degree. No claim in this paper depends on sincerity being exact; several would
+change in magnitude if the true manipulation rate were much larger, and that is
+recorded in §\ref{sec:limits}.
+\end{remark}
+
+\subsection{G3 --- the judge scores criteria against the responses they were written about}
+
+This is a circularity the first draft did not state. The criteria were written
+\emph{after} the participant saw the four responses, typically to explain why one
+of them is best. The judge then scores those criteria \emph{against those same
+four responses}.
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lr}
+\toprule
+criterion--author pairs & $95{,}553$\\
+satisfaction of the author's own top-ranked response & $0.5831$\\
+mean satisfaction of the other three & $0.5466$\\
+difference & $+0.0365$ (se $0.0008$, $z=+46.2$)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\step{How to read this, and how not to.} It is not a defect of the judge. It is
+what ``I wrote down why $X$ is best'' means: a criterion authored by someone who
+ranked $X$ first is, by construction, more satisfied by $X$. What it establishes
+is that satisfaction and choice are \textbf{two views of one act}, not two
+independent measurements of a latent value. Every correlation between the
+criteria route and the ranking route --- including the $0.393$ of
+\cref{tab:selfother} and the $68.4\%$ of \cref{tab:agree} --- is inflated by this
+mechanism, and the inflation cannot be removed without response-blind criteria.
+
+\subsection{G4 --- the two elicitations disagree beyond their own unreliability}
+
+The criteria route and the ranking route select different winners on $31.6\%$ of
+prompts (\cref{tab:agree}). A natural deflation is: both are noisy, and noise
+alone explains it. \Cref{thm:atten} answers this exactly, because it says a
+correlation measured through unreliable instruments is attenuated by
+$\sqrt{\mathrm{rel}_1\mathrm{rel}_2}$ --- so dividing by that factor removes the
+noise and leaves the disagreement.
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrr}
+\toprule
+& split-half & Spearman--Brown\\
+\midrule
+reliability of the ranking route & $0.7702$ & $0.8702$\\
+reliability of the criteria route & $0.8882$ & $0.9408$\\
+\midrule
+observed cosine between the two routes & & $0.6265$\\
+\textbf{disattenuated} $=0.6265/\sqrt{0.8702\times0.9408}$ & & $\mathbf{0.6924}$\\
+\bottomrule
+\end{tabular}
+\label{tab:disatten}
+\end{table}
+
+\mesotakeaway{Correcting \emph{both} routes for their own unreliability raises
+the agreement only from $0.626$ to $0.692$. The two elicitations still do not
+coincide. So roughly $31\%$ of the gap between what people \emph{write} and what
+they \emph{choose} is real disagreement, not measurement error --- and by G3 this
+is an \emph{under}statement, because the circularity inflates the observed
+agreement in the first place.}
+
+\begin{corollary}[The paper's largest quantity, restated at the panel level]
+\cref{tab:selfother} reported $0.393$ for one person against their own ranking.
+\cref{tab:disatten} reports $0.692$ for the whole panel's criteria against the
+whole panel's rankings, disattenuated. The two are consistent: averaging over
+people removes individual noise (\cref{thm:sb}) and raises the number, but the
+residual gap does not close. Whatever the pipeline does downstream, the largest single
+discrepancy in the chain sits \emph{inside} the elicitation, between two things
+the same people said in the same session.
+\end{corollary}

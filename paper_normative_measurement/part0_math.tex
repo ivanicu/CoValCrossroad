@@ -11,27 +11,12 @@ uses only what is defined below. A reader who already knows this material should
 still read §\ref{sec:cluster}, §\ref{sec:mde} and §\ref{sec:atten}, because those
 three are where papers in this area go wrong.
 
-\subsection{Sets, functions, and the two symbols that do all the work}
+\subsection{The one identity everything is built on}
 
-A \emph{set} is a collection of distinct things, written $\{a,b,c\}$. We write
-$x \in \mathcal{A}$ for ``$x$ is a member of $\mathcal{A}$'', and $|\mathcal{A}|$
-for the number of members.
-
-A \emph{function} $f : \mathcal{A} \to \mathcal{B}$ assigns to every member of
-$\mathcal{A}$ exactly one member of $\mathcal{B}$.
-
-Two symbols carry most of the load.
-
-\begin{itemize}
-\item $\sum_{i=1}^{n} x_i$ means $x_1 + x_2 + \cdots + x_n$. It is an instruction
-      to add. Nothing more.
-\item $\mathbf{1}\{P\}$ is the \emph{indicator}: it equals $1$ if the statement
-      $P$ is true and $0$ if false. It converts a yes/no fact into a number, and
-      it is how every ``what fraction of cases'' quantity in this paper is built.
-\end{itemize}
-
-\noindent The single most useful identity in the paper follows immediately from
-those two: the average of an indicator \emph{is} a proportion.
+$\mathbf{1}\{P\}$ is the \emph{indicator}: $1$ if $P$ is true, $0$ if false. It
+converts a yes/no fact into a number, and every ``what fraction of cases''
+quantity in this paper is built from it, via the identity that the average of an
+indicator \emph{is} a proportion:
 \begin{equation}
 \frac{1}{n}\sum_{i=1}^{n}\mathbf{1}\{P_i\}
   \;=\; \frac{\text{number of } i \text{ with } P_i \text{ true}}{n}.
@@ -772,12 +757,3 @@ subtracted once. The estimator can be slightly negative in finite samples, which
 signals that one dimension carries almost no dependence.
 \end{proof}
 
-\subsection{Summary of Part 0}
-
-Everything the rest of the paper needs is now defined: expectation
-(\cref{lem:lin}), variance (\cref{lem:varalt}, \cref{cor:indvar}), the standard
-error (\cref{eq:varmean}), correlation and its bound (\cref{thm:cs}), intervals
-(§\ref{sec:ci}), power (\cref{thm:mde}), clustering (\cref{thm:deff}), resampling
-(\cref{prot:boot}), multiplicity (\cref{thm:bonf}), attenuation
-(\cref{thm:atten}) and reliability (\cref{thm:sb}). No further statistical
-machinery is introduced.

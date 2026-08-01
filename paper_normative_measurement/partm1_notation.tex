@@ -1,0 +1,482 @@
+% ===========================================================================
+% PART -1 -- every symbol and every object, from arithmetic upward.
+% Nothing in this paper is used before it appears here. An audit of the first
+% draft found thirty-one objects used without definition; all are below.
+% ===========================================================================
+\section{Every symbol, from arithmetic upward}
+\label{sec:notation}
+
+This section defines everything the paper uses. It assumes arithmetic --- adding,
+multiplying, and the idea of a number --- and nothing else. A reader who is
+fluent may skip to §\ref{sec:math}; a reader who is not should be able to finish
+this section and then check every subsequent line.
+
+\subsection{Numbers, inequalities, intervals}
+
+$\R$ denotes the real numbers: everything on the number line, including fractions
+and irrationals like $\sqrt 2$. $a<b$ means $a$ lies to the left of $b$.
+$[a,b]$ is the set of all $x$ with $a \le x \le b$ (endpoints included);
+$(a,b)$ excludes the endpoints. $|x|$ is the \emph{absolute value}: $x$ if
+$x \ge 0$, and $-x$ otherwise. It is the distance from $x$ to $0$, so it is never
+negative.
+
+\step{One fact used repeatedly.} Multiplying an inequality by a \emph{positive}
+number preserves it; multiplying by a \emph{negative} number \textbf{reverses}
+it. $2<3$ but $-2>-3$. §\ref{sec:ci} depends on this at one specific step, and
+the step is marked there.
+
+\subsection{Functions}
+
+A \emph{function} $f$ from a set $\mathcal{A}$ to a set $\mathcal{B}$, written
+$f:\mathcal{A}\to\mathcal{B}$, assigns to each element of $\mathcal{A}$ exactly
+one element of $\mathcal{B}$. $\mathcal{A}$ is the \emph{domain},
+$\mathcal{B}$ the \emph{codomain}. ``Exactly one'' is the whole content: a rule
+that sometimes gives two answers is not a function.
+
+\begin{definition}[Monotone]
+$f$ is \emph{strictly increasing} if $x<y$ implies $f(x)<f(y)$. Such a function
+preserves order and nothing else: it can stretch and squeeze distances freely.
+§\ref{sec:cardinal} uses exactly this property to test whether the paper's
+central data are ordinal or not.
+\end{definition}
+
+\subsection{Sum and product notation}
+
+\[
+\sum_{i=1}^{n} x_i \;=\; x_1+x_2+\cdots+x_n,
+\qquad
+\prod_{i=1}^{n} x_i \;=\; x_1 \cdot x_2 \cdots x_n .
+\]
+The letter $i$ is a \emph{dummy}: $\sum_{i=1}^{3}x_i$ and $\sum_{j=1}^{3}x_j$ are
+the same number. Three manipulation rules are used later and each is just
+ordinary arithmetic written compactly.
+
+\step{Rule 1 --- pulling out a constant.}
+$\sum_i (c\,x_i) = c\sum_i x_i$, because $cx_1+cx_2+\cdots = c(x_1+x_2+\cdots)$.
+
+\step{Rule 2 --- splitting a sum.}
+$\sum_i (x_i+y_i) = \sum_i x_i + \sum_i y_i$, because addition can be reordered.
+
+\step{Rule 3 --- reordering, and why it is safe here.} For a \emph{finite}
+collection, adding the terms in any order gives the same total. Every sum in this
+paper is finite, so grouping terms differently --- for instance grouping outcomes
+by the value a function takes on them, as in the proof of \cref{lem:lin} --- never
+changes the answer. (For infinite sums this is false in general; the paper never
+needs one.)
+
+\begin{definition}[Factorial]
+$n! := 1\cdot 2\cdot 3 \cdots n$, with $0!:=1$ by convention. It counts the number
+of ways to arrange $n$ distinct objects in a row: $n$ choices for the first, then
+$n-1$, and so on. $3!=6$, and the six orderings are listed explicitly in
+§\ref{sec:toy}.
+\end{definition}
+
+\subsection{Powers, roots, logarithms}
+
+$x^2 := x\cdot x$; $\sqrt{x}$ is the non-negative number whose square is $x$;
+$x^{1/2}=\sqrt x$. The \emph{logarithm} $\log x$ is the power to which the base
+must be raised to give $x$. Only two properties are used:
+$\log(ab)=\log a+\log b$ and $\log$ is strictly increasing. The second is why
+correlating $\log$-transformed quantities in \cref{rem:normalise} is a statement
+about \emph{proportional} rather than absolute co-movement.
+
+\subsection{Max, min, argmax, sup, inf}
+
+$\max_i x_i$ is the largest of the $x_i$; $\min_i x_i$ the smallest.
+
+\begin{definition}[argmax]
+$\argmax_{i} x_i$ is the \emph{index} at which the maximum occurs, not the value.
+If $x=(4,9,2)$ then $\max = 9$ and $\argmax = 2$. When two entries tie, the
+$\argmax$ is not unique; the paper's decision rules break ties by index order, and
+exact ties in continuous scores occur with probability zero in the data.
+\end{definition}
+
+\begin{definition}[Supremum]
+$\sup$ is the least upper bound: the smallest number that is $\ge$ every element
+of a set. It coincides with $\max$ when the maximum is attained, and exists even
+when it is not. $\sup\{1-\tfrac1n : n\ge1\}=1$ although $1$ is never attained.
+\cref{thm:vetoinf} states $\sup_X \Delta(X)=\infty$, meaning: for any bound you
+name, some candidate set exceeds it.
+\end{definition}
+
+\subsection{Sets, and the four operations used}
+
+$\mathcal{A}\cup\mathcal{B}$ (union) contains everything in either;
+$\mathcal{A}\cap\mathcal{B}$ (intersection) everything in both;
+$\mathcal{A}\subseteq\mathcal{B}$ (subset) means every element of $\mathcal{A}$
+is in $\mathcal{B}$; $\varnothing$ is the empty set; $|\mathcal{A}|$ is the count
+of elements; $\mathcal{A}\setminus\mathcal{B}$ removes from $\mathcal{A}$
+everything that is in $\mathcal{B}$.
+
+\begin{lemma}[Union bound, the pointwise version]
+\label{lem:union}
+$\mathbf{1}\{x\in\bigcup_i \mathcal{A}_i\}\;\le\;\sum_i \mathbf{1}\{x\in\mathcal{A}_i\}$.
+\end{lemma}
+\begin{proof}
+If $x$ is in none of the sets, both sides are $0$. If $x$ is in at least one, the
+left side is $1$ and the right side is at least $1$ because it counts the sets
+containing $x$. There is no third case.
+\end{proof}
+\Cref{thm:bonf} is this lemma plus taking expectations, and nothing else.
+
+\subsection{Tuples and vectors}
+
+An \emph{ordered tuple} $(x_1,\dots,x_k)$ is a list in which position matters:
+$(1,2)\neq(2,1)$. The set of all such lists of $k$ real numbers is written $\R^k$,
+and an element of it is a \emph{vector}.
+
+Throughout this paper $k=4$ and the four positions are the four candidate
+responses $A,B,C,D$. So a vector such as $(5.1,\,7.1,\,5.7,\,2.8)$ means: this
+norm scores response $A$ at $5.1$, $B$ at $7.1$, and so on.
+
+\begin{definition}[Addition and scaling]
+$(x_1,\dots,x_k)+(y_1,\dots,y_k) := (x_1+y_1,\dots,x_k+y_k)$ and
+$c\,(x_1,\dots,x_k) := (cx_1,\dots,cx_k)$. Both act position by position.
+\end{definition}
+
+\step{Why this is the right operation here.} A criterion with weight $w$ and
+satisfaction profile $s=(s_A,s_B,s_C,s_D)$ contributes $w\,s$ to the score, and
+several criteria contribute their sum. That is exactly \cref{def:score}, and it is
+the only place vector arithmetic enters the construction.
+
+\subsection{The dot product, the norm, and the angle}
+
+\begin{definition}[Dot product]
+$x\cdot y := \sum_{i=1}^{k} x_i y_i$, a single number.
+\end{definition}
+
+\begin{definition}[Norm]
+$\|x\| := \sqrt{x\cdot x} = \sqrt{\sum_i x_i^2}$.
+\end{definition}
+
+\step{Why the norm is the length.} In two dimensions, $x=(x_1,x_2)$ is the corner
+of a right triangle with legs $x_1$ and $x_2$; Pythagoras gives hypotenuse
+$\sqrt{x_1^2+x_2^2}$, which is $\|x\|$. In $k$ dimensions the same formula is
+taken as the \emph{definition} of length, and it behaves as length should:
+$\|cx\|=|c|\,\|x\|$, and $\|x\|=0$ only when every coordinate is $0$.
+
+\begin{theorem}[The dot product measures angle]
+\label{thm:cosangle}
+For non-zero $x,y$,
+\[
+\cos\theta \;=\; \frac{x\cdot y}{\|x\|\,\|y\|},
+\]
+where $\theta$ is the angle between $x$ and $y$.
+\end{theorem}
+\begin{proof}
+\emph{Step 1.} The law of cosines for the triangle with sides $\|x\|$, $\|y\|$
+and $\|x-y\|$ states
+$\|x-y\|^2 = \|x\|^2+\|y\|^2-2\|x\|\|y\|\cos\theta$.
+
+\emph{Step 2.} Expand the left side using the definition:
+\[
+\|x-y\|^2=\sum_i (x_i-y_i)^2=\sum_i x_i^2-2\sum_i x_iy_i+\sum_i y_i^2
+=\|x\|^2-2(x\cdot y)+\|y\|^2 .
+\]
+
+\emph{Step 3.} Set the two expressions equal. The terms $\|x\|^2$ and $\|y\|^2$
+cancel from both sides, leaving $-2(x\cdot y) = -2\|x\|\|y\|\cos\theta$.
+
+\emph{Step 4.} Divide by $-2\|x\|\|y\|$.
+\end{proof}
+
+\begin{definition}[Cosine similarity]
+$\cos(x,y) := \dfrac{x\cdot y}{\|x\|\|y\|}$, a number in $[-1,1]$.
+$+1$ means same direction, $0$ perpendicular, $-1$ opposite.
+\end{definition}
+
+\begin{remark}[The single most important consequence for this paper]
+Cosine similarity is \emph{blind to length}: $\cos(x,y)=\cos(2x,y)$ for any
+scaling. That is precisely why it is the right tool once \cref{rem:normalise}
+establishes that the length of $\Nn_i$ measures how many criteria a person
+happened to rate rather than anything normative.
+\end{remark}
+
+\step{A worked cosine.} $x=(1,0)$, $y=(1,1)$. Then $x\cdot y = 1$,
+$\|x\|=1$, $\|y\|=\sqrt2=1.4142$, so $\cos = 1/1.4142 = 0.7071$, which is
+$\cos 45^\circ$. Correct: $(1,1)$ points at $45$ degrees to $(1,0)$.
+
+\subsection{Centring, and what it removes}
+
+\begin{definition}[Centred vector]
+$\tilde x := x - \bar x\,\mathbf{1}$ where $\bar x = \tfrac1k\sum_i x_i$ and
+$\mathbf{1}=(1,1,\dots,1)$. Equivalently, subtract the average from every entry.
+\end{definition}
+
+\step{Two facts, both immediate.} $\sum_i \tilde x_i = \sum_i x_i - k\bar x = 0$;
+and if $y = x + c\mathbf{1}$ then $\tilde y = \tilde x$, because the shift moves
+the average by exactly $c$ as well. \emph{Centring erases the common level and
+keeps only the contrasts}, which is exactly what the decision uses.
+
+\subsection{Matrices, rank, and the one matrix this paper needs}
+
+A \emph{matrix} is a rectangular array of numbers; $M_{ij}$ is the entry in row
+$i$, column $j$. A matrix acts on a vector by
+$(Mx)_i := \sum_j M_{ij}x_j$: each output coordinate is a weighted sum of the
+input coordinates.
+
+\begin{definition}[Linear independence, span, rank]
+Vectors $v_1,\dots,v_m$ are \emph{linearly independent} if the only way to make
+$\sum_j c_j v_j = 0$ is to take every $c_j = 0$ --- none of them is redundant. Their
+\emph{span} is the set of all $\sum_j c_j v_j$. The \emph{rank} of a matrix is the
+number of linearly independent vectors among its outputs: the dimension of the
+space it can reach.
+\end{definition}
+
+\begin{lemma}[The centring matrix and its rank]
+\label{lem:centrank}
+Let $C := I - \tfrac1k\mathbf{1}\mathbf{1}^\top$, so that $Cx = \tilde x$. Then
+$C$ is a projection ($C^2=C$) and $\operatorname{rank}(C)=k-1$.
+\end{lemma}
+\begin{proof}
+\emph{Step 1 --- $C$ does centre.} $(\mathbf{1}\mathbf{1}^\top x)_i = \sum_j x_j$
+for every $i$, so $\tfrac1k \mathbf{1}\mathbf{1}^\top x = \bar x\mathbf{1}$, and
+$Cx = x - \bar x \mathbf{1}$.
+
+\emph{Step 2 --- it is idempotent.} Centring an already-centred vector changes
+nothing, since its average is $0$. So $C(Cx)=Cx$, i.e. $C^2=C$.
+
+\emph{Step 3 --- what it kills.} $C\mathbf{1} = \mathbf{1}-\mathbf{1}=0$, so the
+one-dimensional space of constant vectors is sent to zero.
+
+\emph{Step 4 --- what it keeps.} If $Cx=0$ then $x=\bar x\mathbf{1}$, i.e. $x$ is
+constant. So the set sent to zero is \emph{exactly} the constants, of dimension
+$1$.
+
+\emph{Step 5 --- count.} The input space has dimension $k$; a one-dimensional
+subspace is destroyed; the image therefore has dimension $k-1$. For $k=4$:
+rank $3$.
+\end{proof}
+
+\Cref{lem:centrank} is the entire content of the first half of \cref{thm:probe}.
+
+\subsection{Equivalence, quotients, and the sphere}
+
+\begin{definition}[Equivalence relation]
+A relation $\sim$ that is reflexive ($x\sim x$), symmetric ($x\sim y \Rightarrow
+y \sim x$) and transitive ($x\sim y, y\sim z \Rightarrow x\sim z$). It partitions
+a set into disjoint \emph{equivalence classes}: $[x] := \{y : y\sim x\}$.
+\end{definition}
+
+\step{The two used here.} (i) $u \sim u+c\mathbf{1}$: utilities differing by a
+constant, which decide identically. (ii) $u \sim \lambda u$ for $\lambda>0$:
+utilities differing by positive scale, which order identically.
+
+\begin{definition}[Quotient]
+The set of equivalence classes, written $\mathcal{A}/\!\sim$. Its dimension is
+the dimension of $\mathcal{A}$ minus the dimension of what was collapsed.
+\end{definition}
+
+\begin{definition}[Sphere]
+$S^{m} := \{x \in \R^{m+1} : \|x\|=1\}$, the set of unit-length vectors in
+$\R^{m+1}$. It has dimension $m$: one constraint removes one degree of freedom.
+$S^1$ is a circle in the plane; $S^2$ is the surface of a ball in three
+dimensions.
+\end{definition}
+
+\step{Putting the two together, which is \cref{thm:probe}.} Starting from
+$\R^4$: quotient by constants leaves dimension $3$; the unit-length
+representatives of that $3$-dimensional space form $S^2$, of dimension $2$. Hence
+``two free parameters''.
+
+\subsection{Order statistics: median, quantile, percentile}
+
+Sort the values as $x_{(1)}\le x_{(2)}\le\cdots\le x_{(n)}$.
+
+\begin{definition}[Median]
+The middle value: $x_{((n+1)/2)}$ if $n$ is odd, and the average of
+$x_{(n/2)}$ and $x_{(n/2+1)}$ if $n$ is even. For $(2,4,4,4,6)$ it is $4$; for
+$(2,4,4,6)$ it is $(4+4)/2=4$.
+\end{definition}
+
+\begin{definition}[Quantile]
+The $q$-quantile is the value below which a fraction $q$ of the data lies. The
+median is the $0.5$-quantile; $p_{25}$ and $p_{75}$ are the $0.25$- and
+$0.75$-quantiles (\emph{quartiles}). ``$p_{95}=0.800$'' in §\ref{sec:est} means
+$95\%$ of prompts have a relative margin below $0.800$.
+\end{definition}
+
+\begin{remark}[Why the paper reports quantiles beside means]
+A mean can be moved arbitrarily by one extreme value; a median cannot. Reporting
+both, as \cref{tab:vetoM} does with median $3.64$ and maximum $26.54$, exposes a
+skew that a mean alone would hide --- and in that table the \emph{maximum} is the
+load-bearing number, because \cref{thm:vetoinf} is about the worst case.
+\end{remark}
+
+\subsection{Rank correlation (Spearman)}
+
+\begin{definition}[Spearman $\rho$]
+Replace each value by its rank (smallest $=1$, next $=2$, \dots) in its own list,
+then compute the ordinary correlation of the ranks.
+\end{definition}
+
+\step{Why the paper uses it for the gauge test.} It responds only to \emph{order},
+so it answers ``do the two instruments rank the operators the same way'' without
+being distracted by their different scales --- which is the exact question
+§\ref{sec:gauge} asks. A Spearman of $+1.000$ means identical ordering; $0$ means
+unrelated ordering.
+
+\step{Worked.} Instrument 1 gives $(0.116, 0.051, 0.042, 0.023)$, ranks
+$(4,3,2,1)$. Instrument 2 gives $(0.139,0.061,0.035,0.025)$, ranks $(4,3,2,1)$.
+Identical ranks, so $\rho=+1.000$, even though no value matches.
+
+\subsection{Bits, and what quantisation means}
+
+\begin{definition}[Bit]
+One \emph{bit} distinguishes two possibilities. $b$ bits distinguish $2^b$: one
+bit gives $2$ levels, two bits $4$, three bits $8$, eight bits $256$.
+\end{definition}
+
+\begin{definition}[Quantisation to $b$ bits]
+Given values in $[\ell,h]$, replace each $x$ by the nearest of the $2^b$ evenly
+spaced levels $\ell + \tfrac{j}{2^b-1}(h-\ell)$, $j=0,\dots,2^b-1$.
+\end{definition}
+
+\step{Worked, at one bit.} With weights ranging over $[-2,8]$, one bit leaves the
+two levels $\{-2, 8\}$: every negative weight becomes $-2$ and every positive one
+$8$. Only the \emph{sign} survives. §\ref{sec:compile} reports that this
+reproduces $89.8\%$ of the shipped decisions.
+
+\subsection{Min--max normalisation}
+
+\begin{definition}
+$\hat x_i := \dfrac{x_i - \min_j x_j}{\max_j x_j - \min_j x_j} \in [0,1]$,
+with $\hat x = 0$ at the worst entry and $1$ at the best.
+\end{definition}
+
+\step{Why §\ref{sec:agg} uses it, and what it assumes.} Comparing utility across
+people requires putting them on a common scale, and nothing in the elicitation
+supplies one. Min--max makes every person's best option worth $1$ and worst worth
+$0$ \emph{by construction}, which is a stipulation, not a measurement. It is
+stated as such: the Blackwell deficiency of $0.1298$ is a number relative to that
+normalisation, and a different interpersonal scale would give a different figure.
+
+\subsection{Conditional probability and conditional expectation}
+
+\begin{definition}[Conditional probability]
+$\Prob(E\mid F) := \dfrac{\Prob(E\cap F)}{\Prob(F)}$ when $\Prob(F)>0$:
+restrict attention to the outcomes in $F$ and renormalise so they sum to $1$.
+\end{definition}
+
+\begin{definition}[Conditional expectation]
+$\E[X \mid F] := \dfrac{\sum_{\omega\in F} X(\omega)\Prob(\omega)}{\Prob(F)}$,
+the average of $X$ over $F$ alone.
+\end{definition}
+
+\begin{lemma}[Law of total expectation, the two-event case]
+\label{lem:tower}
+For an event $F$ with complement $F^c$,
+\[
+\E[X] \;=\; \E[X\mid F]\,\Prob(F) \;+\; \E[X\mid F^c]\,\Prob(F^c).
+\]
+\end{lemma}
+\begin{proof}
+Split the defining sum by whether the outcome lies in $F$:
+\[
+\E[X]=\sum_{\omega\in F}X(\omega)\Prob(\omega)+\sum_{\omega\in F^c}X(\omega)\Prob(\omega).
+\]
+Multiply and divide the first sum by $\Prob(F)$ and the second by $\Prob(F^c)$,
+then apply the definition above to each. (If $\Prob(F)=0$ the term is absent and
+the identity is trivial.)
+\end{proof}
+
+\Cref{lem:tower} with $F=\{\text{the decision flipped}\}$ and $X = \Reg$ is
+exactly \cref{lem:coarsen}, since $\Reg=0$ on $F^c$ so the second term vanishes.
+
+\subsection{Independent and identically distributed}
+
+\emph{Identically distributed} means every observation is drawn from the same
+$\Prob$. \emph{Independent} means no observation carries information about
+another. Written \emph{iid}. §\ref{sec:cluster} exists because in this data the
+observations are identically distributed but \textbf{not} independent, and only
+the second half fails.
+
+\subsection{Markov kernels}
+
+\begin{definition}[Markov kernel]
+A rule $K$ that, given an input $z$, produces a \emph{probability distribution}
+over outputs, written $K(\cdot\mid z)$. A deterministic function is the special
+case that puts all the probability on one output, written $\delta_{f(z)}$.
+\end{definition}
+
+\step{Why the paper needs it.} \Cref{thm:blackwell-proof} says a garbling cannot
+help. Aggregation is deterministic, hence a garbling with the degenerate kernel
+$\delta_{\Agg(z)}$; the theorem then applies verbatim without any probabilistic
+aggregation being involved.
+
+\subsection{Integrals, only as much as $\Phi$ requires}
+
+The paper uses the normal distribution function
+$\Phi(z)=\int_{-\infty}^{z}\tfrac{1}{\sqrt{2\pi}}e^{-t^2/2}\,dt$. The integral
+sign means \emph{area under the curve to the left of $z$}. The curve
+$\tfrac{1}{\sqrt{2\pi}}e^{-t^2/2}$ is the familiar bell; its total area is $1$, so
+$\Phi(z)$ is the fraction of the bell lying left of $z$.
+
+\begin{definition}[Quantile of the normal]
+$z_q$ is the point with $\Phi(z_q)=q$. The three used are
+$z_{0.975}=1.9600$, $z_{0.80}=0.8416$, $z_{0.99}=2.3263$. By the symmetry of the
+bell about $0$, $z_{1-q}=-z_q$; this symmetry is the step used in
+\cref{thm:mde}.
+\end{definition}
+
+\begin{remark}[No calculus is needed beyond this]
+The paper never differentiates or integrates anything. $\Phi$ enters only as a
+table of three numbers, and every use of it is an instance of ``how far out in
+the bell is this''.
+\end{remark}
+
+\subsection{Sigmoid and logit, for the instrument}
+
+The judge produces a number $\lambda$ (a difference of log-probabilities) and it
+is mapped to $(0,1)$ by the \emph{sigmoid}
+$\sigma(\lambda)=1/(1+e^{-\lambda})$, which is strictly increasing with
+$\sigma(0)=0.5$.
+
+\mesoboundary{$\sigma(\lambda)$ lies in $(0,1)$ and is therefore easily mistaken
+for a probability. It is not one. It is a monotone re-expression of a model's
+internal score, calibrated against nothing. Every use of $\sat$ in this paper
+carries that caveat, and §\ref{sec:instrument} measures its consequence rather
+than assuming it away.}
+
+\subsection{A table of every symbol}
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabular}{llll}
+\toprule
+symbol & meaning & first defined & \\
+\midrule
+$\mathbf{1}\{P\}$ & indicator, $1$ if $P$ true & §\ref{sec:math} &\\
+$\sum,\ \prod,\ n!$ & sum, product, factorial & §\ref{sec:notation} &\\
+$\argmax$ & the index of the maximum & §\ref{sec:notation} &\\
+$\sup,\ \inf$ & least upper / greatest lower bound & §\ref{sec:notation} &\\
+$x\cdot y,\ \|x\|$ & dot product, length & §\ref{sec:notation} &\\
+$\cos(x,y)$ & cosine similarity & §\ref{sec:notation} &\\
+$\tilde x$ & centred vector & §\ref{sec:notation} &\\
+$C$ & centring matrix, rank $k-1$ & \cref{lem:centrank} &\\
+$S^{m}$ & unit sphere, dimension $m$ & §\ref{sec:notation} &\\
+$\Prob,\ \E,\ \Var,\ \Cov,\ \Corr$ & probability, mean, variance, covariance, correlation & §\ref{sec:math} &\\
+$\se$ & standard error $=\operatorname{sd}/\sqrt n$ & §\ref{sec:se} &\\
+$s^2$ & sample variance, divisor $n-1$ & \cref{lem:bessel} &\\
+$\Phi,\ z_q$ & normal cdf and its quantiles & §\ref{sec:notation} &\\
+$\rho$ & intraclass correlation \emph{or} Spearman & §\ref{sec:cluster}, §\ref{sec:notation} &\\
+$\mathrm{DEFF}$ & design effect $1+(R-1)\rho$ & \cref{thm:deff} &\\
+$\mathrm{MDE}$ & minimum detectable effect & \cref{thm:mde} &\\
+$\mathrm{rel}$ & reliability & §\ref{sec:atten} &\\
+$\resp,\ X,\ k$ & response space, probe set, its size ($=4$) & §\ref{sec:object} &\\
+$\sat,\ \wt,\ V,\ \Pi$ & satisfaction, weight, veto set, ranking & \cref{def:tensors} &\\
+$Y_p,\ \Nn_i$ & collective and individual induced scores & \cref{def:score}, \cref{def:ni} &\\
+$\Agg,\ G$ & aggregation rule and its output & \cref{eq:chain} &\\
+$\Reg$ & normalised regret & \cref{def:regret} &\\
+$\pi$ & flip rate & §\ref{sec:est} &\\
+$m$ & decision margin & \cref{prop:cap} &\\
+$\Delta$ & the penalty a veto requires & \cref{thm:veto} &\\
+$\phi_i$ & Shapley influence & §\ref{sec:c1} &\\
+$v(S)$ & characteristic function of the coalition game & §\ref{sec:c1} &\\
+$K(\cdot\mid z)$ & Markov kernel & §\ref{sec:notation} &\\
+$\sigma(\lambda)$ & sigmoid & §\ref{sec:notation} &\\
+\bottomrule
+\end{tabular}
+\caption{Every symbol used in the paper. $\rho$ is overloaded by convention; the
+two uses never appear in the same expression and are disambiguated at each site.}
+\label{tab:symbols}
+\end{table}
