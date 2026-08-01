@@ -417,5 +417,13 @@
   "same answer given twice": "Personal and world rankings are byte-identical in 52.1% of assessments carrying both, so treating them as two independent judgements double-counts one.",
   "identical ranking string": "Six annotators with five or more prompts submit the same ranking every time, and nothing flags them.",
   "SLOT predicts": "Statistically real and worth nothing: a slot-only predictor scores 0.4993 against 0.5000 chance. Do not correct for it and do not cite it as a defect with consequences."
+ },
+ "corrections_r175": {
+  "near-binary": "DOWNGRADED (r175): all 21 scale values are used and the entropy is 4.04 bits of a possible 4.39 -- 92% of uniform. Not a near-binary. The supportable claim is that the endpoints are over-represented, carrying 17% of ratings.",
+  "name a response as best": "DOWNGRADED (r175): 12.6% counted comparatives, where 'B is better than C' is TRUE under the ranking A>B>C and my check wrongly demanded B be first. On superlatives only the rate is 7.1%; the comparative subset ran at 35.0%, a false positive by construction.",
+  "concentrated in a few countries": "DOWNGRADED (r175): 63.2% in three countries is correct, but the release publishes no sampling frame, so there is no distribution to be concentrated RELATIVE TO. Stateable without one: effective panel = 5.2 countries, and 12 of 19 have under 30 people.",
+  "synthetic and short": "DOWNGRADED (r175): the transfer claim is withdrawn -- I hold no production traffic to compare against. Also two of my own numbers die: the median is 128 chars not 139, and 98 of 1,078 prompts are multi-turn, which the card's own 'vast majority' hedge got right.",
+  "identical ranking string": "SURVIVES (r175): 6 observed against ~0 expected under the marginal ranking distribution (186 distinct strings, 3.5% modal), and 0 in 5 permutation seeds. A real behavioural signature.",
+  "first batch": "SURVIVES (r175): a hard ceiling at 5 with 98.0% of annotators sitting exactly on it and nothing above, while the same people's world blocks run to 39. That is a structural cap, not a population that happened to stop."
  }
 }

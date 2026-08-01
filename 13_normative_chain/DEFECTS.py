@@ -90,6 +90,35 @@ WRONG_ANSWER = {
 }
 
 
+# r175 audited this list the way the list audited CoVal: for each item, what null was never run.
+# Six interpretations were tested; four moved. The MEASUREMENTS all held -- what failed was the word
+# attached to them, which is the failure mode this whole sweep kept finding in its own output.
+CORRECTIONS = {
+    "near-binary": "DOWNGRADED (r175): all 21 scale values are used and the entropy is 4.04 bits of "
+                   "a possible 4.39 -- 92% of uniform. Not a near-binary. The supportable claim is "
+                   "that the endpoints are over-represented, carrying 17% of ratings.",
+    "name a response as best": "DOWNGRADED (r175): 12.6% counted comparatives, where 'B is better "
+                               "than C' is TRUE under the ranking A>B>C and my check wrongly "
+                               "demanded B be first. On superlatives only the rate is 7.1%; the "
+                               "comparative subset ran at 35.0%, a false positive by construction.",
+    "concentrated in a few countries": "DOWNGRADED (r175): 63.2% in three countries is correct, but "
+                                       "the release publishes no sampling frame, so there is no "
+                                       "distribution to be concentrated RELATIVE TO. Stateable "
+                                       "without one: effective panel = 5.2 countries, and 12 of 19 "
+                                       "have under 30 people.",
+    "synthetic and short": "DOWNGRADED (r175): the transfer claim is withdrawn -- I hold no "
+                           "production traffic to compare against. Also two of my own numbers die: "
+                           "the median is 128 chars not 139, and 98 of 1,078 prompts are "
+                           "multi-turn, which the card's own 'vast majority' hedge got right.",
+    "identical ranking string": "SURVIVES (r175): 6 observed against ~0 expected under the marginal "
+                                "ranking distribution (186 distinct strings, 3.5% modal), and 0 in "
+                                "5 permutation seeds. A real behavioural signature.",
+    "first batch": "SURVIVES (r175): a hard ceiling at 5 with 98.0% of annotators sitting exactly "
+                   "on it and nothing above, while the same people's world blocks run to 39. That "
+                   "is a structural cap, not a population that happened to stop.",
+}
+
+
 def key_for(title: str) -> str | None:
     for k in WRONG_ANSWER:
         if k.lower() in title.lower():
@@ -128,6 +157,8 @@ def main() -> int:
             k = key_for(f["title"])
             if k:
                 print(f"    YOU GET WRONG: {WRONG_ANSWER[k]}")
+                if k in CORRECTIONS:
+                    print(f"    !! {CORRECTIONS[k]}")
             elif s in ("BLOCKING", "SERIOUS"):
                 print(f"    YOU GET WRONG: (unnamed -- if no concrete wrong answer can be stated, "
                       f"this does not belong above the fold)")
@@ -136,11 +167,15 @@ def main() -> int:
                 and key_for(f["title"]))
     total_hi = counts["BLOCKING"] + counts["SERIOUS"]
     print(f"\n{named}/{total_hi} blocking-or-serious items have a named concrete wrong answer.")
+    corrected = sum(1 for f in items if (key_for(f["title"]) or "") in CORRECTIONS)
+    print(f"{corrected} items carry an r175 correction: 4 downgraded, 2 confirmed against a null "
+          f"they had never been tested against.")
     print(f"{counts['CLEAN']}/{len(items)} checks came back clean -- the ratio is the only evidence "
           f"the sweep was not just finding what it went looking for.")
     (HERE / "DEFECTS.json").write_text(json.dumps(
         {"items": items, "counts": counts,
-         "wrong_answers": {k: v for k, v in WRONG_ANSWER.items()}}, indent=1))
+         "wrong_answers": {k: v for k, v in WRONG_ANSWER.items()},
+         "corrections_r175": CORRECTIONS}, indent=1))
     return 0
 
 
