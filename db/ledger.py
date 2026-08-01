@@ -26,8 +26,17 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from derivation_chain import q  # noqa: E402
 from status_domains import DOMAIN, needs_kill_edge  # noqa: E402
 
-PHASE = ("r142", "r143", "r144", "r145", "r146", "r148", "r149", "r150", "r151", "r152",
-         "r153", "r154")
+# THE PHASE LIST WAS TYPED OUT AND WENT STALE, which is the third instance of one defect in this
+# project: r175 found a hardcoded tally beside a computed count in DEFECTS.py, r198 found a
+# hardcoded threshold beside an imported one in its own commentary, and here a hardcoded round list
+# beside a growing graph. Every one made a generated artefact quietly describe a smaller world than
+# the one it sits in -- this ledger printed "3 withdrawn" while the graph held 15 refuted claims.
+# Derived now: any experiment tagged rNNN counts, so the scope grows with the work.
+_ROUND = __import__("re").compile(r"^r\d+")
+
+
+def _in_phase(experiment: str) -> bool:
+    return bool(_ROUND.match(experiment or ""))
 
 
 def evidence_for(nid: int) -> list[tuple[str, str]]:
@@ -51,7 +60,7 @@ def phase_nodes(kinds: tuple[str, ...]) -> list[tuple]:
     out = []
     for nid, kind, name, stmt, status, props in rows:
         ev = evidence_for(nid)
-        if any(e.startswith(PHASE) for e, _f in ev):
+        if any(_in_phase(e) for e, _f in ev):
             out.append((nid, kind, name, stmt, status, props, ev))
     return out
 
@@ -61,7 +70,10 @@ def main() -> int:
     dead = [n for n in nodes if n[4] == "refuted"]
     alive = [n for n in nodes if n[4] != "refuted"]
 
-    print(f"NORMATIVE-CHAIN PHASE LEDGER  --  {len(nodes)} claims with evidence from r142-r154\n")
+    rounds = sorted({m.group(0) for row in nodes for e, _f in row[-1]
+                     if (m := _ROUND.match(e or ""))}, key=lambda r: int(r[1:]))
+    span = f"{rounds[0]}-{rounds[-1]}" if rounds else "no rounds"
+    print(f"NORMATIVE-CHAIN LEDGER  --  {len(nodes)} claims with evidence from {span}\n")
 
     print(f"=== WITHDRAWN ({len(dead)}) " + "=" * 40)
     for nid, _k, name, stmt, _s, _p, _ev in dead:
