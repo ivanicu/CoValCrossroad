@@ -4,6 +4,8 @@
   "142",
   "144",
   "145",
+  "146",
+  "147",
   "148",
   "149",
   "150",
@@ -46,7 +48,8 @@
   "195",
   "196",
   "197",
-  "198"
+  "198",
+  "200"
  ],
  "elsewhere": {
   "166": "census wave -> DEFECTS.py",
@@ -54,12 +57,8 @@
   "168": "census wave -> DEFECTS.py",
   "169": "census wave -> DEFECTS.py",
   "170": "census wave -> DEFECTS.py",
-  "175": "audit of DEFECTS.py -> corrections wired into DEFECTS.py itself",
-  "200": "this audit"
+  "175": "audit of DEFECTS.py -> corrections wired into DEFECTS.py itself"
  },
- "stdout_only": [
-  "146",
-  "147"
- ],
+ "stdout_only": [],
  "limit": "measures reference in evidence tags and node statements, not deposit"
 }
