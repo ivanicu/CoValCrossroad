@@ -399,11 +399,14 @@ study forever, $95\%$ of the nets would catch the fixed truth. \textbf{The net
 moves; the truth does not.} Everything confusing about intervals comes from
 imagining it the other way round.}
 
-\step{Derivation, three sub-steps.} From \cref{thm:clt}, with probability
-$0.95$: $-1.96\le(\bar X-\mu)/\se\le1.96$. Multiply by $\se>0$ (inequalities
-preserved). Subtract $\bar X$ and multiply by $-1$ --- which \textbf{reverses}
-both inequalities --- giving
-$\bar X-1.96\,\se\;\le\;\mu\;\le\;\bar X+1.96\,\se$.
+\begin{steps}
+\item From \cref{thm:clt}, with probability $0.95$:
+      $-1.96\le(\bar X-\mu)/\se\le1.96$.
+\item Multiply through by $\se>0$; inequalities are preserved because the
+      multiplier is positive: $-1.96\,\se\le \bar X-\mu\le 1.96\,\se$.
+\item Subtract $\bar X$, then multiply by $-1$ --- which \textbf{reverses} both
+      inequalities: $\bar X-1.96\,\se\;\le\;\mu\;\le\;\bar X+1.96\,\se$.
+\end{steps}
 
 \feel{$5.1\%$ with $\se=0.37$pp gives $[4.4\%,\,5.8\%]$. Read: a study like this
 one, repeated, would produce intervals catching the truth $19$ times in $20$.}
@@ -522,11 +525,12 @@ one question. Repeated observations of the same prompt share whatever is peculia
 to that prompt, so the twentieth observation adds much less than the first. How
 much less is exactly what the ICC measures.}
 
-\step{The model.} $X_{pr}=\mu+a_p+e_{pr}$ with $\Var(a_p)=\sigma_b^2$
-(``between prompts'') and $\Var(e_{pr})=\sigma_w^2$ (``within a prompt'').
-
-\step{The correct variance.} Cluster means are independent, so \cref{eq:varmean}
-applies \emph{to them}:
+\begin{pts}
+\item \textbf{The model.} $X_{pr}=\mu+a_p+e_{pr}$, with $\Var(a_p)=\sigma_b^2$
+      (``between prompts'') and $\Var(e_{pr})=\sigma_w^2$ (``within a prompt'').
+\item \textbf{The correct variance.} Cluster \emph{means} are independent, so
+      \cref{eq:varmean} applies to them --- not to the rows.
+\end{pts}
 \begin{equation}
 \Var(\hat\pi)=\frac1P\Big(\sigma_b^2+\frac{\sigma_w^2}{R}\Big).
 \label{eq:varclust}

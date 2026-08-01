@@ -131,17 +131,31 @@
 \newcommand{\argmax}{\operatorname*{arg\,max}}
 \newcommand{\argmin}{\operatorname*{arg\,min}}
 \newcommand{\numbox}[1]{{\color{MESONavy}\bfseries #1}}
-\newcommand{\step}[1]{\par\smallskip\noindent\textit{\color{MESOMid}#1}\par\nopagebreak\smallskip}
 
 % ---- atomic layout: every claim is one self-contained unit carrying its motive ----
-\newcommand{\why}[1]{{\color{MESOMid}\footnotesize\textsc{why}\,·\,#1}}
-\newcommand{\capt}[1]{{\color{MESOTeal}\footnotesize\textsc{captures}\,·\,#1}}
-\newcommand{\kills}[1]{{\color{MESOGold}\footnotesize\textsc{killed by}\,·\,#1}}
 \newcommand{\num}[1]{\texorpdfstring{{\bfseries\boldmath\color{MESONavy}#1}}{#1}}
 
 % ---- concept blocks: a definition alone does not tell a reader what a thing IS ----
-\newcommand{\prob}[1]{\par\smallskip\noindent{\color{MESOGold}\footnotesize\textsc{the problem it solves}}\; #1\par}
-\newcommand{\intu}[1]{\par\noindent{\color{MESOTeal}\footnotesize\textsc{picture}}\; #1\par}
-\newcommand{\feel}[1]{\par\noindent{\color{MESONavy}\footnotesize\textsc{one number}}\; #1\par}
-\newcommand{\misread}[1]{\par\noindent{\color{MESOMid}\footnotesize\textsc{misread as}}\; #1\par\smallskip}
-\newcommand{\ex}[1]{\par\noindent{\color{MESOInk}\footnotesize\textsc{grounded}}\; #1\par}
+
+% ---- scannable concept blocks: hanging coloured label, text wraps under it ----
+\newcommand{\blk}[3]{%
+  \par\smallskip
+  \begin{description}[leftmargin=6.4em,style=sameline,
+      font=\normalfont\scriptsize\sffamily\bfseries\color{#1},nosep,before=\small]
+  \item[#2] #3
+  \end{description}
+  \par\smallskip}
+\newcommand{\why}[1]{\blk{MESOMid}{why}{#1}}
+\newcommand{\prob}[1]{\blk{MESOGold}{problem}{#1}}
+\newcommand{\intu}[1]{\blk{MESOTeal}{picture}{#1}}
+\newcommand{\feel}[1]{\blk{MESONavy}{one number}{#1}}
+\newcommand{\ex}[1]{\blk{MESOInk}{grounded}{#1}}
+\newcommand{\misread}[1]{\blk{MESOMid}{misread as}{#1}}
+\newcommand{\capt}[1]{\blk{MESOTeal}{captures}{#1}}
+\newcommand{\kills}[1]{\blk{MESOGold}{killed by}{#1}}
+\newcommand{\step}[1]{\par\smallskip\noindent{\sffamily\bfseries\small\color{MESOInk}#1}\hspace{0.5em}\ignorespaces}
+% ---- proofs as step lists, not run-in prose ----
+\newenvironment{steps}{\begin{enumerate}[leftmargin=1.9em,label=\textup{\color{MESOMid}\scriptsize\sffamily\bfseries S\arabic*},
+  itemsep=1.5pt,parsep=0pt,topsep=2pt]}{\end{enumerate}}
+\newenvironment{pts}{\begin{itemize}[leftmargin=1.2em,label=\textup{\color{MESOMid}\textbf{·}},
+  itemsep=1.5pt,parsep=0pt,topsep=2pt]}{\end{itemize}}

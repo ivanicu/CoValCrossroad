@@ -164,20 +164,19 @@ For non-zero $x,y$,
 where $\theta$ is the angle between $x$ and $y$.
 \end{theorem}
 \begin{proof}
-\emph{Step 1.} The law of cosines for the triangle with sides $\|x\|$, $\|y\|$
+\begin{steps}
+\item The law of cosines for the triangle with sides $\|x\|$, $\|y\|$
 and $\|x-y\|$ states
 $\|x-y\|^2 = \|x\|^2+\|y\|^2-2\|x\|\|y\|\cos\theta$.
-
-\emph{Step 2.} Expand the left side using the definition:
+\item Expand the left side using the definition:
 \[
 \|x-y\|^2=\sum_i (x_i-y_i)^2=\sum_i x_i^2-2\sum_i x_iy_i+\sum_i y_i^2
 =\|x\|^2-2(x\cdot y)+\|y\|^2 .
 \]
-
-\emph{Step 3.} Set the two expressions equal. The terms $\|x\|^2$ and $\|y\|^2$
+\item Set the two expressions equal. The terms $\|x\|^2$ and $\|y\|^2$
 cancel from both sides, leaving $-2(x\cdot y) = -2\|x\|\|y\|\cos\theta$.
-
-\emph{Step 4.} Divide by $-2\|x\|\|y\|$.
+\item Divide by $-2\|x\|\|y\|$.
+\end{steps}
 \end{proof}
 
 \begin{definition}[Cosine similarity]
@@ -229,23 +228,21 @@ Let $C := I - \tfrac1k\mathbf{1}\mathbf{1}^\top$, so that $Cx = \tilde x$. Then
 $C$ is a projection ($C^2=C$) and $\operatorname{rank}(C)=k-1$.
 \end{lemma}
 \begin{proof}
-\emph{Step 1 --- $C$ does centre.} $(\mathbf{1}\mathbf{1}^\top x)_i = \sum_j x_j$
+\begin{steps}
+\item $(\mathbf{1}\mathbf{1}^\top x)_i = \sum_j x_j$
 for every $i$, so $\tfrac1k \mathbf{1}\mathbf{1}^\top x = \bar x\mathbf{1}$, and
 $Cx = x - \bar x \mathbf{1}$.
-
-\emph{Step 2 --- it is idempotent.} Centring an already-centred vector changes
+\item Centring an already-centred vector changes
 nothing, since its average is $0$. So $C(Cx)=Cx$, i.e. $C^2=C$.
-
-\emph{Step 3 --- what it kills.} $C\mathbf{1} = \mathbf{1}-\mathbf{1}=0$, so the
+\item $C\mathbf{1} = \mathbf{1}-\mathbf{1}=0$, so the
 one-dimensional space of constant vectors is sent to zero.
-
-\emph{Step 4 --- what it keeps.} If $Cx=0$ then $x=\bar x\mathbf{1}$, i.e. $x$ is
+\item If $Cx=0$ then $x=\bar x\mathbf{1}$, i.e. $x$ is
 constant. So the set sent to zero is \emph{exactly} the constants, of dimension
 $1$.
-
-\emph{Step 5 --- count.} The input space has dimension $k$; a one-dimensional
+\item The input space has dimension $k$; a one-dimensional
 subspace is destroyed; the image therefore has dimension $k-1$. For $k=4$:
 rank $3$.
+\end{steps}
 \end{proof}
 
 \Cref{lem:centrank} is the entire content of the first half of \cref{thm:probe}.

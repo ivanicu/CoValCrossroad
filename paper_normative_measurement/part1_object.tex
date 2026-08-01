@@ -123,22 +123,21 @@ $k-1$. If in addition only the ordering matters (no interpersonal scale), the
 space is $S^{k-2}$, of dimension $k-2$.
 \end{theorem}
 \begin{proof}
-\emph{Step 1.} The set of utilities is $\R^k$.
-
-\emph{Step 2 (quotient by constants).} $u$ and $u + c\mathbf{1}$ induce identical
+\begin{steps}
+\item The set of utilities is $\R^k$.
+\item $u$ and $u + c\mathbf{1}$ induce identical
 differences $u(x_a)-u(x_b)$ for every pair, hence identical decisions. The
 subspace of constants $\R\mathbf{1}$ has dimension $1$, so the quotient
 $\R^k/\R\mathbf{1}$ has dimension $k-1$. Concretely, the centring map
 $C = I - \tfrac1k\mathbf{1}\mathbf{1}^\top$ is a projection with
 $\operatorname{rank}(C) = k-1$; for $k=4$ this rank is verified numerically as
 $3$.
-
-\emph{Step 3 (quotient by scale).} If $u$ and $\lambda u$ for $\lambda>0$ are
+\item If $u$ and $\lambda u$ for $\lambda>0$ are
 also equivalent, we quotient the $(k-1)$-dimensional centred space by the
 positive rays, giving the sphere $S^{k-2}$, of dimension $k-2$.
-
-\emph{Step 4.} For $k=4$: dimension $3$ after centring, and $S^2$ -- two free
+\item For $k=4$: dimension $3$ after centring, and $S^2$ -- two free
 parameters -- after scale.
+\end{steps}
 \end{proof}
 
 \mesotakeaway{However many criteria a person writes and however many weights they

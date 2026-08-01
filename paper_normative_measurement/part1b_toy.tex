@@ -258,18 +258,17 @@ loss $L$, the minimum attainable expected loss using $G$ is at least that using
 $Z$.
 \end{theorem}
 \begin{proof}
-\emph{Step 1.} A decision rule based on $G$ is a map $d_G : G \mapsto \mathcal{A}$.
-
-\emph{Step 2.} Composing with the kernel, $d_G \circ K$ is a (possibly
+\begin{steps}
+\item A decision rule based on $G$ is a map $d_G : G \mapsto \mathcal{A}$.
+\item Composing with the kernel, $d_G \circ K$ is a (possibly
 randomised) decision rule based on $Z$: given $z$, draw $g \sim K(\cdot\mid z)$
 and play $d_G(g)$.
-
-\emph{Step 3.} By construction the two procedures induce the same joint
+\item By construction the two procedures induce the same joint
 distribution over $(\theta, \text{action})$, hence the same expected loss.
-
-\emph{Step 4.} Therefore every risk attainable with $G$ is attainable with $Z$;
+\item Therefore every risk attainable with $G$ is attainable with $Z$;
 the set of $Z$-attainable risks contains the set of $G$-attainable risks; and a
 minimum over a superset is no larger. Hence $R_Z \le R_G$.
+\end{steps}
 \end{proof}
 
 \begin{corollary}
@@ -326,19 +325,20 @@ satisfies:
 \begin{theorem}[Uniqueness, core of the argument]
 The Shapley value is the unique $\phi$ satisfying (E), (S), (N), (L).
 \end{theorem}
-\begin{proof}[Reduction to a checkable core]
-\emph{Step 1.} The \emph{unanimity games} $u_T$, defined by $u_T(S)=1$ if
+\begin{proof}
+[Reduction to a checkable core]
+\begin{steps}
+\item The \emph{unanimity games} $u_T$, defined by $u_T(S)=1$ if
 $T\subseteq S$ and $0$ otherwise, form a basis of the vector space of all games
 on $A$: every $v$ has a unique expansion $v=\sum_T \lambda_T u_T$.
-
-\emph{Step 2.} On $u_T$, axioms (E), (S), (N) force the value uniquely: players
+\item On $u_T$, axioms (E), (S), (N) force the value uniquely: players
 outside $T$ are null, so get $0$ by (N); players inside $T$ are symmetric, so
 share equally by (S); and the total is $1$ by (E). Hence
 $\phi_i(u_T) = 1/|T|$ for $i \in T$ and $0$ otherwise.
-
-\emph{Step 3.} By (L), $\phi(v) = \sum_T \lambda_T \phi(u_T)$, which is now
+\item By (L), $\phi(v) = \sum_T \lambda_T \phi(u_T)$, which is now
 determined. Rearranging that sum into a sum over coalitions yields the
 permutation-weighted formula of §\ref{sec:c1}.
+\end{steps}
 \end{proof}
 
 \begin{remark}[Why this matters for the claim being made]
