@@ -233,29 +233,23 @@ def main() -> int:
     # concentrated" while the table two lines above said r187 was -- a summary contradicting its
     # own output, which is the fourth stale-prose error in this sweep.
     r187 = results["r187"]
-    if r187["verdict"] == "CONCENTRATED":
-        print(f"\n  r187 SITS ON THE LINE AND THE LINE IS NOISY. kill@{r187['kill_at']} against a")
-        print(f"  p10 of {r187['reference_p10']:.0f} and a reference mean of "
-              f"{r187['reference_mean']:.0f} -- eight deletions below a")
-        print(f"  percentile estimated from {r187['draws']} draws, which is inside the simulation's")
-        print(f"  own noise. Re-drawing with a different seed can move that p10 by more than 8.")
-        # measure that rather than assert it
-        from covalx.robust import jackknife_calibrated as jc
-        p10s = [jc(did, gp, draws=200, seed=sd, name="stability")["reference_p10"]
-                for sd in (1, 2, 3)]
-        print(f"  MEASURED: p10 across seeds 1-3 is {', '.join(f'{x:.0f}' for x in p10s)} against")
-        print(f"  seed 0's {r187['reference_p10']:.0f} -- a spread of "
-              f"{max(p10s + [r187['reference_p10']]) - min(p10s + [r187['reference_p10']]):.0f}, "
-              f"which straddles the verdict.")
-        print(f"  So the honest statement is UNVERIFIED at the margin, not CONCENTRATED.")
-        print(f"  What is NOT marginal, and is the interpretable number: killing it requires")
-        print(f"  deleting {r187['kill_at']} of {r187['n']} author pairs "
-              f"({r187['kill_at'] / r187['n']:.1%}) chosen adversarially,")
-        print(f"  and the most influential single PROMPT moves it "
-              f"{r187['max_single_group_shift_rel']:.1%} across {r187['n_groups']} prompts.")
-        print(f"  For comparison r146 sat at 0.5% per prompt and r191 -- the claim that died --")
-        print(f"  moved TENFOLD on one prompt. r187 is nowhere near that, and it is also not as")
-        print(f"  clean as r146.")
+    if r187["verdict"].startswith("MARGINAL"):
+        print(f"\n  r187 IS DECLARED MARGINAL BY THE TOOL, which is the point of this round. Last")
+        print(f"  round the same claim came back CONCENTRATED and I only caught it by re-running")
+        print(f"  the reference under three extra seeds by hand. jackknife_calibrated now estimates")
+        print(f"  its threshold across {r187['batches']} independent batches and returns MARGINAL when the")
+        print(f"  observed value lands inside their spread: kill@{r187['kill_at']} against a p10 of")
+        print(f"  {r187['reference_p10_lo']:.0f}-{r187['reference_p10_hi']:.0f}. The reader no longer has to notice.")
+        print(f"  AND MARGINAL MEANS 'POSSIBLY CONCENTRATED', not 'probably fine'. The attack suite")
+        print(f"  shows the rule is conservative: an effect carried entirely by 30 planted outliers")
+        print(f"  also comes back MARGINAL. So r187 sits in the band that contains both a clean")
+        print(f"  effect and a spiked one, and this instrument cannot separate them.")
+        print(f"  What is NOT ambiguous: killing it needs deleting {r187['kill_at']} of {r187['n']} author pairs")
+        print(f"  ({r187['kill_at'] / r187['n']:.1%}) chosen adversarially, and the most influential single PROMPT")
+        print(f"  moves it {r187['max_single_group_shift_rel']:.1%} across {r187['n_groups']} prompts. r146 sat at 0.5% per prompt;")
+        print(f"  r191 -- the claim that died -- moved TENFOLD on one. r187 is far from r191 and")
+        print(f"  measurably less clean than r146.")
+
     print(f"\n  r193 and r189 are unambiguous: r193 dies at {results['r193']['kill_at']} against a")
     print(f"  p10 of {results['r193']['reference_p10']:.0f}, and r189's leave-one-prompt-out range")
     print(f"  ({results['r189']['loo_min']:+.3f} to {results['r189']['loo_max']:+.3f}) never")

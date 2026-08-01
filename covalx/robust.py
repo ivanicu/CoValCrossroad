@@ -12,7 +12,25 @@ question becomes whether the real data dies earlier than a clean effect of its s
 
     kill_at        deletions before the 95% interval touches zero
     reference      the same quantity on normal draws, as a distribution
-    verdict        CONCENTRATED only if kill_at falls below the reference's 10th percentile
+    verdict        CONCENTRATED / NOT CONCENTRATED / MARGINAL -- and MARGINAL is not a hedge, it
+                   is the case where the THRESHOLD ITSELF is noisier than the gap being judged
+
+WHY THE VERDICT HAS THREE VALUES. Version one compared kill_at to a p10 estimated from one batch of
+draws and returned a binary. Its first non-trivial use put a claim at 306 against a p10 of 314 --
+and re-estimating that p10 with three other seeds gave 307, 311, 318. The verdict was a property of
+the random seed. A threshold read off a simulation is a DISTRIBUTION, and a rule that reports it as
+a line manufactures decisions out of Monte Carlo noise, which is the same defect as the invented
+5% bar this module replaced. So the p10 is now estimated across several independent batches and a
+result inside their spread is returned as MARGINAL by the tool rather than caught by a reader.
+
+TWO THINGS ITS OWN ATTACK SUITE FOUND, both encoded rather than described:
+  CONSERVATIVE   an effect carried entirely by 30 planted outliers comes back MARGINAL, not
+                 CONCENTRATED. The rule under-calls, which is the safe direction for a tool whose
+                 false positive would be an unwarranted retraction -- but it means MARGINAL should
+                 be read as "possibly concentrated", not as "probably fine".
+  NO RESOLUTION  below roughly z 3 the reference itself dies at k<=2, so nothing can score under
+                 the threshold and every input would return NOT CONCENTRATED. That verdict is now
+                 refused outright rather than issued as a clean bill.
 
 WHAT IT DOES NOT DO. It says nothing about whether the effect is REAL -- a confounded effect can be
 beautifully unconcentrated. It answers one question: is this number carried by a handful of units.
@@ -27,7 +45,7 @@ from collections import defaultdict
 import numpy as np
 
 
-def jackknife_calibrated(values, groups=None, *, draws=200, seed=0, cap=None, name=""):
+def jackknife_calibrated(values, groups=None, *, draws=200, seed=0, batches=4, cap=None, name=""):
     """Return the concentration profile of a mean, with its own reference distribution.
 
     values  the per-unit contributions whose mean is the claim
@@ -55,19 +73,37 @@ def jackknife_calibrated(values, groups=None, *, draws=200, seed=0, cap=None, na
         return None
 
     observed = kill_k(v)
-    rng = np.random.default_rng(seed)
-    ref = []
-    for _ in range(draws):
-        k = kill_k(rng.normal(loc=m, scale=sd, size=n))
-        ref.append(k if k else cap)
-    p10 = float(np.percentile(ref, 10))
-    verdict = ("UNTESTABLE (interval already spans zero)" if observed is None and m == 0 else
-               "CONCENTRATED" if observed is not None and observed < p10 else
-               "NOT CONCENTRATED")
+    # SEVERAL INDEPENDENT BATCHES, so the threshold's own spread is measured rather than assumed.
+    ref_all, p10s = [], []
+    for b in range(batches):
+        rng = np.random.default_rng(seed + 1000 * b)
+        batch = [kill_k(rng.normal(loc=m, scale=sd, size=n)) or cap for _ in range(draws)]
+        ref_all.extend(batch)
+        p10s.append(float(np.percentile(batch, 10)))
+    p10, p10_lo, p10_hi = float(np.mean(p10s)), float(min(p10s)), float(max(p10s))
+    # NO RESOLUTION IS A VERDICT, and leaving it out was this module's second defect. When the
+    # reference itself dies at k=1 or 2 -- which happens for any weak effect, since a clean effect
+    # at low z also cannot survive deleting its best points -- nothing can score BELOW the
+    # threshold, so "NOT CONCENTRATED" would be returned for every input including a spike. That
+    # is a clean bill the instrument cannot support: a check that cannot fail. Found by attacking
+    # the tool with a deliberately weak effect, not by using it.
+    if p10_hi <= 2:
+        verdict = ("NO RESOLUTION -- the reference dies at k<=2, so concentration is undetectable "
+                   "at this effect size")
+    elif observed is None:
+        verdict = "SURVIVES the deletion cap"
+    elif observed < p10_lo:
+        verdict = "CONCENTRATED"
+    elif observed > p10_hi:
+        verdict = "NOT CONCENTRATED"
+    else:
+        verdict = "MARGINAL (inside the threshold's own noise)"
 
     out = {"n": n, "mean": m, "se": se, "z": m / se if se else float("nan"),
-           "kill_at": observed, "reference_mean": float(np.mean(ref)), "reference_p10": p10,
-           "reference_p90": float(np.percentile(ref, 90)), "draws": draws, "verdict": verdict}
+           "kill_at": observed, "reference_mean": float(np.mean(ref_all)), "reference_p10": p10,
+           "reference_p10_lo": p10_lo, "reference_p10_hi": p10_hi, "p10_batches": p10s,
+           "reference_p90": float(np.percentile(ref_all, 90)),
+           "draws": draws, "batches": batches, "verdict": verdict}
 
     # leave-one-out at the unit level, and at the group level when groups are given
     loo = [float(np.delete(v, i).mean()) for i in range(n)]
@@ -89,7 +125,9 @@ def jackknife_calibrated(values, groups=None, *, draws=200, seed=0, cap=None, na
 def report(res, name=""):
     print(f"  {name:38s} n={res['n']:6d} mean {res['mean']:+.4f} z {res['z']:+5.1f}  "
           f"kill@{str(res['kill_at']):>4s} ref {res['reference_mean']:5.1f} "
-          f"(p10 {res['reference_p10']:.0f})  {res['verdict']}")
+          f"(p10 {res['reference_p10_lo']:.0f}-{res['reference_p10_hi']:.0f} over "
+          f"{res['batches']} batches)")
+    print(f"  {'':38s} -> {res['verdict']}")
     extra = f"one unit moves it {res['max_single_unit_shift_rel']:.1%}"
     if "max_single_group_shift_rel" in res:
         extra += f"; one group {res['max_single_group_shift_rel']:.1%} " \
