@@ -138,3 +138,10 @@
 \newcommand{\capt}[1]{{\color{MESOTeal}\footnotesize\textsc{captures}\,·\,#1}}
 \newcommand{\kills}[1]{{\color{MESOGold}\footnotesize\textsc{killed by}\,·\,#1}}
 \newcommand{\num}[1]{\texorpdfstring{{\bfseries\boldmath\color{MESONavy}#1}}{#1}}
+
+% ---- concept blocks: a definition alone does not tell a reader what a thing IS ----
+\newcommand{\prob}[1]{\par\smallskip\noindent{\color{MESOGold}\footnotesize\textsc{the problem it solves}}\; #1\par}
+\newcommand{\intu}[1]{\par\noindent{\color{MESOTeal}\footnotesize\textsc{picture}}\; #1\par}
+\newcommand{\feel}[1]{\par\noindent{\color{MESONavy}\footnotesize\textsc{one number}}\; #1\par}
+\newcommand{\misread}[1]{\par\noindent{\color{MESOMid}\footnotesize\textsc{misread as}}\; #1\par\smallskip}
+\newcommand{\ex}[1]{\par\noindent{\color{MESOInk}\footnotesize\textsc{grounded}}\; #1\par}

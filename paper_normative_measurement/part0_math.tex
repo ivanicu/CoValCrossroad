@@ -1,759 +1,791 @@
 % ===========================================================================
-% PART 0 -- the mathematics, from nothing. Assumes no statistics whatsoever.
-% Every symbol used later in the paper is defined here and nowhere else.
+% PART 0 -- the statistics. Every concept gets five things, because a definition
+% alone tells a reader what to write down, not what the thing IS:
+%   the problem it solves | the picture | the definition | one concrete number |
+%   how it is misread
 % ===========================================================================
-\section{The mathematics, from zero}
+\section{The statistics, and what each concept actually is}
 \label{sec:math}
 
-This section assumes no statistics. It builds, in order, every object the rest of
-the paper uses. Nothing here is specific to the dataset; §\ref{sec:object} onward
-uses only what is defined below. A reader who already knows this material should
-still read §\ref{sec:cluster}, §\ref{sec:mde} and §\ref{sec:atten}, because those
-three are where papers in this area go wrong.
+\why{A definition is a rule for writing a symbol. It does not say why the object
+exists, what it feels like, or what breaks without it. Each concept below is
+therefore given the problem it was invented to solve, a picture, the definition,
+one worked number, and the misreading that is standard in this literature.}
 
-\subsection{The one identity everything is built on}
+% ---------------------------------------------------------------------------
+\subsection{Probability}
 
-$\mathbf{1}\{P\}$ is the \emph{indicator}: $1$ if $P$ is true, $0$ if false. It
-converts a yes/no fact into a number, and every ``what fraction of cases''
-quantity in this paper is built from it, via the identity that the average of an
-indicator \emph{is} a proportion:
-\begin{equation}
-\frac{1}{n}\sum_{i=1}^{n}\mathbf{1}\{P_i\}
-  \;=\; \frac{\text{number of } i \text{ with } P_i \text{ true}}{n}.
-\label{eq:indavg}
-\end{equation}
-Every rate reported in this paper -- how often a decision changes, how often a
-veto binds -- is an instance of \cref{eq:indavg}. That is why they can all be
-treated with one set of tools.
+\prob{We need to talk about ``how often'' before we have seen everything. Without
+a rule, ``often'' is a word; with one, it is arithmetic that composes.}
 
-\subsection{Finite probability}
+\intu{A finite bag of outcomes with weights that sum to $1$. An event is a
+handful of outcomes; its probability is the weight of the handful. Nothing is
+mysterious or infinite --- every probability in this paper is a fraction of a
+finite set.}
 
 \begin{definition}[Probability space]
-A \emph{finite probability space} is a finite set $\Omega$ of \emph{outcomes}
-together with a function $\Prob$ assigning to each $\omega \in \Omega$ a number
-$\Prob(\omega) \ge 0$, such that $\sum_{\omega \in \Omega} \Prob(\omega) = 1$.
-For a subset $E \subseteq \Omega$ (an \emph{event}),
-$\Prob(E) := \sum_{\omega \in E}\Prob(\omega)$.
+A finite set $\Omega$ of outcomes with $\Prob(\omega)\ge0$ summing to $1$;
+$\Prob(E):=\sum_{\omega\in E}\Prob(\omega)$ for $E\subseteq\Omega$.
 \end{definition}
 
-Two consequences, both immediate from the definition and both used later.
+\feel{$968$ prompts, $42$ of which have a binding veto: the probability that a
+randomly drawn prompt has one is $42/968 = 0.0434$.}
 
-\step{Sub-step 0.2.1 --- probabilities are bounded.}
-$E \subseteq \Omega$ implies $\Prob(E) \le \sum_{\omega\in\Omega}\Prob(\omega) = 1$,
-and $\Prob(E) \ge 0$ because it is a sum of non-negative terms. So
-$0 \le \Prob(E) \le 1$ always.
+\misread{``Probability'' as a property of a single case. It is a property of a
+\emph{procedure for drawing}. ``This prompt has probability $0.043$'' is not a
+sentence; ``a prompt drawn uniformly from these $968$'' is.}
 
-\step{Sub-step 0.2.2 --- disjoint events add.}
-If $E \cap F = \varnothing$ then no outcome is counted twice, so
-$\Prob(E \cup F) = \Prob(E) + \Prob(F)$.
+% ---------------------------------------------------------------------------
+\subsection{The indicator, which turns yes/no into arithmetic}
 
-\begin{definition}[Random variable]
-A \emph{random variable} is a function $X : \Omega \to \R$. It is not random and
-it is not a variable; it is a rule that reads off a number from whatever outcome
-occurred. We write $\Prob(X = x)$ for $\Prob(\{\omega : X(\omega) = x\})$.
-\end{definition}
+\prob{Most questions here are yes/no --- did the decision change, is the veto
+binding. Yes/no cannot be averaged, added, or given an interval.}
 
-\subsection{Expectation: the derivation, not the formula}
+\intu{Write $1$ for yes and $0$ for no. Now the \emph{average} of the answers is
+exactly the \emph{fraction} of yeses, so every tool built for averages applies
+unchanged to proportions. This one move is why the whole paper needs only one
+statistical toolkit.}
 
-Suppose we observe $X$ many times and average the results. If outcome $x$ occurs
-a fraction $\Prob(X=x)$ of the time, then in $n$ observations it contributes
-$x \cdot n\Prob(X=x)$ to the total. Summing over the possible values and dividing
-by $n$:
 \begin{equation}
-\frac{1}{n}\sum_{\text{values } x} x \cdot n\,\Prob(X=x)
-  \;=\; \sum_{x} x\,\Prob(X=x).
+\frac1n\sum_{i=1}^n \mathbf{1}\{P_i\} = \frac{\#\{i: P_i \text{ true}\}}{n}.
+\label{eq:indavg}
 \end{equation}
-The $n$ cancels. The result does not depend on how many times we look. That
-limit-of-the-average is the definition.
 
-\begin{definition}[Expectation]
-$\displaystyle \E[X] := \sum_{x} x\,\Prob(X = x)$.
+\feel{Flip / no-flip over $968$ prompts, coded $1/0$: the average is $0.051$, and
+that number is simultaneously ``the mean of the indicator'' and ``$5.1\%$ of
+prompts flipped''. Same object.}
+
+% ---------------------------------------------------------------------------
+\subsection{Random variable}
+
+\prob{We want to attach numbers to outcomes and then reason about the numbers.}
+
+\intu{A rule that reads a number off whatever happened. It is neither random nor
+a variable --- the randomness is in which outcome occurs, and the rule is fixed.
+``$X$ is random'' is shorthand for ``the input to $X$ is drawn''.}
+
+\begin{definition}
+$X:\Omega\to\R$, and $\Prob(X=x):=\Prob(\{\omega: X(\omega)=x\})$.
+\end{definition}
+
+% ---------------------------------------------------------------------------
+\subsection{Expectation}
+
+\prob{One number summarising where a quantity sits, that does not depend on how
+many times you looked.}
+
+\intu{Take the long-run average. If value $x$ shows up a fraction $\Prob(X=x)$ of
+the time, then in $n$ draws it contributes $x\cdot n\Prob(X=x)$; divide by $n$ and
+the $n$ cancels. What remains does not depend on $n$, so it is a property of the
+distribution rather than of the experiment. \emph{That} is why it is worth a
+name.}
+
+\begin{definition}
+$\E[X] := \sum_x x\,\Prob(X=x)$.
 \end{definition}
 
 \begin{lemma}[Linearity]
 \label{lem:lin}
-For random variables $X,Y$ on the same space and constants $a,b$:
-$\E[aX + bY] = a\E[X] + b\E[Y]$.
+$\E[aX+bY]=a\E[X]+b\E[Y]$, with \textbf{no independence assumption}.
 \end{lemma}
-
 \begin{proof}
-Write the expectation as a sum over outcomes rather than values, which is
-equivalent because grouping outcomes by their value only reorders a finite sum:
-$\E[X] = \sum_{\omega} X(\omega)\Prob(\omega)$. Then
-\[
-\E[aX+bY] = \sum_\omega \big(aX(\omega)+bY(\omega)\big)\Prob(\omega)
- = a\sum_\omega X(\omega)\Prob(\omega) + b\sum_\omega Y(\omega)\Prob(\omega),
-\]
-which is $a\E[X]+b\E[Y]$. \emph{No independence was used.} This is why linearity
-is the one tool that never needs an assumption, and it is used at every later
-step where an assumption would be contentious.
+Sum over outcomes rather than values --- legitimate because grouping a finite sum
+differently does not change it. Then
+$\sum_\omega (aX(\omega)+bY(\omega))\Prob(\omega)
+= a\sum_\omega X(\omega)\Prob(\omega)+b\sum_\omega Y(\omega)\Prob(\omega)$.
 \end{proof}
 
-\begin{corollary}[Expectation of an indicator]
+\intu{Linearity is the only tool in the paper that never needs a condition. Every
+later step where an assumption would be contentious is routed through it
+deliberately.}
+
+\begin{corollary}[The bridge]
 \label{cor:indexp}
-$\E[\mathbf{1}\{P\}] = 1\cdot\Prob(P) + 0\cdot(1-\Prob(P)) = \Prob(P)$.
+$\E[\mathbf{1}\{P\}]=\Prob(P)$: a measured proportion estimates a probability.
 \end{corollary}
 
-\Cref{cor:indexp} is the bridge between ``a proportion I measured'' and ``a
-probability I want to talk about'', and every rate in this paper crosses it.
+\misread{``Expectation'' as what you expect to see. A fair die has expectation
+$3.5$ and never shows it. It is a centre of mass, not a prediction.}
 
-\subsection{Variance: why squared deviation, and not something else}
+% ---------------------------------------------------------------------------
+\subsection{Variance and standard deviation}
 
-We want a single number for ``how spread out is $X$''. Let $\mu := \E[X]$.
+\prob{Two datasets can have the same average and be completely different. We need
+a number for \emph{spread}, and the obvious candidate fails.}
 
-\step{Sub-step 0.4.1 --- the naive attempt fails.}
-$\E[X-\mu] = \E[X]-\mu = 0$ by \cref{lem:lin}, always. Average deviation is
-identically zero and carries no information: positive and negative deviations
-cancel exactly.
+\intu{Try averaging the deviations from the mean: it is \emph{exactly zero} for
+every dataset, because positives cancel negatives. So the sign must be removed.
+Squaring does it, and squaring has one property absolute value lacks: squared
+spreads \emph{add} when quantities are independent, which is what makes the
+spread of an average computable at all (\cref{eq:varmean}).}
 
-\step{Sub-step 0.4.2 --- two repairs are available.}
-Remove the sign either by absolute value, $\E|X-\mu|$, or by squaring,
-$\E[(X-\mu)^2]$. Both are legitimate measures of spread. Squaring is chosen for
-one reason that matters here and one that does not.
-
-\begin{itemize}
-\item \textbf{Matters:} squared deviations \emph{add} for independent quantities
-      (\cref{lem:varsum}), so the spread of an average has a closed form. Absolute
-      deviations do not add.
-\item \textbf{Does not matter:} differentiability, which is a convenience for
-      optimisation and irrelevant to this paper.
-\end{itemize}
-
-\begin{definition}[Variance and standard deviation]
-$\Var(X) := \E[(X-\mu)^2]$ and $\operatorname{sd}(X) := \sqrt{\Var(X)}$. The
-square root exists because $\Var(X)$ is an average of squares, hence
-$\ge 0$. The standard deviation is in the same units as $X$; the variance is in
-squared units, which is why intervals are reported with the former.
+\begin{definition}
+$\Var(X):=\E[(X-\mu)^2]$; $\operatorname{sd}(X):=\sqrt{\Var(X)}$.
 \end{definition}
+
+\intu{The standard deviation is in the same units as the data --- it is a
+\emph{typical distance from the middle}. The variance is in squared units and is
+an intermediate quantity, which is why every interval in this paper is written
+with the standard deviation and never the variance.}
 
 \begin{lemma}[Computational form]
 \label{lem:varalt}
-$\Var(X) = \E[X^2] - (\E[X])^2$.
+$\Var(X)=\E[X^2]-(\E[X])^2$.
 \end{lemma}
 \begin{proof}
-$\E[(X-\mu)^2] = \E[X^2 - 2\mu X + \mu^2]
- = \E[X^2] - 2\mu\E[X] + \mu^2 = \E[X^2] - 2\mu^2 + \mu^2 = \E[X^2]-\mu^2$,
-using \cref{lem:lin} and the fact that $\mu$ is a constant.
+$\E[(X-\mu)^2]=\E[X^2-2\mu X+\mu^2]=\E[X^2]-2\mu^2+\mu^2$ by \cref{lem:lin}.
 \end{proof}
 
-\begin{corollary}[Variance of an indicator]
+\begin{corollary}[Variance of a yes/no quantity]
 \label{cor:indvar}
-If $X = \mathbf{1}\{P\}$ with $\Prob(P) = \pi$, then $X^2 = X$ (since
-$0^2=0, 1^2=1$), so by \cref{lem:varalt}
-$\Var(X) = \pi - \pi^2 = \pi(1-\pi)$.
+For $X=\mathbf{1}\{P\}$ with $\Prob(P)=\pi$: since $0^2=0$ and $1^2=1$ we have
+$X^2=X$, so $\Var(X)=\pi-\pi^2=\pi(1-\pi)$.
 \end{corollary}
 
-\Cref{cor:indvar} is why every yes/no rate in this paper has a variance we can
-write down without estimating anything extra, and why rates near $0$ or $1$ are
-measured more precisely than rates near $\tfrac12$.
+\feel{$\pi=0.5 \Rightarrow \Var=0.25$; $\pi=0.05 \Rightarrow \Var=0.0475$. A rare
+event is intrinsically \emph{easier} to pin down than a coin flip, which is why
+the $5\%$ flip rates in \cref{tab:power} have narrow intervals at modest $n$.}
 
 \begin{lemma}[Scaling]
 \label{lem:varscale}
-$\Var(aX+b) = a^2\Var(X)$.
+$\Var(aX+b)=a^2\Var(X)$: shifting everything does not change spread; stretching
+by $a$ stretches spread by $|a|$.
 \end{lemma}
 \begin{proof}
-$\E[aX+b] = a\mu+b$, so the deviation is $aX+b-(a\mu+b) = a(X-\mu)$, whose square
-is $a^2(X-\mu)^2$. Take expectations and apply \cref{lem:lin}. The additive
-constant $b$ vanishes because shifting everything does not change spread.
+The deviation of $aX+b$ from its mean $a\mu+b$ is $a(X-\mu)$; square and take
+expectations.
 \end{proof}
 
+\ex{Two prompts, both with mean satisfaction $0.5$ across the four responses.
+Prompt~A: $(0.50,0.50,0.50,0.50)$ --- variance $0$, and \emph{no rubric can decide
+anything here}, because every response is equally satisfying. Prompt~B:
+$(0.95,0.55,0.45,0.05)$ --- variance $0.101$, and the decision is easy. Same mean,
+opposite decidability. \textbf{The variance of the satisfaction vector is what
+makes a criterion useful at all}, which is why a criterion that is constant across
+responses contributes exactly nothing (measured at $0.0\%$ in \cref{tab:power}).}
+
+\ex{Second use, at a different level. Across $968$ prompts the flip indicator has
+$\pi=0.051$, so by \cref{cor:indvar} its variance is $0.0484$ --- and that single
+number is what the entire interval $[4.4\%,5.8\%]$ is computed from. Nothing else
+about the data enters.}
+
+\misread{A large variance as ``bad data''. It is a fact about the quantity, not a
+defect. What is bad is a large variance \emph{of the estimate}, which is a
+different object (§\ref{sec:se}).}
+
+% ---------------------------------------------------------------------------
 \subsection{Independence, covariance, correlation}
 
+\prob{We want to say ``these two move together'' without saying how strongly in
+arbitrary units.}
+
 \begin{definition}[Independence]
-$X$ and $Y$ are \emph{independent} if
-$\Prob(X=x \text{ and } Y=y) = \Prob(X=x)\Prob(Y=y)$ for all $x,y$: knowing one
-tells you nothing about the other.
+$\Prob(X=x,Y=y)=\Prob(X=x)\Prob(Y=y)$ for all $x,y$: knowing one tells you
+nothing about the other.
 \end{definition}
 
-\begin{definition}[Covariance]
-$\Cov(X,Y) := \E[(X-\mu_X)(Y-\mu_Y)]$.
-\end{definition}
+\intu{\textbf{Covariance:} multiply the two deviations and average. When both are
+above their means the product is positive; when they move oppositely it is
+negative; the average is therefore positive for co-movement. Its size is in the
+product of the two units --- ``weight-points times satisfaction'' --- which is
+uninterpretable, and that is the whole reason correlation exists.}
 
-The sign of the product $(X-\mu_X)(Y-\mu_Y)$ is positive when both deviate the
-same way and negative when they deviate oppositely, so the average is positive
-for co-movement and negative for counter-movement. Note $\Cov(X,X)=\Var(X)$.
+\begin{definition}
+$\Cov(X,Y):=\E[(X-\mu_X)(Y-\mu_Y)]$; note $\Cov(X,X)=\Var(X)$.
+\end{definition}
 
 \begin{lemma}[Variance of a sum]
 \label{lem:varsum}
-$\Var(X+Y) = \Var(X)+\Var(Y)+2\Cov(X,Y)$. If $X,Y$ are independent then
-$\Cov(X,Y)=0$ and the variances simply add.
+$\Var(X+Y)=\Var(X)+\Var(Y)+2\Cov(X,Y)$; under independence the cross term is $0$.
 \end{lemma}
 \begin{proof}
-Let $D_X := X-\mu_X$, $D_Y := Y-\mu_Y$. Then
-$X+Y-(\mu_X+\mu_Y) = D_X+D_Y$, and
-$(D_X+D_Y)^2 = D_X^2 + 2D_XD_Y + D_Y^2$. Take expectations, apply
-\cref{lem:lin}, and read off the three terms. For the second claim: under
-independence $\E[D_XD_Y] = \E[D_X]\E[D_Y] = 0\cdot 0 = 0$.
+$(D_X+D_Y)^2=D_X^2+2D_XD_Y+D_Y^2$ with $D_X:=X-\mu_X$; take expectations. Under
+independence $\E[D_XD_Y]=\E[D_X]\E[D_Y]=0$.
 \end{proof}
-
-\begin{remark}[The converse is false, and it matters here]
-$\Cov(X,Y)=0$ does \emph{not} imply independence. Covariance detects only linear
-co-movement. A quantity can be completely determined by another and still have
-zero covariance with it. Every ``uncorrelated, therefore unrelated'' inference in
-this literature is invalid for this reason, and §\ref{sec:c1} uses a
-\emph{non-linear} measure of dependence precisely to avoid it.
-\end{remark}
 
 \begin{theorem}[Cauchy--Schwarz]
 \label{thm:cs}
-$|\Cov(X,Y)| \le \operatorname{sd}(X)\operatorname{sd}(Y)$.
+$|\Cov(X,Y)|\le \operatorname{sd}(X)\operatorname{sd}(Y)$.
 \end{theorem}
 \begin{proof}
-Write $D_X, D_Y$ as above and let $t \in \R$. Since a square is never negative,
-\[
-0 \;\le\; \E\big[(D_X + tD_Y)^2\big]
-  \;=\; \E[D_X^2] + 2t\,\E[D_XD_Y] + t^2\,\E[D_Y^2]
-  \;=\; \Var(X) + 2t\Cov(X,Y) + t^2\Var(Y).
-\]
-The right-hand side is a quadratic in $t$ that is never negative. A quadratic
-$at^2+bt+c$ with $a \ge 0$ is non-negative for all $t$ if and only if its
-discriminant $b^2-4ac \le 0$ (otherwise it has two distinct real roots and dips
-below zero between them). Here $a=\Var(Y)$, $b=2\Cov(X,Y)$, $c=\Var(X)$, so
-\[
-4\Cov(X,Y)^2 - 4\Var(X)\Var(Y) \le 0
-\;\Longrightarrow\;
-\Cov(X,Y)^2 \le \Var(X)\Var(Y).
-\]
-Take square roots.
+For any $t$, $0\le\E[(D_X+tD_Y)^2]=\Var(X)+2t\Cov(X,Y)+t^2\Var(Y)$. A quadratic
+that is never negative has discriminant $\le0$:
+$4\Cov^2-4\Var(X)\Var(Y)\le0$.
 \end{proof}
 
 \begin{definition}[Correlation]
-If both standard deviations are non-zero,
-\[
-\Corr(X,Y) \;=\; r \;:=\; \frac{\Cov(X,Y)}{\operatorname{sd}(X)\operatorname{sd}(Y)}.
-\]
+$r:=\Cov(X,Y)/(\operatorname{sd}(X)\operatorname{sd}(Y))\in[-1,1]$ by
+\cref{thm:cs}.
 \end{definition}
 
-\begin{corollary}
-$-1 \le r \le 1$, immediately from \cref{thm:cs}.
-\end{corollary}
+\intu{Correlation is covariance with the units divided out. $r$ answers: if one
+quantity is one standard deviation above its mean, how many standard deviations
+above is the other, on average? $r=0.3$ means ``about three tenths of one''.}
 
-So $r$ is covariance with the units divided out. It is \emph{not} a percentage,
-it is \emph{not} a share of anything, and $r=0.5$ is not ``half''. The only
-quantity with a share interpretation is $r^2$, and only under a linear model.
+\feel{$r=+0.304$ between Shapley influence and alignment (§\ref{sec:c1}). Read:
+a person one standard deviation more aligned than average is, on average, $0.30$
+standard deviations more influential. That is a real relationship and a weak one,
+which is exactly the finding.}
 
-\subsection{Samples, estimators, and the thing that is actually random}
+\ex{Concretely, in the three-person example of §\ref{sec:toy}: annotator~2 has
+alignment $0.9313$ --- nearly perfect agreement with the collective outcome --- and
+Shapley influence $0.3333$, less than half of annotator~1's $0.8333$ at a
+\emph{lower} alignment of $0.7858$. Two people, and the two measures already rank
+them differently. Across $1{,}865$ real pairs that shows up as $r=+0.304$:
+the two quantities move together, weakly, and one cannot be substituted for the
+other.}
 
-We never see $\Prob$. We see $n$ observations $x_1,\dots,x_n$ and must guess
-properties of $\Prob$ from them.
+\ex{What a \emph{high} correlation would have meant. Had $r$ come out $\approx1.0$,
+the pre-registered conclusion was that influence and alignment are the same thing
+and sixty rounds of correlational measurement had been fine. The number decided
+between two research programmes, which is why it was registered before running.}
 
-\begin{definition}[Estimator]
-An \emph{estimator} is any function of the observed data used to guess a fixed
-unknown quantity (the \emph{estimand}). We write $\hat\theta$ for an estimator of
-$\theta$.
+\misread{Three, all common.
+(i) $r$ as a percentage --- it is not; only $r^2$ has a share reading, and only
+under a linear model.
+(ii) $r=0$ as ``unrelated'' --- covariance sees only \emph{linear} co-movement; a
+quantity can be perfectly determined by another with $r=0$.
+(iii) $r$ as comparable across studies --- it is scaled by the spreads present in
+\emph{that} sample, so a restricted range shrinks it mechanically.}
+
+% ---------------------------------------------------------------------------
+\subsection{Estimator, estimand, bias}
+
+\prob{We never see $\Prob$. We see $n$ numbers and must guess.}
+
+\intu{The \emph{estimand} is the fixed unknown we want. The \emph{estimator} is a
+recipe applied to data. The estimator wobbles from study to study; the estimand
+does not move at all. Almost every misreading in applied statistics is a
+confusion about which of the two is doing the moving.}
+
+\begin{definition}
+$\operatorname{Bias}(\hat\theta):=\E[\hat\theta]-\theta$.
 \end{definition}
 
-\begin{definition}[Bias]
-$\operatorname{Bias}(\hat\theta) := \E[\hat\theta] - \theta$. An estimator is
-\emph{unbiased} if this is zero: it is right \emph{on average across repetitions
-of the whole study}, which says nothing about any single study.
-\end{definition}
+\intu{Unbiased means: right \emph{on average across repetitions of the whole
+study}. It says nothing about being close in any one study. A recipe can be
+unbiased and wildly variable, or biased and reliably close.}
 
-\begin{remark}[What is random]
-$\theta$ is a fixed number. $\hat\theta$ varies because the sample varies. Every
-statement below about ``the distribution of $\hat\theta$'' is a statement about
-what would happen across hypothetical repetitions of the study, not about
-$\theta$. This is the single most misread point in applied statistics and it is
-the reason §\ref{sec:ci} states explicitly what a confidence interval does
-\emph{not} mean.
-\end{remark}
+\misread{``Unbiased'' as ``accurate''. They are different axes: bias is where the
+centre sits, variance is how far it scatters.}
 
-\subsection{The sample mean, and the derivation of the standard error}
+% ---------------------------------------------------------------------------
+\subsection{The standard error}
 \label{sec:se}
 
-Let $X_1,\dots,X_n$ be independent, each with mean $\mu$ and variance $\sigma^2$.
-Define $\bar X := \frac1n\sum_i X_i$.
+\prob{Our estimate came from one sample. How far might it be from the truth,
+purely because a different sample would have given a different number?}
 
-\step{Sub-step 0.7.1 --- the mean is unbiased.}
-By \cref{lem:lin}, $\E[\bar X] = \frac1n\sum_i \E[X_i] = \frac1n \cdot n\mu = \mu$.
+\intu{Averaging cancels noise. If each observation is off by a typical amount
+$\sigma$, and the errors are independent, they partly cancel --- but only partly,
+and the amount of cancellation is $\sqrt n$, not $n$, because errors add in
+\emph{squares} (\cref{lem:varsum}) and lengths are square roots of squares. The
+standard error is the typical distance between your estimate and the truth.}
 
-\step{Sub-step 0.7.2 --- the variance of the mean.}
-By \cref{lem:varscale} with $a = 1/n$, then \cref{lem:varsum} with independence:
-\begin{equation}
-\Var(\bar X) \;=\; \frac{1}{n^2}\Var\Big(\sum_i X_i\Big)
-  \;=\; \frac{1}{n^2}\sum_i \Var(X_i)
-  \;=\; \frac{n\sigma^2}{n^2}
-  \;=\; \frac{\sigma^2}{n}.
-\label{eq:varmean}
-\end{equation}
+\begin{align}
+\E[\bar X] &= \mu &&\text{by \cref{lem:lin}}\notag\\
+\Var(\bar X) &= \frac{1}{n^2}\sum_i\Var(X_i)=\frac{\sigma^2}{n}
+  &&\text{by \cref{lem:varscale}, \cref{lem:varsum}}
+\label{eq:varmean}\\
+\se(\bar X) &= \sigma/\sqrt n \notag
+\end{align}
 
-\step{Sub-step 0.7.3 --- naming it.}
-\begin{definition}[Standard error]
-$\se(\bar X) := \operatorname{sd}(\bar X) = \sigma/\sqrt{n}$.
-\end{definition}
+\feel{$\sigma=0.124$, $n=968$: $\se=0.124/31.1=0.0040$. So a flip rate measured at
+$5.1\%$ would typically land within about $0.4$ points of the truth --- and to
+halve that to $0.2$ points you need \emph{four times} the prompts, not twice.}
 
-\begin{remark}[The $\sqrt{n}$ is the whole economics of measurement]
-Halving the standard error requires \emph{four times} the data. This single fact
-determines every sample-size statement in §\ref{sec:mde}, and it is why the
-question ``how many prompts do we need'' has an answer that is often unaffordable.
+\intu{The $\sqrt n$ is the entire economics of measurement. It is why
+§\ref{sec:est} can say ``$1{,}213$ prompts for $1$pp resolution'' and mean it as a
+budget, not a wish.}
+
+\ex{The same measurement at three sample sizes, holding $\sigma=0.124$ fixed.
+$n=10$: $\se=0.039$, interval $\pm7.7$ points --- a $5.1\%$ rate is
+indistinguishable from $0\%$ or from $12\%$, so the study says nothing.
+$n=100$: $\se=0.0124$, $\pm2.4$ points --- now $5\%$ is distinguishable from $0$
+but not from $8\%$.
+$n=968$: $\se=0.0040$, $\pm0.8$ points --- the actual study. \textbf{Same
+phenomenon, same estimate, three different claims}, and only the third supports
+the sentence ``deleting flips more often than doubling'' (a $0.93$ point gap).}
+
+\ex{And the reason $\sqrt n$ hurts. To resolve $0.5$ points instead of $1$ point,
+\cref{cor:n} demands $n=(2.8016\times0.124/0.005)^2=4{,}827$ prompts --- five times
+the release, for twice the resolution. This is why §\ref{sec:design} states a
+sample-size requirement rather than a wish.}
+
+\misread{The standard error as the spread of the \emph{data}. It is the spread of
+the \emph{estimate}, which is $\sqrt n$ times smaller. Data spread does not shrink
+with more data; estimate spread does.}
+
+\begin{remark}[Independence is doing real work here]
+If observations are positively correlated, \cref{lem:varsum} adds covariance
+terms and the true spread is \emph{larger} than $\sigma^2/n$. Using
+\cref{eq:varmean} anyway understates uncertainty --- §\ref{sec:cluster} measures
+exactly how much, because this error occurred in this work.
 \end{remark}
 
-\begin{remark}[Independence is doing real work in \cref{eq:varmean}]
-If the $X_i$ are positively correlated, \cref{lem:varsum} adds covariance terms
-and the true variance is \emph{larger} than $\sigma^2/n$. Using
-\cref{eq:varmean} anyway understates the uncertainty. §\ref{sec:cluster}
-quantifies exactly how much, because this specific error occurred in this work.
-\end{remark}
-
+% ---------------------------------------------------------------------------
 \subsection{Why $n-1$}
 
-To use $\se = \sigma/\sqrt n$ we need $\sigma^2$, which we also do not know. The
-obvious estimator $\frac1n\sum_i(X_i-\bar X)^2$ is biased downward, and the
-reason is worth the derivation because it exposes what ``degrees of freedom''
-means.
+\prob{To use $\se=\sigma/\sqrt n$ we need $\sigma$, which we also do not know.
+Estimating it from the same data introduces a specific, correctable error.}
+
+\intu{Deviations are measured from $\bar X$, which was computed \emph{from the
+same points} and therefore sits closer to them than the true $\mu$ does. So the
+squared deviations come out systematically too small. Dividing by $n-1$ instead
+of $n$ inflates them by exactly the right amount.}
 
 \begin{lemma}
 \label{lem:bessel}
-$\displaystyle \E\Big[\sum_{i=1}^n (X_i-\bar X)^2\Big] = (n-1)\sigma^2.$
+$\E\big[\sum_i (X_i-\bar X)^2\big]=(n-1)\sigma^2$.
 \end{lemma}
 \begin{proof}
-Expand around the true mean $\mu$ by adding and subtracting it:
-\[
-\sum_i (X_i-\bar X)^2 = \sum_i \big((X_i-\mu)-(\bar X-\mu)\big)^2
-= \sum_i (X_i-\mu)^2 - 2(\bar X-\mu)\sum_i (X_i-\mu) + n(\bar X-\mu)^2 .
-\]
-Now $\sum_i (X_i-\mu) = n(\bar X - \mu)$, so the middle term is
-$-2n(\bar X-\mu)^2$ and the last two combine to $-n(\bar X-\mu)^2$:
-\[
-\sum_i (X_i-\bar X)^2 = \sum_i (X_i-\mu)^2 - n(\bar X-\mu)^2 .
-\]
-Take expectations. The first term is $n\sigma^2$. For the second,
-$\E[(\bar X-\mu)^2] = \Var(\bar X) = \sigma^2/n$ by \cref{eq:varmean}, so it
-contributes $n \cdot \sigma^2/n = \sigma^2$. Hence the expectation is
-$n\sigma^2 - \sigma^2 = (n-1)\sigma^2$.
+$\sum_i(X_i-\bar X)^2=\sum_i(X_i-\mu)^2-n(\bar X-\mu)^2$ after expanding around
+$\mu$ and using $\sum_i(X_i-\mu)=n(\bar X-\mu)$. Take expectations: the first term
+is $n\sigma^2$, the second is $n\cdot\sigma^2/n=\sigma^2$ by \cref{eq:varmean}.
 \end{proof}
 
-\begin{definition}[Sample variance]
-$\displaystyle s^2 := \frac{1}{n-1}\sum_i (X_i-\bar X)^2$, which by
-\cref{lem:bessel} satisfies $\E[s^2]=\sigma^2$.
-\end{definition}
+\intu{``One degree of freedom was spent locating the centre.'' With $n=2$ points,
+the mean sits exactly between them and the deviations carry only \emph{one}
+piece of independent information about spread, not two --- hence $n-1=1$.}
 
-\step{The interpretation.} Deviations are taken from $\bar X$, which was computed
-from the same data and therefore sits closer to the points than $\mu$ does. One
-degree of freedom was spent estimating the centre. Dividing by $n-1$ returns it.
+% ---------------------------------------------------------------------------
+\subsection{The central limit theorem}
 
-\subsection{The central limit theorem, and precisely what it licenses}
+\prob{To turn $\se$ into an interval we need to know the \emph{shape} of the
+estimate's wobble, and the data here are $0/1$ --- about as far from a bell as
+data gets.}
 
-\begin{theorem}[Central limit theorem, stated]
+\intu{Averaging manufactures a bell. Whatever the individual observations look
+like, their average is approximately normally distributed once $n$ is moderate,
+because an average is a sum of many small independent contributions and sums of
+many small independent things pile up in the middle. The data do not become
+normal; the \emph{average} does.}
+
+\begin{theorem}[Stated, not proved]
 \label{thm:clt}
-If $X_1,\dots,X_n$ are independent and identically distributed with mean $\mu$
-and finite variance $\sigma^2$, then as $n$ grows the distribution of
-$(\bar X - \mu)/(\sigma/\sqrt n)$ approaches the standard normal distribution:
-$\Prob(Z \le z) \to \Phi(z)$ where
-$\Phi(z) = \int_{-\infty}^{z}\frac{1}{\sqrt{2\pi}}e^{-t^2/2}\,dt$.
+For iid $X_i$ with mean $\mu$ and finite variance,
+$(\bar X-\mu)/(\sigma/\sqrt n)$ approaches the standard normal.
 \end{theorem}
 
-We do not prove this. What matters is what it does and does not say.
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{P{2.5cm}Y}
+\toprule
+licenses & normal-based intervals for \emph{averages}, including rates built from
+$0/1$ indicators\\
+does not say & that the data are normal --- they are not, and it does not matter\\
+fails when & observations are dependent (§\ref{sec:cluster}); $n$ small and the
+distribution skewed; or the quantity is not an average, e.g. a correlation --- which
+is why §\ref{sec:boot} resamples instead\\
+\bottomrule
+\end{tabularx}
+\end{table}
 
-\begin{itemize}
-\item \textbf{Says:} the \emph{average} becomes normally distributed regardless of
-      the shape of the individual observations. This is why a rate built from
-      $0/1$ indicators -- about as non-normal as data gets -- still has a normal
-      sampling distribution.
-\item \textbf{Does not say:} that the data are normal. They are not, and it does
-      not matter.
-\item \textbf{Fails when:} observations are dependent (§\ref{sec:cluster}), or
-      $n$ is small with a skewed distribution, or the quantity is not an average.
-      In this paper the third case arises for correlations, which is why
-      §\ref{sec:boot} uses resampling instead of \cref{thm:clt} there.
-\end{itemize}
-
-\noindent Three quantiles of $\Phi$ are used throughout and are quoted once here:
-\begin{equation}
-z_{0.975} = 1.9600,\qquad z_{0.80} = 0.8416,\qquad z_{0.99} = 2.3263 .
+\begin{definition}[The three numbers used]
+$z_q$ is the point with a fraction $q$ of the bell to its left:
+$z_{0.975}=1.9600$, $z_{0.80}=0.8416$, $z_{0.99}=2.3263$. The bell is symmetric
+about $0$, so $z_{1-q}=-z_q$.
 \label{eq:quantiles}
-\end{equation}
-$z_q$ is defined by $\Phi(z_q)=q$: the point with $q$ of the distribution below it.
+\end{definition}
 
-\subsection{Confidence intervals: derivation, and what they do not mean}
+% ---------------------------------------------------------------------------
+\subsection{Confidence intervals}
 \label{sec:ci}
 
-\step{Sub-step 0.10.1.} By \cref{thm:clt}, with probability $0.95$,
-\[
--1.96 \;\le\; \frac{\bar X - \mu}{\se} \;\le\; 1.96 .
-\]
+\prob{A single number with no indication of its precision is unusable: $5.1\%$
+from ten prompts and $5.1\%$ from a thousand are different claims.}
 
-\step{Sub-step 0.10.2.} Multiply through by $\se$ (positive, so inequalities are
-preserved): $-1.96\,\se \le \bar X - \mu \le 1.96\,\se$.
+\intu{Build a net around the estimate wide enough that, if you repeated the whole
+study forever, $95\%$ of the nets would catch the fixed truth. \textbf{The net
+moves; the truth does not.} Everything confusing about intervals comes from
+imagining it the other way round.}
 
-\step{Sub-step 0.10.3.} Subtract $\bar X$ and multiply by $-1$, which
-\emph{reverses} both inequalities:
-$\bar X - 1.96\,\se \le \mu \le \bar X + 1.96\,\se$.
+\step{Derivation, three sub-steps.} From \cref{thm:clt}, with probability
+$0.95$: $-1.96\le(\bar X-\mu)/\se\le1.96$. Multiply by $\se>0$ (inequalities
+preserved). Subtract $\bar X$ and multiply by $-1$ --- which \textbf{reverses}
+both inequalities --- giving
+$\bar X-1.96\,\se\;\le\;\mu\;\le\;\bar X+1.96\,\se$.
 
-\begin{definition}[95\% confidence interval]
-$\big[\bar X - 1.96\,\se,\; \bar X + 1.96\,\se\big]$.
+\feel{$5.1\%$ with $\se=0.37$pp gives $[4.4\%,\,5.8\%]$. Read: a study like this
+one, repeated, would produce intervals catching the truth $19$ times in $20$.}
+
+\ex{Two studies reporting the identical estimate $5.1\%$.
+Study~1: $n=25$, interval $[0.0\%,\,10.9\%]$ --- compatible with no effect at all.
+Study~2: $n=968$, interval $[4.4\%,\,5.8\%]$ --- incompatible with anything below
+$4$ points.
+\textbf{The point estimate carries none of this.} Quoting $5.1\%$ without the
+interval hides the entire difference between a result and a rumour.}
+
+\misread{Three, in increasing order of consequence.
+(i) ``There is a $95\%$ chance $\mu$ is in this interval'' --- $\mu$ is a constant;
+it is in or it is not.
+(ii) ``$95\%$ of future observations fall here'' --- that is a prediction interval
+and is far wider.
+(iii) ``The interval excludes zero, so the effect is large'' --- exclusion is
+about \emph{precision}, not size. A trivial effect measured well excludes zero;
+§\ref{sec:mde} separates the two questions.}
+
+% ---------------------------------------------------------------------------
+\subsection{Tests, $z$, and $p$}
+
+\prob{We want a rule for ``this is more than nothing'' that cannot be tuned after
+seeing the answer.}
+
+\intu{Assume the boring world (the effect is zero). Ask how surprising the data
+would be \emph{in that world}. If very surprising, the boring world is a poor
+description. Note what this does \emph{not} do: it never evaluates the interesting
+world, and it never assigns a probability to either.}
+
+\begin{definition}
+$z:=\hat\theta/\se$, the estimate measured in units of its own uncertainty;
+$p:=\Prob(|Z|\ge|z|\mid H_0)$.
 \end{definition}
 
-\begin{remark}[What it means]
-Across hypothetical repetitions of the entire study, $95\%$ of the intervals so
-constructed would contain the fixed unknown $\mu$. The randomness is in the
-interval, not in $\mu$.
-\end{remark}
+\feel{$z=+3.3$ for the paired delete-versus-double difference. Read: the observed
+gap is $3.3$ of its own standard errors away from zero.}
 
-\begin{remark}[What it does not mean]
-It does \emph{not} mean $\Prob(\mu \in [\ell,u]) = 0.95$ for the particular
-interval computed: $\mu$ is a constant and either lies in it or does not. It does
-\emph{not} mean $95\%$ of future observations fall in it -- that is a prediction
-interval and is much wider. And an interval that excludes zero does not mean the
-effect is large; §\ref{sec:mde} separates those two questions.
-\end{remark}
+\misread{Three, all false.
+(i) $p$ is not $\Prob(H_0\mid\text{data})$ --- it is conditioned the other way.
+(ii) $p$ is not the probability the result is a fluke.
+(iii) $1-p$ is not the probability the effect is real.
+A $p$-value is a statement about \emph{data under an assumption}, never about the
+assumption given data. This paper mostly reports $z$ and intervals, because a
+$p$-value collapses size and precision into one number and they must stay
+separate.}
 
-\subsection{Hypothesis tests, $z$-statistics, and $p$-values}
-
-\begin{definition}[Null hypothesis]
-A fully specified statement about the estimand, denoted $H_0$, typically
-$\theta = 0$. It is specified in advance so that the distribution of the
-estimator \emph{under} it is known.
-\end{definition}
-
-\begin{definition}[$z$-statistic]
-$z := \hat\theta/\se(\hat\theta)$: the estimate measured in units of its own
-uncertainty. A $z$ of $3$ means the observed effect is three standard errors from
-zero.
-\end{definition}
-
-\begin{definition}[$p$-value]
-$p := \Prob(|Z| \ge |z| \mid H_0)$, the probability of seeing an effect at least
-this extreme \emph{if the null were true}.
-\end{definition}
-
-\begin{remark}[The three standard misreadings, each false]
-$p$ is not $\Prob(H_0 \mid \text{data})$ -- it is conditioned the other way round.
-$p$ is not the probability the result is a fluke. And $1-p$ is not the
-probability the effect is real. The $p$-value is a statement about data under an
-assumption, never about the assumption given data.
-\end{remark}
-
-\begin{remark}[Why this paper mostly reports $z$ and intervals]
-A $p$-value collapses effect size and precision into one number, so a tiny effect
-measured precisely and a large effect measured sloppily can produce the same $p$.
-The interval keeps them separate, which is why every finding in §\ref{sec:findings}
-carries one.
-\end{remark}
-
+% ---------------------------------------------------------------------------
 \subsection{Power, and the minimum detectable effect}
 \label{sec:mde}
 
-A null result is uninterpretable without knowing what the design could have seen.
+\prob{A null result is uninterpretable on its own. ``We found nothing'' and ``we
+could not have found anything'' produce the same output.}
 
-\begin{definition}[Power]
-The probability of rejecting $H_0$ when a specific alternative $\theta = \delta$
-is true. Conventionally $1-\beta = 0.80$.
-\end{definition}
+\intu{Two bells: one centred at zero (the boring world), one centred at the true
+effect. The test rejects when the estimate lands past a threshold in the first
+bell's tail. \emph{Power} is how much of the \emph{second} bell sits past that
+threshold. If the two bells overlap heavily --- a small effect, or a large
+$\se$ --- most of the second bell is on the wrong side and the study will miss a
+real effect most of the time. The MDE is the separation at which $80\%$ of the
+second bell finally clears.}
 
-\begin{theorem}[Minimum detectable effect]
+\begin{theorem}
 \label{thm:mde}
-For a two-sided test at level $\alpha$ with power $1-\beta$, the smallest true
-effect detectable with that power is
-\[
-\mathrm{MDE} \;=\; \big(z_{1-\alpha/2} + z_{1-\beta}\big)\cdot \se .
-\]
+$\mathrm{MDE}=(z_{1-\alpha/2}+z_{1-\beta})\,\se$.
 \end{theorem}
 \begin{proof}
-\emph{Sub-step 1.} We reject when $|\hat\theta| \ge z_{1-\alpha/2}\se$, by
-construction of the level-$\alpha$ test.
-
-\emph{Sub-step 2.} Suppose the truth is $\theta = \delta > 0$. Then
-$\hat\theta$ is centred at $\delta$ with standard deviation $\se$, so
-$(\hat\theta - \delta)/\se$ is standard normal.
-
-\emph{Sub-step 3.} Rejection (ignoring the negligible wrong-tail probability)
-requires $\hat\theta \ge z_{1-\alpha/2}\se$, i.e.
-\[
-\frac{\hat\theta-\delta}{\se} \;\ge\; z_{1-\alpha/2} - \frac{\delta}{\se}.
-\]
-
-\emph{Sub-step 4.} That event has probability $1-\beta$ exactly when the
-threshold on the right equals $-z_{1-\beta}$, because
-$\Prob(Z \ge -z_{1-\beta}) = 1-\beta$ by symmetry of the normal.
-
-\emph{Sub-step 5.} So $z_{1-\alpha/2} - \delta/\se = -z_{1-\beta}$, giving
-$\delta = (z_{1-\alpha/2}+z_{1-\beta})\se$.
+Reject when $\hat\theta\ge z_{1-\alpha/2}\se$. If the truth is $\delta$, then
+$(\hat\theta-\delta)/\se$ is standard normal, so rejection requires
+$(\hat\theta-\delta)/\se \ge z_{1-\alpha/2}-\delta/\se$. That has probability
+$1-\beta$ exactly when the right side equals $-z_{1-\beta}$, by symmetry of the
+bell. Solve for $\delta$.
 \end{proof}
 
-\begin{corollary}[The number used throughout]
-At $\alpha = 0.05$, $1-\beta = 0.80$: from \cref{eq:quantiles},
-$\mathrm{MDE} = (1.9600+0.8416)\,\se = 2.8016\,\se$.
-\end{corollary}
+\feel{$\se=0.37$pp gives $\mathrm{MDE}=2.8016\times0.37=1.05$pp. Read: this design
+would reliably notice a true flip rate difference of about one point and would
+usually miss half a point.}
 
-\begin{corollary}[Required sample size]
+\begin{corollary}[Sample size]
 \label{cor:n}
-Since $\se = \sigma/\sqrt n$, detecting an effect of size $\delta$ needs
-$n = \big(2.8016\,\sigma/\delta\big)^2$.
+$n=(2.8016\,\sigma/\delta)^2$ to detect $\delta$.
 \end{corollary}
 
-\begin{remark}[Reading a null]
-If $\mathrm{MDE} > |\text{the effect the null was supposed to rule out}|$, the
-null is \emph{silence}, not evidence of absence. §\ref{sec:findings} reports an
-MDE beside every null for this reason.
-\end{remark}
+\ex{A real case from this programme, and it explains a retraction. A round
+claimed ``the compiled standard respects vetoes better than a human peer'', with a
+measured gap of $1.72$ points; the claim was later withdrawn after it failed in
+$7$ of $12$ held-out halves, and nobody asked why. Computing the MDE from the
+round's own published interval: $\se=0.0069$, so
+$\mathrm{MDE}=2.8016\times0.0069=1.93$ points. \textbf{The design's minimum
+detectable effect was larger than the effect it was measuring.} The full-sample
+interval barely excluding zero was luck; halving the data removed the luck. The
+held-out sweep was rediscovering a power problem twelve times, and two lines of
+arithmetic --- available from numbers already written down --- would have said so
+at the start.}
 
-\subsection{Clustering, the intraclass correlation, and the design effect}
+\ex{The same computation used forwards. The paired delete-versus-double
+difference is $+0.93$ points with $\mathrm{MDE}=0.79$. Effect exceeds MDE, but
+only by a factor of $1.2$: the finding is real and its margin is thin, and that
+is stated in \cref{tab:power} rather than buried.}
+
+\misread{A null as evidence of absence. If $\mathrm{MDE}$ exceeds the effect the
+null was meant to rule out, the null is \emph{silence}. Every null in
+§\ref{sec:findings} carries its MDE for this reason.}
+
+% ---------------------------------------------------------------------------
+\subsection{Clustering, ICC, and the design effect}
 \label{sec:cluster}
 
-This subsection exists because the error it describes was made in this work and
-had to be corrected.
+\prob{We have $19{,}360$ rows but only $968$ prompts, each perturbed $20$ times.
+Treating the rows as independent claims twenty times more information than we
+have. \textbf{This error was made in this work and had to be corrected.}}
 
-\step{The setting.} Suppose the data have two levels: $P$ independent
-\emph{clusters} (here: prompts), and within each cluster $R$ observations (here:
-repeated perturbations of the same prompt). Observations in the same cluster are
-\emph{not} independent.
+\intu{Asking one person twenty questions is not the same as asking twenty people
+one question. Repeated observations of the same prompt share whatever is peculiar
+to that prompt, so the twentieth observation adds much less than the first. How
+much less is exactly what the ICC measures.}
 
-\step{Sub-step 0.13.1 --- the model.} Write
-$X_{pr} = \mu + a_p + e_{pr}$, where $a_p$ is a cluster effect with variance
-$\sigma_b^2$ (``between''), $e_{pr}$ is an observation effect with variance
-$\sigma_w^2$ (``within''), and all terms are independent of each other.
+\step{The model.} $X_{pr}=\mu+a_p+e_{pr}$ with $\Var(a_p)=\sigma_b^2$
+(``between prompts'') and $\Var(e_{pr})=\sigma_w^2$ (``within a prompt'').
 
-\step{Sub-step 0.13.2 --- the cluster mean.} $\bar X_p = \mu + a_p + \bar e_p$,
-and by \cref{lem:varsum} and \cref{eq:varmean},
-$\Var(\bar X_p) = \sigma_b^2 + \sigma_w^2/R$.
-
-\step{Sub-step 0.13.3 --- the overall mean.} The $P$ cluster means \emph{are}
-independent, so \cref{eq:varmean} applies to them:
+\step{The correct variance.} Cluster means are independent, so \cref{eq:varmean}
+applies \emph{to them}:
 \begin{equation}
-\Var(\hat\pi) \;=\; \frac{1}{P}\Big(\sigma_b^2 + \frac{\sigma_w^2}{R}\Big).
+\Var(\hat\pi)=\frac1P\Big(\sigma_b^2+\frac{\sigma_w^2}{R}\Big).
 \label{eq:varclust}
 \end{equation}
 
-\step{Sub-step 0.13.4 --- what the naive formula would give.} Treating all $PR$
-observations as independent with total variance
-$\sigma^2 = \sigma_b^2+\sigma_w^2$ gives $\sigma^2/(PR)$.
-
 \begin{definition}[Intraclass correlation]
-$\displaystyle \rho := \frac{\sigma_b^2}{\sigma_b^2+\sigma_w^2}$, the share of
-total variance that is between clusters. Equivalently, the correlation between
-two observations drawn from the same cluster.
+$\rho:=\sigma_b^2/(\sigma_b^2+\sigma_w^2)$: the share of all variation that is
+\emph{between} prompts. Equivalently, the correlation between two observations
+drawn from the same prompt.
 \end{definition}
+
+\intu{$\rho=0$: repeats are as good as fresh prompts. $\rho=1$: all repeats of a
+prompt are identical and the nineteen extra ones are worthless.}
 
 \begin{theorem}[Design effect]
 \label{thm:deff}
-\[
-\mathrm{DEFF}
-\;:=\;
-\frac{\text{correct variance }\cref{eq:varclust}}{\text{naive variance}}
-\;=\; 1+(R-1)\rho .
-\]
+$\mathrm{DEFF}=\dfrac{\text{\cref{eq:varclust}}}{\sigma^2/(PR)}=1+(R-1)\rho$.
 \end{theorem}
 \begin{proof}
-Divide \cref{eq:varclust} by $\sigma^2/(PR)$:
-\[
-\frac{\frac{1}{P}(\sigma_b^2+\sigma_w^2/R)}{\frac{\sigma_b^2+\sigma_w^2}{PR}}
-= \frac{R\sigma_b^2+\sigma_w^2}{\sigma_b^2+\sigma_w^2}
-= \frac{R\sigma_b^2+\sigma_w^2 + (\sigma_b^2-\sigma_b^2)}{\sigma_b^2+\sigma_w^2}
-= 1 + \frac{(R-1)\sigma_b^2}{\sigma_b^2+\sigma_w^2}
-= 1+(R-1)\rho. \qedhere
-\]
+$\dfrac{\frac1P(\sigma_b^2+\sigma_w^2/R)}{(\sigma_b^2+\sigma_w^2)/(PR)}
+=\dfrac{R\sigma_b^2+\sigma_w^2}{\sigma_b^2+\sigma_w^2}=1+(R-1)\rho$.
 \end{proof}
 
-\begin{corollary}
-Standard errors computed as if the $PR$ observations were independent are too
-small by a factor $\sqrt{1+(R-1)\rho}$, and $z$-statistics are too large by the
-same factor.
-\end{corollary}
+\feel{Measured: $\sigma_b^2=0.01361$, $\sigma_w^2=0.03677$, so $\rho=0.2701$ and
+with $R=20$, $\mathrm{DEFF}=6.13$. Read: the naive standard error is too small by
+$\sqrt{6.13}=2.48$, every naive $z$ is inflated by the same factor, and
+$19{,}360$ rows carry the information of about $3{,}150$. The honest count of
+independent units stays $968$.}
 
-\begin{remark}[Effective sample size]
-$n_{\mathrm{eff}} = PR/\mathrm{DEFF}$. With $R=20$ and $\rho = 0.27$,
-$\mathrm{DEFF}=6.13$, so $19{,}360$ rows carry the information of about
-$3{,}150$ -- and the honest count of independent units remains $P = 968$.
-\end{remark}
+\ex{Why the repeats are correlated here, mechanically. Each of the $20$ repeats
+perturbs a \emph{different criterion of the same prompt}. If that prompt's four
+responses are far apart in score --- a wide margin --- then \emph{no} single-criterion
+perturbation flips it, and all twenty repeats return $0$ together. If the margin
+is narrow, many return $1$ together. The prompt's margin is a property the
+repeats \textbf{share}, and $\rho=0.27$ is the size of that sharing.}
 
+\ex{What it cost. A pairwise-dependence screen reported ``$89$ of $120$ pairs
+survive'' computed on the pooled $19{,}360$ rows. Recomputed at the cluster level:
+$74$ of $120$. Fifteen apparent findings were the design effect. The derived
+inflation is $\sqrt{6.13}=2.48$ and the directly resampled inflation was $2.79$;
+they agree, and the residual is that a correlation is not a simple mean so
+\cref{thm:deff} is only approximate for it.}
+
+\misread{Row count as sample size. The question is always ``how many independent
+things did I observe'', and repeated measurement of the same thing is not
+independence.}
+
+% ---------------------------------------------------------------------------
 \subsection{The bootstrap}
 \label{sec:boot}
 
-The formulas above give $\se$ for a \emph{mean}. For a correlation, a median, a
-ratio, or anything else, no such formula is available in general. The bootstrap
-replaces it with computation.
+\prob{The formulas above give $\se$ for an \emph{average}. For a correlation, a
+median, a ratio, or a rank statistic there is generally no formula.}
+
+\intu{Replace the algebra with imitation. We cannot rerun the study, but we can
+rerun a \emph{stand-in} for it: draw a new dataset from the one we have, with
+replacement, and recompute. The spread of the recomputed values imitates the
+spread we would have seen across genuinely fresh studies, because the observed
+sample is the best available stand-in for the population.}
 
 \begin{protocol}[Cluster bootstrap]
 \label{prot:boot}
-Given clusters $c_1,\dots,c_P$ and a statistic $T$:
-\begin{enumerate}
-\item Draw $P$ clusters \emph{with replacement} from $\{c_1,\dots,c_P\}$.
-\item Compute $T$ on the resampled collection; call it $T^{(1)}$.
-\item Repeat $B$ times, obtaining $T^{(1)},\dots,T^{(B)}$.
-\item Report the $2.5$th and $97.5$th percentiles as a $95\%$ interval.
-\end{enumerate}
+Resample $P$ \emph{clusters} with replacement; recompute the statistic; repeat
+$B$ times; report the $2.5$th and $97.5$th percentiles.
 \end{protocol}
 
-\step{Why it works, in one line.} The variation of $T$ across resamples of the
-observed data mimics the variation of $T$ across fresh samples from the
-population, because the observed sample is our best available stand-in for that
-population.
+\intu{The resampling unit must be the cluster. Resampling rows would build
+datasets whose internal dependence differs from the real one, reproducing exactly
+the understatement of \cref{thm:deff}. Every interval in this paper resamples
+prompts.}
 
-\step{Why the resampling unit must be the cluster.} Resampling \emph{rows}
-would create datasets whose within-cluster dependence differs from the real one,
-and would reproduce the understatement of \cref{thm:deff}. Every interval in
-this paper resamples prompts.
+\feel{$400$ resamples of $968$ prompts gave $[+0.2566,+0.3520]$ around the
+observed $+0.3040$ in §\ref{sec:c1} --- a quantity for which no closed-form
+$\se$ exists.}
 
-\step{When it fails.} With few clusters, at the boundary of a parameter's range,
-or for statistics that are not smooth functions of the data. All three are
-checked in §\ref{sec:limits}.
+\misread{Bootstrap intervals as assumption-free. They fail with few clusters, at
+the edge of a parameter's range, and for statistics that are not smooth in the
+data. All three are checked in §\ref{sec:limits}.}
 
-\subsection{Permutation tests, and exactly what they test}
+% ---------------------------------------------------------------------------
+\subsection{Permutation tests}
 
-\begin{protocol}[Permutation test]
-To test whether the \emph{pairing} between two vectors $x$ and $y$ carries
-information: compute $T(x,y)$; then repeatedly shuffle $x$ and recompute
-$T(x_{\text{shuffled}}, y)$; the $p$-value is the fraction of shuffles reaching
-$|T|$ at least as large as observed.
-\end{protocol}
+\prob{Sometimes the question is not ``how big'' but ``is the pairing between these
+two lists doing any work at all''.}
 
-\begin{remark}[The exchangeability assumption]
-Shuffling assumes that under $H_0$ all orderings are equally likely. If $x$ has
-internal structure -- clustering, time order -- shuffling destroys that too, and
-the test then answers a question nobody asked. In §\ref{sec:findings} the shuffle
-is applied to cluster-level values for this reason.
-\end{remark}
+\intu{Destroy the pairing and see if the result survives. Shuffle one list against
+the other many times; if the real pairing gives something the shuffles rarely
+give, the pairing carries information. It is a \emph{falsifier}: it can say the
+pairing matters, never \emph{why}.}
 
-\begin{remark}[Resolution floor]
-With $B$ shuffles the smallest attainable $p$ is $1/(B+1)$: a reported
-$p = 0.0000$ from $B = 200$ means only $p < 0.005$, and no more.
-\end{remark}
+\feel{$B=200$ shuffles: the smallest attainable $p$ is $1/(B+1)=0.005$. A reported
+$p=0.0000$ from $200$ shuffles means $p<0.005$ and nothing more.}
 
-\begin{remark}[What a permutation null cannot do]
-It answers \emph{did the pairing matter}, never \emph{why}. It is a falsifier,
-never a confirmer of a mechanism.
-\end{remark}
+\ex{What it answers here. Two operators each flip about $5\%$ of prompts. Do they
+flip the \emph{same} prompts? Shuffling which prompt each operator's outcome is
+attached to destroys any such coupling while leaving both flip \emph{rates}
+untouched --- so the shuffled distribution is exactly the world where the two
+operators are unrelated but equally active. Comparing the real coupling to that
+distribution isolates the coupling and nothing else.}
 
+\misread{The shuffle as neutral. Shuffling assumes all orderings are equally
+likely under the null; if the list has internal structure --- clustering, time
+order --- shuffling destroys that too, and the test answers a question nobody
+asked. In this paper shuffles are applied to cluster-level values for exactly
+this reason.}
+
+% ---------------------------------------------------------------------------
 \subsection{Multiplicity}
+
+\prob{Test $170$ things at the usual threshold and about $8$ will look real when
+nothing is.}
+
+\intu{Every test is a lottery ticket for a false positive. Buy $170$ tickets and
+you should expect to win. Either raise the bar per test, or change what you are
+controlling.}
 
 \begin{theorem}[Bonferroni]
 \label{thm:bonf}
-If $C$ tests are each performed at level $\alpha/C$, then the probability of at
-least one false rejection when all nulls are true is at most $\alpha$.
+Testing $C$ hypotheses each at level $\alpha/C$ keeps the probability of
+\emph{any} false rejection at $\le\alpha$.
 \end{theorem}
 \begin{proof}
-Let $A_i$ be the event of a false rejection on test $i$, so
-$\Prob(A_i)=\alpha/C$. The union bound gives
-$\Prob(\bigcup_i A_i) \le \sum_i \Prob(A_i) = C\cdot\alpha/C = \alpha$. The union
-bound itself follows from \cref{cor:indexp} plus
-$\mathbf{1}\{\bigcup A_i\} \le \sum_i \mathbf{1}\{A_i\}$, which holds pointwise
-because the left side is $0$ or $1$ and the right side counts.
+$\mathbf{1}\{\bigcup A_i\}\le\sum_i\mathbf{1}\{A_i\}$ pointwise (\cref{lem:union});
+take expectations via \cref{cor:indexp}: $\Prob(\bigcup A_i)\le C\cdot\alpha/C$.
 \end{proof}
 
-\begin{corollary}[The bar used in this paper]
-For $C \approx 170$ tests at $\alpha = 0.05$: $\alpha/C \approx 0.0003$, whose
-two-sided normal quantile is $|z| \approx 3.6$. This paper uses the more
-conservative $|z| > 3.9$ and reports the number of tests and the number of
-survivors together, since reporting only survivors is the multiplicity failure
-with manners.
-\end{corollary}
+\feel{$C=171$, $\alpha=0.05$: per-test level $0.000292$, whose two-sided normal
+quantile is $|z|=3.62$. This paper uses the stricter $|z|>3.9$ and always reports
+tests-run beside tests-surviving.}
 
 \begin{remark}[Bonferroni versus false discovery rate]
-Bonferroni controls the probability of \emph{any} false positive, which is the
-right target when a single false claim is costly. The
-Benjamini--Hochberg procedure instead controls the expected \emph{share} of false
-positives among rejections, and rejects hypothesis $(k)$ when
-$p_{(k)} \le qk/C$ for the largest such $k$. Its threshold at rank $k=C$ is $q$
-itself, not $q/C$ -- confusing the two demands orders of magnitude more
-resolution than BH actually requires.
+Bonferroni controls the chance of \emph{any} false positive --- right when one
+false claim is costly. Benjamini--Hochberg instead controls the expected
+\emph{share} of false positives among rejections, with threshold $qk/C$ at rank
+$k$; at $k=C$ that is $q$ itself, not $q/C$. Confusing the two demands orders of
+magnitude more resolution than BH requires.
 \end{remark}
 
-\subsection{Measurement error and attenuation}
+\ex{Why $170$ tests is not an unusual number. The operator grid in this work has
+$19$ operators; asking which pairs behave alike is $19\times18/2=171$ questions,
+and nobody set out to run $171$ tests --- they fell out of one table. At the usual
+$5\%$ threshold about $8.5$ would look real with nothing there, which is within a
+factor of two of the number of \emph{genuine} findings. The correction is not
+pedantry; without it the table is half noise.}
+
+\misread{Reporting only the survivors. That is the multiplicity failure with
+manners: the correction is meaningless unless the denominator is published.}
+
+% ---------------------------------------------------------------------------
+\subsection{Measurement error, reliability, attenuation}
 \label{sec:atten}
 
-Every quantity in §\ref{sec:object} is measured by a fallible instrument. This
-subsection derives the exact consequence.
+\prob{Every quantity here is read by a fallible instrument --- a language model
+judging whether a criterion is satisfied. What does that do to the numbers?}
 
-\step{Sub-step 0.17.1 --- the model.} Suppose the truth is $T$ but we observe
-$X = T + \eps$, with $\eps$ independent of $T$, $\E[\eps]=0$,
-$\Var(\eps)=\sigma_\eps^2$.
+\intu{Measuring with a blurry ruler. Blur adds spread that has nothing to do with
+the thing being measured, so the measured quantity varies more than the true one.
+When you correlate two blurry measurements, the shared signal is unchanged but
+both spreads are inflated --- and correlation is signal divided by spreads. So
+\textbf{noise always pushes a correlation toward zero}, never away. It is a
+systematic pull, not random error, and more data does not fix it.}
 
-\step{Sub-step 0.17.2 --- reliability.} Define
-\[
-\mathrm{rel} \;:=\; \frac{\Var(T)}{\Var(X)} = \frac{\sigma_T^2}{\sigma_T^2+\sigma_\eps^2}
-\;\in\;[0,1],
-\]
-the share of observed variance that is signal. \Cref{lem:varsum} with
-independence gives the denominator.
+\begin{definition}[Reliability]
+$\mathrm{rel}:=\Var(T)/\Var(X)=\sigma_T^2/(\sigma_T^2+\sigma_\eps^2)$: the share
+of observed variation that is signal.
+\end{definition}
 
-\step{Sub-step 0.17.3 --- two independent measurements.} If $X_1 = T+\eps_1$ and
-$X_2 = T+\eps_2$ with $\eps_1 \perp \eps_2$ and equal error variances, then
-$\Cov(X_1,X_2) = \Var(T) = \sigma_T^2$ (the error terms contribute nothing), and
-each has variance $\sigma_T^2+\sigma_\eps^2$. Therefore
-\begin{equation}
-\Corr(X_1,X_2) \;=\; \frac{\sigma_T^2}{\sigma_T^2+\sigma_\eps^2} \;=\; \mathrm{rel}.
+\begin{lemma}[The identity that makes this free to compute]
 \label{eq:relcorr}
-\end{equation}
-\emph{The correlation between two independent measurements of the same thing
-\underline{is} the reliability of one of them.} This is what makes
-§\ref{sec:instrument} computable at zero extra cost.
+For two independent measurements $X_1=T+\eps_1$, $X_2=T+\eps_2$ with equal error
+variances, $\Corr(X_1,X_2)=\mathrm{rel}$.
+\end{lemma}
+\begin{proof}
+$\Cov(X_1,X_2)=\Var(T)$, since every cross term involves an independent error;
+each has variance $\sigma_T^2+\sigma_\eps^2$.
+\end{proof}
+
+\intu{\textbf{Two independent measurements of the same thing agree exactly as much
+as one of them is trustworthy.} So running a second judge measures the first
+judge's reliability at no extra conceptual cost --- which is what
+§\ref{sec:instrument} does.}
 
 \begin{theorem}[Attenuation]
 \label{thm:atten}
-Let $X = T+\eps_X$ and $Y = U+\eps_Y$ with independent errors. Then
-\[
-\Corr(X,Y) \;=\; \Corr(T,U)\cdot\sqrt{\mathrm{rel}_X\,\mathrm{rel}_Y}.
-\]
+$\Corr(X,Y)=\Corr(T,U)\sqrt{\mathrm{rel}_X\mathrm{rel}_Y}$.
 \end{theorem}
 \begin{proof}
-$\Cov(X,Y) = \Cov(T+\eps_X, U+\eps_Y) = \Cov(T,U)$, since all three cross terms
-involve an error independent of everything else. The denominators are
-$\operatorname{sd}(X) = \sigma_T/\sqrt{\mathrm{rel}_X}$ and likewise for $Y$,
-because $\mathrm{rel}_X = \sigma_T^2/\sigma_X^2$ rearranges to
-$\sigma_X = \sigma_T/\sqrt{\mathrm{rel}_X}$. Substituting,
-\[
-\Corr(X,Y) = \frac{\Cov(T,U)}{\frac{\sigma_T}{\sqrt{\mathrm{rel}_X}}\cdot\frac{\sigma_U}{\sqrt{\mathrm{rel}_Y}}}
-= \frac{\Cov(T,U)}{\sigma_T\sigma_U}\sqrt{\mathrm{rel}_X\mathrm{rel}_Y}. \qedhere
-\]
+$\Cov(X,Y)=\Cov(T,U)$; and $\operatorname{sd}(X)=\sigma_T/\sqrt{\mathrm{rel}_X}$
+from the definition of reliability. Substitute.
 \end{proof}
 
-\begin{corollary}[The ceiling]
-A perfect true relationship, $\Corr(T,U)=1$, reads at most
-$\sqrt{\mathrm{rel}_X \mathrm{rel}_Y}$. No amount of data raises this: it is
-bias, not noise, and $\sqrt{n}$ does not touch it.
-\end{corollary}
+\feel{Measured judge reliability $0.5497$, so $\sqrt{0.5497}=0.741$. Read: a
+\emph{perfect} true relationship, measured through this judge, reads $0.74$. No
+sample size raises it --- the pull is bias, and $\sqrt n$ does not touch bias.}
 
-\subsection{Reliability of an aggregate, and the Spearman--Brown formula}
+\ex{The judge, concretely. Two language models scored the same $59{,}936$
+criterion-by-response cells; they correlate at $0.5497$. By \cref{eq:relcorr} that
+\emph{is} one judge's reliability, so by \cref{thm:atten} every correlation read
+through this tensor is multiplied by $\sqrt{0.5497}=0.741$. A relationship that is
+genuinely perfect reads $0.74$; one that genuinely reads $0.4$ was really $0.54$.
+\textbf{Every number in this paper that routes through satisfaction inherits this
+factor}, and the compounded ceiling with the panel's own reliability is $0.720$.}
 
-Averaging several noisy measurements reduces error. The exact statement:
+\ex{And the use that matters. §\ref{sec:gaps} asks whether the two elicitation
+routes disagree only because both are noisy. Dividing the observed $0.6265$ by
+$\sqrt{0.8702\times0.9408}$ removes exactly the blur and leaves $0.6924$. The gap
+does not close --- so the disagreement is between what people write and what they
+choose, not between two noisy views of one thing. \textbf{Without
+\cref{thm:atten} that question has no answer at all.}}
 
-\begin{theorem}[Spearman--Brown]
+\misread{A weak measured correlation as a weak true relationship. It may be a
+strong relationship seen through a blurry instrument, and \cref{thm:atten} is
+the arithmetic that tells them apart --- used in §\ref{sec:gaps} to establish that
+the two elicitations disagree \emph{beyond} their own blur.}
+
+% ---------------------------------------------------------------------------
+\subsection{Spearman--Brown: the reliability of a panel}
+
+\prob{One judge is unreliable. A panel of many should be better. By how much,
+exactly?}
+
+\intu{Averaging $m$ measurements multiplies the signal by $m$ but the noise only
+by $\sqrt m$, because independent noise adds in squares (\cref{lem:varsum}). So
+signal-to-noise improves with panel size, but with diminishing returns --- and the
+formula says precisely how fast.}
+
+\begin{theorem}
 \label{thm:sb}
-If a score is the sum of $m$ exchangeable components each with reliability
-correlation $r$ to another such component, then doubling the number of components
-gives reliability $2r/(1+r)$.
+Doubling the number of components takes reliability $r$ to $2r/(1+r)$.
 \end{theorem}
-\begin{proof}[Derivation]
-Let each component be $T + \eps_i$ with $\Var(T)=\sigma_T^2$,
-$\Var(\eps_i)=\sigma_\eps^2$, errors independent. The sum of $m$ components is
-$mT + \sum_i \eps_i$, with signal variance $m^2\sigma_T^2$ and error variance
-$m\sigma_\eps^2$ by \cref{lem:varsum}. So
-\[
-\mathrm{rel}_m = \frac{m^2\sigma_T^2}{m^2\sigma_T^2+m\sigma_\eps^2}
-= \frac{m\sigma_T^2}{m\sigma_T^2+\sigma_\eps^2}
-= \frac{m\lambda}{m\lambda+1},\qquad \lambda := \sigma_T^2/\sigma_\eps^2 .
-\]
-For $m=1$ this is $r = \lambda/(\lambda+1)$, so $\lambda = r/(1-r)$. Substituting
-$m=2$:
-\[
-\mathrm{rel}_2 = \frac{2r/(1-r)}{2r/(1-r)+1} = \frac{2r}{2r+(1-r)} = \frac{2r}{1+r}. \qedhere
-\]
+\begin{proof}
+Summing $m$ components gives signal variance $m^2\sigma_T^2$ and error variance
+$m\sigma_\eps^2$, so $\mathrm{rel}_m=m\lambda/(m\lambda+1)$ with
+$\lambda=\sigma_T^2/\sigma_\eps^2$. At $m=1$, $r=\lambda/(\lambda+1)$, so
+$\lambda=r/(1-r)$; substitute $m=2$.
 \end{proof}
 
-\begin{remark}[Use here]
-Splitting the annotators of a prompt into two halves and correlating the two
-half-scores estimates the reliability of a \emph{half}-sized panel. Applying
-\cref{thm:sb} corrects it to the full panel, which is the quantity that actually
-enters \cref{thm:atten}.
-\end{remark}
+\feel{Split-half $r=0.8961$ gives full-panel $2(0.8961)/1.8961=0.9452$. Read:
+splitting the annotators of a prompt in half and correlating the two halves
+measures a \emph{half}-sized panel; \cref{thm:sb} corrects it to the panel that
+was actually used, which is the number that enters \cref{thm:atten}.}
 
+% ---------------------------------------------------------------------------
 \subsection{Two-way clustering}
 
-When observations are grouped along two crossed dimensions at once -- here,
-prompts and annotators, since an annotator appears on several prompts and a
-prompt is rated by several annotators -- neither one-way correction suffices.
+\prob{Here observations are grouped two ways at once: an annotator appears on many
+prompts, and a prompt is rated by many annotators. Correcting for one leaves the
+other.}
+
+\intu{Two observations are dependent if they share a prompt \emph{or} an
+annotator. Add the two corrections and you have double-counted the pairs sharing
+both, so subtract that once. It is inclusion--exclusion applied to covariance
+terms.}
 
 \begin{theorem}[Cameron--Gelbach--Miller]
 \label{thm:cgm}
-$\hat V_{\text{two-way}} = \hat V_{\text{prompt}} + \hat V_{\text{annotator}}
- - \hat V_{\text{prompt}\times\text{annotator}}$.
+$\hat V_{\text{two-way}}=\hat V_{\text{prompt}}+\hat V_{\text{annotator}}
+-\hat V_{\text{both}}$.
 \end{theorem}
-\begin{proof}[Sketch]
-Two observations are dependent if they share a prompt \emph{or} an annotator. By
-inclusion--exclusion applied to the covariance terms of \cref{lem:varsum}, pairs
-sharing \emph{both} are counted once in each of the first two sums and must be
-subtracted once. The estimator can be slightly negative in finite samples, which
-signals that one dimension carries almost no dependence.
-\end{proof}
 
+\misread{A slightly negative estimate as a bug. It signals that one dimension
+carries almost no dependence, which is information.}
