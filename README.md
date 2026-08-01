@@ -1,1433 +1,190 @@
 # CoVal Crossroads
 
-**What does a public-input values rubric actually measure, and at what scope?**
+An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets/openai/coval) — a
+dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
+contentious prompts, *and wrote down the criteria they judged by*.
 
-> ⚠ This repository's original subtitle was *"Does a public-input values rubric actually measure
-> values?"* — the framing this project withdrew and then left standing as its own headline for
-> fourteen turns. The contrast every number here computes is **own-rubric minus reference-rubric
-> performance**: a comparison between two rubrics, never between rubric content and its absence.
-> Whatever an unrelated prompt's rubric recovers is itself made of accuracy, clarity, caution,
-> non-deception, relevance and proportionality — norms, not the lack of them. The correct name is
-> **source specificity**, and the layer table below is what replaced the question.
+**202 rounds** across 13 phases, numbered to r205 — **53 standing claims, 13 withdrawn**, and
+**46 defect checks on the release, 16 of them clean.**
 
-An independent, reproducible audit of [OpenAI's CoVal release](https://huggingface.co/datasets/openai/coval) — a dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to contentious prompts *and wrote down the criteria they judged by*.
-
-The release ships prompts, four candidate responses, crowd-written value rubrics and 18,384 human rankings — **two per assessment: a *personal* ranking and a *world* ranking**, and every number in this repository is measured against the **world** one (`covalx/judge.py:245`, `ranking_blocks["world"]`). It does **not** ship the criterion-by-response satisfaction labels, so its published scoring cannot be reproduced. This repository rebuilds that layer locally, measures its concordance with the released rankings, and then asks what the rubric is actually made of — layer by layer, since a rubric is a measurement program `M(R, J, π, Q, P)` rather than a value function.
-
-> **⚠ Scope correction, 2026-07-28.** Earlier versions called the 80,542 pairs "held-out human
-> preference". They are **pairwise decompositions of the same rankings**, on the same prompts and the
-> same four candidates the criteria were written about, by participants who had already ranked them.
-> Holding out individual *pairs* does not break that dependence. OpenAI ran a **separate** validation
-> study with new raters and new completions precisely because the original rankings are unsuitable for
-> out-of-sample rubric validity. So r04 establishes **internal reconstructive concordance on the
-> elicitation manifold** — which is real and useful — and not out-of-sample human preference validity.
+The release ships prompts, four responses per prompt, crowd-written rubrics and 18,384 rankings —
+but **not** the criterion-by-response satisfaction labels, so its own scoring cannot be reproduced
+from it. This repository rebuilds that layer locally and then asks what the rubric measures.
 
 ---
 
-> ### ⚠ The outcome variable is the WORLD ranking, and that was never stated
->
-> CoVal asked each participant for **two** orderings of the same four responses: a **personal**
-> one — *"according to their own personal values and preferences"* — and a **world** one — *"what
-> would be best for the world overall (a more impartial or societal perspective, rather than just
-> their personal taste)"* (`data/DATASET_CARD.md`, task flow).
->
-> **This project has used the world ranking throughout.** `covalx/judge.py:245` reads
-> `ranking_blocks["world"]`; the function's own docstring says *"strict pairwise preferences from
-> world rankings"*. So **0.686**, **+0.102 → −0.064**, **+0.0576** and every other concordance
-> number here means *agreement with what people said is best for the world*, **not** *agreement
-> with what people preferred*.
->
-> Neither this README nor `PREREGISTRATION.md` said so until now. The personal ranking is present
-> for **26.7%** of assessments (4,901 of 18,384) and **has never been used in this project** — an
-> entire second outcome, and the one that speaks directly to the distinction the reframed object
-> rests on:
-> a preference ordering and a normative ordering are different objects, and only one of them has
-> been measured.
+## The short version
 
-## The object, layer by layer
+**The apparatus works better than its critics would guess and worse than its numbers suggest.**
 
-A CoVal rubric is not a value function. It is a **scoped, compiled, context-indexed normative
-measurement program** — `M(R, J, π, Q, P)` — and each layer needs validating separately. This
-table is the project's state; every cell points at the round that settled or failed to settle it.
+| question | answer |
+|---|---|
+| Does the crowd's rubric beat a dumb heuristic? | **Yes, clearly.** It picks the human top choice 50.3% of assessments against 37.3% for "pick the longest response" — +13.0 points, stable across weighting and outlier removal. |
+| Is that good? | It closes **66–67%** of the reachable band. The ceiling is not 100%: two humans on the same prompt pick the same best response only **47.8%** of the time. |
+| Do the criteria say what people value? | **Partly.** They are also descriptions of the answer their author had already chosen — authoring happens *after* ranking, and the effect is +0.0478 on a same-texts comparison. |
+| Does compilation fix that? | **No.** The distillation into `coval_core` passes it through unchanged (+0.013, z 1.0, adequately powered). |
+| Does compilation cost anything? | **Yes.** It gives back ~40% of the fairness the full rubric had gained over the panel's own plurality vote. |
+| Is the "unacceptable" flag trustworthy? | **It is the most reliable channel here** — raters agree on *which* response is unacceptable at Spearman-Brown **+0.827**. |
+| Do demographic groups have different values? | **Barely.** 2 of 28 demographic levels cluster above chance, both countries, at ~+4.5% — against +73.7% for a planted bloc. |
 
-| layer | what it is | established | **not** established |
-|---|---|---|---|
-| **R** rubric | the criteria and their weights | the own-rubric advantage is **semantic, not lexical** — `advantage_retained_under_paraphrase` = **0.9739** ([r20](02_attribution_under_attack/r20_paraphrase_transfer)), on paraphrases whose fidelity [r14](02_attribution_under_attack/r14_paraphrase_gauge) filtered at **99.1%** kept (`fidelity_kept.model` = 0.99116). Post-ranking **polarity** is the largest predictive channel, and *how much* depends on how you ask: adding sign **last to text alone** is worth **+0.0876** — 47% of the above-chance signal ([r32](03_person_or_pair/r32_channel_decomposition)) — while its **Shapley value averaged over all 16 coalitions is +0.0214**, or 12% ([r36](04_what_core_is/r36_channel_shapley)). ⚠ r36's own verdict says r32's figure *"was the value of adding sign LAST to text alone — one path through the lattice, not the channel's average worth"*, so **"roughly half" is the maximum over entry orders, not the channel's contribution**, and it transfers across people even on **private** write-in criteria ([r49](06_the_judges_mechanism/r49_provenance_crossfit)) | **what the polarity IS.** No rater in the release rated a criterion before seeing four responses, so a response-blind direction is unreachable — that is **S_pre**. Also: r34–r37 and r43 are computed on the **pre-seeded 36.5%** of criteria, not the participant-authored remainder ([entry 51](RETRACTIONS.md)) **⚠ Two rivals closed since (2026-07-29).** The **criterion-count channel** is dead — a **120×** spread in \|ΔK\| moves attribution not at all, and the two *extremes* land within **0.0011** of each other, so a flat dose-response across three arms replaces a single control ([r87](09_form_donor_draw_and_unit/r87_criterion_count_channel)). And the advantage's **ordinal** structure survives a change of judge in **3 of 3** ([r95](10_meta_separator_and_triage/r95_layer_separability)). **⚠ And the pooled figure averages over pairs humans disagree about** ([r103](11_reliability_and_the_width_chain/r103_consensus_conditioned), 2026-07-29). Conditioned on **human consensus** — a property of the raters that neither rubric touches — attribution runs **+0.0283** where consensus is barely above chance to **+0.2461** [+0.2203, +0.2712] where it is near-unanimous, 4/4 monotone, against **+0.1738** pooled *on that same majority-pair population*. **⚠→ SEPARATED, 2026-07-29** ([r104](11_reliability_and_the_width_chain/r104_deattenuated_consensus)). Attenuation is measurable: split each pair's raters in THREE — one third labels, one third measures that label's reliability, one third bins — and the probe thirds agree **0.652 → 0.865**, giving attenuation factors **0.552 → 0.855**. Dividing them out, attribution still runs **+0.1546 → +0.2491**, a corrected rise of **+0.0945** [+0.0607, +0.1281] against **+0.1276** raw. **26% of the gradient was the target's noise; the rest is not.** ⚠ And correlated arm/label errors would bias this *toward* flatness, so the rise is a lower bound. **⚠ But the COMPOSITION may not move at all** ([r105](11_reliability_and_the_width_chain/r105_specific_share_invariance)): the prompt-specific *share* reads **0.6948 / 0.6991 / 0.6840**, span **0.0151**, while the attribution rises **+150%** — though the interval **[−0.1335, +0.1185]** is wider than its ±0.05 margin, so this is an **answerable margin**, not invariance. |
-| **J** judge | the satisfaction instrument | reconstructs the missing satisfaction layer well enough to reach **0.686** pairwise concordance on 80,542 pairs ([r04](01_object_and_rebuild/r04_rebuild_satisfaction)) — ⚠ **internal reconstructive concordance on the elicitation manifold**, not held-out human preference, per this file's own scope correction above; three unrelated lineages agree in direction ([r39](05_human_protocol_and_power/r39_feature_cache), [r40](05_human_protocol_and_power/r40_ood_map)) | **a measured defect, not a gap:** it reads lexical overlap — **+0.2068** correlationally ([r51](06_the_judges_mechanism/r51_judge_lexical)) and **+0.2507 causally** under intervention ([r52](06_the_judges_mechanism/r52_overlap_intervention)). Whether that is *error* is unknown: the release has no satisfaction ground truth to set the ceiling. Accuracy on generated responses is unvalidated **⚠ Separability, added 2026-07-29.** The near<random ordering holds in **3 of 3** judges, so the world with *no* judge-invariant property is refuted at the ordinal level ([r95](10_meta_separator_and_triage/r95_layer_separability)). Whether the judge is a **pure gain** is **NOT REFUTED rather than established**: pairwise ratio differences straddle zero, but the test resolves **0.270** and the largest observed is **0.188** — below its own threshold ([r96](10_meta_separator_and_triage/r96_separability_resolved)). And the **between-judge** variance component is **not estimable at n=3** — a data limit, not an unrun test ([entry 170](RETRACTIONS.md)). **⚠ And its CONFIDENCE is calibrated, not only its sign** ([r102](11_reliability_and_the_width_chain/r102_margin_calibration), 2026-07-29). Conditioned on the decision margin `agree()` computes and discards, agreement runs **0.5375 → 0.8574** across margin deciles — **9 of 9 steps non-decreasing**, corr **+0.2071**. The bottom decile is **near chance**; the top is **0.857**. So 0.686 is not one coin. Shuffle null puts the rise in [−0.014, +0.015]; observed **+0.320**. ⚠ Does **not** separate calibration from item difficulty — a large margin and an easy human judgement share a cause. |
-| **π** protocol | how criteria were elicited and rated | the seed/write-in partition is **exactly identified** — 0.1% in the gap, six pre-seeded per prompt ([r48](06_the_judges_mechanism/r48_provenance_identified)). Concordance is **robust to post-hoc abstention** ([r35](04_what_core_is/r35_polarity_abstention)) | **the forced-choice effect at elicitation time.** The scale runs −10..+10 and 0 appears **once in 102,147 ratings**, so "no general direction" was never available to a participant. Filtering afterwards cannot simulate having had the option **⚠ Bounded across the release's two forms (2026-07-29).** Agreement **0.6879** long-form vs **0.6854** short ([r85](09_form_donor_draw_and_unit/r85_agreement_by_form)) and source specificity **+0.1258** vs **+0.1202**, **positive in both** ([r86](09_form_donor_draw_and_unit/r86_attribution_by_form)) — answerable margins **0.020** and **0.026**, so these are *bounds*, not equivalence at δ=0.01. The forms cover **disjoint prompts**, so this compares questions as well as instruments. |
-| **Q** responses | which response distribution is scored | the own-rubric advantage **does not transfer** to responses the criteria authors never saw — +0.102 → −0.064 ([r12](02_attribution_under_attack/r12_response_set)), replicated on 250 untouched prompts at +0.085 → −0.072 ([r46](06_the_judges_mechanism/r46_spread_replication)) | **whether that is about rubrics or about proxies.** The outcome is a model gold head that reads length (+0.077 → +0.458 across response sets), and **roughly half the inversion rides on that channel** — 57% survives residualisation against the procedure's own null, and on held-out prompts the fresh arm **stops being negative** once length is removed ([r47](06_the_judges_mechanism/r47_gold_is_length)). So *"the advantage does not transfer"* replicates; *"an unrelated rubric beats it"* does not, and every mechanism tested — generic distance, criterion novelty, spread loss, overlap — has failed or failed to replicate. That is **H_fresh** **⚠ And H_fresh cannot settle it at δ=0.01 (2026-07-29).** The frozen 60-prompt frame resolves **≈0.0446** with donor-averaging at m≥10 — **86× short** of the ~5,148 prompts δ=0.01 would need ([r91](09_form_donor_draw_and_unit/r91_precision_budget), [r94](09_form_donor_draw_and_unit/r94_donor_averaging_at_frame_size)). H_fresh is powered for r12's inversion at **0.16** and for **nothing else in this package**, so an H_fresh null on any sub-margin number is **uninformative by construction**. |
-| **P** population | whose values are measured | no aggregate loss in the splits tested **in the pre-seeded criterion class** — ⚠ [r92](09_form_donor_draw_and_unit/r92_writein_analysability): every population round applies the majority filter, so this covers **36.5%** of criteria; the excluded **63.5%** carry a median of **1** rater and admit **no** between-group comparison at any threshold, so the restriction is **structural, not a choice** — and **equivalent to zero at δ = 0.01** rather than merely non-significant ([r37](04_what_core_is/r37_leakage_topology), [r42](05_human_protocol_and_power/r42_equivalence)) — ⚠ δ is **stipulated, not measured**, and r42's own verdict says the nulls hold *"at this margin and at no other"*: **12/21 contrasts are equivalent at 0.01, 7/21 at 0.005, 4/21 at 0.0025**, and r42's population was **four hand-listed rounds, not the package** — enumerating gives 125 interval contrasts ([r58](06_the_judges_mechanism/r58_equivalence_census)) | **value constituencies**, and **that the population nulls are equivalence rather than silence.** Country sign-reversals exceed a label-permutation null (+0.0190) but **0 of 17** group tests survive BH correction, splitting 2 positive / 2 negative — symmetric noise ([r43](05_human_protocol_and_power/r43_criterion_heterogeneity)). ⚠ **9 of r43's group cells are INCONCLUSIVE at δ=0.01** — non-significant *and* not bounded inside the margin, so for those cells "no group is predicted better by its own weights" is an absence of detection, not a demonstration of absence ([r58](06_the_judges_mechanism/r58_equivalence_census)). These are demographic proxies, not constituencies |
+---
 
-**What ties the "not established" column together.** Four of the five gaps are the *same three*
-counterfactuals: **S_pre** (R), **H_fresh** (Q), **τ_c** — the causal effect of intervening on one
-criterion, which no observational contrast in this release identifies. π's gap needs a neutral
-option on the screen at elicitation time, which is S_pre's PRE arm. **None of them is computable
-from this release**, and **64 rounds with published results** establish that by exhausting the alternatives rather than by
-assertion.
+## What was established
 
-⚠ One cross-cutting scope note that belongs on every row: the per-prompt attribution drop these
-rounds correlate against has **split-half reliability 0.302–0.422** ([r57](06_the_judges_mechanism/r57_outcome_reliability)),
-so any mechanism with a true per-prompt correlation below ≈0.2 is invisible to all of them
-([entry 55](RETRACTIONS.md)).
+Every number below states its unit, because five of seven headline figures in this project were
+published without one. The check that found that is [`13_normative_chain/HEADLINES.py`](13_normative_chain/HEADLINES.py) and it re-runs.
 
-## Headline
+### The pipeline
 
-**What is robust here is an ordering, not a share.** Grading responses against **an unrelated
-prompt's rubric** already recovers most of the apparent signal.
-
-| grading the same responses with… | concordance with the original human rankings |
-|---|---:|
-| the real, prompt-specific rubric | **0.686** |
-| an unrelated prompt's rubric | 0.607 |
-| response length alone | 0.532 |
-| chance | 0.500 |
-
-That ordering holds across every judge and every floor tested. **The split of the 18.6 points above
-chance does not.** Against a randomly chosen prompt as the floor it is 7.9 / 10.7 — but that is one
-cell of a grid, and the grid spans a factor of twenty:
-
-- the **floor donor** moves it **2.47×** ([r19](02_attribution_under_attack/r19_floor_choice))
-- the **judge family** moves it **2.13×** on top of that — derived from [r30](03_person_or_pair/r30_scope_grid)'s shares (53.8% qwen2.5-3b ÷ 25.3% phi), *not* a value r22 stores
-- with an interval in every cell, source specificity runs **3.2% – 65.8%** ([r30](03_person_or_pair/r30_scope_grid))
-
-**⚠ CONFIRMED, not revised, by the largest-n cell available** ([r86](09_form_donor_draw_and_unit/r86_attribution_by_form),
-2026-07-29). Computing own-minus-donor attribution against **real human** rankings over the **whole
-968-prompt join** — r12's donor permutation rather than r10's panel — gives **+0.1215**, which is
-**1.54×** the 7.9-point cell above and **65.3%** of the 18.6 points over chance — at the top of the
-span this section already states, **3.2% – 65.8%**, from an independent donor rule on three times the
-prompts. ⚠ **That position is draw-dependent and the first phrasing here was too precise**
-([r88](09_form_donor_draw_and_unit/r88_donor_draw_variance)): +0.1215 is **one donor draw**, sitting **−0.62 sd** below the
-mean of 120. The donor-averaged estimate is **+0.1249 = 67.2%**, which is *above* the 65.8% edge, and
-the central 95% of draws spans **61.3% – 72.7%**. So the honest statement is that this cell **straddles
-the top of the grid**, not that it sits inside it. The headline is frozen (queue item 2) and this does not revise it: it is one more
-cell of the grid the headline says exists, and it falls where the headline says cells fall.
-**⚠ BUT IT IS NOT THE SAME CONTRAST AS r10's OR r12's, AND "confirmed" OVERSTATES IT**
-([r109](11_reliability_and_the_width_chain/r109_donor_arm_is_text_blind), 2026-07-29). **Replacing every donor criterion's text
-with `'zzzz qqqq xxxx vvvv'` — 9,325 of 14,984 strings genuinely overwritten — moves +0.1215 by
-`0.0e+00`.** Not approximately: bit-identical. `agree()` scores with **this** prompt's satisfaction
-values from r04's tensor, indexed by the *donor's* criterion **positions**, and `weights()` reads only
-each item's `scores`; neither ever touches `criterion`. **The same harness moves the number 0.0548 when
-it randomises the donor's ratings instead**, so the blindness is the arm's, not the harness's.
-**r10 pairs the donor's criterion TEXT with these responses through the judge** (`r10:152-157`), and so
-does r12 (`r12:231-232`) — those arms vary criterion **content**. This one holds content fixed at this
-prompt's own criteria and varies the **weight vector** and criterion count, and [r87](09_form_donor_draw_and_unit/r87_criterion_count_channel)
-already showed count moves nothing. **So +0.1215 is a weight-specificity number** — the value of knowing
-*which of this prompt's criteria matter and in which direction*, not the value of having this prompt's
-criteria at all. ⚠ This does **not** show the two constructions disagree numerically; that needs the
-judge. It shows they cannot be the same **measurement**. Agreement
-itself reproduces too — **0.6879** long-form and **0.6854** short-form ([r85](09_form_donor_draw_and_unit/r85_agreement_by_form))
-bracket the **0.686** above.
-
-So **7.9 and 10.7 are not two quantities, they are one cell**, and the second is *not* identified as
-"generic quality" by anything measured here — [r59](06_the_judges_mechanism/r59_criterion_influence) finds criteria
-borrowed from other prompts are just as concordant about these responses as a prompt's own, which is
-consistent with a shared normative backbone and with several other things. **The contrast is
-own-rubric minus reference-rubric performance, and naming its parts is an interpretation, not a
-measurement.**
-
-**That floor is a choice, and the number moves 2.47× with it.** [r19](02_attribution_under_attack/r19_floor_choice)
-reads r10's donors as a decay curve: a random prompt's rubric still retains 47–60% of the signal,
-because a random prompt sometimes shares topic. Grading against a nearest-topic donor instead gives
-attribution 0.047; against the most dissimilar donor, 0.115.
-
-Measured on r10's 300-prompt panel, excluding one judge cell whose own accuracy (0.5405) sits too
-close to chance to be decomposed at all:
-
-| floor | attribution | relative to the random floor |
-|---|---:|---:|
-| nearest-topic donor | 0.047 | ×0.64 |
-| random donor *(what the headline used)* | 0.073 | ×1.00 |
-| most dissimilar donor | 0.115 | ×1.58 |
-
-Applying that range to the 42.5% prompt-specific share of the random-floor cell gives **27%–67%**
-— **floor variation alone**. Crossing it with the judge dimension — 2.13×, derived from r30's own shares — is
-what produces r30's **3.2%–65.8%**, and that is the figure any single number must be read against.
-
-Neither endpoint is clean — the far donor is adversarially selected and may simply be refused by the
-judge, the near donor shares topic. **The generic-quality floor is bracketed, not measured, so any
-single figure must name its floor.**
-
-### The exhaustion ledger — every mechanism proposed for r12's inversion, and what happened to it
-
-The claim that these rounds *"exhaust the alternatives"* is only meaningful if the alternatives can
-be listed. They can. **A list bounds exhaustiveness from below and can never prove it** — no
-enumeration shows that no other mechanism exists — so this is the set that was proposed and tested,
-not a proof that the set is complete.
-
-| # | proposed mechanism | round | outcome |
-|---|---|---|---|
-| 1 | criteria memorise the four candidate **strings** | [r13](02_attribution_under_attack/r13_seed_vs_writein) | **refuted** — participant-blind seeds carry +0.046 [+0.023, +0.069] |
-| 2 | criteria are merely **topic**-specific | [r15](02_attribution_under_attack/r15_indistribution_transfer) | **refuted** — near-topic criteria +0.018 [−0.001, +0.037]. ⚠ r15's own verdict: this does **not** resolve r12 |
-| 3 | fresh responses are **off-distribution** by generic distance | [r40](05_human_protocol_and_power/r40_ood_map) | **refuted, and inverted** — the drop is worst at *short* distance, r=−0.125 |
-| 4 | fresh responses leave the rubric's **criterion-space support** | [r41](05_human_protocol_and_power/r41_criterion_support) | **confounded** — hull violation −0.1837 does not survive the discriminating-power control |
-| 5 | the rubric loses **discriminating power** on fresh responses | [r41](05_human_protocol_and_power/r41_criterion_support) → [r46](06_the_judges_mechanism/r46_spread_replication) | **failed to replicate** — +0.2309 discovery, +0.0496 [−0.068, +0.169] held out |
-| 6 | the **gold head is unstable** off-distribution | [r29](03_person_or_pair/r29_gold_ood) | **refuted** — 0.590 fresh vs 0.543 original. ⚠ reliability, not validity |
-| 7 | the **gold head reads length** | [r47](06_the_judges_mechanism/r47_gold_is_length) | **PARTLY CONFIRMED** — ~half the inversion rides on it; the "unrelated rubric beats it" reading is withdrawn |
-| 8 | the **judge scores lexical overlap** (correlational) | [r51](06_the_judges_mechanism/r51_judge_lexical) | **confirmed as a channel** — +0.2068 vs a −0.0034 null |
-| 9 | …and **causally** | [r52](06_the_judges_mechanism/r52_overlap_intervention) | **confirmed** — +0.2507 [+0.2300, +0.2714] under intervention |
-| 10 | that overlap channel **explains r12** | [r54](06_the_judges_mechanism/r54_overlap_transfer) | **refuted** — real, but does not predict *which* prompts drop (−0.0736 [−0.2059, +0.0612]) |
-| 11 | its **ordering component** explains r12 | [r55](06_the_judges_mechanism/r55_overlap_selectivity) | **refuted** — collapse +0.0002 [−0.0056, +0.0059], equivalent to zero at δ=0.01 |
-| 12 | **semantic selectivity** collapse explains r12 | r56 | **failed to replicate** — ⚠ and r56's numbers have no artifact; [r66](07_floors_for_the_counterfactuals/r66_r56_reconstruction) could not recompute them |
-| 13 | criteria carry **independent** normative content | [r59](06_the_judges_mechanism/r59_criterion_influence) | **refuted** — they are concordant, and *not* own-rubric-specifically (14.7% vs 14.9% borrowed) |
-
-**⚠ Read every "refuted" in rows 3, 4, 5, 10 and 12 against a floor, and the floor is not one
-number.** [r57](06_the_judges_mechanism/r57_outcome_reliability) measured the per-prompt attribution drop's split-half
-reliability at **0.302 / 0.422**. Each correlational row's own published interval gives its own
-detection floor — the smallest |r| it could have separated from zero:
-
-| row | half-width | floor, predictor assumed perfect | **floor, predictor reliability measured** |
-|---|---:|---:|---:|
-| 3 · generic distance (r40) | 0.0988 | 0.180 | **0.188** ⚠ⁿʳ |
-| 4 · criterion-space support (r41) | 0.1010 | 0.184 | **0.224** |
-| 5 · spread loss, held out (r46) | 0.1175 | 0.214 | **0.260** |
-| 10 · overlap transfer (r54) | 0.1336 | 0.243 | **0.367** |
-
-*(at r57's pessimistic outcome reliability, 0.302)*  ·  **⚠ⁿʳ = not regenerable.** Row 3's 0.188 divides by r68's 0.9132, which was computed from r39's cached encoder features. One of those three lineages (internlm) **cannot be rerun in this environment** — it returns 100% NaN under transformers 5.14.1 — and no receipt records the environment that produced the cache ([r80](08_direction_from_text/r80_panel_freeze), entries 134–135). The number is not impugned; it is **unrepeatable on this machine**, which is a different and quieter status than the rest of this table carries.
-
-**A criterion's direction is recoverable from its wording — but only when the wording was written after seeing the responses.** [r73](08_direction_from_text/r73_direction_from_text_alone) predicts sign(mean score) from criterion text alone, prompts held out entirely, no response and no judge entering the computation. Because the two provenance classes have very different marginals, the honest comparison is the share of *available headroom* each captures:
-
-| class | n | marginal | held-out accuracy | above marginal | headroom captured |
-|---|---:|---:|---:|---|---:|
-| **seeds** — pre-written, response-blind, shown to every rater | 5,506 | 0.8400 | 0.8420 | **+0.0020** [−0.0007, +0.0049] | **1.2%** |
-| **write-ins** — authored after reading all four responses | 9,683 | 0.6886 | 0.7707 | **+0.0821** [+0.0746, +0.0904] | **26.4%** |
-
-**The seed result is not a generalisation failure.** Its *in-sample* fit reaches only +0.0160 above marginal — the pipeline cannot learn direction from response-blind criterion text even when allowed to memorise it, which bounds the learnable signal rather than reporting a held-out miss. Both nulls ran first: shuffling labels inside training collapses every arm to its marginal (−0.0006, +0.0000, −0.0026), and the write-in margin survives the phrasing-convention control — restricted to the 7,266 criteria with no overt negation marker it is **+0.0954**, larger, not smaller.
-
-**So text-recoverable direction is a product of exposure, not evidence against it.** A rater who has read the four responses writes the direction into the sentence; a criterion drafted before anyone saw them does not carry one. ⚠ This does **not** contradict the R-layer row above, and does not measure S_pre: no person in this release rated anything pre-exposure, and nothing here can see whether they held a direction. What it removes is the reading that text-predictability would have demonstrated one. **For the preregistration it is a positive result** — S_pre's PRE arm faces exactly the response-blind seed class, where a text-only predictor adds **1.2% of headroom**, so r61's chance baseline needs no adjustment there. Any arm built on **write-in** text would need one.
-
-**⚠ TEN ROUNDS RUN ON THE LONG-FORM THIRD OF THE RELEASE, BY AN ARTIFACT OF SLICING.** `data/comparisons.jsonl` is **sorted by collection form** — the release used a **long form** (world + personal + unacceptable) for 321 prompts and a **short form** (world only) for 757, the two sets are **disjoint**, and the long-form ones come **first** in the file ([r60](07_floors_for_the_counterfactuals/r60_world_vs_personal), entries 156–159). Ten rounds take a head slice `[:n]` of the joined list, whose first **291** entries are long-form:
-
-| cut | long-form share | rounds |
-|---:|---:|---|
-| 120 | **100.0%** | r09 |
-| 200 | **100.0%** | r14 |
-| 250 | **100.0%** | r12, r13, r52 |
-| 300 | **97.0%** | r10, r15, r20, r21, r22 |
-| *whole join* | *30.3%* | r04, r32, r33, r35, r43, r44, r58 and the rest |
-
-**No number above is wrong; the population each describes is narrower than "the release."** These ten establish their results on prompts collected with one instrument. ⚠ **"Untestable" was too strong, and [r85](09_form_donor_draw_and_unit/r85_agreement_by_form) bounds it.** No *prompt* appears under both forms, so a prompt-for-prompt contrast is impossible — but rounds using the whole join hold both populations. The rubric's agreement with **real human** rankings is **0.6879** [0.6721, 0.7034] on the 293 long-form prompts and **0.6854** [0.6738, 0.6965] on the 675 short-form ones: gap **+0.0025** [−0.0173, +0.0231], sitting inside a form-label shuffle null of [−0.0211, +0.0226]. **Not equivalence at δ=0.01** — the answerable margin here is **δ≈0.020**, limited by 293 long-form prompts. So any form-associated difference *in this quantity* is under 0.020, and the point estimate is 0.4% of the agreement level. **And [r86](09_form_donor_draw_and_unit/r86_attribution_by_form) does the same for the quantity the package is actually about** — own-minus-donor attribution, i.e. source specificity: **+0.1258** [+0.1038, +0.1483] long-form against **+0.1202** [+0.1056, +0.1351] short-form, gap **+0.0056** [−0.0209, +0.0310], inside a shuffle null of [−0.0260, +0.0270]. **Positive and clear of zero in both forms**, with any form effect under **0.026**. So the scope block is provenance rather than a warning: those ten rounds measure their central contrast where it behaves like the rest, to that resolution. The one exception is [r46](06_the_judges_mechanism/r46_spread_replication), whose held-out set is **83.6% short-form** and which reproduces r12's inversion there (+0.0847 → −0.0716); that is the only cross-form evidence available, and it is uncontrolled. **Rounds using the whole join are unaffected** — its composition matches the file at 30.3% against 29.8%.
-
-**And underneath every floor sits a proxy that was validated once, and the validation was never read out.** Every row above scores its outcome with the r08 model gold head, and says so. The release does contain **real human rankings** for the four released candidates, so on the *original* arm the proxy is checkable — [r47](06_the_judges_mechanism/r47_gold_is_length) computed that check, stored it as `proxy_validation_on_original`, and **its numbers appear nowhere in this document**. [r72](07_floors_for_the_counterfactuals/r72_proxy_validity_coefficient) recomputes them independently (the gold side reproduces r47's stored 0.1020 exactly) and reports the two halves the process rules require to be kept apart:
-
-| | gold head | real humans | human − gold |
-|---|---:|---:|---|
-| attribution, original arm | +0.1020 | +0.0876 | **−0.0144** [−0.0392, +0.0086] |
-
-**Significance and equivalence disagree, and only one of them was ever quoted.** The difference does not differ from zero — which is what r47's stored `differ: False` records. It is **not equivalent** at the preregistered δ=0.01: the 90% interval [−0.0344, +0.0060] is **2.0× wider than the margin**, and the point estimate alone is **1.4× the margin**. So `differ: False` is a non-result, not the reassurance its phrasing invites.
-
-**The number that matters more is the per-prompt one: the validity coefficient is 0.6029** — the gold-scored and human-scored attributions share about **36%** of their variance across prompts, and per-prompt is the resolution at which every correlational row in the ledger operates. ⚠ **It is deliberately NOT applied to those rows as a third attenuation term.** Their outcome is the *drop* (original − fresh); this coefficient is measured on the original attribution alone, because the release has no human rankings for generated responses. Carrying it across that boundary would be the error of entries 110, 119 and 120 a fourth time — and here the boundary is not crossable by any recomputation, only by **H_fresh**. What it does establish is that the proxy is validated exactly where it is least stressed, the same asymmetry r47 identified for its length channel.
-
-**The other half of every floor was audited too, and it holds.** Each floor divides by `rel_predictor × rel_outcome`, and the outcome term is [r57](06_the_judges_mechanism/r57_outcome_reliability)'s single number applied to all four rows — the same shape as the predictor mistake above. It is legitimate here: r40, r41, r46 and r54 all correlate against **the same quantity r57 measured**, the per-prompt attribution drop, and each row's half-width comes from that round's *raw* arm, not a partialled one. One imprecision found and not worth a correction: row 4's verdict (*confounded*) is carried by r41's length-and-spread-controlled arm, half-width **0.1028**, while the table used the raw arm's **0.1010** — a floor of 0.231 rather than 0.227. The rule it illustrates is worth more than the number: **a floor must be read off the arm that carries the verdict.**
-
-**[r67](07_floors_for_the_counterfactuals/r67_predictor_reliability) measured the missing term.** The middle column takes the
-**predictor** as perfectly reliable — stated as a lower bound when it was published. Splitting each
-prompt's criteria 2-2 and recomputing gives a Spearman-Brown reliability of **0.657** — re-measured
-over 200 random splits by [r71](07_floors_for_the_counterfactuals/r71_r67_split_variance) at **0.6751**, which multiplies
-**r41's and r46's** floors by **1.217×**. ⚠ **That single number was applied to two rows
-whose predictors it never measured, and it was wrong in both directions.**
-[r68](07_floors_for_the_counterfactuals/r68_r40_predictor_reliability) measures r40's at **0.9132** — far above it — and
-[r69](07_floors_for_the_counterfactuals/r69_r54_predictor_reliability) measures r54's at **0.4381**, far below. So **r54's
-floor is 0.367, not 0.300**: it could not have detected a true correlation below ≈0.37, and
-*"the overlap channel does not explain r12"* rules out even less than the previous version of this
-paragraph said. **A ledger-wide reliability is not a conservative simplification** — it moved one row
-up and one row down, and only measuring each predictor separately says which. ⚠ **r40's floor is
-measured, not assumed, and the 1.23× never applied to it.** Its predictor is an
-embedding distance with no criteria to split, so r67's criteria-split reliability does not
-transfer. The right estimator is agreement between **instruments**, and
-[r68](07_floors_for_the_counterfactuals/r68_r40_predictor_reliability) computes it from r39's cached representations:
-recomputing the per-prompt distance in each of three unrelated pretraining lineages gives
-pairwise agreements of **+0.9023, +0.7234, +0.7085** (mean +0.7781, Spearman-Brown **0.9132**).
-A highly reliable instrument, so the floor is **0.188** — below the assumed-perfect 0.180 only by
-the small correction reliability 0.91 implies, and **well below the 0.222 an earlier version
-published**. Row 3 is the strongest refutation in this table, not the vaguest.
-⚠ **And it is not regenerable.** One of those three lineages (internlm) returns 100% NaN under
-transformers 5.14.1, so this agreement **cannot be recomputed on this machine**, and no receipt
-records the environment that produced r39's cache ([r80](08_direction_from_text/r80_panel_freeze), entries 134–135).
-The strongest row in the table is also the only one whose reliability input is unrepeatable — those
-two facts belong in the same sentence, which is why this clause exists.
-
-**Those rows say "not detected above their own floor", not "absent".** Rows 1, 2, 6, 11 and 13 rest
-on tightly-bounded contrasts rather than correlations and do not inherit this limit.
-
-**What survives:** the inversion replicates (+0.102 → −0.064; held out +0.0847 → −0.0716), the
-outcome variable carries roughly half of it (row 7), and **nothing proposed explains the remainder**.
-That is the state H_fresh exists to resolve.
-
-### r12's inversion is worst where the fresh responses look MOST like the released ones
-
-The easiest explanation for r12 — the rubric's advantage inverting on fresh responses — is
-that the judge and the preference proxy are being asked about text unlike anything they were
-validated on. That predicts a specific geography: **the anomaly should grow with distance from
-the original support.**
-
-[r39](05_human_protocol_and_power/r39_feature_cache) caches representations of all 2,000 responses from **three
-unrelated pretraining lineages** (Qwen · Phi · InternLM) in one GPU pass and analyses nothing.
-[r40](05_human_protocol_and_power/r40_ood_map) does the map on CPU, with the PCA basis fitted on **original
-responses only** so fresh ones cannot define the space they are then measured in.
-
-`drop = attribution(ORIGINAL) − attribution(FRESH)`, so **positive** r means the anomaly grows
-with distance and **negative** r means it is worst where fresh responses most resemble the
-released ones.
-
-| distance measure | r per lineage | sig | same sign |
-|---|---|---:|---|
-| **nearest neighbour** | **−0.132, −0.143, −0.101** | **2/3** | **yes** |
-| log-likelihood gap | −0.139, −0.099, −0.059 | 0/3 | yes |
-| Mahalanobis | −0.046, +0.043, +0.180 | 1/3 | **no** |
-| conditional ll gap | −0.014, −0.033, +0.005 | 0/3 | no |
-
-**The sign runs the wrong way for the simplest measurement-failure story.** The discrepancy
-*shrinks* as fresh responses move away from the original support and is worst on the ones that
-look most like the released candidates.
-
-**⚠ The defensible statement is narrow: the discrepancy is not explained by monotone degradation
-under the three generic distance metrics tested.** It says nothing about whether the judge is
-still accurate on fresh responses, whether the preference proxy is still valid there, or whether
-the responses sit inside the rubric's own **criterion-satisfaction support** — which is the
-distance that actually matters. A fresh response can be close in embedding, style, length and
-likelihood while combining criterion satisfactions that no original candidate exhibited. Generic
-embedding distance cannot see that. **[r41](05_human_protocol_and_power/r41_criterion_support) now measures it, and
-the answer is that criterion space does not explain r12 either** — see below.
-
-The effect is small (|r| ≈ 0.13) and this is a single axis, so it does **not** establish
-genuine transport failure — it removes the easiest alternative to it. Two consequences follow.
-**Mahalanobis disagrees in sign across lineages, so it is a property of a representation, not
-of the responses** — which is exactly why every distance is reported per lineage and never
-averaged. And **the human sample must not be drawn from the far tail**, where the anomaly is
-mildest.
-
-⚠ Length is partialled out throughout, because fresh responses are systematically *longer*
-(89 vs 76 median words) — the 180-token cap never bound, and the released candidates are the
-short ones.
-
-### The inversion is at least partly a property of the gold proxy, not the rubric
-
-r40, r41 and r46 each tested a property of the **rubric** and each came back empty. None tested
-the **outcome variable**. r08's gold head is `hstack([embedding, [char_len, word_len]]) @ w` —
-length is one of its *inputs*, at |w| = 0.2085 against a mean embedding weight of 0.0620.
-
-Fresh responses vary **3.4×** more in length than the released candidates (word-count sd 34.2–34.4
-vs 10.1–10.2), and gold's within-prompt correlation with length tracks that, on **both** samples:
-
-| | discovery (250) | held out (250) |
-|---|---:|---:|
-| corr(gold, word count), **originals** | +0.0770 | +0.0259 |
-| corr(gold, word count), **fresh** | **+0.4579** | **+0.5482** |
-
-⚠ Read the *signed* correlation, not the magnitude. At four responses per prompt, two
-**independent** vectors already give E|r| = 0.5005, so a raw |r| of 0.62 is mostly the sample
-size — the excesses are only +0.104 and +0.192. An earlier version of this section quoted the
-bare magnitudes (entry 49).
-
-**A prescient caveat, filled in eighteen rounds later.** [r29](03_person_or_pair/r29_gold_ood) had already
-asked whether the gold head is unstable off-distribution and found it is not: two independently
-fitted heads agree about as well on generated responses (0.590) as on released ones (0.543). It
-recorded its own limit — *"RELIABILITY only — the two heads share an architecture and an embedding
-model, so a bias common to both is invisible here."* r47 is that bias: **length is an explicit
-feature of the shared architecture**, so both heads read it and their agreement could never have
-revealed it. Two heads agreeing is not two instruments.
-
-**The proxy is sound where it can be checked — which is the wrong place.** Human rankings exist
-only for the original candidates, so:
-
-| | discovery | held out |
-|---|---:|---:|
-| attribution vs GOLD | +0.1020 | +0.0853 |
-| attribution vs HUMAN rankings | +0.0876 | +0.0742 |
-| difference | −0.0144 [−0.0376, +0.0095] | −0.0112 [−0.0355, +0.0132] |
-
-Indistinguishable in both, per-prompt r = +0.60 and +0.65. And humans do **not** systematically
-prefer longer responses there (signed +0.041, CI spans zero). So the proxy is validated exactly
-where its length channel is weakest, and applied where it is strongest.
-
-**Removing length, against the procedure's own null.** Residualising four responses on *any*
-variable removes one of three degrees of freedom and costs ≈0.025 by itself, so
-length-residualisation is measured against **noise**-residualisation rather than against raw:
-
-| | discovery | held out |
-|---|---:|---:|
-| inversion, raw | +0.1660 | +0.1460 |
-| inversion, noise-residualised (the null) | +0.1303 | +0.1153 |
-| inversion, **length**-residualised | +0.0833 | +0.0567 |
-| share surviving vs the null | 64.0% | 49.1% |
-
-**And the sharpest point does not replicate**, which is itself the finding:
-
-| fresh arm, length-residualised | discovery | held out |
-|---|---:|---:|
-| | −0.0307 [−0.0567, −0.0053] | **+0.0047 [−0.0213, +0.0320]** |
-
-On the held-out sample the fresh arm stops being negative once length is removed. So **"the own
-rubric is *beaten* by an unrelated one on generated responses" — the bizarre claim that made r12
-worth chasing — is not established.** What replicates across both samples is the ordinary one:
-the own-rubric advantage **does not transfer**. The inversion itself is at least partly length.
-
-**Consequence for the human experiment:** r12 cannot be cited as evidence of rubric transport
-failure without recording response length, and H_fresh must collect it.
-
-### Criterion space is a different axis from embedding space, and it does not explain r12 either
-
-A rubric does not measure responses where an embedding does. It measures them in the space its
-own criteria span:
-
-```
-z_R(r) = ( s(c₁,r), …, s(c_K,r) )        s ∈ (0,1)
-```
-
-r12 computed that tensor and threw it away on the line that aggregated it
-(`02_attribution_under_attack/r12_response_set/run.py:152`). [r41](05_human_protocol_and_power/r41_criterion_support) rebuilds it on the
-**saved** fresh responses — no regeneration, because r12's generation is stochastic and unseeded
-and a re-run would replace the response set r39/r40/r41 are all built on.
-
-**The rebuild had to prove it was r12's instrument, not a lookalike.** bf16 batched inference is
-composition-dependent; a last-bit difference flips a near-tied pairwise comparison and moves a
-per-prompt accuracy by 1/6. So the pass rescores in r12's exact task order at r12's exact batch
-size, including the shuffled arm it never uses, purely to keep batch composition identical.
-**All 1,500 published per-prompt values reproduce with max |diff| = 0.00e+00.**
-
-| measure | length-controlled | **+ discriminating-power control** |
-|---|---:|---:|
-| hull violation (outside the originals' criterion support) | **−0.1837** (p=0.003) | −0.0653 (p=0.31) |
-| rank instability under criterion bootstrap | **+0.1993** (p=0.002) | +0.0793 (p=0.21) |
-| criterion-combination novelty, thresholds 0.3–0.7 | flat at every threshold | flat |
-| cross-lineage judge disagreement (qwen vs phi) | +0.0550 (p=0.38) | +0.0345 (p=0.60) |
-
-**Both survivors die to one control, and it is the control the result demanded.** A rubric that
-cannot *separate* the four fresh responses must score near chance against gold — so "unstable
-ranking" and "large drop" risk being two views of one quantity rather than a relationship
-between two. Partialling out the rubric's own score spread removes both effects, and their
-correlations with that spread are **+0.563** and **−0.597**. The geometry collapses into a single
-fact: **the rubric separates the fresh responses less than it separated the originals**
-(corr with the drop = −0.2246).
-
-**One criterion-space quantity looked like it survived — and it did not replicate.**
-`D_spread_loss`, how much *less* the prompt's own rubric separates the fresh responses than it
-separated the originals, reached **+0.2309** length-controlled (p = 0.0010) on r12's 250 prompts:
-the largest effect in the round, orthogonal to embedding distance (−0.056), surviving a donor-arm
-control (+0.2693 while the donor alone gave −0.0351 ns), recovered independently by a second judge
-lineage (phi, +0.1724), and not attributable to the fresh responses being more homogeneous — they
-are measurably *less* alike (lexical self-similarity 0.083 vs 0.108) and *more* spread by the gold
-head (3.44 vs 2.00).
-
-It entered as a nuisance control and was promoted to a measure after it explained the others, so
-it was labelled **exploratory** and a numeric prediction was committed to git *before* testing it
-on prompts nothing in this project had touched.
-
-**[r46](06_the_judges_mechanism/r46_spread_replication) tested it on 250 held-out prompts and it is gone:**
-
-| | r12's 250 (discovery) | 250 held out |
-|---|---:|---:|
-| spread loss → drop, length-controlled | +0.2309 [+0.107, +0.343] | **+0.0496 [−0.068, +0.169]** (ns) |
-| donor arm alone | −0.0351 (ns) | +0.0318 (ns) |
-
-Predicted range was [+0.12, +0.34]. The result is outside it and the interval includes zero, which
-is the declared **NOT REPLICATED** branch. Retraction entry 48 is downgraded to a single-sample
-artifact: **the effect was found by selection and does not generalise.**
-
-**What that costs, and what it does not.** Four separate checks agreed with the effect — donor
-control, second judge lineage, two rubric-independent heterogeneity measures — and all four ran on
-the *same 250 prompts*. Robustness to the instrument is not generalisation across samples, and
-stacking same-sample checks felt like accumulating evidence when it was not. That is the lesson,
-and it is worth more than the effect would have been.
-
-**r12's phenomenon itself replicated cleanly**, which is the part that matters. On the held-out
-prompts the own-rubric advantage is **+0.0847** on the original candidates (r12: +0.102) and
-**−0.0716** on fresh ones (r12: −0.064). ⚠ **And the replication is stronger than "untouched
-prompts" says** (entry 159): `data/comparisons.jsonl` is **perfectly ordered by collection form** —
-lines 0–320 are long-form (world + personal + unacceptable), 321–1077 short-form (world only), with
-**no interleaving**. r12 takes a head slice `[:250]`, so its prompts are **100% long-form**; r46's
-held-out set at offset 250 spans file positions 280–556 and is **83.6% short-form**. So the inversion
-survives a change of **collection instrument**, not merely a change of prompts — and since no prompt
-exists under both forms (entry 158), that is the only cross-form evidence this release can supply.
-The inversion is real, independent of the specific
-prompts, and **still unexplained** — generic distance (r40), criterion-space novelty (r41) and
-now discriminating-power loss (r46) have each been ruled out.
-
-The round still earns its cost. Criterion space correlates with generic embedding distance at
-only **+0.25** and **+0.19** — roughly 5% shared variance — so this was a genuinely different
-axis and it is now checked rather than assumed. And **two unrelated judge lineages disagree
-0.0077 *less* on fresh responses than on the originals**, and their disagreement does not track
-the drop, so the discrepancy is not where the judges fall apart. That is a non-rejection of the
-judge-incoherence reading, **not** an exclusion of it: two lineages can be wrong the same way.
-
-⚠ Everything here is **judge-relative**. `z_R` comes from the same judge whose off-distribution
-validity is the open question, so this round cannot separate *"fresh responses occupy new
-normative territory"* from *"the judge scores them incoherently"*. It establishes that the
-discrepancy is **not spatially organised** in criterion space. r12 remains unexplained.
-
-### Non-significance was doing the work of equivalence, in eleven places
-
-Several load-bearing statements here are **null claims** — "no detected loss", "costs nothing
-measurable", "the decay is flat". Every one was read off a non-significant result, which says
-the study could not see an effect, not that one is absent.
-
-Testing that needs the paired per-prompt vectors, and r34/r35/r36/r37 each bootstrapped one,
-printed a 95% CI and discarded it — and a 95% CI is the interval for the *significance*
-question, not for a TOST at α = 0.05. All four rounds take 4–23 seconds, so they were patched to
-persist the vector and re-run; **all four reproduce their published numbers byte-identically.**
-
-[r42](05_human_protocol_and_power/r42_equivalence) then tests `H₀: |Δ| ≥ δ` at δ = 0.01 over all **21** contrasts:
-
-| | equivalent at δ | not equivalent |
+| finding | number | round |
 |---|---|---|
-| **significant** | 4 — real but negligible | 8 — real and material |
-| **not significant** | 9 — no material effect | **0 — inconclusive** |
-
-**Nothing lands in the inconclusive cell.** Every non-significant result in this package is also
-*bounded* inside the margin, so the null readings survive — which is the first time that was a
-finding rather than an assumption. The four "real but negligible" cells are the ones significance
-alone would have misreported: `D_same_sample_premium` +0.0055, `A2` +0.0026, `φ_T` +0.0017, `φ_S` +0.0008.
-
-⚠ **δ is a stipulation, not a measurement.** Nothing in the data says 0.01 accuracy points is
-where a rubric becomes unfit, because no purpose has been specified that precisely. So the round
-sweeps it, and the sweep is the honest form: **12/21 equivalent at 0.01, but 7/21 at 0.005 and
-4/21 at 0.0025.** The nulls hold at the declared margin and at no tighter one.
-
-Both controls ran before any row was read: `D_population` (+0.0576, 5.8× the margin) must return
-NOT EQUIVALENT, and a zero vector must return EQUIVALENT. An equivalence test that cannot say
-"not equivalent" reports every claim as tightly bounded, which is silence dressed as precision.
-
-⚠ This is **aggregate** equivalence. A contrast can be equivalent in aggregate and heterogeneous
-underneath — criterion-level sign reversals and minority-only criteria are
-[r43](05_human_protocol_and_power/r43_criterion_heterogeneity), not this.
-
-### The polarity rewrite is where core's advantage comes from — and membership carries some too
-
-r33 found CoVal-core scored with **no ratings at all** beats CoVal-full by **+0.0663**. That is a
-sum: the dataset card documents polarity rewriting, cleanup, semantic merging, compatibility
-selection and truncation to ≤4, and nothing said which step did the work.
-
-**The intermediate artifacts do not exist.** The release ships C0 and C6; C1–C5 live inside a
-compiler OpenAI did not publish. So [r44](05_human_protocol_and_power/r44_compiler_lineage) cannot decompose that
-compiler and does not claim to — it builds a **reconstruction** from the documented operations,
-measures each simulated stage, and reports **the residual it cannot explain**.
-
-| reconstructed stage | Δ | 95% CI |
-|---|---:|---|
-| **polarity rewrite** (see ⚠ below) | **+0.0733** | [+0.0647, +0.0822] |
-| cleanup | +0.0052 | [+0.0029, +0.0075] |
-| dedup | −0.0053 | [−0.0092, −0.0014] |
-| compatibility selection | −0.0181 | [−0.0241, −0.0125] |
-| **selection vs SIZE-MATCHED random** | **+0.0149** | [+0.0082, +0.0221] |
-| total, full → **real** core | +0.0662 | [+0.0571, +0.0752] |
-| **residual, reconstruction → real** | **+0.0112** | [+0.0039, +0.0184] |
-
-The rewrite alone is **larger than the entire full→core gap**; later stages give part of it back.
-The reconstruction accounts for **83%** of the total, and the +0.0662 independently reproduces
-r33's +0.0663 through a different code path.
-
-> **⚠ The +0.0733 is an upper bound on the rewrite, not a measurement of it.** `run.py:112` says so
-> in its own comment — *"The text rewrite cannot be simulated; its EFFECT can"* — and implements the
-> stage as `s1 = -1 if mean_train_rating < 0 else 1`: it **complements satisfaction using the crowd's
-> rating sign**, on rater-disjoint folds. The real compiler has no such channel. It must encode
-> polarity **in rewritten words** and hope a judge that never sees a rating recovers it — and
-> [r65](07_floors_for_the_counterfactuals/r65_edit_symmetry_floor) shows the rewrite leaves **18.62%** of core criteria still
-> phrased as prohibitions, *more* than the 12.85% in the un-rewritten full set. So +0.0733 measures
-> **what having the polarity is worth**, and bounds from above what putting it into prose can achieve.
-
-**Selection is damage control, not gain — and the two numbers must be read together.** The stage
-itself **costs −0.0181** (0.6647 → 0.6465): truncating to four criteria throws information away.
-Against a **size-matched random** choice of the same four, it recovers **+0.0149** (random lands at
-0.6317). So choosing *which* items survive recovers most of what truncating to four destroys, and
-does not repay it. Core encodes the post-choice ranking partly through **which items survive**, not
-only through wording — but membership is a **mitigation of the compression, not a contribution on
-top of it**.
-
-Read as an arc: the polarity rewrite takes 0.5915 → **0.6648**, and every reconstructed stage after
-it nets **−0.0183**, landing at 0.6465. The **real** core sits at **0.6577**, +0.0112 above my
-reconstruction — which is the part of OpenAI's compiler this cannot see.
-
-The identity control — a stage that does nothing — returns Δ = **0.000000**, so none of these
-increments is re-scoring noise.
-
-### Groups disagree about criteria, and it does not change which response wins
-
-r42's equivalence is **aggregate**, which is exactly the result that can coexist with real
-disagreement underneath. [r43](05_human_protocol_and_power/r43_criterion_heterogeneity) asks three questions of
-country, generative-AI usage and age, and only the third can move a decision.
-
-**The positive control comes first, because a heterogeneity detector that has never returned
-"heterogeneous" cannot be believed when it returns "homogeneous".** Injecting a synthetic group
-whose ratings are sign-flipped on a random 20% of criteria lifts the reversal rate from
-**0.122 to 0.283**. The instrument works; a low rate on the real groups therefore means
-something.
-
-| axis | sign-reversal rate | label-permutation null | excess |
-|---|---:|---:|---:|
-| **country** | **0.2363** | 0.2172 [0.2087, 0.2247] | **+0.0190, above** |
-| generative-AI usage | 0.2177 | 0.2158 [0.2081, 0.2247] | +0.0018, inside |
-| age | 0.2012 | 0.2033 [0.1945, 0.2109] | −0.0022, inside |
-
-The null permutes **group labels within each (prompt, criterion)**, holding cell sizes and the
-rating multiset fixed, because with a handful of raters per cell sign disagreement happens by
-sampling alone and a raw reversal rate is uninterpretable.
-
-**But the decisive question is whether a group's own weights predict that group better**, and
-they do not. Across 17 group tests — rater-disjoint folds, pooled arm subsampled to the same
-number of raters so the shared rubric cannot win on sample size — **0 survive Benjamini-Hochberg
-at q = 0.05.** Uncorrected, 2 are significantly positive and **2 significantly negative**; a
-group predicted *worse* by its own weights has no mechanism, so that symmetry is what the noise
-distribution looks like, and quoting only the positives would be reporting half of it.
-
-So: **countries do assign opposite signs to the same criterion more often than chance, and it
-does not change which response wins.** The aggregate equivalence is not hiding a decision.
-
-⚠ These are **demographic proxies, not value constituencies** — r16–r18's latent partition was
-frozen precisely because it named no constituency, and using country instead makes the label
-honest without making it the right object. Scoped to raters with an annotator record
-(87.2%). And the "minority-only criteria" measure at a 90% concentration threshold **never
-fires**, so its zero is reported as **inert**, not as evidence: the largest group supplies on
-average 0.40–0.46 of a cell's raters, p95 0.57–0.66.
-
-### The human experiment is frame-limited, not power-limited
-
-Everything above leaves one question, and it needs people. [r38](05_human_protocol_and_power/r38_human_sampling_power)
-decides which prompts to send them and how many, **before** anyone is paid to rank anything.
-
-**Power is not the constraint.** Clustering on prompt — six comparisons from one rater's
-ranking of four responses are *one object*, not six draws — with variance components measured
-from r22's per-prompt arrays (total sd 0.149 → between-prompt 0.140, binomial 0.049):
-
-| effect | 40p × 8r | 60p × 8r | 100p × 8r |
-|---:|---:|---:|---:|
-| +0.03 | 0.51 | 0.69 | 0.88 |
-| +0.05 | 0.91 | **0.98** | 1.00 |
-| +0.16 *(r12's observed drop)* | 1.00 | 1.00 | 1.00 |
-
-**60 prompts × 8 raters detects +0.05 at 98% power**, and r12's 0.16 is detectable in every
-cell of the grid.
-
-**The frame is the constraint.** The tempting sample is the prompts where r12's inversion is
-largest — which yields a number about the strangest prompts that reads as a number about
-transport. So prompts are stratified on original–fresh distance (and, once r12's per-prompt
-attribution lands, on rubric–proxy disagreement), sampled **equally within cells**, and carry
-**sampling weights** so one collection yields both a population estimate and an anomaly-subset
-estimate.
-
-Two bugs in this round are worth recording because both would have silently set the sample.
-A feature with zero spread across released responses — *refusal markers*, identically zero —
-was being divided by a `1e-9` guard, giving one prompt a distance of **1e9** and letting a
-single unchecked feature decide the whole axis. And the per-prompt variance was **hardcoded at
-0.16** under a comment claiming it was measured; the real value is 0.149, and the round now
-refuses to emit a power grid when the between-prompt component would clip to a floor. That
-guard fired on its author's own wrong divisor before producing anything.
-
-### The endogeneity map is flat all the way to the edge of what this data can isolate
-
-"Is it leakage?" is one rung of a ladder. What matters for anyone reusing a CoVal rubric is
-how the signal decays as the people supplying the direction are moved further from the people
-whose choices are being predicted. [r37](04_what_core_is/r37_leakage_topology) draws the whole ladder,
-reporting `L(k) = A0 − Ak` rather than a single bias number.
-
-| isolation level | weights come from | accuracy | `L(k)` |
-|---|---|---:|---|
-| **A0** same participants | everyone | 0.6465 | — |
-| **A1** leave-one-rater-out | everyone except the target | 0.6460 | +0.0005 [−0.0017, +0.0026] |
-| **A2** held-out rater folds | a disjoint 5-fold | 0.6439 | **+0.0026 [+0.0004, +0.0049]** |
-| **A3** held-out **country** | every *other* country | 0.6458 | +0.0007 [−0.0033, +0.0048] |
-| A3 held-out AI-usage | other usage bands | 0.6437 | +0.0028 [−0.0009, +0.0066] |
-| A3 held-out age | other age bands | 0.6425 | +0.0040 [−0.0001, +0.0080] |
-
-**One rung is significant and it is not the one that would matter.** A2 — moving to
-rater-disjoint folds — costs **+0.0026 [+0.0004, +0.0049]**, about **0.4%** of a 0.6465 base.
-Every other rung spans zero, including held-out **country** (+0.0007), which costs *less* than
-A2 does.
-
-**⚠ Non-significance is not equivalence, and the earlier wording treated it as such.** The
-defensible claim is **no detected aggregate loss in the splits tested** — not "not
-population-conditional". `p > 0.05` on six countries is silence about anything smaller than this
-design can see, and an aggregate accuracy can conceal criterion-level **sign reversals**,
-minority-only criteria, and groups choosing alike *for different reasons*. Establishing
-population invariance needs an equivalence test against a pre-declared margin and a
-criterion-level heterogeneity model, neither of which has been run.
-
-⚠ This corrects the first published version, which reported A2 as non-significant from a
-**2-seed** run whose interval was wider. The full 8-seed run is above.
-Weights estimated in Mexico, the Netherlands or South Africa predict the choices of raters in
-the United States about as well as those raters' own ratings do. Within the isolation this
-release permits, criterion direction behaves like a **population-level property**.
-
-**The rung that matters most cannot be climbed here.** `A4` — weights from people who never
-saw a response — is **undefined, not zero**: nobody in this dataset rated a criterion without
-first seeing four candidates. The map is flat right up to the boundary of what is measurable,
-and the one question left sits on the other side of it.
-
-⚠ 148 of 1,160 criterion raters (12.8%) have no annotator record and therefore no country
-([entry 22](RETRACTIONS.md)). They can supply *weights* but can never be a held-out stratum,
-so A3 covers 87.2% of the pool and the excluded eighth is not random with respect to anything
-known.
-
-### The channels overlap, so the sequential split was attributing to direction what importance also explains
-
-r32 added channels in one order — text, then sign, then magnitude, then visibility — and
-reported the increments. Pairwise accuracy is not additive, so those are the value of adding
-each channel **last** to whatever preceded it, not contributions.
-[r36](04_what_core_is/r36_channel_shapley) computes all sixteen coalitions.
-
-The cells r32 never ran are the informative ones:
-
-| coalition | what it is | accuracy |
-|---|---|---:|
-| `T` | criterion text, direction-free | 0.5839 |
-| **`MT`** | **magnitude *without* direction** | **0.6277** |
-| `ST` | sign | 0.6438 |
-| `MST` | sign + magnitude | 0.6594 |
-| `TV` | visibility alone | 0.5839 |
-
-**Weighting by how *strongly* people rated a criterion — ignoring which way — already reaches
-0.628 against direction's 0.644.** The two channels are near-substitutes, so the +0.0876 r32
-attributed to polarity was largely the value of *any* informative weighting arriving first.
-
-Shapley values, averaged over every arrival order:
-
-```
-channel   φ same    φ cross    φ_same − φ_cross
-T         0.1277    0.1261     +0.0017 [+0.0005, +0.0028]
-S         0.0214    0.0205     +0.0008 [+0.0001, +0.0015]
-M         0.0128    0.0123     +0.0005 [-0.0005, +0.0016]   spans zero
-V         0.0002    0.0000     +0.0002 [-0.0000, +0.0004]   spans zero
-```
-*(5-seed full run. An earlier version of this table came from a 2-seed smoke run in which the
-T gap spanned zero; it does not.)*
-
-**φ_S(same) − φ_S(cross) = +0.0008** — the plan's target estimand, and it is tiny under every
-ordering, not just the one r34 tested. Visibility is worth essentially nothing (φ_V = 0.0002),
-confirming r32's finding that it *hurts* when applied multiplicatively.
-
-⚠ **One caveat that must travel with these numbers.** φ_T is large partly by construction:
-sign, magnitude and visibility are all unusable without criteria, so `v(C) = 0.5` for every
-coalition lacking T, and the orderings where a weight channel arrives before the text
-contribute nothing to it. **φ_T therefore absorbs the "you need criteria at all" value, and
-"text is six times sign" is not a licensed reading.** What the decomposition does establish is
-order-independence of the same-vs-cross gap, and the near-substitutability of sign and
-magnitude.
-
-### …and it is not an artifact of forced-choice elicitation either
-
-One measured fact makes that question urgent. Across all **102,147** criterion ratings in the
-release, the value **0 appears exactly once**. The scale runs −10…+10 and its neutral point is
-in practice unavailable — every rater assigned a direction to every criterion they saw.
-*"This property has no general direction"*, *"it depends"*, and *"I can't say without seeing a
-response"* have **no representation in this data**. Forced-choice elicitation is a known way
-to turn weak or absent preference into apparently stable preference.
-
-[r35](04_what_core_is/r35_polarity_abstention) classifies every shared seed criterion by how much its
-raters agreed on direction, then compares three ways of scoring:
-
-| polarity class | share |
-|---|---:|
-| stable (≥90% one direction) | 40.5% |
-| leaning (60–90%) | 48.0% |
-| **contested (<60%)** | **11.5%** |
-
-| rule, cross-fitted | accuracy | criteria kept |
-|---|---:|---:|
-| attribute-only | 0.5834 | 100% |
-| **forced** — every criterion gets a direction | 0.6423 | 100% |
-| **confident** — abstain unless ≥90% agree | **0.6406** | **45.8%** |
-| **posterior** — weight by `p₊ − p₋` | **0.6505** | 97.4% |
-
-```
-confident − forced   −0.0017 [−0.0084, +0.0051]   spans zero
-posterior − forced   +0.0082 [+0.0042, +0.0121]   excludes zero
-```
-*(10-seed full run.)*
-
-**Abstaining on 54% of the criteria costs nothing measurable.** And down-weighting contested
-criteria instead of forcing them to ±1 *improves* concordance.
-
-**⚠ What this establishes is robustness to POST-HOC abstention, not the absence of a
-forced-choice effect.** Dropping low-consensus criteria after collection cannot simulate what a
-participant would have written had *"no general direction"*, *"depends on implementation"* or
-*"cannot judge without seeing a response"* been on the screen. Elicitation format changes the
-response it elicits; that is not recoverable by filtering the responses it already produced. The
-real test requires those options **at elicitation time** — which is the PRE arm of the
-outstanding human experiment.
-
-Read with r34, the polarity channel now looks like a genuine cross-rater direction: it
-survives rater-disjoint cross-fitting (92%), it concentrates in criteria with agreement, and
-it is robust to abstention. **Two of the three worlds are closed.** What remains is the one
-no split of these annotators can reach — every one of them saw the four candidates before
-rating — so *stable population value* versus *direction constructed by seeing the menu* still
-needs weights from people who never saw a response.
-
-### What the satisfaction judge is using
-
-Every cross-rater result here runs through one instrument — the judge answering *"does response r
-satisfy criterion c?"*. r04 validated it in aggregate against held-out human rankings. Nothing
-asked what it was **using**, and r50 gave a reason to.
-
-[r51](06_the_judges_mechanism/r51_judge_lexical) measures, within a fixed (prompt, criterion), whether satisfaction
-across the four responses tracks lexical overlap between criterion and response:
-
-| | |
-|---|---:|
-| mean **signed** corr(overlap, satisfaction) | **+0.2068 [+0.1966, +0.2161]** |
-| response-permutation null | −0.0034 [−0.0090, +0.0020] |
-| with response **length** partialled out | +0.1886 [+0.1768, +0.2010] |
-| criteria with positive human rating | +0.2252 |
-| criteria with **negative** human rating | +0.1527 |
-
-Both polarities are positive, so there is no negation trap hiding two opposing mechanisms — for a
-criterion like *"the model moralises"*, a response that moralises does contain the words, and
-scoring it satisfied is correct.
-
-⚠ Read the **signed** value. At four responses, two independent vectors give E|r| ≈ 0.50, so a
-bare magnitude here would repeat [entry 49](RETRACTIONS.md).
-
-**And the mechanism is causal, not just correlational.**
-[r52](06_the_judges_mechanism/r52_overlap_intervention) intervenes: take the *same* criterion, append six
-distinctive tokens from response A in one arm and from response B in the other, and read the
-judge's A-vs-B satisfaction gap. The appendage is the same kind of object in both arms, so its
-semantic effect cancels — only the *source* of the words differs.
-
-| | |
-|---|---:|
-| baseline gap `s(c,A) − s(c,B)` | +0.0234 [−0.0098, +0.0570] |
-| **intervention Δ** | **+0.2507 [+0.2300, +0.2714]** |
-| unrelated-token null | −0.0045 [−0.0181, +0.0094] |
-| absolute shift from appending unrelated tokens | A −0.0648, B −0.0603 |
-
-Six copied words move the gap by a quarter of the 0–1 scale. The unrelated-donor arm — equally
-rare tokens matching neither response — does nothing, so this is the **source** of the tokens and
-not the act of appending; and the absolute shifts are small and symmetric, so the perturbation did
-not simply break the instrument.
-
-This is the only **interventional** round in the project. Everything else is observational on a
-fixed release.
-
-**Does that channel explain r12?** It is the obvious candidate — own criteria were written by
-people looking at the original four responses, so they share vocabulary with them; donor criteria
-come from another prompt and share vocabulary with neither. On fresh responses the own-rubric
-overlap advantage should evaporate. [r54](06_the_judges_mechanism/r54_overlap_transfer) measures it:
-
-| criterion set × response set | mean containment |
-|---|---:|
-| own × original | 0.1482 |
-| own × fresh | 0.1158 |
-| donor × original | 0.0189 |
-| donor × fresh | 0.0213 |
-
-The advantage really does collapse, **+0.1294 → +0.0945** (drop +0.0349 [+0.0266, +0.0434]), and
-given r52's causal +0.2507 that collapse must depress own-rubric satisfaction on fresh responses.
-
-**But it does not explain r12.** The per-prompt collapse does not predict which prompts show the
-attribution drop: **corr = −0.0736 [−0.2059, +0.0612]**. That left one escape — a *uniform*
-contribution, invisible to a per-prompt correlation.
-
-[r55](06_the_judges_mechanism/r55_overlap_selectivity) closes it by measuring the right quantity instead of the
-same one again. Attribution is an **ordering** statistic, and a shift that raises all four
-responses equally cannot move an ordering. What can is **selectivity** — the sd of containment
-across the four, high when a criterion overlaps the one response it was written about:
-
-| | original | fresh |
-|---|---:|---:|
-| own criteria | 0.0738 | **0.0776** |
-| donor criteria | 0.0220 | 0.0259 |
-| **own − donor** | **+0.0518** | **+0.0517** |
-
-**Collapse: +0.0002 [−0.0056, +0.0059] — equivalent to zero at δ = 0.01**, tested rather than
-merely non-significant. Own criteria are as selective about responses they were never written for
-as about the ones they were.
-
-So the component that could have acted uniformly is the one that does not vary, and the component
-that would have to vary does not change. **The judge's overlap channel is real (r51, r52) and
-cannot explain r12.**
-
-**This gives r50's anchoring effect a live instrument explanation**: anchored criteria may
-transfer better because they are the ones the judge scores accurately. It does **not** establish
-that overlap-driven scoring is *wrong* — overlap and genuine satisfaction are correlated in the
-world, and the release contains no satisfaction ground truth against which to set the ceiling
-(**verified**: streaming every field name from all four release files — 1,078 + 986 + 18,384 +
-1,012 lines, 103 distinct fields — returns no satisfaction-, meets- or per-criterion-score field) a
-correct judge would show. And the claim card's real positive control — having the judge score a
-criterion copied out of a response — **was not run**; it needs a GPU pass, and the round says so
-in its own output rather than passing off an estimator check as the control.
-
-### …and it transfers on criteria nobody but the author ever saw
-
-Item 1 rescoped "not leakage" to leave **shared-menu endogeneity** open, because every
-participant saw the same four responses. r48 then showed the menu had a *second* shared part:
-the same six pre-seeded criteria, identical for every rater on a prompt.
-
-And [entry 51](RETRACTIONS.md) established that r34, r35, r36, r37 and r43 all filter to
-majority-rated criteria — which **is** that pre-seeded set. They analyse **5,564 of 15,248
-criteria (36.5%)**, discarding the 9,684 participant-authored write-ins. Nobody chose that; the
-rater-count threshold did it, and "reliably-rated criteria" and "the criteria OpenAI supplied"
-turned out to be the same operation described two ways.
-
-So the shared-criterion channel was not a residual worry in those results — it was their entire
-population. [r49](06_the_judges_mechanism/r49_provenance_crossfit) tests the excluded half, size-matched to the
-same 6 criteria per prompt:
-
-| arm | cross-fitted direction advantage | shuffled-sign null |
-|---|---:|---:|
-| pre-seeded six (r34's population) | +0.0599 [+0.0514, +0.0687] | −0.0831 |
-| **write-ins** (one author, one rater) | **+0.0777 [+0.0674, +0.0883]** | −0.0668 |
-| **paired gap** | **+0.0172 [+0.0034, +0.0307]** | — |
-
-The control reproduces r34 (+0.0599 against its +0.0576) before any per-class number is read.
-**Private criteria transfer better than shared ones** — and that is *conservative*, since a
-write-in's sign comes from a single rater while a seeded item's averages ~17.
-
-So the transferable direction is **not an artifact of shared criterion text**. ⚠ It narrows
-shared-menu endogeneity to the **response** channel; it does not remove it. Every write-in was
-still authored after seeing the same four candidates.
-
-⚠ **I originally added that this channel was unreachable by any design this release permits. That
-was wrong** ([entry 52](RETRACTIONS.md)). [r50](06_the_judges_mechanism/r50_response_anchoring) builds one — split
-write-ins by how much their words overlap the four candidates — and it returns a signal: anchored
-criteria carry **+0.0271 [+0.0134, +0.0405]** more direction than generic ones. It still cannot
-*attribute* that signal, because the pre-seeded control trends the same way and the excess spans
-zero. A design existing and a design deciding are different things, and only the first is
-established.
-
-### The direction transfers across people — so it is not the raters' own rankings coming back
-
-The sharpest of the three live worlds was **same-sample target leakage**: the ratings that
-build the weights and the rankings being predicted come from the *same people on the same
-prompt*, so `ranking → polarity → rubric score → predicts ranking` is a closed loop.
-
-[r34](04_what_core_is/r34_global_rater_crossfit) breaks the loop. Annotators are split into 5 global
-folds — a person belongs to exactly one fold for the whole run, never re-randomised per
-prompt. Weights come from **train** raters; the evaluation target is each **test** rater's
-*individual* ranking, never an aggregate that would carry their own choices back in.
-
-| arm | weights from | accuracy |
-|---|---|---:|
-| attribute-only | none (direction-free) | 0.5834 |
-| **cross-fit sign** | **raters disjoint from the target** | **0.6421** |
-| same-sample sign | everyone, incl. the target rater | 0.6466 |
-| leave-one-rater-out sign | everyone except the target rater | 0.6415 |
-| random sign *(null)* | signs shuffled, ratio preserved | 0.5687 |
-| donor-prompt sign *(null)* | another prompt's signs | 0.5556 |
-
-```
-D_population  crossfit − attribute   +0.0576 [+0.0486, +0.0671]
-D_same        same     − attribute   +0.0631 [+0.0540, +0.0720]
-D_same_sample_premium     same     − crossfit    +0.0055 [+0.0025, +0.0085]    ← 9% of the effect
-```
-*(25-seed full run; fold-seed sd of the arm is 0.0012.)*
-
-**Roughly 91% of the polarity gain survives rater-disjoint cross-fitting.** Both nulls sit
-*below* the direction-free arm — shuffled signs −0.018, donor-prompt signs −0.034 — so the
-sign channel is not a free parameter; the specific directions carry the signal.
-
-**So SAME-RATER circularity is not the explanation.** The post-choice direction generalises
-across people.
-
-**⚠ This does not exclude menu-induced construction, and the earlier wording implied it did.**
-What is ruled out is the individual loop — *this rater's own weight predicting this rater's own
-ranking*. What is untouched is the shared one: **every participant saw the same four-response
-menu**, so
-
-```
-menu  →  shared salience  →  Sᵢ
-```
-
-can produce directions that agree across people *and* are still constructed by the menu. Cross-rater
-agreement is evidence against individual circularity and **is not evidence for a pre-existing
-norm**. No split of these annotators can separate those, because none of them rated a criterion
-before seeing responses.
-
-**⚠ And the criterion population makes this sharper, not merely narrower**
-([r92](09_form_donor_draw_and_unit/r92_writein_analysability), 2026-07-29). [r34](04_what_core_is/r34_global_rater_crossfit) applies
-the majority-rated filter, so the cross-fitting above runs on the **pre-seeded** criteria — **36.5%**
-of the total, and by [r48](06_the_judges_mechanism/r48_provenance_identified) exactly the six items **shown identically
-to every participant**. So the two caveats compound rather than stack: *cross-rater agreement is
-measured on precisely the criteria the shared menu supplied to everyone.* That is the configuration in
-which `menu → shared salience → Sᵢ` is **most** able to manufacture agreement, not least.
-
-**This cannot be repaired by analysing the other 63.5%.** The participant-authored write-ins carry a
-median of **1** rater, so they yield **zero** cells for any between-rater comparison — **at every
-threshold, including the most permissive one**. The restriction is structural. Only **S_pre** separates
-these worlds.
-
-**What this does not settle**, and cannot: *every* rater in this dataset saw the four
-candidates before rating the criteria. So the two remaining worlds — a **stable population
-value direction** versus a direction **constructed by seeing the menu** — are still both live,
-and no split of these annotators can separate them. That needs weights from people who never
-saw a response, which is the cheapest outstanding human experiment and now the highest-value
-one.
-
-### Post-ranking polarity nearly doubles the concordance — and what that means is unidentified
-
-CoVal's protocol is sequential: participants **ranked the four candidates first**, and only
-then saw the seeded criteria, rated them, and could write their own. So a criterion's
-*sentence* can predate the candidates while the *sign and magnitude* attached to it cannot.
-
-[r32](03_person_or_pair/r32_channel_decomposition) holds the judge, the responses and the criterion text
-fixed and varies **only the weighting**, using the satisfaction matrix r04 already computed:
-
-| what the score uses | accuracy | above chance |
-|---|---:|---:|
-| criterion **text** only (equal weights) | 0.5899 | 9.0 pts |
-| + post-choice **polarity** (human-rated sign) | 0.6775 | 17.8 pts |
-| + post-choice **magnitude** (mean rating) | 0.6831 | 18.3 pts |
-| + **visibility** (× n raters) | 0.6697 | *worse* |
-
-**Polarity alone is worth +0.0876 [+0.0784, +0.0976]**, paired on prompts.
-
-**⚠ What this does and does not say.** It says: *adding a direction measured after the rater
-ranked the candidates raises above-chance concordance on the original candidate set from 9.0
-to 17.8 points.* It does **not** say half the rubric's ability is post-choice leakage, and
-three earlier drafts of this section did. Four reasons:
-
-- **A criterion sentence is usually an *attribute*, not a value judgement.** "Response
-  moralises" has no direction until someone supplies one. So equal weighting is an
-  **attribute-only diagnostic**, not a "text-only value score", and its 0.5899 is not the
-  rubric-minus-weights counterfactual.
-- **Accuracy is not additive.** 0.5899 → 0.6775 is not a causal contribution, and the
-  decomposition depends on the order channels are added. A Shapley-style all-coalitions
-  version is queued.
-- **Measured after ≠ generated after.** The polarity could be a stable value direction that
-  merely happened to be recorded post-ranking.
-- **+0.0876 and the +0.0791 own-vs-shuffled attribution are different contrasts** — a
-  sequential increment against an arm difference. They are numerically comparable and not
-  algebraically substitutable.
-
-At least three worlds remain live and this experiment cannot separate them: **stable
-cross-rater value direction**, **response-induced preference construction**, and **same-sample
-target leakage** — the last because the ratings that build the weights and the rankings being
-predicted come from *the same people on the same prompt*:
-
-```
-ranking  →  criterion polarity  →  rubric score  →  predicts ranking
-```
-
-The sharpest defensible statement is therefore about r04, not about values:
-**a large share of r04's internal concordance is driven by post-outcome information, and until
-rater-disjoint cross-fitting is run, that share cannot be counted as independent predictive
-ability.**
-
-Two things follow that were not visible before.
-
-**r04's unweighted alternative is not neutral.** An equal-weight mean *rewards* a response for
-satisfying a criterion the raters marked **negative** — "the model should not moralise" scored
-as something to maximise. That is why the equal arm sits at 0.590.
-
-**r13 was measured at equal weights**, which is the most response-blind configuration available,
-so its seed-vs-write-in comparison was genuinely a comparison of *text*. That narrows what
-[entry 38](RETRACTIONS.md) withdrew: the polarity channel is closed for r13's specific number,
-and open for the released scoring rule.
-
-### What CoVal-core actually is — a normative compiler
-
-*(The round's directory is named `r33_core_launders_polarity`. "Launders" imputes intent and is
-withdrawn as a description: the accurate statement is that **core internalises polarity into
-rewritten criterion semantics while discarding most of the original rating and disagreement
-provenance.** That is an artifact-design consequence, not a deception.)*
-
-The dataset card says core is built by a process that **"first rewrites all rubric items to
-have positive weight"** (`DATASET_CARD.md:74`). That makes core not a *subset* of full but a
-**transformation** — and one of its steps takes the sign a participant supplied *after*
-ranking the candidates and rewrites it into the criterion's wording.
-
-[r33](04_what_core_is/r33_core_launders_polarity) pre-registered three predictions and tested them on
-the satisfaction matrices r04 already computed:
-
-| rubric | weighting | accuracy |
-|---|---|---:|
-| full | equal — **no human ratings used** | 0.5899 |
-| **core** | equal — **no human ratings used** | **0.6563** |
-| full | + post-choice sign and magnitude | 0.6831 |
-
-**P1 confirmed: +0.0663 [+0.0574, +0.0754].** Core scored with *no ratings at all* recovers
-about **76%** of the +0.0876 that full only reaches once the post-choice weights are applied.
-
-Two things this settles.
-
-**The released core rubric ships with no weights.** Its items carry only `criterion` — no
-`scores`, no ids — verified field by field. So equal weighting is the *only* rule defined on
-core, and P2 (`core/signed ≈ core/equal`) is **tautological, not evidence**: there is nothing
-to apply.
-
-**Core is therefore the artifact most likely to be misread.** It is short, readable,
-positively phrased, four items — it looks exactly like a hand-written value checklist
-authored independently of any response. It is the one where that reading is least available,
-because the information making it work was produced by people who had already chosen.
-P3 shows it does not recover everything: full-with-weights still leads core by 0.0268.
-
-### …and the judge moves it as much as the floor does
-
-[r22](02_attribution_under_attack/r22_cross_family) grades the same 300 prompts with judges from **two model families**.
-The decomposition survives — every judge shows a positive attribution with an interval clear of zero,
-so it is **not an artifact of the Qwen lineage**. But the magnitude is not portable:
-
-| judge | family | own | random floor | attribution ([r22](02_attribution_under_attack/r22_cross_family)) | prompt-specific share ([r30](03_person_or_pair/r30_scope_grid)) |
-|---|---|---|---:|---:|---:|
-| qwen3.5-2b-base | qwen | 0.6522 | 0.5759 | +0.0763 [+0.0585, +0.0944] | 50.1% |
-| qwen2.5-3b-instruct | qwen | 0.6660 | 0.5767 | +0.0894 [+0.0672, +0.1114] | 53.8% |
-| phi-3.5-mini-instruct | **phi** | 0.6410 | **0.6053** | +0.0357 [+0.0186, +0.0541] | **25.3%** |
-
-phi clears its own positive control at 0.641, level with the Qwen judges — but its *unrelated-rubric
-floor* is 0.605 against their 0.576. It extracts more generic response quality for free, leaving less
-room for prompt-specific content.
-
-**So the share has two independent sources of variation, and they multiply.**
-[r30](03_person_or_pair/r30_scope_grid) puts an interval in every cell — a ratio-of-means bootstrap
-resampling prompts, replacing three successive point-estimate ranges (43%, 27–67%, 13.6–74%)
-that never carried one:
-
-| judge ([r30](03_person_or_pair/r30_scope_grid)) | family | vs nearest-topic floor | vs random floor |
-|---|---|---:|---:|
-| phi-3.5-mini | phi | **13.6%** [3.2%, 23.7%] | 25.3% [13.7%, 37.2%] |
-| qwen2.5-3b | qwen | 30.5% [20.1%, 41.0%] | **53.8%** [42.1%, 65.8%] |
-| qwen3.5-2b | qwen | 36.9% [26.4%, 47.7%] | 50.1% [39.4%, 61.2%] |
-
-```
-point estimates alone      13.6% .. 53.8%   = 3.94×
-including sampling error    3.2% .. 65.8%
-```
-
-**The second line is the defensible one**, and the grid's true upper corner is not even in
-it: the farthest-donor floor (~74% on Qwen, r19) was never run against phi, and internlm2
-could not be loaded at all. Every cell also shares one 300-prompt panel, so the span is not
-a confidence statement about a population of judges.
-
-**⚠ The quantity was misnamed from the start, and the name is retired.** This contrast is
-
-```
-own-rubric predictive performance  −  SELECTED reference-rubric performance
-```
-
-It is **not** `values − non-values`. Whatever an unrelated prompt's rubric recovers is itself
-made of accuracy, clarity, caution, non-deception, relevance, proportionality — norms, not the
-absence of them. The correct name is **source specificity**, or incremental prompt-conditioned
-information. *"Less than half of a values evaluation measures values"* was never a licensed
-reading of this subtraction and is withdrawn as a framing, independently of the numbers, which
-stand.
-
-**This is the quantity's real scope.** Source specificity is not a property of the dataset. It
-is a property of *(dataset, floor donor, judge family)*, and the last two — both analyst choices,
-neither reported in the source package — move the answer more than fivefold. A single figure
-constrains nothing unless it names both.
-
-⚠ `internlm2-chat-1.8b` could not be loaded at all (tokenizer parse error) and is reported as a
-**load failure, not a judge verdict**. A third family remains untested.
-
-### …and the prompt-specific part does not transfer
-
-The criteria were written by participants **after reading the four candidates**. Measured on
-rubric-blind responses those authors never saw, the advantage does not merely shrink — it inverts:
-
-| response set ([r12](02_attribution_under_attack/r12_response_set)) | real rubric | unrelated rubric | advantage |
-|---|---:|---:|---:|
-| the four released candidates | 0.657 | 0.555 | **+0.102** [+0.071, +0.133] |
-| fresh, rubric-blind, unseen | 0.481 | 0.545 | **−0.064** [−0.092, −0.037] |
-
-A discrimination control confirms the fresh set is *more* separable than the released one, so this
-is not an artifact of homogeneous generations. Re-run on an entirely new temperature-0.9 sample
-([r46](06_the_judges_mechanism/r46_spread_replication), `controls`) the inversion replicates: **+0.0847 → −0.0716**
-on 250 prompts this project had never touched, overlap with r12 exactly **0**.
-
-> **⚠ What this is NOT.** There are **no human rankings on the fresh responses** and there cannot be
-> without new data collection. The yardstick is a learned preference head fitted on human rankings of
-> the *original* responses. So the measured object is **disagreement between the rubric score and an
-> original-distribution-trained proxy, under a response-distribution shift** — not inversion of human
-> preference. A discrimination control shows the proxy is *more discriminative* on the fresh set; it
-> does **not** show it is *correct* there. Variance is not calibration, and a broken thermometer reads
-> a wide range on unfamiliar objects. The two gold heads correlate only **+0.4775**, which is evidence
-> for this concern rather than a curiosity. **Human rankings on the exact saved fresh responses are the
-> single highest-information next action in this project.**
-
-[r13](02_attribution_under_attack/r13_seed_vs_writein) then refuted the obvious explanation. If the criteria simply encoded
-facts about those four candidates, criteria not written by someone who had read them should carry no
-advantage. They carry a clear one — and **which provenance carries more is not established**, because
-the paired difference spans zero:
-
-> **⚠ What "response-blind" means here, exactly.** The dataset card (line 73) says the seed items were
-> prepared ***in parallel*** with candidate generation — not before it, and not by anyone blind to it.
-> The same team was simultaneously writing four candidates chosen "to represent a range of potential
-> model behaviors" and writing example criteria for that prompt. So the seeds are response-blind with
-> respect to **participant exposure**, which is what the leakage argument needs, and **not** independent
-> of the responses by **design**, which is what an S_pre reading would need. An earlier draft of this
-> paragraph said the seeds were "written *before anyone saw them*" and "never tailored to the
-> responses"; the card supports neither.
-
-| criterion provenance | real | unrelated | advantage |
-|---|---:|---:|---:|
-| seed (participant-blind) | 0.583 | 0.537 | **+0.046** [+0.023, +0.069] |
-| write-in (after reading) | 0.559 | 0.533 | **+0.026** [+0.002, +0.051] |
-| **difference, paired on 293 shared prompts** | | | **+0.023 [−0.008, +0.054]** |
-
-**Both arms are corrected and the third row is the honest one.** An earlier version reported +0.039 vs
-+0.029 and read the write-in interval as spanning zero, making seeds look *better*. Two errors: the
-attribution differenced a positional prefix of one array against a differently-ordered subset
-([entry 15](RETRACTIONS.md)), and the *difference* was quoted with no interval at all. Repaired, every
-point estimate rose — and the ordering died, because +0.023 spans zero. Which of the two provenances
-carries *more* is **not established** — and neither is their *equivalence*: the 95% interval spans
-0.062, **3.1× the ±0.01 window**, so this contrast is **INCONCLUSIVE**, not a null
-([r58](06_the_judges_mechanism/r58_equivalence_census)).
-
-> **⚠ Retracted claim.** This round previously concluded *"response-set knowledge is not the
-> mechanism."* **That is too strong and is withdrawn.** What it rules out is only the narrowest channel:
-> literal memorisation of the final candidate *strings*. At least three others survive, and the release
-> cannot close them:
->
-> - **post-choice weighting** — seed criteria were *rated* after participants ranked the candidates.
->   *(Closed in this estimator, and stated because it must be: r13 scores by an unweighted mean of
->   judge satisfaction and uses no human rating sign or magnitude anywhere.)*
-> - **shared viewpoint generator** — OpenAI produced candidates by first generating varying *viewpoints*
->   on the ideal answer. Nothing establishes that seed criteria were generated independently of that
->   scaffold, so a criterion can know the candidate *distribution* without knowing any candidate.
-> - **prompt-construction manifold** — prompts were synthesised for specific Model-Spec tensions and
->   candidates instantiate them. A seed rubric can be predictive on that designed manifold and not on a
->   free generation occupying a different one.
-> - **post-choice selection into core** — CoVal-core is an LM-assisted synthesis of *highly rated*
->   criteria, so which response-blind sentences survive is decided by post-response ratings.
->
-> The defensible claim is: **multiply-rated seed criteria carry local predictive signal without literal
-> string memorisation. Seed provenance, post-choice weighting, shared viewpoint generation and
-> manifold dependence remain unresolved.**
-
-One further caveat this table cannot show: "seed" is **inferred from rating count**, not read from a
-release field. The bimodality is real — 9,684 criteria carry exactly one score and nothing sits between
-one and each prompt's majority threshold — but it measures *visibility*, and cannot separate "prepared
-response-blind" from "one annotator's write-in, later shown to everyone".
-
-So the bound is not about what the criteria encode. It is a property of the measurement apparatus off
-distribution — a transfer boundary for rubric-graded evaluation, which is the open question this
-repository now points at.
+| Crowd rubric vs. length heuristic | **+13.0 pts** [+10.3, +15.8] · 50.3% of assessments vs 37.3% | [r178](13_normative_chain/r178_rubric_versus_length) |
+| …how much of that is the *weights* | **+14.6 pts**; shuffling them drops the rubric to the length heuristic's level | [r178](13_normative_chain/r178_rubric_versus_length) |
+| …how much is circular (rater's own ratings) | **+0.6 pts** — leave-one-annotator-out barely moves it | [r178](13_normative_chain/r178_rubric_versus_length) |
+| The reachable ceiling | **61.5–62.3%** of assessments (leave-one-out modal human choice) | [r179](13_normative_chain/r179_against_the_ceiling) |
+| Human–human agreement | **47.8%** of prompts, chance 25% | [r179](13_normative_chain/r179_against_the_ceiling) |
+| Reconstructed satisfaction layer | **0.686** pairwise concordance, 80,542 pairs | [r04](01_object_and_rebuild/r04_rebuild_satisfaction) |
+
+### The compilation step
+
+| finding | number | round |
+|---|---|---|
+| The positive-weight rewrite is real and targeted | 82.5% of negative-weight sources flip polarity vs 6.1% of positive · z +33 | [r176](13_normative_chain/r176_nonconflicting_nonredundant) |
+| …but it loses the individual criterion | flipped items correlate **−0.14** with their source; unflipped **+0.81** | [r189](13_normative_chain/r189_does_the_rewrite_preserve_direction) |
+| Compilation gives back fairness | **+4.2 pts** of group disadvantage returns, full → core · z +3.3, 851 strata | [r146](13_normative_chain/r146_does_compilation_add) |
+| …and the full rubric was *fairer* than the plurality | 5.5 pts vs 15.6 pts | [r146](13_normative_chain/r146_does_compilation_add) |
+
+### The criteria themselves
+
+| finding | number | round |
+|---|---|---|
+| Criteria encode their author's prior choice | **+0.0478** [+0.0336, +0.0620], 4,504 author pairs, same two texts | [r187](13_normative_chain/r187_post_hoc_rationalisation) |
+| Compilation neither concentrates nor removes it | +0.013, z 1.0 · MDE 0.037 = 76% of the incoming effect | [r188](13_normative_chain/r188_does_compilation_keep_the_rationalisations), [r204](13_normative_chain/r204_the_nulls_need_power_not_jackknives) |
+| The card's "highly rated" claim | **fails** as stated; selection is rating-*sensitive*, not rating-*ordered* (3.0→10.1% survival across weight bands) | [r171](13_normative_chain/r171_card_vs_artefact), [r181](13_normative_chain/r181_whose_criteria_survive) |
+| "non-redundant" / "non-conflicting" | **UNVERIFIED** — a style confound of the same magnitude blocks the first; the proxy is blind to the second | [r176](13_normative_chain/r176_nonconflicting_nonredundant) |
+
+### The people
+
+| finding | number | round |
+|---|---|---|
+| Dissent is a stable individual trait | split-half **+0.486**, survives residualising on prompt assignment | [r180](13_normative_chain/r180_is_the_disagreement_a_person) |
+| Demographic groups that actually cluster | **2 of 28** levels — Netherlands +6.3%, Mexico +6.0% | [r183](13_normative_chain/r183_does_any_attribute_mark_a_bloc) |
+| …and what they cluster *about* | **nothing measurable** — 0 of 14 axis tests survive | [r186](13_normative_chain/r186_what_do_the_blocs_want) |
+| The veto identifies content, not raters | S-B **+0.827** on *which* response, over 1,288 pairs | [r192](13_normative_chain/r192_is_the_veto_about_the_responses) |
+| What gets flagged as unacceptable | the response that **hedges less** — z −5.6, and it is not length | [r193](13_normative_chain/r193_what_gets_flagged) |
 
 ---
 
-## Rounds
+## What the release does not ship
 
-Each round is self-contained: its own question, runner, results and README.
+Six things, each of which blocks a question someone will want to ask.
 
-⚠ **Several lines are frozen — see [FROZEN.md](FROZEN.md).** A line is frozen when further
-computation cannot identify what it is measuring, which is a statement about the object rather
-than about the estimate. Each entry records what would *unfreeze* it, because a freeze without
-an unfreeze condition is abandonment with better manners. The rater-structure ontology
-(r23/r25/r26/r27/r28) failed **four consecutive separators for four different reasons** and is
-frozen UNRESOLVED — neither "no pair structure" nor "blocs exist". The computational headline is
-frozen at **3.2%–65.8%**: its width comes from analyst choices the source package never reports,
-not from estimation noise, so no further computation narrows it.
+| missing | consequence |
+|---|---|
+| criterion→response satisfaction labels | the published scoring cannot be reproduced; this repo rebuilds it with a local judge |
+| lineage from a core criterion to its source | "did this criterion survive compilation" is a text-similarity guess (7.8% verbatim, 30.8% at 0.80) |
+| authorship for multiply-rated criteria | 36% of the pool cannot be attributed, so "what people wrote" is 36% not what people wrote |
+| where the four candidate responses came from | nothing supports a claim about model behaviour — only about these 4,312 texts |
+| four documented demographic fields | race/ethnicity, country of origin, employment, self-description — collected per the card, never shipped, and the sanitization section does not mention it |
+| any refusal in the response set | **5 of 4,312** candidates decline. The most contested question in alignment was never put to the panel. |
 
-| round | question | headline | scope and caveats |
+Full list, ordered by the concrete wrong answer each produces:
+[`13_normative_chain/DEFECTS.py`](13_normative_chain/DEFECTS.py) — **6 blocking, 16 serious, 8 noted, 16 clean.**
+
+---
+
+## What this project got wrong
+
+**13 withdrawn claims.** [`RETRACTIONS.md`](RETRACTIONS.md) has all 235 entries, each naming what killed it — the claim graph refuses a
+retraction that names no killer.
+
+The failure mode changed halfway. Early phases retracted **measurements**. From r175 on, the sweep
+turned on its own output and retracted **descriptions of measurements that were correct**:
+
+- *"the panel is concentrated in a few countries"* — 63% in three countries is right; the release
+  publishes no sampling frame, so there is nothing to be concentrated *relative to*
+- *"the scale is used as a near-binary"* — all 21 values are used, 4.04 bits of a possible 4.39
+- *"length matters less on prompts with a right answer"* — **one prompt, counted 929 times**,
+  produced the entire +4.9 points. Removing it collapses the effect tenfold.
+
+That last one is entry 230, and it caused entry 231: a **retraction of a retraction**, where the
+verdict was right and the stated mechanism was false.
+
+**Two tools exist because of it.** [`covalx/estimand.py`](covalx/estimand.py) refuses a mean over
+grouped data until the caller says whether the unit is the observation or the group.
+[`covalx/robust.py`](covalx/robust.py) is a calibrated jackknife whose verdict is three-valued,
+because its own threshold turned out to be a distribution. Both failed their first attack; both
+attacks are in the repo.
+
+---
+
+## Navigating
+
+| phase | rounds | n | what |
 |---|---|---|---|
-| [r01](01_object_and_rebuild/r01_rater_structure) | Is disagreement noise or structure? | persists across disjoint prompts, ρ=0.147, z=+16.6. Most of it is an additive per-rater effect (r23). Whether anything **pair**-specific survives is **UNRESOLVED** — r28 showed the decomposition's functional form is itself unvalidated. The "survives removing response style" control was invariant by construction ⚠ **Pre-seeded criteria only — 36.5% of the total.** This round keeps criteria rated by a *majority* of a prompt's raters; [r48](06_the_judges_mechanism/r48_provenance_identified) showed that class is the **pre-seeded set shown identically to every participant**, and [r92](09_form_donor_draw_and_unit/r92_writein_analysability) that the excluded **63.5%** carry a median of **1** rater, so the restriction is **structural** and cannot be lifted by re-analysis. |
-| [r02](01_object_and_rebuild/r02_label_and_regime) | Label bias; fatigue or regime change? | label B wins 22.5% vs 25% expected. The task-6 effort drop is **real and within-person** (r31) but its **mechanism is unidentified** — position 6 is the study's minimum-task boundary |
-| [r03](01_object_and_rebuild/r03_stated_vs_revealed) | Do stated ideals predict own choices? | **equivalent to chance at the preregistered δ=0.01**, which is stronger than the *"no evidence"* this row used to report. Over **11,327** judgements from **1,007** annotators: hit rate **0.5033** vs a label-permuted null of **0.5016**, difference **+0.0017** [−0.0061, +0.0097] — the interval lies inside the margin with **0.0003** to spare, so this is a *tight* null, not an unpowered one. (95% interval used where TOST asks for 90%: conservative, since the 90% is narrower.) ⚠ The raw hit rate splits **0.5138** / **0.4903** by whether the top pick is longer — but [r81](08_direction_from_text/r81_stated_signal_by_length) tested it and **the nulls split too** (0.5133 / 0.4870): against their own baselines the strata are **+0.0005** and **+0.0033**, gap **−0.0028** [−0.0180, +0.0120], covering zero. **A raw split against a common baseline is not a split in the effect** |
-| [r81](08_direction_from_text/r81_stated_signal_by_length) | Is r03's equivalence hiding a length-conditional signal? | **no — the split is in the null, not the effect.** Entry 139 flagged a raw hit-rate gap of +0.0235 between judgements where the top pick is longer and shorter, ten times r03's aggregate difference, and tested it nowhere. Stratified against **each stratum's own** permuted null: longer **+0.0005** [−0.0101, +0.0111], shorter **+0.0033** [−0.0083, +0.0148], difference of differences **−0.0028** [−0.0180, +0.0120]. The nulls themselves split 0.5133 / 0.4870 — a different person's text also "predicts" better when the top pick is longer, because longer text shares more vocabulary with anything. ⚠ **Equivalence is n-dependent**: the aggregate clears δ=0.01, neither half does, because splitting halves the sample. Rebuild control reproduces r03's 0.5033 and +0.0017 exactly before any stratum is read |
-| [r82](08_direction_from_text/r82_scale_use_by_provenance) | How was the weight scale actually used? | **the midpoint of a 21-point scale was used ONCE in 102,147 ratings** — ⚠ a fact r35's `scale_note` already stated; what is new here is the *shape*. Splitting by provenance: low-magnitude ratings (\|w\|=1 or 2) are **19.21%** of seed ratings against **6.98%** of write-ins — a gap of **+0.1223** against a within-prompt provenance-permutation null of [−0.0016, +0.0095]. ⚠ **Displacement and selection are unseparated**: a rater authors a write-in *because* they already care, which predicts the same direction with no forced-choice pressure at all, and I failed to write that rival before the run. Scale-use facts worth having anyway: **77.01%** of ratings positive, **16.96%** at the extreme \|w\|=10, and **29.55%** on 5 or 10 — over a third of all weight mass on two of twenty-one values. ⚠ **Nobody in this release was offered a neutral option**, so what a participant *would* have done is unobservable and this round cannot simulate it — it measures scale *use*, not the counterfactual, which is why the neutral-option arm is preregistered |=1 or 2) are **19.21%** of seed ratings against **6.98%** of write-ins — a gap of **+0.1223** against a within-prompt provenance-permutation null of [−0.0016, +0.0095]. ⚠ **Displacement and selection are unseparated**: a rater authors a write-in *because* they already care, which predicts the same direction with no forced-choice pressure at all, and I failed to write that rival before the run. Scale-use facts worth having anyway: **77.01%** of ratings positive, **16.96%** at the extreme \|w\|=10, and **29.55%** on 5 or 10 — over a third of all weight mass on two of twenty-one values. ⚠ **Nobody in this release was offered a neutral option**, so what a participant *would* have done is unobservable and this round cannot simulate it — it measures scale *use*, not the counterfactual, which is why the neutral-option arm is preregistered |
-| [r83](08_direction_from_text/r83_low_magnitude_drop) | Do r82's weakest ratings carry anything? | **no — they are free to delete.** Removing every rating with \|w\| ≤ 2 (**18,154** of **100,530**, 18.06%) and recomputing each criterion's weight from the survivors moves agreement with **real human** pairwise rankings by **−0.0000248** — equivalent to zero at δ=0.01 by a factor of **403**. The arm that carries it is a **size-matched random deletion** repeated 200×: **0.6832** [0.6803, 0.6865] against the targeted **0.6860**. So removing the weakest fifth of all ratings costs nothing, while removing as much arbitrary data costs ≈0.003. ⚠ **Deletion acts on the rating set, not on people** — it says what the rubric loses without these numbers, never what a rater would have written given a neutral option, so r82's displacement-vs-selection question is untouched |
-| [r84](08_direction_from_text/r84_core_polarity_in_words) | Is core's polarity actually *in its words*? | **yes — and it fills a cell that has been `NaN` since r33.** r33 proved core beats full by +0.0663 with equal weights and no ratings, then recorded `negative_share: {full: 0.2483, core: NaN}` — core carries no ratings, so its direction has no numeric home. A sign classifier trained on **15,223** full criteria (held-out prompts, so no core criterion is scored by a model that saw its own prompt) calls **96.69%** of core positive against **92.22%** of full: gap **+0.0447** [+0.0381, +0.0515], which is **57%** of the only 0.0778 of headroom available. Shuffling the training labels collapses accuracy to 0.7432 ≈ the 0.7435 marginal and the gap to **−0.0001**. ⚠ **This reconciles r65 rather than contradicting it**: core is *more* prohibitive in form (18.62% vs 12.85%) **and** more positive in direction — *"avoid moralising"* is both. A predicted-positive rate is a model's reading of wording, never a rating |
-| [r85](09_form_donor_draw_and_unit/r85_agreement_by_form) | Do the two collection forms differ where both are available? | **no detectable difference, and it is bounded rather than merely unresolved.** Entry 161 called cross-form generalisation untestable; that holds prompt-for-prompt and not round-level. Agreement with **real human** rankings: **0.6879** [0.6721, 0.7034] long-form (293 prompts) vs **0.6854** [0.6738, 0.6965] short-form (675), gap **+0.0025** [−0.0173, +0.0231], inside a form-label shuffle null of [−0.0211, +0.0226]. **Answerable margin δ≈0.020**, limited by the 293. ⚠ **Confound written before the run and unresolved**: the forms cover disjoint prompts, so this compares instruments *and* questions and cannot attribute a difference — it bounds one |
-| [r86](09_form_donor_draw_and_unit/r86_attribution_by_form) | Does **source specificity** itself differ by form? | **no, and it is positive in both.** r85 bounded agreement; this bounds the own-minus-donor contrast the package is about. Whole join **+0.1215**; long-form **+0.1258** [+0.1038, +0.1483] (293), short-form **+0.1202** [+0.1056, +0.1351] (675); gap **+0.0056** [−0.0209, +0.0310], inside a form-label shuffle null of [−0.0260, +0.0270]. **Answerable margin 0.026**, limited by the 293 — so this is a bound, not equivalence at δ=0.01. Donors drawn from the whole join under r12's seed 20260727, since restricting them by form would confound the donor arm with the split under test. ⚠ Same unresolved confound as r85: disjoint prompts, so it bounds a difference and cannot attribute one ⚠ **One donor draw** — [r88](09_form_donor_draw_and_unit/r88_donor_draw_variance) makes the form gap **0.98×** the draw sd, i.e. exactly one draw, which is why it is a bound and not a difference. |
-| [r87](09_form_donor_draw_and_unit/r87_criterion_count_channel) | Is the central contrast partly a criterion-**count** pairing effect? | **no, and the absence of a dose-response is the evidence.** The own arm always scores prompt *i* at **its own** K while the donor arm scrambles it; if K tracked a prompt's gradability that pairing alone would manufacture attribution. r86 **named** this and declined to control it; r44 size-matches only inside the compiler lineage. Three pairings on the identical tensor and identical human rankings: K-**matched** (mean \|ΔK\| **0.07**) **+0.1297** [+0.1171, +0.1432]; **unrestricted** (5.97) **+0.1215** [+0.1096, +0.1331]; K-**mismatched** (8.42) **+0.1287** [+0.1156, +0.1418]. A 120× spread in ΔK moves attribution **not at all** — matched−unrestricted **+0.0084** [−0.0063, +0.0231], mismatched−matched **−0.0011** [−0.0163, +0.0136]. The point estimate moves **upward** under matching, the **opposite** sign to the confound's prediction. Count channel **bounded under 0.0231** (19% of the attribution level) — a bound, **not** equivalence at δ=0.01. Topic control ran in the same iteration: matched donors are **less** topically similar (0.0064 vs 0.0073), so r19's topic channel cannot be masquerading as this null. Rebuild control against r86 exact (0.0e+00) \| ⚠ **Caveat withdrawn by [r88](09_form_donor_draw_and_unit/r88_donor_draw_variance).** This row first read the ~+0.008 gap between the two *deterministic* pairings and the *random* one as structured-vs-random pairing. It is not: the donor-draw sd is **0.0055**, the random arm's seed sits at **−0.62 sd**, and against the draw *mean* the matched and mismatched arms are **+0.88** and **+0.69** sd — ordinary draws. No residual offset survives, which makes this round's null **cleaner**, not weaker | ⚠ **Caveat withdrawn by [r88](09_form_donor_draw_and_unit/r88_donor_draw_variance).** This row first read the ~+0.008 gap between the two *deterministic* pairings and the *random* one as structured-vs-random pairing. It is not: the donor-draw sd is **0.0055**, the random arm's seed sits at **−0.62 sd**, and against the draw *mean* the matched and mismatched arms are **+0.88** and **+0.69** sd — ordinary draws. No residual offset survives, which makes this round's null **cleaner**, not weaker |
-| [r88](09_form_donor_draw_and_unit/r88_donor_draw_variance) | Is the donor arm a **measurement**, or one realisation published as one? | **one realisation, and the spread is the size of things already published.** Every attribution figure here — r12's, r86's, r87's — comes from a single donor seed. The construction draws **independently per prompt**, so it samples *with* replacement: a draw uses **611 ± 10 of 968** prompts as donors and ~357 never serve. Across **120** draws attribution is **+0.1249**, sd **0.0055**, central 95% [+0.1141, +0.1352]; the canonical seed sits **−0.62 sd**. Judged against three contrasts **named before the run**, the sd is **0.98×** r86's form gap (0.0056), **0.66×** r87's pairing offset (0.0084), **0.47×** the single-seed bootstrap half-width (0.0118). Rebuild control exact (0.0e+00) | ⚠ Nothing here **licenses averaging** the two uncertainties: they are **separate resampling designs over separate objects** — the bootstrap CIs resample *prompts* at a fixed donor draw, this resamples *donor draws* at a fixed prompt set. Neither contains the other. A non-zero spread is arithmetic, not a finding — which is why the comparison set was fixed in advance |
-| [r89](09_form_donor_draw_and_unit/r89_floor_draw_at_panel_size) | How much donor-draw noise does the **headline's own floor** carry? | **more than the whole join's, because the panel is a third the size.** r10 builds its random donor with the **identical line** r88 measured, seed 20260727, on its first **300** prompts. Draw sd is **0.00948** at n=300 against **0.00535** at n=968. Transferring that to the headline's 7.9-point cell needs an assumption the data does **not settle**, so both are given: **12%** under absolute transfer, **7%** under proportional. r88's implied **1/√n** scaling is falsifiable and **holds** — worst deviation **11.5%** across three panel sizes — which is the evidence the noise is a property of the donor *sampling*, not of a judge. Cross-round positive control against r88 at n=968 **agrees**: gap −0.00016 against se 0.00044 | ⚠ **Named before the run so a null could not read as a general acquittal**: r10's **near** and **far** donors are argmax/argmin of a similarity matrix and carry **no** draw noise, so [r19](02_attribution_under_attack/r19_floor_choice)'s **2.47× floor span** — the headline's *structural* claim that the floor is a **choice** — is untouched here. Only the random cell moves. And r04's tensor is **not** r10's judge configuration, so this is an **estimate of magnitude**, never substituted into r10's cells |
-| [r90](09_form_donor_draw_and_unit/r90_resampling_unit) | Every interval here resamples **prompts**. The design is **crossed** — is that the wrong unit? | **no, and it is conservative rather than optimistic — the opposite of what I expected.** 1011 annotators over 968 prompts, median **16** prompts each, only **1.5%** rating one, top decile holding **12.7%** of links: crossed, near-uniformly, no whales. Identical counts, three units. Attribution half-width: by prompt **0.0123**, by **annotator 0.0055**, by pair 0.0049. Agreement: 0.0093 / **0.0056** / 0.0040. The annotator-clustered interval is **0.45×** the prompt one, not wider. **Mechanism, not mystery**: an annotator draw touches **100%** of prompts (each spans ~16), averaging between-prompt variance out *within* each draw, while a prompt draw touches **63.2%** and exposes it fully — the dominant component is **between prompts, not between people**. **The two-way crossed interval is computed, not conceded** (Cameron–Gelbach–Miller): attribution **0.0125** (published understates **2.0%**), agreement **0.0101** (**8.3%**). Point estimates identical under all three designs — 0.6860 and **+0.1215** — as they must be | ⚠ **One donor draw** ([r88](09_form_donor_draw_and_unit/r88_donor_draw_variance)) for the attribution point; that scope is orthogonal to the resampling unit this round varies, and both apply. The two-way figure applies CGM to bootstrap **percentile half-widths as sd proxies** — valid for near-symmetric draws only, so all three one-way inputs are stored for recomputation. Confound conceded and bounded, not eliminated: annotators are not randomly assigned, and **92.1%** span both collection forms |
-| [r91](09_form_donor_draw_and_unit/r91_precision_budget) | Three rounds missed **δ=0.01** and fell back to an answerable margin. **What n reaches it?** | **a level costs 1.6×, a difference costs 5.3×.** Item 7 asks for a preregistration, and fixing δ=0.01 without knowing the n that delivers it is how a non-result becomes indistinguishable from an underpowered one. Under half ∝ 1/√n — **verified, not assumed** ([r89](09_form_donor_draw_and_unit/r89_floor_draw_at_panel_size), worst deviation 11.5%): agreement **0.0093 → n=840**, i.e. *already* finer than 0.01 at the current 968; attribution two-way **0.0125 → n=1516**; the form gap **0.0260 → n=1975**; the count-channel bound **0.0231 → n=5148**. **Design lever**: the donor draw is **20%** of the attribution interval's variance and does **not** shrink with more prompts under a single draw — averaging m=10 costs compute, not data, and cuts 1458 → **1195**; m=100 adds almost nothing (1168). Degenerate control: the identity returns n when δ equals the current half-width | ⚠ **The feasibility label is knife-edge and must not be quoted alone** — the 5000 threshold was fixed before the run but the result landed **3%** from it. The ratios are the finding. **Precision, not power**: this says when an interval reaches ±0.01, not what effect is detectable, and agreement being finer than 0.01 is a precision fact, **not** an equivalence claim. r89 verified the law over 300–968 (3.2×), so the **5148** row is flagged as extrapolated past that range. Confound checked, not conceded: the requirement differs **1.01×** between collection forms |
-| [r92](09_form_donor_draw_and_unit/r92_writein_analysability) | [r43](05_human_protocol_and_power/r43_criterion_heterogeneity) answered the population question on **36.5%** of criteria. Was excluding the rest defensible? | **yes, but not for the reason given.** r43 cited [r49](06_the_judges_mechanism/r49_provenance_crossfit): the excluded write-ins *transfer* better, so the exclusion "understates the direction". **Transfer is not heterogeneity** — average predictive power and systematic between-group difference are different quantities, neither bounding the other. Counted instead: write-ins carry a median of **1** rater against the seeded set's **17**, and yield **0** usable cells on country, ai_usage and age — **at min_cell=1**, the most permissive setting there is, because a between-group comparison needs ≥2 raters on one criterion. **The mechanism is sharper than the logic**: r49's design needs one author plus *other* raters' rankings, which write-ins have; heterogeneity needs many raters on the *same* criterion, which they do not. So r49 is valid and simply cannot bear on this | ⚠ **This does not test heterogeneity on the write-ins — it establishes the test is not defined there**, and says nothing about structure a design with more raters per write-in could detect. **The positive control is the whole design**: the identical counter returns 3,949 / 4,818 / 4,644 on the seeded arm, and the round **refuses to report the zero** otherwise |
-| [r93](09_form_donor_draw_and_unit/r93_clustering_unit_transfers) | Does [r90](09_form_donor_draw_and_unit/r90_resampling_unit)'s clustering result **transfer** to the H_fresh design, and on what? | **yes, and on the raters-per-prompt floor — not on the crossing, which was my guess.** r90 measured the release (~16 raters/prompt, annotators spanning ~16 prompts); H_fresh fixes **≥8 raters/prompt** and leaves prompts-per-rater **unspecified**, so the justification risked resting on a parameter nobody chose. It does not: a prompt is lost only when **all** its raters are missed, `P = [(1−1/n)ⁿ]^RPP ≈ e^−RPP`, so across k from **1 to 60** coverage moves **0.01%** (99.9667% → 99.9806%). **The ≥8 floor is the binding parameter** — at k=8 coverage falls to **95.2%** at 3 raters/prompt, **63.5%** at 1. Degenerate control: at RPP=1 the formula returns **1−1/e** exactly, and the round refuses to run otherwise | ⚠ **Transfers the mechanism, which is combinatorial — not r90's variance components.** Whether prompt clustering dominates in H_fresh's *data* is measurable only from H_fresh's data and is **not** assumed. Consequence for [the preregistration](PREREGISTRATION.md): prompts-per-rater is **freed**, the ≥8 floor is **not negotiable downward** |
-| [r94](09_form_donor_draw_and_unit/r94_donor_averaging_at_frame_size) | The **m ≥ 10** donor-averaging *requirement* was measured at n=968. Does it survive at **60**? | **yes, and the reason is not obvious.** Entry 178 found one release-population number quoted into a 60-prompt experiment; this checks the other — the one that became a binding **instruction** rather than a description. The donor component and the prompt-sampling component **both** carry 1/√n, so their ratio cancels: the donor draw is **20.1%** of the attribution variance at 968 **and** at 60 (spread 8×10⁻¹⁷), while both absolute sizes grow **4×**. Restated at the frozen frame: unaveraged half **0.0493**, **m=10 → 0.0446 (9.5% better)**, ceiling 10.5% at m=100 — so the diminishing return lands in the same place. **Positive control**: the scaling step recovers r89's *measured* donor sd at n=300 to **4.0%**, inside r89's own 11.5% band, and the round refuses to run otherwise. **Degenerate control**: m=1 returns the unaveraged half exactly | ⚠ **The share is algebraically exact; the absolute figures are not.** They extrapolate past [r89](09_form_donor_draw_and_unit/r89_floor_draw_at_panel_size)'s verified 300–968 range, so the *transfer* claim rests on the share and **0.0446** is an estimate. Also assumes H_fresh's estimator matches the release's — whether its variance components do is measurable only from its data |
-| [r95](10_meta_separator_and_triage/r95_layer_separability) | **The meta-separator**: does the object resist the decomposition it has been given? | **ordinally no, cardinally unverified — and the reason is a storage gap, not a data limit.** M(R,J,π,Q,P) *presumes* the layers are separable enough that validating one at a time means something; [r30](03_person_or_pair/r30_scope_grid)'s 3 judges × 2 donor conditions tests it on evidence already paid for. The near<random ordering holds in **3 of 3** judges, so the world with *no* judge-invariant property is refuted at the ordinal level (null P(all agree) = **0.25** — weak, and reported as weak). But the near/random ratio runs **0.539 / 0.567 / 0.735**, a **1.36×** spread: if the judge were a pure multiplicative **gain** that ratio would be constant. **It is not, in the point estimates** | ⚠ **UNVERIFIED between multiplicative and ordinal-only, and that is not an acquittal.** The paired ratio needs the **joint** bootstrap draws; r30 persisted only the rep count (`boot` = 8000) and marginal CIs — which cannot substitute, because r30's own note records the bootstrap resampled prompts **jointly** across numerator and denominator, so the arms are correlated and marginal intervals overstate the ratio's uncertainty. ⚠ **Superseded by [r96](10_meta_separator_and_triage/r96_separability_resolved)** — no re-score was needed. [r22](02_attribution_under_attack/r22_cross_family) had already persisted the per-prompt cells for all three judges over the same 300 prompts, in a 17 KB file; this row's GPU recommendation was wrong in the expensive direction. Also inherits r30's gap — no phi cell at the farthest-donor floor |
-| [r96](10_meta_separator_and_triage/r96_separability_resolved) | Resolve [r95](10_meta_separator_and_triage/r95_layer_separability)'s UNVERIFIED — **is the judge a pure gain?** | **not refuted, at a resolution of 0.27 — and no GPU was needed.** r95 said the joint draws were discarded and named a GPU re-score; [r22](02_attribution_under_attack/r22_cross_family) had already written per-prompt own/near/random cells for all three judges over the same 300 prompts. Joint prompt bootstrap, 8000 draws: ratios **0.539** [0.139, 1.073], **0.567** [0.376, 0.799], **0.735** [0.530, 0.989]; all three pairwise differences **straddle zero** (largest −0.188 [−0.606, +0.296]) | ⚠ **A non-rejection, not equivalence, and the plant fixes the scale**: the test detects a ratio difference of **0.270**, while the largest observed is **0.188** — *below its own demonstrated threshold*. So the 1.36× point spread is **neither confirmed real nor shown to be noise**, and r95 moves from UNVERIFIED to a **bounded non-rejection**. Three controls, each able to void the round: rebuild of r30's six cells **exact (0.0e+00)**; gain-invariance **4×10⁻¹⁵** (the statistic is blind to pure scale, which is what makes it a test of *interaction*); plant **detected**. Inherits r30's gap — no phi cell at the farthest-donor floor |
-| [r97](10_meta_separator_and_triage/r97_rule_tournament_tost) | [r58](06_the_judges_mechanism/r58_equivalence_census) left **23** contrasts UNVERIFIED for one reason — *"no raw vector was stored"*. Can r06's be recovered? | **yes, by replay, and one rule is equivalent while four are not.** r06 builds per-prompt cells and discards them; its inputs (r04's tensor, the release join) are on disk and CPU-only. Replayed with r06's own seed and its imported `build_cores`. At the **90% CI** TOST requires: `majority` **+0.0044** [−0.0008, +0.0095] — **EQUIVALENT at δ=0.01**; `utility` **+0.0067**, `constituency` **+0.0070**, `consensus` **−0.0113**, `random_k4` **−0.0116** — all **DISTINGUISHED**; `conflict_aware` **−0.0058** — neither, margin 0.0111. **Per-prompt cells are now persisted**, so the next question needs no replay | ⚠ **Two rebuild controls, and the second changed the answer.** Accuracy and pair counts reproduce a06 exactly (0.0e+00, 0 pairs, 945 = 945). But r06's delta is the **mean of per-prompt ratio differences**, not a pooled difference — a first pass used the pooled one and got `majority` wrong. Controlling the **delta** too caught it by instrument. **And a finding about the census**: 2 of r58's 8 r06 rows come from `a06_dryrun.json`; **6 of its 125 contrasts** are sourced from a dryrun artifact and should never have been counted. So this resolves **6**, not 8. **Pre-seeded criteria only — 36.5%**: a replay inherits the original's scope, and r06 keeps criteria rated by a *majority of a prompt's* raters ([r92](09_form_donor_draw_and_unit/r92_writein_analysability)) |
-| [r98](10_meta_separator_and_triage/r98_unverified_triage) | [r58](06_the_judges_mechanism/r58_equivalence_census) reports **27 UNVERIFIED** under one label. Is that a backlog? | **no — and at least 6 of it cannot be resolved at any cost.** Partitioned by what resolving each would take: **6 structural** ([r87](09_form_donor_draw_and_unit/r87_criterion_count_channel), [r96](10_meta_separator_and_triage/r96_separability_resolved) — pooled ratios of prompt-means, so no per-unit paired vector exists and r58's TOST cannot consume them *in principle*); **16 CPU candidates** (inputs on disk, no model, an r97-style replay); **3 need a model**; **2 need a model *and* sit behind a freeze**. Partition control: 27 classified = 27, all distinct, and the round refuses to run otherwise | ⚠ **"Candidate" is load-bearing, not a hedge.** Cheap-to-replay says nothing about whether the estimand is a mean of paired units — **the two rounds proven structural are both pure CPU**, exactly the pair a cost-only reading would mislabel as recoverable. Estimand type has been **read for 2 rounds and is unverified for the rest**, so 16 is an **upper bound** on recoverable work, never a queue |
-| [r99](10_meta_separator_and_triage/r99_harvester_pairing) | [r58](06_the_judges_mechanism/r58_equivalence_census)'s cell totals are quoted as the package's equivalence picture. **Do its pairings name one quantity?** | **no — 17 of 142 are suspect, and 14 sit in "real and material".** Its harvester takes the **first** MEANISH key and the **first** CIISH key in a node and emits them as one contrast, with no requirement they match. Three failure shapes, each found: a **pure null** counted as a contrast (r01 = `null_mean` + `null_ci`, its own permutation null); a **null classified as an effect** (r43's three axes = `reversal_null_mean` + `reversal_null_ci`, in *real and material*); and a **mismatched pair** (r84 = `shuffled_gap` + `gap_ci` — the null's estimate against the real gap's interval). **12 of the 17 are AMBIGUOUS**: several candidates of each kind in one node, paired by **dict order** | ⚠ **SUSPECT, not an error count** — the flag is **name-based**, so a round legitimately naming a contrast `null_*` would be over-reported; every flagged row carries its actual key names so the call is reviewable. **28 of 170 rows could not be reproduced and are excluded as UNRESOLVED**, never assumed clean, and the round refuses to run if under half reproduce. It **measures** how far r58's totals can be trusted; it does not repair them |
-| [r100](11_reliability_and_the_width_chain/r100_rater_reliability) | The frozen protocol's **8 raters/prompt** rests on a reliability of **0.707**. Where does that come from? | **nowhere in this repository — and recomputing it lands 0.034 lower.** `0.707` appears exactly once, in the preregistration table itself; no round computed it ([entry 208](RETRACTIONS.md)). Split-half over raters, 200 draws, Spearman–Brown, on the **937** prompts with ≥8 rating raters: split-half **r = +0.6667** over **187,400** equal-size half-pairs gives **0.607 / 0.673 / 0.755** at k = 6 / 8 / 12 against the stated **0.644 / 0.707 / 0.783**. **All three diffs share a sign** — a systematic offset, not scatter | ⚠ **Reported, not attributed.** Reliability is not one quantity: it depends on the agreement score, the tie convention and the qualifying prompt set. All three are **fixed and stated here**, and this round does **not** claim they match the method behind the stated table — **that method no longer exists**, so the offset cannot be adjudicated. **The choice of 8 raters/prompt is unaffected**; what changes is that the figure now has an artifact |
-| [r101](11_reliability_and_the_width_chain/r101_reliability_offset) | [r100](11_reliability_and_the_width_chain/r100_rater_reliability) left a systematic **0.034** offset unattributed. **Which choice causes it?** | **the tie convention, and only that one.** Varying r100's three stated choices one at a time at k=8, against the stated **0.707**: baseline **0.6732**; **tied pairs scored 0.5 → 0.7040 (−0.0030)**; ties dropped 0.6745; min_raters=2 → 0.6716; min_raters=12 → 0.6933. **Only the half-credit tie rule lands within tolerance.** Mechanism is coherent — counting ties as agreement compresses score variance and *lowers* the split-half r (0.6667 → 0.6978). Rebuild control: the baseline arm reproduces r100 to **0.0e+00**, so each arm differs by exactly the choice it varies | ⚠ **Consistent with, never an identification** — several methods can share a value and the original method is gone. The **eliminating** direction is the stronger one: the tie-drop rule and both qualifying-set variants are ruled out as the sole cause. **The frozen 8 raters/prompt is unaffected**; both figures support it |
-| [r102](11_reliability_and_the_width_chain/r102_margin_calibration) | The headline treats the estimator as **one coin**. Is it? | **no — its confidence is calibrated.** `agree()` computes a weighted-score gap, thresholds it at zero, and throws it away. Kept and binned: agreement runs **0.5375** (decile 1, near chance) → **0.8574** (decile 10), **9/9 steps non-decreasing**, corr(margin, correct) **+0.2071**. **Shuffle control**: 400 permutations put the rise in **[−0.0136, +0.0151]** with at most **7/9** monotone steps; observed rise **+0.3199** — twenty times outside its own null, and the round refuses to report calibration otherwise. So the score's **magnitude** carries information, strictly stronger than the ordinal results | ⚠ **Predicts correctness ≠ the estimator knows anything.** Margin is not independent of item difficulty: two wildly different responses give both a large margin *and* an easy human judgement. Separating them needs a difficulty measure independent of the estimator, which this release lacks. **Stated before the run and not softened after** |
-| [r103](11_reliability_and_the_width_chain/r103_consensus_conditioned) | Source specificity is quoted as one number. Does it hold where humans **disagree**? | **no — it is diluted by them.** Conditioned on **human consensus** (share of raters ordering a pair alike, computed from rankings alone and independent of both rubrics and the judge): attribution **+0.0283** at consensus [0.5,0.6) → **+0.2461** [+0.2203, +0.2712] at [0.9,1.0), **4/4 monotone**, against **+0.1738** pooled on the same population. **The high-consensus figure is the interpretable one** — near 0.5 the human target is itself a coin flip. **Not [entry 215](RETRACTIONS.md)'s artifact**: that binned on a rubric's own margin and flipped direction when the donor was used; consensus is symmetric, and the donor arm is reported in every bin | ⚠ **Confound written before the run and unresolved**: conditioning on consensus conditions on the *outcome's* reliability, and a noisy target attenuates both arms toward chance, so a rising contrast is expected even at constant specificity. The over-chance ratio spans **2.95×** rather than staying constant — not what pure attenuation gives, but that does **not** settle it. ⚠ **+0.1738 ≠ the headline's +0.1215** — majority-pairs, not rater-weighted pairs. ⚠ **One donor draw** ([r88](09_form_donor_draw_and_unit/r88_donor_draw_variance), sd 0.0055 at n=968) — every bin inherits it, and the gradient is across bins of the *same* draw so the trend is unaffected by which donors were sampled |
-| [r104](11_reliability_and_the_width_chain/r104_deattenuated_consensus) | Is [r103](11_reliability_and_the_width_chain/r103_consensus_conditioned)'s consensus gradient **larger specificity, or lighter attenuation**? | **specificity — 74% of it survives its own noise model.** Attenuation is measurable, not arguable: a **three-way** rater split gives one third the scoring label, one third the reliability probe, one third the binning, so the binning variable touches neither. Probe thirds agree **0.652 / 0.735 / 0.865** → factors **0.552 / 0.685 / 0.855**. Deattenuated attribution **+0.1546 / +0.2038 / +0.2491**; rise falls **+0.1276 → +0.0945**, 95% CI over *pairs* **[+0.0607, +0.1281]**. **Two-sided control, both required**: a planted constant-accuracy arm flattens to **+0.0002** (0.750 recovered) and a genuinely-rising arm keeps **+0.1110** — an instrument that flattened everything could not report flatness. **Both arms rise after correction** (own 0.7225→0.8641, donor 0.5679→0.6151), so an *unrelated* rubric also resolves consensual pairs better; the attribution is the **excess** | ⚠ **Two design defects caught before publication, both in this round.** (1) The first version took every pair with ≥9 raters and split in thirds — but a third of size 3 admits only consensus 0.667 or 1.000 and size 4 only 0.500/0.750/1.000, so the bins were a **rater-count partition**; the tell was the *lowest*-consensus bin carrying the *most* reliable label. Fixed by subsampling every pair to a fixed pool of 12. (2) Pairs were collected by iterating a **set**, whose order follows per-process string hashing, so four runs of the fully-seeded file gave **+0.0968 / +0.1179 / +0.1056 / +0.1114**. Sorted; now identical under three `PYTHONHASHSEED`s. ⚠ Correction assumes arm errors independent of label errors — correlated errors bias **toward flatness**, and the binning third's 4 raters smear the bins, which also shrinks the gradient. Both make **+0.0945 a lower bound**. ⚠ Label is a *third* of the raters, so levels are not comparable to r103's — only the gradient is |
-| [r105](11_reliability_and_the_width_chain/r105_specific_share_invariance) | The attribution's **magnitude** rises with consensus ([r103](11_reliability_and_the_width_chain/r103_consensus_conditioned), [r104](11_reliability_and_the_width_chain/r104_deattenuated_consensus)). Does its **composition**? | **answerable, and unanswered.** The prompt-specific *share* of over-chance accuracy — `(own − donor)/(own − 0.5)`, the fraction of what the own rubric achieves above chance that its own prompt's criteria contribute — reads **0.6948 / 0.6991 / 0.6840** across the same bins, span **0.0151**, while the attribution it is a share of rises **+150%**. **The attenuation factor CANCELS**: deattenuation divides both arms by the same number, so this share equals r104's deattenuated share — verified to **2.2e-16**, executed not asserted. It needs no noise model, no independence assumption, and **none of r104's confounds reach it**. Two-sided control: planted constant-share arms read span **0.0145**, planted shifting-share arms **0.4805** | ⚠ **Neither significant nor equivalent — and reported as neither.** Bootstrap over *pairs*: high-minus-low share **−0.0101 [−0.1335, +0.1185]**, covering zero but **wider than the ±0.05 pre-registered margin**. A shift up to **0.13** stays compatible with these records, so reading the 0.0151 point span as invariance would be a claim **8× larger than the measurement supports**. What survives: composition does **not** move in step with magnitude. Resolving it to the margin needs **24,959 pairs, 6.4×** the 3,929 available ([r91](09_form_donor_draw_and_unit/r91_precision_budget)'s budget: halving an interval costs 4× the units) — a preregistration number, not a result. ⚠ **Level** inherits r104's single donor draw — and so, it turns out, does the **difference**: [r106](11_reliability_and_the_width_chain/r106_share_level_under_redraw) measured the across-bin difference's draw spread at **sd 0.0596**, on the same scale as the 0.1260 pair-bootstrap half-width above and **omitted from it entirely**. This row's interval is too **narrow**. The cancellation argument that justified quoting the difference is **retracted** |
-| [r106](11_reliability_and_the_width_chain/r106_share_level_under_redraw) | Is **0.69** — the prompt-specific share of over-chance accuracy — a number? | **no, and it takes r105's reasoning with it.** 200 independent donor redraws on r104's population: pooled share **0.6772 ± 0.0296**, 95% **[0.6219, 0.7290]**. [r88](09_form_donor_draw_and_unit/r88_donor_draw_variance)'s **0.0055** — the reassurance that one draw suffices — is **magnified 5.4×** by dividing by `own − 0.5`, which is 0.12 in the lowest bin. **A ratio's variance is not its numerator's.** Cheap because the donor arm scores *this* prompt's satisfactions with the *donor's* weight vector, so a redraw changes only weights: build the per-criterion differences once, each draw is a dot product. **Rebuild control: the label direction is recovered from r104's own-arm hits and reproduces its stored donor arm with 0 mismatches in 47,148 records.** Degenerate control: every prompt donating to itself gives share exactly **0.00e+00** | ⚠ **This overturns [r105](11_reliability_and_the_width_chain/r105_specific_share_invariance)'s stated reason, though not its verdict.** r105 quoted the across-bin difference on the ground that *every bin inherits the same draw, so it cancels*. **It does not cancel** — one assignment meets *different pairs* in different bins. Over 200 draws the high-minus-low share is **−0.1070 ± 0.0596**, 95% **[−0.2301, +0.0021]**, with **193/200 draws negative**; r105's canonical draw gave **−0.0108**, at **+1.61 sd — an unusually flat draw**. So the *typical* draw says the share **falls** with consensus: prompt-specific content carries relatively **more where humans disagree**. r105's ANSWERABLE MARGIN survives (the draw interval still crosses zero at its upper edge) but its interval was too **narrow**, not too wide ⚠ Spread is over **assignments** from a fixed pool of 968 weight vectors — a lower bound on what a different corpus would carry |
-| [r107](11_reliability_and_the_width_chain/r107_joint_resample) | Four rounds reported a width. **None of them is the width.** | **joint sd 0.0930 — 1.45× r105's, 1.56× r106's.** Redrawing the donor *and* cluster-resampling the pairs in the same iteration, on the high-minus-low share: draw alone **0.0596**, pairs alone **0.0643**, **joint 0.0930**, 95% **[−0.2816, +0.0857]** around **−0.1023**. Variance ratio **1.13** against additivity, so the two sources are effectively **independent** and each earlier interval was too narrow by a knowable factor. **Three degenerate identity controls, exact not tolerant**: both sources off returns the canonical value every iteration (sd **0.0e+00**); draw-on/pairs-off reproduces r106's persisted draws **seed for seed, max drift 0.0e+00** — a *cross-round* rebuild control; pairs-on/draw-off centres on the canonical **0.6900**. Switching each source off recovers the round that measured it alone | ⚠ **The verdict is unchanged in kind and that is the point** — still neither significant nor equivalent at ±0.05, still an answerable margin, but now at a width that counts both sources instead of one. ⚠ **Not total uncertainty**, and the name says so: *joint over the two sources anyone has measured*. It excludes the **judge** (one lineage), **r04's satisfaction reconstruction** (taken as given), the **rater split** (r104's 12 splits are averaged over, not resampled), and the **donor pool** (the same 968 weight vectors in every draw). ⚠ On this axis's own record — [entry 220](RETRACTIONS.md) — **the next source is never visible from inside the round that misses it** |
-| [r108](11_reliability_and_the_width_chain/r108_coinflip_stratum) | **17.1%** of r104's records have a label decided by a coin flip. What does the chain say there? | **nothing — which is the first zero this line has ever produced.** r104 broke a tied labelling third *at random* rather than dropping it (dropping conditions on the label being decisive), so **8,041 of 47,148** records carry a literally uninformative label. On them: own **0.4981**, donor **0.5021**, attribution **−0.0040** — each within **0.3 se** of chance. **Complementary control**, which is what stops the null passing for the wrong reason: the informative stratum sits **+112 se** from chance, attribution **+0.1961**. **Second null, on the reliability probe itself**: a coin-flip third agrees with a real probe third **0.4971** of the time against **0.8347** on informative records — so r104's attenuation factor correctly reads this stratum as carrying no reliability at all. **And the tie-rate confound is measured and dismissed**: deleting every tied record moves the rise **+0.1276 → +0.1268**, **0.6%** of it, against a pre-registered 30% | ⚠ **A correction to this round's own claim card, kept rather than rewritten.** Its first draft called the untied-only gradient an *independent route* to r104's deattenuated **+0.0945** — two ways to remove label noise, one dividing and one deleting rows. **That was wrong.** Deleting ties removes only the *zero*-information records; an untied third is still an unreliable majority. The number proving it: A=B among the **surviving** records is **0.8347**, an attenuation factor of **0.8181** that deletion leaves untouched and division does not. The two are **not commensurable**, and the comparison is against the raw gradient instead ⚠ Inherits r104's single canonical donor draw |
-| [r109](11_reliability_and_the_width_chain/r109_donor_arm_is_text_blind) | The headline's donor arm is called *a rubric written for another question*. Can it see one? | **no — not one word.** Replacing every donor criterion's text with `'zzzz qqqq xxxx vvvv'` (**9,325 of 14,984** strings overwritten, asserted before recomputing) moves the attribution by **0.0e+00** — bit-identical. `agree()` scores with *this* prompt's satisfactions indexed by the *donor's* criterion **positions**; `weights()` reads only `scores`. Neither touches `criterion`. **Positive control on the harness**, which is what makes the null informative: randomising the donor's **ratings** instead moves it **0.0548** (0.1215 → 0.0667). **Rebuild control**: reproduces r86's stored `0.12146457748752204` at **0.0e+00** drift | ⚠ **Two constructions carry one name.** r10 pairs the donor's criterion **text** with these responses through the judge (`r10:152-157`); r12 the same (`r12:231-232`). Those vary **content**. The CPU line varies the **weight vector** and count — and [r87](09_form_donor_draw_and_unit/r87_criterion_count_channel) showed count moves nothing. **+0.1215 is therefore a weight-specificity number.** ⚠ **A scope claim, not a value claim**: this does *not* show the two constructions disagree numerically — they may land in the same place, and checking needs the judge, frozen until the human protocol is. It shows they cannot be the same **measurement** ⚠ One donor draw under r12's seed; r04's tensor taken as given — and that tensor is where criterion text entered, once, for the **own** criteria only |
-| [r110](12_compilation_redistribution/r110_rater_component) | The one-way split said compilation moves error off the cases. Is the part it moves ONTO attached to particular **people**? | **yes, and the column that proves it had been in every assessment since r01.** CoVal is fully crossed — 1,011 raters carrying data over 968 prompts — so a rater **main effect** is identified here, which an earlier plan had asserted required a different dataset. Fitting `e = μ + γ_p + α_i + ε` per arm: `var_rater` **0.00422** full → **0.00626** core against a within-prompt rater-identity shuffle floor of 0.00375 / 0.00392, so full sits **13%** above its floor and core **60%** above its own. **Granularity control**: capping full's criteria at 4/6/8 holds `var_rater` inside a band **0.00020** wide while core sits **0.00200** above its top — coarsening does not move the rater component; only compilation does. And `var_case` moves the *other* way under coarsening | ⚠ **No within-cell replication**, so the rater×prompt **interaction** is inseparable from error and test–retest `rel_i` is unidentified — main effect only, and the claim card says so ⚠ Both arms at **equal weights**, because `r04/run.py:252-259` gives core a weight of literally `None`, so r04's arms confound compilation with the presence of ratings ⚠ Its claim card said *"every rater on ≥2 prompts, median 20"*; **actual min 1, median 16** — true of the raw release, reported about the analysis object |
-| [r111](12_compilation_redistribution/r111_alpha_confound) | Is that rater structure a property of **people**, or of **which prompts they were asked**? And does "worse served" survive being given a sign? | **the structure is real; both sentences wrapped around it were wrong.** `var_rater` is the component **plus** `var_resid × E[1/n_i] = 0.00416` — most of the raw value — so 0.00422/0.00626 were never components. On the **excess-over-count-preserving-floor** scale the contrast is estimand-invariant: **+0.00184 to +0.00225** across per-observation, per-person and moment-corrected estimands, 95% CI over prompts **[+0.00114, +0.00275]**, flat under low-n exclusion. Exposure — prompt typicality, values-prompt share, log workload — removes only **22.0%** against a permuted-covariate floor of **2.6%** [1.3%, 4.7%], so it is **not** reducible to which prompts a rater met. **And nobody is worse served**: μ falls **0.06870**, and absolute error is lower under core in **6 of 6** bins including the worst-served (0.5313 → 0.5021) | ⚠ **`α` is re-centred within each arm**, so it cannot carry an absolute claim — reading harm off it was the original error, and *"50% have larger α, so equal numbers better and worse"* was the same error one layer down ⚠ **The gain gradient is not identified by binning on either arm** (Oldham 1962): binned on full's α it appears to grow toward the badly-served (−0.043 → −0.077), binned on core's α it shrinks (−0.133 → −0.032) — **opposite signs from the same data**. On the mean of both arms it runs **−0.1038 → −0.0292**, monotone ⚠ Genuine excess of worse-off raters **+1.8%**, z 2.4 |
-| [r112](12_compilation_redistribution/r112_value_idiosyncrasy) ⛔ **RETRACTED** | Compilation improves nearly everyone but returns **less** to some. Is that person **describable**? | ⛔ **RETRACTED by [r113](12_compilation_redistribution/r113_accuracy_matched_arm) — the answer was arithmetic, not values.** The round found β = **+0.04209** [+0.03028, +0.05391] regressing the paired per-cell gain `e_core − e_full` on the rater's divergence from the leave-one-out consensus over their own signed −10..+10 criterion scores (`coval_full[*].scores`, unopened for 111 rounds), prompt FE, two-way clustered, p_perm 0.0000, and concluded that compilation withholds its benefit from value-divergent raters. **It does not.** x1 raises *every* arm's error, so `d` is a difference of two quantities it pushes the same way, and the more accurate arm has more advantage to lose | ⚠ **The pointer was a line this round threw away**: `build()` computed both arms' errors and persisted only their difference, so the diagnostic that overturns it was destroyed at persist time ⚠ **Its negative control cannot fail**: the within-prompt permutation of whole score profiles returns `p_perm 0.0000` on synthetic data containing **no values at all** — it excludes chance and has no power against the only rival that mattered ⚠ Its downgrade of [r84](08_direction_from_text/r84_core_polarity_in_words)-adjacent polarity claims came from a **joint** model in which x1 absorbs x2, and is withdrawn ⚠ Its committed json was **not** the output of its committed code, so the positive control it reports (+0.2991) appears in no output; the real value is 0.3006319 |
-| [r113](12_compilation_redistribution/r113_accuracy_matched_arm) ⚠ **misnamed** | Does a rubric **no compiler ever touched** reproduce r112's coefficient? | **yes — and a LARGER one, which retracts r112.** Built an accuracy-matched non-compiled arm: **4 of full's own criteria per prompt, selected on odd-indexed raters and evaluated only on the even half**, so out of sample with no rewriting, merging or polarity normalisation. It **beats the compiled rubric** — mean error **0.27616** vs core's 0.33415 vs full's 0.40408. Running r112's identical regression: compiled `core − full` gives **+0.03955** [+0.02390, +0.05520]; never-compiled `oracle − full` gives **+0.06156**; `rand4 − full`, with almost no accuracy gap, gives **+0.00041** (t 0.06); and `core − oracle` gives −0.02201 (t −2.64) — ⚠ **which is NOT evidence and was wrongly cited as the direct test**: that pair's accuracy gap runs the other way, so the artifact *predicts* −0.02720 there, and purged it is +0.00519 (t 0.61), null rather than negative. Across 7 arm pairs the arithmetic prediction `k·β_sum` tracks the observed coefficient at **corr +0.9783** and the accuracy gap at **−0.9822** — and, sharper than any correlation, **not one pair departs from that line by more than its own noise**: residuals have sd **0.00743** and mean \|resid\| **0.00636** against a mean standard error of **0.00858**, with one of seven exceeding a single se and a largest departure of **\|z\| = 1.58**. The observed coefficients are not merely correlated with the arithmetic; none is distinguishable from it. Purging the common shrink toward chance leaves **+0.00718 (t 0.80)** | ⚠ **The pre-registered kill returned UNVERIFIED and that is recorded, not reinterpreted**: it read *"β on d′ inside the CI of β on d"*, written for a MATCH, and +0.06156 sits outside on the **high** side — past the anticipated region, in the direction that strengthens the arithmetic reading. The retraction rests on the negative `core − oracle` contrast and on the purge instead ⚠ **The purge is positive-controlled**: it retains **117%** of a planted one-armed effect at t 5.48 and detects `g=0.02` at t 2.99, so its null is a measurement rather than silence ⚠ **Do not rescue r112 by quoting the levels** (+0.04082 on `e_full`, +0.08037 on `e_core`, surviving two-way FE): x1 and the ranking come from the same rater in the same session, and this release has no instrument separating attention from values — that is wall #1 ⚠ **The round contains no accuracy-matched arm** — the oracle *beats* core (0.27616 vs 0.33415), which is exactly why its own kill returned UNVERIFIED: the region was written for a match and the arm overshot ⚠ x2 alone, purged: **+0.01702 (se 0.01984, t 0.86)** — the receipt for a claim first made without one ⚠ Persists **every arm's** per-cell error, because persisting the vector the conclusion is about is not the same as persisting what a later round needs to attack it |
-| [r114](12_compilation_redistribution/r114_demographic_subject) | The redistribution is real and [r113](12_compilation_redistribution/r113_accuracy_matched_arm) killed its subject. Does it have a **demographic** one? | **no — and the instrument that found nothing recovers a planted effect at t 4.89.** Demographics sit at **100% coverage** on the exact population r110–r111 were measured on: 1,012 of 1,012 annotators, six structured axes, **47 group cells**, zero missing. 113 rounds never crossed them with the compilation contrast. The estimand is the **departure from the arithmetic line**, `β_d − k·β_sum` with k = **0.26514** — because r113 established `β_d` *is* the line — and the per-arm **levels are reported before any difference is taken**, which is the direct remedy for r112's root cause. **30 of 47** cells cleared a pre-registered floor of 20 raters; largest \|t\| = **1.83** (p = 0.0669), and **0 survive** Benjamini-Hochberg at q = 0.05. Nothing survives uncorrected either | ⚠ **The null is readable because the instrument is not silent**: planting `e_core += g·1[group]` recovers it at **89.9% retention, t 4.89** (g = 0.02) and t 9.51 (g = 0.04), MDE ≈ **g 0.0115** ⚠ **The negative control is deliberately NOT a permutation** — a permutation has sat in the load-bearing position three times in this project and had no power against the rival that mattered each time. 200 synthetic groups matched on size **and** mean own-error give a band of **[−0.00814, +0.00697]**, so a group differing only in noisiness lands *on* the line; the real group at +0.00289 is inside it ⚠ **17 cells fell below the floor and are named in the output**, not dropped quietly — including non-binary (17 raters) and never-users (14) — because a silent exclusion is a scope claim ⚠ Anonymity is a statement about **this release**, the only one carrying both the contrast and the demographics |
-| [r04](01_object_and_rebuild/r04_rebuild_satisfaction) | Rebuild the withheld layer | 119,868 judgements, validated on 80,542 held-out human pairs at 0.686 |
-| [r05](01_object_and_rebuild/r05_value_taxonomy) | What does compression silence? | not a value family — the penalty for being contested is −0.31…−0.46 in *every* family. ⚠ Its own caveats: the cited embedding result (**0.736 vs 0.520**) is **computed nowhere in this repository or its history and remains UNVERIFIED**, and both instruments here are lexical, so a **shared blindness to paraphrase is not excluded** ⚠ **Pre-seeded criteria only — 36.5% of the total.** This round keeps criteria rated by a *majority* of a prompt's raters; [r48](06_the_judges_mechanism/r48_provenance_identified) showed that class is the **pre-seeded set shown identically to every participant**, and [r92](09_form_donor_draw_and_unit/r92_writein_analysability) that the excluded **63.5%** carry a median of **1** rater, so the restriction is **structural** and cannot be lifted by re-analysis. |
-| [r06](01_object_and_rebuild/r06_rule_tournament) | Which aggregation rule wins? | **five** rules span **0.0188** (utility 0.6575 → consensus 0.6387); a consensus rule **ties random selection** (0.6387 vs 0.6384). Only utility (+0.0067) and constituency (+0.0070) beat no-compression; consensus is **worse** (−0.0113). ⚠ This row said *four* rules — the artifact holds five plus two baselines ⚠ **Pre-seeded criteria only — 36.5% of the total.** This round keeps criteria rated by a *majority* of a prompt's raters; [r48](06_the_judges_mechanism/r48_provenance_identified) showed that class is the **pre-seeded set shown identically to every participant**, and [r92](09_form_donor_draw_and_unit/r92_writein_analysability) that the excluded **63.5%** carry a median of **1** rater, so the restriction is **structural** and cannot be lifted by re-analysis. |
-| [r07](01_object_and_rebuild/r07_anthropomorphism) | Does the rubric see anthropomorphic style? | a **residual association**, not established blindness: a response-level marker retains t=+4.02 after controlling for rubric score and length, but the effect is carried by `user_directed_warmth`, which is **warmth, not anthropomorphism**. **0.046%** of criteria address the construct (7 of 15,248, hand-adjudicated), split 4 anti / 3 pro. Measures immediate preference, **not impacts** — trust, reliance, disclosure and attachment are untested |
-| [r08](01_object_and_rebuild/r08_gold_preference) | A gold model that never sees the rubric | held-out 0.661 vs 0.529 length baseline |
-| [r09](01_object_and_rebuild/r09_overoptimization) | Optimize the rubric, watch preference | pre-registered gaming prediction **refuted**: markers fell |
-| [r10](02_attribution_under_attack/r10_attribution_robustness) | Is the attribution an artifact? | **the own-vs-unrelated advantage survives every cell** — +0.0869, +0.0594, +0.0449 (mean +0.0638, sd 0.0174) — though it nearly **halves** from the 2B judge to the 0.8B. ⚠ The **topic share is not stable in the dimension the word "stable" names**: +0.3004, +0.4486, **−0.0369** across those same three cells, so the previously quoted **23.7% is a mean over a quantity that inverts sign**, and in the 0.8B cell `near` sits *below* `random`. This is own-rubric vs reference-rubric, never values vs non-values ⚠ **One donor draw** — its random cell uses the same construction [r88](09_form_donor_draw_and_unit/r88_donor_draw_variance)/[r89](09_form_donor_draw_and_unit/r89_floor_draw_at_panel_size) measured, and at this panel's n=300 the draw sd is **0.0095**. Its **near** and **far** donors are deterministic and carry none. |
-| [r11](02_attribution_under_attack/r11_backbone_control) | Was r09 backbone leakage? | **retracts r09's rise** — it vanishes with an independent backbone. ⚠ Its own caveat: this is a statement about the **proxy-world measurement** — the correct scope for overturning r09, which is also proxy-world, and **not** a statement about human preference |
-| [r12](02_attribution_under_attack/r12_response_set) | Does the advantage transfer? | it **inverts** off-distribution: **+0.102 [+0.071, +0.133] → −0.064 [−0.092, −0.037]**, discrimination control passed. Replicated on held-out prompts at +0.0847 → −0.0716 ([r46](06_the_judges_mechanism/r46_spread_replication)) ⚠ **One donor draw** (sd **0.0055** at n=968, [r88](09_form_donor_draw_and_unit/r88_donor_draw_variance)) — the inversion's *magnitude* carries that, though a sign change of this size does not turn on it. |
-| [r13](02_attribution_under_attack/r13_seed_vs_writein) | Seed criteria vs write-ins | **refutes r12's own mechanism**: participant-blind seeds carry real attribution (+0.046 [+0.023,+0.069]) — ⚠ the card says these were prepared *in parallel with* candidate generation, so they are blind to participant exposure, **not** independent of the responses by design. The seed-vs-write-in *ordering* is NOT established — paired difference +0.023 [−0.008,+0.054] |
-| [r16](02_attribution_under_attack/r16_minority_regret) | Conflict-aware, on its own turf | profile splits show regret 2.07 vs 1.10 random, yet conflict-aware leaves the worst-off group **lowest of all rules**. ⚠ These are **not** a demographic constituency: gender (1.145) and country (1.198) splits both fail r16's own bar ⚠ **Pre-seeded criteria only — 36.5% of the total.** This round keeps criteria rated by a *majority* of a prompt's raters; [r48](06_the_judges_mechanism/r48_provenance_identified) showed that class is the **pre-seeded set shown identically to every participant**, and [r92](09_form_donor_draw_and_unit/r92_writein_analysability) that the excluded **63.5%** carry a median of **1** rater, so the restriction is **structural** and cannot be lifted by re-analysis. |
-| [r17](02_attribution_under_attack/r17_conditional_core) | Does conditional encoding rescue it? | **partly** — routing learned from a rater's *other* prompts helps only the rules carrying contested items (+0.195), and does not close the gap ⚠ **Pre-seeded criteria only — 36.5% of the total.** This round keeps criteria rated by a *majority* of a prompt's raters; [r48](06_the_judges_mechanism/r48_provenance_identified) showed that class is the **pre-seeded set shown identically to every participant**, and [r92](09_form_donor_draw_and_unit/r92_writein_analysability) that the excluded **63.5%** carry a median of **1** rater, so the restriction is **structural** and cannot be lifted by re-analysis. |
-| [r18](02_attribution_under_attack/r18_routing_difficulty) | Was r17's 84.6% routing accuracy free? | **inflated by +0.147, but real**: 0.666 [0.643, 0.688] where the blocs actually disagree ⚠ **Pre-seeded criteria only — 36.5% of the total.** This round keeps criteria rated by a *majority* of a prompt's raters; [r48](06_the_judges_mechanism/r48_provenance_identified) showed that class is the **pre-seeded set shown identically to every participant**, and [r92](09_form_donor_draw_and_unit/r92_writein_analysability) that the excluded **63.5%** carry a median of **1** rater, so the restriction is **structural** and cannot be lifted by re-analysis. |
-| [r19](02_attribution_under_attack/r19_floor_choice) | Which donor is the generic floor? | the headline moves **2.47×** with that choice; prompt-specific share is 27–67%, not a single figure. ⚠ rests on **2 usable judge cells** with no prompt-level CI |
-| [r14](02_attribution_under_attack/r14_paraphrase_gauge) | Is the judge paraphrase-invariant? | **no — and the answer moves 6.2× with who does the rewording.** A *model* paraphrase flips **15.4%** of Yes/No verdicts (r=0.871, fidelity kept 99.1%); a *mechanical* rewording flips **2.5%** (r=0.989, fidelity kept **100%**). Part of "criterion content" is criterion wording — but the 15.4% quoted throughout this repository is **the model arm**, and the arm with higher measured fidelity is the one that barely moves |
-| [r15](02_attribution_under_attack/r15_indistribution_transfer) | Do criteria transfer to a near-topic prompt? | **no** — own criteria +0.073 [+0.056, +0.091] over the floor, nearest-topic criteria +0.018 [−0.001, +0.037]. Real responses, real human rankings, no gold model. r21 shows that neighbour is 91.6% of the way to being the same question. ⚠ The round's own verdict: **SCOPE CORRECTION — this does NOT resolve r12** |
-| [r20](02_attribution_under_attack/r20_paraphrase_transfer) | Is the advantage content or wording? | **content** — reword every criterion and **97.4%** of the advantage survives; original−paraphrased +0.002 [−0.007, +0.011] ⚠ The random-donor arm is **one donor draw** ([r88](09_form_donor_draw_and_unit/r88_donor_draw_variance), sd 0.0055 at n=968); the retained-advantage ratio inherits it in both terms. |
-| [r21](02_attribution_under_attack/r21_donor_distance) | Is the "near-topic" donor actually near? | **yes, near the ceiling** — it sits at the 97.86th percentile of all pairs and covers **91.6%** of the distance from a random prompt to the same question reworded ⚠ The random point on this curve is **one donor draw** ([r88](09_form_donor_draw_and_unit/r88_donor_draw_variance)); the near and far points are deterministic and carry no draw noise. |
+| [01](01_object_and_rebuild) | r1–r9 | 9 | rebuild the missing satisfaction layer |
+| [02](02_attribution_under_attack) | r10–r22 | 13 | does the own-rubric advantage survive attack |
+| [03](03_person_or_pair) | r23–r32 | 10 | person-level vs pair-level structure |
+| [04](04_what_core_is) | r33–r37 | 5 | what the compiled core actually is |
+| [05](05_human_protocol_and_power) | r38–r45 | 8 | the elicitation protocol and its power |
+| [06](06_the_judges_mechanism) | r46–r59 | 14 | what the satisfaction judge is using |
+| [07](07_floors_for_the_counterfactuals) | r60–r72 | 13 | floors under every counterfactual |
+| [08](08_direction_from_text) | r73–r84 | 12 | recovering criterion direction from text |
+| [09](09_form_donor_draw_and_unit) | r85–r94 | 10 | form, donor, draw and unit |
+| [10](10_meta_separator_and_triage) | r95–r99 | 5 | layer separability |
+| [11](11_reliability_and_the_width_chain) | r100–r109 | 10 | reliability and the width chain |
+| [12](12_compilation_redistribution) | r110–r141 | 31 | compilation redistribution |
+| [13](13_normative_chain) | r142–r205 | 62 | end-to-end normative preservation, then self-audit |
 
-| [r22](02_attribution_under_attack/r22_cross_family) | Does the attribution survive a change of judge family? | **yes, and the magnitude does not** — positive on qwen and phi with intervals clear of zero, but the prompt-specific share runs 25.3% (phi) to 53.8% (qwen2.5-3b) at a fixed floor, a **2.13× judge span** (derived as 53.8÷25.3 from [r30](03_person_or_pair/r30_scope_grid)'s shares, not stored by r22) on top of r19's 2.47× floor span. The first run falsely claimed this on two Qwen judges because "family" was `name.split("-")[0]`; phi was scoreable only after a tokenizer fix ⚠ Every cell here is **one donor draw** ([r88](09_form_donor_draw_and_unit/r88_donor_draw_variance), sd 0.0055 at n=968), so between-judge differences smaller than ~0.011 are not separated from the draw. |
-| [r23](03_person_or_pair/r23_actor_vs_dyad) | Is r01's persistence about people or about pairs? | **mostly people**: an additive actor model takes 47.2% of dyad variance and actor-only persistence (0.254) *exceeds* the headline. Pair-specific residual 0.034, z=+4.67 — real, and a fifth of what r01 reported. Its sharper test (reliably-disagreeing pairs) is **null at z=+1.40** |
-| [r24](03_person_or_pair/r24_regime_receipt) | Receipt for "step R²=0.964 vs trend 0.448" | the number existed in no script. Reproduced, **and given the control it never had**: a null that re-searches the breakpoint on every shuffle reaches only 0.172. Observed 0.964, p=0.0001, breakpoint found at position 6 by search |
-| [r25](03_person_or_pair/r25_actor_dyad_sweep) | Is r23's residual stable, or a property of Pearson? | **complete — and the answer is both.** All **144** cells ran (4 metrics × 3 overlaps × 3 shared-item thresholds × standardise × centre); **138 usable, and the residual clears z>2 in 100% of them**, so it is not a Pearson artifact. But its *share* spans **0.2018–0.7000** (median **0.2650**) — a **3.5× range** — so the residual's *existence* is metric-invariant and its *size* is not. Gauge control behaved as predicted: Pearson invariant to centring (Δ=2.8e-17), cosine and negl1 not (Δ=0.0339, 0.0907). ⚠ This row reports the sweep's own numbers only; the rater-structure ontology it feeds stays **FROZEN as UNRESOLVED** |
+**Three generated consolidators** — each re-derives from the data on every run, so a number in one
+that disagrees with a round means the *round* is stale:
 
-| [r26](03_person_or_pair/r26_sign_no_split) | Are there pairs that reliably *disagree*? | the split-half estimator returned **z = 1.40, 2.26, 2.68 and 10.26 on identical data**, varying only with how many coin flips were averaged. Rebuilt without any split |
-| [r27](03_person_or_pair/r27_raw_negative_tail) | Anti-correlation on the *raw* scale | the negative tail is real and grows with depth (1.20×→1.43×), and 3.02% of pairs are negative on **every** shared prompt vs a 1.93% null. Its actor control was confounded — under unequal blocs a majority member is "agreeable" by construction |
-| [r28](03_person_or_pair/r28_multiplicative) | Was the functional form wrong? | **the additive one is misspecifiable — and the alternative is not established.** Fitting a sum to a product leaves a U-shape with no blocs in it, which is what r27 measured. But "one fewer parameter" was **false** (the additive design is rank-deficient by exactly one; effective dof are *equal*), and out of sample the multiplicative fit spans R² **[−1.64, +0.51]** against additive's tight **[+0.34, +0.42]**. **Verdict: FUNCTIONAL FORM UNRESOLVED**, and the surviving `both_low` residual is not a measurement of anything |
-
-| [r30](03_person_or_pair/r30_scope_grid) | The headline, with an interval in every cell | replaces three successive point-estimate ranges (43%, 27–67%, 13.6–74%) with a (judge × floor) grid, each cell a ratio-of-means bootstrap over prompts |
-| [r31](03_person_or_pair/r31_within_person) | Is the task-6 drop composition or behaviour? | **within-person and real** — the same 933 people drop **−179 chars [−196, −162], −53.3%**, against only **6.1% attrition**. But position 6 is the study's minimum-task boundary and, with no session id in the release, is **perfectly confounded with "first task of a later session"** |
-
-| [r32](03_person_or_pair/r32_channel_decomposition) | Text or post-choice weights? | post-ranking **polarity nearly doubles** above-chance concordance (9.0 → 17.8 pts, +0.0876 [+0.0784,+0.0976]). Whether that is stable cross-rater value direction, preference construction, or **same-sample leakage is unidentified** — cross-fitting queued |
-
-| [r33](04_what_core_is/r33_core_launders_polarity) | What is CoVal-core? | **a normative compiler, not a subset.** Scored with *no ratings*, core reaches 0.6563 against full's 0.5899 — it **internalises polarity into rewritten criterion text** while discarding rating and disagreement provenance. ⚠ the 76% figure is not decomposed: rewrite, merge, dedup, compatibility-selection and truncation are confounded |
-
-| [r34](04_what_core_is/r34_global_rater_crossfit) | Is the polarity signal leakage? | **no.** Global rater-disjoint 5-fold cross-fitting keeps **91%** of it: D_population +0.0576 [+0.0486,+0.0671] against a same-sample premium of only **+0.0055**. Both nulls fall below the direction-free arm |
-
-| [r35](04_what_core_is/r35_polarity_abstention) | Does it depend on forcing a direction? | **unanswered — only *post-hoc abstention* was tested.** Abstaining wherever raters split (dropping **54%** of criteria) moves cross-fitted accuracy by **−0.0017 [−0.0084,+0.0051]**, and down-weighting contested criteria *helps* (+0.0082). The scale's neutral point is used **once in 102,147 ratings**. ⚠ The round's own verdict: **NOT ESTABLISHED — the absence of a forced-choice effect.** Elicitation format changes what it elicits, and filtering criteria already produced cannot simulate a participant who had a neutral option at the time |
-
-| [r36](04_what_core_is/r36_channel_shapley) | Channel split without order dependence | all 16 coalitions. **Magnitude without direction reaches 0.628 vs sign's 0.644** — near-substitutes, so r32's sequential split over-attributed to polarity. φ_S(same)−φ_S(cross) = **+0.0008**, tiny under every ordering. Visibility ≈ 0 |
-
-| [r37](04_what_core_is/r37_leakage_topology) | How does the signal decay with isolation? | **almost not at all.** Only A2 (rater folds) is significant, at **+0.0026 [+0.0004,+0.0049]** ≈0.4%; cross-**country** costs **+0.0007**, spanning zero. `A4` response-blind is **undefined, not zero**. ⚠ The round's own verdict: **NOT ESTABLISHED — population invariance.** No aggregate loss was *detected* in the tested splits; 9 of r43's group cells are INCONCLUSIVE at δ=0.01 ([r58](06_the_judges_mechanism/r58_equivalence_census)) |
-
-| [r38](05_human_protocol_and_power/r38_human_sampling_power) | Which prompts to send to humans, and how many? | **frame-limited, not power-limited.** 60 prompts × 8 raters detects **+0.05 at 98%** power clustered on prompt; r12's 0.16 is detectable everywhere. Equal-cell stratified frame with sampling weights so one collection gives both a population and an anomaly estimate |
-
-| [r39](05_human_protocol_and_power/r39_feature_cache) | Cache representations, analyse nothing | one GPU pass, three lineages (qwen/phi/internlm), 2,000 responses. Load failures recorded as **environment claims**, not model properties |
-| [r40](05_human_protocol_and_power/r40_ood_map) | Is r12's inversion an OOD artifact? | **no — the sign runs the wrong way.** Nearest-neighbour distance correlates at **−0.125**, 2/3 lineages, same sign 3/3: the anomaly is **worst where fresh responses most resemble the released ones** |
-| [r41](05_human_protocol_and_power/r41_criterion_support) | Is the drop organised in the rubric's OWN criterion space? | **no.** Hull violation −0.1837 and rank instability +0.1993 die to the discriminating-power control; spread loss looked like it survived at +0.2309 but **failed to replicate** (r46). Tensor reproduces **all 1,500** of r12's per-prompt numbers exactly. ⚠ Its own caveat: `z_R` is produced by **the same judge whose off-distribution validity is unestablished**, so this round **cannot separate** "new normative territory" from the judge behaving incoherently on fresh responses |
-| — | **What the six searches actually establish** | see [entry 56](RETRACTIONS.md): disattenuated, they split three ways — conclusions on tight *direct* estimates hold (r47, r55), conclusions on *correlations* are much weaker than reported (r40, r41, r54), and two failed *preregistered* replications at their claimed magnitude without being shown absent (entry 48, r56) |
-| [r57](06_the_judges_mechanism/r57_outcome_reliability) | Could those searches have found anything? | **only large effects.** The per-prompt attribution drop has split-half reliability **0.302 / 0.422** across two samples, so observed correlations are attenuated by ~0.55–0.65. At n=250 the smallest *true* correlation distinguishable from zero is **≈0.2** — every "no mechanism" result is bounded by that (entry 55) |
-| [r68](07_floors_for_the_counterfactuals/r68_r40_predictor_reliability) | Is r40's distance predictor reliable? | **yes — Spearman-Brown 0.9132.** Recomputing the per-prompt nearest-neighbour distance in three unrelated pretraining lineages from r39's 57 MB cache gives pairwise agreement **+0.9023, +0.7234, +0.7085** over 250 prompts; controls self 1.0000, prompt-shuffled −0.0980. r40's floor is **0.188**, replacing a published range of 0.180–0.222. ⚠ Written because entries 109 and 110 both asserted these embeddings were not persisted — **they are, and tracked in git**. ⚠ **Not regenerable**: internlm returns 100% NaN under transformers 5.14.1, so this three-lineage agreement cannot be recomputed on this machine, and no receipt records the environment that produced the cache ([r80](08_direction_from_text/r80_panel_freeze), entries 134–135) |
-| [r69](07_floors_for_the_counterfactuals/r69_r54_predictor_reliability) | Is r54's *lexical* predictor reliable? | **no — Spearman-Brown 0.4381**, against the 0.657 the ledger transferred onto it. Splitting each prompt's four core criteria 2-2 and recomputing r54's own containment gives split-half **+0.2805 averaged over 200 random splits** (sd 0.0399, range +0.183 to +0.387). So r54's floor **rises to 0.367**, and the row already called the ledger's weakest test is weaker still. ⚠ **I predicted the opposite** — r54 calls its quantity an exact text statistic, and I read determinism as high reliability. Determinism is a property of the *instrument*; this reliability is a property of the *criteria sample*. Positive control: splitting the **responses** instead returns 0.8020, so the estimator can report a high value and the low one is a fact about the criteria |
-| [r70](07_floors_for_the_counterfactuals/r70_outcome_criterion_axis) | Do the two reliabilities in a floor even belong to the same axis? | **no, and nobody had written that down.** r57 measured the OUTCOME by splitting the 6 pairs (response axis); r67 and r69 measured PREDICTORS by splitting criteria. Rebuilding r12's attribution drop from half a prompt's criteria — a rebuild that reproduces every published per-prompt value exactly — gives a criterion-axis outcome reliability of **0.3013**, close to r57's 0.302/0.422, so for the *outcome* the axes agree. The ladder is the finding: accuracy **0.6462**, attribution **0.2695**, drop **0.3013** — the criterion split does not destroy signal, so the loss belongs to the contrast, confirming r57's own untested worry. Crossed split **+0.0785 [+0.0061, +0.1480]** vs +0.0463 if independent and +0.1808 if one shared source → **independent**, so the axes may be multiplied. ⚠ **Which axes a floor is entitled to divide by is not empirical** — three worlds reported with their arithmetic, no winner declared |
-| [r71](07_floors_for_the_counterfactuals/r71_r67_split_variance) | Was r67's 0.657 also a single draw? | **yes, but it survives.** Re-running r67's estimator verbatim 200 times instead of once: spread loss **0.6849** (sd 0.0294), criterion-space geometry **0.6653** (sd 0.0304), mean **0.6751** against the published 0.657 — a shift of +0.018. Multiplier 1.217× not 1.234×; r41's floor 0.227→**0.224**, r46's 0.264→**0.260**. ⚠ **Correction to this row as first written.** I called the relative-spread pattern a finding; it is mostly arithmetic. The **absolute** across-split sd is near-constant across all six quantities measured — 0.0294 to 0.0448, a 1.5× range — so the 5.6%→28.8% spread in the *relative* figure is the denominator moving, not the volatility. The honest statement: a single split perturbs a raw correlation by about **±0.04 regardless of the quantity**, which is negligible at r≈0.51 and material at r≈0.18. Same practical conclusion, but it follows from a constant additive error, not from a scaling law. Shuffled null re-run every draw and reported as a **maximum** (0.2016), never a mean |
-| [r72](07_floors_for_the_counterfactuals/r72_proxy_validity_coefficient) | How close is the model gold head to real humans? | **the one human-validated number in the package, never published until now.** On the original arm the attribution is **+0.1020** by gold head and **+0.0876** by real human rankings; difference **−0.0144 [−0.0392, +0.0086]** — not significant, and **NOT equivalent** at δ=0.01 (90% interval 2.0× the margin, point estimate 1.4× it). Per-prompt validity coefficient **0.6029**, i.e. ~36% shared variance. Rebuild control reproduces r47's stored 0.1020 to 0.0e+00. ⚠ **Not transferable to the ledger's rows** — measured on the original attribution, not the drop, and only H_fresh can cross that boundary |
-| [r73](08_direction_from_text/r73_direction_from_text_alone) | Is a criterion's direction in its words? | **only if the words came after the menu.** Predicting sign(mean score) from text alone, prompts held out: pre-written **seeds capture 1.2%** of available headroom (+0.0020 [−0.0007, +0.0049]), post-exposure **write-ins capture 26.4%** (+0.0821 [+0.0746, +0.0904]). Seeds' *in-sample* fit reaches only +0.0160, so this bounds learnable signal rather than reporting a held-out miss. Nulls collapse to marginal; the no-negation control makes the write-in margin **larger** (+0.0954). ⚠ Does **not** measure S_pre and does not contradict it — no rater in the release rated pre-exposure. It removes the reading that text-predictability would have demonstrated a prior, and confirms r61's baseline needs no adjustment for the seed-based PRE arm |
-| [r74](08_direction_from_text/r74_specificity_vs_exposure) | Is r73's effect about exposure, or about what write-ins *are*? | **exposure — it survived both threats.** Holding exposure constant (all write-ins) and varying lexical specificity: low/mid/high containment capture **8.9% / 16.5% / 24.0%** of headroom. The *least* response-specific third still captures ten times the seed class's 0.9%, so the effect does not require referring to the responses. ⚠ **The length gradient is larger and opposite** — short **33.3%**, long **0.5%** (seed-level). But seeds and write-ins are already length-matched in the release (14.6 vs 14.9 words), and write-ins resampled decile-by-decile to the seed length distribution still capture **16.2%** [13.6%, 18.8%] against seeds' **0.9%** [−0.7%, 2.6%], non-overlapping. Length is a strong *within*-class moderator and cannot be the *between*-class explanation |
-| [r75](08_direction_from_text/r75_menu_read_direction) | Does a criterion's direction track which response its own author ranked best? | **yes — the M → S_i path, observed rather than inferred.** A write-in carries its author's `annotator_id`, and that author's own world ranking is in the release, so criterion, sign and ranker join with no aggregation across people. Over **9,122** write-ins, overlap with the rater's own top response minus their own bottom is **+0.0407** for criteria they scored positive and **+0.0039** for negative — gap **+0.0368** [+0.0298, +0.0439]. Residualising containment on response length within prompt (longer answers overlap everything and rank higher) leaves **+0.0203** [+0.0147, +0.0257]; shuffled signs collapse to −0.0033. ⚠ **Asymmetric**: positive criteria track the preferred answer (+0.0176 residualised), negative ones are flat (−0.0027) — praise is drawn from the menu, criticism much less so. ⚠ Association within a rater, not causation: it cannot say whether the menu *created* the direction or supplied the *words* for one already held — that separation needs S_pre |
-| [r76](08_direction_from_text/r76_absence_cannot_overlap) | Is r75's asymmetry real, or can an absence just not overlap? | **real — the mechanical rival loses on its own prediction.** A criterion about an absence (*"fails to mention X"*) cannot lexically overlap the text that lacks it, which would explain flat negatives with no claim about raters. It doesn't: absence-shaped wording is only **4.1%** of write-ins (3.6% of positives, 5.0% of negatives), far too rare to flatten 2,880 negatives. The deciding prediction — that **presence-type** negatives should track the *worst* answer — fails: **−0.00278** [−0.00733, +0.00168], CI spanning zero. And absence-type **positives** show the *largest* effect (**+0.03814**), the opposite of what the rival predicts. Gap survives in both partitions: presence **+0.01955** [+0.01388, +0.02500], absence **+0.03945** [+0.01691, +0.06134]. ⚠ The shuffled-sign null for presence-type is **+0.00409**, about a fifth of the observed gap — small but not zero, and stated rather than rounded away |
-| [r77](08_direction_from_text/r77_topicality_control) | Is the menu-reading just topicality? | **no — it survives stripping every word the prompt supplied.** The strongest rival r75/r76 left standing: the best-ranked answer is plausibly the one engaging the *question* most fully, so it reuses prompt vocabulary, and criteria are about that question too — association with no rater reading anything. Removing from each criterion the tokens the prompt already supplied (**16.1%** of content words on average; only **14 of 9,122** criteria emptied, 0.2%), the positive-minus-negative gap goes **+0.02025** → **+0.02114** [+0.01569, +0.02647] — **104% retained**. Shuffled-sign null **+0.00052**. So the overlap is with what that *answer* said, not with what the *question* was about |
-| [r78](08_direction_from_text/r78_tokeniser_robustness) | Does the r75 line depend on the stoplist I typed by hand? | **no — 18 of 18 cells exclude zero.** `containment` uses ≥4-character tokens and a hand-written stoplist including *response, answer, model, user* — words a criterion can be about — and three rounds were built on it without varying it. Across min-length 3/4/5 × stoplist project/none/sklearn × unigram/bigram: **all 18 positive, all excluding zero**, largest shuffled null 0.0047. ⚠ **The spread is one axis, not scatter**: unigram cells average **+0.0199**, bigram **+0.0073** (2.7×), so the all-cell median +0.0121 would hide the only choice that moves the number. The two things I *did* choose barely matter — min length gives +0.0193/+0.0197/+0.0204, stoplist +0.0209 (mine) / +0.0173 (none) / +0.0212 (sklearn). Bigram is smaller because adjacent pairs must match exactly; a stricter measure returning a smaller positive number is what it should do |
-| [r79](08_direction_from_text/r79_semantic_menu_read) | The rival I said I couldn't build: measure it **semantically** | **direction survives; size does not transfer.** Every earlier control varied the *tokeniser*, not the decision to use lexical overlap at all. Replacing containment with embedding cosine in the backbones r39/r40 already use: **qwen +0.00626** [+0.00388, +0.00867], **phi +0.00043** [+0.00013, +0.00074] — both positive, both excluding zero, nulls −0.0007 and +0.0001. ⚠ **They differ 15× in magnitude**, while r68 measured these same backbones agreeing at 0.9132 on another quantity — so the semantic effect is real in direction and **instrument-dependent in size**. ⚠ **internlm ran under a cache shim and returned 100% NaN — refused** (`DynamicCache.from_legacy_cache` removed in transformers 5.x; a shim restores execution but `hidden_states[1]` is already NaN, so the vendored attention code is broken against this version) — named and refused, not omitted. **⚠ There is no three-lineage *judge* panel and never was** — [r80](08_direction_from_text/r80_panel_freeze) separates the **judge** panel (qwen + phi, full size, r22's `usable_families=['phi','qwen']`) from the **encoder** panel (qwen + phi + internlm, r39's cache). internlm breaking cost the ability to *regenerate* encoder features, not a judge, and r39's cache — which r40 and r68's 0.9132 rest on — was built in an environment no receipt in this repository records. Cosine and containment share no scale, so **no comparison to the lexical +0.02114 is licensed** — only the sign and the exclusion of zero transfer |
-| [r67](07_floors_for_the_counterfactuals/r67_predictor_reliability) | How reliable are the predictors behind the "refuted" rows? | **0.657 Spearman-Brown**, so every detection floor in the exhaustion ledger **multiplies by 1.23×**. Split-half on a prompt's criteria, 2-2, 241 prompts (9 excluded for K<4); controls: self-correlation 1.0000, shuffled half +0.0992. r54's floor was reported here as **0.300** — ⚠ **superseded**: [r69](07_floors_for_the_counterfactuals/r69_r54_predictor_reliability) measures r54's own predictor at 0.4381, not 0.657, so its floor is **0.367**. ⚠ The 1.23× does **not** apply to r40: an embedding distance has no criteria to split, and its three lineages agree (−0.1324, −0.1428, −0.1011, SD 0.0217), so its floor is reported as the range **0.180–0.222** |
-| [r66](07_floors_for_the_counterfactuals/r66_r56_reconstruction) | Can r56's preregistered failure be recomputed? | **no, and r56 has no code in this repository.** `06_the_judges_mechanism/r56_semantic_selectivity/` has held only `PREDICTION.md` in every commit it has ever appeared in; its CI bounds **0.1592** and **0.2880** appear in no artifact anywhere. Reconstructing from the persisted tensors gives discovery **+0.0365** vs published +0.1806 and held-out **+0.0985** vs +0.0198 — **neither reproduces**, so by this round's pre-declared null it is **UNVERIFIED about r56, not a refutation**. ⚠ r56's *conclusion* survives: the recomputed held-out CI **[−0.0188, +0.2124] includes zero**, failing its own preregistered criterion. ⚠ This reconstructs a **number** and does not re-adjudicate whether the quantity was worth measuring |
-| [r56](06_the_judges_mechanism/r56_semantic_selectivity) | Does semantic selectivity collapse explain the drop? | **NOT REPLICATED** (+0.1806 discovery → +0.0198 held out, predicted [+0.06,+0.30] with CI excluding zero). ⚠ **No code and no results file exist for this round** — the numbers live in commit `664c568`, `PREDICTION.md` and RETRACTIONS prose only, and [r66](07_floors_for_the_counterfactuals/r66_r56_reconstruction) could not recompute them |
-| [r65](07_floors_for_the_counterfactuals/r65_edit_symmetry_floor) | Can τ_c's two arms be the same kind of edit? | **not for at least 18.62% of core criteria** — they carry a **deontic prohibition** (*"do not X"*), so satisfying is an **absence** and violating a **presence**, and the arms must insert categorically different content. ⚠ **A floor only**, and squeezed from both sides: a looser negation regex gives 21.31%, but its **105** extra matches are affirmative criteria with an incidental negation (*"Explain that… has **no** effect"*), while an affirmative surface still does not imply a symmetric edit. The null is its own finding — `coval_full`, **not** polarity-rewritten, sits at **12.85%**, so core is **1.45×** as prohibitive as the set it was compiled from: r44's +0.0733 rewrite changes **weights, not wording**. Upholds [ADVERSARY_FORECAST](ADVERSARY_FORECAST.md) objection 3 |
-| [r64](07_floors_for_the_counterfactuals/r64_satisfaction_substudy_power) | How big must H_fresh's satisfaction sub-study be? | **two arms or nothing — 804 adjudications.** A single fresh-arm agreement rate has **nothing to compare against**: the release ships **no satisfaction labels at all**, so the judge's human agreement is unmeasured on originals too. The estimand is **Δ_sat = original − fresh**, in which the judge's unknown absolute accuracy cancels. **402 pairs per arm** at base 0.80, d=0.10, α=0.05, power 0.80, DEFF 1.37; **273–531** across the swept base rate. Answers [ADVERSARY_FORECAST](ADVERSARY_FORECAST.md) objection 4 |
-| [r63](07_floors_for_the_counterfactuals/r63_r60_projection_audit) | Does r60's "not answerable" projection survive its own clustering? | **yes — objection 6 not upheld.** The design effect implied by r60's cluster bootstrap is **1.499** (half-width 0.03178 vs binomial 0.02595), so clustering was *already inside* the interval the projection scaled from. Pairs come from **238 of 250** prompts, top 26% carrying half — mild, not a pile-up; uniform-redistribution null returns **0.888** ⚠ *this figure moved: the null was not reproducible until [entry 224](RETRACTIONS.md) — two runs of the fully-seeded file gave 0.784 and 0.863*. The release's remaining pairs live in the other 718 prompts, so growth is **prompt-extensive** and DEFF holds; rater-intensive growth would raise it to 2.099 and inflate the requirement 1.40× |
-| [r62](07_floors_for_the_counterfactuals/r62_matching_floor) | Can an unmatched criterion mean anything? | **not on its own — the floor is enormous.** Two authors who saw the **same four responses** on the **same prompt** write criteria that fail to match at **87.3%** (Jaccard≥0.20) and **53.3%** at the most lenient threshold tested. Cross-prompt null 99.6%, excess **+12.3** points, so the matcher does track prompt-specific content. **Upholds [ADVERSARY_FORECAST](ADVERSARY_FORECAST.md) objection 2**: the PRE/POST unmatched rate cannot be a primary outcome unless it clears a within-arm floor measured the same way. ⚠ Lexical matcher — a lower bound on agreement |
-| [r61](07_floors_for_the_counterfactuals/r61_s_pre_power) | Can Experiment 1 detect anything? | **the baseline is 0.6459, not 0.5.** The POST arm writes **77.01%** positive criteria over 102,147 ratings (the neutral point used **once**), so two independent sign-assigners agree ~65% of the time by marginals alone — a naive test against 0.5 would report huge agreement while measuring the shared tendency to write positive criteria. Rater ICC **0.0915** → design effect **1.37** at 5 criteria/participant. MDE **0.0548** at 400 matched pairs; **3,001** pairs for 0.02. ⚠ The PRE marginal is unobserved by anyone and is **swept**, never assumed |
-| [r60](07_floors_for_the_counterfactuals/r60_world_vs_personal) | When a person's WORLD ordering contradicts their own PERSONAL one, which does the rubric follow? | **the release cannot say.** On the **1,422** pairs a participant ordered one way for themselves and the other way for the world — the only pairs where the two make opposite predictions — the rubric sides with world on **0.5267** [0.4951, 0.5587] against an *exact* chance of 0.5; shuffled rubric 0.5183. **INCONCLUSIVE**, and the power statement is the finding: resolving δ=0.01 needs ~**14,358** reversed pairs and the entire release holds **2,444**, so the answerable margin is about **δ=0.024**. The only estimand here with human data on **both** arms. ⚠ **And the shortage is structural, not just small**: the `personal` block exists on **4,901 of 18,384** assessments (**26.66%**), on **none past a rater's fifth task**, and — the stronger fact — for only **321 of the release's 1,078 prompts**. The long-form and short-form prompt sets are **disjoint, intersection zero**: 757 prompts have no personal ranking at all, and **no prompt appears under both instruments**. Form, task position and prompt identity are all three perfectly confounded, so the missing pairs were never collected and no cross-form comparison is available to recover them |
-| [r59](06_the_judges_mechanism/r59_criterion_influence) | How much does any ONE criterion matter to the judge's ranking? | **the rubric is robust to losing one, and not for the reason a claim card would predict.** Dropping a single criterion flips the top-1 response for **14.7%** of 991 criteria [12.6%, 17.1%] — **below** the **26.1%** from within-prompt column permutation, a null preserving each criterion's own spread and destroying only its link to the responses (paired **−0.1140 [−0.1483, −0.0797]**). ⚠ **Not own-rubric-specific**: criteria borrowed from *other* prompts flip at **14.9%**, so the agreement is a property of criterion rows against this response set, **not** a product of the compiler's compatibility selection. ⚠ **Judge-relative and equal-weight — this is not τ_c** |
-| [r58](06_the_judges_mechanism/r58_equivalence_census) | Does r42's equivalence verdict describe the *package*? | **no — it describes its own hand-written population.** Enumerating every interval contrast finds **158**, of which r42 tested **21 (13%)**. Classified at δ=0.01: 78 real and material, 11 real but negligible, 24 no material effect, **10 INCONCLUSIVE**, 29 **UNVERIFIED**, 6 **SUPERSEDED**. ⚠ **Down from 170/90 after three harvester fixes** (entries 194–195): 5 pure-null nodes and 8 whose point estimate lay **outside its own interval** are now skipped, and a CI is preferred when its name contains the mean's by a verified replay ([r97](10_meta_separator_and_triage/r97_rule_tournament_tost)). ⚠ **These counts carry two stated contaminations** — [r99](10_meta_separator_and_triage/r99_harvester_pairing) finds **8 of 155** pairings still suspect, **5 inside *real and material*** — down from 17/14, and [r98](10_meta_separator_and_triage/r98_unverified_triage) finds the UNVERIFIED cell is **not a backlog** (≥6 structurally unresolvable). **Row last synced 2026-07-29**; it quoted the pre-regeneration census (125 / 60 / 9 / 24 / 9 / 23) for two commits after the artifact changed (a mean and a 95% CI were published but no raw paired vector, so the 90% CI TOST needs cannot be recovered). All 9 inconclusive cells are r43 group-weight contrasts. ⚠ UNVERIFIED is not folded into any pass, and **δ=0.01 is STIPULATED, not measured** |
-| [r55](06_the_judges_mechanism/r55_overlap_selectivity) | …and can it move an *ordering*? | **no, equivalently so.** Own criteria are as selective about fresh responses (0.0776) as about the originals (0.0738); the own-minus-donor advantage goes +0.0518 → +0.0517, collapse **+0.0002 [−0.0056, +0.0059]**, equivalent to zero at δ=0.01. Closes r54's uniform-contribution escape. ⚠ Its own caveat: this **does not establish that no semantic selectivity changed** |
-| [r54](06_the_judges_mechanism/r54_overlap_transfer) | Does the judge's overlap channel explain r12? | **the mechanism is real and does not explain it.** The own-vs-donor overlap advantage collapses from **+0.1294 to +0.0945** on fresh responses (drop +0.0349 [+0.0266, +0.0434]) — but it does not predict *which* prompts drop: corr **−0.0736 [−0.2059, +0.0612]**. A uniform contribution is **not** ruled out |
-| [r29](03_person_or_pair/r29_gold_ood) | Is the gold head itself unstable on fresh responses? | **stable — but that is reliability, not validity.** Two independently-fitted heads agree about as well on generated responses (0.590) as on released ones (0.543). Its own caveat: *"a bias common to both is invisible here"* — and [r47](06_the_judges_mechanism/r47_gold_is_length) later found one (length is an explicit feature of the shared architecture) |
-| [r53](06_the_judges_mechanism/r53_join_audit) | Is the rubric↔prompt join every round rests on correct? | **yes, and the cutoff is not what defines the population.** Both fuzzy pairs are the same prompt up to a typo (0.9896, 0.9903). The 18 unmatched rubrics have median best-similarity **0.7727** to *any* released prompt — absent from the comparison file, not narrowly missed. Analysed set: **968 of 1,078 (89.8%)** |
-| [r52](06_the_judges_mechanism/r52_overlap_intervention) | Does overlap *cause* the judge's score to move? | **yes.** Appending six distinctive tokens from response A rather than B moves the A-vs-B satisfaction gap by **+0.2507 [+0.2300, +0.2714]** for the *same* criterion; unrelated-token null **−0.0045**, spanning zero. The project's only interventional round. ⚠ bounds overlap-sensitivity on *perturbed* text |
-| [r51](06_the_judges_mechanism/r51_judge_lexical) | What is the satisfaction judge actually using? | **it tracks lexical overlap.** Within a fixed (prompt, criterion), satisfaction across the four responses correlates with word overlap at **+0.2068** against a permutation null of −0.0034; **+0.1886** with response length partialled out. Gives r50's anchoring effect a live instrument explanation. ⚠ NOT shown to be error — overlap and real satisfaction covary, and the release has no satisfaction ground truth |
-| [r50](06_the_judges_mechanism/r50_response_anchoring) | Is the transfer carried by criteria ABOUT the four responses? | **a design exists; it does not attribute yet.** Anchored write-ins carry more direction than generic ones (**+0.0271 [+0.0134, +0.0405]**), but the pre-seeded control trends the same way (+0.0106) and the **excess spans zero** (+0.0141 [−0.0050, +0.0326]). Withdraws my "no design permits this" claim (entry 52); does not settle the channel |
-| [r49](06_the_judges_mechanism/r49_provenance_crossfit) | Does the direction transfer on criteria nobody else saw? | **yes, and better.** Size-matched, write-in criteria — one author, one rater — transfer at **+0.0777** vs **+0.0599** for the shared six; paired gap **+0.0172 [+0.0034, +0.0307]**. Control reproduces r34 (+0.0599 vs +0.0576); both shuffled-sign nulls strongly negative. Narrows shared-menu endogeneity to the RESPONSE channel |
-| [r48](06_the_judges_mechanism/r48_provenance_identified) | Is the seed/write-in split a heuristic? | **no — identified.** 63.5% of criteria have 1 rater, 36.4% have ≥5, **18 (0.1%)** lie between and **zero** are ambiguous under the rounds' own rule. The many-rated class is capped at exactly **6 per prompt** (728/986 at the cap), matching documented pre-seeding. Does **not** reach S_pre: pre-populated ≠ response-blind |
-| [r47](06_the_judges_mechanism/r47_gold_is_length) | Is the inversion a property of the gold PROXY? | **partly — and the round's own verdict says this is a SHARE, not a verdict: near enough to half that no binary reading is licensed.** gold↔length rises +0.08→+0.46 and +0.03→+0.55 across two samples; ~57% of the inversion survives length-residualisation against the procedure's own null; the fresh arm stops being negative in the held-out sample. Proxy matches human rankings on the ORIGINAL arm, which is where its length channel is weakest |
-| [r46](06_the_judges_mechanism/r46_spread_replication) | Does the spread-loss effect hold out of sample? | **no — prediction committed to git first, then falsified.** +0.0496 [−0.068, +0.169] on 250 untouched prompts against a predicted [+0.12, +0.34]. Controls passed, and **r12's inversion itself replicated**: +0.0847 original, −0.0716 fresh ⚠ **One donor draw** ([r88](09_form_donor_draw_and_unit/r88_donor_draw_variance)) on a held-out set smaller than the join, so its draw sd exceeds 0.0055 by the 1/√n scaling [r89](09_form_donor_draw_and_unit/r89_floor_draw_at_panel_size) verified. |
-| [r42](05_human_protocol_and_power/r42_equivalence) | Are the null claims equivalent, or just non-significant? | **equivalent at δ=0.01 — 0 of 21 contrasts inconclusive.** 4 are significant AND negligible. But only 7/21 hold at δ=0.005 and 4/21 at 0.0025, and **δ is stipulated, not measured**. ⚠ **Those 21 are four hand-listed rounds, not the package** — see [r58](06_the_judges_mechanism/r58_equivalence_census) |
-| [r44](05_human_protocol_and_power/r44_compiler_lineage) | Which compiler step makes core beat full? | **polarity rewrite, +0.0733** — alone larger than the whole full→core total of +0.0662, and every reconstructed stage after it nets **−0.0183**. ⚠ That stage **applies the crowd's rating sign numerically** (`run.py:112`, *"the text rewrite cannot be simulated; its EFFECT can"*), so it is an **upper bound on what a text rewrite could achieve** — the real core must carry polarity in words to a judge that never sees a rating. ⚠ Compatibility selection **costs −0.0181** [−0.0241, −0.0125]; it beats a **size-matched random** choice by **+0.0149** [+0.0082, +0.0221], so choosing *which* four survive **recovers most of what truncating to four destroys and does not repay it** — membership is mitigation, not gain. Reconstruction explains 83%; **C1–C5 are unobservable**, so this describes my pipeline, not OpenAI's |
-| [r45](05_human_protocol_and_power/r45_protocol_freeze) | What exactly do the humans rank? | 60 prompts, 4 equal cells, **540 responses hashed**, manifest `313044ea…`. r12's generation is unseeded, so this file is the only definition of the object H_fresh refers to. ⚠ `frozen_at_commit` was **hard-coded to `None`** and never stamped; `69bda3b9` is *recovered from git history* and bounds only when the frame entered the repository, not what tree the freeze ran against. `freeze.py` now stamps HEAD and a tree-dirty flag |
-| [r43](05_human_protocol_and_power/r43_criterion_heterogeneity) | Does aggregate equivalence hide group conflict? | **conflict without consequence.** Country sign-reversals run **+0.0190 above** a label-permutation null; **0 of 17** group tests survive BH, and the significant ones split **2 positive / 2 negative** — symmetric noise. Positive control recovers an injected 20% flip (0.122→0.283) ⚠ **Its stated defence of the 63.5% exclusion is replaced by [r92](09_form_donor_draw_and_unit/r92_writein_analysability)**: the excluded criteria are not *understated*, the question is **undefined** on them — median **1** rater, **0** usable cells even at min_cell=1. |
-
----
-
-## What is unusual here
-
-**[RETRACTIONS.md](RETRACTIONS.md) lists every claim this repository made and then killed.**
-**120 entries** — 54 as table rows, 66 written out, numbered to 111. Most are a later round
-destroying an earlier round's conclusion, and in every one of those both rounds are mine. Read by
-round number this looks like a sequence of findings. It is not.
-
-Every round carries its own null, and several of the killed claims are the author's own:
-
-- a permutation null, a response-style control and a prompt-difficulty control (r01)
-- a step-versus-trend model comparison rather than a fitted slope (r02)
-- a permuted-identity null, not a chance baseline (r03)
-- a shuffled-rubric arm and a length-only arm before any headline (r04)
-- a no-compression control and a random-selection floor (r06)
-- a pre-registered prediction that failed, reported as failed (r09)
-- an independent-backbone control that retracted the author's own result (r11)
-- an out-of-distribution transfer test that scoped the repository's own headline (r12)
-
-**Two documents exist for the reviewer who has not read this**, and they do different jobs.
-[assurance/ADVERSARY_BRIEF.md](assurance/ADVERSARY_BRIEF.md) is the mandate — what to attack and what
-I most want checked. [ADVERSARY_FORECAST.md](ADVERSARY_FORECAST.md) is the scoring sheet: **six
-objections with probabilities, committed before any review**, so a challenger's findings measure my
-calibration rather than being absorbed into the text. All six have since been **self-examined and are
-excluded from the hit rate** — what will matter is what a reviewer raises that is **not on the list**.
-
-`assurance/` freezes **20 claims** against stated thresholds: **11 hold, 3 are marginal, 6 fail** —
-including the one that scopes this repository's own headline. **An assurance package with no failures
-is not an assurance package.** Twelve executable checks run beside it; their own defect histories are
-in RETRACTIONS, because a check that has never been wrong has never been tested.
-
-**And one thing that works is not an instrument at all.** The two most recent errors — a half-width
-taken from the wrong interval, a reliability applied to the wrong kind of predictor — were caught by
-**running the number before asserting it**, after twelve checks passed on both. Entry 111 measures a
-thirteenth check built for that class: it would have flagged 82 numbers and caught **neither**. The
-practice has a better record here than the apparatus, and it is written down because it is easier to
-add a check than to keep a habit.
-
-It also distinguishes `BROKEN_HARNESS` from `UNSUPPORTED`: when the repository was reorganised, every
-claim source moved and the manifest silently resolved them all to "unmeasured". A package that cannot
-tell "we never measured this" from "I can no longer find my own evidence" is not an assurance package
-either.
+- [`13_normative_chain/DEFECTS.py`](13_normative_chain/DEFECTS.py) — every defect, by the wrong answer it produces
+- [`13_normative_chain/HEADLINES.py`](13_normative_chain/HEADLINES.py) — every headline mean under both estimands
+- [`db/ledger.py`](db/ledger.py) — the claim graph: standing, withdrawn, and every kill edge
 
 ---
 
 ## Reproducing
 
-**Re-verified from a fresh local clone**, with no virtualenv inside it and `data/*.jsonl` absent
-(they are gitignored — `python data/fetch.py` fetches them):
-
-| | |
-|---|---|
-| round + assurance + `covalx` source files parsed | **94, 0 syntax errors** |
-| assurance checks that run from a bare clone | **12 of 12** |
-| data-free rounds that run from a bare clone | **5 of 7** |
-| the other 2 (r61, r63) | fail on missing `data/*.jsonl` — the documented `fetch.py` step, deliberately skipped here |
-
-**One real defect found and fixed:** `assurance/attack_the_suite.py` invoked
-`<repo>/.venv/bin/python`, a path that exists only in a working copy, so it was the single check that
-could not run from a clone. It now uses the interpreter that is running it.
-
-**And the thing entry 113 flagged as unverified is now verified:** the persisted `.npz` tensors *are*
-committed, so [r66](07_floors_for_the_counterfactuals/r66_r56_reconstruction) and [r67](07_floors_for_the_counterfactuals/r67_predictor_reliability) — which
-import across round modules — both run from the clone.
-
 ```bash
-python -m venv .venv && .venv/bin/pip install numpy pandas scipy scikit-learn torch transformers
-python data/fetch.py                            # downloads + verifies 5 files by SHA-256, incl. the dataset card
-python 01_object_and_rebuild/r01_rater_structure/run.py        # CPU only
-python 01_object_and_rebuild/r04_rebuild_satisfaction/run.py   # needs a GPU
-python assurance/manifest.py                    # regenerate the claim table
+python -m venv .venv && .venv/bin/pip install numpy   # that is the whole dependency
+.venv/bin/python 13_normative_chain/DEFECTS.py        # the defect list
+.venv/bin/python 13_normative_chain/HEADLINES.py      # every headline, both units
+.venv/bin/python 13_normative_chain/r178_rubric_versus_length/run.py
 ```
 
-Judge and gold models are read from `COVALX_MODEL_2B` / `COVALX_MODEL_08B`, defaulting to the Hugging Face ids.
-
-**Zero API spend — no paid inference is used anywhere.** That part is exact.
-
-⚠ **The GPU-hours figure was one round's runtime described as the pipeline's.** `r04` is the only
-round in this repository that records its own elapsed time — **1,352 s = 0.375 h** across its three
-result files. **17 rounds use the GPU** (r04, r08, r09, r10, r11, r12, r13, r14, r15, r20, r21, r22,
-r29, r39, r41, r46, r52) and **16 of them measure nothing**, so the true total is unmeasured and
-strictly larger. The earlier "0.36 GPU-hours" is retained here only as what r04 cost; it was never
-a pipeline measurement. **A cost claim that counts one round and names the whole is the same shape as
-a population that counts what it can reach** — see [entry 102](RETRACTIONS.md).
+Every round is a self-contained `run.py` writing `results/*.json`. Rounds that need the rebuilt
+satisfaction tensor read `01_object_and_rebuild/r04_rebuild_satisfaction/results/`. The claim graph
+needs PostgreSQL and `psql` on PATH; everything else needs only numpy.
 
 ---
 
 ## Boundaries
 
-- The judge is a 2B base model. It reaches 0.686 pairwise against the ~0.60 the release authors report, but only 0.61 on picking a single best response against their ~0.75. Both numbers belong in any citation of this work.
-- The gold preference model is learned from the same 18,384 rankings. It is not fresh human data and inherits the label bias and two-regime split found in r02.
-- No new human data was collected. Nothing here establishes what any population would say.
-- `consensus` in r06 is this repository's operationalisation, not OpenAI's LM-assisted synthesis. The released CoVal-core rubric scores **0.660** ([r04](01_object_and_rebuild/r04_rebuild_satisfaction), `a04_core.json`) — but that is **not comparable to r06's 0.6575 arm**: r04-core is the released 3,899-criterion rubric on 968 prompts, r06's arms are k=4 compressions of `coval_full` on 945. Different rubric source, different panel, different compression. An earlier version of this line called them "level"; nothing in this repository has measured them against each other.
+**Everything routing through the judge is a claim about that judge.** The satisfaction layer is a
+locally rebuilt Qwen3.5-2B-Base reading `sigmoid(logit(" Yes") − logit(" No"))`. Where a comparison
+holds the judge fixed on both arms — which is most of them — a judge bias cannot produce the
+result. Where it does not, the claim says so.
+
+**The prompts are synthetic and single-turn** (90.9%), median 128 characters. Whether anything here
+transfers to production traffic is untested, and this project withdrew the claim that it does not.
+
+**One prompt was rated by 929 people** against a median of 14, and its text is garbled. It carries
+79% of all annotator pairs in the corpus. Any statistic averaged over assessments rather than
+prompts is substantially a statement about that one prompt — which is how this project's one
+fabricated finding happened.
+
+**Nothing here is a claim about the people.** Group-level numbers compare a group to its
+co-panelists on the same prompts; "unserved by the plurality" and "departs from the majority" are
+the same event, so a group's apparent disadvantage is partly its own dissent rate.
+
+---
 
 ## Attribution
 
-CoVal is © OpenAI, released under CC BY 4.0. This repository redistributes none of it; `data/fetch.py` downloads it and verifies the exact bytes the results were computed from.
+CoVal is OpenAI's release: [dataset](https://huggingface.co/datasets/openai/coval). This audit is
+independent and not affiliated with OpenAI. Errors here are mine, and 235 of them are written down.
+
+*The previous README — a chronological research diary, 1,433 lines — is in git history:*
+`git show 6a099d7f34:README.md`
