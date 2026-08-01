@@ -1,0 +1,129 @@
+\subsection{The Evidence Firewall}
+\label{sec:firewall}
+
+\begin{quote}
+\textbf{Firewall principle.} A measurement is evidence about the Machine; it
+is not the Machine. An interpretability output is licensed by a declared measurement method
+and experimental contract. It is not, by itself, a computational variable, native
+variable, causal mechanism, or privileged coordinate system of the model.
+\end{quote}
+
+The firewall is not skepticism about measurement. It is a type discipline: a probe result, sparse code, attribution score, interchange effect, reconstruction, and transplant answer different questions. Promotion to a stronger claim requires the missing experiment rather than a change in vocabulary.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  every node/.style={font=\scriptsize,text=MESOInk},
+  methodbox/.style={draw=MESOMid,fill=MESOGray,rounded corners=2pt,align=center,text width=22mm,minimum height=22mm,inner sep=3pt},
+  claimbox/.style={draw=MESOBlue,fill=MESOPale,rounded corners=2pt,align=center,text width=28mm,minimum height=22mm,inner sep=3pt},
+  wall/.style={draw=MESOGold,very thick,fill=MESOWarm,align=center,text width=13mm,minimum height=25mm,inner sep=2pt,text=MESOGold},
+  promote/.style={draw=MESOTeal,fill=MESOPaleTeal,rounded corners=2pt,align=center,text width=28mm,minimum height=22mm,inner sep=3pt},
+  arr/.style={-{Latex[length=1.6mm]},thick,draw=MESOInk},
+  dashedarr/.style={-{Latex[length=1.6mm]},densely dashed,draw=MESOGold}
+]
+\node[methodbox] (methods) at (-6.00,0)
+  {\textbf{Methods}\\probe, sparse code,\\attribution, patch,\\transplant};
+\node[methodbox] (licensed) at (-3.20,0)
+  {\textbf{Licensed evidence}\\decodability, reconstruction,\\localization, intervention};
+\node[wall] (wall) at (-0.70,0)
+  {\textbf{EVIDENCE}\\[-1pt]\textbf{FIREWALL}};
+\node[promote] (tests) at (2.05,0)
+  {\textbf{Promotion gate}\\native use, alternatives, holdout,\\construction $\Rightarrow$ scoped claim};
+\node[claimbox] (claims) at (5.45,0)
+  {\textbf{Scoped Machine claim}\\variable / realization family,\\native mechanism / protocol,\\compositional structure};
+\draw[arr] (methods.east) -- (licensed.west);
+\draw[arr] (licensed.east) -- (wall.west);
+\draw[dashedarr] (wall.east) -- (tests.west);
+\draw[arr] (tests.east) -- (claims.west);
+\end{tikzpicture}
+\caption{The Evidence Firewall. A measurement method generates evidence; its
+declared contract states what that evidence permits, and the firewall blocks
+every stronger default inference. The dashed crossing is licensed only by the
+named promotion tests; the final solid arrow records the resulting scoped
+claim. The diagram is an evidence-licensing order, not a model-execution
+graph.}
+\label{fig:firewall}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{The CTM evidence matrix. Color or architectural location never assigns
+a role; each role requires a distinct counterfactual test. Coordination claims
+require factorial or coalition experiments across roles.}
+\label{tab:ctm-evidence}
+\begin{tabularx}{\textwidth}{P{0.12\textwidth}P{0.25\textwidth}P{0.31\textwidth}Y}
+\toprule
+Role & Candidate sensors & Decisive intervention & Forbidden inference\\
+\midrule
+\textcolor{MESOGold}{\textbf{Compute}} &
+Local input--output map, Jacobian/finite differences, operation probes, component attribution &
+Interchange inputs while holding the physical memory realization and route fixed; test withheld operation and typed composition &
+``Activated'' or ``predictive'' $\Rightarrow$ the component natively performs the operation\\
+\addlinespace
+\textcolor{MESOTeal}{\textbf{Transport}} &
+Attention/message patterns, causal edge effects, routing gates, donor--recipient alignment &
+Move or swap a natural donor while holding abstract value and downstream transform fixed; test delivery and use &
+High attention, edge weight, or route frequency $\Rightarrow$ transported content or causal contribution\\
+\addlinespace
+\textcolor{MESOBlue}{\textbf{Memory}} &
+Pulse--chase decodability, persistence curves, state/cache occupancy, reader access &
+Write, erase, delay, and rescue the nominated physical memory state while holding generators and later demand fixed &
+Persistent decodability $\Rightarrow$ native storage, necessity, or addressability\\
+\addlinespace
+\textbf{CTM coordination} &
+Cross-role timing, coalition effects, cache/recompute and route/transform coupling &
+Factorial edits and ordered coalitions; compare direct with composed protocols on structural holdout &
+Individually causal parts $\Rightarrow$ a compositional MesoMachine\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Evidence profiles, not a scalar ladder.}
+
+Interpretability targets are neither a total order nor a mathematically defined lattice. We report a profile
+\[
+\mathbf e=
+(e_{\mathrm{read}},e_{\mathrm{dec}},e_{\mathrm{loc}},e_{\mathrm{use}},
+e_{\mathrm{nec}},e_{\mathrm{suf}},e_{\mathrm{act}},
+e_{\mathrm{trans}},e_{\mathrm{comp}},e_{\mathrm{id}})
+\]
+whose coordinates are separately defined estimands with uncertainty. A componentwise partial order is used only when two profiles share frame, scale, and tolerance. No ``license gap'' is formed by subtracting incomparable coordinates. Readability, actionability, reconstruction, and transport can be incomparable.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Default licensed conclusions. A method may support a stronger
+conclusion only by supplying the missing evidence.}
+\label{tab:licenses}
+\begin{tabularx}{\textwidth}{P{0.20\textwidth}P{0.33\textwidth}Y}
+\toprule
+Evidence & Default license & Does not by itself license\\
+\midrule
+Held-out probe & Decodability in a specified class & Native use, causality, natural coordinates\\
+Sparse dictionary & Sparse reconstruction in a chosen basis & Causal-variable, Jacobian, or pathway sparsity\\
+Attribution/mask & A declared localization estimand & Necessity, sufficiency, or interaction completeness\\
+Natural-donor interchange & Counterfactual use within support & Global identity or unique mechanism\\
+Ablation/rescue & Scoped necessity/sufficiency & Portability or compositional closure\\
+Reconstruction / transplant & Constructive actionability & Metaphysical uniqueness\\
+Withheld composition & Typed compositional prediction & Higher context laws outside the test scope\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Four sparsities.}
+The evidence synthesis motivates four distinct sparsities:
+\[
+S_{\mathrm{act}},\quad S_{\mathrm{var}},\quad
+S_{\mathrm{jac}},\quad S_{\mathrm{path}},
+\]
+for activations, realized causal variables, Jacobian/computation, and physical pathways. Their units and failure modes differ:
+\begin{description}[style=nextline,leftmargin=1.6em]
+  \item[$S_{\mathrm{act}}$ --- activation sparsity.] Few coordinates are nonzero in a chosen activation basis. It licenses an economy of description in that basis, not a claim about causal variables.
+  \item[$S_{\mathrm{var}}$ --- realized-variable sparsity.] A small set of interventionally distinguished variables accounts for the tested counterfactuals. It depends on the intervention/readout frame and does not imply a sparse physical path.
+  \item[$S_{\mathrm{jac}}$ --- computational sparsity.] Few input-state directions exert locally non-negligible effects on declared downstream variables, for a stated Jacobian or finite-difference scale. It can be dense even when activations are sparse.
+  \item[$S_{\mathrm{path}}$ --- pathway sparsity.] A small physical coalition of edges, heads, neurons, or modules carries the tested causal effect under an interaction-aware estimand. Redundancy and self-repair can make a sparse native protocol look dense under isolated ablation.
+\end{description}
+None implies another without additional assumptions. Sparse autoencoders are therefore candidate coordinate systems and sensors, not privileged MesoMachines \citep{cunningham2023,gao2024sae,farnik2025,arora2026neurons,mueller2025,wu2025axbench}. The distinction is experimentally productive: a method should be evaluated against the sparsity it actually optimizes, not rewarded for a different sparsity by verbal transfer.
+
+\subsection{Multi-axis evidence coding}

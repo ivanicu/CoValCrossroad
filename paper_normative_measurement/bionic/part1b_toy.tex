@@ -1,0 +1,351 @@
+% ===========================================================================
+% PART 1b -- the entire chain executed on a toy the reader can check by hand,
+% plus the three classical theorems proved rather than invoked.
+% ===========================================================================
+\section{\bi{T}{h}{e} \bi{wh}{ol}{e} \bi{ch}{ai}{n} on \bi{num}{be}{rs} \bi{y}{o}{u} \bi{c}{a}{n} \bi{ch}{ec}{k}}
+\label{sec:toy}
+
+\bi{Ever}{yth}{ing} in §\ref{sec:elicit}--§\ref{sec:c1} is \bi{n}{o}{w} \bi{exe}{cut}{ed} on a
+\bi{th}{re}{e}-\bi{pe}{rs}{on}, \bi{fo}{u}{r}-\bi{res}{pon}{se}, \bi{th}{re}{e}-\bi{cri}{ter}{ion} \bi{exa}{mp}{le}. \bi{Ev}{er}{y} \bi{nu}{mb}{er} \bi{be}{lo}{w} \bi{c}{a}{n} be
+\bi{ver}{ifi}{ed} \bi{wi}{t}{h} a \bi{pe}{nc}{il}.
+
+\subsection{\bi{T}{h}{e} \bi{se}{tu}{p}}
+
+\bi{Th}{re}{e} \bi{anno}{tat}{ors} $\{1,2,3\}$, \bi{fo}{u}{r} \bi{res}{pon}{ses} $\{A,B,C,D\}$, \bi{th}{re}{e} \bi{cri}{ter}{ia}
+$\{c_1,c_2,c_3\}$. \bi{T}{h}{e} \bi{ju}{dg}{e} \bi{ret}{ur}{ns}:
+\[
+\sat=\begin{pmatrix}
+ & A & B & C & D\\
+c_1 & 0.9 & 0.8 & 0.2 & 0.1\\
+c_2 & 0.2 & 0.7 & 0.9 & 0.3\\
+c_3 & 0.5 & 0.4 & 0.4 & 0.9
+\end{pmatrix}
+\]
+\bi{T}{h}{e} \bi{wei}{gh}{ts}, \bi{o}{n}{e} \bi{r}{o}{w} \bi{p}{e}{r} \bi{ann}{ota}{tor} (a \bi{bl}{an}{k} \bi{me}{an}{s} \bi{th}{a}{t} \bi{ann}{ota}{tor} \bi{d}{i}{d} \bi{n}{o}{t} \bi{ra}{t}{e}
+\bi{th}{a}{t} \bi{cri}{ter}{ion}):
+\[
+\wt=\begin{pmatrix}
+ & c_1 & c_2 & c_3\\
+1 & +8 & +2 & -1\\
+2 & +6 & +4 & \cdot\\
+3 & -2 & +9 & +3
+\end{pmatrix}
+\]
+\bi{Ann}{ota}{tor} $3$ \bi{addi}{tion}{ally} \bi{dec}{lar}{es} $V_3 = \{A\}$ \bi{unac}{cept}{able}.
+
+\subsection{\bi{Indi}{vid}{ual} \bi{no}{rm}{s} $\Nn_i$ (\cref{def:ni})}
+
+\begin{align*}
+\Nn_1 &= 8(0.9,0.8,0.2,0.1)+2(0.2,0.7,0.9,0.3)-1(0.5,0.4,0.4,0.9)\\
+      &= (7.2,6.4,1.6,0.8)+(0.4,1.4,1.8,0.6)-(0.5,0.4,0.4,0.9)\\
+      &= (7.1,\;7.4,\;3.0,\;0.5)\\
+\Nn_2 &= 6(0.9,0.8,0.2,0.1)+4(0.2,0.7,0.9,0.3)
+       = (5.4,4.8,1.2,0.6)+(0.8,2.8,3.6,1.2) = (6.2,\;7.6,\;4.8,\;1.8)\\
+\Nn_3 &= -2(0.9,0.8,0.2,0.1)+9(0.2,0.7,0.9,0.3)+3(0.5,0.4,0.4,0.9)\\
+      &= (-1.8,-1.6,-0.4,-0.2)+(1.8,6.3,8.1,2.7)+(1.5,1.2,1.2,2.7)\\
+      &= (1.5,\;5.9,\;8.9,\;5.2)
+\end{align*}
+\bi{Indi}{vid}{ual} \bi{t}{o}{p} \bi{cho}{ic}{es}: $\Nn_1 \to B$, $\Nn_2 \to B$, $\Nn_3 \to C$.
+
+\subsection{\bi{Cen}{tri}{ng} \bi{a}{n}{d} \bi{norm}{alis}{ing} (\cref{rem:normalise})}
+
+$\Nn_1$ \bi{h}{a}{s} \bi{me}{a}{n} $(7.1+7.4+3.0+0.5)/4 = 4.5$, so \bi{cen}{tr}{ed} it is
+$(2.6,2.9,-1.5,-4.0)$ \bi{wi}{t}{h} \bi{no}{r}{m}
+$\sqrt{6.76+8.41+2.25+16}=\sqrt{33.42}=5.781$, \bi{gi}{vi}{ng}
+\[
+\hat \Nn_1 = (0.4497,\;0.5016,\;-0.2595,\;-0.6919).
+\]
+\bi{No}{t}{e} $\|\Nn_1\|$ \bi{be}{fo}{re} \bi{cen}{tri}{ng} \bi{w}{a}{s} \bi{dom}{ina}{ted} by \bi{t}{h}{e} \bi{co}{mm}{on} \bi{le}{ve}{l}, \bi{wh}{ic}{h} \bi{dec}{id}{es}
+\bi{not}{hi}{ng} -- \bi{exa}{ct}{ly} \bi{t}{h}{e} \bi{po}{in}{t} of \cref{rem:normalise}. \bi{Ann}{ota}{tor} $2$ \bi{ra}{te}{d} \bi{on}{l}{y} \bi{t}{w}{o}
+\bi{cri}{ter}{ia} \bi{a}{n}{d} \bi{wo}{ul}{d} \bi{ha}{v}{e} a \bi{syst}{emati}{cally} \bi{sma}{ll}{er} \bi{r}{a}{w} \bi{no}{r}{m}; \bi{af}{te}{r} \bi{norm}{alisa}{tion}
+\bi{t}{h}{e} \bi{t}{w}{o} \bi{a}{r}{e} \bi{comp}{ara}{ble}.
+
+\subsection{\bi{Aggr}{egat}{ion}, \bi{th}{re}{e} \bi{wa}{y}{s}}
+
+\step{\bi{Me}{a}{n} \bi{ov}{e}{r} \bi{pe}{op}{le}.} $\bar\Nn = \tfrac13(\Nn_1+\Nn_2+\Nn_3)
+= \tfrac13(14.8,\;20.9,\;16.7,\;7.5) = (4.93,\;6.97,\;5.57,\;2.50)$, so the winner
+is $B$.
+
+\step{\bi{Me}{di}{an} \bi{ov}{e}{r} \bi{pe}{op}{le}.} \bi{Comp}{onent}{wise} \bi{med}{ia}{ns} of \bi{t}{h}{e} \bi{th}{re}{e} \bi{vec}{to}{rs}:
+$\operatorname{med}(7.1,6.2,1.5)=6.2$;
+$\operatorname{med}(7.4,7.6,5.9)=7.4$;
+$\operatorname{med}(3.0,4.8,8.9)=4.8$;
+$\operatorname{med}(0.5,1.8,5.2)=1.8$. \bi{Wi}{nn}{er} $B$.
+
+\step{\bi{Max}{im}{in} \bi{ov}{e}{r} \bi{pe}{op}{le}.} \bi{Comp}{onent}{wise} \bi{mi}{ni}{ma}:
+$(1.5,\;5.9,\;3.0,\;0.5)$. \bi{Wi}{nn}{er} $B$. \bi{No}{t}{e} \bi{t}{h}{e} \bi{min}{im}{um} is \bi{att}{ain}{ed} by a
+\emph{\bi{dif}{fer}{ent}} \bi{pe}{rs}{on} in \bi{ea}{c}{h} \bi{co}{lu}{mn} -- \bi{ann}{ota}{tor} $3$ \bi{f}{o}{r} $A$, \bi{ann}{ota}{tor} $3$ \bi{f}{o}{r}
+$B$, \bi{ann}{ota}{tor} $1$ \bi{f}{o}{r} $C$ -- \bi{wh}{ic}{h} is \bi{w}{h}{y} $\min$ is \bi{uns}{tab}{le}: a \bi{sm}{al}{l} \bi{ch}{an}{ge} to
+\bi{a}{n}{y} \bi{o}{n}{e} \bi{pe}{rs}{on} \bi{c}{a}{n} \bi{ch}{an}{ge} \bi{wh}{ic}{h} \bi{pe}{rs}{on} \bi{def}{in}{es} \bi{t}{h}{e} \bi{va}{lu}{e}.
+
+\step{\bi{T}{h}{e} \bi{wei}{ght}{ed}-\bi{cri}{ter}{ia} \bi{ro}{ut}{e} (\cref{def:score}).} \bi{Me}{a}{n} \bi{wei}{gh}{ts} \bi{a}{r}{e}
+$\bar w = (\tfrac{8+6-2}{3},\ \tfrac{2+4+9}{3},\ \tfrac{-1+3}{2}) = (4,\;5,\;1)$,
+so
+\[
+Y = 4(0.9,0.8,0.2,0.1)+5(0.2,0.7,0.9,0.3)+1(0.5,0.4,0.4,0.9) = (5.1,\;7.1,\;5.7,\;2.8),
+\]
+\bi{wi}{nn}{er} $B$. \bi{He}{r}{e} \bi{t}{h}{e} \bi{t}{w}{o} \bi{ro}{ut}{es} \bi{ag}{re}{e}; §\ref{sec:agg} \bi{rep}{or}{ts} \bi{th}{a}{t} on \bi{t}{h}{e} \bi{re}{a}{l}
+\bi{co}{rp}{us} \bi{th}{e}{y} \bi{dis}{agr}{ee} $31.6\%$ of \bi{t}{h}{e} \bi{ti}{m}{e}.
+
+\subsection{\bi{Con}{dor}{cet}, by \bi{ha}{n}{d}}
+
+\bi{Indi}{vid}{ual} \bi{ran}{kin}{gs} \bi{fr}{o}{m} \bi{t}{h}{e} $\Nn_i$: \bi{pe}{rs}{on} $1$: $B\!>\!A\!>\!C\!>\!D$;
+\bi{pe}{rs}{on} $2$: $B\!>\!A\!>\!C\!>\!D$; \bi{pe}{rs}{on} $3$: $C\!>\!B\!>\!D\!>\!A$.
+\bi{Pai}{rwi}{se} \bi{majo}{rit}{ies}: $B$ \bi{be}{at}{s} $A$ ($3$--$0$), $B$ \bi{be}{at}{s} $C$ ($2$--$1$),
+$B$ \bi{be}{at}{s} $D$ ($3$--$0$). $B$ is \bi{t}{h}{e} \bi{Con}{dor}{cet} \bi{wi}{nn}{er}, \bi{a}{n}{d} it \bi{coi}{nci}{des} \bi{wi}{t}{h} \bi{a}{l}{l}
+\bi{fo}{u}{r} \bi{ru}{le}{s} \bi{ab}{ov}{e}.
+
+\step{\bi{Cons}{truc}{ting} a \bi{cy}{cl}{e}, to \bi{sh}{o}{w} it is \bi{pos}{sib}{le}.} \bi{Wi}{t}{h} \bi{ran}{kin}{gs}
+$A\!>\!B\!>\!C$, $B\!>\!C\!>\!A$, $C\!>\!A\!>\!B$: $A$ \bi{be}{at}{s} $B$ ($2$--$1$), $B$
+\bi{be}{at}{s} $C$ ($2$--$1$), $C$ \bi{be}{at}{s} $A$ ($2$--$1$). No \bi{Con}{dor}{cet} \bi{wi}{nn}{er} \bi{ex}{is}{ts}. \bi{T}{h}{e}
+\bi{mea}{sur}{ed} \bi{co}{rp}{us} \bi{con}{tai}{ns} \emph{\bi{ze}{r}{o}} \bi{su}{c}{h} \bi{cy}{cl}{es} (\cref{tab:condorcet}), \bi{wh}{ic}{h} is
+a \bi{gen}{ui}{ne} \bi{neg}{ati}{ve} \bi{re}{su}{lt} \bi{a}{n}{d} \bi{n}{o}{t} an \bi{assu}{mpt}{ion}.
+
+\subsection{\bi{I}{I}{A} \bi{vio}{lat}{ion}, by \bi{ha}{n}{d}}
+
+\bi{Ta}{k}{e} \bi{Bo}{rd}{a} \bi{po}{in}{ts} on \bi{fo}{u}{r} \bi{alte}{rnat}{ives} ($3,2,1,0$). \bi{Wi}{t}{h} \bi{t}{h}{e} \bi{th}{re}{e} \bi{ran}{kin}{gs} \bi{ab}{ov}{e}
+(\bi{pe}{rs}{on} $3$ \bi{ran}{ki}{ng} $C\!>\!B\!>\!D\!>\!A$):
+\[
+A: 2+2+0=4,\quad B: 3+3+2=8,\quad C: 1+1+3=5,\quad D: 0+0+1=1 .
+\]
+So $C \succ A$ \bi{soc}{ial}{ly}, by $5$ to $4$. \bi{N}{o}{w} \bi{de}{le}{te} $D$ \bi{a}{n}{d} \bi{rec}{omp}{ute} on \bi{th}{re}{e}
+\bi{alte}{rnat}{ives} ($2,1,0$): \bi{pe}{rs}{on} $1$: $B\!>\!A\!>\!C$, \bi{pe}{rs}{on} $2$: \bi{sa}{m}{e}, \bi{pe}{rs}{on}
+$3$: $C\!>\!B\!>\!A$.
+\[
+A: 1+1+0=2,\quad B: 2+2+1=5,\quad C: 0+0+2=2 .
+\]
+\bi{N}{o}{w} $C$ \bi{a}{n}{d} $A$ \bi{a}{r}{e} \emph{\bi{ti}{e}{d}}, \bi{wh}{er}{e} \bi{be}{fo}{re} $C$ \bi{l}{e}{d}. \bi{Del}{eti}{ng} an \bi{alte}{rnat}{ive}
+\bi{no}{bo}{dy} \bi{ra}{nk}{ed} \bi{fi}{rs}{t} \bi{cha}{ng}{ed} \bi{t}{h}{e} \bi{rel}{ati}{on} \bi{bet}{we}{en} \bi{t}{w}{o} \bi{ot}{he}{rs}. \bi{Th}{a}{t} is an \bi{I}{I}{A}
+\bi{vio}{lat}{ion}, \bi{a}{n}{d} it \bi{oc}{cu}{rs} on $13.4\%$ of \bi{te}{st}{s} in \bi{t}{h}{e} \bi{re}{a}{l} \bi{co}{rp}{us}
+(\cref{cor:iia}).
+
+\subsection{\bi{T}{h}{e} \bi{ve}{t}{o} \bi{con}{dit}{ion}, by \bi{ha}{n}{d} (\cref{thm:veto})}
+
+\bi{Ann}{ota}{tor} $3$ \bi{ve}{to}{es} $A$. \bi{Fr}{o}{m} $Y=(5.1,7.1,5.7,2.8)$:
+\[
+\Delta = \max_{a\in V}Y(a) - \max_{a\notin V}Y(a) = Y(A) - \max(7.1,5.7,2.8) = 5.1-7.1 = -2.0 < 0 .
+\]
+\bi{T}{h}{e} \bi{ve}{t}{o} is \emph{\bi{n}{o}{t} \bi{bin}{di}{ng}}: $A$ \bi{w}{a}{s} \bi{n}{o}{t} \bi{go}{in}{g} to \bi{w}{i}{n} \bi{an}{yw}{ay}, so \bi{a}{n}{y} $M\ge 0$
+\bi{repr}{odu}{ces} \bi{t}{h}{e} \bi{cons}{tra}{int}.
+
+\bi{N}{o}{w} \bi{ch}{an}{ge} \bi{o}{n}{e} \bi{nu}{mb}{er}: \bi{l}{e}{t} $\sat[c_1,A]=0.9 \to 1.0$ \bi{a}{n}{d} $\bar w_1 = 4 \to 9$.
+\bi{Th}{e}{n} $Y(A) = 9(1.0)+5(0.2)+1(0.5) = 10.5$ \bi{a}{n}{d}
+$Y(B) = 9(0.8)+5(0.7)+1(0.4)=11.1$, $Y(C)=9(0.2)+5(0.9)+1(0.4)=6.7$,
+$Y(D)=9(0.1)+5(0.3)+1(0.9)=3.3$. \bi{St}{il}{l} $\Delta = 10.5-11.1 <0$. \bi{Pu}{s}{h} \bi{on}{c}{e} \bi{mo}{r}{e},
+$\bar w_1 = 20$: $Y(A)=21.5$, $Y(B)=21.9$ -- \bi{t}{h}{e} \bi{g}{a}{p} \bi{cl}{os}{es} \bi{b}{u}{t} \bi{ne}{ve}{r} \bi{inv}{er}{ts},
+\bi{bec}{au}{se} $B$ \bi{al}{s}{o} \bi{sat}{isf}{ies} $c_1$ \bi{hi}{gh}{ly}. To \bi{ma}{k}{e} $\Delta$ \bi{la}{rg}{e} \bi{o}{n}{e} \bi{ne}{ed}{s} a \bi{ve}{to}{ed}
+\bi{res}{pon}{se} \bi{th}{a}{t} is \emph{\bi{uni}{que}{ly}} \bi{go}{o}{d} on a \bi{hea}{vi}{ly} \bi{wei}{ght}{ed} \bi{cri}{ter}{ion}, \bi{a}{n}{d} \bi{th}{er}{e}
+is no \bi{bo}{un}{d} on \bi{h}{o}{w} \bi{go}{o}{d}: \bi{th}{a}{t} is \bi{pre}{cis}{ely} \bi{t}{h}{e} \bi{cons}{truc}{tion} in
+\cref{thm:vetoinf}, \bi{a}{n}{d} on \bi{t}{h}{e} \bi{re}{a}{l} \bi{co}{rp}{us} \bi{t}{h}{e} \bi{rea}{lis}{ed} \bi{max}{im}{um} is
+$\Delta = 26.54$ \bi{aga}{in}{st} a \bi{p}{e}{r}-\bi{cri}{ter}{ion} \bi{cei}{li}{ng} of $10$.
+
+\subsection{\bi{Re}{gr}{et} \bi{ve}{rs}{us} \bi{fl}{i}{p} \bi{ra}{t}{e}, by \bi{ha}{n}{d} (\cref{lem:coarsen})}
+
+\bi{Ta}{k}{e} $Y=(5.1,7.1,5.7,2.8)$, so $a^\star = B$, $Y(a^\star)=7.1$, $\min_a Y = 2.8$,
+\bi{a}{n}{d} \bi{t}{h}{e} \bi{deno}{mina}{tor} of \cref{def:regret} is $7.1-2.8=4.3$.
+
+\begin{itemize}
+\item A \bi{pert}{urba}{tion} \bi{th}{a}{t} \bi{sh}{if}{ts} \bi{t}{h}{e} \bi{wi}{nn}{er} to $C$: $\Reg = (7.1-5.7)/4.3 = 0.326$.
+\item A \bi{pert}{urba}{tion} \bi{th}{a}{t} \bi{sh}{if}{ts} \bi{t}{h}{e} \bi{wi}{nn}{er} to $A$: $\Reg = (7.1-5.1)/4.3 = 0.465$.
+\item A \bi{pert}{urba}{tion} \bi{th}{a}{t} \bi{sh}{if}{ts} \bi{t}{h}{e} \bi{wi}{nn}{er} to $D$: $\Reg = (7.1-2.8)/4.3 = 1.000$.
+\end{itemize}
+\bi{A}{l}{l} \bi{th}{re}{e} \bi{a}{r}{e} ``a \bi{fl}{i}{p}''. \bi{T}{h}{e} \bi{fl}{i}{p} \bi{ra}{t}{e} \bi{ass}{ig}{ns} \bi{th}{e}{m} \bi{t}{h}{e} \bi{sa}{m}{e} \bi{va}{lu}{e}; \bi{re}{gr}{et}
+\bi{sep}{ara}{tes} \bi{th}{e}{m} by \bi{mo}{r}{e} \bi{th}{a}{n} a \bi{fa}{ct}{or} of \bi{th}{re}{e}. \Cref{lem:coarsen} \bi{sa}{y}{s}
+$\E[\Reg] = \pi \cdot \E[\Reg\mid\text{flip}]$ \bi{exa}{ct}{ly}, \bi{a}{n}{d} it is \bi{t}{h}{e} \bi{se}{co}{nd}
+\bi{fa}{ct}{or} -- $0.326$ \bi{ve}{rs}{us} $1.000$ \bi{he}{r}{e} -- \bi{th}{a}{t} \bi{t}{h}{e} \bi{fl}{i}{p} \bi{ra}{t}{e} \bi{dis}{car}{ds}.
+
+\subsection{\bi{T}{h}{e} \bi{ma}{rg}{in} \bi{c}{a}{p}, by \bi{ha}{n}{d} (\cref{prop:cap})}
+
+\bi{T}{h}{e} \bi{ma}{rg}{in} is $m = 7.1-5.7 = 1.4$, \bi{a}{n}{d} \bi{t}{h}{e} \bi{sc}{or}{e} \bi{ra}{ng}{e} is $7.1-2.8=4.3$, so \bi{t}{h}{e}
+\bi{rel}{ati}{ve} \bi{ma}{rg}{in} is $0.326$ -- \bi{al}{mo}{st} \bi{exa}{ct}{ly} \bi{t}{h}{e} \bi{co}{rp}{us} \bi{me}{di}{an} of $0.319$. A
+\bi{pert}{urba}{tion} $\delta$ \bi{c}{a}{n} \bi{on}{l}{y} \bi{fl}{i}{p} \bi{t}{h}{e} \bi{wi}{nn}{er} if it \bi{mo}{ve}{s} \bi{t}{h}{e} \bi{t}{o}{p}-\bi{t}{w}{o} \bi{g}{a}{p} \bi{pa}{s}{t}
+\bi{ze}{r}{o}, so by \cref{prop:cap} it \bi{ne}{ed}{s} $\|\delta\|_\infty > m/2 = 0.7$, i.e. \bi{ab}{ou}{t}
+$16\%$ of \bi{t}{h}{e} \bi{ra}{ng}{e}. \bi{Pert}{urbat}{ions} \bi{sma}{ll}{er} \bi{th}{a}{n} \bi{th}{a}{t} \bi{ca}{nn}{ot} \bi{fl}{i}{p} \bi{th}{i}{s} \bi{pr}{om}{pt}
+\bi{wha}{tev}{er} \bi{th}{e}{y} \bi{des}{tr}{oy} \bi{norm}{ativ}{ely} -- \bi{wh}{ic}{h} is \bi{t}{h}{e} \bi{c}{a}{p}, \bi{ma}{d}{e} \bi{con}{cre}{te}.
+
+\subsection{\bi{Sha}{pl}{ey} \bi{inf}{lue}{nce}, by \bi{ha}{n}{d}, \bi{a}{n}{d} it \bi{exh}{ibi}{ts} C1 \bi{dir}{ect}{ly}}
+
+\bi{Th}{re}{e} \bi{anno}{tat}{ors}, so $3! = 6$ \bi{ord}{eri}{ngs}. \bi{T}{h}{e} \bi{coll}{ect}{ive} \bi{wi}{nn}{er} is $B$.
+\bi{T}{h}{e} \bi{char}{acter}{istic} \bi{fun}{cti}{on} $v(S)$ \bi{as}{k}{s} \bi{whe}{th}{er} \bi{t}{h}{e} \bi{coa}{lit}{ion} $S$, \bi{sum}{mi}{ng} \bi{i}{t}{s} \bi{o}{w}{n}
+$\Nn_i$, \bi{al}{s}{o} \bi{pi}{ck}{s} $B$. \bi{Enum}{erat}{ing} \bi{a}{l}{l} \bi{ei}{gh}{t} \bi{sub}{se}{ts}:
+\[
+v(\varnothing)=0,\quad v(\{1\})=1,\quad v(\{2\})=1,\quad v(\{3\})=0,
+\]
+\[
+v(\{1,2\})=1,\quad v(\{1,3\})=1,\quad v(\{2,3\})=\mathbf{0},\quad v(\{1,2,3\})=1 .
+\]
+\bi{T}{h}{e} \bi{o}{n}{e} to \bi{ch}{ec}{k} by \bi{ha}{n}{d} is $v(\{2,3\})$:
+$\Nn_2+\Nn_3 = (7.7,\,13.5,\,13.7,\,7.0)$, \bi{wh}{os}{e} \bi{max}{im}{um} is at $C$, \bi{n}{o}{t} $B$.
+
+\step{\bi{Mar}{gin}{al} \bi{cont}{ribut}{ions}, \bi{a}{l}{l} \bi{s}{i}{x} \bi{ord}{eri}{ngs}.}
+\begin{center}\small
+\begin{tabular}{lrrr}
+\toprule
+\bi{ord}{eri}{ng} & $\phi_1$ \bi{te}{r}{m} & $\phi_2$ \bi{te}{r}{m} & $\phi_3$ \bi{te}{r}{m}\\
+\midrule
+$1,2,3$ & $v(1)-v(\varnothing)=1$ & $v(12)-v(1)=0$ & $v(123)-v(12)=0$\\
+$1,3,2$ & $1$ & $v(123)-v(13)=0$ & $v(13)-v(1)=0$\\
+$2,1,3$ & $v(12)-v(2)=0$ & $v(2)-v(\varnothing)=1$ & $v(123)-v(12)=0$\\
+$2,3,1$ & $v(123)-v(23)=1$ & $1$ & $v(23)-v(2)=-1$\\
+$3,1,2$ & $v(13)-v(3)=1$ & $v(123)-v(13)=0$ & $v(3)-v(\varnothing)=0$\\
+$3,2,1$ & $v(123)-v(23)=1$ & $v(23)-v(3)=0$ & $0$\\
+\midrule
+\bi{to}{ta}{l} & $5$ & $2$ & $-1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\[
+\phi_1 = \tfrac56 = 0.8333,\qquad
+\phi_2 = \tfrac26 = 0.3333,\qquad
+\phi_3 = -\tfrac16 = -0.1667 .
+\]
+
+\step{\bi{T}{w}{o} \bi{ch}{ec}{ks}.} \bi{Effi}{cie}{ncy} (\bi{ax}{io}{m} E of §\ref{sec:classical}):
+$\tfrac56+\tfrac26-\tfrac16 = \tfrac66 = 1 = v(A)-v(\varnothing)$. \bi{A}{n}{d} a
+\emph{\bi{neg}{ati}{ve}} \bi{va}{lu}{e} is \bi{legi}{tim}{ate}: \bi{ann}{ota}{tor} $3$ \bi{act}{ive}{ly} \bi{pu}{sh}{es} \bi{t}{h}{e} \bi{coa}{lit}{ion}
+\bi{aw}{a}{y} \bi{fr}{o}{m} \bi{t}{h}{e} \bi{coll}{ect}{ive} \bi{wi}{nn}{er}, so \bi{th}{ei}{r} \bi{ave}{ra}{ge} \bi{mar}{gin}{al} \bi{cont}{ribu}{tion} to
+\bi{sel}{ect}{ing} $B$ is \bi{be}{lo}{w} \bi{ze}{r}{o}. \bi{Ali}{gnm}{ent}, \bi{be}{in}{g} a \bi{co}{si}{ne} of a \bi{pe}{rs}{on} \bi{aga}{in}{st} a \bi{s}{u}{m}
+\bi{th}{a}{t} \bi{inc}{lud}{es} \bi{th}{e}{m}, \bi{ca}{nn}{ot} go \bi{neg}{ati}{ve} in \bi{t}{h}{e} \bi{sa}{m}{e} \bi{sit}{uat}{ion} \bi{a}{n}{d} \bi{the}{ref}{ore} \bi{ca}{nn}{ot}
+\bi{exp}{re}{ss} \bi{th}{i}{s} at \bi{a}{l}{l}.
+
+\step{\bi{N}{o}{w} \bi{t}{h}{e} \bi{ali}{gnm}{ent} of \bi{ea}{c}{h}, \bi{aga}{in}{st} \bi{t}{h}{e} \bi{coll}{ect}{ive}.}
+\bi{T}{h}{e} \bi{coll}{ect}{ive} \bi{cen}{tr}{ed} \bi{ve}{ct}{or} is $\bar\Nn - 4.9917 =
+(-0.06,\,1.97,\,0.57,\,-2.49)$ (up to rounding), and centring each $\Nn_i$ gives
+\bi{cos}{in}{es}
+\[
+\cos(\Nn_1, G)=0.7858,\qquad
+\cos(\Nn_2, G)=\mathbf{0.9313},\qquad
+\cos(\Nn_3, G)=0.2189 .
+\]
+
+\step{\bi{A}{n}{d} \bi{th}{er}{e} is \bi{t}{h}{e} \bi{po}{in}{t} of §\ref{sec:c1}, in \bi{th}{re}{e} \bi{pe}{op}{le}.}
+
+\begin{center}\small
+\begin{tabular}{lrrl}
+\toprule
+\bi{ann}{ota}{tor} & \bi{ali}{gnm}{ent} & \bi{inf}{lue}{nce} $\phi_i$ & \\
+\midrule
+$1$ & $0.7858$ & $\mathbf{+0.8333}$ & \bi{hig}{he}{st} \bi{inf}{lue}{nce}, \emph{\bi{se}{co}{nd}} \bi{ali}{gnm}{ent}\\
+$2$ & $\mathbf{0.9313}$ & $+0.3333$ & \bi{hig}{he}{st} \bi{ali}{gnm}{ent}, \emph{\bi{le}{s}{s} \bi{th}{a}{n} \bi{ha}{l}{f}} \bi{t}{h}{e} \bi{inf}{lue}{nce}\\
+$3$ & $0.2189$ & $-0.1667$ & \bi{lo}{we}{st} \bi{ali}{gnm}{ent}, \bi{a}{n}{d} \emph{\bi{neg}{ati}{ve}} \bi{inf}{lue}{nce}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bi{T}{h}{e} \bi{ra}{n}{k} \bi{or}{de}{rs} \bi{dis}{agr}{ee} at \bi{t}{h}{e} \bi{t}{o}{p}: \bi{ann}{ota}{tor} $2$ \bi{ag}{re}{es} \bi{wi}{t}{h} \bi{t}{h}{e} \bi{out}{co}{me} \bi{mo}{s}{t}
+\bi{a}{n}{d} \bi{mo}{ve}{s} it \bi{le}{as}{t} of \bi{t}{h}{e} \bi{t}{w}{o} \bi{cont}{ribu}{tors}. \bi{T}{h}{e} \bi{re}{as}{on} is \bi{vis}{ib}{le} in \bi{t}{h}{e}
+\bi{enum}{erat}{ion} -- \bi{ann}{ota}{tor} $2$ \bi{al}{on}{e} \bi{alr}{ea}{dy} \bi{sel}{ec}{ts} $B$, so in \bi{t}{h}{e} \bi{ord}{eri}{ngs} \bi{wh}{er}{e}
+\bi{th}{e}{y} \bi{ar}{ri}{ve} \bi{af}{te}{r} \bi{ann}{ota}{tor} $1$ \bi{th}{e}{y} \bi{a}{d}{d} \bi{not}{hi}{ng}. \emph{\bi{Agr}{eei}{ng} \bi{wi}{t}{h} an \bi{out}{co}{me}
+\bi{th}{a}{t} \bi{wo}{ul}{d} \bi{ha}{v}{e} \bi{hap}{pen}{ed} \bi{an}{yw}{ay} is \bi{n}{o}{t} \bi{inf}{lue}{nce} \bi{ov}{e}{r} it.} \bi{Th}{a}{t} is \bi{t}{h}{e} \bi{en}{ti}{re}
+\bi{con}{te}{nt} of C1, \bi{a}{n}{d} on \bi{t}{h}{e} \bi{re}{a}{l} \bi{co}{rp}{us} it \bi{app}{ea}{rs} as a \bi{corr}{elat}{ion} of $+0.304$
+\bi{wi}{t}{h} a \bi{pro}{fi}{le} \bi{th}{a}{t} \bi{fla}{tte}{ns} \bi{ab}{ov}{e} \bi{mod}{era}{te} \bi{agr}{eem}{ent} (\cref{tab:quintile}).
+
+% ===========================================================================
+\section{\bi{T}{h}{e} \bi{th}{re}{e} \bi{cla}{ssi}{cal} \bi{the}{ore}{ms}, \bi{pr}{ov}{ed} \bi{ra}{th}{er} \bi{th}{a}{n} \bi{ci}{te}{d}}
+\label{sec:classical}
+
+A \bi{re}{ad}{er} \bi{wi}{t}{h} no \bi{back}{gro}{und} \bi{ca}{nn}{ot} \bi{ch}{ec}{k} an \bi{inv}{ok}{ed} \bi{the}{or}{em}. \bi{T}{h}{e} \bi{th}{re}{e} \bi{th}{a}{t} \bi{ca}{rr}{y}
+\bi{we}{ig}{ht} in \bi{th}{i}{s} \bi{pa}{pe}{r} \bi{a}{r}{e} \bi{the}{ref}{ore} \bi{pr}{ov}{ed} or, \bi{wh}{er}{e} \bi{t}{h}{e} \bi{fu}{l}{l} \bi{pr}{oo}{f} is \bi{lo}{n}{g},
+\bi{red}{uc}{ed} to a \bi{che}{cka}{ble} \bi{co}{r}{e}.
+
+\subsection{\bi{Bla}{ckw}{ell}: \bi{w}{h}{y} a \bi{dete}{rmini}{stic} \bi{aggr}{egat}{ion} \bi{c}{a}{n} \bi{on}{l}{y} \bi{lo}{s}{e}}
+
+\begin{theorem}[Garbling implies weakly higher risk]
+\label{thm:blackwell-proof}
+\bi{L}{e}{t} $Z$ be an \bi{obse}{rvat}{ion} \bi{a}{n}{d} $G = K(Z)$ \bi{f}{o}{r} a \bi{Ma}{rk}{ov} \bi{ke}{rn}{el} $K$. \bi{F}{o}{r} \bi{a}{n}{y}
+\bi{dec}{isi}{on} \bi{pro}{bl}{em} \bi{wi}{t}{h} \bi{ac}{ti}{on} \bi{s}{e}{t} $\mathcal{A}$, \bi{st}{at}{e} $\theta$, \bi{pr}{io}{r} $p$ \bi{a}{n}{d}
+\bi{lo}{s}{s} $L$, \bi{t}{h}{e} \bi{min}{im}{um} \bi{atta}{ina}{ble} \bi{exp}{ect}{ed} \bi{lo}{s}{s} \bi{us}{in}{g} $G$ is at \bi{le}{as}{t} \bi{th}{a}{t} \bi{us}{in}{g}
+$Z$.
+\end{theorem}
+\begin{proof}
+\begin{steps}
+\item A \bi{dec}{isi}{on} \bi{ru}{l}{e} \bi{ba}{se}{d} on $G$ is a \bi{m}{a}{p} $d_G : G \mapsto \mathcal{A}$.
+\item \bi{Com}{pos}{ing} \bi{wi}{t}{h} \bi{t}{h}{e} \bi{ke}{rn}{el}, $d_G \circ K$ is a (\bi{pos}{sib}{ly}
+\bi{rand}{omi}{sed}) \bi{dec}{isi}{on} \bi{ru}{l}{e} \bi{ba}{se}{d} on $Z$: \bi{gi}{ve}{n} $z$, \bi{dr}{a}{w} $g \sim K(\cdot\mid z)$
+\bi{a}{n}{d} \bi{pl}{a}{y} $d_G(g)$.
+\item By \bi{cons}{truc}{tion} \bi{t}{h}{e} \bi{t}{w}{o} \bi{proc}{edu}{res} \bi{in}{du}{ce} \bi{t}{h}{e} \bi{sa}{m}{e} \bi{jo}{in}{t}
+\bi{dist}{ribu}{tion} \bi{ov}{e}{r} $(\theta, \text{action})$, \bi{he}{nc}{e} \bi{t}{h}{e} \bi{sa}{m}{e} \bi{exp}{ect}{ed} \bi{lo}{s}{s}.
+\item \bi{The}{ref}{ore} \bi{ev}{er}{y} \bi{ri}{s}{k} \bi{atta}{ina}{ble} \bi{wi}{t}{h} $G$ is \bi{atta}{ina}{ble} \bi{wi}{t}{h} $Z$;
+\bi{t}{h}{e} \bi{s}{e}{t} of $Z$-\bi{atta}{ina}{ble} \bi{ri}{sk}{s} \bi{con}{tai}{ns} \bi{t}{h}{e} \bi{s}{e}{t} of $G$-\bi{atta}{ina}{ble} \bi{ri}{sk}{s}; \bi{a}{n}{d} a
+\bi{min}{im}{um} \bi{ov}{e}{r} a \bi{sup}{ers}{et} is no \bi{la}{rg}{er}. \bi{He}{nc}{e} $R_Z \le R_G$.
+\end{steps}
+\end{proof}
+
+\begin{corollary}
+\bi{Wi}{t}{h} $K(\cdot\mid z)=\delta_{\Agg(z)}$ (a \bi{dete}{rmini}{stic} \bi{aggr}{egat}{ion}), \bi{t}{h}{e} \bi{the}{or}{em}
+\bi{app}{li}{es} \bi{ver}{bat}{im}: \bi{aggr}{egat}{ion} \bi{ca}{nn}{ot} \bi{he}{l}{p} on \bi{a}{n}{y} \bi{dec}{isi}{on} \bi{pro}{bl}{em}, \bi{a}{n}{d} \bi{t}{h}{e}
+\bi{defi}{cie}{ncy} $\delta_{\mathcal{D}}$ is \bi{we}{l}{l} \bi{def}{in}{ed} \bi{a}{n}{d} \bi{n}{o}{n}-\bi{neg}{ati}{ve}.
+\end{corollary}
+
+\begin{remark}[What is \emph{not} proved here]
+\bi{T}{h}{e} \bi{con}{ver}{se} -- \bi{th}{a}{t} if $R_Z \le R_G$ \bi{f}{o}{r} \bi{ev}{er}{y} \bi{dec}{isi}{on} \bi{pro}{bl}{em} \bi{th}{e}{n} $G$ \bi{mu}{s}{t} be
+a \bi{gar}{bli}{ng} of $Z$ -- is \bi{Bla}{ckw}{ell}'s \bi{subs}{tant}{ive} \bi{the}{or}{em} \bi{a}{n}{d} is \bi{n}{o}{t} \bi{ne}{ed}{ed}. \bi{On}{l}{y}
+\bi{t}{h}{e} \bi{ea}{s}{y} \bi{dir}{ect}{ion} is \bi{us}{e}{d}, \bi{a}{n}{d} it is \bi{t}{h}{e} \bi{dir}{ect}{ion} \bi{th}{a}{t} \bi{lic}{ens}{es}
+``\bi{aggr}{egat}{ion} \bi{ne}{ve}{r} \bi{ad}{d}{s} \bi{info}{rmat}{ion}''.
+\end{remark}
+
+\subsection{\bi{Ar}{ro}{w}: \bi{t}{h}{e} \bi{sta}{tem}{ent}, \bi{a}{n}{d} \bi{w}{h}{y} \bi{t}{h}{e} \bi{co}{un}{t} $13.4\%$ is \bi{t}{h}{e} \bi{ri}{gh}{t} \bi{th}{in}{g} to \bi{mea}{su}{re}}
+
+\begin{theorem}[Arrow, stated]
+\bi{F}{o}{r} $k \ge 3$ \bi{alte}{rnat}{ives}, no \bi{so}{ci}{al} \bi{wel}{fa}{re} \bi{fun}{cti}{on} on \bi{t}{h}{e} \bi{fu}{l}{l} \bi{do}{ma}{in} of
+\bi{indi}{vid}{ual} \bi{ord}{eri}{ngs} \bi{simu}{ltane}{ously} \bi{sat}{isf}{ies}: (a) \bi{unre}{stri}{cted} \bi{do}{ma}{in},
+(b) \bi{una}{nim}{ity} (if \bi{eve}{ryo}{ne} \bi{pre}{fe}{rs} $x$ to $y$ \bi{th}{e}{n} \bi{soc}{ie}{ty} \bi{do}{e}{s}), (c)
+\bi{inde}{pend}{ence} of \bi{irre}{lev}{ant} \bi{alte}{rnat}{ives}, \bi{a}{n}{d} (d) \bi{n}{o}{n}-\bi{dict}{ator}{ship}.
+\end{theorem}
+
+\step{\bi{W}{h}{y} \bi{th}{i}{s} \bi{pa}{pe}{r} \bi{mea}{sur}{es} \bi{ra}{th}{er} \bi{th}{a}{n} \bi{inv}{ok}{es} it.} \bi{Ar}{ro}{w} \bi{sa}{y}{s} \bi{t}{h}{e} \bi{fo}{u}{r}
+\bi{cond}{iti}{ons} \bi{a}{r}{e} \bi{joi}{nt}{ly} \bi{unsa}{tisfi}{able}; it \bi{do}{e}{s} \bi{n}{o}{t} \bi{s}{a}{y} \emph{\bi{h}{o}{w} \bi{ba}{dl}{y}} a \bi{gi}{ve}{n}
+\bi{ru}{l}{e} \bi{fa}{il}{s} a \bi{gi}{ve}{n} \bi{con}{dit}{ion} on a \bi{gi}{ve}{n} \bi{co}{rp}{us}. \bi{Bo}{rd}{a} is a \bi{per}{fec}{tly} \bi{reas}{ona}{ble}
+\bi{ru}{l}{e} \bi{th}{a}{t} \bi{fa}{il}{s} \bi{on}{l}{y} \bi{I}{I}{A}, \bi{a}{n}{d} \bi{t}{h}{e} \bi{us}{ef}{ul} \bi{emp}{iri}{cal} \bi{que}{sti}{on} is: on \bi{th}{i}{s} \bi{da}{t}{a}, \bi{h}{o}{w}
+\bi{of}{te}{n} \bi{do}{e}{s} \bi{t}{h}{e} \bi{fai}{lu}{re} \bi{act}{ual}{ly} \bi{bi}{t}{e}? \bi{T}{h}{e} \bi{an}{sw}{er} is $13.4\%$ of \bi{pai}{rwi}{se}
+\bi{rel}{ati}{ons} (\cref{cor:iia}), \bi{a}{n}{d} \emph{\bi{th}{a}{t}} is \bi{t}{h}{e} \bi{nu}{mb}{er} a \bi{des}{ign}{er} \bi{ne}{ed}{s}, \bi{n}{o}{t}
+\bi{t}{h}{e} \bi{impo}{ssibi}{lity}.
+
+\step{\bi{T}{h}{e} \bi{co}{r}{e} of \bi{t}{h}{e} \bi{fai}{lu}{re}, in \bi{o}{n}{e} \bi{li}{n}{e}.} \bi{Bo}{rd}{a} \bi{sc}{or}{es} \bi{de}{pe}{nd} on \emph{\bi{h}{o}{w}
+\bi{ma}{n}{y}} \bi{alte}{rnat}{ives} a \bi{gi}{ve}{n} \bi{o}{n}{e} is \bi{ab}{ov}{e}, so \bi{ins}{ert}{ing} or \bi{rem}{ovi}{ng} a \bi{th}{ir}{d}
+\bi{alte}{rnat}{ive} \bi{cha}{ng}{es} \bi{t}{h}{e} \bi{po}{in}{ts} of \bi{t}{h}{e} \bi{ot}{he}{r} \bi{t}{w}{o} by \bi{dif}{fer}{ent} \bi{amo}{un}{ts} \bi{whe}{nev}{er}
+\bi{indi}{vidu}{als} \bi{ra}{n}{k} \bi{t}{h}{e} \bi{new}{com}{er} \bi{diff}{eren}{tly}. \bi{T}{h}{e} \bi{wo}{rk}{ed} \bi{exa}{mp}{le} in §\ref{sec:toy}
+\bi{sh}{ow}{s} \bi{t}{h}{e} \bi{mec}{han}{ism} on \bi{th}{re}{e} \bi{ran}{kin}{gs}.
+
+\subsection{\bi{Sha}{pl}{ey}: \bi{t}{h}{e} \bi{ax}{io}{ms}, \bi{a}{n}{d} \bi{w}{h}{y} \bi{th}{e}{y} \bi{fo}{rc}{e} \bi{t}{h}{e} \bi{for}{mu}{la}}
+
+\begin{definition}[Axioms]
+A \bi{va}{lu}{e} $\phi$ \bi{ass}{ign}{ing} a \bi{nu}{mb}{er} to \bi{ea}{c}{h} \bi{pl}{ay}{er} of a \bi{coop}{erat}{ive} \bi{ga}{m}{e} $v$
+\bi{sat}{isf}{ies}:
+\begin{enumerate}
+\item[(E)] \textbf{\bi{Effi}{cie}{ncy}}: $\sum_i \phi_i = v(A) - v(\varnothing)$.
+\item[(S)] \textbf{\bi{Sym}{met}{ry}}: if $i$ \bi{a}{n}{d} $j$ \bi{cont}{rib}{ute} \bi{iden}{tica}{lly} to \bi{ev}{er}{y}
+      \bi{coa}{lit}{ion}, $\phi_i = \phi_j$.
+\item[(N)] \textbf{\bi{Nu}{l}{l} \bi{pl}{ay}{er}}: if $i$ \bi{ad}{d}{s} \bi{not}{hi}{ng} to \bi{a}{n}{y} \bi{coa}{lit}{ion},
+      $\phi_i = 0$.
+\item[(L)] \textbf{\bi{Lin}{ear}{ity}}: $\phi(v+w) = \phi(v)+\phi(w)$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Uniqueness, core of the argument]
+\bi{T}{h}{e} \bi{Sha}{pl}{ey} \bi{va}{lu}{e} is \bi{t}{h}{e} \bi{un}{iq}{ue} $\phi$ \bi{sati}{sfy}{ing} (E), (S), (N), (L).
+\end{theorem}
+\begin{proof}
+[\bi{Red}{uct}{ion} to a \bi{che}{cka}{ble} \bi{co}{r}{e}]
+\begin{steps}
+\item \bi{T}{h}{e} \emph{\bi{una}{nim}{ity} \bi{ga}{me}{s}} $u_T$, \bi{def}{in}{ed} by $u_T(S)=1$ if
+$T\subseteq S$ \bi{a}{n}{d} $0$ \bi{oth}{erw}{ise}, \bi{fo}{r}{m} a \bi{ba}{si}{s} of \bi{t}{h}{e} \bi{ve}{ct}{or} \bi{sp}{ac}{e} of \bi{a}{l}{l} \bi{ga}{me}{s}
+on $A$: \bi{ev}{er}{y} $v$ \bi{h}{a}{s} a \bi{un}{iq}{ue} \bi{exp}{ans}{ion} $v=\sum_T \lambda_T u_T$.
+\item On $u_T$, \bi{ax}{io}{ms} (E), (S), (N) \bi{fo}{rc}{e} \bi{t}{h}{e} \bi{va}{lu}{e} \bi{uni}{que}{ly}: \bi{pla}{ye}{rs}
+\bi{out}{si}{de} $T$ \bi{a}{r}{e} \bi{nu}{l}{l}, so \bi{g}{e}{t} $0$ by (N); \bi{pla}{ye}{rs} \bi{in}{si}{de} $T$ \bi{a}{r}{e} \bi{sym}{met}{ric}, so
+\bi{sh}{ar}{e} \bi{equ}{al}{ly} by (S); \bi{a}{n}{d} \bi{t}{h}{e} \bi{to}{ta}{l} is $1$ by (E). \bi{He}{nc}{e}
+$\phi_i(u_T) = 1/|T|$ \bi{f}{o}{r} $i \in T$ \bi{a}{n}{d} $0$ \bi{oth}{erw}{ise}.
+\item By (L), $\phi(v) = \sum_T \lambda_T \phi(u_T)$, \bi{wh}{ic}{h} is \bi{n}{o}{w}
+\bi{dete}{rmi}{ned}. \bi{Rear}{rang}{ing} \bi{th}{a}{t} \bi{s}{u}{m} \bi{in}{t}{o} a \bi{s}{u}{m} \bi{ov}{e}{r} \bi{coal}{iti}{ons} \bi{yi}{el}{ds} \bi{t}{h}{e}
+\bi{perm}{utat}{ion}-\bi{wei}{ght}{ed} \bi{for}{mu}{la} of §\ref{sec:c1}.
+\end{steps}
+\end{proof}
+
+\begin{remark}[Why this matters for the claim being made]
+\bi{T}{h}{e} \bi{Sha}{pl}{ey} \bi{va}{lu}{e} is \bi{n}{o}{t} \bi{ch}{os}{en} \bi{he}{r}{e} \bi{f}{o}{r} \bi{conv}{enie}{nce}. It is \bi{t}{h}{e} \emph{\bi{on}{l}{y}}
+\bi{assi}{gnm}{ent} of \bi{cr}{ed}{it} \bi{sati}{sfy}{ing} \bi{fo}{u}{r} \bi{prop}{ert}{ies} \bi{o}{n}{e} \bi{wo}{ul}{d} \bi{in}{si}{st} on \bi{f}{o}{r} a \bi{cl}{ai}{m}
+\bi{ab}{ou}{t} \bi{inf}{lue}{nce} -- in \bi{part}{icu}{lar} (N), \bi{wh}{ic}{h} \bi{guar}{ant}{ees} \bi{th}{a}{t} an \bi{ann}{ota}{tor} \bi{w}{h}{o}
+\bi{ne}{ve}{r} \bi{cha}{ng}{es} \bi{a}{n}{y} \bi{out}{co}{me} \bi{rec}{eiv}{es} \bi{exa}{ct}{ly} \bi{ze}{r}{o}. A \bi{corr}{elati}{onal} \bi{mea}{su}{re} of
+\bi{ali}{gnm}{ent} \bi{h}{a}{s} no \bi{su}{c}{h} \bi{gua}{ran}{tee}, \bi{a}{n}{d} \cref{tab:quintile} \bi{sh}{ow}{s} \bi{t}{h}{e} \bi{g}{a}{p} is \bi{re}{a}{l}:
+\bi{t}{h}{e} \bi{hig}{he}{st}-\bi{ali}{gnm}{ent} \bi{qui}{nti}{le} \bi{do}{e}{s} \bi{n}{o}{t} \bi{ha}{v}{e} \bi{t}{h}{e} \bi{hig}{he}{st} \bi{inf}{lue}{nce}.
+\end{remark}

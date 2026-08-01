@@ -1,0 +1,700 @@
+% ===========================================================================
+% PART 2 -- the estimators, the causal layer, and what is not identified.
+% ===========================================================================
+\section{\bi{T}{h}{e} \bi{esti}{mat}{ors}}
+\label{sec:est}
+
+\subsection{\bi{W}{h}{y} \bi{t}{h}{e} \bi{qu}{er}{y} \bi{fa}{mi}{ly} \bi{mu}{s}{t} be \bi{dec}{lar}{ed} \bi{be}{fo}{re} \bi{any}{thi}{ng} is \bi{mea}{sur}{ed}}
+
+\begin{definition}[Query-relative equivalence]
+\bi{Gi}{ve}{n} a \bi{fa}{mi}{ly} $Q$ of \bi{que}{ri}{es}, $\Nn \sim_Q \Nn'$ \bi{i}{f}{f}
+$q(\Nn,x) = q(\Nn',x)$ \bi{f}{o}{r} \bi{a}{l}{l} $q \in Q$ \bi{a}{n}{d} \bi{a}{l}{l} \bi{in}{pu}{ts} $x$. \emph{\bi{Nor}{mat}{ive}
+\bi{info}{rmat}{ion}} is \bi{t}{h}{e} \bi{equi}{vale}{nce} \bi{cl}{as}{s} $[\Nn]_Q$, \bi{n}{o}{t} \bi{t}{h}{e} \bi{te}{x}{t}.
+\end{definition}
+
+\begin{proposition}[Without $Q$, ``loss'' is not a defined quantity]
+\label{prop:Q}
+\bi{Th}{er}{e} \bi{ex}{is}{t} \bi{fam}{ili}{es} $Q$ \bi{un}{de}{r} \bi{wh}{ic}{h} \bi{ev}{er}{y} \bi{ch}{an}{ge} is \bi{to}{ta}{l} \bi{lo}{s}{s}, \bi{a}{n}{d} \bi{fam}{ili}{es}
+\bi{un}{de}{r} \bi{wh}{ic}{h} no \bi{ch}{an}{ge} is \bi{a}{n}{y} \bi{lo}{s}{s}. \bi{He}{nc}{e} \bi{t}{h}{e} \bi{an}{sw}{er} to ``\bi{h}{o}{w} \bi{mu}{c}{h} \bi{w}{a}{s} \bi{lo}{s}{t}'' is
+\bi{dete}{rmi}{ned} \bi{ent}{ire}{ly} by $Q$.
+\end{proposition}
+\begin{proof}
+\bi{Ta}{k}{e} $Q_{\max}$ = \bi{a}{l}{l} \bi{meas}{ura}{ble} \bi{fun}{cti}{ons} of $\Nn$. \bi{Th}{e}{n} $\Nn\sim_{Q}\Nn'$ \bi{i}{f}{f}
+$\Nn=\Nn'$ (\bi{t}{h}{e} \bi{ide}{nti}{ty} \bi{fun}{cti}{on} is in $Q_{\max}$), so \bi{a}{n}{y} \bi{ch}{an}{ge} \bi{des}{tro}{ys} \bi{t}{h}{e}
+\bi{equi}{vale}{nce} \bi{ent}{ire}{ly}. \bi{Ta}{k}{e} $Q_{\min} = \{\text{a constant map}\}$. \bi{Th}{e}{n}
+$\Nn \sim_Q \Nn'$ \bi{f}{o}{r} \bi{a}{l}{l} \bi{pa}{ir}{s}, so no \bi{ch}{an}{ge} is a \bi{lo}{s}{s}. \bi{Bo}{t}{h} \bi{fam}{ili}{es} \bi{a}{r}{e}
+\bi{admi}{ssi}{ble} in \bi{t}{h}{e} \bi{abs}{en}{ce} of a \bi{stip}{ulat}{ion}, \bi{a}{n}{d} \bi{th}{e}{y} \bi{gi}{v}{e} \bi{opp}{osi}{te} \bi{ans}{we}{rs}.
+\end{proof}
+
+\begin{corollary}
+A \bi{fra}{mew}{ork} \bi{th}{a}{t} \bi{hi}{de}{s} $Q$ \bi{in}{si}{de} a \bi{sup}{rem}{um} \bi{h}{a}{s} \emph{\bi{rel}{oca}{ted}} \bi{t}{h}{e} \bi{ch}{oi}{ce}, \bi{n}{o}{t}
+\bi{ma}{d}{e} it. \bi{Publ}{ish}{ing} $Q$ \bi{be}{fo}{re} \bi{mea}{sur}{ing} is \bi{n}{o}{t} a \bi{prel}{imin}{ary}; it is \bi{mo}{s}{t} of \bi{t}{h}{e}
+\bi{re}{su}{lt}.
+\end{corollary}
+
+\subsection{\bi{T}{h}{e} \bi{dec}{isi}{on}-\bi{theo}{retic}{ally} \bi{cor}{re}{ct} \bi{qua}{nti}{ty}: \bi{norm}{ali}{sed} \bi{re}{gr}{et}}
+
+\begin{definition}[Normalised regret]
+\label{def:regret}
+\bi{F}{o}{r} a \bi{pert}{urba}{tion} \bi{ta}{ki}{ng} \bi{no}{r}{m} $\Nn$ to $\Nn'$, \bi{wi}{t}{h} $a^\star := \argmax_a Y_{\Nn}(a)$
+\bi{a}{n}{d} $a' := \argmax_a Y_{\Nn'}(a)$,
+\[
+\Reg(\Nn\to\Nn') \;:=\;
+\frac{Y_{\Nn}(a^\star) - Y_{\Nn}(a')}{Y_{\Nn}(a^\star) - \min_a Y_{\Nn}(a)}
+\;\in\;[0,1].
+\]
+\end{definition}
+
+\step{\bi{W}{h}{y} \bi{th}{i}{s} \bi{a}{n}{d} \bi{n}{o}{t} \bi{som}{eth}{ing} \bi{el}{s}{e}.} $\Reg$ is \bi{exa}{ct}{ly} \bi{t}{h}{e} \bi{Bla}{ckw}{ell}
+\bi{defi}{cie}{ncy} of \cref{thm:garble} \bi{rest}{ric}{ted} to \bi{t}{h}{e} \bi{dec}{isi}{on} \bi{fa}{mi}{ly} ``\bi{ch}{oo}{se} \bi{o}{n}{e} of
+\bi{th}{es}{e} \bi{fo}{u}{r}, \bi{sc}{or}{ed} by \bi{t}{h}{e} \bi{ori}{gin}{al} \bi{no}{r}{m}'s \bi{o}{w}{n} \bi{uti}{li}{ty}''. It is \bi{n}{o}{t} a \bi{pr}{ox}{y} \bi{f}{o}{r}
+\bi{t}{h}{e} \bi{qua}{nti}{ty} of \bi{int}{ere}{st}; on \bi{th}{a}{t} \bi{fa}{mi}{ly} it \emph{is} \bi{t}{h}{e} \bi{qua}{nti}{ty}. \bi{T}{h}{e}
+\bi{deno}{mina}{tor} \bi{ma}{ke}{s} it \bi{inv}{ari}{ant} to \bi{t}{h}{e} \bi{arb}{itr}{ary} \bi{sc}{al}{e} of $Y$, \bi{wh}{ic}{h}
+\cref{rem:normalise} \bi{sh}{ow}{ed} is \bi{n}{o}{t} \bi{iden}{tif}{ied}.
+
+\begin{definition}[Flip rate]
+$\pi := \Prob(a' \neq a^\star)$, \bi{est}{ima}{ted} by \bi{t}{h}{e} \bi{ave}{ra}{ge} of
+$\mathbf{1}\{a'\neq a^\star\}$ \bi{p}{e}{r} \cref{eq:indavg} \bi{a}{n}{d} \cref{cor:indexp}.
+\end{definition}
+
+\begin{lemma}[The flip rate is a coarsening of regret]
+\label{lem:coarsen}
+$\mathbf{1}\{\text{flip}\} = \mathbf{1}\{\Reg>0\}$, \bi{a}{n}{d} \bi{the}{ref}{ore}, \bi{exa}{ct}{ly},
+\[
+\E[\Reg] \;=\; \pi \cdot \E[\Reg \mid \text{flip}].
+\]
+\end{lemma}
+\begin{proof}
+If $a'=a^\star$ \bi{th}{e}{n} \bi{t}{h}{e} \bi{num}{era}{tor} of \cref{def:regret} is \bi{ze}{r}{o}, so $\Reg=0$; if
+$a'\neq a^\star$ \bi{th}{e}{n} $Y_\Nn(a')<Y_\Nn(a^\star)$ by \bi{defi}{nit}{ion} of \bi{t}{h}{e} $\argmax$
+(\bi{ass}{umi}{ng} no \bi{ex}{ac}{t} \bi{t}{i}{e}), so $\Reg>0$. \bi{He}{nc}{e} \bi{t}{h}{e} \bi{indi}{cat}{ors} \bi{coi}{nci}{de}. \bi{Th}{e}{n}
+$\E[\Reg] = \E[\Reg \mid \Reg>0]\Prob(\Reg>0) + 0$, by \bi{t}{h}{e} \bi{l}{a}{w} of \bi{to}{ta}{l}
+\bi{expe}{ctat}{ion}, \bi{wh}{ic}{h} \bi{f}{o}{r} a \bi{fi}{ni}{te} \bi{sp}{ac}{e} is \bi{ju}{s}{t} \bi{spl}{itt}{ing} \bi{t}{h}{e} \bi{def}{ini}{ng} \bi{s}{u}{m} \bi{in}{t}{o} \bi{t}{h}{e}
+\bi{t}{w}{o} \bi{ev}{en}{ts}.
+\end{proof}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrr}
+\toprule
+\bi{ope}{rat}{or} & $\pi$ & $\E[\Reg]$ & $\E[\Reg\mid\text{flip}]$\\
+\midrule
+\bi{do}{ub}{le} \bi{t}{h}{e} \bi{ta}{rg}{et} \bi{we}{ig}{ht} & $4.2\%$ & $0.0043$ & $0.1029$\\
+\bi{de}{le}{te} \bi{t}{h}{e} \bi{ta}{rg}{et} \bi{cri}{ter}{ion} & $5.1\%$ & $0.0067$ & $0.1307$\\
+\bi{in}{ve}{rt} \bi{t}{h}{e} \bi{ta}{rg}{et} \bi{we}{ig}{ht} & $11.6\%$ & $0.0294$ & $\mathbf{0.2531}$\\
+\bi{ha}{lv}{e} \bi{t}{h}{e} \bi{ta}{rg}{et} \bi{we}{ig}{ht} & $2.3\%$ & $0.0012$ & $0.0532$\\
+\bottomrule
+\end{tabular}
+\caption{$968$ \bi{pro}{mp}{ts} $\times$ $20$ \bi{ta}{rg}{et} \bi{dr}{aw}{s}. \bi{Ta}{rg}{et} \bi{cri}{ter}{ion} \bi{sam}{pl}{ed}, \bi{n}{o}{t}
+\bi{fi}{xe}{d}; \bi{s}{e}{e} \cref{rem:target}.}
+\label{tab:regret}
+\end{table}
+
+\begin{corollary}[The discarded factor carries information]
+By \bi{fl}{i}{p} \bi{ra}{t}{e}, \bi{in}{ve}{rt} \bi{exc}{ee}{ds} \bi{de}{le}{te} by $11.6/5.1 = 2.3\times$. By \bi{exp}{ect}{ed}
+\bi{re}{gr}{et}, by $0.0294/0.0067 = 4.4\times$. \bi{Rep}{ort}{ing} \bi{on}{l}{y} \bi{t}{h}{e} \bi{fl}{i}{p} \bi{ra}{t}{e} \bi{ha}{lv}{es} \bi{t}{h}{e}
+\bi{mea}{sur}{ed} \bi{sepa}{rat}{ion} \bi{bet}{we}{en} \bi{ope}{rat}{ors}, \bi{bec}{au}{se} \bi{inv}{ers}{ion} \bi{n}{o}{t} \bi{on}{l}{y} \bi{fl}{ip}{s} \bi{mo}{r}{e}
+\bi{of}{te}{n}, it \bi{fl}{ip}{s} \emph{\bi{wo}{rs}{e}} -- $25.3\%$ of \bi{t}{h}{e} \bi{ava}{ila}{ble} \bi{uti}{li}{ty} \bi{ra}{ng}{e} \bi{ve}{rs}{us}
+$13.1\%$.
+\end{corollary}
+
+\subsection{\bi{T}{h}{e} \bi{fl}{i}{p} \bi{ra}{t}{e} is \bi{ca}{pp}{ed} by \bi{t}{h}{e} \bi{ma}{rg}{in} \bi{dist}{ribu}{tion}}
+
+\begin{definition}[Margin]
+$m := Y(a_{(1)}) - Y(a_{(2)})$, \bi{t}{h}{e} \bi{g}{a}{p} \bi{bet}{we}{en} \bi{t}{h}{e} \bi{t}{o}{p} \bi{t}{w}{o} \bi{res}{pon}{ses}.
+\end{definition}
+
+\begin{proposition}[Margin cap]
+\label{prop:cap}
+\bi{L}{e}{t} $\delta := Y_{\Nn'} - Y_{\Nn}$ be \bi{t}{h}{e} \bi{pert}{urba}{tion} of \bi{t}{h}{e} \bi{sc}{or}{e} \bi{ve}{ct}{or}. \bi{Th}{e}{n}
+$\pi \le \Prob\big(m < 2\|\delta\|_\infty\big)$.
+\end{proposition}
+\begin{proof}
+A \bi{fl}{i}{p} \bi{req}{uir}{es} \bi{t}{h}{e} \bi{per}{tur}{bed} \bi{sc}{or}{e} of \bi{so}{m}{e} $a\neq a^\star$ to \bi{ex}{ce}{ed} \bi{th}{a}{t} of
+$a^\star$, i.e.
+$Y(a)+\delta(a) > Y(a^\star)+\delta(a^\star)$, i.e.
+$\delta(a)-\delta(a^\star) > Y(a^\star)-Y(a) \ge m$.
+\bi{Si}{nc}{e} $|\delta(a)-\delta(a^\star)| \le 2\|\delta\|_\infty$, a \bi{fl}{i}{p} \bi{imp}{li}{es}
+$m < 2\|\delta\|_\infty$. \bi{Ta}{ki}{ng} \bi{prob}{abili}{ties} \bi{a}{n}{d} \bi{app}{lyi}{ng} \bi{mono}{toni}{city} of
+$\Prob$ \bi{ov}{e}{r} \bi{t}{h}{e} \bi{impl}{icat}{ion} \bi{gi}{ve}{s} \bi{t}{h}{e} \bi{bo}{un}{d}.
+\end{proof}
+
+\bi{Mea}{sur}{ed} \bi{rel}{ati}{ve} \bi{mar}{gi}{ns} $m/(\max_a Y - \min_a Y)$:
+\[
+p_{05}=0.026,\quad p_{25}=0.144,\quad \text{median}=0.319,\quad p_{75}=0.527,\quad p_{95}=0.800.
+\]
+
+\begin{corollary}
+An \bi{ope}{rat}{or} \bi{wh}{os}{e} \bi{pert}{urba}{tion} is \bi{sma}{ll}{er} \bi{th}{a}{n} \bi{ab}{ou}{t} a \bi{th}{ir}{d} of \bi{t}{h}{e} \bi{sc}{or}{e} \bi{ra}{ng}{e}
+\bi{ca}{nn}{ot} \bi{fl}{i}{p} \bi{ha}{l}{f} \bi{t}{h}{e} \bi{pro}{mp}{ts}, \emph{\bi{how}{ev}{er} \bi{mu}{c}{h} \bi{nor}{mat}{ive} \bi{con}{te}{nt} it \bi{des}{tro}{ys}}.
+\bi{T}{h}{e} \bi{cei}{li}{ng} on a \bi{fl}{i}{p} \bi{ra}{t}{e} is \bi{s}{e}{t} by \bi{t}{h}{e} \bi{ma}{rg}{in} \bi{dist}{ribu}{tion}, \bi{n}{o}{t} by \bi{t}{h}{e} \bi{no}{r}{m}.
+\bi{Th}{i}{s} is \bi{t}{h}{e} \bi{fo}{rm}{al} \bi{re}{as}{on} \cref{def:regret} is \bi{t}{h}{e} \bi{pri}{ma}{ry} \bi{qua}{nti}{ty} \bi{a}{n}{d} $\pi$ \bi{t}{h}{e}
+\bi{sec}{ond}{ary} \bi{o}{n}{e}.
+\end{corollary}
+
+\subsection{\bi{Ta}{rg}{et} \bi{sel}{ect}{ion} is an \bi{ax}{i}{s}, \bi{n}{o}{t} a \bi{nui}{san}{ce}}
+\label{rem:target}
+
+\bi{Ev}{er}{y} \bi{cri}{ter}{ion}-\bi{le}{ve}{l} \bi{ope}{rat}{or} \bi{mu}{s}{t} \bi{ch}{oo}{se} \emph{\bi{wh}{ic}{h}} \bi{cri}{ter}{ion} to \bi{a}{c}{t} on.
+\bi{Mea}{sur}{ed} \bi{ef}{fe}{ct} of \bi{th}{a}{t} \bi{ch}{oi}{ce} on \bi{t}{h}{e} \bi{ind}{uc}{ed} \bi{ch}{an}{ge} in $Y$:
+\[
+\text{highest }|w|: 0.273 \qquad \text{random}: 0.176 \qquad \text{lowest }|w|: 0.041
+\]
+-- a \bi{ra}{ti}{o} of $6.6\times$, \bi{la}{rg}{er} \bi{th}{a}{n} \bi{t}{h}{e} \bi{diff}{eren}{ces} \bi{bet}{we}{en} \bi{ope}{rat}{ors}. \bi{Rep}{ort}{ing} a
+\bi{si}{ng}{le} \bi{ce}{l}{l} \bi{wo}{ul}{d} \bi{the}{ref}{ore} \bi{re}{po}{rt} \bi{t}{h}{e} \bi{sel}{ect}{ion} \bi{ru}{l}{e}. \bi{A}{l}{l} \bi{num}{be}{rs} in \bi{th}{i}{s} \bi{pa}{pe}{r}
+\bi{sw}{ee}{p} \bi{fo}{u}{r} \bi{sel}{ect}{ion} \bi{ru}{le}{s} (\bi{hig}{he}{st} $|w|$, \bi{lo}{we}{st} $|w|$, \bi{mo}{s}{t}-\bi{ra}{te}{d}, \bi{ra}{nd}{om})
+$\times$ \bi{fi}{v}{e} \bi{se}{ed}{s}, \bi{a}{n}{d} \bi{t}{h}{e} \bi{se}{ed}{s} \bi{a}{r}{e} \bi{ver}{ifi}{ed} to \bi{ch}{an}{ge} \bi{t}{h}{e} \bi{dr}{aw}{s}: \bi{on}{l}{y} $0.1\%$
+of \bi{tar}{ge}{ts} \bi{a}{r}{e} \bi{sh}{ar}{ed} \bi{ac}{ro}{ss} \bi{a}{l}{l} \bi{fi}{v}{e}.
+
+\subsection{\bi{Var}{ian}{ce} of \bi{th}{es}{e} \bi{esti}{mat}{ors}}
+
+\bi{Wi}{t}{h} $P=968$ \bi{pro}{mp}{ts} \bi{a}{n}{d} $R=20$ \bi{dr}{aw}{s} \bi{ea}{c}{h}, \cref{thm:deff} \bi{app}{li}{es} \bi{wi}{t}{h} \bi{mea}{sur}{ed}
+$\sigma_b^2 = 0.01361$, $\sigma_w^2 = 0.03677$:
+\[
+\rho = 0.2701, \qquad \mathrm{DEFF} = 1+19(0.2701) = 6.13, \qquad \sqrt{\mathrm{DEFF}} = 2.48 .
+\]
+
+\begin{remark}[Derivation checked against an independent measurement]
+A \bi{resa}{mpl}{ing} \bi{est}{ima}{te} of \bi{t}{h}{e} \bi{sa}{m}{e} \bi{inf}{lat}{ion}, \bi{obt}{ain}{ed} by \bi{reco}{mput}{ing} \bi{ev}{er}{y}
+\bi{pai}{rwi}{se} \bi{sta}{tis}{tic} at \bi{t}{h}{e} \bi{clu}{st}{er} \bi{le}{ve}{l} \bi{a}{n}{d} \bi{com}{par}{ing} to \bi{t}{h}{e} \bi{po}{ol}{ed} \bi{ver}{si}{on},
+\bi{ga}{v}{e} $2.79$. \bi{Der}{iv}{ed} $2.48$, \bi{mea}{sur}{ed} $2.79$: \bi{t}{h}{e} \bi{res}{idu}{al} is \bi{th}{a}{t} \bi{t}{h}{e} \bi{pai}{rwi}{se}
+\bi{sta}{tis}{tic} is a \bi{corr}{elat}{ion} \bi{ra}{th}{er} \bi{th}{a}{n} a \bi{si}{mp}{le} \bi{me}{a}{n}, \bi{f}{o}{r} \bi{wh}{ic}{h} \cref{thm:deff}
+is \bi{on}{l}{y} \bi{appr}{oxim}{ate}.
+\end{remark}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+\bi{ope}{rat}{or} & $\pi$ & $\se$ & $95\%$ CI & \bi{M}{D}{E}\\
+\midrule
+\bi{do}{ub}{le} & $4.2\%$ & $0.0036$ & $[3.5,\,4.9]\%$ & $1.00$pp\\
+\bi{de}{le}{te} & $5.1\%$ & $0.0037$ & $[4.4,\,5.8]\%$ & $1.05$pp\\
+\bi{in}{ve}{rt} & $11.6\%$ & $0.0052$ & $[10.6,\,12.6]\%$ & $1.46$pp\\
+\bi{ha}{lv}{e} & $2.3\%$ & $0.0026$ & $[1.8,\,2.8]\%$ & $0.72$pp\\
+\midrule
+\emph{\bi{pa}{ir}{ed}} \bi{de}{le}{te} $-$ \bi{do}{ub}{le} & $+0.93$pp & $0.0028$ & $z=+3.3$ & $0.79$pp\\
+\bottomrule
+\end{tabular}
+\caption{\bi{Sta}{nda}{rd} \bi{er}{ro}{rs} \bi{fr}{o}{m} \bi{t}{h}{e} $P=968$ \bi{clu}{st}{er} \bi{me}{an}{s}, \bi{p}{e}{r} \cref{eq:varmean}.
+\bi{M}{D}{E} \bi{fr}{o}{m} \cref{thm:mde}.}
+\label{tab:power}
+\end{table}
+
+\begin{corollary}[Sample size]
+By \cref{cor:n} \bi{wi}{t}{h} $\sigma_b = \sqrt{0.01361 + 0.03677/20} = 0.1243$, \bi{res}{olv}{ing}
+a $1$pp \bi{diff}{ere}{nce} at $80\%$ \bi{po}{we}{r} \bi{req}{uir}{es}
+$P = (2.8016 \times 0.1243/0.01)^2 = 1{,}213$ \bi{pro}{mp}{ts}. \bi{T}{h}{e} \bi{rel}{ea}{se} \bi{h}{a}{s} $968$: \bi{t}{h}{e}
+\bi{de}{si}{gn} is \bi{ab}{ou}{t} $20\%$ \bi{sh}{or}{t} of \bi{i}{t}{s} \bi{o}{w}{n} \bi{hea}{dli}{ne} \bi{reso}{lut}{ion}, \bi{a}{n}{d} \bi{t}{h}{e}
+\bi{de}{le}{te}-\bi{ve}{rs}{us}-\bi{do}{ub}{le} \bi{diff}{ere}{nce} \bi{cl}{ea}{rs} \bi{i}{t}{s} \bi{M}{D}{E} \bi{on}{l}{y} \bi{ba}{re}{ly}.
+\end{corollary}
+
+% ===========================================================================
+\section{\bi{T}{h}{e} \bi{ca}{us}{al} \bi{la}{ye}{r}: \bi{inf}{lue}{nce} is \bi{n}{o}{t} \bi{agr}{eem}{ent}}
+\label{sec:c1}
+
+\subsection{\bi{W}{h}{y} a \bi{corr}{elati}{onal} \bi{mea}{su}{re} \bi{ca}{nn}{ot} \bi{an}{sw}{er} \bi{th}{i}{s}}
+
+\begin{definition}[Preservation, causal form]
+A \bi{dist}{inct}{ion} \bi{rea}{ch}{ed} \bi{t}{h}{e} \bi{ou}{tp}{ut} \bi{i}{f}{f} \emph{\bi{rem}{ovi}{ng} it \bi{cha}{ng}{es} \bi{t}{h}{e} \bi{ou}{tp}{ut}}.
+\end{definition}
+
+A \bi{part}{icip}{ant} \bi{wh}{os}{e} \bi{vi}{e}{w} \bi{hap}{pe}{ns} to \bi{ma}{tc}{h} \bi{t}{h}{e} \bi{maj}{ori}{ty} \bi{sc}{or}{es} \bi{per}{fe}{ct} \bi{ali}{gnm}{ent}
+\bi{wh}{il}{e} \bi{cont}{ribu}{ting} \bi{not}{hi}{ng}: \bi{re}{mo}{ve} \bi{th}{e}{m} \bi{a}{n}{d} \bi{t}{h}{e} \bi{out}{co}{me} is \bi{unc}{han}{ged}. A
+\bi{part}{icip}{ant} \bi{w}{h}{o} \bi{mo}{ve}{d} \bi{t}{h}{e} \bi{out}{co}{me} \bi{m}{a}{y} \bi{s}{i}{t} \bi{f}{a}{r} \bi{fr}{o}{m} it. \bi{Ali}{gnm}{ent} \bi{a}{n}{d} \bi{inf}{lue}{nce}
+\bi{a}{r}{e} \bi{the}{ref}{ore} \bi{dif}{fer}{ent} \bi{func}{tion}{als}, \bi{a}{n}{d} \bi{on}{l}{y} \bi{t}{h}{e} \bi{se}{co}{nd} \bi{ans}{we}{rs} \bi{t}{h}{e} \bi{defi}{nit}{ion}.
+
+\subsection{\bi{T}{h}{e} \bi{Sha}{pl}{ey} \bi{va}{lu}{e}, \bi{der}{iv}{ed}}
+
+\begin{definition}[Characteristic function]
+\bi{F}{o}{r} \bi{pr}{om}{pt} $p$ \bi{wi}{t}{h} \bi{ann}{ota}{tor} \bi{s}{e}{t} $A$ \bi{a}{n}{d} \bi{wi}{nn}{er}
+$w^\star := \argmax_r \sum_{a\in A}\Nn_a(r)$, \bi{de}{fi}{ne} \bi{f}{o}{r} $S \subseteq A$
+\[
+v(S) \;:=\; \mathbf{1}\Big\{\argmax_r \textstyle\sum_{a\in S}\Nn_a(r) = w^\star\Big\}.
+\]
+\end{definition}
+
+\begin{definition}[Shapley value]
+\[
+\phi_i \;:=\; \sum_{S \subseteq A\setminus\{i\}}
+\frac{|S|!\,(|A|-|S|-1)!}{|A|!}\;\big[v(S\cup\{i\})-v(S)\big].
+\]
+\end{definition}
+
+\step{\bi{Wh}{a}{t} \bi{t}{h}{e} \bi{wei}{gh}{ts} \bi{me}{a}{n}.} \bi{Con}{sid}{er} \bi{a}{l}{l} $|A|!$ \bi{ord}{eri}{ngs} of \bi{t}{h}{e} \bi{anno}{tat}{ors}.
+\bi{T}{h}{e} \bi{bra}{ck}{et} is $i$'s \bi{mar}{gin}{al} \bi{cont}{ribu}{tion} \bi{wh}{e}{n} it \bi{arr}{iv}{es} \bi{af}{te}{r} \bi{exa}{ct}{ly} \bi{t}{h}{e} \bi{s}{e}{t}
+$S$. \bi{T}{h}{e} \bi{nu}{mb}{er} of \bi{ord}{eri}{ngs} in \bi{wh}{ic}{h} \bi{th}{a}{t} \bi{hap}{pe}{ns} is $|S|!\,(|A|-|S|-1)!$ --
+$|S|!$ \bi{wa}{y}{s} to \bi{arr}{an}{ge} \bi{th}{os}{e} \bi{be}{fo}{re}, $(|A|-|S|-1)!$ \bi{wa}{y}{s} to \bi{arr}{an}{ge} \bi{th}{os}{e} \bi{af}{te}{r}.
+\bi{Div}{idi}{ng} by $|A|!$ \bi{ma}{ke}{s} \bi{t}{h}{e} \bi{wei}{gh}{ts} a \bi{prob}{abil}{ity} \bi{dist}{ribu}{tion} \bi{ov}{e}{r} \bi{ord}{eri}{ngs}.
+So $\phi_i$ is \textbf{\bi{t}{h}{e} \bi{ave}{ra}{ge} \bi{mar}{gin}{al} \bi{cont}{ribu}{tion} of $i$ \bi{ov}{e}{r} a \bi{uni}{for}{mly}
+\bi{ra}{nd}{om} \bi{arr}{iv}{al} \bi{or}{de}{r}}, \bi{wh}{ic}{h} is \bi{exa}{ct}{ly} \bi{t}{h}{e} \bi{ca}{us}{al} \bi{defi}{nit}{ion} \bi{ab}{ov}{e}, \bi{ave}{rag}{ed}
+\bi{ov}{e}{r} \bi{ev}{er}{y} \bi{con}{te}{xt} in \bi{wh}{ic}{h} $i$ \bi{co}{ul}{d} \bi{ar}{ri}{ve}.
+
+\step{\bi{Esti}{mat}{ion}.} \bi{T}{h}{e} \bi{s}{u}{m} \bi{h}{a}{s} $2^{|A|-1}$ \bi{te}{rm}{s}. We \bi{sa}{mp}{le} $200$ \bi{ra}{nd}{om}
+\bi{ord}{eri}{ngs} \bi{p}{e}{r} \bi{pr}{om}{pt} \bi{a}{n}{d} \bi{ave}{ra}{ge} \bi{t}{h}{e} \bi{rea}{lis}{ed} \bi{mar}{gin}{al} \bi{cont}{ribut}{ions}, \bi{wh}{ic}{h} is an
+\bi{unb}{ias}{ed} \bi{est}{ima}{tor} of $\phi_i$ by \bi{cons}{truc}{tion} (\bi{ea}{c}{h} \bi{ord}{eri}{ng} is \bi{dr}{aw}{n} \bi{fr}{o}{m} \bi{t}{h}{e}
+\bi{sa}{m}{e} \bi{uni}{fo}{rm} \bi{dist}{ribu}{tion} \bi{t}{h}{e} \bi{wei}{gh}{ts} \bi{en}{co}{de}).
+
+\subsection{\bi{Re}{su}{lt}: \bi{t}{h}{e} \bi{p}{r}{e}-\bi{regi}{ste}{red} \bi{ki}{l}{l} \bi{do}{e}{s} \bi{n}{o}{t} \bi{fi}{r}{e}}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lr}
+\toprule
+$1{,}865$ (\bi{ann}{ota}{tor}, \bi{pr}{om}{pt}) \bi{pa}{ir}{s} & \\
+\midrule
+$\Corr(\text{Shapley influence},\ \text{cosine alignment})$ & $+0.3040$\\
+\bi{boo}{tst}{rap} $95\%$ CI (\cref{prot:boot}) & $[+0.2566,\,+0.3520]$\\
+\bi{p}{r}{e}-\bi{regi}{ste}{red} \bi{ki}{l}{l}: \bi{corr}{elat}{ion} $\approx 1.0$ & \textbf{\bi{do}{e}{s} \bi{n}{o}{t} \bi{fi}{r}{e}}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrr}
+\toprule
+\bi{ali}{gnm}{ent} \bi{qui}{nti}{le} & \bi{me}{a}{n} \bi{ali}{gnm}{ent} & \bi{me}{a}{n} \bi{inf}{lue}{nce}\\
+\midrule
+Q1 & $-0.0416$ & $0.0083$\\
+Q2 & $+0.8164$ & $0.1055$\\
+Q3 & $+0.9489$ & $\mathbf{0.1325}$\\
+Q4 & $+0.9861$ & $0.1262$\\
+Q5 & $+0.9973$ & $0.1262$\\
+\bottomrule
+\end{tabular}
+\caption{\bi{Inf}{lue}{nce} \bi{ri}{se}{s} \bi{ste}{ep}{ly} \bi{fr}{o}{m} Q1 to Q3 \bi{a}{n}{d} \bi{th}{e}{n} \emph{\bi{fla}{tte}{ns}}.}
+\label{tab:quintile}
+\end{table}
+
+\mesotakeaway{\bi{Be}{yo}{nd} \bi{mod}{era}{te} \bi{agr}{eem}{ent}, \bi{agr}{eei}{ng} \bi{mo}{r}{e} \bi{bu}{y}{s} no \bi{inf}{lue}{nce} at \bi{a}{l}{l}.
+\bi{A}{n}{d} \bi{t}{h}{e} \bi{o}{f}{f}-\bi{dia}{gon}{al} \bi{ce}{ll}{s} \bi{a}{r}{e} \bi{pop}{ula}{ted}: $0.75\%$ of \bi{pa}{ir}{s} \bi{a}{r}{e} \bi{t}{o}{p}-\bi{qui}{nti}{le}
+\bi{ali}{gn}{ed} \bi{wi}{t}{h} \bi{bo}{tt}{om}-\bi{qui}{nti}{le} \bi{inf}{lue}{nce}, $3.11\%$ \bi{a}{r}{e} \bi{bo}{tt}{om}-\bi{ali}{gn}{ed} \bi{wi}{t}{h}
+\bi{t}{o}{p}-\bi{qui}{nti}{le} \bi{inf}{lue}{nce}. ``\bi{Agr}{eem}{ent} is \bi{n}{o}{t} \bi{pres}{erva}{tion}'' is \bi{he}{r}{e} a \bi{co}{un}{t} of \bi{re}{a}{l}
+\bi{pe}{op}{le}, \bi{n}{o}{t} a \bi{sl}{og}{an}.}
+
+\subsection{An \bi{inde}{pend}{ent} \bi{conf}{irma}{tion} \bi{fr}{o}{m} a \bi{dif}{fer}{ent} \bi{ope}{rat}{or}}
+
+\bi{Dro}{ppi}{ng} \bi{t}{h}{e} \emph{\bi{mo}{s}{t} \bi{conf}{orm}{ing}} \bi{ann}{ota}{tor} \bi{cha}{ng}{es} \bi{t}{h}{e} \bi{dec}{isi}{on} on
+$5.8\%\,[4.3,7.1]$ of \bi{pro}{mp}{ts}; \bi{dro}{ppi}{ng} \bi{t}{h}{e} \emph{\bi{lar}{ge}{st} \bi{dis}{sen}{ter}}, on
+$2.1\%\,[1.1,3.2]$. \bi{T}{h}{e} \bi{int}{erv}{als} do \bi{n}{o}{t} \bi{ove}{rl}{ap} \bi{a}{n}{d} \bi{t}{h}{e} \bi{si}{g}{n} is \bi{st}{ab}{le} \bi{ac}{ro}{ss}
+\bi{a}{l}{l} \bi{th}{re}{e} \bi{ju}{dg}{es}. \bi{T}{h}{e} \bi{dis}{sen}{ter} \bi{w}{a}{s} \bi{alr}{ea}{dy} \bi{n}{o}{t} \bi{infl}{uenc}{ing} \bi{t}{h}{e} \bi{out}{co}{me} -- \bi{t}{h}{e}
+\bi{sa}{m}{e} \bi{sta}{tem}{ent} as \bi{t}{h}{e} \bi{fl}{a}{t} \bi{t}{o}{p} of \cref{tab:quintile}, \bi{rea}{ch}{ed} by a \bi{dif}{fer}{ent}
+\bi{ro}{ut}{e}.
+
+% ===========================================================================
+\section{\bi{Wh}{a}{t} is \bi{n}{o}{t} \bi{iden}{tif}{ied}, \bi{wi}{t}{h} \bi{pr}{oo}{fs}}
+\label{sec:notid}
+
+\begin{proposition}[Contamination and redundancy are not separable here]
+\label{prop:contam}
+\bi{L}{e}{t} $\alpha_p$ be \bi{t}{h}{e} \bi{ali}{gnm}{ent} \bi{bet}{we}{en} a \bi{pr}{om}{pt}'s \bi{wei}{ght}{ed}-\bi{cri}{ter}{ia} \bi{sc}{or}{e} \bi{a}{n}{d}
+\bi{t}{h}{e} \bi{cr}{ow}{d}'s \bi{ran}{ki}{ng}, \bi{a}{n}{d} $s_p$ \bi{t}{h}{e} \bi{sens}{itiv}{ity} of \bi{i}{t}{s} \bi{dec}{isi}{on} to \bi{pert}{urb}{ing} \bi{o}{n}{e}
+\bi{cri}{ter}{ion}. \bi{T}{w}{o} \bi{mo}{de}{ls},
+\begin{itemize}
+\item[$C$:] \bi{cri}{ter}{ia} \bi{wri}{tt}{en} \emph{\bi{af}{te}{r}} \bi{se}{ei}{ng} \bi{res}{pon}{ses} \bi{a}{r}{e} \bi{indi}{vidu}{ally} \bi{mo}{r}{e}
+      \bi{dec}{isi}{ve}, so a \bi{hi}{g}{h}-$\alpha$ \bi{ru}{br}{ic} \bi{abs}{or}{bs} \bi{si}{ng}{le}-\bi{cri}{ter}{ion} \bi{pert}{urbat}{ions};
+\item[$R$:] a \bi{hi}{g}{h}-$\alpha$ \bi{ru}{br}{ic} is \bi{o}{n}{e} \bi{wh}{os}{e} \bi{cri}{ter}{ia} \bi{ag}{re}{e} \bi{wi}{t}{h} \bi{ea}{c}{h} \bi{ot}{he}{r},
+      \bi{a}{n}{d} a \bi{red}{und}{ant} \bi{ru}{br}{ic} is \bi{inse}{nsit}{ive} to \bi{a}{n}{y} \bi{si}{ng}{le} \bi{me}{mb}{er},
+\end{itemize}
+\bi{im}{pl}{y} \bi{t}{h}{e} \bi{sa}{m}{e} \bi{si}{g}{n} \bi{f}{o}{r} $\Corr(\alpha,s)$, \bi{a}{n}{d} \bi{t}{h}{e} \bi{obs}{erv}{ed} \bi{da}{t}{a} \bi{dist}{ribu}{tion} is
+a \bi{fun}{cti}{on} of $(\alpha,s)$ \bi{al}{on}{e}. \bi{T}{h}{e} \bi{like}{liho}{ods} \bi{coi}{nci}{de}; \bi{t}{h}{e} \bi{mo}{de}{ls} \bi{a}{r}{e} \bi{n}{o}{t}
+\bi{iden}{tif}{ied}.
+\end{proposition}
+
+\step{\bi{Wh}{a}{t} is \bi{iden}{tif}{ied}: a \bi{bo}{un}{d}.} \bi{Spl}{itt}{ing} \bi{pro}{mp}{ts} at \bi{t}{h}{e} \bi{me}{di}{an} of $\alpha$:
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrr}
+\toprule
+\bi{ope}{rat}{or} & \bi{l}{o}{w} $\alpha$ & \bi{hi}{g}{h} $\alpha$ & \bi{ra}{ti}{o}\\
+\midrule
+\bi{do}{ub}{le} & $5.1\%$ & $2.8\%$ & $0.55\times$\\
+\bi{de}{le}{te} & $5.6\%$ & $4.6\%$ & $0.82\times$\\
+\bi{in}{ve}{rt} & $13.1\%$ & $9.9\%$ & $0.75\times$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{corollary}
+\bi{Ev}{er}{y} \bi{fl}{i}{p} \bi{ra}{t}{e} \bi{rep}{ort}{ed} \bi{he}{r}{e} \bi{va}{ri}{es} by up to $1.8\times$ \bi{ac}{ro}{ss} \bi{t}{h}{e} \bi{ra}{ng}{e} of
+$\alpha$. \bi{Th}{a}{t} \bi{bo}{un}{d} \bi{bel}{on}{gs} on \bi{ev}{er}{y} \bi{su}{c}{h} \bi{nu}{mb}{er}. \bi{Sepa}{rat}{ing} $C$ \bi{fr}{o}{m} $R$
+\bi{req}{uir}{es} \bi{res}{pon}{se}-\bi{bl}{in}{d} \bi{elic}{itat}{ion} \bi{a}{n}{d} \bi{ca}{nn}{ot} be \bi{do}{n}{e} at \bi{th}{i}{s} \bi{si}{t}{e}.
+\end{corollary}
+
+\begin{proposition}[The probe bound is an identification limit]
+By \cref{thm:probe}, at \bi{mo}{s}{t} \bi{t}{w}{o} \bi{para}{met}{ers} \bi{p}{e}{r} \bi{pe}{rs}{on} \bi{p}{e}{r} \bi{pr}{om}{pt} \bi{a}{r}{e} \bi{iden}{tif}{ied}
+\bi{fr}{o}{m} \bi{t}{h}{e} \bi{rat}{in}{gs}. \bi{Ever}{yth}{ing} \bi{el}{s}{e} in \bi{t}{h}{e} \bi{cri}{ter}{ion} \bi{te}{x}{t} is \bi{unid}{enti}{fied} \bi{fr}{o}{m} \bi{t}{h}{e}
+\bi{rel}{eas}{ed} \bi{quan}{tita}{tive} \bi{da}{t}{a}.
+\end{proposition}
+
+\begin{proposition}[Compilation's three actions are confounded]
+\bi{Sel}{ect}{ion}, \bi{rew}{rit}{ing} \bi{a}{n}{d} \bi{we}{ig}{ht}-\bi{disc}{ard}{ing} \bi{oc}{cu}{r} in \bi{o}{n}{e} \bi{st}{e}{p} \bi{wi}{t}{h} no \bi{lin}{ea}{ge}.
+\bi{Th}{ei}{r} \bi{indi}{vid}{ual} \bi{cont}{ribut}{ions} to \bi{t}{h}{e} $29.4\%$ \bi{disa}{gree}{ment} \bi{a}{r}{e} \bi{n}{o}{t} \bi{iden}{tif}{ied}.
+\end{proposition}
+
+\begin{proposition}[$Y$ does not exist]
+\bi{T}{h}{e} \bi{ch}{ai}{n} in \cref{eq:chain} \bi{term}{ina}{tes} at $D$. $Y$ -- \bi{wh}{a}{t} a \bi{sy}{st}{em} \bi{tra}{in}{ed} \bi{un}{de}{r}
+\bi{th}{i}{s} \bi{sta}{nda}{rd} \bi{do}{e}{s} -- is \bi{n}{o}{t} in \bi{t}{h}{e} \bi{rel}{ea}{se}, \bi{a}{n}{d} no \bi{arit}{hme}{tic} \bi{rec}{ove}{rs} it. \bi{A}{n}{y}
+\bi{e}{n}{d}-to-\bi{e}{n}{d} \bi{nu}{mb}{er} \bi{qu}{ot}{ed} to $Y$ is \bi{fabr}{ica}{ted}.
+\end{proposition}
+
+% ===========================================================================
+\section{\bi{Fin}{din}{gs}}
+\label{sec:findings}
+
+\bi{Ea}{c}{h} \bi{fin}{di}{ng} \bi{en}{d}{s} \bi{wi}{t}{h} \bi{i}{t}{s} \bi{conf}{ide}{nce} \bi{ca}{r}{d}. A \bi{mis}{si}{ng} \bi{en}{tr}{y} \bi{re}{ad}{s}
+\textsc{\bi{unco}{mpu}{ted}}; \bi{no}{n}{e} is \bi{omi}{tt}{ed}.
+
+\subsection{F1 --- \bi{t}{h}{e} \bi{elic}{itat}{ion} \bi{cap}{tur}{ed} \bi{con}{sen}{sus}, \bi{n}{o}{t} \bi{t}{h}{e} \bi{indi}{vid}{ual}}
+
+$\cos(\Nn_i,\text{own ranking}) = 0.3928$ \bi{ve}{rs}{us}
+$\cos(\Nn_i,\text{stranger's ranking}) = 0.3097$; \bi{diff}{ere}{nce} $+0.0831$.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabular}{ll}
+\toprule
+$n_{\text{eff}}$ & $968$ \bi{pr}{om}{pt} \bi{clu}{ste}{rs} ($14{,}764$ \bi{pe}{rs}{on}--\bi{pr}{om}{pt} \bi{ro}{w}{s})\\
+\bi{M}{D}{E} & $0.0187$ in \bi{co}{si}{ne}, \bi{fr}{o}{m} \cref{thm:mde} at \bi{t}{h}{e} \bi{obs}{erv}{ed} $\se$\\
+\bi{ef}{fe}{ct} / \bi{fl}{oo}{r} & $0.0831 / 0.0067 = 12.4$\\
+CI \bi{wi}{dt}{h} / $|$\bi{e}{f}{f}$|$ & $0.0262/0.0831 = 0.32$\\
+\bi{sp}{e}{c}\_\bi{sur}{viv}{al} & \textsc{\bi{unco}{mpu}{ted}} (\bi{si}{ng}{le} \bi{spec}{ifica}{tion})\\
+\bi{se}{e}{d} \bi{sp}{re}{ad} / $|$\bi{e}{f}{f}$|$ & \bi{n}{o}{t} \bi{appl}{ica}{ble} (no \bi{stoc}{has}{tic} \bi{st}{e}{p})\\
+\bi{he}{l}{d} \bi{o}{u}{t} & \textsc{\bi{ab}{se}{nt}}\\
+\bi{inst}{rum}{ent} & \bi{ro}{ut}{es} \bi{thr}{ou}{gh} \bi{t}{h}{e} \bi{ju}{dg}{e}; \bi{cei}{li}{ng} $0.720$ (§\ref{sec:instrument})\\
+\bi{pr}{io}{r} \bi{a}{r}{t} & \bi{no}{n}{e} \bi{loc}{at}{ed}; \bi{t}{h}{e} \bi{rel}{ea}{se} \bi{doc}{ume}{nts} no \bi{su}{c}{h} \bi{comp}{ari}{son}\\
+\bi{mult}{ipli}{city} & $1$ \bi{te}{s}{t} in \bi{th}{i}{s} \bi{fa}{mi}{ly}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{F2 --- no \bi{fi}{ni}{te} \bi{we}{ig}{ht} \bi{enc}{od}{es} a \bi{ve}{t}{o}}
+
+\cref{thm:veto} \bi{a}{n}{d} \cref{thm:vetoinf}; \bi{req}{uir}{ed} $M$ up to $26.54$ \bi{aga}{in}{st} a \bi{sc}{al}{e}
+\bi{max}{im}{um} \bi{cont}{ribu}{tion} of $10$.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabular}{ll}
+\toprule
+$n_{\text{eff}}$ & $161$ \bi{pro}{mp}{ts} \bi{wi}{t}{h} a \bi{par}{ti}{al} \bi{ve}{t}{o}; $42$ \bi{bin}{di}{ng}\\
+\bi{M}{D}{E} & \bi{n}{o}{t} \bi{appl}{ica}{ble} --- \bi{th}{i}{s} is a \textbf{\bi{deri}{vat}{ion}}, \bi{n}{o}{t} a \bi{te}{s}{t}\\
+\bi{ef}{fe}{ct} / \bi{fl}{oo}{r} & \bi{n}{o}{t} \bi{appl}{ica}{ble}\\
+CI \bi{wi}{dt}{h} / $|$\bi{e}{f}{f}$|$ & \bi{n}{o}{t} \bi{appl}{ica}{ble}\\
+\bi{sp}{e}{c}\_\bi{sur}{viv}{al} & \bi{t}{h}{e} \bi{the}{or}{em} \bi{ho}{ld}{s} \bi{f}{o}{r} \bi{ev}{er}{y} \bi{sc}{or}{e} \bi{cons}{truc}{tion}\\
+\bi{se}{e}{d} \bi{sp}{re}{ad} & \bi{n}{o}{t} \bi{appl}{ica}{ble} (\bi{dete}{rmini}{stic})\\
+\bi{he}{l}{d} \bi{o}{u}{t} & \bi{t}{h}{e} \emph{\bi{max}{im}{um}} is \bi{wh}{a}{t} \bi{car}{ri}{es} it; a \bi{he}{l}{d}-\bi{o}{u}{t} \bi{s}{e}{t} \bi{c}{a}{n} \bi{on}{l}{y} \bi{ra}{is}{e} it\\
+\bi{inst}{rum}{ent} & $\Delta$ is \bi{com}{put}{ed} \bi{fr}{o}{m} \bi{t}{h}{e} \bi{ju}{dg}{e} \bi{te}{ns}{or}; \bi{t}{h}{e} \emph{\bi{the}{or}{em}} is \bi{n}{o}{t}\\
+\bi{pr}{io}{r} \bi{a}{r}{t} & \bi{t}{h}{e} \bi{inco}{mpatib}{ility} of \bi{ve}{to}{es} \bi{wi}{t}{h} \bi{sco}{ri}{ng} \bi{ru}{le}{s} is \bi{cla}{ssi}{cal}; \bi{t}{h}{e}\\
+ & \emph{\bi{mea}{sur}{ed}} $\Delta$ \bi{dist}{ribu}{tion} on \bi{th}{i}{s} \bi{rel}{ea}{se} is \bi{n}{o}{t}\\
+\bi{mult}{ipli}{city} & \bi{no}{n}{e} --- a \bi{si}{ng}{le} \bi{der}{iv}{ed} \bi{sta}{tem}{ent}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}[Labelled as a derivation, per the arithmetic trap]
+\cref{thm:vetoinf} \bi{co}{ul}{d} \bi{n}{o}{t} \bi{ha}{v}{e} \bi{co}{m}{e} \bi{o}{u}{t} \bi{oth}{erw}{ise}: it \bi{fol}{lo}{ws} \bi{fr}{o}{m}
+\cref{thm:veto} \bi{pl}{u}{s} \bi{t}{h}{e} \bi{unbo}{unded}{ness} of $\Delta$. It is \bi{st}{at}{ed} as a \bi{the}{or}{em},
+\bi{i}{t}{s} \bi{assu}{mpt}{ion} is \bi{na}{me}{d} ($\sat$ \bi{c}{a}{n} \bi{app}{roa}{ch} \bi{i}{t}{s} \bi{bo}{un}{ds} \bi{inde}{pende}{ntly} \bi{ac}{ro}{ss}
+\bi{res}{pon}{ses}), \bi{a}{n}{d} it is \bi{n}{o}{t} \bi{cou}{nt}{ed} as \bi{evi}{den}{ce} in \bi{t}{h}{e} \bi{se}{ns}{e} a \bi{meas}{urem}{ent} is.
+\end{remark}
+
+\subsection{F3 --- \bi{comp}{arat}{ive} \bi{meas}{urem}{ents} \bi{a}{r}{e} \bi{inst}{rum}{ent}-\bi{inv}{ari}{ant}; \bi{abs}{olu}{te} \bi{on}{e}{s} \bi{a}{r}{e} \bi{n}{o}{t}}
+
+\cref{tab:gaugea}, \cref{tab:gaugeb}.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabular}{ll}
+\toprule
+$n_{\text{eff}}$ & $968$ \bi{pro}{mp}{ts} (\bi{th}{re}{e} \bi{inst}{rume}{nts}); $300$ \bi{f}{o}{r} \bi{t}{h}{e} \bi{reor}{der}{ing}\\
+\bi{M}{D}{E} & $\rho$ \bi{reso}{lut}{ion} $\approx 0.15$ at $11$ \bi{ope}{rat}{ors}\\
+\bi{ef}{fe}{ct} / \bi{fl}{oo}{r} & \bi{ord}{eri}{ngs} $0.963$--$1.000$ \bi{aga}{in}{st} a \bi{ch}{an}{ce} $\rho$ of $0$\\
+CI \bi{wi}{dt}{h} / $|$\bi{e}{f}{f}$|$ & \bi{boo}{tst}{rap} \bi{int}{erv}{als} in \cref{tab:power}\\
+\bi{sp}{e}{c}\_\bi{sur}{viv}{al} & $3$ of $3$ \bi{inst}{rume}{nts} \bi{pre}{ser}{ve} \bi{t}{h}{e} \bi{ord}{eri}{ng}\\
+\bi{se}{e}{d} \bi{sp}{re}{ad} / $|$\bi{e}{f}{f}$|$ & $<0.1$ \bi{ac}{ro}{ss} $5$ \bi{se}{ed}{s} of \bi{t}{h}{e} \bi{ta}{rg}{et} \bi{dr}{a}{w}\\
+\bi{he}{l}{d} \bi{o}{u}{t} & \bi{t}{h}{e} \bi{reo}{rde}{red} \bi{r}{u}{n} is a \bi{gen}{ui}{ne} \bi{he}{l}{d}-\bi{o}{u}{t} \bi{inst}{rum}{ent}\\
+\bi{inst}{rum}{ent} & \bi{th}{i}{s} \bi{fin}{di}{ng} \emph{is} \bi{ab}{ou}{t} \bi{t}{h}{e} \bi{inst}{rum}{ent}, by \bi{cons}{truc}{tion}\\
+\bi{pr}{io}{r} \bi{a}{r}{t} & \bi{ju}{dg}{e}-\bi{sens}{itiv}{ity} of \bi{L}{L}{M} \bi{eval}{uat}{ion} is \bi{kn}{ow}{n}; \bi{t}{h}{e}\\
+ & \bi{comp}{arat}{ive}/\bi{abs}{olu}{te} \bi{sp}{li}{t} \bi{mea}{sur}{ed} on \bi{th}{i}{s} \bi{ob}{je}{ct} is \bi{n}{o}{t}\\
+\bi{mult}{ipli}{city} & $3$ \bi{inst}{rume}{nts} $\times$ $11$ \bi{ope}{rat}{ors}; \bi{t}{h}{e} \bi{rep}{ort}{ed} \bi{sta}{tis}{tic}\\
+ & is \bi{t}{h}{e} \bi{ord}{eri}{ng}, \bi{o}{n}{e} \bi{p}{e}{r} \bi{inst}{rum}{ent}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{F4 --- \bi{inf}{lue}{nce} \bi{a}{n}{d} \bi{ali}{gnm}{ent} \bi{a}{r}{e} \bi{dis}{tin}{ct} (C1 \bi{sur}{viv}{es})}
+
+$\Corr = +0.3040\,[+0.2566,+0.3520]$, \bi{wi}{t}{h} \bi{t}{h}{e} \bi{qui}{nti}{le} \bi{pro}{fi}{le} of
+\cref{tab:quintile}.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabular}{ll}
+\toprule
+$n_{\text{eff}}$ & $968$ \bi{pr}{om}{pt} \bi{clu}{ste}{rs} ($1{,}865$ \bi{ann}{ota}{tor}--\bi{pr}{om}{pt} \bi{ro}{w}{s})\\
+\bi{M}{D}{E} & $0.065$ in \bi{corr}{elat}{ion}, at \bi{t}{h}{e} \bi{boo}{tst}{rap} $\se$\\
+\bi{ef}{fe}{ct} / \bi{fl}{oo}{r} & $0.304 / 0.024 = 12.7$\\
+CI \bi{wi}{dt}{h} / $|$\bi{e}{f}{f}$|$ & $0.095/0.304 = 0.31$\\
+\bi{sp}{e}{c}\_\bi{sur}{viv}{al} & \textsc{\bi{unco}{mpu}{ted}}; \bi{o}{n}{e} \bi{char}{acter}{istic} \bi{fun}{cti}{on} \bi{te}{st}{ed}\\
+\bi{se}{e}{d} \bi{sp}{re}{ad} / $|$\bi{e}{f}{f}$|$ & $<0.02$ \bi{ov}{e}{r} \bi{t}{h}{e} $200$-\bi{perm}{utat}{ion} \bi{Sha}{pl}{ey} \bi{est}{ima}{tor}\\
+\bi{he}{l}{d} \bi{o}{u}{t} & \textsc{\bi{ab}{se}{nt}}\\
+\bi{inst}{rum}{ent} & \bi{ro}{ut}{es} \bi{thr}{ou}{gh} \bi{t}{h}{e} \bi{ju}{dg}{e}; \bi{cei}{li}{ng} $0.720$\\
+\bi{pr}{io}{r} \bi{a}{r}{t} & \bi{Sha}{pl}{ey}-\bi{ve}{rs}{us}-\bi{ali}{gnm}{ent} \bi{h}{a}{s} \bi{n}{o}{t} \bi{be}{e}{n} \bi{rep}{ort}{ed} on \bi{th}{i}{s} \bi{ob}{je}{ct}\\
+\bi{mult}{ipli}{city} & $1$ \bi{p}{r}{e}-\bi{regi}{ste}{red} \bi{te}{s}{t}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{F5 --- \bi{o}{n}{e} \bi{b}{i}{t} \bi{p}{e}{r} \bi{cri}{ter}{ion} \bi{repr}{odu}{ces} $89.8\%$ of \bi{dec}{isi}{ons}}
+
+\cref{tab:rd}, \bi{cr}{os}{s}-\bi{che}{ck}{ed} \bi{aga}{in}{st} \cref{tab:cardinal}.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabular}{ll}
+\toprule
+$n_{\text{eff}}$ & $968$ \bi{pro}{mp}{ts}\\
+\bi{M}{D}{E} & $\pm 1.0$pp at \bi{t}{h}{e} \bi{obs}{erv}{ed} $\se$\\
+\bi{ef}{fe}{ct} / \bi{fl}{oo}{r} & \bi{t}{h}{e} \bi{quan}{tisa}{tion} is \bi{dete}{rmini}{stic}; no \bi{resa}{mpl}{ing} \bi{fl}{oo}{r} \bi{app}{li}{es}\\
+CI \bi{wi}{dt}{h} / $|$\bi{e}{f}{f}$|$ & \textsc{\bi{unco}{mpu}{ted}}\\
+\bi{sp}{e}{c}\_\bi{sur}{viv}{al} & \bi{ag}{re}{es} \bi{wi}{t}{h} \bi{t}{h}{e} \bi{inde}{pend}{ent} \bi{si}{g}{n}-\bi{on}{l}{y} \bi{te}{s}{t} to $1.5$pp\\
+\bi{se}{e}{d} \bi{sp}{re}{ad} & \bi{n}{o}{t} \bi{appl}{ica}{ble} (\bi{dete}{rmini}{stic})\\
+\bi{he}{l}{d} \bi{o}{u}{t} & \textsc{\bi{ab}{se}{nt}}\\
+\bi{inst}{rum}{ent} & \bi{ju}{dg}{e}-\bi{dep}{end}{ent} in \bi{le}{ve}{l}; \bi{t}{h}{e} \emph{\bi{b}{i}{t} \bi{cu}{rv}{e}} is \bi{n}{o}{t} \bi{te}{st}{ed} \bi{ac}{ro}{ss} \bi{ju}{dg}{es}\\
+\bi{pr}{io}{r} \bi{a}{r}{t} & \bi{no}{n}{e} \bi{loc}{at}{ed} \bi{f}{o}{r} \bi{th}{i}{s} \bi{ob}{je}{ct}\\
+\bi{mult}{ipli}{city} & $5$ \bi{quan}{tisa}{tion} \bi{le}{ve}{ls}, \bi{rep}{ort}{ed} in \bi{fu}{l}{l}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ===========================================================================
+\section{\bi{Wh}{a}{t} \bi{d}{i}{d} \bi{n}{o}{t} \bi{sur}{vi}{ve}}
+\label{sec:exclusion}
+
+A \bi{pa}{pe}{r} \bi{wi}{t}{h} no \bi{retr}{acti}{ons} is a \bi{pa}{pe}{r} \bi{wh}{os}{e} \bi{ont}{olo}{gy} \bi{h}{a}{s} no \bi{wo}{r}{d} \bi{f}{o}{r} \bi{er}{ro}{r}. \bi{A}{l}{l}
+\bi{ent}{ri}{es} \bi{a}{r}{e} \bi{cr}{os}{s}-\bi{refe}{ren}{ced} to \texttt{supplement/exclusion\_log.csv}.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{4.2cm}P{4.6cm}Y}
+\toprule
+\bi{wit}{hdr}{awn} \bi{cl}{ai}{m} & \bi{wh}{a}{t} \bi{ki}{ll}{ed} it & \bi{st}{at}{us}\\
+\midrule
+``\bi{t}{h}{e} \bi{ope}{rat}{or} \bi{de}{si}{gn} \bi{h}{a}{s} \bi{ra}{n}{k} $2$, so \bi{a}{l}{l} \bi{rem}{ain}{ing} \bi{dime}{nsi}{ons} \bi{req}{ui}{re} \bi{t}{h}{e}
+\bi{ju}{dg}{e}'' & \bi{t}{h}{e} \bi{ra}{n}{k} \bi{sta}{tis}{tic} \bi{si}{t}{s} \bi{in}{si}{de} \bi{t}{h}{e} \bi{sp}{a}{n} of \bi{th}{re}{e} \bi{defe}{nsi}{ble} \bi{nu}{ll}{s}
+($12.1$, $17.0$, $18.0$) \bi{wi}{t}{h} \bi{t}{h}{e} \bi{obse}{rvat}{ion} at $13$; \bi{t}{h}{e} \bi{nu}{l}{l}
+\emph{\bi{cons}{truc}{tion}} \bi{mo}{ve}{d} it \bi{mo}{r}{e} \bi{th}{a}{n} \bi{t}{h}{e} \bi{da}{t}{a} & \bi{ra}{n}{k} \bi{ret}{ir}{ed} as a \bi{sta}{tis}{tic}\\
+``\bi{stre}{ngthe}{ning} a \bi{cri}{ter}{ion} \bi{mo}{ve}{s} \bi{t}{h}{e} \bi{dec}{isi}{on}, \bi{rem}{ovi}{ng} \bi{o}{n}{e} \bi{do}{e}{s} \bi{n}{o}{t}'' & \bi{di}{re}{ct}
+\bi{meas}{urem}{ent}: \bi{del}{eti}{ng} \bi{fl}{ip}{s} $8.8\%$, \bi{dou}{bli}{ng} $4.2\%$. \bi{T}{h}{e} \bi{asy}{mme}{try} \bi{w}{a}{s} an
+\bi{art}{efa}{ct} of \bi{norm}{alis}{ing} \bi{t}{h}{e} \bi{sc}{or}{e} \emph{\bi{af}{te}{r}} \bi{mut}{ati}{ng} \bi{a}{n}{d} \bi{th}{e}{n} \bi{diff}{eren}{cing} \bi{t}{w}{o}
+\bi{sepa}{rat}{ely} \bi{norm}{ali}{sed} \bi{vec}{to}{rs} & \bi{wit}{hdr}{awn}, \bi{si}{g}{n} \bi{a}{n}{d} \bi{a}{l}{l}\\
+``\bi{min}{ori}{ty}-\bi{sen}{sit}{ive} \bi{aggr}{egat}{ion} \bi{cha}{ng}{es} \bi{ha}{l}{f} \bi{t}{h}{e} \bi{out}{com}{es}'' & \bi{t}{h}{e} \bi{sh}{a}{m} \bi{con}{tr}{ol}
+(\bi{sa}{m}{e} \bi{pe}{op}{le}, \bi{mat}{ch}{ed} \bi{mom}{en}{ts}, \bi{res}{pon}{se} \bi{pat}{te}{rn} \bi{des}{tro}{yed}) \bi{dis}{agr}{ees} $61.4\%$
+\bi{ve}{rs}{us} \bi{t}{h}{e} \bi{re}{a}{l} $49.4\%$ & \bi{wit}{hdr}{awn}; \bi{t}{h}{e} \bi{res}{idu}{al} \bi{ru}{n}{s} \bi{t}{h}{e} \bi{ot}{he}{r} \bi{w}{a}{y}\\
+``\bi{aggr}{egat}{ion} is a $10\times$ \bi{la}{rg}{er} \bi{le}{ve}{r} \bi{th}{a}{n} \bi{t}{h}{e} \bi{cri}{ter}{ion} \bi{la}{ye}{r}'' & \bi{t}{h}{e}
+\bi{aggr}{egat}{ors} \bi{we}{r}{e} \bi{ind}{ex}{ed} \bi{ov}{e}{r} \bi{cri}{ter}{ia} \bi{ra}{th}{er} \bi{th}{a}{n} \bi{pe}{op}{le} & \bi{mag}{nit}{ude} \bi{wit}{hdr}{awn};
+\bi{ord}{eri}{ng} \bi{sur}{viv}{es} at $4.3\times$\\
+``\bi{t}{h}{e} \bi{fl}{i}{p} \bi{ra}{t}{e} is \bi{conf}{oun}{ded} by \bi{dec}{isi}{on} \bi{ma}{rg}{in}'' & \bi{mea}{sur}{ed} $Q_1/Q_4$ \bi{ra}{ti}{os} of
+$1.0$, $1.0$, $1.1$ & \bi{de}{fe}{ct} \bi{op}{en}{ed} by us \bi{a}{n}{d} \bi{cl}{os}{ed} by \bi{i}{t}{s} \bi{o}{w}{n} \bi{meas}{urem}{ent}\\
+``\bi{wi}{d}{e} \bi{mar}{gi}{ns} \bi{ar}{is}{e} \bi{bec}{au}{se} \bi{agr}{eei}{ng} \bi{cri}{ter}{ia} \bi{ca}{rr}{y} \bi{la}{rg}{er} \bi{wei}{gh}{ts}'' &
+$\Corr(\text{margin},\overline{|w|}) = +0.002\,[-0.067,+0.059]$ & \bi{mec}{han}{ism}
+\bi{ref}{ut}{ed}; \bi{t}{h}{e} \bi{fla}{tne}{ss} \bi{st}{an}{ds} \bi{unex}{plai}{ned}\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{remark}[The failure mode behind most of these]
+\bi{S}{i}{x} of \bi{t}{h}{e} \bi{s}{i}{x} \bi{a}{r}{e} \bi{t}{h}{e} \bi{sa}{m}{e} \bi{sh}{ap}{e}: a \bi{ver}{di}{ct} \bi{dec}{id}{ed} by a \bi{con}{sta}{nt} \bi{t}{h}{e} \bi{au}{th}{or}
+\bi{ch}{os}{e} -- \bi{o}{n}{e} \bi{nu}{l}{l} \bi{ins}{te}{ad} of a \bi{ra}{ng}{e}, \bi{o}{n}{e} \bi{ref}{ere}{nce} \bi{ins}{te}{ad} of a \bi{cl}{as}{s}, a
+\bi{t}{w}{o}-\bi{br}{an}{ch} \bi{tem}{pla}{te} \bi{f}{o}{r} a \bi{th}{re}{e}-\bi{out}{co}{me} \bi{te}{s}{t}, a $0.15$ \bi{cu}{to}{ff}. \bi{T}{h}{e} \bi{re}{pa}{ir} \bi{ado}{pt}{ed}
+\bi{he}{r}{e} is \bi{stru}{ctu}{ral}: \emph{\bi{ev}{er}{y} \bi{ver}{di}{ct} is a \bi{pri}{nt}{ed} \bi{comp}{ari}{son} \bi{aga}{in}{st} \bi{t}{h}{e} \bi{ra}{ng}{e}
+of \bi{defe}{nsi}{ble} \bi{refe}{ren}{ces}, \bi{ne}{ve}{r} a \bi{boo}{le}{an} \bi{com}{put}{ed} \bi{fr}{o}{m} a \bi{thr}{esh}{old}}.
+\end{remark}
+
+% ===========================================================================
+\section{\bi{Fals}{ifica}{tion} \bi{a}{n}{d} \bi{cont}{radic}{tion} \bi{han}{dli}{ng}}
+\label{sec:falsify}
+
+\bi{St}{at}{ed} \bi{be}{fo}{re} \bi{t}{h}{e} \bi{cl}{ai}{ms} \bi{a}{r}{e} \bi{def}{end}{ed}.
+
+\begin{enumerate}
+\item \textbf{F1 \bi{di}{e}{s}} if a \bi{res}{pon}{se}-\bi{bl}{in}{d} \bi{elic}{itat}{ion} \bi{sh}{ow}{s}
+      $\cos(\Nn_i,\text{own})$ \bi{f}{a}{r} \bi{exc}{eed}{ing} $\cos(\Nn_i,\text{stranger})$. \bi{T}{h}{e}
+      \bi{pre}{se}{nt} \bi{g}{a}{p} \bi{wo}{ul}{d} \bi{th}{e}{n} be an \bi{art}{efa}{ct} of \bi{po}{s}{t}-\bi{h}{o}{c} \bi{wri}{ti}{ng} \bi{ra}{th}{er} \bi{th}{a}{n} a
+      \bi{pro}{per}{ty} of \bi{elic}{itat}{ion}.
+\item \textbf{F2 \bi{di}{e}{s}} if a \bi{bou}{nd}{ed} $M$ is \bi{exh}{ibi}{ted} \bi{th}{a}{t} \bi{repr}{odu}{ces}
+      \bi{cons}{tra}{int} \bi{beh}{avi}{our} \bi{ac}{ro}{ss} \bi{can}{did}{ate} \bi{se}{t}{s}. \cref{thm:vetoinf} \bi{for}{bi}{ds} it
+      \bi{f}{o}{r} \bi{unb}{oun}{ded} $\sat$; a \bi{bou}{nd}{ed}-\bi{sati}{sfac}{tion} \bi{var}{ia}{nt} \bi{wi}{t}{h} a \bi{st}{at}{ed} \bi{bo}{un}{d}
+      \bi{wo}{ul}{d} \bi{res}{tri}{ct} \bi{t}{h}{e} \bi{the}{or}{em}'s \bi{sc}{op}{e}.
+\item \textbf{F3 \bi{di}{e}{s}} if a \bi{fo}{ur}{th} \bi{inst}{rum}{ent} \bi{rev}{ers}{es} \bi{t}{h}{e} \bi{ope}{rat}{or} \bi{ord}{eri}{ng}
+      ($\rho<0.8$). \bi{Th}{re}{e} \bi{ha}{v}{e} \bi{n}{o}{t}.
+\item \textbf{F4 \bi{di}{e}{s}} if $\Corr(\text{influence},\text{alignment})\to 1$ \bi{un}{de}{r} a
+      \bi{dif}{fer}{ent} \bi{char}{acter}{istic} \bi{fun}{cti}{on}. \bi{On}{l}{y} \bi{o}{n}{e} \bi{h}{a}{s} \bi{be}{e}{n} \bi{te}{st}{ed}; \bi{th}{i}{s} is \bi{t}{h}{e}
+      \bi{wea}{ke}{st} of \bi{t}{h}{e} \bi{fi}{v}{e}.
+\item \textbf{F5 \bi{di}{e}{s}} if \bi{t}{h}{e} \bi{b}{i}{t} \bi{cu}{rv}{e} \bi{dif}{fe}{rs} \bi{mate}{ria}{lly} \bi{un}{de}{r} \bi{ano}{th}{er} \bi{ju}{dg}{e}.
+      \bi{N}{o}{t} \bi{te}{st}{ed}.
+\item \textbf{\bi{T}{h}{e} \bi{fra}{mi}{ng} \bi{it}{se}{lf} \bi{di}{e}{s}} if a \bi{pe}{rs}{on}'s \bi{ind}{uc}{ed} \bi{ord}{eri}{ng} is \bi{uns}{tab}{le}
+      \bi{ac}{ro}{ss} \bi{res}{pon}{se} \bi{se}{t}{s}. \bi{Th}{e}{n} \bi{wh}{a}{t} \bi{w}{a}{s} \bi{eli}{cit}{ed} is a \bi{pro}{per}{ty} of \bi{t}{h}{e} \bi{pr}{ob}{e},
+      \bi{n}{o}{t} of \bi{t}{h}{e} \bi{pe}{rs}{on}, \bi{a}{n}{d} \bi{not}{hi}{ng} \bi{down}{str}{eam} \bi{mea}{sur}{es} \bi{va}{lu}{es} at \bi{a}{l}{l}. \bi{Th}{i}{s} is
+      \bi{t}{h}{e} \bi{dee}{pe}{st} \bi{ava}{ila}{ble} \bi{te}{s}{t} \bi{a}{n}{d} it \bi{req}{uir}{es} \bi{t}{w}{o} \bi{can}{did}{ate} \bi{se}{t}{s} \bi{p}{e}{r} \bi{pe}{rs}{on},
+      \bi{wh}{ic}{h} \bi{th}{i}{s} \bi{rel}{ea}{se} \bi{do}{e}{s} \bi{n}{o}{t} \bi{ha}{v}{e}. \cref{cor:iia} ($13.4\%$ \bi{I}{I}{A} \bi{viol}{ati}{ons})
+      is a \bi{lo}{we}{r} \bi{bo}{un}{d} on \bi{t}{h}{e} \bi{con}{ce}{rn}, \bi{n}{o}{t} a \bi{reso}{lut}{ion} of it.
+\end{enumerate}
+
+% ===========================================================================
+\section{\bi{Disc}{uss}{ion}}
+
+\subsection{\bi{T}{h}{e} \bi{cl}{ai}{m}, \bi{a}{n}{d} \bi{i}{t}{s} \bi{nov}{el}{ty} \bi{bou}{nda}{ry}}
+
+\textbf{\bi{Wh}{a}{t} is \bi{n}{o}{t} \bi{n}{e}{w}.} \bi{Bla}{ckw}{ell}'s \bi{the}{or}{em}, \bi{Ar}{ro}{w}'s \bi{impo}{ssibi}{lity}, \bi{S}{e}{n}'s
+\bi{lib}{er}{al} \bi{par}{ad}{ox}, \bi{t}{h}{e} \bi{Sha}{pl}{ey} \bi{va}{lu}{e}, \bi{Spe}{arm}{an}--\bi{Br}{ow}{n}, \bi{t}{h}{e} \bi{de}{si}{gn} \bi{ef}{fe}{ct},
+\bi{atte}{nuat}{ion} \bi{fr}{o}{m} \bi{meas}{urem}{ent} \bi{er}{ro}{r}. \bi{T}{h}{e} \bi{inco}{mpatib}{ility} \bi{bet}{we}{en} \bi{ve}{to}{es} \bi{a}{n}{d}
+\bi{sco}{ri}{ng} \bi{ru}{le}{s} is \bi{cla}{ssi}{cal} \bi{so}{ci}{al} \bi{ch}{oi}{ce}. \bi{Ju}{dg}{e}-\bi{sens}{itiv}{ity} of \bi{lan}{gua}{ge}-\bi{mo}{de}{l}
+\bi{eval}{uat}{ion} is \bi{docu}{men}{ted}. \bi{No}{n}{e} of \bi{th}{es}{e} is \bi{cla}{im}{ed} \bi{he}{r}{e}.
+
+\textbf{\bi{Wh}{a}{t} is \bi{n}{e}{w}, \bi{a}{n}{d} \bi{on}{l}{y} \bi{th}{i}{s}.} (i) \bi{T}{h}{e} \bi{mea}{sur}{ed} $\Delta$ \bi{dist}{ribu}{tion} \bi{th}{a}{t}
+\bi{tu}{rn}{s} \bi{t}{h}{e} \bi{ve}{t}{o} \bi{inco}{mpatib}{ility} \bi{in}{t}{o} a \emph{\bi{quan}{tita}{tive}} \bi{sta}{tem}{ent} \bi{ab}{ou}{t} a
+\bi{spe}{cif}{ic} \bi{rel}{ea}{se}, \bi{wi}{t}{h} \bi{t}{h}{e} \bi{coun}{terex}{ample} \bi{pre}{se}{nt} in \bi{t}{h}{e} \bi{da}{t}{a}
+(\cref{tab:vetoM}). (ii) \bi{T}{h}{e} \bi{se}{l}{f}-\bi{ve}{rs}{us}-\bi{str}{ang}{er} \bi{deco}{mposi}{tion} \bi{sho}{wi}{ng} \bi{th}{a}{t} \bi{t}{h}{e}
+\bi{indi}{vid}{ual} \bi{si}{gn}{al} in \bi{th}{i}{s} \bi{elic}{itat}{ion} is $0.083$ of \bi{co}{si}{ne} (\cref{tab:selfother}).
+(\bi{i}{i}{i}) \bi{T}{h}{e} \bi{comp}{arat}{ive}/\bi{abs}{olu}{te} \bi{sp}{li}{t} \bi{un}{de}{r} \bi{t}{h}{e} \bi{ga}{ug}{e} \bi{te}{s}{t} (§\ref{sec:gauge}).
+(iv) \bi{T}{h}{e} \bi{b}{i}{t}-\bi{ra}{t}{e} of \bi{t}{h}{e} \bi{we}{ig}{ht} \bi{sc}{al}{e} (\cref{tab:rd}). (v) \bi{T}{h}{e} \bi{demo}{nstra}{tion} \bi{th}{a}{t}
+\bi{t}{h}{e} \bi{wei}{ght}{ed}-\bi{cri}{ter}{ia} \bi{sc}{or}{e} \bi{ag}{re}{es} \bi{wi}{t}{h} \bi{t}{h}{e} \bi{Con}{dor}{cet} \bi{wi}{nn}{er} \bi{on}{l}{y} $68.4\%$ of \bi{t}{h}{e}
+\bi{ti}{m}{e} \bi{wh}{il}{e} \bi{ev}{er}{y} \bi{ran}{ki}{ng} \bi{ru}{l}{e} \bi{ag}{re}{es} $97$--$98\%$.
+
+\subsection{\bi{W}{h}{y} \bi{me}{th}{od} \bi{rela}{tiv}{ity} is \bi{n}{o}{t} \bi{rela}{tiv}{ism}}
+
+\bi{Ev}{er}{y} \bi{qua}{nti}{ty} \bi{he}{r}{e} is \bi{rel}{ati}{ve} to a \bi{dec}{lar}{ed} \bi{qu}{er}{y} \bi{fa}{mi}{ly}
+(\cref{prop:Q}), a \bi{dec}{lar}{ed} \bi{dec}{isi}{on} \bi{fa}{mi}{ly} (\cref{def:regret}), \bi{a}{n}{d} a \bi{na}{me}{d}
+\bi{inst}{rum}{ent} (§\ref{sec:instrument}). \bi{Th}{a}{t} is \bi{n}{o}{t} an \bi{adm}{iss}{ion} \bi{th}{a}{t} \bi{t}{h}{e} \bi{num}{be}{rs} \bi{a}{r}{e}
+\bi{arb}{itr}{ary}; it is \bi{t}{h}{e} \bi{sta}{tem}{ent} \bi{th}{a}{t} \bi{th}{e}{y} \bi{a}{r}{e} \emph{\bi{ty}{pe}{d}}. A \bi{cl}{ai}{m} \bi{inh}{eri}{ts} \bi{t}{h}{e}
+\bi{sc}{op}{e} of \bi{t}{h}{e} \bi{fa}{mi}{ly} it \bi{w}{a}{s} \bi{com}{put}{ed} \bi{aga}{in}{st} \bi{a}{n}{d} \bi{m}{a}{y} \bi{n}{o}{t} be \bi{qu}{ot}{ed} \bi{out}{si}{de} it.
+\bi{T}{h}{e} \bi{ga}{ug}{e} \bi{te}{s}{t} (§\ref{sec:gauge}) is \bi{wh}{a}{t} \bi{ma}{ke}{s} \bi{t}{h}{e} \bi{ty}{pi}{ng} \bi{emp}{iri}{cal} \bi{ra}{th}{er} \bi{th}{a}{n}
+\bi{rhet}{ori}{cal}: it \bi{sh}{ow}{s} \bi{exa}{ct}{ly} \bi{wh}{ic}{h} \bi{cl}{ai}{ms} \bi{mo}{v}{e} \bi{wh}{e}{n} \bi{t}{h}{e} \bi{inst}{rum}{ent} \bi{mo}{ve}{s}.
+
+% ===========================================================================
+\section{\bi{Limi}{tati}{ons} \bi{a}{n}{d} \bi{epi}{ste}{mic} \bi{st}{at}{us}}
+\label{sec:limits}
+
+``We \bi{d}{i}{d} \bi{n}{o}{t} \bi{r}{u}{n} $X$'' \bi{a}{n}{d} ``$X$ \bi{ca}{nn}{ot} be \bi{r}{u}{n} at \bi{th}{i}{s} \bi{si}{t}{e}'' \bi{a}{r}{e} \bi{dif}{fer}{ent}
+\bi{sen}{ten}{ces} \bi{a}{n}{d} \bi{a}{r}{e} \bi{n}{o}{t} \bi{me}{rg}{ed}.
+
+\subsection{\bi{Stru}{ctu}{ral} --- \bi{ca}{nn}{ot} be \bi{r}{u}{n} \bi{he}{r}{e}}
+
+\begin{enumerate}
+\item \textbf{\bi{Res}{pon}{se}-\bi{bl}{in}{d} \bi{so}{ur}{ce} \bi{no}{rm}{s}.} \bi{Ev}{er}{y} \bi{cri}{ter}{ion} \bi{w}{a}{s} \bi{wri}{tt}{en} \bi{af}{te}{r}
+      \bi{se}{ei}{ng} \bi{t}{h}{e} \bi{res}{pon}{ses}. \cref{prop:contam} \bi{sh}{ow}{s} \bi{cont}{amina}{tion} \bi{a}{n}{d} \bi{redu}{nda}{ncy}
+      \bi{a}{r}{e} \bi{n}{o}{t} \bi{sep}{ara}{ble} \bi{wit}{ho}{ut} \bi{th}{e}{m}.
+\item \textbf{A \bi{se}{co}{nd} \bi{can}{did}{ate} \bi{s}{e}{t} \bi{p}{e}{r} \bi{pe}{rs}{on}.} \bi{Req}{uir}{ed} to \bi{te}{s}{t}
+      \cref{thm:vetoinf} \bi{o}{u}{t} of \bi{sa}{mp}{le} \bi{a}{n}{d} to \bi{res}{ol}{ve} \bi{t}{h}{e} \bi{pr}{ob}{e}-\bi{depe}{nde}{nce}
+      \bi{que}{sti}{on} of §\ref{sec:falsify}(6).
+\item \textbf{\bi{Ty}{pe}{d} \bi{fi}{el}{ds}.} $82.3\%$ of \bi{cri}{ter}{ia} \bi{ca}{rr}{y} \bi{no}{n}{e}
+      (\cref{tab:payload}); \bi{sc}{op}{e} \bi{a}{n}{d} \bi{exc}{ept}{ion} \bi{lo}{s}{s} \bi{a}{r}{e} \bi{unst}{udia}{ble} \bi{he}{r}{e}.
+\item \textbf{\bi{Comp}{ilat}{ion} \bi{lin}{ea}{ge}.} \bi{Ab}{se}{nt}, so §\ref{sec:compile}'s \bi{th}{re}{e} \bi{act}{io}{ns}
+      \bi{st}{a}{y} \bi{conf}{oun}{ded}.
+\item \textbf{$Y$.} \bi{N}{o}{t} in \bi{t}{h}{e} \bi{rel}{ea}{se}.
+\item \textbf{\bi{Cr}{os}{s}-\bi{dat}{as}{et} / \bi{cr}{os}{s}-\bi{do}{ma}{in}.} \bi{O}{n}{e} \bi{rel}{ea}{se} \bi{ex}{is}{ts}.
+\end{enumerate}
+
+\subsection{\bi{Pra}{cti}{cal} --- \bi{co}{ul}{d} be \bi{r}{u}{n}, \bi{w}{a}{s} \bi{n}{o}{t}}
+
+\begin{enumerate}
+\item \bi{He}{l}{d}-\bi{o}{u}{t} \bi{part}{iti}{ons} \bi{f}{o}{r} F1, F4, F5.
+\item A \bi{spec}{ifica}{tion} \bi{cu}{rv}{e} \bi{ov}{e}{r} \bi{char}{acter}{istic} \bi{fun}{cti}{ons} \bi{f}{o}{r} \bi{t}{h}{e} \bi{Sha}{pl}{ey}
+      \bi{est}{ima}{tor}; \bi{o}{n}{e} \bi{w}{a}{s} \bi{te}{st}{ed}.
+\item \bi{T}{h}{e} \bi{b}{i}{t} \bi{cu}{rv}{e} of \cref{tab:rd} \bi{ac}{ro}{ss} \bi{ju}{dg}{es}.
+\item \bi{T}{w}{o}-\bi{w}{a}{y} \bi{clus}{ter}{ing} (\cref{thm:cgm}) on \bi{t}{h}{e} \bi{pe}{rs}{on}-\bi{le}{ve}{l} \bi{quan}{tit}{ies}; \bi{on}{l}{y}
+      \bi{pr}{om}{pt}-\bi{le}{ve}{l} \bi{clus}{ter}{ing} \bi{w}{a}{s} \bi{app}{li}{ed}, \bi{a}{n}{d} \bi{anno}{tat}{ors} \bi{re}{pe}{at} \bi{ac}{ro}{ss} \bi{pro}{mp}{ts}.
+\end{enumerate}
+
+\subsection{\bi{Quan}{tita}{tive} \bi{bo}{un}{ds} \bi{th}{a}{t} \bi{ap}{pl}{y} to \bi{ev}{er}{y} \bi{nu}{mb}{er} \bi{he}{r}{e}}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{ll}
+\toprule
+\bi{bo}{un}{d} & \bi{va}{lu}{e}\\
+\midrule
+\bi{ju}{dg}{e} \bi{atte}{nuat}{ion} \bi{cei}{li}{ng} & $0.741$\\
+\bi{pa}{ne}{l} \bi{reli}{abil}{ity} \bi{cei}{li}{ng} & $0.9722$\\
+\bi{comp}{oun}{ded} \bi{cei}{li}{ng} on \bi{a}{n}{y} \bi{corr}{elat}{ion} & $0.720$\\
+\bi{cont}{amina}{tion}-\bi{pr}{ox}{y} \bi{var}{iat}{ion} in \bi{ev}{er}{y} \bi{fl}{i}{p} \bi{ra}{t}{e} & up to $1.8\times$\\
+\bi{abs}{olu}{te} \bi{wi}{nn}{er} \bi{cl}{ai}{ms}: \bi{inst}{rum}{ent} \bi{sh}{ar}{e} & $\approx 40\%$\\
+\bi{abs}{olu}{te} \bi{wi}{nn}{er} \bi{cl}{ai}{ms}: \bi{pres}{enta}{tion}-\bi{or}{de}{r} \bi{sh}{ar}{e} & $8.0$pp\\
+\bi{ru}{br}{ic} \bi{co}{rp}{us} \bi{ne}{ve}{r} \bi{jo}{in}{ed} & $1.8\%$\\
+\bi{de}{si}{gn} \bi{sho}{rtf}{all} \bi{f}{o}{r} $1$pp \bi{reso}{lut}{ion} & $968$ of $1{,}213$ \bi{pro}{mp}{ts}\\
+\bi{pai}{rwi}{se}-\bi{depe}{nde}{nce} \bi{sc}{re}{en}: \bi{M}{D}{E} at \bi{fu}{l}{l} $n$ & $|\phi| = 0.153$ \bi{aga}{in}{st} \bi{me}{di}{an} $0.124$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}[The last row read honestly]
+\bi{T}{h}{e} \bi{me}{di}{an} \bi{pai}{rwi}{se} \bi{asso}{ciat}{ion} in \bi{t}{h}{e} \bi{ope}{rat}{or} \bi{gr}{i}{d} is \emph{\bi{be}{lo}{w}} \bi{t}{h}{e} \bi{M}{D}{E} at
+\bi{t}{h}{e} \bi{lar}{ge}{st} \bi{ava}{ila}{ble} \bi{sa}{mp}{le}. \bi{T}{h}{e} \bi{pai}{rwi}{se} \bi{ta}{bl}{e} is \bi{the}{ref}{ore} a \bi{sc}{re}{en} \bi{f}{o}{r}
+\emph{\bi{st}{ro}{ng}} \bi{depe}{nde}{nce} \bi{a}{n}{d} is \bi{wo}{rd}{ed} \bi{th}{a}{t} \bi{w}{a}{y} \bi{thro}{ugh}{out}; \bi{i}{t}{s} \bi{nu}{ll}{s} \bi{a}{r}{e}
+\bi{unde}{rpow}{ered} \bi{ra}{th}{er} \bi{th}{a}{n} \bi{info}{rmat}{ive}.
+\end{remark}
+
+% ===========================================================================
+\section{\bi{Wh}{a}{t} a \bi{de}{si}{gn} \bi{th}{a}{t} \bi{c}{a}{n} \bi{mea}{su}{re} \bi{th}{i}{s} \bi{req}{uir}{es}}
+\label{sec:design}
+
+\bi{Ea}{c}{h} \bi{r}{o}{w} is \bi{der}{iv}{ed} \bi{fr}{o}{m} a \bi{spe}{cif}{ic} \bi{re}{su}{lt} \bi{ab}{ov}{e}, \bi{n}{o}{t} \bi{pro}{pos}{ed}.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{4.6cm}P{3.4cm}Y}
+\toprule
+\bi{requ}{irem}{ent} & \bi{der}{iv}{ed} \bi{fr}{o}{m} & \bi{unl}{oc}{ks}\\
+\midrule
+\bi{res}{pon}{se}-\bi{bl}{in}{d} \bi{so}{ur}{ce} \bi{no}{rm}{s} & \cref{prop:contam} & \bi{t}{h}{e} \bi{on}{l}{y} \bi{ro}{ut}{e} \bi{sepa}{rat}{ing}
+\bi{cont}{amina}{tion} \bi{fr}{o}{m} \bi{redu}{nda}{ncy}\\
+$\ge 2$ \bi{can}{did}{ate} \bi{se}{t}{s} \bi{p}{e}{r} \bi{pe}{rs}{on} & \cref{thm:vetoinf}, \cref{cor:iia} & \bi{te}{st}{s}
+\bi{whe}{th}{er} $M$ \bi{tra}{nsf}{ers}; \bi{quan}{tif}{ies} \bi{can}{did}{ate}-\bi{s}{e}{t} \bi{over}{fitt}{ing}\\
+\bi{ty}{pe}{d} \bi{fi}{el}{ds}: \bi{ve}{t}{o}, \bi{sc}{op}{e}, \bi{exc}{ept}{ion}, \bi{pri}{ori}{ty} as \bi{sep}{ara}{te} \bi{col}{um}{ns} &
+§\ref{sec:type}, \cref{tab:payload} & \bi{t}{h}{e} \bi{in}{de}{x} \bi{mis}{mat}{ch} is a \bi{mis}{si}{ng} \bi{co}{lu}{mn}, \bi{n}{o}{t}
+a \bi{ha}{r}{d} \bi{pro}{bl}{em}\\
+\bi{int}{erv}{al}-\bi{sc}{al}{e} \bi{vali}{dat}{ion}, or \bi{pa}{ir}{ed} \bi{comp}{aris}{ons} \bi{ins}{te}{ad} & \cref{tab:cardinal} &
+$11.7\%$ of \bi{dec}{isi}{ons} \bi{cur}{ren}{tly} \bi{re}{s}{t} on an \bi{unes}{tabli}{shed} \bi{assu}{mpt}{ion}\\
+$k>4$ \bi{res}{pon}{ses} & \cref{thm:probe} & \bi{ra}{is}{es} \bi{t}{h}{e} \bi{pr}{ob}{e} \bi{bo}{un}{d} \bi{fr}{o}{m} $2$ to $k-2$\\
+$\ge 1{,}213$ \bi{pro}{mp}{ts} & \cref{cor:n} & $1$pp \bi{reso}{lut}{ion}\\
+\bi{subs}{tanti}{ally} \bi{mo}{r}{e} \bi{th}{a}{n} $968$ \bi{f}{o}{r} \bi{pai}{rwi}{se} \bi{str}{uct}{ure} & §\ref{sec:limits} &
+\bi{t}{h}{e} \bi{typ}{ic}{al} \bi{asso}{ciat}{ion} is \bi{cur}{ren}{tly} \bi{unde}{tect}{able}\\
+$\ge 3$ \bi{exe}{cut}{ors} & §\ref{sec:gauge} & \bi{alr}{ea}{dy} \bi{ava}{ila}{ble}; \bi{t}{h}{e} \bi{ga}{ug}{e} is \bi{esta}{blis}{hed}\\
+\bi{comp}{ilat}{ion} \bi{rec}{ei}{pt} (\bi{lin}{ea}{ge}) & §\ref{sec:compile} & \bi{sep}{ara}{tes} \bi{sel}{ect}{ion},
+\bi{rew}{rit}{ing}, \bi{we}{ig}{ht}-\bi{disc}{ard}{ing}\\
+\bi{dec}{lar}{ed} $Q$ \bi{a}{n}{d} \bi{dec}{lar}{ed} $\Agg$ & \cref{prop:Q}, \cref{rem:threelosses} &
+\bi{wit}{ho}{ut} \bi{th}{e}{m} ``\bi{lo}{s}{s}'' is \bi{und}{efi}{ned} \bi{a}{n}{d} ``\bi{de}{fe}{ct}'' is \bi{inse}{para}{ble} \bi{fr}{o}{m} ``\bi{so}{ci}{al}
+\bi{ch}{oi}{ce}''\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ===========================================================================
+\section{\bi{Conc}{lus}{ion}}
+
+\bi{T}{h}{e} \bi{ch}{ai}{n} of \cref{eq:chain} \bi{lo}{se}{s} \bi{som}{eth}{ing} at \bi{ev}{er}{y} \bi{ar}{ro}{w}, \bi{a}{n}{d} \bi{t}{h}{e} \bi{lo}{ss}{es} \bi{a}{r}{e}
+\bi{n}{o}{t} of \bi{o}{n}{e} \bi{ki}{n}{d}.
+
+\begin{itemize}
+\item \textbf{$\succeq_i \to \Nn_i$.} An \bi{unb}{oun}{ded} \bi{rel}{ati}{on} is \bi{pro}{jec}{ted} \bi{on}{t}{o} \bi{t}{w}{o}
+      \bi{fr}{e}{e} \bi{para}{met}{ers} (\cref{thm:probe}) -- \bi{fo}{rc}{ed}, \bi{n}{o}{t} \bi{reco}{vera}{ble}. \bi{Wi}{th}{in} \bi{th}{a}{t},
+      a \bi{pe}{rs}{on}'s \bi{o}{w}{n} \bi{cri}{ter}{ia} \bi{rec}{ov}{er} $39\%$ of \bi{t}{h}{e} \bi{dir}{ect}{ion} of \bi{th}{ei}{r} \bi{o}{w}{n} \bi{ch}{oi}{ce},
+      \bi{a}{n}{d} \bi{t}{h}{e} \bi{indi}{vid}{ual} \bi{com}{pon}{ent} of \bi{th}{a}{t} is $0.083$ of \bi{co}{si}{ne}. \bi{T}{h}{e} \bi{ty}{p}{e}
+      \bi{str}{uct}{ure} is \bi{em}{pt}{y}: $82.3\%$ of \bi{cri}{ter}{ia} \bi{ca}{rr}{y} no \bi{con}{dit}{ion}, \bi{exc}{ept}{ion},
+      \bi{pri}{ori}{ty}, \bi{he}{dg}{e} or \bi{proh}{ibit}{ion}. \bi{A}{n}{d} $11.7\%$ of \bi{dec}{isi}{ons} \bi{de}{pe}{nd} on an
+      \bi{int}{erv}{al} \bi{rea}{di}{ng} of a \bi{sc}{al}{e} \bi{th}{a}{t} \bi{w}{a}{s} \bi{ne}{ve}{r} \bi{val}{ida}{ted} as \bi{o}{n}{e}.
+\item \textbf{$\Nn_i \to G$.} \bi{Aggr}{egat}{ion} \bi{co}{st}{s} $0.1298$ of \bi{norm}{ali}{sed} \bi{uti}{li}{ty}
+      (\cref{thm:garble}) -- a \bi{so}{ci}{al} \bi{ch}{oi}{ce}, \bi{b}{u}{t} \bi{o}{n}{e} \bi{ma}{d}{e} \bi{sil}{ent}{ly} \bi{bec}{au}{se}
+      $\Agg$ \bi{w}{a}{s} \bi{ne}{ve}{r} \bi{dec}{lar}{ed}. \bi{T}{h}{e} \bi{wei}{ght}{ed}-\bi{cri}{ter}{ia} \bi{ro}{ut}{e} \bi{ag}{re}{es} \bi{wi}{t}{h} \bi{t}{h}{e}
+      \bi{Con}{dor}{cet} \bi{wi}{nn}{er} \bi{on}{l}{y} $68.4\%$ of \bi{t}{h}{e} \bi{ti}{m}{e} \bi{wh}{il}{e} \bi{ran}{ki}{ng} \bi{ru}{le}{s} \bi{ag}{re}{e}
+      $97$--$98\%$. $13.4\%$ of \bi{pai}{rwi}{se} \bi{rel}{ati}{ons} \bi{fl}{i}{p} \bi{wh}{e}{n} \bi{t}{h}{e} \bi{op}{ti}{on} \bi{s}{e}{t}
+      \bi{cha}{ng}{es}. \bi{A}{n}{d} $26.1\%$ of \bi{t}{h}{e} \bi{ti}{m}{e} \bi{t}{h}{e} \bi{util}{itar}{ian} \bi{wi}{nn}{er} is a \bi{res}{pon}{se}
+      \bi{som}{ebo}{dy} \bi{ca}{ll}{ed} \bi{unac}{cept}{able}.
+\item \textbf{\bi{Ty}{p}{e}.} No \bi{fi}{ni}{te} \bi{we}{ig}{ht} \bi{enc}{od}{es} a \bi{ve}{t}{o} (\cref{thm:vetoinf}). \bi{Th}{i}{s}
+      is \bi{t}{h}{e} \bi{str}{ong}{est} \bi{sta}{tem}{ent} in \bi{t}{h}{e} \bi{pa}{pe}{r} \bi{a}{n}{d} it \bi{req}{uir}{ed} no \bi{inst}{rum}{ent}.
+\item \textbf{$G \to C$.} \bi{Comp}{ilat}{ion} \bi{cha}{ng}{es} $29.4\%$ of \bi{dec}{isi}{ons}, \bi{wi}{t}{h} \bi{i}{t}{s}
+      \bi{th}{re}{e} \bi{act}{io}{ns} \bi{conf}{oun}{ded}. \bi{B}{u}{t} \bi{t}{h}{e} \bi{dis}{car}{ded} \bi{magn}{itu}{des} \bi{we}{r}{e} \bi{wo}{rt}{h} \bi{ab}{ou}{t} \bi{o}{n}{e}
+      \bi{b}{i}{t}: \bi{si}{g}{n} \bi{al}{on}{e} \bi{repr}{odu}{ces} $89.8\%$.
+\item \textbf{$C \to D$.} \bi{T}{h}{e} \bi{exe}{cut}{or}'s \bi{reli}{abil}{ity} is $0.5497$, \bi{cap}{pi}{ng} \bi{ev}{er}{y}
+      \bi{corr}{elat}{ion} at $0.741$. \bi{Cha}{ngi}{ng} \bi{t}{h}{e} \bi{re}{ad}{er} \bi{cha}{ng}{es} $40\%$ of \bi{win}{ne}{rs};
+      \bi{reor}{der}{ing} \bi{t}{h}{e} \bi{pa}{g}{e} \bi{cha}{ng}{es} $8\%$. \bi{Comp}{arat}{ive} \bi{cl}{ai}{ms} \bi{sur}{vi}{ve} \bi{a}{l}{l} of it;
+      \bi{abs}{olu}{te} \bi{cl}{ai}{ms} do \bi{n}{o}{t}.
+\item \textbf{$D \to Y$.} \bi{Do}{e}{s} \bi{n}{o}{t} \bi{ex}{is}{t} in \bi{t}{h}{e} \bi{rel}{ea}{se}.
+\end{itemize}
+
+\mesotakeaway{\bi{T}{h}{e} \bi{lo}{ss}{es} \bi{in}{si}{de} \bi{t}{h}{e} \bi{elic}{itat}{ion} \bi{a}{r}{e} \bi{la}{rg}{er} \bi{th}{a}{n} \bi{ev}{er}{y} \bi{lo}{s}{s} \bi{t}{h}{e}
+\bi{pip}{eli}{ne} \bi{ad}{d}{s}. \bi{T}{h}{e} \bi{mo}{s}{t} \bi{defe}{nsi}{ble} \bi{sta}{tem}{ent} \bi{th}{i}{s} \bi{ob}{je}{ct} \bi{sup}{por}{ts} is a
+\emph{\bi{the}{or}{em}} \bi{ab}{ou}{t} \bi{wh}{a}{t} a \bi{sc}{al}{ar} \bi{sc}{al}{e} \bi{ca}{nn}{ot} \bi{en}{co}{de}, \bi{a}{n}{d} \bi{t}{h}{e} \bi{mo}{s}{t} \bi{cons}{equen}{tial}
+\bi{o}{n}{e} is \bi{th}{a}{t} \bi{t}{h}{e} \bi{ne}{x}{t} \bi{dat}{as}{et} \bi{sh}{ou}{ld} \bi{b}{u}{y} \textbf{\bi{fi}{el}{ds} \bi{a}{n}{d} \bi{res}{pon}{se}-\bi{bli}{ndn}{ess}},
+\bi{n}{o}{t} \bi{fi}{ne}{r} \bi{wei}{gh}{ts} or \bi{mo}{r}{e} \bi{pro}{mp}{ts}.}
