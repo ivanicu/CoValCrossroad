@@ -1,0 +1,60 @@
+{
+ "cos_double_delete_raw_score": -1.0000000000000002,
+ "cos_double_delete_top1": 0.020498001542269693,
+ "flip_rate_double": 0.0425,
+ "flip_rate_delete": 0.0875,
+ "scalings": [
+  {
+   "scaling": "as r209 wrote it",
+   "rank": 13,
+   "top": 0.2211397638864906,
+   "amp_gap": 0.39431884648866267
+  },
+  {
+   "scaling": "equal energy per channel",
+   "rank": 13,
+   "top": 0.21826570890851124,
+   "amp_gap": 0.3418133205455768
+  },
+  {
+   "scaling": "score only",
+   "rank": 9,
+   "top": 0.38644559858588146,
+   "amp_gap": 0.023447100399803245
+  },
+  {
+   "scaling": "decision only (top1+borda)",
+   "rank": 11,
+   "top": 0.2959644638915413,
+   "amp_gap": 0.1199163595700713
+  },
+  {
+   "scaling": "drop count+veto+register",
+   "rank": 11,
+   "top": 0.2821268431274031,
+   "amp_gap": 0.3103236933925246
+  }
+ ],
+ "reference_class": [
+  {
+   "null": "N1  independent gaussian rows (attack 1's null)",
+   "rank": 18.0,
+   "sd": 0.0,
+   "top": 0.06306530659791204
+  },
+  {
+   "null": "N5  random MIXING of 19 independent sources (full rank)",
+   "rank": 12.1,
+   "sd": 0.6244997998398398,
+   "top": 0.17743340803168844
+  },
+  {
+   "null": "N6  random mixing of 19, then matched per-prompt norms",
+   "rank": 17.0,
+   "sd": 0.0,
+   "top": 0.11611430777747425
+  }
+ ],
+ "observed_rank": 13,
+ "rank_retired": true
+}
