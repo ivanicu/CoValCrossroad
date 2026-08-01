@@ -1,0 +1,265 @@
+% ===========================================================================
+% PART B -- the object in full, the problems found, the attempts made, and the
+% generalisation. Atomic throughout.
+% ===========================================================================
+\section{The object, in full}
+\label{sec:coval}
+
+\subsection{What was collected, field by field}
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{2.4cm}P{2.0cm}P{3.4cm}Y}
+\toprule
+field & index & content & measured property\\
+\midrule
+prompt & $p$ & a conversation & \num{968} joined; \num{18} of \num{986} rubric
+records never matched, so \num{$1.8\%$} is invisible to every number here\\
+responses & $(p,r)$ & exactly four, letters $A$--$D$ & fixes $k=4$, hence the
+probe bound of two free parameters (\cref{thm:probe})\\
+criterion text & $(p,c)$ & ``a good response should\dots'' & \num{15{,}248}
+total, \num{4}--\num{39} per prompt, median \num{15}, median length \num{94}
+characters\\
+weight & $(p,c,a)$ & $-10..{+}10$ & \num{102{,}147} ratings; exactly \num{one} is
+zero, so the scale is used strictly two-sided\\
+ranking & $(p,a)$ & \texttt{A>B>C=D} & three registers: \texttt{world}
+\num{$100\%$}, \texttt{personal} \num{$26.7\%$}, \texttt{unacceptable}
+\num{$16.9\%$}\\
+veto & $(p,a)$ & set of ``unacceptable'' & indexed by \emph{person}, not by
+criterion --- the index mismatch of §\ref{sec:type}\\
+\texttt{coval\_core} & $(p,k)$ & compiled standard, no weights & every item
+rewritten positive; disagrees with the full rubric on \num{$29.4\%$} of prompts\\
+\midrule
+satisfaction & $(p,c,r)$ & \textbf{not released} & reconstructed with an LM judge;
+one-judge reliability \num{$0.5497$}, attenuation ceiling \num{$0.741$}\\
+lineage & --- & \textbf{absent} & compilation's three actions are confounded\\
+$\Agg$ & --- & \textbf{absent} & social choice and defect not separable\\
+prompt id in rubrics & --- & \textbf{absent} & the criterion$\to$prompt index is
+reconstructed from message text\\
+\bottomrule
+\end{tabularx}
+\caption{The bottom block is what is \emph{missing}, and it blocks more questions
+than the top block answers.}
+\label{tab:fields}
+\end{table}
+
+\subsection{What it was for, and the three assumptions that carries}
+
+\why{Stating the design intent is not politeness. Each assumption below is a
+testable proposition, and testing the three of them \emph{is} this paper.}
+
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{P{1.0cm}P{4.6cm}P{3.4cm}Y}
+\toprule
+& assumption & tested in & verdict\\
+\midrule
+A1 & what a person writes captures their values & §\ref{sec:elicit},
+§\ref{sec:gaps} & \textbf{fails}: own criteria recover \num{$39\%$} of own
+choice; the two routes disagree at \num{$0.692$} after full noise correction\\
+A2 & $-10..{+}10$ is an interval scale, addable across people &
+§\ref{sec:cardinal}, §\ref{sec:gaps} & \textbf{unestablished and load-bearing}:
+worth \num{$11.7\%$} of decisions; and cross-person addition requires an
+interpersonal stipulation the elicitation never made\\
+A3 & summing weighted criteria yields an executable standard & §\ref{sec:type} &
+\textbf{fails for one class}: no finite weight encodes a veto
+(\cref{thm:vetoinf})\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Why the design is nonetheless the right shape}
+
+\why{A catalogue of failures with no account of what the design got right is an
+attack, not an audit.}
+
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{P{3.2cm}Y}
+\toprule
+auditable by construction & criteria are text a human can read, so a disagreement
+can be \emph{located}, unlike a preference-pair reward model\\
+population-scale & the collective norm comes from a crowd rather than a handful of
+authors, which is the stated gap in constitutional approaches\\
+two routes elicited & criteria \emph{and} rankings from the same session --- this
+redundancy is what made §\ref{sec:gaps}'s central measurement possible at all\\
+a veto field exists & most preference datasets have no way to say ``forbidden'';
+this one does, which is why the type question is even askable here\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ===========================================================================
+\section{The problems, catalogued}
+\label{sec:problems}
+
+\why{Each entry states what the problem is, what it was measured with, what it
+implies, and --- where relevant --- whether it is a property of this release or of
+the approach. The last column is what decides whether a fix is a bigger dataset
+or a different design.}
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{0.7cm}P{3.4cm}P{3.0cm}P{4.0cm}Y}
+\toprule
+& problem & measurement & implication & release or approach\\
+\midrule
+P1 & the two elicitations disagree beyond their own noise & disattenuated cosine
+\num{$0.6924$} & $\approx$~\num{31\%} of the write/choose gap is real, not
+measurement error & \textbf{approach}: any design eliciting both will face it\\
+P2 & the probe bound & rank $3$, then $S^2$ & \textbf{two} free parameters per
+person per prompt, whatever the criteria say & approach, unless $k$ grows\\
+P3 & type collapse & \num{$82.3\%$} of criteria carry no condition, exception,
+priority, hedge or prohibition & the questions ``did compilation destroy the
+exception'' are \textbf{empty} here & release: add fields\\
+P4 & the scale is used as interval, unvalidated & sign-only changes
+\num{$11.7\%$} of decisions & every summed-criteria result inherits an
+unestablished assumption & release: validate or use paired comparison\\
+P5 & no declared aggregation rule & --- & authorised social choice and machine
+defect \textbf{not separable} & release: one line of documentation\\
+P6 & no compilation lineage & $29.4\%$ disagreement, three actions & selection /
+rewriting / weight-dropping confounded & release: a receipt\\
+P7 & the instrument is a judge & reliability \num{$0.5497$}; \num{$40\%$} of
+winners change with the reader; \num{$8\%$} with page order & absolute claims are
+about the reader; comparative claims survive & approach: report both, always\\
+P8 & candidate-set dependence & \num{$13.4\%$} IIA violations & measured
+``values'' are partly a property of the four responses shown & approach: needs
+$\ge2$ candidate sets\\
+P9 & post-hoc contamination & judge scores criteria against the responses they
+were written about, \num{$+0.0365$}, $z=+46.2$ & satisfaction and choice are two
+views of \emph{one act} & release: response-blind elicitation\\
+P10 & manipulability & \num{$3.9\%$} of annotator--prompt pairs, crudest
+misreport, a \emph{lower bound} & the weights cannot be read as unconditionally
+sincere & approach: Gibbard--Satterthwaite guarantees it exists\\
+P11 & interpersonal comparability & --- & every aggregate rests on a stipulation
+of equal stakes; the deficiency \num{$0.1298$} is a number about (data, scale) &
+approach: the oldest problem in social choice\\
+P12 & $Y$ does not exist & --- & any end-to-end number quoted to behaviour is
+fabricated & release, in principle\\
+\bottomrule
+\end{tabularx}
+\caption{Six are properties of this release and are fixable by collecting
+differently. Six are properties of the approach and are not.}
+\label{tab:problems}
+\end{table}
+
+% ===========================================================================
+\section{What was attempted, and why each version failed}
+\label{sec:attempts}
+
+\why{The failed constructions are load-bearing evidence, not autobiography: each
+one is a design somebody else will otherwise build, and the reason it fails is a
+property of the object rather than of the implementation.}
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{0.7cm}P{3.4cm}P{4.4cm}Y}
+\toprule
+& construction & what it was trying to capture & why it failed\\
+\midrule
+V1 & a single preservation percentage $N\to Y$ & ``how much survives'' as one
+number & undefined without $Q$ (\cref{prop:Q}); and $Y$ absent (P12)\\
+V2 & effective dimension of the induced norm & loss as \emph{collapse of rank} &
+read $3.00$ on every input \emph{including its own null} --- the probe bound
+(\cref{thm:probe}) forced it. A check that cannot fail\\
+V3 & cosine between a person's rubric and their own ranking & alignment as
+preservation & the pipeline appears nowhere in it; and P9 makes the two sides
+views of one act\\
+V4 & a $19\times23$ operator $\times$ loss-shape detection matrix & which family
+sees which failure & \num{2} of the shapes are algebraically invariant to
+$1.8\times10^{-14}$; \num{5} of \num{8} operators were scalar multiples of one
+vector; the design's own rank was \num{2}\\
+V5 & eigenvalue rank of the operator set & operator distinctness as one integer &
+sits \emph{inside} the span of three defensible nulls ($12.1$, $17.0$, $18.0$)
+with the observation at $13$; the null \emph{construction} moved it more than the
+data. Retired\\
+V6 & flip rate under perturbation & decision change as a probability & correct but
+a \emph{coarsening}: discards $\E[\Reg\mid\text{flip}]$, halving the measured
+separation between operators (\cref{lem:coarsen})\\
+\midrule
+V7 & normalised regret, swept target, cluster-bootstrapped, gauge-tested & the
+Blackwell deficiency on the declared decision family & \textbf{current}; exact on
+all eight known-truth quantities (§\ref{sec:findings})\\
+\bottomrule
+\end{tabularx}
+\caption{V2 and V5 are the instructive ones: both produced a confident number
+whose value was fixed by the construction rather than by the data.}
+\label{tab:attempts}
+\end{table}
+
+\subsection{The failure mode shared by V2 and V5, and by five withdrawn claims}
+
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{P{3.6cm}Y}
+\toprule
+shape & a verdict decided by a constant the author chose, rather than by a
+comparison against a range of defensible references\\
+instances & one null instead of a null class · one reference instead of a
+reference class · a two-branch template for a three-outcome test · a $0.15$
+cutoff · a shape threshold in place of an outcome test · ``rank $1$'' as a kill
+against a design of rank $2$\\
+why it is invisible & each constant is individually defensible; the failure is
+that it was \emph{fixed before the outcome space was enumerated}\\
+the repair, structural & every verdict is a printed comparison against the
+\emph{range} of defensible references, never a boolean computed from a threshold\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\mesoboundary{This is reported because it is a measurable property of the
+methodology, not a confession. Five of six withdrawn claims share it; that is a
+higher concentration than any substantive cause, and it predicts where the next
+error will be.}
+
+% ===========================================================================
+\section{The generalisation: what \texorpdfstring{\cref{thm:vetoinf}}{the veto theorem} says beyond this dataset}
+\label{sec:general}
+
+\why{The theorem's premises never mention CoVal. Stating its actual scope is the
+difference between an audit of one dataset and a statement about a training
+stack.}
+
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{P{3.2cm}Y}
+\toprule
+premise (i) & the decision is $\argmax$ of a \textbf{scalar} score\\
+premise (ii) & the \textbf{candidate set varies} between fitting and deployment\\
+\midrule
+who satisfies both & every scalar reward model; every best-of-$n$ sampler; every
+preference-trained ranker; every rubric summed to a number\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{corollary}[Scalar reward cannot encode a constraint]
+\label{cor:rewardmodel}
+Let a constraint be ``never select from $V$''. A scalar reward can express it only
+as a penalty $M$. By \cref{thm:veto} the penalty reproduces the constraint on a
+candidate set $X$ iff $M > \Delta(X)$, and by \cref{thm:vetoinf}
+$\sup_X\Delta(X)=\infty$. Hence no finite reward penalty enforces a
+constraint uniformly over candidate sets.
+\end{corollary}
+
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{P{3.2cm}Y}
+\toprule
+what this is not & a claim that penalties never work. On any \emph{fixed}
+candidate distribution a sufficient $M$ exists and can be fitted\\
+what this is & a claim that the sufficient $M$ is a property of the
+\textbf{candidate distribution}, so it does not transfer --- and the failure
+appears exactly where capability improves, because a better generator produces
+candidates that score higher on everything else\\
+the measured instance & on \num{968} four-item sets the required penalty already
+reaches \num{$2.65\times$} the entire elicitation scale\\
+the architectural consequence & a constraint needs an \textbf{independent
+feasible set} --- a classifier, a hard filter, a separate rejection head --- not a
+term folded into the score\\
+the falsifier & exhibit a bounded $M$ reproducing constraint behaviour across
+candidate sets; \cref{thm:vetoinf} forbids it for unbounded satisfaction, so a
+bounded-satisfaction variant with a stated bound would narrow the theorem rather
+than break it\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\mesotakeaway{The load-bearing result here is not about a dataset. \textbf{A scalar
+reward model cannot encode ``never do $X$''; it can only encode ``doing $X$ costs
+a lot'', and how much is a lot depends on what else was on the menu.} That is a
+type error, it is provable without any instrument, and it predicts that
+constraint violations concentrate exactly where the candidate distribution has
+shifted --- which is where capability gains put it.}

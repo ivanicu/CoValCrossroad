@@ -1,0 +1,183 @@
+% ===========================================================================
+% PART A -- WHAT NORMATIVE INFORMATION IS. Atomic: one self-contained unit per
+% row, each carrying its own motive. No paragraph exceeds three lines.
+% ===========================================================================
+\section{What normative information is}
+\label{sec:concept}
+
+\why{The phrase is used in every alignment paper and defined in none. Six
+definitions are in circulation, they disagree by orders of magnitude on the same
+data, and five are refutable by construction. This section fixes the object
+before anything is measured, because \cref{prop:Q} proves the measurement is
+determined by the choice.}
+
+\subsection{The naive picture, and the exact point of failure}
+
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{P{2.6cm}Y}
+\toprule
+the picture & values $\to$ writing $\to$ aggregate $\to$ standard $\to$ model; a
+fraction is lost at each arrow and can be reported\\
+the failure & ``fraction \emph{of what}'' has no referent. Values are a relation
+on an infinite set, not a substance with a quantity\\
+what is needed & a criterion for two normative objects being \emph{the same},
+which is a modelling decision with at least six defensible answers\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Six candidate definitions, five refuted by construction}
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{1.5cm}P{2.9cm}P{5.0cm}Y}
+\toprule
+& \textbf{definition} & \textbf{refuting construction} & \textbf{measured here}\\
+\midrule
+\textbf{C1} & the \emph{text}; loss $=$ words that did not survive
+& paraphrase is total loss, verbatim copy into an inapplicable context is zero
+loss & compilation rewrites every criterion, so C1 scores $100\%$ loss for an
+object that still agrees on \num{$70.6\%$} of decisions\\
+\textbf{C2} & the \emph{numbers}; loss $=$ weights that changed
+& multiply every weight by $2$: all decisions, rankings and aggregates identical,
+C2 says everything changed & the scale has no shared zero, no shared unit, and an
+interval reading worth \num{$11.7\%$} of decisions (§\ref{sec:cardinal})\\
+\textbf{C3} & the \emph{induced ranking}
+& an ordering is defined only against a candidate set; and two objects agreeing on
+every ranking can still differ as ``worse'' versus ``forbidden'' & \num{$13.4\%$}
+of pairwise relations reverse when an irrelevant candidate is removed; the
+aggregate picks a forbidden response \num{$26.1\%$} of the time\\
+\textbf{C4} & \emph{downstream behaviour} of a trained model
+& coherent, but requires $Y$, which is absent; and would measure the training
+stack as much as the standard & $Y$ is not in the release and no arithmetic
+recovers it (§\ref{sec:notid})\\
+\textbf{C5} & \emph{mutual information} $I(\Nn;G)$
+& counts dependence no decision uses: preserving wording while destroying
+polarity scores high & the rate--distortion repair works but its answer is fixed
+by the distortion choice, i.e.\ by C6's $Q$\\
+\midrule
+\textbf{C6} & the \emph{query-relative equivalence class} $[\Nn]_Q$ & --- & the
+definition used here\\
+\bottomrule
+\end{tabularx}
+\caption{C1--C5 are not rivals to C6. Each is C6 at a particular $Q$: C1 at all
+text functions, C3 at ranking queries on the observed set, C5 at all measurable
+functions. \Cref{prop:Q} proves the choice of $Q$ determines the answer, so the
+disagreement among C1--C5 is not empirical.}
+\label{tab:candidates}
+\end{table}
+
+\subsection{C6, stated}
+
+\begin{definition}[Normative information]
+\label{def:normativeinfo}
+Fix $Q$, the family of questions the downstream system must answer. Then
+$\Nn \sim_Q \Nn'$ iff $q(\Nn,x)=q(\Nn',x)$ for every $q\in Q$ and every $x$; the
+normative information in $\Nn$ is the class $[\Nn]_Q$.
+\end{definition}
+
+\why{C1--C5 each exercised this freedom silently. C6 makes it an input that must
+be published. That is the whole gain: not a better answer, an \emph{answerable}
+question.}
+
+\mesotakeaway{Declaring $Q$ is not a preliminary to the measurement. \textbf{It is
+most of the result.} A framework reporting one percentage has chosen a $Q$ and
+not disclosed it.}
+
+\subsection{Where C6 lives formally, and what that buys}
+
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{P{3.0cm}Y}
+\toprule
+move & take $Q$ to be decision problems rather than arbitrary queries --- no loss
+of generality, since any query is posable as a decision\\
+consequence & $\Nn\sim_Q\Nn'$ becomes Blackwell indistinguishability on that
+family\\
+the quantity & \emph{deficiency}
+$\delta_Q=\sup_{d\in Q}\big[R_{\Nn'}(d)-R_{\Nn}(d)\big]$, not a percentage\\
+\midrule
+buys (i) & a \textbf{unit}: deficiency is in the units of the decision loss, so it
+is comparable to what the decision is worth\\
+buys (ii) & a \textbf{worst case}: a supremum over the declared family, not an
+average over whichever queries were tried\\
+buys (iii) & an \textbf{order}: Blackwell's relation is partial, so two standards
+can be incomparable, and saying so beats forcing a rank\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Three source objects; merging them makes the question unanswerable}
+
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{P{1.1cm}P{4.4cm}Y}
+\toprule
+$Z$ & the individual inputs $(\Nn_1,\dots,\Nn_n)$: who said what, who dissented,
+who vetoed & aggregation \emph{necessarily} discards some of this
+(\cref{thm:garble})\\
+$G$ & $\Agg(Z)$, the collective norm under a rule $\Agg$ & loss here is a
+\textbf{social choice}, not an error --- \emph{if} $\Agg$ was declared\\
+$S$ & the authorised behaviour set after legitimate expert enrichment & loss here
+is either domain necessity or machine distortion\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{proposition}[Without the layers, ``defect'' is undefined]
+A loss between $Z$ and $G$ is a defect only if unlicensed by $\Agg$. If $\Agg$ is
+undeclared, no observed loss can be classified, and ``the pipeline lost
+information'' is indistinguishable from ``the pipeline did what it said''.
+\end{proposition}
+
+\mesoboundary{\textbf{CoVal declares no $\Agg$.} At this site, authorised social
+choice and machine defect are \textbf{not separable}. Not a hard measurement
+problem --- a missing line of documentation, and the cheapest thing a future
+release could fix.}
+
+\subsection{The conservation law: four classes, not one number}
+
+\why{The deliverable of a theory of normative information is not a score. It is a
+statement of what may be compressed and what may not --- the content is the
+\emph{partition}, not the total.}
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{3.0cm}P{4.6cm}Y}
+\toprule
+class & distinctions & requirement on the pipeline\\
+\midrule
+must be causally preserved & polarity; non-compensability; scope; exceptions &
+intervening must move behaviour, \emph{in the predicted direction}\\
+recoverable is enough & wording; non-load-bearing provenance; restatements &
+must be decodable; need not steer\\
+licensed to drop & duplicates; entailed criteria; phrasing variance & only if the
+licence is declared \emph{at the layer where it happens}\\
+type errors when lost & veto $\to$ scalar; uncertainty $\to$ certainty; right
+$\to$ preference; expert constraint $\to$ public preference & a category change,
+not degradation; \textbf{no continuous metric detects it}\\
+\bottomrule
+\end{tabularx}
+\caption{Rows 2--3 are assertions. Row 1 is partly measured (§\ref{sec:est}).
+Row 4 is where \cref{thm:veto} sits.}
+\label{tab:conservation}
+\end{table}
+
+\subsection{Why row four is the deepest}
+
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{P{3.4cm}Y}
+\toprule
+the mechanism & a type change can leave the object arbitrarily close to the
+source in \emph{every} continuous measure while answering a different question\\
+the extreme case & a veto rendered as $-10$ and a strong dispreference rendered as
+$-10$ are the \emph{same object}; there is nothing left to measure\\
+where the difference lives & only in behaviour on candidate sets not yet seen ---
+which is exactly \cref{thm:veto}\\
+consequence & similarity metrics are structurally unable to audit this class, and
+most alignment evaluation is similarity metrics\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\mesotakeaway{Normative information is not a quantity flowing down a pipe. It is a
+\textbf{partition of distinctions} into: must be causally preserved · must merely
+be recoverable · may be dropped under a declared licence · \textbf{cannot be
+represented at all in the chosen format}. The last class is invisible to every
+similarity measure, and it is where a scalar scale fails.}

@@ -1,0 +1,249 @@
+% ===========================================================================
+% PART A -- WHAT NORMATIVE INFORMATION IS. The concept, examined exhaustively.
+% This is the intellectual core and it was previously scattered across the paper.
+% ===========================================================================
+\section{What normative information is}
+\label{sec:concept}
+
+The phrase appears in every paper on value alignment and is almost never defined.
+This section defines it, by killing five candidate definitions and keeping the
+sixth. Each candidate is a position someone actually holds; each is refuted by a
+specific construction, not by preference.
+
+\subsection{The naive picture, and precisely where it breaks}
+
+The naive picture is a pipe. A person has values; they write them down; the
+writing is aggregated; the aggregate is compiled; a model is trained. At each
+stage some fraction of the original content is lost, and one could in principle
+report that fraction.
+
+\step{Where it breaks.} ``Fraction of \emph{what}'' has no answer. Values are not
+a substance with a quantity. Before any measurement is possible one must say what
+two normative objects being ``the same'' means, and that is a modelling decision
+with at least six defensible answers.
+
+\subsection{Candidate 1 --- normative information is the text}
+
+\emph{Claim.} What a person wrote is what they contributed; loss is text that
+failed to survive.
+
+\begin{proposition}[Refuted by paraphrase]
+Under this definition, rewriting a criterion in different words with identical
+meaning is total loss, and copying a criterion verbatim into a context where it
+cannot apply is zero loss. Both readings are wrong in the direction that matters
+for a standard.
+\end{proposition}
+
+\step{The empirical form of the refutation here.} The compiled standard rewrites
+every criterion. Under Candidate 1 the compilation destroys everything, which is
+plainly false: the compiled standard still selects the same response as the full
+rubric on $70.6\%$ of prompts (§\ref{sec:compile}). A definition under which a
+$70.6\%$-agreeing object has lost $100\%$ of the content is not measuring content.
+
+\subsection{Candidate 2 --- normative information is the numbers}
+
+\emph{Claim.} The weights are the content; loss is weights that changed.
+
+\begin{proposition}[Refuted by the units problem]
+The weights live on a scale with no established zero for comparison across
+people, no established unit, and --- as §\ref{sec:cardinal} measures --- an
+interval reading that changes $11.7\%$ of decisions when removed. A definition
+that treats an uncalibrated private scale as the content inherits every one of
+those problems as though they were facts about values.
+\end{proposition}
+
+\step{And a sharper refutation.} Multiply everyone's weights by two. Every
+decision is unchanged, every ranking is unchanged, every aggregate is unchanged.
+Under Candidate 2 all the information changed. So Candidate 2 measures a
+representation, not a content.
+
+\subsection{Candidate 3 --- normative information is the induced ranking}
+
+\emph{Claim.} What matters is the order over the candidates; loss is order that
+changed.
+
+This is much better, and it is what most evaluation work implicitly uses. It is
+still wrong, in two ways that the data exhibit.
+
+\begin{proposition}[Refuted by candidate-set dependence]
+\label{prop:cand3}
+An ordering is defined only relative to the set being ordered. §\ref{sec:agg}
+measures that $13.4\%$ of pairwise relations \emph{reverse} when an irrelevant
+third candidate is removed. So ``the induced ranking'' is not a property of the
+person; it is a property of the person and the four responses shown.
+\end{proposition}
+
+\begin{proposition}[Refuted by type]
+\label{prop:cand3b}
+Two normative objects can induce the same ranking on every candidate set yet
+differ in a way that matters: one says ``$D$ is worse'', the other says ``$D$ is
+forbidden''. On any set where $D$ does not win they are indistinguishable by
+ranking. \Cref{thm:veto} shows this difference is not recoverable by any finite
+weight, and §\ref{sec:agg} measures that it bites: $26.1\%$ of the time the
+aggregate selects a response somebody forbade.
+\end{proposition}
+
+\subsection{Candidate 4 --- normative information is what a model trained on it does}
+
+\emph{Claim.} The only thing that matters is downstream behaviour.
+
+\begin{proposition}[Not refuted, but not available]
+This is a coherent definition. It requires $Y$: the behaviour of a system trained
+under the standard. $Y$ is not in the release and no arithmetic recovers it
+(§\ref{sec:notid}). Any number quoted end-to-end under this definition is
+fabricated.
+\end{proposition}
+
+\begin{remark}[Why it is also unstable as a definition]
+Even with $Y$, the answer would depend on the training method, the base model,
+the optimiser, and the data mixture. The measurement would then be about the
+training stack, and comparing two standards would require holding all of it
+fixed --- which is a legitimate experiment and a different one from measuring the
+standards.
+\end{remark}
+
+\subsection{Candidate 5 --- normative information is mutual information}
+
+\emph{Claim.} Use Shannon: $I(\Nn; G)$, the mutual information between the
+individual norms and the aggregate.
+
+\begin{proposition}[Refuted by decision-irrelevance]
+Mutual information counts \emph{any} statistical dependence, including
+dependence that no decision uses. A compilation that faithfully preserves a
+criterion's exact wording while destroying its polarity scores high mutual
+information and is catastrophic; one that discards wording while preserving every
+decision scores low and is harmless. Shannon information is the wrong currency
+because it has no notion of what the information is \emph{for}.
+\end{proposition}
+
+\begin{remark}[The rate--distortion repair, and its remaining hole]
+The standard fix is rate--distortion: minimise bits subject to a distortion
+bound. §\ref{sec:compile} runs exactly this and gets a real answer ($1$ bit
+reproduces $89.8\%$ of decisions). But the answer is entirely determined by the
+choice of distortion measure, which is the same freedom Candidate 6 makes
+explicit. Rate--distortion is not an alternative to declaring the purpose; it is
+a way of computing once the purpose is declared.
+\end{remark}
+
+\subsection{Candidate 6 --- normative information is a query-relative equivalence class}
+
+\begin{definition}[The definition this paper uses]
+\label{def:normativeinfo}
+Fix a family $Q$ of \emph{queries}: the questions the downstream system must be
+able to answer. Then
+\[
+\Nn \sim_Q \Nn' \iff q(\Nn,x)=q(\Nn',x) \ \text{ for all } q\in Q,\ \text{all } x,
+\]
+and the \emph{normative information} in $\Nn$ is the equivalence class $[\Nn]_Q$.
+\end{definition}
+
+\step{Why this is not a dodge.} It makes the freedom that Candidates 1--5 each
+exercised silently into an explicit, publishable input. Candidate 1 is
+\cref{def:normativeinfo} with $Q$ = all text functions; Candidate 3 is $Q$ = the
+ranking queries on the observed set; Candidate 5 is $Q$ = all measurable
+functions. They are not rival definitions --- they are different choices of $Q$
+inside one definition, and \cref{prop:Q} proves the choice determines the answer.
+
+\mesotakeaway{\textbf{Declaring $Q$ is not a preliminary to the measurement.
+Declaring $Q$ \emph{is} most of the result.} Any framework reporting a single
+percentage of normative information preserved has chosen a $Q$ and not told you.}
+
+\subsection{Where the definition lives formally: Blackwell}
+
+\Cref{def:normativeinfo} is a statement about indistinguishability. Decision
+theory has the matching notion.
+
+\begin{itemize}
+\item Take $Q$ to be a family of \emph{decision problems} rather than arbitrary
+      questions --- which loses no generality, because any query can be posed as
+      a decision.
+\item Then $\Nn \sim_Q \Nn'$ exactly when neither is \emph{more informative} than
+      the other in Blackwell's sense on that family.
+\item And the natural quantity is not a percentage but a \emph{deficiency}:
+      $\delta_Q(\Nn,\Nn') = \sup_{d\in Q}[R_{\Nn'}(d)-R_{\Nn}(d)]$, the worst
+      extra loss over the declared family.
+\end{itemize}
+
+\begin{remark}[What this buys, concretely]
+Three things a percentage cannot give. (i) A \emph{unit}: the deficiency is in
+the units of the decision loss, so it can be compared to what the decision is
+worth. (ii) A \emph{worst case}: a supremum over the family, not an average over
+whatever queries happened to be tried. (iii) An \emph{ordering}: Blackwell's
+relation is a partial order, so two standards can be genuinely incomparable, and
+saying so is more honest than forcing a ranking.
+\end{remark}
+
+\subsection{The three source objects, and why merging them makes the question unanswerable}
+
+\begin{definition}[Layers]
+\label{def:layers}
+\begin{itemize}
+\item $Z = (\Nn_1,\dots,\Nn_n)$: the individual inputs. Who said what, who
+      dissented, who vetoed.
+\item $G = \Agg(Z)$: the collective norm, under a rule $\Agg$.
+\item $S$: the authorised behaviour set, after any legitimate expert enrichment.
+\end{itemize}
+\end{definition}
+
+\begin{proposition}[Without the layers, ``defect'' is undefined]
+Aggregation necessarily destroys individual information (\cref{thm:garble}).
+Therefore an observed loss between $Z$ and $G$ is a \emph{defect} only if it was
+not licensed by $\Agg$. If $\Agg$ is not declared, no observed loss can be
+classified, and ``the pipeline lost information'' cannot be distinguished from
+``the pipeline did what it said it would''.
+\end{proposition}
+
+\step{The state of the object.} CoVal declares no $\Agg$. So at this site the
+distinction between an authorised social choice and a machine defect is
+\textbf{not recoverable}. This is not a hard measurement problem; it is a missing
+line of documentation, and it is the single cheapest thing a future release could
+fix.
+
+\subsection{The four classes of distinction, which is what a conservation law looks like}
+
+The goal of a theory of normative information is not a score. It is a statement
+of \emph{what may be compressed and what may not} --- the normative analogue of a
+conservation law, where the content is the partition rather than the total.
+
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{P{3.4cm}P{5.2cm}Y}
+\toprule
+class & distinctions & what is required of the pipeline\\
+\midrule
+\textbf{must be causally preserved} & polarity; non-compensability (veto); scope;
+exception conditions & intervening on these must move behaviour, in the predicted
+direction\\
+\textbf{recoverable is enough} & wording; provenance where not load-bearing for
+authority; redundant restatements & must be decodable; need not steer\\
+\textbf{licensed to drop} & duplicates; criteria entailed by others; phrasing
+variance & only if the licence is declared at the layer where it happens\\
+\textbf{type errors when lost} & veto $\to$ scalar; uncertainty $\to$ certainty;
+right $\to$ preference; expert constraint $\to$ public preference & not
+degradation but a category change; no continuous metric detects it\\
+\bottomrule
+\end{tabularx}
+\caption{The partition this research programme is aimed at filling empirically.
+Rows two and three are currently assertions. Row one is partly measured
+(§\ref{sec:est}). Row four is where this paper's theorem sits.}
+\label{tab:conservation}
+\end{table}
+
+\subsection{The deepest distinction: type versus magnitude}
+
+Rows one and four of \cref{tab:conservation} are the ones that make the framework
+falsifiable, and the fourth is the deepest, because it is the only one that
+\emph{no similarity metric can detect}.
+
+\step{Why no metric detects it.} A type change can leave the object arbitrarily
+close to the source in every continuous measure while answering a different
+question. A veto rendered as $-10$ and a strong dispreference rendered as $-10$
+are \emph{identical objects}. There is nothing left to measure. The difference
+exists only in the behaviour under candidate sets not yet seen --- which is
+exactly \cref{thm:veto}, and exactly why that theorem is the load-bearing result
+of this paper.
+
+\mesotakeaway{Normative information is not a quantity that flows down a pipe. It
+is a \textbf{partition of distinctions into what must be causally preserved, what
+must merely be recoverable, what may be dropped under a declared licence, and
+what cannot be represented at all in the chosen format}. The last class is
+invisible to every similarity measure, and it is where a scalar scale fails.}
