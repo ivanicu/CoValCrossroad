@@ -97,7 +97,13 @@ def main() -> int:
           f"where 0.5 is chance",
           "only 30.9% of core items match any source at all, so this tests the matchable subset; "
           "if the unmatched 69% were the high-rated ones the rule could still hold on the part "
-          "that cannot be seen")
+          "that cannot be seen. "
+          "CORRECTED BY r181: the rule as WORDED still fails -- core items do not come from the "
+          "top slots by |mean rating|. But weight is unmistakably doing work in the selection. "
+          "Survival of a self-authored criterion into the core runs 3.0% / 5.1% / 10.1% across "
+          "|weight| bands 0-3, 3-7, 7-10, a 3.4x gradient over 9,452 attributable criteria. So "
+          "FAILS is right about the stated mechanism and would be wrong as 'ratings are ignored'. "
+          "The defensible verdict is that selection is rating-SENSITIVE but not rating-ORDERED.")
 
     # ---- weights range
     sc = [s["score"] for r in rub for it in r["coval_full"] for s in it["scores"]]

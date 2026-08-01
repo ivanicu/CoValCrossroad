@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import json
 import pathlib
+from collections import Counter
 
 HERE = pathlib.Path(__file__).resolve().parent
 WAVES = {
@@ -113,6 +114,12 @@ CORRECTIONS = {
     "identical ranking string": "SURVIVES (r175): 6 observed against ~0 expected under the marginal "
                                 "ranking distribution (186 distinct strings, 3.5% modal), and 0 in "
                                 "5 permutation seeds. A real behavioural signature.",
+    "no pointer to their source": "PRICED (r181): this is the defect that blocks the project's "
+                                  "central question. Whether the compilation deletes dissenting "
+                                  "authors' criteria came out UNVERIFIED -- raw-clustered crosses "
+                                  "zero, stratified-clustered does not, quartiles non-monotonic -- "
+                                  "and it cannot be resolved because core carries no lineage and "
+                                  "the 5,564 multiply-rated criteria carry no author.",
     "first batch": "SURVIVES (r175): a hard ceiling at 5 with 98.0% of annotators sitting exactly "
                    "on it and nothing above, while the same people's world blocks run to 39. That "
                    "is a structural cap, not a population that happened to stop.",
@@ -167,9 +174,13 @@ def main() -> int:
                 and key_for(f["title"]))
     total_hi = counts["BLOCKING"] + counts["SERIOUS"]
     print(f"\n{named}/{total_hi} blocking-or-serious items have a named concrete wrong answer.")
+    # The tally is COUNTED, never written down -- a hardcoded "4 downgraded, 2 confirmed" went
+    # stale the moment r181 added a row, and a stale count in a generated list is the same class of
+    # error as a stale environment fact.
     corrected = sum(1 for f in items if (key_for(f["title"]) or "") in CORRECTIONS)
-    print(f"{corrected} items carry an r175 correction: 4 downgraded, 2 confirmed against a null "
-          f"they had never been tested against.")
+    tally = Counter(v.split(" ")[0].rstrip(":") for v in CORRECTIONS.values())
+    print(f"{corrected} of the listed items carry a later correction: "
+          + ", ".join(f"{k} {n}" for k, n in sorted(tally.items())) + ".")
     print(f"{counts['CLEAN']}/{len(items)} checks came back clean -- the ratio is the only evidence "
           f"the sweep was not just finding what it went looking for.")
     (HERE / "DEFECTS.json").write_text(json.dumps(

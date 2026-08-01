@@ -424,6 +424,7 @@
   "concentrated in a few countries": "DOWNGRADED (r175): 63.2% in three countries is correct, but the release publishes no sampling frame, so there is no distribution to be concentrated RELATIVE TO. Stateable without one: effective panel = 5.2 countries, and 12 of 19 have under 30 people.",
   "synthetic and short": "DOWNGRADED (r175): the transfer claim is withdrawn -- I hold no production traffic to compare against. Also two of my own numbers die: the median is 128 chars not 139, and 98 of 1,078 prompts are multi-turn, which the card's own 'vast majority' hedge got right.",
   "identical ranking string": "SURVIVES (r175): 6 observed against ~0 expected under the marginal ranking distribution (186 distinct strings, 3.5% modal), and 0 in 5 permutation seeds. A real behavioural signature.",
+  "no pointer to their source": "PRICED (r181): this is the defect that blocks the project's central question. Whether the compilation deletes dissenting authors' criteria came out UNVERIFIED -- raw-clustered crosses zero, stratified-clustered does not, quartiles non-monotonic -- and it cannot be resolved because core carries no lineage and the 5,564 multiply-rated criteria carry no author.",
   "first batch": "SURVIVES (r175): a hard ceiling at 5 with 98.0% of annotators sitting exactly on it and nothing above, while the same people's world blocks run to 39. That is a structural cap, not a population that happened to stop."
  }
 }
