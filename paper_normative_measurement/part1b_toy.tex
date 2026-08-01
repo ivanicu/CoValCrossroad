@@ -1,0 +1,351 @@
+% ===========================================================================
+% PART 1b -- the entire chain executed on a toy the reader can check by hand,
+% plus the three classical theorems proved rather than invoked.
+% ===========================================================================
+\section{The whole chain on numbers you can check}
+\label{sec:toy}
+
+Everything in §\ref{sec:elicit}--§\ref{sec:c1} is now executed on a
+three-person, four-response, three-criterion example. Every number below can be
+verified with a pencil.
+
+\subsection{The setup}
+
+Three annotators $\{1,2,3\}$, four responses $\{A,B,C,D\}$, three criteria
+$\{c_1,c_2,c_3\}$. The judge returns:
+\[
+\sat=\begin{pmatrix}
+ & A & B & C & D\\
+c_1 & 0.9 & 0.8 & 0.2 & 0.1\\
+c_2 & 0.2 & 0.7 & 0.9 & 0.3\\
+c_3 & 0.5 & 0.4 & 0.4 & 0.9
+\end{pmatrix}
+\]
+The weights, one row per annotator (a blank means that annotator did not rate
+that criterion):
+\[
+\wt=\begin{pmatrix}
+ & c_1 & c_2 & c_3\\
+1 & +8 & +2 & -1\\
+2 & +6 & +4 & \cdot\\
+3 & -2 & +9 & +3
+\end{pmatrix}
+\]
+Annotator $3$ additionally declares $V_3 = \{A\}$ unacceptable.
+
+\subsection{Individual norms $\Nn_i$ (\cref{def:ni})}
+
+\begin{align*}
+\Nn_1 &= 8(0.9,0.8,0.2,0.1)+2(0.2,0.7,0.9,0.3)-1(0.5,0.4,0.4,0.9)\\
+      &= (7.2,6.4,1.6,0.8)+(0.4,1.4,1.8,0.6)-(0.5,0.4,0.4,0.9)\\
+      &= (7.1,\;7.4,\;3.0,\;0.5)\\
+\Nn_2 &= 6(0.9,0.8,0.2,0.1)+4(0.2,0.7,0.9,0.3)
+       = (5.4,4.8,1.2,0.6)+(0.8,2.8,3.6,1.2) = (6.2,\;7.6,\;4.8,\;1.8)\\
+\Nn_3 &= -2(0.9,0.8,0.2,0.1)+9(0.2,0.7,0.9,0.3)+3(0.5,0.4,0.4,0.9)\\
+      &= (-1.8,-1.6,-0.4,-0.2)+(1.8,6.3,8.1,2.7)+(1.5,1.2,1.2,2.7)\\
+      &= (1.5,\;5.9,\;8.9,\;5.2)
+\end{align*}
+Individual top choices: $\Nn_1 \to B$, $\Nn_2 \to B$, $\Nn_3 \to C$.
+
+\subsection{Centring and normalising (\cref{rem:normalise})}
+
+$\Nn_1$ has mean $(7.1+7.4+3.0+0.5)/4 = 4.5$, so centred it is
+$(2.6,2.9,-1.5,-4.0)$ with norm
+$\sqrt{6.76+8.41+2.25+16}=\sqrt{33.42}=5.781$, giving
+\[
+\hat \Nn_1 = (0.4497,\;0.5016,\;-0.2595,\;-0.6919).
+\]
+Note $\|\Nn_1\|$ before centring was dominated by the common level, which decides
+nothing -- exactly the point of \cref{rem:normalise}. Annotator $2$ rated only two
+criteria and would have a systematically smaller raw norm; after normalisation
+the two are comparable.
+
+\subsection{Aggregation, three ways}
+
+\step{Mean over people.} $\bar\Nn = \tfrac13(\Nn_1+\Nn_2+\Nn_3)
+= \tfrac13(14.8,\;20.9,\;16.7,\;7.5) = (4.93,\;6.97,\;5.57,\;2.50)$, so the winner
+is $B$.
+
+\step{Median over people.} Componentwise medians of the three vectors:
+$\operatorname{med}(7.1,6.2,1.5)=6.2$;
+$\operatorname{med}(7.4,7.6,5.9)=7.4$;
+$\operatorname{med}(3.0,4.8,8.9)=4.8$;
+$\operatorname{med}(0.5,1.8,5.2)=1.8$. Winner $B$.
+
+\step{Maximin over people.} Componentwise minima:
+$(1.5,\;5.9,\;3.0,\;0.5)$. Winner $B$. Note the minimum is attained by a
+\emph{different} person in each column -- annotator $3$ for $A$, annotator $3$ for
+$B$, annotator $1$ for $C$ -- which is why $\min$ is unstable: a small change to
+any one person can change which person defines the value.
+
+\step{The weighted-criteria route (\cref{def:score}).} Mean weights are
+$\bar w = (\tfrac{8+6-2}{3},\ \tfrac{2+4+9}{3},\ \tfrac{-1+3}{2}) = (4,\;5,\;1)$,
+so
+\[
+Y = 4(0.9,0.8,0.2,0.1)+5(0.2,0.7,0.9,0.3)+1(0.5,0.4,0.4,0.9) = (5.1,\;7.1,\;5.7,\;2.8),
+\]
+winner $B$. Here the two routes agree; §\ref{sec:agg} reports that on the real
+corpus they disagree $31.6\%$ of the time.
+
+\subsection{Condorcet, by hand}
+
+Individual rankings from the $\Nn_i$: person $1$: $B\!>\!A\!>\!C\!>\!D$;
+person $2$: $B\!>\!A\!>\!C\!>\!D$; person $3$: $C\!>\!B\!>\!D\!>\!A$.
+Pairwise majorities: $B$ beats $A$ ($3$--$0$), $B$ beats $C$ ($2$--$1$),
+$B$ beats $D$ ($3$--$0$). $B$ is the Condorcet winner, and it coincides with all
+four rules above.
+
+\step{Constructing a cycle, to show it is possible.} With rankings
+$A\!>\!B\!>\!C$, $B\!>\!C\!>\!A$, $C\!>\!A\!>\!B$: $A$ beats $B$ ($2$--$1$), $B$
+beats $C$ ($2$--$1$), $C$ beats $A$ ($2$--$1$). No Condorcet winner exists. The
+measured corpus contains \emph{zero} such cycles (\cref{tab:condorcet}), which is
+a genuine negative result and not an assumption.
+
+\subsection{IIA violation, by hand}
+
+Take Borda points on four alternatives ($3,2,1,0$). With the three rankings above
+(person $3$ ranking $C\!>\!B\!>\!D\!>\!A$):
+\[
+A: 2+2+0=4,\quad B: 3+3+2=8,\quad C: 1+1+3=5,\quad D: 0+0+1=1 .
+\]
+So $C \succ A$ socially, by $5$ to $4$. Now delete $D$ and recompute on three
+alternatives ($2,1,0$): person $1$: $B\!>\!A\!>\!C$, person $2$: same, person
+$3$: $C\!>\!B\!>\!A$.
+\[
+A: 1+1+0=2,\quad B: 2+2+1=5,\quad C: 0+0+2=2 .
+\]
+Now $C$ and $A$ are \emph{tied}, where before $C$ led. Deleting an alternative
+nobody ranked first changed the relation between two others. That is an IIA
+violation, and it occurs on $13.4\%$ of tests in the real corpus
+(\cref{cor:iia}).
+
+\subsection{The veto condition, by hand (\cref{thm:veto})}
+
+Annotator $3$ vetoes $A$. From $Y=(5.1,7.1,5.7,2.8)$:
+\[
+\Delta = \max_{a\in V}Y(a) - \max_{a\notin V}Y(a) = Y(A) - \max(7.1,5.7,2.8) = 5.1-7.1 = -2.0 < 0 .
+\]
+The veto is \emph{not binding}: $A$ was not going to win anyway, so any $M\ge 0$
+reproduces the constraint.
+
+Now change one number: let $\sat[c_1,A]=0.9 \to 1.0$ and $\bar w_1 = 4 \to 9$.
+Then $Y(A) = 9(1.0)+5(0.2)+1(0.5) = 10.5$ and
+$Y(B) = 9(0.8)+5(0.7)+1(0.4)=11.1$, $Y(C)=9(0.2)+5(0.9)+1(0.4)=6.7$,
+$Y(D)=9(0.1)+5(0.3)+1(0.9)=3.3$. Still $\Delta = 10.5-11.1 <0$. Push once more,
+$\bar w_1 = 20$: $Y(A)=21.5$, $Y(B)=21.9$ -- the gap closes but never inverts,
+because $B$ also satisfies $c_1$ highly. To make $\Delta$ large one needs a vetoed
+response that is \emph{uniquely} good on a heavily weighted criterion, and there
+is no bound on how good: that is precisely the construction in
+\cref{thm:vetoinf}, and on the real corpus the realised maximum is
+$\Delta = 26.54$ against a per-criterion ceiling of $10$.
+
+\subsection{Regret versus flip rate, by hand (\cref{lem:coarsen})}
+
+Take $Y=(5.1,7.1,5.7,2.8)$, so $a^\star = B$, $Y(a^\star)=7.1$, $\min_a Y = 2.8$,
+and the denominator of \cref{def:regret} is $7.1-2.8=4.3$.
+
+\begin{itemize}
+\item A perturbation that shifts the winner to $C$: $\Reg = (7.1-5.7)/4.3 = 0.326$.
+\item A perturbation that shifts the winner to $A$: $\Reg = (7.1-5.1)/4.3 = 0.465$.
+\item A perturbation that shifts the winner to $D$: $\Reg = (7.1-2.8)/4.3 = 1.000$.
+\end{itemize}
+All three are ``a flip''. The flip rate assigns them the same value; regret
+separates them by more than a factor of three. \Cref{lem:coarsen} says
+$\E[\Reg] = \pi \cdot \E[\Reg\mid\text{flip}]$ exactly, and it is the second
+factor -- $0.326$ versus $1.000$ here -- that the flip rate discards.
+
+\subsection{The margin cap, by hand (\cref{prop:cap})}
+
+The margin is $m = 7.1-5.7 = 1.4$, and the score range is $7.1-2.8=4.3$, so the
+relative margin is $0.326$ -- almost exactly the corpus median of $0.319$. A
+perturbation $\delta$ can only flip the winner if it moves the top-two gap past
+zero, so by \cref{prop:cap} it needs $\|\delta\|_\infty > m/2 = 0.7$, i.e. about
+$16\%$ of the range. Perturbations smaller than that cannot flip this prompt
+whatever they destroy normatively -- which is the cap, made concrete.
+
+\subsection{Shapley influence, by hand, and it exhibits C1 directly}
+
+Three annotators, so $3! = 6$ orderings. The collective winner is $B$.
+The characteristic function $v(S)$ asks whether the coalition $S$, summing its own
+$\Nn_i$, also picks $B$. Enumerating all eight subsets:
+\[
+v(\varnothing)=0,\quad v(\{1\})=1,\quad v(\{2\})=1,\quad v(\{3\})=0,
+\]
+\[
+v(\{1,2\})=1,\quad v(\{1,3\})=1,\quad v(\{2,3\})=\mathbf{0},\quad v(\{1,2,3\})=1 .
+\]
+The one to check by hand is $v(\{2,3\})$:
+$\Nn_2+\Nn_3 = (7.7,\,13.5,\,13.7,\,7.0)$, whose maximum is at $C$, not $B$.
+
+\step{Marginal contributions, all six orderings.}
+\begin{center}\small
+\begin{tabular}{lrrr}
+\toprule
+ordering & $\phi_1$ term & $\phi_2$ term & $\phi_3$ term\\
+\midrule
+$1,2,3$ & $v(1)-v(\varnothing)=1$ & $v(12)-v(1)=0$ & $v(123)-v(12)=0$\\
+$1,3,2$ & $1$ & $v(123)-v(13)=0$ & $v(13)-v(1)=0$\\
+$2,1,3$ & $v(12)-v(2)=0$ & $v(2)-v(\varnothing)=1$ & $v(123)-v(12)=0$\\
+$2,3,1$ & $v(123)-v(23)=1$ & $1$ & $v(23)-v(2)=-1$\\
+$3,1,2$ & $v(13)-v(3)=1$ & $v(123)-v(13)=0$ & $v(3)-v(\varnothing)=0$\\
+$3,2,1$ & $v(123)-v(23)=1$ & $v(23)-v(3)=0$ & $0$\\
+\midrule
+total & $5$ & $2$ & $-1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\[
+\phi_1 = \tfrac56 = 0.8333,\qquad
+\phi_2 = \tfrac26 = 0.3333,\qquad
+\phi_3 = -\tfrac16 = -0.1667 .
+\]
+
+\step{Two checks.} Efficiency (axiom E of §\ref{sec:classical}):
+$\tfrac56+\tfrac26-\tfrac16 = \tfrac66 = 1 = v(A)-v(\varnothing)$. And a
+\emph{negative} value is legitimate: annotator $3$ actively pushes the coalition
+away from the collective winner, so their average marginal contribution to
+selecting $B$ is below zero. Alignment, being a cosine of a person against a sum
+that includes them, cannot go negative in the same situation and therefore cannot
+express this at all.
+
+\step{Now the alignment of each, against the collective.}
+The collective centred vector is $\bar\Nn - 4.9917 =
+(-0.06,\,1.97,\,0.57,\,-2.49)$ (up to rounding), and centring each $\Nn_i$ gives
+cosines
+\[
+\cos(\Nn_1, G)=0.7858,\qquad
+\cos(\Nn_2, G)=\mathbf{0.9313},\qquad
+\cos(\Nn_3, G)=0.2189 .
+\]
+
+\step{And there is the point of §\ref{sec:c1}, in three people.}
+
+\begin{center}\small
+\begin{tabular}{lrrl}
+\toprule
+annotator & alignment & influence $\phi_i$ & \\
+\midrule
+$1$ & $0.7858$ & $\mathbf{+0.8333}$ & highest influence, \emph{second} alignment\\
+$2$ & $\mathbf{0.9313}$ & $+0.3333$ & highest alignment, \emph{less than half} the influence\\
+$3$ & $0.2189$ & $-0.1667$ & lowest alignment, and \emph{negative} influence\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The rank orders disagree at the top: annotator $2$ agrees with the outcome most
+and moves it least of the two contributors. The reason is visible in the
+enumeration -- annotator $2$ alone already selects $B$, so in the orderings where
+they arrive after annotator $1$ they add nothing. \emph{Agreeing with an outcome
+that would have happened anyway is not influence over it.} That is the entire
+content of C1, and on the real corpus it appears as a correlation of $+0.304$
+with a profile that flattens above moderate agreement (\cref{tab:quintile}).
+
+% ===========================================================================
+\section{The three classical theorems, proved rather than cited}
+\label{sec:classical}
+
+A reader with no background cannot check an invoked theorem. The three that carry
+weight in this paper are therefore proved or, where the full proof is long,
+reduced to a checkable core.
+
+\subsection{Blackwell: why a deterministic aggregation can only lose}
+
+\begin{theorem}[Garbling implies weakly higher risk]
+\label{thm:blackwell-proof}
+Let $Z$ be an observation and $G = K(Z)$ for a Markov kernel $K$. For any
+decision problem with action set $\mathcal{A}$, state $\theta$, prior $p$ and
+loss $L$, the minimum attainable expected loss using $G$ is at least that using
+$Z$.
+\end{theorem}
+\begin{proof}
+\emph{Step 1.} A decision rule based on $G$ is a map $d_G : G \mapsto \mathcal{A}$.
+
+\emph{Step 2.} Composing with the kernel, $d_G \circ K$ is a (possibly
+randomised) decision rule based on $Z$: given $z$, draw $g \sim K(\cdot\mid z)$
+and play $d_G(g)$.
+
+\emph{Step 3.} By construction the two procedures induce the same joint
+distribution over $(\theta, \text{action})$, hence the same expected loss.
+
+\emph{Step 4.} Therefore every risk attainable with $G$ is attainable with $Z$;
+the set of $Z$-attainable risks contains the set of $G$-attainable risks; and a
+minimum over a superset is no larger. Hence $R_Z \le R_G$.
+\end{proof}
+
+\begin{corollary}
+With $K(\cdot\mid z)=\delta_{\Agg(z)}$ (a deterministic aggregation), the theorem
+applies verbatim: aggregation cannot help on any decision problem, and the
+deficiency $\delta_{\mathcal{D}}$ is well defined and non-negative.
+\end{corollary}
+
+\begin{remark}[What is \emph{not} proved here]
+The converse -- that if $R_Z \le R_G$ for every decision problem then $G$ must be
+a garbling of $Z$ -- is Blackwell's substantive theorem and is not needed. Only
+the easy direction is used, and it is the direction that licenses
+``aggregation never adds information''.
+\end{remark}
+
+\subsection{Arrow: the statement, and why the count $13.4\%$ is the right thing to measure}
+
+\begin{theorem}[Arrow, stated]
+For $k \ge 3$ alternatives, no social welfare function on the full domain of
+individual orderings simultaneously satisfies: (a) unrestricted domain,
+(b) unanimity (if everyone prefers $x$ to $y$ then society does), (c)
+independence of irrelevant alternatives, and (d) non-dictatorship.
+\end{theorem}
+
+\step{Why this paper measures rather than invokes it.} Arrow says the four
+conditions are jointly unsatisfiable; it does not say \emph{how badly} a given
+rule fails a given condition on a given corpus. Borda is a perfectly reasonable
+rule that fails only IIA, and the useful empirical question is: on this data, how
+often does the failure actually bite? The answer is $13.4\%$ of pairwise
+relations (\cref{cor:iia}), and \emph{that} is the number a designer needs, not
+the impossibility.
+
+\step{The core of the failure, in one line.} Borda scores depend on \emph{how
+many} alternatives a given one is above, so inserting or removing a third
+alternative changes the points of the other two by different amounts whenever
+individuals rank the newcomer differently. The worked example in §\ref{sec:toy}
+shows the mechanism on three rankings.
+
+\subsection{Shapley: the axioms, and why they force the formula}
+
+\begin{definition}[Axioms]
+A value $\phi$ assigning a number to each player of a cooperative game $v$
+satisfies:
+\begin{enumerate}
+\item[(E)] \textbf{Efficiency}: $\sum_i \phi_i = v(A) - v(\varnothing)$.
+\item[(S)] \textbf{Symmetry}: if $i$ and $j$ contribute identically to every
+      coalition, $\phi_i = \phi_j$.
+\item[(N)] \textbf{Null player}: if $i$ adds nothing to any coalition,
+      $\phi_i = 0$.
+\item[(L)] \textbf{Linearity}: $\phi(v+w) = \phi(v)+\phi(w)$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Uniqueness, core of the argument]
+The Shapley value is the unique $\phi$ satisfying (E), (S), (N), (L).
+\end{theorem}
+\begin{proof}[Reduction to a checkable core]
+\emph{Step 1.} The \emph{unanimity games} $u_T$, defined by $u_T(S)=1$ if
+$T\subseteq S$ and $0$ otherwise, form a basis of the vector space of all games
+on $A$: every $v$ has a unique expansion $v=\sum_T \lambda_T u_T$.
+
+\emph{Step 2.} On $u_T$, axioms (E), (S), (N) force the value uniquely: players
+outside $T$ are null, so get $0$ by (N); players inside $T$ are symmetric, so
+share equally by (S); and the total is $1$ by (E). Hence
+$\phi_i(u_T) = 1/|T|$ for $i \in T$ and $0$ otherwise.
+
+\emph{Step 3.} By (L), $\phi(v) = \sum_T \lambda_T \phi(u_T)$, which is now
+determined. Rearranging that sum into a sum over coalitions yields the
+permutation-weighted formula of §\ref{sec:c1}.
+\end{proof}
+
+\begin{remark}[Why this matters for the claim being made]
+The Shapley value is not chosen here for convenience. It is the \emph{only}
+assignment of credit satisfying four properties one would insist on for a claim
+about influence -- in particular (N), which guarantees that an annotator who
+never changes any outcome receives exactly zero. A correlational measure of
+alignment has no such guarantee, and \cref{tab:quintile} shows the gap is real:
+the highest-alignment quintile does not have the highest influence.
+\end{remark}

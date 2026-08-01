@@ -1,0 +1,700 @@
+% ===========================================================================
+% PART 2 -- the estimators, the causal layer, and what is not identified.
+% ===========================================================================
+\section{The estimators}
+\label{sec:est}
+
+\subsection{Why the query family must be declared before anything is measured}
+
+\begin{definition}[Query-relative equivalence]
+Given a family $Q$ of queries, $\Nn \sim_Q \Nn'$ iff
+$q(\Nn,x) = q(\Nn',x)$ for all $q \in Q$ and all inputs $x$. \emph{Normative
+information} is the equivalence class $[\Nn]_Q$, not the text.
+\end{definition}
+
+\begin{proposition}[Without $Q$, ``loss'' is not a defined quantity]
+\label{prop:Q}
+There exist families $Q$ under which every change is total loss, and families
+under which no change is any loss. Hence the answer to ``how much was lost'' is
+determined entirely by $Q$.
+\end{proposition}
+\begin{proof}
+Take $Q_{\max}$ = all measurable functions of $\Nn$. Then $\Nn\sim_{Q}\Nn'$ iff
+$\Nn=\Nn'$ (the identity function is in $Q_{\max}$), so any change destroys the
+equivalence entirely. Take $Q_{\min} = \{\text{a constant map}\}$. Then
+$\Nn \sim_Q \Nn'$ for all pairs, so no change is a loss. Both families are
+admissible in the absence of a stipulation, and they give opposite answers.
+\end{proof}
+
+\begin{corollary}
+A framework that hides $Q$ inside a supremum has \emph{relocated} the choice, not
+made it. Publishing $Q$ before measuring is not a preliminary; it is most of the
+result.
+\end{corollary}
+
+\subsection{The decision-theoretically correct quantity: normalised regret}
+
+\begin{definition}[Normalised regret]
+\label{def:regret}
+For a perturbation taking norm $\Nn$ to $\Nn'$, with $a^\star := \argmax_a Y_{\Nn}(a)$
+and $a' := \argmax_a Y_{\Nn'}(a)$,
+\[
+\Reg(\Nn\to\Nn') \;:=\;
+\frac{Y_{\Nn}(a^\star) - Y_{\Nn}(a')}{Y_{\Nn}(a^\star) - \min_a Y_{\Nn}(a)}
+\;\in\;[0,1].
+\]
+\end{definition}
+
+\step{Why this and not something else.} $\Reg$ is exactly the Blackwell
+deficiency of \cref{thm:garble} restricted to the decision family ``choose one of
+these four, scored by the original norm's own utility''. It is not a proxy for
+the quantity of interest; on that family it \emph{is} the quantity. The
+denominator makes it invariant to the arbitrary scale of $Y$, which
+\cref{rem:normalise} showed is not identified.
+
+\begin{definition}[Flip rate]
+$\pi := \Prob(a' \neq a^\star)$, estimated by the average of
+$\mathbf{1}\{a'\neq a^\star\}$ per \cref{eq:indavg} and \cref{cor:indexp}.
+\end{definition}
+
+\begin{lemma}[The flip rate is a coarsening of regret]
+\label{lem:coarsen}
+$\mathbf{1}\{\text{flip}\} = \mathbf{1}\{\Reg>0\}$, and therefore, exactly,
+\[
+\E[\Reg] \;=\; \pi \cdot \E[\Reg \mid \text{flip}].
+\]
+\end{lemma}
+\begin{proof}
+If $a'=a^\star$ then the numerator of \cref{def:regret} is zero, so $\Reg=0$; if
+$a'\neq a^\star$ then $Y_\Nn(a')<Y_\Nn(a^\star)$ by definition of the $\argmax$
+(assuming no exact tie), so $\Reg>0$. Hence the indicators coincide. Then
+$\E[\Reg] = \E[\Reg \mid \Reg>0]\Prob(\Reg>0) + 0$, by the law of total
+expectation, which for a finite space is just splitting the defining sum into the
+two events.
+\end{proof}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrr}
+\toprule
+operator & $\pi$ & $\E[\Reg]$ & $\E[\Reg\mid\text{flip}]$\\
+\midrule
+double the target weight & $4.2\%$ & $0.0043$ & $0.1029$\\
+delete the target criterion & $5.1\%$ & $0.0067$ & $0.1307$\\
+invert the target weight & $11.6\%$ & $0.0294$ & $\mathbf{0.2531}$\\
+halve the target weight & $2.3\%$ & $0.0012$ & $0.0532$\\
+\bottomrule
+\end{tabular}
+\caption{$968$ prompts $\times$ $20$ target draws. Target criterion sampled, not
+fixed; see \cref{rem:target}.}
+\label{tab:regret}
+\end{table}
+
+\begin{corollary}[The discarded factor carries information]
+By flip rate, invert exceeds delete by $11.6/5.1 = 2.3\times$. By expected
+regret, by $0.0294/0.0067 = 4.4\times$. Reporting only the flip rate halves the
+measured separation between operators, because inversion not only flips more
+often, it flips \emph{worse} -- $25.3\%$ of the available utility range versus
+$13.1\%$.
+\end{corollary}
+
+\subsection{The flip rate is capped by the margin distribution}
+
+\begin{definition}[Margin]
+$m := Y(a_{(1)}) - Y(a_{(2)})$, the gap between the top two responses.
+\end{definition}
+
+\begin{proposition}[Margin cap]
+\label{prop:cap}
+Let $\delta := Y_{\Nn'} - Y_{\Nn}$ be the perturbation of the score vector. Then
+$\pi \le \Prob\big(m < 2\|\delta\|_\infty\big)$.
+\end{proposition}
+\begin{proof}
+A flip requires the perturbed score of some $a\neq a^\star$ to exceed that of
+$a^\star$, i.e.
+$Y(a)+\delta(a) > Y(a^\star)+\delta(a^\star)$, i.e.
+$\delta(a)-\delta(a^\star) > Y(a^\star)-Y(a) \ge m$.
+Since $|\delta(a)-\delta(a^\star)| \le 2\|\delta\|_\infty$, a flip implies
+$m < 2\|\delta\|_\infty$. Taking probabilities and applying monotonicity of
+$\Prob$ over the implication gives the bound.
+\end{proof}
+
+Measured relative margins $m/(\max_a Y - \min_a Y)$:
+\[
+p_{05}=0.026,\quad p_{25}=0.144,\quad \text{median}=0.319,\quad p_{75}=0.527,\quad p_{95}=0.800.
+\]
+
+\begin{corollary}
+An operator whose perturbation is smaller than about a third of the score range
+cannot flip half the prompts, \emph{however much normative content it destroys}.
+The ceiling on a flip rate is set by the margin distribution, not by the norm.
+This is the formal reason \cref{def:regret} is the primary quantity and $\pi$ the
+secondary one.
+\end{corollary}
+
+\subsection{Target selection is an axis, not a nuisance}
+\label{rem:target}
+
+Every criterion-level operator must choose \emph{which} criterion to act on.
+Measured effect of that choice on the induced change in $Y$:
+\[
+\text{highest }|w|: 0.273 \qquad \text{random}: 0.176 \qquad \text{lowest }|w|: 0.041
+\]
+-- a ratio of $6.6\times$, larger than the differences between operators. Reporting a
+single cell would therefore report the selection rule. All numbers in this paper
+sweep four selection rules (highest $|w|$, lowest $|w|$, most-rated, random)
+$\times$ five seeds, and the seeds are verified to change the draws: only $0.1\%$
+of targets are shared across all five.
+
+\subsection{Variance of these estimators}
+
+With $P=968$ prompts and $R=20$ draws each, \cref{thm:deff} applies with measured
+$\sigma_b^2 = 0.01361$, $\sigma_w^2 = 0.03677$:
+\[
+\rho = 0.2701, \qquad \mathrm{DEFF} = 1+19(0.2701) = 6.13, \qquad \sqrt{\mathrm{DEFF}} = 2.48 .
+\]
+
+\begin{remark}[Derivation checked against an independent measurement]
+A resampling estimate of the same inflation, obtained by recomputing every
+pairwise statistic at the cluster level and comparing to the pooled version,
+gave $2.79$. Derived $2.48$, measured $2.79$: the residual is that the pairwise
+statistic is a correlation rather than a simple mean, for which \cref{thm:deff}
+is only approximate.
+\end{remark}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+operator & $\pi$ & $\se$ & $95\%$ CI & MDE\\
+\midrule
+double & $4.2\%$ & $0.0036$ & $[3.5,\,4.9]\%$ & $1.00$pp\\
+delete & $5.1\%$ & $0.0037$ & $[4.4,\,5.8]\%$ & $1.05$pp\\
+invert & $11.6\%$ & $0.0052$ & $[10.6,\,12.6]\%$ & $1.46$pp\\
+halve & $2.3\%$ & $0.0026$ & $[1.8,\,2.8]\%$ & $0.72$pp\\
+\midrule
+\emph{paired} delete $-$ double & $+0.93$pp & $0.0028$ & $z=+3.3$ & $0.79$pp\\
+\bottomrule
+\end{tabular}
+\caption{Standard errors from the $P=968$ cluster means, per \cref{eq:varmean}.
+MDE from \cref{thm:mde}.}
+\label{tab:power}
+\end{table}
+
+\begin{corollary}[Sample size]
+By \cref{cor:n} with $\sigma_b = \sqrt{0.01361 + 0.03677/20} = 0.1243$, resolving
+a $1$pp difference at $80\%$ power requires
+$P = (2.8016 \times 0.1243/0.01)^2 = 1{,}213$ prompts. The release has $968$: the
+design is about $20\%$ short of its own headline resolution, and the
+delete-versus-double difference clears its MDE only barely.
+\end{corollary}
+
+% ===========================================================================
+\section{The causal layer: influence is not agreement}
+\label{sec:c1}
+
+\subsection{Why a correlational measure cannot answer this}
+
+\begin{definition}[Preservation, causal form]
+A distinction reached the output iff \emph{removing it changes the output}.
+\end{definition}
+
+A participant whose view happens to match the majority scores perfect alignment
+while contributing nothing: remove them and the outcome is unchanged. A
+participant who moved the outcome may sit far from it. Alignment and influence
+are therefore different functionals, and only the second answers the definition.
+
+\subsection{The Shapley value, derived}
+
+\begin{definition}[Characteristic function]
+For prompt $p$ with annotator set $A$ and winner
+$w^\star := \argmax_r \sum_{a\in A}\Nn_a(r)$, define for $S \subseteq A$
+\[
+v(S) \;:=\; \mathbf{1}\Big\{\argmax_r \textstyle\sum_{a\in S}\Nn_a(r) = w^\star\Big\}.
+\]
+\end{definition}
+
+\begin{definition}[Shapley value]
+\[
+\phi_i \;:=\; \sum_{S \subseteq A\setminus\{i\}}
+\frac{|S|!\,(|A|-|S|-1)!}{|A|!}\;\big[v(S\cup\{i\})-v(S)\big].
+\]
+\end{definition}
+
+\step{What the weights mean.} Consider all $|A|!$ orderings of the annotators.
+The bracket is $i$'s marginal contribution when it arrives after exactly the set
+$S$. The number of orderings in which that happens is $|S|!\,(|A|-|S|-1)!$ --
+$|S|!$ ways to arrange those before, $(|A|-|S|-1)!$ ways to arrange those after.
+Dividing by $|A|!$ makes the weights a probability distribution over orderings.
+So $\phi_i$ is \textbf{the average marginal contribution of $i$ over a uniformly
+random arrival order}, which is exactly the causal definition above, averaged
+over every context in which $i$ could arrive.
+
+\step{Estimation.} The sum has $2^{|A|-1}$ terms. We sample $200$ random
+orderings per prompt and average the realised marginal contributions, which is an
+unbiased estimator of $\phi_i$ by construction (each ordering is drawn from the
+same uniform distribution the weights encode).
+
+\subsection{Result: the pre-registered kill does not fire}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lr}
+\toprule
+$1{,}865$ (annotator, prompt) pairs & \\
+\midrule
+$\Corr(\text{Shapley influence},\ \text{cosine alignment})$ & $+0.3040$\\
+bootstrap $95\%$ CI (\cref{prot:boot}) & $[+0.2566,\,+0.3520]$\\
+pre-registered kill: correlation $\approx 1.0$ & \textbf{does not fire}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrr}
+\toprule
+alignment quintile & mean alignment & mean influence\\
+\midrule
+Q1 & $-0.0416$ & $0.0083$\\
+Q2 & $+0.8164$ & $0.1055$\\
+Q3 & $+0.9489$ & $\mathbf{0.1325}$\\
+Q4 & $+0.9861$ & $0.1262$\\
+Q5 & $+0.9973$ & $0.1262$\\
+\bottomrule
+\end{tabular}
+\caption{Influence rises steeply from Q1 to Q3 and then \emph{flattens}.}
+\label{tab:quintile}
+\end{table}
+
+\mesotakeaway{Beyond moderate agreement, agreeing more buys no influence at all.
+And the off-diagonal cells are populated: $0.75\%$ of pairs are top-quintile
+aligned with bottom-quintile influence, $3.11\%$ are bottom-aligned with
+top-quintile influence. ``Agreement is not preservation'' is here a count of real
+people, not a slogan.}
+
+\subsection{An independent confirmation from a different operator}
+
+Dropping the \emph{most conforming} annotator changes the decision on
+$5.8\%\,[4.3,7.1]$ of prompts; dropping the \emph{largest dissenter}, on
+$2.1\%\,[1.1,3.2]$. The intervals do not overlap and the sign is stable across
+all three judges. The dissenter was already not influencing the outcome -- the
+same statement as the flat top of \cref{tab:quintile}, reached by a different
+route.
+
+% ===========================================================================
+\section{What is not identified, with proofs}
+\label{sec:notid}
+
+\begin{proposition}[Contamination and redundancy are not separable here]
+\label{prop:contam}
+Let $\alpha_p$ be the alignment between a prompt's weighted-criteria score and
+the crowd's ranking, and $s_p$ the sensitivity of its decision to perturbing one
+criterion. Two models,
+\begin{itemize}
+\item[$C$:] criteria written \emph{after} seeing responses are individually more
+      decisive, so a high-$\alpha$ rubric absorbs single-criterion perturbations;
+\item[$R$:] a high-$\alpha$ rubric is one whose criteria agree with each other,
+      and a redundant rubric is insensitive to any single member,
+\end{itemize}
+imply the same sign for $\Corr(\alpha,s)$, and the observed data distribution is
+a function of $(\alpha,s)$ alone. The likelihoods coincide; the models are not
+identified.
+\end{proposition}
+
+\step{What is identified: a bound.} Splitting prompts at the median of $\alpha$:
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrr}
+\toprule
+operator & low $\alpha$ & high $\alpha$ & ratio\\
+\midrule
+double & $5.1\%$ & $2.8\%$ & $0.55\times$\\
+delete & $5.6\%$ & $4.6\%$ & $0.82\times$\\
+invert & $13.1\%$ & $9.9\%$ & $0.75\times$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{corollary}
+Every flip rate reported here varies by up to $1.8\times$ across the range of
+$\alpha$. That bound belongs on every such number. Separating $C$ from $R$
+requires response-blind elicitation and cannot be done at this site.
+\end{corollary}
+
+\begin{proposition}[The probe bound is an identification limit]
+By \cref{thm:probe}, at most two parameters per person per prompt are identified
+from the ratings. Everything else in the criterion text is unidentified from the
+released quantitative data.
+\end{proposition}
+
+\begin{proposition}[Compilation's three actions are confounded]
+Selection, rewriting and weight-discarding occur in one step with no lineage.
+Their individual contributions to the $29.4\%$ disagreement are not identified.
+\end{proposition}
+
+\begin{proposition}[$Y$ does not exist]
+The chain in \cref{eq:chain} terminates at $D$. $Y$ -- what a system trained under
+this standard does -- is not in the release, and no arithmetic recovers it. Any
+end-to-end number quoted to $Y$ is fabricated.
+\end{proposition}
+
+% ===========================================================================
+\section{Findings}
+\label{sec:findings}
+
+Each finding ends with its confidence card. A missing entry reads
+\textsc{uncomputed}; none is omitted.
+
+\subsection{F1 --- the elicitation captured consensus, not the individual}
+
+$\cos(\Nn_i,\text{own ranking}) = 0.3928$ versus
+$\cos(\Nn_i,\text{stranger's ranking}) = 0.3097$; difference $+0.0831$.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabular}{ll}
+\toprule
+$n_{\text{eff}}$ & $968$ prompt clusters ($14{,}764$ person--prompt rows)\\
+MDE & $0.0187$ in cosine, from \cref{thm:mde} at the observed $\se$\\
+effect / floor & $0.0831 / 0.0067 = 12.4$\\
+CI width / $|$eff$|$ & $0.0262/0.0831 = 0.32$\\
+spec\_survival & \textsc{uncomputed} (single specification)\\
+seed spread / $|$eff$|$ & not applicable (no stochastic step)\\
+held out & \textsc{absent}\\
+instrument & routes through the judge; ceiling $0.720$ (§\ref{sec:instrument})\\
+prior art & none located; the release documents no such comparison\\
+multiplicity & $1$ test in this family\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{F2 --- no finite weight encodes a veto}
+
+\cref{thm:veto} and \cref{thm:vetoinf}; required $M$ up to $26.54$ against a scale
+maximum contribution of $10$.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabular}{ll}
+\toprule
+$n_{\text{eff}}$ & $161$ prompts with a partial veto; $42$ binding\\
+MDE & not applicable --- this is a \textbf{derivation}, not a test\\
+effect / floor & not applicable\\
+CI width / $|$eff$|$ & not applicable\\
+spec\_survival & the theorem holds for every score construction\\
+seed spread & not applicable (deterministic)\\
+held out & the \emph{maximum} is what carries it; a held-out set can only raise it\\
+instrument & $\Delta$ is computed from the judge tensor; the \emph{theorem} is not\\
+prior art & the incompatibility of vetoes with scoring rules is classical; the\\
+ & \emph{measured} $\Delta$ distribution on this release is not\\
+multiplicity & none --- a single derived statement\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}[Labelled as a derivation, per the arithmetic trap]
+\cref{thm:vetoinf} could not have come out otherwise: it follows from
+\cref{thm:veto} plus the unboundedness of $\Delta$. It is stated as a theorem,
+its assumption is named ($\sat$ can approach its bounds independently across
+responses), and it is not counted as evidence in the sense a measurement is.
+\end{remark}
+
+\subsection{F3 --- comparative measurements are instrument-invariant; absolute ones are not}
+
+\cref{tab:gaugea}, \cref{tab:gaugeb}.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabular}{ll}
+\toprule
+$n_{\text{eff}}$ & $968$ prompts (three instruments); $300$ for the reordering\\
+MDE & $\rho$ resolution $\approx 0.15$ at $11$ operators\\
+effect / floor & orderings $0.963$--$1.000$ against a chance $\rho$ of $0$\\
+CI width / $|$eff$|$ & bootstrap intervals in \cref{tab:power}\\
+spec\_survival & $3$ of $3$ instruments preserve the ordering\\
+seed spread / $|$eff$|$ & $<0.1$ across $5$ seeds of the target draw\\
+held out & the reordered run is a genuine held-out instrument\\
+instrument & this finding \emph{is} about the instrument, by construction\\
+prior art & judge-sensitivity of LLM evaluation is known; the\\
+ & comparative/absolute split measured on this object is not\\
+multiplicity & $3$ instruments $\times$ $11$ operators; the reported statistic\\
+ & is the ordering, one per instrument\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{F4 --- influence and alignment are distinct (C1 survives)}
+
+$\Corr = +0.3040\,[+0.2566,+0.3520]$, with the quintile profile of
+\cref{tab:quintile}.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabular}{ll}
+\toprule
+$n_{\text{eff}}$ & $968$ prompt clusters ($1{,}865$ annotator--prompt rows)\\
+MDE & $0.065$ in correlation, at the bootstrap $\se$\\
+effect / floor & $0.304 / 0.024 = 12.7$\\
+CI width / $|$eff$|$ & $0.095/0.304 = 0.31$\\
+spec\_survival & \textsc{uncomputed}; one characteristic function tested\\
+seed spread / $|$eff$|$ & $<0.02$ over the $200$-permutation Shapley estimator\\
+held out & \textsc{absent}\\
+instrument & routes through the judge; ceiling $0.720$\\
+prior art & Shapley-versus-alignment has not been reported on this object\\
+multiplicity & $1$ pre-registered test\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{F5 --- one bit per criterion reproduces $89.8\%$ of decisions}
+
+\cref{tab:rd}, cross-checked against \cref{tab:cardinal}.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabular}{ll}
+\toprule
+$n_{\text{eff}}$ & $968$ prompts\\
+MDE & $\pm 1.0$pp at the observed $\se$\\
+effect / floor & the quantisation is deterministic; no resampling floor applies\\
+CI width / $|$eff$|$ & \textsc{uncomputed}\\
+spec\_survival & agrees with the independent sign-only test to $1.5$pp\\
+seed spread & not applicable (deterministic)\\
+held out & \textsc{absent}\\
+instrument & judge-dependent in level; the \emph{bit curve} is not tested across judges\\
+prior art & none located for this object\\
+multiplicity & $5$ quantisation levels, reported in full\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ===========================================================================
+\section{What did not survive}
+\label{sec:exclusion}
+
+A paper with no retractions is a paper whose ontology has no word for error. All
+entries are cross-referenced to \texttt{supplement/exclusion\_log.csv}.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{4.2cm}P{4.6cm}Y}
+\toprule
+withdrawn claim & what killed it & status\\
+\midrule
+``the operator design has rank $2$, so all remaining dimensions require the
+judge'' & the rank statistic sits inside the span of three defensible nulls
+($12.1$, $17.0$, $18.0$) with the observation at $13$; the null
+\emph{construction} moved it more than the data & rank retired as a statistic\\
+``strengthening a criterion moves the decision, removing one does not'' & direct
+measurement: deleting flips $8.8\%$, doubling $4.2\%$. The asymmetry was an
+artefact of normalising the score \emph{after} mutating and then differencing two
+separately normalised vectors & withdrawn, sign and all\\
+``minority-sensitive aggregation changes half the outcomes'' & the sham control
+(same people, matched moments, response pattern destroyed) disagrees $61.4\%$
+versus the real $49.4\%$ & withdrawn; the residual runs the other way\\
+``aggregation is a $10\times$ larger lever than the criterion layer'' & the
+aggregators were indexed over criteria rather than people & magnitude withdrawn;
+ordering survives at $4.3\times$\\
+``the flip rate is confounded by decision margin'' & measured $Q_1/Q_4$ ratios of
+$1.0$, $1.0$, $1.1$ & defect opened by us and closed by its own measurement\\
+``wide margins arise because agreeing criteria carry larger weights'' &
+$\Corr(\text{margin},\overline{|w|}) = +0.002\,[-0.067,+0.059]$ & mechanism
+refuted; the flatness stands unexplained\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{remark}[The failure mode behind most of these]
+Six of the six are the same shape: a verdict decided by a constant the author
+chose -- one null instead of a range, one reference instead of a class, a
+two-branch template for a three-outcome test, a $0.15$ cutoff. The repair adopted
+here is structural: \emph{every verdict is a printed comparison against the range
+of defensible references, never a boolean computed from a threshold}.
+\end{remark}
+
+% ===========================================================================
+\section{Falsification and contradiction handling}
+\label{sec:falsify}
+
+Stated before the claims are defended.
+
+\begin{enumerate}
+\item \textbf{F1 dies} if a response-blind elicitation shows
+      $\cos(\Nn_i,\text{own})$ far exceeding $\cos(\Nn_i,\text{stranger})$. The
+      present gap would then be an artefact of post-hoc writing rather than a
+      property of elicitation.
+\item \textbf{F2 dies} if a bounded $M$ is exhibited that reproduces
+      constraint behaviour across candidate sets. \cref{thm:vetoinf} forbids it
+      for unbounded $\sat$; a bounded-satisfaction variant with a stated bound
+      would restrict the theorem's scope.
+\item \textbf{F3 dies} if a fourth instrument reverses the operator ordering
+      ($\rho<0.8$). Three have not.
+\item \textbf{F4 dies} if $\Corr(\text{influence},\text{alignment})\to 1$ under a
+      different characteristic function. Only one has been tested; this is the
+      weakest of the five.
+\item \textbf{F5 dies} if the bit curve differs materially under another judge.
+      Not tested.
+\item \textbf{The framing itself dies} if a person's induced ordering is unstable
+      across response sets. Then what was elicited is a property of the probe,
+      not of the person, and nothing downstream measures values at all. This is
+      the deepest available test and it requires two candidate sets per person,
+      which this release does not have. \cref{cor:iia} ($13.4\%$ IIA violations)
+      is a lower bound on the concern, not a resolution of it.
+\end{enumerate}
+
+% ===========================================================================
+\section{Discussion}
+
+\subsection{The claim, and its novelty boundary}
+
+\textbf{What is not new.} Blackwell's theorem, Arrow's impossibility, Sen's
+liberal paradox, the Shapley value, Spearman--Brown, the design effect,
+attenuation from measurement error. The incompatibility between vetoes and
+scoring rules is classical social choice. Judge-sensitivity of language-model
+evaluation is documented. None of these is claimed here.
+
+\textbf{What is new, and only this.} (i) The measured $\Delta$ distribution that
+turns the veto incompatibility into a \emph{quantitative} statement about a
+specific release, with the counterexample present in the data
+(\cref{tab:vetoM}). (ii) The self-versus-stranger decomposition showing that the
+individual signal in this elicitation is $0.083$ of cosine (\cref{tab:selfother}).
+(iii) The comparative/absolute split under the gauge test (§\ref{sec:gauge}).
+(iv) The bit-rate of the weight scale (\cref{tab:rd}). (v) The demonstration that
+the weighted-criteria score agrees with the Condorcet winner only $68.4\%$ of the
+time while every ranking rule agrees $97$--$98\%$.
+
+\subsection{Why method relativity is not relativism}
+
+Every quantity here is relative to a declared query family
+(\cref{prop:Q}), a declared decision family (\cref{def:regret}), and a named
+instrument (§\ref{sec:instrument}). That is not an admission that the numbers are
+arbitrary; it is the statement that they are \emph{typed}. A claim inherits the
+scope of the family it was computed against and may not be quoted outside it.
+The gauge test (§\ref{sec:gauge}) is what makes the typing empirical rather than
+rhetorical: it shows exactly which claims move when the instrument moves.
+
+% ===========================================================================
+\section{Limitations and epistemic status}
+\label{sec:limits}
+
+``We did not run $X$'' and ``$X$ cannot be run at this site'' are different
+sentences and are not merged.
+
+\subsection{Structural --- cannot be run here}
+
+\begin{enumerate}
+\item \textbf{Response-blind source norms.} Every criterion was written after
+      seeing the responses. \cref{prop:contam} shows contamination and redundancy
+      are not separable without them.
+\item \textbf{A second candidate set per person.} Required to test
+      \cref{thm:vetoinf} out of sample and to resolve the probe-dependence
+      question of §\ref{sec:falsify}(6).
+\item \textbf{Typed fields.} $82.3\%$ of criteria carry none
+      (\cref{tab:payload}); scope and exception loss are unstudiable here.
+\item \textbf{Compilation lineage.} Absent, so §\ref{sec:compile}'s three actions
+      stay confounded.
+\item \textbf{$Y$.} Not in the release.
+\item \textbf{Cross-dataset / cross-domain.} One release exists.
+\end{enumerate}
+
+\subsection{Practical --- could be run, was not}
+
+\begin{enumerate}
+\item Held-out partitions for F1, F4, F5.
+\item A specification curve over characteristic functions for the Shapley
+      estimator; one was tested.
+\item The bit curve of \cref{tab:rd} across judges.
+\item Two-way clustering (\cref{thm:cgm}) on the person-level quantities; only
+      prompt-level clustering was applied, and annotators repeat across prompts.
+\end{enumerate}
+
+\subsection{Quantitative bounds that apply to every number here}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{ll}
+\toprule
+bound & value\\
+\midrule
+judge attenuation ceiling & $0.741$\\
+panel reliability ceiling & $0.9722$\\
+compounded ceiling on any correlation & $0.720$\\
+contamination-proxy variation in every flip rate & up to $1.8\times$\\
+absolute winner claims: instrument share & $\approx 40\%$\\
+absolute winner claims: presentation-order share & $8.0$pp\\
+rubric corpus never joined & $1.8\%$\\
+design shortfall for $1$pp resolution & $968$ of $1{,}213$ prompts\\
+pairwise-dependence screen: MDE at full $n$ & $|\phi| = 0.153$ against median $0.124$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}[The last row read honestly]
+The median pairwise association in the operator grid is \emph{below} the MDE at
+the largest available sample. The pairwise table is therefore a screen for
+\emph{strong} dependence and is worded that way throughout; its nulls are
+underpowered rather than informative.
+\end{remark}
+
+% ===========================================================================
+\section{What a design that can measure this requires}
+\label{sec:design}
+
+Each row is derived from a specific result above, not proposed.
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{4.6cm}P{3.4cm}Y}
+\toprule
+requirement & derived from & unlocks\\
+\midrule
+response-blind source norms & \cref{prop:contam} & the only route separating
+contamination from redundancy\\
+$\ge 2$ candidate sets per person & \cref{thm:vetoinf}, \cref{cor:iia} & tests
+whether $M$ transfers; quantifies candidate-set overfitting\\
+typed fields: veto, scope, exception, priority as separate columns &
+§\ref{sec:type}, \cref{tab:payload} & the index mismatch is a missing column, not
+a hard problem\\
+interval-scale validation, or paired comparisons instead & \cref{tab:cardinal} &
+$11.7\%$ of decisions currently rest on an unestablished assumption\\
+$k>4$ responses & \cref{thm:probe} & raises the probe bound from $2$ to $k-2$\\
+$\ge 1{,}213$ prompts & \cref{cor:n} & $1$pp resolution\\
+substantially more than $968$ for pairwise structure & §\ref{sec:limits} &
+the typical association is currently undetectable\\
+$\ge 3$ executors & §\ref{sec:gauge} & already available; the gauge is established\\
+compilation receipt (lineage) & §\ref{sec:compile} & separates selection,
+rewriting, weight-discarding\\
+declared $Q$ and declared $\Agg$ & \cref{prop:Q}, \cref{rem:threelosses} &
+without them ``loss'' is undefined and ``defect'' is inseparable from ``social
+choice''\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ===========================================================================
+\section{Conclusion}
+
+The chain of \cref{eq:chain} loses something at every arrow, and the losses are
+not of one kind.
+
+\begin{itemize}
+\item \textbf{$\succeq_i \to \Nn_i$.} An unbounded relation is projected onto two
+      free parameters (\cref{thm:probe}) -- forced, not recoverable. Within that,
+      a person's own criteria recover $39\%$ of the direction of their own choice,
+      and the individual component of that is $0.083$ of cosine. The type
+      structure is empty: $82.3\%$ of criteria carry no condition, exception,
+      priority, hedge or prohibition. And $11.7\%$ of decisions depend on an
+      interval reading of a scale that was never validated as one.
+\item \textbf{$\Nn_i \to G$.} Aggregation costs $0.1298$ of normalised utility
+      (\cref{thm:garble}) -- a social choice, but one made silently because
+      $\Agg$ was never declared. The weighted-criteria route agrees with the
+      Condorcet winner only $68.4\%$ of the time while ranking rules agree
+      $97$--$98\%$. $13.4\%$ of pairwise relations flip when the option set
+      changes. And $26.1\%$ of the time the utilitarian winner is a response
+      somebody called unacceptable.
+\item \textbf{Type.} No finite weight encodes a veto (\cref{thm:vetoinf}). This
+      is the strongest statement in the paper and it required no instrument.
+\item \textbf{$G \to C$.} Compilation changes $29.4\%$ of decisions, with its
+      three actions confounded. But the discarded magnitudes were worth about one
+      bit: sign alone reproduces $89.8\%$.
+\item \textbf{$C \to D$.} The executor's reliability is $0.5497$, capping every
+      correlation at $0.741$. Changing the reader changes $40\%$ of winners;
+      reordering the page changes $8\%$. Comparative claims survive all of it;
+      absolute claims do not.
+\item \textbf{$D \to Y$.} Does not exist in the release.
+\end{itemize}
+
+\mesotakeaway{The losses inside the elicitation are larger than every loss the
+pipeline adds. The most defensible statement this object supports is a
+\emph{theorem} about what a scalar scale cannot encode, and the most consequential
+one is that the next dataset should buy \textbf{fields and response-blindness},
+not finer weights or more prompts.}

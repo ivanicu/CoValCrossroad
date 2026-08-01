@@ -1,0 +1,695 @@
+% ===========================================================================
+% PART 1 -- the object, and the chain, layer by layer.
+% ===========================================================================
+\section{The object}
+\label{sec:object}
+
+\subsection{What a normative disposition is, formally}
+
+\begin{definition}[Disposition]
+Let $\resp$ be the set of all possible responses to a prompt -- unbounded. A
+person $i$'s \emph{normative disposition} is a preference structure $\succeq_i$
+on $\resp$. It is not a number, not a sentence, and not a ranking: it is a
+relation on an infinite set.
+\end{definition}
+
+\begin{definition}[Elicitation]
+An \emph{elicitation} observes $\succeq_i$ only on a finite \emph{probe set}
+$X = \{x_1,\dots,x_k\} \subset \resp$. In the object studied here, $k=4$.
+\end{definition}
+
+\subsection{The chain}
+
+\begin{equation}
+\succeq_i \;\to\; \Nn_i \;\to\; \Agg \;\to\; G \;\to\; C \;\to\; J \;\to\; D \;\to\; Y
+\label{eq:chain}
+\end{equation}
+\noindent
+$\Nn_i$ the elicited individual norm; $\Agg$ the aggregation rule; $G=\Agg(\Nn_1,\dots,\Nn_n)$
+the collective norm; $C$ the compiled standard; $J$ the executor that reads it;
+$D$ the decision it induces; $Y$ the behaviour of a system trained under it.
+
+\begin{remark}[Three kinds of loss, which must never be merged]
+\label{rem:threelosses}
+\begin{enumerate}
+\item \textbf{Mathematically forced}: no pipeline can avoid it (\cref{thm:probe}).
+\item \textbf{Authorised social choice}: aggregation necessarily discards
+      individual information (\cref{thm:garble}). This is a \emph{defect} only if
+      the rule $\Agg$ was never declared.
+\item \textbf{Machine distortion}: an unlicensed change.
+\end{enumerate}
+The released object declares no $\Agg$. \emph{Therefore categories 2 and 3 are
+not separable at this site.} That is a missing column, not a hard measurement
+problem, and it is the single most consequential fact about the release.
+\end{remark}
+
+\subsection{The tensors, exactly}
+
+\begin{definition}[The released quantities]
+\label{def:tensors}
+For prompt $p$, criterion index $c$, response letter $r \in \{A,B,C,D\}$,
+annotator $a$:
+\begin{align*}
+\sat[p,c,r] &\in (0,1) && \text{satisfaction of criterion } c \text{ by response } r;\\
+\wt[p,c,a] &\in [-10,10]\setminus\{0\} && \text{the weight } a \text{ gave } c;\\
+V[p,a] &\subseteq \{A,B,C,D\} && \text{the responses } a \text{ called unacceptable};\\
+\Pi[p,a] &\in \text{rankings of } \{A,B,C,D\} && \text{the ranking } a \text{ gave.}
+\end{align*}
+\end{definition}
+
+Four facts about \cref{def:tensors} are load-bearing and are stated here so that
+no later section can assume otherwise.
+
+\begin{enumerate}
+\item $\sat$ is \emph{not} in the release. It is reconstructed by running a
+      language model as a judge; the value is a sigmoid of a logit difference and
+      has never been calibrated against anything. Every number downstream is a
+      number about that judge as much as about the norm (\cref{thm:atten},
+      §\ref{sec:instrument}).
+\item $c$ is \emph{ragged}: between $4$ and $39$ criteria per prompt, median
+      $15$. Any statistic that averages over criteria therefore weights prompts
+      unequally unless it is explicitly re-weighted.
+\item $\wt$ is \emph{sparse}: $102{,}147$ observed $(c,a)$ pairs. Exactly one
+      rating in the corpus equals $0$, so the scale is used as strictly two-sided.
+\item \textbf{$V$ and $\wt$ do not share an index.} $V$ is indexed by
+      $(\text{prompt},\text{annotator})$; $\wt$ by
+      $(\text{prompt},\text{criterion},\text{annotator})$. There is no column
+      linking a veto to a criterion. §\ref{sec:type} shows what this forbids.
+\end{enumerate}
+
+\begin{remark}[The index itself is reconstructed]
+The rubric file carries no prompt identifier. The mapping from criteria to
+prompts is recovered by matching conversation text, with a fuzzy fallback:
+$966$ exact, $2$ fuzzy, and $18$ of $986$ records \textbf{never matched at all}.
+So $1.8\%$ of the rubric corpus is invisible to every number computed from this
+release, including every number in this paper.
+\end{remark}
+
+\subsection{What a claim about this object can mean}
+
+\begin{definition}[Induced score]
+\label{def:score}
+$\displaystyle Y_p(r) \;:=\; \sum_{c} \bar w_{p,c}\,\sat[p,c,r]$, where
+$\bar w_{p,c}$ is the mean over annotators of $\wt[p,c,a]$.
+\end{definition}
+
+\begin{definition}[Individual induced score]
+\label{def:ni}
+$\displaystyle \Nn_{i,p}(r) \;:=\; \sum_{c \,:\, i \text{ rated } c} \wt[p,c,i]\,\sat[p,c,r]$.
+\end{definition}
+
+\begin{remark}[Why $\Nn_i$ must be centred and normalised, and why that is forced]
+\label{rem:normalise}
+Only contrasts among the four responses decide anything, so adding a constant to
+$\Nn_i$ changes nothing; the mean over $r$ is therefore unidentified and must be
+removed. Furthermore, $\|\Nn_i\|$ grows mechanically with the number of criteria
+$i$ rated: measured
+$\Corr(\log\|\Nn_i\|,\ \log \#\{\text{criteria rated}\}) = +0.842$. Any statistic
+on unnormalised $\Nn_i$ therefore measures \emph{effort}, not values. Centring and
+normalising are not stylistic; without them the quantity is a different quantity.
+\end{remark}
+
+% ===========================================================================
+\section{The elicitation layer}
+\label{sec:elicit}
+
+\subsection{The probe bound}
+
+\begin{theorem}[Probe bound]
+\label{thm:probe}
+Let $u : X \to \R$ be a utility on $k$ probe responses. If decisions depend only
+on differences of $u$, the space of decision-distinct utilities has dimension
+$k-1$. If in addition only the ordering matters (no interpersonal scale), the
+space is $S^{k-2}$, of dimension $k-2$.
+\end{theorem}
+\begin{proof}
+\emph{Step 1.} The set of utilities is $\R^k$.
+
+\emph{Step 2 (quotient by constants).} $u$ and $u + c\mathbf{1}$ induce identical
+differences $u(x_a)-u(x_b)$ for every pair, hence identical decisions. The
+subspace of constants $\R\mathbf{1}$ has dimension $1$, so the quotient
+$\R^k/\R\mathbf{1}$ has dimension $k-1$. Concretely, the centring map
+$C = I - \tfrac1k\mathbf{1}\mathbf{1}^\top$ is a projection with
+$\operatorname{rank}(C) = k-1$; for $k=4$ this rank is verified numerically as
+$3$.
+
+\emph{Step 3 (quotient by scale).} If $u$ and $\lambda u$ for $\lambda>0$ are
+also equivalent, we quotient the $(k-1)$-dimensional centred space by the
+positive rays, giving the sphere $S^{k-2}$, of dimension $k-2$.
+
+\emph{Step 4.} For $k=4$: dimension $3$ after centring, and $S^2$ -- two free
+parameters -- after scale.
+\end{proof}
+
+\mesotakeaway{However many criteria a person writes and however many weights they
+attach, the elicitation returns \textbf{a point on a 2-sphere}: two free numbers
+per person per prompt. This is arithmetic, not a finding, and it is the ceiling
+on everything downstream.}
+
+\begin{corollary}[Three consequences]
+\label{cor:probe3}
+\begin{enumerate}
+\item The numerator of ``how much normative information did the pipeline
+      destroy'' is bounded by two parameters. Most of what a criterion says never
+      entered the measurable object at all.
+\item Any measure of loss based on \emph{rank} or \emph{dimension} must read a
+      constant. An earlier round of this work built such a measure; it returned
+      the value $3.00$ on every input including its own null. That was not a bug
+      -- it was \cref{thm:probe}.
+\item Loss must be measured as \emph{angle} and \emph{influence}. You cannot lose
+      a dimension you never had; you can only be rotated away from what people
+      wanted.
+\end{enumerate}
+\end{corollary}
+
+\subsection{Is the weight scale ordinal or interval? A test, and an answer}
+\label{sec:cardinal}
+
+Nothing in the elicitation establishes that the distance from $+8$ to $+10$ means
+the same as from $+2$ to $+4$. If the scale is merely \emph{ordinal} -- only the
+ordering of criteria within an annotator is meaningful -- then any strictly
+increasing transformation of the weights must leave every decision unchanged.
+
+\begin{protocol}[Monotone gauge test]
+Apply $\varphi$ with $\varphi$ strictly increasing and odd, recompute
+$Y_p$ from \cref{def:score} with $\varphi(\bar w)$ in place of $\bar w$, and
+record whether $\argmax_r Y_p(r)$ moves.
+\end{protocol}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lr}
+\toprule
+transform $\varphi(w)$ & winner changes \\
+\midrule
+identity (control) & $0.0\%$ \\
+$\operatorname{sign}(w)|w|^{1/2}$ & $4.4\%$ \\
+$\operatorname{sign}(w)\log(1+|w|)$ & $4.6\%$ \\
+$\operatorname{sign}(w)|w|^{2}$ & $7.3\%$ \\
+$\operatorname{sign}(w)$ alone & $\mathbf{11.7\%}$ \\
+\bottomrule
+\end{tabular}
+\caption{Every transform preserves each annotator's ordering of criteria exactly.
+If the scale were ordinal, all rows would read $0.0\%$. $n = 968$ prompts.}
+\label{tab:cardinal}
+\end{table}
+
+\mesoboundary{The scale is \emph{used} as an interval scale. $7.3\%$ of decisions
+change under a transform that preserves every stated preference ordering, and
+$11.7\%$ change when magnitude is discarded entirely. Every result in this
+literature that sums weighted criteria depends on an interval assumption the
+elicitation never established. The last row is the honest headline: roughly one
+decision in eight is carried by magnitude rather than direction.}
+
+\subsection{What the elicitation captured: consensus, not the person}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lr}
+\toprule
+quantity ($14{,}764$ person--prompt pairs) & value \\
+\midrule
+$\cos(\Nn_i,\ \text{person } i\text{'s own ranking})$ & $+0.3928$\\
+$\cos(\Nn_i,\ \text{a \emph{different} person's ranking})$ & $+0.3097$\\
+difference & $+0.0831$ (se $0.0067$, $z=+12.3$)\\
+\bottomrule
+\end{tabular}
+\caption{Both vectors centred and normalised per \cref{rem:normalise}.}
+\label{tab:selfother}
+\end{table}
+
+Two readings, and the second is larger than the first.
+
+\begin{itemize}
+\item \textbf{Relative.} The entire individual signal is $0.083$ of cosine. A
+      person's written criteria predict a \emph{stranger's} ranking almost as
+      well as their own.
+\item \textbf{Absolute.} $0.393$ means a person's own stated criteria recover
+      only about $39\%$ of the direction of their own choice.
+\end{itemize}
+
+\mesotakeaway{Before the pipeline does anything, roughly $61\%$ of the relation
+between what a person \emph{writes} and what they \emph{choose} is already
+absent. No downstream step can destroy individual normative content that the
+elicitation never captured; ``how much of a person survives compilation'' is
+bounded above by how much of them was ever written down.}
+
+\subsection{The normative payload actually collected}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrr}
+\toprule
+field, by lexical marker & criteria & share \\
+\midrule
+exception / carve-out (\emph{unless, except, other than}) & $123$ & $0.8\%$\\
+conditional scope (\emph{if, when, where, in cases of}) & $1{,}724$ & $11.3\%$\\
+priority / conflict (\emph{before, over, takes precedence}) & $440$ & $2.9\%$\\
+uncertainty (\emph{may, might, unclear, depends}) & $478$ & $3.1\%$\\
+non-compensable (\emph{never, must not, regardless}) & $121$ & $0.8\%$\\
+\midrule
+\textbf{none of the five} & $\mathbf{12{,}547}$ & $\mathbf{82.3\%}$\\
+\bottomrule
+\end{tabular}
+\caption{All $15{,}248$ criteria. Median length $94$ characters.}
+\label{tab:payload}
+\end{table}
+
+A minimal normative payload has been proposed with thirteen fields: content,
+scope, polarity, exceptions, priority, type, compensability, authority, judgment
+type, uncertainty, witnesses, constituency, meta-rules. This release populates
+\textbf{three}: content, polarity (the sign of a weight), magnitude.
+
+\begin{corollary}[A question that is empty here]
+``Did the compilation destroy the exception clause?'' cannot be studied at this
+site: $99.2\%$ of criteria contain no exception. A pipeline cannot destroy
+structure the elicitation never collected. This is a statement about the release,
+not about pipelines.
+\end{corollary}
+
+% ===========================================================================
+\section{The aggregation layer}
+\label{sec:agg}
+
+\subsection{Social choice, from zero}
+
+Given $n$ people each with a ranking of $k$ alternatives, a \emph{social choice
+rule} outputs one alternative. Five rules appear below; each is defined
+completely.
+
+\begin{definition}[Rules]
+\label{def:rules}
+Let $\pi_i(x)$ be the Borda points person $i$ gives $x$ (i.e. $k-1$ for their
+first choice down to $0$ for last, ties sharing the average).
+\begin{itemize}
+\item \textbf{Plurality}: pick the $x$ that is ranked first by the most people.
+\item \textbf{Borda}: pick $\argmax_x \frac1n\sum_i \pi_i(x)$.
+\item \textbf{Median}: pick $\argmax_x \operatorname{median}_i \pi_i(x)$.
+\item \textbf{Maximin}: pick $\argmax_x \min_i \pi_i(x)$ -- the alternative whose
+      \emph{worst} treatment by any individual is least bad.
+\item \textbf{Condorcet winner}: the $x$ that beats every other alternative in
+      pairwise majority comparison. It need not exist.
+\end{itemize}
+\end{definition}
+
+\begin{definition}[Condorcet cycle]
+A majority cycle is a triple with $x$ beating $y$, $y$ beating $z$, and $z$
+beating $x$. Majority preference is then not transitive and no Condorcet winner
+exists.
+\end{definition}
+
+\subsection{Measured social choice structure}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lr}
+\toprule
+quantity ($968$ prompts, $\ge 3$ rankings each) & value \\
+\midrule
+a Condorcet winner exists & $72.3\%$\\
+a majority \emph{cycle} occurs & $\mathbf{0.0\%}$\\
+neither (majority ties) & $27.7\%$\\
+\bottomrule
+\end{tabular}
+\caption{The classic voting pathology does not occur in this corpus.}
+\label{tab:condorcet}
+\end{table}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lr}
+\toprule
+agreement with the Condorcet winner, where one exists ($n=700$) & \\
+\midrule
+Borda & $98.4\%$\\
+Plurality & $98.3\%$\\
+Median & $97.4\%$\\
+\textbf{the weighted-criteria score of \cref{def:score}} & $\mathbf{68.4\%}$\\
+Maximin & $55.9\%$\\
+\bottomrule
+\end{tabular}
+\label{tab:agree}
+\end{table}
+
+\mesotakeaway{Every standard \emph{ranking-based} rule agrees with the Condorcet
+winner to $97$--$98\%$. The weighted-criteria score agrees only $68.4\%$ of the
+time. The disagreement is therefore \textbf{not} between aggregation rules; it is
+between \emph{scoring people's criteria} and \emph{counting people's rankings} --
+two elicitations from the same people whose outputs differ on nearly a third of
+prompts.}
+
+\subsection{Arrow's independence condition, measured}
+
+\begin{definition}[IIA]
+A rule satisfies \emph{independence of irrelevant alternatives} if the social
+ordering of $x$ and $y$ depends only on individual orderings of $x$ and $y$, not
+on any third alternative.
+\end{definition}
+
+Measured for Borda: over $11{,}616$ tests (each prompt $\times$ each dropped
+response $\times$ each remaining pair), the relative order of two responses
+reverses when an irrelevant third is removed in $1{,}553$ cases:
+$\mathbf{13.4\%}$.
+
+\begin{corollary}[The candidate set is part of the decision]
+\label{cor:iia}
+$13.4\%$ of pairwise relations flip when the option set changes. Any normative
+content measured on one set of four responses is, to that extent, a property of
+the set. This is the quantitative content of ``candidate-set overfitting''.
+\end{corollary}
+
+\subsection{Blackwell: what aggregation necessarily costs}
+
+\begin{definition}[Garbling]
+$G$ is a \emph{garbling} of $Z$ if there is a Markov kernel $K$ with
+$G \sim K(\cdot \mid Z)$: $G$ is generated from $Z$ by a channel that adds no new
+information about the state.
+\end{definition}
+
+\begin{lemma}[Aggregation is a garbling]
+\label{lem:garble}
+If $G = \Agg(Z)$ is a deterministic function of $Z$, then $G$ is a garbling of
+$Z$, via the degenerate kernel $K(\cdot\mid z) = \delta_{\Agg(z)}$.
+\end{lemma}
+
+\begin{theorem}[Blackwell, invoked]
+\label{thm:garble}
+If $G$ is a garbling of $Z$ then for \emph{every} decision problem $d$ with any
+loss function, the attainable Bayes risk satisfies $R_G(d) \ge R_Z(d)$.
+\end{theorem}
+
+\begin{corollary}
+Aggregation never adds information and weakly loses on every decision problem.
+The question is never \emph{whether}, only \emph{how much} -- and ``how much'' is
+meaningless until a decision family is named.
+\end{corollary}
+
+\begin{definition}[Deficiency]
+$\displaystyle \delta_{\mathcal{D}}(Z,G) := \sup_{d \in \mathcal{D}}\big[R_G(d)-R_Z(d)\big]$.
+\end{definition}
+
+\step{Computing it here.} Take $\mathcal{D}$ to be the single problem ``choose one
+of the four responses''. Normalise each person's induced score to $[0,1]$ by
+min--max within that person and prompt, so that scores are interpersonally
+comparable by construction rather than by assumption. Then:
+\begin{align*}
+\text{oracle (each person receives their own top response)} &= 1.0000 \\
+\text{the single collective choice} &= 0.8702 \\
+\textbf{deficiency} &= \mathbf{0.1298}
+\end{align*}
+with quartiles $0.0445 / 0.1076 / 0.1924$ across prompts.
+
+\mesotakeaway{Thirteen points of normalised utility is what \emph{disagreement
+itself} costs. It is a social choice, not a pipeline defect, and no compilation
+recovers it. It also fixes the denominator: ``what fraction was preserved''
+should be divided by $0.8702$, not by $1$.}
+
+\subsection{Sen's liberal paradox, instantiated}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lr}
+\toprule
+prompts carrying a partial veto & $161$\\
+the weighted-criteria winner \emph{is} a vetoed response & $42 = \mathbf{26.1\%}$\\
+\bottomrule
+\end{tabular}
+\label{tab:sen}
+\end{table}
+
+One time in four, a rule that maximises aggregate satisfaction selects an option
+someone declared unacceptable. This is not a defect of the rule; it is what a
+utilitarian aggregator does. It is the empirical half of §\ref{sec:type}.
+
+\subsection{Which rule is the larger lever, corrected}
+
+An earlier version of this analysis applied ``median'' and ``maximin'' across
+\emph{criteria}. A social choice rule aggregates across \emph{people}; the two
+coincide only if each criterion belongs to exactly one person, which is false
+here. Corrected:
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrr}
+\toprule
+rule, versus the mean over people & winner changes & (wrong index: over criteria)\\
+\midrule
+maximin & $49.4\%$ & $63.9\%$\\
+median & $14.8\%$ & $34.3\%$\\
+Borda & $9.6\%$ & --\\
+trimmed & $\mathbf{3.6\%}$ & --\\
+\midrule
+\emph{any intervention on a single criterion} & \emph{$2.1$--$11.6\%$} &\\
+\bottomrule
+\end{tabular}
+\label{tab:aggrule}
+\end{table}
+
+\begin{remark}[And maximin needs a control]
+A minimum over a set is unstable by construction. Control: same people, same
+per-person mean and standard deviation, response pattern destroyed. That sham
+disagrees with the mean rule on $61.4\%$ of prompts -- \emph{more} than the real
+data's $49.4\%$. So maximin's high rate is the instability of the $\min$
+operator, and the actual structure of human disagreement \emph{reduces} it by
+$12$ points. The claim ``minority-sensitive rules change half the outcomes'' does
+not survive its own control. What survives is that \emph{trimmed} aggregation,
+at $3.6\%$, moves less than several criterion-level interventions: trimming the
+extremes barely matters, so the disagreement that matters lives in the tails.
+\end{remark}
+
+% ===========================================================================
+\section{The type layer: why a veto is not a large negative weight}
+\label{sec:type}
+
+\subsection{The index mismatch}
+
+From \cref{def:tensors}: $V$ is indexed $(p,a)$ and $\wt$ is indexed $(p,c,a)$.
+An operator ``represent this veto as a weight'' must choose \emph{which criterion}
+carries it. No such column exists.
+
+\begin{proposition}
+``Coerce a veto into a criterion weight'' is not a function of the released data.
+\end{proposition}
+
+This is a schema fact, not a measurement difficulty, and no amount of data at
+this site repairs it.
+
+\subsection{The well-posed question, and its answer}
+
+\begin{definition}[Two rules]
+\begin{align}
+\text{constraint:}&\quad a^\star \;=\; \argmax_{a \notin V} Y(a),\\
+\text{penalty:}&\quad a^\star_M \;=\; \argmax_{a} \big[Y(a) - M\cdot\mathbf{1}\{a\in V\}\big].
+\end{align}
+\end{definition}
+
+\begin{theorem}[Exact condition for a penalty to reproduce a veto]
+\label{thm:veto}
+Let $\Delta := \max_{a\in V} Y(a) - \max_{a\notin V} Y(a)$. Then
+$a^\star_M = a^\star$ for every realisation of the scores if and only if
+$M > \Delta$.
+\end{theorem}
+\begin{proof}
+\emph{($\Leftarrow$)} Suppose $M > \Delta$. For any $a \in V$,
+$Y(a) - M \le \max_{a'\in V}Y(a') - M < \max_{a'\in V}Y(a') - \Delta
+= \max_{a'\notin V}Y(a')$. So every vetoed alternative is strictly below the best
+allowed one after the penalty, and the $\argmax$ lies in the allowed set, where
+the penalty is zero and the ordering is unchanged. Hence $a^\star_M = a^\star$.
+
+\emph{($\Rightarrow$)} Suppose $M \le \Delta$. Let $a_V$ attain
+$\max_{a\in V}Y(a)$. Then
+$Y(a_V) - M \ge Y(a_V) - \Delta = \max_{a\notin V}Y(a)$, so $a_V$ is weakly
+preferred by the penalty rule to every allowed alternative, and the penalty rule
+may select a vetoed response. Hence agreement fails.
+\end{proof}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lr}
+\toprule
+measured quantity & value\\
+\midrule
+prompts with a partial veto & $161$\\
+the veto is \emph{binding} ($\Delta > 0$) & $42 = 26.1\%$\\
+required $M$: median & $3.64$\\
+required $M$: 90th percentile & $9.92$\\
+required $M$: \textbf{maximum} & $\mathbf{26.54}$\\
+contribution of one criterion at the scale maximum & $\le 10$\\
+required $M$ in units of max-weight criteria: median / max & $0.36$ / $\mathbf{2.65}$\\
+\bottomrule
+\end{tabular}
+\label{tab:vetoM}
+\end{table}
+
+\begin{theorem}[No finite weight encodes a veto]
+\label{thm:vetoinf}
+$\Delta$ is a function of the \emph{candidate set}, not of the norm. Since a
+vetoed response can be arbitrarily better than every allowed one on the remaining
+criteria, $\sup_X \Delta(X) = \infty$. Therefore no finite $M$ satisfies
+\cref{thm:veto} uniformly over candidate sets.
+\end{theorem}
+\begin{proof}
+Fix a person, a veto set $V$, and a criterion $c$ with weight $w>0$. Construct a
+candidate $x^\ast \in V$ with $\sat[\cdot,c,x^\ast] \to 1$ and all allowed
+candidates with $\sat[\cdot,c,\cdot] \to 0$; then $\Delta \to w \cdot \sum$ over
+however many such criteria are present, which is unbounded as the number of
+agreeing criteria grows. Since \cref{thm:veto} requires $M>\Delta$ for agreement
+on that set, no fixed finite $M$ suffices for all sets.
+\end{proof}
+
+\mesotakeaway{A veto is a property of the \emph{person}. The penalty $M$ that
+reproduces it is a property of the person \textbf{and the four responses that
+happened to be shown}. On just $968$ four-item candidate sets the required
+penalty already reaches $2.65$ times the entire elicitation scale. Type is not
+compressible to magnitude, and this is a theorem with its counterexample present
+in the data -- it required no instrument at all.}
+
+\subsection{Three independent routes to one conclusion}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lll}
+\toprule
+route & evidence & section\\
+\midrule
+derivation & no finite $M$ works uniformly & \cref{thm:vetoinf}\\
+empirical & the utilitarian winner is vetoed $26.1\%$ of the time & \cref{tab:sen}\\
+structural & the index does not exist in the schema & §\ref{sec:type}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ===========================================================================
+\section{The compilation layer}
+\label{sec:compile}
+
+The released standard ships in two forms: the full weighted rubric and a compiled
+``core'' whose items carry no weights, every one rewritten to positive polarity.
+
+\begin{itemize}
+\item The two select \emph{different} winners on $\mathbf{29.4\%}$ of prompts.
+\item Compilation performs three operations at once -- selection, rewriting, and
+      weight discarding -- and the release ships no lineage, so the three are
+      \textbf{not separable}. This is the missing column that blocks the most
+      questions here.
+\end{itemize}
+
+\subsection{How many bits of the rubric are decision-relevant?}
+
+\begin{protocol}[Rate--distortion]
+Quantise every criterion weight to $b$ bits uniformly across the observed range
+within each prompt, recompute \cref{def:score}, and record whether the winner is
+preserved.
+\end{protocol}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lr}
+\toprule
+bits per criterion weight & decision preserved\\
+\midrule
+$1$ (sign only) & $\mathbf{89.8\%}$\\
+$2$ & $95.0\%$\\
+$3$ & $98.1\%$\\
+$4$ & $98.6\%$\\
+$8$ & $99.8\%$\\
+\bottomrule
+\end{tabular}
+\label{tab:rd}
+\end{table}
+
+\begin{remark}[Two independent computations agree]
+\cref{tab:rd} says one bit preserves $89.8\%$, i.e. changes $10.2\%$.
+\cref{tab:cardinal} says discarding magnitude changes $11.7\%$. These were
+computed by different routes and agree to about a point. The $21$ levels of the
+$-10..{+}10$ scale carry roughly three bits of decision-relevant content, and the
+\emph{first} bit carries nine tenths of it.
+\end{remark}
+
+\begin{corollary}[A design consequence]
+The elicitation is over-precise in magnitude and empty in type
+(\cref{tab:payload}). The next collection should not buy finer weights; it should
+buy fields.
+\end{corollary}
+
+% ===========================================================================
+\section{The instrument layer}
+\label{sec:instrument}
+
+\subsection{The judge as a noisy channel}
+
+$\sat$ is produced by a language model. Two independent judges give two
+measurements of the same underlying satisfaction, so \cref{eq:relcorr} applies
+directly.
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lr}
+\toprule
+$59{,}936$ satisfaction cells & value\\
+\midrule
+$\Corr(\text{judge}_1,\text{judge}_2)$ & $0.5497$\\
+$\Rightarrow$ reliability of one judge (\cref{eq:relcorr}) & $0.5497$\\
+$\Rightarrow$ attenuation factor $\sqrt{\mathrm{rel}}$ (\cref{thm:atten}) & $0.741$\\
+\bottomrule
+\end{tabular}
+\label{tab:channel}
+\end{table}
+
+\begin{corollary}[A ceiling on every number in this literature]
+A true correlation of $1.0$ measured through this tensor reads at most $0.741$.
+This is bias, not noise: more prompts do not remove it.
+\end{corollary}
+
+\subsection{Panel reliability}
+
+Split-half over annotators on $964$ prompts with $\ge 6$ annotators:
+$r = 0.8961$; by \cref{thm:sb}, full-panel reliability
+$2r/(1+r) = 0.9452$, so the panel score alone caps correlations at
+$\sqrt{0.9452} = 0.9722$.
+
+\begin{corollary}[Compounded ceiling]
+A correlation measured through both the panel and the judge is capped at
+$0.9722 \times 0.741 = 0.720$.
+\end{corollary}
+
+\subsection{The gauge test}
+\label{sec:gauge}
+
+\begin{definition}[Gauge transformation]
+A transformation that must leave the \emph{property} unchanged. Here: change the
+reader of the norm while holding the norm fixed. If the \emph{measurement} is
+invariant but the property is not, the measurement is blind; if the property is
+invariant but the measurement is not, the measurement is about the reader.
+\end{definition}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrr}
+\toprule
+& winner differs from baseline & $n$\\
+\midrule
+judge B (different family) & $42.4\%$ & $968$\\
+judge C (different scale) & $39.7\%$ & $968$\\
+\textbf{same judge, responses reordered} & $\mathbf{8.0\%}$ & $300$\\
+\bottomrule
+\end{tabular}
+\caption{(a) The object is \emph{not} invariant.}
+\label{tab:gaugea}
+\end{table}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrr}
+\toprule
+Spearman $\rho$ of the operator ordering, against baseline & judge B & judge C & reordered\\
+\midrule
+& $+0.982$ & $+1.000$ & $+0.963$\\
+\bottomrule
+\end{tabular}
+\caption{(b) The measurement \emph{is} invariant. Pre-registered kill at
+$\rho<0.8$; it does not fire on any of the three.}
+\label{tab:gaugeb}
+\end{table}
+
+\mesotakeaway{Comparative statements are about the norm. Absolute statements are
+about the reader. ``Operator $X$ moves the decision more than $Y$'' survives three
+instruments and a position swap. ``The standard prefers response $X$'' does not:
+roughly $40\%$ of it is the reader and $8$ points are nothing but the order the
+responses were printed in.}
+
+\begin{remark}[The scale reference, with its caveat]
+Reordering the page changes the winner more often than deleting a criterion does
+($8.0\%$ versus $5.1\%$). The caveat is load-bearing: the reordering comparison
+uses a \emph{separate} judge run and so carries judge stochasticity, whereas the
+operator comparison holds the tensor fixed and cancels it. So $8.0\%$ is not a
+strict noise floor for the operators; it is the correct \emph{scale reference}
+for any claim of the form ``this changes the decision''.
+\end{remark}

@@ -1,0 +1,148 @@
+\input{preamble.tex}
+
+\title{\sffamily\bfseries Measuring Normative Information\\[0.35em]
+  {\large\mdseries What a value-alignment dataset can and cannot tell you, derived from zero}}
+\author{\sffamily Ivan GAN\\[3pt]
+\small\mdseries
+\href{mailto:ivan@ivan.icu}{ivan@ivan.icu}
+\quad
+\href{https://www.ivan.icu}{www.ivan.icu}
+\quad
+\href{https://github.com/ivanicu}{github.com/ivanicu}}
+\date{2026-08-01}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+A public dataset of human value judgments ships $15{,}248$ written criteria with
+numerical weights, and $82.3\%$ of those criteria contain no condition, no
+exception, no priority, no hedge and no prohibition -- the collected normative
+payload is content, a sign, and a magnitude. This paper asks what can be measured
+about such an object at all, and answers it as a typed question: every quantity
+is defined relative to a declared query family, a declared decision family, and a
+named instrument, and each is derived here from nothing, assuming no statistics.
+What survives is: (i) a theorem that no finite weight encodes a veto, because the
+penalty reproducing one depends on which candidate responses happened to be
+shown, with the counterexample present in the data at $2.65\times$ the elicitation
+scale; (ii) that a person's own written criteria predict a \emph{stranger's}
+ranking at $0.310$ and their own at $0.393$, so the individual signal in the
+elicitation is $0.083$ of cosine and nothing downstream can destroy what was never
+collected; (iii) that comparative measurements are invariant across three
+executors and a presentation-order swap (Spearman $0.963$--$1.000$) while absolute
+ones are not ($40\%$ of winners change with the reader, $8$ points with the page
+order); and (iv) that one bit per criterion -- the sign alone -- reproduces
+$89.8\%$ of the shipped decisions. Six claims were withdrawn during this work and
+are listed with what killed them; five of the six died the same way, to a verdict
+decided by a constant the author chose rather than by a comparison against a range
+of defensible references. The central claim ends if a person's induced ordering
+proves unstable across response sets: what was elicited would then be a property
+of the probe rather than of the person, and no measurement downstream would be
+about values at all.
+\end{abstract}
+
+{\small\tableofcontents}
+\vspace{0.6em}
+
+% ===========================================================================
+\section{Introduction}
+
+\subsection{The question, and why the obvious version of it is the wrong one}
+
+The obvious question is: \emph{how much of what people said survives the
+pipeline?} It has no answer, and the reason is not empirical.
+
+To say that two normative objects carry ``the same information'' one must fix
+what one intends to ask of them. \Cref{prop:Q} shows that the choice of question
+family determines the answer completely: under one admissible family every change
+is total loss, under another no change is any loss. A framework that reports a
+single percentage has therefore not measured a property of the pipeline; it has
+reported a choice it did not disclose.
+
+The question this paper answers instead is: \emph{given a declared family of
+decisions, what is identified, what is bounded, and what is forbidden?} That
+version has answers, several of them are theorems rather than measurements, and
+the largest of them turns out to concern the elicitation rather than the
+pipeline.
+
+\subsection{Scope, identity, and contributions}
+
+The object is a released dataset of human comparative judgments over four
+candidate responses per prompt, together with written criteria and numeric
+weights, and a compiled ``core'' standard derived from them (§\ref{sec:object}).
+The satisfaction of each criterion by each response is not in the release; it is
+reconstructed with a language-model judge, and every consequence of that is
+tracked explicitly (§\ref{sec:instrument}).
+
+Contributions, in the order they appear:
+
+\begin{enumerate}
+\item A self-contained derivation of every statistical tool used, from the
+      definition of probability through the design effect, attenuation and
+      minimum detectable effect (§\ref{sec:math}). No external statistical
+      background is assumed at any point.
+\item The probe bound (\cref{thm:probe}): the elicitation returns two free
+      parameters per person per prompt, whatever the criteria say.
+\item A measurement that the weight scale is used as an \emph{interval} scale,
+      with the fraction of decisions that depend on it (§\ref{sec:cardinal}).
+\item The social-choice structure of the corpus, including the finding that the
+      weighted-criteria route agrees with the Condorcet winner only $68.4\%$ of
+      the time while every ranking rule agrees $97$--$98\%$ (§\ref{sec:agg}).
+\item \cref{thm:veto} and \cref{thm:vetoinf}: the exact condition under which a
+      penalty reproduces a veto, and the proof that no finite penalty does so
+      uniformly.
+\item Normalised regret (\cref{def:regret}) as the decision-theoretically correct
+      estimand, with the exact identity showing the flip rate to be its coarsening
+      (\cref{lem:coarsen}).
+\item The gauge result separating comparative from absolute claims
+      (§\ref{sec:gauge}).
+\item An explicit non-identification section with proofs (§\ref{sec:notid}), and
+      a design specification derived line by line from it (§\ref{sec:design}).
+\end{enumerate}
+
+\subsection{Relation to neighbouring work}
+
+Everything in §\ref{sec:math} is standard and is reproduced only so the paper is
+self-contained. Blackwell's comparison of experiments, Arrow's impossibility
+theorem, Sen's liberal paradox, the Shapley value, the Spearman--Brown prophecy
+formula, the design effect and classical attenuation are all classical; they are
+derived rather than cited because a reader with no statistical background cannot
+otherwise check the argument. The novelty boundary is stated explicitly in
+§\ref{sec:exclusion} and the Discussion: what is new is the application to this
+object and five specific measured quantities, not the machinery.
+
+\subsection{Roadmap}
+
+§\ref{sec:math} builds the mathematics. §\ref{sec:object} defines the object
+exactly. §\ref{sec:firewall} states the measurement contract.
+§\ref{sec:elicit}--§\ref{sec:instrument} walk the chain one arrow at a time.
+§\ref{sec:est} and §\ref{sec:c1} give the estimators. §\ref{sec:notid} proves
+what cannot be identified. §\ref{sec:findings} states the findings with their
+confidence cards, §\ref{sec:exclusion} what did not survive,
+§\ref{sec:falsify} what would end each claim, and §\ref{sec:design} what a
+sufficient design requires.
+
+\input{part0_math.tex}
+\input{part0b_worked.tex}
+\input{part1_object.tex}
+\input{part1b_toy.tex}
+
+\section{Measurement contracts and the Evidence Firewall}
+\input{evidence_firewall.tex}
+
+\subsection{Multi-axis evidence coding}
+
+Every claim in §\ref{sec:findings} is coded in
+\texttt{supplement/evidence\_atlas.csv} on axes that can \emph{veto} it rather
+than merely support it: \texttt{instrument\_free}, \texttt{control\_saturated},
+\texttt{held\_out}, \texttt{replication\_breadth}, and \texttt{prior\_art\_in\_card}.
+The last exists because a result that restates the object's own documentation is
+a verification, not a finding, and a column that forces one to say so is worth
+the cost of maintaining it.
+
+\input{part2_estimators.tex}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

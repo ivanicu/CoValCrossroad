@@ -1,0 +1,132 @@
+% ===========================================================================
+% PART 0b -- every tool of Part 0, executed by hand on numbers small enough
+% to check without a computer. A reader who follows this section has verified
+% the machinery rather than accepted it.
+% ===========================================================================
+\section{Every tool, executed by hand}
+\label{sec:worked}
+
+Part 0 derived the machinery. This section runs all of it on five numbers, so
+that nothing is taken on trust. Take the sample
+\[
+x = (2,\;4,\;4,\;4,\;6),\qquad n=5 .
+\]
+
+\subsection{The mean}
+\[
+\bar x=\frac{2+4+4+4+6}{5}=\frac{20}{5}=4 .
+\]
+
+\subsection{Deviations, and why the naive spread is useless}
+\[
+x_i-\bar x \;=\; (-2,\;0,\;0,\;0,\;2),\qquad \sum_i (x_i-\bar x) = 0 .
+\]
+Exactly zero, as §0.4 said it must be for \emph{any} dataset. This is why the
+average deviation cannot be a measure of spread.
+
+\subsection{Variance, both ways}
+Squared deviations: $(4,0,0,0,4)$, summing to $8$.
+\[
+s^2=\frac{8}{n-1}=\frac{8}{4}=2,\qquad s=\sqrt{2}=1.4142 .
+\]
+Check with \cref{lem:varalt}. $\E[X^2]$ over the sample is
+$(4+16+16+16+36)/5 = 88/5 = 17.6$, and $\bar x^2 = 16$, so the
+\emph{population-form} variance is $17.6-16=1.6 = 8/5$. Multiplying by
+$n/(n-1)=5/4$ recovers $2$. The two forms agree, and the factor between them is
+exactly \cref{lem:bessel}.
+
+\subsection{Standard error and interval}
+\[
+\se=\frac{s}{\sqrt n}=\frac{1.4142}{2.2361}=0.6325 .
+\]
+By §\ref{sec:ci} the $95\%$ interval is
+$4 \pm 1.96(0.6325) = 4 \pm 1.2397 = [2.760,\;5.240]$.
+
+\step{Read it correctly.} Across repetitions of the whole study, $95\%$ of such
+intervals cover the fixed unknown $\mu$. It does \emph{not} say $95\%$ of future
+observations land in $[2.760,5.240]$; three of the five observed values are
+exactly $4$, and a prediction interval would be far wider.
+
+\subsection{A $z$-statistic and its $p$-value}
+Testing $H_0:\mu=0$:
+$z = 4/0.6325 = 6.32$. From the normal table, $\Prob(|Z|\ge 6.32) < 10^{-9}$.
+
+\step{Read it correctly.} This is $\Prob(\text{data this extreme}\mid \mu=0)$. It
+is not the probability that $\mu=0$, and $1-p$ is not the probability the effect
+is real.
+
+\subsection{Minimum detectable effect, and required $n$}
+By \cref{thm:mde}, $\mathrm{MDE} = 2.8016 \times 0.6325 = 1.772$: with five
+observations of this spread, a true mean below $1.772$ would be missed more often
+than not. By \cref{cor:n}, detecting $\delta = 0.5$ needs
+\[
+n=\Big(\frac{2.8016 \times 1.4142}{0.5}\Big)^2=(7.923)^2=62.8 \;\to\; 63 .
+\]
+Detecting $\delta=0.25$ needs $4\times$ that: $251$. This is the $\sqrt n$ economics
+of §\ref{sec:se} in one line.
+
+\subsection{An indicator, a proportion, and its variance}
+Let $P_i$ be ``$x_i > 3$'', giving indicators $(0,1,1,1,1)$. By \cref{eq:indavg}
+the proportion is $4/5 = 0.8$; by \cref{cor:indvar} its variance is
+$0.8 \times 0.2 = 0.16$, so
+$\se = \sqrt{0.16/5} = \sqrt{0.032} = 0.1789$.
+
+\step{Why rates near the ends are measured better.} $\pi(1-\pi)$ peaks at
+$\pi=0.5$ with value $0.25$ and falls to $0.09$ at $\pi=0.1$. A $5\%$ flip rate
+is therefore intrinsically easier to pin down than a $50\%$ one, which is why the
+intervals in \cref{tab:power} are narrow despite modest $n$.
+
+\subsection{Covariance and correlation}
+Let $y=(1,3,3,5,3)$, so $\bar y = 3$ and $y_i - \bar y = (-2,0,0,2,0)$.
+\[
+\Cov = \frac{1}{n-1}\sum_i (x_i-\bar x)(y_i-\bar y)
+=\frac{(-2)(-2)+0+0+0\cdot 2+2\cdot 0}{4}
+=\frac{4}{4}=1 .
+\]
+$s_y^2 = (4+0+0+4+0)/4 = 2$, so $s_y=1.4142$, and
+\[
+r=\frac{1}{1.4142 \times 1.4142}=\frac{1}{2}=0.5 .
+\]
+\Cref{thm:cs} requires $|r|\le 1$: satisfied. And $r=0.5$ is \emph{not} ``half of
+anything''; only $r^2=0.25$ has a share reading, and only under a linear model.
+
+\subsection{The design effect, by hand}
+Suppose $P=3$ clusters of $R=4$:
+\[
+c_1=(1,1,1,0),\quad c_2=(0,0,0,0),\quad c_3=(1,0,1,1).
+\]
+Cluster means: $0.75,\;0,\;0.75$. Grand mean $= 0.5$.
+\begin{align*}
+\sigma_b^2 &= \tfrac{1}{2}\big[(0.25)^2+(0.5)^2+(0.25)^2\big] = \tfrac{1}{2}(0.375)=0.1875,\\
+\sigma_w^2 &= \text{mean of within-cluster variances} = \tfrac{1}{3}\big[0.25+0+0.25\big]=0.1667,
+\end{align*}
+using $s^2 = \tfrac{1}{R-1}\sum (x-\bar x)^2$ inside each cluster.
+\[
+\rho=\frac{0.1875}{0.1875+0.1667}=0.529,\qquad
+\mathrm{DEFF}=1+(4-1)(0.529)=2.59 .
+\]
+So treating the $12$ rows as independent would understate the standard error by
+$\sqrt{2.59}=1.61$, and the honest count of independent units is $3$, not $12$.
+
+\subsection{Attenuation, by hand}
+Suppose a true correlation $\Corr(T,U)=0.90$, measured through instruments with
+reliabilities $0.55$ and $0.95$. By \cref{thm:atten}
+\[
+\Corr(X,Y)=0.90 \times \sqrt{0.55 \times 0.95}=0.90 \times \sqrt{0.5225}=0.90\times 0.7228=0.6505 .
+\]
+A strong relationship reads as a moderate one, and no sample size repairs it: the
+attenuation is bias, and $\se$ shrinks while the centre stays wrong.
+
+\subsection{Spearman--Brown, by hand}
+A half-panel split-half correlation of $r=0.8961$ gives, by \cref{thm:sb},
+\[
+\frac{2(0.8961)}{1+0.8961}=\frac{1.7922}{1.8961}=0.9452 ,
+\]
+which is the reliability of the \emph{full} panel and the number that enters
+\cref{thm:atten}.
+
+\subsection{Bonferroni, by hand}
+With $C=171$ tests at $\alpha=0.05$: per-test level $0.05/171=0.000292$. The
+two-sided normal quantile at $1-0.000292/2 = 0.999854$ is $|z|=3.62$. This paper
+uses $3.9$, which is stricter, and reports the count of tests beside the count of
+survivors.
