@@ -16,14 +16,6 @@
   "established": true
  },
  {
-  "axis": "measurement",
-  "severity": "BLOCKING",
-  "title": "Response SLOT predicts the human ranking, so every ranking in the release carries a position effect",
-  "measurement": "on the 16530 rankings with a UNIQUE first place (88.5% of 18678): {'A': 4215, 'B': 3664, 'C': 4268, 'D': 4383}, chi-square 74.4 on 3 df against 16.27 at p=.001. Slot B is -11.3% versus uniform. Unique LAST place is stronger still: {'A': 3207, 'B': 2901, 'C': 2863, 'D': 3914}, chi-square 220.7, with slot D +21.5%.",
-  "falsifier": "a chi-square below 16.27 on the unique-first-place subset",
-  "established": true
- },
- {
   "axis": "provenance",
   "severity": "BLOCKING",
   "title": "No authorship field; the pool silently mixes lab-written and participant-written criteria",
@@ -133,6 +125,14 @@
   "title": "A small share of world rankings express no order at all",
   "measurement": "18678 parsed rankings, 452 declare every response equal (2.42%), 0 unparseable",
   "falsifier": "zero all-tied rankings",
+  "established": true
+ },
+ {
+  "axis": "measurement",
+  "severity": "NOTED",
+  "title": "Response SLOT predicts first and last place at high significance, but a slot-only predictor scores 0.4993 against 0.5000 chance -- real and worth nothing",
+  "measurement": "on the 16530 rankings with a UNIQUE first place (88.5% of 18678): {'A': 4215, 'B': 3664, 'C': 4268, 'D': 4383}, chi-square 74.4 on 3 df against 16.27 at p=.001. Slot B is -11.3% versus uniform. Unique LAST place is stronger still: {'A': 3207, 'B': 2901, 'C': 2863, 'D': 3914}, chi-square 220.7, with slot D +21.5%.",
+  "falsifier": "a chi-square below 16.27 on the unique-first-place subset",
   "established": true
  },
  {

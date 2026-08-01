@@ -282,9 +282,15 @@ def main() -> int:
     tl = sum(lastc.values())
     el = tl / 4
     chil = sum((lastc[L] - el) ** 2 / el for L in "ABCD")
-    add("measurement", "BLOCKING" if chi > 16.27 else "CLEAN",
-        ("Response SLOT predicts the human ranking, so every ranking in the release carries a "
-         "position effect" if chi > 16.27 else "CHECKED: no position effect"),
+    # SEVERITY CORRECTED BY WAVE TWO. This was BLOCKING here on the strength of the chi-square
+    # alone. r167 then PRICED it: a predictor knowing only the slot reaches pairwise concordance
+    # 0.4993 against a 0.5000 chance level. The asymmetry is overwhelmingly significant at n=16,530
+    # and carries no predictive power on the metric everything in this repo uses. Both are true, and
+    # calling it blocking without pricing it was the significance-versus-magnitude error.
+    add("measurement", "NOTED" if chi > 16.27 else "CLEAN",
+        ("Response SLOT predicts first and last place at high significance, but a slot-only "
+         "predictor scores 0.4993 against 0.5000 chance -- real and worth nothing"
+         if chi > 16.27 else "CHECKED: no position effect"),
         f"on the {tu} rankings with a UNIQUE first place ({tu / n_rank:.1%} of {n_rank}): "
         f"{dict(sorted(uniq.items()))}, chi-square {chi:.1f} on 3 df against 16.27 at p=.001. "
         f"Slot B is {100 * (uniq['B'] - eu) / eu:+.1f}% versus uniform. Unique LAST place is "
