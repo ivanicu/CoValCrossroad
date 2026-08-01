@@ -1,0 +1,173 @@
+{
+ "strata": 5,
+ "perms": 60,
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "per_seed": [
+  {
+   "seed": 0,
+   "per_country": {
+    "Netherlands": {
+     "unstrat": 0.012844647533881093,
+     "strat": -0.012767677472953376,
+     "null_mean": 0.015213483258755874,
+     "null_sd": 0.03322135392324597,
+     "z": -0.8422643097676402
+    },
+    "Mexico": {
+     "unstrat": 0.034928942849005495,
+     "strat": 0.03595254381285112,
+     "null_mean": 0.004560214972899848,
+     "null_sd": 0.0306500392795356,
+     "z": 1.0242182254203924
+    }
+   },
+   "unstratified": 0.011043120338066703,
+   "stratified": 0.005094984662075475,
+   "same": 0.42444620253164556,
+   "cross": 0.4193512178695701,
+   "null_mean": 0.0037790774615735537,
+   "null_sd": 0.013508456881446274,
+   "z": 0.09741358410147541,
+   "raters": 871
+  },
+  {
+   "seed": 1,
+   "per_country": {
+    "Netherlands": {
+     "unstrat": 0.018191829052608965,
+     "strat": 0.07802962742489361,
+     "null_mean": 0.011022135156291229,
+     "null_sd": 0.03507703404955718,
+     "z": 1.910295271086305
+    },
+    "Mexico": {
+     "unstrat": 0.07108480405489898,
+     "strat": 0.07134782516308619,
+     "null_mean": 0.011175785800231784,
+     "null_sd": 0.032752036833461014,
+     "z": 1.8371999173309377
+    }
+   },
+   "unstratified": 0.024985449242692692,
+   "stratified": 0.031107704407472403,
+   "same": 0.441571661237785,
+   "cross": 0.4104639568303126,
+   "null_mean": 0.003253733334108888,
+   "null_sd": 0.014248498493786257,
+   "z": 1.9548706192101981,
+   "raters": 871
+  },
+  {
+   "seed": 2,
+   "per_country": {
+    "Netherlands": {
+     "unstrat": 0.06182427348547548,
+     "strat": 0.0691042230081132,
+     "null_mean": -0.0013842817078221464,
+     "null_sd": 0.03849936149971928,
+     "z": 1.8309006167920294
+    },
+    "Mexico": {
+     "unstrat": 0.030398881811635803,
+     "strat": 0.0318984680645677,
+     "null_mean": 0.005860891310022661,
+     "null_sd": 0.02556597127240217,
+     "z": 1.0184466092493796
+    }
+   },
+   "unstratified": 0.00018633463915512793,
+   "stratified": -0.007335943125034772,
+   "same": 0.4109848484848485,
+   "cross": 0.4183207916098833,
+   "null_mean": 0.0018005835440262667,
+   "null_sd": 0.014762792323145141,
+   "z": -0.6188887894017698,
+   "raters": 871
+  },
+  {
+   "seed": 3,
+   "per_country": {
+    "Netherlands": {
+     "unstrat": 0.048705915627406615,
+     "strat": 0.043577322753524106,
+     "null_mean": 0.023412181685341416,
+     "null_sd": 0.046618199806344525,
+     "z": 0.4325594113876166
+    },
+    "Mexico": {
+     "unstrat": 0.07632186631022714,
+     "strat": 0.07237490743855884,
+     "null_mean": 0.006858312255311162,
+     "null_sd": 0.03044859070144308,
+     "z": 2.1517119076431537
+    }
+   },
+   "unstratified": 0.016510532814502044,
+   "stratified": 0.015410318147075164,
+   "same": 0.4357273559011894,
+   "cross": 0.4203170377541142,
+   "null_mean": -0.0009153595535998279,
+   "null_sd": 0.013461860304038524,
+   "z": 1.2127356347456175,
+   "raters": 871
+  },
+  {
+   "seed": 4,
+   "per_country": {
+    "Netherlands": {
+     "unstrat": 0.07893760701445057,
+     "strat": 0.08369760748336036,
+     "null_mean": 0.010411908743001448,
+     "null_sd": 0.03783658477272331,
+     "z": 1.9369004676445096
+    },
+    "Mexico": {
+     "unstrat": 0.020768285502040795,
+     "strat": -0.020233159523506683,
+     "null_mean": 0.0058290939427732835,
+     "null_sd": 0.027046014782001835,
+     "z": -0.9636263854896461
+    }
+   },
+   "unstratified": 0.0074452689108355785,
+   "stratified": 0.007255805800065684,
+   "same": 0.43348856043733547,
+   "cross": 0.4262327546372698,
+   "null_mean": 0.002707370682517507,
+   "null_sd": 0.0142122941676833,
+   "z": 0.32003525003659583,
+   "raters": 871
+  }
+ ],
+ "per_country_bloc": {
+  "Netherlands": {
+   "unstrat": 0.044100854542764543,
+   "strat": 0.05232822063938758,
+   "z": 1.053678291428564,
+   "z_spread": 1.1043854051566349,
+   "seeds": 5
+  },
+  "Mexico": {
+   "unstrat": 0.04670055610556164,
+   "strat": 0.038268116991111434,
+   "z": 1.0135900548308436,
+   "z_spread": 1.0847281644228548,
+   "seeds": 5
+  }
+ },
+ "unstratified": 0.04540070532416309,
+ "stratified": 0.04529816881524951,
+ "z": 1.0336341731297038,
+ "z_seed_spread": 0.8975024965552363,
+ "retained": 0.9977415216750165,
+ "verdict": "UNVERIFIED",
+ "reconciliation": "r184's 69% is about agreement LEVELS between countries; this round's retention is about the within-minus-cross EXCESS. Consistency explains most of the levels and almost none of the clustering.",
+ "power_note": "the z falls because the agreement matrix uses half the data (the other half measures the control); the point estimate is unchanged, so the weak z is a power statement not an effect statement",
+ "design_limit": "consistency is agreement with the majority, so a true minority bloc reads as low consistency; stratifying removes bloc signal and biases toward deflation"
+}
