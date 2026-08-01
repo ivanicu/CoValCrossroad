@@ -58,6 +58,23 @@ import derivation_chain as dc  # noqa: E402
 #                   question the claim has already conceded.
 #   MEAN            the pattern required a z or a bracketed CI, so "+0.0439", "0.6563 pairwise
 #                   concordance" and "loses 0.0229" all fell through. Bare signed decimals count.
+# NULL ADDED AFTER r204, which found the two lowest-z claims in the MEAN bucket were nulls -- and
+# that sending a null to a jackknife asks a malformed question, since there is no effect to be
+# carried by a handful of units. r202's own tool would return NO RESOLUTION, correctly.
+# DETECTED STRUCTURALLY, not by wording: a claim whose stated confidence interval SPANS ZERO is a
+# null whatever its prose calls it. Wording alone would have missed "MEASUREMENT ONLY... a clean
+# null for that instrument" and over-matched any statement containing the word "no".
+_CI = re.compile(r"\[\s*([+-]?\d*\.\d+)\s*,\s*([+-]?\d*\.\d+)\s*\]")
+
+
+def _ci_spans_zero(stmt):
+    for mm in _CI.finditer(stmt):
+        lo, hi = float(mm.group(1)), float(mm.group(2))
+        if lo <= 0 <= hi:
+            return True
+    return False
+
+
 SHAPES = [
     ("ASSUMPTION", re.compile(r"^(A\d|The release aggregates|What a participant says|"
                               r"Aggregating criteria)", re.I),
@@ -98,6 +115,14 @@ def main() -> int:
     for _id, kind, name, stmt, status in rows:
         shape = "UNCLASSIFIED"
         why = "no signature matched; needs reading"
+        if _ci_spans_zero(stmt) or re.search(r"clean null|a null\b|neither concentrates|"
+                                             r"indistinguishable from zero", stmt, re.I):
+            buckets["NULL"].append(
+                {"name": name, "kind": kind, "status": status, "attacked": name in attacked,
+                 "why": "POWER, not resampling: what effect could this design have detected, "
+                        "against the effect that would matter. A null without an MDE or a "
+                        "resolution floor is silence reported as evidence."})
+            continue
         for lbl, pat, note in SHAPES:
             if pat.search(stmt):
                 shape, why = lbl, note
@@ -108,7 +133,7 @@ def main() -> int:
     print("\n" + "=" * 96)
     print("THE REGISTER")
     print("=" * 96)
-    order = ["MEAN", "RELIABILITY", "GAUGE-DEPENDENT", "PROXY", "COUNT", "ASSUMPTION",
+    order = ["MEAN", "NULL", "RELIABILITY", "GAUGE-DEPENDENT", "PROXY", "COUNT", "ASSUMPTION",
              "UNCLASSIFIED"]
     for shape in order:
         items = buckets.get(shape, [])
@@ -138,6 +163,9 @@ def main() -> int:
     print(f"    {n_count:2d} COUNT        re-derived every time a consolidator runs")
     n_asm = len(buckets.get("ASSUMPTION", []))
     n_gau = len(buckets.get("GAUGE-DEPENDENT", []))
+    n_null = len(buckets.get("NULL", []))
+    print(f"    {n_null:2d} NULL         power, not resampling -- added by r204 after two nulls")
+    print(f"                    were filed as MEANs and would have gone to a malformed check")
     print(f"    {n_gau:2d} GAUGE-DEP    the claim already concedes the dependence")
     print(f"    {n_asm:2d} ASSUMPTION   a premise, not a finding")
     print(f"    {n_unc:2d} UNCLASSIFIED needs reading")
