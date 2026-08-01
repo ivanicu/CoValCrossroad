@@ -1,0 +1,64 @@
+{
+ "rows": [
+  {
+   "shape": "fragmentation",
+   "max_rel_change": 1.8391988623893975e-14,
+   "verdict": "FAILS (S) -- INVARIANT TO MACHINE PRECISION",
+   "why": "split one criterion's weight across two identical copies"
+  },
+  {
+   "shape": "cancellation",
+   "max_rel_change": 1.1517241514994137,
+   "verdict": "separable",
+   "why": "add an equal-and-opposite criterion"
+  },
+  {
+   "shape": "behavioral_inertness",
+   "max_rel_change": 5.691878622146125e-15,
+   "verdict": "FAILS (S) -- INVARIANT TO MACHINE PRECISION",
+   "why": "add a criterion constant over the four responses"
+  },
+  {
+   "shape": "redundancy_masking",
+   "max_rel_change": 1.198692716635012,
+   "verdict": "separable",
+   "why": "duplicate a criterion so it counts twice"
+  },
+  {
+   "shape": "deletion",
+   "selection_rule_ratio": 6.645608297840777
+  }
+ ],
+ "survivors": [
+  {
+   "shape": "inversion",
+   "mean_rel": 0.3225760813050303
+  },
+  {
+   "shape": "weakening",
+   "mean_rel": 0.08752182477675326
+  },
+  {
+   "shape": "strengthening",
+   "mean_rel": 0.14304210870841466
+  }
+ ],
+ "deletion_selection": {
+  "high": 0.27277447821689904,
+  "low": 0.0410458254522052,
+  "random": 0.17596553527658332
+ },
+ "second_judge_coverage": {
+  "r41_satisfaction_qwen2b_SMOKE.npz": "unreadable: 'meta is not a file in the archive'",
+  "r41_satisfaction_phi.npz": "unreadable: 'meta is not a file in the archive'",
+  "r41_satisfaction_qwen2b.npz": "unreadable: 'meta is not a file in the archive'",
+  "r114_cells.npz": "unreadable: 'meta is not a file in the archive'",
+  "sat_core_phi.npz": 968,
+  "sat_core_qwen3b.npz": 968,
+  "sat_core_variant_swapped.npz": 300,
+  "sat_full_phi.npz": 968,
+  "sat_full_qwen3b.npz": 968,
+  "sat_full_variant_swapped.npz": 300
+ },
+ "n_prompts": 968
+}
