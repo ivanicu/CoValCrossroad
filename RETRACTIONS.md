@@ -8179,3 +8179,86 @@ rounds are the GPU ones — r04, r10, r12, r22 and the rest — which are precis
 numbers cannot be cheaply recomputed and therefore the ones where an unreproducible figure would
 survive longest.** They need the same two-seed treatment before the judge panel is frozen, because
 freezing a panel on top of an unreproducible pipeline freezes the irreproducibility with it.
+
+
+## Entries 225–235 — the normative-chain phase, and the sweep turning on itself
+
+**Generated from the claim graph, not written from memory.** Every entry below is a node this
+repository marked `refuted` with an incoming kill edge naming what killed it; the schema refuses a
+retracted claim that names no killer, which is why each one has a source rather than a shrug.
+
+**Eleven retractions across rounds r142–r205.** Six of them are from r175 onward, when the sweep
+stopped auditing the release and started auditing its own output — and that half produced the
+project's first *retraction of a retraction* (entry 231), where the verdict was right and the
+stated mechanism was false.
+
+**The dominant failure mode of this phase is not a bad measurement.** In nine of the eleven the
+number reproduced exactly and the SENTENCE attached to it did not survive: a word without a
+baseline, a unit never named, a threshold invented rather than calibrated. That is a different
+disease from the first twelve phases, where measurements were wrong.
+
+### Entry 225 — compilation adds cost
+
+Compilation doubles the worst group's disadvantage: core-minus-full is +0.0418 for South Africa.
+
+**Killed by** `departure-from-the-line`. For the serving outcome the arithmetic line has slope k=+0.50746, fit on this outcome rather than imported: half of any group's level converts into a core-versus-full differential automatically, before compilation does anything. The estimand is therefore the departure from that line, never the raw difference.
+
+### Entry 226 — nonbinary veto rate
+
+Non-binary participants mark 1.606 responses unacceptable against 0.865 for others.
+
+**Killed by** `veto-is-distinct`. NARROWED. On the 5,006 assessments where the question was actually asked: 36.42% veto nothing, 3.90% veto all four, people veto their own top choice 9.25% of the time, and the rank-only pseudo-R2 is 0.128. Still not merely the bottom of the ranking, but far less distinct than the withdrawn 82.9% / 1.1% / 2.6% / 0.0559.
+
+### Entry 227 — force was never elicited
+
+WITHDRAWN. Read off the wording count: that the release never collected normative force. False. Force is carried by the SIGNED WEIGHT exactly as the dataset card states -- 28.32% of criteria reach |mean score| >= 8 and 98.68% of those carry no force wording at all.
+
+**Killed by** `defect-absence-of-proxy-certified-absence-of-property`. Force was declared never elicited because under 1% of criteria carry absolute-force wording. The release elicits force through the SIGNED WEIGHT, exactly as its own dataset card states: 28.32% of criteria reach |mean score| >= 8 and 98.68% of those carry no such wording. PROPERTY force-present vs PROXY force-wording: the implication runs one way and it was used backwards.
+
+### Entry 228 — rewriting dose response
+
+WITHDRAWN. The rewriting advantage grows with how much was rewritten: +0.0121 near-identical, +0.0169 moderate, +0.0269 heavier, reported as monotonic with disjoint outer intervals. Under two-way clustering the gradient contrast is +0.0148, se 0.0109, z=1.36, p=0.173. The round's OWN preregistered falsifier -- that a flat line means the effect is a property of the matched band and nothing more -- cannot be rejected.
+
+**Killed by** `defect-iid-cis-on-clustered-rows`. Every interval in r155-r162 was mean +- 1.96 sd/sqrt(n) over (prompt, rater) rows, which are clustered in two directions at once: ~16 rows share a prompt and its four responses, ~15 share a rater and their ranking style. Two-way clustering inflates the SE by 2.6-3.1x. Point estimates are unaffected -- they reproduce to four decimals -- but z falls from 12.75 to 4.50 on one headline and from 10.25 to 3.30 on another, and one claim flips from supported to not-distinguishable-from-flat.
+
+### Entry 229 — the weight can be deleted at no cost
+
+WITHDRAWN. Read off the reference judge's null: that a compiled rubric loses nothing by dropping the weights. Two independent families refute it -- phi-3.5-mini -0.0314 at clustered z -6.04, qwen2.5-3b -0.0175 at z -3.59, both saying the weight HURTS concordance. A null that two other instruments turn into a significant negative was never a property of the object.
+
+**Killed by** `defect-internal-prior-art-not-propagated`. r130 ran a judge-gauge attack on the CORE-MINUS-FULL concordance gap one phase earlier, at three independent 200-prompt seeds, with a pre-registered tolerance of 0.01. Its verdict was GAUGE-DEPENDENT: max drift 0.086-0.095 at z 5.3-9.3, and the gap FLIPS SIGN under a question-polarity variant in all three seeds (-0.0223 to +0.0708; -0.0101 to +0.0330; -0.0185 to +0.0675). r155 through r160 then built six rounds on that exact quantity and never cited it. A grep of the whole phase for r130 or gauge returns nothing.
+
+### Entry 230 — length by contestedness
+
+WITHDRAWN. That the length preference is weaker on prompts the panel says have a single correct answer. Published in r191 as +5.0pp (z +2.1, non-monotonic) and used to correct r177's null. r194 found the sign unstable across specifications; r195 identified the mechanism exactly -- one anchor prompt with 929 assessments, subjectivity 0.803 against a pool median 0.650 so it lands in the contested bin, and its own longest-first rate 54.3% against a 34% baseline. Removing that ONE prompt collapses the gap from +4.3pp to +0.4pp under assessment weighting; under prompt weighting it is ~0 either way.
+
+**Killed by** `r195-anchor-mechanism`. One prompt with 929 assessments, subjectivity 0.803 (pool median 0.650) so it sits in the contested bin, longest-first rate 54.3% against a 34% baseline. Removing it collapses the effect tenfold under assessment weighting and changes nothing under prompt weighting.
+
+### Entry 231 — cutpoints caused the disagreement
+
+WITHDRAWN, and it was my own retraction's stated reason. r194 attributed the r191/r194 disagreement to cut points computed on a neighbouring population. r195 re-read r191's source: it computes its percentiles on exactly the prompts it analyses. The verdict of the retraction was right and its mechanism was wrong, which is its own defect -- anyone applying the stated lesson would not have caught the real cause.
+
+**Killed by** `r195-cutpoints-were-correct`. r191 computes its percentiles on exactly the prompts it analyses; the cut points were never the problem.
+
+### Entry 232 — south africa not a bloc
+
+WITHDRAWN. r182 read South Africa's -2.0pp within-minus-cross agreement as showing the group carrying the demographic dissent effect is not a coherent values bloc. r183 measured the estimator's own resolution floor at 2.57pp (p95 over 20 random labellings) and the per-group permutation null puts that -2.0pp at z -1.4. The DEMOGRAPHIC EFFECT stands; the explanation does not.
+
+**Killed by** `r183-resolution-floor-2p57`. 20 random labellings give a p95 max|within-cross| of 2.57%, above the preregistered 0.02 bound. Read as a resolution floor rather than relaxed; the per-group permutation null puts South Africa's -2.0pp at z -1.4.
+
+### Entry 233 — blocs are values groups
+
+WITHDRAWN as stated. r183 found Netherlands (+6.25%) and Mexico (+5.96%) cluster above chance -- 2 of 28 demographic levels, the only demographic signal in the release. r184 showed the between-country matrix is one-dimensional and a pure CONSISTENCY model (agreement = chance + q_i*q_j) reproduces 69% of the off-diagonal, with the second spectral component BELOW what shuffled labels produce. The clustering is real; calling it a values group is not established.
+
+**Killed by** `r184-consistency-model`. Agreement = chance + q_i*q_j reproduces 69% of the between-country off-diagonal, and the second spectral component (37.6%) is BELOW the permuted 39.6% +/- 2.6%.
+
+### Entry 234 — dissenters criteria are deleted
+
+WITHDRAWN to UNVERIFIED. Whether the compilation drops criteria written by people who dissent. Raw contrast -2.4pp at z -2.8 iid; clustered on author and prompt it is z -1.8 and crosses zero, while the stratified version excludes zero at z -2.4. Two specifications one covariate apart landing on opposite sides, on non-monotonic quartiles (10.0/6.7/6.3/7.6). The specification curve does not survive its own grid.
+
+**Killed by** `r181-clustering-and-monotonicity`. Clustering on author and prompt inflates the SE 1.6x and the contrast crosses zero; the quartile means are non-monotonic at 10.0/6.7/6.3/7.6, rank correlation -0.40.
+
+### Entry 235 — band share is 67 5
+
+WITHDRAWN as a point value. r179 published that the crowd rubric closes 67.5% of the band between chance and the leave-one-out human ceiling. r196 recomputed the ceiling across weighting and anchor: it ranges 61.5-62.3%, so the band share is 66-67% and must be quoted as a range. The comparison itself is unaffected.
+
+**Killed by** `r196-ceiling-is-a-range`. The leave-one-out ceiling ranges 61.5-62.3% across weighting and anchor, so any band share computed from it is a range.
