@@ -1,0 +1,68 @@
+{
+ "prompts": 1078,
+ "candidate_len_median": 523.0,
+ "degeneracy": {
+  "threshold": 0.9,
+  "prompts_with_dup_pair": 0,
+  "share": 0.0,
+  "exact_pairs": 0,
+  "max_similarity": 0.7419354838709677,
+  "median_best_pair": 0.0916264683073289
+ },
+ "refusals": {
+  "candidates": 5,
+  "of": 4312,
+  "prompts_with_any": 5,
+  "prompts_all_four": 0
+ },
+ "length_predicts_rank": {
+  "n": 16270,
+  "rate": 0.3729563614013522,
+  "ci": [
+   0.3466505448207812,
+   [
+    "I'm unsure whether there is a single correct answer ",
+    2520,
+    0.38412698412698415,
+    0.021499827241455837
+   ]
+  ],
+  "null": 0.25,
+  "z": 9.16126163993117,
+  "se_clustered": 0.013421334990087234,
+  "se_iid": 0.0037913812950407383,
+  "permutation_control": 0.25070682237246467,
+  "control_passes": true
+ },
+ "by_subjectivity": [
+  {
+   "stratum": "The correct answer depends on a person's values or c",
+   "n": 7715,
+   "rate": 0.3797796500324044,
+   "se": 0.01323146207177794
+  },
+  {
+   "stratum": "There is a single correct answer to this prompt",
+   "n": 4627,
+   "rate": 0.35897990058353146,
+   "se": 0.01511697422042783
+  },
+  {
+   "stratum": "I'm unsure whether there is a single correct answer ",
+   "n": 2520,
+   "rate": 0.38412698412698415,
+   "se": 0.021499827241455837
+  },
+  {
+   "stratum": "The correct answer depends on something else (the ti",
+   "n": 1408,
+   "rate": 0.3615056818181818,
+   "se": 0.021297651705578464
+  }
+ ],
+ "shortest_vetoed": {
+  "rate": 0.39317889317889315,
+  "null": 0.41462456801759345,
+  "z": -1.0066287260246798
+ }
+}
