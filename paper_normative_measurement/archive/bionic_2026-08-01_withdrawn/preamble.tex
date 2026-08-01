@@ -157,22 +157,16 @@
 \newcommand{\misread}[1]{\blk{MESOMid}{misread as}{#1}}
 \newcommand{\capt}[1]{\blk{MESOTeal}{captures}{#1}}
 \newcommand{\kills}[1]{\blk{MESOGold}{killed by}{#1}}
-\newcommand{\holds}[1]{\blk{MESOMid}{who holds it}{#1}}
-\newcommand{\rulefor}[1]{\blk{MESOTeal}{the rule}{#1}}
-\newcommand{\breaks}[1]{\blk{MESOGold}{breaks on}{#1}}
-\newcommand{\rightabout}[1]{\blk{MESOTeal}{right about}{#1}}
-\newcommand{\verdict}[1]{\blk{MESONavy}{verdict}{#1}}
-% a claim the reader can confirm with a pencil, in under a minute, without the code
-\newcommand{\selfcheck}[1]{%
-  \par\smallskip
-  \noindent\fcolorbox{MESOGold}{MESOWarm}{%
-    \begin{minipage}{0.945\linewidth}\small
-    \textbf{\color{MESOGold}Check it yourself.} #1
-    \end{minipage}}%
-  \par\smallskip}
 \newcommand{\step}[1]{\par\smallskip\noindent{\sffamily\bfseries\small\color{MESOInk}#1}\hspace{0.5em}\ignorespaces}
 % ---- proofs as step lists, not run-in prose ----
 \newenvironment{steps}{\begin{enumerate}[leftmargin=1.9em,label=\textup{\color{MESOMid}\scriptsize\sffamily\bfseries S\arabic*},
   itemsep=1.5pt,parsep=0pt,topsep=2pt]}{\end{enumerate}}
 \newenvironment{pts}{\begin{itemize}[leftmargin=1.2em,label=\textup{\color{MESOMid}\textbf{·}},
   itemsep=1.5pt,parsep=0pt,topsep=2pt]}{\end{itemize}}
+
+%% ---- bionic reading; policy from reader/assets/core/core.js ----
+\definecolor{BioInk}{HTML}{14181C}
+\definecolor{BioRest}{HTML}{484C50}
+\definecolor{BioFade}{HTML}{93989B}
+\newcommand{\bi}[2]{{\bfseries\color{BioInk}#1}{\color{BioRest}#2}}
+\newcommand{\bfade}[1]{{\color{BioFade}#1}}

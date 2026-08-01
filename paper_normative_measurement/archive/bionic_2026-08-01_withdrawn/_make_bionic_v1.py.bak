@@ -1,0 +1,184 @@
+"""Generate a bionic-reading build: the first letters of each word bold+dark, the rest faded.
+
+WHY IT IS A PREPROCESSOR AND NOT A LATEX MACRO. TeX has no hook that fires per word in the
+paragraph builder, so the only place to split a word is before the file is read. That means the
+script must reproduce, by hand, every context where text is NOT text: math, command names, the
+arguments of reference-like commands, tabular column specifications, and comments. Each protection
+below exists because omitting it produced a specific corruption on this document.
+"""
+import re, pathlib, sys
+
+SRC = pathlib.Path(__file__).resolve().parents[1]
+OUT = SRC / "bionic"
+
+# commands whose ARGUMENT must never be split (identifiers, not prose)
+OPAQUE = ("begin","end","label","ref","cref","Cref","autoref","cite","citep","citet","input","include",
+          "bibliographystyle","bibliography","usepackage","documentclass","newcommand",
+          "renewcommand","newenvironment","newtheorem","definecolor","color","hypersetup",
+          "titleformat","titlespacing","setlist","captionsetup","usetikzlibrary","texttt",
+          "url","href","includegraphics","DeclareMathOperator","newcolumntype","pagestyle",
+          "geometry","numberwithin","theoremstyle","setlength","renewcommand","addtolength")
+
+# ---------------------------------------------------------------------------
+# POLICY COPIED FROM THE book3 / atomizer READER (reader/assets/core/core.js).
+# My first version had it BACKWARDS and that is what "too dark" meant:
+#   I faded the TAIL of content words hard and left function words at full ink.
+#   The reader does the opposite -- it fades FUNCTION WORDS AS WHOLE UNITS and
+#   leaves content-word tails nearly full strength (opacity .78 at its default).
+# Everything below reproduces core.js `_bxApplyOne` and `bionicVars`.
+# ---------------------------------------------------------------------------
+
+# core.js BSTOP, verbatim
+BSTOP = set("the a an and or of to in on at is are be as by for we it that this "
+            "with from can not but if so".split())
+
+FRAC = 0.40          # core.js  bP().get('frac', 0.4)
+
+# core.js contrast preset 'mid': weight 700, rest .78, fade .46.
+# Opacity is emulated as a colour blend over white: c = 255 - alpha*(255 - ink).
+INK  = "14181C"      # bold head, full ink
+REST = "484C50"      # alpha .78  -- the tail is only SLIGHTLY dimmed
+FADE = "93989B"      # alpha .46  -- the whole function word recedes
+
+FREQ, LNMAX = {}, 1.0
+
+def freq_scan(texts):
+    """core.js _bxFreqScan: one read-only pass; commonness is measured on THIS document,
+    so a frequent topic term is not mistaken for glue."""
+    global FREQ, LNMAX
+    import math
+    FREQ = {}
+    for t in texts:
+        for tok in re.findall(r"[A-Za-z]+", t):
+            w = tok.lower(); FREQ[w] = FREQ.get(w, 0) + 1
+    LNMAX = math.log(max(FREQ.values(), default=1) + 1) or 1.0
+
+def commonness(w):
+    import math
+    return math.log(FREQ.get(w, 1) + 1) / LNMAX      # 1 = most common, 0 = rare
+
+def head_len(word, rarity):
+    """core.js: k = max(1, round(len*frac*(0.5+0.5*rarity))); if k>=len, k=len-1.
+    Rare words get a LONGER head; common content words a shorter one."""
+    n = len(word)
+    k = max(1, round(n * FRAC * (0.5 + 0.5 * rarity)))
+    return n - 1 if k >= n else k
+
+def is_function_word(w, n):
+    """core.js: stoplist floor OR (common AND short). The len<=5 guard is theirs, and it exists
+    to stop a frequent TOPIC term (here: 'prompt', 'criteria') being treated as glue."""
+    return (w in BSTOP) or (commonness(w) >= 0.80 and n <= 5)
+
+def protect_and_map(line):
+    """Replace every non-prose region by a placeholder, transform the rest, restore."""
+    store, out, i, n = [], [], 0, len(line)
+    def stash(s):
+        store.append(s); return "\x00%d\x00" % (len(store)-1)
+    while i < n:
+        c = line[i]
+        # comment: everything to end of line is untouched
+        if c == "%" and (i == 0 or line[i-1] != "\\"):
+            out.append(stash(line[i:])); break
+        # display math \[ ... \]  and inline \( ... \)
+        if line.startswith(r"\[", i) or line.startswith(r"\(", i):
+            close = r"\]" if line.startswith(r"\[", i) else r"\)"
+            j = line.find(close, i+2)
+            j = n if j < 0 else j+2
+            out.append(stash(line[i:j])); i = j; continue
+        # inline math $ ... $
+        if c == "$":
+            j = i+1
+            while j < n and not (line[j] == "$" and line[j-1] != "\\"): j += 1
+            j = min(j+1, n)
+            out.append(stash(line[i:j])); i = j; continue
+        # a control sequence
+        if c == "\\":
+            m = re.match(r"\\([A-Za-z@]+|.)", line[i:])
+            cs = m.group(0); name = m.group(1)
+            j = i + len(cs)
+            if name in OPAQUE:
+                # swallow every following bracket group so identifiers are never split
+                while j < n and line[j] in "[{":
+                    close = "]" if line[j] == "[" else "}"
+                    d, k = 0, j
+                    while k < n:
+                        if line[k] in "[{": d += 1
+                        elif line[k] in "]}":
+                            d -= 1
+                            if d == 0: k += 1; break
+                        k += 1
+                    j = k
+                out.append(stash(line[i:j])); i = j; continue
+            out.append(stash(cs)); i = j; continue        # command name only; its text arg is prose
+        # a tabular column spec or similar brace group directly after \begin{...}
+        out.append(c); i += 1
+    body = "".join(out)
+    body = bionic_words(body)
+    for idx, s in enumerate(store):
+        body = body.replace("\x00%d\x00" % idx, s)
+    return body
+
+MATHENV = ("equation","equation*","align","align*","gather","gather*","multline",
+           "multline*","eqnarray","split","array","cases","tikzpicture","verbatim")
+
+def protect_blocks(txt):
+    """Stash multi-line math and picture environments BEFORE any line-wise work.
+    A line-wise protector cannot see a \\[ that opens on one line and closes on another, which is
+    exactly how the first build corrupted part0b."""
+    store = []
+    def stash(m):
+        store.append(m.group(0)); return "\x01%d\x01" % (len(store)-1)
+    txt = re.sub(r"\\\[.*?\\\]", stash, txt, flags=re.S)
+    for e in MATHENV:
+        txt = re.sub(r"\\begin\{"+re.escape(e)+r"\}.*?\\end\{"+re.escape(e)+r"\}",
+                     stash, txt, flags=re.S)
+    return txt, store
+
+def restore_blocks(txt, store):
+    for i, s_ in enumerate(store):
+        txt = txt.replace("\x01%d\x01" % i, s_)
+    return txt
+
+def process(txt):
+    txt, store = protect_blocks(txt)
+    txt = "\n".join(protect_and_map(l) for l in txt.split("\n"))
+    return restore_blocks(txt, store)
+
+def main():
+    files = ["partA_concept.tex","partB_object_problems.tex","partm1_notation.tex",
+             "part0_math.tex","part0b_worked.tex","part1_object.tex","part1b_toy.tex",
+             "part3_gaps.tex","part2_estimators.tex"]
+    VERBATIM = ["evidence_firewall.tex"]
+    OUT.mkdir(exist_ok=True)
+    freq_scan([(SRC / f).read_text() for f in files])
+    for f in files:
+        (OUT / f).write_text(process((SRC / f).read_text()))
+    for f in VERBATIM:
+        (OUT / f).write_text((SRC / f).read_text())
+    # main + preamble carry structure, not prose: copy, then add the \bi macro
+    pre = (SRC / "preamble.tex").read_text()
+    pre += ("
+%% ---- bionic reading: policy copied from the book3/atomizer reader ----
+"
+            "\definecolor{BioInk}{HTML}{%s}
+"
+            "\definecolor{BioRest}{HTML}{%s}
+"
+            "\definecolor{BioFade}{HTML}{%s}
+"
+            "\newcommand{\bi}[2]{{\bfseries\color{BioInk}#1}{\color{BioRest}#2}}
+"
+            "\newcommand{\bfade}[1]{{\color{BioFade}#1}}
+") %% (INK, REST, FADE)
+    (OUT / "preamble.tex").write_text(pre)
+    mt = (SRC / "main.tex").read_text()
+    mt = protect_and_map_block(mt)
+    (OUT / "main.tex").write_text(mt)
+    print("wrote", OUT)
+
+def protect_and_map_block(txt):
+    keep, body = txt.split("\\begin{document}", 1)
+    return keep + "\\begin{document}" + process(body)
+
+if __name__ == "__main__":
+    sys.exit(main())

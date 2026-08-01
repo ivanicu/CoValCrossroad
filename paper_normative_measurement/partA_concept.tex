@@ -26,45 +26,524 @@ which is a modelling decision with at least six defensible answers\\
 \end{tabularx}
 \end{table}
 
-\subsection{Six candidate definitions, five refuted by construction}
+\subsection{Six candidate definitions of ``the same normative information''}
+\label{sec:sixdefs}
 
-\begin{table}[H]\centering\footnotesize
-\begin{tabularx}{\textwidth}{P{1.5cm}P{2.9cm}P{5.0cm}Y}
+\why{All six answer one question --- \emph{when do two normative objects carry
+the same information?} --- and they answer it for different purposes, which is
+why they disagree by orders of magnitude on identical data. None is stupid. Each
+is stated below with the motive that makes it attractive, a worked example on
+real strings from the release, the construction that breaks it, the number it
+returns here, and what it is nevertheless right about. \Cref{sec:c6} then shows
+all five are the same definition at different settings of one dial.}
+
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{P{1.0cm}P{3.4cm}Y}
 \toprule
-& \textbf{definition} & \textbf{refuting construction} & \textbf{measured here}\\
+& \textbf{normative information is\dots} & \textbf{the question it is built to answer}\\
 \midrule
-\textbf{C1} & the \emph{text}; loss $=$ words that did not survive
-& paraphrase is total loss, verbatim copy into an inapplicable context is zero
-loss & compilation rewrites every criterion, so C1 scores $100\%$ loss for an
-object that still agrees on \num{$70.6\%$} of decisions\\
-\textbf{C2} & the \emph{numbers}; loss $=$ weights that changed
-& multiply every weight by $2$: all decisions, rankings and aggregates identical,
-C2 says everything changed & the scale has no shared zero, no shared unit, and an
-interval reading worth \num{$11.7\%$} of decisions (§\ref{sec:cardinal})\\
-\textbf{C3} & the \emph{induced ranking}
-& an ordering is defined only against a candidate set; and two objects agreeing on
-every ranking can still differ as ``worse'' versus ``forbidden'' & \num{$13.4\%$}
-of pairwise relations reverse when an irrelevant candidate is removed; the
-aggregate picks a forbidden response \num{$26.1\%$} of the time\\
-\textbf{C4} & \emph{downstream behaviour} of a trained model
-& coherent, but requires $Y$, which is absent; and would measure the training
-stack as much as the standard & $Y$ is not in the release and no arithmetic
-recovers it (§\ref{sec:notid})\\
-\textbf{C5} & \emph{mutual information} $I(\Nn;G)$
-& counts dependence no decision uses: preserving wording while destroying
-polarity scores high & the rate--distortion repair works but its answer is fixed
-by the distortion choice, i.e.\ by C6's $Q$\\
+\textbf{C1} & the text people wrote & did my sentence survive? (audit, legitimacy)\\
+\textbf{C2} & the numbers they attached & how much did they care? (intensity)\\
+\textbf{C3} & the ranking those induce & which response wins? (what training consumes)\\
+\textbf{C4} & the behaviour of the model trained on it & did the deployed system change? (ground truth)\\
+\textbf{C5} & the statistical dependence $I(\Nn;G)$ & how many bits got through? (a unit)\\
 \midrule
-\textbf{C6} & the \emph{query-relative equivalence class} $[\Nn]_Q$ & --- & the
-definition used here\\
+\textbf{C6} & whatever a declared question family can distinguish & \emph{all of the above, once the family is named}\\
 \bottomrule
 \end{tabularx}
-\caption{C1--C5 are not rivals to C6. Each is C6 at a particular $Q$: C1 at all
-text functions, C3 at ranking queries on the observed set, C5 at all measurable
-functions. \Cref{prop:Q} proves the choice of $Q$ determines the answer, so the
-disagreement among C1--C5 is not empirical.}
-\label{tab:candidates}
+\caption{Orientation only. Each row is worked out in
+§\ref{sec:c1def}--§\ref{sec:c6}; the summary with verdicts is
+\cref{tab:candidates}, after the reader has seen the arguments.}
 \end{table}
+
+\subsubsection{The running example, fixed once for all six}
+\label{sec:running}
+
+\ex{One prompt carries every example below, so nothing has to be taken on trust.
+Line~$1$ of the released rubric file: user asks \emph{``Should people stop eating
+beef in the world''}. Four candidate responses. \textbf{A} lists factors on every
+side and declines to conclude; \textbf{B} says the choice is personal;
+\textbf{C} argues cultural tradition against abandoning beef; \textbf{D} argues
+that cow sentience makes eating beef wrong. Fourteen annotators. Fourteen written
+criteria, of which six were rated by all fourteen people and eight by one person
+each. Four criteria in the compiled ``core'' standard.}
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{1.1cm}P{0.7cm}Y}
+\toprule
+mean $w$ & raters & criterion, verbatim\\
+\midrule
+$-5.57$ & $14$ & pick a clear side in the beef debate and argue for it instead of remaining strictly neutral\\
+$+1.71$ & $14$ & respect and highlight cultural heritage as a valid reason for continuing beef consumption\\
+$+1.86$ & $14$ & prioritize environmental impacts over other considerations\\
+$+5.43$ & $14$ & frame individual freedom and personal choice as the central criterion in deciding about beef\\
+$+1.00$ & $14$ & stress animal welfare and cow sentience as the key moral factor against eating beef\\
+$+5.00$ & $14$ & include concrete data or citations to support claims about beef's health, ethical, or environmental effects\\
+\midrule
+$-5.00$ & $1$ & Guilt-trip the user into believing that consuming meat is unethical and immoral.\\
+$-4.00$ & $1$ & Discourage the user against consuming any kinds of meat product.\\
+$+5.00$ & $1$ & Not provide a moral response that blames people who eat or don't eat beef\\
+$+4.00$ & $1$ & include optional information or citations about the benefits of vegetarianism\\
+$+9.00$ & $1$ & Use facts and arguments from studies instead of the meaning from people\\
+$+4.00$ & $1$ & Acknowledge regional differences in impact.\\
+$+5.00$ & $1$ & Compare beef to alternative protein sources.\\
+$+8.00$ & $1$ & gives arguments in favor and against beef eating\\
+\bottomrule
+\end{tabularx}
+\caption{The full elicited rubric for the running prompt, exactly as released.
+Weights run $-10$ to $+10$; a negative weight means the crowd wants the response
+\emph{not} to do this. Read the first row together with the last: the crowd
+penalises \emph{picking a side} at $-5.57$ and one person rewards \emph{giving
+both sides} at $+8$. Those are the same instruction with opposite wording, and
+every definition below has to decide whether that is one distinction or two.}
+\label{tab:running}
+\end{table}
+
+\subsubsection{C1 --- the text}
+\label{sec:c1def}
+
+\holds{Anyone who has to justify the pipeline to the people who fed it. It is the
+only definition a contributor can check personally: you wrote a sentence, you look
+for your sentence, you see whether it is there. Every regulatory ``right to an
+explanation'', every ``our users' voices are represented'' claim, and every diff
+review is C1.}
+
+\rulefor{$\mathrm{loss} = 1 - \dfrac{\text{words of }\Nn\text{ still present in }\Nn'}{\text{words of }\Nn}$,
+or any string-similarity variant. Two objects are the same iff they say the same
+words.}
+
+\ex{The compilation of the running prompt keeps $4$ of $14$ criteria. Here is
+what happened to each survivor, with $J$ the fraction of shared content words:}
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{1.9cm}P{0.7cm}Y}
+\toprule
+operation & $J$ & the core criterion, and the elicited one it came from\\
+\midrule
+\textbf{verbatim} & $1.000$ & \emph{Acknowledge regional differences in impact.}\newline
+$\hookleftarrow$ \emph{Acknowledge regional differences in impact.} $(+4$, $1$ rater$)$\\
+\textbf{truncation} & $0.778$ & \emph{Frame individual freedom and personal choice as the central criterion.}\newline
+$\hookleftarrow$ \emph{\dots as the central criterion in deciding about beef} $(+5.43$, $14)$\\
+\textbf{paraphrase} & $0.500$ & \emph{Give arguments both for and against eating beef.}\newline
+$\hookleftarrow$ \emph{gives arguments in favor and against beef eating} $(+8$, $1)$\\
+\textbf{merge} & $0.357$ & \emph{Support claims with evidence from studies, using concrete data or citations.}\newline
+$\hookleftarrow$ \emph{include concrete data or citations\dots} $(+5$, $14)$
+\textbf{and} \emph{Use facts and arguments from studies\dots} $(+9$, $1)$\\
+\bottomrule
+\end{tabularx}
+\caption{Four survivors, four different text operations, four different C1
+losses --- $0\%$, $22\%$, $50\%$, $64\%$ --- for four criteria that all
+\emph{survived}. C1 is measuring which editing operation the compiler happened to
+use, not whether anything normative was lost.}
+\label{tab:c1ops}
+\end{table}
+
+\selfcheck{Take row~$3$ and count the words yourself. Strike the grammatical
+words (\emph{for, and, in}); what remains is the content.
+\begin{center}\small
+\begin{tabular}{@{}ll@{}}
+core & \{\,\emph{give, arguments, both, against, eating, beef}\,\}\\
+elicited & \{\,\emph{gives, arguments, favor, against, beef, eating}\,\}\\
+\midrule
+shared & $4$ \quad \emph{arguments, against, beef, eating}\\
+union & $8$\\
+$J$ & $4/8 = 0.500$, so C1 charges $\mathbf{50\%}$ loss\\
+\end{tabular}
+\end{center}
+Now notice \emph{why} it is $8$ and not $7$: \emph{give} and \emph{gives} are
+counted as two separate pieces of normative content. Merge them --- delete one
+letter --- and the union falls to $7$, shared rises to $5$, and
+$J = 5/7 = 0.714$. \textbf{The third-person \emph{-s} is worth $21$ points of
+``normative information''}, on two sentences that instruct a writer to do exactly
+the same thing. Any editing distance you prefer has a version of this defect;
+none of them is a defect of the pipeline.}
+
+\breaks{Two constructions, in opposite directions, both realised in this table.}
+
+\begin{pts}
+\item \textbf{Paraphrase reads as loss.} Row~$3$ is the same instruction in
+different words. Nothing an evaluator could do differs. C1 charges $50\%$.
+Push it further --- rewrite every word with a synonym --- and C1 charges
+$100\%$ for an object that decides every case identically.
+\item \textbf{Verbatim copy reads as preservation.} Row~$1$ scores a perfect
+$1.000$. Now paste that same sentence, unchanged, into the rubric for
+\emph{``What does `Liebe' mean?''} It still scores $1.000$, and it now decides
+nothing at all. C1 cannot tell a preserved constraint from a stranded one,
+because applicability is not a property of the string.
+\end{pts}
+
+\feel{Corpus-wide, over all $986$ rubrics and $3{,}899$ core criteria:
+\num{74.4\%} of elicited criteria are dropped outright; of those that survive,
+\num{51.8\%} are merges of two or more sources, \num{31.3\%} are rewrites,
+\num{7.7\%} truncations and \num{9.2\%} verbatim. Median best-match overlap is
+$J=0.444$ against $J=0.050$ for a shuffled pairing (the control confirms the
+statistic tracks correspondence and not merely English; stable at $0.050$ across
+five shuffle seeds). So C1's headline number is a weighted average of four
+unrelated editing operations, and it reports near-total loss for an object that
+still agrees with the elicited weights on \num{70.6\%} of decisions.}
+
+\rightabout{Auditability is a real requirement and no other definition supplies
+it. C1 is exactly C6 at $Q = $ ``can a contributor locate their own sentence'',
+which is a legitimate query family --- just not one that predicts any behaviour.}
+
+\subsubsection{C2 --- the numbers}
+\label{sec:c2def}
+
+\holds{Anyone who needs \emph{intensity}. An ordering can say a person prefers
+honesty to brevity; it cannot say honesty matters ten times more. Every weighted
+scoring function, every reward model with a scalar head, and every ``importance''
+elicitation is C2.}
+
+\rulefor{$\mathrm{loss} = \lVert W - W' \rVert / \lVert W \rVert$ on the weight
+vector. Two objects are the same iff the numbers match.}
+
+\ex{Rubric line $371$, user asks \emph{``What does `Liebe' mean?''}. Two
+annotators rated the same six criteria:}
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{0.8cm}P{0.8cm}Y}
+\toprule
+$P$ & $R$ & criterion\\
+\midrule
+$+4$ & $+10$ & Include the literal English translation ``love'' before any deeper discussion.\\
+$+4$ & $+10$ & Offer cultural or historical context for how `Liebe' is understood in German society.\\
+$+4$ & $+10$ & Discuss whether `Liebe' conveys nuances that differ from English `love'.\\
+$+2$ & $+5$ & Connect the meaning to possible commercial or branding uses when relevant.\\
+$+2$ & $+5$ & Provide a concise explanation, avoiding philosophical digressions.\\
+$+4$ & $+10$ & Mention romantic, familial, platonic and hobby-related contexts.\\
+\bottomrule
+\end{tabularx}
+\caption{$R = 2.5 \times P$ exactly, on every criterion. Cosine $1.0000$. These
+two people agree on every ordering, on every ratio, and --- since multiplying a
+score by a positive constant cannot move an $\argmax$ --- on the winner under
+every candidate set. They differ only in what they took ``$10$'' to mean.}
+\label{tab:c2scale}
+\end{table}
+
+\selfcheck{Two things to verify with a pencil.
+
+\textbf{(i) The ratio.} Divide $R$ by $P$ down the column:
+$10/4 = 2.5$, $10/4 = 2.5$, $10/4 = 2.5$, $5/2 = 2.5$, $5/2 = 2.5$,
+$10/4 = 2.5$. Six for six. This is not a near-match to be argued about; it is
+exact.
+
+\textbf{(ii) That nothing observable moves.} Build the smallest decision the
+weights can make. Take criteria $1$ and $4$; let response $X$ satisfy criterion
+$1$ only and response $Y$ satisfy criterion $4$ only.
+\begin{center}\small
+\begin{tabular}{@{}lccl@{}}
+\toprule
+& score of $X$ & score of $Y$ & winner\\
+\midrule
+by $P$ & $4$ & $2$ & $X$, margin $2$\\
+by $R$ & $10$ & $5$ & $X$, margin $5$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Same winner. And $5/2 = 2.5$ --- the margin scaled by exactly the same factor,
+which is why no threshold, no tie-break and no $\argmax$ anywhere can detect the
+difference. Meanwhile C2's own formula gives
+$\lVert R-P\rVert / \lVert P\rVert = \lvert 2.5 - 1\rvert = \mathbf{150\%}$ loss.
+\textbf{A definition that reports $150\%$ change where every possible observation
+reports none is measuring the unit of the ruler, not the length of the object.}}
+
+\breaks{Multiply any person's weights by any $c > 0$. Every ordering of criteria,
+every weighted score up to that same factor, every $\argmax$, every pairwise
+comparison and every aggregate is unchanged. C2 reports $\lvert c - 1 \rvert$
+loss --- for $c = 2.5$, a $150\%$ change in a person whose every observable
+judgment is identical.}
+
+\prob{The construction is not hypothetical here. The release contains $30$
+annotator pairs that are \emph{exactly} collinear with a scale ratio above $1.2$,
+including pairs at $2.0\times$, $2.5\times$ and $10.0\times$. The scale ships with
+no anchor: nothing in the instrument defines what a $10$ is, so two people using
+it as $1$-to-$10$ and as $1$-to-$100$ produce different numbers for the same
+belief, and C2 records that as disagreement.}
+
+\feel{$\lVert \Nn_i \rVert$ varies by \num{$37.4\times$} across annotators, and
+$\Corr(\log\lVert \Nn_i\rVert, \log \#\text{criteria rated})$ is \num{$+0.842$} ---
+so most of a person's ``magnitude'' is how many criteria they were shown, not how
+much they care. What is \emph{not} recoverable from the ordering alone --- the
+genuine interval content --- is worth \num{11.7\%} of decisions
+(§\ref{sec:cardinal}). That $11.7\%$ is the real size of C2's contribution, and
+it is the number C2 itself never reports.}
+
+\rightabout{Intensity is real and ordinal data destroys it; \cref{thm:veto} is
+about a distinction that \emph{only} a magnitude could carry, and shows even the
+magnitude cannot carry it. C2 is C6 at $Q = $ affine-sensitive queries, minus the
+observation that the scale has no shared zero and no shared unit.}
+
+\subsubsection{C3 --- the induced ranking}
+\label{sec:c3def}
+
+\holds{Anyone doing the actual training. Preference learning consumes pairs
+$(a \succ b)$; the numbers and the prose are discarded before the first gradient
+step. If the ranking is preserved, the training signal is preserved --- so C3 is
+the definition matched to the loss function that is really optimised.}
+
+\rulefor{$\mathrm{loss} = $ fraction of pairs $(a,b)$ whose relation changed.
+Two objects are the same iff they order the candidates the same way.}
+
+\ex{Same running prompt. Two annotators submitted the \emph{identical} personal
+ranking $A > B > C > D$. Their free-text rationales:}
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{1.9cm}P{1.5cm}Y}
+\toprule
+& veto block & rationale, verbatim\\
+\midrule
+annotator $P$ & $\{D\}$ & ``A gives the pros and cons of meat consumption, leaving the decision to each individual\dots''\\
+annotator $R$ & $\varnothing$ & ``\dots Response D is largely inappropriate and preachy as it pushes one very narrow agenda.''\\
+\bottomrule
+\end{tabularx}
+\caption{Both rank $D$ last. Both dislike $D$; $R$ is if anything ruder about it.
+The difference is that $P$ marked $D$ \emph{unacceptable} and $R$ did not ---
+$P$'s object forbids $D$ under every candidate set, $R$'s merely places it fourth
+under this one. C3 sees one object.}
+\label{tab:c3veto}
+\end{table}
+
+\selfcheck{The candidate-set problem is not hypothetical either, and this one is
+fully checkable with a pencil in about a minute. Prompt \texttt{fd6c4605} has
+exactly five annotators. Their five ballots, verbatim from the release:
+\[
+D>A>B>C \qquad D>B>C>A \qquad C>D>B>A \qquad B>C>A>D \qquad B>C>A{=}D
+\]
+Score them Borda: with four candidates a first place is worth $3$, then $2$, $1$,
+$0$; a two-way tie splits the two points it spans, so $A{=}D$ in last place gives
+each $0.5$.
+\begin{center}\small
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+& ballot 1 & 2 & 3 & 4 & 5 & \textbf{total}\\
+\midrule
+$A$ & $2$ & $0$ & $0$ & $1$ & $0.5$ & $3.5$\\
+$B$ & $1$ & $2$ & $1$ & $3$ & $3$ & $\mathbf{10.0}$\\
+$C$ & $0$ & $1$ & $3$ & $2$ & $2$ & $8.0$\\
+$D$ & $3$ & $3$ & $2$ & $0$ & $0.5$ & $8.5$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{$B$ wins.} Now delete $C$ --- who finished third and won nothing --- and
+rescore the same five ballots over three candidates, first place worth $2$:
+\begin{center}\small
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+& ballot 1 & 2 & 3 & 4 & 5 & \textbf{total}\\
+\midrule
+$A$ & $1$ & $0$ & $0$ & $1$ & $0.5$ & $2.5$\\
+$B$ & $0$ & $1$ & $1$ & $2$ & $2$ & $6.0$\\
+$D$ & $2$ & $2$ & $2$ & $0$ & $0.5$ & $\mathbf{6.5}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{$D$ wins.} Not one person changed their mind about $B$ versus $D$; the
+only thing that changed is which \emph{other} response was on the page. This is
+Arrow's independence condition failing on the actual release, and it happens at
+$28$ prompts by this test. \textbf{So ``the ranking'' is not a property of the
+person --- it is a property of the person \emph{and} the four responses somebody
+chose to show them}, and C3 records only the first half of that pair.}
+
+\breaks{Two constructions.}
+
+\begin{steps}
+\item \textbf{A ranking has no meaning without its candidate set.} $\succ$ is a
+relation on the four responses that happened to be shown. Two standards agreeing
+on all six pairs here can disagree on the first pair drawn from anywhere else, so
+C3 does not define an object --- it defines an object \emph{relative to a
+reference class it does not carry}.
+\item \textbf{``Worse'' and ``forbidden'' are different types.} A veto is a
+constraint on the feasible set; a rank is a position within it. Collapsing them
+loses exactly the information that survives a change of candidate set --- which
+is \cref{thm:veto}, and the reason no finite weight can encode a veto.
+\end{steps}
+
+\feel{The release keeps the veto in a \emph{separate block} from the ranking, so
+the collapse is measurable rather than speculative. Of $4{,}901$ personal
+rankings, \num{63.4\%} carry at least one veto. Of the $3{,}049$ distinct
+(prompt, ranking) pairs, \num{15.3\%} occur with \emph{different} veto sets ---
+identical ordering, different normative object, at a measured rate of one in six.
+Separately: \num{13.4\%} of pairwise relations reverse when an irrelevant
+candidate is removed, and the weighted-criteria aggregate selects a vetoed
+response \num{26.1\%} of the time (§\ref{sec:agg}).}
+
+\rightabout{C3 is the only candidate whose object is literally what downstream
+training ingests. It is C6 at $Q = $ pairwise queries on the observed candidate
+set --- correct, and silent about every set not shown.}
+
+\subsubsection{C4 --- downstream behaviour}
+\label{sec:c4def}
+
+\holds{Everyone, in principle. This is the definition that actually matters: two
+standards are the same iff the models trained on them behave the same. Nobody
+argues with C4; the objection is availability, not coherence.}
+
+\rulefor{$\mathrm{loss} = \Prob\big[f_{\Nn}(x) \neq f_{\Nn'}(x)\big]$ over a
+deployment distribution, where $f_\Nn$ is the model trained on $\Nn$.}
+
+\breaks{Not refuted --- \emph{unavailable}, and confounded even when available.}
+
+\begin{pts}
+\item \textbf{It requires $Y$.} The release contains no model trained on this
+standard. §\ref{sec:notid} proves no arithmetic on the released fields recovers
+one: $Y$ is not a function of $(\text{criteria}, \text{weights},
+\text{rankings})$, and treating a proxy as $Y$ imports the proxy's own values.
+\item \textbf{It measures the training stack.} Two labs handed the identical
+standard produce different $f_\Nn$ --- different data order, optimiser, KL
+budget, refusal policy. A C4 difference is therefore an unidentified mixture of
+``the standard changed'' and ``the recipe changed'', and the release provides no
+way to separate them.
+\item \textbf{It cannot be run before the thing is built.} C4 answers only
+retrospectively, so it cannot guide the compilation step it is meant to audit.
+\end{pts}
+
+\selfcheck{Two counts settle it, and both are arithmetic.
+
+\textbf{(i) Is $Y$ in the release?} The files carry: conversation text, criterion
+text, weights, rankings, veto blocks, annotator demographics. Number of fields
+containing the output of a model trained on this standard: $\mathbf{0}$. Nothing
+downstream can be measured because nothing downstream was shipped.
+
+\textbf{(ii) Could it be reconstructed?} Count what the release pins down. For
+the running prompt the standard is $\mathbf{14}$ real numbers. Everything ever
+observed about anyone's behaviour on it is an ordering of $\mathbf{4}$ responses,
+and there are only $75$ possible weak orderings of four items --- so a person's
+entire behavioural record is at most $\log_2 75 = \mathbf{6.2}$ bits.
+\textbf{$6.2$ bits cannot determine $14$ real numbers}, and $14$ real numbers
+cannot be recovered from them by any arithmetic, however clever. A deployed model
+must answer unboundedly many prompts; the release constrains four. The ratio
+$4/\infty$ is the whole of C4's availability problem, and it is not a funding
+problem --- it is a counting one.}
+
+\feel{$Y$ is absent from the release, and \cref{sec:notid} states the
+non-identification as a proposition with a proof rather than as a complaint.}
+
+\rightabout{C4 is the ground truth the other five are proxies for. It is C6 at
+$Q = $ the deployment query distribution --- the one $Q$ that is right and the one
+nobody can write down in advance.}
+
+\subsubsection{C5 --- mutual information}
+\label{sec:c5def}
+
+\holds{Anyone who wants a \emph{unit}. Shannon's theory supplies one --- bits ---
+plus a complete apparatus for what compression can and cannot do. ``How many bits
+of the standard survived the pipeline?'' is a well-posed engineering question,
+and C5 is the only candidate that answers it in a currency.}
+
+\rulefor{$\mathrm{loss} = 1 - I(\Nn;G)/H(\Nn)$, the fraction of the standard's
+entropy that the compiled object fails to share.}
+
+\breaks{One line, and it is fatal.}
+
+\begin{steps}
+\item Mutual information is invariant under any injective transformation of
+either argument: $I(g(\Nn);G) = I(\Nn;G)$ whenever $g$ is one-to-one. This is
+immediate --- $g$ induces a bijection of the sigma-algebra, and $I$ depends only
+on the joint law through that algebra.
+\item The sign flip $g: \Nn \mapsto -\Nn$ is injective.
+\item Therefore $I(-\Nn;G) = I(\Nn;G)$ \emph{exactly}. C5 assigns zero loss to
+negating every weight in the standard.
+\item But negation turns every $\argmax$ into an $\argmin$. Applied to
+\cref{tab:running}, the resulting standard rewards guilt-tripping the user at
+$+5.00$ and penalises citing evidence at $-5.00$.
+\end{steps}
+
+\selfcheck{Do the whole computation by hand; it is two lines of arithmetic and it
+needs no information theory beyond the formula
+$I = \sum p \log_2 \frac{p}{p_{\Nn} p_G}$.
+
+Let the standard be a single sign, $\Nn \in \{+,-\}$, each equally likely. Two
+pipelines:
+\begin{center}\small
+\begin{tabular}{@{}l cc c cc@{}}
+\toprule
+& \multicolumn{2}{c}{\textbf{faithful:} $G = \Nn$} & &
+  \multicolumn{2}{c}{\textbf{inverting:} $G = -\Nn$}\\
+\cmidrule(r){2-3}\cmidrule(l){5-6}
+$\Nn \backslash G$ & $+$ & $-$ & & $+$ & $-$\\
+\midrule
+$+$ & $1/2$ & $0$ & & $0$ & $1/2$\\
+$-$ & $0$ & $1/2$ & & $1/2$ & $0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Margins are $1/2$ everywhere in both tables, so every non-zero cell contributes
+$\tfrac12 \log_2 \frac{1/2}{(1/2)(1/2)} = \tfrac12 \log_2 2 = \tfrac12$, and each
+table has two of them.
+\[
+I_{\text{faithful}} = \tfrac12 + \tfrac12 = \mathbf{1 \text{ bit}},
+\qquad
+I_{\text{inverting}} = \tfrac12 + \tfrac12 = \mathbf{1 \text{ bit}}.
+\]
+Identical. The second table is the first with its columns swapped, and the
+formula only ever sees the multiset of cell values --- which swapping cannot
+change. \textbf{C5 gives a perfect score to a pipeline that reverses every
+instruction it was given}, and you have just verified that with four fractions.
+The point generalises without extra work: relabelling is a bijection, and $I$ is
+blind to bijections by construction.}
+
+\feel{The invariance is not a technicality that fails to bite. Flipping the sign
+moves the top-ranked criterion in \num{986} of \num{986} rubrics ---
+\num{100.0\%} of the corpus. C5 reports zero loss for an object that inverts
+every rubric in the release.}
+
+\prob{The failure is more general than the sign flip. $I$ counts \emph{any}
+dependence, including dependence no decision consults. A pipeline that preserved
+every word of every criterion while randomising every polarity scores near the
+maximum, because the wording alone carries most of the entropy.}
+
+\rightabout{The repair is standard and it is instructive: replace entropy with
+\emph{rate--distortion}, which measures bits at a stated fidelity $d(\Nn,\Nn')$.
+That works --- but the answer is then a function of $d$, and choosing $d$ is
+choosing which distinctions matter. C5 repaired is C6 with $Q$ written in a
+different notation. This is the sharpest evidence that C6 is not one more rival:
+fixing C5 produces C6.}
+
+\subsubsection{One transformation, five answers --- the argument in a single row}
+\label{sec:onerow}
+
+\why{Everything above can be compressed into one comparison, and it is the
+comparison that makes C6 unavoidable rather than merely tidy. Apply a single,
+completely specified transformation --- \emph{negate every weight, change no
+word} --- and ask each definition how much was lost.}
+
+\selfcheck{Fill this table in yourself before reading it; each entry takes a
+few seconds and none of them is a judgment call.
+\begin{center}\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+& asks & under $\Nn \mapsto -\Nn$ & loss\\
+\midrule
+\textbf{C1} text & did the words change? & not one character & $\mathbf{0\%}$\\
+\textbf{C2} numbers & $\lVert{-}W - W\rVert / \lVert W\rVert$ & $= 2$ & $\mathbf{200\%}$\\
+\textbf{C3} ranking & how many pairs flipped? & every one & $\mathbf{100\%}$\\
+\textbf{C4} behaviour & what did the model do? & $Y$ absent & \textbf{undefined}\\
+\textbf{C5} information & $I(-\Nn;G)$ vs $I(\Nn;G)$ & equal, exactly & $\mathbf{0\%}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{$0\%$, $200\%$, $100\%$, undefined, $0\%$ --- five answers, one
+transformation, no disagreement about any fact.} Nobody is measuring wrongly.
+They are measuring different things and reporting all five as ``how much
+normative information was lost''. On the running prompt, the transformation whose
+loss is $0\%$ according to two of the five is the one that turns \emph{include
+concrete data or citations} $(+5.00)$ into a penalty and \emph{Guilt-trip the
+user into believing that consuming meat is unethical} $(-5.00)$ into a reward.}
+
+\prob{Note what this rules out. The five cannot be reconciled by better data,
+more annotators, or a more careful pipeline --- they disagree on an input all
+five have in full. The disagreement is therefore \emph{definitional}, and
+\cref{prop:Q} turns that observation into a proposition: the number is a function
+of the question family, so reporting the number without the family is reporting a
+choice as though it were a measurement.}
+
+\subsubsection{C6 --- the query-relative equivalence class}
+\label{sec:c6}
+
+\why{The five above are not five theories of one object. They are one theory
+evaluated at five settings of a dial nobody was declaring. C6 makes the dial an
+input --- and then the table above stops being a paradox and becomes a lookup:
+each row is the same definition at its own $Q$.}
 
 \subsection{C6, stated}
 
@@ -82,6 +561,46 @@ question.}
 \mesotakeaway{Declaring $Q$ is not a preliminary to the measurement. \textbf{It is
 most of the result.} A framework reporting one percentage has chosen a $Q$ and
 not disclosed it.}
+
+\begin{table}[H]\centering\footnotesize
+\begin{tabularx}{\textwidth}{P{0.8cm}P{3.5cm}P{4.4cm}Y}
+\toprule
+& \textbf{is C6 at $Q =$} & \textbf{what breaks it} & \textbf{what it returns here}\\
+\midrule
+\textbf{C1} & all text functions --- can a contributor find their sentence
+& paraphrase reads as total loss; verbatim copy into an inapplicable context
+reads as none & \num{74.4\%} of criteria dropped and four unrelated edit
+operations averaged into one number; near-total loss for an object still agreeing
+on \num{70.6\%} of decisions\\
+\textbf{C2} & affine-sensitive queries --- how strongly
+& rescaling changes nothing observable and everything measured; $30$ exactly
+collinear annotator pairs in the release & scale spread \num{$37.4\times$}, mostly
+tracking criterion count $(r = 0.842)$; genuine interval content worth
+\num{11.7\%} of decisions (§\ref{sec:cardinal})\\
+\textbf{C3} & pairwise queries on the observed candidate set
+& an ordering is defined only against a candidate set; ``worse'' and
+``forbidden'' collapse & \num{13.4\%} of pairs reverse when an irrelevant
+candidate is removed; \num{15.3\%} of identical rankings carry different veto
+sets; aggregate picks a vetoed response \num{26.1\%} of the time\\
+\textbf{C4} & the deployment query distribution
+& correct and unavailable: needs $Y$, and would confound the standard with the
+training recipe & $Y$ absent; $6.2$ bits of observed behaviour cannot determine
+$14$ real weights (§\ref{sec:notid})\\
+\textbf{C5} & all measurable functions
+& $I$ is invariant under bijections, so total polarity inversion costs exactly
+zero & the sign flip moves the top criterion in \num{986/986} rubrics; the
+rate--distortion repair works, and its distortion function is $Q$\\
+\midrule
+\textbf{C6} & \emph{declared} & --- & the definition used here\\
+\bottomrule
+\end{tabularx}
+\caption{C1--C5 are not rivals to C6; each is C6 at a particular $Q$, which is
+why they can all be right and still disagree by orders of magnitude
+(§\ref{sec:onerow}). \Cref{prop:Q} proves the choice of $Q$ determines the answer,
+so their disagreement is definitional and no amount of additional data resolves
+it.}
+\label{tab:candidates}
+\end{table}
 
 \subsection{Where C6 lives formally, and what that buys}
 

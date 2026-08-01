@@ -1,0 +1,152 @@
+\input{preamble.tex}
+
+\title{\sffamily\bfseries Measuring Normative Information\\[0.35em]
+  {\large\mdseries What a value-alignment dataset can and cannot tell you, derived from zero}}
+\author{\sffamily Ivan GAN\\[3pt]
+\small\mdseries
+\href{mailto:ivan@ivan.icu}{ivan@ivan.icu}
+\quad
+\href{https://www.ivan.icu}{www.ivan.icu}
+\quad
+\href{https://github.com/ivanicu}{github.com/ivanicu}}
+\date{2026-08-01}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+A \bi{pu}{blic} \bi{da}{taset} of \bi{hu}{man} \bi{va}{lue} \bi{jud}{gments} \bi{sh}{ips} $15{,}248$ \bi{wr}{itten} \bi{cr}{iteria} \bfade{with}
+\bi{num}{erical} \bi{we}{ights}, \bfade{and} $82.3\%$ of \bi{th}{ose} \bi{cr}{iteria} \bi{con}{tain} no \bi{con}{dition}, no
+\bi{exc}{eption}, no \bi{pri}{ority}, no \bi{he}{dge} \bfade{and} no \bi{proh}{ibition} -- \bfade{the} \bi{col}{lected} \bi{nor}{mative}
+\bi{pa}{yload} is \bi{co}{ntent}, a \bi{s}{ign}, \bfade{and} a \bi{mag}{nitude}. \bfade{This} \bi{p}{aper} \bi{a}{sks} \bi{w}{hat} \bfade{can} be \bi{me}{asured}
+\bi{a}{bout} \bi{s}{uch} an \bi{ob}{ject} at \bi{a}{ll}, \bfade{and} \bi{an}{swers} it as a \bi{ty}{ped} \bi{que}{stion}: \bi{e}{very} \bi{qu}{antity}
+is \bi{de}{fined} \bi{rel}{ative} to a \bi{dec}{lared} \bi{qu}{ery} \bi{fa}{mily}, a \bi{dec}{lared} \bi{de}{cision} \bi{fa}{mily}, \bfade{and} a
+\bi{na}{med} \bi{ins}{trument}, \bfade{and} \bi{e}{ach} is \bi{de}{rived} \bi{h}{ere} \bfade{from} \bi{no}{thing}, \bi{ass}{uming} no \bi{stat}{istics}.
+\bi{W}{hat} \bi{sur}{vives} is: (i) a \bi{th}{eorem} \bfade{that} no \bi{fi}{nite} \bi{we}{ight} \bi{en}{codes} a \bi{v}{eto}, \bi{be}{cause} \bfade{the}
+\bi{pe}{nalty} \bi{repr}{oducing} \bi{o}{ne} \bi{de}{pends} on \bi{w}{hich} \bi{can}{didate} \bi{res}{ponses} \bi{hap}{pened} to be
+\bi{sh}{own}, \bfade{with} \bfade{the} \bi{count}{erexample} \bi{pr}{esent} in \bfade{the} \bi{d}{ata} at $2.65\times$ \bfade{the} \bi{eli}{citation}
+\bi{sc}{ale}; (ii) \bfade{that} a \bi{pe}{rson}'s \bi{o}{wn} \bi{wr}{itten} \bi{cr}{iteria} \bi{pre}{dict} a \emph{\bi{str}{anger}'s}
+\bi{ra}{nking} at $0.310$ \bfade{and} \bi{th}{eir} \bi{o}{wn} at $0.393$, so \bfade{the} \bi{ind}{ividual} \bi{si}{gnal} in \bfade{the}
+\bi{eli}{citation} is $0.083$ of \bi{co}{sine} \bfade{and} \bi{no}{thing} \bi{dow}{nstream} \bfade{can} \bi{de}{stroy} \bi{w}{hat} \bi{w}{as} \bi{n}{ever}
+\bi{col}{lected}; (\bi{i}{ii}) \bfade{that} \bi{comp}{arative} \bi{meas}{urements} \bfade{are} \bi{inv}{ariant} \bi{ac}{ross} \bi{t}{hree}
+\bi{exe}{cutors} \bfade{and} a \bi{prese}{ntation}-\bi{or}{der} \bi{sw}{ap} (\bi{Spe}{arman} $0.963$--$1.000$) \bi{wh}{ile} \bi{abs}{olute}
+\bi{o}{nes} \bfade{are} \bfade{not} ($40\%$ of \bi{wi}{nners} \bi{ch}{ange} \bfade{with} \bfade{the} \bi{re}{ader}, $8$ \bi{po}{ints} \bfade{with} \bfade{the} \bi{p}{age}
+\bi{or}{der}); \bfade{and} (iv) \bfade{that} \bi{o}{ne} \bi{b}{it} \bi{p}{er} \bi{cri}{terion} -- \bfade{the} \bi{s}{ign} \bi{al}{one} -- \bi{rep}{roduces}
+$89.8\%$ of \bfade{the} \bi{shi}{pped} \bi{dec}{isions}. \bi{S}{ix} \bi{cl}{aims} \bi{w}{ere} \bi{wit}{hdrawn} \bi{du}{ring} \bfade{this} \bi{w}{ork} \bfade{and}
+\bfade{are} \bi{li}{sted} \bfade{with} \bi{w}{hat} \bi{ki}{lled} \bi{t}{hem}; \bi{f}{ive} of \bfade{the} \bi{s}{ix} \bi{di}{ed} \bfade{the} \bi{s}{ame} \bi{w}{ay}, to a \bi{ve}{rdict}
+\bi{dec}{ided} by a \bi{con}{stant} \bfade{the} \bi{au}{thor} \bi{ch}{ose} \bi{ra}{ther} \bi{t}{han} by a \bi{com}{parison} \bi{ag}{ainst} a \bi{ra}{nge}
+of \bi{def}{ensible} \bi{refe}{rences}. \bfade{The} \bi{cen}{tral} \bi{cl}{aim} \bi{e}{nds} if a \bi{pe}{rson}'s \bi{in}{duced} \bi{ord}{ering}
+\bi{pr}{oves} \bi{uns}{table} \bi{ac}{ross} \bi{re}{sponse} \bi{s}{ets}: \bi{w}{hat} \bi{w}{as} \bi{eli}{cited} \bi{wo}{uld} \bi{t}{hen} be a \bi{pro}{perty}
+of \bfade{the} \bi{pr}{obe} \bi{ra}{ther} \bi{t}{han} of \bfade{the} \bi{pe}{rson}, \bfade{and} no \bi{mea}{surement} \bi{dow}{nstream} \bi{wo}{uld} be
+\bi{a}{bout} \bi{va}{lues} at \bi{a}{ll}.
+\end{abstract}
+
+{\small\tableofcontents}
+\vspace{0.6em}
+
+% ===========================================================================
+\section{\bi{Intro}{duction}}
+
+\subsection{\bfade{The} \bi{que}{stion}, \bfade{and} \bi{w}{hy} \bfade{the} \bi{obv}{ious} \bi{ve}{rsion} of it is \bfade{the} \bi{wr}{ong} \bi{o}{ne}}
+
+\bfade{The} \bi{obv}{ious} \bi{que}{stion} is: \emph{\bi{h}{ow} \bi{m}{uch} of \bi{w}{hat} \bi{pe}{ople} \bi{s}{aid} \bi{sur}{vives} \bfade{the}
+\bi{pip}{eline}?} It \bi{h}{as} no \bi{an}{swer}, \bfade{and} \bfade{the} \bi{re}{ason} is \bfade{not} \bi{emp}{irical}.
+
+To \bi{s}{ay} \bfade{that} \bi{t}{wo} \bi{nor}{mative} \bi{ob}{jects} \bi{ca}{rry} ``\bfade{the} \bi{s}{ame} \bi{inf}{ormation}'' \bi{o}{ne} \bi{m}{ust} \bi{f}{ix}
+\bi{w}{hat} \bi{o}{ne} \bi{int}{ends} to \bi{a}{sk} of \bi{t}{hem}. \Cref{prop:Q} \bi{sh}{ows} \bfade{that} \bfade{the} \bi{ch}{oice} of \bi{que}{stion}
+\bi{fa}{mily} \bi{dete}{rmines} \bfade{the} \bi{an}{swer} \bi{comp}{letely}: \bi{un}{der} \bi{o}{ne} \bi{admi}{ssible} \bi{fa}{mily} \bi{e}{very} \bi{ch}{ange}
+is \bi{to}{tal} \bi{l}{oss}, \bi{un}{der} \bi{an}{other} no \bi{ch}{ange} is \bi{a}{ny} \bi{l}{oss}. A \bi{fra}{mework} \bfade{that} \bi{re}{ports} a
+\bi{si}{ngle} \bi{perc}{entage} \bi{h}{as} \bi{the}{refore} \bfade{not} \bi{me}{asured} a \bi{pro}{perty} of \bfade{the} \bi{pip}{eline}; it \bi{h}{as}
+\bi{rep}{orted} a \bi{ch}{oice} it \bi{d}{id} \bfade{not} \bi{dis}{close}.
+
+\bfade{The} \bi{que}{stion} \bfade{this} \bi{p}{aper} \bi{an}{swers} \bi{in}{stead} is: \emph{\bi{gi}{ven} a \bi{dec}{lared} \bi{fa}{mily} of
+\bi{dec}{isions}, \bi{w}{hat} is \bi{ide}{ntified}, \bi{w}{hat} is \bi{bo}{unded}, \bfade{and} \bi{w}{hat} is \bi{for}{bidden}?} \bfade{That}
+\bi{ve}{rsion} \bi{h}{as} \bi{an}{swers}, \bi{sev}{eral} of \bi{t}{hem} \bfade{are} \bi{the}{orems} \bi{ra}{ther} \bi{t}{han} \bi{meas}{urements}, \bfade{and}
+\bfade{the} \bi{la}{rgest} of \bi{t}{hem} \bi{tu}{rns} \bi{o}{ut} to \bi{con}{cern} \bfade{the} \bi{eli}{citation} \bi{ra}{ther} \bi{t}{han} \bfade{the}
+\bi{pip}{eline}.
+
+\subsection{\bi{Sc}{ope}, \bi{ide}{ntity}, \bfade{and} \bi{contr}{ibutions}}
+
+\bfade{The} \bi{ob}{ject} is a \bi{rel}{eased} \bi{da}{taset} of \bi{hu}{man} \bi{comp}{arative} \bi{jud}{gments} \bi{o}{ver} \bi{f}{our}
+\bi{can}{didate} \bi{res}{ponses} \bi{p}{er} \bi{pr}{ompt}, \bi{tog}{ether} \bfade{with} \bi{wr}{itten} \bi{cr}{iteria} \bfade{and} \bi{num}{eric}
+\bi{we}{ights}, \bfade{and} a \bi{com}{piled} ``\bi{c}{ore}'' \bi{st}{andard} \bi{de}{rived} \bfade{from} \bi{t}{hem} (§\ref{sec:object}).
+\bfade{The} \bi{sati}{sfaction} of \bi{e}{ach} \bi{cri}{terion} by \bi{e}{ach} \bi{re}{sponse} is \bfade{not} in \bfade{the} \bi{re}{lease}; it is
+\bi{recon}{structed} \bfade{with} a \bi{lan}{guage}-\bi{mo}{del} \bi{j}{udge}, \bfade{and} \bi{e}{very} \bi{cons}{equence} of \bfade{that} is
+\bi{tra}{cked} \bi{expl}{icitly} (§\ref{sec:instrument}).
+
+\bi{Contr}{ibutions}, in \bfade{the} \bi{or}{der} \bi{t}{hey} \bi{ap}{pear}:
+
+\begin{enumerate}
+\item A \bi{s}{elf}-\bi{con}{tained} \bi{deri}{vation} of \bi{e}{very} \bi{stat}{istical} \bi{t}{ool} \bi{u}{sed}, \bfade{from} \bfade{the}
+      \bi{def}{inition} of \bi{pro}{bability} \bi{th}{rough} \bfade{the} \bi{de}{sign} \bi{ef}{fect}, \bi{atte}{nuation} \bfade{and}
+      \bi{mi}{nimum} \bi{dete}{ctable} \bi{ef}{fect} (§\ref{sec:math}). No \bi{ext}{ernal} \bi{stat}{istical}
+      \bi{back}{ground} is \bi{ass}{umed} at \bi{a}{ny} \bi{po}{int}.
+\item \bfade{The} \bi{pr}{obe} \bi{bo}{und} (\cref{thm:probe}): \bfade{the} \bi{eli}{citation} \bi{ret}{urns} \bi{t}{wo} \bi{f}{ree}
+      \bi{par}{ameters} \bi{p}{er} \bi{pe}{rson} \bi{p}{er} \bi{pr}{ompt}, \bi{wha}{tever} \bfade{the} \bi{cr}{iteria} \bi{s}{ay}.
+\item A \bi{mea}{surement} \bfade{that} \bfade{the} \bi{we}{ight} \bi{sc}{ale} is \bi{u}{sed} as an \emph{\bi{in}{terval}} \bi{sc}{ale},
+      \bfade{with} \bfade{the} \bi{fra}{ction} of \bi{dec}{isions} \bfade{that} \bi{de}{pend} on it (§\ref{sec:cardinal}).
+\item \bfade{The} \bi{so}{cial}-\bi{ch}{oice} \bi{str}{ucture} of \bfade{the} \bi{co}{rpus}, \bi{inc}{luding} \bfade{the} \bi{fi}{nding} \bfade{that} \bfade{the}
+      \bi{wei}{ghted}-\bi{cr}{iteria} \bi{ro}{ute} \bi{ag}{rees} \bfade{with} \bfade{the} \bi{Con}{dorcet} \bi{wi}{nner} \bi{o}{nly} $68.4\%$ of
+      \bfade{the} \bi{t}{ime} \bi{wh}{ile} \bi{e}{very} \bi{ra}{nking} \bi{r}{ule} \bi{ag}{rees} $97$--$98\%$ (§\ref{sec:agg}).
+\item \cref{thm:veto} \bfade{and} \cref{thm:vetoinf}: \bfade{the} \bi{ex}{act} \bi{con}{dition} \bi{un}{der} \bi{w}{hich} a
+      \bi{pe}{nalty} \bi{rep}{roduces} a \bi{v}{eto}, \bfade{and} \bfade{the} \bi{p}{roof} \bfade{that} no \bi{fi}{nite} \bi{pe}{nalty} \bi{d}{oes} so
+      \bi{uni}{formly}.
+\item \bi{Nor}{malised} \bi{re}{gret} (\cref{def:regret}) as \bfade{the} \bi{de}{cision}-\bi{theor}{etically} \bi{co}{rrect}
+      \bi{est}{imand}, \bfade{with} \bfade{the} \bi{ex}{act} \bi{ide}{ntity} \bi{sho}{wing} \bfade{the} \bi{f}{lip} \bi{r}{ate} to be \bi{i}{ts} \bi{coar}{sening}
+      (\cref{lem:coarsen}).
+\item \bfade{The} \bi{ga}{uge} \bi{re}{sult} \bi{sepa}{rating} \bi{comp}{arative} \bfade{from} \bi{abs}{olute} \bi{cl}{aims}
+      (§\ref{sec:gauge}).
+\item An \bi{exp}{licit} \bi{n}{on}-\bi{ident}{ification} \bi{se}{ction} \bfade{with} \bi{pr}{oofs} (§\ref{sec:notid}), \bfade{and}
+      a \bi{de}{sign} \bi{speci}{fication} \bi{de}{rived} \bi{l}{ine} by \bi{l}{ine} \bfade{from} it (§\ref{sec:design}).
+\end{enumerate}
+
+\subsection{\bi{Rel}{ation} to \bi{neigh}{bouring} \bi{w}{ork}}
+
+\bi{Eve}{rything} in §\ref{sec:math} is \bi{st}{andard} \bfade{and} is \bi{repr}{oduced} \bi{o}{nly} so \bfade{the} \bi{p}{aper} is
+\bi{s}{elf}-\bi{con}{tained}. \bi{Bla}{ckwell}'s \bi{com}{parison} of \bi{expe}{riments}, \bi{Ar}{row}'s \bi{impos}{sibility}
+\bi{th}{eorem}, \bi{S}{en}'s \bi{lib}{eral} \bi{par}{adox}, \bfade{the} \bi{Sh}{apley} \bi{va}{lue}, \bfade{the} \bi{Spe}{arman}--\bi{Br}{own} \bi{pro}{phecy}
+\bi{fo}{rmula}, \bfade{the} \bi{de}{sign} \bi{ef}{fect} \bfade{and} \bi{cla}{ssical} \bi{atte}{nuation} \bfade{are} \bi{a}{ll} \bi{cla}{ssical}; \bi{t}{hey} \bfade{are}
+\bi{de}{rived} \bi{ra}{ther} \bi{t}{han} \bi{ci}{ted} \bi{be}{cause} a \bi{re}{ader} \bfade{with} no \bi{stat}{istical} \bi{back}{ground} \bi{ca}{nnot}
+\bi{oth}{erwise} \bi{ch}{eck} \bfade{the} \bi{arg}{ument}. \bfade{The} \bi{nov}{elty} \bi{bou}{ndary} is \bi{st}{ated} \bi{expl}{icitly} in
+§\ref{sec:exclusion} \bfade{and} \bfade{the} \bi{Disc}{ussion}: \bi{w}{hat} is \bi{n}{ew} is \bfade{the} \bi{appl}{ication} to \bfade{this}
+\bi{ob}{ject} \bfade{and} \bi{f}{ive} \bi{spe}{cific} \bi{me}{asured} \bi{qua}{ntities}, \bfade{not} \bfade{the} \bi{mac}{hinery}.
+
+\subsection{\bi{Roa}{dmap}}
+
+§\ref{sec:math} \bi{bu}{ilds} \bfade{the} \bi{math}{ematics}. §\ref{sec:object} \bi{def}{ines} \bfade{the} \bi{ob}{ject}
+\bi{ex}{actly}. §\ref{sec:firewall} \bi{st}{ates} \bfade{the} \bi{mea}{surement} \bi{con}{tract}.
+§\ref{sec:elicit}--§\ref{sec:instrument} \bi{wa}{lk} \bfade{the} \bi{ch}{ain} \bi{o}{ne} \bi{ar}{row} at a \bi{t}{ime}.
+§\ref{sec:est} \bfade{and} §\ref{sec:c1} \bi{g}{ive} \bfade{the} \bi{esti}{mators}. §\ref{sec:notid} \bi{pr}{oves}
+\bi{w}{hat} \bi{ca}{nnot} be \bi{ide}{ntified}. §\ref{sec:findings} \bi{st}{ates} \bfade{the} \bi{fin}{dings} \bfade{with} \bi{th}{eir}
+\bi{conf}{idence} \bi{ca}{rds}, §\ref{sec:exclusion} \bi{w}{hat} \bi{d}{id} \bfade{not} \bi{su}{rvive},
+§\ref{sec:falsify} \bi{w}{hat} \bi{wo}{uld} \bi{e}{nd} \bi{e}{ach} \bi{cl}{aim}, \bfade{and} §\ref{sec:design} \bi{w}{hat} a
+\bi{suff}{icient} \bi{de}{sign} \bi{req}{uires}.
+
+\input{partA_concept.tex}
+\input{partB_object_problems.tex}
+\input{partm1_notation.tex}
+\input{part0_math.tex}
+\input{part0b_worked.tex}
+\input{part1_object.tex}
+\input{part1b_toy.tex}
+
+\section{\bi{Mea}{surement} \bi{con}{tracts} \bfade{and} \bfade{the} \bi{Evi}{dence} \bi{Fir}{ewall}}
+\input{evidence_firewall.tex}
+
+\subsection{\bi{Mu}{lti}-\bi{ax}{is} \bi{evi}{dence} \bi{co}{ding}}
+
+\bi{E}{very} \bi{cl}{aim} in §\ref{sec:findings} is \bi{co}{ded} in
+\texttt{supplement/evidence\_atlas.csv} on \bi{ax}{es} \bfade{that} \bfade{can} \emph{\bi{v}{eto}} it \bi{ra}{ther}
+\bi{t}{han} \bi{me}{rely} \bi{sup}{port} it: \texttt{instrument\_free}, \texttt{control\_saturated},
+\texttt{held\_out}, \texttt{replication\_breadth}, \bfade{and} \texttt{prior\_art\_in\_card}.
+\bfade{The} \bi{l}{ast} \bi{ex}{ists} \bi{be}{cause} a \bi{re}{sult} \bfade{that} \bi{res}{tates} \bfade{the} \bi{ob}{ject}'s \bi{o}{wn} \bi{docum}{entation} is
+a \bi{verif}{ication}, \bfade{not} a \bi{fi}{nding}, \bfade{and} a \bi{co}{lumn} \bfade{that} \bi{fo}{rces} \bi{o}{ne} to \bi{s}{ay} so is \bi{wo}{rth}
+\bfade{the} \bi{c}{ost} of \bi{main}{taining} it.
+
+\input{part3_gaps.tex}
+\input{part2_estimators.tex}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

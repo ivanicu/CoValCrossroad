@@ -1,0 +1,132 @@
+% ===========================================================================
+% PART 0b -- every tool of Part 0, executed by hand on numbers small enough
+% to check without a computer. A reader who follows this section has verified
+% the machinery rather than accepted it.
+% ===========================================================================
+\section{\bi{E}{very} \bi{t}{ool}, \bi{exe}{cuted} by \bi{h}{and}}
+\label{sec:worked}
+
+\bi{P}{art} 0 \bi{de}{rived} \bfade{the} \bi{mac}{hinery}. \bfade{This} \bi{se}{ction} \bi{r}{uns} \bi{a}{ll} of it on \bi{f}{ive} \bi{nu}{mbers}, so
+\bfade{that} \bi{no}{thing} is \bi{ta}{ken} on \bi{tr}{ust}. \bi{T}{ake} \bfade{the} \bi{sa}{mple}
+\[
+x = (2,\;4,\;4,\;4,\;6),\qquad n=5 .
+\]
+
+\subsection{\bfade{The} \bi{m}{ean}}
+\[
+\bar x=\frac{2+4+4+4+6}{5}=\frac{20}{5}=4 .
+\]
+
+\subsection{\bi{Dev}{iations}, \bfade{and} \bi{w}{hy} \bfade{the} \bi{na}{ive} \bi{sp}{read} is \bi{use}{less}}
+\[
+x_i-\bar x \;=\; (-2,\;0,\;0,\;0,\;2),\qquad \sum_i (x_i-\bar x) = 0 .
+\]
+\bi{Ex}{actly} \bi{z}{ero}, as §0.4 \bi{s}{aid} it \bi{m}{ust} be \bfade{for} \emph{\bi{a}{ny}} \bi{da}{taset}. \bfade{This} is \bi{w}{hy} \bfade{the}
+\bi{av}{erage} \bi{dev}{iation} \bi{ca}{nnot} be a \bi{me}{asure} of \bi{sp}{read}.
+
+\subsection{\bi{Va}{riance}, \bi{b}{oth} \bi{w}{ays}}
+\bi{Sq}{uared} \bi{dev}{iations}: $(4,0,0,0,4)$, \bi{su}{mming} to $8$.
+\[
+s^2=\frac{8}{n-1}=\frac{8}{4}=2,\qquad s=\sqrt{2}=1.4142 .
+\]
+\bi{Ch}{eck} \bfade{with} \cref{lem:varalt}. $\E[X^2]$ \bi{o}{ver} \bfade{the} \bi{sa}{mple} is
+$(4+16+16+16+36)/5 = 88/5 = 17.6$, \bfade{and} $\bar x^2 = 16$, so \bfade{the}
+\emph{\bi{popu}{lation}-\bi{f}{orm}} \bi{va}{riance} is $17.6-16=1.6 = 8/5$. \bi{Mult}{iplying} by
+$n/(n-1)=5/4$ \bi{rec}{overs} $2$. \bfade{The} \bi{t}{wo} \bi{fo}{rms} \bi{ag}{ree}, \bfade{and} \bfade{the} \bi{fa}{ctor} \bi{be}{tween} \bi{t}{hem} is
+\bi{ex}{actly} \cref{lem:bessel}.
+
+\subsection{\bi{St}{andard} \bi{er}{ror} \bfade{and} \bi{in}{terval}}
+\[
+\se=\frac{s}{\sqrt n}=\frac{1.4142}{2.2361}=0.6325 .
+\]
+By §\ref{sec:ci} \bfade{the} $95\%$ \bi{in}{terval} is
+$4 \pm 1.96(0.6325) = 4 \pm 1.2397 = [2.760,\;5.240]$.
+
+\step{\bi{R}{ead} it \bi{cor}{rectly}.} \bi{Ac}{ross} \bi{repe}{titions} of \bfade{the} \bi{wh}{ole} \bi{st}{udy}, $95\%$ of \bi{s}{uch}
+\bi{int}{ervals} \bi{co}{ver} \bfade{the} \bi{fi}{xed} \bi{unk}{nown} $\mu$. It \bi{d}{oes} \emph{\bfade{not}} \bi{s}{ay} $95\%$ of \bi{fu}{ture}
+\bi{obse}{rvations} \bi{l}{and} in $[2.760,5.240]$; \bi{t}{hree} of \bfade{the} \bi{f}{ive} \bi{obs}{erved} \bi{va}{lues} \bfade{are}
+\bi{ex}{actly} $4$, \bfade{and} a \bi{pred}{iction} \bi{in}{terval} \bi{wo}{uld} be \bi{f}{ar} \bi{wi}{der}.
+
+\subsection{A $z$-\bi{sta}{tistic} \bfade{and} \bi{i}{ts} $p$-\bi{va}{lue}}
+\bi{Tes}{ting} $H_0:\mu=0$:
+$z = 4/0.6325 = 6.32$. \bfade{From} \bfade{the} \bi{no}{rmal} \bi{t}{able}, $\Prob(|Z|\ge 6.32) < 10^{-9}$.
+
+\step{\bi{R}{ead} it \bi{cor}{rectly}.} \bfade{This} is $\Prob(\text{data this extreme}\mid \mu=0)$. It
+is \bfade{not} \bfade{the} \bi{pro}{bability} \bfade{that} $\mu=0$, \bfade{and} $1-p$ is \bfade{not} \bfade{the} \bi{pro}{bability} \bfade{the} \bi{ef}{fect}
+is \bi{r}{eal}.
+
+\subsection{\bi{Mi}{nimum} \bi{dete}{ctable} \bi{ef}{fect}, \bfade{and} \bi{req}{uired} $n$}
+By \cref{thm:mde}, $\mathrm{MDE} = 2.8016 \times 0.6325 = 1.772$: \bfade{with} \bi{f}{ive}
+\bi{obse}{rvations} of \bfade{this} \bi{sp}{read}, a \bi{t}{rue} \bi{m}{ean} \bi{be}{low} $1.772$ \bi{wo}{uld} be \bi{mi}{ssed} \bi{m}{ore} \bi{of}{ten}
+\bi{t}{han} \bfade{not}. By \cref{cor:n}, \bi{det}{ecting} $\delta = 0.5$ \bi{ne}{eds}
+\[
+n=\Big(\frac{2.8016 \times 1.4142}{0.5}\Big)^2=(7.923)^2=62.8 \;\to\; 63 .
+\]
+\bi{Det}{ecting} $\delta=0.25$ \bi{ne}{eds} $4\times$ \bfade{that}: $251$. \bfade{This} is \bfade{the} $\sqrt n$ \bi{eco}{nomics}
+of §\ref{sec:se} in \bi{o}{ne} \bi{l}{ine}.
+
+\subsection{An \bi{ind}{icator}, a \bi{prop}{ortion}, \bfade{and} \bi{i}{ts} \bi{va}{riance}}
+\bi{L}{et} $P_i$ be ``$x_i > 3$'', \bi{gi}{ving} \bi{indi}{cators} $(0,1,1,1,1)$. By \cref{eq:indavg}
+\bfade{the} \bi{prop}{ortion} is $4/5 = 0.8$; by \cref{cor:indvar} \bi{i}{ts} \bi{va}{riance} is
+$0.8 \times 0.2 = 0.16$, so
+$\se = \sqrt{0.16/5} = \sqrt{0.032} = 0.1789$.
+
+\step{\bi{W}{hy} \bi{ra}{tes} \bi{ne}{ar} \bfade{the} \bi{e}{nds} \bfade{are} \bi{me}{asured} \bi{be}{tter}.} $\pi(1-\pi)$ \bi{pe}{aks} at
+$\pi=0.5$ \bfade{with} \bi{va}{lue} $0.25$ \bfade{and} \bi{fa}{lls} to $0.09$ at $\pi=0.1$. A $5\%$ \bi{f}{lip} \bi{r}{ate}
+is \bi{the}{refore} \bi{intri}{nsically} \bi{ea}{sier} to \bi{p}{in} \bi{d}{own} \bi{t}{han} a $50\%$ \bi{o}{ne}, \bi{w}{hich} is \bi{w}{hy} \bfade{the}
+\bi{int}{ervals} in \cref{tab:power} \bfade{are} \bi{na}{rrow} \bi{des}{pite} \bi{mo}{dest} $n$.
+
+\subsection{\bi{Cov}{ariance} \bfade{and} \bi{cor}{relation}}
+\bi{L}{et} $y=(1,3,3,5,3)$, so $\bar y = 3$ \bfade{and} $y_i - \bar y = (-2,0,0,2,0)$.
+\[
+\Cov = \frac{1}{n-1}\sum_i (x_i-\bar x)(y_i-\bar y)
+=\frac{(-2)(-2)+0+0+0\cdot 2+2\cdot 0}{4}
+=\frac{4}{4}=1 .
+\]
+$s_y^2 = (4+0+0+4+0)/4 = 2$, so $s_y=1.4142$, \bfade{and}
+\[
+r=\frac{1}{1.4142 \times 1.4142}=\frac{1}{2}=0.5 .
+\]
+\Cref{thm:cs} \bi{req}{uires} $|r|\le 1$: \bi{sat}{isfied}. \bfade{And} $r=0.5$ is \emph{\bfade{not}} ``\bi{h}{alf} of
+\bi{any}{thing}''; \bi{o}{nly} $r^2=0.25$ \bi{h}{as} a \bi{sh}{are} \bi{re}{ading}, \bfade{and} \bi{o}{nly} \bi{un}{der} a \bi{li}{near} \bi{mo}{del}.
+
+\subsection{\bfade{The} \bi{de}{sign} \bi{ef}{fect}, by \bi{h}{and}}
+\bi{Su}{ppose} $P=3$ \bi{clu}{sters} of $R=4$:
+\[
+c_1=(1,1,1,0),\quad c_2=(0,0,0,0),\quad c_3=(1,0,1,1).
+\]
+\bi{Cl}{uster} \bi{me}{ans}: $0.75,\;0,\;0.75$. \bi{Gr}{and} \bi{m}{ean} $= 0.5$.
+\begin{align*}
+\sigma_b^2 &= \tfrac{1}{2}\big[(0.25)^2+(0.5)^2+(0.25)^2\big] = \tfrac{1}{2}(0.375)=0.1875,\\
+\sigma_w^2 &= \text{mean of within-cluster variances} = \tfrac{1}{3}\big[0.25+0+0.25\big]=0.1667,
+\end{align*}
+\bi{us}{ing} $s^2 = \tfrac{1}{R-1}\sum (x-\bar x)^2$ \bi{in}{side} \bi{e}{ach} \bi{cl}{uster}.
+\[
+\rho=\frac{0.1875}{0.1875+0.1667}=0.529,\qquad
+\mathrm{DEFF}=1+(4-1)(0.529)=2.59 .
+\]
+So \bi{tre}{ating} \bfade{the} $12$ \bi{r}{ows} as \bi{ind}{ependent} \bi{wo}{uld} \bi{unde}{rstate} \bfade{the} \bi{st}{andard} \bi{er}{ror} by
+$\sqrt{2.59}=1.61$, \bfade{and} \bfade{the} \bi{ho}{nest} \bi{co}{unt} of \bi{ind}{ependent} \bi{un}{its} is $3$, \bfade{not} $12$.
+
+\subsection{\bi{Atte}{nuation}, by \bi{h}{and}}
+\bi{Su}{ppose} a \bi{t}{rue} \bi{cor}{relation} $\Corr(T,U)=0.90$, \bi{me}{asured} \bi{th}{rough} \bi{inst}{ruments} \bfade{with}
+\bi{relia}{bilities} $0.55$ \bfade{and} $0.95$. By \cref{thm:atten}
+\[
+\Corr(X,Y)=0.90 \times \sqrt{0.55 \times 0.95}=0.90 \times \sqrt{0.5225}=0.90\times 0.7228=0.6505 .
+\]
+A \bi{st}{rong} \bi{rela}{tionship} \bi{re}{ads} as a \bi{mod}{erate} \bi{o}{ne}, \bfade{and} no \bi{sa}{mple} \bi{s}{ize} \bi{rep}{airs} it: \bfade{the}
+\bi{atte}{nuation} is \bi{b}{ias}, \bfade{and} $\se$ \bi{shr}{inks} \bi{wh}{ile} \bfade{the} \bi{ce}{ntre} \bi{st}{ays} \bi{wr}{ong}.
+
+\subsection{\bi{Spe}{arman}--\bi{Br}{own}, by \bi{h}{and}}
+A \bi{h}{alf}-\bi{pa}{nel} \bi{sp}{lit}-\bi{h}{alf} \bi{cor}{relation} of $r=0.8961$ \bi{gi}{ves}, by \cref{thm:sb},
+\[
+\frac{2(0.8961)}{1+0.8961}=\frac{1.7922}{1.8961}=0.9452 ,
+\]
+\bi{w}{hich} is \bfade{the} \bi{rel}{iability} of \bfade{the} \emph{\bi{f}{ull}} \bi{pa}{nel} \bfade{and} \bfade{the} \bi{nu}{mber} \bfade{that} \bi{en}{ters}
+\cref{thm:atten}.
+
+\subsection{\bi{Bonf}{erroni}, by \bi{h}{and}}
+\bfade{With} $C=171$ \bi{te}{sts} at $\alpha=0.05$: \bi{p}{er}-\bi{t}{est} \bi{le}{vel} $0.05/171=0.000292$. \bfade{The}
+\bi{t}{wo}-\bi{si}{ded} \bi{no}{rmal} \bi{qua}{ntile} at $1-0.000292/2 = 0.999854$ is $|z|=3.62$. \bfade{This} \bi{p}{aper}
+\bi{u}{ses} $3.9$, \bi{w}{hich} is \bi{str}{icter}, \bfade{and} \bi{re}{ports} \bfade{the} \bi{co}{unt} of \bi{te}{sts} \bi{be}{side} \bfade{the} \bi{co}{unt} of
+\bi{sur}{vivors}.
