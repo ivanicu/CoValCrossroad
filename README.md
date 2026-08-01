@@ -118,6 +118,19 @@ attacks are in the repo.
 
 ---
 
+## Where this is going
+
+[`NORTH_STAR.md`](NORTH_STAR.md) — the research direction, stated as a **conservation law** rather
+than a score: which normative distinctions may be compressed, which must be causally preserved, and
+which become type errors when lost. It carries three claims that can die, and the observation that
+kills each.
+
+Its one sentence: *normative information is the set of source distinctions required to answer a
+declared family of queries, and it is preserved when intervening on a distinction changes downstream
+behaviour — not when the downstream object merely agrees with it.*
+
+---
+
 ## Navigating
 
 | phase | rounds | n | what |
