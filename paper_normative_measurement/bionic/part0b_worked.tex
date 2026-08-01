@@ -3,130 +3,130 @@
 % to check without a computer. A reader who follows this section has verified
 % the machinery rather than accepted it.
 % ===========================================================================
-\section{\bi{Ev}{er}{y} \bi{to}{o}{l}, \bi{exe}{cut}{ed} by \bi{ha}{n}{d}}
+\section{\bi{E}{ve}{ry} tool, \bi{ex}{ecu}{ted} by hand}
 \label{sec:worked}
 
-\bi{Pa}{r}{t} 0 \bi{der}{iv}{ed} \bi{t}{h}{e} \bi{mac}{hin}{ery}. \bi{Th}{i}{s} \bi{sec}{ti}{on} \bi{ru}{n}{s} \bi{a}{l}{l} of it on \bi{fi}{v}{e} \bi{num}{be}{rs}, so
-\bi{th}{a}{t} \bi{not}{hi}{ng} is \bi{ta}{ke}{n} on \bi{tr}{us}{t}. \bi{Ta}{k}{e} \bi{t}{h}{e} \bi{sa}{mp}{le}
+Part 0 \bi{de}{riv}{ed} the \bi{mac}{hin}{ery}. This \bi{se}{cti}{on} runs all of it on five \bi{nu}{mbe}{rs}, so
+that \bi{no}{thi}{ng} is \bi{t}{ak}{en} on \bi{t}{ru}{st}. Take the \bi{sa}{mp}{le}
 \[
 x = (2,\;4,\;4,\;4,\;6),\qquad n=5 .
 \]
 
-\subsection{\bi{T}{h}{e} \bi{me}{a}{n}}
+\subsection{The mean}
 \[
 \bar x=\frac{2+4+4+4+6}{5}=\frac{20}{5}=4 .
 \]
 
-\subsection{\bi{Devi}{ati}{ons}, \bi{a}{n}{d} \bi{w}{h}{y} \bi{t}{h}{e} \bi{na}{iv}{e} \bi{sp}{re}{ad} is \bi{use}{le}{ss}}
+\subsection{\bi{Dev}{iati}{ons}, and why the \bi{n}{ai}{ve} \bi{sp}{re}{ad} is \bi{us}{ele}{ss}}
 \[
 x_i-\bar x \;=\; (-2,\;0,\;0,\;0,\;2),\qquad \sum_i (x_i-\bar x) = 0 .
 \]
-\bi{Exa}{ct}{ly} \bi{ze}{r}{o}, as §0.4 \bi{sa}{i}{d} it \bi{mu}{s}{t} be \bi{f}{o}{r} \emph{\bi{a}{n}{y}} \bi{dat}{as}{et}. \bi{Th}{i}{s} is \bi{w}{h}{y} \bi{t}{h}{e}
-\bi{ave}{ra}{ge} \bi{dev}{iat}{ion} \bi{ca}{nn}{ot} be a \bi{mea}{su}{re} of \bi{sp}{re}{ad}.
+\bi{Ex}{act}{ly} zero, as §0.4 said it must be for \emph{any} \bi{da}{tas}{et}. This is why the
+\bi{av}{era}{ge} \bi{dev}{iat}{ion} \bi{ca}{nn}{ot} be a \bi{me}{asu}{re} of \bi{sp}{re}{ad}.
 
-\subsection{\bi{Var}{ian}{ce}, \bi{bo}{t}{h} \bi{wa}{y}{s}}
-\bi{Squ}{ar}{ed} \bi{devi}{ati}{ons}: $(4,0,0,0,4)$, \bi{sum}{mi}{ng} to $8$.
+\subsection{\bi{Va}{ria}{nce}, both ways}
+\bi{Sq}{uar}{ed} \bi{dev}{iati}{ons}: $(4,0,0,0,4)$, \bi{su}{mmi}{ng} to $8$.
 \[
 s^2=\frac{8}{n-1}=\frac{8}{4}=2,\qquad s=\sqrt{2}=1.4142 .
 \]
-\bi{Ch}{ec}{k} \bi{wi}{t}{h} \cref{lem:varalt}. $\E[X^2]$ \bi{ov}{e}{r} \bi{t}{h}{e} \bi{sa}{mp}{le} is
-$(4+16+16+16+36)/5 = 88/5 = 17.6$, \bi{a}{n}{d} $\bar x^2 = 16$, so \bi{t}{h}{e}
-\emph{\bi{popu}{lat}{ion}-\bi{fo}{r}{m}} \bi{var}{ian}{ce} is $17.6-16=1.6 = 8/5$. \bi{Mult}{iply}{ing} by
-$n/(n-1)=5/4$ \bi{rec}{ove}{rs} $2$. \bi{T}{h}{e} \bi{t}{w}{o} \bi{fo}{rm}{s} \bi{ag}{re}{e}, \bi{a}{n}{d} \bi{t}{h}{e} \bi{fa}{ct}{or} \bi{bet}{we}{en} \bi{th}{e}{m} is
-\bi{exa}{ct}{ly} \cref{lem:bessel}.
+\bi{C}{he}{ck} with \cref{lem:varalt}. $\E[X^2]$ over the \bi{sa}{mp}{le} is
+$(4+16+16+16+36)/5 = 88/5 = 17.6$, and $\bar x^2 = 16$, so the
+\emph{\bi{pop}{ulat}{ion}-form} \bi{va}{ria}{nce} is $17.6-16=1.6 = 8/5$. \bi{Mul}{tipl}{ying} by
+$n/(n-1)=5/4$ \bi{re}{cov}{ers} $2$. The two \bi{f}{or}{ms} \bi{a}{gr}{ee}, and the \bi{fa}{ct}{or} \bi{be}{twe}{en} them is
+\bi{ex}{act}{ly} \cref{lem:bessel}.
 
-\subsection{\bi{Sta}{nda}{rd} \bi{er}{ro}{r} \bi{a}{n}{d} \bi{int}{erv}{al}}
+\subsection{\bi{St}{and}{ard} \bi{e}{rr}{or} and \bi{in}{ter}{val}}
 \[
 \se=\frac{s}{\sqrt n}=\frac{1.4142}{2.2361}=0.6325 .
 \]
-By §\ref{sec:ci} \bi{t}{h}{e} $95\%$ \bi{int}{erv}{al} is
+By §\ref{sec:ci} the $95\%$ \bi{in}{ter}{val} is
 $4 \pm 1.96(0.6325) = 4 \pm 1.2397 = [2.760,\;5.240]$.
 
-\step{\bi{Re}{a}{d} it \bi{cor}{rec}{tly}.} \bi{Ac}{ro}{ss} \bi{repe}{titi}{ons} of \bi{t}{h}{e} \bi{wh}{ol}{e} \bi{st}{ud}{y}, $95\%$ of \bi{su}{c}{h}
-\bi{int}{erv}{als} \bi{co}{ve}{r} \bi{t}{h}{e} \bi{fi}{xe}{d} \bi{unk}{no}{wn} $\mu$. It \bi{do}{e}{s} \emph{\bi{n}{o}{t}} \bi{s}{a}{y} $95\%$ of \bi{fu}{tu}{re}
-\bi{obse}{rvat}{ions} \bi{la}{n}{d} in $[2.760,5.240]$; \bi{th}{re}{e} of \bi{t}{h}{e} \bi{fi}{v}{e} \bi{obs}{erv}{ed} \bi{va}{lu}{es} \bi{a}{r}{e}
-\bi{exa}{ct}{ly} $4$, \bi{a}{n}{d} a \bi{pred}{ict}{ion} \bi{int}{erv}{al} \bi{wo}{ul}{d} be \bi{f}{a}{r} \bi{wi}{de}{r}.
+\step{Read it \bi{cor}{rec}{tly}.} \bi{Ac}{ro}{ss} \bi{rep}{etit}{ions} of the \bi{w}{ho}{le} \bi{s}{tu}{dy}, $95\%$ of such
+\bi{int}{erv}{als} \bi{c}{ov}{er} the \bi{f}{ix}{ed} \bi{un}{kno}{wn} $\mu$. It does \emph{not} say $95\%$ of \bi{fu}{tu}{re}
+\bi{obs}{ervat}{ions} land in $[2.760,5.240]$; \bi{t}{hr}{ee} of the five \bi{ob}{ser}{ved} \bi{va}{lu}{es} are
+\bi{ex}{act}{ly} $4$, and a \bi{pre}{dict}{ion} \bi{in}{ter}{val} \bi{w}{ou}{ld} be far \bi{w}{id}{er}.
 
-\subsection{A $z$-\bi{sta}{tis}{tic} \bi{a}{n}{d} \bi{i}{t}{s} $p$-\bi{va}{lu}{e}}
-\bi{Tes}{ti}{ng} $H_0:\mu=0$:
-$z = 4/0.6325 = 6.32$. \bi{Fr}{o}{m} \bi{t}{h}{e} \bi{no}{rm}{al} \bi{ta}{bl}{e}, $\Prob(|Z|\ge 6.32) < 10^{-9}$.
+\subsection{A $z$-\bi{sta}{tis}{tic} and its $p$-\bi{v}{al}{ue}}
+\bi{Te}{sti}{ng} $H_0:\mu=0$:
+$z = 4/0.6325 = 6.32$. From the \bi{no}{rm}{al} \bi{t}{ab}{le}, $\Prob(|Z|\ge 6.32) < 10^{-9}$.
 
-\step{\bi{Re}{a}{d} it \bi{cor}{rec}{tly}.} \bi{Th}{i}{s} is $\Prob(\text{data this extreme}\mid \mu=0)$. It
-is \bi{n}{o}{t} \bi{t}{h}{e} \bi{prob}{abil}{ity} \bi{th}{a}{t} $\mu=0$, \bi{a}{n}{d} $1-p$ is \bi{n}{o}{t} \bi{t}{h}{e} \bi{prob}{abil}{ity} \bi{t}{h}{e} \bi{ef}{fe}{ct}
-is \bi{re}{a}{l}.
+\step{Read it \bi{cor}{rec}{tly}.} This is $\Prob(\text{data this extreme}\mid \mu=0)$. It
+is not the \bi{pro}{babi}{lity} that $\mu=0$, and $1-p$ is not the \bi{pro}{babi}{lity} the \bi{ef}{fe}{ct}
+is real.
 
-\subsection{\bi{Min}{im}{um} \bi{dete}{cta}{ble} \bi{ef}{fe}{ct}, \bi{a}{n}{d} \bi{req}{uir}{ed} $n$}
-By \cref{thm:mde}, $\mathrm{MDE} = 2.8016 \times 0.6325 = 1.772$: \bi{wi}{t}{h} \bi{fi}{v}{e}
-\bi{obse}{rvat}{ions} of \bi{th}{i}{s} \bi{sp}{re}{ad}, a \bi{tr}{u}{e} \bi{me}{a}{n} \bi{be}{lo}{w} $1.772$ \bi{wo}{ul}{d} be \bi{mi}{ss}{ed} \bi{mo}{r}{e} \bi{of}{te}{n}
-\bi{th}{a}{n} \bi{n}{o}{t}. By \cref{cor:n}, \bi{det}{ect}{ing} $\delta = 0.5$ \bi{ne}{ed}{s}
+\subsection{\bi{Mi}{nim}{um} \bi{det}{ecta}{ble} \bi{ef}{fe}{ct}, and \bi{re}{qui}{red} $n$}
+By \cref{thm:mde}, $\mathrm{MDE} = 2.8016 \times 0.6325 = 1.772$: with five
+\bi{obs}{ervat}{ions} of this \bi{sp}{re}{ad}, a true mean \bi{b}{el}{ow} $1.772$ \bi{w}{ou}{ld} be \bi{mi}{ss}{ed} more \bi{o}{ft}{en}
+than not. By \cref{cor:n}, \bi{det}{ect}{ing} $\delta = 0.5$ \bi{n}{ee}{ds}
 \[
 n=\Big(\frac{2.8016 \times 1.4142}{0.5}\Big)^2=(7.923)^2=62.8 \;\to\; 63 .
 \]
-\bi{Det}{ect}{ing} $\delta=0.25$ \bi{ne}{ed}{s} $4\times$ \bi{th}{a}{t}: $251$. \bi{Th}{i}{s} is \bi{t}{h}{e} $\sqrt n$ \bi{eco}{nom}{ics}
-of §\ref{sec:se} in \bi{o}{n}{e} \bi{li}{n}{e}.
+\bi{Det}{ect}{ing} $\delta=0.25$ \bi{n}{ee}{ds} $4\times$ that: $251$. This is the $\sqrt n$ \bi{eco}{nom}{ics}
+of §\ref{sec:se} in one line.
 
-\subsection{An \bi{ind}{ica}{tor}, a \bi{prop}{ort}{ion}, \bi{a}{n}{d} \bi{i}{t}{s} \bi{var}{ian}{ce}}
-\bi{L}{e}{t} $P_i$ be ``$x_i > 3$'', \bi{gi}{vi}{ng} \bi{indi}{cat}{ors} $(0,1,1,1,1)$. By \cref{eq:indavg}
-\bi{t}{h}{e} \bi{prop}{ort}{ion} is $4/5 = 0.8$; by \cref{cor:indvar} \bi{i}{t}{s} \bi{var}{ian}{ce} is
+\subsection{An \bi{ind}{ica}{tor}, a \bi{pro}{port}{ion}, and its \bi{va}{ria}{nce}}
+Let $P_i$ be ``$x_i > 3$'', \bi{gi}{vi}{ng} \bi{ind}{icat}{ors} $(0,1,1,1,1)$. By \cref{eq:indavg}
+the \bi{pro}{port}{ion} is $4/5 = 0.8$; by \cref{cor:indvar} its \bi{va}{ria}{nce} is
 $0.8 \times 0.2 = 0.16$, so
 $\se = \sqrt{0.16/5} = \sqrt{0.032} = 0.1789$.
 
-\step{\bi{W}{h}{y} \bi{ra}{te}{s} \bi{ne}{a}{r} \bi{t}{h}{e} \bi{en}{d}{s} \bi{a}{r}{e} \bi{mea}{sur}{ed} \bi{be}{tt}{er}.} $\pi(1-\pi)$ \bi{pe}{ak}{s} at
-$\pi=0.5$ \bi{wi}{t}{h} \bi{va}{lu}{e} $0.25$ \bi{a}{n}{d} \bi{fa}{ll}{s} to $0.09$ at $\pi=0.1$. A $5\%$ \bi{fl}{i}{p} \bi{ra}{t}{e}
-is \bi{the}{ref}{ore} \bi{intr}{insic}{ally} \bi{ea}{si}{er} to \bi{p}{i}{n} \bi{do}{w}{n} \bi{th}{a}{n} a $50\%$ \bi{o}{n}{e}, \bi{wh}{ic}{h} is \bi{w}{h}{y} \bi{t}{h}{e}
-\bi{int}{erv}{als} in \cref{tab:power} \bi{a}{r}{e} \bi{na}{rr}{ow} \bi{des}{pi}{te} \bi{mo}{de}{st} $n$.
+\step{Why \bi{r}{at}{es} near the ends are \bi{me}{asu}{red} \bi{be}{tt}{er}.} $\pi(1-\pi)$ \bi{p}{ea}{ks} at
+$\pi=0.5$ with \bi{v}{al}{ue} $0.25$ and \bi{f}{al}{ls} to $0.09$ at $\pi=0.1$. A $5\%$ flip rate
+is \bi{the}{ref}{ore} \bi{int}{rinsi}{cally} \bi{ea}{si}{er} to pin down than a $50\%$ one, \bi{w}{hi}{ch} is why the
+\bi{int}{erv}{als} in \cref{tab:power} are \bi{na}{rr}{ow} \bi{de}{spi}{te} \bi{mo}{de}{st} $n$.
 
-\subsection{\bi{Cova}{ria}{nce} \bi{a}{n}{d} \bi{corr}{elat}{ion}}
-\bi{L}{e}{t} $y=(1,3,3,5,3)$, so $\bar y = 3$ \bi{a}{n}{d} $y_i - \bar y = (-2,0,0,2,0)$.
+\subsection{\bi{Cov}{aria}{nce} and \bi{cor}{rela}{tion}}
+Let $y=(1,3,3,5,3)$, so $\bar y = 3$ and $y_i - \bar y = (-2,0,0,2,0)$.
 \[
 \Cov = \frac{1}{n-1}\sum_i (x_i-\bar x)(y_i-\bar y)
 =\frac{(-2)(-2)+0+0+0\cdot 2+2\cdot 0}{4}
 =\frac{4}{4}=1 .
 \]
-$s_y^2 = (4+0+0+4+0)/4 = 2$, so $s_y=1.4142$, \bi{a}{n}{d}
+$s_y^2 = (4+0+0+4+0)/4 = 2$, so $s_y=1.4142$, and
 \[
 r=\frac{1}{1.4142 \times 1.4142}=\frac{1}{2}=0.5 .
 \]
-\Cref{thm:cs} \bi{req}{uir}{es} $|r|\le 1$: \bi{sat}{isf}{ied}. \bi{A}{n}{d} $r=0.5$ is \emph{\bi{n}{o}{t}} ``\bi{ha}{l}{f} of
-\bi{any}{thi}{ng}''; \bi{on}{l}{y} $r^2=0.25$ \bi{h}{a}{s} a \bi{sh}{ar}{e} \bi{rea}{di}{ng}, \bi{a}{n}{d} \bi{on}{l}{y} \bi{un}{de}{r} a \bi{li}{ne}{ar} \bi{mo}{de}{l}.
+\Cref{thm:cs} \bi{re}{qui}{res} $|r|\le 1$: \bi{sat}{isf}{ied}. And $r=0.5$ is \emph{not} ``half of
+\bi{an}{yth}{ing}''; only $r^2=0.25$ has a \bi{s}{ha}{re} \bi{re}{adi}{ng}, and only \bi{u}{nd}{er} a \bi{li}{ne}{ar} \bi{m}{od}{el}.
 
-\subsection{\bi{T}{h}{e} \bi{de}{si}{gn} \bi{ef}{fe}{ct}, by \bi{ha}{n}{d}}
-\bi{Sup}{po}{se} $P=3$ \bi{clu}{ste}{rs} of $R=4$:
+\subsection{The \bi{de}{si}{gn} \bi{ef}{fe}{ct}, by hand}
+\bi{Su}{ppo}{se} $P=3$ \bi{cl}{ust}{ers} of $R=4$:
 \[
 c_1=(1,1,1,0),\quad c_2=(0,0,0,0),\quad c_3=(1,0,1,1).
 \]
-\bi{Clu}{st}{er} \bi{me}{an}{s}: $0.75,\;0,\;0.75$. \bi{Gr}{an}{d} \bi{me}{a}{n} $= 0.5$.
+\bi{Cl}{ust}{er} \bi{m}{ea}{ns}: $0.75,\;0,\;0.75$. \bi{G}{ra}{nd} mean $= 0.5$.
 \begin{align*}
 \sigma_b^2 &= \tfrac{1}{2}\big[(0.25)^2+(0.5)^2+(0.25)^2\big] = \tfrac{1}{2}(0.375)=0.1875,\\
 \sigma_w^2 &= \text{mean of within-cluster variances} = \tfrac{1}{3}\big[0.25+0+0.25\big]=0.1667,
 \end{align*}
-\bi{us}{in}{g} $s^2 = \tfrac{1}{R-1}\sum (x-\bar x)^2$ \bi{in}{si}{de} \bi{ea}{c}{h} \bi{clu}{st}{er}.
+\bi{u}{si}{ng} $s^2 = \tfrac{1}{R-1}\sum (x-\bar x)^2$ \bi{in}{si}{de} each \bi{cl}{ust}{er}.
 \[
 \rho=\frac{0.1875}{0.1875+0.1667}=0.529,\qquad
 \mathrm{DEFF}=1+(4-1)(0.529)=2.59 .
 \]
-So \bi{tre}{ati}{ng} \bi{t}{h}{e} $12$ \bi{ro}{w}{s} as \bi{inde}{pend}{ent} \bi{wo}{ul}{d} \bi{unde}{rst}{ate} \bi{t}{h}{e} \bi{sta}{nda}{rd} \bi{er}{ro}{r} by
-$\sqrt{2.59}=1.61$, \bi{a}{n}{d} \bi{t}{h}{e} \bi{ho}{ne}{st} \bi{co}{un}{t} of \bi{inde}{pend}{ent} \bi{un}{it}{s} is $3$, \bi{n}{o}{t} $12$.
+So \bi{tr}{eat}{ing} the $12$ rows as \bi{ind}{epen}{dent} \bi{w}{ou}{ld} \bi{und}{erst}{ate} the \bi{st}{and}{ard} \bi{e}{rr}{or} by
+$\sqrt{2.59}=1.61$, and the \bi{ho}{ne}{st} \bi{c}{ou}{nt} of \bi{ind}{epen}{dent} \bi{u}{ni}{ts} is $3$, not $12$.
 
-\subsection{\bi{Atte}{nuat}{ion}, by \bi{ha}{n}{d}}
-\bi{Sup}{po}{se} a \bi{tr}{u}{e} \bi{corr}{elat}{ion} $\Corr(T,U)=0.90$, \bi{mea}{sur}{ed} \bi{thr}{ou}{gh} \bi{inst}{rume}{nts} \bi{wi}{t}{h}
-\bi{reli}{abili}{ties} $0.55$ \bi{a}{n}{d} $0.95$. By \cref{thm:atten}
+\subsection{\bi{Att}{enua}{tion}, by hand}
+\bi{Su}{ppo}{se} a true \bi{cor}{rela}{tion} $\Corr(T,U)=0.90$, \bi{me}{asu}{red} \bi{th}{rou}{gh} \bi{ins}{trum}{ents} with
+\bi{rel}{iabil}{ities} $0.55$ and $0.95$. By \cref{thm:atten}
 \[
 \Corr(X,Y)=0.90 \times \sqrt{0.55 \times 0.95}=0.90 \times \sqrt{0.5225}=0.90\times 0.7228=0.6505 .
 \]
-A \bi{st}{ro}{ng} \bi{rela}{tion}{ship} \bi{re}{ad}{s} as a \bi{mod}{era}{te} \bi{o}{n}{e}, \bi{a}{n}{d} no \bi{sa}{mp}{le} \bi{si}{z}{e} \bi{rep}{ai}{rs} it: \bi{t}{h}{e}
-\bi{atte}{nuat}{ion} is \bi{bi}{a}{s}, \bi{a}{n}{d} $\se$ \bi{shr}{in}{ks} \bi{wh}{il}{e} \bi{t}{h}{e} \bi{ce}{nt}{re} \bi{st}{ay}{s} \bi{wr}{on}{g}.
+A \bi{st}{ro}{ng} \bi{rel}{ation}{ship} \bi{r}{ea}{ds} as a \bi{mo}{der}{ate} one, and no \bi{sa}{mp}{le} size \bi{re}{pai}{rs} it: the
+\bi{att}{enua}{tion} is bias, and $\se$ \bi{sh}{rin}{ks} \bi{w}{hi}{le} the \bi{ce}{nt}{re} \bi{s}{ta}{ys} \bi{w}{ro}{ng}.
 
-\subsection{\bi{Spe}{arm}{an}--\bi{Br}{ow}{n}, by \bi{ha}{n}{d}}
-A \bi{ha}{l}{f}-\bi{pa}{ne}{l} \bi{sp}{li}{t}-\bi{ha}{l}{f} \bi{corr}{elat}{ion} of $r=0.8961$ \bi{gi}{ve}{s}, by \cref{thm:sb},
+\subsection{\bi{Sp}{ear}{man}--\bi{B}{ro}{wn}, by hand}
+A half-\bi{p}{an}{el} \bi{s}{pl}{it}-half \bi{cor}{rela}{tion} of $r=0.8961$ \bi{g}{iv}{es}, by \cref{thm:sb},
 \[
 \frac{2(0.8961)}{1+0.8961}=\frac{1.7922}{1.8961}=0.9452 ,
 \]
-\bi{wh}{ic}{h} is \bi{t}{h}{e} \bi{reli}{abil}{ity} of \bi{t}{h}{e} \emph{\bi{fu}{l}{l}} \bi{pa}{ne}{l} \bi{a}{n}{d} \bi{t}{h}{e} \bi{nu}{mb}{er} \bi{th}{a}{t} \bi{en}{te}{rs}
+\bi{w}{hi}{ch} is the \bi{rel}{iabi}{lity} of the \emph{full} \bi{p}{an}{el} and the \bi{nu}{mb}{er} that \bi{en}{te}{rs}
 \cref{thm:atten}.
 
-\subsection{\bi{Bonf}{err}{oni}, by \bi{ha}{n}{d}}
-\bi{Wi}{t}{h} $C=171$ \bi{te}{st}{s} at $\alpha=0.05$: \bi{p}{e}{r}-\bi{te}{s}{t} \bi{le}{ve}{l} $0.05/171=0.000292$. \bi{T}{h}{e}
-\bi{t}{w}{o}-\bi{si}{de}{d} \bi{no}{rm}{al} \bi{qua}{nti}{le} at $1-0.000292/2 = 0.999854$ is $|z|=3.62$. \bi{Th}{i}{s} \bi{pa}{pe}{r}
-\bi{us}{e}{s} $3.9$, \bi{wh}{ic}{h} is \bi{str}{ict}{er}, \bi{a}{n}{d} \bi{rep}{or}{ts} \bi{t}{h}{e} \bi{co}{un}{t} of \bi{te}{st}{s} \bi{be}{si}{de} \bi{t}{h}{e} \bi{co}{un}{t} of
+\subsection{\bi{Bon}{ferr}{oni}, by hand}
+With $C=171$ \bi{t}{es}{ts} at $\alpha=0.05$: per-test \bi{l}{ev}{el} $0.05/171=0.000292$. The
+two-\bi{s}{id}{ed} \bi{no}{rm}{al} \bi{qu}{ant}{ile} at $1-0.000292/2 = 0.999854$ is $|z|=3.62$. This \bi{p}{ap}{er}
+uses $3.9$, \bi{w}{hi}{ch} is \bi{st}{ric}{ter}, and \bi{re}{por}{ts} the \bi{c}{ou}{nt} of \bi{t}{es}{ts} \bi{be}{si}{de} the \bi{c}{ou}{nt} of
 \bi{sur}{viv}{ors}.

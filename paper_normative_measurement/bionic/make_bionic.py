@@ -21,7 +21,7 @@ OPAQUE = ("begin","end","label","ref","cref","Cref","autoref","cite","citep","ci
 
 def split_at(w):
     n = len(w)
-    return 1 if n <= 3 else 2 if n <= 6 else 3 if n <= 9 else 4
+    return 1 if n <= 5 else 2 if n <= 8 else 3
 
 def bionic_words(text):
     """Head bold and near-black, then the tail fades in TWO steps rather than one.
@@ -36,7 +36,7 @@ def bionic_words(text):
         h = (len(rest) + 1) // 2
         return r"\bi{%s}{%s}{%s}" % (w[:k], rest[:h], rest[h:])
     # only pure-alphabetic runs of length >= 3; hyphenated parts handled independently
-    return re.sub(r"(?<![\\A-Za-z])[A-Za-z]{3,}(?![A-Za-z])", rep, text)
+    return re.sub(r"(?<![\\A-Za-z])[A-Za-z]{5,}(?![A-Za-z])", rep, text)
 
 def protect_and_map(line):
     """Replace every non-prose region by a placeholder, transform the rest, restore."""
@@ -126,9 +126,9 @@ def main():
     # main + preamble carry structure, not prose: copy, then add the \bi macro
     pre = (SRC / "preamble.tex").read_text()
     pre += ("\n%% ---- bionic reading ----\n"
-            "\\definecolor{BioInk}{HTML}{0B0E11}\n"
-            "\\definecolor{BioMid}{HTML}{5C666D}\n"
-            "\\definecolor{BioFade}{HTML}{97A0A6}\n"
+            "\\definecolor{BioInk}{HTML}{14181C}\n"
+            "\\definecolor{BioMid}{HTML}{8B949A}\n"
+            "\\definecolor{BioFade}{HTML}{BAC1C5}\n"
             "\\newcommand{\\bi}[3]{{\\bfseries\\color{BioInk}#1}"
             "{\\color{BioMid}#2}{\\color{BioFade}#3}}\n")
     (OUT / "preamble.tex").write_text(pre)
