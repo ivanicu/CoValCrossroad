@@ -1,0 +1,141 @@
+{
+ "observed_rank": 13,
+ "observed_top_eig": 0.2211397638864906,
+ "nulls": {
+  "N1 gaussian, matched per-prompt norms": [
+   18.0,
+   0.0,
+   0.06387902991542094
+  ],
+  "N2 gaussian, matched TOTAL norm only": [
+   18.0,
+   0.0,
+   0.058460786981406276
+  ],
+  "N3 relabel: permute prompts within each operator": [
+   17.0,
+   0.0,
+   0.11550226118042557
+  ],
+  "N4 sham: keep each operator's channel MARGINALS, destroy the joint": [
+   17.0,
+   0.0,
+   0.11548978462522734
+  ]
+ },
+ "verdict_attack1": "THE STATISTIC WAS READ BACKWARDS -- noise reaches 18 and the design reaches 13. Higher rank is not better here; the noise ceiling is the reference, and being 5 BELOW it means roughly that many operators' worth of variation is still redundant",
+ "threshold_curve": [
+  {
+   "q": 0.5,
+   "obs": 3,
+   "null": 9
+  },
+  {
+   "q": 0.7,
+   "obs": 7,
+   "null": 13
+  },
+  {
+   "q": 0.8,
+   "obs": 9,
+   "null": 15
+  },
+  {
+   "q": 0.9,
+   "obs": 11,
+   "null": 17
+  },
+  {
+   "q": 0.95,
+   "obs": 13,
+   "null": 18
+  },
+  {
+   "q": 0.99,
+   "obs": 15,
+   "null": 19
+  }
+ ],
+ "rank_vs_n": [
+  {
+   "n": 10,
+   "obs": 13,
+   "null": 17
+  },
+  {
+   "n": 25,
+   "obs": 11,
+   "null": 18
+  },
+  {
+   "n": 50,
+   "obs": 13,
+   "null": 18
+  },
+  {
+   "n": 100,
+   "obs": 13,
+   "null": 18
+  },
+  {
+   "n": 200,
+   "obs": 13,
+   "null": 18
+  },
+  {
+   "n": 290,
+   "obs": 13,
+   "null": 18
+  }
+ ],
+ "coverage": {
+  "dose_g=-2 (invert)": 0.996551724137931,
+  "dose_g=-1 (double)": 0.996551724137931,
+  "dose_g=-0.5": 0.996551724137931,
+  "dose_g=+0.5 (weaken)": 0.996551724137931,
+  "dose_g=+1 (delete)": 0.996551724137931,
+  "dose_saturate": 0.8931034482758621,
+  "set_add_inert": 1.0,
+  "set_add_cancelling": 1.0,
+  "set_duplicate": 1.0,
+  "set_fragment": 1.0,
+  "annot_drop_random": 1.0,
+  "annot_drop_dissenter": 1.0,
+  "annot_drop_conformer": 1.0,
+  "agg_median": 1.0,
+  "agg_trimmed": 1.0,
+  "agg_maximin": 1.0,
+  "register_personal": 0.9862068965517241,
+  "register_veto_blind": 0.593103448275862,
+  "path_core_direct": 1.0
+ },
+ "pc1_loadings": {
+  "dose_g=-2 (invert)": -0.4109581144824589,
+  "dose_g=-1 (double)": -0.4510958610579315,
+  "dose_g=-0.5": -0.41332949400052615,
+  "dose_g=+0.5 (weaken)": 0.02700972091385209,
+  "dose_g=+1 (delete)": 0.046839639363785684,
+  "dose_saturate": -0.34651945704981824,
+  "set_add_inert": -0.002777750847665895,
+  "set_add_cancelling": 0.04646354380469887,
+  "set_duplicate": -0.4489473833187899,
+  "set_fragment": -0.002777750847665685,
+  "annot_drop_random": -0.1235252190897149,
+  "annot_drop_dissenter": -0.09087390080785346,
+  "annot_drop_conformer": -0.1293700374527705,
+  "agg_median": -0.17718897561704292,
+  "agg_trimmed": -0.19298791403828802,
+  "agg_maximin": -0.08348549709071397,
+  "register_personal": -0.004482960768093291,
+  "register_veto_blind": 0.004125689865749022,
+  "path_core_direct": -0.11898343711795212
+ },
+ "channel_energy": {
+  "score": 0.2462905911035564,
+  "top1": 0.34581117381016396,
+  "borda": 0.18123688810798938,
+  "count": 0.018772706500588585,
+  "veto": 0.09904300609126056,
+  "register": 0.10884563438644107
+ }
+}

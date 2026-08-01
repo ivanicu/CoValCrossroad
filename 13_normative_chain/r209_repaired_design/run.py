@@ -344,6 +344,10 @@ def main() -> int:
       called unacceptable is a fact no reweighting reproduces. It fires on the 16.9% of
       assessments that name one.""")
 
+    # PERSIST THE DELTA TENSOR. r210 attacks this design and cannot do so from a summary; an
+    # attack that has to trust the attacked round's own numbers is not an attack.
+    np.save(OUT / "_deltas.npy", D)
+    (OUT / "_ops.json").write_text(json.dumps([list(x) for x in nm2]))
     (OUT / "repaired_rank.json").write_text(json.dumps(
         {"ops": [list(x) for x in nm2], "eig_share": ev.tolist(), "rank95": r95, "rank99": r99,
          "prev_rank": 2, "prediction": pre, "verdict": verdict, "zero_ops": [list(d) for d in dead],
