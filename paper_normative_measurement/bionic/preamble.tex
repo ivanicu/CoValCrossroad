@@ -164,8 +164,9 @@
 \newenvironment{pts}{\begin{itemize}[leftmargin=1.2em,label=\textup{\color{MESOMid}\textbf{·}},
   itemsep=1.5pt,parsep=0pt,topsep=2pt]}{\end{itemize}}
 
-%% ---- bionic reading ----
+%% ---- bionic reading; policy from reader/assets/core/core.js ----
 \definecolor{BioInk}{HTML}{14181C}
-\definecolor{BioMid}{HTML}{8B949A}
-\definecolor{BioFade}{HTML}{BAC1C5}
-\newcommand{\bi}[3]{{\bfseries\color{BioInk}#1}{\color{BioMid}#2}{\color{BioFade}#3}}
+\definecolor{BioRest}{HTML}{484C50}
+\definecolor{BioFade}{HTML}{93989B}
+\newcommand{\bi}[2]{{\bfseries\color{BioInk}#1}{\color{BioRest}#2}}
+\newcommand{\bfade}[1]{{\color{BioFade}#1}}

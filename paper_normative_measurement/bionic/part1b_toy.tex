@@ -2,17 +2,17 @@
 % PART 1b -- the entire chain executed on a toy the reader can check by hand,
 % plus the three classical theorems proved rather than invoked.
 % ===========================================================================
-\section{The \bi{w}{ho}{le} \bi{c}{ha}{in} on \bi{nu}{mbe}{rs} you can \bi{c}{he}{ck}}
+\section{\bfade{The} \bi{wh}{ole} \bi{ch}{ain} on \bi{nu}{mbers} \bi{y}{ou} \bfade{can} \bi{ch}{eck}}
 \label{sec:toy}
 
-\bi{Eve}{ryth}{ing} in §\ref{sec:elicit}--§\ref{sec:c1} is now \bi{ex}{ecu}{ted} on a
-\bi{t}{hr}{ee}-\bi{pe}{rs}{on}, four-\bi{re}{spo}{nse}, \bi{t}{hr}{ee}-\bi{cri}{ter}{ion} \bi{ex}{amp}{le}. \bi{E}{ve}{ry} \bi{nu}{mb}{er} \bi{b}{el}{ow} can be
-\bi{ve}{rif}{ied} with a \bi{pe}{nc}{il}.
+\bi{Eve}{rything} in §\ref{sec:elicit}--§\ref{sec:c1} is \bi{n}{ow} \bi{exe}{cuted} on a
+\bi{t}{hree}-\bi{pe}{rson}, \bi{f}{our}-\bi{re}{sponse}, \bi{t}{hree}-\bi{cri}{terion} \bi{exa}{mple}. \bi{E}{very} \bi{nu}{mber} \bi{be}{low} \bfade{can} be
+\bi{ver}{ified} \bfade{with} a \bi{pe}{ncil}.
 
-\subsection{The \bi{s}{et}{up}}
+\subsection{\bfade{The} \bi{se}{tup}}
 
-\bi{T}{hr}{ee} \bi{ann}{otat}{ors} $\{1,2,3\}$, four \bi{res}{pon}{ses} $\{A,B,C,D\}$, \bi{t}{hr}{ee} \bi{cr}{ite}{ria}
-$\{c_1,c_2,c_3\}$. The \bi{j}{ud}{ge} \bi{re}{tur}{ns}:
+\bi{T}{hree} \bi{ann}{otators} $\{1,2,3\}$, \bi{f}{our} \bi{res}{ponses} $\{A,B,C,D\}$, \bi{t}{hree} \bi{cr}{iteria}
+$\{c_1,c_2,c_3\}$. \bfade{The} \bi{j}{udge} \bi{ret}{urns}:
 \[
 \sat=\begin{pmatrix}
  & A & B & C & D\\
@@ -21,8 +21,8 @@ c_2 & 0.2 & 0.7 & 0.9 & 0.3\\
 c_3 & 0.5 & 0.4 & 0.4 & 0.9
 \end{pmatrix}
 \]
-The \bi{we}{igh}{ts}, one row per \bi{ann}{ota}{tor} (a \bi{b}{la}{nk} \bi{m}{ea}{ns} that \bi{ann}{ota}{tor} did not rate
-that \bi{cri}{ter}{ion}):
+\bfade{The} \bi{we}{ights}, \bi{o}{ne} \bi{r}{ow} \bi{p}{er} \bi{ann}{otator} (a \bi{bl}{ank} \bi{me}{ans} \bfade{that} \bi{ann}{otator} \bi{d}{id} \bfade{not} \bi{r}{ate}
+\bfade{that} \bi{cri}{terion}):
 \[
 \wt=\begin{pmatrix}
  & c_1 & c_2 & c_3\\
@@ -31,9 +31,9 @@ that \bi{cri}{ter}{ion}):
 3 & -2 & +9 & +3
 \end{pmatrix}
 \]
-\bi{Ann}{ota}{tor} $3$ \bi{add}{ition}{ally} \bi{de}{cla}{res} $V_3 = \{A\}$ \bi{una}{ccept}{able}.
+\bi{Ann}{otator} $3$ \bi{addit}{ionally} \bi{dec}{lares} $V_3 = \{A\}$ \bi{unac}{ceptable}.
 
-\subsection{\bi{Ind}{ivid}{ual} \bi{n}{or}{ms} $\Nn_i$ (\cref{def:ni})}
+\subsection{\bi{Ind}{ividual} \bi{no}{rms} $\Nn_i$ (\cref{def:ni})}
 
 \begin{align*}
 \Nn_1 &= 8(0.9,0.8,0.2,0.1)+2(0.2,0.7,0.9,0.3)-1(0.5,0.4,0.4,0.9)\\
@@ -45,143 +45,143 @@ that \bi{cri}{ter}{ion}):
       &= (-1.8,-1.6,-0.4,-0.2)+(1.8,6.3,8.1,2.7)+(1.5,1.2,1.2,2.7)\\
       &= (1.5,\;5.9,\;8.9,\;5.2)
 \end{align*}
-\bi{Ind}{ivid}{ual} top \bi{ch}{oic}{es}: $\Nn_1 \to B$, $\Nn_2 \to B$, $\Nn_3 \to C$.
+\bi{Ind}{ividual} \bi{t}{op} \bi{cho}{ices}: $\Nn_1 \to B$, $\Nn_2 \to B$, $\Nn_3 \to C$.
 
-\subsection{\bi{Ce}{ntr}{ing} and \bi{nor}{mali}{sing} (\cref{rem:normalise})}
+\subsection{\bi{Cen}{tring} \bfade{and} \bi{norm}{alising} (\cref{rem:normalise})}
 
-$\Nn_1$ has mean $(7.1+7.4+3.0+0.5)/4 = 4.5$, so \bi{ce}{ntr}{ed} it is
-$(2.6,2.9,-1.5,-4.0)$ with norm
-$\sqrt{6.76+8.41+2.25+16}=\sqrt{33.42}=5.781$, \bi{gi}{vi}{ng}
+$\Nn_1$ \bi{h}{as} \bi{m}{ean} $(7.1+7.4+3.0+0.5)/4 = 4.5$, so \bi{ce}{ntred} it is
+$(2.6,2.9,-1.5,-4.0)$ \bfade{with} \bi{n}{orm}
+$\sqrt{6.76+8.41+2.25+16}=\sqrt{33.42}=5.781$, \bi{gi}{ving}
 \[
 \hat \Nn_1 = (0.4497,\;0.5016,\;-0.2595,\;-0.6919).
 \]
-Note $\|\Nn_1\|$ \bi{be}{fo}{re} \bi{ce}{ntr}{ing} was \bi{dom}{ina}{ted} by the \bi{co}{mm}{on} \bi{l}{ev}{el}, \bi{w}{hi}{ch} \bi{de}{cid}{es}
-\bi{no}{thi}{ng} -- \bi{ex}{act}{ly} the \bi{p}{oi}{nt} of \cref{rem:normalise}. \bi{Ann}{ota}{tor} $2$ \bi{r}{at}{ed} only two
-\bi{cr}{ite}{ria} and \bi{w}{ou}{ld} have a \bi{sys}{temati}{cally} \bi{sm}{all}{er} raw norm; \bi{a}{ft}{er} \bi{nor}{malis}{ation}
-the two are \bi{com}{para}{ble}.
+\bi{N}{ote} $\|\Nn_1\|$ \bi{be}{fore} \bi{cen}{tring} \bi{w}{as} \bi{dom}{inated} by \bfade{the} \bi{co}{mmon} \bi{le}{vel}, \bi{w}{hich} \bi{dec}{ides}
+\bi{no}{thing} -- \bi{ex}{actly} \bfade{the} \bi{po}{int} of \cref{rem:normalise}. \bi{Ann}{otator} $2$ \bi{ra}{ted} \bi{o}{nly} \bi{t}{wo}
+\bi{cr}{iteria} \bfade{and} \bi{wo}{uld} \bi{h}{ave} a \bi{syste}{matically} \bi{sm}{aller} \bi{r}{aw} \bi{n}{orm}; \bi{af}{ter} \bi{norma}{lisation}
+\bfade{the} \bi{t}{wo} \bfade{are} \bi{comp}{arable}.
 
-\subsection{\bi{Agg}{rega}{tion}, \bi{t}{hr}{ee} ways}
+\subsection{\bi{Agg}{regation}, \bi{t}{hree} \bi{w}{ays}}
 
-\step{Mean over \bi{pe}{op}{le}.} $\bar\Nn = \tfrac13(\Nn_1+\Nn_2+\Nn_3)
+\step{\bi{M}{ean} \bi{o}{ver} \bi{pe}{ople}.} $\bar\Nn = \tfrac13(\Nn_1+\Nn_2+\Nn_3)
 = \tfrac13(14.8,\;20.9,\;16.7,\;7.5) = (4.93,\;6.97,\;5.57,\;2.50)$, so the winner
 is $B$.
 
-\step{\bi{Me}{di}{an} over \bi{pe}{op}{le}.} \bi{Com}{ponen}{twise} \bi{me}{dia}{ns} of the \bi{t}{hr}{ee} \bi{ve}{cto}{rs}:
+\step{\bi{Me}{dian} \bi{o}{ver} \bi{pe}{ople}.} \bi{Compo}{nentwise} \bi{med}{ians} of \bfade{the} \bi{t}{hree} \bi{ve}{ctors}:
 $\operatorname{med}(7.1,6.2,1.5)=6.2$;
 $\operatorname{med}(7.4,7.6,5.9)=7.4$;
 $\operatorname{med}(3.0,4.8,8.9)=4.8$;
-$\operatorname{med}(0.5,1.8,5.2)=1.8$. \bi{Wi}{nn}{er} $B$.
+$\operatorname{med}(0.5,1.8,5.2)=1.8$. \bi{Wi}{nner} $B$.
 
-\step{\bi{Ma}{xim}{in} over \bi{pe}{op}{le}.} \bi{Com}{ponen}{twise} \bi{mi}{ni}{ma}:
-$(1.5,\;5.9,\;3.0,\;0.5)$. \bi{Wi}{nn}{er} $B$. Note the \bi{mi}{nim}{um} is \bi{at}{tai}{ned} by a
-\emph{\bi{dif}{fer}{ent}} \bi{pe}{rs}{on} in each \bi{co}{lu}{mn} -- \bi{ann}{ota}{tor} $3$ for $A$, \bi{ann}{ota}{tor} $3$ for
-$B$, \bi{ann}{ota}{tor} $1$ for $C$ -- \bi{w}{hi}{ch} is why $\min$ is \bi{un}{sta}{ble}: a \bi{s}{ma}{ll} \bi{ch}{an}{ge} to
-any one \bi{pe}{rs}{on} can \bi{ch}{an}{ge} \bi{w}{hi}{ch} \bi{pe}{rs}{on} \bi{de}{fin}{es} the \bi{v}{al}{ue}.
+\step{\bi{Ma}{ximin} \bi{o}{ver} \bi{pe}{ople}.} \bi{Compo}{nentwise} \bi{mi}{nima}:
+$(1.5,\;5.9,\;3.0,\;0.5)$. \bi{Wi}{nner} $B$. \bi{N}{ote} \bfade{the} \bi{mi}{nimum} is \bi{att}{ained} by a
+\emph{\bi{dif}{ferent}} \bi{pe}{rson} in \bi{e}{ach} \bi{co}{lumn} -- \bi{ann}{otator} $3$ \bfade{for} $A$, \bi{ann}{otator} $3$ \bfade{for}
+$B$, \bi{ann}{otator} $1$ \bfade{for} $C$ -- \bi{w}{hich} is \bi{w}{hy} $\min$ is \bi{uns}{table}: a \bi{s}{mall} \bi{ch}{ange} to
+\bi{a}{ny} \bi{o}{ne} \bi{pe}{rson} \bfade{can} \bi{ch}{ange} \bi{w}{hich} \bi{pe}{rson} \bi{def}{ines} \bfade{the} \bi{va}{lue}.
 
-\step{The \bi{we}{igh}{ted}-\bi{cr}{ite}{ria} \bi{r}{ou}{te} (\cref{def:score}).} Mean \bi{we}{igh}{ts} are
+\step{\bfade{The} \bi{wei}{ghted}-\bi{cr}{iteria} \bi{ro}{ute} (\cref{def:score}).} \bi{M}{ean} \bi{we}{ights} \bfade{are}
 $\bar w = (\tfrac{8+6-2}{3},\ \tfrac{2+4+9}{3},\ \tfrac{-1+3}{2}) = (4,\;5,\;1)$,
 so
 \[
 Y = 4(0.9,0.8,0.2,0.1)+5(0.2,0.7,0.9,0.3)+1(0.5,0.4,0.4,0.9) = (5.1,\;7.1,\;5.7,\;2.8),
 \]
-\bi{wi}{nn}{er} $B$. Here the two \bi{ro}{ut}{es} \bi{a}{gr}{ee}; §\ref{sec:agg} \bi{re}{por}{ts} that on the real
-\bi{co}{rp}{us} they \bi{di}{sag}{ree} $31.6\%$ of the time.
+\bi{wi}{nner} $B$. \bi{H}{ere} \bfade{the} \bi{t}{wo} \bi{ro}{utes} \bi{ag}{ree}; §\ref{sec:agg} \bi{re}{ports} \bfade{that} on \bfade{the} \bi{r}{eal}
+\bi{co}{rpus} \bi{t}{hey} \bi{dis}{agree} $31.6\%$ of \bfade{the} \bi{t}{ime}.
 
-\subsection{\bi{Con}{dor}{cet}, by hand}
+\subsection{\bi{Con}{dorcet}, by \bi{h}{and}}
 
-\bi{Ind}{ivid}{ual} \bi{ra}{nki}{ngs} from the $\Nn_i$: \bi{pe}{rs}{on} $1$: $B\!>\!A\!>\!C\!>\!D$;
-\bi{pe}{rs}{on} $2$: $B\!>\!A\!>\!C\!>\!D$; \bi{pe}{rs}{on} $3$: $C\!>\!B\!>\!D\!>\!A$.
-\bi{Pa}{irw}{ise} \bi{maj}{orit}{ies}: $B$ \bi{b}{ea}{ts} $A$ ($3$--$0$), $B$ \bi{b}{ea}{ts} $C$ ($2$--$1$),
-$B$ \bi{b}{ea}{ts} $D$ ($3$--$0$). $B$ is the \bi{Con}{dor}{cet} \bi{wi}{nn}{er}, and it \bi{coi}{nci}{des} with all
-four \bi{r}{ul}{es} \bi{a}{bo}{ve}.
+\bi{Ind}{ividual} \bi{ran}{kings} \bfade{from} \bfade{the} $\Nn_i$: \bi{pe}{rson} $1$: $B\!>\!A\!>\!C\!>\!D$;
+\bi{pe}{rson} $2$: $B\!>\!A\!>\!C\!>\!D$; \bi{pe}{rson} $3$: $C\!>\!B\!>\!D\!>\!A$.
+\bi{Pai}{rwise} \bi{majo}{rities}: $B$ \bi{be}{ats} $A$ ($3$--$0$), $B$ \bi{be}{ats} $C$ ($2$--$1$),
+$B$ \bi{be}{ats} $D$ ($3$--$0$). $B$ is \bfade{the} \bi{Con}{dorcet} \bi{wi}{nner}, \bfade{and} it \bi{coi}{ncides} \bfade{with} \bi{a}{ll}
+\bi{f}{our} \bi{ru}{les} \bi{ab}{ove}.
 
-\step{\bi{Con}{struc}{ting} a \bi{c}{yc}{le}, to show it is \bi{po}{ssi}{ble}.} With \bi{ra}{nki}{ngs}
-$A\!>\!B\!>\!C$, $B\!>\!C\!>\!A$, $C\!>\!A\!>\!B$: $A$ \bi{b}{ea}{ts} $B$ ($2$--$1$), $B$
-\bi{b}{ea}{ts} $C$ ($2$--$1$), $C$ \bi{b}{ea}{ts} $A$ ($2$--$1$). No \bi{Con}{dor}{cet} \bi{wi}{nn}{er} \bi{ex}{is}{ts}. The
-\bi{me}{asu}{red} \bi{co}{rp}{us} \bi{co}{nta}{ins} \emph{zero} such \bi{cy}{cl}{es} (\cref{tab:condorcet}), \bi{w}{hi}{ch} is
-a \bi{ge}{nui}{ne} \bi{ne}{gat}{ive} \bi{re}{su}{lt} and not an \bi{ass}{umpt}{ion}.
+\step{\bi{Const}{ructing} a \bi{cy}{cle}, to \bi{sh}{ow} it is \bi{pos}{sible}.} \bfade{With} \bi{ran}{kings}
+$A\!>\!B\!>\!C$, $B\!>\!C\!>\!A$, $C\!>\!A\!>\!B$: $A$ \bi{be}{ats} $B$ ($2$--$1$), $B$
+\bi{be}{ats} $C$ ($2$--$1$), $C$ \bi{be}{ats} $A$ ($2$--$1$). No \bi{Con}{dorcet} \bi{wi}{nner} \bi{ex}{ists}. \bfade{The}
+\bi{me}{asured} \bi{co}{rpus} \bi{con}{tains} \emph{\bi{z}{ero}} \bi{s}{uch} \bi{cy}{cles} (\cref{tab:condorcet}), \bi{w}{hich} is
+a \bi{gen}{uine} \bi{neg}{ative} \bi{re}{sult} \bfade{and} \bfade{not} an \bi{ass}{umption}.
 
-\subsection{IIA \bi{vio}{lat}{ion}, by hand}
+\subsection{\bi{I}{IA} \bi{vio}{lation}, by \bi{h}{and}}
 
-Take \bi{B}{or}{da} \bi{po}{in}{ts} on four \bi{alt}{ernat}{ives} ($3,2,1,0$). With the \bi{t}{hr}{ee} \bi{ra}{nki}{ngs} \bi{a}{bo}{ve}
-(\bi{pe}{rs}{on} $3$ \bi{ra}{nki}{ng} $C\!>\!B\!>\!D\!>\!A$):
+\bi{T}{ake} \bi{Bo}{rda} \bi{po}{ints} on \bi{f}{our} \bi{alte}{rnatives} ($3,2,1,0$). \bfade{With} \bfade{the} \bi{t}{hree} \bi{ran}{kings} \bi{ab}{ove}
+(\bi{pe}{rson} $3$ \bi{ra}{nking} $C\!>\!B\!>\!D\!>\!A$):
 \[
 A: 2+2+0=4,\quad B: 3+3+2=8,\quad C: 1+1+3=5,\quad D: 0+0+1=1 .
 \]
-So $C \succ A$ \bi{so}{cia}{lly}, by $5$ to $4$. Now \bi{de}{le}{te} $D$ and \bi{rec}{omp}{ute} on \bi{t}{hr}{ee}
-\bi{alt}{ernat}{ives} ($2,1,0$): \bi{pe}{rs}{on} $1$: $B\!>\!A\!>\!C$, \bi{pe}{rs}{on} $2$: same, \bi{pe}{rs}{on}
+So $C \succ A$ \bi{soc}{ially}, by $5$ to $4$. \bi{N}{ow} \bi{de}{lete} $D$ \bfade{and} \bi{rec}{ompute} on \bi{t}{hree}
+\bi{alte}{rnatives} ($2,1,0$): \bi{pe}{rson} $1$: $B\!>\!A\!>\!C$, \bi{pe}{rson} $2$: \bi{s}{ame}, \bi{pe}{rson}
 $3$: $C\!>\!B\!>\!A$.
 \[
 A: 1+1+0=2,\quad B: 2+2+1=5,\quad C: 0+0+2=2 .
 \]
-Now $C$ and $A$ are \emph{tied}, \bi{w}{he}{re} \bi{be}{fo}{re} $C$ led. \bi{De}{let}{ing} an \bi{alt}{erna}{tive}
-\bi{no}{bo}{dy} \bi{ra}{nk}{ed} \bi{f}{ir}{st} \bi{ch}{ang}{ed} the \bi{re}{lat}{ion} \bi{be}{twe}{en} two \bi{ot}{he}{rs}. That is an IIA
-\bi{vio}{lat}{ion}, and it \bi{oc}{cu}{rs} on $13.4\%$ of \bi{t}{es}{ts} in the real \bi{co}{rp}{us}
+\bi{N}{ow} $C$ \bfade{and} $A$ \bfade{are} \emph{\bi{ti}{ed}}, \bi{wh}{ere} \bi{be}{fore} $C$ \bi{l}{ed}. \bi{Del}{eting} an \bi{alte}{rnative}
+\bi{no}{body} \bi{ra}{nked} \bi{fi}{rst} \bi{cha}{nged} \bfade{the} \bi{rel}{ation} \bi{be}{tween} \bi{t}{wo} \bi{ot}{hers}. \bfade{That} is an \bi{I}{IA}
+\bi{vio}{lation}, \bfade{and} it \bi{oc}{curs} on $13.4\%$ of \bi{te}{sts} in \bfade{the} \bi{r}{eal} \bi{co}{rpus}
 (\cref{cor:iia}).
 
-\subsection{The veto \bi{con}{dit}{ion}, by hand (\cref{thm:veto})}
+\subsection{\bfade{The} \bi{v}{eto} \bi{con}{dition}, by \bi{h}{and} (\cref{thm:veto})}
 
-\bi{Ann}{ota}{tor} $3$ \bi{ve}{to}{es} $A$. From $Y=(5.1,7.1,5.7,2.8)$:
+\bi{Ann}{otator} $3$ \bi{ve}{toes} $A$. \bfade{From} $Y=(5.1,7.1,5.7,2.8)$:
 \[
 \Delta = \max_{a\in V}Y(a) - \max_{a\notin V}Y(a) = Y(A) - \max(7.1,5.7,2.8) = 5.1-7.1 = -2.0 < 0 .
 \]
-The veto is \emph{not \bi{bi}{ndi}{ng}}: $A$ was not \bi{g}{oi}{ng} to win \bi{an}{yw}{ay}, so any $M\ge 0$
-\bi{rep}{rodu}{ces} the \bi{con}{stra}{int}.
+\bfade{The} \bi{v}{eto} is \emph{\bfade{not} \bi{bi}{nding}}: $A$ \bi{w}{as} \bfade{not} \bi{go}{ing} to \bi{w}{in} \bi{an}{yway}, so \bi{a}{ny} $M\ge 0$
+\bi{rep}{roduces} \bfade{the} \bi{con}{straint}.
 
-Now \bi{ch}{an}{ge} one \bi{nu}{mb}{er}: let $\sat[c_1,A]=0.9 \to 1.0$ and $\bar w_1 = 4 \to 9$.
-Then $Y(A) = 9(1.0)+5(0.2)+1(0.5) = 10.5$ and
+\bi{N}{ow} \bi{ch}{ange} \bi{o}{ne} \bi{nu}{mber}: \bi{l}{et} $\sat[c_1,A]=0.9 \to 1.0$ \bfade{and} $\bar w_1 = 4 \to 9$.
+\bi{T}{hen} $Y(A) = 9(1.0)+5(0.2)+1(0.5) = 10.5$ \bfade{and}
 $Y(B) = 9(0.8)+5(0.7)+1(0.4)=11.1$, $Y(C)=9(0.2)+5(0.9)+1(0.4)=6.7$,
-$Y(D)=9(0.1)+5(0.3)+1(0.9)=3.3$. \bi{S}{ti}{ll} $\Delta = 10.5-11.1 <0$. Push once more,
-$\bar w_1 = 20$: $Y(A)=21.5$, $Y(B)=21.9$ -- the gap \bi{cl}{os}{es} but \bi{n}{ev}{er} \bi{in}{ver}{ts},
-\bi{be}{cau}{se} $B$ also \bi{sat}{isf}{ies} $c_1$ \bi{hi}{gh}{ly}. To make $\Delta$ \bi{l}{ar}{ge} one \bi{n}{ee}{ds} a \bi{ve}{to}{ed}
-\bi{re}{spo}{nse} that is \emph{\bi{un}{iqu}{ely}} good on a \bi{he}{avi}{ly} \bi{we}{igh}{ted} \bi{cri}{ter}{ion}, and \bi{t}{he}{re}
-is no \bi{b}{ou}{nd} on how good: that is \bi{pre}{cis}{ely} the \bi{con}{struc}{tion} in
-\cref{thm:vetoinf}, and on the real \bi{co}{rp}{us} the \bi{re}{ali}{sed} \bi{ma}{xim}{um} is
-$\Delta = 26.54$ \bi{ag}{ain}{st} a per-\bi{cri}{ter}{ion} \bi{ce}{ili}{ng} of $10$.
+$Y(D)=9(0.1)+5(0.3)+1(0.9)=3.3$. \bi{St}{ill} $\Delta = 10.5-11.1 <0$. \bi{P}{ush} \bi{o}{nce} \bi{m}{ore},
+$\bar w_1 = 20$: $Y(A)=21.5$, $Y(B)=21.9$ -- \bfade{the} \bi{g}{ap} \bi{cl}{oses} \bfade{but} \bi{n}{ever} \bi{inv}{erts},
+\bi{be}{cause} $B$ \bi{a}{lso} \bi{sat}{isfies} $c_1$ \bi{hi}{ghly}. To \bi{m}{ake} $\Delta$ \bi{la}{rge} \bi{o}{ne} \bi{ne}{eds} a \bi{ve}{toed}
+\bi{re}{sponse} \bfade{that} is \emph{\bi{uni}{quely}} \bi{g}{ood} on a \bi{hea}{vily} \bi{wei}{ghted} \bi{cri}{terion}, \bfade{and} \bi{th}{ere}
+is no \bi{bo}{und} on \bi{h}{ow} \bi{g}{ood}: \bfade{that} is \bi{pre}{cisely} \bfade{the} \bi{cons}{truction} in
+\cref{thm:vetoinf}, \bfade{and} on \bfade{the} \bi{r}{eal} \bi{co}{rpus} \bfade{the} \bi{rea}{lised} \bi{ma}{ximum} is
+$\Delta = 26.54$ \bi{ag}{ainst} a \bi{p}{er}-\bi{cri}{terion} \bi{ce}{iling} of $10$.
 
-\subsection{\bi{Re}{gr}{et} \bi{ve}{rs}{us} flip rate, by hand (\cref{lem:coarsen})}
+\subsection{\bi{Re}{gret} \bi{ve}{rsus} \bi{f}{lip} \bi{r}{ate}, by \bi{h}{and} (\cref{lem:coarsen})}
 
-Take $Y=(5.1,7.1,5.7,2.8)$, so $a^\star = B$, $Y(a^\star)=7.1$, $\min_a Y = 2.8$,
-and the \bi{den}{omin}{ator} of \cref{def:regret} is $7.1-2.8=4.3$.
+\bi{T}{ake} $Y=(5.1,7.1,5.7,2.8)$, so $a^\star = B$, $Y(a^\star)=7.1$, $\min_a Y = 2.8$,
+\bfade{and} \bfade{the} \bi{deno}{minator} of \cref{def:regret} is $7.1-2.8=4.3$.
 
 \begin{itemize}
-\item A \bi{per}{turba}{tion} that \bi{sh}{if}{ts} the \bi{wi}{nn}{er} to $C$: $\Reg = (7.1-5.7)/4.3 = 0.326$.
-\item A \bi{per}{turba}{tion} that \bi{sh}{if}{ts} the \bi{wi}{nn}{er} to $A$: $\Reg = (7.1-5.1)/4.3 = 0.465$.
-\item A \bi{per}{turba}{tion} that \bi{sh}{if}{ts} the \bi{wi}{nn}{er} to $D$: $\Reg = (7.1-2.8)/4.3 = 1.000$.
+\item A \bi{pert}{urbation} \bfade{that} \bi{sh}{ifts} \bfade{the} \bi{wi}{nner} to $C$: $\Reg = (7.1-5.7)/4.3 = 0.326$.
+\item A \bi{pert}{urbation} \bfade{that} \bi{sh}{ifts} \bfade{the} \bi{wi}{nner} to $A$: $\Reg = (7.1-5.1)/4.3 = 0.465$.
+\item A \bi{pert}{urbation} \bfade{that} \bi{sh}{ifts} \bfade{the} \bi{wi}{nner} to $D$: $\Reg = (7.1-2.8)/4.3 = 1.000$.
 \end{itemize}
-All \bi{t}{hr}{ee} are ``a flip''. The flip rate \bi{as}{sig}{ns} them the same \bi{v}{al}{ue}; \bi{re}{gr}{et}
-\bi{sep}{ara}{tes} them by more than a \bi{fa}{ct}{or} of \bi{t}{hr}{ee}. \Cref{lem:coarsen} says
-$\E[\Reg] = \pi \cdot \E[\Reg\mid\text{flip}]$ \bi{ex}{act}{ly}, and it is the \bi{se}{co}{nd}
-\bi{fa}{ct}{or} -- $0.326$ \bi{ve}{rs}{us} $1.000$ here -- that the flip rate \bi{di}{sca}{rds}.
+\bi{A}{ll} \bi{t}{hree} \bfade{are} ``a \bi{f}{lip}''. \bfade{The} \bi{f}{lip} \bi{r}{ate} \bi{ass}{igns} \bi{t}{hem} \bfade{the} \bi{s}{ame} \bi{va}{lue}; \bi{re}{gret}
+\bi{sep}{arates} \bi{t}{hem} by \bi{m}{ore} \bi{t}{han} a \bi{fa}{ctor} of \bi{t}{hree}. \Cref{lem:coarsen} \bi{s}{ays}
+$\E[\Reg] = \pi \cdot \E[\Reg\mid\text{flip}]$ \bi{ex}{actly}, \bfade{and} it is \bfade{the} \bi{se}{cond}
+\bi{fa}{ctor} -- $0.326$ \bi{ve}{rsus} $1.000$ \bi{h}{ere} -- \bfade{that} \bfade{the} \bi{f}{lip} \bi{r}{ate} \bi{dis}{cards}.
 
-\subsection{The \bi{ma}{rg}{in} cap, by hand (\cref{prop:cap})}
+\subsection{\bfade{The} \bi{ma}{rgin} \bi{c}{ap}, by \bi{h}{and} (\cref{prop:cap})}
 
-The \bi{ma}{rg}{in} is $m = 7.1-5.7 = 1.4$, and the \bi{s}{co}{re} \bi{r}{an}{ge} is $7.1-2.8=4.3$, so the
-\bi{re}{lat}{ive} \bi{ma}{rg}{in} is $0.326$ -- \bi{al}{mo}{st} \bi{ex}{act}{ly} the \bi{co}{rp}{us} \bi{me}{di}{an} of $0.319$. A
-\bi{per}{turba}{tion} $\delta$ can only flip the \bi{wi}{nn}{er} if it \bi{m}{ov}{es} the top-two gap past
-zero, so by \cref{prop:cap} it \bi{n}{ee}{ds} $\|\delta\|_\infty > m/2 = 0.7$, i.e. \bi{a}{bo}{ut}
-$16\%$ of the \bi{r}{an}{ge}. \bi{Per}{turba}{tions} \bi{sm}{all}{er} than that \bi{ca}{nn}{ot} flip this \bi{pr}{om}{pt}
-\bi{wh}{ate}{ver} they \bi{de}{str}{oy} \bi{nor}{mati}{vely} -- \bi{w}{hi}{ch} is the cap, made \bi{co}{ncr}{ete}.
+\bfade{The} \bi{ma}{rgin} is $m = 7.1-5.7 = 1.4$, \bfade{and} \bfade{the} \bi{sc}{ore} \bi{ra}{nge} is $7.1-2.8=4.3$, so \bfade{the}
+\bi{rel}{ative} \bi{ma}{rgin} is $0.326$ -- \bi{al}{most} \bi{ex}{actly} \bfade{the} \bi{co}{rpus} \bi{me}{dian} of $0.319$. A
+\bi{pert}{urbation} $\delta$ \bfade{can} \bi{o}{nly} \bi{f}{lip} \bfade{the} \bi{wi}{nner} if it \bi{mo}{ves} \bfade{the} \bi{t}{op}-\bi{t}{wo} \bi{g}{ap} \bi{p}{ast}
+\bi{z}{ero}, so by \cref{prop:cap} it \bi{ne}{eds} $\|\delta\|_\infty > m/2 = 0.7$, i.e. \bi{a}{bout}
+$16\%$ of \bfade{the} \bi{ra}{nge}. \bi{Pertu}{rbations} \bi{sm}{aller} \bi{t}{han} \bfade{that} \bi{ca}{nnot} \bi{f}{lip} \bfade{this} \bi{pr}{ompt}
+\bi{wha}{tever} \bi{t}{hey} \bi{de}{stroy} \bi{norm}{atively} -- \bi{w}{hich} is \bfade{the} \bi{c}{ap}, \bi{m}{ade} \bi{con}{crete}.
 
-\subsection{\bi{Sh}{apl}{ey} \bi{inf}{lue}{nce}, by hand, and it \bi{ex}{hib}{its} C1 \bi{di}{rec}{tly}}
+\subsection{\bi{Sh}{apley} \bi{inf}{luence}, by \bi{h}{and}, \bfade{and} it \bi{exh}{ibits} C1 \bi{dir}{ectly}}
 
-\bi{T}{hr}{ee} \bi{ann}{otat}{ors}, so $3! = 6$ \bi{ord}{eri}{ngs}. The \bi{col}{lect}{ive} \bi{wi}{nn}{er} is $B$.
-The \bi{cha}{racter}{istic} \bi{fu}{nct}{ion} $v(S)$ asks \bi{wh}{eth}{er} the \bi{coa}{lit}{ion} $S$, \bi{su}{mmi}{ng} its own
-$\Nn_i$, also \bi{p}{ic}{ks} $B$. \bi{Enu}{mera}{ting} all \bi{e}{ig}{ht} \bi{su}{bse}{ts}:
+\bi{T}{hree} \bi{ann}{otators}, so $3! = 6$ \bi{ord}{erings}. \bfade{The} \bi{col}{lective} \bi{wi}{nner} is $B$.
+\bfade{The} \bi{chara}{cteristic} \bi{fun}{ction} $v(S)$ \bi{a}{sks} \bi{wh}{ether} \bfade{the} \bi{coa}{lition} $S$, \bi{su}{mming} \bi{i}{ts} \bi{o}{wn}
+$\Nn_i$, \bi{a}{lso} \bi{pi}{cks} $B$. \bi{Enum}{erating} \bi{a}{ll} \bi{ei}{ght} \bi{sub}{sets}:
 \[
 v(\varnothing)=0,\quad v(\{1\})=1,\quad v(\{2\})=1,\quad v(\{3\})=0,
 \]
 \[
 v(\{1,2\})=1,\quad v(\{1,3\})=1,\quad v(\{2,3\})=\mathbf{0},\quad v(\{1,2,3\})=1 .
 \]
-The one to \bi{c}{he}{ck} by hand is $v(\{2,3\})$:
-$\Nn_2+\Nn_3 = (7.7,\,13.5,\,13.7,\,7.0)$, \bi{w}{ho}{se} \bi{ma}{xim}{um} is at $C$, not $B$.
+\bfade{The} \bi{o}{ne} to \bi{ch}{eck} by \bi{h}{and} is $v(\{2,3\})$:
+$\Nn_2+\Nn_3 = (7.7,\,13.5,\,13.7,\,7.0)$, \bi{wh}{ose} \bi{ma}{ximum} is at $C$, \bfade{not} $B$.
 
-\step{\bi{Ma}{rgi}{nal} \bi{con}{tribu}{tions}, all six \bi{ord}{eri}{ngs}.}
+\step{\bi{Mar}{ginal} \bi{contr}{ibutions}, \bi{a}{ll} \bi{s}{ix} \bi{ord}{erings}.}
 \begin{center}\small
 \begin{tabular}{lrrr}
 \toprule
-\bi{or}{der}{ing} & $\phi_1$ term & $\phi_2$ term & $\phi_3$ term\\
+\bi{ord}{ering} & $\phi_1$ \bi{t}{erm} & $\phi_2$ \bi{t}{erm} & $\phi_3$ \bi{t}{erm}\\
 \midrule
 $1,2,3$ & $v(1)-v(\varnothing)=1$ & $v(12)-v(1)=0$ & $v(123)-v(12)=0$\\
 $1,3,2$ & $1$ & $v(123)-v(13)=0$ & $v(13)-v(1)=0$\\
@@ -190,7 +190,7 @@ $2,3,1$ & $v(123)-v(23)=1$ & $1$ & $v(23)-v(2)=-1$\\
 $3,1,2$ & $v(13)-v(3)=1$ & $v(123)-v(13)=0$ & $v(3)-v(\varnothing)=0$\\
 $3,2,1$ & $v(123)-v(23)=1$ & $v(23)-v(3)=0$ & $0$\\
 \midrule
-\bi{t}{ot}{al} & $5$ & $2$ & $-1$\\
+\bi{to}{tal} & $5$ & $2$ & $-1$\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -200,152 +200,152 @@ $3,2,1$ & $v(123)-v(23)=1$ & $v(23)-v(3)=0$ & $0$\\
 \phi_3 = -\tfrac16 = -0.1667 .
 \]
 
-\step{Two \bi{ch}{ec}{ks}.} \bi{Eff}{icie}{ncy} (\bi{a}{xi}{om} E of §\ref{sec:classical}):
-$\tfrac56+\tfrac26-\tfrac16 = \tfrac66 = 1 = v(A)-v(\varnothing)$. And a
-\emph{\bi{ne}{gat}{ive}} \bi{v}{al}{ue} is \bi{leg}{itim}{ate}: \bi{ann}{ota}{tor} $3$ \bi{ac}{tiv}{ely} \bi{pu}{sh}{es} the \bi{coa}{lit}{ion}
-away from the \bi{col}{lect}{ive} \bi{wi}{nn}{er}, so \bi{t}{he}{ir} \bi{av}{era}{ge} \bi{ma}{rgi}{nal} \bi{con}{tribu}{tion} to
-\bi{sel}{ect}{ing} $B$ is \bi{b}{el}{ow} zero. \bi{Ali}{gnm}{ent}, \bi{b}{ei}{ng} a \bi{co}{si}{ne} of a \bi{pe}{rs}{on} \bi{ag}{ain}{st} a sum
-that \bi{in}{clu}{des} them, \bi{ca}{nn}{ot} go \bi{ne}{gat}{ive} in the same \bi{sit}{uat}{ion} and \bi{the}{ref}{ore} \bi{ca}{nn}{ot}
-\bi{ex}{pre}{ss} this at all.
+\step{\bi{T}{wo} \bi{ch}{ecks}.} \bi{Effi}{ciency} (\bi{ax}{iom} E of §\ref{sec:classical}):
+$\tfrac56+\tfrac26-\tfrac16 = \tfrac66 = 1 = v(A)-v(\varnothing)$. \bfade{And} a
+\emph{\bi{neg}{ative}} \bi{va}{lue} is \bi{legi}{timate}: \bi{ann}{otator} $3$ \bi{act}{ively} \bi{pu}{shes} \bfade{the} \bi{coa}{lition}
+\bi{a}{way} \bfade{from} \bfade{the} \bi{col}{lective} \bi{wi}{nner}, so \bi{th}{eir} \bi{av}{erage} \bi{mar}{ginal} \bi{cont}{ribution} to
+\bi{sel}{ecting} $B$ is \bi{be}{low} \bi{z}{ero}. \bi{Ali}{gnment}, \bi{be}{ing} a \bi{co}{sine} of a \bi{pe}{rson} \bi{ag}{ainst} a \bi{s}{um}
+\bfade{that} \bi{inc}{ludes} \bi{t}{hem}, \bi{ca}{nnot} go \bi{neg}{ative} in \bfade{the} \bi{s}{ame} \bi{sit}{uation} \bfade{and} \bi{the}{refore} \bi{ca}{nnot}
+\bi{exp}{ress} \bfade{this} at \bi{a}{ll}.
 
-\step{Now the \bi{ali}{gnm}{ent} of each, \bi{ag}{ain}{st} the \bi{col}{lect}{ive}.}
-The \bi{col}{lect}{ive} \bi{ce}{ntr}{ed} \bi{ve}{ct}{or} is $\bar\Nn - 4.9917 =
+\step{\bi{N}{ow} \bfade{the} \bi{ali}{gnment} of \bi{e}{ach}, \bi{ag}{ainst} \bfade{the} \bi{col}{lective}.}
+\bfade{The} \bi{col}{lective} \bi{ce}{ntred} \bi{ve}{ctor} is $\bar\Nn - 4.9917 =
 (-0.06,\,1.97,\,0.57,\,-2.49)$ (up to rounding), and centring each $\Nn_i$ gives
-\bi{co}{sin}{es}
+\bi{cos}{ines}
 \[
 \cos(\Nn_1, G)=0.7858,\qquad
 \cos(\Nn_2, G)=\mathbf{0.9313},\qquad
 \cos(\Nn_3, G)=0.2189 .
 \]
 
-\step{And \bi{t}{he}{re} is the \bi{p}{oi}{nt} of §\ref{sec:c1}, in \bi{t}{hr}{ee} \bi{pe}{op}{le}.}
+\step{\bfade{And} \bi{th}{ere} is \bfade{the} \bi{po}{int} of §\ref{sec:c1}, in \bi{t}{hree} \bi{pe}{ople}.}
 
 \begin{center}\small
 \begin{tabular}{lrrl}
 \toprule
-\bi{ann}{ota}{tor} & \bi{ali}{gnm}{ent} & \bi{inf}{lue}{nce} $\phi_i$ & \\
+\bi{ann}{otator} & \bi{ali}{gnment} & \bi{inf}{luence} $\phi_i$ & \\
 \midrule
-$1$ & $0.7858$ & $\mathbf{+0.8333}$ & \bi{hi}{ghe}{st} \bi{inf}{lue}{nce}, \emph{\bi{se}{co}{nd}} \bi{ali}{gnm}{ent}\\
-$2$ & $\mathbf{0.9313}$ & $+0.3333$ & \bi{hi}{ghe}{st} \bi{ali}{gnm}{ent}, \emph{less than half} the \bi{inf}{lue}{nce}\\
-$3$ & $0.2189$ & $-0.1667$ & \bi{lo}{we}{st} \bi{ali}{gnm}{ent}, and \emph{\bi{ne}{gat}{ive}} \bi{inf}{lue}{nce}\\
+$1$ & $0.7858$ & $\mathbf{+0.8333}$ & \bi{hi}{ghest} \bi{inf}{luence}, \emph{\bi{se}{cond}} \bi{ali}{gnment}\\
+$2$ & $\mathbf{0.9313}$ & $+0.3333$ & \bi{hi}{ghest} \bi{ali}{gnment}, \emph{\bi{l}{ess} \bi{t}{han} \bi{h}{alf}} \bfade{the} \bi{inf}{luence}\\
+$3$ & $0.2189$ & $-0.1667$ & \bi{lo}{west} \bi{ali}{gnment}, \bfade{and} \emph{\bi{neg}{ative}} \bi{inf}{luence}\\
 \bottomrule
 \end{tabular}
 \end{center}
 
-The rank \bi{or}{de}{rs} \bi{di}{sag}{ree} at the top: \bi{ann}{ota}{tor} $2$ \bi{ag}{re}{es} with the \bi{ou}{tco}{me} most
-and \bi{m}{ov}{es} it \bi{l}{ea}{st} of the two \bi{con}{tribu}{tors}. The \bi{re}{as}{on} is \bi{vi}{sib}{le} in the
-\bi{enu}{mera}{tion} -- \bi{ann}{ota}{tor} $2$ \bi{a}{lo}{ne} \bi{al}{rea}{dy} \bi{se}{lec}{ts} $B$, so in the \bi{ord}{eri}{ngs} \bi{w}{he}{re}
-they \bi{ar}{ri}{ve} \bi{a}{ft}{er} \bi{ann}{ota}{tor} $1$ they add \bi{no}{thi}{ng}. \emph{\bi{Ag}{ree}{ing} with an \bi{ou}{tco}{me}
-that \bi{w}{ou}{ld} have \bi{ha}{ppe}{ned} \bi{an}{yw}{ay} is not \bi{inf}{lue}{nce} over it.} That is the \bi{en}{ti}{re}
-\bi{co}{nte}{nt} of C1, and on the real \bi{co}{rp}{us} it \bi{ap}{pea}{rs} as a \bi{cor}{rela}{tion} of $+0.304$
-with a \bi{pr}{ofi}{le} that \bi{fl}{att}{ens} \bi{a}{bo}{ve} \bi{mo}{der}{ate} \bi{agr}{eem}{ent} (\cref{tab:quintile}).
+\bfade{The} \bi{r}{ank} \bi{or}{ders} \bi{dis}{agree} at \bfade{the} \bi{t}{op}: \bi{ann}{otator} $2$ \bi{ag}{rees} \bfade{with} \bfade{the} \bi{ou}{tcome} \bi{m}{ost}
+\bfade{and} \bi{mo}{ves} it \bi{le}{ast} of \bfade{the} \bi{t}{wo} \bi{contr}{ibutors}. \bfade{The} \bi{re}{ason} is \bi{vis}{ible} in \bfade{the}
+\bi{enum}{eration} -- \bi{ann}{otator} $2$ \bi{al}{one} \bi{al}{ready} \bi{sel}{ects} $B$, so in \bfade{the} \bi{ord}{erings} \bi{wh}{ere}
+\bi{t}{hey} \bi{ar}{rive} \bi{af}{ter} \bi{ann}{otator} $1$ \bi{t}{hey} \bi{a}{dd} \bi{no}{thing}. \emph{\bi{Agr}{eeing} \bfade{with} an \bi{ou}{tcome}
+\bfade{that} \bi{wo}{uld} \bi{h}{ave} \bi{hap}{pened} \bi{an}{yway} is \bfade{not} \bi{inf}{luence} \bi{o}{ver} it.} \bfade{That} is \bfade{the} \bi{en}{tire}
+\bi{co}{ntent} of C1, \bfade{and} on \bfade{the} \bi{r}{eal} \bi{co}{rpus} it \bi{ap}{pears} as a \bi{cor}{relation} of $+0.304$
+\bfade{with} a \bi{pro}{file} \bfade{that} \bi{fla}{ttens} \bi{ab}{ove} \bi{mod}{erate} \bi{agr}{eement} (\cref{tab:quintile}).
 
 % ===========================================================================
-\section{The \bi{t}{hr}{ee} \bi{cla}{ssi}{cal} \bi{th}{eor}{ems}, \bi{pr}{ov}{ed} \bi{ra}{th}{er} than \bi{c}{it}{ed}}
+\section{\bfade{The} \bi{t}{hree} \bi{cla}{ssical} \bi{the}{orems}, \bi{pr}{oved} \bi{ra}{ther} \bi{t}{han} \bi{ci}{ted}}
 \label{sec:classical}
 
-A \bi{re}{ad}{er} with no \bi{bac}{kgro}{und} \bi{ca}{nn}{ot} \bi{c}{he}{ck} an \bi{in}{vok}{ed} \bi{th}{eor}{em}. The \bi{t}{hr}{ee} that \bi{c}{ar}{ry}
-\bi{we}{ig}{ht} in this \bi{p}{ap}{er} are \bi{the}{ref}{ore} \bi{pr}{ov}{ed} or, \bi{w}{he}{re} the full \bi{p}{ro}{of} is long,
-\bi{re}{duc}{ed} to a \bi{che}{cka}{ble} core.
+A \bi{re}{ader} \bfade{with} no \bi{back}{ground} \bi{ca}{nnot} \bi{ch}{eck} an \bi{inv}{oked} \bi{th}{eorem}. \bfade{The} \bi{t}{hree} \bfade{that} \bi{ca}{rry}
+\bi{we}{ight} in \bfade{this} \bi{p}{aper} \bfade{are} \bi{the}{refore} \bi{pr}{oved} or, \bi{wh}{ere} \bfade{the} \bi{f}{ull} \bi{p}{roof} is \bi{l}{ong},
+\bi{red}{uced} to a \bi{che}{ckable} \bi{c}{ore}.
 
-\subsection{\bi{Bla}{ckw}{ell}: why a \bi{det}{ermin}{istic} \bi{agg}{rega}{tion} can only lose}
+\subsection{\bi{Bla}{ckwell}: \bi{w}{hy} a \bi{dete}{rministic} \bi{agg}{regation} \bfade{can} \bi{o}{nly} \bi{l}{ose}}
 
 \begin{theorem}[Garbling implies weakly higher risk]
 \label{thm:blackwell-proof}
-Let $Z$ be an \bi{obs}{erva}{tion} and $G = K(Z)$ for a \bi{Ma}{rk}{ov} \bi{ke}{rn}{el} $K$. For any
-\bi{de}{cis}{ion} \bi{pr}{obl}{em} with \bi{ac}{ti}{on} set $\mathcal{A}$, \bi{s}{ta}{te} $\theta$, \bi{p}{ri}{or} $p$ and
-loss $L$, the \bi{mi}{nim}{um} \bi{att}{aina}{ble} \bi{ex}{pec}{ted} loss \bi{u}{si}{ng} $G$ is at \bi{l}{ea}{st} that \bi{u}{si}{ng}
+\bi{L}{et} $Z$ be an \bi{obse}{rvation} \bfade{and} $G = K(Z)$ \bfade{for} a \bi{Ma}{rkov} \bi{ke}{rnel} $K$. \bfade{For} \bi{a}{ny}
+\bi{de}{cision} \bi{pr}{oblem} \bfade{with} \bi{ac}{tion} \bi{s}{et} $\mathcal{A}$, \bi{st}{ate} $\theta$, \bi{pr}{ior} $p$ \bfade{and}
+\bi{l}{oss} $L$, \bfade{the} \bi{mi}{nimum} \bi{att}{ainable} \bi{exp}{ected} \bi{l}{oss} \bi{us}{ing} $G$ is at \bi{le}{ast} \bfade{that} \bi{us}{ing}
 $Z$.
 \end{theorem}
 \begin{proof}
 \begin{steps}
-\item A \bi{de}{cis}{ion} rule \bi{b}{as}{ed} on $G$ is a map $d_G : G \mapsto \mathcal{A}$.
-\item \bi{Com}{pos}{ing} with the \bi{ke}{rn}{el}, $d_G \circ K$ is a (\bi{po}{ssi}{bly}
-\bi{ran}{domi}{sed}) \bi{de}{cis}{ion} rule \bi{b}{as}{ed} on $Z$: \bi{g}{iv}{en} $z$, draw $g \sim K(\cdot\mid z)$
-and play $d_G(g)$.
-\item By \bi{con}{struc}{tion} the two \bi{pro}{cedu}{res} \bi{in}{du}{ce} the same \bi{j}{oi}{nt}
-\bi{dis}{tribu}{tion} over $(\theta, \text{action})$, \bi{h}{en}{ce} the same \bi{ex}{pec}{ted} loss.
-\item \bi{The}{ref}{ore} \bi{e}{ve}{ry} risk \bi{att}{aina}{ble} with $G$ is \bi{att}{aina}{ble} with $Z$;
-the set of $Z$-\bi{att}{aina}{ble} \bi{r}{is}{ks} \bi{co}{nta}{ins} the set of $G$-\bi{att}{aina}{ble} \bi{r}{is}{ks}; and a
-\bi{mi}{nim}{um} over a \bi{su}{per}{set} is no \bi{la}{rg}{er}. \bi{H}{en}{ce} $R_Z \le R_G$.
+\item A \bi{de}{cision} \bi{r}{ule} \bi{ba}{sed} on $G$ is a \bi{m}{ap} $d_G : G \mapsto \mathcal{A}$.
+\item \bi{Com}{posing} \bfade{with} \bfade{the} \bi{ke}{rnel}, $d_G \circ K$ is a (\bi{pos}{sibly}
+\bi{rand}{omised}) \bi{de}{cision} \bi{r}{ule} \bi{ba}{sed} on $Z$: \bi{gi}{ven} $z$, \bi{d}{raw} $g \sim K(\cdot\mid z)$
+\bfade{and} \bi{pl}{ay} $d_G(g)$.
+\item By \bi{cons}{truction} \bfade{the} \bi{t}{wo} \bi{proc}{edures} \bi{in}{duce} \bfade{the} \bi{s}{ame} \bi{jo}{int}
+\bi{dist}{ribution} \bi{o}{ver} $(\theta, \text{action})$, \bi{he}{nce} \bfade{the} \bi{s}{ame} \bi{exp}{ected} \bi{l}{oss}.
+\item \bi{The}{refore} \bi{e}{very} \bi{r}{isk} \bi{att}{ainable} \bfade{with} $G$ is \bi{att}{ainable} \bfade{with} $Z$;
+\bfade{the} \bi{s}{et} of $Z$-\bi{att}{ainable} \bi{ri}{sks} \bi{con}{tains} \bfade{the} \bi{s}{et} of $G$-\bi{att}{ainable} \bi{ri}{sks}; \bfade{and} a
+\bi{mi}{nimum} \bi{o}{ver} a \bi{sup}{erset} is no \bi{la}{rger}. \bi{He}{nce} $R_Z \le R_G$.
 \end{steps}
 \end{proof}
 
 \begin{corollary}
-With $K(\cdot\mid z)=\delta_{\Agg(z)}$ (a \bi{det}{ermin}{istic} \bi{agg}{rega}{tion}), the \bi{th}{eor}{em}
-\bi{ap}{pli}{es} \bi{ve}{rba}{tim}: \bi{agg}{rega}{tion} \bi{ca}{nn}{ot} help on any \bi{de}{cis}{ion} \bi{pr}{obl}{em}, and the
-\bi{def}{icie}{ncy} $\delta_{\mathcal{D}}$ is well \bi{de}{fin}{ed} and non-\bi{ne}{gat}{ive}.
+\bfade{With} $K(\cdot\mid z)=\delta_{\Agg(z)}$ (a \bi{dete}{rministic} \bi{agg}{regation}), \bfade{the} \bi{th}{eorem}
+\bi{ap}{plies} \bi{ver}{batim}: \bi{agg}{regation} \bi{ca}{nnot} \bi{h}{elp} on \bi{a}{ny} \bi{de}{cision} \bi{pr}{oblem}, \bfade{and} \bfade{the}
+\bi{def}{iciency} $\delta_{\mathcal{D}}$ is \bi{w}{ell} \bi{de}{fined} \bfade{and} \bi{n}{on}-\bi{neg}{ative}.
 \end{corollary}
 
 \begin{remark}[What is \emph{not} proved here]
-The \bi{co}{nve}{rse} -- that if $R_Z \le R_G$ for \bi{e}{ve}{ry} \bi{de}{cis}{ion} \bi{pr}{obl}{em} then $G$ must be
-a \bi{ga}{rbl}{ing} of $Z$ -- is \bi{Bla}{ckw}{ell}'s \bi{sub}{stan}{tive} \bi{th}{eor}{em} and is not \bi{ne}{ed}{ed}. Only
-the easy \bi{dir}{ect}{ion} is used, and it is the \bi{dir}{ect}{ion} that \bi{li}{cen}{ses}
-``\bi{agg}{rega}{tion} \bi{n}{ev}{er} adds \bi{inf}{orma}{tion}''.
+\bfade{The} \bi{con}{verse} -- \bfade{that} if $R_Z \le R_G$ \bfade{for} \bi{e}{very} \bi{de}{cision} \bi{pr}{oblem} \bi{t}{hen} $G$ \bi{m}{ust} be
+a \bi{gar}{bling} of $Z$ -- is \bi{Bla}{ckwell}'s \bi{subs}{tantive} \bi{th}{eorem} \bfade{and} is \bfade{not} \bi{ne}{eded}. \bi{O}{nly}
+\bfade{the} \bi{e}{asy} \bi{dir}{ection} is \bi{u}{sed}, \bfade{and} it is \bfade{the} \bi{dir}{ection} \bfade{that} \bi{lic}{enses}
+``\bi{agg}{regation} \bi{n}{ever} \bi{a}{dds} \bi{inf}{ormation}''.
 \end{remark}
 
-\subsection{\bi{A}{rr}{ow}: the \bi{sta}{tem}{ent}, and why the \bi{c}{ou}{nt} $13.4\%$ is the \bi{r}{ig}{ht} \bi{t}{hi}{ng} to \bi{me}{asu}{re}}
+\subsection{\bi{Ar}{row}: \bfade{the} \bi{sta}{tement}, \bfade{and} \bi{w}{hy} \bfade{the} \bi{co}{unt} $13.4\%$ is \bfade{the} \bi{ri}{ght} \bi{th}{ing} to \bi{me}{asure}}
 
 \begin{theorem}[Arrow, stated]
-For $k \ge 3$ \bi{alt}{ernat}{ives}, no \bi{so}{ci}{al} \bi{we}{lfa}{re} \bi{fu}{nct}{ion} on the full \bi{do}{ma}{in} of
-\bi{ind}{ivid}{ual} \bi{ord}{eri}{ngs} \bi{sim}{ultane}{ously} \bi{sat}{isf}{ies}: (a) \bi{unr}{estri}{cted} \bi{do}{ma}{in},
-(b) \bi{una}{nim}{ity} (if \bi{ev}{ery}{one} \bi{pr}{efe}{rs} $x$ to $y$ then \bi{so}{cie}{ty} does), (c)
-\bi{ind}{epend}{ence} of \bi{irr}{elev}{ant} \bi{alt}{ernat}{ives}, and (d) non-\bi{dic}{tator}{ship}.
+\bfade{For} $k \ge 3$ \bi{alte}{rnatives}, no \bi{so}{cial} \bi{wel}{fare} \bi{fun}{ction} on \bfade{the} \bi{f}{ull} \bi{do}{main} of
+\bi{ind}{ividual} \bi{ord}{erings} \bi{simul}{taneously} \bi{sat}{isfies}: (a) \bi{unres}{tricted} \bi{do}{main},
+(b) \bi{una}{nimity} (if \bi{eve}{ryone} \bi{pre}{fers} $x$ to $y$ \bi{t}{hen} \bi{soc}{iety} \bi{d}{oes}), (c)
+\bi{inde}{pendence} of \bi{irre}{levant} \bi{alte}{rnatives}, \bfade{and} (d) \bi{n}{on}-\bi{dicta}{torship}.
 \end{theorem}
 
-\step{Why this \bi{p}{ap}{er} \bi{me}{asu}{res} \bi{ra}{th}{er} than \bi{in}{vok}{es} it.} \bi{A}{rr}{ow} says the four
-\bi{con}{diti}{ons} are \bi{jo}{int}{ly} \bi{uns}{atisf}{iable}; it does not say \emph{how \bi{b}{ad}{ly}} a \bi{g}{iv}{en}
-rule \bi{f}{ai}{ls} a \bi{g}{iv}{en} \bi{con}{dit}{ion} on a \bi{g}{iv}{en} \bi{co}{rp}{us}. \bi{B}{or}{da} is a \bi{per}{fec}{tly} \bi{rea}{sona}{ble}
-rule that \bi{f}{ai}{ls} only IIA, and the \bi{us}{ef}{ul} \bi{emp}{iri}{cal} \bi{qu}{est}{ion} is: on this data, how
-\bi{o}{ft}{en} does the \bi{fa}{ilu}{re} \bi{ac}{tua}{lly} bite? The \bi{an}{sw}{er} is $13.4\%$ of \bi{pa}{irw}{ise}
-\bi{rel}{ati}{ons} (\cref{cor:iia}), and \emph{that} is the \bi{nu}{mb}{er} a \bi{de}{sig}{ner} \bi{n}{ee}{ds}, not
-the \bi{imp}{ossib}{ility}.
+\step{\bi{W}{hy} \bfade{this} \bi{p}{aper} \bi{mea}{sures} \bi{ra}{ther} \bi{t}{han} \bi{inv}{okes} it.} \bi{Ar}{row} \bi{s}{ays} \bfade{the} \bi{f}{our}
+\bi{cond}{itions} \bfade{are} \bi{joi}{ntly} \bi{unsat}{isfiable}; it \bi{d}{oes} \bfade{not} \bi{s}{ay} \emph{\bi{h}{ow} \bi{ba}{dly}} a \bi{gi}{ven}
+\bi{r}{ule} \bi{fa}{ils} a \bi{gi}{ven} \bi{con}{dition} on a \bi{gi}{ven} \bi{co}{rpus}. \bi{Bo}{rda} is a \bi{per}{fectly} \bi{reas}{onable}
+\bi{r}{ule} \bfade{that} \bi{fa}{ils} \bi{o}{nly} \bi{I}{IA}, \bfade{and} \bfade{the} \bi{us}{eful} \bi{emp}{irical} \bi{que}{stion} is: on \bfade{this} \bi{d}{ata}, \bi{h}{ow}
+\bi{of}{ten} \bi{d}{oes} \bfade{the} \bi{fa}{ilure} \bi{act}{ually} \bi{bi}{te}? \bfade{The} \bi{an}{swer} is $13.4\%$ of \bi{pai}{rwise}
+\bi{rel}{ations} (\cref{cor:iia}), \bfade{and} \emph{\bfade{that}} is \bfade{the} \bi{nu}{mber} a \bi{des}{igner} \bi{ne}{eds}, \bfade{not}
+\bfade{the} \bi{impos}{sibility}.
 
-\step{The core of the \bi{fa}{ilu}{re}, in one line.} \bi{B}{or}{da} \bi{sc}{or}{es} \bi{de}{pe}{nd} on \emph{how
-many} \bi{alt}{ernat}{ives} a \bi{g}{iv}{en} one is \bi{a}{bo}{ve}, so \bi{ins}{ert}{ing} or \bi{re}{mov}{ing} a \bi{t}{hi}{rd}
-\bi{alt}{erna}{tive} \bi{ch}{ang}{es} the \bi{po}{in}{ts} of the \bi{o}{th}{er} two by \bi{dif}{fer}{ent} \bi{am}{oun}{ts} \bi{wh}{ene}{ver}
-\bi{ind}{ivid}{uals} rank the \bi{ne}{wco}{mer} \bi{dif}{fere}{ntly}. The \bi{wo}{rk}{ed} \bi{ex}{amp}{le} in §\ref{sec:toy}
-\bi{s}{ho}{ws} the \bi{mec}{han}{ism} on \bi{t}{hr}{ee} \bi{ra}{nki}{ngs}.
+\step{\bfade{The} \bi{c}{ore} of \bfade{the} \bi{fa}{ilure}, in \bi{o}{ne} \bi{l}{ine}.} \bi{Bo}{rda} \bi{sc}{ores} \bi{de}{pend} on \emph{\bi{h}{ow}
+\bi{m}{any}} \bi{alte}{rnatives} a \bi{gi}{ven} \bi{o}{ne} is \bi{ab}{ove}, so \bi{ins}{erting} or \bi{rem}{oving} a \bi{th}{ird}
+\bi{alte}{rnative} \bi{ch}{anges} \bfade{the} \bi{po}{ints} of \bfade{the} \bi{ot}{her} \bi{t}{wo} by \bi{dif}{ferent} \bi{amo}{unts} \bi{whe}{never}
+\bi{indi}{viduals} \bi{r}{ank} \bfade{the} \bi{new}{comer} \bi{diff}{erently}. \bfade{The} \bi{wo}{rked} \bi{exa}{mple} in §\ref{sec:toy}
+\bi{sh}{ows} \bfade{the} \bi{mec}{hanism} on \bi{t}{hree} \bi{ran}{kings}.
 
-\subsection{\bi{Sh}{apl}{ey}: the \bi{ax}{io}{ms}, and why they \bi{f}{or}{ce} the \bi{fo}{rmu}{la}}
+\subsection{\bi{Sh}{apley}: \bfade{the} \bi{ax}{ioms}, \bfade{and} \bi{w}{hy} \bi{t}{hey} \bi{fo}{rce} \bfade{the} \bi{fo}{rmula}}
 
 \begin{definition}[Axioms]
-A \bi{v}{al}{ue} $\phi$ \bi{ass}{ign}{ing} a \bi{nu}{mb}{er} to each \bi{pl}{ay}{er} of a \bi{coo}{pera}{tive} game $v$
-\bi{sat}{isf}{ies}:
+A \bi{va}{lue} $\phi$ \bi{ass}{igning} a \bi{nu}{mber} to \bi{e}{ach} \bi{pl}{ayer} of a \bi{coop}{erative} \bi{g}{ame} $v$
+\bi{sat}{isfies}:
 \begin{enumerate}
-\item[(E)] \textbf{\bi{Eff}{icie}{ncy}}: $\sum_i \phi_i = v(A) - v(\varnothing)$.
-\item[(S)] \textbf{\bi{Sy}{mme}{try}}: if $i$ and $j$ \bi{con}{trib}{ute} \bi{ide}{ntic}{ally} to \bi{e}{ve}{ry}
-      \bi{coa}{lit}{ion}, $\phi_i = \phi_j$.
-\item[(N)] \textbf{Null \bi{pl}{ay}{er}}: if $i$ adds \bi{no}{thi}{ng} to any \bi{coa}{lit}{ion},
+\item[(E)] \textbf{\bi{Effi}{ciency}}: $\sum_i \phi_i = v(A) - v(\varnothing)$.
+\item[(S)] \textbf{\bi{Sym}{metry}}: if $i$ \bfade{and} $j$ \bi{cont}{ribute} \bi{iden}{tically} to \bi{e}{very}
+      \bi{coa}{lition}, $\phi_i = \phi_j$.
+\item[(N)] \textbf{\bi{N}{ull} \bi{pl}{ayer}}: if $i$ \bi{a}{dds} \bi{no}{thing} to \bi{a}{ny} \bi{coa}{lition},
       $\phi_i = 0$.
-\item[(L)] \textbf{\bi{Lin}{ear}{ity}}: $\phi(v+w) = \phi(v)+\phi(w)$.
+\item[(L)] \textbf{\bi{Lin}{earity}}: $\phi(v+w) = \phi(v)+\phi(w)$.
 \end{enumerate}
 \end{definition}
 
 \begin{theorem}[Uniqueness, core of the argument]
-The \bi{Sh}{apl}{ey} \bi{v}{al}{ue} is the \bi{un}{iq}{ue} $\phi$ \bi{sat}{isfy}{ing} (E), (S), (N), (L).
+\bfade{The} \bi{Sh}{apley} \bi{va}{lue} is \bfade{the} \bi{un}{ique} $\phi$ \bi{sati}{sfying} (E), (S), (N), (L).
 \end{theorem}
 \begin{proof}
-[\bi{Red}{uct}{ion} to a \bi{che}{cka}{ble} core]
+[\bi{Red}{uction} to a \bi{che}{ckable} \bi{c}{ore}]
 \begin{steps}
-\item The \emph{\bi{una}{nim}{ity} \bi{g}{am}{es}} $u_T$, \bi{de}{fin}{ed} by $u_T(S)=1$ if
-$T\subseteq S$ and $0$ \bi{oth}{erw}{ise}, form a \bi{b}{as}{is} of the \bi{ve}{ct}{or} \bi{s}{pa}{ce} of all \bi{g}{am}{es}
-on $A$: \bi{e}{ve}{ry} $v$ has a \bi{un}{iq}{ue} \bi{exp}{ans}{ion} $v=\sum_T \lambda_T u_T$.
-\item On $u_T$, \bi{ax}{io}{ms} (E), (S), (N) \bi{f}{or}{ce} the \bi{v}{al}{ue} \bi{un}{iqu}{ely}: \bi{pl}{aye}{rs}
-\bi{ou}{tsi}{de} $T$ are null, so get $0$ by (N); \bi{pl}{aye}{rs} \bi{in}{si}{de} $T$ are \bi{sym}{met}{ric}, so
-\bi{s}{ha}{re} \bi{eq}{ual}{ly} by (S); and the \bi{t}{ot}{al} is $1$ by (E). \bi{H}{en}{ce}
-$\phi_i(u_T) = 1/|T|$ for $i \in T$ and $0$ \bi{oth}{erw}{ise}.
-\item By (L), $\phi(v) = \sum_T \lambda_T \phi(u_T)$, \bi{w}{hi}{ch} is now
-\bi{det}{ermi}{ned}. \bi{Rea}{rran}{ging} that sum into a sum over \bi{coa}{liti}{ons} \bi{yi}{el}{ds} the
-\bi{per}{muta}{tion}-\bi{we}{igh}{ted} \bi{fo}{rmu}{la} of §\ref{sec:c1}.
+\item \bfade{The} \emph{\bi{una}{nimity} \bi{ga}{mes}} $u_T$, \bi{de}{fined} by $u_T(S)=1$ if
+$T\subseteq S$ \bfade{and} $0$ \bi{oth}{erwise}, \bi{f}{orm} a \bi{ba}{sis} of \bfade{the} \bi{ve}{ctor} \bi{sp}{ace} of \bi{a}{ll} \bi{ga}{mes}
+on $A$: \bi{e}{very} $v$ \bi{h}{as} a \bi{un}{ique} \bi{exp}{ansion} $v=\sum_T \lambda_T u_T$.
+\item On $u_T$, \bi{ax}{ioms} (E), (S), (N) \bi{fo}{rce} \bfade{the} \bi{va}{lue} \bi{uni}{quely}: \bi{pla}{yers}
+\bi{out}{side} $T$ \bfade{are} \bi{n}{ull}, so \bi{g}{et} $0$ by (N); \bi{pla}{yers} \bi{in}{side} $T$ \bfade{are} \bi{sym}{metric}, so
+\bi{sh}{are} \bi{eq}{ually} by (S); \bfade{and} \bfade{the} \bi{to}{tal} is $1$ by (E). \bi{He}{nce}
+$\phi_i(u_T) = 1/|T|$ \bfade{for} $i \in T$ \bfade{and} $0$ \bi{oth}{erwise}.
+\item By (L), $\phi(v) = \sum_T \lambda_T \phi(u_T)$, \bi{w}{hich} is \bi{n}{ow}
+\bi{dete}{rmined}. \bi{Rear}{ranging} \bfade{that} \bi{s}{um} \bi{i}{nto} a \bi{s}{um} \bi{o}{ver} \bi{coal}{itions} \bi{yi}{elds} \bfade{the}
+\bi{perm}{utation}-\bi{wei}{ghted} \bi{fo}{rmula} of §\ref{sec:c1}.
 \end{steps}
 \end{proof}
 
 \begin{remark}[Why this matters for the claim being made]
-The \bi{Sh}{apl}{ey} \bi{v}{al}{ue} is not \bi{ch}{os}{en} here for \bi{con}{veni}{ence}. It is the \emph{only}
-\bi{ass}{ignm}{ent} of \bi{cr}{ed}{it} \bi{sat}{isfy}{ing} four \bi{pro}{pert}{ies} one \bi{w}{ou}{ld} \bi{in}{si}{st} on for a \bi{c}{la}{im}
-\bi{a}{bo}{ut} \bi{inf}{lue}{nce} -- in \bi{par}{ticu}{lar} (N), \bi{w}{hi}{ch} \bi{gua}{rant}{ees} that an \bi{ann}{ota}{tor} who
-\bi{n}{ev}{er} \bi{ch}{ang}{es} any \bi{ou}{tco}{me} \bi{re}{cei}{ves} \bi{ex}{act}{ly} zero. A \bi{cor}{relat}{ional} \bi{me}{asu}{re} of
-\bi{ali}{gnm}{ent} has no such \bi{gua}{ran}{tee}, and \cref{tab:quintile} \bi{s}{ho}{ws} the gap is real:
-the \bi{hi}{ghe}{st}-\bi{ali}{gnm}{ent} \bi{qu}{int}{ile} does not have the \bi{hi}{ghe}{st} \bi{inf}{lue}{nce}.
+\bfade{The} \bi{Sh}{apley} \bi{va}{lue} is \bfade{not} \bi{ch}{osen} \bi{h}{ere} \bfade{for} \bi{conv}{enience}. It is \bfade{the} \emph{\bi{o}{nly}}
+\bi{assi}{gnment} of \bi{cr}{edit} \bi{sati}{sfying} \bi{f}{our} \bi{prop}{erties} \bi{o}{ne} \bi{wo}{uld} \bi{in}{sist} on \bfade{for} a \bi{cl}{aim}
+\bi{a}{bout} \bi{inf}{luence} -- in \bi{part}{icular} (N), \bi{w}{hich} \bi{guar}{antees} \bfade{that} an \bi{ann}{otator} \bi{w}{ho}
+\bi{n}{ever} \bi{ch}{anges} \bi{a}{ny} \bi{ou}{tcome} \bi{rec}{eives} \bi{ex}{actly} \bi{z}{ero}. A \bi{corre}{lational} \bi{me}{asure} of
+\bi{ali}{gnment} \bi{h}{as} no \bi{s}{uch} \bi{gua}{rantee}, \bfade{and} \cref{tab:quintile} \bi{sh}{ows} \bfade{the} \bi{g}{ap} is \bi{r}{eal}:
+\bfade{the} \bi{hi}{ghest}-\bi{ali}{gnment} \bi{qui}{ntile} \bi{d}{oes} \bfade{not} \bi{h}{ave} \bfade{the} \bi{hi}{ghest} \bi{inf}{luence}.
 \end{remark}
