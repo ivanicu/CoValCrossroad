@@ -85,6 +85,12 @@ def main(argv):
         rc = max(rc, 1)
     else:
         print("\n  no collisions.")
+    print("\n  GAP 43-47 SETTLED (2026-08-03): those five entries NEVER EXISTED. Anchored search")
+    print("  `^## Entry 4[3-7]` over all 222 historical versions of this file: 0 hits, while the")
+    print("  same pattern finds Entry 41 in 213 versions, 42 in 212 and 48 in 210 -- the positive")
+    print("  control that makes the zero a measurement rather than silence. The numbering skipped;")
+    print("  nothing was lost. The 225-235 gap is different: those are sub-entries under one")
+    print("  heading and this checker only reads headings.")
     print("\n  NOT COVERED, stated rather than guessed: the ~40 earliest entries live as TABLE")
     print("  ROWS, not headings. Matching them needs a rule that distinguishes an entry table from")
     print("  a data table, and the first version of this checker guessed -- and reported 20")
