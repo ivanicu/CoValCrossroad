@@ -29,6 +29,7 @@ from pathlib import Path
 import numpy as np
 import torch
 from transformers import AutoModel, AutoTokenizer
+from covalx.legacy import round_results  # noqa: E402
 
 OUTCOME_SCOPE = (
     "Scored against the r08 MODEL GOLD HEAD, not against human rankings -- no hum"
@@ -68,8 +69,8 @@ def embed(texts, model_dir, batch=16, max_len=512):
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--a09", type=Path, default=Path(_ROOT) / "E01" / "R09_overoptimization" / "results" / "a09_overoptimization.npz")
-    ap.add_argument("--gold", type=Path, default=Path(_ROOT) / "E01" / "R08_gold_preference" / "results" / "a08_gold_08b.npz")
+    ap.add_argument("--a09", type=Path, default=round_results("R09", "a09_overoptimization.npz"))
+    ap.add_argument("--gold", type=Path, default=round_results("R08", "a08_gold_08b.npz"))
     ap.add_argument("--out", type=Path, default=Path(_RES + "/a11_backbone_control.json"))
     a = ap.parse_args()
 

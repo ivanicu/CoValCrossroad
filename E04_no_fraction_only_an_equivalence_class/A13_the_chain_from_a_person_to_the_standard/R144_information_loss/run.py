@@ -51,6 +51,7 @@ import numpy as np
 
 ROOT = next(p for p in pathlib.Path(__file__).resolve().parents if (p / "covalx").is_dir())
 sys.path.insert(0, str(ROOT))
+from covalx.legacy import round_results  # noqa: E402
 OUT = pathlib.Path(__file__).resolve().parent / "results"
 LETTERS = "ABCD"
 
@@ -223,7 +224,7 @@ def main() -> int:
     args = ap.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
 
-    base = ROOT / "E01" / "R04_rebuild_satisfaction" / "results"
+    base = round_results("R04")
     sat_full = load_sat(base / "a04_full.npz")
     sat_core = load_sat(base / "a04_core.npz")
     ratings = load_ratings()

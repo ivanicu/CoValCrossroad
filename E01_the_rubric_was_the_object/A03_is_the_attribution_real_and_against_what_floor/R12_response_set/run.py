@@ -46,6 +46,7 @@ import torch
 from transformers import AutoModel, AutoModelForCausalLM, AutoTokenizer
 
 sys.path.insert(0, str(next(p for p in Path(__file__).resolve().parents if (p / "covalx").is_dir())))
+from covalx.legacy import round_results  # noqa: E402
 from covalx import MODEL_DIR, Judge, build_prompt, load_join  # noqa: E402
 
 OUTCOME_SCOPE = (
@@ -149,7 +150,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--comparisons", type=Path, default=Path(_ROOT + "/data/comparisons.jsonl"))
     ap.add_argument("--rubrics", type=Path, default=Path(_ROOT + "/data/conversation_rubrics.jsonl"))
-    ap.add_argument("--gold", type=Path, default=Path(_ROOT) / "E01" / "R08_gold_preference" / "results" / "a08_gold_08b.npz")
+    ap.add_argument("--gold", type=Path, default=round_results("R08", "a08_gold_08b.npz"))
     ap.add_argument("--out", type=Path, default=Path(_RES + "/a12_response_set.json"))
     ap.add_argument("--prompts", type=int, default=250)
     ap.add_argument("--fresh", type=int, default=4)

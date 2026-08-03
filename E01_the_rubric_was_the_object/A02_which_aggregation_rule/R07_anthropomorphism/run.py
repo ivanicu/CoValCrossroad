@@ -42,6 +42,7 @@ from collections import defaultdict
 from pathlib import Path
 
 import numpy as np
+from covalx.legacy import round_results  # noqa: E402
 
 _HERE = Path(__file__).resolve().parent
 _ROOT = str(next(p for p in _HERE.parents if (p / "covalx").is_dir()))
@@ -146,7 +147,7 @@ def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--comparisons", type=Path, default=Path(_ROOT + "/data/comparisons.jsonl"))
     p.add_argument("--rubrics", type=Path, default=Path(_ROOT + "/data/conversation_rubrics.jsonl"))
-    p.add_argument("--sat", type=Path, default=Path(_ROOT) / "rounds" / "R04_rebuild_satisfaction" / "results" / "a04_full.npz")
+    p.add_argument("--sat", type=Path, default=round_results("R04", "a04_full.npz"))
     p.add_argument("--out", type=Path, default=Path(_RES + "/a07_anthropomorphism.json"))
     a = p.parse_args()
 

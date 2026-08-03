@@ -100,7 +100,14 @@ def ensure_worktree(rev: str = "HEAD") -> pathlib.Path:
 # alone can reproduce. They are SYMLINKED, not copied: a subject that corrupts the release would
 # then reach the real one, so this is the single hole in the isolation and it is named here rather
 # than left for someone to discover.
-UNTRACKED_INPUTS = ("data",)
+# ⚠ `.venv` ADDED 2026-08-03 by R316. Six rounds (R261-R266) shell out to
+# `ROOT / ".venv/bin/python"`, and a worktree has no `.venv` because it is gitignored -- so
+# `subprocess.run` raised FileNotFoundError and R315 classified all six BROKEN-INPUT. They are
+# not broken; the isolation was. A venv is ENVIRONMENT, recreatable by ordinary setup, and
+# excluding it measures the machine rather than the repository. `_archive/` is deliberately NOT
+# added: it is gitignored DATA that no setup step can recreate, so a round reading it genuinely
+# cannot be reproduced from a clean clone, and that is a finding rather than an artifact.
+UNTRACKED_INPUTS = ("data", ".venv")
 
 
 def _link_untracked_inputs() -> None:

@@ -284,7 +284,7 @@ def main():
     print("  " + "=" * 78)
 
     # the artifact goes to the LIVE tree; everything measured came from the worktree
-    o = SELF.parent / "results" / "runnability.json"
+    o = pathlib.Path(os.environ.get("R315_OUT", "")) or (SELF.parent / "results" / "runnability.json")
     o.parent.mkdir(parents=True, exist_ok=True)
     o.write_text(json.dumps(dict(
         source_sha=hashlib.sha256(SELF.read_bytes()).hexdigest()[:16],
@@ -297,7 +297,7 @@ def main():
         clustering=dict(u=u_obs, lo=u_lo, hi=u_hi, clustered=bool(clustered)),
         causes=causes, cause_concentration=conc, worktree=str(ROOT),
         table=table), indent=1))
-    print(f"\n  artifact {o.relative_to(LIVE)}")
+    print(f"\n  artifact {o}")
     return 0
 
 

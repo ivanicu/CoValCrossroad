@@ -36,7 +36,8 @@ import numpy as np
 
 ROOT = next(p for p in pathlib.Path(__file__).resolve().parents if (p / "covalx").is_dir())
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "E04" / "R146_does_compilation_add"))
+sys.path.insert(0, str(round_results("R146").parent))
+from covalx.legacy import round_results  # noqa: E402
 OUT = pathlib.Path(__file__).resolve().parent / "results"
 
 from covalx.estimand import EstimandError, both, mean_by  # noqa: E402

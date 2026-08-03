@@ -47,13 +47,14 @@ import numpy as np
 
 ROOT = next(p for p in pathlib.Path(__file__).resolve().parents if (p / "covalx").is_dir())
 sys.path.insert(0, str(ROOT))
+from covalx.legacy import round_results  # noqa: E402
 OUT = pathlib.Path(__file__).resolve().parent / "results"
 LETTERS = "ABCD"
 RANK_MAP = {"A": 0, "B": 1, "C": 2, "D": 3}
 
 
 def load_sat() -> dict[str, np.ndarray]:
-    z = np.load(ROOT / "E01" / "R04_rebuild_satisfaction" / "results"
+    z = np.load(round_results("R04")
                 / "a04_full.npz", allow_pickle=True)
     cells: dict[str, dict[tuple[int, int], float]] = defaultdict(dict)
     for s, m in zip(z["sat"], z["meta"]):

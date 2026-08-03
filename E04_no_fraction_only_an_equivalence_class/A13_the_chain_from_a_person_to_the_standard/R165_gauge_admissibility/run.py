@@ -58,7 +58,8 @@ import numpy as np
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = next(p for p in HERE.parents if (p / "covalx").is_dir())
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "E04" / "R164_instrument"))
+sys.path.insert(0, str(round_results("R164").parent))
+from covalx.legacy import round_results  # noqa: E402
 OUT = HERE / "results"
 
 
@@ -69,7 +70,7 @@ def main() -> int:
     from covalx.cluster import two_way_se  # noqa: E402
 
     W, rank = load_weights(), load_rankings()
-    R = ROOT / "E04" / "R164_instrument" / "results"
+    R = round_results("R164")
     ref_f, ref_c = load_sat(REF / "a04_full.npz"), load_sat(REF / "a04_core.npz")
 
     def discrimination(sat) -> float:
@@ -108,7 +109,7 @@ def main() -> int:
         print(f"  {r['variant']:14s} {r['contrast']:+10.4f} {r['z']:7} {r['discrimination']:15.4f}")
 
     r130 = []
-    for f in sorted(glob.glob(str(ROOT / "E04" / "R130_judge_gauge"
+    for f in sorted(glob.glob(str(round_results("R130").parent
                                   / "results" / "*.json"))):
         d = json.loads(pathlib.Path(f).read_text())
         for k, v in d["variants"].items():
