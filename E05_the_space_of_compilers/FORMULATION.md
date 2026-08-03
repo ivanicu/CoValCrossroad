@@ -131,7 +131,15 @@ distribution is nearly flat — 24 classes over 200 prompts, modal share 0.10, e
 against 4.585 for uniform — so a response-blind modal predictor scores **0.0633**, not 0.35.
 Response length alone scores **0.0420**. Neither artifact explains anything here.
 
-**8 · The binding constraint is the rubric's own redundancy, not the channel.** `MEASURED` (R248)
+**8 · The rubric is redundant beyond its own marginals — but "binding constraint" is RETRACTED.**
+`MEASURED` (R248, defended R252); the *binding* claim killed by R253
+
+⚠ **The heading used to read "the binding constraint is the rubric's own redundancy, not the
+channel."** That is two claims and only the first survives. Redundancy is real and survives its
+strongest confound. **Whether it BINDS anything was never tested, and when it was (R253), the
+quantity carrying it — `A_real` — predicted recovery no better than the criterion count.** A
+property can be present, robust, and load-bearing for nothing. The phrase stayed for five rounds
+because it was doing rhetorical work the measurement never did.
 Paired per prompt, against a **random tensor of identical shape**: the real rubric separates
 **fewer** classes than random noise does, at **62.0% / 90.4% / 91.2%** of prompts for k = 1 / 2 / 3
 (median deficit −0.60 / −4.80 / −6.00 classes). This kills the reading that the collapse is
