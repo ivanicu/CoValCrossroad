@@ -103,6 +103,43 @@ follows it.*
 | **Clause ① is judge-robust; clause ② is judge-bound** | 6/6 vs 0/3 cells | 2B and 0.8B |
 | **The structural wall, priced** | `full` vs `topwvar_k4` needs **3,352 prompts, 3.5×** this release | not a shrug |
 
+### 🔷 THE SIZE QUESTION, ANSWERED AT ITS BOUNDARIES (R296)
+
+The definition has said *"more than one, and 3 to 8 are indistinguishable"* since R276. With clause
+② now evaluated against a **size-matched** blind reference at every k, that can be replaced by a
+measurement:
+
+| k | clause-② margin | own MDE | |
+|---:|---:|---:|---|
+| 1 | **−0.0170** [−0.0267,−0.0080] | 0.0135 | **LOSES** — one criterion from the rubric is worse than one generic one |
+| 2 | +0.0072 [−0.0017,+0.0155] | 0.0119 | unresolved |
+| 3 | **+0.0180** [+0.0099,+0.0261] | 0.0114 | **BEATS** |
+| 4 | **+0.0137** [+0.0058,+0.0215] | 0.0109 | **BEATS** |
+| **6** | **+0.0208** [+0.0131,+0.0283] | 0.0107 | **BEATS** — largest |
+| 8 | **+0.0152** [+0.0077,+0.0225] | 0.0108 | **BEATS** |
+| 12 | −0.0040 [−0.0119,+0.0039] | 0.0113 | unresolved |
+
+**Adjacent-k differences — the boundaries separate, the interior does not:**
+
+| step | Δ margin | |
+|---|---:|---|
+| 1 → 2 | **+0.0241** [+0.0161,+0.0324] | **resolved — the band's entry** |
+| 2 → 3 | **+0.0108** [+0.0040,+0.0172] | **resolved** |
+| 3 → 4 | −0.0042 | unresolved |
+| 4 → 6 | +0.0070 | below resolution |
+| 6 → 8 | −0.0056 | below resolution |
+| 8 → 12 | **−0.0192** [−0.0245,−0.0138] | **resolved — the band's exit** |
+
+> **So the size statement upgrades from a bound to a measured interval with unresolved interior:**
+> **the admitted band is k = 3…8, its entry (between 2 and 3) and its exit (between 8 and 12) are
+> both resolved, and no ordering within 3–8 is.** The old wording was right about the interior and
+> **silent about the boundaries** — which were measurable all along, once the reference was
+> size-matched.
+
+Positive control: k=1 → k=4, the widest span in the band, separates at **+0.0307** [+0.0212,+0.0398]
+against an MDE of 0.0133 — the design can see k. Negative: k=4 against itself exactly 0. 10 of 13
+cells survive BH.
+
 **The cell census, closed** (R292): **134 published cells** carrying an effect and an interval.
 **71 judgeable** (an MDE *and* a stored verdict) — **0 disagreements** with `report.verdict()`.
 The remaining 63 were one bucket labelled *unjudgeable*; they are two:
