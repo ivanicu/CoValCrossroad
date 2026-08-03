@@ -49,9 +49,39 @@ prompts, so prompt *i*'s sham *is* prompt *i*'s core and Δ=0 is forced by the a
 clause 2 **can** reject what clause 1 admits — which is what "does this clause do work" asks —
 and it must never be quoted as a measured rejection.
 
+### ⛔ THE DEFINITION IS NOT MONOTONE IN FIDELITY, AND THE COST IS SEPARABLE
+
+The exclusion test asks whether a clause rejects an admissible object. It does not ask **how good
+the rejected object is.** Asked directly, over the same 968 prompts, 3 seeds, paired bootstrap:
+
+| | A2 | |
+|---|---:|---|
+| `generic` | **0.5554** | **EXCLUDED** by clause 2 |
+| `full` | **0.5134** | **ADMITTED** |
+
+> **`generic − full` = `+0.0420` [+0.0334, +0.0502] — separable.**
+
+**The definition rejects a separably better predictor than one it admits.** That is not an error in
+either verdict; it is the price of the second clause, and it now has a number. **What clause 2 buys
+is aboutness; what it costs is up to 0.042 of A2** — four times the +0.011 that being about the
+prompt is worth at the top of the table.
+
+⚠ **This is a CHOICE, and it must be read as one.** A definition of "core" keyed on fidelity alone
+would admit `generic` and rank it fourth of eleven. This one does not, because a set of criteria
+that never reads the conversation cannot be *a core of that conversation* whatever it scores — the
+same reason a stopped clock is not a chronometer. **But nothing measured here forces that
+preference.** It is a commitment about what the word is for, priced at −0.042, and the price is
+stated so that anyone who disagrees can pay it back.
+
 **4 admitted, 6 excluded.** Every sham lands at or below random — **0.4931 · 0.4976 · 0.4828 ·
 0.4669** against 0.4943 — and `full`'s is the lowest: **fifteen criteria about the wrong
 conversation are worse than four drawn at random from the right one.**
+
+⚠ **AND THAT PATTERN IS A DIAGNOSIS, NOT A RESULT** (carved into `realstat §4` the same day). A
+placebo should land **on** the floor; landing **below** it means the arm was built with the
+ingredient *inverted*, not *absent*. So the clause-2 column above bounds **benefit + harm**, and
+the value of aboutness in isolation is the neutral gap `topw − generic` = **+0.0114**
+[+0.0045, +0.0192] — **6× smaller than the sham gap the same table reports.**
 
 ⚠ **What the table does NOT claim.** The four admitted arms span A2 0.513–0.567 and their sham
 gaps span +0.047 to +0.074 with **overlapping intervals**. Only `topw_k4` vs `coval_core` was
