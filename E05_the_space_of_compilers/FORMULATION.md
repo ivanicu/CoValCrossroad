@@ -47,6 +47,28 @@ you either want or do not — but it **does not buy fidelity**.
 **indistinguishable from selecting at random**, +0.0017 [−0.0131, +0.0165]. *Zero variance ⇒
 inert* is sound; *high variance ⇒ informative* is its converse and is false.
 
+### ⚠ How few is "fewer"? — the clause above was under-tested when written
+
+`k` was swept on the same rule, paired against k=4, the same day the clause was written:
+
+| k | A1 | norm | paired vs k=4 |
+|---:|---:|---:|---|
+| 1 | 0.0472 | +0.048 | **−0.0244 [−0.0413, −0.0079] — separably WORSE** |
+| 2 | 0.0640 | +0.204 | −0.0072 [−0.0213, +0.0072] |
+| **3** | **0.0758** | +0.312 | **+0.0007 [−0.0117, +0.0134]** |
+| 4 | 0.0761 | +0.316 | — |
+| 6 | 0.0751 | +0.306 | −0.0007 [−0.0131, +0.0121] |
+| 8 | 0.0751 | +0.306 | +0.0007 [−0.0127, +0.0145] |
+| 12 | 0.0613 | +0.179 | −0.0069 [−0.0210, +0.0072] |
+
+**6 comparisons, 1 separable.** Only `k=1` is distinguishable from `k=4`; **3 through 8 tie**, and
+the k=4 "peak" beats k=3 by **0.0003**, which is noise.
+
+⛔ **So "four" is not supported and I inherited it from the released core without testing it.**
+What the data supports is: **more than one criterion, and this release cannot resolve `k` anywhere
+in 3–8.** The reference construction below is stated at k=4 for comparability with `coval_core`,
+**not because 4 was measured to be right.**
+
 ### The reference construction, and it is one line
 
 **Take the four highest-mean-importance criteria of `coval_full`.** It ties the hand-built
