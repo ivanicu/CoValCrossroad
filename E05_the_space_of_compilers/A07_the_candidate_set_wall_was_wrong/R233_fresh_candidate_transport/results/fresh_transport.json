@@ -1,0 +1,26 @@
+{
+ "model": "/mnt/e/data.ai-models.local-model-store.storage.xl.private.readonly/Qwen3.5-2B-Base",
+ "n_prompts": 250,
+ "judgements": 33320,
+ "orig": 0.352,
+ "fresh": 0.468,
+ "floors": {
+  "orig": [
+   0.40440000000000004,
+   0.344,
+   0.452
+  ],
+  "fresh": [
+   0.4166,
+   0.368,
+   0.464
+  ]
+ },
+ "verdict": "SURVIVES -- class preservation on unseen responses (0.4680) stays outside the random floor [0.3680, 0.4640]. The compilation transports to a new candidate set.",
+ "grid": {
+  "orig|core_vs_full": 0.352,
+  "orig|PLACEBO_full_vs_full": 1.0,
+  "fresh|core_vs_full": 0.468,
+  "fresh|PLACEBO_full_vs_full": 1.0
+ }
+}
