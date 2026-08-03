@@ -8,7 +8,37 @@ ran and its controls did not behave; never an acquittal. `OPEN` — running now.
 
 ---
 
-## The definition — SECOND REWRITE, 2026-08-03, after a clause audit killed three of five
+## The definition — THIRD REWRITE, 2026-08-03, after its own new test killed four of five
+
+The second rewrite added a mechanical test: **for each clause, name an admissible object it
+EXCLUDES.** Applied to itself, in one command, it killed four of its own five clauses.
+
+| clause of rewrite #2 | what it excludes | verdict |
+|---|---|---|
+| *a small set of criteria* | k=12 — but k=12 vs k=4 is **−0.0069 [−0.0210, +0.0072]**, not separable | **under-determined at the upper end** |
+| *reproduces human judgement* | `random_k4` — agrees with the rubric at 0.8247 and with the human at chance | **CLEAN. The only clause that does work.** |
+| *at the humans' own level* | `gen`, at **−0.0183 [−0.0323, −0.0036] BELOW** the ceiling — and the benchmark accepts `gen`. Meanwhile `coval_core` **+0.0176** and `topw_k4` **+0.0141** are separably **ABOVE** it | **FALSE in both directions** |
+| *may be selected or written* | nothing | **decoration** |
+| *on this release selection measures better* | nothing | **a finding, not a clause** |
+
+> **A core is a set of criteria that predicts held-out human judgement better than chance, and
+> better than the same criteria applied to a different prompt.**
+
+| clause | the admissible object it excludes |
+|---|---|
+| **better than chance** | `random_k4` (0.5005 ≈ chance) · `topvar_k4`, separably **below** random at −0.0123 [−0.0203, −0.0040] |
+| **better than the same criteria on a different prompt** | `gen_sham` (0.4834, below random). This is the **aboutness** requirement, and it is the clause the whole sham design exists to make testable |
+
+**Admits:** `coval_core`, `topw_k4`, `gen`, `full` — each beats chance *and* beats its sham.
+**Excludes:** `random_k4`, `gen_sham`, `topvar_k4`.
+
+⚠ **It does not distinguish a core from the rubric it compresses, and neither does the data.**
+`full` qualifies. Size, source and ceiling are all **out** — every attempt to put them in named a
+number or a provenance the release cannot resolve. What is left is small enough to be true.
+
+---
+
+## The definition — SECOND REWRITE, superseded, kept per L81
 
 The first rewrite is annotated below. **Three of its five clauses failed the same test within
 hours: a word chosen because it described the released object, then carried as though it had
