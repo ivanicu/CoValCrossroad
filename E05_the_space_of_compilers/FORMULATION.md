@@ -147,7 +147,59 @@ control-that-cannot-pass in this arc, and the first whose repair was the finding
 
 ---
 
-## 9 · What the blind arm established that this arc never did — `SINGLE ARM`, R235, seed 29
+## 9 · The triple blind, read under the rule fixed before it ran — `BOTH ARMS IN`
+
+`A08/README.md` fixed the reading before either agent was launched: *all three agree → design
+independent · agree on sign, differ on size → the spread is the finding · **disagree on sign → the
+framing is the finding, find the assumption they differ on and test that** · **the three will not be
+averaged.***
+
+**They disagree on sign. And the assumption they differ on is not a design choice — it is WHAT THE
+CORE IS SCORED AGAINST.**
+
+| arm | target | core vs a top-*k*-by-weight heuristic |
+|---|---|---|
+| **R234** (seed 11) — *primary*, `Φ` | the full rubric's own signed-weight pairwise ordering | **top4_pos beats the core by +0.0352** |
+| **R235** (seed 29) | rubric-to-rubric | **top-4-by-mean-weight beats the core in 76 of 286 cells, the core wins 0** |
+| **R234** (seed 11) — *secondary* | **the humans' own `world` rankings** | **core 0.6593 ≥ top4_pos 0.6547**, `d = −0.0046` `[−0.0122, +0.0029]` |
+| **R231** (mine) | Full's exact weak-ordering class | core 0.3864 vs a random-4 floor 0.3836 — inside. **I never ran a top-*k*-by-weight arm at all** |
+
+**The two blind arms AGREE with each other on the rubric-to-rubric target. The sign flips only when
+the target changes from the full rubric to the people.** That is claim 2, arrived at by a designer
+who was never told claim 2 existed — and R234 named the reason *in its own pre-registration, before
+any number*:
+
+> *"the comparison is rubric-to-rubric, NOT rubric-to-human. Comparing each rubric to human rankings
+> confounds compilation loss with the judge's own error at predicting humans, and that error is
+> large."*
+
+**And R234's budget curve says something no arm of mine produced**: against the humans, the core is
+not beaten by *any* top-*k*-by-positive-weight heuristic for k = 1…10 — `top1 0.6245 · top4 0.6547 ·
+top5 0.6560 (best) · top10 0.6406`, against the core's **0.6593**. The CI contains zero, so the
+honest statement is **not-worse, never better** — but *not-worse against people* while *worse against
+the rubric* is exactly the asymmetry the arc has been missing.
+
+**R234's own primary verdict is against the core**: `Λ = 1.1420`, read as
+`budget=PARTIAL / reliability=INADMISSIBLE(>1) / prereg=INADMISSIBLE(>1)`, with a **measured**
+ceiling (split-half annotator reproducibility) rather than an assumed one — and `Λ_rel = 1.0596 > 1`
+means the core agrees with the full rubric *more* than the full rubric agrees with itself, which A
+reads as inadmissible rather than as a win. Three seeds: 1.1413 / 1.1483 / 1.1365.
+
+⚠ **R234 also warns off the decomposition I would have quoted.** Its `artifact_checks` matches
+criteria on length and on discrimination to see what explains the `Φ` gap, and reports its own
+size-matched sham beside every number: *"A restriction to a smaller candidate pool lowers Φ by
+itself. Any 'the covariate explains the gap' claim must be net of the size-matched sham, or it is a
+claim about pool size."* Net of that sham, length explains **+20.5%** of the gap and discrimination
+explains **−53.3%** — so **neither covariate cleanly explains it**, and the raw drop from `+0.0352`
+to `+0.0028` after matching is mostly pool size.
+
+**This does not overturn R249.** R249 measured *redundancy* against a generic-vocabulary control and
+found the compiler's redundancy is inherited from the text it writes. R234 measured a *performance
+gap* and found length/discrimination do not account for it. Different quantities, and both hold.
+
+---
+
+## 10 · What the blind arm established that this arc never did — `SINGLE ARM`, R235, seed 29
 
 Attributed, not absorbed. Design A has not returned and none of this is replicated here.
 
@@ -208,9 +260,34 @@ R236 issues the certificate: **NOT ADMISSIBLE, two fields FAILED.**
   identity with no inference at all.
 
   Those 303 are also the first **ground truth** this arc has had for anything: their parent is known
-  without a model. R250 uses them to calibrate how far a rewrite can travel before provenance stops
-  being recoverable — a dose curve with an MDE in text distance, replacing an assertion with a
-  measurement. `OPEN`, running on GPU task 563.
+  without a model. R250 calibrates how far a rewrite can travel before provenance stops being
+  recoverable — 298 usable items, 14,304 judgements, chance `0.0792` (mean candidate set 14.43):
+
+  | dose | text-Jaccard to parent | **behaviour route** | text route |
+  |---|---:|---:|---:|
+  | identity | 1.0000 | 0.9883 *(identity, not a test)* | 0.9883 |
+  | drop 20% | 0.7995 | **0.3031** (± 0.0436) | 0.9883 |
+  | drop 40% | 0.6000 | **0.1913** (± 0.0235) | 0.9871 |
+  | drop 60% | 0.4014 | 0.1051 (± 0.0168) | 0.9855 |
+  | first-clause truncation | 0.4621 | **0.2299** | 0.9883 |
+
+  **Provenance is recoverable by judge behaviour alone at 2.4–3.8× chance out to 40% content-token
+  deletion, and at 2.9× chance under first-clause truncation** — the direction R249 showed the
+  compiler actually travels. It reaches chance around Jaccard ≈ 0.40, which is the MDE.
+
+  ⚠ **The text route's flat 0.988 is not evidence.** Deleting tokens never *introduces* a
+  competitor's tokens, so a subset of the parent stays nearer the parent than anything else — token
+  deletion cannot kill a set-overlap matcher. Real rewriting **substitutes** words; this dose axis
+  does not. Likewise **shuffle is a null perturbation for the text route** (Jaccard is set-based),
+  which its `1.0000` distance column makes visible.
+
+  Controls: the ceiling is **computed**, not assumed — `0.9883`, because 7 of 298 parents have a
+  duplicate in their own rubric and the 1/k tie rule makes exact 1.0 unreachable. *The first
+  threshold demanded 1.0 and was the sixth control-that-cannot-pass in this arc.* The repaired
+  negative control keeps the candidate set (parent reachable) and destroys the query: **0.077–0.089
+  text, 0.047–0.055 behaviour, against chance 0.0792 — at chance at every dose.** *The first version
+  matched against a different prompt's rubric, where the parent is absent, so its 0.0000 was forced
+  by the candidate set.*
 - `transport` **NOT_MEASURED** — requires a second candidate set. Now runnable; `UNVERIFIED` at R233
   because its own floors showed the arms differ in difficulty.
 

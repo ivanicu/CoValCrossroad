@@ -183,14 +183,22 @@ def main() -> int:
                 for r_ in range(4):
                     index.append((seed, gi, dose, r_, pt))
                     tasks.append(build_prompt(pt, resp[p][r_]))
-    print("judging %d perturbed (criterion, response) pairs" % len(tasks), flush=True)
-    judge = Judge(MODEL, batch=64)
-    sat = judge.score(tasks)
-    np.savez_compressed(OUT / "perturbed.npz",
-                        meta=np.array(["%d|%d|%s|%d" % (s, g, d, r_) for s, g, d, r_, _t in index]),
-                        text=np.array([t for *_x, t in index]),
-                        sat=np.asarray(sat, dtype=np.float32))
-    print("persisted %d judgements -> results/perturbed.npz" % len(sat), flush=True)
+    cache = OUT / "perturbed.npz"
+    if cache.exists():
+        cd = np.load(cache, allow_pickle=True)
+        assert len(cd["sat"]) == len(tasks), "cache does not match the task list; delete and re-judge"
+        sat = cd["sat"]
+        print("reusing %d persisted judgements from results/perturbed.npz -- no GPU" % len(sat),
+              flush=True)
+    else:
+        print("judging %d perturbed (criterion, response) pairs" % len(tasks), flush=True)
+        judge = Judge(MODEL, batch=64)
+        sat = judge.score(tasks)
+        np.savez_compressed(cache,
+                            meta=np.array(["%d|%d|%s|%d" % (s, g, d, r_) for s, g, d, r_, _t in index]),
+                            text=np.array([t for *_x, t in index]),
+                            sat=np.asarray(sat, dtype=np.float32))
+        print("persisted %d judgements -> results/perturbed.npz" % len(sat), flush=True)
 
     V = collections.defaultdict(dict)
     TXT = {}
@@ -206,24 +214,38 @@ def main() -> int:
         y = np.array([vv[r_] for r_ in range(4)])
         pt = TXT[(seed, gi, dose)]
         for arm in ("true", "negative"):
-            pp = p if arm == "true" else shifted[gi]
-            if pp not in sf or pp not in recs:
-                continue
+            # ⚠ THE FIRST NEGATIVE CONTROL WAS STRUCTURALLY ZERO. It matched the query against a
+            # DIFFERENT prompt's rubric and then asked whether the parent was among the hits --
+            # but the parent is not in that rubric at all, so 0.0000 was forced by the candidate
+            # set, not returned by the instrument. It could not have come out otherwise.
+            # THE REPAIRED ONE keeps the CANDIDATE SET (this prompt's rubric, parent present) and
+            # destroys the QUERY: the perturbed text of a DIFFERENT ground-truth item. Recovery
+            # must fall to chance, and it CAN fail, because the parent is reachable throughout.
+            pp = p
             f2 = recs[pp]["coval_full"]
             ok2 = [i for i, it in enumerate(f2)
                    if it.get("scores") and all(sf[pp].get((i, x)) is not None for x in L)]
             if not ok2:
                 continue
+            if arm == "negative":
+                gj = (gi + 1) % len(gt)
+                if (seed, gj, dose) not in TXT or len(V[(seed, gj, dose)]) != 4:
+                    continue
+                pt = TXT[(seed, gj, dose)]
+                y = np.array([V[(seed, gj, dose)][r_] for r_ in range(4)])
+            else:
+                pt = TXT[(seed, gi, dose)]
+                y = np.array([vv[r_] for r_ in range(4)])
             # BEHAVIOUR route: nearest cached satisfaction vector, ties share credit
             d = np.array([np.abs(np.array([sf[pp][(i, x)] for x in L]) - y).sum() for i in ok2])
             best = d.min(); hits = [ok2[i] for i in np.flatnonzero(d <= best + 1e-12)]
             grid[(dose, "behaviour", arm)][seed].append(
-                (1.0 / len(hits)) if (arm == "true" and parent in hits) else 0.0)
+                (1.0 / len(hits)) if parent in hits else 0.0)
             # TEXT route: token Jaccard, ties share credit
             j = np.array([jac(pt, f2[i].get("criterion", "")) for i in ok2])
             bj = j.max(); hj = [ok2[i] for i in np.flatnonzero(j >= bj - 1e-12)]
             grid[(dose, "text", arm)][seed].append(
-                (1.0 / len(hj)) if (arm == "true" and parent in hj) else 0.0)
+                (1.0 / len(hj)) if parent in hj else 0.0)
             if arm == "true":
                 grid[(dose, "sham", "true")][seed].append(1.0 / len(ok2))
 
@@ -250,22 +272,60 @@ def main() -> int:
     print("\n=== controls ===")
     ti, _ = cell(("identity", "text", "true"))
     bi, _ = cell(("identity", "behaviour", "true"))
+    # ⚠ THE CEILING IS COMPUTED, NOT ASSUMED -- and the first version of this control assumed 1.0.
+    # With the 1/k tie rule a duplicate criterion inside a prompt's own rubric makes exact 1.0
+    # UNREACHABLE, so "must be 1.0000" was the SIXTH control-that-cannot-pass in this arc. The
+    # attainable ceiling is the mean of 1/(number of full criteria tied at maximal Jaccard to the
+    # parent), which is exact arithmetic over the ground-truth set and is computed here.
+    ceil_terms = []
+    for p_, parent, txt, ok in gt:
+        f2 = recs[p_]["coval_full"]
+        j = [jac(txt, f2[i].get("criterion", "")) for i in ok]
+        bj = max(j)
+        ceil_terms.append(1.0 / sum(1 for x in j if x >= bj - 1e-12))
+    ceiling = float(np.mean(ceil_terms))
+    n_tied = sum(1 for c in ceil_terms if c < 1.0)
+    print(" CEILING   attainable at dose 0 given the 1/k tie rule : %.4f"
+          % ceiling)
+    print("           (%d of %d ground-truth parents have a DUPLICATE in their own rubric, so exact"
+          % (n_tied, len(gt)))
+    print("            1.0000 is unreachable by construction -- the first threshold here demanded it)")
     print(" POSITIVE  dose 0, TEXT route recovers the parent : %.4f  %s"
-          % (ti, "OK" if ti > 0.999 else "MATCHER BROKEN -- identical strings must match"))
+          % (ti, "OK -- at the computed ceiling" if ti >= ceiling - 1e-9
+             else "MATCHER BROKEN -- below the attainable ceiling"))
     print(" ⚠ IDENTITY dose 0, BEHAVIOUR route              : %.4f  -- this is a TENSOR-ALIGNMENT"
           % bi)
     print("            check, not a test: same text + same response = same judge prompt, so the")
     print("            vectors MUST coincide. Evidence of nothing about reconstruction.")
-    for dose in ("identity", "drop40"):
+    print(" NEGATIVE  candidate set KEPT (parent reachable), QUERY replaced by another item's text.")
+    print("           The first version matched against a DIFFERENT prompt's rubric, where the")
+    print("           parent is absent -- 0.0000 was forced by the candidate set, not returned by")
+    print("           the instrument. It could not have come out otherwise.")
+    neg_ok = True
+    for dose in DOSES:
         nt, _ = cell((dose, "text", "negative")); nb, _ = cell((dose, "behaviour", "negative"))
-        print(" NEGATIVE  %-11s wrong prompt's rubric : text %.4f  behaviour %.4f  (must be 0)"
-              % (dose, nt, nb))
+        ch, _ = cell((dose, "sham", "true"))
+        bad = (nt > ch + 0.05) or (nb > ch + 0.05)
+        neg_ok &= not bad
+        print("   %-12s text %.4f  behaviour %.4f   chance %.4f  %s"
+              % (dose, nt, nb, ch, "LEAK" if bad else "at chance"))
+    print("\n ⚠ ARITHMETIC, LABELLED WHERE IT OCCURS -- two cells above are forced, not measured:")
+    print("   1. BEHAVIOUR at dose 0 is an identity (same text + same response = same judge prompt).")
+    print("   2. SHUFFLE is a NULL PERTURBATION FOR THE TEXT ROUTE: token-Jaccard is set-based, so")
+    print("      reordering changes nothing. Its text-distance column reads 1.0000, which is the")
+    print("      tell. The shuffle cell measures the BEHAVIOUR route only.")
+    print("   And a third, which limits what the TEXT row can claim: dropping tokens never INTRODUCES")
+    print("   a competitor's tokens, so a subset of the parent stays nearer the parent than anything")
+    print("   else. Token deletion cannot kill a set-overlap matcher. Real rewriting SUBSTITUTES")
+    print("   words, and this dose axis does not. The text route's flat curve is a property of the")
+    print("   PERTURBATION, not evidence that provenance survives rewriting.")
 
     print("\n" + "=" * 78); print("PRE-REGISTERED KILL"); print("=" * 78)
     t20, _, b20, _, ch20, _ = rows["drop20"]
     t40, ts40, b40, bs40, ch40, _ = rows["drop40"]
-    if ti <= 0.999:
-        v = "UNVERIFIED -- the text matcher fails on identical strings; no cell is readable."
+    if ti < ceiling - 1e-9 or not neg_ok:
+        v = ("UNVERIFIED -- positive %.4f vs attainable ceiling %.4f, negative-control leak %s."
+             % (ti, ceiling, not neg_ok))
     elif (t20 - ch20) <= 0 and (b20 - ch20) <= 0:
         v = ("W2 -- provenance dies at the first real edit: at 20%% token drop both routes are at "
              "or below chance (%.4f). `provenance: FAILED` stands, but as a MEASUREMENT with an "
@@ -286,7 +346,8 @@ def main() -> int:
                "rows": {d: {"text": rows[d][0], "text_spread": rows[d][1],
                             "behaviour": rows[d][2], "behaviour_spread": rows[d][3],
                             "chance": rows[d][4], "text_distance": rows[d][5]} for d in DOSES},
-               "positive_text_identity": ti, "identity_behaviour_alignment": bi,
+               "positive_text_identity": ti, "attainable_ceiling": ceiling,
+               "negative_ok": bool(neg_ok), "identity_behaviour_alignment": bi,
                "verdict": v}, open(OUT / "provenance_dose.json", "w"), indent=1)
     return 0
 

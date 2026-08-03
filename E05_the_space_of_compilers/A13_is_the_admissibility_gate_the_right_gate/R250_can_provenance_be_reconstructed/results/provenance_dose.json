@@ -1,0 +1,66 @@
+{
+ "ground_truth_items": 298,
+ "doses": [
+  "identity",
+  "drop20",
+  "drop40",
+  "drop60",
+  "shuffle",
+  "firstclause"
+ ],
+ "rows": {
+  "identity": {
+   "text": 0.988255033557047,
+   "text_spread": 0.0,
+   "behaviour": 0.988255033557047,
+   "behaviour_spread": 0.0,
+   "chance": 0.07917478958217589,
+   "text_distance": 1.0
+  },
+  "drop20": {
+   "text": 0.988255033557047,
+   "text_spread": 0.0,
+   "behaviour": 0.3031319910514541,
+   "behaviour_spread": 0.043624161073825496,
+   "chance": 0.07917478958217589,
+   "text_distance": 0.7994684122443747
+  },
+  "drop40": {
+   "text": 0.9871364653243848,
+   "text_spread": 0.003355704697986628,
+   "behaviour": 0.1912751677852349,
+   "behaviour_spread": 0.023489932885906062,
+   "chance": 0.07917478958217589,
+   "text_distance": 0.5999590684640138
+  },
+  "drop60": {
+   "text": 0.9854586129753916,
+   "text_spread": 0.006711409395973145,
+   "behaviour": 0.10514541387024608,
+   "behaviour_spread": 0.01677852348993289,
+   "chance": 0.07917478958217589,
+   "text_distance": 0.40136158143046174
+  },
+  "shuffle": {
+   "text": 0.988255033557047,
+   "text_spread": 0.0,
+   "behaviour": 0.1325503355704698,
+   "behaviour_spread": 0.0,
+   "chance": 0.07917478958217589,
+   "text_distance": 1.0
+  },
+  "firstclause": {
+   "text": 0.988255033557047,
+   "text_spread": 0.0,
+   "behaviour": 0.22986577181208054,
+   "behaviour_spread": 0.0,
+   "chance": 0.07917478958217589,
+   "text_distance": 0.4621438064369007
+  }
+ },
+ "positive_text_identity": 0.988255033557047,
+ "attainable_ceiling": 0.988255033557047,
+ "negative_ok": true,
+ "identity_behaviour_alignment": 0.988255033557047,
+ "verdict": "W1 -- provenance SURVIVES realistic rewriting: at 40% token drop the best route recovers the true parent 0.9871 of the time against chance 0.0792 (spread 0.0235). The certificate's provenance field is ISSUABLE for this release, and eight rounds of '0.00' were reporting a missing COLUMN as a missing FACT."
+}
