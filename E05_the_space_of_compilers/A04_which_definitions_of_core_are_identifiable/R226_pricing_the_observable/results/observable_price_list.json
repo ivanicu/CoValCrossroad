@@ -1,0 +1,67 @@
+{
+ "H_need": 10.414685235807214,
+ "m": 4,
+ "n_median": 15,
+ "k": 4,
+ "observables": {
+  "world_ordering": {
+   "capacity": 6.22881869049588,
+   "achieved": 5.953221084607696,
+   "miller_madow": 5.956124681023758,
+   "n": 18384,
+   "closes_gap": false,
+   "bootstrap_spread": 0.014507836742249758
+  },
+  "personal_ordering": {
+   "capacity": 6.22881869049588,
+   "achieved": 5.8362127793408805,
+   "miller_madow": 5.847104376262507,
+   "n": 4901,
+   "closes_gap": false
+  },
+  "veto_set": {
+   "capacity": 4,
+   "achieved": 3.2079716102418065,
+   "miller_madow": 3.2101793663745686,
+   "n": 4901,
+   "closes_gap": false
+  },
+  "ordering_plus_veto": {
+   "capacity": 10.228818690495881,
+   "achieved": 7.840594461946054,
+   "miller_madow": 7.91683564039744,
+   "n": 4901,
+   "closes_gap": false,
+   "bootstrap_spread": 0.0387631994710631
+  },
+  "graded_5pt_per_response": {
+   "capacity": 9.287712379549449,
+   "achieved": null,
+   "miller_madow": null,
+   "n": 0,
+   "closes_gap": false
+  },
+  "graded_10pt_per_response": {
+   "capacity": 13.287712379549449,
+   "achieved": null,
+   "miller_madow": null,
+   "n": 0,
+   "closes_gap": true
+  },
+  "pairwise_confidence_5pt": {
+   "capacity": 13.931568569324174,
+   "achieved": null,
+   "miller_madow": null,
+   "n": 0,
+   "closes_gap": true
+  },
+  "per_criterion_satisfaction": {
+   "capacity": 60.0,
+   "achieved": null,
+   "miller_madow": null,
+   "n": 0,
+   "closes_gap": true
+  }
+ },
+ "capacity_used_fraction": 0.9562205896459618
+}
