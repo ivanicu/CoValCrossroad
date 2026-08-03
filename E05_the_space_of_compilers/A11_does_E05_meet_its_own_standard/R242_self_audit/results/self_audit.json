@@ -1,0 +1,1344 @@
+{
+ "rounds": 23,
+ "per_round": {
+  "R220_compiler_tournament": {
+   "ESTIMAND": [
+    false,
+    null
+   ],
+   "IDENTIFICATION": [
+    false,
+    null
+   ],
+   "SCOPE": [
+    false,
+    null
+   ],
+   "WORLDS": [
+    false,
+    null
+   ],
+   "KILL": [
+    false,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    false,
+    false
+   ],
+   "NEGATIVE_CTRL": [
+    false,
+    false
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    false,
+    true
+   ],
+   "MULTIPLICITY": [
+    false,
+    false
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    false
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R221_contamination": {
+   "ESTIMAND": [
+    false,
+    null
+   ],
+   "IDENTIFICATION": [
+    false,
+    null
+   ],
+   "SCOPE": [
+    false,
+    null
+   ],
+   "WORLDS": [
+    false,
+    null
+   ],
+   "KILL": [
+    false,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    false,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    false,
+    true
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    false,
+    true
+   ],
+   "MULTIPLICITY": [
+    false,
+    false
+   ],
+   "SPECIFICATION": [
+    false,
+    true
+   ],
+   "SEEDS": [
+    false,
+    true
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    false,
+    null
+   ]
+  },
+  "R222_factorial": {
+   "ESTIMAND": [
+    false,
+    null
+   ],
+   "IDENTIFICATION": [
+    false,
+    null
+   ],
+   "SCOPE": [
+    false,
+    null
+   ],
+   "WORLDS": [
+    false,
+    null
+   ],
+   "KILL": [
+    false,
+    false
+   ],
+   "POSITIVE_CTRL": [
+    false,
+    false
+   ],
+   "NEGATIVE_CTRL": [
+    false,
+    false
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    false,
+    false
+   ],
+   "MULTIPLICITY": [
+    false,
+    false
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    false
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    false,
+    null
+   ]
+  },
+  "R223_the_textual_half": {
+   "ESTIMAND": [
+    false,
+    null
+   ],
+   "IDENTIFICATION": [
+    false,
+    null
+   ],
+   "SCOPE": [
+    false,
+    null
+   ],
+   "WORLDS": [
+    false,
+    null
+   ],
+   "KILL": [
+    false,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    false,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    false,
+    true
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    false,
+    true
+   ],
+   "MULTIPLICITY": [
+    false,
+    false
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    true
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    false,
+    null
+   ]
+  },
+  "R224_the_identifiability_bound": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    false,
+    null
+   ],
+   "WORLDS": [
+    false,
+    null
+   ],
+   "KILL": [
+    false,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    false,
+    false
+   ],
+   "NEGATIVE_CTRL": [
+    false,
+    false
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    false,
+    false
+   ],
+   "MULTIPLICITY": [
+    false,
+    false
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    false
+   ],
+   "ARTIFACT": [
+    false,
+    false
+   ],
+   "IMPOSSIBLE": [
+    false,
+    null
+   ]
+  },
+  "R225_do_raters_add_bits": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    true,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    true,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    true,
+    true
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    true,
+    true
+   ],
+   "MULTIPLICITY": [
+    true,
+    false
+   ],
+   "SPECIFICATION": [
+    false,
+    true
+   ],
+   "SEEDS": [
+    false,
+    true
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R226_pricing_the_observable": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    true,
+    null
+   ],
+   "KILL": [
+    false,
+    false
+   ],
+   "POSITIVE_CTRL": [
+    true,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    true,
+    true
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    true,
+    true
+   ],
+   "MULTIPLICITY": [
+    true,
+    true
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    true
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R227_two_currencies": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    true,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    true,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    true,
+    true
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    true,
+    true
+   ],
+   "MULTIPLICITY": [
+    true,
+    true
+   ],
+   "SPECIFICATION": [
+    false,
+    true
+   ],
+   "SEEDS": [
+    false,
+    true
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R228_the_largest_core_this_release_can_carry": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    true,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    true,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    true,
+    true
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    true,
+    true
+   ],
+   "MULTIPLICITY": [
+    true,
+    false
+   ],
+   "SPECIFICATION": [
+    false,
+    true
+   ],
+   "SEEDS": [
+    false,
+    true
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R230_the_class_not_the_member": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    true,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    false,
+    false
+   ],
+   "NEGATIVE_CTRL": [
+    false,
+    false
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    false,
+    true
+   ],
+   "MULTIPLICITY": [
+    false,
+    false
+   ],
+   "SPECIFICATION": [
+    false,
+    true
+   ],
+   "SEEDS": [
+    false,
+    true
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    false,
+    null
+   ]
+  },
+  "R231_the_official_cores_class": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    true,
+    null
+   ],
+   "KILL": [
+    false,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    false,
+    false
+   ],
+   "NEGATIVE_CTRL": [
+    false,
+    false
+   ],
+   "PLACEBO": [
+    true,
+    true
+   ],
+   "NOISE_FLOOR": [
+    true,
+    true
+   ],
+   "MULTIPLICITY": [
+    true,
+    true
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    false
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R237_the_noisy_channel_bound": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    true,
+    null
+   ],
+   "KILL": [
+    false,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    false,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    false,
+    true
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    true,
+    true
+   ],
+   "MULTIPLICITY": [
+    true,
+    true
+   ],
+   "SPECIFICATION": [
+    false,
+    true
+   ],
+   "SEEDS": [
+    false,
+    true
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R239_global_vs_per_prompt": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    false,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    false,
+    false
+   ],
+   "NEGATIVE_CTRL": [
+    false,
+    false
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    false,
+    false
+   ],
+   "MULTIPLICITY": [
+    false,
+    false
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    false
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    false,
+    null
+   ]
+  },
+  "R229_the_control_band": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    true,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    true,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    true,
+    true
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    true,
+    true
+   ],
+   "MULTIPLICITY": [
+    false,
+    false
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    false
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R232_wall_audit": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    false,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    true,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    true,
+    true
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    false,
+    false
+   ],
+   "MULTIPLICITY": [
+    true,
+    false
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    false
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R233_fresh_candidate_transport": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    true,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    true,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    true,
+    false
+   ],
+   "PLACEBO": [
+    true,
+    true
+   ],
+   "NOISE_FLOOR": [
+    false,
+    true
+   ],
+   "MULTIPLICITY": [
+    false,
+    true
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    false
+   ],
+   "ARTIFACT": [
+    true,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R238_difficulty_matched": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    true,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    true,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    true,
+    true
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    true,
+    true
+   ],
+   "MULTIPLICITY": [
+    false,
+    true
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    false
+   ],
+   "ARTIFACT": [
+    false,
+    false
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R241_find_a_valid_stratifier": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    false,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    true,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    true,
+    true
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    true,
+    true
+   ],
+   "MULTIPLICITY": [
+    true,
+    true
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    false
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R234_independent_A": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    true,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    true,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    true,
+    true
+   ],
+   "PLACEBO": [
+    true,
+    true
+   ],
+   "NOISE_FLOOR": [
+    true,
+    true
+   ],
+   "MULTIPLICITY": [
+    true,
+    true
+   ],
+   "SPECIFICATION": [
+    true,
+    false
+   ],
+   "SEEDS": [
+    false,
+    false
+   ],
+   "ARTIFACT": [
+    true,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R235_independent_B": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    false,
+    null
+   ],
+   "WORLDS": [
+    true,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    true,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    true,
+    true
+   ],
+   "PLACEBO": [
+    true,
+    true
+   ],
+   "NOISE_FLOOR": [
+    true,
+    true
+   ],
+   "MULTIPLICITY": [
+    false,
+    true
+   ],
+   "SPECIFICATION": [
+    true,
+    false
+   ],
+   "SEEDS": [
+    false,
+    true
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R236_certificate_for_the_official_core": {
+   "ESTIMAND": [
+    false,
+    null
+   ],
+   "IDENTIFICATION": [
+    false,
+    null
+   ],
+   "SCOPE": [
+    false,
+    null
+   ],
+   "WORLDS": [
+    false,
+    null
+   ],
+   "KILL": [
+    false,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    false,
+    false
+   ],
+   "NEGATIVE_CTRL": [
+    false,
+    false
+   ],
+   "PLACEBO": [
+    false,
+    false
+   ],
+   "NOISE_FLOOR": [
+    false,
+    true
+   ],
+   "MULTIPLICITY": [
+    false,
+    false
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    false
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    false,
+    null
+   ]
+  },
+  "R240_fit_a_global_core": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    true,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    true,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    true,
+    true
+   ],
+   "PLACEBO": [
+    true,
+    false
+   ],
+   "NOISE_FLOOR": [
+    false,
+    true
+   ],
+   "MULTIPLICITY": [
+    false,
+    false
+   ],
+   "SPECIFICATION": [
+    false,
+    true
+   ],
+   "SEEDS": [
+    false,
+    true
+   ],
+   "ARTIFACT": [
+    true,
+    false
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  },
+  "R242_self_audit": {
+   "ESTIMAND": [
+    true,
+    null
+   ],
+   "IDENTIFICATION": [
+    true,
+    null
+   ],
+   "SCOPE": [
+    true,
+    null
+   ],
+   "WORLDS": [
+    false,
+    null
+   ],
+   "KILL": [
+    true,
+    true
+   ],
+   "POSITIVE_CTRL": [
+    true,
+    true
+   ],
+   "NEGATIVE_CTRL": [
+    true,
+    true
+   ],
+   "PLACEBO": [
+    false,
+    true
+   ],
+   "NOISE_FLOOR": [
+    false,
+    true
+   ],
+   "MULTIPLICITY": [
+    false,
+    true
+   ],
+   "SPECIFICATION": [
+    false,
+    false
+   ],
+   "SEEDS": [
+    false,
+    false
+   ],
+   "ARTIFACT": [
+    false,
+    true
+   ],
+   "IMPOSSIBLE": [
+    true,
+    null
+   ]
+  }
+ },
+ "gaps": 8,
+ "declared_total": 151,
+ "checkable": 207,
+ "evidenced": 123,
+ "verdict": "8 declared-but-not-evidenced items across 23 rounds (3.9% of checkable cells). The audit detects, and its ceiling is named: it measures PRESENCE, never QUALITY -- R238 declared and implemented a positive control that was worthless, and this scores that round compliant."
+}
