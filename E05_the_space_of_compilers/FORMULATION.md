@@ -1,5 +1,44 @@
 # What a "core" is — the formulation, stated once
 
+## ⛔ THE FITTED ARMS' ADVANTAGE VANISHES WHERE THE ANNOTATOR HALVES DISAGREE (R295)
+
+The three admitted fitted arms carry the campaign's largest clause-② margins, and clause ③ passes
+for them by its own words: the evaluation annotator (parity 0) **is** held out from the construction
+(parity 1). **But the split is by ANNOTATOR while the selection is PER PROMPT** — the fit sees this
+prompt's human labels, just a different half of them, and the halves agree at 0.5520 against a
+measured chance of 0.3833.
+
+**Clause-② margin by quintile of within-prompt half-agreement:**
+
+| arm | Q1 (halves disagree) | Q3 | Q5 (halves agree) | slope/sd |
+|---|---:|---:|---:|---:|
+| `oracle_k4_fit1` | **−0.0054** | +0.0633 | **+0.0815** | +0.0337 |
+| `greedy_k4_fit1` | **+0.0011** | +0.0640 | **+0.0763** | +0.0297 |
+| `indep_k4_fit1` | **−0.0019** | +0.0450 | **+0.0604** | +0.0252 |
+| `coval_core` (unfitted) | +0.0083 | +0.0078 | +0.0322 | +0.0085 |
+| `topw_k4` (unfitted) | +0.0066 | +0.0188 | +0.0182 | +0.0046 |
+
+> **W-LEAK.** In the quintile where the two annotator halves disagree, **all three fitted arms have
+> no advantage at all.** The unfitted arms are roughly flat. Excess slope over the unfitted floor:
+> +0.0252 / +0.0211 / +0.0167 against a floor CI width of 0.0156 — **all three clear it.**
+>
+> **Clause ③ must say "held out from the PROMPT", not merely "from the construction."** A core
+> selected using any of a prompt's own human labels is not producible from the conversation, which
+> is the input class the rest of the definition is about.
+
+⚠ **The positive control failed, and its failure is the mechanism.** I pre-registered that the
+fully-leaky `oracle_k4` must show the **steepest slope**. It does not (+0.0215 vs +0.0337). The
+correct prediction is the opposite: `oracle_k4` was fitted on **all** annotators including parity 0,
+so it does not *need* the halves to agree — **full leakage BYPASSES the boundary and shows as a high
+INTERCEPT** (+0.0441 in Q1, where every other arm is near zero), while leakage *through* the boundary
+shows as a **slope**. Corrected control — highest Q1 margin — passes, and identifies `oracle_k4`.
+
+⚠ **The KILL's set had the same defect**: it required all four fitted arms to clear, including the
+one this round had just shown uses a different route. **As pre-registered: `False`. On the three
+arms it is about: `True`.** Both are printed; neither is discarded.
+
+---
+
 ## 🔷 THE DEFINITION AGAINST EVERY OBJECT THE BENCHMARK CONTAINS (R294)
 
 **41 judged arms, not the nine the definition was developed against. 8 admitted (19.5%).**
