@@ -49,7 +49,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--rule", required=True,
                     choices=["random_k", "topw_k", "topabs_k", "oracle_k", "full",
-                             "topvar_k", "topwvar_k"])
+                             "topvar_k", "topwvar_k", "indep_k", "greedy_k"])
     ap.add_argument("--k", type=int, default=4)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--fit-parity", type=int, default=-1,
@@ -71,7 +71,7 @@ def main():
 
     # human target, for the ORACLE arm only
     tgt = {}
-    if a.rule == "oracle_k":
+    if a.rule in ("oracle_k", "indep_k", "greedy_k"):
         for line in open(ROOT / "data" / "comparisons.jsonl", encoding="utf-8"):
             if not line.strip():
                 continue
@@ -120,6 +120,30 @@ def main():
             sel = sorted(ok, key=lambda i: -(abs(w[i]) * var[i]))[:a.k]
         elif a.rule == "topabs_k":
             sel = sorted(ok, key=lambda i: -abs(w[i]))[:a.k]
+        elif a.rule == "indep_k":
+            # SET-AWARENESS SEPARATOR, arm 1. Score every criterion INDEPENDENTLY by how
+            # well the singleton {i} reproduces the fit-half's modal class, then take the
+            # top k. Fitted exactly like the oracle, but blind to interactions -- so the
+            # oracle-minus-indep difference isolates SET STRUCTURE from mere fitting.
+            t_ = tgt.get(pid)
+            if t_ is None:
+                continue
+            def agree(idxs):
+                y = np.array([sum(sat[pid][(i, x)] for i in idxs) for x in L])
+                return sum(cls(y)[q] == t_[q] for q in range(6))
+            sel = sorted(ok, key=lambda i: -agree([i]))[:a.k]
+        elif a.rule == "greedy_k":
+            # arm 2: sequential, each pick CONDITIONAL on those already chosen.
+            t_ = tgt.get(pid)
+            if t_ is None:
+                continue
+            def agree(idxs):
+                y = np.array([sum(sat[pid][(i, x)] for i in idxs) for x in L])
+                return sum(cls(y)[q] == t_[q] for q in range(6))
+            sel = []
+            for _ in range(min(a.k, len(ok))):
+                rest = [i for i in ok if i not in sel]
+                sel.append(max(rest, key=lambda i: agree(sel + [i])))
         else:                                    # oracle: leaky upper bound, labelled
             t = tgt.get(pid)
             if t is None:
@@ -148,7 +172,8 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     tag = f"{a.rule}" + ("" if a.rule == "full" else f"{a.k}") + \
           (f"_s{a.seed}" if a.rule == "random_k" else "") + \
-          (f"_fit{a.fit_parity}" if a.rule == "oracle_k" and a.fit_parity >= 0 else "")
+          (f"_fit{a.fit_parity}" if a.rule in ("oracle_k", "indep_k", "greedy_k")
+           and a.fit_parity >= 0 else "")
     np.savez_compressed(out / f"sat_{tag}.npz", meta=np.array(meta),
                         sat=np.array(vals, np.float32))
     (out / f"core_{tag}.json").write_text(json.dumps(texts))
