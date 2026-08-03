@@ -41,6 +41,14 @@ from __future__ import annotations
 import hashlib, json, pathlib, subprocess, sys, tempfile, textwrap
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+# ⚠ CAPTURED ONCE, AT IMPORT, AND NEVER RE-GLOBBED. The repair below restores the epoch
+# directories with `git checkout`, and the first version worked out WHICH ones by globbing
+# `E0*` AT REPAIR TIME -- i.e. from the already-mutilated tree. A subject that had moved an
+# epoch aside made that epoch invisible to its own restore, so the repair silently skipped
+# exactly the directory that needed repairing. Result: FOUR OF FIVE EPOCHS, 1,075 files,
+# deleted from the working tree, recoverable only because everything was committed.
+# An enumeration used to REPAIR damage must never be taken from the damaged thing.
+EPOCHS = sorted(p.name for p in ROOT.glob("E0*") if p.is_dir())
 HERE = ROOT / "assurance"
 PY = str(ROOT / ".venv" / "bin" / "python")
 SELF = pathlib.Path(__file__).resolve()
@@ -115,19 +123,19 @@ def main():
         # sweep in which one subject mutates the next one's world is not measuring the subjects.
         # The object contradicted the instrument and the object won.
         dirty = subprocess.run(["git", "status", "--porcelain", "--"] +
-                               [str(p.name) for p in ROOT.glob("E0*")],
+                               EPOCHS,
                                cwd=ROOT, capture_output=True, text=True).stdout.strip()
         if dirty:
             interference.append(f"{s.name}: tree dirty BEFORE this subject ran")
-            subprocess.run(["git", "checkout", "--"] + [str(p.name) for p in ROOT.glob("E0*")],
+            subprocess.run(["git", "checkout", "--"] + EPOCHS,
                            cwd=ROOT, capture_output=True)
         rc, files = run_traced(s)
         after = subprocess.run(["git", "status", "--porcelain", "--"] +
-                               [str(p.name) for p in ROOT.glob("E0*")],
+                               EPOCHS,
                                cwd=ROOT, capture_output=True, text=True).stdout.strip()
         if after:
             interference.append(f"{s.name}: LEFT the round tree dirty")
-            subprocess.run(["git", "checkout", "--"] + [str(p.name) for p in ROOT.glob("E0*")],
+            subprocess.run(["git", "checkout", "--"] + EPOCHS,
                            cwd=ROOT, capture_output=True)
         # restore anything the run wrote -- these scripts regenerate artifacts, and running an
         # auditor must never be how an artifact changes. This is the same protection the last
