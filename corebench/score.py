@@ -332,13 +332,16 @@ def main():
     ap.add_argument("--sat", required=True)
     ap.add_argument("--label", default="coval_core")
     ap.add_argument("--out", default="corebench/results/leaderboard.json")
+    ap.add_argument("--core-json", default=None,
+                    help="{pid: [criterion,...]} for a core that is not `coval_core`")
     a = ap.parse_args()
 
     from covalx.judge import load_join
     joined = load_join(ROOT / "data" / "comparisons.jsonl",
                        ROOT / "data" / "conversation_rubrics.jsonl")
-    core_texts = {p: [i["criterion"] for i in (r.get("coval_core") or [])]
-                  for p, _pr, r in joined}
+    core_texts = (json.loads(pathlib.Path(a.core_json).read_text()) if a.core_json
+                  else {p: [i["criterion"] for i in (r.get("coval_core") or [])]
+                        for p, _pr, r in joined})
     full_texts = {p: [i["criterion"] for i in (r.get("coval_full") or [])]
                   for p, _pr, r in joined}
     sat = load_sat(a.sat)
