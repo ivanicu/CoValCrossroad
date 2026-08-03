@@ -1,0 +1,51 @@
+{
+ "prompts": 968,
+ "placebo": 1.0,
+ "ceiling": 1.0,
+ "ceiling_cells": {
+  "base|phi": 0.23863636363636365,
+  "base|qwen3b": 0.23863636363636365,
+  "phi|qwen3b": 0.2303719008264463
+ },
+ "floor": 0.3821280991735537,
+ "floor_draws": [
+  0.4059917355371901,
+  0.3853305785123967,
+  0.371900826446281,
+  0.3987603305785124,
+  0.3760330578512397,
+  0.3677685950413223,
+  0.390495867768595,
+  0.3925619834710744,
+  0.36983471074380164,
+  0.36363636363636365,
+  0.384297520661157,
+  0.39669421487603307,
+  0.3977272727272727,
+  0.3760330578512397,
+  0.38016528925619836,
+  0.37913223140495866,
+  0.38016528925619836,
+  0.3760330578512397,
+  0.36260330578512395,
+  0.38739669421487605
+ ],
+ "grid": {
+  "core_vs_full_same_judge|base": 0.38636363636363635,
+  "core_vs_human|base": 0.15289256198347106,
+  "full_vs_human|base": 0.20041322314049587,
+  "core_vs_full_same_judge|phi": 0.2892561983471074,
+  "core_vs_human|phi": 0.16735537190082644,
+  "full_vs_human|phi": 0.16322314049586778,
+  "core_vs_full_same_judge|qwen3b": 0.3068181818181818,
+  "core_vs_human|qwen3b": 0.16735537190082644,
+  "full_vs_human|qwen3b": 0.18801652892561985,
+  "core_vs_full_same_judge|swapped": 0.43,
+  "core_vs_human|swapped": 0.16,
+  "full_vs_human|swapped": 0.19666666666666666,
+  "core_vs_full_same_judge|no_fewshot": 0.33,
+  "core_vs_human|no_fewshot": 0.05333333333333334,
+  "full_vs_human|no_fewshot": 0.10666666666666667
+ },
+ "verdict": "On Q = reproduce Full's exact weak ordering, the official core scores 0.3864 against a random-4 floor of 0.3821 [0.3626, 0.4060] -- a difference of +0.0042, INSIDE the floor's own draw spread. On THIS Q the official core is indistinguishable from picking four criteria at random. R220 measured the opposite on a DIFFERENT Q (predicting human pairwise preferences: core 0.6602 against a random range of 0.645-0.659), and both are correct -- which is the C6 claim, measured: the answer is a function of Q. Against the humans' own consensus class the core is 0.1529 and the full rubric 0.2004."
+}

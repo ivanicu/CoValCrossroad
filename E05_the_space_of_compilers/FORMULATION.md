@@ -336,6 +336,38 @@ prompt fragility in general.
 | Q4 R256 λ₁ excess | 0.1432 | 0.1423 | **CONFIRMED** |
 | Q4b R256 rank-1 class | 0.4320 | 0.4200 | **OVERTURNED** |
 
+### The hierarchy of error on that one number, measured (R266)
+
+Three axes were reported today and nobody asked **which binds**. They have different remedies —
+draw noise is bought with compute, instrument noise is not bought with anything this release
+carries.
+
+| DRAWS | floor mean | seed spread | gap (core − floor) |
+|---:|---:|---:|---:|
+| 10 | 0.3819 | 0.0096 | +0.0045 |
+| 20 *(R231's committed value)* | 0.3833 | 0.0075 | +0.0031 |
+| 100 | 0.3835 | 0.0024 | +0.0029 |
+| **200** | 0.3829 | **0.0034** | **+0.0035** |
+
+| source | size | vs the residual |
+|---|---:|---:|
+| residual **draw** spread at 200 | 0.0034 | 1× |
+| **label order** (R257) | 0.0378 | **11.1×** |
+| **batch bf16 noise** (R260) | 0.0568 | **16.7×** |
+| **the gap itself** | **+0.0035** | 1.0× |
+
+**The effect is the same size as the smallest noise source and one sixteenth of the largest.** The
+gap's sign is stable at `+` across all five draw levels once draw noise is removed — **and it is
+still not resolvable**, because the two axes compute cannot touch are an order larger.
+
+> ⛔ **"More draws would settle it" is forbidden.** What R231 needs is a second instrument, and the
+> release does not carry one — R164's variant tensors cover the full and core sets, not the
+> arbitrary subsets the floor draws from.
+
+Controls: the forced `1/√DRAWS` law holds (2.82 against a predicted 4.47, a harness check and not
+evidence); the floor's **mean does not drift** (0.0022 against the DRAWS=10 spread of 0.0096), so
+`DRAWS` changes precision and not the estimand; `DRAWS=20` lands inside R262's measured band.
+
 ⛔ **Q1 is now overturned or unresolvable on THREE independent axes** — label order (here), measured
 batch noise (R260: interval contains 0), and `PYTHONHASHSEED` (R261: the sign flips between seeds 2
 and 3). Three unrelated sources of arbitrariness, one conclusion: **`0.3864` against `0.3836` was
