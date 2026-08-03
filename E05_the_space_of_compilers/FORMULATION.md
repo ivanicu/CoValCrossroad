@@ -411,6 +411,15 @@ prompt share their criteria), clustered bootstrap, 1000 resamples:
 co-prompt pairs share *no content word at all*, yet their judgements agree. **Whatever makes this
 rubric redundant, it is mostly not shared vocabulary.**
 
+**And a fourth property was tried and retracted the same day.** R256 found a common factor above
+its measured null (λ₁ excess **+0.1394**, permutation null 0.6210) but carrying the *decision* on
+only **0.4440** of prompts. Its core-vs-full contrast — core 0.6000, full 0.4440 — **is a size
+effect** (R258): the statistic falls **1.0000 → 0.6322 → 0.5458 → 0.5134 → 0.4886 → 0.4740** for
+k = 1…6 **by construction**, because a 1-row subset *is* rank one. At matched size the core scores
+0.6000 against random-4's **0.5134**, `+0.0866` inside a draw spread of **0.2148**. And the
+cross-prompt sham tracks random almost exactly (0.5192 vs 0.5134) — **the statistic is structure-free
+geometry of k rows in 4 dimensions.**
+
 ⛔ **And neither mechanism closes it.** R255's generic vocabulary is *less* discriminating than the
 full rubric (0.0951 vs 0.1043), which fits saturation — but R234 measured the **core** as *more*
 discriminating than the full rubric (`core/full sd = 1.1047`). **The core matches the generic
