@@ -1,0 +1,37 @@
+{
+  "annotator_order": [
+    "coval_core",
+    "topw_k4",
+    "gen",
+    "full",
+    "topwvar_k4",
+    "topabs_k4",
+    "topvar_k4"
+  ],
+  "inversions": [],
+  "prompt_order": [
+    "coval_core",
+    "topw_k4",
+    "gen",
+    "full",
+    "topwvar_k4",
+    "topabs_k4",
+    "topvar_k4"
+  ],
+  "source_sha256_16": "6ec56179fb71ee42",
+  "surviving": {
+    "annotator": [
+      53,
+      55,
+      20,
+      21
+    ],
+    "prompt": [
+      47,
+      55,
+      18,
+      21
+    ]
+  },
+  "verdict": "WORLD A -- the ordering is UNIT-ROBUST; the day's prompt-default was harmless"
+}
