@@ -1,0 +1,55 @@
+{
+ "source_sha": "ec80b1ef7d7a5fff",
+ "coverage_before": [
+  305,
+  305
+ ],
+ "coverage_after": [
+  305,
+  305
+ ],
+ "rows": 305,
+ "readmes_created": [],
+ "readmes_updated": [
+  "A01_can_this_release_be_analysed_at_all",
+  "A02_which_aggregation_rule",
+  "A03_is_the_attribution_real_and_against_what_floor",
+  "A04_structured_plurality_or_reliability",
+  "A05_what_coval_core_mechanically_is",
+  "A06_does_the_protocol_have_the_power_it_needs",
+  "A07_can_a_local_judge_be_an_instrument",
+  "A08_what_floor_each_counterfactual_requires",
+  "A09_can_direction_be_read_from_text_alone",
+  "A10_what_the_resampling_unit_is",
+  "A11_how_wide_every_interval_really_is",
+  "A12_who_pays_for_compilation",
+  "A13_the_chain_from_a_person_to_the_standard",
+  "A14_do_our_own_claims_survive_an_adversary",
+  "A15_is_the_detection_design_well_defined_and_checkable",
+  "A16_what_a_compiler_is_and_what_its_operations_cost",
+  "A17_which_definitions_of_core_are_identifiable",
+  "A18_the_candidate_set_wall_was_wrong",
+  "A19_triple_blind",
+  "A20_is_a_global_core_real",
+  "A21_missing_weight_semantics",
+  "A22_does_this_epochs_own_method_hold_up",
+  "A23_is_the_admissibility_gate_the_right_gate",
+  "A24_what_the_definition_costs"
+ ],
+ "slug_fallbacks": [
+  "A04_structured_plurality_or_reliability/R25_actor_dyad_sweep",
+  "A06_does_the_protocol_have_the_power_it_needs/R45_protocol_freeze",
+  "A07_can_a_local_judge_be_an_instrument/R56_semantic_selectivity",
+  "A12_who_pays_for_compilation/R124_negative_quarter",
+  "A12_who_pays_for_compilation/R125_weight_discard",
+  "A12_who_pays_for_compilation/R126_sham_ladder",
+  "A12_who_pays_for_compilation/R128_style_or_content",
+  "A12_who_pays_for_compilation/R129_contested_criteria",
+  "A12_who_pays_for_compilation/R140_polarity_without_the_judge",
+  "A13_the_chain_from_a_person_to_the_standard/R143_flagship",
+  "A13_the_chain_from_a_person_to_the_standard/R164_instrument",
+  "A19_triple_blind/R234_independent_A",
+  "A19_triple_blind/R235_independent_B",
+  "A23_is_the_admissibility_gate_the_right_gate/R283_is_there_headroom_above_a_constant"
+ ]
+}

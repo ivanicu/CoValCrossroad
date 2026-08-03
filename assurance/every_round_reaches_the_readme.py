@@ -73,7 +73,28 @@ def main() -> int:
         if not res:
             continue
         with_results += 1
-        if d.name not in readme:
+        # ⚠ PROXY LEDGER ENTRY, 2026-08-03 — this proxy went stale under the project's own layout.
+        #   PROPERTY     a round that ran is REACHABLE by a reader from an index.
+        #   PROXY (old)  its directory name occurs in the ROOT README.md.
+        #   WHY IT BROKE the root README was a per-round table for 34 of its 40 revisions, and
+        #                stopped being one at 3d14d1b (2026-08-02, "Restructured 217 rounds into
+        #                epochs and arcs"). It is an EPOCH summary now, by design. P16 puts a
+        #                round's home in its ARC's README: "campaign READMEs are tables of
+        #                contents". So the proxy kept testing a layout the project had left.
+        #   PROXY (new)  its directory name occurs in the root README **or in its OWN arc's
+        #                README** — its own arc, not any arc, because a round mentioned under
+        #                somebody else's decision is not reachable, it is misfiled.
+        #   IMPLICATION  absent from both => genuinely unreachable. Present => reachable from an
+        #                index, and NOTHING about whether that index line is accurate; that is
+        #                `readme_agrees_with_results.py`.
+        # ⚠ AND READ THE PASS HONESTLY: this check passes today because
+        # `generate_round_index.py` wrote those arc tables in the same session. That is a
+        # CONSTRUCTION, not a discovery, and it is weak evidence of the property. Its real and
+        # ongoing power is forward-looking: a NEW round added without regenerating the index
+        # still fails here, which is the only thing that keeps the index from rotting.
+        arc_readme = d.parent / "README.md"
+        arc_txt = arc_readme.read_text(errors="ignore") if arc_readme.exists() else ""
+        if d.name not in readme and d.name not in arc_txt:
             missing.append((d.name, len(res)))
 
     # A round with NO CODE is invisible to every enumeration in this package,
