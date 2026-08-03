@@ -10,6 +10,28 @@
 defensible agreement targets and got **four different admitted sets**. `predicts held-out human
 judgement` is underdetermined on this release; the statistic is part of the definition.
 
+**And the choice of *that* statistic is now argued rather than inherited** (R289). Its closest rival,
+`A2·consensus`, agrees on the ordering at **Kendall τ = +0.956** and admits the same two arms — so
+the two cannot be separated on what they say, only on how much they can say:
+
+| target | measured chance | ceiling | band | **pairs RESOLVED** | median \|gap\|/MDE |
+|---|---:|---:|---:|---:|---:|
+| **A2 · annotator** | 0.4308 | 0.5519 | 0.1211 | **36 / 45** | **2.56** |
+| A2 · consensus | 0.4895 | 0.6671 | 0.1776 | 34 / 45 | 2.25 |
+
+> **The wider band resolves LESS**, which is the part worth keeping: `A2·annotator` averages over
+> ~16 annotator comparisons per prompt, shrinking per-prompt variance, while `A2·consensus` is a
+> single vector per prompt. **Denoising the TARGET does not compensate for losing the averaging over
+> the COMPARISONS.** The incumbent turned out to be the defensible choice — but it was defensible by
+> accident until it was measured, and the kill was written so it would have had to change.
+
+Controls: self-comparison exactly 0 under both; the same random rule at two seeds unresolved under
+both (−0.0055 vs MDE 0.0140; −0.0096 vs MDE 0.0229). 74 of 90 cells survive BH.
+
+⚠ **Resolving power says nothing about whether either target is the right GOAL.** A sharper
+instrument pointed at the wrong thing is sharper. Construct validity remains **structurally
+impossible here** — it needs an external criterion the release does not carry.
+
 **Why both clauses are worded against a named object rather than against "chance".** R285 measured
 chance directly, by drawing the comparison partner from a *different* prompt: **0.3833** human-vs-
 human, **0.4257** for `random_k4` vs human. **Every arm in this benchmark is above chance** — so a

@@ -1,0 +1,29 @@
+{
+ "source_sha": "52f573d05f7e9f95",
+ "n_prompts": 968,
+ "chance": {
+  "A2\u00b7annotator": [
+   0.4307887043977945,
+   0.007705152148276621
+  ],
+  "A2\u00b7consensus": [
+   0.4895491036340725,
+   0.008727614362409177
+  ]
+ },
+ "ceiling": {
+  "A2\u00b7annotator": 0.5518804915980327,
+  "A2\u00b7consensus": 0.6671392904078607
+ },
+ "resolved": {
+  "A2\u00b7annotator": 36,
+  "A2\u00b7consensus": 34
+ },
+ "tau": 0.9555555555555556,
+ "median_ratio": {
+  "A2\u00b7annotator": 2.5594693033715954,
+  "A2\u00b7consensus": 2.247442411721036
+ },
+ "winner": "A2\u00b7annotator",
+ "target_changes": false
+}

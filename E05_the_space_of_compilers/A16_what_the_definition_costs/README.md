@@ -21,6 +21,7 @@ contents only** — every finding, its interval and its scope live in `E05/FORMU
 | `R286` is clause 2 a property of the baseline | does the clause measure cores, or my generic vocabulary? |
 | `R287` how much selection may a baseline have | the last unresolved row, and what a baseline is allowed to be |
 | `R288` does the partition survive the target | six agreement statistics, four admitted sets |
+| `R289` which target earns the definition | can naming A2·annotator be argued rather than inherited? |
 
 ## Why the arc was opened rather than folded into A13
 
