@@ -30,6 +30,25 @@ sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / "corebench"))
 SEEDS, NBOOT, Q = [0, 1, 2], 2000, 0.05
 from score import load_sat, load_targets
 from compare import per_prompt_hits
+import itertools as _it
+_PAIRS = list(_it.combinations(range(4), 2))
+from score import yvec as _yv, cls as _cls
+
+def per_prompt_a2(sat, targets, seed):
+    """A2 = pairwise accuracy over the 6 response pairs. Graded where A1 is
+    all-or-nothing, base rate 0.5 against A1's ~0.06. The A1 matrix showed a flat top tier;
+    the retraction that followed is why this exists."""
+    rng = np.random.default_rng(seed)
+    out = {}
+    for p in sat:
+        if p not in targets or len(targets[p]) < 2:
+            continue
+        y = _yv(sat[p], sorted({i for i, _ in sat[p]}))
+        v = targets[p]
+        hy = np.array(v[int(rng.integers(len(v)))][0], float)
+        c, h = _cls(y), _cls(hy)
+        out[p] = float(np.mean([c[q] == h[q] for q in range(6)]))
+    return out
 
 ARMS = ["coval_core", "topw_k4", "gen", "topabs_k4", "topwvar_k4", "topvar_k4",
         "full", "random_k4_s0", "gen_sham", "oracle_k4_fit1", "indep_k4_fit1"]
@@ -44,7 +63,8 @@ def main():
         p = ROOT / "corebench" / "results" / f"sat_{a}.npz"
         if not p.exists():
             print(f"    (missing {a})"); continue
-        H[a] = [per_prompt_hits(load_sat(p), targets, s) for s in SEEDS]
+        fn = per_prompt_a2 if "--a2" in sys.argv else per_prompt_hits
+        H[a] = [fn(load_sat(p), targets, s) for s in SEEDS]
     arms = [a for a in ARMS if a in H]
 
     abs_a1 = {a: float(np.mean([np.mean(list(h.values())) for h in H[a]])) for a in arms}
@@ -68,8 +88,9 @@ def main():
         if res[i][5] <= Q * rank / C:
             surv = set(order[:rank])
 
-    print(f"\n  arms {len(arms)} | pairs {C} | BH q={Q} over the WHOLE grid\n")
-    print(f"    {'arm':<18}{'A1':>9}")
+    DIM = "A2 pairwise" if "--a2" in sys.argv else "A1 exact-class"
+    print(f"\n  DIMENSION: {DIM}   arms {len(arms)} | pairs {C} | BH q={Q} over the WHOLE grid\n")
+    print(f"    {'arm':<18}{DIM.split()[0]:>9}")
     for a in sorted(arms, key=lambda z: -abs_a1[z]):
         tag = "  (incompetent by design)" if a in INCOMPETENT else (
               "  (LEAKY upper bound)" if a in LEAKY else "")
