@@ -24,9 +24,31 @@ import sys
 
 HERE = pathlib.Path(__file__).resolve().parent
 
+# ⚠ PATH RESOLUTION, REPAIRED 2026-08-03. This read `HERE / rnd / "results" / fn`, i.e. it expected
+# the round directories to be direct children of this script. They have not been since the E/A/R
+# migration put them under `E0*/A*/`. The script therefore loaded NOTHING and wrote an EMPTY
+# artifact over a good one -- and its summary line said "came back clean", which is the
+# `empty population passes` signature: a gate reporting success having examined nothing.
+# Two fixes, because the first will break again and the second will not:
+#   1. resolve a round by SEARCHING the epoch tree, so moving an arc cannot break it;
+#   2. REFUSE to write the artifact when the population is empty -- exit 2, never 0.
+ROOT = HERE.parent
+
+
+def round_results(rnd: str, fn: str):
+    """Path to <round>/results/<fn>, wherever that round currently lives in the E/A/R tree."""
+    hits = sorted(ROOT.glob(f"E0*/A*/{rnd}/results/{fn}"))
+    if not hits:
+        direct = HERE / rnd / "results" / fn          # the pre-migration layout, still honoured
+        return direct if direct.exists() else None
+    return hits[0]
+
+
 
 def load(name: str, *parts: str):
-    p = HERE / name / "results" / parts[0]
+    p = round_results(name, parts[0])
+    if p is None:
+        return None
     if not p.exists():
         return None
     d = json.loads(p.read_text())
@@ -154,6 +176,10 @@ def main() -> int:
               f"{abs(c['a'] - c['b']):.5f}  tol {c['tol']}")
         if not c["ok"]:
             print(f"         why they should match: {c['why']}")
+    if not CHECKS:
+        print("  REFUSING TO WRITE: 0 checks resolved. Empty population is a broken input path, "
+              "not agreement. consistency.json left untouched.")
+        raise SystemExit(2)
     (HERE / "consistency.json").write_text(json.dumps(CHECKS, indent=1, default=float))
     return 0 if ok == comp else 1
 

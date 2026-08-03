@@ -20,6 +20,26 @@ import pathlib
 from collections import Counter
 
 HERE = pathlib.Path(__file__).resolve().parent
+
+# ⚠ PATH RESOLUTION, REPAIRED 2026-08-03. This read `HERE / rnd / "results" / fn`, i.e. it expected
+# the round directories to be direct children of this script. They have not been since the E/A/R
+# migration put them under `E0*/A*/`. The script therefore loaded NOTHING and wrote an EMPTY
+# artifact over a good one -- and its summary line said "came back clean", which is the
+# `empty population passes` signature: a gate reporting success having examined nothing.
+# Two fixes, because the first will break again and the second will not:
+#   1. resolve a round by SEARCHING the epoch tree, so moving an arc cannot break it;
+#   2. REFUSE to write the artifact when the population is empty -- exit 2, never 0.
+ROOT = HERE.parent
+
+
+def round_results(rnd: str, fn: str):
+    """Path to <round>/results/<fn>, wherever that round currently lives in the E/A/R tree."""
+    hits = sorted(ROOT.glob(f"E0*/A*/{rnd}/results/{fn}"))
+    if not hits:
+        direct = HERE / rnd / "results" / fn          # the pre-migration layout, still honoured
+        return direct if direct.exists() else None
+    return hits[0]
+
 WAVES = {
     "R166_defect_census": "census.json",
     "R167_census_wave2": "census_wave2.json",
@@ -136,7 +156,9 @@ def key_for(title: str) -> str | None:
 def main() -> int:
     items = []
     for rnd, fn in WAVES.items():
-        p = HERE / rnd / "results" / fn
+        p = round_results(rnd, fn)
+        if p is None:
+            continue
         if not p.exists():
             print(f"  [missing] {rnd}/{fn} -- run that wave first")
             continue
@@ -183,6 +205,14 @@ def main() -> int:
           + ", ".join(f"{k} {n}" for k, n in sorted(tally.items())) + ".")
     print(f"{counts['CLEAN']}/{len(items)} checks came back clean -- the ratio is the only evidence "
           f"the sweep was not just finding what it went looking for.")
+    # ⚠ EMPTY POPULATION MUST NOT PASS. This is what let a broken path go unnoticed: the script
+    # loaded 0 waves, printed "0/0 checks came back clean", and OVERWROTE a 46-item list with an
+    # empty one. A gate that reports success having examined nothing exits 2, never 0, and it
+    # must refuse to write the artifact at all -- a good artifact destroyed is worse than no run.
+    if not items:
+        print("  REFUSING TO WRITE: 0 items loaded from 5 census waves. The population is empty, "
+              "which is a BROKEN INPUT PATH, not a clean sweep. DEFECTS.json left untouched.")
+        raise SystemExit(2)
     (HERE / "DEFECTS.json").write_text(json.dumps(
         {"items": items, "counts": counts,
          "wrong_answers": {k: v for k, v in WRONG_ANSWER.items()},
