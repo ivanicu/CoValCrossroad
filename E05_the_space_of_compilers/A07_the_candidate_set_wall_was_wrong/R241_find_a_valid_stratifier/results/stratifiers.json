@@ -1,0 +1,91 @@
+{
+ "rows": 500,
+ "alpha": 0.003125,
+ "cells": {
+  "separation": {
+   "orig": {
+    "rho": -0.008429318869101905,
+    "p": 0.8935532233883059
+   },
+   "fresh": {
+    "rho": 0.02061690587049393,
+    "p": 0.7426286856571714
+   }
+  },
+  "n_criteria": {
+   "orig": {
+    "rho": 0.005434070945135122,
+    "p": 0.935032483758121
+   },
+   "fresh": {
+    "rho": 0.09773455575289204,
+    "p": 0.12443778110944528
+   }
+  },
+  "len_dispersion": {
+   "orig": {
+    "rho": -0.010276388422214755,
+    "p": 0.8750624687656172
+   },
+   "fresh": {
+    "rho": 0.020329669274708397,
+    "p": 0.7641179410294853
+   }
+  },
+  "score_entropy": {
+   "orig": {
+    "rho": 0.02353765660250564,
+    "p": 0.7106446776611695
+   },
+   "fresh": {
+    "rho": -0.055150578409254546,
+    "p": 0.39280359820089955
+   }
+  },
+  "top2_margin": {
+   "orig": {
+    "rho": -0.011715643450295205,
+    "p": 0.8695652173913043
+   },
+   "fresh": {
+    "rho": -0.04248605577689243,
+    "p": 0.49075462268865566
+   }
+  },
+  "mean_abs_w": {
+   "orig": {
+    "rho": -0.013167954687274996,
+    "p": 0.8300849575212393
+   },
+   "fresh": {
+    "rho": 0.1045199443191091,
+    "p": 0.09395302348825588
+   }
+  },
+  "FLOOR_circular": {
+   "orig": {
+    "rho": -0.20318417894686314,
+    "p": 0.0009995002498750624
+   },
+   "fresh": {
+    "rho": -0.21637478999663995,
+    "p": 0.0009995002498750624
+   }
+  },
+  "RANDOM_negctrl": {
+   "orig": {
+    "rho": -0.02122363557816925,
+    "p": 0.7541229385307346
+   },
+   "fresh": {
+    "rho": -0.1000800652810445,
+    "p": 0.12393803098450774
+   }
+  }
+ },
+ "valid": [
+  "FLOOR_circular"
+ ],
+ "usable": [],
+ "verdict": "NO VALID STRATIFIER EXISTS among the seven per-prompt variables this release carries. R233's arms cannot be matched by stratification here, and that is the answer to that line rather than a gap in it: the difference between the arms is not tracked by separation, criterion count, length dispersion, score entropy, top-2 margin or mean weight. If the cause is a property of the GENERATOR rather than of the prompt, no per-prompt variable can reach it."
+}
