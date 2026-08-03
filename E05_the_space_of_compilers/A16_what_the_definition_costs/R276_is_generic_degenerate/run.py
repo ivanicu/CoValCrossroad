@@ -152,14 +152,21 @@ def main():
                     c = consts[per_draw[d][base]]
                     ref = {p: a2(c, H[d][p]) for p in pids}
                 d_all.append(np.array([a2(sat[a][p], H[d][p]) - ref[p] for p in pids]))
-            v = np.concatenate(d_all)
+            # ⚠ R292: this CONCATENATED the 3 draws into 2,904 rows and bootstrapped those --
+            # 968 prompts appearing 3 times each, resampled as if independent. n_eff is the
+            # CLUSTER count (P14), so the interval was too narrow by ~sqrt(3). Same defect I
+            # found in R286 by a different route. Corrected: average each prompt over its draws,
+            # bootstrap the 968. Adding an MDE to the old cells would have made them JUDGEABLE
+            # AND WRONG, which is worse than unjudgeable.
+            v = np.mean(d_all, axis=0)
             rb = np.random.default_rng(7700 + hash(a + base) % 1000)
             bs = np.array([v[rb.integers(0, len(v), len(v))].mean() for _ in range(2000)])
             lo, hi = float(np.percentile(bs, 2.5)), float(np.percentile(bs, 97.5))
             p_two = 2 * min((bs <= 0).mean(), (bs >= 0).mean())
             spread = float(np.std([x.mean() for x in d_all]))
+            mde_cell = 2.801585 * v.std(ddof=1) / np.sqrt(len(v))
             rows[a][base] = dict(eff=float(v.mean()), lo=lo, hi=hi, p=float(p_two),
-                                 seed_spread=spread)
+                                 mde=float(mde_cell), n_eff=int(len(v)), seed_spread=spread)
             if base == "best":
                 grid.append((a, float(p_two)))
 

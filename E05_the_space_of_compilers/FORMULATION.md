@@ -1,5 +1,35 @@
 # What a "core" is — the formulation, stated once
 
+## ✅ WHAT STANDS — the claims a next decision can rest on
+
+*Placed first deliberately. This arc produced 18 rounds and a long chain of corrections, and a file
+that leads with its ledger is a file about its author. Every line below survived the audit that
+follows it.*
+
+| claim | number | scope |
+|---|---|---|
+| **A core, defined, with both clauses worded against a named object** | see below | A2·annotator, Qwen3.5-2B-Base |
+| **Two arms admitted of nine** | `coval_core`, `topw_k4` | at 2B; **none** at 0.8B |
+| **The whole rubric is worse than the same NUMBER of prompt-blind criteria** | −0.0331 [−0.0413,−0.0254] | k=15, resolved |
+| **At matched size only 2 of 7 ways of reading the prompt beat four fixed sentences** | 5 lose by up to −0.065 | k=4, all resolved |
+| **Criterion count buys nothing past k≈4** | +0.0019 for k=4→16 vs MDE 0.0121 | prompt-blind pool |
+| **`generic` is not degenerate** | +0.1077 [+0.0925,+0.1226] over the best of 75 constants | cluster-corrected |
+| **The admissible band is 12.57 MDE units wide** | chance 0.3833 → human ceiling 0.5519 | measured, not assumed |
+| **Clause ① is judge-robust; clause ② is judge-bound** | 6/6 vs 0/3 cells | 2B and 0.8B |
+| **The structural wall, priced** | `full` vs `topwvar_k4` needs **3,352 prompts, 3.5×** this release | not a shrug |
+
+**Instruments built, reusable on any next object:** `corebench/report.py` (an effect cannot be
+printed without its interval; the verdict is computed, not typed) · `R292`'s cell census (every
+published cell re-judged, with its own positive control) · the four-budget baseline curve (R287) ·
+the 16-criterion prompt-blind pool, judged once so any k is free.
+
+**Decisions closed, so a next person need not reopen them:** which target (A2·annotator, argued on
+resolving power, R289) · what a baseline may be (selection budget named, R287) · whether the clause
+measures cores or my vocabulary (1,820 subsets enumerated, R286) · whether the price survives
+size-matching (it does, and it costs `full` its admission, R281).
+
+---
+
 ## ⭐ THE DEFINITION AS IT STANDS, 2026-08-03 — both clauses restated to say what they test
 
 > **A core is a set of criteria whose verdicts agree with a held-out human annotator's, pairwise,**
