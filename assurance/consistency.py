@@ -142,18 +142,39 @@ def main() -> int:
     # ---- veto coverage: r149 conditioned, r150 did not
     r150 = load("R150_does_the_veto_do_anything", "veto.json")
     if r150:
-        check("veto coverage is total, not partial",
+        # ⚠ REPAIRED BY R314. This check asserted `coverage == 1.0` and PASSED -- but 1.0 is
+        # the signature of the defect, not of coverage. R150 tested `blocks.get("unacceptable")
+        # is None`, and in this release not-asked is an empty LIST, so the branch never fires
+        # and every assessment is counted as answered. The check was ENFORCING the bug: any
+        # correct implementation returns 0.268 and would have been reported as a failure.
+        # A check whose pass condition is only satisfiable by the defect is worse than absent.
+        check("veto coverage is the ASKED share, not 1.0 (R314)",
               r150.get("coverage"), 1.0, 1e-9,
-              "r149 reported 330 of 1100 prompts carrying the block; r150 measured 100% of "
-              "assessments. If coverage is not 1.0 the correction committed in r150 is itself wrong")
+              "kept at 1.0 because that is what R150's artifact still holds and the artifact is "
+              "not rewritten (L81: annotate, never rewrite). It passes, and the PASS is the "
+              "finding: R314 measured 5,006 of 18,678 assessments asked = 0.268. Read this row "
+              "as `R150's stored coverage is still the pre-correction one`, never as `coverage "
+              "is total`")
 
     r151 = load("R151_none_of_the_above", "none_of_the_above.json")
     if r150 and r151:
+        # ⚠ REPAIRED BY R314. The old form compared two RATES and demanded they agree to 0.003.
+        # They never can: they share a numerator and differ in denominator. 0.0105 x 18562 =
+        # 194.9 and r151 counts 195 full rejections -- the SAME 195 events over 18,562 rows and
+        # over 5,006. The old message read "a larger gap means one of them filtered silently",
+        # which accused r151 -- the CORRECTED round -- and a reader acting on it would have
+        # repaired the correction back into the bug. Compare the COUNTS, which are the thing
+        # that must agree, and let the rate gap be a documented consequence.
         v = r150.get("veto_count_distribution", {}).get("4")
-        check("full-rejection rate: r150 distribution vs r151 direct count",
-              v, r151.get("rate"), 0.003,
-              "the same quantity computed in two rounds from the same field; they should agree to "
-              "rounding and a larger gap means one of them filtered silently")
+        n150 = r150.get("assessments")
+        if v is not None and n150:
+            check("full rejections: r150 distribution x its own n vs r151 direct count (R314)",
+                  v * n150, r151.get("full_rejections"), 3,
+                  "the two rounds agree on the EVENT COUNT and disagree only on what to divide "
+                  "it by: r150 divides by all 18,562 rows it saw, r151 by the 5,006 where the "
+                  "question was actually posed. R314 established the second is the population "
+                  "and that all 195 lie inside it. Comparing the rates is a category error -- "
+                  "`name the estimand before the bound`")
 
     r152 = load("R152_what_fails_the_menu", "what_fails.json")
     if r151 and r152:
