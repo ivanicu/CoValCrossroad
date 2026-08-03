@@ -178,55 +178,90 @@ control-that-cannot-pass in this arc, and the first whose repair was the finding
 
 ---
 
-## 9 · The triple blind, read under the rule fixed before it ran — `BOTH ARMS IN`
+## 9 · The triple blind, CLOSED — both arms reported, read under the rule fixed before they ran
 
-`A08/README.md` fixed the reading before either agent was launched: *all three agree → design
-independent · agree on sign, differ on size → the spread is the finding · **disagree on sign → the
-framing is the finding, find the assumption they differ on and test that** · **the three will not be
-averaged.***
+`A08/README.md` fixed the reading before either agent launched: *disagree on sign → the framing is
+the finding, find the assumption they differ on and test that* · **the three will not be averaged.**
 
-**They disagree on sign. And the assumption they differ on is not a design choice — it is WHAT THE
-CORE IS SCORED AGAINST.**
+### The assumption they differ on, and design A tested it itself
 
-| arm | target | core vs a top-*k*-by-weight heuristic |
+| arm | target | core vs a top-4-by-weight heuristic |
 |---|---|---|
-| **R234** (seed 11) — *primary*, `Φ` | the full rubric's own signed-weight pairwise ordering | **top4_pos beats the core by +0.0352** |
-| **R235** (seed 29) | rubric-to-rubric | **top-4-by-mean-weight beats the core in 76 of 286 cells, the core wins 0** |
-| **R234** (seed 11) — *secondary* | **the humans' own `world` rankings** | **core 0.6593 ≥ top4_pos 0.6547**, `d = −0.0046` `[−0.0122, +0.0029]` |
-| **R231** (mine) | Full's exact weak-ordering class | core 0.3864 vs a random-4 floor 0.3836 — inside. **I never ran a top-*k*-by-weight arm at all** |
+| **R234** primary, `Φ` | the full rubric's own signed-weight ordering | **top4_pos beats core +0.0352**, survives BH |
+| **R235** | rubric-to-rubric | **top-4-by-mean-weight beats core in 76/286 cells, core wins 0** |
+| **R234** leakage-controlled | same target, **top4 selected on a DISJOINT annotator half** | **core 0.8182 > top4 0.8066 — the sign REVERSES** |
+| **R234** human arm | the humans' `world` rankings | core **0.6593** vs top4_pos 0.6547; `−0.0046 [−0.0122,+0.0029]`, p=0.26, **BH-killed**, `CI_width/|eff| = 3.3` |
+| **R231** (mine) | Full's exact weak-ordering class | core 0.3864 vs random-4 floor 0.3836 — inside. **I never ran a top-k arm** |
 
-**The two blind arms AGREE with each other on the rubric-to-rubric target. The sign flips only when
-the target changes from the full rubric to the people.** That is claim 2, arrived at by a designer
-who was never told claim 2 existed — and R234 named the reason *in its own pre-registration, before
-any number*:
+⚠ **R234 retracted the mechanical-compiler result by its own analysis, and the reason applies to
+R235's too**: *"that target structurally favours subset compilers, since a subset is a sub-sum of
+the target's own basis."* The weights used to **select** top-4 are the same weights that **define**
+the target. Under leakage control the gap inverts; the human arm is null; the K-sweep is null.
+**R235's 76-of-286 is measured on the confounded target, and this arc carried it for two rounds.**
 
-> *"the comparison is rubric-to-rubric, NOT rubric-to-human. Comparing each rubric to human rankings
-> confounds compilation loss with the judge's own error at predicting humans, and that error is
-> large."*
+**And the prior-art check neither R235 nor I ran**: R234 read `data/DATASET_CARD.md` first. The card
+**documents `top4_pos` as the release's own selection rule**, and documents the positive-weight
+rewrite. So "a four-line compiler matches the core on selection" is **the card restating itself** —
+the compiler's remaining work is the *rewrite*, which is exactly where R249's redundancy finding
+and R250's provenance curve live.
 
-**And R234's budget curve says something no arm of mine produced**: against the humans, the core is
-not beaten by *any* top-*k*-by-positive-weight heuristic for k = 1…10 — `top1 0.6245 · top4 0.6547 ·
-top5 0.6560 (best) · top10 0.6406`, against the core's **0.6593**. The CI contains zero, so the
-honest statement is **not-worse, never better** — but *not-worse against people* while *worse against
-the rubric* is exactly the asymmetry the arc has been missing.
+### R234's headline, with its scope
 
-**R234's own primary verdict is against the core**: `Λ = 1.1420`, read as
-`budget=PARTIAL / reliability=INADMISSIBLE(>1) / prereg=INADMISSIBLE(>1)`, with a **measured**
-ceiling (split-half annotator reproducibility) rather than an assumed one — and `Λ_rel = 1.0596 > 1`
-means the core agrees with the full rubric *more* than the full rubric agrees with itself, which A
-reads as inadmissible rather than as a win. Three seeds: 1.1413 / 1.1483 / 1.1365.
+**`Λ_budget = 0.4237`** (seeds 0.4273 / 0.4188 / 0.4252) — the core reaches 42% of what any
+4-criterion unit-weight compiler can reach. **Bounded, not estimated**: greedy verified exhaustively
+on the 458 prompts with n ≤ 14 (suboptimal on 4.1%, shortfall 0.0069 Φ), so **`Λ_budget ≤ 0.44`**.
 
-⚠ **R234 also warns off the decomposition I would have quoted.** Its `artifact_checks` matches
-criteria on length and on discrimination to see what explains the `Φ` gap, and reports its own
-size-matched sham beside every number: *"A restriction to a smaller candidate pool lowers Φ by
-itself. Any 'the covariate explains the gap' claim must be net of the size-matched sham, or it is a
-claim about pool size."* Net of that sham, length explains **+20.5%** of the gap and discrimination
-explains **−53.3%** — so **neither covariate cleanly explains it**, and the raw drop from `+0.0352`
-to `+0.0028` after matching is mostly pool size.
+| compiler | Φ vs full signed | | human `world` |
+|---|---:|---|---:|
+| full_signed (target) | 1.0000 *(derivation)* | full_signed | 0.6765 |
+| oracle4 (greedy ceiling) | 0.9797 | **core** | **0.6593** |
+| top4_pos *(the card's own rule)* | 0.8622 | top4_pos | 0.6547 |
+| **core (shipped)** | **0.8270** | full_unit | 0.5961 |
+| full_unit (signs dropped) | 0.7669 | sham | 0.5024 |
+| random4 — measured floor | 0.7146 ± 0.006 | | |
+| sham_core — negative control | 0.4945 *(chance)* | | |
+| worst4 | 0.2785 | | |
 
-**This does not overturn R249.** R249 measured *redundancy* against a generic-vocabulary control and
-found the compiler's redundancy is inherited from the text it writes. R234 measured a *performance
-gap* and found length/discrimination do not account for it. Different quantities, and both hold.
+**Compression cost against humans: `0.0173` [0.0100, 0.0250], 2.1× the measured resolution floor of
+0.0081. Above-chance retention 90.1%.** The K-sweep peaks at K=5 (0.6560) then declines — **the core
+sits above every K from 1 to 10.**
+
+> **R234's verdict, in its words:** *"The core is a faithful compression of what the full rubric can
+> **decide**, and an unfaithful compression of what the full rubric **is**. The loss is in the
+> FORMAT, not in this compiler's choices."*
+
+### What R234 found against itself — all four reported, none buried
+
+- **Its pre-registered ceiling was wrong**: `Λ_prereg = 1.142`, outside [0,1], because the split-half
+  ceiling compares two n/2 aggregates while the core is scored on the n aggregate. It calls this
+  *"the control-that-cannot-pass failure in mirror image"* — **independently hitting the failure mode
+  this arc hit six times.**
+- **A reproducibility defect in its own code**: `list(set(prompt_ids))` in the cluster bootstrap, and
+  Python salts string hashing per process. Two identical runs gave a byte-identical grid but a
+  **different summary** — 23 se/p values moved (largest p 0.095 → 0.117). No BH decision flipped,
+  and it says so: *"luck, not design."* Fixed to `sorted(...)`, then byte-identical.
+- **It retracted its own prohibition finding.** Its first statistic was a ratio of Fisher-z means
+  with a near-zero denominator, permutation null centred at **−1.43**. The difference-in-differences
+  gives `A = −0.057 [−0.162, +0.041]`, BH-killed. The veto arm points the other way: **the core
+  retains 76.1% of above-floor veto detection while mechanically dropping the signs retains 0.9%.**
+  The card's documented positive-weight rewrite does real work.
+- **S1 is `UNVERIFIED`, not null**: the polarity asymmetry's **sign flips across instruments**
+  (+0.19 / −0.20 / −0.21 / −0.29). It is a property of the judge, not of the rubrics.
+
+### The gauge finding that reaches every round in this repository
+
+**The judge is not label-order symmetric.** Reversing *"Yes or No"* to *"No or Yes"* in the question
+moves its output to **r = 0.77 against itself**. R234's positive control reproduces the cached tensor
+at r = 0.998, so the instrument is faithfully re-implemented — and then fails a basic gauge test that
+**every round here, including all of mine, has assumed away.**
+
+Stable across all four instruments: `top4_pos − core` on humans is **null on all four**, and core
+veto retention ≫ full_unit on all four. **Not** stable: above-chance retention (0.673–0.919), veto
+retention magnitude (0.458–0.864), and the polarity sign.
+
+Multiplicity: BH q=0.05 over **C=46** p-valued tests, **31 survive**, non-survivors listed. 120
+specification rows carry no p-value and are published whole; `Λ_budget` spans [0.375, 0.477] and
+**100% land in the same verdict band.**
 
 ---
 
@@ -234,9 +269,16 @@ gap* and found length/discrimination do not account for it. Different quantities
 
 Attributed, not absorbed. Design A has not returned and none of this is replicated here.
 
-- **Compiler intelligence: OVERTURNED.** `top-4-by-mean-weight` beats the official core in **76 of
-  286** specification cells and the core beats it in **0**. Primary cell `−0.0224 [−0.0407, −0.0050]`.
-  **The compilation adds no selection value over the single most obvious heuristic.**
+- **Compiler intelligence: ⛔ this line is RETRACTED by the other blind arm.** R235 measured
+  `top-4-by-mean-weight` beating the official core in **76 of 286** cells, core in **0**, primary
+  `−0.0224 [−0.0407, −0.0050]`, and concluded *"the compilation adds no selection value."*
+  **R234 tested that target and it does not hold up**: the weights used to *select* top-4 are the
+  same weights that *define* the target, so a subset is a sub-sum of the target's own basis. Select
+  top-4 on a **disjoint annotator half** and the sign inverts — core **0.8182** vs top4 **0.8066**.
+  The human arm is null, the K-sweep is null. **And the card documents `top4_pos` as the release's
+  own selection rule**, so the comparison was the card restating itself.
+  *Kept rather than deleted (L81): this is what a confounded target looks like when every number in
+  it is correct.*
 - **Extrinsic retention `0.855 [0.818, 0.890]`** — the share of the full rubric's agreement with human
   *world* rankings that survives compilation. A number this arc never produced.
 - **The weight matrix is `39.7%` filled, and the score `0` is used once in `102,147` ratings.**

@@ -8408,3 +8408,51 @@ Every round from R248 to R252 tuned a parameter *inside* the decomposition
 `(Q, class, representative, certificate)` — including the round that attacked R248. **None asked
 whether the decomposition's terms carve anything.** The controls were correct and the direction was
 never questioned, which is what confirmation drift looks like when the controls are good.
+
+---
+
+## 100 · "The compilation adds no selection value" — R235, retracted by R234's leakage control
+
+**Asserted** 2026-08-03 by blind arm R235 (seed 29) and carried into `FORMULATION.md` §10 with
+attribution for two rounds: *"`top-4-by-mean-weight` beats the official core in 76 of 286
+specification cells and the core beats it in 0. Primary cell −0.0224 [−0.0407, −0.0050]."*
+
+**Retracted** by the *other* blind arm, R234 (seed 11), which tested the target rather than the
+statistic — and which retracted its own version of the same result at the same time.
+
+### The confound
+
+**The weights used to SELECT top-4 are the same weights that DEFINE the target.** In R234's words:
+*"that target structurally favours subset compilers, since a subset is a sub-sum of the target's own
+basis."* Every number in R235's grid is correct; the comparison is not a comparison.
+
+| | Φ vs the full signed rubric |
+|---|---:|
+| top4_pos, selected on **the same** annotator weights | 0.8622 → beats core by +0.0352 |
+| top4_pos, selected on a **disjoint annotator half** | **0.8066** |
+| **core (shipped)** | **0.8182** |
+
+**The sign inverts under leakage control.** The human arm is null (`−0.0046 [−0.0122, +0.0029]`,
+p=0.26, BH-killed, `CI_width/|eff| = 3.3`). The K=1…10 sweep is null — the core sits above every K.
+
+### The prior-art check neither R235 nor I ran
+
+R234 read `data/DATASET_CARD.md` **before interpreting anything**. The card **documents `top4_pos`
+as the release's own selection rule**, and documents the positive-weight rewrite. So *"a four-line
+mechanical compiler matches the core's selection"* is **the card restating itself** — a
+VERIFICATION, not a finding, and `realstat`'s `prior_art` column exists for exactly this.
+
+### Why this is the triple blind working rather than failing
+
+Two independent designs produced the same number on the same confounded target. **Convergence did
+not make it true.** What broke it was one arm asking what its target was made of — which is the
+framing test §2.5 says three designs buy you, and which neither agreement nor more seeds would have
+delivered. R234 retracted its own copy of the result in the same report.
+
+### What replaces it
+
+The compiler's selection is **documented and unremarkable**. Its remaining work is the **rewrite** —
+and that is where the measurable effects are: R249's redundancy (the core's criteria are as
+redundant as a generic vocabulary, `+0.0042 [−0.0870, +0.0955]` against it), R250's provenance dose
+curve, and R234's own veto finding — **the core retains 76.1% of above-floor veto detection while
+mechanically dropping the signs retains 0.9%.**
