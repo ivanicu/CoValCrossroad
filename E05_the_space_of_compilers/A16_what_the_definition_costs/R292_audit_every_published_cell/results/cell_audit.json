@@ -1,0 +1,20 @@
+{
+ "source_sha": "71f1d3144e36a402",
+ "n_cells": 134,
+ "n_comparable": 65,
+ "by_round": {
+  "R276_is_generic_degenerate": 18,
+  "R278_is_the_boundary_resolvable": 45,
+  "R280_the_table_at_every_annotator": 45,
+  "R281_a_size_matched_neutral_arm": 4,
+  "R282_neutral_clause_at_matched_k4": 8,
+  "R286_is_clause_2_a_property_of_the_baseline": 2,
+  "R287_how_much_selection_may_a_baseline_have": 12
+ },
+ "disagreements": [],
+ "pos_ctrl_caught": [
+  "0.8B coval_core",
+  "0.8B topw_k4",
+  "0.8B gen"
+ ]
+}
