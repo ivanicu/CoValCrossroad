@@ -1134,6 +1134,233 @@
       null
     ]
   },
+  "topvar_k4": {
+    "A1_exact_class": [
+      0.049586776859504134,
+      0.04201101928374656,
+      0.15
+    ],
+    "A2_pairwise": [
+      0.4839876033057851,
+      0.5,
+      null
+    ],
+    "A3_top1": [
+      0.3508953168044077,
+      0.25,
+      null
+    ],
+    "A4_bottom1": [
+      0.30475206611570244,
+      0.25,
+      null
+    ],
+    "A5_kendall_tau_b": [
+      0.11011038900042493,
+      0.0,
+      null
+    ],
+    "A6_modal_agreement": [
+      0.06646005509641872,
+      0.04201101928374656,
+      1.0
+    ],
+    "A7_unacceptable_f1": [
+      0.39868744872846595,
+      0.25,
+      null
+    ],
+    "B1_retention_sd_over_seeds": [
+      0.1655711126900565,
+      0.0,
+      null
+    ],
+    "B1_retention_vs_full": [
+      0.903448275862069,
+      0.0,
+      1.0
+    ],
+    "B2_incremental_of_discarded": [
+      0.0048209366391184574,
+      0.0,
+      null
+    ],
+    "B3_class_agreement_with_full": [
+      0.4214876033057851,
+      0.013333333333333334,
+      1.0
+    ],
+    "B4_score_vector_corr": [
+      0.8533133698964471,
+      0.0,
+      1.0
+    ],
+    "C1_emitted_class_entropy": [
+      4.563166779093232,
+      0.0,
+      5.955703165946621
+    ],
+    "C2_margin_over_constant": [
+      0.007575757575757576,
+      0.0,
+      0.10798898071625343
+    ],
+    "C3_self_variation": [
+      0.9380165289256198,
+      0.0,
+      1.0
+    ],
+    "C4_normalized_position": [
+      0.0701530612244898,
+      0.0,
+      1.0
+    ],
+    "D1_seed_spread": [
+      0.0063681962840588585,
+      0.0,
+      null
+    ],
+    "D2_prompt_bootstrap_sd": [
+      0.006846882680341328,
+      0.0,
+      null
+    ],
+    "D3_rater_subsample_spread": [
+      0.005904417424064132,
+      0.0,
+      null
+    ],
+    "D4_tie_tolerance_spread": [
+      0.00395911924502993,
+      0.0,
+      null
+    ],
+    "E1_k_criteria": [
+      4.0,
+      1,
+      null
+    ],
+    "E2_total_tokens": [
+      58.03512396694215,
+      null,
+      null
+    ],
+    "E3_judge_calls_per_prompt": [
+      16.0,
+      4,
+      null
+    ],
+    "E4_fidelity_per_criterion": [
+      0.001893939393939394,
+      0.0,
+      null
+    ],
+    "F1_label_order_gauge": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "F2_bf16_spread": [
+      "UNCOMPUTED",
+      null,
+      null
+    ],
+    "F3_judge_swap": [
+      "REGISTERED: a second judge model held to the same prompt contract",
+      null,
+      null
+    ],
+    "F4_prompt_format": [
+      "REGISTERED: a second judge prompt template, pre-registered",
+      null,
+      null
+    ],
+    "G1_worst_subgroup": [
+      0.02112676056338028,
+      0.04201101928374656,
+      0.049586776859504134
+    ],
+    "G2_subgroup_spread": [
+      0.05944195981576664,
+      0.0,
+      null
+    ],
+    "G3_high_disagreement_prompts": [
+      0.028925619834710745,
+      0.04201101928374656,
+      null
+    ],
+    "G4_share_beating_constant": [
+      0.8333333333333334,
+      0.0,
+      1.0
+    ],
+    "H1_held_out_prompt": [
+      0.049586776859504134,
+      0.04201101928374656,
+      null
+    ],
+    "H2_cross_block": [
+      "UNCOMPUTED",
+      null,
+      null
+    ],
+    "H3_cross_release": [
+      "REGISTERED: a second values-annotation release with this schema",
+      null,
+      null
+    ],
+    "I1_traceable_ge_090": [
+      1.0,
+      0.0,
+      1.0
+    ],
+    "I2_verbatim": [
+      1.0,
+      0.0,
+      1.0
+    ],
+    "I3_novel_content": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "I4_median_best_match": [
+      1.0,
+      0.0,
+      1.0
+    ],
+    "X1_construct_validity": [
+      "REGISTERED: an external gold standard for what a core should preserve",
+      null,
+      null
+    ],
+    "X2_causal_identification": [
+      "REGISTERED: intervening on how criteria are written, not observing them",
+      null,
+      null
+    ],
+    "X3_temporal_resolution": [
+      "REGISTERED: timestamps the release does not carry",
+      null,
+      null
+    ],
+    "_const_baseline": [
+      0.04201101928374656,
+      null,
+      null
+    ],
+    "_n_prompts": [
+      968,
+      null,
+      null
+    ],
+    "_single_annotator_agreement": [
+      0.08367768595041324,
+      null,
+      null
+    ]
+  },
   "topw_k4": {
     "A1_exact_class": [
       0.07610192837465564,
@@ -1297,6 +1524,233 @@
     ],
     "H1_held_out_prompt": [
       0.07610192837465564,
+      0.04201101928374656,
+      null
+    ],
+    "H2_cross_block": [
+      "UNCOMPUTED",
+      null,
+      null
+    ],
+    "H3_cross_release": [
+      "REGISTERED: a second values-annotation release with this schema",
+      null,
+      null
+    ],
+    "I1_traceable_ge_090": [
+      1.0,
+      0.0,
+      1.0
+    ],
+    "I2_verbatim": [
+      1.0,
+      0.0,
+      1.0
+    ],
+    "I3_novel_content": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "I4_median_best_match": [
+      1.0,
+      0.0,
+      1.0
+    ],
+    "X1_construct_validity": [
+      "REGISTERED: an external gold standard for what a core should preserve",
+      null,
+      null
+    ],
+    "X2_causal_identification": [
+      "REGISTERED: intervening on how criteria are written, not observing them",
+      null,
+      null
+    ],
+    "X3_temporal_resolution": [
+      "REGISTERED: timestamps the release does not carry",
+      null,
+      null
+    ],
+    "_const_baseline": [
+      0.04201101928374656,
+      null,
+      null
+    ],
+    "_n_prompts": [
+      968,
+      null,
+      null
+    ],
+    "_single_annotator_agreement": [
+      0.08367768595041324,
+      null,
+      null
+    ]
+  },
+  "topwvar_k4": {
+    "A1_exact_class": [
+      0.052341597796143245,
+      0.04201101928374656,
+      0.15
+    ],
+    "A2_pairwise": [
+      0.4985651974288338,
+      0.5,
+      null
+    ],
+    "A3_top1": [
+      0.3622589531680441,
+      0.25,
+      null
+    ],
+    "A4_bottom1": [
+      0.3181818181818182,
+      0.25,
+      null
+    ],
+    "A5_kendall_tau_b": [
+      0.1409718773972467,
+      0.0,
+      null
+    ],
+    "A6_modal_agreement": [
+      0.07093663911845731,
+      0.04201101928374656,
+      1.0
+    ],
+    "A7_unacceptable_f1": [
+      0.4167350287120591,
+      0.25,
+      null
+    ],
+    "B1_retention_sd_over_seeds": [
+      0.11447706124903875,
+      0.0,
+      null
+    ],
+    "B1_retention_vs_full": [
+      0.9931034482758622,
+      0.0,
+      1.0
+    ],
+    "B2_incremental_of_discarded": [
+      0.00034435261707988635,
+      0.0,
+      null
+    ],
+    "B3_class_agreement_with_full": [
+      0.4380165289256198,
+      0.013333333333333334,
+      1.0
+    ],
+    "B4_score_vector_corr": [
+      0.85191925428458,
+      0.0,
+      1.0
+    ],
+    "C1_emitted_class_entropy": [
+      4.568497649552796,
+      0.0,
+      5.955703165946621
+    ],
+    "C2_margin_over_constant": [
+      0.010330578512396688,
+      0.0,
+      0.10798898071625343
+    ],
+    "C3_self_variation": [
+      0.9431818181818182,
+      0.0,
+      1.0
+    ],
+    "C4_normalized_position": [
+      0.0956632653061224,
+      0.0,
+      1.0
+    ],
+    "D1_seed_spread": [
+      0.004160828503303918,
+      0.0,
+      null
+    ],
+    "D2_prompt_bootstrap_sd": [
+      0.007737948110469397,
+      0.0,
+      null
+    ],
+    "D3_rater_subsample_spread": [
+      0.009592553909906418,
+      0.0,
+      null
+    ],
+    "D4_tie_tolerance_spread": [
+      0.0036524110598478684,
+      0.0,
+      null
+    ],
+    "E1_k_criteria": [
+      4.0,
+      1,
+      null
+    ],
+    "E2_total_tokens": [
+      58.236570247933884,
+      null,
+      null
+    ],
+    "E3_judge_calls_per_prompt": [
+      16.0,
+      4,
+      null
+    ],
+    "E4_fidelity_per_criterion": [
+      0.002582644628099172,
+      0.0,
+      null
+    ],
+    "F1_label_order_gauge": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "F2_bf16_spread": [
+      "UNCOMPUTED",
+      null,
+      null
+    ],
+    "F3_judge_swap": [
+      "REGISTERED: a second judge model held to the same prompt contract",
+      null,
+      null
+    ],
+    "F4_prompt_format": [
+      "REGISTERED: a second judge prompt template, pre-registered",
+      null,
+      null
+    ],
+    "G1_worst_subgroup": [
+      0.028985507246376812,
+      0.04201101928374656,
+      0.052341597796143245
+    ],
+    "G2_subgroup_spread": [
+      0.05175983436853002,
+      0.0,
+      null
+    ],
+    "G3_high_disagreement_prompts": [
+      0.0371900826446281,
+      0.04201101928374656,
+      null
+    ],
+    "G4_share_beating_constant": [
+      0.8611111111111112,
+      0.0,
+      1.0
+    ],
+    "H1_held_out_prompt": [
+      0.052341597796143245,
       0.04201101928374656,
       null
     ],

@@ -48,7 +48,8 @@ def parse_ranking(s):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--rule", required=True,
-                    choices=["random_k", "topw_k", "topabs_k", "oracle_k", "full"])
+                    choices=["random_k", "topw_k", "topabs_k", "oracle_k", "full",
+                             "topvar_k", "topwvar_k"])
     ap.add_argument("--k", type=int, default=4)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--fit-parity", type=int, default=-1,
@@ -105,6 +106,18 @@ def main():
             sel = list(rng.choice(ok, min(a.k, len(ok)), replace=False))
         elif a.rule == "topw_k":
             sel = sorted(ok, key=lambda i: -w[i])[:a.k]
+        elif a.rule == "topvar_k":
+            # DERIVATION, not a hunch: a criterion whose satisfaction is IDENTICAL across
+            # the four responses adds the same constant to every y_x, so it changes no
+            # pairwise sign and is arithmetically INERT no matter how important it is.
+            # topw_k selects on importance and is blind to this. Selecting on the spread of
+            # satisfaction across responses is the direct fix. Non-leaky: the spread is a
+            # property of the responses, never of the human target.
+            var = {i: float(np.var([sat[pid][(i, x)] for x in L])) for i in ok}
+            sel = sorted(ok, key=lambda i: -var[i])[:a.k]
+        elif a.rule == "topwvar_k":
+            var = {i: float(np.var([sat[pid][(i, x)] for x in L])) for i in ok}
+            sel = sorted(ok, key=lambda i: -(abs(w[i]) * var[i]))[:a.k]
         elif a.rule == "topabs_k":
             sel = sorted(ok, key=lambda i: -abs(w[i]))[:a.k]
         else:                                    # oracle: leaky upper bound, labelled
