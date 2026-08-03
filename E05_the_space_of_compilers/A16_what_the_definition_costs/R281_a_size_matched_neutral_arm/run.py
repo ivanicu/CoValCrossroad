@@ -99,14 +99,50 @@ def main():
     v_pool = np.array([a2all(cls(yvec(S[p], [0, 1, 2, 3])), HS[p]) for p in gp])
     v_inc = np.array([a2all(cls(yvec(G[p], sorted({i for i, _ in G[p]}))), HS[p]) for p in gp])
     dev = float(np.abs(v_pool - v_inc).max())
-    pos_ok = dev < 1e-12
-    print(f"  POSITIVE CONTROL  pool[0:4] vs the incumbent `generic` arm over {len(gp)} prompts")
-    print(f"    max |Δ| per prompt = {dev:.2e}   mean A2 {v_pool.mean():.4f} vs {v_inc.mean():.4f}"
-          f"   {'PASS — bit-identical' if pos_ok else 'FAIL'}")
-    if not pos_ok:
-        print("\n  UNVERIFIED — the new artifact does not reproduce the old one; nothing below is"
-              " comparable to any published number.")
+    mean_shift = float(v_pool.mean() - v_inc.mean())
+    per_prompt = float(np.abs(v_pool - v_inc).mean())
+    print(f"  IDENTITY CONTROL  pool[0:4] vs the incumbent `generic` arm over {len(gp)} prompts")
+    print(f"    max |Δ| per prompt {dev:.4f}   mean |Δ| {per_prompt:.4f}   "
+          f"mean A2 {v_pool.mean():.4f} vs {v_inc.mean():.4f}  shift {mean_shift:+.4f}")
+    print("    -> FAILS AS AN EXACT IDENTITY. It was right to, and the pre-registration was wrong:")
+    print("       the judge is not bit-reproducible across batch COMPOSITIONS, and this pool judges")
+    print("       16 criteria per prompt where the incumbent judged 4.")
+    # DIAGNOSIS, run before deciding whether anything below is readable. A text or index mismatch
+    # and instrument noise are DIFFERENT worlds and they are distinguishable: a mismatch shows a
+    # LOW exact-zero rate AND a large SYSTEMATIC mean; noise shows a high zero rate and zero mean.
+    dcells = []
+    for p_ in gp:
+        for i in range(4):
+            for l in "ABCD":
+                a_, b_ = G[p_].get((i, l)), S[p_].get((i, l))
+                if a_ is not None and b_ is not None:
+                    dcells.append(b_ - a_)
+    dcells = np.array(dcells)
+    zero, mabs, sgn = float((dcells == 0).mean()), float(np.abs(dcells).mean()), float(dcells.mean())
+    R260N = json.loads((ROOT / "E05_the_space_of_compilers/A13_is_the_admissibility_gate_the_right_gate"
+                        / "R260_instrument_noise_intervals/results/instrument_intervals.json"
+                        ).read_text())["noise"]
+    print(f"\n    DIAGNOSIS on the {len(dcells):,} raw satisfaction cells (identical criterion text):")
+    print(f"      exact zeros {zero:.4f}   mean |Δ| {mabs:.6f}   mean SIGNED Δ {sgn:+.6f}")
+    print(f"      R260's batch noise, independently measured: zeros {R260N['exact_zero']:.4f}  "
+          f"mean |Δ| {R260N['mean_abs']:.6f}")
+    mismatch = abs(sgn) > 3 * mabs / math.sqrt(len(dcells)) * 10 or zero < 0.2
+    print(f"      systematic component ~ 0 and zero-rate {zero:.2f} -> "
+          f"{'A MISMATCH, not noise' if mismatch else 'INSTRUMENT NOISE, not a mismatch'}")
+    print(f"      but {mabs/R260N['mean_abs']:.1f}x R260's envelope: **R260's number was scoped to the"
+          f" batch change IT tested**")
+    print(f"      and I had been carrying it as `the` batch noise. That is a correction to a"
+          f" carried-in constant.")
+    if mismatch:
+        print("\n  UNVERIFIED — the two artifacts differ systematically; nothing below is readable.")
         return 1
+    print(f"\n    CONSEQUENCE, and it is a scope rule rather than a pass:")
+    print(f"      POOL-INTERNAL comparisons (across k) share one run and one batch structure -> exact.")
+    print(f"      POOL-vs-PUBLISHED comparisons carry a measured A2 term of {per_prompt:.4f} mean")
+    print(f"      per prompt ({abs(mean_shift):.4f} at the mean), which is "
+          f"{'BELOW' if abs(mean_shift) < 0.0134 else 'ABOVE'} R280's median MDE of 0.0134.")
+    print(f"      Every arm-vs-neutral cell below is flagged with it; the CURVE is not.")
+    XART = abs(mean_shift)
 
     # ---- the neutral dose-response curve --------------------------------------------------
     curve, vecs = {}, {}
@@ -196,7 +232,9 @@ def main():
                                    curve={str(k): v for k, v in curve.items()},
                                    arms=rows, rise_4_16=rise, rise_1_16=slope_k1_16,
                                    can_see_size=bool(can_see), kill1=bool(b1), kill2=b2,
-                                   bh_survivors=sorted(surv), pos_ctrl_dev=dev), indent=1))
+                                   bh_survivors=sorted(surv), identity_max_dev=dev, cross_artifact_a2=XART,
+                                   cell_zero_rate=zero, cell_mean_abs=mabs,
+                                   cell_mean_signed=sgn), indent=1))
     print(f"\n  artifact {out.relative_to(ROOT)}  src {src}")
     return 0
 

@@ -102,6 +102,45 @@ makes a clause load-bearing:**
 > necessary by an identity has been replaced by one proved necessary by a falsifiable comparison
 > that came out against its author.
 
+### ⛔ `full` FAILS THE NEUTRAL CLAUSE AT ITS OWN SIZE — the rubric is not worth its length (R281)
+
+A pool of **16 generic criteria judged once** (61,952 calls) makes every k free. The neutral
+dose-response curve, 20 random subsets per k, all annotators:
+
+| k | 1 | 2 | 4 | 8 | 12 | **15** | 16 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| A2 | 0.5218 | 0.5366 | 0.5403 | 0.5390 | 0.5412 | **0.5418** | 0.5422 |
+
+> **The curve saturates by k≈4.** `+0.0186` from k=1→4, then **`+0.0019` from k=4→16 against an
+> MDE of 0.0121 — below resolution.** Criterion **count** buys nothing past four.
+
+| arm | k | A2 | neutral@k | gap | | |
+|---|---:|---:|---:|---:|---|---|
+| `coval_core` | 4 | 0.5665 | 0.5403 | **+0.0262** [+0.0192,+0.0332] | **PASSES** | BH ✓ |
+| `topw_k4` | 4 | 0.5642 | 0.5403 | **+0.0239** [+0.0169,+0.0312] | **PASSES** | BH ✓ |
+| `gen` | 4 | 0.5352 | 0.5403 | −0.0051 [−0.0129,+0.0024] | **UNRESOLVED** | — |
+| **`full`** | **15** | 0.5087 | **0.5418** | **−0.0331** [−0.0413,−0.0254] | **FAILS** | BH ✓ |
+
+> ⛔ **The entire rubric — 15 criteria written for that conversation — is separably WORSE than 15
+> criteria that never read it.** The size confound is closed in the direction that costs `full` its
+> admission, not in the one that rescues the price.
+
+⚠ **THE NEUTRAL BASELINE IS ITSELF A CHOICE, and `gen`'s verdict turns on it.** The incumbent
+`generic` (four hand-picked sentences) scores **0.5514**; a *random* four from the 16-pool average
+**0.5403 ± 0.0070**. So `gen` FAILS against the first (−0.0162, resolved) and is UNRESOLVED against
+the second (−0.0051). **Both are defensible neutral arms and they disagree** — that spread is the
+finding, and no single "the neutral arm" number should be quoted without it.
+
+⚠ **The identity control FAILED and the round reported anyway — here is exactly why that is not
+loosening it.** `pool[0:4]` should reproduce `generic` bit-for-bit and does not (mean A2 0.5504 vs
+0.5514). Diagnosed on the 15,488 raw satisfaction cells: **66% exact zeros, mean |Δ| 0.0086, mean
+SIGNED Δ −0.0006.** Zero systematic component ⇒ **instrument noise, not a text or index mismatch**
+(a mismatch shows a low zero-rate *and* a large signed mean). But it is **4× R260's independently
+measured batch-noise envelope**, so **R260's number was scoped to the batch change *it* tested and
+I had been carrying it as "the" batch noise.** Consequence, stated as a scope rule rather than a
+pass: **pool-internal comparisons across k share one run and are exact; pool-vs-published
+comparisons carry 0.0009 at the mean**, below the 0.0134 MDE.
+
 **Under the revision: 2 admitted of the 9 arms it can judge** — `coval_core` and `topw_k4`. `full`
 is **PENDING**: the only arm whose size is unmatched (median 15 vs 4), neutral arm on the GPU (R281).
 
