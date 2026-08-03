@@ -535,7 +535,7 @@ the choice visible, not to score the object against a purpose it never claimed.
 
 | | |
 |---|---|
-| candidate-set transport (R233) | ⛔ **the reason is now itself unverified** (R263). R241 concluded *"NO VALID STRATIFIER EXISTS"*, and that null closed this line — but re-run under `PYTHONHASHSEED 0/1/2/3` **its conclusion flips**: seeds 0 and 3 give the null, **seeds 1 and 2 give `UNVERIFIED — the correlation machinery did not pass its own controls`.** Half the seeds say the round is unreadable. A null resting on a floor that moves is one draw, not a measured reason. R238's headline moves `+0.0976 … +0.1242` (27%) across the same axis |
+| candidate-set transport (R233) | ⛔ **the reason carries a RATE, not a verdict** (R263 → R264). R241 concluded *"NO VALID STRATIFIER EXISTS"*, and that null closed this line. Re-run over **24 hash seeds**, R241's **own controls pass on 15 of 24 = `0.6250`, Wilson `[0.4271, 0.7884]`** — an interval that **excludes 0.9**, which was the pre-registered threshold for "cannot be quoted without its rate". On the other 9 seeds it prints `UNVERIFIED — the correlation machinery did not pass its own controls`. **Conditional on the controls passing the conclusion is stable (1 distinct verdict across all 15)** — so R241 is not *wrong*, it is **unreadable on 37.5% of runs**, and nothing records which kind the published run was. Positive control: the int-keyed R230 is identical at all 24 seeds, rate exactly `1.0000`. R238's headline separately moves `+0.0976 … +0.1242` (27%) on the same axis |
 | the two independent designs (R234, R235) | dispatched blind at seeds 11 and 29. **The reading rule was fixed before they were launched** and they will not be averaged |
 
 ## What no elicitation here can settle
