@@ -590,6 +590,26 @@ collapsed each prompt's annotators to a consensus *sign* first, giving 5,808 row
 (ratio 6). The real structure is **93,558 rows over 968 prompts, ratio 96.7**. With the per-annotator
 rows the gap is **4.0×**, which clears the threshold R270 set and could not reach.
 
+### And the clustering inflation, as an interval rather than a point (R273)
+
+Resampling **prompts** vs resampling **rows** on the same statistic:
+
+| | MDE | |
+|---|---|---|
+| prompt-clustered | **[0.0260, 0.0300]** | the honest unit |
+| pooled-row | **[0.0100, 0.0110]** | the wrong unit, run deliberately |
+| **inflation** | **[2.36×, 3.00×]** | against `√(rows/clusters) = 9.83` |
+
+Each bound is *the range of g where a 95% CI on detection still contains 0.8* — no interpolation, no
+monotone fit. **The realised inflation reaches only 24–31% of what independence predicts**, so
+intra-cluster correlation is large and **`√(rows/clusters)` overstates what the wrong resampling unit
+buys** — the opposite of the direction the rule is usually quoted in.
+
+⛔ **R272's point estimate of 2.0× is RETRACTED — it lies outside this interval.** R272 concluded
+that *the grid, not the calibration, was the limiting term*, and then quoted a number the grid had
+produced: at a 0.005 step the pooled MDE read as `(0.010, 0.015]`, where a 0.001 step puts it at
+`[0.0100, 0.0110]`. **The coarse grid did not merely blur the number, it biased it low.**
+
 | published effect | value | effect/MDE | |
 |---|---:|---:|---|
 | R231 core−floor gap | 0.0035 | **0.03** | below |
