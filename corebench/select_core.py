@@ -56,14 +56,28 @@ def main():
                     help="oracle only: fit on annotators with index %%2 == this. -1 = all "
                          "(LEAKY). Use 1 and evaluate on parity 0 for a held-out oracle.")
     ap.add_argument("--outdir", default="corebench/results")
+    ap.add_argument("--full-npz", default=str(FULL_NPZ),
+                    help="the judged satisfaction of `coval_full`. Default is the 2B npz from "
+                         "E01/R04. Point it at a full npz judged by a DIFFERENT model and every "
+                         "selection arm is rebuilt under that judge for 0 further judge calls -- "
+                         "which is the same subset property this file already exploits, applied "
+                         "to the judge axis instead of to the arm axis.")
+    ap.add_argument("--tag-suffix", default="",
+                    help="appended to the arm tag, e.g. `08b`. MANDATORY when --full-npz is not "
+                         "the default: an arm rebuilt under another judge that overwrites the 2B "
+                         "file would make every committed result unattributable to its instrument.")
     a = ap.parse_args()
+    if str(a.full_npz) != str(FULL_NPZ) and not a.tag_suffix:
+        print("  REFUSING: --full-npz was changed without --tag-suffix. The output would "
+              "overwrite the 2B arm and no later round could tell which judge produced it.")
+        return 2
 
     from covalx.judge import load_join
     joined = load_join(ROOT / "data" / "comparisons.jsonl",
                        ROOT / "data" / "conversation_rubrics.jsonl")
     rub = {p: r for p, _pr, r in joined}
 
-    d = np.load(FULL_NPZ, allow_pickle=True)
+    d = np.load(a.full_npz, allow_pickle=True)
     sat = collections.defaultdict(dict)
     for kk, v in zip(d["meta"], d["sat"]):
         pid, i, ltr = str(kk).split("|")
@@ -173,7 +187,7 @@ def main():
     tag = f"{a.rule}" + ("" if a.rule == "full" else f"{a.k}") + \
           (f"_s{a.seed}" if a.rule == "random_k" else "") + \
           (f"_fit{a.fit_parity}" if a.rule in ("oracle_k", "indep_k", "greedy_k")
-           and a.fit_parity >= 0 else "")
+           and a.fit_parity >= 0 else "") + a.tag_suffix
     np.savez_compressed(out / f"sat_{tag}.npz", meta=np.array(meta),
                         sat=np.array(vals, np.float32))
     (out / f"core_{tag}.json").write_text(json.dumps(texts))
