@@ -109,7 +109,7 @@ def main():
 
     print(f"  {len(scripts)} scripts (incl. 1 planted positive control), each in its own restored "
           f"worktree\n")
-    print(f"  {'check':<46}{'exit':>6}{'round files':>13}{'other repo':>12}   verdict")
+    print(f"  {'check':<46}{'exit':>6}{'round files':>13}{'assur':>7}{'other':>7}   verdict")
     rows, empty, docs_only, never_ran = {}, [], [], []
     for i, name in enumerate(scripts):
         # the positive control is untracked, so a restore between subjects would erase it; re-plant
@@ -121,23 +121,35 @@ def main():
                 src.replace("p = round_results(rnd, fn)\n        if p is None:\n            continue",
                             'p = HERE / rnd / "results" / fn')
                    .replace("if not items:", "if False and not items:"))
+        # ⚠ THREE BUCKETS, NOT TWO. The first version counted `round files` and `other repo
+        # files`, and EXCLUDED everything under `assurance/` from both -- so a check whose
+        # property is ABOUT the generated package read as having opened nothing.
+        # `scope_reaches_the_reader.py` opens exactly `assurance/ASSURANCE.md` and
+        # `assurance/MANIFEST.json`, which is precisely what it is for ("what it checks is the
+        # generated package, where a renderer stands between the record and the reader"), and my
+        # classifier called that an empty population. Third false positive from this instrument,
+        # after two from subprocess children. The bucket a file lands in must be a fact about the
+        # file, not a residue of what I thought was interesting.
         rf = [f for f in files if f.startswith("E0") and "/R" in f]
+        af = [f for f in files if f.startswith("assurance/") and f != f"assurance/{name}"]
         of = [f for f in files if not f.startswith("E0") and not f.startswith("assurance/")
               and not f.startswith(".venv")]
         ran = isinstance(rc, int)
         if not ran:
             v = f"⛔ NEVER RAN ({rc})"; never_ran.append(name)
-        elif rc == 0 and not rf and not of:
+        elif rc == 0 and not rf and not of and not af:
             v = "⚠ READ NOTHING"; empty.append(name)
+        elif rc == 0 and not rf and not of and af:
+            v = "package-scoped (by design)"; docs_only.append(name)
         elif rc == 0 and not rf and of:
             v = "docs-only (scoped)"; docs_only.append(name)
         elif rc == 0:
             v = "read the tree"
         else:
             v = f"exit {rc}, not a pass"
-        rows[name] = dict(exit=rc, round_files=len(rf), other_files=len(of), verdict=v,
+        rows[name] = dict(exit=rc, round_files=len(rf), other_files=len(of), assurance_files=len(af), verdict=v,
                           dirtied=len(dirtied), sample=sorted(of)[:4])
-        print(f"    {name[:44]:<46}{str(rc):>6}{len(rf):>13}{len(of):>12}   {v}")
+        print(f"    {name[:44]:<46}{str(rc):>6}{len(rf):>13}{len(af):>7}{len(of):>7}   {v}")
 
     pr = rows.get(pos_name, {})
     pos_ok = pr.get("exit") == 0 and pr.get("round_files") == 0

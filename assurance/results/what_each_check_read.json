@@ -1,16 +1,17 @@
 {
- "source_sha": "d2d2e8f2dfc64bd3",
+ "source_sha": "b6f798730cbd8850",
  "world": "SOME-PASS-ON-NOTHING",
  "isolation": "git worktree per subject, restored from git between subjects",
  "read_nothing": [
   "attack_scope_reaches_the_reader.py",
-  "results_match_their_code.py",
-  "scope_reaches_the_reader.py"
+  "results_match_their_code.py"
  ],
  "docs_only": [
   "apply_freeze_status.py",
   "retired_framing_in_assertion_positions.py",
-  "round_links_resolve.py"
+  "round_links_resolve.py",
+  "scope_reaches_the_reader.py",
+  "_poscontrol_unrepaired.py"
  ],
  "never_ran": [
   "HEADLINES.py",
@@ -23,6 +24,7 @@
    "exit": 0,
    "round_files": 5,
    "other_files": 0,
+   "assurance_files": 1,
    "verdict": "read the tree",
    "dirtied": 0,
    "sample": []
@@ -31,6 +33,7 @@
    "exit": "EXC FileNotFoundError",
    "round_files": 0,
    "other_files": 7,
+   "assurance_files": 0,
    "verdict": "\u26d4 NEVER RAN (EXC FileNotFoundError)",
    "dirtied": 0,
    "sample": [
@@ -44,6 +47,7 @@
    "exit": 0,
    "round_files": 0,
    "other_files": 6,
+   "assurance_files": 0,
    "verdict": "docs-only (scoped)",
    "dirtied": 0,
    "sample": [
@@ -57,6 +61,7 @@
    "exit": 0,
    "round_files": 309,
    "other_files": 0,
+   "assurance_files": 0,
    "verdict": "read the tree",
    "dirtied": 0,
    "sample": []
@@ -65,6 +70,7 @@
    "exit": 1,
    "round_files": 0,
    "other_files": 10,
+   "assurance_files": 0,
    "verdict": "exit 1, not a pass",
    "dirtied": 0,
    "sample": [
@@ -77,7 +83,8 @@
   "attack_every_check.py": {
    "exit": 1,
    "round_files": 2,
-   "other_files": 442,
+   "other_files": 447,
+   "assurance_files": 0,
    "verdict": "exit 1, not a pass",
    "dirtied": 0,
    "sample": [
@@ -91,6 +98,7 @@
    "exit": 1,
    "round_files": 0,
    "other_files": 2,
+   "assurance_files": 0,
    "verdict": "exit 1, not a pass",
    "dirtied": 0,
    "sample": [
@@ -102,6 +110,7 @@
    "exit": 1,
    "round_files": 0,
    "other_files": 1,
+   "assurance_files": 0,
    "verdict": "exit 1, not a pass",
    "dirtied": 0,
    "sample": [
@@ -112,6 +121,7 @@
    "exit": 0,
    "round_files": 0,
    "other_files": 0,
+   "assurance_files": 0,
    "verdict": "\u26a0 READ NOTHING",
    "dirtied": 0,
    "sample": []
@@ -120,6 +130,7 @@
    "exit": 1,
    "round_files": 0,
    "other_files": 4,
+   "assurance_files": 2,
    "verdict": "exit 1, not a pass",
    "dirtied": 0,
    "sample": [
@@ -133,6 +144,7 @@
    "exit": 3,
    "round_files": 0,
    "other_files": 0,
+   "assurance_files": 0,
    "verdict": "exit 3, not a pass",
    "dirtied": 0,
    "sample": []
@@ -141,6 +153,7 @@
    "exit": 0,
    "round_files": 332,
    "other_files": 1,
+   "assurance_files": 0,
    "verdict": "read the tree",
    "dirtied": 0,
    "sample": [
@@ -151,6 +164,7 @@
    "exit": 1,
    "round_files": 8,
    "other_files": 0,
+   "assurance_files": 1,
    "verdict": "exit 1, not a pass",
    "dirtied": 0,
    "sample": []
@@ -159,6 +173,7 @@
    "exit": 0,
    "round_files": 522,
    "other_files": 4,
+   "assurance_files": 1,
    "verdict": "read the tree",
    "dirtied": 0,
    "sample": [
@@ -172,6 +187,7 @@
    "exit": 1,
    "round_files": 0,
    "other_files": 1,
+   "assurance_files": 0,
    "verdict": "exit 1, not a pass",
    "dirtied": 0,
    "sample": [
@@ -182,6 +198,7 @@
    "exit": 0,
    "round_files": 24,
    "other_files": 7,
+   "assurance_files": 0,
    "verdict": "read the tree",
    "dirtied": 0,
    "sample": [
@@ -195,6 +212,7 @@
    "exit": 0,
    "round_files": 1,
    "other_files": 0,
+   "assurance_files": 0,
    "verdict": "read the tree",
    "dirtied": 0,
    "sample": []
@@ -203,6 +221,7 @@
    "exit": 0,
    "round_files": 318,
    "other_files": 1,
+   "assurance_files": 0,
    "verdict": "read the tree",
    "dirtied": 0,
    "sample": [
@@ -213,6 +232,7 @@
    "exit": 0,
    "round_files": 820,
    "other_files": 17,
+   "assurance_files": 38,
    "verdict": "read the tree",
    "dirtied": 2,
    "sample": [
@@ -226,6 +246,7 @@
    "exit": 1,
    "round_files": 0,
    "other_files": 5,
+   "assurance_files": 1,
    "verdict": "exit 1, not a pass",
    "dirtied": 0,
    "sample": [
@@ -239,6 +260,7 @@
    "exit": 0,
    "round_files": 522,
    "other_files": 0,
+   "assurance_files": 0,
    "verdict": "read the tree",
    "dirtied": 0,
    "sample": []
@@ -247,6 +269,7 @@
    "exit": 0,
    "round_files": 307,
    "other_files": 0,
+   "assurance_files": 0,
    "verdict": "read the tree",
    "dirtied": 0,
    "sample": []
@@ -255,6 +278,7 @@
    "exit": 2,
    "round_files": 0,
    "other_files": 0,
+   "assurance_files": 0,
    "verdict": "exit 2, not a pass",
    "dirtied": 0,
    "sample": []
@@ -263,6 +287,7 @@
    "exit": 0,
    "round_files": 522,
    "other_files": 1,
+   "assurance_files": 0,
    "verdict": "read the tree",
    "dirtied": 0,
    "sample": [
@@ -273,6 +298,7 @@
    "exit": 2,
    "round_files": 520,
    "other_files": 1,
+   "assurance_files": 0,
    "verdict": "exit 2, not a pass",
    "dirtied": 0,
    "sample": [
@@ -283,6 +309,7 @@
    "exit": 0,
    "round_files": 480,
    "other_files": 8,
+   "assurance_files": 0,
    "verdict": "read the tree",
    "dirtied": 0,
    "sample": [
@@ -296,6 +323,7 @@
    "exit": 2,
    "round_files": 0,
    "other_files": 0,
+   "assurance_files": 0,
    "verdict": "exit 2, not a pass",
    "dirtied": 0,
    "sample": []
@@ -304,6 +332,7 @@
    "exit": 0,
    "round_files": 0,
    "other_files": 0,
+   "assurance_files": 0,
    "verdict": "\u26a0 READ NOTHING",
    "dirtied": 0,
    "sample": []
@@ -312,6 +341,7 @@
    "exit": 0,
    "round_files": 0,
    "other_files": 3,
+   "assurance_files": 0,
    "verdict": "docs-only (scoped)",
    "dirtied": 0,
    "sample": [
@@ -324,6 +354,7 @@
    "exit": 0,
    "round_files": 332,
    "other_files": 16,
+   "assurance_files": 1,
    "verdict": "read the tree",
    "dirtied": 0,
    "sample": [
@@ -337,6 +368,7 @@
    "exit": 0,
    "round_files": 0,
    "other_files": 7,
+   "assurance_files": 0,
    "verdict": "docs-only (scoped)",
    "dirtied": 0,
    "sample": [
@@ -350,7 +382,8 @@
    "exit": 0,
    "round_files": 0,
    "other_files": 0,
-   "verdict": "\u26a0 READ NOTHING",
+   "assurance_files": 2,
+   "verdict": "package-scoped (by design)",
    "dirtied": 0,
    "sample": []
   },
@@ -358,6 +391,7 @@
    "exit": 1,
    "round_files": 318,
    "other_files": 1,
+   "assurance_files": 0,
    "verdict": "exit 1, not a pass",
    "dirtied": 0,
    "sample": [
@@ -368,6 +402,7 @@
    "exit": 2,
    "round_files": 0,
    "other_files": 1,
+   "assurance_files": 0,
    "verdict": "exit 2, not a pass",
    "dirtied": 0,
    "sample": [
@@ -378,6 +413,7 @@
    "exit": "EXC AttributeError",
    "round_files": 315,
    "other_files": 0,
+   "assurance_files": 0,
    "verdict": "\u26d4 NEVER RAN (EXC AttributeError)",
    "dirtied": 0,
    "sample": []
@@ -386,7 +422,8 @@
    "exit": 0,
    "round_files": 0,
    "other_files": 0,
-   "verdict": "\u26a0 READ NOTHING",
+   "assurance_files": 1,
+   "verdict": "package-scoped (by design)",
    "dirtied": 2,
    "sample": []
   }
