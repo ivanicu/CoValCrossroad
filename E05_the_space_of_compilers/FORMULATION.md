@@ -21,12 +21,50 @@ admitted or excluded by measurement, none by assertion.
 | `topw_k4` | 0.5667 | **+0.0692** [+0.0570,+0.0814] | **+0.0736** [+0.0648,+0.0820] | **ADMITTED** |
 | `coval_core` | 0.5671 | separable | **+0.0694** [+0.0609,+0.0777] | **ADMITTED** |
 | `gen` | 0.5350 | **+0.0390** [+0.0304,+0.0478] | **+0.0522** [+0.0428,+0.0625] | **ADMITTED** |
-| `full` | 0.5134 | **+0.0131** [+0.0061,+0.0202] | **+0.0465** [+0.0379,+0.0553] | **ADMITTED** |
-| `topwvar_k4` | 0.5059 | +0.0092 [−0.0003,+0.0153] — **includes 0** | — | **excluded** |
+| `full` | 0.5134 | **+0.0131** [+0.0061,+0.0202] | **+0.0465** [+0.0379,+0.0553] | ⚠ **ADMITTED — UNRESOLVED** |
+| `topwvar_k4` | 0.5059 | +0.0092 [−0.0003,+0.0153] — **includes 0** | — | ⚠ **excluded — UNRESOLVED** |
 | `random_k4` | 0.4943 | 0 by construction | — | **excluded** |
 | `topabs_k4` | 0.4941 | −0.0003 [−0.0146,+0.0177] | — | **excluded** |
 | `topvar_k4` | 0.4884 | **−0.0123** [−0.0203,−0.0040] — *below* chance | — | **excluded** |
 | `gen_sham` | 0.4828 | below random | — | **excluded** |
+
+### ⛔ THE TABLE'S OWN BOUNDARY IS NOT RESOLVABLE, AND ONE ADMITTED ROW RESTS ON NOTHING
+
+R278, all 45 pairs among the ten arms, cluster bootstrap over 968 prompts, one shared index matrix
+so cells are paired, BH over the whole grid, against R277's MDE bracket **[0.0100, 0.0200]**:
+
+| | | |
+|---|---:|---:|
+| **RESOLVED** (\|effect\| ≥ 0.0200) | 29 / 45 | 64.4% |
+| **MARGINAL** (0.0100 ≤ \|effect\| < 0.0200) | 6 / 45 | 13.3% |
+| **BELOW RESOLUTION** (< 0.0100) | 10 / 45 | 22.2% |
+| BH survivors | 35 / 45 | |
+
+**Five of the 24 cells that straddle the definition are not RESOLVED**, and three of them are
+`full`'s:
+
+| straddling pair | effect | verdict |
+|---|---:|---|
+| `topw_k4` (A) − `generic` (e) | +0.0078 | **BELOW RESOLUTION** |
+| **`full` (A) − `topwvar_k4` (e)** | **+0.0089** | **BELOW RESOLUTION** |
+| `coval_core` (A) − `generic` (e) | +0.0110 | MARGINAL |
+| **`full` (A) − `random_k4_s0` (e)** | **+0.0182** | MARGINAL |
+| **`full` (A) − `topabs_k4` (e)** | **+0.0195** | MARGINAL |
+
+> ⛔ **`full` is resolvably better ONLY than the two arms that score below chance** (`topvar_k4`,
+> `gen_sham`). Against every excluded arm that is not itself sub-chance, its margin is inside the
+> design's resolution. **The whole rubric is admitted on evidence this design cannot resolve.**
+
+⛔ **And the negative control is the sharpest number in the round.** Two independent random draws of
+the *same* rule, `random_k4_s0` vs `random_k4_s1`, differ by **−0.0081** [−0.0196, +0.0040]:
+
+> **The gap that admits `full` and excludes `topwvar_k4` (+0.0089) is the same size as the gap
+> between two random draws of one rule (0.0081).** Nothing separates them but which seed was run.
+
+**What this does NOT do.** It does not overturn `coval_core`, `topw_k4` or `gen`, whose separations
+from every excluded arm are RESOLVED at 0.031–0.083. The definition's partition is a measurement
+over most of its range and a coin flip at exactly one edge — and that edge had been written down in
+the same bold type as the rest.
 
 ### ⚠ Both clauses are load-bearing — the object that proves it
 

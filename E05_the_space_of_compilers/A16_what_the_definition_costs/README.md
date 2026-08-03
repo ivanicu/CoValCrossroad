@@ -11,6 +11,7 @@ contents only** — every finding, its interval and its scope live in `E05/FORMU
 |---|---|
 | `R276` is `generic` degenerate | is the excluded arm a predictor, or one fixed verdict that happens to be common? |
 | `R277` the MDE of the design that priced it | can this design resolve the numbers A16 is quoting? |
+| `R278` is the boundary resolvable | is the table's own ADMIT/EXCLUDE edge above that resolution? |
 
 ## Why the arc was opened rather than folded into A13
 
