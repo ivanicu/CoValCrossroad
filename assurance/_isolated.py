@@ -114,10 +114,20 @@ def restore(wt: pathlib.Path) -> list[str]:
     return changed
 
 
-def run_isolated(script_rel: str, timeout: int = 200):
-    """(rc, repo-relative files opened, paths the subject dirtied). Never touches the main tree."""
+def run_isolated(script_rel: str, timeout: int = 200, restore_first: bool = True):
+    """(rc, repo-relative files opened, paths the subject dirtied). Never touches the main tree.
+
+    ⚠ `restore_first=False` EXISTS BECAUSE THE SELFTEST SILENTLY DID NOTHING. `restore()` deletes
+    untracked files, and it ran BEFORE the subject -- so the saboteur probe, which is untracked by
+    construction, was erased before it could execute. `run_isolated` returned "MISSING", the
+    selftest counted the main tree as unharmed, and printed PASS. A control that reports success
+    having executed nothing, inside the module written to prevent exactly that. It was visible
+    only because the exit code was printed beside the verdict; had I printed the verdict alone it
+    would have read as a clean result.
+    """
     wt = ensure_worktree()
-    restore(wt)
+    if restore_first:
+        restore(wt)
     tgt = wt / script_rel
     if not tgt.exists():
         return "MISSING", [], []
@@ -143,6 +153,7 @@ def selftest() -> int:
           "  that has not been shown to survive it is not isolated, only untested.\n")
     before = sorted(p.name for p in ROOT.glob("E0*") if p.is_dir())
     wt = ensure_worktree()
+    restore(wt)          # clean the worktree FIRST, then plant into it
     sab = "assurance/_saboteur_probe.py"
     (wt / sab).write_text(textwrap.dedent('''
         import pathlib, shutil
@@ -151,7 +162,7 @@ def selftest() -> int:
             if e.is_dir():
                 shutil.rmtree(e); print("deleted", e.name); break
     '''))
-    rc, _files, changed = run_isolated(sab)
+    rc, _files, changed = run_isolated(sab, restore_first=False)
     after = sorted(p.name for p in ROOT.glob("E0*") if p.is_dir())
     wt_epochs = sorted(p.name for p in wt.glob("E0*") if p.is_dir())
     (wt / sab).unlink(missing_ok=True)
@@ -165,14 +176,22 @@ def selftest() -> int:
           f"{'healed FROM GIT' if healed else '⚠ NOT healed'}")
     print(f"    paths the saboteur dirtied     : {len(changed)}")
 
+    restore(wt)
     (wt / "assurance/_noop_probe.py").write_text("print('noop')\n")
-    rc0, _f0, changed0 = run_isolated("assurance/_noop_probe.py")
+    rc0, _f0, changed0 = run_isolated("assurance/_noop_probe.py", restore_first=False)
     (wt / "assurance/_noop_probe.py").unlink(missing_ok=True)
     g0 = len(changed0) <= 1
     print(f"    g=0 (harmless subject)         : exit {rc0}, dirtied {len(changed0)} path(s)   "
           f"{'PASS' if g0 else '⚠ fires with nothing planted'}")
 
-    ok = main_safe and healed and g0
+    # ⛔ THE PLANT MUST HAVE ACTUALLY RUN. "MISSING"/"TIMEOUT"/"NO-TRACE" mean the subject never
+    # executed, and a main tree that survives an attack THAT NEVER HAPPENED is not evidence of
+    # containment -- it is the empty-population pass, one level up, inside the control itself.
+    ran = isinstance(rc, int)
+    if not ran:
+        print(f"\n    ⛔ THE SABOTEUR NEVER RAN (rc={rc!r}). The main tree being intact says")
+        print("       NOTHING about containment. This is not a pass; it is an examined-nothing.")
+    ok = ran and main_safe and healed and g0
     print(f"\n  {'PASS — destruction is contained, and the restore heals it from git'
              if ok else 'FAIL — do not use this harness'}")
     return 0 if ok else 1
