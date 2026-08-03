@@ -8473,3 +8473,56 @@ a new heading and did not collide.
 classifier believing this file held *"~100 entries"*. **It holds 239** — I was wrong about the size
 of my own retraction ledger by **2.4×**, which is why I picked a range that was already occupied.
 *I did not know how much I had retracted.*
+
+---
+
+## 240 · "Entries 43–47 never existed; the numbering skipped" — asserted and retracted the same day, 2026-08-03
+
+**The claim.** `covalx/ledger_check.py` reported a gap at 43–47. I searched all 222 historical
+versions of this file with an anchored pattern and concluded the five entries were never written:
+
+> anchored `^## Entry 4[3-7]` → **0 hits over 222 versions**, while the same pattern finds
+> Entry 41 in 213, Entry 42 in 212 and Entry 48 in 210 — the positive control that makes the
+> zero a measurement rather than silence.
+
+**What killed it.** Reading the object. **Entries 43–47 are at lines 183–187 of this file**, and
+they have their own heading at line 174: `## Entries 43–47 — the framing itself, and four claims
+scoped to what was actually tested`. Entry 43 is the retirement of the name this project was
+*called by* — *"less than half of a values evaluation measures values"* — which is not a small
+thing to have declared nonexistent.
+
+**Every number in the retracted paragraph is correct.** The search ran, the count is right, the
+positive control is real: 41, 42 and 48 genuinely do exist as `## Entry N` headings, so the
+instrument genuinely could see what it was pointed at. **What failed is one word of scope.** The
+instrument measured *headings*. The sentence I wrote was about *entries*. Three independent reasons
+it could not have been right, any one sufficient:
+
+| | |
+|---|---|
+| the umbrella heading is **`Entries`**, plural | `^## Entry 4[3-7]` cannot match `## Entries 43–47` |
+| the five entries are **table rows**, form D | a heading regex cannot see a table |
+| the conclusion generalised **heading → entry** | the two are not the same set, and this file says so |
+
+⛔ **The part worth carving.** The checker's own output named the reason, two paragraphs below the
+conclusion, in the same commit: *"NOT COVERED, stated rather than guessed: the ~40 earliest entries
+live as TABLE ROWS, not headings."* I wrote the limitation and the conclusion it invalidates into
+one file, in one action, and did not connect them. **So a stated limitation is not a guard.** It
+sits in the artifact where a reader might find it; nothing forces it to be read at the moment the
+belief is formed, and the author is the reader least likely to re-read it. A limitation only guards
+if the instrument **refuses to answer** outside its scope — which is why the checker now resolves
+all four forms rather than naming what it skips.
+
+**What survived, and it is not nothing.** The rule *run the pattern where the answer is already
+known* was correct and is what made this findable at all. What it lacked was a second control aimed
+at the other axis: the positive control tested **can this instrument see?** and never tested **is
+what it sees the thing I am about to make a claim about?** A control that shares the instrument's
+blind spot confirms the instrument and licenses nothing.
+
+**Repaired.** `covalx/ledger_check.py` now resolves four storage forms, discriminates entry tables
+from data tables by their header (the near-miss `| # | objection |` is rejected), detects collisions
+structurally — two locations collide iff another entry heading lies between them, which is what
+distinguishes a real double-numbering from a heading beside its own summary row — and has a
+`--selftest` that fires on the four known collisions at `c168b09^`. **Result: 239 entries, 1 to 239,
+no gaps and no collisions.** The first version of this repair also failed its own control, twice:
+it assumed one umbrella heading when there are two, and it defined a collision as two hits within
+one form when the real event was form A against form B.

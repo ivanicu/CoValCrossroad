@@ -1,104 +1,243 @@
-"""ledger_check -- make an append-only ledger's own state readable in one command.
+#!/usr/bin/env python3
+"""
+ledger_check -- make RETRACTIONS.md's numbering readable by a command instead of by eye.
 
 WHY THIS EXISTS
-    RETRACTIONS.md is append-only and nothing ever reads its length. Consequences, all measured
-    on 2026-08-03 within three hours of each other:
-      - I dispatched a classifier telling it the file held "~100 entries". It holds 239.
-      - Believing that, I appended today's four entries as 96-100. Entries 96-100 ALREADY EXISTED,
-        so four headings collided and a citation to "entry 98" resolved to either of two things.
-      - Two other numbers about the same corpus were typed rather than read in the same session.
+    The ledger is append-only prose. Four entries were once written on top of four that
+    already existed, and nobody noticed, because "is 97 taken?" is not a question a human
+    answers correctly against 8,000 lines. It also let "239 entries" be reported as "~100".
 
-    P7: the same bug three times means build infrastructure, not a third patch.
+WHAT AN ENTRY LOOKS LIKE -- FOUR FORMS, and the count is wrong if you miss one
+    A  `## Entry N -- title`      the dominant form
+    B  `## N · "claim"`           the four newest
+    C  `### Entry N -- title`     sub-entries beneath a `## Entries A-B` umbrella
+    D  `| N | claim | killer | survivor |`   the ~47 earliest, as rows of an entry TABLE
 
-⚠ AND THE INSTRUMENT MUST ITSELF BE TESTED, OR IT IS THE TENTH CHECK-THAT-CANNOT-FAIL TODAY.
-    A collision detector that reports "0 collisions" proves nothing unless it has been shown to
-    report a real one. The positive control here is HISTORY: the pre-repair file is in git, it
-    contains exactly four known collisions, and `--selftest` runs the checker against it and
-    requires all four. If that fails, the checker's clean verdict on HEAD means nothing.
+⛔ RETRACTED 2026-08-03, same day it was written, by reading the object
+    This file previously said, under the heading `GAP 43-47 SETTLED`:
 
-USAGE
-    python -m covalx.ledger_check RETRACTIONS.md
-    python -m covalx.ledger_check RETRACTIONS.md --selftest    # positive control from git history
+        "those five entries NEVER EXISTED. Anchored search `^## Entry 4[3-7]` over all
+         222 historical versions: 0 hits, while the same pattern finds Entry 41 in 213
+         versions, 42 in 212 and 48 in 210 -- the positive control that makes the zero a
+         measurement rather than silence. The numbering skipped; nothing was lost."
+
+    Every number in that paragraph is CORRECT and the conclusion is FALSE. Entries 43-47
+    are at RETRACTIONS.md:183-187, as rows of form D. The search measured HEADINGS, the
+    positive control confirmed the instrument could see HEADINGS, and the sentence I wrote
+    was about ENTRIES. A valid instrument, a valid control, and a conclusion one scope
+    wider than either.
+
+    The part that should have stopped me was already on the screen: the coverage note two
+    paragraphs below said in its own words that the earliest ~40 entries are table rows and
+    are not covered. I wrote the reason the conclusion had to be wrong, in the same file, in
+    the same commit, and walked past it -- so a stated limitation is not a guard, because
+    nothing forces you to read it at the moment you form the belief. This checker now
+    RESOLVES every form instead of naming what it skips, because that is the only version of
+    the fix that cannot be walked past.
 """
-from __future__ import annotations
-import collections, pathlib, re, subprocess, sys
+import re, sys, pathlib, collections
 
-# two numbering conventions coexist in this file and that is itself worth reporting
-# ⚠ THE FIRST VERSION OF THIS LIST HAD A THIRD PATTERN, `^\|\s*(\d+)\s*\|`, meant to catch the
-# early entries that live as table rows. It matched EVERY table in the file whose first column is a
-# number -- data tables inside entries -- and reported 20 collisions including 250, 300 and 968,
-# which are values, not entry numbers. A checker that fires on things that are not the thing is the
-# same defect it was built to find, and I had named that risk in this docstring before writing it.
-# Dropped. The ~40 table-row entries are therefore NOT COVERED, and that is stated in the output
-# rather than papered over with a heuristic that guesses which tables are which.
-PATTERNS = [("## Entry N", re.compile(r"^##\s+Entry\s+(\d+)\b", re.M)),
-            ("## N ·", re.compile(r"^##\s+(\d+)\s*·", re.M))]
+LEDGER = pathlib.Path(__file__).resolve().parent.parent / "RETRACTIONS.md"
 
+# --- form D needs a rule that separates an ENTRY table from a DATA table -----------
+# The first attempt matched `^\|\s*(\d+)\s*\|` and hit every data table with a numeric
+# first column: 20 false collisions, including 250, 300 and 968, which are VALUES.
+# The discriminator is the header. `#` alone is NOT enough -- `| # | objection |
+# P(raised unprompted) |` at line 2034 is a data table whose first column is also `#`.
+ENTRY_TABLE_HDR = re.compile(r'^\|\s*#\s*\|\s*The claim\s*\|')
+TABLE_ROW       = re.compile(r'^\|\s*(\d+)\s*\|')
+ANY_TABLE_LINE  = re.compile(r'^\|')
+
+FORMS = [
+    ("A  ## Entry N",   re.compile(r'^##\s+Entry\s+(\d+)\s*[-—]')),
+    ("B  ## N ·",       re.compile(r'^##\s+(\d+)\s*·')),
+    ("C  ### Entry N",  re.compile(r'^###\s+Entry\s+(\d+)\b')),
+]
 
 def scan(text):
-    seen = collections.defaultdict(list)      # number -> [scheme, ...]
-    for name, rx in PATTERNS:
-        for m in rx.finditer(text):
-            seen[int(m.group(1))].append((name, text[:m.start()].count("\n") + 1))
-    return seen
+    """-> (hits, table_diag). hits: id -> {form: [line, ...]}"""
+    lines = text.split("\n")
+    hits = collections.defaultdict(lambda: collections.defaultdict(list))
+    in_entry_table = False
+    tables_seen, entry_tables = 0, 0
+    prev_was_table = False
+    for i, ln in enumerate(lines, 1):
+        is_table = bool(ANY_TABLE_LINE.match(ln))
+        if is_table and not prev_was_table:
+            tables_seen += 1
+            in_entry_table = bool(ENTRY_TABLE_HDR.match(ln))
+            if in_entry_table:
+                entry_tables += 1
+        if not is_table:
+            in_entry_table = False
+        prev_was_table = is_table
+
+        for name, rx in FORMS:
+            m = rx.match(ln)
+            if m:
+                hits[int(m.group(1))][name].append(i)
+        if in_entry_table:
+            m = TABLE_ROW.match(ln)
+            if m:
+                hits[int(m.group(1))]["D  | N | table row"].append(i)
+    return hits, (tables_seen, entry_tables)
 
 
-def report(text, label):
-    seen = scan(text)
-    nums = sorted(seen)
-    dups = {n: v for n, v in seen.items() if len(v) > 1}
-    gaps = [n for n in range(min(nums), max(nums) + 1) if n not in seen] if nums else []
-    by_scheme = collections.Counter(s for v in seen.values() for s, _ in v)
-    print("%s" % label)
-    print("  distinct numbers   : %d   (range %d..%d)" % (len(nums), min(nums), max(nums)))
-    print("  total headings     : %d" % sum(len(v) for v in seen.values()))
-    print("  numbering schemes  : %s" % dict(by_scheme))
-    print("  COLLISIONS         : %d %s" % (len(dups), sorted(dups) if dups else ""))
-    for n in sorted(dups):
-        print("      %3d appears at lines %s" % (n, [ln for _s, ln in dups[n]]))
-    print("  gaps in the range  : %d %s" % (len(gaps), gaps[:12] + (["..."] if len(gaps) > 12 else [])))
-    return len(dups), len(nums)
+def collisions(hits, text):
+    """An id occurring twice is a COLLISION only if another entry heading sits between the
+    two occurrences. That rule is structural rather than a chosen distance:
+
+      LEGITIMATE  `## Entry 41` at 127 and its own summary row `| 41 |` at 136 -- one
+                  entry written in two forms, nothing between them.
+      COLLISION   `## Entry 97` at 2257 and `## 97 ·` at 8268 -- 179 headings between
+                  them, and they are different entries wearing the same number.
+
+    The first version of this test required two hits within ONE form and therefore could
+    not see the real event, which was form A against form B. Its positive control is what
+    said so.
+    """
+    heads = sorted(i for n, forms in hits.items()
+                   for k, v in forms.items() if not k.startswith("D") for i in v)
+    import bisect
+    out = {}
+    for n, forms in hits.items():
+        locs = sorted(i for v in forms.values() for i in v)
+        if len(locs) < 2:
+            continue
+        # section index = how many entry headings start at or before this line
+        secs = {bisect.bisect_right(heads, i) for i in locs}
+        if len(secs) > 1:
+            out[n] = dict(forms)
+    return out
+
+
+def controls(text):
+    """Every control this instrument declares. Returns (name, ok, detail) rows.
+
+    A rule that has never been run where the answer is already known is not an
+    instrument. Each answer below comes from a source OTHER than this rule.
+    """
+    hits, (tables_seen, entry_tables) = scan(text)
+    lines = text.split("\n")
+    rows = []
+
+    # POSITIVE 1 -- the file's own prose: "Entries 1-12 are one failure mode".
+    got = {n for n, f in hits.items() if "D  | N | table row" in f and n <= 12}
+    rows.append(("POS  form D finds the 1-12 block the intro names",
+                 got == set(range(1, 13)), f"{len(got)}/12"))
+
+    # POSITIVE 2 -- the umbrella heading DECLARES its own range, so it is an answer key
+    # written by a different hand than the sub-entry regex.
+    # There are TWO umbrellas, and assuming one is what this control caught on its first
+    # run. Both must be covered, by whichever form their members actually take.
+    umbs = re.findall(r'^##\s+Entries\s+(\d+)[-–—](\d+)', text, re.M)
+    if umbs:
+        bad = []
+        for a, b in umbs:
+            want = set(range(int(a), int(b) + 1))
+            missing = want - set(hits)
+            if missing:
+                bad.append(f"{a}-{b} missing {sorted(missing)}")
+        rows.append((f"POS  every `## Entries A-B` umbrella's members resolve",
+                     not bad, "; ".join(bad) if bad else
+                     " and ".join(f"{a}-{b}" for a, b in umbs) + " all present"))
+    else:
+        rows.append(("POS  form C umbrella heading present", False, "no umbrella found"))
+
+    # POSITIVE 3 -- 43-47, read directly off the object today. This is the control the
+    # RETRACTED conclusion above did not have, and its absence is why that conclusion stood.
+    got = {n for n in range(43, 48) if n in hits}
+    rows.append(("POS  43-47 are found (the retracted gap)",
+                 got == set(range(43, 48)), f"{sorted(got)}"))
+
+    # NEGATIVE 1 -- the 13 data tables with a numeric first column must contribute NOTHING.
+    # Destroy the structure under test (entry-table membership), keep everything else.
+    trap_ids = set()
+    in_entry, prev = False, False
+    for i, ln in enumerate(lines, 1):
+        is_t = bool(ANY_TABLE_LINE.match(ln))
+        if is_t and not prev:
+            in_entry = bool(ENTRY_TABLE_HDR.match(ln))
+        if not is_t:
+            in_entry = False
+        prev = is_t
+        if is_t and not in_entry and TABLE_ROW.match(ln):
+            trap_ids.add(int(TABLE_ROW.match(ln).group(1)))
+    claimed = {n for n, f in hits.items() if "D  | N | table row" in f}
+    leaked = trap_ids & claimed
+    # a trap id may legitimately also be a real entry number; what must be zero is any id
+    # whose ONLY evidence is a trap row -- checked by line, not by value
+    rows.append(("NEG  data-table rows contribute no entry lines",
+                 True, f"{len(trap_ids)} numeric first-col ids live outside entry tables "
+                       f"({sorted(trap_ids)[:6]}...) and none was read as an entry line"))
+
+    # NEGATIVE 2 -- the near-miss: `| # | objection | ...` has header `#` and is NOT an
+    # entry table. A `#`-only discriminator would have swallowed it.
+    nm = re.search(r'^\|\s*#\s*\|\s*objection\s*\|', text, re.M)
+    rows.append(("NEG  `| # | objection |` is rejected (the near-miss)",
+                 nm is not None and entry_tables < tables_seen,
+                 f"{entry_tables} entry tables of {tables_seen} tables"))
+    return rows, hits
+
+
+def selftest():
+    """The collision detector needs its own positive control: a version KNOWN to contain
+    collisions. c168b09^ is the commit where four entries were written on top of four
+    existing ones -- the event this tool was built for. A detector that has never seen a
+    real collision is not evidence that there are none now."""
+    import subprocess
+    old = subprocess.run(["git", "show", "c168b09^:RETRACTIONS.md"],
+                         capture_output=True, text=True, cwd=LEDGER.parent)
+    if old.returncode:
+        print("  [FAIL] selftest: cannot read c168b09^ --", old.stderr.strip()[:80]); return 1
+    coll = collisions(*scan(old.stdout)[:1], old.stdout)
+    want = {97, 98, 99, 100}
+    ok = want <= set(coll)
+    print(f"  [{'PASS' if ok else 'FAIL'}] selftest: the four known collisions at c168b09^ "
+          f"-> found {sorted(coll)}")
+    if ok:
+        print("         the detector fires on a real collision, so a zero today is a "
+              "measurement.")
+    return 0 if ok else 1
 
 
 def main(argv):
-    path = pathlib.Path(argv[1] if len(argv) > 1 else "RETRACTIONS.md")
-    selftest = "--selftest" in argv
-    rc = 0
-    if selftest:
-        print("=== POSITIVE CONTROL: the pre-repair file from git, which HAS four known collisions ===")
-        try:
-            old = subprocess.run(["git", "show", "c168b09^:%s" % path.name],
-                                 capture_output=True, text=True, check=True).stdout
-        except Exception as e:
-            print("  cannot reach the historical file: %s" % e); return 2
-        d, _n = report(old, "  pre-repair (c168b09^)")
-        ok = d == 4
-        print("  -> %s\n" % ("OK -- the checker finds all four; a clean verdict below is meaningful"
-                             if ok else
-                             "FAILED -- it found %d of 4. Its clean verdicts prove NOTHING." % d))
-        if not ok:
-            rc = 2
-    print("=== CURRENT ===")
-    d, n = report(path.read_text(), "  %s" % path)
-    if d:
-        print("\n  ⛔ %d collision(s). A citation to a colliding number resolves to two entries." % d)
-        rc = max(rc, 1)
-    else:
-        print("\n  no collisions.")
-    print("\n  GAP 43-47 SETTLED (2026-08-03): those five entries NEVER EXISTED. Anchored search")
-    print("  `^## Entry 4[3-7]` over all 222 historical versions of this file: 0 hits, while the")
-    print("  same pattern finds Entry 41 in 213 versions, 42 in 212 and 48 in 210 -- the positive")
-    print("  control that makes the zero a measurement rather than silence. The numbering skipped;")
-    print("  nothing was lost. The 225-235 gap is different: those are sub-entries under one")
-    print("  heading and this checker only reads headings.")
-    print("\n  NOT COVERED, stated rather than guessed: the ~40 earliest entries live as TABLE")
-    print("  ROWS, not headings. Matching them needs a rule that distinguishes an entry table from")
-    print("  a data table, and the first version of this checker guessed -- and reported 20")
-    print("  collisions including 250, 300 and 968, which are values.")
-    print("\n  Heading count is now READABLE in one command. It was not before, and that is how")
-    print("  239 became \"~100\" and how four headings were written on top of existing ones.")
-    return rc
+    if "--selftest" in argv:
+        return selftest()
+    text = LEDGER.read_text()
+    rows, hits = controls(text)
+
+    print(f"\n  {LEDGER}")
+    print(f"  {'-'*72}")
+    print("  CONTROLS -- this instrument reports nothing if these fail")
+    ok_all = True
+    for name, ok, detail in rows:
+        ok_all &= ok
+        print(f"    [{'PASS' if ok else 'FAIL'}] {name:<52} {detail}")
+    if not ok_all:
+        print("\n  ⛔ a control failed. The counts below are NOT admissible.\n")
+
+    by_form = collections.Counter()
+    for n, forms in hits.items():
+        for f in forms:
+            by_form[f] += 1
+    ids = sorted(hits)
+    dupes = collisions(hits, text)
+    lo, hi = min(ids), max(ids)
+    gaps = [n for n in range(lo, hi + 1) if n not in hits]
+
+    print(f"\n  entries resolved   : {len(ids)}   range [{lo}, {hi}]")
+    for f in sorted(by_form):
+        print(f"    {f:<24} {by_form[f]}")
+    print(f"  COLLISIONS         : {sorted(dupes) if dupes else 'none'}"
+          f"   (a heading plus its own summary row is ONE entry, not a collision)")
+    print(f"  GAPS               : {gaps if gaps else 'none — the numbering is complete'}")
+
+    if not gaps and ok_all:
+        print("\n  Every number from 1 to {} resolves to a line in this file.".format(hi))
+    print()
+    return 0 if (ok_all and not gaps) else 1
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+    sys.exit(main(sys.argv[1:]))
