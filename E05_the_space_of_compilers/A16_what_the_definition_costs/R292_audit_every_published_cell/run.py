@@ -114,9 +114,23 @@ def main():
         print("\n  UNVERIFIED — the detector does not behave; a clean sweep below would be silence.")
         return 1
 
+    # `unjudgeable` was ONE bucket and is really TWO, and only one of them is a defect in the round.
+    no_mde = [c for c in cells if c["mde"] is None and c["stored"] is not None]
+    no_verdict = [c for c in cells if c["mde"] is not None and c["stored"] is None]
+    neither = [c for c in cells if c["mde"] is None and c["stored"] is None]
     print(f"\n  LIKE-FOR-LIKE (MDE present AND a stored verdict): {len(comp)} of {len(cells)}")
-    print(f"  NOT JUDGEABLE (round stored no MDE): {len(cells) - len(comp)} — counted, EXCLUDED,")
-    print(f"    and NOT judged on the CI criterion instead. My first pass at this audit did exactly")
+    print(f"  NOT JUDGEABLE, split into the two things it was conflating:")
+    print(f"    no MDE stored          {len(no_mde):>4}  — the round cannot be judged on THIS ARC'S")
+    print(f"                                 resolution rule. A real gap in the round.")
+    print(f"    no VERDICT stored      {len(no_verdict):>4}  — the round computed an MDE but never")
+    print(f"                                 wrote a verdict. NOTHING TO CHECK, not a defect: you")
+    print(f"                                 cannot audit a claim that was never made.")
+    print(f"    neither                {len(neither):>4}")
+    for label, grp in (("no MDE", no_mde), ("no verdict", no_verdict), ("neither", neither)):
+        by = {}
+        for c in grp: by[c["round"]] = by.get(c["round"], 0) + 1
+        if by: print(f"      {label:<12}" + ", ".join(f"{r.split('_')[0]}={n}" for r, n in sorted(by.items())))
+    print(f"    ⚠ and NOT judged on the CI criterion instead. My first pass at this audit did exactly")
     print(f"    that and manufactured 24 disagreements that were entirely its own mis-specification.")
     print(f"\n  DISAGREEMENTS: {len(dis)}")
     for c in dis[:15]:

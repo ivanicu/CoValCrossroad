@@ -103,6 +103,16 @@ follows it.*
 | **Clause ① is judge-robust; clause ② is judge-bound** | 6/6 vs 0/3 cells | 2B and 0.8B |
 | **The structural wall, priced** | `full` vs `topwvar_k4` needs **3,352 prompts, 3.5×** this release | not a shrug |
 
+**The cell census, closed** (R292): **134 published cells** carrying an effect and an interval.
+**71 judgeable** (an MDE *and* a stored verdict) — **0 disagreements** with `report.verdict()`.
+The remaining 63 were one bucket labelled *unjudgeable*; they are two:
+
+| | | |
+|---|---:|---|
+| **no MDE stored** | 45 | all R278 — **a real gap**, and its 45 cells are the same pairs R280 recomputed with per-cell MDEs, so they are **superseded, not unchecked** |
+| **no VERDICT stored** | 18 | all R276 — it computes an MDE and never writes a verdict. **Nothing to check: you cannot audit a claim that was never made** |
+| neither | 0 | |
+
 **Instruments built, reusable on any next object:** `corebench/report.py` (an effect cannot be
 printed without its interval; the verdict is computed, not typed) · `R292`'s cell census (every
 published cell re-judged, with its own positive control) · the four-budget baseline curve (R287) ·
