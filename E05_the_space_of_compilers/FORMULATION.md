@@ -255,7 +255,7 @@ The remaining 63 were one bucket labelled *unjudgeable*; they are two:
 
 | | | |
 |---|---:|---|
-| **no MDE stored** | 45 | all R278 — **a real gap**, and its 45 cells are the same pairs R280 recomputed with per-cell MDEs, so they are **superseded, not unchecked** |
+| **no MDE stored** | 45 | all R304 — **a real gap**, and its 45 cells are the same pairs R306 recomputed with per-cell MDEs, so they are **superseded, not unchecked** |
 | **no VERDICT stored** | 18 | all R276 — it computes an MDE and never writes a verdict. **Nothing to check: you cannot audit a claim that was never made** |
 | neither | 0 | |
 
@@ -267,7 +267,7 @@ the 16-criterion prompt-blind pool, judged once so any k is free.
 **Decisions closed, so a next person need not reopen them:** which target (A2·annotator, argued on
 resolving power, R289) · what a baseline may be (selection budget named, R287) · whether the clause
 measures cores or my vocabulary (1,820 subsets enumerated, R286) · whether the price survives
-size-matching (it does, and it costs `full` its admission, R281).
+size-matching (it does, and it costs `full` its admission, R307).
 
 ---
 
@@ -545,7 +545,7 @@ ran and its controls did not behave; never an acquittal. `OPEN` — running now.
 ## The definition — COMPLETE EVIDENCE TABLE, 2026-08-03
 
 > ⛔ **THE TABLE BELOW WAS COMPUTED ON 3 ANNOTATORS PER PROMPT. THE RELEASE SHIPS A MEDIAN OF 16.**
-> R280 recomputed every arm and all 45 pairs on **all 15,593 annotations**, with each cell against
+> R306 recomputed every arm and all 45 pairs on **all 15,593 annotations**, with each cell against
 > **its own** MDE rather than a global bracket. **Seven resolvability verdicts flipped, all toward
 > RESOLVED.** The A2 column moves by ≤0.005 and no ADMIT/EXCLUDE call changes, so the partition
 > stands — but the *resolvability* annotations below are superseded by this block:
@@ -607,7 +607,7 @@ was right and the pre-registration wrong.** Using 0.5 would have made the admiss
 **0.0519 instead of 0.1686 — 0.31× the real width.**
 
 **The band, correctly floored:** chance(human–human) **0.3833** → human ceiling **0.5519** =
-**0.1686 wide = 12.57 MDE units** (R280 median MDE 0.0134). Two other ceilings exist and are the
+**0.1686 wide = 12.57 MDE units** (R306 median MDE 0.0134). Two other ceilings exist and are the
 wrong ones for these arms: human-vs-consensus **0.6352** and per-prompt oracle **0.6862**, both
 higher because they are denoised targets our arms are never scored against.
 
@@ -636,7 +636,7 @@ makes a clause load-bearing:**
 > necessary by an identity has been replaced by one proved necessary by a falsifiable comparison
 > that came out against its author.
 
-### ⛔ `full` FAILS THE NEUTRAL CLAUSE AT ITS OWN SIZE — the rubric is not worth its length (R281)
+### ⛔ `full` FAILS THE NEUTRAL CLAUSE AT ITS OWN SIZE — the rubric is not worth its length (R307)
 
 A pool of **16 generic criteria judged once** (61,952 calls) makes every k free. The neutral
 dose-response curve, 20 random subsets per k, all annotators:
@@ -676,7 +676,7 @@ pass: **pool-internal comparisons across k share one run and are exact; pool-vs-
 comparisons carry 0.0009 at the mean**, below the 0.0134 MDE.
 
 **Under the revision: 2 admitted of the 9 arms it can judge** — `coval_core` and `topw_k4`. `full`
-is **PENDING**: the only arm whose size is unmatched (median 15 vs 4), neutral arm on the GPU (R281).
+is **PENDING**: the only arm whose size is unmatched (median 15 vs 4), neutral arm on the GPU (R307).
 
 ### ✅ CLAUSE 2 SURVIVES ITS OWN META-SEPARATOR — 1,820 subsets enumerated exactly (R286)
 
@@ -755,8 +755,8 @@ admitted or excluded by measurement, none by assertion.
 
 ### ⛔ THE TABLE'S OWN BOUNDARY IS NOT RESOLVABLE, AND ONE ADMITTED ROW RESTS ON NOTHING
 
-R278, all 45 pairs among the ten arms, cluster bootstrap over 968 prompts, one shared index matrix
-so cells are paired, BH over the whole grid, against R277's MDE bracket **[0.0100, 0.0200]**:
+R304, all 45 pairs among the ten arms, cluster bootstrap over 968 prompts, one shared index matrix
+so cells are paired, BH over the whole grid, against R303's MDE bracket **[0.0100, 0.0200]**:
 
 | | | |
 |---|---:|---:|
@@ -788,7 +788,7 @@ the *same* rule, `random_k4_s0` vs `random_k4_s1`, differ by **−0.0081** [−0
 
 ### ⛔ THE BOUNDARY IS STRUCTURALLY UNRESOLVABLE, AND I HAD BEEN DISCARDING RESOLUTION FOR FREE
 
-R279 — variance decomposition of the paired per-prompt difference, using **every annotator**, not a
+R305 — variance decomposition of the paired per-prompt difference, using **every annotator**, not a
 draw. Positive control (does the decomposition reproduce the observed 1-draw sd?) **0.7% error**;
 negative control (an arm against itself) **σ²_b = σ²_w = 0 exactly**.
 
@@ -797,7 +797,7 @@ this page used 3.**
 
 | `full − topwvar_k4` | |
 |---|---:|
-| effect at 3 draws (R278) | +0.0089 |
+| effect at 3 draws (R304) | +0.0089 |
 | **effect using ALL annotators** | **+0.0048** |
 | σ_between (prompt heterogeneity, irreducible) | 0.0986 |
 | σ_within (annotator noise, removable) | 0.1289 — **63% of the variance** |
@@ -862,7 +862,7 @@ prompt is worth at the top of the table.
 ⛔ **AND THE PRICE IS MEASURED ACROSS TWO AXES AT ONCE — `generic` has k=4, `full` has a MEDIAN
 OF 15** (min 4, max 39). So `generic − full = +0.0426` confounds **prompt-specificity** with
 **criterion count**, and no reading of that one number separates them. The size-matched neutral arm
-did not exist when the price was first quoted; R281 builds it (a 16-criterion generic pool judged
+did not exist when the price was first quoted; R307 builds it (a 16-criterion generic pool judged
 once, so every k is free) and the price is **provisional until that lands**.
 
 ⚠ **AND CLAUSE 2 ENCODES THE WRONG CONTROL IN ITS OWN TEXT.** It reads *"better than the same
@@ -871,9 +871,9 @@ bounds `benefit + harm`. The neutral form is *better than prompt-neutral criteri
 size*, and under it the extension changes: at the all-annotator numbers `gen` (0.5352) and `full`
 (0.5087) both sit **below** `generic` (0.5514), so a neutral clause 2 would exclude two arms this
 table admits. **Whether that reading survives depends entirely on the size match**, which is what
-R281 is for.
+R307 is for.
 
-### ⛔ AT EXACTLY MATCHED SIZE, READING THE PROMPT BUYS NOTHING ON ITS OWN — 2 OF 7 (R282)
+### ⛔ AT EXACTLY MATCHED SIZE, READING THE PROMPT BUYS NOTHING ON ITS OWN — 2 OF 7 (R308)
 
 Seven arms are **k=4 by construction** and drawn from the same `coval_full` rubric, differing only
 in **selection rule**; `generic` is also k=4. So the neutral clause is answerable at exactly
@@ -943,7 +943,7 @@ ingredient *inverted*, not *absent*. So the clause-2 column above bounds **benef
 the value of aboutness in isolation is the neutral gap `topw − generic`, whose CI is
 [+0.0045, +0.0192].
 
-⛔ **BUT THAT GAP IS NOT A VALUE — IT IS BELOW THIS DESIGN'S RESOLUTION** (R277). The MDE of the
+⛔ **BUT THAT GAP IS NOT A VALUE — IT IS BELOW THIS DESIGN'S RESOLUTION** (R303). The MDE of the
 design that produced every number on this page — paired A2, 968 prompts, cluster bootstrap over
 prompts, 80% power at a two-sided 5% test — measured on **real arm-vs-arm difference vectors** as
 the noise template:

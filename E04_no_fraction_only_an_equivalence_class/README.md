@@ -6,8 +6,8 @@ Why this is an epoch boundary and not a theme: [`../EAR.md`](../EAR.md). Finding
 
 | arc | the decision it made safe | rounds |
 |---|---|---|
-| [`A01`](A01_who_pays_for_compilation) | who pays for compilation | 31 (R110–R141) |
-| [`A02`](A02_the_chain_from_a_person_to_the_standard) | the chain from a person to the standard | 23 (R142–R165) |
-| [`A03`](A03_do_our_own_claims_survive_an_adversary) | do our own claims survive an adversary | 39 (R166–R205) |
-| [`A04`](A04_is_the_detection_design_well_defined) | is the detection design well defined | 13 (R206–R218) |
-| [`A05`](A05_can_a_stranger_check_it) | can a stranger check it | 1 (R219–R219) |
+| [`A01`](A12_who_pays_for_compilation) | who pays for compilation | 31 (R110–R141) |
+| [`A02`](A13_the_chain_from_a_person_to_the_standard) | the chain from a person to the standard | 23 (R142–R165) |
+| [`A03`](A14_do_our_own_claims_survive_an_adversary) | do our own claims survive an adversary | 39 (R166–R205) |
+| [`A04`](A15_is_the_detection_design_well_defined_and_checkable) | is the detection design well defined | 13 (R206–R218) |
+| [`A05`](A15_is_the_detection_design_well_defined_and_checkable) | can a stranger check it | 1 (R219–R219) |

@@ -6,4 +6,4 @@ Why this is an epoch boundary and not a theme: [`../EAR.md`](../EAR.md). Finding
 
 | arc | the decision it made safe | rounds |
 |---|---|---|
-| [`A01`](A01_is_our_own_compiler_better) | is our own compiler better | 1 (R220–R220) |
+| [`A01`](A16_what_a_compiler_is_and_what_its_operations_cost) | is our own compiler better | 1 (R220–R220) |

@@ -1,0 +1,27 @@
+{
+ "fill_rate": 0.37859424920127793,
+ "zeros": 1,
+ "total_scores": 102147,
+ "verified_blind_arm": true,
+ "readings": {
+  "exclude": {
+   "core": 0.38636363636363635,
+   "floor": 0.3871384297520661,
+   "floor_min": 0.3806818181818182,
+   "floor_max": 0.3915289256198347,
+   "delta": -0.0007747933884297287,
+   "n": 968
+  },
+  "zero": {
+   "core": 0.4380165289256198,
+   "floor": 0.33290289256198347,
+   "floor_min": 0.32644628099173556,
+   "floor_max": 0.3380681818181818,
+   "delta": 0.10511363636363635,
+   "n": 968
+  }
+ },
+ "move": 0.10588842975206608,
+ "floor_spread": 0.011621900826446263,
+ "verdict": "E05's scope lines are INCOMPLETE. The exclude-missing reading is a choice worth 0.1059 on the central quantity, larger than the floor's own spread of 0.0116, and no round declared it."
+}

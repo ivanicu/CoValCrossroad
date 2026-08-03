@@ -6,6 +6,6 @@ Why this is an epoch boundary and not a theme: [`../EAR.md`](../EAR.md). Finding
 
 | arc | the decision it made safe | rounds |
 |---|---|---|
-| [`A01`](A01_structured_plurality_or_reliability) | structured plurality or reliability | 10 (R023–R032) |
-| [`A02`](A02_what_coval_core_mechanically_is) | what coval core mechanically is | 5 (R033–R037) |
-| [`A03`](A03_does_the_protocol_have_the_power_it_needs) | does the protocol have the power it needs | 8 (R038–R045) |
+| [`A01`](A04_structured_plurality_or_reliability) | structured plurality or reliability | 10 (R023–R032) |
+| [`A02`](A05_what_coval_core_mechanically_is) | what coval core mechanically is | 5 (R033–R037) |
+| [`A03`](A06_does_the_protocol_have_the_power_it_needs) | does the protocol have the power it needs | 8 (R038–R045) |

@@ -153,3 +153,63 @@ matter of taste. The most contestable is `E03`: its shift is the one `E01` had a
 one could argue they are a single epoch with a sixty-round latency. The argument for splitting them
 is that between them sits `E02`, in which the object was the people and not the apparatus — and
 epochs, being intervals of time, cannot interleave.
+
+---
+
+# ⚠ AMENDMENT — 2026-08-03. Three rules were being violated; one of them silently.
+
+Ivan, reading the tree: *「A 应该也是连续记述而不是每个 E 刷新一次的，然后还有是应该是多个 R
+组成一个 A」* — **A must be continuously numbered, not reset at each epoch, and an A must be made
+of MULTIPLE R's.** Audited against that, four defects, in increasing severity:
+
+| # | defect | measured |
+|---|---|---|
+| 1 | **`A` restarted at `A01` in every epoch** | all 5 epochs began at `A01`, so `A01` named five different decisions and an arc id was not a key |
+| 2 | **arcs holding ONE round** | 7 of 30 — a round wearing an arc's clothes. P16: an arc closes when a *decision* becomes safe, and that takes several belief updates |
+| 3 | **`E05` skipped `A14` and `A15`** | ran `A01..A13` then `A16`; the gap recorded nothing |
+| 4 | ⛔ **SIX ROUND IDS NAMED TWO DIFFERENT ROUNDS EACH** | `R277–R282` existed under **both** `A13` and `A16` — 89 round directories, **83 distinct ids** |
+
+**Defect 4 is the one that matters and it was invisible from the tree.** The six pairs are not
+copies; they are different questions with different `run.py` and different results:
+
+| id | one round | the other |
+|---|---|---|
+| `R277` | is necessity tolerance-free | the MDE of the design that priced it |
+| `R278` | can the admissibility gate ever fire | is the boundary resolvable |
+| `R279` | was the gate violated by its own founding round | what would resolve the boundary |
+| `R280` | is the gate unit coherent | the table at every annotator |
+| `R281` | does the coherent gate admit this release | a size-matched neutral arm |
+| `R282` | is the saturation forced by sample size | neutral clause at matched k=4 |
+
+A round id is **the key for one belief update**, and twelve updates were sharing six keys.
+`FORMULATION.md` — the deliverable — cites **both** `R278`s and **both** `R279`s, in the same
+file, meaning different rounds. No reader could have told them apart, and neither could I: I cited
+`R281` several times this session without knowing there were two.
+
+## The rules, now stated so they can be checked
+
+1. **`A` is globally continuous.** `A01..A24` across the whole project. An arc id resolves to one
+   decision without knowing its epoch.
+2. **Every `A` holds ≥ 2 `R`.** Enforced by the migration's precondition, which refuses to run
+   otherwise.
+3. **Every `R` id is unique project-wide.** 305 round directories, 305 distinct ids.
+4. **An arc need not be contiguous in id.** Ids are a counter over belief updates in time; two
+   arcs running in parallel interleave. What must hold is that each round belongs to *exactly one*
+   arc — a partition, not an interval.
+
+## Who kept a contested id
+
+**First claim wins, decided by `git`, not by which arc I happen to be working in.** `A23`'s six
+were first committed 07:16–07:51; `A16`'s duplicates at 10:34–10:47, ~3 hours later. So the later
+claim was reassigned: **`R277→R303  R278→R304  R279→R305  R280→R306  R281→R307  R282→R308`**.
+Checked before choosing: **0 citations of these ids exist outside this repo**, so the renumber is
+contained. `_ear/REMAP.tsv` holds every old→new path; `_ear/migrate_ear.py` holds the reasoning
+and the preconditions it refused to proceed without.
+
+**What is NOT repaired: commit messages.** They are immutable and several cite an ambiguous id.
+`REMAP.tsv` is what makes them resolvable, and that is the honest repair for a record you cannot
+edit — not a claim that the history is clean.
+
+⚠ The prose address earlier in this file, `E04·A13·R207`, was written under the old scheme and is
+now wrong: R207 sits in **`E04·A15`**. Left in place and corrected here rather than edited away,
+because the stale example is the clearest evidence that an index ages the moment the tree moves.
