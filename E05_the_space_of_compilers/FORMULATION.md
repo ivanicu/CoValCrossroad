@@ -22,6 +22,34 @@ ran and its controls did not behave; never an acquittal. `OPEN` — running now.
 > **Admissible only if** `C(n,k) ≤ a(m)`, where `a(m)` is the ordered Bell number — `a(4) = 75`,
 > i.e. **`log₂ 75 = 6.23` bits.**
 >
+> ⛔ **AND IT WAS VIOLATED BY ITS OWN FOUNDING ROUND, IN 292 OF 750 CELLS** (R279, 2026-08-03).
+> R248 introduced this gate and its persisted artifact records `C` for every cell it studied.
+> At R248's **own** `a(4) = 75`, over R248's **own** 250 prompts:
+>
+> | k | violating | share | |
+> |---|---:|---:|---|
+> | 1 | 0 / 250 | — | **DERIVATION**: `C(n,1)=n≤14≤75`, forced by algebra, never evidence |
+> | 2 | 84 / 250 | 33.6% | smallest violating `n` is 13 |
+> | 3 | 208 / 250 | 83.2% | smallest violating `n` is 9 |
+> | **all** | **292 / 750** | **38.9%** | |
+>
+> Controls: the artifact's `C` equals `math.comb(n,k)` in **750 of 750** cells, so the field is
+> what its name says; negative control `n→n+6` moved 834→1412; placebo (`k=1` under `a(5)`) exactly
+> zero; two hash seeds byte-identical. **k=4 is out of reach and registered as such** — R248 never
+> ran it.
+>
+> ⛔ **AND THE LEFT-HAND SIDE IS UNDEFINED** (R278, same day). `n` admits two defensible readings
+> and they do not disagree about a magnitude — they disagree about whether this release is
+> admissible at all. At the operating point `m=4, k=4`: `n` = `coval_full` (median 15, max 39) →
+> **888 of 968 prompts violate (91.7%)**; `n` = the six seed criteria → **0 of 968 (0.0%)**.
+> R248/R252/R253 all draw from `coval_full`, which settles the reading by code rather than taste.
+>
+> **How this was missed for five rounds:** the argument was about whether the right-hand side should
+> be `6.23` bits or `3.45`. Both sides took `C(n,k)` as given, so neither could see that the
+> left-hand side had already broken the gate. **A unit check would have caught it before any of it**
+> — `C(n,k)` counts *candidate representatives*, `a(m)` counts *behaviour classes*, and those
+> strings are not equal.
+>
 > ⛔ **AND THE DEFINITION CONTRADICTS ITS OWN CLAIM 5.** Claim 5 is still `MEASURED` and was never
 > retracted: the channel delivers `H_eff ∈ [1.02, 3.45]` bits, so the gate's 6.23 is wrong by 2–6×.
 > The gate went `log₂|H(Q)| ≤ H_eff` → `C(n,k) ≤ A_real` → `C(n,k) ≤ a(m)`, and **un-retracting

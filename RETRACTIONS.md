@@ -8526,3 +8526,51 @@ distinguishes a real double-numbering from a heading beside its own summary row 
 no gaps and no collisions.** The first version of this repair also failed its own control, twice:
 it assumed one umbrella heading when there are two, and it defined a collision as two hits within
 one form when the real event was form A against form B.
+
+---
+
+## 241 · "A core is admissible only if `C(n,k) ≤ a(m)`" — R248, retracted by R278 → R279
+
+**The claim.** The definition's admissibility criterion, printed in `E05/FORMULATION.md` since R248
+and argued over for five rounds afterward.
+
+**What killed it — two independent defects, either sufficient.**
+
+**① The left-hand side is undefined** (R278). `n` admits two defensible readings, and they do not
+disagree about a magnitude — they disagree about whether the release that produced the definition is
+admissible under it. At the operating point `m=4, k=4`: `n` = the `coval_full` pool (median **15**,
+max **39**) → **888 of 968 prompts violate, 91.7%**; `n` = the six seed criteria → **0 of 968, 0.0%**.
+11,616 cells tested, 7,025 violating, max `C(n,k) = 82,251` against `a(4) = 75`.
+
+**② It was violated by its own founding data** (R279). R248 proposed the gate and its persisted
+artifact records `C` for every cell it studied. At R248's **own** `a(4)=75`, over R248's **own** 250
+prompts: **292 of 750 cells violate, 38.9%** — 33.6% at k=2, 83.2% at k=3. The numbers have been on
+disk since R248 and nobody read them.
+
+⚠ **The k=1 column is a DERIVATION, not evidence.** `C(n,1) = n ≤ 14 ≤ 75`, so its zero is forced by
+algebra. The smallest `n` that *can* violate is 13 at k=2 and 9 at k=3.
+
+**Controls that make this admissible rather than an assertion.** The artifact's `C` equals
+`math.comb(n,k)` in **750 of 750** cells — two independent code paths on a quantity with a fixed
+right answer, which is what kills the "the field means something else" world. Negative control
+`n→n+6` **moved**, 834→1412, so the count is not an artifact of a predicate that never reads `n`.
+Placebo (`k=1` under `a(5)`) returns exactly zero. Band: fires at `n=10,k=5` (252), silent at
+`n=6,k=4` (15), silent at `n=k` (C=1) so it does not pass at g=0. The baseline is R248's own recorded
+capacity constant, not one chosen afterward. Two `PYTHONHASHSEED`s, byte-identical.
+
+**What survived.** R248's *measurement* is intact and was never the gate: over 250 prompts the median
+`admitted / A_real` is 1.33 / 4.67 / 5.77 at k = 1/2/3, reaching 10.71 at the ninth decile. The data
+realises far fewer classes than the observation space admits. True, and it licenses no replacement —
+already recorded at entry 238.
+
+⛔ **How this survived five rounds, which is the part worth carving.** The whole argument was about
+the **right-hand side**: whether the bound should be `log₂75 = 6.23` bits or claim 5's measured
+`H_eff ∈ [1.02, 3.45]`. Every participant, including two clean-context adversaries, took `C(n,k)` as
+given. **A dispute about which constant belongs on one side of an inequality cannot discover that the
+other side is undefined** — the dispute presupposes both sides denote. The check that would have
+caught it costs one second and no compute: write the two units as strings and require them equal.
+`C(n,k)` counts **candidate representatives**; `a(m)` counts **behaviour classes**. Not equal.
+
+**What the definition now carries: no admissibility criterion at all.** That was already half-stated
+on the page, attributed to the `A_real` retraction and the claim-5 contradiction. Both attributions
+were too kind — the criterion was not lost in a retraction chain, it never held.
