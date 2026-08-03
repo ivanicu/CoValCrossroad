@@ -1,0 +1,50 @@
+{
+ "A1_discrimination": {
+  "full_sd_across_responses": 0.140340023599083,
+  "core_sd_across_responses": 0.15502704963617167,
+  "full_range": 0.3557425431655265,
+  "core_range": 0.3915956540504235,
+  "n_full": 14984,
+  "n_core": 3828,
+  "core_over_full_sd": 1.1046531535369117
+ },
+ "A3_saturation": {
+  "full_frac_saturated": 0.012897090229578217,
+  "core_frac_saturated": 0.018286311389759665,
+  "full_mean": 0.5547515692395565,
+  "core_mean": 0.5300717150446761,
+  "full_sd": 0.23650338705155619,
+  "core_sd": 0.2509733357850422
+ },
+ "A2_length": {
+  "full_mean_chars": 97.69253870795515,
+  "core_mean_chars": 88.17345872518287,
+  "core_band_p10_p90": [
+   50.0,
+   125.0
+  ]
+ },
+ "A2_matched_compilers": {
+  "core": 0.8269628099173554,
+  "top4_pos": 0.8621728650137741,
+  "top4_pos_lenmatched": 0.8413395316804408,
+  "core_paired": 0.8269628099173554,
+  "top4_pos_SHAM_lenband_size": 0.8485709366391185,
+  "top4_pos_discrimmatched": 0.8297176308539945,
+  "top4_pos_SHAM_discrim_size": 0.8109504132231405,
+  "n_in_band_mean": 12.183884297520661,
+  "n_prompts_with_band": 968
+ },
+ "verdict": {
+  "raw_gap_top4pos_minus_core": 0.035210055096418724,
+  "gap_after_length_matching": 0.014376721763085465,
+  "gap_after_SIZE_MATCHED_SHAM_for_length": 0.021608126721763155,
+  "gap_after_discrimination_matching": 0.0027548209366391463,
+  "gap_after_SIZE_MATCHED_SHAM_for_discrimination": -0.016012396694214837,
+  "length_effect_net_of_pool_size": -0.00723140495867769,
+  "discrimination_effect_net_of_pool_size": 0.018767217630853983,
+  "share_of_gap_explained_by_length_NET": 0.20537897310513462,
+  "share_of_gap_explained_by_discrimination_NET": -0.533007334963325,
+  "note": "A restriction to a smaller candidate pool lowers Phi by itself. Any 'the covariate explains the gap' claim must be net of the size-matched sham, or it is a claim about pool size."
+ }
+}

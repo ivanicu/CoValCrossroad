@@ -1,0 +1,530 @@
+{
+ "n": 15092,
+ "n_annotators": 1011,
+ "overall_core_minus_own": -0.00687008569661631,
+ "overall_pop_minus_own": 0.010469122714020673,
+ "axes": {
+  "age": {
+   "cells": {
+    "18-24": {
+     "n": 2415,
+     "n_prompts": 892,
+     "core_minus_own": 0.000876466528640441,
+     "PLACEBO_pop_minus_own": 0.015362318840579708,
+     "se": 0.006083405504306476,
+     "p": 0.9400749063670412
+    },
+    "25-34": {
+     "n": 6383,
+     "n_prompts": 965,
+     "core_minus_own": -0.0068906992532247096,
+     "PLACEBO_pop_minus_own": 0.010042299859000469,
+     "se": 0.004610767504641777,
+     "p": 0.13108614232209737
+    },
+    "35-44": {
+     "n": 3470,
+     "n_prompts": 943,
+     "core_minus_own": -0.01621998078770413,
+     "PLACEBO_pop_minus_own": 0.0015994236311239205,
+     "se": 0.005471827312218142,
+     "p": 0.006242197253433208
+    },
+    "45-54": {
+     "n": 1719,
+     "n_prompts": 822,
+     "core_minus_own": -0.005982160170641845,
+     "PLACEBO_pop_minus_own": 0.01560985068838472,
+     "se": 0.00634659777585273,
+     "p": 0.3433208489388265
+    },
+    "55-64": {
+     "n": 828,
+     "n_prompts": 551,
+     "core_minus_own": 0.013747987117552332,
+     "PLACEBO_pop_minus_own": 0.032648953301127215,
+     "se": 0.010089464422731743,
+     "p": 0.1735330836454432
+    },
+    "65+": {
+     "n": 277,
+     "n_prompts": 241,
+     "core_minus_own": -0.023947051744885685,
+     "PLACEBO_pop_minus_own": -0.009446450060168471,
+     "se": 0.016331762565956923,
+     "p": 0.13607990012484394
+    }
+   },
+   "observed_between_cell_range": 0.03769503886243802,
+   "NEGCTRL_permuted_label_range_mean": 0.02264656168683259,
+   "NEGCTRL_permuted_label_range_p95": 0.04131608835719856,
+   "EXCEEDS_NULL": false
+  },
+  "gender": {
+   "cells": {
+    "Female": {
+     "n": 6924,
+     "n_prompts": 967,
+     "core_minus_own": -0.004571057192374351,
+     "PLACEBO_pop_minus_own": 0.011217022915463122,
+     "se": 0.004431012495710006,
+     "p": 0.2883895131086142
+    },
+    "Male": {
+     "n": 7855,
+     "n_prompts": 967,
+     "core_minus_own": -0.008542329726288987,
+     "PLACEBO_pop_minus_own": 0.00992785911309145,
+     "se": 0.004590150217590738,
+     "p": 0.06117353308364544
+    },
+    "Non-binary": {
+     "n": 259,
+     "n_prompts": 234,
+     "core_minus_own": -0.015958815958815962,
+     "PLACEBO_pop_minus_own": 0.007915057915057915,
+     "se": 0.014514043514220051,
+     "p": 0.23845193508114856
+    }
+   },
+   "observed_between_cell_range": 0.011387758766441611,
+   "NEGCTRL_permuted_label_range_mean": 0.016782057961293808,
+   "NEGCTRL_permuted_label_range_p95": 0.036111423783894744,
+   "EXCEEDS_NULL": false
+  },
+  "education_level": {
+   "cells": {
+    "College or university degree": {
+     "n": 5661,
+     "n_prompts": 963,
+     "core_minus_own": -0.0077489253959842205,
+     "PLACEBO_pop_minus_own": 0.00915032679738562,
+     "se": 0.0048709896066136335,
+     "p": 0.12109862671660425
+    },
+    "Graduate degree": {
+     "n": 4654,
+     "n_prompts": 958,
+     "core_minus_own": -0.0052141527001862194,
+     "PLACEBO_pop_minus_own": 0.015402521128778112,
+     "se": 0.004598428789603375,
+     "p": 0.22596754057428214
+    },
+    "High school graduate": {
+     "n": 506,
+     "n_prompts": 400,
+     "core_minus_own": -0.005764163372859029,
+     "PLACEBO_pop_minus_own": 0.0038537549407114593,
+     "se": 0.010859751003656926,
+     "p": 0.5855181023720349
+    },
+    "Post-graduate degree": {
+     "n": 2943,
+     "n_prompts": 915,
+     "core_minus_own": 0.003930229924113715,
+     "PLACEBO_pop_minus_own": 0.016072035338090384,
+     "se": 0.005482835640046211,
+     "p": 0.45318352059925093
+    },
+    "Some college or university": {
+     "n": 1169,
+     "n_prompts": 678,
+     "core_minus_own": -0.036042201311662386,
+     "PLACEBO_pop_minus_own": -0.01283147989734816,
+     "se": 0.008570625965528978,
+     "p": 0.003745318352059925
+    },
+    "Trade or technical or vocational training": {
+     "n": 144,
+     "n_prompts": 138,
+     "core_minus_own": -0.009953703703703708,
+     "PLACEBO_pop_minus_own": 0.008333333333333328,
+     "se": 0.023737335892542122,
+     "p": 0.6379525593008739
+    }
+   },
+   "observed_between_cell_range": 0.0399724312357761,
+   "NEGCTRL_permuted_label_range_mean": 0.030833094497355502,
+   "NEGCTRL_permuted_label_range_p95": 0.06081672975402409,
+   "EXCEEDS_NULL": false
+  },
+  "country_of_residence": {
+   "cells": {
+    "Chile": {
+     "n": 1181,
+     "n_prompts": 691,
+     "core_minus_own": -0.0026672311600338693,
+     "PLACEBO_pop_minus_own": 0.010979395992097095,
+     "se": 0.008419321733960391,
+     "p": 0.7553058676654182
+    },
+    "India": {
+     "n": 579,
+     "n_prompts": 431,
+     "core_minus_own": -0.011456534254461716,
+     "PLACEBO_pop_minus_own": 0.009873344847438112,
+     "se": 0.01003706625122151,
+     "p": 0.23345817727840198
+    },
+    "Japan": {
+     "n": 157,
+     "n_prompts": 139,
+     "core_minus_own": 0.0020169851380042476,
+     "PLACEBO_pop_minus_own": 0.010721868365180466,
+     "se": 0.023565059565205347,
+     "p": 0.9275905118601748
+    },
+    "Kenya": {
+     "n": 364,
+     "n_prompts": 283,
+     "core_minus_own": 0.022344322344322345,
+     "PLACEBO_pop_minus_own": 0.05041208791208791,
+     "se": 0.015562326488324965,
+     "p": 0.19350811485642946
+    },
+    "Mexico": {
+     "n": 2234,
+     "n_prompts": 870,
+     "core_minus_own": -0.00847508206505521,
+     "PLACEBO_pop_minus_own": 0.005423754103252761,
+     "se": 0.007026844451678823,
+     "p": 0.23845193508114856
+    },
+    "Netherlands": {
+     "n": 1661,
+     "n_prompts": 780,
+     "core_minus_own": -0.016847280754565524,
+     "PLACEBO_pop_minus_own": 0.006301424844471202,
+     "se": 0.008153563220074064,
+     "p": 0.031210986267166042
+    },
+    "South Africa": {
+     "n": 2184,
+     "n_prompts": 852,
+     "core_minus_own": 0.014392551892551893,
+     "PLACEBO_pop_minus_own": 0.02662545787545787,
+     "se": 0.005892028477436046,
+     "p": 0.01373283395755306
+    },
+    "Switzerland": {
+     "n": 134,
+     "n_prompts": 129,
+     "core_minus_own": -0.03171641791044776,
+     "PLACEBO_pop_minus_own": -0.006840796019900496,
+     "se": 0.02107026594374282,
+     "p": 0.1136079900124844
+    },
+    "United Kingdom": {
+     "n": 1206,
+     "n_prompts": 679,
+     "core_minus_own": -0.021393034825870644,
+     "PLACEBO_pop_minus_own": 0.0013128800442233305,
+     "se": 0.007840987176033527,
+     "p": 0.008739076154806492
+    },
+    "United States": {
+     "n": 5085,
+     "n_prompts": 964,
+     "core_minus_own": -0.008403802032120617,
+     "PLACEBO_pop_minus_own": 0.007551622418879057,
+     "se": 0.004538636756001361,
+     "p": 0.09363295880149813
+    }
+   },
+   "observed_between_cell_range": 0.054060740254770104,
+   "NEGCTRL_permuted_label_range_mean": 0.044772348530839584,
+   "NEGCTRL_permuted_label_range_p95": 0.079366776171445,
+   "EXCEEDS_NULL": false
+  },
+  "ai_concern_level": {
+   "cells": {
+    "Equally excited and concerned": {
+     "n": 6916,
+     "n_prompts": 968,
+     "core_minus_own": -0.008188741083477925,
+     "PLACEBO_pop_minus_own": 0.01087092731829574,
+     "se": 0.004286644664736137,
+     "p": 0.05867665418227216
+    },
+    "More concerned than excited": {
+     "n": 2635,
+     "n_prompts": 890,
+     "core_minus_own": -0.010341555977229602,
+     "PLACEBO_pop_minus_own": -0.0013219481340923445,
+     "se": 0.005786892331677858,
+     "p": 0.08114856429463171
+    },
+    "More excited than concerned": {
+     "n": 5310,
+     "n_prompts": 958,
+     "core_minus_own": -0.003553044569993723,
+     "PLACEBO_pop_minus_own": 0.015530445699937225,
+     "se": 0.005016868276213706,
+     "p": 0.5056179775280899
+    },
+    "Not sure / No answer": {
+     "n": 231,
+     "n_prompts": 208,
+     "core_minus_own": -0.004040404040404045,
+     "PLACEBO_pop_minus_own": 0.016594516594516596,
+     "se": 0.018415414221849186,
+     "p": 0.8102372034956304
+    }
+   },
+   "observed_between_cell_range": 0.006788511407235879,
+   "NEGCTRL_permuted_label_range_mean": 0.019750927615703105,
+   "NEGCTRL_permuted_label_range_p95": 0.04269842247010541,
+   "EXCEEDS_NULL": false
+  },
+  "generative_ai_usage": {
+   "cells": {
+    "A few times a month": {
+     "n": 1726,
+     "n_prompts": 787,
+     "core_minus_own": -0.009781769022788721,
+     "PLACEBO_pop_minus_own": 0.007850521436848204,
+     "se": 0.00681953174404172,
+     "p": 0.1560549313358302
+    },
+    "About once a day": {
+     "n": 1850,
+     "n_prompts": 810,
+     "core_minus_own": -0.005027027027027027,
+     "PLACEBO_pop_minus_own": 0.012036036036036037,
+     "se": 0.0067700610998188,
+     "p": 0.48564294631710364
+    },
+    "Almost constantly": {
+     "n": 1517,
+     "n_prompts": 755,
+     "core_minus_own": 0.010766864425401007,
+     "PLACEBO_pop_minus_own": 0.028169633047681823,
+     "se": 0.007473995271250142,
+     "p": 0.17852684144818975
+    },
+    "Never": {
+     "n": 208,
+     "n_prompts": 183,
+     "core_minus_own": 0.01466346153846154,
+     "PLACEBO_pop_minus_own": 0.007612179487179486,
+     "se": 0.015432518180297256,
+     "p": 0.36079900124843944
+    },
+    "Only a few times so far": {
+     "n": 842,
+     "n_prompts": 554,
+     "core_minus_own": -0.025870942201108475,
+     "PLACEBO_pop_minus_own": -0.00641330166270784,
+     "se": 0.009325582695048074,
+     "p": 0.003745318352059925
+    },
+    "Several times a day": {
+     "n": 5189,
+     "n_prompts": 963,
+     "core_minus_own": -0.009369178390184361,
+     "PLACEBO_pop_minus_own": 0.009471959915205243,
+     "se": 0.004644296077257426,
+     "p": 0.04868913857677903
+    },
+    "Several times a week": {
+     "n": 3760,
+     "n_prompts": 933,
+     "core_minus_own": -0.007043439716312057,
+     "PLACEBO_pop_minus_own": 0.00907358156028369,
+     "se": 0.0055028740417754265,
+     "p": 0.17852684144818975
+    }
+   },
+   "observed_between_cell_range": 0.04053440373957001,
+   "NEGCTRL_permuted_label_range_mean": 0.02676429333278027,
+   "NEGCTRL_permuted_label_range_p95": 0.051587378568950536,
+   "EXCEEDS_NULL": false
+  }
+ },
+ "multiplicity": {
+  "C": 36,
+  "surviving": 0,
+  "tests": [
+   {
+    "cell": "age=18-24",
+    "p": 0.9400749063670412,
+    "survives": false
+   },
+   {
+    "cell": "age=25-34",
+    "p": 0.13108614232209737,
+    "survives": false
+   },
+   {
+    "cell": "age=35-44",
+    "p": 0.006242197253433208,
+    "survives": false
+   },
+   {
+    "cell": "age=45-54",
+    "p": 0.3433208489388265,
+    "survives": false
+   },
+   {
+    "cell": "age=55-64",
+    "p": 0.1735330836454432,
+    "survives": false
+   },
+   {
+    "cell": "age=65+",
+    "p": 0.13607990012484394,
+    "survives": false
+   },
+   {
+    "cell": "gender=Female",
+    "p": 0.2883895131086142,
+    "survives": false
+   },
+   {
+    "cell": "gender=Male",
+    "p": 0.06117353308364544,
+    "survives": false
+   },
+   {
+    "cell": "gender=Non-binary",
+    "p": 0.23845193508114856,
+    "survives": false
+   },
+   {
+    "cell": "education_level=College or university degree",
+    "p": 0.12109862671660425,
+    "survives": false
+   },
+   {
+    "cell": "education_level=Graduate degree",
+    "p": 0.22596754057428214,
+    "survives": false
+   },
+   {
+    "cell": "education_level=High school graduate",
+    "p": 0.5855181023720349,
+    "survives": false
+   },
+   {
+    "cell": "education_level=Post-graduate degree",
+    "p": 0.45318352059925093,
+    "survives": false
+   },
+   {
+    "cell": "education_level=Some college or university",
+    "p": 0.003745318352059925,
+    "survives": false
+   },
+   {
+    "cell": "education_level=Trade or technical or vocational training",
+    "p": 0.6379525593008739,
+    "survives": false
+   },
+   {
+    "cell": "country_of_residence=Chile",
+    "p": 0.7553058676654182,
+    "survives": false
+   },
+   {
+    "cell": "country_of_residence=India",
+    "p": 0.23345817727840198,
+    "survives": false
+   },
+   {
+    "cell": "country_of_residence=Japan",
+    "p": 0.9275905118601748,
+    "survives": false
+   },
+   {
+    "cell": "country_of_residence=Kenya",
+    "p": 0.19350811485642946,
+    "survives": false
+   },
+   {
+    "cell": "country_of_residence=Mexico",
+    "p": 0.23845193508114856,
+    "survives": false
+   },
+   {
+    "cell": "country_of_residence=Netherlands",
+    "p": 0.031210986267166042,
+    "survives": false
+   },
+   {
+    "cell": "country_of_residence=South Africa",
+    "p": 0.01373283395755306,
+    "survives": false
+   },
+   {
+    "cell": "country_of_residence=Switzerland",
+    "p": 0.1136079900124844,
+    "survives": false
+   },
+   {
+    "cell": "country_of_residence=United Kingdom",
+    "p": 0.008739076154806492,
+    "survives": false
+   },
+   {
+    "cell": "country_of_residence=United States",
+    "p": 0.09363295880149813,
+    "survives": false
+   },
+   {
+    "cell": "ai_concern_level=Equally excited and concerned",
+    "p": 0.05867665418227216,
+    "survives": false
+   },
+   {
+    "cell": "ai_concern_level=More concerned than excited",
+    "p": 0.08114856429463171,
+    "survives": false
+   },
+   {
+    "cell": "ai_concern_level=More excited than concerned",
+    "p": 0.5056179775280899,
+    "survives": false
+   },
+   {
+    "cell": "ai_concern_level=Not sure / No answer",
+    "p": 0.8102372034956304,
+    "survives": false
+   },
+   {
+    "cell": "generative_ai_usage=A few times a month",
+    "p": 0.1560549313358302,
+    "survives": false
+   },
+   {
+    "cell": "generative_ai_usage=About once a day",
+    "p": 0.48564294631710364,
+    "survives": false
+   },
+   {
+    "cell": "generative_ai_usage=Almost constantly",
+    "p": 0.17852684144818975,
+    "survives": false
+   },
+   {
+    "cell": "generative_ai_usage=Never",
+    "p": 0.36079900124843944,
+    "survives": false
+   },
+   {
+    "cell": "generative_ai_usage=Only a few times so far",
+    "p": 0.003745318352059925,
+    "survives": false
+   },
+   {
+    "cell": "generative_ai_usage=Several times a day",
+    "p": 0.04868913857677903,
+    "survives": false
+   },
+   {
+    "cell": "generative_ai_usage=Several times a week",
+    "p": 0.17852684144818975,
+    "survives": false
+   }
+  ]
+ }
+}
