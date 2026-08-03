@@ -8356,3 +8356,55 @@ R250 is running: perturb a known parent's text by increasing amounts, re-judge, 
 recovery falls to chance — by two independent routes, text similarity and judge behaviour. The
 answer will be a **rate with an MDE in text distance**, which is what the field should have carried
 from the start.
+
+---
+
+## 99 · "The admissibility gate is `C(n,k) ≤ A_real`" — R248, retracted by R253 five rounds later
+
+**Asserted** 2026-08-03 by R248 and written directly into the definition, replacing the capacity
+bound that eight rounds had used. **Defended** one round later by R252 against its strongest
+confound — and it survived that, correctly.
+
+**Retracted** by R253, which asked the only question a gate has to answer: *does the quantity
+predict the thing it gates?*
+
+### The measurement
+
+Per prompt, `A_real(k)` against measured recovery of a planted k-subset at the release's own noise:
+
+| k | ρ(**n**, recovery) | ρ(A_real, recovery) | **partial(A_real \| n)** | perm `\|null\|₉₅` | p |
+|---:|---:|---:|---:|---:|---:|
+| 1 | **−0.2516** | −0.1881 | **−0.0380** | 0.1152 | 0.535 |
+| 2 | **−0.2832** | −0.1390 | **+0.0107** | 0.1399 | 0.850 |
+
+Out of sample, adding `A_real` to `n` makes held-out MAE **worse**: `+0.0183` and `+0.0085` against
+seed spreads of `0.0166` and `0.0065`.
+
+**`n` alone predicts recovery better than `A_real` does.** The gate had `n` on both sides.
+
+### Why it took five rounds, and what would have caught it in one
+
+P5 has the rule and I did not apply it: **a fancy invariant must be regressed against a trivial
+scalar.** `A_real` is bounded by `min(C(n,k), a(m))` — mechanically tied to `n` — and that was
+visible in R248's own output, where the "admitted" column *is* `min(C(n,k), 75)`. The prior case in
+this operator's history is exact: a "scale-invariant predictor of generalisation" that came back at
+`corr = 0.992` with plain intrinsic dimension.
+
+### The distinction that has to be kept, because over-retracting is also an error
+
+- **RETRACTED**: `A_real` as the gate's right-hand side. It is decorative *in that position*.
+- **INTACT**: claim 8 — the real rubric separates fewer classes than a **marginal-matched**
+  row-permutation, at 210/30, 228/19, 230/18 prompts, `p < 1e-33`. That is a true fact about the
+  rubric's redundancy, defended by R252, and R253 does not touch it.
+- **INTACT**: admissibility as a **rate** — `U(1) = 0.5714 · U(2) = 0.0606 · U(3) = 0.0105`.
+  Exhaustive, measured, and not a renaming.
+
+**A quantity can be real, survive its strongest confound, and still be decorative in the place you
+put it.** Surviving a confound test is not the same as carrying information.
+
+### The failure mode, which is the meta-separator's absence rather than a bad control
+
+Every round from R248 to R252 tuned a parameter *inside* the decomposition
+`(Q, class, representative, certificate)` — including the round that attacked R248. **None asked
+whether the decomposition's terms carve anything.** The controls were correct and the direction was
+never questioned, which is what confirmation drift looks like when the controls are good.

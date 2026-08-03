@@ -19,20 +19,26 @@ ran and its controls did not behave; never an acquittal. `OPEN` — running now.
 > | `representative` | the criteria actually printed. **A choice, not a measurement.** |
 > | `certificate` | which is which, at what noise, on whose instrument, and what was not measured |
 >
-> **Admissible only if** `log₂ C(n,k) ≤ log₂ A_real(Q, data)`, where `A_real` is the alphabet the
-> data **realises** — the number of distinct `Q`-classes actually induced by the `C(n,k)` candidate
-> subsets — **not** what the observation space could hold.
+> **Admissible only if** `C(n,k) ≤ a(m)` — the capacity bound — **and that is all the release
+> supports.** The gate is a statement about the SIZE of the candidate space and nothing more.
 >
-> ⚠ **Superseded 2026-08-03 (R248).** Until then this line read `log₂|H(Q)| ≤ H_eff` with `H_eff`
-> taken from channel capacity (`log₂ a(m) = 6.2288` bits at m=4, later R237's noisy bracket).
-> **Capacity is necessary and never sufficient**, and the gap is not small: measured over 250
-> prompts the median `admitted / A_real` is **1.33 / 4.67 / 5.77** at k = 1 / 2 / 3, reaching
-> **10.71** at the ninth decile. The capacity gate *admits* k=1 and k=2; the realised alphabet
-> **refuses both.**
+> ⛔ **`A_real` was tried as the right-hand side and is RETRACTED (R248 → R253).** It measures
+> something real (claim 8, which survives) but it **predicts nothing about recoverability that the
+> criterion count `n` does not already predict** — partial rank correlation `−0.0380` and `+0.0107`
+> at k = 1, 2, against a permutation `|null|₉₅` of `0.1152` / `0.1399`, `p = 0.535` / `0.850`; and
+> adding it makes held-out error **worse** (`+0.0183`, `+0.0085`). `n` alone predicts recovery
+> *better* than `A_real` does (`−0.2516` vs `−0.1881`). **The gate had `n` on both sides.**
 >
-> **And admissibility is a RATE, not a predicate.** The share of size-`k` cores this release can
-> identify is **U(1) = 0.5714 · U(2) = 0.0606 · U(3) = 0.0105**. A binary gate has to round that to
-> yes or no; the object it is describing does not.
+> ⚠ **The measurement R248 made is intact and is not the gate.** Over 250 prompts the median
+> `admitted / A_real` is **1.33 / 4.67 / 5.77** at k = 1 / 2 / 3, reaching **10.71** at the ninth
+> decile: the data realises far fewer classes than the observation space admits. True, and it
+> **does not license a replacement**, because both sides of that ratio are functions of `n` and `k`
+> and the difference carries no incremental information about what is recoverable.
+>
+> **What DOES survive as an upgrade: admissibility is a RATE, not a predicate.** The share of
+> size-`k` cores this release can identify is **U(1) = 0.5714 · U(2) = 0.0606 · U(3) = 0.0105** —
+> measured, exhaustive, and not a renaming of anything. A binary gate has to round that to yes or
+> no; the object does not.
 
 ---
 
@@ -369,8 +375,11 @@ the choice visible, not to score the object against a purpose it never claimed.
 - *"The positive control failed, so the instrument is broken."* — five times out of five, the
   instrument was fine and the threshold was impossible. In R248 the impossible threshold was a
   synthetic control that scored **below** the real data.
-- *"A core of size k is admissible because C(n,k) ≤ a(m)."* — that is the **necessary** condition,
-  loose by up to 10.71× here. Admissibility is `C(n,k) ≤ A_real`, and it is a **rate**, not a yes.
+- *"Admissibility is `C(n,k) ≤ A_real`."* — I wrote that into the definition, defended it against
+  its strongest confound, and then found it predicts nothing `n` does not. **A quantity can be real,
+  survive its confound, and still be decorative in the place you put it.**
+- *"The capacity gate is loose by 5.5×, so it is the wrong quantity."* — looseness is not evidence
+  of wrongness when the tighter quantity is a function of the same variables.
 - *"A global core transfers to prompts it was never fitted to."* — R240 printed it, R247 killed it
   off R240's own tensor, and R240's own negative control had already said the round was unreadable.
 - *"The floor is 0.2983 [0.2567, 0.3467]."* — that bracket is the **min and max of 20 draws**, not a
