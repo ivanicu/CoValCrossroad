@@ -160,14 +160,15 @@ Printing the intervals:
 
 | 0.8B, clause ② | gap | 95% CI | |
 |---|---:|---|---|
-| `topw_k4` | −0.0109 | [−0.0201, −0.0020] | **resolvably NEGATIVE** — a genuine sign reversal |
+| `topw_k4` | −0.0109 | [−0.0201, −0.0020] | ⚠ **the two criteria DISAGREE**: CI excludes zero, but \|eff\| = 0.0109 is below its own MDE of 0.0110 — **below resolution** by this arc's own rule |
 | `coval_core` | −0.0072 | [−0.0157, **+0.0003**] | **UNRESOLVED** — spans zero |
 | `gen` | −0.0031 | [−0.0112, **+0.0040**] | **UNRESOLVED** — spans zero |
 
-**So "the prompt-blind arm beats every prompt-specific one at 0.8B" is true of exactly one arm.**
-The admitted set is still empty — admission needs clause ② *resolvably positive* and none is — but
-the mechanism is **one resolved reversal and two failures to resolve**, which is a weaker and
-different claim than a wholesale inversion.
+**So "the prompt-blind arm beats every prompt-specific one at 0.8B" is true of NO arm under this
+arc's own resolution rule, and of one arm under a CI-only rule.** The admitted set is empty either
+way — admission needs clause ② *resolvably positive* and none of the three is. **The mechanism is
+not an inversion at all; it is three failures to resolve**, and the disagreement between the two
+criteria on `topw_k4` is published rather than settled by picking one.
 
 > **A weaker judge can still tell good criteria from random ones. It cannot make prompt-specific
 > criteria pay off over generic ones.** *Aboutness is the part that needs a capable instrument to
