@@ -22,6 +22,8 @@ contents only** — every finding, its interval and its scope live in `E05/FORMU
 | `R287` how much selection may a baseline have | the last unresolved row, and what a baseline is allowed to be |
 | `R288` does the partition survive the target | six agreement statistics, four admitted sets |
 | `R289` which target earns the definition | can naming A2·annotator be argued rather than inherited? |
+| `R290` does the partition survive the judge | a second model judges the same arms (running) |
+| `R291` the register was never audited | how many registered impossibilities were checked? |
 
 ## Why the arc was opened rather than folded into A13
 
