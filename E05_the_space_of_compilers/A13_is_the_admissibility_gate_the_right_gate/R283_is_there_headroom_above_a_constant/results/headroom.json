@@ -1,0 +1,107 @@
+{
+  "controls": [
+    [
+      "POS  dose curve recovers the plant (monotone)",
+      true,
+      "g=0.0:0.122 g=0.25:0.258 g=0.5:0.512 g=0.75:0.775 g=1.0:1.000"
+    ],
+    [
+      "POS  fails at g=0: plant scores at/near the floor",
+      true,
+      "0.1225"
+    ],
+    [
+      "POS  band: floor 1/75 < 0.10 < ceiling 1.0",
+      true,
+      "0.0133 < 0.10 < 1.0"
+    ],
+    [
+      "POS  MDE: smallest g separable from g=0",
+      true,
+      "g=0.25"
+    ],
+    [
+      "PLA  self-match returns exactly 1.0",
+      true,
+      "1.0"
+    ],
+    [
+      "NEG  shuffling collapses modal_p toward const_g",
+      true,
+      "world:0.150->0.021 personal:0.140->0.026"
+    ],
+    [
+      "SHAM cross-prompt scoring kills the advantage",
+      true,
+      "world:0.023 personal:0.023"
+    ]
+  ],
+  "dose": {
+    "0.0": 0.1225,
+    "0.25": 0.2575,
+    "0.5": 0.5125,
+    "0.75": 0.775,
+    "1.0": 1.0
+  },
+  "grid": {
+    "personal|real": {
+      "ceiling": 0.08307372793354101,
+      "const_g": 0.06230529595015575,
+      "modal_p": 0.14018691588785046,
+      "placebo": 1.0,
+      "prior": 0.02388369678089304,
+      "unif": 0.013333333333333334
+    },
+    "personal|sham": {
+      "ceiling": 0.017653167185877464,
+      "const_g": 0.05711318795430945,
+      "modal_p": 0.022845275181723777,
+      "placebo": 1.0,
+      "prior": 0.018691588785046728,
+      "unif": 0.013333333333333334
+    },
+    "personal|shuffled": {
+      "ceiling": 0.017653167185877464,
+      "const_g": 0.07892004153686395,
+      "modal_p": 0.025960539979231565,
+      "placebo": 1.0,
+      "prior": 0.025960539979231565,
+      "unif": 0.013333333333333334
+    },
+    "world|real": {
+      "ceiling": 0.08008658008658008,
+      "const_g": 0.04019789734075448,
+      "modal_p": 0.14996907854050712,
+      "placebo": 1.0,
+      "prior": 0.017316017316017316,
+      "unif": 0.01333333333333333
+    },
+    "world|sham": {
+      "ceiling": 0.023500309214594926,
+      "const_g": 0.03865182436611008,
+      "modal_p": 0.02319109461966605,
+      "placebo": 1.0,
+      "prior": 0.01886209029066172,
+      "unif": 0.01333333333333333
+    },
+    "world|shuffled": {
+      "ceiling": 0.02009894867037724,
+      "const_g": 0.03370439084724799,
+      "modal_p": 0.020717377860235003,
+      "placebo": 1.0,
+      "prior": 0.014842300556586271,
+      "unif": 0.01333333333333333
+    }
+  },
+  "headroom": {
+    "personal": 0.02076843198338526,
+    "world": 0.0398886827458256
+  },
+  "headroom_corrected": {
+    "personal": 0.07788161993769471,
+    "world": 0.10977118119975263
+  },
+  "noise_floor": 0.00803737898623663,
+  "source_sha256_16": "8f3ffb0853d9955e",
+  "verdict": "W2 -- DEGENERATE. Headroom only +0.0208 to +0.0399. A constant is nearly as good as the ceiling, so 'core = class distinguisher' is the wrong object and every gate this arc built measured a property with no room."
+}
