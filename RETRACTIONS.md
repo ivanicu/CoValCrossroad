@@ -8313,3 +8313,46 @@ control's failure message must distinguish "the thing under test leaked" from "I
 
 modal-class predictor **0.0633** (24 classes, entropy 4.485 of a possible 4.585 — the distribution
 is nearly flat) · response length alone **0.0420** · greedy-with-scrambled-targets **0.2080**.
+
+---
+
+## 98 · "provenance is 0.00 and cannot be repaired from this release" — R232→R249, retracted by R250
+
+**Asserted** in R236's certificate and carried unchanged through eight rounds; restated most
+recently in my own commit body for `b6f82d5`, one round before this: *"Unlike `representative` it
+cannot be repaired from this release — every coval_core item carries exactly one field."*
+
+**Retracted** by a query over `conversation_rubrics.jsonl` costing under a second.
+
+### What was true and what was inferred
+
+| | |
+|---|---|
+| **VERIFIED, still holds** | every `coval_core` item carries exactly one field, `criterion`. No `source_criterion_id`, no parent, no lineage column. |
+| **INFERRED, never checked** | therefore provenance is `0.00`. |
+
+**Of 3,899 printed core items, 303 (7.77%) are verbatim string matches to a criterion in their own
+prompt's full rubric; 943 (24.19%) reach token-Jaccard ≥ 0.6.** The compiler copies outright about
+one item in thirteen, and the release records that fact in the only place it could — the text.
+
+### The failure mode, which this repository already has a name for
+
+**A wall never checked** (`realstat` §4). Same shape as entry 96: an impossibility asserted while
+the falsifying evidence sat inside the released files. The difference is instructive — entry 96's
+artifact was in my own results directory, this one is in the *object itself*, and the query is a
+`set` membership test. **A missing COLUMN was reported as a missing FACT.**
+
+### Why it went unchecked for eight rounds
+
+The certificate printed `provenance FAILED — 0.00` and that line was **read as a measurement**
+because it carried a number. It was a count of a field that does not exist. A count of nothing is
+`0` and always will be; it can never move, and a value that can never move should never have been
+formatted like a result.
+
+### What is now open rather than closed
+
+Provenance is **≥ 0.0777** by identity. Whether it extends past verbatim copying is the dose curve
+R250 is running: perturb a known parent's text by increasing amounts, re-judge, and find where
+recovery falls to chance — by two independent routes, text similarity and judge behaviour. The
+answer will be a **rate with an MDE in text distance**, which is what the field should have carried
+from the start.

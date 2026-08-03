@@ -196,8 +196,21 @@ R236 issues the certificate: **NOT ADMISSIBLE, two fields FAILED.**
   `C(n,k)` alternatives* — R231 measured that separately at 0.3864 against a floor of 0.3836. Only
   **`redundant` is sound in both directions**: if the class does not move, that criterion
   contributed nothing to this observable, full stop.
-- `provenance` **FAILED** — `0.00`. Across all 986 rubrics every `coval_core` item carries exactly one
-  field, `criterion` (R232).
+- `provenance` **— `0.00` is RETRACTED** (R250). R232's query is intact and still holds: across all
+  986 rubrics every `coval_core` item carries exactly one field, `criterion`. **But the absence of a
+  lineage COLUMN was reported as the absence of lineage,** and that inference was never checked —
+  including by me, one round ago, in a commit body that said the field *"cannot be repaired from
+  this release."*
+
+  Asked of the object rather than of memory: of **3,899** printed core items, **303 (7.77%)** are
+  **verbatim string matches** to a criterion in their own prompt's full rubric, and **943 (24.19%)**
+  reach token-Jaccard ≥ 0.6. Provenance is therefore **at least 0.0777**, established by string
+  identity with no inference at all.
+
+  Those 303 are also the first **ground truth** this arc has had for anything: their parent is known
+  without a model. R250 uses them to calibrate how far a rewrite can travel before provenance stops
+  being recoverable — a dose curve with an MDE in text distance, replacing an assertion with a
+  measurement. `OPEN`, running on GPU task 563.
 - `transport` **NOT_MEASURED** — requires a second candidate set. Now runnable; `UNVERIFIED` at R233
   because its own floors showed the arms differ in difficulty.
 
