@@ -26,6 +26,7 @@ contents only** — every finding, its interval and its scope live in `E05/FORMU
 | `R291` the register was never audited | how many registered impossibilities were checked? |
 | `R292` audit every published cell | 134 cells re-judged by the instrument that caught the last two errors |
 | `R293` does the definition exclude a fitted core | it does not — and a held-out fitted core beats the release compiler 3x |
+| `R294` the definition against everything | 41 arms, 8 admitted, and the census was governed by its smallest member |
 
 ## Why the arc was opened rather than folded into A13
 

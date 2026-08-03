@@ -1,5 +1,40 @@
 # What a "core" is — the formulation, stated once
 
+## 🔷 THE DEFINITION AGAINST EVERY OBJECT THE BENCHMARK CONTAINS (R294)
+
+**41 judged arms, not the nine the definition was developed against. 8 admitted (19.5%).**
+
+| admitted | k | A2 | ① vs random | ② vs size-matched blind | ③ |
+|---|---:|---:|---:|---:|---|
+| `oracle_k4_fit1` | 4 | 0.6142 | +0.1215 | **+0.0637** | held out |
+| `greedy_k4_fit1` | 4 | 0.6106 | +0.1179 | **+0.0602** | held out |
+| `indep_k4_fit1` | 4 | 0.5941 | +0.1014 | **+0.0436** | held out |
+| `coval_core` | 4 | 0.5665 | +0.0738 | +0.0160 | not fitted |
+| `topw_k4` · `topw_k6` · `topw_k3` · `topw_k8` | 3–8 | 0.559–0.564 | +0.067…+0.072 | +0.014…+0.021 | not fitted |
+
+**Excluded, all 33**, including every `*_sham` (5 of 5), `generic`, `gen`, `full`, `promptecho`,
+every `random_k*`, and `oracle_k4` — **which clears ① and ② and is excluded by ③ alone.** That is
+the positive control: **③ excludes exactly one arm, and it is the leaky one.** 64 of 82 cells
+survive BH.
+
+> **W-SPARSE.** The definition is selective over the **full** arm space, not only over the nine it
+> was built against — and the `topw_k` family shows the k-sweep it always lacked: **k = 3, 4, 6, 8
+> all admitted; k = 1, 2 and 12 not.**
+
+⚠ **THE FIRST RUN OF THIS CENSUS SAID 3 of 41 AND EXCLUDED `coval_core`.** It intersected all 41
+arms' prompt sets, and `promptecho` covers **398** — so every arm was scored at n=398, every MDE
+was ~1.6× wider, and two admitted arms were excluded **by lost resolution rather than by anything
+about them.** *A census that intersects its members is governed by its smallest member.* Fixed:
+each arm is evaluated on **its own** population and the per-arm `n` is printed, so a small-coverage
+arm is **visible rather than contagious**.
+
+⚠ **And my inline check of that first result printed "THE VERDICT FLIPS ON WHICH JUDGING IS USED"
+— typed above the numbers, which showed it does not** (both judgings of the same four sentences
+give BEATS for both arms). The verdict-string failure, committed in a throwaway diagnostic, in the
+same hour as building the module that exists to prevent it.
+
+---
+
 ## ✅ WHAT STANDS — the claims a next decision can rest on
 
 *Placed first deliberately. This arc produced 18 rounds and a long chain of corrections, and a file
