@@ -1,0 +1,56 @@
+{
+ "results": {
+  "R221": {
+   "kind": "salted",
+   "status": "ok",
+   "identical": true,
+   "n_distinct": 1
+  },
+  "R238": {
+   "kind": "salted",
+   "status": "ok",
+   "identical": false,
+   "n_distinct": 4
+  },
+  "R241": {
+   "kind": "salted",
+   "status": "ok",
+   "identical": false,
+   "n_distinct": 2
+  },
+  "R244": {
+   "kind": "salted",
+   "status": "ok",
+   "identical": false,
+   "n_distinct": 4
+  },
+  "R245": {
+   "kind": "salted",
+   "status": "ok",
+   "identical": false,
+   "n_distinct": 4
+  },
+  "R231": {
+   "kind": "positive",
+   "status": "ok",
+   "identical": false,
+   "n_distinct": 4
+  },
+  "R230": {
+   "kind": "negative",
+   "status": "ok",
+   "identical": true,
+   "n_distinct": 1
+  },
+  "R228": {
+   "kind": "negative",
+   "status": "ok",
+   "identical": true,
+   "n_distinct": 1
+  }
+ },
+ "positive_ok": true,
+ "negative_ok": true,
+ "sham_ok": true,
+ "verdict": "SEED-DEPENDENT CONCLUSIONS at ['R238', 'R241', 'R244', 'R245']. Those rounds' verdicts are a function of PYTHONHASHSEED and are DOWNGRADED. \u26d4 R241 IS AMONG THEM, so FORMULATION's `transport: UNVERIFIED with a measured reason` reverts to `UNVERIFIED, and the reason is itself unverified` -- a null resting on a floor that moves is one draw, not a measurement."
+}

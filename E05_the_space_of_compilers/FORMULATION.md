@@ -535,7 +535,7 @@ the choice visible, not to score the object against a purpose it never claimed.
 
 | | |
 |---|---|
-| candidate-set transport (R233) | its floors say fresh responses are *easier* for everyone; the arms are not comparable as built. R238 is the difficulty-matched control, waiting on 553's tensor |
+| candidate-set transport (R233) | ⛔ **the reason is now itself unverified** (R263). R241 concluded *"NO VALID STRATIFIER EXISTS"*, and that null closed this line — but re-run under `PYTHONHASHSEED 0/1/2/3` **its conclusion flips**: seeds 0 and 3 give the null, **seeds 1 and 2 give `UNVERIFIED — the correlation machinery did not pass its own controls`.** Half the seeds say the round is unreadable. A null resting on a floor that moves is one draw, not a measured reason. R238's headline moves `+0.0976 … +0.1242` (27%) across the same axis |
 | the two independent designs (R234, R235) | dispatched blind at seeds 11 and 29. **The reading rule was fixed before they were launched** and they will not be averaged |
 
 ## What no elicitation here can settle

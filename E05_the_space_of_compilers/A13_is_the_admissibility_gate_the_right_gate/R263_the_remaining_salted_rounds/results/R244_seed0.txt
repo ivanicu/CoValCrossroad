@@ -1,0 +1,27 @@
+=== (a) verifying R235's claim independently ===
+ criterion x rater cells 269806 | filled 102147 | FILL RATE 0.3786  (R235 said 0.397)
+ exact zeros 1 of 102147 ratings = 1 in 102147   (R235 said 1 in 102,147)
+ the five most common values: +10 x13048, +5 x10025, +8 x8532, +6 x7905, +4 x7599
+ -> VERIFIED, within 2 points
+  join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}
+
+=== ARITHMETIC CHECK against R231, before reading anything ===
+ exclude-missing IS R231's reading. core 0.3864 vs R231's 0.3864 : OK
+ floor 0.3871 vs R231's 0.3836                                  : OK
+
+=== (b) R231's central quantity under both readings ===
+reading        core    floor core-floor        floor [min,max]
+exclude      0.3864   0.3871    -0.0008       [0.3807, 0.3915]
+zero         0.4380   0.3329    +0.1051       [0.3264, 0.3381]
+
+=== controls ===
+ POSITIVE fully-rated rubric, both readings identical : OK
+ NEGATIVE (a rubric with no ratings is excluded upstream by `it.get('scores')`,
+           so the degenerate case cannot enter -- stated, not claimed as a pass)
+
+==============================================================================
+PRE-REGISTERED KILL
+==============================================================================
+ the two readings move core-minus-floor by 0.1059, floor draw spread 0.0116
+
+  E05's scope lines are INCOMPLETE. The exclude-missing reading is a choice worth 0.1059 on the central quantity, larger than the floor's own spread of 0.0116, and no round declared it.

@@ -1,0 +1,23 @@
+  join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}
+  join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}
+prompts 300 | fully-rated prompts (fill = 1.0): 2 = 0.7%   <- NEGATIVE CONTROL
+   (on those, the two readings are identical BY CONSTRUCTION -- a derivation, and the
+    reason any difference below has to come from the partially-rated majority)
+
+=== the three load-bearing claims under both readings ===
+reading            class recovery        member recovery   classes(med)    k_max
+exclude    0.3167 (spread 0.0667) 0.0529 (spread 0.0097)             13        2
+zero       0.3240 (spread 0.1367) 0.0598 (spread 0.0192)             12        2
+
+=== controls ===
+ POSITIVE exclude arm reproduces R230 (class 0.3233 / member 0.0613): 0.3167 / 0.0529  OK
+ POSITIVE exclude arm reproduces R228's k_max = 2: 2  OK
+
+==============================================================================
+PRE-REGISTERED KILL
+==============================================================================
+ claim 1  class > member under BOTH readings          : True  (0.3167>0.0529 | 0.3240>0.0598)
+ claim 6  k_max identical under BOTH readings          : True  (2 | 2)
+ class recovery moves by 0.0073 against a seed spread of 0.1367
+
+  The CONCLUSIONS survive both readings: class beats member either way and k_max is unchanged. The reading moves class recovery by 0.0073, which is a SCOPE LINE the formulation must carry -- not a threat to claims 1 or 6. R244's commit said the choice sits under ten rounds; it does, and for the load-bearing three it changes the NUMBERS and not the CONCLUSIONS.
