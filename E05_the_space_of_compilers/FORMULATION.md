@@ -50,6 +50,43 @@ ran and its controls did not behave; never an acquittal. `OPEN` — running now.
 > **A core is a set of criteria that predicts held-out human judgement better than chance, and
 > better than the same NUMBER of criteria that never read the conversation.**
 
+⛔ **AND CLAUSE 1 DOES NOT SAY WHAT IT DOES** (R285). *"better than chance"* is operationalised
+throughout as *better than `random_k4`* — and `random_k4` is **not chance.** Measured by drawing the
+comparison partner from a **different prompt**, 5 seeds:
+
+| comparison type | measured chance | |
+|---|---:|---|
+| human vs human | **0.3833** (sd 0.0077) | |
+| arm `random_k4` vs human | **0.4257** (sd 0.0031) | and `random_k4` *scores* 0.4927 |
+| arm `generic` vs human | 0.4300 (sd 0.0050) | |
+| arm `coval_core` vs human | 0.4314 (sd 0.0060) | |
+
+> **`random_k4` sits 4.99 MDE units ABOVE its own chance level.** So the clause's *words* say
+> "above chance", which **excludes nothing in this benchmark**, while the clause's *test* says
+> "above four criteria drawn from the right rubric", which excludes four arms. The words and the
+> test are different requirements and the words are what a reader acts on.
+
+⚠ **`A2 = 0.5` was never chance either.** A2 counts matches on a **three-valued** sign vector
+(−1, 0, +1), so random agreement is `Σpᵢ²` over the sign marginal — not ½. The pre-registered
+control said "the cross-prompt floor must land near 0.5", it returned **0.3869**, and **the control
+was right and the pre-registration wrong.** Using 0.5 would have made the admissible band
+**0.0519 instead of 0.1686 — 0.31× the real width.**
+
+**The band, correctly floored:** chance(human–human) **0.3833** → human ceiling **0.5519** =
+**0.1686 wide = 12.57 MDE units** (R280 median MDE 0.0134). Two other ceilings exist and are the
+wrong ones for these arms: human-vs-consensus **0.6352** and per-prompt oracle **0.6862**, both
+higher because they are denoised targets our arms are never scored against.
+
+| arm | A2 | its own chance | MDE units above it |
+|---|---:|---:|---:|
+| `coval_core` | 0.5665 | 0.4314 | **10.07** |
+| `topw_k4` | 0.5642 | 0.4311 | 9.92 |
+| `generic` | 0.5514 | 0.4300 | 9.05 |
+| `random_k4` | 0.4927 | 0.4257 | **4.99** |
+| HUMAN | 0.5519 | 0.3833 | 12.57 |
+
+Positive control: an annotator against themselves returns A2 = 1.000000000000 exactly.
+
 **The exclusion test — *name an admissible object this clause excludes* — is the only thing that
 makes a clause load-bearing:**
 

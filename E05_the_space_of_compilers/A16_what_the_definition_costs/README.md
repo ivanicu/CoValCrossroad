@@ -17,6 +17,7 @@ contents only** — every finding, its interval and its scope live in `E05/FORMU
 | `R281` a size-matched neutral arm | does criterion COUNT explain the price? (gpu 614) |
 | `R282` the neutral clause at matched k=4 | at a fixed count, what does reading the prompt buy? |
 | `R284` are the two winners one mechanism | do the only two arms that beat prompt-blind covary beyond a matched floor? |
+| `R285` how wide is the admissible band | how many resolution units does the definition have to work in? |
 
 ## Why the arc was opened rather than folded into A13
 
