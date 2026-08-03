@@ -170,8 +170,8 @@ def build():
         "two-shot prompt. 75,248 judgements over 968 prompts. Every claim in this campaign that "
         "compares rubric arms is conditional on it.",
         "instrument", 7, "partial",
-        {"files": ["01_object_and_rebuild/r04_rebuild_satisfaction/results/a04_full.npz",
-                   "01_object_and_rebuild/r04_rebuild_satisfaction/results/a04_core.npz"],
+        {"files": ["E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R04_rebuild_satisfaction/results/a04_full.npz",
+                   "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R04_rebuild_satisfaction/results/a04_core.npz"],
          "built": "2026-07-27 16:45", "model": "Qwen/Qwen3.5-2B-Base"})
 
     # ---- alleged defects in the instrument, and their verdicts --------------------------------

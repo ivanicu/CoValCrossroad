@@ -12,12 +12,18 @@ __pycache__/
 
 # r79 embedding caches: 308 MB, regenerable from the checkpoints in r80_panel_freeze.
 # Kept out of git deliberately -- the derived per-prompt values (r79_d_*.npy) are committed.
-[0-9][0-9]_*/r*/results/r79_emb_*.npy
+# ⚠ 2026-08-02: these two rules were anchored `[0-9][0-9]_*/r*/`, the EAR restructure renamed
+# every such directory, the rules stopped matching, and `git add -A` swept 308 MB of
+# deliberately-excluded caches into a commit -- which GitHub then rejected at 106 MB. That is
+# the THIRD layout-anchored pattern to fail silently in the same commit (the link checker
+# certified an empty set; the meta-check hid nothing and accused nine working gates). The fix
+# for all three is the same: match the THING, never the PLACE.
+**/results/r79_emb_*.npy
 # ...including the quarantined copies. The rule above did not match the
 # _stale/ path, so 103 MB of all-NaN arrays kept the tree permanently dirty
 # while looking committed-adjacent. results/_stale/WHY.md is the durable
 # record of what they were; the bytes are NaN and carry nothing.
-[0-9][0-9]_*/r*/results/_stale/r79_emb_*.npy
+**/results/_stale/r79_emb_*.npy
 
 # Third-party PRISM release, pulled by an adversary agent to check whether that dataset
 # could carry this project's estimand (it cannot: 0 of 8,011 conversations have more than
@@ -29,4 +35,5 @@ survey.jsonl
 
 # Runtime fixture batch: attack harnesses plant fake rounds here. Prefixed to match the
 # campaign-anchored globs that must find them; never committed.
+E99_fixtures/
 99_fixtures/

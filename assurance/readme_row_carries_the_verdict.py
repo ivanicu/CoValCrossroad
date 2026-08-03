@@ -55,7 +55,7 @@ from pathlib import Path
 _ROOT = Path(__file__).resolve().parents[1]
 _SKIPPED: list[str] = []   # files a parse error skipped; printed if non-empty
 
-ROW = re.compile(r"^\|\s*\[(r\d+)\]\((?:\d\d_[a-z0-9_]+/)?")
+ROW = re.compile(r"^\|\s*\[[Rr]?(\d+)\]\((?:[EA]\d\d_[a-z0-9_]+/){0,2}")
 # Fields in which a round states a claim or a bound. `frozen_line` is
 # DELIBERATELY absent: it is package-level boilerplate identical across a
 # bloc, already enforced by registries_are_satisfied.py, and requiring a
@@ -145,7 +145,7 @@ def main() -> int:
             rows.setdefault(m.group(1), ln)
 
     verdicts: dict[str, str] = {}
-    for f in sorted(_ROOT.glob("[0-9][0-9]_*/r*/results/**/*.json")):
+    for f in sorted(_ROOT.glob("E*/A*/R*/results/**/*.json")):
         if "smoke" in f.name.lower() or any(p.startswith("_") for p in f.parts):
             continue
         rid = f.parts[-3].split("_")[0] if f.parent.name == "results" \

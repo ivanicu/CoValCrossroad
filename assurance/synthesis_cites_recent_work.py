@@ -52,7 +52,7 @@ STALE_GAP = 20          # rounds behind the newest before it is worth a look
 
 
 def main() -> int:
-    newest = max((int(p.name.split("_")[0][1:]) for p in ROOT.glob("[0-9][0-9]_*/r*/")
+    newest = max((int(p.name.split("_")[0][1:]) for p in ROOT.glob("E*/A*/R*/")
                   if p.name.split("_")[0][1:].isdigit()), default=0)
     if not newest:
         print("no rounds found -- nothing to check")

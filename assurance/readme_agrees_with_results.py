@@ -132,7 +132,7 @@ _SKIPPED: list[str] = []   # files a parse error skipped; printed if non-empty
 # into results/ -- defeated for the life of the round (entry 75).
 PROVISIONAL = re.compile(r"smoke|dry[_-]?run|draft|scratch|trial|pilot|prelim|wip", re.I)
 NUM = re.compile(r"[-+]?\d+(?:,\d{3})*(?:\.\d+)?%?")
-ROUND_LINK = re.compile(r"(?:\d\d_[a-z0-9_]+/)?(r\d+)_[a-z0-9_]+")
+ROUND_LINK = re.compile(r"(?:[EA]\d\d_[a-z0-9_]+/){0,2}([Rr]\d+)_[a-z0-9_]+")
 # A round named in plain text -- "r06's 0.6575 arm", "found in r02". Prose names
 # rounds without linking them, and four numbers were flagged against the linked
 # round's pool while the sentence itself said which OTHER round they came from.
@@ -236,7 +236,7 @@ def main() -> None:
     a = ap.parse_args()
 
     pools: dict[str, set[float]] = {}
-    for f in sorted(_ROOT.glob("[0-9][0-9]_*/r*/results/*.json")):
+    for f in sorted(_ROOT.glob("E*/A*/R*/results/*.json")):
         if PROVISIONAL.search(f.name):
             continue
         rid = f.parts[-3].split("_")[0]

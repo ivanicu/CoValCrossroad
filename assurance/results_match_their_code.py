@@ -82,7 +82,7 @@ def main() -> None:
     a = ap.parse_args()
 
     rows, untracked, no_results = [], [], []
-    for d in sorted((_ROOT / a.rounds).glob("[0-9][0-9]_*/r*/")):
+    for d in sorted((_ROOT / a.rounds).glob("E*/A*/R*/")):
         run = d / "run.py"
         if not run.exists():
             continue

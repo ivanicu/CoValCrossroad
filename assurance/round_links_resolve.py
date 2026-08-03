@@ -39,11 +39,17 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DOCS = ["README.md", "RETRACTIONS.md", "PREREGISTRATION.md", "FROZEN.md"]
+DOCS = ["README.md", "RETRACTIONS.md", "PREREGISTRATION.md", "FROZEN.md", "EAR.md",
+        "NORTH_STAR.md", "ADVERSARY_FORECAST.md"]
 # Extended beyond rounds/ (entry 176): the invented-path failure is not specific to
 # round links -- any relative path this package emits can be written from memory. These
 # are the directories the documents actually cite.
-LINK = re.compile(r"\]\(((?:\d\d_[a-z0-9_]+|rounds|data|assurance|covalx|scripts)/[A-Za-z0-9_./-]+)\)")
+# ⚠ 2026-08-02: this alternation began `\d\d_[a-z0-9_]+`, and the EAR restructure renamed every
+# such directory to `E\d\d_...`. The regex then matched ZERO round links and the check reported
+# "every relative link resolves" over an empty set -- a clean bill of health issued by an
+# instrument pointed at nothing, which is the exact failure this package exists to prevent, in
+# the commit that restructured it. The count assertion at the end is what makes it survivable.
+LINK = re.compile(r"\]\(((?:E\d\d_[A-Za-z0-9_]+|\d\d_[a-z0-9_]+|rounds|data|assurance|covalx|scripts)/[A-Za-z0-9_./-]+)\)")
 
 
 def main() -> int:

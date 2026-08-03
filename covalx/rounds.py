@@ -15,19 +15,23 @@ from __future__ import annotations
 import pathlib
 import re
 
-ROUND_RE = re.compile(r'^r\d+_')
-GLOB = "[0-9][0-9]_*/r*"
+# ⚠ THIRD LAYOUT, 2026-08-02: rounds moved again, into the EAR tree E<epoch>/A<arc>/R<round>,
+# and the leaf is now capital R. This is the exact failure the docstring above describes, one
+# level deeper -- which is why the depth is expressed HERE and nowhere else. Both cases are
+# accepted so that a stale reference to `r019_x` still resolves to `R019_x`.
+ROUND_RE = re.compile(r'^[Rr]\d+_')
+GLOB = "E*/A*/R*"
 # Named to LOOK LIKE A CAMPAIGN on purpose. Every glob is anchored on [0-9][0-9]_* now, because at the
 # repository root a bare */ would match data/, covalx/, assurance/ and .venv/. Anchoring is correct and
 # it has a cost: a fixture batch called "_fixtures" is invisible to the very globs it must be seen by,
 # so three attack harnesses planted fixtures nothing could find and reported 0 vectors caught. The
 # batch therefore carries a two-digit prefix, and 99 keeps it last in any sorted listing.
-FIXTURE_BATCH = "99_fixtures"
+FIXTURE_BATCH = "E99_fixtures/A01_planted"
 
 
 def iter_round_dirs(root: pathlib.Path):
     """Every real round directory, ordered by round number. Batch dirs are not rounds."""
-    out = [p for p in root.glob("[0-9][0-9]_*/*") if p.is_dir() and ROUND_RE.match(p.name)]
+    out = [p for p in root.glob("E*/A*/*") if p.is_dir() and ROUND_RE.match(p.name)]
     return sorted(out, key=lambda p: int(p.name.split("_")[0][1:]))
 
 
@@ -35,7 +39,8 @@ def round_dir(root: pathlib.Path, name: str):
     """Resolve a round by BARE name (`r31_within_person`) without knowing its batch. Returns None if
     no such round -- callers that treat a registry entry's absence as a loud failure depend on the
     difference between 'not found' and 'found in an unexpected place'."""
-    hits = [p for p in root.glob(f"[0-9][0-9]_*/{name}") if p.is_dir()]
+    want = name.lower()
+    hits = [p for p in root.glob("E*/A*/*") if p.is_dir() and p.name.lower() == want]
     return hits[0] if hits else None
 
 
@@ -51,9 +56,9 @@ def fixture_dir(root: pathlib.Path, name: str) -> pathlib.Path:
     # My first version of this guard demanded r + DIGITS and rejected `rZZ_plant`, a placeholder one
     # harness had used for years -- a guard stricter than the thing it guards, which breaks working
     # callers to prevent a fault they never had.
-    if not name.startswith("r"):
+    if not name.lower().startswith("r"):
         raise ValueError(
-            f"fixture name {name!r} must begin with 'r' to match the campaign-anchored glob "
-            f"[0-9][0-9]_*/r*/; anything else is planted where nothing can find it, and the harness "
+            f"fixture name {name!r} must begin with 'R' to match the EAR-anchored glob "
+            f"E*/A*/R*/; anything else is planted where nothing can find it, and the harness "
             f"then reports zero vectors caught instead of an error")
     return root / FIXTURE_BATCH / name

@@ -64,13 +64,13 @@ README = ROOT / "README.md"
 
 # Verified against the source tree on every run -- see COMPLETENESS above.
 ROUNDS = {
-    "r01_rater_structure", "r05_value_taxonomy", "r06_rule_tournament",
-    "r13_seed_vs_writein", "r16_minority_regret", "r17_conditional_core",
-    "r18_routing_difficulty", "r32_channel_decomposition", "r34_global_rater_crossfit",
-    "r35_polarity_abstention", "r36_channel_shapley", "r37_leakage_topology",
-    "r43_criterion_heterogeneity", "r49_provenance_crossfit", "r50_response_anchoring",
-    "r62_matching_floor", "r92_writein_analysability",
-    "r97_rule_tournament_tost",
+    "R01_rater_structure", "R05_value_taxonomy", "R06_rule_tournament",
+    "R13_seed_vs_writein", "R16_minority_regret", "R17_conditional_core",
+    "R18_routing_difficulty", "R32_channel_decomposition", "R34_global_rater_crossfit",
+    "R35_polarity_abstention", "R36_channel_shapley", "R37_leakage_topology",
+    "R43_criterion_heterogeneity", "R49_provenance_crossfit", "R50_response_anchoring",
+    "R62_matching_floor", "R92_writein_analysability",
+    "R97_rule_tournament_tost",
 }
 
 FILTER = re.compile(r"len\(raters\)\s*\+\s*1\)\s*//\s*2|>=\s*thr\b")
@@ -80,7 +80,7 @@ DISCLOSE = re.compile(
 
 
 def main() -> int:
-    found = {p.parent.name for p in ROOT.glob("[0-9][0-9]_*/r*/run.py")
+    found = {p.parent.name for p in ROOT.glob("E*/A*/R*/run.py")
              if FILTER.search(p.read_text())}
     readme = README.read_text()
     print(f"rounds applying the majority/seed filter: {len(found)}   registry: {len(ROUNDS)}")
@@ -102,7 +102,7 @@ def main() -> int:
     missing = []
     for r in sorted(ROUNDS & found):
         txt = ""
-        for f in glob.glob(str(ROOT / f"[0-9][0-9]_*/{r}/results/*.json")):
+        for f in glob.glob(str(ROOT / f"E*/A*/{r}/results/*.json")):
             if Path(f).stat().st_size < 4_000_000:
                 try:
                     txt += json.dumps(json.load(open(f)))

@@ -57,28 +57,28 @@ TASK_POSITION = (
 )
 
 REGISTRY = {
-    "r01_rater_structure": RATER_STRUCTURE,
-    "r23_actor_vs_dyad": RATER_STRUCTURE,
+    "R01_rater_structure": RATER_STRUCTURE,
+    "R23_actor_vs_dyad": RATER_STRUCTURE,
     # NAME CORRECTED: I guessed "r25_metric_sweep" when writing this registry.
     # The round is r25_actor_dyad_sweep, it has no run.py (cell.py + collect.py),
     # and 145 sweep cells -- NONE of which carry a verdict string, so every
     # string-stamping utility passed over it silently. Caught only by enumerating
     # from the registry side (assurance/registries_are_satisfied.py).
-    "r25_actor_dyad_sweep": RATER_STRUCTURE,
-    "r26_sign_no_split": RATER_STRUCTURE,
-    "r27_raw_negative_tail": RATER_STRUCTURE,
-    "r28_multiplicative": RATER_STRUCTURE,
-    "r16_minority_regret": BLOC_INTERPRETATION,
-    "r17_conditional_core": BLOC_INTERPRETATION,
-    "r18_routing_difficulty": BLOC_INTERPRETATION,
+    "R25_actor_dyad_sweep": RATER_STRUCTURE,
+    "R26_sign_no_split": RATER_STRUCTURE,
+    "R27_raw_negative_tail": RATER_STRUCTURE,
+    "R28_multiplicative": RATER_STRUCTURE,
+    "R16_minority_regret": BLOC_INTERPRETATION,
+    "R17_conditional_core": BLOC_INTERPRETATION,
+    "R18_routing_difficulty": BLOC_INTERPRETATION,
     # ADDED after checking the registry against its OWN authoritative source.
     # FROZEN.md names five frozen lines; this registry covered two of them.
     # Section 2 -- the task-position reading -- had never been delivered to any
     # round, which is the same failure the rater-structure line had until this
     # session. A registry can be internally satisfied and still incomplete.
-    "r02_label_and_regime": TASK_POSITION,
-    "r24_regime_receipt": TASK_POSITION,
-    "r31_within_person": TASK_POSITION,
+    "R02_label_and_regime": TASK_POSITION,
+    "R24_regime_receipt": TASK_POSITION,
+    "R31_within_person": TASK_POSITION,
 }
 
 

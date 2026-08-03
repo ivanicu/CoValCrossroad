@@ -141,8 +141,8 @@ def main() -> int:
         txt = fro.read_text()
         named = set()
         for m in re.finditer(r"^## ([123])\.[^\n]*$", txt, re.M):
-            named |= set(re.findall(r"`(r\d+)`", m.group(0)))
-        have = {re.match(r"r\d+", k).group(0) for k in FROZEN}
+            named |= set(x.lower() for x in re.findall(r"`([Rr]\d+)`", m.group(0)))
+        have = {m.group(0).lower() for k in FROZEN if (m := re.match(r"[Rr]\d+", k))}
         missing = sorted(named - have)
         print(f"  rounds named in sections 1-3: {len(named)}   in the registry: "
               f"{len(named & have)}")

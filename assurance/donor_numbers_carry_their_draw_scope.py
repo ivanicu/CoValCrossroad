@@ -66,23 +66,23 @@ README = ROOT / "README.md"
 # number that is itself an own-minus-donor difference, or a difference between two
 # donor conditions. False entries carry the reason they are exempt.
 REGISTRY = {
-    "r04_rebuild_satisfaction":     (False, "donor arm is an internal shuffle CONTROL; the row publishes the reconstruction, not a donor difference"),
-    "r10_attribution_robustness":   (True,  "publishes attribution against four donors -- the headline's 7.9 comes from its random cell"),
-    "r12_response_set":             (True,  "publishes the own-minus-donor attribution whose sign inverts on fresh responses"),
-    "r15_indistribution_transfer":  (False, "row publishes a transfer rate, not a donor difference"),
-    "r20_paraphrase_transfer":      (True,  "row publishes the advantage RETAINED against a random donor arm"),
-    "r21_donor_distance":           (True,  "row publishes attribution as a function of donor distance"),
-    "r22_cross_family":             (True,  "row publishes per-judge own-vs-random attribution"),
-    "r46_spread_replication":       (True,  "row reproduces r12's attribution inversion on a held-out set"),
-    "r54_overlap_transfer":         (False, "row publishes a predictor correlation; the donor arm is a control"),
-    "r55_overlap_selectivity":      (False, "row publishes selectivity of the overlap channel, not a donor difference"),
-    "r69_r54_predictor_reliability": (False, "row publishes a split-half reliability; the donor arm is a control"),
-    "r86_attribution_by_form":      (True,  "row publishes attribution by collection form"),
-    "r87_criterion_count_channel":  (True,  "row publishes attribution under three donor pairings"),
-    "r88_donor_draw_variance":      (True,  "the round IS the draw measurement"),
-    "r89_floor_draw_at_panel_size": (True,  "the round IS the draw measurement at panel size"),
-    "r103_consensus_conditioned": (True,  "publishes own-minus-donor attribution per consensus bin under a single donor permutation"),
-    "r90_resampling_unit":          (True,  "reports agreement and attribution INTERVALS around a single-draw attribution point; the draw is orthogonal to the resampling unit it varies, and both scopes apply"),
+    "R04_rebuild_satisfaction":     (False, "donor arm is an internal shuffle CONTROL; the row publishes the reconstruction, not a donor difference"),
+    "R10_attribution_robustness":   (True,  "publishes attribution against four donors -- the headline's 7.9 comes from its random cell"),
+    "R12_response_set":             (True,  "publishes the own-minus-donor attribution whose sign inverts on fresh responses"),
+    "R15_indistribution_transfer":  (False, "row publishes a transfer rate, not a donor difference"),
+    "R20_paraphrase_transfer":      (True,  "row publishes the advantage RETAINED against a random donor arm"),
+    "R21_donor_distance":           (True,  "row publishes attribution as a function of donor distance"),
+    "R22_cross_family":             (True,  "row publishes per-judge own-vs-random attribution"),
+    "R46_spread_replication":       (True,  "row reproduces r12's attribution inversion on a held-out set"),
+    "R54_overlap_transfer":         (False, "row publishes a predictor correlation; the donor arm is a control"),
+    "R55_overlap_selectivity":      (False, "row publishes selectivity of the overlap channel, not a donor difference"),
+    "R69_r54_predictor_reliability": (False, "row publishes a split-half reliability; the donor arm is a control"),
+    "R86_attribution_by_form":      (True,  "row publishes attribution by collection form"),
+    "R87_criterion_count_channel":  (True,  "row publishes attribution under three donor pairings"),
+    "R88_donor_draw_variance":      (True,  "the round IS the draw measurement"),
+    "R89_floor_draw_at_panel_size": (True,  "the round IS the draw measurement at panel size"),
+    "R103_consensus_conditioned": (True,  "publishes own-minus-donor attribution per consensus bin under a single donor permutation"),
+    "R90_resampling_unit":          (True,  "reports agreement and attribution INTERVALS around a single-draw attribution point; the draw is orthogonal to the resampling unit it varies, and both scopes apply"),
 }
 
 IDIOM_A = re.compile(r"\+\s*1\s*\+\s*rng\.integers\(\s*0\s*,\s*n\s*-\s*1\s*\)")
@@ -101,7 +101,7 @@ def rows_for(readme: str, rnd: str) -> list[str]:
 def main() -> int:
     readme = README.read_text()
     found = {}
-    for run in sorted((ROOT / "rounds").glob("[0-9][0-9]_*/r*/run.py")):
+    for run in sorted((ROOT / "rounds").glob("E*/A*/R*/run.py")):
         src = run.read_text()
         idiom = "A" if IDIOM_A.search(src) else ("B" if IDIOM_B.search(src) else None)
         if idiom:

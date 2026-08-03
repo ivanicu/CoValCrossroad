@@ -65,7 +65,7 @@ from pathlib import Path
 
 _ROOT = Path(__file__).resolve().parents[1]
 _SKIPPED: list[str] = []   # files a parse error skipped; printed if non-empty
-CENSUS = _ROOT / "06_the_judges_mechanism/r58_equivalence_census/results/r58_equivalence_census.json"
+CENSUS = _ROOT / "E03_the_instrument_was_the_object/A01_can_a_local_judge_be_an_instrument/R58_equivalence_census/results/r58_equivalence_census.json"
 PROVISIONAL = re.compile(r"smoke|dry[_-]?run|draft|scratch|trial|pilot|prelim|wip", re.I)
 
 
@@ -111,7 +111,7 @@ def main() -> int:
     census = json.loads(a.census.read_text())["contrasts"]
 
     verdicts: dict[str, str] = {}
-    for f in sorted(_ROOT.glob("[0-9][0-9]_*/r*/results/*.json")):
+    for f in sorted(_ROOT.glob("E*/A*/R*/results/*.json")):
         if PROVISIONAL.search(f.name):
             continue
         rid = f.parts[-3].split("_")[0]

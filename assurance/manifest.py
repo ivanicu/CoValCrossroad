@@ -60,19 +60,19 @@ CLAIMS = [
      "quality obtainable with an unrelated rubric. C12 shows this prompt-specific "
      "component does not extend to responses the criteria were not authored "
      "against, so C1 must not be read as a property of the rubric in general.",
-     "01_object_and_rebuild/r04_rebuild_satisfaction/results/a04_full.json", "rubric_contribution_share", "<", 0.5),
+     "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R04_rebuild_satisfaction/results/a04_full.json", "rubric_contribution_share", "<", 0.5),
 
     ("C2",
      "The rebuilt criterion-satisfaction layer predicts held-out human pairwise "
      "rankings above chance and above a length-only baseline.",
-     "01_object_and_rebuild/r04_rebuild_satisfaction/results/a04_full.json", "pairwise_accuracy", ">", 0.55),
+     "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R04_rebuild_satisfaction/results/a04_full.json", "pairwise_accuracy", ">", 0.55),
 
     ("C3",
      "Among defensible aggregation principles at k=4, out-of-sample predictive "
      "accuracy spans less than 3 percentage points, and a lower-quartile "
      "consensus rule is indistinguishable from random selection of four shared "
      "criteria.",
-     "01_object_and_rebuild/r06_rule_tournament/results/a06_rule_tournament.json", "rules.consensus.accuracy", "~", 0.64),
+     "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R06_rule_tournament/results/a06_rule_tournament.json", "rules.consensus.accuracy", "~", 0.64),
 
     # REWRITTEN 2026-07-28.  The old C4 read: "...exceeds its permutation null
     # and survives removal of per-rater response style, so disagreement carries
@@ -120,7 +120,7 @@ CLAIMS = [
      "-- but the multiplicative alternative is not validated either: equal "
      "effective degrees of freedom, and out-of-sample instability spanning "
      "R^2 [-1.64, +0.51]. No number here should be read as measuring a bloc.",
-     "03_person_or_pair/r28_multiplicative/results/r28_pearson.json", "multiplicative_generalises_better", "==", True),
+     "E02_the_plural_public_dissolved/A01_structured_plurality_or_reliability/R28_multiplicative/results/r28_pearson.json", "multiplicative_generalises_better", "==", True),
 
     # REWRITTEN 2026-07-28.  C15 previously asserted the multiplicative form wins
     # "while using one FEWER free parameter".  That arithmetic is false: the
@@ -135,7 +135,7 @@ CLAIMS = [
      "+0.3879 against multiplicative +0.2514, because roughly one split in ten "
      "collapses when thin raters receive a c_i pinned to the initialisation "
      "fallback. In-sample R^2 favours the multiplicative shape and is not the test.",
-     "03_person_or_pair/r28_multiplicative/results/r28_pearson.json", "cv_multiplicative_mean", ">", 0.3879),
+     "E02_the_plural_public_dissolved/A01_structured_plurality_or_reliability/R28_multiplicative/results/r28_pearson.json", "cv_multiplicative_mean", ">", 0.3879),
 
     # ---- identification round, 2026-07-28 -------------------------------
     # C33-C37 answered the question this project actually turned out to be
@@ -161,7 +161,7 @@ CLAIMS = [
      "is not a free parameter. NOT ESTABLISHED: that the direction pre-exists the "
      "menu. Shared-menu endogeneity is untouched by any split of these annotators, "
      "because none of them rated a criterion before seeing responses.",
-     "04_what_core_is/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+     "E02_the_plural_public_dissolved/A02_what_coval_core_mechanically_is/R34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
      "estimands.D_population (crossfit_sign - attribute_only).delta", ">", 0.04),
 
     ("C17",
@@ -169,7 +169,7 @@ CLAIMS = [
      "The same-sample premium is small in absolute terms: the gap between weights "
      "built from everyone and weights built from disjoint raters is under one "
      "accuracy point.",
-     "04_what_core_is/r34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+     "E02_the_plural_public_dissolved/A02_what_coval_core_mechanically_is/R34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
      "estimands.D_same_sample_premium (same_sign - crossfit_sign).delta", "<", 0.01),
 
     # RESCOPED. "Does not depend on forcing a direction" overclaims: dropping
@@ -186,7 +186,7 @@ CLAIMS = [
      "runs -10..+10 and 0 appears exactly once in 102,147 ratings, so 'no general "
      "direction' was never available to a participant; testing that requires the "
      "option AT ELICITATION TIME, not a filter afterwards.",
-     "04_what_core_is/r35_polarity_abstention/results/r35_polarity_abstention.json",
+     "E02_the_plural_public_dissolved/A02_what_coval_core_mechanically_is/R35_polarity_abstention/results/r35_polarity_abstention.json",
      "abs_confident_minus_forced", "<", 0.01),
 
     # RESCOPED. p > 0.05 is not equivalence. An aggregate accuracy can conceal
@@ -202,7 +202,7 @@ CLAIMS = [
      "not an equivalence result, and aggregate accuracy can hide criterion sign "
      "reversals and minority-only criteria. Also not established: response-blind "
      "weights, which no rater in this dataset could supply.",
-     "04_what_core_is/r37_leakage_topology/results/r37_leakage_topology.json",
+     "E02_the_plural_public_dissolved/A02_what_coval_core_mechanically_is/R37_leakage_topology/results/r37_leakage_topology.json",
      "levels.A3_held_out_country.L", "<", 0.01),
 
     # RESCOPED. The tested distances are GENERIC -- hidden-state geometry and
@@ -229,14 +229,14 @@ CLAIMS = [
      "lie inside the rubric's own criterion-satisfaction support -- which is the "
      "distance a rubric-conditioned failure would live in, and which has not been "
      "measured.",
-     "05_human_protocol_and_power/r40_ood_map/results/r40_ood_map.json",
+     "E02_the_plural_public_dissolved/A03_does_the_protocol_have_the_power_it_needs/R40_ood_map/results/r40_ood_map.json",
      "cross_lineage.nearest_neighbour.mean_r", "<", 0.0),
 
     ("C5",
      "Anthropomorphic style independently predicts human preference after "
      "controlling for the rubric score and response length, while fewer than "
      "1 percent of crowd-written criteria address it.",
-     "01_object_and_rebuild/r07_anthropomorphism/results/a07_anthropomorphism.json", "rubric_absorption_test.anthro_t", ">", 2.0),
+     "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R07_anthropomorphism/results/a07_anthropomorphism.json", "rubric_absorption_test.anthro_t", ">", 2.0),
 
     # ADDED 2026-07-28.  C5's sentence makes TWO assertions and its test gated
     # only the first.  A construct review then read all 24 Tier-1 hits and found
@@ -251,38 +251,38 @@ CLAIMS = [
      "anthropomorphic self-presentation, under a word-boundary lexicon whose "
      "Tier-1 term list is known to over-count: at least 13 of its 24 matches are "
      "off-construct or polarity-reversed, so this rate is an upper bound.",
-     "01_object_and_rebuild/r07_anthropomorphism/results/a07_anthropomorphism.json", "criteria_tier1_share", "<", 0.01),
+     "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R07_anthropomorphism/results/a07_anthropomorphism.json", "criteria_tier1_share", "<", 0.01),
 
     ("C6",
      "PRE-REGISTERED AND REFUTED: optimizing selection against the rubric was "
      "predicted to raise lexical overlap with the criterion text (the gaming "
      "direction implied by C1). Test compares overlap at max strength against "
      "overlap at n=1; the prediction requires a rise of at least 0.02.",
-     "01_object_and_rebuild/r09_overoptimization/results/a09_overoptimization.json", "overlap_rise", ">", 0.02),
+     "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R09_overoptimization/results/a09_overoptimization.json", "overlap_rise", ">", 0.02),
 
     ("C7",
      "RETRACTED BY C11. Within best-of-16 pressure the gold preference change is "
      "distinguishable from zero. This held only with a gold head sharing the "
      "judge's backbone; the independent-backbone control (C11) does not "
      "reproduce it, so the effect is NOT established in either direction.",
-     "02_attribution_under_attack/r11_backbone_control/results/a11_backbone_control.json", "gold_08b_independent.delta", ">", 0.30),
+     "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R11_backbone_control/results/a11_backbone_control.json", "gold_08b_independent.delta", ">", 0.30),
 
     ("C11",
      "The A09 result is reproduced by a gold preference head built on a "
      "DIFFERENT backbone from the judge, ruling out shared-backbone leakage.",
-     "02_attribution_under_attack/r11_backbone_control/results/a11_backbone_control.json", "independent_reproduces", "==", True),
+     "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R11_backbone_control/results/a11_backbone_control.json", "independent_reproduces", "==", True),
 
     ("C9",
      "The attribution decomposition is not an artifact of one judge or one "
      "prompt template: across three judge/template configurations the "
      "prompt-specific contribution stays positive with small spread.",
-     "02_attribution_under_attack/r10_attribution_robustness/results/a10_attribution.json", "attribution_mean", ">", 0.03),
+     "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R10_attribution_robustness/results/a10_attribution.json", "attribution_mean", ">", 0.03),
 
     ("C10",
      "Part of what the random-donor control attributes to 'prompt-specific "
      "value content' is merely topic match: a nearest-topic donor recovers a "
      "material share of the gap.",
-     "02_attribution_under_attack/r10_attribution_robustness/results/a10_attribution.json", "topic_share_mean", ">", 0.10),
+     "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R10_attribution_robustness/results/a10_attribution.json", "topic_share_mean", ">", 0.10),
 
     ("C12",
      "The prompt-specific advantage in C1 survives on responses the criteria were "
@@ -292,19 +292,19 @@ CLAIMS = [
      "criteria carry more attribution than criteria written after reading the "
      "candidates, so the non-transfer is a property of the measurement off "
      "distribution, not of what the criteria encode.",
-     "02_attribution_under_attack/r12_response_set/results/a12_response_set.json",
+     "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R12_response_set/results/a12_response_set.json",
      "sets.FRESH.attribution", ">", 0.0),
 
     ("C13",
      "The fresh response set used by C12 admits an ordering at all, so a null "
      "there is a measurement rather than silence.",
-     "02_attribution_under_attack/r12_response_set/results/a12_response_set.json",
+     "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R12_response_set/results/a12_response_set.json",
      "control_passed", "==", True),
 
     ("C8",
      "The instrument used for C6/C7 discriminates among the candidates it "
      "scores, so a null there is a measurement and not silence.",
-     "01_object_and_rebuild/r09_overoptimization/results/a09_overoptimization.json", "positive_control_passed", "==", True),
+     "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R09_overoptimization/results/a09_overoptimization.json", "positive_control_passed", "==", True),
 ]
 
 
@@ -413,12 +413,12 @@ def main() -> None:
         inputs[f"data/{p.name}"] = {"bytes": p.stat().st_size, "sha256": sha256(p)}
 
     code = {}
-    for p in sorted(root.glob("covalx/*.py")) + sorted(root.glob("[0-9][0-9]_*/r*/run.py")) \
+    for p in sorted(root.glob("covalx/*.py")) + sorted(root.glob("E*/A*/R*/run.py")) \
              + sorted(root.glob("assurance/*.py")) + sorted(root.glob("data/*.py")):
         code[str(p.relative_to(root))] = {"bytes": p.stat().st_size, "sha256": sha256(p)}
 
     outputs = {}
-    for p in sorted(root.glob("[0-9][0-9]_*/r*/results/*.json")):
+    for p in sorted(root.glob("E*/A*/R*/results/*.json")):
         outputs[str(p.relative_to(root))] = {"bytes": p.stat().st_size, "sha256": sha256(p)}
 
     claims = []
@@ -452,8 +452,8 @@ def main() -> None:
     # measured budget
     budget = {}
     for name, src, field in [
-        ("satisfaction_full", "01_object_and_rebuild/r04_rebuild_satisfaction/results/a04_full.json", "seconds"),
-        ("satisfaction_core", "01_object_and_rebuild/r04_rebuild_satisfaction/results/a04_core.json", "seconds"),
+        ("satisfaction_full", "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R04_rebuild_satisfaction/results/a04_full.json", "seconds"),
+        ("satisfaction_core", "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R04_rebuild_satisfaction/results/a04_core.json", "seconds"),
     ]:
         f = root / src
         if f.exists():

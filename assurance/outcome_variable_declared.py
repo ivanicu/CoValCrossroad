@@ -83,7 +83,7 @@ def _floor(n: int, what: str) -> int:
 
 def main() -> int:
     rows, flagged = [], []
-    for d in sorted(_ROOT.glob("[0-9][0-9]_*/r*/")):
+    for d in sorted(_ROOT.glob("E*/A*/R*/")):
         run = d / "run.py"
         if not run.exists():
             continue

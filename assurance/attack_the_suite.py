@@ -47,14 +47,23 @@ def empty_manifest_claims():
 
 
 def hide_rounds():
-    """Empty the round population. There is no longer a single `rounds/` directory to move -- the 12
-    campaigns sit at the repository root -- so each is moved separately and restored separately. A
+    """Empty the round population. There is no longer a single `rounds/` directory to move -- the
+    EPOCHS sit at the repository root -- so each is moved separately and restored separately. A
     version that moved one path would silently hide NOTHING and report every check as refusing on an
-    empty population it still had."""
+    empty population it still had.
+
+    ⚠ 2026-08-02: this matched `^\d\d_` and the EAR restructure renamed every one of those to
+    `E\d\d_`. The harness then hid NOTHING, every gate kept its full population, passed, and this
+    file reported 9 of 18 gates BROKEN -- a false accusation against nine working checks, produced
+    by its own setup step no-oping. The assert below is why the class is survivable at all, and it
+    is now also anchored on the count, because an assert that only tests non-emptiness passes on a
+    single stray directory."""
     import re as _re
     camps = sorted(p for p in ROOT.iterdir()
-                   if p.is_dir() and _re.match(r'^\d\d_', p.name))
-    assert camps, "no campaign directories found: this harness would test nothing"
+                   if p.is_dir() and _re.match(r'^E\d\d_', p.name))
+    assert len(camps) >= 2, (
+        f"found {len(camps)} epoch directories: this harness would hide nothing and then report "
+        f"every gate as passing on a population it still had")
     tmp = Path(tempfile.mkdtemp(prefix="attack_rounds_"))
     moved = []
     for c in camps:
