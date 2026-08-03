@@ -70,9 +70,42 @@ of up to `k=119` is identifiable at the conservative end while a per-prompt core
 The independence assumption was checked: of 15,058 distinct criterion token-sets, **one** appears in
 more than one prompt. **CoVal ships the per-prompt object.**
 
-**7 · Whether a global core exists is `OPEN`.** (R240, running)
-The bits are there. Whether there is anything for them to identify is being measured on 160,000
-judgements, fitted on half the prompts and evaluated on the other half.
+**7 · The bits add across prompts and there is still nothing to identify.** `MEASURED` (R240 → R246
+→ R247), and **claim 6 is demoted to true-and-inconsequential**, exactly as `A10/PREDICTION.md`
+registered in advance.
+
+R240 fitted a 32-criterion global core on 160,000 judgements over 200 prompts and printed *"A GLOBAL
+CORE TRANSFERS."* Three rounds later that verdict is gone and the tensor never changed:
+
+| | fitted core, held out | random-k floor | unselected all-200 | length only |
+|---|---|---|---|---|
+| R240, **3 seeds**, vs floor's **max of 20 draws** | 0.3500 | max 0.3467 | — | — |
+| R247, **10 seeds**, vs the floor's **own 500-draw distribution** | **0.3060** (ptp 0.1100) | 0.2649 | **0.2550** | 0.0420 |
+
+- **Empirical p over the whole k grid: 0.0699–0.1637. BH at q=0.05 kills all six.** R240's crossing
+  was `0.3500 − 0.3467 = 0.0033` — **one prompt out of 300** — against the *maximum* of 20 draws,
+  which is an extreme order statistic and not a floor.
+- **Selection is not the ingredient either.** Using the **entire** 200-criterion vocabulary scores
+  0.2550, inside the fitted arm's seed spread at every k. There is no compression to call a *core*.
+- **The effect that remains is a direction, not a count**: fitted sits above the floor's *mean* at
+  6 of 6 k with the same sign (+0.012 … +0.061), against a seed spread of 0.08–0.11. `effect/floor
+  spread < 1.5`, so no share, no percentage — a gradient only.
+
+⚠ **Two of R240's own controls said this before I did, and I read past both.** Its negative control
+printed `NOT NULL` and `A10/PREDICTION.md` — written *before* the run — says a non-null negative
+control makes the round `UNVERIFIED` regardless of its number. R246 then measured *why*: the arm
+evaluated an already-fitted core on a random half of **all** prompts, which is **50.00%** training
+data by construction. It could not have come back null.
+
+**What survives, and it is narrower than a core.** Greedy selection over a generic vocabulary
+recovers the modal-plus structure out of sample better than *scrambled-target* selection does
+(0.2080 vs 0.3060 at k=32) — so the fitter is not overfitting. It simply has nothing to find that
+the whole vocabulary does not already carry.
+
+**And two rivals died on the way, which is why the null is admissible.** The target class
+distribution is nearly flat — 24 classes over 200 prompts, modal share 0.10, entropy **4.485** bits
+against 4.585 for uniform — so a response-blind modal predictor scores **0.0633**, not 0.35.
+Response length alone scores **0.0420**. Neither artifact explains anything here.
 
 ---
 
@@ -141,3 +174,8 @@ the choice visible, not to score the object against a purpose it never claimed.
   repository for six days while I said that four times.
 - *"The positive control failed, so the instrument is broken."* — four times out of four, the
   instrument was fine and the threshold was impossible.
+- *"A global core transfers to prompts it was never fitted to."* — R240 printed it, R247 killed it
+  off R240's own tensor, and R240's own negative control had already said the round was unreadable.
+- *"The floor is 0.2983 [0.2567, 0.3467]."* — that bracket is the **min and max of 20 draws**, not a
+  floor. Comparing to the max is over-strict, comparing to the mean is under-strict, and **only the
+  draw distribution is a null.** Three rounds quoted the bracket as though it were an interval.

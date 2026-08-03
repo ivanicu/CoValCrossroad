@@ -49,3 +49,46 @@ generic-sounding criteria — and selection was made **before** any satisfaction
 that turns out to have peeked at the outcome in any way, the round is void independent of what it
 found. The selection code is `run.py` lines above the judge call, and it touches only `criterion`
 text.
+
+---
+
+# POST-HOC — resolved 2026-08-03, against the matrix above
+
+**Row 2 fired: "held-out inside the floor at every k, fit-half above it."** That is the row this file
+recorded as *what I expect*, and the expectation held — but **not on R240's own reading.**
+
+| | |
+|---|---|
+| what 554 printed | *"A GLOBAL CORE TRANSFERS ... Identifiable at 1 of 6 sizes tested."* — row 1 |
+| what its negative control printed, two lines above | `+0.0950 NOT NULL` — **row 4** |
+| what row 4 says here, written before the run | `UNVERIFIED ... R240's design is wrong rather than its answer` |
+| what R246 then measured | the negative control's evaluation set is **50.00%** training data — it destroys nothing and cannot come back null |
+| what R247 measured at 10 seeds and 500 floor draws | held-out **0.3060** (was 0.3500 at 3 seeds), empirical p **0.0699–0.1637**, **BH kills all six k** |
+
+**Row 4 dominated row 1, and the matrix said so in advance.** Without this file I would have kept
+the headline: it is the strongest-sounding outcome, its own script printed it in capitals, and the
+line that contradicted it was a control I had already written off as noise.
+
+## What the matrix got wrong
+
+It offered four rows and **none of them was "the verdict and the control disagree, and the control is
+itself broken."** Row 4 assumed a non-null negative control meant *leakage*; it actually meant
+*contamination of the control*, which is a different defect with the same printout. The repaired
+control — permute the targets, refit, evaluate on true targets — came back correctly null
+(0.2080 vs a floor of 0.2649 at k=32), so **overfitting was never the problem and the original arm
+had been answering a question nobody asked.**
+
+## The rivals that died, which is what makes the null admissible
+
+- **modal-class predictor**: 0.0633. The target distribution is nearly flat — 24 classes, entropy
+  4.485 bits against 4.585 for uniform-over-24.
+- **response length alone**: 0.0420.
+- **selection itself**: the unselected all-200 vocabulary scores 0.2550, inside the fitted arm's
+  seed spread at every k. **Even had the transfer cleared the floor, there would be no core** — no
+  compression, just the vocabulary.
+
+## The one thing this round establishes positively
+
+Greedy selection on **true** targets transfers strictly better than greedy selection on **scrambled**
+targets (0.3060 vs 0.2080 at k=32, 6 of 6 k same sign). The fitter is not overfitting. It has
+nothing left to find once the vocabulary is granted.

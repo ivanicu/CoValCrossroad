@@ -8262,3 +8262,54 @@ WITHDRAWN to UNVERIFIED. Whether the compilation drops criteria written by peopl
 WITHDRAWN as a point value. r179 published that the crowd rubric closes 67.5% of the band between chance and the leave-one-out human ceiling. r196 recomputed the ceiling across weighting and anchor: it ranges 61.5-62.3%, so the band share is 66-67% and must be quoted as a range. The comparison itself is unaffected.
 
 **Killed by** `r196-ceiling-is-a-range`. The leave-one-out ceiling ranges 61.5-62.3% across weighting and anchor, so any band share computed from it is a range.
+
+---
+
+## 97 · "A global core transfers to prompts it was never fitted to" — R240, retracted by R247
+
+**Asserted** 2026-08-03 by `R240_fit_a_global_core/run.py`, in its own pre-registered kill block:
+*"A GLOBAL CORE TRANSFERS: at k=32 held-out class agreement is 0.3500 against a floor of 0.2983
+[0.2567, 0.3467] ... Identifiable at 1 of 6 sizes tested."*
+
+**Retracted** the same day by R247, **on R240's own persisted tensor.** No new judgement was made;
+the positive control reproduces R240's six held-out numbers to four decimals from the same file.
+
+### Three independent defects, any one of which is fatal
+
+1. **The margin was one prompt.** `0.3500 − 0.3467 = 0.0033 = 1/300` (3 seeds × 100 held-out
+   prompts). At 10 seeds the fitted arm falls to **0.3060** and the crossing is gone.
+2. **The comparand was an extreme order statistic.** `[0.2567, 0.3467]` is the min and max of 20
+   draws, printed as though it were an interval. Against the floor's actual 500-draw distribution
+   the empirical p is **0.0699–0.1637**, and **BH at q=0.05 kills all six k.**
+3. **The negative control could not come back null.** It re-evaluated an already-fitted core on a
+   random half of *all* prompts — measured contamination **0.5000**, exactly as the arithmetic
+   forces. It fired at `+0.072` even at k=1, where held-out sat inside the floor.
+
+### What makes this worse than an ordinary overreach
+
+**The round's own output contained the retraction, and `A10/PREDICTION.md` — written before the run
+— said which line wins.** The matrix's row 4 reads *"negative control non-null → UNVERIFIED, and
+worse — the split is not doing what a split does, and R240's design is wrong rather than its
+answer."* The verdict string was read; the control two lines above it was not.
+
+### The new failure mode, which had no name here
+
+**A CONTAMINATED CONTROL AND A LEAKING SPLIT PRINT THE SAME STRING.** `NOT NULL` was read as
+"probably noise" because the alternative on offer was leakage, and leakage seemed implausible. It
+was neither: the control itself was broken. The repaired arm — permute the targets, **refit**,
+evaluate against true targets — returns 0.2080 against a floor of 0.2649, correctly null. **A
+control's failure message must distinguish "the thing under test leaked" from "I am not a control."**
+
+### What survives, stated at its real size
+
+- The fitter is **not** overfitting: true-target selection beats scrambled-target selection at 6 of
+  6 k (0.3060 vs 0.2080 at k=32).
+- The fitted arm sits above the floor's *mean* at 6 of 6 k, same sign, `+0.012 … +0.061`, against a
+  seed spread of `0.08–0.11`. **effect/spread < 1.5 ⇒ a direction, never a count.**
+- **And it is not a core in any case**: the unselected 200-criterion vocabulary scores **0.2550**,
+  inside the fitted arm's seed spread at every k. Selection buys nothing, so there is no compression.
+
+### Rivals killed on the way, which is what makes the null admissible rather than silent
+
+modal-class predictor **0.0633** (24 classes, entropy 4.485 of a possible 4.585 — the distribution
+is nearly flat) · response length alone **0.0420** · greedy-with-scrambled-targets **0.2080**.
