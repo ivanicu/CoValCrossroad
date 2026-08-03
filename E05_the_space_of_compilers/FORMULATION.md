@@ -132,6 +132,31 @@ Paired per prompt, against a **random tensor of identical shape**: the real rubr
 geometry — the quotient of subset-sums into 75 weak orderings — because random criteria pass
 through the same quotient and come out **more** separated. **The criteria agree with one another.**
 
+**And it survives its own strongest confound** (R252, run one round later, against my own claim).
+R248's rival was `rng.random()` — **uniform, sd 0.2887, against the real tensor's 0.2399: 20.3% more
+spread.** A weak ordering is a function of pairwise gaps, so a wider marginal separates more classes
+for reasons that have nothing to do with redundancy. R248 varied two things and named one.
+
+The control that separates them: **permute the four response values independently within each
+criterion row** — every criterion keeps its *exact* multiset of values, so the marginal is identical
+not approximately but exactly, while the alignment *between* criteria is destroyed.
+
+| k | REAL | UNIFORM | **ROW-PERMUTED** (marginal-matched) | GAUSS-MATCHED |
+|---:|---:|---:|---:|---:|
+| 1 | 8.00 | 9.20 | **10.10** | 9.40 |
+| 2 | 12.00 | 17.10 | **17.90** | 17.40 |
+| 3 | 12.00 | 19.60 | **19.60** | 19.40 |
+
+Paired sign test over 250 prompts (scale fixed before the run, after R249's mis-scaling):
+`k=1 +1.40, 210 up / 30 down, p = 1.9e-34` · `k=2 +5.40, 228/19, p = 1.1e-46` ·
+`k=3 +5.80, 230/18, p = 5.0e-48`.
+
+**The uniform rival was CONSERVATIVE, not liberal**, at k=1 and k=2 (+0.60 and +4.80 against the
+marginal-matched +1.40 and +5.40). Controls: identical criteria give `A_real = 1` and rise to 7.2 /
+18.0 / 17.4 after row-permutation; the identity permutation reproduces the real tensor exactly; and
+the **sham** — the *same* permutation applied to every criterion, i.e. relabelling the responses —
+leaves `A_real` **unchanged at 9 / 14 / 15**, which is what isolates *agreement* from *labelling*.
+
 Consequence for the definition: a capacity argument cannot see redundancy, so no amount of
 sharpening `H_eff` reaches the real constraint. Two rubrics with identical `n`, `m` and noise have
 different `A_real`, and only the second number predicts whether a core is recoverable.
