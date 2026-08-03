@@ -13,6 +13,7 @@ contents only** — every finding, its interval and its scope live in `E05/FORMU
 | `R277` the MDE of the design that priced it | can this design resolve the numbers A16 is quoting? |
 | `R278` is the boundary resolvable | is the table's own ADMIT/EXCLUDE edge above that resolution? |
 | `R279` what would resolve the boundary | is the wall the release's, or my draw count's? |
+| `R280` the table at every annotator | what does the whole table say on all 15,593 annotations? |
 
 ## Why the arc was opened rather than folded into A13
 

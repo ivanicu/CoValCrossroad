@@ -10,6 +10,35 @@ ran and its controls did not behave; never an acquittal. `OPEN` — running now.
 
 ## The definition — COMPLETE EVIDENCE TABLE, 2026-08-03
 
+> ⛔ **THE TABLE BELOW WAS COMPUTED ON 3 ANNOTATORS PER PROMPT. THE RELEASE SHIPS A MEDIAN OF 16.**
+> R280 recomputed every arm and all 45 pairs on **all 15,593 annotations**, with each cell against
+> **its own** MDE rather than a global bracket. **Seven resolvability verdicts flipped, all toward
+> RESOLVED.** The A2 column moves by ≤0.005 and no ADMIT/EXCLUDE call changes, so the partition
+> stands — but the *resolvability* annotations below are superseded by this block:
+>
+> | pair | 3-draw | **all-annotator** | own MDE | |
+> |---|---:|---:|---:|---|
+> | `topw_k4` − `generic` | +0.0078 | **+0.0128** [+0.0050,+0.0203] | 0.0108 | **RESOLVED** (was below) |
+> | `coval_core` − `generic` | +0.0110 | **+0.0151** [+0.0076,+0.0226] | 0.0107 | **RESOLVED** (was marginal) |
+> | `generic` − `full` (the price) | +0.0447 | **+0.0426** [+0.0345,+0.0515] | 0.0121 | RESOLVED |
+> | `coval_core` − `topw_k4` | +0.0032 | **+0.0023** [−0.0038,+0.0085] | 0.0085 | **BELOW RESOLUTION** — the two best arms are tied |
+> | **`full` − `topwvar_k4`** | +0.0089 | **+0.0048** [−0.0016,+0.0114] | 0.0094 | **BELOW RESOLUTION** — the only straddling cell left |
+>
+> **Totals: RESOLVED 36/45 · BELOW RESOLUTION 9/45 · BH survivors 37/45.** Per-cell MDE spans
+> **0.0084–0.0178**, a 2.1× range — *a global bracket over-resolves the quiet pairs and
+> under-resolves the loud ones, which is how six cells were mislabelled MARGINAL.*
+>
+> ⚠ **The value of aboutness is a VALUE again: +0.0128, above its own resolution.** The bound
+> `< 0.019` recorded one round earlier was an artifact of the 3-draw design, not a property of the
+> release. Controls: an arm against itself returns exactly 0 with a CI of exactly [0,0]; two draws
+> of the same random rule differ by −0.0055 against their own MDE of 0.0140.
+>
+> ⚠ **Movement went BOTH ways** — 4 cells shrank >25% (`full−topwvar` 0.54×, `topabs−topvar` 0.53×)
+> and several grew (`topw−generic` 1.64×). The 3-draw estimator is unbiased; it was noisy, and the
+> movement is concentrated in the small effects exactly as sampling noise predicts. **No systematic
+> inflation is claimed and none was found.**
+
+
 > **A core is a set of criteria that predicts held-out human judgement better than chance, and
 > better than the same criteria applied to a different prompt.**
 
