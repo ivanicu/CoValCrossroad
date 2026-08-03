@@ -61,6 +61,36 @@ the *same* rule, `random_k4_s0` vs `random_k4_s1`, differ by **−0.0081** [−0
 > **The gap that admits `full` and excludes `topwvar_k4` (+0.0089) is the same size as the gap
 > between two random draws of one rule (0.0081).** Nothing separates them but which seed was run.
 
+### ⛔ THE BOUNDARY IS STRUCTURALLY UNRESOLVABLE, AND I HAD BEEN DISCARDING RESOLUTION FOR FREE
+
+R279 — variance decomposition of the paired per-prompt difference, using **every annotator**, not a
+draw. Positive control (does the decomposition reproduce the observed 1-draw sd?) **0.7% error**;
+negative control (an arm against itself) **σ²_b = σ²_w = 0 exactly**.
+
+**The release carries a median of 16 annotators per prompt — 15,593 annotations. Every number on
+this page used 3.**
+
+| `full − topwvar_k4` | |
+|---|---:|
+| effect at 3 draws (R278) | +0.0089 |
+| **effect using ALL annotators** | **+0.0048** |
+| σ_between (prompt heterogeneity, irreducible) | 0.0986 |
+| σ_within (annotator noise, removable) | 0.1289 — **63% of the variance** |
+| MDE at k = 1 / 3 / 10 / all-on-disk / ∞ | 0.0146 / 0.0111 / 0.0096 / **0.0094** / **0.0089** |
+
+> **Two separate findings, and they point opposite ways.**
+> ① **The wall is real.** Even with *infinite* annotators per prompt the design floors at **0.0089**,
+> above the all-annotator effect of 0.0048. **No annotator budget resolves this edge.** Reaching it
+> would need **3,352 prompts — 3.5× this release.** That is a specification for a next site, not a
+> shrug.
+> ② **But 63% of the variance was removable and I was not removing it.** Going from 3 draws to
+> every annotator on disk moves the MDE 0.0111 → 0.0094, **~15% of resolution available at zero
+> cost**, and it changes effect estimates: the boundary effect nearly halves.
+
+The contrast cell behaves as it should: `coval_core − topvar_k4` = +0.0802 clears its MDE at
+**k = 1**. The placebo — two draws of the same random rule — comes to **−0.0055**, still the same
+magnitude as the boundary effect it is being compared against.
+
 **What this does NOT do.** It does not overturn `coval_core`, `topw_k4` or `gen`, whose separations
 from every excluded arm are RESOLVED at 0.031–0.083. The definition's partition is a measurement
 over most of its range and a coin flip at exactly one edge — and that edge had been written down in
