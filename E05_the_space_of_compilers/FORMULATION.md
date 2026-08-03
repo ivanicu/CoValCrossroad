@@ -66,6 +66,30 @@ either verdict; it is the price of the second clause, and it now has a number. *
 is aboutness; what it costs is up to 0.042 of A2** — four times the +0.011 that being about the
 prompt is worth at the top of the table.
 
+**The obvious escape does not open** (R276). *Perhaps `generic` only looks good because A2 rewards
+the common verdict* — i.e. it is a constant in disguise, and clause 2 discards nothing. Tested
+against the **best of all 75 weak orderings, chosen with hindsight**, which is the strongest
+prompt-blind constant that exists:
+
+| | margin over best constant | emitted-class entropy |
+|---|---:|---:|
+| `coval_core` | +0.1187 [+0.1064,+0.1310] | 4.555 bits (0.772 of human) |
+| `topw_k4` | +0.1155 [+0.1037,+0.1273] | 4.584 (0.777) |
+| **`generic`** | **+0.1077** [+0.0952,+0.1198] | **4.579 (0.777)** |
+| `full` | +0.0630 [+0.0507,+0.0749] | 4.561 (0.773) |
+
+**`generic` is not degenerate by any measure available here** — its verdict entropy is
+*indistinguishable from the best arm's* (4.579 vs 4.584), it departs from its own modal class on
+94.4% of prompts, and it clears the hardest constant baseline by +0.108. Positive control (a
+constant arm reproducing its own baseline) exact to 0.00e+00; placebo 0.0000; best/modal/mean-of-75
+baselines agree in sign on all six arms.
+
+⚠ **And the reason it is not degenerate is worth stating, because the label misleads**: `generic`
+is **criteria-blind to the prompt, not response-blind.** The judge still scores those four fixed
+criteria against *that prompt's four responses*. Prompt-blindness in the strong sense is the
+constant baseline, and everything here beats it — including `random_k4` at +0.0448, **which is why
+this statistic answers "is `generic` degenerate" and cannot rank arms.** All six clear BH.
+
 ⚠ **This is a CHOICE, and it must be read as one.** A definition of "core" keyed on fidelity alone
 would admit `generic` and rank it fourth of eleven. This one does not, because a set of criteria
 that never reads the conversation cannot be *a core of that conversation* whatever it scores — the
