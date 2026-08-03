@@ -19,12 +19,24 @@ ran and its controls did not behave; never an acquittal. `OPEN` — running now.
 > | `representative` | the criteria actually printed. **A choice, not a measurement.** |
 > | `certificate` | which is which, at what noise, on whose instrument, and what was not measured |
 >
-> **Admissible only if** `log₂|H(Q)| ≤ H_eff`, where `H_eff` is what the *channel delivers*, not what
-> the observation space could hold.
+> **Admissible only if** `log₂ C(n,k) ≤ log₂ A_real(Q, data)`, where `A_real` is the alphabet the
+> data **realises** — the number of distinct `Q`-classes actually induced by the `C(n,k)` candidate
+> subsets — **not** what the observation space could hold.
+>
+> ⚠ **Superseded 2026-08-03 (R248).** Until then this line read `log₂|H(Q)| ≤ H_eff` with `H_eff`
+> taken from channel capacity (`log₂ a(m) = 6.2288` bits at m=4, later R237's noisy bracket).
+> **Capacity is necessary and never sufficient**, and the gap is not small: measured over 250
+> prompts the median `admitted / A_real` is **1.33 / 4.67 / 5.77** at k = 1 / 2 / 3, reaching
+> **10.71** at the ninth decile. The capacity gate *admits* k=1 and k=2; the realised alphabet
+> **refuses both.**
+>
+> **And admissibility is a RATE, not a predicate.** The share of size-`k` cores this release can
+> identify is **U(1) = 0.5714 · U(2) = 0.0606 · U(3) = 0.0105**. A binary gate has to round that to
+> yes or no; the object it is describing does not.
 
 ---
 
-## The seven claims it rests on
+## The eight claims it rests on
 
 **1 · The class is always identifiable; the member never is.** `DERIVED` (R230)
 `|{classes under Q}| ≤ |{observations}|` by construction, because `Q`'s classes are *defined* by the
@@ -59,10 +71,16 @@ A 10-point score beats a ranking by `+0.5607` at zero noise and `+0.0118` at the
 calibrated to the release's own 47.8% two-rater agreement — **inside** a seed spread of `0.0296`. A
 47× difference between the regime the capacity argument assumed and the one that applies.
 
-**5 · The bound must use the noisy channel.** `MEASURED`, as a bracket (R237)
+**5 · The bound must use the noisy channel — and even that is the wrong axis.** `MEASURED`, as a
+bracket (R237), **superseded as the gate by claim 8** (R248)
 `H_eff ∈ [1.02, 3.45]` bits at the release's noise and rater count, against the `6.23` five rounds
 assumed. `k=1` needs `3.91`, so **a one-criterion core sits at the edge of the bracket.** Partially
 identified, so bounds and not a point.
+
+⚠ R237 sharpened the *capacity* — how much the channel delivers under noise. R248 showed capacity is
+the wrong quantity at any sharpness: the binding constraint is how many classes the **rubric**
+separates, which is a property of the criteria's mutual agreement and is invisible to every channel
+argument. `H_eff` stays as the noise correction it is; it is no longer the gate.
 
 **6 · The failure is the per-prompt factoring, not the data volume.** `DERIVED` (R239)
 Within a prompt the bits do not add; across 986 prompts they do — `[1006, 3402]`. A **global** core
@@ -107,9 +125,29 @@ distribution is nearly flat — 24 classes over 200 prompts, modal share 0.10, e
 against 4.585 for uniform — so a response-blind modal predictor scores **0.0633**, not 0.35.
 Response length alone scores **0.0420**. Neither artifact explains anything here.
 
+**8 · The binding constraint is the rubric's own redundancy, not the channel.** `MEASURED` (R248)
+Paired per prompt, against a **random tensor of identical shape**: the real rubric separates
+**fewer** classes than random noise does, at **62.0% / 90.4% / 91.2%** of prompts for k = 1 / 2 / 3
+(median deficit −0.60 / −4.80 / −6.00 classes). This kills the reading that the collapse is
+geometry — the quotient of subset-sums into 75 weak orderings — because random criteria pass
+through the same quotient and come out **more** separated. **The criteria agree with one another.**
+
+Consequence for the definition: a capacity argument cannot see redundancy, so no amount of
+sharpening `H_eff` reaches the real constraint. Two rubrics with identical `n`, `m` and noise have
+different `A_real`, and only the second number predicts whether a core is recoverable.
+
+⚠ **This round's first positive control could not pass, and repairing it produced the result.** It
+demanded `A_real = C(n,k)` from a "maximally separated" synthetic prompt — but a class is a **weak
+ordering**, a quotient of the sum vector, so distinct sums need not give distinct classes and no
+construction in vector space forces the quotient injective. It returned **10 of 28** at k=2 while a
+real prompt returns **12**: *the synthetic bracket sat below the data it was built to bound.* The
+replacements are a k=1 case where the ceiling is constructible (exact, passes) and an independent
+recount through a second code path (exact agreement, 25 prompts × 3 k). **Fifth
+control-that-cannot-pass in this arc, and the first whose repair was the finding.**
+
 ---
 
-## 8 · What the blind arm established that this arc never did — `SINGLE ARM`, R235, seed 29
+## 9 · What the blind arm established that this arc never did — `SINGLE ARM`, R235, seed 29
 
 Attributed, not absorbed. Design A has not returned and none of this is replicated here.
 
@@ -172,8 +210,11 @@ the choice visible, not to score the object against a purpose it never claimed.
   could not, and nothing in the artifact tells them apart.
 - *"Candidate-set generalisation is structurally undetectable here."* — the artifact was in this
   repository for six days while I said that four times.
-- *"The positive control failed, so the instrument is broken."* — four times out of four, the
-  instrument was fine and the threshold was impossible.
+- *"The positive control failed, so the instrument is broken."* — five times out of five, the
+  instrument was fine and the threshold was impossible. In R248 the impossible threshold was a
+  synthetic control that scored **below** the real data.
+- *"A core of size k is admissible because C(n,k) ≤ a(m)."* — that is the **necessary** condition,
+  loose by up to 10.71× here. Admissibility is `C(n,k) ≤ A_real`, and it is a **rate**, not a yes.
 - *"A global core transfers to prompts it was never fitted to."* — R240 printed it, R247 killed it
   off R240's own tensor, and R240's own negative control had already said the round was unreadable.
 - *"The floor is 0.2983 [0.2567, 0.3467]."* — that bracket is the **min and max of 20 draws**, not a
