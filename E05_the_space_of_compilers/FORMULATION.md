@@ -42,6 +42,46 @@ ran and its controls did not behave; never an acquittal. `OPEN` — running now.
 > **A core is a set of criteria that predicts held-out human judgement better than chance, and
 > better than the same criteria applied to a different prompt.**
 
+### ⛔ CLAUSE 2 IS BEING REPLACED — the sentence above encodes the POISON comparison
+
+*"the same criteria applied to a different prompt"* is the ingredient **misdirected**, not
+**absent** (`realstat §4`). It bounds `benefit + harm` and cannot isolate benefit. The replacement:
+
+> **A core is a set of criteria that predicts held-out human judgement better than chance, and
+> better than the same NUMBER of criteria that never read the conversation.**
+
+**The exclusion test — *name an admissible object this clause excludes* — is the only thing that
+makes a clause load-bearing:**
+
+| clause | what it excludes | status |
+|---|---|---|
+| 1 · > chance | `topvar_k4` (−0.0123, below chance), `gen_sham`, `topabs_k4`, `random_k4` | MEASURED |
+| **2 · > k prompt-blind criteria** | **`gen` (−0.0162 [−0.0247,−0.0080], resolved at k=4)** and `topwvar_k4` (−0.0474) — **both of which clause 1 ADMITS** | **MEASURED** |
+
+> ⚠ **A strict upgrade in evidentiary status, not just wording.** The OLD clause 2's
+> load-bearingness rested on a **DERIVATION**: `generic`'s criteria are identical across prompts,
+> so its own sham *is* itself and Δ=0 is forced by algebra. The NEW clause 2 excludes **`gen` — an
+> arm the old table ADMITTED — by a resolved measurement at exactly matched size.** A clause proved
+> necessary by an identity has been replaced by one proved necessary by a falsifiable comparison
+> that came out against its author.
+
+**Under the revision: 2 admitted of the 9 arms it can judge** — `coval_core` and `topw_k4`. `full`
+is **PENDING**: the only arm whose size is unmatched (median 15 vs 4), neutral arm on the GPU (R281).
+
+⚠ **What the revision does NOT license.** Both survivors depend on a *selector*, and `topw_k4`'s
+reads **human importance metadata that is not a property of the conversation**. The tempting
+conclusion — every route to a core runs through human annotation — **was tested in R284 and not
+supported**: the survivors' per-prompt advantages correlate at 0.6856 (Pearson) against a matched
+no-shared-mechanism floor of 0.5581, clearing it on Pearson and **not on Spearman**. The
+specifications disagree, so the sentence is not written.
+
+⚠ **AND THIS DEFINITION IS STATED TWICE IN THIS FILE** (here and again below, in the clause-audit
+section). That is the "one home per fact" violation P16 exists to prevent, and it is how the two
+copies drift. The second occurrence is **superseded by this block** and is left in place under L81
+(annotate, never rewrite) because its clause-audit table is the record of how the earlier clauses
+died.
+
+
 **Both clauses have now been tested against every object this benchmark builds.** Nine arms, each
 admitted or excluded by measurement, none by assertion.
 
