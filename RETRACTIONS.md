@@ -8265,7 +8265,7 @@ WITHDRAWN as a point value. r179 published that the crowd rubric closes 67.5% of
 
 ---
 
-## 97 · "A global core transfers to prompts it was never fitted to" — R240, retracted by R247
+## 236 · "A global core transfers to prompts it was never fitted to" — R240, retracted by R247
 
 **Asserted** 2026-08-03 by `R240_fit_a_global_core/run.py`, in its own pre-registered kill block:
 *"A GLOBAL CORE TRANSFERS: at k=32 held-out class agreement is 0.3500 against a floor of 0.2983
@@ -8316,7 +8316,7 @@ is nearly flat) · response length alone **0.0420** · greedy-with-scrambled-tar
 
 ---
 
-## 98 · "provenance is 0.00 and cannot be repaired from this release" — R232→R249, retracted by R250
+## 237 · "provenance is 0.00 and cannot be repaired from this release" — R232→R249, retracted by R250
 
 **Asserted** in R236's certificate and carried unchanged through eight rounds; restated most
 recently in my own commit body for `b6f82d5`, one round before this: *"Unlike `representative` it
@@ -8359,7 +8359,7 @@ from the start.
 
 ---
 
-## 99 · "The admissibility gate is `C(n,k) ≤ A_real`" — R248, retracted by R253 five rounds later
+## 238 · "The admissibility gate is `C(n,k) ≤ A_real`" — R248, retracted by R253 five rounds later
 
 **Asserted** 2026-08-03 by R248 and written directly into the definition, replacing the capacity
 bound that eight rounds had used. **Defended** one round later by R252 against its strongest
@@ -8411,7 +8411,7 @@ never questioned, which is what confirmation drift looks like when the controls 
 
 ---
 
-## 100 · "The compilation adds no selection value" — R235, retracted by R234's leakage control
+## 239 · "The compilation adds no selection value" — R235, retracted by R234's leakage control
 
 **Asserted** 2026-08-03 by blind arm R235 (seed 29) and carried into `FORMULATION.md` §10 with
 attribution for two rounds: *"`top-4-by-mean-weight` beats the official core in 76 of 286
@@ -8456,3 +8456,20 @@ and that is where the measurable effects are: R249's redundancy (the core's crit
 redundant as a generic vocabulary, `+0.0042 [−0.0870, +0.0955]` against it), R250's provenance dose
 curve, and R234's own veto finding — **the core retains 76.1% of above-floor veto detection while
 mechanically dropping the signs retains 0.9%.**
+
+---
+
+## ⚠ NUMBERING REPAIR, 2026-08-03 — today's four entries were written on top of existing ones
+
+I appended today's retractions as **96–100** without checking what numbers were in use. Entries
+**96–100 already existed** (`## Entry 96` … `## Entry 100`, lines 2220–2371), so four headings
+collided and a reader following a citation to "entry 98" would land on either of two different
+retractions depending on which one they hit first.
+
+Renumbered to **236–239**. Entry 96 was written as a *body edit* to an existing section rather than
+a new heading and did not collide.
+
+**And the collision is a symptom of a bigger error, which is the finding.** I dispatched a
+classifier believing this file held *"~100 entries"*. **It holds 239** — I was wrong about the size
+of my own retraction ledger by **2.4×**, which is why I picked a range that was already occupied.
+*I did not know how much I had retracted.*
