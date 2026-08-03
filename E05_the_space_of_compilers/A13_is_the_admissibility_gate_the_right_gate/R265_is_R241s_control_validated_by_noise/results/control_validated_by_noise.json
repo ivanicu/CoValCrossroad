@@ -1,0 +1,210 @@
+{
+ "draws": [
+  5,
+  10,
+  20,
+  40,
+  80
+ ],
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "rates": {
+  "5": 1.0,
+  "10": 0.8333333333333334,
+  "20": 0.5,
+  "40": 0.6666666666666666,
+  "80": 0.5
+ },
+ "cells": {
+  "d5_s0": {
+   "pass": true,
+   "rho": -0.284,
+   "p": 0.0005,
+   "neg_ok": true
+  },
+  "d5_s1": {
+   "pass": true,
+   "rho": -0.361,
+   "p": 0.0005,
+   "neg_ok": true
+  },
+  "d5_s2": {
+   "pass": true,
+   "rho": -0.249,
+   "p": 0.0005,
+   "neg_ok": true
+  },
+  "d5_s3": {
+   "pass": true,
+   "rho": -0.213,
+   "p": 0.001,
+   "neg_ok": true
+  },
+  "d5_s4": {
+   "pass": true,
+   "rho": -0.314,
+   "p": 0.0005,
+   "neg_ok": true
+  },
+  "d5_s5": {
+   "pass": true,
+   "rho": -0.304,
+   "p": 0.0005,
+   "neg_ok": true
+  },
+  "d10_s0": {
+   "pass": true,
+   "rho": -0.263,
+   "p": 0.0005,
+   "neg_ok": true
+  },
+  "d10_s1": {
+   "pass": true,
+   "rho": -0.269,
+   "p": 0.0005,
+   "neg_ok": true
+  },
+  "d10_s2": {
+   "pass": true,
+   "rho": -0.277,
+   "p": 0.0005,
+   "neg_ok": true
+  },
+  "d10_s3": {
+   "pass": false,
+   "rho": -0.179,
+   "p": 0.005,
+   "neg_ok": true
+  },
+  "d10_s4": {
+   "pass": true,
+   "rho": -0.238,
+   "p": 0.0005,
+   "neg_ok": true
+  },
+  "d10_s5": {
+   "pass": true,
+   "rho": -0.223,
+   "p": 0.001,
+   "neg_ok": true
+  },
+  "d20_s0": {
+   "pass": false,
+   "rho": -0.224,
+   "p": 0.0005,
+   "neg_ok": true
+  },
+  "d20_s1": {
+   "pass": false,
+   "rho": -0.262,
+   "p": 0.0005,
+   "neg_ok": true
+  },
+  "d20_s2": {
+   "pass": true,
+   "rho": -0.262,
+   "p": 0.0005,
+   "neg_ok": true
+  },
+  "d20_s3": {
+   "pass": false,
+   "rho": -0.209,
+   "p": 0.0015,
+   "neg_ok": true
+  },
+  "d20_s4": {
+   "pass": true,
+   "rho": -0.225,
+   "p": 0.001,
+   "neg_ok": true
+  },
+  "d20_s5": {
+   "pass": true,
+   "rho": -0.213,
+   "p": 0.002,
+   "neg_ok": true
+  },
+  "d40_s0": {
+   "pass": true,
+   "rho": -0.197,
+   "p": 0.003,
+   "neg_ok": true
+  },
+  "d40_s1": {
+   "pass": false,
+   "rho": -0.232,
+   "p": 0.001,
+   "neg_ok": true
+  },
+  "d40_s2": {
+   "pass": true,
+   "rho": -0.232,
+   "p": 0.001,
+   "neg_ok": true
+  },
+  "d40_s3": {
+   "pass": false,
+   "rho": -0.196,
+   "p": 0.002,
+   "neg_ok": true
+  },
+  "d40_s4": {
+   "pass": true,
+   "rho": -0.222,
+   "p": 0.0005,
+   "neg_ok": true
+  },
+  "d40_s5": {
+   "pass": true,
+   "rho": -0.217,
+   "p": 0.002,
+   "neg_ok": true
+  },
+  "d80_s0": {
+   "pass": true,
+   "rho": -0.195,
+   "p": 0.0025,
+   "neg_ok": true
+  },
+  "d80_s1": {
+   "pass": false,
+   "rho": -0.214,
+   "p": 0.001,
+   "neg_ok": true
+  },
+  "d80_s2": {
+   "pass": false,
+   "rho": -0.2,
+   "p": 0.0015,
+   "neg_ok": true
+  },
+  "d80_s3": {
+   "pass": false,
+   "rho": -0.182,
+   "p": 0.003,
+   "neg_ok": true
+  },
+  "d80_s4": {
+   "pass": true,
+   "rho": -0.207,
+   "p": 0.001,
+   "neg_ok": true
+  },
+  "d80_s5": {
+   "pass": true,
+   "rho": -0.207,
+   "p": 0.0015,
+   "neg_ok": true
+  }
+ },
+ "neg_ok": 30,
+ "n": 30,
+ "sham_ok": true,
+ "verdict": "W-SHARED-NOISE -- R241's POSITIVE CONTROL IS VALIDATED BY NOISE. Pass rate falls from 1.0000 at DRAWS=5 to 0.5000 at DRAWS=80 (delta -0.5000, binomial spread 0.4082). The floor enters `core - floor` with the opposite sign, so its own sampling noise CREATES the correlation the control requires; measuring the floor better DESTROYS it. A control that passes because its instrument is noisy is not a control, and every 'machinery OK' in R241's history is UNVERIFIED rather than passing."
+}
