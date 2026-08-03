@@ -90,10 +90,26 @@ def main() -> int:
                 for k, txt in core_c:
                     index.append((pid, arm, "core", k, r_, 1.0)); tasks.append(build_prompt(txt, reps[r_]))
 
+    # ⚠ THE FIRST RUN PERSISTED 620 BYTES FOR 33,320 GPU JUDGEMENTS. Summary statistics only:
+    # no tensor, no per-prompt rows. So the round that discovered the candidate-set test could not
+    # be ATTACKED without re-spending the GPU -- and the confound its own controls exposed (fresh
+    # responses are easier, both floors move) needs exactly the per-prompt data it threw away.
+    # realstat §5: "ARTIFACT persisted with source hash; what a LATER round needs to ATTACK this."
+    # That line is in this file's own docstring. Now the tensor is written before anything is
+    # summarised, so every future attack is arithmetic on cache.
     print("judging %d (criterion, response) pairs over %d prompts, both arms"
           % (len(tasks), len({i[0] for i in index})), flush=True)
     judge = Judge(MODEL, batch=64)
     sat = judge.score(tasks)
+
+    np.savez_compressed(
+        OUT / "sat_fresh_and_orig.npz",
+        meta=np.array(["%s|%s|%s|%d|%d" % (pid, arm, which, k, r_)
+                       for pid, arm, which, k, r_, _w in index]),
+        weight=np.array([w for *_x, w in index], dtype=np.float32),
+        sat=np.asarray(sat, dtype=np.float32))
+    print("persisted %d judgements to results/sat_fresh_and_orig.npz -- attackable without a GPU"
+          % len(sat), flush=True)
 
     store = collections.defaultdict(dict)
     for (pid, arm, which, k, r_, w), v in zip(index, sat):
