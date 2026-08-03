@@ -179,6 +179,14 @@ job is to be the honest list.
 | `independently replicated` | ⚠ **NOT impossible — NOT ATTEMPTED.** `realstat §2.5` makes it reachable by triple-blind agents, and this session runs under a standing instruction not to dispatch them. **That is a budget, not a wall**, and calling it impossible would be an unavailability claim in the flattering direction — exactly what the register forbids. |
 | `construct / criterion validated` | ✅ **genuinely impossible.** Needs an external gold standard; whether human pairwise agreement is the right goal is untouched by anything here. |
 | `cross-RELEASE` | ✅ **genuinely impossible.** One release. Nothing in this file bounds what the definition admits on a second one. |
+| `cross-architecture` | ⚠ **NOT impossible — NOT DOWNLOADED.** The HF cache holds **8 cross-architecture causal-LM configs** (`SmolLM2-1.7B` Llama, `OLMo-2-1B`, `phi-2`, `Mistral-7B`, `internlm2-1.8b`, `falcon-rw-1b`, `starcoder2-3b`, `Qwen3-1.7B`) — and **every one carries 0.00 GB of weights.** Config-only. Obtaining one is a **download**, not a query. |
+
+> ⚠ **`config.json` present, weights absent — and that nearly wrote a fourth false line.** My first
+> enumeration read architectures out of `config.json` and would have reported *"8 cross-architecture
+> judges available"*. Following the symlinks into `blobs/` gives **zero weight-sized files for all
+> eight.** **A config is not a model**, exactly as a heading is not an entry and a spec is not an
+> implementation — the same instrument error this file has now recorded three times in three
+> different vocabularies.
 
 > **Three of six were wrong, and all three were wrong in the direction that excused work.** The
 > register's failure mode is not lying about the data — it is inheriting a line from a template and
