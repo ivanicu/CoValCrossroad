@@ -52,9 +52,17 @@ answer produces.**
 | **A17** what does the table say on all the data, at matched size? | R280–R282 | **Closed at R282.** Seven verdicts flip on data already on disk (R280); the whole rubric loses to the same *number* of prompt-blind criteria (R281); and at matched k only **2 of 7** ways of reading the prompt beat four sentences that never read it — so clause 2 tracks aboutness **conditional on a selector** (R282). |
 | **A18** what is a BASELINE allowed to be? | R284–R287 | **Closed at R287.** The two winners' shared mechanism is not supported (R284); chance is measured, not 0.5, and differs by comparison type (R285); no prompt-blind quadruple of 1,820 reaches the admitted arms even when chosen to (R286); and the last open row closes once *selection budget* is named as the variable (R287). |
 | **A19** which TARGET earns the definition? | R288–R289 | **Closed at R289.** Six agreement statistics give four admitted sets, so the definition must name its own (R288) — and the inherited choice survives the test written to replace it, because averaging over comparisons beats denoising the target (R289). |
-| **A20** which INSTRUMENT, and was the register ever true? | R290–R291 | **open at R290.** Three of six registered impossibilities were false (R291); a second judge is running. |
+| **A20** which INSTRUMENT, and was the register ever true? | R290–R291 | **Closed at R291.** The partition is judge-dependent — `{coval_core, topw_k4}` at 2B, **`{}` at 0.8B** — and it localises to clause ② (R290). Three of six registered impossibilities were false, and testing `position randomized` found a resolved slot effect in the human target that no judge shares (R291). |
+| **A21** does the definition survive its own audit, applied to everything? | R292–R295 | **Closed at R295.** 134 published cells re-judged, 0 disagreements (R292); the definition admitted an arm built from the answer key, so ③ was added (R293); applied to all 41 judged arms it admits 8 (R294); and ③ tightened to *held out from the PROMPT* takes that to **5**, removing the campaign's three largest margins (R295). |
 
-**15 rounds, 5 decisions.** Not restructured — annotated (L81). The renaming is a separate action
+**19 rounds, 6 decisions.** ⚠ **The table above said 15 rounds and 5 decisions when it was written,
+and I quoted "21 rounds, five decisions" in a report four rounds later — the count was 19 and the
+annotation was stale in both directions at once.** It is the same failure as
+`realstat §4 the closing sentence is a claim`, committed in the sentence immediately after carving
+that row. **A count written into a file ages the moment the next directory is created, and nothing
+warns you** — which is the argument for `run the count` over `remember the count`.
+
+Not restructured — annotated (L81). The renaming is a separate action
 with its own verification, and the finding is recorded here where a reader will hit it.
 
 > **The transferable part is not the count.** It is that an arc's *name* is written when you know
