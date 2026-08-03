@@ -582,6 +582,13 @@ what this replaces.)
 | 0.20 | 0.5104 | 1.0000 |
 
 > ### The site's MDE is **(0.10, 0.12]** in class-agreement units.
+>
+> ### And the arc chose the coarser statistic: the HUMAN-ranking statistic's MDE is **(0.025, 0.030]** — **4× finer, on the same release** (R271).
+
+⚠ **R270 measured that gap at 2× and said it missed its own 3× threshold. R271 supersedes it**: R270
+collapsed each prompt's annotators to a consensus *sign* first, giving 5,808 rows over 968 clusters
+(ratio 6). The real structure is **93,558 rows over 968 prompts, ratio 96.7**. With the per-annotator
+rows the gap is **4.0×**, which clears the threshold R270 set and could not reach.
 
 | published effect | value | effect/MDE | |
 |---|---:|---:|---|
