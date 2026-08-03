@@ -32,9 +32,43 @@ size-matching (it does, and it costs `full` its admission, R281).
 
 ## ⭐ THE DEFINITION AS IT STANDS, 2026-08-03 — both clauses restated to say what they test
 
-> **A core is a set of criteria whose verdicts agree with a held-out human annotator's, pairwise,**
+> **A core is a set of criteria whose verdicts agree, pairwise, with a human annotator HELD OUT**
+> **FROM THE CORE'S OWN CONSTRUCTION,**
 > **① better than the same number drawn at random from that conversation's own rubric, and**
 > **② better than the same number that never read the conversation at all.**
+
+⛔ **"held out from the core's own construction" is new, and it is there because R293 fired.** The
+previous wording said *"a held-out human annotator"* — an **adjective nothing computed.** Applied to
+`oracle_k4`, an arm `select_core.py` describes in its own docstring as *"LEAKY BY CONSTRUCTION — an
+upper bound, labelled, never a candidate"*, the definition **ADMITTED it**: ① +0.1333, ② +0.0757,
+both resolved, both BH survivors.
+
+> **It was never a candidate to its AUTHOR. That is not the same as being excluded by the
+> DEFINITION** — and I do not get to reject it by pointing at a docstring, which records intent,
+> not a verdict.
+>
+> **An adjective in a definition is not a clause unless something computes it.** `held-out` sat in
+> the sentence for as long as the sentence existed and caught nothing, because no cell ever asked
+> *held out from what?*
+
+⚠ **AND THE SAME ROUND FOUND SOMETHING THAT IS NOT A DEFECT AT ALL.** Three arms fitted on
+**parity-1 annotators and evaluated on parity-0** — genuinely disjoint — are all admitted, and they
+beat every arm in the main table on clause ②:
+
+| arm | ① vs random | ② vs prompt-blind | |
+|---|---:|---:|---|
+| `oracle_k4_fit1` | +0.1056 [+0.0944,+0.1170] | **+0.0460** [+0.0360,+0.0555] | held out, admitted |
+| `greedy_k4_fit1` | +0.1047 [+0.0935,+0.1159] | **+0.0451** [+0.0356,+0.0545] | held out, admitted |
+| `indep_k4_fit1` | +0.0929 [+0.0823,+0.1035] | **+0.0333** [+0.0240,+0.0419] | held out, admitted |
+| *`coval_core`, for comparison* | +0.0738 | *+0.0151* | the release's own compiler |
+
+> **A core fitted to human judgements and honestly held out beats the release's own compiler by
+> 3× on clause ②.** That is a finding about what a core CAN be, not a defect — and it is the first
+> route this campaign has found that clears the prompt-blind arm by a wide margin.
+
+Positive control: `oracle_k4` scores 0.5977 on the annotators it was fitted on against 0.4927 for
+the best honest reference — the fit took, and by a wide margin. Negative control: `gen_sham` loses
+at −0.0688. 8 of 8 cells survive BH.
 
 ⚠ **"a held-out human annotator's, pairwise" is load-bearing, not throat-clearing** — R288 swept six
 defensible agreement targets and got **four different admitted sets**. `predicts held-out human

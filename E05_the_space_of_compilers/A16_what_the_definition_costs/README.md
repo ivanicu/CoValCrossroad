@@ -25,6 +25,7 @@ contents only** — every finding, its interval and its scope live in `E05/FORMU
 | `R290` does the partition survive the judge | a second model judges the same arms (running) |
 | `R291` the register was never audited | how many registered impossibilities were checked? |
 | `R292` audit every published cell | 134 cells re-judged by the instrument that caught the last two errors |
+| `R293` does the definition exclude a fitted core | it does not — and a held-out fitted core beats the release compiler 3x |
 
 ## Why the arc was opened rather than folded into A13
 
