@@ -21,7 +21,10 @@ SCOPE           population CoVal prompts with >=2 annotators · instrument Qwen3
                 regime A2·annotator, cluster bootstrap over prompts.
 WORLDS          W-SHRINK / W-REORDER / W-SELECTIVE — see README.
 KILL            conditional on the controls; thresholds R^2>=0.50 & 0<beta<1 -> SHRINK,
-                R^2<0.25 or beta CI spanning 0 -> REORDER, else UNRESOLVED.
+                R^2<0.25 or beta CI spanning 0 -> REORDER, else UNRESOLVED. ⚠ `R^2` means
+                min(pooled, worst leave-one-family-out) -- amended BEFORE the run and recorded in
+                README.md, because the arms cluster into rule families and a pooled fit can be
+                carried by the gap between them. The amendment makes the threshold HARDER.
 POSITIVE CTRL   ① construction parity: `topw_k4` / `random_k4_s0` reach 0.8B by two independent
                 paths (directly judged; subset of the judged full). They must agree TO WITHIN THE
                 CELL'S OWN MDE -- not to float precision, because bf16 is not batch-invariant and
