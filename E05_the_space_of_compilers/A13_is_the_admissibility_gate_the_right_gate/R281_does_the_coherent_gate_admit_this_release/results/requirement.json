@@ -1,0 +1,104 @@
+{
+  "ceiling_bits": 6.22881869049588,
+  "controls": [
+    [
+      "POS  floor: degenerate plant returns exactly 0",
+      true,
+      "-0.0000"
+    ],
+    [
+      "POS  ceiling: uniform-over-75 recovers log2(75)",
+      true,
+      "6.2288 vs 6.2288  retention 1.0000"
+    ],
+    [
+      "POS  floor != ceiling, so a threshold is admissible",
+      true,
+      "0 < 1.02 < 6.2288"
+    ],
+    [
+      "PLA  entropy of a constant column is exactly 0",
+      true,
+      "0.0000"
+    ],
+    [
+      "POS  MDE: smallest plant separable from 0",
+      true,
+      "K=2 -> 1.0000 bits"
+    ],
+    [
+      "SHAM `unacceptable` block yields no ranking",
+      true,
+      "0/4901 parsed"
+    ],
+    [
+      "NEG  label permutation RAISES the requirement (pooled)",
+      true,
+      "world:5.953->5.999 personal:5.836->5.962"
+    ],
+    [
+      "NEG  same destruction PER-PROMPT, where there IS room",
+      true,
+      "min delta +0.4640, max +0.5558 over 6 seed x block cells"
+    ]
+  ],
+  "grid": {
+    "personal|per_prompt|mm": [
+      3.282135886150416,
+      3.0005258035628644,
+      8.57943925233645
+    ],
+    "personal|per_prompt|plugin": [
+      2.8390834953086665,
+      3.0005258035628644,
+      8.57943925233645
+    ],
+    "personal|pooled|mm": [
+      5.847104376262507,
+      6.22881869049588,
+      75
+    ],
+    "personal|pooled|plugin": [
+      5.8362127793408805,
+      6.22881869049588,
+      75
+    ],
+    "world|per_prompt|mm": [
+      3.512832694762628,
+      3.3020631331419827,
+      10.36178107606679
+    ],
+    "world|per_prompt|plugin": [
+      3.0883749326313645,
+      3.3020631331419827,
+      10.36178107606679
+    ],
+    "world|pooled|mm": [
+      5.956124681023758,
+      6.22881869049588,
+      75
+    ],
+    "world|pooled|plugin": [
+      5.953221084607696,
+      6.22881869049588,
+      75
+    ]
+  },
+  "h_eff": [
+    1.02,
+    3.45
+  ],
+  "negative_control": {
+    "permuted": {
+      "personal": 5.9617355500786955,
+      "world": 5.999124683910794
+    },
+    "real": {
+      "personal": 5.8362127793408805,
+      "world": 5.953221084607696
+    }
+  },
+  "noise_floor_sd": 0.005839280005600571,
+  "source_sha256_16": "d24509a851af68e1",
+  "verdict": "WORLD D -- SPLIT. The verdict depends on the reading, so the READING is the finding and no single number may be reported. H(target) in [2.8391, 5.9561], log2|support| in [3.0005, 6.2288], against H_eff [1.02, 3.45]."
+}
