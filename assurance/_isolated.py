@@ -104,10 +104,32 @@ UNTRACKED_INPUTS = ("data",)
 
 
 def _link_untracked_inputs() -> None:
+    """⚠ REPAIRED 2026-08-03 by R315. The previous body linked the DIRECTORY and guarded on
+    `not dst.exists()` -- and `data/` always exists in a fresh worktree, because `data/fetch.py`
+    IS tracked. So the guard was true on every run, the symlink was NEVER created, and every
+    isolated run since this harness was written has executed against a `data/` holding one
+    3.9 KB script and none of the 69 MB release.
+
+    The cost of that is not the missing files, it is the MISATTRIBUTION: the harness's own
+    comment records two subjects dying on `data/comparisons.jsonl` and reads it as `a statement
+    about what the repo alone can reproduce`. It was a statement about this function. A harness
+    that silently supplies an empty input directory turns every subject into a false BROKEN, and
+    the explanation written next to it made the false positive look like a finding.
+
+    Fixed by linking per ENTRY, so a directory git has already materialised for a tracked file
+    is filled in rather than skipped."""
     for name in UNTRACKED_INPUTS:
         src, dst = ROOT / name, WT / name
-        if src.exists() and not dst.exists():
+        if not src.exists():
+            continue
+        if not dst.exists():
             dst.symlink_to(src, target_is_directory=src.is_dir())
+            continue
+        if src.is_dir() and dst.is_dir():
+            for child in src.iterdir():
+                target = dst / child.name
+                if not target.exists() and not target.is_symlink():
+                    target.symlink_to(child, target_is_directory=child.is_dir())
 
 
 def restore(wt: pathlib.Path) -> list[str]:

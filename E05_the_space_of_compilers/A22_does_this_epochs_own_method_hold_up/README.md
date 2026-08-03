@@ -11,6 +11,6 @@
 | [`R229`](R229_the_control_band) | the control band | 1 |
 | [`R232`](R232_wall_audit) | auditing every wall this arc asserted | 1 |
 | [`R236`](R236_certificate_for_the_official_core) | - issue the certificate for the OFFICIAL CoVal core, from measurements already made. | 1 |
-| [`R242`](R242_self_audit) | E05 audited against E05's own standard | 1 |
+| [`R242`](R242_self_audit) | E05 audited against E05's own standard | 2 |
 
 <!-- ROUND-INDEX:END -->
