@@ -89,7 +89,25 @@ def ensure_worktree(rev: str = "HEAD") -> pathlib.Path:
     r = _git("worktree", "add", "--detach", str(WT), rev)
     if not (WT / ".git").exists():
         raise RuntimeError(f"worktree add failed: {r.stderr[:300]}")
+    _link_untracked_inputs()
     return WT
+
+
+# Inputs that are deliberately NOT in git and that checks legitimately read. `data/` is the CoVal
+# release itself -- 69 MB, correctly uncommitted. Isolation is what surfaced this: two subjects
+# that pass in the live tree died in a clean worktree with FileNotFoundError on
+# `data/comparisons.jsonl`, which is not a defect in them but a statement about what the repo
+# alone can reproduce. They are SYMLINKED, not copied: a subject that corrupts the release would
+# then reach the real one, so this is the single hole in the isolation and it is named here rather
+# than left for someone to discover.
+UNTRACKED_INPUTS = ("data",)
+
+
+def _link_untracked_inputs() -> None:
+    for name in UNTRACKED_INPUTS:
+        src, dst = ROOT / name, WT / name
+        if src.exists() and not dst.exists():
+            dst.symlink_to(src, target_is_directory=src.is_dir())
 
 
 def restore(wt: pathlib.Path) -> list[str]:
@@ -103,7 +121,15 @@ def restore(wt: pathlib.Path) -> list[str]:
     _git("checkout", "--", ".", cwd=wt)
     for line in changed:
         if line.startswith("??"):
-            p = wt / line[3:].strip().strip('"')
+            rel = line[3:].strip().strip('"').rstrip("/")
+            # ⚠ THE LINKED INPUTS ARE UNTRACKED BY DESIGN AND MUST SURVIVE THE RESTORE. The first
+            # version deleted them, because `git status` reports a symlink to the release as `??`
+            # like any other untracked path -- so `data/` vanished after the first subject and
+            # every later subject died on FileNotFoundError. The restore was erasing the thing it
+            # had just been told to provide.
+            if rel.split("/")[0] in UNTRACKED_INPUTS:
+                continue
+            p = wt / rel
             try:
                 if p.is_dir():
                     subprocess.run(["find", str(p), "-delete"], capture_output=True)
@@ -111,6 +137,7 @@ def restore(wt: pathlib.Path) -> list[str]:
                     p.unlink()
             except Exception:
                 pass
+    _link_untracked_inputs()   # re-provide after every restore, never assume it survived
     return changed
 
 
