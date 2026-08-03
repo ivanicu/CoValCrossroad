@@ -16,7 +16,7 @@ than by planning it.
 |---|---|---|
 | **A13** is the admissibility gate the right gate? | R248–R253 | **Closed at R253**: no. `A_real` predicts recovery no better than the criterion count, so the gate reverted to `C(n,k) ≤ a(m)` — two steps behind where it started. |
 | **A14** what does the instrument do to these numbers? | R254–R266 | **Closed at R266**: draw noise is 1/16 of the largest term. Three unrelated axes — label order, batch bf16, `PYTHONHASHSEED` — all say R231's central comparison was never a comparison. |
-| **A15** what can this release resolve at all? | R267–R275 | **Closed at R274/R275**: site MDE `[0.1250, 0.1250]`, every substantive effect 3–30× below it, and the two corrections that produced that number **interact more strongly than either acts alone**. |
+| **A15** what can this release resolve at all? | R267–R275 | **Closed at R274/R275**: MDE `[0.1250, 0.1250]` ⚠ **for THIS detector only** (R277), every substantive effect 3–30× below it, and the two corrections that produced that number **interact more strongly than either acts alone**. |
 
 **Not restructured, annotated** (L81: annotate, never rewrite; `mv`, never `rm`). Renaming 28
 directories late in a long session risks the references in 28 docstrings for a gain that is
@@ -117,3 +117,27 @@ what an audit at this severity produces, and it is worth knowing before starting
 The dependency chain is also visible in the counts: `R268 → R269 → R270 → R271 → R272 → R273 → R274
 → R275`, each opening by naming its predecessor. **Eight rounds to settle one MDE, and the last one
 found that fixing two of its defects interacts more strongly than either acts alone.**
+
+---
+
+## ⚠ SCOPE REPAIR 2026-08-03 (R277) — the word `site` in the A15 row was an overshoot
+
+The row above once read **`site MDE [0.1250, 0.1250]`**. Read as written, that forbids quoting any
+paired arm comparison anywhere in E05. It does not, and the reason is the scope, not the number:
+
+| | R274's MDE | the paired arm comparisons |
+|---|---|---|
+| estimand | `g = P(force class agreement)` | paired A2 difference between two arms |
+| comparand | a subset-core vs **the full rubric** | an arm vs **human classes** |
+| statistic | A1-style exact class agreement | pairwise accuracy over 6 pairs |
+| n | 250 prompts | 968 prompts |
+| test | one-sample calibrated detector | paired cluster bootstrap |
+
+**Four differences, any one of which breaks the transfer.** The measurement was correct; the noun
+was too big. `site` names a property of the release when the number is a property of **one detector
+on one statistic at one n** — frontier §2's overshoot, and the variety that propagates hardest
+because a hard limit is exactly the kind of sentence nobody re-derives.
+
+The MDE of the paired design is **[0.0100, 0.0200]** (R277), i.e. **6–12× smaller**. That does not
+rescue everything: two of the four claims A16 was quoting still sit at or below it. It means the
+number that governs a claim has to be measured **for that claim's design**, and A13 never was.

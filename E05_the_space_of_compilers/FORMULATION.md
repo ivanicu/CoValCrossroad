@@ -104,8 +104,43 @@ conversation are worse than four drawn at random from the right one.**
 ⚠ **AND THAT PATTERN IS A DIAGNOSIS, NOT A RESULT** (carved into `realstat §4` the same day). A
 placebo should land **on** the floor; landing **below** it means the arm was built with the
 ingredient *inverted*, not *absent*. So the clause-2 column above bounds **benefit + harm**, and
-the value of aboutness in isolation is the neutral gap `topw − generic` = **+0.0114**
-[+0.0045, +0.0192] — **6× smaller than the sham gap the same table reports.**
+the value of aboutness in isolation is the neutral gap `topw − generic`, whose CI is
+[+0.0045, +0.0192].
+
+⛔ **BUT THAT GAP IS NOT A VALUE — IT IS BELOW THIS DESIGN'S RESOLUTION** (R277). The MDE of the
+design that produced every number on this page — paired A2, 968 prompts, cluster bootstrap over
+prompts, 80% power at a two-sided 5% test — measured on **real arm-vs-arm difference vectors** as
+the noise template:
+
+| specification | MDE (A2 units) |
+|---|---:|
+| `generic−full` template · percentile CI | [0.0140, 0.0180] |
+| `generic−full` template · basic CI | [0.0160, 0.0200] |
+| `topw−coval` template · percentile CI | [0.0100, 0.0120] |
+| `topw−coval` template · basic CI | [0.0100, 0.0140] |
+
+Placebo rejects at 0.040 / 0.080 / 0.050 / 0.030 against a nominal 0.05; positive control reaches
+1.000 at the top dose in all four.
+
+| claim | effect | effect / MDE | |
+|---|---:|---|---|
+| `topw − generic` | 0.0114 | [0.57, 1.14] | **AT OR BELOW RESOLUTION** |
+| `coval_core − generic` | 0.0117 | [0.58, 1.17] | **AT OR BELOW RESOLUTION** |
+| **`generic − full` (the price)** | **0.0420** | **[2.10, 4.20]** | **CLEARS** |
+| `generic − random` | 0.0611 | [3.06, 6.11] | **CLEARS** |
+
+**So the −0.0420 price stands as a value and the +0.0114 does not.** Below the bracket in 2 of 4
+specifications, inside it in the other 2, above it in none. The honest form is a **bound**: *the
+benefit of being about the prompt is positive and smaller than ~0.019* — still 4× below the sham
+gap, so the correction to the sham reading holds with a bound in place of a point.
+
+⚠ **The `site MDE 0.1250` from A13 does NOT govern any of this**, and reading it as if it did was a
+scope error in the word *site*. That number is `P(force class agreement)` for a **subset-core
+against the full rubric**, on **A1 exact class agreement**, at **n=250**, with a one-sample
+detector. Every number on this page is a **paired A2 difference between arms against human
+classes** at **n=968**. Different statistic, different comparand, different n, different test.
+
+⚠ **This is a CHOICE, and it must be read as one.**
 
 ⚠ **What the table does NOT claim.** The four admitted arms span A2 0.513–0.567 and their sham
 gaps span +0.047 to +0.074 with **overlapping intervals**. Only `topw_k4` vs `coval_core` was
