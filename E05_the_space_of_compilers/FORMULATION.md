@@ -151,10 +151,23 @@ exactly 0 under both. **This is not a blind second judge.**
 > ⛔ **Admitted set: `{coval_core, topw_k4}` at 2B, `{}` at 0.8B.** The definition's scope line must
 > name **Qwen3.5-2B-Base**, exactly as R288/R289 forced it to name its statistic.
 
-**And the dependence localises precisely.** **Clause ① is judge-ROBUST** — all three arms clear the
-random-from-rubric baseline under *both* judges, by comparable margins (+0.042…+0.074 vs
-+0.058…+0.066). **Clause ② is judge-BOUND** — 2 of 3 pass at 2B, **0 of 3** at 0.8B, and under the
-weaker judge the prompt-blind arm beats **every** prompt-specific one.
+**And the dependence localises precisely.** **Clause ① is judge-ROBUST** — all **six** cells are
+resolvably positive, and at 0.8B `gen` has the *largest* margin of any (+0.0660 [+0.0563,+0.0747]).
+**Clause ② is judge-BOUND** — 2 of 3 resolvably positive at 2B, **0 of 3** at 0.8B.
+
+⚠ **But the 0.8B failures are not all reversals, and my first reading of them was too strong.**
+Printing the intervals:
+
+| 0.8B, clause ② | gap | 95% CI | |
+|---|---:|---|---|
+| `topw_k4` | −0.0109 | [−0.0201, −0.0020] | **resolvably NEGATIVE** — a genuine sign reversal |
+| `coval_core` | −0.0072 | [−0.0157, **+0.0003**] | **UNRESOLVED** — spans zero |
+| `gen` | −0.0031 | [−0.0112, **+0.0040**] | **UNRESOLVED** — spans zero |
+
+**So "the prompt-blind arm beats every prompt-specific one at 0.8B" is true of exactly one arm.**
+The admitted set is still empty — admission needs clause ② *resolvably positive* and none is — but
+the mechanism is **one resolved reversal and two failures to resolve**, which is a weaker and
+different claim than a wholesale inversion.
 
 > **A weaker judge can still tell good criteria from random ones. It cannot make prompt-specific
 > criteria pay off over generic ones.** *Aboutness is the part that needs a capable instrument to
