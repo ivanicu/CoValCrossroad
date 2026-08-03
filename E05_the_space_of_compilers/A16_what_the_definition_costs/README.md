@@ -19,6 +19,7 @@ contents only** — every finding, its interval and its scope live in `E05/FORMU
 | `R284` are the two winners one mechanism | do the only two arms that beat prompt-blind covary beyond a matched floor? |
 | `R285` how wide is the admissible band | how many resolution units does the definition have to work in? |
 | `R286` is clause 2 a property of the baseline | does the clause measure cores, or my generic vocabulary? |
+| `R287` how much selection may a baseline have | the last unresolved row, and what a baseline is allowed to be |
 
 ## Why the arc was opened rather than folded into A13
 

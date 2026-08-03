@@ -19,7 +19,7 @@ clause saying "better than chance" excludes nothing, while the test that was act
 | **`coval_core`** | 0.5665 | **+0.0738** | **+0.0262** [+0.0192,+0.0332] | **ADMITTED** |
 | **`topw_k4`** | 0.5642 | **+0.0715** | **+0.0239** [+0.0169,+0.0312] | **ADMITTED** |
 | `generic` | 0.5514 | +0.0587 | **0 by construction** | excluded (②) |
-| `gen` | 0.5352 | +0.0425 | **−0.0051 … −0.0162** ⚠ | **UNRESOLVED** (②) |
+| `gen` | 0.5352 | +0.0425 | **−0.0153 … −0.0194** at the two references that can resolve | **excluded** (②) |
 | `full` | 0.5087 | +0.0160 | **−0.0331** [−0.0413,−0.0254] | excluded (②) |
 | `topwvar_k4` | 0.5040 | +0.0113, **below its MDE 0.0134** | — | excluded (①, unresolved) |
 | `topabs_k4` | 0.4894 | −0.0033 | — | excluded (①) |
@@ -30,10 +30,29 @@ clause saying "better than chance" excludes nothing, while the test that was act
 > (R286), the margins are **+0.0119** [+0.0048,+0.0187] and **+0.0096** [+0.0026,+0.0164] — both
 > separable, both BH survivors.
 
-**⚠ `gen` is UNRESOLVED and stays that way.** Its clause-② verdict depends on which prompt-blind arm
-is the reference: **−0.0162 (resolved FAIL)** against the hand-picked incumbent, **−0.0051
-(unresolved)** against a random quadruple from the pool. **Both baselines are defensible and they
-disagree; the spread is published rather than settled by choosing.**
+**⚠ `gen`'s row closed, and what closed it was asking how much SELECTION BUDGET a baseline may
+have** (R287). The verdict looked like it depended on an arbitrary choice of prompt-blind reference.
+It does not — the references form an ordered curve:
+
+| baseline's selection budget | reference A2 | `gen` − reference | |
+|---|---:|---:|---|
+| **0** — a random quadruple | 0.5397 | −0.0045 [−0.0124,+0.0031] | unresolved · **fails BH** |
+| **1** — the hand-picked incumbent | 0.5504 | **−0.0153** [−0.0238,−0.0072] | **LOSES** |
+| **1820, held out** — best of all, clean split | 0.5546 | **−0.0194** [−0.0283,−0.0110] | **LOSES** |
+| ~~1820, in-sample~~ | ~~0.5575~~ | ~~−0.0223~~ | **DISQUALIFIED — see below** |
+
+**The sign is stable at every budget; only the resolution moves.** `gen` is worse than every
+prompt-blind reference, separably at **2 of 3** defensible budgets, and the one cell that cannot
+resolve it is the **weakest** reference — a random draw is simply too weak a baseline to test
+anything against. `gen_sham` loses at every budget (negative control ✓).
+
+> ⛔ **The positive control disqualified a reference, which is what it was for.** `coval_core` is
+> admitted, so it must clear every legitimate baseline — and it does **not** clear the in-sample
+> argmax (+0.0090 [+0.0014,+0.0160] against an MDE of 0.0104, unresolved). **An argmax over 1,820
+> with no split is a selection artifact, not a baseline**, and the round was pre-registered to say
+> so rather than to treat an admitted arm's failure as evidence against the arm. The remaining
+> asymmetry is named and not used: **a searched baseline against an unsearched arm is mismatched**,
+> and compute-matched selection for generated cores would need a population the release lacks.
 
 **⚠ What admission does NOT mean.** `topw_k4` selects using **human importance metadata that is not
 a property of the conversation** — no compiler working from the conversation alone has it. Whether
