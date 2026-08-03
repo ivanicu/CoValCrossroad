@@ -132,6 +132,25 @@ definition.
 | resolution | per-cell MDE **0.0084–0.0178**; the admissible band is **12.57 MDE units** wide |
 | what is structurally unresolvable | `full` vs `topwvar_k4` (+0.0048): needs **3,352 prompts, 3.5× this release** |
 
+### The impossibility register, AUDITED (R290, R291) — three lines were wrong
+
+Every round in this arc carried a register of what the site "cannot meet". **Its lines had never
+been checked**, which makes it the most expensive unchecked wall in the campaign — a register's only
+job is to be the honest list.
+
+| line | status after audit |
+|---|---|
+| `cross-model` | ⛔ **FALSE.** The judge is my instrument, not the site. Qwen3.5-0.8B-Base was on disk the whole time; five arms are re-judged and R290 decides whether the partition moves. |
+| `position randomized` | ⛔ **FALSE — the field exists** (`responses[].response_index`), and testing it found a **resolved slot effect in the HUMAN target** (spread 0.1181 vs null 0.0453, p = 0.0010) that **no judge shares** (p = 0.075–0.305, none survives BH). Slot is therefore an unreachable component of the target that **caps** achievable A2 rather than inflating it. |
+| `temporally resolved` | ✅ **CONFIRMED — now measured.** No time, date or stamp field anywhere in the schema. Same verdict as before, but it is now a fact rather than an assumption, and those are different objects. |
+| `independently replicated` | ⚠ **NOT impossible — NOT ATTEMPTED.** `realstat §2.5` makes it reachable by triple-blind agents, and this session runs under a standing instruction not to dispatch them. **That is a budget, not a wall**, and calling it impossible would be an unavailability claim in the flattering direction — exactly what the register forbids. |
+| `construct / criterion validated` | ✅ **genuinely impossible.** Needs an external gold standard; whether human pairwise agreement is the right goal is untouched by anything here. |
+| `cross-RELEASE` | ✅ **genuinely impossible.** One release. Nothing in this file bounds what the definition admits on a second one. |
+
+> **Three of six were wrong, and all three were wrong in the direction that excused work.** The
+> register's failure mode is not lying about the data — it is inheriting a line from a template and
+> never asking it a question.
+
 ---
 
 
