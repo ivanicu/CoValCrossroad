@@ -8574,3 +8574,45 @@ caught it costs one second and no compute: write the two units as strings and re
 **What the definition now carries: no admissibility criterion at all.** That was already half-stated
 on the page, attributed to the `A_real` retraction and the claim-5 contradiction. Both attributions
 were too kind — the criterion was not lost in a retraction chain, it never held.
+
+---
+
+## 242 · "The fidelity axis can certify competence but cannot rank competent cores" — retracted the same hour, by sweeping the dimension I never swept
+
+**The claim.** From 55 paired comparisons across 11 arms with BH over the whole grid: `topw_k4`,
+`coval_core` and a generated core form one indistinguishable tier; the benchmark can tell a
+competent core from an incompetent one and cannot rank the competent ones. Reported as a property
+of the axis rather than of any pair, on the strength of 21 competent-vs-competent cells.
+
+**What killed it.** **All 55 of those comparisons used A1**, exact-class match. Swept across the
+per-prompt matrix on the same prompts and seeds:
+
+| | A1 | A2 pairwise | A3 top-1 | A4 bottom-1 | A5 τ-b |
+|---|---:|---:|---:|---:|---:|
+| topw_k4 − gen | +0.0079 **null** | **+0.0264** | **+0.0444** | **+0.0255** | **+0.0579** |
+| gen − coval_core | −0.0028 **null** | **−0.0296** | **−0.0331** | **−0.0258** | **−0.0645** |
+| topw_k4 − coval_core | +0.0052 null | −0.0032 null | +0.0114 null | −0.0003 null | −0.0066 null |
+
+**The tier was never flat.** `topw_k4` and `coval_core` are genuinely tied — 5 of 5 null, which is
+now a real tie instead of an untested one. But the **generated core is separably worse than both**
+on pairwise accuracy, top-1, bottom-1 and Kendall τ-b, while matching on exact class.
+
+⛔ **Why A1 missed it, which is the part that generalises.** Exact-class match is all-or-nothing
+agreement on a **six-dimensional sign vector**, base rate ~6% here. A core that gets five of six
+pairs right scores identically to one that gets zero. A2 has base rate 0.5 and A5 is continuous;
+both retain what A1 discards. **The coarsest statistic in a family will show ties the family does
+not have — and it will do it while every interval is correct.**
+
+And the reason a day of headline comparisons rested on it is not subtle: **A1 was the first
+dimension named when the matrix was written**, so every comparator defaulted to it. A 37-dimension
+registry is worth nothing if 55 of 55 comparisons read one row.
+
+**Also retracted:** *"a generated core ties the hand-built released core"* — it ties on exact class
+and is separably worse on four graded measures.
+
+**What survives.** `topw_k4` ties `coval_core`, now on 5 of 5 rather than 1 of 1. The generated core
+beats random selection and beats its own sham, and the sham collapses to the constant baseline —
+**aboutness is real; it is just worth less than selection.**
+
+**Not yet done:** 3 of 55 arm pairs now have a graded comparison. The other 52, and the tier
+structure published from them, still rest on A1 alone.
