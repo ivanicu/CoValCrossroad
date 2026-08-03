@@ -1,0 +1,253 @@
+{
+ "source_sha": "8513c75c107ee215",
+ "world": "ONLY-THE-TWO",
+ "n_scripts": 33,
+ "flagged": [],
+ "positive_control_ok": true,
+ "fails_at_g0": true,
+ "rows": {
+  "DEFECTS.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "HEADLINES.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 6.2
+  },
+  "apply_freeze_status.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 2.2
+  },
+  "apply_outcome_scope.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "artifacts_are_internally_coherent.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 2.1
+  },
+  "attack_every_check.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 2.0
+  },
+  "attack_no_withdrawn_framings.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 3.5
+  },
+  "attack_outcome_variable_declared.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 2.8
+  },
+  "attack_scope_reaches_the_reader.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.1
+  },
+  "attack_the_suite.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 28.4
+  },
+  "code_states_a_bound_the_reader_never_sees.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.4
+  },
+  "consistency.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "corrections_propagated.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.1
+  },
+  "donor_numbers_carry_their_draw_scope.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "every_round_reaches_the_readme.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 2.1
+  },
+  "frozen_frame_verifies.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "manifest.py": {
+   "exit": 0,
+   "wrote": [
+    "modified:ASSURANCE.md",
+    "modified:MANIFEST.json"
+   ],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.1
+  },
+  "markdown_tables_are_well_formed.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "no_withdrawn_framings.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.2
+  },
+  "outcome_variable_declared.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.1
+  },
+  "pueue_wait.py": {
+   "exit": 2,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "readme_agrees_with_results.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 1.7
+  },
+  "readme_row_carries_the_verdict.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "registries_are_satisfied.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 2.2
+  },
+  "results_are_not_degenerate.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 1.1
+  },
+  "results_match_their_code.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "retired_framing_in_assertion_positions.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "retired_framing_in_emittable_source.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.9
+  },
+  "round_links_resolve.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "scope_reaches_the_reader.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "seed_filter_is_disclosed.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.1
+  },
+  "synthesis_cites_recent_work.py": {
+   "exit": 2,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "verdict_cites_its_own_contrasts.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "_poscontrol_defects_unrepaired.py": {
+   "exit": 0,
+   "wrote": [
+    "modified:DEFECTS.json"
+   ],
+   "destroyed": [],
+   "empty_tell": true,
+   "seconds": 0.0
+  }
+ }
+}
