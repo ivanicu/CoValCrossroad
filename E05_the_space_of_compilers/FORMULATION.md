@@ -392,7 +392,30 @@ registered before it ran). Paired on the same 200 prompts:
 `full-random − generic = +0.2500 [0.2077, 0.2923]` — it does not.
 
 **Generic criteria agree with one another, and the compiler writes generic criteria.** That is a
-different defect from "the compiler picks redundant criteria", and it is the one the data supports.
+different defect from "the compiler picks redundant criteria."
+
+⚠ **But "generic TEXT" is the weaker of two mechanisms, and R255 measured both.** Over **14,687
+within-prompt criterion pairs across 250 prompts** (`n_eff = 250`, not 14,687 — pairs inside a
+prompt share their criteria), clustered bootstrap, 1000 resamples:
+
+| predictor of behavioural agreement | ρ | CI95 |
+|---|---:|---|
+| **lexical** similarity (Jaccard) | **+0.0447** | [+0.0172, +0.0741] |
+| the same, containment · Pearson · both | +0.0439 … +0.0481 | all nonzero, all tiny |
+| **discrimination** — `min(sd across the 4 responses)` | **+0.1440** | [+0.1103, +0.1800] |
+| sham: token-count difference | −0.0114 | [−0.0356, +0.0117] — contains 0 |
+| negative: pairs across *different* prompts | −0.0002 | at its null |
+
+**The CIs do not overlap: saturation beats lexis by 3.2×.** And the base rate is the striking part —
+**the median lexical Jaccard between two criteria in the same prompt is `0.0000`**. Half of all
+co-prompt pairs share *no content word at all*, yet their judgements agree. **Whatever makes this
+rubric redundant, it is mostly not shared vocabulary.**
+
+⛔ **And neither mechanism closes it.** R255's generic vocabulary is *less* discriminating than the
+full rubric (0.0951 vs 0.1043), which fits saturation — but R234 measured the **core** as *more*
+discriminating than the full rubric (`core/full sd = 1.1047`). **The core matches the generic
+vocabulary on redundancy while differing from it on discrimination.** A third property is doing the
+work and this arc has not named it. Residual gap, stated rather than smoothed.
 
 ⚠ **The pre-registered kill for that comparison was mis-scaled and is recorded `UNVERIFIED`.** It
 compared a paired mean over 967 prompts (−0.2083) against a **per-prompt range over 20 draws**
