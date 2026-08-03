@@ -72,8 +72,29 @@ verification.**
 
 ## The one thing a later reader should take from the shape rather than the contents
 
-**Twelve of these 28 rounds exist because an earlier round in this same directory was wrong**, and
-in nine of those the earlier round was mine from the same day. The arc is not a sequence of findings
-with corrections appended; **it is mostly corrections, and the findings are what survived them.**
-That ratio is the honest description of what an audit at this severity produces, and it is worth
-knowing before starting one.
+⚠ **The first version of this paragraph said "twelve of these 28" and "nine of those". Both were
+typed, not counted** — in a file whose whole subject is numbers that were typed rather than counted.
+
+Counted, by a stated rule — *a round is corrective iff its opening docstring block names an earlier
+round AND contains a defect word* (`wrong|void|refus|defect|could not|retract|failed|no-op|
+impossible|mis-scaled|omitted|inherited|over/understated`):
+
+| | |
+|---|---:|
+| rounds with a `run.py` | **28** |
+| **corrective by that rule** | **24** |
+| of those, the earlier round is **also in A13** — same directory, same day | **20** |
+
+**The rule is generous** and I am not hiding that: it counts a round that merely *cites* an earlier
+round while using a defect word about something else. R267 is the only round that names no earlier
+round at all. **So the honest figure is between my typed 12 and this rule's 24, and I have not
+measured it** — narrowing it needs a rule that distinguishes "cites" from "was triggered by", and
+that rule would itself be a judgement dressed as a count.
+
+What survives either reading: **the arc is not a sequence of findings with corrections appended. It
+is mostly corrections, and the findings are what survived them.** That is the honest description of
+what an audit at this severity produces, and it is worth knowing before starting one.
+
+The dependency chain is also visible in the counts: `R268 → R269 → R270 → R271 → R272 → R273 → R274
+→ R275`, each opening by naming its predecessor. **Eight rounds to settle one MDE, and the last one
+found that fixing two of its defects interacts more strongly than either acts alone.**
