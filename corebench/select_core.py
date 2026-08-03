@@ -62,6 +62,15 @@ def main():
                          "selection arm is rebuilt under that judge for 0 further judge calls -- "
                          "which is the same subset property this file already exploits, applied "
                          "to the judge axis instead of to the arm axis.")
+    ap.add_argument("--select-npz", default="",
+                    help="satisfaction used to RUN THE RULE, when that differs from the "
+                         "satisfaction used to EMIT VALUES. Five rules consume satisfaction to "
+                         "choose criteria -- topvar_k, topwvar_k, oracle_k, greedy_k, indep_k -- "
+                         "so under a second judge those arms change IDENTITY, not just score. "
+                         "Freeze the selection here to re-score a FIXED criterion set; leave it "
+                         "empty to re-run the rule under the new judge. The other rules "
+                         "(random_k, topw_k, topabs_k, full) are satisfaction-blind and the two "
+                         "specifications coincide for them exactly.")
     ap.add_argument("--tag-suffix", default="",
                     help="appended to the arm tag, e.g. `08b`. MANDATORY when --full-npz is not "
                          "the default: an arm rebuilt under another judge that overwrites the 2B "
@@ -77,11 +86,16 @@ def main():
                        ROOT / "data" / "conversation_rubrics.jsonl")
     rub = {p: r for p, _pr, r in joined}
 
-    d = np.load(a.full_npz, allow_pickle=True)
-    sat = collections.defaultdict(dict)
-    for kk, v in zip(d["meta"], d["sat"]):
-        pid, i, ltr = str(kk).split("|")
-        sat[pid][(int(i), ltr)] = float(v)
+    def load_full(path):
+        d = np.load(path, allow_pickle=True)
+        s = collections.defaultdict(dict)
+        for kk, v in zip(d["meta"], d["sat"]):
+            pid, i, ltr = str(kk).split("|")
+            s[pid][(int(i), ltr)] = float(v)
+        return s
+
+    sat = load_full(a.full_npz)                       # what gets EMITTED
+    ssat = load_full(a.select_npz) if a.select_npz else sat    # what RUNS THE RULE
 
     # human target, for the ORACLE arm only
     tgt = {}
@@ -108,8 +122,11 @@ def main():
         items = r.get("coval_full") or []
         if pid not in sat or not items:
             continue
+        # the candidate set must be judged in BOTH npzs, or a rule could select a criterion
+        # whose value cannot be emitted. With --select-npz absent this is the original set.
         ok = [i for i in range(len(items))
-              if all(sat[pid].get((i, x)) is not None for x in L)]
+              if all(sat[pid].get((i, x)) is not None for x in L)
+              and all(ssat[pid].get((i, x)) is not None for x in L)]
         if not ok:
             continue
         w = {i: float(np.mean([s["score"] for s in items[i].get("scores") or []]) or 0.0)
@@ -127,10 +144,10 @@ def main():
             # topw_k selects on importance and is blind to this. Selecting on the spread of
             # satisfaction across responses is the direct fix. Non-leaky: the spread is a
             # property of the responses, never of the human target.
-            var = {i: float(np.var([sat[pid][(i, x)] for x in L])) for i in ok}
+            var = {i: float(np.var([ssat[pid][(i, x)] for x in L])) for i in ok}
             sel = sorted(ok, key=lambda i: -var[i])[:a.k]
         elif a.rule == "topwvar_k":
-            var = {i: float(np.var([sat[pid][(i, x)] for x in L])) for i in ok}
+            var = {i: float(np.var([ssat[pid][(i, x)] for x in L])) for i in ok}
             sel = sorted(ok, key=lambda i: -(abs(w[i]) * var[i]))[:a.k]
         elif a.rule == "topabs_k":
             sel = sorted(ok, key=lambda i: -abs(w[i]))[:a.k]
@@ -143,7 +160,7 @@ def main():
             if t_ is None:
                 continue
             def agree(idxs):
-                y = np.array([sum(sat[pid][(i, x)] for i in idxs) for x in L])
+                y = np.array([sum(ssat[pid][(i, x)] for i in idxs) for x in L])
                 return sum(cls(y)[q] == t_[q] for q in range(6))
             sel = sorted(ok, key=lambda i: -agree([i]))[:a.k]
         elif a.rule == "greedy_k":
@@ -152,7 +169,7 @@ def main():
             if t_ is None:
                 continue
             def agree(idxs):
-                y = np.array([sum(sat[pid][(i, x)] for i in idxs) for x in L])
+                y = np.array([sum(ssat[pid][(i, x)] for i in idxs) for x in L])
                 return sum(cls(y)[q] == t_[q] for q in range(6))
             sel = []
             for _ in range(min(a.k, len(ok))):
@@ -172,7 +189,7 @@ def main():
                 allc = [allc[i] for i in rng.choice(len(allc), CAP, replace=False)]
             best, bsel = -1, ok[:a.k]
             for c in allc:
-                y = np.array([sum(sat[pid][(i, x)] for i in c) for x in L])
+                y = np.array([sum(ssat[pid][(i, x)] for i in c) for x in L])
                 hit = sum(cls(y)[q] == t[q] for q in range(6))
                 if hit > best:
                     best, bsel = hit, list(c)
