@@ -41,15 +41,24 @@ arms it is about: `True`.** Both are printed; neither is discarded.
 
 ## 🔷 THE DEFINITION AGAINST EVERY OBJECT THE BENCHMARK CONTAINS (R294)
 
-**41 judged arms, not the nine the definition was developed against. 8 admitted (19.5%).**
+**41 judged arms, not the nine the definition was developed against. 5 admitted (12.2%)** under
+clause ③ as tightened by R295 — was 8 while ③ read *"held out from the construction"*.
 
 | admitted | k | A2 | ① vs random | ② vs size-matched blind | ③ |
 |---|---:|---:|---:|---:|---|
-| `oracle_k4_fit1` | 4 | 0.6142 | +0.1215 | **+0.0637** | held out |
-| `greedy_k4_fit1` | 4 | 0.6106 | +0.1179 | **+0.0602** | held out |
-| `indep_k4_fit1` | 4 | 0.5941 | +0.1014 | **+0.0436** | held out |
-| `coval_core` | 4 | 0.5665 | +0.0738 | +0.0160 | not fitted |
-| `topw_k4` · `topw_k6` · `topw_k3` · `topw_k8` | 3–8 | 0.559–0.564 | +0.067…+0.072 | +0.014…+0.021 | not fitted |
+| `coval_core` | 4 | 0.5665 | +0.0738 | +0.0160 | ✓ no prompt labels |
+| `topw_k6` | 6 | 0.5641 | +0.0714 | +0.0208 | ✓ |
+| `topw_k3` | 3 | 0.5632 | +0.0705 | +0.0180 | ✓ |
+| `topw_k8` | 8 | 0.5593 | +0.0666 | +0.0152 | ✓ |
+| `topw_k4` | 4 | 0.5642 | +0.0715 | +0.0137 | ✓ |
+| ~~`oracle_k4_fit1`~~ | 4 | 0.6142 | +0.1215 | ~~+0.0637~~ | ✗ **uses this prompt's labels** |
+| ~~`greedy_k4_fit1`~~ | 4 | 0.6106 | +0.1179 | ~~+0.0602~~ | ✗ |
+| ~~`indep_k4_fit1`~~ | 4 | 0.5941 | +0.1014 | ~~+0.0436~~ | ✗ |
+| ~~`oracle_k4`~~ | 4 | 0.6283 | +0.1356 | ~~+0.0779~~ | ✗ fitted on **all** annotators |
+
+> **The three struck rows are the largest clause-② margins this campaign produced, and the
+> tightened clause removes all of them.** The definition got stricter and the best result got
+> smaller — the direction that costs something.
 
 **Excluded, all 33**, including every `*_sham` (5 of 5), `generic`, `gen`, `full`, `promptecho`,
 every `random_k*`, and `oracle_k4` — **which clears ① and ② and is excluded by ③ alone.** That is
@@ -83,7 +92,9 @@ follows it.*
 | claim | number | scope |
 |---|---|---|
 | **A core, defined, with both clauses worded against a named object** | see below | A2·annotator, Qwen3.5-2B-Base |
-| **Two arms admitted of nine** | `coval_core`, `topw_k4` | at 2B; **none** at 0.8B |
+| **Five arms admitted of forty-one** | `coval_core`, `topw_k3·k4·k6·k8` | at 2B; **none** at 0.8B |
+| **The k-sweep the arc always lacked** | k = 3, 4, 6, 8 admitted; k = 1, 2, 12 not | `topw` family |
+| **Every per-prompt-fitted arm excluded by ③** | 4 of 4, including the campaign's 3 largest margins | R295 |
 | **The whole rubric is worse than the same NUMBER of prompt-blind criteria** | −0.0331 [−0.0413,−0.0254] | k=15, resolved |
 | **At matched size only 2 of 7 ways of reading the prompt beat four fixed sentences** | 5 lose by up to −0.065 | k=4, all resolved |
 | **Criterion count buys nothing past k≈4** | +0.0019 for k=4→16 vs MDE 0.0121 | prompt-blind pool |
@@ -106,8 +117,8 @@ size-matching (it does, and it costs `full` its admission, R281).
 
 ## ⭐ THE DEFINITION AS IT STANDS, 2026-08-03 — both clauses restated to say what they test
 
-> **A core is a set of criteria whose verdicts agree, pairwise, with a human annotator HELD OUT**
-> **FROM THE CORE'S OWN CONSTRUCTION,**
+> **A core is a set of criteria, built WITHOUT any human label for the conversation it describes,**
+> **whose verdicts agree pairwise with that conversation's human annotators**
 > **① better than the same number drawn at random from that conversation's own rubric, and**
 > **② better than the same number that never read the conversation at all.**
 

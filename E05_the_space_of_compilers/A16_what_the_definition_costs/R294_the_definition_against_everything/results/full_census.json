@@ -1,5 +1,5 @@
 {
- "source_sha": "0d3210d6030ca322",
+ "source_sha": "2bc1124f6825df0f",
  "n_prompts": 968,
  "n_arms": 41,
  "rows": {
@@ -21,7 +21,7 @@
    ],
    "mde2": 0.010615634411893863,
    "ok2": true,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": true,
    "kcap": false
@@ -44,7 +44,7 @@
    ],
    "mde2": 0.013189154307265163,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -67,7 +67,7 @@
    ],
    "mde2": 0.011902381594125896,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -90,7 +90,7 @@
    ],
    "mde2": 0.014278589864945356,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -113,7 +113,7 @@
    ],
    "mde2": 0.011857573033242343,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -136,7 +136,7 @@
    ],
    "mde2": 0.013937622590908808,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -159,7 +159,7 @@
    ],
    "mde2": 0.002188314835749749,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -182,9 +182,9 @@
    ],
    "mde2": 0.011420191279594857,
    "ok2": true,
-   "prov": "held out (fit on parity 1)",
-   "ok3": true,
-   "admitted": true,
+   "prov": "uses THIS prompt's labels (parity 1)",
+   "ok3": false,
+   "admitted": false,
    "kcap": false
   },
   "indep_k4_fit1": {
@@ -205,9 +205,9 @@
    ],
    "mde2": 0.010985221503695774,
    "ok2": true,
-   "prov": "held out (fit on parity 1)",
-   "ok3": true,
-   "admitted": true,
+   "prov": "uses THIS prompt's labels (parity 1)",
+   "ok3": false,
+   "admitted": false,
    "kcap": false
   },
   "oracle_k4": {
@@ -228,7 +228,7 @@
    ],
    "mde2": 0.01068538775042282,
    "ok2": true,
-   "prov": "LEAKY \u2014 fitted on all annotators",
+   "prov": "uses THIS prompt's labels (all annotators)",
    "ok3": false,
    "admitted": false,
    "kcap": false
@@ -251,9 +251,9 @@
    ],
    "mde2": 0.011476939452270622,
    "ok2": true,
-   "prov": "held out (fit on parity 1)",
-   "ok3": true,
-   "admitted": true,
+   "prov": "uses THIS prompt's labels (parity 1)",
+   "ok3": false,
+   "admitted": false,
    "kcap": false
   },
   "promptecho": {
@@ -274,7 +274,7 @@
    ],
    "mde2": 0.02705953463371283,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -297,7 +297,7 @@
    ],
    "mde2": 0.025205478487290076,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -320,7 +320,7 @@
    ],
    "mde2": 0.012152855415351778,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -343,7 +343,7 @@
    ],
    "mde2": 0.012480836153891907,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -366,7 +366,7 @@
    ],
    "mde2": 0.012429050314212643,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -389,7 +389,7 @@
    ],
    "mde2": 0.015957805921895767,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -412,7 +412,7 @@
    ],
    "mde2": 0.016375800859433676,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -435,7 +435,7 @@
    ],
    "mde2": 0.01546287878684357,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -458,7 +458,7 @@
    ],
    "mde2": 0.015521554508332206,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -481,7 +481,7 @@
    ],
    "mde2": 0.014348272314471664,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -504,7 +504,7 @@
    ],
    "mde2": 0.014606330792873353,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -527,7 +527,7 @@
    ],
    "mde2": 0.014799972208755511,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -550,7 +550,7 @@
    ],
    "mde2": 0.014811642647878025,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -573,7 +573,7 @@
    ],
    "mde2": 0.013661312984947268,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -596,7 +596,7 @@
    ],
    "mde2": 0.013694446006115168,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -619,7 +619,7 @@
    ],
    "mde2": 0.013936755398982979,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -642,7 +642,7 @@
    ],
    "mde2": 0.012884352963312818,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -665,7 +665,7 @@
    ],
    "mde2": 0.012786268839112694,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -688,7 +688,7 @@
    ],
    "mde2": 0.012519824025686709,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -711,7 +711,7 @@
    ],
    "mde2": 0.015725072025699564,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -734,7 +734,7 @@
    ],
    "mde2": 0.015134356084894052,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -757,7 +757,7 @@
    ],
    "mde2": 0.013537793502593994,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -780,7 +780,7 @@
    ],
    "mde2": 0.01134057079701219,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -803,7 +803,7 @@
    ],
    "mde2": 0.01194102996687522,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -826,7 +826,7 @@
    ],
    "mde2": 0.011377417278345665,
    "ok2": true,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": true,
    "kcap": false
@@ -849,7 +849,7 @@
    ],
    "mde2": 0.010875456975043772,
    "ok2": true,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": true,
    "kcap": false
@@ -872,7 +872,7 @@
    ],
    "mde2": 0.013489144349922415,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -895,7 +895,7 @@
    ],
    "mde2": 0.010658633110658419,
    "ok2": true,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": true,
    "kcap": false
@@ -918,7 +918,7 @@
    ],
    "mde2": 0.010758370255143652,
    "ok2": true,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": true,
    "kcap": false
@@ -941,7 +941,7 @@
    ],
    "mde2": 0.014353100689735325,
    "ok2": false,
-   "prov": "not fitted",
+   "prov": "no prompt labels used",
    "ok3": true,
    "admitted": false,
    "kcap": false
@@ -949,9 +949,6 @@
  },
  "admitted": [
   "coval_core",
-  "greedy_k4_fit1",
-  "indep_k4_fit1",
-  "oracle_k4_fit1",
   "topw_k3",
   "topw_k4",
   "topw_k6",

@@ -59,8 +59,18 @@ PAIRS = list(itertools.combinations(range(4), 2))
 ZEFF = 1.959964 + 0.841621
 NBOOT = 1200
 RES = ROOT / "corebench" / "results"
-# clause ③ declared from select_core.py's own rules, not inferred from outputs
-FITTED_ON_ALL = {"oracle_k4"}                     # LEAKY: fitted on every annotator
+# clause ③ declared from select_core.py's own rules, not inferred from outputs.
+# ⚠ TIGHTENED after R295: ③ now reads `held out from the PROMPT`, not merely `from the
+# construction`. R295 showed the parity split holds out ANNOTATORS while the selection is PER
+# PROMPT -- the fit1 arms' entire advantage vanishes in the quintile where the two halves disagree
+# (-0.0054, +0.0011, -0.0019) and is large where they agree (+0.0815, +0.0763, +0.0604), with an
+# excess slope over the unfitted floor of +0.0252/+0.0211/+0.0167 against a floor CI width of
+# 0.0156. So `held out from the construction' admits a core that consumed this prompt's own human
+# labels, which is not producible from the conversation -- the input class the rest of the
+# definition is about. Every per-prompt-fitted arm now fails ③, including the three that produced
+# this campaign's largest margins.
+USES_PROMPT_LABELS = {"oracle_k4", "oracle_k4_fit1", "greedy_k4_fit1", "indep_k4_fit1"}
+FITTED_ON_ALL = {"oracle_k4"}
 FITTED_HELDOUT = {"oracle_k4_fit1", "greedy_k4_fit1", "indep_k4_fit1"}
 
 
@@ -128,9 +138,10 @@ def main():
                     ZEFF * d.std(ddof=1) / math.sqrt(_n))
         c1 = cell_a(on(S[a], ps), on(S["random_k4_s0"], ps))
         c2 = cell_a(on(S[a], ps), on(POOL, ps, list(range(min(K[a], npool)))))
-        p3 = ("LEAKY — fitted on all annotators" if a in FITTED_ON_ALL else
-              "held out (fit on parity 1)" if a in FITTED_HELDOUT else "not fitted")
-        ok3 = a not in FITTED_ON_ALL
+        p3 = ("uses THIS prompt's labels (all annotators)" if a in FITTED_ON_ALL else
+              "uses THIS prompt's labels (parity 1)" if a in FITTED_HELDOUT else
+              "no prompt labels used")
+        ok3 = a not in USES_PROMPT_LABELS
         ok1 = verdict(*c1[:3], c1[4]) == POS
         ok2 = verdict(*c2[:3], c2[4]) == POS
         rows[a] = dict(k=K[a], n=na, a2=float(on(S[a], ps).mean()), c1=c1[:3], mde1=c1[4], ok1=bool(ok1),
@@ -158,8 +169,8 @@ def main():
     only3 = [a for a in rows if not rows[a]["ok3"]]
     shams = [a for a in rows if a.endswith("_sham")]
     neg_ok = all(not rows[a]["admitted"] for a in shams)
-    print(f"\n  POSITIVE CTRL  `oracle_k4` clears ① and ② and is excluded ONLY by ③: {pos_ok}"
-          f"   · ③ excludes exactly {only3}")
+    print(f"\n  POSITIVE CTRL  `oracle_k4` clears ① and ② and is excluded ONLY by ③: {pos_ok}")
+    print(f"    ③ now excludes {len(only3)}: {sorted(only3)}")
     print(f"  NEGATIVE CTRL  every *_sham excluded ({len(shams)} of them): {neg_ok}")
     print(f"  PLACEBO        `generic` clause ② vs the pool's own first four: "
           f"{rows['generic']['c2'][0]:+.4f} (cross-artifact term, not zero by construction)")
