@@ -8,7 +8,44 @@ ran and its controls did not behave; never an acquittal. `OPEN` — running now.
 
 ---
 
-## The definition — THIRD REWRITE, 2026-08-03, after its own new test killed four of five
+## The definition — COMPLETE EVIDENCE TABLE, 2026-08-03
+
+> **A core is a set of criteria that predicts held-out human judgement better than chance, and
+> better than the same criteria applied to a different prompt.**
+
+**Both clauses have now been tested against every object this benchmark builds.** Nine arms, each
+admitted or excluded by measurement, none by assertion.
+
+| arm | A2 | clause 1: > chance | clause 2: > its own sham | |
+|---|---:|---|---|---|
+| `topw_k4` | 0.5667 | **+0.0692** [+0.0570,+0.0814] | **+0.0736** [+0.0648,+0.0820] | **ADMITTED** |
+| `coval_core` | 0.5671 | separable | **+0.0694** [+0.0609,+0.0777] | **ADMITTED** |
+| `gen` | 0.5350 | **+0.0390** [+0.0304,+0.0478] | **+0.0522** [+0.0428,+0.0625] | **ADMITTED** |
+| `full` | 0.5134 | **+0.0131** [+0.0061,+0.0202] | **+0.0465** [+0.0379,+0.0553] | **ADMITTED** |
+| `topwvar_k4` | 0.5059 | +0.0092 [−0.0003,+0.0153] — **includes 0** | — | **excluded** |
+| `random_k4` | 0.4943 | 0 by construction | — | **excluded** |
+| `topabs_k4` | 0.4941 | −0.0003 [−0.0146,+0.0177] | — | **excluded** |
+| `topvar_k4` | 0.4884 | **−0.0123** [−0.0203,−0.0040] — *below* chance | — | **excluded** |
+| `gen_sham` | 0.4828 | below random | — | **excluded** |
+
+**4 admitted, 5 excluded.** Every sham lands at or below random — **0.4931 · 0.4976 · 0.4828 ·
+0.4669** against 0.4943 — and `full`'s is the lowest: **fifteen criteria about the wrong
+conversation are worse than four drawn at random from the right one.**
+
+⚠ **What the table does NOT claim.** The four admitted arms span A2 0.513–0.567 and their sham
+gaps span +0.047 to +0.074 with **overlapping intervals**. Only `topw_k4` vs `coval_core` was
+tested for a tie and found one (5 of 5 fidelity dimensions null). **Any ordering read off this
+column is an argmax over overlapping brackets** — the failure retracted at k=4 this morning.
+
+⚠ **And the clause that is NOT here.** Nothing about **size**, **source**, or a **ceiling**.
+Each was tried, each named a number or a provenance the release cannot resolve, and each was
+removed by the exclusion test rather than softened. `k = 3…8` are mutually indistinguishable;
+a generated core with 98.8% novel content is admitted; the rubric's own reliability is
+1.0 by construction.
+
+---
+
+## The definition — THIRD REWRITE, superseded by the table above, kept per L81
 
 The second rewrite added a mechanical test: **for each clause, name an admissible object it
 EXCLUDES.** Applied to itself, in one command, it killed four of its own five clauses.
