@@ -28,7 +28,28 @@ admitted or excluded by measurement, none by assertion.
 | `topvar_k4` | 0.4884 | **−0.0123** [−0.0203,−0.0040] — *below* chance | — | **excluded** |
 | `gen_sham` | 0.4828 | below random | — | **excluded** |
 
-**4 admitted, 5 excluded.** Every sham lands at or below random — **0.4931 · 0.4976 · 0.4828 ·
+### ⚠ Both clauses are load-bearing — the object that proves it
+
+Nothing above passes one clause and fails the other, which by the exclusion test left **clause 2
+untested as an independent requirement.** The object that separates them:
+
+**Four generic quality criteria, identical on every prompt** — *accurate · clear · helpful ·
+avoids harm.*
+
+| | | |
+|---|---|---|
+| **clause 1** | `generic − random` = **+0.0611** [+0.0515, +0.0702] | **PASSES** |
+| **clause 2** | `generic − its sham` = **0.0000 exactly** | **FAILS** |
+
+`generic` scores **0.5554** against `topw_k4`'s 0.5667 — **within 0.011 of the best arm in the
+benchmark**, on criteria that never look at the prompt. Clause 1 alone would admit it.
+
+⚠ **The clause-2 side is a DERIVATION, not a measurement.** The criteria are identical across
+prompts, so prompt *i*'s sham *is* prompt *i*'s core and Δ=0 is forced by the algebra. It shows
+clause 2 **can** reject what clause 1 admits — which is what "does this clause do work" asks —
+and it must never be quoted as a measured rejection.
+
+**4 admitted, 6 excluded.** Every sham lands at or below random — **0.4931 · 0.4976 · 0.4828 ·
 0.4669** against 0.4943 — and `full`'s is the lowest: **fifteen criteria about the wrong
 conversation are worse than four drawn at random from the right one.**
 
