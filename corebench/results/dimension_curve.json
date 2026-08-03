@@ -1,0 +1,110 @@
+{
+  "inversions": [],
+  "nboot": 1000,
+  "orders": {
+    "A1": [
+      "oracle_k4_fit1",
+      "indep_k4_fit1",
+      "topw_k4",
+      "coval_core",
+      "gen",
+      "full",
+      "topabs_k4",
+      "topwvar_k4",
+      "topvar_k4",
+      "random_k4_s0",
+      "gen_sham"
+    ],
+    "A2": [
+      "oracle_k4_fit1",
+      "indep_k4_fit1",
+      "coval_core",
+      "topw_k4",
+      "gen",
+      "full",
+      "topwvar_k4",
+      "random_k4_s0",
+      "topabs_k4",
+      "topvar_k4",
+      "gen_sham"
+    ],
+    "A3": [
+      "oracle_k4_fit1",
+      "indep_k4_fit1",
+      "topw_k4",
+      "coval_core",
+      "gen",
+      "full",
+      "topwvar_k4",
+      "topabs_k4",
+      "random_k4_s0",
+      "topvar_k4",
+      "gen_sham"
+    ],
+    "A4": [
+      "oracle_k4_fit1",
+      "indep_k4_fit1",
+      "coval_core",
+      "topw_k4",
+      "gen",
+      "full",
+      "random_k4_s0",
+      "topabs_k4",
+      "gen_sham",
+      "topwvar_k4",
+      "topvar_k4"
+    ],
+    "A5": [
+      "oracle_k4_fit1",
+      "indep_k4_fit1",
+      "coval_core",
+      "topw_k4",
+      "gen",
+      "full",
+      "topwvar_k4",
+      "random_k4_s0",
+      "topabs_k4",
+      "topvar_k4",
+      "gen_sham"
+    ]
+  },
+  "source_sha256_16": "b7a12dbfffba028b",
+  "summary": {
+    "A1": [
+      37,
+      55,
+      12,
+      21,
+      true
+    ],
+    "A2": [
+      49,
+      55,
+      19,
+      21,
+      true
+    ],
+    "A3": [
+      47,
+      55,
+      16,
+      21,
+      true
+    ],
+    "A4": [
+      42,
+      55,
+      16,
+      21,
+      false
+    ],
+    "A5": [
+      49,
+      55,
+      19,
+      21,
+      true
+    ]
+  },
+  "verdict": "WORLD A -- the graded dimensions AGREE on the ordering; A1 is simply too coarse"
+}
