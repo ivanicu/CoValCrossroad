@@ -484,6 +484,26 @@ criteria on `topw_k4` is published rather than settled by picking one.
 lowest. Per-prompt score correlation between judges: **0.404–0.593** — moderate, not strong. 10 of
 12 cells survive BH.
 
+### ⚠ WHAT `SWEPT` MEANS ON EACH AXIS — counted, because the summary overstated two of them
+
+Four axes carry every claim in this file. Saying they are "all swept except the release" is true of
+the **axes** and false of the **grid**:
+
+| axis | swept | **at what width** |
+|---|---|---|
+| **arm** | 41 judged arms (R294) | **full — 41 of 41** |
+| **statistic** | 6 agreement targets (R288) | **10 arms of 41** |
+| **judge** | 2 models (R290) | **3 arms of 41** |
+| **release** | 1 | **not swept — genuinely impossible** |
+
+> **Only the arm axis was swept at full width.** The statistic and judge results are real and
+> resolved, and they are established on **a quarter and a fourteenth of the arm space** respectively.
+> A claim that the partition survives a change of judge is a claim about **`coval_core`, `topw_k4`
+> and `gen`**, not about the eight admitted arms or the thirty-six excluded ones.
+
+**This is the third time today a closing summary quantified without counting**, and the first time
+the rule carved into `realstat §4` caught it before it was published rather than after.
+
 ### The impossibility register, AUDITED (R290, R291) — three lines were wrong
 
 Every round in this arc carried a register of what the site "cannot meet". **Its lines had never
