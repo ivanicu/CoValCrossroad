@@ -518,8 +518,15 @@ EXCLUDES.** Applied to itself, in one command, it killed four of its own five cl
 | *may be selected or written* | nothing | **decoration** |
 | *on this release selection measures better* | nothing | **a finding, not a clause** |
 
-> **A core is a set of criteria that predicts held-out human judgement better than chance, and
-> better than the same criteria applied to a different prompt.**
+> ⛔ **SUPERSEDED — DO NOT READ THIS AS THE DEFINITION.** The sentence below is the 2026-08-03
+> morning version, kept under L81 because the clause-audit table beneath it is the record of how the
+> earlier clauses died. **The live definition is at the top of this file** and differs in both
+> clauses: "chance" is now the named random-from-rubric baseline (R285: every arm is above literal
+> chance) and "the same criteria on a different prompt" is now the size-matched prompt-blind arm
+> (the poison-vs-placebo correction).
+>
+> *A core is a set of criteria that predicts held-out human judgement better than chance, and
+> better than the same criteria applied to a different prompt.*
 
 | clause | the admissible object it excludes |
 |---|---|
