@@ -37,7 +37,7 @@ outcome flips between 0.01 and 0.02, or drop the pretence and report the sweep a
 
 ### 2 — "The unmatched rate is the measurement" conflates two failures · **0.80**  ·  ⚠ SELF-CONFIRMED AFTER FORECASTING
 
-> [r62](E03_the_instrument_was_the_object/A02_what_floor_each_counterfactual_requires/R62_matching_floor) measured the within-arm floor **after** this forecast was
+> [r62](E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R62_matching_floor) measured the within-arm floor **after** this forecast was
 > committed: **87.3%** unmatched between two authors of the same prompt at Jaccard ≥ 0.20,
 > **53.3%** at the most lenient threshold. The objection is upheld and the design changed —
 > the unmatched rate is now reported as an excess over an in-study floor. **A scorer should
@@ -55,7 +55,7 @@ participants' criteria fail to match **each other**? — which bounds the vaguen
 
 ### 3 — the τ_c symmetric design assumes both edits are the same kind of object, and for many criteria they are not · **0.75**  ·  ⚠ SELF-CONFIRMED AFTER FORECASTING
 
-> [r65](E03_the_instrument_was_the_object/A02_what_floor_each_counterfactual_requires/R65_edit_symmetry_floor) measured it **after** this forecast was committed:
+> [r65](E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R65_edit_symmetry_floor) measured it **after** this forecast was committed:
 > **18.62%** of core criteria carry a deontic prohibition, a FLOOR on the share for which
 > the two arms cannot be matched objects. The objection is upheld and the design changed — a
 > constructibility screen now runs first, and failing criteria are reported **τ_c NOT
@@ -77,7 +77,7 @@ rather than estimating it anyway.
 
 ### 4 — Experiment 2's satisfaction sub-study is an escape hatch, not a design · **0.70**  ·  ⚠ SELF-ANSWERED AFTER FORECASTING
 
-> [r64](E03_the_instrument_was_the_object/A02_what_floor_each_counterfactual_requires/R64_satisfaction_substudy_power) sized it **after** this forecast was committed,
+> [r64](E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R64_satisfaction_substudy_power) sized it **after** this forecast was committed,
 > and working it through found something the objection did not: the one-arm design could never
 > have worked, because **the release ships no satisfaction labels at all**, so a fresh-arm rate
 > has no referent. Now two-armed, 402 pairs per arm, with an invalidation rule that reports the
@@ -94,7 +94,7 @@ invalidate the primary analysis rather than annotate it.
 
 ### 5 — Experiment 1 has no power calculation at all · **0.65**  ·  ⚠ SELF-ANSWERED AFTER FORECASTING
 
-> Addressed by [r61](E03_the_instrument_was_the_object/A02_what_floor_each_counterfactual_requires/R61_s_pre_power) **after** this forecast was written and committed,
+> Addressed by [r61](E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R61_s_pre_power) **after** this forecast was written and committed,
 > not before. The objection stood when recorded. **A scorer should count it as raised-by-me and
 > exclude it from the hit rate**, since answering my own forecast item is not evidence about
 > what an independent reviewer would find. The forecast text below is left exactly as written.
@@ -110,7 +110,7 @@ pilot, not after.
 
 ### 6 — r60's "not answerable from this release" assumes the reversal rate is homogeneous · **0.55**  ·  ⚠ SELF-EXAMINED AND **NOT UPHELD**
 
-> [r63](E03_the_instrument_was_the_object/A02_what_floor_each_counterfactual_requires/R63_r60_projection_audit) checked it **after** this forecast was committed. The
+> [r63](E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R63_r60_projection_audit) checked it **after** this forecast was committed. The
 > design effect is **1.499** and was already inside r60's published CI; pairs come from 238 of
 > 250 prompts; the release's growth is prompt-extensive, which is exactly the condition the
 > √n step needs. **The objection does not bite.** Recorded as a forecast item that was worth

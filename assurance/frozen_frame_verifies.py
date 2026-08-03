@@ -37,7 +37,7 @@ import pathlib
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-FRAME = ROOT / "E02_the_plural_public_dissolved/A03_does_the_protocol_have_the_power_it_needs/R45_protocol_freeze/results/r45_frozen_frame.json"
+FRAME = ROOT / "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R45_protocol_freeze/results/r45_frozen_frame.json"
 
 
 def sha(s: str) -> str:

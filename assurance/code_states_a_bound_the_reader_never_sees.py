@@ -2,7 +2,7 @@
 
 Why this exists (entry 98)
 --------------------------
-`E02_the_plural_public_dissolved/A03_does_the_protocol_have_the_power_it_needs/R44_compiler_lineage/run.py:112` carries this comment:
+`E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R44_compiler_lineage/run.py:112` carries this comment:
 
     # C1 polarity rewrite.  The text rewrite cannot be simulated; its EFFECT can:
     # a criterion carrying a negative weight becomes a positively-phrased

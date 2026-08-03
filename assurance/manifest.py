@@ -120,7 +120,7 @@ CLAIMS = [
      "-- but the multiplicative alternative is not validated either: equal "
      "effective degrees of freedom, and out-of-sample instability spanning "
      "R^2 [-1.64, +0.51]. No number here should be read as measuring a bloc.",
-     "E02_the_plural_public_dissolved/A01_structured_plurality_or_reliability/R28_multiplicative/results/r28_pearson.json", "multiplicative_generalises_better", "==", True),
+     "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R28_multiplicative/results/r28_pearson.json", "multiplicative_generalises_better", "==", True),
 
     # REWRITTEN 2026-07-28.  C15 previously asserted the multiplicative form wins
     # "while using one FEWER free parameter".  That arithmetic is false: the
@@ -135,7 +135,7 @@ CLAIMS = [
      "+0.3879 against multiplicative +0.2514, because roughly one split in ten "
      "collapses when thin raters receive a c_i pinned to the initialisation "
      "fallback. In-sample R^2 favours the multiplicative shape and is not the test.",
-     "E02_the_plural_public_dissolved/A01_structured_plurality_or_reliability/R28_multiplicative/results/r28_pearson.json", "cv_multiplicative_mean", ">", 0.3879),
+     "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R28_multiplicative/results/r28_pearson.json", "cv_multiplicative_mean", ">", 0.3879),
 
     # ---- identification round, 2026-07-28 -------------------------------
     # C33-C37 answered the question this project actually turned out to be
@@ -161,7 +161,7 @@ CLAIMS = [
      "is not a free parameter. NOT ESTABLISHED: that the direction pre-exists the "
      "menu. Shared-menu endogeneity is untouched by any split of these annotators, "
      "because none of them rated a criterion before seeing responses.",
-     "E02_the_plural_public_dissolved/A02_what_coval_core_mechanically_is/R34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+     "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
      "estimands.D_population (crossfit_sign - attribute_only).delta", ">", 0.04),
 
     ("C17",
@@ -169,7 +169,7 @@ CLAIMS = [
      "The same-sample premium is small in absolute terms: the gap between weights "
      "built from everyone and weights built from disjoint raters is under one "
      "accuracy point.",
-     "E02_the_plural_public_dissolved/A02_what_coval_core_mechanically_is/R34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
+     "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R34_global_rater_crossfit/results/r34_global_rater_crossfit.json",
      "estimands.D_same_sample_premium (same_sign - crossfit_sign).delta", "<", 0.01),
 
     # RESCOPED. "Does not depend on forcing a direction" overclaims: dropping
@@ -186,7 +186,7 @@ CLAIMS = [
      "runs -10..+10 and 0 appears exactly once in 102,147 ratings, so 'no general "
      "direction' was never available to a participant; testing that requires the "
      "option AT ELICITATION TIME, not a filter afterwards.",
-     "E02_the_plural_public_dissolved/A02_what_coval_core_mechanically_is/R35_polarity_abstention/results/r35_polarity_abstention.json",
+     "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R35_polarity_abstention/results/r35_polarity_abstention.json",
      "abs_confident_minus_forced", "<", 0.01),
 
     # RESCOPED. p > 0.05 is not equivalence. An aggregate accuracy can conceal
@@ -202,7 +202,7 @@ CLAIMS = [
      "not an equivalence result, and aggregate accuracy can hide criterion sign "
      "reversals and minority-only criteria. Also not established: response-blind "
      "weights, which no rater in this dataset could supply.",
-     "E02_the_plural_public_dissolved/A02_what_coval_core_mechanically_is/R37_leakage_topology/results/r37_leakage_topology.json",
+     "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R37_leakage_topology/results/r37_leakage_topology.json",
      "levels.A3_held_out_country.L", "<", 0.01),
 
     # RESCOPED. The tested distances are GENERIC -- hidden-state geometry and
@@ -229,7 +229,7 @@ CLAIMS = [
      "lie inside the rubric's own criterion-satisfaction support -- which is the "
      "distance a rubric-conditioned failure would live in, and which has not been "
      "measured.",
-     "E02_the_plural_public_dissolved/A03_does_the_protocol_have_the_power_it_needs/R40_ood_map/results/r40_ood_map.json",
+     "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R40_ood_map/results/r40_ood_map.json",
      "cross_lineage.nearest_neighbour.mean_r", "<", 0.0),
 
     ("C5",

@@ -1,0 +1,40 @@
+{
+ "items": [],
+ "counts": {
+  "BLOCKING": 0,
+  "SERIOUS": 0,
+  "NOTED": 0,
+  "CLEAN": 0
+ },
+ "wrong_answers": {
+  "empty list": "Any analysis defaulting `.get(k, [])` counts 13,672 never-asked questions as answered-zero. Veto rates come out 82.9% instead of 36.4%; a concentration ratio comes out 5.01x instead of 2.56x. I made both errors.",
+  "first batch": "The veto and personal-ranking fields are capped at five per annotator, so any rate computed over the full corpus is diluted roughly fourfold, and any per-person statistic on them has n=5 at most.",
+  "No authorship field": "Treating the criterion pool as human normative input attributes 5,564 lab-written seeds to participants. Any claim about 'what people wrote' is 36% not what people wrote.",
+  "no pointer to their source": "Lineage from a compiled criterion back to its source can only be recovered by text matching, which succeeds for 7.8% verbatim and 30.8% at 0.80 similarity. Any claim that a criterion 'survived' compilation is a text-similarity guess.",
+  "where the four candidate responses came from": "Nothing supports a claim about what generated the candidates, so any statement about model behaviour rather than about these 4,312 specific texts is unfounded.",
+  "UNACCEPTABLE is ranked FIRST": "Treating the veto as a hard constraint and the ranking as consistent with it will silently contradict itself on 4.4% of vetoing assessments.",
+  "essentially every annotator": "Any inter-annotator agreement statistic leans hardest on the one prompt everyone saw -- and that prompt's text is garbled, so the agreement estimate is anchored on a test artefact.",
+  "no rubric at all": "Joining rubrics to prompts silently drops 110 of 1,078 prompts, and they are not a random remainder: they average 25.4 assessments against 16.1.",
+  "two files with different coverage": "Reading assessments from comparisons.jsonl gives 293 fewer than reading them from annotators.jsonl. The two files are not interchangeable.",
+  "disjoint id namespaces": "There is no key to join rubrics to prompts. Any pipeline assuming one will silently produce an empty result, which reads as 'no data' rather than as 'wrong join'.",
+  "Two different message schemas": "A loader written for one file returns empty text for the other. Mine did, for 1,095 of 1,095 prompts, and every downstream feature came out constant without an error.",
+  "near-binary": "Treating the -10..+10 scale as interval-valued over-weights the endpoints, which carry 17% of all ratings.",
+  "concentrated in a few countries": "Any 'collective' or 'crowd' aggregate is an aggregate over a panel that is 63% three countries.",
+  "attributable to a single annotator": "9,684 free-text criteria are linkable to one person each, alongside their age, gender, country and education.",
+  "synthetic and short": "Median user turn is 139 characters and the card calls the prompts synthetic, so nothing here transfers to production traffic.",
+  "leaked into the prompt text": "Eight prompts carry generation scaffolding or pretext framing. An annotator answering one is doing a different task, and nothing marks which.",
+  "name a response as best": "Rationale text and ranking disagree in 12.6% of cases where someone states plainly which response is best, so the two cannot both be used as ground truth.",
+  "same answer given twice": "Personal and world rankings are byte-identical in 52.1% of assessments carrying both, so treating them as two independent judgements double-counts one.",
+  "identical ranking string": "Six annotators with five or more prompts submit the same ranking every time, and nothing flags them.",
+  "SLOT predicts": "Statistically real and worth nothing: a slot-only predictor scores 0.4993 against 0.5000 chance. Do not correct for it and do not cite it as a defect with consequences."
+ },
+ "corrections_r175": {
+  "near-binary": "DOWNGRADED (r175): all 21 scale values are used and the entropy is 4.04 bits of a possible 4.39 -- 92% of uniform. Not a near-binary. The supportable claim is that the endpoints are over-represented, carrying 17% of ratings.",
+  "name a response as best": "DOWNGRADED (r175): 12.6% counted comparatives, where 'B is better than C' is TRUE under the ranking A>B>C and my check wrongly demanded B be first. On superlatives only the rate is 7.1%; the comparative subset ran at 35.0%, a false positive by construction.",
+  "concentrated in a few countries": "DOWNGRADED (r175): 63.2% in three countries is correct, but the release publishes no sampling frame, so there is no distribution to be concentrated RELATIVE TO. Stateable without one: effective panel = 5.2 countries, and 12 of 19 have under 30 people.",
+  "synthetic and short": "DOWNGRADED (r175): the transfer claim is withdrawn -- I hold no production traffic to compare against. Also two of my own numbers die: the median is 128 chars not 139, and 98 of 1,078 prompts are multi-turn, which the card's own 'vast majority' hedge got right.",
+  "identical ranking string": "SURVIVES (r175): 6 observed against ~0 expected under the marginal ranking distribution (186 distinct strings, 3.5% modal), and 0 in 5 permutation seeds. A real behavioural signature.",
+  "no pointer to their source": "PRICED (r181): this is the defect that blocks the project's central question. Whether the compilation deletes dissenting authors' criteria came out UNVERIFIED -- raw-clustered crosses zero, stratified-clustered does not, quartiles non-monotonic -- and it cannot be resolved because core carries no lineage and the 5,564 multiply-rated criteria carry no author.",
+  "first batch": "SURVIVES (r175): a hard ceiling at 5 with 98.0% of annotators sitting exactly on it and nothing above, while the same people's world blocks run to 39. That is a structural cap, not a population that happened to stop."
+ }
+}
