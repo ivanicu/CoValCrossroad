@@ -1,0 +1,91 @@
+{
+ "ground_truth": 298,
+ "doses": [
+  "identity",
+  "rival20",
+  "rival40",
+  "rival60",
+  "generic20",
+  "generic40",
+  "generic60"
+ ],
+ "rows": {
+  "identity": {
+   "text": 0.988255033557047,
+   "text_spread": 0.0,
+   "behaviour": 0.988255033557047,
+   "behaviour_spread": 0.0,
+   "chance": 0.07917478958217589,
+   "jaccard": 1.0
+  },
+  "rival20": {
+   "text": 0.988255033557047,
+   "text_spread": 0.0,
+   "behaviour": 0.2365771812080537,
+   "behaviour_spread": 0.055369127516778555,
+   "chance": 0.07917478958217589,
+   "jaccard": 0.6855383001800294
+  },
+  "rival40": {
+   "text": 0.9860178970917226,
+   "text_spread": 0.003355704697986628,
+   "behaviour": 0.1353467561521253,
+   "behaviour_spread": 0.030201342281879207,
+   "chance": 0.07917478958217589,
+   "jaccard": 0.4594977591456179
+  },
+  "rival60": {
+   "text": 0.9696122296793438,
+   "text_spread": 0.006152125279642151,
+   "behaviour": 0.07550335570469797,
+   "behaviour_spread": 0.02516778523489932,
+   "chance": 0.07917478958217589,
+   "jaccard": 0.2939696195356943
+  },
+  "generic20": {
+   "text": 0.988255033557047,
+   "text_spread": 0.0,
+   "behaviour": 0.2348993288590604,
+   "behaviour_spread": 0.02852348993288592,
+   "chance": 0.07917478958217589,
+   "jaccard": 0.6823287187874634
+  },
+  "generic40": {
+   "text": 0.988255033557047,
+   "text_spread": 0.0,
+   "behaviour": 0.13870246085011187,
+   "behaviour_spread": 0.01677852348993289,
+   "chance": 0.07917478958217589,
+   "jaccard": 0.4524675362087054
+  },
+  "generic60": {
+   "text": 0.9854586129753914,
+   "text_spread": 0.001677852348993314,
+   "behaviour": 0.09675615212527962,
+   "behaviour_spread": 0.010067114093959731,
+   "chance": 0.07917478958217589,
+   "jaccard": 0.28483067068423396
+  }
+ },
+ "r250_deletion": {
+  "0.2": [
+   0.9883,
+   0.3031,
+   0.7995
+  ],
+  "0.4": [
+   0.9871,
+   0.1913,
+   0.6
+  ],
+  "0.6": [
+   0.9855,
+   0.1051,
+   0.4014
+  ]
+ },
+ "positive": 0.988255033557047,
+ "distance_ok": true,
+ "negative_ok": true,
+ "verdict": "W1 -- the TEXT route survives even ADVERSARIAL substitution: 0.9860 at rival-40% against chance 0.0792. Provenance is issuable by text alone."
+}

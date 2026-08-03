@@ -354,6 +354,21 @@ R236 issues the certificate: **NOT ADMISSIBLE, two fields FAILED.**
   does not. Likewise **shuffle is a null perturbation for the text route** (Jaccard is set-based),
   which its `1.0000` distance column makes visible.
 
+  **R251 added substitution and the text route still did not move** — 0.9883 / 0.9860 / 0.9696
+  (rival 20/40/60%) and 0.9883 / 0.9883 / 0.9855 (generic), at Jaccard down to **0.2848**. Behaviour
+  fell as before: 0.2366 / 0.1353 / 0.0755 and 0.2349 / 0.1387 / 0.0968 against chance 0.0792.
+  Its distance control passed — every substitution dose moves the text further than matched
+  deletion — and its negative control sat at chance on all seven doses.
+
+  ⛔ **But R251's verdict called that "adversarial substitution" and it was not.** Its donor pool was
+  the **union of every rival criterion**, so the injected tokens *scatter* and no single competitor
+  can overtake the parent. **A set-overlap matcher is not beaten by noise; it is beaten by
+  concentration.** Fifth conclusion-string failure in the session, same shape as the other four: a
+  comparative asserted rather than computed. R254 runs the concentrated version — substitute toward
+  the **single nearest rival** and measure the crossover — with both ends of its positive control
+  pinned (`f=0` must return 0.9883; `f=1` must return ≈0 *and* name the rival as top hit). Running
+  on GPU task 570.
+
   Controls: the ceiling is **computed**, not assumed — `0.9883`, because 7 of 298 parents have a
   duplicate in their own rubric and the 1/k tie rule makes exact 1.0 unreachable. *The first
   threshold demanded 1.0 and was the sixth control-that-cannot-pass in this arc.* The repaired
