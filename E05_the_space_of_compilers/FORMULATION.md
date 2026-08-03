@@ -173,13 +173,54 @@ Attributed, not absorbed. Design A has not returned and none of this is replicat
 
 R236 issues the certificate: **NOT ADMISSIBLE, two fields FAILED.**
 
-- `representative` **FAILED** — 4 printed, at most 2 identifiable (R228). **The artifact does not
-  distinguish identified items from chosen ones. Naming the split would pass the field without
-  changing a single criterion.**
+- `representative` **— the split now exists** (R249). Eight rounds repeated *"naming the split would
+  pass the field"* without producing it, because R228's `k_max` describes the **space of candidate
+  subsets** and the certificate needs a statement about **the four criteria that were printed.**
+  Measured by exhaustive leave-one-out over the printed set, 967 prompts, r04 tensor:
+
+  | | |
+  |---|---:|
+  | criteria printed per core | **3.95** |
+  | necessary-within-set | **1.45 (36.7%)** |
+  | minimal subset reproducing the core's own class | **1.42** |
+  | prompts where **zero** printed criteria are necessary | **23.8%** |
+  | prompts where **all** are | 5.4% |
+  | minimal size = 1 | **642 of 967 (66.4%)** |
+
+  **On two thirds of prompts a single printed criterion reproduces what all four produce.**
+  Controls: a synthetic core of one discriminating + three constant criteria returns exactly
+  `necessary=1, minimal=1` and flags the right one; four identical criteria return `0, 1`; the
+  placebo (the minimal subset induces the core's own class) holds on all 967.
+
+  ⚠ **PROXY LEDGER.** `necessary` is *necessary-within-the-printed-set*, never *identified among the
+  `C(n,k)` alternatives* — R231 measured that separately at 0.3864 against a floor of 0.3836. Only
+  **`redundant` is sound in both directions**: if the class does not move, that criterion
+  contributed nothing to this observable, full stop.
 - `provenance` **FAILED** — `0.00`. Across all 986 rubrics every `coval_core` item carries exactly one
   field, `criterion` (R232).
 - `transport` **NOT_MEASURED** — requires a second candidate set. Now runnable; `UNVERIFIED` at R233
   because its own floors showed the arms differ in difficulty.
+
+**And the redundancy is inherited from the WRITING, not from the SELECTION** (R249, W4 arm,
+registered before it ran). Paired on the same 200 prompts:
+
+| minimal sufficient size | mean |
+|---|---:|
+| the printed **core** | 1.3750 |
+| random 4 from R240's **generic vocabulary** (real full-rubric criteria, chosen only for token genericness) | 1.3707 |
+| random 4 from the **full rubric** | 1.6207 |
+
+`core − generic = +0.0042 [−0.0870, +0.0955]` — CI contains zero.
+`full-random − generic = +0.2500 [0.2077, 0.2923]` — it does not.
+
+**Generic criteria agree with one another, and the compiler writes generic criteria.** That is a
+different defect from "the compiler picks redundant criteria", and it is the one the data supports.
+
+⚠ **The pre-registered kill for that comparison was mis-scaled and is recorded `UNVERIFIED`.** It
+compared a paired mean over 967 prompts (−0.2083) against a **per-prompt range over 20 draws**
+(2.2378) — the same error this repository added to `realstat` as *"min/max of N draws quoted as an
+interval"* three commits earlier, committed again while writing the round that cites it. The W4 arm
+settles the question; the original threshold settles nothing.
 
 **Every core is a choice of representative.** The official one is a defensible choice for the purpose
 its dataset card states — a short readable summary. The certificate's job is to make the purpose and
