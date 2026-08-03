@@ -30,7 +30,10 @@ SEEDS, NBOOT = [0, 1, 2], 2000
 from score import cls, load_sat, load_targets, yvec
 
 
-def per_prompt_hits(sat, targets, seed):
+def per_prompt_hits(sat, targets, seed, eval_parity=-1):
+    """eval_parity >= 0 restricts the held-out annotator to that index parity, so an
+    oracle fitted on the OTHER parity has never seen the annotator it is scored against.
+    Without this the oracle arm is leaky and its value is an inflated upper bound."""
     rng = np.random.default_rng(seed)
     out = {}
     for p in sat:
@@ -38,6 +41,10 @@ def per_prompt_hits(sat, targets, seed):
             continue
         y = yvec(sat[p], sorted({i for i, _ in sat[p]}))
         v = targets[p]
+        if eval_parity >= 0:
+            v = [x for j, x in enumerate(targets[p]) if j % 2 == eval_parity]
+            if not v:
+                continue
         hy = v[int(rng.integers(len(v)))][0]
         out[p] = float(cls(y) == cls(np.array(hy, float)))
     return out
@@ -55,19 +62,20 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--a", required=True); ap.add_argument("--b", required=True)
     ap.add_argument("--label-a", default="A"); ap.add_argument("--label-b", default="B")
+    ap.add_argument("--eval-parity", type=int, default=-1)
     a = ap.parse_args()
     targets, _ = load_targets()
     SA, SB = load_sat(a.a), load_sat(a.b)
 
     est, lo, hi = [], [], []
     for s in SEEDS:
-        ha, hb = per_prompt_hits(SA, targets, s), per_prompt_hits(SB, targets, s)
+        ha, hb = per_prompt_hits(SA, targets, s, a.eval_parity), per_prompt_hits(SB, targets, s, a.eval_parity)
         m, l, h, n = paired(ha, hb, np.random.default_rng(500 + s))
         est.append(m); lo.append(l); hi.append(h)
     mean = float(np.mean(est))
 
     # PLACEBO -- a core against itself
-    h0 = per_prompt_hits(SA, targets, 0)
+    h0 = per_prompt_hits(SA, targets, 0, a.eval_parity)
     pm, pl, ph, _ = paired(h0, h0, np.random.default_rng(1))
     # POSITIVE -- flip a known fraction g of A's predictions; recovery must track g
     dose = {}
@@ -76,7 +84,7 @@ def main():
         hg = {p: (0.0 if r.random() < g else v) for p, v in h0.items()}
         dose[g] = paired(h0, hg, np.random.default_rng(2))[0]
     # NEGATIVE -- destroy the pairing; the interval must WIDEN
-    hb0 = per_prompt_hits(SB, targets, 0)
+    hb0 = per_prompt_hits(SB, targets, 0, a.eval_parity)
     keys = list(hb0); np.random.default_rng(3).shuffle(keys)
     hb_sh = {p: hb0[k] for p, k in zip(sorted(hb0), keys)}
     _, ul, uh, _ = paired(h0, hb_sh, np.random.default_rng(4))

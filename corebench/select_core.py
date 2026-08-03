@@ -51,6 +51,9 @@ def main():
                     choices=["random_k", "topw_k", "topabs_k", "oracle_k", "full"])
     ap.add_argument("--k", type=int, default=4)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--fit-parity", type=int, default=-1,
+                    help="oracle only: fit on annotators with index %%2 == this. -1 = all "
+                         "(LEAKY). Use 1 and evaluate on parity 0 for a held-out oracle.")
     ap.add_argument("--outdir", default="corebench/results")
     a = ap.parse_args()
 
@@ -72,8 +75,11 @@ def main():
             if not line.strip():
                 continue
             rec = json.loads(line)
+            asms = rec.get("metadata", {}).get("assessments", [])
+            if a.fit_parity >= 0:
+                asms = [x for j, x in enumerate(asms) if j % 2 == a.fit_parity]
             ys = [parse_ranking(e["ranking"])
-                  for asm in rec.get("metadata", {}).get("assessments", [])
+                  for asm in asms
                   for e in (asm.get("ranking_blocks") or {}).get("world") or []
                   if e.get("ranking")]
             ys = [y for y in ys if y]
@@ -82,7 +88,7 @@ def main():
                     cls(np.array(y, float)) for y in ys).most_common(1)[0][0]
 
     rng = np.random.default_rng(a.seed)
-    meta, vals, texts = [], [], {}
+    meta, vals, texts, capped = [], [], {}, [0]
     for pid, r in rub.items():
         items = r.get("coval_full") or []
         if pid not in sat or not items:
@@ -105,8 +111,16 @@ def main():
             t = tgt.get(pid)
             if t is None:
                 continue
+            # ⚠ CAP, LOGGED NOT SILENT. C(39,4) = 82,251 and a silent truncation would
+            # read as full coverage. Above CAP the oracle is SAMPLED, which makes it a
+            # LOWER BOUND on the true oracle -- stated, and counted in `capped`.
+            CAP = 20000
+            allc = list(itertools.combinations(ok, min(a.k, len(ok))))
+            if len(allc) > CAP:
+                capped[0] += 1
+                allc = [allc[i] for i in rng.choice(len(allc), CAP, replace=False)]
             best, bsel = -1, ok[:a.k]
-            for c in itertools.combinations(ok, min(a.k, len(ok))):
+            for c in allc:
                 y = np.array([sum(sat[pid][(i, x)] for i in c) for x in L])
                 hit = sum(cls(y)[q] == t[q] for q in range(6))
                 if hit > best:
@@ -120,12 +134,17 @@ def main():
     out = pathlib.Path(a.outdir)
     out.mkdir(parents=True, exist_ok=True)
     tag = f"{a.rule}" + ("" if a.rule == "full" else f"{a.k}") + \
-          (f"_s{a.seed}" if a.rule == "random_k" else "")
+          (f"_s{a.seed}" if a.rule == "random_k" else "") + \
+          (f"_fit{a.fit_parity}" if a.rule == "oracle_k" and a.fit_parity >= 0 else "")
     np.savez_compressed(out / f"sat_{tag}.npz", meta=np.array(meta),
                         sat=np.array(vals, np.float32))
     (out / f"core_{tag}.json").write_text(json.dumps(texts))
     print(f"  {tag}: {len(texts)} prompts, {len(meta)} cells, "
           f"mean k = {np.mean([len(v) for v in texts.values()]):.2f}  (0 judge calls)")
+    if capped[0]:
+        print(f"    ⚠ oracle SAMPLED on {capped[0]} of {len(texts)} prompts "
+              f"({capped[0]/len(texts):.1%}) where C(n,k) > 20000 -> this arm is a LOWER "
+              f"BOUND on the true oracle, not the oracle")
 
 
 if __name__ == "__main__":
