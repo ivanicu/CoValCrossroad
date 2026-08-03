@@ -1,0 +1,489 @@
+{
+ "source_sha": "655447bc0346748f",
+ "timeout_s": 150,
+ "seeds": [
+  "1234",
+  "9999"
+ ],
+ "world": "W-VERDICT",
+ "n_candidates": 27,
+ "n_noncandidates": 245,
+ "gpu_excluded": [
+  "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R04_rebuild_satisfaction/run.py",
+  "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R08_gold_preference/run.py",
+  "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R09_overoptimization/run.py",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R10_attribution_robustness/run.py",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R11_backbone_control/run.py",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R12_response_set/run.py",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R13_seed_vs_writein/run.py",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R14_paraphrase_gauge/run.py",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R15_indistribution_transfer/run.py",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R20_paraphrase_transfer/run.py",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R21_donor_distance/run.py",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R22_cross_family/run.py",
+  "E02_the_plural_public_dissolved/A01_structured_plurality_or_reliability/R29_gold_ood/run.py",
+  "E02_the_plural_public_dissolved/A03_does_the_protocol_have_the_power_it_needs/R39_feature_cache/run.py",
+  "E03_the_instrument_was_the_object/A01_can_a_local_judge_be_an_instrument/R46_spread_replication/run.py",
+  "E03_the_instrument_was_the_object/A01_can_a_local_judge_be_an_instrument/R52_overlap_intervention/run.py",
+  "E03_the_instrument_was_the_object/A03_can_direction_be_read_from_text_alone/R79_semantic_menu_read/run.py",
+  "E03_the_instrument_was_the_object/A03_can_direction_be_read_from_text_alone/R80_panel_freeze/run.py",
+  "E03_the_instrument_was_the_object/A04_what_the_resampling_unit_is/R98_unverified_triage/run.py",
+  "E04_no_fraction_only_an_equivalence_class/A01_who_pays_for_compilation/R130_judge_gauge/run.py",
+  "E05_the_space_of_compilers/A13_is_the_admissibility_gate_the_right_gate/R257_label_order_gauge_propagation/run.py"
+ ],
+ "negative_control_set": [
+  "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R01_rater_structure/run.py",
+  "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R02_label_and_regime/run.py",
+  "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R03_stated_vs_revealed/run.py",
+  "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R05_value_taxonomy/run.py",
+  "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R06_rule_tournament/run.py",
+  "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R07_anthropomorphism/run.py",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R16_minority_regret/run.py",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R17_conditional_core/run.py",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R18_routing_difficulty/run.py",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R19_floor_choice/run.py",
+  "E02_the_plural_public_dissolved/A01_structured_plurality_or_reliability/R23_actor_vs_dyad/run.py",
+  "E02_the_plural_public_dissolved/A01_structured_plurality_or_reliability/R24_regime_receipt/run.py"
+ ],
+ "rounds": {
+  "A01_who_pays_for_compilation/R122_metric_gauge_grid": {
+   "kind": "candidate",
+   "status": "timeout",
+   "ab": null,
+   "placebo": null
+  },
+  "A01_who_pays_for_compilation/R134_do_ratings_individuate": {
+   "kind": "candidate",
+   "status": "timeout",
+   "ab": null,
+   "placebo": null
+  },
+  "A02_the_chain_from_a_person_to_the_standard/R142_provenance_recovery": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 0,
+   "seconds": 0.8
+  },
+  "A02_the_chain_from_a_person_to_the_standard/R144_information_loss": {
+   "kind": "candidate",
+   "status": "exit1",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 0,
+   "seconds": 0.1
+  },
+  "A02_the_chain_from_a_person_to_the_standard/R145_who_is_unserved": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 2,
+   "seconds": 2.8
+  },
+  "A04_is_the_detection_design_well_defined/R212_rebuilt_on_decisions": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 1,
+   "seconds": 10.3
+  },
+  "A04_is_the_detection_design_well_defined/R213_gauge": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 0,
+   "seconds": 57.5
+  },
+  "A04_is_the_detection_design_well_defined/R215_remaining": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 3,
+   "seconds": 3.4
+  },
+  "A04_is_the_detection_design_well_defined/R216_derivation": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 0,
+   "seconds": 3.6
+  },
+  "A01_is_our_own_compiler_better/R220_compiler_tournament": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 25,
+   "seconds": 34.9
+  },
+  "A02_does_decision_fitting_select_norms_or_the_proxy/R221_contamination": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [
+    "contamination.json.rank_acc.D_decision|permuted",
+    "contamination.json.selection.D_decision|duplicate|4|0|all",
+    "contamination.json.selection.D_decision|duplicate|4|2|all",
+    "contamination.json.selection.D_decision|duplicate|5|0|all",
+    "contamination.json.selection.D_decision|duplicate|5|1|all",
+    "contamination.json.selection.D_decision|duplicate|5|2|all",
+    "contamination.json.selection.D_decision|inert|3|0|all",
+    "contamination.json.selection.D_decision|inert|3|1|all",
+    "contamination.json.selection.D_decision|inert|3|2|all",
+    "contamination.json.selection.D_decision|inert|4|0|all",
+    "contamination.json.selection.D_decision|inert|4|1|all",
+    "contamination.json.selection.D_decision|inert|4|2|all",
+    "contamination.json.selection.D_decision|inert|5|0|all",
+    "contamination.json.selection.D_decision|inert|5|1|all",
+    "contamination.json.selection.D_decision|inert|5|2|all",
+    "contamination.json.selection.D_decision|permuted|3|0|one",
+    "contamination.json.selection.D_decision|permuted|3|1|all",
+    "contamination.json.selection.D_decision|permuted|3|1|one",
+    "contamination.json.selection.D_decision|permuted|3|2|all",
+    "contamination.json.selection.D_decision|permuted|3|2|one",
+    "contamination.json.selection.D_decision|permuted|4|0|all",
+    "contamination.json.selection.D_decision|permuted|4|0|one",
+    "contamination.json.selection.D_decision|permuted|4|1|all",
+    "contamination.json.selection.D_decision|permuted|4|1|one",
+    "contamination.json.selection.D_decision|permuted|4|2|all",
+    "contamination.json.selection.D_decision|permuted|4|2|one",
+    "contamination.json.selection.D_decision|permuted|5|0|all",
+    "contamination.json.selection.D_decision|permuted|5|0|one",
+    "contamination.json.selection.D_decision|permuted|5|1|all",
+    "contamination.json.selection.D_decision|permuted|5|1|one",
+    "contamination.json.selection.D_decision|permuted|5|2|all",
+    "contamination.json.selection.D_decision|permuted|5|2|one",
+    "contamination.json.selection.D_decision|posthoc|3|0|all",
+    "contamination.json.selection.D_decision|posthoc|3|1|all",
+    "contamination.json.selection.D_decision|posthoc|3|2|all",
+    "contamination.json.selection.D_decision|posthoc|4|0|all",
+    "contamination.json.selection.D_decision|posthoc|4|1|all",
+    "contamination.json.selection.D_decision|posthoc|4|2|all",
+    "contamination.json.selection.D_decision|posthoc|5|0|all",
+    "contamination.json.selection.D_decision|posthoc|5|1|all",
+    "contamination.json.selection.D_decision|posthoc|5|2|all",
+    "contamination.json.selection.D_decision|rank_clone|3|0|all",
+    "contamination.json.selection.D_decision|rank_clone|3|1|all",
+    "contamination.json.selection.D_decision|rank_clone|3|2|all",
+    "contamination.json.selection.D_decision|rank_clone|4|0|all",
+    "contamination.json.selection.D_decision|rank_clone|4|1|all",
+    "contamination.json.selection.D_decision|rank_clone|4|2|all",
+    "contamination.json.selection.D_decision|rank_clone|5|0|all",
+    "contamination.json.selection.D_decision|rank_clone|5|1|all",
+    "contamination.json.selection.D_decision|rank_clone|5|2|all",
+    "contamination.json.selection.D_decision|style_length|3|1|all",
+    "contamination.json.selection.D_decision|style_length|3|2|all",
+    "contamination.json.selection.D_decision|style_length|4|0|all",
+    "contamination.json.selection.D_decision|style_length|4|1|all",
+    "contamination.json.selection.D_decision|style_length|4|2|all",
+    "contamination.json.selection.D_decision|style_length|5|0|all"
+   ],
+   "n_verdict_fields": 125,
+   "seconds": 68.7
+  },
+  "A04_which_definitions_of_core_are_identifiable/R225_do_raters_add_bits": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 2,
+   "seconds": 16.9
+  },
+  "A04_which_definitions_of_core_are_identifiable/R227_two_currencies": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 1,
+   "seconds": 17.9
+  },
+  "A04_which_definitions_of_core_are_identifiable/R228_the_largest_core_this_release_can_carry": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 1,
+   "seconds": 26.9
+  },
+  "A04_which_definitions_of_core_are_identifiable/R230_the_class_not_the_member": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 1,
+   "seconds": 5.1
+  },
+  "A04_which_definitions_of_core_are_identifiable/R231_the_official_cores_class": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [
+    "official_core_class.json.verdict"
+   ],
+   "n_verdict_fields": 1,
+   "seconds": 3.4
+  },
+  "A04_which_definitions_of_core_are_identifiable/R237_the_noisy_channel_bound": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 1,
+   "seconds": 3.7
+  },
+  "A07_the_candidate_set_wall_was_wrong/R233_fresh_candidate_transport": {
+   "kind": "candidate",
+   "status": "exit1",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 1,
+   "seconds": 7.0
+  },
+  "A07_the_candidate_set_wall_was_wrong/R238_difficulty_matched": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 1,
+   "seconds": 0.3
+  },
+  "A07_the_candidate_set_wall_was_wrong/R241_find_a_valid_stratifier": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 2,
+   "seconds": 0.7
+  },
+  "A08_triple_blind/R243_the_assumption_they_differ_on": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [
+    "granularity.json.verdict"
+   ],
+   "n_verdict_fields": 1,
+   "seconds": 3.1
+  },
+  "A12_missing_weight_semantics/R244_not_rated_or_rated_zero": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [
+    "missing_weights.json.verdict"
+   ],
+   "n_verdict_fields": 1,
+   "seconds": 3.0
+  },
+  "A12_missing_weight_semantics/R245_does_it_move_the_formulation": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [
+    "reading_sweep.json.verdict"
+   ],
+   "n_verdict_fields": 1,
+   "seconds": 5.4
+  },
+  "A13_is_the_admissibility_gate_the_right_gate/R253_is_A_real_just_n_in_a_costume": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 1,
+   "seconds": 3.1
+  },
+  "A13_is_the_admissibility_gate_the_right_gate/R259_does_the_rate_survive_noise": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 1,
+   "seconds": 4.2
+  },
+  "A16_what_the_definition_costs/R276_is_generic_degenerate": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 1,
+   "seconds": 1.2
+  },
+  "A16_what_the_definition_costs/R277_the_mde_of_the_design_that_priced_it": {
+   "kind": "candidate",
+   "status": "exit0",
+   "ab_identical": false,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 0,
+   "seconds": 4.3
+  },
+  "A01_can_this_release_be_analysed_at_all/R01_rater_structure": {
+   "kind": "non-candidate",
+   "status": "timeout",
+   "ab": null,
+   "placebo": null
+  },
+  "A01_can_this_release_be_analysed_at_all/R02_label_and_regime": {
+   "kind": "non-candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 0,
+   "seconds": 1.3
+  },
+  "A01_can_this_release_be_analysed_at_all/R03_stated_vs_revealed": {
+   "kind": "non-candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 1,
+   "seconds": 10.2
+  },
+  "A01_can_this_release_be_analysed_at_all/R05_value_taxonomy": {
+   "kind": "non-candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 1,
+   "seconds": 0.5
+  },
+  "A02_which_aggregation_rule/R06_rule_tournament": {
+   "kind": "non-candidate",
+   "status": "exit1",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 6,
+   "seconds": 2.1
+  },
+  "A02_which_aggregation_rule/R07_anthropomorphism": {
+   "kind": "non-candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 0,
+   "seconds": 1.4
+  },
+  "A03_is_the_attribution_real_and_against_what_floor/R16_minority_regret": {
+   "kind": "non-candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 0,
+   "seconds": 3.5
+  },
+  "A03_is_the_attribution_real_and_against_what_floor/R17_conditional_core": {
+   "kind": "non-candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 6,
+   "seconds": 14.9
+  },
+  "A03_is_the_attribution_real_and_against_what_floor/R18_routing_difficulty": {
+   "kind": "non-candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 11,
+   "seconds": 13.8
+  },
+  "A03_is_the_attribution_real_and_against_what_floor/R19_floor_choice": {
+   "kind": "non-candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 0,
+   "seconds": 0.1
+  },
+  "A01_structured_plurality_or_reliability/R23_actor_vs_dyad": {
+   "kind": "non-candidate",
+   "status": "timeout",
+   "ab": null,
+   "placebo": null
+  },
+  "A01_structured_plurality_or_reliability/R24_regime_receipt": {
+   "kind": "non-candidate",
+   "status": "exit0",
+   "ab_identical": true,
+   "placebo_identical": true,
+   "verdict_fields_moved": [],
+   "n_verdict_fields": 1,
+   "seconds": 1.9
+  }
+ },
+ "moved_candidates": [
+  "A02_the_chain_from_a_person_to_the_standard/R145_who_is_unserved",
+  "A04_is_the_detection_design_well_defined/R212_rebuilt_on_decisions",
+  "A04_is_the_detection_design_well_defined/R213_gauge",
+  "A04_is_the_detection_design_well_defined/R215_remaining",
+  "A04_is_the_detection_design_well_defined/R216_derivation",
+  "A01_is_our_own_compiler_better/R220_compiler_tournament",
+  "A02_does_decision_fitting_select_norms_or_the_proxy/R221_contamination",
+  "A04_which_definitions_of_core_are_identifiable/R225_do_raters_add_bits",
+  "A04_which_definitions_of_core_are_identifiable/R227_two_currencies",
+  "A04_which_definitions_of_core_are_identifiable/R231_the_official_cores_class",
+  "A07_the_candidate_set_wall_was_wrong/R238_difficulty_matched",
+  "A07_the_candidate_set_wall_was_wrong/R241_find_a_valid_stratifier",
+  "A08_triple_blind/R243_the_assumption_they_differ_on",
+  "A12_missing_weight_semantics/R244_not_rated_or_rated_zero",
+  "A12_missing_weight_semantics/R245_does_it_move_the_formulation",
+  "A16_what_the_definition_costs/R276_is_generic_degenerate",
+  "A16_what_the_definition_costs/R277_the_mde_of_the_design_that_priced_it"
+ ],
+ "moved_noncandidates": [],
+ "verdict_movers": [
+  "A02_does_decision_fitting_select_norms_or_the_proxy/R221_contamination",
+  "A04_which_definitions_of_core_are_identifiable/R231_the_official_cores_class",
+  "A08_triple_blind/R243_the_assumption_they_differ_on",
+  "A12_missing_weight_semantics/R244_not_rated_or_rated_zero",
+  "A12_missing_weight_semantics/R245_does_it_move_the_formulation"
+ ],
+ "placebo_broken": [],
+ "timeouts": [
+  "A01_who_pays_for_compilation/R122_metric_gauge_grid",
+  "A01_who_pays_for_compilation/R134_do_ratings_individuate",
+  "A01_can_this_release_be_analysed_at_all/R01_rater_structure",
+  "A01_structured_plurality_or_reliability/R23_actor_vs_dyad"
+ ],
+ "positive_control_ok": true
+}
