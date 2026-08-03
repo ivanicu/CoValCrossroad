@@ -23,9 +23,13 @@ WORLDS          W-SHRINK / W-REORDER / W-SELECTIVE — see README.
 KILL            conditional on the controls; thresholds R^2>=0.50 & 0<beta<1 -> SHRINK,
                 R^2<0.25 or beta CI spanning 0 -> REORDER, else UNRESOLVED.
 POSITIVE CTRL   ① construction parity: `topw_k4` / `random_k4_s0` reach 0.8B by two independent
-                paths (directly judged; subset of the judged full) and must agree to float32.
-                34 of 41 arms depend on that equality. ② the 0.8B judge is not blind:
-                `generic − random_k4_s0` resolvably positive. Both fail at g=0 by construction.
+                paths (directly judged; subset of the judged full). They must agree TO WITHIN THE
+                CELL'S OWN MDE -- not to float precision, because bf16 is not batch-invariant and
+                the two paths batch differently, so a float-precision gate would void 34 arms over
+                arithmetic noise. 34 of 41 arms depend on this equality, and the criterion is
+                itself floor/ceiling-checked: handed a MISMATCHED pair it must reject.
+                ② the 0.8B judge is not blind: `generic - random_k4_s0` resolvably positive under
+                both judges. Both controls fail at g=0 by construction.
 NEGATIVE CTRL   every *_sham excluded at 0.8B.
 PLACEBO         an arm against itself: exactly 0.
 NOISE FLOOR     per-cell MDE at each arm's own n, never pooled.
@@ -116,6 +120,18 @@ def main():
     # `topw_k4` and `random_k4_s0` were judged directly at 0.8B in R290 AND are subsets of the
     # 0.8B full. If those two paths disagree, the subset property is false under this judge and
     # every rebuilt arm is void — while R290 stands untouched. The control localises exactly.
+    #
+    # ⚠ THE THRESHOLD IS NOT FLOAT PRECISION, AND WRITING 1e-6 HERE WOULD HAVE BEEN A CONTROL
+    # THAT FAILS FOR ITS OWN REASONS. The two paths judge the same criterion against the same
+    # reply with the same template, but in DIFFERENT BATCHES: batch composition changes the
+    # left-padding, and a bf16 forward pass is not batch-invariant, so the logit gap moves in its
+    # last bits for reasons that have nothing to do with the subset property. A 1e-6 gate would
+    # have printed "the subset property is FALSE under this judge" and voided 34 arms over
+    # arithmetic noise the campaign has already measured (R281: cross-artifact 0.0009 at the mean).
+    #
+    # So the control is stated in the unit the ROUND reports: the parity holds if the clause-①
+    # effect computed by the two paths agrees to within that cell's own MDE. A difference the
+    # design cannot resolve cannot change a verdict, which is the only thing parity is for.
     print("  POSITIVE CONTROL 1 — construction parity (two independent paths to the same arm)\n")
     par, par_ok = {}, True
     for a in ("topw_k4", BASE_ARM):
@@ -123,15 +139,42 @@ def main():
         if not alt.exists():
             print(f"    {a:<16} only one path present — UNVERIFIED, not a pass"); par_ok = False
             par[a] = None; continue
-        v_direct = on(S8[a], pids)
-        v_subset = on(load_sat(alt), pids)
-        mx = float(np.max(np.abs(v_direct - v_subset)))
-        ok = mx < 1e-6
-        par[a] = mx; par_ok &= ok
-        print(f"    {a:<16} max |direct − subset| over {N} prompts = {mx:.3e}  "
-              f"{'PASS' if ok else 'FAIL — the subset property is FALSE under this judge'}")
+        vd, vs = on(S8[a], pids), on(load_sat(alt), pids)
+        base = on(S8[BASE_ARM], pids)
+        ed, es = float((vd - base).mean()), float((vs - base).mean())
+        d = vd - base
+        mde = ZEFF * d.std(ddof=1) / math.sqrt(N)
+        exact = float(np.mean(vd == vs))
+        ok = abs(ed - es) <= mde
+        par[a] = dict(eff_direct=ed, eff_subset=es, delta=ed - es, mde=mde,
+                      frac_exact=exact, max_abs=float(np.max(np.abs(vd - vs))))
+        par_ok &= ok
+        print(f"    {a:<16} clause ① direct {ed:+.4f} · subset {es:+.4f} · "
+              f"Δ {ed-es:+.4f} vs MDE {mde:.4f}  {'PASS' if ok else 'FAIL'}")
+        print(f"    {'':16} per-prompt agreement identical on {exact:.1%} of {N}; "
+              f"max |Δ| {par[a]['max_abs']:.2e} (bf16 batch noise, not a defect)")
+    # FLOOR AND CEILING for the parity criterion itself, because a control that has never been
+    # shown to fail is not a control. Hand it a MISMATCHED pair -- topw_k4 judged directly against
+    # random_k4_s0 rebuilt -- and it must reject. If it accepts that, the threshold is too loose
+    # to have licensed anything above it.
+    mism = RES / f"sat_{BASE_ARM}_08b.npz"
+    par_can_fail = None
+    if mism.exists() and par.get("topw_k4"):
+        vd = on(S8["topw_k4"], pids); vs = on(load_sat(mism), pids)
+        base = on(S8[BASE_ARM], pids)
+        dm = abs(float((vd - base).mean()) - float((vs - base).mean()))
+        par_can_fail = bool(dm > par["topw_k4"]["mde"])
+        print(f"    {'CAN-FAIL':16} mismatched pair (topw_k4 vs {BASE_ARM}) gives Δ {dm:.4f} "
+              f"> MDE {par['topw_k4']['mde']:.4f}: {par_can_fail}")
+        if not par_can_fail:
+            print(f"    {'':16} ⚠ the criterion cannot distinguish two DIFFERENT arms, so its "
+                  f"PASS above is degenerate")
+            par_ok = False
     if par_ok:
-        print("    -> the 0.8B arms rebuilt by subsetting are the same object as a direct judging")
+        print("    -> the rebuilt arms cannot move a verdict relative to a direct judging")
+    else:
+        print("    -> FAIL localises exactly: the subset property is false under this judge and")
+        print("       the 34 rebuilt arms are void. R290's directly-judged three are untouched.")
 
     IDX = np.random.default_rng(31337).integers(0, N, (NBOOT, N))
 
@@ -235,6 +278,23 @@ def main():
             bs[t] = fitxy(X[:, IDX[t]].mean(1), Y[:, IDX[t]].mean(1))
         return b0, r0, bs
 
+    # ⚠ THE 39 POINTS ARE NOT 39 INDEPENDENT ARMS. `random_k*_s{0,1,2}` is one rule at three
+    # seeds; `topw_k1..k12` is one rule at seven budgets. The between-family spread is large and
+    # the within-family spread is small, so an R^2 computed over all 39 can be carried almost
+    # entirely by the gap between families -- which would look like "the judges agree on the
+    # ordering of arms" while saying nothing about whether they agree WITHIN a family, which is
+    # where every admitted arm actually sits. The prompt bootstrap cannot see this: it resamples
+    # prompts, not arms. So the fit is reported three ways and the kill reads the weakest.
+    def family(a):
+        if a.startswith("random_k"): return "random_k"
+        if a.startswith("topw_k"): return "topw_k"
+        if a.endswith("_sham"): return "sham"
+        for f in ("topabs", "topvar", "topwvar", "oracle", "greedy", "indep"):
+            if a.startswith(f): return f
+        return a
+    FAM = {a: family(a) for a in fit}
+    fams = sorted(set(FAM.values()))
+
     res = {}
     print(f"\n  {'clause':<10}{'beta':>9}  {'95% CI':<22}{'R^2':>8}  {'95% CI':<22}")
     for cl in (1, 2):
@@ -245,6 +305,55 @@ def main():
                        r2=r0, r2_lo=float(rlo), r2_hi=float(rhi))
         print(f"  {'① vs random' if cl == 1 else '② vs blind':<10}{b0:>+9.4f}  "
               f"[{blo:+.4f}, {bhi:+.4f}]  {r0:>8.4f}  [{rlo:.4f}, {rhi:.4f}]")
+
+    # ---- is the slope carried by ONE family? leave-one-family-out, and within-family ordering --
+    def fitxy_arms(names, cl):
+        if cl == 1:
+            x = np.array([(V2[a] - Vb2).mean() for a in names])
+            y = np.array([(V8[a] - Vb8).mean() for a in names])
+        else:
+            x = np.array([(V2[a] - P2[a]).mean() for a in names])
+            y = np.array([(V8[a] - P8[a]).mean() for a in names])
+        xc, yc = x - x.mean(), y - y.mean()
+        if xc @ xc <= 0 or yc @ yc <= 0:
+            return float("nan"), float("nan")
+        return float(xc @ yc / (xc @ xc)), float((xc @ yc) ** 2 / ((xc @ xc) * (yc @ yc)))
+
+    print(f"\n  LEAVE-ONE-FAMILY-OUT on clause ① — {len(fams)} families over {len(fit)} arms\n")
+    print(f"    {'family dropped':<16}{'n left':>7}{'beta':>9}{'R^2':>9}")
+    lofo = {}
+    for f in fams:
+        keep = [a for a in fit if FAM[a] != f]
+        if len(keep) < 4:
+            lofo[f] = None; print(f"    {f:<16}{len(keep):>7}   too few arms to refit"); continue
+        b, r = fitxy_arms(keep, 1)
+        lofo[f] = dict(n=len(keep), beta=b, r2=r)
+        print(f"    {f:<16}{len(keep):>7}{b:>+9.4f}{r:>9.4f}")
+    got_l = [v for v in lofo.values() if v]
+    lofo_r2_min = min(v["r2"] for v in got_l) if got_l else float("nan")
+    lofo_b_lo = min(v["beta"] for v in got_l) if got_l else float("nan")
+    lofo_b_hi = max(v["beta"] for v in got_l) if got_l else float("nan")
+    print(f"    -> worst-case over droppable families: R^2 >= {lofo_r2_min:.4f}, "
+          f"beta in [{lofo_b_lo:+.4f}, {lofo_b_hi:+.4f}]")
+
+    print(f"\n  WITHIN-FAMILY ordering on clause ① — where every admitted arm actually sits\n")
+    print(f"    {'family':<16}{'n':>4}{'Spearman':>10}   arms")
+    wf = {}
+    for f in fams:
+        mem = sorted(a for a in fit if FAM[a] == f)
+        if len(mem) < 3:
+            wf[f] = None; continue
+        x = np.array([(V2[a] - Vb2).mean() for a in mem])
+        y = np.array([(V8[a] - Vb8).mean() for a in mem])
+        rx, ry = np.argsort(np.argsort(x)), np.argsort(np.argsort(y))
+        rxc, ryc = rx - rx.mean(), ry - ry.mean()
+        rho = float(rxc @ ryc / math.sqrt((rxc @ rxc) * (ryc @ ryc)))
+        wf[f] = dict(n=len(mem), rho=rho, arms=mem)
+        print(f"    {f:<16}{len(mem):>4}{rho:>+10.3f}   {', '.join(mem)}")
+    got_w = [v for v in wf.values() if v]
+    wf_min = min(v["rho"] for v in got_w) if got_w else float("nan")
+    print(f"    -> weakest within-family ordering: rho = {wf_min:+.3f}"
+          + ("" if got_w else "  (no family has >=3 arms in the fit)"))
 
     # W-SELECTIVE: do the two clause slopes have non-overlapping intervals?
     selective = (res[1]["beta_lo"] > res[2]["beta_hi"]) or (res[2]["beta_lo"] > res[1]["beta_hi"])
@@ -289,7 +398,15 @@ def main():
         print("     NOT a verdict of REORDER. The kill is not evaluated on a broken instrument.")
         world = "UNVERIFIED"
     else:
-        r2, blo, bhi = res[1]["r2"], res[1]["beta_lo"], res[1]["beta_hi"]
+        # ⚠ AMENDED BEFORE THE RUN, recorded in README.md: the pre-registration read the POOLED
+        # R^2, and the pooled R^2 can be carried by the gap between rule families. The kill now
+        # reads the WORST CASE over leave-one-family-out, which is strictly harder to pass. An
+        # amendment that makes a threshold harder, written before any number was seen, is the only
+        # kind that does not need to be discounted.
+        r2 = min(res[1]["r2"], lofo_r2_min) if got_l else res[1]["r2"]
+        blo, bhi = res[1]["beta_lo"], res[1]["beta_hi"]
+        print(f"  kill reads R^2 = min(pooled {res[1]['r2']:.4f}, LOFO worst "
+              f"{lofo_r2_min:.4f}) = {r2:.4f}")
         if r2 >= 0.50 and blo > 0 and bhi < 1:
             world = "W-SHRINK"
             print(f"  -> W-SHRINK. R^2 = {r2:.3f} and beta = [{blo:.3f}, {bhi:.3f}] lies inside")
@@ -314,9 +431,9 @@ def main():
     o.parent.mkdir(parents=True, exist_ok=True)
     o.write_text(json.dumps(dict(
         source_sha=src, n_prompts=N, n_arms=len(rows), fit_arms=sorted(fit), off_fit=off,
-        rows=rows, slope=res, world=world, selective=bool(selective), reversals=rev,
+        rows=rows, slope=res, world=world, families={f: [a for a in fit if FAM[a]==f] for f in fams}, lofo=lofo, within_family=wf, selective=bool(selective), reversals=rev,
         admitted_2b=adm2, admitted_08b=adm8, bh_cells=C, bh_survive=surv,
-        controls=dict(parity=par, parity_ok=bool(par_ok), not_blind=bool(blind_ok),
+        controls=dict(parity=par, parity_ok=bool(par_ok), parity_can_fail=par_can_fail, not_blind=bool(blind_ok),
                       placebo=float(self8[0]), sham_ok=bool(neg_ok)),
         spec_curve=spec, missing_08b=sorted(missing)), indent=1))
     print(f"\n  artifact {o.relative_to(ROOT)}  src {src}")

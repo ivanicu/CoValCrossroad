@@ -79,6 +79,17 @@ else:
 The conditional wrapper is not decoration: three kills in this project fired on instruments their
 own controls had already invalidated.
 
+> ⚠ **AMENDED before the run, and the amendment makes the threshold HARDER.** The `R2` above was
+> written as the pooled fit over all arms. The arms are not independent points: `random_k*_s{0,1,2}`
+> is one rule at three seeds and `topw_k1..k12` is one rule at seven budgets, so the between-family
+> spread is large, the within-family spread is small, and **a pooled R² can be carried almost
+> entirely by the gap between families** — which would read as *the judges agree on the ordering of
+> arms* while saying nothing about agreement **within** a family, where every admitted arm sits.
+> The prompt bootstrap cannot see this; it resamples prompts, not arms. So `R2` in the kill now
+> means `min(pooled, worst leave-one-family-out)`, and the within-family Spearman is reported
+> beside it. Recorded here because an amendment written after seeing a number is a narrative, and
+> the only defence is that this one is timestamped before the artifacts it judges existed.
+
 **What each outcome costs me.** W-SHRINK ⇒ `FORMULATION.md`'s instrument line is **too strong** and
 must say the ordering survives while the resolution does not. W-REORDER ⇒ it is **right and
 currently under-stated**, and clause ② needs a judge named inside its text. Either way a published
@@ -90,7 +101,7 @@ sentence changes.
 
 | | |
 |---|---|
-| **POSITIVE — construction parity** | `topw_k4` and `random_k4_s0` exist at 0.8B by **two independent paths**: judged directly by `judge_core.py` (R290), and rebuilt by subsetting `sat08_full.npz`. They must agree to floating point. **This is the control for the whole round**, because 34 of the 41 arms reach 0.8B only by the subset path. Failure localises exactly: the subset property is false under the new judge and the 34 rebuilt arms are void, while R290 stands. |
+| **POSITIVE — construction parity** | `topw_k4` and `random_k4_s0` exist at 0.8B by **two independent paths**: judged directly by `judge_core.py` (R290), and rebuilt by subsetting `sat08_full.npz`. **This is the control for the whole round**, because 34 of the 41 arms reach 0.8B only by the subset path. Failure localises exactly: the subset property is false under the new judge and the 34 rebuilt arms are void, while R290 stands. ⚠ **Threshold amended before the run** — the first draft demanded agreement to float precision, which would have been a control that fails for its own reasons: the two paths batch differently and a bf16 forward pass is not batch-invariant, so it would have voided 34 arms over arithmetic noise the campaign already measured (R281, 0.0009 at the mean). The criterion is now stated in the unit the round reports — the clause-① effect must agree **within that cell's own MDE** — and is floor/ceiling-checked by handing it a mismatched pair, which it must reject. |
 | **POSITIVE — the judge is not blind** | `generic − random_k4_s0` resolvably positive at BOTH judges (R290: +0.0587 at 2B, +0.0692 at 0.8B). Fails at g=0 by construction: two arms that are the same object return 0. |
 | **NEGATIVE** | the shams excluded at 0.8B, as everywhere. |
 | **PLACEBO** | an arm against itself: exactly 0. |
