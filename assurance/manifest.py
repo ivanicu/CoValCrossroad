@@ -309,7 +309,17 @@ CLAIMS = [
 
 
 def derived(doc, path: str):
-    """Fields that are computed from the curve rather than stored."""
+    """Fields that are computed from the curve rather than stored.
+
+    ⚠ GUARDED 2026-08-03, prophylactically and against my own instinct to leave working code
+    alone. 14 results files have a top-level LIST and `doc.get` raises AttributeError on them.
+    Three other checks in this directory crashed on exactly that today; `manifest.py` has not,
+    only because the files it is pointed at happen to be dicts. That is the difference between
+    correct and lucky, and it is invisible from the outside: this check exits 0 and reads 820
+    round files, so nothing about its output says it is one path away from the same crash.
+    """
+    if not isinstance(doc, dict):
+        return None
     if path == "overlap_rise":
         c = doc.get("curve") or []
         if len(c) < 2:

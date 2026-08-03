@@ -125,6 +125,18 @@ def main() -> int:
             # Catch what a bad FILE raises; let a broken FUNCTION crash.
             _SKIPPED.append(str(f))
             continue
+        # ⚠ THIRD INSTANCE OF ONE DEFECT, found only because worktree isolation classified this
+        # check as NEVER RAN rather than as an exit code. 14 results files have a top-level LIST
+        # (the census waves, the triple-blind grids); `doc.get` raises AttributeError on them, and
+        # the deliberately-narrow except above lets that crash — correctly, since a broken
+        # FUNCTION should crash. I fixed `corrections_propagated` and `readme_row_carries_the_verdict`
+        # this morning and stopped, having fixed the INSTANCES I had tripped over rather than the
+        # CLASS. A grep for `doc.get(` finds SIX checks; four were guarded, two were not.
+        # Fixing what you hit is not the same as fixing what is there, and the difference is one
+        # grep.
+        if not isinstance(doc, dict):
+            _SKIPPED.append(f"{f} (top level is a list, carries no verdict field)")
+            continue
         v = doc.get("verdict") or doc.get("conclusion")
         if isinstance(v, str) and v.strip():
             verdicts[rid] = v.split(" || ")[0]
