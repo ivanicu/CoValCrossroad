@@ -30,6 +30,7 @@ contents only** — every finding, its interval and its scope live in `E05/FORMU
 | `R295` held-out annotators are not held-out labels | the fitted arms have no advantage where the halves disagree |
 | `R296` is there an optimal k | the band k=3..8: entry and exit resolved, interior not |
 | `R297` why k=1 loses | the tie explanation is dead; the deficit survives removing ties |
+| `R298` is importance monotone | every criterion alone loses to one generic; together they win |
 
 ## Why the arc was opened rather than folded into A13
 

@@ -136,6 +136,35 @@ measurement:
 > **silent about the boundaries** — which were measurable all along, once the reference was
 > size-matched.
 
+### 🔷 THE VALUE IS IN THE COMBINATION, NOT IN ANY MEMBER (R298)
+
+`sat_topw_k4` stores its four criteria **in descending human-importance order**, so each can be
+scored alone. Every one of them, alone, is at or below **a single generic criterion** — and together
+they beat **four** generic ones:
+
+| criterion, alone | A2 | vs 1 generic | |
+|---|---:|---:|---|
+| rank #1 (most important) | 0.5364 | −0.0061 | below resolution |
+| rank #2 | 0.5314 | −0.0111 | below resolution |
+| rank #3 | 0.5233 | **−0.0192** | **LOSES** |
+| rank #4 | 0.5225 | **−0.0200** | **LOSES** |
+| **all four summed** | **0.5642** | **+0.0216** | **BEATS** |
+| *one generic criterion* | *0.5425* | | |
+
+**And no rank ordering among the four is resolvable** — adjacent pairs 1v2 −0.0058, 2v3 +0.0081,
+3v4 +0.0008, rank1−rank4 +0.0031 against an MDE of 0.0149, **none separating.** The point-estimate
+order is [2, 1, 3, 4], which is not the importance order, but **nothing in it is measured.**
+
+> **So the human importance ranking carries no resolvable predictive ordering at its own top** —
+> a weaker and different claim than *anti-predictive*, which the round's own adjacent-pair table
+> refutes. **`topw` succeeds at k ≥ 3 by aggregation over a list whose order is unverified**, and
+> the definition admits it on that basis.
+
+This is also the k-curve's explanation: **k=1 loses because no single rubric criterion beats a
+generic one; k ≥ 3 wins because aggregating rubric criteria beats aggregating generic ones.**
+Positive control: all four beat the best singleton by **+0.0328** [+0.0251,+0.0400] — summation is
+doing the work, and doing a lot of it.
+
 ⚠ **`k=1` LOSING HAS NO MECHANISM, AND THE OBVIOUS ONE IS DEAD** (R297). I pre-registered that a
 single high-importance criterion is often a specific requirement all four responses either meet or
 miss, so it emits **ties**, and a tie can never match a human's non-zero sign. Measured:
