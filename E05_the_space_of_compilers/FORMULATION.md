@@ -144,6 +144,45 @@ comparisons carry 0.0009 at the mean**, below the 0.0134 MDE.
 **Under the revision: 2 admitted of the 9 arms it can judge** — `coval_core` and `topw_k4`. `full`
 is **PENDING**: the only arm whose size is unmatched (median 15 vs 4), neutral arm on the GPU (R281).
 
+### ✅ CLAUSE 2 SURVIVES ITS OWN META-SEPARATOR — 1,820 subsets enumerated exactly (R286)
+
+The clause says *better than the same NUMBER of criteria that never read the conversation.* If its
+threshold moves with **how good my generic criteria happen to be**, it measures my baseline, not
+cores. All `C(16,4) = 1820` prompt-blind quadruples, enumerated **exhaustively** and pool-internal:
+
+| min | p25 | median | p75 | p90 | p99 | **max (in-sample)** |
+|---:|---:|---:|---:|---:|---:|---:|
+| 0.5144 | 0.5329 | 0.5391 | 0.5446 | 0.5490 | 0.5546 | **0.5575** |
+
+**Even the in-sample argmax — a selection artifact, quoted only to be dismissed — falls short of
+`coval_core`'s 0.5665.** Held out properly (chosen on half the prompts, scored on the other half,
+10 splits):
+
+| selection rule | in-sample | held-out | shrinkage |
+|---|---:|---:|---:|
+| best | 0.5584 | **0.5549** | +0.0036 |
+| 2nd best | 0.5576 | 0.5554 | +0.0022 |
+| 90th pct | 0.5487 | 0.5506 | −0.0019 |
+
+| arm | vs best held-out blind | |
+|---|---:|---|
+| `coval_core` | **+0.0119** [+0.0048, +0.0187] | separable, BH ✓ |
+| `topw_k4` | **+0.0096** [+0.0026, +0.0164] | separable, BH ✓ |
+
+> **No prompt-blind quadruple in this vocabulary reaches the admitted arms even when chosen to.**
+> Clause 2 is about cores, **bounded to this 16-criterion pool** — a negative result here is a
+> bound, not a proof that no better generic vocabulary exists.
+
+⚠ **The incumbent `generic` sits at the 93.7th percentile of 1,820.** Four criteria written by hand
+in one line, with no fitting, land in the top 7% of every quadruple the pool can form — which is
+why it was such a punishing baseline, and a reminder that *hand-picked* is not *weak*.
+
+⚠ **The first bootstrap here was wrong and the correction widened it 2×.** It concatenated 10
+eval-halves into 4,840 rows — but those are **968 prompts appearing ~5 times each**, so `n_eff` is
+the cluster count, not the row count (P14). Corrected to average each prompt over the splits where
+it was held out and bootstrap the 968: `coval_core`'s CI went **[+0.0070,+0.0136] → [+0.0048,+0.0187]**.
+Verdict unchanged, interval not.
+
 ⚠ **What the revision does NOT license.** Both survivors depend on a *selector*, and `topw_k4`'s
 reads **human importance metadata that is not a property of the conversation**. The tempting
 conclusion — every route to a core runs through human annotation — **was tested in R284 and not
