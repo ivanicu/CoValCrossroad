@@ -30,6 +30,8 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--batch", type=int, default=32)
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--model", default=MODEL,
+                    help="judge model dir; default Qwen3.5-2B-Base. A second judge is how `cross-model` stops being registered as impossible.")
     a = ap.parse_args()
 
     from covalx.judge import Judge, build_prompt, load_join
@@ -67,7 +69,8 @@ def main():
     print(f"  core       : {a.core}")
     print(f"  prompts    : {len(pids)}   judge calls: {len(prompts)}", flush=True)
     t0 = time.time()
-    j = Judge(MODEL, batch=a.batch)
+    j = Judge(a.model, batch=a.batch)
+    print(f"  judge: {a.model}", flush=True)
     sat = j.score(prompts) if hasattr(j, "score") else j(prompts)
     sat = np.asarray(sat, dtype=np.float32)
     out = pathlib.Path(a.out); out.parent.mkdir(parents=True, exist_ok=True)
