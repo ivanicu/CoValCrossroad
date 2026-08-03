@@ -1,0 +1,64 @@
+{
+ "prompts": 250,
+ "r_default_vs_cache": 0.9406919673439298,
+ "mad_cache": 0.06320850955862303,
+ "r_flipped": 0.7799978571665765,
+ "r_sham": 0.9880649081261504,
+ "determinism_max_diff": 0.03120940923690796,
+ "affine_residual_mean": 0.03489249123576941,
+ "quantities": {
+  "default": {
+   "Q1_core": 0.404,
+   "Q1_floor": 0.387,
+   "Q1_floor_lo": 0.308,
+   "Q1_floor_hi": 0.448,
+   "Q2_sign": {
+    "1": [
+     207,
+     31
+    ],
+    "2": [
+     232,
+     15
+    ],
+    "3": [
+     224,
+     23
+    ]
+   },
+   "Q3_minimal": 1.404,
+   "Q4_lambda_excess": 0.14360647078156352,
+   "Q4_rank1_class": 0.464
+  },
+  "flipped": {
+   "Q1_core": 0.316,
+   "Q1_floor": 0.3722,
+   "Q1_floor_lo": 0.336,
+   "Q1_floor_hi": 0.408,
+   "Q2_sign": {
+    "1": [
+     203,
+     32
+    ],
+    "2": [
+     222,
+     27
+    ],
+    "3": [
+     209,
+     37
+    ]
+   },
+   "Q3_minimal": 1.612,
+   "Q4_lambda_excess": 0.14987468066291088,
+   "Q4_rank1_class": 0.416
+  }
+ },
+ "verdicts": {
+  "Q1 R231 core vs floor": "OVERTURNED",
+  "Q2 R252 redundancy sign": "CONFIRMED",
+  "Q3 R249 minimal size": "DOWNGRADED gauge-dependent",
+  "Q4 R256 lambda excess": "CONFIRMED",
+  "Q4b R256 rank-1 class": "CONFIRMED"
+ }
+}

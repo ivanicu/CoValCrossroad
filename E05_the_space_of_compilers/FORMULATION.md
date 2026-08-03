@@ -19,8 +19,20 @@ ran and its controls did not behave; never an acquittal. `OPEN` — running now.
 > | `representative` | the criteria actually printed. **A choice, not a measurement.** |
 > | `certificate` | which is which, at what noise, on whose instrument, and what was not measured |
 >
-> **Admissible only if** `C(n,k) ≤ a(m)` — the capacity bound — **and that is all the release
-> supports.** The gate is a statement about the SIZE of the candidate space and nothing more.
+> **Admissible only if** `C(n,k) ≤ a(m)`, where `a(m)` is the ordered Bell number — `a(4) = 75`,
+> i.e. **`log₂ 75 = 6.23` bits.**
+>
+> ⛔ **AND THE DEFINITION CONTRADICTS ITS OWN CLAIM 5.** Claim 5 is still `MEASURED` and was never
+> retracted: the channel delivers `H_eff ∈ [1.02, 3.45]` bits, so the gate's 6.23 is wrong by 2–6×.
+> The gate went `log₂|H(Q)| ≤ H_eff` → `C(n,k) ≤ A_real` → `C(n,k) ≤ a(m)`, and **un-retracting
+> `A_real` silently reverted `H_eff` too — only `A_real` was retracted.** So this is not where the
+> definition started; it is two steps behind it, at the pre-R237 noiseless bound.
+>
+> **What that leaves, stated plainly: the definition currently carries NO admissibility criterion
+> valid in this release's own noise regime.** The gate is a number the document says is wrong, its
+> replacement is retracted (R253), and the one surviving upgrade is scoped to `eps = 0` (R259) — a
+> world with 47.8% two-rater agreement is not that world. **Found by a clean-context adversary, not
+> by me, and I had predicted "it ended where it started", which was the flattering reading.**
 >
 > ⛔ **`A_real` was tried as the right-hand side and is RETRACTED (R248 → R253).** It measures
 > something real (claim 8, which survives) but it **predicts nothing about recoverability that the
@@ -68,14 +80,20 @@ above the forced bound of 75. Class recovery **1.0000** at zero noise (an identi
 **2 · The answer is a function of `Q` **and of the baseline's format**, and the sign can flip on
 either.** `MEASURED` (R231, R243, and R235 independently)
 On `Q =` reproduce Full's weak ordering, the official core scores **0.3864** against a random-4 floor
-of **0.3836 [0.3657, 0.4019]** — inside the floor's own spread. On `Q =` predict human pairwise
+of **0.3836** — inside the floor's own draw spread, whose `[0.3657, 0.4019]` is a MIN AND MAX OF 20 DRAWS and is no longer quoted as an interval. On `Q =` predict human pairwise
 preferences (R220), **0.6602** against a random range of **0.645–0.659** — clearly above. Same data,
 same judge, opposite verdicts. **Reporting a preservation percentage without naming `Q` reports a
 choice.**
 
 ⚠ **Corrected 2026-08-03 by the blind arm.** R243 swept `Q`'s granularity and the sign flips between
 requiring **6 of 6** pairwise relations and **5 of 6** — so granularity explains the *sign*. It does
-not explain the *magnitude*: my graded endpoint is `+0.0068` and R235's is `+0.2466`, 36×. **A second
+not explain the *magnitude* — **but "36×" is wrong twice and both errors inflate it.**
+`+0.0068` is a mean pairwise agreement on `[0,1]`; `+0.2466` is Kendall τ_b on `[−1,+1]`. With zero
+sign-ties `τ = 2·frac − 1` holds *identically*, and R243's core τ is `0.6643` against R235's `0.663`
+— **on one scale the ratio is 18×.** And the numerator is not reproducible: R243's floor is seeded
+with `abs(hash((p, d)))` on a **string** id, so under `PYTHONHASHSEED = 1/2/3/unset` the delta is
+`+0.0084 / +0.0090 / +0.0083 / +0.0098` — **the published `+0.0068` is below all four**, the extreme
+that maximises the ratio. Honestly re-run it is 25–30×; on a common scale, 18×. **A second
 axis differs, and R235 found it without being told to look**: whether the random baseline is granted
 the **signed** weights the core's format cannot carry. R235's own grid: *"72 of 286 cells have a CI
 containing 0 or Δ<0 and **all** of them use signed weighting; **zero** uniform cells fail."*
@@ -92,8 +110,9 @@ A 10-point score beats a ranking by `+0.5607` at zero noise and `+0.0118` at the
 calibrated to the release's own 47.8% two-rater agreement — **inside** a seed spread of `0.0296`. A
 47× difference between the regime the capacity argument assumed and the one that applies.
 
-**5 · The bound must use the noisy channel — and even that is the wrong axis.** `MEASURED`, as a
-bracket (R237), **superseded as the gate by claim 8** (R248)
+**5 · The bound must use the noisy channel — and the gate now CONTRADICTS this claim.** `MEASURED`,
+as a bracket (R237). ⚠ **The status line used to read "superseded as the gate by claim 8 (R248)";
+claim 8's gate role was itself retracted by R253, so this was superseded by nothing.**
 `H_eff ∈ [1.02, 3.45]` bits at the release's noise and rater count, against the `6.23` five rounds
 assumed. `k=1` needs `3.91`, so **a one-criterion core sits at the edge of the bracket.** Partially
 identified, so bounds and not a point.
@@ -103,7 +122,14 @@ the wrong quantity at any sharpness: the binding constraint is how many classes 
 separates, which is a property of the criteria's mutual agreement and is invisible to every channel
 argument. `H_eff` stays as the noise correction it is; it is no longer the gate.
 
-**6 · The failure is the per-prompt factoring, not the data volume.** `DERIVED` (R239)
+**6 · The failure is the per-prompt factoring, not the data volume.** ⚠ `UNVERIFIED` (R239,
+downgraded by R255)
+**R239 checked its independence assumption by EXACT TOKEN-SET IDENTITY** — of 15,058 criterion
+token-sets, one recurs. **R255 then measured that half of all co-prompt criterion pairs share no
+content word at all and still agree behaviourally** (median lexical Jaccard `0.0000`; discrimination
+predicts agreement at ρ +0.1440 where lexis manages +0.0447). **Lexical distinctness does not imply
+observational independence, and the bits-add derivation `[1006, 3402]` and `k ≤ 119` rest on it.**
+Found by a clean context reading two of my own rounds against each other.
 Within a prompt the bits do not add; across 986 prompts they do — `[1006, 3402]`. A **global** core
 of up to `k=119` is identifiable at the conservative end while a per-prompt core of **2** is not.
 The independence assumption was checked: of 15,058 distinct criterion token-sets, **one** appears in
@@ -186,9 +212,11 @@ marginal-matched +1.40 and +5.40). Controls: identical criteria give `A_real = 1
 the **sham** — the *same* permutation applied to every criterion, i.e. relabelling the responses —
 leaves `A_real` **unchanged at 9 / 14 / 15**, which is what isolates *agreement* from *labelling*.
 
-Consequence for the definition: a capacity argument cannot see redundancy, so no amount of
-sharpening `H_eff` reaches the real constraint. Two rubrics with identical `n`, `m` and noise have
-different `A_real`, and only the second number predicts whether a core is recoverable.
+⛔ **Consequence: none for the definition.** This paragraph used to end *"only the second number
+predicts whether a core is recoverable"* — verbatim the sentence R253 retracted, left standing three
+lines under a heading I had already fixed (`fc2c5c4`). **A fix that landed on one path of two**, and
+a clean context found it before I did. `A_real` predicts recovery no better than `n`; redundancy is
+a real property of the rubric that governs nothing measured here.
 
 ⚠ **This round's first positive control could not pass, and repairing it produced the result.** It
 demanded `A_real = C(n,k)` from a "maximally separated" synthetic prompt — but a class is a **weak
@@ -278,6 +306,15 @@ moves its output to **r = 0.77 against itself**. R234's positive control reprodu
 at r = 0.998, so the instrument is faithfully re-implemented — and then fails a basic gauge test that
 **every round here, including all of mine, has assumed away.**
 
+**And R257 ran the propagation R234 called for — it moves two claims and reached no line of this
+document until a clean context pointed at it.** Under the flipped label order the core goes from *at*
+its floor (0.4040 vs 0.3870) to **below** it (0.3160 vs 0.3722), and R249's minimal size moves
+1.404 → 1.612, which `R257/results/gauge_propagation.json` marks `DOWNGRADED gauge-dependent`.
+⚠ That first pass disqualified itself — its positive control hit `r = 0.9407` against the cache
+where R234 gets 0.998, because I retyped the prompt instead of importing it — **but the gauge move
+(0.088) is 5× the re-implementation drift (0.018)**, so it is not explained away by my defect. The
+repaired run is `580`.
+
 Stable across all four instruments: `top4_pos − core` on humans is **null on all four**, and core
 veto retention ≫ full_unit on all four. **Not** stable: above-chance retention (0.673–0.919), veto
 retention magnitude (0.458–0.864), and the polarity sign.
@@ -319,7 +356,10 @@ Attributed, not absorbed. Design A has not returned and none of this is replicat
 
 ## What the official core scores against this, and why that is not an indictment
 
-R236 issues the certificate: **NOT ADMISSIBLE, two fields FAILED.**
+R236 issued the certificate as **NOT ADMISSIBLE, two fields FAILED** — ⚠ **and that header is now
+stale, because the two bullets under it repair both fields it names.** `representative` was issued
+by R249; `provenance` is ≥ 0.0777 by string identity (R250). The header stood for eight rounds and
+then survived its own repair by three.
 
 - `representative` **— the split now exists** (R249). Eight rounds repeated *"naming the split would
   pass the field"* without producing it, because R228's `k_max` describes the **space of candidate
