@@ -20,6 +20,7 @@ contents only** — every finding, its interval and its scope live in `E05/FORMU
 | `R285` how wide is the admissible band | how many resolution units does the definition have to work in? |
 | `R286` is clause 2 a property of the baseline | does the clause measure cores, or my generic vocabulary? |
 | `R287` how much selection may a baseline have | the last unresolved row, and what a baseline is allowed to be |
+| `R288` does the partition survive the target | six agreement statistics, four admitted sets |
 
 ## Why the arc was opened rather than folded into A13
 

@@ -2,9 +2,13 @@
 
 ## ⭐ THE DEFINITION AS IT STANDS, 2026-08-03 — both clauses restated to say what they test
 
-> **A core is a set of criteria that predicts held-out human judgement**
+> **A core is a set of criteria whose verdicts agree with a held-out human annotator's, pairwise,**
 > **① better than the same number drawn at random from that conversation's own rubric, and**
 > **② better than the same number that never read the conversation at all.**
+
+⚠ **"a held-out human annotator's, pairwise" is load-bearing, not throat-clearing** — R288 swept six
+defensible agreement targets and got **four different admitted sets**. `predicts held-out human
+judgement` is underdetermined on this release; the statistic is part of the definition.
 
 **Why both clauses are worded against a named object rather than against "chance".** R285 measured
 chance directly, by drawing the comparison partner from a *different* prompt: **0.3833** human-vs-
@@ -59,6 +63,41 @@ a property of the conversation** — no compiler working from the conversation a
 `coval_core`'s advantage is the *same* mechanism was tested (R284) and **could not be supported**:
 0.6856 Pearson against a matched no-shared-mechanism floor of 0.5581, clearing on Pearson and not on
 Spearman. So *"every route to a core runs through human annotation"* is **not claimed.**
+
+### ⛔ THE PARTITION IS TARGET-DEPENDENT — the definition must name its statistic (R288)
+
+Every number above is **A2 against a single drawn annotator**. That is one of six defensible
+human-agreement targets this release supports. Swept:
+
+| target | `coval` | `topw` | `generic` | `gen` | `full` | `sham` | ADMITTED |
+|---|---:|---:|---:|---:|---:|---:|---|
+| **A2 · annotator** | 0.5665 | 0.5642 | 0.5514 | 0.5352 | 0.5087 | 0.4828 | **coval, topw** |
+| A2 · consensus | 0.6853 | 0.6823 | 0.6632 | 0.6367 | 0.5921 | 0.5608 | **coval, topw** |
+| A1 · annotator | 0.0665 | 0.0660 | 0.0592 | 0.0610 | 0.0447 | 0.0382 | **none** |
+| A1 · consensus | 0.1519 | 0.1539 | 0.1312 | 0.1343 | 0.0868 | 0.0919 | **none** |
+| Kendall τ · mean | 0.4092 | 0.4040 | 0.3700 | 0.3161 | 0.2261 | 0.1583 | **coval only** |
+| top-1 · mean | 0.5424 | 0.5548 | 0.5052 | 0.4876 | 0.4215 | 0.3740 | **topw only** |
+
+**Four distinct admitted sets across six targets.** Positive control (`gen_sham` excluded
+everywhere) ✓; negative control (an arm against itself, all targets) exactly 0 ✓; 73 of 108 cells
+survive BH.
+
+> **So the definition's text must name A2·annotator.** "Predicts held-out human judgement" is
+> underdetermined — the release supports six readings of it and they partition differently.
+
+⚠ **But what moves is RESOLUTION, not mostly direction — and I had to compute that rather than
+assume it.** Pairwise ordering agreement across the six targets: **Kendall τ min 0.556, median
+0.778, max 1.000.** Against A2·annotator, four of five other targets sit at **τ = +0.944** and move
+only the two worst arms. **A1·consensus is the outlier at τ = +0.556**, and it is where the
+partition breaks hardest: nothing is admissible because A1's base rate is ~6% and every margin sits
+inside its own resolution.
+
+⚠ **The single most uncomfortable cell, stated because it is the one I would rather not have found:
+on A1·consensus, `full` (0.0868) scores BELOW `gen_sham` (0.0919)** — the entire rubric below
+criteria written for a *different conversation*. One target of six, and the only one where any arm
+crosses the sham. It is not evidence that `full` is worse than a sham; it is evidence that
+**A1·consensus cannot tell them apart**, which is the same thing as saying it cannot carry this
+definition.
 
 ### The scope every number above carries
 
