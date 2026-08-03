@@ -136,6 +136,25 @@ measurement:
 > **silent about the boundaries** — which were measurable all along, once the reference was
 > size-matched.
 
+⚠ **`k=1` LOSING HAS NO MECHANISM, AND THE OBVIOUS ONE IS DEAD** (R297). I pre-registered that a
+single high-importance criterion is often a specific requirement all four responses either meet or
+miss, so it emits **ties**, and a tie can never match a human's non-zero sign. Measured:
+
+| k=1 statistic | `topw` | generic | Δ | |
+|---|---:|---:|---:|---|
+| across-response spread | 0.1362 | 0.1401 | −0.0038 | **unresolved** |
+| tie rate | **5.10%** | **4.06%** | +1.0 pt | **below resolution** (kill threshold was 5 pts) |
+| **A2 on NON-TIED pairs only** | **0.5435** | **0.5585** | **−0.0150** | the deficit **survives** removing ties entirely |
+
+> **The tie explanation is dead.** Restricting to pairs where `topw_k1` emits a non-zero sign leaves
+> the deficit essentially unchanged (−0.0150 against an overall −0.0170). So **the single criterion
+> the humans rated most important predicts their own pairwise preferences worse than *"the reply is
+> accurate and factually correct"* — and this file has no mechanism for that.** It is recorded as an
+> open finding, not resolved by the nearest available story.
+
+Positive control: `topvar_k4`, which selects **by** spread, exceeds `topw_k4` at the same k
+(**0.5663 vs 0.4531**) — the spread statistic is not blind, so the null above is a measurement.
+
 Positive control: k=1 → k=4, the widest span in the band, separates at **+0.0307** [+0.0212,+0.0398]
 against an MDE of 0.0133 — the design can see k. Negative: k=4 against itself exactly 0. 10 of 13
 cells survive BH.

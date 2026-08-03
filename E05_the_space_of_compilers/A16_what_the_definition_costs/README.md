@@ -29,6 +29,7 @@ contents only** — every finding, its interval and its scope live in `E05/FORMU
 | `R294` the definition against everything | 41 arms, 8 admitted, and the census was governed by its smallest member |
 | `R295` held-out annotators are not held-out labels | the fitted arms have no advantage where the halves disagree |
 | `R296` is there an optimal k | the band k=3..8: entry and exit resolved, interior not |
+| `R297` why k=1 loses | the tie explanation is dead; the deficit survives removing ties |
 
 ## Why the arc was opened rather than folded into A13
 
