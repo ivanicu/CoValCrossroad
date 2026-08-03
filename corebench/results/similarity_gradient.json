@@ -1,0 +1,76 @@
+{
+  "controls": [
+    [
+      "POS  planted slope recovered, monotone",
+      true,
+      "a=0.0:-0.0104 a=0.1:+0.0896 a=0.25:+0.2396 a=0.5:+0.4896"
+    ],
+    [
+      "POS  silent at a=0",
+      true,
+      "-0.0104"
+    ],
+    [
+      "NEG  cross-prompt permutation collapses the DECILE RANGE",
+      true,
+      "0.0529 -> 0.0498 over 3 draws"
+    ],
+    [
+      "PLA  usefulness on itself gives slope exactly 1",
+      true,
+      "1.000000"
+    ]
+  ],
+  "deciles": [
+    [
+      0.5487380330722367,
+      0.015032808492963724
+    ],
+    [
+      0.5509138381201044,
+      0.015731472949810706
+    ],
+    [
+      0.577893820713664,
+      0.015125747309564844
+    ],
+    [
+      0.5815881326352531,
+      0.014188534782795614
+    ],
+    [
+      0.5761531766753699,
+      0.014262383131133066
+    ],
+    [
+      0.5726718885987816,
+      0.014742350469717766
+    ],
+    [
+      0.556,
+      0.014727740552064205
+    ],
+    [
+      0.5625535561268209,
+      0.013795013866203345
+    ],
+    [
+      0.5750868055555555,
+      0.014578726866341025
+    ],
+    [
+      0.5287206266318538,
+      0.015615552894114999
+    ]
+  ],
+  "floor": 0.01478003313147093,
+  "n_clusters": 968,
+  "n_rows": 3828,
+  "slope": [
+    -0.01453451138411574,
+    -0.06298460619024294,
+    0.03273563337324377
+  ],
+  "source_sha256_16": "14a76cbc6cddcf22",
+  "verdict": "W4 -- FLAT against its OWN null. The decile range 0.0529 is only 1.06x the permuted range 0.0498; similarity carries nothing about usefulness at any threshold or in any shape."
+}
