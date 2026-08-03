@@ -63,21 +63,21 @@
   "computable": true
  },
  {
-  "label": "veto coverage is total, not partial",
+  "label": "veto coverage is the ASKED share, not 1.0 (R314)",
   "a": 1.0,
   "b": 1.0,
   "tol": 1e-09,
-  "why": "r149 reported 330 of 1100 prompts carrying the block; r150 measured 100% of assessments. If coverage is not 1.0 the correction committed in r150 is itself wrong",
+  "why": "kept at 1.0 because that is what R150's artifact still holds and the artifact is not rewritten (L81: annotate, never rewrite). It passes, and the PASS is the finding: R314 measured 5,006 of 18,678 assessments asked = 0.268. Read this row as `R150's stored coverage is still the pre-correction one`, never as `coverage is total`",
   "ok": true,
   "computable": true
  },
  {
-  "label": "full-rejection rate: r150 distribution vs r151 direct count",
-  "a": 0.0105,
-  "b": 0.03895,
-  "tol": 0.003,
-  "why": "the same quantity computed in two rounds from the same field; they should agree to rounding and a larger gap means one of them filtered silently",
-  "ok": false,
+  "label": "full rejections: r150 distribution x its own n vs r151 direct count (R314)",
+  "a": 194.901,
+  "b": 195,
+  "tol": 3,
+  "why": "the two rounds agree on the EVENT COUNT and disagree only on what to divide it by: r150 divides by all 18,562 rows it saw, r151 by the 5,006 where the question was actually posed. R314 established the second is the population and that all 195 lie inside it. Comparing the rates is a category error -- `name the estimand before the bound`",
+  "ok": true,
   "computable": true
  },
  {
