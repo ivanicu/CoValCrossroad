@@ -581,9 +581,9 @@ what this replaces.)
 | **0.12** | 0.4535 | **0.8600** |
 | 0.20 | 0.5104 | 1.0000 |
 
-> ### The site's MDE is **(0.10, 0.12]** in class-agreement units.
+> ### The site's MDE is **[0.1250, 0.1250]** in class-agreement units (R274; R268's `(0.10, 0.12]` was read off a 0.02 grid with a 200-draw calibration and is superseded **upward**).
 >
-> ### And the arc chose the coarser statistic: the HUMAN-ranking statistic's MDE is **(0.025, 0.030]** — **4× finer, on the same release** (R271).
+> ### And the arc chose the coarser statistic: the HUMAN-ranking statistic's MDE is **[0.0260, 0.0300]** — the gap is **[4.17×, 4.81×]**, on the same release (R271 → R274).
 
 ⚠ **R270 measured that gap at 2× and said it missed its own 3× threshold. R271 supersedes it**: R270
 collapsed each prompt's annotators to a consensus *sign* first, giving 5,808 rows over 968 clusters
