@@ -1,6 +1,6 @@
 {
- "source_sha": "71f1d3144e36a402",
- "n_cells": 134,
+ "source_sha": "fa9414c7615c860f",
+ "n_cells": 135,
  "n_comparable": 71,
  "by_round": {
   "R276_is_generic_degenerate": 18,
@@ -9,28 +9,10 @@
   "R281_a_size_matched_neutral_arm": 4,
   "R282_neutral_clause_at_matched_k4": 8,
   "R286_is_clause_2_a_property_of_the_baseline": 2,
-  "R287_how_much_selection_may_a_baseline_have": 12
+  "R287_how_much_selection_may_a_baseline_have": 12,
+  "R292_audit_every_published_cell": 1
  },
- "disagreements": [
-  {
-   "round": "R281_a_size_matched_neutral_arm",
-   "path": "arms/gen",
-   "eff": -0.005142374713401734,
-   "lo": -0.01293436864313848,
-   "hi": 0.002362940536202884,
-   "mde": 0.010924336185393353,
-   "stored": "UNRESOLVED"
-  },
-  {
-   "round": "R286_is_clause_2_a_property_of_the_baseline",
-   "path": "arms/topw_k4",
-   "eff": 0.0095786405753011,
-   "lo": 0.0026466177425001256,
-   "hi": 0.01641195178438941,
-   "mde": 0.010373774383668146,
-   "stored": "arm ahead, separably"
-  }
- ],
+ "disagreements": [],
  "pos_ctrl_caught": [
   "0.8B coval_core",
   "0.8B topw_k4",

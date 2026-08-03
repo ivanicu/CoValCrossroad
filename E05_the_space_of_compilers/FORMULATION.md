@@ -378,9 +378,16 @@ cores. All `C(16,4) = 1820` prompt-blind quadruples, enumerated **exhaustively**
 | `coval_core` | **+0.0119** [+0.0048, +0.0187] | separable, BH ✓ |
 | `topw_k4` | +0.0096 [+0.0026, +0.0164] | ⚠ **BELOW RESOLUTION** — its own MDE is **0.0104**. CI excludes zero, \|eff\| does not clear the MDE. **Downgraded by R292.** |
 
-> **No prompt-blind quadruple in this vocabulary reaches the admitted arms even when chosen to.**
-> Clause 2 is about cores, **bounded to this 16-criterion pool** — a negative result here is a
-> bound, not a proof that no better generic vocabulary exists.
+> ⚠ **W-BASELINE, PARTIAL — and the kill fired once its own rule was applied.** `coval_core` stays
+> separably ahead of the best held-out blind quadruple (+0.0119 vs MDE 0.0101). **`topw_k4` does
+> not** (+0.0096 vs MDE 0.0104). So *"no prompt-blind quadruple reaches the admitted arms"* is
+> established for **one** of the two — for `topw_k4` the blind arm is **not shown to be behind,
+> only not shown ahead.** Bounded to this 16-criterion pool either way.
+
+⚠ **R286's KILL originally read `lo > 0` — the CI criterion — while its own table read
+`|eff| ≥ MDE`.** A kill running a different rule than the table above it is the verdict-string
+failure moved into the branch, **which is worse: the table is read by a person and the branch is
+not.** Both now use the same computed verdict, and the kill's answer changed from `False` to `True`.
 
 ⚠ **The incumbent `generic` sits at the 93.7th percentile of 1,820.** Four criteria written by hand
 in one line, with no fitting, land in the top 7% of every quadruple the pool can form — which is

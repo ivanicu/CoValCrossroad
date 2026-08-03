@@ -35,12 +35,27 @@ sys.path.insert(0, str(ROOT / "corebench"))
 from report import verdict, POS, NEG, UNRES, BELOW          # noqa: E402
 
 A = ROOT / "E05_the_space_of_compilers/A16_what_the_definition_costs"
-NORM = {"RESOLVED": {POS, NEG}, "BELOW RESOLUTION": {BELOW, UNRES}, "MARGINAL": {BELOW, UNRES},
-        "unresolved": {UNRES, BELOW}, "UNRESOLVED": {UNRES, BELOW},   # ⚠ the uppercase key
-        # was MISSING and produced a false disagreement on R281/gen, where stored and
-        # computed were both UNRESOLVED. A normalisation table is an instrument too. "BEATS": {POS}, "LOSES": {NEG},
-        "PASSES neutral clause 2": {POS}, "FAILS — worse than generic": {NEG},
-        "arm ahead, separably": {POS}, "NOT SEPARABLE": {UNRES, BELOW}, "blind ahead": {NEG}}
+# ⚠ THIS TABLE IS AN INSTRUMENT AND HAS HAD TWO BLIND SPOTS. (1) The uppercase key `UNRESOLVED`
+# was missing while the lowercase one was present, producing a FALSE disagreement on R281/gen
+# where stored and computed were both UNRESOLVED. (2) Fixing (1) with a mid-dict comment swallowed
+# `"BEATS"` and `"LOSES"` into the comment, and the audit died on KeyError at its own positive
+# control -- I broke the detector while repairing it, and the CONTROL is what caught that.
+NORM = {
+    "RESOLVED": {POS, NEG},
+    "MARGINAL": {BELOW, UNRES},
+    "BELOW RESOLUTION": {BELOW, UNRES},
+    "UNRESOLVED": {UNRES, BELOW},
+    "unresolved": {UNRES, BELOW},
+    "BEATS": {POS},
+    "LOSES": {NEG},
+    "PASSES neutral clause 2": {POS},
+    "FAILS — worse than generic": {NEG},
+    "arm ahead, separably": {POS},
+    "NOT SEPARABLE": {UNRES, BELOW},
+    "blind ahead": {NEG},
+}
+assert {"BEATS", "LOSES", "UNRESOLVED", "RESOLVED"} <= set(NORM), \
+    "the normalisation table lost a key -- one line per entry exists to make that visible"
 
 
 def harvest():

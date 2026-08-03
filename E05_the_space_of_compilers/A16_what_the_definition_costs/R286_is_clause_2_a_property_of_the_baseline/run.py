@@ -165,8 +165,15 @@ def main():
         bs = np.array([d[rb.integers(0, len(d), len(d))].mean() for _ in range(NBOOT)])
         lo, hi = float(np.percentile(bs, 2.5)), float(np.percentile(bs, 97.5))
         p2 = 2 * min((bs <= 0).mean(), (bs >= 0).mean())
-        v = "arm ahead, separably" if lo > 0 else ("blind ahead" if hi < 0 else "NOT SEPARABLE")
-        mde_cell = ZEFF * d.std(ddof=1) / math.sqrt(len(d))          # R292: make judgeable
+        mde_cell = ZEFF * d.std(ddof=1) / math.sqrt(len(d))
+        # R292: the verdict is now COMPUTED against this cell's own MDE, not off the CI alone.
+        # The old line said `arm ahead, separably` whenever lo > 0, and topw_k4's +0.0096 against
+        # an MDE of 0.0104 was published that way. CI-excludes-zero and |eff| >= MDE are different
+        # questions and this arc answers the second one.
+        from report import verdict as _v
+        v = {"BEATS": "arm ahead, separably", "LOSES": "blind ahead",
+             "UNRESOLVED": "NOT SEPARABLE", "BELOW RESOLUTION": "BELOW RESOLUTION"}[
+                 _v(float(d.mean()), lo, hi, mde_cell)]
         out[a] = dict(arm=float(av.mean()), blind=float(hel_b.mean()), gap=float(d.mean()),
                       lo=lo, hi=hi, p=float(p2), mde=float(mde_cell), verdict=v)
         grid.append((a, float(p2)))
@@ -176,13 +183,21 @@ def main():
     surv = {a for i, (a, p) in enumerate(grid, 1) if p <= 0.05 * i / C_}
     print(f"\n    BH over {C_} cells · survivors {sorted(surv)}")
 
-    killed = not all(out[a]["lo"] > 0 for a in out)
+    # ⚠ R292: the KILL read `lo > 0` -- the CI criterion -- while the table two lines above now
+    # reads |eff| >= MDE. A kill on a different rule than its own table is the verdict-string
+    # failure moved into the branch, which is worse: the table is read by a person and the branch
+    # is not. Both now use the same computed verdict.
+    ahead = [a for a in out if out[a]["verdict"] == "arm ahead, separably"]
+    killed = len(ahead) < len(out)
     print("\n  " + "=" * 74)
     print(f"  PRE-REGISTERED KILL: is the best held-out blind quadruple NOT separably below "
           f"both arms ?  {killed}")
     if killed:
-        print("  -> W-BASELINE. Clause 2's threshold is a property of the generic vocabulary, and")
-        print("     the clause must NAME its baseline or it says nothing.")
+        print(f"  -> W-BASELINE, PARTIAL. {len(ahead)} of {len(out)} admitted arms stay separably")
+        print(f"     ahead of the best held-out blind quadruple: {ahead}.")
+        print(f"     Not ahead by this arc's resolution rule: {[a for a in out if a not in ahead]}")
+        print("     For those, `no prompt-blind quadruple reaches the admitted arms` is NOT")
+        print("     established -- the blind arm is not shown to be behind, only not shown ahead.")
     else:
         print("  -> W-INTRINSIC. No prompt-blind quadruple in this vocabulary reaches the admitted")
         print("     arms even when CHOSEN to, so the clause is about cores, not about my baseline —")

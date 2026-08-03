@@ -1,5 +1,5 @@
 {
- "source_sha": "e6030e7e66599ccb",
+ "source_sha": "c126c1e38f6790f5",
  "n_prompts": 968,
  "n_subsets": 1820,
  "dist": {
@@ -159,8 +159,8 @@
    "hi": 0.01641195178438941,
    "p": 0.009,
    "mde": 0.010373774383668146,
-   "verdict": "arm ahead, separably"
+   "verdict": "BELOW RESOLUTION"
   }
  },
- "killed": false
+ "killed": true
 }
