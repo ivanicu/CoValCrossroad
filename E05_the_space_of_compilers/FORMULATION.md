@@ -163,6 +163,20 @@ either verdict; it is the price of the second clause, and it now has a number. *
 is aboutness; what it costs is up to 0.042 of A2** — four times the +0.011 that being about the
 prompt is worth at the top of the table.
 
+⛔ **AND THE PRICE IS MEASURED ACROSS TWO AXES AT ONCE — `generic` has k=4, `full` has a MEDIAN
+OF 15** (min 4, max 39). So `generic − full = +0.0426` confounds **prompt-specificity** with
+**criterion count**, and no reading of that one number separates them. The size-matched neutral arm
+did not exist when the price was first quoted; R281 builds it (a 16-criterion generic pool judged
+once, so every k is free) and the price is **provisional until that lands**.
+
+⚠ **AND CLAUSE 2 ENCODES THE WRONG CONTROL IN ITS OWN TEXT.** It reads *"better than the same
+criteria applied to a different prompt"* — the **poison** comparison this campaign established
+bounds `benefit + harm`. The neutral form is *better than prompt-neutral criteria of the same
+size*, and under it the extension changes: at the all-annotator numbers `gen` (0.5352) and `full`
+(0.5087) both sit **below** `generic` (0.5514), so a neutral clause 2 would exclude two arms this
+table admits. **Whether that reading survives depends entirely on the size match**, which is what
+R281 is for.
+
 **The obvious escape does not open** (R276). *Perhaps `generic` only looks good because A2 rewards
 the common verdict* — i.e. it is a constant in disguise, and clause 2 discards nothing. Tested
 against the **best of all 75 weak orderings, chosen with hindsight**, which is the strongest
