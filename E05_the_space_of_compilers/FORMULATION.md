@@ -563,6 +563,55 @@ the choice visible, not to score the object against a purpose it never claimed.
 
 ---
 
+## The site's own MDE — what this release could ever have shown (R268)
+
+Thirteen rounds measured what is not resolvable. This is the constructive form of the same
+measurement, and it is the arc's real output.
+
+**Detector calibrated empirically to α = 0.05 on 200 no-effect replicates, then validated on 200
+FRESH ones it never saw: `α̂ = 0.0600`.** (R267's detector — `arm > max(3 floor draws)`, which is
+**the comparison form R231 and R220 use** — fired at **0.2000** on the same test. That defect is
+what this replaces.)
+
+| g | mean arm | detect |
+|---:|---:|---:|
+| 0.00 | 0.3790 | 0.0800 |
+| 0.06 | 0.4154 | 0.4300 |
+| **0.10** | 0.4418 | **0.7700** |
+| **0.12** | 0.4535 | **0.8600** |
+| 0.20 | 0.5104 | 1.0000 |
+
+> ### The site's MDE is **(0.10, 0.12]** in class-agreement units.
+
+| published effect | value | effect/MDE | |
+|---|---:|---:|---|
+| R231 core−floor gap | 0.0035 | **0.03** | below |
+| R249 paired se | 0.0219 | **0.18** | below |
+| R257 label-order delta | 0.0378 | **0.32** | below |
+| R260 batch interval | 0.0568 | **0.47** | below |
+| **R249 minimal-size move under label order** | **0.1680** | **1.40** | **resolvable** |
+
+**Exactly one quantity this arc ever reported clears the site's own detection floor — and it is a
+measure of the INSTRUMENT moving, not of the object.** Every substantive effect is 3–30× below what
+this release can show. *Today's downgrades were forced by the site, not by the individual rounds*,
+and **E05's real output is a specification for a better instrument rather than a set of findings.**
+
+Controls: **positive** — the largest dose is detected 1.0000 against g=0's 0.0800, clearing 3
+binomial se (0.0814); the threshold is **computed from two measured numbers**, where R267's was
+typed as `> 0.9` and the design returned exactly 0.9000. **Placebo** — identical arms at the same
+seed differ by exactly `0.000000`.
+
+⚠ **The SHAM is void and I built it that way.** It re-randomises which prompts carry the plant — but
+the carrier vector is all-`True`, so permuting it is a no-op. It returned **0.7200 against 0.7700 at
+the same g**, where it should have fallen to α. **A sham that cannot fail.** It does not invalidate
+the MDE, which rests on the held-out calibration and the positive control, but one declared control
+did nothing and that is recorded rather than quietly dropped.
+
+⛔ **The label-order axis is deliberately NOT inside this MDE.** It is one alternative instrument,
+not a distribution — folding its 0.0378 in would average a **bias** into a **variance**.
+
+---
+
 ## What is `UNVERIFIED` right now, and stays that way until it is not
 
 | | |
