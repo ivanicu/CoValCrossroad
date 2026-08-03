@@ -126,11 +126,44 @@ definition.
 | | |
 |---|---|
 | population | 968 CoVal prompts with ≥2 annotators · 15,593 annotations, median 16/prompt |
-| instrument | Qwen3.5-2B-Base satisfaction judge; cross-artifact noise **0.0009** at the mean |
+| instrument | **Qwen3.5-2B-Base** — LOAD-BEARING (R290): at Qwen3.5-0.8B-Base the admitted set is **empty**. Cross-artifact noise 0.0009 at the mean. |
 | baseline | named per clause above — never "chance" |
 | regime | k=4 unless stated; A2 = pairwise accuracy over 6 pairs; cluster bootstrap over prompts |
 | resolution | per-cell MDE **0.0084–0.0178**; the admissible band is **12.57 MDE units** wide |
 | what is structurally unresolvable | `full` vs `topwvar_k4` (+0.0048): needs **3,352 prompts, 3.5× this release** |
+
+### ⛔ THE PARTITION IS JUDGE-DEPENDENT — and it localises to clause ② (R290)
+
+Five arms re-judged by **Qwen3.5-0.8B-Base**, a model 2.5× smaller. Both judges clear their controls:
+each beats its own measured chance floor, each recovers the benchmark's largest known gap
+(`generic − random`: **+0.0587** at 2B, **+0.0692** at 0.8B), and an arm against itself returns
+exactly 0 under both. **This is not a blind second judge.**
+
+| judge | arm | A2 | ① vs random-from-rubric | ② vs prompt-blind | |
+|---|---|---:|---:|---:|---|
+| **2B** | `coval_core` | 0.5665 | **+0.0738** | **+0.0151** | **ADMITTED** |
+| **2B** | `topw_k4` | 0.5642 | **+0.0715** | **+0.0128** | **ADMITTED** |
+| **2B** | `gen` | 0.5352 | +0.0425 | −0.0162 | excluded |
+| **0.8B** | `coval_core` | 0.4695 | **+0.0620** | **−0.0072** | **excluded** |
+| **0.8B** | `topw_k4` | 0.4659 | **+0.0583** | **−0.0109** | **excluded** |
+| **0.8B** | `gen` | 0.4736 | **+0.0660** | −0.0031 | excluded |
+
+> ⛔ **Admitted set: `{coval_core, topw_k4}` at 2B, `{}` at 0.8B.** The definition's scope line must
+> name **Qwen3.5-2B-Base**, exactly as R288/R289 forced it to name its statistic.
+
+**And the dependence localises precisely.** **Clause ① is judge-ROBUST** — all three arms clear the
+random-from-rubric baseline under *both* judges, by comparable margins (+0.042…+0.074 vs
++0.058…+0.066). **Clause ② is judge-BOUND** — 2 of 3 pass at 2B, **0 of 3** at 0.8B, and under the
+weaker judge the prompt-blind arm beats **every** prompt-specific one.
+
+> **A weaker judge can still tell good criteria from random ones. It cannot make prompt-specific
+> criteria pay off over generic ones.** *Aboutness is the part that needs a capable instrument to
+> be visible at all* — which is a claim about the instrument, not about cores, and is exactly the
+> distinction clause ② was built to draw.
+
+⚠ **Under 0.8B the ordering inverts**: `gen` scores highest (0.4736) of the three, where at 2B it is
+lowest. Per-prompt score correlation between judges: **0.404–0.593** — moderate, not strong. 10 of
+12 cells survive BH.
 
 ### The impossibility register, AUDITED (R290, R291) — three lines were wrong
 
