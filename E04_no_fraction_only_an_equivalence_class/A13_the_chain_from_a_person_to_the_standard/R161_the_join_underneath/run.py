@@ -35,6 +35,10 @@ being edited. The guard below asserts they stay identical, because the day they 
 every weighted number in this phase becomes wrong silently.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import hashlib
 import json
@@ -47,7 +51,6 @@ import numpy as np
 
 ROOT = next(p for p in pathlib.Path(__file__).resolve().parents if (p / "covalx").is_dir())
 sys.path.insert(0, str(ROOT))
-from covalx.legacy import round_results  # noqa: E402
 OUT = pathlib.Path(__file__).resolve().parent / "results"
 LETTERS = "ABCD"
 DUPLICATED = ("load_join", "norm", "message_key", "content_key")

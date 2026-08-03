@@ -33,6 +33,10 @@ Design
 * Standard errors are clustered on prompt (one prompt contributes 4 rows).
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import argparse
 import hashlib
@@ -42,7 +46,6 @@ from collections import defaultdict
 from pathlib import Path
 
 import numpy as np
-from covalx.legacy import round_results  # noqa: E402
 
 _HERE = Path(__file__).resolve().parent
 _ROOT = str(next(p for p in _HERE.parents if (p / "covalx").is_dir()))

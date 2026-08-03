@@ -1,0 +1,142 @@
+{
+ "source_sha": "8d2b0e3081edee3e",
+ "world": "W-OVERREACH",
+ "floor": {
+  "moved": 2,
+  "of": 300,
+  "broken_churn": 0,
+  "classes": {
+   "TIMEOUT->REACHED-WRITE": 2
+  }
+ },
+ "broken_before": [
+  "R06",
+  "R144",
+  "R146",
+  "R147",
+  "R148",
+  "R155",
+  "R156",
+  "R157",
+  "R158",
+  "R159",
+  "R160",
+  "R161",
+  "R162",
+  "R260",
+  "R261",
+  "R262",
+  "R263",
+  "R264",
+  "R265",
+  "R266",
+  "R267",
+  "R268",
+  "R269",
+  "R274",
+  "R275"
+ ],
+ "broken_after": [
+  "R260",
+  "R267",
+  "R268",
+  "R269",
+  "R274",
+  "R275"
+ ],
+ "targeted_resolver": [
+  "R06",
+  "R144",
+  "R146",
+  "R147",
+  "R148",
+  "R155",
+  "R156",
+  "R157",
+  "R158",
+  "R159",
+  "R160",
+  "R161",
+  "R162"
+ ],
+ "targeted_venv": [
+  "R261",
+  "R262",
+  "R263",
+  "R264",
+  "R265",
+  "R266"
+ ],
+ "targeted_moved": [
+  "R06",
+  "R144",
+  "R146",
+  "R147",
+  "R148",
+  "R155",
+  "R156",
+  "R157",
+  "R158",
+  "R159",
+  "R160",
+  "R161",
+  "R162",
+  "R261",
+  "R262",
+  "R263",
+  "R264",
+  "R265",
+  "R266"
+ ],
+ "targeted_stuck": [],
+ "untargeted_left": [],
+ "untargeted_entered": [],
+ "untargeted_regressed": [
+  [
+   "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R07_anthropomorphism",
+   "REACHED-WRITE",
+   "OTHER-ERROR"
+  ],
+  [
+   "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R201_is_the_fairness_result_one_prompt",
+   "REACHED-WRITE",
+   "OTHER-ERROR"
+  ]
+ ],
+ "churn_classes": [
+  "TIMEOUT->REACHED-WRITE"
+ ],
+ "still_broken_by_design": [
+  "R260",
+  "R267",
+  "R268",
+  "R269",
+  "R274",
+  "R275"
+ ],
+ "transitions": {
+  "BROKEN-INPUT->REACHED-WRITE": 15,
+  "TIMEOUT->REACHED-WRITE": 4,
+  "BROKEN-INPUT->TIMEOUT": 4,
+  "REACHED-WRITE->OTHER-ERROR": 2
+ },
+ "counts_before": {
+  "BROKEN-INPUT": 25,
+  "REACHED-WRITE": 207,
+  "COMPLETED": 0,
+  "OTHER-ERROR": 6,
+  "TIMEOUT": 40,
+  "SKIPPED-GPU": 22
+ },
+ "counts_after": {
+  "BROKEN-INPUT": 6,
+  "REACHED-WRITE": 224,
+  "COMPLETED": 0,
+  "OTHER-ERROR": 8,
+  "TIMEOUT": 40,
+  "SKIPPED-GPU": 23
+ },
+ "positive_ok": true,
+ "negative_ok": true,
+ "floor_ok": true
+}

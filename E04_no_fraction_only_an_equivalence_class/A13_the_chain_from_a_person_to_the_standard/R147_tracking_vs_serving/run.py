@@ -36,6 +36,10 @@ must be concentrated where the top-two margin is SMALL, and must vanish where th
 A gap that is flat across margin strata refutes the explanation even if the correlation is zero.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import argparse
 import json
@@ -48,7 +52,6 @@ import numpy as np
 
 ROOT = next(p for p in pathlib.Path(__file__).resolve().parents if (p / "covalx").is_dir())
 sys.path.insert(0, str(ROOT))
-from covalx.legacy import round_results  # noqa: E402
 OUT = pathlib.Path(__file__).resolve().parent / "results"
 LETTERS = "ABCD"
 RANK_MAP = {"A": 0, "B": 1, "C": 2, "D": 3}

@@ -28,6 +28,10 @@ A04, because roughly half of a naive rubric-predicts-preference number is
 generic response quality that any rubric earns for free.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import argparse
 import json
@@ -39,7 +43,6 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(next(p for p in Path(__file__).resolve().parents if (p / "covalx").is_dir())))
-from covalx.legacy import round_results  # noqa: E402
 from covalx import LABELS, load_join, parse_ranking  # noqa: E402
 
 from covalx import rule_score  # noqa: E402

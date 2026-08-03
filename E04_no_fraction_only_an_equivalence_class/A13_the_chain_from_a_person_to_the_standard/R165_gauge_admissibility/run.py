@@ -47,6 +47,10 @@ Until that prediction is tested, this round licenses a downgrade of the sign-fli
 restoration of the original claim.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import glob
 import json
@@ -59,7 +63,6 @@ HERE = pathlib.Path(__file__).resolve().parent
 ROOT = next(p for p in HERE.parents if (p / "covalx").is_dir())
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(round_results("R164").parent))
-from covalx.legacy import round_results  # noqa: E402
 OUT = HERE / "results"
 
 

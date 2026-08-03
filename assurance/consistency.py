@@ -75,11 +75,25 @@ def main() -> int:
     r146 = load("R146_does_compilation_add", "compilation_adds.json", "base_unserved")
     r149 = load("R149_price_of_inclusion", "price_of_inclusion.json")
 
-    u144 = (r144.get("mean_residual_G0") / 15.6) if r144 and r144.get("mean_residual_G0") else None
+    # ⚠ REPAIRED BY R316. This row read `mean_residual_G0 / 15.6` with 15.6 TYPED IN, and it had
+    # been FAILING at 0.2831 vs 0.3404 for weeks. Three things were wrong and none was the one the
+    # message named. ① 15.6 is CORRECT -- it is the mean panel size over the full release -- but it
+    # was transcribed from r144's stdout and appears in no committed file, so nothing could check
+    # it. ② The failure was the NUMERATOR: r144's committed artifact covered 293 prompts because
+    # its input path died in the EAR migration, so a 293-prompt residual was being divided by a
+    # 968-prompt panel. ③ The stated reason, Jensen, was a plausible mechanism attached to a gap
+    # nobody had re-derived; the true Jensen term is nowhere near 0.057.
+    # r144 now PERSISTS `mean_panel`, so the divisor is read rather than remembered, and the row
+    # refuses instead of falling back to a constant when it is absent.
+    pan144 = (r144 or {}).get("mean_panel")
+    u144 = ((r144.get("mean_residual_G0") / pan144)
+            if r144 and r144.get("mean_residual_G0") and pan144 else None)
     check("unserved rate: r144 residual/panel vs r145 row mean",
           u144, r145.get("overall_unserved_rate") if r145 else None, 0.03,
-          "r144 divides a mean residual by a mean panel size, which is a ratio of means rather "
-          "than a mean of ratios -- those differ by Jensen and 0.03 is the slack that allows")
+          "r144's residual is a COUNT of unserved people per prompt and r145's is a rate, so the "
+          "count is divided by r144's OWN persisted mean panel size -- never by a constant, "
+          "because the population the numerator covers is exactly what went wrong here before. "
+          "A ratio of means still differs from a mean of ratios by Jensen and 0.03 is that slack")
     check("unserved rate: r145 vs r146 plurality arm",
           r145.get("overall_unserved_rate") if r145 else None,
           r146.get("plurality") if r146 else None, 0.01,

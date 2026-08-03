@@ -20,6 +20,10 @@ loaded from a09_overoptimization.npz, so the only thing that changes is who
 plays gold.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import argparse
 import json
@@ -29,7 +33,6 @@ from pathlib import Path
 import numpy as np
 import torch
 from transformers import AutoModel, AutoTokenizer
-from covalx.legacy import round_results  # noqa: E402
 
 OUTCOME_SCOPE = (
     "Scored against the r08 MODEL GOLD HEAD, not against human rankings -- no hum"

@@ -33,6 +33,10 @@ Generation is deliberately rubric-BLIND. Showing the rubric would make the real
 rubric win by construction, which is the mistake this file exists to avoid.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import argparse
 import json
@@ -46,7 +50,6 @@ import torch
 from transformers import AutoModel, AutoModelForCausalLM, AutoTokenizer
 
 sys.path.insert(0, str(next(p for p in Path(__file__).resolve().parents if (p / "covalx").is_dir())))
-from covalx.legacy import round_results  # noqa: E402
 from covalx import MODEL_DIR, Judge, build_prompt, load_join  # noqa: E402
 
 OUTCOME_SCOPE = (

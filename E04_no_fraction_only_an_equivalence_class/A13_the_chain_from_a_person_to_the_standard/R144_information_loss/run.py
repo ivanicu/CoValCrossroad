@@ -39,6 +39,10 @@ between stages while preserving every marginal. A preserved count that does not 
 not preservation; it is dimension arithmetic.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import argparse
 import json
@@ -51,7 +55,6 @@ import numpy as np
 
 ROOT = next(p for p in pathlib.Path(__file__).resolve().parents if (p / "covalx").is_dir())
 sys.path.insert(0, str(ROOT))
-from covalx.legacy import round_results  # noqa: E402
 OUT = pathlib.Path(__file__).resolve().parent / "results"
 LETTERS = "ABCD"
 
@@ -393,7 +396,14 @@ def main() -> int:
 
     (OUT / "information_loss.json").write_text(json.dumps(
         {"summary": summary, "alignment": align_summary,
+         # `mean_panel` PERSISTED 2026-08-03 (R316). It was computed and PRINTED and never
+         # stored, so `assurance/consistency.py` carried it as a hard-coded 15.6 transcribed from
+         # a printout -- correct, but unverifiable from any committed file and silently stale the
+         # moment the population moves. A number a check divides by must be readable from the
+         # artifact it divides into.
          "obstruction": {"n_prompts": len(nerve), "no_global_section": nogl, "H1_nonzero": h1,
+                         "mean_panel": round(float(np.mean([r["n_criteria"] for r in nerve])), 4)
+                         if nerve else None,
                          "mean_residual_G0": round(float(np.mean(
                              [r["residual_G0"] for r in nerve])), 3) if nerve else None},
          "degenerate_control_note": (
