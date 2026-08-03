@@ -35,10 +35,25 @@ ran and its controls did not behave; never an acquittal. `OPEN` — running now.
 > **does not license a replacement**, because both sides of that ratio are functions of `n` and `k`
 > and the difference carries no incremental information about what is recoverable.
 >
-> **What DOES survive as an upgrade: admissibility is a RATE, not a predicate.** The share of
-> size-`k` cores this release can identify is **U(1) = 0.5714 · U(2) = 0.0606 · U(3) = 0.0105** —
-> measured, exhaustive, and not a renaming of anything. A binary gate has to round that to yes or
-> no; the object does not.
+> **Admissibility is a RATE, not a predicate — AT ZERO RATER NOISE, AND ONLY THERE** (R248,
+> scoped by R259). The share of size-`k` subsets this release can identify is
+> **U(1) = 0.5714 · U(2) = 0.0606 · U(3) = 0.0105**. Exhaustive arithmetic about the tie structure,
+> not a renaming — **and it stops predicting anything once the release's own rater noise is
+> present.**
+>
+> | k | eps | recovery | partial(U \| n) | perm `\|null\|₉₅` |
+> |---:|---:|---:|---:|---:|
+> | 1 | **0.00** *(forced)* | 0.7470 | **0.7269** | 0.1324 |
+> | 1 | **0.25** *(the release's own)* | 0.2566 | **0.0999** | 0.1340 |
+> | 2 | **0.00** *(forced)* | 0.2215 | **0.4127** | 0.1265 |
+> | 2 | **0.25** | 0.0682 | **0.0541** | 0.1216 |
+>
+> The `eps=0` row is **algebra, not evidence** — R228 showed noiseless recovery is `E[1/|ties|]` and
+> `U` is the share with `|ties| = 1`. It is the positive control, and it fires, so the machinery
+> works. At the noise calibrated to the release's own **47.8% two-rater agreement**, `U` is inside
+> its permutation null at both k, and adding it to `n` **raises** held-out error (`+0.0143`,
+> `+0.0021`) where at `eps=0` it lowered it (`−0.0325`). **The rate says nothing about what is
+> recoverable in this release's actual noise regime.**
 
 ---
 
