@@ -32,12 +32,21 @@ observation. Measured consequence: 72 subsets per prompt collapse into **13** cl
 above the forced bound of 75. Class recovery **1.0000** at zero noise (an identity, labelled),
 **0.3233** at the release's own rater noise, against the member's **0.0613**.
 
-**2 · The answer is a function of `Q`, and the sign can flip.** `MEASURED` (R231)
+**2 · The answer is a function of `Q` **and of the baseline's format**, and the sign can flip on
+either.** `MEASURED` (R231, R243, and R235 independently)
 On `Q =` reproduce Full's weak ordering, the official core scores **0.3864** against a random-4 floor
 of **0.3836 [0.3657, 0.4019]** — inside the floor's own spread. On `Q =` predict human pairwise
 preferences (R220), **0.6602** against a random range of **0.645–0.659** — clearly above. Same data,
 same judge, opposite verdicts. **Reporting a preservation percentage without naming `Q` reports a
 choice.**
+
+⚠ **Corrected 2026-08-03 by the blind arm.** R243 swept `Q`'s granularity and the sign flips between
+requiring **6 of 6** pairwise relations and **5 of 6** — so granularity explains the *sign*. It does
+not explain the *magnitude*: my graded endpoint is `+0.0068` and R235's is `+0.2466`, 36×. **A second
+axis differs, and R235 found it without being told to look**: whether the random baseline is granted
+the **signed** weights the core's format cannot carry. R235's own grid: *"72 of 286 cells have a CI
+containing 0 or Δ<0 and **all** of them use signed weighting; **zero** uniform cells fail."*
+**Reporting a preservation number requires declaring the baseline format as well as `Q`.**
 
 **3 · Adding raters does not raise the within-prompt channel.** `MEASURED` (R225)
 Recovery gain from keeping individual rankings instead of the consensus: `+0.019` at R=14 against a
@@ -66,6 +75,28 @@ The bits are there. Whether there is anything for them to identify is being meas
 judgements, fitted on half the prompts and evaluated on the other half.
 
 ---
+
+## 8 · What the blind arm established that this arc never did — `SINGLE ARM`, R235, seed 29
+
+Attributed, not absorbed. Design A has not returned and none of this is replicated here.
+
+- **Compiler intelligence: OVERTURNED.** `top-4-by-mean-weight` beats the official core in **76 of
+  286** specification cells and the core beats it in **0**. Primary cell `−0.0224 [−0.0407, −0.0050]`.
+  **The compilation adds no selection value over the single most obvious heuristic.**
+- **Extrinsic retention `0.855 [0.818, 0.890]`** — the share of the full rubric's agreement with human
+  *world* rankings that survives compilation. A number this arc never produced.
+- **The weight matrix is `39.7%` filled, and the score `0` is used once in `102,147` ratings.**
+  *"Not rated" and "rated zero" are not distinguishable.* R235 carries both readings as separate
+  specification cells and they give different answers (η 0.10 vs 0.25). **This is a missing-data
+  semantics problem affecting every weighted claim in this repository, including mine.**
+- **`personal` rankings cover `29.8%` of prompts** — a prompt-level split, so a valid subpopulation.
+  Consistent with R220's 26.66% of *assessments*; different denominator, same restriction.
+- **The rubric and prompt files share no key** — 0 of 986 IDs overlap; the join is rebuilt from prompt
+  text, which `covalx/judge.py` documents and R235 rediscovered and positive-controlled at 966/966.
+- **R235's own pre-registered negative control could not fail** and it said so: permuting the
+  interaction residual preserves every column mean, so an unsigned uniform rubric — which scores by
+  the *mean* — is unchanged in **47.2%** of prompts. **Same failure mode this arc hit four times,
+  found independently, reported rather than buried.**
 
 ## What the official core scores against this, and why that is not an indictment
 
