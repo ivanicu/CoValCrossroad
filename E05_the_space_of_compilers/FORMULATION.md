@@ -8,7 +8,61 @@ ran and its controls did not behave; never an acquittal. `OPEN` — running now.
 
 ---
 
-## The definition
+## The definition — REWRITTEN 2026-08-03, and every clause now carries its measurement
+
+The old definition is kept below, annotated, because a ledger that edits its own history is
+the thing it exists to prevent. What follows replaces it. **Six measurements constrain it;
+each clause names the one it rests on and the scope over which that holds.**
+
+> **A core is a rewriting of a rubric that preserves its verdicts at the rubric's own
+> reliability, using fewer criteria than the rubric contains.**
+
+| clause | why it is worded that way | the measurement |
+|---|---|---|
+| **a rewriting** | not *a subset*. `coval_core` shares only **8%** of its text verbatim with `coval_full`, 23% at similarity ≥ 0.90, median best-match **0.676**. The task the release actually performed is GENERATION | overlap gradient over 792 core items |
+| **of a rubric** | the source is named, because the compression is only defined relative to it | — |
+| **that preserves its verdicts** | not *its criteria*, and not *its information*. What is checkable is agreement with human ranking; what is not is any claim about content preserved | A-family, 968 prompts |
+| **at the rubric's own reliability** | two annotators of one prompt agree on the exact class **8.0%** of the time; a constant gets **4.0%**; the best available predictor **15.0%**. A definition demanding high absolute agreement is incoherent on this data | R283, controls saturated |
+| **using fewer criteria** | 4 criteria beat 15 by a **separable** paired margin, and adding the discarded criteria back COSTS 1.5 points. Compression is a gain, not a loss to be bounded | B1 = 1.30 ± 0.10; topw_k4 − full = +0.0203 [+0.0055, +0.0362] |
+| **(no admissibility gate)** | deliberately absent. Every counting gate — capacity, realised alphabet, ordered Bell — gated a combinatorial structure the data does not exhibit | see below |
+
+### What the definition deliberately does NOT contain, and why
+
+**⛔ No admissibility gate.** `C(n,k) ≤ a(m)` was undefined (two readings of `n` give 0% and
+91.7% violation), was violated by its own founding round in **292 of 750 cells**, and compared
+*candidate representatives* to *behaviour classes* — two different units. Its only unit-coherent
+ancestor, `log₂|H(Q)| ≤ H_eff`, does not admit this release under any reading.
+
+**⛔ No combinatorial requirement.** A core's value is **additive over its criteria**: an
+independent per-criterion scorer reaches a combination search, +0.0079 [−0.0079, +0.0238], and
+the separator returns **+0.4467** on a synthetic world that does contain set structure — 57×.
+Any interaction is below **+0.0176**, the smallest effect this design resolved.
+
+**⛔ No provenance requirement.** Resemblance to the source rubric predicts **nothing** about a
+criterion's usefulness: slope −0.0145 [−0.063, +0.033] over 968 clusters, and the decile curve's
+range is **1.06×** its own permutation null. Traceability is worth measuring — it is a property
+you either want or do not — but it **does not buy fidelity**.
+
+**⛔ No discrimination requirement.** Selecting criteria by satisfaction spread is
+**indistinguishable from selecting at random**, +0.0017 [−0.0131, +0.0165]. *Zero variance ⇒
+inert* is sound; *high variance ⇒ informative* is its converse and is false.
+
+### The reference construction, and it is one line
+
+**Take the four highest-mean-importance criteria of `coval_full`.** It ties the hand-built
+released core on **every** fidelity dimension (11 cells, 0 separable), is 100% traceable where
+the release is 40% novel, costs **no GPU**, and **no fitted model has beaten it** — a ridge over
+8 deployable features returns −0.0110 [−0.0255, +0.0028] while its own leaky arm gains +0.1026,
+so the design could have seen a gain and there was none.
+
+⚠ **Status: this is what SURVIVED, not what is proven.** Every clause is scoped to one release,
+one judge, and exact-class agreement. The register of what this site structurally cannot answer —
+cross-release, construct validity, causal identification — is in `corebench/DIMENSIONS.md` and is
+not a formality.
+
+---
+
+## The definition — SUPERSEDED, kept per L81
 
 > **A core is a quadruple `(Q, class, representative, certificate)`.**
 >
