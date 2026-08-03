@@ -1,0 +1,44 @@
+{
+ "source_sha": "0571e5f5c29e18ee",
+ "n_arms": 39,
+ "world": "W-RULE",
+ "c_required": 3.144819155275596,
+ "c_replicate": 1.011793945907238,
+ "se_explains": false,
+ "covariates": {
+  "magnitude |eff_2B|": {
+   "r2": 5.053143984398764e-05,
+   "perm_floor": 0.0368494206171843
+  },
+  "criterion count k": {
+   "r2": 0.1709631386684883,
+   "perm_floor": 0.010907163321438281
+  },
+  "rule family": {
+   "r2": 0.7955136619899931,
+   "perm_floor": 0.026462506976562005
+  }
+ },
+ "perm_floors": {
+  "magnitude |eff_2B|": 0.0368494206171843,
+  "criterion count k": 0.010907163321438281,
+  "rule family": 0.026462506976562005
+ },
+ "positive_control_ok": true,
+ "fails_at_g0": true,
+ "family_means": {
+  "coval_core": 0.018380906178850374,
+  "full": -0.014097388110356424,
+  "gen": 0.036032151695910085,
+  "generic": 0.032156172554535296,
+  "greedy": -0.02253223331897343,
+  "indep": 0.01798802776731031,
+  "oracle": -0.028559446069229187,
+  "random_k": -0.0053389012887519365,
+  "sham": 6.907122030517382e-05,
+  "topabs": 0.001491856940772739,
+  "topvar": 0.007022135784001498,
+  "topw_k": 0.007495019976255201,
+  "topwvar": 0.011271211084233762
+ }
+}
