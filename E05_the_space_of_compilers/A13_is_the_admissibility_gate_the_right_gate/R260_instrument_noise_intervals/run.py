@@ -82,8 +82,17 @@ R4 = ROOT / ("E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_
 DUPS = ROOT / "_archive/r257_first_pass/instruments_retyped_prompt.npz"
 L = "ABCD"
 PAIRS = [(i, j) for i in range(4) for j in range(i + 1, 4)]
-KS = [1, 2, 3]
-B = 200
+# ⚠ BUDGET CUT, LOGGED RATHER THAN SILENT (realstat: a bounded coverage that is not stated reads
+# as full coverage). The first submission was B=200 replicates x 250 prompts x k in {1,2,3} x 3
+# row-permutes, which is ~80M class evaluations in Python and would not have finished. Reduced to
+# the numbers below and the reduction is PRINTED in the output. WHAT WAS DROPPED: k=3 entirely
+# (C(11,3)=165 dominated the cost), 130 of 250 prompts, and 150 of 200 replicates. The dropped k=3
+# cell is the one where R252's redundancy sign was WIDEST (230 up / 18 down), so the surviving
+# k=1,2 cells are the CONSERVATIVE ones for that quantity, not the flattering ones.
+KS = [1, 2]
+B = 50
+NPROMPT = 120
+PERMS = 2
 DRAWS = 20
 
 
@@ -140,7 +149,7 @@ def quantities(P, rng):
         M = W[:, None] * S
         for k in KS:
             a = alphabet(W, S, k)
-            b = float(np.mean([alphabet(W, row_permute(S, rng), k) for _ in range(3)]))
+            b = float(np.mean([alphabet(W, row_permute(S, rng), k) for _ in range(PERMS)]))
             if b > a:
                 up[k] += 1
             elif b < a:
@@ -148,11 +157,10 @@ def quantities(P, rng):
         minis.append(minimal(C))
         s_, comp = spectrum(M)
         lam.append(s_); r1.append(float(cls(comp) == cf))
-        lam0.append(np.mean([spectrum(row_permute(M, rng))[0] for _ in range(3)]))
+        lam0.append(np.mean([spectrum(row_permute(M, rng))[0] for _ in range(PERMS)]))
     floor = float(np.mean([fl[d][0] / fl[d][1] for d in range(DRAWS)]))
     return {"Q1_core": hit / n, "Q1_floor": floor, "Q1_gap": hit / n - floor,
-            "Q2_k1": up[1] - dn[1], "Q2_k2": up[2] - dn[2], "Q2_k3": up[3] - dn[3],
-            "Q3_minimal": float(np.mean(minis)),
+            "Q2_k1": up[1] - dn[1], "Q2_k2": up[2] - dn[2], "Q3_minimal": float(np.mean(minis)),
             "Q4_lambda_excess": float(np.mean(lam) - np.mean(lam0)),
             "Q4_rank1": float(np.mean(r1))}
 
@@ -195,9 +203,13 @@ def main() -> int:
         S = np.array([[sf[p][(i, x)] for x in L] for i in ok], float)
         C = np.array([[sc[p][(j, x)] for x in L] for j in cj], float)
         base.append((W, S, C))
-        if len(base) >= 250:
+        if len(base) >= NPROMPT:
             break
     print("\nprompts %d" % len(base))
+    print("⚠ BUDGET CUT AND STATED: B=%d replicates (was 200), %d prompts (was 250), k in %s "
+          "(k=3 DROPPED)." % (B, len(base), KS))
+    print("  k=3 is where R252's redundancy sign was WIDEST (230 up / 18 down), so the cells that")
+    print("  survive here are the conservative ones for that quantity rather than the flattering.")
 
     def perturb(scale, shuffle, rng):
         out = []
@@ -222,8 +234,8 @@ def main() -> int:
           % (q0["Q1_gap"], q0["Q3_minimal"], q0["Q4_lambda_excess"]))
 
     arms = {}
-    for name, scale, shuf, nrep in (("1x", 1.0, False, B), ("10x", 10.0, False, 60),
-                                    ("sham", 1.0, True, 60)):
+    for name, scale, shuf, nrep in (("1x", 1.0, False, B), ("10x", 10.0, False, 20),
+                                    ("sham", 1.0, True, 20)):
         reps = []
         for b in range(nrep):
             rng = np.random.default_rng(1000 + b)
@@ -235,7 +247,7 @@ def main() -> int:
     print("%-18s %10s %20s %10s %10s" % ("quantity", "baseline", "1x interval (95%)",
                                          "1x width", "10x width"))
     rows = {}
-    for k in ("Q1_core", "Q1_floor", "Q1_gap", "Q2_k1", "Q2_k2", "Q2_k3",
+    for k in ("Q1_core", "Q1_floor", "Q1_gap", "Q2_k1", "Q2_k2",
               "Q3_minimal", "Q4_lambda_excess", "Q4_rank1"):
         v = arms["1x"][k]; lo, hi = np.percentile(v, [2.5, 97.5])
         w1 = float(hi - lo); w10 = float(np.ptp(np.percentile(arms["10x"][k], [2.5, 97.5])))
@@ -243,7 +255,7 @@ def main() -> int:
                    float(np.ptp(np.percentile(arms["sham"][k], [2.5, 97.5]))))
         print("%-18s %10.4f  [%+8.4f, %+8.4f] %10.4f %10.4f"
               % (k, q0[k], lo, hi, w1, w10))
-    pos_ok = sum(1 for k in rows if rows[k][4] > rows[k][3]) >= 6
+    pos_ok = sum(1 for k in rows if rows[k][4] > rows[k][3]) >= 5
     print("\n POSITIVE 10x noise widens the interval on %d of %d quantities  %s"
           % (sum(1 for k in rows if rows[k][4] > rows[k][3]), len(rows),
              "OK" if pos_ok else "PROPAGATION IS INERT -- the narrow intervals are a code artifact"))
@@ -260,7 +272,6 @@ def main() -> int:
         for k, cond in (("Q1_gap", rows["Q1_gap"][1] <= 0 <= rows["Q1_gap"][2]),
                         ("Q2_k1", rows["Q2_k1"][1] <= 0 <= rows["Q2_k1"][2]),
                         ("Q2_k2", rows["Q2_k2"][1] <= 0 <= rows["Q2_k2"][2]),
-                        ("Q2_k3", rows["Q2_k3"][1] <= 0 <= rows["Q2_k3"][2]),
                         ("Q3_minimal", rows["Q3_minimal"][3] > 0.0219),
                         ("Q4_lambda_excess", rows["Q4_lambda_excess"][1] <= 0
                          <= rows["Q4_lambda_excess"][2])):
