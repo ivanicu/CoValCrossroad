@@ -33,6 +33,8 @@ contents only** — every finding, its interval and its scope live in `E05/FORMU
 | `R298` is importance monotone | every criterion alone loses to one generic; together they win |
 | `R299` where the selection boundary is | importance is informative at BLOCK resolution, not RANK |
 | `R300` does combination generalise | it holds for both admitted arms, which share no method |
+| `R301` is the judge a shrink or a reorder | does the smaller judge re-order the arms, or only compress them? |
+| `R302` are the artifacts reproducible | is a committed result a function of its committed code? |
 
 ## Why the arc was opened rather than folded into A13
 
@@ -43,7 +45,11 @@ of the bill, and that is the only thing this arc tries to do.
 
 ---
 
-## ⚠ THIS DIRECTORY IS FIVE ARCS, AND I FOUND THAT BY WRITING THIS RATHER THAN BY PLANNING IT
+## ⚠ THIS DIRECTORY IS NINE ARCS, AND I FOUND THAT BY WRITING THIS RATHER THAN BY PLANNING IT
+
+> **The heading said FIVE until 2026-08-03.** It was written when the table had five rows and
+> was never touched as the table grew to nine — a count in a HEADING is the least likely thing
+> in a document to be re-read, and the first thing a reader believes.
 
 P16: *an arc closes when a **decision becomes safe**, and the count is **discovered, never chosen**.*
 A16 was opened to make ONE decision safe — *may `FORMULATION.md` quote a price for clause 2?* — and
@@ -59,10 +65,18 @@ answer produces.**
 | **A19** which TARGET earns the definition? | R288–R289 | **Closed at R289.** Six agreement statistics give four admitted sets, so the definition must name its own (R288) — and the inherited choice survives the test written to replace it, because averaging over comparisons beats denoising the target (R289). |
 | **A20** which INSTRUMENT, and was the register ever true? | R290–R291 | **Closed at R291.** The partition is judge-dependent — `{coval_core, topw_k4}` at 2B, **`{}` at 0.8B** — and it localises to clause ② (R290). Three of six registered impossibilities were false, and testing `position randomized` found a resolved slot effect in the human target that no judge shares (R291). |
 | **A21** does the definition survive its own audit, applied to everything? | R292–R295 | **Closed at R295.** 134 published cells re-judged, 0 disagreements (R292); the definition admitted an arm built from the answer key, so ③ was added (R293); applied to all 41 judged arms it admits 8 (R294); and ③ tightened to *held out from the PROMPT* takes that to **5**, removing the campaign's three largest margins (R295). |
+| **A22** what SIZE, and does the value live in any MEMBER? | R296–R300 | **Closed at R300.** There is a usable band and not an optimum — entry (2→3) and exit (8→12) resolve, the interior does not (R296, R299); the pre-registered mechanism for the k=1 deficit is dead, killed by its own test, and the finding it explained survives (R297); importance is informative at BLOCK resolution and not at RANK resolution (R298); and **every criterion of both admitted arms loses ALONE to one generic sentence while their sums win** — so the value is in the combination, and it holds across a selector and a rewriter, which share no method (R300). |
+| **A23** is the judge dependence a SHRINK or a REORDER? | R301– | **OPEN.** A20 closed *the partition is judge-dependent* on **three** arms while the census runs on 41; the slope that separates *the ordering survives and the resolution does not* from *the judges measure different things* needs 41 points and was uncomputable at that width. W-LEVEL is dead by algebra before any data. |
+| **A24** may a number be cited from a round I have not re-run? | R302– | **OPEN.** Eight result JSONs differ from their committed versions by 742 leaf values, three of them in a `verdict` string, and `hash()`-seeded rngs make at least one round a function of `PYTHONHASHSEED` rather than of its code. |
 
-**19 rounds, 6 decisions.** ⚠ **The table above said 15 rounds and 5 decisions when it was written,
-and I quoted "21 rounds, five decisions" in a report four rounds later — the count was 19 and the
-annotation was stale in both directions at once.** It is the same failure as
+**26 rounds, 9 decisions — counted from disk, not remembered.** ⚠ **The table above said 15 rounds
+and 5 decisions when it was written; I then quoted "21 rounds, five decisions" in a report; the
+true count was 19 and the annotation was stale in both directions at once. It went stale AGAIN
+within the day** — by the time the two rows above were added, seven directories (R296–R302) existed
+that no row mentioned, i.e. **27% of the arc was missing from its own index.** The paragraph below
+predicted exactly this, in this file, and was not enough to prevent it. What was enough:
+`ls -d R*/ | wc -l` beside `grep -c` on the table, which is how these numbers were produced.
+It is the same failure as
 `realstat §4 the closing sentence is a claim`, committed in the sentence immediately after carving
 that row. **A count written into a file ages the moment the next directory is created, and nothing
 warns you** — which is the argument for `run the count` over `remember the count`.
