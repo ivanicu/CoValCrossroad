@@ -8,7 +8,34 @@ ran and its controls did not behave; never an acquittal. `OPEN` — running now.
 
 ---
 
-## The definition — REWRITTEN 2026-08-03, and every clause now carries its measurement
+## The definition — SECOND REWRITE, 2026-08-03, after a clause audit killed three of five
+
+The first rewrite is annotated below. **Three of its five clauses failed the same test within
+hours: a word chosen because it described the released object, then carried as though it had
+been measured.** `four` (k-sweep: 3–8 indistinguishable) · `its verdicts` (cores track the human,
+not the rubric) · `the rubric's own reliability` (a rubric is deterministic; its reliability is
+1.0 by construction). This version states each clause with what currently supports it.
+
+> **A core is a small set of criteria that reproduces human judgement at the humans' own level
+> of agreement with each other. It may be selected from an existing rubric or written from the
+> conversation; on this release selection measures better.**
+
+| clause | status | the measurement |
+|---|---|---|
+| **a small set of criteria** | **MEASURED, size unresolved** | k=1 is separably worse; **k = 3…8 are mutually indistinguishable**; k=12 and the full 15.5 lose. "Four" is retracted — it was the released core's k |
+| **reproduces human judgement** | **MEASURED, and corrected** | normalised by each target's ceiling, top cores reach **1.04 / 1.04 / 0.99** of the human ceiling against **0.74–0.80** of the deterministic rubric. `its verdicts` retracted |
+| **at the humans' own level of agreement** | **MEASURED, and corrected** | the ceiling is **0.5451** (A2, one annotator vs another) — the *human's*. `the rubric's own reliability` named a quantity that is **1.0000 by construction** |
+| **may be selected or written** | **MEASURED, permission not prescription** | a core generated from the conversation alone, **98.8% novel, 0 verbatim**, beats random and beats its own sham — but is **separably worse than selection on A2/A3/A4/A5** |
+| **on this release selection measures better** | **MEASURED** | `topw_k4` and `coval_core` are the only pair no fidelity comparison separates; `gen` sits separably below both |
+
+⚠ **`of a rubric` is gone from the definition on purpose.** The generated core never saw
+`coval_full` and is still admissible, so the rubric is a **source of candidates**, not a
+constitutive part of what a core is. Keeping the phrase would have made the definition false of
+an object the benchmark accepts.
+
+---
+
+## The definition — FIRST REWRITE, superseded, kept per L81
 
 The old definition is kept below, annotated, because a ledger that edits its own history is
 the thing it exists to prevent. What follows replaces it. **Six measurements constrain it;
