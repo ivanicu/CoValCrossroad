@@ -81,7 +81,14 @@ above the forced bound of 75. Class recovery **1.0000** at zero noise (an identi
 either.** `MEASURED` (R231, R243, and R235 independently)
 On `Q =` reproduce Full's weak ordering, the official core scores **0.3864** against a random-4 floor
 of **0.3836** — inside the floor's own draw spread, whose `[0.3657, 0.4019]` is a MIN AND MAX OF 20 DRAWS and is no longer quoted as an interval. On `Q =` predict human pairwise
-preferences (R220), **0.6602** against a random range of **0.645–0.659** — clearly above. Same data,
+preferences (R220), **0.6602** against a random range of **0.645–0.659**.
+
+⚠ **"Clearly above" is retired, and what replaces it is stronger in one way and weaker in another**
+(R262). Re-run under `PYTHONHASHSEED 0/1/2/3`, R220's floor spans **[0.6420, 0.6580]** and the core
+clears the top of **every** seed's range — so unlike R231's, this comparison does **not** flip with
+the environment, and it had been run exactly once before today. **But the margin over the worst
+seed's ceiling is `+0.0022`, and the floor's own hash-seed spread is `0.0020–0.0030`.** A margin the
+size of its baseline's arbitrariness is *above*, not *clearly above*. Same data,
 same judge, opposite verdicts. **Reporting a preservation percentage without naming `Q` reports a
 choice.**
 
