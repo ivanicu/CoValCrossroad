@@ -306,14 +306,37 @@ moves its output to **r = 0.77 against itself**. R234's positive control reprodu
 at r = 0.998, so the instrument is faithfully re-implemented — and then fails a basic gauge test that
 **every round here, including all of mine, has assumed away.**
 
-**And R257 ran the propagation R234 called for — it moves two claims and reached no line of this
-document until a clean context pointed at it.** Under the flipped label order the core goes from *at*
-its floor (0.4040 vs 0.3870) to **below** it (0.3160 vs 0.3722), and R249's minimal size moves
-1.404 → 1.612, which `R257/results/gauge_propagation.json` marks `DOWNGRADED gauge-dependent`.
-⚠ That first pass disqualified itself — its positive control hit `r = 0.9407` against the cache
-where R234 gets 0.998, because I retyped the prompt instead of importing it — **but the gauge move
-(0.088) is 5× the re-implementation drift (0.018)**, so it is not explained away by my defect. The
-repaired run is `580`.
+**R257 ran the propagation R234 called for, and its repaired pass reproduces R234's instrument
+exactly: `r = 0.9980, MAD 0.0082` against R234's `0.998 / 0.008`.** The first pass had retyped the
+prompt and scored 0.9407; importing `covalx.judge.build_prompt` closed it.
+
+| control | value |
+|---|---|
+| **positive** — default re-judge vs the r04 cache | **r 0.9980, MAD 0.0082** |
+| **negative** — 200 tasks judged twice in one process | 90.5% exact, **r 0.999450**, max 0.03097 |
+| **gauge** — default vs flipped label order | **r 0.7851, MAD 0.2745** |
+| **sham** — one extra space, same words, same order | r 0.9853, MAD 0.0669 |
+| affine residual per prompt | 0.0340 (only this can reorder) |
+
+**The flip is 4.1× the whitespace sham and 33× the determinism floor** — it is label order, not
+prompt fragility in general.
+
+| quantity | default | flipped | verdict |
+|---|---:|---:|---|
+| **Q1** R231 core vs floor | 0.4120 vs 0.3846 (**+0.0274**) | 0.3560 vs 0.3664 (**−0.0104**) | **OVERTURNED — sign flips** |
+| Q2 R252 redundancy sign | 205/41 · 234/14 · 229/21 | 193/41 · 221/26 · 215/32 | **CONFIRMED** |
+| **Q3** R249 minimal size | 1.4680 | 1.6360 (**+0.1680 = 7.7× its own se**) | **DOWNGRADED gauge-dependent** |
+| Q4 R256 λ₁ excess | 0.1432 | 0.1423 | **CONFIRMED** |
+| Q4b R256 rank-1 class | 0.4320 | 0.4200 | **OVERTURNED** |
+
+⛔ **Q1 is now overturned or unresolvable on THREE independent axes** — label order (here), measured
+batch noise (R260: interval contains 0), and `PYTHONHASHSEED` (R261: the sign flips between seeds 2
+and 3). Three unrelated sources of arbitrariness, one conclusion: **`0.3864` against `0.3836` was
+never a comparison.**
+
+**And exactly two quantities in this arc survive every gauge tested: R252's redundancy sign and
+R256's λ₁ excess.** Neither instrument is privileged — a quantity that moves is `UNVERIFIED`, never
+"right in the default".
 
 Stable across all four instruments: `top4_pos − core` on humans is **null on all four**, and core
 veto retention ≫ full_unit on all four. **Not** stable: above-chance retention (0.673–0.919), veto

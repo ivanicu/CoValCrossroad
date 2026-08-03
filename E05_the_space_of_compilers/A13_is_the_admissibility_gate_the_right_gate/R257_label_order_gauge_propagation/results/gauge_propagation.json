@@ -1,57 +1,59 @@
 {
  "prompts": 250,
- "r_default_vs_cache": 0.9406919673439298,
- "mad_cache": 0.06320850955862303,
- "r_flipped": 0.7799978571665765,
- "r_sham": 0.9880649081261504,
- "determinism_max_diff": 0.03120940923690796,
- "affine_residual_mean": 0.03489249123576941,
+ "r_default_vs_cache": 0.9980498900815531,
+ "mad_cache": 0.008246647475008726,
+ "r_flipped": 0.785138166721648,
+ "r_sham": 0.9853325697874751,
+ "determinism_max_diff": 0.03096708655357361,
+ "determinism_r": 0.9994502838028672,
+ "determinism_exact": 0.905,
+ "affine_residual_mean": 0.03397041534431004,
  "quantities": {
   "default": {
-   "Q1_core": 0.404,
-   "Q1_floor": 0.387,
-   "Q1_floor_lo": 0.308,
+   "Q1_core": 0.412,
+   "Q1_floor": 0.38460000000000005,
+   "Q1_floor_lo": 0.328,
    "Q1_floor_hi": 0.448,
    "Q2_sign": {
     "1": [
-     207,
-     31
+     205,
+     41
     ],
     "2": [
-     232,
-     15
+     234,
+     14
     ],
     "3": [
-     224,
-     23
+     229,
+     21
     ]
    },
-   "Q3_minimal": 1.404,
-   "Q4_lambda_excess": 0.14360647078156352,
-   "Q4_rank1_class": 0.464
+   "Q3_minimal": 1.468,
+   "Q4_lambda_excess": 0.14315232316257487,
+   "Q4_rank1_class": 0.432
   },
   "flipped": {
-   "Q1_core": 0.316,
-   "Q1_floor": 0.3722,
-   "Q1_floor_lo": 0.336,
-   "Q1_floor_hi": 0.408,
+   "Q1_core": 0.356,
+   "Q1_floor": 0.3664,
+   "Q1_floor_lo": 0.328,
+   "Q1_floor_hi": 0.404,
    "Q2_sign": {
     "1": [
-     203,
-     32
+     193,
+     41
     ],
     "2": [
-     222,
-     27
+     221,
+     26
     ],
     "3": [
-     209,
-     37
+     215,
+     32
     ]
    },
-   "Q3_minimal": 1.612,
-   "Q4_lambda_excess": 0.14987468066291088,
-   "Q4_rank1_class": 0.416
+   "Q3_minimal": 1.636,
+   "Q4_lambda_excess": 0.14234956516852915,
+   "Q4_rank1_class": 0.42
   }
  },
  "verdicts": {
@@ -59,6 +61,6 @@
   "Q2 R252 redundancy sign": "CONFIRMED",
   "Q3 R249 minimal size": "DOWNGRADED gauge-dependent",
   "Q4 R256 lambda excess": "CONFIRMED",
-  "Q4b R256 rank-1 class": "CONFIRMED"
+  "Q4b R256 rank-1 class": "OVERTURNED"
  }
 }
