@@ -136,6 +136,37 @@ measurement:
 > **silent about the boundaries** — which were measurable all along, once the reference was
 > size-matched.
 
+### 🔷 IMPORTANCE IS INFORMATIVE AT BLOCK RESOLUTION, NOT AT RANK RESOLUTION (R299)
+
+R298 left a tension: **selection** by importance carries +0.0715 over a random draw, while **no rank
+ordering** within the top four is resolvable. Both cannot be about the same quantity. `sat_topw_k8`
+stores ranks 1–8 in importance order, so **ranks 5–8 are their own k=4 arm** — never scored until now:
+
+| block | A2 | |
+|---|---:|---|
+| ranks 1–4 | **0.5664** | |
+| ranks 5–8 | **0.5404** | |
+| random k=4 | 0.4930 | |
+
+| contrast | | |
+|---|---:|---|
+| ranks 1–4 − ranks 5–8 | **+0.0260** [+0.0177,+0.0346] | **BEATS** |
+| ranks 5–8 − random k=4 | **+0.0474** [+0.0372,+0.0573] | **BEATS** |
+| ranks 1–4 − random k=4 | **+0.0734** [+0.0645,+0.0834] | **BEATS** |
+
+> **The +0.0734 decomposes into +0.0474 for being in the top eight at all (65%) and +0.0260 for
+> being in the top four rather than 5–8 (35%).** Both survive BH; 4 of 4 cells do.
+
+**So importance is informative at BLOCK resolution and not at RANK resolution** — blocks of four
+separate, individual ranks (R298: 1v2, 2v3, 3v4, all unresolved) do not. That is exactly the
+signature of a **noisy measurement of a real quantity**: averaging four recovers signal no single
+one carries, which is also why every criterion loses alone and the sum wins.
+
+**Three rounds now explain the k-curve together**: the tie mechanism is dead (R297), the value is in
+the combination (R298), and the combination works because importance is real but coarse (R299).
+Positive control: ranks 1–8 beat random k=8 by +0.0600 on this population — the comparison the
+definition already admits, reproduced where the decomposition is computed.
+
 ### 🔷 THE VALUE IS IN THE COMBINATION, NOT IN ANY MEMBER (R298)
 
 `sat_topw_k4` stores its four criteria **in descending human-importance order**, so each can be
