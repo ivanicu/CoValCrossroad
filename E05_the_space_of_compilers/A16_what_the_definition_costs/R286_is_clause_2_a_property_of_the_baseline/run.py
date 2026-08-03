@@ -68,6 +68,7 @@ PAIRS = list(itertools.combinations(range(4), 2))
 K = 4
 NSPLIT = 10
 NBOOT = 2000
+ZEFF = 1.959964 + 0.841621
 L = "ABCD"
 
 
@@ -165,8 +166,9 @@ def main():
         lo, hi = float(np.percentile(bs, 2.5)), float(np.percentile(bs, 97.5))
         p2 = 2 * min((bs <= 0).mean(), (bs >= 0).mean())
         v = "arm ahead, separably" if lo > 0 else ("blind ahead" if hi < 0 else "NOT SEPARABLE")
+        mde_cell = ZEFF * d.std(ddof=1) / math.sqrt(len(d))          # R292: make judgeable
         out[a] = dict(arm=float(av.mean()), blind=float(hel_b.mean()), gap=float(d.mean()),
-                      lo=lo, hi=hi, p=float(p2), verdict=v)
+                      lo=lo, hi=hi, p=float(p2), mde=float(mde_cell), verdict=v)
         grid.append((a, float(p2)))
         print(f"    {a:<13}{av.mean():>9.4f}{hel_b.mean():>12.4f}{d.mean():>+9.4f}  "
               f"[{lo:+.4f}, {hi:+.4f}]{'':<3}{v}   n_eff={len(d)}")

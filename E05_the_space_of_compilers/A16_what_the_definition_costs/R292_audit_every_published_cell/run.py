@@ -36,7 +36,9 @@ from report import verdict, POS, NEG, UNRES, BELOW          # noqa: E402
 
 A = ROOT / "E05_the_space_of_compilers/A16_what_the_definition_costs"
 NORM = {"RESOLVED": {POS, NEG}, "BELOW RESOLUTION": {BELOW, UNRES}, "MARGINAL": {BELOW, UNRES},
-        "unresolved": {UNRES, BELOW}, "BEATS": {POS}, "LOSES": {NEG},
+        "unresolved": {UNRES, BELOW}, "UNRESOLVED": {UNRES, BELOW},   # ⚠ the uppercase key
+        # was MISSING and produced a false disagreement on R281/gen, where stored and
+        # computed were both UNRESOLVED. A normalisation table is an instrument too. "BEATS": {POS}, "LOSES": {NEG},
         "PASSES neutral clause 2": {POS}, "FAILS — worse than generic": {NEG},
         "arm ahead, separably": {POS}, "NOT SEPARABLE": {UNRES, BELOW}, "blind ahead": {NEG}}
 

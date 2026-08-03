@@ -376,7 +376,7 @@ cores. All `C(16,4) = 1820` prompt-blind quadruples, enumerated **exhaustively**
 | arm | vs best held-out blind | |
 |---|---:|---|
 | `coval_core` | **+0.0119** [+0.0048, +0.0187] | separable, BH ✓ |
-| `topw_k4` | **+0.0096** [+0.0026, +0.0164] | separable, BH ✓ |
+| `topw_k4` | +0.0096 [+0.0026, +0.0164] | ⚠ **BELOW RESOLUTION** — its own MDE is **0.0104**. CI excludes zero, \|eff\| does not clear the MDE. **Downgraded by R292.** |
 
 > **No prompt-blind quadruple in this vocabulary reaches the admitted arms even when chosen to.**
 > Clause 2 is about cores, **bounded to this 16-criterion pool** — a negative result here is a

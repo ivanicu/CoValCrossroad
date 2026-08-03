@@ -195,8 +195,12 @@ def main():
         p2 = 2 * min((bs <= 0).mean(), (bs >= 0).mean())
         verdict = "PASSES neutral clause 2" if lo > 0 else ("FAILS — worse than generic" if hi < 0
                                                             else "UNRESOLVED")
+        # R292: store the per-cell MDE so these cells are judgeable by this arc's own
+        # resolution rule (|eff| >= MDE) rather than only by the CI. Without it they are
+        # counted as UNJUDGEABLE by the cell audit, which is a gap in the census, not a defect.
+        mde_cell = ZEFF * d.std(ddof=1) / math.sqrt(len(d))
         rows[a] = dict(k=kk, a2=float(va.mean()), neutral=float(vn.mean()), gap=float(d.mean()),
-                       lo=lo, hi=hi, p=float(p2), verdict=verdict)
+                       lo=lo, hi=hi, p=float(p2), mde=float(mde_cell), verdict=verdict)
         grid.append((a, float(p2)))
         print(f"    {a:<13}{kk:>3}{va.mean():>9.4f}{vn.mean():>11.4f}{d.mean():>+9.4f}  "
               f"[{lo:+.4f}, {hi:+.4f}]{'':<3}{verdict}")
