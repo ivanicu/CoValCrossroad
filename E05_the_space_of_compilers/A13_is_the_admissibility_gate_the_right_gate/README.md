@@ -86,10 +86,29 @@ impossible|mis-scaled|omitted|inherited|over/understated`):
 | of those, the earlier round is **also in A13** — same directory, same day | **20** |
 
 **The rule is generous** and I am not hiding that: it counts a round that merely *cites* an earlier
-round while using a defect word about something else. R267 is the only round that names no earlier
-round at all. **So the honest figure is between my typed 12 and this rule's 24, and I have not
-measured it** — narrowing it needs a rule that distinguishes "cites" from "was triggered by", and
-that rule would itself be a judgement dressed as a count.
+round while using a defect word about something else.
+
+⚠ **I then said "the honest figure is between my typed 12 and this rule's 24". That interval is
+also wrong, on both ends.** Sweeping the rule itself — *corrective iff an earlier round-id occurs
+within `W` characters of a defect word* — gives a specification curve:
+
+| W | corrective | self (A13) | share of 28 |
+|---:|---:|---:|---:|
+| 20 | **16** | 12 | 0.57 |
+| 40 | 19 | 14 | 0.68 |
+| 60 | 21 | 15 | 0.75 |
+| 100 | 22 | 16 | 0.79 |
+| 200 | 25 | 19 | 0.89 |
+| 400 | 27 | 21 | 0.96 |
+| 800 | **28** | 24 | **1.00** |
+| whole docstring | 28 | 26 | 1.00 |
+
+**The range is 16 to 28 of 28 — 57% to 100% — and at every window ≥ 800 characters it is all of
+them.** My lower bound of 12 was too low and my upper bound of 24 was too high.
+
+> **The width is the finding. "How corrective is this arc" has no rule-free answer**, and any single
+> number I quote is a statement about the window I chose. That is more honest than the interval I
+> gave and much more honest than the point I typed first.
 
 What survives either reading: **the arc is not a sequence of findings with corrections appended. It
 is mostly corrections, and the findings are what survived them.** That is the honest description of
