@@ -601,11 +601,22 @@ binomial se (0.0814); the threshold is **computed from two measured numbers**, w
 typed as `> 0.9` and the design returned exactly 0.9000. **Placebo** — identical arms at the same
 seed differ by exactly `0.000000`.
 
-⚠ **The SHAM is void and I built it that way.** It re-randomises which prompts carry the plant — but
-the carrier vector is all-`True`, so permuting it is a no-op. It returned **0.7200 against 0.7700 at
-the same g**, where it should have fallen to α. **A sham that cannot fail.** It does not invalidate
-the MDE, which rests on the held-out calibration and the positive control, but one declared control
-did nothing and that is recorded rather than quietly dropped.
+⚠ **R268's sham was void — and repairing it (R269) confirmed the MDE rather than moving it.**
+It re-randomised *which* prompts carry the plant, and the carrier was all-`True`, so permuting it was
+a no-op: 0.7200 against 0.7700 at the same g. **And the obvious repair is void too** — prompts are
+exchangeable, so permuting which exchangeable units carry an effect changes nothing in distribution
+at *any* fill rate. **A sham must destroy something the statistic depends on, and "which prompt" is
+not such a thing.**
+
+Two replacements, and only one of them is a test:
+
+| | | |
+|---|---:|---|
+| **SHAM-A** uniform shift of g on all four responses | **0.1100** vs α 0.0600 | ⚠ **FORCED** — a constant cannot move a sign. A *placebo* in a sham's name; it checks only that the class function is shift-invariant **as coded**. |
+| **SHAM-B** the same g applied to the **TARGET** instead of the arm | **0.0200** vs real **0.7700** | **can fail, and did not** — detection collapses below α when the plant is aimed at the reference |
+
+**SHAM-B is the one that matters**: had making the reference easier *also* raised detection, the
+statistic would not be measuring the arm and the MDE would be void. It falls from 0.7700 to 0.0200.
 
 ⛔ **The label-order axis is deliberately NOT inside this MDE.** It is one alternative instrument,
 not a distribution — folding its 0.0378 in would average a **bias** into a **variance**.
