@@ -99,6 +99,9 @@ follows it.*
 | **At matched size only 2 of 7 ways of reading the prompt beat four fixed sentences** | 5 lose by up to −0.065 | k=4, all resolved |
 | **Criterion count buys nothing past k≈4** | +0.0019 for k=4→16 vs MDE 0.0121 | prompt-blind pool |
 | **`generic` is not degenerate** | +0.1077 [+0.0925,+0.1226] over the best of 75 constants | cluster-corrected |
+| **The value is in the COMBINATION, not any member** | every criterion of **both** admitted arms loses alone to one generic; both sums win | R298, R300 |
+| **Importance is real but COARSE** | +0.0474 block-level, no resolvable rank ordering | R299 |
+| **The admitted size band** | **k = 3…8**, entry and exit both resolved | R296 |
 | **The admissible band is 12.57 MDE units wide** | chance 0.3833 → human ceiling 0.5519 | measured, not assumed |
 | **Clause ① is judge-robust; clause ② is judge-bound** | 6/6 vs 0/3 cells | 2B and 0.8B |
 | **The structural wall, priced** | `full` vs `topwvar_k4` needs **3,352 prompts, 3.5×** this release | not a shrug |
@@ -135,6 +138,33 @@ measurement:
 > both resolved, and no ordering within 3–8 is.** The old wording was right about the interior and
 > **silent about the boundaries** — which were measurable all along, once the reference was
 > size-matched.
+
+### ⭐ THE COMBINATION FINDING HOLDS FOR BOTH ADMITTED ARMS, WHICH SHARE NO METHOD (R300)
+
+R298/R299 decomposed one selector. `coval_core` is the other admitted arm and a different kind of
+object: the release's own compiler output, **rewritten, not selected** — only 8% of its items appear
+verbatim in `coval_full`, so it has no importance rank to decompose by. The **structural** question
+transfers exactly.
+
+| `coval_core` criterion, alone | A2 | vs 1 generic | |
+|---|---:|---:|---|
+| #0 | 0.5545 | +0.0114 | **below resolution** |
+| #1 | 0.5284 | **−0.0147** | **LOSES** |
+| #2 | 0.5258 | **−0.0173** | **LOSES** |
+| #3 | 0.5059 | **−0.0372** | **LOSES** |
+| **all four** | **0.5671** | **+0.0163** [+0.0086,+0.0236] vs *four* generic | **BEATS** |
+
+**No singleton beats one generic criterion.** The sum beats its own best singleton by **+0.0126**
+[+0.0059,+0.0196]. **6 of 6 cells survive BH.**
+
+> **So every criterion of BOTH admitted arms loses alone to a single generic one, and both sums
+> win** — across two compilers that share no method: one **selects** from a rubric by human
+> importance, the other **rewrites** from the conversation. That is the widest comparison this
+> release supports, and it is the strongest form of *the value is in the combination, not in any
+> member* available here.
+
+⚠ **What "generalises" means in that sentence**: *holds for both of the two admitted arms*, and
+nothing more. A third compiler is not available, and the claim is scoped to two objects.
 
 ### 🔷 IMPORTANCE IS INFORMATIVE AT BLOCK RESOLUTION, NOT AT RANK RESOLUTION (R299)
 

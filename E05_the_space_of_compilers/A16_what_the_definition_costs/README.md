@@ -32,6 +32,7 @@ contents only** — every finding, its interval and its scope live in `E05/FORMU
 | `R297` why k=1 loses | the tie explanation is dead; the deficit survives removing ties |
 | `R298` is importance monotone | every criterion alone loses to one generic; together they win |
 | `R299` where the selection boundary is | importance is informative at BLOCK resolution, not RANK |
+| `R300` does combination generalise | it holds for both admitted arms, which share no method |
 
 ## Why the arc was opened rather than folded into A13
 
