@@ -30,7 +30,7 @@ Table of contents only. Each round's README states its design; the finding lives
 | [`R25`](R25_actor_dyad_sweep) | actor dyad sweep | 145 |
 | [`R26`](R26_sign_no_split) | r26 -- Decide the sign test by removing the split that made it undecidable. | 9 |
 | [`R27`](R27_raw_negative_tail) | r27 -- The separator my own separator could not be: raw-scale anti-correlation. | 5 |
-| [`R28`](R28_multiplicative) | r28 -- The functional form was wrong, and it was wrong in the direction of the answer. | 6 |
+| [`R28`](R28_multiplicative) | r28 -- The functional form was wrong, and it was wrong in the direction of the answer. | 5 |
 | [`R29`](R29_gold_ood) | r29 -- Is the gold model trustworthy on responses it was not trained around? | 1 |
 | [`R30`](R30_scope_grid) | r30 -- The headline as a grid, with an interval in every cell. | 1 |
 | [`R31`](R31_within_person) | r31 -- The task-6 discontinuity, repaired: within-person, and against the right confound. | 1 |

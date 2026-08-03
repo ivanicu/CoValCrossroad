@@ -33,7 +33,7 @@ Table of contents only. Each round's README states its design; the finding lives
 | [`R76`](R76_absence_cannot_overlap) | r76 -- is r75's asymmetry about attention, or is it that an absence has no words to overlap? | 1 |
 | [`R77`](R77_topicality_control) | r77 -- is r75's menu-reading just topicality? Strip every word the PROMPT already supplied. | 1 |
 | [`R78`](R78_tokeniser_robustness) | r78 -- does the r75 effect survive tokenisers I did not choose? | 1 |
-| [`R79`](R79_semantic_menu_read) | r79 -- the rival I said I could not build: measure the menu-read SEMANTICALLY. | 8 |
+| [`R79`](R79_semantic_menu_read) | r79 -- the rival I said I could not build: measure the menu-read SEMANTICALLY. | 4 |
 | [`R80`](R80_panel_freeze) | r80 -- freeze the judge panel as it ACTUALLY is, environment included. | 1 |
 | [`R81`](R81_stated_signal_by_length) | r81 -- r03's equivalence averages two strata differing by ten times the effect. Test the strata. | 1 |
 | [`R82`](R82_scale_use_by_provenance) | r82 -- the midpoint was used ONCE in 102,147 ratings. Where does the displaced mass go? | 1 |

@@ -21,7 +21,7 @@ Table of contents only. Each round's README states its design; the finding lives
 |---|---|---|
 | [`R06`](R06_rule_tournament) | R06_rule_tournament | 2 |
 | [`R07`](R07_anthropomorphism) | R07_anthropomorphism | 1 |
-| [`R08`](R08_gold_preference) | R08_gold_preference | 6 |
+| [`R08`](R08_gold_preference) | R08_gold_preference | 4 |
 | [`R09`](R09_overoptimization) | R09_overoptimization | 2 |
 
 <!-- ROUND-INDEX:END -->

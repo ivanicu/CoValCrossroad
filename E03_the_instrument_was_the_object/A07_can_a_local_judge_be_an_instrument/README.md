@@ -29,13 +29,13 @@ Table of contents only. Each round's README states its design; the finding lives
 
 | round | what it asked | results files |
 |---|---|---|
-| [`R46`](R46_spread_replication) | r46 -- out-of-sample replication of the spread-loss effect (entry 48). | 4 |
-| [`R47`](R47_gold_is_length) | r47 -- is r12's inversion carried by the gold proxy's length channel? | 3 |
+| [`R46`](R46_spread_replication) | r46 -- out-of-sample replication of the spread-loss effect (entry 48). | 3 |
+| [`R47`](R47_gold_is_length) | r47 -- is r12's inversion carried by the gold proxy's length channel? | 2 |
 | [`R48`](R48_provenance_identified) | r48 -- the seed/write-in provenance is an IDENTIFICATION, not a proxy. | 1 |
-| [`R49`](R49_provenance_crossfit) | r49 -- does the cross-rater direction survive on criteria nobody else saw? | 3 |
-| [`R50`](R50_response_anchoring) | r50 -- is the cross-rater direction carried by criteria ABOUT the four responses? | 3 |
-| [`R51`](R51_judge_lexical) | r51 -- does the satisfaction judge score lexical overlap? | 3 |
-| [`R52`](R52_overlap_intervention) | r52 -- intervene on lexical overlap and watch the judge move. | 3 |
+| [`R49`](R49_provenance_crossfit) | r49 -- does the cross-rater direction survive on criteria nobody else saw? | 2 |
+| [`R50`](R50_response_anchoring) | r50 -- is the cross-rater direction carried by criteria ABOUT the four responses? | 2 |
+| [`R51`](R51_judge_lexical) | r51 -- does the satisfaction judge score lexical overlap? | 2 |
+| [`R52`](R52_overlap_intervention) | r52 -- intervene on lexical overlap and watch the judge move. | 2 |
 | [`R53`](R53_join_audit) | r53 -- audit the join every round in this repository depends on. | 1 |
 | [`R54`](R54_overlap_transfer) | r54 -- does the judge's overlap channel explain r12's transfer failure? | 1 |
 | [`R55`](R55_overlap_selectivity) | r55 -- the overlap channel's ORDERING component, which is the only part that could explain r12. | 1 |
