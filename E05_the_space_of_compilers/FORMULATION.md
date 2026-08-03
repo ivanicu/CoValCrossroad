@@ -177,6 +177,35 @@ size*, and under it the extension changes: at the all-annotator numbers `gen` (0
 table admits. **Whether that reading survives depends entirely on the size match**, which is what
 R281 is for.
 
+### ⛔ AT EXACTLY MATCHED SIZE, READING THE PROMPT BUYS NOTHING ON ITS OWN — 2 OF 7 (R282)
+
+Seven arms are **k=4 by construction** and drawn from the same `coval_full` rubric, differing only
+in **selection rule**; `generic` is also k=4. So the neutral clause is answerable at exactly
+matched size with no size adjustment made or needed. All annotators. **All 8 cells survive BH;
+every verdict is resolved against its own MDE.**
+
+| arm | A2 | − `generic` | 95% CI | | what selects it |
+|---|---:|---:|---|---|---|
+| `coval_core` | 0.5665 | **+0.0151** | [+0.0076,+0.0226] | **BEATS** | the release's own compiler |
+| `topw_k4` | 0.5642 | **+0.0128** | [+0.0050,+0.0203] | **BEATS** | the rubric's top 4 by **human importance metadata** |
+| **`generic`** | **0.5514** | — | | | **never reads the conversation** |
+| **`gen`** | 0.5352 | **−0.0162** | [−0.0247,−0.0080] | **LOSES** | generated from the conversation alone |
+| `topwvar_k4` | 0.5040 | −0.0474 | [−0.0573,−0.0377] | LOSES | importance × spread |
+| `random_k4` | 0.4927 | −0.0587 | [−0.0691,−0.0484] | LOSES | 4 at random from the same rubric |
+| `topabs_k4` | 0.4894 | −0.0620 | [−0.0735,−0.0507] | LOSES | top 4 by \|importance\| |
+| `topvar_k4` | 0.4863 | −0.0651 | [−0.0755,−0.0549] | LOSES | top 4 by satisfaction spread |
+
+> ⛔ **Clause 2 is not tracking ABOUTNESS. It is tracking aboutness CONDITIONAL ON A SELECTOR** —
+> and the only two selectors that clear the prompt-blind arm are the release's own compiler and one
+> that reads **human importance metadata a compiler working from the conversation alone would not
+> have.** Five of seven ways of reading the prompt lose to four generic sentences by a resolved
+> margin.
+
+⚠ **And `gen` — an arm this table ADMITS — loses at −0.0162, resolved.** A core generated from the
+conversation alone, with no metadata, is separably **worse** than four sentences that never read it.
+Controls: `generic` against itself exactly 0 with CI [0,0]; the same random rule at two seeds
+differs by −0.0055 inside its own MDE of 0.0140 (three seeds: 0.4927 / 0.4981 / 0.4884).
+
 **The obvious escape does not open** (R276). *Perhaps `generic` only looks good because A2 rewards
 the common verdict* — i.e. it is a constant in disguise, and clause 2 discards nothing. Tested
 against the **best of all 75 weak orderings, chosen with hindsight**, which is the strongest
