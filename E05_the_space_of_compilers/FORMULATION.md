@@ -1,5 +1,60 @@
 # What a "core" is — the formulation, stated once
 
+## ⭐ THE DEFINITION AS IT STANDS, 2026-08-03 — both clauses restated to say what they test
+
+> **A core is a set of criteria that predicts held-out human judgement**
+> **① better than the same number drawn at random from that conversation's own rubric, and**
+> **② better than the same number that never read the conversation at all.**
+
+**Why both clauses are worded against a named object rather than against "chance".** R285 measured
+chance directly, by drawing the comparison partner from a *different* prompt: **0.3833** human-vs-
+human, **0.4257** for `random_k4` vs human. **Every arm in this benchmark is above chance** — so a
+clause saying "better than chance" excludes nothing, while the test that was actually being run
+("better than `random_k4`") excludes four. The wording now matches the test.
+
+### The complete evidence table — all 15,593 annotations, each cell against its own MDE
+
+| arm | A2 | ① vs random-from-rubric | ② vs size-matched prompt-blind | verdict |
+|---|---:|---|---|---|
+| **`coval_core`** | 0.5665 | **+0.0738** | **+0.0262** [+0.0192,+0.0332] | **ADMITTED** |
+| **`topw_k4`** | 0.5642 | **+0.0715** | **+0.0239** [+0.0169,+0.0312] | **ADMITTED** |
+| `generic` | 0.5514 | +0.0587 | **0 by construction** | excluded (②) |
+| `gen` | 0.5352 | +0.0425 | **−0.0051 … −0.0162** ⚠ | **UNRESOLVED** (②) |
+| `full` | 0.5087 | +0.0160 | **−0.0331** [−0.0413,−0.0254] | excluded (②) |
+| `topwvar_k4` | 0.5040 | +0.0113, **below its MDE 0.0134** | — | excluded (①, unresolved) |
+| `topabs_k4` | 0.4894 | −0.0033 | — | excluded (①) |
+| `topvar_k4` | 0.4863 | −0.0064 | — | excluded (①) |
+| `gen_sham` | 0.4828 | −0.0099 | — | excluded (①) |
+
+> **Two arms admitted of nine.** Against the *best held-out* prompt-blind quadruple out of all 1,820
+> (R286), the margins are **+0.0119** [+0.0048,+0.0187] and **+0.0096** [+0.0026,+0.0164] — both
+> separable, both BH survivors.
+
+**⚠ `gen` is UNRESOLVED and stays that way.** Its clause-② verdict depends on which prompt-blind arm
+is the reference: **−0.0162 (resolved FAIL)** against the hand-picked incumbent, **−0.0051
+(unresolved)** against a random quadruple from the pool. **Both baselines are defensible and they
+disagree; the spread is published rather than settled by choosing.**
+
+**⚠ What admission does NOT mean.** `topw_k4` selects using **human importance metadata that is not
+a property of the conversation** — no compiler working from the conversation alone has it. Whether
+`coval_core`'s advantage is the *same* mechanism was tested (R284) and **could not be supported**:
+0.6856 Pearson against a matched no-shared-mechanism floor of 0.5581, clearing on Pearson and not on
+Spearman. So *"every route to a core runs through human annotation"* is **not claimed.**
+
+### The scope every number above carries
+
+| | |
+|---|---|
+| population | 968 CoVal prompts with ≥2 annotators · 15,593 annotations, median 16/prompt |
+| instrument | Qwen3.5-2B-Base satisfaction judge; cross-artifact noise **0.0009** at the mean |
+| baseline | named per clause above — never "chance" |
+| regime | k=4 unless stated; A2 = pairwise accuracy over 6 pairs; cluster bootstrap over prompts |
+| resolution | per-cell MDE **0.0084–0.0178**; the admissible band is **12.57 MDE units** wide |
+| what is structurally unresolvable | `full` vs `topwvar_k4` (+0.0048): needs **3,352 prompts, 3.5× this release** |
+
+---
+
+
 *Every claim carries its round and its status. Nothing here is asserted without one.*
 
 **Status vocabulary.** `DERIVED` — forced by the algebra, labelled as such, evidence of nothing on
