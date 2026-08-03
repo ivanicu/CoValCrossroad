@@ -163,6 +163,13 @@ def main() -> int:
         # carry limitation prose under another name -- the same
         # population-narrower-than-the-sentence defect this check exists for,
         # in the check itself, one commit after writing it.
+        # ⚠ Same defect as `corrections_propagated`, same day, same line shape: a results file
+        # whose TOP LEVEL IS A LIST has no fields to read, `doc.get` raises AttributeError, and
+        # the deliberately-narrow except lets it crash -- so this check exited 1 on every tree
+        # and could never say yes. Skipped explicitly and counted, never swallowed.
+        if not isinstance(doc, dict):
+            _SKIPPED.append(f"{f} (top level is a list, no claim fields)")
+            continue
         parts = [v for k in CLAIM_FIELDS
                  for v in [doc.get(k)] if isinstance(v, str) and v.strip()]
         if not parts:

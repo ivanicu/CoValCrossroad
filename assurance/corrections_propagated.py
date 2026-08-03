@@ -116,6 +116,7 @@ CORRECTED = [
 # agree with it, and telling agreement from correction is not mechanical. The
 # swept class is small -- four sentences across every verdict in the package --
 # so the list is short enough to re-read whenever it changes.
+_SKIPPED_NON_DICT: list[str] = []   # stated, never swallowed
 NAMES_ROUND = re.compile(r"\br(\d{2})'?s?\b")
 CORRECTIVE = re.compile(
     r"(over-?attribut|under-?attribut|was the value of|one path|not the channel|retract|"
@@ -137,6 +138,18 @@ def cross_round_corrections() -> list[tuple[str, list[str], str]]:
             # life because `json` was not imported at module level, every file
             # raised NameError, and a bare except swallowed all 238 of them into a
             # clean zero. Catch what a bad file raises; let a broken function crash.
+            continue
+        # ⚠ A results file whose TOP LEVEL IS A LIST carries no verdict key -- 14 exist (the
+        # census waves, the triple-blind grids, `_ops.json`). That is a legitimate shape, not a
+        # bad file. But `doc.get` raises AttributeError on it, and because the except above is
+        # deliberately narrow -- so a broken FUNCTION crashes rather than returning a clean zero
+        # -- the crash made this check exit 1 on EVERY tree, clean or not. `attack_every_check`
+        # convicted it as "fires on the CLEAN tree too, not specific", which is exactly right:
+        # a check that always says no carries the same information as one that always says yes.
+        # Skipped EXPLICITLY and COUNTED, because a silent skip is how the original 238-file
+        # NameError hid for this function's whole first life.
+        if not isinstance(doc, dict):
+            _SKIPPED_NON_DICT.append(f.name)
             continue
         v = doc.get("verdict") or doc.get("conclusion")
         if not isinstance(v, str):
