@@ -6,17 +6,17 @@
  "fresh": 0.468,
  "floors": {
   "orig": [
-   0.40440000000000004,
-   0.344,
-   0.452
+   0.3908,
+   0.324,
+   0.468
   ],
   "fresh": [
-   0.4166,
-   0.368,
-   0.464
+   0.41200000000000003,
+   0.384,
+   0.468
   ]
  },
- "verdict": "SURVIVES -- class preservation on unseen responses (0.4680) stays outside the random floor [0.3680, 0.4640]. The compilation transports to a new candidate set.",
+ "verdict": "BOTH arms sit inside their floors -- the core is indistinguishable from random on this Q for shown AND unseen responses, which is R231's finding extended, not a candidate-set effect.",
  "grid": {
   "orig|core_vs_full": 0.352,
   "orig|PLACEBO_full_vs_full": 1.0,
