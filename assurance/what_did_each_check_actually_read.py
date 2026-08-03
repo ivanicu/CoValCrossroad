@@ -38,7 +38,7 @@ IMPOSSIBLE    whether the files it opened are the RIGHT files. This measures tha
               aiming is a different round.
 """
 from __future__ import annotations
-import hashlib, json, pathlib, subprocess, sys, tempfile, textwrap
+import hashlib, json, os, pathlib, subprocess, sys, tempfile, textwrap
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 # ⚠ CAPTURED ONCE, AT IMPORT, AND NEVER RE-GLOBBED. The repair below restores the epoch
@@ -96,6 +96,27 @@ def run_traced(target: pathlib.Path):
             return None, []
         d = json.loads(out.read_text())
         return d["rc"], d["files"]
+
+
+# ⛔ RE-ENTRANCY GUARD — 2026-08-03, after a runaway that had to be killed by hand.
+# This file SWEEPS every *.py in assurance/. So does the OTHER sweep in this directory. Each
+# therefore swept the other, which swept the first: mutual recursion with no base case. It
+# orphaned itself to `systemd --user`, kept running after its parent shell was gone, and every
+# generation ran subjects that MOVE EPOCH DIRECTORIES by design. Four of five epochs were deleted
+# from the working tree TWICE, ~15 minutes apart -- and the second time was not a repeat, it was
+# the same runaway still going, still spawning children with an elapsed time of 0 seconds while I
+# was inspecting the damage.
+#
+# A NAME LIST would only block the chains I thought of. An environment flag blocks every chain,
+# including one through a script that does not exist yet: the first sweep to start owns the flag,
+# subprocess inherits the environment, and any sweep starting underneath refuses.
+# Constitution L60 bans recursive AGENT fan-out; the same ban belongs on PROCESS fan-out.
+_SWEEP_FLAG = "ASSURANCE_SWEEP_ACTIVE"
+if os.environ.get(_SWEEP_FLAG):
+    print(f"  REFUSING: {_SWEEP_FLAG} is set, so this sweep is running INSIDE another sweep. "
+          f"Two mutually-sweeping scripts recurse without bound. Exit 3, examined nothing.")
+    raise SystemExit(3)
+os.environ[_SWEEP_FLAG] = "1"
 
 
 def main():
