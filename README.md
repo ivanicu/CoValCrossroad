@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**367 rounds** in **5 epochs** and **24 arcs**, numbered to **R373** — **53 standing claims, 13
+**368 rounds** in **5 epochs** and **24 arcs**, numbered to **R374** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -636,6 +636,23 @@ an absence. ⭐ **The debt is paid, not frozen**: a new gate flagged R368 and R3
 with `n_units` recorded, and **only `n_units` and the stamp changed** — 5 of 5 compliant. Suite
 **25/25**, gate **51 of 51**.
 → [`R373`](E05_the_space_of_compilers/A24_what_the_definition_costs/R373_can_the_campaign_audit_its_own_resolution)
+
+**And the report that found all this was itself running on a broken measurement.** R373's commit
+corrected it: a shell loop read `$?` after a command substitution had already run `basename`, so it
+printed basename's exit code and reported **"41 doc gates exit 0"** while **twelve were red**. Asked
+properly — *were they ever green?* — the eleven not attributable to this session split in two.
+**Five have NEVER exited 0 since the day they were committed** (`attack_no_withdrawn_framings`,
+`attack_outcome_variable_declared`, `_isolated`, `pueue_wait`, `verdict_cites_its_own_contrasts`):
+a gate that never passed is **a claim about the corpus that the corpus never made**, and there is no
+regression to find. **The other six were green at HEAD~512 (07-29) and red by HEAD~256 (08-03) —
+all six in the same bracket**, which is one commit far more plausibly than six. Ladder: 12 rungs over
+**692** commits, **132** cells, the gate **as it was** on the tree **as it was**, with both harness
+controls (a known-green and a known-red gate reproduced through the worktree) passing first.
+⛔ **R373's own hypothesis is partly refuted by the table**: it argued exit-2 gates were stale
+registrations, but `readme_row_carries_the_verdict` and `synthesis_cites_recent_work` both exit 2
+today and **both exited 0 at HEAD~512** — an exit-2 gate can be a regression that destroyed its own
+input.
+→ [`R374`](E05_the_space_of_compilers/A24_what_the_definition_costs/R374_were_the_red_gates_ever_green)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
