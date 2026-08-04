@@ -1,0 +1,113 @@
+{
+  "controls": {
+    "det_exits": [
+      0
+    ],
+    "flip_exits": [
+      0,
+      1
+    ],
+    "repeat_neg": true,
+    "repeat_pos": true,
+    "tree_clean_at_start": true
+  },
+  "dirty_runs": [],
+  "distinct_exits": [
+    1
+  ],
+  "distinct_restore": [
+    "CLEAN"
+  ],
+  "head": "eb365b4ce687",
+  "n_distinct_tables": 1,
+  "n_runs": 8,
+  "row_diffs": [],
+  "runs": [
+    {
+      "dirty_after": 0,
+      "dirty_paths": [],
+      "exit": 1,
+      "n_rows": 0,
+      "restore": "CLEAN",
+      "run": 0,
+      "table": []
+    },
+    {
+      "dirty_after": 0,
+      "dirty_paths": [],
+      "exit": 1,
+      "n_rows": 0,
+      "restore": "CLEAN",
+      "run": 1,
+      "table": []
+    },
+    {
+      "dirty_after": 0,
+      "dirty_paths": [],
+      "exit": 1,
+      "n_rows": 0,
+      "restore": "CLEAN",
+      "run": 2,
+      "table": []
+    },
+    {
+      "dirty_after": 0,
+      "dirty_paths": [],
+      "exit": 1,
+      "n_rows": 0,
+      "restore": "CLEAN",
+      "run": 3,
+      "table": []
+    },
+    {
+      "dirty_after": 0,
+      "dirty_paths": [],
+      "exit": 1,
+      "n_rows": 0,
+      "restore": "CLEAN",
+      "run": 4,
+      "table": []
+    },
+    {
+      "dirty_after": 0,
+      "dirty_paths": [],
+      "exit": 1,
+      "n_rows": 0,
+      "restore": "CLEAN",
+      "run": 5,
+      "table": []
+    },
+    {
+      "dirty_after": 0,
+      "dirty_paths": [],
+      "exit": 1,
+      "n_rows": 0,
+      "restore": "CLEAN",
+      "run": 6,
+      "table": []
+    },
+    {
+      "dirty_after": 0,
+      "dirty_paths": [],
+      "exit": 1,
+      "n_rows": 0,
+      "restore": "CLEAN",
+      "run": 7,
+      "table": []
+    }
+  ],
+  "source_name": "run.py",
+  "source_sha256": "345ceadffc0411b85006069b2c264a9fed562c72b5c939feb1b54e38067bb074",
+  "subject": "attack_every_check",
+  "verdict": "W_DETERMINISTIC",
+  "worktree_coupled": [],
+  "worktree_refs": {
+    "attack_every_check": 0,
+    "code_states_a_bound_the_reader_never_sees": 0,
+    "corrections_propagated": 0,
+    "every_round_reaches_the_readme": 0,
+    "readme_row_carries_the_verdict": 0,
+    "results_match_their_code": 0,
+    "retired_framing_in_assertion_positions": 0
+  }
+}

@@ -1,6 +1,6 @@
 # Assurance package
 
-generated 2026-08-04T11:41:58.488800+00:00 · git `487c794e3c51` · seed 20260727
+generated 2026-08-04T11:52:11.509520+00:00 · git `eb365b4ce687` · seed 20260727
 
 ## Claims
 

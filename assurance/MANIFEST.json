@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-08-04T11:41:58.488800+00:00",
- "git": "487c794e3c512d08a83a27c9ec8454750e2fcc6b",
+ "generated_utc": "2026-08-04T11:52:11.509520+00:00",
+ "git": "eb365b4ce6870dcadd9cebd1ac4f83d9a96ca108",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -1534,6 +1534,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R376_the_harness_that_says_do_not_use_it/run.py": {
    "bytes": 15336,
    "sha256": "482f2e71417479ca5ae044bfc21e4963c1782ff1eab965580c105d2039df1393"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R377_is_the_flicker_in_the_check_itself/run.py": {
+   "bytes": 18065,
+   "sha256": "345ceadffc0411b85006069b2c264a9fed562c72b5c939feb1b54e38067bb074"
   },
   "assurance/DEFECTS.py": {
    "bytes": 14429,
@@ -4092,6 +4096,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R376_the_harness_that_says_do_not_use_it/results/r376_isolation.json": {
    "bytes": 1465,
    "sha256": "01620a8694f4d766cec1078b8a5de864dee8708ebba6530cb0800230e9c62a42"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R377_is_the_flicker_in_the_check_itself/results/r377_flicker.json": {
+   "bytes": 2153,
+   "sha256": "ac32c9b77b27f697b5de6b7be55b6731a0e20776f2bf38ea7f790a670ea078f1"
   }
  },
  "claims": [

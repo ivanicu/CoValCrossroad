@@ -45,7 +45,7 @@
   },
   "an_mde_records_its_denominator.py": {
    "exit": 0,
-   "round_files": 402,
+   "round_files": 403,
    "other_files": 0,
    "assurance_files": 1,
    "verdict": "read the tree",
@@ -68,7 +68,7 @@
   },
   "apply_outcome_scope.py": {
    "exit": 0,
-   "round_files": 372,
+   "round_files": 373,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -77,7 +77,7 @@
   },
   "artifacts_are_internally_coherent.py": {
    "exit": 1,
-   "round_files": 592,
+   "round_files": 593,
    "other_files": 10,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
@@ -91,8 +91,8 @@
   },
   "attack_every_check.py": {
    "exit": 1,
-   "round_files": 2,
-   "other_files": 682,
+   "round_files": 1,
+   "other_files": 683,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
    "dirtied": 1,
@@ -160,7 +160,7 @@
   },
   "code_states_a_bound_the_reader_never_sees.py": {
    "exit": 0,
-   "round_files": 397,
+   "round_files": 398,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -180,7 +180,7 @@
   },
   "corrections_propagated.py": {
    "exit": 0,
-   "round_files": 588,
+   "round_files": 589,
    "other_files": 4,
    "assurance_files": 1,
    "verdict": "read the tree",
@@ -237,7 +237,7 @@
   },
   "generate_round_index.py": {
    "exit": 0,
-   "round_files": 381,
+   "round_files": 382,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -248,7 +248,7 @@
   },
   "interval_is_centred_on_its_point.py": {
    "exit": 0,
-   "round_files": 592,
+   "round_files": 593,
    "other_files": 6,
    "assurance_files": 2,
    "verdict": "read the tree",
@@ -262,7 +262,7 @@
   },
   "manifest.py": {
    "exit": 0,
-   "round_files": 949,
+   "round_files": 951,
    "other_files": 18,
    "assurance_files": 45,
    "verdict": "read the tree",
@@ -290,7 +290,7 @@
   },
   "next_gradient_is_new.py": {
    "exit": 0,
-   "round_files": 491,
+   "round_files": 493,
    "other_files": 50,
    "assurance_files": 43,
    "verdict": "read the tree",
@@ -313,7 +313,7 @@
   },
   "no_withdrawn_framings.py": {
    "exit": 0,
-   "round_files": 588,
+   "round_files": 589,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -322,7 +322,7 @@
   },
   "outcome_variable_declared.py": {
    "exit": 0,
-   "round_files": 370,
+   "round_files": 371,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -331,7 +331,7 @@
   },
   "point_and_interval_share_a_source.py": {
    "exit": 0,
-   "round_files": 357,
+   "round_files": 358,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -349,7 +349,7 @@
   },
   "readme_agrees_with_results.py": {
    "exit": 0,
-   "round_files": 588,
+   "round_files": 589,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -360,7 +360,7 @@
   },
   "readme_row_carries_the_verdict.py": {
    "exit": 2,
-   "round_files": 586,
+   "round_files": 587,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "exit 2, not a pass",
@@ -371,7 +371,7 @@
   },
   "registries_are_satisfied.py": {
    "exit": 0,
-   "round_files": 543,
+   "round_files": 544,
    "other_files": 8,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -416,7 +416,7 @@
   },
   "retired_framing_in_emittable_source.py": {
    "exit": 0,
-   "round_files": 397,
+   "round_files": 398,
    "other_files": 17,
    "assurance_files": 1,
    "verdict": "read the tree",
@@ -453,7 +453,7 @@
   },
   "seed_filter_is_disclosed.py": {
    "exit": 1,
-   "round_files": 381,
+   "round_files": 382,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
@@ -464,7 +464,7 @@
   },
   "source_stamp_is_current.py": {
    "exit": 0,
-   "round_files": 530,
+   "round_files": 532,
    "other_files": 3,
    "assurance_files": 1,
    "verdict": "read the tree",
@@ -488,7 +488,7 @@
   },
   "verdict_cites_its_own_contrasts.py": {
    "exit": 2,
-   "round_files": 528,
+   "round_files": 529,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "exit 2, not a pass",

@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**370 rounds** in **5 epochs** and **24 arcs**, numbered to **R376** — **53 standing claims, 13
+**371 rounds** in **5 epochs** and **24 arcs**, numbered to **R377** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -688,6 +688,23 @@ retired.** ⚠ This campaign's ledger puts *"the control fails for its own reaso
 betting the base rate would have produced this verdict with no evidence; both worlds were built and
 the paths were read.
 → [`R376`](E05_the_space_of_compilers/A24_what_the_definition_costs/R376_the_harness_that_says_do_not_use_it)
+
+**And R376's closing sentence was wrong, which the next round measured rather than argued.** R376
+blamed a read-isolation hazard: three rounds pointing at `scratchpad/assurance_wt`, also
+`_isolated.py`'s default worktree. But `attack_every_check` runs with `cwd=ROOT` — the live tree —
+and *"the source says so in one line"* is exactly the convincing description this campaign distrusts,
+because the subject **invokes six other checks** and an indirect coupling would make the refutation
+wrong. **All seven files grepped: worktree references NONE of 7.** Only then does the withdrawal
+stand. Run 8× at one commit: **one exit code, one verdict table, zero runs leaving the tree dirty** —
+so the `1 → 2 → 1` I observed is **not run-to-run noise but tree-state dependence**, and nothing about
+the `_isolated` repair is required to explain it. ⭐ **What that does to R375**: its withdrawal of
+`attack_every_check`'s breaking commit was correct **and now for a stated reason** — a check
+deterministic given the tree that behaves non-monotonically across commits is responding to a real
+difference in corpus, not to noise. *"The commit that broke it"* stays ill-formed, but because the
+property turns on and off, not because the instrument is unreliable. ⚠ The state variable itself is
+**UNVERIFIED** — a corpus hypothesis is labelled and untested. ⚠ And the round excludes its **own**
+directory from its start-clean check, which is R376's finding applied to myself one round later.
+→ [`R377`](E05_the_space_of_compilers/A24_what_the_definition_costs/R377_is_the_flicker_in_the_check_itself)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
