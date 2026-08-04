@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**383 rounds** in **5 epochs** and **24 arcs**, numbered to **R389** — **53 standing claims, 13
+**384 rounds** in **5 epochs** and **24 arcs**, numbered to **R390** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -941,6 +941,20 @@ against **99 (44%)** for my own format. And **3 of 3 paid units end in a verdict
 itself**, so the sentence was **read**, not constructed. ⚠ `W-SPLIT` — **the debt is two projects**,
 and quoting the 70% alone would be the cell reported as the curve.
 → [`R389`](E05_the_space_of_compilers/A24_what_the_definition_costs/R389_the_reading_burden)
+
+**And the untitled tier turns out not to be silent: 5 of 8 state a verdict anyway.** R389 split the
+debt into 158 titled rounds (the sentence is *read*) and 68 untitled (it would have to be
+*constructed*). Running 8 of the 68 in an isolated worktree: **8 ran, 0 unverified, 5 (62%) print a
+verdict line the round wrote itself.** **R389's split was a property of the docstrings, not of the
+findings.** ⛔ **Safety shaped the design**: R389's first copy died to `_isolated.py`'s saboteur
+running against the live tree, so this round manages its own worktree and never imports that module —
+and the live tree was never a subject's cwd. ⛔ **Two defects, both caught by the positive control**:
+avoiding `_isolated` cost me its **input linking** (a fresh worktree holds only tracked files, so
+`data/` was nearly empty and the model-loading rounds died), and my **120 s timeout** was too small —
+R28 takes 36 s warm and longer cold. *A timeout is a statement about the budget, never about the
+subject*, and folding it into "silent" would have convicted the tier with a number I chose. `W-MIXED`
+— **8 run, 60 untried, named rather than assumed.**
+→ [`R390`](E05_the_space_of_compilers/A24_what_the_definition_costs/R390_does_the_untitled_tier_state_anything)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

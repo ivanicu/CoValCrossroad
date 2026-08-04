@@ -103,7 +103,12 @@ PY = ROOT / ".venv" / "bin" / "python"
 WT = pathlib.Path("/tmp/claude-1000/-home-ivan/7d277876-c2fd-4a27-9b05-652b391121ff/scratchpad/r390_wt")
 R389 = HERE.parent / "R389_the_reading_burden" / "results" / "r389_reading_burden.json"
 N_SUBJECTS = 8
-TIMEOUT_S = 120
+# ⛔ RAISED FROM 120 BY THE POSITIVE CONTROL. R28 completes in 36s in a warm worktree and exceeded
+#   120s in a cold one -- model loading across a symlinked store is slower on first touch. The
+#   control reported it as `None` (did not run), which is exactly what a budget that is too small
+#   looks like, and had TIMEOUT been folded into "silent" the tier would have been convicted by my
+#   own clock. A timeout is a statement about the budget, never about the subject.
+TIMEOUT_S = 300
 # a line the ROUND wrote to say what it concluded. Anchored on the two forms the corpus uses.
 VERDICT = re.compile(r"^\s*(VERDICT\b|->\s*\S|⛔|⭐)", re.M)
 PAID = ("R21_donor_distance", "R24_regime_receipt", "R28_multiplicative")
