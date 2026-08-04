@@ -26,6 +26,20 @@ it hashes anything at all. Resolving both routes gives 33. A false conviction an
 were one regex apart in the same measurement, which is why the resolution is explicit and the
 unresolved are named rather than assigned.
 
+⚠⚠ AND THE POPULATION IS 24% OF THE CORPUS. THIS IS THE LARGEST LIMIT AND IT WAS NOT IN v1.
+326 rounds carry a json artifact. **79 carry a stamp of any kind.** The other **247 are outside this
+check entirely** -- not FRESH, not STALE, not even UNVERIFIED, because there is nothing to compare.
+Reporting "33 stale of 47 resolvable" without that denominator invites the reading that the corpus
+is 70% drifted, when what is measured is 70% of the quarter that opted in.
+
+I found this by getting a prediction wrong in the direction that matters. `R242_self_audit`
+regenerates COMPLETELY differently -- committed `23 rounds / 151 declared / 8 gaps`, today
+`124 rounds / 1405 declared / 217 gaps` -- so I expected regenerating it to flip a frozen entry to
+FRESH and fire this check's second door. It fired nothing, correctly: R242 records no stamp, is in
+no list, and is invisible here. Two populations I had silently merged -- "rounds whose re-run
+differs" and "rounds whose stamp mismatches" -- and R242 is in the first and not the second.
+**A round with no stamp cannot drift-detect, and its silence reads exactly like a clean one.**
+
 ⚠ WHAT THIS DETECTS, AND WHAT IT CANNOT
   DETECTS   DRIFT -- a source edited after its artifact was written.
   CANNOT    FORGERY -- whoever edits an artifact can write any hash into it, and this check would
@@ -171,9 +185,18 @@ def main() -> int:
 
     counts = {k: sum(1 for v in rows.values() if v[0] == k)
               for k in ("FRESH", "STALE", "UNVERIFIED")}
+    # The denominator is printed on EVERY run, because the stamped set is a quarter of the corpus
+    # and a rate quoted without it reads as a property of the whole.
+    with_art = sum(1 for rp in ROOT.glob("E*/A*/R*/run.py")
+                   if (rp.parent / "results").is_dir()
+                   and any(f.suffix == ".json" and "_smoke" not in f.name
+                           for f in (rp.parent / "results").glob("*")))
     print(f"  {len(rows)} round(s) carry a stamp — FRESH {counts['FRESH']}, "
           f"STALE {counts['STALE']}, UNVERIFIED {counts['UNVERIFIED']}  "
           f"(frozen debt: {len(frozen)})")
+    print(f"  ⚠ POPULATION: {len(rows)} stamped of {with_art} rounds with an artifact "
+          f"({len(rows)/with_art:.0%}). The other {with_art - len(rows)} are OUTSIDE this check —"
+          f" not clean, unmeasurable.")
 
     new_drift = sorted(n for n, v in rows.items() if v[0] == "STALE" and n not in frozen)
     fixed = sorted(n for n in frozen if n in rows and rows[n][0] == "FRESH")
