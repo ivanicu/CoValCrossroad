@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**380 rounds** in **5 epochs** and **24 arcs**, numbered to **R386** — **53 standing claims, 13
+**381 rounds** in **5 epochs** and **24 arcs**, numbered to **R387** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -874,6 +874,22 @@ partial success — small integers collide between any two numeric texts, long d
 content, so a generated line drafts a round's **identity** and not its **finding**. **The 243 is a
 debt only writing can pay.**
 → [`R386`](E05_the_space_of_compilers/A24_what_the_definition_costs/R386_what_the_artifact_cannot_say)
+
+**And the debt turns out to be collectable: 9 of 9 decided rounds still re-run, none fail.** R386's
+NEXT asked whether a finding is still *recoverable* — **my judgement again**, so it was replaced by
+one the machine answers: **can the round still be re-run?** Re-running the **12 oldest** rounds that
+have an artifact, a `run.py` and no finding site, each in a git worktree restored between subjects:
+**RAN 9 · FAILED 0 · TIMEOUT 3**. The findings do not have to be reconstructed from JSON at 9% —
+**the code still runs and the output can be read.** ⛔ **Three of my own defects, all caught by the
+controls before a single subject was scored**: ① the worktree sat where R375 left it, so newer rounds
+returned `MISSING` — *not* `FAILED`, and merging those classes would have scored twelve subjects as
+broken corpus; ② the negative probe was **erased before it could run**, which `_isolated`'s own
+docstring warns of in as many words — **I quoted a confession from another gate one round ago and
+walked into its twin**; ③ the negative control **re-implemented the classifier and disagreed with
+it**, so it tested the copy rather than the check. ⚠ Executability is **necessary, not sufficient** —
+this measured that the door opens, never what is behind it — and 12 of 229 is a **lower bound on
+health**, since age is the strongest reason to expect rot.
+→ [`R387`](E05_the_space_of_compilers/A24_what_the_definition_costs/R387_is_the_debt_collectable)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

@@ -1,0 +1,95 @@
+{
+  "controls": {
+    "harness_neg": "FAILED",
+    "harness_pos": "RAN",
+    "neg_ok": true,
+    "pos_ok": true
+  },
+  "failed": [],
+  "head": "7e76eb452aa3",
+  "n_candidates": 229,
+  "n_subjects": 12,
+  "other": [],
+  "ran": [
+    "R21_donor_distance",
+    "R24_regime_receipt",
+    "R28_multiplicative",
+    "R29_gold_ood",
+    "R30_scope_grid",
+    "R31_within_person",
+    "R32_channel_decomposition",
+    "R33_core_launders_polarity",
+    "R34_global_rater_crossfit"
+  ],
+  "rows": {
+    "R21_donor_distance": {
+      "detail": "0",
+      "outcome": "RAN",
+      "path": "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R21_donor_distance/run.py"
+    },
+    "R23_actor_vs_dyad": {
+      "detail": "",
+      "outcome": "TIMEOUT",
+      "path": "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R23_actor_vs_dyad/run.py"
+    },
+    "R24_regime_receipt": {
+      "detail": "0",
+      "outcome": "RAN",
+      "path": "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R24_regime_receipt/run.py"
+    },
+    "R26_sign_no_split": {
+      "detail": "",
+      "outcome": "TIMEOUT",
+      "path": "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R26_sign_no_split/run.py"
+    },
+    "R27_raw_negative_tail": {
+      "detail": "",
+      "outcome": "TIMEOUT",
+      "path": "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R27_raw_negative_tail/run.py"
+    },
+    "R28_multiplicative": {
+      "detail": "0",
+      "outcome": "RAN",
+      "path": "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R28_multiplicative/run.py"
+    },
+    "R29_gold_ood": {
+      "detail": "0",
+      "outcome": "RAN",
+      "path": "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R29_gold_ood/run.py"
+    },
+    "R30_scope_grid": {
+      "detail": "0",
+      "outcome": "RAN",
+      "path": "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R30_scope_grid/run.py"
+    },
+    "R31_within_person": {
+      "detail": "0",
+      "outcome": "RAN",
+      "path": "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R31_within_person/run.py"
+    },
+    "R32_channel_decomposition": {
+      "detail": "0",
+      "outcome": "RAN",
+      "path": "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R32_channel_decomposition/run.py"
+    },
+    "R33_core_launders_polarity": {
+      "detail": "0",
+      "outcome": "RAN",
+      "path": "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R33_core_launders_polarity/run.py"
+    },
+    "R34_global_rater_crossfit": {
+      "detail": "0",
+      "outcome": "RAN",
+      "path": "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R34_global_rater_crossfit/run.py"
+    }
+  },
+  "source_name": "run.py",
+  "source_sha256": "1497d8e03a45b0ec9f92c30be517a8f460293933e3368a4f494c0d8684014ef0",
+  "timeout": [
+    "R23_actor_vs_dyad",
+    "R26_sign_no_split",
+    "R27_raw_negative_tail"
+  ],
+  "timeout_s": 90,
+  "verdict": "W_COLLECTABLE"
+}

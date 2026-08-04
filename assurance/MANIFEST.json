@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-08-04T13:07:53.919328+00:00",
- "git": "b7e4bb240ef968b792371beebba6d975b145dacd",
+ "generated_utc": "2026-08-04T13:32:01.939939+00:00",
+ "git": "7e76eb452aa36fcf2aa2da4b0f8a6e5a7ce26096",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -1574,6 +1574,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R386_what_the_artifact_cannot_say/run.py": {
    "bytes": 15746,
    "sha256": "c440e66ada5c181c768e3ff5da6c65723e1f4efbbc8b1cc08ec44a3c8ca95d46"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R387_is_the_debt_collectable/run.py": {
+   "bytes": 15922,
+   "sha256": "1497d8e03a45b0ec9f92c30be517a8f460293933e3368a4f494c0d8684014ef0"
   },
   "assurance/DEFECTS.py": {
    "bytes": 14429,
@@ -4172,6 +4176,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R386_what_the_artifact_cannot_say/results/r386_numeric_recall.json": {
    "bytes": 14420,
    "sha256": "01a42b39f45388b93552c6bca85256db4e0f6e3a2751549a4590ca02ecf0a009"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R387_is_the_debt_collectable/results/r387_rerunnable.json": {
+   "bytes": 3116,
+   "sha256": "62e36b898b5edd9c1620b1b5ed19d64374b3c8d1a33d33563f99214bba4fb90a"
   }
  },
  "claims": [
