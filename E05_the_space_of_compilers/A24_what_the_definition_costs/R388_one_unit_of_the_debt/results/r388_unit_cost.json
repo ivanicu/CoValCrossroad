@@ -1,0 +1,28 @@
+{
+  "controls": {
+    "fabrication_neg": true,
+    "fabrication_pos": true,
+    "fake_absent": true
+  },
+  "head": "96778361434c",
+  "numbers_checked": [
+    "0.1432",
+    "0.7495",
+    "0.8804",
+    "0.8927",
+    "300",
+    "91.4",
+    "97.85"
+  ],
+  "rows": [
+    "| The \"nearest-topic\" donor is **nearly a same-question restatement**, so its failure to transfer is a strong result rather than a weak one | near-donor cosine **0.8804** vs random-pair **0.7495**; the near donor covers **91.4%** of the distance from random to a paraphrase of the same prompt, and sits at the **97.85th** percentile of all pairs \u00b7 n = **300** prompts | [r21](E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R21_donor_distance) |",
+    "| \u2026and the embedding was shown able to tell related from unrelated **before** any donor distance was read from it | prompt vs its own paraphrase **0.8927**, vs a random other prompt **0.7495**, separation **+0.1432** | [r21](E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R21_donor_distance) |"
+  ],
+  "run_exit": 0,
+  "run_seconds": 21.5,
+  "source_name": "run.py",
+  "source_sha256": "289a360b0f0f7359b4ecdabe5ff9330a8d929df0add36bb7054bb3e5482625d8",
+  "subject": "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R21_donor_distance",
+  "unverified": [],
+  "verdict": "W_CHEAP"
+}

@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**381 rounds** in **5 epochs** and **24 arcs**, numbered to **R387** — **53 standing claims, 13
+**382 rounds** in **5 epochs** and **24 arcs**, numbered to **R388** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -153,6 +153,19 @@ subsets per prompt; a larger budget can only help the adversary.*
 
 Every number below states its unit, because five of seven headline figures in this project were
 published without one. The check that found that is [`HEADLINES.py`](assurance/HEADLINES.py) and it re-runs.
+
+### Backfilled findings — the R384 debt, paid one round at a time
+
+R384 measured that **243 of 377 rounds have no finding site at all**; R386 that a finding's numbers
+are only **9%** recoverable from its artifact; R387 that the code still **runs**, so the debt is
+payable by re-running and reading. These rows are that debt being paid. They are marked as backfill
+rather than blended into the rows above, because a row written months after the round is a different
+object from one written beside it — and pretending otherwise is the drift those rounds were about.
+
+| finding | number | round |
+|---|---|---|
+| The "nearest-topic" donor is **nearly a same-question restatement**, so its failure to transfer is a strong result rather than a weak one | near-donor cosine **0.8804** vs random-pair **0.7495**; the near donor covers **91.4%** of the distance from random to a paraphrase of the same prompt, and sits at the **97.85th** percentile of all pairs · n = **300** prompts | [r21](E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R21_donor_distance) |
+| …and the embedding was shown able to tell related from unrelated **before** any donor distance was read from it | prompt vs its own paraphrase **0.8927**, vs a random other prompt **0.7495**, separation **+0.1432** | [r21](E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R21_donor_distance) |
 
 ### The pipeline
 
@@ -890,6 +903,25 @@ it**, so it tested the copy rather than the check. ⚠ Executability is **necess
 this measured that the door opens, never what is behind it — and 12 of 229 is a **lower bound on
 health**, since age is the strongest reason to expect rot.
 → [`R387`](E05_the_space_of_compilers/A24_what_the_definition_costs/R387_is_the_debt_collectable)
+
+**And then one unit of the debt was actually paid, and priced: 21.3 s of machine time, 7 numbers
+verified.** Eight rounds had established that the findings are missing, that generation cannot write
+them, and that the code still runs — *a complete answer to "can this be done" and no answer to "is it
+worth doing"*. **Eight rounds of diagnosis with no paragraph written is an audit presented as a
+product**, so R388 wrote one: `R21_donor_distance`'s finding now sits in the table above under a
+heading marking it as **backfill**, because a row written months after its round is a different
+object from one written beside it. ⛔ **The real risk is fabrication, not cost** — nothing about a
+backfilled row distinguishes a copied number from a remembered one — so **every number was checked
+against a fresh run**, not the artifact, which R386 measured at 9%. All seven verify, and a planted
+number absent from the run is caught, because *"all numbers verified" would otherwise restate "I
+copied carefully"*. ⭐ **The verification is now a permanent gate** (`backfilled_findings_are_rederivable`,
+suite **26/26**) — and two of my own defects were caught first: its positive control was **a check
+that cannot fail** (`[n for n in [FAKE] if n not in set()]`), and **the suite corrected my
+registration**, since the gate re-runs from a git worktree at HEAD and the emptying cannot reach it.
+⚠ **n = 1**: R387 measured 3 of 12 rounds over 90 s, so multiplying 21.3 s by 237 would be the
+arithmetic trap wearing a project plan. **The debt is a writing project — the harder kind to
+pipeline, the easier kind to start.**
+→ [`R388`](E05_the_space_of_compilers/A24_what_the_definition_costs/R388_one_unit_of_the_debt)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

@@ -232,6 +232,18 @@ CASES = [
     # never read. `want 2`.
     ("an_mde_records_its_denominator", hide_rounds, 2,
      "rounds hidden -> zero MDE call sites to examine: an empty population never passes"),
+    # Entry 226. R388's gate. ⚠ REGISTERED `want 0`, AND THE SUITE CORRECTED MY FIRST ANSWER.
+    # I registered it `want 1` reasoning that hiding the rounds leaves the README rows with nothing
+    # to re-derive from. The suite returned 0 and was right: this gate re-runs each cited round
+    # from a GIT WORKTREE AT HEAD, not from the working tree, so `hide_rounds` never reaches its
+    # subjects. That is a deliberate property -- a backfilled number should re-derive from the
+    # COMMITTED code, and git is the authority on that -- but it means the emptying cannot test it,
+    # exactly like `markdown_tables_are_well_formed` and `next_gradient_labels_its_hypotheses`
+    # above, whose populations this attack also does not touch.
+    # Its own empty-population behaviour is verified separately and recorded: with no backfilled
+    # row in README.md it exits 2, and with rounds present but unre-derivable it exits 1.
+    ("backfilled_findings_are_rederivable", hide_rounds, 0,
+     "it re-runs from a git worktree at HEAD, so hiding the working tree's rounds cannot reach it"),
     # Entry 201. A REPORT check -- it never gates, so its non-empty exit is 0. With the
     # rounds hidden there is no newest round to measure staleness against, and it
     # returns 2 rather than reporting every section as current.

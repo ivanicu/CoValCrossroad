@@ -1,7 +1,7 @@
 {
  "source_sha": "c5e0c15793e128b9",
  "world": "ONLY-THE-TWO",
- "n_scripts": 42,
+ "n_scripts": 43,
  "flagged": [],
  "positive_control_ok": true,
  "fails_at_g0": true,
@@ -18,7 +18,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 3.5
+   "seconds": 3.6
   },
   "an_mde_records_its_denominator.py": {
    "exit": 0,
@@ -32,7 +32,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.7
+   "seconds": 2.8
   },
   "apply_outcome_scope.py": {
    "exit": 0,
@@ -46,28 +46,28 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.8
+   "seconds": 2.9
   },
   "attack_every_check.py": {
    "exit": 2,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 1.2
+   "seconds": 1.3
   },
   "attack_no_withdrawn_framings.py": {
    "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 6.1
+   "seconds": 5.9
   },
   "attack_outcome_variable_declared.py": {
    "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 3.6
+   "seconds": 3.9
   },
   "attack_scope_reaches_the_reader.py": {
    "exit": 0,
@@ -81,14 +81,21 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 47.3
+   "seconds": 111.0
+  },
+  "backfilled_findings_are_rederivable.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 21.8
   },
   "code_states_a_bound_the_reader_never_sees.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.2
+   "seconds": 1.9
   },
   "consistency.py": {
    "exit": 0,
@@ -196,7 +203,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.7
+   "seconds": 0.8
   },
   "pueue_wait.py": {
    "exit": 2,
@@ -224,7 +231,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.6
+   "seconds": 2.7
   },
   "results_are_not_degenerate.py": {
    "exit": 0,
@@ -310,7 +317,7 @@
    ],
    "destroyed": [],
    "empty_tell": true,
-   "seconds": 0.0
+   "seconds": 0.1
   }
  }
 }
