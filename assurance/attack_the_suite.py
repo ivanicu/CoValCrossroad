@@ -190,6 +190,13 @@ CASES = [
     # why the floor has to exist separately.
     ("artifacts_are_internally_coherent", hide_rounds, 2,
      "artifacts hidden -> zero pairs and zero flagged nodes: nothing to check, not clean"),
+    # R346. The stamp reader. Its population is rounds carrying a source hash, so hiding
+    # the rounds empties it entirely -- and "no drift among no stamps" is silence, so the
+    # floor is 2. Note its OTHER empty-population door: KNOWN_STALE.json missing also
+    # returns 2, because `new drift` needs a baseline to be new against and a clean run
+    # without one would mean nothing. Both doors were attacked; both hold.
+    ("source_stamp_is_current", hide_rounds, 2,
+     "rounds hidden -> no round carries a stamp: nothing to check, not a clean bill"),
     # Entry 201. A REPORT check -- it never gates, so its non-empty exit is 0. With the
     # rounds hidden there is no newest round to measure staleness against, and it
     # returns 2 rather than reporting every section as current.

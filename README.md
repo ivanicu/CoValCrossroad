@@ -247,6 +247,15 @@ key-name match said 38, a tight self-hash regex said 14, and both were wrong, be
 it. A stamp detects **drift, never forgery** — whoever edits an artifact can write any hash into it.
 → [`R345`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R345_the_stamp_nobody_reads)
 
+**The reader now exists** — [`assurance/source_stamp_is_current.py`](assurance/source_stamp_is_current.py),
+three-valued, in the suite registry (**22/22** on an empty population). It is a **ratchet, not a
+gate**: the 33 stale rounds are frozen in `KNOWN_STALE.json` so the debt cannot grow silently, and
+the check *also* fails if a frozen entry becomes FRESH — so the list shrinks and cannot become the
+kind of confession nobody re-reads. Attacked five ways before it was trusted: new drift on a fresh
+round → caught; a frozen entry silently fixed → caught; the frozen list deleted → exit 2, not a
+clean bill; every artifact removed → exit 2; the classifier neutered to always say FRESH → its own
+planted control fails it. Regenerating the 33 is a cost question, not this check's decision.
+
 ---
 
 ## Where this is going
