@@ -133,6 +133,17 @@ def derive():
             out[k] = (None, "R419")
     # R424 -- the containment anchors. These are the numbers that turn "foreign" from a word into a
     # measurement, so they are the ones a later edit must not be able to drift silently.
+    # R403 -- the statability counts the new DEFINITION.md block asserts. Re-derived so the prose
+    # cannot drift. maxraters/multirater are NOT re-declared here: anchors for them already exist
+    # further down, and declaring them twice is exactly the silent failure this file now guards.
+    a = art("R403_*")
+    if a:
+        cl = a["clauses"]
+        out["r403_statable"] = (sum(1 for v in cl.values() if v["second"] == "STATABLE"), "R403")
+        out["r403_total"] = (len(cl), "R403")
+    else:
+        for k in ("r403_statable", "r403_total"):
+            out[k] = (None, "R403")
     a = art("R424_*")
     if a:
         an = a["anchors"]
@@ -362,6 +373,8 @@ ASSERTIONS = {
     # it is NO check. And my first attempt to add it failed its own guard and applied nothing while
     # the commit message said it had — so the second failure was in the REPAIR, not the original.
     "r419_n":                r"bitwise identical on all (\d+) prompts",
+    "r403_statable":         r"\*\*(\d+) of \d+ are STATABLE on the",
+    "r403_total":            r"\*\*\d+ of (\d+) are STATABLE on the",
     "r426_pos":              r"contains both families at\s*\n?`([\d.]+)` \(",
     "r426_pos_n":            r"contains both families at\s*\n?`[\d.]+` \(([\d,]+) of",
     "r426_topw":             r"while containing `topw_k4` at `([\d.]+)`",
@@ -411,7 +424,31 @@ def read_claims(text):
     return got
 
 
+def duplicate_keys(path: pathlib.Path):
+    """⛔ A CONTROL ON THIS GATE, ADDED AFTER IT FAILED SILENTLY. `r403_maxraters` was declared TWICE
+    in the CLAIMS literal; Python keeps the LAST, so the newer anchor was discarded without a word
+    and the gate printed `ok` for a claim it was not checking. A mutation test on that claim also
+    `passed`, because the surviving anchor pointed at a different sentence entirely.
+
+    A dict cannot report its own dropped keys, so the SOURCE is scanned instead. Planting a
+    duplicate makes this fail, which is how it was verified."""
+    src = path.read_text()
+    keys = re.findall(r'^\s{4}"([a-z0-9_]+)":\s+r"', src, re.M)
+    seen, dup = set(), []
+    for k in keys:
+        (dup.append(k) if k in seen else seen.add(k))
+    return keys, sorted(set(dup))
+
+
 def main() -> int:
+    keys, dup = duplicate_keys(pathlib.Path(__file__))
+    print(f"  CONTROL on this gate — duplicate anchor keys in the CLAIMS literal: {dup or 'none'}")
+    print(f"    {len(keys)} anchors declared, {len(set(keys))} distinct. Python drops a duplicate")
+    print(f"    SILENTLY, so an anchor can be discarded and this gate prints `ok` for a claim it is")
+    print(f"    not checking. That happened once and nothing here could detect it.")
+    if dup:
+        print(f"\n  FAIL: {dup} declared more than once. The later wins and the earlier is unchecked.")
+        return 1
     if not DOC.exists():
         print(f"  UNRUNNABLE: {DOC.relative_to(ROOT)} is absent. Exit 2, never 0.")
         return 2

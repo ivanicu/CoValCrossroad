@@ -365,6 +365,25 @@ been sitting in `data/` since 2026-07-29, referenced by no round and named in no
 ran no transport test, computed no core, and reports no effect. It established that the object exists
 and nothing more.
 
+## ⛔ `generic` IS CLAUSE ②'s COMPARATOR, NOT ITS SUBJECT 2026-08-04 (R403 + R427)
+
+R403 measured which clause-parts can even be SAID off the home release: **3 of 6 are STATABLE on the
+second corpus** — the *size* bound, clause **②**, and **③a**. The three that cannot: **①** and **③c**
+need a per-prompt rubric the corpus does not have, and **③b** needs ≥ 2 annotators per prompt where
+the corpus carries **`max_raters = 1`** and **0** multi-rater interactions.
+
+⚠ **And a STATABILITY verdict is a fact about the release's FIELDS, not about whether anyone ran the
+test.** Clause ② is statable there and, until R427 lands, unstated.
+
+⛔ **The precision error worth naming.** Clause ② reads *"better than a size-matched set that never
+read the conversation."* **`core_generic.json` IS such a set** — prompt-blind by construction. So
+R427 measures **the comparator's own accuracy on a second release**, i.e. clause ②'s **floor**. It
+cannot test clause ② itself, because clause ②'s *subject* — a prompt-specific core — **does not exist
+for this corpus and must be generated before the clause has two arms.** Saying "R427 tests clause ②
+elsewhere" would have inverted which side of the inequality was measured.
+
+---
+
 ## Transport — the clause this definition does not have
 
 Every clause above certifies a core against **the four responses it was scored on**. Nothing says it
