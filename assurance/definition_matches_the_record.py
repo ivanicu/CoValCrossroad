@@ -293,6 +293,22 @@ def derive():
         for k in ("r433_gen", "r433_length", "r433_delta", "r433_mde", "r433_neutral",
                   "r433_nmde", "r433_n", "r433_shammde"):
             out[k] = (None, "R433")
+    # R434 -- the emptiness, and the ORACLE numbers that make it a measurement. The oracle values
+    # are anchored deliberately: without them "0 of 7" is silence, and a reader has no way to tell
+    # the two apart from the prose alone.
+    d434 = next(A24.glob("R434_*"), None)
+    f434 = (d434 / "results" / "r434_utility_floor.json") if d434 else None
+    a = json.loads(f434.read_text()) if (f434 and f434.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r434_sat2"] = (len(a["sat2"]), "R434")
+        out["r434_useful"] = (len(a["useful"]), "R434")
+        out["r434_arms"] = (len(a["cells"]), "R434")
+        out["r434_n"] = (a["n_interactions"], "R434")
+        out["r434_len"] = (f"{a['acc']['length']:.4f}", "R434")
+        out["r434_best"] = (f"{max(c['acc'] for c in a['cells']):.4f}", "R434")
+    else:
+        for k in ("r434_sat2", "r434_useful", "r434_arms", "r434_n", "r434_len", "r434_best"):
+            out[k] = (None, "R434")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -550,6 +566,15 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r434_sat2":   r"\*\*Clause ② admits (\d+) of 7\.",
+    "r434_useful": r"And (\d+) of 7 beat the length rule",
+    # ⚠ the document said "seven" and this anchor captured the WORD, which the gate then tried
+    #    to float() and crashed. A claim that is meant to be checked has to be written in the
+    #    units the checker reads -- prose spelling out a number is prose, not an assertion.
+    "r434_arms":   r"asked the next question of all\s+\*\*(\d+)\*\* criterion arms",
+    "r434_n":      r"one shared population of\s+\*\*([\d,]+) interactions over",
+    "r434_len":    r"conversation nor any criteria \(\*\*([\d.]+)\*\*",
+    "r434_best":   r"against a best arm of \*\*([\d.]+)\*\*",
     "r433_gen": r"conversation alone — clause ②.s subject, absent from every previous cross-release number — scores \*\*([\d.]+)\*\*",
     "r433_length": r"longest-reply rule at \*\*([\d.]+)\*\*",
     "r433_delta": r"\*\*([+\-][\d.]+) \[[+\-][\d.]+, [+\-][\d.]+\] against its own MDE",

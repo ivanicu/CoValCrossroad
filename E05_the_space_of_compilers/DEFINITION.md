@@ -335,6 +335,36 @@ gets tuned to whatever object is in front of it.
 **The transportable residue: *label-free, and better than prompt-blind*** — clauses ③a and ②, which is
 also the pair that carries the whole measured boundary.
 
+## ⛔ ON THE SECOND RELEASE THE DEFINITION ADMITS **NO CORE AT ALL** 2026-08-04 (R434)
+
+R433 showed clause ②'s subject loses to a length heuristic. R434 asked the next question of all
+**7** criterion arms scored on that release — prompt-specific, prompt-blind, three randomly
+reassigned, evaluatively vacuous, and the wrong-conversation sham — on one shared population of
+**7,342 interactions over 2,200 conversations**:
+
+> **Clause ② admits 0 of 7. And 0 of 7 beat the length rule.**
+> **7 of 7 are statistically indistinguishable from the blind reference** — including the
+> prompt-specific core — and **7 of 7 are resolvedly worse** than a rule that reads neither the
+> conversation nor any criteria (**0.5135**, against a best arm of **0.4590**).
+
+⭐ **The emptiness is a measurement, not silence.** A synthetic oracle run through the *same* two
+membership tests lands in both by a wide margin: **+0.5503 against the blind reference (MDE 0.0158)
+and +0.4865 against the length rule (MDE 0.0169)**. Both tests can return TRUE; neither did.
+
+⚠ **What this is not.** Evidence that no core exists. Seven arms is a census of what this campaign
+built, not a sample of criterion-space, and R432's oracle over five of them reaches 0.7220.
+
+**And the structural point needed no measurement at all.** ③ is a *provenance* restriction, ② a
+*comparative* test against another criterion **set**, the size clause a *bound*. **Every clause
+compares a core to other criteria; none requires it to beat anything outside its own family.** A
+sufficiency clause would have to be stated against a **non-criterion reference** — a different
+*kind* of clause from anything this definition contains. ⚠ And *"add a clause excluding the length
+rule"* is a **category error**: the definition's domain is "a set of evaluation criteria", the
+length rule is not one, and it was never admissible.
+→ [`R434`](A24_what_the_definition_costs/R434_does_the_definition_have_a_utility_floor)
+
+---
+
 ## What this definition cannot claim
 
 | | |
