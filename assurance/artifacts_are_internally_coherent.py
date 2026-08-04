@@ -214,6 +214,24 @@ def main() -> int:
         return 2
 
     fail = 0
+    # ⚠ ADDED at R340, because `outside the interval` UNDERCOUNTS a systematic offset by design.
+    # R141_verification: every one of its 14 `raters` nodes sits +4.48 to +9.53 seed-sd ABOVE its
+    # own CI centre, median +6.40, all 14 the same sign -- while its `length` nodes sit -0.88 to
+    # -0.62 and `magnitude` -1.80 to +0.15. Only 6 of the 14 escape the interval far enough for the
+    # criterion above to notice. So the gate reported 6 isolated cells where the object has one
+    # systematic displacement in one sub-node. Reported, NOT gated: the exit condition is unchanged,
+    # because widening what a gate fails on is a behaviour change and this is a diagnosis.
+    disp = []
+    for rid, path, mk, mv, ck, (lo, hi) in r["outside"]:
+        disp.append((rid, path, mv - (lo + hi) / 2))
+    if disp:
+        print("\n  DISPLACEMENT from the interval's own CENTRE, for every flagged node:")
+        for rid, path, d in disp:
+            print(f"      {rid}:{path}  mean - centre = {d:+.5f}")
+        print("  ⚠ `outside the interval` is the TAIL of an offset, not the offset. A node whose")
+        print("    mean sits 3 sd off its own centre but inside a wide interval is not flagged here,")
+        print("    and R141 has 8 more of exactly that shape. Read the centre, not only the bound.")
+
     for key, label in (("outside", "point estimate OUTSIDE the interval published with it"),
                        ("contradict", "significance flag CONTRADICTS its own interval"),
                        ("inverted", "interval bounds INVERTED (lo > hi)")):
