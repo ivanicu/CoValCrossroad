@@ -124,6 +124,15 @@ def derive():
     else:
         for k in ("r398_rows", "r398_convs", "r398_multi", "r398_models", "r398_refs"):
             out[k] = (None, "R398")
+    a = art("R404_*")
+    if a:
+        out["r404_b_beyond_a"] = (len(a["b_beyond_a"]), "R404")
+        out["r404_excl_c"] = (len(a["excl_3c"]), "R404")
+        out["r404_admitted_abc"] = (len(a["admitted_2abc"]), "R404")
+        out["r404_published"] = (len(a["published"]), "R404")
+    else:
+        for k in ("r404_b_beyond_a", "r404_excl_c", "r404_admitted_abc", "r404_published"):
+            out[k] = (None, "R404")
     a = art("R403_*")
     if a:
         out["r403_notstatable"] = (len(a["not_statable_on_second"]), "R403")
@@ -284,6 +293,9 @@ ASSERTIONS = {
     "r398_refs":             r"and referenced by (\d+) files in this repository",
     # R403's statability split. Anchored on surrounding WORDS, never a bare number — R373 and R398
     # both cost a false failure when an anchor met a bold span instead of a digit.
+    "r404_excl_c":           r"annotator-written \*\*rubric\*\* \| (\d+) \|",
+    "r404_admitted_abc":     r"collapses the admitted set from \*\*5 to (\d+)",
+    "r404_published":        r"collapses the admitted set from \*\*(\d+) to",
     "r403_notstatable":      r"\*\*(\d+) of 6 clause-parts are NOT-STATABLE",
     "r403_maxraters":        r"measured: \*\*max (\d+) rater\*\*",
     "r403_multirater":       r"rater\*\*, (\d+) of [\d,]+ interactions have 2",

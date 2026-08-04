@@ -103,10 +103,19 @@ HAND_KEY = {"oracle_k4", "oracle_k4_fit1", "greedy_k4_fit1", "indep_k4_fit1"}
 
 
 def rule_of(arm: str) -> str:
-    """Arm tag is built at select_core.py:204 as rule + k + optional _s{seed} + optional _fit{p}."""
-    m = re.match(r"^([a-z_]+?)_?k?(\d+)?(_s\d+)?(_fit\d)?(_sham)?$", arm)
-    base = m.group(1) if m else arm
-    return base
+    """Arm tag is built at select_core.py:204 as rule + k + optional _s{seed} + optional _fit{p}.
+
+    ⚠ MY FIRST ATTEMPT WAS WRONG AND THE KEY-REPRODUCTION CONTROL CAUGHT IT. A lazy
+    `([a-z_]+?)_?k?` consumed the `_k`, so `oracle_k4` returned `oracle` instead of `oracle_k`, the
+    derived ③a set came back EMPTY, and the round exited 1 rather than reporting a decomposition
+    built on a broken parser. That is the control doing its job: it failed for the INSTRUMENT's
+    reasons, which is the failure table's own warning, and the remedy was to fix the parser rather
+    than to relax the control. The tag is now un-built by REVERSING line 204-206's construction in
+    order -- suffixes first, then the k digits -- instead of pattern-guessing the whole string."""
+    s = re.sub(r"_sham$", "", arm)
+    s = re.sub(r"_fit\d$", "", s)
+    s = re.sub(r"_s\d+$", "", s)
+    return re.sub(r"\d+$", "", s)
 
 
 def main() -> int:

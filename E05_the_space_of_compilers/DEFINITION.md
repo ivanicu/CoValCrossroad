@@ -180,6 +180,30 @@ judge in it** (R224/R228), and the k-curve's *shape* across judges was already m
 
 ---
 
+## ⛔ CONJUNCT DECOMPOSITION 2026-08-04 (R404) — clause ③ is not one clause, and its third part is not implemented
+
+Clause ③'s exclusion is published as one number, `4 of 42`, attributed to the clause as a whole.
+Decomposed against `corebench/select_core.py`'s rule dispatch — **not against the arm names** — the
+three conjuncts do wildly different amounts of work:
+
+| conjunct | excludes on its own | **beyond ③a** |
+|---|---:|---:|
+| **③a** reads the prompt's own rankings | 4 | — |
+| **③b** fitted on a **half** of them | 3 | **0** |
+| **③c** weights from an annotator-written **rubric** | 13 | **13** |
+
+**③b excludes nothing whatsoever.** Every `_fit1` arm already reads the rankings, so ③a has removed it
+first. And enforcing ③c **as written** collapses the admitted set from **5 to 1 — `coval_core` alone**,
+the object this definition was written from.
+
+**So the definition sits between two failures.** *As implemented*, ③c does no work and R363's
+`W_CHANNEL_OPEN` stands — arms are admitted that the text forbids. *As written*, it admits only its own
+instance. **Neither is a definition of a category.**
+
+⚠ The count is a **lower bound**: a label route the rule dispatch does not reveal would mean more
+exclusions, not fewer. ⚠ And whether ③c *should* be enforced is an act of definition, not a
+measurement, and is not decided here.
+
 ## ⛔ STATABILITY 2026-08-04 (R403) — three of six clause-parts cannot be SAID off this release
 
 Applied to the second corpus R398 found, the clauses split. **Not into true and false — into sayable

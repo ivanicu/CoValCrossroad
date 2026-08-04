@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**396 rounds** in **5 epochs** and **24 arcs**, numbered to **R403** — **53 standing claims, 13
+**397 rounds** in **5 epochs** and **24 arcs**, numbered to **R404** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1129,6 +1129,21 @@ clause is restated here**: rewriting one so it survives on a new corpus is an ac
 doing it in the same breath as the diagnosis is how a definition gets tuned to whatever object is in
 front of it.
 → [`R403`](E05_the_space_of_compilers/A24_what_the_definition_costs/R403_which_clauses_are_even_statable_elsewhere)
+
+**Clause ③ is not one clause: ③a does all the work, ③b does none, and ③c is not implemented — and
+enforcing it as written admits only the object the definition was written from.** Decomposed against
+`corebench/select_core.py`'s rule dispatch rather than the arm names: **③a excludes 4**, **③b excludes
+3 — but 0 beyond ③a** (every `_fit1` arm already reads the rankings), **③c excludes 13**, of which
+**4 are among the 5 currently admitted**. The nested admitted sets run **9 → 5 → 5 → 1**, and that
+final **1** is `coval_core` itself. ⛔ **So the definition sits between two failures**: *as implemented*
+③c does no work and R363's `W_CHANNEL_OPEN` stands, so arms are admitted that the text forbids; *as
+written* it admits only its own instance. **Neither is a definition of a category** — the *"definition
+describes the instance"* failure, measured rather than suspected. ⭐ The key-reproduction control
+**caught a real bug in my own parser** (a lazy regex ate the `_k`, so the derived set came back empty
+and the round exited 1); the parser was fixed rather than the control relaxed, and the derived key
+then matched the one hand-written in four rounds. ⚠ Counts are a **lower bound**, and whether ③c
+*should* be enforced is an act of definition, not decided here.
+→ [`R404`](E05_the_space_of_compilers/A24_what_the_definition_costs/R404_which_conjunct_of_clause_three_does_the_work)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
