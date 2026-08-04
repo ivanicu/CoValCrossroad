@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**414 rounds** in **5 epochs** and **24 arcs**, numbered to **R420** — **53 standing claims, 13
+**415 rounds** in **5 epochs** and **24 arcs**, numbered to **R421** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1391,6 +1391,21 @@ noise floor of anything.** ⚠ That is now the *remaining* explanation, **not a 
 those two files record no inputs, which is exactly the gap the provenance field closes going forward
 and cannot close retroactively.
 → [`R420`](E05_the_space_of_compilers/A24_what_the_definition_costs/R420_is_selection_deterministic_too)
+
+**All three label-reading rules are deterministic — and the run reproduces `_08b` exactly, naming
+which file of R415's pair diverged.** ⛔ **First, the gap in R420 I should have caught inside it**: it
+reported *"identical"* and **was never shown able to report anything else** — a hash check that always
+returns equal would have produced exactly its output. *The ledger's oldest row, run five rounds after
+I wrote that sentence into three other rounds.* The control costs one run: `random_k` at seeds 0 vs 1
+**must** differ, and the comparison **detects it** — so **R420 is licensed retroactively; it was
+correct and it was unsupported, and those are different things.** Then `oracle_k`, `greedy_k` and
+`indep_k` each emit **byte-identical** criteria across two invocations. ⭐ **And today's deterministic
+`oracle_k` hashes `22c61b3aefbe6550` — matching `core_oracle_k4_08b.json` exactly and NOT `_08bR`.**
+So `_08b` is what the pipeline deterministically produces and **`_08bR` is the outlier**, made with
+different inputs — which R419+R420+R421 jointly imply and no round could pin to a file until now.
+⚠ n=1 rule for that identification. **No remaining mechanism inside the pipeline can produce R415's
+divergence.**
+→ [`R421`](E05_the_space_of_compilers/A24_what_the_definition_costs/R421_the_last_three_rules_and_the_control_R420_lacked)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

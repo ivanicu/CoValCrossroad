@@ -15,6 +15,16 @@ pipeline is deterministic given its inputs, so the inputs differed.**
 
 **Source and behaviour agree — which neither establishes alone.**
 
+## ⚠ CORRECTION — R421: this round had no positive control, and now does
+
+**This comparison reported "identical" and was never shown able to report anything else.** A hash
+check that always returns equal — same path, ignored tag, stale file — would have produced exactly the
+output below. *That is the ledger's oldest row, and it was missing here.*
+
+[`R421`](../R421_the_last_three_rules_and_the_control_R420_lacked) supplies it: `random_k` at seed 0
+vs seed 1 **must** emit different criteria, and the comparison **detects it**. **The verdict below is
+correct and is now licensed** — it was unsupported before, and those are different things.
+
 ## ⛔ The contradiction this resolves
 
 | stage | determinism | how established |
