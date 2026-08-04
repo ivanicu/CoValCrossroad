@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**401 rounds** in **5 epochs** and **24 arcs**, numbered to **R408** — **53 standing claims, 13
+**402 rounds** in **5 epochs** and **24 arcs**, numbered to **R409** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1205,6 +1205,22 @@ reproduce R360's committed `p=100` cell **arm for arm** before any literal numbe
 did. `literal ⊇ strict` is **forced**, so it is asserted as a sanity check and **not** reported as a
 finding. ⚠ One release; an unguarded positive mean is the quantity least likely to survive a second.
 → [`R408`](E05_the_space_of_compilers/A24_what_the_definition_costs/R408_the_literal_test_at_the_universal_reference)
+
+**The ordering of the five carries information — but it is roughly two facts, not five, and the
+verdict cleared its own threshold by 1.7 points.** ⛔ R408's NEXT proposed testing the ordering across
+judge and metric; **that is a claim with no control**, and it presupposes the ordering is
+distinguishable from noise on the data that produced it — with effects spanning `+0.0041…+0.0090` at
+`se ≈ 0.0037`, the pairwise gaps are one arm's uncertainty wide. Cluster-bootstrapped over prompts
+(B=2,000, 3 seeds): **`coval_core` holds rank 1 in 51.7%–53.2%** against a 20% coin, and `topw_k3`
+sits **last** in 53%. ⚠ The pre-registered line was **≥0.50** — at 0.55 this would have read PARTIAL,
+and that is stated rather than left to be noticed. ⭐ **The rank matrix says more than the verdict**:
+the extremes are separable, the middle is a smear (`topw_k4`/`topw_k8` spread over ranks 2–5, no mode
+above 0.33), and *"the released core is the best label-free arm"* is barely better than a coin flip
+against `topw_k6` (0.53 vs 0.32). **The honest summary is a partial order.** Controls:
+`oracle_k4` ranks first in **100%** of resamples (without it a uniform result could not be told from a
+blind bootstrap), and two identical objects split **0.480/0.520**. ⚠ Cross-judge stability is
+**structurally unavailable** — at 0.8B nothing is admitted at any safe reference.
+→ [`R409`](E05_the_space_of_compilers/A24_what_the_definition_costs/R409_is_the_ordering_of_the_five_information)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
