@@ -435,6 +435,19 @@ def derive():
     else:
         for k in ("r442_impl", "r442_writ", "r442_overlap"):
             out[k] = (None, "R442")
+    # R443 -- the containment number AND its sham. The sham is anchored because a containment of
+    # 0.0779 reads as "low" only next to a zero cross-prompt baseline; without it the same figure
+    # would be an opinion, and the round's own kill divided by it and broke.
+    d443 = next(A24.glob("R443_*"), None)
+    f443 = (d443 / "results" / "r443_core_provenance.json") if d443 else None
+    a = json.loads(f443.read_text()) if (f443 and f443.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r443_cont"] = (f"{a['containment']:.4f}", "R443")
+        out["r443_sham"] = (f"{a['sham']:.4f}", "R443")
+        out["r443_n"] = (a["n_prompts"], "R443")
+    else:
+        for k in ("r443_cont", "r443_sham", "r443_n"):
+            out[k] = (None, "R443")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -692,6 +705,9 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r443_cont": r"only \*\*([\d.]+)\*\* of its criteria appear verbatim",
+    "r443_sham": r"cross-prompt sham of exactly \*\*([\d.]+)\*\*",
+    "r443_n":    r"sham of exactly \*\*[\d.]+\*\*, over \*\*(\d+)\*\* prompts",
     "r442_impl":    r"hand-written 4-arm set \| \*\*(\d+)\*\*:",
     "r442_writ":    r"own DERIVED finding \| \*\*(\d+)\*\*:",
     "r442_overlap": r"only \*\*(\d+) of 5\*\* overlap",

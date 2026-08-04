@@ -62,7 +62,17 @@ alone"* — which is this definition's **own opening phrase** — while the impl
 ③'s derivation is wrong: if it stands the extension is one arm, if it falls the extension is five.
 **What is certain is that the two cannot both be published as they are**, and until that is
 resolved the extension must be quoted with which reading produced it.
-→ [`R442`](A24_what_the_definition_costs/R442_the_extension_under_clause_three_as_written)
+✅ **And the extension under the written reading is 1, not 0 (R443).** ③ as written excludes
+**three** selectors, not one — `select_core.py:131` computes `w = mean annotator score` and
+`topw_k`, `topabs_k` and `topwvar_k` all consume it, while `topvar_k` does not. But `coval_core`
+survives: only **0.0779** of its criteria appear verbatim in its own prompt's rubric, against a
+cross-prompt sham of exactly **0.0000**, over **968** prompts. So its text is not drawn from the
+rubric and the containment objection does not reach it. ⚠ **UNVERIFIED-leaning by construction:**
+containment is *sufficient* for the provenance objection and *not necessary* — the same annotators
+could have authored it in different words, and this instrument cannot see that. ⭐ The 7.8% that
+*is* contained is real and strictly prompt-specific, since the sham is zero.
+→ [`R442`](A24_what_the_definition_costs/R442_the_extension_under_clause_three_as_written) ·
+[`R443`](A24_what_the_definition_costs/R443_does_clause_three_as_written_exclude_the_core_itself)
 
 ⭐ **Clause ④ was ADOPTED 2026-08-04**, after every objection I could raise against it was measured
 rather than argued: it is **statable** (its bar saturates at 6 of 30 rules, R435); it **excludes
