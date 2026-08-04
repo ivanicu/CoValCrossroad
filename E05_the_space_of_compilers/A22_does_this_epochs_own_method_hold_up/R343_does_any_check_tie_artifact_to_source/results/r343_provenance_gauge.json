@@ -1,0 +1,249 @@
+{
+  "artifact_only": [
+    "scope_reaches_the_reader",
+    "no_withdrawn_framings",
+    "donor_numbers_carry_their_draw_scope",
+    "round_links_resolve",
+    "interval_is_centred_on_its_point",
+    "artifacts_are_internally_coherent",
+    "synthesis_cites_recent_work",
+    "markdown_tables_are_well_formed",
+    "frozen_frame_verifies",
+    "readme_row_carries_the_verdict",
+    "verdict_cites_its_own_contrasts",
+    "retired_framing_in_assertion_positions",
+    "corrections_propagated"
+  ],
+  "baseline": {
+    "artifacts_are_internally_coherent": [
+      "1",
+      "f482441644b40aa1"
+    ],
+    "corrections_propagated": [
+      "0",
+      "17208b570698aa0a"
+    ],
+    "donor_numbers_carry_their_draw_scope": [
+      "1",
+      "89c01ded8cc77be3"
+    ],
+    "every_round_reaches_the_readme": [
+      "1",
+      "1c1243f8fc205ec1"
+    ],
+    "frozen_frame_verifies": [
+      "0",
+      "5bf0ff172f521f8c"
+    ],
+    "interval_is_centred_on_its_point": [
+      "0",
+      "9df63860c1e560fc"
+    ],
+    "markdown_tables_are_well_formed": [
+      "0",
+      "011011d88fb854d4"
+    ],
+    "next_gradient_is_new": [
+      "0",
+      "58f65b49472afbcf"
+    ],
+    "no_withdrawn_framings": [
+      "0",
+      "780bbda31d057e8f"
+    ],
+    "outcome_variable_declared": [
+      "0",
+      "7a4fd0026cd8fbca"
+    ],
+    "point_and_interval_share_a_source": [
+      "0",
+      "f2abc228600b5be7"
+    ],
+    "readme_row_carries_the_verdict": [
+      "2",
+      "55492dd91b821a01"
+    ],
+    "registries_are_satisfied": [
+      "0",
+      "1aaf7b700e7a1203"
+    ],
+    "results_are_not_degenerate": [
+      "2",
+      "ced7d04a7a448a8d"
+    ],
+    "retired_framing_in_assertion_positions": [
+      "0",
+      "39cc7459fa68dfe2"
+    ],
+    "retired_framing_in_emittable_source": [
+      "0",
+      "dde525b3fb439dde"
+    ],
+    "round_links_resolve": [
+      "0",
+      "123acacacaeea666"
+    ],
+    "scope_reaches_the_reader": [
+      "0",
+      "557dd05f7326a1a8"
+    ],
+    "seed_filter_is_disclosed": [
+      "1",
+      "7ab74c6d8da0ff02"
+    ],
+    "synthesis_cites_recent_work": [
+      "2",
+      "fc857c7c6b9a6fe4"
+    ],
+    "verdict_cites_its_own_contrasts": [
+      "2",
+      "460d589a9a755c0f"
+    ]
+  },
+  "checks": [
+    "scope_reaches_the_reader",
+    "every_round_reaches_the_readme",
+    "no_withdrawn_framings",
+    "outcome_variable_declared",
+    "registries_are_satisfied",
+    "results_are_not_degenerate",
+    "retired_framing_in_emittable_source",
+    "donor_numbers_carry_their_draw_scope",
+    "seed_filter_is_disclosed",
+    "round_links_resolve",
+    "next_gradient_is_new",
+    "point_and_interval_share_a_source",
+    "interval_is_centred_on_its_point",
+    "artifacts_are_internally_coherent",
+    "synthesis_cites_recent_work",
+    "markdown_tables_are_well_formed",
+    "frozen_frame_verifies",
+    "readme_row_carries_the_verdict",
+    "verdict_cites_its_own_contrasts",
+    "retired_framing_in_assertion_positions",
+    "corrections_propagated"
+  ],
+  "conditions": {
+    "T_art_break_ci": {
+      "files_touched": 1,
+      "moved_exit": [],
+      "moved_report": [
+        [
+          "interval_is_centred_on_its_point",
+          "0",
+          "0"
+        ],
+        [
+          "artifacts_are_internally_coherent",
+          "1",
+          "1"
+        ]
+      ]
+    },
+    "T_src_mean_to_median": {
+      "files_touched": 277,
+      "moved_exit": [],
+      "moved_report": []
+    },
+    "g0_none": {
+      "files_touched": 0,
+      "moved_exit": [],
+      "moved_report": []
+    },
+    "sham_comment": {
+      "files_touched": 328,
+      "moved_exit": [],
+      "moved_report": []
+    }
+  },
+  "controls": {
+    "g0": true,
+    "isolation": true,
+    "positive": true,
+    "sham": true
+  },
+  "headline_instrument": "moved_report",
+  "read_census": {
+    "artifacts_are_internally_coherent": [
+      "artifact"
+    ],
+    "corrections_propagated": [
+      "artifact",
+      "document"
+    ],
+    "donor_numbers_carry_their_draw_scope": [
+      "document"
+    ],
+    "every_round_reaches_the_readme": [
+      "document",
+      "round source"
+    ],
+    "frozen_frame_verifies": [
+      "artifact"
+    ],
+    "interval_is_centred_on_its_point": [
+      "artifact"
+    ],
+    "markdown_tables_are_well_formed": [
+      "document"
+    ],
+    "next_gradient_is_new": [
+      "document",
+      "round source"
+    ],
+    "no_withdrawn_framings": [
+      "artifact"
+    ],
+    "outcome_variable_declared": [
+      "artifact",
+      "round source"
+    ],
+    "point_and_interval_share_a_source": [
+      "round source"
+    ],
+    "readme_row_carries_the_verdict": [
+      "artifact",
+      "document"
+    ],
+    "registries_are_satisfied": [
+      "artifact",
+      "document",
+      "round source"
+    ],
+    "results_are_not_degenerate": [],
+    "retired_framing_in_assertion_positions": [
+      "document"
+    ],
+    "retired_framing_in_emittable_source": [
+      "round source"
+    ],
+    "round_links_resolve": [
+      "document"
+    ],
+    "scope_reaches_the_reader": [
+      "document",
+      "registry"
+    ],
+    "seed_filter_is_disclosed": [
+      "artifact",
+      "document",
+      "round source"
+    ],
+    "synthesis_cites_recent_work": [
+      "document"
+    ],
+    "verdict_cites_its_own_contrasts": [
+      "artifact"
+    ]
+  },
+  "source_readers": [
+    "every_round_reaches_the_readme",
+    "outcome_variable_declared",
+    "registries_are_satisfied",
+    "retired_framing_in_emittable_source",
+    "seed_filter_is_disclosed",
+    "next_gradient_is_new",
+    "point_and_interval_share_a_source"
+  ],
+  "verdict": "W2_NOBODY_CHECKS"
+}

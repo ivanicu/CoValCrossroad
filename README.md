@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**338 rounds** in **5 epochs** and **24 arcs**, numbered to **R342** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**332 of the 338 carry a
+**339 rounds** in **5 epochs** and **24 arcs**, numbered to **R343** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**333 of the 339 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -224,6 +224,16 @@ result. Four reader repairs, each forced by a planted control or a declared cons
 moved the count**; one was caught only because a pre-registered cross-instrument prediction
 *disagreed* with the artifact side.
 → [`R342`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R342_how_many_checked_points_are_ratios)
+
+**And the same shape sits under the whole suite.** Every artifact-side verdict here assumes the JSON
+beside a `run.py` came from that `run.py`, and nothing tests it. Measured: **277 rounds edited to
+compute a median instead of a mean, every artifact left byte-identical, and zero of 21 checks moved**
+— not one exit code, not one report digest. A read census from an audit hook shows **7 of 21 open a
+round's source at all**, and all seven read it for *structure*, never for provenance. The positive
+control (one point moved outside its own CI) did move, so the zero is a measurement rather than
+silence. **A stale artifact, a hand-edited artifact and an honest one are indistinguishable to this
+suite.**
+→ [`R343`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R343_does_any_check_tie_artifact_to_source)
 
 ---
 
