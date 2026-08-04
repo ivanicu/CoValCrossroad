@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**372 rounds** in **5 epochs** and **24 arcs**, numbered to **R378** — **53 standing claims, 13
+**373 rounds** in **5 epochs** and **24 arcs**, numbered to **R379** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -722,6 +722,27 @@ the subject exits reproduced exactly, the *baseline* did not. **A round whose ar
 corpus its own gates read cannot re-run itself into the same baseline**, which is R376's scaffolding
 lesson at a third level.
 → [`R378`](E05_the_space_of_compilers/A24_what_the_definition_costs/R378_does_one_gate_decide_another)
+
+**And the plan for grouping the ten reds was wrong at its root — abandoned before it was written.**
+R378's NEXT proposed grouping them by the population each says it lost, *because four exit 2*. That
+is a **search instrument with no positive control**: its unit is *words I chose to look for*, while
+the claim's unit is *the set of files a gate actually examined*. Not equal, so the objective
+instrument was used — **the audit-hook harness R376 had repaired two rounds earlier**, used here for
+the first time on a question it was not repaired for. Measured: by **exit code** the ten split 6/4;
+by **read-set** they split 5/5, and **five gates cross**.
+`readme_row_carries_the_verdict` exits **2** while opening **587** round artifacts and
+`verdict_cites_its_own_contrasts` exits **2** while opening **529**, whilst
+`attack_no_withdrawn_framings`, `attack_outcome_variable_declared` and
+`donor_numbers_carry_their_draw_scope` all exit **1** having opened **zero**. ⛔ So *"exit 2 means it
+lost its population"* is **false here** and the grouping would have been drawn on the one fact that
+carries no information about the other. ⛔ **And I built a control that could not pass — the fifth in
+this ledger**: it demanded >100 round files from a gate whose design ceiling is ~24, because that
+gate *iterates* directories and only *opens* arc READMEs. Replaced by a plant with an exactly known
+answer — a probe opening **50** real artifacts, reported as **50**. Reproduction against
+`what_each_check_read.json`, written earlier by another script for another purpose: **10 of 10,
+exactly**. ⚠ Three rounds have now measured *when* (R374), *which commit* (R375) and *what each
+reads* (R379), and **stacking them still does not say why**.
+→ [`R379`](E05_the_space_of_compilers/A24_what_the_definition_costs/R379_the_exit_code_is_not_the_population)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
