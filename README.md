@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**347 rounds** in **5 epochs** and **24 arcs**, numbered to **R353** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**341 of the 347 carry a
+**348 rounds** in **5 epochs** and **24 arcs**, numbered to **R354** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**342 of the 348 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -333,6 +333,15 @@ unusually strict. Three arms it excludes are admitted under most orderings: `gen
 **0.13** and `generic` at **0.05** — two uncertainty sources, opposite pictures, both correct and
 answering different questions. *The identity permutation reproduces the committed five exactly.*
 → [`R353`](E05_the_space_of_compilers/A24_what_the_definition_costs/R353_the_admitted_set_under_every_pool_order)
+
+⛔⛔ **And at the reference this campaign itself argued for, the definition admits TWO.** R331 derived
+the rule — **p99, not p94** — because every blind k=4 subset is a member of clause ②'s own reference
+class, so a reference admitting any of them is refuted by the clause's own words; the published one
+admits **3**, p99 admits **0**. The rule had never been evaluated. Applied: **7** arms at a median
+reference, **5 flat across p75–p95** including the published p93.7, and **2 at p99** —
+`coval_core` and `topw_k6`. *So the published reference is not where the collapse happens; the
+choice between p94 and p99 is, and R331 already argued it.*
+→ [`R354`](E05_the_space_of_compilers/A24_what_the_definition_costs/R354_what_the_safe_reference_admits)
 
 **The reader now exists** — [`assurance/source_stamp_is_current.py`](assurance/source_stamp_is_current.py),
 three-valued, in the suite registry (**22/22** on an empty population). It is a **ratchet, not a

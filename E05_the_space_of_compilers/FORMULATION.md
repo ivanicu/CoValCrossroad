@@ -453,6 +453,26 @@ unusually strict, **which the published one is.** Neither number alone character
 *Reproduction control: the identity permutation yields exactly the committed five.*
 → `R353_the_admitted_set_under_every_pool_order`
 
+### ⛔⛔ AND AT THE REFERENCE THIS CAMPAIGN ARGUED FOR, THE DEFINITION ADMITS TWO (R354, 2026-08-04)
+
+R331 derived the rule — put the reference high in the blind distribution, **p99 not p94** — because
+every one of the 1,820 blind k=4 subsets is a member of clause ②'s own reference class, and a
+reference admitting any of them is refuted by the clause's own words. **The rule was never
+evaluated.** Applied:
+
+| percentile | ref level (k=4) | \|admitted\| | set |
+|---:|---:|---:|---|
+| 50 | 0.5391 | 7 | + `generic`, `topw_k2` |
+| 75 – 95 | 0.5446 – 0.5511 | **5** | the published five, **flat across the whole band** |
+| **99** | **0.5545** | **2** | **`coval_core`, `topw_k6`** |
+
+**The published p93.7 reference is not where the collapse happens** — five is stable from p75 to p95.
+It falls to two only at p99, and p93.7 admits **3** blind sets where p99 admits **0**.
+
+*Controls: the census's own reference reproduces the committed five exactly; the p99 level matches
+R331's committed 0.5547 with a resolvable blind-admission rate of 0; the set shrinks monotonically.*
+→ `R354_what_the_safe_reference_admits`
+
 ### ① The reference — computed, not chosen
 
 > **THE CLOSURE TEST.** A candidate clause-② reference is **CLOSED** if **no member of clause ②'s
