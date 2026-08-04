@@ -168,7 +168,7 @@ def positive_control() -> tuple[bool, str]:
     never returned non-zero cannot be trusted when it returns zero."""
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="coh_ctrl_"))
     try:
-        d = fixture_dir(tmp, "rZZ_plant") / "results"   # a planted round must sit where real ones do
+        d = fixture_dir(tmp, "R999_plant") / "results"   # a planted round must sit where real ones do
         d.mkdir(parents=True)
         (d / "p.json").write_text(json.dumps({
             "clean_pair":   {"gap": 0.05, "gap_ci": [0.04, 0.06]},

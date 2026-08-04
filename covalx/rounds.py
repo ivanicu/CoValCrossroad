@@ -56,9 +56,18 @@ def fixture_dir(root: pathlib.Path, name: str) -> pathlib.Path:
     # My first version of this guard demanded r + DIGITS and rejected `rZZ_plant`, a placeholder one
     # harness had used for years -- a guard stricter than the thing it guards, which breaks working
     # callers to prevent a fault they never had.
-    if not name.lower().startswith("r"):
+    # ⚠ REPAIRED at R340. This required only `startswith("r")` while discovery requires
+    # ROUND_RE = ^[Rr]\d+_ , so `rZZ_plant` PASSED this guard and was then invisible to
+    # iter_round_dirs. The comment below justified the loosening as "a guard stricter than the
+    # thing it guards" -- but ROUND_RE IS the thing it guards, and it demands digits. Loosening
+    # did not spare the caller, it blinded it: artifacts_are_internally_coherent's positive
+    # control has been reporting outside=[] contradict=[] -> FAIL ever since, which is the
+    # honest form of the failure and is how it was found. The guard now enforces EXACTLY the
+    # discovery contract, because a planting guard looser than the discovery it plants for is
+    # the one shape that cannot be detected from the inside.
+    if not ROUND_RE.match(name):
         raise ValueError(
-            f"fixture name {name!r} must begin with 'R' to match the EAR-anchored glob "
+            f"fixture name {name!r} must match ROUND_RE ^[Rr]\\d+_ to match the EAR-anchored glob "
             f"E*/A*/R*/; anything else is planted where nothing can find it, and the harness "
             f"then reports zero vectors caught instead of an error")
     return root / FIXTURE_BATCH / name
