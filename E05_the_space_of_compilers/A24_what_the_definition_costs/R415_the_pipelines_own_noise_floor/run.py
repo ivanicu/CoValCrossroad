@@ -168,6 +168,20 @@ def main() -> int:
     if len(rows) < 1:
         print("\n  UNRUNNABLE: no pair had enough shared prompts. Exit 2."); return 2
 
+    # ⛔ MY FIRST COMPARISON USED THE WRONG UNITS. R408's +0.009002 is a MEAN over prompts; the `sd`
+    #   column is the PER-PROMPT dispersion, and setting them side by side compares a mean to a
+    #   spread. The comparable quantity is the run-to-run shift in the MEAN A2 -- the `mean` column --
+    #   and it is reported as the headline. The sd is kept because it sets the se of that shift
+    #   (sd/sqrt(n)) and because dropping a column after seeing it is how a table becomes an argument.
+    shifts = [abs(r["mean"]) for r in rows.values()]
+    worst_shift = max(shifts)
+    print(f"\n    ⛔ THE COMPARABLE QUANTITY IS THE SHIFT IN THE MEAN, NOT THE PER-PROMPT SD. R408's")
+    print(f"       +{e_2b:.6f} is a mean over prompts; the sd column is a spread. Comparing them")
+    print(f"       would set a mean beside a dispersion.")
+    print(f"    worst run-to-run shift in MEAN A2 across {len(rows)} pairs : {worst_shift:.6f}")
+    print(f"    R408's committed effect at 2B                          : {e_2b:+.6f}")
+    print(f"    the shift is {worst_shift/e_2b:.1f}x the effect")
+    print(f"    per-pair mean shifts: {[round(r['mean'], 4) for r in rows.values()]}")
     sds = [r["sd"] for r in rows.values()]
     mxs = [r["mx"] for r in rows.values()]
     sd = max(sds)
@@ -191,12 +205,19 @@ def main() -> int:
         print(f"  run-to-run sd of {sd:.6f} is {e_2b/sd:.1f}x below R408's effect. The session's")
         print(f"  numbers clear the pipeline's own floor, and the floor is now STATED rather than")
         print(f"  assumed — which §1 has required all along and no round had done.")
-    elif sd >= 0.009:
+    elif worst_shift >= 0.009:
         v = "W_FLOOR_BINDING"
-        print(f"  W-FLOOR-BINDING — the run-to-run sd is {sd:.6f}, at or above R408's +{e_2b:.6f}.")
-        print(f"  The effect sits INSIDE the pipeline's own noise, and every number this session")
-        print(f"  derived from a single committed artifact is scoped by that. This is the largest")
-        print(f"  downgrade available here and it is not softened.")
+        print(f"  W-FLOOR-BINDING — re-running the SAME arm at the SAME judge shifts its MEAN A2 by")
+        print(f"  up to {worst_shift:.6f}, which is {worst_shift/e_2b:.0f}x R408's +{e_2b:.6f}.")
+        print(f"  ⚠ AND THE CAUSE IS NOT SEPARATED, WHICH MATTERS FOR WHAT THIS LICENSES. A shift of")
+        print(f"    0.1 in an agreement metric is large for kernel non-determinism, so EITHER the")
+        print(f"    pipeline is wildly unstable OR two different configurations share a filename.")
+        print(f"    BOTH are disqualifying for treating these files as replicates, and this round")
+        print(f"    cannot tell them apart — so it claims the disjunction and not either branch.")
+        print(f"  ⚠ AND NO RE-RUN PAIR EXISTS AT 2B. The floor there is UNMEASURED, so the correct")
+        print(f"    statement is NOT `R408's effect is inside the noise` — it is that every 2B number")
+        print(f"    this session produced rests on an ASSUMPTION of pipeline stability that has now")
+        print(f"    failed at the only judge where it could be checked.")
     else:
         v = "W_FLOOR_BETWEEN"
         print(f"  BETWEEN — sd {sd:.6f}, effect/floor {e_2b/sd:.2f}x, between the pre-registered")
@@ -210,7 +231,7 @@ def main() -> int:
     print(f"    not distinguished here; only the magnitude is.")
 
     art = dict(source_sha256=hashlib.sha256(SELF.read_bytes()).hexdigest(), source_name=SELF.name,
-               pairs=rows, worst_sd=sd, worst_max=max(mxs), e_2b=e_2b,
+               pairs=rows, worst_sd=sd, worst_mean_shift=worst_shift, worst_max=max(mxs), e_2b=e_2b,
                ratio=(e_2b / sd if sd > 0 else None),
                controls=dict(self_zero=self_ok, n_pairs=len(rows)), verdict=v)
     (HERE / "results").mkdir(exist_ok=True)

@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**407 rounds** in **5 epochs** and **24 arcs**, numbered to **R414** — **53 standing claims, 13
+**408 rounds** in **5 epochs** and **24 arcs**, numbered to **R415** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1296,6 +1296,23 @@ re-examines a withdrawn claim.** ⭐ The repair used `full`, an arm inside the s
 explicitly **weaker than an oracle**: it bounds *can this judge rank*, not *can it detect leakage*.
 **R408's +0.009 is untouched — the attack was ruled inadmissible, not answered.**
 → [`R414`](E05_the_space_of_compilers/A24_what_the_definition_costs/R414_does_the_effect_replicate_at_the_second_judge)
+
+**Re-running the same arm at the same judge shifts its mean by 13× the effect the campaign has been
+chasing — and §1 has required this measurement all along.** ⭐ *"NOISE FLOOR: measured, not assumed.
+Replicates beat models."* **The replicates were on disk the whole time**: five `_08bR` pairs — R for
+**re-run** — same arm, same judge, same code, both committed. Surfaced by the git history, whose
+commit for those files is titled *"a committed artifact in this repo is not a function of its
+committed code"* — **a prior round had already said it and nothing downstream acted on it.** Measured:
+run-to-run shifts in mean A2 of **−0.116, −0.098, −0.034, +0.022, +0.023**, worst **0.116489** against
+R408's **+0.009002** — **13×**. ⛔ **My first comparison used the wrong units** (a mean beside a
+per-prompt spread); the sd column is kept because *dropping a column after seeing it is how a table
+becomes an argument*. ⚠ **The cause is not separated**: 0.1 is large for kernel non-determinism, so
+either the pipeline is wildly unstable **or** two configurations share a filename — **both disqualify
+these as replicates, and neither branch is claimed** (it also explains R414's family split). ⚠ **No
+re-run pair exists at 2B**, so the correct statement is not *"R408's effect is inside the noise"* — it
+is that **every 2B number this session produced rests on an assumption of pipeline stability that has
+now failed at the only judge where it could be checked.**
+→ [`R415`](E05_the_space_of_compilers/A24_what_the_definition_costs/R415_the_pipelines_own_noise_floor)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

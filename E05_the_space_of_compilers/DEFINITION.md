@@ -180,6 +180,24 @@ judge in it** (R224/R228), and the k-curve's *shape* across judges was already m
 
 ---
 
+## ⛔ THE PIPELINE'S OWN FLOOR IS UNMEASURED AT THIS JUDGE 2026-08-04 (R415)
+
+**5** committed re-run pairs exist at the 0.8B judge — same arm, same code, different run.
+**Re-running shifts an arm's mean A2 by up to `0.116489`, which is 13× the +0.009002 clause ②'s
+headline rests on.**
+
+**No such pair exists at the 2B judge that produced every number on this page.** So the floor here is
+**not measured**, and every A2 figure in this document rests on an assumption of pipeline stability
+that **failed at the only judge where it could be checked**.
+
+⚠ The cause is not separated: a 0.1 shift is large for kernel non-determinism, so either the pipeline
+is wildly unstable **or** two configurations share a filename. Both disqualify those files as
+replicates, and neither branch is claimed.
+
+⚠ This does not retract any number. It scopes them: they are single draws whose draw-to-draw spread
+is unknown at this judge, and §1's *"noise floor: measured, not assumed"* is unmet for the first time
+explicitly rather than by omission.
+
 ## ⛔ READ LITERALLY, CLAUSE ② ADMITS ALL FIVE — INSIDE THEIR OWN NOISE 2026-08-04 (R408)
 
 The clause says **scores better than**. The code says `e > 0 AND |e| >= ZEFF*se` — *significantly*
