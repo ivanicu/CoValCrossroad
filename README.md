@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**339 rounds** in **5 epochs** and **24 arcs**, numbered to **R343** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**333 of the 339 carry a
+**341 rounds** in **5 epochs** and **24 arcs**, numbered to **R345** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**335 of the 341 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -234,6 +234,18 @@ control (one point moved outside its own CI) did move, so the zero is a measurem
 silence. **A stale artifact, a hand-edited artifact and an honest one are indistinguishable to this
 suite.**
 → [`R343`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R343_does_any_check_tie_artifact_to_source)
+
+**The record already existed; the reader never did.** [`covalx/stamp.py`](covalx/stamp.py) writes
+`sha256` of a round's own source into its output, 22 rounds call it, and its docstring states the
+failure verbatim — *"a round patched after it ran passes that gate forever while its persisted
+numbers no longer exist in any output."* `grep -rl source_sha256` across `assurance/`, `covalx/` and
+`db/` returns **one file: the definition itself.** Measured over 79 rounds carrying a stamp-like
+key: **33 STALE, 14 FRESH, 32 UNVERIFIED** — of the stamps resolvable at all, **70% no longer match
+the source beside them**, `R141_verification` among them. The UNVERIFIED bucket is load-bearing: a
+key-name match said 38, a tight self-hash regex said 14, and both were wrong, because
+`**stamp(__file__)` puts the hash in another file where no regex over the round's own text can see
+it. A stamp detects **drift, never forgery** — whoever edits an artifact can write any hash into it.
+→ [`R345`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R345_the_stamp_nobody_reads)
 
 ---
 
