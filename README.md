@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**365 rounds** in **5 epochs** and **24 arcs**, numbered to **R371** — **53 standing claims, 13
+**367 rounds** in **5 epochs** and **24 arcs**, numbered to **R373** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -603,6 +603,39 @@ itself*, so `observed ≤ bootstrap` by construction — it returned 0.65 and I 
 else-branch **asserted "the MDE falls with S" while the line above printed that it does not** — fifth
 verdict-string failure this session, with **no branch for the world that obtains**. Gate **37 of 37**.
 → [`R371`](E05_the_space_of_compilers/A24_what_the_definition_costs/R371_would_more_prompts_resolve_transport)
+
+**⛔ And R371's own reading died the same way — the curve is no more reportable than the cell was.**
+Re-running the whole S-sweep on **480 random halves** of the same 250 prompts: R371's set `{2, 5}`
+recurs in **2.9%** of halves, the modal outcome is the **empty set at 41.5%** across **38** distinct
+sets, and the two halves of one split agree on the set **4.4%** of the time once both-empty
+agreements are removed (the raw 18.3% is 14.6 points of exactly that). **Three separate reasons the
+curve cannot be read, and I built the second.** ① `p(S) separates` is a **derivation** — R371 itself
+measured that the MDE rises with S while the contrast does not, which makes resolution fall by
+algebra; the pre-registered kill is reported **as written** rather than moved after the data.
+② **S = 2 tops every ranking because its denominator collapses**: a between-stratum sd at S strata
+has S−1 df, so at S=2 it has **one**, and it lands below half the typical contrast in **28.3%** of
+halves against at most **7.3%** elsewhere — 3.9×. The tell was a `pair|2` cell returning **MDE =
+0.0007**. ③ R371's floor was **order-dependent** (one rng shared per call), and 12 permutations move
+the `exact|S=4` contrast across **+0.0540 … +0.1185**; repaired, the full-sample set is **{2, 3, 5}**.
+**The resolving set is not a quantity** — R371 was right that R370's S=4 was a specification choice,
+then read a SET off the same single draw. Gate **44 of 44**.
+→ [`R372`](E05_the_space_of_compilers/A24_what_the_definition_costs/R372_is_the_resolving_set_stable)
+
+**And the collapse reaches exactly one round outside that family — the one the definition cites.**
+`P(sd_hat < f·σ) = chi2.cdf(f²(k−1), k−1)` is **algebra**, and its assumption is *tested*: the ratio
+p10/median of the MDE carries **no free parameter**, and against R372's **24** measured cells the
+prediction misses by at most **0.0642** (tolerance 0.10) while itself ranging 0.186→0.668. Census:
+**55** MDE call sites across **38** rounds; **5** divide by a count of aggregated units; after
+resolving each k, **R368 alone outside R370–R372 has k < 10 — at k = 4**, where the sd lands below
+half its true value **13.9%** of the time. R368 is the transport row of `DEFINITION.md`: **not
+refuted, under-priced.** ⛔ **Two instruments corrected before publishing**: a census keyed on the
+sibling `k` would have called R301 a 4-unit design (**`k` here means core size**, beside an MDE over
+968 prompts), and a word list measuring *"who records their denominator"* returned 2 of 38 with
+**R355 and R368 both false negatives** — withdrawn as UNVERIFIED, because a guessed list cannot prove
+an absence. ⭐ **The debt is paid, not frozen**: a new gate flagged R368 and R370, both were re-run
+with `n_units` recorded, and **only `n_units` and the stamp changed** — 5 of 5 compliant. Suite
+**25/25**, gate **51 of 51**.
+→ [`R373`](E05_the_space_of_compilers/A24_what_the_definition_costs/R373_can_the_campaign_audit_its_own_resolution)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

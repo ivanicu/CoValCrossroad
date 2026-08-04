@@ -225,6 +225,13 @@ CASES = [
     # anywhere in the log it exits 2, never 0.
     ("next_gradient_labels_its_hypotheses", hide_rounds, 0,
      "commit messages untouched by hiding rounds -> the corpus is intact and it still rules"),
+    # Entry 225. R373's gate. Its population is ROUND SOURCE, which `hide_rounds` removes
+    # entirely -- so with the rounds hidden there is no aggregated-unit MDE call site anywhere
+    # and it must report an EMPTY POPULATION rather than "every MDE records its denominator".
+    # That is the exact failure mode it was written against: a gate that certifies a corpus it
+    # never read. `want 2`.
+    ("an_mde_records_its_denominator", hide_rounds, 2,
+     "rounds hidden -> zero MDE call sites to examine: an empty population never passes"),
     # Entry 201. A REPORT check -- it never gates, so its non-empty exit is 0. With the
     # rounds hidden there is no newest round to measure staleness against, and it
     # returns 2 rather than reporting every section as current.

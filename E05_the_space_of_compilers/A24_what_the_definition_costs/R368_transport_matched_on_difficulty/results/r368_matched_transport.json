@@ -19,12 +19,16 @@
   },
   "n_judgements": 33320,
   "n_prompts": 250,
+  "n_units": {
+    "exact": 4,
+    "pair": 4
+  },
   "positive": {
     "fresh": 0.14000000000000007,
     "orig": 0.08266666666666661
   },
   "source_name": "run.py",
-  "source_sha256": "7f3ba6d965e87b0ecd59918d64d86ceb655cc5e2f19445c7592f73137f02e73b",
+  "source_sha256": "339a7da24e78320097a3cbaf281c638cd218e718f9f8f0c5957d5bc1719cbe4a",
   "strata": {
     "exact": [
       {

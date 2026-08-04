@@ -98,6 +98,19 @@ def derive():
         for k in ("r371_set_rate", "r372_empty_rate", "r372_distinct", "r372_splithalf",
                   "r372_degen_2", "r372_degen_max", "r372_halves"):
             out[k] = (None, "R372")
+    a = art("R373_*")
+    if a:
+        out["r373_sites"] = (a["n_sites"], "R373")
+        out["r373_rounds"] = (a["n_rounds"], "R373")
+        out["r373_small_k"] = (a["small_k_sites"], "R373")
+        out["r373_k368"] = (a["small_k_resolved"]["R368"]["ks"][0], "R373")
+        out["r373_p_half"] = (round(100 * a["derivation"]["4"]["0.5"], 1), "R373")
+        out["r373_p_three_q"] = (round(100 * a["derivation"]["4"]["0.75"], 1), "R373")
+        out["r373_k355"] = (a["small_k_resolved"]["R355"]["ks"][0], "R373")
+    else:
+        for k in ("r373_sites", "r373_rounds", "r373_small_k", "r373_k368", "r373_p_half",
+                  "r373_p_three_q", "r373_k355"):
+            out[k] = (None, "R373")
     a = art("R370_*")
     if a:
         out["pool_contrast"] = (round(a["results"]["pool|exact"]["contrast"], 4), "R370")
@@ -231,6 +244,16 @@ ASSERTIONS = {
     "r372_degen_2":          r"in \*\*(\d+\.\d)%\*\* of halves against at most",
     "r372_degen_max":        r"against at most \*\*(\d+\.\d)%\*\* anywhere else",
     "r372_halves":           r"\*\*(\d+) random halves\*\*",
+    # R373 — the transport MDE is under-priced. Anchored on words unique to each row.
+    "r373_sites":            r"Of \*\*(\d+)\*\* MDE call sites",
+    "r373_rounds":           r"call sites across \*\*(\d+)\*\* rounds",
+    "r373_small_k":          r"rounds, \*\*(\d+)\*\* divide by a count",
+    "r373_k368":             r"that count is \*\*(\d+)\*\*",
+    # ⚠ the bold wraps the whole clause, not the number -- v1 anchored on `**N%**` and the gate
+    #   caught it as an assertion it could no longer locate, which is the point of that branch.
+    "r373_p_half":           r"below half its true value (\d+\.\d)%\*\* of the time",
+    "r373_p_three_q":        r"below three quarters\n\*\*(\d+\.\d)%\*\* of the time",
+    "r373_k355":             r"its k is \*\*(\d+)\*\*, which is fine",
 }
 
 

@@ -269,6 +269,17 @@ with S while the contrast does not, which makes the resolution rate fall with S 
 ⚠ R371's floor was also **order-dependent** — one rng shared across a call, so a prompt's floor
 depended on its company. 12 permutations move the `exact|S=4` contrast across **+0.0540 … +0.1185**.
 
+⛔ **AND R368'S OWN MDE IS UNDER-PRICED, WHICH THE CAMPAIGN HAD NO RECORD TO NOTICE (R373).** The
+transport MDE above divides by the square root of a count of **strata**, and that count is **4**. A
+4-unit sd estimate lands **below half its true value 13.9%** of the time and below three quarters
+**36.0%** of the time — so `+0.0992 vs 0.0654` is a comparison against a threshold that is itself a
+4-point estimate. **Not refuted; under-priced** — and the distinction matters because nobody
+re-examines a cell that reported RESOLVED.
+
+⚠ Of **55** MDE call sites across **38** rounds, **5** divide by a count of aggregated units rather
+than the sample, and after resolving each k, **R368 is the only one outside R370–R372 with k < 10**
+(R355 is flagged and its k is **25**, which is fine). *The flag is not the severity; only k is.*
+
 > **`The resolving set` is not a well-defined object of this design.** R371 was right that R370's
 > S = 4 was a specification choice, and then read a SET off the same single draw — **the error it
 > convicted R370 of, one level up.**

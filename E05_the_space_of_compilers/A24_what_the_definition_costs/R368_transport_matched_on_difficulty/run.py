@@ -319,7 +319,11 @@ def main() -> int:
     print(f"    fresh responses carry NO HUMAN RANKINGS. This measures transport of the")
     print(f"    COMPILATION — agreement with the full rubric — and never agreement with people.")
 
+    # R373: the MDE above divides by sqrt(len(contrasts)) -- a count of STRATA, not of prompts.
+    # At k=4 the sd lands below half its true value 13.9% of the time, so the count is part of
+    # the number and is recorded here rather than left to be hand-traced out of `strata`.
     art = dict(stamp(str(SELF)), n_prompts=len(usable), n_judgements=len(meta),
+               n_units={m: len(RES[m]) for m in METRICS},
                strata={m: RES[m] for m in METRICS},
                matched_contrast={m: CON[m] for m in METRICS},
                mde={m: MDEV[m] for m in METRICS},

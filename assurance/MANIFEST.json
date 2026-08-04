@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-08-04T10:51:01.007636+00:00",
- "git": "1c9596fabc0357f5387128fed24f1c848e1b31cc",
+ "generated_utc": "2026-08-04T11:11:38.891741+00:00",
+ "git": "70821fdc86fed30d6f24c446948cc270bc57eccb",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -1500,16 +1500,16 @@
    "sha256": "e98709ce11c178d12d8e4ce064afef4cc1a8886e98e79ee41aec1647d7a7ea1b"
   },
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R368_transport_matched_on_difficulty/run.py": {
-   "bytes": 18233,
-   "sha256": "7f3ba6d965e87b0ecd59918d64d86ceb655cc5e2f19445c7592f73137f02e73b"
+   "bytes": 18572,
+   "sha256": "339a7da24e78320097a3cbaf281c638cd218e718f9f8f0c5957d5bc1719cbe4a"
   },
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R369_the_transport_contrast_decomposes_two_ways/run.py": {
    "bytes": 13655,
    "sha256": "d0781cd3d8275fd6a8dd030db19e6dc83bbce06482607741fa848277d726a040"
   },
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R370_a_non_subset_floor_for_the_fresh_arm/run.py": {
-   "bytes": 16675,
-   "sha256": "ec2e6ef1e6bc12ff7486b9ce7558770810fdf1f5c70c138fe1f6d919ac01b916"
+   "bytes": 17080,
+   "sha256": "447f37134ba14de70bf279383f23e7d6ae66bb42578b480d67c08f8d54a8651e"
   },
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R371_would_more_prompts_resolve_transport/run.py": {
    "bytes": 20330,
@@ -1518,6 +1518,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R372_is_the_resolving_set_stable/run.py": {
    "bytes": 42999,
    "sha256": "4a2301e59793bccfa878514c5a4e64950971770c444da6035be4ba2447df5610"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R373_can_the_campaign_audit_its_own_resolution/run.py": {
+   "bytes": 26846,
+   "sha256": "d632cad486689dec64e7f46bd37979119eae8161f26a57ea8c08f3254e7a12dd"
   },
   "assurance/DEFECTS.py": {
    "bytes": 14429,
@@ -1530,6 +1534,10 @@
   "assurance/_isolated.py": {
    "bytes": 13178,
    "sha256": "4ebe592a12304b6fcd1a10eb8ed3942e28a2e78ddb931705453c50d546c5e199"
+  },
+  "assurance/an_mde_records_its_denominator.py": {
+   "bytes": 8044,
+   "sha256": "90f04135725c66ab550daf7a9fc11b715d427d006c4f47a3c4f180604e736af9"
   },
   "assurance/apply_freeze_status.py": {
    "bytes": 4855,
@@ -1560,8 +1568,8 @@
    "sha256": "82b5eebb2af188322a5a3cecc03d1e5932fe9c9e98c6af1091fdad9b36c66066"
   },
   "assurance/attack_the_suite.py": {
-   "bytes": 17213,
-   "sha256": "8e7d2bf83698c547f1daeb207cf1c085879d074e51916fa058cf2341434334fe"
+   "bytes": 17761,
+   "sha256": "03267154368c0aca64f250de427d285dfc1a8966adf2d51c01adb0c3f21592a9"
   },
   "assurance/audit_the_auditors.py": {
    "bytes": 8230,
@@ -1580,8 +1588,8 @@
    "sha256": "8017a135ac5da6bd0ce006d958a0acd41461f2bdad897dbbf1e4f09296faf1af"
   },
   "assurance/definition_matches_the_record.py": {
-   "bytes": 17385,
-   "sha256": "5829ff23d0faae147a60ffbb3d8dc3fd33d515b659908e332a3730e89183502a"
+   "bytes": 18885,
+   "sha256": "85b921ef12a90760c678c444dbcfc23227657bbce55e09227936f10e01d475d8"
   },
   "assurance/donor_numbers_carry_their_draw_scope.py": {
    "bytes": 9059,
@@ -4038,16 +4046,16 @@
    "sha256": "1f23bd88c7144c042be6b7c02b822c57582ac38fb5e37ce5336940964711662a"
   },
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R368_transport_matched_on_difficulty/results/r368_matched_transport.json": {
-   "bytes": 3883,
-   "sha256": "5f8a77501a68be74741ff4f11847d2c4fd5c153b3be8517be7ca06af77e30608"
+   "bytes": 3933,
+   "sha256": "3b65eca246bb10f3115d8584400960672f550d4cb8516c8e9ccb6bbf1b68fc83"
   },
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R369_the_transport_contrast_decomposes_two_ways/results/r369_decomposition.json": {
    "bytes": 1868,
    "sha256": "fe098d3c40a66f62d4540fee1f76ce17bef88f4648c467decf91d905c1f6b307"
   },
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R370_a_non_subset_floor_for_the_fresh_arm/results/r370_nonsubset_floor.json": {
-   "bytes": 4041,
-   "sha256": "94742fcdc7604b22a645ed743b73f22def133d950d7a7a30abf6220e50c26f49"
+   "bytes": 4142,
+   "sha256": "8eb34c7e515ec334156e0b6fa940de9a158f960f3c6dbf97e7f54120a8a44a24"
   },
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R371_would_more_prompts_resolve_transport/results/r371_power.json": {
    "bytes": 3078,
@@ -4056,6 +4064,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R372_is_the_resolving_set_stable/results/r372_stability.json": {
    "bytes": 13498,
    "sha256": "21cba6034062f98ab15d621b49bc501a151f4e36f94104dc1685070dcd1fad86"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R373_can_the_campaign_audit_its_own_resolution/results/r373_resolution_audit.json": {
+   "bytes": 6376,
+   "sha256": "32760077858e509b77877727f2d53e6fda6cf79bea95d5dc070cfceb11364aeb"
   }
  },
  "claims": [

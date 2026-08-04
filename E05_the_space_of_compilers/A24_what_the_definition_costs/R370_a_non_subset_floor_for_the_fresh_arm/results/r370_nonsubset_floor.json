@@ -5,6 +5,12 @@
     "reproduction": true
   },
   "n_prompts": 250,
+  "n_units": {
+    "full|exact": 4,
+    "full|pair": 4,
+    "pool|exact": 4,
+    "pool|pair": 4
+  },
   "r368_published": {
     "exact": 0.09922105091537846,
     "pair": 0.06120620355093021
@@ -148,6 +154,6 @@
     }
   },
   "source_name": "run.py",
-  "source_sha256": "ec2e6ef1e6bc12ff7486b9ce7558770810fdf1f5c70c138fe1f6d919ac01b916",
+  "source_sha256": "447f37134ba14de70bf279383f23e7d6ae66bb42578b480d67c08f8d54a8651e",
   "verdict": "W_COLLAPSES"
 }

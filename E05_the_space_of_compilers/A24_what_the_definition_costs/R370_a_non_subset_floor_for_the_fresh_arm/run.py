@@ -298,7 +298,12 @@ def main() -> int:
     print(f"\n  ⚠ Unchanged since R233 and restated rather than dropped: the fresh responses carry")
     print(f"    NO HUMAN RANKINGS. Every number here is agreement with the FULL RUBRIC.")
 
+    # R373: each cell's MDE divides by sqrt(len(con_)) -- a count of STRATA, not of prompts.
+    # At k=4 the sd lands below half its true value 13.9% of the time, so the count is part of
+    # the number. Recorded here rather than reachable only by counting `rows` by hand.
     art = dict(stamp(str(SELF)), n_prompts=len(usable),
+               n_units={f"{s}|{m}": len(RES[(s, m)]["rows"])
+                        for s in ("full", "pool") for m in METRICS},
                results={f"{s}|{m}": RES[(s, m)] for s in ("full", "pool") for m in METRICS},
                r368_published=pub,
                controls=dict(reproduction=repro_ok, placebo=plac, floor_ok=not degen),
