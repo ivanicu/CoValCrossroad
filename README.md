@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**378 rounds** in **5 epochs** and **24 arcs**, numbered to **R384** — **53 standing claims, 13
+**379 rounds** in **5 epochs** and **24 arcs**, numbered to **R385** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -837,6 +837,26 @@ admits** — and four rounds this session walked past it while auditing the *red
 is flattering by construction: the rounds written this session are in the root README because I
 appended a paragraph for each, so coverage of everything older is lower than the headline.
 → [`R384`](E05_the_space_of_compilers/A24_what_the_definition_costs/R384_where_the_findings_are_not)
+
+**And the test R384 proposed for filling that gap was void as written, so it was replaced by one
+whose answer does not pass through my opinion.** It asked whether *a reader* could tell a generated
+line from a hand-written one — **I am the reader**, and a judgement I make about text I generated is
+self-review, which this campaign treats as void rather than weak. ⭐ **A ground truth already
+existed**: 46 rounds have both a committed artifact and a root-README paragraph naming only them, so
+a line generated from the artifact alone can be **matched back** to its own paragraph. Result:
+**top-1 = 0.457** against a chance of **0.022** — 21× chance — with the true paragraph at **median
+rank 2 of 46** and a permutation null at exactly chance. **A generated line narrows the field without
+identifying the finding**: enough for a draft a person corrects, not enough to publish. ⛔ **The
+positive control caught a broken population first**: a paragraph queried with itself retrieved itself
+only **63%** of the time, because **one root-README paragraph names ten rounds** and **41 of 84
+candidates share theirs**. A retrieval task with duplicated targets has no unique right answer;
+restricted to unique targets the control forces to **1.00**. ⛔ **And my prediction about the
+arithmetic trap was wrong in magnitude** — I wrote that leaving round identifiers in would force
+top-1 to ~1.0; measured, **0.478 un-stripped vs 0.457 stripped**, a difference of **+0.021**. The
+precaution was right to take and its size was mine to measure, not to assert. ⚠ These 46 are rounds
+someone *chose* to write about, so **0.457 is an upper bound on the 243 that have none**, never a
+floor.
+→ [`R385`](E05_the_space_of_compilers/A24_what_the_definition_costs/R385_can_the_artifact_write_the_finding)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
