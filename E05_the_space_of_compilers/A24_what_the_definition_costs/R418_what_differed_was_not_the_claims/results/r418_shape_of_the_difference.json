@@ -1,0 +1,28 @@
+{
+  "claim_shaped": [],
+  "controls": {
+    "emits_claim_shape": true,
+    "shape_neg": true,
+    "shape_pos": true
+  },
+  "differing": [
+    "02",
+    "04",
+    "05",
+    "06",
+    "1.22",
+    "1.41",
+    "10",
+    "104.63",
+    "112.92",
+    "117",
+    "117.28",
+    "117.56"
+  ],
+  "n_differing": 12,
+  "r130_source": "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R130_judge_gauge/run.py",
+  "r396_verdict": "W_TAIL_MOVES",
+  "source_name": "run.py",
+  "source_sha256": "c29ae3379dd8a7e6647954d3ff928bbc9ba08f76d427f2ed813706e295477a70",
+  "verdict": "W_CLAIMS_STABLE"
+}

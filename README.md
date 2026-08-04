@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**410 rounds** in **5 epochs** and **24 arcs**, numbered to **R417** — **53 standing claims, 13
+**412 rounds** in **5 epochs** and **24 arcs**, numbered to **R418** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1344,6 +1344,22 @@ it does not measure what DOES** — this is an inference, and the verdict is abo
 field**, so batch equality is **unrecoverable** and is the most likely non-stochastic explanation left
 standing.
 → [`R417`](E05_the_space_of_compilers/A24_what_the_definition_costs/R417_the_judge_has_no_stochastic_step)
+
+**R396 landed after 1h50m on the GPU: the expensive round does NOT reproduce at unchanged source —
+and R418 shows none of the 12 differing tokens is a claim.** R396 ran `R130_judge_gauge` twice, both
+exiting 0 (so `DIFFER` is a real difference, not two identical crashes), and found **140 numbers per
+run, DIFFERING**. ⛔ **I then guessed the cause twice in a report and was wrong twice** — *"timings"*
+(R130 prints none) and *"tqdm rates"* (no tqdm anywhere in the path). **Two hypotheses, two
+refutations, zero measurements.** So R418 asked the question that **needs no cause**: R130 prints its
+claims as `0.dddd` (`mean_sat`/`core`/`full_eq` at `:.4f`), and **0 of the 12 differing tokens has
+that shape.** ⭐ **R396's operational conclusion survives and its stated cause does not**: R388's gate
+uses the same extractor over `stdout+stderr`, so it **would** convict an honest backfill — but on
+**non-claim tokens while the claims were identical**. **The fix inverts: narrow the extractor, rather
+than exclude scoring rounds from verification.** ⚠ R418's emission control matters — R130 must
+*actually* print `:.4f` values, or *"no claim-shaped token differed"* would be vacuous. ⚠ And the
+**origin of the other tokens is still unknown; I am not guessing a third time** — R396 did not persist
+its captured outputs, which was my omission in its design.
+→ [`R418`](E05_the_space_of_compilers/A24_what_the_definition_costs/R418_what_differed_was_not_the_claims)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
