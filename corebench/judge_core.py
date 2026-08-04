@@ -19,6 +19,17 @@ import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+# ⛔ HASHED AT IMPORT, NOT AT WRITE TIME, AND THE FIRST REAL USE OF THIS FIELD IS WHAT CAUGHT IT.
+#   The original computed `sha256(Path(__file__).read_bytes())` inside main(), i.e. it hashed the
+#   file AS IT SAT ON DISK WHEN THAT LINE RAN -- not the code Python had loaded. Task 633 proved it:
+#   its artifact carries `core_sha256: null`, a field only the OLD code emits, beside a
+#   producer_sha256 equal to the PATCHED file, because the file was edited between import and write.
+#   A field that looks like it identifies the running code while identifying the file's current
+#   contents is worse than no field: it would make two artifacts look like they shared a producer
+#   when they did not. Module scope is the closest a script can get to load time.
+PRODUCER_SHA256 = __import__("hashlib").sha256(
+    pathlib.Path(__file__).read_bytes()).hexdigest()
+
 MODEL = "/mnt/e/data.ai-models.local-model-store.storage.xl.private.readonly/Qwen3.5-2B-Base"
 L = "ABCD"
 
@@ -89,9 +100,17 @@ def main():
         "n_prompts": len(pids),
         "n_calls": len(prompts),
         "producer": "corebench/judge_core.py",
-        "producer_sha256": hashlib.sha256(pathlib.Path(__file__).read_bytes()).hexdigest(),
-        "core_sha256": (hashlib.sha256(pathlib.Path(a.core).read_bytes()).hexdigest()
-                        if a.core != "coval_core" and pathlib.Path(a.core).exists() else None),
+        "producer_sha256": PRODUCER_SHA256,   # taken at IMPORT, see the note above
+        # ⛔ HASH WHAT WAS ACTUALLY SCORED, NOT THE INPUT FILE. My first version hashed
+        #   `pathlib.Path(a.core)` and returned None for `--core coval_core`, whose criteria are read
+        #   from the rubric rather than a JSON -- so the ONE path used to score the released core
+        #   would carry no criteria hash at all. That is precisely R416's lesson: two runs called
+        #   "same code" whose CRITERIA differed. Hashing the built `cores` dict covers both paths
+        #   uniformly and records the criteria that were scored rather than the file they came from.
+        "criteria_sha256": hashlib.sha256(
+            json.dumps({k: v for k, v in sorted(cores.items())}, sort_keys=True).encode()
+        ).hexdigest(),
+        "n_criteria": sum(len(v) for v in cores.values()),
     }
     np.savez_compressed(out, meta=np.array(meta), sat=sat,
                         provenance=np.array(json.dumps(prov, sort_keys=True)))
