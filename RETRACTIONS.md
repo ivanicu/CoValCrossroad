@@ -9268,3 +9268,53 @@ that fell. This one stood, and the reasoning that produced it was still unsound 
 between prompts, therefore prompts differ in the effect"* omits the possibility that the variance is
 unreplicable. **A ledger that only records losses trains you to think bad reasoning is self-announcing
 through bad outcomes.** It is not; the tell is in the sentence, not the result.
+
+---
+
+## 265 · "nothing observable predicts it" — a quantifier over an unenumerated population (R457 → R458)
+
+**What was written.** R457's closing line: *"a null there would be the strongest statement available:
+the advantage varies by prompt in a way **nothing observable** predicts."*
+
+**Why it is not statable.** The proposed test used **three hand-picked covariates**. A null on three
+covariates says *those three*. **"Nothing observable" ranges over every feature that could ever be
+computed** — no finite design reaches it, and §4's *closing sentence* row names this failure with the
+tell in plain sight: *"it contains only, never, nothing… quantifiers over your own work, which is
+exactly the population you are worst at enumerating."*
+
+**The corrected form, and it cost nothing extra:** replace "does covariate X matter" with "how much is
+explainable at all" — a cross-fitted predictor over a **named** feature set, reported as a share of a
+**measured** ceiling. **17 target-free features explain R²_oof = +0.0384 of a quantity that replicates
+at 0.8812 — 4.4%.** That is a quantitative null with a scope line attached, and it says something the
+rhetorical version could not: *how much room is left*.
+
+⭐ **The general point.** A null's value is set by the population it ranges over, and the temptation is
+to widen that population in the write-up while the design stays narrow. **The width of the claim must
+be the width of the feature set, and the feature set must be printed.** This round prints all 17.
+
+---
+
+## 266 · The both-arms trap, observed rather than assumed (R458)
+
+**Not a retraction — a measurement of a hazard this ledger has only ever asserted.** §4's row says *any
+covariate raising both arms of a bounded difference yields a differential proportional to their gap*.
+R458 computed `corr(feature, A2_core)` and `corr(feature, A2_sham)` separately for all 17 features:
+
+| feature | r(f, core) | r(f, sham) | r(f, **difference**) |
+|---|---|---|---|
+| `core_range` | **+0.4520** | **+0.3676** | **+0.0636** |
+| `core_respsd` | **+0.4542** | **+0.3752** | **+0.0578** |
+| `core_sd` | +0.2857 | +0.2137 | +0.0599 |
+
+**8 of 17 raise both arms.** The two strongest correlate at **~+0.45** and **~+0.37** with the arms
+and **~+0.06** with their difference.
+
+**Why this matters concretely:** satisfaction spread was one of the three covariates R457 proposed. A
+stratification on it would have shown **large, clean, monotone** arm-level gradients — both arms
+climbing together — and the difference would have moved barely at all. **Whether that would have been
+reported as a finding depends entirely on whether the two arms were plotted separately**, and the
+default is to plot the difference.
+
+⭐ **The remedy is not vigilance, it is a printed column.** `r(f, arm1)` and `r(f, arm2)` beside every
+`r(f, difference)`, for every covariate, *including the ones that survive*. It costs one line of code
+and it converts §4's warning from something to remember into something the output states.

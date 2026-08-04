@@ -301,6 +301,21 @@ measured ceiling of 0.8812**, subject to a both-arms check on every covariate; �
 license is any claim about *which* prompts, and the covariate R456 proposed — annotator agreement —
 is **inadmissible**, because it raises both arms of a bounded difference and manufactures a gradient.
 *(R457)*
+
+⛔ **AND NOTHING ON THIS SITE PREDICTS WHERE THAT ADVANTAGE LIVES (R458) — SO THE DEFINITION GAINS NO
+SCOPE LINE.** Cross-fitting a ridge from **17 target-free features** (core/sham/pool satisfaction
+means, sds, ranges, per-response spreads and k, plus response-length mean/sd/range) onto R457's
+arm-specific gap gives out-of-fold **R² = +0.0384** — **4.4%** of the 0.8812 ceiling. Per block:
+core-only +0.0135, sham-only +0.0170, pool-only +0.0167, lengths-only **−0.0040**. ⭐ **The positive
+control makes that a measurement rather than silence: a planted `d + noise` column is recovered at
+R² = +0.9170**, 24× the observed value, and a pure-noise column does not move it. ⭐ **And the
+both-arms diagnostic caught §4's trap in the act — 8 of 17 features raise BOTH arms**, with
+`core_range` at **+0.4520 / +0.3676** against the two arms but only **+0.0636** against their
+difference: a naive stratification on satisfaction spread would have shown a large arm gap produced
+entirely by both arms rising. **So clause ②'s advantage is prompt-specific, replicable at 0.88, and
+unexplained at 0.04 by everything the release yields without a second instrument** — structured, but
+not by anything on this site. ⚠ Scope is that named feature set, not "observables"; a semantic
+representation of the prompt is the next instrument and is deliberately outside this round. *(R458)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

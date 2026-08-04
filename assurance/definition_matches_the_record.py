@@ -504,6 +504,22 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R458 -- explainability. R2 is anchored WITH the positive control, because 0.0384 alone reads
+    # as a weak model; only the 0.9170 recovery makes it a statement about the OBJECT.
+    d458 = next(A24.glob("R458_*"), None)
+    f458 = (d458 / "results" / "r458_explainability.json") if d458 else None
+    a = json.loads(f458.read_text()) if (f458 and f458.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r458_r2"] = (f"{a['blocks']['all']['r2']:.4f}", "R458")
+        out["r458_share"] = (f"{100*a['blocks']['all']['share_of_ceiling']:.1f}", "R458")
+        out["r458_pos"] = (f"{a['controls']['positive_r2']:.4f}", "R458")
+        out["r458_nfeat"] = (len(a["features"]), "R458")
+        cr = next(b for b in a["both_arms"] if b["feature"] == "core_range")
+        out["r458_corerange"] = (f"{cr['r_core']:.4f}", "R458")
+    else:
+        for k in ("r458_r2", "r458_share", "r458_pos", "r458_nfeat", "r458_corerange"):
+            out[k] = (None, "R458")
+
     # R457 -- reliability. The CONTAMINATED pair is anchored beside the clean one, because the
     # finding is that the sham EXCEEDS the core on the naive statistic, and anchoring only the clean
     # rho would let the reason this round has two estimands drift away.
@@ -975,6 +991,11 @@ ASSERTIONS = {
     "r457_clean": r"replicates at\s*\n?\*\*ρ_full = ([\d.]+)\*\*",
     "r457_sham":  r"sham scores ([\d.]+) — HIGHER",
     "r457_core":  r"HIGHER than\s*\n?the core's ([\d.]+)\*\*",
+    "r458_r2":        r"gives out-of-fold \*\*R² = \+([\d.]+)\*\*",
+    "r458_share":     r"\*\*([\d.]+)%\*\* of the 0\.8812 ceiling",
+    "r458_pos":       r"recovered at\s*\n?R² = \+([\d.]+)\*\*",
+    "r458_nfeat":     r"ridge from \*\*(\d+) target-free features\*\*",
+    "r458_corerange": r"`core_range` at \*\*\+([\d.]+) /",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",
