@@ -84,14 +84,16 @@ CONTROLS
                      completion rate measured with a timeout that never fires is not a measurement.
   g=0                the timeout instrument on a script that exits immediately must NOT report
                      TIMEOUT -- the mirror, so the control can fail in both directions.
-  ISOLATION          the CONTENT of every committed artifact in the real tree is hashed before and
-                     after. Rounds WRITE when they run; if one wrote into the real tree this number
-                     would be worthless and the tree would be damaged. ⚠ v1 hashed `git status
-                     --porcelain` instead and FAILED while nothing was wrong -- five of my own
-                     commits landed during the 23-minute run and moved the string, the tree itself
-                     was clean, and a valid census was correctly marked UNVERIFIED for 45 rounds.
-                     The claim's unit is a file's CONTENT; the instrument's was git's opinion about
-                     staging. They are not the same object.
+  ISOLATION          PER PATH: every artifact present at the start must still have its start
+                     content, and must still exist. Rounds WRITE when they run; if one wrote into
+                     the real tree this number would be worthless and the tree would be damaged.
+                     ⚠ THIS CONTROL FAILED TWICE ON CLEAN RUNS BEFORE ITS UNIT MATCHED THE CLAIM'S.
+                     v1 hashed `git status --porcelain` -- five of my own commits moved the string.
+                     v2 hashed ALL artifacts into one digest -- I created two new rounds' results
+                     during the run, so new PATHS moved it. Zero tracked artifacts were modified on
+                     either occasion. `Nothing anywhere changed` is a stricter claim than `no round
+                     overwrote an artifact`, and approximating the second by the first cost two
+                     complete 13-minute censuses, both correctly marked UNVERIFIED.
 
 ⛔ ARITHMETIC TRAP. p_cheap could come out anywhere in [0,1]; it is a measurement. The static screen
    count (301 `pure` of 328) is NOT -- it is a property of the import lines, forced by reading them,
@@ -138,27 +140,40 @@ def screen(p: pathlib.Path) -> str:
     return "gpu/ml" if "gpu/ml" in kinds else ("network" if "network" in kinds else "cpu-ml")
 
 
-def tree_fingerprint() -> str:
-    """Content of every committed artifact in the real tree, hashed.
+def tree_snapshot() -> dict:
+    """{path: content-hash} for every committed artifact in the real tree.
 
-    ⚠ v1 used `git status --porcelain`, and it FAILED while nothing was wrong. Its claim was "no
-    round modified the real working tree"; its instrument was "git's status string is unchanged",
-    and those are different objects the moment the author commits anything concurrently. Five of my
-    own commits landed during the 23-minute run and moved the string; the tree itself was clean and
-    no round had written to it. realstat §4, `the control fails for its own reasons`, form ③ --
-    it targets a different statistic than the one being reported -- and the cost was a whole
-    execution census correctly marked UNVERIFIED.
+    ⚠ THIRD VERSION, AND THE FIRST WHOSE UNIT MATCHES THE CLAIM'S. The claim this control makes is
+    `no round overwrote an existing artifact in the real tree`. Two earlier instruments measured
+    something stricter and failed on a clean run, both times because the AUTHOR was working:
 
-    The claim's unit is a FILE'S CONTENT under a round's results/, so that is what is hashed. Immune
-    to commits, to staging, to new untracked files, and to this round's own output.
+      v1  sha256(`git status --porcelain`)  -- five of my own commits moved the string.
+      v2  one hash over ALL artifacts       -- I created R347's and R348's results during the run,
+                                               so new PATHS moved the hash. Zero tracked artifacts
+                                               were modified either time.
+
+    `nothing anywhere changed` is not `no round overwrote an artifact`, and I approximated the
+    second by the first twice. realstat §4 states the remedy in one line -- name the instrument's
+    unit and the claim's unit as two separate strings and require them to be EQUAL, before the
+    control is designed -- and this is the third time on this one control that I did not.
+
+    So: compare PER PATH, over the paths that existed at the start. A path added during the run is
+    not evidence about isolation and is ignored; a path whose CONTENT changed is exactly the
+    failure, and a path that VANISHED is too.
     """
-    h = hashlib.sha256()
+    out = {}
     for f in sorted(ROOT.glob("E*/A*/R*/results/*")):
         if not f.is_file() or "R344_what_fraction" in str(f):
             continue
-        h.update(f.relative_to(ROOT).as_posix().encode())
-        h.update(hashlib.sha256(f.read_bytes()).digest())
-    return h.hexdigest()
+        out[f.relative_to(ROOT).as_posix()] = hashlib.sha256(f.read_bytes()).hexdigest()
+    return out
+
+
+def snapshot_diff(before: dict, after: dict):
+    """Only the two events the claim is about: an existing artifact changed, or disappeared."""
+    changed = [k for k in before if k in after and after[k] != before[k]]
+    vanished = [k for k in before if k not in after]
+    return changed, vanished
 
 
 def make_copy(dest: pathlib.Path) -> bool:
@@ -317,7 +332,7 @@ def main() -> int:
           f"self-referential: {', '.join(pathlib.Path(x).parent.name for x in excluded) or 'none'}), "
           f"budget T={TIMEOUT}s, sample n={SAMPLE_N}\n")
 
-    before = tree_fingerprint()
+    before = tree_snapshot()
 
     tc_ok, tc_detail = timeout_controls()
     print(f"  TIMEOUT CONTROL: {tc_detail}  {'PASS' if tc_ok else 'FAIL'}")
@@ -378,10 +393,13 @@ def main() -> int:
     print(f"  POSITIVE CONTROL ({POS.parent.name if POS else '-'}): completes and reproduces -> "
           f"{'PASS' if pos_ok else 'FAIL'}")
 
-    after = tree_fingerprint()
-    iso_ok = (before == after)
-    print(f"  ISOLATION: the real tree is unchanged after executing {len(sample)} rounds  "
+    changed, vanished = snapshot_diff(before, tree_snapshot())
+    iso_ok = not changed and not vanished
+    print(f"  ISOLATION: of {len(before)} artifacts present at the start, {len(changed)} changed "
+          f"and {len(vanished)} vanished after executing {len(sample)} rounds  "
           f"{'PASS' if iso_ok else 'FAIL'}")
+    for k in (changed + vanished)[:5]:
+        print(f"      {k}")
 
     # ---- the dose-response curve, from ONE execution per round -----------------------------------
     print("\n  p_cheap(T) -- one execution per round, so the whole curve is free:\n")
