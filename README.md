@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**355 rounds** in **5 epochs** and **24 arcs**, numbered to **R361** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**349 of the 355 carry a
+**356 rounds** in **5 epochs** and **24 arcs**, numbered to **R362** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**350 of the 356 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -453,6 +453,21 @@ survives is the rule on PROVENANCE grounds**, which apply by inspection and need
 and different argument than irreplaceability. `DEFINITION.md` is corrected, and its gate now checks
 **13 of 13** claims.
 → [`R361`](E05_the_space_of_compilers/A24_what_the_definition_costs/R361_does_clause_three_hold_at_the_second_judge)
+
+**And the size band's PREMISE fails at the second judge, not merely its boundaries.** The size claim
+was the last quantitative statement in the definition whose supporting round predated the judge axis.
+Recomputed at both: only the band's **exit** (8→12) resolves at *both* judges; both entry steps
+(1→2, 2→3) resolve at 2B and **not** at 0.8B, and 0.8B resolves an **interior** step (3→4) that 2B
+does not — so *neither* "collapses" nor "moves" describes it, and the round carried a fourth branch
+for exactly that. ⛔ **And my own "is it forced?" line hid the finding inside an absolute value:** the
+median margin ratio is **−0.343** against R301's fitted shrink **β = +0.401** — a **sign inversion at
+4 of 7 sizes**, not attenuation. At 0.8B the rubric's top-k margin is **negative at 6 of 7 sizes**
+and resolvably so at k=12: it does not beat a size-matched blind set at any size, so there is no band
+there to have boundaries. Two parts were **not** re-run because they are settled — the upper bound
+`k_max = max{k : C(n,k) ≤ a(m)}` is **combinatorial with no judge in it**, and the k-curve's *shape*
+was already measured by R356. `DEFINITION.md`'s size claim is now judge-indexed; its gate checks
+**15 of 15**.
+→ [`R362`](E05_the_space_of_compilers/A24_what_the_definition_costs/R362_does_the_size_band_survive_the_judge)
 
 **⭐ And the definition is now stated once, in one place, with a gate holding it to the record.**
 [`E05/DEFINITION.md`](E05_the_space_of_compilers/DEFINITION.md) — `FORMULATION.md` is 2,389 lines of

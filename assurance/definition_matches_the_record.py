@@ -77,6 +77,13 @@ def derive():
     out["closure_k_count"] = (len(a["ks"]) if a else None, "R355")
     a = art("R358_*")
     out["closure_violations_08B"] = (a["totals_08b"]["45"] if a else None, "R358")
+    a = art("R362_*")
+    if a:
+        out["neg_sizes_08B"] = (sum(1 for k in a["ks"]
+                                    if a["margins"][f"0.8B|{k}"][0] < 0), "R362")
+        out["sign_flips"] = (len(a["sign_flips"]), "R362")
+    else:
+        out["neg_sizes_08B"] = (None, "R362"); out["sign_flips"] = (None, "R362")
     a = art("R361_*")
     out["labels_min_08B"] = (a["min_labels"]["0.8B"] if a else None, "R361")
     out["rank_p_2B"] = (round(a["rank_null"]["2B"]["two_sided_p"], 4) if a else None, "R361")
@@ -102,6 +109,9 @@ ASSERTIONS = {
     "labels_min_08B":        r"falls to \*\*(\d+)\*\* — references \*do\* purge them there",
     "rank_p_2B":             r"exact two-sided p = \*\*(\d\.\d+)\*\*",
     "rank_null_n":           r"C\(9,4\)=(\d+) assignments",
+    # R362 — the size claim became judge-indexed; its numbers come with it.
+    "neg_sizes_08B":         r"\*\*negative at (\d+) of 7 sizes\*\*",
+    "sign_flips":            r"a \*sign\ninversion\* at \*\*(\d+) of 7 sizes\*\*",
 }
 
 

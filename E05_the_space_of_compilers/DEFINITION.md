@@ -21,7 +21,8 @@ so it cannot drift from the evidence without the suite failing.
 > **②** scores better, **under a named judge J**, than a size-matched criterion set that never read
 > the conversation.
 >
-> Its size is **greater than one**; sizes **3 to 8 are not distinguishable** by this release.
+> Its size, **under that same judge J**, is **greater than one**; sizes **3 to 8 are not
+> distinguishable** by this release.
 
 **Clause ① is not a clause.** It is a consequence — see below.
 
@@ -103,6 +104,17 @@ member is not. *(R224, R228, R230)*
 
 **State the bound the design supports: more than one, and 3–8 indistinguishable.**
 
+⛔ **AND THAT BAND IS ALSO JUDGE-INDEXED (R362).** At 0.8B there is no band to bound: the rubric's
+top-k margin against a size-matched blind reference is **negative at 6 of 7 sizes** and resolvably so
+at k=12. Only the band's **exit** (8→12) resolves at both judges; both entry steps (1→2, 2→3) resolve
+at 2B and not at 0.8B, and 0.8B resolves an interior step (3→4) that 2B does not.
+
+⚠ The median margin ratio is **−0.343** against R301's fitted shrink **β = +0.401** — a *sign
+inversion* at **4 of 7 sizes**, not attenuation. Two parts of the size question were **not** re-run
+because they are settled: the upper bound `k_max = max{k : C(n,k) ≤ a(m)}` is **combinatorial with no
+judge in it** (R224/R228), and the k-curve's *shape* across judges was already measured by R356
+(ρ = +0.667, inside its forced band).
+
 ---
 
 ## What this definition cannot claim
@@ -112,6 +124,7 @@ member is not. *(R224, R228, R230)*
 | **"a core", unindexed** | the admitted set is **empty at the second judge**; only *"a core under J"* is licensed |
 | **a count of admitted arms** | the set moves within **0.25 MDE** (R332) and with the reference's percentile (R354) |
 | **that its three clauses each test something** | one excludes nothing, one is judge-emptied, one is irreplaceable |
+| **an unindexed size** | at 0.8B top-k loses to a size-matched blind set at **6 of 7** sizes (R362) |
 | **transfer to another criterion pool** | every level here is a fact about **this 16-criterion pool** (R331) |
 | **transfer to another release** | one release |
 
