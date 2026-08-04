@@ -405,9 +405,57 @@ against each stratum's own chance, with the length arm firing as positive contro
 **So the apparatus carries a small real signal only where ≥ 3 responses are compared, and none at
 all in the two-response case that is almost the whole corpus.**
 
-⚠ **This measures clause ②'s FLOOR, not clause ②** — see the next section. And `randblind`/`vacuous`
-are still judging; they decide whether the criteria's *content* contributes anything, and cannot
-change either result above.
+⚠ **This measures clause ②'s FLOOR, not clause ②** — see the next section.
+
+### ⭐ `randblind` and `vacuous` have landed (2026-08-04, R427 + R429) — and the content contributes nothing
+
+They were queued to decide whether the criteria's *content* contributes anything. It does not, and
+**neither arm moves the result above**:
+
+| arm | what it removes | accuracy | `generic` − arm | its MDE | verdict |
+|---|---|---|---|---|---|
+| `generic` | — (the comparator) | **0.4374** | — | 0.0171 | the floor |
+| `randblind_s0` | the criteria↔prompt assignment | 0.4397 | **−0.0024** | 0.0189 | inside noise |
+| `randblind_s1` | " (seed 1) | 0.4396 | **−0.0023** | 0.0217 | inside noise |
+| `randblind_s2` | " (seed 2) | 0.4383 | **−0.0010** | 0.0182 | inside noise |
+| `vacuous` | **all evaluative content** | 0.4276 | **+0.0097** | 0.0154 | inside noise |
+
+**Stripping every evaluative word changes neither the accuracy nor which responses get picked.**
+Three randblind seeds land *above* `generic`, not below — so the criteria's *assignment to a
+prompt* carries nothing either, and the direction is the unflattering one in all three.
+
+⛔ **And the pick-level agreement says where what remains lives.** Over ten arm-pairs,
+`generic|vacuous` has the **highest excess agreement over its own marginal-matched null**, above
+every randblind–randblind pair. R429 asked whether that rank is a *measurement* or an *ordering*
+and ran the paired cluster bootstrap the ranking never had:
+
+> **Δ(rank 1 - rank 2) = +0.0234 [+0.0103, +0.0364], p = 0.0003, surviving BH(q=0.10) over all 45
+> ordered comparisons.** Controls: placebo Δ(P,P) = 0 exactly · plant at g=0.5 resolves and at
+> g=1.0 does not · seed spread 0.00025 across 3 seeds.
+
+<!-- ⚠ THE THREE NUMBERS ABOVE AND THE MEAN GAP BELOW USE AN ASCII HYPHEN, NOT THE TYPOGRAPHIC
+     MINUS U+2212 THIS DOCUMENT OTHERWISE PREFERS. That is deliberate and it is load-bearing:
+     `definition_matches_the_record.py` compares the captured string to the artifact's own
+     `f"{x:+.4f}"`, which emits ASCII. With U+2212 the regex matched nothing and the gate FAILED
+     LOUDLY -- which is the correct behaviour and is why this comment exists rather than a silent
+     normalisation step. A gate that quietly folded the two characters together would also fold
+     together every other pair of glyphs that look alike, and that is how a document drifts from
+     its record while the gate keeps printing PASS. -->
+
+
+**So what the arm responds to survives deletion of the criteria's meaning** — the axis is the
+criteria's *topical phrasing*, not their evaluative content. This is a **stronger** statement than
+the randblind comparison alone supports, and it **changes the reason**: randblind says *"the
+prompt-matching does nothing"*; vacuous says *"the meaning does nothing."*
+
+⚠ **Ranks 5–10 of that grid are NOT quotable, from either round.** R429 measured R427's
+permutation null against the analytic expectation of R427's own construction: **all ten gaps carry
+the same sign, mean -0.0148 against a one-draw band half-width of 0.0104, only 2 of 10 inside.**
+The offset is *pair-varying* (−0.0246 to −0.0036, spread 0.0059), and a pair-varying offset
+reorders exactly the ranks whose gaps are smaller than it — which is ranks 5–10, and is why the two
+rounds agree on 1–4 and disagree below. **Which null is correct is UNVERIFIED**: R429's simulation
+is a positive control on R429's own construction and shares its blind spots.
+→ [`R429`](A24_what_the_definition_costs/R429_is_the_tightest_pair_a_resolved_claim)
 
 ---
 

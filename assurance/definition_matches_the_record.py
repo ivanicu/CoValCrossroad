@@ -163,6 +163,44 @@ def derive():
     else:
         for k in ("r427_n2_diff", "r427_n2_mde"):
             out[k] = (None, "R427")
+    # R427's ARMS + R429. Added 2026-08-04. ⛔ WHY THIS IS NOT OPTIONAL: DEFINITION.md gained a
+    # five-row arm table and a resolution paragraph, and this gate's own closing line says every
+    # prose claim not in the assertion table is "unchecked BY CONSTRUCTION". Adding numbers to the
+    # document without adding their anchors GROWS that unchecked remainder while the gate keeps
+    # printing PASS -- the pass gets no less true and steadily less informative, which is how a
+    # gate becomes decoration without anyone editing it.
+    a = r427("r427_transport.json")
+    if a and "randblind" in a:
+        out["r427_vacuous"] = (f"{a['randblind']['vacuous']['acc']:.4f}", "R427")
+        out["r427_vacuous_gap"] = (f"{a['randblind']['vacuous']['gen_minus']:+.4f}", "R427")
+        out["r427_vacuous_mde"] = (f"{a['randblind']['vacuous']['mde']:.4f}", "R427")
+        out["r427_rb0"] = (f"{a['randblind']['randblind_s0']['acc']:.4f}", "R427")
+    else:
+        for k in ("r427_vacuous", "r427_vacuous_gap", "r427_vacuous_mde", "r427_rb0"):
+            out[k] = (None, "R427")
+    d429 = next(A24.glob("R429_*"), None)
+
+    def r429(stem):
+        f = (d429 / "results" / stem) if d429 else None
+        return json.loads(f.read_text()) if f and f.exists() else None
+    a = r429("r429_pair_resolution.json")
+    if a and a.get("world") != "UNVERIFIED":
+        t = a["top_vs_rank2"]
+        out["r429_delta"] = (f"{t['delta']:+.4f}", "R429")
+        out["r429_lo"] = (f"{t['lo']:+.4f}", "R429")
+        out["r429_hi"] = (f"{t['hi']:+.4f}", "R429")
+        out["r429_cells"] = (a["cells_tested"], "R429")
+    else:
+        for k in ("r429_delta", "r429_lo", "r429_hi", "r429_cells"):
+            out[k] = (None, "R429")
+    a = r429("r429_null_estimator.json")
+    if a and a.get("world") != "UNVERIFIED":
+        out["r429_inside"] = (a["inside"], "R429")
+        out["r429_meangap"] = (f"{a['mean_gap']:+.4f}", "R429")
+        out["r429_half"] = (f"{a['mean_band_half']:.4f}", "R429")
+    else:
+        for k in ("r429_inside", "r429_meangap", "r429_half"):
+            out[k] = (None, "R429")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -403,6 +441,19 @@ ASSERTIONS = {
     "r427_generic":          r"picks the human-chosen response at \*\*`([\d.]+)`\*\*",
     "r427_length":           r"rule reaches \*\*`([\d.]+)`\*\*",
     "r427_convs":            r"judge calls, ([\d,]+) seeded conversations",
+    # R427 arms + R429. Anchored on the arm table's own row shape and the resolution sentence, so a
+    # number edited in the prose without re-running the round fails here rather than drifting.
+    "r427_vacuous":          r"\*\*all evaluative content\*\* \| ([\d.]+) \|",
+    "r427_vacuous_gap":      r"\*\*all evaluative content\*\* \| [\d.]+ \| \*\*([+\-][\d.]+)\*\*",
+    "r427_vacuous_mde":      r"\*\*all evaluative content\*\* \| [\d.]+ \| \*\*[+\-][\d.]+\*\* \| ([\d.]+)",
+    "r427_rb0":              r"the criteria↔prompt assignment \| ([\d.]+) \|",
+    "r429_delta":            r"\*\*Δ\(rank 1 - rank 2\) = ([+\-][\d.]+)",
+    "r429_lo":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[([+\-][\d.]+),",
+    "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
+    "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
+    "r429_inside":           r"only (\d+) of 10 inside",
+    "r429_meangap":          r"mean ([+\-][\d.]+) against a one-draw band",
+    "r429_half":             r"one-draw band half-width of ([\d.]+)",
     "r427_cells":            r"clears the shortcut in 0 of (\d+) cells",
     "r427_favour":           r"clears the shortcut in (\d+) of \d+ cells",
     "r427_n2_diff":          r"\| \*\*2\*\* \(2,191 convs\) \| 0\.5000 \| \*\*([+\d.]+)\*\*",
