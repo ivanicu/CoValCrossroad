@@ -61,7 +61,22 @@ sd 0.0015), so the rise is `argmax` and not the draw count.
 `0.564181 − 0.539706 = +0.024475`, admitted at **2.26×–2.46×** under *every* MDE committed anywhere
 in R326. Running it would have been Closure wearing a round's clothes; it is computed and labelled.
 
+## ⛔ RETRACTED IN PART BY R329 — the `topw_k4` row of the headline, and the whole table below
+
+**`topw_k4`'s 1.38× is UNVERIFIED, not BEATS.** R329's gauge test: committing more rule × k cores
+leaves `topw_k4` byte-identical while moving its matched reference, so **the budget-matched verdict
+is a fact about the repository, not about the arm.** The crossing at m=64 sits *inside* the bracket
+of defensible search-space enumerations `[35, 56, 128, 256]` — 2 below, 2 at or above. Not refuted;
+undecidable by this test.
+
+**`coval_core`'s 2.64× stands** — its bracket is [1, 1] and there is nothing to bracket.
+
+**And the sensitivity table below is retracted outright.** `first m that fails` summarises a
+verdict only when it is monotone in m, and `topw_k4|held-out` crosses 1.00× **three times** with five
+cells inside `[0.95, 1.05]`. **The `47×` was the first of several sign changes quoted as the last.**
+
 ## Sensitivity — the budget is a lower bound, so where does the conclusion turn?
+### ⛔ retracted by R329: the held-out row is non-monotone and none of these are headrooms
 
 | arm | mode | counted | first m that fails | headroom |
 |---|---|---:|---:|---:|

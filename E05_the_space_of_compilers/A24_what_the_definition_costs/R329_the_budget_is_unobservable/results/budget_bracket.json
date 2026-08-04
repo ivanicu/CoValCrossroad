@@ -1,0 +1,133 @@
+{
+ "source_sha": "8704638eef236b1a",
+ "world": "W-STRADDLES",
+ "committed": [
+  "oracle_k4",
+  "topabs_k4",
+  "topvar_k4",
+  "topw_k1",
+  "topw_k12",
+  "topw_k2",
+  "topw_k3",
+  "topw_k4",
+  "topw_k6",
+  "topw_k8",
+  "topwvar_k4"
+ ],
+ "lower_bound": 11,
+ "selector_rules": [
+  "random_k",
+  "topw_k",
+  "topabs_k",
+  "oracle_k",
+  "full",
+  "topvar_k",
+  "topwvar_k",
+  "indep_k",
+  "greedy_k"
+ ],
+ "k_used": [
+  1,
+  2,
+  3,
+  4,
+  6,
+  8,
+  12
+ ],
+ "enumerations": {
+  "U1 rules-used x k-used": 35,
+  "U2 all k-rules x k-used": 56,
+  "U3 all k-rules x k 1..16": 128,
+  "U4 U3 + fit-parity variants": 256
+ },
+ "positive_ok": true,
+ "placebo_ok": true,
+ "negative_ok": true,
+ "monotonicity": {
+  "coval_core|in-sample": {
+   "monotone": true,
+   "sign_changes": 1,
+   "in_flip_band": 1,
+   "last_admitting": 256,
+   "first_non_admitting": 512
+  },
+  "coval_core|held-out": {
+   "monotone": true,
+   "sign_changes": 0,
+   "in_flip_band": 0,
+   "last_admitting": 1820,
+   "first_non_admitting": null
+  },
+  "topw_k4|in-sample": {
+   "monotone": true,
+   "sign_changes": 1,
+   "in_flip_band": 1,
+   "last_admitting": 32,
+   "first_non_admitting": 64
+  },
+  "topw_k4|held-out": {
+   "monotone": false,
+   "sign_changes": 3,
+   "in_flip_band": 5,
+   "last_admitting": 1024,
+   "first_non_admitting": 512
+  }
+ },
+ "non_monotone": [
+  "topw_k4|held-out"
+ ],
+ "rows": [
+  {
+   "enumeration": "U1 rules-used x k-used",
+   "U": 35,
+   "ratio": 3.1818181818181817,
+   "marks": [
+    "coval_/in-:U<cross",
+    "coval_/hel=none",
+    "topw_k/in-:U<cross",
+    "topw_k/hel=NONMONO"
+   ]
+  },
+  {
+   "enumeration": "U2 all k-rules x k-used",
+   "U": 56,
+   "ratio": 5.090909090909091,
+   "marks": [
+    "coval_/in-:U<cross",
+    "coval_/hel=none",
+    "topw_k/in-:U<cross",
+    "topw_k/hel=NONMONO"
+   ]
+  },
+  {
+   "enumeration": "U3 all k-rules x k 1..16",
+   "U": 128,
+   "ratio": 11.636363636363637,
+   "marks": [
+    "coval_/in-:U<cross",
+    "coval_/hel=none",
+    "topw_k/in-:U>=cross",
+    "topw_k/hel=NONMONO"
+   ]
+  },
+  {
+   "enumeration": "U4 U3 + fit-parity variants",
+   "U": 256,
+   "ratio": 23.272727272727273,
+   "marks": [
+    "coval_/in-:U<cross",
+    "coval_/hel=none",
+    "topw_k/in-:U>=cross",
+    "topw_k/hel=NONMONO"
+   ]
+  }
+ ],
+ "gauge": {
+  "transformation": "commit N more rule x k cores, do not touch topw_k4",
+  "property_invariant": true,
+  "measurement_invariant": false,
+  "reading": "the budget-matched verdict is a fact about the repository"
+ },
+ "register_entry": "budget-matched clause 2 for a rule-derived arm \u2014 requires a search log the campaign never kept, or a pre-registered rule family"
+}
