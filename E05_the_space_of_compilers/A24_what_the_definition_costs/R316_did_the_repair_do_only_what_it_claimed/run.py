@@ -86,7 +86,7 @@ B_PATH = SCRATCH / "sweep_B.json"
 # regressed REACHED-WRITE -> OTHER-ERROR. D is the sweep after those regressions were fixed. C is
 # kept at scratchpad/gate_AC.json rather than overwritten, because a gate that only ever shows the
 # run where it passed is not a gate.
-C_PATH = SCRATCH / ("sweep_D.json" if (SCRATCH / "sweep_D.json").exists() else "sweep_C.json")
+C_PATH = SCRATCH / ("sweep_E.json" if (SCRATCH / "sweep_E.json").exists() else "sweep_C.json")
 
 # ⚠ THE COHORTS ARE DERIVED FROM SWEEP A, NOT TYPED. My first draft hard-coded all three sets
 # from memory and got the third wrong -- it listed R255, which was never broken. A hand-written
@@ -188,9 +188,24 @@ def main():
     CHURN_CLASSES = {("TIMEOUT", "REACHED-WRITE"), ("REACHED-WRITE", "TIMEOUT")}
     regressed = [(k, x, y) for k, x, y in moved
                  if rid(k) not in targeted and (x, y) not in CHURN_CLASSES]
+    # DIRECTION IS COMPUTED, NOT TYPED. An untargeted move is overreach either way -- the
+    # pre-registered criterion does not get relaxed because I like the direction -- but calling
+    # an improvement "the edit did more than it claimed" without saying WHICH WAY is the same
+    # error as a hard-coded `over`/`under` in a verdict string. FAIL = the file did not resolve
+    # its inputs; OK = it did. TIMEOUT is neither and is reported as UNCLEAR.
+    FAIL, OK = {"BROKEN-INPUT", "OTHER-ERROR"}, {"REACHED-WRITE", "COMPLETED"}
+    def direction(x, y):
+        if x in FAIL and y in OK:
+            return "IMPROVED"
+        if x in OK and y in FAIL:
+            return "REGRESSED"
+        return "UNCLEAR"
     print(f"\n  UNTARGETED MOVEMENT OUTSIDE THE MEASURED CHURN CLASSES: {len(regressed)}")
     for k, x, y in regressed:
-        print(f"    {pathlib.Path(k).name:<46}{x} -> {y}")
+        print(f"    {pathlib.Path(k).name:<46}{x} -> {y}   {direction(x, y)}")
+    dirs = Counter(direction(x, y) for _, x, y in regressed)
+    if regressed:
+        print(f"    direction: {dict(dirs)}  -- still overreach, and still reported as such")
     if not regressed:
         print(f"    (churn classes seen in the floor: "
               f"{sorted({f'{x}->{y}' for _, x, y in churn})})")
@@ -224,7 +239,12 @@ def main():
         print(f"  -> W-OVERREACH. {n_over} rounds the repair did not target changed class in a")
         print("     way the measured churn cannot explain. The edit did more than it claimed:")
         for k, x, y in regressed:
-            print(f"       {pathlib.Path(k).name:<44}{x} -> {y}")
+            print(f"       {pathlib.Path(k).name:<44}{x} -> {y}   {direction(x, y)}")
+        if dirs and not dirs.get("REGRESSED"):
+            print("     ⚠ NONE of them regressed -- every untargeted move IMPROVED or is")
+            print("       UNCLEAR. The verdict stands because the criterion was pre-registered")
+            print("       over untargeted movement, not over damage, and relaxing it here")
+            print("       because the direction is flattering is how a gate stops working.")
     elif short:
         world = "W-SHORT"
         print(f"  -> W-SHORT. {sorted(tgt_stuck)} stayed BROKEN. The repair is incomplete —")
@@ -253,7 +273,8 @@ def main():
         targeted_moved=sorted(tgt_moved), targeted_stuck=sorted(tgt_stuck),
         untargeted_left=sorted(untgt_left),
         untargeted_entered=sorted(entered_broken - targeted),
-        untargeted_regressed=[[k, x, y] for k, x, y in regressed],
+        untargeted_regressed=[[k, x, y, direction(x, y)] for k, x, y in regressed],
+        untargeted_direction=dict(dirs),
         churn_classes=sorted({f"{x}->{y}" for _, x, y in churn}),
         still_broken_by_design=sorted(EXPECT_STILL_BROKEN & c_bro),
         transitions={f"{x}->{y}": n for (x, y), n in

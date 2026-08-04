@@ -1,5 +1,5 @@
 {
- "source_sha": "6e8b65aafa75bb99",
+ "source_sha": "735c6ad456c093aa",
  "world": "W-OVERREACH",
  "floor": {
   "moved": 2,
@@ -37,7 +37,6 @@
   "R275"
  ],
  "broken_after": [
-  "R165",
   "R260",
   "R267",
   "R268",
@@ -91,16 +90,18 @@
  ],
  "targeted_stuck": [],
  "untargeted_left": [],
- "untargeted_entered": [
-  "R165"
- ],
+ "untargeted_entered": [],
  "untargeted_regressed": [
   [
    "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R165_gauge_admissibility",
    "OTHER-ERROR",
-   "BROKEN-INPUT"
+   "REACHED-WRITE",
+   "IMPROVED"
   ]
  ],
+ "untargeted_direction": {
+  "IMPROVED": 1
+ },
  "churn_classes": [
   "TIMEOUT->REACHED-WRITE"
  ],
@@ -115,8 +116,7 @@
  "transitions": {
   "BROKEN-INPUT->TIMEOUT": 4,
   "BROKEN-INPUT->REACHED-WRITE": 15,
-  "REACHED-WRITE->TIMEOUT": 2,
-  "OTHER-ERROR->BROKEN-INPUT": 1
+  "OTHER-ERROR->REACHED-WRITE": 1
  },
  "counts_before": {
   "BROKEN-INPUT": 25,
@@ -127,11 +127,11 @@
   "SKIPPED-GPU": 22
  },
  "counts_after": {
-  "BROKEN-INPUT": 7,
-  "REACHED-WRITE": 221,
+  "BROKEN-INPUT": 6,
+  "REACHED-WRITE": 224,
   "COMPLETED": 0,
   "OTHER-ERROR": 5,
-  "TIMEOUT": 46,
+  "TIMEOUT": 44,
   "SKIPPED-GPU": 23
  },
  "positive_ok": true,
