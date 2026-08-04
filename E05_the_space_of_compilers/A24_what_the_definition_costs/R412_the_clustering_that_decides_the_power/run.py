@@ -160,19 +160,39 @@ def main() -> int:
     if len(by_conv_model) < 100:
         print(f"  UNRUNNABLE: {len(by_conv_model)} conversations. Exit 2, never 0."); return 2
 
-    # winning-model identity -> indicator of "same model as this conversation's modal winner"
-    def model_indicator(groups):
-        out = []
+    # ⛔ MY FIRST MODEL PROXY WAS A CHECK THAT COULD NOT FAIL, IN THE NULL DIRECTION, AND IT RETURNED
+    #   EXACTLY 0.0000 -- which is the tell. I had scored each interaction as "is this the
+    #   conversation's MODAL winner", a label defined WITHIN each group, so every group's mean is
+    #   forced high and the between-group variance is removed BY CONSTRUCTION. The ICC could not have
+    #   come out non-zero whatever the corpus did. Replaced with a pairwise statistic that has no
+    #   within-group normalisation: the chance two interactions share a winning model INSIDE a
+    #   conversation, against the same chance ACROSS conversations, rescaled by the headroom --
+    #   a kappa-shaped quantity on the same [0,1] scale as an ICC and directly comparable to it.
+    def model_pairwise(groups, rng):
+        ins = tot = 0
         for g in groups.values():
             if len(g) < 2:
                 continue
-            vals, cnts = np.unique(g, return_counts=True)
-            modal = vals[int(np.argmax(cnts))]
-            out.append([1.0 if x == modal else 0.0 for x in g])
-        return out
+            for a in range(len(g)):
+                for b in range(a + 1, len(g)):
+                    ins += (g[a] == g[b]); tot += 1
+        p_in = ins / tot if tot else float("nan")
+        flat = np.array([x for g in groups.values() if len(g) >= 2 for x in g])
+        keys = np.array([i for i, g in enumerate(groups.values()) if len(g) >= 2
+                         for _ in g])
+        hits = n = 0
+        for _ in range(200000):
+            i, j = rng.integers(0, len(flat), 2)
+            if keys[i] != keys[j]:
+                hits += (flat[i] == flat[j]); n += 1
+        p_out = hits / n if n else float("nan")
+        kappa = (p_in - p_out) / (1 - p_out) if p_out < 1 else float("nan")
+        return float(max(0.0, min(1.0, kappa))), p_in, p_out, tot
 
     grp_score = [g for g in by_conv_score.values() if len(g) >= 2]
-    grp_model = model_indicator(by_conv_model)
+    _rng = np.random.default_rng(SEEDS[0])
+    kappa_m, p_in, p_out, n_pairs = model_pairwise(by_conv_model, _rng)
+    grp_model = [[float(x) for x in g] for g in by_conv_model.values() if len(g) >= 2]
 
     # ---- CONTROLS --------------------------------------------------------------------------------
     print("  CONTROLS")
@@ -212,13 +232,20 @@ def main() -> int:
 
     # ---- the measurement --------------------------------------------------------------------------
     icc_s, mbar_s = icc_oneway(grp_score)
-    icc_m, mbar_m = icc_oneway(grp_model)
+    _, mbar_m = icc_oneway(grp_model)
+    icc_m = kappa_m
     print(f"\n  (A)(B) THE TWO PROXIES — the clustering of the DATA the outcome is built from")
     print(f"    {'proxy':<34}{'conversations':>15}{'m̄':>7}{'ICC':>9}{'shuffled':>11}")
     print(f"    {'score':<34}{len(grp_score):>15,}{mbar_s:>7.2f}{icc_s:>9.4f}"
           f"{np.mean(shf_s):>11.4f}")
-    print(f"    {'winning model = modal winner':<34}{len(grp_model):>15,}{mbar_m:>7.2f}"
+    print(f"    {'winning model, PAIRWISE kappa':<34}{len(grp_model):>15,}{mbar_m:>7.2f}"
           f"{icc_m:>9.4f}{np.mean(shf_m):>11.4f}")
+    print(f"      P(same winner | same conversation) = {p_in:.4f} over {n_pairs:,} within-pairs")
+    print(f"      P(same winner | different)         = {p_out:.4f}")
+    print(f"    ⛔ MY FIRST MODEL PROXY RETURNED EXACTLY 0.0000 AND THAT WAS THE TELL: I had scored")
+    print(f"       each interaction against its own conversation's MODAL winner, a label defined")
+    print(f"       WITHIN the group, which removes between-group variance BY CONSTRUCTION. It could")
+    print(f"       not have come out non-zero. The PROXY was replaced, not the criterion.")
     print(f"    ⭐ the model proxy is the CLOSER one: if the same model keeps winning inside a")
     print(f"       conversation, an arm favouring it is right repeatedly — the outcome's clustering")
     print(f"       almost directly. `score` is printed beside it because two proxies disagreeing is")
@@ -268,7 +295,7 @@ def main() -> int:
 
     art = dict(source_sha256=hashlib.sha256(SELF.read_bytes()).hexdigest(), source_name=SELF.name,
                head=head, d=d_eff, n_interactions=n_i, rows=rows,
-               icc_score=icc_s, icc_model=icc_m, mbar_score=mbar_s, mbar_model=mbar_m,
+               icc_score=icc_s, icc_model=icc_m, p_same_within=p_in, p_same_across=p_out, mbar_score=mbar_s, mbar_model=mbar_m,
                shuffled=dict(score=float(np.mean(shf_s)), model=float(np.mean(shf_m))),
                controls=dict(synth_hi=float(np.mean(hi)), synth_lo=float(np.mean(lo)),
                              pos_ok=pos_ok, neg_ok=neg_ok, shuffle_ok=shuffle_ok),

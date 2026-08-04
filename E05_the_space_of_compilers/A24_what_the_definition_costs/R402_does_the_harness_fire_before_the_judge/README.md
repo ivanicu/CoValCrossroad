@@ -51,6 +51,16 @@ round refuses to proceed if a non-empty exclusion list drops zero rows.
 **Two rounds, two code paths, same number to four decimals.** A disagreement would have meant one of
 them was wrong; agreement is cheap and was worth taking.
 
+## ⚠ CORRECTION — R412: `n = 26,789` overstates independence
+
+[`R412`](../R412_the_clustering_that_decides_the_power) measured
+**`P(same winning model | same conversation) = 1.0000`** over 43,735 within-pairs. **The target is
+constant within a conversation**, so interactions inside one are not independent trials.
+
+**This round's controls are unaffected** — they asked whether the harness can see an effect, and three
+stub judges at 3 seeds answered that. **What is affected is any POWER claim resting on this n**: the
+effective count is **≈7,822 conversations, not 26,789 interactions**, a factor of 3.4.
+
 ## ⚠ What this does NOT license
 
 **A stub judge's errors are independent; a real judge's correlate with content.** This validated the

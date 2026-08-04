@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**404 rounds** in **5 epochs** and **24 arcs**, numbered to **R411** — **53 standing claims, 13
+**405 rounds** in **5 epochs** and **24 arcs**, numbered to **R412** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1250,6 +1250,20 @@ well as the dispersion — two changes, one question — so it was **centred**, 
 kept beside it over 200 replicates to show the repair is to the manipulation. ⚠ Conditional on a
 transport assumption that no object on this box can validate.
 → [`R411`](E05_the_space_of_compilers/A24_what_the_definition_costs/R411_are_the_two_effects_even_commensurable)
+
+**The winning model is constant within a conversation, so the conversation is the unit and the
+replication is marginal at 2.47×.** Measured: **`P(same winner | same conversation) = 1.0000`** over
+43,735 within-pairs, against **0.0557** across conversations. **The effective n is ≈7,822, not
+26,789** — a factor of 3.4 that separates a powered experiment from a marginal one. ⛔ **Two errors of
+mine caught here.** R411's NEXT named a quantity that **needs the judge** (the outcome's own ICC) —
+the third consecutive closing sentence of mine with an unexamined step. And my first model proxy was
+**a check that could not fail in the null direction**, returning exactly `0.0000`: I scored each
+interaction against **its own conversation's modal winner**, a label defined *within* the group, which
+removes between-group variance by construction. **The proxy was replaced, not the criterion.**
+⛔ **And R411's "range" was already the whole range** — `DEFF = 1+(m̄−1)·ICC` makes 4.57× and 2.47×
+exactly the ICC=0 and ICC=1 cases, a derivation I missed while writing it. ⚠ R402's README is
+annotated: its **controls stand**, but any power claim on its n must use 7,822.
+→ [`R412`](E05_the_space_of_compilers/A24_what_the_definition_costs/R412_the_clustering_that_decides_the_power)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
