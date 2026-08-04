@@ -975,6 +975,10 @@ scope error in the word *site*. That number is `P(force class agreement)` for a 
 against the full rubric**, on **A1 exact class agreement**, at **n=250**, with a one-sample
 detector. Every number on this page is a **paired A2 difference between arms against human
 classes** at **n=968**. Different statistic, different comparand, different n, different test.
+(⚠ and `0.1250` itself is one judging's answer — R318 measures the same quantity at `0.1050` on a
+second independent judging of the identical grid, so quote it as a draw-bounded lower edge, never
+as a value. It does not change this paragraph's point, which is about the wrong statistic being
+imported, not about its size.)
 
 ⚠ **This is a CHOICE, and it must be read as one.**
 
@@ -1735,6 +1739,36 @@ what this replaces.)
 > ### The site's MDE is **[0.1250, 0.1250]** in class-agreement units (R274; R268's `(0.10, 0.12]` was read off a 0.02 grid with a 200-draw calibration and is superseded **upward**).
 >
 > ### And the arc chose the coarser statistic: the HUMAN-ranking statistic's MDE is **[0.0260, 0.0300]** — the gap is **[4.17×, 4.81×]**, on the same release (R271 → R274).
+
+⛔ **BOTH BRACKETED NUMBERS ABOVE ARE ONE DRAW'S ANSWER, AND THE DRAW IS NOT NAMED IN THEM (R318).**
+The line is left standing because it is what R274 computed and the arithmetic is right; what it
+omits is its scope. R274's input is a judging of a 250-prompt grid, and the repository contains
+**two independent judgings of that identical grid** — byte-identical `meta`, different `sat`. Run on
+the second, R274's own code returns:
+
+| quantity | draw A (published) | draw B |
+|---|---:|---:|
+| **site MDE** | **[0.1250, 0.1250]** | **[0.1050, 0.1250]** |
+| **statistic-choice gap** | **[4.17×, 4.81×]** | **[3.50×, 4.81×]** |
+| calibrated τ | 0.428 | 0.424 |
+| α on held-out | 0.0377 | 0.0457 |
+| sham A / sham B | 0.025 / 0.005 | 0.035 / 0.0175 |
+
+**Seven of seven calibration quantities move. The admitted set moves not at all** —
+`['R249 minimal-size move under label order']` under both, and R274's retraction of R268 stands
+under both.
+
+> **What may be quoted: the site MDE's UPPER bound is 0.1250 under both judgings. Its LOWER bound
+> is not resolved by two draws — it is 0.1250 or 0.1050 depending on which judging you use.**
+
+**n = 2 draws, so this is a RANGE and not an interval.** No sd is computable from two and none is
+reported; the correction is *not* to substitute draw B, which would repeat the original error with
+the other draw. What a third draw would buy is an estimate rather than a range, and it needs a GPU
+judging run — named in the impossibility register rather than planned.
+
+**And the direction is the useful half:** the number weakened and the *finding* held. R274's verdict
+surviving an independent judging is a severity test nobody designed — it exists only because the
+input file went missing and the substitute turned out to be a second draw.
 
 ⚠ **R270 measured that gap at 2× and said it missed its own 3× threshold. R271 supersedes it**: R270
 collapsed each prompt's annotators to a consensus *sign* first, giving 5,808 rows over 968 clusters
