@@ -76,3 +76,23 @@ the whole clause-② boundary.**
 > criteria."*
 
 Artifact: `results/r348_blindness_or_curation.json`, census `sha256[:16] ac06c51261654769`.
+
+---
+
+## ⚠ RECHECKED AGAINST A SIZE-MATCHED CLAUSE-① REFERENCE — the verdict strengthens
+
+`R294` compares every arm's `c1` against a single **k=4** draw regardless of the arm's k (see R347's
+annotation). Four of the five class-B arms are k=4 and were already matched. Recomputed:
+
+| arm | k | c1 used | c1 size-matched | verdict |
+|---|---:|---:|---:|---|
+| `coval_core_sham` | 4 | +0.0029 | +0.0023 | inside the MDE |
+| `full_sham` | 15 | −0.0323 | **−0.0457** | resolvably WORSE¹ |
+| `gen_sham` | 4 | −0.0099 | −0.0105 | inside the MDE |
+| `promptecho_sham` | 4 | −0.0441 | **−0.0553** | resolvably WORSE |
+| `topw_k4_sham` | 4 | −0.0018 | −0.0024 | inside the MDE |
+
+¹ no k=15 reference exists (the family stops at k=12); the strictest available was used, which is
+the conservative direction for a *worse* verdict — and it is flagged rather than silently applied.
+
+**Still 0 of 5 resolvably better, and both negative arms move further negative.** W2 stands.

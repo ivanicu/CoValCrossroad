@@ -115,3 +115,30 @@ clause ①'s bite.
 > *"the definition's two clauses each do work."*
 
 Artifact: `results/r347_clause_one_binding.json`, census `sha256[:16] ac06c51261654769`.
+
+---
+
+## ⚠ THE CLAUSE-① REFERENCE IS NOT SIZE-MATCHED (found while attacking this round, 2026-08-03)
+
+`R294/run.py:139` computes `c1` against **`random_k4_s0`** — one random draw at **k=4** — **for every
+arm, whatever its k**. The definition's own words are *"the same number drawn at random from that
+conversation's own rubric"*, and **23 of 41 arms have k ≠ 4**.
+
+The correctly sized references **already exist on disk**, three seeds each
+(`sat_random_k{2,3,6,8,12}_s{0,1,2}.npz`), and are unused. Their levels:
+
+| k | 2 | 3 | 4 | 6 | 8 | 12 |
+|---|---:|---:|---:|---:|---:|---:|
+| ref① | 0.4801 | 0.4905 | 0.4933 | 0.4942 | 0.5009 | **0.5062** |
+
+Spread **0.026 ≈ 2 MDEs**, and monotone in k — so the k=4 reference is **too weak** for large-k arms
+(clause ① too easy) and **too strong** for k=2 (too hard).
+
+**This round's derivation SURVIVES it.** Recomputed against size-matched references:
+**min GAP 0.0470 → 0.0359, max SLACK unchanged, ratio 3.9× → 2.9×, and ZERO arms flip.** The
+counterexample region is still empty for every arm. The margin is honestly smaller and the
+conclusion is unchanged.
+
+⚠ What is *not* fixed: 23 arms' published `c1` margins are against the wrong baseline. Because
+clause ① never binds (this round's result), **the admitted set is unaffected** — but no `c1` number
+in the census should be quoted per-arm without this correction.
