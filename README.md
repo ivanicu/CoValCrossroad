@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**413 rounds** in **5 epochs** and **24 arcs**, numbered to **R419** — **53 standing claims, 13
+**414 rounds** in **5 epochs** and **24 arcs**, numbered to **R420** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1376,6 +1376,21 @@ rule written one turn earlier should not be bent when honouring it is cheap. ⚠
 *statable* rather than guessed: **batch 32, one judge, 200 prompts** — exactly what the provenance
 field makes expressible and what could not have been said three rounds ago.
 → [`R419`](E05_the_space_of_compilers/A24_what_the_definition_costs/R419_the_scoring_only_floor_measured)
+
+**Selection is deterministic too — so there was never any instability to find.** `select_core.py`
+holds **0 unseeded stochastic constructs** (its one RNG is `default_rng(a.seed)`, which is
+determinism), and two invocations with identical arguments emit **byte-identical criteria, 0.0% of
+prompts changed**. ⭐ **Source and behaviour agree, which neither establishes alone** — and unlike
+R417, which had to stop at a scan because scoring needs the GPU, **selection is CPU-only so rung 1 and
+the real test both fit.** ⛔ **The contradiction this resolves**: scoring is deterministic (R419,
+measured bitwise) and selection is deterministic (here), so the pipeline is deterministic **given its
+inputs** — yet R416 measured the `_08b`/`_08bR` criteria differing on **91–99.6%** of prompts. **Two
+deterministic stages cannot do that from the same inputs.** So those files are **two different
+CONFIGURATIONS, not two draws**, and R415's `0.116489` is a **between-configuration difference, not a
+noise floor of anything.** ⚠ That is now the *remaining* explanation, **not a demonstrated one** —
+those two files record no inputs, which is exactly the gap the provenance field closes going forward
+and cannot close retroactively.
+→ [`R420`](E05_the_space_of_compilers/A24_what_the_definition_costs/R420_is_selection_deterministic_too)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

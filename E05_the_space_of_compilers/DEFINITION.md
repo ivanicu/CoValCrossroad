@@ -187,7 +187,14 @@ committed criterion sets and all five differ, on 91–99.6% of prompts.** Re-run
 — re-selecting the criteria and re-scoring them — shifts an arm's
 **mean A2 by up to `0.116489`**, which is 13× the +0.009002 clause ②'s headline rests on.
 ⚠ This is a **rule-level** floor, not a scoring floor, and it does **not** establish that scoring is
-unstable. ⭐ **RESOLVED 2026-08-04 (R419): the scoring-only floor is EXACTLY ZERO.** Two runs of
+unstable. ⭐ **FULLY RESOLVED 2026-08-04 (R419 + R420): IT WAS NEVER A FLOOR.** Scoring is deterministic
+(R419, bitwise on 200 prompts) and selection is deterministic (R420, byte-identical criteria, 0
+unseeded stochastic constructs), so the pipeline is deterministic **given its inputs** — and two
+deterministic stages cannot produce a 91–99.6% criteria difference from the same inputs. **The
+`_08b`/`_08bR` files are two different CONFIGURATIONS, not two draws, and `0.116489` is a
+between-configuration difference rather than a noise floor of anything.**
+
+⭐ **(R419): the scoring-only floor is EXACTLY ZERO.** Two runs of
 identical criteria at this judge — proven identical by their committed `criteria_sha256` — are
 **bitwise identical on all 200 prompts**. So the shift above is located **entirely in SELECTION**, and
 **every A2 figure on this page is a fixed quantity given its criteria**, at batch 32.

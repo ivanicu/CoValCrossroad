@@ -1,0 +1,23 @@
+{
+  "changed_share": 0.0,
+  "controls": {
+    "scan_neg": true,
+    "scan_pos": true,
+    "self_hash": true
+  },
+  "identical": true,
+  "k": 4,
+  "rule": "topw_k",
+  "seeded": [
+    [
+      119,
+      "rng = np.random.default_rng(a.seed)"
+    ]
+  ],
+  "sha_a": "f498ca9ac905293be35a02f9bc4407b917b0ace3a078fd6fa34c19c5c5b3f995",
+  "sha_b": "f498ca9ac905293be35a02f9bc4407b917b0ace3a078fd6fa34c19c5c5b3f995",
+  "source_name": "run.py",
+  "source_sha256": "738d3e65c023bf45ea1f0a700c8e2406a103b04163394dce6812a11f77d5e255",
+  "unseeded_hits": [],
+  "verdict": "W_SELECTION_DETERMINISTIC"
+}
