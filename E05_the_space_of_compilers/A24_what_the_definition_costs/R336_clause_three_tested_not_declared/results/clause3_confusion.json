@@ -1,0 +1,378 @@
+{
+ "source_sha": "8ce4596c8dbacba7",
+ "world": "W-QUALITY-METER",
+ "n_prompts": 968,
+ "threshold": 0.006306725093725649,
+ "floor": -0.00881602655982548,
+ "ceiling": 0.021429476747276778,
+ "noise": 0.008475038390647558,
+ "clean_rules": {
+  "top satisfaction variance": -0.021140791434808657,
+  "top mean satisfaction": -0.00881602655982548,
+  "top range": -0.02035874616549325,
+  "bottom variance": -0.03188468296073502,
+  "top |centred| mass": -0.03130788425773529
+ },
+ "arms": {
+  "oracle_k4_fit1": {
+   "slope": 0.033719374042124835,
+   "fires": true,
+   "page_leak": true,
+   "borderline": false,
+   "agree": true
+  },
+  "greedy_k4_fit1": {
+   "slope": 0.029684864615934545,
+   "fires": true,
+   "page_leak": true,
+   "borderline": false,
+   "agree": true
+  },
+  "indep_k4_fit1": {
+   "slope": 0.025211415825535953,
+   "fires": true,
+   "page_leak": true,
+   "borderline": false,
+   "agree": true
+  },
+  "oracle_k4": {
+   "slope": 0.021464928161786457,
+   "fires": true,
+   "page_leak": true,
+   "borderline": false,
+   "agree": true
+  },
+  "topw_k6": {
+   "slope": 0.011113634595297163,
+   "fires": true,
+   "page_leak": false,
+   "borderline": true,
+   "agree": false
+  },
+  "topw_k8": {
+   "slope": 0.009193665701661679,
+   "fires": true,
+   "page_leak": false,
+   "borderline": true,
+   "agree": false
+  },
+  "coval_core": {
+   "slope": 0.008547932270491061,
+   "fires": true,
+   "page_leak": false,
+   "borderline": true,
+   "agree": false
+  },
+  "topw_k3": {
+   "slope": 0.006394420335279013,
+   "fires": true,
+   "page_leak": false,
+   "borderline": true,
+   "agree": false
+  },
+  "topw_k4": {
+   "slope": 0.004579883562388393,
+   "fires": false,
+   "page_leak": false,
+   "borderline": true,
+   "agree": true
+  },
+  "topw_k12": {
+   "slope": 0.003472964147969828,
+   "fires": false,
+   "page_leak": false,
+   "borderline": true,
+   "agree": true
+  },
+  "topw_k2": {
+   "slope": 0.0017187676137175936,
+   "fires": false,
+   "page_leak": false,
+   "borderline": true,
+   "agree": true
+  },
+  "gen": {
+   "slope": 0.0001196599845043367,
+   "fires": false,
+   "page_leak": false,
+   "borderline": true,
+   "agree": true
+  },
+  "generic": {
+   "slope": -0.000317148189818574,
+   "fires": false,
+   "page_leak": false,
+   "borderline": true,
+   "agree": true
+  },
+  "full": {
+   "slope": -0.007653005145615562,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k12_s0": {
+   "slope": -0.009715062585265877,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k12_s1": {
+   "slope": -0.011043677074236277,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k12_s2": {
+   "slope": -0.01271281294157933,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k8_s1": {
+   "slope": -0.013842276336280546,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k6_s0": {
+   "slope": -0.015037209298580094,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "topw_k1": {
+   "slope": -0.01564311663496334,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "topwvar_k4": {
+   "slope": -0.016119299654823723,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k6_s2": {
+   "slope": -0.01656510118561089,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k8_s2": {
+   "slope": -0.017024297796485517,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k4_s1": {
+   "slope": -0.01740809311238045,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k8_s0": {
+   "slope": -0.017785954357889277,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k3_s1": {
+   "slope": -0.01791471168600559,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k6_s1": {
+   "slope": -0.01862723853815598,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k3_s2": {
+   "slope": -0.020372132000177737,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "topvar_k4": {
+   "slope": -0.021140791434808657,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k2_s2": {
+   "slope": -0.02668905879251521,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "coval_core_sham": {
+   "slope": -0.02794974496075113,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "topabs_k4": {
+   "slope": -0.028033680033127274,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k4_s2": {
+   "slope": -0.030290500467286402,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k2_s1": {
+   "slope": -0.03141752280737525,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k2_s0": {
+   "slope": -0.03189180015287714,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "random_k3_s0": {
+   "slope": -0.03226365026323661,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "gen_sham": {
+   "slope": -0.032855486730178546,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "topw_k4_sham": {
+   "slope": -0.0333368320620722,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  },
+  "full_sham": {
+   "slope": -0.042259671050959194,
+   "fires": false,
+   "page_leak": false,
+   "borderline": false,
+   "agree": true
+  }
+ },
+ "false_positives": [
+  "topw_k6",
+  "topw_k8",
+  "coval_core",
+  "topw_k3"
+ ],
+ "false_negatives": [],
+ "borderline": [
+  "topw_k6",
+  "topw_k8",
+  "coval_core",
+  "topw_k3",
+  "topw_k4",
+  "topw_k12",
+  "topw_k2",
+  "gen",
+  "generic"
+ ],
+ "sensitivity": 1.0,
+ "specificity": 0.8857142857142857,
+ "quality_confound": {
+  "corr": 0.9341154572392756,
+  "slope": 0.44809844685377226,
+  "intercept": -0.24329399630494467,
+  "resid_sd": 0.005161973992504402,
+  "excess": {
+   "oracle_k4_fit1": {
+    "pred": 0.031911412867151684,
+    "excess": 0.0018079611749731508,
+    "z": 0.3502460836878401,
+    "page_leak": true
+   },
+   "greedy_k4_fit1": {
+    "pred": 0.030327861754681912,
+    "excess": -0.0006429971387473671,
+    "z": -0.12456419572842681,
+    "page_leak": true
+   },
+   "indep_k4_fit1": {
+    "pred": 0.02290544653613688,
+    "excess": 0.002305969289399072,
+    "z": 0.4467223765070346,
+    "page_leak": true
+   },
+   "oracle_k4": {
+    "pred": 0.038247625852288886,
+    "excess": -0.01678269769050243,
+    "z": -3.251217017922261,
+    "page_leak": true
+   },
+   "topw_k6": {
+    "pred": 0.009486090958516241,
+    "excess": 0.0016275436367809218,
+    "z": 0.31529481534471987,
+    "page_leak": false
+   },
+   "topw_k8": {
+    "pred": 0.007332429587568107,
+    "excess": 0.0018612361140935719,
+    "z": 0.3605667360579955,
+    "page_leak": false
+   },
+   "coval_core": {
+    "pred": 0.010543683195255421,
+    "excess": -0.00199575092476436,
+    "z": -0.38662552885046486,
+    "page_leak": false
+   },
+   "topw_k3": {
+    "pred": 0.009064415210330051,
+    "excess": -0.002669994875051038,
+    "z": -0.5172429924924231,
+    "page_leak": false
+   }
+  },
+  "quality_explains": false,
+  "quality_meter": true,
+  "overlap": true
+ },
+ "n_annotated_leaky": 4,
+ "n_annotated_clean": 35,
+ "controls": {
+  "positive": true,
+  "band": true,
+  "g0": true,
+  "negative": true
+ }
+}
