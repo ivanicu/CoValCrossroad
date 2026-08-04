@@ -144,6 +144,18 @@ def derive():
     else:
         for k in ("r424_neg_rate", "r424_neg_n", "r424_neg_tot", "r424_pos_rate", "r424_pos_n"):
             out[k] = (None, "R424")
+    # R426 -- the emitter, identified. These are the numbers that RETRACT R424's wall, so they are
+    # the ones a later edit must not be able to drift back.
+    a = art("R426_*")
+    if a:
+        c = a["candidates"]["corebench/results/sat08_full.npz"]
+        out["r426_pos"] = (f"{c['oracle_k4_08b']['rate']:.4f}", "R426")
+        out["r426_pos_n"] = (c["oracle_k4_08b"]["ok"], "R426")
+        out["r426_topw"] = (f"{c['topw_k4']['rate']:.4f}", "R426")
+        out["r426_excluded"] = (a["excluded_by_r424"], "R426")
+    else:
+        for k in ("r426_pos", "r426_pos_n", "r426_topw", "r426_excluded"):
+            out[k] = (None, "R426")
     a = art("R415_*")
     if a:
         out["r415_shift"] = (round(a["worst_mean_shift"], 6), "R415")
@@ -350,6 +362,10 @@ ASSERTIONS = {
     # it is NO check. And my first attempt to add it failed its own guard and applied nothing while
     # the commit message said it had — so the second failure was in the REPAIR, not the original.
     "r419_n":                r"bitwise identical on all (\d+) prompts",
+    "r426_pos":              r"contains both families at\s*\n?`([\d.]+)` \(",
+    "r426_pos_n":            r"contains both families at\s*\n?`[\d.]+` \(([\d,]+) of",
+    "r426_topw":             r"while containing `topw_k4` at `([\d.]+)`",
+    "r426_excluded":         r"skipped `corebench/results` — (\d+) files",
     "r424_neg_rate":         r"absent from the default judge's table\*\* — `([\d.]+)`",
     "r424_neg_n":            r"absent from the default judge's table\*\* — `[\d.]+`\s*\n?\(([\d,]+) of",
     "r424_neg_tot":          r"absent from the default judge's table\*\* — `[\d.]+`\s*\n?\([\d,]+ of ([\d,]+)\)",

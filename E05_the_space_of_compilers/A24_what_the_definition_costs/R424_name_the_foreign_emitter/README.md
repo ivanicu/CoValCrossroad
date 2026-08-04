@@ -61,3 +61,39 @@ Naming the **table** would have been the claim; naming the **model** never was, 
 - **cross-release** — one release.
 
 Findings, with their scope, live in the top-level README. This file states the design.
+
+
+---
+
+## ⛔ OVERTURNED THE SAME DAY BY R426 — and by a population error in this round, not by new data
+
+**`W-NOT-ON-DISK` is false.** This round's candidate loop reads
+
+```python
+for p in sorted(ROOT.rglob("*.npz")):
+    if ".venv" in p.parts or p.parent == RES:   # RES == corebench/results
+        continue
+```
+
+so it skipped **`corebench/results` entirely — 106 files, 4 of them full-shaped** — and
+**`sat08_full.npz` is in it.** I wrote that filter to stop the *arms* being tested as their own
+candidates and threw the emitter out with them. **The second filter compounded it:** admitting only
+tables whose key set *equals* `sat_full.npz`'s excludes every per-arm table by construction.
+
+| `sat08_full.npz` contains | rate |
+|---|---|
+| `oracle_k4_08b` | **`1.0000`** (15,448 of 15,448) |
+| `oracle_k4_08bR` | **`1.0000`** (15,460 of 15,460) |
+| `topw_k4` | `0.0369` — the exact mirror of the default table |
+
+**Every artifact this round tested, it tested correctly.** The anchors were sound, the containment
+test was sound, and the conclusion was still false — because **a search is an instrument and its
+POPULATION is part of it.** A population defined so the answer cannot be in it returns a clean,
+confident, false zero, *and prints the same string as a real absence*.
+
+⛔ **And `instrument-UNKNOWN` was the fabricated-impossibility failure.** `R290/run.py:58` reads
+`JUDGES = {"2B  Qwen3.5-2B-Base": "sat_", "0.8B Qwen3.5-0.8B-Base": "sat08_"}` — the model was
+**named, in committed source, in a round my own census had already listed.** I treated artifact
+containment as the *only* admissible evidence about provenance and called the result a wall.
+
+→ [`R426`](../R426_the_emitter_was_excluded_by_my_own_filter)

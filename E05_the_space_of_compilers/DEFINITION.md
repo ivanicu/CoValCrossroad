@@ -198,8 +198,15 @@ other at `≤ 0.03%` disjoint cells but are **~96% absent from the default judge
 (587 of 15,448) against that table's `1.0000` (15,440 of 15,440) on a known default-emitted arm. So
 `0.116489` is a difference between **`--select-npz` frozen at the default** and **the rule re-run
 under a second judge**, and that second judge's table is **not committed anywhere in this repo**.
-⚠ **Every number on this page computed from an `_08b` arm is therefore instrument-UNKNOWN, not
-instrument-0.8B.** The suffix is a filename; R424 tested every committed table and none emitted it.
+⛔ ~~Every number on this page computed from an `_08b` arm is therefore instrument-UNKNOWN.~~
+**RETRACTED the same day by R426.** R424's candidate loop skipped `corebench/results` — 106 files, 4
+of them full-shaped — so it never tested the emitter. `sat08_full.npz` contains both families at
+`1.0000` (15,448 of 15,448) while containing `topw_k4` at `0.0369`, the exact mirror of the default
+table. ⭐ **The
+instrument is `Qwen3.5-0.8B-Base`, named in committed source at `R290/run.py:58`.** ⚠ Containment is
+necessary, not sufficient — the artifact evidence names *the table whose values these are*, and the
+model behind it is **source-attested**, not artifact-verified. *Conflating those two kinds of
+evidence is what built the wall.*
 
 ⭐ **(R419): the scoring-only floor is EXACTLY ZERO.** Two runs of
 identical criteria at this judge — proven identical by their committed `criteria_sha256` — are

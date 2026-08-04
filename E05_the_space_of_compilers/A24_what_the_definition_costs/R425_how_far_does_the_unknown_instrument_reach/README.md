@@ -71,3 +71,21 @@ TABLE** — a different set of satisfaction values. That it came from a model, l
 - **cross-release** — one release.
 
 Findings, with their scope, live in the top-level README. This file states the design.
+
+
+---
+
+## ⛔ ITS CLOSING SENTENCE IS RETRACTED BY R426
+
+> ~~*"'judge' is a noun I never had evidence for."*~~
+
+**False.** `R290/run.py:58` names `Qwen3.5-0.8B-Base` as the 0.8B judge in committed source, and
+R426 corroborates it from data: `sat08_full.npz` contains both `_08b` families at **`1.0000`**.
+
+**The census itself stands** — 15 `SAT`, 11 outside the arc, six known-answer cases reproducing.
+What was wrong is the *consequence* I drew from it, which was inherited from R424's wall rather than
+measured here. ⚠ **A round can be sound and still ship a false conclusion if it accepts a
+predecessor's verdict as a premise** — and this one listed R301 among its own 11 without ever opening
+it. **The refutation was inside my own output.**
+
+→ [`R426`](../R426_the_emitter_was_excluded_by_my_own_filter)

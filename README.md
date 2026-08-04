@@ -1409,19 +1409,29 @@ divergence.**
 
 ⭐ **Neither file is an outlier: they are the two arms of a frozen-vs-rebuilt selection experiment
 under a SECOND, UNIDENTIFIED judge — and every claim resting on an `_08b` arm is
-instrument-UNKNOWN.** Reading the sat halves that R420/R421 emitted and never hashed, with the join
+instrument-UNKNOWN.**  ⛔ *(the `instrument-UNKNOWN` half is RETRACTED by R426 — see below; the
+frozen-vs-rebuilt finding stands.)* Reading the sat halves that R420/R421 emitted and never hashed, with the join
 repaired to a **set-valued** key (`meta`'s index is a *position*, and **82 of 968 prompts repeat a
 criterion text**), across the **five** committed pairs: the two families agree **with each other** at
 `≤ 0.03%` disjoint (0/0/1/0/2 of 7,044–8,180 cells), and **both are ~96% absent from the default
 judge's own table** — anchored by that table containing `topw_k4` at **`1.0000` (15,440 of 15,440)**
 and `_08b` at **`0.0380` (587 of 15,448)**. Every committed table in the repo was tested; the two
-other instruments score `0.0056` and `0.0000`. **The emitter is not on disk.** Given `select_core.py`
+other instruments score `0.0056` and `0.0000`. ⛔ ~~**The emitter is not on disk.**~~ **RETRACTED the
+same day by R426: `sat08_full.npz` contains both families at `1.0000` (15,448 of 15,448 and 15,460 of
+15,460) while containing `topw_k4` at `0.0369` — the exact mirror of the default table's pattern, and
+the emitter's signature.** R424's candidate loop read `if ".venv" in p.parts or p.parent == RES:
+continue`, so it skipped **`corebench/results` entirely — 106 files, 4 of them full-shaped.** *The
+wall was not measured; it was constructed by one line I wrote to keep the arms out of their own
+candidate set.* **The instrument is `Qwen3.5-0.8B-Base`, named in committed source at
+`R290/run.py:58`** — evidence of a different kind from containment, and conflating the two is what
+produced the wall. Given `select_core.py`
 makes **zero judge calls**, criteria identical to a default run *plus* foreign values force
 `--select-npz default --full-npz <foreign>` — the tool's own documented *"freeze the selection to
 re-score a fixed criterion set"* — while `_08bR`'s 91–99.6% different criteria at the *same* foreign
 values force the rule re-run under that judge. **`R` is `rebuilt`, not `wrong`.** ⚠ **74 `_08b`
-artifacts, 30 rounds citing them:** their instrument is *unknown*, which is worse than *other* and
-must be said in those words — the suffix is a filename, not evidence about any weights.
+artifacts, 30 rounds cite them.** ⛔ ~~Their instrument is *unknown*, which is worse than *other*.~~
+**RETRACTED by R426:** the emitter is `sat08_full.npz` (`1.0000` containment, both families), and
+`R290/run.py:58` names the model `Qwen3.5-0.8B-Base`. **The suffix meant exactly what it said.**
 → [`R424`](E05_the_space_of_compilers/A24_what_the_definition_costs/R424_name_the_foreign_emitter)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
