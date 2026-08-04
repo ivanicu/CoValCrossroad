@@ -46,28 +46,28 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.9
+   "seconds": 3.0
   },
   "attack_every_check.py": {
    "exit": 2,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 1.2
+   "seconds": 1.1
   },
   "attack_no_withdrawn_framings.py": {
    "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 6.0
+   "seconds": 5.5
   },
   "attack_outcome_variable_declared.py": {
    "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 3.6
+   "seconds": 3.8
   },
   "attack_scope_reaches_the_reader.py": {
    "exit": 0,
@@ -81,14 +81,14 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 47.1
+   "seconds": 47.2
   },
   "code_states_a_bound_the_reader_never_sees.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 1.8
+   "seconds": 1.4
   },
   "consistency.py": {
    "exit": 0,
@@ -112,18 +112,18 @@
    "seconds": 0.0
   },
   "donor_numbers_carry_their_draw_scope.py": {
-   "exit": 1,
+   "exit": 2,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.0
+   "seconds": 0.1
   },
   "every_round_reaches_the_readme.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.6
+   "seconds": 2.8
   },
   "frozen_frame_verifies.py": {
    "exit": 0,
@@ -144,7 +144,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.8
+   "seconds": 3.0
   },
   "manifest.py": {
    "exit": 0,
@@ -224,7 +224,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.7
+   "seconds": 2.8
   },
   "results_are_not_degenerate.py": {
    "exit": 0,
@@ -280,7 +280,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.1
+   "seconds": 0.2
   },
   "synthesis_cites_recent_work.py": {
    "exit": 2,

@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**373 rounds** in **5 epochs** and **24 arcs**, numbered to **R379** — **53 standing claims, 13
+**374 rounds** in **5 epochs** and **24 arcs**, numbered to **R380** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -743,6 +743,26 @@ answer — a probe opening **50** real artifacts, reported as **50**. Reproducti
 exactly**. ⚠ Three rounds have now measured *when* (R374), *which commit* (R375) and *what each
 reads* (R379), and **stacking them still does not say why**.
 → [`R379`](E05_the_space_of_compilers/A24_what_the_definition_costs/R379_the_exit_code_is_not_the_population)
+
+**And the first repair found a gate that convicted seventeen rounds using a glob matching zero
+files.** `donor_numbers_carry_their_draw_scope` printed *"17 registry entries name a round that no
+longer constructs a donor mapping — the registry has drifted from the source"*, having globbed
+`rounds/E*/A*/R*/run.py`: **0 files**, while the tree holds **363** at `E0*/A*/R*/`. Pointed at the
+real tree its own two regexes locate **17 of 17**. ⛔ **A zero from a detector never shown to return
+non-zero is silence — and here it produced an ACCUSATION**, whose obvious remedy was to delete
+seventeen registry entries to satisfy a typo. The gate's own docstring had warned of *"a check that
+is right about what it iterates over and blind to what is missing"*; the confession was written and
+the code did the opposite. ⭐ **Repairing the path immediately did the job the gate exists for**:
+`R106_share_level_under_redraw` and `R109_donor_arm_is_text_blind` construct donor mappings and were
+in no registry — both now registered with reasons. ⛔ **And repairing only that half would have
+disarmed the gate by making it green**: GATE 2 rules on README table rows, the root README stopped
+being a per-round table, and it locates **0** rows for **20** registry rounds. Its property stands,
+its proxy is gone — so the repaired gate **says it examined nothing and exits 2**. *Fixing a gate is
+not the same as making it green.* ⛔ **My own guard then masked a real finding** — v1 returned 2 even
+when GATE 1 had caught an unregistered round, so the plant fired, the FINDING printed, and the exit
+code said *empty population*. Precedence fixed and both directions demonstrated **on the live gate**:
+**1** with a plant, **2** at g=0.
+→ [`R380`](E05_the_space_of_compilers/A24_what_the_definition_costs/R380_the_gate_convicted_a_registry_it_never_read)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

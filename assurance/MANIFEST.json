@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-08-04T11:52:11.509520+00:00",
- "git": "eb365b4ce6870dcadd9cebd1ac4f83d9a96ca108",
+ "generated_utc": "2026-08-04T12:19:08.124876+00:00",
+ "git": "d14fbe3313ec015380be0692acb84f17972c14b9",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -1539,6 +1539,18 @@
    "bytes": 18065,
    "sha256": "345ceadffc0411b85006069b2c264a9fed562c72b5c939feb1b54e38067bb074"
   },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R378_does_one_gate_decide_another/run.py": {
+   "bytes": 14062,
+   "sha256": "8d22deddec4f478047e6179c02e21ab5e193370974c24db1851311511210aa54"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R379_the_exit_code_is_not_the_population/run.py": {
+   "bytes": 18840,
+   "sha256": "22b53e2f6a28fb6d7016833cc382b0e0229bbc1ecc04113f9e0ac56072b32ed4"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R380_the_gate_convicted_a_registry_it_never_read/run.py": {
+   "bytes": 15322,
+   "sha256": "8288e9648787a128fb25788bff3827813487d5e0d861f871b17282c476f03091"
+  },
   "assurance/DEFECTS.py": {
    "bytes": 14429,
    "sha256": "7ba9f79b96c0ec4c238989927bfbe9709df537d34bde48d0ff6b3d0383791ad0"
@@ -1608,8 +1620,8 @@
    "sha256": "85b921ef12a90760c678c444dbcfc23227657bbce55e09227936f10e01d475d8"
   },
   "assurance/donor_numbers_carry_their_draw_scope.py": {
-   "bytes": 9059,
-   "sha256": "b6159ac9d18ec69bdee2de82243abc8581a75727343407b047a057ac759163c4"
+   "bytes": 12699,
+   "sha256": "0139f3f4c8eef945bd2781aa3ead26eb4eba67d47762d290a49e2aeef900b70a"
   },
   "assurance/every_round_reaches_the_readme.py": {
    "bytes": 7331,
@@ -4100,6 +4112,18 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R377_is_the_flicker_in_the_check_itself/results/r377_flicker.json": {
    "bytes": 2153,
    "sha256": "ac32c9b77b27f697b5de6b7be55b6731a0e20776f2bf38ea7f790a670ea078f1"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R378_does_one_gate_decide_another/results/r378_intervention.json": {
+   "bytes": 898,
+   "sha256": "17962a0af4ef0b4e77b57f2ad102311bac5094de210a06b49dd7ec091a38f421"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R379_the_exit_code_is_not_the_population/results/r379_read_sets.json": {
+   "bytes": 3816,
+   "sha256": "bd3a085ece1d58eb4b3c884b6c5d4d37ce844ebd20915bf2d07a2eab97aad1f8"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R380_the_gate_convicted_a_registry_it_never_read/results/r380_donor_gate.json": {
+   "bytes": 2650,
+   "sha256": "ab95493e46b6821ee99b89b0f461ff2174e89cc23c3e403f4139d6ef393e31db"
   }
  },
  "claims": [

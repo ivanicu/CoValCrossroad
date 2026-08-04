@@ -83,6 +83,11 @@ REGISTRY = {
     "R89_floor_draw_at_panel_size": (True,  "the round IS the draw measurement at panel size"),
     "R103_consensus_conditioned": (True,  "publishes own-minus-donor attribution per consensus bin under a single donor permutation"),
     "R90_resampling_unit":          (True,  "reports agreement and attribution INTERVALS around a single-draw attribution point; the draw is orthogonal to the resampling unit it varies, and both scopes apply"),
+    # added 2026-08-04 (R380). The first two were invisible for as long as the glob was wrong;
+    # they are exactly the "new donor round that nobody classified" GATE 1 was built to catch.
+    "R106_share_level_under_redraw": (True,  "the round IS a draw measurement: its estimand is the sampling distribution of the prompt-specific share's LEVEL over independent donor draws"),
+    "R109_donor_arm_is_text_blind": (True,  "its estimand is whether the donor arm responds to the donor rubric's CONTENT at all, measured on the own-minus-donor contrast"),
+    "R380_the_gate_convicted_a_registry_it_never_read": (False, "constructs NO donor mapping: it contains idiom A as a LITERAL, copied verbatim from this file so that its measurement is of THIS detector rather than a new one"),
 }
 
 IDIOM_A = re.compile(r"\+\s*1\s*\+\s*rng\.integers\(\s*0\s*,\s*n\s*-\s*1\s*\)")
@@ -101,7 +106,19 @@ def rows_for(readme: str, rnd: str) -> list[str]:
 def main() -> int:
     readme = README.read_text()
     found = {}
-    for run in sorted((ROOT / "rounds").glob("E*/A*/R*/run.py")):
+    # ⛔ REPAIRED 2026-08-04 (R380). This globbed `ROOT/rounds/E*/A*/R*/run.py`, which matched
+    #   ZERO files in the whole repository after the E/A/R migration -- the rounds live at
+    #   `ROOT/E0*/A*/R*/`. So `found` was empty, and the gate printed
+    #   "17 registry entries name a round that no longer constructs a donor mapping -- the
+    #   registry has drifted from the source" while having read NOTHING. That is a CONVICTION
+    #   handed down by an instrument never shown to return non-zero, and the obvious action on
+    #   its output was to delete seventeen registry entries to satisfy a typo.
+    #   Pointed at the real tree the same two regexes locate 17 of 17, and additionally find
+    #   R106 and R109 -- two donor rounds nobody had classified, which is precisely what GATE 1
+    #   exists to surface and could not.
+    #   ⚠ This repaired WHERE it looks, never WHAT it recognises. A third idiom is still
+    #     invisible, exactly as the docstring above says.
+    for run in sorted(ROOT.glob("E0*/A*/R*/run.py")):
         src = run.read_text()
         idiom = "A" if IDIOM_A.search(src) else ("B" if IDIOM_B.search(src) else None)
         if idiom:
@@ -154,6 +171,30 @@ def main() -> int:
     print(f"\n{len(exempt)} registered as NOT needing a draw scope, with reasons:")
     for r, why in exempt:
         print(f"    {r}\n        {why}")
+
+    # ⛔ GATE 2's POPULATION IS GONE, and a repair that let it pass quietly would have DISARMED
+    #   this gate while turning it green -- `realstat §4 · empty population passes`, introduced BY
+    #   a fix. GATE 2 rules on README TABLE ROWS naming a round; the root README stopped being a
+    #   per-round table (it is now narrative per round), so R380 measured 0 locatable rows for 17
+    #   registry rounds, and 16 of the 17 are not mentioned in it at all. The PROPERTY still
+    #   matters -- a donor-difference number should state its draw where the finding is stated --
+    #   but its PROXY no longer exists, and choosing a new one is a design decision, not a
+    #   silent substitution. So this says so and exits 2.
+    #   ⚠ AND THE GUARD MUST NOT OUTRANK A REAL FINDING. v1 of this repair returned 2 whenever
+    #     GATE 2 was vacuous -- including when GATE 1 had just caught an unregistered donor
+    #     round. The disarm proof caught it: the plant fired, the FINDING printed, and the exit
+    #     code said `empty population`. An exit code that reports the weaker of two facts hides
+    #     the stronger one, so a GATE 1 failure now takes precedence and 2 is reserved for
+    #     "nothing was examined AND nothing was found".
+    considered = [r for r in REGISTRY if r in found and REGISTRY[r][0]]
+    locatable = sum(1 for r in considered if rows_for(readme, r))
+    if considered and locatable == 0 and not fail:
+        print(f"\nGATE 2 EXAMINED NOTHING: {len(considered)} registry round(s) need a draw scope "
+              f"and {locatable} have a locatable README table row.")
+        print("  The root README is no longer a per-round table, so this gate's PROXY is gone "
+              "while its PROPERTY stands.")
+        print("  Exit 2 — an empty population never passes. GATE 1's result above still holds.")
+        return 2
 
     if fail:
         print(f"\n{fail} gate(s) failed.")
