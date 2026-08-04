@@ -1,0 +1,233 @@
+{
+ "source_sha": "393b3bf996e286f4",
+ "world": "W-VERDICT-MOVES",
+ "provenance": {
+  "pre_blob": "f29c6e028c98aea6",
+  "archived": "f29c6e028c98aea6",
+  "post_blob": "42a84f65224ae0f7",
+  "committed": "42a84f65224ae0f7",
+  "established": true
+ },
+ "rounds": [
+  {
+   "round": "R260",
+   "status": "OK",
+   "placebo_diff": [],
+   "n_keys": 5,
+   "moved": [
+    "intervals",
+    "noise"
+   ],
+   "verdict_keys": [],
+   "verdict_moved": [],
+   "verdict_labels": {},
+   "before": {},
+   "after": {}
+  },
+  {
+   "round": "R267",
+   "status": "OK",
+   "placebo_diff": [],
+   "n_keys": 11,
+   "moved": [
+    "curve",
+    "mde_bracket",
+    "positive",
+    "sham",
+    "verdict"
+   ],
+   "verdict_keys": [
+    "verdict"
+   ],
+   "verdict_moved": [
+    "verdict"
+   ],
+   "verdict_labels": {
+    "verdict": [
+     "UNVERIFIED",
+     "W-COARSE"
+    ]
+   },
+   "before": {
+    "positive": 0.9,
+    "sham": 0.525,
+    "verdict": "UNVERIFIED -- the detector misses a planted effect twice the largest noise source."
+   },
+   "after": {
+    "positive": 0.925,
+    "sham": 0.55,
+    "verdict": "W-COARSE -- the MDE of this release is (0.08, 0.09], ABOVE R231's gap (0.0035), R249's se (0.0219) and R260's own interval (0.0568). NO EFFECT THIS ARC REPORTED WAS RESOLVABLE AT THIS INSTRUMENT. Today's downgrades were forced by the SITE and not by the individual rounds, and E05's real output is a specification for a better instrument rather than a set of findings."
+   }
+  },
+  {
+   "round": "R268",
+   "status": "OK",
+   "placebo_diff": [],
+   "n_keys": 14,
+   "moved": [
+    "alpha_holdout",
+    "cal_mean",
+    "cal_sd",
+    "curve",
+    "mde_bracket",
+    "sham",
+    "tau",
+    "verdict"
+   ],
+   "verdict_keys": [
+    "verdict"
+   ],
+   "verdict_moved": [],
+   "verdict_labels": {
+    "verdict": [
+     "W-COARSE",
+     "W-COARSE"
+    ]
+   },
+   "before": {
+    "alpha_holdout": 0.06,
+    "cal_mean": 0.37676000000000004,
+    "cal_sd": 0.02855840331671223,
+    "sham": 0.72,
+    "tau": 0.4201999999999999,
+    "verdict": "W-COARSE -- the MDE is (0.10, 0.12], above R231's gap (0.0035), R249's se (0.0219) and R260's interval (0.0568). NO EFFECT THIS ARC REPORTED WAS RESOLVABLE AT THIS INSTRUMENT. Today's downgrades were forced by the SITE, and E05's real output is a specification for a better instrument rather than a set of findings."
+   },
+   "after": {
+    "alpha_holdout": 0.08,
+    "cal_mean": 0.3757599999999999,
+    "cal_sd": 0.028804555195315898,
+    "sham": 0.82,
+    "tau": 0.416,
+    "verdict": "W-COARSE -- the MDE is (0.08, 0.10], above R231's gap (0.0035), R249's se (0.0219) and R260's interval (0.0568). NO EFFECT THIS ARC REPORTED WAS RESOLVABLE AT THIS INSTRUMENT. Today's downgrades were forced by the SITE, and E05's real output is a specification for a better instrument rather than a set of findings."
+   }
+  },
+  {
+   "round": "R269",
+   "status": "OK",
+   "placebo_diff": [],
+   "n_keys": 16,
+   "moved": [
+    "alpha_holdout",
+    "cal_mean",
+    "cal_sd",
+    "curve",
+    "mde_bracket",
+    "tau",
+    "verdict"
+   ],
+   "verdict_keys": [
+    "verdict"
+   ],
+   "verdict_moved": [],
+   "verdict_labels": {
+    "verdict": [
+     "W-COARSE",
+     "W-COARSE"
+    ]
+   },
+   "before": {
+    "alpha_holdout": 0.06,
+    "cal_mean": 0.37676000000000004,
+    "cal_sd": 0.02855840331671223,
+    "tau": 0.4201999999999999,
+    "verdict": "W-COARSE -- the MDE is (0.10, 0.12], above R231's gap (0.0035), R249's se (0.0219) and R260's interval (0.0568). NO EFFECT THIS ARC REPORTED WAS RESOLVABLE AT THIS INSTRUMENT. Today's downgrades were forced by the SITE, and E05's real output is a specification for a better instrument rather than a set of findings."
+   },
+   "after": {
+    "alpha_holdout": 0.08,
+    "cal_mean": 0.3757599999999999,
+    "cal_sd": 0.028804555195315898,
+    "tau": 0.416,
+    "verdict": "W-COARSE -- the MDE is (0.08, 0.10], above R231's gap (0.0035), R249's se (0.0219) and R260's interval (0.0568). NO EFFECT THIS ARC REPORTED WAS RESOLVABLE AT THIS INSTRUMENT. Today's downgrades were forced by the SITE, and E05's real output is a specification for a better instrument rather than a set of findings."
+   }
+  },
+  {
+   "round": "R274",
+   "status": "OK",
+   "placebo_diff": [],
+   "n_keys": 16,
+   "moved": [
+    "alpha_holdout",
+    "cal_mean",
+    "cal_sd",
+    "curve",
+    "mde_bracket",
+    "shamA",
+    "shamB",
+    "tau",
+    "verdict"
+   ],
+   "verdict_keys": [
+    "verdict"
+   ],
+   "verdict_moved": [],
+   "verdict_labels": {
+    "verdict": [
+     "W-FALLS-FAR",
+     "W-FALLS-FAR"
+    ]
+   },
+   "before": {
+    "alpha_holdout": 0.03766666666666667,
+    "cal_mean": 0.3799226666666667,
+    "cal_sd": 0.028071801145554513,
+    "shamA": 0.025,
+    "shamB": 0.005,
+    "tau": 0.428,
+    "verdict": "W-FALLS-FAR -- the corrected MDE interval [0.1250, 0.1250] is small enough that ['R249 minimal-size move under label order'] reaches 1.0. R268's sentence 'NO EFFECT THIS ARC REPORTED WAS RESOLVABLE AT THIS INSTRUMENT' is RETRACTED: it rested on an MDE inflated by a coarse grid."
+   },
+   "after": {
+    "alpha_holdout": 0.04566666666666667,
+    "cal_mean": 0.38012133333333326,
+    "cal_sd": 0.02777742389463469,
+    "shamA": 0.035,
+    "shamB": 0.0175,
+    "tau": 0.424,
+    "verdict": "W-FALLS-FAR -- the corrected MDE interval [0.1050, 0.1250] is small enough that ['R249 minimal-size move under label order'] reaches 1.0. R268's sentence 'NO EFFECT THIS ARC REPORTED WAS RESOLVABLE AT THIS INSTRUMENT' is RETRACTED: it rested on an MDE inflated by a coarse grid."
+   }
+  },
+  {
+   "round": "R275",
+   "status": "OK",
+   "placebo_diff": [],
+   "n_keys": 8,
+   "moved": [
+    "cal_effect",
+    "cells",
+    "grid_effect",
+    "interaction",
+    "shamB",
+    "verdict"
+   ],
+   "verdict_keys": [
+    "verdict"
+   ],
+   "verdict_moved": [],
+   "verdict_labels": {
+    "verdict": [
+     "W-CANCEL",
+     "W-CANCEL"
+    ]
+   },
+   "before": {
+    "cal_effect": 0.012500000000000011,
+    "grid_effect": -0.007500000000000007,
+    "interaction": -0.015000000000000013,
+    "shamB": 0.015,
+    "verdict": "W-CANCEL -- neither term dominates by more than one coarse step: grid -0.0075, calibration +0.0125, interaction -0.0150. R268's number was near-right FOR THE WRONG REASON -- two biases of comparable size and opposite sign -- which means an uncorrected cell in this arc is UNPREDICTABLE rather than merely biased, and that is worse than a known direction."
+   },
+   "after": {
+    "cal_effect": 0.01750000000000001,
+    "grid_effect": -0.0075,
+    "interaction": -0.005000000000000018,
+    "shamB": 0.0075,
+    "verdict": "W-CANCEL -- neither term dominates by more than one coarse step: grid -0.0075, calibration +0.0175, interaction -0.0050. R268's number was near-right FOR THE WRONG REASON -- two biases of comparable size and opposite sign -- which means an uncorrected cell in this arc is UNPREDICTABLE rather than merely biased, and that is worse than a known direction."
+   }
+  }
+ ],
+ "placebo_ok": true,
+ "verdict_moved": [
+  "R267"
+ ],
+ "n_executed": 6,
+ "n_failed": 0
+}
