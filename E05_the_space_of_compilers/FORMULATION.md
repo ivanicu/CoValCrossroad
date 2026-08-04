@@ -338,6 +338,53 @@ width of **0.0027**:
 > own. `topw_k4`'s admission turns on a reference difference four times smaller than the design can
 > resolve.
 
+### ③b ⛔ REGISTER — clause ③'s TESTABILITY, measured twice and bounded (R335–R338)
+
+**Clause ③ is decided per arm by reading `select_core.py`.** That is an annotation, not a
+measurement — and whether it *could* be a measurement has now been tested along both available
+routes. Both bound out.
+
+**Route 1 · through PERFORMANCE — REFUTED.** R295's leak slope was the campaign's only clause-③
+instrument. Run blind over 41 arms it has sensitivity **1.000** and specificity **0.886** — and its
+four false positives are **exactly the admitted set** (`topw_k6`, `topw_k8`, `coval_core`,
+`topw_k3`), all borderline. The reason: **`corr(slope, A2) = +0.934`.** Quality-adjusted, the
+annotated-leaky arms carry excess z `[+0.45, +0.35, −0.12, −3.25]` against the false positives'
+`[+0.36, +0.32, −0.39, −0.52]` — **complete overlap** — and `oracle_k4`, the *maximally* leaky arm,
+sits **3.25 sd BELOW** what its quality alone predicts. **There is no residual leak signal.**
+
+> **The confound is structural, not fixable.** Fitting on labels is *what makes an arm better*, so
+> any detector built on performance measures the leak's **effect** and cannot be separated from it.
+> This also retracts R335, whose 32.9-sd dose-response separated **dose-induced quality**.
+
+**Route 2 · through SELECTION — works for one rule family, and only that one.** Label-free features
+of the *selected criterion set* (importance weight, satisfaction variance, rubric position, criterion
+length, token Jaccard, verbatim-match rate — none touching a human label):
+
+| | within-arm | held-out-**arm** | folds |
+|---|---:|---:|---|
+| structure only | 0.836 | 0.834 | 0.871 · 0.748 · 0.860 · 0.857 |
+| text only | 0.654 | 0.658 | — |
+| **structure + text** | **0.870** | **0.866** | 0.901 · **0.789** · 0.889 · 0.885 |
+
+*(398 prompts · 15,920 rows · planted-signature control 1.000 · arm-label shuffle 0.509 · pure noise
+0.520.)*
+
+**But held out by MECHANISM rather than by arm, it reaches chance: 0.510**, with a flat dose
+response. **And the number is unreadable as rule-specificity** — trained *on* that second mechanism
+the same features reach only **0.565**, so they are blind to it, and a transfer failure against
+something you cannot see is silence.
+
+> **Register entry:** *clause ③ is detectable for the release's one annotated rule family
+> (`select_core.py`'s fitted rules) at held-out-arm AUC **0.866**, folds 0.789–0.901; **invisible**
+> for a second, manufactured mechanism (0.565 even trained on it); and **no third mechanism exists
+> on this release** to test against.* What it would require: a release carrying more than one leak
+> family, or a construction log.
+
+**So the ✓/✗ in the clause-③ column below remains a source-reading.** It is corroborated for the
+family it was read from, and unproven for any other route.
+
+---
+
 ### ③ ⛔ REGISTER — the admitted set is structurally unresolvable on this release
 
 | | |
