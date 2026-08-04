@@ -77,6 +77,14 @@ def derive():
     out["closure_k_count"] = (len(a["ks"]) if a else None, "R355")
     a = art("R358_*")
     out["closure_violations_08B"] = (a["totals_08b"]["45"] if a else None, "R358")
+    a = art("R367_*")
+    if a:
+        out["rule_b_2B"] = (round(a["rule_b"]["mean_2B"], 4), "R367")
+        out["rule_b_08B"] = (round(a["rule_b"]["mean_08B"], 4), "R367")
+        out["rule_b_n"] = (a["n_external"], "R367")
+    else:
+        for k in ("rule_b_2B", "rule_b_08B", "rule_b_n"):
+            out[k] = (None, "R367")
     a = art("R366_*")
     if a:
         out["survive_n"] = (a["n_claims"], "R366")
@@ -158,6 +166,10 @@ ASSERTIONS = {
     "p_form":                r"neither `difference` \(Fisher\n\*\*p = (\d\.\d+)\*\*\)",
     "p_null":                r"nor `null` \(\*\*p = (\d\.\d+)\*\*\)",
     "p_perfect":             r"\*\*would\*\*\s+have reached \*\*p = (\d\.\d+)\*\*",
+    # R367 — J became nameable; the external check's numbers come with the rule.
+    "rule_b_2B":             r"last \*\*(\d\.\d+)\*\* of the time",
+    "rule_b_08B":            r"against 0\.8B's \*\*(\d\.\d+)\*\*",
+    "rule_b_n":              r"on the \*\*(\d+)\*\*\s*\n?prompts carrying such a rating",
 }
 
 

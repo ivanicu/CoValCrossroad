@@ -68,6 +68,22 @@ It excludes the most, and every one of the following is measured:
 **Therefore clause ② is stated with a judge index and the claim it licenses is *"a core under J"*,
 never *"a core"*.**
 
+⭐ **AND J CAN NOW BE NAMED (R367).** The rule: **name the judge that best tracks the human.** On the
+full rubric — a fixed criterion set that is neither an admitted arm nor the clause-② reference — A2
+is **0.5087 at 2B against 0.4120 at 0.8B**, paired **+0.0967 vs MDE 0.0160**.
+
+⛔ **And that rule names the judge under which the definition is non-empty, which is the answer
+already published — so it was checked against a DEFINITION-EXTERNAL channel.** On the release's
+`unacceptable` ratings, which no clause of the definition reads, 2B ranks the unacceptable response
+last **0.7019** of the time against 0.8B's **0.5839** (paired +0.1180 vs MDE 0.0638, on the **161**
+prompts carrying such a rating). **Same judge named.** A synthetic judge built to rank it last scores
+1.0000, so the channel can separate; shuffled labels score 0.59–0.63, which is where **0.8B nearly
+sits**.
+
+⚠ The external rule resolves at **1.85×** its MDE against the adjacent rule's 6×, and **two judges can
+refute a rule and never establish one.** What is earned is *"not refuted, and not circular on the one
+external channel available"*.
+
 ### ③ — the one unsubstitutable clause
 
 That clause ③ excludes the four label-using arms is **forced** — it *is* "no prompt labels". The
@@ -168,7 +184,7 @@ judge in it** (R224/R228), and the k-curve's *shape* across judges was already m
 
 | | |
 |---|---|
-| **"a core", unindexed** | the admitted set is **empty at the second judge**; only *"a core under J"* is licensed |
+| **"a core", unindexed** | the admitted set is **empty at the second judge**; only *"a core under J"* is licensed — and J is named by R367's rule, not chosen |
 | **a count of admitted arms** | the set moves within **0.25 MDE** (R332) and with the reference's percentile (R354) |
 | **that its three clauses each test something** | one excludes nothing, one is judge-emptied, one is irreplaceable |
 | **an unindexed size** | at 0.8B top-k loses to a size-matched blind set at **6 of 7** sizes (R362) |

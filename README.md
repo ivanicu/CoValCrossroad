@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**360 rounds** in **5 epochs** and **24 arcs**, numbered to **R366** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**354 of the 360 carry a
+**361 rounds** in **5 epochs** and **24 arcs**, numbered to **R367** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**355 of the 361 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -526,6 +526,21 @@ scaling `x → βx` a true **zero maps to zero exactly**, so **a null surviving 
 possible survival** — and R365 *is* a null. Its measurement stands; **what changes is what that
 survival is evidence for.** Gate now checks **27 of 27**.
 → [`R366`](E05_the_space_of_compilers/A24_what_the_definition_costs/R366_does_anything_predict_which_claims_survive_the_judge)
+
+**⭐ And J can now be named, so the definition becomes applicable.** It carried *"under a named judge
+J"* four times while **nothing in 366 rounds said which J, or how to pick one** — an instruction
+nobody could follow. The rule: **name the judge that best tracks the human.** On the full rubric
+(neither an admitted arm nor the clause-② reference) A2 is **0.5087 at 2B vs 0.4120 at 0.8B**, paired
+**+0.0967 vs MDE 0.0160**. ⛔ **But that rule names the judge under which the definition is non-empty
+— the answer I already published — and A2 is the definition's own quantity**, so it was checked on a
+**definition-external** channel: the release's `unacceptable` ratings, which no clause reads. There
+2B ranks the unacceptable last **0.7019** of the time vs **0.5839** (paired +0.1180 vs MDE 0.0638, on
+**161** prompts). **Same judge.** A synthetic judge built to rank it last scores 1.0000 (so the
+channel separates); shuffled labels score 0.59–0.63 — **where 0.8B nearly sits**. ⚠ The external rule
+resolves at only **1.85×** its MDE, and two judges can **refute** a rule and never establish one, so
+what is earned is *"not refuted, and not circular on the one external channel available"*. Gate now
+checks **30 of 30**.
+→ [`R367`](E05_the_space_of_compilers/A24_what_the_definition_costs/R367_can_the_judge_be_named_non_circularly)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
