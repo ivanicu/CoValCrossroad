@@ -44,6 +44,9 @@ WORLDS
                     and the definition gains its first cross-release evidence.
   W-LENGTH          generic beats chance but NOT length. Then what transports is a length preference,
                     the criteria are decorative on this corpus, and the honest report is a shortcut.
+  W-TIEBREAK        the four tiebreak rules disagree by more than the MDE. Then the headline is a
+                    property of a rule nobody chose deliberately and no accuracy is admissible --
+                    the world the gauge test bought, and it outranks every branch below.
   W-DOES-NOT        generic does not clear chance. Then the apparatus does not transport at all, and
                     every clause stated against `full` is release-local in the strongest sense.
   W-ANY-CRITERIA    generic beats chance and length, but randblind matches it. Then what transports
@@ -57,7 +60,8 @@ PREDICTION MATRIX
   W-ANY-CRITERIA -> generic - randblind <= MDE while both clear chance and length
 
 PRE-REGISTERED KILL -- conditional on the controls, never on an accuracy alone.
-    if placebo == 0 exactly and shuffle lands within MDE of chance and plant reaches the ceiling:
+    if placebo == 0 exactly and shuffle lands within MDE of chance and plant reaches the ceiling
+       and the FOUR TIEBREAK RULES agree within MDE:
         generic - chance <= MDE                      -> W-DOES-NOT
         elif generic - length <= MDE                 -> W-LENGTH
         elif generic - randblind <= MDE              -> W-ANY-CRITERIA
@@ -65,6 +69,17 @@ PRE-REGISTERED KILL -- conditional on the controls, never on an accuracy alone.
     else: UNVERIFIED -- never CONFIRMED, never OVERTURNED.
 
 CONTROLS
+  TIE (gauge)  ⛔ FOUND BY A GAUGE TEST BEFORE THE DATA LANDED, and it can kill this round on its
+               own. Under saturation every response ties and `max(row, key=(value, id))` resolves by
+               RESPONSE-ID STRING ORDER -- so the accuracy would be a property of the ids, not of the
+               criteria, and `generic`'s criteria are exactly the kind a 2B judge answers Yes to for
+               everything. The tiebreak is therefore SWEPT: id / id_last / random / corpus-first. If
+               those four disagree by more than the MDE, NO accuracy is admissible and the round
+               exits UNVERIFIED. The tie RATE is printed beside them.
+  FIRST        always pick the first response in corpus order -- the POSITIONAL shortcut, the twin of
+               LENGTH. The standard asks for position-randomised and counterbalanced designs; this
+               release carries no presentation-order field, so the honest substitute is to report
+               what the positional rule alone achieves.
   PLACEBO      an arm against ITSELF must differ by EXACTLY 0. A contrast where no effect can exist
                that returns anything but zero means the estimator is broken.
   SHUFFLE (-)  satisfaction permuted WITHIN each interaction destroys the core's ordering while
@@ -81,8 +96,8 @@ CONTROLS
   PROVENANCE   the artifact's own `provenance` block is printed, so the configuration that produced
                the numbers is visible in the same output as the numbers.
 
-MULTIPLICITY    4 arms (generic, randblind, chance, length) x 3 contrasts; every cell printed,
-                including the ones that kill the finding.
+MULTIPLICITY    5 arms (generic, randblind, chance, length, first) x 3 contrasts, plus a 4-cell
+                tiebreak specification curve; every cell printed, including the ones that kill it.
 SEEDS           the sample is seeded; randblind exists at s0/s1/s2 and this round reports whichever
                 are on disk, naming the ones that are not rather than implying three.
 ARTIFACT        results/r427_transport.json with the source hash.
@@ -130,9 +145,10 @@ def load(p):
     return {k: {r: float(np.mean(vs)) for r, vs in d.items()} for k, d in per.items()}, tgt, prov
 
 
-def acc_by_conv(scored, tgt, pick=None):
-    """-> {conv: [0/1 per interaction]} using `pick(resp_dicts, scored_row)` or the arm's own argmax."""
+def acc_by_conv(scored, tgt, pick=None, tiebreak="id", seed=0):
+    """-> ({conv: [0/1 per interaction]}, tie_count) using `pick(...)` or the arm's own argmax."""
     out = collections.defaultdict(list)
+    ties, trng = [0], np.random.default_rng(seed)
     for t in tgt:
         key = (t["conv"], t["inter"])
         chosen = [r["id"] for r in t["resp"] if r["chosen"]]
@@ -142,13 +158,28 @@ def acc_by_conv(scored, tgt, pick=None):
         if pick is None:
             if not row:
                 continue
-            best = max(row, key=lambda r: (row[r], r))
+            top = max(row.values())
+            tied = [r for r in row if row[r] == top]
+            if len(tied) > 1:
+                ties[0] += 1
+                # ⛔ GAUGE TEST, RUN BEFORE THE DATA LANDED. Under saturation every response ties,
+                #    and `max(row, key=lambda r: (row[r], r))` then resolves by RESPONSE-ID STRING
+                #    ORDER -- so the reported accuracy would be a property of the ids, not of the
+                #    criteria. `generic`'s criteria ("accurate and factually correct") are exactly
+                #    the kind a 2B judge answers Yes to for everything. The tiebreak is therefore
+                #    a SWEPT SPECIFICATION, never a hidden default.
+                best = (sorted(tied)[0] if tiebreak == "id" else
+                        sorted(tied)[-1] if tiebreak == "id_last" else
+                        tied[int(trng.integers(len(tied)))] if tiebreak == "random" else
+                        next(r["id"] for r in t["resp"] if r["id"] in tied))   # "first" = corpus order
+            else:
+                best = tied[0]
         else:
             best = pick(t["resp"], row)
             if best is None:
                 continue
         out[t["conv"]].append(1.0 if best == chosen[0] else 0.0)
-    return out
+    return out, ties[0]
 
 
 def cluster_mean(by_conv):
@@ -185,7 +216,7 @@ def main() -> int:
                 print(f"    {k:<16} {prov[k]}")
 
     # ---- CONTROLS ---------------------------------------------------------------------------------
-    gen = acc_by_conv(scored, tgt)
+    gen, n_tie = acc_by_conv(scored, tgt)
     g_mean, g_sd, g_n = cluster_mean(gen)
 
     placebo_d, _, _ = paired(gen, gen)
@@ -193,7 +224,7 @@ def main() -> int:
 
     rng = np.random.default_rng(0)
     shuf = {k: dict(zip(list(v), rng.permutation(list(v.values())))) for k, v in scored.items()}
-    s_mean, _, _ = cluster_mean(acc_by_conv(shuf, tgt))
+    s_mean, _, _ = cluster_mean(acc_by_conv(shuf, tgt)[0])
 
     plant = {}
     for t in tgt:
@@ -201,7 +232,7 @@ def main() -> int:
         key = (t["conv"], t["inter"])
         if key in scored and len(ch) == 1:
             plant[key] = {r: (1.0 if r == ch[0] else 0.0) for r in scored[key]}
-    p_mean, _, _ = cluster_mean(acc_by_conv(plant, tgt))
+    p_mean, _, _ = cluster_mean(acc_by_conv(plant, tgt)[0])
 
     ch_by = collections.defaultdict(list)
     for t in tgt:
@@ -210,9 +241,19 @@ def main() -> int:
             ch_by[t["conv"]].append(1.0 / len(t["resp"]))
     c_mean, _, _ = cluster_mean(ch_by)
 
-    len_by = acc_by_conv(scored, tgt,
-                         pick=lambda resp, row: max(resp, key=lambda r: (r["len"], r["id"]))["id"])
+    len_by, _ = acc_by_conv(scored, tgt,
+                            pick=lambda resp, row: max(resp, key=lambda r: (r["len"], r["id"]))["id"])
+    first_by, _ = acc_by_conv(scored, tgt, pick=lambda resp, row: resp[0]["id"])
     l_mean, _, _ = cluster_mean(len_by)
+    f_mean, _, _ = cluster_mean(first_by)
+
+    # ⛔ THE SPECIFICATION CURVE OVER THE TIEBREAK. If these four disagree, the headline is an
+    #    artifact of a rule nobody chose deliberately, and no accuracy is admissible.
+    tb = {}
+    for rule in ("id", "id_last", "random", "first"):
+        by_r, _ = acc_by_conv(scored, tgt, tiebreak=rule)
+        tb[rule] = cluster_mean(by_r)[0]
+    tb_spread = max(tb.values()) - min(tb.values())
 
     mde = ZEFF * g_sd / np.sqrt(g_n) if g_n > 1 else float("nan")
     print(f"\n  CONTROLS")
@@ -226,12 +267,30 @@ def main() -> int:
     ceil_ok = p_mean >= 0.999
     print(f"    BAND        floor {s_mean:.4f} < any threshold < ceiling {p_mean:.4f}: "
           f"{'PASS' if (floor_ok and ceil_ok) else 'FAIL'}")
+    n_units = sum(len(v) for v in gen.values())
+    tie_rate = n_tie / n_units if n_units else float("nan")
+    print(f"    TIE / SATURATION  argmax is TIED on {n_tie:,} of {n_units:,} interactions "
+          f"({tie_rate:.1%})")
+    print(f"       tiebreak specification curve — id {tb['id']:.4f} · id_last {tb['id_last']:.4f} · "
+          f"random {tb['random']:.4f} · first {tb['first']:.4f}   spread {tb_spread:.4f}")
+    tb_ok = tb_spread <= max(mde, 1e-9)
+    print(f"       spread <= MDE {mde:.4f}: {tb_ok}   "
+          f"{'PASS' if tb_ok else 'FAIL — the headline is a TIEBREAK artifact, not a measurement'}")
+    print(f"       ⛔ FOUND BY A GAUGE TEST BEFORE THE DATA LANDED: under saturation every response")
+    print(f"          ties and `max(row, key=(value, id))` resolves by RESPONSE-ID STRING ORDER, so")
+    print(f"          the accuracy would be a property of the ids. generic's criteria are exactly")
+    print(f"          the kind a 2B judge answers Yes to for everything.")
     print(f"    CLUSTER     n_eff = CONVERSATIONS = {g_n:,} (R413: kappa_chosen 1.0 within a")
     print(f"                conversation, deff 3.317 — rows would shrink every interval by 1.82x)")
     print(f"    ⛔ CHANCE {c_mean:.4f} IS A DERIVATION — mean(1/n_responses), forced by the design.")
     print(f"       So is MDE {mde:.4f} = {ZEFF:.6f} * sd/sqrt(n). Neither is evidence.")
     if not (placebo_ok and floor_ok and ceil_ok):
         print("\n  UNVERIFIED — a control misbehaved. Exit 1."); return 1
+    if not tb_ok:
+        print(f"\n  UNVERIFIED — the four tiebreak rules disagree by {tb_spread:.4f} > MDE "
+              f"{mde:.4f}, so the headline is a property of a rule nobody chose deliberately.")
+        print(f"  No accuracy is admissible. This is the kill the gauge test bought. Exit 1.")
+        return 1
 
     # ---- the measurement ---------------------------------------------------------------------------
     print(f"\n  ACCURACY AT PICKING THE HUMAN-CHOSEN RESPONSE — conversation is the unit")
@@ -242,11 +301,12 @@ def main() -> int:
     print(f"    {'generic':<16} {g_mean:>8.4f} {dc:>+11.4f} {dl:>+11.4f} {mde:>8.4f}")
     print(f"    {'chance (deriv)':<16} {c_mean:>8.4f} {'—':>11} {'—':>11} {'—':>8}")
     print(f"    {'length':<16} {l_mean:>8.4f} {'—':>11} {'—':>11} {'—':>8}")
+    print(f"    {'first (position)':<16} {f_mean:>8.4f} {'—':>11} {'—':>11} {'—':>8}")
 
     rb, dr, mr = {}, float("nan"), float("nan")
     for k in [a for a in have if a.startswith("randblind")]:
         s2, t2, _ = load(have[k])
-        by = acc_by_conv(s2, t2)
+        by, _ = acc_by_conv(s2, t2)
         m2, _, n2 = cluster_mean(by)
         d2, mm2, _ = paired(gen, by)
         rb[k] = dict(acc=m2, n=n2, gen_minus=d2, mde=mm2)
@@ -293,7 +353,9 @@ def main() -> int:
     art = dict(source_sha256=hashlib.sha256(SELF.read_bytes()).hexdigest(), source_name=SELF.name,
                generic=rows["generic"], chance=c_mean, length=l_mean, randblind=rb,
                d_chance=dc, mde_chance=mc, d_length=dl, mde_length=ml, mde=mde,
-               controls=dict(placebo=placebo_d, shuffle=s_mean, plant=p_mean,
+               first=f_mean, tiebreak_curve=tb, tiebreak_spread=tb_spread,
+               tie_rate=tie_rate, n_tie=n_tie, n_units=n_units,
+               controls=dict(placebo=placebo_d, shuffle=s_mean, plant=p_mean, tiebreak_ok=tb_ok,
                              floor_ok=floor_ok, ceil_ok=ceil_ok, n_conv=g_n),
                missing=missing, provenance=prov, verdict=v)
     (HERE / "results").mkdir(exist_ok=True)
