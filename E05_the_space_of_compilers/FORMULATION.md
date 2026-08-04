@@ -944,6 +944,15 @@ the **axes** and false of the **grid**:
 > looked like agreement was separated enough that agreement was nearly certain. **No family agrees
 > MORE than forced**, so the shared-judge-error confound — which would inflate every between-judge
 > number here — is not observed.
+>
+> ⚠ **R357 gauge-tested that reading and it PARTITIONS.** Swapping which judge is called *truth* —
+> a transformation the property *do these judges disagree* is invariant under — leaves `random_k`
+> flagged at the **0.00 percentile both ways** (**the inversion survives**) but moves `topw_k` from
+> 20.16% to **1.43%**. So *"`topw_k` is forced and carries no information"* is **withdrawn**; what
+> survives is *"it agrees LESS than its separation forces"*, since it sits in the low tail in both
+> directions. Mechanism: `β(2B→0.8B) = 0.4340` vs `β(0.8B→2B) = 1.4112` — an **expansion, not the
+> reciprocal 2.30**. Regression to the mean, and taking the noisier judge as truth inflates the
+> apparent separation.
 
 **This is the third time today a closing summary quantified without counting**, and the first time
 the rule carved into `realstat §4` caught it before it was published rather than after.

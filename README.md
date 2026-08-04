@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**350 rounds** in **5 epochs** and **24 arcs**, numbered to **R356** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**344 of the 350 carry a
+**351 rounds** in **5 epochs** and **24 arcs**, numbered to **R357** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**345 of the 351 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -378,6 +378,23 @@ inflate every between-judge number here is **not observed**. I designed the roun
 opposite — that `random_k` was noise — and the unit nearly hid it: separation printed in **MDE** units
 reads 0.79 ("below resolution"), in **se** units 2.21 ("well ordered"), and `MDE = 2.80 × se`.
 → [`R356`](E05_the_space_of_compilers/A24_what_the_definition_costs/R356_is_the_within_family_disagreement_resolvable)
+
+**Then the gauge test partitioned that round, and one of its two halves is withdrawn.** R356's null
+calls the 2B effects *truth*; but *do these judges disagree beyond noise* is a **relation**, so
+swapping which judge is truth must leave it unchanged. It does not, and the split is informative:
+`random_k` is flagged at the **0.00 percentile in both directions** — **the inversion is a property
+of the pair and survives** — while `topw_k` moves from 20.16% to **1.43%** and its reading as
+*"forced, therefore no information"* is **⛔ withdrawn**. The direction is consistent even where the
+verdict is not: `topw_k` sits in the **low tail both ways**, so *agrees less than its separation
+forces* survives and *resolvably so* does not. The mechanism is **regression to the mean** —
+`β(2B→0.8B) = 0.4340` but `β(0.8B→2B) = 1.4112`, an **expansion, not the reciprocal 2.30** — and
+taking the noisier judge as truth inflates the apparent separation, lifting `topw_k`'s floor from
++0.66 to +0.83. Two further corrections came from checking rather than assuming: my slope differed
+from R301's because I had **mixed in two arms measured on 398 prompts instead of 968** (the
+population, not the estimator), and **a third judge is not "a drop-in"** — the prompt contract is
+byte-identical but **no third checkpoint exists locally**, so that register line moves from
+`NOT-ATTEMPTED` to `NOT-ATTEMPTED-AND-NOT-CHEAP`.
+→ [`R357`](E05_the_space_of_compilers/A24_what_the_definition_costs/R357_does_the_inversion_survive_swapping_truth)
 
 **Three statements about the published reference, not four — and I had been counting one of them
 twice.** They are also not one finding arriving by three routes, which is what I expected to find:
