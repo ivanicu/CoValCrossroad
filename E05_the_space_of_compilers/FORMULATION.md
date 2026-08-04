@@ -315,26 +315,30 @@ the conversation beats a random draw of that conversation's **own** criteria, on
 naively expect the blind reference to be the *weaker* baseline; it is the stronger, and that is what
 makes ② bind.
 
-**⛔ The empty cell is part derivation, part measurement, and merging them would be the arithmetic
-trap.** With `c1 − c2 = ref₂ − ref₁`: if `ref₂ ≥ ref₁` (true on 41/41) **and** `mde₁ ≤ mde₂` (true on
-**23**/41), then ② implies ① by algebra. On the other **18** arms a window `[mde₂, mde₁]` exists —
-median width **0.00196** — and **none landed in it**.
+**⛔ The empty cell is a DERIVATION, not a measurement — and my first reading of it was wrong.**
+An arm is a counterexample iff `A > ref₂ + mde₂` and `A ≤ ref₁ + mde₁`, so the region is non-empty
+iff **`GAP < SLACK`**, with `GAP = ref₂ − ref₁` and `SLACK = mde₁ − mde₂`. Measured: **min GAP
+0.0470, max SLACK 0.01217 — GAP exceeds SLACK by 3.9× on the tightest arm, and GAP ≥ SLACK on all
+41.** No arm of any size this benchmark contains can be a counterexample.
 
-| | arms | the empty cell there is |
-|---|---:|---|
-| FORCED | **23** | a **derivation** |
-| CONTINGENT | **18** | a **measurement** that could have come out otherwise |
+*The first version of this round tested `mde₁ ≤ mde₂` — which forces the implication but is not
+required for it — called 18 arms "contingent", and closed that a counterexample was "constructible
+in principle". None of those 18 can host one. A sufficient condition stood in for a
+necessary-and-sufficient one, and it made the result look weaker than it is.*
 
-Swept over MDE multipliers 0.5–2.0: **no multiplier produces a counterexample**; at 1.25× and 1.5×
-arms *do* enter a window, so the zero is not "nothing ever got close". **Permuting the `(c1, c2)`
-pairing fills the cell (6, 5, 6 across three seeds)** — the emptiness is a property of which arm
+⚠ It is a derivation **about this release**: it rests on `ref₂ − ref₁ ≈ +0.05` against MDEs of
+0.011–0.013. A release with a weaker blind reference, or a far more precise design, could break it.
+
+Swept over MDE multipliers 0.5–2.0: **no multiplier produces a counterexample, and none makes the
+region non-empty either.** **Permuting the `(c1, c2)` pairing fills the cell (6, 5, 6 across three
+seeds)** — the emptiness is a property of which arm
 carries which margin, not of the marginals.
 
-> **Clause ① is a real constraint this arm space never exercised.** It is not deleted: it is not
-> redundant *by construction*, only over the 41 arms this benchmark contains, and the window
-> arithmetic states how narrow a counterexample would have to be. But the definition must stop
-> reading as though both clauses contribute an exclusion.
-> **Not attempted here:** constructing that counterexample.
+> **On this release clause ① is implied by clause ②.** It is not deleted — the implication rests on
+> a measured reference gap, not on the definition's own logic, and a different release could break
+> it. But the definition must stop reading as though both clauses contribute an exclusion, and the
+> next round must not go looking for a counterexample: **the arithmetic says there is none to find
+> here.**
 → `R347_does_clause_one_ever_bind`
 
 ---

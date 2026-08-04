@@ -45,10 +45,11 @@ SCOPE
   regime      968 prompts, A2 against a single annotator, this release
 
 WORLDS
-  W1 DECORATION   the cell is empty AND every arm is `forced`. Clause ① is a theorem of clause ②
-                  plus the reference ordering, and printing it as an independent test is wrong.
-  W2 CONTINGENT   the cell is empty and some arms are `contingent`. Clause ① could have bound and
-                  did not, on this arm space. It is a real but unexercised constraint.
+  W1 DERIVATION   the cell is empty AND GAP >= SLACK on every arm, so no arm could have filled it.
+                  Clause ① is a theorem of clause ② plus the reference ordering ON THIS RELEASE, and
+                  printing it as an independent test overstates what it does.
+  W2 CONTINGENT   the cell is empty but some arm has GAP < SLACK, so it COULD have been filled.
+                  Clause ① would then be a real but unexercised constraint.
   W3 IT BINDS     the cell is non-empty. Clause ① does independent work and the question is closed.
 
 PREDICTION MATRIX
@@ -66,8 +67,8 @@ PRE-REGISTERED KILL
     else: UNVERIFIED.
 
 CONTROLS
-  POSITIVE, planted  a synthetic arm placed INSIDE the window (c2 just above mde2, c1 just below
-                     mde1) must be reported as a counterexample. Without it, `0 counterexamples` is
+  POSITIVE, planted  a synthetic arm placed INSIDE the feasible region (GAP forced to 0 so the
+                     region exists, c2 between mde2 and mde1) must be reported as a counterexample. Without it, `0 counterexamples` is
                      an instrument never shown able to return one -- silence, not an acquittal.
   g=0                the same arm placed OUTSIDE the window must NOT be reported. The control fails
                      in both directions or it is not a control.
@@ -112,20 +113,40 @@ def load():
 
 
 def cell(rows, m=1.0):
-    """(counterexamples, forced, contingent, in_window) at MDE multiplier m."""
+    """(counterexamples, forced, contingent, in_window) at MDE multiplier m.
+
+    ⚠ CORRECTED. v1 used a SUFFICIENT condition where a NECESSARY AND SUFFICIENT one exists, and
+    the difference changed the verdict. It asked `mde1 <= mde2` -- which does force the implication,
+    but is not required for it -- and so classified 18 arms as CONTINGENT and reported "clause ① is
+    a real constraint this arm space never exercised, and a counterexample is constructible in
+    principle". The arithmetic says otherwise. An arm A is a counterexample iff
+
+        A > ref2 + m*mde2   (clause ② passes)   AND   A <= ref1 + m*mde1   (clause ① fails)
+
+    which is non-empty iff  (ref2 - ref1) < m*(mde1 - mde2)  --  written in observables,
+    GAP < SLACK where GAP = c1 - c2 and SLACK = m*(mde1 - mde2). Measured: min GAP = 0.0470,
+    max SLACK = 0.01217, so GAP exceeds SLACK by 3.9x on the tightest arm and the region is empty
+    for ALL 41. The reference gap dominates the MDE slack everywhere, so no arm of any size this
+    benchmark contains can be a counterexample -- the emptiness is a DERIVATION, not a measurement.
+
+    I found this by doing the arithmetic the previous verdict deferred to "the next round", which is
+    the attack ladder's step 2 and should have preceded the count rather than followed it. And note
+    the direction: the sufficient condition made the finding look WEAKER and more contingent than it
+    is. `in_window` had the same defect -- it compared c2 against the thresholds and ignored the gap
+    entirely, so it reported 3 and 2 arms inside a window that does not exist.
+    """
     ce, forced, contingent, inwin = [], [], [], []
     for n, r in rows.items():
         c1, c2 = r["c1"][0], r["c2"][0]
         t1, t2 = m * r["mde1"], m * r["mde2"]
-        ok1, ok2 = c1 > t1, c2 > t2
-        if ok2 and not ok1:
+        if c2 > t2 and not (c1 > t1):
             ce.append(n)
-        # premise A is c1 >= c2 (equivalently ref2 >= ref1); premise B is mde1 <= mde2
-        if c1 >= c2 and r["mde1"] <= r["mde2"]:
+        gap, slack = c1 - c2, t1 - t2          # gap = ref2 - ref1, always >= 0 here
+        if gap >= slack:                        # the counterexample region is EMPTY for this arm
             forced.append(n)
-        elif c1 >= c2:
+        else:
             contingent.append(n)
-            if t2 < c2 <= t1:
+            if t2 < c2 <= t1 - gap:             # ...and this arm sits inside the real region
                 inwin.append(n)
     return ce, forced, contingent, inwin
 
@@ -202,12 +223,13 @@ def main() -> int:
 
     ce, forced, cont, win = cell(rows, 1.0)
     widths = [r["mde1"] - r["mde2"] for r in rows.values() if r["mde1"] > r["mde2"]]
-    print(f"\n  At the published 1.0x: {len(forced)} arm(s) FORCED (both premises hold — clause ②")
-    print(f"  implies clause ① by algebra there), {len(cont)} CONTINGENT (premise B fails, so a")
-    print(f"  window exists), and {len(win)} arm(s) actually inside a window.")
-    if widths:
-        print(f"  Window width across the contingent arms: median {st.median(widths):.5f}, "
-              f"max {max(widths):.5f}.")
+    gaps = [r["c1"][0] - r["c2"][0] for r in rows.values()]
+    slacks = [r["mde1"] - r["mde2"] for r in rows.values()]
+    print(f"\n  At the published 1.0x: {len(forced)} arm(s) FORCED (GAP >= SLACK: no arm of that")
+    print(f"  size can be a counterexample at all), {len(cont)} CONTINGENT, {len(win)} inside the")
+    print(f"  feasible region.")
+    print(f"  min GAP {min(gaps):.4f}  vs  max SLACK {max(slacks):.5f}  —  "
+          f"GAP exceeds SLACK by {min(gaps)/max(slacks):.1f}x on the tightest arm.")
 
     print()
     if not (p_ok and perm_ok):
@@ -217,17 +239,18 @@ def main() -> int:
         print(f"  W3 — CLAUSE ① BINDS. It excludes {len(ce)} arm(s) clause ② admits: {ce}")
         verdict = "W3_IT_BINDS"
     elif not cont:
-        print("  W1 — DECORATION. Every arm is forced: clause ② implies clause ① by algebra on this")
-        print("  arm space, and printing ① as an independent test overstates what it does.")
+        print(f"  W1 — DERIVATION. GAP >= SLACK on all {len(rows)} arms, so the counterexample")
+        print("  region is EMPTY for every arm size this benchmark contains. Clause ② implies")
+        print("  clause ① by algebra here. This is NOT a measurement: it could not have come out")
+        print("  otherwise given the reference levels, and it must be labelled a derivation.")
+        print("  ⚠ It is a derivation about THIS RELEASE, not about the definition in general —")
+        print("     it rests on ref2 − ref1 ≈ +0.05 and MDEs ≈ 0.011–0.013. A release where the")
+        print("     blind reference were weaker, or the design far more precise, could break it.")
         verdict = "W1_DERIVATION"
     else:
         print(f"  W2 — CONTINGENT. The cell is empty and {len(cont)} of {len(rows)} arms COULD have")
-        print(f"  filled it: for them premise B fails and a window [mde2, mde1] exists, median width")
-        print(f"  {st.median(widths):.5f}. None landed in it. So clause ① is a real constraint that")
-        print("  this arm space never exercised — not a theorem, and not doing work either.")
-        print("  ⚠ The honest statement is a SPLIT, not a single number: on "
-              f"{len(forced)} arms the implication is a DERIVATION, on {len(cont)} it is a")
-        print("  MEASUREMENT that could have come out otherwise.")
+        print(f"  filled it (GAP < SLACK). None did. Clause ① is a real constraint this arm space")
+        print("  never exercised — not a theorem, and not doing work either.")
         verdict = "W2_CONTINGENT"
 
     art = {"census_sha256_16": sha, "n_arms": len(rows),

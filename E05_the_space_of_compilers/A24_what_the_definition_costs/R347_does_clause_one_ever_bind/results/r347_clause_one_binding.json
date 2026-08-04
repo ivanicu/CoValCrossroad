@@ -1,25 +1,6 @@
 {
   "census_sha256_16": "ac06c51261654769",
-  "contingent": [
-    "coval_core",
-    "coval_core_sham",
-    "full_sham",
-    "gen",
-    "gen_sham",
-    "generic",
-    "greedy_k4_fit1",
-    "indep_k4_fit1",
-    "oracle_k4",
-    "oracle_k4_fit1",
-    "topw_k1",
-    "topw_k12",
-    "topw_k2",
-    "topw_k3",
-    "topw_k4",
-    "topw_k4_sham",
-    "topw_k6",
-    "topw_k8"
-  ],
+  "contingent": [],
   "controls": {
     "permutation": [
       6,
@@ -32,51 +13,54 @@
   "counterexamples": [],
   "curve": {
     "0.5": {
-      "contingent": 18,
+      "contingent": 0,
       "counterexamples": [],
-      "forced": 23,
+      "forced": 41,
       "in_window": []
     },
     "0.75": {
-      "contingent": 18,
+      "contingent": 0,
       "counterexamples": [],
-      "forced": 23,
+      "forced": 41,
       "in_window": []
     },
     "1.0": {
-      "contingent": 18,
+      "contingent": 0,
       "counterexamples": [],
-      "forced": 23,
+      "forced": 41,
       "in_window": []
     },
     "1.25": {
-      "contingent": 18,
+      "contingent": 0,
       "counterexamples": [],
-      "forced": 23,
-      "in_window": [
-        "coval_core",
-        "topw_k4",
-        "topw_k8"
-      ]
+      "forced": 41,
+      "in_window": []
     },
     "1.5": {
-      "contingent": 18,
+      "contingent": 0,
       "counterexamples": [],
-      "forced": 23,
-      "in_window": [
-        "coval_core",
-        "topw_k3"
-      ]
+      "forced": 41,
+      "in_window": []
     },
     "2.0": {
-      "contingent": 18,
+      "contingent": 0,
       "counterexamples": [],
-      "forced": 23,
+      "forced": 41,
       "in_window": []
     }
   },
   "forced": [
+    "coval_core",
+    "coval_core_sham",
     "full",
+    "full_sham",
+    "gen",
+    "gen_sham",
+    "generic",
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "oracle_k4",
+    "oracle_k4_fit1",
     "promptecho",
     "promptecho_sham",
     "random_k12_s0",
@@ -98,6 +82,14 @@
     "random_k8_s2",
     "topabs_k4",
     "topvar_k4",
+    "topw_k1",
+    "topw_k12",
+    "topw_k2",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_sham",
+    "topw_k6",
+    "topw_k8",
     "topwvar_k4"
   ],
   "n_arms": 41,
@@ -105,6 +97,6 @@
   "ref2_mean": 0.5462058303207565,
   "ref_gap_mean": 0.0540331957590563,
   "ref_gap_min": 0.047039223342039416,
-  "verdict": "W2_CONTINGENT",
+  "verdict": "W1_DERIVATION",
   "window_widths_median": 0.001960755679447186
 }

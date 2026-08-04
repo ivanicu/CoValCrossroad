@@ -57,12 +57,14 @@ from it. This repository rebuilds that layer locally and then asks what the rubr
 **prompt-blind** reference scores **0.5462** against **0.4922** for a random draw from *this
 prompt's own rubric* — **+0.0540, minimum +0.0470, never negative.** A criterion set that never reads
 the conversation beats a random draw of that conversation's own criteria, on every arm, and that is
-what makes ② the binding clause. **The empty cell is part derivation and part measurement**: on
-**23** arms `ref₂ ≥ ref₁` *and* `mde₁ ≤ mde₂`, so ② implies ① by algebra; on the other **18** a
-window exists (median width 0.00196) and none landed in it. Permuting the pairing fills the cell
-(6, 5, 6 over three seeds), so the emptiness is about which arm carries which margin. Clause ① stays
-— it is not redundant *by construction* — but the definition must stop reading as though both
-clauses contribute an exclusion.
+what makes ② the binding clause. **The empty cell is a DERIVATION**: a counterexample needs `GAP < SLACK`
+(`GAP = ref₂ − ref₁`, `SLACK = mde₁ − mde₂`), and **min GAP 0.0470 vs max SLACK 0.01217 — 3.9× on
+the tightest arm, GAP ≥ SLACK on all 41.** No arm of any size here can be one. *(This round's first
+version used a sufficient condition instead of the necessary one, called 18 arms "contingent" and
+said a counterexample was constructible; it is not.)* Permuting the pairing fills the cell
+(6, 5, 6 over three seeds), so the emptiness is about which arm carries which margin. Clause ① stays — the implication rests on a
+measured reference gap rather than on the definition's logic, and another release could break it —
+but the definition must stop reading as though both clauses contribute an exclusion.
 → [`R347`](E05_the_space_of_compilers/A24_what_the_definition_costs/R347_does_clause_one_ever_bind)
 
 
