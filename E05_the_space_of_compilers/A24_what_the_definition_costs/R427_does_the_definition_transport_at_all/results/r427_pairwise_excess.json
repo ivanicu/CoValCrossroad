@@ -1,6 +1,9 @@
 {
   "excess_rank": [
+    "randblind_s0|randblind_s2",
     "randblind_s0|randblind_s1",
+    "randblind_s1|randblind_s2",
+    "generic|randblind_s2",
     "generic|randblind_s0",
     "generic|randblind_s1"
   ],
@@ -49,6 +52,21 @@
       0.23812351543942992,
       0.2838479809976247,
       0.2375296912114014
+    ],
+    "randblind_s2|n=2": [
+      0.49769408147578786,
+      0.5023059185242121
+    ],
+    "randblind_s2|n=3": [
+      0.27631578947368424,
+      0.3530701754385965,
+      0.3706140350877193
+    ],
+    "randblind_s2|n=4": [
+      0.2339667458432304,
+      0.252375296912114,
+      0.2583135391923991,
+      0.25534441805225655
     ]
   },
   "pairs": {
@@ -72,23 +90,56 @@
       "raw": 0.517526380185471,
       "raw_mde": 0.017421464371817023
     },
+    "generic|randblind_s2": {
+      "convs": 2200,
+      "excess": 0.2398684068456796,
+      "excess_mde": 0.023866012096396317,
+      "null": 0.42692084556857285,
+      "null_mde": 0.017276316800460028,
+      "obs": 7344,
+      "raw": 0.6667892524142525,
+      "raw_mde": 0.016727939614018084
+    },
     "randblind_s0|randblind_s1": {
       "convs": 2200,
-      "excess": 0.2927873691964601,
-      "excess_mde": 0.02380834561891884,
-      "null": 0.41636160556615104,
-      "null_mde": 0.017182176098469452,
+      "excess": 0.29613821027457393,
+      "excess_mde": 0.023846679570772165,
+      "null": 0.4130107644880372,
+      "null_mde": 0.017399944439744002,
       "obs": 7344,
       "raw": 0.7091489747626112,
       "raw_mde": 0.01645546719427156
+    },
+    "randblind_s0|randblind_s2": {
+      "convs": 2200,
+      "excess": 0.32811688185551824,
+      "excess_mde": 0.023291187293055335,
+      "null": 0.41666052003552,
+      "null_mde": 0.017127272489475705,
+      "obs": 7344,
+      "raw": 0.7447774018910384,
+      "raw_mde": 0.015675647188459083
+    },
+    "randblind_s1|randblind_s2": {
+      "convs": 2200,
+      "excess": 0.26724045525181894,
+      "excess_mde": 0.023443068373348853,
+      "null": 0.4174584556857285,
+      "null_mde": 0.017429477590896025,
+      "obs": 7344,
+      "raw": 0.6846989109375473,
+      "raw_mde": 0.0166265422050003
     }
   },
   "raw_rank": [
+    "randblind_s0|randblind_s2",
     "randblind_s0|randblind_s1",
+    "randblind_s1|randblind_s2",
+    "generic|randblind_s2",
     "generic|randblind_s0",
     "generic|randblind_s1"
   ],
   "source_name": "pairwise_excess.py",
-  "source_sha256": "586e2dc1be529d8dac59bcec56c71fd4ffc1c537015c5e3590cd8818a28a3ece",
+  "source_sha256": "fca6a015c469bca38b3465320bce16e3102e0e7ec9511f54ce299448946b4698",
   "verdict": "W_CONTENT"
 }
