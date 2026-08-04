@@ -1,0 +1,38 @@
+{
+  "calibration": {
+    "expected": 0.30856060606060604,
+    "mde": 0.025661579265613032,
+    "ok": true,
+    "rand": 0.30139285714285713
+  },
+  "first_longer_strata": [],
+  "source_name": "position.py",
+  "source_sha256": "6d479ef3538ddbc6542f87b84d64bce52ca5d7b19c59b981f1c2ef8132f8ee64",
+  "strata": {
+    "2": {
+      "chance": 0.5,
+      "convs": 2191,
+      "first_longest": 0.4976403534596141,
+      "fl_mde": 0.023453027086589532,
+      "generic_first": 0.49513011710638366,
+      "gf_mde": 0.023320012579687622
+    },
+    "3": {
+      "chance": 0.3333333333333333,
+      "convs": 456,
+      "first_longest": 0.34210526315789475,
+      "fl_mde": 0.062309775861410295,
+      "generic_first": 0.30043859649122806,
+      "gf_mde": 0.060212808938735776
+    },
+    "4": {
+      "chance": 0.25,
+      "convs": 1684,
+      "first_longest": 0.2321852731591449,
+      "fl_mde": 0.028834159698274908,
+      "generic_first": 0.24228028503562946,
+      "gf_mde": 0.02926005088607129
+    }
+  },
+  "verdict": "W_COINCIDENCE"
+}
