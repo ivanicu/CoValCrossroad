@@ -504,6 +504,21 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R463 -- the third block. The CLAUSE-② marker count is anchored beside the flag totals,
+    # because it is a DIFFERENT statistic from the forced one and merging them is the exact error
+    # the round caught in its own verdict branch.
+    d463 = next(A24.glob("R463_*"), None)
+    f463 = (d463 / "results" / "r463_ordering_forced.json") if d463 else None
+    a = json.loads(f463.read_text()) if (f463 and f463.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r463_decl"] = (a["declared_differences"], "R463")
+        out["r463_cov"] = (a["coverage"], "R463")
+        out["r463_markers"] = (a["n_markers"], "R463")
+        out["r463_clause2"] = (max(a["markers_per_section"].values()), "R463")
+    else:
+        for k in ("r463_decl", "r463_cov", "r463_markers", "r463_clause2"):
+            out[k] = (None, "R463")
+
     # R462 -- the ordering test. BOTH block sizes are anchored, because "0 of 32 vs 0 of 18" is the
     # comparison and a bare "0 flagged" would read as a clean bill rather than as a refuted ordering.
     d462 = next(A24.glob("R462_*"), None)
@@ -1086,6 +1101,10 @@ ASSERTIONS = {
     "r462_new": r"recent block's \*\*0 of (\d+)\*\*",
     "r462_cov":   r"declaration coverage now (\d+) of \d+",
     "r462_total": r"declaration coverage now \d+ of (\d+)",
+    "r463_decl":    r"— (\d+) DECLARED DIFFERENCES",
+    "r463_cov":     r"coverage (\d+) of 265",
+    "r463_markers": r"max 1 over (\d+) rounds",
+    "r463_clause2": r"clause ② carries (\d+) of the 21 round-markers",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

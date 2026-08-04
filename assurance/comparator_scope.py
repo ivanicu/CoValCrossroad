@@ -110,6 +110,40 @@ COMPARATORS = {
     "r453_win": ["train"],
     "r454_fams": None, "r454_plateau": None,
     "r454_pos8": ["floor", "core"], "r454_pos12": ["floor", "core"],
+    # ---- R430..R441, declared 2026-08-04 (R463). ORDER: ARBITRARY, and said to be arbitrary.
+    # R462 refuted "oldest first"; R463 then measured the proposed replacement -- "how many clause
+    # sections cite this round" -- and found it FORCED: all 21 round-markers sit in ONE section, so
+    # the count is 1 for every round by construction. Two proposed orderings, both eliminated. This
+    # block is the next CONTIGUOUS one, chosen for convenience, and that is stated rather than
+    # dressed in a third story about where defects live.
+    "r430_conv_delta": ["INTER", "weighting"],
+    "r430_conv_p": None, "r430_convanly": None, "r430_convperm": None,
+    "r430_interanly": None, "r430_interperm": None, "r430_nullmed": None,
+    "r430_pos4": None, "r430_wmoves": None,
+    "r431_cells": None, "r431_surv": None,
+    "r431_maxgap": ["pairs", "floor"], "r431_stdin": ["its own floor"],
+    "r432_best": None, "r432_floor": None, "r432_oracle": None,
+    "r432_head": ["floor"], "r432_over": ["length rule"],
+    "r433_delta": ["longest-reply rule"], "r433_gen": None, "r433_length": None,
+    "r433_mde": None, "r433_n": None, "r433_nmde": None,
+    "r433_neutral": ["neutral"], "r433_shammde": ["sham"],
+    "r434_arms": None, "r434_n": None, "r434_best": None, "r434_len": None, "r434_sat2": None,
+    "r434_useful": ["length rule"],
+    "r435_family": None, "r435_floor": None, "r435_mstar": None,
+    "r435_lift": ["signal-free family"], "r435_resid": ["BAR(6)"],
+    "r436_arms": None, "r436_armsJ": None, "r436_excl": None, "r436_exclJ": None,
+    "r436_bar": None, "r436_topmde": None,
+    "r436_topd": ["bar"],
+    "r437_home_bar2": None, "r437_home_bar4": None, "r437_sec_bar2": None, "r437_sec_bar4": None,
+    "r437_home_mde": None, "r437_sec_mde": None,
+    "r437_home_gap": ["bar"], "r437_sec_gap": ["bar"],
+    "r438_mde2": None, "r438_mde3": None, "r438_mde4": None, "r438_n2": None, "r438_n4": None,
+    "r438_gap2": ["bar"], "r438_gap3": ["bar"], "r438_gap4": ["bar"],
+    "r438_infl2": ["measured"], "r438_infl3": ["measured"], "r438_infl4": ["measured"],
+    "r439_pct": None, "r439_pubpct": None, "r439_subsets": None,
+    "r439_below": ["the weakest"],
+    "r440_arms": None, "r440_cov": None, "r440_e2": None, "r440_e4": None,
+    "r441_k1": None, "r441_redundant": None, "r441_withk": None,
 }
 
 

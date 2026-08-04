@@ -9547,3 +9547,71 @@ between them is invisible precisely because the ledger entry reads as if the wor
 a fix whose description mentions a mechanism the code does not contain.** The check is to re-read the
 remedy sentence beside the diff that claims to implement it — which costs one look and would have
 caught this at the moment of writing.
+
+---
+
+## 275 · The replacement ordering was FORCED, and my verdict branch tested a different statistic than its estimand named (R462 → R463)
+
+**What was proposed.** R462: order the remaining declaration work by load-bearingness, made mechanical
+as *"count, per anchor, how many clause-sections cite its round."*
+
+**What it is.** `sections_citing(round)` is **min 1, max 1 over 21 rounds** — each round's paragraph
+lives in exactly one section, so the count is **flat by construction**. Combined with R462 (age
+refuted by measurement), **two proposed orderings, both eliminated.** The remaining order is
+**arbitrary**, and R463 declares the next contiguous block and *says* it is arbitrary rather than
+inventing a third story.
+
+⛔ **But the first version of that verdict branched on the wrong quantity.** It tested
+`len(sections_containing_markers)` — which is **2** (`### ②` holds 19 markers, `### ③` holds 2) —
+against an estimand naming `sections_citing(round)`, which is 1. §4 sub-kind ③, and it returned
+`W-DISCRIMINATES` on a statistic the round was not reporting.
+
+⚠ **And the same mismatch had already reached my prose.** An exploratory command matching `## `-level
+headings reported **1** section; the round matching any `#` found **2**. **The instrument's unit
+changed between the check and the round** — R460's mixed-object class, one round later, and this time
+the coarser reading was the one I stated.
+
+⭐ **The fact the corrected census yields, which the estimand never asked for:** **clause ② carries 19
+of 21 round-markers, clause ③ carries 2, every other clause none.** Ninety percent of this campaign's
+attention went into one clause. It is *rounds-per-section* — a different statistic from the forced one
+— and is reported separately, never merged.
+
+---
+
+## 276 · An aliasing bug that flattered a conclusion I had already stated (R463, caught in-round)
+
+**What it was.** `runs.append(run); run.clear()` — **`clear()` empties the list that was just
+appended**, so every completed run was recorded as empty. The "longest append-chain of round
+paragraphs" came out as **1 paragraph over 1 line, 0.1%** of the document.
+
+**What is true.** **4 paragraphs over 10 lines, 0.9%.** Both readings support the same conclusion
+(*the document is not a log*), which is exactly why it would have survived: **the bug agreed with the
+answer I had already written in prose.**
+
+⭐ **The pair with entry 275 is the point.** Two independent bugs in one round, and **both flattered a
+conclusion already stated in the response before the round ran.** Neither was found by reading the
+code; both were found because **the round recomputed what an exploratory command had reported**.
+
+**The mechanical remedy, and it is what this campaign's discipline already requires:** an exploratory
+command is a *hypothesis*, not a result — its number must be recomputed inside the round that reports
+it, on the round's own instrument, and **the two must be compared out loud.** Here they disagreed
+twice (1 vs 2 sections; 0.1% vs 0.9%), and both disagreements were the finding.
+
+---
+
+## 277 · The live-count mechanism fired for the first time and forced its own update (R463)
+
+**A positive entry.** Entry 274 installed live reading of `len(ASSERTIONS)` for the two
+self-referential sentences that had drifted 261 → 264 → 265 while passing.
+
+Adding R463's four anchors pushed the table to **269**, and the gate immediately printed:
+
+```
+r461_anchors: document says 265, LIVE says 269
+r462_total:   document says 265, LIVE says 269
+```
+
+**It failed, named both sentences, and could not be silenced by re-running the round** — which is
+precisely the behaviour the snapshot version lacked. ⭐ **Worth recording because a remedy's first
+real firing is the only evidence it was installed rather than described** — and entry 274 exists
+because the previous version of this fix was described and not installed.

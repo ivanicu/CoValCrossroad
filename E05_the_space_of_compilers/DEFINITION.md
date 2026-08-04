@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 265 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 269 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 265.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 269.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -368,6 +368,18 @@ at the tightest window 200 the flags are **all** from the recent block and **non
 **The ordering is refuted, and doing the work was the test.** ⚠ This does not establish that the
 remaining **181** undeclared anchors are clean — undeclared is not a pass — and it leaves the correct
 ordering **open**, since the only proposed basis has been eliminated. *(R462)*
+
+⭐ **AND A THIRD BLOCK IS CLEAN — 71 DECLARED DIFFERENCES, 0 FLAGGED (R463); coverage 154 of 265.**
+The ordering proposed to replace refuted-age was *"count, per anchor, how many clause-sections cite
+its round"*: measured, `sections_citing(round)` is **min 1, max 1 over 21 rounds** — **flat by
+construction**, since each round's paragraph lives in exactly one section. **Two orderings proposed,
+both eliminated**, so the remaining order is **arbitrary and is stated to be arbitrary** rather than
+dressed in a third story; the block declared was simply the next contiguous one. Across three
+independent blocks — R430–R441 (21), R442–R454 (32), R455–R462 (18) — **0 flagged at windows
+400/800/1600**, with 6 at the tightest 200 split 3/0/3 between the outer blocks. ⚠ This says nothing
+about the **111** still undeclared; undeclared is not a pass. ⭐ **A separate fact the census gives:
+clause ② carries 19 of the 21 round-markers and clause ③ carries 2** — 90% of this campaign's
+attention went into one clause. *(R463)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*
