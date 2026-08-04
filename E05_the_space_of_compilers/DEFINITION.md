@@ -182,9 +182,12 @@ judge in it** (R224/R228), and the k-curve's *shape* across judges was already m
 
 ## ⛔ THE PIPELINE'S OWN FLOOR IS UNMEASURED AT THIS JUDGE 2026-08-04 (R415)
 
-**5** committed re-run pairs exist at the 0.8B judge — same arm, same code, different run.
-**Re-running shifts an arm's mean A2 by up to `0.116489`, which is 13× the +0.009002 clause ②'s
-headline rests on.**
+**5** committed re-run pairs exist at the 0.8B judge — ⚠ **same RULE, not same code: R416 hashed the
+committed criterion sets and all five differ, on 91–99.6% of prompts.** Re-running the rule END TO END
+— re-selecting the criteria and re-scoring them — shifts an arm's
+**mean A2 by up to `0.116489`**, which is 13× the +0.009002 clause ②'s headline rests on.
+⚠ This is a **rule-level** floor, not a scoring floor, and it does **not** establish that scoring is
+unstable.
 
 **No such pair exists at the 2B judge that produced every number on this page.** So the floor here is
 **not measured**, and every A2 figure in this document rests on an assumption of pipeline stability

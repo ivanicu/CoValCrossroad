@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**408 rounds** in **5 epochs** and **24 arcs**, numbered to **R415** — **53 standing claims, 13
+**409 rounds** in **5 epochs** and **24 arcs**, numbered to **R416** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1313,6 +1313,20 @@ re-run pair exists at 2B**, so the correct statement is not *"R408's effect is i
 is that **every 2B number this session produced rests on an assumption of pipeline stability that has
 now failed at the only judge where it could be checked.**
 → [`R415`](E05_the_space_of_compilers/A24_what_the_definition_costs/R415_the_pipelines_own_noise_floor)
+
+**R415's "re-run pairs" scored DIFFERENT criteria — its framing was wrong one round after I published
+it.** ⛔ R415 called them *"same arm, same judge, **same code**, different run"* and offered a
+disjunction: *the pipeline is wildly unstable* **or** *two configurations share a filename*. **Each arm
+has a committed core JSON, and all 5 pairs differ — criteria changed on 91.1%–99.6% of prompts.** Not
+whitespace: a near-total re-selection. **The second branch was true, checkable against committed files
+in one line, and I listed it without testing it.** **SURVIVES**: the magnitude (0.116489, still 13× the
+effect), that these files are **not** usable as replicates — now *established* rather than disjunctive
+— and that the **2B floor remains UNMEASURED**. **DOWNGRADED**: *"the pipeline is wildly unstable"* is
+**not supported**; the shift is fully compatible with different criteria and no scoring instability at
+all. ⚠ **Ruling out one branch's evidence is not evidence for the other** — this does not show the
+pipeline is stable, only that R415's measurement never bore on it. R415's README and `DEFINITION.md`
+are corrected in place.
+→ [`R416`](E05_the_space_of_compilers/A24_what_the_definition_costs/R416_the_rerun_pairs_are_not_scoring_replicates)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

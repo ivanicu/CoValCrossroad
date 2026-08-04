@@ -19,6 +19,18 @@ arm?* **No — not at the judge where it can be checked, and at 2B it has never 
 | R408's committed effect at 2B | **+0.009002** |
 | **ratio** | **13×** |
 
+## ⚠ CORRECTION — R416: these are NOT scoring replicates
+
+[`R416`](../R416_the_rerun_pairs_are_not_scoring_replicates) hashed the committed **core JSONs** — the
+criterion sets that were scored — and **all 5 pairs differ, with criteria changed on 91–99.6% of
+prompts.** So *"same arm, same judge, **same code**, different run"* below is **wrong**: the criteria
+were **re-selected**, not merely re-scored.
+
+**The magnitude survives** — re-running the same *rule* end to end shifts mean A2 by up to `0.116489`.
+**The attribution does not**: this is a **rule-level** floor (selection + scoring), and the branch
+*"the pipeline is wildly unstable"* is **not supported**. The disjunction below resolves onto its
+other branch, which this round listed and never tested.
+
 ## ⛔ §1 requires this and no round had done it
 
 > *"NOISE FLOOR: measured, not assumed. **Replicates beat models.**"*

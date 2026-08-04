@@ -1,0 +1,67 @@
+{
+  "arms": [
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "oracle_k4",
+    "topvar_k4",
+    "topwvar_k4"
+  ],
+  "controls": {
+    "self_hash": true
+  },
+  "differ": [
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "oracle_k4",
+    "topvar_k4",
+    "topwvar_k4"
+  ],
+  "r415_e2b": 0.009002172366714738,
+  "r415_shift": 0.11648920010523041,
+  "rows": {
+    "greedy_k4_fit1": {
+      "changed_share": 0.9907024793388429,
+      "identical": false,
+      "sha_a": "710cb87cbb57",
+      "sha_b": "4193a6629498",
+      "shape_ok": true,
+      "status": "OK"
+    },
+    "indep_k4_fit1": {
+      "changed_share": 0.9886363636363636,
+      "identical": false,
+      "sha_a": "90aa6a73d99b",
+      "sha_b": "97e47fe6ba68",
+      "shape_ok": true,
+      "status": "OK"
+    },
+    "oracle_k4": {
+      "changed_share": 0.9111570247933884,
+      "identical": false,
+      "sha_a": "22c61b3aefbe",
+      "sha_b": "635698235fd1",
+      "shape_ok": true,
+      "status": "OK"
+    },
+    "topvar_k4": {
+      "changed_share": 0.993801652892562,
+      "identical": false,
+      "sha_a": "7f0c03d330ea",
+      "sha_b": "c448f26ee8e3",
+      "shape_ok": true,
+      "status": "OK"
+    },
+    "topwvar_k4": {
+      "changed_share": 0.9958677685950413,
+      "identical": false,
+      "sha_a": "0efec4beccc7",
+      "sha_b": "7a7b85361838",
+      "shape_ok": true,
+      "status": "OK"
+    }
+  },
+  "shapes_ok": true,
+  "source_name": "run.py",
+  "source_sha256": "5699dd98580a5315f65df83ce4af83ffb4769742dd2c8b20fa43d4a4ec04aa0e",
+  "verdict": "W_DIFFERENT_CRITERIA"
+}
