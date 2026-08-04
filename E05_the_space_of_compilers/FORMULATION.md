@@ -357,6 +357,32 @@ named a CLASS and no member**, and for forty rounds the campaign quietly supplie
 different ones in four different tables. Six rounds establish what the reference must be, and one
 establishes what the definition can never say here.
 
+### ⛔ ...BUT THE REFERENCE'S OWN SUBSET WAS CHOSEN BY FILE ORDER (read from the source, 2026-08-03)
+
+`R294/run.py:140` builds the clause-② reference as **`POOL[0:k]`** — *the first k criteria in
+`sat_genericpool16.npz`*. Not a random draw, not a best-of, not a stated rule: **the order the file
+happens to be in.**
+
+Where that lands, against R287's three measured budgets:
+
+| baseline | level |
+|---|---:|
+| budget 0 · mean of a random quadruple | 0.5397 |
+| **published · `POOL[0:4]`** | **0.5491** |
+| budget 1 · hand-picked `generic` | 0.5504 |
+| budget 1820 · best held-out of all C(16,4) | 0.5546 |
+
+**`POOL[0:4]` sits 63% of the way from a random draw to the best of 1,820.** The published baseline
+is **not budget-0** — it is an above-average subset, and its position was registered by nobody.
+
+⚠ *Positional statement only*: R287 fixes 968 prompts while R294 intersects per arm, so this locates
+the choice on the budget axis; it is not a difference with an interval. And the k=4 arms' references
+already spread by **0.0118** among themselves for the same reason.
+
+**Why it matters:** the admitted set moves **7 → 0** across a reference range of ~0.019, and
+`coval_core` drops out at **+0.0054** above the published level. The distance from here to
+"budget 1820" is **+0.0055**.
+
 ### ① The reference — computed, not chosen
 
 > **THE CLOSURE TEST.** A candidate clause-② reference is **CLOSED** if **no member of clause ②'s
