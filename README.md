@@ -1071,6 +1071,24 @@ of the three are `hello` and `hi`**, degenerate collisions rather than shared pr
 exclude.
 → [`R399`](E05_the_space_of_compilers/A24_what_the_definition_costs/R399_what_estimand_does_the_second_corpus_admit)
 
+⭐ **AND THAT ESTIMAND WAS THEN MEASURED — the first cross-release number. It loses to a length
+heuristic.** `74,048` judge calls over `2,200` seeded conversations, `7,344` interactions: the
+prompt-blind arm picks the human-chosen response at **`0.4374`**, chance is `0.4194`, and the
+judge-free *longest reply* rule reaches **`0.5096`**. **The bar was fixed before any arm existed** —
+read against chance alone, `+0.0179` at 1.05× its MDE would have been reported as transport; against
+the shortcut it is **`−0.0722`** at 2.85× the MDE. **Robust: 0 of 24 cells** (aggregation × restriction
+× unit) favour the arm. ⚠ **This is clause ②'s COMPARATOR, not clause ②** — `core_generic.json` *is*
+"a size-matched set that never read the conversation", so what is measured is transport's **floor**;
+a prompt-specific core does not exist for this rubric-less corpus. ⛔ **And the target is itself
+length-loaded** (tau `+0.2113` vs null `−0.0091`), so *"the core loses to a heuristic"* is partly
+*"the core does not reproduce this corpus's length preference"* — a claim about the **corpus** as much
+as the core. At fixed n=2 the arm **never clears its MDE in any length-dispersion bin**. ⭐ **Four
+criteria drawn at RANDOM from an unrelated pool score `0.4397`** — the content contributes nothing
+measurable — and two random draws agree with each other (excess **+0.2928** over a marginal-preserving
+null) **more than either agrees with the hand-written arm**, so *"the criteria are inert"* is too
+strong: **identical accuracy, materially different rankings.**
+→ [`R427`](E05_the_space_of_compilers/A24_what_the_definition_costs/R427_does_the_definition_transport_at_all)
+
 **The two corpora share depth *support* and almost no depth *mass* — a depth-matched transport test
 can draw at most 99 pairs.** CoVal is **90.9% single-turn**; the second corpus contains **one**
 single-turn conversation and sits at depths 2–4. ⛔ **And my pre-registered threshold was applied to
