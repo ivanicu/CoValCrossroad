@@ -58,6 +58,23 @@ off the readings that measured **both** arms.
 And the verdict sentence initially said *"true under B and C"*. **C is unmeasured**; a verdict string
 must not fill in a cell the round did not compute.
 
+## ⚠ ANSWERED BY R328, and the closing sentence below was wrong
+
+**「no measurement settles it」 is retracted.** R328 established two things this round had the
+materials for:
+
+- The three readings are not three kinds of sentence — they are **three points on one scalar**, the
+  baseline's selection budget, which R287 named 40 rounds ago and no round had stated.
+- R287 also wrote the principle that picks one (*"comparing a searched baseline to an unsearched arm
+  is MISMATCHED"*) and applied it only to the baseline side. **Budget-matched, `coval_core` sits at
+  2.64× and `topw_k4` at 1.38× — both admitted**, which is readings B *and* C, not A. The choice was
+  never Ivan's to make.
+
+Two corrections to the table above: the disqualified row's `0.5575` was a **held-out score of one
+split**, mislabelled as the in-sample ceiling and attributed to R287 which never computed it (true
+argmax `0.55747530882624`, repaired in R326); and reading C's `topw_k4` cell is **forced by algebra**
+at 2.26×–2.46×, so "UNDETERMINED under C" overstated the uncertainty — C admits both arms.
+
 ## Scope
 
 The two arms clause ② currently admits · 968 prompts · A2·annotator · references as published by

@@ -1,5 +1,5 @@
 {
- "source_sha": "37884c704dc84f0e",
+ "source_sha": "bcfef4689153e41f",
  "world": "W-CROSSES",
  "decline_is_derivation": true,
  "arm_a2": {
@@ -111,9 +111,9 @@
   },
   {
    "ref": "budget 1820 \u00b7 IN-SAMPLE (ceiling, unattainable)",
-   "ref_a2": 0.5575138121466373,
+   "ref_a2": 0.55747530882624,
    "legit": false,
-   "source": "R287",
+   "source": "R286 dist[max] \u00b7 cells R287",
    "cells": {
     "coval_core": {
      "gap": 0.009002172366714738,

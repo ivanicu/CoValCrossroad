@@ -79,7 +79,14 @@ def main():
     ins = next((k for k in r287["cells"] if "IN-SAMPLE" in k), None)
     if ins:
         lab = ins.split("|", 1)[1]
-        POINTS.append([lab, 0.5575138121466373, False, "R287",
+        # ⚠ REPAIRED by R328, 2026-08-03. This was the TYPED literal 0.5575138121466373 with
+        # source "R287". R287's artifact does not contain that number -- it disqualified the
+        # ceiling and never committed a ref for it. The literal is R286's
+        # selection["best"][0][1]: the HELD-OUT score of split 0, i.e. a held-out number
+        # published as the in-sample ceiling. The true in-sample argmax is R286's dist["max"]
+        # = 0.55747530882624, which R328 reproduced to 1e-12 and which R287's OWN committed
+        # gap already implies (0.5664774811929549 - 0.009002172366714738). Read, not typed.
+        POINTS.append([lab, r286["dist"]["max"], False, "R286 dist[max] · cells R287",
                        {a: (r287["cells"][f"{a}|{lab}"]["gap"], r287["cells"][f"{a}|{lab}"]["mde"])
                         for a in ARM_A2 if f"{a}|{lab}" in r287["cells"]}])
     POINTS.append(["neutral pool-16", 0.5403157241364976, True, "R307",
@@ -92,15 +99,23 @@ def main():
 
     # ---- PLACEBO / the derivation check ---------------------------------------------------------
     print("  PLACEBO — is the decline forced? gap must equal (arm A2 - reference A2)\n")
-    forced = True
+    # ⚠ TOLERANCE REPAIRED by R328, 2026-08-03. It was 1e-4 and it PASSED on a reference that was
+    # wrong by 3.85e-5 -- the check was 2.6x too loose to catch the one defect it exists to catch.
+    # This is an EXACT algebraic identity; the only slack it needs is float reassociation between
+    # mean(a-r) and mean(a)-mean(r), which is ~1e-15. And the max deviation is now PRINTED, because
+    # a boolean hides the very margin that told you the tolerance was wrong.
+    TOL = 1e-9
+    forced, worst = True, 0.0
     for lab, ref, ok, src, arms in POINTS:
         for a, (gap, _) in arms.items():
             d = abs(gap - (ARM_A2[a] - ref))
-            if d > 1e-4:
+            worst = max(worst, d)
+            if d > TOL:
                 forced = False
-                print(f"    {a} at {lab}: gap {gap:+.4f} vs arm-ref {ARM_A2[a]-ref:+.4f}  "
-                      f"DIFFERS by {d:.5f}")
-    print(f"    every published gap equals arm minus reference to 4 dp: {forced}")
+                print(f"    {a} at {lab}: gap {gap:+.6f} vs arm-ref {ARM_A2[a]-ref:+.6f}  "
+                      f"DIFFERS by {d:.3e}")
+    print(f"    every published gap equals arm minus reference to {TOL:.0e}: {forced}   "
+          f"(worst deviation observed {worst:.3e})")
     print("    -> THE MONOTONE DECLINE IS A DERIVATION. What is measured is the ratio to each")
     print("       cell's OWN MDE, because those vary independently of the reference.\n")
 
