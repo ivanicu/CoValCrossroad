@@ -270,6 +270,29 @@ def derive():
     else:
         for k in ("r432_best", "r432_oracle", "r432_head", "r432_floor", "r432_over"):
             out[k] = (None, "R432")
+    # R433 -- clause ②'s subject, W-LOSES. Anchored because this is the row a reader will treat as
+    # settling the transport question, and a settled-looking row that no artifact re-derives is the
+    # exact object this gate exists to prevent.
+    d433 = next(A24.glob("R433_*"), None)
+
+    def r433(stem):
+        f = (d433 / "results" / stem) if d433 else None
+        return json.loads(f.read_text()) if f and f.exists() else None
+    a = r433("r433_clause2_subject.json")
+    if a and a.get("world") != "UNVERIFIED":
+        c = a["cells"]["INTER"]
+        out["r433_gen"] = (f"{c['gen']:.4f}", "R433")
+        out["r433_length"] = (f"{c['length']:.4f}", "R433")
+        out["r433_delta"] = (f"{c['delta_vs_length']:+.4f}", "R433")
+        out["r433_mde"] = (f"{c['mde']:.4f}", "R433")
+        out["r433_neutral"] = (f"{c['neutral_gap']:+.4f}", "R433")
+        out["r433_nmde"] = (f"{c['neutral_mde']:.4f}", "R433")
+        out["r433_n"] = (a["n_interactions"], "R433")
+        out["r433_shammde"] = (f"{a['gate']['mde_sham']:.4f}", "R433")
+    else:
+        for k in ("r433_gen", "r433_length", "r433_delta", "r433_mde", "r433_neutral",
+                  "r433_nmde", "r433_n", "r433_shammde"):
+            out[k] = (None, "R433")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -463,7 +486,13 @@ ASSERTIONS = {
     "rule_b_n":              r"on the \*\*(\d+)\*\*\s*\n?prompts carrying such a rating",
     # R368 — transport measured; its numbers travel with the clause.
     "transport_exact":       r"by \*\*\+(\d\.\d+) against an MDE",
-    "transport_mde":         r"against an MDE of (\d\.\d+)\*\*",
+    # ⛔ TIGHTENED 2026-08-04. This pattern was `against an MDE of (\d\.\d+)\*\*` -- a phrase
+    #    the document now uses TWICE, because R433 reports its neutral gap the same way. The
+    #    gate then read R433's 0.0140 and reported R368 as drifted: a FALSE FAILURE against a
+    #    document that was correct. A loose anchor does not just miss, it MISATTRIBUTES -- and
+    #    this one would have sent me to "fix" a row that was right. Every anchor must carry
+    #    enough of its own sentence to be unique in a document that keeps growing.
+    "transport_mde":         r"size-matched random\s+draw, by \*\*[+\-][\d.]+ against an MDE of (\d\.\d+)\*\*",
     # R369 — the decomposition; its two numbers travel with the caveat.
     "dfloor_exact":          r"is \*\*\+(\d\.\d+)\*\* on exact",
     "dcore_exact":           r"under both \(\*\*\+(\d\.\d+)\*\*",
@@ -521,6 +550,14 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r433_gen": r"conversation alone — clause ②.s subject, absent from every previous cross-release number — scores \*\*([\d.]+)\*\*",
+    "r433_length": r"longest-reply rule at \*\*([\d.]+)\*\*",
+    "r433_delta": r"\*\*([+\-][\d.]+) \[[+\-][\d.]+, [+\-][\d.]+\] against its own MDE",
+    "r433_mde": r"against its own MDE of ([\d.]+), resolved\*\*",
+    "r433_neutral": r"that gap is \*\*([+\-][\d.]+) \[",
+    "r433_nmde": r"that gap is \*\*[+\-][\d.]+ \[[+\-][\d.]+, [+\-][\d.]+\] against an MDE of ([\d.]+)\*\*",
+    "r433_n": r"on the same ([\d,]+) interactions",
+    "r433_shammde": r"buys \*\*less than ([\d.]+)\*\*",
     "r432_best": r"ranks the human.s choice first on \*\*([\d.]+)\*\* of interactions",
     "r432_oracle": r"while \*some\* arm does on \*\*([\d.]+)\*\*",
     "r432_head": r"headroom \*\*([+\-][\d.]+)\*\* against a floor",

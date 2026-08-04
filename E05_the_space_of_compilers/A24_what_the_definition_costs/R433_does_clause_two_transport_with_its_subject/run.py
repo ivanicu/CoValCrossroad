@@ -276,7 +276,42 @@ def main() -> int:
         c = cells[w]
         print(f"\n  {w}: gen - length = {point:+.4f} [{lo:+.4f},{hi:+.4f}] vs own MDE {mde:.4f}"
               f"  -> {'RESOLVED' if c['resolved'] else 'inside the floor'}")
-        print(f"       NEUTRAL gap (gen - generic) {c['neutral_gap']:+.4f}  — isolates BENEFIT")
+        # ⛔ THE NEUTRAL GAP WAS PRINTED AS A POINT WITH NO RESOLUTION. That is the ledger's longest
+        #    row in one line: "I replaced a 6x-inflated number with a number, when what the design
+        #    supported was an inequality." Clause ② is the statement `core > neutral`, so whether
+        #    THAT gap clears its own floor decides whether the clause is satisfied AT ALL -- a
+        #    separate question from whether the arm beats the length rule, and the one the clause
+        #    actually makes. It gets its own paired cluster bootstrap.
+        # ⚠ THE PAIRED VECTOR MUST MATCH THE WEIGHTING IT IS REPORTED UNDER. The first version built
+        #    `dn` from conversation MEANS regardless of `w`, so the INTER row printed the CONV
+        #    computation and both weightings showed an identical interval -- the tell that gave it
+        #    away. lib/cluster.py's invariant ①: every quantity compared is aggregated by the SAME
+        #    function over the SAME units, and an expectation computed by a different weighting is
+        #    a different object. This mirrors the length comparison above exactly.
+        if w == "CONV":
+            dn = [float(np.mean(H["gen"][cc])) - float(np.mean(H["generic"][cc])) for cc in convs]
+        else:
+            dn = [(sum(H["gen"][cc]), sum(H["generic"][cc]), len(H["gen"][cc])) for cc in convs]
+        bn = []
+        for sd in (91, 92, 93):
+            r = np.random.default_rng(sd)
+            for _ in range(400):
+                take = r.choice(len(convs), len(convs), replace=True)
+                if w == "CONV":
+                    bn.append(float(np.mean(np.array(dn)[take])))
+                else:
+                    sel = [dn[i] for i in take]
+                    bn.append((sum(x[0] for x in sel) - sum(x[1] for x in sel))
+                              / max(sum(x[2] for x in sel), 1))
+        bn = np.array(bn)
+        nlo, nhi = np.percentile(bn, [2.5, 97.5])
+        nmde = float(ZEFF * bn.std())
+        cells[w]["neutral_mde"] = nmde
+        cells[w]["neutral_lo"] = float(nlo); cells[w]["neutral_hi"] = float(nhi)
+        cells[w]["clause2_satisfied"] = bool(c['neutral_gap'] > nmde)
+        print(f"       NEUTRAL gap (gen - generic) {c['neutral_gap']:+.4f} "
+              f"[{nlo:+.4f},{nhi:+.4f}] vs own MDE {nmde:.4f} -> clause ② "
+              f"{'SATISFIED' if c['neutral_gap'] > nmde else 'NOT RESOLVED — a BOUND, not a value'}")
         print(f"       SHAM    gap (gen - sham)    {c['sham_gap']:+.4f}  — bounds benefit + HARM, "
               f"and must never be quoted as the value of the ingredient")
 
