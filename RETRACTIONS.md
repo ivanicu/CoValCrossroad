@@ -8978,3 +8978,55 @@ per-prompt structure in the *spreading* direction. **The conclusion does not use
 rests on `real 57.8 ≪ no-structure 185.7`, and concentration *below* the no-structure baseline can
 only mean some subsets are better **across** prompts. **Naming which half of an instrument an
 inference uses is part of reporting it.**
+
+---
+
+## 253 · An attack that would have retracted a TRUE claim, caught by matching its two sides (R453)
+
+**What was nearly published.** R453's re-pricing of R452 selected, on a training half, the subset with
+the **highest mean A2**, then asked how often it won held-out prompts: **0.32%**, against R452's
+committed **33.57%**. A ~100× collapse. It read as *"R452's concentration was selection noise"* and
+would have retracted R452 one round after committing it.
+
+**Why it was wrong.** **R452 selected by a different rule** — the subset that *wins the most prompts*,
+not the one with the highest mean. Two different objects. Matched to R452's own rule:
+
+| | train | held-out |
+|---|---|---|
+| top subset's win share | 33.47% | **33.68%** [31.29%, 36.43%] |
+
+**R452's 33.57% survives out-of-sample essentially unchanged. The claim is real and it generalises.**
+
+⛔ **This is §3's warning made concrete** — *a cheap attack that appears to kill a claim is the most
+expensive kind of error, because it retracts something true.* And note where the cheapness was: **not
+in compute.** The attack ran the full hold-out machinery over 50 splits. It was cheap in the one place
+that mattered — **checking that its two sides were the same object**, which is the first line of §4's
+remedy for `the control fails for its own reasons` and applies verbatim to attacks.
+
+⭐ **And the pair is a finding, not just a correction.** Selecting by *wins-most-prompts* generalises
+perfectly (33.47 → 33.68); selecting by *highest mean A2* loses **0.2734** to the winner's curse.
+**Two defensible selection rules on the same matrix, opposite robustness** — which is why "the best
+subset" was never a well-defined object in the announced step to begin with.
+
+---
+
+## 254 · A share compared across two different sample sizes — third time in four rounds (R453)
+
+**What was built.** R453's pipeline anchor required the released core's **half-sample** held-out share
+to reproduce its committed **0.9841**. It returned **0.8194** and printed `⛔ FAIL — the pipeline is
+not the campaign pipeline`, taking the whole round to `UNVERIFIED`.
+
+**The arithmetic that says why.** `share` counts references beaten by more than `ZEFF·sd/√n`. At
+n=484 that bar is **√2 = 1.41× higher** than at n=968, so **every** half-sample share is structurally
+lower. The anchor was comparing a statistic to itself evaluated at a different resolution.
+
+**The repair is two checks where there was one:** a PIPELINE anchor at the committed n=968 (returns
+**0.9841**, exact), and a REFERENCE bar — the core on half-samples, **0.8194** — which is the number
+every selector in the round is actually compared against.
+
+⛔ **The count is what makes this worth an entry.** This is the **third** anchor in four rounds that
+compared two objects which were not the same object: R450's floor (resolved-share vs raw rank, then
+per-prompt vs fixed construction), R452's null (a permutation null for a permutation-invariant
+statistic), and now this one. **Every one was caught, and every one cost a run.** The mechanical
+remedy that would have caught all three costs nothing: **before writing any anchor, state the two
+sides as sentences and check they name the same object, the same statistic, and the same n.**

@@ -235,6 +235,18 @@ single draw by construction). R451's control stands; its *interpretation* narrow
 sharpens the circularity already flagged for `generic`:** if a fixed prompt-blind set sits near the
 top of the prompt-blind class, clause ② is a **within-family ranking** where it was meant to be a
 prompt-specificity test. *(R452)*
+
+⚠ **AND CLAUSE ② IS PARTIALLY A WITHIN-FAMILY RANKING — MEASURED, AS A BOUND (R453).** The circular
+version of this test (the *best* subset's share against a class containing it) is near 1 by
+construction; the non-circular version holds out. Choosing the best fixed prompt-blind subset on half
+the prompts and scoring it on the other half, it reaches **0.5773** [0.3188, 0.7456] on prompts it
+was never chosen on — above the class floor **0.2198** and above a destroyed-objective g=0 at
+**0.1327**, but below the released core's own half-sample bar of **0.8194**. On the floor→core scale
+that is **59.6%** of the way. **So ② is not purely a prompt-specificity test, and the released core
+still clearly beats the best generalising prompt-blind set.** ⚠ Every number here is at n=484; the
+pipeline anchor at the committed n=968 reproduces **0.9841** exactly. ⭐ **R452's concentration is
+CONFIRMED, not narrowed:** under R452's own selection rule the top subset's win share goes
+33.47% (train) → **33.68%** [31.29%, 36.43%] (held out). *(R453)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

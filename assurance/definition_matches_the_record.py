@@ -504,6 +504,20 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R453 -- the hold-out. The held-out share is anchored WITH the core's half-sample bar, because
+    # the claim is the position BETWEEN floor and core and either endpoint alone lets it drift.
+    d453 = next(A24.glob("R453_*"), None)
+    f453 = (d453 / "results" / "r453_holdout.json") if d453 else None
+    a = json.loads(f453.read_text()) if (f453 and f453.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r453_best"] = (f"{a['held_out']['best']['mean']:.4f}", "R453")
+        out["r453_corehalf"] = (f"{a['core_halfsample_share']:.4f}", "R453")
+        out["r453_g0"] = (f"{a['held_out']['g0']['mean']:.4f}", "R453")
+        out["r453_win"] = (f"{100*a['top_subset_win_share']['holdout']:.2f}", "R453")
+    else:
+        for k in ("r453_best", "r453_corehalf", "r453_g0", "r453_win"):
+            out[k] = (None, "R453")
+
     # R452 -- the oracle's concentration. Real AND synthetic are anchored together, because the
     # claim is the RATIO and either number alone would let the comparison drift.
     d452 = next(A24.glob("R452_*"), None)
@@ -881,6 +895,10 @@ ASSERTIONS = {
     "r452_syn":   r"no-structure baseline gives \*\*([\d.]+)\*\* effective",
     "r452_top1":  r"wins\s*\n?\*\*([\d.]+)%\*\* of all prompts",
     "r452_fixed": r"`best fixed ([\d.]+)`",
+    "r453_best":     r"it reaches \*\*([\d.]+)\*\* \[",
+    "r453_corehalf": r"own half-sample bar of \*\*([\d.]+)\*\*",
+    "r453_g0":       r"destroyed-objective g=0 at\s*\n?\*\*([\d.]+)\*\*",
+    "r453_win":      r"33\.47% \(train\) → \*\*([\d.]+)%\*\*",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",
