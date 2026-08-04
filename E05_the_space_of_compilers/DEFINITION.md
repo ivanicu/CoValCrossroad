@@ -188,7 +188,7 @@ judge in it** (R224/R228), and the k-curve's *shape* across judges was already m
 | **a count of admitted arms** | the set moves within **0.25 MDE** (R332) and with the reference's percentile (R354) |
 | **that its three clauses each test something** | one excludes nothing, one is judge-emptied, one is irreplaceable |
 | **an unindexed size** | at 0.8B top-k loses to a size-matched blind set at **6 of 7** sizes (R362) |
-| **that it works on responses it was NOT scored against** | measured, matched, and **marginal** — see the transport note below (R368) |
+| **that it works on responses it was NOT scored against** | **unresolved against a fair floor** — see the transport note below (R368, R370) |
 | **transfer to another criterion pool** | every level here is a fact about **this 16-criterion pool** (R331) |
 | **transfer to another release** | one release |
 
@@ -226,8 +226,22 @@ among the items summed to make the target — while the core is a rewrite. A dif
 cancels that only if it is additive across arms, which the flipping `Δfloor` puts in doubt.
 Separating it needs a floor drawn from criteria **outside `full`**.
 
-**So transport is a candidate clause, not yet one**: the evidence is positive, marginal, on one
-judge, about the rubric rather than about people, and its decomposition is metric-dependent.
+⛔ **AND AGAINST A FLOOR THAT IS NOT A SUBSET OF ITS OWN TARGET, IT DOES NOT RESOLVE (R370).** The
+suspicion was testable and the test needed new labels: the generic 16-criterion pool, identical
+across prompts and therefore outside any prompt's `full` rubric by construction, judged against the
+fresh responses (16,000 labels). With that floor the contrast is **+0.0810 vs MDE 0.0920** (exact)
+and **+0.0161 vs 0.0251** (pair) — **inside the MDE on both**.
+
+**The subset advantage is now a number**: on the original arm the subset floor sits **+0.1413** above
+the non-subset floor (exact; +0.0662 on pair). A random draw from `full`'s own criteria reproduces
+`full` far better than an external pool does.
+
+⚠ **Not refuted — not resolved.** Both point estimates stay positive; with a fair floor this design
+**cannot resolve** transport. And the collapse arrives two ways: on `pair` the contrast falls **74%**
+while the MDE shrinks, on `exact` the contrast barely moves and the **MDE grows 41%**.
+
+**So transport is a stated LIMIT, not a candidate clause**: R368's number stands as a number, and
+what it measured was the floor.
 
 ## The one sentence
 

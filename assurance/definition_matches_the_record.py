@@ -77,6 +77,12 @@ def derive():
     out["closure_k_count"] = (len(a["ks"]) if a else None, "R355")
     a = art("R358_*")
     out["closure_violations_08B"] = (a["totals_08b"]["45"] if a else None, "R358")
+    a = art("R370_*")
+    if a:
+        out["pool_contrast"] = (round(a["results"]["pool|exact"]["contrast"], 4), "R370")
+        out["pool_mde"] = (round(a["results"]["pool|exact"]["mde"], 4), "R370")
+    else:
+        out["pool_contrast"] = (None, "R370"); out["pool_mde"] = (None, "R370")
     a = art("R369_*")
     if a:
         out["dfloor_exact"] = (round(a["decomposition"]["exact"]["d_floor"], 4), "R369")
@@ -188,6 +194,11 @@ ASSERTIONS = {
     # R369 — the decomposition; its two numbers travel with the caveat.
     "dfloor_exact":          r"is \*\*\+(\d\.\d+)\*\* on exact",
     "dcore_exact":           r"under both \(\*\*\+(\d\.\d+)\*\*",
+    # R370 — transport demoted to a limit; the non-subset numbers travel with it.
+    # ⚠ anchored on the R370 sentence: the bare `**+N vs MDE` form also matches R367's
+    #   rule-A number (+0.0967) earlier in the document, and the gate caught that collision.
+    "pool_contrast":         r"the contrast is \*\*\+(\d\.\d+) vs MDE",
+    "pool_mde":              r"vs MDE (\d\.\d+)\*\* \(exact\)",
 }
 
 

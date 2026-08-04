@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**363 rounds** in **5 epochs** and **24 arcs**, numbered to **R369** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**357 of the 363 carry a
+**364 rounds** in **5 epochs** and **24 arcs**, numbered to **R370** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**358 of the 364 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -573,6 +573,21 @@ artifact carrying no information about criterion identity.** Separating subset-a
 transport needs a floor drawn from criteria **outside `full`** — the next instrument, not a caveat.
 Gate **34 of 34**.
 → [`R369`](E05_the_space_of_compilers/A24_what_the_definition_costs/R369_the_transport_contrast_decomposes_two_ways)
+
+**⛔ And against a floor that is NOT a subset of its own target, the transport contrast collapses —
+so transport becomes a stated LIMIT, not a candidate clause.** The suspicion needed new labels, so
+the generic 16-criterion pool — identical across prompts, hence outside any prompt's `full` rubric by
+construction — was judged against the fresh responses (**16,000 labels**, pueue task 630). ⏱ **The
+kill was pre-registered and committed while the job was still judging**, and verified to refuse to
+run early. With the fair floor the contrast is **+0.0810 vs MDE 0.0920** (exact) and **+0.0161 vs
+0.0251** (pair) — **inside the MDE on both**, no metric split. **The subset advantage is now a
+number**: the subset floor sits **+0.1413** above the non-subset one on the original arm. ⚠ **Not
+refuted — not resolved**: both point estimates stay positive, and the collapse arrives two ways (on
+`pair` the contrast falls **74%**; on `exact` the **MDE grows 41%**). The reproduction control
+recovered R368's **+0.0992 / +0.0612 exactly**, so this is about that quantity. **R368's number
+stands as a number; what it measured was the floor.** Gate **36 of 36** — and it caught a regex
+collision doing it, where the bare pattern matched R367's +0.0967 instead.
+→ [`R370`](E05_the_space_of_compilers/A24_what_the_definition_costs/R370_a_non_subset_floor_for_the_fresh_arm)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

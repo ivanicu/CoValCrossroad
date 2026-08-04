@@ -1,0 +1,153 @@
+{
+  "controls": {
+    "floor_ok": true,
+    "placebo": true,
+    "reproduction": true
+  },
+  "n_prompts": 250,
+  "r368_published": {
+    "exact": 0.09922105091537846,
+    "pair": 0.06120620355093021
+  },
+  "results": {
+    "full|exact": {
+      "contrast": 0.09922105091537846,
+      "mde": 0.06536587155858073,
+      "rows": [
+        {
+          "contrast": 0.15761626287942077,
+          "d_fresh": 0.09941520467836257,
+          "d_orig": -0.0582010582010582,
+          "excluded": false,
+          "stratum": 0
+        },
+        {
+          "contrast": 0.047521937955753324,
+          "d_fresh": 0.04214559386973182,
+          "d_orig": -0.005376344086021501,
+          "excluded": false,
+          "stratum": 1
+        },
+        {
+          "contrast": 0.05913978494623662,
+          "d_fresh": 0.0,
+          "d_orig": -0.05913978494623662,
+          "excluded": false,
+          "stratum": 2
+        },
+        {
+          "contrast": 0.1311493864685354,
+          "d_fresh": 0.12056737588652477,
+          "d_orig": -0.010582010582010637,
+          "excluded": false,
+          "stratum": 3
+        }
+      ]
+    },
+    "full|pair": {
+      "contrast": 0.06120620355093021,
+      "mde": 0.0535417706704218,
+      "rows": [
+        {
+          "contrast": 0.12336396546922845,
+          "d_fresh": 0.09161793372319693,
+          "d_orig": -0.03174603174603152,
+          "excluded": false,
+          "stratum": 0
+        },
+        {
+          "contrast": 0.02146417830511249,
+          "d_fresh": 0.017879948914431565,
+          "d_orig": -0.0035842293906809264,
+          "excluded": false,
+          "stratum": 1
+        },
+        {
+          "contrast": 0.0420235708644674,
+          "d_fresh": 0.05367231638418091,
+          "d_orig": 0.01164874551971351,
+          "excluded": false,
+          "stratum": 2
+        },
+        {
+          "contrast": 0.05703778753424138,
+          "d_fresh": 0.05791962174940912,
+          "d_orig": 0.0008818342151677427,
+          "excluded": false,
+          "stratum": 3
+        }
+      ]
+    },
+    "pool|exact": {
+      "contrast": 0.08104759380326533,
+      "mde": 0.09198429645934306,
+      "rows": [
+        {
+          "contrast": 0.11361737677527142,
+          "d_fresh": 0.0818713450292397,
+          "d_orig": -0.031746031746031717,
+          "excluded": false,
+          "stratum": 0
+        },
+        {
+          "contrast": 0.06637004078605852,
+          "d_fresh": 0.19540229885057467,
+          "d_orig": 0.12903225806451615,
+          "excluded": false,
+          "stratum": 1
+        },
+        {
+          "contrast": -0.01767814835064696,
+          "d_fresh": 0.0790960451977401,
+          "d_orig": 0.09677419354838707,
+          "excluded": false,
+          "stratum": 2
+        },
+        {
+          "contrast": 0.16008105369807485,
+          "d_fresh": 0.25531914893617014,
+          "d_orig": 0.09523809523809529,
+          "excluded": false,
+          "stratum": 3
+        }
+      ]
+    },
+    "pool|pair": {
+      "contrast": 0.016097689138445705,
+      "mde": 0.025077507196755534,
+      "rows": [
+        {
+          "contrast": 0.017218973359324097,
+          "d_fresh": 0.060428849902534054,
+          "d_orig": 0.04320987654320996,
+          "excluded": false,
+          "stratum": 0
+        },
+        {
+          "contrast": 0.004191900465537746,
+          "d_fresh": 0.06960408684546604,
+          "d_orig": 0.0654121863799283,
+          "excluded": false,
+          "stratum": 1
+        },
+        {
+          "contrast": -0.0020199258854262103,
+          "d_fresh": 0.05084745762711884,
+          "d_orig": 0.05286738351254505,
+          "excluded": false,
+          "stratum": 2
+        },
+        {
+          "contrast": 0.044523246650906234,
+          "d_fresh": 0.08156028368794344,
+          "d_orig": 0.0370370370370372,
+          "excluded": false,
+          "stratum": 3
+        }
+      ]
+    }
+  },
+  "source_name": "run.py",
+  "source_sha256": "ec2e6ef1e6bc12ff7486b9ce7558770810fdf1f5c70c138fe1f6d919ac01b916",
+  "verdict": "W_COLLAPSES"
+}
