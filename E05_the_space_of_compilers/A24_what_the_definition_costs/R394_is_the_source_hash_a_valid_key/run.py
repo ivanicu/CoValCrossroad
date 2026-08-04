@@ -98,6 +98,7 @@ EXIT
 from __future__ import annotations
 import hashlib
 import json
+import os
 import pathlib
 import subprocess
 import sys
@@ -128,9 +129,36 @@ def _refuse_under_load() -> str:
                              timeout=30).stdout
     except Exception:
         return ""
-    mine = str(SELF)
-    others = [l for l in out.splitlines()
-              if "run.py" in l and mine not in l and "pgrep" not in l]
+    # ⛔ v1 EXCLUDED BY PATH STRING AND FIRED ON ITS OWN PROCESSES — a guard that can never pass,
+    #   which is the mirror of the failure it was written to prevent. It filtered lines containing
+    #   the ABSOLUTE path of this file, but the round is invoked as `../../../.venv/bin/python
+    #   run.py`, a RELATIVE path that contains no such string. So it saw its own `sh -c` wrapper and
+    #   its own interpreter, called them "another round", and refused on a quiet machine. It would
+    #   have refused forever.
+    #   The repair is structural rather than textual: exclude by PID ANCESTRY. My own process, my
+    #   parent, and every ancestor up to init cannot be "another round" by construction, and a
+    #   relative path cannot defeat a pid.
+    mine = {os.getpid()}
+    pid = os.getpid()
+    for _ in range(32):
+        try:
+            stat = pathlib.Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()
+            pid = int(stat[1])
+        except Exception:
+            break
+        if pid <= 1:
+            break
+        mine.add(pid)
+    others = []
+    for l in out.splitlines():
+        if "run.py" not in l or "pgrep" in l:
+            continue
+        try:
+            if int(l.split(None, 1)[0]) in mine:
+                continue
+        except (ValueError, IndexError):
+            pass
+        others.append(l)
     return "\n".join(others[:4])
 
 
