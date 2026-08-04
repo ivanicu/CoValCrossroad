@@ -19,12 +19,25 @@ so it cannot drift from the evidence without the suite failing.
 > from any half of them, **and not by way of a rubric those same annotators wrote**; **and**
 >
 > **②** scores better, **under a named judge J**, than a size-matched criterion set that never read
-> the conversation.
+> the conversation; **and**
+>
+> **④** scores better, under that same judge J, than **every rule computable from the response set
+> alone**.
 >
 > Its size, **under that same judge J**, is **greater than one**; sizes **3 to 8 are not
 > distinguishable** by this release.
 
 **Clause ① is not a clause.** It is a consequence — see below.
+
+⭐ **Clause ④ was ADOPTED 2026-08-04**, after every objection I could raise against it was measured
+rather than argued: it is **statable** (its bar saturates at 6 of 30 rules, R435); it **excludes
+nothing at home and everything on the second release** (R436/R434); the two bars **invert**, so it
+binds exactly where ② goes slack (R437); the sign **does not flip** across strata of one release
+(R438); and it is **not a reparameterisation of ②** — its bar sits at the **0.00th percentile** of
+all 1,820 size-4 subsets of ②'s own reference pool, **0.0687 below the weakest of them** (R439) — where the published reference sits at 91.7.
+⚠ **Its scope:** two releases, one judge, and a **30-rule hand-built family** standing in for "every
+criterion-free rule". The family is published in R435's artifact so that extending it is how this
+clause gets refuted.
 
 ---
 

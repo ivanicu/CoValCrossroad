@@ -381,6 +381,20 @@ def derive():
             out[f"r438_gap{n}"] = (None, "R438"); out[f"r438_mde{n}"] = (None, "R438")
             out[f"r438_infl{n}"] = (None, "R438")
         out["r438_n2"] = (None, "R438"); out["r438_n4"] = (None, "R438")
+    # R439 -- the reparameterisation test. The PERCENTILE and the distribution MINIMUM are anchored
+    # together on purpose: "0.00th percentile" alone is compatible with a degenerate distribution,
+    # and it is the gap to the MINIMUM that makes it a statement about reach rather than about ties.
+    d439 = next(A24.glob("R439_*"), None)
+    f439 = (d439 / "results" / "r439_reparam.json") if d439 else None
+    a = json.loads(f439.read_text()) if (f439 and f439.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r439_pct"] = (f"{a['pct']:.2f}", "R439")
+        out["r439_subsets"] = (a["n_subsets"], "R439")
+        out["r439_below"] = (f"{a['dist_min'] - a['bar4']:.4f}", "R439")
+        out["r439_pubpct"] = (f"{a['published_ref_pct']:.1f}", "R439")
+    else:
+        for k in ("r439_pct", "r439_subsets", "r439_below", "r439_pubpct"):
+            out[k] = (None, "R439")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -638,6 +652,14 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r439_pct":     r"bar sits at the \*\*([\d.]+)th percentile\*\*",
+    "r439_subsets": r"all ([\d,]+) size-4 subsets of ②.s own reference pool",
+    "r439_below":   r"\*\*([\d.]+) below the weakest of them\*\*",
+    # ⚠ `[\d.]+` swallowed the sentence-ending period and float() choked on "91.7.". A
+    #    character class that includes `.` cannot be greedy at the end of a sentence. Same
+    #    family as the "seven" bug two rounds ago: a claim meant to be checked has to be
+    #    written -- and matched -- in the units the checker reads.
+    "r439_pubpct":  r"published reference sits at (\d+\.\d+)",
     "r438_gap2":  r"n=2 \| [\d,]+ \| [\d.]+ \| [\d.]+ \| [\d.]+ \| \*\*([+\-][\d.]+)\*\*",
     "r438_gap3":  r"n=3 \| [\d,]+ \| [\d.]+ \| [\d.]+ \| [\d.]+ \| ([+\-][\d.]+) \|",
     "r438_gap4":  r"n=4 \| [\d,]+ \| [\d.]+ \| [\d.]+ \| [\d.]+ \| \*\*([+\-][\d.]+)\*\*",
