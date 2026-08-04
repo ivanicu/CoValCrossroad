@@ -1,5 +1,5 @@
 {
- "source_sha": "8704638eef236b1a",
+ "source_sha": "f15047b3ea0f9a58",
  "world": "W-STRADDLES",
  "committed": [
   "oracle_k4",
@@ -42,8 +42,13 @@
   "U4 U3 + fit-parity variants": 256
  },
  "positive_ok": true,
+ "g0_ok": true,
  "placebo_ok": true,
  "negative_ok": true,
+ "coval_straddles": {
+  "in-sample": false,
+  "held-out": false
+ },
  "monotonicity": {
   "coval_core|in-sample": {
    "monotone": true,

@@ -50,11 +50,25 @@ sign changes.** `min/max of N draws quoted as an interval`, in a new costume. **
 
 | control | result |
 |---|---|
-| **positive** — every enumeration must generate all 11 committed cells | **4 of 4 PASS**, none missing; the empty enumeration would fail it |
-| **placebo** — R328's `crossing` block re-derived from its own `cells` | **identical** |
-| **negative** — `coval_core` has no meta-search; the sweep must not move it | its bracket is [1,1] and the sweep never enters it |
+| **positive** — every enumeration must generate all 11 committed cells | **4 of 4 PASS**, none missing |
+| **positive @ g=0** — the *empty* enumeration run through the same code | correctly **fails** |
+| **sham** — 128 cells, same size as U3, rule names that don't exist | correctly **fails** |
+| **negative** — the same bracket applied to `coval_core` | **does not straddle** (crossing 512 > max enumeration 256) |
+| **placebo** — R328's `crossing` re-derived from its own `cells` | **identical** |
 | noise floor | cells within `[0.95, 1.05]` of the boundary, reported per mode |
 | multiplicity | 16 lookups printed; **no new test — R328 spent the p-values and they are not re-spent** |
+
+### ⚠ Both of those controls were vacuous in v1, and the negative one gated the kill
+
+`neg_ok = True` — **a literal, with a comment explaining why it could not fail.** §4 row 1, in the
+flattering direction, and third mis-specified control in three consecutive rounds. `empty_fails =
+bool(set(committed) - set())` was the same shape: `True` for any non-empty repo.
+
+**Repairing the negative control produced a finding v1 could not have had.** The right question was
+never *"does `coval_core` move?"* — it was **"is straddling a property of the arm's search, or of the
+bracket's width?"** Applied to `coval_core`, the identical bracket does **not** straddle: its
+crossing sits at 512, above the largest enumeration at 256. **So straddling localises to the searched
+arm**, which is what makes W-STRADDLES a statement about `topw_k4` rather than about the design.
 
 ## What this does NOT say
 

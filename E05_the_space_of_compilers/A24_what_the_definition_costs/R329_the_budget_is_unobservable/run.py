@@ -53,11 +53,18 @@ KILL          pre-registered, conditional on the controls:
               changes and contributes no single crossing.
 POSITIVE CTRL the enumeration must contain all 11 committed cells. A grid that cannot generate the
               artifacts already on disk is not the reachable grid, and nothing after it is
-              readable. Fails at g=0 in the sense that an EMPTY enumeration must fail this check --
-              asserted explicitly so the control cannot pass vacuously.
-NEGATIVE CTRL coval_core has no meta-search in this campaign, so its bracket is [1, 1] and its
-              verdict must NOT move as the rule-grid enumeration is swept. If it does, the
-              instrument is responding to something other than the arm's search.
+              readable. It FAILS at g=0: the EMPTY enumeration is RUN through the same containment
+              code and must fail. And a SHAM enumeration of the same SIZE as U3 (128 cells) built
+              from rule names that do not exist must also fail, which separates "big enough" from
+              "contains what was actually built".
+              ⚠ v1 wrote `empty_fails = bool(set(committed) - set())` -- True for any non-empty
+              repo. An assertion wearing a control's clothes; now executed.
+NEGATIVE CTRL ⚠ v1 wrote `neg_ok = True` as a LITERAL with a comment explaining why it could not
+              fail, and that literal GATED the kill. §4 row 1, in the flattering direction.
+              The real question: is straddling a property of topw_k4's SEARCH, or of the
+              BRACKET'S WIDTH? Apply the identical bracket to coval_core, which has no meta-search
+              here, and require it NOT to straddle. This can fail -- if the bracket is simply wide
+              enough to straddle any arm, it fires and the round localises nothing.
 PLACEBO       R328's `crossing` block must be re-derivable from R328's `cells` block by this
               round's own code. If the two disagree, one of the two rounds mis-read its own grid
               and the disagreement is the finding.
@@ -137,13 +144,27 @@ def main() -> int:
     }
     missing = {k: sorted(set(committed) - v) for k, v in ENUM.items()}
     pos_ok = all(not v for v in missing.values())
-    empty_fails = bool(set(committed) - set())      # an EMPTY enumeration must fail this check
     print("  POSITIVE CTRL — every enumeration must contain all 11 committed cells\n")
     for k, v in ENUM.items():
         print(f"    {k:<30}|grid| = {len(v):>5}   missing committed: "
               f"{missing[k] if missing[k] else 'none'}")
-    print(f"    -> {'PASS' if pos_ok else 'FAIL — an enumeration cannot generate the artifacts on disk'}"
-          f"   (and the empty enumeration would fail it: {empty_fails})")
+    print(f"    -> {'PASS' if pos_ok else 'FAIL — an enumeration cannot generate the artifacts on disk'}")
+
+    # ---- and it must FAIL at g=0, RUN rather than asserted ---------------------------------------
+    # ⚠ v1 wrote `empty_fails = bool(set(committed) - set())`, which is `bool({11 items})` and is
+    # True for any non-empty repo. That is an assertion wearing a control's clothes. Both degenerate
+    # enumerations are now put through the SAME containment code the real ones go through.
+    def contains_all(grid):
+        return not (set(committed) - grid)
+
+    g0_empty = contains_all(set())
+    sham = {f"fakerule_k{i}" for i in range(1, 129)}        # SHAM: same SIZE as U3, wrong contents
+    g0_sham = contains_all(sham)
+    g0_ok = (not g0_empty) and (not g0_sham)
+    print(f"    g=0 · the EMPTY enumeration through the same check: "
+          f"{'PASS (correctly fails)' if not g0_empty else 'FAIL — the check is vacuous'}")
+    print(f"    SHAM  · {len(sham)} cells, same size as U3, rule names that do not exist: "
+          f"{'PASS (correctly fails)' if not g0_sham else 'FAIL — size alone satisfies it'}")
 
     # ---- PLACEBO · re-derive R328's crossing block from R328's cells ----------------------------
     def verdicts(arm, mode):
@@ -208,20 +229,38 @@ def main() -> int:
         rows.append(dict(enumeration=name, U=U, ratio=U / L, marks=marks))
         print(f"    {name:<30}{U:>7}{U/L:>7.1f}   {'  '.join(marks)}")
 
-    # ---- NEGATIVE CTRL · coval_core must not move with the rule-grid enumeration ------------------
+    # ---- NEGATIVE CTRL · does EVERYTHING straddle, or only the searched arm? ----------------------
+    # ⚠ v1 wrote `neg_ok = True` as a LITERAL, with a comment explaining why it could not fail.
+    # A control that cannot fail is not a control -- §4 row 1 -- and it GATED the kill. The real
+    # question it should have asked: is straddling a property of TOPW_K4's search, or of the
+    # BRACKET'S WIDTH? Give coval_core the identical bracket and require it NOT to straddle. That
+    # can fail: if the bracket is simply wide enough to straddle any arm, this fires.
+    Us_all = sorted(len(v) for v in ENUM.values())
     cc = {mode: mono[f"coval_core|{mode}"]["first_non_admitting"] for mode in MODES}
-    neg_ok = True                       # coval_core's bracket is [1,1]; the sweep cannot touch it
-    print(f"\n  NEGATIVE CTRL  coval_core has no meta-search here, bracket [1, 1]. Its crossings")
-    print(f"                 {cc} do not depend on the rule-grid enumeration: {neg_ok}")
-    print(f"                 (it is the arm the sweep must NOT move, and the sweep does not "
-          f"enter its budget)")
+    cc_mono = all(mono[f"coval_core|{m}"]["monotone"] for m in MODES)
+    cc_straddles = {}
+    for mode in MODES:
+        cr = cc[mode]
+        if cr is None:
+            cc_straddles[mode] = False          # never fails on the grid -> no crossing to straddle
+        else:
+            cc_straddles[mode] = any(u < cr for u in Us_all) and any(u >= cr for u in Us_all)
+    neg_ok = cc_mono and not any(cc_straddles.values())
+    print(f"\n  NEGATIVE CTRL  the SAME bracket {Us_all} applied to coval_core, which has no")
+    print(f"                 meta-search here. If straddling came from the bracket's WIDTH rather")
+    print(f"                 than from topw_k4's search, coval_core would straddle too.\n")
+    for mode in MODES:
+        cr = cc[mode]
+        print(f"    coval_core|{mode:<11} crossing {str(cr):>5}   "
+              f"max enumeration {Us_all[-1]:>4}   straddles: {cc_straddles[mode]}")
+    print(f"    -> {'PASS — straddling is specific to the searched arm' if neg_ok else 'FAIL — the bracket straddles any arm and localises nothing'}")
 
     # ---- KILL --------------------------------------------------------------------------------------
     key = "topw_k4|in-sample"
     m_ = mono[key]
-    ctrl = pos_ok and plc_ok and neg_ok
+    ctrl = pos_ok and g0_ok and plc_ok and neg_ok
     print("\n  " + "=" * 78)
-    print(f"  CONTROLS  positive={pos_ok}  placebo={plc_ok}  negative={neg_ok}  -> "
+    print(f"  CONTROLS  positive={pos_ok}  g0+sham={g0_ok}  placebo={plc_ok}  negative={neg_ok}  -> "
           f"{'evaluate' if ctrl else 'UNVERIFIED'}")
     if not ctrl:
         world = "UNVERIFIED"
@@ -270,7 +309,8 @@ def main() -> int:
         source_sha=hashlib.sha256(SELF.read_bytes()).hexdigest()[:16], world=world,
         committed=committed, lower_bound=L, selector_rules=rules, k_used=k_used,
         enumerations={k: len(v) for k, v in ENUM.items()},
-        positive_ok=bool(pos_ok), placebo_ok=bool(plc_ok), negative_ok=bool(neg_ok),
+        positive_ok=bool(pos_ok), g0_ok=bool(g0_ok), placebo_ok=bool(plc_ok),
+        negative_ok=bool(neg_ok), coval_straddles=cc_straddles,
         monotonicity=mono, non_monotone=nonmono, rows=rows,
         gauge=dict(transformation="commit N more rule x k cores, do not touch topw_k4",
                    property_invariant=True, measurement_invariant=False,
