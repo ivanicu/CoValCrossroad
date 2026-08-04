@@ -251,6 +251,25 @@ def derive():
     else:
         for k in ("r431_maxgap", "r431_surv", "r431_cells", "r431_stdin"):
             out[k] = (None, "R431")
+    # R432 -- the GPU gate. Anchored because the register line it edits is the one a later round
+    # will ACT on, and a bar stated in prose that no artifact re-derives is how an expensive round
+    # gets pointed at the wrong number.
+    d432 = next(A24.glob("R432_*"), None)
+
+    def r432(stem):
+        f = (d432 / "results" / stem) if d432 else None
+        return json.loads(f.read_text()) if f and f.exists() else None
+    a = r432("r432_headroom.json")
+    if a and a.get("world") != "UNVERIFIED":
+        c = a["cells"]["INTER"]
+        out["r432_best"] = (f"{c['best']:.4f}", "R432")
+        out["r432_oracle"] = (f"{c['oracle']:.4f}", "R432")
+        out["r432_head"] = (f"{c['headroom']:+.4f}", "R432")
+        out["r432_floor"] = (f"{c['floor']:.4f}", "R432")
+        out["r432_over"] = (f"{c['oracle'] - a['length_rule']:+.4f}", "R432")
+    else:
+        for k in ("r432_best", "r432_oracle", "r432_head", "r432_floor", "r432_over"):
+            out[k] = (None, "R432")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -502,6 +521,11 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r432_best": r"ranks the human.s choice first on \*\*([\d.]+)\*\* of interactions",
+    "r432_oracle": r"while \*some\* arm does on \*\*([\d.]+)\*\*",
+    "r432_head": r"headroom \*\*([+\-][\d.]+)\*\* against a floor",
+    "r432_floor": r"against a floor of \*\*([\d.]+)\*\*",
+    "r432_over": r"length rule \(0\.5096\) by ([+\-][\d.]+)\*\*",
     "r431_maxgap":           r"at \*\*at most ([\d.]+)\*\* across all ten pairs",
     "r431_surv":             r"\*\*(\d+) of 30\*\*\s*\n?within-stratum size-association cells",
     "r431_cells":            r"\*\*\d+ of (30)\*\*\s*\n?within-stratum size-association cells",

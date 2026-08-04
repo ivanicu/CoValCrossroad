@@ -1,0 +1,87 @@
+{
+ "source_sha": "271f4f78c32677c9",
+ "world": "W-HEADROOM",
+ "cells": {
+  "CONV": {
+   "best_arm": "randblind_s0",
+   "best": 0.43970851118578386,
+   "oracle": 0.7129246258791713,
+   "headroom": 0.2732161146933874,
+   "null_headroom": 0.4796506610182747,
+   "excess": -0.20643454632488728,
+   "floor": 0.009081712167602502,
+   "null_sd": 0.003972573063479569,
+   "independence_bound": 0.9432059981541713,
+   "sham_is_poison": true
+  },
+  "INTER": {
+   "best_arm": "randblind_s1",
+   "best": 0.4527376736584037,
+   "oracle": 0.7220103514028875,
+   "headroom": 0.26927267774448377,
+   "null_headroom": 0.4767161536366113,
+   "excess": -0.20744347589212753,
+   "floor": 0.008367326997258525,
+   "null_sd": 0.003454684795942901,
+   "independence_bound": 0.9490463973951236,
+   "sham_is_poison": true
+  }
+ },
+ "arms": [
+  "generic",
+  "vacuous",
+  "randblind_s0",
+  "randblind_s1",
+  "randblind_s2"
+ ],
+ "per_arm": {
+  "generic": {
+   "CONV": 0.4373567127317127,
+   "INTER": 0.4497412149278126
+  },
+  "vacuous": {
+   "CONV": 0.4276071176298448,
+   "INTER": 0.4404794333968946
+  },
+  "randblind_s0": {
+   "CONV": 0.43970851118578386,
+   "INTER": 0.45014982293652955
+  },
+  "randblind_s1": {
+   "CONV": 0.4396083752106479,
+   "INTER": 0.4527376736584037
+  },
+  "randblind_s2": {
+   "CONV": 0.43834524061796787,
+   "INTER": 0.45001362026695724
+  }
+ },
+ "dose_sweep": [
+  {
+   "g": 0.0,
+   "headroom": 0.26927267774448377
+  },
+  {
+   "g": 0.1,
+   "headroom": 0.29011168618904937
+  },
+  {
+   "g": 0.25,
+   "headroom": 0.313129937346772
+  },
+  {
+   "g": 0.5,
+   "headroom": 0.35072187414873335
+  }
+ ],
+ "n_usable": 7342,
+ "dropped": {
+  "no_chosen": 2,
+  "too_few": 0,
+  "arm_missing": 0
+ },
+ "n_conv": 2200,
+ "chance": 0.4194336566211566,
+ "length_rule": 0.5095679156701884,
+ "n_sham": 20
+}
