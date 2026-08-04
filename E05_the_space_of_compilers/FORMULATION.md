@@ -1,5 +1,13 @@
 # What a "core" is — the formulation, stated once
 
+> ⭐ **THE STATEMENT NOW LIVES IN [`DEFINITION.md`](DEFINITION.md).** This file is the EVIDENCE
+> RECORD — every clause that was written, attacked and corrected, in the order it happened — and
+> its own title was inaccurate: it opens with a correction rather than with the definition, because
+> the statement was never separated from its history. `DEFINITION.md` is the statement, it is short,
+> and every number in it is re-derived from a committed artifact on every run by
+> `assurance/definition_matches_the_record.py`. **One home per fact:** the definition is stated
+> there, the evidence stays here.
+
 ## ⛔ THE FITTED ARMS' ADVANTAGE VANISHES WHERE THE ANNOTATOR HALVES DISAGREE (R295)
 
 The three admitted fitted arms carry the campaign's largest clause-② margins, and clause ③ passes

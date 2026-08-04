@@ -197,6 +197,17 @@ CASES = [
     # without one would mean nothing. Both doors were attacked; both hold.
     ("source_stamp_is_current", hide_rounds, 2,
      "rounds hidden -> no round carries a stamp: nothing to check, not a clean bill"),
+    # Entry 205. DEFINITION.md's numbers are re-derived from the artifacts of the rounds it
+    # cites. Hiding the rounds removes every artifact, so NOT ONE assertion is evaluable and
+    # it must say so rather than pass a document it could not check. Attacked five ways
+    # before being registered: a mutated number -> caught; a reworded claim the regex can no
+    # longer locate -> caught, because a claim that vanished is not a pass; the document
+    # deleted -> 2; the artifacts hidden -> 2; and the comparison itself neutered to always
+    # agree -> its own positive control fails it, which only works because `same()` is the
+    # function the gate rules with rather than a restatement of it. That last hole was
+    # created BY the first fix, which is where P7 says to look.
+    ("definition_matches_the_record", hide_rounds, 2,
+     "rounds hidden -> no artifact to re-derive from: nothing to check, not a clean bill"),
     # Entry 201. A REPORT check -- it never gates, so its non-empty exit is 0. With the
     # rounds hidden there is no newest round to measure staleness against, and it
     # returns 2 rather than reporting every section as current.

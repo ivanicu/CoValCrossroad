@@ -439,6 +439,23 @@ is the one part measured to be irreplaceable.** ⛔ My pre-registered branches h
 and the default one printed *"at most partly replaceable"* — the reverse of the data.
 → [`R360`](E05_the_space_of_compilers/A24_what_the_definition_costs/R360_which_clause_is_load_bearing)
 
+**⭐ And the definition is now stated once, in one place, with a gate holding it to the record.**
+[`E05/DEFINITION.md`](E05_the_space_of_compilers/DEFINITION.md) — `FORMULATION.md` is 2,389 lines of
+accreted evidence, is titled *"stated once"*, and **opens with a correction**; the statement had
+never been separated from its history. The definition it now carries: a core is a small criterion
+set, producible from the conversation alone, that **uses no information from that prompt's own human
+labels** (③, and the wording must say *from the PROMPT*, not *from the construction* — R295) **and**
+scores better **under a named judge J** than a size-matched prompt-blind set (②). **Clause ① is
+stated as a consequence, not a test.** Size is **a bound, not a number**: more than one, 3–8
+indistinguishable. Ten quantitative claims in it are re-derived from committed artifacts on every run
+by [`definition_matches_the_record.py`](assurance/definition_matches_the_record.py) — **attacked five
+ways before being trusted**: a mutated number → caught; a reworded claim the pattern can no longer
+find → caught, because a claim that vanished is not a pass; the document deleted → exit 2; the
+artifacts hidden → exit 2; and the comparison neutered to always agree → **its own positive control
+fails it**, which works only because the control calls the function the gate rules with rather than
+restating it. **That last hole was created by the first fix.** Suite now **23/23** on an empty
+population.
+
 **Three statements about the published reference, not four — and I had been counting one of them
 twice.** They are also not one finding arriving by three routes, which is what I expected to find:
 R331 measures a **rate** (`rate(R294 ref) > 0` → 3 of 1,820 at k=4), R332 compares **levels**
