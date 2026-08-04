@@ -73,6 +73,14 @@ sets sharing ≥3. The three that clear share **2.33** criteria on average again
 the MDE folds in power (`ZEFF = 1.96 + 0.84`), so it is a *resolution* threshold and BH is a
 *significance* one. Both are published; neither is chosen after the fact.
 
+## ⛔ THE p99 NUMBER IS INFLATED BY THIS ROUND'S OWN GRID — R332
+
+The nine-point percentile grid puts the k=4 closure at **0.554667**. On a **45-point** grid it is
+**0.551951** — the minimal closed reference sits at **p96.4**, not p99. **A grid is an instrument and
+a coarse one reads high.** The RULE (put the reference at the lowest closed level) stands; the
+percentile quoted here does not, and the near-identity with reading A weakens from 6.5e-5 to
+2.65e-3 — still inside one MDE, but *indistinguishable* rather than *identical*.
+
 ## Scope
 
 968 CoVal prompts with ≥2 annotators · Qwen3.5-2B-Base under R234's canonical builder · **all 1,820
