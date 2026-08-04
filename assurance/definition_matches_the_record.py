@@ -309,6 +309,21 @@ def derive():
     else:
         for k in ("r434_sat2", "r434_useful", "r434_arms", "r434_n", "r434_len", "r434_best"):
             out[k] = (None, "R434")
+    # R435 -- the saturation numbers. m* is the load-bearing one: it is what makes the bar a bar
+    # rather than a function of how many rules someone tried, and a prose claim of "it saturates"
+    # that no artifact re-derives is exactly the shape this gate exists to catch.
+    d435 = next(A24.glob("R435_*"), None)
+    f435 = (d435 / "results" / "r435_bar_stability.json") if d435 else None
+    a = json.loads(f435.read_text()) if (f435 and f435.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r435_mstar"] = (a["m_star"], "R435")
+        out["r435_family"] = (len(a["family"]), "R435")
+        out["r435_resid"] = (f"{a['residual_climb_at_m_star']:+.4f}", "R435")
+        out["r435_floor"] = (f"{a['data_floor']:.4f}", "R435")
+        out["r435_lift"] = (f"{a['curve'][-1]['lift']:+.4f}", "R435")
+    else:
+        for k in ("r435_mstar", "r435_family", "r435_resid", "r435_floor", "r435_lift"):
+            out[k] = (None, "R435")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -566,6 +581,11 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r435_mstar":  r"\*\*saturates at m\\\* = (\d+)\*\*",
+    "r435_family": r"family of \*\*(\d+)\*\* judge-free rules",
+    "r435_resid":  r"BAR\(\|F\|\) − BAR\(6\) = `?([+\-][\d.]+)`?",
+    "r435_floor":  r"inside the \*\*([\d.]+)\*\* that the",
+    "r435_lift":   r"signal-free family of the same size is \*\*([+\-][\d.]+)\*\*",
     "r434_sat2":   r"\*\*Clause ② admits (\d+) of 7\.",
     "r434_useful": r"And (\d+) of 7 beat the length rule",
     # ⚠ the document said "seven" and this anchor captured the WORD, which the gate then tried

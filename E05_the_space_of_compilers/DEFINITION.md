@@ -365,6 +365,42 @@ length rule is not one, and it was never admissible.
 
 ---
 
+## ⭐ A SUFFICIENCY CLAUSE IS STATABLE — the bar saturates after **6** rules 2026-08-04 (R435)
+
+R434 named the missing piece: a clause stated against a **non-criterion reference**. Two things had
+to be checked before one could be written, and the first refuted a sentence of my own.
+
+**① There are four non-criterion references, not one.** R427's `baselines_prejudge`
+(`computed_before_arms: true`) holds **chance 0.4194 · first 0.4375 · longest 0.5096 · shortest
+0.3362**. So the clause cannot be *"better than the longest-reply rule"* — that **names the
+instance**, the failure this document's own ledger row is about. It must quantify over a **class**.
+
+**② A maximum over a class climbs as the class grows — so does the bar mean anything?** Over a
+family of **30** judge-free rules (14 response-set features × {max, min}, plus first/last), the
+maximum **saturates at m\* = 6**: `BAR(|F|) − BAR(6) = +0.0232`, inside the **0.0234** that the
+conversation bootstrap says one accuracy can resolve. Adding the other 24 rules moves the bar by
+less than the data can see. **The bar is not an artifact of how hard anyone looked.** Lift over a
+signal-free family of the same size is **+0.0715**, ~3× the data floor.
+
+**So the clause is statable, and here it is as a predicate:**
+
+> **④** …and scores better, under that same judge J, than **every rule computable from the response
+> set alone**.
+
+| the remedy's two questions | answer |
+|---|---|
+| an admissible object it **EXCLUDES** | **all 7 arms on the second release** (R434), including the published prompt-blind `generic`. Not vacuous. |
+| a useful object it **ADMITS** | an oracle arm, **+0.4865** over the length rule (R434). Not impossible. |
+
+⛔ **④ IS NOT ADOPTED, AND WILL NOT BE UNTIL ONE MORE THING IS MEASURED.** Whether it excludes
+anything on the **home** release — where clause ② admits 33 of 42 — is unknown: those arms have
+never been scored against the criterion-free family. **Adding ④ now would fit it to the single
+release where everything already fails**, which is precisely this document's
+*"the definition describes the instance"* failure.
+→ [`R435`](A24_what_the_definition_costs/R435_is_a_sufficiency_clause_even_statable)
+
+---
+
 ## What this definition cannot claim
 
 | | |
