@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**412 rounds** in **5 epochs** and **24 arcs**, numbered to **R418** — **53 standing claims, 13
+**413 rounds** in **5 epochs** and **24 arcs**, numbered to **R419** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1360,6 +1360,22 @@ than exclude scoring rounds from verification.** ⚠ R418's emission control mat
 **origin of the other tokens is still unknown; I am not guessing a third time** — R396 did not persist
 its captured outputs, which was my omission in its design.
 → [`R418`](E05_the_space_of_compilers/A24_what_the_definition_costs/R418_what_differed_was_not_the_claims)
+
+**The scoring-only floor is EXACTLY ZERO — bitwise identical on all 200 prompts — which locates
+R415's 0.116489 entirely in SELECTION.** ⭐ `--core coval_core` reads criteria deterministically from
+the rubric, so two runs share them **by construction**, and the provenance field added two rounds ago
+**proves** it: both artifacts carry `criteria_sha256 = d9a198b6…` over **3,828 criteria**, 3,168 judge
+calls each. Measured: mean, sd and **max |difference| all `0.000000000`.** ⛔ **Four rounds resolve at
+once**: R415's number was a *rule-level* floor, R416 found the criteria differed on 91–99.6%, R417
+*inferred* from source that scoring adds nothing — **and this promotes that inference to a
+measurement.** **Every A2 figure in `DEFINITION.md` is a fixed quantity given its criteria.** ⛔ **An
+override was available and was not taken**: the first `B` run carried a different `producer_sha256`,
+differing only in *where a hash is computed* — provably untouchable by a score — so waiving the
+pre-registered pair check was defensible. **B was re-run instead, at a cost of one minute**, because a
+rule written one turn earlier should not be bent when honouring it is cheap. ⚠ Scope is now
+*statable* rather than guessed: **batch 32, one judge, 200 prompts** — exactly what the provenance
+field makes expressible and what could not have been said three rounds ago.
+→ [`R419`](E05_the_space_of_compilers/A24_what_the_definition_costs/R419_the_scoring_only_floor_measured)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

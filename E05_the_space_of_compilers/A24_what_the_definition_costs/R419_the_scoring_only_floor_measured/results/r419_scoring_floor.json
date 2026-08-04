@@ -1,0 +1,43 @@
+{
+  "abs_mean": 0.0,
+  "controls": {
+    "same_criteria": true,
+    "same_producer": true,
+    "self_zero": true
+  },
+  "e_2b": 0.009002172366714738,
+  "max_abs": 0.0,
+  "mean": 0.0,
+  "n_prompts": 200,
+  "provenance": {
+    "A": {
+      "batch": 32,
+      "core": "coval_core",
+      "criteria_sha256": "d9a198b61aef23d5289f293a7aa4c7f81409a404fe883b2aab406ff77f05ff4a",
+      "limit": 200,
+      "model": "/mnt/e/data.ai-models.local-model-store.storage.xl.private.readonly/Qwen3.5-2B-Base",
+      "n_calls": 3168,
+      "n_criteria": 3828,
+      "n_prompts": 200,
+      "producer": "corebench/judge_core.py",
+      "producer_sha256": "1c6bbfebcd21e9812949fff34e885dbe1cb04fc49b4f6180c1567a3a61271ff1"
+    },
+    "B": {
+      "batch": 32,
+      "core": "coval_core",
+      "criteria_sha256": "d9a198b61aef23d5289f293a7aa4c7f81409a404fe883b2aab406ff77f05ff4a",
+      "limit": 200,
+      "model": "/mnt/e/data.ai-models.local-model-store.storage.xl.private.readonly/Qwen3.5-2B-Base",
+      "n_calls": 3168,
+      "n_criteria": 3828,
+      "n_prompts": 200,
+      "producer": "corebench/judge_core.py",
+      "producer_sha256": "1c6bbfebcd21e9812949fff34e885dbe1cb04fc49b4f6180c1567a3a61271ff1"
+    }
+  },
+  "rule_floor": 0.11648920010523041,
+  "sd": 0.0,
+  "source_name": "run.py",
+  "source_sha256": "332ffae2e639da99936a9566a54e3770c0434967328f7d57685d19d7ee2bc6cc",
+  "verdict": "W_FLOOR_ZERO"
+}

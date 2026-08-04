@@ -124,6 +124,13 @@ def derive():
     else:
         for k in ("r398_rows", "r398_convs", "r398_multi", "r398_models", "r398_refs"):
             out[k] = (None, "R398")
+    a = art("R419_*")
+    if a:
+        out["r419_maxabs"] = (a["max_abs"], "R419")
+        out["r419_n"] = (a["n_prompts"], "R419")
+    else:
+        for k in ("r419_maxabs", "r419_n"):
+            out[k] = (None, "R419")
     a = art("R415_*")
     if a:
         out["r415_shift"] = (round(a["worst_mean_shift"], 6), "R415")
@@ -329,6 +336,7 @@ ASSERTIONS = {
     # beyond ③a) was silently unchecked. A declared assertion with no anchor is not a weaker check,
     # it is NO check. And my first attempt to add it failed its own guard and applied nothing while
     # the commit message said it had — so the second failure was in the REPAIR, not the original.
+    "r419_n":                r"bitwise identical on all (\d+) prompts",
     "r415_shift":            r"mean A2 by up to `(0\.\d+)`",
     "r415_pairs":            r"\*\*(\d+)\*\* committed re-run pairs exist",
     "r408_core_e":           r"scores \*\*`\+(0\.\d+)`\*\* against `se",

@@ -187,7 +187,10 @@ committed criterion sets and all five differ, on 91–99.6% of prompts.** Re-run
 — re-selecting the criteria and re-scoring them — shifts an arm's
 **mean A2 by up to `0.116489`**, which is 13× the +0.009002 clause ②'s headline rests on.
 ⚠ This is a **rule-level** floor, not a scoring floor, and it does **not** establish that scoring is
-unstable.
+unstable. ⭐ **RESOLVED 2026-08-04 (R419): the scoring-only floor is EXACTLY ZERO.** Two runs of
+identical criteria at this judge — proven identical by their committed `criteria_sha256` — are
+**bitwise identical on all 200 prompts**. So the shift above is located **entirely in SELECTION**, and
+**every A2 figure on this page is a fixed quantity given its criteria**, at batch 32.
 
 **No such pair exists at the 2B judge that produced every number on this page.** So the floor here is
 **not measured**, and every A2 figure in this document rests on an assumption of pipeline stability
