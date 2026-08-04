@@ -168,6 +168,18 @@ It excludes the most, and every one of the following is measured:
   `gen` 0.4%; at 0.8B `gen` clears more than `coval_core` does. **The judge does not merely move the
   threshold — it reorders the definition's two candidate members**, which is a stronger claim than
   the one being corrected. ⚠ Shares are comparable across judges; A2 LEVELS are not.
+  **NARROWED 2026-08-04 (R448): the reordering is real but it is NOT a symmetric swap, and it has a
+  measured mechanism.** Against a null built from the 1,820 references' own shifts, `gen` rises
+  **+0.5319** in quantile where references starting at its rank move a median **+0.015…+0.054**
+  (p ≤ 0.0055, **10 of 10** grid cells surviving BH), while `coval_core`'s **−0.3016** survives only
+  at the two narrowest bands (4 of 10) **and its null is CENSORED** — it starts at quantile exactly
+  1.0000, so its band can only move down and its p is an upper bound. **The mechanism is
+  cross-judge criterion stability**: per-criterion sign agreement is `gen` **0.6302** vs the
+  reference pool's **0.5899** (Δ **+0.0403**, MDE 0.0143, RESOLVED), while `coval_core` **0.6044** is
+  *unresolved* against the same pool (Δ +0.0144, MDE 0.0147). **So `gen`'s absolute A2 FALLS
+  (0.5374 → 0.4743) while its RANK rises, because the reference class falls further.** Regression to
+  the mean is dead as the whole story; ties are dead as the mechanism (2B 0.045 → 0.8B 0.080, and
+  dropping tied pairs changes no cell). *(R448)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

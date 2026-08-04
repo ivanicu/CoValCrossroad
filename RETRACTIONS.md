@@ -8759,3 +8759,35 @@ propagated to the numbers it contaminates is not acknowledged.
 ⚠ **What this does NOT retract.** That the judge matters — it matters *more*. And it establishes
 nothing about which judge is right: *two judges can refute a rule and never establish one*, which is
 this document's own sentence and still holds.
+
+---
+
+## 246 · A control that could not PASS — the fifth build of the same defect (R448, caught in-round)
+
+**What was built.** R448's NEGATIVE control asserted that destroying the cross-judge correspondence
+must inflate the mean absolute rank shift, and tested it as `ceiling > 3 × observed`.
+
+**Why it could not pass.** For two independent rank vectors on [0,1], `E|U−V| = 1/3` **exactly**. The
+measured ceiling was **0.3331** — the analytic maximum. So `3 × observed` demanded the real
+cross-judge shift be under **1/9 = 0.111**, and it is 0.1361. **The threshold was not derived from
+anything the design can return; it was a multiplier I chose.** The control printed `⛔ FAIL` and the
+round returned `UNVERIFIED` on an instrument that was working correctly.
+
+**The repair, and why it is not a relaxation.** §4 already prescribes the admissible form:
+`floor < observed < ceiling`, with the observed resolvably separated from **both** ends. Floor = 0
+(monotone judge, measured 0.00e+00). Ceiling = 1/3, **derived analytically and then confirmed by
+measurement at 0.3331**. Observed 0.1361, bootstrap CI [0.1311, 0.1414], strictly inside. **The new
+threshold is computed without reference to the observed value** — which is the only thing that
+distinguishes repairing a control from tuning one until it passes.
+
+⛔ **The count.** The skill's own table reads *"control that cannot PASS — built 4×, caught 4×."*
+**This is the fifth.** Four of the five were caught by the control failing loudly, which is the
+benign direction; the mode has never yet produced a false PASS. **But that is luck about which side
+the arbitrary threshold fell on, not a property of the practice** — a multiplier chosen by hand is
+equally capable of sitting below the floor, and then it passes on a broken instrument and nobody
+looks again.
+
+**The mechanical remedy, and it is cheap enough that there is no excuse:** *before* writing any
+control threshold, compute the statistic's **floor** (nothing planted) and **ceiling** (maximal
+plant, or the analytic bound) and assert `floor < t < ceiling`. Both numbers here were available in
+closed form and neither was computed until the control had already failed.

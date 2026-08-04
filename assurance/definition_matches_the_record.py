@@ -504,6 +504,22 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R448 -- the mechanism behind the inversion. The two DELTAS-vs-pool are anchored rather than
+    # the raw X values, because the finding is that one is resolved and the other is not, and an
+    # anchor on the levels alone would let that contrast drift.
+    d448 = next(A24.glob("R448_*"), None)
+    f448 = (d448 / "results" / "r448_regression_null.json") if d448 else None
+    a = json.loads(f448.read_text()) if (f448 and f448.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        x = a["X"]["all_pairs"]
+        out["r448_gen_shift"] = (f"{a['observed']['gen']['shift']:+.4f}", "R448")
+        out["r448_core_shift"] = (f"{a['observed']['coval_core']['shift']:.4f}", "R448")
+        out["r448_gen_pool"] = (f"{x['gen_vs_pool']['delta']:+.4f}", "R448")
+        out["r448_pool_x"] = (f"{x['X_pool16']:.4f}", "R448")
+    else:
+        for k in ("r448_gen_shift", "r448_core_shift", "r448_gen_pool", "r448_pool_x"):
+            out[k] = (None, "R448")
+
     # R447 -- the judge sweep that corrected R301. Both judges' shares for BOTH arms are anchored,
     # because the finding is the INVERSION and an anchor on one arm at one judge would let the
     # comparison that constitutes it drift away.
@@ -778,6 +794,12 @@ ASSERTIONS = {
     "r447_core8": r"admits `coval_core` under \*\*([\d.]+)%\*\* of its own",
     "r447_gen8":  r"and `gen` under \*\*([\d.]+)%\*\*",
     "r447_refs":  r"over all \*\*([\d,]+)\*\* references judged by 0\.8B",
+    "r448_gen_shift":  r"`gen` rises\s+\*\*([+\-\d.]+)\*\* in quantile",
+    # MINUS is the U+2212 typographic character in prose and ASCII '-' in json floats. Written
+    # once, here, because getting it wrong by hand is now a 3-time defect.
+    "r448_core_shift": r"while `coval_core`'s \*\*([\u2212\-][\d.]+)\*\* survives only",
+    "r448_gen_pool":   r"\(Δ \*\*([+\-\d.]+)\*\*, MDE 0\.0143, RESOLVED\)",
+    "r448_pool_x":     r"the\s+reference pool's \*\*([\d.]+)\*\*",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",
@@ -937,7 +959,11 @@ def read_claims(text):
     got = {}
     for label, pat in ASSERTIONS.items():
         m = re.search(pat, text)
-        got[label] = float(m.group(1).replace(",", "")) if m else None
+        # ⛔ NORMALISE AT THE CONVERSION SITE, not in each pattern. Prose uses the typographic
+        #    MINUS U+2212 and json floats use ASCII '-'; float() rejects the former. Fixing this
+        #    per-anchor failed twice and this is the third occurrence, so it is fixed once, here,
+        #    where every present and future anchor passes through.
+        got[label] = float(m.group(1).replace(",", "").replace("\u2212", "-")) if m else None
     return got
 
 
