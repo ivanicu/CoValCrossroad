@@ -84,9 +84,14 @@ CONTROLS
                      completion rate measured with a timeout that never fires is not a measurement.
   g=0                the timeout instrument on a script that exits immediately must NOT report
                      TIMEOUT -- the mirror, so the control can fail in both directions.
-  ISOLATION          the real repository's git status is compared before and after. Rounds WRITE
-                     when they run; if one wrote into the real tree this number would be worthless
-                     and the tree would be damaged.
+  ISOLATION          the CONTENT of every committed artifact in the real tree is hashed before and
+                     after. Rounds WRITE when they run; if one wrote into the real tree this number
+                     would be worthless and the tree would be damaged. ⚠ v1 hashed `git status
+                     --porcelain` instead and FAILED while nothing was wrong -- five of my own
+                     commits landed during the 23-minute run and moved the string, the tree itself
+                     was clean, and a valid census was correctly marked UNVERIFIED for 45 rounds.
+                     The claim's unit is a file's CONTENT; the instrument's was git's opinion about
+                     staging. They are not the same object.
 
 ⛔ ARITHMETIC TRAP. p_cheap could come out anywhere in [0,1]; it is a measurement. The static screen
    count (301 `pure` of 328) is NOT -- it is a property of the import lines, forced by reading them,
@@ -131,6 +136,29 @@ def screen(p: pathlib.Path) -> str:
     if not kinds:
         return "pure"
     return "gpu/ml" if "gpu/ml" in kinds else ("network" if "network" in kinds else "cpu-ml")
+
+
+def tree_fingerprint() -> str:
+    """Content of every committed artifact in the real tree, hashed.
+
+    ⚠ v1 used `git status --porcelain`, and it FAILED while nothing was wrong. Its claim was "no
+    round modified the real working tree"; its instrument was "git's status string is unchanged",
+    and those are different objects the moment the author commits anything concurrently. Five of my
+    own commits landed during the 23-minute run and moved the string; the tree itself was clean and
+    no round had written to it. realstat §4, `the control fails for its own reasons`, form ③ --
+    it targets a different statistic than the one being reported -- and the cost was a whole
+    execution census correctly marked UNVERIFIED.
+
+    The claim's unit is a FILE'S CONTENT under a round's results/, so that is what is hashed. Immune
+    to commits, to staging, to new untracked files, and to this round's own output.
+    """
+    h = hashlib.sha256()
+    for f in sorted(ROOT.glob("E*/A*/R*/results/*")):
+        if not f.is_file() or "R344_what_fraction" in str(f):
+            continue
+        h.update(f.relative_to(ROOT).as_posix().encode())
+        h.update(hashlib.sha256(f.read_bytes()).digest())
+    return h.hexdigest()
 
 
 def make_copy(dest: pathlib.Path) -> bool:
@@ -289,8 +317,7 @@ def main() -> int:
           f"self-referential: {', '.join(pathlib.Path(x).parent.name for x in excluded) or 'none'}), "
           f"budget T={TIMEOUT}s, sample n={SAMPLE_N}\n")
 
-    before = subprocess.run(["git", "-C", str(ROOT), "status", "--porcelain"],
-                            capture_output=True, text=True).stdout
+    before = tree_fingerprint()
 
     tc_ok, tc_detail = timeout_controls()
     print(f"  TIMEOUT CONTROL: {tc_detail}  {'PASS' if tc_ok else 'FAIL'}")
@@ -351,8 +378,7 @@ def main() -> int:
     print(f"  POSITIVE CONTROL ({POS.parent.name if POS else '-'}): completes and reproduces -> "
           f"{'PASS' if pos_ok else 'FAIL'}")
 
-    after = subprocess.run(["git", "-C", str(ROOT), "status", "--porcelain"],
-                           capture_output=True, text=True).stdout
+    after = tree_fingerprint()
     iso_ok = (before == after)
     print(f"  ISOLATION: the real tree is unchanged after executing {len(sample)} rounds  "
           f"{'PASS' if iso_ok else 'FAIL'}")
