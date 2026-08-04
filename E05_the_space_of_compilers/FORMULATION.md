@@ -1759,28 +1759,28 @@ now read it.**
 **One split** — everything this arc reported is below its own MDE **except**
 `R249 minimal-size move under label order` at **0.1680**.
 
-⛔ **BUT THE FOUR BRACKETS ARE NOT FOUR OPINIONS ABOUT THE SITE, AND CALLING THE SPREAD "the honest
-width" WAS WRONG (R321).** They are **two estimands**, readable from the code: R267/R268/R269 take
-`min(g : observed >= 0.8)` bracketed by the **dose step**; R274 takes the range where a **binomial
-CI** on detection contains 0.8. Applying R267's rule to R274's own 400-replicate curve gives
-`[0.110, 0.115]`, which R274's `[0.105, 0.125]` **contains** — on identical data the two rules
-agree.
+⛔ **THE FOUR BRACKETS ARE NOT FOUR OPINIONS ABOUT THE SITE, AND THE SPREAD IS NOW FULLY
+DECOMPOSED (R321–R324).** Calling it "the honest width" was wrong; every component below was
+measured with the others held fixed, and none of them is the release.
 
-Within the point-crossing estimand, `min(g : observed >= 0.8)` is a **minimum over a noisy
-sequence** and is biased low. Resampling R274's curve, 2000 draws x 2 seeds:
+| component | round | what it does | evidence |
+|---|---|---|---|
+| **two estimands** | R321 | R267/268/269 take `min(g : observed ≥ 0.8)` bracketed by the **dose step**; R274 takes the range where a **binomial CI** contains 0.8 | R267's rule on R274's own curve gives `[0.110, 0.115]`, which R274's `[0.105, 0.125]` **contains** — on identical data the rules agree |
+| **replicates** | R322 | the CI's **lower** end falls with fewer replicates; the upper end does not | 400→[0.105,0.125], 100→[0.090,0.125], 40→[0.085,0.125], everything else identical |
+| **threshold** | R323 | `tau` is the **calibration size**, not a judgement | `quantile(cal[:200], .95) = 0.416000` = R268's committed tau; `cal[:3000] → 0.424000` = R274's. Both from **one array**, exact to six decimals |
+| **dose grid** | R324 | a coarser grid shifts the bracket; a **short** grid cannot produce one | R268's step 0.02 moves both ends **+0.015**; R267's grid stops at 0.12 and its **upper end is undefined** |
 
-| reps | E[MDE_hat] | 95% range | the arc produced |
-|---:|---:|---|---:|
-| 40 | 0.1077 | [0.090, 0.125] | 0.0900 |
-| 100 | 0.1124 | [0.105, 0.125] | 0.1000 |
-| 400 | 0.1159 | [0.105, 0.125] | 0.1150 |
+**What is left over: nothing.** `tau` was the last unexplained number and it reproduces exactly.
 
-**The bias is real and too small to explain the arc** — about `0.008` of a `0.025` gap. The
-remainder is design difference, not precision, and one is visible in the artifacts: R268 calibrates
-**tau = 0.416**, R274 **tau = 0.424**.
+⚠ **And R267's grid maximum is 0.12 while the one effect it calls resolvable is 0.1680.** It never
+measured detection there — it **divided**, and its own output labels that section *"A DERIVATION,
+not evidence"*. A grid that stops below the largest published effect can never do anything else.
 
-> **So the site MDE is R274's `[0.105, 0.125]`, and the lower brackets are a different estimator at
-> fewer replicates under a different threshold — not rival measurements to be averaged or spread.**
+> **So the site MDE is R274's `[0.105, 0.125]` — the finest grid, the most replicates, the largest
+> calibration set, and the only one of the four whose interval is a statement about precision
+> rather than about grid spacing. The other three are not rival measurements to be averaged or
+> spread; they are the same release read through coarser instruments, and the differences are
+> priced above rather than absorbed into a width.**
 
 **And the statistic-choice gap two lines above moves with it, because it is that bracket divided by
 a constant.** On the canonical tensor: `0.105/0.030 = 3.50` and `0.125/0.026 = 4.81`, so
