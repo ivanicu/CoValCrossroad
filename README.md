@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**359 rounds** in **5 epochs** and **24 arcs**, numbered to **R365** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**353 of the 359 carry a
+**360 rounds** in **5 epochs** and **24 arcs**, numbered to **R366** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**354 of the 360 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -512,6 +512,20 @@ instrument-independence and never establish it, so what is earned is **"not refu
 judge"** — and at 0.8B the level itself is unresolved (−0.0126 vs 0.0145), making it a flat dose on a
 null level. Gate now checks **23 of 23**.
 → [`R365`](E05_the_space_of_compilers/A24_what_the_definition_costs/R365_is_the_empty_channel_a_2B_statement)
+
+**⛔ And my explanation for that survival is refuted by an artifact I had already committed.** R365's
+commit closed with a mechanism *and an action* — *"it survived because it is a DIFFERENCE, and
+differences are what shrink transformations preserve … the definition should be restated in
+differences."* **R362's size-band steps are differences of differences too, and 1 of 3 survive.**
+Over the whole population of **7** claims run at both judges, neither `difference` (Fisher
+**p = 1.0000**) nor `null` (**p = 0.4286**) sorts survival — **on a powered test**, since a perfect
+split at n=7 reaches **p = 0.0286**. So this is a null, not silence, and **nothing in the record
+predicts which claims survive the judge.** ⛔ **`Restate the definition in differences` is
+withdrawn.** And the rival explanation is a **derivation** that downgrades my own headline: under any
+scaling `x → βx` a true **zero maps to zero exactly**, so **a null surviving a shrink is the cheapest
+possible survival** — and R365 *is* a null. Its measurement stands; **what changes is what that
+survival is evidence for.** Gate now checks **27 of 27**.
+→ [`R366`](E05_the_space_of_compilers/A24_what_the_definition_costs/R366_does_anything_predict_which_claims_survive_the_judge)
 
 **⭐ And the definition is now stated once, in one place, with a gate holding it to the record.**
 [`E05/DEFINITION.md`](E05_the_space_of_compilers/DEFINITION.md) — `FORMULATION.md` is 2,389 lines of

@@ -77,6 +77,15 @@ def derive():
     out["closure_k_count"] = (len(a["ks"]) if a else None, "R355")
     a = art("R358_*")
     out["closure_violations_08B"] = (a["totals_08b"]["45"] if a else None, "R358")
+    a = art("R366_*")
+    if a:
+        out["survive_n"] = (a["n_claims"], "R366")
+        out["p_form"] = (round(a["table_form"]["p"], 4), "R366")
+        out["p_null"] = (round(a["table_null"]["p"], 4), "R366")
+        out["p_perfect"] = (round(a["controls"]["positive_p"], 4), "R366")
+    else:
+        for k in ("survive_n", "p_form", "p_null", "p_perfect"):
+            out[k] = (None, "R366")
     a = art("R365_*")
     if a:
         out["mde_ratio_08B"] = (round(a["delta"]["0.8B"][1] / a["delta"]["2B"][1], 2), "R365")
@@ -144,6 +153,11 @@ ASSERTIONS = {
     # R365 — the null survived a change of judge; its second-judge numbers come with it.
     "channel_mde_08B":       r"\*\*\+0\.0000 vs MDE (\d\.\d+) at 0\.8B\*\*",
     "mde_ratio_08B":         r"only \*\*(\d\.\d+)×\*\* 2B's",
+    # R366 — the survival explanation was refuted; its counts come with the correction.
+    "survive_n":             r"population of \*\*(\d+)\*\* claims run at both judges",
+    "p_form":                r"neither `difference` \(Fisher\n\*\*p = (\d\.\d+)\*\*\)",
+    "p_null":                r"nor `null` \(\*\*p = (\d\.\d+)\*\*\)",
+    "p_perfect":             r"\*\*would\*\*\s+have reached \*\*p = (\d\.\d+)\*\*",
 }
 
 

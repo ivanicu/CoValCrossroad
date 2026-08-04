@@ -130,6 +130,16 @@ irreplaceability, this is the first claim here to come through unchanged.**
 **"not refuted at a second judge"** — and at 0.8B the level itself is unresolved (−0.0126 vs 0.0145),
 so it is a flat dose on a null level.
 
+⛔ **AND THAT SURVIVAL IS CHEAPER THAN IT SOUNDS (R366).** Under **any** scaling `x → βx` a true
+**zero maps to zero exactly**, while a true nonzero maps to `β·nonzero` and may fall below its MDE —
+so **a null surviving a shrink is the cheapest possible survival**, and this claim is a null. My own
+explanation for it — *"it is a difference, and differences are what shrink transformations
+preserve"* — is **refuted**: R362's size-band steps are differences of differences too, and **1 of 3**
+survive. Over the whole population of **7** claims run at both judges, neither `difference` (Fisher
+**p = 1.0000**) nor `null` (**p = 0.4286**) sorts survival, on a test where a perfect split **would**
+have reached **p = 0.0286**. **So nothing in this record predicts which claims survive the judge, and
+the proposal to restate the definition in differences is withdrawn.**
+
 ---
 
 ## The size
