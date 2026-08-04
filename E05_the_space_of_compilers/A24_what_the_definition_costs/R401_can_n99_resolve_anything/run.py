@@ -201,6 +201,32 @@ def main() -> int:
         print(f"  nobody has measured, so MEASURING p_d is the next round — and it is far cheaper")
         print(f"  than the test it would authorise.")
 
+    # ⛔ AND THE VERDICT ABOVE IS SCOPED TO ONE DESIGN, WHICH I ALMOST FAILED TO NOTICE. n=99 binds a
+    #   DEPTH-MATCHED CROSS-CORPUS design -- one that pairs second-corpus conversations against CoVal
+    #   ones. But clause ② is an INTRA-CORPUS comparison: a core against a prompt-blind size-matched
+    #   set, both scored on the SAME conversations. That design never touches CoVal's sample at all,
+    #   so CoVal's 1,078 conversations do not bound it. Two different questions, two different n, and
+    #   quoting the first as though it closed the second would be exactly the scope error this
+    #   campaign keeps paying for. So the second n is COMPUTED here, not asserted in prose.
+    N_WITHIN = {"conversations (R398)": 8011, "interactions with one `if_chosen` (R399)": 26886}
+    print(f"\n  ⛔ THE VERDICT ABOVE IS SCOPED TO ONE DESIGN. n={n} binds a DEPTH-MATCHED")
+    print(f"     CROSS-CORPUS test. Clause ② is an INTRA-corpus comparison — a core against a")
+    print(f"     prompt-blind set, both scored on the SAME conversations — and that design never")
+    print(f"     touches CoVal's sample, so CoVal's 1,078 conversations do not bound it.")
+    print(f"      design                                        n        MDE @ p_d=0.30   vs +{biggest:.4f}")
+    within = {}
+    for label, nn in N_WITHIN.items():
+        m = mde(nn, 0.30)
+        within[label] = dict(n=nn, mde_at_pd30=round(m, 5), resolvable=(m <= biggest))
+        print(f"      {label:<44} {nn:>6,}   {m:.4f}          "
+              f"{'resolvable' if m <= biggest else 'UNRESOLVABLE'}")
+    print(f"      depth-matched cross-corpus (priced above)    {n:>6,}   {mde(n,0.30):.4f}          "
+          f"{'resolvable' if mde(n,0.30) <= biggest else 'UNRESOLVABLE'}")
+    print(f"     -> the transport ROUTE is closed at depth-matched n; the CLAUSE-② question on the")
+    print(f"        second corpus is not, and it is well-powered by roughly two orders of magnitude.")
+    print(f"     ⚠ THEY ARE DIFFERENT QUESTIONS. `does a core transport from CoVal to here` is not")
+    print(f"       `does clause ② hold here`. The second is answerable; it is not a substitute.")
+
     print(f"\n  ⚠ sd = sqrt(p_d) HOLDS UNDER A SYMMETRIC NULL. With a non-zero effect the variance is")
     print(f"    slightly smaller, so this MDE is mildly CONSERVATIVE — it overstates the required")
     print(f"    effect, which makes `underpowered` HARDER to conclude, not easier. Stated because a")
@@ -215,6 +241,7 @@ def main() -> int:
                unresolvable_share=round(share, 3), crossing_pd=round(pd_star, 5),
                controls=dict(mde_huge_n=huge, mde_tiny_n=tiny, hi_ok=c_hi, lo_ok=c_lo,
                              monotone=c_mono, sweep=[round(x, 5) for x in sweep]),
+               within_corpus=within,
                verdict=v, derivation=True)
     (HERE / "results").mkdir(exist_ok=True)
     outp = HERE / "results" / "r401_power_at_99.json"

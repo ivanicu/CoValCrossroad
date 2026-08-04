@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**393 rounds** in **5 epochs** and **24 arcs**, numbered to **R400** — **53 standing claims, 13
+**394 rounds** in **5 epochs** and **24 arcs**, numbered to **R401** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1083,6 +1083,20 @@ word: **77 of the 99 sit at depth 2**, and **CoVal's modal object — depth 1, 9
 exactly one counterpart.** Transport, if run, would say nothing about the conversations CoVal is
 mostly made of.
 → [`R400`](E05_the_space_of_compilers/A24_what_the_definition_costs/R400_is_conversation_depth_a_confound)
+
+**The cross-corpus transport route is closed at n=99; the clause-② route is open by two orders of
+magnitude.** ⛔ Priced before building, and the MDE formula is labelled a **DERIVATION** — `ZEFF·sd/√n`
+could not have come out otherwise; what is not forced is the **comparison**. Swept over the whole
+discordance range, the MDE at n=99 exceeds the largest effect this campaign has measured (**+0.0992**,
+R368) in **10 of 12 cells**, crossing at **p_d = 12.4%** — the test would resolve only if two
+differently-built criterion sets disagreed on fewer than 12.4% of conversations. ⛔ **But that verdict
+is scoped to ONE design**, which I almost failed to notice: n=99 binds a *depth-matched cross-corpus*
+test, while **clause ② is an INTRA-corpus comparison that never touches CoVal's sample** — n = **8,011**
+conversations or **26,886** interactions, MDE **0.0171** and **0.0094**, both comfortably resolvable.
+⚠ They are **different questions**, and neither substitutes for the other. Controls established
+floor < threshold < ceiling (n=4 → 0.7674 above every effect; n=10⁶ → 0.00048 below all), and all four
+reference effects were **asserted present in `DEFINITION.md`** before use rather than recalled.
+→ [`R401`](E05_the_space_of_compilers/A24_what_the_definition_costs/R401_can_n99_resolve_anything)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

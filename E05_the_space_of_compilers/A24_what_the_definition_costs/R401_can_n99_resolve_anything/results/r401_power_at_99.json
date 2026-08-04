@@ -1,0 +1,108 @@
+{
+  "controls": {
+    "hi_ok": true,
+    "lo_ok": true,
+    "mde_huge_n": 0.0015344913012681107,
+    "mde_tiny_n": 0.7672456506340554,
+    "monotone": true,
+    "sweep": [
+      0.48525,
+      0.21701,
+      0.15345,
+      0.06862,
+      0.04852
+    ]
+  },
+  "crossing_pd": 0.12412,
+  "derivation": true,
+  "effects": {
+    "R368 exact": 0.0992,
+    "R368 pair": 0.0612,
+    "R370 exact": 0.081,
+    "R370 pair": 0.0161
+  },
+  "grid": {
+    "0.05": {
+      "mde": 0.06296,
+      "ratio": 0.635,
+      "resolvable": true
+    },
+    "0.1": {
+      "mde": 0.08904,
+      "ratio": 0.898,
+      "resolvable": true
+    },
+    "0.15": {
+      "mde": 0.10905,
+      "ratio": 1.099,
+      "resolvable": false
+    },
+    "0.2": {
+      "mde": 0.12592,
+      "ratio": 1.269,
+      "resolvable": false
+    },
+    "0.25": {
+      "mde": 0.14078,
+      "ratio": 1.419,
+      "resolvable": false
+    },
+    "0.3": {
+      "mde": 0.15422,
+      "ratio": 1.555,
+      "resolvable": false
+    },
+    "0.35": {
+      "mde": 0.16658,
+      "ratio": 1.679,
+      "resolvable": false
+    },
+    "0.4": {
+      "mde": 0.17808,
+      "ratio": 1.795,
+      "resolvable": false
+    },
+    "0.45": {
+      "mde": 0.18888,
+      "ratio": 1.904,
+      "resolvable": false
+    },
+    "0.5": {
+      "mde": 0.1991,
+      "ratio": 2.007,
+      "resolvable": false
+    },
+    "0.55": {
+      "mde": 0.20882,
+      "ratio": 2.105,
+      "resolvable": false
+    },
+    "0.6": {
+      "mde": 0.2181,
+      "ratio": 2.199,
+      "resolvable": false
+    }
+  },
+  "head": "858c74a53dc2",
+  "largest_effect": 0.0992,
+  "largest_name": "R368 exact",
+  "n": 99,
+  "source_name": "run.py",
+  "source_sha256": "11272c75aee8541368eb1a710e9394d9341aef6567fd760f5e74b4a3732b25c0",
+  "unresolvable_cells": 10,
+  "unresolvable_share": 0.833,
+  "verdict": "W_UNDERPOWERED",
+  "within_corpus": {
+    "conversations (R398)": {
+      "mde_at_pd30": 0.01714,
+      "n": 8011,
+      "resolvable": true
+    },
+    "interactions with one `if_chosen` (R399)": {
+      "mde_at_pd30": 0.00936,
+      "n": 26886,
+      "resolvable": true
+    }
+  },
+  "zeff": 2.801585
+}
