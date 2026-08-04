@@ -22,7 +22,6 @@
   "mde_length": 0.025279266624893704,
   "missing": [
     "vacuous",
-    "randblind_s0",
     "randblind_s1",
     "randblind_s2"
   ],
@@ -43,7 +42,14 @@
     "producer_sha256": "b19a97ccca8e92b2e7779142a5e922ab82cf62bf3adba1ef46eefd4466a78071",
     "seed": 0
   },
-  "randblind": {},
+  "randblind": {
+    "randblind_s0": {
+      "acc": 0.43970851118578386,
+      "gen_minus": -0.0023517984540711804,
+      "mde": 0.018898925810988624,
+      "n": 2200
+    }
+  },
   "source_name": "run.py",
   "source_sha256": "92f837bde7c20da0730e31a37960292245d4219de7a7dcd40ee3a2c0d8692335",
   "tie_rate": 0.001362026695723236,
