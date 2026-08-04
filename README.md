@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**375 rounds** in **5 epochs** and **24 arcs**, numbered to **R381** — **53 standing claims, 13
+**376 rounds** in **5 epochs** and **24 arcs**, numbered to **R382** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -783,6 +783,24 @@ is whether it matches anything in the documents it is applied to. ⚠ The blind 
 than a disclaimer: **715** f-string expressions are invisible to `ast`. **R380's repair generalises to
 nothing, and its one-round-per-gate rate is the rate to plan with.**
 → [`R381`](E05_the_space_of_compilers/A24_what_the_definition_costs/R381_do_the_red_gates_share_a_dead_path)
+
+**And the class R381 handed forward was two, not three — then split again under measurement.**
+`seed_filter_is_disclosed`'s pattern was flagged as a stale link format because it contains `//`,
+which is **integer division**; R381's number was right about what it measured and wrong as a
+description of what it found — the **fourth** false-positive class that census produced. Of the two
+genuine link patterns, run against **every** corpus they could be applied to rather than a target I
+inferred (1 + 24 + 364 files, 5.6 M chars): `donor_numbers…SCOPE` = `rounds/r8[89]_…` matches
+**0 everywhere**, while `synthesis_cites_recent_work.CITE` matches **505** times. ⭐ The zero is an
+**independent second confirmation**: R380 established that gate's GATE 2 vacuous by counting
+**locatable README table rows** (0), and R382 reaches the same vacancy by counting **pattern
+matches** (0) — two instruments, one conclusion. And the 505 **refutes** the stale-format reading for
+`synthesis_cites_recent_work`, whose exit 2 has another cause entirely. ⛔ **The negative control
+failed first and was right to**: an impossible token matched **twice**, both inside *this round's own
+source*, which would have inflated all three pattern counts because the round prints the patterns it
+measures. A round whose own text joins the corpus must exclude itself — R376's scaffolding lesson at
+a fourth level. **They are separate repairs, and calling them one would be the grouping error R379
+already cost a round.**
+→ [`R382`](E05_the_space_of_compilers/A24_what_the_definition_costs/R382_does_the_pattern_match_anything)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

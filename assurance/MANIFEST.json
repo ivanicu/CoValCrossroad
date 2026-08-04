@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-08-04T12:28:16.722935+00:00",
- "git": "efb2f2f78db1427ea0e7f400ad6ba94d7f5ae83b",
+ "generated_utc": "2026-08-04T12:35:35.604613+00:00",
+ "git": "59e3df189408f71e335fa8c834a97cab0b9984b8",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -1554,6 +1554,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R381_do_the_red_gates_share_a_dead_path/run.py": {
    "bytes": 20325,
    "sha256": "8cac56fd63cabe2490d9b912e6d9fe1985665086853bdb3f9af4068469c274b0"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R382_does_the_pattern_match_anything/run.py": {
+   "bytes": 15037,
+   "sha256": "ce6a04aee68901f479d8897865375a37716c172ddcb2915699ef5957d8dbc10d"
   },
   "assurance/DEFECTS.py": {
    "bytes": 14429,
@@ -4132,6 +4136,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R381_do_the_red_gates_share_a_dead_path/results/r381_dead_paths.json": {
    "bytes": 10347,
    "sha256": "8668ffdbe34822dbe8316b267b10e093621511794ec32c7be9dd5eb52b8692d2"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R382_does_the_pattern_match_anything/results/r382_pattern_matches.json": {
+   "bytes": 1686,
+   "sha256": "77865435153279a533567ce2752a1204ed7a596f9e91e27db1d8e7c4f4c36b67"
   }
  },
  "claims": [
