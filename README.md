@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**388 rounds** in **5 epochs** and **24 arcs**, numbered to **R394** — **53 standing claims, 13
+**389 rounds** in **5 epochs** and **24 arcs**, numbered to **R395** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1015,6 +1015,18 @@ answer** — these are the rounds that finished inside 90 s, loading no model an
 *R393's two censored rounds carry 80% of the gate's cost and are exactly the rounds this design cannot
 speak for.*
 → [`R394`](E05_the_space_of_compilers/A24_what_the_definition_costs/R394_is_the_source_hash_a_valid_key)
+
+**A source-level gauge test does discriminate — and it halves the expensive step to one round.**
+R394's blind spot was the two censored rounds carrying 80% of the gate's cost. ⛔ The question was
+*not* "are they risky": a pattern matching `random` or `time` flags nearly every scientific script,
+returns *both are at risk*, and reads as an answer. The prior question is whether such a detector
+discriminates at all — ⭐ and **the answer key already existed**, since R394 labelled 13 rounds STABLE
+for a different purpose, so every hit among them is a **false positive by construction**. Measured:
+**quiet on 10 of 13, false-positive rate 23%**; of the censored pair, **`R114` is quiet and
+`R130_judge_gauge` carries one construct — `gpu`**. ⚠ But **6 of the 7 pattern families were never
+positively controlled** — only `unseeded_rng` has ever caught a genuinely varying script — so the
+`gpu` hit is a **hypothesis, not a detection**, and a quiet round is *unflagged*, never *cleared*.
+→ [`R395`](E05_the_space_of_compilers/A24_what_the_definition_costs/R395_can_a_gauge_test_replace_the_rerun)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
