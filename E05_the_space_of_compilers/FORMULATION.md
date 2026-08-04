@@ -469,9 +469,18 @@ evaluated.** Applied:
 **The published p93.7 reference is not where the collapse happens** — five is stable from p75 to p95.
 It falls to two only at p99, and p93.7 admits **3** blind sets where p99 admits **0**.
 
+⚠ **But the "two" is a measurement of an unstable quantity.** R332 swept 46 blind references across
+**0.25 of `coval_core`'s own MDE** around this altitude and found **two distinct admitted sets inside
+that quarter-MDE** — *"the admitted set is not a stable quantity at this site, and any statement of
+the form 'N arms are admitted' inherits that."* R354's p99 lands inside that band. R332 reports
+**three** there and R354 **two**, and they do not contradict: R332 moves only the k=4 reference while
+holding k=3 and k=6 at their own closure levels, R354 puts every k at the same percentile, so
+`topw_k3` faces a different bar in each. **What survives every reference at this altitude is
+`coval_core` and `topw_k6`** — and that pair, not a count, is what the altitude supports.
+
 *Controls: the census's own reference reproduces the committed five exactly; the p99 level matches
 R331's committed 0.5547 with a resolvable blind-admission rate of 0; the set shrinks monotonically.*
-→ `R354_what_the_safe_reference_admits`
+→ `R354_what_the_safe_reference_admits`, `R332_the_closure_level_derives_reading_A`
 
 ### ① The reference — computed, not chosen
 

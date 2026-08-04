@@ -89,3 +89,41 @@ what an arbitrary file order does, the second what a stated rule does.
 requires.**
 
 Artifact: `results/r354_safe_reference.json`.
+
+---
+
+## ⚠ THE "TWO" INHERITS AN INSTABILITY R332 HAD ALREADY MEASURED
+
+Found by running the prior-work gate *after* writing this round up, which is one cycle later than it
+should have been.
+
+**R332 swept the k=4 reference across the band this round's p99 point sits in** — 46 blind
+references spanning **0.25 of `coval_core`'s own MDE** — and found **two distinct admitted sets
+inside that quarter-MDE**:
+
+| reference A2 | admitted |
+|---:|---|
+| 0.551951 (closure) | `coval_core` · `topw_k3` · `topw_k4` · `topw_k6` |
+| … | *same* |
+| **0.554524** | `coval_core` · `topw_k3` · `topw_k6` |
+
+Its conclusion, verbatim: *"the admitted set is **not a stable quantity at this site**, and any
+statement of the form 'N arms are admitted' inherits that."*
+
+**This round's p99 (0.5545) lands inside that band.** So *"the definition admits two at p99"* is a
+correct measurement of an unstable quantity, and must be read with R332's caveat attached rather
+than as a settled count.
+
+### R332 says three there and this round says two — and that is not a contradiction
+
+| | policy | at ≈0.5545 |
+|---|---|---|
+| R332 | moves **only** the k=4 reference; k=3 and k=6 stay at **their own closure levels** | 3 — `coval_core`, `topw_k3`, `topw_k6` |
+| R354 | puts **every** k at the **same percentile** | 2 — `coval_core`, `topw_k6` |
+
+`topw_k3` is a k=3 arm: under R332 it faces the k=3 **closure** level, under R354 the k=3 **p99**
+level. **Different reference policies, both stated, neither wrong** — and the difference is exactly
+one arm, which is the size of the instability R332 measured.
+
+**What survives both**: `coval_core` and `topw_k6` are admitted under every reference at this
+altitude. That is the claim this altitude supports — not a count.

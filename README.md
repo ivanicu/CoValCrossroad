@@ -340,7 +340,10 @@ class, so a reference admitting any of them is refuted by the clause's own words
 admits **3**, p99 admits **0**. The rule had never been evaluated. Applied: **7** arms at a median
 reference, **5 flat across p75–p95** including the published p93.7, and **2 at p99** —
 `coval_core` and `topw_k6`. *So the published reference is not where the collapse happens; the
-choice between p94 and p99 is, and R331 already argued it.*
+choice between p94 and p99 is, and R331 already argued it.* ⚠ **And the "two" is a measurement of an
+unstable quantity**: R332 had already found **two distinct admitted sets within 0.25 MDE** at this
+altitude, so what the level supports is the surviving **pair** — `coval_core` and `topw_k6` — not a
+count.
 → [`R354`](E05_the_space_of_compilers/A24_what_the_definition_costs/R354_what_the_safe_reference_admits)
 
 **The reader now exists** — [`assurance/source_stamp_is_current.py`](assurance/source_stamp_is_current.py),
