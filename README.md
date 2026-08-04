@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**402 rounds** in **5 epochs** and **24 arcs**, numbered to **R409** — **53 standing claims, 13
+**403 rounds** in **5 epochs** and **24 arcs**, numbered to **R410** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1221,6 +1221,20 @@ against `topw_k6` (0.53 vs 0.32). **The honest summary is a partial order.** Con
 blind bootstrap), and two identical objects split **0.480/0.520**. ⚠ Cross-judge stability is
 **structurally unavailable** — at 0.8B nothing is admitted at any safe reference.
 → [`R409`](E05_the_space_of_compilers/A24_what_the_definition_costs/R409_is_the_ordering_of_the_five_information)
+
+**Neither size nor provenance is resolvable — the partial order has no decomposition this design can
+reach.** ⛔ R409's NEXT asserted *"size alone cannot explain it"*; **one fact settles that as a
+DERIVATION** — `coval_core` and `topw_k4` are both k=4 and land in different tiers, and a function of
+k alone cannot map one input to two outputs. The release then offers a clean 2-factor split: `topw_k*`
+varies **size** with provenance pinned, and at k=4 `coval_core` vs `topw_k4` varies **provenance** with
+size pinned. ⭐ At matched size the reference **cancels exactly** (`2.8e-17`), so it is *not* a
+difference of two differences. **Result: all three adjacent-k CIs straddle zero, and
+`coval_core − topw_k4 = +0.0023` against its own MDE of `0.0085` — 0.27 of its resolution. Nothing
+survives Holm; nothing is close even raw** (smallest p 0.147). Controls: `oracle_k4 − topw_k4` = **+0.0641**,
+~28× the contrasts of interest; an arm minus itself is **exactly** 0.0; analytic and bootstrap CIs
+agree to ~3e-4. ⚠ **This downgrades R409's own summary** — its partial order describes bootstrap rank
+frequencies, not an established ordering, and R409's README is annotated in place.
+→ [`R410`](E05_the_space_of_compilers/A24_what_the_definition_costs/R410_size_and_provenance_decomposed)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

@@ -36,6 +36,18 @@ a 3%-margin pass reported as a clean verdict is how a threshold becomes a narrat
 > **The honest summary is a partial order, not a ranking**: `{coval_core, topw_k6}` above
 > `{topw_k8, topw_k3}`, with `topw_k4` unplaced.
 
+## ⚠ CORRECTION — R410: no pairwise contrast supports the partial order below
+
+[`R410`](../R410_size_and_provenance_decomposed) ran the paired contrasts this round's ranking
+implies. **None survives Holm; every 95% CI straddles zero**, and the largest raw p among the four is
+0.59 while the smallest is 0.147.
+
+**Both rounds are correct and they measure different things.** This round measured a **joint rank
+distribution**, which can carry information (0.53 vs a 0.20 coin) while **no individual pair is
+separable**. **So the "partial order" stated below must be read as a description of bootstrap rank
+frequencies, not as an established ordering of the arms.** The matched-size contrast
+`coval_core − topw_k4` is **+0.0023 against an MDE of 0.0085** — 0.27 of its own resolution.
+
 ## ⛔ Why this round exists at all
 
 **R408's NEXT was a claim with no control** — the one sentence in a round that never gets one. It
