@@ -79,6 +79,16 @@ R294's 41 judged arms · 968 prompts (398 for `promptecho`) with ≥2 annotators
 R234's canonical builder · references: R294's first-k-of-pool, and best-of-U over the size-matched
 pool for k ∈ {1,2,3,4,6,8,12,13,15} · 20 replicates × 3 seeds · 185 cells across 5 readings.
 
+## ⛔ THE MECHANISM NAMED BELOW IS WRONG — REPLACED BY R331
+
+The closing line credited the fixed reference with *self-comparison*: an arm that **is** the pool
+compares to itself and cannot win. **That protects against exactly one object.** R331 enumerated all
+1,820 prompt-blind quadruples and measured the real property: **altitude.** R294's reference sits at
+**p93.7** of the blind distribution and admits **3 of 1,820**; a p50 reference admits **23.3%**; p99
+admits **0**. Ten *different* subsets at the same percentile give the same rate, so identity does no
+work. Budget-matching's failure was a **percentile drop** — p94 → best-of-1 at ~p50 — not a lost
+self-comparison. **The design rule is a number: put the clause-② reference at or above p99.**
+
 ## What this cannot do
 
 Say whether a *repaired* budget-matched rule exists — one that corrects for selection **and** keeps
