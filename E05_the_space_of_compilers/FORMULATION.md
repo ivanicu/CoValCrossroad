@@ -297,6 +297,37 @@ size-matching (it does, and it costs `full` its admission, R307).
 
 ---
 
+## ⛔ NEITHER CLAUSE'S WORDING DESCRIBES WHAT IT COMPUTES (2026-08-04)
+
+The heading above says *"both clauses restated to say what they test."* Measured against
+`R294/run.py`, **neither does** — and the gaps run in opposite directions.
+
+| clause | what the definition SAYS | what `R294` COMPUTES | the gap |
+|---|---|---|---|
+| ① | *"the same number drawn at random from that conversation's own rubric"* | `random_k4_s0` — **one fixed draw at k=4, seed 0**, for every arm | **not size-matched** (23 of 41 arms have k ≠ 4; the correct per-k references exist on disk, three seeds each, unused) and **not re-drawn** (one seed) |
+| ② | *"the same number that never read the conversation at all"* | `POOL[0:k]` — the **first k rows** of a curated 16-criterion pool | criterion sets that never read the conversation but were **crowd-written** do *no better* than clause ①'s own reference, and **2 of 5 are resolvably worse** (R348). The clause tests a **curated instrument**, not blindness — and *which* subset was decided by **file order**, landing at the **63rd percentile** between a random draw and the best of 1,820 |
+
+**Clause ② is the binding one** (R347), so the second row is the one that matters: **the entire
+admitted set rests on a reference whose wording admits any blind set and whose implementation is one
+arbitrary slice of one curated pool.** The set moves **7 → 0** across ~0.019 of reference level.
+
+### Two repairs, and choosing between them is a DECISION, not a measurement
+
+**(A) Narrow the wording to what is computed** — *"better than a size-matched subset of the
+benchmark's generic criterion pool."* Honest immediately, and it makes the definition
+**benchmark-specific**: it would not transfer to a release without that pool.
+
+**(B) Broaden the implementation to match the wording** — draw the reference at random, per arm,
+per seed, from a stated population. Then **which population, and with how much search?** That is
+R287's unanswered budget question, and it is now load-bearing rather than open.
+
+**Neither is chosen here.** What decides it is the measurement that has not been run: **permute the
+pool and recount**, turning *"63rd percentile"* from a position into a distribution over admitted
+sets. Until then the honest statement is that **the published five is one draw from a distribution
+whose spread is unmeasured, and the definition's own words do not name the draw.**
+
+---
+
 ## ⛔ CLAUSE ① HAS NEVER EXCLUDED ANYTHING CLAUSE ② ADMITS (R347, 2026-08-03)
 
 Over all **41** judged arms, the cell **(① fails, ② passes)** is **empty**; clause ② excludes **8**

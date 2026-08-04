@@ -61,7 +61,18 @@ and crowd criteria applied to the *wrong* conversation are **0 of 5 resolvably b
 resolvably worse**. The earlier reading — *"a criterion set that never reads the conversation beats a
 random draw of that conversation's own criteria"* — is **retracted**; it was true of the curated pool
 and false as stated.
-→ [`R348`](E05_the_space_of_compilers/A24_what_the_definition_costs/R348_is_it_blindness_or_curation) **The empty cell is a DERIVATION**: a counterexample needs `GAP < SLACK`
+→ [`R348`](E05_the_space_of_compilers/A24_what_the_definition_costs/R348_is_it_blindness_or_curation)
+
+⛔ **And neither clause's wording describes what it computes.** Clause ① says *"drawn at random from
+that conversation's own rubric"* and the census uses **one fixed k=4 draw, seed 0, for every arm** —
+not size-matched for 23 of 41, not re-drawn, while the correct per-k references sit unused on disk.
+Clause ② says *"the same number that never read the conversation at all"* and computes **the first k
+rows of a curated 16-criterion pool** — a subset chosen by **file order**, sitting at the **63rd
+percentile** between a random draw and the best of 1,820. Since clause ② is the binding one, the
+whole admitted set rests on that slice, and the set moves **7 → 0** across ~0.019 of reference level.
+**Two repairs are possible — narrow the wording, or broaden the implementation — and choosing is a
+decision, not a measurement.** Neither is taken here; what decides it is permuting the pool and
+recounting, which turns *63rd percentile* into a distribution over admitted sets. **The empty cell is a DERIVATION**: a counterexample needs `GAP < SLACK`
 (`GAP = ref₂ − ref₁`, `SLACK = mde₁ − mde₂`), and **min GAP 0.0470 vs max SLACK 0.01217 — 3.9× on
 the tightest arm, GAP ≥ SLACK on all 41.** No arm of any size here can be one. *(This round's first
 version used a sufficient condition instead of the necessary one, called 18 arms "contingent" and
