@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**405 rounds** in **5 epochs** and **24 arcs**, numbered to **R412** — **53 standing claims, 13
+**406 rounds** in **5 epochs** and **24 arcs**, numbered to **R413** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1264,6 +1264,22 @@ removes between-group variance by construction. **The proxy was replaced, not th
 exactly the ICC=0 and ICC=1 cases, a derivation I missed while writing it. ⚠ R402's README is
 annotated: its **controls stand**, but any power claim on its n must use 7,822.
 → [`R412`](E05_the_space_of_compilers/A24_what_the_definition_costs/R412_the_clustering_that_decides_the_power)
+
+**Score offers no escape — the corpus is conversation-limited whatever outcome I target, and ~8,000 is
+the ceiling.** ⛔ R412's NEXT proposed re-scoping onto `score` because its raw levels cluster at only
+0.1978. But **a clause-② test consumes an ORDERING**, and the ordering is conversation-constant too:
+**κ(argmax model) = 1.0000** over 37,973 pairs, and `argmax(score)` agrees with `if_chosen` **99.47%**
+of the time — score changes the label, not the information. ⚠ **And my own cancellation derivation
+failed in the data**: I argued a within-interaction contrast subtracts a conversation-level offset
+exactly, as R410 verified at 2.8e-17 — but the **gap's ICC came out 0.2383, *above* the raw levels'
+0.1978.** Differencing hurt. *The derivation assumed a purely additive offset; the data is not purely
+additive, and it was labelled a derivation before the run.* Implied power: `if_chosen` 2.47×,
+score-ordering **2.51×**, against an unreachable ICC=0 ideal of 4.57×. **The second corpus cannot
+power the replication at any outcome choice** — a dead end found for one round's cost, which is the
+cheapest way to find one. ⭐ Controls include a **cross-round reproduction** (my κ instrument returns
+R412's committed 1.0000) and **1,579 tied-top interactions excluded rather than broken by array
+order**.
+→ [`R413`](E05_the_space_of_compilers/A24_what_the_definition_costs/R413_does_score_escape_the_clustering)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
