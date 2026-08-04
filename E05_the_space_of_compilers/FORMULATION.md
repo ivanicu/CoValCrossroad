@@ -913,13 +913,37 @@ the **axes** and false of the **grid**:
 |---|---|---|
 | **arm** | 41 judged arms (R294) | **full — 41 of 41** |
 | **statistic** | 6 agreement targets (R288) | **10 arms of 41** |
-| **judge** | 2 models (R290) | **3 arms of 41** |
+| **judge** | 2 models (R290 · **R301**) | ~~3 arms of 41~~ → **41 of 41** |
 | **release** | 1 | **not swept — genuinely impossible** |
 
 > **Only the arm axis was swept at full width.** The statistic and judge results are real and
 > resolved, and they are established on **a quarter and a fourteenth of the arm space** respectively.
 > A claim that the partition survives a change of judge is a claim about **`coval_core`, `topw_k4`
 > and `gen`**, not about the eight admitted arms or the thirty-six excluded ones.
+
+> ⛔ **THE JUDGE ROW UNDERSTATED ITS OWN EVIDENCE BY 13.7×, and the correction was on disk the
+> whole time.** `R301` re-judged **all 41 arms** at 0.8B — not 3 — and returned the **same empty
+> admitted set**. So the paragraph above is out of date in the *strengthening* direction: the
+> judge-dependence is established at **full arm width**, and `{}` at 0.8B is not an extrapolation
+> from three arms. **R301 was cited nowhere in this file or the top-level README** until now, which
+> is how a page comes to understate itself: nothing checks that a *committed* round reached the
+> synthesis, only that it reached *a* README.
+>
+> **What R301 could NOT settle, and R356 sharpens.** Its pre-registered kill needed
+> `R2 = min(pooled, worst leave-one-family-out) ≥ 0.50`; pooled was 0.6124/0.5447 and the worst LOFO
+> **0.4817**, so it printed `UNRESOLVED` between SHRINK (β ≈ 0.40–0.43, ordering intact) and REORDER.
+> `R356` prices the within-family correlations R301 printed but never used, each against the null its
+> **own arm separation** implies:
+>
+> | family | n | ρ (2B vs 0.8B) | separation | its own null | reading |
+> |---|---:|---:|---:|---:|---|
+> | `random_k` | 17 | **−0.512 / −0.429** | 2.2 se | **0.00 percentile** | **real inversion**, survives Bonferroni |
+> | `topw_k` | 8 | +0.810 / +0.667 | 5.7 se | 20th / 10th pctile | **forced** — carries no information |
+>
+> **So `REORDER` survives with an address.** The judges resolvably invert one family; the family that
+> looked like agreement was separated enough that agreement was nearly certain. **No family agrees
+> MORE than forced**, so the shared-judge-error confound — which would inflate every between-judge
+> number here — is not observed.
 
 **This is the third time today a closing summary quantified without counting**, and the first time
 the rule carved into `realstat §4` caught it before it was published rather than after.

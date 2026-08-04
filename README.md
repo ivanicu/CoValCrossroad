@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**349 rounds** in **5 epochs** and **24 arcs**, numbered to **R355** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**343 of the 349 carry a
+**350 rounds** in **5 epochs** and **24 arcs**, numbered to **R356** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**344 of the 350 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -359,6 +359,25 @@ levels sit at **p96.2–p99.5**, so at k=6 and k=8 even p99 is below safe. R331 
 because its **9-point grid returns 0 violations**; 45 points give 18 and 91 give 50 — a lower bound,
 not a converged number.
 → [`R355`](E05_the_space_of_compilers/A24_what_the_definition_costs/R355_is_the_closed_region_upward_closed)
+
+**And the whole admitted set is judge-specific — at a second judge it is EMPTY, measured on all 41
+arms, and that round had reached no page at all.** `R301` re-judged every arm at Qwen3.5-0.8B-Base
+and returned **`{}`** where 2B returns five. `FORMULATION.md` carried the claim but scoped it to
+**"3 arms of 41" (R290)**, so the page **understated its own evidence by 13.7×** while R301 sat
+committed on disk, cited nowhere. Nothing catches this: the coverage gate requires a round to reach
+*a* README, and 289 of 343 rounds live only in an arc index.
+
+**`R356` then priced what R301 could not settle.** R301 printed `UNRESOLVED` between *shrink*
+(β ≈ 0.40–0.43, ordering intact) and *reorder*, because its worst leave-one-family-out R² was 0.4817
+on the `random_k` family. Scoring each family's between-judge ρ against the null its **own arm
+separation** implies: `random_k` (2.2 se apart) sits at the **0.00 percentile** of its own null and
+survives Bonferroni — **a real inversion** — while `topw_k`'s +0.81 sits at the *20th* percentile of
+what **5.7 se of separation forces**, and carries no information at all. **So `REORDER` survives with
+an address**, and no family agrees *more* than forced, so the shared-judge-error confound that would
+inflate every between-judge number here is **not observed**. I designed the round expecting the
+opposite — that `random_k` was noise — and the unit nearly hid it: separation printed in **MDE** units
+reads 0.79 ("below resolution"), in **se** units 2.21 ("well ordered"), and `MDE = 2.80 × se`.
+→ [`R356`](E05_the_space_of_compilers/A24_what_the_definition_costs/R356_is_the_within_family_disagreement_resolvable)
 
 **Three statements about the published reference, not four — and I had been counting one of them
 twice.** They are also not one finding arriving by three routes, which is what I expected to find:
