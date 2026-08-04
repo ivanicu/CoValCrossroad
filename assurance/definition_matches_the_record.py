@@ -77,6 +77,15 @@ def derive():
     out["closure_k_count"] = (len(a["ks"]) if a else None, "R355")
     a = art("R358_*")
     out["closure_violations_08B"] = (a["totals_08b"]["45"] if a else None, "R358")
+    a = art("R363_*")
+    if a:
+        out["overlap_pct"] = (round(a["same"]["mean"] * 100, 1), "R363")
+        out["overlap_ratio"] = (round(a["ratio"]), "R363")
+        out["n_annotators"] = (a["n_annotators"], "R363")
+        out["full_overlap_prompts"] = (a["all_overlap_prompts"], "R363")
+    else:
+        for k in ("overlap_pct", "overlap_ratio", "n_annotators", "full_overlap_prompts"):
+            out[k] = (None, "R363")
     a = art("R362_*")
     if a:
         out["neg_sizes_08B"] = (sum(1 for k in a["ks"]
@@ -112,6 +121,11 @@ ASSERTIONS = {
     # R362 — the size claim became judge-indexed; its numbers come with it.
     "neg_sizes_08B":         r"\*\*negative at (\d+) of 7 sizes\*\*",
     "sign_flips":            r"a \*sign\ninversion\* at \*\*(\d+) of 7 sizes\*\*",
+    # R363 — clause ③ narrowed; its census numbers come with it.
+    "overlap_pct":           r"are, at \*\*(\d+\.\d)%\*\*, the same",
+    "overlap_ratio":         r"ratio \*\*(\d+)×\*\*",
+    "n_annotators":          r"\*\*([\d,]+)\*\* distinct annotators",
+    "full_overlap_prompts":  r"\*\*(\d+) of 968\*\* prompts have complete",
 }
 
 
@@ -129,7 +143,7 @@ def read_claims(text):
     got = {}
     for label, pat in ASSERTIONS.items():
         m = re.search(pat, text)
-        got[label] = float(m.group(1)) if m else None
+        got[label] = float(m.group(1).replace(",", "")) if m else None
     return got
 
 

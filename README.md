@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**356 rounds** in **5 epochs** and **24 arcs**, numbered to **R362** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**350 of the 356 carry a
+**357 rounds** in **5 epochs** and **24 arcs**, numbered to **R363** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**351 of the 357 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -468,6 +468,22 @@ there to have boundaries. Two parts were **not** re-run because they are settled
 was already measured by R356. `DEFINITION.md`'s size claim is now judge-indexed; its gate checks
 **15 of 15**.
 → [`R362`](E05_the_space_of_compilers/A24_what_the_definition_costs/R362_does_the_size_band_survive_the_judge)
+
+**⛔ And clause ③ — the campaign's last unindexed claim — closes only the RANKING channel.** It is
+applied everywhere by one hand-written set, `{oracle_k4, oracle_k4_fit1, greedy_k4_fit1,
+indep_k4_fit1}`, duplicated across four rounds and **never checked against the code that builds the
+arms**. Audited against `corebench/select_core.py`: the set is **correct about the rankings** —
+`comparisons.jsonl` is opened only for those three rules. But **`topw_k`, which supplies four of the
+published five**, selects on `w = mean importance score` from the rubric, and the annotators who
+wrote those scores are **95.3%** the same people whose rankings define that prompt's target.
+**Cross-prompt sham 0.016 — a 58× ratio** over **1,160** distinct annotators against a median panel
+of 16; **473 of 968** prompts have complete overlap and **none** has zero, so this is provenance and
+not pool size. ⚠ **MEASURED** is the overlap (a census, **no judge anywhere in it** — the only claim
+here of that kind). **DERIVED**, with the release's own finding that rubrics are authored *after*
+ranking, is that `topw_k` is **not producible from the conversation alone**. **UNMEASURED** is how
+much of its advantage the channel carries. `DEFINITION.md`'s clause ③ is narrowed; its gate now
+checks **19 of 19**.
+→ [`R363`](E05_the_space_of_compilers/A24_what_the_definition_costs/R363_clause_three_does_not_close_the_rubric_channel)
 
 **⭐ And the definition is now stated once, in one place, with a gate holding it to the record.**
 [`E05/DEFINITION.md`](E05_the_space_of_compilers/DEFINITION.md) — `FORMULATION.md` is 2,389 lines of

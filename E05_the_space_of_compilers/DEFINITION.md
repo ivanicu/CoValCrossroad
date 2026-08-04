@@ -15,8 +15,8 @@ so it cannot drift from the evidence without the suite failing.
 > A **core** for a conversation is a small set of evaluation criteria, **producible from the
 > conversation alone**, that
 >
-> **③** uses **no information from that prompt's own human labels** — not from the construction, and
-> not from any half of them; **and**
+> **③** uses **no information from that prompt's own human labels** — not from the construction, not
+> from any half of them, **and not by way of a rubric those same annotators wrote**; **and**
 >
 > **②** scores better, **under a named judge J**, than a size-matched criterion set that never read
 > the conversation.
@@ -93,6 +93,22 @@ And its wording is load-bearing: it must say **held out from the PROMPT**, not "
 construction". Three fitted arms pass the weaker reading, and in the quintile where two annotator
 halves disagree **their entire advantage is gone**. *(R295)*
 
+⛔ **AND AS IMPLEMENTED IT CLOSES ONLY THE RANKING CHANNEL (R363).** Clause ③ is applied everywhere
+by one hand-written set — `{oracle_k4, oracle_k4_fit1, greedy_k4_fit1, indep_k4_fit1}` — duplicated
+across four rounds. Audited against `corebench/select_core.py`, that set is **correct about the
+rankings**: `comparisons.jsonl` is opened only for `oracle_k / indep_k / greedy_k`.
+
+But `topw_k` — **four of the published five** — selects on `w = mean importance score` from
+`conversation_rubrics.jsonl`, and the annotators who wrote those scores are, at **95.3%**, the same
+people whose rankings define that prompt's target (cross-prompt sham **0.016**, ratio **58×**, over
+**1,160** distinct annotators against a median panel of 16; **473 of 968** prompts have complete
+overlap and **none** has zero).
+
+⚠ **MEASURED** is the overlap — a census, with no judge anywhere in it. **DERIVED**, from that plus
+this release's own finding that rubrics are authored *after* ranking, is that `topw_k` is **not
+producible from the conversation alone**. **UNMEASURED** is how much of its advantage the channel
+carries — that needs the weights rebuilt from held-out annotators.
+
 ---
 
 ## The size
@@ -132,8 +148,8 @@ judge in it** (R224/R228), and the k-curve's *shape* across judges was already m
 
 ## The one sentence
 
-> **What survives every attack in this campaign is clause ③ — but on provenance, not on
-> irreplaceability.** Clause ① is a consequence, clause ② holds only under a named judge, the size is
+> **What survives every attack in this campaign is clause ③'s RULE — but stated more strictly than
+> the campaign has ever implemented it, and on provenance rather than irreplaceability.** Clause ① is a consequence, clause ② holds only under a named judge, the size is
 > a bound rather than a number, and *"nothing else can do clause ③'s job"* is **2B-specific**
 > (R361). What is left is the rule itself: **a core may not be built from the labels of the prompt
 > it is for** — which is checkable by inspection, needs no judge, and is the one claim here that no
