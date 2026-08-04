@@ -8616,3 +8616,55 @@ beats random selection and beats its own sham, and the sham collapses to the con
 
 **Not yet done:** 3 of 55 arm pairs now have a graded comparison. The other 52, and the tier
 structure published from them, still rest on A1 alone.
+
+## 243 · Ten retractions of 2026-08-04, and the four modes they collapse into
+
+**Why one entry and not ten.** The doctrine's own argument for this file is that collating scattered
+retractions revealed **four failure modes rather than fourteen mistakes** — the grouping is invisible
+from inside the loop. Ten separate entries would have reproduced the loop. What follows is the list
+*and* the grouping, written the same day, which is the first time that has been possible.
+
+**The ten.**
+
+| # | retracted | by |
+|---|---|---|
+| 1 | R422's `W-DIFFERENT-EMITTER` on 5–14 cells in 8,000 | its own kill compared to **zero**, not to a null |
+| 2 | R424's *"the emitter is not on disk"* → 74 artifacts `instrument-UNKNOWN` | R426: my candidate loop **`continue`d on `corebench/results`** |
+| 3 | R425's *"'judge' is a noun I never had evidence for"* | `R290/run.py:58` names the model in committed source |
+| 4 | *"76.3 % response / 3.86 % criterion"* | decomposed on a **global** grid; the estimand is **within-interaction** |
+| 5 | pooled agreement `0.6976` → **`0.6434`** | a dict keyed on conversation **overwrote** its own strata |
+| 6 | *"`randblind` is the poison arm"* | the ledger row needs a **prompt-specific** arm; both arms here are blind |
+| 7 | *"`randblind` is seed-robust"* | true of **accuracy**, false of **ranking** — two seeds disagree at 2.4× |
+| 8 | gate census `18 / 14 / 12 / 3` | 3 of 4 sampled gates **change verdict** serially |
+| 9 | `SAME JUDGE` printed PASS across 3 cells | **2 confirmed, 1 assumed** — and the assumed one carries the verdict |
+| 10 | *"`s2` will tell us whether random criteria scatter"* | two draws already settled it at **3.96×** its resolution |
+
+**The four modes.**
+
+⛔ **① The bound was mine and the verdict was attributed to the object.** (8, 10, and the 90 s
+gate timeouts.) A limit I imposed — parallelism, a timeout, a seed count — produced an output I read
+as a property of the thing measured. **Tell: the number would change if I changed a knob nobody else
+can see.**
+
+⛔ **② The instrument's POPULATION excluded the answer.** (2, 1, and the id-permutation null.) Not a
+blind pattern — a correctly-executed search over a set the answer could not be in. **It returns a
+clean, confident zero and prints the same string as a real absence.**
+
+⛔ **③ A correct number carried the wrong scope.** (4, 5, 7.) Nothing miscomputed. The unit, the
+grid, or the property differed from the one the sentence asserted. **This is the mode the campaign
+has retracted most, and today it recurred three times in six hours.**
+
+⛔ **④ A ledger row applied outside its own precondition.** (6.) The sham-is-a-poison row is true and
+its precondition — a prompt-SPECIFIC arm receiving the wrong prompt — was not met. **A remedy
+imported without its scope becomes an error with a citation.**
+
+⚠ **What this entry does not claim.** That ten is the count. `git log --since` with a
+retraction-word pattern returns **26 of 167** commits, and that pattern is loose — *"failed"* matches
+a control failing, *"wrong"* matches a quoted ledger row. **26 is an upper bound on a different
+question**, and the ten above are the ones I can name with what killed each.
+
+⚠ **And modes ① and ② are the same shape one level apart** — in ① the bound is a parameter, in ② it
+is a filter. Both are choices I made that became invisible the moment the output looked like data.
+Whether they should be one row or two is the kind of question this file exists to make askable, and
+it is left open rather than resolved by preference.
+
