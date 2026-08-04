@@ -4,11 +4,11 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**337 rounds** in **5 epochs** and **24 arcs**, numbered to **R341** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**331** rounds carry a
-non-smoke result; the previous *332* was one too many, recounted against
-[`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py), which names the
-six that carry none.)
+**338 rounds** in **5 epochs** and **24 arcs**, numbered to **R342** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**332 of the 338 carry a
+non-smoke result**, and the six that do not are named by
+[`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
+which is why this line is recounted from the gate rather than incremented by hand.)
 
 ⚠ **The claim count has a narrower population than the round count, and adding them would mislead.**
 Both consolidators below re-derive on every run and were re-run at R340: the ledger reports
@@ -212,6 +212,18 @@ recognises. Also counted for the first time: **583 published intervals with `lo 
 The same round retracts its predecessor's closing sentence — *"the largest unexamined population in
 the repo"* was **one round and one key pair**, and the day of reading it proposed was not owed.
 → [`R341`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R341_is_the_skipped_population_real)
+
+**And the exposure is a bound, because the reader is the limit.** Asking how many of the 389 checked
+points are ratios needs the *source*, not the artifact — a published `0.0128` is a difference, a
+ratio and a coefficient in the same JSON, so the quantity is unidentified from artifacts at any
+sample size. An AST census of the 42 distinct keys returns **1 flagged, 28 clean, 13 unreadable**
+(31%, above the pre-registered 25% ceiling) → **RATIO_DATA ∈ [1, 14]**, never a point. The one flag
+divides by `max(count, 1)`, bounded below by one, and is adjudicated safe **by a source read rather
+than by a new rule** — a rule added after seeing which case it clears is a threshold fitted to a
+result. Four reader repairs, each forced by a planted control or a declared conservatism, **each
+moved the count**; one was caught only because a pre-registered cross-instrument prediction
+*disagreed* with the artifact side.
+→ [`R342`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R342_how_many_checked_points_are_ratios)
 
 ---
 
