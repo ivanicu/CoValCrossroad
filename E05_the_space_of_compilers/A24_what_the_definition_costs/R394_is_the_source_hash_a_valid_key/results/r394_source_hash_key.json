@@ -1,0 +1,94 @@
+{
+  "controls": {
+    "constant_plant_stable": true,
+    "rng_plant_caught": true
+  },
+  "head": "18ee598c4953",
+  "n_decided": 13,
+  "n_subjects": 13,
+  "n_unstable": 0,
+  "rows": {
+    "R153_the_menu_itself": {
+      "differing": [],
+      "n_numbers": 49,
+      "src": "0fb3c3f62c92",
+      "status": "STABLE"
+    },
+    "R159_which_outcome": {
+      "differing": [],
+      "n_numbers": 24,
+      "src": "ee70364fdb02",
+      "status": "STABLE"
+    },
+    "R165_gauge_admissibility": {
+      "differing": [],
+      "n_numbers": 27,
+      "src": "47d0cea4b202",
+      "status": "STABLE"
+    },
+    "R208_welldefinedness": {
+      "differing": [],
+      "n_numbers": 47,
+      "src": "d09ce4c33867",
+      "status": "STABLE"
+    },
+    "R250_can_provenance_be_reconstructed": {
+      "differing": [],
+      "n_numbers": 74,
+      "src": "3e7627a32d5d",
+      "status": "STABLE"
+    },
+    "R297_why_k1_loses": {
+      "differing": [],
+      "n_numbers": 24,
+      "src": "3ec101b277c9",
+      "status": "STABLE"
+    },
+    "R299_where_the_selection_boundary_is": {
+      "differing": [],
+      "n_numbers": 26,
+      "src": "4546487c1142",
+      "status": "STABLE"
+    },
+    "R42_equivalence": {
+      "differing": [],
+      "n_numbers": 87,
+      "src": "088c16e446bd",
+      "status": "STABLE"
+    },
+    "R51_judge_lexical": {
+      "differing": [],
+      "n_numbers": 35,
+      "src": "333aa57ddda2",
+      "status": "STABLE"
+    },
+    "R57_outcome_reliability": {
+      "differing": [],
+      "n_numbers": 43,
+      "src": "e5196c40c41d",
+      "status": "STABLE"
+    },
+    "R64_satisfaction_substudy_power": {
+      "differing": [],
+      "n_numbers": 33,
+      "src": "644e9505a285",
+      "status": "STABLE"
+    },
+    "R66_r56_reconstruction": {
+      "differing": [],
+      "n_numbers": 16,
+      "src": "451d2a3fa17f",
+      "status": "STABLE"
+    },
+    "R91_precision_budget": {
+      "differing": [],
+      "n_numbers": 53,
+      "src": "17336ed4fd38",
+      "status": "STABLE"
+    }
+  },
+  "source_name": "run.py",
+  "source_sha256": "c0470d92e3b5e325c69bbab28cb5cb8d051ebf2969255f32d4e59903462094e5",
+  "undecided": [],
+  "verdict": "W_KEY_VALID"
+}

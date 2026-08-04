@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**387 rounds** in **5 epochs** and **24 arcs**, numbered to **R393** — **53 standing claims, 13
+**388 rounds** in **5 epochs** and **24 arcs**, numbered to **R394** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -999,6 +999,22 @@ any budget spendable here. ⭐ The cache's shape is fixed before it is built: **
 source hash**, because *a cache that serves a stale verification is worse than a slow gate — it
 certifies without checking.*
 → [`R393`](E05_the_space_of_compilers/A24_what_the_definition_costs/R393_what_the_gate_will_cost)
+
+**The source hash is a valid cache key for the 13 rounds measured — and cannot speak for the tail the
+cache exists to serve.** R393's NEXT specified a cache keyed on source hash *"so a changed round
+invalidates its own row"*, ⛔ **and never examined the converse**: a hash keys a cache only if an
+*unchanged* source yields unchanged numbers, which nothing in Python guarantees. ⛔ **Nor was this
+about a future cache** — R388's gate already re-runs every cited round, so a round that moves at fixed
+source makes that gate **convict an honest backfill**. Two consecutive runs of each of R393's 13
+complete rounds: **13 of 13 stable across 538 numbers**, with an unseeded-rng plant caught and a
+constant plant passed, and the gate's own `NUM` regex **imported rather than copied**. ⚠ It was
+measured **under concurrent load**, which is *one-directional*: contention can manufacture instability,
+never stability, so the omitted guard could only have produced a false UNSTABLE. ⚠ `STABLE` means
+*not caught in two draws*, never *deterministic*; ⚠ and the population is **selected toward this
+answer** — these are the rounds that finished inside 90 s, loading no model and drawing no samples.
+*R393's two censored rounds carry 80% of the gate's cost and are exactly the rounds this design cannot
+speak for.*
+→ [`R394`](E05_the_space_of_compilers/A24_what_the_definition_costs/R394_is_the_source_hash_a_valid_key)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
