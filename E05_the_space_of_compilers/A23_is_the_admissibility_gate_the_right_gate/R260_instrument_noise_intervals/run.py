@@ -69,6 +69,10 @@ IMPOSSIBLE      whether the r04 cache's OWN batch composition was typical. It wa
                 which is not recorded in the artifact.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 import collections, itertools, json, pathlib, sys
 import numpy as np
 
@@ -79,7 +83,7 @@ OUT = HERE / "results"
 DATA = ROOT / "data"
 R4 = ROOT / ("E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all"
              "/R04_rebuild_satisfaction/results")
-DUPS = ROOT / "_archive/r257_first_pass/instruments_retyped_prompt.npz"
+DUPS = round_results("R257", "instruments.npz")
 L = "ABCD"
 PAIRS = [(i, j) for i in range(4) for j in range(i + 1, 4)]
 # ⚠ BUDGET CUT, LOGGED RATHER THAN SILENT (realstat: a bounded coverage that is not stated reads

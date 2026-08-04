@@ -61,6 +61,10 @@ IMPOSSIBLE      the MDE under the LABEL-ORDER axis. That axis is not a noise dis
                 avoid.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 import collections, json, pathlib, sys
 import numpy as np
 
@@ -71,7 +75,7 @@ OUT = HERE / "results"
 DATA = ROOT / "data"
 R4 = ROOT / ("E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all"
              "/R04_rebuild_satisfaction/results")
-DUPS = ROOT / "_archive/r257_first_pass/instruments_retyped_prompt.npz"
+DUPS = round_results("R257", "instruments.npz")
 L = "ABCD"
 PAIRS = [(i, j) for i in range(4) for j in range(i + 1, 4)]
 DOSES = [0.0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.10, 0.12]
@@ -196,11 +200,28 @@ def main() -> int:
         v = ("UNVERIFIED -- the detector never fires at g=0, which is not calibration but death; "
              "an MDE read off a dead detector is meaningless.")
     elif mde_hi > 0.0568:
-        v = ("W-COARSE -- the MDE of this release is (%.2f, %.2f], ABOVE R231's gap (0.0035), "
-             "R249's se (0.0219) and R260's own interval (0.0568). NO EFFECT THIS ARC REPORTED WAS "
-             "RESOLVABLE AT THIS INSTRUMENT. Today's downgrades were forced by the SITE and not by "
-             "the individual rounds, and E05's real output is a specification for a better "
-             "instrument rather than a set of findings." % (mde_lo, mde_hi))
+        # ⚠ REPAIRED 2026-08-03 (R320). This branch used to print a TYPED sentence naming three
+        # effects -- 0.0035, 0.0219, 0.0568 -- and then quantify over all of them: "NO EFFECT THIS
+        # ARC REPORTED WAS RESOLVABLE AT THIS INSTRUMENT". PUBLISHED has FIVE entries and its
+        # largest is `R249 minimal-size move under label order` at 0.1680, which this same script
+        # prints as "resolvable" at effect/MDE 1.87 four lines earlier. The round computed the
+        # contradiction and then asserted the opposite, because the branch condition was written
+        # against R260's interval (0.0568) as though that were the largest published effect.
+        # `the verdict string is not a computation`, and the quantifier is the part that was typed.
+        # R274 retracted this sentence and R274 was RIGHT -- on both tensors, so the retraction
+        # never depended on which judging was read.
+        res = sorted((k for k, val in PUBLISHED.items() if val / mde_hi >= 1),
+                     key=lambda k: -PUBLISHED[k])
+        unres = sorted((k for k, val in PUBLISHED.items() if val / mde_hi < 1),
+                       key=lambda k: -PUBLISHED[k])
+        v = ("W-COARSE -- the MDE of this release is (%.2f, %.2f]. Of the %d published effects, "
+             "%d are BELOW it (%s) and %d are resolvable (%s). The downgrades of the sub-MDE "
+             "effects were forced by the SITE rather than by the individual rounds; the "
+             "resolvable ones were not, and lumping them together is what the previous wording "
+             "did." % (mde_lo, mde_hi, len(PUBLISHED), len(unres),
+                       ", ".join("%s %.4f" % (k, PUBLISHED[k]) for k in unres) or "none",
+                       len(res),
+                       ", ".join("%s %.4f" % (k, PUBLISHED[k]) for k in res) or "none"))
     elif mde_hi < 0.0219:
         v = ("W-FINE -- the MDE is (%.2f, %.2f], below R249's se, so R249-scale effects WERE "
              "resolvable here and their downgrades are design failures rather than site limits."
