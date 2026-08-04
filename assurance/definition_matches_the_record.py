@@ -504,6 +504,21 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R461 -- the comparator-scope gate. The FLAGGED-at-widest is anchored with the coverage, so a
+    # future reader cannot read "0 flagged" as "the document is clean" -- the two numbers mean
+    # different things and the round's own lesson is that separating them is the point.
+    d461 = next(A24.glob("R461_*"), None)
+    f461 = (d461 / "results" / "r461_comparator_scope.json") if d461 else None
+    a = json.loads(f461.read_text()) if (f461 and f461.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r461_declared"] = (a["sweep"][-1]["n_declared_diff"], "R461")
+        out["r461_flagged_tight"] = (a["sweep"][0]["n_flagged"], "R461")
+        out["r461_coverage"] = (a["declared"], "R461")
+        out["r461_anchors"] = (a["n_anchors"], "R461")
+    else:
+        for k in ("r461_declared", "r461_flagged_tight", "r461_coverage", "r461_anchors"):
+            out[k] = (None, "R461")
+
     # R460 -- the comparator census. The MINIMUM is anchored with the IQR, because the finding
     # narrows a number while PRESERVING the claim, and only the minimum shows the claim survives.
     d460 = next(A24.glob("R460_*"), None)
@@ -1038,6 +1053,15 @@ ASSERTIONS = {
     "r460_iqr":      r"\*\*IQR ([\d.]+)\*\*",
     "r460_strength": r"comparator strength\) = ([\u2212\-][\d.]+)\*\*",
     "r460_ncomp":    r"census of all ([\d,]+)\*\* is free",
+    "r461_declared":      r"\*\*(\d+)\*\* declared difference-anchors",
+    "r461_flagged_tight": r"and \*\*(\d+)\*\* at the tightest",
+    # ⛔ SELF-REFERENTIAL ANCHORS. These two describe the gate that checks them, so adding any
+    #    anchor invalidates them -- and it did, one commit after R461 ran. They are KEPT rather than
+    #    dropped precisely because the gate then FORCES the update; an unanchored count would have
+    #    drifted silently and forever. The lesson is not "avoid self-reference" but "if a document
+    #    describes its own checker, that description must be checked BY the checker."
+    "r461_coverage":      r"coverage is (\d+) of \d+ anchors",
+    "r461_anchors":       r"coverage is \d+ of (\d+) anchors",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

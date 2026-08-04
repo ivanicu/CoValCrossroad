@@ -343,6 +343,21 @@ reliable variation. ⚠ **What this does NOT overturn: the per-prompt advantage 
 MINIMUM is 0.8226, so every comparator agrees.** What it narrows is the number and its reading: the
 honest quantity is the census IQR **0.8419–0.8544**, and any single-comparator figure must name its
 comparator. *(R460)*
+
+⭐ **AND THAT CLASS DEFECT DID NOT REACH THIS DOCUMENT (R461).** Since a difference is a joint
+statement about the arm and its comparator, every difference-based claim here must name what it was
+measured against. Rather than grep for them — **a grep is a measuring instrument with no positive
+control** — the comparator is now **DECLARED per anchor and checked** by
+`assurance/comparator_scope.py`, with the containment window **swept rather than chosen**:
+**18** declared difference-anchors, **0 flagged** at windows 400/800/1600 and **3** at the tightest
+200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
+that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
+comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 261 anchors
+(10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
+gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
+rather than any property of this document. **The product of that round is the enforced instrument: a
+future difference-anchor cannot be added without naming its comparator.** *(R461)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

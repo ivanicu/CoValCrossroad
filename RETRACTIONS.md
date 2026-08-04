@@ -9434,3 +9434,58 @@ percentile that matters is computed **by value** rather than by row lookup.
 percentile instead of 0th — which is precisely the direction that would have softened this round's
 own indictment of R459. ⚠ **A mixed-object sentence is not random in its direction; it tends to land
 where the surrounding narrative is already pointing.**
+
+---
+
+## 271 · The announced audit was a grep — replaced before running, and its suspicion was FALSE (R460 → R461)
+
+**What was proposed.** R460 closed: *"walk `DEFINITION.md` for every ρ, gap or share defined as a
+DIFFERENCE, and check that the sentence names which comparator it was measured against."*
+
+**Why it was the wrong instrument.** §4: **a grep is a measuring instrument.** This one had no
+positive control, and its **unit was not the claim's unit** — it would match *difference-like numbers
+in prose* while the claim is about *numbers that ARE differences*. Those are different sets, and §4's
+hardest lesson is that a control sharing the instrument's blind spot licenses nothing.
+
+**And the obvious alternative was forced.** Re-measuring each difference across R460's comparator
+census is arithmetic: **R455's comparator is *the best* one by construction**, so every weaker
+comparator necessarily yields a larger gap.
+
+**What replaced it.** The comparator is **declared per anchor and checked** — an anchor without a
+declaration is reported UNDECLARED and can never pass silently. The containment window is **swept**,
+and the sweep is what makes the result readable:
+
+| window | 200 | 400 | 800 | 1600 |
+|---|---|---|---|---|
+| flagged | **3** | 0 | 0 | 0 |
+
+**The suspicion is false. Every declared difference names its comparator.** The three flags at w=200
+are a **window artifact** — and a single chosen window would have reported either *"3 defects"* or
+*"all clean"* with equal confidence. ⭐ **The sweep is not robustness decoration here; it is the only
+thing that separates the two answers.**
+
+⚠ **And a number this round refused to report as a finding:** declaration coverage is **27 of 261**
+anchors. The 234 undeclared are **not passes**, but that count measures **the instrument's coverage**,
+not a property of the document — and it is exactly the kind of large number that reads as a finding.
+
+---
+
+## 272 · A self-referential count went stale one commit after it was written (R461, caught in-round)
+
+**What happened.** R461 recorded *"declaration coverage is 27 of **257** anchors"* into
+`DEFINITION.md`. Anchoring that sentence added **4 more anchors** to the gate — making the true count
+**261** — so the claim was false before the commit that contained it.
+
+**Why it would have passed anyway.** The anchor compared the document's `257` against the artifact's
+`257`, and both were captured *before* the new anchors existed. **A stale pair agrees with itself.**
+
+**The fix, and why the anchor was kept rather than dropped.** The pattern was generalised to
+`coverage is (\d+) of \d+ anchors`, the round re-run, and the document updated to **27 of 261
+(10.3%)** with the self-reference flagged in place. **Keeping the anchor is what forces the update** —
+an unanchored count would have drifted silently and permanently.
+
+⭐ **The generalisable form.** *A document that describes its own checker contains a claim the checker
+must check.* Self-reference is not the defect; **unchecked self-reference is.** The tell is
+mechanical: **any sentence whose truth value changes when the instrument grows** — counts of rules,
+anchors, tests, coverage — and the remedy is to anchor it against the instrument's live state rather
+than a snapshot taken while writing.

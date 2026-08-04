@@ -1,0 +1,51 @@
+{
+  "source_sha": "ad99b17cffab943d9fab1484048cb9b99c081f17",
+  "world": "W-WINDOW",
+  "n_anchors": 261,
+  "declared": 27,
+  "coverage_pct": 10.344827586206897,
+  "sweep": [
+    {
+      "window": 200,
+      "flagged": [
+        "r456_gap16",
+        "r456_ratio16",
+        "r460_iqr"
+      ],
+      "n_flagged": 3,
+      "n_declared_diff": 18,
+      "n_absolute": 9,
+      "n_undeclared": 234
+    },
+    {
+      "window": 400,
+      "flagged": [],
+      "n_flagged": 0,
+      "n_declared_diff": 18,
+      "n_absolute": 9,
+      "n_undeclared": 234
+    },
+    {
+      "window": 800,
+      "flagged": [],
+      "n_flagged": 0,
+      "n_declared_diff": 18,
+      "n_absolute": 9,
+      "n_undeclared": 234
+    },
+    {
+      "window": 1600,
+      "flagged": [],
+      "n_flagged": 0,
+      "n_declared_diff": 18,
+      "n_absolute": 9,
+      "n_undeclared": 234
+    }
+  ],
+  "flagged_tightest": [
+    "r456_gap16",
+    "r456_ratio16",
+    "r460_iqr"
+  ],
+  "flagged_widest": []
+}
