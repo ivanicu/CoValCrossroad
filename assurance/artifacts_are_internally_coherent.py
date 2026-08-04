@@ -77,7 +77,11 @@ def is_ci(v):
 
 
 def scan(root: pathlib.Path):
-    out = {"outside": [], "contradict": [], "inverted": [], "n_pairs": 0, "n_flagged": 0,
+    # ⚠ `all_pairs` added at R340, ADDITIVE. scan() counted 389 unambiguous pairs and retained only
+    # the violating ones, so a triage built on its output could only ever see nodes already known
+    # to be outside their interval -- a population pre-filtered to the positives, which cannot
+    # clear anything. Nothing that existed before reads this key and no verdict changes.
+    out = {"outside": [], "contradict": [], "inverted": [], "all_pairs": [], "n_pairs": 0, "n_flagged": 0,
            "n_stem": 0, "n_sole": 0, "skipped_sole_null": [], "skipped_ci_spoken_for": []}
 
     def walk(o, rid, path):
@@ -110,6 +114,7 @@ def scan(root: pathlib.Path):
                     stem_hits.add((mk, ck))
                     lo, hi = sorted(cv)
                     out["n_pairs"] += 1
+                    out["all_pairs"].append((rid, path or "<root>", mv, [lo, hi]))
                     out["n_stem"] += 1
                     if not (lo <= mv <= hi):
                         out["outside"].append((rid, path or "<root>", mk, mv, ck, [lo, hi]))
@@ -141,6 +146,7 @@ def scan(root: pathlib.Path):
             (mk, mv), (ck, cv) = mks[0], cks[0]
             lo, hi = sorted(cv)
             out["n_pairs"] += 1
+            out["all_pairs"].append((rid, path or "<root>", mv, [lo, hi]))
             out["n_sole"] += 1
             if not (lo <= mv <= hi):
                 out["outside"].append((rid, path or "<root>", mk, mv, ck, [lo, hi]))
