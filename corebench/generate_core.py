@@ -102,31 +102,28 @@ def main():
     else:
         # the SAME conversation sample judge_transport draws, so the generated core covers exactly
         # the interactions that will be scored -- a mismatch here would silently shrink the arm.
-        import collections
-        convs = collections.OrderedDict()
-        with open(a.second_path) as f:
-            for line in f:
-                if not line.strip():
-                    continue
-                r = json.loads(line)
-                c = r.get("conversation_id")
-                if c is None:
-                    continue
-                convs.setdefault(c, []).append((int(r.get("turn") or 0),
-                                                str(r.get("user_prompt") or "")))
-        rng = np.random.default_rng(a.seed)
-        ids = sorted(convs)
-        take = ids if len(ids) <= a.convs else [ids[i] for i in
-                                                sorted(rng.choice(len(ids), a.convs, replace=False))]
-        items = []
-        for c in take:
-            seen, txt = set(), []
-            for _t, p in sorted(convs[c]):
-                if p and p not in seen:            # one interaction repeats its prompt per response
-                    seen.add(p); txt.append(p)
-            items.append((c, " ".join(txt)[:900]))
-        print(f"  corpus=second · conversations {len(items)} of {len(ids)} · "
-              f"unit = CONVERSATION", flush=True)
+        # ⛔ THE SAMPLE MUST COME FROM THE JUDGE'S OWN SAMPLER, NOT FROM MATCHING TWO SEEDS.
+        #    The first version drew 2,200 conversations from ALL 8,011 in the file. `load_second`
+        #    draws from only those with a USABLE interaction (>=2 distinct scored responses), which
+        #    is a smaller set -- so the same seed and the same count gave two DIFFERENT samples, and
+        #    coverage came back 1,644/2,200 = 0.7473, below this round's own pre-registered 0.80
+        #    gate, with 1,870 interactions dropped. The gate caught it, which is the gate working;
+        #    lowering it would have been the move AMENDMENT 1 forbids.
+        #    Importing the sampler makes alignment a property of the code rather than of my
+        #    remembering to pass matching flags. Two producers that must agree on a population
+        #    should share the function that defines it.
+        sys.path.insert(0, str(ROOT / "corebench"))
+        import judge_transport as JT
+        data = JT.load_second(pathlib.Path(a.second_path), a.convs, a.seed)
+        texts = {}
+        for cid, _iid, prompt, _cands in data:
+            if prompt:
+                texts.setdefault(cid, [])
+                if prompt not in texts[cid]:
+                    texts[cid].append(prompt)
+        items = [(c, " ".join(v)[:900]) for c, v in texts.items()]
+        print(f"  corpus=second · conversations {len(items)} · unit = CONVERSATION · "
+              f"sample taken FROM judge_transport.load_second (shared sampler)", flush=True)
     if a.limit:
         items = items[:a.limit]
     if a.sham:                              # SHAM: same generator, wrong conversation
