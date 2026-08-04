@@ -1,0 +1,95 @@
+{
+  "adopt_at": 0.8,
+  "best": "P3_arc_row",
+  "controls": {
+    "scope_neg_ok": true,
+    "scope_pos": 10,
+    "scope_pos_known": 0,
+    "scope_pos_ok": true
+  },
+  "eligible": [
+    "P1_root_README",
+    "P2_own_README",
+    "P3_arc_row"
+  ],
+  "governed": [
+    "R103_consensus_conditioned",
+    "R106_share_level_under_redraw",
+    "R109_donor_arm_is_text_blind",
+    "R10_attribution_robustness",
+    "R12_response_set",
+    "R20_paraphrase_transfer",
+    "R21_donor_distance",
+    "R22_cross_family",
+    "R46_spread_replication",
+    "R86_attribution_by_form",
+    "R87_criterion_count_channel",
+    "R88_donor_draw_variance",
+    "R89_floor_draw_at_panel_size",
+    "R90_resampling_unit"
+  ],
+  "head": "d7245377d8ef",
+  "min_capacity": 40,
+  "missing_dirs": [],
+  "rows": {
+    "P1_root_README": {
+      "capacity": 1504,
+      "coverage": 0.14285714285714285,
+      "have": [
+        "R106_share_level_under_redraw",
+        "R109_donor_arm_is_text_blind"
+      ],
+      "question_rate": 0.0,
+      "scope": 0,
+      "scope_of_have": 0.0,
+      "site": 2,
+      "with_scope": []
+    },
+    "P2_own_README": {
+      "capacity": 1045,
+      "coverage": 0.2857142857142857,
+      "have": [
+        "R10_attribution_robustness",
+        "R12_response_set",
+        "R20_paraphrase_transfer",
+        "R22_cross_family"
+      ],
+      "question_rate": 0.75,
+      "scope": 0,
+      "scope_of_have": 0.0,
+      "site": 4,
+      "with_scope": []
+    },
+    "P3_arc_row": {
+      "capacity": 66,
+      "coverage": 1.0,
+      "have": [
+        "R103_consensus_conditioned",
+        "R106_share_level_under_redraw",
+        "R109_donor_arm_is_text_blind",
+        "R10_attribution_robustness",
+        "R12_response_set",
+        "R20_paraphrase_transfer",
+        "R21_donor_distance",
+        "R22_cross_family",
+        "R46_spread_replication",
+        "R86_attribution_by_form",
+        "R87_criterion_count_channel",
+        "R88_donor_draw_variance",
+        "R89_floor_draw_at_panel_size",
+        "R90_resampling_unit"
+      ],
+      "question_rate": 0.35714285714285715,
+      "scope": 2,
+      "scope_of_have": 0.14285714285714285,
+      "site": 14,
+      "with_scope": [
+        "R88_donor_draw_variance",
+        "R89_floor_draw_at_panel_size"
+      ]
+    }
+  },
+  "source_name": "run.py",
+  "source_sha256": "2cba4cdbb4277316f760393cc88b2a2c31784c12c3651d6d3a6c8001b0b64c7d",
+  "verdict": "W_PREREG_FIRES_BUT_SITE_IS_A_QUESTION_INDEX"
+}

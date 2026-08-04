@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**376 rounds** in **5 epochs** and **24 arcs**, numbered to **R382** — **53 standing claims, 13
+**377 rounds** in **5 epochs** and **24 arcs**, numbered to **R383** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -801,6 +801,24 @@ measures. A round whose own text joins the corpus must exclude itself — R376's
 a fourth level. **They are separate repairs, and calling them one would be the grouping error R379
 already cost a round.**
 → [`R382`](E05_the_space_of_compilers/A24_what_the_definition_costs/R382_does_the_pattern_match_anything)
+
+**And testing the replacement proxy before adopting it produced a pre-registration I then refused to
+follow.** Three candidate sites for the 14 governed rounds: the root README paragraph covers **14%**,
+the round's own README **29%**, the arc README row **100%**. The rule fixed before any count —
+highest site coverage, adopt at ≥80% — **elects the arc row**. ⛔ **I then invented two criteria aimed
+at the winner and both failed**: capacity (66 chars, above the floor) and question-rate (36%, below
+the cut). A third would have been a criterion tuned until it produced the answer I wanted, so I
+stopped and both stay as *reported diagnostics*. ⛔ **My own docstring was false and my own measure
+caught it** — I had written that the arc row's second column is empty; capacity returned 66, so I
+read one: the arc README holds **two** tables and the second carries `r21 -- Is the "nearest-topic"
+donor actually topically near?`. **A question.** And that explains the 2 of 14 that appeared to carry
+a scope: the pattern matched `donor-draw` inside **R88's and R89's own question titles** — *both
+numbers false positives of my own instruments, one level apart, and neither added criterion caught
+it.* ⭐ **The pre-registration was on the wrong quantity: site coverage cannot tell a document that
+STATES findings from one that LISTS them.** Real scope coverage: **0 of 14**. Adopting would give a
+gate ruling on question titles — vacuous in a new way, which is what R380 refused. **The refusal
+overrides a pre-registration, so it is declared rather than hidden.**
+→ [`R383`](E05_the_space_of_compilers/A24_what_the_definition_costs/R383_test_the_proxy_before_adopting_it)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

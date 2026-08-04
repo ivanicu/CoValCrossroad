@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-08-04T12:35:35.604613+00:00",
- "git": "59e3df189408f71e335fa8c834a97cab0b9984b8",
+ "generated_utc": "2026-08-04T12:45:24.822431+00:00",
+ "git": "d7245377d8ef737440b8c009fc27629527a17ed4",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -1558,6 +1558,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R382_does_the_pattern_match_anything/run.py": {
    "bytes": 15037,
    "sha256": "ce6a04aee68901f479d8897865375a37716c172ddcb2915699ef5957d8dbc10d"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R383_test_the_proxy_before_adopting_it/run.py": {
+   "bytes": 21139,
+   "sha256": "2cba4cdbb4277316f760393cc88b2a2c31784c12c3651d6d3a6c8001b0b64c7d"
   },
   "assurance/DEFECTS.py": {
    "bytes": 14429,
@@ -4140,6 +4144,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R382_does_the_pattern_match_anything/results/r382_pattern_matches.json": {
    "bytes": 1686,
    "sha256": "77865435153279a533567ce2752a1204ed7a596f9e91e27db1d8e7c4f4c36b67"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R383_test_the_proxy_before_adopting_it/results/r383_proxy_site.json": {
+   "bytes": 2450,
+   "sha256": "dd59eadbb2b0dcfa0ca819334c837215083d4ce01daa8b0a8cfd9d15f803e568"
   }
  },
  "claims": [
