@@ -45,6 +45,19 @@ PREDICTION MATRIX, recorded before the run
 ⚠ I expect W2. If W1 comes back, the screen's uniform-shift assumption was doing the work, which is
   exactly the approximation it declared and could not test.
 
+⚠⚠ PREDICTION UPDATED WHILE THE RUN WAS IN FLIGHT, from data I ALREADY HAD and had not consulted.
+R353 measured P(coval_core admitted) over random pool orderings at 1.000 and 0.998 across 400 draws
+per seed. A random permutation's k=4 prefix is a UNIFORM random 4-subset, so ~1% of those draws sit
+at or above p99 -- about four orderings. coval_core missed in 0 and 1 of 400, i.e. roughly the top
+0.25%, which lies INSIDE the top 1% rather than covering it. So the p99 subset is probably NOT strong
+enough to exclude it, and the exclusion sits nearer p99.75.
+
+That REVERSES the coval_core half of the prediction: I now expect it to SURVIVE at p99, while the
+set still collapses around it. The original guess came from the uniform-shift screen; this one comes
+from a measurement, and the two disagree. Recording both, before the result, because a prediction
+revised after seeing the answer is not a prediction -- and because the disagreement between a screen
+and a measurement is itself the thing to watch.
+
 PRE-REGISTERED KILL
     if the reproduction control fires and R331's p99 blind-admission rate is reproduced:
         |admitted at p99| <= 2 -> W2. Report the whole curve and say plainly which arms survive.
