@@ -357,6 +357,28 @@ clause saying "better than chance" excludes nothing, while the test that was act
 | `topvar_k4` | 0.4863 | −0.0064 / 0.0134 = 0.48× | — | **not resolvably better** (①) |
 | `gen_sham` | 0.4828 | −0.0099 / 0.0165 = 0.60× | — | **not resolvably better** (①) |
 
+⛔ **AND CLAUSE ② IS WHERE THE DEFINITION ACTUALLY BINDS — AT 1.19× ITS OWN MDE (R326).** The
+column above carries intervals but not the eff/MDE ratio, so a reader can see that an interval
+excludes zero and cannot see how close the effect is to what the design could resolve. Clause ② has
+**two published references** and the table shows one; both, with their ratios:
+
+| arm | ② vs neutral pool-16 (R307, shown above) | ② vs `generic` at matched k=4 (R308) |
+|---|---|---|
+| **`coval_core`** | +0.0262 / 0.0099 = **2.63×** | +0.0151 / 0.0107 = **1.41×** |
+| **`topw_k4`** | +0.0239 / 0.0100 = **2.39×** | +0.0128 / 0.0108 = **1.19×** |
+| `gen` | −0.0051 / 0.0109 = 0.47× — **unresolved** | −0.0162 / 0.0119 = 1.36× |
+| `full` | −0.0331 / 0.0117 = 2.84× | — |
+
+> ### The two admitted arms clear clause ① by **5.6×** and clause ② by as little as **1.19×**.
+> **Clause ② is the binding constraint, and both admissions sit near its resolution floor** — an
+> arm 20% weaker than `topw_k4` would be unresolvable there while still clearing clause ① five
+> times over. That is a property of the definition worth knowing before anyone builds a core to
+> satisfy it.
+
+⚠ **And `gen`'s exclusion is reference-dependent in the honest direction**: unresolved at 0.47×
+under the neutral pool, resolved at 1.36× under matched-k4. The table already says so — *"at the
+two references that can resolve"* — and this is the arithmetic behind that phrase.
+
 ⛔ **THE FOUR CLAUSE-① ROWS SAY `not resolvably better`, NOT `worse` (R325).** All four sit BELOW
 their own MDE, so **the sign is not readable** and this design cannot call any of them worse than
 the baseline. `excluded` remains correct for an admission rule that requires a resolvable positive
