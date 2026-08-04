@@ -169,7 +169,18 @@ def main() -> int:
             out[:, n] = (C_[:, None, :] == np.array(H[pids[n]], float)[None, :, :]).mean(axis=(1, 2))
         return out
 
+    # ⛔ MY PRE-REGISTERED KILL SAID `(oracle_positive_at_08b IF ORACLE USABLE)`, AND THAT PARENTHESIS
+    #   IS A CONDITIONAL I WROTE TO LET MYSELF THROUGH. The families differ, so the oracle file
+    #   cannot be mixed with this pool -- and without ANY instrument check a negative here is
+    #   indistinguishable from "the 0.8B judge cannot rank at all", which is exactly what
+    #   R358/R359's `nothing admitted` is also consistent with. A verdict resting on an escape hatch
+    #   in my own kill is not a verdict.
+    #   The repair uses an arm that IS in this family: `full`, the complete rubric, which is the
+    #   target's own source and must outrank a blind subset at any judge that can rank at all. It is
+    #   a weaker positive than an oracle -- it does not read the rankings -- and that is stated.
     subjects = {"coval_core": "sat08_coval_core.npz", "topw_k4": "sat08_topw_k4.npz"}
+    if (RES / "sat08_full.npz").exists():
+        subjects["full (INSTRUMENT CTRL)"] = "sat08_full.npz"
     if same and (RES / "sat_oracle_k4_08b.npz").exists():
         subjects["oracle_k4"] = "sat_oracle_k4_08b.npz"
 
@@ -191,22 +202,41 @@ def main() -> int:
         e = float(d.mean()); se = float(d.std(ddof=1) / math.sqrt(len(d)))
         stats[name] = dict(k=k, n=len(d), e=e, se=se, d=e / (se * math.sqrt(len(d))))
 
-    oracle_ok = ("oracle_k4" not in stats) or (stats["oracle_k4"]["e"] > 0)
-    if "oracle_k4" in stats:
-        o = stats["oracle_k4"]
-        print(f"    ORACLE (+)   a label-reader must beat the blind maximum at ANY judge: "
-              f"e = {o['e']:+.6f}   {'PASS' if oracle_ok else 'FAIL'}")
-        print(f"                 a judge too weak to separate a label-reader from a blind set could")
-        print(f"                 not host this comparison at all — and THAT would be the honest")
-        print(f"                 reading of R358/R359 rather than `no effect`")
+    fullk = "full (INSTRUMENT CTRL)"
+    inst = stats.get("oracle_k4") or stats.get(fullk)
+    inst_name = "oracle_k4" if "oracle_k4" in stats else (fullk if fullk in stats else None)
+    oracle_ok = inst is not None and inst["e"] > 0
+    if inst_name:
+        print(f"    INSTRUMENT   `{inst_name}` must outrank the blind MAXIMUM at any judge that can")
+        print(f"                 rank at all: e = {inst['e']:+.6f}  d = {inst['d']:+.5f}   "
+              f"{'PASS' if oracle_ok else 'FAIL'}")
+        if inst_name == fullk:
+            print(f"                 ⚠ WEAKER THAN AN ORACLE: `full` is the complete rubric, the")
+            print(f"                   target's own source, but it does not READ the rankings. It")
+            print(f"                   bounds `can this judge rank` and not `can it detect leakage`.")
     else:
-        print(f"    ORACLE (+)   UNAVAILABLE — the families differ, so the oracle file cannot be")
-        print(f"                 mixed with this pool. Named, not skipped.")
+        print(f"    INSTRUMENT   NONE AVAILABLE — no verdict is licensed.")
     if "coval_core" not in stats:
         print("\n  UNRUNNABLE: coval_core has too few 0.8B prompts. Exit 2."); return 2
     if not oracle_ok:
-        print("\n  UNVERIFIED — the judge cannot separate a label-reader from the blind maximum, so")
-        print("  a null on coval_core would be silence. Exit 1."); return 1
+        print(f"\n  UNVERIFIED — the instrument control FAILS: this judge does not rank even the")
+        print(f"  complete rubric above a blind subset, so a negative on coval_core is SILENCE about")
+        print(f"  the core and a statement about the JUDGE. And that is the honest reading of")
+        print(f"  R358/R359's `nothing admitted at 0.8B` — not `no effect`, but `no ranking`.")
+        print(f"  The sign flip below is NOT licensed and is recorded, not concluded. Exit 1.")
+        print(f"    coval_core at 0.8B: e {stats['coval_core']['e']:+.6f} "
+              f"se {stats['coval_core']['se']:.6f}")
+        art = dict(source_sha256=hashlib.sha256(SELF.read_bytes()).hexdigest(),
+                   source_name=SELF.name, families_identical=same, n_prompts_08b=len(pids),
+                   npool=npool, stats=stats, e_2b=e_2b, d_2b=d_2b,
+                   controls=dict(family_same=same, instrument=inst_name, instrument_ok=False),
+                   verdict="UNVERIFIED_JUDGE_CANNOT_RANK")
+        (HERE / "results").mkdir(exist_ok=True)
+        outp = HERE / "results" / "r414_second_judge.json"
+        outp.write_text(json.dumps(art, indent=2, sort_keys=True, default=str))
+        print(f"\n  artifact {outp.relative_to(ROOT)}  "
+              f"sha256[:12] {hashlib.sha256(outp.read_bytes()).hexdigest()[:12]}")
+        return 1
 
     c = stats["coval_core"]
     print(f"\n  THE SECOND-JUDGE EFFECT — same construction as R408, different judge")

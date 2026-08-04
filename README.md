@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**406 rounds** in **5 epochs** and **24 arcs**, numbered to **R413** — **53 standing claims, 13
+**407 rounds** in **5 epochs** and **24 arcs**, numbered to **R414** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1280,6 +1280,22 @@ cheapest way to find one. ⭐ Controls include a **cross-round reproduction** (m
 R412's committed 1.0000) and **1,579 tied-top interactions excluded rather than broken by array
 order**.
 → [`R413`](E05_the_space_of_compilers/A24_what_the_definition_costs/R413_does_score_escape_the_clustering)
+
+**`UNVERIFIED` — the second judge cannot rank, and an escape hatch in my own kill nearly published a
+false retraction.** R413's NEXT noted that *"at 0.8B nothing is admitted"* is a **binary** verdict
+about admission, leaving the **continuous** effect unexamined — and the 0.8B scores were already on
+disk, so a cross-model replication cost no GPU. Computed: `coval_core` at 0.8B is **−0.0188**, a sign
+flip against the committed **+0.0090** at 2B. ⛔ **But the instrument control fails**: `full` — the
+complete rubric, the target's own source — scores **−0.0558** against the blind maximum. **A judge
+that ranks the rubric below a random blind draw cannot host any comparison**, so the negative is
+silence about the core and a statement about the judge. ⛔ **And the hole was mine**: my pre-registered
+kill read *"(oracle_positive_at_08b **if oracle usable**)"*, and when the two 0.8B naming families
+turned out not to be the same run, that condition simply evaporated. **Without the repair this would
+have published `W-SIGN-FLIP` — a false retraction, the most expensive kind of error, because nobody
+re-examines a withdrawn claim.** ⭐ The repair used `full`, an arm inside the same family, and is
+explicitly **weaker than an oracle**: it bounds *can this judge rank*, not *can it detect leakage*.
+**R408's +0.009 is untouched — the attack was ruled inadmissible, not answered.**
+→ [`R414`](E05_the_space_of_compilers/A24_what_the_definition_costs/R414_does_the_effect_replicate_at_the_second_judge)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
