@@ -188,10 +188,34 @@ judge in it** (R224/R228), and the k-curve's *shape* across judges was already m
 | **a count of admitted arms** | the set moves within **0.25 MDE** (R332) and with the reference's percentile (R354) |
 | **that its three clauses each test something** | one excludes nothing, one is judge-emptied, one is irreplaceable |
 | **an unindexed size** | at 0.8B top-k loses to a size-matched blind set at **6 of 7** sizes (R362) |
+| **that it works on responses it was NOT scored against** | measured, matched, and **marginal** — see the transport note below (R368) |
 | **transfer to another criterion pool** | every level here is a fact about **this 16-criterion pool** (R331) |
 | **transfer to another release** | one release |
 
 ---
+
+## Transport — the clause this definition does not have
+
+Every clause above certifies a core against **the four responses it was scored on**. Nothing says it
+works on new ones, and until R368 nothing had measured it: `transport` appeared here **zero** times.
+
+Matched on per-prompt difficulty — the confound R233 named when it declined its own verdict — the
+core reproduces the full rubric's ordering on **unseen** responses better than a size-matched random
+draw, by **+0.0992 against an MDE of 0.0654** on R233's own exact-class metric, and **+0.0612 vs
+0.0535** on a finer pair metric. Same sign, both resolved.
+
+⚠ **Marginal, and stated as such**: 1.52× and 1.14× of their own MDEs, where the MDE is computed over
+**4 strata** — the effective n is the strata, not the 250 prompts.
+
+⚠ **And the shape underneath is unexplained.** The core is **at or below random on the responses it
+was built for** and above random on responses it was not. **[UNTESTED]** nothing here explains that,
+and it is recorded as the residual.
+
+⚠ **R233's limit does not move:** the fresh responses carry **no human rankings**, so this is
+transport of the **compilation** — agreement with the full rubric — and never agreement with people.
+
+**So transport is a candidate clause, not yet one**: the evidence is positive, marginal, on one
+judge, and about the rubric rather than about people.
 
 ## The one sentence
 

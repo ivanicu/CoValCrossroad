@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**361 rounds** in **5 epochs** and **24 arcs**, numbered to **R367** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**355 of the 361 carry a
+**362 rounds** in **5 epochs** and **24 arcs**, numbered to **R368** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**356 of the 362 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -541,6 +541,23 @@ resolves at only **1.85×** its MDE, and two judges can **refute** a rule and ne
 what is earned is *"not refuted, and not circular on the one external channel available"*. Gate now
 checks **30 of 30**.
 → [`R367`](E05_the_space_of_compilers/A24_what_the_definition_costs/R367_can_the_judge_be_named_non_circularly)
+
+**And the clause the definition never had: TRANSPORT.** It certifies a core against the four
+responses it was scored on and said nothing about new ones — **`transport` appeared zero times**.
+R233 measured it once and **declined its own verdict**, naming the confound (*"the design conflated
+`unseen` with `equally hard`"*) and the fix (*"match the arms on difficulty"*). The 33,320
+judgements are cached, so the fix was a **re-analysis, no GPU**. Matched on per-prompt difficulty,
+the core reproduces the full rubric's ordering on **unseen** responses better than a size-matched
+random draw: **+0.0992 vs MDE 0.0654** on R233's exact-class metric, **+0.0612 vs 0.0535** on a finer
+one — same sign, both resolved. ⛔ **v1 ran a different statistic and the floors caught it**: scoring
+the *fraction* of pairs gave random floors of 0.83/0.82 against R233's 0.4044/0.4166; corrected to
+exact class match they land at **0.4133/0.3960**, and *that agreement is the check that this is
+R233's test*. ⚠ **Marginal** — 1.52× and 1.14×, with the MDE over **4 strata**, so the effective n is
+the strata, not the 250 prompts. ⚠ **And the shape is unexplained**: the core is **at or below random
+on the responses it was built for** and above random on responses it was not — **[UNTESTED]**,
+recorded as the residual rather than narrated. R233's limit stands: fresh responses carry **no human
+rankings**, so this is transport of the *compilation*, never agreement with people. Gate **32 of 32**.
+→ [`R368`](E05_the_space_of_compilers/A24_what_the_definition_costs/R368_transport_matched_on_difficulty)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

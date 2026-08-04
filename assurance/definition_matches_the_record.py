@@ -77,6 +77,12 @@ def derive():
     out["closure_k_count"] = (len(a["ks"]) if a else None, "R355")
     a = art("R358_*")
     out["closure_violations_08B"] = (a["totals_08b"]["45"] if a else None, "R358")
+    a = art("R368_*")
+    if a:
+        out["transport_exact"] = (round(a["matched_contrast"]["exact"], 4), "R368")
+        out["transport_mde"] = (round(a["mde"]["exact"], 4), "R368")
+    else:
+        out["transport_exact"] = (None, "R368"); out["transport_mde"] = (None, "R368")
     a = art("R367_*")
     if a:
         out["rule_b_2B"] = (round(a["rule_b"]["mean_2B"], 4), "R367")
@@ -170,6 +176,9 @@ ASSERTIONS = {
     "rule_b_2B":             r"last \*\*(\d\.\d+)\*\* of the time",
     "rule_b_08B":            r"against 0\.8B's \*\*(\d\.\d+)\*\*",
     "rule_b_n":              r"on the \*\*(\d+)\*\*\s*\n?prompts carrying such a rating",
+    # R368 — transport measured; its numbers travel with the clause.
+    "transport_exact":       r"by \*\*\+(\d\.\d+) against an MDE",
+    "transport_mde":         r"against an MDE of (\d\.\d+)\*\*",
 }
 
 
