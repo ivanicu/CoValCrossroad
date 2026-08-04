@@ -1,0 +1,16 @@
+{
+  "source_sha": "3b5f6d63e681c1bfea6902eb6269673372ebc28c",
+  "world": "W-PROVENANCE",
+  "n_prompts": 968,
+  "n_forced": 1,
+  "n_choice": 967,
+  "collision_choice": 0.009651844191658049,
+  "collision_forced": 1.0,
+  "baseline_labelfree_pair": 0.006204756980351603,
+  "n_collided": 9,
+  "seed_spread": 0.0017576764955507702,
+  "controls": {
+    "derivation_ok": true,
+    "identity_ok": true
+  }
+}

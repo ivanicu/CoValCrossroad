@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 273 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 277 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 273.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 277.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -393,6 +393,21 @@ correctly-calibrated boundary requires. ⭐ **So ① is a real predicate with a 
 `0 of 41` is a fact about the ARM SPACE rather than about the clause.** ⚠ What it does not establish
 is that any real *generator* would produce such an object: the excluded arm was built adversarially,
 on purpose, which is both the point of the test and its limit. *(R464)*
+
+⭐ **AND ③ IS A PREDICATE OF A DIFFERENT TYPE FROM ①②④ (R465) — THE FORMULATION MIXES TWO KINDS OF
+CLAUSE.** ③ is derived from *which selector built the arm*, so it is invariant under every measurable
+property of the object: criteria, satisfaction scores, A2. Constructing the collision directly — a
+label-**reading** selector against a label-**free** one at matched k — they emit **exactly the same
+criterion set on 9 of 967** prompts where a genuine choice exists (rate **0.0097**, seed spread
+0.0018), with **identical A2 to machine precision** on every collided prompt, while ③ excludes one and
+admits the other. ⚠ Against a label-free/label-free baseline of **0.0062** that rate is **not a
+resolved difference and does not need to be**: the estimand is **existence**, and one collision
+suffices. The single prompt whose rubric admits exactly one subset collides at 1.0000 by construction
+and is excluded as a **DERIVATION**. ⭐ **What this costs the formulation: ①, ② and ④ can be checked on
+an object you are handed; ③ cannot** — a reader given a criterion set can verify three of four clauses
+and must be given the construction history for the fourth. That is not a defect to remove but a fact
+the definition must state, because four uniform-looking predicates silently promise a check one of
+them cannot deliver. *(R465)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

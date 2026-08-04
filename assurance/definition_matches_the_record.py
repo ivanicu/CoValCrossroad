@@ -504,6 +504,21 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R465 -- clause ③'s type. The BASELINE is anchored with the collision rate, because the round
+    # explicitly declines to claim a difference between them and an unanchored baseline would let a
+    # later reader restore that claim by drift.
+    d465 = next(A24.glob("R465_*"), None)
+    f465 = (d465 / "results" / "r465_clause_three_type.json") if d465 else None
+    a = json.loads(f465.read_text()) if (f465 and f465.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r465_ncol"] = (a["n_collided"], "R465")
+        out["r465_nchoice"] = (a["n_choice"], "R465")
+        out["r465_rate"] = (f"{a['collision_choice']:.4f}", "R465")
+        out["r465_base"] = (f"{a['baseline_labelfree_pair']:.4f}", "R465")
+    else:
+        for k in ("r465_ncol", "r465_nchoice", "r465_rate", "r465_base"):
+            out[k] = (None, "R465")
+
     # R464 -- clause ①'s extension. The RANDOM-draw boundary is anchored beside the worst-subset
     # exclusion, because "excluded" is only readable if a draw from the reference process itself
     # sits ON the boundary -- the two numbers are one control and must not drift apart.
@@ -1124,6 +1139,10 @@ ASSERTIONS = {
     "r464_core":   r"released core sits at\s*\n?\*\*\+([\d.]+)\*\*",
     "r464_random": r"sits at \*\*\+([\d.]+)\*\* with a CI straddling zero",
     "r464_mde":    r"against an MDE of ([\d.]+), while the released core",
+    "r465_ncol":    r"criterion set on (\d+) of [\d,]+\*\* prompts",
+    "r465_nchoice": r"criterion set on \d+ of ([\d,]+)\*\* prompts",
+    "r465_rate":    r"\(rate \*\*([\d.]+)\*\*, seed spread",
+    "r465_base":    r"label-free baseline of \*\*([\d.]+)\*\*",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

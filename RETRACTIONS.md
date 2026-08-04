@@ -9676,3 +9676,57 @@ delivered **three**. `rubric_anti` ("anti-matches the human") and `rubric_worst`
 **coincide by definition** under a single target, so the code maps one to the other and the two rows
 are the same object. **Reporting it as two arms would have inflated the control count** — a
 DERIVATION presented as a second measurement.
+
+---
+
+## 280 · "Check the predicate rather than the label" — incoherent for clause ③ (R464 → R465)
+
+**What was proposed.** R464 closed: *"③ forbids reading prompt labels, and an object built to fail it
+is an arm that DOES read them… Construct the adversarial case and check the **predicate** rather than
+the label."*
+
+**Why it is not a coherent test.** ③ is derived by R444 from `select_core.py` — it is fixed by **which
+selector built the arm**, and is therefore **invariant under every measurable property of the
+object**: its criteria, its satisfaction scores, its A2. **There is no predicate on the object to
+check.** Two arms with identical criteria, one built by reading the prompt's human ranking and one by
+luck, are behaviourally indistinguishable and ③ must separate them.
+
+**The corrected question, which is sharper than the original.** *Can* ③ separate two behaviourally
+identical objects? Constructing the collision directly — a label-**reading** selector against a
+label-**free** one at matched k — they emit **exactly the same criterion set on 9 of 967** prompts
+where a genuine choice exists, with **identical A2 to machine precision** on every one.
+
+⚠ **Against a label-free/label-free baseline of 0.0062, the 0.0097 rate is not a resolved difference,
+and the round does not claim one.** The estimand is **existence**: one collision suffices. **The
+baseline exists so that "they sometimes agree" cannot be over-read as a label effect** — a rate
+reported without it would invite exactly that reading.
+
+⭐ **What this costs the formulation, and it is the finding.** ①, ② and ④ are **behavioural**: hand
+someone an arm and they can check them. ③ is **provenance**: they cannot. **A reader given a criterion
+set can verify three of the four clauses and has no way to verify the fourth.** That is not a defect
+to remove — provenance requirements are legitimate — **it is a fact the definition must state**,
+because four uniform-looking predicates silently promise a check one of them cannot deliver.
+
+⭐ **The generalisable form:** *a definition is not just a conjunction of clauses; it is a conjunction
+of clauses **of types**.* Before writing one, ask of each clause **what you must be given in order to
+check it** — the object, or the object plus its history. Clauses of different types cannot be verified
+by the same reader with the same access, and a formulation that does not distinguish them is
+incomplete in a way no amount of measurement on the object will reveal.
+
+---
+
+## 281 · The single forced prompt is a derivation and was nearly a headline (R465)
+
+**Worth one paragraph.** Exactly **one** prompt of 968 has a rubric with as many criteria as the
+core's k, so it admits **one** subset and every selector emits it. Its collision rate is **1.0000, by
+construction.**
+
+**Reported separately and excluded from the rate.** Folded in, it would have contributed a perfect
+collision to the numerator and the sentence *"a label-reader and a label-free selector agree on some
+prompts"* would have been **partly an arithmetic identity**.
+
+⭐ **And it earns its keep twice**: because its value is known in advance, it doubles as the **positive
+control on set identity** — if that cell had not returned exactly 1.0, the comparison of criterion
+sets would have been broken and nothing else in the round would be readable. **A derivation you must
+exclude from the estimand is often the only cell whose answer you know, which makes it the cheapest
+available control.**
