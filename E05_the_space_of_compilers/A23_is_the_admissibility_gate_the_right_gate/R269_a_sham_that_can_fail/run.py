@@ -198,11 +198,26 @@ def main() -> int:
              "alpha of %.4f. The site's MDE is ABOVE the largest effect this arc ever reported."
              % (DOSES[-1], alpha_hat))
     elif mde_hi > 0.0568:
-        v = ("W-COARSE -- the MDE is (%.2f, %.2f], above R231's gap (0.0035), R249's se (0.0219) "
-             "and R260's interval (0.0568). NO EFFECT THIS ARC REPORTED WAS RESOLVABLE AT THIS "
-             "INSTRUMENT. Today's downgrades were forced by the SITE, and E05's real output is a "
-             "specification for a better instrument rather than a set of findings."
-             % (mde_lo, mde_hi))
+        # ⚠ REPAIRED 2026-08-03 (R320). The old wording named three effects -- 0.0035, 0.0219,
+        # 0.0568 -- and then quantified over all of them: "NO EFFECT THIS ARC REPORTED WAS
+        # RESOLVABLE AT THIS INSTRUMENT". PUBLISHED holds FIVE, topping out at 0.1680, which this
+        # same script prints as `resolvable` fifteen lines earlier. The branch tested `is the MDE
+        # above R260's interval` as though that were the largest published effect. The numbers
+        # were right and the word `NO` was typed. R274 retracted this sentence and was correct.
+        # ⚠ AND THIS IS THE SECOND AND THIRD SITE: R267 carried the identical defect and was fixed
+        # first, alone, because it was the round I happened to be reading. `a fix lands on one path
+        # of two` -- the invariant is "a verdict that quantifies over PUBLISHED must compute the
+        # quantification", and enumerating its carriers found three.
+        res = sorted((k for k, val in PUBLISHED.items() if val / mde_hi >= 1),
+                     key=lambda k: -PUBLISHED[k])
+        unres = sorted((k for k, val in PUBLISHED.items() if val / mde_hi < 1),
+                       key=lambda k: -PUBLISHED[k])
+        v = ("W-COARSE -- the MDE is (%.2f, %.2f]. Of the %d published effects, %d are BELOW it "
+             "(%s) and %d are resolvable (%s). The sub-MDE downgrades were forced by the SITE; "
+             "the resolvable ones were not."
+             % (mde_lo, mde_hi, len(PUBLISHED), len(unres),
+                ", ".join("%s %.4f" % (k, PUBLISHED[k]) for k in unres) or "none",
+                len(res), ", ".join("%s %.4f" % (k, PUBLISHED[k]) for k in res) or "none"))
     elif mde_hi < 0.0219:
         v = ("W-FINE -- the MDE is (%.2f, %.2f], below R249's se, so R249-scale effects WERE "
              "resolvable and their downgrades are design failures rather than site limits."
