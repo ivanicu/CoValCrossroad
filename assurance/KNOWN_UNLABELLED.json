@@ -1,0 +1,18 @@
+{
+  "_why": "NEXT: blocks that state a causal claim with no round citation and no hypothesis label. Frozen as a SHRINK-ONLY ratchet: the check fails on a NEW offender and ALSO fails when a frozen entry stops offending, so the list can only get smaller and cannot become a confession nobody re-reads. History is immutable, so these will not shrink by editing - they leave the window as the last 60 commits move.",
+  "_measured": "R366: five of nine consecutive rounds corrected a claim published within the previous three; the last corrected the immediately preceding commit.",
+  "unlabelled": [
+    "19892ed6",
+    "24bf1bb6",
+    "2af21a76",
+    "3b1b490c",
+    "5422ffa3",
+    "a83f4581",
+    "afc0245d",
+    "bf01fea9",
+    "bf9627f9",
+    "c7c91973",
+    "d1c846cb",
+    "f2832cd2"
+  ]
+}

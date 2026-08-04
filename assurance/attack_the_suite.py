@@ -208,6 +208,23 @@ CASES = [
     # created BY the first fix, which is where P7 says to look.
     ("definition_matches_the_record", hide_rounds, 2,
      "rounds hidden -> no artifact to re-derive from: nothing to check, not a clean bill"),
+    # Entry 206. Its population is COMMIT MESSAGES, which hiding round directories does not
+    # touch -- so under the emptying it keeps its full corpus and keeps ruling, which is a
+    # DETECTED non-empty run rather than silence. Attacked five ways before registering: a new
+    # unlabelled causal NEXT block -> caught; the frozen list emptied -> caught; a frozen entry
+    # that stops offending -> caught (shrink-only); the detector neutered to never offend -> its
+    # own positive control fails it; no NEXT block anywhere -> exit 2. And its FIRST positive
+    # control failed for the right reason: the word UNTESTED appearing as SUBJECT MATTER
+    # ("or marked UNTESTED") was read as a label on the claim, so the gate excused the very
+    # commit it was built from. A label is a FORM, not a mentioned word.
+    # Its population is COMMIT MESSAGES, which `hide_rounds` does not touch -- the same case as
+    # `markdown_tables_are_well_formed` above, so `want 0`. ⚠ AND THAT MEANS THE SUITE'S EMPTYING
+    # IS NOT A TEST OF THIS CHECK: registering it as `want 1` claimed an emptying that does not
+    # apply, and the suite CAUGHT that (23/24) rather than accepting a pass for the wrong reason.
+    # Its own empty-population behaviour is verified separately and recorded: with no NEXT block
+    # anywhere in the log it exits 2, never 0.
+    ("next_gradient_labels_its_hypotheses", hide_rounds, 0,
+     "commit messages untouched by hiding rounds -> the corpus is intact and it still rules"),
     # Entry 201. A REPORT check -- it never gates, so its non-empty exit is 0. With the
     # rounds hidden there is no newest round to measure staleness against, and it
     # returns 2 rather than reporting every section as current.

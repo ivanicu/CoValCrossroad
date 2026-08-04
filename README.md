@@ -527,6 +527,22 @@ possible survival** — and R365 *is* a null. Its measurement stands; **what cha
 survival is evidence for.** Gate now checks **27 of 27**.
 → [`R366`](E05_the_space_of_compilers/A24_what_the_definition_costs/R366_does_anything_predict_which_claims_survive_the_judge)
 
+**And the surface where those errors actually live is now gated.** R366 measured the cost — five of
+nine consecutive rounds corrected a claim published within the previous three — so the obvious move
+was a causal-clause gate on `DEFINITION.md`. **Measuring first killed that:** 80 units, **5** tight
+causal connectives, every one a derivation already citing its round, *because that document is
+gated*. The errors live in commit **`NEXT:` blocks**, which nothing checked — **7 of 40** stated a
+causal claim with no round citation, including both sentences R366 refuted.
+[`next_gradient_labels_its_hypotheses.py`](assurance/next_gradient_labels_its_hypotheses.py)
+enforces **labelling, never correctness**: a causal claim in a NEXT block must cite a round or be
+marked `HYPOTHESIS`/`UNTESTED`. ⛔ **Its first positive control failed for exactly the right
+reason** — `5422ffa`'s block says *"or marked UNTESTED"* as **subject matter**, and the gate read
+that as a label on its own claim, excusing the very commit it was built from. **A label is a form,
+not a mentioned word.** Attacked five ways (new offender · frozen list emptied · frozen entry
+silently fixed · detector neutered · no NEXT blocks → exit 2), and **the suite rejected my first
+registration** (23/24) because `hide_rounds` doesn't touch commit messages — a pass for the wrong
+reason. Suite now **24/24**, frozen debt **12**.
+
 **⭐ And the definition is now stated once, in one place, with a gate holding it to the record.**
 [`E05/DEFINITION.md`](E05_the_space_of_compilers/DEFINITION.md) — `FORMULATION.md` is 2,389 lines of
 accreted evidence, is titled *"stated once"*, and **opens with a correction**; the statement had
