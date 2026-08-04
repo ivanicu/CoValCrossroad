@@ -103,9 +103,25 @@ def main() -> int:
         if h not in frozen:
             new.append((h, s))
         print(f"    {h:>9}{st:>12}   {s}")
+    # ⚠ A TIME-WINDOWED POPULATION NEEDS PER-ENTRY POPULATION LOGIC, and v1 did not have it.
+    #   This corpus is `the last N commits`, so a frozen entry leaves it by SCROLLING OUT, not by
+    #   being fixed. v1 treated both as "no longer offends" and demanded the list be edited for a
+    #   commit that had simply aged out -- which would have made the ratchet's count fall without
+    #   anyone improving anything, i.e. a shrinking number meaning the OPPOSITE of what it means in
+    #   every other ratchet here. That exact failure was written down as a labelled `[UNTESTED]`
+    #   prediction two commits before it fired, and it fired on the very next run: 1 entry scrolled
+    #   out, 0 genuinely fixed. Corrected: OUT OF WINDOW is out of population and is dropped
+    #   silently; only an entry STILL IN the window that stops offending is a real shrink.
+    in_window = {h for h, _s, _t in recs}
+    scrolled = [h for h in sorted(frozen) if h not in in_window]
     for h in sorted(frozen):
-        if h not in {x[0] for x in flagged}:
+        if h in in_window and h not in {x[0] for x in flagged}:
             fixed.append(h)
+    if scrolled:
+        print(f"\n  ⓘ {len(scrolled)} frozen entr(ies) have SCROLLED OUT of the {N_COMMITS}-commit")
+        print(f"    window and are out of population, not fixed: {scrolled}. Dropped silently —")
+        print(f"    counting them as fixed would make this ratchet shrink by the passage of time")
+        print(f"    rather than by work, which is the opposite of what every other ratchet means.")
 
     # ---- positive control: it must see the two blocks R366 refuted -------------------------------
     seen = {h for h, _ in flagged}
