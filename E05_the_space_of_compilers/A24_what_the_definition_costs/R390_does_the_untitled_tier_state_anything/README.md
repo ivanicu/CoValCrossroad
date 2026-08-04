@@ -1,16 +1,31 @@
-# R390 — the untitled tier is not silent: 5 of 8 state a verdict anyway
+# R390 — the untitled tier is not silent: 30 of 64 state a verdict anyway
 
 **The decision this makes safe:** *is the 68-round tier unbackfillable?* **No — but it is not uniform
 either.** `W-MIXED`, and the counts are the estimate.
 
-## Result — `W_MIXED`. Three controls PASS. **The live tree was never a subject's cwd.**
+## Result — `W_MIXED` over the WHOLE tier. Three controls PASS. **The live tree was never a subject's cwd.**
 
 | | |
 |---|---:|
-| subjects run | **8 of 68** |
-| RAN / UNVERIFIED | **8 / 0** |
-| **state a verdict in output** | **5 (62%)** |
-| silent | **3** |
+| subjects run | **68 of 68** |
+| RAN / UNVERIFIED | **64 / 4** |
+| **state a verdict in output** | **30 (47%)** |
+| silent | **34** |
+
+## ⛔ The first pass ran 8 and overstated the share by 15 points
+
+This round first reported **5 of 8 (62%)**. The whole tier gives **30 of 64 (47%)**.
+
+**The verdict CLASS survived and the NUMBER did not** — 62% and 47% are both `W-MIXED`, so the
+reading held by luck rather than by design: 62% sat between the pre-registered 70% and 30% cut
+points with the remaining 60 subjects costing seconds each, and quoting it would have been a cell
+reported as though it were the curve. The population is the tier.
+
+⚠ **4 subjects are UNVERIFIED, not silent** — `R39_feature_cache` FAILED after 162 s, and three
+others did not complete. A round that will not run cannot be scored either way, and folding those
+into "silent" would have manufactured a lower share.
+
+The first eight, as originally reported (the artifact carries all 68):
 
 | round | secs | verdict? |
 |---|---:|---|
