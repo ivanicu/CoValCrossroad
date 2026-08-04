@@ -82,10 +82,19 @@ def build(kind, n_conv=60, n_inter=3, n_resp=3, seed=0):
                 v = rule(r, chosen, ids)
                 for j in range(K):
                     meta.append(f"{cid}|{iid}|{r}|{j}"); sat.append(v)
-        prov = {"core_mode": "conversation_keyed", "n_criterion_sets": 2200,
+        # ⛔ THE FIXTURE MUST ALSO CARRY A CORE FILE, because run.py now cross-checks each arm's
+        #    provenance hash against the core JSON on disk -- the stale-artifact window the
+        #    regenerate-then-rejudge pipeline creates. A fixture that omits the input file exercises
+        #    the REFUSAL path and nothing else, which is what the first version of this harness did:
+        #    all three worlds collapsed to one and DISTINCT correctly reported a constant analysis.
+        core = {f"c{ci}": [f"{tag} criterion {k} for c{ci}" for k in range(K)]
+                for ci in range(n_conv)}
+        prov = {"core_mode": "conversation_keyed", "n_criterion_sets": len(core),
                 "n_criteria": [K], "n_calls": len(meta),
-                "criteria_sha256": hashlib.sha256(tag.encode()).hexdigest()}
-        return (np.array(meta), np.asarray(sat, np.float32), tgt, prov)
+                "criteria_sha256": hashlib.sha256(json.dumps(
+                    {k: sorted(v) for k, v in sorted(core.items())},
+                    sort_keys=True).encode()).hexdigest()}
+        return (np.array(meta), np.asarray(sat, np.float32), tgt, prov, core)
 
     oracle = lambda r, ch, ids: 1.0 if r == ch else 0.0
     rand = lambda r, ch, ids: float(rng.random())
@@ -119,10 +128,13 @@ def main() -> int:
             arms = build(kind)
             for name, stem in (("gen", "sat_transport_gen"), ("sham", "sat_transport_gen_sham"),
                                ("generic", "sat_transport_generic")):
-                meta, sat, tgt, prov = arms[name]
+                meta, sat, tgt, prov, core = arms[name]
                 np.savez_compressed(tmp / "corebench" / "results" / f"{stem}.npz",
                                     meta=meta, sat=sat, targets=np.array(json.dumps(tgt)),
                                     provenance=np.array(json.dumps(prov, sort_keys=True)))
+            for name, cf in (("gen", "core_gen_second.json"),
+                             ("sham", "core_gen_second_sham.json")):
+                (tmp / "corebench" / "results" / cf).write_text(json.dumps(arms[name][4]))
             # ⛔ ROOT AND SAT MUST BOTH BE REWRITTEN. R427's first harness copied the analysis into a
             #    shallow tmp dir where `parents[3]` does not exist, so every fixture died with
             #    IndexError and the analysis was never exercised at all -- a control that reports
