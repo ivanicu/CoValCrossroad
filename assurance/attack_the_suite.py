@@ -163,6 +163,15 @@ CASES = [
     # links at all, which is the genuine "nothing to check".
     ("round_links_resolve", hide_rounds, 1,
      "rounds hidden -> every one of the 257 links stops resolving: DETECTED, not silence"),
+    # Added at R340. Its population is the SEARCH CORPUS, and three of its four historical
+    # self-test cases (R306, R295, R250) live in round directories -- so hiding the rounds makes
+    # those three stop being found and the self-test returns 1, DRIFTED. That is the failure it is
+    # supposed to have: an instrument that no longer finds work it is known to contain must say so,
+    # because a clean run from it after that would be silence. The fourth case is db/ledger.py,
+    # which hide_rounds does not touch, so the attack does not empty the population -- it degrades
+    # it, which is the harder case to detect and the one worth registering.
+    ("next_gradient_is_new", hide_rounds, 1,
+     "rounds hidden -> 3 of 4 historical cases stop being found: DETECTED, not silence"),
     # Entry 198. Its population IS the artifacts, so hiding them empties it -- and its
     # floor returns 2 rather than 0, because "no violations found in nothing" is
     # silence. Its own positive control still passes (it plants a temp tree), which is

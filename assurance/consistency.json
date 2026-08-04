@@ -1,12 +1,12 @@
 [
  {
   "label": "unserved rate: r144 residual/panel vs r145 row mean",
-  "a": 0.2830769230769231,
+  "a": null,
   "b": 0.3404,
   "tol": 0.03,
-  "why": "r144 divides a mean residual by a mean panel size, which is a ratio of means rather than a mean of ratios -- those differ by Jensen and 0.03 is the slack that allows",
+  "why": "r144's residual is a COUNT of unserved people per prompt and r145's is a rate, so the count is divided by r144's OWN persisted mean panel size -- never by a constant, because the population the numerator covers is exactly what went wrong here before. A ratio of means still differs from a mean of ratios by Jensen and 0.03 is that slack",
   "ok": false,
-  "computable": true
+  "computable": false
  },
  {
   "label": "unserved rate: r145 vs r146 plurality arm",
