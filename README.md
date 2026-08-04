@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**344 rounds** in **5 epochs** and **24 arcs**, numbered to **R350** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**338 of the 344 carry a
+**345 rounds** in **5 epochs** and **24 arcs**, numbered to **R351** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**339 of the 345 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -306,6 +306,16 @@ are both CODE DRIFT — a static hash and a live re-run, sharing no code, agreei
 blind and R347 corpus-reading, then the behavioural plant went into the wrong epoch — so the property
 is now measured by planting 24 rounds in E05 and re-running.*
 → [`R350`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R350_why_the_ten_differ)
+
+✅ **And no published number moved.** Diffing each drifted artifact against its regenerated twin:
+**27 differing leaves**, of which **6 rendering collisions across 2 leaves** — both traced to their
+true source and refuted. The page's `② − ① = +0.0540` is `R347.ref_gap_mean` (0.05403), not R34's CI
+bound (0.05398); the page's *"verbatim pairs 0.0191 apart"* is `R223.verbatim.err_vs_identity`
+(0.0190797), not R34's (0.0190795) — **two unrelated estimates agreeing to six decimals**, which is
+exactly how a rendering search manufactures a false identity. *The drift is real and confined to
+fields nobody cites, at a floor of 3 significant figures over these two documents — a bound, not a
+clean bill.*
+→ [`R351`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R351_did_a_published_number_move)
 
 **The reader now exists** — [`assurance/source_stamp_is_current.py`](assurance/source_stamp_is_current.py),
 three-valued, in the suite registry (**22/22** on an empty population). It is a **ratchet, not a
