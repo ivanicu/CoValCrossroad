@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**342 rounds** in **5 epochs** and **24 arcs**, numbered to **R347** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**336 of the 342 carry a
+**343 rounds** in **5 epochs** and **24 arcs**, numbered to **R348** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**337 of the 343 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -53,11 +53,15 @@ from it. This repository rebuilds that layer locally and then asks what the rubr
 ## Where the definition of a "core" stands (R327–R347)
 
 ⛔ **Clause ① has never excluded anything clause ② admits.** Over all **41** judged arms the cell
-(① fails, ② passes) is **empty**; ② excludes **8** that ① admits. The mechanism: a size-matched
-**prompt-blind** reference scores **0.5462** against **0.4922** for a random draw from *this
-prompt's own rubric* — **+0.0540, minimum +0.0470, never negative.** A criterion set that never reads
-the conversation beats a random draw of that conversation's own criteria, on every arm, and that is
-what makes ② the binding clause. **The empty cell is a DERIVATION**: a counterexample needs `GAP < SLACK`
+(① fails, ② passes) is **empty**; ② excludes **8** that ① admits. The mechanism: the clause-② reference scores **0.5462**
+against **0.4922** for a random draw from *this prompt's own rubric* — **+0.0540, minimum +0.0470,
+never negative** — and that is what makes ② the binding clause. ⚠ **But it is CURATION, not
+blindness** (R348): that reference draws from a pool of **16 criteria authored for the benchmark**,
+and crowd criteria applied to the *wrong* conversation are **0 of 5 resolvably better and 2
+resolvably worse**. The earlier reading — *"a criterion set that never reads the conversation beats a
+random draw of that conversation's own criteria"* — is **retracted**; it was true of the curated pool
+and false as stated.
+→ [`R348`](E05_the_space_of_compilers/A24_what_the_definition_costs/R348_is_it_blindness_or_curation) **The empty cell is a DERIVATION**: a counterexample needs `GAP < SLACK`
 (`GAP = ref₂ − ref₁`, `SLACK = mde₁ − mde₂`), and **min GAP 0.0470 vs max SLACK 0.01217 — 3.9× on
 the tightest arm, GAP ≥ SLACK on all 41.** No arm of any size here can be one. *(This round's first
 version used a sufficient condition instead of the necessary one, called 18 arms "contingent" and

@@ -310,10 +310,17 @@ entire boundary.**
 | ① a random draw from **this prompt's own rubric** | **0.4922** |
 | ② a size-matched **prompt-blind** set | **0.5462** |
 
-**② − ① = +0.0540; minimum over 41 arms +0.0470 — never negative.** A criterion set that never reads
-the conversation beats a random draw of that conversation's **own** criteria, on every arm. One would
-naively expect the blind reference to be the *weaker* baseline; it is the stronger, and that is what
-makes ② bind.
+**② − ① = +0.0540; minimum over 41 arms +0.0470 — never negative.** The clause-② reference outscores
+a random draw of the conversation's own criteria on every arm, and that is what makes ② bind.
+
+**⚠ THE MECHANISM SENTENCE WAS TOO GENERAL, AND IS RETRACTED (R348).** What beats the own-rubric
+draw is the **curated** pool — `sat_genericpool16`, sixteen criteria authored for the benchmark —
+**not blindness**. Crowd criteria applied to the *wrong* conversation: **0 of 5 resolvably better,
+2 resolvably worse, mean c1 −0.0170**, against `generic`'s **+0.0587**. *Blind* and *curated* are two
+properties and I generalised the second into the first. **Clause ②'s reference is hard because it is
+a curated instrument**, so R287's unanswered question — what selection budget a baseline should
+have — is load-bearing for the whole clause-② boundary. → `R348_is_it_blindness_or_curation`
+
 
 **⛔ The empty cell is a DERIVATION, not a measurement — and my first reading of it was wrong.**
 An arm is a counterexample iff `A > ref₂ + mde₂` and `A ≤ ref₁ + mde₁`, so the region is non-empty
