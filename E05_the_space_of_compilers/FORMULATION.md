@@ -44,13 +44,30 @@ arms it is about: `True`.** Both are printed; neither is discarded.
 **41 judged arms, not the nine the definition was developed against. 5 admitted (12.2%)** under
 clause ③ as tightened by R295 — was 8 while ③ read *"held out from the construction"*.
 
-| admitted | k | A2 | ① vs random | ② vs size-matched blind | ③ |
-|---|---:|---:|---:|---:|---|
-| `coval_core` | 4 | 0.5665 | +0.0738 | +0.0160 | ✓ no prompt labels |
-| `topw_k6` | 6 | 0.5641 | +0.0714 | +0.0208 | ✓ |
-| `topw_k3` | 3 | 0.5632 | +0.0705 | +0.0180 | ✓ |
-| `topw_k8` | 8 | 0.5593 | +0.0666 | +0.0152 | ✓ |
-| `topw_k4` | 4 | 0.5642 | +0.0715 | +0.0137 | ✓ |
+**⚠ AND `5 admitted` IS A COUNT WITHOUT ITS SAMPLING DISTRIBUTION (R339).** Cluster-bootstrapped
+over prompts (2,000 draws × 2 seeds), **this exact set of five recurs in 53.4% of resamples** (seed
+2: 55.8%) **across 30 distinct admitted sets.** So the last column below is an **inclusion
+probability**, not a checkmark — and two arms the table used to omit entirely are now in it, because
+*an arm admitted in one resample of eight is not the same object as one admitted in none.*
+
+| admitted | k | A2 | ① vs random | ② vs size-matched blind | ③ | **P(admitted)** |
+|---|---:|---:|---:|---:|---|---:|
+| `topw_k6` | 6 | 0.5641 | +0.0714 | +0.0208 | ✓ | **0.995** |
+| `topw_k3` | 3 | 0.5632 | +0.0705 | +0.0180 | ✓ | **0.943** |
+| `coval_core` | 4 | 0.5665 | +0.0738 | +0.0160 | ✓ no prompt labels | **0.919** |
+| `topw_k8` | 8 | 0.5593 | +0.0666 | +0.0152 | ✓ | **0.882** |
+| `topw_k4` | 4 | 0.5642 | +0.0715 | +0.0137 | ✓ | **0.763** |
+| *`topw_k2`* — **not** admitted at the point estimate | 2 | — | resolved | below MDE | ✓ | *0.130* |
+| *`generic`* — **not** admitted at the point estimate | 4 | 0.5514 | resolved | 0 by construction | ✓ | *0.051* |
+
+> **`topw_k4` carries a checkmark and is admitted three times in four. `topw_k2` carries none and is
+> admitted one time in eight.** The five most common resampled sets are the published one (0.534),
+> `+ topw_k2` (0.122), `− topw_k4` (0.112), `+ generic` (0.037) and `− topw_k8` (0.035).
+>
+> ⛔ **And clause ② carries 100% of that uncertainty.** `P(clause ①) = 1.000` for every arm with any
+> clause-② mass, so `P(both) ≡ P(②)` **by arithmetic** — measured at the set level, not just per arm.
+> *(The independence contrast is therefore UNIDENTIFIED here, and the instrument was checked where
+> dependence can appear: a synthetic arm with clause ① shrunk to its own MDE shows excess +0.037.)*
 | ~~`oracle_k4_fit1`~~ | 4 | 0.6142 | +0.1215 | ~~+0.0637~~ | ✗ **uses this prompt's labels** |
 | ~~`greedy_k4_fit1`~~ | 4 | 0.6106 | +0.1179 | ~~+0.0602~~ | ✗ |
 | ~~`indep_k4_fit1`~~ | 4 | 0.5941 | +0.1014 | ~~+0.0436~~ | ✗ |
