@@ -975,10 +975,9 @@ scope error in the word *site*. That number is `P(force class agreement)` for a 
 against the full rubric**, on **A1 exact class agreement**, at **n=250**, with a one-sample
 detector. Every number on this page is a **paired A2 difference between arms against human
 classes** at **n=968**. Different statistic, different comparand, different n, different test.
-(⚠ and `0.1250` itself is one judging's answer — R318 measures the same quantity at `0.1050` on a
-second independent judging of the identical grid, so quote it as a draw-bounded lower edge, never
-as a value. It does not change this paragraph's point, which is about the wrong statistic being
-imported, not about its size.)
+(⚠ and `0.1250` is superseded: it came from a hand-retyped-prompt tensor. On the canonical one the
+arc's four detectors give (0.08, 0.09] to [0.105, 0.125] — R319, R320. It does not change this
+paragraph's point, which is about the wrong statistic being imported, not about its size.)
 
 ⚠ **This is a CHOICE, and it must be read as one.**
 
@@ -1740,44 +1739,53 @@ what this replaces.)
 >
 > ### And the arc chose the coarser statistic: the HUMAN-ranking statistic's MDE is **[0.0260, 0.0300]** — the gap is **[4.17×, 4.81×]**, on the same release (R271 → R274).
 
-⛔ **BOTH BRACKETED NUMBERS ABOVE ARE ONE DRAW'S ANSWER, AND THE DRAW IS NOT NAMED IN THEM (R318).**
-The line is left standing because it is what R274 computed and the arithmetic is right; what it
-omits is its scope. R274's input is a judging of a 250-prompt grid, and the repository contains
-**two independent judgings of that identical grid** — byte-identical `meta`, different `sat`. Run on
-the second, R274's own code returns:
+⛔ **SUPERSEDED — AND THE NUMBER ABOVE CAME FROM A HAND-RETYPED PROMPT (R319, R320).** The line is
+left standing because R274 computed it correctly from the tensor it was given; what was wrong was
+the tensor. Six A23 rounds read `_archive/r257_first_pass/instruments_retyped_prompt.npz`, which
+git object hashes prove is R257's **pre-fix** output — commit `4498585` records the cause in its own
+body: *"my own positive control caught me retyping the prompt instead of importing it."* The
+canonical tensor has existed since ten minutes later and nobody re-pointed the readers. **All six
+now read it.**
 
-| quantity | draw A (published) | draw B |
-|---|---:|---:|
-| **site MDE** | **[0.1250, 0.1250]** | **[0.1050, 0.1250]** |
-| **statistic-choice gap** | **[4.17×, 4.81×]** | **[3.50×, 4.81×]** |
-| calibrated τ | 0.428 | 0.424 |
-| α on held-out | 0.0377 | 0.0457 |
-| sham A / sham B | 0.025 / 0.005 | 0.035 / 0.0175 |
+**The site MDE, canonical tensor, four detectors on one release:**
 
-**Seven of seven calibration quantities move. The admitted set moves not at all** —
-`['R249 minimal-size move under label order']` under both, and R274's retraction of R268 stands
-under both.
+| round | MDE | of the 5 published effects |
+|---|---|---|
+| R267 | **(0.08, 0.09]** | 4 below · 1 resolvable |
+| R268 | **(0.08, 0.10]** | 4 below · 1 resolvable |
+| R269 | **(0.08, 0.10]** | 4 below · 1 resolvable |
+| R274 | **[0.105, 0.125]** | R249's move reaches detection 1.0 |
 
-> **What may be quoted: the site MDE's UPPER bound is 0.1250 under both judgings. Its LOWER bound
-> is not resolved by two draws — it is 0.1250 or 0.1050 depending on which judging you use.**
+**Four brackets, one split.** Everything this arc reported is below its own MDE **except**
+`R249 minimal-size move under label order` at **0.1680**. The bracket spread across detectors is
+real and is the honest width; no single one of them is *the* site MDE.
 
-⛔ **AND "TWO JUDGINGS" IS ITSELF A CORRECTION (R318, amended).** The two tensors correlate at
-**0.9508**, with a median absolute difference of **21% of the quantity's own sd** — far from the
-**0.998** a faithful re-implementation of the same prompt achieves (R234), and well short of the
-**0.77** a label-order flip produces. They are not exchangeable draws: they are two **instrument
-states** differing by a change the artifacts do not record, since the npz stores no prompt text.
-So the spread above is **instrument sensitivity, not sampling**, which makes it harder to shrink
-rather than easier — and R257's stance governs: **neither instrument is privileged**, so neither
-bracket may be preferred over the other.
+**And the statistic-choice gap two lines above moves with it, because it is that bracket divided by
+a constant.** On the canonical tensor: `0.105/0.030 = 3.50` and `0.125/0.026 = 4.81`, so
+**[3.50×, 4.81×]** replaces **[4.17×, 4.81×]**. Its upper end is unchanged and its lower end is not —
+the same shape as the MDE it is built from, **as it must be**. Labelled a **DERIVATION** for that
+reason, not a second measurement.
 
-**n = 2 states, so this is a RANGE and not an interval.** No sd is computable from two and none is
-reported; the correction is *not* to substitute draw B, which would repeat the original error with
-the other draw. What a third draw would buy is an estimate rather than a range, and it needs a GPU
-judging run — named in the impossibility register rather than planned.
+⛔ **AND THE ARC ONLY DISAGREED WITH ITSELF BECAUSE OF A TYPED WORD.** R267, R268 and R269 each
+printed `0.1680 … resolvable` in their own effect table and then asserted *"NO EFFECT THIS ARC
+REPORTED WAS RESOLVABLE AT THIS INSTRUMENT"* — a branch written against R260's interval (0.0568) as
+though that were the largest published effect. The numbers were computed; the quantifier was typed.
+**R274's retraction of that sentence was correct all along**, on either tensor. All three now compute
+the split. `the verdict string is not a computation`.
 
-**And the direction is the useful half:** the number weakened and the *finding* held. R274's verdict
-surviving an independent judging is a severity test nobody designed — it exists only because the
-input file went missing and the substitute turned out to be a second draw.
+> ### ⚠ The one effect this release can resolve is a measurement of the INSTRUMENT, not of the object.
+> `R249 minimal-size move under label order` is how far the judge moves when two answer words are
+> swapped. R267's own header keeps that axis **outside** the MDE deliberately — a single alternative
+> instrument is a **bias**, and folding it into a **variance** would average the two. So the site can
+> resolve its own instrument and nothing it went looking for.
+
+**The two-tensor range is retained as history, not as the headline.** The tensors correlate at
+**0.9508** — far from the **0.998** a faithful re-implementation achieves and well short of the
+**0.77** a label-order flip produces (R234) — so they were never exchangeable draws. But one of the
+two is a typo, and `neither instrument is privileged` was R257's line about **default vs flipped
+label order**, a gauge. **A typo is not a gauge**, and quoting that line to avoid choosing was
+wrong.
+
 
 ⚠ **R270 measured that gap at 2× and said it missed its own 3× threshold. R271 supersedes it**: R270
 collapsed each prompt's annotators to a consensus *sign* first, giving 5,808 rows over 968 clusters
