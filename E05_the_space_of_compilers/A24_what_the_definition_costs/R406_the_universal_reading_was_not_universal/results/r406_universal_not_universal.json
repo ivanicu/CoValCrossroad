@@ -1,0 +1,37 @@
+{
+  "blind_dist": {
+    "max": 0.55747530882624,
+    "med": 0.5391261474627604,
+    "min": 0.5143751408452678,
+    "p25": 0.5329120372095522,
+    "p75": 0.5446272643815809,
+    "p90": 0.549016673256384,
+    "p99": 0.5546396619618338
+  },
+  "controls": {
+    "absurd_ok": true,
+    "cross_ok": true,
+    "monotone": true
+  },
+  "derivation": true,
+  "gap": 0.0028733258618895974,
+  "head": "ec4474f177e8",
+  "n_blind": 1820,
+  "published_reference": {
+    "a2": 0.5504358540422291,
+    "pctile": 93.73626373626374
+  },
+  "ref_a": 0.5546019829643504,
+  "ref_bracket": [
+    "p90",
+    "p99"
+  ],
+  "ref_label": "best held-out of 1,820",
+  "share_bracket_pct": [
+    1.0,
+    10.0
+  ],
+  "source_name": "run.py",
+  "source_sha256": "f492029ad2c4b0630ffd878139c6d7980a508cf24307e6babe5525ca6c78c10f",
+  "verdict": "W_EVERY_WAS_A_TAIL"
+}

@@ -124,6 +124,14 @@ def derive():
     else:
         for k in ("r398_rows", "r398_convs", "r398_multi", "r398_models", "r398_refs"):
             out[k] = (None, "R398")
+    a = art("R406_*")
+    if a:
+        out["r406_gap"] = (round(a["gap"], 10), "R406")
+        out["r406_max"] = (round(a["blind_dist"]["max"], 10), "R406")
+        out["r406_ref"] = (round(a["ref_a"], 10), "R406")
+    else:
+        for k in ("r406_gap", "r406_max", "r406_ref"):
+            out[k] = (None, "R406")
     a = art("R404_*")
     if a:
         out["r404_b_beyond_a"] = (len(a["b_beyond_a"]), "R404")
@@ -298,6 +306,9 @@ ASSERTIONS = {
     # beyond ③a) was silently unchecked. A declared assertion with no anchor is not a weaker check,
     # it is NO check. And my first attempt to add it failed its own guard and applied nothing while
     # the commit message said it had — so the second failure was in the REPAIR, not the original.
+    "r406_ref":              r"instantiated at `(0\.\d+)`, the best HELD-OUT",
+    "r406_max":              r"the same 1,820\s*\nis `(0\.\d+)`",
+    "r406_gap":              r"The gap is \*\*`\+(0\.\d+)`\*\*",
     "r404_b_beyond_a":       r"fitted on a \*\*half\*\* of them \| 3 \| \*\*(\d+)\*\*",
     "r404_excl_c":           r"annotator-written \*\*rubric\*\* \| (\d+) \|",
     "r404_admitted_abc":     r"collapses the admitted set from \*\*5 to (\d+)",

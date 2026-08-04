@@ -180,6 +180,25 @@ judge in it** (R224/R228), and the k-curve's *shape* across judges was already m
 
 ---
 
+## ⛔ THE UNIVERSAL READING HAS NEVER BEEN RUN 2026-08-04 (R406)
+
+Clause ② names a class and no member, and the campaign's answer has been R327's three readings, of
+which **A** was labelled *"better than EVERY prompt-blind set of that size"* — the plain-English one.
+
+**It was instantiated at `0.5546019830`, the best HELD-OUT of 1,820. The MAXIMUM over the same 1,820
+is `0.5574753088`.** The gap is **`+0.0028733259`**, and the reference brackets **below the committed
+p99**: between **1% and 10%** of the blind subsets beat the bar the word *every* was tested against.
+*(A bracket, not a count — R331 committed seven order statistics, not 1,820 scores.)*
+
+**So the universal reading of clause ② has never been run**, and the disagreement about whether this
+definition admits its own instance is exactly that `0.0029`: `coval_core` clears a p99 bar and does
+not clear the maximum.
+
+⚠ This does not retract R327 — its divergence finding stands and is strengthened. What is corrected is
+the **name of one rung**. ⚠ And no control could have caught it from inside R327, whose controls all
+concerned the **ordering** of its readings: an ordering can be perfectly correct while every rung is
+mislabelled.
+
 ## ⛔ CONJUNCT DECOMPOSITION 2026-08-04 (R404) — clause ③ is not one clause, and its third part is not implemented
 
 Clause ③'s exclusion is published as one number, `4 of 42`, attributed to the clause as a whole.

@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**398 rounds** in **5 epochs** and **24 arcs**, numbered to **R405** — **53 standing claims, 13
+**399 rounds** in **5 epochs** and **24 arcs**, numbered to **R406** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1159,6 +1159,22 @@ sentence of the definition. ⛔ The phenomenon is already recorded (*"stronger r
 sets again"*); the **consequence** — that clause ②'s strictest reading is ill-defined — is not. This
 round writes **nothing** into `DEFINITION.md`: an UNVERIFIED round has not earned a line in it.
 → [`R405`](E05_the_space_of_compilers/A24_what_the_definition_costs/R405_at_its_own_strictest_reading_the_definition_admits_nothing)
+
+**"Better than EVERY prompt-blind set" was tested against the 99th percentile — and the universal
+reading of clause ② has never been run.** ⛔ R405's NEXT said this needed a run; **it did not.** R331
+had committed the blind distribution's order statistics — including `max` — over the same 1,820
+subsets, and R327 had committed the reference it used: two rounds, neither citing the other, both
+numbers already on disk. R327's reading A used `0.5546019830`, the best **held-out**; the **maximum**
+is `0.5574753088`; the gap is **`+0.0028733259`**, and the reference brackets **below p99** — between
+**1% and 10%** of subsets beat the bar the word *every* was tested against *(a bracket, not a count:
+R331 stored seven order statistics, not 1,820 scores)*. ⭐ **This resolves R405's disagreement
+exactly**: `coval_core` clears a p99 bar and does not clear the maximum, and that `0.0029` decides
+whether the definition admits its own instance or nothing. ⚠ **The unit discipline is the point** —
+the claim's unit was *the maximum*, the instrument's was *the best held-out*, and **no control in R327
+could have caught it**, because its controls all concerned the **ordering** of its readings, and an
+ordering can be perfectly correct while every rung is mislabelled. ⚠ R327 is **not** retracted; the
+**name of one rung** is.
+→ [`R406`](E05_the_space_of_compilers/A24_what_the_definition_costs/R406_the_universal_reading_was_not_universal)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
