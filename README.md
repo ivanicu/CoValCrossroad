@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**403 rounds** in **5 epochs** and **24 arcs**, numbered to **R410** — **53 standing claims, 13
+**404 rounds** in **5 epochs** and **24 arcs**, numbered to **R411** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1235,6 +1235,21 @@ survives Holm; nothing is close even raw** (smallest p 0.147). Controls: `oracle
 agree to ~3e-4. ⚠ **This downgrades R409's own summary** — its partial order describes bootstrap rank
 frequencies, not an established ordering, and R409's README is annotated in place.
 → [`R410`](E05_the_space_of_compilers/A24_what_the_definition_costs/R410_size_and_provenance_decomposed)
+
+**The naive comparison said 0.96×; standardised it is 2.50× or 4.57×, and the clustering unit decides
+which.** ⛔ R410's NEXT set `+0.009` beside R401's MDE of `0.0094` and read *marginal* — **but the
+first is in CoVal's A2-agreement units and the second in `if_chosen` accuracy units against a chance
+floor of 0.4328.** That is comparing a length to a mass because both print as four decimals, and it
+was my own sentence. Standardised (`d = e/sd = 0.07814`, resolution `ZEFF/√n`): **4.57× at n=26,789
+interactions, 2.50× at n=8,011 conversations.** ⭐ **The real finding is that the clustering unit
+decides the answer** — same effect, same design, and the only difference is whether the independent
+unit is the interaction or the conversation (≈3.4 per conversation). *Nobody has measured the
+within-conversation correlation, so the power statement is a range.* ⛔ **The gauge control failed for
+its own reasons and the control was fixed, not the criterion**: uncentred noise moved the signal as
+well as the dispersion — two changes, one question — so it was **centred**, with the uncentred version
+kept beside it over 200 replicates to show the repair is to the manipulation. ⚠ Conditional on a
+transport assumption that no object on this box can validate.
+→ [`R411`](E05_the_space_of_compilers/A24_what_the_definition_costs/R411_are_the_two_effects_even_commensurable)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

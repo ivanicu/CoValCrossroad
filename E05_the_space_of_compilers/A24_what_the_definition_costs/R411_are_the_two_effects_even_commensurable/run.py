@@ -132,22 +132,39 @@ def main() -> int:
 
     # ---- GAUGE CONTROL: the cheapest kill, and exactly the right one --------------------------------
     print("  CONTROLS — the GAUGE TEST, executed on synthetic data in both directions")
-    inv, shr = [], []
+    # ⛔ MY FIRST VERSION OF THIS CONTROL FAILED FOR ITS OWN REASONS, WHICH IS THE FAILURE TABLE'S
+    #   DOMINANT ROW. I added UNCENTRED noise, whose own sample mean (se ~ 0.0039 at n=968) moved the
+    #   SIGNAL of 0.01 as well as the dispersion -- so I changed two things and asked whether one had
+    #   changed, and on one seed d went UP. The criterion was right; the manipulation was not clean.
+    #   The repair is to CENTRE the added noise so the sample mean is preserved EXACTLY and only the
+    #   dispersion moves, which is the property the control claims to test. The uncentred version is
+    #   kept beside it, averaged over many replicates, to show it does shrink in EXPECTATION -- so
+    #   the fix is visibly a fix to the manipulation and not a retreat to an easier criterion.
+    inv, shr, shr_raw = [], [], []
     for s in SEEDS:
         rng = np.random.default_rng(s)
         x = rng.normal(0.01, 0.12, 968)
         d0 = x.mean() / x.std(ddof=1)
         d_scaled = (3.0 * x).mean() / (3.0 * x).std(ddof=1)          # UNITS change
-        y = x + rng.normal(0.0, 0.12, 968)                            # the OBJECT changes
-        d_noised = y.mean() / y.std(ddof=1)
+        z = rng.normal(0.0, 0.12, 968)
+        y = x + (z - z.mean())                                       # OBJECT changes, signal PINNED
+        shr.append(d0 - y.mean() / y.std(ddof=1))
+        raw = [np.mean(x + rng.normal(0.0, 0.12, 968)) /
+               np.std(x + rng.normal(0.0, 0.12, 968), ddof=1) for _ in range(200)]
+        shr_raw.append(d0 - float(np.mean(raw)))
         inv.append(abs(d_scaled - d0))
-        shr.append(d0 - d_noised)
     scale_ok = max(inv) < 1e-12
     noise_ok = min(shr) > 0
     print(f"    GAUGE (+)  multiplying every measurement by 3 is a change of UNITS and leaves d")
     print(f"               IDENTICAL: max|Δd| = {max(inv):.2e}   {'PASS' if scale_ok else 'FAIL'}")
-    print(f"    GAUGE (-)  adding noise is a change of the OBJECT and must SHRINK d: min Δd = "
-          f"{min(shr):+.4f}   {'PASS' if noise_ok else 'FAIL'}")
+    print(f"    GAUGE (-)  adding CENTRED noise changes the OBJECT's dispersion with the signal")
+    print(f"               PINNED, and must SHRINK d: min Δd = {min(shr):+.4f}   "
+          f"{'PASS' if noise_ok else 'FAIL'}")
+    print(f"               ⛔ my first version added UNCENTRED noise, whose own sample mean moved the")
+    print(f"                  signal too — two changes, one question, and d rose on a seed. The")
+    print(f"                  CRITERION was right and the MANIPULATION was not; uncentred over 200")
+    print(f"                  replicates shrinks by {min(shr_raw):+.4f}, so the repair is a repair")
+    print(f"                  to the manipulation rather than a retreat to an easier criterion.")
     print(f"               a standardisation invariant under BOTH would measure nothing; one")
     print(f"               invariant under NEITHER would not be a standardisation")
     if not (scale_ok and noise_ok):
@@ -206,7 +223,8 @@ def main() -> int:
                naive_target_mde=naive_mde, naive_ratio=e / naive_mde,
                targets=rows, worst_ratio=ratio,
                controls=dict(scale_invariant=scale_ok, noise_shrinks=noise_ok,
-                             max_scale_delta=max(inv), min_noise_delta=min(shr)),
+                             max_scale_delta=max(inv), min_noise_delta=min(shr),
+                             min_noise_delta_uncentred_200reps=min(shr_raw)),
                assumption="a standardised effect transports between A2 agreement and if_chosen accuracy",
                verdict=v)
     (HERE / "results").mkdir(exist_ok=True)
