@@ -1,0 +1,46 @@
+{
+  "controls": {
+    "classifier_neg": true,
+    "classifier_pos": true,
+    "saboteur": true
+  },
+  "g0": {
+    "dirtied": [
+      {
+        "path": ".venv",
+        "status": "??",
+        "tracked": false
+      },
+      {
+        "path": "assurance/_r376_probe.py",
+        "status": "??",
+        "tracked": false
+      }
+    ],
+    "exit": 0,
+    "tracked": 0
+  },
+  "main_tree": {
+    "after": 5,
+    "before": 5,
+    "safe": true
+  },
+  "repaired_criterion_fires_on_saboteur": true,
+  "saboteur": {
+    "exit": "0",
+    "n_dirtied": 97,
+    "ran": true,
+    "sample": [
+      "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R01_rater_structure/README.md",
+      "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R01_rater_structure/results/a01_rater_structure.json",
+      "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R01_rater_structure/run.py",
+      "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R02_label_and_regime/README.md",
+      "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R02_label_and_regime/results/a02_position_bias.json",
+      "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R02_label_and_regime/run.py"
+    ],
+    "tracked": 95
+  },
+  "source_name": "run.py",
+  "source_sha256": "482f2e71417479ca5ae044bfc21e4963c1782ff1eab965580c105d2039df1393",
+  "verdict": "W_CRITERION_MALFORMED_REPAIRABLE"
+}

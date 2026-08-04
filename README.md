@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**369 rounds** in **5 epochs** and **24 arcs**, numbered to **R375** — **53 standing claims, 13
+**370 rounds** in **5 epochs** and **24 arcs**, numbered to **R376** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -668,6 +668,26 @@ inherited** — 6 of 6 reproduce, so R374's ladder and this bisect agree about t
 86 evaluations, 85 checkouts, two runs byte-identical. ⚠ This round returns a **commit, never a
 cause** — reading a cause off a diff is a story that costs nothing to produce.
 → [`R375`](E05_the_space_of_compilers/A24_what_the_definition_costs/R375_one_commit_or_six)
+
+**And reaching for the instrument that would answer R375's next question found it declaring itself
+unfit.** Classifying what those four commits *did* needs the read-set of each gate, which
+`what_did_each_check_actually_read.py` measures with a CPython audit hook — but that is built on
+`assurance/_isolated.py`, which fails its own selftest and prints **`FAIL — do not use this
+harness`**, and which R374 had already counted among the five born red. So R375's question was
+**deliberately left unanswered** and the harness was measured instead. The failing line was *"g=0
+(harmless subject): dirtied 2 path(s)"* against `len(changed) <= 1`, for a subject whose whole body
+is `print('noop')`. **Reading the two paths rather than counting them**: `.venv` and
+`assurance/_noop_probe.py` — the linked interpreter and **the probe the selftest itself writes**.
+**Zero tracked.** Containment was never in question: the saboteur that deletes an epoch dirties
+**95 tracked** paths, the MAIN tree is **5/5 intact**, the restore heals from git, and the subject
+verifiably ran. ⭐ **Repaired to `no TRACKED path may be dirtied` — 0 on the benign subject, still
+firing at 95 on the destructive one.** That contrast is the only evidence separating a fix from a
+quiet disarm, and it is why the threshold was not simply raised from 1 to 2. `_isolated.py` now
+exits 0 and its dependent still runs green — **one of the five born-red gates satisfied, not
+retired.** ⚠ This campaign's ledger puts *"the control fails for its own reasons"* at **4 of 7**, so
+betting the base rate would have produced this verdict with no evidence; both worlds were built and
+the paths were read.
+→ [`R376`](E05_the_space_of_compilers/A24_what_the_definition_costs/R376_the_harness_that_says_do_not_use_it)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

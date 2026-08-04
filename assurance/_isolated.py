@@ -236,9 +236,28 @@ def selftest() -> int:
     (wt / "assurance/_noop_probe.py").write_text("print('noop')\n")
     rc0, _f0, changed0 = run_isolated("assurance/_noop_probe.py", restore_first=False)
     (wt / "assurance/_noop_probe.py").unlink(missing_ok=True)
-    g0 = len(changed0) <= 1
-    print(f"    g=0 (harmless subject)         : exit {rc0}, dirtied {len(changed0)} path(s)   "
-          f"{'PASS' if g0 else '⚠ fires with nothing planted'}")
+    # ⛔ REPAIRED 2026-08-04 (R376). The criterion was `len(changed0) <= 1`, and it FAILED --
+    #   printing "do not use this harness" for as long as this file has existed, which R374
+    #   measured as BORN RED. R376 read the two paths instead of the count: they are `.venv`
+    #   and `assurance/_noop_probe.py` -- the linked interpreter and THE PROBE THIS SELFTEST
+    #   ITSELF WRITES. Neither is tracked; neither is content the harness claims to protect.
+    #   The criterion was counting the harness's own scaffolding as contamination, which is
+    #   `realstat §4 · the control fails for its own reasons`.
+    #   The repair counts TRACKED paths, because a tracked path dirtied is the thing that
+    #   would actually mean a leak. ⚠ AND A LOOSENED CRITERION IS A DELETED CONTROL UNLESS IT
+    #   STILL FIRES: R376 ran this exact rule against the SABOTEUR, which dirties 95 tracked
+    #   paths, and it fires. That contrast -- 0 on the benign subject, 95 on the destructive
+    #   one -- is the only evidence separating a fix from a quiet disarm, and it is why the
+    #   number is not simply raised from 1 to 2.
+    g0_tracked = [ln[3:].strip().strip('"').rstrip("/") for ln in changed0
+                  if _git("ls-files", "--error-unmatch", "--",
+                          ln[3:].strip().strip('"').rstrip("/"), cwd=wt).returncode == 0]
+    g0 = not g0_tracked
+    print(f"    g=0 (harmless subject)         : exit {rc0}, dirtied {len(changed0)} path(s), "
+          f"{len(g0_tracked)} TRACKED   "
+          f"{'PASS' if g0 else '⚠ dirtied tracked content with nothing planted'}")
+    if g0_tracked:
+        print(f"      tracked paths dirtied: {g0_tracked[:5]}")
 
     # ⛔ THE PLANT MUST HAVE ACTUALLY RUN. "MISSING"/"TIMEOUT"/"NO-TRACE" mean the subject never
     # executed, and a main tree that survives an attack THAT NEVER HAPPENED is not evidence of

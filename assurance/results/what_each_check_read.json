@@ -8,6 +8,9 @@
  ],
  "docs_only": [
   "apply_freeze_status.py",
+  "attack_the_suite.py",
+  "markdown_tables_are_well_formed.py",
+  "next_gradient_labels_its_hypotheses.py",
   "retired_framing_in_assertion_positions.py",
   "round_links_resolve.py",
   "scope_reaches_the_reader.py",
@@ -40,6 +43,15 @@
     "covalx/__pycache__/judge.cpython-313.pyc"
    ]
   },
+  "an_mde_records_its_denominator.py": {
+   "exit": 0,
+   "round_files": 402,
+   "other_files": 0,
+   "assurance_files": 1,
+   "verdict": "read the tree",
+   "dirtied": 1,
+   "sample": []
+  },
   "apply_freeze_status.py": {
    "exit": 0,
    "round_files": 0,
@@ -56,7 +68,7 @@
   },
   "apply_outcome_scope.py": {
    "exit": 0,
-   "round_files": 317,
+   "round_files": 372,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -65,7 +77,7 @@
   },
   "artifacts_are_internally_coherent.py": {
    "exit": 1,
-   "round_files": 0,
+   "round_files": 592,
    "other_files": 10,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
@@ -73,14 +85,14 @@
    "sample": [
     "A01_planted",
     "E99_fixtures",
-    "covalx/__init__.py",
-    "covalx/__pycache__/__init__.cpython-313.pyc"
+    "R999_plant",
+    "covalx/__init__.py"
    ]
   },
   "attack_every_check.py": {
    "exit": 1,
    "round_files": 2,
-   "other_files": 625,
+   "other_files": 682,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
    "dirtied": 1,
@@ -124,11 +136,11 @@
    "sample": []
   },
   "attack_the_suite.py": {
-   "exit": 1,
+   "exit": 0,
    "round_files": 0,
    "other_files": 4,
    "assurance_files": 2,
-   "verdict": "exit 1, not a pass",
+   "verdict": "docs-only (scoped)",
    "dirtied": 1,
    "sample": [
     "FROZEN.md",
@@ -148,7 +160,7 @@
   },
   "code_states_a_bound_the_reader_never_sees.py": {
    "exit": 0,
-   "round_files": 341,
+   "round_files": 397,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -163,12 +175,12 @@
    "other_files": 0,
    "assurance_files": 1,
    "verdict": "read the tree",
-   "dirtied": 2,
+   "dirtied": 1,
    "sample": []
   },
   "corrections_propagated.py": {
    "exit": 0,
-   "round_files": 530,
+   "round_files": 588,
    "other_files": 4,
    "assurance_files": 1,
    "verdict": "read the tree",
@@ -179,6 +191,15 @@
     "PREREGISTRATION.md",
     "README.md"
    ]
+  },
+  "definition_matches_the_record.py": {
+   "exit": 0,
+   "round_files": 19,
+   "other_files": 0,
+   "assurance_files": 0,
+   "verdict": "read the tree",
+   "dirtied": 1,
+   "sample": []
   },
   "donor_numbers_carry_their_draw_scope.py": {
    "exit": 1,
@@ -192,11 +213,11 @@
    ]
   },
   "every_round_reaches_the_readme.py": {
-   "exit": 1,
+   "exit": 0,
    "round_files": 24,
    "other_files": 7,
    "assurance_files": 0,
-   "verdict": "exit 1, not a pass",
+   "verdict": "read the tree",
    "dirtied": 1,
    "sample": [
     "README.md",
@@ -216,7 +237,7 @@
   },
   "generate_round_index.py": {
    "exit": 0,
-   "round_files": 326,
+   "round_files": 381,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -225,11 +246,25 @@
     "README.md"
    ]
   },
+  "interval_is_centred_on_its_point.py": {
+   "exit": 0,
+   "round_files": 592,
+   "other_files": 6,
+   "assurance_files": 2,
+   "verdict": "read the tree",
+   "dirtied": 1,
+   "sample": [
+    "covalx/__init__.py",
+    "covalx/__pycache__/__init__.cpython-313.pyc",
+    "covalx/__pycache__/judge.cpython-313.pyc",
+    "covalx/__pycache__/rounds.cpython-313.pyc"
+   ]
+  },
   "manifest.py": {
    "exit": 0,
-   "round_files": 836,
+   "round_files": 949,
    "other_files": 18,
-   "assurance_files": 38,
+   "assurance_files": 45,
    "verdict": "read the tree",
    "dirtied": 3,
    "sample": [
@@ -240,11 +275,11 @@
    ]
   },
   "markdown_tables_are_well_formed.py": {
-   "exit": 1,
+   "exit": 0,
    "round_files": 0,
    "other_files": 5,
    "assurance_files": 1,
-   "verdict": "exit 1, not a pass",
+   "verdict": "docs-only (scoped)",
    "dirtied": 1,
    "sample": [
     "ADVERSARY_FORECAST.md",
@@ -253,9 +288,32 @@
     "README.md"
    ]
   },
+  "next_gradient_is_new.py": {
+   "exit": 0,
+   "round_files": 491,
+   "other_files": 50,
+   "assurance_files": 43,
+   "verdict": "read the tree",
+   "dirtied": 1,
+   "sample": [
+    "README.md",
+    "corebench/ablate_novel.py",
+    "corebench/compare.py",
+    "corebench/compare_matrix.py"
+   ]
+  },
+  "next_gradient_labels_its_hypotheses.py": {
+   "exit": 0,
+   "round_files": 0,
+   "other_files": 0,
+   "assurance_files": 1,
+   "verdict": "package-scoped (by design)",
+   "dirtied": 1,
+   "sample": []
+  },
   "no_withdrawn_framings.py": {
    "exit": 0,
-   "round_files": 530,
+   "round_files": 588,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -264,7 +322,16 @@
   },
   "outcome_variable_declared.py": {
    "exit": 0,
-   "round_files": 315,
+   "round_files": 370,
+   "other_files": 0,
+   "assurance_files": 0,
+   "verdict": "read the tree",
+   "dirtied": 1,
+   "sample": []
+  },
+  "point_and_interval_share_a_source.py": {
+   "exit": 0,
+   "round_files": 357,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -282,7 +349,7 @@
   },
   "readme_agrees_with_results.py": {
    "exit": 0,
-   "round_files": 530,
+   "round_files": 588,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -293,7 +360,7 @@
   },
   "readme_row_carries_the_verdict.py": {
    "exit": 2,
-   "round_files": 528,
+   "round_files": 586,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "exit 2, not a pass",
@@ -304,7 +371,7 @@
   },
   "registries_are_satisfied.py": {
    "exit": 0,
-   "round_files": 488,
+   "round_files": 543,
    "other_files": 8,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -349,7 +416,7 @@
   },
   "retired_framing_in_emittable_source.py": {
    "exit": 0,
-   "round_files": 341,
+   "round_files": 397,
    "other_files": 17,
    "assurance_files": 1,
    "verdict": "read the tree",
@@ -386,13 +453,26 @@
   },
   "seed_filter_is_disclosed.py": {
    "exit": 1,
-   "round_files": 326,
+   "round_files": 381,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
    "dirtied": 1,
    "sample": [
     "README.md"
+   ]
+  },
+  "source_stamp_is_current.py": {
+   "exit": 0,
+   "round_files": 530,
+   "other_files": 3,
+   "assurance_files": 1,
+   "verdict": "read the tree",
+   "dirtied": 1,
+   "sample": [
+    "R000_plant",
+    "R001_plant",
+    "results"
    ]
   },
   "synthesis_cites_recent_work.py": {
@@ -408,7 +488,7 @@
   },
   "verdict_cites_its_own_contrasts.py": {
    "exit": 2,
-   "round_files": 472,
+   "round_files": 528,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "exit 2, not a pass",
