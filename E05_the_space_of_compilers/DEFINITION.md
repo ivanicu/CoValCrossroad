@@ -220,6 +220,21 @@ over t ∈ {0.50…0.90} the candidate-core verdict is `W-BALL` at **every** cel
 all-objects verdict flips below 0.80 on `generic` (0.7154) — which is prompt-**blind**, hence a
 within-family comparison against the reference class and near-circular. ⚠ **This measures our
 GENERATORS, not the category:** nothing here shows a disjoint core does not exist. *(R451)*
+
+⚠ **AND THE ORACLE THAT MADE THAT ZERO READABLE IS ITSELF LARGELY A FIXED SUBSET (R452).** The oracle
+selects, per prompt, the best of 1,820 prompt-blind subsets — but its **winners concentrate**: the
+effective number of distinct winners is **57.8** of 1,820 (**3.2%**), and one single subset wins
+**33.57%** of all prompts, **611×** the uniform rate. Against a synthetic pool with *no* per-prompt
+criterion structure, assembled through the identical combinatorics so overlap is reproduced, the
+no-structure baseline gives **185.7** effective winners — so the real oracle is **3.2× more
+concentrated** than no-structure produces, and per-prompt structure would push concentration the
+*other* way. ⛔ **So `per-conversation` overstates what the oracle does: its ceiling is largely a
+FIXED better subset of generic criteria plus max-of-1820 inflation** (`oracle 0.6610` vs
+`best fixed 0.5618`, a difference that is a **DERIVATION** — a max of 1,820 draws exceeds the best
+single draw by construction). R451's control stands; its *interpretation* narrows. ⭐ **And it
+sharpens the circularity already flagged for `generic`:** if a fixed prompt-blind set sits near the
+top of the prompt-blind class, clause ② is a **within-family ranking** where it was meant to be a
+prompt-specificity test. *(R452)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

@@ -504,6 +504,20 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R452 -- the oracle's concentration. Real AND synthetic are anchored together, because the
+    # claim is the RATIO and either number alone would let the comparison drift.
+    d452 = next(A24.glob("R452_*"), None)
+    f452 = (d452 / "results" / "r452_oracle_excess.json") if d452 else None
+    a = json.loads(f452.read_text()) if (f452 and f452.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r452_eff"] = (f"{a['eff_winners_real']:.1f}", "R452")
+        out["r452_syn"] = (f"{a['eff_winners_synthetic']:.1f}", "R452")
+        out["r452_top1"] = (f"{100*a['top1_win_share']:.2f}", "R452")
+        out["r452_fixed"] = (f"{a['best_fixed_mean']:.4f}", "R452")
+    else:
+        for k in ("r452_eff", "r452_syn", "r452_top1", "r452_fixed"):
+            out[k] = (None, "R452")
+
     # R451 -- the ball. The ORACLE is anchored beside `gen`, because the pair IS the finding: a zero
     # without its ceiling is silence, and anchoring only the zero would let that ceiling drift away.
     d451 = next(A24.glob("R451_*"), None)
@@ -863,6 +877,10 @@ ASSERTIONS = {
     "r451_gen":     r"is `gen`, at \*\*([\d.]+)\*\*",
     "r451_oracle":  r"disjoint space clears \*\*([\d.]+)\*\*",
     "r451_generic": r"on `generic` \(([\d.]+)\)",
+    "r452_eff":   r"distinct winners is \*\*([\d.]+)\*\* of 1,820",
+    "r452_syn":   r"no-structure baseline gives \*\*([\d.]+)\*\* effective",
+    "r452_top1":  r"wins\s*\n?\*\*([\d.]+)%\*\* of all prompts",
+    "r452_fixed": r"`best fixed ([\d.]+)`",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

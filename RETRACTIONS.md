@@ -8936,3 +8936,45 @@ express, the operation has not been understood yet. **The correct g=0 here is on
 and the round already contained it.** Cost: one wrong world printed, caught only because the oracle
 passing at 1.0000 while the round declared itself blind is an internal contradiction the eye
 catches. ⚠ **It would not have been caught if the oracle had been borderline.**
+
+---
+
+## 252 · A permutation null for a statistic that is permutation-invariant (R452, caught in-round)
+
+**What was built.** R452's estimand was `EXCESS = oracle_mean − null_oracle_mean`, where the null
+destroyed the prompt × subset interaction by permutation. Two constructions were built so they would
+bracket the answer.
+
+**What it returned.** Both nulls came back **above** the real oracle — N1 at **1.0000**, N2 at
+**0.9309**, against a real oracle of **0.6610**. `EXCESS` was negative under both, and the verdict
+branch printed `W-NOISE`, which would have retracted a control R451 depends on.
+
+**Two independent defects, and the first is a gauge test I did not run on my own design.**
+
+1. **`oracle_mean = mean_p max_j A[j,p]` is invariant under any permutation of prompt labels.**
+   Permuting columns does not change the multiset of column maxima. **So no permutation null exists
+   for this statistic at all** — the estimand was mis-specified from the first line. I ran rung 1
+   against the *announced* step (correctly, killing its statistic) and then did not run it against
+   the replacement.
+2. **Both nulls destroyed the inter-subset correlation.** The 1,820 subsets overlap heavily and that
+   correlation is exactly what holds a max-of-1,820 away from the ceiling. Made independent, the null
+   **saturates at 1.0000** — *a control that cannot PASS*, and no real oracle could ever have
+   exceeded it.
+
+**The fix was a different KIND of null, not a better permutation:** a **synthetic pool** in which
+criteria have fixed quality with no prompt dependence, assembled through the *identical* C(16,4)
+combinatorics so the overlap correlation is reproduced by construction. Calibration: sd ratio 0.98.
+
+⭐ **The lesson that is not already on this list.** I applied the attack ladder to the *inherited*
+claim and skipped it on the *replacement* — and the replacement is exactly where a fresh, unexamined
+assumption enters. **The ladder is cheapest precisely on the design you just wrote, because that is
+the one nobody has attacked yet.** Tell: a null that lands *above* the observed value is almost never
+a finding; it is a null measuring something else.
+
+⚠ **And one control here passes only in direction, which is stated rather than smoothed.** The
+positive control plants a different favoured criterion per prompt and moves effective-winners from
+185.7 to **190.3** — a large plant for a **+2.5%** response. The statistic is weakly sensitive to
+per-prompt structure in the *spreading* direction. **The conclusion does not use that direction**: it
+rests on `real 57.8 ≪ no-structure 185.7`, and concentration *below* the no-structure baseline can
+only mean some subsets are better **across** prompts. **Naming which half of an instrument an
+inference uses is part of reporting it.**
