@@ -110,6 +110,8 @@ HERE = SELF.parent
 SAT = re.compile(r"(?:sat|core)_[A-Za-z0-9_{}]*08b")
 # the GOLD file: a DIFFERENT KIND OF OBJECT with the same four characters, and it IS committed.
 GOLD = re.compile(r"a08_gold_08b")
+# an ARM TAG as it appears inside a persisted artifact: a rule name, a k, and the suffix.
+ARM = re.compile(r"[a-z]+_?k\d+[A-Za-z0-9_]*_08bR?|[a-z]+_k\d+_08bR?")
 ARC = ("R422", "R423", "R424", "R425")
 
 
@@ -140,13 +142,56 @@ def classify(src: str):
                           if isinstance(v, ast.Constant) and isinstance(v.value, str))
             if "08b" in lit:
                 code.append(lit)
-    sats = [c for c in code if SAT.search(c)]
     golds = [c for c in code if GOLD.search(c)]
+    residual = [c for c in code if not GOLD.search(c)]
+    sats = [c for c in residual if SAT.search(c)]
     if sats:
         return "SAT", sats[0][:70]
+    # ⛔ THE FRAGMENT RULE, ADDED ONLY BECAUSE THE KNOWN-ANSWER CONTROL DEMANDED IT. R422/R423 hold
+    #    `"_08b"` as a BARE fragment and build `f"core_{tag}.json"` elsewhere, so no full-name pattern
+    #    can see them. A fragment counts as a read only when it is FILENAME-SHAPED -- no whitespace,
+    #    short -- AND the module elsewhere spells a satisfaction-artifact prefix. Both halves are
+    #    load-bearing: without the shape test, R420/R421's print banners (`⛔ SO THE _08b/_08bR
+    #    DIVERGENCE ...`) would flip to SAT, and they read nothing. That false positive is exactly
+    #    what the two NOT-SAT known cases exist to catch, so this rule is tested in BOTH directions
+    #    rather than merely loosened until the answer I wanted appeared.
+    builds = bool(re.search(r"[\"'f]\s*[\"']?(?:core_|sat_)|corebench", src))
+    frags = [c for c in residual
+             if len(c) <= 40 and not re.search(r"\s", c) and re.search(r"08bR?", c)]
+    if frags and builds:
+        return "SAT", f"fragment {frags[0][:30]!r} + a core_/sat_ prefix in the same module"
     if golds:
         return "GOLD", golds[0][:70]
     return "PROSE", (code[0][:70] if code else "docstring only")
+
+
+def artifact_arms(round_dir: pathlib.Path):
+    """THE SECOND INSTRUMENT. What did the round RECORD, rather than what does its source spell?
+
+    ⛔ THIS EXISTS BECAUSE THE FIRST INSTRUMENT'S KNOWN-ANSWER CONTROL FAILED, and the failure is
+    structural rather than a loose pattern: R422-R424 assemble their paths across TWO f-strings in
+    different functions -- `load(f"{tag}_08b")` then `f"core_{tag}.json"` -- so the literal
+    `core_..._08b` exists nowhere in the source. No string-level classifier can be sound against
+    that, and loosening the regex would only move the blindness somewhere I had not tested.
+
+    A round that consumed an `_08b` arm almost always names it in its own persisted artifact, as an
+    arm key, a filename or a config value. That is a DIFFERENT blind spot -- it misses a round that
+    consumes without recording -- so the two instruments are combined as a UNION and their
+    DISAGREEMENT is printed, because agreement between two blindnesses is worth more than one
+    loosened pattern and disagreement is the informative part."""
+    hits = []
+    for p in sorted((round_dir / "results").glob("*.json")) if (round_dir / "results").is_dir() \
+            else []:
+        try:
+            txt = p.read_text()
+        except Exception:
+            continue
+        if "08b" not in txt:
+            continue
+        for m in set(ARM.findall(txt)):
+            if not GOLD.search(m):
+                hits.append(m)
+    return sorted(set(hits))
 
 
 def main() -> int:
@@ -155,13 +200,27 @@ def main() -> int:
     plant_sat = classify('"""d"""\nimport numpy as np\nnp.load("sat_x_08b.npz")\n')[0]
     p_ok = (plant_prose == "PROSE" and plant_sat == "SAT")
 
+    def verdict(p: pathlib.Path):
+        """UNION of the two instruments, with each one's own answer kept for the disagreement table."""
+        src_cls, ev = classify(p.read_text())
+        arms = artifact_arms(p.parent)
+        return ("SAT" if (src_cls == "SAT" or arms) else src_cls), src_cls, arms, ev
+
+    # KNOWN answers, all established BY READING the real sources -- not invented.
+    #   R422/R423/R424 read `core_*_08b.json`                         -> SAT
+    #   R420/R421 contain `08b` ONLY in print banners; they run
+    #     select_core.py fresh and never open an _08b file            -> NOT SAT
+    #   R12_response_set reads the committed GOLD file                -> GOLD, never SAT
+    WANT = {"R422": "SAT", "R423": "SAT", "R424": "SAT",
+            "R420": "NOT-SAT", "R421": "NOT-SAT", "R12_response_set": "GOLD"}
     known = {}
-    for pat, want in ((f"E0*/A*/{r}_*/run.py", "SAT") for r in ("R422", "R423", "R424")):
-        for p in ROOT.glob(pat):
-            known[str(p.relative_to(ROOT))] = (classify(p.read_text())[0], want)
-    for p in ROOT.glob("E0*/A*/R12_response_set/run.py"):
-        known[str(p.relative_to(ROOT))] = (classify(p.read_text())[0], "GOLD")
-    k_ok = bool(known) and all(g == w for g, w in known.values())
+    for stem, want in WANT.items():
+        for p in ROOT.glob(f"E0*/A*/{stem}*/run.py"):
+            got, src_cls, arms, _ = verdict(p)
+            ok = (got == "SAT") if want == "SAT" else \
+                 (got != "SAT") if want == "NOT-SAT" else (got == "GOLD")
+            known[str(p.relative_to(ROOT))] = (got, want, ok, src_cls, len(arms))
+    k_ok = bool(known) and all(v[2] for v in known.values())
 
     print("R425 · how far does the unknown instrument reach?\n")
     print("  ⛔ `30 ROUNDS` WAS THE INSTRUMENT'S UNIT, NOT THE CLAIM'S. `grep -rl 08b` counts files")
@@ -172,11 +231,16 @@ def main() -> int:
     print("  CONTROLS")
     print(f"    PLANT      docstring-only -> {plant_prose} · code `sat_x_08b.npz` -> {plant_sat}   "
           f"{'PASS' if p_ok else 'FAIL'}")
-    print(f"    KNOWN      real cases whose class I established BY READING THE SOURCE, not by")
-    print(f"               imagining one:")
-    for f, (got, want) in sorted(known.items()):
-        print(f"      {f[-64:]:<64} want {want:<5} got {got:<5} "
-              f"{'ok' if got == want else '⛔ MISCLASSIFIED'}")
+    print(f"    KNOWN      six real cases whose class I established BY READING THE SOURCE, not by")
+    print(f"               imagining one. ⛔ THE FIRST VERSION OF THIS ROUND FAILED HERE: the source")
+    print(f"               scan called R422–R424 PROSE, because they assemble paths across TWO")
+    print(f"               f-strings and the literal `core_..._08b` exists nowhere. The synthetic")
+    print(f"               plant passed; the real corpus did not. Hence a second instrument.")
+    print(f"      {'round':<52} {'want':<8} {'union':<6} {'source':<6} arms")
+    for f, (got, want, ok, src_cls, narm) in sorted(known.items()):
+        r = pathlib.Path(f).parent.name
+        print(f"      {r[:52]:<52} {want:<8} {got:<6} {src_cls:<6} {narm:>4}  "
+              f"{'ok' if ok else '⛔ MISCLASSIFIED'}")
     print(f"    UNIT       instrument sees : `run.py reads an _08b satisfaction artifact`")
     print(f"               claim wants     : `a published number DERIVES from that arm`")
     print(f"               ⚠ THESE ARE NOT EQUAL. R422–R424 read those arms to AUDIT them, so their")
@@ -187,10 +251,16 @@ def main() -> int:
 
     # ---- the census --------------------------------------------------------------------------------
     cls = {"SAT": [], "GOLD": [], "PROSE": [], "UNPARSEABLE": []}
-    scanned = 0
+    scanned, only_src, only_art = 0, [], []
     for p in sorted(ROOT.glob("E0*/A*/R*/run.py")) + sorted(ROOT.glob("lib/*.py")):
         scanned += 1
-        c, ev = classify(p.read_text())
+        c, src_cls, arms, ev = verdict(p)
+        if c == "SAT":
+            if src_cls == "SAT" and not arms:
+                only_src.append(str(p.relative_to(ROOT)))
+            elif src_cls != "SAT":
+                only_art.append(str(p.relative_to(ROOT)))
+            ev = (arms[:2] if arms else ev)
         if c != "NONE":
             cls[c].append((str(p.relative_to(ROOT)), ev))
     if not scanned:
@@ -205,6 +275,13 @@ def main() -> int:
 
     arc = [f for f, _ in cls["SAT"] if any(a in f for a in ARC)]
     downstream = [(f, e) for f, e in cls["SAT"] if not any(a in f for a in ARC)]
+    print(f"\n    THE TWO INSTRUMENTS DISAGREE, AND THE DISAGREEMENT IS THE INFORMATIVE PART")
+    print(f"      SAT by SOURCE only (spells a filename, records no arm) : {len(only_src):>3}")
+    print(f"      SAT by ARTIFACT only (records an arm, spells no path)  : {len(only_art):>3}")
+    print(f"      ⚠ each instrument is blind where the other sees: a source scan cannot follow a")
+    print(f"        path assembled from variables, and an artifact scan cannot see a round that")
+    print(f"        consumes without recording. The UNION is the bound; neither alone is.")
+
     print(f"\n    (D) SAT readers OUTSIDE this audit arc — the upper bound on DOWNSTREAM exposure:"
           f" {len(downstream)}")
     print(f"        (the arc itself contributes {len(arc)}, by construction)")
@@ -240,6 +317,7 @@ def main() -> int:
                unparseable=cls["UNPARSEABLE"], arc=arc, downstream=downstream,
                n_sat=len(cls["SAT"]), n_gold=len(cls["GOLD"]), n_prose=len(cls["PROSE"]),
                n_downstream=len(downstream), verdict=v,
+               only_source=only_src, only_artifact=only_art,
                controls=dict(plant_prose=plant_prose, plant_sat=plant_sat,
                              known={k: list(v2) for k, v2 in known.items()}))
     (HERE / "results").mkdir(exist_ok=True)

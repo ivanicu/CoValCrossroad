@@ -1,0 +1,233 @@
+{
+  "arc": [
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R422_did_the_judge_differ_or_only_the_selection/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R423_the_join_key_or_the_emitter/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R424_name_the_foreign_emitter/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R425_how_far_does_the_unknown_instrument_reach/run.py"
+  ],
+  "controls": {
+    "known": {
+      "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R12_response_set/run.py": [
+        "GOLD",
+        "GOLD",
+        true,
+        "GOLD",
+        0
+      ],
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R420_is_selection_deterministic_too/run.py": [
+        "PROSE",
+        "NOT-SAT",
+        true,
+        "PROSE",
+        0
+      ],
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R421_the_last_three_rules_and_the_control_R420_lacked/run.py": [
+        "PROSE",
+        "NOT-SAT",
+        true,
+        "PROSE",
+        0
+      ],
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R422_did_the_judge_differ_or_only_the_selection/run.py": [
+        "SAT",
+        "SAT",
+        true,
+        "SAT",
+        0
+      ],
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R423_the_join_key_or_the_emitter/run.py": [
+        "SAT",
+        "SAT",
+        true,
+        "SAT",
+        0
+      ],
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R424_name_the_foreign_emitter/run.py": [
+        "SAT",
+        "SAT",
+        true,
+        "SAT",
+        2
+      ]
+    },
+    "plant_prose": "PROSE",
+    "plant_sat": "SAT"
+  },
+  "downstream": [
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R301_is_the_judge_a_shrink_or_a_reorder/run.py",
+      "sat__08b.npz"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R311_does_the_shrink_differ_within_family/run.py",
+      "sat__08b.npz"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R358_does_the_closure_defect_replicate_at_the_second_judge/run.py",
+      "fragment 'risk_08b' + a core_/sat_ prefix in the same module"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R359_can_clause_two_be_made_judge_invariant/run.py",
+      "sat__08b.npz"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R360_which_clause_is_load_bearing/run.py",
+      "fragment '_08b' + a core_/sat_ prefix in the same module"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R361_does_clause_three_hold_at_the_second_judge/run.py",
+      "sat__08b.npz"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R362_does_the_size_band_survive_the_judge/run.py",
+      "sat__08b.npz"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R408_the_literal_test_at_the_universal_reference/run.py",
+      "fragment '_08b' + a core_/sat_ prefix in the same module"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R414_does_the_effect_replicate_at_the_second_judge/run.py",
+      "sat_topw_k4_08b.npz"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R415_the_pipelines_own_noise_floor/run.py",
+      "fragment '*_08bR.npz' + a core_/sat_ prefix in the same module"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R416_the_rerun_pairs_are_not_scoring_replicates/run.py",
+      "core__08b.json"
+    ]
+  ],
+  "gold": [
+    [
+      "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R11_backbone_control/run.py",
+      "a08_gold_08b.npz"
+    ],
+    [
+      "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R12_response_set/run.py",
+      "a08_gold_08b.npz"
+    ],
+    [
+      "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R46_spread_replication/run.py",
+      "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R08_gold_pref"
+    ]
+  ],
+  "n_downstream": 11,
+  "n_gold": 3,
+  "n_prose": 6,
+  "n_sat": 15,
+  "only_artifact": [],
+  "only_source": [
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R301_is_the_judge_a_shrink_or_a_reorder/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R311_does_the_shrink_differ_within_family/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R358_does_the_closure_defect_replicate_at_the_second_judge/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R359_can_clause_two_be_made_judge_invariant/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R360_which_clause_is_load_bearing/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R361_does_clause_three_hold_at_the_second_judge/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R362_does_the_size_band_survive_the_judge/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R408_the_literal_test_at_the_universal_reference/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R414_does_the_effect_replicate_at_the_second_judge/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R415_the_pipelines_own_noise_floor/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R416_the_rerun_pairs_are_not_scoring_replicates/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R422_did_the_judge_differ_or_only_the_selection/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R423_the_join_key_or_the_emitter/run.py",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R425_how_far_does_the_unknown_instrument_reach/run.py"
+  ],
+  "prose": [
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R309_is_the_missing_r2_noise_or_structure/run.py",
+      "docstring only"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R366_does_anything_predict_which_claims_survive_the_judge/run.py",
+      "admitted_08b"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R417_the_judge_has_no_stochastic_step/run.py",
+      "docstring only"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R419_the_scoring_only_floor_measured/run.py",
+      "docstring only"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R420_is_selection_deterministic_too/run.py",
+      "     failure: the INPUTS to those two runs must have differed, and the"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R421_the_last_three_rules_and_the_control_R420_lacked/run.py",
+      "  \u26d4 SO THE `_08b`/`_08bR` DIVERGENCE HAS NO REMAINING MECHANISM INSIDE"
+    ]
+  ],
+  "sat": [
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R301_is_the_judge_a_shrink_or_a_reorder/run.py",
+      "sat__08b.npz"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R311_does_the_shrink_differ_within_family/run.py",
+      "sat__08b.npz"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R358_does_the_closure_defect_replicate_at_the_second_judge/run.py",
+      "fragment 'risk_08b' + a core_/sat_ prefix in the same module"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R359_can_clause_two_be_made_judge_invariant/run.py",
+      "sat__08b.npz"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R360_which_clause_is_load_bearing/run.py",
+      "fragment '_08b' + a core_/sat_ prefix in the same module"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R361_does_clause_three_hold_at_the_second_judge/run.py",
+      "sat__08b.npz"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R362_does_the_size_band_survive_the_judge/run.py",
+      "sat__08b.npz"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R408_the_literal_test_at_the_universal_reference/run.py",
+      "fragment '_08b' + a core_/sat_ prefix in the same module"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R414_does_the_effect_replicate_at_the_second_judge/run.py",
+      "sat_topw_k4_08b.npz"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R415_the_pipelines_own_noise_floor/run.py",
+      "fragment '*_08bR.npz' + a core_/sat_ prefix in the same module"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R416_the_rerun_pairs_are_not_scoring_replicates/run.py",
+      "core__08b.json"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R422_did_the_judge_differ_or_only_the_selection/run.py",
+      "fragment '_08b' + a core_/sat_ prefix in the same module"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R423_the_join_key_or_the_emitter/run.py",
+      "fragment '_08b' + a core_/sat_ prefix in the same module"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R424_name_the_foreign_emitter/run.py",
+      [
+        "oracle_k4_08b",
+        "oracle_k4_08bR"
+      ]
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R425_how_far_does_the_unknown_instrument_reach/run.py",
+      "    PLANT      docstring-only ->  \u00b7 code `sat_x_08b.npz` ->    "
+    ]
+  ],
+  "scanned": 408,
+  "source_name": "run.py",
+  "source_sha256": "09595224c789a4351f3e71501bb759906776b718f498aaa1d67463b5c97b677e",
+  "unparseable": [],
+  "verdict": "W_WIDE"
+}
