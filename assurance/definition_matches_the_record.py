@@ -472,6 +472,23 @@ def derive():
     else:
         for k in ("r444_after", "r444_before", "r444_ext_after", "r444_unknown"):
             out[k] = (None, "R444")
+    # R445 -- the margin AND its floor, anchored together. A delta without its MDE is exactly the
+    # scope error this campaign has retracted most, and here the ratio is 1.07: the number is only
+    # honest beside the floor it barely clears.
+    d445 = next(A24.glob("R445_*"), None)
+    f445 = (d445 / "results" / "r445_gen_vs_clause2.json") if d445 else None
+    a = json.loads(f445.read_text()) if (f445 and f445.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        c = a["cells"]
+        out["r445_gen"] = (f"{c['gen']['delta']:+.4f}", "R445")
+        out["r445_genmde"] = (f"{c['gen']['mde']:.4f}", "R445")
+        out["r445_core"] = (f"{c['coval_core']['delta']:+.4f}", "R445")
+        out["r445_sham"] = (f"{c['gen_sham']['delta']:+.4f}", "R445")
+        out["r445_oracle"] = (f"{a['oracle_delta']:+.4f}", "R445")
+        out["r445_n"] = (a["n_prompts"], "R445")
+    else:
+        for k in ("r445_gen", "r445_genmde", "r445_core", "r445_sham", "r445_oracle", "r445_n"):
+            out[k] = (None, "R445")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -729,6 +746,12 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r445_gen":    r"`gen` scores\s*\n?\*\*([+\-][\d.]+) \[",
+    "r445_genmde": r"against an MDE of ([\d.]+)\*\* — resolved",
+    "r445_core":   r"`coval_core` scores \*\*([+\-][\d.]+) \[",
+    "r445_sham":   r"fails by \*\*more\*\* \(\*\*([+\-][\d.]+)\*\*\)",
+    "r445_oracle": r"clears the reference by \*\*([+\-][\d.]+)\*\*",
+    "r445_n":      r"`POOL\[0:4\]` over \*\*(\d+)\*\* prompts",
     "r444_after":     r"excluding \*\*\d+\*\* to \*\*(\d+)\*\* of 42",
     "r444_before":    r"excluding \*\*(\d+)\*\* to \*\*\d+\*\* of 42",
     "r444_ext_after": r"goes from \*\*5\*\* to \*\*(\d+)\*\*",

@@ -84,7 +84,18 @@ rubric and the containment objection does not reach it. ⚠ **UNVERIFIED-leaning
 containment is *sufficient* for the provenance objection and *not necessary* — the same annotators
 could have authored it in different words, and this instrument cannot see that. ⭐ The 7.8% that
 *is* contained is real and strictly prompt-specific, since the sham is zero.
-→ [`R442`](A24_what_the_definition_costs/R442_the_extension_under_clause_three_as_written) ·
+⭐ **AND THE ONE ARM IS A FINDING, NOT A THRESHOLD ARTIFACT (R445).** The extension is one arm
+*not* because no third-source object exists: **`gen` — a home-release core generated from the
+conversation alone — has been in the 42 the whole time**, ③-corrected does not exclude it, and **②
+does**. Paired against ②'s own reference `POOL[0:4]` over **968** prompts, `gen` scores
+**-0.0162 [-0.0270, -0.0051] against an MDE of 0.0151** — resolved, but at **1.07×** its floor —
+while `coval_core` scores **+0.0178 [+0.0079, +0.0285]** vs 0.0146, at 1.22×. **The definition's
+entire boundary at home separates the two by 0.0340 across a floor of ~0.015.** Resolved, and thin;
+quoting only the first half would make a 1.07× margin sound like a verdict. Controls: an oracle
+clears the reference by **+0.1702** (MDE 0.0184), the reference against itself is exactly 0, and the
+wrong-prompt sham fails by **more** (**-0.0669**) as it must.
+→ [`R445`](A24_what_the_definition_costs/R445_is_the_extension_empty_on_a_resolved_difference) ·
+[`R442`](A24_what_the_definition_costs/R442_the_extension_under_clause_three_as_written) ·
 [`R443`](A24_what_the_definition_costs/R443_does_clause_three_as_written_exclude_the_core_itself)
 
 ⭐ **Clause ④ was ADOPTED 2026-08-04**, after every objection I could raise against it was measured
