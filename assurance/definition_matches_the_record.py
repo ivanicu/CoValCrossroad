@@ -124,6 +124,14 @@ def derive():
     else:
         for k in ("r398_rows", "r398_convs", "r398_multi", "r398_models", "r398_refs"):
             out[k] = (None, "R398")
+    a = art("R408_*")
+    if a:
+        out["r408_strict"] = (len(a["label_free_strict"]), "R408")
+        out["r408_literal"] = (len(a["label_free_literal"]), "R408")
+        out["r408_core_e"] = (round(a["rows"]["coval_core"]["e"], 6), "R408")
+    else:
+        for k in ("r408_strict", "r408_literal", "r408_core_e"):
+            out[k] = (None, "R408")
     a = art("R407_*")
     if a:
         out["r407_free"] = (len(a["label_free_admitted"]), "R407")
@@ -314,6 +322,8 @@ ASSERTIONS = {
     # beyond ③a) was silently unchecked. A declared assertion with no anchor is not a weaker check,
     # it is NO check. And my first attempt to add it failed its own guard and applied nothing while
     # the commit message said it had — so the second failure was in the REPAIR, not the original.
+    "r408_core_e":           r"scores \*\*`\+(0\.\d+)`\*\* against `se",
+    "r408_literal":          r"\| \*\*(\d+)\*\* — `coval_core`, `topw_k3/4/6/8` \|",
     "r407_core_pct":         r"\*\*`coval_core` (\d+\.\d)\*\*",
     "r407_free":             r"Label-free admitted: (\d+)\.\*\*",
     "r406_ref":              r"instantiated at `(0\.\d+)`, the best HELD-OUT",

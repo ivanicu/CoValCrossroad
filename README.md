@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**400 rounds** in **5 epochs** and **24 arcs**, numbered to **R407** — **53 standing claims, 13
+**401 rounds** in **5 epochs** and **24 arcs**, numbered to **R408** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1190,6 +1190,21 @@ stricter, in the flattering direction, and **the literal `e > 0` reading has nev
 clause ②'s **fourth** under-specification, after the missing member, held-out vs in-sample, and the
 p99 bar called *every*. ⚠ One numeric cross-check is recorded **OWED**, not quietly skipped.
 → [`R407`](E05_the_space_of_compilers/A24_what_the_definition_costs/R407_the_universal_reading_answered_without_an_ordering)
+
+**Read literally, clause ② admits all five label-free arms at the universal reference — and every one
+of them by a margin inside its own noise.** The clause says *scores better than*; the code says
+`e > 0 AND |e| ≥ ZEFF·se`. Run both at the per-k maximum blind set: **STRICT admits 0 label-free arms,
+LITERAL admits 5** — `coval_core` at **`+0.009002`** against `se = 0.003703`, **0.87 of its own
+significance bar**, the others 0.38–0.81. **The four label-reading arms reach 3.4×–6.7×.** ⛔ So
+**R407's emptiness was partly an artifact of a significance term the definition does not contain** —
+but the honest report is *not* that a core was found: it is that **the definition as written has no
+error control**, and the order-of-magnitude gap between label-free and label-reading arms is exactly
+what that term was separating. ⭐ **The re-implementation was the risk and was controlled before use**:
+the scoring layer is **imported** from the module R360 itself uses, and my strict variant had to
+reproduce R360's committed `p=100` cell **arm for arm** before any literal number was admissible — it
+did. `literal ⊇ strict` is **forced**, so it is asserted as a sanity check and **not** reported as a
+finding. ⚠ One release; an unguarded positive mean is the quantity least likely to survive a second.
+→ [`R408`](E05_the_space_of_compilers/A24_what_the_definition_costs/R408_the_literal_test_at_the_universal_reference)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

@@ -180,6 +180,27 @@ judge in it** (R224/R228), and the k-curve's *shape* across judges was already m
 
 ---
 
+## ⛔ READ LITERALLY, CLAUSE ② ADMITS ALL FIVE — INSIDE THEIR OWN NOISE 2026-08-04 (R408)
+
+The clause says **scores better than**. The code says `e > 0 AND |e| >= ZEFF*se` — *significantly*
+better. Run both at the per-k maximum blind set:
+
+| label-free admitted | |
+|---|---|
+| **STRICT** (`e>0` and `\|e\| >= ZEFF*se`) | **0** |
+| **LITERAL** (`e>0`) | **5** — `coval_core`, `topw_k3/4/6/8` |
+
+`coval_core` scores **`+0.009002`** against `se = 0.003703` — **0.87 of its own significance bar.**
+The other four label-free arms reach 0.38–0.81. The four **label-reading** arms reach **3.4×–6.7×**.
+
+**So clause ② at the universal reference IS satisfiable without label access, under the definition's
+own wording — and every arm that satisfies it does so by a margin it cannot distinguish from zero.**
+The honest statement is not that a core was found; it is that **the definition as written has no error
+control**, and the order-of-magnitude gap between the label-free and label-reading arms is exactly
+what the significance term was separating.
+
+⚠ One release. An unguarded positive mean is the quantity least likely to survive a second.
+
 ## ⛔ AT THE MAXIMUM BLIND SET ONLY THE LABEL-READERS SURVIVE 2026-08-04 (R407)
 
 The universal reading is answerable from a **single cell**, which needs no strictness ordering — only
