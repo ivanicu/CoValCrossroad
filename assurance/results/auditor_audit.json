@@ -18,7 +18,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 3.6
+   "seconds": 3.5
   },
   "an_mde_records_its_denominator.py": {
    "exit": 0,
@@ -46,28 +46,28 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.9
+   "seconds": 3.0
   },
   "attack_every_check.py": {
-   "exit": 2,
+   "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 1.3
+   "seconds": 1.1
   },
   "attack_no_withdrawn_framings.py": {
    "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 5.9
+   "seconds": 5.6
   },
   "attack_outcome_variable_declared.py": {
    "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 3.9
+   "seconds": 3.7
   },
   "attack_scope_reaches_the_reader.py": {
    "exit": 0,
@@ -81,14 +81,14 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 111.0
+   "seconds": 114.0
   },
   "backfilled_findings_are_rederivable.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 21.8
+   "seconds": 21.1
   },
   "code_states_a_bound_the_reader_never_sees.py": {
    "exit": 0,
@@ -130,7 +130,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.6
+   "seconds": 2.8
   },
   "frozen_frame_verifies.py": {
    "exit": 0,
@@ -189,7 +189,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.4
+   "seconds": 0.5
   },
   "outcome_variable_declared.py": {
    "exit": 0,
@@ -259,7 +259,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 1.5
+   "seconds": 1.6
   },
   "round_links_resolve.py": {
    "exit": 0,
@@ -317,7 +317,7 @@
    ],
    "destroyed": [],
    "empty_tell": true,
-   "seconds": 0.1
+   "seconds": 0.0
   }
  }
 }

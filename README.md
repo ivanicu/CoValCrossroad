@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**382 rounds** in **5 epochs** and **24 arcs**, numbered to **R388** — **53 standing claims, 13
+**383 rounds** in **5 epochs** and **24 arcs**, numbered to **R389** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -166,6 +166,9 @@ object from one written beside it — and pretending otherwise is the drift thos
 |---|---|---|
 | The "nearest-topic" donor is **nearly a same-question restatement**, so its failure to transfer is a strong result rather than a weak one | near-donor cosine **0.8804** vs random-pair **0.7495**; the near donor covers **91.4%** of the distance from random to a paraphrase of the same prompt, and sits at the **97.85th** percentile of all pairs · n = **300** prompts | [r21](E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R21_donor_distance) |
 | …and the embedding was shown able to tell related from unrelated **before** any donor distance was read from it | prompt vs its own paraphrase **0.8927**, vs a random other prompt **0.7495**, separation **+0.1432** | [r21](E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R21_donor_distance) |
+| Rationale length falls in a **REGIME STEP**, not a fatigue slope — and it survives being matched on the breakpoint search itself | step **R² = 0.9644** against a selection-matched null whose 95th percentile is **0.4055** (z **+7.09**); a straight line reaches only **0.4480**; level change **-38.6%** · n = **1012** at the first position | [r24](E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R24_regime_receipt) |
+| …and the mechanism is not fatigue, because effort **RISES inside every segment** | within-segment slope **+6.84** chars/task before the break and **+1.04** after — a monotone fatigue trend cannot produce that | [r24](E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R24_regime_receipt) |
+| The additive rater decomposition is **demonstrably misspecifiable** — and the multiplicative alternative is **NOT thereby established** | in sample multiplicative **0.6604** beats additive **0.5784** at equal effective df; out of sample the order **inverts**, additive **+0.3879** vs multiplicative **+0.2514**, and the multiplicative R² ranges **[-1.6442, +0.5109]** against the additive's tight **[+0.3377, +0.4208]** · **924** raters | [r28](E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R28_multiplicative) |
 
 ### The pipeline
 
@@ -922,6 +925,22 @@ registration**, since the gate re-runs from a git worktree at HEAD and the empty
 arithmetic trap wearing a project plan. **The debt is a writing project — the harder kind to
 pipeline, the easier kind to start.**
 → [`R388`](E05_the_space_of_compilers/A24_what_the_definition_costs/R388_one_unit_of_the_debt)
+
+**Two more units paid — and then my own tooling deleted the round that priced them.** Running every
+`assurance/*.py` in a bulk loop executes `_isolated.py`, whose selftest plants a saboteur that
+deletes an epoch directory, and it ran against the **live tree**: **1,408 tracked files deleted, all
+1,408 recovered by `git restore`, and 0 of the untracked work** — this round's whole directory and
+two backfilled README rows. **Only committed work survived**; R388 had been committed and was intact.
+The round was rewritten and **reproduces its census exactly**, an unplanned second measurement.
+⛔ **R388's NEXT asked me to time my own attention** — unverifiable by anyone — so it was replaced by
+a property of the object: *does the round state its own finding?* ⛔ **My first instrument measured my
+own habit**: a marker list of `ESTIMAND`/`WORLDS`/`KILL` scored the three units I had just read at
+**1, 0 and 0**. Reading their docstrings gave the corpus's real convention — a first line
+`rNN -- <one sentence naming what the round is for>`. Measured over 226 rounds: **158 (70%) titled**
+against **99 (44%)** for my own format. And **3 of 3 paid units end in a verdict line the round wrote
+itself**, so the sentence was **read**, not constructed. ⚠ `W-SPLIT` — **the debt is two projects**,
+and quoting the 70% alone would be the cell reported as the curve.
+→ [`R389`](E05_the_space_of_compilers/A24_what_the_definition_costs/R389_the_reading_burden)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
