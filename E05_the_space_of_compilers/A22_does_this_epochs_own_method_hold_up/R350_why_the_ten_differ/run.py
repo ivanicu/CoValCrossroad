@@ -328,10 +328,12 @@ def main() -> int:
 
     print("\n  ⚠ SCOPE. `NONDETERMINISTIC` here means two runs in the same copy disagreed — it does")
     print("    NOT say the round is wrong, only that its committed number was never reproducible")
-    print("    and no re-running gate can certify it. And `CORPUS-DEPENDENT` is decided from the")
-    print("    SOURCE by a pattern; a round that reads the corpus through a helper this pattern")
-    print("    cannot see would be misfiled as CODE DRIFT, which is the direction that over-counts")
-    print("    the defect rather than hiding it.")
+    print("    and no re-running gate can certify it. `CORPUS-DEPENDENT` is MEASURED, not")
+    print(f"    pattern-matched: {N_PLANT} synthetic rounds are planted in E05 and the round re-run, so a")
+    print("    corpus reader that goes through any helper is caught. What it still cannot see is a")
+    print("    round that depends on the corpus in a way N_PLANT rounds do not perturb -- a round")
+    print("    keyed to a specific arc, say -- and that direction MISFILES AS CODE DRIFT, which")
+    print("    over-counts the defect rather than hiding it.")
     shutil.rmtree(SCRATCH, ignore_errors=True)
     return 0 if controls_ok else 1
 

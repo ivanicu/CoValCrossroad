@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**343 rounds** in **5 epochs** and **24 arcs**, numbered to **R348** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**337 of the 343 carry a
+**344 rounds** in **5 epochs** and **24 arcs**, numbered to **R350** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**338 of the 344 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -294,6 +294,18 @@ caught 2 of 10. *Its isolation control failed on two earlier valid runs, both ti
 committing while it measured; the third compares per path and returned 765 artifacts, 0 changed, 0
 vanished.*
 → [`R344`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R344_what_fraction_can_be_rerun)
+
+⛔ **And seven of those ten are real drift.** Re-running each twice in one isolated copy separates
+the causes mechanically: **7 CODE DRIFT** (deterministic, corpus-blind, and still disagreeing —
+*published numbers their own code no longer produces*), **2 NONDETERMINISTIC** (unseeded draws, a
+design choice, but numbers no re-running gate can ever certify), **1 CORPUS-DEPENDENT** (`R242`
+counts rounds; the corpus grew 23 → 124). **The pre-registered cross-instrument prediction held 2 of
+2**: the only two of the ten that R345 had independently flagged STALE from a recorded source hash
+are both CODE DRIFT — a static hash and a live re-run, sharing no code, agreeing on both. **5 of the
+7 drifters carry no stamp at all.** *Its corpus-read control failed twice first — a regex called R242
+blind and R347 corpus-reading, then the behavioural plant went into the wrong epoch — so the property
+is now measured by planting 24 rounds in E05 and re-running.*
+→ [`R350`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R350_why_the_ten_differ)
 
 **The reader now exists** — [`assurance/source_stamp_is_current.py`](assurance/source_stamp_is_current.py),
 three-valued, in the suite registry (**22/22** on an empty population). It is a **ratchet, not a
