@@ -504,6 +504,20 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R457 -- reliability. The CONTAMINATED pair is anchored beside the clean one, because the
+    # finding is that the sham EXCEEDS the core on the naive statistic, and anchoring only the clean
+    # rho would let the reason this round has two estimands drift away.
+    d457 = next(A24.glob("R457_*"), None)
+    f457 = (d457 / "results" / "r457_reliability.json") if d457 else None
+    a = json.loads(f457.read_text()) if (f457 and f457.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r457_clean"] = (f"{a['arm_specific_core_minus_sham']['rho_full']:.4f}", "R457")
+        out["r457_sham"] = (f"{a['arms']['sham']['rho_full']:.4f}", "R457")
+        out["r457_core"] = (f"{a['arms']['core']['rho_full']:.4f}", "R457")
+    else:
+        for k in ("r457_clean", "r457_sham", "r457_core"):
+            out[k] = (None, "R457")
+
     # R456 -- the annotator ladder. ALPHA is anchored with the m=16 cell, because the claim is that
     # the gap does NOT resolve and alpha alone would read as a precision note rather than a bound.
     d456 = next(A24.glob("R456_*"), None)
@@ -958,6 +972,9 @@ ASSERTIONS = {
     "r456_ratio16":  r"MDE 0\.0104, ratio ([\d.]+)\)",
     "r456_total":    r"max 46, \*\*([\d,]+)\*\* total",
     "r456_mderatio": r"MDE falls just \*\*([\d.]+)×\*\*",
+    "r457_clean": r"replicates at\s*\n?\*\*ρ_full = ([\d.]+)\*\*",
+    "r457_sham":  r"sham scores ([\d.]+) — HIGHER",
+    "r457_core":  r"HIGHER than\s*\n?the core's ([\d.]+)\*\*",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

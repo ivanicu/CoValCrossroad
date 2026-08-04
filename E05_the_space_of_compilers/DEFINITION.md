@@ -287,6 +287,20 @@ generalising prompt-blind set by **+0.0095 to +0.0191**, sign stable across ever
 resolution not. ⭐ The oracle clears the same baseline at **8.5–11.6×** its MDE at every m, which is
 what makes this a measurement rather than silence: the design can resolve a large gap throughout and
 simply cannot resolve this one. *(R456)*
+
+⭐ **AND THAT BETWEEN-PROMPT VARIANCE IS SIGNAL, NOT NOISE (R457) — SO ②'s ADVANTAGE IS NOT UNIFORM
+ACROSS PROMPTS.** Splitting each prompt's annotators into two disjoint halves with the baseline held
+fixed, the *value of having the right criteria on a given prompt* — `A2(core,p) − A2(sham,p)`, which
+cancels both the shared baseline and the shared prompt-difficulty term — replicates at
+**ρ_full = 0.8812**, CI **[+0.8460, +0.8946]**, seed sd 0.0084. ⛔ **The naive version of this test is
+contaminated and its own sham control says so:** `A2(arm,p) − A2(base,p)` inherits reliability from
+the baseline term that every arm shares, and on that statistic the **sham scores 0.8913 — HIGHER than
+the core's 0.8355** — so it cannot distinguish *the core's advantage is prompt-structured* from
+*prompt difficulty is reliable*. ⭐ **What this licenses is a per-prompt stratification with a
+measured ceiling of 0.8812**, subject to a both-arms check on every covariate; ⚠ what it does NOT
+license is any claim about *which* prompts, and the covariate R456 proposed — annotator agreement —
+is **inadmissible**, because it raises both arms of a bounded difference and manufactures a gradient.
+*(R457)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

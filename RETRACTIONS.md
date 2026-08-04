@@ -9212,3 +9212,59 @@ same defect as reporting a number without its scope** — eleven of twelve retra
 produced this standard were exactly that. **Tell: the statistic was computed in a different command
 than the one that defines the population.** Remedy: compute population descriptives *inside* the round
 that uses the population, never in the exploratory command that preceded it.
+
+---
+
+## 263 · A reliability test that could not fail — the shared baseline term (R457, caught by its own sham)
+
+**What was built.** R457's gate asked whether the per-prompt gap `d[p] = A2(arm,p) − A2(base,p)`
+replicates across two disjoint halves of each prompt's annotators. The core returned
+**ρ_full = 0.8355**, CI [+0.7662, +0.8463], and the verdict branch printed `W-STRUCTURED`.
+
+**What the sham said.** **0.8913 — higher than the core.** The sham is wrong-prompt criteria: it has
+*no* prompt-specific content, and a test that ranks it above the core cannot distinguish *"the core's
+advantage is prompt-structured"* from *"prompt difficulty is reliable."*
+
+**The mechanism, and it is one line.** `d[p]` inherits reliability from **both** its terms, and
+`A2(base,p)` is **common to every arm** and highly reliable on its own — a fixed criterion set scored
+on the same prompt. **So `d[p]` is reliable for any arm whatsoever.** *A check that cannot fail*,
+built again, and this time the shared term was hiding inside a subtraction rather than a threshold.
+
+⛔ **And the verdict branch printed the headline while the sham line three rows above contradicted
+it** — §4's *the verdict string is not a computation*, sub-kind ①: *it prints the headline while a
+control says the round is unreadable*. **The branch is now required to read the sham.** This is the
+second time in this campaign a verdict was computed from a subset of the controls the round itself
+declared, and the mechanical remedy has not changed: **the branch condition must name every control.**
+
+**The repair is a different estimand, not a better threshold.** `A2(core,p) − A2(sham,p)` cancels the
+shared baseline *and* the shared prompt-difficulty component, leaving the value of having the RIGHT
+criteria on this prompt. It replicates at **ρ_full = 0.8812** [+0.8460, +0.8946], seed sd 0.0084 —
+and, importantly, it is **not** a copy of either contaminated number (0.8355, 0.8913), which is the
+cheapest evidence that the subtraction did something.
+
+⭐ **The generalisable form, and it is not yet on this list.** *When an estimand is a difference, ask
+what the two terms SHARE before asking what they distinguish.* Both this round's failure and its
+repair turn on that question — the failure because the shared term dominated, the repair because
+choosing a second arm that shares more made the difference informative. **A sham is not only a
+control; it can be a component of the estimand**, and here it had to become one.
+
+---
+
+## 264 · "some prompts carry the advantage" — a hypothesis read as a finding (R456 → R457)
+
+**What was written.** R456's closing line: *"α = 0.208 says the remaining variance is BETWEEN
+PROMPTS… it means some prompts carry the core's advantage and others do not."*
+
+**What was true at the time.** Between-prompt variance is *consistent with* per-prompt structure and
+equally consistent with residual noise that does not replicate. **The word "means" did the work of an
+experiment.** The distinguishing test — split-half replication — had not been run.
+
+**What the test returned.** It replicates, at **ρ_full = 0.8812**. **So the reading was right and the
+inference was not**, which is the uncomfortable case: a correct conclusion reached by a step that
+would have licensed a wrong one just as readily.
+
+⚠ **Recorded precisely because it came out in my favour.** Every other entry on this list is a claim
+that fell. This one stood, and the reasoning that produced it was still unsound — *"the variance is
+between prompts, therefore prompts differ in the effect"* omits the possibility that the variance is
+unreplicable. **A ledger that only records losses trains you to think bad reasoning is self-announcing
+through bad outcomes.** It is not; the tell is in the sentence, not the result.
