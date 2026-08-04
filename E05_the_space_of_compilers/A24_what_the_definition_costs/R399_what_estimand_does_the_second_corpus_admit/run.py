@@ -225,9 +225,30 @@ def main() -> int:
     # ---- MATCHER CONTROLS -----------------------------------------------------------------------
     probe2 = next(iter(prompts2))
     m_self = probe2 in prompts2
-    coval_prompts = [norm(d.get("prompt", "")) for d in stream(COVAL)]
-    coval_prompts = [p for p in coval_prompts if p]
-    coval_index = set(coval_prompts)
+    # ⛔ CoVal's `prompt` is a CONVERSATION (`{id, messages}`), not a string, and the second corpus's
+    #   `user_prompt` is a single turn. So the comparable unit has to be chosen, and the choice is a
+    #   specification, not a detail. TWO cuts are computed and BOTH are reported:
+    #     LAST  -- the final user turn, i.e. the request actually being answered. The strict analogue.
+    #     ANY   -- every user turn in the conversation. STRICTLY MORE SENSITIVE.
+    #   The headline uses ANY, deliberately: DISJOINT is the FLATTERING answer here — it is the one
+    #   that makes the next round easy — so the detector must be pointed in the direction that can
+    #   embarrass it, and the stricter cut is reported beside it rather than instead of it.
+    coval_last, coval_any = [], []
+    for d in stream(COVAL):
+        p = d.get("prompt") or {}
+        msgs = p.get("messages") if isinstance(p, dict) else None
+        if not isinstance(msgs, list):
+            continue
+        users = [norm(m.get("content", "")) for m in msgs
+                 if isinstance(m, dict) and m.get("role") == "user"]
+        users = [u for u in users if u]
+        if not users:
+            continue
+        coval_last.append(users[-1])
+        coval_any.extend(users)
+    coval_prompts = coval_any
+    coval_index = set(coval_any)
+    coval_last_index = set(coval_last)
     m_unit = bool(coval_prompts) and (coval_prompts[0] in coval_index)
     m_absent = ("zzq_no_such_prompt_zzq_%s" % SEED) not in prompts2
     print(f"\n    MATCHER (+)   a second-corpus prompt is found in the second-corpus index: {m_self}"
@@ -245,9 +266,13 @@ def main() -> int:
 
     # ---- (C) OVERLAP ----------------------------------------------------------------------------
     hits = sorted(coval_index & prompts2)
-    print(f"\n  (C) OVERLAP — CoVal prompts appearing verbatim among the second corpus's prompts")
-    print(f"      CoVal prompts {len(coval_index):,} · second-corpus prompts {len(prompts2):,}")
-    print(f"      exact-after-normalisation matches: {len(hits):,}")
+    hits_last = sorted(coval_last_index & prompts2)
+    print(f"\n  (C) OVERLAP — CoVal user turns appearing verbatim among the second corpus's prompts")
+    print(f"      CoVal distinct user turns {len(coval_index):,} (ANY cut) · "
+          f"{len(coval_last_index):,} (LAST cut) · second-corpus prompts {len(prompts2):,}")
+    print(f"      exact-after-normalisation matches: ANY {len(hits):,} · LAST {len(hits_last):,}")
+    print(f"      -> the ANY cut is strictly more sensitive and is what the verdict uses, because")
+    print(f"         DISJOINT is the flattering answer and the detector must face that way")
     for h in hits[:3]:
         print(f"        · {h[:90]}")
 
@@ -287,7 +312,8 @@ def main() -> int:
                responses_per_interaction=dict(sorted(sizes.items())[:12]),
                interactions_multi=n_multi, exactly_one_chosen=exactly_one_chosen,
                coval_prompts=len(coval_index), second_prompts=len(prompts2),
-               overlap=len(hits), overlap_examples=hits[:5],
+               overlap=len(hits), overlap_last=len(hits_last), overlap_examples=hits[:5],
+               coval_last_prompts=len(coval_last_index),
                controls=dict(rank_synth=ct_rank, rate_synth=ct_rate, pos_ok=pos_ok, neg_ok=neg_ok,
                              matcher_self=m_self, matcher_unit=m_unit, matcher_absent=m_absent),
                verdict=f"{ctype}|{ov}")

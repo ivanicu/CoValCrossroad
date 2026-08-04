@@ -1,0 +1,38 @@
+{
+  "controls": {
+    "matcher_absent": true,
+    "matcher_self": true,
+    "matcher_unit": true,
+    "neg_ok": true,
+    "pos_ok": true,
+    "rank_synth": "RANKING",
+    "rate_synth": "RATING"
+  },
+  "coval_last_prompts": 1078,
+  "coval_prompts": 1201,
+  "exactly_one_chosen": 26886,
+  "head": "e583263fccbd",
+  "interactions_multi": 27151,
+  "overlap": 3,
+  "overlap_examples": [
+    "does god exist?",
+    "hello",
+    "hi"
+  ],
+  "overlap_last": 1,
+  "permutation_share": 0.0007,
+  "responses_per_interaction": {
+    "1": 21,
+    "2": 19323,
+    "3": 1608,
+    "4": 6220
+  },
+  "rows": 68371,
+  "score_max": 100.0,
+  "score_min": 1.0,
+  "score_type": "RATING",
+  "second_prompts": 26575,
+  "source_name": "run.py",
+  "source_sha256": "31063a82707968164be30fd57a02b5183f1233fb9614d2a5b6f499957d7598cb",
+  "verdict": "RATING|W_OVERLAP"
+}

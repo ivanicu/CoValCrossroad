@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**391 rounds** in **5 epochs** and **24 arcs**, numbered to **R398** — **53 standing claims, 13
+**392 rounds** in **5 epochs** and **24 arcs**, numbered to **R399** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1056,6 +1056,20 @@ corpus has **no rubric**, so clauses defined against `full` still cannot transpo
 and the transport section were both corrected, and all five counts were added as gate assertions
 (51 → 56).
 → [`R398`](E05_the_space_of_compilers/A24_what_the_definition_costs/R398_is_there_a_second_object_on_disk)
+
+**The second corpus is a RATING corpus — so CoVal's ordering estimand does not transfer, and the field
+that does is `if_chosen`.** ⛔ A blocker, not a detail: every clause of the definition is stated
+against an **ordering**, and running an ordering test on rating data would rebuild R233's error one
+release over. Measured: `score` spans **[1, 100]** and forms a `1..k` permutation in **0.1%** of
+interactions → **RATING** (pre-registered: RANKING > 80%, RATING < 20%). ⭐ But the corpus carries
+**both** measurements, declared before the run so the round could not pick the convenient one:
+**26,886 of 27,151** multi-response interactions (99.0%) have exactly one `if_chosen`, which is a
+genuine pairwise preference and structurally closest to a CoVal comparison. **Overlap: 3 CoVal user
+turns appear verbatim** (ANY cut, the more sensitive of two reported; LAST cut gives 1) — ⚠ **but two
+of the three are `hello` and `hi`**, degenerate collisions rather than shared provenance, so reading
+`3` as contamination overstates it 3×. The substantive count is **1**, and all three are cheap to
+exclude.
+→ [`R399`](E05_the_space_of_compilers/A24_what_the_definition_costs/R399_what_estimand_does_the_second_corpus_admit)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
