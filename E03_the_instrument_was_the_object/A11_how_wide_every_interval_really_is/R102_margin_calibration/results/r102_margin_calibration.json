@@ -88,7 +88,7 @@
   "max_monotone_steps": 7,
   "observed_outside": true
  },
- "persisted_vector": "11_reliability_and_the_width_chain/r102_margin_calibration/results/r102_margin_correct.npz",
+ "persisted_vector": "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R102_margin_calibration/results/r102_margin_correct.npz",
  "world": "C CALIBRATED",
  "outcome_variable_scope": "Agreement with REAL HUMAN pairwise rankings, conditioned on the estimator's own weighted score gap. Satisfaction from r04's tensor; no new measurement.",
  "scope": "Establishes that the margin PREDICTS correctness. Does NOT separate estimator calibration from item difficulty -- a large margin and an easy human judgement have a common cause, and no difficulty measure independent of the estimator exists in this release.",

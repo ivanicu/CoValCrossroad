@@ -54,8 +54,8 @@
   "D_population (crossfit_sign - attribute_only)": {
    "delta": 0.057649169432686984,
    "ci": [
-    0.048567683407557634,
-    0.06713841624497588
+    0.048790193912365276,
+    0.06723335849319412
    ],
    "prompts": 968,
    "excludes_zero": true,
@@ -1033,8 +1033,8 @@
   "D_same (same_sign - attribute_only)": {
    "delta": 0.06313545854043641,
    "ci": [
-    0.053984654597011045,
-    0.07200034275791362
+    0.05384779702346125,
+    0.07213300042719652
    ],
    "prompts": 968,
    "excludes_zero": true,
@@ -2012,8 +2012,8 @@
   "D_same_sample_premium (same_sign - crossfit_sign)": {
    "delta": 0.005486289107749416,
    "ci": [
-    0.0025315468415856904,
-    0.008459085929269817
+    0.002570033016819408,
+    0.008411995500208888
    ],
    "prompts": 968,
    "excludes_zero": true,
@@ -2991,8 +2991,8 @@
   "D_magnitude (crossfit_mag - crossfit_sign)": {
    "delta": 0.014497635114232637,
    "ci": [
-    0.009936847768778038,
-    0.01907946306555025
+    0.009967898918080302,
+    0.019287158104560793
    ],
    "prompts": 968,
    "excludes_zero": true,
@@ -3970,8 +3970,8 @@
   "null: random_sign - attribute_only": {
    "delta": -0.018376478723043717,
    "ci": [
-    -0.025573743876750963,
-    -0.011173529069730395
+    -0.025204999373178494,
+    -0.010880054547527038
    ],
    "prompts": 968,
    "excludes_zero": true,
@@ -4949,8 +4949,8 @@
   "null: donor_sign - attribute_only": {
    "delta": -0.03351901366947857,
    "ci": [
-    -0.04363682925830396,
-    -0.02288408148260517
+    -0.04370227738156759,
+    -0.023486339230264306
    ],
    "prompts": 959,
    "excludes_zero": true,
@@ -6194,7 +6194,7 @@
    "donor_sign": 0.5507306422116909
   }
  ],
- "verdict": "CROSS-RATER DIRECTION SURVIVES. Weights built from raters who never contributed to the rankings being predicted still beat the direction-free arm by +0.0576 [0.048567683407557634, 0.06713841624497588], and the same-sample premium is +0.0055 [0.0025315468415856904, 0.008459085929269817]. The post-choice polarity is therefore not mainly the test rater's own ranking returning through a weight -- its CONTENT transfers across people. 'Leakage' is the wrong word for the bulk of it. Whether the direction was CONSTRUCTED by seeing the menu is a separate question this design cannot reach: every rater here saw the four candidates before rating. That needs response-blind weights from new humans.",
+ "verdict": "CROSS-RATER DIRECTION SURVIVES. Weights built from raters who never contributed to the rankings being predicted still beat the direction-free arm by +0.0576 [0.048790193912365276, 0.06723335849319412], and the same-sample premium is +0.0055 [0.002570033016819408, 0.008411995500208888]. The post-choice polarity is therefore not mainly the test rater's own ranking returning through a weight -- its CONTENT transfers across people. 'Leakage' is the wrong word for the bulk of it. Whether the direction was CONSTRUCTED by seeing the menu is a separate question this design cannot reach: every rater here saw the four candidates before rating. That needs response-blind weights from new humans.",
  "criterion_population_scope": "CRITERION POPULATION (added 2026-07-28, entry 51): this round keeps only criteria rated by a majority of the prompt's raters, which discards 9,684 of 15,248 criteria (63.5%). r48 identified what that filter selects: the partition is structural and the surviving class is capped at exactly six per prompt -- it is the PRE-SEEDED set, shown identically to every participant. The excluded 63.5% are participant-authored write-ins. So every number here is computed on the criteria OpenAI supplied, and cross-rater agreement among them is agreement about the same six sentences everyone saw. r49 tests the write-ins separately.",
  "note": "Global fold assignment over annotator ids -- a person is in exactly one fold for the whole run, never re-randomised per prompt. Evaluated against INDIVIDUAL test-rater rankings, never an aggregate, which would carry the test raters' own choices into the target. Shared seed criteria only: a singleton write-in has no weight estimable from anyone but its author."
 }

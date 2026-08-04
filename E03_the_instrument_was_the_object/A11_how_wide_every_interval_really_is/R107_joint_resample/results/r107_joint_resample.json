@@ -50,7 +50,7 @@
   "draw_only_drift_vs_r106": 0.0,
   "pair_only_centred": true
  },
- "persisted_vector": "11_reliability_and_the_width_chain/r107_joint_resample/results/r107_joint_draws.npz",
+ "persisted_vector": "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R107_joint_resample/results/r107_joint_draws.npz",
  "world": "A ADDITIVE",
  "outcome_variable_scope": "The joint sampling distribution, over donor assignment AND pair resampling, of the prompt-specific share and its across-consensus-bin difference, on r104's records.",
  "scope": "Joint over the two sources anyone has measured -- NOT total uncertainty. Excludes the judge lineage, r04's satisfaction reconstruction, the rater split, and the fixed donor pool of 968 weight vectors.",

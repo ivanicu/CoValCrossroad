@@ -47,8 +47,8 @@
    "phi_cross": 0.12608090337447694,
    "gap": 0.0016585384184834688,
    "gap_ci": [
-    0.00049340745549362,
-    0.002824729679864102
+    0.0005205326046733252,
+    0.002839432880309122
    ],
    "gap_excludes_zero": true,
    "paired_differences": [
@@ -1027,8 +1027,8 @@
    "phi_cross": 0.02054628714673508,
    "gap": 0.0008213028595405437,
    "gap_ci": [
-    0.00012011193334744195,
-    0.0015238543310341869
+    8.451143800215958e-05,
+    0.0015552293843441795
    ],
    "gap_excludes_zero": true,
    "paired_differences": [
@@ -2007,8 +2007,8 @@
    "phi_cross": 0.012309872666602878,
    "gap": 0.0005076505859130538,
    "gap_ci": [
-    -0.0005067421141580736,
-    0.0015904438790254824
+    -0.0005082902193199091,
+    0.0015437915519731945
    ],
    "gap_excludes_zero": false,
    "paired_differences": [
@@ -2987,8 +2987,8 @@
    "phi_cross": 1.723772193110058e-05,
    "gap": 0.00018615750220064048,
    "gap_ci": [
-    -3.30419554626969e-05,
-    0.0004162861116631911
+    -2.9917379218866587e-05,
+    0.0004330534685940961
    ],
    "gap_excludes_zero": false,
    "paired_differences": [
@@ -3963,7 +3963,7 @@
    ]
   }
  },
- "verdict": "SIGN IS THE LARGEST PREDICTIVE CHANNEL AND IT IS MOSTLY NOT SAME-SAMPLE. Averaged over all 16 coalitions rather than one entry order, phi_S = 0.0214 same-sample and 0.0205 cross-fitted; the gap is +0.0008 [0.00012011193334744195, 0.0015238543310341869]. r32's +0.0876 was the value of adding sign LAST to text alone -- one path through the lattice, not the channel's average worth. This is a predictive decomposition and not a causal one: no channel here produces any amount of value, and text without direction is not a complete normative statement.",
+ "verdict": "SIGN IS THE LARGEST PREDICTIVE CHANNEL AND IT IS MOSTLY NOT SAME-SAMPLE. Averaged over all 16 coalitions rather than one entry order, phi_S = 0.0214 same-sample and 0.0205 cross-fitted; the gap is +0.0008 [8.451143800215958e-05, 0.0015552293843441795]. r32's +0.0876 was the value of adding sign LAST to text alone -- one path through the lattice, not the channel's average worth. This is a predictive decomposition and not a causal one: no channel here produces any amount of value, and text without direction is not a complete normative statement.",
  "criterion_population_scope": "CRITERION POPULATION (added 2026-07-28, entry 51): this round keeps only criteria rated by a majority of the prompt's raters, which discards 9,684 of 15,248 criteria (63.5%). r48 identified what that filter selects: the partition is structural and the surviving class is capped at exactly six per prompt -- it is the PRE-SEEDED set, shown identically to every participant. The excluded 63.5% are participant-authored write-ins. r49 tested those separately and found they transfer BETTER across raters (+0.0777 vs +0.0599, paired gap +0.0172 [+0.0034,+0.0307]), so the exclusion understates the direction rather than manufacturing it.",
  "note": "PREDICTIVE decomposition, not causal. v(C)=0.5 for any coalition without T, because with no criterion information every response scores alike. {T} alone is an attribute diagnostic, not a rubric with weights removed: a criterion sentence carries no normative direction until someone supplies one.",
  "scope": "Internal concordance on the original candidate set (entry 36); cross-fitted arm evaluates individual test-fold rankings."
