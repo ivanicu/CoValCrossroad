@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**394 rounds** in **5 epochs** and **24 arcs**, numbered to **R401** — **53 standing claims, 13
+**395 rounds** in **5 epochs** and **24 arcs**, numbered to **R402** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1097,6 +1097,22 @@ conversations or **26,886** interactions, MDE **0.0171** and **0.0094**, both co
 floor < threshold < ceiling (n=4 → 0.7674 above every effect; n=10⁶ → 0.00048 below all), and all four
 reference effects were **asserted present in `DEFINITION.md`** before use rather than recalled.
 → [`R401`](E05_the_space_of_compilers/A24_what_the_definition_costs/R401_can_n99_resolve_anything)
+
+**The clause-② harness was attacked with judges whose answer was already known — before any GPU was
+spent on it.** ⛔ If the first real run is also the first test of the apparatus, a null is
+**unattributable**: *"the core has no advantage"* and *"the harness cannot see an advantage"* print the
+same string. Driven by three stub judges at 3 seeds over **26,789** interactions (chance floor
+**0.4328**): **ORACLE → ABOVE**, **RANDOM → NULL**, **ADVERSARY → BELOW**, and the oracle **stops**
+passing when labels are destroyed (**NULL ×3**). ⛔ **ADVERSARY is the arm that matters** — if the
+harness took an absolute value anywhere, a systematically *wrong* judge would read as a large
+*positive* effect, which ORACLE and RANDOM cannot catch. ⛔ And the arithmetic trap has bite: **that
+ORACLE scores 1.0000 is FORCED** and is not reported as a finding; what is not forced is the
+inferential layer's classification. ⭐ R399's 3 prompt strings removed **97** interactions, and the
+round refuses to proceed if a non-empty filter drops zero rows. ⭐ Free cross-check: this harness's
+MDE and R401's independent derivation agree at **0.0094** to four decimals. ⚠ A stub judge's errors are
+independent; a real judge's correlate with content — **this validated the harness, never the
+experiment.**
+→ [`R402`](E05_the_space_of_compilers/A24_what_the_definition_costs/R402_does_the_harness_fire_before_the_judge)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
