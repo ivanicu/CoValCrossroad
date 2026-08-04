@@ -8884,3 +8884,55 @@ consolation.
 **The general remedy, and it subsumes both fixes:** *never guess an anchor.* Both correct values here
 were derivable from data already on disk in one command. A guessed anchor is a threshold with a
 story attached, and §4 already knows what those do.
+
+---
+
+## 250 · "the extension of 1 is a fact about which arms were built" — R450, narrowed by R451 one round later
+
+**What was claimed.** R450 measured that perturbations of the released core stay admitted (dropping
+one criterion of four still clears **92%** of the size-matched class) and concluded the extension of
+a single arm reflects **which arms happened to be built**, not the definition's strictness.
+
+**What narrows it.** Every admitted object in that grid **shares criteria with the released core** —
+`r > 0` by construction. **A ball around one point is not a category with members.** Asking the
+question the grid could not answer: over every *disjoint* object on this site at m=4, the only
+hindsight-free, **content-driven** one ever built is `gen` at **0.0038**.
+
+**And the number that makes it a measurement.** An **oracle** selecting from that same disjoint space
+clears **1.0000**. Without it, `0.0038` would be silence — nothing would establish that this test
+*can* admit a disjoint object. It can. **Prompt-specific arms were built, and they fail.**
+
+⚠ **Reported as a sweep, not defended.** The 0.80 kill was pre-registered but it is a number I chose.
+Over t ∈ {0.50 … 0.90} the candidate-core verdict is `W-BALL` at **every** cell; the all-objects
+verdict flips below 0.80, entirely on `generic` at 0.7154 — which is prompt-**blind**, a member of the
+same family as the reference class, so its share is a within-family comparison and near-circular.
+**The robust half is the one the conclusion rests on, and saying which half is robust is the report.**
+
+⚠ **What this does NOT establish**, and the distinction is the whole value of the oracle: that no
+disjoint core exists. **It measures our GENERATORS, not the category.**
+
+**The mode.** R450's sentence was not wrong about its own data — the perturbations really are
+admitted. It was wrong about the **population its quantifier ranged over**: "which arms were built"
+implies the built arms were an arbitrary sample, when the built arms *include* the prompt-specific
+ones that fail. **A conclusion drawn over the objects you constructed inherits the shape of your
+construction**, and the check is to name the object class the sentence quantifies over and ask
+whether anything in it was excluded by how you built it.
+
+---
+
+## 251 · A g=0 control written so convolutedly it returned the wrong world (R451, caught in-round)
+
+**What was built.** To check that the oracle selector does not fire without a real objective, the
+control permuted the objective vector, took its argmax, and then indexed *through* the permutation
+back into the real scores. It returned `W-BLIND` — the world in which the whole round is unreadable.
+
+**Why it was wrong.** **An argmax over a shuffled objective is a uniformly random index.** Destroying
+the objective and picking at random are *the same operation*, and the round already had a `rand`
+selector. The convoluted version computed something that was neither, and the verdict branch believed
+it.
+
+**The remedy is not a fix, it is a rewrite:** when a control needs three lines of index gymnastics to
+express, the operation has not been understood yet. **The correct g=0 here is one word — `rand` —
+and the round already contained it.** Cost: one wrong world printed, caught only because the oracle
+passing at 1.0000 while the round declared itself blind is an internal contradiction the eye
+catches. ⚠ **It would not have been caught if the oracle had been borderline.**

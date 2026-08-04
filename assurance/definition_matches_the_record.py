@@ -504,6 +504,19 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R451 -- the ball. The ORACLE is anchored beside `gen`, because the pair IS the finding: a zero
+    # without its ceiling is silence, and anchoring only the zero would let that ceiling drift away.
+    d451 = next(A24.glob("R451_*"), None)
+    f451 = (d451 / "results" / "r451_disjoint.json") if d451 else None
+    a = json.loads(f451.read_text()) if (f451 and f451.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r451_gen"] = (f"{a['only_content_driven_disjoint']['share']:.4f}", "R451")
+        out["r451_oracle"] = (f"{a['oracle_share']:.4f}", "R451")
+        out["r451_generic"] = (f"{a['best_hindsight_free']['share']:.4f}", "R451")
+    else:
+        for k in ("r451_gen", "r451_oracle", "r451_generic"):
+            out[k] = (None, "R451")
+
     # R450 -- the neighbourhood. The eta² SPLIT is anchored, not the individual shares, because the
     # finding is that one coordinate governs and the other does not; anchoring a share alone would
     # let the contrast that constitutes it drift.
@@ -847,6 +860,9 @@ ASSERTIONS = {
     "r450_r3":         r"· [\d.]+ · [\d.]+ · ([\d.]+) · [\d.]+\*\* for",
     "r450_d0":         r"reproduces R446's committed \*\*([\d.]+)\*\*",
     "r450_selfshare":  r"own computed self-share \(\*\*([\d.]+)\*\*;",
+    "r451_gen":     r"is `gen`, at \*\*([\d.]+)\*\*",
+    "r451_oracle":  r"disjoint space clears \*\*([\d.]+)\*\*",
+    "r451_generic": r"on `generic` \(([\d.]+)\)",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

@@ -206,6 +206,20 @@ parameter — d=0 reproduces R446's committed **0.9841** through an independent 
 floor matches the class's own computed self-share (**0.2198**; same-rule fixed subset 0.2563). ⚠ This
 measures the definition's **extension**, never its correctness: whether a neighbour is *really* a core
 needs a standard outside this definition. *(R450)*
+
+⛔ **BUT THE NEIGHBOURHOOD IS ENTIRELY A NEIGHBOURHOOD OF ONE POINT (R451), AND R450'S READING ABOVE
+IS NARROWED.** Every admitted object in R450's grid shares criteria with the released core — `r > 0`
+by construction — so the question that had never been asked is whether anything **disjoint** from it
+has ever been admitted. Over every disjoint object on this site at m=4: the **only** hindsight-free,
+content-driven one ever built is `gen`, at **0.0038**, while an **oracle** selecting from that same
+disjoint space clears **1.0000**. ⭐ **The oracle is what makes the zero a measurement rather than
+silence: the space demonstrably contains admissible disjoint objects, and no generator we have finds
+one.** So *"the extension of 1 is a fact about which arms were built"* is **too kind** —
+prompt-specific arms **were** built and they fail. ⚠ The verdict is threshold-swept, not defended:
+over t ∈ {0.50…0.90} the candidate-core verdict is `W-BALL` at **every** cell, while the
+all-objects verdict flips below 0.80 on `generic` (0.7154) — which is prompt-**blind**, hence a
+within-family comparison against the reference class and near-circular. ⚠ **This measures our
+GENERATORS, not the category:** nothing here shows a disjoint core does not exist. *(R451)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*
