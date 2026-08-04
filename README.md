@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**368 rounds** in **5 epochs** and **24 arcs**, numbered to **R374** — **53 standing claims, 13
+**369 rounds** in **5 epochs** and **24 arcs**, numbered to **R375** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -653,6 +653,21 @@ registrations, but `readme_row_carries_the_verdict` and `synthesis_cites_recent_
 today and **both exited 0 at HEAD~512** — an exit-2 gate can be a regression that destroyed its own
 input.
 → [`R374`](E05_the_space_of_compilers/A24_what_the_definition_costs/R374_were_the_red_gates_ever_green)
+
+**And bisecting that bracket refuted the prediction I had just written into it.** R374's NEXT said a
+single commit was *"far more plausible than six"*. It is **four distinct commits over three days**:
+`380fcfb18` (07-31) took two gates, `3c3fe2482`, `9273f32e0` and `60f3871b5` one each. Neither one
+cause nor six — **a backlog of four repairs**, and the bracket was an artifact of a 12-rung ladder,
+exactly as R374's own W-INDEPENDENT branch warned. ⛔ **And the monotonicity control is why this
+round is worth anything**: a bisect presumes the gate goes green…green red…red exactly once, so 3
+commits were probed each side of every transition — **`attack_every_check` flickers**, red at two
+commits *before* the one the search returned. A plain bisect would have handed me `2580fb140` with
+full confidence; **"the commit that broke it" is not a well-formed object for that gate**, and it is
+withdrawn from the count rather than given a spurious answer. Endpoints were **re-measured here, not
+inherited** — 6 of 6 reproduce, so R374's ladder and this bisect agree about the bracket they share.
+86 evaluations, 85 checkouts, two runs byte-identical. ⚠ This round returns a **commit, never a
+cause** — reading a cause off a diff is a story that costs nothing to produce.
+→ [`R375`](E05_the_space_of_compilers/A24_what_the_definition_costs/R375_one_commit_or_six)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

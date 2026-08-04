@@ -1,0 +1,141 @@
+{
+  "bracket": [
+    "6ac2ad5ad84d",
+    "18d8193b205c"
+  ],
+  "controls": {
+    "endpoints_all": true,
+    "harness": true
+  },
+  "distinct_break_commits": 4,
+  "endpoints": {
+    "artifacts_are_internally_coherent": {
+      "new": 1,
+      "ok": true,
+      "old": 0
+    },
+    "attack_every_check": {
+      "new": 1,
+      "ok": true,
+      "old": 0
+    },
+    "donor_numbers_carry_their_draw_scope": {
+      "new": 1,
+      "ok": true,
+      "old": 0
+    },
+    "readme_row_carries_the_verdict": {
+      "new": 1,
+      "ok": true,
+      "old": 0
+    },
+    "seed_filter_is_disclosed": {
+      "new": 1,
+      "ok": true,
+      "old": 0
+    },
+    "synthesis_cites_recent_work": {
+      "new": 2,
+      "ok": true,
+      "old": 0
+    }
+  },
+  "flickering": [
+    "attack_every_check"
+  ],
+  "grouping": {
+    "380fcfb18acc": [
+      "seed_filter_is_disclosed",
+      "synthesis_cites_recent_work"
+    ],
+    "3c3fe24826f2": [
+      "artifacts_are_internally_coherent"
+    ],
+    "60f3871b5c11": [
+      "readme_row_carries_the_verdict"
+    ],
+    "9273f32e0964": [
+      "donor_numbers_carry_their_draw_scope"
+    ]
+  },
+  "head": "79dceded2558",
+  "monotone": [
+    "artifacts_are_internally_coherent",
+    "donor_numbers_carry_their_draw_scope",
+    "readme_row_carries_the_verdict",
+    "seed_filter_is_disclosed",
+    "synthesis_cites_recent_work"
+  ],
+  "n_checkouts": 85,
+  "n_commits": 258,
+  "n_evaluations": 86,
+  "results": {
+    "artifacts_are_internally_coherent": {
+      "break_commit": "3c3fe24826f2db3aa83c62733df6dcc37e6ba0f5",
+      "break_short": "3c3fe2482",
+      "date": "2026-07-30",
+      "index": 84,
+      "left_violations": [],
+      "monotone": true,
+      "right_violations": [],
+      "verdict": "broke here"
+    },
+    "attack_every_check": {
+      "break_commit": "2580fb140f6b3630891646e0a0c4e707000110ce",
+      "break_short": "2580fb140",
+      "date": "2026-07-29",
+      "index": 42,
+      "left_violations": [
+        "0c6620678",
+        "8e2660d3a"
+      ],
+      "monotone": false,
+      "right_violations": [],
+      "verdict": "FLICKERS \u2014 no breaking commit"
+    },
+    "donor_numbers_carry_their_draw_scope": {
+      "break_commit": "9273f32e09640aa85dd13256149accedfda2cfd9",
+      "break_short": "9273f32e0",
+      "date": "2026-07-29",
+      "index": 30,
+      "left_violations": [],
+      "monotone": true,
+      "right_violations": [],
+      "verdict": "broke here"
+    },
+    "readme_row_carries_the_verdict": {
+      "break_commit": "60f3871b5c11c32e93163ac11f04fa2001115236",
+      "break_short": "60f3871b5",
+      "date": "2026-07-29",
+      "index": 43,
+      "left_violations": [],
+      "monotone": true,
+      "right_violations": [],
+      "verdict": "broke here"
+    },
+    "seed_filter_is_disclosed": {
+      "break_commit": "380fcfb18accb1271d16a01e5edeb454dd7b035b",
+      "break_short": "380fcfb18",
+      "date": "2026-07-31",
+      "index": 180,
+      "left_violations": [],
+      "monotone": true,
+      "right_violations": [],
+      "verdict": "broke here"
+    },
+    "synthesis_cites_recent_work": {
+      "break_commit": "380fcfb18accb1271d16a01e5edeb454dd7b035b",
+      "break_short": "380fcfb18",
+      "date": "2026-07-31",
+      "index": 180,
+      "left_violations": [],
+      "monotone": true,
+      "right_violations": [],
+      "verdict": "broke here"
+    }
+  },
+  "source_name": "run.py",
+  "source_sha256": "05f7c6627479a9557aa4338288eb1f9ec2616d71a2baca1e55c8a70da3a20161",
+  "unverified": [],
+  "verdict": "W_CLUSTERED"
+}

@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-08-04T11:22:27.851964+00:00",
- "git": "81c078989f4632b00e689014c85fd5a7e05de09e",
+ "generated_utc": "2026-08-04T11:29:35.197159+00:00",
+ "git": "79dceded25586fc28b209197a9733d9f24a7aaa8",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -1526,6 +1526,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R374_were_the_red_gates_ever_green/run.py": {
    "bytes": 15831,
    "sha256": "f0622e746bcde06f374f3597ca6bdc0a5da3eeedab581ef593e6d5077b496a7c"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R375_one_commit_or_six/run.py": {
+   "bytes": 15407,
+   "sha256": "05f7c6627479a9557aa4338288eb1f9ec2616d71a2baca1e55c8a70da3a20161"
   },
   "assurance/DEFECTS.py": {
    "bytes": 14429,
@@ -4076,6 +4080,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R374_were_the_red_gates_ever_green/results/r374_gate_history.json": {
    "bytes": 12498,
    "sha256": "50484a7cbba4197abe3ee7c7f4b2e81354f5780edc8ba626a5d7dc0a4bf24ca6"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R375_one_commit_or_six/results/r375_bisect.json": {
+   "bytes": 3511,
+   "sha256": "2f741c0e76fa04970bbde8ca19d2a8416408149b938c3b578f9679312631b4cb"
   }
  },
  "claims": [
