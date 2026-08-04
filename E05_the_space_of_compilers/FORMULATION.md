@@ -278,6 +278,81 @@ size-matching (it does, and it costs `full` its admission, R307).
 > **① better than the same number drawn at random from that conversation's own rubric, and**
 > **② better than the same number that never read the conversation at all.**
 
+---
+
+## ⭐ CLAUSE ② NOW NAMES ITS REFERENCE BY A PROCEDURE (R327–R333, 2026-08-03)
+
+**Clause ① named a procedure — *drawn at random from that conversation's own rubric*. Clause ②
+named a CLASS and no member**, and for forty rounds the campaign quietly supplied one, four
+different ones in four different tables. Six rounds establish what the reference must be, and one
+establishes what the definition can never say here.
+
+### ① The reference — computed, not chosen
+
+> **THE CLOSURE TEST.** A candidate clause-② reference is **CLOSED** if **no member of clause ②'s
+> own reference class** — no prompt-blind criterion set of the same size — is resolvably better than
+> it. **The reference is the LOWEST closed level of the size-matched blind class.**
+> Weaker admits an object the clause exists to exclude; stronger is gratuitous.
+
+Measured over **every** `C(16,k)` subset of the 16-criterion blind pool — the class, not a sample:
+
+| clause-② reference | its percentile | blind sets it admits, of 1,820 |
+|---|---:|---:|
+| a random draw (`p50`) | 50 | **424 · 23.3%** |
+| `p90` | 90 | 16 · 0.9% |
+| **the reference this page published** | **93.7** | **3 · 0.16%** |
+| **the closure level** | **96.4** | **0** |
+| the class maximum | 99.9 | 0 |
+
+**Two things this settles.** The reference the campaign was using is **not closed** — it admits three
+prompt-blind quadruples. And *"better than the BEST prompt-blind set"* is **sufficient and not
+minimal**: closure sits **0.0055 below** the class max, because clearing requires beating the
+reference by an MDE.
+
+**Closure levels, per k:** `k=3` 0.5519 · `k=4` 0.5520 · `k=6` 0.5519 · `k=8` 0.5505.
+
+⛔ **What does NOT work, measured rather than argued.** *Budget-matching* — giving each arm a
+reference matched to its own selection budget — **admits `generic` at all five readings tested**.
+`generic` is one criterion set across 968 prompts: a member of the class clause ② quantifies over.
+As a singleton it draws the *weakest* reference and clears it. **A rule that rewards not searching is
+correct about selection and wrong about this clause.**
+
+### ② The admitted set is a BAND, not a list
+
+**Two distinct admitted sets lie inside 0.25 of one MDE.** Sweeping the k=4 reference across the 46
+blind references between the closure level (0.551951) and the best held-out of 1,820 (0.554602) — a
+width of **0.0027**:
+
+| at the closure level | at the top of the band |
+|---|---|
+| `coval_core` · `topw_k3` · **`topw_k4`** · `topw_k6` | `coval_core` · `topw_k3` · `topw_k6` |
+
+> **So no sentence of the form "N arms are admitted" is supportable here** — including this page's
+> own. `topw_k4`'s admission turns on a reference difference four times smaller than the design can
+> resolve.
+
+### ③ ⛔ REGISTER — the admitted set is structurally unresolvable on this release
+
+| | |
+|---|---:|
+| σ_b · σ_w of the paired clause-② difference (`coval_core`) | 0.1077 · 0.1777 |
+| MDE at 968 prompts × every annotator | **0.0106** |
+| floor as annotators → ∞ | **0.0097** |
+| what infinite annotation buys | **7.6%** |
+| prompts needed to resolve the 0.0027 band | **12,494 — 12.9× the release** |
+
+`MDE(N,m) = Z·√(σ_b² + σ_w²/m)/√N`, so the annotator axis is **bounded below by σ_b** and only the
+prompt count moves the floor. The release ships 968 prompts and **15,593 annotations at a median of
+16 per prompt — that axis is spent.**
+
+> **Register entry:** *deciding which arms clause ② admits — requires a release of ~13,000 prompts
+> at this annotation depth. **Not achievable by any re-analysis of this one.*** No cleverer
+> reference, estimator or aggregation reaches it.
+
+**What the definition may therefore assert:** `coval_core` is admitted at every closed reference
+tested. The `topw` family sits **on the boundary**, and this site cannot separate its members from
+it. That is the honest output, and it is smaller than the table below was written to carry.
+
 ⛔ **"held out from the core's own construction" is new, and it is there because R293 fired.** The
 previous wording said *"a held-out human annotator"* — an **adjective nothing computed.** Applied to
 `oracle_k4`, an arm `select_core.py` describes in its own docstring as *"LEAKY BY CONSTRUCTION — an
@@ -397,9 +472,13 @@ differently, which is why both are shown.
 > random baseline would be a treatment with the sign flipped; one that lands *on* it is the
 > ingredient genuinely absent. Both halves are needed to read it, and both are now on the page.
 
-> **Two arms admitted of nine.** Against the *best held-out* prompt-blind quadruple out of all 1,820
-> (R286), the margins are **+0.0119** [+0.0048,+0.0187] and **+0.0096** [+0.0026,+0.0164] — both
-> separable, both BH survivors.
+> **~~Two arms admitted of nine.~~** ⛔ **RETRACTED (R327–R333).** The count is not supportable at
+> any precision this site has. It was true under one reading of clause ② and false under another
+> before a reference rule existed; and now that one does, **two admitted sets sit inside 0.25 of one
+> MDE** and the design would need **12.9× more prompts** to choose between them. Against the *best
+> held-out* prompt-blind quadruple out of all 1,820 (R286), the margins are **+0.0119**
+> [+0.0048,+0.0187] and **+0.0096** [+0.0026,+0.0164] — both separable, both BH survivors, and
+> **`topw_k4`'s is below its own MDE at that reference.** The numbers stand; the count does not.
 
 ⛔ **AND AT THAT REFERENCE `topw_k4` IS BELOW ITS OWN MDE (R326).** "Separable and a BH survivor" is
 true and is not the same as resolvable: `coval_core` sits at **+0.0119 / 0.0101 = 1.18×** and
