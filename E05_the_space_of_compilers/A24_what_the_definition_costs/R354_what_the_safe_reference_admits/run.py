@@ -127,10 +127,13 @@ def main() -> int:
     t0 = time.time()
     # blind distribution per k, on a FIXED population so percentiles are comparable across k
     fixed = ps[max(arms, key=lambda a: len(ps[a]))]
-    dist, subs_by_k = {}, {}
+    dist, subs_by_k, VEC4 = {}, {}, None
     for k in ks:
         subs = list(itertools.combinations(range(npool), k))
-        lv = np.array([vec(POOL, fixed, list(s)).mean() for s in subs])
+        V = np.array([vec(POOL, fixed, list(s)) for s in subs])   # (nsub, nprompt)
+        lv = V.mean(axis=1)
+        if k == 4:
+            VEC4 = V          # kept for the R331 cross-check, which needs PAIRED differences
         dist[k], subs_by_k[k] = lv, subs
         print(f"    k={k:<3} C(16,k)={len(subs):>6}  min {lv.min():.4f}  med {np.median(lv):.4f}  "
               f"max {lv.max():.4f}")
@@ -158,12 +161,23 @@ def main() -> int:
     print(f"  REPRODUCTION: census reference -> {ident}")
     print(f"      published                  -> {published}   {'PASS' if repro_ok else 'FAIL'}")
 
-    # R331 cross-check at k=4
+    # ⚠ R331 CROSS-CHECK, CORRECTED. v1 counted blind subsets scoring numerically ABOVE the
+    # reference and got 19 where R331 committed 0 -- and 19 is ARITHMETICALLY FORCED, because the
+    # 99th percentile of 1,820 values has ~18 above it BY DEFINITION. The control was computing a
+    # tautology and comparing it to a measurement. R331's `admitted` means what clause ② means:
+    # RESOLVABLY better, effect > its own MDE. So the count is now a paired computation per subset,
+    # the same statistic the definition uses -- the unit-equality rule, applied to a control that
+    # had quietly used `>` where the claim said `admitted`.
     idx99, lv99 = ref_at(4, 99)
-    blind_admit = int((dist[4] > lv99).sum())
+    ref99 = vec(POOL, fixed, idx99)
+    dd = VEC4 - ref99                                   # (nsub, nprompt) paired differences
+    eff = dd.mean(axis=1)
+    mdes = ZEFF * dd.std(axis=1, ddof=1) / math.sqrt(dd.shape[1])
+    blind_admit = int((eff > mdes).sum())
     r331_ok = abs(lv99 - 0.5547) < 0.0015 and blind_admit == 0
     print(f"  R331 CROSS-CHECK: p99 level at k=4 = {lv99:.4f} (R331 committed 0.5547); blind subsets")
-    print(f"      scoring ABOVE it = {blind_admit} (R331 committed 0)   {'PASS' if r331_ok else 'FAIL'}")
+    print(f"      RESOLVABLY better = {blind_admit} (R331 committed 0)   {'PASS' if r331_ok else 'FAIL'}")
+    print(f"      (numerically above, which is forced at ~1% by definition: {int((dist[4] > lv99).sum())})")
 
     print(f"\n    {'percentile':>11}{'ref level (k=4)':>17}{'|admitted|':>12}   set")
     curve, prev = {}, None
