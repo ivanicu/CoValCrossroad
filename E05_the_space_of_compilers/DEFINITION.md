@@ -392,12 +392,29 @@ signal-free family of the same size is **+0.0715**, ~3× the data floor.
 | an admissible object it **EXCLUDES** | **all 7 arms on the second release** (R434), including the published prompt-blind `generic`. Not vacuous. |
 | a useful object it **ADMITS** | an oracle arm, **+0.4865** over the length rule (R434). Not impossible. |
 
-⛔ **④ IS NOT ADOPTED, AND WILL NOT BE UNTIL ONE MORE THING IS MEASURED.** Whether it excludes
-anything on the **home** release — where clause ② admits 33 of 42 — is unknown: those arms have
-never been scored against the criterion-free family. **Adding ④ now would fit it to the single
-release where everything already fails**, which is precisely this document's
-*"the definition describes the instance"* failure.
-→ [`R435`](A24_what_the_definition_costs/R435_is_a_sufficiency_clause_even_statable)
+⭐ **AND R436 MEASURED IT AT HOME. THE TWO RELEASES SPLIT.** Scoring the same 30-rule family on the
+home release's own statistic — **A2**, agreement on the 6 pairwise comparisons, computed through the
+same `cls` the arms use — the bar is **`min_ttr` at 0.4512** (*not* the length rule). Against it:
+
+| release | do the definition's arms beat every criterion-free rule? |
+|---|---|
+| **home**, at the named judge J | **yes** — `oracle_k4` sits **+0.1824** above the bar (MDE **0.0211**), and **no 2B arm is resolvedly below it** |
+| **second** (R434) | **no — 0 of 7**, all seven resolvedly worse |
+
+**④ excludes 22 of 93 arms overall but 0 of 56 at the judge the definition names** — every exclusion
+is an `_08b` variant, where R301 already measured clause ② admitting nothing. **So ④ is not redundant
+in general; it is redundant *where the definition already works*** — silent when things are fine,
+binding when they are not, which is what a sufficiency clause should look like. On this evidence it
+earns adoption, and its value is stated precisely: **it would have caught the second release before
+anything was generated.**
+
+⚠ Two defects found on the way, both in this round's own instrument: the kill first tested
+*"excludes some"* when the remedy's word is **admissible** — 22 of 93 would have passed while
+excluding nothing the definition admits; and the round was **not reproducible** (`hash(str)` is
+randomised per process, giving 25 then 22) until the seed was made stable. Two runs are now
+byte-identical.
+→ [`R435`](A24_what_the_definition_costs/R435_is_a_sufficiency_clause_even_statable) ·
+[`R436`](A24_what_the_definition_costs/R436_does_clause_four_exclude_anything_at_home)
 
 ---
 

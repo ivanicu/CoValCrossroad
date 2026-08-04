@@ -324,6 +324,24 @@ def derive():
     else:
         for k in ("r435_mstar", "r435_family", "r435_resid", "r435_floor", "r435_lift"):
             out[k] = (None, "R435")
+    # R436 -- the split. `excluded_at_J` is the load-bearing number: it is what turns "④ excludes
+    # 22 arms" from a claim about cores into a claim about a judge the definition does not name.
+    d436 = next(A24.glob("R436_*"), None)
+    f436 = (d436 / "results" / "r436_clause4_at_home.json") if d436 else None
+    a = json.loads(f436.read_text()) if (f436 and f436.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        top = max(a["cells"], key=lambda c: c["a2"] if "08b" not in c["arm"] else -1)
+        out["r436_bar"] = (f"{a['bar']:.4f}", "R436")
+        out["r436_excl"] = (len(a["excluded"]), "R436")
+        out["r436_arms"] = (a["n_arms"], "R436")
+        out["r436_exclJ"] = (len(a["excluded_at_J"]), "R436")
+        out["r436_armsJ"] = (a["n_arms_at_J"], "R436")
+        out["r436_topd"] = (f"{top['d']:+.4f}", "R436")
+        out["r436_topmde"] = (f"{top['mde']:.4f}", "R436")
+    else:
+        for k in ("r436_bar", "r436_excl", "r436_arms", "r436_exclJ", "r436_armsJ",
+                  "r436_topd", "r436_topmde"):
+            out[k] = (None, "R436")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -581,6 +599,13 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r436_bar":     r"the bar is \*\*`min_ttr` at ([\d.]+)\*\*",
+    "r436_excl":    r"\*\*④ excludes (\d+) of \d+ arms overall",
+    "r436_arms":    r"\*\*④ excludes \d+ of (\d+) arms overall",
+    "r436_exclJ":   r"arms overall but (\d+) of \d+ at the judge",
+    "r436_armsJ":   r"arms overall but \d+ of (\d+) at the judge",
+    "r436_topd":    r"sits \*\*([+\-][\d.]+)\*\* above the bar",
+    "r436_topmde":  r"above the bar \(MDE \*\*([\d.]+)\*\*\)",
     "r435_mstar":  r"\*\*saturates at m\\\* = (\d+)\*\*",
     "r435_family": r"family of \*\*(\d+)\*\* judge-free rules",
     "r435_resid":  r"BAR\(\|F\|\) − BAR\(6\) = `?([+\-][\d.]+)`?",
