@@ -59,8 +59,23 @@ CONTROLS
                positive control by accident only if the positive control were absent.
   BALANCE      only complete response x criterion grids are decomposed; ragged units are dropped and
                COUNTED per cell.
-  SAME JUDGE   all three cells are scored by Qwen3.5-2B-Base, so the instrument is held fixed and
-               cannot explain a difference between cells.
+  SAME JUDGE   ⚠ DOWNGRADED AFTER PUBLICATION -- this was printed as PASS before it was checked.
+               Only ONE of the three cells carries provenance. Measured afterwards:
+                 sat_full     = a04_full byte-for-byte on 59,936 of 59,936 values (100.00%), and
+                                R426 established a04_full is the DEFAULT table whose model R290's
+                                source names -> judge CONFIRMED by artifact + source.
+                 sat_transport_generic  carries a provenance block naming the model -> CONFIRMED.
+                 sat_generic  is LEGACY with no provenance, and its 4 criteria appear in the rubric
+                                pool 0 of 4 times, so no containment test can reach it. Its values
+                                differ from the rubric at 96.06% of colliding keys, which shows it
+                                was judged SEPARATELY against its own criteria -- but says nothing
+                                about BY WHICH MODEL. Judge UNVERIFIED.
+               ⚠ AND THE KEY-COLLISION TRAP IS WHY THAT LAST NUMBER NEEDED CARE: meta is
+               `pid|j|letter` with j a criterion INDEX, so generic's j=0..3 collides with the
+               rubric's j=0..3 on the same SLOTS while naming different CRITERIA. `15,488 of 15,488
+               keys overlap` is a meaningless statistic; only the VALUES discriminate.
+               So the instrument is held fixed in 2 of 3 cells and ASSUMED in the third -- and this
+               campaign retracted a claim about a legacy family's judge earlier the same day.
   NO-TARGET    nothing here reads any human label.
 
 MULTIPLICITY    3 real cells + 2 synthetic controls; every cell printed with its n, k and ragged count.
