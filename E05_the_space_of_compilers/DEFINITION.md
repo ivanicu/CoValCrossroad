@@ -24,8 +24,20 @@ so it cannot drift from the evidence without the suite failing.
 > **④** scores better, under that same judge J, than **every rule computable from the response set
 > alone**.
 >
-> Its size, **under that same judge J**, is **greater than one**; sizes **3 to 8 are not
-> distinguishable** by this release.
+> Its size, **under that same judge J**, is **greater than one**.
+>
+> *(Reported, not required: sizes **3 to 8 are not distinguishable** by this release.)*
+
+⚠ **The size line was two different things and is now written as two (R441).** *"3 to 8 are not
+distinguishable"* is a statement about **resolution**, and a non-result cannot remove a member — it
+excludes nothing **by construction**, so it is a **caveat, not a clause**. That is a derivation and
+no measurement changes it. **"Greater than one" is left in the conjunction**, and here is its
+evidence: of **52** arms with a k readable from their committed core file, exactly **1** has k=1
+(`topw_k1`), and clause ② already excludes it — so on this evidence half A removes **0 of 1** arms
+the other clauses admit. ⛔ **It is NOT demoted on n=1.** Retracting a clause on a single arm is the
+cheap-attack failure this campaign's standard names explicitly: the most expensive error is the one
+that retracts something true. **What would settle it** is constructing a k=1 core that ②∧③∧④ admits.
+→ [`R441`](A24_what_the_definition_costs/R441_is_the_size_clause_a_clause)
 
 **Clause ① is not a clause.** It is a consequence — see below.
 

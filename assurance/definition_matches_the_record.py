@@ -409,6 +409,19 @@ def derive():
     else:
         for k in ("r440_e4", "r440_e2", "r440_arms", "r440_cov"):
             out[k] = (None, "R440")
+    # R441 -- the size line. `n_with_k` is anchored beside the k=1 count on purpose: "1 arm has
+    # k=1" is only informative next to how many arms had a readable k at all, and a document that
+    # gave the numerator without the denominator would be stating a bound as a survey.
+    d441 = next(A24.glob("R441_*"), None)
+    f441 = (d441 / "results" / "r441_size_clause.json") if d441 else None
+    a = json.loads(f441.read_text()) if (f441 and f441.exists()) else None
+    if a and a.get("world") not in (None, "UNVERIFIED"):
+        out["r441_withk"] = (a["n_with_k"], "R441")
+        out["r441_k1"] = (len(a.get("k1_arms", [])), "R441")
+        out["r441_redundant"] = (a["redundant"], "R441")
+    else:
+        for k in ("r441_withk", "r441_k1", "r441_redundant"):
+            out[k] = (None, "R441")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -666,6 +679,9 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r441_withk":     r"of \*\*(\d+)\*\* arms with a k readable",
+    "r441_k1":        r"exactly \*\*(\d+)\*\* has k=1",
+    "r441_redundant": r"half A removes \*\*(\d+) of \d+\*\* arms",
     "r440_e4":   r"criterion-free rule \| \*\*(\d+) of \d+\*\* \| \*\*MEASURED\*\*",
     "r440_arms": r"criterion-free rule \| \*\*\d+ of (\d+)\*\* \| \*\*MEASURED\*\*",
     "r440_cov":  r"coverage of this space is (\d+)/\d+",
