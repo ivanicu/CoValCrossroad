@@ -269,14 +269,20 @@ def main() -> int:
     tb_spread = max(tb.values()) - min(tb.values())
 
     mde = ZEFF * g_sd / np.sqrt(g_n) if g_n > 1 else float("nan")
+    # ⛔ THE FLOOR CONTROL ONCE USED THE ARM'S MDE AND THE FIXTURES CAUGHT IT. A perfect arm has
+    #    sd = 0, so its MDE is 0, and `|shuffle - chance| <= 0` can NEVER hold -- a control that
+    #    cannot PASS, a named row in this campaign's ledger. The shuffle-vs-chance contrast is now
+    #    judged against ITS OWN paired MDE: same draw, same statistic, same null.
+    shuf_by, _ = acc_by_conv(shuf, tgt)
+    d_floor, mde_floor, _ = paired(shuf_by, ch_by)
     print(f"\n  CONTROLS")
     print(f"    PLACEBO     an arm against ITSELF differs by exactly 0: {placebo_ok}   "
           f"{'PASS' if placebo_ok else 'FAIL — the estimator is broken'}")
     print(f"    SHUFFLE (-) satisfaction permuted WITHIN each interaction: {s_mean:.4f} "
-          f"vs chance {c_mean:.4f}")
+          f"vs chance {c_mean:.4f}   diff {d_floor:+.4f} vs ITS OWN MDE {mde_floor:.4f}")
     print(f"    PLANT (+)   satisfaction overwritten so the chosen response wins: {p_mean:.4f} "
           f"(ceiling)")
-    floor_ok = abs(s_mean - c_mean) <= max(mde, 1e-9)
+    floor_ok = abs(d_floor) <= max(mde_floor, 1e-9)
     ceil_ok = p_mean >= 0.999
     print(f"    BAND        floor {s_mean:.4f} < any threshold < ceiling {p_mean:.4f}: "
           f"{'PASS' if (floor_ok and ceil_ok) else 'FAIL'}")
@@ -300,8 +306,8 @@ def main() -> int:
     if not (placebo_ok and floor_ok and ceil_ok):
         print("\n  UNVERIFIED — a control misbehaved. Exit 1."); return 1
     if not tb_ok:
-        print(f"\n  UNVERIFIED — the four tiebreak rules disagree by {tb_spread:.4f} > MDE "
-              f"{mde:.4f}, so the headline is a property of a rule nobody chose deliberately.")
+        print(f"\n  W-TIEBREAK (UNVERIFIED) — the four tiebreak rules disagree by {tb_spread:.4f} "
+              f"> MDE {mde:.4f}, so the headline is a property of a rule nobody chose deliberately.")
         print(f"  No accuracy is admissible. This is the kill the gauge test bought. Exit 1.")
         return 1
 
