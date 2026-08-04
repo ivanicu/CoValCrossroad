@@ -504,6 +504,25 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R450 -- the neighbourhood. The eta² SPLIT is anchored, not the individual shares, because the
+    # finding is that one coordinate governs and the other does not; anchoring a share alone would
+    # let the contrast that constitutes it drift.
+    d450 = next(A24.glob("R450_*"), None)
+    f450 = (d450 / "results" / "r450_neighbourhood.json") if d450 else None
+    a = json.loads(f450.read_text()) if (f450 and f450.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r450_eta_r"] = (f"{100*a['eta2_r']:.1f}", "R450")
+        out["r450_eta_a"] = (f"{100*a['eta2_a']:.1f}", "R450")
+        br = {str(k): v for k, v in a["by_r"].items()}
+        out["r450_r0"] = (f"{br['0'][0]:.4f}", "R450")
+        out["r450_r3"] = (f"{br['3'][0]:.4f}", "R450")
+        out["r450_d0"] = (f"{a['share_d0']:.4f}", "R450")
+        out["r450_selfshare"] = (f"{a['anchors']['class_self_share']:.4f}", "R450")
+    else:
+        for k in ("r450_eta_r", "r450_eta_a", "r450_r0", "r450_r3", "r450_d0",
+                  "r450_selfshare"):
+            out[k] = (None, "R450")
+
     # R449 -- the split verdict. The SHARED-VARIANCE bound is anchored, not the correlation, because
     # the claim is "at most ~2%" and a bound is what the round licenses.
     d449 = next(A24.glob("R449_*"), None)
@@ -822,6 +841,12 @@ ASSERTIONS = {
     "r449_rho":        r"corr\(ΔX, ΔA2\) = \*\*([+\u2212\-][\d.]+)\*\*",
     "r449_shared":     r"share \*\*at most ~([\d.]+)%\*\* of their",
     "r449_pairs":      r"`n_judge_pairs = (\d+)`",
+    "r450_eta_r":      r"by `r` ([\d.]+)%, by",
+    "r450_eta_a":      r"`a` ([\d.]+)%\.\*\*",
+    "r450_r0":         r"beaten is \*\*([\d.]+) · ",
+    "r450_r3":         r"· [\d.]+ · [\d.]+ · ([\d.]+) · [\d.]+\*\* for",
+    "r450_d0":         r"reproduces R446's committed \*\*([\d.]+)\*\*",
+    "r450_selfshare":  r"own computed self-share \(\*\*([\d.]+)\*\*;",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

@@ -191,6 +191,21 @@ It excludes the most, and every one of the following is measured:
   records that no third judge exists. **A property can be real and unstatable at the same time.**
   ⚠ Measured on 398 prompts (the 13-arm intersection), not the 968 the rest of this document uses.
   *(R449)*
+
+⭐ **THE EXTENSION OF 1 IS STRICTNESS, NOT TAUTOLOGY (R450) — §4's oldest suspicion about this
+document is dead.** Every earlier round tested the clauses against arms built by *other selectors*;
+none tested objects **adjacent to the released core itself**. Scoring `r` of the core's own criteria
+plus `a` generic pool criteria — free, since per-criterion satisfaction is already on disk — the
+share of the size-matched class beaten is **0.1661 · 0.4184 · 0.7187 · 0.9215 · 0.9868** for
+`r = 0..4`, monotone across all five levels. **Variance of admission explained: by `r` 98.6%, by
+`a` 1.0%.** So admission is governed almost entirely by how much of the released core survives, and
+adding generic criteria is nearly free. **Dropping one criterion of four still clears 92% of the
+class**, so the definition does not collapse on perturbation: **the extension of 1 is a fact about
+WHICH ARMS WERE BUILT, not about the definition's strictness.** Anchored at both ends without a free
+parameter — d=0 reproduces R446's committed **0.9841** through an independent code path, and the
+floor matches the class's own computed self-share (**0.2198**; same-rule fixed subset 0.2563). ⚠ This
+measures the definition's **extension**, never its correctness: whether a neighbour is *really* a core
+needs a standard outside this definition. *(R450)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

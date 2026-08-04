@@ -8830,3 +8830,57 @@ it could not have detected a strong relation. The powered version of the same qu
 paired sham differences at **n = 398 prompts**: corr(ΔX, ΔA2) = −0.0431 [−0.1424, +0.0578], so the
 two share **at most ~2.0%** of their variance. **Same conclusion, and only the second one was
 evidence.** A null from a design with MDE 0.40 is silence.
+
+---
+
+## 248 · "④'s adoption used a one-release bar" and "cross-release is unmet" — both false, both mine, both from a closing sentence (R449 → checked by R450)
+
+**What was claimed.** R449's `NEXT` line proposed auditing "what else rests on a population of one"
+and named three load-bearing examples.
+
+**What the document actually says.**
+
+| my claim | the document |
+|---|---|
+| ④'s adoption argument used a **one-release** bar | `:133` — *"On this release ④ costs nothing… while on the second release it removes **all 7**"*; `:522` names "all 7 arms on the second release" as the object it excludes. **Explicitly two-release, and that is the strongest part of ④'s case.** |
+| the register lists **cross-release as unmet** | `:600` — *"the route is now **WALKED**, not open"*. R433 ran it. |
+| `n_judge_pairs = 1` | ✅ true |
+
+**Direction, and it is the part worth recording.** Both errors **manufacture work** — they invent a
+weakness the document does not have and would have spent a round re-establishing something already
+committed. §4's entry on this mode notes the direction is *not* systematic (one excused work, one
+manufactured it). **Two more data points, both manufacturing.** That is now 2 excusing, 2
+manufacturing across four instances — still no bias, still a check that must be performed.
+
+⛔ **And the mechanism is the same every time: the closing sentence is written after the round's
+controls have fired**, when the attention they were holding has been released, and it *reads* as
+recapitulation rather than assertion. **It is the only sentence in a round with no control attached,
+and it is the one the next round acts on.** Both errors here were a single `grep` away.
+
+---
+
+## 249 · A floor anchor wrong twice in one round, and both fixes were computations (R450, caught in-round)
+
+**First version.** "A full-replacement candidate *is* a member of the reference class, so its share
+must be ~0.5." **False.** `share` counts references beaten **resolvedly** (gap > MDE), not merely
+exceeded — two different statistics. §4 sub-kind ③. The campaign's own committed numbers already
+contained the refutation: `coval_core` quantile **1.0000** → share **0.9841**, but `gen` quantile
+**0.2615** → share **0.0038**. *A quantity I had published twice was the counterexample to a guess I
+made about it.* Replaced by the class's **computed** mean self-share: **0.2198**.
+
+**Second version, still wrong.** It compared two objects built by different rules. The builder draws
+criteria **per prompt** — which is correct, because a core is per-conversation by definition — while
+every member of the reference class is **one fixed subset used on all prompts**. The anchor was
+measuring that difference, not the size-matching. Built the same way as the class, it passes at
+**0.2563**.
+
+⭐ **And the discarded comparison was a finding, not a defect.** A prompt-**varying** random selection
+from the pool scores **0.1145** against a **fixed** one at **0.2563** — varying the generic criteria
+per prompt makes an arm *worse*. **A control that fails because its two sides are different objects
+has, in the difference, a measurement nobody asked for.** Twice now this file records a failed
+control yielding a real number; that is worth treating as the expected outcome rather than a
+consolation.
+
+**The general remedy, and it subsumes both fixes:** *never guess an anchor.* Both correct values here
+were derivable from data already on disk in one command. A guessed anchor is a threshold with a
+story attached, and §4 already knows what those do.
