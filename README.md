@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**386 rounds** in **5 epochs** and **24 arcs**, numbered to **R392** — **53 standing claims, 13
+**387 rounds** in **5 epochs** and **24 arcs**, numbered to **R393** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -984,6 +984,21 @@ that string is now **in the corpus** and returned 1 consumer. **A corpus absorbs
 instruments** — a nowhere-token is only nowhere until a round uses it. ⚠ The blind spot biases the
 estimand **downward**, toward *backfill it* — the direction that creates work rather than excuses it.
 → [`R392`](E05_the_space_of_compilers/A24_what_the_definition_costs/R392_how_much_is_infrastructure)
+
+**The verification gate will cost ≥39 minutes at full table — and 80% of that is two rounds.**
+R392's NEXT asked whether the gate's cost grows in rounds rather than numbers. ⛔ **It grows in rounds
+by construction** — the gate re-runs every cited round, so its cost *is* the sum of those runtimes;
+measuring that would have been 1+1=2 reported as a finding. What is not forced is the **sum**, so a
+seeded sample of 15 from the **owing** population was timed at a 90 s cap: **13 complete, 2 censored**,
+sample total **≥226 s**, projecting **≥39 min** at 154 rows. ⛔ **And a mean over a heavy tail
+misdescribes where the cost lives**: the mean is ≥15.1 s but the **median round is 3.4 s**, and the
+**two censored rounds contribute 180 s of the 226 s total — 80%**. *A cache buys the tail and almost
+nothing else*, which is a far sharper brief than "the gate is slow". ⚠ The projection is a **lower
+bound only** — censored draws contribute the cap, not their value, and no upper bound is available at
+any budget spendable here. ⭐ The cache's shape is fixed before it is built: **keyed on the round's
+source hash**, because *a cache that serves a stale verification is worse than a slow gate — it
+certifies without checking.*
+→ [`R393`](E05_the_space_of_compilers/A24_what_the_definition_costs/R393_what_the_gate_will_cost)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

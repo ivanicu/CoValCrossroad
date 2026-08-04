@@ -8,7 +8,7 @@
     },
     "verdict_pos_ok": true
   },
-  "head": "d0966c770747",
+  "head": "5d11b3dd88c9",
   "n_subjects": 8,
   "n_untitled": 68,
   "ran": [
@@ -25,31 +25,31 @@
     "R144_information_loss": {
       "lines": 34,
       "outcome": "RAN",
-      "secs": 10.2,
+      "secs": 9.5,
       "verdict": false
     },
     "R145_who_is_unserved": {
       "lines": 20,
       "outcome": "RAN",
-      "secs": 4.7,
+      "secs": 3.8,
       "verdict": true
     },
     "R147_tracking_vs_serving": {
       "lines": 21,
       "outcome": "RAN",
-      "secs": 4.6,
+      "secs": 3.8,
       "verdict": false
     },
     "R148_departure_from_the_line": {
       "lines": 18,
       "outcome": "RAN",
-      "secs": 6.8,
+      "secs": 4.7,
       "verdict": true
     },
     "R149_price_of_inclusion": {
       "lines": 24,
       "outcome": "RAN",
-      "secs": 8.7,
+      "secs": 7.8,
       "verdict": true
     },
     "R150_does_the_veto_do_anything": {
@@ -61,19 +61,19 @@
     "R151_none_of_the_above": {
       "lines": 29,
       "outcome": "RAN",
-      "secs": 3.3,
+      "secs": 2.9,
       "verdict": true
     },
     "R152_what_fails_the_menu": {
       "lines": 27,
       "outcome": "RAN",
-      "secs": 10.7,
+      "secs": 8.9,
       "verdict": true
     }
   },
   "share": 0.625,
   "source_name": "run.py",
-  "source_sha256": "c24ba6eb3f515ddee6f480ad9af74d678fdc48b0fc1c22afbc9d375564ad07da",
+  "source_sha256": "eed9a20fede531946d64276685986363b370cb40ac9b9cb7393d0e6c6da2dc2d",
   "unverified": [],
   "verdict": "W_MIXED",
   "with_verdict": [

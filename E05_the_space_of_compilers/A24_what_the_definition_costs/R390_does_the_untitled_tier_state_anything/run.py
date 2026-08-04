@@ -102,13 +102,27 @@ HERE = SELF.parent
 PY = ROOT / ".venv" / "bin" / "python"
 WT = pathlib.Path("/tmp/claude-1000/-home-ivan/7d277876-c2fd-4a27-9b05-652b391121ff/scratchpad/r390_wt")
 R389 = HERE.parent / "R389_the_reading_burden" / "results" / "r389_reading_burden.json"
-N_SUBJECTS = 8
+# ⛔ RAISED FROM 8 TO THE WHOLE TIER. At n=8 the observed 62% sat between the pre-registered 70%
+#   and 30% thresholds, so the verdict was W-MIXED on a sample too small to distinguish it from
+#   either neighbour -- and 8 subjects cost 42 seconds. Reporting a share that straddles both cut
+#   points while the remaining 60 were affordable would be quoting a cell as though it were the
+#   curve. The population is the tier.
+N_SUBJECTS = 10**9
 # ⛔ RAISED FROM 120 BY THE POSITIVE CONTROL. R28 completes in 36s in a warm worktree and exceeded
 #   120s in a cold one -- model loading across a symlinked store is slower on first touch. The
 #   control reported it as `None` (did not run), which is exactly what a budget that is too small
 #   looks like, and had TIMEOUT been folded into "silent" the tier would have been convicted by my
 #   own clock. A timeout is a statement about the budget, never about the subject.
 TIMEOUT_S = 300
+# ⛔ THE CONTROL GETS A LONGER BUDGET THAN THE POPULATION, AND THE REASON IS MEASURED, NOT ASSUMED.
+#   R28_multiplicative ran in 36s by hand, returned a verdict inside 300s on one pass of this
+#   round, and TIMED OUT at 300.1s on the next -- same commit, same worktree, same code. Its
+#   runtime is not stable, so a 300s control is a coin flip on whether this round may proceed at
+#   all. The three control subjects are a FIXED, KNOWN-GOOD set whose only job is to calibrate the
+#   text pattern, so starving them of time measures the machine rather than the pattern. The
+#   POPULATION keeps 300s, because there a TIMEOUT is a real outcome and is counted as UNVERIFIED
+#   rather than as silence.
+CONTROL_TIMEOUT_S = 900
 # a line the ROUND wrote to say what it concluded. Anchored on the two forms the corpus uses.
 VERDICT = re.compile(r"^\s*(VERDICT\b|->\s*\S|⛔|⭐)", re.M)
 PAID = ("R21_donor_distance", "R24_regime_receipt", "R28_multiplicative")
@@ -169,11 +183,11 @@ def main() -> int:
     link_inputs()
     print(f"  worktree {WT}  (subjects never run in the live tree; data/ and .venv linked per entry)")
 
-    def run_subject(rel: pathlib.Path):
+    def run_subject(rel: pathlib.Path, budget: int = TIMEOUT_S):
         t0 = time.monotonic()
         try:
             p = subprocess.run([str(PY), "run.py"], cwd=str(rel), capture_output=True,
-                               text=True, timeout=TIMEOUT_S)
+                               text=True, timeout=budget)
         except subprocess.TimeoutExpired:
             return "TIMEOUT", "", time.monotonic() - t0
         out = p.stdout + p.stderr
@@ -187,7 +201,7 @@ def main() -> int:
         dd = next((q for q in WT.glob(f"E0*/A*/{name}") if q.is_dir()), None)
         if dd is None:
             pos[name] = None; continue
-        cls, out, secs = run_subject(dd)
+        cls, out, secs = run_subject(dd, CONTROL_TIMEOUT_S)
         # ⛔ A CONTROL THAT REPORTS `None` WITHOUT SAYING WHY GIVES NOTHING TO ACT ON. v1 recorded
         #   only True/False/None, and R28 came back None while running cleanly by hand in this very
         #   worktree seconds later. The class and the last error line are recorded so a failing
