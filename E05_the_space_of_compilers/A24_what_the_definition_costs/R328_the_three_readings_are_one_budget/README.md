@@ -61,6 +61,13 @@ sd 0.0015), so the rise is `argmax` and not the draw count.
 `0.564181 − 0.539706 = +0.024475`, admitted at **2.26×–2.46×** under *every* MDE committed anywhere
 in R326. Running it would have been Closure wearing a round's clothes; it is computed and labelled.
 
+## ⛔ AND THE RULE ITSELF IS RETRACTED BY R330
+
+**Budget-matching admits `generic` — clause ②'s own reference class — at all five readings.**
+A criterion set identical on every prompt is a singleton, so it draws the weakest reference and
+clears it, while R294's fixed size-matched reference excluded it correctly by self-comparison.
+The numbers below are arithmetically intact and **no longer license a clause-② statement**.
+
 ## ⛔ RETRACTED IN PART BY R329 — the `topw_k4` row of the headline, and the whole table below
 
 **`topw_k4`'s 1.38× is UNVERIFIED, not BEATS.** R329's gauge test: committing more rule × k cores

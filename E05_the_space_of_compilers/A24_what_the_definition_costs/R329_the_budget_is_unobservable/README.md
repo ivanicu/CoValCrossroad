@@ -4,6 +4,13 @@
 **It may not.** `coval_core` survives untouched; **`topw_k4` is UNVERIFIED at clause ② under
 budget-matching — not refuted, not established.**
 
+## ⛔ THE RULE THIS ROUND BRACKETS IS RETRACTED BY R330
+
+**Budget-matching admits the baseline.** `generic` — one criterion set across 968 prompts, i.e.
+a member of clause ②'s own reference class — is admitted at all five readings, because as a
+singleton it draws the weakest reference. The bracket below is correct about the *budget*; it
+brackets a rule that should not be used. The gauge-test finding stands on its own.
+
 ## The gauge test that started it — three lines, zero compute
 
 > **Transformation:** commit N more rule × k cores under `corebench/results/`, do not touch `topw_k4`.
