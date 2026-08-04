@@ -1,0 +1,54 @@
+{
+  "cells": {
+    "A_base": {
+      "coupled_exit": 0,
+      "readme_sha": "22fb32ee671c26a4",
+      "subject_exits": [
+        1,
+        1,
+        1
+      ]
+    },
+    "B_knockout": {
+      "coupled_exit": 1,
+      "readme_sha": "385fdf95328e91e3",
+      "subject_exits": [
+        2,
+        2,
+        2
+      ]
+    },
+    "C_placebo": {
+      "coupled_exit": 0,
+      "readme_sha": "4f77c1cc42de4b22",
+      "subject_exits": [
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  "controls": {
+    "knockout": true,
+    "placebo_edit": true,
+    "placebo_null": true,
+    "restore": true
+  },
+  "exits": {
+    "A": [
+      1
+    ],
+    "B": [
+      2
+    ],
+    "C": [
+      2
+    ]
+  },
+  "head": "af161d6bdcd6",
+  "repeats": 3,
+  "source_name": "run.py",
+  "source_sha256": "8d22deddec4f478047e6179c02e21ab5e193370974c24db1851311511210aa54",
+  "target": "R378",
+  "verdict": "W_ANY_EDIT"
+}
