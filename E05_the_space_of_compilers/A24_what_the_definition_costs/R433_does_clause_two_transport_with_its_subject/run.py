@@ -146,13 +146,40 @@ def main() -> int:
         H["length"].setdefault(k[0], []).append(1.0 if lens[k] == chosen[k] else 0.0)
 
     acc = {n: {w: by_conv(H[n], w) for w in ("CONV", "INTER")} for n in H}
-    sham_below = acc["sham"]["INTER"] < acc["gen"]["INTER"]
-    gate = (parse_rate >= 0.80) and (coverage >= 0.80) and sham_below
-    print(f"\n  GATE (preregistered; the kill is evaluated ONLY if all three hold)")
+
+    # ⛔ AMENDMENT 1 (PREREGISTRATION.md), made before any arm was scored. The gate USED to require
+    #    `sham < real`, which PRESUPPOSES A NON-NULL EFFECT -- the ledger's `control fails for its
+    #    own reasons`, form ②. selftest.py's LOSES fixture, where the arm genuinely carries nothing,
+    #    returned W-FILLER instead of W-LOSES because with gen ~ sham the comparison is a coin flip.
+    #    A true null would have been reported as a broken generator half the time.
+    #    Two fixes: the sham comparison now carries its own RESOLUTION, and W-FILLER is demoted from
+    #    a VETO to a reported diagnostic -- whether the conversation-match is inert does not decide
+    #    whether the arm beats the length rule.
+    dsh = [float(np.mean(H["sham"][c])) - float(np.mean(H["gen"][c])) for c in convs]
+    bsh = []
+    for sd in (81, 82, 83):
+        r = np.random.default_rng(sd)
+        for _ in range(400):
+            bsh.append(float(np.mean(np.array(dsh)[r.choice(len(convs), len(convs), replace=True)])))
+    mde_sham = float(ZEFF * np.std(bsh))
+    sham_above = (acc["sham"]["INTER"] - acc["gen"]["INTER"]) > mde_sham
+    gate = (parse_rate >= 0.80) and (coverage >= 0.80)
+    print(f"\n  GATE (admissibility only — does the arm exist? See AMENDMENT 1.)")
     print(f"    parse rate  {parse_rate:.4f}  >= 0.80   {'ok' if parse_rate >= 0.80 else '⛔'}")
     print(f"    coverage    {coverage:.4f}  >= 0.80   {'ok' if coverage >= 0.80 else '⛔'}")
-    print(f"    sham {acc['sham']['INTER']:.4f} < real {acc['gen']['INTER']:.4f}   "
-          f"{'ok' if sham_below else '⛔ the criteria are generic filler — W-FILLER'}")
+    print(f"  DIAGNOSTIC (informs the reading, not the admissibility)")
+    print(f"    sham {acc['sham']['INTER']:.4f} vs real {acc['gen']['INTER']:.4f}, gap "
+          f"{acc['gen']['INTER']-acc['sham']['INTER']:+.4f} vs its own MDE {mde_sham:.4f} -> "
+          f"{'⛔ sham RESOLVEDLY ABOVE real — W-FILLER' if sham_above else 'sham not above real'}")
+    # the three-level diagnostic AMENDMENT 1 promised. A single `world` string cannot carry two
+    # findings, and squeezing them into one is how a verdict starts asserting what nobody checked.
+    gapv = acc["gen"]["INTER"] - acc["sham"]["INTER"]
+    sham_verdict = ("W-INVERTED" if sham_above else
+                    "W-SPECIFIC" if gapv > mde_sham else "W-NO-MEASURABLE-MATCH")
+    print(f"    sham_verdict {sham_verdict}  —  W-SPECIFIC: the conversation-match buys a resolved")
+    print(f"    amount · W-NO-MEASURABLE-MATCH: it buys less than {mde_sham:.4f}, a BOUND not a zero")
+    print(f"    · W-INVERTED: the wrong conversation's criteria win, which would be a finding about")
+    print(f"    the generator and not about clause ②")
 
     # ---- controls ------------------------------------------------------------------------------
     ok = True
@@ -223,7 +250,9 @@ def main() -> int:
 
     # ---- the conditional kill ------------------------------------------------------------------
     if not gate or not ok:
-        world = "W-FILLER" if not sham_below else "UNVERIFIED"
+        world = "UNVERIFIED"
+    elif sham_above:
+        world = "W-FILLER"
     else:
         pt = cells["INTER"]["delta_vs_length"]; md = cells["INTER"]["mde"]
         world = ("W-TRANSPORTS" if pt > md else "W-LOSES" if pt < -md else "W-UNRESOLVED")
@@ -250,8 +279,10 @@ def main() -> int:
     (RES / "r433_clause2_subject.json").write_text(json.dumps(
         {"source_sha": hashlib.sha256(pathlib.Path(__file__).read_bytes()).hexdigest()[:16],
          "world": world, "gate": {"parse_rate": parse_rate, "coverage": coverage,
-                                  "sham_below": bool(sham_below), "passed": bool(gate)},
+                                  "sham_above_resolved": bool(sham_above), "mde_sham": mde_sham,
+                                  "passed": bool(gate)},
          "controls_ok": bool(ok), "acc": acc, "cells": cells,
+         "sham_verdict": sham_verdict, "sham_gap": gapv,
          "n_interactions": len(keys), "n_conversations": len(convs),
          "dose_sweep": [{"g": g, "acc": v} for g, v in sweep],
          "provenance_gen": pv, "provenance_sham": arms["sham"][2]}, indent=1))

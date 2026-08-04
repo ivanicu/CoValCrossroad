@@ -29,6 +29,37 @@ the second corpus. R433 generates it.
 R427 showed `generic` loses to a heuristic that reads no criteria at all. **A core that cannot beat
 the length rule is not a core anyone should adopt**, whatever it does to its own comparator.
 
+## ⛔ AMENDMENT 1 — the sham gate was mis-specified. Made **before any arm was scored.**
+
+**State of the world when this was written:** generation jobs `646` and `647` **Success**; judging
+job `648` **Running**, `649` **Queued**; `sat_transport_gen.npz` and `sat_transport_gen_sham.npz`
+**absent from disk**. **No accuracy for either generated arm exists.** Amending after the numbers
+land would be fitting the kill; amending now, on a defect the *selftest* found, is not — and the
+distinction is only credible because the state above is checkable in the job log.
+
+**The defect.** The gate below required `SHAM scores BELOW the real arm`. That **presupposes a
+non-null effect** — precisely the ledger's *the control fails for its own reasons*, form ②:
+*"`|permuted| < |real|` is a coin flip when the real effect is null, which is exactly when you are
+running it."* `selftest.py`'s `LOSES` fixture — where the generated arm genuinely carries nothing —
+returned **`W-FILLER` instead of `W-LOSES`**, because with `gen ≈ sham` the comparison is a coin
+flip. **A true null would have been reported as a broken generator half the time.**
+
+**Two things were wrong, not one.**
+1. The comparison had no resolution attached. Replaced by: the sham fires only when it sits
+   **resolvedly above** the real arm — `acc_sham − acc_gen > MDE_sham`, with `MDE_sham` from the
+   paired per-conversation difference by cluster bootstrap.
+2. **`W-FILLER` should never have been a veto.** The primary question — does the generated core
+   beat the length rule — is answerable whether or not the *conversation-match* is inert. The sham
+   informs the **reading**, not the **admissibility**. It is demoted from the gate to a reported
+   diagnostic, and it can still fire as a world in its own right when it fires resolvedly.
+
+**The gate is therefore now: parse rate ≥ 0.80 AND coverage ≥ 0.80.** Both are about whether the
+arm exists at all. Nothing else was touched: the bar stays **0.5096**, the kill thresholds stay
+`± MDE`, and the worlds keep their meanings.
+
+**What this amendment cannot excuse:** if the real run returns a number I dislike, that is not
+grounds for a second amendment. This one is spent.
+
 ## PRE-REGISTERED KILL — conditional, and the condition comes first
 
 ```
