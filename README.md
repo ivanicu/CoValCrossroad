@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**395 rounds** in **5 epochs** and **24 arcs**, numbered to **R402** — **53 standing claims, 13
+**396 rounds** in **5 epochs** and **24 arcs**, numbered to **R403** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1113,6 +1113,22 @@ MDE and R401's independent derivation agree at **0.0094** to four decimals. ⚠ 
 independent; a real judge's correlate with content — **this validated the harness, never the
 experiment.**
 → [`R402`](E05_the_space_of_compilers/A24_what_the_definition_costs/R402_does_the_harness_fire_before_the_judge)
+
+**Half the definition is a fact about CoVal's schema — 3 of 6 clause-parts cannot be SAID on the
+second corpus at all.** ⛔ The failure table's remedy is *per clause, name an object it excludes*; this
+asks the **prior** question — can the clause be **said** there? A clause whose subject does not exist
+is **not satisfied and not violated**: `NOT-STATABLE`, a third value, and folding it into either of
+the others manufactures a verdict. **①** (needs the prompt's own rubric), **③b** (*"any half of the
+annotators"* — measured: **max 1 rater**, 0 of 27,172 interactions have 2) and **③c** (needs a rubric
+those annotators wrote) are all unsayable there. ⛔ **CoVal's column is a positive control, not a
+finding** — the definition was written from CoVal, so any `NOT-STATABLE` there would have meant the
+detector was broken, and the round exits 1 on that. **Clause ① is now doubly hollow**: already
+`DERIVED` vacuous where it was born, and unsayable off that object. ⭐ **What survives is exactly the
+load-bearing pair — ③a and ②**, powered at n=26,789 (R401) with a validated harness (R402). ⚠ **No
+clause is restated here**: rewriting one so it survives on a new corpus is an act of *definition*, and
+doing it in the same breath as the diagnosis is how a definition gets tuned to whatever object is in
+front of it.
+→ [`R403`](E05_the_space_of_compilers/A24_what_the_definition_costs/R403_which_clauses_are_even_statable_elsewhere)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

@@ -1,0 +1,79 @@
+{
+  "clauses": {
+    "size: greater than one; 3\u20138 indistinguishable": {
+      "coval": "STATABLE",
+      "depends_on": "a judge + a k sweep",
+      "second": "STATABLE"
+    },
+    "\u2460 better than a random draw of the prompt's OWN rubric": {
+      "coval": "STATABLE",
+      "depends_on": "a per-prompt rubric",
+      "second": "NOT-STATABLE"
+    },
+    "\u2461 better than a size-matched set that never read the conversation": {
+      "coval": "STATABLE",
+      "depends_on": "responses + a human target + a criterion pool",
+      "second": "STATABLE"
+    },
+    "\u2462a no information from that prompt's own human labels": {
+      "coval": "STATABLE",
+      "depends_on": "per-prompt human labels",
+      "second": "STATABLE"
+    },
+    "\u2462b ... not from any HALF of them": {
+      "coval": "STATABLE",
+      "depends_on": ">= 2 annotators per prompt, to split",
+      "second": "NOT-STATABLE"
+    },
+    "\u2462c ... and not by way of a rubric those same annotators wrote": {
+      "coval": "STATABLE",
+      "depends_on": "a per-prompt rubric written by the annotators",
+      "second": "NOT-STATABLE"
+    }
+  },
+  "controls": {
+    "presence_neg": true,
+    "presence_pos": true
+  },
+  "coval_keys": [
+    "annotator_id",
+    "assessments",
+    "conversation",
+    "coval_core",
+    "coval_full",
+    "demographics",
+    "metadata",
+    "prompt",
+    "prompt_id",
+    "responses"
+  ],
+  "has_rubric_coval": true,
+  "head": "8cce07605169",
+  "interactions": 27172,
+  "max_raters": 1,
+  "multi_rater_interactions": 0,
+  "not_statable_on_second": [
+    "\u2460 better than a random draw of the prompt's OWN rubric",
+    "\u2462b ... not from any HALF of them",
+    "\u2462c ... and not by way of a rubric those same annotators wrote"
+  ],
+  "second_keys": [
+    "conversation_id",
+    "conversation_type",
+    "if_chosen",
+    "included_in_balanced_subset",
+    "interaction_id",
+    "model_name",
+    "model_provider",
+    "model_response",
+    "score",
+    "turn",
+    "user_id",
+    "user_prompt",
+    "utterance_id",
+    "within_turn_id"
+  ],
+  "source_name": "run.py",
+  "source_sha256": "828eea9b2368a9ab1a41f8392404a0a96484ee63fac3ded4acdee6eae8e8d9e6",
+  "verdict": "W_TRANSPORTS_PART"
+}

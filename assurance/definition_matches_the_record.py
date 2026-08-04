@@ -124,6 +124,15 @@ def derive():
     else:
         for k in ("r398_rows", "r398_convs", "r398_multi", "r398_models", "r398_refs"):
             out[k] = (None, "R398")
+    a = art("R403_*")
+    if a:
+        out["r403_notstatable"] = (len(a["not_statable_on_second"]), "R403")
+        out["r403_maxraters"] = (a["max_raters"], "R403")
+        out["r403_multirater"] = (a["multi_rater_interactions"], "R403")
+        out["r403_interactions"] = (a["interactions"], "R403")
+    else:
+        for k in ("r403_notstatable", "r403_maxraters", "r403_multirater", "r403_interactions"):
+            out[k] = (None, "R403")
     a = art("R370_*")
     if a:
         out["pool_contrast"] = (round(a["results"]["pool|exact"]["contrast"], 4), "R370")
@@ -273,6 +282,12 @@ ASSERTIONS = {
     "r398_multi":            r"with ([\d,]+) prompts having",
     "r398_models":           r"distinct model responses across (\d+) models",
     "r398_refs":             r"and referenced by (\d+) files in this repository",
+    # R403's statability split. Anchored on surrounding WORDS, never a bare number — R373 and R398
+    # both cost a false failure when an anchor met a bold span instead of a digit.
+    "r403_notstatable":      r"\*\*(\d+) of 6 clause-parts are NOT-STATABLE",
+    "r403_maxraters":        r"measured: \*\*max (\d+) rater\*\*",
+    "r403_multirater":       r"rater\*\*, (\d+) of [\d,]+ interactions have 2",
+    "r403_interactions":     r"of ([\d,]+) interactions have 2",
     "r373_p_three_q":        r"below three quarters\n\*\*(\d+\.\d)%\*\* of the time",
     "r373_k355":             r"its k is \*\*(\d+)\*\*, which is fine",
 }

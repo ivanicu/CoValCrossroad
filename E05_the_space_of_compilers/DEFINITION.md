@@ -180,6 +180,33 @@ judge in it** (R224/R228), and the k-curve's *shape* across judges was already m
 
 ---
 
+## ⛔ STATABILITY 2026-08-04 (R403) — three of six clause-parts cannot be SAID off this release
+
+Applied to the second corpus R398 found, the clauses split. **Not into true and false — into sayable
+and unsayable**, which is a third value and was never available while there was one object.
+
+| clause-part | needs | corpus two |
+|---|---|---|
+| **①** vs a draw of the prompt's **own rubric** | a per-prompt rubric | **NOT-STATABLE** |
+| **③b** …not from any **HALF** of the annotators | ≥2 annotators per prompt | **NOT-STATABLE** — measured: **max 1 rater**, 0 of 27,172 interactions have 2 |
+| **③c** …nor via a **rubric those annotators wrote** | a per-prompt rubric | **NOT-STATABLE** |
+| **②** vs a prompt-blind size-matched set | responses + human target + pool | **STATABLE** |
+| **③a** no information from the prompt's own labels | per-prompt human labels | **STATABLE** |
+| **size** >1; 3–8 indistinguishable | a judge + a k sweep | **STATABLE** |
+
+**3 of 6 clause-parts are NOT-STATABLE off this release.**
+
+**Clause ① is now doubly hollow.** It was already `DERIVED` vacuous here — the region where it could
+bind is empty by arithmetic. It is now also **unsayable elsewhere**. A clause that excludes nothing
+where it was born and cannot be stated off that object is a description of a **schema**, not of cores.
+
+⚠ **No clause is restated here.** Rewriting one so it survives on a new corpus is an act of
+definition, not a measurement, and doing it in the same breath as the diagnosis is how a definition
+gets tuned to whatever object is in front of it.
+
+**The transportable residue: *label-free, and better than prompt-blind*** — clauses ③a and ②, which is
+also the pair that carries the whole measured boundary.
+
 ## What this definition cannot claim
 
 | | |
