@@ -317,6 +317,13 @@ reference matched to its own selection budget — **admits `generic` at all five
 As a singleton it draws the *weakest* reference and clears it. **A rule that rewards not searching is
 correct about selection and wrong about this clause.**
 
+**⚠ AND THIS RULE GOVERNS CLAUSE ② ONLY (R334).** Clause ①'s reference class is
+**quality-degenerate**: its members are *per-prompt* random draws, so they are exchangeable and
+the class has no percentile to sit at. Measured — across-member sd over sampling error, **τ/se =
+0.72 for clause ① against 3.61 for clause ②**, where exchangeability predicts exactly **1/√2 =
+0.707**. Clause ①'s closure rate is **0.0000**. So clause ② needs a computed reference and clause ①
+does not, and the reason is the shape of the class rather than the size of the margin.
+
 ### ② The admitted set is a BAND, not a list
 
 **Two distinct admitted sets lie inside 0.25 of one MDE.** Sweeping the k=4 reference across the 46

@@ -1,0 +1,142 @@
+{
+ "source_sha": "31555468cdb14ff4",
+ "world": "W-DEGENERATE",
+ "n_prompts": 968,
+ "k": 4,
+ "M": 200,
+ "blocks": [
+  0,
+  1,
+  2
+ ],
+ "rubric": {
+  "median": 15,
+  "min": 4,
+  "max": 39
+ },
+ "classes": {
+  "clause 1 \u00b7 per-prompt rubric draw": [
+   {
+    "tau": 0.0038294307235518157,
+    "se": 0.005054426291170119,
+    "ratio": 0.7576390480244372,
+    "rate": 0.0,
+    "berr": 2.23606797749979e-06,
+    "n_admit": 0
+   },
+   {
+    "tau": 0.00359582538839871,
+    "se": 0.005051013917725025,
+    "ratio": 0.7119016987421544,
+    "rate": 0.0,
+    "berr": 2.23606797749979e-06,
+    "n_admit": 0
+   },
+   {
+    "tau": 0.003515646116969412,
+    "se": 0.0050385014950439285,
+    "ratio": 0.6977562913154917,
+    "rate": 0.0,
+    "berr": 2.23606797749979e-06,
+    "n_admit": 0
+   }
+  ],
+  "clause 2 \u00b7 fixed blind quadruple": [
+   {
+    "tau": 0.008132773931159585,
+    "se": 0.0022782476534386805,
+    "ratio": 3.5697497236019777,
+    "rate": 0.005,
+    "berr": 0.004987484335815001,
+    "n_admit": 1
+   },
+   {
+    "tau": 0.008395062895944425,
+    "se": 0.002259358086982251,
+    "ratio": 3.715684974557277,
+    "rate": 0.0,
+    "berr": 2.23606797749979e-06,
+    "n_admit": 0
+   },
+   {
+    "tau": 0.00819993525094885,
+    "se": 0.002314136557858072,
+    "ratio": 3.543410272442427,
+    "rate": 0.005,
+    "berr": 0.004987484335815001,
+    "n_admit": 1
+   }
+  ]
+ },
+ "clause1": {
+  "tau_over_se": 0.7224323460273611,
+  "rate": 0.0
+ },
+ "clause2": {
+  "tau_over_se": 3.6096149902005608,
+  "rate": 0.0033333333333333335
+ },
+ "forced_rate_if_exchangeable": 3.715612054803531e-05,
+ "synthetic_ratio": 4.6592308949211345,
+ "calibration": [
+  {
+   "delta": 0.0,
+   "predicted": 0.7576390480244372,
+   "measured": 0.7576390480244372,
+   "ratio": 1.0
+  },
+  {
+   "delta": 0.005,
+   "predicted": 0.810431205568809,
+   "measured": 0.8082021556422768,
+   "ratio": 0.9972495507191537
+  },
+  {
+   "delta": 0.01,
+   "predicted": 0.9513906529731762,
+   "measured": 0.9475907056398067,
+   "ratio": 0.9960059021796207
+  },
+  {
+   "delta": 0.02,
+   "predicted": 1.3778700653489717,
+   "measured": 1.3726229849034361,
+   "ratio": 0.9961918902387892
+  },
+  {
+   "delta": 0.04,
+   "predicted": 2.4232319093856844,
+   "measured": 2.417268865903392,
+   "ratio": 0.9975392188179777
+  },
+  {
+   "delta": 0.08,
+   "predicted": 4.665421820734523,
+   "measured": 4.6592308949211345,
+   "ratio": 0.998673019064241
+  }
+ ],
+ "cross_round": {
+  "sampled": 0.0033333333333333335,
+  "exhaustive": 0.0016483516483516484,
+  "exhaustive_count": 3,
+  "binom_se": 0.002353090953838597,
+  "z": 0.7160716343042222
+ },
+ "exchangeable_signature": 0.7071067811865475,
+ "poison": -0.06254007197758302,
+ "neutral": 0.04835990428624351,
+ "positive_c1": {
+  "got": 0.07379048339598263,
+  "committed": 0.07379048339598263,
+  "ok": true
+ },
+ "controls": {
+  "positive": true,
+  "g0": true,
+  "negative": true,
+  "sham": true,
+  "placebo": true
+ },
+ "corrects": "R333's next-gradient line predicted clause 1 closes because its MARGIN is 5.6x; the margin is irrelevant and the naive percentile transfer predicts the opposite. Exchangeability decides it."
+}
