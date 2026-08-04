@@ -345,17 +345,35 @@ clause saying "better than chance" excludes nothing, while the test that was act
 
 ### The complete evidence table — all 15,593 annotations, each cell against its own MDE
 
-| arm | A2 | ① vs random-from-rubric | ② vs size-matched prompt-blind | verdict |
+| arm | A2 | ① vs random-from-rubric (eff / its own MDE) | ② vs size-matched prompt-blind | verdict |
 |---|---:|---|---|---|
-| **`coval_core`** | 0.5665 | **+0.0738** | **+0.0262** [+0.0192,+0.0332] | **ADMITTED** |
-| **`topw_k4`** | 0.5642 | **+0.0715** | **+0.0239** [+0.0169,+0.0312] | **ADMITTED** |
-| `generic` | 0.5514 | +0.0587 | **0 by construction** | excluded (②) |
-| `gen` | 0.5352 | +0.0425 | **−0.0153 … −0.0194** at the two references that can resolve | **excluded** (②) |
-| `full` | 0.5087 | +0.0160 | **−0.0331** [−0.0413,−0.0254] | excluded (②) |
-| `topwvar_k4` | 0.5040 | +0.0113, **below its MDE 0.0134** | — | excluded (①, unresolved) |
-| `topabs_k4` | 0.4894 | −0.0033 | — | excluded (①) |
-| `topvar_k4` | 0.4863 | −0.0064 | — | excluded (①) |
-| `gen_sham` | 0.4828 | −0.0099 | — | excluded (①) |
+| **`coval_core`** | 0.5665 | **+0.0738** / 0.0132 = **5.61×** | **+0.0262** [+0.0192,+0.0332] | **ADMITTED** |
+| **`topw_k4`** | 0.5642 | **+0.0715** / 0.0128 = **5.58×** | **+0.0239** [+0.0169,+0.0312] | **ADMITTED** |
+| `generic` | 0.5514 | +0.0587 / 0.0144 = 4.09× | **0 by construction** | excluded (②) |
+| `gen` | 0.5352 | +0.0425 / 0.0149 = 2.84× | **−0.0153 … −0.0194** at the two references that can resolve | **excluded** (②) |
+| `full` | 0.5087 | +0.0160 / 0.0113 = **1.41×** — the thinnest resolved row | **−0.0331** [−0.0413,−0.0254] | excluded (②) |
+| `topwvar_k4` | 0.5040 | +0.0113 / 0.0134 = **0.84×** — BH survivor, **below its own MDE** | — | **not resolvably better** (①) |
+| `topabs_k4` | 0.4894 | −0.0033 / 0.0154 = 0.21× | — | **not resolvably better** (①) |
+| `topvar_k4` | 0.4863 | −0.0064 / 0.0134 = 0.48× | — | **not resolvably better** (①) |
+| `gen_sham` | 0.4828 | −0.0099 / 0.0165 = 0.60× | — | **not resolvably better** (①) |
+
+⛔ **THE FOUR CLAUSE-① ROWS SAY `not resolvably better`, NOT `worse` (R325).** All four sit BELOW
+their own MDE, so **the sign is not readable** and this design cannot call any of them worse than
+the baseline. `excluded` remains correct for an admission rule that requires a resolvable positive
+— but a negative number printed beside the word `excluded` reads as a refutation, and there is
+none. The clause-① column now carries each cell's MDE the way clause ② carries its interval.
+
+⚠ **And `topwvar_k4` is a BH survivor at 0.84× its own MDE** — significant and unresolvable at
+once. Multiplicity asks *is this distinguishable from zero across the family*; an MDE asks *could
+this design have seen an effect this size*. Different questions, and this row answers them
+differently, which is why both are shown.
+
+> ### ✅ And the sham lands exactly where a sham should — ON the floor, not below it.
+> `gen_sham` loses **resolvably** to all six real arms — `coval_core` 5.47×, `topw_k4` 5.41×,
+> `generic` 4.98×, `gen` 3.39×, `full` 1.74×, `topwvar_k4` 1.27× — while being **indistinguishable
+> from the random-from-rubric baseline** at 0.60× its own MDE. A sham that landed *below* the
+> random baseline would be a treatment with the sign flipped; one that lands *on* it is the
+> ingredient genuinely absent. Both halves are needed to read it, and both are now on the page.
 
 > **Two arms admitted of nine.** Against the *best held-out* prompt-blind quadruple out of all 1,820
 > (R286), the margins are **+0.0119** [+0.0048,+0.0187] and **+0.0096** [+0.0026,+0.0164] — both
