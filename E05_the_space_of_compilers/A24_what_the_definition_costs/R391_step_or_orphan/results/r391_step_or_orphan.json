@@ -1,0 +1,55 @@
+{
+  "consumed": [
+    "R144_information_loss",
+    "R150_does_the_veto_do_anything"
+  ],
+  "controls": {
+    "known_edges": {
+      "r371_power.json": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R372_is_the_resolving_set_stable/run.py"
+      ],
+      "sat_genericpool16_fresh.npz": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R371_would_more_prompts_resolve_transport/run.py"
+      ]
+    },
+    "neg_ok": true,
+    "nowhere_consumers": 0,
+    "pos_ok": true
+  },
+  "head": "f8baf3f661be",
+  "n_sources": 475,
+  "rows": {
+    "R144_information_loss": {
+      "artifacts": [
+        "information_loss.json"
+      ],
+      "consumers": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R315_how_many_rounds_can_still_run/run.py",
+        "assurance/consistency.py"
+      ],
+      "present": true
+    },
+    "R147_tracking_vs_serving": {
+      "artifacts": [
+        "tracking_vs_serving.json"
+      ],
+      "consumers": [],
+      "present": true
+    },
+    "R150_does_the_veto_do_anything": {
+      "artifacts": [
+        "veto.json"
+      ],
+      "consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R133_the_veto/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R314_silence_was_read_as_endorsement/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R173_why_people_veto/run.py",
+        "assurance/consistency.py"
+      ],
+      "present": true
+    }
+  },
+  "source_name": "run.py",
+  "source_sha256": "388dd317a2601dff6cf0e9884e40fbf3d949d177e292711a740434b5ca683e4f",
+  "verdict": "W_MIXED"
+}

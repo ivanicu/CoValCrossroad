@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**384 rounds** in **5 epochs** and **24 arcs**, numbered to **R390** — **53 standing claims, 13
+**385 rounds** in **5 epochs** and **24 arcs**, numbered to **R391** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -955,6 +955,19 @@ R28 takes 36 s warm and longer cold. *A timeout is a statement about the budget,
 subject*, and folding it into "silent" would have convicted the tier with a number I chose. `W-MIXED`
 — **8 run, 60 untried, named rather than assumed.**
 → [`R390`](E05_the_space_of_compilers/A24_what_the_definition_costs/R390_does_the_untitled_tier_state_anything)
+
+**And two of the three silent rounds turn out to be infrastructure, not unwritten findings.**
+`R150_does_the_veto_do_anything` is read by **four** other places (`R133`, `R173`, `R314` and
+`assurance/consistency.py`) and `R144_information_loss` by **two**; `R147_tracking_vs_serving` by
+none this instrument can reach. **Marking a consumed round "no finding" would retract work that was
+never wrong, and writing one for it would invent a result for a script never asked to produce any** —
+so the debt shrinks by two for a *recorded reason* rather than a judgement call. ⭐ **The search's
+control has an answer I did not produce here**: two consumption edges committed earlier for a
+different purpose — `sat_genericpool16_fresh.npz` → R371 and `r371_power.json` → R372 — both found,
+and a filename that exists nowhere returns 0. ⚠ **The blind spot biases toward the flattering
+answer**: a consumer building its path dynamically is invisible to a literal search, so R147 is
+**`no consumer found`, not `no consumer`**.
+→ [`R391`](E05_the_space_of_compilers/A24_what_the_definition_costs/R391_step_or_orphan)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
