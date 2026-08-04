@@ -286,6 +286,34 @@ def main() -> int:
     ceil_ok = p_mean >= 0.999
     print(f"    BAND        floor {s_mean:.4f} < any threshold < ceiling {p_mean:.4f}: "
           f"{'PASS' if (floor_ok and ceil_ok) else 'FAIL'}")
+    # ⛔ THE TIE CONTROL EXAMINED ONLY `generic`, AND THE ARM MOST LIKELY TO SATURATE IS THE ONE
+    #    STILL JUDGING. `vacuous`'s criteria are "The reply is a reply." / "The reply consists of
+    #    text." -- built to be satisfied by everything. If they are, every response ties, the argmax
+    #    becomes the tiebreak, and the arm's agreement numbers are a property of response ids.
+    #    ⭐ PRE-REGISTERED BEFORE THAT ARM EXISTS, which is the only time a threshold is a threshold:
+    #    an arm whose tie rate exceeds 20% of interactions is UNREADABLE and its picks are reported
+    #    as UNVERIFIED rather than as a third data point. 20% is not arbitrary -- generic measures
+    #    0.1% on the home corpus and 0.1% here, so anything two orders of magnitude above that is a
+    #    different regime, not noise.
+    TIE_UNREADABLE = 0.20
+    print(f"\n  TIE RATE PER ARM — pre-registered ceiling {TIE_UNREADABLE:.0%}, fixed before the")
+    print(f"  vacuous arm existed. Above it an arm's argmax is a tiebreak, not a ranking.")
+    for _nm, _fn in ARMS.items():
+        _p = RES / _fn
+        if not _p.exists():
+            print(f"    {_nm:<16} ABSENT")
+            continue
+        _s, _t, _ = load(_p)
+        _tied = _tot = 0
+        for _k, _row in _s.items():
+            _tot += 1
+            _top = max(_row.values())
+            if sum(1 for r in _row if _row[r] == _top) > 1:
+                _tied += 1
+        _rate = _tied / _tot if _tot else float("nan")
+        print(f"    {_nm:<16} {_tied:>6,} of {_tot:>6,} tied  ({_rate:>6.1%})   "
+              f"{'⛔ UNREADABLE' if _rate > TIE_UNREADABLE else 'readable'}")
+
     n_units = sum(len(v) for v in gen.values())
     tie_rate = n_tie / n_units if n_units else float("nan")
     print(f"    TIE / SATURATION  argmax is TIED on {n_tie:,} of {n_units:,} interactions "
