@@ -109,14 +109,29 @@ def main() -> int:
     # A prompt-keyed core maps prompt-id -> criteria and those ids do NOT exist in the second
     # corpus. Scoring it here would silently drop every prompt and emit an empty artifact, which
     # would read as a clean run. Refuse instead.
+    # ⭐ EXTENDED 2026-08-04 (R433). A CONVERSATION-KEYED core is now accepted; a PROMPT-keyed one is
+    #    still refused. The distinction is not cosmetic and it is checked against the corpus rather
+    #    than guessed from the file: a dict whose keys are conversation ids OF THIS CORPUS is
+    #    clause ②'s SUBJECT -- a prompt-specific core -- and is exactly what every round so far has
+    #    lacked. A dict whose keys are the home release's prompt ids still cannot transport, and
+    #    scoring it would emit an empty artifact that reads as a clean run.
+    per_conv = None
     if isinstance(core, dict):
         vals = list(core.values())
         crit = vals[0] if vals else []
         if len(core) > 1 and not all(v == crit for v in vals):
-            print(f"  REFUSING: {a.core} is PROMPT-KEYED ({len(core)} distinct criterion sets). It "
-                  f"cannot transport to a corpus whose prompt ids it has never seen, and scoring it "
-                  f"here would emit an empty artifact that reads as a clean run. Exit 2.")
-            return 2
+            data_probe = load_second(corpus, a.convs, a.seed)
+            corpus_convs = {d[0] for d in data_probe}
+            overlap = len(corpus_convs & set(core))
+            if overlap < 0.5 * len(corpus_convs):
+                print(f"  REFUSING: {a.core} is keyed on ids this corpus does not have "
+                      f"({overlap}/{len(corpus_convs)} conversations covered). Scoring it would emit "
+                      f"an empty artifact that reads as a clean run. Exit 2.")
+                return 2
+            per_conv = {k: [c for c in v if str(c).strip()] for k, v in core.items()}
+            crit = vals[0]
+            print(f"  CONVERSATION-KEYED core accepted: {overlap}/{len(corpus_convs)} conversations "
+                  f"covered. This is clause ②'s SUBJECT, not its comparator.", flush=True)
     else:
         crit = list(core)
     crit = [c for c in crit if str(c).strip()]
@@ -127,16 +142,30 @@ def main() -> int:
     data = load_second(corpus, a.convs, a.seed)
     if not data:
         print("  UNRUNNABLE: no usable interaction. Exit 2, never 0."); return 2
+    if per_conv is not None:
+        # ⚠ an interaction whose conversation the generator failed to parse has NO criteria. It is
+        #   DROPPED and COUNTED, never silently scored with someone else's core -- that would be
+        #   the sham (wrong-conversation criteria) leaking into the real arm.
+        before = len(data)
+        data = [d for d in data if per_conv.get(d[0])]
+        print(f"  dropped for no generated core: {before - len(data)} of {before} interactions",
+              flush=True)
+        if not data:
+            print("  UNRUNNABLE: every interaction dropped. Exit 2."); return 2
 
     from covalx.judge import Judge, build_prompt
     prompts, meta = [], []
+    ks = set()
     for cid, iid, _pr, cands in data:
+        cs = per_conv[cid] if per_conv is not None else crit
+        ks.add(len(cs))
         for rid, text, score, chosen, _turn in cands:
-            for j, c in enumerate(crit):
+            for j, c in enumerate(cs):
                 prompts.append(build_prompt(c, text, max_reply=a.max_reply))
                 meta.append(f"{cid}|{iid}|{rid}|{j}")
     print(f"  corpus     : {corpus.name}", flush=True)
-    print(f"  criteria   : {len(crit)} (prompt-blind)", flush=True)
+    print(f"  criteria   : {sorted(ks)} per conversation "
+          f"({'CONVERSATION-KEYED' if per_conv is not None else 'prompt-blind'})", flush=True)
     print(f"  convs      : {len({d[0] for d in data})}  interactions: {len(data)}", flush=True)
     print(f"  judge calls: {len(prompts):,}", flush=True)
 
@@ -150,10 +179,19 @@ def main() -> int:
     prov = {"core": str(a.core), "corpus": str(corpus), "model": str(a.model),
             "batch": int(a.batch), "convs": int(a.convs), "seed": int(a.seed),
             "n_convs": len({d[0] for d in data}), "n_interactions": len(data),
-            "n_calls": len(prompts), "n_criteria": len(crit),
+            "n_calls": len(prompts),
             "producer": "corebench/judge_transport.py", "producer_sha256": PRODUCER_SHA256,
-            "criteria_sha256": hashlib.sha256(
-                json.dumps(sorted(crit), sort_keys=True).encode()).hexdigest()}
+            # ⛔ THE HASH MUST COVER WHAT WAS ACTUALLY USED. Before this fix `criteria_sha256` hashed
+            #    `crit`, which for a conversation-keyed core is merely the FIRST conversation's four
+            #    lines -- so a 2,200-set arm would have been stamped as though it ran one set, and
+            #    two different generated arms could carry the SAME hash. A provenance field that
+            #    cannot distinguish the arms it stamps is worse than none: it looks like a check.
+            "core_mode": "conversation_keyed" if per_conv is not None else "prompt_blind",
+            "n_criteria": (sorted(ks) if per_conv is not None else len(crit)),
+            "n_criterion_sets": (len(per_conv) if per_conv is not None else 1),
+            "criteria_sha256": hashlib.sha256(json.dumps(
+                {k: sorted(v) for k, v in sorted(per_conv.items())} if per_conv is not None
+                else sorted(crit), sort_keys=True).encode()).hexdigest()}
     out = pathlib.Path(a.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(out, meta=np.array(meta), sat=np.asarray(sat, np.float32),

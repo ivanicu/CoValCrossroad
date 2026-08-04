@@ -79,14 +79,54 @@ def main():
                     help="generate from a DIFFERENT prompt's conversation")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--batch", type=int, default=16)
+    # ⭐ ADDED 2026-08-04 (R433). REUSE, NOT REBUILD: the FEWSHOT, `parse`, the generation loop and
+    #    the sham are unchanged and shared between corpora, so a difference between the two arms
+    #    cannot be a difference between two generators. Only the LOADER is new, because
+    #    `load_join` is hardcoded to the home release's two files.
+    #    ⚠ On the second corpus the unit is the CONVERSATION, not the prompt: `judge_transport`
+    #    keys satisfaction as `conv|inter|resp|j`, and clause ② speaks of a core generated from
+    #    the conversation. Generating per interaction would silently answer a different question.
+    ap.add_argument("--corpus", default="home", choices=("home", "second"))
+    ap.add_argument("--second-path", default=str(ROOT / "data" / "utterances.jsonl"))
+    ap.add_argument("--convs", type=int, default=2200)
+    ap.add_argument("--seed", type=int, default=0)
     a = ap.parse_args()
 
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM
-    from covalx.judge import load_join
-    joined = load_join(ROOT / "data" / "comparisons.jsonl",
-                       ROOT / "data" / "conversation_rubrics.jsonl")
-    items = [(pid, text_of(pr["prompt"]["messages"])) for pid, pr, _r in joined]
+    if a.corpus == "home":
+        from covalx.judge import load_join
+        joined = load_join(ROOT / "data" / "comparisons.jsonl",
+                           ROOT / "data" / "conversation_rubrics.jsonl")
+        items = [(pid, text_of(pr["prompt"]["messages"])) for pid, pr, _r in joined]
+    else:
+        # the SAME conversation sample judge_transport draws, so the generated core covers exactly
+        # the interactions that will be scored -- a mismatch here would silently shrink the arm.
+        import collections
+        convs = collections.OrderedDict()
+        with open(a.second_path) as f:
+            for line in f:
+                if not line.strip():
+                    continue
+                r = json.loads(line)
+                c = r.get("conversation_id")
+                if c is None:
+                    continue
+                convs.setdefault(c, []).append((int(r.get("turn") or 0),
+                                                str(r.get("user_prompt") or "")))
+        rng = np.random.default_rng(a.seed)
+        ids = sorted(convs)
+        take = ids if len(ids) <= a.convs else [ids[i] for i in
+                                                sorted(rng.choice(len(ids), a.convs, replace=False))]
+        items = []
+        for c in take:
+            seen, txt = set(), []
+            for _t, p in sorted(convs[c]):
+                if p and p not in seen:            # one interaction repeats its prompt per response
+                    seen.add(p); txt.append(p)
+            items.append((c, " ".join(txt)[:900]))
+        print(f"  corpus=second · conversations {len(items)} of {len(ids)} · "
+              f"unit = CONVERSATION", flush=True)
     if a.limit:
         items = items[:a.limit]
     if a.sham:                              # SHAM: same generator, wrong conversation
