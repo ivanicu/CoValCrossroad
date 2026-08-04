@@ -47,8 +47,21 @@ that retracts something true. **What would settle it** is constructing a k=1 cor
 
 | | admits |
 |---|---|
-| **as IMPLEMENTED** — clause ③ applied by its hand-written 4-arm set | **5**: `coval_core, topw_k3, topw_k4, topw_k6, topw_k8` |
-| **as WRITTEN** — ③ also excluding `topw_k`, per this document's own DERIVED finding | **1**: `coval_core` |
+| ~~as IMPLEMENTED — hand-written 4-arm set~~ | ~~5~~ — **superseded, R444** |
+| **as WRITTEN, now also as implemented** | **1**: `coval_core` |
+
+⭐ **CLOSED 2026-08-04 (R444), by a DECISION rather than an experiment.** The set was corrected to
+match the text, and the choice was **forced**: weakening the text was preferable only while ③-as-
+written looked unenforceable, and R443 showed `select_core.py` names every selector consuming
+annotator importance. `assurance/clause3_as_written.py` now derives ③ from the source —
+**target-readers** (`oracle_k`, `indep_k`, `greedy_k`) **and w-readers** (`topw_k`, `topabs_k`,
+`topwvar_k`), but **not** `topvar_k`, whose own comment calls the spread *"a property of the
+responses, never of the human target"*. ③ goes from excluding **4** to **14** of 42; the extension
+goes from **5** to **1**. ⚠ **7** arms have provenance the source cannot classify (`coval_core`,
+`gen`, `generic`, `promptecho`, shams) and are returned **UNKNOWN, never silently admitted** —
+`coval_core` survives on R443's separate containment measurement, not on anything ③ can decide.
+⚠ **`[unchallenged]`** — this standard prescribes an adversary for a judgement call; agent dispatch
+was unavailable, so the decision is recorded as unchallenged, not as clean.
 
 ⭐ **Neither is the published five** (`coval_core, topabs_k4, topvar_k4, topw_k4, topwvar_k4`) —
 only **2 of 5** overlap. The definition's boundary runs along the **selector** axis, not the k axis:
@@ -92,7 +105,7 @@ clause gets refuted.
 |---|---:|---|---|
 | **①** better than a random draw of the prompt's own rubric | **0 of 41** | **DERIVED** — the region where ① could bind is empty by arithmetic (`GAP ≥ SLACK` on every arm) | R347 |
 | **②** better than a prompt-blind set | **33 of 42** | **MEASURED** — carries the whole boundary among label-free arms | R360 |
-| **③** no prompt labels | **4 of 42** | **DERIVED** that it excludes the label-users; **MEASURED** that nothing else can | R360 |
+| **③** no prompt labels | **14 of 42** | **DERIVED** from the source, not hand-listed (R444) — target-readers *and* w-readers | R360·R444 |
 | **④** better than every criterion-free rule | **0 of 42** | **MEASURED** — coverage of this space is 42/42 | R440 |
 
 ⭐ **④'s zero is the argument, not an embarrassment.** On this release ④ **costs nothing** — it

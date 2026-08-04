@@ -1,0 +1,34 @@
+{
+ "decision": "correct the SET to match the TEXT",
+ "forced_by": "R443 showed clause \u2462 as written is mechanically enforceable from select_core.py",
+ "clause3_excludes_before": 4,
+ "clause3_excludes_after": 14,
+ "newly_excluded": [
+  "topabs_k4",
+  "topw_k1",
+  "topw_k12",
+  "topw_k2",
+  "topw_k3",
+  "topw_k4",
+  "topw_k4_sham",
+  "topw_k6",
+  "topw_k8",
+  "topwvar_k4"
+ ],
+ "extension_before": 5,
+ "extension_after": 1,
+ "extension": [
+  "coval_core"
+ ],
+ "unknown_provenance": [
+  "coval_core",
+  "coval_core_sham",
+  "gen",
+  "gen_sham",
+  "generic",
+  "promptecho",
+  "promptecho_sham"
+ ],
+ "n_arms": 42,
+ "adversary": "unavailable \u2014 [unchallenged]"
+}

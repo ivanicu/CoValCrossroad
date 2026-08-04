@@ -57,7 +57,17 @@ def derive():
     a = art("R360_*")
     if a:
         out["clause2_excludes"] = (len(a["arms"]) - len(a["clause2_admits"]), "R360")
-        out["clause3_excludes"] = (len(a["clause2_admits"]) - len(a["clause23_admits"]), "R360")
+        # ⚠ REPOINTED 2026-08-04 (R444). This derived R360's 4 = |②admits| - |②∧③admits|, which
+        #    is what the row said while ③ was a hand-written list. R444 corrected ③ to be derived
+        #    from `select_core.py` and the row now carries 14. Re-anchoring to the old text would
+        #    re-assert a superseded number; deleting the anchor would lose the check. So it points
+        #    at R444's artifact, which is what the document now states.
+        d444_ = next(A24.glob("R444_*"), None)
+        f444_ = (d444_ / "results" / "r444_decision.json") if d444_ else None
+        a444_ = json.loads(f444_.read_text()) if (f444_ and f444_.exists()) else None
+        out["clause3_excludes"] = ((a444_["clause3_excludes_after"], "R444") if a444_
+                                   else (len(a["clause2_admits"]) - len(a["clause23_admits"]), "R360"))[0], \
+            ("R444" if a444_ else "R360")
         out["n_arms_r360"] = (len(a["arms"]), "R360")
         out["sweep_levels"] = (len(a["sweep"]), "R360")
         out["label_users_min"] = (min(len(r["labels"]) for r in a["sweep"]), "R360")
@@ -448,6 +458,20 @@ def derive():
     else:
         for k in ("r443_cont", "r443_sham", "r443_n"):
             out[k] = (None, "R443")
+    # R444 -- the reconciliation. Both the BEFORE and AFTER counts are anchored: a corrected number
+    # with no record of what it replaced is how a reconciliation becomes indistinguishable from a
+    # number that was always there.
+    d444 = next(A24.glob("R444_*"), None)
+    f444 = (d444 / "results" / "r444_decision.json") if d444 else None
+    a = json.loads(f444.read_text()) if (f444 and f444.exists()) else None
+    if a:
+        out["r444_after"] = (a["clause3_excludes_after"], "R444")
+        out["r444_before"] = (a["clause3_excludes_before"], "R444")
+        out["r444_ext_after"] = (a["extension_after"], "R444")
+        out["r444_unknown"] = (len(a["unknown_provenance"]), "R444")
+    else:
+        for k in ("r444_after", "r444_before", "r444_ext_after", "r444_unknown"):
+            out[k] = (None, "R444")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -603,7 +627,7 @@ def derive():
 ASSERTIONS = {
     "clause1_excludes":      r"\*\*(\d+) of 41\*\*",
     "clause2_excludes":      r"\*\*(\d+) of 42\*\*",
-    "clause3_excludes":      r"\*\*(\d+) of 42\*\*\s*\|\s*\*\*DERIVED\*\* that it excludes",
+    "clause3_excludes":      r"no prompt labels \| \*\*(\d+) of 42\*\*",
     "admitted_2B":           r"\*\*(\d+)\*\* arms admitted at Qwen3\.5-2B-Base",
     "admitted_08B":          r"\*\*(\d+)\*\* at\s*\n?\s*Qwen3\.5-0\.8B-Base",
     "n_arms_r301":           r"on all (\d+) arms",
@@ -705,11 +729,20 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r444_after":     r"excluding \*\*\d+\*\* to \*\*(\d+)\*\* of 42",
+    "r444_before":    r"excluding \*\*(\d+)\*\* to \*\*\d+\*\* of 42",
+    "r444_ext_after": r"goes from \*\*5\*\* to \*\*(\d+)\*\*",
+    # ⚠ SAME BUG AS TWO ROUNDS AGO, AND I WROTE THE WORD AGAIN. The first version matched
+    #    `(?:Seven|(\d+))`; "Seven" won the alternation, group(1) was None, and the gate
+    #    crashed on `.replace`. A claim meant to be checked has to carry a DIGIT -- an
+    #    alternation that can match without capturing is a pattern that fails silently right
+    #    up until it fails loudly.
+    "r444_unknown":   r"⚠ \*\*(\d+)\*\* arms have provenance the source cannot classify",
     "r443_cont": r"only \*\*([\d.]+)\*\* of its criteria appear verbatim",
     "r443_sham": r"cross-prompt sham of exactly \*\*([\d.]+)\*\*",
     "r443_n":    r"sham of exactly \*\*[\d.]+\*\*, over \*\*(\d+)\*\* prompts",
-    "r442_impl":    r"hand-written 4-arm set \| \*\*(\d+)\*\*:",
-    "r442_writ":    r"own DERIVED finding \| \*\*(\d+)\*\*:",
+    "r442_impl":    r"hand-written 4-arm set~~ \| ~~(\d+)~~",
+    "r442_writ":    r"now also as implemented\*\* \| \*\*(\d+)\*\*:",
     "r442_overlap": r"only \*\*(\d+) of 5\*\* overlap",
     "r441_withk":     r"of \*\*(\d+)\*\* arms with a k readable",
     "r441_k1":        r"exactly \*\*(\d+)\*\* has k=1",
