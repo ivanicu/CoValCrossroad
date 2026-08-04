@@ -477,8 +477,22 @@ weighting alone moves **2 of 10** ranks (positions 9 and 10). Redrawing the *sam
 never move in any draw; position 4 moves in 10 of 30.** So the mid-table ordering is
 permutation-draw noise, and R429's own *"ranks 5–10"* named the wrong boundary and the wrong cause.
 **Which null is correct remains UNVERIFIED** — that needs a corpus with known truth.
+
+⭐ **And the weighting gap is 10× smaller on the quantity anyone reports.** R430's ~0.013 is the
+CONV/INTER difference **on the null**. On the **excess** — agreement minus null, which is what every
+round quotes — R431 measures it at **at most 0.0050** across all ten pairs, because reweighting
+moves the agreement and the null *together* and the difference largely cancels. That is consistent
+with R430's two headline Δ differing by only **0.0008**, and it is why the weighting choice does not
+threaten any excess number in this document. **Neither weighting is size-confounded:** **0 of 30**
+within-stratum size-association cells clear BH(q=0.10), and the apparent n=2 association at
+rho ≈ **-0.19** is a granularity artifact the permutation null carries too (**-0.2116 ± 0.0203**,
+observed **+1.21 sd inside it**). ⚠ **What R431 could not explain:** after standardising the stratum
+mix the gap is inside its own floor for only **7 of 10** pairs — short of the 8 pre-registered — and
+for some pairs standardisation makes it *larger*. Those 3 pairs are an open residual, and the
+world they landed in was not among the three the round declared.
 → [`R429`](A24_what_the_definition_costs/R429_is_the_tightest_pair_a_resolved_claim) ·
-[`R430`](A24_what_the_definition_costs/R430_is_the_null_gap_the_null_or_the_weighting)
+[`R430`](A24_what_the_definition_costs/R430_is_the_null_gap_the_null_or_the_weighting) ·
+[`R431`](A24_what_the_definition_costs/R431_is_the_excess_statistic_size_confounded)
 
 ---
 

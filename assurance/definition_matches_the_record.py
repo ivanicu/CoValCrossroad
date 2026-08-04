@@ -234,6 +234,23 @@ def derive():
     else:
         for k in ("r430_wmoves", "r430_nullmed", "r430_pos4"):
             out[k] = (None, "R430")
+    # R431 -- the size-confound round. Anchored because it CORRECTS a scope a reader would
+    # otherwise carry from R430: the ~0.013 is the gap on the NULL, and the gap on the EXCESS is
+    # 10x smaller. A correction that is not re-derivable is the one sentence nobody can check.
+    d431 = next(A24.glob("R431_*"), None)
+
+    def r431(stem):
+        f = (d431 / "results" / stem) if d431 else None
+        return json.loads(f.read_text()) if f and f.exists() else None
+    a = r431("r431_size_confound.json")
+    if a and a.get("world") != "UNVERIFIED":
+        out["r431_maxgap"] = (f"{max(abs(r['gap_raw']) for r in a['gap_rows']):.4f}", "R431")
+        out["r431_surv"] = (a["cells_surviving"], "R431")
+        out["r431_cells"] = (a["cells_tested"], "R431")
+        out["r431_stdin"] = (a["std_inside"], "R431")
+    else:
+        for k in ("r431_maxgap", "r431_surv", "r431_cells", "r431_stdin"):
+            out[k] = (None, "R431")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -485,6 +502,10 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r431_maxgap":           r"at \*\*at most ([\d.]+)\*\* across all ten pairs",
+    "r431_surv":             r"\*\*(\d+) of 30\*\*\s*\n?within-stratum size-association cells",
+    "r431_cells":            r"\*\*\d+ of (30)\*\*\s*\n?within-stratum size-association cells",
+    "r431_stdin":            r"inside its own floor for only \*\*(\d+) of 10\*\* pairs",
     "r430_convperm":         r"\*\*CONV/PERM (\d+) of 10",
     "r430_convanly":         r"CONV/ANLY (\d+)\s*\n?of 10",
     "r430_interperm":        r"INTER/PERM (\d+) of 10",
