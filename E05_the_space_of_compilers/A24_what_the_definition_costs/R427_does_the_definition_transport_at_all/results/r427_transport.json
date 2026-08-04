@@ -1,0 +1,58 @@
+{
+  "chance": 0.4194336566211566,
+  "controls": {
+    "ceil_ok": true,
+    "floor_ok": true,
+    "n_conv": 2200,
+    "placebo": 0.0,
+    "plant": 1.0,
+    "shuffle": 0.4179668021372567,
+    "tiebreak_ok": "True"
+  },
+  "d_chance": 0.017923056110556106,
+  "d_length": -0.07221120293847566,
+  "first": 0.43748656141837955,
+  "generic": {
+    "acc": 0.4373567127317127,
+    "n": 2200
+  },
+  "length": 0.5095679156701884,
+  "mde": 0.01709461664393314,
+  "mde_chance": 0.01696220013349393,
+  "mde_length": 0.025279266624893704,
+  "missing": [
+    "vacuous",
+    "randblind_s0",
+    "randblind_s1",
+    "randblind_s2"
+  ],
+  "n_tie": 10,
+  "n_units": 7342,
+  "provenance": {
+    "batch": 32,
+    "convs": 2200,
+    "core": "corebench/results/core_generic.json",
+    "corpus": "/home/ivan/research.trustworthy-ai.coval-deep-analysis.build.lg.private.editable/data/utterances.jsonl",
+    "criteria_sha256": "a7b2e43c4decb1daded401fa658462dc694ad79aa1e793061ebfc555344d134b",
+    "model": "/mnt/e/data.ai-models.local-model-store.storage.xl.private.readonly/Qwen3.5-2B-Base",
+    "n_calls": 74048,
+    "n_convs": 2200,
+    "n_criteria": 4,
+    "n_interactions": 7344,
+    "producer": "corebench/judge_transport.py",
+    "producer_sha256": "b19a97ccca8e92b2e7779142a5e922ab82cf62bf3adba1ef46eefd4466a78071",
+    "seed": 0
+  },
+  "randblind": {},
+  "source_name": "run.py",
+  "source_sha256": "92f837bde7c20da0730e31a37960292245d4219de7a7dcd40ee3a2c0d8692335",
+  "tie_rate": 0.001362026695723236,
+  "tiebreak_curve": {
+    "first": 0.4373567127317127,
+    "id": 0.4373567127317127,
+    "id_last": 0.4372771672771672,
+    "random": 0.43729610667110663
+  },
+  "tiebreak_spread": 7.954545454552653e-05,
+  "verdict": "W_LENGTH"
+}
