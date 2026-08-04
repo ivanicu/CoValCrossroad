@@ -4,8 +4,11 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**336 rounds** in **5 epochs** and **24 arcs**, numbered to **R340** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (332 rounds carry results.)
+**337 rounds** in **5 epochs** and **24 arcs**, numbered to **R341** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**331** rounds carry a
+non-smoke result; the previous *332* was one too many, recounted against
+[`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py), which names the
+six that carry none.)
 
 ⚠ **The claim count has a narrower population than the round count, and adding them would mislead.**
 Both consolidators below re-derive on every run and were re-run at R340: the ledger reports
@@ -196,6 +199,19 @@ grouped data until the caller says whether the unit is the observation or the gr
 [`covalx/robust.py`](covalx/robust.py) is a calibrated jackknife whose verdict is three-valued,
 because its own threshold turned out to be a distribution. Both failed their first attack; both
 attacks are in the repo.
+
+**And the gates get it wrong too.** `point estimate inside its own interval` is the most
+unarguable check in this repo — it needs no knowledge of the estimand and the guard's own ledger
+calls the implication **sound**. It is not sound for one named class: a **ratio estimator summarised
+by its bootstrap mean**. R235 publishes `eta = mean(d_core/gap)` beside a percentile interval over
+the same bootstrap array; when the denominator approaches zero the replicates are Cauchy-like and
+the mean sits outside its own central 95% with nothing wrong — **13 distinct cells do, up to
+offcentre 2.48**. The gate has never fired on them only because `eta` is not a name its regex
+recognises. Also counted for the first time: **583 published intervals with `lo == hi`**, which the
+`inverted` test misses because it compares strictly.
+The same round retracts its predecessor's closing sentence — *"the largest unexamined population in
+the repo"* was **one round and one key pair**, and the day of reading it proposed was not owed.
+→ [`R341`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R341_is_the_skipped_population_real)
 
 ---
 

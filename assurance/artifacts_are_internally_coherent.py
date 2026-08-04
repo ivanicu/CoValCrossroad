@@ -30,7 +30,25 @@ THE PROXY LEDGER
 ----------------
 PROPERTY    the artifact's numbers are mutually consistent.
 PROXY       these two relations hold on unambiguous pairs.
-IMPLICATION violation => inconsistent          SOUND, and this gates on it.
+IMPLICATION violation => inconsistent          SOUND, and this gates on it -- WITH ONE NAMED
+                                               EXCEPTION, measured at R341 and not hypothetical:
+                                               A RATIO ESTIMATOR SUMMARISED BY ITS BOOTSTRAP MEAN.
+                                               R235 publishes eta = mean(d_core/gap) beside
+                                               eta_ci = percentile(d_core/gap, 2.5/97.5) over the
+                                               SAME bootstrap array (R235 run.py:644,675,503). When
+                                               `gap` approaches zero the ratio is Cauchy-like, so
+                                               the MEAN of the replicates can sit far outside their
+                                               own central 95% with nothing whatever wrong: 13
+                                               distinct cells do, at |offcentre| up to 2.48. This
+                                               guard has never fired on them only because `eta` is
+                                               not a MEANISH name. If a ratio ever gets a MEANISH
+                                               name, invariant 1 will FAIL A CORRECT ARTIFACT --
+                                               the false-CONVICTION direction, which is as
+                                               permanent as a false acquittal because nobody
+                                               re-examines a claim its own author withdrew.
+                                               A violation is therefore: inconsistent, OR the point
+                                               is a ratio's mean. The second is checkable only in
+                                               the SOURCE, never in the artifact.
             holds     => the artifact is right  NOT SOUND. A round can be perfectly
                                                 self-consistent and wrong about the
                                                 world. These catch INCOHERENCE, never
@@ -81,7 +99,8 @@ def scan(root: pathlib.Path):
     # the violating ones, so a triage built on its output could only ever see nodes already known
     # to be outside their interval -- a population pre-filtered to the positives, which cannot
     # clear anything. Nothing that existed before reads this key and no verdict changes.
-    out = {"outside": [], "contradict": [], "inverted": [], "all_pairs": [], "n_pairs": 0, "n_flagged": 0,
+    out = {"outside": [], "contradict": [], "inverted": [], "degenerate": [],
+           "all_pairs": [], "n_pairs": 0, "n_flagged": 0,
            "n_stem": 0, "n_sole": 0, "skipped_sole_null": [], "skipped_ci_spoken_for": []}
 
     def walk(o, rid, path):
@@ -99,6 +118,14 @@ def scan(root: pathlib.Path):
         for ck, cv in cks:
             if cv[0] > cv[1]:
                 out["inverted"].append((rid, path or "<root>", ck, cv))
+            # ⚠ ADDED at R341, REPORTED not gated. `inverted` is lo > hi, STRICTLY, so an interval
+            # asserting ZERO uncertainty passes it silently and no other check looks at it. 573
+            # were found the first time anyone counted, and they are not obviously wrong -- a
+            # parameter pinned at a grid boundary legitimately has lo == hi. But an unexamined
+            # class of 573 that every gate is structurally blind to is worth a number in the
+            # banner, because silence is what let it reach 573.
+            elif cv[0] == cv[1]:
+                out["degenerate"].append((rid, path or "<root>", ck, cv))
         # invariant 1 pairs a mean with a CI when the pairing is UNAMBIGUOUS, by either
         # of two routes (entry 198):
         #   (a) STEM-MATCHED   -- the round names them together, `gap` / `gap_ci`
@@ -211,6 +238,12 @@ def main() -> int:
           f"significance flag; {len(r['skipped_sole_null'])} node(s) skipped because their only "
           f"visible mean was a null summary, {len(r['skipped_ci_spoken_for'])} because the CI's own "
           f"stem names another key")
+    print(f"  ⚠ and {len(r['degenerate'])} interval(s) with lo == hi -- zero asserted uncertainty. "
+          f"REPORTED, not gated:\n    `inverted` tests lo > hi strictly, so nothing else in this "
+          f"suite ever looks at them (R341).")
+    print(f"  ⚠ the 5,157 'CI stem names another key' skips are ONE round and ONE key triple "
+          f"(R235's\n    eta/eta_ci), and a source read at R341 confirms the decline is correct in "
+          f"every one.\n    The count is real; it is not a repo-wide blind spot.")
     # FLOOR: an empty population is "nothing to check" (2), never "clean" (0). With no
     # artifacts to scan this check finds no violations, and reporting that as a pass
     # would be silence mistaken for an acquittal -- the exact failure attack_the_suite
