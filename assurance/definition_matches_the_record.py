@@ -361,6 +361,26 @@ def derive():
         for k in ("r437_home_bar2", "r437_home_bar4", "r437_home_gap", "r437_home_mde",
                   "r437_sec_bar2", "r437_sec_bar4", "r437_sec_gap", "r437_sec_mde"):
             out[k] = (None, "R437")
+    # R438 -- the within-release attack. The two RESOLVED gaps and the selection-inflation triple
+    # are anchored: the inflation numbers are the ones that would be quietly dropped if the FIXED /
+    # RESELECTED choice were ever made silently, which is what the round exists to prevent.
+    d438 = next(A24.glob("R438_*"), None)
+    f438 = (d438 / "results" / "r438_within_release_flip.json") if d438 else None
+    a = json.loads(f438.read_text()) if (f438 and f438.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        fx = {c["n"]: c for c in a["cells"] if c["mode"] == "FIXED"}
+        rs = {c["n"]: c for c in a["cells"] if c["mode"] == "RESELECTED"}
+        for n in (2, 3, 4):
+            out[f"r438_gap{n}"] = (f"{fx[n]['gap']:+.4f}", "R438")
+            out[f"r438_mde{n}"] = (f"{fx[n]['mde']:.4f}", "R438")
+            out[f"r438_infl{n}"] = (f"{rs[n]['bar4'] - fx[n]['bar4']:+.4f}", "R438")
+        out["r438_n2"] = (fx[2]["n_int"], "R438")
+        out["r438_n4"] = (fx[4]["n_int"], "R438")
+    else:
+        for n in (2, 3, 4):
+            out[f"r438_gap{n}"] = (None, "R438"); out[f"r438_mde{n}"] = (None, "R438")
+            out[f"r438_infl{n}"] = (None, "R438")
+        out["r438_n2"] = (None, "R438"); out["r438_n4"] = (None, "R438")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -618,6 +638,17 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r438_gap2":  r"n=2 \| [\d,]+ \| [\d.]+ \| [\d.]+ \| [\d.]+ \| \*\*([+\-][\d.]+)\*\*",
+    "r438_gap3":  r"n=3 \| [\d,]+ \| [\d.]+ \| [\d.]+ \| [\d.]+ \| ([+\-][\d.]+) \|",
+    "r438_gap4":  r"n=4 \| [\d,]+ \| [\d.]+ \| [\d.]+ \| [\d.]+ \| \*\*([+\-][\d.]+)\*\*",
+    "r438_mde2":  r"n=2 \| [\d,]+ \|(?: [\d.]+ \|){3} \*\*[+\-][\d.]+\*\* \| ([\d.]+)",
+    "r438_mde3":  r"n=3 \| [\d,]+ \|(?: [\d.]+ \|){3} [+\-][\d.]+ \| ([\d.]+)",
+    "r438_mde4":  r"n=4 \| [\d,]+ \|(?: [\d.]+ \|){3} \*\*[+\-][\d.]+\*\* \| ([\d.]+)",
+    "r438_infl2": r"\*\*measured\*\*\s*\n?\(([+\-][\d.]+) / [+\-][\d.]+ / [+\-][\d.]+\)",
+    "r438_infl3": r"\*\*measured\*\*\s*\n?\([+\-][\d.]+ / ([+\-][\d.]+) / [+\-][\d.]+\)",
+    "r438_infl4": r"\*\*measured\*\*\s*\n?\([+\-][\d.]+ / [+\-][\d.]+ / ([+\-][\d.]+)\)",
+    "r438_n2":    r"n=2 \| ([\d,]+) \|",
+    "r438_n4":    r"n=4 \| ([\d,]+) \|",
     "r437_home_bar2": r"`random_k4_s0` \*\*([\d.]+)\*\*",
     "r437_home_bar4": r"`min_ttr` \*\*([\d.]+)\*\*",
     "r437_home_gap":  r"\*\*([+\-][\d.]+)\*\* vs MDE [\d.]+ · RESOLVED \| \*\*②\*\*",

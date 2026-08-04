@@ -431,9 +431,29 @@ be compared in magnitude**. ⚠ And at home **both bars sit below chance** (A2's
 while the real arms reach 0.51–0.64) — which is *why* ② binds there: a reference nearer chance is a
 **higher** bar than a systematically wrong rule. ⚠ What is NOT established: that the max of the two
 bars is the *right* bar, or that no third regime exists where both go slack.
+✅ **AND R438 ATTACKED THAT ONTOLOGY WHERE IT WAS MOST LIKELY TO BREAK, AND IT HELD.** A structural
+claim resting on n=2 releases is attacked most cheaply from *inside* one: if the GAP's sign flips
+across strata of a single release, "release" is not the variable. Splitting the second release by
+n_responses — the one axis that exists, since **home has 4 responses by construction** and the two
+releases share no stratifier:
+
+| stratum | interactions | chance | BAR2 | BAR4 | GAP | MDE | |
+|---|---|---|---|---|---|---|---|
+| n=2 | 5,204 | 0.5000 | 0.5081 | 0.5600 | **+0.0519** | 0.0283 | RESOLVED |
+| n=3 | 454 | 0.3333 | 0.4053 | 0.4449 | +0.0396 | 0.0948 | — |
+| n=4 | 1,684 | 0.2500 | 0.2815 | 0.3884 | **+0.1069** | 0.0490 | RESOLVED |
+
+**2 of 3 resolve, both positive** — the sign holds across strata where **chance itself moves from
+0.2500 to 0.5000**, so both bars had every opportunity to cross and did not. ⭐ The GAP also **grows
+with n**: `generic` decays toward chance as responses are added while the criterion-free rule does
+not. ⚠ **One attack survived is one attack survived** — this does not establish the framing is
+right, and whether a stratum flip and a release flip are one phenomenon needs a shared axis that
+does not exist. ⚠ Selection inflation from re-choosing the best rule per stratum was **measured**
+(+0.0000 / +0.0022 / +0.0000), not assumed away.
 → [`R435`](A24_what_the_definition_costs/R435_is_a_sufficiency_clause_even_statable) ·
 [`R436`](A24_what_the_definition_costs/R436_does_clause_four_exclude_anything_at_home) ·
-[`R437`](A24_what_the_definition_costs/R437_do_the_two_bars_invert_between_releases)
+[`R437`](A24_what_the_definition_costs/R437_do_the_two_bars_invert_between_releases) ·
+[`R438`](A24_what_the_definition_costs/R438_does_the_gap_flip_inside_one_release)
 
 ---
 
