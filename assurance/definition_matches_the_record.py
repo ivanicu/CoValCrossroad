@@ -77,6 +77,12 @@ def derive():
     out["closure_k_count"] = (len(a["ks"]) if a else None, "R355")
     a = art("R358_*")
     out["closure_violations_08B"] = (a["totals_08b"]["45"] if a else None, "R358")
+    a = art("R369_*")
+    if a:
+        out["dfloor_exact"] = (round(a["decomposition"]["exact"]["d_floor"], 4), "R369")
+        out["dcore_exact"] = (round(a["decomposition"]["exact"]["d_core"], 4), "R369")
+    else:
+        out["dfloor_exact"] = (None, "R369"); out["dcore_exact"] = (None, "R369")
     a = art("R368_*")
     if a:
         out["transport_exact"] = (round(a["matched_contrast"]["exact"], 4), "R368")
@@ -179,6 +185,9 @@ ASSERTIONS = {
     # R368 — transport measured; its numbers travel with the clause.
     "transport_exact":       r"by \*\*\+(\d\.\d+) against an MDE",
     "transport_mde":         r"against an MDE of (\d\.\d+)\*\*",
+    # R369 — the decomposition; its two numbers travel with the caveat.
+    "dfloor_exact":          r"is \*\*\+(\d\.\d+)\*\* on exact",
+    "dcore_exact":           r"under both \(\*\*\+(\d\.\d+)\*\*",
 }
 
 

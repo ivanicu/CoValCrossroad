@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**362 rounds** in **5 epochs** and **24 arcs**, numbered to **R368** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**356 of the 362 carry a
+**363 rounds** in **5 epochs** and **24 arcs**, numbered to **R369** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**357 of the 363 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -558,6 +558,21 @@ on the responses it was built for** and above random on responses it was not —
 recorded as the residual rather than narrated. R233's limit stands: fresh responses carry **no human
 rankings**, so this is transport of the *compilation*, never agreement with people. Gate **32 of 32**.
 → [`R368`](E05_the_space_of_compilers/A24_what_the_definition_costs/R368_transport_matched_on_difficulty)
+
+**⛔ And that contrast decomposes the opposite way under the two metrics — R368 computed the floors
+and never printed them.** `Δfloor` is **+0.0308** on exact and **−0.0187** on pair: under one
+defensible metric the random baseline **rises** on the fresh arm, under the other it **falls**. So
+*"the core transports"* was stated as though the baseline held still. ⚠ **The instability is
+bounded, and saying otherwise would overstate it**: `Δcore` is positive under both (**+0.1300**,
++0.0425) and larger in magnitude than `Δfloor` in both, so the core term dominates either way — what
+is metric-dependent is the **attribution of magnitude**, not the direction. ⛔ **And the check that
+looked like it settled the underlying question was wrong**: the floor is drawn from `full`'s own
+criteria while the core is a rewrite, and `core ⊆ full` held in **250 of 250** prompts — until the
+index sets turned out to be `(0,1,2,3)` in 241 and `(0,1,2)` in 9. **Purely positional. An indexing
+artifact carrying no information about criterion identity.** Separating subset-advantage from
+transport needs a floor drawn from criteria **outside `full`** — the next instrument, not a caveat.
+Gate **34 of 34**.
+→ [`R369`](E05_the_space_of_compilers/A24_what_the_definition_costs/R369_the_transport_contrast_decomposes_two_ways)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

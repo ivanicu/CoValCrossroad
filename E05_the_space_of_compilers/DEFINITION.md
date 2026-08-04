@@ -214,8 +214,20 @@ and it is recorded as the residual.
 ⚠ **R233's limit does not move:** the fresh responses carry **no human rankings**, so this is
 transport of the **compilation** — agreement with the full rubric — and never agreement with people.
 
+⛔ **AND THE CONTRAST DECOMPOSES THE OPPOSITE WAY UNDER THE TWO METRICS (R369).** R368 computed the
+floors per stratum per arm and never printed them: `Δfloor` is **+0.0308** on exact and **−0.0187** on
+pair — under one metric the random baseline **rises** on the fresh arm, under the other it **falls**.
+The instability is **bounded**: `Δcore` is positive under both (**+0.1300**, +0.0425) and larger in
+magnitude than `Δfloor` in both, so the core term dominates either way. What is metric-dependent is
+the **attribution of magnitude**, not the direction.
+
+⚠ And a structural asymmetry remains unseparated: the floor is drawn from **`full`'s own criteria** —
+among the items summed to make the target — while the core is a rewrite. A difference-in-differences
+cancels that only if it is additive across arms, which the flipping `Δfloor` puts in doubt.
+Separating it needs a floor drawn from criteria **outside `full`**.
+
 **So transport is a candidate clause, not yet one**: the evidence is positive, marginal, on one
-judge, and about the rubric rather than about people.
+judge, about the rubric rather than about people, and its decomposition is metric-dependent.
 
 ## The one sentence
 
