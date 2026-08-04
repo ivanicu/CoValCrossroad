@@ -79,6 +79,15 @@ measured part is that **nothing else can do its job**:
 **Strengthening clause ② removes the arms the definition exists to admit and leaves exactly the arms
 it exists to exclude.**
 
+⛔ **AND THAT IS 2B-SPECIFIC (R361).** At Qwen3.5-0.8B-Base the label-user count over the same sweep
+falls to **0** — references *do* purge them there. The rank dominance is **resolved at 2B**
+(gap −4.50, exact two-sided p = **0.0159** over all C(9,4)=126 assignments) and **not resolved at
+0.8B** (+2.25, p = 0.2857), so the inversion is a direction rather than a finding.
+
+**Corrected: clause ③ is unsubstitutable at 2B; at 0.8B a strong enough reference substitutes for
+it.** The *rule* still stands — it is a **provenance** requirement that applies by inspection and
+needs no judge at all. That is a weaker and different argument than irreplaceability.
+
 And its wording is load-bearing: it must say **held out from the PROMPT**, not "from the
 construction". Three fitted arms pass the weaker reading, and in the quintile where two annotator
 halves disagree **their entire advantage is gone**. *(R295)*
@@ -110,7 +119,12 @@ member is not. *(R224, R228, R230)*
 
 ## The one sentence
 
-> **What survives every attack in this campaign is clause ③.** Clause ① is a consequence, clause ②
-> holds only under a named judge, and the size is a bound rather than a number — but *a core may not
-> be built from the labels of the prompt it is for*, and no strengthening of any other clause can
-> substitute for saying so.
+> **What survives every attack in this campaign is clause ③ — but on provenance, not on
+> irreplaceability.** Clause ① is a consequence, clause ② holds only under a named judge, the size is
+> a bound rather than a number, and *"nothing else can do clause ③'s job"* is **2B-specific**
+> (R361). What is left is the rule itself: **a core may not be built from the labels of the prompt
+> it is for** — which is checkable by inspection, needs no judge, and is the one claim here that no
+> instrument can empty.
+
+⚠ *That closing sentence was published unconditionally one round earlier and was corrected by
+attacking it rather than by building on it. It had survived exactly one round.*

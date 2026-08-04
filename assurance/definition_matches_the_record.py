@@ -77,6 +77,10 @@ def derive():
     out["closure_k_count"] = (len(a["ks"]) if a else None, "R355")
     a = art("R358_*")
     out["closure_violations_08B"] = (a["totals_08b"]["45"] if a else None, "R358")
+    a = art("R361_*")
+    out["labels_min_08B"] = (a["min_labels"]["0.8B"] if a else None, "R361")
+    out["rank_p_2B"] = (round(a["rank_null"]["2B"]["two_sided_p"], 4) if a else None, "R361")
+    out["rank_null_n"] = (a["rank_null"]["2B"]["n"] if a else None, "R361")
     return out
 
 
@@ -93,6 +97,11 @@ ASSERTIONS = {
     "sweep_levels":          r"Across all \*\*(\d+)\*\* reference levels",
     "label_users_min":       r"never falls below (\d+)",
     "five_at_strongest":     r"published five fall to \*\*(\d+)\*\*",
+    # R361 — added when the closing claim was corrected. A claim that changes must bring its
+    # check with it, or the gate silently certifies the OLD sentence's numbers.
+    "labels_min_08B":        r"falls to \*\*(\d+)\*\* — references \*do\* purge them there",
+    "rank_p_2B":             r"exact two-sided p = \*\*(\d\.\d+)\*\*",
+    "rank_null_n":           r"C\(9,4\)=(\d+) assignments",
 }
 
 

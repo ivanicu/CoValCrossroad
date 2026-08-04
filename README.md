@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**354 rounds** in **5 epochs** and **24 arcs**, numbered to **R360** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**348 of the 354 carry a
+**355 rounds** in **5 epochs** and **24 arcs**, numbered to **R361** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**349 of the 355 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -438,6 +438,21 @@ definition whose clause ① never binds and whose clause ② is emptied by a cha
 is the one part measured to be irreplaceable.** ⛔ My pre-registered branches had no home for this
 and the default one printed *"at most partly replaceable"* — the reverse of the data.
 → [`R360`](E05_the_space_of_compilers/A24_what_the_definition_costs/R360_which_clause_is_load_bearing)
+
+**⛔ And the sentence I published as the campaign's one unconditional claim survived exactly one
+round.** R360 ran at **2B only**; its register waved the second judge off as *"nothing is admitted
+there anyway"*, which is true about **admission** and does not settle a claim about an **ORDERING**.
+Recomputed at 0.8B: the label-user count over the same 45-level sweep **falls to 0** — references
+*do* purge them there — so **clause ③'s irreplaceability is 2B-specific.** The rank dominance is
+**resolved at 2B** (gap −4.50, exact two-sided **p = 0.0159** over all **C(9,4)=126** assignments)
+and **not resolved at 0.8B** (+2.25, p = 0.2857), where the label-users **split** — one ranks 1st,
+one ranks 8th. ⛔ My first branch fired `W-INVERTED` on a bare comparison of two means and was about
+to publish *"the judges disagree about which arms to exclude"* — **an unresolved statistic
+preempting a resolved one**; the verdict now rests on the sweep, which needs no rank. **What
+survives is the rule on PROVENANCE grounds**, which apply by inspection and need no judge — a weaker
+and different argument than irreplaceability. `DEFINITION.md` is corrected, and its gate now checks
+**13 of 13** claims.
+→ [`R361`](E05_the_space_of_compilers/A24_what_the_definition_costs/R361_does_clause_three_hold_at_the_second_judge)
 
 **⭐ And the definition is now stated once, in one place, with a gate holding it to the record.**
 [`E05/DEFINITION.md`](E05_the_space_of_compilers/DEFINITION.md) — `FORMULATION.md` is 2,389 lines of
