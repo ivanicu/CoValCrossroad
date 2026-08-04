@@ -77,6 +77,12 @@ def derive():
     out["closure_k_count"] = (len(a["ks"]) if a else None, "R355")
     a = art("R358_*")
     out["closure_violations_08B"] = (a["totals_08b"]["45"] if a else None, "R358")
+    a = art("R364_*")
+    if a:
+        out["channel_mde"] = (round(a["delta_mde"], 4), "R364")
+        out["plant_detected"] = (round(a["positive"]["0.5"][0], 4), "R364")
+    else:
+        out["channel_mde"] = (None, "R364"); out["plant_detected"] = (None, "R364")
     a = art("R363_*")
     if a:
         out["overlap_pct"] = (round(a["same"]["mean"] * 100, 1), "R363")
@@ -126,6 +132,9 @@ ASSERTIONS = {
     "overlap_ratio":         r"ratio \*\*(\d+)×\*\*",
     "n_annotators":          r"\*\*([\d,]+)\*\* distinct annotators",
     "full_overlap_prompts":  r"\*\*(\d+) of 968\*\* prompts have complete",
+    # R364 — the channel was sized; the bound and its power come with the claim.
+    "channel_mde":           r"MDE of (\d\.\d+)\*\*, with three seeds",
+    "plant_detected":        r"detected from \*\*\+(\d\.\d+)\*\* upward",
 }
 
 

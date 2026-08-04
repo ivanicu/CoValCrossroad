@@ -106,8 +106,18 @@ overlap and **none** has zero).
 
 ⚠ **MEASURED** is the overlap — a census, with no judge anywhere in it. **DERIVED**, from that plus
 this release's own finding that rubrics are authored *after* ranking, is that `topw_k` is **not
-producible from the conversation alone**. **UNMEASURED** is how much of its advantage the channel
-carries — that needs the weights rebuilt from held-out annotators.
+producible from the conversation alone**.
+
+✅ **AND THE CHANNEL CARRIES NOTHING MEASURABLE (R364).** Rebuilding `topw_k4`'s weights from
+annotators overlapping the evaluators in a swept fraction, the margin is **flat**: paired
+`margin(d=1) − margin(d=0)` is **−0.0000 against its own MDE of 0.0096**, with three seeds
+straddling zero. A **planted** person-specific channel is detected from **+0.0297** upward and not
+at g=0, so the null has demonstrated power; the sham that permutes *which annotator's scores carry
+which id* lands inside the MDE, so the dose was measuring identity.
+
+⚠ **A bound, not a zero:** `topw_k4`'s margin is +0.0139, so this rules out a channel larger than
+~69% of it and says nothing about a smaller one. **So clause ③'s wording was wrong and stays
+corrected; the published five are not compromised at this resolution.**
 
 ---
 

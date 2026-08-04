@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**357 rounds** in **5 epochs** and **24 arcs**, numbered to **R363** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**351 of the 357 carry a
+**358 rounds** in **5 epochs** and **24 arcs**, numbered to **R364** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**352 of the 358 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -484,6 +484,20 @@ ranking, is that `topw_k` is **not producible from the conversation alone**. **U
 much of its advantage the channel carries. `DEFINITION.md`'s clause ③ is narrowed; its gate now
 checks **19 of 19**.
 → [`R363`](E05_the_space_of_compilers/A24_what_the_definition_costs/R363_clause_three_does_not_close_the_rubric_channel)
+
+**✅ And the channel is open and carries nothing measurable — so the wording was wrong and the arms
+are not.** Rebuilding `topw_k4`'s weights from annotators overlapping the evaluators in a swept
+fraction, the margin is **flat**: paired `margin(d=1) − margin(d=0)` = **−0.0000 against its own MDE
+0.0096**, three seeds straddling zero (+0.0035 / +0.0001 / −0.0036). ⚠ **A bound, not a zero** —
+`topw_k4`'s margin is +0.0139, so this rules out a channel above ~69% of it and says nothing about a
+smaller one. ⛔ **v1 had placebo, sham and split and NO positive control**, and I was one commit from
+publishing a null with no demonstrated power; a planted person-specific channel is now detected from
+**+0.0297** upward and **not** at g=0. The sham — permuting *which annotator's scores carry which
+id* — lands inside the MDE, so the dose really was measuring identity. **And the question was
+unaskable with the standard tools**: `score.py:88 load_targets()` reads `annotator_id` on line 103
+and returns `(ranking, demographics)`, dropping it, so no round using that loader could align a
+ranking to the person who wrote the rubric. Gate now checks **21 of 21**.
+→ [`R364`](E05_the_space_of_compilers/A24_what_the_definition_costs/R364_how_much_does_the_rubric_channel_carry)
 
 **⭐ And the definition is now stated once, in one place, with a gate holding it to the record.**
 [`E05/DEFINITION.md`](E05_the_space_of_compilers/DEFINITION.md) — `FORMULATION.md` is 2,389 lines of
