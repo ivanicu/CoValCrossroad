@@ -85,6 +85,15 @@ is the false-acquittal direction and is permanent, because nobody re-examines a 
 - **R294's reference is not closed** at any resolvable k.
 - **The k=4 closure/reading-A gap is 0.25 MDE and flips `topw_k4`.**
 
+## ⛔ MY NEXT-GRADIENT LINE WAS FALSE — R333
+
+It said *"every A2 here samples ONE annotator, so the cheapest precision gain is the annotator
+axis"*. Both halves are wrong. `load_targets()` returns **every** assessment and this round already
+averages over all of them (**mean 16.1, 15,593 annotations**); and **R306 performed that migration
+26 rounds ago**. R333 measures what is actually left: at m=16 the MDE sits at **1.08× its m→∞
+floor** — infinite annotation buys **7.6%** — and crossing the 0.0027 band needs **~12,500 prompts,
+12.9× the release.** **The admitted set is structurally unresolvable here.**
+
 ## Scope
 
 968 prompts (398 for `promptecho`) with ≥2 annotators · Qwen3.5-2B-Base under R234's canonical
