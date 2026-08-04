@@ -1,0 +1,16 @@
+{
+  "controls": {
+    "identity": 1.0,
+    "shuffle": -0.00258831097300436
+  },
+  "cross_corr": 0.6245035456481977,
+  "k": 4,
+  "n_responses": 18512,
+  "ragged": 0,
+  "source_name": "response_effect.py",
+  "source_sha256": "e01688c461a6ed4a13d28e97e90a36d2eed0ccea73537f37387a0c522710c093",
+  "ss_criterion": 0.03858264716944053,
+  "ss_residual": 0.19838930378149067,
+  "ss_response": 0.763028049049069,
+  "verdict": "W_RESPONSE_EFFECT"
+}
