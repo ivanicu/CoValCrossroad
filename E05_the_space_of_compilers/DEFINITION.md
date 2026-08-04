@@ -247,6 +247,17 @@ still clearly beats the best generalising prompt-blind set.** ⚠ Every number h
 pipeline anchor at the committed n=968 reproduces **0.9841** exactly. ⭐ **R452's concentration is
 CONFIRMED, not narrowed:** under R452's own selection rule the top subset's win share goes
 33.47% (train) → **33.68%** [31.29%, 36.43%] (held out). *(R453)*
+
+⭐ **AND THAT BOUND SATURATES IN POOL BREADTH, SO IT IS NOT A POOL-SIZE ARTIFACT (R454).** Drawing the
+reference class from a random `W` of the 16 pool criteria and re-running the hold-out at each breadth,
+the position of the best fixed set between floor and core is **0.4518 · 0.5817 · 0.6639 · 0.6296 ·
+0.6337** for `W = 8, 10, 12, 14, 16` — a rise of **+0.1298** from W=8 to W=10 and then a plateau
+(sd over W=12…16 = **0.0153**). **R453's W=16 measurement is in the saturated regime: more breadth
+would not move it.** ⚠ What this does NOT say is that the fraction is breadth-independent — below
+W≈12 it clearly is not. The anchor reproduces R453's **0.5773** exactly through an independent path.
+⛔ **And it remains a property of THIS prompt-blind family**: exactly one family on this site has
+breadth ≥ 16 (`genericpool16`; `full` is the rubric, `provenance_probe` covers 4 prompts), so
+`n_prompt_blind_families_with_breadth = 1` and no resampling makes a second. *(R454)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

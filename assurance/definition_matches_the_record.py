@@ -504,6 +504,20 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R454 -- breadth saturation. The PLATEAU sd is anchored with the rise, because "saturates" is
+    # a claim about both and either alone would let the shape drift.
+    d454 = next(A24.glob("R454_*"), None)
+    f454 = (d454 / "results" / "r454_breadth.json") if d454 else None
+    a = json.loads(f454.read_text()) if (f454 and f454.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r454_pos8"] = (f"{a['pos_curve'][0]:.4f}", "R454")
+        out["r454_pos12"] = (f"{a['pos_curve'][2]:.4f}", "R454")
+        out["r454_plateau"] = (f"{a['plateau_sd_W12_16']:.4f}", "R454")
+        out["r454_fams"] = (a["n_prompt_blind_families_with_breadth"], "R454")
+    else:
+        for k in ("r454_pos8", "r454_pos12", "r454_plateau", "r454_fams"):
+            out[k] = (None, "R454")
+
     # R453 -- the hold-out. The held-out share is anchored WITH the core's half-sample bar, because
     # the claim is the position BETWEEN floor and core and either endpoint alone lets it drift.
     d453 = next(A24.glob("R453_*"), None)
@@ -899,6 +913,10 @@ ASSERTIONS = {
     "r453_corehalf": r"own half-sample bar of \*\*([\d.]+)\*\*",
     "r453_g0":       r"destroyed-objective g=0 at\s*\n?\*\*([\d.]+)\*\*",
     "r453_win":      r"33\.47% \(train\) → \*\*([\d.]+)%\*\*",
+    "r454_pos8":    r"core is \*\*([\d.]+) · [\d.]+ · [\d.]+ · [\d.]+ ·\s*\n?[\d.]+\*\* for `W = 8",
+    "r454_pos12":   r"core is \*\*[\d.]+ · [\d.]+ · ([\d.]+) · [\d.]+ ·\s*\n?[\d.]+\*\* for `W = 8",
+    "r454_plateau": r"sd over W=12…16 = \*\*([\d.]+)\*\*",
+    "r454_fams":    r"`n_prompt_blind_families_with_breadth = (\d+)`",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

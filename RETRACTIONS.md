@@ -9030,3 +9030,68 @@ per-prompt vs fixed construction), R452's null (a permutation null for a permuta
 statistic), and now this one. **Every one was caught, and every one cost a run.** The mechanical
 remedy that would have caught all three costs nothing: **before writing any anchor, state the two
 sides as sentences and check they name the same object, the same statistic, and the same n.**
+
+---
+
+## 255 · A discriminator built from two collinear variables — the granularity test (R454, caught in-round)
+
+**What was built.** R454 declared a world `W-GRANULAR` so the resolution artifact could *win* rather
+than be dismissed, and tested it with `corr(1/C(W,4), POS)` over the breadths W = 8…16. It returned
+**−0.9685** and the branch fired, calling the whole breadth effect a resolution artifact.
+
+**Why it is meaningless.** Over five points, **`1/C(W,4)` and POS are both monotone in W**. They are
+collinear by construction and `ρ ≈ −1` *whatever the cause*. The test cannot separate "granularity
+did it" from "breadth did it" — **it put both the hypothesis and the confound on the same axis.**
+
+**The valid discriminator is arithmetic and takes one line.** One quantisation step of POS is
+`(1/|class|)/(core − floor)` = **0.0210** at W=8; the observed shift is **0.1818 = 8.7 steps**.
+Quantisation cannot produce it.
+
+⭐ **The generalisable form, and it is not on this list yet:** *a correlation between two monotone
+functions of the same driver is never a discriminator.* Declaring the artifact world was right; the
+statistic chosen to test it silently re-encoded the very variable it was supposed to rule out.
+**Tell: the artifact's proxy and the hypothesis's proxy are both functions of the same swept
+parameter.** Remedy: price the artifact in the units of the outcome — how many quantisation steps,
+how many MDEs — never by correlating it with the outcome.
+
+---
+
+## 256 · "FLAT in breadth" — a verdict string asserting a shape the grid contradicts (R454, caught in-round)
+
+**What was printed.** The `W-CLAUSE` branch: *"the within-family fraction is FLAT in breadth over
+W=8..16."* The grid: **0.4518 · 0.5817 · 0.6639 · 0.6296 · 0.6337.** That is a **rise of +0.1298 then
+a plateau** (sd over W=12…16 = 0.0153), not flat.
+
+**Why the branch allowed it.** The pre-registered kill compared `|POS(16) − POS(8)| = 0.1818` against
+0.20 and passed — **because it pairs one point in the rising regime with one in the plateau.** A
+two-point test on a two-regime curve reports the average of two different facts, and the word "flat"
+was typed to describe a verdict rather than computed from the data behind it. §4's *verdict string is
+not a computation*, sub-kind ④.
+
+**Repair.** The shape is now computed and printed: the rise between the first two cells and the sd
+across the plateau. **And the honest reading is stronger than either pre-registered world** — R453's
+W=16 measurement sits in the **saturated** regime, so it is not pool-size limited; but the fraction is
+**not** breadth-independent, and below W≈12 it clearly is not.
+
+⚠ **The threshold was written before I knew the curve had two regimes**, which is the general hazard:
+a pre-registered two-point contrast presumes a monotone or flat response. **Pre-registering a SHAPE
+test alongside the magnitude test costs nothing and would have caught this at design time.**
+
+---
+
+## 257 · The definition gate caught a loose anchor pattern — second time in three rounds (R454)
+
+**What happened.** The anchor for R454's `POS(W=12)` used a pattern matching five dot-separated
+numbers. **It matched R450's r-ladder instead** — `0.1661 · 0.4184 · 0.7187 · 0.9215 · 0.9868` — and
+reported the document saying **0.7187** where the artifact says **0.6639**.
+
+**Why it matters beyond the typo.** The pattern had no anchor unique to its own sentence, and the
+document now contains several five-number ladders. **A grep is a measuring instrument** — this file's
+own §4 entry — and the gate is the positive control that caught it, exactly as designed. Fixed by
+anchoring on R454's own tail, `` for `W = 8 ``, which R450's sentence does not contain.
+
+⭐ **Worth recording because of what it says about the gate rather than the bug:** in three rounds it
+has caught an anchor **named** for one quantity and **pointed** at another (R450), and now one whose
+pattern matched a different round's sentence entirely. Both would have published a wrong number with
+a correct-looking citation. **An assurance gate that never fails is not evidence that the document is
+right; this one fails often enough to be believed when it passes.**
