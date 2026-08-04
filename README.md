@@ -51,6 +51,7 @@ Closes **structurally**, and not because its margins are large. Its reference cl
 **quality-degenerate**: members are per-prompt random draws, so they are exchangeable and there is no
 percentile for a reference to sit at. Measured, across-member sd over sampling error, **τ/se = 0.72
 against exchangeability's predicted 1/√2 = 0.707**; closure rate **0.0000**.
+→ `R334_why_clause_one_closes`
 
 **Clause ② — *better than the same number that never read the conversation at all*.** Named a class
 and **no member** for forty rounds. Its reference is now a **procedure**: the *lowest closed level*
@@ -59,6 +60,9 @@ resolvably better. Measured over **all 1,820** quadruples: a random reference ad
 blind class, the reference this project had been publishing admits **3 of 1,820**, and closure admits
 **0**. *Budget-matching — the obvious alternative — admits the baseline itself at all five readings
 tested, and is out.*
+→ `R327_clause2_names_no_reference` · `R328_the_three_readings_are_one_budget` ·
+`R329_the_budget_is_unobservable` · `R330_what_the_conservative_reading_costs` ·
+`R331_what_makes_a_clause2_reference_safe` · `R332_the_closure_level_derives_reading_A`
 
 **Clause ③ — *built without any human label for the conversation it describes*.** A source-reading,
 and its **testability** is now bounded from both sides. Detection through **performance** is refuted:
@@ -66,6 +70,8 @@ the leak slope correlates with arm quality at **r = +0.934**, and quality-adjust
 leaky arm sits **3.25 sd below** what its quality predicts. Detection through **selection** works for
 the release's one annotated rule family — held-out-arm **AUC 0.866** — and reaches **chance (0.510)**
 on a second mechanism, which the same features cannot see even trained on it (0.565).
+→ `R335_can_provenance_be_detected` · `R336_clause_three_tested_not_declared` ·
+`R337_the_wall_is_the_population` · `R338_does_the_signature_transfer_to_a_new_rule`
 
 ### ⛔ What the admitted set actually is
 
@@ -74,6 +80,7 @@ on a second mechanism, which the same features cannot see even trained on it (0.
 `topw_k3` 0.943 · `coval_core` 0.919 · `topw_k8` 0.882 · **`topw_k4` 0.763** — and two arms excluded
 at the point estimate, `topw_k2` at **0.130** and `generic` at **0.051**. **Clause ② carries 100% of
 that uncertainty**: `P(clause ①) = 1.000` for every arm with any clause-② mass.
+→ `R339_the_conjunction_is_a_different_object`
 
 ### ⛔ And it cannot be sharpened here
 
@@ -81,6 +88,7 @@ that uncertainty**: `P(clause ①) = 1.000` for every arm with any clause-② ma
 **spent** — at the release's median of 16 the MDE sits at **1.08× its m→∞ floor**, so infinite
 annotation buys **7.6%**. Reaching the band needs **~12,500 prompts, 12.9× this release.**
 **Deciding which arms clause ② admits is not achievable by re-analysis.**
+→ `R333_the_resolution_floor`
 
 ### ✅ It survives a deliberate adversary
 
@@ -92,13 +100,14 @@ floor), because disagreeing with the blind reference means disagreeing with the 
 **oracle** allowed to read labels *is* admitted (11.79× / 9.33×), so the search budget was
 sufficient and those three rejections are measurements rather than silence. *At 300 candidate
 subsets per prompt; a larger budget can only help the adversary.*
+→ `R340_the_definition_against_an_adversary`
 
 ---
 
 ## What was established
 
 Every number below states its unit, because five of seven headline figures in this project were
-published without one. The check that found that is [`HEADLINES.py`](HEADLINES.py) and it re-runs.
+published without one. The check that found that is [`HEADLINES.py`](assurance/HEADLINES.py) and it re-runs.
 
 ### The pipeline
 
@@ -155,7 +164,7 @@ Six things, each of which blocks a question someone will want to ask.
 | any refusal in the response set | **5 of 4,312** candidates decline. The most contested question in alignment was never put to the panel. |
 
 Full list, ordered by the concrete wrong answer each produces:
-[`DEFECTS.py`](DEFECTS.py) — **6 blocking, 16 serious, 8 noted, 16 clean.**
+[`DEFECTS.py`](assurance/DEFECTS.py) — **6 blocking, 16 serious, 8 noted, 16 clean.**
 
 ---
 
@@ -214,8 +223,8 @@ in [`EAR.md`](EAR.md), and [`PATHMAP.tsv`](PATHMAP.tsv) resolves any pre-2026-08
 **Three generated consolidators** — each re-derives from the data on every run, so a number in one
 that disagrees with a round means the *round* is stale:
 
-- [`DEFECTS.py`](DEFECTS.py) — every defect, by the wrong answer it produces
-- [`HEADLINES.py`](HEADLINES.py) — every headline mean under both estimands
+- [`DEFECTS.py`](assurance/DEFECTS.py) — every defect, by the wrong answer it produces
+- [`HEADLINES.py`](assurance/HEADLINES.py) — every headline mean under both estimands
 - [`db/ledger.py`](db/ledger.py) — the claim graph: standing, withdrawn, and every kill edge
 
 ---

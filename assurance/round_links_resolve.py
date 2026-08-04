@@ -83,7 +83,13 @@ def main() -> int:
             print(f"    {d}:{ln}  ->  {t}")
         print(f"\n1 gate(s) failed.")
         return 1
-    print("\nevery relative link resolves.")
+    print("\nevery PREFIXED link resolves.\n"
+          "  SCOPE, because the old wording overstated it: LINK only matches targets\n"
+          "  beginning E##_/rounds/data/assurance/covalx/scripts. A bare `DEFECTS.py` is\n"
+          "  never examined -- two such links sat broken on the front page while this\n"
+          "  printed 'every relative link resolves'. The regex is left alone, because\n"
+          "  widening it is a behaviour change nothing here has validated; what is fixed\n"
+          "  is the SENTENCE, so the unit it checks and the unit it claims are the same.")
     return 0
 
 
