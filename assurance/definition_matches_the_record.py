@@ -489,6 +489,21 @@ def derive():
     else:
         for k in ("r445_gen", "r445_genmde", "r445_core", "r445_sham", "r445_oracle", "r445_n"):
             out[k] = (None, "R445")
+    # R446 -- the reference sweep. The POINT quantile is anchored beside the ADMITTED share because
+    # the 25.8-point gap between them IS the finding; an anchor on only the share would let the
+    # comparison that makes it meaningful drift away.
+    d446 = next(A24.glob("R446_*"), None)
+    f446 = (d446 / "results" / "r446_reference_sweep.json") if d446 else None
+    a = json.loads(f446.read_text()) if (f446 and f446.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        c = a["cells"]
+        out["r446_gen"] = (f"{100*c['gen']['admitted_share']:.1f}", "R446")
+        out["r446_core"] = (f"{100*c['coval_core']['admitted_share']:.1f}", "R446")
+        out["r446_genq"] = (f"{100*c['gen']['point_quantile']:.1f}", "R446")
+        out["r446_refs"] = (a["n_refs"], "R446")
+    else:
+        for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
+            out[k] = (None, "R446")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -746,6 +761,10 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
+    "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
+    "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",
+    "r446_refs": r"Sweeping \*\*all ([\d,]+)\*\* size-4 subsets",
     "r445_gen":    r"`gen` scores\s*\n?\*\*([+\-][\d.]+) \[",
     "r445_genmde": r"against an MDE of ([\d.]+)\*\* — resolved",
     "r445_core":   r"`coval_core` scores \*\*([+\-][\d.]+) \[",

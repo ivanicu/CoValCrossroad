@@ -94,7 +94,17 @@ entire boundary at home separates the two by 0.0340 across a floor of ~0.015.** 
 quoting only the first half would make a 1.07× margin sound like a verdict. Controls: an oracle
 clears the reference by **+0.1702** (MDE 0.0184), the reference against itself is exactly 0, and the
 wrong-prompt sham fails by **more** (**-0.0669**) as it must.
-→ [`R445`](A24_what_the_definition_costs/R445_is_the_extension_empty_on_a_resolved_difference) ·
+✅ **AND THAT VERDICT SURVIVES EVERY ADMISSIBLE REFERENCE (R446).** R331's standing defect is that
+②'s reference `POOL[0:4]` was **chosen by file order**. Sweeping **all 1,820** size-4 subsets of the
+pool, paired per prompt over 968 prompts: `gen` is **resolvedly** better than **0.4%** of them and
+`coval_core` than **98.4%**, against an oracle admitted under **1820/1820**. **So the file-order
+choice did not manufacture the verdict.** ⭐ And the point-vs-resolved gap is its own finding: `gen`
+would be *"better"* than **26.2%** of references but is resolvedly better than 0.4% — a **25.8**-point
+gap that is the resolution effect made visible, and the reason the naive quantile sweep would have
+misled in the flattering direction. ⚠ This shows the ANSWER does not depend on the arbitrary choice;
+it does not FIX the choice, which remains R331's open defect.
+→ [`R446`](A24_what_the_definition_costs/R446_clause_two_over_every_admissible_reference) ·
+[`R445`](A24_what_the_definition_costs/R445_is_the_extension_empty_on_a_resolved_difference) ·
 [`R442`](A24_what_the_definition_costs/R442_the_extension_under_clause_three_as_written) ·
 [`R443`](A24_what_the_definition_costs/R443_does_clause_three_as_written_exclude_the_core_itself)
 
