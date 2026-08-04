@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**409 rounds** in **5 epochs** and **24 arcs**, numbered to **R416** — **53 standing claims, 13
+**410 rounds** in **5 epochs** and **24 arcs**, numbered to **R417** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1327,6 +1327,23 @@ all. ⚠ **Ruling out one branch's evidence is not evidence for the other** — 
 pipeline is stable, only that R415's measurement never bore on it. R415's README and `DEFINITION.md`
 are corrected in place.
 → [`R416`](E05_the_space_of_compilers/A24_what_the_definition_costs/R416_the_rerun_pairs_are_not_scoring_replicates)
+
+**The judge has no stochastic step, so the 0.116 was never scoring noise — and the GPU re-score both
+prior rounds proposed is not needed.** ⭐ **Rung 1 of the attack ladder**: *"gauge test, 3 lines, zero
+compute… cheapest kill available, always try first."* The transformation is **re-running**, and
+whether the output *can* differ under it is a property of the scoring path — **readable from source**.
+Scanned `Judge.score` and its call site for `do_sample` / `temperature` / `top_p` / `top_k` /
+`.generate(` / `multinomial`: **NONE**. The judge is, in its own words, *"scored not generated: one
+forward pass per pair"*, under `@torch.inference_mode()`, reading `sigmoid(logits[yes] − logits[no])`.
+⛔ So **R415's 0.116489 cannot be sampling noise**, and **R416's residual is `selection vs
+CONFIGURATION`, not `selection vs scoring noise`** — a configuration difference is not a noise floor.
+**R415 measured, R416 corrected the measurement, and both proposed a GPU re-score before anyone read
+the twenty lines that answer it.** ⚠ Against my own conclusion: a source scan **bounds what CAN vary,
+it does not measure what DOES** — this is an inference, and the verdict is about *admissibility* and
+*whether to spend the GPU*, not a measured floor; and the committed `.npz` files carry **no batch
+field**, so batch equality is **unrecoverable** and is the most likely non-stochastic explanation left
+standing.
+→ [`R417`](E05_the_space_of_compilers/A24_what_the_definition_costs/R417_the_judge_has_no_stochastic_step)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

@@ -33,6 +33,17 @@ branch was true, checkable against committed files, and **I listed it without te
 | | *"same arm, same code, different run"* corrected in **R415's README, `DEFINITION.md` and the front page** |
 | **RESIDUAL** | **selection vs scoring cannot be split** without re-scoring *identical* criteria — that needs the GPU, and it is the honest remainder |
 
+## ⚠ CORRECTION — R417: the residual is not "selection vs scoring noise"
+
+[`R417`](../R417_the_judge_has_no_stochastic_step) scanned the judge's scoring path and found **no
+stochastic-decoding construct at all** — the judge is *"scored not generated: one forward pass per
+pair"*, under `@torch.inference_mode()`.
+
+**So the residual below is mis-stated.** It is not *selection vs scoring noise* — it is **selection vs
+CONFIGURATION** (batch size, dtype, model path), and a configuration difference is not a noise floor.
+**The GPU re-score this round proposed is not needed for that question**, and rung 1 of the attack
+ladder answered it for free.
+
 ## ⚠ Ruling out one branch's evidence is not evidence for the other
 
 **This does not show the pipeline is stable.** It shows R415's measurement never bore on that

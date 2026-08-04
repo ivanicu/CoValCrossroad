@@ -1,0 +1,33 @@
+{
+  "controls": {
+    "neg_ok": true,
+    "plant_neg_clean": true,
+    "plant_pos": [
+      "do_sample",
+      "generate",
+      "temperature",
+      "top_p"
+    ],
+    "pos_ok": true
+  },
+  "head": "fdeb407d97d4",
+  "inference_not_measurement": true,
+  "movers": {
+    "batch": [
+      3,
+      "for i in range(0, len(prompts), self.batch):"
+    ],
+    "dtype": [
+      2,
+      "out = np.empty(len(prompts), dtype=np.float32)"
+    ]
+  },
+  "n_stochastic": 0,
+  "source_name": "run.py",
+  "source_sha256": "4068c78cd439aee5408e5b045a81756b76ca46f5a15d5b3f13344376ef65d842",
+  "stochastic_found": {
+    "corebench/judge_core.py": {},
+    "covalx/judge.py::score": {}
+  },
+  "verdict": "W_NO_SAMPLING"
+}
