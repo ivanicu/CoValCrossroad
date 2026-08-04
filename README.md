@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**353 rounds** in **5 epochs** and **24 arcs**, numbered to **R359** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**347 of the 353 carry a
+**354 rounds** in **5 epochs** and **24 arcs**, numbered to **R360** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**348 of the 354 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -424,6 +424,20 @@ observable. ⛔ And I twice declined validated evidence: 30 of the 42 arms reach
 **parity-controlled** (Δ +0.00131 vs MDE 0.01193, `parity_can_fail: True`), and refusing it left v1
 with 12 arms and **not one defined percentile**.
 → [`R359`](E05_the_space_of_compilers/A24_what_the_definition_costs/R359_can_clause_two_be_made_judge_invariant)
+
+**⭐ And one clause survives everything: ③ is unsubstitutable.** Running §4's mechanical test — *name
+an admissible object this clause excludes* — across all three at once: clause ① excludes **0**
+(derived, R347), clause ② excludes **33 of 42** (measured), clause ③ excludes **4** — and the four are
+exactly the arms that read the prompt's own labels, which is forced by what clause ③ *is*. The one
+non-forced question is whether a **stricter clause ② could do clause ③'s job**, and the answer is no,
+maximally: **across all 45 reference levels the label-user count never falls below 4**, while the
+published five fall to **0** at the strongest reference. At p=100 the only arms still admitted are
+`oracle_k4`, `oracle_k4_fit1`, `greedy_k4_fit1`, `indep_k4_fit1` — **strengthening clause ② removes
+the arms the definition exists to admit and leaves exactly the arms it exists to exclude.** So on a
+definition whose clause ① never binds and whose clause ② is emptied by a change of judge, **clause ③
+is the one part measured to be irreplaceable.** ⛔ My pre-registered branches had no home for this
+and the default one printed *"at most partly replaceable"* — the reverse of the data.
+→ [`R360`](E05_the_space_of_compilers/A24_what_the_definition_costs/R360_which_clause_is_load_bearing)
 
 **Three statements about the published reference, not four — and I had been counting one of them
 twice.** They are also not one finding arriving by three routes, which is what I expected to find:

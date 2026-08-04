@@ -307,6 +307,16 @@ The heading above says *"both clauses restated to say what they test."* Measured
 | ① | *"the same number drawn at random from that conversation's own rubric"* | `random_k4_s0` — **one fixed draw at k=4, seed 0**, for every arm | **not size-matched** (23 of 41 arms have k ≠ 4; the correct per-k references exist on disk, three seeds each, unused) and **not re-drawn** (one seed) |
 | ② | *"the same number that never read the conversation at all"* | `POOL[0:k]` — the **first k rows** of a curated 16-criterion pool | criterion sets that never read the conversation but were **crowd-written** do *no better* than clause ①'s own reference, and **2 of 5 are resolvably worse** (R348). The clause tests a **curated instrument**, not blindness — and *which* subset was decided by **file order**, at the **93.7th percentile of all 1,820 size-4 subsets** (rank 1707/1820, exhaustive) |
 
+> ⭐ **BUT CLAUSE ③ IS UNSUBSTITUTABLE (R360).** Running §4's per-clause test — *name an
+> admissible object this clause excludes* — clause ① excludes **0** (derived, R347), clause ②
+> **33 of 42** (measured), clause ③ **4**, and the four are exactly the label-users (forced).
+> The non-forced question is whether a stricter ② could do ③'s job: **no.** Across all 45
+> reference levels the label-user count **never falls below 4**, while the published five fall
+> to **0** at the strongest reference — at p=100 the only admitted arms are the four that read
+> the prompt's labels. **Strengthening clause ② leaves exactly what the definition exists to
+> exclude.** So of the three clauses, one excludes nothing, one is judge-emptied, and one is
+> irreplaceable — and they are not the ones the ordering suggests.
+>
 > ⛔ **AND CLAUSE ② CANNOT BE REPAIRED BY RESTATING IT RELATIVELY (R359).** The clause is
 > stated ABSOLUTELY — beat `POOL[0:k]`, a level every judge rescales — and the definition
 > admits **5 arms at 2B and 0 at 0.8B**. Self-normalising it (*beat the p-th percentile of the
