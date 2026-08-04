@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**358 rounds** in **5 epochs** and **24 arcs**, numbered to **R364** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**352 of the 358 carry a
+**359 rounds** in **5 epochs** and **24 arcs**, numbered to **R365** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**353 of the 359 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -498,6 +498,20 @@ unaskable with the standard tools**: `score.py:88 load_targets()` reads `annotat
 and returns `(ranking, demographics)`, dropping it, so no round using that loader could align a
 ranking to the person who wrote the rubric. Gate now checks **21 of 21**.
 → [`R364`](E05_the_space_of_compilers/A24_what_the_definition_costs/R364_how_much_does_the_rubric_channel_carry)
+
+**⭐ And the empty channel is NOT a 2B statement — the first claim in this definition to survive a
+change of judge.** R364's null ran through A2 and so through a judge, which is exactly the exposure
+that emptied clause ②, inverted an arm family's ordering, destroyed the size band's premise and cost
+clause ③ its irreplaceability. Re-run with **one input changed** — the same function computing both
+judges — the dose is flat at **both**: **−0.0000 vs MDE 0.0096** at 2B and **+0.0000 vs MDE 0.0107**
+at 0.8B. **0.8B's MDE is only 1.11× 2B's**, so that design *could* have excluded what 2B excluded —
+and the kill carried a pre-registered `W-UNINFORMATIVE` branch for the case where it could not
+(**silence, not agreement**), which did not fire. The planted channel is **detected at both judges
+and undetected at g=0 at both**, so neither null is silence. ⚠ Two judges can **refute**
+instrument-independence and never establish it, so what is earned is **"not refuted at a second
+judge"** — and at 0.8B the level itself is unresolved (−0.0126 vs 0.0145), making it a flat dose on a
+null level. Gate now checks **23 of 23**.
+→ [`R365`](E05_the_space_of_compilers/A24_what_the_definition_costs/R365_is_the_empty_channel_a_2B_statement)
 
 **⭐ And the definition is now stated once, in one place, with a gate holding it to the record.**
 [`E05/DEFINITION.md`](E05_the_space_of_compilers/DEFINITION.md) — `FORMULATION.md` is 2,389 lines of

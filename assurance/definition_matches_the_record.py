@@ -77,6 +77,12 @@ def derive():
     out["closure_k_count"] = (len(a["ks"]) if a else None, "R355")
     a = art("R358_*")
     out["closure_violations_08B"] = (a["totals_08b"]["45"] if a else None, "R358")
+    a = art("R365_*")
+    if a:
+        out["mde_ratio_08B"] = (round(a["delta"]["0.8B"][1] / a["delta"]["2B"][1], 2), "R365")
+        out["channel_mde_08B"] = (round(a["delta"]["0.8B"][1], 4), "R365")
+    else:
+        out["mde_ratio_08B"] = (None, "R365"); out["channel_mde_08B"] = (None, "R365")
     a = art("R364_*")
     if a:
         out["channel_mde"] = (round(a["delta_mde"], 4), "R364")
@@ -135,6 +141,9 @@ ASSERTIONS = {
     # R364 — the channel was sized; the bound and its power come with the claim.
     "channel_mde":           r"MDE of (\d\.\d+)\*\*, with three seeds",
     "plant_detected":        r"detected from \*\*\+(\d\.\d+)\*\* upward",
+    # R365 — the null survived a change of judge; its second-judge numbers come with it.
+    "channel_mde_08B":       r"\*\*\+0\.0000 vs MDE (\d\.\d+) at 0\.8B\*\*",
+    "mde_ratio_08B":         r"only \*\*(\d\.\d+)×\*\* 2B's",
 }
 
 

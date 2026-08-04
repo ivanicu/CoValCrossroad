@@ -119,6 +119,17 @@ which id* lands inside the MDE, so the dose was measuring identity.
 ~69% of it and says nothing about a smaller one. **So clause ③'s wording was wrong and stays
 corrected; the published five are not compromised at this resolution.**
 
+⭐ **AND IT IS NOT A 2B STATEMENT (R365).** The dose is flat at **both** judges — −0.0000 vs MDE
+0.0096 at 2B, **+0.0000 vs MDE 0.0107 at 0.8B** — and 0.8B's MDE is only **1.11×** 2B's, so that
+design could have excluded what 2B excluded. The planted channel is detected at **both** judges and
+undetected at g=0 at both, so neither null is silence. **After a change of judge emptied clause ②,
+inverted an arm family's ordering, destroyed the size band's premise and cost clause ③ its
+irreplaceability, this is the first claim here to come through unchanged.**
+
+⚠ Two judges can **refute** instrument-independence and never establish it, so what is earned is
+**"not refuted at a second judge"** — and at 0.8B the level itself is unresolved (−0.0126 vs 0.0145),
+so it is a flat dose on a null level.
+
 ---
 
 ## The size
