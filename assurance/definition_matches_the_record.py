@@ -504,6 +504,22 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R456 -- the annotator ladder. ALPHA is anchored with the m=16 cell, because the claim is that
+    # the gap does NOT resolve and alpha alone would read as a precision note rather than a bound.
+    d456 = next(A24.glob("R456_*"), None)
+    f456 = (d456 / "results" / "r456_annotators.json") if d456 else None
+    a = json.loads(f456.read_text()) if (f456 and f456.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        g16 = next(r for r in a["grid"] if r["m"] == 16)
+        out["r456_alpha"] = (f"{a['alpha']:.3f}", "R456")
+        out["r456_gap16"] = (f"{g16['gap']:.4f}", "R456")
+        out["r456_ratio16"] = (f"{g16['ratio']:.2f}", "R456")
+        out["r456_total"] = (a["annotators"]["total"], "R456")
+        out["r456_mderatio"] = (f"{a['mde_ratio']:.2f}", "R456")
+    else:
+        for k in ("r456_alpha", "r456_gap16", "r456_ratio16", "r456_total", "r456_mderatio"):
+            out[k] = (None, "R456")
+
     # R455 -- the strengthened clause. The GAP is anchored WITH the neutral arm, because the claim
     # is "the core specifically", and without `generic`'s unresolved zero the gap would only show
     # that something beats a cross-fitted pick.
@@ -937,6 +953,11 @@ ASSERTIONS = {
     "r455_oracle":  r"clears the same baseline by \*\*\+([\d.]+)\*\*",
     "r455_neutral": r"`generic` sits at \*\*([\u2212\-][\d.]+) \[",
     "r455_leaky":   r"IN-FOLD baseline gives\s*\n?\+([\d.]+)\*\*",
+    "r456_alpha":    r"exponent\s*\n?is α = ([\d.]+), not the",
+    "r456_gap16":    r"failing at \*\*m=16\*\* \(gap \*\*\+([\d.]+)\*\*",
+    "r456_ratio16":  r"MDE 0\.0104, ratio ([\d.]+)\)",
+    "r456_total":    r"max 46, \*\*([\d,]+)\*\* total",
+    "r456_mderatio": r"MDE falls just \*\*([\d.]+)×\*\*",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

@@ -9147,3 +9147,68 @@ revealed one that an unfairly strong in-sample baseline was hiding.** Worth stat
 every other entry on this list is about a design that flattered itself: *the same discipline that
 usually shrinks an effect can also be what makes a real one visible, and the direction is not
 something to assume.*
+
+---
+
+## 260 · "the MDE will fall as √(16/3)" — my own announced arithmetic, wrong by more than 2× (R455 → R456)
+
+**What was predicted.** R455's closing line: *"if the MDE falls as √(16/3) ≈ 2.3 suggests, +0.0141
+moves from 1.04× to ~2.4× its floor and stops being marginal."*
+
+**What was measured.** Sweeping the annotator count `m = 1,2,3,5,8,16,ALL` and fitting
+`MDE ~ m^−α`: **α = 0.208**, against √'s 0.500. The MDE falls **1.19×** from m=3 to all annotators,
+not 2.3×.
+
+**Why the prediction was wrong, and it is derivable in one line.** The MDE is `ZEFF·sd(d)/√968`
+over the **between-prompt** vector of gaps. More annotators shrink only the *annotator-noise*
+component of `sd(d)`; genuine prompt-level differences are untouched and set a floor. **√ is the
+exponent you get when annotator noise is the whole story, so it was always an upper bound.**
+
+⭐ **The generalisable form:** *a precision gain from more measurements per unit is bounded by the
+share of variance that lives within units*, and quoting √n without decomposing the variance assumes
+that share is 1. The fix costs nothing — **sweep the axis and fit the exponent instead of naming it.**
+
+---
+
+## 261 · R455's `W-STRONGER` narrows to a bound — resolution measured at one annotator setting (R456)
+
+**What was claimed.** R455: the released core clears the strengthened clause by **+0.0141**, CI
+[+0.0047, +0.0236], *resolved at all three seeds*.
+
+**What narrows it.** That was measured at **3 annotator draws**. Across the full ladder the gap is
+**positive in 7 of 7** cells but clears its own MDE in **6 of 7** — it fails at **m = 16**
+(gap +0.0095, MDE 0.0104, ratio **0.92**), which is the *median* annotator count and arguably the
+most defensible single specification.
+
+**The honest claim is a bound:** the released core sits above the best generalising prompt-blind set
+by **+0.0095 to +0.0191**. **Sign stable across every specification; resolution not.**
+
+⭐ **What makes this a measurement and not silence:** the oracle clears the same baseline at
+**8.5–11.6× its MDE at every m**. The design can resolve a large gap throughout — it simply cannot
+resolve this one. Without that cell, `W-LIMIT` would be indistinguishable from a broken instrument.
+
+⚠ **The mode is one this file already knows in the opposite direction.** §4's longest entry ends on
+*"nobody asks the cheapest question left: does the data have more to give?"* — after a case where it
+had **5× more**. Here the same question was asked and **the answer is no**: the unused annotators buy
+**19%** of precision, not 130%. **The lesson is not "the data always has more to give" — it is that
+you cannot tell from the inside which case you are in, so you count.** This negative is worth exactly
+what that positive was, and neither was knowable in advance.
+
+---
+
+## 262 · A population statistic quoted from the wrong population (R456, caught in-round)
+
+**What was said.** Reporting the annotator counts, I quoted **max = 1012** and designed a skew control
+around it.
+
+**What is true.** That is the full **1078**-prompt target file. This campaign's population is the
+**968** prompts where every arm is scored: min 4, median 16, mean 16.1, **max 46**, total **15,593** —
+which is exactly the figure §4's own entry cites.
+
+**Cost: nearly zero, and that is the point.** The control built for the phantom 1012-prompt (a CAP16
+variant) still ran and still passed (+0.0109 vs +0.0119), so no conclusion moved. **But a summary
+statistic computed on a superset and quoted as though it described the analysis population is the
+same defect as reporting a number without its scope** — eleven of twelve retractions in the audit that
+produced this standard were exactly that. **Tell: the statistic was computed in a different command
+than the one that defines the population.** Remedy: compute population descriptives *inside* the round
+that uses the population, never in the exploratory command that preceded it.

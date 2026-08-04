@@ -274,6 +274,19 @@ prompt-blind arm `generic` sits at **−0.0020 [−0.0086, +0.0045]**, *unresolv
 one that an unfairly strong in-sample baseline was hiding. **R453's 59.6% therefore stops being an
 objection to the definition** — it remains a true statement about how weak the original baseline was.
 ⚠ Stated against THIS prompt-blind family; exactly one with breadth exists. *(R455)*
+
+⛔ **AND THAT RESOLUTION CLAIM NARROWS TO A BOUND — THE DATA DID NOT HAVE MORE TO GIVE (R456).** Every
+A2 above uses 3 annotator draws while the release ships a median of 16 on this population (min 4, mean
+16.1, max 46, **15,593** total). Recomputing the strengthened gap across the whole annotator ladder
+`m = 1,2,3,5,8,16,ALL`: the gap is **positive in 7 of 7** cells but clears its own MDE in only
+**6 of 7**, failing at **m=16** (gap **+0.0095**, MDE 0.0104, ratio 0.92). ⭐ **The measured exponent
+is α = 0.208, not the 0.500 that √ would give** — the MDE falls just **1.19×** from m=3 to all
+annotators, so **the between-prompt spread is not annotator noise and no annotator count resolves
+this gap cleanly.** The honest statement is therefore a bound: the released core sits above the best
+generalising prompt-blind set by **+0.0095 to +0.0191**, sign stable across every specification,
+resolution not. ⭐ The oracle clears the same baseline at **8.5–11.6×** its MDE at every m, which is
+what makes this a measurement rather than silence: the design can resolve a large gap throughout and
+simply cannot resolve this one. *(R456)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*
