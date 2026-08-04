@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**379 rounds** in **5 epochs** and **24 arcs**, numbered to **R385** — **53 standing claims, 13
+**380 rounds** in **5 epochs** and **24 arcs**, numbered to **R386** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -857,6 +857,23 @@ precaution was right to take and its size was mine to measure, not to assert. �
 someone *chose* to write about, so **0.457 is an upper bound on the 243 that have none**, never a
 floor.
 → [`R385`](E05_the_space_of_compilers/A24_what_the_definition_costs/R385_can_the_artifact_write_the_finding)
+
+**And the draft reading did not survive one more measurement: a finding's numbers are 9% in the
+artifact that produced it.** R385's NEXT asked me to hand-write findings and compare — **not
+constructible here**, because I would write them and I have been appending to the root README all
+session, the document holding the targets. That arm leaks by construction and *"I did not use what I
+remember"* is unverifiable from outside, so it is **named as impossible rather than approximated**.
+The decision was still answerable without writing anything: a finding's checkable content is its
+**numbers**. Median per-round recall of a paragraph's numbers in its own artifact is **0.091** on
+numbers of ≥3 characters, against a permutation null of **exactly 0.000** — small *and* real,
+provenance rather than collision. **44% of rounds share no long number at all with their artifact**;
+7% share every one. ⛔ **The collision control is the whole result**: recall over *all* numbers is
+**0.500**, and without the long-number split I would have reported 50% and called generation a
+partial success — small integers collide between any two numeric texts, long decimals do not.
+⭐ **What it does to R385**: 46% top-1 came from vocabulary and verdict strings, not quantitative
+content, so a generated line drafts a round's **identity** and not its **finding**. **The 243 is a
+debt only writing can pay.**
+→ [`R386`](E05_the_space_of_compilers/A24_what_the_definition_costs/R386_what_the_artifact_cannot_say)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

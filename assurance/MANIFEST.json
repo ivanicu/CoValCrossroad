@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-08-04T13:00:53.675902+00:00",
- "git": "2a89669654d3455e685cb8771e8a2f5371c38326",
+ "generated_utc": "2026-08-04T13:07:53.919328+00:00",
+ "git": "b7e4bb240ef968b792371beebba6d975b145dacd",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -1570,6 +1570,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R385_can_the_artifact_write_the_finding/run.py": {
    "bytes": 17130,
    "sha256": "f19c706782e855c8b8a867884619b3b3bdf0f00ac91ce3f848291fc74fdf2116"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R386_what_the_artifact_cannot_say/run.py": {
+   "bytes": 15746,
+   "sha256": "c440e66ada5c181c768e3ff5da6c65723e1f4efbbc8b1cc08ec44a3c8ca95d46"
   },
   "assurance/DEFECTS.py": {
    "bytes": 14429,
@@ -4164,6 +4168,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R385_can_the_artifact_write_the_finding/results/r385_generation.json": {
    "bytes": 2799,
    "sha256": "5b72b08e76e61d400ef9b18ed1494b3f8a775d10ca43c3b7b2e35e0aa95a6fec"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R386_what_the_artifact_cannot_say/results/r386_numeric_recall.json": {
+   "bytes": 14420,
+   "sha256": "01a42b39f45388b93552c6bca85256db4e0f6e3a2751549a4590ca02ecf0a009"
   }
  },
  "claims": [

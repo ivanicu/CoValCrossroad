@@ -32,7 +32,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.8
+   "seconds": 2.7
   },
   "apply_outcome_scope.py": {
    "exit": 0,
@@ -53,14 +53,14 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 1.1
+   "seconds": 1.3
   },
   "attack_no_withdrawn_framings.py": {
    "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 5.9
+   "seconds": 6.4
   },
   "attack_outcome_variable_declared.py": {
    "exit": 1,
@@ -81,14 +81,14 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 48.9
+   "seconds": 47.2
   },
   "code_states_a_bound_the_reader_never_sees.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.0
+   "seconds": 2.1
   },
   "consistency.py": {
    "exit": 0,
@@ -144,7 +144,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.9
+   "seconds": 2.7
   },
   "manifest.py": {
    "exit": 0,
@@ -182,7 +182,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.5
+   "seconds": 0.4
   },
   "outcome_variable_declared.py": {
    "exit": 0,
@@ -196,7 +196,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.8
+   "seconds": 0.7
   },
   "pueue_wait.py": {
    "exit": 2,
@@ -210,7 +210,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.3
+   "seconds": 2.6
   },
   "readme_row_carries_the_verdict.py": {
    "exit": 2,
@@ -224,14 +224,14 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.7
+   "seconds": 2.5
   },
   "results_are_not_degenerate.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.9
+   "seconds": 1.0
   },
   "results_match_their_code.py": {
    "exit": 0,
@@ -252,7 +252,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 1.6
+   "seconds": 1.4
   },
   "round_links_resolve.py": {
    "exit": 0,
@@ -280,7 +280,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.2
+   "seconds": 0.1
   },
   "synthesis_cites_recent_work.py": {
    "exit": 2,
