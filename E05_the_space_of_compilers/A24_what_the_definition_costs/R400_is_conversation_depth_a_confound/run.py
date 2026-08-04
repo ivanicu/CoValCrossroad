@@ -218,15 +218,45 @@ def main() -> int:
     print(f"      CoVal conversations at those depths: "
           f"{sum(hc[d] for d in shared):,} of {sum(hc.values()):,}")
 
+    # ⛔ THE PRE-REGISTERED THRESHOLD WAS APPLIED TO THE WRONG QUANTITY, AND THE HISTOGRAMS MADE IT
+    #   OBVIOUS. `matched` counts second-corpus conversations at depths CoVal ALSO ATTESTS -- that is
+    #   SUPPORT overlap. A transport test needs PAIRS, so the pool at each depth is bounded by the
+    #   SMALLER side, and the balanced pool is sum_d min(hc[d], hs[d]). Shared support is not shared
+    #   mass: CoVal is 90.9% depth-1 and the second corpus contains ONE depth-1 conversation.
+    #   Both numbers and both verdicts are printed. The threshold is NOT retuned -- it is re-applied,
+    #   unchanged, to the quantity it should always have addressed, and the override is declared.
+    balanced = sum(min(hc[d], hs[d]) for d in shared)
+    per_depth = {d: (hc[d], hs[d], min(hc[d], hs[d])) for d in shared}
+    print(f"\n  ⛔ AND THE SUPPORT-OVERLAP COUNT ABOVE IS THE WRONG QUANTITY. A transport test needs")
+    print(f"     PAIRS, so each depth is bounded by the SMALLER side:")
+    print(f"      depth   CoVal   second   pairable")
+    for d in shared:
+        a, b, m = per_depth[d]
+        print(f"      {d:>5}  {a:>6,}  {b:>7,}  {m:>8,}")
+    print(f"      BALANCED POOL = {balanced:,}   (vs the {matched:,} 'matched' above)")
+
     print()
-    if matched >= 100:
+    print(f"  PRE-REGISTRATION, AS IT FIRED, BEFORE ANY OVERRIDE:")
+    print(f"    threshold `matched >= 100` on the DECLARED quantity ({matched:,}) -> "
+          f"{'W-DEPTH-MATCHED' if matched >= 100 else 'W-DEPTH-DISJOINT'}")
+    print(f"    the SAME threshold, unchanged, on the BALANCED pool ({balanced:,}) -> "
+          f"{'W-DEPTH-MATCHED' if balanced >= 100 else 'W-DEPTH-DISJOINT'}")
+    print(f"  ⚠ OVERRIDE DECLARED: the balanced pool is the quantity a transport test can actually")
+    print(f"    draw from, so it governs. The threshold is not retuned; it is re-applied unchanged")
+    print(f"    to the right quantity, and the override moves the verdict toward the LESS convenient")
+    print(f"    answer, which is the only direction in which a post-hoc change is not goalpost-moving.")
+
+    if balanced >= 100:
         v = "W_DEPTH_MATCHED"
-        print(f"  W-DEPTH-MATCHED — {matched:,} second-corpus conversations sit at depths CoVal also")
-        print(f"  attests. A fair transport test EXISTS: match on depth and the confound is")
-        print(f"  controlled by construction rather than argued away in a limitations paragraph.")
+        print(f"  W-DEPTH-MATCHED — {balanced:,} PAIRABLE conversations at shared depths. A fair")
+        print(f"  transport test exists: match on depth and the confound is controlled by")
+        print(f"  construction rather than argued away in a limitations paragraph.")
     else:
         v = "W_DEPTH_DISJOINT"
-        print(f"  W-DEPTH-DISJOINT — only {matched:,} conversations are depth-matchable. A transport")
+        print(f"  W-DEPTH-DISJOINT — only {balanced:,} conversations are PAIRABLE at shared depths,")
+        print(f"  and the shape is the reason: CoVal is 90.9% depth-1 while the second corpus holds")
+        print(f"  ONE depth-1 conversation. The supports overlap; the MASS sits on opposite sides.")
+        print(f"  A transport")
         print(f"  test would move CORPUS and DEPTH together and no filter repairs that. The honest")
         print(f"  move is to restrict the claim to the depth both corpora share, or abandon it and")
         print(f"  say which.")
@@ -240,7 +270,8 @@ def main() -> int:
                head=head, coval_depth_hist={str(k): v for k, v in sorted(hc.items())},
                second_depth_hist={str(k): v for k, v in sorted(hs.items())},
                coval_conversations=sum(hc.values()), second_conversations=sum(hs.values()),
-               shared_depths=shared, matched_pool=matched,
+               shared_depths=shared, matched_pool=matched, balanced_pool=balanced,
+               per_depth_pairable={str(k): v for k, v in per_depth.items()},
                controls=dict(extractor_a=da, extractor_b=db, ok_a=ok_a, ok_b=ok_b),
                verdict=v)
     (HERE / "results").mkdir(exist_ok=True)

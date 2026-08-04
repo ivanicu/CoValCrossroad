@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**392 rounds** in **5 epochs** and **24 arcs**, numbered to **R399** — **53 standing claims, 13
+**393 rounds** in **5 epochs** and **24 arcs**, numbered to **R400** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1070,6 +1070,19 @@ of the three are `hello` and `hi`**, degenerate collisions rather than shared pr
 `3` as contamination overstates it 3×. The substantive count is **1**, and all three are cheap to
 exclude.
 → [`R399`](E05_the_space_of_compilers/A24_what_the_definition_costs/R399_what_estimand_does_the_second_corpus_admit)
+
+**The two corpora share depth *support* and almost no depth *mass* — a depth-matched transport test
+can draw at most 99 pairs.** CoVal is **90.9% single-turn**; the second corpus contains **one**
+single-turn conversation and sits at depths 2–4. ⛔ **And my pre-registered threshold was applied to
+the wrong quantity**: *"matched pool ≥ 100"* counted second-corpus conversations at shared depths
+(**6,935** → `MATCHED`), but a transport test needs **pairs**, so each depth is bounded by the smaller
+side — **balanced pool = 99** → `DISJOINT`. The threshold was **not retuned**, it was re-applied
+unchanged to the quantity a test can actually draw from, and the override moves toward the **less
+convenient** answer. ⚠ 99 vs 100 is a knife-edge, so the composition is the finding, not the verdict
+word: **77 of the 99 sit at depth 2**, and **CoVal's modal object — depth 1, 90.9% of its corpus — has
+exactly one counterpart.** Transport, if run, would say nothing about the conversations CoVal is
+mostly made of.
+→ [`R400`](E05_the_space_of_compilers/A24_what_the_definition_costs/R400_is_conversation_depth_a_confound)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
