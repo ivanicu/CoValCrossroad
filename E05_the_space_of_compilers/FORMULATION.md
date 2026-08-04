@@ -401,6 +401,28 @@ differently, which is why both are shown.
 > (R286), the margins are **+0.0119** [+0.0048,+0.0187] and **+0.0096** [+0.0026,+0.0164] — both
 > separable, both BH survivors.
 
+⛔ **AND AT THAT REFERENCE `topw_k4` IS BELOW ITS OWN MDE (R326).** "Separable and a BH survivor" is
+true and is not the same as resolvable: `coval_core` sits at **+0.0119 / 0.0101 = 1.18×** and
+`topw_k4` at **+0.0096 / 0.0104 = 0.92×**. The clause-② baseline curve, five distinct legitimate
+references ordered by strength:
+
+| reference | ref A2 | `coval_core` | `topw_k4` |
+|---|---:|---|---|
+| budget 0 · random draw | 0.5397 | **2.69×** | — |
+| neutral pool-16 | 0.5403 | 2.63× | 2.39× |
+| budget 1 · hand-picked | 0.5504 | 1.51× | — |
+| `generic` at matched k=4 | 0.5514 | 1.41× | 1.19× |
+| **best held-out of 1,820** | 0.5546 | **1.18×** | **0.92× UNRESOLVED** |
+| *in-sample argmax — disqualified* | 0.5575 | *0.87×* | — |
+
+> ### `coval_core`'s admission holds at every legitimate reference. `topw_k4`'s does not — it is
+> ### resolvable against four of the five and unresolvable against the strongest.
+
+⚠ **The monotone decline itself is a DERIVATION, not a finding**: `gap = arm_A2 − ref_A2` with the
+arm fixed, verified to four decimals at every point, so plotting the gap against reference strength
+plots a quantity against what it is defined as a difference from. **What is measured is where the
+ratio to each cell's own MDE crosses 1.0**, because those MDEs vary independently (0.0099–0.0108).
+
 **⚠ `gen`'s row closed, and what closed it was asking how much SELECTION BUDGET a baseline may
 have** (R287). The verdict looked like it depended on an arbitrary choice of prompt-blind reference.
 It does not — the references form an ordered curve:
