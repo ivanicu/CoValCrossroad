@@ -172,6 +172,12 @@ CASES = [
     # it, which is the harder case to detect and the one worth registering.
     ("next_gradient_is_new", hide_rounds, 1,
      "rounds hidden -> 3 of 4 historical cases stop being found: DETECTED, not silence"),
+    # Added at R340. Its population IS the round sources, so hide_rounds empties it -- and its
+    # floor must return 2, because "no disjoint pairs found in no files" is silence. Its synthetic
+    # control still passes on a planted string (it does not need the tree), which is exactly why
+    # the empty-population floor has to exist separately from the control.
+    ("point_and_interval_share_a_source", hide_rounds, 2,
+     "sources hidden -> zero round sources: nothing to check, not clean"),
     # Entry 198. Its population IS the artifacts, so hiding them empties it -- and its
     # floor returns 2 rather than 0, because "no violations found in nothing" is
     # silence. Its own positive control still passes (it plants a temp tree), which is
