@@ -14,7 +14,7 @@ Usage:  judge_core.py --core coval_core --out results/sat_coval_core.npz
         judge_core.py --core path/to/core.json --out ...
 """
 from __future__ import annotations
-import argparse, json, pathlib, sys, time
+import argparse, hashlib, json, pathlib, sys, time
 import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -74,7 +74,27 @@ def main():
     sat = j.score(prompts) if hasattr(j, "score") else j(prompts)
     sat = np.asarray(sat, dtype=np.float32)
     out = pathlib.Path(a.out); out.parent.mkdir(parents=True, exist_ok=True)
-    np.savez_compressed(out, meta=np.array(meta), sat=sat)
+    # ⛔ PROVENANCE, ADDED 2026-08-04 AFTER AN ARC THAT KEPT HITTING ITS ABSENCE. R414 could not tell
+    #   whether two 0.8B naming families were the same run; R415 called five pairs "same code" and was
+    #   wrong; R416 found their criteria differed; R417 showed the judge has no stochastic step, so the
+    #   only remaining non-stochastic mover is CONFIGURATION -- and the artifacts recorded none of it.
+    #   Four rounds of archaeology on files that never wrote down what made them. This writes it.
+    #   `load_sat` reads only `meta` and `sat`, so the extra key is backwards-compatible with all 93
+    #   existing artifacts; they simply carry no provenance and are exempt by age, not by merit.
+    prov = {
+        "core": str(a.core),
+        "model": str(a.model),
+        "batch": int(a.batch),
+        "limit": int(a.limit),
+        "n_prompts": len(pids),
+        "n_calls": len(prompts),
+        "producer": "corebench/judge_core.py",
+        "producer_sha256": hashlib.sha256(pathlib.Path(__file__).read_bytes()).hexdigest(),
+        "core_sha256": (hashlib.sha256(pathlib.Path(a.core).read_bytes()).hexdigest()
+                        if a.core != "coval_core" and pathlib.Path(a.core).exists() else None),
+    }
+    np.savez_compressed(out, meta=np.array(meta), sat=sat,
+                        provenance=np.array(json.dumps(prov, sort_keys=True)))
     print(f"  wrote {out}  ({len(sat)} scores, {time.time()-t0:.1f}s)")
 
 
