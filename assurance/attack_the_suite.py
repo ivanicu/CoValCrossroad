@@ -23,6 +23,7 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+BREADCRUMB = ROOT / "assurance" / "results" / ".hide_in_progress.json"
 # The interpreter that is RUNNING this file, not a path guessed relative to the
 # repo. A clean-clone run (entry 114) found this was the only check that could
 # not run from a fresh clone: it invoked <repo>/.venv/bin/python, which exists
@@ -65,6 +66,18 @@ def hide_rounds():
         f"found {len(camps)} epoch directories: this harness would hide nothing and then report "
         f"every gate as passing on a population it still had")
     tmp = Path(tempfile.mkdtemp(prefix="attack_rounds_"))
+    # ⛔ THE BREADCRUMB, ADDED 2026-08-04 BY R428, AND IT IS NOT DEFENSIVE PROGRAMMING.
+    #    The restore below lives in a `finally:` and `pueue kill` sends SIGKILL, which no `finally`
+    #    survives. R428 counted EIGHT orphaned `attack_rounds_*` stashes in /tmp across two days --
+    #    five of them on 08-03 that nobody noticed -- and found that `git restore` recovers the
+    #    TRACKED files only: 21 untracked artifacts and 3 never-committed source versions existed
+    #    nowhere but inside a stash. A random `mkdtemp` name is UNDISCOVERABLE, so an interrupted
+    #    run leaves the only copy of an untracked artifact in a directory no later run can name.
+    #    This file is written BEFORE the first move and removed after the last restore, so its
+    #    presence means exactly "a hide is in flight or was killed mid-flight", and
+    #    `assurance/_repair.py` can then put back the untracked files too.
+    (ROOT / "assurance" / "results").mkdir(parents=True, exist_ok=True)
+    BREADCRUMB.write_text(json.dumps({"stash": str(tmp), "moved": [c.name for c in camps]}))
     moved = []
     for c in camps:
         shutil.move(str(c), str(tmp / c.name))
@@ -74,6 +87,7 @@ def hide_rounds():
             shutil.rmtree(c, ignore_errors=True)
             shutil.move(str(tmp / c.name), str(c))
         shutil.rmtree(tmp, ignore_errors=True)
+        BREADCRUMB.unlink(missing_ok=True)
     return restore
 
 
@@ -285,6 +299,14 @@ CASES = [
 # run found this check was the only one that could not run from a fresh clone:
 # it invoked <repo>/.venv/bin/python, which exists only in the working copy.
 def main() -> int:
+    # ⛔ REPAIR ON ENTRY, 2026-08-04, R428. This file's own `finally:` cannot run after SIGKILL, so
+    #    the ONLY moment a repair is guaranteed to execute is before the next hide begins. Eight
+    #    stashes prove the exit-time repair is not sufficient; the entry-time one costs one git
+    #    call on a healthy tree.
+    sys.path.insert(0, str(ROOT / "assurance"))
+    import _repair
+    _repair.repair_full(verbose=True)
+
     results = []
     for check, emptier, want, what in CASES:
         before = run(check)

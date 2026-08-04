@@ -1,0 +1,80 @@
+{
+ "plan_a": [
+  "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R08_gold_preference/results/a08_gold.emb.npz",
+  "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R08_gold_preference/results/a08_gold_08b.emb.npz",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R13_seed_vs_writein/results/_partial_archive/r13_seed_vs_writein_partial.json",
+  "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R28_multiplicative/results/_superseded/r28_multiplicative.json",
+  "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R41_criterion_support/results/_smoke_archive/r41_satisfaction_qwen2b_SMOKE.npz",
+  "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R41_criterion_support/results/_smoke_archive/r41_satisfaction_qwen2b_SMOKE_receipt.json",
+  "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R42_equivalence/results/_smoke_archive/r42_equivalence_SMOKE.json",
+  "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R43_criterion_heterogeneity/results/_smoke_archive/r43_criterion_heterogeneity_SMOKE.json",
+  "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R44_compiler_lineage/results/_smoke_archive/r44_compiler_lineage_SMOKE.json",
+  "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R45_protocol_freeze/_archive/coverage.py",
+  "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R47_gold_is_length/results/_smoke_archive/r47_gold_is_length_SMOKE.json",
+  "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R49_provenance_crossfit/results/_smoke_archive/r49_provenance_crossfit_SMOKE.json",
+  "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R50_response_anchoring/results/_smoke_archive/r50_response_anchoring_SMOKE.json",
+  "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R51_judge_lexical/results/_smoke_archive/r51_judge_lexical_SMOKE.json",
+  "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R52_overlap_intervention/results/_smoke_archive/r52_overlap_intervention_SMOKE.json",
+  "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/results/_stale/r79_emb_crit_internlm.npy",
+  "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/results/_stale/r79_emb_resp_internlm.npy",
+  "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/results/r79_emb_crit_phi.npy",
+  "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/results/r79_emb_crit_qwen.npy",
+  "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/results/r79_emb_resp_phi.npy",
+  "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/results/r79_emb_resp_qwen.npy"
+ ],
+ "recovered_a": [
+  "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R08_gold_preference/results/a08_gold.emb.npz",
+  "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R08_gold_preference/results/a08_gold_08b.emb.npz",
+  "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R13_seed_vs_writein/results/_partial_archive/r13_seed_vs_writein_partial.json",
+  "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R28_multiplicative/results/_superseded/r28_multiplicative.json",
+  "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R41_criterion_support/results/_smoke_archive/r41_satisfaction_qwen2b_SMOKE.npz",
+  "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R41_criterion_support/results/_smoke_archive/r41_satisfaction_qwen2b_SMOKE_receipt.json",
+  "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R42_equivalence/results/_smoke_archive/r42_equivalence_SMOKE.json",
+  "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R43_criterion_heterogeneity/results/_smoke_archive/r43_criterion_heterogeneity_SMOKE.json",
+  "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R44_compiler_lineage/results/_smoke_archive/r44_compiler_lineage_SMOKE.json",
+  "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R45_protocol_freeze/_archive/coverage.py",
+  "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R47_gold_is_length/results/_smoke_archive/r47_gold_is_length_SMOKE.json",
+  "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R49_provenance_crossfit/results/_smoke_archive/r49_provenance_crossfit_SMOKE.json",
+  "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R50_response_anchoring/results/_smoke_archive/r50_response_anchoring_SMOKE.json",
+  "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R51_judge_lexical/results/_smoke_archive/r51_judge_lexical_SMOKE.json",
+  "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R52_overlap_intervention/results/_smoke_archive/r52_overlap_intervention_SMOKE.json",
+  "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/results/_stale/r79_emb_crit_internlm.npy",
+  "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/results/_stale/r79_emb_resp_internlm.npy",
+  "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/results/r79_emb_crit_phi.npy",
+  "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/results/r79_emb_crit_qwen.npy",
+  "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/results/r79_emb_resp_phi.npy",
+  "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/results/r79_emb_resp_qwen.npy"
+ ],
+ "plan_b": [
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R389_the_reading_burden/run.py",
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R389_the_reading_burden/README.md",
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R389_the_reading_burden/results/r389_reading_burden.json"
+ ],
+ "recovered_b": [
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R389_the_reading_burden/_archive/pre_deletion_original/run.py",
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R389_the_reading_burden/_archive/pre_deletion_original/README.md",
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R389_the_reading_burden/_archive/pre_deletion_original/results/r389_reading_burden.json"
+ ],
+ "excluded_fixture": [
+  "E99_fixtures/A01_planted/r91_attack_outcome/results/out.json",
+  "E99_fixtures/A01_planted/r91_attack_outcome/run.py"
+ ],
+ "excluded_pycache": [
+  "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R01_rater_structure/__pycache__/run.cpython-313.pyc",
+  "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R06_rule_tournament/__pycache__/run.cpython-313.pyc",
+  "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R25_actor_dyad_sweep/__pycache__/cell.cpython-313.pyc",
+  "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R60_world_vs_personal/__pycache__/run.cpython-313.pyc",
+  "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R75_menu_read_direction/__pycache__/run.cpython-313.pyc",
+  "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R85_agreement_by_form/__pycache__/run.cpython-313.pyc",
+  "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R106_share_level_under_redraw/__pycache__/run.cpython-313.pyc",
+  "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R146_does_compilation_add/__pycache__/run.cpython-313.pyc",
+  "E05_the_space_of_compilers/A16_what_a_compiler_is_and_what_its_operations_cost/R220_compiler_tournament/__pycache__/run.cpython-313.pyc",
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R343_does_any_check_tie_artifact_to_source/__pycache__/run.cpython-313.pyc",
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R351_did_a_published_number_move/__pycache__/run.cpython-313.pyc",
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R315_how_many_rounds_can_still_run/__pycache__/run.cpython-313.pyc",
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R356_is_the_within_family_disagreement_resolvable/__pycache__/run.cpython-313.pyc",
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R427_does_the_definition_transport_at_all/__pycache__/selftest.cpython-313.pyc"
+ ],
+ "missing": [],
+ "all_verified": true
+}
