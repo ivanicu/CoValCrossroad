@@ -78,6 +78,7 @@ import sys
 import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(ROOT))
 SELF = pathlib.Path(__file__).resolve()
 HERE = SELF.parent
 RES = ROOT / "corebench" / "results"
@@ -200,9 +201,43 @@ def main() -> int:
         print(f"    {n:<8} {obs[0]:>10.4f} {obs[1]:>8.4f} {nul[0]:>14.4f} {nul[1]:>8.4f} "
               f"{ex:>+9.4f} {1/n:>7.4f} {obs[2]:>7,}" + ("   ⭐" if ex > mde else ""))
 
-    pooled = clus({kk: v[0] for n in S for kk, v in S[n].items()})
-    print(f"\n    pooled agreement {pooled[0]:.4f} (MDE {pooled[1]:.4f}) · "
-          f"strata where excess > MDE: {hits or 'none'} of {len(rows)}")
+    # ⛔ THE POOLED LINE WAS WRONG AND ONLY AN INLINE CROSS-CHECK CAUGHT IT.
+    #    `{kk: v[0] for n in S for kk, v in S[n].items()}` keys on the CONVERSATION, so a
+    #    conversation appearing in SEVERAL strata OVERWRITES ITSELF and every stratum but the last
+    #    is silently discarded. It printed 0.6976 where the correct pooled value is 0.6434 -- and
+    #    the loss looks like a smaller n, never like an error. Third occurrence of this estimator
+    #    shape failing in one session, so it now routes through lib/cluster.py.
+    from lib.cluster import ByConv
+    pooled_b = ByConv()
+    for n in S:
+        for kk, v in S[n].items():
+            for x in v[0]:
+                pooled_b.add(kk, agree=x)
+    pooled = pooled_b.mean("agree")
+    print(f"\n    pooled agreement {pooled[0]:.4f} (MDE {pooled[1]:.4f}) over "
+          f"{pooled_b.n_obs('agree'):,} interactions in {pooled[2]:,} conversations")
+    print(f"    strata where excess > MDE: {hits or 'none'} of {len(rows)}")
+
+    # ---- SEED ROBUSTNESS: the second random draw, and the three-way agreement ---------------------
+    r1, _ = picks("randblind_s1")
+    if r1:
+        three = ByConv()
+        for k in keys:
+            if k not in r1:
+                continue
+            three.add(k[0], g_r0=float(g[k] == r[k]), g_r1=float(g[k] == r1[k]),
+                      r0_r1=float(r[k] == r1[k]))
+        print(f"\n    SEED ROBUSTNESS — a SECOND independent random criterion draw")
+        for nm, lbl in (("g_r0", "generic vs randblind_s0"), ("g_r1", "generic vs randblind_s1"),
+                        ("r0_r1", "randblind_s0 vs randblind_s1")):
+            m = three.mean(nm)
+            print(f"      {lbl:<28} {m[0]:.4f}  MDE {m[1]:.4f}  convs {m[2]:,}")
+        gr0, gr1, rr = (three.mean(x)[0] for x in ("g_r0", "g_r1", "r0_r1"))
+        print(f"    ⛔ THE TWO RANDOM ARMS AGREE WITH EACH OTHER ({rr:.4f}) MORE THAN EITHER AGREES")
+        print(f"       WITH GENERIC ({gr0:.4f}, {gr1:.4f}). So `the criteria are inert` is TOO")
+        print(f"       STRONG: generic is the odd one out, and what the two random draws share is")
+        print(f"       something generic does not. That complicates the inertness reading rather")
+        print(f"       than confirming it, and it is reported because it does.")
 
     print()
     if rows_bad:

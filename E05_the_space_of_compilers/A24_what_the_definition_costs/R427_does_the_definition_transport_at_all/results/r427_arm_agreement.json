@@ -9,10 +9,10 @@
     3,
     4
   ],
-  "pooled_agreement": 0.6976363308408763,
-  "pooled_mde": 0.02333663962862785,
+  "pooled_agreement": 0.6434344493889947,
+  "pooled_mde": 0.01710117985549524,
   "source_name": "arm_agreement.py",
-  "source_sha256": "75e247828ab65bb689831c1b5880d727b0ced58696404943650f344eff16e9b5",
+  "source_sha256": "4b975ef23a0428ae18bc5cf08408b5cc73a233039edb810b26249326f1cbca99",
   "strata": {
     "2": {
       "agree": 0.7182546597882061,
