@@ -1,0 +1,113 @@
+{
+ "source_sha": "0e47f828f03d8331",
+ "world": "W-SPLIT",
+ "baseline": "random_k4_s0",
+ "n_prompts": 968,
+ "n_annotations": 15593,
+ "rows": [
+  {
+   "arm": "coval_core",
+   "eff": 0.07379048339598263,
+   "mde": 0.013160389775093493,
+   "ratio": 5.607013519890859,
+   "bh": true,
+   "res": "RESOLVED",
+   "resolved": true,
+   "reading": "resolvably BETTER"
+  },
+  {
+   "arm": "topw_k4",
+   "eff": 0.07149362574267926,
+   "mde": 0.012808446637362067,
+   "ratio": 5.581756146302184,
+   "bh": true,
+   "res": "RESOLVED",
+   "resolved": true,
+   "reading": "resolvably BETTER"
+  },
+  {
+   "arm": "generic",
+   "eff": 0.05866734140210573,
+   "mde": 0.014355902121240702,
+   "ratio": 4.086635650385406,
+   "bh": true,
+   "res": "RESOLVED",
+   "resolved": true,
+   "reading": "resolvably BETTER"
+  },
+  {
+   "arm": "gen",
+   "eff": 0.04248635162612374,
+   "mde": 0.014939418052289134,
+   "ratio": 2.8439094131657727,
+   "bh": true,
+   "res": "RESOLVED",
+   "resolved": true,
+   "reading": "resolvably BETTER"
+  },
+  {
+   "arm": "full",
+   "eff": 0.016035567560112554,
+   "mde": 0.011335352647478989,
+   "ratio": 1.4146509648889403,
+   "bh": true,
+   "res": "RESOLVED",
+   "resolved": true,
+   "reading": "resolvably BETTER"
+  },
+  {
+   "arm": "topwvar_k4",
+   "eff": 0.011265614933319994,
+   "mde": 0.013409923619469164,
+   "ratio": 0.8400953840605058,
+   "bh": true,
+   "res": "BELOW RESOLUTION",
+   "resolved": false,
+   "reading": "NOT RESOLVABLY EITHER"
+  },
+  {
+   "arm": "topabs_k4",
+   "eff": -0.003302897900844892,
+   "mde": 0.01537183034706265,
+   "ratio": 0.21486692386479736,
+   "bh": false,
+   "res": "BELOW RESOLUTION",
+   "resolved": false,
+   "reading": "NOT RESOLVABLY EITHER"
+  },
+  {
+   "arm": "topvar_k4",
+   "eff": -0.00639621594273762,
+   "mde": 0.013388086328065261,
+   "ratio": 0.477754309764893,
+   "bh": false,
+   "res": "BELOW RESOLUTION",
+   "resolved": false,
+   "reading": "NOT RESOLVABLY EITHER"
+  },
+  {
+   "arm": "gen_sham",
+   "eff": -0.009886403776082481,
+   "mde": 0.016548912893946697,
+   "ratio": 0.5974050283205464,
+   "bh": false,
+   "res": "BELOW RESOLUTION",
+   "resolved": false,
+   "reading": "NOT RESOLVABLY EITHER"
+  }
+ ],
+ "n_resolved": 5,
+ "n_unresolved": 4,
+ "excluded_but_unresolved": [
+  "topwvar_k4",
+  "topabs_k4",
+  "topvar_k4",
+  "gen_sham"
+ ],
+ "bh_resolution_disagree": [
+  "topwvar_k4"
+ ],
+ "positive_ok": true,
+ "negative_ok": true,
+ "placebo": "structurally absent: R306 emits no self-pairs"
+}
