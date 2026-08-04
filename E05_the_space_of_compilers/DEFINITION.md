@@ -190,9 +190,25 @@ judge in it** (R224/R228), and the k-curve's *shape* across judges was already m
 | **an unindexed size** | at 0.8B top-k loses to a size-matched blind set at **6 of 7** sizes (R362) |
 | **that it works on responses it was NOT scored against** | **unresolved against a fair floor** — see the transport note below (R368, R370) |
 | **transfer to another criterion pool** | every level here is a fact about **this 16-criterion pool** (R331) |
-| **transfer to another release** | one release |
+| **transfer to another release** | ~~one release~~ — ⛔ **RETRACTED 2026-08-04 (R398). This line was never a wall; it was a query nobody ran.** `data/utterances.jsonl` — **68 MB, fetched 2026-07-29** and referenced by 0 files in this repository — holds **68,371 rows over 8,011 conversations, 100% carrying a human `score`, with 26,285 prompts having ≥2 distinct model responses across 21 models.** A second corpus has been on disk the whole time. ⚠ It has **no rubric**, so clauses defined against `full` still cannot transport; **clause ② and the human-agreement target can.** |
 
 ---
+
+## ⛔ CORRECTION 2026-08-04 — the limit below is not structural, it is untested
+
+The transport section closes on R233's limit, stated in the definition's strongest terms: the fresh
+responses carry **no human rankings**, so transport is of the **compilation** and *"never agreement
+with people"*. **That sentence describes this release, and was silently read as describing the
+world.**
+
+[`R398`](A24_what_the_definition_costs/R398_is_there_a_second_object_on_disk) asked the cheapest
+question left and it had never been asked: **a second corpus with 68,371 human-scored responses has
+been sitting in `data/` since 2026-07-29, referenced by no round and named in no document.**
+
+**What changes:** *"agreement with people on responses the core was not built for"* moves from
+**impossible** to **untested**. **What does not:** every number below still stands as measured — R398
+ran no transport test, computed no core, and reports no effect. It established that the object exists
+and nothing more.
 
 ## Transport — the clause this definition does not have
 

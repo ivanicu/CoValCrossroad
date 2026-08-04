@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**390 rounds** in **5 epochs** and **24 arcs**, numbered to **R397** — **53 standing claims, 13
+**391 rounds** in **5 epochs** and **24 arcs**, numbered to **R398** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1041,6 +1041,21 @@ happen — 13 of 13 exited 0 with no traceback**, so both verdicts stand. The de
 uncorrected in those two rounds, and the fix is R396's `UNRUNNABLE_HERE` class going forward rather
 than a retroactive excuse.
 → [`R397`](E05_the_space_of_compilers/A24_what_the_definition_costs/R397_did_the_stable_subjects_actually_succeed)
+
+**⛔ "One release" was never a wall — it was a query nobody ran.** The definition's impossibility
+register listed `transfer to another release` as needing a second release, and R233's limit is stated
+in the strongest terms the document contains: the fresh responses carry no human rankings, so
+transport is of the **compilation** and *"never agreement with people"*. **That sentence described
+this release and was read as describing the world.** `data/utterances.jsonl` — **68 MB, fetched
+2026-07-29, referenced by 0 files in this repository and absent from the dataset card** — holds
+**68,371 rows over 8,011 conversations, 100% carrying a human score, with 26,285 prompts having ≥2
+distinct model responses across 21 models**. ⛔ This campaign's own failure table predicted the miss
+twice — *a wall never checked*, and *nobody asks whether the data has more to give*. ⚠ The round
+**computed no core and ran no transport test**: *a second object exists* is the whole claim, and the
+corpus has **no rubric**, so clauses defined against `full` still cannot transport. The register row
+and the transport section were both corrected, and all five counts were added as gate assertions
+(51 → 56).
+→ [`R398`](E05_the_space_of_compilers/A24_what_the_definition_costs/R398_is_there_a_second_object_on_disk)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

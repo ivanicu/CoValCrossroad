@@ -111,6 +111,19 @@ def derive():
         for k in ("r373_sites", "r373_rounds", "r373_small_k", "r373_k368", "r373_p_half",
                   "r373_p_three_q", "r373_k355"):
             out[k] = (None, "R373")
+    # R398 -- the register's `one release` line was retracted from DEFINITION.md, and a retraction
+    # that states counts must be re-derivable exactly like the claims it replaced. Otherwise the
+    # correction is the one sentence in the document nobody can check.
+    a = art("R398_*")
+    if a:
+        out["r398_rows"] = (a["rows"], "R398")
+        out["r398_convs"] = (a["conversations"], "R398")
+        out["r398_multi"] = (a["multi_response_prompts"], "R398")
+        out["r398_models"] = (a["n_models"], "R398")
+        out["r398_refs"] = (a["prior_art_references"], "R398")
+    else:
+        for k in ("r398_rows", "r398_convs", "r398_multi", "r398_models", "r398_refs"):
+            out[k] = (None, "R398")
     a = art("R370_*")
     if a:
         out["pool_contrast"] = (round(a["results"]["pool|exact"]["contrast"], 4), "R370")
@@ -252,6 +265,14 @@ ASSERTIONS = {
     # ⚠ the bold wraps the whole clause, not the number -- v1 anchored on `**N%**` and the gate
     #   caught it as an assertion it could no longer locate, which is the point of that branch.
     "r373_p_half":           r"below half its true value (\d+\.\d)%\*\* of the time",
+    # R398's retraction of the `one release` wall. Anchored on the surrounding words, not on a bare
+    # number, because R373 already cost a false failure when a regex anchored on `**N%**` while the
+    # bold wrapped the whole clause.
+    "r398_rows":             r"\*\*([\d,]+) rows over [\d,]+ conversations",
+    "r398_convs":            r"rows over ([\d,]+) conversations",
+    "r398_multi":            r"with ([\d,]+) prompts having",
+    "r398_models":           r"distinct model responses across (\d+) models",
+    "r398_refs":             r"and referenced by (\d+) files in this repository",
     "r373_p_three_q":        r"below three quarters\n\*\*(\d+\.\d)%\*\* of the time",
     "r373_k355":             r"its k is \*\*(\d+)\*\*, which is fine",
 }
