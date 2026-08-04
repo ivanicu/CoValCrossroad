@@ -329,6 +329,20 @@ parts (core 0.8378, sham 0.8593)** — a difference exceeding both its component
 their noise is positively correlated and cancels in the subtraction. ⚠ **This does NOT decompose
 partner variance** — impossible here, since the partner is fixed per prompt — it shows the conclusion
 survives without a partner at all. *(R459)*
+
+⛔ **AND BOTH OF THOSE NUMBERS ARE OUTLIERS — R459 INHERITED THE DEFECT IT WAS BUILT TO TEST (R460).**
+R459 answered an n=1-draw objection with `core − generic`, itself **one** fixed prompt-blind set.
+Every such set is a row of the C(16,4) matrix, so a **census of all 1,820** is free. The reliability
+of `core − F` across that whole population: min **0.8226**, p25 0.8419, median **0.8486**, p75 0.8544,
+max **0.8675** — **IQR 0.0125**. ⛔ **R459's `generic` sits at 0.8114, percentile 0.000 — below every
+one of the 1,820 — and R457's sham at 0.8726, above the census maximum.** The entire population lies
+**between** the two numbers whose agreement R459 read as evidence, and
+**corr(ρ, comparator strength) = −0.7995**: reliability rises as the comparator weakens, because a
+weak comparator contributes less signal variance and the difference is dominated by the core's own
+reliable variation. ⚠ **What this does NOT overturn: the per-prompt advantage is reliable — the census
+MINIMUM is 0.8226, so every comparator agrees.** What it narrows is the number and its reading: the
+honest quantity is the census IQR **0.8419–0.8544**, and any single-comparator figure must name its
+comparator. *(R460)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

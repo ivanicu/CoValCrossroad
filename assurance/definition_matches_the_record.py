@@ -504,6 +504,22 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R460 -- the comparator census. The MINIMUM is anchored with the IQR, because the finding
+    # narrows a number while PRESERVING the claim, and only the minimum shows the claim survives.
+    d460 = next(A24.glob("R460_*"), None)
+    f460 = (d460 / "results" / "r460_comparator_census.json") if d460 else None
+    a = json.loads(f460.read_text()) if (f460 and f460.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        q = a["quantiles"]
+        out["r460_min"] = (f"{q['0']:.4f}" if "0" in q else f"{q[0]:.4f}", "R460")
+        out["r460_med"] = (f"{q['50']:.4f}" if "50" in q else f"{q[50]:.4f}", "R460")
+        out["r460_iqr"] = (f"{a['iqr']:.4f}", "R460")
+        out["r460_strength"] = (f"{a['corr_rho_strength']:.4f}", "R460")
+        out["r460_ncomp"] = (a["n_comparators"], "R460")
+    else:
+        for k in ("r460_min", "r460_med", "r460_iqr", "r460_strength", "r460_ncomp"):
+            out[k] = (None, "R460")
+
     # R459 -- the partner check. d_gen is anchored WITH both components, because the finding is
     # that the DIFFERENCE beats its parts, and a lone rho would lose the comparison that shows it.
     d459 = next(A24.glob("R459_*"), None)
@@ -1017,6 +1033,11 @@ ASSERTIONS = {
     "r459_sham":   r"parts \(core [\d.]+, sham ([\d.]+)\)",
     "r459_delta":  r"\*\*Δ = ([\u2212\-][\d.]+)\*\*, inside",
     "r459_tuples": r"verified in-run at\s*\n?\*\*(\d+)\*\* distinct criterion-index tuple",
+    "r460_min":      r"population: min \*\*([\d.]+)\*\*",
+    "r460_med":      r"median \*\*([\d.]+)\*\*, p75",
+    "r460_iqr":      r"\*\*IQR ([\d.]+)\*\*",
+    "r460_strength": r"comparator strength\) = ([\u2212\-][\d.]+)\*\*",
+    "r460_ncomp":    r"census of all ([\d,]+)\*\* is free",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

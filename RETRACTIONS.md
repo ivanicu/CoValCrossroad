@@ -9377,3 +9377,60 @@ opposite outcome**, and the two are distinguishable only by printing the compone
 whose reliability exceeds its parts is doing useful work; a difference whose reliability is
 indistinguishable from a sham's is not.** Neither is visible from the difference alone, and the
 component table costs three lines.
+
+---
+
+## 269 · R459's answer to an n=1 objection was itself n=1 — and both quoted numbers are outliers (R460)
+
+**What was claimed.** R459 attacked R457 for an estimand whose sham partner was **drawn once and
+frozen**, and answered it with `core − generic`: reliability **0.8363** against R457's **0.8812**,
+**Δ = −0.0449**, inside the ±0.15 band → *"the conclusion does not depend on the partner."*
+
+**What the census returned.** `generic` is **one** fixed prompt-blind set. Every such set is a row of
+the C(16,4) matrix, so all **1,820** comparators cost nothing extra:
+
+| min | p25 | median | p75 | max | IQR |
+|---|---|---|---|---|---|
+| 0.8226 | 0.8419 | **0.8486** | 0.8544 | 0.8675 | **0.0125** |
+
+⛔ **R459's `generic` sits at 0.8114 — percentile 0.000, below every one of the 1,820. R457's sham
+sits at 0.8726, above the maximum.** **The entire population lies between the two numbers whose
+agreement was read as evidence.** Two outliers on opposite sides *always* bracket the middle; their
+Δ measured the width of a distribution neither of them belonged to.
+
+**And the driver is understood, not merely observed:** `corr(ρ, comparator strength) = −0.7995`.
+A weaker comparator contributes less signal variance, so the difference is dominated by the core's
+own reliable variation and ρ rises. **A high "reliability of the advantage" is partly a statement
+about the comparator being weak.**
+
+⚠ **What this does NOT overturn.** The census **minimum is 0.8226** — every comparator gives high
+reliability, so **the per-prompt structure is real**. What is narrowed is the number and its reading:
+the honest quantity is the census IQR **0.8419–0.8544**, and any single-comparator figure must name
+its comparator.
+
+⭐ **The lesson is about the shape of the check, not the number.** R459 correctly identified "drawn
+once and frozen" as a defect and then **committed it in the instrument it built to detect it** — the
+fix inherited the flaw of the thing it fixed. **Tell: the repair introduces a new object of the same
+kind as the one under suspicion.** Remedy, and it was free here: **when the objection is "n=1",
+the answer must be a distribution, not a second draw.**
+
+---
+
+## 270 · Two objects in one sentence — index identity read as text identity (R460, caught in-round)
+
+**What was printed.** *"R459's `generic` sits at ρ 0.8114 → percentile 0.041."*
+
+**Two different objects.** **0.8114** is the generic **ARM** (from `sat_generic.npz`); **0.041** was
+**pool ROW 0's** percentile, reached by assuming `generic`'s criterion indices `(0,1,2,3)` name the
+same texts as `genericpool16`'s indices 0–3. **They are different files, and index identity is not
+text identity** — a caveat I wrote into R451 myself and then applied to the wrong file three rounds
+later.
+
+**They are genuinely different objects:** pool row 0 sits at **ρ 0.8337, percentile 0.041**; the
+generic arm at **0.8114, percentile 0.000**. Both are now reported separately and labelled, and the
+percentile that matters is computed **by value** rather than by row lookup.
+
+**Cost had it survived:** the sentence would have understated how extreme R459's comparator was — 4th
+percentile instead of 0th — which is precisely the direction that would have softened this round's
+own indictment of R459. ⚠ **A mixed-object sentence is not random in its direction; it tends to land
+where the surrounding narrative is already pointing.**
