@@ -258,6 +258,22 @@ W≈12 it clearly is not. The anchor reproduces R453's **0.5773** exactly throug
 ⛔ **And it remains a property of THIS prompt-blind family**: exactly one family on this site has
 breadth ≥ 16 (`genericpool16`; `full` is the rubric, `provenance_probe` covers 4 prompts), so
 `n_prompt_blind_families_with_breadth = 1` and no resampling makes a second. *(R454)*
+
+⭐ **AND ② CAN BE STRENGTHENED — THE FIRST REPAIR IN THIS ARC RATHER THAN A NARROWING (R455).** Since
+most of what ② demands is reachable without reading the prompt, the fix is to strengthen its
+**baseline**: require a core to beat not a size-matched member of the prompt-blind class but **the
+best prompt-blind set that GENERALISES**. Cross-fitted over 10 folds so no prompt's baseline is
+chosen using it, the released core clears that stronger bar by **+0.0141**, CI
+**[+0.0047, +0.0236]**, resolved at all three seeds with a seed spread of 0.0001. ⚠ **That is
+1.04× its own MDE — the edge of what this design can see, so the INTERVAL is the claim and not the
+point.** The controls are what make it readable: an oracle clears the same baseline by **+0.1034**
+(so the design has power), a wrong-prompt sham **loses** at −0.0558, and — decisively — the
+prompt-blind arm `generic` sits at **−0.0020 [−0.0086, +0.0045]**, *unresolved*, so this separates
+*the core is good* from *anything beats a cross-fitted pick*. ⭐ **And an IN-FOLD baseline gives
++0.0011**: the naive design finds nothing, so cross-fitting did not inflate this effect, it revealed
+one that an unfairly strong in-sample baseline was hiding. **R453's 59.6% therefore stops being an
+objection to the definition** — it remains a true statement about how weak the original baseline was.
+⚠ Stated against THIS prompt-blind family; exactly one with breadth exists. *(R455)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

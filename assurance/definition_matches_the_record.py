@@ -504,6 +504,22 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R455 -- the strengthened clause. The GAP is anchored WITH the neutral arm, because the claim
+    # is "the core specifically", and without `generic`'s unresolved zero the gap would only show
+    # that something beats a cross-fitted pick.
+    d455 = next(A24.glob("R455_*"), None)
+    f455 = (d455 / "results" / "r455_strengthened.json") if d455 else None
+    a = json.loads(f455.read_text()) if (f455 and f455.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        c = a["controls"]
+        out["r455_gap"] = (f"{a['gap_mean']:.4f}", "R455")
+        out["r455_oracle"] = (f"{c['oracle_gap']:.4f}", "R455")
+        out["r455_neutral"] = (f"{c['neutral_gap']:.4f}", "R455")
+        out["r455_leaky"] = (f"{c['leaky_gap']:.4f}", "R455")
+    else:
+        for k in ("r455_gap", "r455_oracle", "r455_neutral", "r455_leaky"):
+            out[k] = (None, "R455")
+
     # R454 -- breadth saturation. The PLATEAU sd is anchored with the rise, because "saturates" is
     # a claim about both and either alone would let the shape drift.
     d454 = next(A24.glob("R454_*"), None)
@@ -917,6 +933,10 @@ ASSERTIONS = {
     "r454_pos12":   r"core is \*\*[\d.]+ · [\d.]+ · ([\d.]+) · [\d.]+ ·\s*\n?[\d.]+\*\* for `W = 8",
     "r454_plateau": r"sd over W=12…16 = \*\*([\d.]+)\*\*",
     "r454_fams":    r"`n_prompt_blind_families_with_breadth = (\d+)`",
+    "r455_gap":     r"clears that stronger bar by \*\*\+([\d.]+)\*\*",
+    "r455_oracle":  r"clears the same baseline by \*\*\+([\d.]+)\*\*",
+    "r455_neutral": r"`generic` sits at \*\*([\u2212\-][\d.]+) \[",
+    "r455_leaky":   r"IN-FOLD baseline gives\s*\n?\+([\d.]+)\*\*",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

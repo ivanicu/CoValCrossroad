@@ -9095,3 +9095,55 @@ has caught an anchor **named** for one quantity and **pointed** at another (R450
 pattern matched a different round's sentence entirely. Both would have published a wrong number with
 a correct-looking citation. **An assurance gate that never fails is not evidence that the document is
 right; this one fails often enough to be believed when it passes.**
+
+---
+
+## 258 · An anchor that dropped a sign — third sign-related anchor bug, caught by the gate (R455)
+
+**What happened.** The anchor for R455's NEUTRAL control wrote the minus **outside** the capture
+group — `\*\*[−\-]([\d.]+)` — so `−0.0020` was read as `0.0020` and compared against an artifact
+value of `−0.0020`. The gate refused it.
+
+**Why it is the third of a family.** The earlier two were U+2212 vs ASCII in the *character class*
+(fixed once at the conversion site, entry in R448's commit). This one has the class right and the
+**grouping** wrong. **Same information lost, different mechanism** — which is why fixing the first
+form did not prevent this one.
+
+**The durable rule, and it costs nothing:** *the sign belongs INSIDE the capture group at every
+anchor.* The conversion site already normalises U+2212 to ASCII, so capturing a sign is always safe;
+**not** capturing it silently converts a negative finding into a positive one — the single most
+consequential silent transformation available in this file, because a control that must be negative
+would read as passing.
+
+⭐ **And the point is about the gate, not the bug.** Across four rounds it has now caught: an anchor
+named for one quantity and pointed at another (R450), a pattern matching a different round's sentence
+entirely (R454), and a sign dropped from a control's value (here). **Three wrong numbers with
+correct-looking citations, none of which any amount of re-reading would have found**, because in each
+case the prose was right and the *check* was wrong. A gate that only ever passes is measuring nothing.
+
+---
+
+## 259 · A weak baseline is repairable — R453's 59.6% stops being an objection (R455)
+
+**Not a retraction; a promotion, recorded here because the ledger is where the campaign's claims
+change state.** R453 measured that a fixed prompt-blind set reaches **59.6%** of the way from the
+class floor to the released core, and read it as a weakness of clause ②: *"② is not purely a
+prompt-specificity test."*
+
+**That reading stands as a fact about the BASELINE and falls as an objection to the DEFINITION.**
+Strengthening the baseline — requiring a core to beat *the best prompt-blind set that generalises*,
+cross-fitted so no prompt's baseline is chosen using it — the released core still clears it:
+**+0.0141, CI [+0.0047, +0.0236]**, resolved at all three seeds, seed spread 0.0001.
+
+⚠ **At 1.04× its own MDE.** The interval is the claim; "+0.0141" quoted as a value would overstate it.
+
+⭐ **The control that makes it about the core:** `generic`, a prompt-blind arm, sits at **−0.0020
+[−0.0086, +0.0045]** against the same baseline — *unresolved*. Without that cell the gap would only
+show that *something* beats a cross-fitted pick.
+
+⭐ **And the leakage control runs opposite to the usual worry.** An **in-fold** baseline gives
+**+0.0011** — the naive design finds nothing. **Cross-fitting did not inflate this effect; it
+revealed one that an unfairly strong in-sample baseline was hiding.** Worth stating plainly because
+every other entry on this list is about a design that flattered itself: *the same discipline that
+usually shrinks an effect can also be what makes a real one visible, and the direction is not
+something to assume.*
