@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-08-04T12:19:08.124876+00:00",
- "git": "d14fbe3313ec015380be0692acb84f17972c14b9",
+ "generated_utc": "2026-08-04T12:28:16.722935+00:00",
+ "git": "efb2f2f78db1427ea0e7f400ad6ba94d7f5ae83b",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -1550,6 +1550,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R380_the_gate_convicted_a_registry_it_never_read/run.py": {
    "bytes": 15322,
    "sha256": "8288e9648787a128fb25788bff3827813487d5e0d861f871b17282c476f03091"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R381_do_the_red_gates_share_a_dead_path/run.py": {
+   "bytes": 20325,
+   "sha256": "8cac56fd63cabe2490d9b912e6d9fe1985665086853bdb3f9af4068469c274b0"
   },
   "assurance/DEFECTS.py": {
    "bytes": 14429,
@@ -4124,6 +4128,10 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R380_the_gate_convicted_a_registry_it_never_read/results/r380_donor_gate.json": {
    "bytes": 2650,
    "sha256": "ab95493e46b6821ee99b89b0f461ff2174e89cc23c3e403f4139d6ef393e31db"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R381_do_the_red_gates_share_a_dead_path/results/r381_dead_paths.json": {
+   "bytes": 10347,
+   "sha256": "8668ffdbe34822dbe8316b267b10e093621511794ec32c7be9dd5eb52b8692d2"
   }
  },
  "claims": [

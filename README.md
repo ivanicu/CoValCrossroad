@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**374 rounds** in **5 epochs** and **24 arcs**, numbered to **R380** — **53 standing claims, 13
+**375 rounds** in **5 epochs** and **24 arcs**, numbered to **R381** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -763,6 +763,26 @@ when GATE 1 had caught an unregistered round, so the plant fired, the FINDING pr
 code said *empty population*. Precedence fixed and both directions demonstrated **on the live gate**:
 **1** with a plant, **2** at g=0.
 → [`R380`](E05_the_space_of_compilers/A24_what_the_definition_costs/R380_the_gate_convicted_a_registry_it_never_read)
+
+**And the follow-up refuted its own hypothesis, each time by making the instrument more precise.**
+R380's NEXT proposed grepping every assurance script for `rounds/`. **That presupposes its answer** —
+a grep for one known string can only find gates dead in the one way already found, so a zero would
+read as *no others* while meaning *none of the kind I looked for*. Every path expression was
+extracted with `ast` instead. The verdict then moved at every improvement: **2 gates share a dead
+prefix** → **1** → **0**, ending at `W-NOT-A-PATH-PROBLEM`. The three removals are three different
+false positives. ① v1 extracted *literals* and could not see the target at all: R380's dead path is
+`(ROOT / "rounds").glob("E*/A*/R*/run.py")` — **two literals, neither dead alone**, since `"rounds"`
+has no separator and `"E*/A*/R*/run.py"` matches **363** files. **The dead path is a composition, not
+a literal**, and the positive control caught it *because its answer came from R380 rather than from
+here*. ② A **regex is not a path** — `rounds/r8[89]_[a-z_]+` is matched against README text, never
+globbed. ③ A literal **written into** text is not a path read from disk: `attack_every_check` plants
+`"rounds/_no_such_round"` as a `.replace` target, designed not to exist; excluded **structurally**,
+not by a word list. ⭐ A different candidate class did surface — **three red gates carry regexes
+encoding a stale link format**, separated and *not* counted, because the right question for a pattern
+is whether it matches anything in the documents it is applied to. ⚠ The blind spot has a size rather
+than a disclaimer: **715** f-string expressions are invisible to `ast`. **R380's repair generalises to
+nothing, and its one-round-per-gate rate is the rate to plan with.**
+→ [`R381`](E05_the_space_of_compilers/A24_what_the_definition_costs/R381_do_the_red_gates_share_a_dead_path)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
