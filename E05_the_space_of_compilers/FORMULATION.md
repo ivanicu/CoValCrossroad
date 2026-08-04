@@ -1761,7 +1761,16 @@ under both.
 > **What may be quoted: the site MDE's UPPER bound is 0.1250 under both judgings. Its LOWER bound
 > is not resolved by two draws — it is 0.1250 or 0.1050 depending on which judging you use.**
 
-**n = 2 draws, so this is a RANGE and not an interval.** No sd is computable from two and none is
+⛔ **AND "TWO JUDGINGS" IS ITSELF A CORRECTION (R318, amended).** The two tensors correlate at
+**0.9508**, with a median absolute difference of **21% of the quantity's own sd** — far from the
+**0.998** a faithful re-implementation of the same prompt achieves (R234), and well short of the
+**0.77** a label-order flip produces. They are not exchangeable draws: they are two **instrument
+states** differing by a change the artifacts do not record, since the npz stores no prompt text.
+So the spread above is **instrument sensitivity, not sampling**, which makes it harder to shrink
+rather than easier — and R257's stance governs: **neither instrument is privileged**, so neither
+bracket may be preferred over the other.
+
+**n = 2 states, so this is a RANGE and not an interval.** No sd is computable from two and none is
 reported; the correction is *not* to substitute draw B, which would repeat the original error with
 the other draw. What a third draw would buy is an estimate rather than a range, and it needs a GPU
 judging run — named in the impossibility register rather than planned.

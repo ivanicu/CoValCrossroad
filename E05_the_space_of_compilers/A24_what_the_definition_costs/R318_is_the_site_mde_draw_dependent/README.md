@@ -64,6 +64,44 @@ printed **W-VERDICT-MOVES**: *every claim downstream must be re-opened*.
 letter. The extractor now has a refusal: no round-naming span → the round exits 2, because **two
 `None`s comparing equal is not agreement.**
 
+## ⛔ CORRECTION, one round later: "two independent judgings" was not earned
+
+R318 called A and B *"two independent judgings of one grid"*. That phrase implies **exchangeable
+draws of one instrument**, and the round never measured what they differ BY. Measured afterwards:
+
+| | |
+|---|---:|
+| identical cells | 8,245 of 45,404 (18.2%) |
+| median \|diff\| | 0.0462 — **21% of the quantity's own sd (0.2182)** |
+| max \|diff\| | 0.6293 |
+| **corr(A, B)** | **0.9508** |
+
+**That is not sampling noise and it is not bf16 jitter**, which would sit near 1e-3. Against this
+project's own reference points, from R234 via R257's docstring:
+
+| comparison | r |
+|---|---:|
+| faithful re-implementation of the **same** prompt | **0.998** (MAD 0.008) |
+| **A vs B (this pair)** | **0.9508** |
+| label-order flip, *"Answer Yes or No"* → *"No or Yes"* | **0.77** |
+
+A and B differ **far more than a faithful rebuild and far less than a label flip**. And both files
+carry `default` / `flipped` / `sham` in equal counts (15,068 each), so **the difference is not the
+variant axis** — it is something applied across all three.
+
+**What is NOT established:** that the difference is specifically the prompt retyping the archived
+filename names. **The npz stores `meta`, `sat`, `n_tasks` and no prompt text**, so the attribution
+cannot be checked against the object. It is consistent with the filename and with the correlation
+sitting between the two reference points — that is D5, not a measurement.
+
+> **The corrected statement: A and B are two INSTRUMENT STATES differing by an unrecorded change,
+> calibrated between a faithful rebuild and a label flip. The site MDE's spread across them is
+> therefore NOT a sampling range — it is instrument sensitivity to a change nobody wrote down.**
+
+Which makes the range **harder** to shrink, not easier: a third judging would add a draw of one
+state, and the quantity that moved is not a draw. And it makes R257's own stance the right one to
+inherit — *"neither instrument is privileged"* — so neither bracket may be preferred.
+
 ## Scope
 
 250 prompts of R274's calibration · judgings A (archived first pass) and B (R257's committed rerun)
