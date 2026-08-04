@@ -136,6 +136,33 @@ def derive():
     # R403 -- the statability counts the new DEFINITION.md block asserts. Re-derived so the prose
     # cannot drift. maxraters/multirater are NOT re-declared here: anchors for them already exist
     # further down, and declaring them twice is exactly the silent failure this file now guards.
+    # R427 -- the first cross-release numbers. Three artifacts live in one round directory, so each
+    # is located BY NAME rather than by "the first json", which would silently pick whichever sorts
+    # first -- the same shape of silent wrong-target error the duplicate-key control now guards.
+    d427 = next(A24.glob("R427_*"), None)
+
+    def r427(stem):
+        f = (d427 / "results" / stem) if d427 else None
+        return json.loads(f.read_text()) if f and f.exists() else None
+    a = r427("r427_transport.json")
+    if a:
+        out["r427_generic"] = (f"{a['generic']['acc']:.4f}", "R427")
+        out["r427_length"] = (f"{a['length']:.4f}", "R427")
+        out["r427_convs"] = (a["controls"]["n_conv"], "R427")
+    else:
+        for k in ("r427_generic", "r427_length", "r427_convs"):
+            out[k] = (None, "R427")
+    a = r427("r427_speccurve.json")
+    out["r427_cells"] = ((a["n_cells"], "R427") if a else (None, "R427"))
+    out["r427_favour"] = ((len(a["favour"]), "R427") if a else (None, "R427"))
+    a = r427("r427_strata.json")
+    if a:
+        s2 = a["strata"]["2"]
+        out["r427_n2_diff"] = (f"{s2['g_diff']:+.4f}", "R427")
+        out["r427_n2_mde"] = (f"{s2['g_mde']:.4f}", "R427")
+    else:
+        for k in ("r427_n2_diff", "r427_n2_mde"):
+            out[k] = (None, "R427")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -373,6 +400,13 @@ ASSERTIONS = {
     # it is NO check. And my first attempt to add it failed its own guard and applied nothing while
     # the commit message said it had — so the second failure was in the REPAIR, not the original.
     "r419_n":                r"bitwise identical on all (\d+) prompts",
+    "r427_generic":          r"picks the human-chosen response at \*\*`([\d.]+)`\*\*",
+    "r427_length":           r"rule reaches \*\*`([\d.]+)`\*\*",
+    "r427_convs":            r"judge calls, ([\d,]+) seeded conversations",
+    "r427_cells":            r"clears the shortcut in 0 of (\d+) cells",
+    "r427_favour":           r"clears the shortcut in (\d+) of \d+ cells",
+    "r427_n2_diff":          r"\| \*\*2\*\* \(2,191 convs\) \| 0\.5000 \| \*\*([+\d.]+)\*\*",
+    "r427_n2_mde":           r"\| \*\*2\*\* \(2,191 convs\) \| 0\.5000 \| \*\*[+\d.]+\*\* \| ([\d.]+)",
     "r403_statable":         r"\*\*(\d+) of \d+ are STATABLE on the",
     "r403_total":            r"\*\*\d+ of (\d+) are STATABLE on the",
     "r426_pos":              r"contains both families at\s*\n?`([\d.]+)` \(",

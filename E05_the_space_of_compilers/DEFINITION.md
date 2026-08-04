@@ -365,6 +365,47 @@ been sitting in `data/` since 2026-07-29, referenced by no round and named in no
 ran no transport test, computed no core, and reports no effect. It established that the object exists
 and nothing more.
 
+## ⭐ THE FIRST CROSS-RELEASE NUMBER 2026-08-04 (R427) — and clause ②'s comparator loses to a length heuristic
+
+**74,048 judge calls, 2,200 seeded conversations, 7,342 interactions of the second corpus.** The
+prompt-blind arm — clause ②'s own comparator — picks the human-chosen response at **`0.4374`**. The
+judge-free *longest-reply* rule reaches **`0.5096`**.
+
+| arm | ACC | note |
+|---|---|---|
+| `generic` (prompt-blind) | **`0.4374`** | 74,048 calls |
+| chance | `0.4194` | derivation, `mean(1/n_responses)` |
+| **longest reply** | **`0.5096`** | **no judge, no criteria, no compute** |
+| first (position) | `0.4375` | `generic` is indistinguishable from it |
+
+⛔ **And the bar was fixed before the arm existed.** Read against chance alone, `+0.0179` at 1.05× its
+MDE would have been reported as transport. Against the shortcut it is a loss of **−0.0722**, 2.85× the
+MDE.
+
+**Robust across the whole grid: `generic` clears the shortcut in 0 of 24 cells** — aggregation
+{mean, min, max, median} × restriction {all, n=2, n≥3} × unit {conversation, interaction}, the length
+baseline recomputed *inside* every cell. ⚠ Those four aggregations are monotone transforms of the
+same values, so this is a **falsification sweep, not a replication**.
+
+⭐ **A pooling attack on the one positive number FAILED, and the scope it leaves is narrower.**
+Chance is `1/n` and n varies, so the pooled `+0.0179` could have been a weighting artifact. Stratified
+against each stratum's own chance, with the length arm firing as positive control in all three:
+
+| n responses | chance | `generic` − chance | MDE | verdict |
+|---|---|---|---|---|
+| **2** (2,191 convs) | 0.5000 | **+0.0071** | 0.0229 | **at chance** |
+| 3 | 0.3333 | +0.0720 | 0.0646 | clears |
+| 4 | 0.2500 | +0.0315 | 0.0307 | clears |
+
+**So the apparatus carries a small real signal only where ≥ 3 responses are compared, and none at
+all in the two-response case that is almost the whole corpus.**
+
+⚠ **This measures clause ②'s FLOOR, not clause ②** — see the next section. And `randblind`/`vacuous`
+are still judging; they decide whether the criteria's *content* contributes anything, and cannot
+change either result above.
+
+---
+
 ## ⛔ `generic` IS CLAUSE ②'s COMPARATOR, NOT ITS SUBJECT 2026-08-04 (R403 + R427)
 
 R403 measured which clause-parts can even be SAID off the home release: **3 of 6 are STATABLE on the
