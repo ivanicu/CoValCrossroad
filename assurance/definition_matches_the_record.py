@@ -504,6 +504,21 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R464 -- clause ①'s extension. The RANDOM-draw boundary is anchored beside the worst-subset
+    # exclusion, because "excluded" is only readable if a draw from the reference process itself
+    # sits ON the boundary -- the two numbers are one control and must not drift apart.
+    d464 = next(A24.glob("R464_*"), None)
+    f464 = (d464 / "results" / "r464_clause_one.json") if d464 else None
+    a = json.loads(f464.read_text()) if (f464 and f464.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r464_worst"] = (f"{a['arms']['rubric_worst']['gap']:.4f}", "R464")
+        out["r464_core"] = (f"{a['arms']['coval_core']['gap']:.4f}", "R464")
+        out["r464_random"] = (f"{a['arms']['rubric_random']['gap']:.4f}", "R464")
+        out["r464_mde"] = (f"{a['arms']['rubric_worst']['mde']:.4f}", "R464")
+    else:
+        for k in ("r464_worst", "r464_core", "r464_random", "r464_mde"):
+            out[k] = (None, "R464")
+
     # R463 -- the third block. The CLAUSE-② marker count is anchored beside the flag totals,
     # because it is a DIFFERENT statistic from the forced one and merging them is the exact error
     # the round caught in its own verdict branch.
@@ -1105,6 +1120,10 @@ ASSERTIONS = {
     "r463_cov":     r"coverage (\d+) of 265",
     "r463_markers": r"max 1 over (\d+) rounds",
     "r463_clause2": r"clause ② carries (\d+) of the 21 round-markers",
+    "r464_worst":  r"subset is excluded at\s*\n?\*\*([\u2212\-][\d.]+)\*\*",
+    "r464_core":   r"released core sits at\s*\n?\*\*\+([\d.]+)\*\*",
+    "r464_random": r"sits at \*\*\+([\d.]+)\*\* with a CI straddling zero",
+    "r464_mde":    r"against an MDE of ([\d.]+), while the released core",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

@@ -9615,3 +9615,64 @@ r462_total:   document says 265, LIVE says 269
 precisely the behaviour the snapshot version lacked. ⭐ **Worth recording because a remedy's first
 real firing is the only evidence it was installed rather than described** — and entry 274 exists
 because the previous version of this fix was described and not installed.
+
+---
+
+## 278 · A case-sensitive grep nearly became a round (R464, caught before it ran)
+
+**What almost happened.** Counting `EXCLUDES` in `DEFINITION.md` returns **1**. Read as *"§4's
+per-clause remedy — name an admissible object each clause excludes — was applied to only one of four
+clauses"*, that is a serious structural defect in the deliverable, and it was one command from
+becoming a round.
+
+**What is true.** The document carries a **complete per-clause table** under a **lowercase**
+`| clause | excludes | status | scope |` header. The true count is **4 of 4**.
+
+⭐ **The tell is the same one §4 lists three times, in a new dress:** *a grep is a measuring
+instrument.* Here the instrument's **case sensitivity** was the blind spot, and its unit (uppercase
+literal) was not the claim's unit (the concept of exclusion, however written). **A positive control —
+running the pattern where the answer is known — would have caught it**: I knew clause ④'s row existed
+and could have checked that the pattern found it, then asked why it found only that one.
+
+**Cost: zero, because the check ran first.** Recorded anyway, because the near-miss rate is the only
+evidence the checking discipline is doing anything, and a ledger of only realised errors understates
+it.
+
+---
+
+## 279 · Clause ① is UNEXERCISED, not decoration — §4's test needed a distinction it does not draw (R464)
+
+**What §4 says.** *"Name an admissible object this clause EXCLUDES. If nothing you have built is
+excluded, the clause is untested decoration."* Clause ① — *better than a random draw of the prompt's
+own rubric* — excludes **0 of 41** arms.
+
+**Why that verdict does not follow.** *"Excludes nothing **built**"* and *"excludes nothing
+**constructible**"* are different claims, **and only the second makes a clause vacuous.** §4's rule
+conflates them, and applied literally it would have removed a working clause from the definition.
+
+**What the measurement returned.** Building objects designed to fail ① from each prompt's own rubric:
+
+| arm | gap vs a random rubric draw | CI | |
+|---|---|---|---|
+| `coval_core` | +0.0797 | [+0.0677, +0.0915] | not excluded |
+| `rubric_random` | +0.0088 | [−0.0032, +0.0207] | **straddles zero** |
+| `rubric_worst` | **−0.2779** | [−0.2914, −0.2651] | **EXCLUDED** |
+
+**① has a real extension.** ⭐ **And the `rubric_random` row is what makes the other two readable:** a
+draw from *the very process ① compares against* must sit **on** the exclusion boundary. It does. If
+the reference process excluded itself, nothing else in the table would mean anything.
+
+⚠ **What it does not establish:** that any real **generator** would produce an ①-failing object. The
+excluded arm was built **adversarially, on purpose** — the point of the test and equally its limit.
+
+⭐ **The generalisable repair to §4's own rule**, which this campaign should carry forward:
+**"excludes nothing" must be qualified by the space quantified over.** *Nothing in the arm space*
+means the clause is **unexercised** and the finding is about the arms; *nothing constructible* means
+it is **vacuous** and the finding is about the clause. **Only the second licenses deletion**, and
+distinguishing them costs one adversarial construction.
+
+⚠ **And a redundancy in my own design, stated rather than counted:** the round declared four arms and
+delivered **three**. `rubric_anti` ("anti-matches the human") and `rubric_worst` ("lowest A2")
+**coincide by definition** under a single target, so the code maps one to the other and the two rows
+are the same object. **Reporting it as two arms would have inflated the control count** — a
+DERIVATION presented as a second measurement.

@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 269 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 273 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 269.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 273.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -380,6 +380,19 @@ independent blocks — R430–R441 (21), R442–R454 (32), R455–R462 (18) — 
 about the **111** still undeclared; undeclared is not a pass. ⭐ **A separate fact the census gives:
 clause ② carries 19 of the 21 round-markers and clause ③ carries 2** — 90% of this campaign's
 attention went into one clause. *(R463)*
+
+⭐ **AND CLAUSE ① IS UNEXERCISED, NOT DECORATION (R464).** The per-clause table records ① as excluding
+**0 of 41** arms, and §4's remedy reads *"if nothing you have built is excluded, the clause is
+untested decoration."* ⚠ **But "excludes nothing BUILT" and "excludes nothing CONSTRUCTIBLE" are
+different claims, and only the second makes a clause vacuous.** Building objects designed to fail ①
+from each prompt's own rubric: the adversarially **worst** rubric subset is excluded at
+**−0.2779** [−0.2914, −0.2651] against an MDE of 0.0190, while the released core sits at
+**+0.0797** [+0.0677, +0.0915] and is not excluded, and a **random** rubric draw — a sample from the
+very process ① compares against — sits at **+0.0088** with a CI straddling zero, exactly as a
+correctly-calibrated boundary requires. ⭐ **So ① is a real predicate with a real extension, and
+`0 of 41` is a fact about the ARM SPACE rather than about the clause.** ⚠ What it does not establish
+is that any real *generator* would produce such an object: the excluded arm was built adversarially,
+on purpose, which is both the point of the test and its limit. *(R464)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*
