@@ -504,6 +504,20 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R462 -- the ordering test. BOTH block sizes are anchored, because "0 of 32 vs 0 of 18" is the
+    # comparison and a bare "0 flagged" would read as a clean bill rather than as a refuted ordering.
+    d462 = next(A24.glob("R462_*"), None)
+    f462 = (d462 / "results" / "r462_ordering.json") if d462 else None
+    a = json.loads(f462.read_text()) if (f462 and f462.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r462_old"] = (a["n_declared_old"], "R462")
+        out["r462_new"] = (a["n_declared_new"], "R462")
+        out["r462_cov"] = (a["coverage"], "R462")
+        out["r462_total"] = (len(ASSERTIONS), "LIVE")   # same live rule as r461_anchors
+    else:
+        for k in ("r462_old", "r462_new", "r462_cov", "r462_total"):
+            out[k] = (None, "R462")
+
     # R461 -- the comparator-scope gate. The FLAGGED-at-widest is anchored with the coverage, so a
     # future reader cannot read "0 flagged" as "the document is clean" -- the two numbers mean
     # different things and the round's own lesson is that separating them is the point.
@@ -513,8 +527,14 @@ def derive():
     if a and a.get("world") != "UNVERIFIED":
         out["r461_declared"] = (a["sweep"][-1]["n_declared_diff"], "R461")
         out["r461_flagged_tight"] = (a["sweep"][0]["n_flagged"], "R461")
+        # ⛔ LIVE, NOT SNAPSHOT. Retraction 272 said to anchor a self-referential count
+        #    "against the instrument's LIVE state rather than a snapshot taken while
+        #    writing" -- and then compared artifact-snapshot to document-snapshot, which
+        #    agree with each other while both go stale. It drifted again within two rounds
+        #    (261 -> 264). The anchor count is now read from the LIVE table, so adding any
+        #    anchor FORCES the sentence to be updated instead of silently passing.
         out["r461_coverage"] = (a["declared"], "R461")
-        out["r461_anchors"] = (a["n_anchors"], "R461")
+        out["r461_anchors"] = (len(ASSERTIONS), "LIVE")
     else:
         for k in ("r461_declared", "r461_flagged_tight", "r461_coverage", "r461_anchors"):
             out[k] = (None, "R461")
@@ -1062,6 +1082,10 @@ ASSERTIONS = {
     #    describes its own checker, that description must be checked BY the checker."
     "r461_coverage":      r"coverage is (\d+) of \d+ anchors",
     "r461_anchors":       r"coverage is \d+ of (\d+) anchors",
+    "r462_old": r"flag rate of \*\*0 of (\d+)\*\* at windows",
+    "r462_new": r"recent block's \*\*0 of (\d+)\*\*",
+    "r462_cov":   r"declaration coverage now (\d+) of \d+",
+    "r462_total": r"declaration coverage now \d+ of (\d+)",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

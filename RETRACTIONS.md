@@ -9489,3 +9489,61 @@ must check.* Self-reference is not the defect; **unchecked self-reference is.** 
 mechanical: **any sentence whose truth value changes when the instrument grows** — counts of rules,
 anchors, tests, coverage — and the remedy is to anchor it against the instrument's live state rather
 than a snapshot taken while writing.
+
+---
+
+## 273 · "oldest first" — an ordering asserted, then refuted by the work it was ordering (R461 → R462)
+
+**What was claimed.** R461's closing line: *"work it in blocks by round, **oldest first** — the oldest
+numbers have survived the most rewrites of the sentences around them and are therefore where a
+comparator is most likely to have gone missing."*
+
+**Why it was not entitled.** It is an assertion about **where defects live in this document**, used to
+prioritise, and nothing measured it. **And the ledger already pointed the other way**: every anchor
+defect the value-gate has caught — R450, R454, R455, R461 — was in a **newly written** anchor, with a
+mechanism (an old anchor has passed hundreds of gate runs; a new one has passed one).
+
+⚠ **But that counter-argument does not transfer either.** The comparator gate is *new*, so **no anchor
+has ever been protected on that axis.** Age predicts nothing about comparator presence in either
+direction — which is precisely why the ordering had to be **measured**, not argued from the opposite
+story.
+
+**What the measurement returned.** Declaring the whole R442–R454 block — the one called riskiest:
+
+| window | OLD (n=32) | NEW (n=18) |
+|---|---|---|
+| 200 | **0** | **3** |
+| 400 / 800 / 1600 | **0** | **0** |
+
+**Flag rate identical at every defensible window: zero.** And at w=200 every flag is in the **new**
+block. ⭐ **Doing the work was the test** — declaring the old block cost exactly what the announced
+step asked for and settled the premise it rested on as a side effect. **When a proposed ordering is
+cheap to falsify by executing its own first block, execute the block and read the answer.**
+
+⚠ **What it does not establish:** that the remaining **181** undeclared anchors are clean. Undeclared
+is not a pass. **And the ordering is now open** — the only proposed basis is eliminated and nothing
+here supplies a replacement, so the honest next basis is load-bearingness, not another story.
+
+---
+
+## 274 · The self-referential count drifted AGAIN — and my own remedy was not implemented (272 → R462)
+
+**What entry 272 said, two rounds ago:** *"the remedy is to anchor it against the instrument's **live
+state** rather than a snapshot taken while writing."*
+
+**What I actually did:** generalised the regex from `of 257 anchors` to `of \d+ anchors` — making the
+**pattern** robust while still comparing an **artifact snapshot** to a **document snapshot**. Those
+two agree with each other and go stale together. **It drifted within two rounds: 261 → 264 → 265**,
+and the gate passed at every step because both sides were frozen at the same wrong moment.
+
+**The implemented fix.** The anchor count is now read from `len(ASSERTIONS)` **at gate time**, marked
+`LIVE`, for both R461's and R462's self-referential sentences. **Adding any anchor now forces the
+document sentence to be updated**, which is what "the checker must check its own description" actually
+requires.
+
+⛔ **The lesson is not about counts.** *I wrote the correct remedy into the ledger and then shipped a
+different, weaker one under its name.* A remedy recorded is not a remedy installed, and the gap
+between them is invisible precisely because the ledger entry reads as if the work were done. **Tell:
+a fix whose description mentions a mechanism the code does not contain.** The check is to re-read the
+remedy sentence beside the diff that claims to implement it — which costs one look and would have
+caught this at the moment of writing.

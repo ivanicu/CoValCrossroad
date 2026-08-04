@@ -353,11 +353,21 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 261 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 265 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
+
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 265.** The proposed
+ordering for the remaining work was *"oldest first, because old numbers have survived the most
+rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
+in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
+gives a flag rate of **0 of 32** at windows 400/800/1600, against the recent block's **0 of 18**;
+at the tightest window 200 the flags are **all** from the recent block and **none** from the old.
+**The ordering is refuted, and doing the work was the test.** ⚠ This does not establish that the
+remaining **181** undeclared anchors are clean — undeclared is not a pass — and it leaves the correct
+ordering **open**, since the only proposed basis has been eliminated. *(R462)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

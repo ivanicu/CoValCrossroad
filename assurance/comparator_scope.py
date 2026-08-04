@@ -70,6 +70,46 @@ COMPARATORS = {
     "r460_iqr":     ["comparator"],
     "r460_strength": ["comparator strength"],
     "r460_ncomp":   None,
+    # ---- R442..R454, declared 2026-08-04 (R462). The ANNOUNCED ordering was "oldest first,
+    # because old numbers have survived the most rewrites". That is an untested claim about this
+    # document, and the gate's own catch history points the other way: all four anchor defects it
+    # has found (R450 named-for-r3, R454 matching R450's ladder, R455 sign-dropped, R461
+    # self-referential) were in NEWLY WRITTEN anchors. This block is declared to TEST the ordering,
+    # not because the ordering was believed.
+    "r442_impl": None, "r442_overlap": None, "r442_writ": None,          # counts of arms
+    "r443_cont": ["its own rubric", "rubric"],                            # containment IN the rubric
+    "r443_n": None,                                                       # a prompt count
+    "r443_sham": ["cross-prompt sham"],
+    "r444_after": None, "r444_before": None, "r444_ext_after": None,      # counts of 42 arms
+    "r444_unknown": None,
+    "r445_core": ["reference", "POOL[0:4]"], "r445_gen": ["reference", "POOL[0:4]"],
+    "r445_genmde": None,                                                  # an MDE, not a difference
+    "r445_n": None,
+    "r445_oracle": ["reference"], "r445_sham": ["reference"],
+    "r446_core": ["references", "size-4 subsets"], "r446_gen": ["references", "size-4 subsets"],
+    "r446_genq": ["references"],
+    "r446_refs": None,                                                    # a count of subsets
+    "r447_core8": ["its own", "reference"], "r447_gen8": ["its own", "reference"],
+    "r447_refs": None,
+    "r448_core_shift": ["band", "references"], "r448_gen_shift": ["references", "band"],
+    "r448_gen_pool": ["POOL16", "reference pool"],
+    "r448_pool_x": None,                                                  # a level, not a difference
+    "r449_npos": ["wrong-prompt sham"],
+    "r449_pairs": None,
+    "r449_rho": ["ΔA2", "score gap"], "r449_sham_delta": ["sham"],
+    "r449_shared": ["score gap"],
+    "r450_d0": ["R446's committed"],
+    "r450_eta_a": None, "r450_eta_r": None,                               # variance shares
+    "r450_r0": ["size-matched class"], "r450_r3": ["size-matched class"],
+    "r450_selfshare": ["class"],
+    "r451_gen": ["disjoint"], "r451_generic": ["disjoint"], "r451_oracle": ["disjoint space"],
+    "r452_eff": None, "r452_syn": None, "r452_top1": None,                # counts / shares of winners
+    "r452_fixed": ["oracle"],
+    "r453_best": ["floor", "core"], "r453_corehalf": ["bar"],
+    "r453_g0": ["floor"],
+    "r453_win": ["train"],
+    "r454_fams": None, "r454_plateau": None,
+    "r454_pos8": ["floor", "core"], "r454_pos12": ["floor", "core"],
 }
 
 
