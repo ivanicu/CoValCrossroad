@@ -504,6 +504,20 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R466 -- the id-space join. The INTERSECTION is anchored with both population sizes, because
+    # "0" alone reads as an absence rather than as two populations that cannot meet.
+    d466 = next(A24.glob("R466_*"), None)
+    f466 = (d466 / "results" / "r466_unit_equality.json") if d466 else None
+    a = json.loads(f466.read_text()) if (f466 and f466.exists()) else None
+    if a:
+        out["r466_rub"] = (a["rubric_ids"], "R466")
+        out["r466_rank"] = (a["ranking_ids"], "R466")
+        out["r466_inter"] = (a["id_intersection"], "R466")
+        out["r466_anchor"] = (f"{a['core_containment']:.4f}", "R466")
+    else:
+        for k in ("r466_rub", "r466_rank", "r466_inter", "r466_anchor"):
+            out[k] = (None, "R466")
+
     # R465 -- clause ③'s type. The BASELINE is anchored with the collision rate, because the round
     # explicitly declines to claim a difference between them and an unanchored baseline would let a
     # later reader restore that claim by drift.
@@ -1143,6 +1157,10 @@ ASSERTIONS = {
     "r465_nchoice": r"criterion set on \d+ of ([\d,]+)\*\* prompts",
     "r465_rate":    r"\(rate \*\*([\d.]+)\*\*, seed spread",
     "r465_base":    r"label-free baseline of \*\*([\d.]+)\*\*",
+    "r466_rub":    r"rubric-text ids \*\*(\d+)\*\*",
+    "r466_rank":   r"ranking ids \*\*(\d+)\*\*",
+    "r466_inter":  r"\*\*intersection (\d+)\*\*",
+    "r466_anchor": r"reproduces its anchor \(\*\*([\d.]+)\*\*",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

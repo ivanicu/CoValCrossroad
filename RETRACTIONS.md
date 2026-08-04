@@ -9730,3 +9730,59 @@ control on set identity** — if that cell had not returned exactly 1.0, the com
 sets would have been broken and nothing else in the round would be readable. **A derivation you must
 exclude from the estimand is often the only cell whose answer you know, which makes it the cheapest
 available control.**
+
+---
+
+## 282 · ③'s two instruments range over DISJOINT id spaces — "`coval_core` survives ③" is UNVERIFIED (R466)
+
+**What the document says.** *"`coval_core` survives ③: only **0.0779** of its criteria appear verbatim
+in its own prompt's rubric"* (R443).
+
+**What asking the instrument returns.** `clause3_as_written.partition` over every arm with a
+satisfaction file: **39 EXCLUDED, 43 ADMITTED, 19 UNKNOWN** — and **`coval_core` is UNKNOWN.** The
+definition's own paradigm case cannot be classified by the instrument that implements ③.
+
+**Why the second instrument does not rescue it.** ③, as derived by R444 from `select_core.py`,
+forbids consuming the **human rankings** and the **annotator importance scores**. Containment measures
+copying of the rubric's **text**. Measured:
+
+| rubric-text ids | ranking ids | **intersection** |
+|---|---|---|
+| 986 | 1078 | **0** |
+
+⛔ **Disjoint id spaces.** **Containment is not a weak proxy for ③ — it is computed over a population
+that does not intersect the one ③ quantifies over**, and the two cannot be joined on disk without a
+mapping that was never used.
+
+⚠ **UNVERIFIED, never OVERTURNED.** The containment instrument is sound: it reproduces its anchor
+(**0.0778** vs 0.0779), its cross-prompt floor is **0.0000**, and a verbatim copy scores **1.0000**.
+**The defect is in the JOIN, not in the clause**, and folding this into a refutation would be exactly
+the false-retraction this ledger exists to prevent.
+
+⭐ **The generalisable form, and it is not yet on this list.** *Before asking whether two instruments
+measure the same thing, ask whether they can be evaluated on the same objects.* Unit-equality (§4) is
+the second question; **population-joinability is the first**, and it fails silently — both
+instruments run, both return sensible numbers, and neither reports that it never saw the other's
+population.
+
+---
+
+## 283 · A NaN routed to a substantive verdict (R466, caught in-round)
+
+**What happened.** The decisive construction returned `nan` (its population was empty). The branch
+read `elif rc <= sham + 0.005:` — and `nan <= x` is **False** — so it fell through to
+**`W-EQUIVALENT`**, a substantive world, **on a value that does not exist**.
+
+**The fix.** `if not ctrl_ok or not np.isfinite(rc): world = "UNVERIFIED"`. **A non-finite value must
+hard-fail**, never fall through.
+
+⭐ **Why this is worse than an ordinary branch bug.** Every comparison against NaN is False, so a NaN
+**silently selects the `else` branch of every guard it meets**. A design whose verdicts are ordered
+`W-A / W-B / else W-C` will report `W-C` for a missing measurement, and `W-C` is usually the
+conservative-sounding world — which is exactly how a missing number becomes a stated conclusion.
+**Tell: any verdict chain whose final `else` is reachable without an explicit finiteness check.**
+
+⚠ And two smaller ones in the same round, both caught by running it: the parser **guessed the
+schema** and found 0 prompts (the empty-population control fired, exit 2, no number reported); and the
+id-space check ran **outside** the round first — moving it **inside** is what turned *"my construction
+failed"* into *"the two instruments cannot be joined"*, which is retraction 276's remedy applied.
