@@ -48,6 +48,14 @@ clause gets refuted.
 | **①** better than a random draw of the prompt's own rubric | **0 of 41** | **DERIVED** — the region where ① could bind is empty by arithmetic (`GAP ≥ SLACK` on every arm) | R347 |
 | **②** better than a prompt-blind set | **33 of 42** | **MEASURED** — carries the whole boundary among label-free arms | R360 |
 | **③** no prompt labels | **4 of 42** | **DERIVED** that it excludes the label-users; **MEASURED** that nothing else can | R360 |
+| **④** better than every criterion-free rule | **0 of 42** | **MEASURED** — coverage of this space is 42/42 | R440 |
+
+⭐ **④'s zero is the argument, not an embarrassment.** On this release ④ **costs nothing** — it
+removes no arm the definition already admits — while on the second release it removes **all 7** and
+② removes **none** (R434). A clause that is free where the definition works and binding where it
+fails is what a sufficiency clause is for; a **non-zero** here would have meant ④ was quietly
+re-litigating ②'s boundary, which R439 independently ruled out. ⚠ **①'s row is on R347's 41-arm
+space, not this one**, and is left unharmonised rather than given a denominator no round recomputed.
 
 ### ① — a consequence, not a test
 

@@ -395,6 +395,20 @@ def derive():
     else:
         for k in ("r439_pct", "r439_subsets", "r439_below", "r439_pubpct"):
             out[k] = (None, "R439")
+    # R440 -- the fourth table row. COVERAGE is anchored alongside the count, because "0 of 42" is
+    # only a count if the space was fully scored; at partial coverage the same string would be a
+    # bound wearing a count's clothes, and no reader could tell them apart.
+    d440 = next(A24.glob("R440_*"), None)
+    f440 = (d440 / "results" / "r440_one_space.json") if d440 else None
+    a = json.loads(f440.read_text()) if (f440 and f440.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r440_e4"] = (a["E4"], "R440")
+        out["r440_e2"] = (a["E2"], "R440")
+        out["r440_arms"] = (a["n_arms"], "R440")
+        out["r440_cov"] = (a["n_covered"], "R440")
+    else:
+        for k in ("r440_e4", "r440_e2", "r440_arms", "r440_cov"):
+            out[k] = (None, "R440")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -652,6 +666,10 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r440_e4":   r"criterion-free rule \| \*\*(\d+) of \d+\*\* \| \*\*MEASURED\*\*",
+    "r440_arms": r"criterion-free rule \| \*\*\d+ of (\d+)\*\* \| \*\*MEASURED\*\*",
+    "r440_cov":  r"coverage of this space is (\d+)/\d+",
+    "r440_e2":   r"prompt-blind set \| \*\*(\d+) of 42\*\*",
     "r439_pct":     r"bar sits at the \*\*([\d.]+)th percentile\*\*",
     "r439_subsets": r"all ([\d,]+) size-4 subsets of ②.s own reference pool",
     "r439_below":   r"\*\*([\d.]+) below the weakest of them\*\*",
