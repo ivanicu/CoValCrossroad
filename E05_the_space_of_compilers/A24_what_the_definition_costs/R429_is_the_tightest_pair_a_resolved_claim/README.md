@@ -1,5 +1,31 @@
 # R429 · "the tightest pair" was a RANK. Is it a RESOLVED claim?
 
+> ## ⛔ ANNOTATION 2026-08-04, two hours after this round was committed — **`W-BIAS` BELOW IS RETRACTED BY [R430](../R430_is_the_null_gap_the_null_or_the_weighting)**
+>
+> **What stands, unchanged and re-verified:** the headline. Rank 1 is `generic|vacuous` under *both*
+> aggregation weightings and separates from rank 2 under both — **CONV +0.0226 [+0.0083, +0.0374]
+> p=0.0027**, **INTER +0.0234 [+0.0107, +0.0367] p=0.0003**. ⚠ The Δ this round reports is the
+> INTER one, and it never said so; the number is weighting-dependent and must be quoted with its
+> weighting.
+>
+> **What falls:** the attribution. The −0.0148 gap is real and reproduces — but it is the
+> **aggregation weight**, not the null construction. R427 aggregates by CONVERSATION
+> (`lib/cluster.py`), this round pools by INTERACTION, and R430's 2×2 shows *both* nulls reproduce
+> R427 under CONV (**8/10** and **9/10**) and *neither* under INTER (**2/10**, **2/10**). The two
+> nulls agree to ~0.002; the two weightings differ by ~0.013.
+>
+> **Also falls:** *"ranks 5–10 are not quotable."* That was a **subtraction** across a comparison in
+> which both axes moved. Measured per axis: weighting alone moves **2** ranks (9, 10); redrawing the
+> same permutation null 30× moves a **median of 4**, and **positions 1–3 never move in any draw**.
+> Wrong boundary (4, not 5) and wrong cause (the draw, not the construction).
+>
+> **The mode**, logged as `RETRACTIONS.md` entry 244: *a difference measured across two changed
+> factors, attributed to the one I was thinking about.* Every number below is correct and every
+> control below passed. The comparison had two free axes and the write-up had one mechanism.
+>
+> Kept verbatim below rather than rewritten — annotate, never rewrite. Read the `W-BIAS` section as
+> a correct measurement with a wrong explanation attached.
+
 **The decision this round makes safe:** whether `generic|vacuous` being rank 1 of ten arm-pairs is
 something the definition may rest on. **It is — for rank 1 only.** Ranks 5–10 are not quotable from
 either round, and the reason turned out to be a defect neither round had looked for.

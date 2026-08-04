@@ -8668,3 +8668,56 @@ is a filter. Both are choices I made that became invisible the moment the output
 Whether they should be one row or two is the kind of question this file exists to make askable, and
 it is left open rather than resolved by preference.
 
+
+---
+
+## 244 · "The R427↔R429 ranking gap is a NULL-construction bias" — R429, retracted by R430 two hours later
+
+**What I claimed.** R429 (`7c87a72`) measured that R427's permutation null sits **-0.0148** below
+the analytic expectation of R427's own construction — all ten gaps the same sign, only 2 of 10
+inside the one-draw band — and named the world **`W-BIAS`**: *"R427's null is systematically lower;
+the offset is pair-varying, and a pair-varying offset reorders exactly the ranks whose gaps are
+smaller than it."* It closed by announcing the next step: build a synthetic corpus and see which
+**null** recovers the truth.
+
+**What killed it.** R430's 2×2. The R427↔R429 comparison changed **two** things, not one:
+
+| | R427 | R429 |
+|---|---|---|
+| aggregation | **CONV** — mean over conversations of per-conversation means | **INTER** — pooled over interactions |
+| null | **PERM** — one realised permutation | **ANLY** — closed form |
+
+Reproducing R427's committed null from each cell: **CONV/PERM 8/10 · CONV/ANLY 9/10 · INTER/PERM
+2/10 · INTER/ANLY 2/10.** Both nulls reproduce R427 under conversation weighting; neither does when
+pooled. **The nulls agree to ~0.002; the weightings differ by ~0.013.** The mechanism is the
+aggregation weight, and it was sitting in `lib/cluster.py` — a file I wrote, three rounds earlier,
+*because this same class of defect had occurred three times.*
+
+**What survives.** The **measurement** — the -0.0148 gap is real and reproduces. What fell is the
+**attribution**. R429's headline also survives, checked in the same commit as this retraction rather
+than after it: rank 1 is `generic|vacuous` under both weightings and separates from rank 2 under
+both (**CONV +0.0226 [+0.0083,+0.0374] p=0.0027**, **INTER +0.0234 [+0.0107,+0.0367] p=0.0003**).
+
+**A second, smaller retraction inside the same round.** R429's *"ranks 5–10 are not quotable"* was a
+**subtraction**, not a measurement — it came from a comparison in which both axes moved. Measured
+per axis: the weighting alone moves **2** ranks (positions 9, 10); redrawing the same permutation
+null 30 times moves a **median of 4** (IQR 2, range 0–6), and **positions 1–3 never move in any
+draw** while position 4 moves 10/30. The sentence named the wrong boundary (**4**, not 5) and the
+wrong cause (**the draw**, not the construction).
+
+⛔ **The mode, and it is not on this file's existing list.** *A difference measured across two
+changed factors, attributed to the one I was thinking about.* Every number in R429 was correct and
+every control passed. What was wrong is that the comparison had **two** free axes and the write-up
+had **one** mechanism. **A two-factor difference has no single mechanism until one factor is held
+fixed** — and holding it fixed cost one 2×2 over data already on disk, against a synthetic-corpus
+round I had already announced as the next step.
+
+⚠ **The tell, for next time.** The announced next step was expensive, and it was expensive *in the
+direction that would have confirmed the diagnosis without testing it*: a synthetic corpus comparing
+two nulls presupposes the nulls are what differ. **When the next step's design presumes the current
+round's conclusion, the current round's conclusion has not been tested.**
+
+⚠ **What this entry does not claim.** That either null is correct, or that either weighting is. R430
+localises a discrepancy; it adjudicates nothing. R413 bears on the **variance** — the conversation
+is the independent unit — not on which weighting **defines** the estimand, and that distinction is
+exactly what R429 collapsed.

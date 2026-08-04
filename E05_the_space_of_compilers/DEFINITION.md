@@ -448,14 +448,37 @@ criteria's *topical phrasing*, not their evaluative content. This is a **stronge
 the randblind comparison alone supports, and it **changes the reason**: randblind says *"the
 prompt-matching does nothing"*; vacuous says *"the meaning does nothing."*
 
-⚠ **Ranks 5–10 of that grid are NOT quotable, from either round.** R429 measured R427's
-permutation null against the analytic expectation of R427's own construction: **all ten gaps carry
-the same sign, mean -0.0148 against a one-draw band half-width of 0.0104, only 2 of 10 inside.**
-The offset is *pair-varying* (−0.0246 to −0.0036, spread 0.0059), and a pair-varying offset
-reorders exactly the ranks whose gaps are smaller than it — which is ranks 5–10, and is why the two
-rounds agree on 1–4 and disagree below. **Which null is correct is UNVERIFIED**: R429's simulation
-is a positive control on R429's own construction and shares its blind spots.
-→ [`R429`](A24_what_the_definition_costs/R429_is_the_tightest_pair_a_resolved_claim)
+⚠ **Only ranks 1–3 of that grid are quotable.** R429 measured R427's permutation null against the
+analytic expectation of R427's own construction — **all ten gaps carry the same sign, mean -0.0148
+against a one-draw band half-width of 0.0104, only 2 of 10 inside** — and attributed the
+disagreement to the **null construction**. ⛔ **R430 overturned that attribution the same day.**
+
+The R427↔R429 comparison changed **two** things at once, and the decomposition names which one
+carries the gap:
+
+| | R427 | R429 |
+|---|---|---|
+| aggregation | **CONV** — mean over conversations of per-conversation means | **INTER** — pooled over interactions |
+| null | **PERM** — one realised within-stratum permutation | **ANLY** — the closed-form expectation |
+
+Reproducing R427's committed per-pair null from all four cells: **CONV/PERM 8 of 10 · CONV/ANLY 9
+of 10 · INTER/PERM 2 of 10 · INTER/ANLY 2 of 10.** *Both* nulls reproduce R427 when aggregated by
+conversation and *neither* does when pooled. **The two nulls agree to ~0.002; the two weightings
+differ by ~0.013.** The gap is the **aggregation weight**, not the null.
+
+**What survives unchanged:** rank 1 is `generic|vacuous` under *both* weightings, and its separation
+from rank 2 resolves under both — **CONV +0.0226 [+0.0083, +0.0374] p=0.0027** and **INTER +0.0234
+[+0.0107, +0.0367] p=0.0003**. The number is weighting-dependent and must be quoted with its
+weighting, which R429 did not do.
+
+**Where the ordering actually breaks, measured per axis instead of subtracted:** changing the
+weighting alone moves **2 of 10** ranks (positions 9 and 10). Redrawing the *same* permutation null
+30 times at fixed weighting moves a **median of 4** (IQR 2, range 0–6) — **positions 1, 2 and 3
+never move in any draw; position 4 moves in 10 of 30.** So the mid-table ordering is
+permutation-draw noise, and R429's own *"ranks 5–10"* named the wrong boundary and the wrong cause.
+**Which null is correct remains UNVERIFIED** — that needs a corpus with known truth.
+→ [`R429`](A24_what_the_definition_costs/R429_is_the_tightest_pair_a_resolved_claim) ·
+[`R430`](A24_what_the_definition_costs/R430_is_the_null_gap_the_null_or_the_weighting)
 
 ---
 

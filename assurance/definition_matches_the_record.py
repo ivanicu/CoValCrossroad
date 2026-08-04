@@ -201,6 +201,39 @@ def derive():
     else:
         for k in ("r429_inside", "r429_meangap", "r429_half"):
             out[k] = (None, "R429")
+    # R430 -- the decomposition that OVERTURNED R429's attribution. Anchored because a retraction
+    # is the one paragraph a reader most needs to be able to check, and because R429's own numbers
+    # (r429_inside / meangap / half) SURVIVE it unchanged: the measurement stood, the attribution
+    # fell. Keeping both sets anchored in the same document is what makes that distinction legible
+    # rather than a claim about my own honesty.
+    d430 = next(A24.glob("R430_*"), None)
+
+    def r430(stem):
+        f = (d430 / "results" / stem) if d430 else None
+        return json.loads(f.read_text()) if f and f.exists() else None
+    a = r430("r430_decomposition.json")
+    if a and a.get("world") != "UNVERIFIED":
+        for cell, key in (("CONV/PERM", "r430_convperm"), ("CONV/ANLY", "r430_convanly"),
+                          ("INTER/PERM", "r430_interperm"), ("INTER/ANLY", "r430_interanly")):
+            out[key] = (a["hits"][cell], "R430")
+    else:
+        for k in ("r430_convperm", "r430_convanly", "r430_interperm", "r430_interanly"):
+            out[k] = (None, "R430")
+    a = r430("r430_headline_under_both.json")
+    if a and a.get("world") != "UNVERIFIED":
+        out["r430_conv_delta"] = (f"{a['cells']['CONV']['delta']:+.4f}", "R430")
+        out["r430_conv_p"] = (f"{a['cells']['CONV']['p']:.4f}", "R430")
+    else:
+        for k in ("r430_conv_delta", "r430_conv_p"):
+            out[k] = (None, "R430")
+    a = r430("r430_rank_stability.json")
+    if a and a.get("world") != "UNVERIFIED":
+        out["r430_wmoves"] = (a["weighting_moves"], "R430")
+        out["r430_nullmed"] = (int(a["null_moves_median"]), "R430")
+        out["r430_pos4"] = (a["null_position_freq"].get("4"), "R430")
+    else:
+        for k in ("r430_wmoves", "r430_nullmed", "r430_pos4"):
+            out[k] = (None, "R430")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -452,7 +485,16 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
-    "r429_meangap":          r"mean ([+\-][\d.]+) against a one-draw band",
+    "r430_convperm":         r"\*\*CONV/PERM (\d+) of 10",
+    "r430_convanly":         r"CONV/ANLY (\d+)\s*\n?of 10",
+    "r430_interperm":        r"INTER/PERM (\d+) of 10",
+    "r430_interanly":        r"INTER/ANLY (\d+) of 10\.\*\*",
+    "r430_conv_delta":       r"\*\*CONV ([+\-][\d.]+) \[",
+    "r430_conv_p":           r"\*\*CONV [+\-][\d.]+ \[[+\-][\d.]+, [+\-][\d.]+\] p=([\d.]+)\*\*",
+    "r430_wmoves":           r"weighting alone moves \*\*(\d+) of 10\*\*",
+    "r430_nullmed":          r"moves a \*\*median of (\d+)\*\*",
+    "r430_pos4":             r"position 4 moves in (\d+) of 30",
+    "r429_meangap":          r"mean ([+\-][\d.]+)\s+against a one-draw band",
     "r429_half":             r"one-draw band half-width of ([\d.]+)",
     "r427_cells":            r"clears the shortcut in 0 of (\d+) cells",
     "r427_favour":           r"clears the shortcut in (\d+) of \d+ cells",
