@@ -145,6 +145,10 @@ STOPPING RULE: this is the entire pre-registered analysis; no further
    number.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import json
 import re
@@ -170,8 +174,8 @@ LABELS = ("A", "B", "C", "D")
 
 COMPARISONS = _ROOT / "data" / "comparisons.jsonl"
 RUBRICS = _ROOT / "data" / "conversation_rubrics.jsonl"
-NPZ_FULL = _ROOT / "E01" / "R04_rebuild_satisfaction" / "results" / "a04_full.npz"
-NPZ_CORE = _ROOT / "E01" / "R04_rebuild_satisfaction" / "results" / "a04_core.npz"
+NPZ_FULL = round_results("R04") / "a04_full.npz"
+NPZ_CORE = round_results("R04") / "a04_core.npz"
 OUT = _HERE / "results" / "independent_A.json"
 
 HEDGE_WORDS = {

@@ -53,6 +53,10 @@ after seeing p-values)
 ============================================================================
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import json
 import sys
@@ -110,8 +114,8 @@ def pearson_scalar(x: np.ndarray, y: np.ndarray) -> float:
 def main() -> int:
     comparisons = _ROOT / "data" / "comparisons.jsonl"
     rubrics = _ROOT / "data" / "conversation_rubrics.jsonl"
-    full_npz = _ROOT / "E01" / "R04_rebuild_satisfaction" / "results" / "a04_full.npz"
-    core_npz = _ROOT / "E01" / "R04_rebuild_satisfaction" / "results" / "a04_core.npz"
+    full_npz = round_results("R04") / "a04_full.npz"
+    core_npz = round_results("R04") / "a04_core.npz"
     for f in (comparisons, rubrics, full_npz, core_npz):
         if not f.exists():
             print(f"MISSING REQUIRED FILE: {f} -- cannot run, exiting nonzero.")

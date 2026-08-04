@@ -29,6 +29,10 @@ reads +0.0093 on those 300 and +0.0015 on all 968; under clustering both are nul
 sampling variation and not a selection effect.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import json
 import math
@@ -45,7 +49,7 @@ from covalx.cluster import two_way_se  # noqa: E402
 
 LETTERS = "ABCD"
 RANK_MAP = {"A": 0, "B": 1, "C": 2, "D": 3}
-REF = ROOT / "E01" / "R04_rebuild_satisfaction" / "results"
+REF = round_results("R04")
 
 
 def load_sat(path: pathlib.Path) -> dict[str, np.ndarray]:

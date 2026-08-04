@@ -88,6 +88,10 @@ the 4 responses of a prompt share criteria/weights and are not independent.
 Multi-seed: 5 independent bootstrap master seeds off SEED=8101; report spread.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import json
 import sys
@@ -128,10 +132,8 @@ def main():
     pid2rub = {pid: rub for pid, cmp, rub in joined}
     pid2cmp = {pid: cmp for pid, cmp, rub in joined}
 
-    sat_full = load_sat(ROOT / "E01" / "R04_rebuild_satisfaction"
-                         / "results" / "a04_full.npz")
-    sat_core = load_sat(ROOT / "E01" / "R04_rebuild_satisfaction"
-                         / "results" / "a04_core.npz")
+    sat_full = load_sat(round_results("R04") / "a04_full.npz")
+    sat_core = load_sat(round_results("R04") / "a04_core.npz")
 
     common_pids = sorted(set(sat_full) & set(sat_core) & set(pid2rub))
     print(f"prompts with full+core tensors+rubric join: {len(common_pids)}")

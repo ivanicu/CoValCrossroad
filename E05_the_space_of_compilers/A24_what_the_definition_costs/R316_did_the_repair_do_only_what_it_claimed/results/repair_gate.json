@@ -1,5 +1,5 @@
 {
- "source_sha": "8d2b0e3081edee3e",
+ "source_sha": "6e8b65aafa75bb99",
  "world": "W-OVERREACH",
  "floor": {
   "moved": 2,
@@ -37,6 +37,7 @@
   "R275"
  ],
  "broken_after": [
+  "R165",
   "R260",
   "R267",
   "R268",
@@ -90,17 +91,14 @@
  ],
  "targeted_stuck": [],
  "untargeted_left": [],
- "untargeted_entered": [],
+ "untargeted_entered": [
+  "R165"
+ ],
  "untargeted_regressed": [
   [
-   "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R07_anthropomorphism",
-   "REACHED-WRITE",
-   "OTHER-ERROR"
-  ],
-  [
-   "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R201_is_the_fairness_result_one_prompt",
-   "REACHED-WRITE",
-   "OTHER-ERROR"
+   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R165_gauge_admissibility",
+   "OTHER-ERROR",
+   "BROKEN-INPUT"
   ]
  ],
  "churn_classes": [
@@ -115,10 +113,10 @@
   "R275"
  ],
  "transitions": {
-  "BROKEN-INPUT->REACHED-WRITE": 15,
-  "TIMEOUT->REACHED-WRITE": 4,
   "BROKEN-INPUT->TIMEOUT": 4,
-  "REACHED-WRITE->OTHER-ERROR": 2
+  "BROKEN-INPUT->REACHED-WRITE": 15,
+  "REACHED-WRITE->TIMEOUT": 2,
+  "OTHER-ERROR->BROKEN-INPUT": 1
  },
  "counts_before": {
   "BROKEN-INPUT": 25,
@@ -129,11 +127,11 @@
   "SKIPPED-GPU": 22
  },
  "counts_after": {
-  "BROKEN-INPUT": 6,
-  "REACHED-WRITE": 224,
+  "BROKEN-INPUT": 7,
+  "REACHED-WRITE": 221,
   "COMPLETED": 0,
-  "OTHER-ERROR": 8,
-  "TIMEOUT": 40,
+  "OTHER-ERROR": 5,
+  "TIMEOUT": 46,
   "SKIPPED-GPU": 23
  },
  "positive_ok": true,

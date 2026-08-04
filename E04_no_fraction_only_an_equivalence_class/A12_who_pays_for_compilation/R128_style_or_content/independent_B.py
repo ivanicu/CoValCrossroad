@@ -108,6 +108,10 @@ No LLM calls, no GPU. Pure numpy/stdlib over the precomputed a04 satisfaction
 tensors and the release rubrics/comparisons files.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import json
 import sys
@@ -162,10 +166,8 @@ joined = load_join(REPO / "data" / "comparisons.jsonl",
                     REPO / "data" / "conversation_rubrics.jsonl")
 
 print("[load] precomputed satisfaction tensors ...", flush=True)
-sat_full = load_sat(REPO / "E01" / "R04_rebuild_satisfaction"
-                     / "results" / "a04_full.npz")
-sat_core = load_sat(REPO / "E01" / "R04_rebuild_satisfaction"
-                     / "results" / "a04_core.npz")
+sat_full = load_sat(round_results("R04") / "a04_full.npz")
+sat_core = load_sat(round_results("R04") / "a04_core.npz")
 
 # ============================================================ 2. BUILD =====
 # Per-instance rows. Columns kept as parallel python lists, cast to numpy at

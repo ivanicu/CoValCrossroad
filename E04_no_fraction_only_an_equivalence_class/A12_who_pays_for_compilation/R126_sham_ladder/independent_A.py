@@ -126,6 +126,10 @@ STOPPING RULE: one run, one seed family (SEED=8101, >=5 seeds per stochastic
 SEED = 8101.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import json
 import sys
@@ -150,8 +154,8 @@ RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 COMPARISONS = ROOT / "data" / "comparisons.jsonl"
 RUBRICS = ROOT / "data" / "conversation_rubrics.jsonl"
-SAT_FULL = ROOT / "E01" / "R04_rebuild_satisfaction" / "results" / "a04_full.npz"
-SAT_CORE = ROOT / "E01" / "R04_rebuild_satisfaction" / "results" / "a04_core.npz"
+SAT_FULL = round_results("R04") / "a04_full.npz"
+SAT_CORE = round_results("R04") / "a04_core.npz"
 
 
 # =====================================================================

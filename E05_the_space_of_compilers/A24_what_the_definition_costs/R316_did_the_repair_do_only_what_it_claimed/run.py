@@ -81,7 +81,12 @@ SCRATCH = pathlib.Path("/tmp/claude-1000/-home-ivan/"
                        "7d277876-c2fd-4a27-9b05-652b391121ff/scratchpad")
 A_PATH = (SELF.parent.parent / "R315_how_many_rounds_can_still_run"
           / "results" / "runnability.json")
-B_PATH, C_PATH = SCRATCH / "sweep_B.json", SCRATCH / "sweep_C.json"
+B_PATH = SCRATCH / "sweep_B.json"
+# C was the FIRST post-repair sweep and it returned W-OVERREACH: two rounds the repair had edited
+# regressed REACHED-WRITE -> OTHER-ERROR. D is the sweep after those regressions were fixed. C is
+# kept at scratchpad/gate_AC.json rather than overwritten, because a gate that only ever shows the
+# run where it passed is not a gate.
+C_PATH = SCRATCH / ("sweep_D.json" if (SCRATCH / "sweep_D.json").exists() else "sweep_C.json")
 
 # ⚠ THE COHORTS ARE DERIVED FROM SWEEP A, NOT TYPED. My first draft hard-coded all three sets
 # from memory and got the third wrong -- it listed R255, which was never broken. A hand-written
@@ -212,7 +217,10 @@ def main():
         print("     Reported separately rather than netted: they are different defects.")
     elif over:
         world = "W-OVERREACH"
-        n_over = len(regressed) + len(untgt_left) + len(entered_broken - targeted)
+        # DEDUPED. The first version summed three overlapping sets and printed "2 rounds" while
+        # listing one: R165 was in both `entered_broken - targeted` and `regressed`. A count and
+        # a list that disagree in the same sentence is the verdict string not being a computation.
+        n_over = len({rid(k) for k, _, _ in regressed} | untgt_left | (entered_broken - targeted))
         print(f"  -> W-OVERREACH. {n_over} rounds the repair did not target changed class in a")
         print("     way the measured churn cannot explain. The edit did more than it claimed:")
         for k, x, y in regressed:

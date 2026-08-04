@@ -41,6 +41,10 @@ NO GPU / NO LLM CALLS -- this script only reads the two precomputed .npz
 satisfaction tensors and the two jsonl release files.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import json
 import re
@@ -60,7 +64,7 @@ sys.path.insert(0, str(REPO))
 from covalx import load_join  # noqa: E402
 
 DATA_DIR = REPO / "data"
-TENSOR_DIR = REPO / "E01" / "R04_rebuild_satisfaction" / "results"
+TENSOR_DIR = round_results("R04")
 RESULTS_DIR = HERE / "results"
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 

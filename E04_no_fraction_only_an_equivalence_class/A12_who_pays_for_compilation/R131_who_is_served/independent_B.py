@@ -115,6 +115,10 @@ spread, absolute + standardized effect sizes, and the multiplicity-corrected
 loser list are all written to the single JSON output below.
 """
 from __future__ import annotations
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(next(p for p in _pl.Path(__file__).resolve().parents
+                             if (p / 'covalx').is_dir())))  # noqa: E402
+from covalx.legacy import round_results  # noqa: E402
 
 import json
 import subprocess
@@ -323,8 +327,8 @@ def main():
     joined = load_join(REPO / "data" / "comparisons.jsonl", REPO / "data" / "conversation_rubrics.jsonl")
     n_prompts_joined = len(joined)
 
-    sat_full_path = REPO / "E01" / "R04_rebuild_satisfaction" / "results" / "a04_full.npz"
-    sat_core_path = REPO / "E01" / "R04_rebuild_satisfaction" / "results" / "a04_core.npz"
+    sat_full_path = round_results("R04") / "a04_full.npz"
+    sat_core_path = round_results("R04") / "a04_core.npz"
     if not sat_full_path.exists() or not sat_core_path.exists():
         print(f"MISSING precomputed satisfaction tensors at {sat_full_path} / {sat_core_path}. Exiting nonzero.")
         sys.exit(1)
