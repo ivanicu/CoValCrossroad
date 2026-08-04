@@ -342,6 +342,25 @@ def derive():
         for k in ("r436_bar", "r436_excl", "r436_arms", "r436_exclJ", "r436_armsJ",
                   "r436_topd", "r436_topmde"):
             out[k] = (None, "R436")
+    # R437 -- the inversion. Both GAPs and both MDEs are anchored, because the CLAIM is about their
+    # SIGNS and a sign that no artifact re-derives is the cheapest thing in this document to get
+    # backwards.
+    d437 = next(A24.glob("R437_*"), None)
+    f437 = (d437 / "results" / "r437_bar_inversion.json") if d437 else None
+    a = json.loads(f437.read_text()) if (f437 and f437.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r437_home_bar2"] = (f"{a['home']['bar2']:.4f}", "R437")
+        out["r437_home_bar4"] = (f"{a['home']['bar4']:.4f}", "R437")
+        out["r437_home_gap"] = (f"{a['home']['gap_paired']:+.4f}", "R437")
+        out["r437_home_mde"] = (f"{a['home']['mde']:.4f}", "R437")
+        out["r437_sec_bar2"] = (f"{a['second']['bar2']:.4f}", "R437")
+        out["r437_sec_bar4"] = (f"{a['second']['bar4']:.4f}", "R437")
+        out["r437_sec_gap"] = (f"{a['second']['gap']:+.4f}", "R437")
+        out["r437_sec_mde"] = (f"{a['second']['mde']:.4f}", "R437")
+    else:
+        for k in ("r437_home_bar2", "r437_home_bar4", "r437_home_gap", "r437_home_mde",
+                  "r437_sec_bar2", "r437_sec_bar4", "r437_sec_gap", "r437_sec_mde"):
+            out[k] = (None, "R437")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -599,6 +618,14 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r437_home_bar2": r"`random_k4_s0` \*\*([\d.]+)\*\*",
+    "r437_home_bar4": r"`min_ttr` \*\*([\d.]+)\*\*",
+    "r437_home_gap":  r"\*\*([+\-][\d.]+)\*\* vs MDE [\d.]+ · RESOLVED \| \*\*②\*\*",
+    "r437_home_mde":  r"\*\*[+\-][\d.]+\*\* vs MDE ([\d.]+) · RESOLVED \| \*\*②\*\*",
+    "r437_sec_bar2":  r"`generic` \*\*([\d.]+)\*\*",
+    "r437_sec_bar4":  r"\| `length` \*\*([\d.]+)\*\*",
+    "r437_sec_gap":   r"\*\*([+\-][\d.]+)\*\* vs MDE [\d.]+ · RESOLVED \| \*\*④\*\*",
+    "r437_sec_mde":   r"\*\*[+\-][\d.]+\*\* vs MDE ([\d.]+) · RESOLVED \| \*\*④\*\*",
     "r436_bar":     r"the bar is \*\*`min_ttr` at ([\d.]+)\*\*",
     "r436_excl":    r"\*\*④ excludes (\d+) of \d+ arms overall",
     "r436_arms":    r"\*\*④ excludes \d+ of (\d+) arms overall",

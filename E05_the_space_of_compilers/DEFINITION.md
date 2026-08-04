@@ -413,8 +413,27 @@ anything was generated.**
 excluding nothing the definition admits; and the round was **not reproducible** (`hash(str)` is
 randomised per process, giving 25 then 22) until the seed was made stable. Two runs are now
 byte-identical.
+⭐ **AND R437 FOUND THE REASON TO KEEP ④ THAT IS STRONGER THAN "IT WOULD HAVE CAUGHT ONE RELEASE".
+THE TWO BARS INVERT.** Clause ② and candidate ④ are two bars on the same accuracy axis, and their
+order **flips between releases**:
+
+| release | statistic (chance) | BAR2 — ②'s reference | BAR4 — best criterion-free rule | GAP = BAR4 − BAR2 | binds |
+|---|---|---|---|---|---|
+| **home** | A2 over 6 pairs (0.5000) | `random_k4_s0` **0.4945** | `min_ttr` **0.4512** | **-0.0416** vs MDE 0.0237 · RESOLVED | **②** |
+| **second** | top-1 (0.4194) | `generic` **0.4497** | `length` **0.5135** | **+0.0637** vs MDE 0.0231 · RESOLVED | **④** |
+
+**Neither clause dominates.** A definition carrying both carries a **max over two bars**, not two
+independent tests, and which one does the work is a property of the release: **④ binds exactly where
+② goes slack**, and R434 measured ② admitting nothing on the second release.
+
+⚠ **SIGN ONLY.** The two GAPs are on different statistics with different chance rates and **must not
+be compared in magnitude**. ⚠ And at home **both bars sit below chance** (A2's base rate is 0.5,
+while the real arms reach 0.51–0.64) — which is *why* ② binds there: a reference nearer chance is a
+**higher** bar than a systematically wrong rule. ⚠ What is NOT established: that the max of the two
+bars is the *right* bar, or that no third regime exists where both go slack.
 → [`R435`](A24_what_the_definition_costs/R435_is_a_sufficiency_clause_even_statable) ·
-[`R436`](A24_what_the_definition_costs/R436_does_clause_four_exclude_anything_at_home)
+[`R436`](A24_what_the_definition_costs/R436_does_clause_four_exclude_anything_at_home) ·
+[`R437`](A24_what_the_definition_costs/R437_do_the_two_bars_invert_between_releases)
 
 ---
 
