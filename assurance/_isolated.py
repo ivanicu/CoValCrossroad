@@ -81,6 +81,32 @@ def _git(*a, cwd=None):
     return subprocess.run(["git", *a], cwd=str(cwd or ROOT), capture_output=True, text=True)
 
 
+def assert_not_live(wt: pathlib.Path) -> None:
+    """Refuse to destroy anything unless `wt` is PROVABLY a linked worktree, not a main repo.
+
+    ⛔ WHY THIS EXISTS. Running `_isolated.py` as a script deleted the live tree: 1,408 tracked
+      files, plus every uncommitted file, which git could not restore. R376 had measured the
+      selftest as `MAIN tree epochs before/after 5/5 SAFE`, so the containment claim was true when
+      it was measured and false later, and I could not establish the mechanism by reading the
+      source. **This guard does not depend on knowing the mechanism.** It makes the destructive
+      path impossible to aim at a main repository at all.
+
+    The discriminator is structural and exact, not a heuristic:
+        a main repository's `.git` is a DIRECTORY
+        a linked worktree's `.git` is a FILE containing `gitdir: ...`
+    So a path that is the live tree cannot be mistaken for a worktree, whatever the env, the
+    symlink, or the caller says.
+    """
+    if wt.resolve() == ROOT.resolve():
+        raise RuntimeError(f"REFUSING: target is the live tree ({wt})")
+    g = wt / ".git"
+    if g.is_dir():
+        raise RuntimeError(f"REFUSING: {wt}/.git is a DIRECTORY — that is a MAIN REPOSITORY, "
+                           f"not a linked worktree")
+    if not g.is_file():
+        raise RuntimeError(f"REFUSING: {wt} carries no worktree marker at .git")
+
+
 def ensure_worktree(rev: str = "HEAD") -> pathlib.Path:
     if (WT / ".git").exists():
         return WT
@@ -146,6 +172,7 @@ def restore(wt: pathlib.Path) -> list[str]:
     subject moved away — precisely the case a glob of the live tree cannot see. Untracked
     leftovers are enumerated by `git status`, also from git.
     """
+    assert_not_live(wt)          # never delete anything in a main repository
     changed = [l for l in _git("status", "--porcelain", cwd=wt).stdout.split("\n") if l.strip()]
     _git("checkout", "--", ".", cwd=wt)
     for line in changed:
@@ -209,6 +236,7 @@ def selftest() -> int:
           "  that has not been shown to survive it is not isolated, only untested.\n")
     before = sorted(p.name for p in ROOT.glob("E0*") if p.is_dir())
     wt = ensure_worktree()
+    assert_not_live(wt)  # before ANY planting: the saboteur must not be aimable at a main repo
     restore(wt)          # clean the worktree FIRST, then plant into it
     sab = "assurance/_saboteur_probe.py"
     (wt / sab).write_text(textwrap.dedent('''
