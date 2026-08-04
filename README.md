@@ -268,6 +268,18 @@ key-name match said 38, a tight self-hash regex said 14, and both were wrong, be
 it. A stamp detects **drift, never forgery** — whoever edits an artifact can write any hash into it.
 → [`R345`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R345_the_stamp_nobody_reads)
 
+**And re-running IS affordable — but it does not say the numbers are right.** A stratified sample of
+45 rounds, executed in an isolated copy: **41 complete inside 90 s (91%)**, 80% inside 30 s. Of the
+40 with an artifact to compare, **30 regenerate it and 10 do not** — and `byte-identical` equals
+`json-equal` at 30/40, so **not one of the ten differs merely in formatting; every difference is a
+value.** Crossed against the stamp census: where a stamp exists it agreed with re-running (both
+STALE rounds differ, the single FRESH one reproduces), but **a stamp exists for 3 of these 40 rounds
+and 7 of the 10 failures carry none** — the drift check's sign is right and its coverage would have
+caught 2 of 10. *Its isolation control failed on two earlier valid runs, both times because I was
+committing while it measured; the third compares per path and returned 765 artifacts, 0 changed, 0
+vanished.*
+→ [`R344`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R344_what_fraction_can_be_rerun)
+
 **The reader now exists** — [`assurance/source_stamp_is_current.py`](assurance/source_stamp_is_current.py),
 three-valued, in the suite registry (**22/22** on an empty population). It is a **ratchet, not a
 gate**: the 33 stale rounds are frozen in `KNOWN_STALE.json` so the debt cannot grow silently, and
