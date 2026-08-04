@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**345 rounds** in **5 epochs** and **24 arcs**, numbered to **R351** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**339 of the 345 carry a
+**346 rounds** in **5 epochs** and **24 arcs**, numbered to **R352** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**340 of the 346 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -316,6 +316,13 @@ exactly how a rendering search manufactures a false identity. *The drift is real
 fields nobody cites, at a floor of 3 significant figures over these two documents — a bound, not a
 clean bill.*
 → [`R351`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R351_did_a_published_number_move)
+
+✅ **Nor their own writeups — so regenerating them is safe.** The population R351 deliberately
+excluded, checked *before* regenerating rather than after (regeneration would destroy the evidence):
+**0 of the 27 differing leaves is quoted in its own round's README.** The pre-registered prediction —
+that `R34` and `R36`, holding 22 of the 27, would be the exposed ones — **failed**: drift volume does
+not predict prose exposure. *Cross-citation between rounds is still uncovered, and is the real gap.*
+→ [`R352`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R352_would_regenerating_break_their_own_readmes)
 
 **The reader now exists** — [`assurance/source_stamp_is_current.py`](assurance/source_stamp_is_current.py),
 three-valued, in the suite registry (**22/22** on an empty population). It is a **ratchet, not a
