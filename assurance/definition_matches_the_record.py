@@ -77,6 +77,11 @@ def derive():
     out["closure_k_count"] = (len(a["ks"]) if a else None, "R355")
     a = art("R358_*")
     out["closure_violations_08B"] = (a["totals_08b"]["45"] if a else None, "R358")
+    a = art("R371_*")
+    if a:
+        out["null_ratio"] = (round(a["median_ratio"], 2), "R371")
+    else:
+        out["null_ratio"] = (None, "R371")
     a = art("R370_*")
     if a:
         out["pool_contrast"] = (round(a["results"]["pool|exact"]["contrast"], 4), "R370")
@@ -199,6 +204,8 @@ ASSERTIONS = {
     #   rule-A number (+0.0967) earlier in the document, and the gate caught that collision.
     "pool_contrast":         r"the contrast is \*\*\+(\d\.\d+) vs MDE",
     "pool_mde":              r"vs MDE (\d\.\d+)\*\* \(exact\)",
+    # R371 — the verdict is S-dependent; the null ratio travels with that caveat.
+    "null_ratio":            r"median ratio is \*\*(\d\.\d+)\*\*",
 }
 
 

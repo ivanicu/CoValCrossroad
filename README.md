@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**364 rounds** in **5 epochs** and **24 arcs**, numbered to **R370** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**358 of the 364 carry a
+**365 rounds** in **5 epochs** and **24 arcs**, numbered to **R371** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -588,6 +588,21 @@ recovered R368's **+0.0992 / +0.0612 exactly**, so this is about that quantity. 
 stands as a number; what it measured was the floor.** Gate **36 of 36** — and it caught a regex
 collision doing it, where the bare pattern matched R367's +0.0967 instead.
 → [`R370`](E05_the_space_of_compilers/A24_what_the_definition_costs/R370_a_non_subset_floor_for_the_fresh_arm)
+
+**⛔ And R370's verdict is itself a specification choice — it fixed S=4 and never swept it.** R370's
+NEXT said *"the binding constraint is now n"*, but its MDE is `ZEFF · sd(per-stratum contrasts) /
+√n_STRATA` — a **between-strata** error over **four points**, which more prompts do not shrink. So the
+718-prompt job was **priced for free before any GPU**. Sweeping S: the `exact` contrast **resolves at
+S = 2 and 5** and does not at S = 3, 4, 6, 8; on `pair` it is inside the MDE everywhere. **The honest
+statement is the curve, not the cell.** The between-stratum spread is **sampling noise, not
+structure** — median ratio **0.98** against a *no-heterogeneity* null — and the MDE **rises** with S,
+so **more prompts help only at fixed S, never by adding strata.** ⛔ **Two of my own defects, caught
+before publishing**: the null was **malformed and nearly forced** (v1 resampled each stratum *from
+itself*, so `observed ≤ bootstrap` by construction — it returned 0.65 and I would have published
+`W-OVERFIT`; rebuilt as the pooled-draw world it moves to 0.98 and the verdict **inverts**), and the
+else-branch **asserted "the MDE falls with S" while the line above printed that it does not** — fifth
+verdict-string failure this session, with **no branch for the world that obtains**. Gate **37 of 37**.
+→ [`R371`](E05_the_space_of_compilers/A24_what_the_definition_costs/R371_would_more_prompts_resolve_transport)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

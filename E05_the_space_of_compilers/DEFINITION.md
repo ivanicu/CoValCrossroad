@@ -240,8 +240,19 @@ the non-subset floor (exact; +0.0662 on pair). A random draw from `full`'s own c
 **cannot resolve** transport. And the collapse arrives two ways: on `pair` the contrast falls **74%**
 while the MDE shrinks, on `exact` the contrast barely moves and the **MDE grows 41%**.
 
-**So transport is a stated LIMIT, not a candidate clause**: R368's number stands as a number, and
-what it measured was the floor.
+⛔ **AND THAT VERDICT IS ITSELF A SPECIFICATION CHOICE (R371).** R370 fixed the stratification at
+**S = 4** and never swept it. Sweeping S on the same data, the `exact` contrast **resolves at S = 2
+and S = 5** and does not at S = 3, 4, 6, 8. On `pair` it is inside the MDE at every S. So the honest
+statement is the **curve**, not the cell — and *"transport collapses"* is what S=4 says, not what the
+data says.
+
+⚠ The between-stratum spread is **sampling noise, not structure**: against a *no-heterogeneity* null
+the median ratio is **0.98**. And the MDE **rises** with S, because smaller strata get noisier faster
+than √S recovers — so more prompts would help only **at fixed S**, never by adding strata.
+
+**So transport is a stated LIMIT, not a candidate clause** — and the limit is *unresolved at the
+campaign's own default stratification*, with a verdict that moves when that default is swept. R368's
+number stands as a number; what it measured was the floor.
 
 ## The one sentence
 
