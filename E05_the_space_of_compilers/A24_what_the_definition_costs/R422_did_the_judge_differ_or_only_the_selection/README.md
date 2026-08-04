@@ -69,4 +69,43 @@ corpus's clothes. A different-`k` pair is the non-degenerate version.
   (`a08_gold_08b.npz`), not a satisfaction file. Not recoverable from filenames; not guessed.
 - **cross-release** — one release.
 
+---
+
+## ⛔ CORRECTION, WRITTEN THE MOMENT THE ROUND RETURNED — the printed verdict is NOT this round's finding
+
+The script printed `W-DIFFERENT-EMITTER`. **Do not read that as the result.** The pre-registered kill
+said *"any value differs → different emitter"*, and comparing a quantity to **zero** instead of to
+**its own null** is the failure this campaign has the most entries for.
+
+| rule | shared criterion-cells | differing | **rate** |
+|---|---|---|---|
+| `oracle_k4` | 8,180 | 5 | **0.061 %** |
+| `greedy_k4_fit1` | 7,868 | 9 | **0.114 %** |
+| `indep_k4_fit1` | 7,516 | 11 | **0.146 %** |
+| `topvar_k4` | 7,044 | 14 | **0.199 %** |
+| `topwvar_k4` | 7,760 | 13 | **0.168 %** |
+
+**A second judge changes essentially every value. One cell in a thousand is not a judge — it is a
+defect somewhere else,** and the round's own branch had no way to say so.
+
+**And the confound is in my join key, the very thing this README calls "the whole instrument."**
+`select_core.py` emits `sat[pid][(i, letter)]` where `i` is the criterion's **original** index, while
+I keyed on its **text**. A prompt whose criterion list repeats a text has two original indices with
+the same text and *different* values — measured: **82 of 968 prompts (8.5 %) in `core_full.json`
+carry a repeated criterion text**, plus 10 and 7 inside the two `oracle_k4` families themselves. My
+dict keeps whichever came last, so two files selecting different duplicate instances register a
+"difference" that is not a difference in the emitter at all.
+
+**Verdict: UNVERIFIED.** Not OVERTURNED — a false retraction is as permanent as a false acquittal,
+and the duplicate hypothesis is a hypothesis until it is measured. R423 measures it, with the join
+repaired to a **set-valued** key (differing ⟺ the two value-sets are *disjoint*) and with every
+differing cell checked against the default npz's own multiset.
+
+⚠ **What survives regardless:** the `REAL (=)` control returned **0 differing of 7,728 shared** on
+`topw_k4` vs `topw_k2` — two genuinely different files sharing an emitter. `select_core.py` performs
+**zero judge calls**; it only looks values up. So *given a correct join*, a shared emitter forces
+exact equality, and the separator itself is sound. It was the key, not the logic, that failed.
+
+---
+
 Findings, with their scope, live in the top-level README. This file states the design.
