@@ -8721,3 +8721,41 @@ round's conclusion, the current round's conclusion has not been tested.**
 localises a discrepancy; it adjudicates nothing. R413 bears on the **variance** — the conversation
 is the independent unit — not on which weighting **defines** the estimand, and that distinction is
 exactly what R429 collapsed.
+
+---
+
+## 245 · "Clause ② is emptied by a change of judge" — R301, corrected by R447
+
+**What was claimed.** `DEFINITION.md`, in the clause-② section: *"It is emptied by a change of judge:
+**5** arms admitted at Qwen3.5-2B-Base, **0** at Qwen3.5-0.8B-Base, on all 41 arms."* The judge index
+in the definition — *"a core under J, never a core"* — rests on it.
+
+**What killed it.** R301's `0` is measured at **one reference**, `POOL[0:4]`, which R331 had already
+shown was chosen by **file order** and sits at the 93.7th percentile of its own class. Swept over all
+**1,820** size-4 subsets judged by 0.8B, on 968 prompts: ② admits **`coval_core` under 11.87%** and
+**`gen` under 25.60%** of that judge's own reference class. **It is not emptied.**
+
+**And the correction is larger than the claim.** The admitted-share ordering **inverts**:
+
+| | `coval_core` | `gen` |
+|---|---|---|
+| @2B | 98.41% | 0.38% |
+| @0.8B | 11.87% | **25.60%** |
+
+At 2B the definition admits the released core and rejects the generated one; at 0.8B the generated
+one is admitted more often. **The judge does not move a threshold, it reorders the candidates** — and
+no version of the original sentence predicts that.
+
+**What makes it a measurement rather than silence.** An oracle ordering is admitted under
+**1820/1820** references at 0.8B. Without that control a low share would have been unreadable — and
+R301's original `0` was unreadable for exactly that reason, never having been paired with one.
+
+⛔ **The mode, and it is already on this file's list twice.** *A number measured at one arbitrary
+setting, reported as a property of the thing.* R331 measured the arbitrariness of `POOL[0:4]` and the
+finding sat in the document for the whole campaign **as a caveat on ②'s strength, never as a
+challenge to any verdict computed against it.** A defect that is acknowledged in prose and never
+propagated to the numbers it contaminates is not acknowledged.
+
+⚠ **What this does NOT retract.** That the judge matters — it matters *more*. And it establishes
+nothing about which judge is right: *two judges can refute a rule and never establish one*, which is
+this document's own sentence and still holds.

@@ -159,8 +159,15 @@ It excludes the most, and every one of the following is measured:
 - The "closure level" is the **first** closed reference, not the lowest safe one — at 6 of 9 k,
   **stronger** references admit blind sets again. This replicates at a second judge, so it is a
   property of the **estimator**, not of one model. *(R355, R358)*
-- **It is emptied by a change of judge**: **5** arms admitted at Qwen3.5-2B-Base, **0** at
-  Qwen3.5-0.8B-Base, on all 41 arms. *(R301)*
+- ~~**It is emptied by a change of judge**: **5** arms admitted at Qwen3.5-2B-Base, **0** at
+  Qwen3.5-0.8B-Base, on all 41 arms. *(R301)*~~ ⛔ **CORRECTED 2026-08-04 (R447): false as a
+  statement about the JUDGE.** R301's `0` is measured at `POOL[0:4]` — the file-order draw. Swept
+  over all **1,820** references judged by 0.8B, ② admits `coval_core` under **11.9%** of its own
+  class and `gen` under **25.6%**, with an oracle admitted under 1820/1820 so the shares are
+  measurements and not silence. ⭐ **And the ordering INVERTS**: at 2B `coval_core` clears 98.4% and
+  `gen` 0.4%; at 0.8B `gen` clears more than `coval_core` does. **The judge does not merely move the
+  threshold — it reorders the definition's two candidate members**, which is a stronger claim than
+  the one being corrected. ⚠ Shares are comparable across judges; A2 LEVELS are not.
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

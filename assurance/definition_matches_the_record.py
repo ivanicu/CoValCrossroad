@@ -504,6 +504,20 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R447 -- the judge sweep that corrected R301. Both judges' shares for BOTH arms are anchored,
+    # because the finding is the INVERSION and an anchor on one arm at one judge would let the
+    # comparison that constitutes it drift away.
+    d447 = next(A24.glob("R447_*"), None)
+    f447 = (d447 / "results" / "r447_judge_sweep.json") if d447 else None
+    a = json.loads(f447.read_text()) if (f447 and f447.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        c = a["cells"]
+        out["r447_core8"] = (f"{100*c['coval_core']['share_08b']:.1f}", "R447")
+        out["r447_gen8"] = (f"{100*c['gen']['share_08b']:.1f}", "R447")
+        out["r447_refs"] = (a["n_refs"], "R447")
+    else:
+        for k in ("r447_core8", "r447_gen8", "r447_refs"):
+            out[k] = (None, "R447")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -761,6 +775,9 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r447_core8": r"admits `coval_core` under \*\*([\d.]+)%\*\* of its own",
+    "r447_gen8":  r"and `gen` under \*\*([\d.]+)%\*\*",
+    "r447_refs":  r"over all \*\*([\d,]+)\*\* references judged by 0\.8B",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",
