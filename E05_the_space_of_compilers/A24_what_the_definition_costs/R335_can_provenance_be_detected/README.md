@@ -16,6 +16,18 @@ A detector validated on **4 positives and 2 negatives** has no operating charact
 sensitivity, no specificity, no threshold with an error rate. It was shown to *fire on things known
 to leak*. It was never shown *not to fire on things known not to*, beyond n=2.
 
+## ⛔ RETRACTED BY R336 — the separation was QUALITY, not provenance
+
+Run blind over the campaign's 41 real arms, the slope correlates with arm quality at
+**r = +0.934**, and quality-adjusted the annotated-leaky arms carry excess z
+`[+0.45, +0.35, −0.12, −3.25]` against the false positives' `[+0.36, +0.32, −0.39, −0.52]` — they
+**overlap completely**, and `oracle_k4`, the *maximally* leaky arm, sits **3.25 sd BELOW** what its
+quality predicts.
+
+**Higher dose → better fit → better arm**, so the dose-response below separated **dose-induced
+quality**. The wrong-prompt negative control is consistent with that too: that arm is *worse*, so
+its slope is lower. **The 32.9 sd separation was real and it was not about labels.**
+
 ## The population the calibration needed — 18 arms, zero judge calls
 
 Selection consumes only already-judged satisfaction, so arms of **known** provenance are free:
