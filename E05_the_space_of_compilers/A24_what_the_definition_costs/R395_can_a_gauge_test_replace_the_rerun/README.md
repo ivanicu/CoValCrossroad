@@ -29,6 +29,16 @@ generate** — rather than against my imagination, which is this campaign's name
 controls. **Every hit among those 13 is a false positive by construction**, because their output was
 *proven* byte-identical across two runs.
 
+## ⚠ CORRECTION — R397: the answer key was audited after the fact
+
+This round's false-positive rate is scored against **R394's 13 STABLE labels**, and R394's instrument
+never read a process exit code — so a subject that crashed identically twice would have entered this
+answer key as a labelled negative. **The 23% below, and the `W-GAUGE-DECISIVE` verdict that halved the
+expensive step, rested on labels that had not been checked.**
+
+[`R397`](../R397_did_the_stable_subjects_actually_succeed) checked them: **13 of 13 exited 0**. **The
+key is intact and the verdict below stands.**
+
 ## ⚠ The limit that bounds what a hit means: 6 of 7 families were never positively controlled
 
 | family | specificity evidence | **sensitivity evidence** |

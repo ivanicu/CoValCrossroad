@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**389 rounds** in **5 epochs** and **24 arcs**, numbered to **R395** — **53 standing claims, 13
+**390 rounds** in **5 epochs** and **24 arcs**, numbered to **R397** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1027,6 +1027,20 @@ for a different purpose, so every hit among them is a **false positive by constr
 positively controlled** — only `unseeded_rng` has ever caught a genuinely varying script — so the
 `gpu` hit is a **hypothesis, not a detection**, and a quiet round is *unflagged*, never *cleared*.
 → [`R395`](E05_the_space_of_compilers/A24_what_the_definition_costs/R395_can_a_gauge_test_replace_the_rerun)
+
+**The instrument behind the last two findings never read an exit code — and 13 of 13 subjects exited
+0 anyway.** ⛔ Writing R396's docstring surfaced the failure it must not commit — *a crash is
+byte-identical twice* — and that sentence indicted **R394, committed an hour earlier**: it reads
+`stdout + stderr` and **never `returncode`**, so a round that could not run would have matched itself
+and been recorded **STABLE**. R393 is worse in the same direction: `COMPLETE` meant *finished inside
+90 s*, not *succeeded*. ⛔ **And it propagated** — R395 scored its detector against R394's 13 STABLE
+labels as false-positives-by-construction, so a corrupted key would have carried the verdict that
+halved the expensive step. ⚠ There was a **named mechanism**, not a generic worry: R393 purged
+untracked files between subjects, and the release data under `data/` *is* untracked. **It did not
+happen — 13 of 13 exited 0 with no traceback**, so both verdicts stand. The defect is real, remains
+uncorrected in those two rounds, and the fix is R396's `UNRUNNABLE_HERE` class going forward rather
+than a retroactive excuse.
+→ [`R397`](E05_the_space_of_compilers/A24_what_the_definition_costs/R397_did_the_stable_subjects_actually_succeed)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move

@@ -50,6 +50,18 @@ measurement, and it now correctly refuses.
 artifact is not orphaned — it names a committed source, just not the newest one. **The debt: re-run
 under the guarded source on a quiet machine.** Stated as owed, not as done.
 
+## ⚠ CORRECTION — R397: this round's instrument never read the exit code
+
+**Found while writing R396, an hour after this round was committed.** The comparison here reads
+`p.stdout + p.stderr` and **never `p.returncode`** — so a subject that could not run would have
+emitted the same traceback on both draws, matched, and been recorded **STABLE**. *Two identical
+failures are the most identical outputs available.*
+
+**Measured rather than assumed:** [`R397`](../R397_did_the_stable_subjects_actually_succeed) re-ran
+all 13 subjects in this round's own worktree and **13 of 13 exited 0 with no traceback**. **The
+verdict below stands.** The defect is real and remains uncorrected in this round's source; the fix is
+R396's `UNRUNNABLE_HERE` class, which applies going forward and does not retroactively excuse this.
+
 ## ⚠ Two limits, both written before the run
 
 **① `STABLE` means "not caught in two draws", never "deterministic."** Two runs bound the detection
