@@ -139,7 +139,37 @@ def main() -> int:
     print(f"                   cell {pub_cell}")
     print(f"                   published {sorted(published)}   {'PASS' if pub_ok else 'FAIL'}")
     if not (monotone and pub_ok):
-        print("\n  UNVERIFIED — the curve and the headline are not about the same object. Exit 1.")
+        # ⚠ REPORTING THE DIAGNOSTIC ON A FAILED CONTROL IS NOT MOVING THE GOALPOST. The
+        #   pre-registration fixed the VERDICT on failure -- UNVERIFIED, never CONFIRMED -- and said
+        #   nothing about printing less. Withholding the reason would make the failure unusable by
+        #   the next round, which is the opposite of what a three-valued verdict is for.
+        breaks = [(a[0], len(a[1]), b[0], len(b[1]))
+                  for a, b in zip(curve, curve[1:]) if len(b[1]) > len(a[1])]
+        print(f"\n  UNVERIFIED — the emptiness at the top of the sweep is NOT licensed as `the")
+        print(f"  strictest reading's verdict`, because the sweep does not ORDER readings by")
+        print(f"  strictness. {len(breaks)} cell pair(s) admit MORE arms at a HIGHER percentile:")
+        for pa, na, pb, nb in breaks:
+            gained = sorted(set(dict(curve)[pb]) - set(dict(curve)[pa]))
+            print(f"    pct {pa:>6.1f} (n={na})  ->  pct {pb:>6.1f} (n={nb})   gains {gained}")
+        print(f"  ⛔ AND THIS IS NOT A SURPRISE THE DEFINITION HAS NOT ALREADY MET. DEFINITION.md")
+        print(f"     records `at 6 of 9 k, STRONGER references admit blind sets again`, replicated at")
+        print(f"     a second judge — and the arm gained above is `generic`, which IS a blind set. So")
+        print(f"     the phenomenon is known; what is new is its CONSEQUENCE: `clause ② at its")
+        print(f"     strictest reading` is not a well-defined cell of this sweep, and that is exactly")
+        print(f"     how R327 and R360 can both be right about a different admitted set.")
+        print(f"  ⚠ THE pct=100 CELL IS STILL AN OBSERVATION: {curve[-1][1]} (n={len(curve[-1][1])}),")
+        print(f"    with survivors {sorted(set(sweep[-1]['admitted']))}. What is blocked is calling it")
+        print(f"    the strictest reading — not the number itself.")
+        art = dict(source_sha256=hashlib.sha256(SELF.read_bytes()).hexdigest(),
+                   source_name=SELF.name, head=head, n_cells=len(sweep), monotone=monotone,
+                   published_ok=pub_ok, curve={str(x): y for x, y in curve},
+                   monotonicity_breaks=breaks, at_pct100=curve[-1][1],
+                   verdict="UNVERIFIED_SWEEP_NOT_A_STRICTNESS_ORDER")
+        (HERE / "results").mkdir(exist_ok=True)
+        outp = HERE / "results" / "r405_universal_reading.json"
+        outp.write_text(json.dumps(art, indent=2, sort_keys=True, default=str))
+        print(f"\n  artifact {outp.relative_to(ROOT)}  "
+              f"sha256[:12] {hashlib.sha256(outp.read_bytes()).hexdigest()[:12]}")
         return 1
     tail = curve[-3:]
     print(f"    EMPTY-IS-REAL  the last three cells, so emptiness is not an end-of-sweep artifact:")

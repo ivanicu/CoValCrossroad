@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**397 rounds** in **5 epochs** and **24 arcs**, numbered to **R404** — **53 standing claims, 13
+**398 rounds** in **5 epochs** and **24 arcs**, numbered to **R405** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1144,6 +1144,21 @@ and the round exited 1); the parser was fixed rather than the control relaxed, a
 then matched the one hand-written in four rounds. ⚠ Counts are a **lower bound**, and whether ③c
 *should* be enforced is an act of definition, not decided here.
 → [`R404`](E05_the_space_of_compilers/A24_what_the_definition_costs/R404_which_conjunct_of_clause_three_does_the_work)
+
+**`UNVERIFIED` — there is no "strictest reading", and the round that assumed there was failed its own
+control.** Composing R360's committed 45-cell reference sweep with clause ③a gives a curve running
+**9 → 0**, and at the top cell the only arms surviving clause ② are **exactly the four that read the
+labels**, so ②∧③a is empty there. ⛔ **But the MONOTONE control FAILED**: `pct 75 (n=5)` → `pct 80
+(n=6)`, gaining **`generic`** — a blind set. A percentile that can *gain* arms as it rises is not a
+strictness ordering, so the top cell is **not "the strictest reading", merely the last one**, and
+reporting the emptiness as a verdict would be printing a headline while a control above says the
+round is unreadable. ⭐ **And the failure explains a standing disagreement**: R327's universal reading
+admits `{coval_core}` using the best **held-out** of 1,820, while this sweep uses the **in-sample**
+maximum and admits nothing — *a third under-specification*, named in neither round and decided by no
+sentence of the definition. ⛔ The phenomenon is already recorded (*"stronger references admit blind
+sets again"*); the **consequence** — that clause ②'s strictest reading is ill-defined — is not. This
+round writes **nothing** into `DEFINITION.md`: an UNVERIFIED round has not earned a line in it.
+→ [`R405`](E05_the_space_of_compilers/A24_what_the_definition_costs/R405_at_its_own_strictest_reading_the_definition_admits_nothing)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
