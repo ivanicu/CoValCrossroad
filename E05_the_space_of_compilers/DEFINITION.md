@@ -193,6 +193,13 @@ unseeded stochastic constructs), so the pipeline is deterministic **given its in
 deterministic stages cannot produce a 91–99.6% criteria difference from the same inputs. **The
 `_08b`/`_08bR` files are two different CONFIGURATIONS, not two draws, and `0.116489` is a
 between-configuration difference rather than a noise floor of anything.**
+⭐ **AND THE TWO CONFIGURATIONS ARE NOW NAMED (R422–R424, 2026-08-04).** The families agree with each
+other at `≤ 0.03%` disjoint cells but are **~96% absent from the default judge's table** — `0.0380`
+(587 of 15,448) against that table's `1.0000` (15,440 of 15,440) on a known default-emitted arm. So
+`0.116489` is a difference between **`--select-npz` frozen at the default** and **the rule re-run
+under a second judge**, and that second judge's table is **not committed anywhere in this repo**.
+⚠ **Every number on this page computed from an `_08b` arm is therefore instrument-UNKNOWN, not
+instrument-0.8B.** The suffix is a filename; R424 tested every committed table and none emitted it.
 
 ⭐ **(R419): the scoring-only floor is EXACTLY ZERO.** Two runs of
 identical criteria at this judge — proven identical by their committed `criteria_sha256` — are

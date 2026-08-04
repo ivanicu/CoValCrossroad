@@ -131,6 +131,19 @@ def derive():
     else:
         for k in ("r419_maxabs", "r419_n"):
             out[k] = (None, "R419")
+    # R424 -- the containment anchors. These are the numbers that turn "foreign" from a word into a
+    # measurement, so they are the ones a later edit must not be able to drift silently.
+    a = art("R424_*")
+    if a:
+        an = a["anchors"]
+        out["r424_neg_rate"] = (f"{an['neg_rate']:.4f}", "R424")
+        out["r424_neg_n"] = (an["neg_n"], "R424")
+        out["r424_neg_tot"] = (an["neg_total"], "R424")
+        out["r424_pos_rate"] = (f"{an['pos_rate']:.4f}", "R424")
+        out["r424_pos_n"] = (an["pos_n"], "R424")
+    else:
+        for k in ("r424_neg_rate", "r424_neg_n", "r424_neg_tot", "r424_pos_rate", "r424_pos_n"):
+            out[k] = (None, "R424")
     a = art("R415_*")
     if a:
         out["r415_shift"] = (round(a["worst_mean_shift"], 6), "R415")
@@ -337,6 +350,11 @@ ASSERTIONS = {
     # it is NO check. And my first attempt to add it failed its own guard and applied nothing while
     # the commit message said it had — so the second failure was in the REPAIR, not the original.
     "r419_n":                r"bitwise identical on all (\d+) prompts",
+    "r424_neg_rate":         r"absent from the default judge's table\*\* — `([\d.]+)`",
+    "r424_neg_n":            r"absent from the default judge's table\*\* — `[\d.]+`\s*\n?\(([\d,]+) of",
+    "r424_neg_tot":          r"absent from the default judge's table\*\* — `[\d.]+`\s*\n?\([\d,]+ of ([\d,]+)\)",
+    "r424_pos_rate":         r"against that table's `([\d.]+)`",
+    "r424_pos_n":            r"against that table's `[\d.]+`\s*\n?\(([\d,]+) of",
     "r415_shift":            r"mean A2 by up to `(0\.\d+)`",
     "r415_pairs":            r"\*\*(\d+)\*\* committed re-run pairs exist",
     "r408_core_e":           r"scores \*\*`\+(0\.\d+)`\*\* against `se",
