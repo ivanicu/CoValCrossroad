@@ -1,10 +1,14 @@
 {
   "excess_rank": [
+    "generic|vacuous",
     "randblind_s0|randblind_s2",
     "randblind_s0|randblind_s1",
     "randblind_s1|randblind_s2",
     "generic|randblind_s2",
+    "vacuous|randblind_s2",
+    "vacuous|randblind_s0",
     "generic|randblind_s0",
+    "vacuous|randblind_s1",
     "generic|randblind_s1"
   ],
   "marginals": {
@@ -67,79 +71,138 @@
       0.252375296912114,
       0.2583135391923991,
       0.25534441805225655
+    ],
+    "vacuous|n=2": [
+      0.49481168332052267,
+      0.5051883166794773
+    ],
+    "vacuous|n=3": [
+      0.2894736842105263,
+      0.3793859649122807,
+      0.33114035087719296
+    ],
+    "vacuous|n=4": [
+      0.2345605700712589,
+      0.24584323040380046,
+      0.2589073634204275,
+      0.26068883610451304
     ]
   },
   "pairs": {
     "generic|randblind_s0": {
       "convs": 2200,
-      "excess": 0.23460360598996957,
-      "excess_mde": 0.024299906812510368,
-      "null": 0.4088308433990252,
-      "null_mde": 0.01719857434165719,
+      "excess": 0.22558471578926126,
+      "excess_mde": 0.02413055610699235,
+      "null": 0.41784973359973365,
+      "null_mde": 0.017282006010967108,
       "obs": 7344,
       "raw": 0.6434344493889949,
       "raw_mde": 0.01710117985549524
     },
     "generic|randblind_s1": {
       "convs": 2200,
-      "excess": 0.09750918147509056,
-      "excess_mde": 0.02467612305476555,
-      "null": 0.4200171987103805,
-      "null_mde": 0.017254248806080633,
+      "excess": 0.09452256203392566,
+      "excess_mde": 0.023828391124140258,
+      "null": 0.4230038181515454,
+      "null_mde": 0.016895882898954117,
       "obs": 7344,
       "raw": 0.517526380185471,
       "raw_mde": 0.017421464371817023
     },
     "generic|randblind_s2": {
       "convs": 2200,
-      "excess": 0.2398684068456796,
-      "excess_mde": 0.023866012096396317,
-      "null": 0.42692084556857285,
-      "null_mde": 0.017276316800460028,
+      "excess": 0.25883398293625565,
+      "excess_mde": 0.02404283111993878,
+      "null": 0.40795526947799676,
+      "null_mde": 0.016946299996835685,
       "obs": 7344,
       "raw": 0.6667892524142525,
       "raw_mde": 0.016727939614018084
     },
+    "generic|vacuous": {
+      "convs": 2200,
+      "excess": 0.3556511581852491,
+      "excess_mde": 0.022965563454042173,
+      "null": 0.4115313272586,
+      "null_mde": 0.01760293409984611,
+      "obs": 7344,
+      "raw": 0.767182485443849,
+      "raw_mde": 0.015137712227544552
+    },
     "randblind_s0|randblind_s1": {
       "convs": 2200,
-      "excess": 0.29613821027457393,
-      "excess_mde": 0.023846679570772165,
-      "null": 0.4130107644880372,
-      "null_mde": 0.017399944439744002,
+      "excess": 0.2800271912431003,
+      "excess_mde": 0.023790826741712016,
+      "null": 0.4291217835195108,
+      "null_mde": 0.017376923741220362,
       "obs": 7344,
       "raw": 0.7091489747626112,
       "raw_mde": 0.01645546719427156
     },
     "randblind_s0|randblind_s2": {
       "convs": 2200,
-      "excess": 0.32811688185551824,
-      "excess_mde": 0.023291187293055335,
-      "null": 0.41666052003552,
-      "null_mde": 0.017127272489475705,
+      "excess": 0.3260290656313384,
+      "excess_mde": 0.02294212296516972,
+      "null": 0.41874833625969987,
+      "null_mde": 0.017239600517868867,
       "obs": 7344,
       "raw": 0.7447774018910384,
       "raw_mde": 0.015675647188459083
     },
     "randblind_s1|randblind_s2": {
       "convs": 2200,
-      "excess": 0.26724045525181894,
-      "excess_mde": 0.023443068373348853,
-      "null": 0.4174584556857285,
-      "null_mde": 0.017429477590896025,
+      "excess": 0.26517471039061946,
+      "excess_mde": 0.024118501377877834,
+      "null": 0.4195242005469278,
+      "null_mde": 0.017349784629057195,
       "obs": 7344,
       "raw": 0.6846989109375473,
       "raw_mde": 0.0166265422050003
+    },
+    "vacuous|randblind_s0": {
+      "convs": 2200,
+      "excess": 0.22939744724972,
+      "excess_mde": 0.023898656788579345,
+      "null": 0.4111421823126369,
+      "null_mde": 0.01725360684219262,
+      "obs": 7344,
+      "raw": 0.6405396295623568,
+      "raw_mde": 0.01709622868620002
+    },
+    "vacuous|randblind_s1": {
+      "convs": 2200,
+      "excess": 0.1018908881522518,
+      "excess_mde": 0.02446008000062083,
+      "null": 0.417129403424858,
+      "null_mde": 0.016792969905394934,
+      "obs": 7344,
+      "raw": 0.5190202915771097,
+      "raw_mde": 0.01762839089715219
+    },
+    "vacuous|randblind_s2": {
+      "convs": 2200,
+      "excess": 0.25542481003844636,
+      "excess_mde": 0.024017436527180937,
+      "null": 0.421478280557826,
+      "null_mde": 0.017393730215420383,
+      "obs": 7344,
+      "raw": 0.6769030905962724,
+      "raw_mde": 0.01634347324107964
     }
   },
   "raw_rank": [
+    "generic|vacuous",
     "randblind_s0|randblind_s2",
     "randblind_s0|randblind_s1",
     "randblind_s1|randblind_s2",
+    "vacuous|randblind_s2",
     "generic|randblind_s2",
     "generic|randblind_s0",
+    "vacuous|randblind_s0",
+    "vacuous|randblind_s1",
     "generic|randblind_s1"
   ],
   "source_name": "pairwise_excess.py",
-  "source_sha256": "fca6a015c469bca38b3465320bce16e3102e0e7ec9511f54ce299448946b4698",
-  "verdict": "W_CONTENT"
+  "source_sha256": "81a2da9f7dba9bcbb542d5e77784d086e30b175d44a0ea2229b66c0b8070f322",
+  "verdict": "W_MARGINAL"
 }

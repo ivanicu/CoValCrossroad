@@ -108,7 +108,7 @@ def picks(tag):
 
 def main() -> int:
     arms, tgt = {}, None
-    for t in ("generic", "randblind_s0", "randblind_s1", "randblind_s2"):
+    for t in ("generic", "vacuous", "randblind_s0", "randblind_s1", "randblind_s2"):
         a, g = picks(t)
         if a is None:
             print(f"  UNRUNNABLE: {t} absent. Exit 2, never 0."); return 2
@@ -151,8 +151,12 @@ def main() -> int:
     #    differently` was SETTLED with two. s2 can only test whether its excess falls INSIDE the
     #    observed range, and whether the random-random pairs reproduce each other. The MAGNITUDE of
     #    the scatter needs many draws and is named impossible here.
-    PAIRS = (("generic", "randblind_s0"), ("generic", "randblind_s1"),
-             ("generic", "randblind_s2"), ("randblind_s0", "randblind_s1"),
+    PAIRS = (("generic", "vacuous"),
+             ("generic", "randblind_s0"), ("generic", "randblind_s1"),
+             ("generic", "randblind_s2"),
+             ("vacuous", "randblind_s0"), ("vacuous", "randblind_s1"),
+             ("vacuous", "randblind_s2"),
+             ("randblind_s0", "randblind_s1"),
              ("randblind_s0", "randblind_s2"), ("randblind_s1", "randblind_s2"))
     print(f"\n    {'pair':<32} {'raw':>8} {'MDE':>8} {'null':>8} {'MDE':>8} {'EXCESS':>9}")
     rows, bad = {}, []

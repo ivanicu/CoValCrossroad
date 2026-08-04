@@ -351,7 +351,11 @@ def main() -> int:
     print(f"    {'first (position)':<16} {f_mean:>8.4f} {'—':>11} {'—':>11} {'—':>8}")
 
     rb, dr, mr = {}, float("nan"), float("nan")
-    for k in [a for a in have if a.startswith("randblind")]:
+    # ⛔ THE ACCURACY LOOP ONLY ITERATED `randblind*`, so the VACUOUS arm -- the one this round
+    #    queued a whole GPU job for, and the only arm that isolates whether CONTENT matters at all --
+    #    would have been judged, tie-checked, and then silently omitted from the comparison it
+    #    exists for. Caught by reading the table for a row that was not there.
+    for k in [a for a in have if a != "generic"]:
         s2, t2, _ = load(have[k])
         by, _ = acc_by_conv(s2, t2)
         m2, _, n2 = cluster_mean(by)

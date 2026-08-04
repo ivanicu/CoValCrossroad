@@ -20,9 +20,7 @@
   "mde": 0.01709461664393314,
   "mde_chance": 0.01696220013349393,
   "mde_length": 0.025279266624893704,
-  "missing": [
-    "vacuous"
-  ],
+  "missing": [],
   "n_tie": 10,
   "n_units": 7342,
   "provenance": {
@@ -58,10 +56,16 @@
       "gen_minus": -0.0009885278862551594,
       "mde": 0.01816384805781399,
       "n": 2200
+    },
+    "vacuous": {
+      "acc": 0.42760711762984494,
+      "gen_minus": 0.009749595101867826,
+      "mde": 0.015402555114138057,
+      "n": 2200
     }
   },
   "source_name": "run.py",
-  "source_sha256": "c0fb57b7c95e82f35fa24196f792fa6c0e32ec28ec80dc1a4b2d1f7ba03290de",
+  "source_sha256": "e118e2267e482d2c316471705a31dd4531a39f875e97f56f7bdd3f84c9f36eb2",
   "tie_rate": 0.001362026695723236,
   "tiebreak_curve": {
     "first": 0.4373567127317127,
