@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**371 rounds** in **5 epochs** and **24 arcs**, numbered to **R377** — **53 standing claims, 13
+**372 rounds** in **5 epochs** and **24 arcs**, numbered to **R378** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -705,6 +705,23 @@ property turns on and off, not because the instrument is unreliable. ⚠ The sta
 **UNVERIFIED** — a corpus hypothesis is labelled and untested. ⚠ And the round excludes its **own**
 directory from its start-clean check, which is R376's finding applied to myself one round later.
 → [`R377`](E05_the_space_of_compilers/A24_what_the_definition_costs/R377_is_the_flicker_in_the_check_itself)
+
+**And an INTERVENTION refuted R377's hypothesis — the placebo is the only reason a false structural
+claim was not published.** R377 proposed that `attack_every_check`'s state variable was whether
+`every_round_reaches_the_readme` passes, since it is one of six checks the subject plants into.
+Three README states, three runs each: **BASE** (as committed), **KNOCKOUT** (the newest round's link
+line removed, which really does flip that gate 0 → 1), and **PLACEBO** (a byte-different edit that
+leaves every gate's verdict alone). Knockout moved the subject **1 → 2** — and **so did the placebo,
+which was a single appended newline.** ⛔ So the dependence is on the **FILE**, not on another
+gate's verdict: `W-ANY-EDIT`, and R377's hypothesis is **refuted by intervention**. Without the
+placebo the knockout alone would have read as *"one gate decides another"*, and the ten red gates
+would have been declared a dependency graph whose repair order matters. **They are not shown to be
+one.** ⚠ And the round then failed its own re-run: its artifact made R378 a round mentioned in no
+README, so the baseline gate went red and the KNOCKOUT control correctly reported **UNVERIFIED** —
+the subject exits reproduced exactly, the *baseline* did not. **A round whose artifact joins the
+corpus its own gates read cannot re-run itself into the same baseline**, which is R376's scaffolding
+lesson at a third level.
+→ [`R378`](E05_the_space_of_compilers/A24_what_the_definition_costs/R378_does_one_gate_decide_another)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
