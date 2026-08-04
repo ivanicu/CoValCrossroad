@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**377 rounds** in **5 epochs** and **24 arcs**, numbered to **R383** — **53 standing claims, 13
+**378 rounds** in **5 epochs** and **24 arcs**, numbered to **R384** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -819,6 +819,24 @@ STATES findings from one that LISTS them.** Real scope coverage: **0 of 14**. Ad
 gate ruling on question titles — vacuous in a new way, which is what R380 refused. **The refusal
 overrides a pre-registration, so it is declared rather than hidden.**
 → [`R383`](E05_the_space_of_compilers/A24_what_the_definition_costs/R383_test_the_proxy_before_adopting_it)
+
+**And the assumption underneath all four of those rounds is false: 243 of 377 rounds have no finding
+site at all.** The sites are not my choice this time — every arc README says of itself *"Each round's
+README states its design; the finding lives in `../../README.md`"*. Measured against the campaign's
+own specification: **114 rounds (30%)** have their own README, **84 (22%)** are named in the root
+README, and **243 (64%) have NEITHER** — while **372 of 377 produced an artifact**, so it is not that
+they had nothing to report. ⭐ **Which makes the nine remaining red gates ONE problem rather than
+nine**: not a dead path, not a stale pattern, not a coupling, but a corpus whose findings were never
+written where its own documents say they live. ⭐ **And a GREEN gate had already confessed it.**
+`every_round_reaches_the_readme` accepts the root README *or* the arc README, and **293 of 377 (78%)
+pass it only via an arc index row** — which R383 measured to be an index of *questions*. Its own
+docstring reads: *"read the pass honestly: this check passes today because `generate_round_index.py`
+wrote those arc tables in the same session. That is a CONSTRUCTION, not a discovery, and it is weak
+evidence of the property."* **The confession was written; what was never done is measure how much it
+admits** — and four rounds this session walked past it while auditing the *red* gates. ⚠ The number
+is flattering by construction: the rounds written this session are in the root README because I
+appended a paragraph for each, so coverage of everything older is lower than the headline.
+→ [`R384`](E05_the_space_of_compilers/A24_what_the_definition_costs/R384_where_the_findings_are_not)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
