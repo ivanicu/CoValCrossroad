@@ -20,6 +20,15 @@ to prevent.
    scheduling and hash randomisation all vary at fixed source. Equally, nothing forbids stability.
    The answer is an empirical property of THIS corpus and cannot be derived from the language.
 
+⛔ AND THIS ROUND MUST NOT RUN UNDER LOAD, which is a constraint on WHEN it may execute and is
+   therefore written before it does. It measures DETERMINISM by re-running subjects and comparing
+   output. A concurrent heavy job -- another round loading a model, holding the GPU, or saturating
+   the disk -- can push a subject past a timeout or change what it prints about timing, and the
+   result would read as non-determinism that I manufactured. A test for instability run in an
+   unstable environment cannot distinguish the subject from the machine. So: no other round may be
+   executing when this one starts, and the check is mechanical rather than remembered -- if another
+   subject process is alive, this exits 2 rather than producing a number.
+
 ⚠ THE POPULATION IS SELECTED, AND THE SELECTION BIASES TOWARD THE ANSWER I WANT. The subjects are the
   13 rounds R393 timed as COMPLETE inside a 90s cap -- the complete subset of a seeded draw from the
   owing population. Conditioning on "finished fast" preferentially keeps rounds that load no model,
@@ -110,7 +119,30 @@ except Exception:
                 "source_name": pathlib.Path(f).name}
 
 
+def _refuse_under_load() -> str:
+    """⛔ Mechanical, because a constraint that lives only in a docstring is a promise. If another
+    round's `run.py` is executing, this round cannot tell the subject's instability from the
+    machine's, so it exits 2 rather than publishing a number it cannot attribute."""
+    try:
+        out = subprocess.run(["pgrep", "-af", "run.py"], capture_output=True, text=True,
+                             timeout=30).stdout
+    except Exception:
+        return ""
+    mine = str(SELF)
+    others = [l for l in out.splitlines()
+              if "run.py" in l and mine not in l and "pgrep" not in l]
+    return "\n".join(others[:4])
+
+
 def main() -> int:
+    busy = _refuse_under_load()
+    if busy:
+        print("  UNRUNNABLE: another round is executing, and a determinism test run under load")
+        print("  cannot tell the subject's instability from the machine's. Exit 2, never 0.")
+        for l in busy.splitlines():
+            print(f"    {l[:150]}")
+        return 2
+
     # ---- the extractor comes from the GATE, never from here ------------------------------------
     try:
         from backfilled_findings_are_rederivable import NUM
