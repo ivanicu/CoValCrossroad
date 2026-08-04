@@ -293,6 +293,12 @@ ASSERTIONS = {
     "r398_refs":             r"and referenced by (\d+) files in this repository",
     # R403's statability split. Anchored on surrounding WORDS, never a bare number — R373 and R398
     # both cost a false failure when an anchor met a bold span instead of a digit.
+    # ⚠ ADDED AFTER THE GATE PRINTED A CLEAN BILL WITHOUT IT — TWICE. `r404_b_beyond_a` was declared
+    # in the extractor with no anchor here, so this round's LOAD-BEARING claim (③b excludes nothing
+    # beyond ③a) was silently unchecked. A declared assertion with no anchor is not a weaker check,
+    # it is NO check. And my first attempt to add it failed its own guard and applied nothing while
+    # the commit message said it had — so the second failure was in the REPAIR, not the original.
+    "r404_b_beyond_a":       r"fitted on a \*\*half\*\* of them \| 3 \| \*\*(\d+)\*\*",
     "r404_excl_c":           r"annotator-written \*\*rubric\*\* \| (\d+) \|",
     "r404_admitted_abc":     r"collapses the admitted set from \*\*5 to (\d+)",
     "r404_published":        r"collapses the admitted set from \*\*(\d+) to",
