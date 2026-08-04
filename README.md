@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**341 rounds** in **5 epochs** and **24 arcs**, numbered to **R345** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**335 of the 341 carry a
+**342 rounds** in **5 epochs** and **24 arcs**, numbered to **R347** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**336 of the 342 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -50,7 +50,22 @@ from it. This repository rebuilds that layer locally and then asks what the rubr
 
 ---
 
-## Where the definition of a "core" stands (R327–R340)
+## Where the definition of a "core" stands (R327–R347)
+
+⛔ **Clause ① has never excluded anything clause ② admits.** Over all **41** judged arms the cell
+(① fails, ② passes) is **empty**; ② excludes **8** that ① admits. The mechanism: a size-matched
+**prompt-blind** reference scores **0.5462** against **0.4922** for a random draw from *this
+prompt's own rubric* — **+0.0540, minimum +0.0470, never negative.** A criterion set that never reads
+the conversation beats a random draw of that conversation's own criteria, on every arm, and that is
+what makes ② the binding clause. **The empty cell is part derivation and part measurement**: on
+**23** arms `ref₂ ≥ ref₁` *and* `mde₁ ≤ mde₂`, so ② implies ① by algebra; on the other **18** a
+window exists (median width 0.00196) and none landed in it. Permuting the pairing fills the cell
+(6, 5, 6 over three seeds), so the emptiness is about which arm carries which margin. Clause ① stays
+— it is not redundant *by construction* — but the definition must stop reading as though both
+clauses contribute an exclusion.
+→ [`R347`](E05_the_space_of_compilers/A24_what_the_definition_costs/R347_does_clause_one_ever_bind)
+
+
 
 Fourteen rounds took the definition apart clause by clause. **Every clause now carries its own
 measured limit**, and two of the three limits are bounds rather than values.

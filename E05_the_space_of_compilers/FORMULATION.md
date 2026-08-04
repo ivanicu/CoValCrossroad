@@ -297,6 +297,48 @@ size-matching (it does, and it costs `full` its admission, R307).
 
 ---
 
+## ⛔ CLAUSE ① HAS NEVER EXCLUDED ANYTHING CLAUSE ② ADMITS (R347, 2026-08-03)
+
+Over all **41** judged arms, the cell **(① fails, ② passes)** is **empty**; clause ② excludes **8**
+that ① admits; every arm clearing ② clears ① by **≥5.36× its own MDE**. **Clause ② carries the
+entire boundary.**
+
+**The mechanism, and it could have come out the other way:**
+
+| reference | level |
+|---|---:|
+| ① a random draw from **this prompt's own rubric** | **0.4922** |
+| ② a size-matched **prompt-blind** set | **0.5462** |
+
+**② − ① = +0.0540; minimum over 41 arms +0.0470 — never negative.** A criterion set that never reads
+the conversation beats a random draw of that conversation's **own** criteria, on every arm. One would
+naively expect the blind reference to be the *weaker* baseline; it is the stronger, and that is what
+makes ② bind.
+
+**⛔ The empty cell is part derivation, part measurement, and merging them would be the arithmetic
+trap.** With `c1 − c2 = ref₂ − ref₁`: if `ref₂ ≥ ref₁` (true on 41/41) **and** `mde₁ ≤ mde₂` (true on
+**23**/41), then ② implies ① by algebra. On the other **18** arms a window `[mde₂, mde₁]` exists —
+median width **0.00196** — and **none landed in it**.
+
+| | arms | the empty cell there is |
+|---|---:|---|
+| FORCED | **23** | a **derivation** |
+| CONTINGENT | **18** | a **measurement** that could have come out otherwise |
+
+Swept over MDE multipliers 0.5–2.0: **no multiplier produces a counterexample**; at 1.25× and 1.5×
+arms *do* enter a window, so the zero is not "nothing ever got close". **Permuting the `(c1, c2)`
+pairing fills the cell (6, 5, 6 across three seeds)** — the emptiness is a property of which arm
+carries which margin, not of the marginals.
+
+> **Clause ① is a real constraint this arm space never exercised.** It is not deleted: it is not
+> redundant *by construction*, only over the 41 arms this benchmark contains, and the window
+> arithmetic states how narrow a counterexample would have to be. But the definition must stop
+> reading as though both clauses contribute an exclusion.
+> **Not attempted here:** constructing that counterexample.
+→ `R347_does_clause_one_ever_bind`
+
+---
+
 ## ⭐ CLAUSE ② NOW NAMES ITS REFERENCE BY A PROCEDURE (R327–R333, 2026-08-03)
 
 **Clause ① named a procedure — *drawn at random from that conversation's own rubric*. Clause ②
