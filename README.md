@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**351 rounds** in **5 epochs** and **24 arcs**, numbered to **R357** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**345 of the 351 carry a
+**352 rounds** in **5 epochs** and **24 arcs**, numbered to **R358** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**346 of the 352 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -395,6 +395,18 @@ population, not the estimator), and **a third judge is not "a drop-in"** — the
 byte-identical but **no third checkpoint exists locally**, so that register line moves from
 `NOT-ATTEMPTED` to `NOT-ATTEMPTED-AND-NOT-CHEAP`.
 → [`R357`](E05_the_space_of_compilers/A24_what_the_definition_costs/R357_does_the_inversion_survive_swapping_truth)
+
+**And the closure defect is the ESTIMATOR, not the judge — it replicates.** R355's mechanism is a
+property of the paired-MDE admission rule, so it predicted its own replication at a second model.
+On the identical 16-criterion pool at Qwen3.5-0.8B-Base — loaded by R301 but **never enumerated** —
+violations appear at **both** judges at **overlapping k (12, 13)**, and the 9-point grid finds none
+at either, reproducing R355's blindness independently. At 0.8B **no arm clears any reference at or
+above that judge's own closure**, and four arms clear *something*, so this is a measurement rather
+than the forced consequence of an already-empty set. ⛔ My pre-registered `W-WORSE` — *noisier judge,
+more violations* — **failed in sign** (4 vs 18), and my first repair failed too: if the MDE scale
+explained it the **normalised** rates would match, and they are **0.53× and 0.60×**. That residual is
+**named, not closed**. Replication rests on the k-overlap, never on a count comparison.
+→ [`R358`](E05_the_space_of_compilers/A24_what_the_definition_costs/R358_does_the_closure_defect_replicate_at_the_second_judge)
 
 **Three statements about the published reference, not four — and I had been counting one of them
 twice.** They are also not one finding arriving by three routes, which is what I expected to find:

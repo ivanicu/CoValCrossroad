@@ -529,7 +529,10 @@ reference by an MDE.
 >
 > **The rival world was built, not imagined:** flatten every reference to a constant vector at its
 > own mean — admission becomes a pure threshold and upward-closure is algebraic — and violations fall
-> to **0 at every k**. Placebo 0/315 self-admissions; the detector fires on an injected weak
+> to **0 at every k**. **R358 replicates this at Qwen3.5-0.8B-Base on the identical pool**:
+> violations at both judges at overlapping k (12, 13), none at the 9-point grid at either, and the
+> synthetic control null at both. **So the defect is the ESTIMATOR, not the model.** At 0.8B **no arm
+> clears any reference at or above that judge's own closure**. Placebo 0/315 self-admissions; the detector fires on an injected weak
 > reference and not on an injected class-max one in the same slot.
 >
 > ⚠ **And the number is a lower bound, not a converged one.** The 9-point grid finds **0**
