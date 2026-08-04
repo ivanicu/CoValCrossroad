@@ -422,6 +422,19 @@ def derive():
     else:
         for k in ("r441_withk", "r441_k1", "r441_redundant"):
             out[k] = (None, "R441")
+    # R442 -- the extension. BOTH readings are anchored, because the document now states two and
+    # the whole point is that neither may be quoted without saying which produced it. An anchor on
+    # only one would let the other drift silently, which is how a contradiction becomes a claim.
+    d442 = next(A24.glob("R442_*"), None)
+    f442 = (d442 / "results" / "r442_extension.json") if d442 else None
+    a = json.loads(f442.read_text()) if (f442 and f442.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r442_impl"] = (len(a["ext_impl"]), "R442")
+        out["r442_writ"] = (len(a["ext_writ"]), "R442")
+        out["r442_overlap"] = (len(a["overlap_impl_published"]), "R442")
+    else:
+        for k in ("r442_impl", "r442_writ", "r442_overlap"):
+            out[k] = (None, "R442")
     a = art("R403_*")
     if a:
         cl = a["clauses"]
@@ -679,6 +692,9 @@ ASSERTIONS = {
     "r429_hi":               r"\*\*Δ\(rank 1 - rank 2\) = [+\-][\d.]+ \[[+\-][\d.]+, ([+\-][\d.]+)\]",
     "r429_cells":            r"surviving BH\(q=0\.10\) over all (\d+)\s*\n?\s*> ordered comparisons",
     "r429_inside":           r"only (\d+) of 10 inside",
+    "r442_impl":    r"hand-written 4-arm set \| \*\*(\d+)\*\*:",
+    "r442_writ":    r"own DERIVED finding \| \*\*(\d+)\*\*:",
+    "r442_overlap": r"only \*\*(\d+) of 5\*\* overlap",
     "r441_withk":     r"of \*\*(\d+)\*\* arms with a k readable",
     "r441_k1":        r"exactly \*\*(\d+)\*\* has k=1",
     "r441_redundant": r"half A removes \*\*(\d+) of \d+\*\* arms",

@@ -41,6 +41,29 @@ that retracts something true. **What would settle it** is constructing a k=1 cor
 
 **Clause ① is not a clause.** It is a consequence — see below.
 
+## ⛔ THE EXTENSION — and this document states two incompatible answers (R442, 2026-08-04)
+
+**What the conjunction actually admits on the home release, at judge J, over R360's 42-arm space:**
+
+| | admits |
+|---|---|
+| **as IMPLEMENTED** — clause ③ applied by its hand-written 4-arm set | **5**: `coval_core, topw_k3, topw_k4, topw_k6, topw_k8` |
+| **as WRITTEN** — ③ also excluding `topw_k`, per this document's own DERIVED finding | **1**: `coval_core` |
+
+⭐ **Neither is the published five** (`coval_core, topabs_k4, topvar_k4, topw_k4, topwvar_k4`) —
+only **2 of 5** overlap. The definition's boundary runs along the **selector** axis, not the k axis:
+it admits `topw` at four sizes and rejects three sibling selectors at k=4. ④ and the size clause add
+nothing to this (R440, R441).
+
+⛔ **And under its own written clause ③ the extension is ONE ARM — the object the definition was
+written from.** The ③ section below states that `topw_k` is *"not producible from the conversation
+alone"* — which is this definition's **own opening phrase** — while the implemented set admits four
+`topw_k` arms. **The document asserts both and reconciles neither.** ⚠ This is *not* a claim that
+③'s derivation is wrong: if it stands the extension is one arm, if it falls the extension is five.
+**What is certain is that the two cannot both be published as they are**, and until that is
+resolved the extension must be quoted with which reading produced it.
+→ [`R442`](A24_what_the_definition_costs/R442_the_extension_under_clause_three_as_written)
+
 ⭐ **Clause ④ was ADOPTED 2026-08-04**, after every objection I could raise against it was measured
 rather than argued: it is **statable** (its bar saturates at 6 of 30 rules, R435); it **excludes
 nothing at home and everything on the second release** (R436/R434); the two bars **invert**, so it
