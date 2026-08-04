@@ -421,6 +421,38 @@ this and I did not run it on my own document.
 `coval_core` drops out at **+0.0054** above the published level. The distance from here to
 "budget 1820" is **+0.0055**.
 
+### ⛔ AND THE PUBLISHED FIVE RECURS IN 7.7% OF POOL ORDERINGS (R353, 2026-08-04)
+
+The census's reference is `POOL[0:k]` — a **prefix of a file**. Permuting the pool and recounting,
+400 orderings × 2 seeds:
+
+| | seed 3531 | seed 3532 |
+|---|---:|---:|
+| **P(published set)** | **0.077** | **0.070** |
+| distinct sets | 24 | 25 |
+| mean \|admitted\| | 6.90 | 6.78 |
+
+**The published five is a TAIL draw, not a central one** — the reference sits at the 93.7th
+percentile of size-4 subsets, so the baseline is unusually strict and the set unusually small. A
+typical ordering admits **about seven**.
+
+| arm | P(admitted over orderings) | in the published five? |
+|---|---|---|
+| `coval_core` · `topw_k6` · `topw_k4` · `topw_k8` · `topw_k3` | 0.94 – 1.00 | ✓ |
+| **`generic`** | **0.76 – 0.80** | ✗ |
+| **`topw_k2`** | **0.69 – 0.72** | ✗ |
+| **`topw_k1`** | **0.42 – 0.43** | ✗ |
+| `gen` | 0.045 | ✗ |
+
+⭐ **Two uncertainty sources give opposite pictures of the same arms.** R339 bootstrapped over
+**prompts**: `topw_k2` admitted 13% of resamples, `generic` 5%. This varies the **reference subset**:
+`topw_k2` **69–72%**, `generic` **76–80%**. Both correct, different questions — sampling noise says
+those arms are marginal; the choice of baseline says they are admitted unless the baseline is
+unusually strict, **which the published one is.** Neither number alone characterises the arm.
+
+*Reproduction control: the identity permutation yields exactly the committed five.*
+→ `R353_the_admitted_set_under_every_pool_order`
+
 ### ① The reference — computed, not chosen
 
 > **THE CLOSURE TEST.** A candidate clause-② reference is **CLOSED** if **no member of clause ②'s

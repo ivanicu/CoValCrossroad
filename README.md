@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**346 rounds** in **5 epochs** and **24 arcs**, numbered to **R352** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**340 of the 346 carry a
+**347 rounds** in **5 epochs** and **24 arcs**, numbered to **R353** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**341 of the 347 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -323,6 +323,16 @@ excluded, checked *before* regenerating rather than after (regeneration would de
 that `R34` and `R36`, holding 22 of the 27, would be the exposed ones — **failed**: drift volume does
 not predict prose exposure. *Cross-citation between rounds is still uncovered, and is the real gap.*
 → [`R352`](E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R352_would_regenerating_break_their_own_readmes)
+
+⛔ **And the admitted set of five recurs in 7.7% of pool orderings.** The clause-② reference is a
+**prefix of a file**; permuting the pool (400 orderings × 2 seeds) gives **24–25 distinct admitted
+sets**, a mean size of **6.8**, and P(published five) = **0.070–0.077**. The published set is a
+**tail draw** — its reference sits at the 93.7th percentile of size-4 subsets, so the baseline is
+unusually strict. Three arms it excludes are admitted under most orderings: `generic` **0.76–0.80**,
+`topw_k2` **0.69–0.72**, `topw_k1` **0.42–0.43**. ⭐ And R339's **prompt** bootstrap put `topw_k2` at
+**0.13** and `generic` at **0.05** — two uncertainty sources, opposite pictures, both correct and
+answering different questions. *The identity permutation reproduces the committed five exactly.*
+→ [`R353`](E05_the_space_of_compilers/A24_what_the_definition_costs/R353_the_admitted_set_under_every_pool_order)
 
 **The reader now exists** — [`assurance/source_stamp_is_current.py`](assurance/source_stamp_is_current.py),
 three-valued, in the suite registry (**22/22** on an empty population). It is a **ratchet, not a
