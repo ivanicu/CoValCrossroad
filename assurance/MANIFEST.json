@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-08-03T22:24:04.350732+00:00",
- "git": "31096ffe5fa7f43b145aba64118425b81b56137f",
+ "generated_utc": "2026-08-04T10:51:01.007636+00:00",
+ "git": "1c9596fabc0357f5387128fed24f1c848e1b31cc",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -71,6 +71,10 @@
    "bytes": 11291,
    "sha256": "1a66901be783b61298816dd4423f59515b8d91529ee7a0994843ba6c163b6255"
   },
+  "covalx/legacy.py": {
+   "bytes": 3309,
+   "sha256": "2be5ebfeb06af6a4befee8f8e204af8c25e25b0b257e9462bcce49c0f06b4ccb"
+  },
   "covalx/legacy_cache_shim.py": {
    "bytes": 5710,
    "sha256": "8af636a69a0a925357cddd6942979ad6f426ff82c57378843db2c100c202e39e"
@@ -84,8 +88,8 @@
    "sha256": "c9679130480d43ad02f27aebcf74aebb9ce780391a929c867702de9fec1ca601"
   },
   "covalx/rounds.py": {
-   "bytes": 3942,
-   "sha256": "cabb95837d6de63e5e7859a76c39f2070a122a19832b5b151b8862b8881e7a90"
+   "bytes": 4745,
+   "sha256": "719e81a7ff48a7e24c4c0a60d5cea96b10933892a80baa73c3af6e652796f3b5"
   },
   "covalx/rules.py": {
    "bytes": 2786,
@@ -116,12 +120,12 @@
    "sha256": "5258c42facf4f0dfd8e6862f6b777b73f5c8a8b6ced1c7ca50785968ced4755e"
   },
   "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R06_rule_tournament/run.py": {
-   "bytes": 9181,
-   "sha256": "158463958b070baa17b657c4fa6d1c981ce47c0eebea8eb3b35b8e9110686826"
+   "bytes": 9390,
+   "sha256": "7d827c6e12dfc224660fd362f70754205635975af45b32840c68a363d0b17f51"
   },
   "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R07_anthropomorphism/run.py": {
-   "bytes": 15053,
-   "sha256": "a31659898a229fc5d6a9a98655fd62b5e0e7ea08d66c588b1f821e5ed1b143e3"
+   "bytes": 15262,
+   "sha256": "68f2b359b3add27dbbe0c9d519e6c2bdaa731221997fe2c624efdec6069588fb"
   },
   "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R08_gold_preference/run.py": {
    "bytes": 8671,
@@ -136,12 +140,12 @@
    "sha256": "e4c5e61a6d4ef450d4f8b7f261da0e12d27653bdb52b89d9e4ed62dfabab3193"
   },
   "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R11_backbone_control/run.py": {
-   "bytes": 6223,
-   "sha256": "2e138382a5dd35cd0aaa36e2919cefb34d0acddc36d90142c9599dd255bdd587"
+   "bytes": 6403,
+   "sha256": "9c41831b32b0d0f5a40c0cca0060325db0928478753bb66f497b3e30089fb37c"
   },
   "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R12_response_set/run.py": {
-   "bytes": 19825,
-   "sha256": "d2cf9f33d0ae5d3c441682d5cfb11dba361134cefed8003ae94f2ec9a6ae1a1f"
+   "bytes": 20042,
+   "sha256": "6908e33590cfb16da75e6575aab97316512f7fbbb9f76426aff336be1a575a8e"
   },
   "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R13_seed_vs_writein/run.py": {
    "bytes": 13398,
@@ -624,24 +628,24 @@
    "sha256": "6f2eaebcddbc59ff242156579d9757e6147a8face0f75e621c8250eecb599c15"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R144_information_loss/run.py": {
-   "bytes": 20198,
-   "sha256": "3fa09382d8c638af1ab9b31c1c7b4ccee07810d58a569fbf5f2082f10289bda6"
+   "bytes": 20979,
+   "sha256": "eac0704a96b79f46c382f112112ab76bf4dc2db4a6d1e91dc693101abc8ceb0e"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R145_who_is_unserved/run.py": {
    "bytes": 18623,
    "sha256": "b975f649a5df7e01fa0a7c3680bfbfe52cf1421f694a8058004c3d942f756883"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R146_does_compilation_add/run.py": {
-   "bytes": 12981,
-   "sha256": "e22c5982e5f43fa2fcee5b9cfc24f5619a288acef311e60d2ed45c8a2463fc0c"
+   "bytes": 13201,
+   "sha256": "4aade62e509c47aa9bce98e173f2827a65fbd84fb40a712f604cbced63969ad1"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R147_tracking_vs_serving/run.py": {
-   "bytes": 11311,
-   "sha256": "2d5b9daf63bc60540b48182ee1f7ecf1df6bb3953a59faf5de098cde90ec9ea2"
+   "bytes": 11531,
+   "sha256": "d2363a02c164cfd7e54e80139af1d5b8e0a3fa7963e28acd5612ed169d1ca03a"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R148_departure_from_the_line/run.py": {
-   "bytes": 14028,
-   "sha256": "d963bbf538621c333f1c999dc959d665cbe06ae3bf45cb9c1fe94e36fdda2164"
+   "bytes": 14248,
+   "sha256": "d08976e26b025fb847938a3025aa40b8b5ea77e6c0704f47e4d7700df07966ff"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R149_price_of_inclusion/run.py": {
    "bytes": 14124,
@@ -668,40 +672,44 @@
    "sha256": "8bae09c7613cae5b6c8f9e3c31f45cfe8b0cca4d595268739236131e32205416"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R155_does_the_weight_matter/run.py": {
-   "bytes": 10884,
-   "sha256": "f6aa246118f54f01dbe42aa8af565aca4343f749f15df14f9651557ad392980f"
+   "bytes": 11104,
+   "sha256": "5098a1d31ce70e75b88a7c5f54082f253e50e57f091a0844322f31c35e7ce214"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R156_the_compression_curve/run.py": {
-   "bytes": 10013,
-   "sha256": "5ca677943dd0d87200e3c22a982811d5ef9f53302a25b07a987b3863f4b13a7f"
+   "bytes": 10233,
+   "sha256": "147609b06439137004fad257daab682c365fb540b0b244b642d945d5cbd9a6d4"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R157_is_it_a_quality_detector/run.py": {
-   "bytes": 10475,
-   "sha256": "8027fe56391c169ed4e3635a12272e2a3151853aec3a14e633d1e30ffb368513"
+   "bytes": 10695,
+   "sha256": "9fb993f3646b057ca38283d89a082b4725948f71d7c1f4ed96f0de83e74dc01c"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R158_the_rewriting_itself/run.py": {
-   "bytes": 10147,
-   "sha256": "36e2c983bc00739bb8617592f299a8292ff7540b99e8bcadfc53ecbb863dfb9c"
+   "bytes": 10367,
+   "sha256": "42874c05c86a491134c8d3ea7c72436c40713a0d5a5a09bcfd7a34899f56ad6d"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R159_which_outcome/run.py": {
-   "bytes": 9484,
-   "sha256": "d51bc39b39e3d6acefc02385316ee8178f0017e80022f74563653e0a1e42227e"
+   "bytes": 9704,
+   "sha256": "ee70364fdb02990e82f1d08f7c77db0d88dedd17f6fc447dcd39209cb9294058"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R160_out_of_sample/run.py": {
-   "bytes": 10193,
-   "sha256": "169de0046983b9a499ce6beb81c017a81bf52ba015d44f03abcdc8f591138a0d"
+   "bytes": 10413,
+   "sha256": "9642678ae3710e6190837c43d74091c41b7214de645cb527458d135f4939ec8a"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R161_the_join_underneath/run.py": {
-   "bytes": 7302,
-   "sha256": "050833a2ad677e4fc15c765173f56084afe87fbfb058649d20b5a7578899d460"
+   "bytes": 7522,
+   "sha256": "1e77d16fc4e7a742639157761b14157f4e66114b8841f0d9cc3afec373da3f31"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R162_whose_ranking/run.py": {
-   "bytes": 12359,
-   "sha256": "fd6a2e769db376f29325fb2ebb68feeaf36aab2bb1263ac8b337ae1c7dc022f7"
+   "bytes": 12579,
+   "sha256": "09b4e04459a232ac8a093e90c829b276ca7dc15770ca5fc2b44a81510a1e2fba"
   },
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R165_gauge_admissibility/run.py": {
-   "bytes": 8978,
-   "sha256": "c81c8060b488e9e1d2b0184eeb1611567c17c2f6ce98c7e0a728795a6e3e3dd1"
+   "bytes": 9199,
+   "sha256": "47d0cea4b202e9b8b4f7a7772c2692be854b0798aca4069c0af3dba10e056b5a"
+  },
+  "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R314_silence_was_read_as_endorsement/run.py": {
+   "bytes": 20939,
+   "sha256": "d01f9530c1d6366fabbb97eb3ff723da7f85f884db93273d925c1d7ee6af3a86"
   },
   "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R166_defect_census/run.py": {
    "bytes": 20180,
@@ -840,8 +848,8 @@
    "sha256": "9629fd66c7f06730f9ec65956db314df37d57cc467c77767ae82b10e6b487195"
   },
   "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R201_is_the_fairness_result_one_prompt/run.py": {
-   "bytes": 13569,
-   "sha256": "c4ccd9268c81b32ffef764f53d1a51882e3f279ebbde607595eab3bbef9c8bc9"
+   "bytes": 13808,
+   "sha256": "63477cb70eb41c28397d2505373cb37d2523f62f8a0e5d80ea16c7bf4af8a8c5"
   },
   "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R202_attack_the_standing_claims/run.py": {
    "bytes": 13806,
@@ -1027,6 +1035,38 @@
    "bytes": 8771,
    "sha256": "623bac1d19e007fab7f9f511b7e776b45a3e0e1dd4ccb95b0f2ffd8b750e1c91"
   },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R341_is_the_skipped_population_real/run.py": {
+   "bytes": 24211,
+   "sha256": "b63020ac5230d904e55bb97e806b04a2d01774b61d2ac2c43c65c46e24a1a72a"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R342_how_many_checked_points_are_ratios/run.py": {
+   "bytes": 36087,
+   "sha256": "74836bbfa2aaa60969a203da403cc741429cdb63f5bdfa4eaabf11495df2696d"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R343_does_any_check_tie_artifact_to_source/run.py": {
+   "bytes": 24335,
+   "sha256": "cbec50e0caafb2d7d6fa3fe1bfacc7d4de38fb244a3dc368ffe3b45de20bb160"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R344_what_fraction_can_be_rerun/run.py": {
+   "bytes": 26877,
+   "sha256": "ad3a55076b6743f84485a62004495cd900ad6ffa485c2e60fde17bdbaa389fb9"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R345_the_stamp_nobody_reads/run.py": {
+   "bytes": 14672,
+   "sha256": "6ebb4ac45faef89d99946a56ef526665db61747e82ff7972fb3869fb398203db"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R350_why_the_ten_differ/run.py": {
+   "bytes": 17435,
+   "sha256": "807deb5dfbcd47bd232f19f4a3444f26ae95b16162ff443aacc40f968f826bc5"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R351_did_a_published_number_move/run.py": {
+   "bytes": 17775,
+   "sha256": "23d032befaeb4a6e8866b5aeb96c831bef6900cd3e322a737de0f5dd16321b47"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R352_would_regenerating_break_their_own_readmes/run.py": {
+   "bytes": 9765,
+   "sha256": "ab7ba56c22ecc75e3e76bbbbc096cc65f8730a379ba0fa0964b4bec1f3b306e8"
+  },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R248_capacity_versus_realised_alphabet/run.py": {
    "bytes": 19103,
    "sha256": "f62b3344756f5722b6b17430c3e6e859d5a022a538ab62d33390873d8c8b9149"
@@ -1076,8 +1116,8 @@
    "sha256": "98bb51e68988da124a39e7b31cea2c30178eed6db574df3de0c7823cad9d4109"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R260_instrument_noise_intervals/run.py": {
-   "bytes": 16495,
-   "sha256": "8ac03e09f5490882d0e3bace872a3dac4d37f8891b55fe101b024a26ef3f2ce2"
+   "bytes": 16724,
+   "sha256": "a4d867e554ed1368fc495c5675641ed1e3fa6081f6fb27cffded55ad5807cc53"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R261_hash_seed_sweep/run.py": {
    "bytes": 11163,
@@ -1104,16 +1144,16 @@
    "sha256": "de2a5c4f69e20e364ed369bec8d14e787d240a7e05b2dacc9d9f507046bd9a38"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R267_what_this_release_can_resolve/run.py": {
-   "bytes": 12849,
-   "sha256": "ab414ee30c623a756ffcf455c0b4130eaae8f8fbe20c673ff5b19f4dd4243849"
+   "bytes": 14452,
+   "sha256": "758dedc1c1dbc22a336083d4051276fc7100708de2fe1795988bceae928db7af"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R268_a_calibrated_detector_and_the_real_MDE/run.py": {
-   "bytes": 12785,
-   "sha256": "08cb0c044cd85ac123aac8039e5beab24f55218ba9784e0e3875f50a76e5ab65"
+   "bytes": 14280,
+   "sha256": "2caa297c0099fdf4189eb8f05d99b6e54d1bb5dcddbe25318b46f315cda2b3f4"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R269_a_sham_that_can_fail/run.py": {
-   "bytes": 12638,
-   "sha256": "72d66a3ef040336a5b362f4b048390d3b69466b6a320223e3be68348564b719c"
+   "bytes": 14133,
+   "sha256": "5c2f7c42448a36f1678cd8a36c1f08ab4fdbbb72735f8d35bc3597efe1ec9261"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R270_the_arc_chose_the_coarser_statistic/run.py": {
    "bytes": 12716,
@@ -1132,12 +1172,12 @@
    "sha256": "56a97c9efa9dc12192500b179677c0c078686af903c6a0bf83d0e0a02685555a"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R274_the_site_MDE_at_fine_resolution/run.py": {
-   "bytes": 16165,
-   "sha256": "52d503798ac00f8cfbb4a10e4fb9239814e52f8e03459811896c5deefead303c"
+   "bytes": 16394,
+   "sha256": "51dd674052152fcf8e98a398052082254f5c3988a69c3836c28e59657debdb08"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R275_what_a_replication_can_and_cannot_catch/run.py": {
-   "bytes": 12095,
-   "sha256": "401c94aa0476f47f7a23b7a28406d768492562c3a895ec83a1a7af21d5d5785f"
+   "bytes": 12324,
+   "sha256": "054e94b570f0b358f1be12101d9ca5d61ffe68cd14ba717004459d2ddd344492"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R277_is_necessity_tolerance_free/run.py": {
    "bytes": 10547,
@@ -1271,6 +1311,214 @@
    "bytes": 10758,
    "sha256": "34327489929bde5e13774087a2385a307ef936ccb1041739db936199d8aff449"
   },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R309_is_the_missing_r2_noise_or_structure/run.py": {
+   "bytes": 10911,
+   "sha256": "ae912e6dfbdcf573948daaf3309e00268193aa1643a02bca2362f6bc598badb4"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R310_what_the_structure_is/run.py": {
+   "bytes": 12326,
+   "sha256": "0571e5f5c29e18ee48872000fd5b682539bde83ab9b7da99fb14d70660ddb979"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R311_does_the_shrink_differ_within_family/run.py": {
+   "bytes": 11423,
+   "sha256": "db9fd71d7287c14dbf74182a52d4f41c034acf2788c76c47745f81c919b88e01"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R312_is_the_shrink_the_arm_or_the_rule/run.py": {
+   "bytes": 10741,
+   "sha256": "6427c7315fbeef40a383128e72844caee42af572af6159a27af7aa78a4cb846c"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R313_is_the_signed_shrink_precision_or_shared_noise/run.py": {
+   "bytes": 22190,
+   "sha256": "7882fbb061c16664aa7241d4e467cf607b33505576458b756998bfa74f7a1797"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R315_how_many_rounds_can_still_run/run.py": {
+   "bytes": 18175,
+   "sha256": "5ca5a600626473dfa78fe7b0234429e011db2ad1934b7aa2f7531c96299b26b2"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R316_did_the_repair_do_only_what_it_claimed/run.py": {
+   "bytes": 18415,
+   "sha256": "735c6ad456c093aa77994b4f367c0334bc72bc07ec720c6ea5a53ce071c9a5ed"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R317_the_population_was_run_py/run.py": {
+   "bytes": 18893,
+   "sha256": "033735c97f844c5274bdb40d7289829c23433574a7e0f908b4366087ed4ab7f1"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R318_is_the_site_mde_draw_dependent/run.py": {
+   "bytes": 12912,
+   "sha256": "9fbe88de9e719567cbfb45ba5c43a261bd9ccf41fa00c4ab14530d5b2f490224"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R319_six_rounds_read_the_typo/run.py": {
+   "bytes": 15557,
+   "sha256": "393b3bf996e286f4d3cd11af638fbf5532ebcb642eb8366d494c56976602e301"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R321_four_detectors_two_estimands/run.py": {
+   "bytes": 11486,
+   "sha256": "aeb31dde2420c35ed6a706767e0769909b4f975edfc04130bef8728f62f53cb9"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R322_the_matched_rerun_was_never_gpu_work/run.py": {
+   "bytes": 13615,
+   "sha256": "717141dd2d48b8c18828b37020a1ca3e6d577597f90a9ef79cc157b064487aa0"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R323_the_tau_gap_was_NCAL/run.py": {
+   "bytes": 8927,
+   "sha256": "57f7acd84e6f6df6483dd7f5a7a6bc43e75c4babccb541fcf2592e4ac08ffc41"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R324_the_dose_grid/run.py": {
+   "bytes": 11112,
+   "sha256": "aa3eb6de4f0f4910a6e1b74760556a4ad69ce8c803d7c7648d2efd19921e4547"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R325_what_the_definition_can_and_cannot_see/run.py": {
+   "bytes": 9582,
+   "sha256": "0e47f828f03d8331a002ebe1287a9a3f6cbf8ef741c40c33d94b31a5b102e308"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R326_the_clause2_baseline_curve/run.py": {
+   "bytes": 13174,
+   "sha256": "bcfef4689153e41fc9f21c62c1fc371f0eb5f698ef640c0f7900709432475de6"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R327_clause2_names_no_reference/run.py": {
+   "bytes": 10298,
+   "sha256": "295a3ca0909117bd80d91ee1508fa2d791b0f54de229b5821ce2279a77557671"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R328_the_three_readings_are_one_budget/run.py": {
+   "bytes": 30532,
+   "sha256": "78b559f145cd601d78abb29be55946a8afa197e3142e651f3a4a4bc5823bae61"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R329_the_budget_is_unobservable/run.py": {
+   "bytes": 20633,
+   "sha256": "1e8056c5c72e1d6e608128d386151d8b2b653690717e38bf017a4d250b7dda2b"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R330_what_the_conservative_reading_costs/run.py": {
+   "bytes": 26651,
+   "sha256": "1be68f2b5981b43aa267cdee54c29678f4bc01bb449f98b7e7469965c8f28a55"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R331_what_makes_a_clause2_reference_safe/run.py": {
+   "bytes": 19711,
+   "sha256": "e370e129e90e4fcc8f9f8a7516848a041c25ec626d315a4cf24a452075b9bd34"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R332_the_closure_level_derives_reading_A/run.py": {
+   "bytes": 26902,
+   "sha256": "1646a62de001d2ef8f55e71e25c40a89844c7a4b4bb597dae98189b39dce7d00"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R333_the_resolution_floor/run.py": {
+   "bytes": 18252,
+   "sha256": "eb1be175af020d2de8e15e82fd167e20349e4d6b0c8555208018a568b0769da0"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R334_why_clause_one_closes/run.py": {
+   "bytes": 24250,
+   "sha256": "31555468cdb14ff48e73d01c0afcf7548dd06a1d04e782f38295f0b62813c400"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R335_can_provenance_be_detected/run.py": {
+   "bytes": 19533,
+   "sha256": "cedb98105ba2003af93680a70bed1920af8ad4d7223a1ac614f8ae7fd6faffd1"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R336_clause_three_tested_not_declared/run.py": {
+   "bytes": 22443,
+   "sha256": "8ce4596c8dbacba7e437be35009234dcf9c0231d884a64501d2ce3405735303e"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R337_the_wall_is_the_population/run.py": {
+   "bytes": 18044,
+   "sha256": "0da674e6eb0a69d355f49cc4a6925ea1647507495299fedf43857ab8f0270eeb"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R338_does_the_signature_transfer_to_a_new_rule/run.py": {
+   "bytes": 17679,
+   "sha256": "a45899aa30aaf12b53f3bd54b46eb8c991b38ba70531bf439e215169686514cb"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R339_the_conjunction_is_a_different_object/run.py": {
+   "bytes": 18709,
+   "sha256": "b4fbf3195d6ee049d3cfa1f629f595d1e58da07ae59a2cb4b4752404bbf10cd7"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R340_the_definition_against_an_adversary/run.py": {
+   "bytes": 16912,
+   "sha256": "7b494270cf0b368fced6ee44ca6b986fcff3cb4c76a588ab79bdcc8851a01451"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R347_does_clause_one_ever_bind/run.py": {
+   "bytes": 15860,
+   "sha256": "581ef3ca32b2b1f97f2d3cb5fa0d4b724d783cb421068903fbe6f5cb097d05d7"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R348_is_it_blindness_or_curation/run.py": {
+   "bytes": 11173,
+   "sha256": "d1534f2c28ca620b408e724c524e71a95c8ef47b306b302ce6d8cd3f7bbf338e"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R353_the_admitted_set_under_every_pool_order/run.py": {
+   "bytes": 11636,
+   "sha256": "3bf31b86db9713acef7588b904cb2617b6624c6c833888acf352be5fdb9cdda0"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R354_what_the_safe_reference_admits/run.py": {
+   "bytes": 12352,
+   "sha256": "93ee19757173ea2f55dd0f2dffef303989bc51a90f43eac7ec6e49b19336b252"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R355_is_the_closed_region_upward_closed/run.py": {
+   "bytes": 24790,
+   "sha256": "1441ef5acc71d61133eec888d7cdcbe6fa1c8af56d372dec3ce52cf8b04bfe93"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R356_is_the_within_family_disagreement_resolvable/run.py": {
+   "bytes": 24081,
+   "sha256": "61f2d71487e5412e6dfd8eee01389c7b1dfe25c48ea0dfc9b5d98a84f201261c"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R357_does_the_inversion_survive_swapping_truth/run.py": {
+   "bytes": 19411,
+   "sha256": "7a544e27e65ca252025dedd17e540e6744bb1e612d09f694eb42ce69ecb184ea"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R358_does_the_closure_defect_replicate_at_the_second_judge/run.py": {
+   "bytes": 23873,
+   "sha256": "7b22ed012f6eb5d6f339dfc9aca6f649f969e7f85cb049aff184f4d0a5efaf98"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R359_can_clause_two_be_made_judge_invariant/run.py": {
+   "bytes": 24747,
+   "sha256": "398e5f1d0ef632d02acdba0b5c5b7a02c9615484fed160a49906ec1985f635f6"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R360_which_clause_is_load_bearing/run.py": {
+   "bytes": 18820,
+   "sha256": "ed485929522029a7d4456c6af90620e3d7595faeaa570553daa0eff46700425f"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R361_does_clause_three_hold_at_the_second_judge/run.py": {
+   "bytes": 19789,
+   "sha256": "5cb45a520f1149ed9fb41660b25f2f817bef4c1e023b3273ccd45c6910a7e8d8"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R362_does_the_size_band_survive_the_judge/run.py": {
+   "bytes": 19245,
+   "sha256": "9e2b1d1bf5ff474ccc02df7ac34622a3440be4d91eca1de080a0e836f3ac3e5b"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R363_clause_three_does_not_close_the_rubric_channel/run.py": {
+   "bytes": 14351,
+   "sha256": "136b184b076e4cc9da7559472625f22a28f535bc06d1bce14c1b623d0cf5d694"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R364_how_much_does_the_rubric_channel_carry/run.py": {
+   "bytes": 21406,
+   "sha256": "fe09e57c03957a323082990acdf13f83d5b1ef69ff7edbd55928e36156abac20"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R365_is_the_empty_channel_a_2B_statement/run.py": {
+   "bytes": 17275,
+   "sha256": "1de32584b1166c38312eaa857e8b303fd190d369bd8802151c64e5a4ed1982e9"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R366_does_anything_predict_which_claims_survive_the_judge/run.py": {
+   "bytes": 16063,
+   "sha256": "d093d711986f8ea9b9d39f02a996f20959bed58258d18db4df71eb6cb09af3ea"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R367_can_the_judge_be_named_non_circularly/run.py": {
+   "bytes": 13421,
+   "sha256": "e98709ce11c178d12d8e4ce064afef4cc1a8886e98e79ee41aec1647d7a7ea1b"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R368_transport_matched_on_difficulty/run.py": {
+   "bytes": 18233,
+   "sha256": "7f3ba6d965e87b0ecd59918d64d86ceb655cc5e2f19445c7592f73137f02e73b"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R369_the_transport_contrast_decomposes_two_ways/run.py": {
+   "bytes": 13655,
+   "sha256": "d0781cd3d8275fd6a8dd030db19e6dc83bbce06482607741fa848277d726a040"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R370_a_non_subset_floor_for_the_fresh_arm/run.py": {
+   "bytes": 16675,
+   "sha256": "ec2e6ef1e6bc12ff7486b9ce7558770810fdf1f5c70c138fe1f6d919ac01b916"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R371_would_more_prompts_resolve_transport/run.py": {
+   "bytes": 20330,
+   "sha256": "8e12a49df746f4c66b4c7977e1bb370b9bc28b587bcab2b41e25ead8c948b476"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R372_is_the_resolving_set_stable/run.py": {
+   "bytes": 42999,
+   "sha256": "4a2301e59793bccfa878514c5a4e64950971770c444da6035be4ba2447df5610"
+  },
   "assurance/DEFECTS.py": {
    "bytes": 14429,
    "sha256": "7ba9f79b96c0ec4c238989927bfbe9709df537d34bde48d0ff6b3d0383791ad0"
@@ -1280,8 +1528,8 @@
    "sha256": "51544d48278f285cff1bc5c24990e49c7d3447a5c24a01645a890a3c876133e3"
   },
   "assurance/_isolated.py": {
-   "bytes": 11181,
-   "sha256": "79eed69331612eb5695f130af8e1beeb64288675e499b76dd8cccfda1d0ad02b"
+   "bytes": 13178,
+   "sha256": "4ebe592a12304b6fcd1a10eb8ed3942e28a2e78ddb931705453c50d546c5e199"
   },
   "assurance/apply_freeze_status.py": {
    "bytes": 4855,
@@ -1292,8 +1540,8 @@
    "sha256": "d6cf95664f673ada15e80f441b7ac246e8baa60f5ba39d4206f90f07bc087dca"
   },
   "assurance/artifacts_are_internally_coherent.py": {
-   "bytes": 12115,
-   "sha256": "d32945030c7afb9aa98903840fb77d930ddf9503ec7b2f9f61f72be00c83b069"
+   "bytes": 16944,
+   "sha256": "653d2b0f5f227b8cf9745ce64e574aa816cd5e6857e00105d974f2cd0519c7e6"
   },
   "assurance/attack_every_check.py": {
    "bytes": 13630,
@@ -1312,8 +1560,8 @@
    "sha256": "82b5eebb2af188322a5a3cecc03d1e5932fe9c9e98c6af1091fdad9b36c66066"
   },
   "assurance/attack_the_suite.py": {
-   "bytes": 12431,
-   "sha256": "300c7ac33ddcbb9517103855d92b34e30ac3e232023f63407ccf294c0d9b6d57"
+   "bytes": 17213,
+   "sha256": "8e7d2bf83698c547f1daeb207cf1c085879d074e51916fa058cf2341434334fe"
   },
   "assurance/audit_the_auditors.py": {
    "bytes": 8230,
@@ -1324,12 +1572,16 @@
    "sha256": "123b0e03de05e734296934eda53673d171abc8e7870eb33ce7bc0f1cb31f4560"
   },
   "assurance/consistency.py": {
-   "bytes": 9650,
-   "sha256": "ee0b9df47c0ee41ecbb421af805bb7da8b0c5f4773768c66d76f15524a8d1251"
+   "bytes": 12663,
+   "sha256": "b17524778ac6ab95d22437f58a94a6e36076a206c417e7f64543f8cfb99d3268"
   },
   "assurance/corrections_propagated.py": {
    "bytes": 11636,
    "sha256": "8017a135ac5da6bd0ce006d958a0acd41461f2bdad897dbbf1e4f09296faf1af"
+  },
+  "assurance/definition_matches_the_record.py": {
+   "bytes": 17385,
+   "sha256": "5829ff23d0faae147a60ffbb3d8dc3fd33d515b659908e332a3730e89183502a"
   },
   "assurance/donor_numbers_carry_their_draw_scope.py": {
    "bytes": 9059,
@@ -1347,6 +1599,10 @@
    "bytes": 8111,
    "sha256": "ec80b1ef7d7a5fffea48a43e6e2a0a73502086fd309254d800373c914b9c526e"
   },
+  "assurance/interval_is_centred_on_its_point.py": {
+   "bytes": 5530,
+   "sha256": "1e8b4ab0529207d0b188483a64865684f5e0dc6b9346ee32e556a4b92ac31903"
+  },
   "assurance/manifest.py": {
    "bytes": 37651,
    "sha256": "f06354e9a624ba882bab63ccbf90414dfd110f4b2d54d9512d60c68479072ca4"
@@ -1355,6 +1611,14 @@
    "bytes": 4983,
    "sha256": "26283eec9872e743aec0d24dcdd38d5e94adad16cd0f57dedd913d25268e4b47"
   },
+  "assurance/next_gradient_is_new.py": {
+   "bytes": 7092,
+   "sha256": "2d7c762018697b733c73adf8df89ae917f2cd8c51f1567bcdc0423cf13a2a082"
+  },
+  "assurance/next_gradient_labels_its_hypotheses.py": {
+   "bytes": 9877,
+   "sha256": "57e613a8c338fe224c87a4b8c54c41a1612a67349ae8e22134efa43eeca5f659"
+  },
   "assurance/no_withdrawn_framings.py": {
    "bytes": 10095,
    "sha256": "ea71fbb578ebc3f1408c4727f2fc737db71190524e4646c5d6cc225eaeb94099"
@@ -1362,6 +1626,10 @@
   "assurance/outcome_variable_declared.py": {
    "bytes": 5804,
    "sha256": "8a7b5477b770534891c6b188bbda2dfed4b98ac9a194eb51d39d32bd486af8f3"
+  },
+  "assurance/point_and_interval_share_a_source.py": {
+   "bytes": 7958,
+   "sha256": "a3714c03a712a770ede30ba42629d60cbbe3c537547a4f5d06a3c308e6b2ddc5"
   },
   "assurance/pueue_wait.py": {
    "bytes": 3210,
@@ -1396,8 +1664,8 @@
    "sha256": "287b0d6f3079f1ed48ba9d11b5fcd25c5de7e9c23067434833da8ddc14bb3863"
   },
   "assurance/round_links_resolve.py": {
-   "bytes": 3989,
-   "sha256": "c831c9b6d53c3fdc9b7095222ccf8a60eaab9e1230d23a8ba292efcf33f49231"
+   "bytes": 4531,
+   "sha256": "1e01a1265f20e9c52e02bd81a14c776dd1e836966e518c59535f7979aef23fc3"
   },
   "assurance/scope_reaches_the_reader.py": {
    "bytes": 4545,
@@ -1406,6 +1674,10 @@
   "assurance/seed_filter_is_disclosed.py": {
    "bytes": 5652,
    "sha256": "e80c53949e7e67adf6ef32fd56da7cfdc9e5253b29862686a3052b05d7947cd8"
+  },
+  "assurance/source_stamp_is_current.py": {
+   "bytes": 11809,
+   "sha256": "524ad5f8a3a267b01f72aa7652df7ca15ea03dca61bde7ec995870dabf208907"
   },
   "assurance/synthesis_cites_recent_work.py": {
    "bytes": 4547,
@@ -2234,16 +2506,16 @@
    "sha256": "6c3abaa8f784c6594e8cbb758cc40f24381293a681d3e78f12dd458e34ad3539"
   },
   "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R34_global_rater_crossfit/results/r34_global_rater_crossfit.json": {
-   "bytes": 110584,
-   "sha256": "eec430f1ccc2747b5b9bb7dc8641df2c80f595a78d40f8a5338374fefd0d1b36"
+   "bytes": 110583,
+   "sha256": "b4ea1883e9d784781141755e8968ddafc06e302a16f844b123ba35776ddf6ce3"
   },
   "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R35_polarity_abstention/results/r35_polarity_abstention.json": {
    "bytes": 120451,
    "sha256": "1b48c39af65f120c4afa1306ed50f562949f86f549b9e146aaf9c4a020911776"
   },
   "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R36_channel_shapley/results/r36_channel_shapley.json": {
-   "bytes": 81239,
-   "sha256": "6d63e10946204b61b6965b6bbf9f03b45bdb34082f073011ff105cf0964b7617"
+   "bytes": 81241,
+   "sha256": "26644db1d75300c3901d2342167d9078c78c4d10f0847e05aabf6a590bd2a65c"
   },
   "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R37_leakage_topology/results/r37_leakage_topology.json": {
    "bytes": 130293,
@@ -2518,8 +2790,8 @@
    "sha256": "f0f1b0a3b56899b127c6a12a60871808f05131c4a50cf000ab7c09c35222f2bb"
   },
   "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R102_margin_calibration/results/r102_margin_calibration.json": {
-   "bytes": 3823,
-   "sha256": "05109e90ef75efc116b4e197606a41097aa5628144ae816325ed014b4fa53f17"
+   "bytes": 3860,
+   "sha256": "582fa9a91f8fbf776170a00a05c9b2ae99fcb397a55b7831c516a0ea36da7705"
   },
   "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R103_consensus_conditioned/results/r103_consensus_conditioned.json": {
    "bytes": 4129,
@@ -2538,8 +2810,8 @@
    "sha256": "c7186c30841f7db66c15b4b41fe13faadf01de72d745c0847e3bb5043b9346a0"
   },
   "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R107_joint_resample/results/r107_joint_resample.json": {
-   "bytes": 4018,
-   "sha256": "ae17b75d92415cd20a34362f5016b41c48fe64bc0339008795aa1e4c2784725e"
+   "bytes": 4055,
+   "sha256": "72e8d4c03038c71a1735cd837948901a8aed462023b57c6ba963a59456a99368"
   },
   "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R108_coinflip_stratum/results/r108_coinflip_stratum.json": {
    "bytes": 5275,
@@ -2571,7 +2843,7 @@
   },
   "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R115_shrink_is_one_parameter/results/r115_shrink_is_one_parameter.json": {
    "bytes": 2902,
-   "sha256": "c793108024bb94af3c972ec239498873006d3d6fbed592eb696d5675dadf4c3c"
+   "sha256": "822f953bd66bc1419e2c78b910f8af4fa6b3bbf80611fe13fd672f4fea4bac3b"
   },
   "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R116_no_invisible_sacrifice/results/r116_no_invisible_sacrifice.json": {
    "bytes": 4506,
@@ -2591,7 +2863,7 @@
   },
   "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R121_is_the_advantage_the_metric/results/r121_is_the_advantage_the_metric.json": {
    "bytes": 5637,
-   "sha256": "41b0a79c9a424b5e28abfcfc3d1f64e17a06aaacecb14c0188ca887fdf2ca74b"
+   "sha256": "32635c3a0ae64773a43bed671a3fed1f0d79bf1920cbfaad3970ccf4c0b3cdc9"
   },
   "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R122_metric_gauge_grid/results/r122_metric_gauge_grid.json": {
    "bytes": 37475,
@@ -2856,6 +3128,10 @@
   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R165_gauge_admissibility/results/gauge_admissibility.json": {
    "bytes": 1345,
    "sha256": "a495e56b9ac4394bb2b78349ca819f14f9e48e54c2bd66dfc1693cd8b4d90593"
+  },
+  "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R314_silence_was_read_as_endorsement/results/silence.json": {
+   "bytes": 1630,
+   "sha256": "bdf5c6a53df8591f82349ff0bf53e279b6ce0ca9ac59ea9aaa820b3e9ede7161"
   },
   "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R166_defect_census/results/census.json": {
    "bytes": 8383,
@@ -3274,8 +3550,40 @@
    "sha256": "a801020b655b28692f2a070c9961115fd1708090181a838836776b4cf739779c"
   },
   "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R242_self_audit/results/self_audit.json": {
-   "bytes": 15400,
-   "sha256": "d795779bff8b10c70b41942ce7853ccca46edbc227fa819f9730bb367d17572a"
+   "bytes": 81822,
+   "sha256": "af1fecdc79c9fa18df7684a1318235c6d56dc68a76b2450f0ce33dfbe53efd16"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R341_is_the_skipped_population_real/results/r341_skipped_population.json": {
+   "bytes": 2606865,
+   "sha256": "3a32715c536adf23e2155ff1887e312462d25f39bec9a79545563f19b1471538"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R342_how_many_checked_points_are_ratios/results/r342_ratio_census.json": {
+   "bytes": 12680,
+   "sha256": "b5c72ee46c8efc69886adf2b97bdd3684e530acba733018918a0327b17dcfdeb"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R343_does_any_check_tie_artifact_to_source/results/r343_provenance_gauge.json": {
+   "bytes": 5576,
+   "sha256": "2ee66bcc310d9b66ac29596712f3a2b04ce7f58e6ae54e2369020c4383a24a0d"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R344_what_fraction_can_be_rerun/results/r344_rerun_cost_census.json": {
+   "bytes": 16854,
+   "sha256": "97d347ea60a1714b3aaa6f1d675b03a4b91090ee428d2461103cc3dee2dfaa43"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R345_the_stamp_nobody_reads/results/r345_stamp_census.json": {
+   "bytes": 20440,
+   "sha256": "6c8912510a1c95a294c6ed4313de536d295405b4f58a93f35df879ac873b0daa"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R350_why_the_ten_differ/results/r350_why_the_ten_differ.json": {
+   "bytes": 2565,
+   "sha256": "8ff6c70ab235a366022830d77063728073ecd4f14415092ade196bde45e26c9d"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R351_did_a_published_number_move/results/r351_did_a_published_number_move.json": {
+   "bytes": 3977,
+   "sha256": "7a8cc2cd55046760a81c4d05a00402bad66ff144a0f9d8dabe64f86301677dd9"
+  },
+  "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R352_would_regenerating_break_their_own_readmes/results/r352_own_readmes.json": {
+   "bytes": 1536,
+   "sha256": "6c47f1ab8569da35b7cf62c7b15be5128e210bf9f691adf424a7af19706cb474"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R248_capacity_versus_realised_alphabet/results/gate_test.json": {
    "bytes": 97091,
@@ -3326,8 +3634,8 @@
    "sha256": "b75676267c5eb3a44d50a73fb956da1932b13f07c53d85f44610dd5dc7f76368"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R260_instrument_noise_intervals/results/instrument_intervals.json": {
-   "bytes": 1700,
-   "sha256": "3aaec4b116c06b396c0b57a9a78540c1c586423f711268d4095d60db623d6e2b"
+   "bytes": 1664,
+   "sha256": "bad707e2df3f51e76329642edb6642ea9d4f4f86e7d17797b3ff7e047eef5a54"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R261_hash_seed_sweep/results/hash_seed_sweep.json": {
    "bytes": 3789,
@@ -3362,16 +3670,16 @@
    "sha256": "7c5f7f204a75b70e85ca4c6c70377b3b86de7d40d67a3a0948f9e93482d46cd3"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R267_what_this_release_can_resolve/results/site_mde.json": {
-   "bytes": 754,
-   "sha256": "1ff9abe4cfdf21c4306979aa6d4f1ee23aa41beb0d1667cbbaaf8d25451db6af"
+   "bytes": 1143,
+   "sha256": "158549e26cf921d3cdccb8e9bcd988e8e26cfc999aa3d72c11410474a4a6340c"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R268_a_calibrated_detector_and_the_real_MDE/results/calibrated_mde.json": {
-   "bytes": 983,
-   "sha256": "8016b9c64d65b62410085f5ff73b176fd769b7bc465c16de0bd6c704492c16a1"
+   "bytes": 994,
+   "sha256": "2acc4ab9553537f29b5006a244e493edfda4a6318f3d970bdbe7cb58ba533404"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R269_a_sham_that_can_fail/results/calibrated_mde.json": {
-   "bytes": 1019,
-   "sha256": "e6b8f41452e65329039744a1187d75f81606c57d9225a16f7c6525a314625e52"
+   "bytes": 1030,
+   "sha256": "8dfc46ddc66f4c527c1bd383995b9402a734df34e2eb540de9d8785b6deb9a16"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R270_the_arc_chose_the_coarser_statistic/results/human_statistic_mde.json": {
    "bytes": 1143,
@@ -3390,12 +3698,12 @@
    "sha256": "32fa380bb97c47b2788d544672b4bfb2a01a05abbd91319555ec193845b6c3df"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R274_the_site_MDE_at_fine_resolution/results/calibrated_mde.json": {
-   "bytes": 1533,
-   "sha256": "8acb9b194223a48eba9974b45e47bbf3a5ef6fbe9ae36b924caa3088a10c899a"
+   "bytes": 1545,
+   "sha256": "3633a4ad5048b0d3b4325bde4bb12e59b25984af1de0e7beb3430a362ba5940d"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R275_what_a_replication_can_and_cannot_catch/results/replication_2x2.json": {
-   "bytes": 1242,
-   "sha256": "96c23015474f3ad1ad085badcacdd5a96bc61fd8afdebe92b660fbd0301cdac9"
+   "bytes": 1197,
+   "sha256": "89ab4eceb9a286c2eca25912963ebdb9948357f3c21d0fb27598b211a3a4ecdf"
   },
   "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R277_is_necessity_tolerance_free/results/necessity_tolerance.json": {
    "bytes": 1666,
@@ -3528,6 +3836,226 @@
   "E05_the_space_of_compilers/A24_what_the_definition_costs/R308_neutral_clause_at_matched_k4/results/matched_k4.json": {
    "bytes": 2159,
    "sha256": "16071530c8759b153a995fa257fae65667525e28bcfa7414ebd7bdf5603cdc5b"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R309_is_the_missing_r2_noise_or_structure/results/reliability_ceiling.json": {
+   "bytes": 863,
+   "sha256": "0b408eba02c4c7fae9ef7dec5e23ff1308600fc358fee72417cdf91cb4e93a2b"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R310_what_the_structure_is/results/structure.json": {
+   "bytes": 1140,
+   "sha256": "caff9c258140ef9629c459e72e29915bd5d3f82303ca72bdf329f93a956d2243"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R311_does_the_shrink_differ_within_family/results/family_slopes.json": {
+   "bytes": 890,
+   "sha256": "d34a578524739f4d72ca1ab7031a43d8cff30727fc1357da1e5e88d9ab986b93"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R312_is_the_shrink_the_arm_or_the_rule/results/arm_or_rule.json": {
+   "bytes": 533,
+   "sha256": "88f11a7741c140d07e3b59a0fd5119273e75ec381e7ee405db418dd563323a15"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R313_is_the_signed_shrink_precision_or_shared_noise/results/signed_floor.json": {
+   "bytes": 2454,
+   "sha256": "b305f5c10182c56c9d0f1b62f237b5eca009479b0a8d4be6e19865d739e3cee3"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R315_how_many_rounds_can_still_run/results/runnability.json": {
+   "bytes": 59130,
+   "sha256": "5d3f650c86fd854df22341037808c976737fa70459a125df1b610d9f583c0f6d"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R316_did_the_repair_do_only_what_it_claimed/results/repair_gate.json": {
+   "bytes": 1928,
+   "sha256": "9cf2fb09c70613d0b55aceb31cba04fa3104b19b3ec5bc49a6526503a1a63f03"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R317_the_population_was_run_py/results/population_9f33bf2.json": {
+   "bytes": 76979,
+   "sha256": "50607320d973c3d9e8d5c62a7fba632f6f43ae9e5ef9d7a0452102e767841412"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R317_the_population_was_run_py/results/population_HEAD.json": {
+   "bytes": 75478,
+   "sha256": "57f3ba61b862433e65107d2e6b009586578652ff8e7455219be918e49614a0e4"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R318_is_the_site_mde_draw_dependent/results/draw_A_replay_of_published.json": {
+   "bytes": 1533,
+   "sha256": "8acb9b194223a48eba9974b45e47bbf3a5ef6fbe9ae36b924caa3088a10c899a"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R318_is_the_site_mde_draw_dependent/results/draw_B_committed_npz.json": {
+   "bytes": 1545,
+   "sha256": "3633a4ad5048b0d3b4325bde4bb12e59b25984af1de0e7beb3430a362ba5940d"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R318_is_the_site_mde_draw_dependent/results/draw_dependence.json": {
+   "bytes": 694,
+   "sha256": "e17f2baa4e1cae6b83eee9ddba847a86040ca34d84548a824f38f3d6ef4edc2e"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R319_six_rounds_read_the_typo/results/repoint.json": {
+   "bytes": 7022,
+   "sha256": "ce888acf03d65264880015a0a88a72f3d007d72b00fbf403547c4935578c3378"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R321_four_detectors_two_estimands/results/estimator_bias.json": {
+   "bytes": 1038,
+   "sha256": "d2e7ef2e142521a3909dfa8a328a149a09785f1263419de4d78c3cb3fdca4ec3"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R322_the_matched_rerun_was_never_gpu_work/results/matched_rerun.json": {
+   "bytes": 558,
+   "sha256": "5d2f64eff98bbfd669cfb93a1ff0be62940a855a0c95ea5dda3d24cbe9afc627"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R323_the_tau_gap_was_NCAL/results/tau_is_ncal.json": {
+   "bytes": 656,
+   "sha256": "b119f0ff93ef121b5388cbe54d4414c3521eec446b48b76638921e69d0004022"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R324_the_dose_grid/results/dose_grid.json": {
+   "bytes": 872,
+   "sha256": "e7bfd4b079237cb0e39e6fd5e1dcc7c33692b810ca74b82bc945e3ca665d12a2"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R325_what_the_definition_can_and_cannot_see/results/clause1_resolution.json": {
+   "bytes": 2444,
+   "sha256": "271a5846cc8b1f60e229821a75617c7d152d59cd8820349a46644d82fa86bfc4"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R326_the_clause2_baseline_curve/results/baseline_curve.json": {
+   "bytes": 2872,
+   "sha256": "cc0c26a17c325ac4ca60824f40f42367171593d73fdf23fc5f8ff069c8429a4b"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R327_clause2_names_no_reference/results/readings.json": {
+   "bytes": 2237,
+   "sha256": "0dfc16512e5c8859b0ee6ab2d5e839777a8b89270e498f95bf9cf2beeb6b78ca"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R328_the_three_readings_are_one_budget/results/budget_matching.json": {
+   "bytes": 27653,
+   "sha256": "7fc9969f9282ee658c00fbfbbb295528c84edff82053d801e68babca0b2914a0"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R329_the_budget_is_unobservable/results/budget_bracket.json": {
+   "bytes": 2706,
+   "sha256": "05de249abde00914b82fb6cfefe7653509e106db58b807f2b50ba717c4a7bafb"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R330_what_the_conservative_reading_costs/results/conservative_reading.json": {
+   "bytes": 40047,
+   "sha256": "d4038eda79114157c4c361578b5303c269074e492e7b5e7107a9ebfb7f31e557"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R331_what_makes_a_clause2_reference_safe/results/reference_safety.json": {
+   "bytes": 3132,
+   "sha256": "714c0d8a901ee72b27d427c9923602a95cceddeb113876d1ac53900c4d0873fd"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R332_the_closure_level_derives_reading_A/results/closure_level.json": {
+   "bytes": 17303,
+   "sha256": "d4d2137b82f91ff3b2def8a9aee5d8ce9dfe42888320b11f592e08845e04fc97"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R333_the_resolution_floor/results/resolution_floor.json": {
+   "bytes": 4009,
+   "sha256": "3666f35207872ce71e3d22678d17dad66a8dead0e51fa96e0c7363d241bbe723"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R334_why_clause_one_closes/results/clause_one_closure.json": {
+   "bytes": 3109,
+   "sha256": "ccb70574c103dc2b1bd60d93324958dc8e345981f1a133f5f5d48f0b47a40f52"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R335_can_provenance_be_detected/results/provenance_oc.json": {
+   "bytes": 4496,
+   "sha256": "b1f1166eb706db92d857424352f3610c341a534a67ec05155bd89c27e36abd9f"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R336_clause_three_tested_not_declared/results/clause3_confusion.json": {
+   "bytes": 7828,
+   "sha256": "4107392b2832f44573fe37a625109b2b3b4a58cd11b9bb05a7dbb98ae25572f4"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R337_the_wall_is_the_population/results/selection_signature.json": {
+   "bytes": 1302,
+   "sha256": "5dbddce51c050aed1d838fc8a8d738a7fcfb762eb5f55623b8ea99a9cba850e0"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R338_does_the_signature_transfer_to_a_new_rule/results/rule_transfer.json": {
+   "bytes": 1264,
+   "sha256": "5e423507ba66e4e3b0ac5d21483a3f238340cfc42106689a67096af7c7c43fda"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R339_the_conjunction_is_a_different_object/results/joint_admission.json": {
+   "bytes": 6393,
+   "sha256": "36a8f0a11a71f6573b2057dd96bf83172ce31828b3a872f0f0b4141d97c43128"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R340_the_definition_against_an_adversary/results/adversarial_arms.json": {
+   "bytes": 1782,
+   "sha256": "2b998719b1c7aaddf8155256b273ed6121005359fca5269ccf59373b0ed2f79f"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R347_does_clause_one_ever_bind/results/r347_clause_one_binding.json": {
+   "bytes": 1930,
+   "sha256": "2ae1e9b6173631fb6a2bedda21ef6b21914e0db01c480db8fff1a21f57013313"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R348_is_it_blindness_or_curation/results/r348_blindness_or_curation.json": {
+   "bytes": 1746,
+   "sha256": "97395d50157301ec586e1b1e8db005566f3020ff0605f93e0164fba5aae48aa3"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R353_the_admitted_set_under_every_pool_order/results/r353_pool_order.json": {
+   "bytes": 3079,
+   "sha256": "06362c124d3d598975657d2b2c105b93edb3d40b424b3c77298541088deb6dfb"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R354_what_the_safe_reference_admits/results/r354_safe_reference.json": {
+   "bytes": 2186,
+   "sha256": "7f37be9f3cc2451357927d24c089f8c5fb5a68af92fa818a85a3a4f41bffea16"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R355_is_the_closed_region_upward_closed/results/r355_upward_closed.json": {
+   "bytes": 17357,
+   "sha256": "6fd2ae84d66801e2ed478229aad0d0fc520d57683f4058f1ba1a89d35301cf9b"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R356_is_the_within_family_disagreement_resolvable/results/r356_within_family.json": {
+   "bytes": 11954,
+   "sha256": "9d1cef3a442315ed2a39c5cd3bf0fafb095d8b53a5fbe3bd6256e07fb39c1015"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R357_does_the_inversion_survive_swapping_truth/results/r357_gauge_swap.json": {
+   "bytes": 5987,
+   "sha256": "115b65ada7e3b75b4291479fc36c1561aa038058e724bc994fe5037eddf70879"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R358_does_the_closure_defect_replicate_at_the_second_judge/results/r358_second_judge.json": {
+   "bytes": 11880,
+   "sha256": "e4cf64c0d9f9f1eb4c16dd65036e9a419e4315ceefb007633fb4b1bd7480c5a4"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R359_can_clause_two_be_made_judge_invariant/results/r359_judge_invariant.json": {
+   "bytes": 8452,
+   "sha256": "beca3323d3c920de6bcb52eb2a4fada8102e3230626c7f43e7d84e52a72b9acf"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R360_which_clause_is_load_bearing/results/r360_clause_ledger.json": {
+   "bytes": 25398,
+   "sha256": "cd9438f88e4efef0fbf66919c8dc6b0c44bccd1618a3ff5611c1ffaba29c72a8"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R361_does_clause_three_hold_at_the_second_judge/results/r361_clause3_second_judge.json": {
+   "bytes": 21914,
+   "sha256": "e4a731066570dfa18f4511cba22052d786beadc5a7952c85d62bd474d42a09fd"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R362_does_the_size_band_survive_the_judge/results/r362_size_band.json": {
+   "bytes": 3462,
+   "sha256": "210e68559065d127014afdbf99e2a08559ef45642e0a88d60c2db2125bb11777"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R363_clause_three_does_not_close_the_rubric_channel/results/r363_rubric_channel.json": {
+   "bytes": 802,
+   "sha256": "fa3a14f12eda9e46415dd2d8eebe7857b5eb0c9a3fd66c91966d0ad955616aa7"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R364_how_much_does_the_rubric_channel_carry/results/r364_channel_size.json": {
+   "bytes": 3103,
+   "sha256": "d15bbec2841a4b228cb417ea9ff556f3d03f1c3f967a631c4846036843e022fa"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R365_is_the_empty_channel_a_2B_statement/results/r365_channel_second_judge.json": {
+   "bytes": 6070,
+   "sha256": "6cef240c76e7caa8a828d5690a1a5bf842bb5b8776db176c29787b5e4b89a49c"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R366_does_anything_predict_which_claims_survive_the_judge/results/r366_what_survives.json": {
+   "bytes": 1982,
+   "sha256": "1391878baac85c34e1eccef5f036ece6e8344ad9c2805d63ea109146d6562e39"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R367_can_the_judge_be_named_non_circularly/results/r367_naming_the_judge.json": {
+   "bytes": 744,
+   "sha256": "1f23bd88c7144c042be6b7c02b822c57582ac38fb5e37ce5336940964711662a"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R368_transport_matched_on_difficulty/results/r368_matched_transport.json": {
+   "bytes": 3883,
+   "sha256": "5f8a77501a68be74741ff4f11847d2c4fd5c153b3be8517be7ca06af77e30608"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R369_the_transport_contrast_decomposes_two_ways/results/r369_decomposition.json": {
+   "bytes": 1868,
+   "sha256": "fe098d3c40a66f62d4540fee1f76ce17bef88f4648c467decf91d905c1f6b307"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R370_a_non_subset_floor_for_the_fresh_arm/results/r370_nonsubset_floor.json": {
+   "bytes": 4041,
+   "sha256": "94742fcdc7604b22a645ed743b73f22def133d950d7a7a30abf6220e50c26f49"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R371_would_more_prompts_resolve_transport/results/r371_power.json": {
+   "bytes": 3078,
+   "sha256": "c59c1330db8a3fba0cf016593cf123470b51acd7918542916f7d92b054673fe2"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R372_is_the_resolving_set_stable/results/r372_stability.json": {
+   "bytes": 13498,
+   "sha256": "21cba6034062f98ab15d621b49bc501a151f4e36f94104dc1685070dcd1fad86"
   }
  },
  "claims": [

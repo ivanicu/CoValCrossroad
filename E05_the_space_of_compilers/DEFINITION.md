@@ -242,17 +242,41 @@ while the MDE shrinks, on `exact` the contrast barely moves and the **MDE grows 
 
 ⛔ **AND THAT VERDICT IS ITSELF A SPECIFICATION CHOICE (R371).** R370 fixed the stratification at
 **S = 4** and never swept it. Sweeping S on the same data, the `exact` contrast **resolves at S = 2
-and S = 5** and does not at S = 3, 4, 6, 8. On `pair` it is inside the MDE at every S. So the honest
-statement is the **curve**, not the cell — and *"transport collapses"* is what S=4 says, not what the
-data says.
+and S = 5** and does not at S = 3, 4, 6, 8. On `pair` it is inside the MDE at every S. So
+*"transport collapses"* is what S=4 says, not what the data says.
 
 ⚠ The between-stratum spread is **sampling noise, not structure**: against a *no-heterogeneity* null
 the median ratio is **0.98**. And the MDE **rises** with S, because smaller strata get noisier faster
 than √S recovers — so more prompts would help only **at fixed S**, never by adding strata.
 
-**So transport is a stated LIMIT, not a candidate clause** — and the limit is *unresolved at the
-campaign's own default stratification*, with a verdict that moves when that default is swept. R368's
-number stands as a number; what it measured was the floor.
+⛔⛔ **AND R371'S OWN READING DIED THE SAME WAY (R372) — the curve is no more reportable than the
+cell was.** R371 closed by saying *"the honest statement is the curve, not the cell."* Re-run on
+**480 random halves** of the same 250 prompts:
+
+| | |
+|---|---:|
+| R371's set `{2, 5}` recurs | **2.9%** of halves |
+| modal outcome | **∅**, at **41.5%** — with **38** distinct sets |
+| two halves of one split agree on the set | **4.4%** *(both-empty agreements removed)* |
+| `exact` set at full n under an order-independent floor | **{2, 3, 5}**, not `{2, 5}` |
+
+**And the curve's shape is a derivation, not a measurement:** R371 itself measured that the MDE rises
+with S while the contrast does not, which makes the resolution rate fall with S **by algebra**.
+**S = 2 tops every ranking because its between-stratum sd has ONE degree of freedom and collapses**
+— below half the typical contrast in **28.3%** of halves against at most **7.3%** anywhere else
+(3.9×). The tell was a full-sample `pair|2` cell returning **MDE = 0.0007**.
+
+⚠ R371's floor was also **order-dependent** — one rng shared across a call, so a prompt's floor
+depended on its company. 12 permutations move the `exact|S=4` contrast across **+0.0540 … +0.1185**.
+
+> **`The resolving set` is not a well-defined object of this design.** R371 was right that R370's
+> S = 4 was a specification choice, and then read a SET off the same single draw — **the error it
+> convicted R370 of, one level up.**
+
+**So transport is a stated LIMIT, not a candidate clause** — and the limit is now stronger and
+simpler than R370's or R371's version: **the transport contrast is not resolvable by this design at
+any stratification, and no stratum count is preferable to another on this data.** R368's number
+stands as a number; what it measured was the floor.
 
 ## The one sentence
 

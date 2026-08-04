@@ -13,10 +13,7 @@
   "scope_reaches_the_reader.py",
   "_poscontrol_unrepaired.py"
  ],
- "never_ran": [
-  "HEADLINES.py",
-  "verdict_cites_its_own_contrasts.py"
- ],
+ "never_ran": [],
  "positive_control_ok": true,
  "fails_at_g0": true,
  "rows": {
@@ -26,16 +23,16 @@
    "other_files": 0,
    "assurance_files": 1,
    "verdict": "read the tree",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": []
   },
   "HEADLINES.py": {
-   "exit": "EXC FileNotFoundError",
-   "round_files": 0,
-   "other_files": 7,
-   "assurance_files": 0,
-   "verdict": "\u26d4 NEVER RAN (EXC FileNotFoundError)",
-   "dirtied": 0,
+   "exit": 0,
+   "round_files": 1,
+   "other_files": 6,
+   "assurance_files": 1,
+   "verdict": "read the tree",
+   "dirtied": 1,
    "sample": [
     "covalx/__init__.py",
     "covalx/__pycache__/__init__.cpython-313.pyc",
@@ -49,7 +46,7 @@
    "other_files": 6,
    "assurance_files": 0,
    "verdict": "docs-only (scoped)",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "covalx/__init__.py",
     "covalx/__pycache__/__init__.cpython-313.pyc",
@@ -59,11 +56,11 @@
   },
   "apply_outcome_scope.py": {
    "exit": 0,
-   "round_files": 309,
+   "round_files": 317,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": []
   },
   "artifacts_are_internally_coherent.py": {
@@ -72,7 +69,7 @@
    "other_files": 10,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "A01_planted",
     "E99_fixtures",
@@ -83,15 +80,15 @@
   "attack_every_check.py": {
    "exit": 1,
    "round_files": 2,
-   "other_files": 447,
+   "other_files": 625,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     ".git",
+    "00",
     "01",
-    "05",
-    "06"
+    "02"
    ]
   },
   "attack_no_withdrawn_framings.py": {
@@ -100,7 +97,7 @@
    "other_files": 2,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "nested",
     "results"
@@ -112,7 +109,7 @@
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "results"
    ]
@@ -123,7 +120,7 @@
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "\u26a0 READ NOTHING",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": []
   },
   "attack_the_suite.py": {
@@ -132,7 +129,7 @@
    "other_files": 4,
    "assurance_files": 2,
    "verdict": "exit 1, not a pass",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "FROZEN.md",
     "PREREGISTRATION.md",
@@ -146,36 +143,36 @@
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "exit 3, not a pass",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": []
   },
   "code_states_a_bound_the_reader_never_sees.py": {
    "exit": 0,
-   "round_files": 332,
+   "round_files": 341,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "read the tree",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "README.md"
    ]
   },
   "consistency.py": {
-   "exit": 1,
+   "exit": 0,
    "round_files": 8,
    "other_files": 0,
    "assurance_files": 1,
-   "verdict": "exit 1, not a pass",
-   "dirtied": 0,
+   "verdict": "read the tree",
+   "dirtied": 2,
    "sample": []
   },
   "corrections_propagated.py": {
    "exit": 0,
-   "round_files": 522,
+   "round_files": 530,
    "other_files": 4,
    "assurance_files": 1,
    "verdict": "read the tree",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "ADVERSARY_FORECAST.md",
     "FROZEN.md",
@@ -189,18 +186,18 @@
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "README.md"
    ]
   },
   "every_round_reaches_the_readme.py": {
-   "exit": 0,
+   "exit": 1,
    "round_files": 24,
    "other_files": 7,
    "assurance_files": 0,
-   "verdict": "read the tree",
-   "dirtied": 0,
+   "verdict": "exit 1, not a pass",
+   "dirtied": 1,
    "sample": [
     "README.md",
     "covalx/__init__.py",
@@ -214,27 +211,27 @@
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": []
   },
   "generate_round_index.py": {
    "exit": 0,
-   "round_files": 318,
+   "round_files": 326,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "read the tree",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "README.md"
    ]
   },
   "manifest.py": {
    "exit": 0,
-   "round_files": 820,
-   "other_files": 17,
+   "round_files": 836,
+   "other_files": 18,
    "assurance_files": 38,
    "verdict": "read the tree",
-   "dirtied": 2,
+   "dirtied": 3,
    "sample": [
     "covalx/__init__.py",
     "covalx/certificate.py",
@@ -248,7 +245,7 @@
    "other_files": 5,
    "assurance_files": 1,
    "verdict": "exit 1, not a pass",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "ADVERSARY_FORECAST.md",
     "FROZEN.md",
@@ -258,20 +255,20 @@
   },
   "no_withdrawn_framings.py": {
    "exit": 0,
-   "round_files": 522,
+   "round_files": 530,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": []
   },
   "outcome_variable_declared.py": {
    "exit": 0,
-   "round_files": 307,
+   "round_files": 315,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": []
   },
   "pueue_wait.py": {
@@ -280,38 +277,38 @@
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "exit 2, not a pass",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": []
   },
   "readme_agrees_with_results.py": {
    "exit": 0,
-   "round_files": 522,
+   "round_files": 530,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "read the tree",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "README.md"
    ]
   },
   "readme_row_carries_the_verdict.py": {
    "exit": 2,
-   "round_files": 520,
+   "round_files": 528,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "exit 2, not a pass",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "README.md"
    ]
   },
   "registries_are_satisfied.py": {
    "exit": 0,
-   "round_files": 480,
+   "round_files": 488,
    "other_files": 8,
    "assurance_files": 0,
    "verdict": "read the tree",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "FROZEN.md",
     "covalx/__init__.py",
@@ -325,7 +322,7 @@
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "exit 2, not a pass",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": []
   },
   "results_match_their_code.py": {
@@ -334,7 +331,7 @@
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "\u26a0 READ NOTHING",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": []
   },
   "retired_framing_in_assertion_positions.py": {
@@ -343,7 +340,7 @@
    "other_files": 3,
    "assurance_files": 0,
    "verdict": "docs-only (scoped)",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "FROZEN.md",
     "PREREGISTRATION.md",
@@ -352,11 +349,11 @@
   },
   "retired_framing_in_emittable_source.py": {
    "exit": 0,
-   "round_files": 332,
-   "other_files": 16,
+   "round_files": 341,
+   "other_files": 17,
    "assurance_files": 1,
    "verdict": "read the tree",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "covalx/__init__.py",
     "covalx/certificate.py",
@@ -370,7 +367,7 @@
    "other_files": 7,
    "assurance_files": 0,
    "verdict": "docs-only (scoped)",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "ADVERSARY_FORECAST.md",
     "EAR.md",
@@ -384,16 +381,16 @@
    "other_files": 0,
    "assurance_files": 2,
    "verdict": "package-scoped (by design)",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": []
   },
   "seed_filter_is_disclosed.py": {
    "exit": 1,
-   "round_files": 318,
+   "round_files": 326,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "README.md"
    ]
@@ -404,18 +401,18 @@
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "exit 2, not a pass",
-   "dirtied": 0,
+   "dirtied": 1,
    "sample": [
     "README.md"
    ]
   },
   "verdict_cites_its_own_contrasts.py": {
-   "exit": "EXC AttributeError",
-   "round_files": 315,
+   "exit": 2,
+   "round_files": 472,
    "other_files": 0,
    "assurance_files": 0,
-   "verdict": "\u26d4 NEVER RAN (EXC AttributeError)",
-   "dirtied": 0,
+   "verdict": "exit 2, not a pass",
+   "dirtied": 1,
    "sample": []
   },
   "_poscontrol_unrepaired.py": {
@@ -424,7 +421,7 @@
    "other_files": 0,
    "assurance_files": 1,
    "verdict": "package-scoped (by design)",
-   "dirtied": 2,
+   "dirtied": 3,
    "sample": []
   }
  }

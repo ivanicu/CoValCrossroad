@@ -82,6 +82,22 @@ def derive():
         out["null_ratio"] = (round(a["median_ratio"], 2), "R371")
     else:
         out["null_ratio"] = (None, "R371")
+    a = art("R372_*")
+    if a:
+        h = a["setstat"]["half|exact"]
+        out["r371_set_rate"] = (round(100 * h["p_r371"], 1), "R372")
+        out["r372_empty_rate"] = (round(100 * h["p_empty"], 1), "R372")
+        out["r372_distinct"] = (h["distinct"], "R372")
+        out["r372_splithalf"] = (round(100 * a["split_half"]["half|exact"]["cond"], 1), "R372")
+        out["r372_degen_2"] = (round(100 * a["degeneracy"]["half|exact|2"]["degenerate"], 1),
+                               "R372")
+        out["r372_degen_max"] = (round(100 * max(
+            a["degeneracy"][f"half|exact|{S}"]["degenerate"] for S in (3, 4, 5, 6, 8)), 1), "R372")
+        out["r372_halves"] = (a["n_halves"], "R372")
+    else:
+        for k in ("r371_set_rate", "r372_empty_rate", "r372_distinct", "r372_splithalf",
+                  "r372_degen_2", "r372_degen_max", "r372_halves"):
+            out[k] = (None, "R372")
     a = art("R370_*")
     if a:
         out["pool_contrast"] = (round(a["results"]["pool|exact"]["contrast"], 4), "R370")
@@ -206,6 +222,15 @@ ASSERTIONS = {
     "pool_mde":              r"vs MDE (\d\.\d+)\*\* \(exact\)",
     # R371 — the verdict is S-dependent; the null ratio travels with that caveat.
     "null_ratio":            r"median ratio is \*\*(\d\.\d+)\*\*",
+    # R372 — the S-curve itself dies. Every pattern is anchored on words unique to its row,
+    # because R370's collision taught that a bare number form matches the wrong round.
+    "r371_set_rate":         r"R371's set `\{2, 5\}` recurs \| \*\*(\d+\.\d)%\*\*",
+    "r372_empty_rate":       r"at \*\*(\d+\.\d)%\*\* — with",
+    "r372_distinct":         r"— with \*\*(\d+)\*\* distinct sets",
+    "r372_splithalf":        r"agree on the set \| \*\*(\d+\.\d)%\*\*",
+    "r372_degen_2":          r"in \*\*(\d+\.\d)%\*\* of halves against at most",
+    "r372_degen_max":        r"against at most \*\*(\d+\.\d)%\*\* anywhere else",
+    "r372_halves":           r"\*\*(\d+) random halves\*\*",
 }
 
 
