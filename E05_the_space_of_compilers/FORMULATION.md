@@ -305,7 +305,7 @@ The heading above says *"both clauses restated to say what they test."* Measured
 | clause | what the definition SAYS | what `R294` COMPUTES | the gap |
 |---|---|---|---|
 | ① | *"the same number drawn at random from that conversation's own rubric"* | `random_k4_s0` — **one fixed draw at k=4, seed 0**, for every arm | **not size-matched** (23 of 41 arms have k ≠ 4; the correct per-k references exist on disk, three seeds each, unused) and **not re-drawn** (one seed) |
-| ② | *"the same number that never read the conversation at all"* | `POOL[0:k]` — the **first k rows** of a curated 16-criterion pool | criterion sets that never read the conversation but were **crowd-written** do *no better* than clause ①'s own reference, and **2 of 5 are resolvably worse** (R348). The clause tests a **curated instrument**, not blindness — and *which* subset was decided by **file order**, landing at the **63rd percentile** between a random draw and the best of 1,820 |
+| ② | *"the same number that never read the conversation at all"* | `POOL[0:k]` — the **first k rows** of a curated 16-criterion pool | criterion sets that never read the conversation but were **crowd-written** do *no better* than clause ①'s own reference, and **2 of 5 are resolvably worse** (R348). The clause tests a **curated instrument**, not blindness — and *which* subset was decided by **file order**, at the **93.7th percentile of all 1,820 size-4 subsets** (rank 1707/1820, exhaustive) |
 
 **Clause ② is the binding one** (R347), so the second row is the one that matters: **the entire
 admitted set rests on a reference whose wording admits any blind set and whose implementation is one
@@ -322,8 +322,9 @@ per seed, from a stated population. Then **which population, and with how much s
 R287's unanswered budget question, and it is now load-bearing rather than open.
 
 **Neither is chosen here.** What decides it is the measurement that has not been run: **permute the
-pool and recount**, turning *"63rd percentile"* from a position into a distribution over admitted
-sets. Until then the honest statement is that **the published five is one draw from a distribution
+pool and recount**, turning the reference's rank into a distribution over ADMITTED SETS —
+the enumeration below settles where the subset sits; it does not yet say which arms survive at each
+level. Until then the honest statement is that **the published five is one draw from a distribution
 whose spread is unmeasured, and the definition's own words do not name the draw.**
 
 ---
@@ -394,21 +395,27 @@ establishes what the definition can never say here.
 `sat_genericpool16.npz`*. Not a random draw, not a best-of, not a stated rule: **the order the file
 happens to be in.**
 
-Where that lands, against R287's three measured budgets:
+**`POOL[0:4]` sits at the 93.7th percentile of ALL 1,820 size-4 subsets — rank 1707 of 1820.**
+Exhaustive enumeration, n=968 prompts, all annotators, 11 s:
 
-| baseline | level |
-|---|---:|
-| budget 0 · mean of a random quadruple | 0.5397 |
-| **published · `POOL[0:4]`** | **0.5491** |
-| budget 1 · hand-picked `generic` | 0.5504 |
-| budget 1820 · best held-out of all C(16,4) | 0.5546 |
+| min | p25 | median | p75 | max | mean | sd |
+|---:|---:|---:|---:|---:|---:|---:|
+| 0.5144 | 0.5329 | 0.5391 | 0.5446 | **0.5575** | 0.5386 | 0.0082 |
 
-**`POOL[0:4]` sits 63% of the way from a random draw to the best of 1,820.** The published baseline
-is **not budget-0** — it is an above-average subset, and its position was registered by nobody.
+**published `POOL[0:4]` = 0.5504.** Not merely above average — **in the top 6% of every subset the
+pool can produce**, chosen by file order.
 
-⚠ *Positional statement only*: R287 fixes 968 prompts while R294 intersects per arm, so this locates
-the choice on the budget axis; it is not a difference with an interval. And the k=4 arms' references
-already spread by **0.0118** among themselves for the same reason.
+⚠⚠ **AND THIS RANK WAS ALREADY ON THIS PAGE.** Line ~1039 has said, since long before I measured
+it: *"The incumbent `generic` sits at the 93.7th percentile of 1,820 … the top 7% of every quadruple
+the pool can form."* `POOL[0:4]` scores **0.5504** and R287's hand-picked `generic` scores **0.5504**
+— the same object. So the enumeration above is a **VERIFICATION**, not a finding, and what is
+actually new is narrow: that the census's `POOL[0:k]` **is** that incumbent subset, and the
+distribution's shape (min 0.5144, median 0.5391, sd 0.0082), which the existing line does not give.
+
+⛔ *And it retracts a "63rd percentile" I published one cycle earlier **into this same file** — a
+figure computed against three of R287's reference points rather than the distribution, and
+contradicting a number already sitting 700 lines below it.* The prior-art gate exists for exactly
+this and I did not run it on my own document.
 
 **Why it matters:** the admitted set moves **7 → 0** across a reference range of ~0.019, and
 `coval_core` drops out at **+0.0054** above the published level. The distance from here to

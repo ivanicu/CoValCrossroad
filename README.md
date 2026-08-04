@@ -67,12 +67,16 @@ and false as stated.
 that conversation's own rubric"* and the census uses **one fixed k=4 draw, seed 0, for every arm** —
 not size-matched for 23 of 41, not re-drawn, while the correct per-k references sit unused on disk.
 Clause ② says *"the same number that never read the conversation at all"* and computes **the first k
-rows of a curated 16-criterion pool** — a subset chosen by **file order**, sitting at the **63rd
-percentile** between a random draw and the best of 1,820. Since clause ② is the binding one, the
+rows of a curated 16-criterion pool** — a subset chosen by **file order**, sitting at the
+**93.7th percentile of all 1,820 size-4 subsets** — rank 1707 of 1820, exhaustively enumerated
+(median 0.5391, max 0.5575, published 0.5504). *This rank was already in `FORMULATION.md` for the
+incumbent `generic` — the same subset at the same 0.5504 — so the enumeration VERIFIES it; what is
+new is only the distribution's shape. It retracts a "63rd percentile" I had published into that same
+file one cycle earlier.* Since clause ② is the binding one, the
 whole admitted set rests on that slice, and the set moves **7 → 0** across ~0.019 of reference level.
 **Two repairs are possible — narrow the wording, or broaden the implementation — and choosing is a
 decision, not a measurement.** Neither is taken here; what decides it is permuting the pool and
-recounting, which turns *63rd percentile* into a distribution over admitted sets. **The empty cell is a DERIVATION**: a counterexample needs `GAP < SLACK`
+recounting, which turns the reference's rank into a distribution over ADMITTED SETS. **The empty cell is a DERIVATION**: a counterexample needs `GAP < SLACK`
 (`GAP = ref₂ − ref₁`, `SLACK = mde₁ − mde₂`), and **min GAP 0.0470 vs max SLACK 0.01217 — 3.9× on
 the tightest arm, GAP ≥ SLACK on all 41.** No arm of any size here can be one. *(This round's first
 version used a sufficient condition instead of the necessary one, called 18 arms "contingent" and
