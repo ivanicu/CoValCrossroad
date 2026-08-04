@@ -504,6 +504,23 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R449 -- the split verdict. The SHARED-VARIANCE bound is anchored, not the correlation, because
+    # the claim is "at most ~2%" and a bound is what the round licenses.
+    d449 = next(A24.glob("R449_*"), None)
+    f449 = (d449 / "results" / "r449_axis_or_reparameterisation.json") if d449 else None
+    a = json.loads(f449.read_text()) if (f449 and f449.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        pv = a["paired_real_vs_sham"]["all_pairs"]
+        out["r449_sham_delta"] = (f"{pv['pooled_delta']:+.4f}", "R449")
+        out["r449_npos"] = (pv["n_positive"], "R449")
+        out["r449_rho"] = (f"{a['partial_vs_score_gap']['all_pairs']['rho']:+.4f}", "R449")
+        out["r449_shared"] = (f"{100*a['partial_vs_score_gap']['all_pairs']['max_shared_var']:.1f}",
+                              "R449")
+        out["r449_pairs"] = (a["n_judge_pairs"], "R449")
+    else:
+        for k in ("r449_sham_delta", "r449_npos", "r449_rho", "r449_shared", "r449_pairs"):
+            out[k] = (None, "R449")
+
     # R448 -- the mechanism behind the inversion. The two DELTAS-vs-pool are anchored rather than
     # the raw X values, because the finding is that one is resolved and the other is not, and an
     # anchor on the levels alone would let that contrast drift.
@@ -800,6 +817,11 @@ ASSERTIONS = {
     "r448_core_shift": r"while `coval_core`'s \*\*([\u2212\-][\d.]+)\*\* survives only",
     "r448_gen_pool":   r"\(Δ \*\*([+\-\d.]+)\*\*, MDE 0\.0143, RESOLVED\)",
     "r448_pool_x":     r"the\s+reference pool's \*\*([\d.]+)\*\*",
+    "r449_sham_delta": r"sham, pooled \*\*([+\u2212\-][\d.]+)\*\*",
+    "r449_npos":       r"\*\*(\d+) of 5\*\*\s*\n?\s*arms beat their own wrong-prompt sham",
+    "r449_rho":        r"corr\(ΔX, ΔA2\) = \*\*([+\u2212\-][\d.]+)\*\*",
+    "r449_shared":     r"share \*\*at most ~([\d.]+)%\*\* of their",
+    "r449_pairs":      r"`n_judge_pairs = (\d+)`",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

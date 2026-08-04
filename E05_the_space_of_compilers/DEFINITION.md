@@ -180,6 +180,17 @@ It excludes the most, and every one of the following is measured:
   (0.5374 → 0.4743) while its RANK rises, because the reference class falls further.** Regression to
   the mean is dead as the whole story; ties are dead as the mechanism (2B 0.045 → 0.8B 0.080, and
   dropping tied pairs changes no cell). *(R448)*
+  **AND IT DOES NOT BECOME A FIFTH CLAUSE (R449).** Cross-judge criterion stability X is a **real
+  axis**, measured: it varies across the 13 arms carrying both judges (permutation p = **0.0000**,
+  between-arm sd 0.0251 vs null median 0.0063), it responds to a content manipulation (**5 of 5**
+  arms beat their own wrong-prompt sham, pooled **+0.0417** [+0.0306,+0.0524] vs MDE 0.0152), and it
+  is **not** a reparameterisation of clause ②'s score gap — paired at n=398 prompts,
+  corr(ΔX, ΔA2) = **−0.0431** [−0.1424,+0.0578], so the two share **at most ~2.0%** of their
+  variance. ⛔ **It is nevertheless not statable as a clause here**, and no measurement can change
+  that: a stability predicate ranges over a judge **PAIR**, `n_judge_pairs = 1`, and the register
+  records that no third judge exists. **A property can be real and unstatable at the same time.**
+  ⚠ Measured on 398 prompts (the 13-arm intersection), not the 968 the rest of this document uses.
+  *(R449)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

@@ -8791,3 +8791,42 @@ looks again.
 control threshold, compute the statistic's **floor** (nothing planted) and **ceiling** (maximal
 plant, or the analytic bound) and assert `floor < t < ceiling`. Both numbers here were available in
 closed form and neither was computed until the control had already failed.
+
+---
+
+## 247 · GATE 0 compared the wrong two quantities — a knife-edge verdict on an invented threshold (R449, caught in-round)
+
+**What was built.** R449's first gate asked whether X varies across arms by comparing the
+between-arm sd to a **within-arm bootstrap SE** and thresholding at `ratio > 3`.
+
+**What it returned.** `3.1` for one tie rule and `2.8` for the other — **two defensible
+specifications on opposite sides of a number derived from nothing.** On that reading the round would
+have concluded `W-JUDGE-PROPERTY` and closed the fifth-clause question as "X is a property of the
+judge pair."
+
+**Why it was wrong.** The 13 arms are scored on the **same prompts**. The within-arm SE is the
+uncertainty of one arm's mean, which is not the null for the spread *between* arms when that pairing
+exists — the paired structure makes the correct null far tighter. Permuting arm labels **within each
+prompt** removes the free parameter entirely: observed between-arm sd **0.0251** against a null
+median of **0.0063**, `p = 0.0000` under both tie rules. **X varies by 4× the null.** The knife-edge
+was the statistic, not the data.
+
+⛔ **And the round nearly missed the identified contrast altogether.** Five arms carry their own
+**sham** — the same criteria pointed at the wrong prompt — which is a *paired manipulation of the
+exact ingredient in question* and removes every arm-level nuisance by construction. A between-arm
+variance test mixes that signal into 13-way noise. The paired test: **5 of 5** in the same direction,
+pooled **+0.0417 [+0.0306,+0.0524]** against an MDE of 0.0152, RESOLVED under both tie rules.
+
+**The mode, and it is already on §4's list as *the control fails for its own reasons* — sub-kind ③,
+targeting a different statistic than the one the question needs.** Here it was the *gate* rather than
+a control, which is worse: a control's failure prompts a diagnosis, while a gate's failure looks like
+an answer. **Tell: two defensible specifications straddle the threshold.** When that happens the
+threshold is doing the work, not the data, and the fix is never to pick the side you prefer — it is
+to find the version of the test that has no threshold.
+
+**Second lesson, on power.** The arm-level regression returned adjusted R² ≤ 0 in all 10 cells. That
+was nearly quoted as "X is independent of what is published." Its simulated **MDE is R² = 0.40** —
+it could not have detected a strong relation. The powered version of the same question uses the
+paired sham differences at **n = 398 prompts**: corr(ΔX, ΔA2) = −0.0431 [−0.1424, +0.0578], so the
+two share **at most ~2.0%** of their variance. **Same conclusion, and only the second one was
+evidence.** A null from a design with MDE 0.40 is silence.
