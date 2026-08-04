@@ -49,6 +49,11 @@ WORLDS
                     the world the gauge test bought, and it outranks every branch below.
   W-DOES-NOT        generic does not clear chance. Then the apparatus does not transport at all, and
                     every clause stated against `full` is release-local in the strongest sense.
+  W-VACUOUS         generic beats chance and length, but VACUOUS criteria -- well-formed and
+                    contentless -- match it. Then what transports is the JUDGE's own quality
+                    preference elicited by the FORM of a criterion, and the criteria's CONTENT
+                    contributes nothing. This is the world the neutral arm exists to separate, and
+                    no sham can reach it.
   W-ANY-CRITERIA    generic beats chance and length, but randblind matches it. Then what transports
                     is `having criteria`, not having THESE criteria -- and clause ②'s content is not
                     what carries.
@@ -69,6 +74,13 @@ PRE-REGISTERED KILL -- conditional on the controls, never on an accuracy alone.
     else: UNVERIFIED -- never CONFIRMED, never OVERTURNED.
 
 CONTROLS
+  VACUOUS (neutral)  ⛔ ADDED AFTER READING MY OWN LEDGER AGAINST MY OWN DESIGN. `randblind` is REAL
+               criteria written for OTHER prompts, applied to these responses -- which is the POISON
+               configuration the ledger names, a good instrument pointed at the wrong object. So
+               `generic - randblind` bounds BENEFIT + HARM and cannot isolate benefit. The genuine
+               NEUTRAL arm keeps `build_prompt`, k=4 and the compute identical and removes only the
+               evaluative CONTENT: "The reply is a reply." Its gap is the one that isolates benefit,
+               and the difference between the two gaps is the cost of being wrong.
   TIE (gauge)  ⛔ FOUND BY A GAUGE TEST BEFORE THE DATA LANDED, and it can kill this round on its
                own. Under saturation every response ties and `max(row, key=(value, id))` resolves by
                RESPONSE-ID STRING ORDER -- so the accuracy would be a property of the ids, not of the
@@ -128,6 +140,7 @@ HERE = SELF.parent
 RES = ROOT / "corebench" / "results"
 ZEFF = 1.959964 + 0.841621          # two-sided alpha .05 + power .80
 ARMS = {"generic": "sat_transport_generic.npz",
+        "vacuous": "sat_transport_vacuous.npz",
         "randblind_s0": "sat_transport_randblind_s0.npz",
         "randblind_s1": "sat_transport_randblind_s1.npz",
         "randblind_s2": "sat_transport_randblind_s2.npz"}
