@@ -1,0 +1,2967 @@
+{
+  "artifact_consumed": [
+    "R100_rater_reliability",
+    "R104_deattenuated_consensus",
+    "R105_specific_share_invariance",
+    "R110_rater_component",
+    "R113_accuracy_matched_arm",
+    "R118_sacrifice_factorial",
+    "R131_who_is_served",
+    "R134_do_ratings_individuate",
+    "R142_provenance_recovery",
+    "R144_information_loss",
+    "R145_who_is_unserved",
+    "R148_departure_from_the_line",
+    "R149_price_of_inclusion",
+    "R150_does_the_veto_do_anything",
+    "R151_none_of_the_above",
+    "R152_what_fails_the_menu",
+    "R166_defect_census",
+    "R167_census_wave2",
+    "R168_census_wave3",
+    "R169_census_wave4",
+    "R170_census_wave5",
+    "R202_attack_the_standing_claims",
+    "R203_what_can_even_be_attacked",
+    "R207_detection_matrix",
+    "R209_repaired_design",
+    "R210_attack_the_matrix",
+    "R212_rebuilt_on_decisions",
+    "R213_gauge",
+    "R217_full",
+    "R234_independent_A",
+    "R235_independent_B",
+    "R240_fit_a_global_core",
+    "R248_capacity_versus_realised_alphabet",
+    "R257_label_order_gauge_propagation",
+    "R260_instrument_noise_intervals",
+    "R265_is_R241s_control_validated_by_noise",
+    "R266_which_noise_actually_binds",
+    "R268_a_calibrated_detector_and_the_real_MDE",
+    "R269_a_sham_that_can_fail",
+    "R271_the_clustering_inflation_with_a_number_on_it",
+    "R272_the_inflation_with_a_calibration_that_takes",
+    "R273_the_inflation_as_an_interval",
+    "R274_the_site_MDE_at_fine_resolution",
+    "R285_how_wide_is_the_admissible_band",
+    "R289_which_target_earns_the_definition",
+    "R303_the_mde_of_the_design_that_priced_it",
+    "R304_is_the_boundary_resolvable",
+    "R305_what_would_resolve_the_boundary",
+    "R306_the_table_at_every_annotator",
+    "R309_is_the_missing_r2_noise_or_structure",
+    "R30_scope_grid",
+    "R310_what_the_structure_is",
+    "R34_global_rater_crossfit",
+    "R35_polarity_abstention",
+    "R36_channel_shapley",
+    "R37_leakage_topology",
+    "R38_human_sampling_power",
+    "R39_feature_cache",
+    "R40_ood_map",
+    "R41_criterion_support",
+    "R43_criterion_heterogeneity",
+    "R46_spread_replication",
+    "R47_gold_is_length",
+    "R58_equivalence_census",
+    "R59_criterion_influence",
+    "R60_world_vs_personal",
+    "R72_proxy_validity_coefficient",
+    "R86_attribution_by_form",
+    "R87_criterion_count_channel",
+    "R88_donor_draw_variance",
+    "R89_floor_draw_at_panel_size",
+    "R90_resampling_unit"
+  ],
+  "artifact_share": 0.3185840707964602,
+  "controls": {
+    "channel_ok": true,
+    "known": {
+      "r371_power.json": true,
+      "sat_genericpool16_fresh.npz": true
+    },
+    "neg_ok": true,
+    "pos_ok": true
+  },
+  "head": "c56a486f8647",
+  "n_population": 226,
+  "n_sources": 476,
+  "name_mentioned": [
+    "R100_rater_reliability",
+    "R103_consensus_conditioned",
+    "R104_deattenuated_consensus",
+    "R105_specific_share_invariance",
+    "R110_rater_component",
+    "R113_accuracy_matched_arm",
+    "R118_sacrifice_factorial",
+    "R144_information_loss",
+    "R145_who_is_unserved",
+    "R147_tracking_vs_serving",
+    "R148_departure_from_the_line",
+    "R149_price_of_inclusion",
+    "R150_does_the_veto_do_anything",
+    "R151_none_of_the_above",
+    "R152_what_fails_the_menu",
+    "R166_defect_census",
+    "R167_census_wave2",
+    "R168_census_wave3",
+    "R169_census_wave4",
+    "R170_census_wave5",
+    "R203_what_can_even_be_attacked",
+    "R209_repaired_design",
+    "R212_rebuilt_on_decisions",
+    "R235_independent_B",
+    "R23_actor_vs_dyad",
+    "R240_fit_a_global_core",
+    "R248_capacity_versus_realised_alphabet",
+    "R250_can_provenance_be_reconstructed",
+    "R257_label_order_gauge_propagation",
+    "R260_instrument_noise_intervals",
+    "R268_a_calibrated_detector_and_the_real_MDE",
+    "R26_sign_no_split",
+    "R274_the_site_MDE_at_fine_resolution",
+    "R27_raw_negative_tail",
+    "R294_the_definition_against_everything",
+    "R295_held_out_annotators_are_not_held_out_labels",
+    "R304_is_the_boundary_resolvable",
+    "R306_the_table_at_every_annotator",
+    "R307_a_size_matched_neutral_arm",
+    "R309_is_the_missing_r2_noise_or_structure",
+    "R30_scope_grid",
+    "R31_within_person",
+    "R32_channel_decomposition",
+    "R34_global_rater_crossfit",
+    "R35_polarity_abstention",
+    "R36_channel_shapley",
+    "R37_leakage_topology",
+    "R38_human_sampling_power",
+    "R39_feature_cache",
+    "R40_ood_map",
+    "R41_criterion_support",
+    "R43_criterion_heterogeneity",
+    "R44_compiler_lineage",
+    "R46_spread_replication",
+    "R47_gold_is_length",
+    "R49_provenance_crossfit",
+    "R50_response_anchoring",
+    "R54_overlap_transfer",
+    "R55_overlap_selectivity",
+    "R58_equivalence_census",
+    "R60_world_vs_personal",
+    "R62_matching_floor",
+    "R69_r54_predictor_reliability",
+    "R70_outcome_criterion_axis",
+    "R72_proxy_validity_coefficient",
+    "R75_menu_read_direction",
+    "R85_agreement_by_form",
+    "R86_attribution_by_form",
+    "R87_criterion_count_channel",
+    "R88_donor_draw_variance",
+    "R89_floor_draw_at_panel_size",
+    "R90_resampling_unit",
+    "R92_writein_analysability",
+    "R97_rule_tournament_tost"
+  ],
+  "name_only": [
+    "R103_consensus_conditioned",
+    "R147_tracking_vs_serving",
+    "R23_actor_vs_dyad",
+    "R250_can_provenance_be_reconstructed",
+    "R26_sign_no_split",
+    "R27_raw_negative_tail",
+    "R294_the_definition_against_everything",
+    "R295_held_out_annotators_are_not_held_out_labels",
+    "R307_a_size_matched_neutral_arm",
+    "R31_within_person",
+    "R32_channel_decomposition",
+    "R44_compiler_lineage",
+    "R49_provenance_crossfit",
+    "R50_response_anchoring",
+    "R54_overlap_transfer",
+    "R55_overlap_selectivity",
+    "R62_matching_floor",
+    "R69_r54_predictor_reliability",
+    "R70_outcome_criterion_axis",
+    "R75_menu_read_direction",
+    "R85_agreement_by_form",
+    "R92_writein_analysability",
+    "R97_rule_tournament_tost"
+  ],
+  "name_share": 0.3274336283185841,
+  "rows": {
+    "R100_rater_reliability": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R101_reliability_offset/run.py"
+      ],
+      "artifacts": [
+        "r100_rater_reliability.json",
+        "r100_split_half_pairs.npz"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R101_reliability_offset/run.py"
+      ],
+      "present": true
+    },
+    "R101_reliability_offset": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r101_reliability_offset.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R102_margin_calibration": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r102_margin_calibration.json",
+        "r102_margin_correct.npz"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R103_consensus_conditioned": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r103_consensus_conditioned.json"
+      ],
+      "name_mentions": [
+        "assurance/donor_numbers_carry_their_draw_scope.py"
+      ],
+      "present": true
+    },
+    "R104_deattenuated_consensus": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R105_specific_share_invariance/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R106_share_level_under_redraw/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R107_joint_resample/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R108_coinflip_stratum/run.py"
+      ],
+      "artifacts": [
+        "r104_deattenuated_consensus.json",
+        "r104_split_records.npz"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R105_specific_share_invariance/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R106_share_level_under_redraw/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R107_joint_resample/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R108_coinflip_stratum/run.py"
+      ],
+      "present": true
+    },
+    "R105_specific_share_invariance": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R106_share_level_under_redraw/run.py"
+      ],
+      "artifacts": [
+        "r105_share_bootstrap.npz",
+        "r105_specific_share_invariance.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R106_share_level_under_redraw/run.py"
+      ],
+      "present": true
+    },
+    "R107_joint_resample": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r107_joint_draws.npz",
+        "r107_joint_resample.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R108_coinflip_stratum": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r108_coinflip_stratum.json",
+        "r108_untied_rise_draws.npz"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R110_rater_component": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R111_alpha_confound/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R112_value_idiosyncrasy/run.py"
+      ],
+      "artifacts": [
+        "r110_cells.npz",
+        "r110_rater_component.json"
+      ],
+      "name_mentions": [
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R111_alpha_confound/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R112_value_idiosyncrasy/run.py"
+      ],
+      "present": true
+    },
+    "R111_alpha_confound": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r111_alpha.npz",
+        "r111_alpha_confound.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R112_value_idiosyncrasy": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r112_cells.npz",
+        "r112_value_idiosyncrasy.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R113_accuracy_matched_arm": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R114_demographic_subject/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R115_shrink_is_one_parameter/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R118_sacrifice_factorial/run.py"
+      ],
+      "artifacts": [
+        "r113_accuracy_matched_arm.json",
+        "r113_cells.npz"
+      ],
+      "name_mentions": [
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R114_demographic_subject/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R115_shrink_is_one_parameter/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R118_sacrifice_factorial/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R345_the_stamp_nobody_reads/run.py"
+      ],
+      "present": true
+    },
+    "R114_demographic_subject": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r114_cells.npz",
+        "r114_demographic_subject.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R115_shrink_is_one_parameter": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r115_shrink_is_one_parameter.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R116_no_invisible_sacrifice": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r116_no_invisible_sacrifice.json",
+        "r116_people.npz"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R117_multidimensional_sacrifice": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r117_multidimensional_sacrifice.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R118_sacrifice_factorial": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R119_rigor_axis/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R120_cell_calibration/run.py"
+      ],
+      "artifacts": [
+        "r118_sacrifice_factorial.json"
+      ],
+      "name_mentions": [
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R119_rigor_axis/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R120_cell_calibration/run.py"
+      ],
+      "present": true
+    },
+    "R119_rigor_axis": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r119_rigor_axis.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R121_is_the_advantage_the_metric": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r121_is_the_advantage_the_metric.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R122_metric_gauge_grid": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r122_metric_gauge_grid.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R123_the_baseline_was_crippled": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r123_the_baseline_was_crippled.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R127_whose_sign": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r127_whose_sign.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R130_judge_gauge": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "sample_0.json",
+        "sample_1.json",
+        "sample_2.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R131_who_is_served": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R124_negative_quarter/independent_A.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R124_negative_quarter/independent_B.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R125_weight_discard/independent_A.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R125_weight_discard/independent_B.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R126_sham_ladder/independent_A.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R126_sham_ladder/independent_B.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R128_style_or_content/independent_A.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R128_style_or_content/independent_B.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R129_contested_criteria/independent_A.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R129_contested_criteria/independent_B.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R134_do_ratings_individuate/independent_A.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R134_do_ratings_individuate/independent_B.py"
+      ],
+      "artifacts": [
+        "independent_A.json",
+        "independent_B.json",
+        "r131_who_is_served.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R132_verbatim_adjudication": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r132_verbatim_adjudication.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R133_the_veto": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r133_the_veto.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R134_do_ratings_individuate": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R124_negative_quarter/independent_A.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R124_negative_quarter/independent_B.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R125_weight_discard/independent_A.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R125_weight_discard/independent_B.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R126_sham_ladder/independent_A.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R126_sham_ladder/independent_B.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R128_style_or_content/independent_A.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R128_style_or_content/independent_B.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R129_contested_criteria/independent_A.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R129_contested_criteria/independent_B.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R131_who_is_served/independent_A.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R131_who_is_served/independent_B.py"
+      ],
+      "artifacts": [
+        "independent_A.json",
+        "independent_B.json",
+        "r134_do_ratings_individuate.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R135_which_target": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r135_which_target.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R136_held_out_confirmation": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "split_0.json",
+        "split_1.json",
+        "split_10.json",
+        "split_11.json",
+        "split_2.json",
+        "split_3.json",
+        "split_4.json",
+        "split_5.json",
+        "split_6.json",
+        "split_7.json",
+        "split_8.json",
+        "split_9.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R137_batch_gauge": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r137_batch_gauge.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R138_is_there_a_standard": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r138_is_there_a_standard.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R142_provenance_recovery": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R82_scale_use_by_provenance/run.py"
+      ],
+      "artifacts": [
+        "provenance.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R144_information_loss": {
+      "artifact_consumers": [
+        "assurance/consistency.py"
+      ],
+      "artifacts": [
+        "information_loss.json"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R315_how_many_rounds_can_still_run/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R391_step_or_orphan/run.py",
+        "assurance/consistency.py"
+      ],
+      "present": true
+    },
+    "R145_who_is_unserved": {
+      "artifact_consumers": [
+        "assurance/consistency.py"
+      ],
+      "artifacts": [
+        "who_is_unserved.json"
+      ],
+      "name_mentions": [
+        "assurance/consistency.py"
+      ],
+      "present": true
+    },
+    "R147_tracking_vs_serving": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "tracking_vs_serving.json"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R391_step_or_orphan/run.py"
+      ],
+      "present": true
+    },
+    "R148_departure_from_the_line": {
+      "artifact_consumers": [
+        "assurance/consistency.py"
+      ],
+      "artifacts": [
+        "departure.json"
+      ],
+      "name_mentions": [
+        "assurance/consistency.py"
+      ],
+      "present": true
+    },
+    "R149_price_of_inclusion": {
+      "artifact_consumers": [
+        "assurance/consistency.py"
+      ],
+      "artifacts": [
+        "price_of_inclusion.json"
+      ],
+      "name_mentions": [
+        "assurance/consistency.py"
+      ],
+      "present": true
+    },
+    "R150_does_the_veto_do_anything": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R133_the_veto/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R314_silence_was_read_as_endorsement/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R173_why_people_veto/run.py",
+        "assurance/consistency.py"
+      ],
+      "artifacts": [
+        "veto.json"
+      ],
+      "name_mentions": [
+        "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R314_silence_was_read_as_endorsement/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R391_step_or_orphan/run.py",
+        "assurance/consistency.py"
+      ],
+      "present": true
+    },
+    "R151_none_of_the_above": {
+      "artifact_consumers": [
+        "assurance/consistency.py"
+      ],
+      "artifacts": [
+        "none_of_the_above.json"
+      ],
+      "name_mentions": [
+        "assurance/consistency.py"
+      ],
+      "present": true
+    },
+    "R152_what_fails_the_menu": {
+      "artifact_consumers": [
+        "assurance/consistency.py"
+      ],
+      "artifacts": [
+        "what_fails.json"
+      ],
+      "name_mentions": [
+        "assurance/consistency.py"
+      ],
+      "present": true
+    },
+    "R153_the_menu_itself": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "menu_itself.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R154_the_empty_list": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "empty_list.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R155_does_the_weight_matter": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "weight_matters.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R156_the_compression_curve": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "compression_curve.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R157_is_it_a_quality_detector": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "quality_detector.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R158_the_rewriting_itself": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "rewriting.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R159_which_outcome": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "which_outcome.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R160_out_of_sample": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "out_of_sample.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R161_the_join_underneath": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "join.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R162_whose_ranking": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "whose_ranking.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R165_gauge_admissibility": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "gauge_admissibility.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R166_defect_census": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R58_equivalence_census/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R98_unverified_triage/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R99_harvester_pairing/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R342_how_many_checked_points_are_ratios/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R344_what_fraction_can_be_rerun/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R345_the_stamp_nobody_reads/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R350_why_the_ten_differ/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R294_the_definition_against_everything/run.py",
+        "assurance/DEFECTS.py",
+        "assurance/verdict_cites_its_own_contrasts.py"
+      ],
+      "artifacts": [
+        "census.json"
+      ],
+      "name_mentions": [
+        "assurance/DEFECTS.py"
+      ],
+      "present": true
+    },
+    "R167_census_wave2": {
+      "artifact_consumers": [
+        "assurance/DEFECTS.py"
+      ],
+      "artifacts": [
+        "census_wave2.json"
+      ],
+      "name_mentions": [
+        "assurance/DEFECTS.py"
+      ],
+      "present": true
+    },
+    "R168_census_wave3": {
+      "artifact_consumers": [
+        "assurance/DEFECTS.py"
+      ],
+      "artifacts": [
+        "census_wave3.json"
+      ],
+      "name_mentions": [
+        "assurance/DEFECTS.py"
+      ],
+      "present": true
+    },
+    "R169_census_wave4": {
+      "artifact_consumers": [
+        "assurance/DEFECTS.py"
+      ],
+      "artifacts": [
+        "census_wave4.json"
+      ],
+      "name_mentions": [
+        "assurance/DEFECTS.py"
+      ],
+      "present": true
+    },
+    "R170_census_wave5": {
+      "artifact_consumers": [
+        "assurance/DEFECTS.py"
+      ],
+      "artifacts": [
+        "census_wave5.json"
+      ],
+      "name_mentions": [
+        "assurance/DEFECTS.py"
+      ],
+      "present": true
+    },
+    "R172_what_was_withheld": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "withheld.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R173_why_people_veto": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "why_people_veto.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R174_did_the_second_question_collect_anything": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "second_question.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R175_my_own_defect_list": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "own_defect_audit.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R177_the_response_side": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "response_side.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R182_who_dissents": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "who_dissents.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R184_two_poles_or_two_islands": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "poles_or_islands.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R185_country_or_consistency": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "country_or_consistency.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R190_would_anyone_ask_this": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "representativeness.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R191_do_the_strata_describe_the_prompt": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "strata_gate.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R194_one_variable_or_two": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "one_or_two.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R195_why_r191_and_r194_disagreed": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "spec_grid.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R196_reweighting_the_headline": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "reweighted_headline.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R197_population_audit": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "population_audit.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R198_attack_the_guard": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "guard.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R200_which_rounds_left_a_trace": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "trace.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R201_is_the_fairness_result_one_prompt": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "jackknife.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R202_attack_the_standing_claims": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R210_attack_the_matrix/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R211_attack_the_readout/run.py"
+      ],
+      "artifacts": [
+        "attacks.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R203_what_can_even_be_attacked": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R204_the_nulls_need_power_not_jackknives/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R207_detection_matrix/run.py"
+      ],
+      "artifacts": [
+        "register.json"
+      ],
+      "name_mentions": [
+        "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R204_the_nulls_need_power_not_jackknives/run.py"
+      ],
+      "present": true
+    },
+    "R205_mdes_for_the_three_unresolved_nulls": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "mdes.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R207_detection_matrix": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R203_what_can_even_be_attacked/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R204_the_nulls_need_power_not_jackknives/run.py"
+      ],
+      "artifacts": [
+        "register.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R208_welldefinedness": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "design_rank.json",
+        "welldefined.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R209_repaired_design": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R210_attack_the_matrix/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R211_attack_the_readout/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R214_head_to_head/run.py",
+        "assurance/corrections_propagated.py"
+      ],
+      "artifacts": [
+        "_deltas.npy",
+        "_ops.json",
+        "repaired_rank.json"
+      ],
+      "name_mentions": [
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R210_attack_the_matrix/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R211_attack_the_readout/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R214_head_to_head/run.py"
+      ],
+      "present": true
+    },
+    "R210_attack_the_matrix": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R202_attack_the_standing_claims/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R211_attack_the_readout/run.py"
+      ],
+      "artifacts": [
+        "attacks.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R211_attack_the_readout": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "readout_attacks.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R212_rebuilt_on_decisions": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R214_head_to_head/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R215_remaining/run.py"
+      ],
+      "artifacts": [
+        "_acc.npy",
+        "_raw.pkl",
+        "marginals.json",
+        "pairs.json",
+        "self_attack.json"
+      ],
+      "name_mentions": [
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R214_head_to_head/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R215_remaining/run.py"
+      ],
+      "present": true
+    },
+    "R213_gauge": {
+      "artifact_consumers": [
+        "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R14_paraphrase_gauge/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R130_judge_gauge/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R137_batch_gauge/run.py",
+        "E05_the_space_of_compilers/A19_triple_blind/R234_independent_A/gauge.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R343_does_any_check_tie_artifact_to_source/run.py"
+      ],
+      "artifacts": [
+        "gauge.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R214_head_to_head": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "head_to_head.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R215_remaining": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "remaining.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R216_derivation": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "derivation.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R217_full": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R125_weight_discard/independent_B.py",
+        "assurance/manifest.py"
+      ],
+      "artifacts": [
+        "full.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R218_gaps": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "gaps.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R234_independent_A": {
+      "artifact_consumers": [
+        "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R14_paraphrase_gauge/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R130_judge_gauge/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R137_batch_gauge/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R213_gauge/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R343_does_any_check_tie_artifact_to_source/run.py"
+      ],
+      "artifacts": [
+        "artifact_checks.json",
+        "budget_curve.json",
+        "contested.json",
+        "demographics.json",
+        "det1_grid.json",
+        "det1_log.txt",
+        "det1_summary.json",
+        "det2_grid.json",
+        "det2_log.txt",
+        "det2_summary.json",
+        "fix1_grid.json",
+        "fix1_log.txt",
+        "fix1_summary.json",
+        "fix2_grid.json",
+        "fix2_log.txt",
+        "fix2_summary.json",
+        "gauge.json",
+        "greedy_bound.json",
+        "main_grid.json",
+        "main_log.txt",
+        "main_summary.json",
+        "smoke2_grid.json",
+        "smoke2_log.txt",
+        "smoke2_summary.json",
+        "smoke_grid.json",
+        "smoke_log.txt",
+        "smoke_summary.json",
+        "weighting_check.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R235_independent_B": {
+      "artifact_consumers": [
+        "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R30_scope_grid/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R95_layer_separability/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R96_separability_resolved/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R122_metric_gauge_grid/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R195_why_r191_and_r194_disagreed/run.py",
+        "E05_the_space_of_compilers/A19_triple_blind/R234_independent_A/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R278_can_the_admissibility_gate_ever_fire/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R324_the_dose_grid/run.py"
+      ],
+      "artifacts": [
+        "grid.json",
+        "prepared.pkl",
+        "results.json",
+        "run.log",
+        "specification_curve.tsv"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R341_is_the_skipped_population_real/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R342_how_many_checked_points_are_ratios/run.py"
+      ],
+      "present": true
+    },
+    "R236_certificate_for_the_official_core": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "official_core_certificate.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R237_the_noisy_channel_bound": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "noisy_channel.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R23_actor_vs_dyad": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r23_actor_vs_dyad.json"
+      ],
+      "name_mentions": [
+        "covalx/frozen.py"
+      ],
+      "present": true
+    },
+    "R240_fit_a_global_core": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A20_is_a_global_core_real/R246_is_it_a_modal_class_predictor/run.py",
+        "E05_the_space_of_compilers/A20_is_a_global_core_real/R247_is_the_selection_doing_the_work/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R249_which_printed_criteria_do_work/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R251_substitution_is_the_dose_that_can_kill/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R255_is_the_redundancy_lexical_at_all/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R256_is_the_rubric_rank_one/run.py"
+      ],
+      "artifacts": [
+        "global_core.json",
+        "sat_global.npz"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A20_is_a_global_core_real/R246_is_it_a_modal_class_predictor/run.py",
+        "E05_the_space_of_compilers/A20_is_a_global_core_real/R247_is_the_selection_doing_the_work/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R249_which_printed_criteria_do_work/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R251_substitution_is_the_dose_that_can_kill/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R255_is_the_redundancy_lexical_at_all/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R256_is_the_rubric_rank_one/run.py"
+      ],
+      "present": true
+    },
+    "R246_is_it_a_modal_class_predictor": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "modal_attack.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R247_is_the_selection_doing_the_work": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "selection_test.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R248_capacity_versus_realised_alphabet": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R279_was_the_gate_violated_by_its_own_founding_round/run.py"
+      ],
+      "artifacts": [
+        "gate_test.json"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R279_was_the_gate_violated_by_its_own_founding_round/run.py"
+      ],
+      "present": true
+    },
+    "R249_which_printed_criteria_do_work": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "representative_field.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R250_can_provenance_be_reconstructed": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "perturbed.npz",
+        "provenance_dose.json"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R337_the_wall_is_the_population/run.py",
+        "assurance/next_gradient_is_new.py"
+      ],
+      "present": true
+    },
+    "R251_substitution_is_the_dose_that_can_kill": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "substituted.npz",
+        "substitution_dose.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R252_was_it_redundancy_or_the_marginal": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "marginal_vs_redundancy.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R253_is_A_real_just_n_in_a_costume": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "meta_separator.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R254_targeted_substitution_and_where_the_real_core_sits": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "targeted.npz",
+        "targeted_substitution.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R255_is_the_redundancy_lexical_at_all": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "lexical_vs_saturation.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R256_is_the_rubric_rank_one": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "rank_one.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R257_label_order_gauge_propagation": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R260_instrument_noise_intervals/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R267_what_this_release_can_resolve/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R268_a_calibrated_detector_and_the_real_MDE/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R269_a_sham_that_can_fail/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R274_the_site_MDE_at_fine_resolution/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R275_what_a_replication_can_and_cannot_catch/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R318_is_the_site_mde_draw_dependent/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R319_six_rounds_read_the_typo/run.py"
+      ],
+      "artifacts": [
+        "gauge_propagation.json",
+        "instruments.npz"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R318_is_the_site_mde_draw_dependent/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R319_six_rounds_read_the_typo/run.py"
+      ],
+      "present": true
+    },
+    "R258_size_matched_rank_one": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "size_matched_rank1.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R259_does_the_rate_survive_noise": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "rate_under_noise.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R260_instrument_noise_intervals": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R307_a_size_matched_neutral_arm/run.py"
+      ],
+      "artifacts": [
+        "instrument_intervals.json"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R307_a_size_matched_neutral_arm/run.py"
+      ],
+      "present": true
+    },
+    "R261_hash_seed_sweep": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "hash_seed_sweep.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R262_the_floors_R261_said_it_could_not_reach": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "R220_seed0.txt",
+        "R220_seed1.txt",
+        "R220_seed2.txt",
+        "R220_seed3.txt",
+        "R228_seed0.txt",
+        "R228_seed1.txt",
+        "R228_seed2.txt",
+        "R228_seed3.txt",
+        "R230_seed0.txt",
+        "R230_seed1.txt",
+        "R230_seed2.txt",
+        "R230_seed3.txt",
+        "R231_seed0.txt",
+        "R231_seed1.txt",
+        "R231_seed2.txt",
+        "R231_seed3.txt",
+        "floors_under_hashseed.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R263_the_remaining_salted_rounds": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "R221_seed0.txt",
+        "R221_seed1.txt",
+        "R221_seed2.txt",
+        "R221_seed3.txt",
+        "R228_seed0.txt",
+        "R228_seed1.txt",
+        "R228_seed2.txt",
+        "R228_seed3.txt",
+        "R230_seed0.txt",
+        "R230_seed1.txt",
+        "R230_seed2.txt",
+        "R230_seed3.txt",
+        "R231_seed0.txt",
+        "R231_seed1.txt",
+        "R231_seed2.txt",
+        "R231_seed3.txt",
+        "R238_seed0.txt",
+        "R238_seed1.txt",
+        "R238_seed2.txt",
+        "R238_seed3.txt",
+        "R241_seed0.txt",
+        "R241_seed1.txt",
+        "R241_seed2.txt",
+        "R241_seed3.txt",
+        "R244_seed0.txt",
+        "R244_seed1.txt",
+        "R244_seed2.txt",
+        "R244_seed3.txt",
+        "R245_seed0.txt",
+        "R245_seed1.txt",
+        "R245_seed2.txt",
+        "R245_seed3.txt",
+        "remaining_salted.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R264_how_often_does_R241_hold": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "R230_seed0.txt",
+        "R230_seed1.txt",
+        "R230_seed10.txt",
+        "R230_seed11.txt",
+        "R230_seed12.txt",
+        "R230_seed13.txt",
+        "R230_seed14.txt",
+        "R230_seed15.txt",
+        "R230_seed16.txt",
+        "R230_seed17.txt",
+        "R230_seed18.txt",
+        "R230_seed19.txt",
+        "R230_seed2.txt",
+        "R230_seed20.txt",
+        "R230_seed21.txt",
+        "R230_seed22.txt",
+        "R230_seed23.txt",
+        "R230_seed3.txt",
+        "R230_seed4.txt",
+        "R230_seed5.txt",
+        "R230_seed6.txt",
+        "R230_seed7.txt",
+        "R230_seed8.txt",
+        "R230_seed9.txt",
+        "R241_seed0.txt",
+        "R241_seed1.txt",
+        "R241_seed10.txt",
+        "R241_seed11.txt",
+        "R241_seed12.txt",
+        "R241_seed13.txt",
+        "R241_seed14.txt",
+        "R241_seed15.txt",
+        "R241_seed16.txt",
+        "R241_seed17.txt",
+        "R241_seed18.txt",
+        "R241_seed19.txt",
+        "R241_seed2.txt",
+        "R241_seed20.txt",
+        "R241_seed21.txt",
+        "R241_seed22.txt",
+        "R241_seed23.txt",
+        "R241_seed3.txt",
+        "R241_seed4.txt",
+        "R241_seed5.txt",
+        "R241_seed6.txt",
+        "R241_seed7.txt",
+        "R241_seed8.txt",
+        "R241_seed9.txt",
+        "r241_rate.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R265_is_R241s_control_validated_by_noise": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A18_the_candidate_set_wall_was_wrong/R241_find_a_valid_stratifier/run.py"
+      ],
+      "artifacts": [
+        "control_validated_by_noise.json",
+        "d10_s0.txt",
+        "d10_s1.txt",
+        "d10_s2.txt",
+        "d10_s3.txt",
+        "d10_s4.txt",
+        "d10_s5.txt",
+        "d20_s0.txt",
+        "d20_s1.txt",
+        "d20_s2.txt",
+        "d20_s3.txt",
+        "d20_s4.txt",
+        "d20_s5.txt",
+        "d40_s0.txt",
+        "d40_s1.txt",
+        "d40_s2.txt",
+        "d40_s3.txt",
+        "d40_s4.txt",
+        "d40_s5.txt",
+        "d5_s0.txt",
+        "d5_s1.txt",
+        "d5_s2.txt",
+        "d5_s3.txt",
+        "d5_s4.txt",
+        "d5_s5.txt",
+        "d80_s0.txt",
+        "d80_s1.txt",
+        "d80_s2.txt",
+        "d80_s3.txt",
+        "d80_s4.txt",
+        "d80_s5.txt",
+        "stratifiers.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R266_which_noise_actually_binds": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A17_which_definitions_of_core_are_identifiable/R231_the_official_cores_class/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R261_hash_seed_sweep/run.py"
+      ],
+      "artifacts": [
+        "noise_hierarchy.json",
+        "official_core_class.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R267_what_this_release_can_resolve": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "site_mde.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R268_a_calibrated_detector_and_the_real_MDE": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R269_a_sham_that_can_fail/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R274_the_site_MDE_at_fine_resolution/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R318_is_the_site_mde_draw_dependent/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R321_four_detectors_two_estimands/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R322_the_matched_rerun_was_never_gpu_work/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R323_the_tau_gap_was_NCAL/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R324_the_dose_grid/run.py"
+      ],
+      "artifacts": [
+        "calibrated_mde.json"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R323_the_tau_gap_was_NCAL/run.py"
+      ],
+      "present": true
+    },
+    "R269_a_sham_that_can_fail": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R268_a_calibrated_detector_and_the_real_MDE/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R274_the_site_MDE_at_fine_resolution/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R318_is_the_site_mde_draw_dependent/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R321_four_detectors_two_estimands/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R322_the_matched_rerun_was_never_gpu_work/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R323_the_tau_gap_was_NCAL/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R324_the_dose_grid/run.py"
+      ],
+      "artifacts": [
+        "calibrated_mde.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R26_sign_no_split": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r26_cosine_mp3.json",
+        "r26_cosine_mp4.json",
+        "r26_negl1_mp3.json",
+        "r26_negl1_mp4.json",
+        "r26_pearson_mp3.json",
+        "r26_pearson_mp4.json",
+        "r26_sign_no_split.json",
+        "r26_spearman_mp3.json",
+        "r26_spearman_mp4.json"
+      ],
+      "name_mentions": [
+        "covalx/frozen.py"
+      ],
+      "present": true
+    },
+    "R270_the_arc_chose_the_coarser_statistic": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "human_statistic_mde.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R271_the_clustering_inflation_with_a_number_on_it": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R272_the_inflation_with_a_calibration_that_takes/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R273_the_inflation_as_an_interval/run.py"
+      ],
+      "artifacts": [
+        "clustering_inflation.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R272_the_inflation_with_a_calibration_that_takes": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R271_the_clustering_inflation_with_a_number_on_it/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R273_the_inflation_as_an_interval/run.py"
+      ],
+      "artifacts": [
+        "clustering_inflation.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R273_the_inflation_as_an_interval": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R271_the_clustering_inflation_with_a_number_on_it/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R272_the_inflation_with_a_calibration_that_takes/run.py"
+      ],
+      "artifacts": [
+        "clustering_inflation.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R274_the_site_MDE_at_fine_resolution": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R268_a_calibrated_detector_and_the_real_MDE/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R269_a_sham_that_can_fail/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R318_is_the_site_mde_draw_dependent/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R321_four_detectors_two_estimands/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R322_the_matched_rerun_was_never_gpu_work/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R323_the_tau_gap_was_NCAL/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R324_the_dose_grid/run.py"
+      ],
+      "artifacts": [
+        "calibrated_mde.json"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R318_is_the_site_mde_draw_dependent/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R321_four_detectors_two_estimands/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R322_the_matched_rerun_was_never_gpu_work/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R323_the_tau_gap_was_NCAL/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R324_the_dose_grid/run.py"
+      ],
+      "present": true
+    },
+    "R275_what_a_replication_can_and_cannot_catch": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "replication_2x2.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R276_is_generic_degenerate": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "degeneracy.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R277_is_necessity_tolerance_free": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "necessity_tolerance.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R27_raw_negative_tail": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r27_cosine.json",
+        "r27_negl1.json",
+        "r27_pearson.json",
+        "r27_raw_negative_tail.json",
+        "r27_spearman.json"
+      ],
+      "name_mentions": [
+        "covalx/frozen.py"
+      ],
+      "present": true
+    },
+    "R283_is_there_headroom_above_a_constant": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "headroom.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R284_are_the_two_winners_one_mechanism": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "one_mechanism.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R285_how_wide_is_the_admissible_band": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R229_the_control_band/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R362_does_the_size_band_survive_the_judge/run.py"
+      ],
+      "artifacts": [
+        "band.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R286_is_clause_2_a_property_of_the_baseline": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "baseline_ceiling.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R287_how_much_selection_may_a_baseline_have": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "selection_budget.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R288_does_the_partition_survive_the_target": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "target_sweep.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R289_which_target_earns_the_definition": {
+      "artifact_consumers": [
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R135_which_target/run.py"
+      ],
+      "artifacts": [
+        "which_target.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R290_does_the_partition_survive_the_judge": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "cross_judge.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R291_the_register_was_never_audited": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "register_audit.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R292_audit_every_published_cell": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "cell_audit.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R293_does_the_definition_exclude_a_fitted_core": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "fitted_arms.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R294_the_definition_against_everything": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "full_census.json"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R347_does_clause_one_ever_bind/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R348_is_it_blindness_or_curation/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R353_the_admitted_set_under_every_pool_order/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R354_what_the_safe_reference_admits/run.py"
+      ],
+      "present": true
+    },
+    "R295_held_out_annotators_are_not_held_out_labels": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "parity_leak.json"
+      ],
+      "name_mentions": [
+        "assurance/next_gradient_is_new.py"
+      ],
+      "present": true
+    },
+    "R296_is_there_an_optimal_k": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "k_curve.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R297_why_k1_loses": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "k1_mechanism.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R298_is_importance_monotone": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "importance_monotone.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R299_where_the_selection_boundary_is": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "selection_boundary.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R29_gold_ood": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r29_gold_ood.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R300_does_combination_generalise": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "combination_generality.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R303_the_mde_of_the_design_that_priced_it": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R267_what_this_release_can_resolve/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R268_a_calibrated_detector_and_the_real_MDE/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R269_a_sham_that_can_fail/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R270_the_arc_chose_the_coarser_statistic/run.py",
+        "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R274_the_site_MDE_at_fine_resolution/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R318_is_the_site_mde_draw_dependent/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R321_four_detectors_two_estimands/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R322_the_matched_rerun_was_never_gpu_work/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R323_the_tau_gap_was_NCAL/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R324_the_dose_grid/run.py"
+      ],
+      "artifacts": [
+        "mde.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R304_is_the_boundary_resolvable": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R299_where_the_selection_boundary_is/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R306_the_table_at_every_annotator/run.py"
+      ],
+      "artifacts": [
+        "boundary.json"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R306_the_table_at_every_annotator/run.py"
+      ],
+      "present": true
+    },
+    "R305_what_would_resolve_the_boundary": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R71_r67_split_variance/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R88_donor_draw_variance/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R89_floor_draw_at_panel_size/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R94_donor_averaging_at_frame_size/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R105_specific_share_invariance/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R106_share_level_under_redraw/run.py"
+      ],
+      "artifacts": [
+        "variance.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R306_the_table_at_every_annotator": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R285_how_wide_is_the_admissible_band/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R325_what_the_definition_can_and_cannot_see/run.py"
+      ],
+      "artifacts": [
+        "all_annotators.json"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R285_how_wide_is_the_admissible_band/run.py",
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R325_what_the_definition_can_and_cannot_see/run.py",
+        "assurance/next_gradient_is_new.py"
+      ],
+      "present": true
+    },
+    "R307_a_size_matched_neutral_arm": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "neutral_curve.json"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R344_what_fraction_can_be_rerun/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R345_the_stamp_nobody_reads/run.py"
+      ],
+      "present": true
+    },
+    "R308_neutral_clause_at_matched_k4": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "matched_k4.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R309_is_the_missing_r2_noise_or_structure": {
+      "artifact_consumers": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R310_what_the_structure_is/run.py"
+      ],
+      "artifacts": [
+        "reliability_ceiling.json"
+      ],
+      "name_mentions": [
+        "E05_the_space_of_compilers/A24_what_the_definition_costs/R310_what_the_structure_is/run.py"
+      ],
+      "present": true
+    },
+    "R30_scope_grid": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R95_layer_separability/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R96_separability_resolved/run.py"
+      ],
+      "artifacts": [
+        "r30_scope_grid.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R95_layer_separability/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R96_separability_resolved/run.py"
+      ],
+      "present": true
+    },
+    "R310_what_the_structure_is": {
+      "artifact_consumers": [
+        "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R01_rater_structure/run.py"
+      ],
+      "artifacts": [
+        "structure.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R311_does_the_shrink_differ_within_family": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "family_slopes.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R312_is_the_shrink_the_arm_or_the_rule": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "arm_or_rule.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R316_did_the_repair_do_only_what_it_claimed": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "repair_gate.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R31_within_person": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r31_within_person.json"
+      ],
+      "name_mentions": [
+        "covalx/frozen.py"
+      ],
+      "present": true
+    },
+    "R32_channel_decomposition": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r32_channel_decomposition.json"
+      ],
+      "name_mentions": [
+        "assurance/seed_filter_is_disclosed.py"
+      ],
+      "present": true
+    },
+    "R33_core_launders_polarity": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r33_core_launders_polarity.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R34_global_rater_crossfit": {
+      "artifact_consumers": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R38_human_sampling_power/run.py",
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R42_equivalence/run.py",
+        "assurance/manifest.py"
+      ],
+      "artifacts": [
+        "r34_global_rater_crossfit.json"
+      ],
+      "name_mentions": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R38_human_sampling_power/run.py",
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R42_equivalence/run.py",
+        "assurance/manifest.py",
+        "assurance/seed_filter_is_disclosed.py"
+      ],
+      "present": true
+    },
+    "R35_polarity_abstention": {
+      "artifact_consumers": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R42_equivalence/run.py",
+        "assurance/manifest.py"
+      ],
+      "artifacts": [
+        "r35_polarity_abstention.json"
+      ],
+      "name_mentions": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R42_equivalence/run.py",
+        "assurance/manifest.py",
+        "assurance/seed_filter_is_disclosed.py"
+      ],
+      "present": true
+    },
+    "R36_channel_shapley": {
+      "artifact_consumers": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R42_equivalence/run.py"
+      ],
+      "artifacts": [
+        "r36_channel_shapley.json"
+      ],
+      "name_mentions": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R42_equivalence/run.py",
+        "assurance/seed_filter_is_disclosed.py"
+      ],
+      "present": true
+    },
+    "R37_leakage_topology": {
+      "artifact_consumers": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R42_equivalence/run.py",
+        "assurance/manifest.py"
+      ],
+      "artifacts": [
+        "r37_leakage_topology.json"
+      ],
+      "name_mentions": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R42_equivalence/run.py",
+        "assurance/manifest.py",
+        "assurance/seed_filter_is_disclosed.py"
+      ],
+      "present": true
+    },
+    "R38_human_sampling_power": {
+      "artifact_consumers": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R45_protocol_freeze/freeze.py",
+        "assurance/results_are_not_degenerate.py"
+      ],
+      "artifacts": [
+        "_pairs_per_prompt.json",
+        "r38_human_sampling_power.json"
+      ],
+      "name_mentions": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R45_protocol_freeze/freeze.py"
+      ],
+      "present": true
+    },
+    "R39_feature_cache": {
+      "artifact_consumers": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R40_ood_map/run.py",
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R41_criterion_support/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R68_r40_predictor_reliability/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R80_panel_freeze/run.py"
+      ],
+      "artifacts": [
+        "r39_feature_cache.npz"
+      ],
+      "name_mentions": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R40_ood_map/run.py",
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R41_criterion_support/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R68_r40_predictor_reliability/run.py"
+      ],
+      "present": true
+    },
+    "R40_ood_map": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R68_r40_predictor_reliability/run.py",
+        "assurance/manifest.py"
+      ],
+      "artifacts": [
+        "r40_ood_map.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R68_r40_predictor_reliability/run.py",
+        "assurance/manifest.py"
+      ],
+      "present": true
+    },
+    "R41_criterion_support": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R47_gold_is_length/run.py",
+        "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R57_outcome_reliability/run.py",
+        "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R59_criterion_influence/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R60_world_vs_personal/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R66_r56_reconstruction/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R67_predictor_reliability/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R70_outcome_criterion_axis/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R71_r67_split_variance/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R72_proxy_validity_coefficient/run.py"
+      ],
+      "artifacts": [
+        ".gitignore",
+        "r41_criterion_support.json",
+        "r41_satisfaction_phi.npz",
+        "r41_satisfaction_phi_receipt.json",
+        "r41_satisfaction_qwen2b.npz",
+        "r41_satisfaction_qwen2b_receipt.json",
+        "r46_satisfaction.npz",
+        "r46_satisfaction_receipt.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R47_gold_is_length/run.py",
+        "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R57_outcome_reliability/run.py",
+        "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R59_criterion_influence/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R60_world_vs_personal/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R66_r56_reconstruction/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R67_predictor_reliability/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R70_outcome_criterion_axis/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R71_r67_split_variance/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R72_proxy_validity_coefficient/run.py"
+      ],
+      "present": true
+    },
+    "R42_equivalence": {
+      "artifact_consumers": [],
+      "artifacts": [
+        ".gitignore",
+        "r42_equivalence.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R43_criterion_heterogeneity": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R92_writein_analysability/run.py"
+      ],
+      "artifacts": [
+        ".gitignore",
+        "r43_criterion_heterogeneity.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R92_writein_analysability/run.py",
+        "assurance/seed_filter_is_disclosed.py"
+      ],
+      "present": true
+    },
+    "R44_compiler_lineage": {
+      "artifact_consumers": [],
+      "artifacts": [
+        ".gitignore",
+        "r44_compiler_lineage.json"
+      ],
+      "name_mentions": [
+        "assurance/code_states_a_bound_the_reader_never_sees.py"
+      ],
+      "present": true
+    },
+    "R46_spread_replication": {
+      "artifact_consumers": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R41_criterion_support/run.py",
+        "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R47_gold_is_length/run.py"
+      ],
+      "artifacts": [
+        ".gitignore",
+        "r46_fresh_generations.json",
+        "r46_spread_replication.json"
+      ],
+      "name_mentions": [
+        "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R41_criterion_support/run.py",
+        "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R47_gold_is_length/run.py",
+        "assurance/donor_numbers_carry_their_draw_scope.py"
+      ],
+      "present": true
+    },
+    "R47_gold_is_length": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R72_proxy_validity_coefficient/run.py"
+      ],
+      "artifacts": [
+        ".gitignore",
+        "r47_gold_is_length.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R72_proxy_validity_coefficient/run.py"
+      ],
+      "present": true
+    },
+    "R48_provenance_identified": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r48_provenance_identified.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R49_provenance_crossfit": {
+      "artifact_consumers": [],
+      "artifacts": [
+        ".gitignore",
+        "r49_provenance_crossfit.json"
+      ],
+      "name_mentions": [
+        "assurance/seed_filter_is_disclosed.py"
+      ],
+      "present": true
+    },
+    "R50_response_anchoring": {
+      "artifact_consumers": [],
+      "artifacts": [
+        ".gitignore",
+        "r50_response_anchoring.json"
+      ],
+      "name_mentions": [
+        "assurance/seed_filter_is_disclosed.py"
+      ],
+      "present": true
+    },
+    "R51_judge_lexical": {
+      "artifact_consumers": [],
+      "artifacts": [
+        ".gitignore",
+        "r51_judge_lexical.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R52_overlap_intervention": {
+      "artifact_consumers": [],
+      "artifacts": [
+        ".gitignore",
+        "r52_overlap_intervention.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R53_join_audit": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r53_join_audit.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R54_overlap_transfer": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r54_overlap_transfer.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R69_r54_predictor_reliability/run.py",
+        "assurance/donor_numbers_carry_their_draw_scope.py"
+      ],
+      "present": true
+    },
+    "R55_overlap_selectivity": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r55_overlap_selectivity.json"
+      ],
+      "name_mentions": [
+        "assurance/donor_numbers_carry_their_draw_scope.py"
+      ],
+      "present": true
+    },
+    "R57_outcome_reliability": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r57_outcome_reliability.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R58_equivalence_census": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R59_criterion_influence/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R60_world_vs_personal/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R61_s_pre_power/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R62_matching_floor/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R63_r60_projection_audit/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R64_satisfaction_substudy_power/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R65_edit_symmetry_floor/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R66_r56_reconstruction/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R67_predictor_reliability/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R68_r40_predictor_reliability/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R69_r54_predictor_reliability/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R70_outcome_criterion_axis/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R71_r67_split_variance/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R72_proxy_validity_coefficient/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R73_direction_from_text_alone/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R74_specificity_vs_exposure/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R75_menu_read_direction/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R76_absence_cannot_overlap/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R77_topicality_control/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R78_tokeniser_robustness/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R80_panel_freeze/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R81_stated_signal_by_length/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R82_scale_use_by_provenance/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R83_low_magnitude_drop/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R84_core_polarity_in_words/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R85_agreement_by_form/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R86_attribution_by_form/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R87_criterion_count_channel/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R88_donor_draw_variance/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R89_floor_draw_at_panel_size/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R90_resampling_unit/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R92_writein_analysability/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R93_clustering_unit_transfers/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R94_donor_averaging_at_frame_size/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R95_layer_separability/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R96_separability_resolved/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R97_rule_tournament_tost/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R98_unverified_triage/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R99_harvester_pairing/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R100_rater_reliability/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R101_reliability_offset/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R102_margin_calibration/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R103_consensus_conditioned/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R104_deattenuated_consensus/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R105_specific_share_invariance/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R106_share_level_under_redraw/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R107_joint_resample/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R108_coinflip_stratum/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R109_donor_arm_is_text_blind/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R110_rater_component/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R341_is_the_skipped_population_real/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R342_how_many_checked_points_are_ratios/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R343_does_any_check_tie_artifact_to_source/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R344_what_fraction_can_be_rerun/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R345_the_stamp_nobody_reads/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R350_why_the_ten_differ/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R351_did_a_published_number_move/run.py",
+        "assurance/apply_freeze_status.py",
+        "assurance/apply_outcome_scope.py",
+        "assurance/artifacts_are_internally_coherent.py",
+        "assurance/every_round_reaches_the_readme.py",
+        "assurance/no_withdrawn_framings.py",
+        "assurance/outcome_variable_declared.py",
+        "assurance/registries_are_satisfied.py",
+        "assurance/results_match_their_code.py",
+        "assurance/source_stamp_is_current.py",
+        "assurance/verdict_cites_its_own_contrasts.py"
+      ],
+      "artifacts": [
+        "_smoke",
+        "r58_equivalence_census.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R98_unverified_triage/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R99_harvester_pairing/run.py",
+        "assurance/verdict_cites_its_own_contrasts.py"
+      ],
+      "present": true
+    },
+    "R59_criterion_influence": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R58_equivalence_census/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R60_world_vs_personal/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R61_s_pre_power/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R62_matching_floor/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R63_r60_projection_audit/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R64_satisfaction_substudy_power/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R65_edit_symmetry_floor/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R66_r56_reconstruction/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R67_predictor_reliability/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R68_r40_predictor_reliability/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R69_r54_predictor_reliability/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R70_outcome_criterion_axis/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R71_r67_split_variance/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R72_proxy_validity_coefficient/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R73_direction_from_text_alone/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R74_specificity_vs_exposure/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R75_menu_read_direction/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R76_absence_cannot_overlap/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R77_topicality_control/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R78_tokeniser_robustness/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R80_panel_freeze/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R81_stated_signal_by_length/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R82_scale_use_by_provenance/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R83_low_magnitude_drop/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R84_core_polarity_in_words/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R85_agreement_by_form/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R86_attribution_by_form/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R87_criterion_count_channel/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R88_donor_draw_variance/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R89_floor_draw_at_panel_size/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R90_resampling_unit/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R92_writein_analysability/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R93_clustering_unit_transfers/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R94_donor_averaging_at_frame_size/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R95_layer_separability/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R96_separability_resolved/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R97_rule_tournament_tost/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R98_unverified_triage/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R99_harvester_pairing/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R100_rater_reliability/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R101_reliability_offset/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R102_margin_calibration/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R103_consensus_conditioned/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R104_deattenuated_consensus/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R105_specific_share_invariance/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R106_share_level_under_redraw/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R107_joint_resample/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R108_coinflip_stratum/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R109_donor_arm_is_text_blind/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R110_rater_component/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R341_is_the_skipped_population_real/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R342_how_many_checked_points_are_ratios/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R343_does_any_check_tie_artifact_to_source/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R344_what_fraction_can_be_rerun/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R345_the_stamp_nobody_reads/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R350_why_the_ten_differ/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R351_did_a_published_number_move/run.py",
+        "assurance/apply_freeze_status.py",
+        "assurance/apply_outcome_scope.py",
+        "assurance/artifacts_are_internally_coherent.py",
+        "assurance/every_round_reaches_the_readme.py",
+        "assurance/no_withdrawn_framings.py",
+        "assurance/outcome_variable_declared.py",
+        "assurance/registries_are_satisfied.py",
+        "assurance/results_match_their_code.py",
+        "assurance/source_stamp_is_current.py"
+      ],
+      "artifacts": [
+        "_smoke",
+        "r59_criterion_influence.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R60_world_vs_personal": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R58_equivalence_census/run.py",
+        "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R59_criterion_influence/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R61_s_pre_power/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R62_matching_floor/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R63_r60_projection_audit/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R64_satisfaction_substudy_power/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R65_edit_symmetry_floor/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R66_r56_reconstruction/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R67_predictor_reliability/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R68_r40_predictor_reliability/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R69_r54_predictor_reliability/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R70_outcome_criterion_axis/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R71_r67_split_variance/run.py",
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R72_proxy_validity_coefficient/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R73_direction_from_text_alone/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R74_specificity_vs_exposure/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R75_menu_read_direction/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R76_absence_cannot_overlap/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R77_topicality_control/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R78_tokeniser_robustness/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R80_panel_freeze/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R81_stated_signal_by_length/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R82_scale_use_by_provenance/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R83_low_magnitude_drop/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R84_core_polarity_in_words/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R85_agreement_by_form/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R86_attribution_by_form/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R87_criterion_count_channel/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R88_donor_draw_variance/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R89_floor_draw_at_panel_size/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R90_resampling_unit/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R92_writein_analysability/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R93_clustering_unit_transfers/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R94_donor_averaging_at_frame_size/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R95_layer_separability/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R96_separability_resolved/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R97_rule_tournament_tost/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R98_unverified_triage/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R99_harvester_pairing/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R100_rater_reliability/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R101_reliability_offset/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R102_margin_calibration/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R103_consensus_conditioned/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R104_deattenuated_consensus/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R105_specific_share_invariance/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R106_share_level_under_redraw/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R107_joint_resample/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R108_coinflip_stratum/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R109_donor_arm_is_text_blind/run.py",
+        "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R110_rater_component/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R341_is_the_skipped_population_real/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R342_how_many_checked_points_are_ratios/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R343_does_any_check_tie_artifact_to_source/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R344_what_fraction_can_be_rerun/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R345_the_stamp_nobody_reads/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R350_why_the_ten_differ/run.py",
+        "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R351_did_a_published_number_move/run.py",
+        "assurance/apply_freeze_status.py",
+        "assurance/apply_outcome_scope.py",
+        "assurance/artifacts_are_internally_coherent.py",
+        "assurance/every_round_reaches_the_readme.py",
+        "assurance/no_withdrawn_framings.py",
+        "assurance/outcome_variable_declared.py",
+        "assurance/registries_are_satisfied.py",
+        "assurance/results_match_their_code.py",
+        "assurance/source_stamp_is_current.py"
+      ],
+      "artifacts": [
+        "_smoke",
+        "r60_world_vs_personal.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R63_r60_projection_audit/run.py"
+      ],
+      "present": true
+    },
+    "R61_s_pre_power": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r61_s_pre_power.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R62_matching_floor": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r62_matching_floor.json"
+      ],
+      "name_mentions": [
+        "assurance/seed_filter_is_disclosed.py"
+      ],
+      "present": true
+    },
+    "R63_r60_projection_audit": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r63_r60_projection_audit.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R64_satisfaction_substudy_power": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r64_satisfaction_substudy_power.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R65_edit_symmetry_floor": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r65_edit_symmetry_floor.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R66_r56_reconstruction": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r66_r56_reconstruction.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R67_predictor_reliability": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r67_predictor_reliability.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R68_r40_predictor_reliability": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r68_r40_predictor_reliability.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R69_r54_predictor_reliability": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r69_r54_predictor_reliability.json"
+      ],
+      "name_mentions": [
+        "assurance/donor_numbers_carry_their_draw_scope.py"
+      ],
+      "present": true
+    },
+    "R70_outcome_criterion_axis": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r70_outcome_criterion_axis.json"
+      ],
+      "name_mentions": [
+        "assurance/attack_every_check.py"
+      ],
+      "present": true
+    },
+    "R71_r67_split_variance": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r71_r67_split_variance.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R72_proxy_validity_coefficient": {
+      "artifact_consumers": [
+        "assurance/attack_every_check.py"
+      ],
+      "artifacts": [
+        "r72_proxy_validity_coefficient.json"
+      ],
+      "name_mentions": [
+        "assurance/attack_every_check.py"
+      ],
+      "present": true
+    },
+    "R73_direction_from_text_alone": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r73_direction_from_text_alone.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R74_specificity_vs_exposure": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r74_specificity_vs_exposure.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R75_menu_read_direction": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r75_menu_read_direction.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R76_absence_cannot_overlap/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R77_topicality_control/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R78_tokeniser_robustness/run.py",
+        "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R79_semantic_menu_read/run.py"
+      ],
+      "present": true
+    },
+    "R76_absence_cannot_overlap": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r76_absence_cannot_overlap.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R77_topicality_control": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r77_topicality_control.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R78_tokeniser_robustness": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r78_tokeniser_robustness.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R79_semantic_menu_read": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "_stale",
+        "r79_d_phi.npy",
+        "r79_d_qwen.npy",
+        "r79_semantic_menu_read.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R80_panel_freeze": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r80_panel_freeze.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R81_stated_signal_by_length": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r81_stated_signal_by_length.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R82_scale_use_by_provenance": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r82_scale_use_by_provenance.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R83_low_magnitude_drop": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r83_low_magnitude_drop.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R84_core_polarity_in_words": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r84_core_polarity_in_words.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R85_agreement_by_form": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r85_agreement_by_form.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R86_attribution_by_form/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R87_criterion_count_channel/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R88_donor_draw_variance/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R89_floor_draw_at_panel_size/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R90_resampling_unit/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R102_margin_calibration/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R103_consensus_conditioned/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R104_deattenuated_consensus/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R106_share_level_under_redraw/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R109_donor_arm_is_text_blind/run.py"
+      ],
+      "present": true
+    },
+    "R86_attribution_by_form": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R87_criterion_count_channel/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R88_donor_draw_variance/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R90_resampling_unit/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R109_donor_arm_is_text_blind/run.py"
+      ],
+      "artifacts": [
+        "r86_attribution_by_form.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R87_criterion_count_channel/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R88_donor_draw_variance/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R90_resampling_unit/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+        "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R109_donor_arm_is_text_blind/run.py",
+        "assurance/donor_numbers_carry_their_draw_scope.py"
+      ],
+      "present": true
+    },
+    "R87_criterion_count_channel": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R88_donor_draw_variance/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py"
+      ],
+      "artifacts": [
+        "r87_criterion_count_channel.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R88_donor_draw_variance/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+        "assurance/donor_numbers_carry_their_draw_scope.py"
+      ],
+      "present": true
+    },
+    "R88_donor_draw_variance": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R89_floor_draw_at_panel_size/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R94_donor_averaging_at_frame_size/run.py"
+      ],
+      "artifacts": [
+        "r88_donor_draw_variance.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R89_floor_draw_at_panel_size/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R94_donor_averaging_at_frame_size/run.py",
+        "assurance/donor_numbers_carry_their_draw_scope.py"
+      ],
+      "present": true
+    },
+    "R89_floor_draw_at_panel_size": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R94_donor_averaging_at_frame_size/run.py"
+      ],
+      "artifacts": [
+        "r89_floor_draw_at_panel_size.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R94_donor_averaging_at_frame_size/run.py",
+        "assurance/donor_numbers_carry_their_draw_scope.py"
+      ],
+      "present": true
+    },
+    "R90_resampling_unit": {
+      "artifact_consumers": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R93_clustering_unit_transfers/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R94_donor_averaging_at_frame_size/run.py"
+      ],
+      "artifacts": [
+        "r90_resampling_unit.json"
+      ],
+      "name_mentions": [
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R93_clustering_unit_transfers/run.py",
+        "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R94_donor_averaging_at_frame_size/run.py",
+        "assurance/donor_numbers_carry_their_draw_scope.py"
+      ],
+      "present": true
+    },
+    "R91_precision_budget": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r91_precision_budget.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R92_writein_analysability": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r92_writein_analysability.json"
+      ],
+      "name_mentions": [
+        "assurance/seed_filter_is_disclosed.py"
+      ],
+      "present": true
+    },
+    "R93_clustering_unit_transfers": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r93_clustering_unit_transfers.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R94_donor_averaging_at_frame_size": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r94_donor_averaging_at_frame_size.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R95_layer_separability": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r95_layer_separability.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R96_separability_resolved": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r96_separability_resolved.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R97_rule_tournament_tost": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r97_per_prompt_rule_cells.npz",
+        "r97_rule_tournament_tost.json"
+      ],
+      "name_mentions": [
+        "assurance/seed_filter_is_disclosed.py"
+      ],
+      "present": true
+    },
+    "R98_unverified_triage": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r98_unverified_triage.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    },
+    "R99_harvester_pairing": {
+      "artifact_consumers": [],
+      "artifacts": [
+        "r99_harvester_pairing.json"
+      ],
+      "name_mentions": [],
+      "present": true
+    }
+  },
+  "source_name": "run.py",
+  "source_sha256": "dd0e1f98bc0e936febcd9488f54f958d6dbf82938d41cda82cf11b89da41d8a2",
+  "verdict": "W_SPLIT"
+}

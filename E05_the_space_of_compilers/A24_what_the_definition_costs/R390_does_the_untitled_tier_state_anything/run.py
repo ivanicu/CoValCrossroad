@@ -182,13 +182,20 @@ def main() -> int:
         return "RAN", out, time.monotonic() - t0
 
     # ---- CONTROLS ------------------------------------------------------------------------------
-    pos = {}
+    pos, why = {}, {}
     for name in PAID:
         dd = next((q for q in WT.glob(f"E0*/A*/{name}") if q.is_dir()), None)
         if dd is None:
             pos[name] = None; continue
-        cls, out, _ = run_subject(dd)
+        cls, out, secs = run_subject(dd)
+        # ⛔ A CONTROL THAT REPORTS `None` WITHOUT SAYING WHY GIVES NOTHING TO ACT ON. v1 recorded
+        #   only True/False/None, and R28 came back None while running cleanly by hand in this very
+        #   worktree seconds later. The class and the last error line are recorded so a failing
+        #   control localises to a mechanism instead of to a shrug.
         pos[name] = bool(VERDICT.search(out)) if cls == "RAN" else None
+        why[name] = dict(cls=cls, secs=round(secs, 1),
+                         tail=[l for l in out.strip().splitlines() if l.strip()][-1][:160]
+                         if out.strip() else "")
         subprocess.run(["git", "checkout", "-f", "-q", head], cwd=str(WT), capture_output=True)
         link_inputs()
         subprocess.run(["git", "checkout", "-f", "-q", head], cwd=str(WT), capture_output=True)
@@ -198,6 +205,9 @@ def main() -> int:
     print(f"\n  CONTROLS on the verdict-shape pattern")
     print(f"    VERDICT (+)  the three units already paid are detected: {pos}  "
           f"{'PASS' if pos_ok else 'FAIL'}")
+    for k, v in why.items():
+        if pos.get(k) is not True:
+            print(f"                 {k}: {v['cls']} after {v['secs']}s — {v['tail']}")
     print(f"    VERDICT (-)  a bare table of numbers is NOT detected: {not bool(VERDICT.search(neg_text))}"
           f"  {'PASS' if neg_ok else 'FAIL'}")
     if not (pos_ok and neg_ok):

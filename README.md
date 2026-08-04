@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**385 rounds** in **5 epochs** and **24 arcs**, numbered to **R391** — **53 standing claims, 13
+**386 rounds** in **5 epochs** and **24 arcs**, numbered to **R392** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -968,6 +968,20 @@ and a filename that exists nowhere returns 0. ⚠ **The blind spot biases toward
 answer**: a consumer building its path dynamically is invisible to a literal search, so R147 is
 **`no consumer found`, not `no consumer`**.
 → [`R391`](E05_the_space_of_compilers/A24_what_the_definition_costs/R391_step_or_orphan)
+
+**At corpus scale, 72 of 226 rounds (32%) are consumed as data — and 23 more are only cited.**
+R391's detector counted a round as consumed if another source named **either** its artifact **or** its
+directory; those are different relations, and naming a directory is often a **prose citation** —
+R21's docstring opens *"r15 and r20 both rest on a neighbour arm"*, an argument about those rounds
+rather than a read of their output. At n=3 the merge was tolerable; over 226 it would inflate
+infrastructure with every literature reference in the corpus. Split: **artifact-consumed 72, name-
+mentioned 74, mentioned-but-not-read 23** — and R391's own numbers are corrected (R144 is **1**
+artifact consumer, not 2; its conclusion stands, its count did not). ⛔ **The negative control failed
+and the reason is a finding**: R391 used `zzq_no_such_artifact_zzq.json` as *its* nowhere-file, so
+that string is now **in the corpus** and returned 1 consumer. **A corpus absorbs its own
+instruments** — a nowhere-token is only nowhere until a round uses it. ⚠ The blind spot biases the
+estimand **downward**, toward *backfill it* — the direction that creates work rather than excuses it.
+→ [`R392`](E05_the_space_of_compilers/A24_what_the_definition_costs/R392_how_much_is_infrastructure)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
