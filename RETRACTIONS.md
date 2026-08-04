@@ -9318,3 +9318,62 @@ default is to plot the difference.
 ⭐ **The remedy is not vigilance, it is a printed column.** `r(f, arm1)` and `r(f, arm2)` beside every
 `r(f, difference)`, for every covariate, *including the ones that survive*. It costs one line of code
 and it converts §4's warning from something to remember into something the output states.
+
+---
+
+## 267 · A confound I built and did not see for two rounds — the sham's partner is fixed per prompt (R457 → R459)
+
+**Not a retraction; the claim survived. Recorded because the confound was real, load-bearing, and
+went unnoticed through the round that created it and the round that used it.**
+
+R457's headline estimand is `d[p] = A2(core,p) − A2(sham,p)`, reported as *"the value of having the
+RIGHT criteria on this prompt"*, ρ_full = **0.8812**. The sham applies **another prompt's** criteria,
+and **which partner was drawn is fixed per prompt in the release file.** A split-half over
+*annotators* therefore holds the partner constant — so **partner-driven variance is counted as
+perfectly reliable while being no property of prompt p at all.** R458 then built an entire
+explainability round on that outcome without the confound being noticed.
+
+**What the test returned.** A **partner-free** estimand — `core − generic`, where `generic` is a
+single fixed criterion set (verified in-run: **1** distinct criterion-index tuple, and the round
+exits 2 otherwise) — replicates at **0.8363** against 0.8812. **Δ = −0.0449**, inside the ±0.15 band.
+R457's committed value reproduced **exactly** through an independent path. **The conclusion does not
+depend on the partner.**
+
+⚠ **And the round states what it cannot do rather than working around it:** because the partner is
+fixed per prompt, **no annotator-split can decompose partner variance.** The available test shows the
+conclusion *survives without a partner*, which is weaker than a decomposition and is the strongest
+thing this site supports. Decomposing it would require re-judging each core's criteria against
+several different partner prompts.
+
+⭐ **The generalisable tell, and it is cheap to check:** *when an estimand contains a component drawn
+once and then frozen, any reliability computed by resampling something else will treat that draw as
+signal.* The question to ask of every estimand is not only "what do the two terms share" (entry 263)
+but **"what in either term was drawn once and never redrawn?"** — because that is exactly what a
+split on a different axis cannot see.
+
+---
+
+## 268 · Why the paired design worked, measured rather than assumed (R459)
+
+**A positive observation, recorded because the ledger otherwise only explains failures.**
+
+R459 printed the split-half reliability of the *components* alongside the differences:
+
+| quantity | ρ_full |
+|---|---|
+| core | 0.8378 |
+| sham | 0.8593 |
+| **core − sham** | **0.8812** |
+| core − generic | 0.8363 |
+
+**The difference is more reliable than either of its parts.** That is only possible when the two
+components' *noise* is positively correlated, so the shared annotator noise cancels in the
+subtraction. **This is the paired design's benefit, observed rather than asserted** — and it is the
+reason R457's estimand was a better measurement than anything built from a single arm.
+
+**Why it belongs on this list.** Entry 263 records the *failure* mode of differences: a shared term
+that inflates reliability for any arm whatsoever. **This is the same arithmetic producing the
+opposite outcome**, and the two are distinguishable only by printing the components. **A difference
+whose reliability exceeds its parts is doing useful work; a difference whose reliability is
+indistinguishable from a sham's is not.** Neither is visible from the difference alone, and the
+component table costs three lines.

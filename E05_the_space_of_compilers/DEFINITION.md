@@ -316,6 +316,19 @@ entirely by both arms rising. **So clause ②'s advantage is prompt-specific, re
 unexplained at 0.04 by everything the release yields without a second instrument** — structured, but
 not by anything on this site. ⚠ Scope is that named feature set, not "observables"; a semantic
 representation of the prompt is the next instrument and is deliberately outside this round. *(R458)*
+
+⭐ **AND THAT RELIABILITY IS NOT A PARTNER ARTIFACT (R459).** R457's estimand subtracts a sham that
+applies **another prompt's** criteria, and the partner is **fixed per prompt** — so an annotator
+split counts partner variance as perfectly reliable while it is no property of the prompt. Tested
+against a **partner-free** estimand (`generic` is a single fixed criterion set, verified in-run at
+**1** distinct criterion-index tuple): `core − generic` replicates at **0.8363**
+[+0.7684, +0.8474] against `core − sham`'s **0.8812** — **Δ = −0.0449**, inside the ±0.15 band, with
+R457's committed value reproduced **exactly** through an independent path. ⭐ **And the component
+table shows why the paired design works at all: `d_sham` (0.8812) is MORE reliable than either of its
+parts (core 0.8378, sham 0.8593)** — a difference exceeding both its components is what happens when
+their noise is positively correlated and cancels in the subtraction. ⚠ **This does NOT decompose
+partner variance** — impossible here, since the partner is fixed per prompt — it shows the conclusion
+survives without a partner at all. *(R459)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

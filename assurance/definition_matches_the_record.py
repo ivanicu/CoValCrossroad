@@ -504,6 +504,22 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R459 -- the partner check. d_gen is anchored WITH both components, because the finding is
+    # that the DIFFERENCE beats its parts, and a lone rho would lose the comparison that shows it.
+    d459 = next(A24.glob("R459_*"), None)
+    f459 = (d459 / "results" / "r459_partner.json") if d459 else None
+    a = json.loads(f459.read_text()) if (f459 and f459.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        q = a["quantities"]
+        out["r459_dgen"] = (f"{q['d_gen']['rho_full']:.4f}", "R459")
+        out["r459_core"] = (f"{q['core']['rho_full']:.4f}", "R459")
+        out["r459_sham"] = (f"{q['sham']['rho_full']:.4f}", "R459")
+        out["r459_delta"] = (f"{a['delta']:.4f}", "R459")
+        out["r459_tuples"] = (a["generic_distinct_tuples"], "R459")
+    else:
+        for k in ("r459_dgen", "r459_core", "r459_sham", "r459_delta", "r459_tuples"):
+            out[k] = (None, "R459")
+
     # R458 -- explainability. R2 is anchored WITH the positive control, because 0.0384 alone reads
     # as a weak model; only the 0.9170 recovery makes it a statement about the OBJECT.
     d458 = next(A24.glob("R458_*"), None)
@@ -996,6 +1012,11 @@ ASSERTIONS = {
     "r458_pos":       r"recovered at\s*\n?R² = \+([\d.]+)\*\*",
     "r458_nfeat":     r"ridge from \*\*(\d+) target-free features\*\*",
     "r458_corerange": r"`core_range` at \*\*\+([\d.]+) /",
+    "r459_dgen":   r"`core − generic` replicates at \*\*([\d.]+)\*\*",
+    "r459_core":   r"parts \(core ([\d.]+), sham",
+    "r459_sham":   r"parts \(core [\d.]+, sham ([\d.]+)\)",
+    "r459_delta":  r"\*\*Δ = ([\u2212\-][\d.]+)\*\*, inside",
+    "r459_tuples": r"verified in-run at\s*\n?\*\*(\d+)\*\* distinct criterion-index tuple",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",
