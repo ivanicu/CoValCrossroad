@@ -480,7 +480,13 @@ holding k=3 and k=6 at their own closure levels, R354 puts every k at the same p
 
 *Controls: the census's own reference reproduces the committed five exactly; the p99 level matches
 R331's committed 0.5547 with a resolvable blind-admission rate of 0; the set shrinks monotonically.*
-→ `R354_what_the_safe_reference_admits`, `R332_the_closure_level_derives_reading_A`
+⚠ **And p99 is not itself established as safe at every k (R355).** The minimal reference above which
+the clause is *always* closed sits at **p99.5 for k=6 and k=8** — so a rule that puts every k at p99
+is below safe at two of them. The "two" above is therefore bounded on **both** sides: unstable within
+0.25 MDE (R332) and measured at a reference that is not closed at all k (R355).
+
+→ `R354_what_the_safe_reference_admits`, `R332_the_closure_level_derives_reading_A`,
+`R355_is_the_closed_region_upward_closed`
 
 ### ① The reference — computed, not chosen
 
@@ -505,6 +511,30 @@ minimal**: closure sits **0.0055 below** the class max, because clearing require
 reference by an MDE.
 
 **Closure levels, per k:** `k=3` 0.5519 · `k=4` 0.5520 · `k=6` 0.5519 · `k=8` 0.5505.
+
+> ⛔ **THOSE ARE THE FIRST CLOSED REFERENCE, NOT THE LOWEST SAFE ONE — and the difference is real
+> (R355).** The definition of closure used above says *"anything stronger is gratuitous"*; the code
+> takes the **first** grid point whose blind-admission rate is 0. Those coincide only if the closed
+> region is an **upward set**, and at **6 of 9 k it is not**: **18 references stronger than the
+> published closure admit blind sets again.** Corrected minimal-safe levels — `k=3` **0.5530**
+> (p96.2) · `k=4` **0.5537** (p98.5) · `k=6` **0.5531** (p99.5) · `k=8` **0.5517** (p99.5); `k=1`,
+> `k=2` and `k=15` unchanged.
+>
+> **The mechanism is this page's own, one axis over.** R331 established that *a paired MDE is a
+> property of the PAIR, not of the design* — a near-neighbour clears its own resolution on a tiny
+> gap. That was applied to **arms**. Admission compares a class member against a reference **vector**
+> on `(e>0) & (|e|≥mde)` with a **per-prompt paired** sd, so a reference with a **higher mean** but a
+> different **profile** can admit a near-neighbour. Measured excess **+1.19 shared criteria over each
+> k's own null (MDE 0.42, n=25 pairs), positive at all six violating k.**
+>
+> **The rival world was built, not imagined:** flatten every reference to a constant vector at its
+> own mean — admission becomes a pure threshold and upward-closure is algebraic — and violations fall
+> to **0 at every k**. Placebo 0/315 self-admissions; the detector fires on an injected weak
+> reference and not on an injected class-max one in the same slot.
+>
+> ⚠ **And the number is a lower bound, not a converged one.** The 9-point grid finds **0**
+> violations, 45 finds **18**, 91 finds **50** — a coarse grid cannot see a reference it never
+> evaluates. **This is why R331 reported none.**
 
 ⛔ **What does NOT work, measured rather than argued.** *Budget-matching* — giving each arm a
 reference matched to its own selection budget — **admits `generic` at all five readings tested**.

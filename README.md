@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**348 rounds** in **5 epochs** and **24 arcs**, numbered to **R354** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**342 of the 348 carry a
+**349 rounds** in **5 epochs** and **24 arcs**, numbered to **R355** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**343 of the 349 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -345,6 +345,28 @@ unstable quantity**: R332 had already found **two distinct admitted sets within 
 altitude, so what the level supports is the surviving **pair** — `coval_core` and `topw_k6` — not a
 count.
 → [`R354`](E05_the_space_of_compilers/A24_what_the_definition_costs/R354_what_the_safe_reference_admits)
+
+**And the "closure level" those three rounds all lean on was measuring the wrong object.** R332
+defines it as *"the LOWEST reference that is closed: anything stronger is gratuitous"* and computes
+the **first** grid point with a zero blind-admission rate. Those coincide only if the closed region
+is an **upward set**, and it is not: at **6 of 9 k**, **18 references stronger than the published
+closure admit blind sets again**. The mechanism is R331's own — *a paired MDE is a property of the
+PAIR* — applied to the **reference** axis R331 never applied it to, and the excess is resolved
+(**+1.19 shared criteria over each k's own null, MDE 0.42**, positive at all six violating k). The
+rival world was **built**, not imagined: flatten each reference to a constant vector at its own mean,
+making admission a pure threshold, and the violations go to **zero at every k**. Corrected safe
+levels sit at **p96.2–p99.5**, so at k=6 and k=8 even p99 is below safe. R331 saw none of this
+because its **9-point grid returns 0 violations**; 45 points give 18 and 91 give 50 — a lower bound,
+not a converged number.
+→ [`R355`](E05_the_space_of_compilers/A24_what_the_definition_costs/R355_is_the_closed_region_upward_closed)
+
+**Three statements about the published reference, not four — and I had been counting one of them
+twice.** They are also not one finding arriving by three routes, which is what I expected to find:
+R331 measures a **rate** (`rate(R294 ref) > 0` → 3 of 1,820 at k=4), R332 compares **levels**
+(`r294_a2 < closure_a2`, at 7 of 9 resolvable k), and R355 shows those two predicates are **not
+equivalent** — they agree on this release but the non-monotone rate lets them come apart. R354 is a
+third quantity entirely: which **arms** are admitted, over a different population. The "fourth
+independent statement" I named in a commit body was **R332's own table column** — R332 counted twice.
 
 **The reader now exists** — [`assurance/source_stamp_is_current.py`](assurance/source_stamp_is_current.py),
 three-valued, in the suite registry (**22/22** on an empty population). It is a **ratchet, not a
