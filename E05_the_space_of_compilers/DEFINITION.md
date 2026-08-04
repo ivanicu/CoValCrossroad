@@ -180,6 +180,25 @@ judge in it** (R224/R228), and the k-curve's *shape* across judges was already m
 
 ---
 
+## ⛔ AT THE MAXIMUM BLIND SET ONLY THE LABEL-READERS SURVIVE 2026-08-04 (R407)
+
+The universal reading is answerable from a **single cell**, which needs no strictness ordering — only
+that the cell's reference be the maximum, and `ref_at(k, 100)` returns `order[-1]`, the highest-scoring
+prompt-blind set of that arm's own size.
+
+**At that reference the admitted set is `{greedy_k4_fit1, indep_k4_fit1, oracle_k4, oracle_k4_fit1}` —
+all four of which read the prompt's own rankings. Label-free admitted: 0.**
+
+Per arm, the highest grid point still admitting it: `topw_k8` 95.0 · `topw_k3` 95.5 · `topw_k4` 98.0 ·
+**`coval_core` 99.5** · `topw_k6` 99.5 · the four label-readers 100.0. **The released core clears the
+99.5th-percentile blind set and not the maximum.**
+
+⛔ **And this answers a test the sentence does not contain.** The code's `admits` is
+`e > 0 AND |e| >= ZEFF*se` — *significantly* better — while the definition says **scores better than**.
+The coded test is STRICTER, in the direction that flatters. **The literal `e > 0` reading has never
+been run.** That is the fourth under-specification in clause ②, after the missing member, held-out vs
+in-sample, and the percentile called *every*.
+
 ## ⛔ THE UNIVERSAL READING HAS NEVER BEEN RUN 2026-08-04 (R406)
 
 Clause ② names a class and no member, and the campaign's answer has been R327's three readings, of

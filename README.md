@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**399 rounds** in **5 epochs** and **24 arcs**, numbered to **R406** — **53 standing claims, 13
+**400 rounds** in **5 epochs** and **24 arcs**, numbered to **R407** — **53 standing claims, 13
 withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
@@ -1175,6 +1175,21 @@ could have caught it**, because its controls all concerned the **ordering** of i
 ordering can be perfectly correct while every rung is mislabelled. ⚠ R327 is **not** retracted; the
 **name of one rung** is.
 → [`R406`](E05_the_space_of_compilers/A24_what_the_definition_costs/R406_the_universal_reading_was_not_universal)
+
+**At the maximum prompt-blind set, the only arms admitted are the four that read the prompt's own
+rankings — label-free admitted: 0.** ⛔ R405 blocked the *ordering* claim correctly and blocked a
+weaker one with it: *"no label-free arm beats the maximum blind set of its own size"* is a statement
+about **one cell**, needing only that the cell's reference **be** that maximum — **no monotonicity is
+used anywhere in this round.** Verified from source rather than assumed: `ref_at(k, 100)` sorts blind
+sets of size *k* and returns `order[-1]`. ⭐ **Per-arm brackets, reported at arm resolution for the
+first time**: `topw_k8` 95.0 · `topw_k3` 95.5 · `topw_k4` 98.0 · **`coval_core` 99.5** · `topw_k6`
+99.5 · the label-readers 100.0 — **the released core clears the 99.5th-percentile blind set and not
+the maximum**. ⛔ **And this answers a test the sentence does not contain**: the code requires
+*significantly* better (`e > 0 AND |e| ≥ ZEFF·se`) while the definition says *scores better than* —
+stricter, in the flattering direction, and **the literal `e > 0` reading has never been run**. That is
+clause ②'s **fourth** under-specification, after the missing member, held-out vs in-sample, and the
+p99 bar called *every*. ⚠ One numeric cross-check is recorded **OWED**, not quietly skipped.
+→ [`R407`](E05_the_space_of_compilers/A24_what_the_definition_costs/R407_the_universal_reading_answered_without_an_ordering)
 
 **And the surface where those errors actually live is now gated.** R366 measured the cost — five of
 nine consecutive rounds corrected a claim published within the previous three — so the obvious move
