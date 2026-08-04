@@ -307,6 +307,17 @@ The heading above says *"both clauses restated to say what they test."* Measured
 | ① | *"the same number drawn at random from that conversation's own rubric"* | `random_k4_s0` — **one fixed draw at k=4, seed 0**, for every arm | **not size-matched** (23 of 41 arms have k ≠ 4; the correct per-k references exist on disk, three seeds each, unused) and **not re-drawn** (one seed) |
 | ② | *"the same number that never read the conversation at all"* | `POOL[0:k]` — the **first k rows** of a curated 16-criterion pool | criterion sets that never read the conversation but were **crowd-written** do *no better* than clause ①'s own reference, and **2 of 5 are resolvably worse** (R348). The clause tests a **curated instrument**, not blindness — and *which* subset was decided by **file order**, at the **93.7th percentile of all 1,820 size-4 subsets** (rank 1707/1820, exhaustive) |
 
+> ⛔ **AND CLAUSE ② CANNOT BE REPAIRED BY RESTATING IT RELATIVELY (R359).** The clause is
+> stated ABSOLUTELY — beat `POOL[0:k]`, a level every judge rescales — and the definition
+> admits **5 arms at 2B and 0 at 0.8B**. Self-normalising it (*beat the p-th percentile of the
+> blind class as scored by whatever judge is in use*) changes **nothing at matched strictness**:
+> at the published reference's own **93.7th** percentile the two forms give **9 vs 9** at 2B and
+> **0 vs 0** at 0.8B, on 42 arms. The relative form admits arms at 0.8B only for p = 50–75,
+> every one **below 93.7 by construction** — a lower bar, not a better definition.
+> **The judge-dependence is in the ARMS' ORDERING** (R356/R357 measured one family inverting),
+> and a reference sits above an ordering without being able to reorder it. A judge-invariant
+> definition needs a judge named inside its text, or a different observable.
+
 **Clause ② is the binding one** (R347), so the second row is the one that matters: **the entire
 admitted set rests on a reference whose wording admits any blind set and whose implementation is one
 arbitrary slice of one curated pool.** The set moves **7 → 0** across ~0.019 of reference level.

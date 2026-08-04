@@ -4,8 +4,8 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**352 rounds** in **5 epochs** and **24 arcs**, numbered to **R358** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**346 of the 352 carry a
+**353 rounds** in **5 epochs** and **24 arcs**, numbered to **R359** — **53 standing claims, 13
+withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**347 of the 353 carry a
 non-smoke result**, and the six that do not are named by
 [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
 which is why this line is recounted from the gate rather than incremented by hand.)
@@ -407,6 +407,23 @@ more violations* — **failed in sign** (4 vs 18), and my first repair failed to
 explained it the **normalised** rates would match, and they are **0.53× and 0.60×**. That residual is
 **named, not closed**. Replication rests on the k-overlap, never on a count comparison.
 → [`R358`](E05_the_space_of_compilers/A24_what_the_definition_costs/R358_does_the_closure_defect_replicate_at_the_second_judge)
+
+**And clause ② cannot be repaired by restating it relatively — the judge-dependence is in the ARMS,
+not the reference.** The definition admits 5 at 2B and 0 at 0.8B, so it has no judge-invariant
+content. The obvious fix is to state clause ② **self-normalising** — beat the p-th percentile of the
+blind class *as scored by whatever judge is in use* — instead of beating one fixed criterion set
+whose level every judge rescales. **At matched strictness it changes nothing:** R331 puts the
+published reference at the **93.7th percentile**, and there the two formulations are
+indistinguishable — **9 vs 9 at 2B, 0 vs 0 at 0.8B**, on 42 arms. The relative form *does* admit arms
+at 0.8B for p = 50–75, but every one of those bars is **below 93.7 by construction**, and reading a
+lower threshold as a better definition is the trap this round was most likely to fall into. **There
+is no percentile at or above the published strictness at which the second judge admits a single arm,
+under either formulation.** This matches R356/R357: a reference sits *above* an ordering and cannot
+*reorder* it — so a judge-invariant definition needs a judge named inside its text, or a different
+observable. ⛔ And I twice declined validated evidence: 30 of the 42 arms reach 0.8B by a path R301
+**parity-controlled** (Δ +0.00131 vs MDE 0.01193, `parity_can_fail: True`), and refusing it left v1
+with 12 arms and **not one defined percentile**.
+→ [`R359`](E05_the_space_of_compilers/A24_what_the_definition_costs/R359_can_clause_two_be_made_judge_invariant)
 
 **Three statements about the published reference, not four — and I had been counting one of them
 twice.** They are also not one finding arriving by three routes, which is what I expected to find:
