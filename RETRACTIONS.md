@@ -11397,3 +11397,33 @@ worth more than the gate would have been.**
 
 ⭐ **Third declined instrument this session, and the first declined by a rule rather than by
 inspection.** That is the difference between a lesson and a control.
+
+## 345 · "The rule has only ever blocked" is false — and the audit I wrote to test it scores a declined gate at 4/5
+
+**Two findings, and the second voids the instrument that produced the first.**
+
+**① The claim is false.** `assurance/next_line_quantifiers_are_computed.py` clears the five-step rule
+and did so **before the rule was written**: positive controls drawn from **real git history** (three
+commit bodies this session proved false, all flagged), a negative control (four NEXT lines citing
+their source, none flagged), a **deterministic crc32-ordered sample**, and a base rate measured and
+re-measured — **61% → 34% → 35% → 37%**, each move forced by a case it got wrong on real data.
+**It has fired three times since, twice on my own commits.** So the rule permits; I had simply never
+looked.
+
+**② The audit that established ① is void, and its own output says so.** I scored every gate carrying
+a positive control against the rule's five steps — by **keyword**. It ranks
+`_one_home_per_claim_UNVALIDATED` at **4/5**: the gate I declined **last round** precisely because its
+positive control **could not run**.
+
+⛔ **A keyword scan cannot distinguish *"declares a positive control"* from *"has one that fires."*
+That is the instrument/claim mismatch for the sixth time this session, committed while auditing
+compliance with the rule against exactly that mismatch.** Fourth declined instrument this session.
+
+⭐ **What survives is ① on different evidence: not the keyword score, but the gate's BEHAVIOUR** —
+controls that demonstrably fire and refuse, a rate that moved when reality corrected it, and three
+real catches. **A rule is shown to permit by an instrument that works, never by a scan that says the
+right words.**
+
+⚠ **And the honest reading of the 14 gates the audit listed: their compliance is UNVERIFIED.** Some
+almost certainly clear the rule; the audit cannot say which. **Establishing that needs each gate's
+controls run and observed, which is fourteen small experiments, not one grep.**
