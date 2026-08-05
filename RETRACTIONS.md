@@ -15065,3 +15065,43 @@ not a per-round measurement.** 43 is measured; 77 is context.
 wrong is **not decidable** — each took a full round to find. **The share that make such a claim is
 the measurable part.** ⛔ And #234 itself: R632's broken reader was the **ledger** test, not a
 verdict-key reader.
+
+## 596 · "Re-runs are expensive" was an uncomputed cost used to justify a proxy
+
+The closing line said *"both remaining directions are re-runs and re-runs are expensive, so the cheap
+decisive question first."* **The cost was never measured.** That is the fabricated-wall shape: an
+asserted expense that makes substituting a proxy for the direct measurement feel earned, and a wall
+nobody audits because stopping already feels justified. ⚠ Also *"both remaining directions"* — a
+universal over a set never enumerated.
+
+## 597 · And I refuted it with the cost of a CRASH
+
+First attempt: all 43 rounds "ran" in **0.1 s each**, and I wrote that *"expensive was false by three
+orders of magnitude."* They were not running — under the system python every one exits 1 on
+`ModuleNotFoundError: numpy`. **I measured the cost of failing and called it the cost of doing.**
+Re-run under the project venv, the batch **exceeded a 2-minute foreground timeout**, so the true cost
+is larger than either number I quoted. ⭐ *A refutation built on a broken run is not a refutation.*
+
+## 598 · A load failure is an environment claim — one step from "43 rounds do not execute"
+
+`ModuleNotFoundError: numpy` under the system python read exactly like a corpus-wide reproducibility
+collapse. **The project ships `.venv` on miniforge 3.13.13 with numpy 2.4.6, and the rounds import
+fine under it.** ⭐ **The alarming reading was available, cheap, and wrong** — and it would have been
+the most quotable sentence of the round.
+
+## 599 · Half the corpus "runs instantly" under the wrong interpreter
+
+**155 of 312 rounds (50%) import numpy, torch, scipy or sklearn.** Under the system python every one
+exits 1 on import in ~0.1 s. ⭐ **A 0.1 s exit-1 is indistinguishable from a fast successful run if
+you only time it** — which is exactly the mistake entry 597 records, and it was available across half
+the corpus.
+
+## 600 · Right for the wrong reason, twice in one session
+
+R633: *"`statement_provenance` was repaired three times"* — read off code comments, and git showed
+exactly 3. R636: *"re-runs are expensive"* — asserted with no measurement, then "refuted" by timing
+crashes, and the honest re-run **exceeded a 2-minute foreground timeout and is still running.**
+
+⭐ **Both claims were unjustified when made and closer to true than the refutations I built.** *A
+memory that happens to be right is the worst case, not the best: it survives, it gets quoted, and
+nothing in the process distinguishes it from the memories that are wrong.*
