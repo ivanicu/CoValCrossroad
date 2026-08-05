@@ -1,0 +1,18 @@
+{
+  "world": "B",
+  "extension_rows": [
+    2
+  ],
+  "gaps": [
+    {
+      "row": 2,
+      "names_target": true,
+      "names_baseline": false
+    }
+  ],
+  "axes": {
+    "target": "5 at A2, EMPTY at A1 (R558)",
+    "baseline": "extension moves 4 -> 8 across the class (R527)"
+  },
+  "finding": "one marker, two conditions"
+}

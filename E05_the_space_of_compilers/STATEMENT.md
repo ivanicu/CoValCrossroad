@@ -88,7 +88,7 @@ constant; the cell carries what varies. **That is the shape the column was missi
 | # | claim | scope it holds over |
 |---|---|---|
 | **1** | The definition is **② ∧ ③**. ① and ④ are retired — neither excludes anything ② has not *(R519)* | R294's 41 arms, home judge, 968 prompts |
-| **2** | ③ is **three clauses, not one**: ③-rank (extension **5**†), ③-any (**0**†), ③-judge (**0**†) *(R529, R534)*. **† AT THE `A2` TARGET — at `A1` the extension is ∅; see the scope table above** *(R558, R578)* | the same 41 arms; ③-any and ③-judge coincide *here* only because no ②-passer reads satisfaction |
+| **2** | ③ is **three clauses, not one**: ③-rank (extension **5**†), ③-any (**0**†), ③-judge (**0**†) *(R529, R534)*. **† CONDITIONED ON TWO AXES, not one** *(R579)*: **at the `A2` target** — at `A1` the extension is **∅** *(R558)* — **and at the `POOL[0:4]` baseline**, across whose reference class the extension moves **4 → 8** *(R527)*. Both resolve at the scope table above. | the same 41 arms; ③-any and ③-judge coincide *here* only because no ②-passer reads satisfaction |
 | **3** | ②'s baseline is a **choice** — `POOL[0:4]` by file order, at **percentile 93.7** of its 1,820-subset class *(R527)* | k=4 arms; the extension moves **4 → 8** across the class |
 | **4** | Read literally, ②'s own wording (*"the best"*) **empties the definition** — at p100 the four arms ② admits are the four ③ excludes *(R528)* | k=4 arms; `coval_core` survives 7 of 8 specifications |
 | **5** | Weight-reading is worth **+0.0726 at k=4**, decaying **monotonically to exactly 0 at k=all** *(R533)* | 968 prompts, 3 seeds; the k=all zero is a **derivation** |

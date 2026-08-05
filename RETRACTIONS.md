@@ -13237,3 +13237,24 @@ My closing line said the deliverable had gone untouched for **fourteen** rounds.
 --count` against `STATEMENT.md`'s last commit returns **11**. Overstated by three, in the sentence
 whose whole point was that the imbalance had grown too large — **the direction that makes the
 argument stronger.**
+
+## 434 · A marker that names one of two conditions is worse than no marker
+
+R578 added `†` to row 2's extension counts, naming the **target** axis: **5 at `A2`, ∅ at `A1`**
+*(R558)*. **The same number is also baseline-conditional** — R527 measured it moving **4 → 8** across
+the `POOL[0:4]` reference class — and the marker was silent on that.
+
+⭐⭐⭐ **A marker is an enumeration, not a checkbox.** One that stops at the first item is **worse
+than none**, because the row now *looks* conditioned: a reader who sees `5†`, follows it, and finds
+*"at A2"* has been told the scope is handled. **Silence invites the question; a partial answer closes
+it.**
+
+**Landed:** the marker names both axes, each resolving at the scope table.
+
+⚠ **Not established: whether a THIRD axis conditions it.** R560 named four G1 dimensions and
+**population and regime were not tested here.** The same enumeration failure would look identical
+from the outside — which is the reason this entry exists rather than a note saying it is now fixed.
+
+⭐ **And the instrument was discriminating, not uniform**: 1 row states an extension, 2 name a
+baseline without stating one, 7 name neither. **Four distinct states across ten rows** — the check
+R575 taught me to run before writing any verdict.
