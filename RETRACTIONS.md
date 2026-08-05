@@ -12305,3 +12305,42 @@ not an install, and it is named rather than guessed.**
 
 ⚠ **Process, fourth occurrence: R547 was built, run, and left uncommitted until this round.**
 Reporting is not committing.
+
+## 373 · Six reported-but-uncommitted rounds, logged five times and never instrumented
+
+**R542, R544, R547, and R549 were each built, run, and REPORTED — then left uncommitted until the
+following round noticed.** I logged it as a process note **five times**. It kept happening.
+
+⭐⭐⭐ **That is exactly the shape every other gate here exists for, and I had been writing sentences
+instead of a check.** *"Reporting is not committing"* was true each time and changed nothing,
+because **a sentence in a ledger is not an instrument.**
+
+**`assurance/every_round_is_committed.py`** — every `RNNN_*` directory under an `ENN/ANN` path must
+have at least one file in `git ls-files`. **It fired on its first run, on its author's own live
+defect: 1 untracked of 541.** Positive control: 540 tracked, so it can distinguish. Negative
+control: an invented round path reads untracked.
+
+**Proxy ledger, stated:** untracked ⇒ uncommitted is **sound**; tracked ⇒ *fully* committed is
+**not claimed** — a tracked directory can still hold unstaged edits, which `git status` covers and
+this does not. **It is added as the sixth clause of the commit conjunction, and the staging must
+happen before the check or the gate is checking the wrong index.**
+
+⭐ **The general form, and it is the one this whole session keeps re-learning:** a failure that
+recurs after being named is not a discipline problem, it is a **missing instrument**. The ledger
+records; only a gate refuses.
+
+## 374 · No on-site register row is compute-bound
+
+**R549:** of the three on-site requirements, **none** is blocked by compute. Row 2's offload path is
+blocked by `device_map="cuda"` hard-coded at `covalx/judge.py:169`; its quantisation path by an
+install; and rows 3+4 (nested, R546) by the absence of `--model` and by `FEWSHOT` being a constant.
+**The register prices all of them in compute.**
+
+⭐ **And the asymmetry that explains this session's economics:** `judge_core.py` **does** expose
+`--model`, which is why R536's cross-judge replication and R537's dose-curve replication were
+**reanalyses rather than edits**. **The flags that already exist decide which questions are cheap,
+and the register shows none of that.**
+
+⚠ **Scope correction to my own closing line**, which said *"four rows, every one gated by a flag"*:
+after R546's nesting there are **two** on-site requirements, and **rows 5–7 are not flag-gated at
+all** — they need another site or a decision.

@@ -1,0 +1,21 @@
+{
+  "rows": {
+    "row 2 (offload path)": {
+      "blocker": "missing flag",
+      "evidence": "covalx/judge.py hard-codes device_map=\"cuda\": True; no device_map/max_memory flag in judge_core.py: True",
+      "compute_bound": false
+    },
+    "row 2 (quantisation path)": {
+      "blocker": "an install",
+      "evidence": "bitsandbytes/optimum/auto_gptq/awq all absent (R548)",
+      "compute_bound": false
+    },
+    "rows 3+4 (nested, R546)": {
+      "blocker": "missing flag",
+      "evidence": "generate_core.py has no --model and FEWSHOT is a constant: True; do_sample=False so a re-run is byte-identical (R544)",
+      "compute_bound": false
+    }
+  },
+  "n_compute_bound": 0,
+  "world": "B"
+}
