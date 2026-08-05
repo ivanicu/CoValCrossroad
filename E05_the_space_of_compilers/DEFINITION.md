@@ -3618,3 +3618,24 @@ threshold of 4.7615, a gap of more than eight sampling standard deviations of th
 sample size of nine hundred and sixty eight, and the crossing probability is zero at every seed. The
 exclusion is a property of the arm. The crossing probability assumes the per-prompt differences are
 normal, which this artifact cannot check; the distance in sampling standard deviations does not.
+
+## R726 · the collapse is structural, and the check that established it was smaller than it looked
+
+The previous round found no disagreement between the interval-based admission rules and the
+threshold on the ratio of effect to standard error, and left open whether that zero was a property
+of the rules or of where these particular arms happen to sit. It is a property of the rules. The
+ratio of the two standard error estimates runs from 0.9478 to 1.0691 across eighty two cells, and
+the interval of the statistic within which the two constructions can disagree is 0.237796 wide at
+the interval reading and identically wide at the strict reading, the equality holding by algebra
+because both boundaries move with the same coefficient. No cell falls inside either interval and
+none would change verdict at the adverse end of the observed range. A dose response multiplying the
+spread by nought, a half, one, two and four gives widths that are monotone and exactly zero at
+nought, with the first occupancy appearing only when the spread is doubled, so the design's
+resolution is stated as a factor rather than asserted as safety. Two qualifications belong with
+this. The range used is a minimum and a maximum over eighty two draws, which are extreme order
+statistics; the fifth to ninety fifth percentile range gives 0.172352, and the difference between
+those two spreads is the floor. And of the four hundred and ten checks the previous round reported,
+only one hundred and sixty four had a boundary that could move at all, because three of the five
+readings never touch the interval estimate; the other two hundred and forty six could not have
+disagreed however the data fell. The zero stands, over a failable population smaller than the one
+it was quoted against.

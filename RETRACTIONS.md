@@ -18168,3 +18168,23 @@ probability is zero at all three seeds. The suspicion was registered as a failab
 before the measurement and it failed. The qualification stands as a property of the arm. Recorded
 here because a proposed attack that quietly evaporates leaves a next-step line in the history that
 later reads as an open question, and this one is closed.
+
+## 942 · "zero mismatches over 410 checks" was quoted against a population that could not have produced 410 failures
+
+R725 verified that five admission readings reduce to thresholds on one statistic by checking all
+eighty two cells under all five, and reported no disagreement. Only two of the five readings have a
+boundary that depends on the interval estimate at all; the point reading, the resolution reading and
+the round's own conjunction are functions of the analytic standard error alone and could not have
+disagreed however the data fell. So the failable population was one hundred and sixty four, not four
+hundred and ten, and the check's severity was overstated by a factor of two and a half. The zero
+itself survives on the smaller population. What is corrected is the denominator, which is the part
+that made the number sound decisive.
+
+## 943 · a registered point prediction missed while its interval passed, and the interval is what made that comfortable
+
+R726 registered that three of eighty two cells would fall inside the disagreement zone; the measured
+count is zero. The registered interval was nought to eighty two, so the point passed its own test
+while the prediction was wrong by its whole content. A wide interval is the right instrument when
+the quantity is genuinely unknown, and it is also an instrument that cannot score calibration.
+Recorded because the alternative — reporting the interval pass and moving on — is how a sequence of
+registered points comes to look like a sequence of confirmations.

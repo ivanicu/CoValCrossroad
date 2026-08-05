@@ -395,7 +395,12 @@ set is the answer of **15 of 25** clause-①② rule combinations. **So the prod
 not a derivation.** ⛔ **But those 25 combinations are 16** *(R725)*: `mde = ZEFF·sd/√n` and the CI is
 a bootstrap of the same mean, so the five readings are **four thresholds on one statistic** `t =
 eff/SE` — and R294's own rule is identical to `eff ≥ mde`. The algebra is confirmed on the artifact
-with **0 mismatches over 410 checks**. **The 100 cells overstate the dimensionality explored.** ⛔ **But the released core is not invariant:** every reading requiring clause ②'s
+with **0 mismatches over 410 checks**. **The 100 cells overstate the dimensionality explored.**
+⛔ **And that 410 overstates its own severity** *(R726)*: only **2 of the 5 readings** have a boundary
+that moves with the interval estimate, so **246 of the 410 checks could not have failed** and the
+failable population was **164**. The zero stands over the smaller population — the disagreement zone
+is **0.237796** wide, **no cell of 82** falls inside it, and the SE spread would have to **double**
+before one did. ⛔ **But the released core is not invariant:** every reading requiring clause ②'s
 *whole interval* above resolution — rather than its point estimate — **excludes `coval_core` and
 admits `topw_k6` alone**. Its clause-② interval clears zero and its effect clears the MDE, but its
 lower bound does not. **Membership of the core in its own extension is a choice of reading.**
