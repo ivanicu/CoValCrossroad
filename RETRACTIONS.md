@@ -15666,3 +15666,38 @@ simultaneously — **a mis-specified estimand propagates to every surface at onc
 R653 v1 printed *"D1=59 is **close to** the real count"* on a 27.1% figure. ⛔ **`close` was typed,
 not computed** — §4's `the verdict string is not a computation`, and the fourth instance in this arc.
 Repaired to derive the descriptor from the measured share against printed thresholds.
+
+## 669 · "Nothing else in this arc has been exact" — five exact results preceded it
+
+R653's NEXT claimed n=4 makes an answer *"exact rather than a bound, which nothing else in this arc
+has been."* ⛔ **False.** R649's head-vs-tail over every over-cap file (4, exhaustive, 0 flips);
+R651's census replication; R651's join addressability (0 ambiguous); R653's vacuous guard (0 over
+59); R653's kill check (0). **All five are mine and all five are in the four rounds immediately
+before the sentence.** §4's tell — a quantifier over my own work.
+
+## 670 · An artifact that records different numbers than the control that passed
+
+R651's `inter_vs_intra.json` persists `sites_mine: 355, sites_published: 354` — **the distinct-key
+counts its own multiset repair exists to reject** — while the control that ran and passed compared
+**364 to 364**. ⛔ The report was right and the artifact was not, and R654 read the artifact and
+quoted 355/354 as the replication. **An artifact is what a later round attacks; when it disagrees
+with the report, the report is not reproducible.**
+
+## 671 · Re-running a round to fix its artifact destroyed the result
+
+Regenerating R651's artifact returned `mine 369 vs published 364` and wrote
+`census_replicated: FALSE` over a passing result. ⛔ **R652 and R653 had joined the corpus, and
+R651's population IS the corpus.** ⭐⭐⭐ **Re-running a corpus-dependent round is a NEW MEASUREMENT,
+not a reproduction.** Measured corpus-wide: **93 of 329 rounds are corpus-dependent, and 71 of the
+83 that record a count do not identify the tree they counted over.** The four number-movements in
+this arc are **one missing stamp, not four lapses of attention**. Artifact restored from git.
+
+## 672 · A stamp detector returned 0 and a sentence was written on the 0
+
+R654 v1 printed *"the corpus stamps its METHOD and not its POPULATION"* while its source-hash
+detector returned **0 across 93 rounds** — a claim that requires the method count to be non-zero.
+⛔ **§P5: a zero from an instrument never shown to return non-zero is silence.** The detector looked
+for `src`/`source_hash`/`src_sha`; the corpus writes **`source_sha` (96)** and **`source_sha256`
+(73)**. Repaired count: **168 source, 38 tree.** ⭐ And the tree stamp hides under a misleading key —
+38 rounds persist `git rev-parse HEAD` as `head`, `revision`, or **`src`**, which reads as *source*
+and is the **commit**. **A key name is not a type.**

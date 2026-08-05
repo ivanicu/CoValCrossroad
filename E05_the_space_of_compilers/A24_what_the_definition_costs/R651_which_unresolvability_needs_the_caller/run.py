@@ -348,7 +348,22 @@ def main() -> int:
     out.mkdir(parents=True, exist_ok=True)
     (out / "inter_vs_intra.json").write_text(json.dumps({
         "world": world, "controls_ok": controls_ok,
-        "census_replicated": same, "sites_mine": len(mine), "sites_published": len(base_sites),
+        # ⛔ ANNOTATED 2026-08-05 BY R654's CHECK #255, NOT REWRITTEN (L81). The two fields below
+        #    persisted `len(mine)`=355 and `len(base_sites)`=354 -- the DISTINCT (round, line) KEY
+        #    counts, i.e. the very quantities the multiset repair above exists to reject. The
+        #    control that ran and passed compared `sum(mine_cmp.values())` to
+        #    `sum(base_cnt.values())`, both 364. So the REPORT was right and the ARTIFACT recorded
+        #    different numbers, and R654 read the artifact and quoted 355 vs 354 as if that were
+        #    the replication. An artifact is what a later round attacks; when it disagrees with
+        #    the report, the report is not reproducible. Original keys kept, correct ones added.
+        "census_replicated": same,
+        "sites_mine_DISTINCT_KEYS_stale": len(mine),
+        "sites_published_DISTINCT_KEYS_stale": len(base_sites),
+        "sites_mine": sum(mine_cmp.values()), "sites_published": sum(base_cnt.values()),
+        "artifact_repair_note": ("the two *_DISTINCT_KEYS_stale fields are the pre-repair "
+                                 "key-collapsed counts that this round's own multiset control "
+                                 "exists to reject; sites_mine/sites_published now hold what the "
+                                 "control actually compared (364 vs 364)"),
         "unresolvable": base["unresolvable"], "classified": len(verdicts),
         "ambiguous_keys": [[list(k), u, f] for k, u, f in ambiguous],
         "inter": len(inter), "intra": len(intra), "inter_fraction": frac,
