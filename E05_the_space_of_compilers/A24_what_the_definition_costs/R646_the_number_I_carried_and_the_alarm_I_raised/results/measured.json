@@ -1,0 +1,22 @@
+{
+  "world": "MEASURED \u2014 the carried figure was wrong on both numerator and denominator",
+  "carried_from_memory": "31 of 59 gates fail on an untouched tree",
+  "measured": {
+    "PASS": 26,
+    "FAIL": 13,
+    "UNRUNNABLE": 4,
+    "ERROR": 3,
+    "denominator": 46
+  },
+  "suite_own_words": "the denominator is 46. A pass count quoted without it is not a coverage claim.",
+  "fail_breakdown": {
+    "LIVE-DEBT": 11,
+    "BY-DESIGN": 1,
+    "CONTROL-BROKE": 1,
+    "proxy_note": "reads messages; may only DEMOTE out of LIVE-DEBT, never promote in"
+  },
+  "false_alarm": "mid-run I read a transient state -- ' D ' entries and a missing STATEMENT.md -- as permanent deletion and killed the suite. The suite self-restores; on completion only 2 paths differed and nothing was lost. STATEMENT.md is 68998 bytes.",
+  "self_match_again": "pkill -f 'run_all.py' killed my own command, whose argv contains the pattern -- the third instance of the R637 self-match trap",
+  "open_debts_enumerated": 7,
+  "impossible": "the debt enumeration is my own reading, the instrument class that under-counted four times in this arc; seven is a LOWER bound"
+}

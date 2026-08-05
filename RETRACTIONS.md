@@ -15398,3 +15398,32 @@ the one that was not checked against the rows it claims to have read.*
 *"Every claim row **currently** reads as unconditional"* rested on R601, and `STATEMENT.md` has been
 appended to by R618, R628 and R631 since. ✓ The same line's *"check first"* was right, which is the
 only reason the edit rests on a measurement rather than a memory.
+
+## 638 · "31 of 59 gates fail" — carried for dozens of rounds, wrong on both numbers
+
+Measured by the suite's own parallel runner: **PASS 26 · FAIL 13 · UNRUNNABLE 4 · ERROR 3, of 46.**
+⭐ **The correction was inside the tool the whole time** — it prints *"the denominator is 46. A pass
+count quoted without it is not a coverage claim."* I carried a figure with **no artifact, no commit
+and no document behind it**, past a tool that prints the right denominator on every run.
+
+FAIL breakdown, which the suite refuses to conflate: **LIVE-DEBT 11 · BY-DESIGN 1 · CONTROL-BROKE 1**,
+the classification marked a proxy that may only demote out of LIVE-DEBT, never promote in.
+
+## 639 · I raised a destruction alarm from a mid-flight snapshot
+
+Mid-run I saw ` D ` entries and `ls` reporting `STATEMENT.md` absent, and reported files being
+deleted. **The suite self-restores**: on completion two paths differed, both its own artifacts, and
+`STATEMENT.md` is **68,998 bytes**. Nothing was lost.
+
+⭐⭐ **Third instance of one family — measuring a process while it runs and reading the transient as
+the state** (R637's timing claims, R636's operator-contaminated control, this). **It is the most
+alarming-sounding of the three, which is exactly why it was reported fastest.**
+
+⛔ And `pkill -f "run_all.py"` **killed my own command**, whose argv contains the pattern — the
+**third** instance of the R637 self-match trap, in the same turn.
+
+## 640 · Check #247 — seven open debts, not two
+
+The closing line named **two** and called the list complete: there are **seven** nameable from the
+record, including the corrected suite state. ⚠ **And the enumeration is my own reading**, the
+instrument class caught under-counting four times in this arc — **seven is a lower bound.**
