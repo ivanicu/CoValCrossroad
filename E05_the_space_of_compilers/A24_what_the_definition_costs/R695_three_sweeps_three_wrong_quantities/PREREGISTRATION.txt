@@ -1,0 +1,29 @@
+R695 · PRE-REGISTRATION
+
+⚠ DISCLOSURE, AND IT IS MOST OF THE ROUND. Establishing feasibility for R694's proposed sham-ceiling
+  question took four probes, and THREE OF THEM RETURNED A FALSE POSITIVE. Those results are already
+  observed and no forecast is scored on them:
+    probe 1 -- "a top-level dict of >=30 arms"      -> found `k`. k is the arm's CRITERION COUNT.
+    probe 2 -- "numeric values keyed by >=2 arms"   -> found `k` again, reported 5/5 pairs complete.
+    probe 3 -- "a FLOAT in [0,1] keyed by arms"     -> found `P_arm`, a POOL-ORDER PROBABILITY.
+                                                       Also reported 5/5.
+    probe 4 -- "a field whose NAME contains a2"     -> 1 of 5 pairs.
+  Each earlier probe was a superset test that matched a DIFFERENT wrong quantity, and each printed a
+  clean "5/5 COMPLETE PAIRS".
+
+WHAT IS BLIND, AND IS REGISTERED
+POINT A     across the whole corpus, a2-named fields carry a value for 12 distinct arms.
+INTERVAL A  [4, 30]  ⚠ the corpus has 42 arms and hundreds of artifacts, so 0-3 and 31-42 are both
+            live and each falsifies this row.
+POINT B     the single assemblable pair is NOT one of the two ② separates.  BINARY, can fail.
+DIRECTIONAL (separately failable) the a2-named coverage is SMALLER than the coverage a
+            "float in [0,1]" test reports -- i.e. the loose test over-reports.
+KILL        if a2-named fields cover all 5 pairs after all, R694's question IS answerable and this
+            round becomes the measurement rather than the impossibility.
+CONTROLS
+  POSITIVE  `arm_a2` in all_annotators.json is KNOWN to hold A2; the name test must find it.
+  g=0       `k` (an int criterion count) must NOT be classified as a score -- the test that failed.
+  NEGATIVE  `P_arm` (a pool-order probability, float in [0,1]) must NOT be classified as A2.
+  PLACEBO   run twice identical.
+IDENTIFICATION LIMIT  a field NAMED a2 is not guaranteed to BE A2. The name test is stricter than
+            the type test and still a proxy; it is the best available without opening every round.

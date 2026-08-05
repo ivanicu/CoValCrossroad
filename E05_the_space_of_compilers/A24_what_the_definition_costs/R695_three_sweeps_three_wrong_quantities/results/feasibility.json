@@ -1,0 +1,77 @@
+{
+  "world": "\u2b50\u2b50\u2b50 A UNANSWERABLE HERE. Only 1 of 5 sham pairs has an A2-named value for both members, and it is [('gen', 'gen_sham')] \u2014 NOT one of the two \u2461 separates. \u2b50 AND THE ROAD HERE IS THE FINDING: three earlier probes each printed '5/5 COMPLETE PAIRS' while matching a DIFFERENT wrong quantity \u2014 `k`, the criterion count, twice; then `P_arm`, a pool-order probability. None was a bug. Each was the right query for a different question, and each was a SUPERSET of the right test, so each matched something real and wrong. \u26a0 Instrument unit: A FIELD NAME. Claim unit: AN A2 MEAN. Not equal \u2014 and a field named a2 is still only a proxy for one. \u2b50 IMPOSSIBILITY, NAMED WITH ITS PRICE: answering R694 needs A2 for 10 arms; producing the missing ones means RE-SCORING sham arms through the judge, and re-running a round destroyed its artifact once in this arc.",
+  "controls_ok": true,
+  "tree_sha": "c9ada0ee8a551988971fb87fbfb07b4528276434",
+  "n_arms": 42,
+  "a2_named_coverage": [
+    "coval_core",
+    "full",
+    "gen",
+    "gen_sham",
+    "generic",
+    "random_k4_s0",
+    "random_k4_s1",
+    "random_k4_s2",
+    "topabs_k4",
+    "topvar_k4",
+    "topw_k4",
+    "topwvar_k4"
+  ],
+  "n_a2_named": 12,
+  "loose_coverage": 42,
+  "pairs": [
+    [
+      "coval_core",
+      "coval_core_sham"
+    ],
+    [
+      "full",
+      "full_sham"
+    ],
+    [
+      "gen",
+      "gen_sham"
+    ],
+    [
+      "promptecho",
+      "promptecho_sham"
+    ],
+    [
+      "topw_k4",
+      "topw_k4_sham"
+    ]
+  ],
+  "assemblable": [
+    [
+      "gen",
+      "gen_sham"
+    ]
+  ],
+  "kill_fired": false,
+  "directional_holds": true,
+  "point_b_holds": true,
+  "registered": "A 12 [4,30]; B the pair is not one \u2461 separates; strict < loose; kill if 5/5",
+  "false_positives": [
+    {
+      "probe": "top-level dict of >=30 arms",
+      "matched": "k (criterion count)",
+      "reported": "hit"
+    },
+    {
+      "probe": "numeric keyed by >=2 arms",
+      "matched": "k again",
+      "reported": "5/5 pairs"
+    },
+    {
+      "probe": "float in [0,1] keyed by arms",
+      "matched": "P_arm (pool-order probability)",
+      "reported": "5/5 pairs"
+    },
+    {
+      "probe": "field NAME contains a2",
+      "matched": "arm_a2 / a2",
+      "reported": "1/5 pairs"
+    }
+  ],
+  "impossible": "answering R694 needs A2 for 10 arms; producing the missing ones means re-scoring sham arms through the judge, and re-running a round destroyed an artifact once in this arc."
+}

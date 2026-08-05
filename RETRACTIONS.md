@@ -16922,3 +16922,34 @@ sentence is written last, after the round's controls have fired and the attentio
 has been released, and that it is the only sentence with no control attached. This is the densest
 evidence for that row anywhere in this corpus** — and the gate catching all three is the reason it is
 visible at all rather than a habit nobody counted.
+
+## 833 · R694's sham-ceiling question is not answerable from the committed artifacts
+Only 1 of 5 sham pairs — `gen/gen_sham` — has an A2-named value for both members anywhere in the
+corpus, and it is **not** one of the two pairs ② separates. So R693's "② separates 2 of 5 sham pairs"
+**stays as measured and cannot be interpreted**: whether the other three are unseparated because ②
+misses a real difference, or because their shams score identically to their arms, is exactly the
+quantity the corpus lacks. **The impossibility is named with its price — producing the missing values
+means re-scoring sham arms through the judge, and re-running a round destroyed an artifact once in
+this arc.**
+
+## 834 · Three probes, three different wrong quantities, each printing "5/5 COMPLETE PAIRS"
+Probe 1 asked for a top-level dict of ≥30 arms and matched `k`, the arm's criterion count. Probe 2
+asked for numeric values keyed by arms and matched `k` again, reporting all five pairs complete.
+Probe 3 asked for a float in [0,1] and matched `P_arm`, a pool-order probability — again all five.
+Only the fourth, testing the field NAME, returned 1 of 5. **None of the three was a bug: each was the
+right query for a different question, and each was a SUPERSET of the right test, so each matched
+something real and wrong.** ⭐ **A loosened search does not fail; it succeeds at something else and
+prints the same shape of answer** — and the shape is what I read.
+
+## 835 · The pre-registration was written after the probes, and says so in its first line
+Three of the four probes had already run when R695's registration was written, so the false positives
+are disclosed as observations and no forecast is scored on them. **What was blind is the a2-named
+coverage: registered 12 on an interval [4,30] over a 42-arm corpus, observed 12, error 0.** ⚠ **A
+point landing exactly is not evidence of calibration when three earlier probes shaped the prior** —
+it is evidence that by the fourth probe I finally knew the corpus.
+
+## 836 · The name test is a proxy and the round says so where the number is stated
+A field named `a2` is not guaranteed to hold A2. Instrument unit: a field name. Claim unit: an A2
+mean. **The three false positives are what the gap between those units looks like when the instrument
+is loosened one notch at a time** — and the fourth test is stricter, not more correct in principle.
+It is simply the one that was controlled.
