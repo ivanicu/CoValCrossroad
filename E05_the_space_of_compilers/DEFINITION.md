@@ -2585,3 +2585,25 @@ the one the row was making.
 ⚠ **Scope: `stronger` remains a proxy.** 2× parameters in the same family is defensible and is not a
 demonstration that the 4B is a *better* judge. What is demonstrated is that it **loads, fits, and
 returns non-degenerate scores** — which is what row 2 said could not be had without an install.
+
+## R556 · Row 5 offered two alternatives and one was already satisfied
+
+Row 5 prices independent replication at *"another site"*, requiring *"a second team **or** a second
+release"*. **The second release is on disk** — `data/utterances.jsonl`, 68.2 MB — and **3 of 376
+artifacts** were computed on it *(R556)*, under `R398_…` · `R427_…` · `R433_…`.
+⚠ Those directory names are **file provenance, not citations**: R398 and R427 predate the
+`world` convention and record `verdict`/`controls` keys instead, so they carry evidence and
+settle nothing. Only R433 has a world. **The count is this round's claim, not theirs.**
+
+⚠ **Two axes, which I nearly conflated and which the register does too.** A *second **judge***
+(`Qwen3.5-0.8B-Base`, used by R536/R537) scores **the same release**; a *second **corpus*** is a
+different release. They discharge different criteria, and only the second is what row 5 names.
+
+**So the row is wrong in KIND rather than in price.** What is missing is not a site — it is a
+**second designer**, and §2.5 states that is dischargeable here by clean-context agents given the
+QUESTION and never the ALGORITHM. ⚠ **Not available this session:** the operating instructions in
+force forbid dispatching agents unless asked, so the remedy is named and **not** claimed as planned.
+
+⚠ **My count was 4 before I read the hits.** The fourth was R550's gate audit, whose amended-rounds
+dict holds the directory name `R399_what_estimand_does_the_second_corpus_admit`. **The instrument
+matched a round's NAME and would have been reported as a corpus RESULT.**

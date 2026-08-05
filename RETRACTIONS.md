@@ -12564,3 +12564,34 @@ The NEXT line said the register *"describes row two's blocked judge as the only 
 available."* **`grep -c "only second judge\|the only judge"` returns 0.** The row never said "only" —
 I supplied the quantifier while paraphrasing, which is the one class of error the NEXT-line gate
 exists for and the one it cannot catch, because the word was in my prose and not in the artifact.
+
+## 389 · Row 5 asked for "a second team OR a second release" — one was already on disk
+
+The row prices independent replication at **"another site"**. `data/utterances.jsonl` is a second
+release, 68.2 MB, and **3 of 376 artifacts** were computed on it *(R556)*, under `R398_…` · `R427_…` · `R433_…`. ⚠ The first two **predate the `world` convention** — they hold evidence and settle nothing, so they are named as file provenance, not cited as verdicts. The provenance gate refused the citation form and was right to.
+
+**The row is wrong in KIND, not in price.** What is missing is a **second designer**, and §2.5 says
+that is dischargeable without another site. ⚠ Agent dispatch is not available under the instructions
+in force this session, so the remedy is **named, not planned** — an unavailability claim in the
+flattering direction is still one.
+
+⚠ **Two axes the register conflates and I nearly did too:** a second **judge** (`Qwen3.5-0.8B`,
+R536/R537) scores **the same** release; a second **corpus** is a different release. Writing them as
+separate strings before designing the control is the only reason judge rounds were not counted.
+
+## 390 · My corpus scan matched a round's NAME and called it a result
+
+The first version counted **4** second-corpus artifacts. The fourth was **R550's gate audit**, whose
+amended-rounds dict contains the directory name `R399_what_estimand_does_the_second_corpus_admit`.
+**The token was in a KEY that is a round name, not in a value that is a data path.**
+
+⭐ **Caught by reading the four hits instead of the number 4** — the same move that has now caught an
+instrument defect three rounds running. **A count is the one output that never reveals its own
+provenance.**
+
+## 391 · "Both rows moved for the same reason" — two mechanisms collapsed into one sentence
+
+My closing line said two register rows had moved *"both because the row named an object instead of a
+property."* **True of row 2. False of rows 3+4**, which moved because I **made the edit** *(R553)*.
+Two different mechanisms — a categorial error and a removed blocker — read as one pattern because
+they landed in consecutive rounds.
