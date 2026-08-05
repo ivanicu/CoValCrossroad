@@ -17995,3 +17995,39 @@ Fixed by reading ③'s extension from **R688's own committed artifact**. **Audit
 ITS object, not a sibling's algebra** — the same error ledger 894 recorded when auditing R685, two
 weeks of rounds apart and caught both times only because the positive control demanded the audited
 round's committed numbers reproduce.
+
+## 927 · R719's proposed rule would have killed the last standing block for the wrong reason
+
+R719 closed by proposing that a retraction anywhere on the page reaches every block citing the
+retracted literal. ⛔ Applied literally that rule yields a residue of **0**. It is too coarse.
+
+**The lineage block cites `R442.published_five` in order to DISTINGUISH its own object from it** —
+its "number 5" is ③'s extension `coval_core, topw_k3, topw_k4, topw_k6, topw_k8`, and the sentence
+containing the literal reads *"Five other five-member arm sets are committed in this corpus and
+denote other objects"*. ⭐ **A block that cites a retracted literal to say it is NOT that does not
+rest on it.**
+
+Role-aware, the residue is **1**: the lineage block. Measured: 3 blocks cite a retracted literal — 1
+as PREMISE (R688, downgraded by R719), 1 as CONTRAST, 1 as the RETRACTION itself.
+
+## 928 · and the real defect was smaller and still real — a stale gloss
+
+The lineage block glosses `published_five` as **"CoVal's publication list"**, which is exactly the
+description R689 retracted, and it does not cite R689. **That is a defect in the PROSE, not in the
+CLAIM.** Corrected on the statement to name it a *retracted* publication list with the retracting
+round cited.
+
+⚠ **Conflating a stale gloss with a compromised claim is the over-kill this round exists to
+prevent**, and it is the mirror of R719's finding: there a retraction reached a claim nobody had
+connected to it; here a retraction reaches only a phrase.
+
+## 929 · my residue replaced R718's criterion instead of adding to it
+
+R720's first version computed the residue as `asserts AND role != PREMISE` and returned **3**,
+counting R701's and R704's blocks — **which R718 had already found amended by later rounds.** The
+registered point of 1 would have landed inside its interval **for the wrong reason**, which is the
+worst way for a registration to pass.
+
+**A new criterion is a CONJUNCT, never a substitute.** With R718's amendment test ANDed back in, the
+residue is **1**. ⚠ And note the shape: I built a better instrument and, in using it, silently
+dropped the one it was meant to improve on.

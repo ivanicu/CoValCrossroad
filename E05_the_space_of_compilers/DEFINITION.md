@@ -3469,3 +3469,37 @@ the three arms R688 excludes; the recomputation returned an empty list against R
 three, the control failed, and the round printed unverified. Reading the extension from R688's own
 committed artifact fixed it. Auditing a round means using that round's object rather than a sibling's
 algebra.
+
+## R720 · Premise or contrast, and what the deliverable still asserts
+
+R719 closed by proposing that a retraction anywhere on the statement reaches every block citing the
+retracted literal. Applied literally that rule leaves a residue of zero, and it is too coarse.
+
+The lineage block cites the retracted five-arm literal in order to distinguish its own object from
+it. Its "number 5" is clause three's extension — coval_core, topw_k3, topw_k4, topw_k6, topw_k8 — and
+the sentence containing the literal reads that five other five-member arm sets are committed in this
+corpus and denote other objects. A block that cites a retracted literal to say it is not that does
+not rest on it.
+
+Measured across the twelve claim blocks, three cite a retracted literal: one as a premise, which is
+R688's falsifier block already downgraded by R719; one as a contrast, the lineage block; and one as
+the retraction itself. The role-aware residue is therefore **one** block, against **zero** under the
+naive rule, so the naive rule over-kills by one.
+
+The real defect in the surviving block is smaller and still real. It glosses the literal as CoVal's
+publication list, the exact description R689 retracted, without citing R689. That is a defect in the
+prose rather than in the claim, and it has been corrected on the statement to name the list as
+retracted with the retracting round cited. Conflating a stale gloss with a compromised claim is the
+over-kill this round exists to prevent, and it is the mirror of R719's finding: there a retraction
+reached a claim nobody had connected to it, here a retraction reaches only a phrase.
+
+Controls: the reading classifies R688 as premise and the lineage block as contrast, two roles that
+can be stated independently of it; blocks citing no retracted literal return no role rather than a
+default; the block recording the retraction reads as the retraction rather than as a victim of
+itself; and removing the contrast markers flips the lineage block to premise, so the markers are the
+ingredient.
+
+The round's own first residue was wrong. It computed asserting-and-not-premise and returned three,
+counting two blocks R718 had already found amended by later rounds, so the registered point would
+have landed inside its interval for the wrong reason. A new criterion is a conjunct rather than a
+substitute, and with the earlier amendment test restored the residue is one.

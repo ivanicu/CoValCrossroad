@@ -362,7 +362,7 @@ A **core** for a conversation is a set of criteria such that
 > **The extension under ③ is ONE set** — `coval_core, topw_k3, topw_k4, topw_k6, topw_k8` — and its
 > **unique producing commit is R294** *(R678: 6 of 6 sets have a unique producer; 4 controls,
 > g=0 included)*. **Five other five-member arm sets are committed in this corpus and denote other
-> objects**: `R442.published_five` is **CoVal's publication list**, `R470.P` and `R509.five` are sets
+> objects**: `R442.published_five` is a **retracted** publication list *(R689: the card names 1 of its 5)*, `R470.P` and `R509.five` are sets
 > **before ③ is applied**, `R404.rubric_rules` holds **rule prefixes**, `R416.arms` is unrelated
 > *(R677)*. Their intersection is **empty**; among extension-claiming sets it is `{coval_core}` alone
 > *(R676)*.
