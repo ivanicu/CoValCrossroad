@@ -10735,3 +10735,26 @@ read it.
 ⚠ **Corrections now applied for real** and verified by re-reading the file: the *"no second release"*
 line carries R489's correction, the *"③ is not decidable"* line carries R475's, and the register names
 **a judge stronger than Qwen3.5-2B** as the binding constraint.
+
+## 323 · "a fifth of the 7B's cost" priced a run and ignored the environment it needs (R492 → R493)
+
+**Retracted.** R492 closed by proposing to judge the 2B at int8 to de-confound the comparison, calling
+it *"a fifth of the 7B's cost"* and *"a one-arm pilot rather than a full re-judging."*
+
+**That prices GPU time and nothing else.** `bitsandbytes` is **ABSENT**; so are `optimum`,
+`auto_gptq` and `awq`. The route is: install a **compiled CUDA package** against **capability 12.0
+Blackwell + torch 2.11.0+cu128** — a combination with a recorded history of trouble on this box —
+**into the shared `.venv` every committed number's harness runs on**, then modify `covalx.judge.Judge`,
+then re-judge the 2B.
+
+⭐ **The cost I quoted was the only cost I could see from inside the round.** GPU-hours are visible
+because pueue reports them; an install that could break the instrument behind every prior result is
+invisible until someone asks what the flag needs. **A cost estimate that counts only the resource the
+round happens to meter is not an estimate, it is a receipt for one line item.**
+
+⚠ **And it compounds R492's own lesson.** That round already found the fix was a confound rather than
+a configuration. This finds the confound's fix is an environment change rather than an install.
+**Two rounds, two layers, and each looked like the last one from where I was standing.**
+
+**The register now states what the capability would require rather than that it is unavailable** —
+which is §2's actual instruction, and the difference between a wall and a specification.

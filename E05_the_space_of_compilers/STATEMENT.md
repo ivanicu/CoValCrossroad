@@ -172,6 +172,14 @@ silence. **2 of the 3 aggregators that can see k, not 2 of 5.** *(R481)*
 > and it makes the 7B a different instrument from the bf16 judges every committed number uses,
 > confounding SIZE, FAMILY and PRECISION at once.** The register entry is therefore *present,
 > not runnable at this precision*, which is neither *absent* nor *available*.
+> ⛔ **AND WHAT IT WOULD ACTUALLY REQUIRE, priced (R493):** `bitsandbytes` is **ABSENT**, as is
+> every other quantisation path (`optimum`, `auto_gptq`, `awq`). So the route is: install a
+> **compiled CUDA package** against **CUDA capability 12.0 (Blackwell) + torch 2.11.0+cu128**,
+> **into the shared `.venv` that every committed number's harness runs on**; add a quantisation
+> knob to `covalx.judge.Judge`; and **re-judge the 2B quantised** so the comparison is not
+> three-axis. ⭐ **This is not a download — it is an environment change whose blast radius is
+> the instrument behind every committed result**, which is precisely the kind of cost §2 asks a
+> register to state instead of the word *planned*.
 > ⛔ **Third wall this session that was false when checked** — after
   > R475 (the dataset card) and R489 (the second release). All three were claims about the SITE
   > asserted right after correctly checking the RECORD.
