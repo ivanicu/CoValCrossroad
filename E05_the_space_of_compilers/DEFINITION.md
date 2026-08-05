@@ -2055,3 +2055,25 @@ neither demonstrably above the admitted set."**
 **Controls:** arm vs itself equal, `coval_core` vs `generic` unequal (positive); a shuffled copy
 compares unequal, so the test is order-sensitive (negative). **Exact equality has no noise floor,
 which is why it is the right instrument and a four-decimal agreement was the wrong one.**
+
+---
+
+## R524 · The tag population is 56 tags and 46 objects
+
+Partitioning all 56 home-judge tags under **exact** saturation-matrix equality: **46 distinct
+objects, 10 duplicate tags in 8 classes.** Controls: the partition recovers **4/4** of R523's
+hand-found identities (positive); `coval_core` ≠ `generic` and a shuffled copy does not match its
+original (negative, order-sensitive).
+
+⭐⭐⭐ **Most of the collapse is intentional and that is why it went unseen.** `topw_k4_det{A,B}` is
+a determinism check whose correct outcome is byte-identity; `random_k4_s{0,1}_ctlS{0,1}` are control
+tags; `generic_reprov` is a re-provenance run. **They are supposed to be duplicates. Only their
+effect on denominators is a defect.**
+
+**What moves:** R436's *"0 of 56 excluded at J"* has a denominator of **46 objects** — the **zero is
+unchanged**. **What does not:** R518's per-arm margins (4.90×–8.65× MDE) and R519's *"③ removes 4 of
+9"*, since R523 measured **0** alias pairs among R294's 41.
+
+⚠ **One flag:** `random_k4_s1` — R516's null — has a byte-identical twin tagged `_ctlS1`. The null
+stands, but **a tag named as a control that is the same object as what it controls cannot control
+anything**, and nothing in the name says so.

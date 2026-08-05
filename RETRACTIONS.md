@@ -11817,3 +11817,38 @@ available and free.** "Matches to four decimals" is a tolerance, and a tolerance
 an alias pass as a distinct object. **Populations of tags are not populations of objects, and
 nothing in a filename says which one you have.** The check is `np.array_equal` on the artifacts and
 it costs nothing.
+
+## 357 · Every denominator taken from the home-judge population was a tag count: 56 tags, 46 objects
+
+**R523 found six tags naming three objects. Partitioning the whole population under exact
+saturation-matrix equality: 56 tags → 46 distinct objects, 10 duplicate tags in 8 classes.**
+
+| class | tags |
+|---|---|
+| `topw_k4` = `topw_k4_det{A,B}` | 3 |
+| `oracle_k4` = `oracle_k4_oracle_k{A,B}` | 3 |
+| `random_k4_s0` = `..._ctlS0` · `random_k4_s1` = `..._ctlS1` | 2 each |
+| `generic` = `generic_reprov` · `coval_core_2b{A,B}` | 2 each |
+| `greedy_k4_greedy_k{A,B}` · `indep_k4_indep_k{A,B}` | 2 each |
+
+⭐⭐⭐ **Most of the collapse is INTENTIONAL, and that is precisely why it survived unexamined.**
+`_detA/_detB` is a determinism check whose correct outcome *is* byte-identity; `_ctlS0/_ctlS1` are
+control tags. **They are supposed to be duplicates. What is a defect is only their effect on
+denominators — and nothing in a filename distinguishes a deliberate replicate from an accident.**
+
+**What moves:** R436's *"0 of 56 excluded at J"* has a denominator of **46**; the zero is unchanged.
+**Any denominator drawn from this population is overstated by up to 10.**
+
+**What does not move**, checked rather than assumed: R518's per-arm margins (4.90×–8.65× MDE) are
+not counts; R519's *"③ removes 4 of 9"* rests on R294's 41, where R523 measured **0** alias pairs.
+**The definition ② ∧ ③ is untouched.**
+
+⚠ **And one live flag: `random_k4_s1` — the null R516 used — has a byte-identical twin tagged
+`_ctlS1`.** The null itself is fine. But **a tag named as a control that is the same object as the
+thing it controls cannot control anything**, and only an identity test says so.
+
+**Controls that make this admissible:** the partition recovers **4 of 4** identities R523 found by
+hand (positive — a partition missing one would not be sensitive enough for the rest);
+`coval_core` ≠ `generic` and a shuffled copy does not match its original (negative, so the test is
+order-sensitive rather than a multiset comparison). **Exact equality has no noise floor, which is
+why it is the right instrument for an identity question and a summary statistic never was.**
