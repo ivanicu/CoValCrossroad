@@ -31,7 +31,7 @@ Table of contents only. Each round's README states its design; the finding lives
 | [`R10`](R10_attribution_robustness) | R10_attribution_robustness | 1 |
 | [`R11`](R11_backbone_control) | R11_backbone_control | 1 |
 | [`R12`](R12_response_set) | R12_response_set | 2 |
-| [`R13`](R13_seed_vs_writein) | R13_seed_vs_writein | 3 |
+| [`R13`](R13_seed_vs_writein) | R13_seed_vs_writein | 2 |
 | [`R14`](R14_paraphrase_gauge) | R14_paraphrase_gauge | 1 |
 | [`R15`](R15_indistribution_transfer) | R15_indistribution_transfer | 1 |
 | [`R16`](R16_minority_regret) | R16_minority_regret | 1 |

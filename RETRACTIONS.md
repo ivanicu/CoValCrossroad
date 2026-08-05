@@ -13554,3 +13554,65 @@ recur in later rounds' artifacts, not merely in later prose.
 ⚠ **Four are unaccounted and are not yet a defect.** An absent value may sit in a sibling round, in a
 derived quantity, or under a differently-named key. **They are four specific checkable pairs rather
 than a diffuse worry, which is the whole gain from turning a corpus question into per-value ones.**
+
+## 454 · Three of R590's four orphans were never defects
+
+**R590 reported four values cited to rounds whose artifacts do not hold them. Three of the four were
+wrong, each for a different reason, and only `0.0200` survives.**
+
+- **`0.5404` — R590's bookkeeping.** The document writes *(R475, R485)*; R590's record holds `[475]`.
+  R485's artifact contains `"ceiling": 0.5404` **verbatim**. ⚠ **And the specification curve prices
+  the alternative explanation out:** prefix matching finds R485 in every cell, so this was **not** the
+  matcher — R590 truncated a two-round citation to one. **Fourteenth instance this session of the
+  string-handling class, and the first where the defect was in what was RECORDED rather than matched.**
+- **`0.0779` — grounded as a derived difference.** R535 holds `topw_k4.a2 − topvar_k4.a2 = 0.077890`,
+  and the two arms are **named** for the two things the sentence compares (*reads weights* / *reads
+  spread*).
+- **`0.5451` — the estimand was false.** The sentence reads *"returns **0.5458** against this
+  campaign's **independently committed** human ceiling of **0.5451**"*, and R479 holds
+  `single = 0.54584879`. **A citation attaches to a CLAIM, not to every decimal in the sentence.**
+  Both R590 and this round's v1 assumed containment of every decimal, which no citation convention
+  has ever promised.
+
+## 455 · The one that is real, and what it does not touch
+
+**`0.0200` is CONFIRMED UNGROUNDED** — absent from R514 and R515 in `results/` **and** in both
+READMEs, and unreachable from their stored numbers by any pairwise combination. **The same clause's
+`+0.0582` is also absent**: R515 stores `mean_gap = 0.05774886` and its own README says **0.0577**.
+
+⚠ **The verdict the decimals decorate is untouched.** `⛔ DELETABLE` for clause ① rests on
+`n_pass2_fail1 = 0` and `n_arms = 41`, both in R514's artifact. **Annotated in `STATEMENT.md`, not
+corrected** — which run produced `+0.0582` is unknown, and substituting `0.0577` would assert an
+identity nobody has established.
+
+## 456 · My own kill rule was the failure mode the standard names by name
+
+v1 of R591 killed on **`|S(v)| inside [floor_min, floor_max]`** — *min/max of N draws quoted as an
+interval*, §4 verbatim. Near `0.0200` the band was **[2, 30]**, wide enough to swallow any `|S|` a
+real value could produce, and **all four values came back UNRESOLVABLE by construction**.
+
+⚠ **It was also aimed at the wrong quantity.** The estimand is not *"is S(v) unusually large"* but
+*"does S(v) hit a **cited** round more often than a sourceless value would."* Rebuilt as an empirical
+hit-null over 120 synthetic values × 3 seeds: **p_hit = 0.0000 on all four.** *A kill written from
+the shape of the data rather than from the estimand will fire on the wrong axis, and it fires
+confidently.*
+
+## 457 · Presence is not provenance, and in the band that matters it is barely evidence
+
+**R235 persists 10,822 distinct 4-dp values and covers 78.6% of every possible slot in
+`[0.4500, 0.6500]`. R439's 1,820-element distribution covers 83.8% of `[0.5199, 0.5618]`** — exactly
+where every headline A2 lives (0.5404 · 0.5451 · 0.5458 · 0.5640).
+
+⛔ **So a round that persists a bootstrap distribution "contains" almost any number you ask it for**,
+and all four of `0.5451`'s hits *(R235, R332, R355, R439)* are collisions of this kind — grid cells
+and distribution entries, never a human ceiling.
+
+⭐⭐⭐ **Both surviving groundings are SEMANTIC, not numeric.** `"ceiling": 0.5404` is a key whose
+**name** matches the claim's word; `topw`/`topvar` are arms **named** for the compared properties.
+**Numeric presence found nothing that mattered — matching the name did.** This retroactively scopes
+every presence-based check in this arc, R589's bridge included: *a value-membership instrument is
+near-blind in `[0.52, 0.56]`, and that is the only band this campaign reports in.*
+
+⚠ **And R590 could not be audited from its own artifact** — it shipped `README.md` + `results/` and
+**no `run.py`**, so the truncation had to be established indirectly. **A round nobody can re-run is a
+round whose instrument cannot be attacked.**

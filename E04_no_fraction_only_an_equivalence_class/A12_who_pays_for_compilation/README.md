@@ -66,7 +66,7 @@ Table of contents only. Each round's README states its design; the finding lives
 | [`R127`](R127_whose_sign) | r127 -- whose opinion is the minus sign? The signed-rubric advantage, split by evidential basis. | 1 |
 | [`R128`](R128_style_or_content) | style or content | 2 |
 | [`R129`](R129_contested_criteria) | contested criteria | 2 |
-| [`R130`](R130_judge_gauge) | r130 -- the judge's gauge freedoms. Is the satisfaction tensor a measurement or a convention? | 3 |
+| [`R130`](R130_judge_gauge) | r130 -- the judge's gauge freedoms. Is the satisfaction tensor a measurement or a convention? | 4 |
 | [`R131`](R131_who_is_served) | r131 -- who is served by the compilation, person by person, against a within-person floor. | 3 |
 | [`R132`](R132_verbatim_adjudication) | r132 -- the one analysis that settles whether DISAGREEMENT itself gets a criterion dropped. | 1 |
 | [`R133`](R133_the_veto) | r133 -- the veto. A dimension of the release that 132 rounds of this campaign never touched. | 1 |
@@ -76,6 +76,6 @@ Table of contents only. Each round's README states its design; the finding lives
 | [`R137`](R137_batch_gauge) | r137 -- the judge's output depends on WHO ELSE IS IN THE BATCH, and this measures what that costs. | 1 |
 | [`R138`](R138_is_there_a_standard) | r138 -- is there a collective standard to aggregate? Zero model, straight off the release. | 1 |
 | [`R140`](R140_polarity_without_the_judge) | polarity without the judge | — |
-| [`R141`](R141_verification) | r141 -- the three findings that survived, verified across estimands, matchings, clusters and seeds. | 1 |
+| [`R141`](R141_verification) | ⚠ diagnosis added at R340: `delta_mean` and `ci` are different estimators | 1 |
 
 <!-- ROUND-INDEX:END -->
