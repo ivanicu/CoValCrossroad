@@ -17505,3 +17505,27 @@ through. Standing at the end:
 
 ⚠ **And the object has not moved since R703.** The three-clause formulation is where it was. That is
 the cost of this arc, stated plainly rather than folded into the instrument's win column.
+
+## 892 · the gate caught MY next line, one commit after I measured its ceiling — and I pushed anyway
+
+R708's NEXT line said the formulation "has stood unchanged for five rounds while **every round**
+attacked the apparatus around it". ⛔ False at 4 of 5: **R704 attacked the OBJECT** — clause F2's
+unique exclusions over all 42 arms — and its instrument findings were incidental. The accurate
+statement is *four of the five*, and the gate flagged it as `quantifier 'every' over 'rounds'`.
+
+⚠ **Two things about this are worth more than the correction.**
+
+**① The gate works, and this is its third live catch.** One commit after I measured its sensitivity
+ceiling at ~38% and reported that 76% of its flagging survives word-scrambling, it caught a real
+over-claim in my own closing sentence. **A ceiling of 38% is not zero, and the flags that do land can
+be correct.** Nothing in R707 or R708 said otherwise, and it would be easy to read those rounds as
+having dismissed the gate. They did not.
+
+**② I pushed with the gate RED.** My command chain ran the seven gates, printed `ALL GREEN=0`, and
+then ran `git push` — which was never gated on that variable. This is the R694 breach in a new form:
+there the gate was checked and ignored, here it was checked and the check was not wired to the
+action. `--no-verify` is mandatory in this repo, so every gate is advisory unless a human step
+enforces it, and **an unwired check is exactly the "empty population passes" failure applied to my
+own workflow.** The commit is public history and is annotated rather than rewritten; the flagged sha
+is frozen with the reason recording that **the flag was correct and the sentence was wrong**, never
+as excused history.

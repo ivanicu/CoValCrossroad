@@ -1,5 +1,5 @@
 {
- "count": 198,
+ "count": 199,
  "shas": [
   "0039eceb",
   "029e94ad",
@@ -107,6 +107,7 @@
   "8e80f30b",
   "8eb772ac",
   "90b13b9a",
+  "9498c219",
   "9505039e",
   "96d46966",
   "97fcf2dc",
@@ -232,7 +233,8 @@
   "ce763563": "invisible to the pre-R706 extractor: its NEXT paragraph uses a non-colon separator, so this line was never policed when it was written",
   "cf432faa": "invisible to the pre-R706 extractor: its NEXT paragraph uses a non-colon separator, so this line was never policed when it was written",
   "d1a76365": "invisible to the pre-R706 extractor: its NEXT paragraph uses a non-colon separator, so this line was never policed when it was written",
-  "d311ba96": "invisible to the pre-R706 extractor: its NEXT paragraph uses a non-colon separator, so this line was never policed when it was written"
+  "d311ba96": "invisible to the pre-R706 extractor: its NEXT paragraph uses a non-colon separator, so this line was never policed when it was written",
+  "9498c219": "⛔ THE FLAG IS CORRECT AND THE SENTENCE IS WRONG — frozen as an ACKNOWLEDGED VIOLATION, not as excused history. The NEXT line says 'every round attacked the apparatus around it' over R704-R708. R704 attacked the OBJECT (clause F2's unique exclusions on all 42 arms), not the apparatus, so the universal is false at 4 of 5. Accurate statement: four of the five rounds R705-R708 attacked the apparatus; R704 attacked the object and its instrument findings were incidental. Corrected in ledger 892; the commit message is public history and is annotated, never rewritten."
  },
  "r706_note": "R706 widened the extractor from `^NEXT:` to paragraph-initial `NEXT[:.,]`, making 65 commits visible in full history and 26 newly-flagged inside the gate's 400-commit window. ALL 26 were invisible to the OLD extractor -- 0 are new violations; they are pre-existing history the gate could not read. Measured before freezing: loss 0, false positives 0 against 8 real wrapped-prose lines, and the newly-visible flag rate 0.4615 vs 0.2655 is explained by paragraph LENGTH (2.0x longer; length-matched the gap is +0.0908, inside a stratified null, p=0.1933). Frozen as history, not as an acquittal of the sentences themselves."
 }
