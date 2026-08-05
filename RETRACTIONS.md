@@ -11852,3 +11852,41 @@ hand (positive — a partition missing one would not be sensitive enough for the
 `coval_core` ≠ `generic` and a shuffled copy does not match its original (negative, so the test is
 order-sensitive rather than a multiset comparison). **Exact equality has no noise floor, which is
 why it is the right instrument for an identity question and a summary statistic never was.**
+
+## 358 · The fourth false wall, and three "controls" that could not have controlled anything
+
+**`4b5150c` closed calling the duplicate classes' intent *"a question about the generating
+invocations rather than about the artifacts."*** ⛔ **False. `select_core.py`'s `--select-npz` help
+text — in a file I had already read twice this session — makes the prediction directly:**
+
+> *"Five rules consume satisfaction to choose criteria — `topvar_k`, `topwvar_k`, `oracle_k`,
+> `greedy_k`, `indep_k` — so under a second judge those arms **change IDENTITY, not just score**.
+> … The other rules (`random_k`, `topw_k`, `topabs_k`, `full`) are satisfaction-blind and the two
+> specifications **coincide for them exactly**."*
+
+**Fourth wall of this shape this session, and the pattern is unchanged: it needed a read, not a run.**
+
+**Splitting R524's 8 duplicate classes by the source's own rule partition:**
+**3 satisfaction-blind** (`topw_k4_det{A,B}`, `random_k4_s{0,1}_ctlS{0,1}`) — **duplicate is the
+documented correct outcome**; **2 outside the rule families**; and ⛔ **3 satisfaction-CONSUMING**
+(`oracle_k`, `greedy_k`, `indep_k`) — **which the source says should have changed identity.**
+
+⭐⭐⭐ **Three variant runs were designed to change identity and produced byte-identical artifacts.**
+
+**Controls that make that an attribution rather than a guess:** all 3 blind-rule variants ARE
+duplicates, exactly as documented — the source's prediction used as an instrument check, and a
+differing blind variant would have voided the whole partition (positive); and
+`oracle_k4` ≠ `oracle_k4_fit1`, so the consuming family **can** produce distinct objects, making
+identity here a failed run rather than a degenerate family (negative).
+
+⭐ **This gives R523's "alias" a mechanism, and it is worse than an alias.** `oracle_k4_oracle_kA`
+is a **failed variant run**. **The campaign's "six missing label-readers" trace entirely to three
+runs that silently produced nothing new** — the literal misses **2 distinct objects**, and both exist
+only as the residue of a variant that did not vary.
+
+⚠ **AND I WITHDRAW R524's OWN FLAG.** It read: *"`random_k4_s1` — the null R516 used — has a
+byte-identical twin tagged `_ctlS1` … a tag named as a control that is the same object as what it
+controls cannot control anything."* **`random_k` is satisfaction-blind, so that identity is exactly
+what the source predicts.** I flagged it on the **naming convention** rather than on the **rule** —
+a label read as a description, one round after writing that nothing in a filename tells you what you
+have. **The flag was right about three classes and I aimed it at the wrong three.**

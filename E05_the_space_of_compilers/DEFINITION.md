@@ -2077,3 +2077,35 @@ unchanged**. **What does not:** R518's per-arm margins (4.90×–8.65× MDE) and
 ⚠ **One flag:** `random_k4_s1` — R516's null — has a byte-identical twin tagged `_ctlS1`. The null
 stands, but **a tag named as a control that is the same object as what it controls cannot control
 anything**, and nothing in the name says so.
+
+---
+
+## R525 · Three variant runs produced no variant, and the source said they should
+
+**The wall fell first.** R524 called the duplicates' intent *"a question about the generating
+invocations rather than about the artifacts."* **`select_core.py`'s own `--select-npz` help text
+makes the prediction**: the five satisfaction-consuming rules *"change IDENTITY, not just score"*
+under a second selection, while `random_k`, `topw_k`, `topabs_k`, `full` are *"satisfaction-blind
+and the two specifications coincide for them exactly."* **Fourth false wall of the session.**
+
+**Splitting R524's 8 duplicate classes by that rule partition:**
+
+| | classes | reading |
+|---|---|---|
+| satisfaction-**blind** | **3** | `topw_k4_det{A,B}`, `random_k4_s{0,1}_ctlS{0,1}` — **duplicate is correct** |
+| outside the rule families | 2 | `coval_core_2b{A,B}`, `generic_reprov` |
+| ⛔ satisfaction-**consuming** | **3** | `oracle_k`, `greedy_k`, `indep_k` — **should have differed** |
+
+⭐⭐⭐ **So three variant runs were designed to change identity and produced byte-identical
+artifacts — a control that did not control.** Controls: all 3 blind-rule variants ARE duplicates, as
+the source predicts (positive, and a differing blind variant would have voided the partition);
+`oracle_k4` ≠ `oracle_k4_fit1`, so the consuming family can produce distinct objects (negative).
+
+**This gives R523's "alias" a mechanism.** `oracle_k4_oracle_kA` is not a deliberate alias but a
+**failed variant run**. ⭐ **And the campaign's "six missing label-readers" trace entirely to three
+such runs** — the literal misses **2 distinct objects**, both existing only because a variant run
+produced no variant.
+
+⚠ **R524's `_ctlS1` flag is WITHDRAWN.** Those tags are `random_k`, satisfaction-blind, so their
+identity is the documented correct outcome. **I flagged them on the naming convention rather than on
+the rule — a label read as a description.**
