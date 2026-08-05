@@ -34,6 +34,22 @@ HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 A24 = ROOT / "E05_the_space_of_compilers" / "A24_what_the_definition_costs"
 
+# ⛔ THE ANNOUNCED SPLIT WAS "what the next site SHIPS vs what a DIFFERENT EXPERIMENT establishes",
+#    and it is NOT CLEAN: SECOND_JUDGE is a model (shipped) whose use is an experiment; GOLD_STANDARD
+#    could be a dataset or a study; GENERATOR is code whose output needs a run. A partition requiring
+#    judgement on ~30% of its members RELOCATES the mislabelling loophole rather than narrowing it.
+#
+# ⭐ THE SHARPER CRITERION, and it is answerable without taste:
+#       DATA — satisfiable by ADDING ROWS OR FIELDS to a release. Nothing new is executed.
+#       RUN  — requires EXECUTING a model or procedure that does not yet exist.
+#    The consequence is what makes the axis worth having: a DATA requirement can be ASKED FOR; a RUN
+#    requirement must be DONE. Those are different asks of different people.
+AXIS = {
+    "SECOND_RELEASE": "DATA", "MORE_ANNOTATORS": "DATA", "SECOND_FAMILY": "DATA",
+    "SECOND_CORE": "DATA", "CROSS_SPACE_KEY": "DATA", "PROVENANCE_FIELD": "DATA",
+    "SECOND_JUDGE": "RUN", "GENERATOR": "RUN", "INTERVENTION": "RUN", "GOLD_STANDARD": "RUN",
+}
+
 KINDS = {
     "SECOND_RELEASE",      # another corpus with the same object type
     "SECOND_JUDGE",        # a third scoring model, or a second judge PAIR
@@ -108,11 +124,23 @@ def main() -> int:
     print(f"\n  {len(es)} register entries across {len({e['round'] for e in es})} rounds")
     for k in ("REQUIRES", "SCOPE_ONLY", "RESTATES", "BAD_KIND", "UNDECLARED"):
         print(f"    {k:<12} {c[k]:>4}")
+    # every KIND must carry an axis -- a kind added without one is a silent gap, so it is checked
+    unaxed = KINDS - set(AXIS)
+    print(f"\n  AXIS COVERAGE  kinds with no DATA/RUN assignment: {sorted(unaxed) or 'none'}"
+          f"   {'PASS' if not unaxed else '⛔ FAIL'}")
+    if unaxed:
+        return 2
     kinds = collections.Counter(classify(e)[1] for e in es if classify(e)[0] == "REQUIRES")
     if kinds:
         print("\n  declared requirement kinds:")
         for k, v in kinds.most_common():
             print(f"    {v:>4}  {k}")
+    ax = collections.Counter(AXIS[k] for k in
+                             (classify(e)[1] for e in es if classify(e)[0] == "REQUIRES"))
+    print(f"\n  ⭐ DATA vs RUN — what the next site can be ASKED for, vs what must be DONE")
+    print(f"    DATA (add rows or fields; nothing new executed) : {ax['DATA']}")
+    print(f"    RUN  (execute a model or procedure that does not yet exist) : {ax['RUN']}")
+
     # a RESTATES chain must terminate in a real declaration
     byround = collections.defaultdict(list)
     for e in es:

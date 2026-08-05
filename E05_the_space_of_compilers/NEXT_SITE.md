@@ -45,3 +45,26 @@ gap:
 ⚠ **The 54 is a lower bound on the work, not a defect count**: the classifier tests **phrasing**, not
 **content**, so an entry naming a requirement in words the pattern misses is counted against the
 register. The tested figure is **35 explicit**; **46** is the generous reading.
+
+---
+
+## DATA or RUN — what can be *asked for*, and what must be *done*
+
+⛔ The obvious split — *"what the site ships"* vs *"what an experiment establishes"* — is **not clean**:
+a second judge is a model (shipped) whose use is an experiment; a gold standard could be a dataset or a
+study; a generator is code whose output needs a run. **A partition needing judgement on ~30% of its
+members relocates the mislabelling problem rather than narrowing it.**
+
+⭐ The criterion that *is* answerable without taste: **can this be satisfied by adding rows or fields,
+with nothing new executed?**
+
+| axis | kinds | what it means for whoever reads this |
+|---|---|---|
+| **DATA** | `SECOND_RELEASE · SECOND_CORE · SECOND_FAMILY · MORE_ANNOTATORS · CROSS_SPACE_KEY · PROVENANCE_FIELD` | **can be asked for.** A release decision, not a research programme. |
+| **RUN** | `SECOND_JUDGE · GENERATOR · GOLD_STANDARD · INTERVENTION` | **must be done.** Requires executing a model or procedure that does not yet exist. |
+
+**Of the 12 register entries declared so far: 7 DATA, 3 RUN** (2 are `SCOPE_ONLY`). ⚠ 88 entries
+remain undeclared, so this split is over the declared subset and will move.
+
+⭐ **The three precise requirements above are all DATA** — a second core, a cross-space key, and a
+provenance field. **The largest thing blocking this campaign is a release decision, not an experiment.**
