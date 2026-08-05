@@ -18212,3 +18212,24 @@ about skew, and the correlation half is reported as underpowered, which makes it
 rather than an acquittal. The original directional rested on that null and has been restated on the
 powered statistic, where the observed cells show no detectable skew at one point four standard
 errors from zero.
+
+## 946 · the extension is indexed to a population a directory glob no longer returns
+
+R294 selects its arms by globbing the saturation results directory. That directory held forty one
+usable arms when the census was committed and holds ninety two now, because later rounds wrote new
+arms into it for their own purposes. Re-running the same procedure unchanged over today's population
+admits sixteen rather than five. Nothing about the original five moves, and the eleven extra admits
+are objects whose admissibility this round does not adjudicate. What is retracted is the implicit
+claim that "the definition admits five of forty one" names a stable fact: it names a fact about a
+directory listing on a particular day, and the deliverable never said so.
+
+## 947 · my reproduction anchor demanded a match count the design could not return
+
+R728's first version required its re-implementation to match R294's committed verdicts on all
+ninety two arms it rebuilt, when only forty one of those arms appear in the committed census at all.
+The ceiling was forty one and the threshold was ninety two, so the control could not pass, and it
+printed that the round was measuring a different object while the reproduction was in fact exact on
+every arm the comparison contains. This is the sixth control in this arc whose threshold sat outside
+its own achievable band. The tell the standard gives was present and I did not use it: the control
+failed while nothing else about the run looked wrong, and the failure did not localise to a
+mechanism. The repair computes the ceiling as the size of the intersection rather than assuming it.

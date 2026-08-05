@@ -1,0 +1,96 @@
+R728 · the census at sixteen times the resamples
+written BEFORE run.py. DISCLOSED: I have read R294:76-152 to reproduce its construction, and I have
+already computed the at-risk list below from the persisted artifact. That list is therefore not
+blind and is registered as a DERIVATION.
+
+WHY THIS ROUND EXISTS
+   Every round from R680 to R727 read R294's persisted summary. None re-ran the census. R727 showed
+   the disagreement zone is Monte-Carlo error at NBOOT = 1200, a constant in R294:117, and R725's
+   8.29-sampling-SD gap predicts no admission should move if the resample count rises. That
+   prediction has never been put to the object.
+
+ESTIMAND
+   (1) At B = 16x the shipped count, how many of the 41 arms change admission, and does the
+       extension change?
+   (2) THE GENUINELY OPEN ONE: at the SHIPPED B = 1200, how many admissions change if only the
+       BOOTSTRAP SEED changes? If any do, the committed extension is seed-dependent, which is a
+       larger finding than anything about B.
+
+DERIVATION, STATED FIRST
+   R294 admits a clause when verdict(eff, lo, hi, mde) == POS, i.e. lo > 0 AND |eff| >= mde.
+   mde = ZEFF * sd / sqrt(n) does NOT depend on B. Only lo does. So an admission can move with B
+   only where the CI half is the binding one AND lo sits within Monte-Carlo error of zero.
+   The MC sd of the lower percentile is sqrt(.025*.975/B)/phi(1.96) SE units = 0.07711 SE at
+   B = 1200. Applying |t - 1.959964| < 3 * 0.07711 = 0.2313 to the persisted artifact gives
+   EXACTLY ONE at-risk cell: random_k8_s0 clause 1, t = 2.1458.
+   ⭐ AND THAT CELL CANNOT CHANGE THE ADMISSION EITHER, because t = 2.1458 < ZEFF = 2.801585, so the
+   B-INVARIANT half already fails and the arm is excluded whatever lo does.
+   THEREFORE: zero admission changes at any B is FORCED BY THE ALGEBRA, not predicted by a model.
+   Registering it anyway, because the re-run is simultaneously a test of MY RE-IMPLEMENTATION, and
+   that is not forced by anything.
+
+IDENTIFICATION
+   (1) exactly identified: the whole census is recomputable from the object.
+   (2) identified as a seed distribution; reported over >= 5 seeds with the count at each.
+   NOT identified: whether R294's own construction is the right one. This round reproduces it; it
+   does not adjudicate it.
+
+SCOPE
+   population : 41 judged arms x 968-or-398 own-population prompts, from corebench/results/sat_*.npz
+   instrument : R294's construction re-implemented, same score.py, same clause definitions
+   baseline   : R294's committed full_census.json at source_sha 2bc1124f6825df0f
+   regime     : B in {1200, 4800, 19200, 76800}; seeds >= 5 at B = 1200
+
+WORLDS
+   W-STABLE    zero admission changes at every B and every seed. The extension is not a
+               resample-count artifact and not a seed artifact.
+   W-SEED      the seed alone moves an admission at B = 1200. Then the committed extension is one
+               draw of a random procedure and every round in this arc rests on a coin flip.
+   W-BROKEN    my re-implementation does not reproduce the committed verdicts. Then nothing below is
+               readable and the round is UNVERIFIED, whatever it prints.
+   prediction matrix
+      reproduction 41/41 and 0 changes everywhere  -> STABLE 0.93 SEED 0.02 BROKEN 0.05
+      reproduction 41/41 and >0 seed changes       -> STABLE 0.02 SEED 0.93 BROKEN 0.05
+      reproduction < 41/41                         -> BROKEN 0.95; nothing else is reported
+
+REGISTERED POINTS (failable)
+   A  at-risk cells by the CI criterion                          = 1    [0, 82]  ⛔ DERIVATION
+   B  admission changes at B = 19200 vs the committed set        = 0    [0, 41]  ⛔ DERIVATION
+   C  admission changes from the SEED alone at B = 1200          = 0    [0, 41]  <- the real test
+   D  arms whose committed verdict my code reproduces at B=1200, seed 31337
+                                                                 = 41   [0, 41]
+   DIRECTIONAL (separately failable): the extension is IDENTICAL at all four B levels and all seeds.
+
+KILL (CONDITIONAL -- evaluated only if the reproduction anchor fires)
+   if D == 41:
+       C > 0   -> W-SEED: the committed extension is seed-dependent; name the arms and downgrade
+                  every claim in this arc that rests on the 5-set
+       B > 0   -> the derivation above is WRONG and must be found before anything else is reported
+       else    -> W-STABLE
+   else:
+       verdict = UNVERIFIED   # my re-implementation differs; no comparison is admissible
+
+POSITIVE CTRL / ANCHOR   reproduce R294's committed per-arm ok1, ok2, ok3 and admitted EXACTLY at
+                         B = 1200 with rng seed 31337. threshold computed: floor 0 < t 41 <=
+                         ceiling 41 arms. This is the round's gate: a re-run that cannot reproduce
+                         the committed output is measuring a different object.
+g=0                      B and seed both unchanged -> exactly 0 changes, by construction. If this
+                         returns non-zero the code is non-deterministic and everything else is void.
+NEGATIVE CTRL            permute the difference vectors ACROSS arms and require the extension to
+                         change. excluded world: "the admission is insensitive to which arm has
+                         which data", which would make every count above meaningless.
+SHAM                     compute admissions using ONLY the B-invariant half (|eff| >= mde), the same
+                         operation with the CI ingredient ABSENT. Its admissions must be identical
+                         at every B, exactly, and that is the derivation made visible.
+PLACEBO                  the committed set against itself -> symmetric difference exactly 0.
+NOISE FLOOR              the seed-to-seed spread of admission counts at B = 1200 over >= 5 seeds,
+                         measured, not assumed. This IS point C.
+MULTIPLICITY             4 B levels x 41 arms + 5 seeds x 41 arms = 369 admission decisions, all
+                         reported, changes and non-changes alike.
+SPECIFICATION            B (4 levels) x seed (5 at the shipped B) x rule (full vs mde-only sham)
+SEEDS                    5 at B = 1200; 3 at each higher B; the seed flag is verified to change the
+                         draws by checking the CIs differ
+ARTIFACT                 results/r728_census_rerun.json with tree_sha
+IMPOSSIBLE               whether R294's construction is the RIGHT one -> a different definition, not
+                         a different resample count
+                         independently replicated -> a second implementer

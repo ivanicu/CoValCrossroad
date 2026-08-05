@@ -3662,3 +3662,23 @@ planted skewed world, so these cells carry no detectable skew by a powered test.
 cannot be tested at all: it takes two values across the arms with four of eighty two cells at the
 minority level, which is an unidentified covariate and is recorded as unidentified rather than as a
 null.
+
+## R728 · the census reproduced from the object, and its population is a directory glob
+
+The producing round's census was re-run from the saturation store rather than read from its summary,
+which no round in this arc had done. Its committed verdicts are reproduced on all forty one arms
+exactly. Raising the resample count sixty four fold, from twelve hundred to seventy six thousand
+eight hundred, changes no admission and leaves the extension identical, and neither does changing the
+bootstrap seed across five values at the shipped count, with the seed verified to move the draws.
+The largest movement of any interval bound across the whole sweep is 0.001408. Most of that outcome
+is forced: the minimum detectable effect does not depend on the resample count, only the lower bound
+does, and the one cell within Monte-Carlo reach of its own boundary, at a ratio of 2.1458, is already
+excluded by the count-invariant half. What is not forced is the reproduction itself, and that is what
+this round establishes. Separately, and found by the failure of the round's own anchor rather than
+registered in advance, the census defines its population by a glob over a results directory that
+later rounds write into. That directory held forty one usable arms when the census was committed and
+holds ninety two now, and re-running the same procedure over today's population admits sixteen rather
+than five. The additional arms were built by later rounds for other purposes and their admissibility
+is a separate question, so this is not a correction to the extension. It is a statement about the
+procedure: the same code returns a different answer depending on when it is run, because its
+population is not fixed by anything the definition says.

@@ -410,6 +410,17 @@ here — two levels, 4 of 82 cells at the minority. ⛔ **But the released core 
 *whole interval* above resolution — rather than its point estimate — **excludes `coval_core` and
 admits `topw_k6` alone**. Its clause-② interval clears zero and its effect clears the MDE, but its
 lower bound does not. **Membership of the core in its own extension is a choice of reading.**
+⭐ **Re-run from the object, the extension holds** *(R728)*: R294's committed verdicts reproduce on
+**41 of 41** arms, and **64× the resample count** (1200 → 76800) plus **5 bootstrap seeds** change
+**no admission** — largest interval movement **0.001408**. ⛔ Though the zero is largely forced: only
+the CI half moves with B, and the one cell within reach of its boundary (`random_k8_s0`, t = **2.1458**)
+is already excluded by the B-invariant half.
+⛔ **But the census's POPULATION is a directory glob** *(R728)*: it held **41** arms when committed and
+holds **92** today, and the same procedure re-run over today's population admits **16**, not 5. The
+extra arms were built by later rounds for other purposes, so this is **not** a correction to the
+extension — it is a scope condition. **The number 5 is indexed to a population that a glob no longer
+returns.**
+
 ⭐ **And that reading is not merely a noisier one** *(R725)*: `coval_core`'s clause-② `t` is **4.2336**
 against the threshold **4.7615**, a gap of **8.29 sampling SDs of the MDE itself** at n = 968, with a
 crossing probability of zero at every seed. **The exclusion is a property of the arm.**
