@@ -14164,3 +14164,41 @@ fact**, from a `generate_core.py` comment read once. **Door ①.** Read from the
 `interaction_id` the second corpus gives **median 2** responses per unit (**98.90%** have ≥2); on
 `conversation_id`, **median 8** (**99.99%**). *The reconstruction is real and the assertion was still
 unearned.*
+
+## 508 · Clause ②'s baseline is named with a string no scorer ever wrote
+
+`STATEMENT.md` names ②'s comparator **`POOL[0:4]` by file order**, at percentile **93.7**. Measured
+across 424 artifacts by JSON namespace: **`POOL[0:4]` appears as a key in 0** and in a string in 2 —
+**both register audits of this page.** The scorers write **`sat_genericpool16[:4]`**, a key in **13**
+scoring artifacts across R391·R392·R426·R449·R477·R479·R485·R499.
+
+⚠ **No artifact contains both names**, so whether they denote the same arm is **`UNVERIFIED` from
+names alone — it needs the scorer, not a search.** The percentile is real; **the label it hangs on
+appears in nothing that computed it.**
+
+## 509 · "Contains a decimal" is not "scored an arm"
+
+v1 classified any artifact holding a decimal as a scoring artifact. **R472 and R560 are register
+audits full of compliance decimals**, so `POOL[0:4]` was credited with a scoring artifact it never had
+and the verdict fired **A ONE OBJECT, TWO NAMES** — the opposite of the truth. Replaced with a **JSON
+namespace** split: **key = an arm the round scored; string value = a name the round quoted.**
+
+## 510 · I wrote the remedy into the ledger two rounds ago and then repeated the error
+
+R604 scanned a population containing **its own artifact**, whose `tally` dict carries every searched
+name as a key — crediting `POOL[0:4]` to round 604 and firing the placebo on `nevertheless`.
+
+⛔ **R601 hit exactly this and entry 497 states the general cure: *a round may not be a member of the
+population it measures*.** ⭐⭐⭐ **Writing a remedy is not installing one.** The ledger is a
+measuring instrument pointed at myself, not a guard — and a lesson that lives only in prose will be
+re-learned at full price. It is now a line of code.
+
+## 511 · Clause ②'s own claim is not resolved on the second corpus either
+
+Read from R433's table while correcting check #203's mis-attribution: `gen` 0.4590 · `sham` 0.4540 ·
+`generic` 0.4497 · `length` **0.5135**. The resolved contrast is `gen − length` = **−0.0545**, but the
+one that matters for the definition is **`gen − generic` — clause ②'s own statement — at +0.0093
+[−0.0008, +0.0186] against MDE 0.0140: NOT RESOLVED.**
+
+⚠ **The clause names a bar its subject cannot be shown to clear**, and R603 already established that
+the second corpus has no released pool, so even that comparator is a substitute.
