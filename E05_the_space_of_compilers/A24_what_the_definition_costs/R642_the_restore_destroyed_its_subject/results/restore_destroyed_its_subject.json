@@ -1,0 +1,22 @@
+{
+  "world": "CONFIRMED-WITH-DEFECT \u2014 the prohibition works (byte-identical 38 -> 43) and the round's own restore reverted it mid-run, so the run's verdict is UNVERIFIED",
+  "prohibition_effect": {
+    "byte_identical_before": 38,
+    "byte_identical_after": 43,
+    "verdict_bearing_changes": 12,
+    "artifacts_changed": 19
+  },
+  "controls": {
+    "positive": "PASS (43 byte-identical)",
+    "negative": "FAIL",
+    "placebo": "PASS (0)"
+  },
+  "negative_control_cause": "`git checkout -- <A24>` is scoped to a directory containing the harness, so it reverted the prohibition installed in this very file; the tree then differed from its pre-state and the control failed. Verified: PROHIBITION token count fell to 0.",
+  "repair": "restore scoped to each round's results/ only; source is never touched",
+  "stderr_rule_rejected": {
+    "reason": "exactly one false positive in this corpus",
+    "case": "R576 writes JSON to stderr as an IPC channel and calls sys.exit(2)",
+    "conclusion": "strictly more general is not better; neither rule dominates"
+  },
+  "impossible": "no rule can decode the 18 semantics of EXIT 1; only deliberate-vs-crash is available"
+}

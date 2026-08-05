@@ -15298,3 +15298,34 @@ path was not the one the claim pointed at.**
 
 *"Four of the five predate the current line"* is **correct**. Recorded because the previous four were
 not, and a run of errors that ends is worth marking as precisely as one that continues.
+
+## 626 · The prohibition works — byte-identical reproductions went 38 to 43
+
+Same 43 rounds, same interpreter: **38 → 43 byte-identical**, 12 verdict-bearing changes unchanged,
+exactly as pre-registered. **The five the harness called "failures" all exit 1 as a declared
+verdict.** That jump *is* the prohibition's effect, measured rather than argued.
+
+## 627 · The round's own negative control reverted the repair, mid-run
+
+`git checkout -- <A24>` is scoped to a directory **that contains the harness**. It restored `run.py`
+along with the artifacts, **wiping the prohibition**; the tree then differed from its pre-state and
+the control failed. Verified after the fact: the `PROHIBITION` token count on disk was **0**.
+
+⭐⭐⭐ **A cleanup scoped to a directory that contains the instrument will revert the instrument.**
+**Seventh self-contamination, new vector**: not the artifact in its population, not the operator on
+it, not the instrument matching itself — **the instrument's CLEANUP destroying the instrument's
+MODIFICATION.** Repaired: the restore walks each round's `results/` and never touches source.
+
+⚠ **The run's verdict stays `UNVERIFIED`** — a failed negative control is not overridden by a passing
+positive one.
+
+## 628 · The "better predicate" is retracted, by the round I named as its only risk
+
+I proposed the stderr rule, called it *strictly more general*, and bounded its failure population at
+**"≤ 1 of 317"**. ⭐ **That bound did the opposite work I read it as doing: not *almost safe*, but
+*there is exactly one candidate — go look.*** One grep: **`R576` writes JSON to stderr as an IPC
+channel AND calls `sys.exit(2)`.** The one case is **real**; the stderr rule misreads it as a crash
+and the keyword list gets it right.
+
+> **"Strictly more general" is not "better."** Generality bought hypothetical crash coverage at the
+> price of the corpus's one actual verdict. **Neither dominates.**

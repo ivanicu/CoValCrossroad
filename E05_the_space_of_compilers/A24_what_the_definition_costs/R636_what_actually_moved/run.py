@@ -82,10 +82,22 @@ def main():
     before = {n: verdicts(A24 / n) for n in names}
     ran, failed, t0 = [], [], time.time()
     for n in names:
+        # ⭐ THE PROHIBITION (R638-R642). A non-zero exit is UNKNOWN, never failure: 95 of 313
+        #    rounds declare an EXIT convention and `EXIT 1` denotes 18 DISTINCT worlds across 19
+        #    of them, so no harness can decode the SEMANTICS. Only an UNRUNNABLE PATH counts.
+        #    Effect, measured: byte-identical reproductions went 38 -> 43, because the five
+        #    rounds this loop called "failures" all exit 1 as a declared verdict.
+        #    ⚠ THE STDERR RULE WAS REJECTED. "non-zero + non-empty stderr = crash" is strictly
+        #    more general, and it has exactly ONE false positive in this corpus -- R576 writes
+        #    JSON to stderr as an IPC channel and calls sys.exit(2). Generality bought unseen
+        #    crash types at the price of the one real verdict. Neither rule dominates; this is
+        #    the one with zero known false positives on the corpus that exists.
         r = subprocess.run([str(PY), str(A24 / n / "run.py")], cwd=A24 / n,
                            capture_output=True, text=True, timeout=240)
-        (ran if r.returncode == 0 else failed).append((n, r.returncode,
-                                                       r.stderr.strip().split("\n")[-1][:90]))
+        err = r.stderr.strip().split("\n")[-1][:90]
+        unrunnable = ("ModuleNotFoundError" in r.stderr or "No such file" in r.stderr
+                      or "SyntaxError" in r.stderr or not (A24 / n / "run.py").exists())
+        (failed if (r.returncode != 0 and unrunnable) else ran).append((n, r.returncode, err))
     dt = time.time() - t0
     print(f"\n  ran {len(ran)} · failed {len(failed)} · wall clock {dt:.0f}s "
           f"({dt/60:.1f} min for all {len(names)}) -- 'expensive' was false")
@@ -108,7 +120,14 @@ def main():
     pos = bool(byte_same)
     print(f"  POSITIVE  {len(byte_same)} round(s) reproduced BYTE-IDENTICALLY -> "
           f"{'PASS — changed vs nondeterministic are distinguishable' if pos else '⛔ FAIL'}")
-    git("checkout", "--", str(A24))
+    # ⛔ AND THE RESTORE DESTROYED ITS OWN SUBJECT. `git checkout -- <A24>` is scoped to a
+    #    directory that CONTAINS THIS HARNESS, so it reverted the prohibition installed in this
+    #    very file, mid-run -- and the negative control then failed because the tree state had
+    #    changed from modified to clean. Scoped to results/ only: the round restores the
+    #    artifacts it rewrote and never touches source.
+    for _d in sorted(A24.glob("R[0-9]*")):
+        if (_d / "results").is_dir():
+            git("checkout", "--", str(_d / "results"))
     post_status = git("status", "--porcelain")
     neg = post_status.strip() == pre_status.strip()
     print(f"  NEGATIVE  tree restored to its pre-run state -> {'PASS' if neg else '⛔ FAIL'}")
