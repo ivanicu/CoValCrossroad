@@ -15882,3 +15882,42 @@ R660 v1 printed *"world A TRACEABLE — R659's inference was sound"* on 86.1% **
 baseline read 96.1%**. ⛔ §4's `the verdict string is not a computation`, sub-kind ①. The branch now
 references the baseline — a requirement this round had written into its own docstring and then not
 implemented.
+
+## 697 · A rival proposed without checking its direction or its shape
+
+R660's NEXT named RECENCY as the rival to its 18.3%: *"entries name RECENT rounds — the arc's own
+rounds are named constantly while the 200s are not."* ⛔ **The arrow is backwards**: an entry can
+only name a round that already existed, so an **old** round has had **more** chances to be named.
+⛔ And the shape is wrong: mentions peak at **R450–499 (27)** while the most recent full block
+**R550–599 has 3**, the second lowest. **A middle peak is what neither rival predicts** — and I
+stated it as fact in the sentence a later round acts on.
+
+## 698 · A sentence that contradicts itself, in the artifact a successor opens
+
+R660's README: *"18.3% is the first number in this thread **with a floor under it** — but **it has no
+floor** yet either."* ⛔ Both cannot hold. The commit body for the same round says *"with any
+content"* and is coherent. **The defective version is in the README, which is what the next round
+reads.**
+
+## 699 · A per-round statistic with no power, and a number reported from it
+
+R661 v1 computed Spearman over per-round `mentions/exposure` and read **0.167** as "above the
+permutation spread". ⛔ Its positive control returns **0.048 on a planted 5× gradient** — inside its
+own null. **86 mentions over 290 rounds leaves most at zero; the rank vector is ~70% ties.** The unit
+was wrong, not the gradient. **0.167 is WITHDRAWN.** ⭐ *A number computed at a unit with no
+demonstrated power is not a weak result — it is not a result.*
+
+## 700 · Two controls swapped: the pure-exposure world was made a POSITIVE control it cannot pass
+
+R661 v1 required a large `|rho|` from a synthetic world where mentions are generated **proportional
+to exposure** — but the statistic **divides by exposure**, so that world is **flat by construction**.
+⛔ **A check that cannot pass** — §4's row, the mirror of the one R660 committed one round earlier.
+Corrected: pure exposure is the **SHAM** (must go null: 0.429 ✓) and the **POSITIVE** control plants
+a gradient exposure cannot explain (0.929 ✓).
+
+## 701 · A verdict label that its own numbers did not support — third round running
+
+R661 v1 printed *"B NOT EXPOSURE"* while the observed bin-level `|rho| = 0.762` sat **inside** the
+null `[0.238, 0.857]`. ⛔ That is **no detectable gradient**, not "the gradient is not exposure".
+Corrected to **a NULL WITH POWER**, with the MDE stated: the planted gradient clears the null by only
+**0.071**, so the design sees ~5× across the range and nothing weaker.
