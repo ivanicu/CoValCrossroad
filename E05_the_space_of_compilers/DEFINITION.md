@@ -1698,3 +1698,43 @@ mechanism: `coval_full`'s list order is not rating order.** Position measured *w
 list*; ③′ is about *how highly it was rated*. **Instrument's unit ≠ claim's unit, inside the check
 built to catch that failure.** ⚠ `gen`, `generic` and `coval_core` remain N/A — no pool overlap — so
 ③′ stays open and R340's derivation stands. *(R512)*
+
+---
+
+## R514 · Clause ① is subsumed by clause ②, and it is a derivation
+
+**The question.** `STATEMENT.md` had said since R464 that ① *"excludes 0 of 41 arms — UNEXERCISED,
+not vacuous"*, defended by an adversarially-constructed worst rubric subset it does exclude at
+−0.2779. The label was never checked against the obvious rival: that ① excludes nothing because it
+**cannot**.
+
+**The method — no new compute.** R294's census stores, per arm, the A2 score and the two clause
+contrasts `c1`, `c2` over the same 968 prompts. Each clause bar is therefore recoverable as
+`a2 − c[0]`. Both clauses have the form `a2 > bar`.
+
+**The result.** Across all 41 arms:
+
+| bar | range | meaning |
+|---|---|---|
+| **bar₁** | **[0.4821, 0.4927]** | a random draw of the prompt's own rubric |
+| **bar₂** | **[0.5386, 0.5504]** | the generalising prompt-blind ceiling |
+
+**The ranges are disjoint, gap 0.0459, on every arm.** So `a2 > bar₂ ⟹ a2 > bar₁` by transitivity
+of `>`, and the count of arms satisfying ② while violating ① is **0 by construction**.
+
+⛔ **DERIVATION, not measurement.** The 41 arms tested nothing; the algebra did. The assumption it
+rests on is that **both bars are global scalars** on a common statistic (A2) and direction — which
+is how the census computes them, and which is the only reason the implication holds.
+
+**Controls.** Positive: **24 of 41** arms do fail ①, so the ① verdict is not degenerate and a
+"0 violations" reading is admissible. Negative: the bar ordering was verified on **every** arm, not
+the one first inspected — a single-arm read would have generalised from n=1.
+
+⭐⭐⭐ **Consequence: the definition has THREE independent clauses — ② ③ ④.** ① is either deleted
+or **re-operationalised per-prompt**: admit an arm only if it beats *that conversation's own* random
+rubric draw. That is the only reading in which ① can bind, because for individual conversations the
+local bar exceeds the global 0.5404. **No round has run it**, and the census stores aggregate
+contrasts only, so running it means re-scoring against each conversation's own draw.
+
+**What this does NOT overturn.** The R464 adversarial subset is still excluded at −0.2779; ① is a
+*true statement about cores*. It is simply not doing work in the definition as operationalised.

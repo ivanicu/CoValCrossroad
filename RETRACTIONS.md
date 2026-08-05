@@ -11458,3 +11458,35 @@ demonstrably return non-zero. **"Declares no control" is not "cannot fail."**
 re-derive one that is already defined in code.* Four rounds of careful reasoning about a set whose
 definition was one function call away — and the re-derivations were confident, cheap, and wrong in
 a different direction each time.
+
+## 347 · Clause ① is not "unexercised" — it is logically subsumed, and the definition has three clauses, not four
+
+**`STATEMENT.md` has said since R464 that ① "excludes 0 of 41 arms — UNEXERCISED, not vacuous",
+defended by an adversarially-constructed worst rubric subset it does exclude at −0.2779.** That
+defence is intact and the label is still wrong.
+
+**R514, from the persisted census, no new compute:** both clauses have the form `a2 > bar`.
+Recovering each bar from each arm's own stored contrast gives **`bar₁ ∈ [0.4821, 0.4927]`** and
+**`bar₂ ∈ [0.5386, 0.5504]`** — **disjoint on all 41 arms, gap 0.0459**. So `a2 > bar₂ ⟹ a2 > bar₁`
+**by transitivity of `>`**, and the zero in the contingency cell is **forced by the algebra**.
+
+⛔ **It is a DERIVATION, and the arithmetic trap is the whole point: the 41 arms tested nothing.**
+Reporting "0 of 41" as though a census had been run gave a measured-sounding number to a fact that
+could not have come out otherwise. **"Unexercised" invites the reading that a future object might
+exercise it. Nothing can, while ① is a global bar.**
+
+⭐ **Controls that make this admissible rather than an assertion:** 24 of 41 arms *do* fail ①, so
+the ① verdict is not degenerate (positive); and the bar ordering was checked on **every** arm rather
+than the one inspected (negative) — the first version of this round read one arm and would have
+generalised from n=1.
+
+⭐⭐⭐ **What it changes in the deliverable: the definition has THREE independent clauses — ② ③ ④.**
+① is either deleted or **re-operationalised per-prompt** (beat *that conversation's own* random
+rubric draw), and only the per-prompt reading can ever bind, because for some conversations that
+bar exceeds the global 0.5404. **No round has run it.**
+
+⚠ **And the round exists because check #112 caught the previous NEXT line asserting two false
+things, which exposed that 5 consecutive commits had not touched the deliverable at all** — against
+a 52% base rate over the last 40. The campaign had drifted into auditing its own auditors. **§0.2:
+a programme that only ever kills its own claims has a perfect world model of a subject it has
+produced nothing about.**

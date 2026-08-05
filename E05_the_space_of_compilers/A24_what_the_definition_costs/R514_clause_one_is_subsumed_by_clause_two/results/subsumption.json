@@ -1,0 +1,18 @@
+{
+  "n_arms": 41,
+  "n_fail_clause1": 24,
+  "n_pass2_fail1": 0,
+  "bar_ordering_holds_on_all_arms": true,
+  "bar1_range": [
+    0.4821425514738973,
+    0.49268699779697234
+  ],
+  "bar2_range": [
+    0.5386263813731376,
+    0.5504358540422292
+  ],
+  "world": "B",
+  "kind": "DERIVATION",
+  "assumption": "both bars are global scalars on a common statistic (A2) and direction",
+  "what_would_break_it": "a PER-PROMPT bar1, which for some conversations exceeds bar2"
+}
