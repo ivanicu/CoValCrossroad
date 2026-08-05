@@ -11522,3 +11522,38 @@ version printed plausible numbers:
 **The first version would have reported "30% of prompts have a local bar above ②'s" — a striking,
 false number, from an instrument pointed at the wrong object three ways.** The only thing that
 stopped it was requiring the reconstruction to reproduce an independently computed value first.
+
+## 349 · "① is not deletable" — overturned one round later; the salvage route is a knob, not a clause
+
+**R515 closed with "clause ① is NOT deletable: per-prompt it has something to bind on."** The
+premise is intact — the comparator ordering does reverse on 26.96% of prompts — but the conclusion
+does not follow, because **binding requires an aggregation and the aggregation determines the
+answer.**
+
+**R516 scored all five admitted arms per-prompt against the ① comparator.** All five positive
+controls reproduced their stored `c1[0]` **to six decimals**; the placebo returned exactly 0 wins
+and 100% ties; the null (a sibling random arm) sat at **0.3781** and the sham at **0.3998**.
+
+**Every admitted arm clears the null (0.4897–0.5382), so a null-calibrated per-prompt ① excludes
+nothing.** At the natural majority reading **τ = 0.50 it excludes `topw_k8`** — and that exclusion
+is an artifact of the tie convention:
+
+⛔ **Win rate and loss rate rank the admitted arms at Kendall τ = −0.600.** `coval_core` is **1st by
+wins, 4th by losses**; `topw_k6` is **4th by wins, 1st by losses**. Per-prompt A2 has **7 levels over
+6 pairs**, so ties are structural, and the tie rate rises **monotonically with k** (0.2655 → 0.3316).
+A higher-k arm both wins less and loses less. **A win-rate rule punishes an arm for tying.** Under
+ties-as-half-wins nothing is excluded below τ = 0.70.
+
+⭐ **So a "per-prompt ①" is a family of rules that disagree about which arm fails.** It is a knob,
+not a clause, and **① is deletable after all** — globally subsumed, per-prompt ill-posed. **The
+definition is ② ③ ④.**
+
+**The shape of the error, which is the reusable part.** R515's closing sentence was written from a
+result about **comparators** and asserted a conclusion about **clauses**. The 27% reversal is real
+and says the escape route is *open*; it says nothing about whether anything can be *built* on it.
+**An existence result about the ingredient was reported as a viability result about the recipe** —
+and it took one round, with better controls, to find that the recipe is underdetermined.
+
+⚠ **And note what did NOT go wrong:** every control in both rounds passed, the numbers are exact,
+and no measurement is being withdrawn. **The retraction is entirely at the join between a number and
+the sentence built on it**, which is where 11 of the 12 retractions in the audited programme lived.

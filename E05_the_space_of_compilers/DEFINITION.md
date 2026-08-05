@@ -1779,3 +1779,46 @@ admitted arm re-scored prompt-by-prompt against `random_k4_s0`.
 **Instrument note, carried because it will recur:** the release ships **two** saturation families,
 `sat_*` and `sat08_*`. Both load without error. R294 uses `sat_*`; a reconstruction on `sat08_*`
 reproduces the aggregate to +0.0685 instead of +0.0577 and looks entirely plausible.
+
+---
+
+## R516 · A per-prompt clause ① is not one clause, and ① is deletable
+
+**R515 closed by saying ① is "not deletable" because per-prompt it has something to bind on.**
+That escape exists — the comparator ordering does reverse on 26.96% of prompts — but **using it
+requires an aggregation, and the aggregation determines the answer.**
+
+**Every admitted arm scored per-prompt against the ① comparator, with all five positive controls
+reproducing their stored `c1[0]` to six decimals:**
+
+| arm | win | tie | loss |
+|---|---|---|---|
+| `coval_core` | **0.5382** | 0.2655 | 0.1963 |
+| `topw_k3` | 0.5331 | 0.2696 | 0.1973 |
+| `topw_k4` | 0.5227 | 0.2934 | 0.1839 |
+| `topw_k6` | 0.5072 | 0.3244 | **0.1684** |
+| `topw_k8` | **0.4897** | 0.3316 | 0.1787 |
+| null `random_k4_s1` | 0.3781 | 0.2934 | 0.3285 |
+| sham `coval_core_sham` | 0.3998 | 0.2149 | 0.3853 |
+
+**Every admitted arm clears the null by a wide margin, so a null-calibrated per-prompt ① excludes
+nothing.** At the natural majority reading **τ = 0.50 it excludes `topw_k8`** — and that exclusion
+is an artifact.
+
+⭐⭐⭐ **Win rate and loss rate rank the admitted arms at Kendall τ = −0.600.** `coval_core` is 1st
+by wins and **4th by losses**; `topw_k6` is 4th by wins and **1st by losses**. The mechanism is
+resolution: per-prompt A2 has **7 levels over 6 pairs**, ties are structural, and the tie rate rises
+**monotonically with k** (0.2655 → 0.3316). A higher-k arm wins less *and* loses less. **A win-rate
+rule punishes an arm for tying; a loss-rate rule rewards it.** Under ties-as-half-wins nothing is
+excluded below τ = 0.70.
+
+**So a "per-prompt ①" is a family of rules that disagree about which arm fails, and the aggregation
+choice does more work than the criterion.** It is not a clause; it is a knob.
+
+⭐ **Resolution of the ① question, across R514–R516:** globally ① is subsumed by ② (empirically, on
+all 41 arms, with ~3 CI-widths of slack); per-prompt it is ill-posed. **① is deletable, and now for
+a demonstrated reason rather than an assumed one.** The definition is **② ③ ④**.
+
+**What is NOT claimed:** that no principled per-prompt aggregation exists. Choosing one is a
+construct claim and needs an external standard for what a core must do — which this site does not
+have, and which the impossibility register already names.

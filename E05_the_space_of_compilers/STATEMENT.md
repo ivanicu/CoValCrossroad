@@ -25,7 +25,7 @@ Size: **more than one criterion**. The design cannot separate 3 from 8, so no nu
 
 | clause | type | excludes | status |
 |---|---|---|---|
-| **①** | behavioural | **0 of 41** arms | ⛔ **SUBSUMED BY ② as a GLOBAL bar** — empirically on all 41 arms, the tightest ②-passer clearing ① by **+0.0582** against a mean CI width of **0.0200**. ⚠ **Empirical, NOT derived** — the clauses are interval verdicts and `c1`'s CI is wider on **20 of 41**, so the flip route is open *(R514, R515)*. ⭐ **Per-prompt it BINDS: the comparator ordering reverses on 26.96% of prompts** *(R515)* |
+| **①** | behavioural | **0 of 41** arms | ⛔ **DELETABLE.** Globally **subsumed by ②** — empirically on all 41 arms, the tightest ②-passer clearing it by **+0.0582** against a mean CI width of **0.0200**; empirical, *not* derived, since `c1`'s CI is wider on **20 of 41** *(R514, R515)*. **Per-prompt it is ILL-POSED**: win-rate and loss-rate rank the admitted arms at **Kendall τ = −0.600**, so the tie convention decides which arm fails *(R516)* |
 | **②** | behavioural | **33 of 42** | carries the whole boundary among label-free arms |
 | **③** | **provenance** | **14 of 42** | **checkable from the PRODUCER, never from the product** — by attestation or by reading the generating code, which is how the ③ verdict for every arm here was derived *(R444, R465)* |
 | **④** | behavioural | **all 7** arms on the second release | not vacuous |
@@ -49,12 +49,12 @@ Both sides inhabit the same object space and differ only in the **selection map*
 
 ## The formulation is a fork, not a fact awaiting measurement
 
-**Everything below is settled enough to state the choice.** ⛔ **① is subsumed by ② as a GLOBAL bar** and adds
-nothing to the extension — empirically on all 41 arms, with ~3 CI-widths of slack rather than by
-derivation *(R514, R515)*. ⭐ **But it is NOT deletable: per-prompt, the two comparators' ordering
-reverses on 26.96% of prompts, so a per-prompt ① has something to bind on** *(R515)*. **The open
-question is whether any admitted arm actually fails it**, which needs each arm re-scored
-prompt-by-prompt against `random_k4_s0`. ② is **satisfied by `coval_core`**, the one object anyone
+**Everything below is settled enough to state the choice.** ⛔ **① is DELETABLE, and the definition is ② ③ ④.** Globally it is
+subsumed by ② — empirically on all 41 arms with ~3 CI-widths of slack, not by derivation *(R514,
+R515)*. Per-prompt it is **ill-posed**: every admitted arm clears the null (0.4897–0.5382 vs 0.3781),
+and win-rate versus loss-rate rank them at **Kendall τ = −0.600**, because per-prompt A2 has 7 levels
+and the tie rate rises monotonically with k. **The aggregation decides which arm fails, so it is a
+knob rather than a clause** *(R516)*. ② is **satisfied by `coval_core`**, the one object anyone
 calls a core — 0.5640 in A2 against the 0.5404 prompt-blind ceiling *(R475, R485)*. ④ excludes all
 seven arms on the second release. **③ is what empties the definition**, and the ③-admissible side
 holds exactly **one** prompt-responsive full-coverage arm *(R502)*.
