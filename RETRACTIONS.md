@@ -10684,3 +10684,29 @@ work is not a deliverable; it is a snapshot with a confident title.**
 **Verified:** `statement_provenance` passes — **21 cited rounds all carry settled verdicts, and every
 decimal on the statement is anchored in DEFINITION.md**, so nothing was added that the record cannot
 re-derive.
+
+## 321 · The announced GPU round was already built, and the compute it named cannot settle the question (R490)
+
+**Retracted at zero compute, by P4's prior-art gate and one table read.** The previous round closed:
+*"a strong rating-blind prompt-aware arm, scored under more than one judge… one GPU round, and the
+first thing in this arc that compute would actually settle."* **Both halves are wrong.**
+
+**① The generator exists.** `corebench/generate_core.py` — modified the same day — states in its own
+docstring: *"THE GENERATOR MUST NOT SEE `coval_full`… It sees the CONVERSATION and the FOUR RESPONSES
+only."* **Rating-blind, rubric-blind, prompt-aware.** `gen` is its output. I proposed building the
+thing whose output I had spent three rounds measuring at p32.6.
+
+**② The second judge cannot settle it.** `oracle_k4` — which reads the human target **directly** —
+attains **0.105** of the Bayes ceiling under 0.8B against **1.088** under 2B. `random_k4_s0` attains
+**−0.106** there. **A judge on which the oracle scores at a tenth of its 2B attainment cannot
+adjudicate a +0.0067 gap.** Scoring `gen` under it measures the judge.
+
+⭐ **So what would settle ②∧③ is a judge STRONGER than Qwen3.5-2B, which this site does not have** —
+now written into the register in those words, replacing *"a second judge"*, which reads as available.
+
+⚠ **AND THE REGISTER ITSELF HAD TWO STALE LINES, on the residue, corrected here.** *"No second
+release"* — there is one, 2,200 conversations, used since R434, with 74,048 judged cells; what it
+lacks is the rank-string schema. *"③ is not decidable here"* — R475 decided it from the dataset card.
+⭐ **A stale register line understates the site, and understating is not the safe direction: it
+forecloses work.** This is R483's rot — *a frozen list that outlives its reason* — on the one document
+whose job is to say what stands.
