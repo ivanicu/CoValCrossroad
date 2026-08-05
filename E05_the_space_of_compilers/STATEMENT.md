@@ -131,6 +131,17 @@ A **core** for a conversation is a set of criteria such that
   average ratings"* — so `coval_core` is a **weight-reader but not a ranking-reader**. `select_core.py:16`
   calls the same operation **"non-leaky: the weights come from the rubric, not from the outcome."**
 
+> ### ⚠ SCOPE CONDITION ON ③ — the separation is INSTRUMENT-DEPENDENT *(R683, from R361's exact null)*
+> R361 enumerates **all `C(9,4) = 126`** ways to split its 9 arms into a 4-group and its complement —
+> an **exact** null on the membership itself, not a sample. Against it:
+> **@2B** the label-reading arms rank **above** the extension, gap **−4.50** at the **0.8th
+> percentile**, two-sided **p = 0.0159 — RESOLVED**. **@0.8B** gap **+2.25** at the **90.5th
+> percentile**, **p = 0.2857 — NOT RESOLVED**.
+> ⚠ **The reason is the label group's own spread**: sd **3.59** at 0.8B against **1.58** for the five —
+> the label-users **split** at the smaller judge, so a mean gap is the wrong summary there.
+> ⭐ **So "③ excludes the arms that win by reading labels" is a claim about the 2B judge.** Any
+> statement of the definition that omits the judge is missing a scope condition.
+
 > ### ⭐ LINEAGE OF THE EXTENSION — what supports the number 5 *(R676–R682)*
 > **The extension under ③ is ONE set** — `coval_core, topw_k3, topw_k4, topw_k6, topw_k8` — and its
 > **unique producing commit is R294** *(R678: 6 of 6 sets have a unique producer; 4 controls,

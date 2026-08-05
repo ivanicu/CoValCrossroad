@@ -16560,3 +16560,32 @@ said none of them. A finding that lives only in a round directory is **cost reco
 production** — it removed a wrong belief from my head and changed nothing a reader can act on.
 **Landing is a separate step from measuring, and nothing in the gate set was checking that it
 happened.**
+
+## 785 · R682's NEXT proposed one perturbation where 126 were already committed, exactly
+R361 enumerates every way to split its 9 arms into a 4-group and its complement — `C(9,4) = 126`,
+exact rather than sampled — and commits it as `rank_null`. My proposed round would have run **one**
+swap, and re-running a round destroyed its artifact once already in this arc. **Fourth time here the
+answer sat in a committed artifact**, and P4's gate found it before any code was written, which is
+the only reason it cost nothing. **A NEXT line proposing a measurement should first ask whether the
+round it names already contains a stronger one — the author of that round had the same question.**
+
+## 786 · The extension's separation from label-readers is INSTRUMENT-DEPENDENT
+Against the exact membership null: at the 2B judge the label-reading arms rank **above** the
+extension, gap −4.50 at the 0.8th percentile, two-sided p = 0.0159, **RESOLVED**. At 0.8B, gap +2.25
+at the 90.5th percentile, p = 0.2857, **NOT RESOLVED**. So *"③ excludes the arms that win by reading
+labels"* is a claim about the 2B judge, and **any statement of the definition that omits the judge is
+missing a scope condition**. Landed in `STATEMENT.md`.
+
+## 787 · Recomputing the p from the percentile alone would have made an unresolved result look resolved
+The committed two-sided p at 0.8B is 0.2857; recomputing it from `pct` alone gives **0.1905**,
+because the null has **ties** and the committed value computes both tails separately. **The audit
+confirmed the artifact rather than correcting it — and the direction is what matters: the naive
+formula errs toward RESOLVED**, so a reader recomputing "to check" would have manufactured
+significance out of a tie structure.
+
+## 788 · A mean gap is the wrong summary when the group it summarises splits
+At 0.8B the label group's rank sd is **3.59** against **1.58** for the five — one label-user near the
+top and one near the bottom. A mean rank gap of +2.25 describes neither. R361's own null already
+registers this as NOT RESOLVED rather than as a small effect, which is the correct behaviour, but the
+**tell is in the spread and not in the p**: a group whose sd is twice the comparison group's is not
+one thing being measured.
