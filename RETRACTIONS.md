@@ -12901,3 +12901,36 @@ readings remain open: the detector scope may confine it entirely, or it may be t
 under which several A24 claims sit. **Naming either now would be the fabrication this ledger exists
 to prevent — but this is no longer the "supersession vs omission" question. A23 closed decisions;
 they were not superseded. They were never read.**
+
+## 412 · A23's MDE does not reach A24 — different detector, different n, no scaling attempted
+
+A23's `R274` reports `mde_bracket [0.105, 0.125]` at **n = 250** on an admissibility/necessity
+detector with `tau = 0.424`, and compares it against **its own** effects (R231, R249, R257, R260).
+**A24 runs at n = 968 on A2-vs-held-out-annotator and reports its own per-round MDEs** — 0.0119,
+0.0108 among them.
+
+**n differs by 3.87× and the statistic differs, so no scaling is attempted.** The positive control is
+what makes this a reading rather than an inference: R274 records its own n, tau and bracket.
+
+## 413 · The second half returned an empty population, and I nearly reported it as a pass
+
+I asked whether any A24 effect sits below its **own** floor — the question I had called *"the one
+that matters"*. The extractor found **0 artifacts with both an effect and an MDE, out of 264
+rounds**, and printed `0 of 0`. **That is silence, not an acquittal**, and the verdict for that half
+is **UNVERIFIED**.
+
+⛔ **The matcher matched UUIDs**: the substring `c2` occurs inside hex ids like `…-c224-56f8-…`, so
+roughly 150 "effect" hits were identifiers. **§4's search-is-an-instrument row, fifth occurrence this
+session** — and the third time the fix was to measure the vocabulary instead of guessing it.
+
+## 414 · The campaign has 60+ names for its own floors and no schema
+
+Counting the actual keys across the arc's artifacts: `floor` (14), `mde` (5), `pooled_mde`,
+`perm_floor`, `sham_mde`, `mde_lo`/`mde_hi`, `noise_floor`, `data_floor`, `rule_floor`,
+`mechanical_floor`, `sign_floor`, `conv_floor`, `floor_2b`/`floor_8b`, `naive_target_mde`, and
+fifty more.
+
+⭐⭐⭐ **This is why "does every effect clear its own floor" cannot be gated.** It is not a hard
+question — it is an **unaskable** one, because the answer lives under sixty different key names.
+**HB8: if it can be an enum it may not be free text**, and a results schema with sixty synonyms for
+one axis is the same defect one level down. **A number nobody can find is a number nobody can check.**
