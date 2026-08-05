@@ -366,8 +366,8 @@ ordering, and the ordering is the deliverable.**
 |---|---|---|---|
 | **1** | ③′ on the released core — only **6.6%** of its criteria are verbatim in `coval_full` | **one field: `coval_core[i].source_rubric_item_ids`** | **a schema line** |
 | **2** | a second, stronger judge — `Qwen2.5-7B-Instruct` is present (29 GB, 4/4 shards) but OOMs in bf16 | **quantisation, or offload** — an environment change to the shared `.venv`, not a GPU run | **an install** |
-| **3** | ②∧③ — the ③-admissible side is **one** prompt-responsive arm plus a floor | **more ③-admissible prompt-responsive generators** | **a generation round, on this site** |
-| **4** | ② — no ③-admissible arm reaches the prompt-blind ceiling **0.5404** | **a strong ③-admissible prompt-aware arm** | **generation + judging** |
+| **3** | ②∧③ **under ③-any** — the admissible side is **one** prompt-responsive arm plus a floor. ⚠ **Under ③-rank this row does not bind: the extension is 5** *(R529)* | **more ③-any-admissible prompt-responsive generators** | **a generation round, on this site** |
+| **4** | ② — no **③-any**-admissible arm clears the blind pool. ⚠ **Under ③-rank, five do** *(R529)*. ⭐ **Priced: the closest prompt-responsive ③-any arm, `gen`, is `c2 = −0.0153` against its own MDE of 0.0119 — 1.29 MDE short** *(R530)* | **a `gen`-like generator ~0.0153 A2 stronger** | **generation + judging** |
 | **5** | independent replication | **a second team or a second release** | **another site** |
 | **6** | construct validity — is A2-vs-held-out-annotator the right target? | **an external gold standard** | **another site** |
 | **7** | whether reading **A** is correct after all | **a use for "core" that does not require prediction** | **not a measurement — a decision about purpose** |

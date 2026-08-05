@@ -11997,3 +11997,33 @@ normalise whitespace, not to weaken the check.
 definition. The register already lists this as **row 7, "a decision about purpose"** — and this round
 makes it concrete and unavoidable: **must a core be producible without ANY annotator input for that
 conversation, or only without the outcome it is scored against?**
+
+## 362 · The register's rows 3 and 4 were ③-any rows all along, and "empty" was never priced
+
+**R529 forked ③. Rows 3 and 4 of the impossibility register — and the sentence that the campaign's
+conclusion "rests on row 3 and row 4 being unmet" — are ③-any statements read as unconditional.**
+Under **③-rank**, row 4's *"no ③-admissible arm reaches the prompt-blind ceiling"* is false: **five
+do**. Both rows now carry the fork.
+
+⭐ **And the second half: a verdict of "EMPTY" is not a specification.** Row 4 asked for *"a strong
+③-admissible prompt-aware arm"* without saying how strong. Measured:
+
+| ③-any-admissible arm | c2 | MDE | shortfall | mode |
+|---|---|---|---|---|
+| `generic` | +0.0009 | 0.0022 | — | **UNRESOLVED** |
+| ⭐ `gen` | **−0.0153** | 0.0119 | **1.29 MDE** | LOSES |
+| `full` | −0.0310 | 0.0119 | 2.60 MDE | LOSES |
+
+⚠ **`generic` is deliberately not the headline.** It is a **fixed blind set measured against the
+blind pool** — the contrast is near self-comparison, and its interval straddles zero. **A number
+that looks like the best candidate can be the one comparison that means least**, and row 4 asks for
+a prompt-**responsive** arm.
+
+⭐⭐⭐ **So the ③-any world is 1.29 MDE from non-empty, and what fills it is a `gen`-like generator
+about 0.0153 A2 stronger. "EMPTY" understates how close it is** — and the register now says so with
+a number instead of an adjective.
+
+**Controls:** `ok2` reconstructed from each stored `(eff, lo, hi, mde)` triple via `report.verdict`
+matches the census for **41 of 41** arms, so the reading of *why* an arm fails ② is the code's
+(positive); both failure modes are present — **29** resolvedly-below and **3** unresolved — so
+"shortfall" does not conflate a loss with an unresolved tie (negative).

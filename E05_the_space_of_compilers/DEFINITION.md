@@ -2233,3 +2233,33 @@ core" versus "no core exists."**
 of core. The impossibility register already carries this as **row 7 — a decision about purpose** —
 and this round makes it concrete: *does a core have to be producible without any annotator input for
 that conversation, or only without the outcome it is scored against?*
+
+---
+
+## R530 · What the empty world costs: 1.29 MDE
+
+R529 forked ③; under **③-any** the extension is empty. **A verdict of "empty" is not a
+specification**, and register row 4 asked for *"a strong ③-admissible prompt-aware arm"* without
+saying how strong. Measured from R294's stored contrasts:
+
+| ③-any-admissible arm | c2 | MDE | shortfall | mode |
+|---|---|---|---|---|
+| `generic` | **+0.0009** | 0.0022 | — | **UNRESOLVED** |
+| ⭐ `gen` | **−0.0153** | 0.0119 | **1.29 MDE** | LOSES |
+| `full` | −0.0310 | 0.0119 | 2.60 MDE | LOSES |
+| `random_k12_s0` | −0.0332 | 0.0122 | 2.74 MDE | LOSES |
+
+⚠ **`generic` is excluded from the headline on purpose**: it is a *fixed blind set* measured against
+the *blind pool*, so the contrast is near self-comparison — its interval straddles zero. **Row 4 asks
+for a prompt-RESPONSIVE arm, and the closest one is `gen`.**
+
+⭐⭐⭐ **So the ③-any world is 1.29 MDE from non-empty, and what would fill it is a `gen`-like
+generator ~0.0153 A2 stronger.** "EMPTY" understates how close it is.
+
+**Controls.** Positive: `ok2` reconstructed from each stored `(eff, lo, hi, mde)` via
+`report.verdict` matches the census for **41 of 41** arms — so the reading of *why* an arm fails ②
+is the code's, not mine. Negative: both failure modes are present (**29** resolvedly-below, **3**
+unresolved), so "shortfall" does not conflate them.
+
+**Register rows 3 and 4 now carry the fork and the number.** They were always ③-any rows; under
+③-rank neither binds.
