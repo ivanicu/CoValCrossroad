@@ -17918,3 +17918,45 @@ split at this imbalance is readable**, which is weaker and different.
 first.** Corrected before the round was committed; recorded because the error is the same shape as
 §4's *control that fails for its own reasons*, inverted — here a control **passed** for its own
 reasons and I nearly read it as evidence.
+
+## 920 · "three consecutive rounds ended in a bound" — two, and the seventh false closing claim
+
+R717's NEXT line. R715 produced a **value** — a separating predicate at 0.0655 — so only R716 and
+R717 ended in bounds. **Seventh false closing claim in this arc, and the third of the
+precedence/count species** (after "a single arm pair" and "the first per-instance quantity that
+varies) **that carries no quantifier a word list could catch.**
+
+## 921 · and its proposal would have made the ledger the product
+
+It asked me to count rounds ending in a bound versus a value. **§0.2 forbids exactly that**: *"never
+lead with the ledger, never end on it"*, and a count of my own retractions is the activity metric
+that section opens by forbidding. **Amended before running to §0.2's own question — what stands — and
+pointed at the DELIVERABLE rather than at the 440 artifacts.**
+
+## 922 · ⭐ what this arc has standing, reported first
+
+Of **12** claim blocks on `STATEMENT.md`, **2** assert something no later round has amended:
+
+- **`§4's FALSIFIER DOES NOT FIRE AGAINST ③`** *(R688)*
+- **`LINEAGE OF THE EXTENSION — what supports the number 5`** *(R676–R682)*
+
+**What it cost, in one line:** 12 blocks, 4 assert, 3 record a withdrawal, 3 qualify, 3 carry a later
+amendment — including both of the other asserting blocks, R701's three-clause formulation and R704's
+held-out zero, amended within this session.
+
+⛔⛔ **The caveat is load-bearing: standing unamended is NOT truth, it is unattacked.** This arc
+withdrew F2's A2 justification, its sham residual and its exclusion count in three consecutive rounds,
+and **every one of those blocks stood unamended until the round that killed it.**
+
+## 923 · my sham failed twice before it became a control
+
+**① Empty population.** `DEFINITION.md` uses plain `##` headings, so the blockquote extractor returned
+**0 blocks** and the guard `len(dbs) == 0 or …` passed it — **§4's *empty population passes*, inside
+the control written to guard against that failure.**
+
+**② Then a base-rate error.** With the right extractor it compared **raw counts** across documents of
+very different size: 79 blocks with 5 amended against 12 with 3. Raw counts said FAIL (5 > 3); the
+**rates** say PASS (0.0633 < 0.2500), and the rate is the comparison.
+
+**Two mis-specifications in one control, in the round whose subject is what survives scrutiny.** Both
+are recorded in the code beside the fix rather than silently corrected.
