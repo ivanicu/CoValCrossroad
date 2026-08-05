@@ -147,6 +147,13 @@ arm's chosen criteria within the prompt's own rubric: **`oracle_k4` 0.2791**, `g
 unknown one** — the pre-registered kill, and it fired. **The fork does not dissolve.**
 
 ⭐ **The shape of the failure is the finding: what escapes is RULE-FOLLOWING, not OPTIMISATION.**
+
+⛔⛔ **AND THE OBVIOUS REFORMULATION IS REFUSED, ON A MEASUREMENT.** Replacing ③ with ③′ — *"not
+**optimised** against the labels"*, which R508 shows is checkable — gives **extension 1**, and that
+one is **`coval_core`**, admitted because the release ships **no criterion-text file** for it (95 arms
+have one; the released core does not). **0 adjudicated members, 1 blind spot.** A zero from an
+instrument that could not look is **silence, not an acquittal**. ⭐ **So the choice is not
+provenance-versus-checkability — it is an HONEST zero versus a FLATTERING one.** *(R509)*
 Arms whose selection rule is *stated in terms of the rubric ordering* also separate, but that is a
 **derivation** and counts for nothing. *(R503, R508)*
 

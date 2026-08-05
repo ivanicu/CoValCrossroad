@@ -1614,3 +1614,25 @@ the finding: every reader that OPTIMISES against the labels is caught, and every
 selection. What escapes is rule-following, not optimisation** — sharper than *"no surrogate exists"*,
 and what R501 could not reach. ⚠ Arms whose rule is *stated over the rubric ordering* also separate;
 that is a **derivation** and counts for nothing. *(R503, R508)*
+
+
+⛔⛔⛔ **AND A CHECKABLE ③ DOES NOT RESCUE THE DEFINITION — IT MAKES THE SAME VACUITY HARDER TO SEE
+(R509).** R508's surrogate invites an obvious reformulation: replace ③ *"not built by reading the
+labels"* (provenance) with **③′ *"not OPTIMISED against the labels"*** (checkable from the criterion
+set plus the prompt's rubric). Applied to the **5** arms admitted by ①∧②∧④:
+
+| arm | criterion text | ③′ verdict |
+|---|---|---|
+| `oracle_k4`, `greedy_k4_fit1`, `indep_k4_fit1` | yes | **EXCLUDED — separate as optimisers (measured)** |
+| `topw_k4` | yes | excluded by **derivation** (rule stated over the ordering) |
+| **`coval_core`** | **no** | ⛔ **CANNOT RULE — no criterion text, so no positions** |
+
+**③ extension 0. ③′ extension 1 — and that 1 is `coval_core`, with 0 adjudicated members and 1 blind
+spot.** Of **95** arms carrying a criterion-text file, the **released core is not one of them**; only
+its sham is. **POSITIVE control passes: the instrument ruled on 4 of 5 by measurement.**
+
+⭐ **A zero from an instrument that could not look is silence, not an acquittal — so `coval_core` is
+not a member of ③′, it is missing data wearing a member's clothes.** The reformulation converts
+*"empty because ③ excludes everything"* into *"one member the instrument cannot see"*: the same
+vacuity, less visible. ⭐⭐ **The fork is therefore not provenance-vs-checkability but AN HONEST ZERO
+VS A FLATTERING ONE.** *(R508, R509)*

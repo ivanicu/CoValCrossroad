@@ -1,0 +1,30 @@
+{
+ "five": [
+  "oracle_k4",
+  "greedy_k4_fit1",
+  "indep_k4_fit1",
+  "coval_core",
+  "topw_k4"
+ ],
+ "has_text": [
+  "greedy_k4_fit1",
+  "indep_k4_fit1",
+  "oracle_k4",
+  "topw_k4"
+ ],
+ "adjudicated_out": [
+  "oracle_k4",
+  "greedy_k4_fit1",
+  "indep_k4_fit1",
+  "topw_k4"
+ ],
+ "admitted_seen": [],
+ "blind": [
+  "coval_core"
+ ],
+ "extension_3prime": [
+  "coval_core"
+ ],
+ "positive_control": true,
+ "world": "B \u2462\u2032 HIDES THE VACUITY"
+}
