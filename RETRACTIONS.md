@@ -10281,3 +10281,26 @@ best-satisfied criterion, so it is structurally blind to accumulation, which is 
 applied to an aggregator rather than a search. Correct denominator: **2 of the 3 aggregators that can
 resolve k**. ⚠ Reporting 2 of 5 would have counted **blindness as disagreement**, which is the
 specification-curve equivalent of padding a null with cells that never had power.
+
+## 307 · "52 gates" was the FILE count; there are 42 gates (R482, caught in-round)
+
+**Retracted.** This round opened by reporting *"the assurance layer has 52 gates. I have been running
+four."* **52 was `ls assurance/*.py`** — which includes helpers (`_isolated.py`, `_repair.py`),
+appliers (`apply_freeze_status.py`, `apply_outcome_scope.py`), generators (`generate_round_index.py`),
+libraries (`clause3_as_written.py`, `manifest.py`) and non-gates (`DEFECTS.py`, `HEADLINES.py`,
+`pueue_wait.py`). **Gates, by the discovery rule now written into `run_all.py`: 42.** Coverage is
+therefore **4/42 = 9.5%**, not 4/52.
+
+⚠ **The error is the unit error the round was about**, committed inside the round about it, in the
+same hour — and the direction flattered the finding by inflating the denominator.
+
+⭐ **And it nearly got "confirmed" by an unrelated number.** README.md line 15 reads *"the defect list
+**46 checks** — 6 blocking, 16 serious, 8 noted, 16 checked-clean"*. That is `DEFECTS.py`'s **defect
+ledger**, not the gate count — but 46 sits close enough to a hand-count of `assurance/` that quoting
+it would have looked like independent corroboration. **A number of the right magnitude in the wrong
+unit is worse than no number**, because it survives a sanity check.
+
+**Remedy, the one §4 already states and I applied only after the fact:** name the instrument's unit
+and the claim's unit as **two separate strings** and require them equal, *before* the count is taken.
+Here: instrument = "files matching `assurance/*.py`", claim = "gates that rule on the repo". Written
+out, they are visibly different.
