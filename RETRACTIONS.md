@@ -14003,3 +14003,44 @@ sentence RETIRES**: line 90 reads *"the definition is ② ∧ ③. ① and ④ a
 ⚠ **A recogniser that cannot tell assertion from retirement is measuring mentions, not definitions.**
 Fixed by cutting at the first negation cue, with both readings reported as a specification axis; they
 agree.
+
+## 492 · Eight rounds are referenced by the deliverable and invisible to its own gate
+
+The gate's citation regex requires `R###` to be followed by `,` or `)`. R592 measured the gap
+(**83 vs 91**) and never characterised it. Characterised: **8 real rounds are referenced and
+unchecked, and 4 would be REJECTED if the gate saw them** — `R288`, `R294`, `R398`, `R427`.
+
+⛔ **`R294` is the source of the scope-constants table that governs every row of the claim table** —
+41 arms, 968 prompts, 46 objects — and it carries **no verdict-shaped key at all.**
+
+## 493 · The gate passes because it does not look, and looking would break it for the wrong reason
+
+Its rule is *"no `world` ⇒ reject"*, over a field **R594 measured at 44% prevalence**. Of the four:
+**two are rejectable only for a KEY NAME** (`R398`, `R427` record under `verdict`), and **two are
+CENSUS rounds** — `R294` produces the arm space, not a claim — **for which the rule has no category.**
+
+⭐⭐⭐ **So widening the regex would make the gate fail on rounds that are not defective. The
+visibility hole is load-bearing in a way nobody chose.** *This is the whole R594→R600 arc in one
+sentence: an untyped field plus a strong rule equals a gate that must not look too hard.*
+
+**The fix was measured before it was applied:** reading `verdict` as well as `world` changes **0 of
+the 84 visible** rounds and repairs **2 of the 4 invisible**. Applied because it is inert today and
+correct later; **the regex is deliberately left alone.**
+
+## 494 · I misdescribed my own code in a closing line
+
+R599 closed with *"`live` depends on the literal string `SUPERSEDED`"*. **The regex has four
+alternatives** — `SUPERSEDED|superseded|no longer the definition|predates`. A round built on that
+sentence would have measured the wrong rule. ⚠ **And its population was wrong**: only corrections
+attached to a *definition-asserting site* can move the count.
+
+*The closing-sentence row again, in a new form: not a quantifier over my own work but a DESCRIPTION
+of my own code, written from memory of what I had intended rather than from the line I wrote.*
+
+## 495 · Checking before assuming saved a round built on a false premise
+
+§4's row states *"the definition has never been checked against an object other than the one it was
+written from."* **It has.** `R427`, `R433`, `R466` are transport rounds, and **`R433`'s verdict is
+`W-LOSES` — clause ②'s subject loses on the second release.**
+
+⚠ **I was one command from designing a round to do work already done**, and the command was `ls`.

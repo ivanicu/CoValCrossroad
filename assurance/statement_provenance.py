@@ -31,8 +31,17 @@ def world_of(rid):
                 j = json.loads(f.read_text())
             except Exception:
                 continue
-            if isinstance(j, dict) and isinstance(j.get("world"), str):
-                return j["world"]
+            # ⭐ WIDENED 2026-08-05 (R600), and MEASURED SAFE BEFORE APPLYING: on the 84
+            #   rounds this gate currently sees, reading `verdict` as well as `world` changes
+            #   0 verdicts -- it breaks nothing and repairs nothing TODAY. It matters because
+            #   R398 and R427 are referenced by STATEMENT.md, are settled, and record their
+            #   result under `verdict`; under the old lookup they would be REJECTED for a KEY
+            #   NAME. R594 measured `world` at 44% prevalence across the corpus, so reading
+            #   exactly one spelling of an unenforced field is the R596 failure again.
+            if isinstance(j, dict):
+                for k in ("world", "verdict"):
+                    if isinstance(j.get(k), str):
+                        return j[k]
     return None
 
 
