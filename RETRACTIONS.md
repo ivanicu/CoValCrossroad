@@ -10058,3 +10058,27 @@ assertion table is unchecked BY CONSTRUCTION"* — but it reports a **count of a
 contains, and how many of them are anchored. Until then *"302 of 302"* is a statement about the list,
 and the sentence it invites — *"every number in the document is checked"* — is false. **This defect
 was found by hand, in the one round that happened to inspect its own diff.**
+
+## 294 · A positive control that asserted a syntax the document does not use (R476, caught in-round)
+
+**Retracted before publication.** R476's positive control required the live anchor count to appear as
+a standalone bolded number, `**302**`, and be classified COVERED. It returned **False**, and for a
+moment that read as a broken span rule. The document does not write `**302**` — it writes
+`**Declaration coverage is 27 of 302 anchors…**`, with the number **inside** a longer bolded span.
+
+⭐ **The control was validated against my idea of the document's syntax, not against the document.**
+Remedy applied: the probe is now **derived from the object** — take the first anchor that actually
+fires, read the value it captured and the offset it captured it at, and require the extractor to mark
+**that exact site** covered. It selected `r475_ceil_abs`, `0.8437` at char 41653.
+
+## 295 · A control that could not run at all (R476, caught in-round)
+
+**Retracted before publication.** R476's negative control built its patterns as
+`ex.replace("(", "(?:", 1)`, which rewrote each extractor's leading lookbehind `(?<![\w.])` into the
+invalid `(?:?<![\w.])` and raised `re.PatternError: nothing to repeat`.
+
+⚠ It failed loudly — exit 1, traceback — so nothing false was published. **But a control that cannot
+execute is not a weak control, it is an absent one**, and the same defect inside a `try/except` would
+have printed a clean pass. Rebuilt as a two-sided check: a literal absent from the document must be
+extracted **0×** by every rule, **and** must be found once injected — because a zero from an extractor
+never shown to return non-zero is silence, not absence.

@@ -636,6 +636,20 @@ def derive():
         for k in ("r462_old", "r462_new", "r462_cov", "r462_total"):
             out[k] = (None, "R462")
 
+    # R476 -- from the round's artifact, so the document is checked against the RUN, not itself.
+    try:
+        _c = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+                            "R476_what_fraction_of_the_document_is_checked/results/r476_coverage.json"))
+        _e = _c["extractors"]
+        out["r476_cov_bold"] = (round(100*_e["bold_any"]["coverage"], 1), "R476")
+        out["r476_n_bold"]   = (_e["bold_any"]["covered"], "R476")
+        out["r476_cov_all"]  = (round(100*_e["all_number"]["coverage"], 1), "R476")
+        out["r476_spread"]   = (round(max(v["n"] for v in _e.values())
+                                      / min(v["n"] for v in _e.values()), 2), "R476")
+    except (OSError, KeyError, ZeroDivisionError):
+        for k in ("r476_cov_bold", "r476_n_bold", "r476_cov_all", "r476_spread"):
+            out[k] = (None, "R476")
+
     # R475 -- read from the round's persisted artifact, so the document is checked against the
     # RUN and not against itself. Absent artifact -> None, which the gate reports as UNEVALUABLE.
     try:
@@ -1041,6 +1055,12 @@ def derive():
 # label -> the regex that must find that number in DEFINITION.md. The pattern is the CLAIM's own
 # wording, so an edit that changes the sentence without changing the artifact is caught too.
 ASSERTIONS = {
+    # R476 -- the gate's own coverage, anchored so the coverage sentence cannot drift from what the
+    # gate computes. A gate that reports its denominator must have that denominator checked too.
+    "r476_cov_bold":  r"\*\*(\d+\.\d)%\*\* of author-emphasised numbers",
+    "r476_n_bold":    r"of author-emphasised numbers \(\*\*(\d+)\*\* of 169\)",
+    "r476_cov_all":   r"and \*\*(\d+\.\d)%\*\* of every number",
+    "r476_spread":    r"differ by\s*\n\*\*(\d+\.\d+)×\*\*",
     # R475 -- the dataset card decides clause ③. Anchored because the round MOVED the extension
     # from [0,1] to 0, and a number that changes a verdict must bring its check with it.
     "r475_ceil_abs":  r"0\.8399 vs \*\*(0\.\d{4})\*\*",
@@ -1492,6 +1512,29 @@ def main() -> int:
     print(f"    of it -- is handed `{probe}` = {tv + 1:g} against the artifact's {tv:g} and must")
     print(f"    REJECT, and handed {tv:g} against {tv:g} and must ACCEPT: "
           f"{'caught' if caught else 'MISSED'}  {'PASS' if caught else 'FAIL'}")
+
+    # ---- DOCUMENT COVERAGE (R476) ------------------------------------------------------------
+    # ⛔ WHY. Until R476 this gate reported "N of M assertions" and nothing else. That is a fact
+    # about the LIST. It let a substring replace corrupt `+0.1298` in DEFINITION.md while the gate
+    # returned PASS, because that number is not in the list -- and a count with no denominator
+    # reads as coverage. The denominator is the DOCUMENT, and it is not unique: "a numeric claim"
+    # is a choice, so four defensible extractors are reported and the SPREAD is part of the answer.
+    _doc = DOC.read_text()
+    _EXTR = {"bold_any":   r"\*\*([+−-]?\d[\d,]*\.?\d*)%?\*\*",
+             "decimal":    r"(?<![\w.])([+−-]?\d+\.\d+)(?![\w.])",
+             "sig2plus":   r"(?<![\w.])([+−-]?\d+\.\d{2,})(?![\w.])",
+             "all_number": r"(?<![\w.])([+−-]?\d[\d,]*\.?\d*)(?![\w.])"}
+    _spans = [(m.start(m.lastindex), m.end(m.lastindex))
+              for pat in ASSERTIONS.values() for m in re.finditer(pat, _doc) if m.lastindex]
+    print("\n  DOCUMENT COVERAGE (R476) — the denominator this gate owes you:")
+    _cs = []
+    for _n, _ex in _EXTR.items():
+        _nums = [(m.start(1), m.end(1)) for m in re.finditer(_ex, _doc)]
+        _c = sum(1 for a, b in _nums if any(s <= a and b <= e for s, e in _spans))
+        _cs.append(_c / len(_nums))
+        print(f"    {_n:<11} {_c:>4} of {len(_nums):>5} numeric claims covered   {_c/len(_nums):>7.1%}")
+    print(f"    ⚠ the gate checks {min(_cs):.1%}-{max(_cs):.1%} of this document depending on what "
+          f"counts as a claim.\n      A PASS certifies the anchored numbers, never the document.")
 
     print(f"\n  PROXY LEDGER — {len(evaluable)} of {len(ASSERTIONS)} assertions were evaluable; "
           f"{len(missing)} are not in the document.")

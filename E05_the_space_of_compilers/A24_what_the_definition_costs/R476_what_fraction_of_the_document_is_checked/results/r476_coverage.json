@@ -1,0 +1,41 @@
+{
+  "anchors": 306,
+  "extractors": {
+    "bold_any": {
+      "n": 174,
+      "covered": 120,
+      "coverage": 0.6896551724137931,
+      "lo": 0.6174413491079258,
+      "hi": 0.7536757144562742
+    },
+    "decimal": {
+      "n": 457,
+      "covered": 159,
+      "coverage": 0.3479212253829322,
+      "lo": 0.30568310542990135,
+      "hi": 0.3926947264226713
+    },
+    "sig2plus": {
+      "n": 395,
+      "covered": 135,
+      "coverage": 0.34177215189873417,
+      "lo": 0.29672282707977066,
+      "hi": 0.38986943353774267
+    },
+    "all_number": {
+      "n": 1035,
+      "covered": 286,
+      "coverage": 0.2763285024154589,
+      "lo": 0.24995003156421342,
+      "hi": 0.3043611715152305
+    }
+  },
+  "verdict": "MEASURED",
+  "world": "MIXED + C (unit-bound, denominator spread 5.9x)",
+  "controls": {
+    "positive": true,
+    "g0": true,
+    "negative": true,
+    "placebo": true
+  }
+}

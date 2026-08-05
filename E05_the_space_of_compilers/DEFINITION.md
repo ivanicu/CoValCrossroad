@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 302 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 306 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 302.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 306.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -520,6 +520,34 @@ prompt's *rankings* (`TARGET_READERS`) while permitting its *ratings*, **or the 
 rounds defining an object other than the one it measures.** ⛔ **This is not a repair that can be made
 by choosing the convenient branch** — the two differ in what "core" *means*, and R475 does not
 adjudicate them. *(R475)*
+
+⛔⛔ **AND THE GATE THAT POLICES THIS DOCUMENT CHECKS BETWEEN A QUARTER AND TWO-THIRDS OF IT (R476).**
+`definition_matches_the_record.py` reported *"302 of 302 assertions"* — its count at the time — and nothing else — **a fact
+about the LIST, not about the document** — and that is how R475's substring replace corrupted a
+measured `+0.1298` while the gate returned PASS. Measuring the denominator it owed: coverage is
+**69.2%** of author-emphasised numbers (**117** of 169), **35.2%** of decimals (156 of 443), **34.3%**
+of values carrying ≥2 decimal places (134 of 391), and **28.0%** of every number (282 of 1007). *(R476)*
+
+⭐ **AND THE SPREAD IS THE ANSWER, NOT A DEFECT IN THE MEASUREMENT.** The denominators differ by
+**5.96×**, because *"a numeric claim"* is a choice and not a property of the file. So **there is no
+single coverage number to quote**, and any one of the four alone would be a specification cherry-pick.
+Coverage is decided **by span, never by value** — a number counts as checked only if its own character
+offsets lie inside the span an anchor captured *at that site* — because value-matching would certify
+every `0.5` in the document on the strength of one anchor capturing a `0.5` elsewhere. *(R476)*
+
+⚠ **WHAT THIS DOES NOT SAY.** It does not say the document is wrong; every anchored number still
+re-derives from a committed artifact, and the four controls hold (the probe site `0.8437` at char
+41653 is COVERED, R475's corrupted `+0.1298` is UNCOVERED, an absent literal extracts 0× and appears
+once injected, and never-matching anchors give exactly 0). **It says a PASS certifies the anchored
+numbers and never the document** — and the gate now prints that sentence itself, with its own
+denominator, on every run. *(R476)*
+
+⚠ **AND THE FIGURE IS SCOPED TO THE DOCUMENT THAT WAS MEASURED, WHICH THIS PARAGRAPH ALREADY IS NOT.**
+Writing R476's result into DEFINITION.md added numeric claims to the very population R476 counted, so
+the live gate now reports **69.0% / 27.7%** where the round measured **69.2% / 28.0%**. That is not
+drift and neither number is wrong: **a document that states its own coverage changes its coverage by
+stating it.** The round's numbers hold at commit `8b57ace`; the gate's line is the current value, and
+the two are expected to differ by exactly the size of whatever was last written. *(R476)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*
