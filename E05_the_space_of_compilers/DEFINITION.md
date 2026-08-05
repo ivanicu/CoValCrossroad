@@ -2109,3 +2109,23 @@ produced no variant.
 ⚠ **R524's `_ctlS1` flag is WITHDRAWN.** Those tags are `random_k`, satisfaction-blind, so their
 identity is the documented correct outcome. **I flagged them on the naming convention rather than on
 the rule — a label read as a description.**
+
+---
+
+## R526 · Closure — the variant mechanism works where the invocation is recorded
+
+**The wall fell first, fifth of the session.** R525 closed saying only "whatever produced them"
+could settle the remaining tags. **`corebench/rebuild_selection_08b.sh` records a natural experiment
+for the mechanism**: `frozen()` passes `--select-npz` (selection fixed), `rerun()` omits it (rule
+re-run under the new judge). **Five arms get both treatments, all five satisfaction-consuming.**
+
+**All 5 pairs differ.** Pre-registered kill was ≥1 identical; it did not fire. Positive control:
+`_08b` differs from the home-judge arm of the same name in **5/5**, so the judge swap genuinely
+changed the artifacts and the family is not a mislabelled copy.
+
+⭐⭐⭐ **So `--select-npz` does change identity when invoked, and R525's reading stands: the three
+home-judge identities are runs where the variant treatment was never applied.**
+
+⚠ **Limit, stated:** this tests the **mechanism** on the second-release population. The home-judge
+A/B invocations are genuinely unrecorded — the round establishes the flag is capable of what R525
+assumed, not what was typed elsewhere. **Labelled CLOSURE, not a new world.**
