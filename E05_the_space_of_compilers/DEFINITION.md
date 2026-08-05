@@ -2607,3 +2607,33 @@ force forbid dispatching agents unless asked, so the remedy is named and **not**
 ⚠ **My count was 4 before I read the hits.** The fourth was R550's gate audit, whose amended-rounds
 dict holds the directory name `R399_what_estimand_does_the_second_corpus_admit`. **The instrument
 matched a round's NAME and would have been reported as a corpus RESULT.**
+
+## R557 · Row 1 measured VERBATIM overlap on an object its own card documents as a REWRITE
+
+Row 1 blocks ③′ on the released core because only **6.6%** of core criteria appear verbatim in
+`coval_full`, and asks for the field `coval_core[i].source_rubric_item_ids`. **The dataset card
+documents a rewrite and merge before selection** — so a rewrite is precisely what an exact-match
+instrument cannot see. **The row named an OBJECT where the requirement is a PROPERTY: a recoverable
+mapping from core item to source items.**
+
+Matching by **similarity** instead of identity, per prompt, over 968 prompts and 3,828 core items:
+
+| | value |
+|---|---|
+| **POSITIVE CONTROL** — top-1 on the 298 items whose source is known verbatim | **1.0000** |
+| **PLACEBO** — a *different* prompt's rubric matches at least as well | **0.0000** |
+| margin (top1−top2), KNOWN median | **0.8035** |
+| margin, UNKNOWN median (n=3,530) | **0.3101** |
+| unknown items clearing the KNOWN set's 10th-percentile margin | **21.0%** |
+
+⚠ **21.0% is a BOUND ON IDENTIFIABILITY, not an accuracy.** There is no ground-truth mapping — that
+absence *is* row 1 — so accuracy is identified **only** on the verbatim subset and merely bounded
+elsewhere. **Partial identification means bounds, not a point.**
+
+⚠ **My verbatim share is 7.8% (298/3,828), the row says 6.6%.** My normalisation — lowercase plus
+whitespace collapse — is strictly more permissive, and a looser rule returning a larger share is
+consistent rather than contradictory. **Both are reported; neither silently overrides the other.**
+
+**So the row's PRICE is right for a COMPLETE mapping and wrong for the requirement.** A partial
+mapping is available on this site with no new field, and the publisher's field remains the only
+route to a *complete* one.

@@ -12595,3 +12595,28 @@ My closing line said two register rows had moved *"both because the row named an
 property."* **True of row 2. False of rows 3+4**, which moved because I **made the edit** *(R553)*.
 Two different mechanisms — a categorial error and a removed blocker — read as one pattern because
 they landed in consecutive rounds.
+
+## 392 · Row 1's "6.6% verbatim" is an IDENTITY measurement on a documented REWRITE
+
+Row 1 blocks ③′ because only **6.6%** of core criteria appear verbatim in `coval_full`, and asks for
+`coval_core[i].source_rubric_item_ids`. **The dataset card documents a rewrite and merge before
+selection.** An exact-match instrument cannot see a rewrite — **that is what a rewrite is** — so the
+number measures identity and was read as recoverability.
+
+**Matching by similarity instead:** top-1 on the 298 known-source items is **1.0000**, the placebo
+(a different prompt's rubric) is **0.0000**, and **21.0%** of the 3,530 rewrites match as sharply as
+the known-good cases.
+
+⭐⭐⭐ **The row named an OBJECT where the requirement is a PROPERTY** — the third register row this
+session with that shape, after row 2 and row 5. **Its price is right for a COMPLETE mapping and
+wrong for the requirement**: partial recovery costs nothing here.
+
+⚠ **21.0% is a BOUND on identifiability, not an accuracy.** No ground truth exists — that absence
+*is* the row — so accuracy is identified only on the verbatim subset. **Partial identification
+licenses bounds, never a point**, and this is the failure mode that has already been wrong three
+times in the sham row of §4.
+
+⚠ **My verbatim share is 7.8% (298/3,828) against the row's 6.6%.** My normalisation (lowercase,
+whitespace collapse) is strictly more permissive, so a larger share is consistent rather than
+contradictory. **Both are reported; neither silently overrides the other** — a corrected number that
+quietly replaces an old one hides the instrument difference that produced the gap.
