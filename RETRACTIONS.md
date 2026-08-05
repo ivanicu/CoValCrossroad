@@ -15105,3 +15105,67 @@ crashes, and the honest re-run **exceeded a 2-minute foreground timeout and is s
 ⭐ **Both claims were unjustified when made and closer to true than the refutations I built.** *A
 memory that happens to be right is the worst case, not the best: it survives, it gets quoted, and
 nothing in the process distinguishes it from the memories that are wrong.*
+
+## 601 · Check #236 — I merged my own positive control with my own world C
+
+The closing line said a byte-identical failure *"is the outcome world C was pre-registered to catch."*
+Read from the source: **world C is `>=1/3 fail to run`**; the byte-identical requirement is the
+**POSITIVE CONTROL**, a separate clause.
+
+⭐ **And the distinction is operational.** A positive-control failure makes the round **UNVERIFIED —
+no verdict admissible**; world C is a **substantive verdict**. Merging them licenses reporting a
+control failure as a finding, which is the UNVERIFIED-vs-OVERTURNED collapse P6 forbids and R625
+already caught once. **Fifth mischaracterisation of my own tooling in seven closing lines**, and this
+one would have converted a broken instrument into a result.
+
+## 602 · The cost, finally measured: "expensive" was right and my refutation was 260× off
+
+Timed properly under the project venv: **~172 s for the first five of 43 rounds**, projecting
+**~26 minutes** for the batch. My quoted **0.1 min** — derived from 43 crashes — was **260× low**.
+The original unjustified *"re-runs are expensive"* is the closest of the three numbers to the truth.
+
+## 603 · `git checkout -- <path>` restores from the INDEX, not HEAD — a near-miss I created mid-flight
+
+R636's negative control restores the tree with `git checkout -- <A24>`. While it was running I ran
+`git add -A`, which **staged one artifact the re-run had already rewritten**. `git checkout --`
+restores from the **index**, so the "restore" would have **preserved the mutation** and the control
+would have printed PASS over a tree it had just failed to restore.
+
+⭐ **A restore step and a staging step are not independent operations**, and the control that was
+supposed to catch a dirty tree was the very thing the staging would have blinded. Caught by unstaging
+before the restore ran; recorded because the next round that stages mid-run will hit it silently.
+
+## 604 · A third mechanism, and neither R635 nor R636 anticipated it
+
+`R463`'s re-run gives `r463_markers` **21 → 79** and `r463_clause2` **19 → 67**, and
+`definition_matches_the_record` flags both as no longer matching their artifact. ⚠ **A count trebling
+does not look like an instrument change — it looks like the POPULATION GREW.**
+
+⭐ **The corpus is the population, and it grows every round.** So a round that measures the corpus
+has a conclusion with a shelf life measured in rounds, independent of any key set or gate repair.
+**Live hypothesis, not a finding** — attribution waits for the run to finish.
+
+## 605 · The operator contaminated the round — a fifth self-contamination, and a new vector
+
+R636's negative control compares `git status` before and after the re-run. **I ran `git add -A` and
+`git reset` while the round was measuring the repository**, so the tree legitimately did not match
+its recorded pre-state and the control failed. **The verdict stays `UNVERIFIED`** — the positive
+control passing does not license overriding a failed negative one.
+
+⭐⭐ **The four earlier cases were the round's own artifact sitting inside its population (R601, R604,
+R621, R634). This is the OPERATOR acting on the population during the measurement** — a vector no
+amount of self-exclusion inside the script can reach. **A measuring round makes the repository
+read-only for its duration.**
+
+## 606 · Corpus growth, not the key set, is what moved 12 of 38 conclusions
+
+Re-run under the project venv: **38 of 43 runnable, 284 s, 38 byte-identical, 12 verdict-bearing
+changes.** Every inspected change is a denominator growing — `18/98 → 20/174`, `18 → 21`
+cross-release rounds, `R[501] → R[501, 604, 625]`, `p = 0.0012 → 0.0366`.
+
+⭐⭐⭐ **The corpus is the population, and it grows every round.** So these conclusions have a shelf
+life measured in rounds, **and R635's narrow-key premise — the whole reason the 43 were selected —
+is not what moved them.** ⚠ Reported as observations: the round's verdict is `UNVERIFIED`.
+
+⛔ And **R597 flipped from `D FIRES ONCE, correctly bound` to `B LIVE`** — a live defect that exists
+now and did not when the round was written, surfaced only because the document grew.

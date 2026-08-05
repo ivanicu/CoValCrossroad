@@ -3,7 +3,43 @@
 **Decision this makes safe:** whether to substitute a proxy for re-running the 43. **No — but not
 for the reason I gave, and not for the reason I then "measured".**
 
-⚠ **STATUS: the re-run is still executing.** What is established below does not depend on its result;
+## THE RESULT — verdict `UNVERIFIED`, and the cause was me
+
+**Positive control first, as pre-registered: 38 of 38 re-runnable rounds reproduced BYTE-IDENTICALLY
+→ PASS.** So "changed" and "nondeterministic" are distinguishable and the diff count is interpretable.
+
+⛔ **The NEGATIVE control failed.** It compares `git status` before and after — and **I ran
+`git add -A` and `git reset` while the round was measuring the repository.** ⭐⭐ **Fifth
+self-contamination, and a new vector: not the round's own artifact inside its population, but the
+OPERATOR acting on the population during the measurement.** Per P6 the verdict stays `UNVERIFIED`;
+a clean re-run with nothing else touching the repo is owed.
+
+| | |
+|---|---|
+| re-runnable | **38 of 43** (5 exit 1 — below the 1/3 world-C threshold) |
+| wall clock | **284 s** |
+| byte-identical | **38** |
+| textually changed | 18 |
+| **verdict-bearing changes** | **12** |
+
+### ⭐⭐⭐ And the mechanism is not the one this arc was chasing
+| round | before → after |
+|---|---|
+| R500 | inconsistency at **18/98 → 20/174** |
+| R601 | **18 → 21** cross-release rounds |
+| R596 | `R[501]` → `R[501, 604, 625]` |
+| R593 | p = **0.0012 → 0.0366** |
+| R597 | `D FIRES ONCE, correctly bound` → **`B LIVE`** — a paragraph may ride a word not about the round it allows |
+| R463 | `W-FORCED` → **`W-DISCRIMINATES`** |
+
+**Every one is the denominator growing.** **The corpus is the population, it grows every round, and
+these rounds measure the corpus** — so their conclusions have a **shelf life measured in rounds**.
+**R635's narrow key set, this arc's entire premise for the 43, is not what moved them.**
+
+⚠ **Observations, not verdicts** — the round is `UNVERIFIED` and these are reported as what was seen,
+not as what was established.
+
+⚠ **STATUS (superseded): the re-run has completed.** What is established below does not depend on its result;
 the verdict on what moved is **PENDING** and is not reported here as anything else.
 
 ## ⛔⛔ The triple reversal, in order

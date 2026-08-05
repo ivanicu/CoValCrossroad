@@ -435,6 +435,6 @@ with its own verification, and the finding is recorded here where a reader will 
 | [`R633`](R633_conclusions_under_superseded_instruments) | R633 · Fifteen conclusions stand on instruments that have since changed | 1 |
 | [`R634`](R634_how_many_definitions_of_its_own_terms) | R634 · The corpus holds five incompatible definitions of "a round citation" | 1 |
 | [`R635`](R635_who_reads_a_key_they_reject) | R635 · 43 rounds read a settled verdict as unsettled, and 58% of my closing lines talk about my own work | 1 |
-| [`R636`](R636_what_actually_moved) | R636 · I measured the cost of failing and called it the cost of doing | — |
+| [`R636`](R636_what_actually_moved) | R636 · I measured the cost of failing and called it the cost of doing | 1 |
 
 <!-- ROUND-INDEX:END -->
