@@ -3531,3 +3531,31 @@ The block had also already made the naive attack against itself, calling its own
 twice over and noting that absent literals remove one way of copying rather than all. A block that
 names its own ceiling twice cannot be killed by pointing at the ceiling, and the only live attack
 remaining was on the meaning of independent, which the measurement answered in the block's favour.
+
+## R722 · Whether the shared file is a shared input
+
+R721 measured that four of the six derivations behind the number five read the same file, the clause
+ledger. R722 asks whether they read the same part of it, since two rounds taking disjoint fields from
+one file share a path and no data.
+
+All four readers parse, and they share four fields. The clause-two-and-three admission list is read
+by three of the four; the clause-two admission list, the sweep and the criteria count by two each. So
+the sharing is not nominal: two of the six derivations take the same field from the same file, which
+is a shared input rather than a shared path, and R721's description of eleven files with three in
+common as not-disjoint evidences was right and understated.
+
+The probe run while writing the previous round's closing line was an uncontrolled search. It returned
+fields for two readers and nothing for the other two, which is silence rather than zero, and
+reporting those as reading no fields would have been a fabricated absence. This round replaces it
+with a pattern ladder, reports coverage as a first-class number, and treats unmeasured as a value
+distinct from zero that the two branches never print alike. With the ladder all four parse, so the
+registered prediction that coverage would be incomplete failed, which is the right way for that
+prediction to die.
+
+The round's negative control also had to be repaired. It required the extractor to recover at least
+three schema fields from the round that writes the ledger, and the ceiling is two: that round builds
+its dictionary from variables, so only two of fifteen schema keys appear as string literals anywhere
+in its source. The control could not pass and the round printed unverified. The repair computes the
+band — floor zero, ceiling two, threshold one — rather than lowering the number, because recovering
+any schema field from the writer is what the control exists to show. A threshold that is picked is a
+guess; a threshold that is computed is a control.

@@ -18060,3 +18060,39 @@ smaller" — is one the block states in its own body.**
 cannot be killed by pointing at the ceiling.** The only live attack left was on what "independent"
 MEANS — independence from copying versus independence of source — and the measurement answered it in
 the block's favour.
+
+## 932 · the six derivations share a FIELD, not just a file
+
+R721 measured file-level sharing: `clause_ledger.json` read by 4 of 6 derivers. R722 measures the
+field level. All **4** readers parse, and they share **4** fields — `clause23_admits` in **3 of 4**,
+`clause2_admits`, `sweep` and `k` in 2 each.
+
+⭐ **So the sharing is not nominal.** Two of the six derivations behind the number 5 take the **same
+field** from the **same file**, which is a shared **input** and not merely a shared path. **R721's
+qualification — "eleven files with three in common, not disjoint evidences" — was right, and
+understated it.**
+
+## 933 · my probe of that question was an uncontrolled search, and it would have fabricated two zeros
+
+The three-line probe I ran while writing R721's NEXT line returned fields for R404 and R405 and
+**nothing** for R408 and R667. **That is silence, not zero** — the regex matched a handful of
+subscript shapes. Reporting *"R408 reads no fields"* would have been a fabricated zero in exactly the
+shape §4 names.
+
+The round replaces it with a **pattern ladder** and a **coverage number reported first-class**, and
+`UNMEASURED` is a value **distinct from 0** that the two branches must never print alike. With the
+ladder, all four parse — so **the registered directional (coverage incomplete) FAILED**, which is the
+right way for that prediction to die.
+
+## 934 · and my negative control's threshold was above its own ceiling
+
+I required the extractor to recover **≥3** schema fields from R360, the round that **writes** the
+ledger. **The ceiling is 2**: R360 builds the dict from variables, so only 2 of its 15 schema keys
+appear as string literals anywhere in its source. The control **could not pass**, and it printed
+UNVERIFIED for the whole round.
+
+Repaired by **computing the band** rather than lowering the number: floor 0, ceiling 2, threshold 1 —
+recovering *any* schema field from the writer is what the control is actually for. ⚠ **This is the
+§4 row "control that cannot PASS" for the fifth recorded time, and the remedy it prescribes — compute
+floor and ceiling and require floor < t ≤ ceiling — is what fixed it. A threshold I pick is a guess;
+a threshold I compute is a control.**
