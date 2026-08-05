@@ -1,0 +1,114 @@
+{
+  "A_distinct_objects": 4,
+  "B_members": [
+    [
+      "oracle_k4",
+      "oracle_k4_oracle_kA",
+      "oracle_k4_oracle_kB"
+    ]
+  ],
+  "B_objects_excluded": 1,
+  "C_members": [
+    [
+      "greedy_k4_greedy_kA",
+      "greedy_k4_greedy_kB"
+    ],
+    [
+      "indep_k4_indep_kA",
+      "indep_k4_indep_kB"
+    ],
+    [
+      "oracle_k4_08bR"
+    ]
+  ],
+  "C_objects_admitted": 3,
+  "D_r523_reproduced": 5,
+  "controls": {
+    "G0": true,
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "SHAM": true
+  },
+  "controls_ok": true,
+  "directional_tags_overstate": true,
+  "multi_tag_classes": [
+    [
+      "coval_core",
+      "coval_core_2bA",
+      "coval_core_2bB"
+    ],
+    [
+      "generic",
+      "generic_reprov",
+      "provenance_probe"
+    ],
+    [
+      "greedy_k4_greedy_kA",
+      "greedy_k4_greedy_kB"
+    ],
+    [
+      "indep_k4_indep_kA",
+      "indep_k4_indep_kB"
+    ],
+    [
+      "oracle_k4",
+      "oracle_k4_oracle_kA",
+      "oracle_k4_oracle_kB"
+    ],
+    [
+      "random_k4_s0",
+      "random_k4_s0_ctlS0"
+    ],
+    [
+      "random_k4_s1",
+      "random_k4_s1_ctlS1"
+    ],
+    [
+      "topw_k4",
+      "topw_k4_detA",
+      "topw_k4_detB"
+    ]
+  ],
+  "n_objects_exact": 81,
+  "n_tags": 93,
+  "objects_by_tolerance": {
+    "0.0": 81,
+    "1e-06": 81,
+    "1e-09": 81,
+    "1e-12": 81
+  },
+  "objects_of_the_seven": [
+    [
+      "greedy_k4_greedy_kA",
+      "greedy_k4_greedy_kB"
+    ],
+    [
+      "indep_k4_indep_kA",
+      "indep_k4_indep_kB"
+    ],
+    [
+      "oracle_k4",
+      "oracle_k4_oracle_kA",
+      "oracle_k4_oracle_kB"
+    ],
+    [
+      "oracle_k4_08bR"
+    ]
+  ],
+  "r729_seven_tags": [
+    "greedy_k4_greedy_kA",
+    "greedy_k4_greedy_kB",
+    "indep_k4_indep_kA",
+    "indep_k4_indep_kB",
+    "oracle_k4_08bR",
+    "oracle_k4_oracle_kA",
+    "oracle_k4_oracle_kB"
+  ],
+  "registered": "A 4 [1,7]; B 1 [0,7]; C 3 [0,7]; D 5 [0,5]; directional tags>objects",
+  "residue": "whether NEAR-identical objects should merge is a modelling choice, not a measurement; exact equality is used and the near-miss floor is reported",
+  "smallest_nonzero_delta": 0.047619047619047616,
+  "source_sha": "051368ae692ed152",
+  "tree_sha": "f20a248566689a9d217bd67aa4e2fad0fe686f68",
+  "world": "\u2b50\u2b50\u2b50 W-DEFLATE \u2014 I COUNTED TAGS AND THE CLAIM IS ABOUT OBJECTS. R729 reported 7 admitted target-reading arms; at exact satisfaction-vector identity they are 4 objects, of which clause \u2462 ALREADY EXCLUDES 1 ([['oracle_k4', 'oracle_k4_oracle_kA', 'oracle_k4_oracle_kB']]) because that object carries a blocklisted tag. So the clause admits 3 distinct target-reading objects, not 7: [['greedy_k4_greedy_kA', 'greedy_k4_greedy_kB'], ['indep_k4_indep_kA', 'indep_k4_indep_kB'], ['oracle_k4_08bR']]. \u2b50 The defect R520 found and R729 restated is REAL and SMALLER than either of us said \u2014 the clause does not fail to exclude the oracle object, it fails to recognise two of its tags, and the genuinely un-excluded objects are the greedy and independent families. \u26a0 THE UNIT ERROR IS MINE AND IT IS THE THIRD IN THREE ROUNDS: tags for objects here, a nine-way rule for a binary property in R729, and a denominator the design could not return in R728. \u26a0 And note the direction: this one INFLATED a defect I was attributing to someone else's definition, which is the flattering direction and the one I am least likely to audit. \u26a0 The partition is identical at every tolerance below 4.762e-02, the smallest non-zero difference in the whole population, so exact equality is not a knife-edge choice here."
+}

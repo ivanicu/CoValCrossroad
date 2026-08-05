@@ -1,0 +1,81 @@
+R730 · seven tags are not seven objects
+written BEFORE run.py. P4 WAS RUN FIRST THIS TIME, and it found the prior art that makes this round
+necessary. DISCLOSED: I have read R520's, R522's, R523's and R524's artifacts.
+
+WHY THIS ROUND EXISTS -- it corrects the round I committed one step ago
+   R729 reported that 7 arms today's population admits are built by a target-reading rule and that
+   clause ③ excludes none of them. That count is over TAGS. R523 established, on a 56-tag universe,
+   that oracle_k4_oracle_kA and oracle_k4_oracle_kB are EXACT ALIASES of oracle_k4 -- which IS on
+   the blocklist -- and that all three A/B pairs are internally identical. R524 partitioned 56 tags
+   into 46 objects. So the clause DOES exclude the oracle object; it merely fails to recognise two
+   of its tags, which is a different and smaller defect than the one R729 asserted.
+   ⛔ THE UNIT ERROR IS MINE AND IT IS THE THIRD IN THREE ROUNDS: R729 measured tags, R729's own
+   B point measured a 9-way rule when the claim was binary, and R728's anchor measured a denominator
+   the design could not return. Same shape each time.
+
+ESTIMAND
+   At the level of DISTINCT OBJECTS -- exact per-prompt satisfaction-vector identity, R523's own
+   criterion -- how many target-reading objects does clause ③ admit in today's 92-tag population?
+   And how many of R729's 7 tags survive as distinct un-excluded objects?
+
+IDENTIFICATION
+   Fully identified: two tags name the same object iff their satisfaction vectors are equal on the
+   prompts they share, and that is computable from the sat store.
+   NOT identified: whether two objects that are merely very close should count as one. This round
+   uses EXACT equality, as R523 did, and reports the near-miss distribution so the choice is visible
+   rather than hidden. A tolerance would be a different estimand and is not substituted silently.
+
+SCOPE
+   population : today's 92 tags and the 16 admitted, from corebench/results/sat_*.npz
+   instrument : exact per-prompt satisfaction vector equality over shared prompts
+   baseline   : R523's finding on 56 tags (3 identical pairs, 2 aliases of a declared arm)
+   regime     : this tree_sha
+
+WORLDS
+   W-DEFLATE   after alias resolution the un-excluded target-reading objects are FEWER than R729's
+               7, and the oracle tags collapse into a blocklisted object. R729's headline is
+               corrected downward and the defect is real but smaller.
+   W-HOLDS     the tags are distinct objects on today's population, so R523's aliasing does not
+               extend and R729's 7 stands.
+   prediction matrix
+      oracle tags alias to oracle_k4 -> DEFLATE 0.95  HOLDS 0.03
+      no aliasing reproduces         -> DEFLATE 0.05  HOLDS 0.90; and then R523 is the round that
+                                        needs explaining, since its universe is a subset of this one
+
+REGISTERED POINTS (failable)
+   A  distinct objects among R729's 7 tags                        = 4  [1, 7]
+   B  of those objects, how many clause ③ EXCLUDES once aliases resolve = 1  [0, 7]
+   C  distinct target-reading objects ③ still admits              = 3  [0, 7]
+   D  R523's findings reproduced on today's population: 3 identical pairs + 2 aliases = 5  [0, 5]
+   DIRECTIONAL (separately failable): R729's tag count STRICTLY overstates the object count.
+   Fails if A == 7.
+
+KILL (CONDITIONAL -- evaluated only if the POSITIVE and NEGATIVE controls both fire)
+   if positive_fires and negative_breaks:
+       A == 7  -> W-HOLDS: R729 stands and R523's aliasing does not extend to this population
+       else    -> W-DEFLATE, and R729's statement block is corrected to the object count
+   else:
+       verdict = UNVERIFIED   # never OVERTURNED, never CONFIRMED
+
+POSITIVE CTRL   reproduce R523's exact findings on the tags it examined: the 3 A/B pairs identical
+                and oracle_kA, oracle_kB aliasing oracle_k4. threshold computed: floor 0 <
+                t 5 <= ceiling 5 findings. An identity instrument that cannot reproduce the
+                identities a prior round already established licenses nothing about new ones.
+g=0             two arms known to be DIFFERENT objects -- topw_k4 and random_k4_s0 -- must NOT be
+                called identical. The control must not fire where there is nothing.
+NEGATIVE CTRL   perturb one arm's vector by a single ulp on one prompt and require the identity to
+                BREAK. excluded world: "the comparison is insensitive to the values", e.g. because
+                it compares lengths or prompt sets rather than satisfactions.
+SHAM            compare each arm to ITSELF -- the second object ABSENT rather than substituted --
+                and require identity to hold trivially for every arm.
+PLACEBO         the alias classes against themselves -> 0 new merges.
+NOISE FLOOR     the distribution of max |difference| for NON-identical pairs, so the gap between
+                exact-zero and the nearest non-zero is visible; a tolerance rule would live in that
+                gap and its absence is a choice this round states.
+MULTIPLICITY    92 tags pairwise on shared prompts = 4186 comparisons, all reported in summary and
+                every merge listed individually.
+SPECIFICATION   equality rule (exact, 1e-12, 1e-9, 1e-6) x population (today's 92, R523's 56)
+SEEDS           deterministic; two PYTHONHASHSEEDs byte-identical
+ARTIFACT        results/r730_object_partition.json with tree_sha
+IMPOSSIBLE      whether two near-identical objects SHOULD count as one -> a modelling choice, not a
+                measurement · independently replicated -> a second implementer

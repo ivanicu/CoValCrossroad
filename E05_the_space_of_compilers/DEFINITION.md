@@ -3718,3 +3718,20 @@ by a route that never reads a name, comparing the selected criteria per prompt, 
 tag route on all eighty two arms both can classify -- a corroboration worth having because the
 earlier round's own record notes that a keyword search on this same question failed nineteen times
 out of nineteen. The headline is the earlier round's.
+
+## R730 · the seven admitted arms are four objects, and the clause already excludes one of them
+
+The previous round's count of admitted target-reading arms was over tags. Resolved to objects by
+exact per-prompt satisfaction-vector identity, the seven tags are four objects. One of those objects
+carries a tag the provenance clause names, so the clause excludes it; what it fails to do is
+recognise two further tags of the same object. The clause therefore admits three distinct
+target-reading objects rather than seven, and the defect is real but smaller than both the round that
+found it and the round that restated it claimed. Today's ninety three tags partition into eighty one
+objects across eight multi-tag classes, and the partition is identical at every tolerance tried
+because the smallest non-zero difference anywhere in the population is 4.762e-02, far above any
+floating-point threshold, so exact equality is not a knife-edge choice. Computed from the same
+partition though not registered in advance, the population-wide count of thirteen tags resolves to
+ten objects of which the clause admits nine. The unit error is the third of its kind in three
+consecutive rounds — a denominator the design could not return, a nine-way rule where the claim was
+binary, and now tags where the claim is objects — and this one ran in the flattering direction,
+inflating a defect attributed to someone else's definition.

@@ -425,9 +425,15 @@ returns.**
 extended by *(R729)*. `select_core.py:102` reads the human target for three rules — `oracle_k`,
 `indep_k`, `greedy_k` — while ③ is implemented as **four literal arm names**. **R520 named the 6 arms
 the literal misses**, on a 56-arm universe, and recorded that **none of them then carried a clause-③
-verdict at all**. ⭐ **That is what has changed:** on today's 92-arm population, **7 target-reading
-arms are ADMITTED** and ③ excludes none; population-wide **13** pass by default. **The latent defect
-is now realised.** R729 adds a **name-independent** second route — the selected criteria in
+verdict at all**. ⭐ **That is what has changed:** on today's 92-arm population those arms are
+**ADMITTED**. **The latent defect is now realised.**
+⛔ **But the size was overstated twice, and the correction is a UNIT one** *(R730)*: R729's **7** was a
+count of **tags**. At exact satisfaction-vector identity they are **4 objects**, and ③ **already
+excludes 1** — `oracle_k4_oracle_kA/kB` are exact aliases of `oracle_k4`, which the literal names.
+**③ admits 3 distinct target-reading objects, not 7**: the greedy family, the independent family, and
+`oracle_k4_08bR`. *(The population-wide 13 tags are 10 objects, 9 admitted — computed from the same
+partition, not preregistered.)* **The clause does not fail to exclude the oracle object; it fails to
+recognise two of its tags.** R729 adds a **name-independent** second route — the selected criteria in
 `core_*.json` — agreeing with the tag route on **all 82** arms both can classify, which matters
 because R520's own record notes a keyword search on this question failed **19 of 19**.
 ⚠ This does **not** say those arms leak. **It says ③ never asks** — and its coverage decays with

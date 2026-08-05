@@ -18293,3 +18293,28 @@ or verdict key, so the provenance gate correctly refused it: a citation must res
 states a verdict, not merely to a round that ran. The sentence did not need the citation and it has
 been removed rather than re-pointed, because the claim it supported is a scope disclaimer about what
 this round does not test.
+
+## 953 · seven admitted target-reading arms are four objects, and the clause already excludes one
+
+The previous round counted tags. Resolved by exact per-prompt satisfaction-vector identity, its seven
+admitted arms are four objects, and one of those objects carries a tag the provenance clause names,
+so the clause excludes it and merely fails to recognise two further tags of the same thing. The
+clause admits three distinct target-reading objects, not seven. The population-wide figure of
+thirteen tags is likewise ten objects with nine admitted. The defect is real in both the round that
+found it and the round that restated it, and smaller than either said. The correction was available
+in this project's own history: a round thirty positions earlier had already established the aliasing
+on a smaller universe, and running the prior-art gate before building is the only reason it surfaced.
+
+## 954 · the third unit error in three consecutive rounds, and this one ran in the flattering direction
+
+Three rounds, three instruments measured at the wrong unit. One demanded a match count its design
+could not return, comparing against ninety two arms when only forty one were in the comparison. One
+registered the agreement of two classifiers as nine-way rule agreement when the claim it supported
+was binary. This one counted tags where the claim is about objects. The first two produced false
+alarms about my own code and cost a diagnosis each. The third inflated a defect I was attributing to
+someone else's definition, which is the direction I am least likely to audit, because a number that
+makes the object under study look worse does not feel like a number that needs checking. The
+mechanical remedy already exists in the standard and I have been writing it into every
+preregistration without applying it: name the instrument's unit and the claim's unit as two separate
+strings and require them to be equal before the control is designed. Writing the two strings is not
+the same as comparing them.
