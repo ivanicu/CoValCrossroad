@@ -14887,3 +14887,28 @@ tree restored after every arm.
 ⚠ **Mechanism correction inside the register:** the drift was caught by **transitive anchoring**, not
 by re-derivation — so **a drift in a `DEFINITION.md` value that `STATEMENT.md` does not also carry is
 untested by this design.**
+
+## 575 · The largest document in the project is the one no gate reads
+
+`FORMULATION.md` is **2,397 lines** against `STATEMENT.md`'s 668, and **~80% of it appears nowhere in
+the gated pair**: **583 of 732 decimal values · 80 of 100 round citations · 17 of 23 R-headed
+findings.** Three independent extractors converge; the containment floor at this reference size is
+**5.95–6.98%**, far too small to explain a 20% overlap.
+
+**It is not a duplicate.** It asserts substantive findings about the definition — clause ②'s
+meta-separator over 1,820 enumerated subsets, `full` failing the neutral clause at its own size, the
+impossibility register's audit — **and eleven rounds of this arc audited the two smaller, already
+governed files.**
+
+## 576 · R625's collision floor is a property of the instrument AT A SIZE
+
+**36% against 23,823 corpus numbers; 6% against 645 document values.** The floor was **re-measured,
+not inherited** — applying 36% here would have destroyed a real result and assuming 0% would have
+manufactured one. ⚠ It also cuts the right way: ~46 of the 149 shared values could be coincidence,
+so true uniqueness is **≥79.6% and plausibly ~86%**.
+
+## 577 · Check #228 — "outside all six gates" overstates my own bound
+
+R621 measured `FORMULATION.md` flipping 0 of 6 **under one mutation**, and called `n_flip` a **lower
+bound on coverage** in its own README. **I quoted my own upper-bounded measurement as an absolute,
+one round after writing the bound that forbids it.** Twelfth uncomputed or overstated quantifier.
