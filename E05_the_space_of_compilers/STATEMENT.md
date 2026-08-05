@@ -172,6 +172,29 @@ in the release carries at least three rankings. *(R507)*
 
 ---
 
+## What this site cannot do, and exactly what would fix it
+
+⭐ **One wall, checked rather than asserted.** ③′ cannot be evaluated on `coval_core`, because only
+**6.6%** of its criteria appear verbatim in `coval_full` — the dataset card documents a **rewrite and
+merge before selection**. Settling it needs a mapping from each rewritten core item back to its source
+items, and **no file in the release carries one**:
+
+| file | does it link a core item to its sources? |
+|---|---|
+| `conversation_rubrics.jsonl` → `coval_core[i]` | **no** — keys are `criterion` only; `coval_full[i]` has `rubric_item_id`, the core has none |
+| `annotators.jsonl` → `assessments[i]` | **no** — `annotator_id`, `conversation_id`, `ranking_blocks`, `importance`, … |
+| `comparisons.jsonl` → `metadata.assessments` | **no** |
+
+⭐⭐ **What would fix it is one field: `coval_core[i].source_rubric_item_ids`.** With it, ③′ becomes
+decidable for the released core on this data alone — no second site, no external gold standard, no
+stronger judge. **That is a specification, not a complaint, and it is the cheapest item on this
+campaign's whole wish list.**
+
+⚠ **Stated this way because six other "walls" fell this session**, each asserted immediately after
+correctly checking something adjacent. **This one was checked: three files, every schema read.**
+
+---
+
 ## What is still open
 
 **Five rounds carry an `UNVERIFIED` verdict, and this page can name but not cite them** — the
