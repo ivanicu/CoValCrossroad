@@ -17072,3 +17072,36 @@ in either — I am reaching for emphasis, and the gate cannot tell the two apart
 gate being correct and the diagnosis being wrong**: recording these as "quantifier over own work"
 misses that the generating habit is intensifier prose, which no amount of care about quantifiers will
 suppress. Fifth reasoned freeze entry, second of this exact shape.
+
+## 853 · The quantifier gate is mostly earned: 11.7% idiomatic over 257 flagged occurrences
+Of 257 flags across README NEXT sections and every frozen commit body, 30 are idiomatic — `at all`
+and kin — and 227 are genuine universals over our own work. **So the gate measures the risk it was
+built for and its PASS means what it claims.** ⚠ **11.7% is a FLOOR**: the idiom list is closed and
+hand-written, so any construction not on it counts as a real universal. The measured share now lives
+in the gate's own header, because what a gate's flags are worth belongs where the gate is read.
+
+## 854 · I predicted `all` would be the commonest flagged word; it is `every`
+The registration generalised from **the two cases that had just bitten me** — R694's and R699's
+`at all`. The corpus says the gate fires most on `every`, then `nothing` (29), `never` (29) and
+`the only` (23). **A prediction shaped by the most salient recent failure is not a prediction about
+the population**, and this is the cheapest possible demonstration: two vivid instances outvoted 257
+observations in my prior.
+
+## 855 · The previous closing line proposed self-adjudication on n=5
+It asked me to classify the five freeze reasons — reasons I wrote, about my own flags. **Reading my
+own explanations back and scoring them is not a measurement.** The separable version applies a
+mechanical rule to every flagged occurrence, n=257, and does not consult my opinion of my own prose.
+
+## 856 · A flagged idiom is still a flag someone must resolve
+Instrument unit: a flagged occurrence. Claim unit: an unearned flag. **The 30 idiomatic flags cost
+the same attention as the 227 earned ones** — the reader must open each and decide. So "the gate is
+mostly earned" is a statement about its epistemic validity and **not** about its cost, and the two
+were worth separating before either was quoted.
+
+## 857 · The gate flagged the round that reports which words the gate flags
+R700's first NEXT section listed the four commonest flagged words. **The gate flagged it — for
+`every`.** A round measuring which words trip a gate cannot name them in a NEXT section without
+tripping it. ⭐ **This is use versus mention — the limit R671 established this gate cannot
+distinguish — in its purest available form**: the sentence makes no universal claim, it reports that
+the gate treats a word as one. **The remedy was the gate's own: cite the field rather than quote the
+values.** Arrived at by being caught, which is what a working gate feels like from the inside.

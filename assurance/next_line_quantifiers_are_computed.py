@@ -104,6 +104,18 @@ def flagged(text: str) -> str:
 #    sections flag, 42.5%, against 37.2% for commit bodies -- +5.3 points, and under the 60% line
 #    this file already records. The 34 are frozen as a baseline so only NEW ones fail, exactly as
 #    the commit-body half works. The TERMINAL report is still unreadable; that residue stands.
+# ⭐ WHAT THIS GATE'S FLAGS ARE WORTH -- MEASURED 2026-08-05 (R700), not asserted.
+#   Over 257 flagged occurrences (README NEXT sections + every frozen commit body), 30 are IDIOMATIC
+#   -- `at all`, `after all`, and kin -- i.e. an intensifier the regex reads as a universal. That is
+#   11.7%, so 88.3% of flags are genuine universals over our own work: THE GATE MEASURES THE RISK IT
+#   WAS BUILT FOR and its PASS means what it claims.
+#   ⚠ 11.7% is a FLOOR: the idiom list is closed and hand-written, so any construction not on it
+#   counts as a real universal.
+#   ⚠ And a flagged idiom is still a flag someone must resolve -- the cost of a false flag is paid
+#   in attention whether or not it was earned.
+#   ⭐ Commonest flagged words: `every`, then `nothing` (29), `never` (29), `the only` (23).
+#   I had predicted `all` would lead, generalising from the two cases that bit me; it does not.
+
 README_FREEZE = pathlib.Path(__file__).resolve().parent / "KNOWN_QUANTIFIED_README_NEXT.json"
 
 
