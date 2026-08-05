@@ -636,6 +636,18 @@ def derive():
         for k in ("r462_old", "r462_new", "r462_cov", "r462_total"):
             out[k] = (None, "R462")
 
+    # R478 -- from the round's artifact.
+    try:
+        _c8 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+                             "R478_the_admissible_class_is_1820_not_nine/results/r478_class_census.json"))
+        out["r478_max"]     = (round(_c8["census4"]["max"], 4), "R478")
+        out["r478_gen_pct"] = (round(_c8["generic_pct"], 1), "R478")
+        out["r478_cv"]      = (round(_c8["cv_out"], 4), "R478")
+        out["r478_gain"]    = (round(_c8["gain_vs_cv"], 4), "R478")
+    except (OSError, KeyError):
+        for k in ("r478_max", "r478_gen_pct", "r478_cv", "r478_gain"):
+            out[k] = (None, "R478")
+
     # R477 -- from the round's artifact; the 2B judge is the one whose admissible class is bounded.
     try:
         _v = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
@@ -1068,6 +1080,12 @@ def derive():
 # label -> the regex that must find that number in DEFINITION.md. The pattern is the CLAIM's own
 # wording, so an edit that changes the sentence without changing the artifact is caught too.
 ASSERTIONS = {
+    # R478 -- the full class census. Anchored because it RETRACTED a committed sentence (② failed ->
+    # ② unresolved) and tightened a committed number (+0.0098 -> +0.0071).
+    "r478_max":      r"median \*\*0\.5261\*\*, max \*\*(0\.\d{4})\*\*",
+    "r478_gen_pct":  r"percentile \*\*(\d+\.\d)\*\* — a strong comparator",
+    "r478_cv":       r"over 20 splits gives \*\*(0\.\d{4}) ± 0\.0061\*\*",
+    "r478_gain":     r"cross-fitted best = \+(\d\.\d{4})\*\*, still inside",
     # R477 -- what clause ③ costs. Anchored because these numbers changed a DECISION (③ stays as
     # written), and the first version of the same estimand pointed the opposite way.
     "r477_gain":     r"gains \*\*\+(\d\.\d{4}) \[",

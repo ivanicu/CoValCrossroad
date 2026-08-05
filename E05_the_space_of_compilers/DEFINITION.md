@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 310 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 314 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 310.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 314.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -521,6 +521,31 @@ rounds defining an object other than the one it measures.** ⛔ **This is not a 
 by choosing the convenient branch** — the two differ in what "core" *means*, and R475 does not
 adjudicate them. *(R475)*
 
+⭐⭐ **AND THE RIVAL CLASS WAS CENSUSED IN FULL — 1,820 MEMBERS, NOT THE NINE ON DISK (R478).** R477
+bounded the ③-admissible class by the arms that happened to carry a `.npz`, which is the defect R477's
+own retraction had just named. Evaluating **every** 4-subset of `genericpool16` (968 prompts × 16
+criteria, complete on disk): min **0.5049**, median **0.5261**, max **0.5433**. `generic` sits at
+**0.5377**, percentile **94.4** — a strong comparator, not a weak one. **`topw_k4` at 0.5475 is
+percentile 100.0, above every member of the class.** *(R478)*
+
+⭐ **AND THE MAXIMUM OVER 1,820 IS AN ORDER STATISTIC, SO IT WAS CROSS-FITTED.** Selecting the argmax
+on half the prompts and scoring it on the other half over 20 splits gives **0.5404 ± 0.0061**, against
+an in-sample max of 0.5433 — **selection inflation of just +0.0029**, so the best subset is genuinely
+selectable rather than a noise peak. **`topw_k4` − cross-fitted best = +0.0071**, still inside the
+**0.0122** floor. **③ stays cheap, and the margin is SMALLER than R477 reported, not larger.** *(R478)*
+
+⚠ **AND THE PREMISE THAT SENT R478 THERE WAS FALSE.** This document's own line — `generic` at
+percentile 0.000 of a 1,820-member census — is about the **replication** statistic (0.8114 against
+0.8226–0.8675), **not** A2. I matched the two censuses on the phrase *"percentile of the 1,820"* when
+`1820` is just C(16,4) and any subset census of this pool has it. ⭐ **A census is identified by its
+STATISTIC, not by its size.** The round survived its own bad premise and tightened the estimand
+anyway, which is the argument for running it. *(R478)*
+
+⭐ **A STRUCTURAL FINDING THE SWEEP HANDED OVER FREE.** Cross-fitted best is **flat at ~0.538 from
+k=2 to k=6** (0.5364 · 0.5393 · 0.5386 · 0.5381 · 0.5371) while the census median rises with k. **The
+prompt-blind class has a ceiling near 0.54 that more criteria do not raise** — the best small set is
+as good as the best large one, across 14,876 subsets. *(R478)*
+
 ⭐⭐⭐ **AND THE FORK IS DECIDED BY EVIDENCE, NOT BY STIPULATION (R477).** R475's fork — weaken ③ to
 forbid only the prompt's *rankings*, or keep it strong and exclude CoVal-core — **is a choice of
 convention, and no measurement adjudicates a convention.** What decides it is measurable: **what does
@@ -555,6 +580,12 @@ disagreement**, and folding it into either would be the false-acquittal directio
 even the prompt — and it scores **0.5376**, within the floor of `topw_k4`. Clause ② is precisely
 *"better than the best generalising prompt-blind set"*. **Seen from this side, `topw_k4` does not
 clear ②** — consistent with the committed census in which only 5 arms pass ①∧②∧④. *(R477)*
+> ⛔ **RETRACTED ONE ROUND LATER (R478).** `topw_k4` scores **0.5475 — percentile 100.0** of the
+> 1,820-member reference class, **above every single member**; its margin over the *cross-fitted*
+> best is **+0.0071**, inside the 0.0122 floor. ② is **UNRESOLVED** for `topw_k4`, not failed.
+> **Folding UNRESOLVED into FAILED is the false-retraction direction** — permanent, because nobody
+> re-examines a withdrawn claim. The sentence above is kept, not edited, because the error is
+> instructive: it sat in the `next gradient` line, which is written last and controlled never.
 
 ⛔⛔ **AND THE GATE THAT POLICES THIS DOCUMENT CHECKS BETWEEN A QUARTER AND TWO-THIRDS OF IT (R476).**
 `definition_matches_the_record.py` reported *"302 of 302 assertions"* — its count at the time — and nothing else — **a fact
@@ -581,7 +612,7 @@ denominator, on every run. *(R476)*
 Writing R476's result into DEFINITION.md added numeric claims to the very population R476 counted, so
 the live gate now reports **69.0% / 27.7%** where the round measured **69.2% / 28.0%**. That is not
 drift and neither number is wrong: **a document that states its own coverage changes its coverage by
-stating it.** The round's numbers hold at commit `8b57ace` **measured with the gate's 310 anchors** — both halves of the scope, because the instrument grows too; the gate's line is the current value, and
+stating it.** The round's numbers hold at commit `8b57ace` **measured with the gate's 314 anchors** — both halves of the scope, because the instrument grows too; the gate's line is the current value, and
 the two are expected to differ by exactly the size of whatever was last written. *(R476)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'

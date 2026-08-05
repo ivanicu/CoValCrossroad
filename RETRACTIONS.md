@@ -10143,3 +10143,38 @@ both are correct once they are named apart.
 ⭐ **The general form:** *"the file"* is not an object, it is a **variable**. Any measurement of a
 mutable artifact must name the version, and the tell is that re-running the round changes the answer
 with no code change. That is also the cheapest possible check for it.
+
+## 299 · Two percentiles, two statistics, and I read the wrong one to justify a round (R477 → R478)
+
+**Retracted.** R478 was launched on the premise that R477's comparator was weak: `DEFINITION.md:337`
+records `generic` at **percentile 0.000** of a 1,820-member census, *"below every one of them"*.
+
+**That percentile is about the replication statistic** — `core − generic` at 0.8114 against a census
+spanning 0.8226–0.8675. **On A2 — the statistic R477 actually used — `generic` sits at percentile
+94.4.** Same arm, same census size, opposite readings, because they are different quantities.
+
+⚠ **The tell I walked past:** the two numbers live on different scales (0.81 vs 0.54) and I matched
+them on the phrase *"percentile of the 1,820"* rather than on the quantity. **A census is identified
+by its statistic, not by its size** — and `1820` is C(16,4), which any subset-based census of this
+pool will have, so the count is exactly the wrong key to match on.
+
+⭐ **The round survives its own bad premise, and that is the argument for running it.** The class
+census was worth having regardless: it tightened the estimand from +0.0098 to **+0.0071** and
+measured the selection inflation at **+0.0029**. **A wrong reason to run a good measurement costs
+one round; a wrong reason to skip one costs the finding.**
+
+## 300 · "Does not clear ②" was UNRESOLVED reported as FAILED (R477 → R478)
+
+**Retracted.** R477 closed: *"`generic` reads no ratings, no rankings, and not even the prompt, and it
+sits within the floor of `topw_k4`. Clause ② is precisely 'better than the best generalising
+prompt-blind set'. From this side `topw_k4` does not clear ②."*
+
+**`topw_k4` scores 0.5475 — percentile 100.0 of the 1,820-member reference class, above every single
+member.** Its margin over the *cross-fitted best* is +0.0071, inside the 0.0122 floor. So ② is
+**UNRESOLVED** for `topw_k4`, not failed.
+
+⛔ **Folding UNRESOLVED into FAILED is the false-retraction direction, and it is the one this campaign
+keeps warning about**: a false acquittal is permanent because nobody re-examines a cleared claim — and
+a false retraction is permanent because nobody re-examines a withdrawn one. ⚠ **And the sentence was
+in the `next gradient` line**, which §4 names as the highest-risk sentence in a report: written last,
+acted on first, and the only one with no control attached.
