@@ -11927,3 +11927,36 @@ inherits the scale of whatever produced it, and nothing in "percentile 91.7" car
 **What the formulation owes:** ②'s *"best generalising prompt-blind criterion set"* hides a choice.
 **The record should name the subset, say that file order picked it, and state that it sits at
 p93.7 of its own class.**
+
+## 360 · The deliverable's own wording for ② names a comparator under which no core exists
+
+**`STATEMENT.md` said a core "scores better than the BEST generalising prompt-blind criterion set."**
+Taken literally, "the best" is the maximum of ②'s reference class — and **there the definition's
+extension is empty.**
+
+| pct of ②'s class | ② admits | **② ∧ ③** | surviving cores |
+|---|---|---|---|
+| 50 | 7 | **3** | `coval_core`, `generic`, `topw_k4` |
+| 75 – 98 | 6 | **2** | `coval_core`, `topw_k4` |
+| 99 – 99.5 | 5 | **1** | `coval_core` |
+| **100** | 4 | **0** | ⛔ **(EMPTY)** |
+
+**At p100 the four arms ② admits are exactly the four ③ excludes.** ⭐⭐⭐ **The definition is
+non-empty only because the published comparator is `POOL[0:4]` at p93.7 rather than the class
+maximum — that is, only because "best" was never taken literally.**
+
+⚠ **R527 had this in its own output and I read the SIZES instead of the MEMBERSHIP.** The p100 row
+said `4`, which looks like a smaller admitted set rather than an emptied definition. **A count of
+survivors is not a list of survivors, and the count cannot tell you the survivors are all excluded
+by the next clause.**
+
+⭐ **The positive result the same sweep carries: `coval_core` is the LAST survivor**, holding alone
+from p99 to p99.5. **The released core is the most baseline-robust ③-admissible arm in the class.**
+
+**Controls:** the published cell reproduces R294's own admitted k=4 arms — `['coval_core',
+'topw_k4']` both ways (positive); a subset against itself gives exactly 0 (negative).
+⚠ **Scope: k=4 arms only.**
+
+**Fixed in the deliverable**, not merely noted: ② now reads *"a **strong** generalising prompt-blind
+criterion set — the released pool's first four, at percentile 93.7 of its own 1,820-subset class"*,
+with the emptiness at the maximum stated in the clause itself.

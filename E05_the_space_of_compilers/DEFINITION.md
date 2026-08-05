@@ -2162,3 +2162,34 @@ measured bar₂ maximum, i.e. R294's scale. **The control was comparing two diff
 
 **What the formulation owes:** ②'s *"best generalising prompt-blind criterion set"* hides a choice.
 The record should name the subset, that file order picked it, and that it sits at p93.7.
+
+---
+
+## R528 · The definition is non-empty only because "best" was not taken literally
+
+R527 reported admitted-set **sizes**. Reading the p100 **membership** shows what the sizes hid: the
+four arms admitted at the strongest baseline are exactly the four ③ excludes.
+
+**Sweeping the upper tail of ②'s reference class, k=4 arms:**
+
+| pct | baseline A2 | ② | **② ∧ ③** | surviving cores |
+|---|---|---|---|---|
+| 50 | 0.5391 | 7 | **3** | `coval_core`, `generic`, `topw_k4` |
+| 75 – 98 | 0.5446–0.5529 | 6 | **2** | `coval_core`, `topw_k4` |
+| 99 – 99.5 | 0.5545–0.5555 | 5 | **1** | `coval_core` |
+| **100** | 0.5575 | 4 | **0** | ⛔ **(EMPTY)** |
+
+⭐⭐⭐ **The deliverable said ② compares against "the BEST generalising prompt-blind criterion set."
+Taken literally that is p100 — and there the definition has no extension at all.** The definition is
+non-empty only because the published comparator is `POOL[0:4]` at **p93.7**, not the class maximum.
+
+⭐ **`coval_core` is the last survivor**, holding alone from p99 to p99.5. **The released core is the
+most baseline-robust ③-admissible arm in the class** — a genuine positive result about the object.
+
+**Controls.** Positive: the published cell must reproduce R294's own admitted k=4 arms —
+`['coval_core', 'topw_k4']` both ways. **PASS.** Negative: a subset against itself gives exactly 0.
+⚠ **Scope: k=4 arms only**; arms at other k are outside this reference class.
+
+**Wording corrected in `STATEMENT.md`:** ② now says *"a **strong** generalising prompt-blind
+criterion set — the released pool's first four, at percentile 93.7 of its own 1,820-subset class"*,
+with the emptiness at the maximum stated in the same clause.

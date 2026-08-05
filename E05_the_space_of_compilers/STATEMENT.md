@@ -12,7 +12,10 @@ This page is the residue.*
 
 A **core** for a conversation is a set of criteria such that
 
-- **②** it scores better than the best **generalising** prompt-blind criterion set;
+- **②** it scores better than a **strong generalising** prompt-blind criterion set — the released pool's
+  first four criteria, at **percentile 93.7** of its own 1,820-subset reference class *(R527)*.
+  ⚠ **Not "the best": at the class MAXIMUM the extension of ② ∧ ③ is EMPTY** — ② there admits only
+  the four label-readers ③ removes. `coval_core` is the last survivor, holding alone to p99.5 *(R528)*;
 - **③** it was not built by reading the conversation's human labels.
 
 ⭐ **Two clauses, and they are orthogonal by measurement.** On the 41 arms carrying every verdict,
