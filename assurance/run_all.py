@@ -55,7 +55,60 @@ def run_one(p: pathlib.Path, timeout: int = 90) -> tuple[str, int, float, str]:
         return p.stem, -1, time.time()-t0, f"TIMEOUT after {timeout}s"
     tag = next((l.strip() for l in out.splitlines()
                 if any(m in l for m in ("⛔", "FAIL", "Error", "Traceback"))), "")
-    return p.stem, rc, time.time()-t0, (tag or (out.strip().splitlines() or [""])[-1])[:120]
+    # ⛔ THE KIND IS COMPUTED ON THE FULL OUTPUT AND CARRIED, never re-derived from the extract.
+    # The first version classified `msg` -- a one-line display extract -- and
+    # `next_gradient_labels_its_hypotheses` would have been read as LIVE-DEBT, because its extract is
+    # "POSITIVE CONTROL the two NEXT blo..." while "a control misbehaved" is three lines later.
+    # The classifier's input was not the population the claim was about (§4, unit vs unit).
+    kind = classify_fail(out) if rc == 1 else ""
+    disp = (tag or (out.strip().splitlines() or [""])[-1])[:120]
+    return p.stem, rc, time.time()-t0, (f"[{kind}] {disp}" if kind else disp)
+
+
+# ---- THE FOURTH BUCKET ---------------------------------------------------------------------------
+# ⛔ WHY. The census returned 9 FAIL, and reading them showed three unlike things pooled under one
+# word: live debt, a gate failing BY DESIGN as a standing register (`attack_no_withdrawn_framings`
+# reports "1/1 KNOWN GAPS still open, as documented", and its own comment says a CAUGHT known-gap
+# would also fail — it cannot exit 0), and a gate whose OWN CONTROL broke ("FAIL: a control
+# misbehaved; the counts above are silence"), which says nothing about the repo at all.
+# A single count of 9 conflates a defect, a ledger entry and an instrument fault. It will be quoted.
+#
+# PROXY LEDGER (CLAUDE.md P6) — this classifier reads MESSAGES, not structure:
+#   PROPERTY   "this FAIL is / is not a live defect"
+#   PROXY      the gate's stdout contains a control-failure or known-gap phrase
+#   IMPLICATION  phrase present ⇒ not live debt.   ABSENCE PROVES NOTHING: a gate whose control
+#                broke silently, or whose register is undeclared, is classified LIVE and must be.
+#   SAFE SIDE  the classifier may only DEMOTE a FAIL out of "live"; it may never promote one in.
+CONTROL_BROKE = ("a control misbehaved", "counts above are silence", "control failed")
+BY_DESIGN     = ("known gaps still open, as documented", "cannot exit 0 by design")
+
+
+def classify_fail(out: str) -> str:
+    low = out.lower()
+    if any(s in low for s in CONTROL_BROKE):
+        return "CONTROL-BROKE"
+    if any(s in low for s in BY_DESIGN):
+        return "BY-DESIGN"
+    return "LIVE-DEBT"
+
+
+def _classifier_selftest() -> bool:
+    """POSITIVE CONTROL on the classifier, using the two REAL messages that motivated it, plus a
+    negative: ordinary failure text must stay LIVE-DEBT. A classifier validated only on strings I
+    invented would be validated against my imagination (§4)."""
+    cases = [
+        ("FAIL: a control misbehaved; the counts above are silence.", "CONTROL-BROKE"),
+        ("1/1 KNOWN GAPS still open, as documented -- a claim inside a declared payload path",
+         "BY-DESIGN"),
+        ("FINDING: 1 round(s) apply the filter and are not registered:", "LIVE-DEBT"),
+        ("", "LIVE-DEBT"),                       # silence is never an acquittal
+    ]
+    ok = True
+    for text, want in cases:
+        got = classify_fail(text)
+        ok &= got == want
+        print(f"    {want:<14} <- {got:<14} {'ok' if got == want else '⛔'}  {text[:52]!r}")
+    return ok
 
 
 def main(argv: list[str]) -> int:
@@ -73,6 +126,12 @@ def main(argv: list[str]) -> int:
     for b in ("FAIL", "ERROR", "UNRUNNABLE"):
         for name, rc, el, msg in buckets[b]:
             print(f"  {b:<11} {name:<48} rc={rc:<3} {el:5.1f}s  {msg}")
+    kinds = collections.Counter(m.split("]")[0].lstrip("[") for _n, _r, _e, m in buckets["FAIL"])
+    if kinds:
+        print(f"\n  FAIL breakdown — a single count conflates three unlike things:")
+        for k in ("LIVE-DEBT", "BY-DESIGN", "CONTROL-BROKE"):
+            print(f"    {k:<14} {kinds.get(k, 0)}")
+        print(f"    ⚠ PROXY: reads messages, may only DEMOTE out of LIVE-DEBT, never promote in.")
     n = len(rows)
     print(f"\n  PASS {len(buckets['PASS'])} of {n}   FAIL {len(buckets['FAIL'])}   "
           f"UNRUNNABLE {len(buckets['UNRUNNABLE'])}   ERROR {len(buckets['ERROR'])}")
@@ -121,6 +180,8 @@ def selftest() -> int:
     good3 = empty == []
     ok &= good3
     print(f"  g=0       an empty directory discovers nothing (-> main would EXIT 2): {good3}")
+    print(f"  CLASSIFIER on the two REAL messages that motivated it, plus a live one and silence:")
+    ok &= _classifier_selftest()
     print(f"\n  {'PASS' if ok else '⛔ FAIL'} — the runner can detect a failing gate.")
     return 0 if ok else 1
 

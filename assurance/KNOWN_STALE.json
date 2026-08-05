@@ -1,7 +1,7 @@
 {
   "why": "Frozen at R346. These artifacts were written before their sources were last edited; the hash records it and nothing had ever read the record. Freezing bounds the debt so it cannot GROW silently, and the check fails if any entry here becomes FRESH, so the list shrinks and cannot become a place where entries accumulate. Regenerating them is R344's cost question, not this list's. \u26a0 SHRUNK at R353: R115 and R121 were REGENERATED and are now FRESH, so the check's second door fired -- 'the frozen list is stale, remove them' -- in production rather than in a plant. The list is shrink-only by design and this is the first time it has actually shrunk.",
   "frozen_at": "R346_the_reader",
-  "count": 31,
+  "count": 30,
   "stale": [
     "R113_accuracy_matched_arm",
     "R114_demographic_subject",
@@ -12,7 +12,6 @@
     "R122_metric_gauge_grid",
     "R123_the_baseline_was_crippled",
     "R127_whose_sign",
-    "R130_judge_gauge",
     "R131_who_is_served",
     "R132_verbatim_adjudication",
     "R133_the_veto",

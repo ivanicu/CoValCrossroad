@@ -10388,3 +10388,30 @@ entry 308, which is why they re-ran clean the moment they were run alone.
 ⭐ **The reusable rule: when a measurement misbehaves, look at the machine before reaching for a
 memory about the machine.** A filed environment fact is a hypothesis with a citation, not a finding —
 and `ps` costs nothing.
+
+## 311 · The FAIL classifier was fed a one-line extract, not the gate's output (R483, caught in-round)
+
+**Caught before publication.** The fourth bucket — separating LIVE-DEBT from BY-DESIGN and
+CONTROL-BROKE — was implemented as `classify_fail(msg)`, where `msg` is the **single display line**
+`run_one` extracts (the first line containing `⛔`/`FAIL`/`Error`).
+
+**`next_gradient_labels_its_hypotheses`'s extract is `"POSITIVE CONTROL  the two NEXT blo…"`.** The
+phrase that identifies it — *"a control misbehaved; the counts above are silence"* — is three lines
+later. ⛔ **The one gate whose message motivated building the bucket would have been filed as
+LIVE-DEBT by the bucket.**
+
+⚠ **Same shape as retraction 307 and the README's "46 checks", for the third time this session:** the
+instrument's input (a one-line extract) was not the population the claim was about (the gate's
+output). **Naming the two as separate strings is what makes them visibly different, and I keep
+skipping that step because both are "the gate's message".**
+
+**Repair:** the kind is computed on the **full output at source**, inside `run_one`, and carried in
+the returned tuple. Nothing downstream re-derives it from the extract. Verified on the three real
+gates: `next_gradient_labels_its_hypotheses → CONTROL-BROKE`, `attack_no_withdrawn_framings →
+BY-DESIGN`, `seed_filter_is_disclosed → LIVE-DEBT`.
+
+⭐ **And the classifier is declared a PROXY, sound in one direction only.** It reads messages, not
+structure, so it may only **demote** a FAIL out of LIVE-DEBT and may never promote one in — a gate
+whose control broke silently, or whose register is undeclared, stays LIVE and must. Its selftest uses
+the **two real messages that motivated it** plus a live one and the empty string, because a classifier
+validated on strings I invented is validated against my imagination.
