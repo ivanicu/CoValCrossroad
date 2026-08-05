@@ -100,6 +100,23 @@ def selftest() -> int:
         ok &= good2
         print(f"  POSITIVE  each exit code classified correctly: {codes}  "
               f"{'PASS' if good2 else '⛔ FAIL'}")
+        # ⭐ THE TIMEOUT PATH, WHICH THE FIRST SELFTEST DID NOT EXERCISE. A gate that spawns a
+        # grandchild and exits is the shape that defeated `subprocess.run(timeout=)`: the child dies,
+        # the grandchild holds the pipe, and the runner blocks forever with no output. Measured
+        # before the fix: a real gate ran 98s against a 75s limit. This plants that exact shape and
+        # requires the runner to return within a small multiple of the timeout.
+        (dd/"zz_hangs.py").write_text(
+            "import subprocess,sys,time\n"
+            "subprocess.Popen([sys.executable,'-c','import time; time.sleep(600)'])\n"
+            "time.sleep(600)\n")
+        t0 = time.time()
+        name, rc, el, msg = run_one(dd/"zz_hangs.py", timeout=3)
+        wall = time.time() - t0
+        good4 = rc == -1 and wall < 12
+        ok &= good4
+        print(f"  TIMEOUT   a gate spawning a grandchild is killed: rc={rc} in {wall:.1f}s "
+              f"(limit 3s)  {'PASS' if good4 else '⛔ FAIL — the process group survived'}")
+
     empty = discover(pathlib.Path(tempfile.mkdtemp()))
     good3 = empty == []
     ok &= good3

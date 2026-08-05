@@ -10331,3 +10331,30 @@ is a **separate action** taken only after. Where they must share a command, the 
 `gates && commit` — a conjunction, not a sequence. ⚠ And note the direction of the lesson: this was
 found not by a gate but by *reading output I had already scrolled past*, which is the same channel
 that found retraction 293. **The most under-used instrument here is re-reading my own terminal.**
+
+## 309 · The runner built to end a blind spot shipped with a blind spot: `subprocess.run(timeout=)` kills a child, not a process group (R482, caught in-round)
+
+**Caught by watching `ps` while it ran.** `run_all.py` was committed with
+`subprocess.run([...], timeout=90)`. That kills the **direct child only**. Several gates here spawn
+their own subprocesses — `attack_the_suite.py` re-runs the entire suite, and
+`backfilled_findings_are_rederivable.py` shells out per finding — so on timeout the grandchildren
+survive, hold the stdout pipe open, and the runner blocks **indefinitely**.
+
+**Measured before the fix:** `backfilled_findings_are_rederivable.py` ran **98 s against a 75 s
+limit** while the census sat at **0 bytes of output** for four and a half minutes.
+
+⚠ **A runner that can hang forever is worse than no runner**, because a suite that never finishes
+reports nothing at all — and "still running" is indistinguishable from "green" to anyone not watching.
+
+**Repair:** `Popen(..., start_new_session=True)` + `os.killpg(..., SIGKILL)` on `TimeoutExpired`.
+
+⭐ **AND THE FIX SHIPPED UNVERIFIED FOR ONE COMMIT.** The selftest passed after the repair — but it
+never exercised the timeout path, so it was passing for reasons unrelated to the defect. A control was
+added that plants the exact shape: a gate that spawns a grandchild and sleeps. It returns **rc = −1 in
+3.0 s against a 3 s limit**; the old code would have blocked for 600. **A fix without a control that
+fails on the unfixed code is a fix you are taking on trust** — and the trust is in the same mind that
+wrote the defect.
+
+⚠ **Note the channel, for the third time this round:** neither the defect nor the missing control was
+found by a gate. Both came from **reading output already on screen** — `ps` in one case, the selftest's
+own line list in the other.
