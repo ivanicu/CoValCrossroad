@@ -13386,3 +13386,35 @@ opposite happened — I asserted a landing that had not occurred and the re-meas
 correct response is identical in both directions: when a number and a claim disagree, measure again
 with a different instrument rather than deciding which to believe.** Here that produced a
 confirmation; there it produced a retraction.
+
+## 443 · "Never been checked" was false — presence was checked, agreement was not
+
+My closing line said the definition document's decimals had **never been checked** against the
+statement's. **`statement_provenance.py` checks that all 92 statement decimals appear in
+`DEFINITION.md`.** What it checks is **presence**. What nothing checked — until now — is whether a
+**shared label carries the same value**.
+
+## 444 · The first cross-document agreement check found a disagreement, and it is not an error
+
+Of **24** label fragments appearing in both documents, **23 agree** and **1 disagrees**:
+**`random predictor lands at`** — statement **0.3342**, definition **0.3321**.
+
+**Both are real.** R504 and R505 record `random.mean = 0.33212…` for the **pair-predictor**
+comparison; R506 records `0.334151…` for the **ranker-restricted** one.
+
+⭐⭐⭐ **Neither document is wrong, and that is worse than a typo.** A typo is visibly wrong
+somewhere. **This is correct in both places and misleading in either alone**, because the label *"a
+random predictor lands at X"* reads as a property of the release when it is a property of a **round's
+comparison population**. **A chance baseline is defined by what it is chance over, and the phrase
+never said.**
+
+**Landed:** the statement names both values and the design each belongs to.
+
+⚠ **Both sites were already attributed.** The statement cites `*(R506)*`; the definition's value
+sits under its own round. **The defect was never missing provenance — it was that each document
+named its own round and neither said the other value existed.** A reader of one page sees a
+correctly-cited number with no reason to suspect a second. ⭐ **Provenance answers *where did
+this come from*; it does not answer *is this the only value this name has*.**
+
+⚠ **The 23 agreeing labels are NOT verified.** A 26-character prefix detects disagreement and cannot
+prove agreement — they are *not contradicted*, which is a weaker statement and the only one available.

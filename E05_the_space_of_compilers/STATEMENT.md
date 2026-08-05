@@ -241,7 +241,10 @@ attain it.** *(R505, R506)*
 
 **Controls, all passing and all able to fail:** the in-sample ceiling **0.6863** exceeds the held-out
 one, so the hold-out is genuinely applied; a shuffled-annotator ceiling falls to **0.4099**; a random
-predictor lands at **0.3342**, not zero. *(R506)*
+predictor lands at **0.3342**, not zero. *(R506)* ⚠ **That is R506's RANKER-restricted
+comparison. The PAIR comparison's random baseline is **0.3321** *(R504, R505)* — same name,
+two designs, two populations, and a chance baseline is defined by what it is chance OVER**
+*(R585)*.
 
 ⚠⚠ **This claim was wrong three times before it was right, and the sequence is part of the result:**
 
