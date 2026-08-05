@@ -16130,3 +16130,33 @@ number and treated it as the quantity my sentence was about** — `P_arm` for �
 full extension, the in-sample ceiling for a baseline. **The gate that would have caught all four is
 `instrument unit == claim unit`, which every one of those rounds printed in its own docstring and
 none enforced.**
+
+## 728 · "Every retraction in R665–R669 has the same shape" — 4 of 16
+
+R669's NEXT asserted one error class. Classified across entries 712–727: **4 unit-conflation, 4
+quantifier-over-own-work, 1 both, 7 neither.** ⛔ And *"would have caught all **four**"* did not match
+the **three** examples listed in the same sentence.
+
+## 729 · The quantifier gate was GREEN through 10 instances of its own failure mode
+
+`assurance/next_line_quantifiers_are_computed.py` contains `the only` and `last remaining` but **not
+bare `the last`, not `the first`.** ⛔ It flagged **1 of 3** real failures (715, 720, 723) and passed
+on every commit that carried them. Widened and measured before applying — base rate **32.1% → 37.2%
+(+5.1 pts)** over 371 real NEXT paragraphs, against the 60% line — it flags **3 of 3**, and applied
+live it found **10 previously-invisible instances** across the corpus. ⭐ **A gate green through ten
+occurrences of what it exists to prevent was not enforcing anything.** The 10 are recorded in the
+freeze file (157 → 167): known, not hidden.
+
+## 730 · And R669 mis-filed ledger 725 — the gate's own control caught it
+
+725 (*"something disqualifies k=12 categorically"*) was filed as a quantifier failure. ⛔ It is a
+**categorical claim about an OBJECT**, with no count and no self-reference — **a third class the gate
+is deliberately not for**, and its window rule correctly declines it. **The mis-filing was caught by
+the instrument's positive control, not by me.**
+
+## 731 · I overwrote a committed instrument's state file with the wrong schema
+
+Recording the 10 new shas, I wrote `KNOWN_QUANTIFIED_NEXT.json` as a flat `{sha: note}` dict —
+**its real schema is `{"count": N, "shas": [...]}`, and I destroyed all 157 entries.** ⛔ Restored
+from git and redone correctly (157 → 167). *A state file is an instrument's memory; writing it
+without reading its schema is the same class as R642's restore destroying its own subject.*

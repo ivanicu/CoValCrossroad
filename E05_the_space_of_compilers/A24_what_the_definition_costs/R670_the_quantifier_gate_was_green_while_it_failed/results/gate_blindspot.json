@@ -1,0 +1,36 @@
+{
+  "world": "A THE VOCABULARY WAS THE GAP \u2014 the current gate flags 1 of 3 real failures; the widened pattern flags 3 of 3, at a base-rate cost of 32.1% -> 37.2% (+5.1 pts) over 371 real NEXT paragraphs. \u2b50 'the last' (715) and 'the first' (723) were absent from the pattern entirely, each paid for by a NAMED ledger entry rather than by taste. \u26a0 AND A GATE THAT FIRES IS NECESSARY, NOT SUFFICIENT: the missed lines were written by someone who already had the gate, so this repair removes an excuse rather than the habit. \u26a0\u26a0 THE POPULATION GAP IS UNTOUCHED \u2014 the gate reads commit bodies and the claim is about reports, which its own docstring states and no pattern change addresses.",
+  "controls_ok": true,
+  "tree_sha": "d1a7636532a8930b45704238ad87df8f0d568cc1",
+  "known_failures": {
+    "715": "that is the last structural question this definition has left",
+    "720": "the held-out bracket is the only cell in this whole curve that is unresolved",
+    "723": "it is the first claim in this arc that would add a clause rather than retire one"
+  },
+  "current_flags": {
+    "715": false,
+    "720": true,
+    "723": false
+  },
+  "widened_flags": {
+    "715": true,
+    "720": true,
+    "723": true
+  },
+  "caught_current": 1,
+  "caught_widened": 3,
+  "base_rate_current": 0.32075471698113206,
+  "base_rate_widened": 0.3719676549865229,
+  "n_next_lines": 371,
+  "added_terms": [
+    "the last",
+    "the first",
+    "categorical(ly)",
+    "the sole",
+    "nothing else",
+    "no more"
+  ],
+  "misclassification": "ledger 725 was filed by R669 as a quantifier failure; it is a categorical claim about an OBJECT with no self-reference, which is a THIRD class the gate is not for. The gate's own window rule caught the mis-filing.",
+  "check271": "R669's NEXT said EVERY retraction in R665-R669 has one shape. Classified: 4 unit-conflation, 4 quantifier, 1 both, 7 neither. And it said 'all four' while listing three examples.",
+  "impossible": "the gate reads commit bodies, not reports; a false quantifier reaching a README but not a commit NEXT is structurally invisible."
+}

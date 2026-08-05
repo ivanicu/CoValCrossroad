@@ -37,8 +37,18 @@ FREEZE = pathlib.Path(__file__).resolve().parent/"KNOWN_QUANTIFIED_NEXT.json"
 # completeness OVER THE PROJECT'S OWN ARTIFACTS". A quantifier therefore only counts when an ARTIFACT
 # NOUN sits within a short window of it — the instrument's unit and the claim's unit made equal
 # BEFORE the control was designed, which is what the standard asks and what I had not done.
+# ⭐ WIDENED 2026-08-05 (R670), MEASURED BEFORE APPLYING as this file's own comments require.
+#    Positive control from REAL history: ledger 715 ("the LAST structural question this definition
+#    has left") and 723 ("the FIRST claim in this arc that would add a clause") were both MISSED --
+#    `the last` and `the first` were absent from the pattern entirely. The gate was GREEN through
+#    both. Cost, measured over 371 real NEXT paragraphs: base rate 32.1% -> 37.2%, +5.1 points,
+#    far under the 60% "matching ordinary language" line this file already records.
+#    ⚠ Ledger 725 ("something disqualifies k=12 categorically") is NOT added: it is a categorical
+#      claim about an OBJECT, with no self-reference, and the window rule correctly declines it.
+#      That mis-filing was caught by this gate's own control, not by me.
 QUANT = re.compile(r"\b(every|all|none|nothing|no other|the only|only remaining|last remaining|"
-                   r"never|always|fully|entirely|completely|exhaustive)\b", re.I)
+                   r"never|always|fully|entirely|completely|exhaustive|the last|the first|"
+                   r"the sole|nothing else|no more)\b", re.I)
 ARTIFACT = re.compile(r"\b(rounds?|retractions?|entries|claims?|arms?|gates?|cells?|items?|"
                       r"numbers?|documents?|residue|DEFINITION\.md|STATEMENT\.md|ledger|chain|"
                       # ⚠ WIDENED after the gate FALSE-NEGATIVED on its own introducing commit's
