@@ -1,0 +1,18 @@
+{
+  "world": "UNVERIFIED",
+  "established": [
+    "run_all reports statement_provenance as rc=2 UNRUNNABLE 'STATEMENT.md absent'",
+    "the same gate exits 0 standalone from the repo root AND from /home/ivan",
+    "run_all's summary line is 'PASS 22 of 46  FAIL 16  UNRUNNABLE 5  ERROR 3'",
+    "run_all emits a ROW only for non-passing gates; PASS is a count"
+  ],
+  "refuted_hypothesis": "cwd=ROOT.parent makes gates blind to the repo -- REFUTED: ROOT derives from __file__, and the gate passes from /home/ivan",
+  "mechanism": "UNVERIFIED",
+  "prior_instances": [
+    "R562: attack_scope_reaches_the_reader",
+    "R562: corrections_propagated",
+    "R569: source_stamp_is_current",
+    "R569: statement_provenance"
+  ],
+  "why_it_matters": "statement_provenance anchors every decimal on the deliverable and passed standalone before every commit this session; the suite's own view is that it never ran"
+}

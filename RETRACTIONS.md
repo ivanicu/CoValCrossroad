@@ -12973,3 +12973,28 @@ string as I imagine it, and the file stores it as it is formatted.**
 asked the system only after building — and all three times one `grep` of `assurance/` beforehand
 would have answered it. **The cost is not the wasted build; it is that a round which rediscovers a
 known result reports it as new.**
+
+## 418 · The suite and a standalone run disagree on the gate the deliverable rests on
+
+`run_all` reports **`statement_provenance … rc=2 UNRUNNABLE: STATEMENT.md absent`**. **The file is
+not absent** — it was edited in this session — and the gate **exits 0 standalone**, from the repo
+root and from `/home/ivan` alike. It passed before **every commit of this session**.
+
+**The divergence now has four instances**: `attack_scope_reaches_the_reader`,
+`corrections_propagated` *(R562)*, `source_stamp_is_current`, `statement_provenance`.
+
+⛔ **My explanation is refuted.** `run_all` invokes gates with `cwd=ROOT.parent`, so I predicted
+CWD-blindness. **`ROOT` derives from `__file__` and the gate passes from `/home/ivan` unchanged.
+Mechanism: UNVERIFIED.** ⭐ A refuted hypothesis is the round's product — **the cheap wrong
+explanation is exactly what would have closed this question falsely.**
+
+## 419 · Two positive controls failed in one round, and both times it was my instrument
+
+① *"a known-crashing gate is detected as crashed"* — `source_stamp_is_current` **does not crash**
+standalone; it exits 2. ② *"gates passing in BOTH arms"* returned **0** — because **`run_all` emits
+no row for a passing gate**; PASS is a summary count. My regex could only ever see failures.
+
+⭐⭐⭐ **Seventh instrument defect of this class this session** — after the `\b`-before-underscore,
+the `c2`-inside-a-UUID, the whitespace-wrapped docstring, and the `tail`-instead-of-count, three
+times. **Both controls refused to let a verdict out, which is the whole reason they exist**, and the
+round's correct output is no count at all.
