@@ -1,0 +1,27 @@
+R690 · PRE-REGISTRATION — written before any AST scan for this question.
+
+THE CLASS  R689 retracted `PUBLISHED_FIVE`: a hard-coded literal whose NAME asserts a property of
+           the RELEASE, four of whose five members are our own constructions. It propagated through
+           five rounds. The question is whether that is a one-off or a class.
+
+POINT A     8 hard-coded sets in this arc have a name asserting a release property.
+INTERVAL A  [2, 15]   ⚠ deliberately NOT spanning the plausible range — ledger 803 and 808 both
+            record me registering unfailable intervals, twice. A result of 0, 1, or >15 falsifies
+            this row, and each is a genuinely possible outcome.
+POINT B     of those, 4 contain at least one member absent from `data/DATASET_CARD.md`.
+INTERVAL B  [1, 10]
+DIRECTIONAL (separately failable) at least one set OTHER than R442's is mislabelled — i.e. the
+            defect is a class rather than a single bad literal.
+KILL        if no release-asserting set exists besides R442's, the defect is a ONE-OFF; say so and
+            do not generalise. ⚠ This is the outcome that would most weaken R689's framing, and it
+            is a live possibility.
+CONTROLS
+  POSITIVE  R442's `PUBLISHED_FIVE` must be found by the name pattern — the pattern is an instrument
+            and needs a case where the answer is known.
+  g=0       a set named for OUR arms (e.g. `ARMS`, `FIVE`, `LABELS`) must NOT be flagged; the
+            pattern must return both values.
+  NEGATIVE  a name pattern matching nothing returns nothing.
+  PLACEBO   run twice identical.
+IDENTIFICATION LIMIT  the NAME is what is scanned. A set that asserts a release property under a
+            neutral name (`FIVE`, `TARGET`) is missed, which biases the count DOWN — so any count
+            here is a FLOOR on the class, not its size.

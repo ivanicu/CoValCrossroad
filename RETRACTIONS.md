@@ -16767,3 +16767,31 @@ admits, which is what R441's sweep asked. **The two questions are one word apart
 them is §4's row** — it is precisely why "four criteria" read as an accurate observation while being
 false as a definition. **Reading the object's documentation answers the instance question for free;
 it does not answer the category question at all.**
+
+## 813 · `PUBLISHED_FIVE` names two different sets in this corpus
+R360 binds it to `coval_core topw_k3 topw_k4 topw_k6 topw_k8`; R442 binds it to `coval_core
+topabs_k4 topvar_k4 topw_k4 topwvar_k4`. Same variable name, same asserted claim about the release,
+different members, and **nothing in either file records which one is meant**. ⭐ **This is a concrete
+mechanism for R676's "the number five is stable, the membership is not"**: the SIZE travelled on a
+shared NAME while the MEMBERS diverged. **A name is the cheapest thing to reuse and the most
+expensive thing to get wrong, because it travels without its definition.**
+
+## 814 · The verdict string reporting a naming defect named the wrong round
+v1 attributed the two `PUBLISHED_FIVE` bindings by **indexing an unordered `set`**, so it printed
+R442's members under R360's name. **§4's "the verdict string is not a computation" — committed inside
+the sentence that reports a naming defect.** Fixed by computing the attribution per round. **Any
+attributive word in a verdict string (`R360 binds`, `the first`, `the larger`) must be computed, and
+an unordered container is exactly where a typed attribution looks computed and is not.**
+
+## 815 · One of the three instances is this session's own retraction artifact
+R689's `PUBLISHED` literal exists to DOCUMENT the mislabelling. Counting it as an instance would have
+inflated the class with the artifact reporting the class — a self-referential inflation that reads as
+corroboration. **Excluded and printed separately, so the class count rests on 2 naive instances.**
+**An audit that sweeps its own corpus will find its own audit, and the difference between documenting
+a defect and committing it is invisible to a name-matcher.**
+
+## 816 · The registered interval could fail this time, and it did not
+`A [2, 15]` on a plausible range of 0 to ~40 — after ledger 803 and 808 recorded me registering
+unfailable ranges twice. **Outcomes of 0, 1 or >15 were live and each would have falsified the row.**
+Observed 3: INSIDE, error −5. **The point error is large and the row still carries information**,
+which is the whole difference from the two rounds before it.
