@@ -13305,3 +13305,31 @@ cannot move the number. **The flattering direction here was caution, not confide
 
 ⭐ **What settled it cost one read of the extension's own membership**, parsed from the page rather
 than recalled — and the members had been printed in every version of that row all session.
+
+## 437 · My verdict string ignored a failing control — the same error R562 caught
+
+R582's first run printed **`WORLD A — the page scopes itself`** while its own positive control two
+lines above printed **`FAIL — detector blind`**. **R562 caught this exact failure earlier in this
+session and I recorded it.** The branch now returns **UNVERIFIED** whenever a control fails.
+
+⭐⭐⭐ **A broken detector and a deaf branch are not the same severity.** A broken detector produces a
+wrong number that a control can catch. **A branch that does not read its control makes the control
+decorative** — it fired correctly, printed correctly, and changed nothing. **The instrument worked
+and the verdict was written as if it had not spoken.**
+
+## 438 · The number detector required the bold to end at the number
+
+`NUM` matched `**0.0726**`. Claim 5 writes **`**+0.0726 at k=4**`** — the bold spans the number *and*
+its regime. **8 of 10 rows were invisible to a detector built to find stated values.** Tenth
+instrument defect of this class this session, and the fix was the same one every time: **match the
+object, not the formatting around it.**
+
+## 439 · The result, with its population stated
+
+**Of 10 rows, 2 state a decimal value, and both name how it moves** — claim 5's decay to 0 at k=all,
+claim 7's survival across the judge change. **0 state a value and stay silent.**
+
+⚠ **n = 2.** The admissible conclusion is **"no other row carries row 2's defect"**, not "the page is
+broadly self-scoping". **A clean result over two cases is a clean result over two cases** — and this
+session has already retracted one claim (R570's) for quoting a number whose population it had not
+stated.
