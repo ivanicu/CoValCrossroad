@@ -11698,3 +11698,42 @@ specifically and not "any rule that consumes something" (sham).
 and nothing in it records that scope.** It does not decay, it does not error, and it stays correct
 until someone widens the join — at which point it is wrong with no signal. **The remedy is six lines
 and is demonstrated in R520: derive the set from the code's own gate rather than declaring it.**
+
+## 354 · My announced next step was a check that cannot fail — and the version that can fail prices the defect at the top of the leaderboard
+
+**`f09c4bf` closed with:** *"the honest test of that replacement is whether it reproduces R294's
+admitted set exactly when re-run over the original 41."*
+
+⛔ **That check could not have failed, and R520's own output — committed in the same round — proves
+it.** `derived − declared` is **6 arms, of which 0 carry a ③ verdict**, and the positive control had
+already established `declared ⊆ derived`. **Over the 41 the two sets are equal by construction.**
+Calling it "the honest test" was the arithmetic trap in its purest form: a quantity whose value the
+algebra fixes, proposed as evidence.
+
+⭐ **It is not worthless — it is a positive control.** Run as one, it passes at 0 disagreements. **A
+forced check is a fine instrument check and never a finding, and the difference is only visible if
+you ask whether it could have come out otherwise.**
+
+**The version that can fail: the wider population.** Over R436's 56 home-judge arms, literal and
+gate disagree on exactly the 6 R520 named, and **all six sit above the ② bar** (taken at the
+conservative top of its measured range):
+
+| arm | A2 |
+|---|---|
+| `oracle_k4_oracle_k{A,B}` | **0.6353** |
+| `greedy_k4_greedy_k{A,B}` | **0.6292** |
+| `indep_k4_indep_k{A,B}` | 0.6079 |
+
+**The current 9 ②-passers span 0.5593–0.6283, so four of the six outscore every one of them.**
+
+⭐⭐⭐ **The declared literal's price is not six marginal arms. It is the top of the leaderboard.**
+
+**Controls:** the 33 label-blind arms disagree on 0 (negative); the *satisfaction* partition
+disagrees on 8 versus the label partition's 6, so the price is specific to the label gate (sham).
+⚠ **Bound: candidacies, not verdicts** — 15 of the 56 carry no ② interval verdict, and producing one
+is a scoring run.
+
+**And the pattern is now three deep: the highest scorers are the label-readers.** R519 found ③
+removes the top 4 of the 9 admitted arms; here the 6 the literal misses would be the top 4 of the
+extended set. **③ does its work at the top of the distribution — which is where a benchmark's
+headline comes from.**

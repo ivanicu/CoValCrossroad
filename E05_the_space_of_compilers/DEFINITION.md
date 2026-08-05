@@ -1963,3 +1963,36 @@ for ④. **A future round extending ③ to that same 56 would silently admit six
 ⭐⭐⭐ **The general point: a hardcoded set is scoped to the population it was authored against, and
 nothing in it records that scope.** The remedy is six lines and is demonstrated here — **derive the
 set from the code's own gate instead of declaring it.**
+
+---
+
+## R521 · What the declared literal costs, and a forced check demoted to a control
+
+**The previous round's announced next step could not have failed.** "Does the derivation reproduce
+R294's admitted set over the 41?" — R520's output forces *yes*: `derived − declared` = 6 arms, **0**
+of which carry a ③ verdict, and `declared ⊆ derived` was already established. **Used here as a
+positive control (it passes at 0 disagreements), never as a finding.**
+
+**The version that can fail is the wider population.** Over R436's 56 home-judge arms, literal and
+gate disagree on exactly the 6 R520 named, and **all six sit above the ② bar**:
+
+| arm | A2 |
+|---|---|
+| `oracle_k4_oracle_k{A,B}` | **0.6353** |
+| `greedy_k4_greedy_k{A,B}` | **0.6292** |
+| `indep_k4_indep_k{A,B}` | 0.6079 |
+
+The current 9 ②-passers span **0.5593–0.6283**. **Four of the six outscore all of them.**
+
+**Controls.** Negative: the 33 label-blind arms disagree on 0. Sham: the *satisfaction* partition
+disagrees on 8 versus the label partition's 6, so the price is specific to the label gate rather
+than to any rule split. Noise floor: the ② bar is taken at the conservative top of its measured
+range [0.5386, 0.5504], so every candidate clears it under every setting.
+
+⚠ **Bound: candidacies, not verdicts** — 15 of the 56 carry no ② interval verdict, and producing
+one is a scoring run.
+
+⭐⭐⭐ **The pattern, now three times: the highest scorers are the label-readers.** R519 found ③
+removes the top 4 of the 9 admitted; here the 6 the literal misses would be the top 4 of the
+extended set. **③ does its work at the top of the distribution, which is where a benchmark's
+headline comes from — without it the leaderboard ranks how much each arm read the answer.**
