@@ -141,4 +141,229 @@ with its own verification, and the finding is recorded here where a reader will 
 | [`R326`](R326_the_clause2_baseline_curve) | the clause-② baseline curve: `topw_k4`'s admission is baseline-dependent | 1 |
 | [`R327`](R327_clause2_names_no_reference) | clause ② names a class, not a reference, and the under-specification is load-bearing | 1 |
 
+| [`R328`](R328_the_three_readings_are_one_budget) | R328 — the three readings are three points on one scalar, and the arms were never matched to it | 1 |
+| [`R329`](R329_the_budget_is_unobservable) | R329 — the budget I matched on is unobservable, and the bracket straddles the crossing | 1 |
+| [`R330`](R330_what_the_conservative_reading_costs) | R330 — budget-matching admits the baseline, at every reading | 1 |
+| [`R331`](R331_what_makes_a_clause2_reference_safe) | R331 — a clause-② reference is safe because of its PERCENTILE, and R330's mechanism was wrong | 1 |
+| [`R332`](R332_the_closure_level_derives_reading_A) | R332 — the closure level and reading A agree; their admitted sets do not, and neither is stable | 1 |
+| [`R333`](R333_the_resolution_floor) | R333 — the annotator axis has 7.6% left in it, and the band needs 13× the release | 1 |
+| [`R334`](R334_why_clause_one_closes) | R334 — clause ① closes, and both of my predictions of *why* were wrong | 1 |
+| [`R335`](R335_can_provenance_be_detected) | R335 — clause ③'s detector existed, was never calibrated, and it works | 1 |
+| [`R336`](R336_clause_three_tested_not_declared) | R336 — clause ③'s detector is a QUALITY meter, and this retracts R335 | 1 |
+| [`R337`](R337_the_wall_is_the_population) | R337 — a label-free selection signature DOES generalise, at AUC 0.866 | 1 |
+| [`R338`](R338_does_the_signature_transfer_to_a_new_rule) | R338 — the signature does not reach a second leak mechanism, and the round can say why | 1 |
+| [`R339`](R339_the_conjunction_is_a_different_object) | R339 — the published admitted set recurs in 53% of resamples, across 30 distinct sets | 1 |
+| [`R340`](R340_the_definition_against_an_adversary) | R340 — the definition survives its first deliberate adversary | 1 |
+| [`R347`](R347_does_clause_one_ever_bind) | R347 — clause ① has never excluded anything clause ② admits | 1 |
+| [`R348`](R348_is_it_blindness_or_curation) | R348 — it is CURATION, not blindness | 1 |
+| [`R353`](R353_the_admitted_set_under_every_pool_order) | R353 — the published five recurs in 7.7% of pool orderings | 1 |
+| [`R354`](R354_what_the_safe_reference_admits) | R354 — at the campaign's own safe reference, the definition admits two | 1 |
+| [`R355`](R355_is_the_closed_region_upward_closed) | R355 — R332's closure level is the FIRST closed reference, not the lowest SAFE one | 1 |
+| [`R356`](R356_is_the_within_family_disagreement_resolvable) | R356 — the judges genuinely reorder one family, and the family that "agreed" was never evidence | 1 |
+| [`R357`](R357_does_the_inversion_survive_swapping_truth) | R357 — the gauge test partitions R356: the inversion survives, the "forced agreement" does not | 1 |
+| [`R358`](R358_does_the_closure_defect_replicate_at_the_second_judge) | R358 — the closure defect replicates at a second judge, and at 0.8B no arm clears a safe reference | 1 |
+| [`R359`](R359_can_clause_two_be_made_judge_invariant) | R359 — self-normalising clause ② does not rescue it; at equal strictness it is just as empty | 1 |
+| [`R360`](R360_which_clause_is_load_bearing) | R360 — clause ③ is the one part of the definition that is unsubstitutable | 1 |
+| [`R361`](R361_does_clause_three_hold_at_the_second_judge) | R361 — the definition's one unconditional sentence does not hold at the second judge | 1 |
+| [`R362`](R362_does_the_size_band_survive_the_judge) | R362 — the size band's premise fails at the second judge, not merely its boundaries | 1 |
+| [`R363`](R363_clause_three_does_not_close_the_rubric_channel) | R363 — clause ③ closes the ranking channel and not the rubric channel | 1 |
+| [`R364`](R364_how_much_does_the_rubric_channel_carry) | R364 — the rubric channel is open and carries nothing measurable | 1 |
+| [`R365`](R365_is_the_empty_channel_a_2B_statement) | R365 — the empty channel is not a 2B statement: the first claim here to survive a change of judge | 1 |
+| [`R366`](R366_does_anything_predict_which_claims_survive_the_judge) | R366 — nothing in the record predicts which claims survive the judge, and R365's survival was cheap | 1 |
+| [`R367`](R367_can_the_judge_be_named_non_circularly) | R367 — the judge can be named non-circularly, so the definition becomes applicable | 1 |
+| [`R368`](R368_transport_matched_on_difficulty) | R368 — matched on difficulty, the core transports; and the pattern underneath is unexplained | 1 |
+| [`R369`](R369_the_transport_contrast_decomposes_two_ways) | R369 — R368's contrast agrees in sign across metrics and decomposes the opposite way in each | 1 |
+| [`R370`](R370_a_non_subset_floor_for_the_fresh_arm) | R370 — against a floor that is not a subset of its own target, the transport contrast collapses | 2 |
+| [`R371`](R371_would_more_prompts_resolve_transport) | R371 — R370's transport verdict is a specification choice, and the GPU job is justified for a different reason than I gave | 1 |
+| [`R372`](R372_is_the_resolving_set_stable) | R372 — the resolving set is not a quantity, and R371 committed the error it convicted R370 of | 1 |
+| [`R373`](R373_can_the_campaign_audit_its_own_resolution) | R373 — the definition's transport MDE averaged FOUR strata, and the campaign did not record that anywhere | 1 |
+| [`R374`](R374_were_the_red_gates_ever_green) | R374 — five of the eleven red gates were never green, and six broke inside one bracket | 1 |
+| [`R375`](R375_one_commit_or_six) | R375 — four commits, not one; and the gate I was most confident about flickers | 1 |
+| [`R376`](R376_the_harness_that_says_do_not_use_it) | R376 — the harness that says "do not use this harness" was counting its own probe file | 1 |
+| [`R377`](R377_is_the_flicker_in_the_check_itself) | R377 — the check is deterministic, and my own explanation for its flicker was wrong | 1 |
+| [`R378`](R378_does_one_gate_decide_another) | R378 — an intervention refuted my hypothesis, and the placebo was a single newline | 1 |
+| [`R379`](R379_the_exit_code_is_not_the_population) | R379 — the exit code is not the population, and my grouping plan was wrong at its root | 1 |
+| [`R380`](R380_the_gate_convicted_a_registry_it_never_read) | R380 — the gate convicted seventeen rounds using a glob that matched zero files | 1 |
+| [`R381`](R381_do_the_red_gates_share_a_dead_path) | R381 — the verdict moved against my hypothesis at every improvement to the instrument | 1 |
+| [`R382`](R382_does_the_pattern_match_anything) | R382 — one pattern matches nothing, the other matches 505 times, and they are not a class | 1 |
+| [`R383`](R383_test_the_proxy_before_adopting_it) | R383 — the pre-registration fired, and I am not adopting its answer | 1 |
+| [`R384`](R384_where_the_findings_are_not) | R384 — 243 of 377 rounds have no finding site at all, and a green gate said so before I measured it | 1 |
+| [`R385`](R385_can_the_artifact_write_the_finding) | R385 — a generated line reaches rank 2 of 46 and names the right round 46% of the time | 1 |
+| [`R386`](R386_what_the_artifact_cannot_say) | R386 — a finding's numbers are 9% in the artifact that produced it | 1 |
+| [`R387`](R387_is_the_debt_collectable) | R387 — the debt is collectable: 9 of 9 decided rounds still re-run, none fail | 1 |
+| [`R388`](R388_one_unit_of_the_debt) | R388 — one unit of the debt, paid and priced: 21.3 s of machine time, 7 numbers verified | 1 |
+| [`R389`](R389_the_reading_burden) | R389 — three units paid, the instrument I reached for measured my own habit, and my tooling deleted the round | 1 |
+| [`R390`](R390_does_the_untitled_tier_state_anything) | R390 — the untitled tier is not silent: 30 of 64 state a verdict anyway | 1 |
+| [`R391`](R391_step_or_orphan) | R391 — two of the three silent rounds are infrastructure; one is an orphan | 1 |
+| [`R392`](R392_how_much_is_infrastructure) | R392 — 72 of 226 are consumed as data, 23 more are only cited, and a "nowhere" token stopped being nowhere | 1 |
+| [`R393`](R393_what_the_gate_will_cost) | R393 — ≥39 minutes at full table, and 80% of it is two rounds | 1 |
+| [`R394`](R394_is_the_source_hash_a_valid_key) | R394 — the key is sound for fast rounds, and the tail it must serve is untested | 2 |
+| [`R395`](R395_can_a_gauge_test_replace_the_rerun) | R395 — the gauge test discriminates, and it halves the expensive step to one round | 1 |
+| [`R396`](R396_is_the_slow_tail_stable_on_gpu) | R396 — the expensive round does not reproduce at unchanged source | 3 |
+| [`R397`](R397_did_the_stable_subjects_actually_succeed) | R397 — the defect was real, and it was not load-bearing | 2 |
+| [`R398`](R398_is_there_a_second_object_on_disk) | R398 — "one release" was never a wall. It was a query nobody ran. | 1 |
+| [`R399`](R399_what_estimand_does_the_second_corpus_admit) | R399 — the second corpus is a RATING corpus, and the overlap is 3 strings, 2 of them greetings | 1 |
+| [`R400`](R400_is_conversation_depth_a_confound) | R400 — the two corpora share depth *support* and almost no depth *mass* | 1 |
+| [`R401`](R401_can_n99_resolve_anything) | R401 — the transport route is closed at n=99; the clause-② route is open by two orders of magnitude | 1 |
+| [`R402`](R402_does_the_harness_fire_before_the_judge) | R402 — the harness sees what it claims to see, verified before any GPU was spent | 1 |
+| [`R403`](R403_which_clauses_are_even_statable_elsewhere) | R403 — half the definition is a fact about CoVal's schema | 1 |
+| [`R404`](R404_which_conjunct_of_clause_three_does_the_work) | R404 — clause ③'s three conjuncts: one does all the work, one does none, one is not implemented | 1 |
+| [`R405`](R405_at_its_own_strictest_reading_the_definition_admits_nothing) | R405 — UNVERIFIED. The sweep does not order readings by strictness, so "the strictest reading" is not a cell. | 1 |
+| [`R406`](R406_the_universal_reading_was_not_universal) | R406 — "better than EVERY prompt-blind set" was tested against the 99th percentile | 1 |
+| [`R407`](R407_the_universal_reading_answered_without_an_ordering) | R407 — at the maximum blind set, the only survivors are the arms that read the answer | 1 |
+| [`R408`](R408_the_literal_test_at_the_universal_reference) | R408 — read literally, clause ② admits all five. Every one of them inside its own noise. | 1 |
+| [`R409`](R409_is_the_ordering_of_the_five_information) | R409 — the ordering carries information; the extremes are separable and the middle is not | 1 |
+| [`R410`](R410_size_and_provenance_decomposed) | R410 — neither size nor provenance is resolvable. The partial order has no decomposition this design can reach. | 1 |
+| [`R411`](R411_are_the_two_effects_even_commensurable) | R411 — the naive comparison said 0.96×; standardised it is 2.50× or 4.57×, and the clustering unit decides which | 1 |
+| [`R412`](R412_the_clustering_that_decides_the_power) | R412 — the winning model is constant within a conversation, so the conversation is the unit and the replication is marginal | 1 |
+| [`R413`](R413_does_score_escape_the_clustering) | R413 — score offers no escape. The corpus is conversation-limited whatever outcome I target. | 1 |
+| [`R414`](R414_does_the_effect_replicate_at_the_second_judge) | R414 — UNVERIFIED. The second judge cannot rank, and an escape hatch in my own kill nearly published a false retraction. | 1 |
+| [`R415`](R415_the_pipelines_own_noise_floor) | R415 — re-running the same arm at the same judge shifts its mean by 13× the effect under study | 1 |
+| [`R416`](R416_the_rerun_pairs_are_not_scoring_replicates) | R416 — R415's "re-run pairs" scored different criteria. Its framing was wrong one round after I published it. | 1 |
+| [`R417`](R417_the_judge_has_no_stochastic_step) | R417 — the judge has no stochastic step, so the 0.116 was never scoring noise and the GPU re-score is not needed | 1 |
+| [`R418`](R418_what_differed_was_not_the_claims) | R418 — none of the 12 differing tokens has the shape of a claim | 1 |
+| [`R419`](R419_the_scoring_only_floor_measured) | R419 — the scoring-only floor is exactly zero, and that locates R415's 0.116 entirely in selection | 1 |
+| [`R420`](R420_is_selection_deterministic_too) | R420 — selection is deterministic too, so there was never any instability to find | 1 |
+| [`R421`](R421_the_last_three_rules_and_the_control_R420_lacked) | R421 — all three label-reading rules are deterministic, the control R420 lacked fires, and `_08bR` is the anomaly | 1 |
+| [`R422`](R422_did_the_judge_differ_or_only_the_selection) | the `_08b`/`_08bR` families — did the JUDGE differ, or only the SELECTION? | 1 |
+| [`R423`](R423_the_join_key_or_the_emitter) | was R422's 0.1 % a second judge, or my own join key? | 1 |
+| [`R424`](R424_name_the_foreign_emitter) | both `_08b` families are foreign to the default judge. Which table DID emit them? | 1 |
+| [`R425`](R425_how_far_does_the_unknown_instrument_reach) | how far does the unknown instrument reach? The search is the instrument, so control it first | 1 |
+| [`R426`](R426_the_emitter_was_excluded_by_my_own_filter) | R424 said the emitter is not on disk. My own filter excluded the directory it is in. | 1 |
+| [`R427`](R427_does_the_definition_transport_at_all) | the first number on the second corpus — does a prompt-blind core pick what people picked? | 12 |
+| [`R429`](R429_is_the_tightest_pair_a_resolved_claim) | "the tightest pair" was a RANK. Is it a RESOLVED claim? | 2 |
+| [`R430`](R430_is_the_null_gap_the_null_or_the_weighting) | I blamed the null. It was the **weighting** — and I had committed the wrong diagnosis two hours earlier | 3 |
+| [`R431`](R431_is_the_excess_statistic_size_confounded) | the announced next step was the arithmetic trap — and the real gap is **10× smaller** than the one I chased | 1 |
+| [`R432`](R432_does_the_criteria_axis_have_any_headroom) | before spending GPU on generation, does the criteria axis have any headroom here? — **yes, and the ceiling clears the length rule by +0.2124** | 1 |
+| [`R433`](R433_does_clause_two_transport_with_its_subject) | clause ②'s **subject** on a second release — **`W-LOSES`** | 2 |
+| [`R434`](R434_does_the_definition_have_a_utility_floor) | on a second release the definition admits **no core at all** — `W-EMPTY` | 1 |
+| [`R435`](R435_is_a_sufficiency_clause_even_statable) | a sufficiency clause needs a bar. **The bar is well-defined** — it saturates after 6 rules | 1 |
+| [`R436`](R436_does_clause_four_exclude_anything_at_home) | does clause ④ exclude anything at home? — **`W-REDUNDANT-AT-J`**, and the two releases split | 1 |
+| [`R437`](R437_do_the_two_bars_invert_between_releases) | the two bars **invert** between releases — neither clause dominates | 1 |
+| [`R438`](R438_does_the_gap_flip_inside_one_release) | the GAP does **not** flip inside one release — `W-STABLE-SIGN` | 1 |
+| [`R439`](R439_is_clause_four_a_reparameterisation_of_two) | ④ is not a reparameterisation of ② — its bar sits **below every one of 1,820 subsets** | 1 |
+| [`R440`](R440_the_four_clauses_on_one_arm_space) | the four clauses on **one** arm space — and ④'s zero is the argument | 1 |
+| [`R441`](R441_is_the_size_clause_a_clause) | the size line is two things — one is a derivation, the other is decoration **on n=1** | 1 |
+| [`R442`](R442_the_extension_under_clause_three_as_written) | the definition's extension is **5 arms as implemented, 1 as written** — and neither is the published five | 1 |
+| [`R443`](R443_does_clause_three_as_written_exclude_the_core_itself) | ③ as written leaves `coval_core` standing — the extension is **1**, not 0 | 1 |
+| [`R444`](R444_clause_three_reconciled) | the contradiction is closed — and it was closed by a **decision**, not an experiment | 1 |
+| [`R445`](R445_is_the_extension_empty_on_a_resolved_difference) | `gen` fails clause ② by a **resolved** margin — but at 1.07× its own floor | 1 |
+| [`R446`](R446_clause_two_over_every_admissible_reference) | clause ② over **all 1,820** references — the file-order choice did not manufacture the verdict | 1 |
+| [`R447`](R447_is_the_judge_emptiness_a_reference_artifact) | "② is emptied by a change of judge" is **false as stated** — and the arm ordering inverts | 1 |
+| [`R448`](R448_is_the_inversion_regression_to_the_mean) | the inversion is **not** a swap — one arm rises, and the reason is measurable | 1 |
+| [`R449`](R449_is_judge_stability_a_new_axis) | judge-stability is a **real** axis and **not** a statable clause — the two halves disagree | 1 |
+| [`R450`](R450_does_the_definition_admit_a_neighbourhood) | the definition admits a **neighbourhood**, and the coordinate that governs it is not the one I designed | 1 |
+| [`R451`](R451_is_a_disjoint_core_admissible) | the extension is a **ball around one point** — and R450's optimism was too kind | 1 |
+| [`R452`](R452_is_the_oracle_per_conversation) | the oracle is a **fixed better subset**, not per-conversation selection | 1 |
+| [`R453`](R453_does_a_fixed_prompt_blind_set_generalise) | clause ② is **partially** within-family — and a mismatched attack nearly retracted a true claim | 1 |
+| [`R454`](R454_is_the_bound_a_property_of_the_pool) | R453's bound **saturates** in pool breadth — so it is not a pool-size artifact | 1 |
+| [`R455`](R455_can_clause_two_be_strengthened) | clause ② **can** be strengthened — and the released core still clears it, barely | 1 |
+| [`R456`](R456_the_strengthened_gap_on_every_annotator) | the data did **not** have more to give — α = 0.208, and R455's resolution claim narrows | 1 |
+| [`R457`](R457_is_the_per_prompt_gap_reliable) | the per-prompt advantage **is** reliable — and my first estimand was contaminated by a shared term | 1 |
+| [`R458`](R458_what_predicts_the_per_prompt_advantage) | the per-prompt advantage is **replicable and unexplained** — 4.4% of its own ceiling | 1 |
+| [`R459`](R459_is_the_reliability_a_partner_artifact) | R457's reliability survives without a partner — and the component table shows why the paired design works | 1 |
+| [`R460`](R460_did_the_partner_check_inherit_its_own_defect) | R459 inherited the defect it was built to test — and both quoted numbers are outliers | 1 |
+| [`R461`](R461_every_difference_must_name_its_comparator) | the announced audit was a grep — rebuilt as an enforced declaration, and its suspicion was false | 1 |
+| [`R462`](R462_is_oldest_first_the_right_ordering) | "oldest first" was an untested claim — and doing the work *was* the test | 1 |
+| [`R463`](R463_the_ordering_is_arbitrary_and_says_so) | both orderings eliminated — the order is arbitrary, and this round says so | 1 |
+| [`R464`](R464_is_clause_one_vacuous_or_merely_unexercised) | clause ① is **unexercised**, not decoration — and "0 of 41" is a fact about the arm space | 1 |
+| [`R465`](R465_clause_three_is_a_different_type) | clause ③ is a **provenance** predicate — the definition mixes two types of clause | 1 |
+| [`R466`](R466_does_the_second_instrument_measure_clause_three) | ③'s two instruments range over **disjoint id spaces** — the join, not the clause, is the defect | 1 |
+| [`R467`](R467_can_the_two_id_spaces_be_joined) | same conversations, different text — and this round's first verdict was FALSE | 1 |
+| [`R468`](R468_the_join_exists_and_is_exact) | the join exists, is exact and total — and two rounds' headlines were over-stated | 2 |
+| [`R469`](R469_containment_cannot_implement_clause_three) | containment is **constant on ③'s partition** — it cannot implement ③, and that is a derivation | 1 |
+| [`R470`](R470_the_extension_is_an_interval) | the extension is **[0, 1]**, not 1 — and the convention that makes it 1 was never stated | 1 |
+| [`R472`](R472_the_register_half_complies) | the register half-complies — 54 of 100 entries name no requirement | 1 |
+| [`R475`](R475_the_card_decides_clause_three) | The dataset card decides clause ③ | 2 |
+| [`R476`](R476_what_fraction_of_the_document_is_checked) | What fraction of the document is actually checked | 1 |
+| [`R477`](R477_what_does_clause_three_actually_cost) | What does clause ③ actually cost? | 1 |
+| [`R478`](R478_the_admissible_class_is_1820_not_nine) | The admissible class has 1,820 members, not nine | 1 |
+| [`R479`](R479_is_the_ceiling_the_judge_or_the_target) | Is the 0.54 ceiling the criteria, the judge, or the target? | 1 |
+| [`R480`](R480_does_the_judge_change_the_order_or_only_the_level) | The judge moves every level. Does it move the order? | 1 |
+| [`R481`](R481_is_the_reversal_the_judge_or_the_sum) | Is R480's size reversal the judge, or the SUM nobody chose deliberately? | 1 |
+| [`R482`](R482_the_suite_has_fifty_two_gates_and_i_ran_four) | The suite has 42 gates and this arc ran four | 1 |
+| [`R483`](R483_nine_fails_were_three_unlike_things) | Nine FAILs were three unlike things | 1 |
+| [`R484`](R484_how_many_detectors_read_their_own_prose) | *(no README — description not invented)* | 1 |
+| [`R485`](R485_is_the_definition_satisfiable_at_all) | Is the definition satisfiable at all? | 1 |
+| [`R486`](R486_is_clause_two_bar_an_outlier_or_the_class) | Is ②'s bar an outlier, or the class? — and what it does to R485 | 1 |
+| [`R487`](R487_the_admissible_population_is_32_not_three) | The admissible population is 23 scorable arms, not three | 1 |
+| [`R488`](R488_a_class_is_what_a_rule_admits) | A class is what a rule admits, not what I enumerated | 1 |
+| [`R489`](R489_the_second_release_is_not_hidden) | *(no README — description not invented)* | 1 |
+| [`R490`](R490_the_announced_compute_was_already_built) | The announced compute was already built, and could not have settled it | 1 |
+| [`R491`](R491_the_third_wall_was_also_false) | The third wall this session that was false when checked | 1 |
+| [`R492`](R492_the_cross_architecture_judge_needs_quantisation) | The cross-architecture judge is present, and does not run in bf16 on this card | 1 |
+| [`R493`](R493_what_quantisation_would_actually_require) | What the quantisation route actually requires | 1 |
+| [`R494`](R494_the_generators_deficit_is_not_repetition) | The generator's deficit is not repetition | 1 |
+| [`R495`](R495_discriminativeness_is_not_the_mechanism_either) | Discriminativeness is not testable this way either | 1 |
+| [`R496`](R496_the_deficit_is_not_discriminativeness_at_n968) | The deficit is not discriminativeness — refuted at n=968, with power | 1 |
+| [`R497`](R497_the_deficit_is_real_and_the_predictors_were_wrong) | The deficit is real — the predictors were wrong | 1 |
+| [`R498`](R498_the_auditor_of_auditors_cannot_run_in_the_suite) | The auditor of auditors cannot run inside the suite — and the cycle it contains is not traversed | 1 |
+| [`R499`](R499_is_gen_the_same_function_as_prompt_blind_or_a_cancelling_one) | Clause ②'s gap is inside the floor because the arms agree — and the statistic that said otherwise was blind | 2 |
+| [`R500`](R500_do_other_artifacts_assert_worlds_the_record_overturned) | 18 of 98 cited rounds carry an artifact that never learned it was retracted | 1 |
+| [`R501`](R501_can_provenance_be_replaced_by_a_behavioural_test) | Can clause ③'s provenance be replaced by a behavioural test? — UNVERIFIED, and the round says why | 1 |
+| [`R502`](R502_the_admissible_side_is_one_responsive_arm_and_six_random_ones) | The ③-admissible side of clause ② is one responsive arm, six random draws and two fixed sets | 1 |
+| [`R503`](R503_the_two_sides_of_clause_three_draw_from_the_same_pool) | Both sides of clause ③ draw from the same pool — so there is no textual property to check | 1 |
+| [`R504`](R504_is_the_recommendation_comparing_the_same_two_things) | The recommendation compared two numbers from two instruments — withdrawn one round after it was made | 1 |
+| [`R505`](R505_two_ceilings_one_for_rankers_one_for_pair_predictors) | There are two ceilings — and `oracle_k4` is resolvably above neither | 1 |
+| [`R506`](R506_the_core_is_a_ranker_so_only_one_ceiling_applies) | A core is a ranker by construction — so one ceiling applies, and the gap resolves at 20 draws | 1 |
+| [`R507`](R507_the_residual_is_the_population_filter) | The residual was arm coverage, not the ranking filter — and the filter turned out to be a no-op | 1 |
+| [`R508`](R508_selection_position_is_a_partial_provenance_surrogate) | Selection position is a PARTIAL provenance surrogate — every label-optimiser is caught, every miss is rule-based | 1 |
+| [`R509`](R509_a_checkable_clause_three_does_not_rescue_the_definition) | A checkable ③ does not rescue the definition — it makes the same vacuity harder to see | 1 |
+| [`R512`](R512_the_position_proxy_inverts_against_the_actual_ratings) | *(no README — description not invented)* | 1 |
+| [`R513`](R513_the_size_of_my_own_assurance_surface) | The size of my own assurance surface | 1 |
+| [`R514`](R514_clause_one_is_subsumed_by_clause_two) | Clause ① is subsumed by clause ② | 1 |
+| [`R515`](R515_can_clause_one_bind_per_prompt) | A per-prompt clause ① binds on 27% of conversations | 1 |
+| [`R516`](R516_does_a_per_prompt_clause_one_exclude_any_admitted_arm) | A per-prompt clause ① is not well-defined | 1 |
+| [`R517`](R517_has_clause_four_ever_been_testable) | Clause ④'s independence has never been observable | 1 |
+| [`R518`](R518_clause_four_is_redundant_where_the_definition_lives) | ④ is redundant at the home judge — measured, not unverified | 1 |
+| [`R519`](R519_only_clause_three_narrows_what_two_admits) | Only ③ narrows what ② admits — the definition is a pair | 1 |
+| [`R520`](R520_is_the_provenance_set_complete) | ③'s provenance set is complete where it was used, and incomplete one join away | 1 |
+| [`R521`](R521_what_the_declared_literal_costs_on_the_wider_population) | The declared literal's price: four label-readers at the top of the leaderboard | 1 |
+| [`R522`](R522_the_six_candidacies_become_verdicts) | The six candidacies are verdicts — all clear ②, and the wall was false again | 1 |
+| [`R523`](R523_are_the_six_arms_three_or_aliases) | The six are two — an alias masqueraded as a distinct arm for three rounds | 1 |
+| [`R524`](R524_how_many_objects_are_in_the_fifty_six_tags) | 56 tags are 46 objects — and most of the collapse is intentional | 1 |
+| [`R525`](R525_the_variants_that_were_supposed_to_differ) | Three variant runs produced no variant — and the source predicted they should | 1 |
+| [`R526`](R526_the_recorded_natural_experiment) | The mechanism works where the invocation is recorded | 1 |
+| [`R527`](R527_is_clause_two_a_choice) | Clause ②'s baseline is a choice, and the arms robust to it are the ones ③ excludes | 1 |
+| [`R528`](R528_where_the_definition_empties) | *(no README — description not invented)* | 1 |
+| [`R529`](R529_which_human_labels_does_clause_three_mean) | *(no README — description not invented)* | 1 |
+| [`R530`](R530_what_the_empty_world_costs) | *(no README — description not invented)* | 1 |
+| [`R531`](R531_prompt_responsiveness_derived_not_declared) | Prompt-responsiveness, derived rather than declared | 1 |
+| [`R532`](R532_what_the_fork_costs_in_a2) | The ③ fork, priced: it forbids an operation worth +0.0748 in A2 | 1 |
+| [`R533`](R533_the_weight_reading_dose_curve) | Weight-reading is worth +0.0726 at k=4 and exactly 0 at k=all — it is the operation, not the core | 1 |
+| [`R534`](R534_three_input_classes_not_two) | ③'s input taxonomy has three classes; R529 named two | 1 |
+| [`R535`](R535_how_remote_is_the_third_reading) | The third reading is remote — and the release's own selection rationale does not survive measurement | 1 |
+| [`R536`](R536_does_the_ordering_survive_a_second_judge) | Weights beat spread under a second judge — a register "impossible" that was on disk | 1 |
+| [`R537`](R537_the_dose_curve_under_a_second_judge) | The weight-reading dose curve survives a second judge | 1 |
+| [`R538`](R538_the_released_core_has_no_second_judging) | The released core has no second judging — and the first wall of this session to survive | 1 |
+| [`R539`](R539_what_the_on_site_round_costs) | The on-site round costs 16,440 model calls — so cost is not the reason not to run it | 1 |
+| [`R540`](R540_tokens_per_second_on_this_box) | Decode throughput on this box — ⚠ correctly measured, wrongly applied | 1 |
+| [`R541`](R541_the_throughput_was_measured_on_the_wrong_operation) | The throughput was measured on the wrong operation — 25.3 min, not 7.25 h | 1 |
+| [`R542`](R542_every_model_was_wrong_every_log_was_right) | Every modelled figure was wrong; every logged figure held | 1 |
+| [`R543`](R543_the_command_was_in_the_log_too) | The command was in the log too — the seventh wall, and the sixth false one | 1 |
+| [`R544`](R544_the_generator_is_greedy) | The generator is greedy — register row 3 is not a re-run | 1 |
+| [`R545`](R545_the_generator_has_no_knobs) | The generator has no knobs — row 3 needs a code change, not a flag | 1 |
+| [`R546`](R546_rows_three_and_four_are_nested) | Register rows 3 and 4 are nested — row 3 cannot buy anything alone | 1 |
+| [`R547`](R547_the_register_sorted_on_the_wrong_axis) | The register sorted on effort while reading as reachability | 1 |
+| [`R548`](R548_row_two_has_two_remedies_and_one_is_installed) | Row 2 names two remedies and one is already installed | 1 |
+| [`R549`](R549_every_on_site_row_is_gated_by_a_missing_flag) | Not one on-site register row is compute-bound | 1 |
+| [`R550`](R550_is_the_new_gates_blind_spot_inhabited) | The blind spot's hazard is real; its occupancy is unobservable | 1 |
+| [`R551`](R551_did_the_reasoning_document_stop_being_written) | `DEFINITION.md` was never the per-round log I was treating it as | 1 |
+| [`R552`](R552_the_cost_column_was_denominated_in_the_wrong_unit) | The register's cost column measured the LAST obstacle, not the FIRST | 1 |
+| [`R553`](R553_the_generator_has_knobs_now) | The edit rows 3+4 were blocked on, made and tested | 1 |
+| [`R554`](R554_the_flag_needs_a_checkpoint_to_point_at) | The flag has something to point at — and it is not the one anybody named | 1 |
+| [`R555`](R555_row_two_named_a_model_where_it_meant_a_requirement) | Row 2 named a model where it meant a requirement | 1 |
+| [`R556`](R556_the_second_release_row_five_asks_for_is_on_disk) | Row 5 offered two alternatives and one was already on disk | 1 |
+| [`R557`](R557_row_one_measured_verbatim_overlap_on_a_documented_rewrite) | Row 1 measured identity where the requirement was recoverability | 1 |
+| [`R558`](R558_the_target_is_missing_from_the_scope_column) | The scope column named every axis but the one that empties the definition | 1 |
+| [`R559`](R559_the_recommendation_rests_on_one_cell_of_a_two_cell_curve) | The B recommendation is one cell of a two-cell curve | 1 |
+| [`R560`](R560_which_of_the_four_scope_dimensions_each_claim_states) | The scope column's defect is a shape, and `baseline` was stated by zero rows | 2 |
+| [`R561`](R561_i_was_running_six_of_forty_six_gates) | I was running six of forty-six gates | 2 |
+| [`R562`](R562_are_nine_failing_gates_nine_defects) | UNVERIFIED — the grouping instrument sees a third of its population | 1 |
+| [`R563`](R563_the_gates_were_never_silent_my_regex_was_blind) | The gates were never silent — my regex was blind to the naming convention | 1 |
+
+| [`R564`](R564_the_round_index_is_236_rounds_behind) | *(no README — description not invented)* | 1 |
+
+| [`R428`](../A25_can_the_instrument_be_run_at_all/R428_did_the_eight_mutilations_cost_untracked_data) | *(no README — description not invented)* ⚠ **lives in `A25`, which holds exactly ONE round — a mis-cut arc under P16** | 3 |
+
 <!-- ROUND-INDEX:END -->

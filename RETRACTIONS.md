@@ -12816,3 +12816,32 @@ Expecting round ids from them may be the wrong expectation entirely. **Stated as
 
 ⚠ **`every_round_reaches_the_readme` flags R556–R562 — the rounds of this session.** Debt created
 while auditing debt.
+
+## 406 · "Seven rows since R555" — the index was 237 rounds behind, and I read the tail three times
+
+My NEXT line said the campaign README was un-updated *"since R555"* and that writing *"those seven
+rows"* was the work. **The index's high-water mark was `R327`. The gate flagged 127 rounds.**
+
+⭐⭐⭐ **I read the tail of the gate's output — the identical error R561 recorded two rounds
+earlier.** Then I did it **twice more inside this round**: after the rebuild I ran `tail -5`, saw two
+lines, and reported "127 → 2"; the true count was **1**. **Three times in one round, on one
+instrument, after logging the lesson.**
+
+**Fixed by production: 265 index rows written**, each description taken **verbatim from that round's
+own README heading**. **6 rounds have no README and received no description** — a machine may not
+invent a WHY (L80).
+
+⭐ **The general form: `tail` is an instrument with a scope, and its scope is "the end".** Every time
+I used it to characterise a *set*, I described the last few members and reported it as the set. **A
+count and a tail answer different questions, and the tail is the one that always returns something.**
+
+## 407 · There are ten arcs and I had been treating one as the epoch
+
+`R428` is in **`A25_can_the_instrument_be_run_at_all`**, not `A24`. The epoch holds **A16–A25**, and
+every round this session has been filed into A24 without asking whether that is where it belongs.
+
+⚠ **And `A25` contains exactly one round.** **P16 is explicit: an `A` containing a single `R` is a
+mis-cut arc**, because an arc is a decision made safe and a single belief update rarely does that.
+
+**Recorded, not restructured.** Re-cutting an arc is a decision about what work was for; a repair
+would be me deciding it silently. The row is indexed with the anomaly stated in the row itself.
