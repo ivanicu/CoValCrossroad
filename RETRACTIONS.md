@@ -18318,3 +18318,37 @@ mechanical remedy already exists in the standard and I have been writing it into
 preregistration without applying it: name the instrument's unit and the claim's unit as two separate
 strings and require them to be equal before the control is designed. Writing the two strings is not
 the same as comparing them.
+
+## 955 · R730 credited the object partition to the wrong round
+
+R730 reported an eight-class object partition and credited the round that established the aliasing of
+two oracle tags. The partition itself had already been produced by a different round, which grouped
+the same eight classes and tagged each with whether its rule consumes the human target. R730's
+partition differs from it on exactly two classes, and both differences are explained by the wider
+population rather than by method: it merges the released core with its two second-judge variants and
+folds a later probe arm into the generic class. The credit is corrected here and in the statement.
+The prior-art gate found this, one round after the same gate found that R729 had rebuilt an earlier
+round's finding entirely.
+
+## 956 · the remedy I proposed twice would have excluded an object that behaves correctly
+
+Two consecutive rounds closed by saying the provenance clause needs a predicate over construction
+rather than a longer list of names. Measured, that remedy is wrong for at least one object. Of the
+three target-reading objects the clause admits, two carry the excluded object's size on both clauses,
+sitting under two and under nine within-group spreads from it. The third is built by the same rule as
+the excluded object and named for it, and its second-clause margin is 0.014483 with a ratio to its
+own resolution of 1.04, indistinguishable from the label-blind arms and nowhere near the excluded
+object's 7.29. A construction predicate would exclude it. So construction does not determine
+behaviour here, and the next-step line I wrote twice prescribed a fix that the data does not support.
+The correct statement is narrower: the clause's omissions include objects with the size it exists to
+remove, and no rule over construction alone separates those from the ones that merely share a rule.
+
+## 957 · two registered means were reported that cannot distinguish the thing they were registered for
+
+R731 registered the mean absolute clause-② gap of the admitted objects to the excluded object and to
+the label-blind group, expecting them to separate. They came out 0.0314 and 0.0312. They are
+indistinguishable, and not because the objects are alike: one of the three sits far on the other
+side and drags the mean across, so averaging over a split group destroys exactly the structure the
+statistic was registered to detect. Both points passed their intervals, which is what a wide interval
+does. The per-object table in units of the within-group spread is the reportable form, and the two
+means are kept only as a caution against themselves.

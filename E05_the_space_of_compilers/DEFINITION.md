@@ -3735,3 +3735,24 @@ ten objects of which the clause admits nine. The unit error is the third of its 
 consecutive rounds — a denominator the design could not return, a nine-way rule where the claim was
 binary, and now tags where the claim is objects — and this one ran in the flattering direction,
 inflating a defect attributed to someone else's definition.
+
+## R731 · two of the three admitted objects carry the excluded object's size, and the third does not
+
+The three target-reading objects the provenance clause admits were compared, at the object level with
+each object counted once, against the object the clause excludes and against the four label-blind
+arms, on both measured clauses. The greedy object's second-clause margin is 0.072210 and the
+independent object's is 0.052679, against the excluded oracle object's 0.077867 and a label-blind
+mean near 0.0169, with the released core at 0.016042. In units of the spread among the label-blind
+objects, which is 0.003122 on the second clause, the greedy object sits 1.81 from the excluded object
+and 17.71 from the blind group, and the independent object 8.07 against 11.45. Both sit with what the
+clause excludes, on both clauses, and the two clauses agree on the nearest group for every object.
+The third admitted object does not. It is built by the oracle rule and named for it, and its
+second-clause margin is 0.014483, a ratio to its own minimum detectable effect of 1.04 against the
+excluded oracle object's 7.29; it sits 0.78 spreads from the label-blind group and 20.30 from the
+oracle. So construction and behaviour come apart, and a predicate over construction alone — which is
+what the two preceding rounds proposed as the remedy — would exclude an object that behaves like the
+ones the definition accepts. The mean distances to the two reference groups, 0.0314 and 0.0312, are
+indistinguishable precisely because that third object drags the mean across, which is why the
+per-object table in spread units is the reportable form and the two means are not. This compares
+outcomes and not mechanisms: a margin near the excluded object's does not establish that the same
+construction produced it, and establishing that would require an intervention this site cannot run.

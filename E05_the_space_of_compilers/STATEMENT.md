@@ -433,7 +433,14 @@ excludes 1** — `oracle_k4_oracle_kA/kB` are exact aliases of `oracle_k4`, whic
 **③ admits 3 distinct target-reading objects, not 7**: the greedy family, the independent family, and
 `oracle_k4_08bR`. *(The population-wide 13 tags are 10 objects, 9 admitted — computed from the same
 partition, not preregistered.)* **The clause does not fail to exclude the oracle object; it fails to
-recognise two of its tags.** R729 adds a **name-independent** second route — the selected criteria in
+recognise two of its tags.**
+⭐ **And what it admits is SPLIT** *(R731)*. Against the excluded oracle's clause-② margin **0.077867**
+and a label-blind mean near 0.0169: `greedy` **0.072210** and `indep` **0.052679** sit with the
+**excluded** object — 1.81 and 8.07 within-topw spreads from it, against 17.71 and 11.45 to the blind
+group — on **both** clauses. ⛔ **But `oracle_k4_08bR`, oracle-ruled by construction, behaves like a
+blind arm**: ②/mde **1.04** against oracle's **7.29**, 0.78 spreads from topw. **So a predicate over
+construction alone would exclude it, and construction does not determine behaviour.** *(Outcomes,
+not mechanisms — that separation needs an intervention this site cannot run.)* R729 adds a **name-independent** second route — the selected criteria in
 `core_*.json` — agreeing with the tag route on **all 82** arms both can classify, which matters
 because R520's own record notes a keyword search on this question failed **19 of 19**.
 ⚠ This does **not** say those arms leak. **It says ③ never asks** — and its coverage decays with
