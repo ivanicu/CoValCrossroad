@@ -3346,3 +3346,34 @@ F3 admitting all 986 is weak evidence for F3. Its ceiling was read off this rele
 admitting this release's instances is close to circular, and what the result establishes is that the
 card's statement is true of the data — a verification of the object's own documentation rather than a
 finding about cores.
+
+## R715 · Whether any per-instance predicate separates, and whether it is clause F1
+
+R714 established that the release ships 986 core instances and that only the size clause can be
+evaluated on them, where it admits every one. R715 asks whether any per-instance predicate separates
+at all.
+
+The size clause's instance form is **degenerate** over the 986: one distinct value, admitting
+everything. A provenance predicate is not. The share of a core's criteria appearing verbatim in its
+own full rubric has mean **0.0655**, ranges from zero to one across seven distinct values, and
+**794** of the 986 conversations have **zero** overlap, with exactly **one** core drawn wholly from
+its rubric.
+
+So the released cores are written fresh rather than selected from the full rubric. That is what the
+retired clause about being drawn from a rubric asserted, and it had never been measured per instance.
+The negative control puts the same overlap against a different conversation's rubric at **0.0000**,
+so the figure is a property of the pairing rather than of criteria vocabulary in general, and the
+sweep over three matchings — verbatim, casefolded, and a forty-character prefix — runs 0.0655, 0.0778
+and 0.1777 on the own-conversation comparison while the shifted control stays at 0.0000, 0.0000 and
+0.0003. Verbatim is the strictest matching, so a looser one can only raise the overlap, and the sweep
+bounds the answer from both sides rather than reporting a single cell.
+
+This predicate is **not** clause F1, and the preregistration said so before the run. F1 concerns
+criteria selected without reading the outcome labels; the full rubric is not the labels, and the
+labels do not appear in that file. Naming the predicate as a restatement of F1 would substitute a
+label for a description. F1 therefore remains without an instance form, and of the three clauses one
+has a degenerate instance form, one has none, and the separating predicate that does exist belongs to
+neither.
+
+Separating is not being right. Whether this predicate is the one a definition of core should use is
+construct validity and is impossible at this site.

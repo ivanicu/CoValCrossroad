@@ -17819,3 +17819,31 @@ card's *"up to four, ~95% are four"*.
 **That is a verification of the object's documentation, not a finding about cores** — the
 `prior_art_in_card` column of the paper template exists for exactly this, and it costs a day when
 nobody fills it in.
+
+## 913 · the released cores are written fresh, not selected from the rubric — measured per instance
+
+Across the 986 cores the release ships, the verbatim overlap between a core and its **own** full
+rubric has mean **0.0655**; **794 of 986** have **zero** overlap and exactly **1** core is a subset of
+its rubric. The negative control puts a **shifted** conversation's rubric at **0.0000**, so the
+overlap is a property of the pairing rather than of criteria vocabulary.
+
+Swept over three matchings, verbatim being the strictest so a looser one can only raise it: mean
+overlap runs 0.0655 → 0.0778 → 0.1777 while the shifted control stays at 0.0000 → 0.0000 → 0.0003.
+**The sweep bounds the answer from both sides rather than reporting one cell.**
+
+⭐ This is what §4's retired clause *"drawn from a rubric"* asserted, and what nothing in this
+campaign had measured **per instance** — because until R714 nobody had looked at the 986.
+
+## 914 · and it is NOT F1, which was written down before the run
+
+F1 says the criteria were selected **without reading the outcome labels**. The full rubric is not the
+labels, and **the labels are not in that file at all**. Calling this predicate "F1 restated" would be
+the a-label-is-not-a-description error, and the preregistration named the trap before the run so that
+a tempting result could not be relabelled after it.
+
+**F1 remains without an instance form.** F3's instance form is **degenerate** over the 986 — one
+distinct value, admitting everything. So of the three clauses, one has a degenerate instance form,
+one has none, and the separating predicate that does exist belongs to neither.
+
+⚠ **And separating is not being right.** Whether this predicate is the one a definition of core should
+use is construct validity, and it is impossible here.

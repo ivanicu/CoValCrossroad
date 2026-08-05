@@ -209,6 +209,19 @@ A **core** for a conversation is a set of criteria such that
 > such, never as passing. ⚠ And F3 admitting all 986 is **weak** evidence for F3: its ceiling was
 > read off this release's card, so what it establishes is that the card's statement is **true of the
 > data**.
+> ⭐⭐ **R715: A PER-INSTANCE PREDICATE THAT SEPARATES DOES EXIST — AND IT IS NOT F1.** F3's instance
+> form is **degenerate** over the 986 (one distinct value). A **provenance** predicate is not: the
+> verbatim overlap between a core and its **own** full rubric has mean **0.0655**, **794 of 986**
+> have **zero** overlap, and exactly **1** core is a subset of its rubric. **So the released cores
+> are written fresh, not selected from the rubric** — measured per instance for the first time, and
+> the negative control puts a **shifted** conversation's rubric at **0.0000**, so this is a property
+> of the pairing. Swept over three matchings the own-conversation mean runs **0.0655 → 0.0778 →
+> 0.1777** while the shifted control stays at **0.0000 → 0.0000 → 0.0003**; verbatim is the strictest
+> matching, so the sweep bounds the answer from both sides. ⛔⛔ **It is NOT F1**, and that was
+> recorded before the run: F1 is about the **outcome labels**, which are not in this file at all.
+> **F1 remains without an instance form**, F3's is degenerate, and the separating predicate belongs
+> to neither. ⚠ Separating is not being right — whether it is the predicate a definition of core
+> should use is construct validity, impossible here.
 >
 > ⚠ **THE LIMIT IS THE WHOLE PROJECT.** "Survives" is a judgement of this audit against this
 > statement — bookkeeping, not a measurement of the world. **A second released core GENERATOR is what
