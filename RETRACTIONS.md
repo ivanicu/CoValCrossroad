@@ -16027,3 +16027,34 @@ R664's object fact came from **R527** (138 rounds old). R665's came from **R442 
 rounds old). ⛔ **Neither required new compute.** Twenty-four rounds went to apparatus repair while
 the object questions sat answered in committed artifacts — which is what makes 710's diagnosis
 ("the loop is the defect") a measurement rather than a mood.
+
+## 715 · "The last structural question" — 23 lines of the deliverable say otherwise
+
+R665's NEXT closed with *"that is **the last** structural question this definition has left."*
+⛔ **23 lines of STATEMENT.md flag something unresolved** — supersession-vs-omission, the
+unrebuildable comparator, register rows 3 and 4, the B-fork. §4's exact tell, in a closing line,
+again.
+
+## 716 · "`topw_k4` has no core-construction at all" — R328 measures its SELECTION BUDGET
+
+⛔ The corpus contains a round computing **`topw_k4`'s selection budget as a lower bound**. It is a
+**selected** arm, not an unconstructed baseline, and the "witness that the clauses are too weak"
+framing rested on it not being one.
+
+## 717 · p100 IS the in-sample ceiling — R665's severity claim is RETRACTED
+
+R527's p100 `a2` = **0.55747530882624** = R328's `true_argmax`, **identical to 14 decimals**: the
+argmax over all 1,820 subsets **evaluated on the same data**. ⛔ So ②-at-p100 asks whether an arm
+beats a subset fitted on that data, and the arms clearing it are close to exactly those with
+in-sample access — which is why ③ removes all four. **R665 asked "could this have come out
+otherwise?" and answered YES by counting 4 of 42 against 4 of 42. That counted ARMS and ignored the
+MECHANISM.** §0's arithmetic trap, committed in the round that quoted it. ⭐ **What survives and never
+needed p100: the extension depends on the baseline — 2 at the published percentile, [2,3] at
+budget-0, [0,2] at the held-out best.**
+
+## 718 · And a `[0, 2]` bracket does not license "non-empty"
+
+R666's own verdict string first read *"the extension … CONTAINS coval_core, topw_k4 — non-empty"*
+while its bound was **[0, 2]**. ⛔ The lower bound is **0**; non-emptiness is **not established**.
+Caught before commit — **the fifth verdict-string defect in this arc**, and the second where the
+number and the word disagreed in the same sentence.
