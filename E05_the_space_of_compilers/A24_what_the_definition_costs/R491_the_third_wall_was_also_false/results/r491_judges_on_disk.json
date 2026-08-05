@@ -1,0 +1,41 @@
+{
+  "models": {
+    "Qwen3.5-0.8B-Base": {
+      "present": true,
+      "model_type": "qwen3_5",
+      "hidden": null,
+      "layers": null,
+      "shards_present": 1,
+      "shards_expected": 1,
+      "complete": true
+    },
+    "Qwen3.5-2B-Base": {
+      "present": true,
+      "model_type": "qwen3_5",
+      "hidden": null,
+      "layers": null,
+      "shards_present": 1,
+      "shards_expected": 1,
+      "complete": true
+    },
+    "Qwen3.5-9B": {
+      "present": false
+    },
+    "Qwen2.5-7B-Instruct": {
+      "present": true,
+      "model_type": "qwen2",
+      "hidden": 3584,
+      "layers": 28,
+      "shards_present": 4,
+      "shards_expected": 4,
+      "complete": true
+    }
+  },
+  "positive": true,
+  "negative": true,
+  "larger_complete": [
+    "Qwen2.5-7B-Instruct"
+  ],
+  "verdict": "MEASURED",
+  "world": "B (PRESENT \u2014 ['Qwen2.5-7B-Instruct'] is complete and larger than Qwen3.5-2B; the register line 'this site has none' is FALSE)"
+}

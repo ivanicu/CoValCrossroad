@@ -161,7 +161,14 @@ silence. **2 of the 3 aggregators that can see k, not 2 of 5.** *(R481)*
   > is established by a **record**, not a measurement. `data/DATASET_CARD.md` states the released core
   > is selected on *"the highest average ratings"* — a w-reader — so ③ **excludes** it. R469 measured
   > correctly and then quantified over the wrong domain.
-- **What would settle ②∧③ is a judge stronger than Qwen3.5-2B, and this site has none.** *(R490)*
+- **What would settle ②∧③ is a judge stronger than Qwen3.5-2B.** *(R490)*
+  > ⛔ **CORRECTED (R491): this line read *"and this site has none"*. It has one.**
+  > `/home/ivan/Qwen2.5-7B-Instruct` — **complete, 4/4 shards, 29 GB**. ⚠ It is a different **family**
+  > and an **instruct** model against this campaign's Qwen3.5 **Base** judges, so it tests
+  > **cross-architecture**, not scale; and 29 GB against 16 GB of VRAM needs quantisation or offload.
+  > **Not free, and not absent.** ⛔ **Third wall this session that was false when checked** — after
+  > R475 (the dataset card) and R489 (the second release). All three were claims about the SITE
+  > asserted right after correctly checking the RECORD.
   Not a second judge: the 0.8B is **weaker** — `oracle_k4`, which reads the human target directly,
   attains **0.105** of the Bayes ceiling under it against **1.088** under 2B. Scoring a new arm there
   measures that judge. ⭐ And not a new generator either: `corebench/generate_core.py` already builds
