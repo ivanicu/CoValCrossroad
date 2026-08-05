@@ -10082,3 +10082,64 @@ execute is not a weak control, it is an absent one**, and the same defect inside
 have printed a clean pass. Rebuilt as a two-sided check: a literal absent from the document must be
 extracted **0×** by every rule, **and** must be found once injected — because a zero from an extractor
 never shown to return non-zero is silence, not absence.
+
+## 296 · The sham scored below random — a poison, not a placebo, and the tell was written in the standard (R477, caught in-round)
+
+**Retracted before publication.** R477's estimand — *what does a core gain by reading the annotator
+ratings?* — was first measured as `A2(topw_k4) − A2(topvar_k4) = +0.0695 [+0.0587, +0.0809]` on the 2B
+judge, **5.7× the measured floor**, and the round was one command from publishing *"③ forbids the
+mechanism"*.
+
+**`topvar_k4` scores 0.4780. The random baseline is 0.4856 / 0.4913 / 0.4790.** The sham is **below**
+it. ⛔ §4's entry for this failure states the tell in those words — *"Tell: the sham scores at or
+BELOW the random baseline"* — and I built it anyway, because the sham was *constructionally* correct
+(same ranking machinery, ingredient removed) and I checked its construction instead of its score.
+
+**What it was actually measuring.** `+0.0695` = the value of the ratings **+ the cost of ranking by
+response variance**. Against the **best** ③-admissible arm on disk (`generic`, 0.5376) the gap is
+**+0.0099 [+0.0009, +0.0189]** against a floor of **0.0122** — `effect/floor = 0.81`, **no count
+admissible, direction only**. The finding inverts: ③ is **cheap**, not expensive.
+
+⭐ **The general form, which is why this is not just another sham entry.** A sham answers *"is the
+ingredient doing the work?"* only when the sham is otherwise a **competent** arm. A weak sham
+measures the ingredient **plus** its own incompetence, and both are positive, so the number always
+flatters the ingredient. **Remedy, mechanical: the comparator must be the BEST member of the rival
+class, not a member of it** — and a class is not bounded by one arm. Sweeping all nine admissible
+arms is what produced the correct answer, and it cost one command.
+
+## 297 · I reimplemented a loader the campaign already owned, and read the wrong JSON path (R477, caught in-round)
+
+**Retracted before publication.** R477 first wrote its own `load_targets`, reading rankings from
+`annotations[].ranking`. The release stores them at
+`metadata.assessments[].ranking_blocks.world[].ranking`. Every target list came back **empty**, and
+all 20 cells printed `UNAVAILABLE`.
+
+⚠ **It failed safe — exit 2, no number published — but only by luck.** A path that was *partly* right
+would have produced a smaller population and a perfectly publishable difference, with no signal that
+anything was wrong. **A total failure is the friendly case; the dangerous one is the loader that works
+for 60% of records.**
+
+**Remedy applied:** import `corebench/score.py`'s own `load_targets`, so the round inherits every
+correction that file has already absorbed. ⭐ **A reimplementation of a shared instrument is a fork of
+its bug history** — it starts at version zero of a file that is at version N.
+
+## 298 · An estimand whose population is a working-tree file is not identified (R476 → R477)
+
+**Retracted and repaired.** R476 measured the value gate's coverage of *"DEFINITION.md"* — then wrote
+its result **into DEFINITION.md**, adding numeric claims to the population it had just counted. On the
+next run the round returned 69.0% / 120 / 27.6% / 5.95 against the document's committed 69.2% / 117 /
+28.0% / 5.96, and the value gate **failed on four anchors that were both correct**.
+
+⚠ The round had already *named* the instability in prose — *"a document that states its own coverage
+changes its coverage by stating it"* — and named it is not fixed. **A scope sentence is not a
+population definition.**
+
+**Repair:** the population is pinned with `git show 8b57ace:…`, which is deterministic and makes the
+round reproducible forever; the falls-back-to-working-tree branch labels itself `NOT reproducible`
+rather than silently substituting. The gate's own live coverage line stays live, because it describes
+a different object — **the round measures a pinned document, the gate reports the current one**, and
+both are correct once they are named apart.
+
+⭐ **The general form:** *"the file"* is not an object, it is a **variable**. Any measurement of a
+mutable artifact must name the version, and the tell is that re-running the round changes the answer
+with no code change. That is also the cheapest possible check for it.

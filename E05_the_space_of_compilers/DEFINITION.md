@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 306 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 310 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 306.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 310.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -521,6 +521,41 @@ rounds defining an object other than the one it measures.** ⛔ **This is not a 
 by choosing the convenient branch** — the two differ in what "core" *means*, and R475 does not
 adjudicate them. *(R475)*
 
+⭐⭐⭐ **AND THE FORK IS DECIDED BY EVIDENCE, NOT BY STIPULATION (R477).** R475's fork — weaken ③ to
+forbid only the prompt's *rankings*, or keep it strong and exclude CoVal-core — **is a choice of
+convention, and no measurement adjudicates a convention.** What decides it is measurable: **what does
+a core GAIN by reading the annotator ratings?** Against the best ③-admissible arm on disk (`generic`,
+a fixed prompt-blind set, **0.5376**), `topw_k4` gains **+0.0099 [+0.0009, +0.0189]** against a
+**measured** floor of **0.0122** — `effect/floor` = **0.81**, so **no count is admissible, only a
+direction**. ⛔ **③ is CHEAP: it forbids nothing that a good rating-blind selector cannot match.
+③ stays as written, `coval_core` stays EXCLUDED, and the extension stays 0.** *(R477)*
+
+⚠ **AND THE FIRST ANSWER WAS THE OPPOSITE, KILLED BY ITS OWN SHAM'S SCORE.** Measured against
+`topvar_k4` the gain is **+0.0695 [+0.0587, +0.0809]**, 5.7× the floor — which would have licensed
+*"③ forbids the mechanism"*. **`topvar_k4` scores 0.4780, BELOW the random baseline (0.4856 · 0.4913 ·
+0.4790).** It is a poison, not a placebo, and `+0.0695` is the ratings' value **plus the cost of
+ranking by response variance**. ⭐ **A sham answers "is the ingredient doing the work" only when the
+sham is otherwise COMPETENT; a weak sham measures the ingredient plus its own incompetence, and both
+terms are positive, so the number always flatters.** The comparator must be the **best member of the
+rival class**, and a class is not bounded by one arm. *(R477)*
+
+⭐ **CONTROLS, AND CHANCE IS NOT WHERE ANYONE WOULD HAVE PUT IT.** The floor is **measured** from three
+`random_k4` arms differing in nothing but the draw (0.0122 · 0.0096). `oracle_k4`, which reads the
+human target directly, clears it on both judges (**+0.1184** · **+0.0365**). And the placebo — every
+arm re-scored against *shuffled* rankings — lands at **0.4250–0.4293**, spread 0.0043: **A2's chance
+level is 0.428, not 0.5**, because `cls()` emits {−1, 0, +1} per pair and ties are not coin flips.
+The design **measured** it instead of assuming it. *(R477)*
+
+⚠ **AND ONE JUDGE CANNOT ANSWER THE QUESTION AT ALL.** The 0.8B judge has no `_08b` build of
+`generic`, `genericpool16`, `gen`, `full` or `promptecho`, so its admissible class holds **4** arms and
+"the best admissible" is unbounded there. **UNVERIFIED on 0.8B — which is neither agreement nor
+disagreement**, and folding it into either would be the false-acquittal direction. *(R477)*
+
+⭐ **A SIDE FINDING THAT LANDS ON CLAUSE ②, NOT ③.** `generic` reads no ratings, no rankings, and not
+even the prompt — and it scores **0.5376**, within the floor of `topw_k4`. Clause ② is precisely
+*"better than the best generalising prompt-blind set"*. **Seen from this side, `topw_k4` does not
+clear ②** — consistent with the committed census in which only 5 arms pass ①∧②∧④. *(R477)*
+
 ⛔⛔ **AND THE GATE THAT POLICES THIS DOCUMENT CHECKS BETWEEN A QUARTER AND TWO-THIRDS OF IT (R476).**
 `definition_matches_the_record.py` reported *"302 of 302 assertions"* — its count at the time — and nothing else — **a fact
 about the LIST, not about the document** — and that is how R475's substring replace corrupted a
@@ -546,7 +581,7 @@ denominator, on every run. *(R476)*
 Writing R476's result into DEFINITION.md added numeric claims to the very population R476 counted, so
 the live gate now reports **69.0% / 27.7%** where the round measured **69.2% / 28.0%**. That is not
 drift and neither number is wrong: **a document that states its own coverage changes its coverage by
-stating it.** The round's numbers hold at commit `8b57ace`; the gate's line is the current value, and
+stating it.** The round's numbers hold at commit `8b57ace` **measured with the gate's 310 anchors** — both halves of the scope, because the instrument grows too; the gate's line is the current value, and
 the two are expected to differ by exactly the size of whatever was last written. *(R476)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'

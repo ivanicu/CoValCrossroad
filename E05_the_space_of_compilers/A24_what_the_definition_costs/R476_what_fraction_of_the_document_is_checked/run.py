@@ -66,11 +66,25 @@ IMPOSSIBLE HERE, NAMED
     construct validated-- "is this string a CLAIM?" has no external gold standard; the four
                           extractors are the construct, which is why the spread is reported.
 """
-import json, re, sys, pathlib
+import json, re, subprocess, sys, pathlib
 sys.path.insert(0, "assurance")
 import definition_matches_the_record as G
 
-DOC = pathlib.Path("E05_the_space_of_compilers/DEFINITION.md").read_text()
+# ⛔ THE POPULATION IS PINNED TO A COMMIT, AND THE FIRST VERSION WAS NOT.
+# R476 measured "DEFINITION.md" -- a MUTABLE file that this very round then wrote its result into,
+# changing the population it had just counted. Rerunning gave 69.0%/120/27.6%/5.95 against the
+# document's committed 69.2%/117/28.0%/5.96, and the value gate FAILED on four anchors that were
+# both correct. An estimand whose population is a working-tree file is not identified; the fix is
+# not to freeze the artifact but to name the object. `git show <ref>:<path>` is deterministic.
+PIN = "8b57ace"
+try:
+    DOC = subprocess.run(["git", "show", f"{PIN}:E05_the_space_of_compilers/DEFINITION.md"],
+                         capture_output=True, text=True, check=True).stdout
+    SRC = f"git {PIN}"
+except (subprocess.CalledProcessError, FileNotFoundError):
+    DOC = pathlib.Path("E05_the_space_of_compilers/DEFINITION.md").read_text()
+    SRC = "WORKING TREE (pin unavailable -- result is NOT reproducible)"
+print(f"  population: DEFINITION.md @ {SRC}   ({len(DOC.splitlines())} lines)")
 
 EXTRACTORS = {
     "bold_any":   r"\*\*([+−-]?\d[\d,]*\.?\d*)%?\*\*",       # a number the author emphasised

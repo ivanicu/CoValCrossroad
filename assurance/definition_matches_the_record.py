@@ -636,6 +636,19 @@ def derive():
         for k in ("r462_old", "r462_new", "r462_cov", "r462_total"):
             out[k] = (None, "R462")
 
+    # R477 -- from the round's artifact; the 2B judge is the one whose admissible class is bounded.
+    try:
+        _v = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+                            "R477_what_does_clause_three_actually_cost/results/r477_value_of_ratings.json"))
+        _b = _v["admissible_class"]["2B"]
+        out["r477_gain"]    = (round(_b["topw_minus_best"]["diff"], 4), "R477")
+        out["r477_floor"]   = (round(_v["floor"]["2B"]["floor"], 4), "R477")
+        out["r477_ratio"]   = (round(_b["effect_over_floor"], 2), "R477")
+        out["r477_generic"] = (round(_b["scores"][_b["best"]], 4), "R477")
+    except (OSError, KeyError):
+        for k in ("r477_gain", "r477_floor", "r477_ratio", "r477_generic"):
+            out[k] = (None, "R477")
+
     # R476 -- from the round's artifact, so the document is checked against the RUN, not itself.
     try:
         _c = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
@@ -1055,6 +1068,12 @@ def derive():
 # label -> the regex that must find that number in DEFINITION.md. The pattern is the CLAIM's own
 # wording, so an edit that changes the sentence without changing the artifact is caught too.
 ASSERTIONS = {
+    # R477 -- what clause ③ costs. Anchored because these numbers changed a DECISION (③ stays as
+    # written), and the first version of the same estimand pointed the opposite way.
+    "r477_gain":     r"gains \*\*\+(\d\.\d{4}) \[",
+    "r477_floor":    r"\*\*measured\*\* floor of \*\*(\d\.\d{4})\*\*",
+    "r477_ratio":    r"`effect/floor` = \*\*(\d\.\d\d)\*\*",
+    "r477_generic":  r"a fixed prompt-blind set, \*\*(\d\.\d{4})\*\*",
     # R476 -- the gate's own coverage, anchored so the coverage sentence cannot drift from what the
     # gate computes. A gate that reports its denominator must have that denominator checked too.
     "r476_cov_bold":  r"\*\*(\d+\.\d)%\*\* of author-emphasised numbers",

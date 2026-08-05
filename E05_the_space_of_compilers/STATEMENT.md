@@ -45,8 +45,18 @@ Of the **5** arms admitted by ①∧②∧④, four are excluded by ③ as targe
 on *"the highest average ratings"*, i.e. it is a **w-reader**, and ③ excludes it too. *(R475)*
 
 ⛔ **The definition has no members — and the object it was written from is excluded by its own clause
-③.** Either ③ must be weakened to forbid only the prompt's *rankings*, or this is a definition of some
-object other than CoVal-core. **R475 does not decide which**, and the two differ in what "core" means.
+③.** *(R475)*
+
+⭐ **③ STAYS AS WRITTEN, and the reason is measured rather than stipulated.** R475 left the choice of
+weakening ③ to permit the ratings. What decides it is what the ratings are **worth**: against the best
+③-admissible arm on disk (`generic`, a fixed prompt-blind set at **0.5376**), `topw_k4` gains
+**+0.0099** [+0.0009, +0.0189] against a **measured** floor of **0.0122** — `effect/floor` **0.81**,
+**no count admissible, direction only**. **③ forbids nothing a good rating-blind selector cannot
+match, so keeping it costs nothing.** *(R477)*
+
+⚠ **Scope.** Established on the 2B judge, whose admissible class holds 9 arms. The 0.8B judge has no
+`_08b` build of five of them, so "the best admissible" is unbounded there: **UNVERIFIED, which is
+neither agreement nor disagreement.** *(R477)*
 
 ---
 
