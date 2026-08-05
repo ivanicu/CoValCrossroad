@@ -10625,3 +10625,36 @@ session, applied to a finding rather than to a plan.
 The exclusion was correct — different population, different key schema — but **the stated reason is
 wrong**. They are this campaign's own second-release arms. A right verdict with a wrong reason
 propagates as a wrong reason.
+
+## 319 · R451's typed population omitted 1,820 disjoint candidates — and the claim survives on one word it already contained (R489)
+
+**Not retracted; scope confirmed and the evidence replaced.** The triage of the 31 frozen
+typed-population rounds left **R451** as the only load-bearing one never re-derived: it is cited on
+STATEMENT.md, and its claim — *"contains admissible disjoint objects; no generator we have finds
+one"* — quantifies over a population of **four hand-typed arms** (`gen`, `promptecho`, `generic`,
+`gen_sham`).
+
+**The omission is real and large.** `genericpool16`'s 16 fixed criteria have **zero verbatim overlap
+with `coval_core` on all 986 prompts**, so **every one of its C(16,4) = 1,820 subsets is disjoint from
+the released core by construction** — 1,820 disjoint, scorable candidates absent from a four-arm
+population.
+
+⚠ **And one of them clears the bar.** The class max is **0.5555** against admission at
+**0.5404 + 0.0122 = 0.5526**. Taken at face value that is a counterexample.
+
+⭐ **It is not, and the reason is a word R451 wrote itself: `hindsight-free`.** 0.5555 is the **maximum
+of 1,820 draws** — an order statistic. Cross-fitted, the class delivers **0.5404** (R478), which does
+not clear. **Selecting the best of 1,820 by score is not a generator finding a core; it is hindsight,
+and R451's own criterion excludes it.**
+
+⭐⭐ **So the typed population was harmless — but nothing in R451 established that.** It held because a
+scope word happened to cover a class the round never enumerated. **A claim that survives because of a
+qualifier its author did not know he needed is lucky, not sound**, and the difference is invisible
+until someone counts the omitted population. The evidence is now R478's cross-fitted ceiling and
+R486/R487's class census rather than four arms.
+
+⭐ **This closes the triage that R488 opened:** of 31 frozen rounds, 12 are cited in DEFINITION.md and
+3 on STATEMENT.md — R477 (re-derived by R478, gap narrowed +0.0098 → +0.0071), R485 (re-derived by
+R487, maximum unchanged), and R451 (re-derived here, claim intact on a stronger base). **All three
+load-bearing typed populations have now been checked, and the count of conclusions that MOVED is one
+of three.**
