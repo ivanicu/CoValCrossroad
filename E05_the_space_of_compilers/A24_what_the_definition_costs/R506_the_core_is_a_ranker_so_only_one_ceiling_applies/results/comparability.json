@@ -1,0 +1,76 @@
+{
+ "n": 968,
+ "rows": {
+  "ceiling_PAIR_predictors": {
+   "mean": 0.6436696510560146,
+   "lo": 0.6415289256198347,
+   "hi": 0.6451274104683196
+  },
+  "ceiling_RANKERS": {
+   "mean": 0.6220041322314049,
+   "lo": 0.6199552341597796,
+   "hi": 0.6234676308539945
+  },
+  "ceiling_insample": {
+   "mean": 0.6862832874196511,
+   "lo": 0.6840306473829201,
+   "hi": 0.6877496556473829
+  },
+  "oracle_k4": {
+   "mean": 0.629341712580349,
+   "lo": 0.628279958677686,
+   "hi": 0.6308281680440772
+  },
+  "random": {
+   "mean": 0.334151170798898,
+   "lo": 0.33266184573002755,
+   "hi": 0.3355630165289256
+  },
+  "ceiling_shuffled": {
+   "mean": 0.4098570936639119,
+   "lo": 0.4076704545454545,
+   "hi": 0.41233643250688706
+  },
+  "oracle_vs_itself": {
+   "mean": 0.629341712580349,
+   "lo": 0.628279958677686,
+   "hi": 0.6308281680440772
+  },
+  "transitive_rate": {
+   "mean": 0.665,
+   "lo": 0.0,
+   "hi": 0.0
+  },
+  "gap_vs_rankers": {
+   "mean": 0.0073375803489440505,
+   "lo": 0.0,
+   "hi": 0.0
+  },
+  "sweep_reps1": {
+   "mean": 0.0041896235078052735,
+   "lo": 0.009125344352616915,
+   "hi": 0.009125344352616915
+  },
+  "sweep_reps5": {
+   "mean": 0.0055785123966941574,
+   "lo": 0.008161157024793253,
+   "hi": 0.008161157024793253
+  },
+  "sweep_reps20": {
+   "mean": 0.0073375803489440505,
+   "lo": 0.003512396694214881,
+   "hi": 0.003512396694214881
+  }
+ },
+ "floor": 0.004665977961432588,
+ "gap": -0.014327938475665603,
+ "gap_rank": 0.0073375803489440505,
+ "transitive_rate": 0.665,
+ "controls": {
+  "modal attains the ceiling (it defines it)": true,
+  "in-sample ceiling EXCEEDS held-out": true,
+  "shuffled ceiling falls toward chance": true,
+  "random predictor is not zero": true
+ },
+ "world": "A CORE IS A RANKER (score.py yvec returns one scalar per response, so its pair verdicts are transitive by construction). Against the RANKER ceiling \u2014 the only bound that can apply \u2014 oracle_k4 is ABOVE IT, RESOLVED: gap +0.0073, floor 0.0047. The PAIR-PREDICTOR ceiling (0.6437) is unattainable by any core and comparing to it was a category error."
+}
