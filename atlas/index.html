@@ -139,6 +139,27 @@ footer{padding:40px 0;color:var(--dimmer);font-size:12px;font-family:var(--mono)
   <div class="note" id="layernote"></div>
 </section>
 
+
+<section id="s1c">
+  <div class="shead"><span class="snum">01c</span><h2 data-t="s1c.h"></h2></div>
+  <p class="sub" data-t="s1c.sub"></p>
+  <div class="btns" style="margin-bottom:7px"><span class="lbl" data-t="lbl.hue"></span><span id="pehue"></span>
+    <span class="lbl" style="margin-left:16px" data-t="lbl.proj"></span><span id="peproj"></span></div>
+  <div id="pewrap" style="position:relative;background:#101118;border:1px solid var(--line)">
+    <canvas id="pecloud" style="display:block;width:100%;cursor:crosshair"></canvas>
+    <div id="petip" style="position:absolute;pointer-events:none;background:#0d0e14;border:1px solid var(--gold);padding:7px 10px;font-family:var(--mono);font-size:11px;max-width:400px;display:none;z-index:20;line-height:1.45"></div>
+  </div>
+  <div class="legend" id="pelegend"></div>
+  <p class="prov" id="peprov"></p>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card"><h3 data-t="s1c.c1"></h3><div id="blocplot"></div>
+      <p class="prov" id="blocprov"></p></div>
+    <div class="card"><h3 data-t="s1c.c2"></h3><div id="statedplot"></div>
+      <p class="prov" id="statedprov"></p></div>
+  </div>
+  <div class="note warn" id="blocnote"></div>
+</section>
+
 <section id="s2">
   <div class="shead"><span class="snum">02</span><h2 data-t="s2.h"></h2></div>
   <p class="sub" data-t="s2.sub"></p>
@@ -273,8 +294,9 @@ function applyI18N(root){
 function buildLangSwitch(){const h=$('#langsw');h.innerHTML='';
   LANGS.forEach(L=>{const b=EL('button',{},LANGNAME[L]);b.className=(L===LANG)?'on':'';
     b.onclick=()=>{LANG=L;localStorage.setItem('atlas_lang',L);location.reload();};h.appendChild(b);});}
-Promise.all([fetch('payload.json').then(r=>r.json()),fetch('corpus.json').then(r=>r.json())])
- .then(([p,c])=>{P=p;C=c;buildLangSwitch();applyI18N();draw();});
+Promise.all([fetch('payload.json').then(r=>r.json()),fetch('corpus.json').then(r=>r.json()),
+ fetch('people.json').then(r=>r.json())])
+ .then(([p,c,pe])=>{P=p;C=c;P.people=pe;buildLangSwitch();applyI18N();draw();});
 
 /* ================= drawer ================= */
 function closeDrawer(){$('#drawer').classList.remove('open');}
@@ -343,6 +365,29 @@ async function openPrompt(pid){
    if(a.world_why)h+=`<div class="why"><b style="color:var(--dim)">${Tt('d.wworld')}</b> ${esc(a.world_why)}</div>`;
    if(a.personal_why)h+=`<div class="why"><b style="color:var(--dim)">${Tt('d.wpers')}</b> ${esc(a.personal_why)}</div>`;
    if(a.unacceptable_why)h+=`<div class="why"><b style="color:var(--red)">${Tt('d.wunacc')}</b> ${esc(a.unacceptable_why)}</div>`;
+   h+='</div>';});
+  b.innerHTML=h;b.parentElement.scrollTop=0;
+}
+
+async function openPerson(aid){
+  const d=$('#drawer'),b=$('#dbody');
+  $('#dtitle').textContent=aid; b.innerHTML='<p class="mono-sm">'+Tt('d.loading')+'</p>'; d.classList.add('open');
+  const x=await fetch('a/'+aid+'.json').then(r=>r.json());
+  let h='<h4>'+T('pe.who')+'</h4><div class="kv">';
+  Object.entries(x.demographics).forEach(([k,v])=>{if(k==='ideal-model-behavior')return;
+    h+=`<b>${esc(k)}</b><span>${esc(String(v))}</span>`;});
+  h+=`<b>${Tt('pe.didn')}</b><span>${x.work.length}</span></div>`;
+  h+='<h4>'+T('pe.ideal')+'</h4><div class="q">'+esc(x.ideal||'—')+'</div>';
+  h+=`<h4>${Tt('pe.every',{N:x.work.length})}</h4>`;
+  x.work.forEach(it=>{const sp=it.world&&it.personal&&it.world.replace(/ /g,'')!==it.personal.replace(/ /g,'');
+   h+=`<div class="ann ${sp?'split':''}"><div class="hd">
+     <a href="#" onclick="openPrompt('${it.pid}');return false" style="color:var(--gold)">${esc(it.title)}</a></div>
+     <div class="hd">world <b style="color:var(--gold)">${esc(it.world||'—')}</b> ·
+     personal <b style="color:${sp?'var(--red)':'var(--dim)'}">${esc(it.personal||'—')}</b>
+     ${sp?'&nbsp;<b style="color:var(--red)">'+Tt('d.split_b')+'</b>':''}
+     ${it.unacceptable?'&nbsp;·&nbsp;<b style="color:var(--orange)">'+esc(String(it.unacceptable))+'</b>':''}</div>`;
+   if(it.world_why)h+=`<div class="why"><b style="color:var(--dim)">${Tt('d.wworld')}</b> ${esc(it.world_why)}</div>`;
+   if(it.personal_why)h+=`<div class="why"><b style="color:var(--dim)">${Tt('d.wpers')}</b> ${esc(it.personal_why)}</div>`;
    h+='</div>';});
   b.innerHTML=h;b.parentElement.scrollTop=0;
 }
@@ -489,6 +534,108 @@ const LF=L=>LANG==='en'?L.finding:(LANG==='both'?L.finding+'<br><span class="zh2
   t.appendChild(tr);});
  host.appendChild(t);
  $('#layernote').innerHTML=(LANG==='en'?C.layer_note:LANG==='both'?C.layer_note+'<br><span class="zh2">'+C.layer_note_zh+'</span>':C.layer_note_zh);}
+
+
+/* ---------- 01c THE PEOPLE ---------- */
+{const PE=P.people, rows=PE.rows, F=PE.fields;
+ let PHUE='country_of_residence', PPROJ='tsne';
+ const PAL=['#e0af68','#7aa2f7','#9ece6a','#bb9af7','#ff9e64','#f7768e','#73daca','#c0caf5',
+            '#b48ead','#a3be8c','#d08770','#88c0d0','#8f98b8','#6a7398'];
+ F.forEach(f=>{const b=EL('button',{html:T('df.'+f)});b.dataset.pf=f;
+   b.onclick=()=>{PHUE=f;pesync();pelegend();pepaint();};$('#pehue').appendChild(b);});
+ [['tsne','p.tsne'],['pca','p.pca']].forEach(([k,t])=>{const b=EL('button',{html:T(t)});b.dataset.pp=k;
+   b.onclick=()=>{PPROJ=k;pesync();pepaint();};$('#peproj').appendChild(b);});
+ function pesync(){document.querySelectorAll('[data-pf]').forEach(b=>b.classList.toggle('on',b.dataset.pf===PHUE));
+   document.querySelectorAll('[data-pp]').forEach(b=>b.classList.toggle('on',b.dataset.pp===PPROJ));}
+ let LEV=[],PACT=new Set();
+ function pelegend(){const h=$('#pelegend');h.innerHTML='';
+   LEV=(PE.counts[PHUE]||[]).map(x=>x[0]);PACT=new Set(LEV);
+   (PE.counts[PHUE]||[]).forEach(([v,n],i)=>{
+     const d=EL('div',{class:'on',style:'color:'+PAL[i%PAL.length]},EL('i',{}),`${String(v).slice(0,30)} (${n})`);
+     d.onclick=()=>{if(PACT.has(v)&&PACT.size===LEV.length){PACT.clear();PACT.add(v);}
+       else if(PACT.has(v))PACT.delete(v);else PACT.add(v);
+       if(!PACT.size)LEV.forEach(z=>PACT.add(z));
+       [...h.children].forEach((e,j)=>e.classList.toggle('on',PACT.has(LEV[j])));pepaint();};
+     h.appendChild(d);});}
+ const pc=$('#pecloud'),pctx=pc.getContext('2d');let PW=1440,PH=560,PXY=[];
+ function pesize(){PW=pc.clientWidth||1440;PH=Math.round(PW*0.42);
+   const D=Math.min(2,devicePixelRatio||1);pc.width=PW*D;pc.height=PH*D;pc.style.height=PH+'px';
+   pctx.setTransform(D,0,0,D,0,0);pepaint();}
+ function pepaint(){pctx.clearRect(0,0,PW,PH);const pad=24;PXY=[];
+   const kx=PPROJ==='pca'?'x_pca':'x', ky=PPROJ==='pca'?'y_pca':'y';
+   rows.forEach(r=>{const x=pad+r[kx]*(PW-2*pad),y=pad+(1-r[ky])*(PH-2*pad);
+     const i=LEV.indexOf(r[PHUE]);const on=PACT.has(r[PHUE]);
+     const rad=2.4+Math.sqrt(r.n_prompts/38)*4.2;
+     PXY.push({x,y,rad,r,on});
+     pctx.beginPath();pctx.arc(x,y,rad,0,6.284);
+     pctx.fillStyle=i<0?'#3b4059':PAL[i%PAL.length];pctx.globalAlpha=on?.62:.05;pctx.fill();});
+   pctx.globalAlpha=1;
+   $('#peprov').textContent=Tt('pe.prov',{S:PXY.filter(p=>p.on).length,N:rows.length,
+     H:Tt('df.'+PHUE),P:Tt('p.'+PPROJ)});}
+ pc.onmousemove=e=>{const b=pc.getBoundingClientRect(),mx=e.clientX-b.left,my=e.clientY-b.top;
+   let best=null,bd=1e9;PXY.forEach(q=>{if(!q.on)return;const d=(q.x-mx)**2+(q.y-my)**2;
+     if(d<bd&&d<(q.rad+7)**2){bd=d;best=q;}});
+   const t=$('#petip');if(!best){t.style.display='none';pc.style.cursor='crosshair';return;}
+   const r=best.r;t.style.display='block';pc.style.cursor='pointer';
+   t.style.left=Math.min(mx+14,pc.clientWidth-410)+'px';t.style.top=(my+14)+'px';
+   t.innerHTML=`<b style="color:var(--gold)">${r.short}</b> · ${esc(String(r.country_of_residence||''))} ·
+     ${esc(String(r.age||''))} · ${esc(String(r.gender||''))}<br>
+     <span style="color:var(--dimmer)">${r.n_prompts} ${Tt('c.prompts')} · personal≠world ${pct(r.split_rate)} ·
+     unacceptable ${pct(r.unacc_rate)} · ${Tt('pe.why')} ${Math.round(r.mean_why_len)}<br>${Tt('legend.click')}</span>`;};
+ pc.onmouseleave=()=>$('#petip').style.display='none';
+ pc.onclick=e=>{const b=pc.getBoundingClientRect(),mx=e.clientX-b.left,my=e.clientY-b.top;
+   let best=null,bd=1e9;PXY.forEach(q=>{if(!q.on)return;const d=(q.x-mx)**2+(q.y-my)**2;
+     if(d<bd&&d<(q.rad+7)**2){bd=d;best=q;}});if(best)openPerson(best.r.aid);};
+ addEventListener('resize',pesize);pesync();pelegend();pesize();
+
+ /* R183 reused, drawn */
+ {const B=PE.r183,lv=B.levels.slice().sort((a,b)=>b.z-a.z);
+  const w=690,h=26*lv.length+64,s2=svg(w,h),ml=250,mr=64;
+  const zs=lv.map(l=>l.z),lo=Math.min(-2,...zs),hi=Math.max(B.z_threshold+1,...zs);
+  const X=v=>ml+((v-lo)/(hi-lo))*(w-ml-mr);
+  s2.appendChild(S('line',{x1:X(0),y1:16,x2:X(0),y2:h-42,stroke:'#565d78'}));
+  s2.appendChild(S('line',{x1:X(B.z_threshold),y1:16,x2:X(B.z_threshold),y2:h-42,
+    stroke:'#e0af68','stroke-dasharray':'3 3'}));
+  txt(s2,X(B.z_threshold)+5,26,'z = '+B.z_threshold,{fill:'#e0af68','font-size':9.5});
+  lv.forEach((l,i)=>{const y=34+i*26,hot=l.z>B.z_threshold;
+   txt(s2,ml-9,y+4,`${l.field} · ${String(l.level).slice(0,22)}`,{'text-anchor':'end',
+     fill:hot?'#e0af68':'#7f88a8','font-size':10});
+   const x0=Math.min(X(0),X(l.z)),ww=Math.abs(X(l.z)-X(0));
+   s2.appendChild(S('rect',{x:x0,y:y-6,width:Math.max(ww,1),height:12,
+     fill:hot?'#e0af68':l.z<0?'#f7768e':'#7aa2f7','fill-opacity':hot?.9:.4}));
+   txt(s2,X(0)+(l.z<0?6:ww+6),y+4,`${l.z>0?'+':''}${l.z.toFixed(2)}  n=${l.n}`,
+     {'text-anchor':'start',fill:hot?'#e0af68':'#565d78','font-size':9});});
+  txt(s2,ml-9,h-16,Tt('pe.planted'),{'text-anchor':'end',fill:'#9ece6a','font-size':10});
+  s2.appendChild(S('rect',{x:X(0),y:h-26,width:w-mr-X(0),height:12,fill:'#9ece6a','fill-opacity':.75}));
+  txt(s2,X(0)+8,h-16,`+${B.planted.toFixed(3)}  ${Tt('pe.offscale')}`,{fill:'#14151c','font-size':9.5,'font-weight':700});
+  $('#blocplot').appendChild(s2);
+  $('#blocprov').textContent=Tt('pe.blocprov',{P:B.perms,M:B.min_n,R:B.raters,
+    N:B.levels.length,K:B.levels.filter(l=>l.z>B.z_threshold).length});
+  $('#blocnote').innerHTML=T('pe.blocnote',{F:f(B.resolution_floor,4),BD:f(B.negative_bound,2),
+    P:f(B.planted,3),K:B.levels.filter(l=>l.z>B.z_threshold).length,N:B.levels.length});}
+
+ /* R03 reused, drawn */
+ {const R3=PE.r03,w=690,h=210,s3=svg(w,h),ml=150,mr=40;
+  const lo=0.47,hi=0.53,X=v=>ml+((v-lo)/(hi-lo))*(w-ml-mr);
+  [0.48,0.49,0.50,0.51,0.52].forEach(g=>{s3.appendChild(S('line',{x1:X(g),y1:22,x2:X(g),y2:120,class:'gridline'}));
+    txt(s3,X(g),136,g.toFixed(2),{'text-anchor':'middle'});});
+  s3.appendChild(S('line',{x1:X(0.5),y1:18,x2:X(0.5),y2:124,stroke:'#565d78','stroke-dasharray':'3 3'}));
+  txt(s3,X(0.5)+5,30,Tt('pe.chance'),{fill:'#565d78','font-size':9.5});
+  const bars=[[Tt('pe.stated'),R3.hit,R3.hit_ci,'#e0af68'],[Tt('pe.perm'),R3.null,null,'#7f88a8']];
+  bars.forEach(([lab,v,ci,c],i)=>{const y=52+i*38;
+   txt(s3,ml-10,y+4,lab,{'text-anchor':'end',fill:'#7f88a8','font-size':10.5});
+   if(ci){s3.appendChild(S('line',{x1:X(ci[0]),y1:y,x2:X(ci[1]),y2:y,stroke:c,'stroke-width':2}));
+     s3.appendChild(S('line',{x1:X(ci[0]),y1:y-5,x2:X(ci[0]),y2:y+5,stroke:c}));
+     s3.appendChild(S('line',{x1:X(ci[1]),y1:y-5,x2:X(ci[1]),y2:y+5,stroke:c}));}
+   s3.appendChild(S('circle',{cx:X(v),cy:y,r:5,fill:c}));
+   txt(s3,X(v),y-11,v.toFixed(4),{'text-anchor':'middle',fill:c,'font-size':10});});
+  txt(s3,0,166,Tt('pe.r03a',{D:R3.diff.toFixed(4),A:R3.diff_ci[0].toFixed(4),B:R3.diff_ci[1].toFixed(4)}),
+    {fill:'#f7768e','font-size':11});
+  txt(s3,0,184,Tt('pe.r03b',{J:R3.n_j.toLocaleString(),A:R3.n_a.toLocaleString()}),
+    {fill:'#565d78','font-size':10});
+  $('#statedplot').appendChild(s3);
+  $('#statedprov').textContent=PE.source;}
+}
 
 /* ---------- 02 cluster cards ---------- */
 {const AX=[['mean_crit','ax.crit'],['mean_ann','ax.ann'],['mean_consensus','ax.cons'],

@@ -49,10 +49,18 @@ E99_fixtures/
 # ⚠ Matching the THING, not the PLACE (the lesson recorded above): these patterns
 # name release-derived artefacts by what they CONTAIN, so moving atlas/ cannot
 # silently re-expose them.
-atlas/p/
-atlas/corpus.json
-atlas/payload.json
-atlas/emb.npz
-atlas/_xy.npy
-atlas/_lab.npy
-atlas/_k.txt
+#
+# WARNING 2026-08-05: THE PLACE-ANCHORED VERSION OF THIS BLOCK FAILED THE SAME DAY IT WAS
+# WRITTEN. It listed `atlas/p/` by name; the next commit created `atlas/a/` -- 1,012 files
+# holding every annotator's free text and all of their rationales -- and `git add -A atlas`
+# swept them onto a PUBLIC remote. The comment directly above said "match the THING, not the
+# PLACE" and the patterns underneath it did the opposite. Writing the lesson is not obeying it.
+#
+# So: DEFAULT-DENY the whole directory and re-admit the generators by name. A new output
+# directory is now excluded BEFORE IT EXISTS, which is the only version of this rule that
+# survives the next thing I build.
+atlas/*
+!atlas/*.py
+!atlas/*.js
+!atlas/*.html
+!atlas/*.md
