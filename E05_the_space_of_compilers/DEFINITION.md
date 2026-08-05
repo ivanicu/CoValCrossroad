@@ -2381,3 +2381,34 @@ non-empty on real arms.
 
 ⚠ **Register row 7 now carries three options, not two:** must a core be producible without the
 rankings, without any annotator signal, or without any judged signal either?
+
+---
+
+## R535 · ③-judge is remote, and spread-selection loses to weight-selection
+
+**Pricing the third reading rather than restating its verdict:**
+
+| arm | reads | A2 | shortfall (MDE) | ② |
+|---|---|---|---|---|
+| `coval_core` | weights | **0.5665** | −1.51 | **True** |
+| `topw_k4` | weights | **0.5642** | −1.26 | **True** |
+| `topwvar_k4` | weights+sat | 0.5040 | 3.24 | False |
+| `topvar_k4` | **sat** | 0.4863 | **4.24** | False |
+
+⭐ **③-judge is 4.24 MDE from becoming distinguishable, against `gen`'s 1.29 for ③-any** *(R530)* —
+**remote, not nearly-live.**
+
+⭐⭐⭐ **And the release's own selection rationale is refuted.** `select_core.py` argues in a comment
+marked *"DERIVATION, not a hunch"* that spread-selection is **"the direct fix"** for `topw_k`'s
+blindness to arithmetically-inert criteria. **Measured, `topw_k4` 0.5642 beats `topvar_k4` 0.4863 by
+0.0779**, and the hybrid `topwvar_k4` at 0.5040 is still **0.0602** below weights alone.
+
+**The mechanism in the comment is right** — an inert criterion flips no pairwise sign. **The
+inference is wrong: selecting FOR spread optimises the wrong quantity, because high spread with low
+importance is noise.** Even multiplying importance by spread loses to importance alone.
+
+**Controls.** Source read: rationale confirmed verbatim. Positive: `ok2` reconstructed for **41/41**
+arms. Negative: `topw_k4` and `coval_core` **clear** ②, so the shortfall scale is anchored on both
+sides. ⚠ **Scope correction to R534:** one sat-class arm in *this census*; `topvar_k4_08b` and
+`_08bR` are on the second release. ⚠ **Impossible here:** whether spread wins under a different
+judge — register row 2.
