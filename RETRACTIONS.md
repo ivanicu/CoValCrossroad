@@ -13664,3 +13664,63 @@ would have mis-scored every round that **named its script after its question**.
 persist ANY `.py`/`.sh`"*, which is a direct property of the directory rather than a proxy. ⚠ **And
 even that is only NECESSARY, never SUFFICIENT** — a script may import a deleted module — so every
 number in R592 is an **upper bound on attackability** and says so.
+
+## 462 · "The 8 cited codeless rounds lack a carrier" — 569 rounds lack one
+
+R592's NEXT line proposed auditing 8 rounds. **It was aimed at a subset of a corpus-wide property.**
+
+Derived from the **545 code-bearing rounds only** — the group under test contributed nothing, so the
+convention cannot be circular — the keys reaching 20% prevalence are `verdict` **0.49**, `world`
+0.44, `controls` 0.26, `n_prompts` 0.22. ⛔ **The most common key in the entire corpus's artifacts
+appears in fewer than half the rounds.** Mean coverage: **0.35 code-bearing, 0.21–0.25 codeless.**
+
+⭐ **`codeless` was the wrong variable.** Fixing the 8 would repair 8 of a problem that has 569.
+
+⚠ **And world B is also true and also resolved**: codeless rounds carry significantly less even
+against that low bar — **Δ = −0.1001 / −0.1366, time-stratified p = 0.0012 / 0.0002 over 12,000
+draws**, agreeing across both depth cells. All 8 cited codeless rounds carry exactly `world` and
+nothing else, **zero variance** — the answer recorded, none of the conditions.
+
+## 463 · My world set was not a partition, and an elif chain hid a true answer
+
+`C` is about the **absolute level**; `A`/`B` are about the **difference**. **Orthogonal axes, chained
+with `elif`** — so C fired and B never printed, though both were true and both resolved.
+
+*Why this is worse than a wrong answer: a shadowed answer leaves no trace. A wrong verdict gets
+attacked by the next round; a verdict that is merely INCOMPLETE reads as finished.* Remedy: before
+chaining worlds, ask whether they are **mutually exclusive**, and if they are not, compute each axis
+separately and report the conjunction.
+
+## 464 · An MDE from a concentrated plant is not comparable to a spread contrast
+
+v1 set `under_powered = |Δ_obs| < |Δ_MDE|`. **The dose-response MDE is the resolution for a
+CONCENTRATED plant** — scores forced to 0.0 in a random subset — while the observed contrast is
+**spread across the group**. Two variance structures compared as one object: §4's *the control fails
+for its own reasons*, form ①.
+
+⚠ **It would have printed UNDER-POWERED on an effect its own stratified permutation resolved at
+p = 0.0002.** The observed effect has its own test and that is the only admissible one for it; the
+plant MDE bounds what a *concentrated* defect would need to be seen, and is kept for that.
+
+## 465 · The spec-agreement test compared strings holding p-values
+
+`agree = len({c["world"]}) == 1` where `world` is a formatted string with the p-value interpolated
+into it — **so two identical conclusions could never compare equal.** It printed `THE CELLS DISAGREE`
+on two cells agreeing on both axes.
+
+⚠ **Third unit-mismatch of this session inside a single round**, and the sixteenth overall. The
+instrument's unit was *a rendered sentence*; the claim's unit was *a world*. Fixed by comparing a
+number-free tag.
+
+⭐ **All three of 463–465 were invisible until a number contradicted the branch.** None would have
+been caught by re-reading the code, which is the argument for printing controls and verdict
+separately and looking at both.
+
+## 466 · The time control strengthened this result instead of dissolving it
+
+Unstratified **p = 0.0295**; stratified within 5 round-id bands **p = 0.0012 / 0.0002**. **The time
+trend was MASKING the effect, not creating it** — the exact opposite of R592 one round earlier, where
+stratification took Δ = +0.1263 to −0.0105.
+
+*Same control, same corpus, opposite directions in consecutive rounds. That is the case for running
+it either way rather than for holding a prior about which way confounds run.*
