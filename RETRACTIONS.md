@@ -12934,3 +12934,42 @@ fifty more.
 question — it is an **unaskable** one, because the answer lives under sixty different key names.
 **HB8: if it can be an enum it may not be free text**, and a results schema with sixty synonyms for
 one axis is the same defect one level down. **A number nobody can find is a number nobody can check.**
+
+## 415 · R567's "60+ names, no schema" is retracted — the convention exists and names my error
+
+`assurance/an_mde_records_its_denominator.py` **exists and exits 0**, frozen debt 0. It is the
+floor-key convention R567 concluded was missing and my NEXT line proposed building *"for the first
+time"*.
+
+⭐⭐⭐⭐ **Its docstring diagnoses R567's exact method, written by R373 before me:** *"R373 tried to
+MEASURE how many past rounds record their denominator, using a whitelist of key names. That is
+invalid: a guessed list cannot prove an absence… The same list is invalid as a measurement and valid
+as a convention."*
+
+**R567 ran the invalid version and got a false `0 of 0`. That warning was in a file passing on every
+commit of this session.**
+
+**Corrected finding:** the 60+ historical key names are real, and they are **what the ratchet
+deliberately does not migrate**. The heterogeneity is **historical, not unschematised** — a
+different and much smaller claim than the one R567 made.
+
+## 416 · A prose search that does not normalise whitespace cannot claim an absence
+
+R568's first version searched the raw docstring for *"a guessed list cannot prove an absence"* and
+returned **False** — on a sentence I had quoted from that same file one command earlier. **The
+docstring wraps across lines.** Normalised, it returns True.
+
+⭐ **Same class as R562's `\b` failing on an underscore and R567's `c2` matching a UUID: the sixth
+instrument defect of this kind this session, and the third inside a round diagnosing the previous
+one.** The pattern is not carelessness about regex — it is that **I write the search against the
+string as I imagine it, and the file stores it as it is formatted.**
+
+## 417 · Three times this session I have rebuilt or proposed rebuilding what already existed
+
+`run_all.py` *(R561)*, a working round-id matcher *(R563)*, and now the floor convention *(R568)*.
+**In this case the existing artifact contained the warning about the exact mistake I was making.**
+
+⭐⭐⭐ **The prior-art gate's L4 says a "none" must come from ASKING THE SYSTEM.** All three times I
+asked the system only after building — and all three times one `grep` of `assurance/` beforehand
+would have answered it. **The cost is not the wasted build; it is that a round which rediscovers a
+known result reports it as new.**
