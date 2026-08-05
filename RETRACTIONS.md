@@ -15482,3 +15482,45 @@ R630 quantified over a `[:12]` print and was wrong in both directions. R646 read
 status | head -3` as evidence of deletion. R647 read a `| tail -25` as a complete listing and
 accused a consistent tool of inconsistency. ⭐ **Three different truncations, three different
 commands, one failure: treating what was displayed as what exists.**
+
+## 647 · The rule I wrote to fix truncation was too broad to be followable
+
+R648 closed with *"never pipe an instrument's output through a truncating filter before parsing
+it."* **False as written.** This corpus contains **10 display slices and 188 hash slices that are
+entirely correct**, against **2 defect sites**. A rule that forbids `print(x[:60])` will be
+ignored, and a rule that is ignored protects nothing. ⭐ **The defect is truncation between the
+data and a COUNT — not truncation.**
+
+## 648 · Two instruments built for that question, both wrong, in opposite directions
+
+A syntactic pass (`slice inside print()` or not) returned **587 suspects** topped by
+`hexdigest()[:16]`. An AST pass with a loose consumption rule returned **36 sites, 34 of them
+`git rev-parse HEAD`.stdout`[:12]` — an artifact stamp.** ⛔ **A truncated IDENTITY is not a
+truncated POPULATION**: shortening a sha costs collision resistance, never a member. The tightened
+rule then returned **0** and lost the known member, because R601's value escapes into a dict before
+it is searched. **Too loose → 36; too tight → 0; the fix was a different thing to condition on**
+(file-read vs process-line), not a better threshold.
+
+## 649 · The positive control passed on the wrong site, and I read it as a pass
+
+It printed `POSITIVE … FOUND at line 109, cap 110 → PASS`. **The known member is line 104**; line
+109 is a README heading truncated for display. The control asked *is R601 in the list*, took
+`pos[0]`, and reported *the classifier sees the known member*. ⛔ **§4's instrument-unit-vs-claim-
+unit failure, occurring inside the control that exists to prevent it.** Repaired to pin
+`(file, line, cap)`.
+
+## 650 · The binding test compared every cap against a population its site never reads
+
+v1 swept each cap against every `.py/.json/.md` in the tree and printed **"cap 12 BINDS — 17,863
+files exceed it"**. **Cap 12 truncates a git sha; that site never opens a file.** ⭐ Two sides,
+different objects — the dominant failure mode, this time in the binding test rather than a control.
+A cap binds only against **the population its own site reads**, re-derived from that round's own
+glob; where it cannot be re-derived the answer is `UNVERIFIED`, never `inert`.
+
+## 651 · An impossibility asserted in the direction that saves work
+
+R649's own docstring registered *"whether any round's published NUMBER is wrong because of its cap
+needs a different round"* as IMPOSSIBLE. **It needed one pass over four files** — does the tail past
+the cap match where the head does not, with a token planted past the cap as its own control.
+⭐ **§4's `a wall never checked`. The result was NONE TODAY** — so the wall would have concealed
+nothing but a reassurance, which is exactly why nobody would have gone back for it.
