@@ -15352,3 +15352,29 @@ The phrase lists are mine, so they can only find **classes I have already named*
 the class that would explain re-encountering a recorded hazard without recognising it. ⭐ **No
 self-authored keyword instrument can discover a failure class its author has not yet named**, and
 that bound applies to both 26 and 98.
+
+## 632 · No third object exists on this disk, and none can be constructed
+
+Every `.jsonl` under `data/` against R618's five fields: **home release 5/5 · second release 3/5 ·
+best non-home file 4/5 · JOIN of every non-home file 3/5.** The criterion **pool** and the **core**
+exist in exactly one file and nowhere else — **the two missing fields are missing from the disk, not
+from a particular file.**
+
+⭐ **So the object is not merely un-found; it is not constructible from what is here**, and R618's
+five-field specification **is** the deliverable rather than a step toward one.
+
+⚠ **NECESSARY, NOT SUFFICIENT**, unchanged: R602 measured the second corpus as disjoint in content,
+which no schema check can see.
+
+## 633 · The neglect I was about to report does not exist
+
+Going to the object I wrote that *"the arc has spent forty rounds on two files while six sit in the
+same directory"* — an implicit criticism, written before the measurement. **`metadata.jsonl`, 85 MB
+and opened by no round in this arc, carries one field of five.** ⭐ *The sentence was already written
+when the number arrived.*
+
+## 634 · Check #245 — a completeness claim and an uncomputed superlative
+
+*"The production work is done"*: the four inert sites still carry the old code, so the **corrective**
+work is done and the **preventive** installation is not. *"The arc's oldest open item"*: never
+enumerated.

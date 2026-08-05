@@ -1,0 +1,156 @@
+{
+  "world": "B NO THIRD OBJECT \u2014 nothing beyond the home release reaches 5/5, alone or joined (best non-home join: 3/5). R618's specification IS the deliverable, and the arc can close on it.",
+  "controls_ok": true,
+  "per_file": {
+    "annotators.jsonl": {
+      "n_keys": 9,
+      "score": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "total": 2,
+      "sample_keys": [
+        "annotator_id",
+        "annotator_id[]",
+        "assessments",
+        "conversation_id[]",
+        "demographics",
+        "importance[]",
+        "ranking_blocks[]",
+        "representativeness[]",
+        "subjectivity[]"
+      ]
+    },
+    "comparisons.jsonl": {
+      "n_keys": 6,
+      "score": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "total": 2,
+      "sample_keys": [
+        "messages[]",
+        "metadata",
+        "prompt",
+        "prompt_id",
+        "response_index[]",
+        "responses"
+      ]
+    },
+    "conversation_rubrics.jsonl": {
+      "n_keys": 6,
+      "score": [
+        true,
+        false,
+        true,
+        true,
+        true
+      ],
+      "total": 4,
+      "sample_keys": [
+        "conversation",
+        "coval_core",
+        "coval_full",
+        "criterion[]",
+        "rubric_item_id[]",
+        "scores[]"
+      ]
+    },
+    "merged_comparisons_annotators.jsonl": {
+      "n_keys": 11,
+      "score": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "total": 2,
+      "sample_keys": [
+        "annotator_id",
+        "assistant_turn_share",
+        "demographics",
+        "importance",
+        "num_candidates",
+        "prompt_id",
+        "ranking_blocks",
+        "representativeness",
+        "subjectivity",
+        "turns_assistant",
+        "turns_user"
+      ]
+    },
+    "metadata.jsonl": {
+      "n_keys": 10,
+      "score": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "total": 1,
+      "sample_keys": [
+        "column_id",
+        "conversation_id",
+        "en_flag",
+        "interaction_id",
+        "language_flag",
+        "moderation_flag",
+        "pii_flag",
+        "pii_manual_flag",
+        "user_id",
+        "utterance_id"
+      ]
+    },
+    "utterances.jsonl": {
+      "n_keys": 14,
+      "score": [
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "total": 3,
+      "sample_keys": [
+        "conversation_id",
+        "conversation_type",
+        "if_chosen",
+        "included_in_balanced_subset",
+        "interaction_id",
+        "model_name",
+        "model_provider",
+        "model_response",
+        "score",
+        "turn",
+        "user_id",
+        "user_prompt",
+        "utterance_id",
+        "within_turn_id"
+      ]
+    }
+  },
+  "home_union_score": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "nonhome_join_score": [
+    true,
+    true,
+    true,
+    false,
+    false
+  ],
+  "check245": "'the production work is done' -- the four inert sites still carry the old code; and 'the arc's oldest open item' was never enumerated",
+  "impossible": "key presence is necessary and not sufficient; content disjointness is invisible"
+}
