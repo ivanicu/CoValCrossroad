@@ -11155,3 +11155,36 @@ seconds**.
 **The rule this earns:** *never run the auditor in the background while editing the directory it
 audits.* It is a **whole-directory** mutation with a snapshot taken minutes earlier, and there is no
 concurrency story in which that is safe.
+
+## 337 · "A residue claim is protected only by an empty gate" — 44 substring matches, and the repair would have been wrong twice over
+
+**Retracted:** the premise of this round, that `R46_spread_replication` — a registry round requiring a
+draw scope, guarded by a gate with an empty population — is cited in `STATEMENT.md`.
+
+**Measured with word boundaries:** `\bR46\b` appears **0 times** in `README.md`, `DEFINITION.md` and
+`STATEMENT.md`. The substring `R46` appears **35 times in DEFINITION.md and 9 in STATEMENT.md** —
+every one of them inside `R460`, `R464`, `R465`, `R468`, `R469`. **44 false matches, and the round was
+built on them.**
+
+**Corrected population:** the 4 registry rounds still published live are in `README.md` only, and
+**zero** are cited in either deliverable document. **So no residue claim is protected only by this
+gate, and its exit-2 was right.**
+
+⭐⭐⭐ **The repair I nearly shipped would have been wrong in two independent ways, and each was caught
+by asking whether the check could pass rather than whether it did.**
+① **Dead recogniser.** `SCOPE` matches `rounds/r8[89]_...`, a path-citation idiom that appears **0
+times** in every live document — so the repointed gate would have flagged **100% by construction**, a
+check that cannot pass, manufacturing four findings.
+② **Wrong population.** Even repaired, its population is `README.md`, which the deliverable does not
+draw on.
+
+⚠ **And a third proxy failure I could not resolve and therefore did not adopt:** after repointing the
+recogniser to the spread values (`0.0055` / `0.0095`, which *do* appear 4 times), the flag rate stayed
+at **100%** — because the scope is stated in a *different paragraph* from the round citation.
+**"Same paragraph" is an untested proxy for "the scope is stated where the finding is," and 100% on a
+4-round population is not evidence.**
+
+⭐ **The gate as it stands is more honest than my repair.** It exits 2 and says, in its own words:
+*"The root README is no longer a per-round table, so this gate's PROXY is gone while its PROPERTY
+stands."* **An empty-population gate that correctly diagnoses its own proxy death beats a repointed
+gate whose new proxy is untested.** Repair declined, with the reason recorded.
