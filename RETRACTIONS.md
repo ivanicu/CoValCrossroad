@@ -16082,3 +16082,26 @@ of which answer the question outright. ⭐ **R664's object fact came from R527; 
 R442/R440; R667's from R360/R442. Three consecutive rounds, all answered from committed artifacts
 I claimed did not exist.** *I assert absence at exactly the point where running the gate is one
 command — a measured pattern, not an anecdote.*
+
+## 722 · "An unstated band is a clause nobody wrote" — it is a level set of a threshold
+
+R667's NEXT proposed that the definition's admitted k-band `{3,4,6,8}` encodes structure ② does not
+state. ⛔ **Measured: the admitted set IS a level set of `P_arm` at both seeds** — min(admitted)
+0.9550 / 0.9375 vs max(rejected) 0.7225 / 0.6850, margins **+0.2325 / +0.2525**. The profile is
+unimodal (peak at k=6) and the admitted set is **contiguous in the available k grid** (1,2,3,4,6,8,12).
+**A threshold on a unimodal curve produces exactly that.** §0's arithmetic trap: a shape forced by
+thresholding, read as a discovery. **My proposal to add a clause is retracted.**
+
+## 723 · "The first claim in this arc that would ADD a clause" — uncomputed
+
+R667's NEXT called it *"the **first** claim in this arc that would add a clause rather than retire
+one"*. ⛔ A quantifier over my own work, never counted, and it was the sentence a later round would
+have acted on. §4's tell, in the same closing line as 722.
+
+## 724 · The gate was run FIRST, and it returned the answer immediately
+
+After **three consecutive rounds** (R665, R666, R667) in which the prior-art gate was skipped and the
+data I called missing turned out to be committed, R668 ran it before writing any code. ⭐ It found
+R353's per-seed `P_arm` at once. **The residual it also surfaced is real and is NOT explained by the
+threshold story: the rise 1→6 is smooth (0.43 → 1.00) while the fall 8→12 is a hard zero
+(0.96 → 0.0000) at both seeds.**
