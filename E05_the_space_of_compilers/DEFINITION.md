@@ -1544,3 +1544,30 @@ in *higher* than the quoted ones — a systematic offset rather than noise, so t
 from the campaign's in a convention not yet isolated. **CONFIRMED: the two compared numbers are not
 comparable, which suffices to withdraw. UNVERIFIED: whether `oracle_k4` exceeds the ceiling under the
 campaign's own instrument.** *(R504)*
+
+
+⭐⭐⭐ **AND THE WITHDRAWAL IS ITSELF REVERSED — A CORE IS A RANKER, SO ONE CEILING APPLIES, AND AT THE
+CAMPAIGN'S OWN 20-DRAW CONVENTION THE GAP RESOLVES (R505, R506).** Two facts settle it, and the first
+is a **derivation** read out of `corebench/score.py` rather than measured: `yvec()` returns **one
+scalar per response** and `cls()` takes signs of scalar differences, so a core's six pairwise verdicts
+are **necessarily transitive**. It cannot emit the intransitive patterns the per-pair mode uses on
+**33.5%** of prompts. **So the RANKER ceiling is the only bound that can apply to a core, and the
+PAIR-PREDICTOR ceiling is unattainable by one — comparing a core to it was R504's category error.**
+
+| recomputed at **20 draws/prompt**, 968 prompts, 3 seeds | value | seed range |
+|---|---|---|
+| `oracle_k4` | **0.6293** | [0.6283, 0.6308] |
+| **RANKER ceiling — the applicable bound** | **0.6220** | [0.6200, 0.6235] |
+| pair-predictor ceiling (unattainable by a core) | 0.6437 | [0.6415, 0.6451] |
+| in-sample ceiling (the biased one — hold-out control) | 0.6863 | [0.6840, 0.6877] |
+| random predictor | 0.3342 | [0.3327, 0.3356] |
+| shuffled-annotator ceiling | 0.4099 | [0.4077, 0.4123] |
+
+**Gap `+0.0073` against a conservative floor of `0.0047` — RESOLVED.** The resolution sweep is the
+evidence that the earlier verdict was about **effort**, not nature: `reps=1` gap +0.0042 floor 0.0091
+(inside) · `reps=5` +0.0056 / 0.0082 (inside) · **`reps=20` +0.0073 / 0.0035 (resolved)**. The floor
+falls while the gap holds. **R504 and R505 both stopped at "inside the floor" without asking for more
+draws, and R479 had been averaging twenty all along.** *(R505, R506)*
+
+⚠ **Bound stated, not smoothed:** the recomputed ranker ceiling is **0.6220** against R479's quoted
+**0.6132** — smaller than the discrepancy it replaced, and **still not isolated**. *(R506)*

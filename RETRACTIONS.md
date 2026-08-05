@@ -11011,3 +11011,34 @@ standard's longest failure-mode entry says happens, written about a different nu
 ⭐ **The residual gap is stated, not smoothed:** the recomputed ranker ceiling is 0.6230 against
 R479's 0.6132, plausibly the draw convention (one draw per prompt per seed here, 20 reps there).
 **Not isolated.**
+
+## 332 · The withdrawal of entry 330 is itself reversed — a core is a ranker, and the gap resolves at 20 draws (R504 → R506)
+
+**Reversed:** entry 330's withdrawal of the recommendation. **Not because the withdrawal reasoned
+badly** — it was right that the two quoted numbers came from two instruments — **but because it
+assumed there is one ceiling, and there are two.**
+
+**The derivation that settles which applies**, read from `corebench/score.py` rather than measured:
+`yvec()` returns **one scalar per response**; `cls()` takes signs of scalar differences. **A scalar
+per item induces a total order, so a core's six pairwise verdicts are necessarily transitive.** The
+per-pair Bayes optimum is realisable by *some* ranking on only **66.5%** of prompts — **no core can
+attain it.** The **ranker** ceiling is the only bound that can constrain a core, and comparing one to
+the pair-predictor ceiling was a category error.
+
+**Recomputed at 20 draws/prompt (the campaign's own convention):** `oracle_k4` **0.6293** vs ranker
+ceiling **0.6220** — **gap +0.0073 against a conservative floor of 0.0047. RESOLVED.**
+
+⭐⭐⭐ **And the resolution sweep is the part worth keeping.** `reps=1` → gap +0.0042, floor 0.0091
+(inside) · `reps=5` → +0.0056 / 0.0082 (inside) · `reps=20` → +0.0073 / **0.0035 (resolved)**. **The
+floor falls while the gap holds, so "inside the floor" was a statement about EFFORT, not about
+nature.** R504 and R505 both stopped there, and **R479 had been averaging twenty draws all along.**
+
+⚠⚠ **Four positions on one comparison, in five rounds.** `0.6282 > 0.6132 therefore B` → *withdrawn,
+oracle is below the ceiling* → *two ceilings, inside the floor of both* → *the core is a ranker, one
+applies, resolved*. **Every step used the best instrument available at that moment; every step fell to
+a better instrument, never to a better argument.** That is the standard's longest failure-mode entry
+happening to a different number, and this time it was **caught by following its own remedy: before
+accepting a resolution limit, ask what the data still has to give.**
+
+⚠ **Residual, stated not smoothed:** the recomputed ranker ceiling is **0.6220** against R479's
+**0.6132** — smaller than the discrepancy it replaced, still not isolated.

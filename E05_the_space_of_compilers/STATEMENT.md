@@ -88,37 +88,47 @@ counts as a core — though R503 shows those are **verbatim human rubric items**
 provenance, not quality. Choose **B** and a core is only ever as trustworthy as the **producer** you
 are shown alongside it.
 
-### ⛔ The recommendation is WITHDRAWN — it compared two numbers from two instruments
+### The recommendation — withdrawn, then restored on a better instrument
 
-**Retracted, one round after it was written.** The campaign recommended reading **B** because
-`oracle_k4` (**0.6282**) exceeded the Bayes ceiling for any predictor (**0.6132**) — an object above
-the prediction bound is not predicting. **Recomputed in one process, on one population of 968
-prompts, with one hold-out convention and three seeds:**
+⭐⭐⭐ **B.** `oracle_k4`, which reading **A** admits, scores **0.6293** against the **ranker ceiling
+0.6220** — **gap +0.0073, conservative floor 0.0047, RESOLVED.**
 
-| quantity | recomputed | as quoted |
+**Why the ranker ceiling is the one that applies is a DERIVATION, not a measurement.**
+`corebench/score.py`'s `yvec()` returns **one scalar per response** and `cls()` takes signs of scalar
+differences, so a core's six pairwise verdicts are **necessarily transitive**. The per-pair Bayes
+optimum (**0.6437**) is realisable by *some* ranking on only **66.5%** of prompts — **no core can
+attain it.** *(R505, R506)*
+
+> **An object cannot predict better than prediction allows for its own class. `oracle_k4` clears the
+> ranker bound because it is not predicting — it is reading the answer. A definition whose extension
+> contains such an object is not defining a predictor.**
+
+**Controls, all passing and all able to fail:** the in-sample ceiling **0.6863** exceeds the held-out
+one, so the hold-out is genuinely applied; a shuffled-annotator ceiling falls to **0.4099**; a random
+predictor lands at **0.3342**, not zero. *(R506)*
+
+⚠⚠ **This claim was wrong three times before it was right, and the sequence is part of the result:**
+
+| step | what was claimed | what was wrong |
 |---|---|---|
-| held-out ceiling | **0.6466** | 0.6132 |
-| `oracle_k4` | **0.6325** | 0.6282 |
+| 1 | `0.6282 > 0.6132, therefore B` | two numbers from **two instruments**, never checked |
+| 2 | recomputed → oracle **below** → **withdrawn** | right that they were incomparable, **wrong that there is one ceiling** |
+| 3 | **two ceilings**, gap inside the floor of both | right about the structure, **still under-resolved** |
+| 4 | a core is a **ranker** → one applies → **resolves at 20 draws** | — |
 
-**Gap −0.0141 against a measured floor of 0.0220 — `oracle_k4` is BELOW the ceiling, and the
-difference is inside the floor.** Controls all pass and all could fail: the in-sample ceiling
-(0.6886) exceeds the held-out one, so the hold-out is genuinely applied; a shuffled-annotator ceiling
-falls to 0.4144; a random predictor lands at 0.3321, not zero. *(R504)*
+**Every step used the best instrument available at the time; every step fell to a better instrument,
+never to a better argument.** The resolution sweep makes step 3's verdict legible as a statement about
+**effort**: gap/floor goes **+0.0042 / 0.0091 → +0.0056 / 0.0082 → +0.0073 / 0.0035** as draws go
+1 → 5 → 20. *(R506)*
 
-⭐ **The recommendation's own text named this check as the first an attacker should run. I wrote that
-sentence and did not run it.**
+**What would flip it to A**, unchanged and still specifications: ① a ③-admissible prompt-responsive
+arm reaching **0.5404**; ② an instrument that ranks `oracle_k4` at an extreme of the ③ split; ③ **a
+use for "core" that does not require prediction** — if the object is meant to *summarise* a judgment
+already made rather than *anticipate* one, the ceiling is irrelevant and **A is correct.** ③ is a
+question about purpose, not data, and this campaign cannot answer it.
 
-⚠ **Three-valued, because the attack must not be over-trusted either.** Both recomputed figures are
-*higher* than the quoted ones — a systematic offset, so my instrument differs from the campaign's in a
-convention not yet isolated. **CONFIRMED: the two numbers are not comparable, which is enough to
-withdraw.** **UNVERIFIED: whether `oracle_k4` exceeds the ceiling under the campaign's own
-instrument** — nothing here adjudicates that.
-
-**So this page states the fork and does not recommend a reading.** The three flip conditions from the
-withdrawn recommendation are kept below, because they are specifications and do not depend on it:
-① a ③-admissible prompt-responsive arm reaching **0.5404**; ② an instrument that ranks `oracle_k4` at
-an extreme of the ③ split; ③ a use for "core" that does not require prediction, which is a question
-about purpose and not about data.
+⚠ **Residual, stated not smoothed:** the recomputed ranker ceiling is **0.6220** against R479's
+**0.6132**. Smaller than the discrepancy it replaced, **still not isolated.** *(R506)*
 
 ---
 
