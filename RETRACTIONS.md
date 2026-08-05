@@ -18384,3 +18384,33 @@ earlier round measured per-cell agreement, which is 0.0354 for the same pair. Th
 text, and a containment statistic over a shared vocabulary answers a question nobody asked. Recorded
 because the probe took seconds, returned a confident number, and would have supported the opposite
 conclusion had I stopped there.
+
+## 961 · my two-seed reproducibility check passed on files a crashed run never wrote
+
+R733's artifact write was failing on a numpy scalar whose class is literally named bool, so the
+standard library's own type check does not catch it. The round printed its verdict, raised on the
+write, and the two-hash-seed comparison that followed compared two stale copies from an earlier run
+and reported byte-identical. The standard names this exactly — determinism read as currency, a gate
+that certifies two files it did not produce are the same — and I built it anyway, in a round whose
+own subject is instruments that do not measure what they claim. The repair requires each run to have
+written before the comparison is allowed to run, which is one conditional and should have been there
+from the first round in this arc.
+
+## 962 · I borrowed a floor from a different quantity and it returned nothing
+
+R733's positive control set out to reproduce an earlier round's shared-subtrahend floor. That round's
+margins are taken over a different baseline arm, so its floor is not the same quantity, and the arm
+this round subtracts has a margin of identically zero against itself, which makes its correlation
+undefined. The control returned nan and took the floor with it. The principle transferred and the
+number did not, and I did not check which before building the control on it. The repair computes the
+band in this round's own units, with a ceiling taken from one object correlated with itself under two
+tags.
+
+## 963 · a sham that asserted a direction the algebra does not have
+
+R733's sham removed the subtraction and asserted that re-adding a shared term can only raise the
+correlation. That is false: a common addend raises the covariance and both variances at once, so the
+effect on the correlation is not monotone. Measured, it lowered it, 0.9690 against 0.9747, and the
+control printed FAIL for a claim about arithmetic rather than about the data. A control may test a
+quantity; it may not assume the sign of an effect it has not derived. The repair reports the quantity
+and requires only that the subtraction do something.

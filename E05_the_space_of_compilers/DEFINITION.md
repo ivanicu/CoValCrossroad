@@ -3774,3 +3774,22 @@ are untouched. The greedy and independent objects both sit with the excluded obj
 and both are scored by the default emitter, so that comparison mixes no instruments. And the rule
 name is a poor proxy for construction, which is now measured directly at 8.9 percent selection
 agreement between two arms that share a rule, rather than inferred from a margin.
+
+## R733 · the two admitted objects move with the excluded one, prompt by prompt
+
+The question left standing was whether the two admitted target-reading objects merely land at the
+same level as the object the provenance clause excludes, or share its per-prompt structure. They
+share it. Against a shared-subtrahend floor of 0.5034, computed in this round's own units from three
+pairs of random-selection arms that have no shared mechanism, the greedy object's per-prompt margin
+correlates with the excluded object's at an excess of 0.4632 and the independent object's at 0.3965,
+against excesses of 0.1592 and 0.1966 toward the label-blind arms. The two measured clauses agree on
+the ordering, and all forty eight cells of the grid survive a Benjamini-Hochberg correction over the
+whole grid. The precondition was established elsewhere: the per-prompt gap is reliable, with a
+split-half value of 0.8311 against a shuffled null of 0.0168, so this is not a correlation of noise.
+Three limits attach. Correlation of outcomes excludes unrelatedness and cannot identify a shared
+mechanism; that needs an intervention on the construction. The floor is essential and not decorative,
+because every margin here subtracts the same baseline arm, so a large raw correlation is guaranteed
+before any mechanism is shared. And the raw correlation of 0.9747 for the greedy object exceeds the
+attenuation ceiling that the reliability estimate implies, which means that estimate does not
+transfer to these arms or the shared subtrahend inflates past it; the disattenuated column is
+therefore a diagnostic and not a correlation.

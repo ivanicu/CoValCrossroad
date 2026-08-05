@@ -445,7 +445,14 @@ default-emitter score, so the 2×2 does not exist here. **Its margin gap is a su
 effect and an emitter effect, and neither is identified.** So *"construction does not determine
 behaviour"* is **withdrawn to UNVERIFIED — not refuted**, and the "③ needs a construction predicate"
 proposal returns to **untested**. ⭐ **Untouched:** `greedy` and `indep` are **both default-emitter**,
-so that comparison mixes no instruments. ⭐ **And measured directly:** two arms sharing the `oracle_k`
+so that comparison mixes no instruments.
+⭐ **And they share the excluded object's PROFILE, not merely its level** *(R733)*. Against a
+shared-subtrahend floor of **0.5034** — computed here, since R284's 0.53 is over a different baseline
+— their per-prompt margins exceed the floor by **+0.4632** and **+0.3965** toward the **excluded**
+object against **+0.1592** and **+0.1966** toward the blind arms. **Both clauses agree; 48 of 48
+cells survive BH.** The gap is reliable *(R457: split-half 0.8311, shuffled 0.0168)*. ⚠ This
+**excludes unrelatedness; it does not identify a mechanism** — and the raw 0.9747 exceeds the
+attenuation ceiling, so the disattenuated column is a diagnostic, not a correlation. ⭐ **And measured directly:** two arms sharing the `oracle_k`
 rule agree on **8.9%** of selections — **the rule name is a poor proxy for construction.** R729 adds a **name-independent** second route — the selected criteria in
 `core_*.json` — agreeing with the tag route on **all 82** arms both can classify, which matters
 because R520's own record notes a keyword search on this question failed **19 of 19**.
