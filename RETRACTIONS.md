@@ -13447,3 +13447,31 @@ while I am thinking about the finding, and **the control is read as a status lin
 input to the verdict.** The remedy has been known since R562 and applied twice: **the branch must
 reference every control the round declared.** It was not applied here because I wrote the verdict
 before the control existed in my attention, which is the same order of operations every time.
+
+## 447 · The exact join key reaches two documents of three
+
+R586 showed a prose-prefix join cannot connect the deliverable's three documents. The replacement —
+joining on the `(R###)` citation after each decimal, which is **exact** — reaches **STATEMENT ∩
+DEFINITION at 11 shared rounds** and **zero for both pairs involving `FORMULATION.md`**.
+
+**`FORMULATION.md` cites 24 rounds carrying attributed decimals and shares none with either other
+document.** My closing line said the citations *could* connect them. **They connect two of three, and
+the third is disjoint by round as well as by phrasing** — which is a stronger statement about that
+document's isolation than the prefix failure was, because the key here cannot miss for formatting
+reasons.
+
+⚠ **The three rounds where STATEMENT and DEFINITION differ are set differences, not contradictions.**
+`R479` attributes 8 decimals on the statement and 9 in the definition, sharing 6 — **the definition
+carrying values the residue omits is the intended relationship**, and the instrument cannot
+distinguish that from a real disagreement. **A set difference is not a contradiction, and reporting
+it as one would manufacture three.**
+
+## 448 · The branch read its control and refused — after three rounds where it did not
+
+R562, R582 and R586 each printed a verdict while a positive control printed FAIL. **Here the control
+block was written before the verdict text, and the verdict is UNVERIFIED.**
+
+⭐ **The fix was ordering, not vigilance.** The previous three failures all had the same shape — the
+branch written while thinking about the finding, the control read afterwards as a status line. **The
+remedy that worked was mechanical: compute and print the controls, then let the verdict be a function
+of them, with no sentence written in between.**
