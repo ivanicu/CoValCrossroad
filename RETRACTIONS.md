@@ -13054,3 +13054,22 @@ the **same mode on the same tree**. **I do not have one.**
 **Naming it as the flipper is precisely the shortcut three consecutive refutations have been
 protecting against**, and the flattering version of that shortcut is that it would let me close the
 question.
+
+## 423 · The three hanging gates do not share a mechanism, so one fix will not clear three non-passes
+
+`run_all`'s own source documents the shape I expected: *"a gate that spawns a grandchild and exits…
+the grandchild holds the pipe, and the runner blocks forever."*
+
+**Refuted on both sides.** **NOT NECESSARY:** `what_did_each_check_actually_read` hangs and makes
+**zero** subprocess calls. **NOT SUFFICIENT:** `attack_no_withdrawn_framings` makes one and finishes
+in **6.18s**.
+
+**`ERROR 3` is at least two distinct defects.** My own NEXT line called it *"one question that could
+remove three of the suite's sixteen non-passes"* — **that framing is dead**, and it was the
+flattering one, because it promised three fixes for the price of one.
+
+⭐ **This is the fourth consecutive refuted hypothesis, and the first where the QUESTION still got a
+definite answer.** R569, R570 and R571 each left their question open. The difference is the
+**negative control**: without a non-hanging gate that *does* call `subprocess`, "not sufficient"
+would have been unsupported and the refutation one-sided. **A one-sided refutation kills a
+hypothesis; a two-sided one answers the question.**
