@@ -1,5 +1,29 @@
 # R729 · clause three is a blocklist and fails open
 
+## ⛔ PRIOR ART, FOUND AFTER THE FACT BY A GATE — I did not run P4 before building this
+**`R520_is_the_provenance_set_complete` had already established the finding**: same estimand, the
+same `select_core.py:102` source, the same positive control (recover the four declared names from
+tags alone), the same negative control (`topw_k`, `random_k`, `topabs_k`, `full` must not flag).
+It reported world **B** and named the six missing arms —
+`greedy_k4_greedy_kA/B`, `indep_k4_indep_kA/B`, `oracle_k4_oracle_kA/B`.
+
+**I found this only because `statement_provenance` rejected a citation and I went looking.**
+The round below is a **replication**, and it must be read as one.
+
+**What is genuinely new, and it is not nothing:**
+1. ⭐ **R520 recorded `missing_with_clause3_verdict: []`** — the six arms it flagged carried **no
+   clause-③ verdict at all**, because they were not in the scored population. **On today's
+   population they are ADMITTED.** The defect R520 found as *latent* is now *realised*.
+2. **A name-independent second route.** R520 derived the rule from the tag; R729 adds a content
+   route over `core_*.json` selections that never sees a name, agreeing on **all 82** arms both can
+   classify. R520's own docstring records that a keyword search on this question failed **19 of 19**,
+   which is exactly why a non-name corroboration is worth having.
+3. **Universe 56 → 92**, adding `oracle_k4_08bR` as a seventh admitted target-reader and taking the
+   population-wide count from 10 derived label-readers to **13 that ③ admits**.
+
+**What is NOT new: the finding itself.** The headline below is R520's.
+
+
 **Clause ③ — *"the evaluation annotator is held out from the core's own construction"* — is
 implemented in `R294:72` as four literal arm names. Of the 16 arms today's population admits,
 7 are built by a rule that reads the human target, and ③ excludes 0 of them.**

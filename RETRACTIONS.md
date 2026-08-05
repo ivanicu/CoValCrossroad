@@ -18269,3 +18269,27 @@ disagreements, all of them arms where the name route returns no verdict at all b
 program never emitted them. Counting an absent verdict as a disagreement is the same error as
 folding unverified into overturned, and correcting it took the count to zero. Both mistakes were mine
 and both were caught by controls rather than by reading the output.
+
+## 951 · I built a round whose finding a previous round had already established, because I did not run the prior-art gate
+
+R729 asked whether the definition's provenance clause admits arms built by target-reading rules.
+R520 had asked exactly that, from the same line of the selection program, with the same positive
+control recovering the four declared names from tags and the same negative control over the
+label-blind rules. It reported the same world and named six of the arms. I did not check before
+building, and I found the overlap only because a gate rejected an unrelated citation and sent me
+into the round list. What survives as new is narrower and should be stated as such: R520 recorded
+that the arms it flagged carried no clause-three verdict at all, because they were outside the
+scored population, and on today's larger population seven of them are admitted, so the defect it
+found as latent is now realised; and R729's second route classifies by the selected criteria rather
+than the tag, which R520 could not corroborate and which matters because its own record notes a
+keyword search on this question failed nineteen times out of nineteen. The headline is R520's and
+the statement now says so.
+
+## 952 · a citation to a round whose artifact carries no verdict field
+
+The statement cited R295 for the claim that target-reading does not necessarily leak into this
+evaluation. R295 exists and its artifact holds the parity-leak measurement, but it carries no world
+or verdict key, so the provenance gate correctly refused it: a citation must resolve to a round that
+states a verdict, not merely to a round that ran. The sentence did not need the citation and it has
+been removed rather than re-pointed, because the claim it supported is a scope disclaimer about what
+this round does not test.

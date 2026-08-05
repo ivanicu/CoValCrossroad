@@ -421,14 +421,17 @@ extra arms were built by later rounds for other purposes, so this is **not** a c
 extension — it is a scope condition. **The number 5 is indexed to a population that a glob no longer
 returns.**
 
-⛔ **And clause ③ is a BLOCKLIST, so it fails open** *(R729)*. `select_core.py:102` reads the human
-target for three rules — `oracle_k`, `indep_k`, `greedy_k` — while ③ is implemented as **four literal
-arm names**. Of the 16 arms today's population admits, **7 are built by a target-reading rule and ③
-excludes none of them**; population-wide **13** pass by default. Two independent provenance routes —
-the builder-emitted tag, and the selected criteria in `core_*.json`, which never sees a name — agree
-on **all 82** arms both can classify, and both re-derive ③'s own four names from construction.
-⚠ This does **not** say those arms leak *(R295)*. **It says ③ never asks** — and its coverage decays
-with every round that adds an arm.
+⛔ **And clause ③ is a BLOCKLIST, so it fails open** — **established by R520**, re-measured and
+extended by *(R729)*. `select_core.py:102` reads the human target for three rules — `oracle_k`,
+`indep_k`, `greedy_k` — while ③ is implemented as **four literal arm names**. **R520 named the 6 arms
+the literal misses**, on a 56-arm universe, and recorded that **none of them then carried a clause-③
+verdict at all**. ⭐ **That is what has changed:** on today's 92-arm population, **7 target-reading
+arms are ADMITTED** and ③ excludes none; population-wide **13** pass by default. **The latent defect
+is now realised.** R729 adds a **name-independent** second route — the selected criteria in
+`core_*.json` — agreeing with the tag route on **all 82** arms both can classify, which matters
+because R520's own record notes a keyword search on this question failed **19 of 19**.
+⚠ This does **not** say those arms leak. **It says ③ never asks** — and its coverage decays with
+every round that adds an arm.
 
 ⭐ **And that reading is not merely a noisier one** *(R725)*: `coval_core`'s clause-② `t` is **4.2336**
 against the threshold **4.7615**, a gap of **8.29 sampling SDs of the MDE itself** at n = 968, with a

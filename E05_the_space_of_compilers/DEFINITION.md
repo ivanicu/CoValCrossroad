@@ -3701,3 +3701,20 @@ uncorroborated and excluded from every count. None of this says those arms leak 
 which is a question settled elsewhere and not re-opened. It says the clause never asks. The defect is
 structural rather than clerical: an arm built after the census passes unless someone edits a literal,
 so the clause's coverage decays with every round that adds an arm.
+
+## R729 addendum · this finding belongs to R520, and what is new is that the defect is now realised
+
+The blocklist finding recorded above was established earlier, by the round asking whether the
+provenance set is complete. That round used the same line of the selection program, the same
+positive control recovering the four declared names from tags alone, and the same negative control
+over the label-blind rules, and it named six of the arms the literal misses. The present round did
+not check for it before building and found the overlap only when a gate refused an unrelated
+citation. Three things survive as additions. The earlier round recorded that every arm it flagged
+carried no third-clause verdict at all, because those arms sat outside the scored population; on
+today's population seven of them are admitted, so what was latent is now realised. The universe has
+grown from fifty six arms to ninety two, which adds a seventh admitted target-reader and takes the
+population-wide count that the clause admits to thirteen. And the classification is now corroborated
+by a route that never reads a name, comparing the selected criteria per prompt, which agrees with the
+tag route on all eighty two arms both can classify -- a corroboration worth having because the
+earlier round's own record notes that a keyword search on this same question failed nineteen times
+out of nineteen. The headline is the earlier round's.
