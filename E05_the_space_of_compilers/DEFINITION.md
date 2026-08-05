@@ -2439,3 +2439,33 @@ the register lists as needing another site is **met on this one**.
 judge swap bit. Negative: `topvar_k4_08b` differs from `_08bR`, so the 0.8B topvar arm is a distinct
 object. ⚠ **Correction to my own caveat: both judges resolve to n = 968, not different populations —
 an over-cautious scope statement is still a wrong one.**
+
+---
+
+## R537 · The dose curve replicates under the 0.8B judge
+
+R533 measured weight-selection's advantage over a per-prompt random draw at matched k under the 2B
+judge. Re-run under the 0.8B judge, using `topw_k*_08b` and `sat08_full`:
+
+| k | 2B | **0.8B** | ratio |
+|---|---|---|---|
+| 3 | +0.0724 | **+0.0521** | 0.72 |
+| 4 | +0.0705 | **+0.0519** | 0.74 |
+| 6 | +0.0644 | **+0.0443** | 0.69 |
+| 8 | +0.0585 | **+0.0410** | 0.70 |
+| **all** | +0.000000 | **+0.000000** | — |
+
+⭐⭐⭐ **Positive at every k, monotone, exact zero at the endpoint, under both judges — and
+attenuating consistently to ~0.7× under the weaker one.** Weight-reading's value is a fact about
+**selection**, replicated cross-model for the second time *(R536 was the first)*.
+
+**Controls.** Positive: all **4** 0.8B arms differ from their 2B namesakes, so this is not the same
+measurement twice. Negative, forced: k=all returns **+0.000000** — a derivation, and the reason it
+is a good endpoint is that a curve missing it would indict the construction.
+
+⭐ **A naming trap worth carrying:** `sat_<arm>_08b` are the rebuilt **selection arms**;
+`sat08_full` is the 0.8B **judging of the full rubric**. **`sat_full_08b` does not exist** — reading
+its absence as missing data would have made this round look impossible.
+
+⚠ **`sat_coval_core_08b` is absent, so the released core is the one admitted arm whose curve
+position is unreplicated.**
