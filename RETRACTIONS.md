@@ -18600,3 +18600,31 @@ the full arm selects all of them at a satisfaction coverage of exactly one. With
 zero control returns 0.5005 and the sham 0.5343. This is the second time in three rounds that a wall I
 was about to declare turned out to be a file I had not looked for, and on both occasions the thing
 that sent me looking was a control failing rather than a doubt of my own.
+
+## 982 · the ordering that survived every floor does not survive its own resolution
+
+Three rounds carried an ordering between two admitted objects and an excluded one, first as excesses
+above a floor and then, once the floor was matched, as a comparison of shortfalls. Bootstrapping
+prompts and recomputing the correlation, its matched floor and the overlap together on every
+resample, nine of the ten excesses have intervals covering zero and both ordering gaps cover zero:
+0.0396 from minus 0.0102 to 0.0904, and 0.0511 from minus 0.0022 to 0.0995. One cell survives, the
+independent object against the eight-criterion blind arm. Everything else is a bound. The sentence
+that the admitted objects track the excluded one more than the label-blind arms is withdrawn.
+
+## 983 · a sign I explained for a whole round is not stable under correct resampling
+
+The greedy object against the excluded object was reported at minus 0.0176 as a point estimate and
+the following round spent itself explaining why such shortfalls might exist. Under joint resampling
+the same cell is plus 0.0211, with an interval from minus 0.0117 to 0.0524. The sign flip is not a
+new finding; it is the interval covering zero, seen from the other side. The explanation round's own
+result stands, because it refuted a hypothesis with a validated instrument rather than explaining the
+shortfall, but its premise did not need explaining.
+
+## 984 · three rounds reasoned about a quantity whose resolution nobody had measured
+
+The standard's own history says a deficit inside its own floor's noise needs no explanation, and this
+arc built a floor, matched it twice, refuted an explanation for the residual, and only then asked what
+the design could resolve. The answer took one round and one bootstrap. The cost was three rounds of
+reasoning about numbers between one and five hundredths against a standard error of one and a half to
+three hundredths. The order should have been reversed: price the resolution before explaining the
+residual, because an unresolvable residual is not a finding waiting for a mechanism.

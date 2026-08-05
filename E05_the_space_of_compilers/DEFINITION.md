@@ -3912,3 +3912,21 @@ overlap therefore moves none of the ten excesses to zero or above; the magnitude
 sign holds. So the shortfall is a property of the arms rather than of the population the null was
 drawn from, and one candidate explanation is eliminated rather than confirmed. Eliminating a confound
 does not name a cause, and the shortfall is now unexplained rather than explained away.
+
+## R740 · nine of the ten shortfalls, and both orderings, are inside their own resolution
+
+Three rounds reasoned about ten negative excesses and one tried to explain them without anyone having
+measured what the design can resolve. Bootstrapping prompts and recomputing the correlation, its
+overlap-matched floor and the overlap itself together on every resample, only one of the ten has a
+ninety five percent interval excluding zero, and that one is the independent object against the
+eight-criterion label-blind arm at minus 0.0556 with an interval from minus 0.1009 to minus 0.0116.
+Both ordering gaps cover zero: 0.0396 with an interval from minus 0.0102 to 0.0904, and 0.0511 from
+minus 0.0022 to 0.0995. The signs are not stable either — the greedy object against the excluded one
+is plus 0.0211 under joint resampling against a point estimate of minus 0.0176 two rounds earlier,
+which is the same fact as the interval covering zero arriving as a change of sign. So the ordering
+that survived every floor does not survive its own resolution, and the honest report for nine cells
+is a bound rather than a shortfall. The naive combination of the three uncertainty sources in
+quadrature gives 0.0213 while the joint bootstrap gives 0.0162 and resampling the correlation alone
+gives 0.0181, so the correlation and its floor move together and treating them as independent
+overstates the width. The intervals are conditional on this criterion pool; pricing the pool itself
+would need a second release.

@@ -449,8 +449,13 @@ so that comparison mixes no instruments.
 ⛔ **AMENDED** *(R738)*: **against floors matched on measured overlap, all ten excesses are
 NEGATIVE** — `greedy` correlates with the excluded object at **0.8123** against a matched floor of
 **0.8299**. What survives is a comparison of **shortfalls**: greedy **−0.0176 vs −0.1151**, indep
-**−0.0638 vs −0.1212**, gaps **+0.0975** and **+0.0574** against a band of **0.0151**. **The ordering
-holds; "they move with it prompt by prompt" does not.** ⭐ **And the obvious explanation for the
+**−0.0638 vs −0.1212**, gaps **+0.0975** and **+0.0574** against a band of **0.0151**.
+⛔⛔ **AND THE ORDERING DOES NOT SURVIVE ITS OWN RESOLUTION** *(R740)*. Bootstrapping prompts with the
+correlation, its matched floor **and the overlap** recomputed together, **9 of the 10 excesses cover
+zero** and **both ordering gaps cover zero**: greedy **+0.0396 [−0.0102, +0.0904]**, indep **+0.0511
+[−0.0022, +0.0995]**. The signs are not stable — greedy↔oracle is **+0.0211** here against
+**−0.0176** as a point estimate. **Only `indep`↔`topw_k8` survives, at −0.0556 [−0.1009, −0.0116].**
+**The honest report for the other nine is a bound, not a shortfall.** ⭐ **And the obvious explanation for the
 negative sign is REFUTED** *(R739)*: the rules do **not** select higher-variance criteria — mean
 variance percentile rank **0.5028 / 0.4677 / 0.5318** against a null of **0.5**, with uniform arms at
 **0.5005 ± 0.0029** and the rule that *does* select on variance ranking first at **0.8528**. Matching

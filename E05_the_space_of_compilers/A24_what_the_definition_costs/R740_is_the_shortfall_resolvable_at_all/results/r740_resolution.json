@@ -1,0 +1,128 @@
+{
+  "A_quadrature_naive": 0.0213,
+  "B_bootstrap_se": 0.016178654491548112,
+  "C_excesses_excluding_zero": 1,
+  "D_gaps_excluding_zero": 0,
+  "analytic_mean_se": 0.003781498510787743,
+  "bootstrap_mean_se": 0.003847786068652748,
+  "cells": {
+    "greedy|oracle_k4": {
+      "covers_zero": true,
+      "excess": 0.021114136997365973,
+      "hi": 0.052373924731869914,
+      "lo": -0.01166000505657924,
+      "mc_err": 0.0002718486049914378,
+      "se": 0.016178654491548112
+    },
+    "greedy|topw_k3": {
+      "covers_zero": true,
+      "excess": -0.0087610427692274,
+      "hi": 0.04926200585437342,
+      "lo": -0.07153479110679399,
+      "mc_err": 0.001698498669024048,
+      "se": 0.030694973109889157
+    },
+    "greedy|topw_k4": {
+      "covers_zero": true,
+      "excess": -0.012224800445836792,
+      "hi": 0.0419592269739715,
+      "lo": -0.0719000259379594,
+      "mc_err": 0.0014696508883482507,
+      "se": 0.029646958622110735
+    },
+    "greedy|topw_k6": {
+      "covers_zero": true,
+      "excess": -0.011993276842733769,
+      "hi": 0.038329362302968385,
+      "lo": -0.06530404564600949,
+      "mc_err": 0.0016869508722242652,
+      "se": 0.02615995565140451
+    },
+    "greedy|topw_k8": {
+      "covers_zero": true,
+      "excess": -0.04113211645707271,
+      "hi": 0.005190373635111548,
+      "lo": -0.09164994120817992,
+      "mc_err": 0.0006605674539823524,
+      "se": 0.024539203571509658
+    },
+    "indep|oracle_k4": {
+      "covers_zero": true,
+      "excess": 0.017554398183077025,
+      "hi": 0.062110542037259665,
+      "lo": -0.02940536978611846,
+      "mc_err": 0.00011707436231959617,
+      "se": 0.023197697126570844
+    },
+    "indep|topw_k3": {
+      "covers_zero": true,
+      "excess": -0.02143882903927541,
+      "hi": 0.0360523418344601,
+      "lo": -0.08000331045349315,
+      "mc_err": 0.0006496718344253663,
+      "se": 0.02998370926324252
+    },
+    "indep|topw_k4": {
+      "covers_zero": true,
+      "excess": -0.023125031026214327,
+      "hi": 0.03409506685208051,
+      "lo": -0.07863472585703567,
+      "mc_err": 0.0012908243998055852,
+      "se": 0.02901654277917153
+    },
+    "indep|topw_k6": {
+      "covers_zero": true,
+      "excess": -0.03386609997115231,
+      "hi": 0.01341697020272178,
+      "lo": -0.08278714850841735,
+      "mc_err": 0.0007406872798785643,
+      "se": 0.024988390501498196
+    },
+    "indep|topw_k8": {
+      "covers_zero": false,
+      "excess": -0.05557231465778689,
+      "hi": -0.011565328528645202,
+      "lo": -0.10087161900166684,
+      "mc_err": 0.0009618747345100482,
+      "se": 0.0234388763810454
+    }
+  },
+  "controls": {
+    "G0": true,
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "SHAM": true
+  },
+  "controls_ok": true,
+  "directional_boot_below_quadrature": true,
+  "gaps": {
+    "greedy": {
+      "excludes_zero": false,
+      "gap": 0.03964194612608364,
+      "hi": 0.09038289126202882,
+      "lo": -0.010248259908647174,
+      "se": 0.025991679808244357
+    },
+    "indep": {
+      "excludes_zero": false,
+      "gap": 0.05105496685668426,
+      "hi": 0.09948956781482836,
+      "lo": -0.0021656388352900946,
+      "se": 0.025882639561199926
+    }
+  },
+  "n_prompts": 734,
+  "prior_art": [
+    "R303",
+    "R697",
+    "R738",
+    "R739"
+  ],
+  "registered": "A 0.021 naive; B 0.020 [0,1]; C 5 [0,10]; D 2 [0,2]",
+  "residue": "conditional on this criterion pool; pool uncertainty needs a second release",
+  "sham_r_only_se": 0.01812423489868144,
+  "source_sha": "ca885f1ca8d63be2",
+  "tree_sha": "53f825803dd4bb8dcf6837cf9ab762b976dd1bf1",
+  "world": "\u2b50\u2b50\u2b50 W-UNRESOLVED \u2014 9 OF THE TEN EXCESSES COVER ZERO. Bootstrapping prompts and recomputing the correlation, its matched floor and the overlap TOGETHER on every resample, only 1 of the ten shortfalls have a 95% interval excluding zero. The greedy-oracle cell, the smallest and the one three rounds have reasoned about, has SE 0.0162 against a point excess of +0.0211. \u2b50 The arc has been explaining a quantity its own design cannot resolve, and the honest report for those cells is a bound. \u2b50\u2b50 THE ORDERING GAPS ARE A DIFFERENT MATTER: 0 of 2 exclude zero ({'greedy': 0.0396, 'indep': 0.0511}), so what survives R738 is the ordering and not the individual shortfalls. \u26a0 The interval is conditional on this criterion pool; pricing pool uncertainty would need a second release."
+}
