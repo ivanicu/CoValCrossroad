@@ -13777,3 +13777,53 @@ it is specific to one axis, and R592 does not license the wider version of itsel
 mechanically as sample size rises, and early n = 93 against late n = 209. The short-value fraction is
 the clean contrast — per-value, unbiased by n — and it happens to move the same way. *Two statistics
 agreeing does not make the biased one usable.*
+
+## 471 · The matcher my own NEXT line proposed fires on 36% of random prose
+
+R594 closed with *"test whether each sentence value contains exactly one core token as a prefix."*
+The core tokens are **`A`, `B`, `UNVERIFIED`** — single letters, substrings of nearly every English
+sentence. **Measured: the substring matcher fires on 35.77% of random README sentences.**
+
+⛔ It would have reported the tail TRANSLATABLE from pure collision, **and the repair it licensed
+would have rewritten real verdicts into letters chosen by an accident of spelling.** §4's *a search is
+an instrument and has no positive control*, proposed by me one round after writing that row into a
+commit body.
+
+## 472 · `world` is a genuinely open vocabulary — and `enum_set` is refuted too
+
+Core `B` · `A` · `UNVERIFIED` covers **80 of 317 occurrences = 25.2%**; 216 tail values. Under the two
+matchers with clean false-positive rates, **only 18.1% and 22.2% of the tail carries a core token at
+all** — far below the 60% bar. **There is nothing to fold, and no mechanical repair exists.**
+
+⭐ **The `enum_set` hypothesis was live and was killed by a unit test, not a preference.** `substring`
+reported a 29.8% compound rate, and it was **not** collision with prose — 0.1944 on the tail against
+0.0489 on control, a real 4× excess. The decisive check: if `substring` finds ≥2 tokens where `word`
+finds ≤1 in the **same string**, the extra tokens sit inside words. **41 of 42 = 97.6%.** `'A STABLE'`
+carries `A` and a `B` inside *STA-B-LE*. **Letter co-occurrence, not verdict co-occurrence.**
+
+## 473 · My "core" was a frequent value, not a categorical label
+
+v1's core contained a **2,188-character JSON blob** occurring ≥5 times. *Frequent value* and
+*categorical label* are different things and the definition conflated them. Fixed with a **type** test
+— does it parse as a dict or list — rather than an invented length threshold, so nothing is tuned.
+
+## 474 · I planted a control one of my own matchers could not pass
+
+The plant was `"the verdict is B because…"` for all three matchers. **`B` never sits at the start, so
+`prefix` scored 0.0000 and was condemned as broken by a control malformed for it** — §4's *control
+that cannot PASS*, built by me, on the round whose whole subject is matcher validity.
+
+⚠ Plants are now built **per matcher**, in the shape each exists to recognise; `prefix` returned
+**1.0000 and live**, with the lowest false-positive rate of the three (0.0217). *The matcher my
+malformed control discarded was the best one I had.*
+
+## 475 · My verdict averaged three designs whose false-positive rates differ 16×
+
+`(0.1806 + 0.2222 + 0.6528) / 3 = 0.352`, reported as "live matchers recover 35.2% of the tail".
+**§2.5 forbids averaging divergent designs in one sentence: it hides the disagreement, which is the
+informative part.** Here the designs differ by **16× in false-positive rate** (0.0217 vs 0.3577), so
+the mean is a number with no referent.
+
+Read per cell on each matcher's **excess over its own control**, the curve first came back
+**SPEC-DEPENDENT** — which is the honest state — and only the unit test of 472 collapsed it to a
+unanimous verdict. *The average would have printed a single confident answer and skipped both steps.*
