@@ -14333,3 +14333,35 @@ features became admissible to read — **and only then were they read.**
 ⭐ **The correction is built into the null** by taking it on the maximum across the grid, rather than
 applied afterwards to a per-feature p. *That ordering is what made `late_in_era`'s survival mean
 something instead of being one of six chances.*
+
+## 524 · A perfect switch at round 434, not a decline
+
+Sweeping every admissible cut across 365–485 among cited rounds: best cut **434**, Δ = **1.0000**
+against a selection-aware max-over-cuts null of **0.4800** (400 permutations, median 0.3095, max
+0.6333). **Every cited round below 434 records its source; not one at or above it does**, and
+`P(prov | ≥ c) = 0.0000` holds at every cut from 434 through 477.
+
+⭐ **R607's "decline" and R608's `late_in_era` were both coarse reads of a switch.** The deliverable's
+unattributable evidence begins at a single identifiable point.
+
+## 525 · Half my own verdict rests on a statistic degenerate under ties
+
+The round printed *"while the rank correlation does not"*, implying **step rather than slope**. ⛔ The
+outcome is **binary with 26 ties**, so the rank transform is degenerate — its own permutation null has
+**p95 = 0.7961** — and **a perfect step is also the extreme slope**, so at Δ = 1.0000 the two shapes
+are not separable even in principle.
+
+⚠ **Established: the separation. Not established: that it is a step rather than a steep slope.** *A
+verdict string with two clauses can be right in one and unsupported in the other, and the failure is
+invisible because the sentence reads as a single finding.*
+
+## 526 · Naming a shape before establishing it exists
+
+R608 closed with *"**the true transition** is somewhere in 365–485"* — asserting an object never
+measured, when the same evidence was equally consistent with a gradual decline or with no in-band
+transition. **§4's `the definition describes the instance`, applied to a SHAPE**: the sentence
+described what a step would look like and treated the step as given.
+
+⭐ This round refused that framing and asked the prior question — **and the answer happened to be a
+step.** *Being right by luck is not the same as having established it*, which is why 525's caveat
+stands rather than being quietly dropped now that the shape came out as predicted.

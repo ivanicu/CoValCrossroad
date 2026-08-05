@@ -2855,3 +2855,30 @@ flat. The separation is temporal, so **R607's within-era selection is partly an 
 its location does not.
 
 ⚠ A structural correlate is not a reason; why a round recorded its source needs the round's author.
+
+---
+
+## R609 · Where the unattributable evidence begins
+
+Sweeping every admissible cut (at least 5 rounds each side) across band 365–485, cited rounds only,
+n=35 with 9 carrying provenance. **26 cuts tested; the null is taken on the MAXIMUM across them**, so
+the winning cut earns no credit for being the best of many.
+
+**Best cut 434 · Δ = 1.0000** against a max-over-cuts null of median **0.3095**, p95 **0.4800**, max
+**0.6333** over 400 label permutations.
+
+Every cited round below 434 records its source; **not one at or above it does**. The right-hand side
+is `P(prov | ≥ c) = 0.0000` at every cut from 434 through 477 — 0.6923, 0.6429, 0.6000, 0.5625,
+0.5294, 0.5000, 0.4737, 0.4500, 0.4286, 0.4091, 0.3913, 0.3750, 0.3600, 0.3462, 0.3333, 0.3214,
+0.3103 and 0.3000 on the left as the cut moves right, and zero on the right throughout.
+
+**Controls.** A step planted at 450 is recovered **at 450** with |Δ| = 1.0000; provenance independent
+of id returns max|Δ| = **0.2857**, below the null, so the instrument can fail; constant provenance
+returns **0.0000** at every cut.
+
+⚠ **The shape claim is one-sided.** The round also reported a rank correlation of **−0.1471** failing
+to clear its null of **0.7961**, implying *step rather than slope* — but the outcome is binary with 26
+ties, so that statistic is degenerate, and a perfect step is also the extreme slope. **The separation
+is established; its shape is not.**
+
+⚠ Round ids order the work; they do not date it.
