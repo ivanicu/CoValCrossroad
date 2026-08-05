@@ -15250,3 +15250,27 @@ watched execute 43 others. **v3, windowed and validated against the known member
 *"Cheap to install"*, after *"re-runs are expensive"* (to avoid work) and *"the fix is one line"* (to
 justify it). ⭐ **All three felt obviously true; the two later measured were wrong by 260× and by
 "there is no fix at all".**
+
+## 617 · The repair is 5 sites, not 7 — and my two size claims were wrong in opposite directions
+
+Of the seven harnesses, **five turn a returncode into a judgement**. **R390 forms the judgement but
+never emits it; R394 never compares a returncode at all** — editing either would change nothing.
+
+⭐ **Two rounds apart, about the same object:** *"only one harness runs rounds"* → **7**;
+*"one predicate and seven call sites"* → **5**. **Wrong in opposite directions, and neither error
+was toward caution** — one understated scope by 7×, the other overstated work by 40%. *There is no
+safe direction to guess in.*
+
+⚠ **5 is a LOWER bound**: classification could be implicit in a consumer this scan never reads.
+
+## 618 · The marker would have matched all seven on documentation alone
+
+Every round in this corpus writes `fail`, `unrunnable` and `returncode` into its **prose**. Without
+stripping docstrings by AST first, the scan returns **7 of 7** — a clean sweep produced entirely by
+the corpus's own commentary. ⭐ *In a corpus that documents its failure modes in detail, a
+failure-word marker measures the documentation unless the documentation is removed first.*
+
+## 619 · Check #241 — "predate this arc" is false; all seven are in A24
+
+I meant *predate the R630s*. **Twenty-seventh, and the same class as the previous four: a claim about
+my own corpus written from narrative position rather than from the object.**
