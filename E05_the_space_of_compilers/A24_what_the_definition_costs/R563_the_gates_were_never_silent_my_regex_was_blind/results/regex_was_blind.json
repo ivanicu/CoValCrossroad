@@ -1,0 +1,82 @@
+{
+  "world": "B",
+  "old_pattern": "\\bR\\d{3}\\b",
+  "new_pattern": "R\\d{2,4}(?=[_\\b\\s:,.)]|$)",
+  "gates_naming_objects_old": 3,
+  "gates_naming_objects_new": 6,
+  "n_distinct_objects": 182,
+  "max_share": 3,
+  "top_objects": [
+    [
+      "R422",
+      3
+    ],
+    [
+      "R522",
+      2
+    ],
+    [
+      "R531",
+      2
+    ],
+    [
+      "R499",
+      2
+    ],
+    [
+      "R486",
+      2
+    ],
+    [
+      "R523",
+      2
+    ]
+  ],
+  "per_gate": {
+    "arm_population_is_derived": {
+      "n_new": 40,
+      "n_old": 1,
+      "rc": 1
+    },
+    "artifacts_are_internally_coherent": {
+      "n_new": 3,
+      "n_old": 3,
+      "rc": 1
+    },
+    "attack_every_check": {
+      "n_new": 0,
+      "n_old": 0,
+      "rc": 1
+    },
+    "attack_outcome_variable_declared": {
+      "n_new": 0,
+      "n_old": 0,
+      "rc": 1
+    },
+    "attack_scope_reaches_the_reader": {
+      "n_new": 0,
+      "n_old": 0,
+      "rc": 0
+    },
+    "corrections_propagated": {
+      "n_new": 8,
+      "n_old": 1,
+      "rc": 0
+    },
+    "every_round_reaches_the_readme": {
+      "n_new": 136,
+      "n_old": 0,
+      "rc": 1
+    },
+    "outcome_variable_declared": {
+      "n_new": 12,
+      "n_old": 0,
+      "rc": 1
+    },
+    "seed_filter_is_disclosed": {
+      "n_new": 7,
+      "n_old": 0,
+      "rc": 1
+    }
+  }
+}

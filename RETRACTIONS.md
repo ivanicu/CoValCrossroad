@@ -12783,3 +12783,36 @@ is why R562 could not answer its own question.
 
 ⭐ **The general form: a check's output is an interface.** A failure that does not name its object
 converts a mechanical check back into a manual search, which is the cost the check existed to remove.
+
+## 404 · "Six of nine gates name nothing" was my regex, not the gates
+
+R562 concluded that six of nine failing gates report a failure without naming its object, and built
+a whole finding on it — *"a check's output is an interface"*. **The pattern was `\bR\d{3}\b`.** Every
+round id here is `R422_did_the_judge…`: the digits are followed by an **underscore**, `_` is a **word
+character**, so the trailing `\b` **cannot match**. **The pattern was blind to the naming convention
+it was searching for.**
+
+Corrected: **6 of 9 gates name objects, not 3**, over **182 distinct objects**.
+`every_round_reaches_the_readme` names **136** and was recorded as naming zero.
+
+⭐⭐⭐ **What makes this a diagnosis and not a second guess is one control: run both patterns on a
+string whose answer is known.** The old one misses `R422_did_the_judge…`; the new one finds it. **The
+same control, run one round earlier, would have caught it — and §4 already has three entries saying
+a search is an instrument that needs a positive control.** I wrote the searching code without one
+for the fourth time.
+
+⚠ **R562's UNVERIFIED verdict was right for the wrong reason.** Its control genuinely reported
+partial coverage, and the branch correctly refused to conclude. **The cause was my instrument, not
+the gates** — so the refusal was correct and the diagnosis attached to it was false.
+
+## 405 · The grouping, once the instrument worked
+
+**182 distinct objects across six gates; the most-shared object (`R422`) appears in 3 of 9**, then
+five objects at 2 each. **So the failures are mostly about different rounds — closer to nine defects
+than to one — but with real overlap that a one-defect-per-round plan would have missed.**
+
+⚠ **Three gates still name nothing, and all three are `attack_` meta-gates that audit other gates.**
+Expecting round ids from them may be the wrong expectation entirely. **Stated as open, not resolved.**
+
+⚠ **`every_round_reaches_the_readme` flags R556–R562 — the rounds of this session.** Debt created
+while auditing debt.
