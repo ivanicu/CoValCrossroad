@@ -16795,3 +16795,26 @@ a defect and committing it is invisible to a name-matcher.**
 unfailable ranges twice. **Outcomes of 0, 1 or >15 were live and each would have falsified the row.**
 Observed 3: INSIDE, error −5. **The point error is large and the row still carries information**,
 which is the whole difference from the two rounds before it.
+
+## 817 · The name collision was coincidence, 12.8 hours apart — so R690's proposed build was wrong
+R360 bound `PUBLISHED_FIVE` at 02:05 and R442 bound it to different members at 14:53 the same day,
+with **no retraction of the claim in any of the 228 ledger versions that existed at the time**. R690's
+closing line proposed a gate on the retraction ledger; **there was nothing for such a gate to warn
+against.** The enforceable invariant is NAMING, not history, and `assurance/release_names_resolve_to
+_one_set.py` is what this round built instead. **A remedy proposed in a closing sentence is a
+hypothesis about the mechanism, and this one was wrong about it.**
+
+## 818 · I registered the gap in DAYS for a phenomenon that happened in HOURS
+Interval `[0, 90]` days; observed gap **12.8 hours**, scored as 0 days INSIDE. **A day-resolution
+interval cannot distinguish 0 from 23 hours**, so "0 days apart" reads as simultaneous when the two
+bindings are most of a working day apart — which is exactly the difference between one act and two.
+**The unit was coarser than the thing measured, and no control catches that: the registration was
+internally consistent and simply could not see the phenomenon.**
+
+## 819 · The gate was frozen against its own known instance rather than fixing the source
+`PUBLISHED_FIVE` is frozen with a written reason instead of renamed in R360 and R442. Both rounds are
+committed and their artifacts carry source hashes, and **re-running a round to fix its source
+destroyed an artifact once in this arc**. The retraction reaches `STATEMENT.md` and both READMEs, so
+the claim is corrected where a reader meets it while the artifacts stay reproducible. **Freezing is
+the right move when the alternative is invalidating a source hash — and it is only defensible because
+the entry carries its reason.**

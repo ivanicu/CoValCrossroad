@@ -1,0 +1,7 @@
+{
+ "names": ["PUBLISHED_FIVE"],
+ "reasons": {
+  "PUBLISHED_FIVE": "Bound in R360 to {coval_core, topw_k3, topw_k4, topw_k6, topw_k8} and in R442 to {coval_core, topabs_k4, topvar_k4, topw_k4, topwvar_k4}, 12.8 hours apart, no retraction in the ledger at the time (R691). Four of five members in each are never named by data/DATASET_CARD.md; the release ships ONE core (R689). FROZEN RATHER THAN RENAMED because both rounds are committed and their artifacts carry source hashes -- re-running a round to fix its source destroyed an artifact once in this arc. The retraction reaches STATEMENT.md and both rounds' READMEs instead. A freeze entry with a reason is a ledger; one without is a drain (R672)."
+ },
+ "note": "Only NEW release-asserting names that fail to resolve to one carded set will fail the gate."
+}

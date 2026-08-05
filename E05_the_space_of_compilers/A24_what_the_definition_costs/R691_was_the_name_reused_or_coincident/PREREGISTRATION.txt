@@ -1,0 +1,29 @@
+R691 · PRE-REGISTRATION — written before any commit date is read.
+
+THE DECISION THIS MAKES SAFE
+  R690 found `PUBLISHED_FIVE` bound to two different sets. If the second binding came AFTER the
+  first's claim was retracted, a gate on the retraction ledger would have caught it and is worth
+  building. If they were written independently before any retraction existed, no ledger gate helps
+  and the remedy is a naming convention instead. Different builds.
+
+⚠ NOT A DERIVATION — I CHECKED. Round NUMBERS do not necessarily track COMMIT dates in this corpus:
+  rounds can be committed out of order, annotated later, or moved. So "R360 came first" is a
+  measurement, not arithmetic. If it turns out the numbering does track commit order perfectly, that
+  is itself worth stating.
+
+POINT A     R360's binding predates R442's.                       BINARY, can fail.
+POINT B     NO retraction ledger entry mentioning the published-five claim exists before R442's
+            binding commit.                                        BINARY, can fail.
+POINT C     the two bindings are 20 days apart.                    INTERVAL C [0, 90] days
+DIRECTIONAL (separately failable) the two bindings are in DIFFERENT commits — if one commit
+            introduced both, it is neither reuse nor coincidence but a single author writing two
+            meanings at once, and no ledger gate helps.
+KILL        both bindings in the same commit -> world C below; build nothing on the ledger.
+CONTROLS
+  POSITIVE  a known-tracked file must return a commit date — git log is an instrument.
+  g=0       a path that does not exist must return NOTHING, not today's date.
+  NEGATIVE  a file tracked but never containing the name returns no binding.
+  PLACEBO   run twice identical.
+IDENTIFICATION LIMIT  the commit that first CONTAINS a binding is not necessarily the commit that
+            AUTHORED it — a file can be moved or amended. Git records writes, and R678 already
+            recorded that limit for this corpus.

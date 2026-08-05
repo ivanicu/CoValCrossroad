@@ -1,0 +1,62 @@
+{
+  "world": "\u2b50\u2b50 B INDEPENDENT COINCIDENCE \u2014 R360 bound `PUBLISHED_FIVE` at 2026-08-04 and R442 bound it to DIFFERENT members 12.8 HOURS later, with NO retraction of the claim in the ledger at that time. \u26d4 SO A LEDGER GATE CANNOT HELP: there was nothing to warn against. The remedy is a NAMING rule \u2014 a name asserting a property of the release must resolve to one set \u2014 and that is a different build from the one R690's closing line implied. \u26a0 AND THE WRITE/AUTHOR LIMIT STANDS: git records the commit that first CONTAINS a binding, not the moment it was chosen.",
+  "controls_ok": true,
+  "tree_sha": "091fe776d782a5b0b09ed969f92e6fc6e74d03bf",
+  "bindings": [
+    {
+      "round": "R360",
+      "name": "PUBLISHED_FIVE",
+      "line": 124,
+      "members": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "absent_from_card": [
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "path": "E05_the_space_of_compilers/A24_what_the_definition_costs/R360_which_clause_is_load_bearing/run.py",
+      "commit": {
+        "sha": "19892ed6",
+        "date": "2026-08-04T02:05:45-07:00"
+      }
+    },
+    {
+      "round": "R442",
+      "name": "PUBLISHED_FIVE",
+      "line": 107,
+      "members": [
+        "coval_core",
+        "topabs_k4",
+        "topvar_k4",
+        "topw_k4",
+        "topwvar_k4"
+      ],
+      "absent_from_card": [
+        "topabs_k4",
+        "topvar_k4",
+        "topw_k4",
+        "topwvar_k4"
+      ],
+      "path": "E05_the_space_of_compilers/A24_what_the_definition_costs/R442_the_extension_under_clause_three_as_written/run.py",
+      "commit": {
+        "sha": "d27c9ace",
+        "date": "2026-08-04T14:53:36-07:00"
+      }
+    }
+  ],
+  "first": "R360",
+  "second": "R442",
+  "gap_days": 0,
+  "gap_hours": 12.7975,
+  "same_commit": false,
+  "prior_retraction": null,
+  "kill_fired": false,
+  "registered": "A R360 first; B no prior ledger entry; C 20 [0,90] days; different commits",
+  "limit": "git records the commit that first CONTAINS a binding, not the act of choosing the name (R678's write-not-author limit, and it applies here too)."
+}
