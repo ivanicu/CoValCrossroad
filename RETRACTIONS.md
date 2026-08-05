@@ -10892,3 +10892,27 @@ enforces accuracy where the invariant is HB7 licenses the seed of the next incid
 ⭐⭐ **Scanned the rest of the deliverable rather than fixing the one:** `289` was the **only**
 hand-typed self-count. The other figure that looked like one — `23 scorable arms` — is an anchored
 measurement from R486/R487.
+
+## 328 · "the definition's open items are no longer empirical" — five rounds carry UNVERIFIED worlds, and one of them is a definitional item
+
+**Retracted:** the closing line of the previous report, *"with the composition known, the definition's
+open items are no longer empirical… what remains is a FORMULATION choice."*
+
+**Counted, one command later:** **five** rounds' artifacts record an `UNVERIFIED` world — R312, R466,
+R467, R500, **R501**. R501 is not incidental: it asks whether clause ③'s provenance has a behavioural
+surrogate, **and the answer to that question decides whether the formulation fork exists at all.**
+
+⭐⭐⭐ **The error inverted the structure of my own result.** A and B differ *only because* ③ has no
+known behavioural trace. Had I been right that nothing empirical remained, the fork would be
+permanent. Being wrong is what makes it **contingent** — and contingent is the more interesting and
+more useful thing to write down, because it names the measurement that would collapse it.
+
+⚠ **Sixth false closing-quantifier this session** — after *"9 rounds"* (324), *"289 retractions"*
+(327), and three "walls" that a single command falsified. **The `NEXT` line is where I am least
+reliable, and its unreliability is not directional**: this one manufactured a philosophical problem;
+324 excused work; the wall claims closed routes that were open. **The only defence that has worked
+all session is running the count before writing the sentence**, and it takes one command.
+
+**What the deliverable now says instead:** the fork is stated as a fork, priced on both sides, with
+the open empirical question named — *a candidate instrument must first be shown to rank `oracle_k4`
+at an extreme* — as the thing that would dissolve it.

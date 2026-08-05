@@ -37,6 +37,42 @@ precision. *(R465)*
 
 ---
 
+## The formulation is a fork, not a fact awaiting measurement
+
+**Everything below is settled enough to state the choice.** ① excludes an adversarially worst rubric
+subset but no arm anyone built *(R464)*. ② is **satisfied by `coval_core`**, the one object anyone
+calls a core — 0.5640 in A2 against the 0.5404 prompt-blind ceiling *(R475, R485)*. ④ excludes all
+seven arms on the second release. **③ is what empties the definition**, and the ③-admissible side
+holds exactly **one** prompt-responsive full-coverage arm *(R502)*.
+
+⭐⭐⭐ **So "core" is not one definition with an unresolved parameter. It is two definitions, and the
+record prices both.**
+
+| | **A · core as an OBJECT-property** (drop ③) | **B · core as a PROCESS-property** (keep ③) |
+|---|---|---|
+| what it is a predicate on | a criterion set | a **(set, construction history)** pair |
+| extension here | **5** arms (①∧②∧④) | **0** |
+| checkable by a third party holding only the artifact | **yes** | **no** — and this is a derivation, not a limitation of effort |
+| what it admits that you may not want | arms that **read the human labels** — `oracle_k4`, `greedy_k4_fit1`, `indep_k4_fit1`, `topw_k4` | nothing; it admits nothing here |
+| why the extension is what it is | the label-readers are the only arms clearing the ceiling *(R485)* | the site ships **one** admissible prompt-responsive generator *(R502)* |
+
+⭐ **Reading B's emptiness is a fact about the RELEASE, not about the definition.** That is the whole
+content of R502: `UNDETERMINED` was never "the definition cannot be settled", it was "there is one
+candidate and a floor." **A second site with more ③-admissible prompt-responsive generators would
+settle ②∧③ without changing a word of the definition.**
+
+⚠⚠ **AND THE FORK ITSELF IS CONTINGENT ON AN OPEN EMPIRICAL QUESTION — it is not philosophy.** A and
+B differ *only because ③ has no known behavioural surrogate*. If label-reading left a checkable
+trace, B would become object-level and the fork would dissolve. **That question is `UNVERIFIED`, not
+closed**: the one instrument tried (per-prompt A2 dispersion residualised on mean A2) failed its own
+positive control — it could not place `oracle_k4`, the maximal label-reader, outside the middle of
+the pack *(R501)*. **A candidate instrument must first be shown to rank `oracle_k4` at an extreme.**
+
+**What the choice costs, in one line each.** Choose **A** and a set that read the answer key is a
+core. Choose **B** and no one handed a criterion set can ever tell you whether it is one.
+
+---
+
 ## The extension
 
 **0**, under every reading. *(R475)*
