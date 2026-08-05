@@ -88,6 +88,37 @@ counts as a core — though R503 shows those are **verbatim human rubric items**
 provenance, not quality. Choose **B** and a core is only ever as trustworthy as the **producer** you
 are shown alongside it.
 
+### The recommendation, and what would flip it
+
+⭐⭐⭐ **B.** Not on taste — on an inequality between two measured quantities.
+
+The Bayes ceiling for **any predictor** under per-pair 0/1 loss is **0.6132** (resolution **0.0093**,
+four seeds). `oracle_k4`, which reading **A** admits, scores **0.6282** — **above it by more than the
+resolution.** (The difference is not restated as a third number: it is arithmetic on the two above,
+and a derived constant on this page is one more thing to keep in sync.)
+
+> **An object cannot predict better than prediction allows. `oracle_k4` clears that bound because it
+> is not predicting — it is reading the answer.** A definition whose extension contains an object
+> above the prediction ceiling is **not defining a predictor**, whatever else it is defining.
+
+⭐ **This is a derivation from two measurements, labelled as one.** It could have come out otherwise:
+`oracle_k4` could have landed below 0.6132 and did not. ⚠ **It is void if the two numbers are not on
+the same population and statistic** — both are A2-scale on the 968-prompt population, and **checking
+that is the first thing anyone attacking this recommendation should do.**
+
+**What would flip it to A**, stated so a later round can fire it:
+1. **A ③-admissible prompt-responsive arm reaching the prompt-blind ceiling (0.5404).** Then B's
+   extension is non-empty here and the recommendation carries no cost at all — it strengthens.
+   *(R502 names this as what a second site must supply.)*
+2. **A behavioural surrogate for ③.** The specification is exact and carries no citation, because
+   nothing is yet settled to cite: *an instrument that ranks `oracle_k4` at an extreme of the
+   ③-excluded/③-admissible split.* One has been tried and could not — so this is an open
+   requirement, not a finding, and the residue rests nothing on it.
+3. ⛔ **The only thing that would flip it to A**: a use for "core" that does **not** require
+   prediction. If the object is meant to *summarise* a judgment already made rather than *anticipate*
+   one, the 0.6132 bound is irrelevant and A is correct. **That is a question about the purpose, not
+   about the data, and this campaign cannot answer it.**
+
 ---
 
 ## The extension
