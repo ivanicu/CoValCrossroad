@@ -13879,3 +13879,46 @@ The gate's own `R(\d{3})[,)]` finds **83** cited rounds; the looser `R(\d{3})` R
 Every statement about "the cited rounds" in this arc silently picked one of the two. *When two
 instruments define a population differently, the one that governs the decision is the one the
 decision-maker runs — not the one that reads better.*
+
+## 481 · My filter would have reported the unsound population EMPTY when its one case exists
+
+R596 closed by calling *"paragraphs citing >1 round AND containing UNVERIFIED"* **the exact size of
+the population where the new rule is unsound.** Wrong in both directions at once:
+
+- **a SUPERSET** — the rule only fires when a cited round actually *is* unverified;
+- **and a SUBSET, which is the worse half** — unsoundness does **not** require multiple citations. A
+  paragraph citing **one** round can contain the word for an unrelated reason and allow it by accident.
+
+⛔ **Measured: L2 (R596's filter) = 0 while L3 (where the rule fires) = 1.** I narrowed by a **proxy**
+(citation count) for a **property** (marker intent) — the same class as the previous seventeen, this
+time committed *inside the correction to one of them.*
+
+⚠ The one member is sound: **para 41 cites [501] alone**, so the marker can only be about the round it
+allows. **BOUND by construction.**
+
+## 482 · Reachable and unexercised are different facts
+
+Planted by exit code, not argued: an unverified R507 in a paragraph whose `UNVERIFIED` refers to a
+**different** round → **exit 0, ALLOWED** (both runs agree). Same round with **no** marker → **exit
+1, stopped**. Normal verdict `B` → exit 0.
+
+**So the unsound direction is REAL and REACHABLE, and `STATEMENT.md` contains zero instances of it.**
+The gate can stay as it is; what changes is the scope statement, not the code.
+
+## 483 · A measured zero, made admissible by pointing the counter where the answer is positive
+
+First inspection returned 0 — exactly when P5's ★ rule applies. Over the control corpora the same
+counter returns **L3 = 2 (`DEFINITION.md`), 2 (`FORMULATION.md`), 5 (round READMEs)**. Only then is
+`STATEMENT.md`'s zero a measurement rather than silence. Empty document → `(0,0,0,0)`; synthetic doc
+with citations but no token → L1 = 0; placebo token `ZZQ` → L1 = 0.
+
+## 484 · The verdict label fired on a condition its own pre-registration does not name
+
+v1 printed **`B LIVE`** on `len(L3) > 0`. **World B was pre-registered as *"a round is being allowed
+by a word that was not about it"*** — requiring an **accidental** marker, not merely that the
+allowance fires. Every member is BOUND, so B is false and the branch asserted what the round had not
+established.
+
+⭐ **Same row as R593's non-partition `elif`, one arc later.** A pre-registered label is only binding
+if the branch tests the condition the label was defined by — writing the definition in the docstring
+and the condition in the code is two chances to disagree, and they did.
