@@ -30,6 +30,21 @@ def main():
         pre = str(d.relative_to(root)) + "/"
         return any(f.startswith(pre) for f in tracked)
 
+    # ⛔ R550: tracking is not CURRENCY. 116 of 542 rounds (21.4%) were amended after their
+    # first commit, so "has a tracked file" cannot certify a directory is up to date. The
+    # hazard is measured; the blind spot's historical occupancy is NOT -- git history cannot
+    # observe an uncommitted state, so that question is structurally unanswerable and this
+    # check closes the hazard prospectively rather than diagnosing the past.
+    porc = subprocess.run(["git", "status", "--porcelain"], cwd=root,
+                          capture_output=True, text=True).stdout.splitlines()
+    relr = {str(d.relative_to(root)) for d in rounds}
+    # ⛔ FALSE POSITIVE, caught by this gate blocking a healthy commit one round after it
+    # shipped. Porcelain column 0 is the INDEX, column 1 is the WORKTREE. 'A ' means STAGED,
+    # which at commit time is the CORRECT state -- flagging it fires on the healthy world.
+    # Only an unstaged WORKTREE change (column 1 non-blank) is the failure this gate names.
+    dirty = [l for l in porc if not l.startswith("??") and l[1] != " "
+             and any(l[3:].strip().startswith(r + "/") for r in relr)]
+
     untracked = [d for d in rounds if not has_tracked(d)]
     committed = [d for d in rounds if has_tracked(d)]
 
@@ -44,7 +59,27 @@ def main():
     print(f"  NEGATIVE CONTROL  an invented round reads as untracked: {not has_tracked(fake)} -> "
           f"{'PASS' if not has_tracked(fake) else 'FAIL'}")
 
-    print(f"\n  round directories: {len(rounds)}   untracked: {len(untracked)}")
+    # POSITIVE CONTROL for the dirty check: the `??` prefix must be EXCLUDED, else an
+    # untracked new round reads as a modified one -- the exact defect R550 made by hand.
+    # The control must span EVERY porcelain category, not the two I happened to think of.
+    # Its first version tested ' M' and '??' only, passed, and the gate still fired on 'A '.
+    r0 = next(iter(relr))
+    cases = {" M": True, "MM": True, "??": False, "A ": False, "M ": False, "R ": False}
+    got = {c: (not f"{c} {r0}/x".startswith("??") and c[1] != " ") for c in cases}
+    ok = got == cases
+    print(f"  POSITIVE CONTROL  dirty filter over ALL 6 porcelain categories "
+          f"(staged must NOT flag): {ok} -> {'PASS' if ok else 'FAIL'}")
+    if not ok:
+        print(f"    expected {cases}\n    got      {got}")
+        return 2
+
+    print(f"\n  round directories: {len(rounds)}   untracked: {len(untracked)}   "
+          f"tracked-but-dirty: {len(dirty)}")
+    if dirty:
+        print("  ⛔ a committed round was modified and not re-committed -- tracking is not currency:")
+        for l in dirty:
+            print(f"    {l}")
+        return 1
     if untracked:
         print(f"  ⛔ built but never committed -- reporting is not committing:")
         for d in untracked:

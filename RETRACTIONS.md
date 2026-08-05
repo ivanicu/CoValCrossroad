@@ -12344,3 +12344,65 @@ and the register shows none of that.**
 ⚠ **Scope correction to my own closing line**, which said *"four rows, every one gated by a flag"*:
 after R546's nesting there are **two** on-site requirements, and **rows 5–7 are not flag-gated at
 all** — they need another site or a decision.
+
+## 375 · "Is the blind spot inhabited?" — the instrument cannot answer that question
+
+R549's NEXT line named a blind spot in the gate it had just shipped: a round **committed once and
+then modified without a second commit**. R550 set out to measure whether it was inhabited.
+
+**It measured something else.** **116 of 542 rounds (21.4%) carry ≥2 commits** — well past the
+pre-registered 10% kill, so **WORLD B: tracking once cannot certify currency.** But every one of
+those amendments **was eventually committed, which is the only reason git can see it.**
+
+⭐⭐⭐ **Git history cannot observe an uncommitted state.** So the number measures the **HAZARD**
+(rounds do get modified) and is silent on the **OCCUPANCY** (were they ever left uncommitted at a
+commit moment). Occupancy is **UNVERIFIED and structurally unanswerable from this instrument** —
+not a null.
+
+**This is G1 caught in flight:** the estimand was named before the method, the method was run, and
+only reading the output showed the two were different quantities. The remedy is prospective — the
+gate now also fails on tracked-but-dirty round directories — and it closes the hazard without
+claiming to diagnose the past.
+
+⚠ **And a defect in my own live check, caught by reading its single hit.** It counted every
+`git status --porcelain` line as "tracked-but-modified" and returned 1. That line was `??` —
+**untracked**, R550's own new directory — not `M`. True count: **0**. The shipped gate now carries
+a control that admits `' M'` and rejects `'??'`, because a filter whose two categories I confused
+by hand will be confused again.
+
+## 376 · The gate I shipped last round fired on the HEALTHY state, and its control passed
+
+**`every_round_is_committed.py`'s new dirty check flagged three files as *"modified and not
+re-committed"* while blocking a commit that was entirely correct.** The three were `A ` — **staged**
+— which at commit time is exactly the state the gate should want.
+
+**Porcelain column 0 is the INDEX; column 1 is the WORKTREE.** My filter tested `l[:2].strip()`,
+which is truthy for a staged-only change. **Only an unstaged worktree change is the failure the gate
+names**, so the condition is `l[1] != " "`.
+
+⭐⭐⭐ **And the positive control passed.** It tested `' M'` against `'??'` — the two categories I
+was thinking about — and had no opinion about `'A '`. That is §4's row exactly: *a positive control
+asks "can this instrument see?" and never "is what it sees the thing I am about to claim about?"*
+The control shared the instrument's blind spot and licensed nothing.
+
+**Remedy shipped:** the control now spans **all six** porcelain categories (`' M'`, `'MM'`, `'??'`,
+`'A '`, `'M '`, `'R '`) with the expected verdict for each, and **requires staged NOT to flag**.
+A two-case control over a six-case space was never a control.
+
+⭐ **What makes this cheap rather than costly: the gate caught itself by blocking a good commit.**
+A gate that only ever passes is indistinguishable from one that is not running.
+
+## 377 · I wrote into a freeze file without reading its schema
+
+Freezing `feb5d9df` I did `d[sha] = why` on `KNOWN_QUANTIFIED_NEXT.json`, whose real schema is
+**`{"count": int, "shas": [...]}`** — so the sha landed as a **stray top-level key**, the gate still
+flagged it, and the print said *"file now holds 3 entries"* against a true 141.
+
+**The tell was in my own output and I nearly walked past it.** A count of **3** where the round
+before had measured **141** is not a small discrepancy; it is a different object. **Nothing was
+lost** — `git diff` confirmed the 141 intact — but the write was a guess at a structure that was
+one `json.load` away.
+
+⭐ **The general form: I handled the unknown schema with a defensive `isinstance` branch for dict
+vs list, which made the code look careful while never asking the file what it was.** Defensive
+branching over an unread schema is a guess wearing a helmet. Read the object.
