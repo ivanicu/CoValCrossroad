@@ -16509,3 +16509,32 @@ R676 censused five-member arm sets across the corpus and carries the ③ extensi
 list in its executable source. So does R360 and R361. **A round measuring set membership that
 hard-codes one of the sets is not automatically wrong — a fixture is legitimate — but it cannot then
 be counted as evidence for that set**, and nothing in the corpus marks which use is which.
+
+## 778 · Only 1 of 12 hard-coding rounds lets the set reach an output field
+Of the 12 rounds carrying the ③ extension as code literals, eight use it purely as a comparison
+target, three use it in a way the classifier does not model, none leaves it unused, and one — R442 —
+both compares and dumps it. R442's own estimand *is* the extension as written, so a comparison set in
+its output is expected there. **The hard-coded set is not circulating as false evidence, and R680's
+"at most 6 independent computations" is strengthened rather than threatened.** A literal is a defect
+only when it is reported; here it is almost always a fixture.
+
+## 779 · "NEITHER" was a residual bucket, and ledger 748 said so 33 entries ago
+The first run classified R360, R361 and R676 as `NEITHER`, which reads as "the literal is never
+used". It is false for all three: R676's literals are arguments to its own control calls, and R360
+and R361 bind module-level names used in ways the three categories never enumerated. **A category
+defined as "none of the above" absorbs everything the instrument fails to model and then reports it
+as a property of the object.** Split into `OTHER_USE` (referenced, unmodelled, UNVERIFIED) and
+`UNUSED` (genuinely never referenced). **I wrote this exact law at ledger 748 and re-committed it at
+entry 779.**
+
+## 780 · Adding a category adds a way to be wrong, so the new category needs its own control
+Renaming `NEITHER` to `UNUSED` broke the negative control's expected string and the control failed
+loudly — correctly, because its two sides were no longer the same object. A fifth control was then
+added exercising the NEW category, since **a classifier with an unexercised branch has an untested
+branch**, and the four existing controls could not have distinguished `OTHER_USE` from a bug.
+
+## 781 · I registered 5 of 12 reaching an output field and got 1, because I assumed hard-coding implies reporting
+The registered point encoded an unexamined premise: that a round which writes a set as a literal is
+likely to publish it. Measured, the ratio is the opposite — hard-coding here is overwhelmingly a
+comparison fixture. **The prediction was about my suspicion of the corpus rather than about anything
+the corpus does**, and the interval [2,10] was wide enough to hide that until the point missed by 4.
