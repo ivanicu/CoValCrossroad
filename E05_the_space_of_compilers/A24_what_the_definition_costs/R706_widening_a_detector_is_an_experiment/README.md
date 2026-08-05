@@ -122,3 +122,22 @@ that the paragraph break, not the punctuation, is doing the work.
 |---|---|
 | cross-release | the `NEXT` convention is this project's |
 | construct validity of "a quantifier needing a source" | `flagged()` *is* the construct here |
+
+---
+
+## ⚠ ANNOTATED BY R707 (2026-08-05) — two corrections
+
+**① This round's citation does not resolve.** Its NEXT line cites the decile rates *"from
+`results/widening.json`"*. That artifact holds **no** decile table, no length-matched difference and
+no stratified null — `0.065` and `0.620` appear only inside the prose `world` string. §5 requires the
+artifact to carry what a later round needs to ATTACK the result, and this round's central finding —
+the confound that overturned its own pre-registered kill — was printed and discarded. R707 recomputes
+and persists it as fields; this artifact is not re-run (ledger 848).
+
+**② The instrument finding above is LARGELY RETRACTED.** "This gate's flag rate is a function of
+verbosity, the wrong direction" reads a `9.6×` rise across length deciles as a defect. R707
+decomposes it: **`9.571 = 5.324 × 1.798`** — opportunities per paragraph × a per-opportunity
+residual. `flagged()` is a **presence** detector, so `1−(1−p)ⁿ` rises with n by construction, and the
+length-normalisation this round's NEXT line proposed **would have broken a mostly-correct detector**.
+⭐ What R707 found instead is worse and different: a word-scrambled corpus still flags at `0.2100`
+against the real `0.2772`, so **≈76% of the flagging is proximity by chance**.

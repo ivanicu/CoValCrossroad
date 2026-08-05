@@ -1,0 +1,466 @@
+{
+ "world": "⭐⭐⭐ A AND B BOTH HOLD, AND THEY ANSWER DIFFERENT QUESTIONS. ① R706's INSTRUMENT FINDING IS LARGELY RETRACTED: the raw flag rate rises 9.6× from the shortest length decile to the longest, but that decomposes as 5.32× MORE OPPORTUNITIES per paragraph (0.35 → 1.84 quantifier occurrences) times a per-opportunity residual of only 1.798×, inside the registered [0.4,2.5]. `flagged()` is a PRESENCE detector and a longer paragraph makes more claims, so a rate of 1-(1-p)^n rises with n BY CONSTRUCTION. ⭐ THE NORMALISATION R706's NEXT LINE PROPOSED WOULD HAVE BROKEN A MOSTLY-CORRECT DETECTOR — dividing a presence rate by length penalises exactly the careful, claim-dense NEXT lines the gate exists to police. ② BUT A WORSE PROBLEM IS FOUND, AND IT IS NOT THE ONE R706 NAMED: scrambling the word order within each paragraph — length and vocabulary preserved EXACTLY, syntax and proximity destroyed — still flags 0.2100 against the real 0.2772, a share of 0.758. ⭐⭐ SO ROUGHLY THREE QUARTERS OF THIS GATE'S FLAGGING IS TWO WORDS LANDING WITHIN 60 CHARACTERS BY CHANCE, and it is WORST WHERE THE PARAGRAPHS ARE SHORTEST — chance share 0.99 in one decile against 0.61 at best. ⚠ The real corpus is still outside the shuffle null [0.1938,0.2257], so the detector is not pure noise; and removing the window entirely moves the rate to 0.3914, so the proximity constraint is worth 0.1142. ⚠ UNIT GAP: instrument unit is A NEXT PARAGRAPH, claim unit is THE DETECTOR'S BEHAVIOUR — this round tests the predicate's MECHANICS and cannot test whether the lines it flags OUGHT to be flagged.",
+ "controls_ok": true,
+ "tree_sha": "7641c1f553b7129648aabddacf17952d58afcaa7",
+ "n_paragraphs": 1068,
+ "live_window": 60,
+ "real_flag_rate": 0.27715355805243447,
+ "deciles": [
+  {
+   "decile": 0,
+   "n": 107,
+   "median_len": 77,
+   "flag_rate": 0.06542056074766354,
+   "opps_per_para": 0.34579439252336447,
+   "flags_per_opp": 0.1891891891891892,
+   "shuffled_rate": 0.064797507788162
+  },
+  {
+   "decile": 1,
+   "n": 108,
+   "median_len": 130,
+   "flag_rate": 0.2037037037037037,
+   "opps_per_para": 0.5462962962962963,
+   "flags_per_opp": 0.3728813559322034,
+   "shuffled_rate": 0.15524691358024692
+  },
+  {
+   "decile": 2,
+   "n": 106,
+   "median_len": 161,
+   "flag_rate": 0.16981132075471697,
+   "opps_per_para": 0.5,
+   "flags_per_opp": 0.33962264150943394,
+   "shuffled_rate": 0.10676100628930818
+  },
+  {
+   "decile": 3,
+   "n": 109,
+   "median_len": 197,
+   "flag_rate": 0.22935779816513763,
+   "opps_per_para": 0.5229357798165137,
+   "flags_per_opp": 0.43859649122807015,
+   "shuffled_rate": 0.1892966360856269
+  },
+  {
+   "decile": 4,
+   "n": 105,
+   "median_len": 236,
+   "flag_rate": 0.17142857142857143,
+   "opps_per_para": 0.5904761904761905,
+   "flags_per_opp": 0.2903225806451613,
+   "shuffled_rate": 0.1646031746031746
+  },
+  {
+   "decile": 5,
+   "n": 107,
+   "median_len": 270,
+   "flag_rate": 0.27102803738317754,
+   "opps_per_para": 0.7009345794392523,
+   "flags_per_opp": 0.38666666666666666,
+   "shuffled_rate": 0.16510903426791276
+  },
+  {
+   "decile": 6,
+   "n": 107,
+   "median_len": 329,
+   "flag_rate": 0.3364485981308411,
+   "opps_per_para": 0.9158878504672897,
+   "flags_per_opp": 0.3673469387755102,
+   "shuffled_rate": 0.25171339563862927
+  },
+  {
+   "decile": 7,
+   "n": 107,
+   "median_len": 403,
+   "flag_rate": 0.2616822429906542,
+   "opps_per_para": 0.6915887850467289,
+   "flags_per_opp": 0.3783783783783784,
+   "shuffled_rate": 0.21900311526479752
+  },
+  {
+   "decile": 8,
+   "n": 105,
+   "median_len": 499,
+   "flag_rate": 0.4380952380952381,
+   "opps_per_para": 1.1333333333333333,
+   "flags_per_opp": 0.3865546218487395,
+   "shuffled_rate": 0.2965079365079365
+  },
+  {
+   "decile": 9,
+   "n": 107,
+   "median_len": 675,
+   "flag_rate": 0.6261682242990654,
+   "opps_per_para": 1.841121495327103,
+   "flags_per_opp": 0.3401015228426396,
+   "shuffled_rate": 0.4919003115264797
+  }
+ ],
+ "per_opportunity_ratio_hi_lo": 1.7976794778825236,
+ "raw_flag_rate_ratio_hi_lo": 9.571428571428571,
+ "shuffle": {
+  "mean": 0.21001092384519351,
+  "ci95": [
+   0.19382022471910113,
+   0.22565543071161048
+  ],
+  "share_of_real": 0.7577421171171171,
+  "n_permutations": 1200,
+  "spread": 0.03183520599250936
+ },
+ "sham_whole_paragraph_rate": 0.3913857677902622,
+ "g0": {
+  "quantifier_flags": 0,
+  "bare_count_flags": 48
+ },
+ "window_sweep": [
+  {
+   "window": 0,
+   "overall_rate": 0.0449438202247191,
+   "rows": [
+    {
+     "decile": 0,
+     "flag_rate": 0.009345794392523364,
+     "flags_per_opp": 0.02702702702702703
+    },
+    {
+     "decile": 1,
+     "flag_rate": 0.009259259259259259,
+     "flags_per_opp": 0.01694915254237288
+    },
+    {
+     "decile": 2,
+     "flag_rate": 0.03773584905660377,
+     "flags_per_opp": 0.07547169811320754
+    },
+    {
+     "decile": 3,
+     "flag_rate": 0.009174311926605505,
+     "flags_per_opp": 0.017543859649122806
+    },
+    {
+     "decile": 4,
+     "flag_rate": 0.0,
+     "flags_per_opp": 0.0
+    },
+    {
+     "decile": 5,
+     "flag_rate": 0.04672897196261682,
+     "flags_per_opp": 0.06666666666666667
+    },
+    {
+     "decile": 6,
+     "flag_rate": 0.08411214953271028,
+     "flags_per_opp": 0.09183673469387756
+    },
+    {
+     "decile": 7,
+     "flag_rate": 0.037383177570093455,
+     "flags_per_opp": 0.05405405405405406
+    },
+    {
+     "decile": 8,
+     "flag_rate": 0.0761904761904762,
+     "flags_per_opp": 0.06722689075630252
+    },
+    {
+     "decile": 9,
+     "flag_rate": 0.14018691588785046,
+     "flags_per_opp": 0.07614213197969544
+    }
+   ],
+   "ratio_hi_lo": 2.817258883248731
+  },
+  {
+   "window": 20,
+   "overall_rate": 0.18352059925093633,
+   "rows": [
+    {
+     "decile": 0,
+     "flag_rate": 0.028037383177570093,
+     "flags_per_opp": 0.08108108108108109
+    },
+    {
+     "decile": 1,
+     "flag_rate": 0.12037037037037036,
+     "flags_per_opp": 0.22033898305084745
+    },
+    {
+     "decile": 2,
+     "flag_rate": 0.1320754716981132,
+     "flags_per_opp": 0.2641509433962264
+    },
+    {
+     "decile": 3,
+     "flag_rate": 0.10091743119266056,
+     "flags_per_opp": 0.19298245614035087
+    },
+    {
+     "decile": 4,
+     "flag_rate": 0.12380952380952381,
+     "flags_per_opp": 0.20967741935483872
+    },
+    {
+     "decile": 5,
+     "flag_rate": 0.205607476635514,
+     "flags_per_opp": 0.29333333333333333
+    },
+    {
+     "decile": 6,
+     "flag_rate": 0.2336448598130841,
+     "flags_per_opp": 0.25510204081632654
+    },
+    {
+     "decile": 7,
+     "flag_rate": 0.17757009345794392,
+     "flags_per_opp": 0.25675675675675674
+    },
+    {
+     "decile": 8,
+     "flag_rate": 0.2857142857142857,
+     "flags_per_opp": 0.25210084033613445
+    },
+    {
+     "decile": 9,
+     "flag_rate": 0.42990654205607476,
+     "flags_per_opp": 0.233502538071066
+    }
+   ],
+   "ratio_hi_lo": 2.8798646362098137
+  },
+  {
+   "window": 60,
+   "overall_rate": 0.27715355805243447,
+   "rows": [
+    {
+     "decile": 0,
+     "flag_rate": 0.06542056074766354,
+     "flags_per_opp": 0.1891891891891892
+    },
+    {
+     "decile": 1,
+     "flag_rate": 0.2037037037037037,
+     "flags_per_opp": 0.3728813559322034
+    },
+    {
+     "decile": 2,
+     "flag_rate": 0.16981132075471697,
+     "flags_per_opp": 0.33962264150943394
+    },
+    {
+     "decile": 3,
+     "flag_rate": 0.22935779816513763,
+     "flags_per_opp": 0.43859649122807015
+    },
+    {
+     "decile": 4,
+     "flag_rate": 0.17142857142857143,
+     "flags_per_opp": 0.2903225806451613
+    },
+    {
+     "decile": 5,
+     "flag_rate": 0.27102803738317754,
+     "flags_per_opp": 0.38666666666666666
+    },
+    {
+     "decile": 6,
+     "flag_rate": 0.3364485981308411,
+     "flags_per_opp": 0.3673469387755102
+    },
+    {
+     "decile": 7,
+     "flag_rate": 0.2616822429906542,
+     "flags_per_opp": 0.3783783783783784
+    },
+    {
+     "decile": 8,
+     "flag_rate": 0.4380952380952381,
+     "flags_per_opp": 0.3865546218487395
+    },
+    {
+     "decile": 9,
+     "flag_rate": 0.6261682242990654,
+     "flags_per_opp": 0.3401015228426396
+    }
+   ],
+   "ratio_hi_lo": 1.7976794778825236
+  },
+  {
+   "window": 200,
+   "overall_rate": 0.37359550561797755,
+   "rows": [
+    {
+     "decile": 0,
+     "flag_rate": 0.07476635514018691,
+     "flags_per_opp": 0.21621621621621623
+    },
+    {
+     "decile": 1,
+     "flag_rate": 0.25,
+     "flags_per_opp": 0.4576271186440678
+    },
+    {
+     "decile": 2,
+     "flag_rate": 0.2169811320754717,
+     "flags_per_opp": 0.4339622641509434
+    },
+    {
+     "decile": 3,
+     "flag_rate": 0.3394495412844037,
+     "flags_per_opp": 0.6491228070175439
+    },
+    {
+     "decile": 4,
+     "flag_rate": 0.2761904761904762,
+     "flags_per_opp": 0.46774193548387094
+    },
+    {
+     "decile": 5,
+     "flag_rate": 0.3644859813084112,
+     "flags_per_opp": 0.52
+    },
+    {
+     "decile": 6,
+     "flag_rate": 0.48598130841121495,
+     "flags_per_opp": 0.5306122448979592
+    },
+    {
+     "decile": 7,
+     "flag_rate": 0.37383177570093457,
+     "flags_per_opp": 0.5405405405405406
+    },
+    {
+     "decile": 8,
+     "flag_rate": 0.5904761904761905,
+     "flags_per_opp": 0.5210084033613446
+    },
+    {
+     "decile": 9,
+     "flag_rate": 0.7663551401869159,
+     "flags_per_opp": 0.41624365482233505
+    }
+   ],
+   "ratio_hi_lo": 1.9251269035532994
+  },
+  {
+   "window": "whole",
+   "overall_rate": 0.3913857677902622,
+   "rows": [
+    {
+     "decile": 0,
+     "flag_rate": 0.07476635514018691,
+     "flags_per_opp": 0.21621621621621623
+    },
+    {
+     "decile": 1,
+     "flag_rate": 0.25,
+     "flags_per_opp": 0.4576271186440678
+    },
+    {
+     "decile": 2,
+     "flag_rate": 0.2169811320754717,
+     "flags_per_opp": 0.4339622641509434
+    },
+    {
+     "decile": 3,
+     "flag_rate": 0.3394495412844037,
+     "flags_per_opp": 0.6491228070175439
+    },
+    {
+     "decile": 4,
+     "flag_rate": 0.2761904761904762,
+     "flags_per_opp": 0.46774193548387094
+    },
+    {
+     "decile": 5,
+     "flag_rate": 0.37383177570093457,
+     "flags_per_opp": 0.5333333333333333
+    },
+    {
+     "decile": 6,
+     "flag_rate": 0.514018691588785,
+     "flags_per_opp": 0.5612244897959183
+    },
+    {
+     "decile": 7,
+     "flag_rate": 0.411214953271028,
+     "flags_per_opp": 0.5945945945945946
+    },
+    {
+     "decile": 8,
+     "flag_rate": 0.638095238095238,
+     "flags_per_opp": 0.5630252100840336
+    },
+    {
+     "decile": 9,
+     "flag_rate": 0.822429906542056,
+     "flags_per_opp": 0.4467005076142132
+    }
+   ],
+   "ratio_hi_lo": 2.065989847715736
+  }
+ ],
+ "point_C": {
+  "sha": "20d1d1fc",
+  "extractable": true,
+  "reason": "quantifier 'the only' over 'arm'"
+ },
+ "decomposition": {
+  "raw_ratio": 9.571428571428571,
+  "opportunity_ratio": 5.324324324324325,
+  "per_opportunity_residual": 1.7976794778825236,
+  "product": 9.571428571428571
+ },
+ "chance_share_by_decile": [
+  {
+   "decile": 0,
+   "shuffled_over_real": 0.9904761904761906
+  },
+  {
+   "decile": 1,
+   "shuffled_over_real": 0.7621212121212122
+  },
+  {
+   "decile": 2,
+   "shuffled_over_real": 0.6287037037037038
+  },
+  {
+   "decile": 3,
+   "shuffled_over_real": 0.8253333333333333
+  },
+  {
+   "decile": 4,
+   "shuffled_over_real": 0.9601851851851853
+  },
+  {
+   "decile": 5,
+   "shuffled_over_real": 0.6091954022988506
+  },
+  {
+   "decile": 6,
+   "shuffled_over_real": 0.7481481481481481
+  },
+  {
+   "decile": 7,
+   "shuffled_over_real": 0.836904761904762
+  },
+  {
+   "decile": 8,
+   "shuffled_over_real": 0.6768115942028985
+  },
+  {
+   "decile": 9,
+   "shuffled_over_real": 0.7855721393034826
+  }
+ ],
+ "registered": "A per-opportunity ratio 1.0 [0.4,2.5]; B shuffled rate 0.20 [0.05,0.50]; C flags 20d1d1fc naming 'the only'; directional shuffled < real",
+ "observed": {
+  "A": 1.7976794778825236,
+  "B": 0.21001092384519351,
+  "C": true,
+  "directional": true
+ },
+ "retracts": "R706's 'this gate's flag rate is a function of verbosity, the wrong direction' -- if world A holds, the dependence is opportunity count and the detector is behaving correctly.",
+ "limit": "construct validity is impossible here: no external standard says which NEXT lines OUGHT to flag. This round tests MECHANICS, never correctness."
+}

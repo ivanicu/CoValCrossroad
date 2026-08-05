@@ -17377,3 +17377,74 @@ returns 1, and 0 of the 13 genuinely-missing commits contain even a leading `nex
 **26 newly-flagged NEXT lines frozen with an individual reason, and 0 of them are new violations** —
 all 26 were invisible to the old extractor. Frozen as history the gate could not read, never as an
 acquittal of the sentences themselves.
+
+## 883 · R706 cited an artifact for numbers the artifact does not contain
+
+R706's NEXT line said its decile rates come "from results/widening.json". The artifact holds no
+decile table, no length-matched difference and no stratified null; **0.065 and 0.620 exist only
+inside the prose `world` string**. So the round's central result — the confound that overturned its
+own pre-registered kill — was printed to a terminal and never persisted as data, and no later round
+could attack it without recomputing it from scratch.
+
+§5's ARTIFACT line asks for "what a LATER round needs to ATTACK this", and I read that as *save the
+headline numbers* rather than *save the analysis that decided them*. **The tell is specific and
+cheap: the confound analysis was written mid-run, after the kill fired, and the artifact block was
+written before it — so the fields simply never grew.** Anything added to a round after its artifact
+dict is drafted is invisible unless the dict is revisited.
+
+## 884 · R706's instrument finding is LARGELY RETRACTED — the length dependence is mostly correct
+
+R706 reported that the quantifier gate flags 0.065 of the shortest-decile NEXT paragraphs and 0.620
+of the longest, and called it "a function of verbosity, exactly the wrong direction", then proposed
+length-normalising the predicate.
+
+⛔ **`flagged()` is a PRESENCE detector** — *does this paragraph contain at least one unsourced
+quantifier* — and a longer paragraph makes more claims. For n opportunities the rate is `1-(1-p)^n`,
+which rises with n **by construction**. Measured: the `9.571×` raw ratio decomposes exactly as
+**`5.324×` opportunities per paragraph (0.35 → 1.84 quantifier occurrences) × `1.798×`
+per-opportunity residual**, and the residual sits inside the pre-registered [0.4, 2.5].
+
+**So the normalisation R706's NEXT line proposed would have BROKEN a mostly-correct detector** —
+dividing a presence rate by length penalises exactly the careful, claim-dense NEXT lines the gate
+exists to police. ⚠ A `1.798×` residual is not nothing and is not explained here; it is smaller than
+the raw ratio by a factor of five and does not support the word "verbosity".
+
+## 885 · and the real defect is one neither round had named: ~76% of the flagging is chance proximity
+
+Scrambling the word order within each NEXT paragraph — **length and vocabulary preserved exactly**,
+syntax and proximity destroyed — still flags at **0.2100 [0.1938, 0.2257]** against the real
+**0.2772**. A share of **0.758**.
+
+So roughly three quarters of what this gate reports is a quantifier and an artifact word landing
+within 60 characters **by chance**, and it is worst where the paragraphs are shortest: the chance
+share runs **0.99** in the shortest decile against **0.61** at best. ⚠ The real corpus does sit
+outside the shuffle null, so the detector is not pure noise, and removing the window entirely moves
+the rate by 0.1142, so the proximity constraint does work. **But a gate whose flags are 76%
+reproducible from scrambled text is not measuring what its name says.**
+
+Not acted on: fixing it means changing `flagged()`, and R706 established why a round that changes
+extractor and predicate together can attribute neither.
+
+## 886 · both pre-registered worlds fired and my branch ORDER chose the verdict
+
+R707 registered worlds A (length dependence is opportunity count) and B (proximity artifact) as if
+they were alternatives. **Both conditions were satisfied by the data** — `A_ok` true at 1.798 and
+`share` 0.758 above its 0.7 threshold — and the first draft's `elif` chain printed B alone, because B
+came first.
+
+They are not alternatives: A answers *why the rate rises with length* and B answers *what the
+detector responds to at all*. §4's remedy — the branch must reference every control the round
+declared — was applied to the *reasons* and not to the *world structure*. **A prediction matrix with
+mutually exclusive rows is a claim about the worlds, and mine was wrong about that before any data
+arrived.**
+
+## 887 · the predicate could always have caught the quantifier that started this thread
+
+`20d1d1f`'s NEXT line — the one carrying "the **only** clause the name touches at all", false by its
+own committed grid — is flagged by the live predicate as `quantifier 'the only' over 'arm'`, exactly
+the right span for the right reason.
+
+**So the predicate was never the problem; the extractor was**, which is what R706 fixed. Five rounds
+of instrument work resolve to one missing character class, and the two instrument *findings* raised
+along the way were one retraction (verbosity) and one genuine discovery (chance proximity) that
+nobody was looking for.
