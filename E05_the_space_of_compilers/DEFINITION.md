@@ -1926,3 +1926,40 @@ drops 4, so ①'s and ④'s zeros are measurements rather than silence. Noise fl
 one that cannot be checked from the object.** ② is behavioural and anyone can run it. ③ is
 provenance — it needs the producer. And it earns its place by removing the *best-performing* arms,
 which score highest precisely because they read the answer.
+
+---
+
+## R520 · ③'s provenance literal is complete where used, incomplete one join away
+
+R519 left the definition resting on **② ∧ ③**, with ③ the only clause narrowing anything. ③'s
+verdicts come from a **4-element hardcoded literal** in R294 — `USES_PROMPT_LABELS` — declared, not
+derived. So the definition's entire working content is one Python set.
+
+**The keyword route fails first, and instructively.** Grepping for scripts that touch the labels
+returns **19 of 19** — `score.py` reads labels *to score*. **Instrument's unit: "imports
+load_targets". Claim's unit: "the SELECTION consumed this prompt's labels."** Only the source gate
+separates them: `select_core.py:102` opens `comparisons.jsonl` **only** under
+`a.rule in ("oracle_k", "indep_k", "greedy_k")`.
+
+**Deriving from that gate over the 56-arm universe:**
+
+| | |
+|---|---|
+| arms in a label-reading family | **10** |
+| declared in the literal | **4** |
+| **absent** | **6** — `oracle_k4_oracle_k{A,B}`, `greedy_k4_greedy_k{A,B}`, `indep_k4_indep_k{A,B}` |
+
+⭐ **None of the six carries a ③ verdict in R294's census** — they exist only in R436's 56. **The
+literal is complete over the 41 arms ③ was ever applied to, so R519 stands unchanged.**
+
+**Controls.** Positive: the derivation recovers all 4 declared members from tags alone. Negative:
+none of the 33 documented label-blind arms is derived as a reader — where the keyword version failed.
+Sham: deriving on the *satisfaction* list gives 12, not 10, so the instrument reads the label gate
+specifically rather than "any rule that consumes something".
+
+⚠ **The hazard is live one join away.** R518 and R519 both joined R294's verdicts to R436's 56 arms
+for ④. **A future round extending ③ to that same 56 would silently admit six label-readers.**
+
+⭐⭐⭐ **The general point: a hardcoded set is scoped to the population it was authored against, and
+nothing in it records that scope.** The remedy is six lines and is demonstrated here — **derive the
+set from the code's own gate instead of declaring it.**

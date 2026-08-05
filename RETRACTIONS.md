@@ -11663,3 +11663,38 @@ fired, when the attention they were holding has been released.** The NEXT-line g
 quantifier form; it cannot catch a wall, which is why `469a8b9` passed it and was still false.
 **The remedy that has actually worked, three for three, is running check #N on my own last line as
 the first act of the next round.**
+
+## 353 · The definition's only working clause is a 4-element literal, and it is incomplete over the population one join away
+
+**R519 reduced the definition to ② ∧ ③, with ③ the only clause narrowing what ② admits. ③'s
+verdicts come from `USES_PROMPT_LABELS`, a hardcoded 4-element set in R294 — declared, not derived.**
+So the definition's entire working content is one Python literal, which is §4's *hard-coded structure
+dict is the answer key* at the top of the deliverable.
+
+**The keyword route fails first, and it matters that it does.** Grepping `corebench/` for scripts
+touching the human labels returns **19 of 19** — a 100% rate, which §4 already calls an extinct
+recogniser. `score.py` reads labels *to score*; that is not *building criteria from* them.
+**Instrument's unit vs claim's unit, and they are not equal.**
+
+**Read from the object instead:** `select_core.py:102` opens `data/comparisons.jsonl` **only** under
+`if a.rule in ("oracle_k", "indep_k", "greedy_k")`. Deriving from that gate over the 56-arm universe:
+**10 arms are in a label-reading family, 4 are declared, 6 are absent** —
+`oracle_k4_oracle_k{A,B}`, `greedy_k4_greedy_k{A,B}`, `indep_k4_indep_k{A,B}`.
+
+⭐ **Blast radius: zero for every round so far.** None of the six carries a ③ verdict in R294's
+census; they exist only in R436's 56. **The literal is complete over the 41 arms ③ was ever applied
+to, so R519's reduction stands unchanged.**
+
+⚠ **And live one join away.** R518 and R519 both joined R294's verdicts to R436's 56 arms for ④.
+**A future round extending ③ to that same 56 admits six label-readers silently.**
+
+**Controls that make the absence claim admissible rather than another bad grep:** the derivation
+recovers all 4 declared members from tags alone (positive); none of the 33 documented label-blind
+arms is flagged (negative — exactly where the keyword version failed); and deriving on the
+*satisfaction* rule list gives 12 rather than 10, so the instrument is reading the label gate
+specifically and not "any rule that consumes something" (sham).
+
+⭐⭐⭐ **The reusable finding: a hardcoded set is scoped to the population it was authored against,
+and nothing in it records that scope.** It does not decay, it does not error, and it stays correct
+until someone widens the join — at which point it is wrong with no signal. **The remedy is six lines
+and is demonstrated in R520: derive the set from the code's own gate rather than declaring it.**
