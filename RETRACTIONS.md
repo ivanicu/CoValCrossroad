@@ -14839,3 +14839,29 @@ the conditional must include the arm that establishes the direction.**
 Both numbers were illustrative, neither computed, in a closing line a later round would have turned
 into a threshold. **The truth is the reverse**, and R625's 36% collision floor is precisely why `m=1`
 cannot be read as provenance.
+
+## 570 · The multiplicity signal was the gate's own selection bias
+
+Swept m0 = 1..20 against two positive classes. **Gate-verified values peak at m0 = 9; README-table
+values, which the gate has never read, peak at m0 = 1 and decline monotonically.** Pre-registered
+kill |Δ| > 4; measured **8**.
+
+**Precision tells it plainly: P1 climbs 0.072 → 0.905 across the sweep; P2 moves 0.450 → ~0.70.** The
+`derive()` list was hand-built from headline numbers that get cited constantly. **High multiplicity
+is the CITATION signature, not the measurement signature.**
+
+**R626's measurement stands; R626's interpretation is retracted.** A round's own reported numbers are
+indistinguishable from random draws by this axis at any usable threshold.
+
+## 571 · The circularity was in the closing line, and the check is what caught it
+
+*"The gate-verified arm as the positive class"* — **T1 is selected by the very instrument the rule
+would extend.** Building a gate-blind second class cost one extractor and **overturned the headline**.
+⭐ *The most valuable object in R627 exists only because a closing-line check refused to let the
+positive class stand unexamined.*
+
+## 572 · Check #226 — "each picked one cell" was false, in the self-critical direction
+
+R624 reported a three-cell specification curve; R625 a three-band null over three seeds. **Tenth
+uncomputed quantifier in seventeen closing lines — and the first to manufacture a fault rather than
+excuse one.** §4's claim that the direction is not systematic now has a measured instance on each side.
