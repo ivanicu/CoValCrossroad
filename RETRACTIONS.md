@@ -17725,3 +17725,53 @@ three I had been quoting a fraction whose denominator was wrong.
 **The habit to name: when a count is offered as evidence, the first question is what its maximum
 could have been, and that question is free.** Every one of these three took one pass over data
 already on disk.
+
+## 906 · F1's p = 0.0003 is construction, not evidence — R712's reading is re-read one round later
+
+F1 excludes exactly four arms and nothing else in the ledger, and the predicate `/oracle|_fit1/`
+reproduces that set **exactly — miss 0 of 42** — while F2's best predicate misses 5. So the p
+measures that **we built 4 label-reading arms AND a clause that excludes label-reading arms.**
+
+**A uniform random admission is a meaningful null for a clause whose exclusions are DISCOVERED and an
+empty one for a clause whose exclusions are STIPULATED.** F1 is the most **constructed** of the three,
+not the most informative, and R712's "the only clause above chance" is corrected on the statement.
+
+⚠ **This is not a defect in F1.** A clause saying "selected without reading outcome labels" *should*
+exclude exactly the arms built to read labels — exact agreement is the clause **working**. **What is
+void is the p, not the clause.** ⚠ And exact name agreement is EVIDENCE about construction, never
+PROOF: that the arms were built to be excluded is a fact about our history, not about the ledger.
+
+## 907 · "the one thing in the deliverable whose count beats its own null" — the fifth unverified superlative
+
+R712's NEXT line. True within R712's own 9-cell grid; **unchecked against every other claim on the
+statement.** Withdrawn to "the only cell in that grid at its observed size". Fifth in this arc after
+873, 892, 893 and 899.
+
+⚠ **And the same line proposed work the round that wrote it had already done** — "recomputed under the
+REPAIRED size clause rather than the one R360 committed", when R712 used the repaired clause
+throughout. **A closing sentence can be wrong by asking for what is already on disk**, which is a
+failure mode none of the four earlier ones had.
+
+## 908 · my sweep scored a clause's own definition as the worst fit on the board
+
+R713's first sweep compared every predicate against each clause's **exclusion** set only. F3's own
+k-predicate — which *is* F3 — matched the exact complement and scored **miss = 42**, the worst cell in
+the table, while being a perfect reproduction.
+
+**A predicate matching the exact complement of a set reproduces that set perfectly.** The miss is now
+the minimum over both polarities and the polarity is printed. ⚠ The registered POINT C predicted 0 and
+the broken sweep returned 16; the fix moved it to 0. **A registered point failing is the cheapest
+possible signal that the instrument, not the world, is wrong** — and here it was the only signal,
+because the F1 result the round cared about was unaffected either way.
+
+## 909 · a seeded shuffle over a SET is not reproducible
+
+R713's negative control built `list(arms)` from a **set** before a seeded shuffle. **The seed fixes
+the permutation but not the input order**, which varies with `PYTHONHASHSEED` across processes: two
+runs of the same code returned **1** and **0** matches, and the round failed its own byte-identical
+check.
+
+Fixed by sorting before shuffling. Now byte-identical across runs **and across a changed hash seed** —
+and the second test is the one that matters, since two runs in the same session can share a seed and
+agree while still being irreproducible tomorrow. ⚠ **The README had already been written quoting the
+0.** A number copied from one run of an irreproducible script is a number that was never measured.

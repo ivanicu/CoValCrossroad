@@ -170,7 +170,18 @@ A **core** for a conversation is a set of criteria such that
 > hypergeometrically over all **445,891,810** admissions, no Monte-Carlo error.
 > ⭐⭐⭐ **AND THE ASYMMETRY IS INVERTED.** Priced against its own ceiling, the clause with the FEWEST
 > unique exclusions is the only one above chance — **F1 4/7 p=0.0003 · F2 20/23 p=0.1405 ·
-> F3 2/5 p=0.5956** — and F1 alone clears BH over the whole 9-cell grid. *"F2 carries the most
+> F3 2/5 p=0.5956** — and F1 alone clears BH over the whole 9-cell grid.
+> ⛔⛔ **AND R713 RE-READS THAT, ONE ROUND LATER: F1's LOW p IS CONSTRUCTION, NOT EVIDENCE.** The
+> predicate `/oracle|_fit1/` reproduces F1's exclusion set **EXACTLY — miss 0 of 42 arms** — and F1
+> excludes nothing else in the ledger, while F2's best predicate misses 5. So F1's `p = 0.0003`
+> measures that we built 4 label-reading arms **and** a clause that excludes label-reading arms. **A
+> uniform random admission is a meaningful null for a clause whose exclusions are DISCOVERED and an
+> empty one for a clause whose exclusions are STIPULATED.** ⭐ **F1 is therefore the most CONSTRUCTED
+> of the three, not the most informative.** ⚠ **This is not a defect in F1** — a clause saying
+> *"selected without reading outcome labels"* SHOULD exclude exactly the arms built to read labels;
+> exact agreement is the clause **working**. **What is void is the p, not the clause.** ⚠ And exact
+> name agreement is EVIDENCE about construction, never PROOF: that the arms were *built* to be
+> excluded is a fact about our history, not about the ledger. *"F2 carries the most
 > exclusions" was a statement about its ADMISSION SIZE*, and R703's raw ranking put the only
 > above-chance clause last.
 > ⚠ **This does not say F2 is wrong or that its exclusions are the wrong arms — it says the COUNT is

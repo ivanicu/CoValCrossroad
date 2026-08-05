@@ -3274,3 +3274,42 @@ not evidence, and whether the excluded arms are the right ones is construct vali
 standard outside this repository. All three of F2's supports have now fallen — the A2 agreement to
 circularity, the sham residual to chance, the exclusion count to admission arithmetic — and the
 clause is retained while carrying no evidential support this site can supply.
+
+## R713 · Whether clause F1's exclusions are stipulated or discovered
+
+R712 left clause F1 as the only one whose unique-exclusion count beat its own null, at an exact
+probability of three ten-thousandths. R713 asks what that number is measuring.
+
+F1 excludes exactly four arms and nothing else in the forty-two-arm ledger: greedy_k4_fit1,
+indep_k4_fit1, oracle_k4 and oracle_k4_fit1. The name predicate matching oracle or the fit1 suffix
+returns exactly that set — four of four, no false positive, no false negative, a miss of **zero**
+arms. The best predicate for clause F2 over the same families misses **five**, and clause F3's exact
+match under a k-predicate is a derivation because F3 is that predicate.
+
+So F1's probability measures that we built four label-reading arms and a clause that excludes
+label-reading arms. A uniformly random admission is a meaningful null for a clause whose exclusions
+are discovered and an empty one for a clause whose exclusions are stipulated, and the exact name
+agreement is what distinguishes the two cases here. F1 is therefore the most constructed of the three
+clauses rather than the most informative, and R712's reading is corrected accordingly.
+
+This is not a defect in the clause. A clause stating that criteria were selected without reading
+outcome labels should exclude exactly the arms built to read labels, and exact agreement is the
+clause working. What is void is the probability, not the clause.
+
+Controls: a predicate known wrong for F1 misses by thirteen arms, so the matcher does not match
+everything; three thousand random four-arm subsets reproduce F1's exclusions zero times against an
+exact chance of one in one hundred eleven thousand nine hundred thirty; and scrambling arm names
+against verdicts at fixed multisets gives zero exact matches in three thousand draws, which excludes
+the world in which any predicate can be made to fit four of forty-two strings.
+
+Two defects in the round's own instruments were caught and fixed before it landed. Its first sweep
+compared every predicate only against a clause's exclusion set, so F3's own k-predicate scored a miss
+of forty-two and looked like the worst fit on the board when it is the exact complement and therefore
+a perfect reproduction; the miss is now the minimum over both polarities. And its negative control
+built a list from a set before shuffling, so the seed fixed the permutation but not the input order
+and two runs returned one match and zero; sorting first makes the round byte-identical across runs
+and across a changed hash seed.
+
+The limit is the claim unit. Exact name agreement is evidence about construction and never proof of
+it: that the arms were built to be excluded is a fact about this project's history rather than about
+the ledger, and this round measures reproducibility while reasoning about what a null can price.
