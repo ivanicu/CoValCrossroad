@@ -10788,3 +10788,54 @@ number needs the control the first one lacked.**
 patterns, runs a positive control first (each pattern must see a citation known to be present in each
 document), and prints the **range** with the instrument beside it. **The number is now unavailable
 except by running it.** A count of my own work that can be typed from memory will be.
+
+## 325 · "the per-prompt deficit is reliable, so the target is emphatically present" — two arms with no mechanism score higher (R497 → R499)
+
+**Retracted:** R497's headline, *"reliability r = 0.9355, true sd 0.1342 = 3.8× the measured noise
+floor, so `gen` loses reliably on some prompts and wins on others — the target is emphatically
+present."* Carried into DEFINITION.md and STATEMENT.md the same day.
+
+**What killed it:** the same statistics computed on `random_k4_s0 − random_k4_s1` — **two seeds of one
+random procedure, no functional difference of any kind** — return **r = +0.9581, true sd 0.1553,
+4.76× noise**, higher on every statistic. Against a null of three such no-difference pairs
+(r ∈ [+0.9532, +0.9604]), R497's pair sits at **percentile 0.0 on both statistics**.
+
+⭐ **What the statistic actually measures:** *"these are two distinct criterion sets."* Not *"there is
+a mechanism to explain."* Every pair of distinct k=4 sets in this release produces per-prompt A2
+differences with true sd ≈ 0.13–0.16 and reliability ≈ 0.93–0.96. That is the **baseline**, and it is
+enormous.
+
+⭐⭐⭐ **The control that was missing, and why the one I ran could not substitute.** R497's — and
+R499's first pass's — placebo was **the same arm against itself** at two draw offsets. That removes
+the arm difference entirely, so it asks *is the instrument noisy*. It never asks *does a difference
+between two arms carry meaning*. **Instrument's unit: "two distinct criterion sets differ per
+prompt." Claim's unit: "there is a mechanism." Not equal** — the exact requirement §4 states as
+naming both units and requiring them to be the same string before the control is designed.
+
+⚠ **What this costs beyond one headline.** R494–R497 are **four rounds spent explaining the
+distinctness of two criterion sets**, on a premise never established. The four nulls stand as nulls
+and are now *unsurprising* rather than informative. **The check that would have killed the thread at
+round one — run the same decomposition on two random arms — was available at zero marginal cost
+throughout, and cost about ninety seconds when finally run.**
+
+**What survives:** R497's **measured noise floor (0.0353)** is a real property of the instrument and
+is unaffected — a second annotator draw genuinely is a second draw of the same quantity. Only the
+inference from reliability to mechanism is withdrawn.
+
+⭐⭐⭐ **CODA — the retraction stopped at the prose, and the gate certified the retracted verdict.**
+After 325 was written into `RETRACTIONS.md`, `DEFINITION.md`, `STATEMENT.md` **and** R499's own
+README, `statement_provenance.py` still reported **`R497 → B (REAL STRUCTURE — the target is not
+absent)`** and **`R499 → B CANCELLING FUNCTIONS`** — both retracted worlds, both read out of
+`results/*.json`, both certified as *settled provenance*. **A gate that reads artifacts cannot see a
+correction made in prose**, and its PASS then launders the retracted claim as verified.
+
+⚠ **And R499's artifact was wrong for a specific, repeatable reason: the gauge test that killed it
+ran BESIDE the round, not inside it.** A round whose own script cannot reach the verdict that
+overturns it will keep asserting the overturned one every time it is re-run. Fixed by moving the
+no-difference null **into `run.py`'s verdict logic**, so the artifact now computes `A SAME FUNCTION`
+by construction. R497's artifact is **annotated, not rewritten** — `world_original` preserved,
+`world` carrying the retraction, `what_survives` naming the noise floor.
+
+**The rule: a retraction must reach every artifact a gate reads, and an attack that kills a round
+belongs inside that round's script.** Otherwise the ledger and the machine disagree, and the machine
+is the one anything downstream believes.

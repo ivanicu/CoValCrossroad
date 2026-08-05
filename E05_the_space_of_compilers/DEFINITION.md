@@ -538,7 +538,7 @@ tracks `generic`'s score at **+0.2577**, so the control fires and the null is ev
 MATTERS.** Three large between-arm differences with three null within-prompt correlations invites the
 conclusion that the deficit is a constant offset. It is not: mean **+0.0311**, observed sd **0.1388**
 against a **measured** noise floor of **0.0353**, implied true sd **0.1342** — **3.8× the noise** — and
-**test-retest reliability +0.9355** across independent held-out-annotator draws. ⭐ **The floor is
+**test-retest reliability +0.9355** across independent held-out-annotator draws. ⛔⛔ **RETRACTED BY R499 — see below; two arms with NO functional difference score higher.** ⭐ **The floor is
 supplied by the instrument itself**: A2 samples a held-out annotator per prompt, so a second seed is a
 second draw of the same quantity. **`gen` does not lose uniformly — its deficit's spread is 4.3× its
 own mean, it wins on some prompts and loses badly on others, reproducibly.** *(R497)*
@@ -547,6 +547,27 @@ own mean, it wins on some prompts and loses badly on others, reproducibly.** *(R
 predictors are simply wrong about it. ⛔ **And the design that keeps suggesting itself — "look at the
 prompts where `gen` loses most" — is selection on the outcome (Oldham 1962), proposed twice and killed
 twice before running.** *(R496, R497)*
+
+⛔⛔⛔ **AND THE WHOLE THREAD RESTED ON A STATISTIC THAT CANNOT TELL A MECHANISM FROM TWO ARBITRARY
+CRITERION SETS (R499).** `random_k4_s0 − random_k4_s1` — two seeds of one random procedure, no
+functional difference of any kind — returns **r = +0.9581, true sd 0.1553, 4.76× noise**, higher on
+every statistic than any real pair. Against a null of three such pairs (r ∈ [+0.9532, +0.9604],
+true sd ∈ [0.1525, 0.1589]), `coval_core − gen`, `gen − generic` and `gen − genericpool16` all sit at
+**percentile 0.0 on both statistics**. So *"these two arms differ reliably per prompt"* is true of
+**every** pair of distinct k=4 sets in this release, and R494–R497 spent four rounds explaining a
+distinctness that was never in question. **The placebo used throughout — an arm against ITSELF —
+removes the arm difference and therefore asks whether the instrument is noisy, never whether a
+difference between two arms means anything.** *(R499)*
+
+⭐⭐⭐ **AND THAT IS ALSO THE ANSWER TO CLAUSE ②, WHICH IS WHAT THE ROUND WAS FOR (R499).** The gap
+that matters is not `coval_core − gen` but **`gen − 0.5404`**, the cross-fitted prompt-blind ceiling:
+`gen` is at **0.5337**, a gap of **−0.0067**, inside the **0.0122** floor. Two worlds: the arms
+**agree**, or they **differ per prompt and cancel**. The cancelling world required the real pairs to
+**exceed** the no-difference null; they fall **below** it. **So prompt-awareness buys nothing
+per-prompt either, and clause ② is a genuine wall for ③-admissible prompt-aware arms rather than an
+artifact of aggregation.** ⚠ The further suggestion — that `gen` lands *closer* to a prompt-blind arm
+than two random arms land to each other — is **directional only**: k=4 affords 3 independent
+no-difference pairs, so `n_eff = 3` and the permutation floor is `p ≥ 0.25`. *(R499)*
 
 ⛔ **AND THE COMPUTE THAT WOULD SETTLE ②∧③ IS NOT THE COMPUTE I NAMED (R490).** The generator already
 exists — `corebench/generate_core.py` states in its own docstring that it *"MUST NOT SEE `coval_full`"*

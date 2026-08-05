@@ -62,14 +62,22 @@ prompt-awareness alone can reach, and only the human labels ③ forbids go furth
 > prompt-aware arm here"*. Settling it needs a **strong** admissible arm, which is a
 > generation-and-judging round. *(R486, R487)*
 
-⭐ **AND THE SEARCH FOR THAT ARM IS VALIDATED RATHER THAN OPEN-ENDED.** The per-prompt deficit
-`coval_core − gen` is a **reliable** quantity: mean **+0.0311**, true sd **0.1342** against a measured
-noise floor of **0.0353** (**3.8×**), test-retest **r = +0.9355**. **`gen` wins on some prompts and
-loses badly on others, reproducibly** — its spread is 4.3× its mean. Four candidate explanations are
-excluded, each by a control that could have confirmed it: **repetition**, **discriminativeness across
-arms**, **discriminativeness paired at n=968** (+0.0013, CI [−0.0640, +0.0608], control firing at
-+0.2577), and **criterion length** (+0.0319, CI spanning zero). **The target is real; the predictors
-were wrong.** *(R494, R495, R496, R497)*
+⭐⭐⭐ **AND CLAUSE ② IS A GENUINE WALL, NOT AN ARTIFACT OF AVERAGING.** The gap it turns on is
+`gen − 0.5404` (the cross-fitted prompt-blind ceiling) — **−0.0067, inside the 0.0122 floor**. That
+could mean the arms agree, or that they differ per prompt and cancel. The cancelling world required
+the real pairs to **exceed** a null built from arms with no functional difference; they fall **below**
+it, at **percentile 0.0 on both statistics**. **Prompt-awareness buys nothing per-prompt either.**
+*(R499)*
+
+⛔ **AND FOUR ROUNDS WERE SPENT ON THE WRONG DIFFERENCE, BY A STATISTIC THAT COULD NOT SEE ITS OWN
+BASELINE.** R494–R497 decomposed `coval_core − gen` and reported it reliable at **r = 0.9355**, true
+sd **3.8×** noise. **Two seeds of one random procedure score higher — r = +0.9581, 4.76× noise.** The
+statistic measures *"these are two distinct criterion sets"*, which is true of every pair here. The
+placebo used throughout was an arm against **itself**, which removes the arm difference and so tests
+the instrument rather than the claim. Four nulls (**repetition**, **discriminativeness across arms**,
+**paired at n=968**, **criterion length**) stand as nulls and are now unsurprising. R497's **measured
+noise floor 0.0353 stands**; the inference from reliability to mechanism does not.
+*(R494, R495, R496, R497, R499 — R497's headline retracted by R499)*
 
 ⭐ **③ STAYS AS WRITTEN, and the reason is measured rather than stipulated.** R475 left the choice of
 weakening ③ to permit the ratings. What decides it is what the ratings are **worth**: against the best

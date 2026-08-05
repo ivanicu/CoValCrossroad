@@ -40,7 +40,16 @@ POSITIVE CTRL   (coval_core - gen) must reproduce R497's r = 0.9355 within seed 
                 script cannot recover a number a previous round established on the same data, it
                 is not running the instrument that was validated, and every other row is void.
                 It can fail: nothing in this code forces that value.
-PLACEBO         `gen` against ITSELF at two different draw offsets. Structurally pure noise, so
+⛔ PLACEBO WAS INSUFFICIENT AND IS SUPERSEDED -- kept here because the failure is the finding.
+                An arm against ITSELF removes the arm difference entirely, so it asks "is the
+                instrument noisy" and never "does a difference between two arms carry meaning".
+                Instrument's unit: "two distinct criterion sets differ per prompt". Claim's unit:
+                "prompt-awareness produces a functional difference". NOT EQUAL.
+GAUGE NULL      The control that decides the round: pairs of arms with NO functional difference
+                (random_k4_s0/s1/s2 -- same procedure, different seed). If the real pairs do not
+                EXCEED this null, world B is dead. Measured: null r in [+0.9532,+0.9604], true sd
+                in [0.1525,0.1589]; every real pair sits BELOW it at percentile 0.0.
+PLACEBO (kept)  `gen` against ITSELF at two different draw offsets. Structurally pure noise, so
                 its reliability across an independent replication must be ~0. This is the bar the
                 real pairs must clear, and unlike a `gen - gen` at identical offsets (which is 0
                 by construction and cannot fail) this one CAN come back non-zero and indict the
@@ -160,11 +169,24 @@ def main() -> int:
     print(f"  kill bar = placebo {placebo_r:+.4f} + max(seed spread {seed_spread:.4f}, "
           f"placebo spread {placebo_spread:.4f}) = {bar:+.4f}")
 
+    # GAUGE NULL -- pairs with NO functional difference. This decides the round; the
+    # same-arm placebo above cannot, and reporting it as if it could was this round's own error.
+    import itertools as _it
+    RAND = ["random_k4_s0", "random_k4_s1", "random_k4_s2"]
+    gn = [decompose(a, b, o0, o1) for a, b in _it.combinations(RAND, 2) for o0, o1 in OFFS]
+    nr = [c["r"] for c in gn]; ns = [c["true"] for c in gn]
+    print(f"\n  GAUGE NULL ({len(gn)} cells, {len(RAND)} arms = 3 INDEPENDENT pairs, so n_eff=3):")
+    print(f"    r       [{min(nr):+.4f}, {max(nr):+.4f}]      true sd [{min(ns):.4f}, {max(ns):.4f}]")
+    print(f"    => 'reliable per-prompt difference' is what ANY two distinct k=4 sets produce.")
+
     verdicts = {}
     for k in ("gen-generic", "gen-genericpool16"):
-        verdicts[k] = rows[k]["r_min"] > bar
-        print(f"  {k:<24} r_min {rows[k]['r_min']:+.4f} {'>' if verdicts[k] else '<='} bar"
-              f"  -> {'B (cancelling)' if verdicts[k] else 'A (same function)'}")
+        c = rows[k]["cells"][0]
+        exceeds = c["r"] > max(nr) and c["true"] > max(ns)
+        verdicts[k] = exceeds
+        print(f"    {k:<24} r {c['r']:+.4f} true {c['true']:.4f}  -> "
+              f"{'EXCEEDS' if exceeds else 'INSIDE/BELOW'} the no-difference null")
+
 
     if all(verdicts.values()):
         world = "B CANCELLING FUNCTIONS"
@@ -182,8 +204,13 @@ def main() -> int:
     elif world.startswith("A"):
         print(f"  => prompt-awareness buys nothing per-prompt either. Clause 2 is a genuine wall"
               f" for 3-admissible prompt-aware arms, not an artifact of aggregation.")
+        print(f"  => the -0.0067 mean gap is small because the arms AGREE, not because they cancel.")
+        print(f"  ⚠ n_eff=3 for the null, so the permutation floor is p>=0.25: the further hint"
+              f" that gen sits BELOW the null is directional, not resolved.")
 
-    json.dump({"placebo_r": placebo_r, "placebo_spread": placebo_spread, "bar": bar,
+    json.dump({"gauge_null_r": nr, "gauge_null_true": ns, "n_eff_null": len(RAND),
+               "placebo_r": placebo_r, "placebo_superseded": True,
+               "placebo_spread": placebo_spread, "bar": bar,
                "seed_spread": seed_spread, "rows": rows, "verdicts": verdicts,
                "world": world, "positive_control_ok": ok_pc},
               (OUT/"cancel.json").open("w"), indent=1)
