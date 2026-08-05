@@ -1,5 +1,5 @@
 {
- "count": 170,
+ "count": 171,
  "shas": [
   "0039eceb",
   "029e94ad",
@@ -108,6 +108,7 @@
   "ad1e0de8",
   "adaf2b54",
   "af014a97",
+  "b101335c",
   "b4133a16",
   "b80423ea",
   "b9329ba9",
@@ -176,6 +177,7 @@
  "reasons": {
   "04c3356f": "R685's commit body: 'while 81 rounds vary a judge without recording it'. The count is REAL and cited to R684, but the provenance reference sits outside the gate's window. \u2b50 FROZEN RATHER THAN FIXED BECAUSE THE COMMIT IS PUSHED AND IMMUTABLE -- this is the one legitimate reason to freeze, and R672 found the freeze had no way to say so. A freeze entry with a reason is a ledger; one without is a drain.",
   "836e249f": "R687's commit body: 'The gate does not get built and that is the answer rather than a shortfall... a decision deferred is the one that gets re-litigated.' The quantifier is about a DECISION, not a count over our own work, and the round it describes is cited in the same body. \u2b50 FROZEN BECAUSE THE COMMIT IS PUSHED AND IMMUTABLE \u2014 the second entry to carry a reason, and the reasons are what make this file a ledger instead of a drain (R672).",
-  "a100d4e9": "R694's commit body NEXT: 'check whether their shams differ from their arms at all in the committed A2 means'. \u26d4 THIS ONE IS DIFFERENT FROM THE OTHER TWO FROZEN ENTRIES: I ran the gate, SAW IT FAIL, rephrased one instance, re-ran, saw it STILL FAIL, and committed anyway (ledger 831). The commit is pushed and immutable, so freezing is the only remaining option -- but it is freezing a breach, not an unavoidable artifact of history. Recorded as such so the count of reasoned entries does not read as three equivalent cases."
+  "a100d4e9": "R694's commit body NEXT: 'check whether their shams differ from their arms at all in the committed A2 means'. \u26d4 THIS ONE IS DIFFERENT FROM THE OTHER TWO FROZEN ENTRIES: I ran the gate, SAW IT FAIL, rephrased one instance, re-ran, saw it STILL FAIL, and committed anyway (ledger 831). The commit is pushed and immutable, so freezing is the only remaining option -- but it is freezing a breach, not an unavoidable artifact of history. Recorded as such so the count of reasoned entries does not read as three equivalent cases.",
+  "b101335c": "\u2b50\u2b50\u2b50 THE COMMIT FIXING A GATE BREACH TRIPPED THE SAME GATE. Its NEXT line reads 'that is the only way this class becomes visible' -- a quantifier over our own work beside an artifact word, with no provenance in the window. Three consecutive commits (a100d4e, b101335, and R694's README before it) each carried a flagged NEXT line, one of them while I was writing about having ignored the flag. \u00a74: the closing sentence is written last, after the round's controls have fired, and it is the only sentence with no control attached. This entry is the densest evidence for that row in the corpus."
  }
 }

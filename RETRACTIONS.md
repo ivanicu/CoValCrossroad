@@ -16912,3 +16912,13 @@ the flag's whole hazard: it is required here to keep co-author trailers out of t
 always present, and it makes every gate advisory unless I enforce them by hand.** The remaining
 flags were `all` and `never` in the same sentence. Fixed in a follow-up commit rather than amending,
 so the breach stays in the history where it happened.
+
+## 832 · Three consecutive commits, three flagged NEXT lines — including the one fixing the breach
+`a100d4e` carried a quantified NEXT and I committed it with the gate red (ledger 831). `b101335` was
+the commit that fixed and recorded that breach — **and its own NEXT line tripped the same gate**,
+reading *"that is the only way this class becomes visible"*. Three closing sentences in a row, one of
+them written while I was explaining that I had ignored the gate's output. **§4's row says the closing
+sentence is written last, after the round's controls have fired and the attention they were holding
+has been released, and that it is the only sentence with no control attached. This is the densest
+evidence for that row anywhere in this corpus** — and the gate catching all three is the reason it is
+visible at all rather than a habit nobody counted.
