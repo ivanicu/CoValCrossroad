@@ -10511,3 +10511,30 @@ rather than silently taking the first.
 ⭐ **And note what worked:** this is the first defect this session found by a gate rather than by
 re-reading output. The value-gate earned its keep on the round that most needed it — one that changed
 what the empty extension MEANS.
+
+## 315 · "② and ③ conflict" is UNDERDETERMINED — the admissible side is one weak arm (R485 → R486)
+
+**Downgraded one round later, by measurement.** R485 concluded that ② and ③ **conflict**, because
+every arm clearing the cross-fitted prompt-blind ceiling is one ③ excludes, five of five.
+
+**The observation stands. The interpretation does not.** Placing the best ③-admissible **prompt-aware**
+arm inside the class it must beat: `gen` sits at **percentile 32.6** of the 1,820 prompt-blind
+4-subsets — **below two-thirds of them**. The whole admissible prompt-aware population on this site is
+`gen` (p32.6), `topvar_k4` (p0) and `full` (p0).
+
+⛔ **So R485 could not distinguish two worlds it treated as one:** *"③ forbids the winning mechanism"*
+versus *"nobody has built a good rating-blind prompt-aware arm here"*. **A clause-level conflict
+requires the admissible side to be fairly represented, and one weak arm is not representation.**
+
+⭐ **The tell I walked past, and it was in R485's own table:** `gen` at 0.5337 was below `generic`
+(0.5505) — a set that never sees the prompt. I wrote that up as *"prompt-awareness buys nothing"*,
+which is one reading; the other, which I did not consider, is that **`gen` is simply a poor arm**, and
+nothing in R485 separated them. **When your treatment arm loses to a control that ignores the
+treatment variable entirely, the first hypothesis is that the arm is bad — not that the variable is
+worthless.**
+
+⚠ **And my next-gradient line was wrong on the other half too.** It said whether the pool is an
+arbitrarily strong reference class *"has never been asked"*.
+`R454_is_the_bound_a_property_of_the_pool` asked it on the **size** axis and settled it: the bound
+saturates by W≈12. I grepped `DEFINITION.md` for `genericpool16` and never searched the round
+directories, where a round is named for the question. **A count over the wrong corpus is not a count.**
