@@ -10304,3 +10304,30 @@ unit is worse than no number**, because it survives a sanity check.
 and the claim's unit as **two separate strings** and require them equal, *before* the count is taken.
 Here: instrument = "files matching `assurance/*.py`", claim = "gates that rule on the repo". Written
 out, they are visibly different.
+
+## 308 · The gate check and the commit were in one command, so the check could not block the commit (R482, caught in-round)
+
+**Caught immediately after the fact.** The commit for `run_all.py` was issued as:
+
+    for g in <four gates>; do ... done
+    git add ... && git commit ...
+
+The loop printed **`⛔ EXIT2` for three gates and `⛔ EXIT1` for the fourth**, and `git commit` ran
+anyway — because a `for` loop's output is not a condition. **The verification was theatre: nothing
+about its outcome could reach the decision it appeared to gate.**
+
+⭐ **The symptom was harmless and the defect is not.** Re-run individually the four return **exit=0**
+and print their PASS lines; the failures were the documented transient wedge under heavy concurrent
+I/O (the 42-gate census was spawning subprocesses). **So the commit was correct by luck.** Had the
+gates been genuinely red, the identical command would have committed identically.
+
+⛔ **This is §4's "check that cannot fail" in its purest form** — not a threshold set too loose, but a
+check *structurally disconnected from the branch it decorates*. Every round this session ended with a
+gate loop followed by a commit in the same shell invocation. **The gate result has never once been
+able to stop a commit in this session.**
+
+**Remedy, mechanical:** the gates run in their **own step**, their exit status is read, and the commit
+is a **separate action** taken only after. Where they must share a command, the chain has to be
+`gates && commit` — a conjunction, not a sequence. ⚠ And note the direction of the lesson: this was
+found not by a gate but by *reading output I had already scrolled past*, which is the same channel
+that found retraction 293. **The most under-used instrument here is re-reading my own terminal.**
