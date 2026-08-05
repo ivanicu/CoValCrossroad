@@ -3063,3 +3063,21 @@ The contrast was computed and printed for completeness — Δ = **−0.1623** ag
 
 ⚠ README prose and code identifiers are proxies too; agreement bounds the construct from above and
 nothing here shows any round's controls were correct.
+
+## R618 · What a next site must provide for clause ② to be evaluable
+
+**This belongs in the definition and not only in the audit**: it is the condition under which the
+definition can be *stated* about an object at all.
+
+| a release must carry | it serves ②'s phrase | home | second |
+|---|---|---|---|
+| a prompt / user turn | *…for a conversation…* | ✓ | ✓ |
+| multiple responses per unit | *…scores RESPONSES…* | ✓ | ✓ |
+| a human preference target | *…better THAN…* | ✓ | ✓ |
+| **a released criterion POOL** | *…drawn from the RELEASED POOL…* | ✓ | ⛔ |
+| **a released CORE** | *…a CORE scores…* | ✓ | ⛔ |
+
+Validated by reproduction against R603 — home evaluable, second not, missing exactly those two — with
+the g=0 control showing that stripping the home release of the same two fields reproduces the second
+release's exact failure. ⚠ **NECESSARY, NOT SUFFICIENT**: R602 measured the second corpus as disjoint
+in content, which no schema check can see.

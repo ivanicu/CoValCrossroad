@@ -14604,3 +14604,33 @@ and which I skipped three times in a row before running it once.*
 ⚠ The contrast on that key was computed and printed anyway — Δ = **−0.1623**, null **[−0.1623,
 +0.1642]** — and marked **NOT READ AS EVIDENCE**, because a number about a schema habit is not a
 number about controls.
+
+## 546 · The register, finally written as a specification — and validated by reproduction
+
+§2 says the impossibility register doubles as the specification for the next site. **F names five
+fields a release must carry for clause ② to be evaluable**, derived from ②'s own wording: a prompt,
+multiple responses per unit, a human preference target, **a released criterion pool**, and **a released
+core.**
+
+**The pre-registered kill was reproduction:** any disagreement with R603 ⇒ withhold the spec. It
+reproduces — **home evaluable, second not, missing exactly {pool, core}** — and the g=0 control shows
+the check is not vacuous, since stripping the home release of those two fields reproduces the second
+release's exact failure.
+
+⚠ **NECESSARY, NOT SUFFICIENT**: a release can carry all five and still fail, because **R602 measured
+the second corpus as disjoint in content** and no schema check sees that. ⚠ **PRODUCTION, not
+Frontier** — a specification cannot be surprised by data, and the reproduction check was its only
+failable part.
+
+## 547 · The fourth quantifier error in six closing lines
+
+R617 closed with *"**every** axis of this arc now measures artifact FORM"*. **R614 measured position,
+R615 the verdict-class distribution, and R617 itself measured README prose and code identifiers.**
+
+⚠ With #212's "every", #213's units conflation and #216's "evidential quality", that is **four in
+six**. *No longer an occasional slip: it is a standing property of the sentence written last, when the
+round's controls have already fired and the attention they were holding has been released.*
+
+⭐ **And the commit gate catches the NUMERIC ones and lets the UNIVERSAL ones through** — every one of
+these four passed `next_line_quantifiers_are_computed.py`. **The gate has been measuring the easy half
+of its own subject.**

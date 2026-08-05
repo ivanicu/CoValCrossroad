@@ -473,6 +473,20 @@ silence. **2 of the 3 aggregators that can see k, not 2 of 5.** *(R481)*
 Everything above is a claim someone can act on. Everything below is the price and the
 specification for paying it.*
 
+## What a next site must provide for clause ② — the register as a specification *(R618)*
+
+§2 says the impossibility register doubles as the specification for the next site. **This is that specification**, derived from ②'s own wording and validated by requiring it to reproduce R603's verdict on the two objects on disk — which it does: **home evaluable, second not, missing exactly a rubric and a core.**
+
+| a release must carry | it serves ②'s phrase | home | second |
+|---|---|---|---|
+| a prompt / user turn | *…for a conversation…* | ✓ | ✓ |
+| multiple responses per unit | *…scores RESPONSES…* | ✓ | ✓ |
+| a human preference target | *…better THAN…* | ✓ | ✓ |
+| **a released criterion POOL** | *…drawn from the RELEASED POOL…* | ✓ | ⛔ |
+| **a released CORE** | *…a CORE scores…* | ✓ | ⛔ |
+
+⚠ **NECESSARY, NOT SUFFICIENT.** A release can carry all five and still fail to support ②: R602 measured the second corpus as disjoint in **content** — exact overlap 0, token-Jaccard at the shuffled floor — which no schema check can see. **This screens out impossibilities; it cannot certify a site.** ⚠ And it is PRODUCTION: a requirement derived from measurement, whose only failable part was the reproduction check.
+
 ## The register, ordered by WHO CAN REMOVE IT — then by effort
 
 ⚠ **Corrected 2026-08-05 *(R547)*.** This table was ordered by **effort alone**, and read as if it
