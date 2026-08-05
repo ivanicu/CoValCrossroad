@@ -16,8 +16,16 @@ THE RULE, and it is deliberately narrow:
    CARD) must (a) resolve to the same member set everywhere it is bound, and (b) contain only
    members the release's own documentation names.
 
-⚠ WHAT IT CANNOT DO: a release claim under a NEUTRAL name (`FIVE`, `TARGET`) is invisible to it, so
-   passing is a floor and never a certificate. Stated here rather than discovered later.
+⚠ WHAT IT CANNOT DO, NOW MEASURED (R692) RATHER THAN ASSERTED: a release claim under a NEUTRAL name
+   is invisible to it. The blind spot is **72 literals over 38 distinct arm sets**, against the **2
+   sets** this gate can see. So PASSING is a floor and weak evidence -- it certifies the names that
+   ANNOUNCE a release claim, and most arm literals here announce nothing.
+   ⭐ THE ONE NUMBER THAT MATTERS IS THE OVERLAP, AND IT IS 1: the set
+   {coval_core, topw_k3, topw_k4, topw_k6, topw_k8} appears BOTH under `PUBLISHED_FIVE` and under
+   neutral names elsewhere. That is the clause-3 extension, and it is exactly why R676 found the
+   count stable while the membership was not -- the same set travels under two kinds of name.
+   ⚠ A neutrally named arm list is usually OUR OWN arm list, which is legitimate. 72 is what the
+   gate cannot SEE, not a count of hidden false claims.
 """
 from __future__ import annotations
 import ast, json, pathlib, re, sys

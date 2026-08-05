@@ -16818,3 +16818,34 @@ destroyed an artifact once in this arc**. The retraction reaches `STATEMENT.md` 
 the claim is corrected where a reader meets it while the artifacts stay reproducible. **Freezing is
 the right move when the alternative is invalidating a source hash — and it is only defensible because
 the entry carries its reason.**
+
+## 820 · The gate's blind spot is 72 literals over 38 sets, against 2 it can see
+`release_names_resolve_to_one_set` certifies names that ANNOUNCE a release claim. Measured over 644
+`run.py`: 2 distinct arm sets carry such a name, 16 carry an explicitly-ours name, and **72 literals
+over 38 distinct sets carry a neutral one**. **So the gate PASSING is a floor and weak evidence**, and
+the number is now in its own docstring rather than in a round nobody opens. **A caveat measured is
+production; a caveat asserted is decoration** — and the prose version had already been repeated
+twice before anyone counted.
+
+## 821 · The one overlapping set is the ③ extension, and that is the mechanism R676 was missing
+Exactly **1** blind set also appears under a release-asserting name:
+`{coval_core, topw_k3, topw_k4, topw_k6, topw_k8}` — the clause-③ extension, carried under
+`PUBLISHED_FIVE` in one place and under neutral names elsewhere. **The same set travelling under two
+kinds of name is why R676 found the count stable while the membership was not**, and why R690's
+collision looked like two authors rather than one set with two labels. **A set with two names has no
+single place where its meaning is recorded.**
+
+## 822 · I declared a derivation before measuring and kept it out of the results
+R689 established the release ships one core; it follows with no further evidence that every claim in
+this arc was checked against one released object and N of our own constructions. **Could it have come
+out otherwise? No — the arithmetic forces it.** It is the deepest form of "the definition describes
+the instance" and it is stated as a derivation carrying no evidential weight, outside the round's
+estimand. **The temptation was to report it as this round's headline, because it is the most striking
+sentence available and it costs nothing to produce — which is exactly the tell.**
+
+## 823 · The point error is growing while the intervals hold, and that is worth naming
+Registered A 45, observed 72 — error +27 on an interval `[10,150]` that could genuinely fail.
+Registered B 3, observed 1. **Three rounds running, the intervals have been failable and the points
+have been off by 30–60%.** That is the correct trade: a failable interval that holds tells me the
+order of magnitude was right, and a point error tells me the model of the mechanism is not. **The
+alternative — a tight point inside an unfailable range — reads better and means nothing.**
