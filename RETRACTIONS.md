@@ -11311,3 +11311,34 @@ attacks" earned its keep: the cheap version of this round would have published "
 
 ⭐⭐ **Prior-art failure, measured:** `id_map.json` was built by R468 and sat unused while the previous
 round returned `nan% of 0` for want of exactly that join. **Second time in three rounds.**
+
+## 342 · The actionability test I built flags 4 of 8 sections — and inspection says the detector is wrong, not the document
+
+**Not adopted.** The previous round's divider asserts that everything above it is actionable. §0.2
+names three forms of production — a surviving claim with its scope, a working instrument, a closed
+decision — so the test looked mechanical: classify each section by which form it carries.
+
+**It flagged 4 of 8.** Inspection of the four:
+
+- **"The definition"** — no scoped number, no verdict word. **But it *is* the closed decision**; the
+  detector's vocabulary has no pattern for a clause list, so it flagged the single most load-bearing
+  section on the page.
+- **"What is established about clause ②" / "…the arm space" / "What the score is made of"** — all
+  carry scoped numbers, none carries a bracket-interval or a verdict word, because they state scope
+  as *"33 of 42"* and *"1,820-comparator census"* rather than as `[lo, hi]`.
+
+⛔ **A 50% flag rate on a page I believe is mostly production is the same signature as the NEXT-line
+detector's first version at 61%: a pattern matching most of a corpus is matching FORM, not the
+property.** The instrument's unit — *"contains a bracket or a verdict word"* — is not the claim's unit
+— *"states something a reader could act on."*
+
+⭐ **So the test is declined, and that is the round's result.** Publishing it would have asserted
+*"half the residue is decoration"* on the strength of a regex that cannot recognise a definition.
+**Second declined repair this session** (R507 was the first), and both were declined for the same
+reason: a new proxy needs its own validation, and neither had one that could fail honestly.
+
+⚠ **What the exercise did establish, and it is small:** the divider's claim is **UNVERIFIED**, not
+supported. **Testing "is this actionable" needs a reader, not a pattern** — and the cheapest honest
+version is the one §0.2 already gives: *ask whether the most quotable sentence is a fact about the
+world with its scope, or a fact about my own rigour.* That is a judgement, and it should be labelled
+as one rather than dressed in a percentage.
