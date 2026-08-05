@@ -12199,3 +12199,34 @@ not answer something, without opening it.**
 **Seven walls checked this session; six false, one true** *(R538)*. **A wall does not feel like a
 model. It feels like a fact about the world — which is exactly why it needs the same check, and why
 "I already learned this" is not evidence that I did.**
+
+## 369 · Register row 3 is a code change, not a generation round — and two more walls fell to get there
+
+**Row 3 reads:** *"more ③-any-admissible prompt-responsive generators | **a generation round, on
+this site**."* **Both halves of that cost are wrong.**
+
+**R544** — `generate_core.py:147` uses **`do_sample=False`**, so generation is **greedy**;
+`--seed` reaches only the conversation sampler at line 117, never the generation. **Re-running on
+the home release returns byte-identical criteria whatever the seed.**
+
+**R545** — the `argparse` surface has **8 flags and none varies the output on a fixed prompt**:
+`--out`, `--sham`, `--limit`, `--batch`, `--corpus`, `--second-path`, `--convs`, `--seed`. **No
+`--model`. No prompt flag — `FEWSHOT` is a module constant at line 42.**
+
+⭐⭐⭐ **So `gen` is the UNIQUE output of this generator on the home release, and row 3 requires a
+CODE CHANGE before any compute is worth spending. 4.63 minutes buys the same criteria again.**
+
+⚠ **Both findings came from walls I had raised myself.** R543 closed *"nothing further can be
+learned about the cost without running it"* — **eighth wall of the session, seventh false** — one
+round after I logged that *"a wall does not feel like a model, which is exactly why it needs the
+same check."* **The lesson failed to transfer twice in a row, in consecutive rounds.**
+
+⭐ **And the source documents a real defect about itself** (lines 104–114): the same seed and count
+gave two different samples, coverage came back **1,644/2,200 = 0.7473** against a pre-registered
+0.80 gate, **1,870 interactions dropped** — *"The gate caught it, which is the gate working;
+lowering it would have been the move AMENDMENT 1 forbids."* Its remedy generalises: **"Two producers
+that must agree on a population should share the function that defines it."**
+
+⚠ **Process note, third occurrence: R542 and R544 were each measured, reported, and left
+uncommitted until the following round.** Reporting is not committing, and the standing rule is
+commit-and-push every round.
