@@ -29,6 +29,8 @@ snake_case and paths, the boundary you want is *"not adjacent to a letter or dig
 **separators**, and `\b` gets that backwards for exactly the characters this corpus uses most.
 **A lesson in a ledger is not a function anyone calls.**
 
+> **⚠ DOWNGRADED BY R687 (D8).** The **13 "value field"** rounds are **6 structured records + 7 prose mentions** — the judge appearing inside a verdict sentence, not in a field. **One of the seven is R684's own `world` string.** So the recoverable figure reads **6 machine-readable records** plus mentions, not 19 recoveries, and the 23.5% is an upper bound in a second way beyond the one stated below.
+
 ## THE RESULT
 
 | encoding | rounds |

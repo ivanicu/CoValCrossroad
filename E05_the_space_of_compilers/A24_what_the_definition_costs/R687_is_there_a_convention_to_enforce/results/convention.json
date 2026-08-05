@@ -1,0 +1,96 @@
+{
+  "world": "UNVERIFIED \u2014 a control did not fire.",
+  "controls_ok": false,
+  "tree_sha": "0d229eeacaf2bd84dd806a7a25ebde6e0221fdfb",
+  "n_rounds": 13,
+  "n_structured": 6,
+  "n_prose_only": 7,
+  "prose_rounds": [
+    [
+      "R419",
+      [
+        "model"
+      ]
+    ],
+    [
+      "R427",
+      [
+        "model"
+      ]
+    ],
+    [
+      "R433",
+      [
+        "model"
+      ]
+    ],
+    [
+      "R490",
+      [
+        "world"
+      ]
+    ],
+    [
+      "R556",
+      [
+        "axis_note"
+      ]
+    ],
+    [
+      "R560",
+      [
+        "instrument"
+      ]
+    ],
+    [
+      "R684",
+      [
+        "world"
+      ]
+    ]
+  ],
+  "n_distinct_names": 7,
+  "name_counts": {
+    "direction": 1,
+    "evidence": 1,
+    "names": 1,
+    "larger_complete": 1,
+    "not_measured": 1,
+    "incumbent": 1,
+    "name": 1
+  },
+  "top_name": "direction",
+  "top_cover": 1,
+  "per_round": {
+    "R357": [
+      "direction"
+    ],
+    "R366": [
+      "evidence"
+    ],
+    "R367": [
+      "names"
+    ],
+    "R419": [],
+    "R427": [],
+    "R433": [],
+    "R490": [],
+    "R491": [
+      "larger_complete"
+    ],
+    "R548": [
+      "not_measured"
+    ],
+    "R554": [
+      "incumbent",
+      "name"
+    ],
+    "R556": [],
+    "R560": [],
+    "R684": []
+  },
+  "kill_fired": true,
+  "directional_holds": false,
+  "registered": "A 5 [1,13]; B 6 [1,13]; one name covers >=half; kill if names == rounds",
+  "limit": "a shared field NAME is a shared habit, not a shared meaning. A gate on it enforces a spelling, not a semantics."
+}

@@ -16679,3 +16679,32 @@ The registered directional said a judge would most often be recoverable from a f
 convention is a JSON value. **The point estimate landed at 19 against a registered 20 while the
 mechanism behind it was completely wrong**, which is the cleanest demonstration in this arc that a
 correct total says nothing about a correct model of how it arises.
+
+## 801 · R686's "13 in a value field" is 6 structured records and 7 prose mentions
+The instrument counted any string containing a judge token, so `world`, `direction`, `evidence` and
+`not_measured` — prose fields — read as judge records. **One of the seven prose cases is R684's own
+verdict string**, which says "2B" because it is describing the finding. Instrument unit: a string
+containing a token. Claim unit: a field recording the judge. **A round's own conclusion prose is
+inside its artifact, so any scan for a value in an artifact will find the round's opinions alongside
+its data** — and that is a general hazard of treating a results file as structured.
+
+## 802 · The kill fired and the production decision is CLOSED, not deferred
+Seven distinct field names across six structured rounds. **No rule is writable**, so the gate R687
+was prepared to build does not get built. Recording that as a closed decision matters more than the
+count: the next round does not need to re-open "could we enforce this?", and a decision deferred is
+the one that gets re-litigated. **A round that ends by building nothing, for a stated reason, has
+still made a decision safe.**
+
+## 803 · I registered two intervals spanning the entire possible range
+`A [1, 13]` and `B [1, 13]` on a population of 13. Every outcome the world could produce falls
+inside, so both "INSIDE" verdicts are **unfailable and carry no information**. §0: a standard nobody
+can fail is not a standard — **and I applied that to designs while writing my own registrations to be
+safe.** The directional row is the only one here that could have failed, and it did. **Wide intervals
+are not caution; they are the forecast equivalent of a check that cannot fail.**
+
+## 804 · "Structured" is a 24-character length heuristic and is labelled as one
+A value is called a structured record if it is short. `"2B wins clearly"` would pass. So the 6/7
+split is approximate, and its error runs toward **over**-counting structured records — which makes
+"no convention" the conservative verdict rather than the convenient one. **Naming the direction of a
+proxy's error is what lets a reader decide whether it threatens the conclusion; naming only that it
+is a proxy does not.**
