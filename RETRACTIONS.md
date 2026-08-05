@@ -16877,3 +16877,29 @@ No arm was held out. 88.1% is an upper bound on what the family predictor achiev
 of what it would achieve on unseen arms — and with 42 arms and 13 families there is not enough data
 to hold any out honestly. **Stated in the verdict rather than in a footnote, because a number that is
 structurally a ceiling reads as an estimate unless the sentence carrying it says otherwise.**
+
+## 828 · The definition is two parameters we chose plus exactly the sham distinction
+Over 42 arms in 24 `(family, k)` cells, ② and ②∧③ are each irreducible in **2** cells:
+`coval_core`/`coval_core_sham` and `topw_k4`/`topw_k4_sham`. **A memorising fit on those two
+parameters scores 95.2% by construction.** So the definition's content, on this population, is our own
+parameterisation plus the sham distinction — and the sham distinction is the part that is not ours to
+choose. **A definition whose discriminating power is 95% recoverable from your own build parameters
+has one real degree of freedom, and it is worth locating precisely.**
+
+## 829 · A gauge test killed the proposed round, and the gauge test was itself wrong
+R693 proposed fitting `(family, k)` jointly. **12 of 24 cells are singletons**, so accuracy is forced
+by cell cardinality — a derivation, not evidence. ⚠ **But my gauge test computed errors as
+`sum(min(counts))`, charging every PURE cell an error, and printed 4.8% for a memorising fit that
+cannot go below the 78.6% floor.** It was caught **by absurdity, not by a control**. An ARITHMETIC
+control now enforces `accuracy ≥ floor` for every reading. **A number that is impossible on its face
+is the only error this arc has caught without an instrument — and relying on impossibility means
+every error that lands in a plausible range survives.**
+
+## 830 · A draft satisfied a registered point by relabelling an existing set
+Registered POINT B asked for ③ alone. R360's ledger has no ③-alone verdict. My first draft assigned
+`readings["③"] = readings["②∧③"]` — **the same set under a different name** — and it printed as a
+third reading agreeing with the other two. **A duplicate wearing a third reading's name reads as
+corroboration**, and the registration would have scored as satisfied. Removed; B is reported
+**UNCOMPUTED**. **The pressure to satisfy a pre-registered row is exactly the pressure that produces
+a relabelled duplicate, and pre-registration does not protect against it — only checking what the
+value IS does.**
