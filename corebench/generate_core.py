@@ -90,6 +90,14 @@ def main():
     ap.add_argument("--second-path", default=str(ROOT / "data" / "utterances.jsonl"))
     ap.add_argument("--convs", type=int, default=2200)
     ap.add_argument("--seed", type=int, default=0)
+    # ⭐ ADDED 2026-08-05 (R553). Register rows 3+4 were priced as "a generation round" for five
+    # rounds; R549/R552 established the FIRST blocker is not compute but these two absent knobs.
+    # Every default below reproduces the module constants EXACTLY, so an unflagged run is
+    # byte-identical to every run before this edit -- that is the placebo the round tests.
+    ap.add_argument("--model", default=MODEL,
+                    help="generator checkpoint; default = the module constant, unchanged")
+    ap.add_argument("--fewshot-file", default=None,
+                    help="file whose contents replace FEWSHOT; default None = the constant")
     a = ap.parse_args()
 
     import torch
@@ -129,18 +137,19 @@ def main():
     if a.sham:                              # SHAM: same generator, wrong conversation
         items = [(items[i][0], items[(i + 1) % len(items)][1]) for i in range(len(items))]
 
-    tok = AutoTokenizer.from_pretrained(MODEL)
+    fewshot = (pathlib.Path(a.fewshot_file).read_text() if a.fewshot_file else FEWSHOT)
+    tok = AutoTokenizer.from_pretrained(a.model)
     tok.padding_side = "left"
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
-    model = AutoModelForCausalLM.from_pretrained(MODEL, dtype=torch.bfloat16,
+    model = AutoModelForCausalLM.from_pretrained(a.model, dtype=torch.bfloat16,
                                                  device_map="cuda")
     model.eval()
 
     out, t0 = {}, time.time()
     for i in range(0, len(items), a.batch):
         chunk = items[i:i + a.batch]
-        prompts = [FEWSHOT + f"User message: {c}\nCriteria:\n" for _p, c in chunk]
+        prompts = [fewshot + f"User message: {c}\nCriteria:\n" for _p, c in chunk]
         enc = tok(prompts, return_tensors="pt", padding=True, truncation=True,
                   max_length=768).to("cuda")
         with torch.no_grad():

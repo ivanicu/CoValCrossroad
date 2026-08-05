@@ -12476,3 +12476,31 @@ saying an artifact without a verdict is not answerable.
 ⭐ **The distinction is the whole point of the backfill:** evidence says *what the source contains*;
 a world says *what that settles*. The artifacts now carry a `world` **computed** from whether every
 claim verified, never typed — `B` when all hold, `UNVERIFIED` when any does not.
+
+## 383 · "Small enough to just make it" was an unmeasured quantifier — so I measured it by making it
+
+Check #153 caught my own closing line: *"that edit is small enough that the honest next move is to
+make it."* **Nothing had counted it.** It is **12 insertions, 3 deletions.**
+
+**The edit is made.** `generate_core.py` takes `--model` and `--fewshot-file`; both reach every load
+site. ⭐ **The binding control is the PLACEBO, not the positive one**: an unflagged run must load
+**exactly** `MODEL` and produce a prompt starting with **exactly** `FEWSHOT`. Similarity would not
+do — an edit that silently moved the default would invalidate every generation artifact on disk.
+
+⭐⭐⭐ **R552's kill fired for real.** Last round it was proven fireable only by *simulating* the
+blocker's removal. Re-running that script unchanged now returns **WORLD A**, `row 3+4 compute-bound:
+True`. **A pre-registered kill that later fires on reality is the only evidence the simulation was
+honest** — and this is the first register row to MOVE in the whole campaign.
+
+⚠ **Scope, stated because it is the flattering direction:** no generation was run. This shows the
+knobs reach the loader, not that another checkpoint makes a better core.
+
+## 384 · My test harness broke an unrelated module and it looked like a defect in the code under test
+
+The first version stubbed `torch` as a `SimpleNamespace`, omitting `inference_mode`, which
+`covalx/judge.py` calls **at class-definition time**. The traceback surfaced *inside*
+`generate_core.py`'s import chain — **so a defect in my instrument was presented as a defect in the
+thing being tested**, which is the direction that gets a good edit reverted.
+
+**Remedy: stub the narrowest possible layer.** Real `torch` (no GPU touched by import alone), stub
+only `transformers`, and let the sentinel fire at tokenisation before any `.to("cuda")`.
