@@ -18477,3 +18477,32 @@ upward — so a ratio below one is what the proxy predicts rather than a failure
 control was measuring the proxy. Split into two: the instrument is checked exactly, by requiring an
 arm's overlap with itself to equal its own criterion count, and the model is reported as a ratio with
 the direction of its bias stated.
+
+## 970 · the wall the previous round declared was not there
+
+That round closed by saying the experiment separating overlap from selection size requires a new
+selection run over the candidate pools. Satisfaction is a function of prompt, response and criterion
+to 0.997357, a median of fifteen distinct criteria carry a score on each prompt, and nine hundred and
+seventeen of nine hundred and sixty eight prompts carry at least eight, so two four-criterion arms at
+any chosen overlap can be assembled from scores already committed. The deferred experiment is a
+reanalysis. An unchecked wall is unverified rather than settled, and this one cost nothing to check.
+
+## 971 · an inverted index produced an eighty five percent finding that the source forbade
+
+Reading the stored satisfaction key, I took the response letter for the criterion position and joined
+arms on that. The join reported eighty five percent inconsistency, which would have meant a
+criterion's score depends on which other criteria share its set. The scoring source builds one judge
+call per criterion, so that world was impossible by construction and the file said so before any
+measurement was taken. The index runs zero to eleven on a twelve-criterion arm while the letters run
+A to D, which is the whole diagnosis and was visible in the first six rows of metadata I printed.
+
+## 972 · my positive control passed on the inverted join because the inversion cancelled
+
+The control was a pair of tags an earlier round proved to be one object. Under the corrected join it
+returns zero inconsistency; under the inverted join it also returns zero, because the same inversion
+applies to both sides and cancels. It could not have detected the error it was there to exclude. The
+standard names this exactly — a control that shares the instrument's blind spot confirms the
+instrument and licenses nothing — and I had quoted that row three rounds earlier while building the
+control it warns about. A same-object control is necessary and insufficient. The control that sees
+the inversion runs both joins and requires them to disagree, which they do by 0.851120, and that is
+now the round's gate.

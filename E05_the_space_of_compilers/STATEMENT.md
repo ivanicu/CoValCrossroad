@@ -456,7 +456,10 @@ margins **halve** and **both objects still sit with the excluded one**. ⛔ This
 direction: its subtrahend-only **0.3062** strips all overlap, but the compared arms all select k=4,
 so the floor was too **LOW** and those excesses were **overstated**, not understated. ⚠ Overlap and k
 are confounded by construction and each stratum holds 3 pairs, so *which* of the two drives it is
-**UNDERPOWERED here, not settled.** **Both clauses agree; 48 of 48
+**UNDERPOWERED here, not settled.** ⭐ **And separating them needs no new judge run** *(R736)*:
+satisfaction is a function of `(prompt, response, criterion)` to **0.997357**, a median of **15**
+criteria are scored per prompt, and **917 of 968** prompts carry ≥8 — enough to assemble two k=4 arms
+at any overlap 0–4. **The deferred experiment is a reanalysis.** **Both clauses agree; 48 of 48
 cells survive BH.** The gap is reliable *(R457: split-half 0.8311, shuffled 0.0168)*. ⚠ This
 **excludes unrelatedness; it does not identify a mechanism** — and the raw 0.9747 exceeds the
 attenuation ceiling, so the disattenuated column is a diagnostic, not a correlation. ⭐ **And measured directly:** two arms sharing the `oracle_k`

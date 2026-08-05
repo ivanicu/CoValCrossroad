@@ -3836,3 +3836,24 @@ object's excess toward the excluded object is 0.3289 and toward the label-blind 
 independent object's are 0.2781 and 0.1311. Both orderings are unchanged from every earlier floor and
 both margins are roughly halved. These four values are the ones the statement carries and they are
 recorded here so each resolves to this round rather than standing alone on the deliverable.
+
+## R736 · the deferred experiment is a reanalysis, and the finding that led there was an indexing error
+
+The previous round declared that separating overlap from selection size requires a new selection run.
+It does not. Satisfaction scores are stored per prompt, criterion index and response letter, and
+joining arms on prompt, response and criterion text shows the score to be a function of that triple
+to 0.997357 across one hundred and ninety key-sharing pairs. A median of fifteen distinct criteria
+carry a score on each prompt and nine hundred and seventeen of nine hundred and sixty eight prompts
+carry at least eight, which is enough to assemble two four-criterion arms at any chosen overlap from
+zero to four; the reachable prompt counts at those five targets are nine hundred and seventeen, nine
+hundred and forty eight, nine hundred and sixty four, nine hundred and sixty five and nine hundred
+and sixty eight. So the deferred experiment is available without asking the judge anything new. The
+route to that conclusion began with an inverted index: reading the response letter as the criterion
+position produced an apparent eighty five percent inconsistency, which would have said the judge's
+score depends on which other criteria share the set. The scoring source builds one judge call per
+criterion, so that world was impossible by construction. The control that should have caught it did
+not, because it compared two tags of a single object and the inversion cancelled on both sides; the
+control that does catch it runs both joins and requires them to disagree, which they do by 0.851120.
+A residual inconsistency of 0.002643 survives the corrected join and is real, since an earlier round
+measured the scoring floor at exactly zero on identical criteria; it is bounded here and not
+explained.
