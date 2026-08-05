@@ -1996,3 +1996,31 @@ one is a scoring run.
 removes the top 4 of the 9 admitted; here the 6 the literal misses would be the top 4 of the
 extended set. **③ does its work at the top of the distribution, which is where a benchmark's
 headline comes from — without it the leaderboard ranks how much each arm read the answer.**
+
+---
+
+## R522 · The six are verdicts, not candidacies
+
+**The wall fell first.** R521 closed saying the real ② verdicts for the six needed a scoring run.
+**All six saturation matrices are on disk**, so R294's own contrast machinery re-runs directly —
+reanalysis, not scoring. **Third false "needs new computation" wall this session.**
+
+**All six clear ② as interval verdicts:**
+
+| arm | c2 | 95% CI | MDE | verdict |
+|---|---|---|---|---|
+| `oracle_k4_oracle_k{A,B}` | **+0.0779** | [+0.0701, +0.0853] | 0.0107 | **BEATS** |
+| `greedy_k4_greedy_k{A,B}` | +0.0722 | [+0.0643, +0.0797] | 0.0105 | **BEATS** |
+| `indep_k4_indep_k{A,B}` | +0.0527 | [+0.0447, +0.0600] | 0.0104 | **BEATS** |
+
+**Controls.** Five positive: the reconstruction reproduces R294's stored `c2` for `coval_core`,
+`topw_k4`, `gen`, `generic` and `oracle_k4` at **Δ = 0.00e+00**. Negative: an arm against itself
+gives exactly 0 with a degenerate CI. Multiplicity: BH over C = 47.
+
+⭐ `oracle_k4_oracle_kA` reproduces `oracle_k4`'s stored +0.077867 exactly, so the doubled-tag arms
+behave as the same object — consistent with oracle-family construction.
+
+⭐⭐⭐ **Settled: under the declared literal, widening the population to the 56 admits six
+label-reading arms that BEAT ②, four of them outscoring every currently-admitted arm. Under the
+derived gate, all six are excluded.** The fix is six lines (R520) and the cost of not applying it is
+a leaderboard topped by arms that read the answer.

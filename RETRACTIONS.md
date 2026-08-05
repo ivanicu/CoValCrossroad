@@ -11737,3 +11737,44 @@ is a scoring run.
 removes the top 4 of the 9 admitted arms; here the 6 the literal misses would be the top 4 of the
 extended set. **③ does its work at the top of the distribution — which is where a benchmark's
 headline comes from.**
+
+## 355 · The third false wall this session — "needs a scoring run" when the data was on disk
+
+**`426a409` closed with:** *"the honest way to close them is to compute the blind-pool contrast for
+the 15 arms that lack one, and that cost is the thing to measure before spending it."*
+
+⛔ **All six saturation matrices were already on disk.** R294's own contrast machinery re-runs on
+them directly — reanalysis, not scoring. The cost was seconds.
+
+**This is the third wall of this exact shape:**
+
+| round | the wall | what it actually needed |
+|---|---|---|
+| `469a8b9` | settling ④ "needs a scoring run rather than a reanalysis" | a join of two files, 41 arms |
+| `426a409` | the six candidacies need "the blind-pool contrast" computed | six `.npz` files already present |
+| *(and the earlier form)* `f09c4bf` | the derivation "can be tested" over the 41 | a check the algebra forced |
+
+⭐⭐⭐ **The pattern is specific enough to be actionable: my walls are always "this needs new
+computation" when what it needs is a join.** All three were raised in a closing sentence, after the
+round's controls had fired. **The NEXT-line gate cannot catch a wall — it polices quantifiers — so
+the only thing that has caught these is running check #N on my own last line as the next round's
+first act. Three for three.**
+
+## And the substance: the six are verdicts, not candidacies
+
+**All six clear ② as interval verdicts, 6 of 6 against a pre-registered kill at 4:**
+
+| arm | c2 | 95% CI | MDE | verdict |
+|---|---|---|---|---|
+| `oracle_k4_oracle_k{A,B}` | **+0.0779** | [+0.0701, +0.0853] | 0.0107 | **BEATS** |
+| `greedy_k4_greedy_k{A,B}` | +0.0722 | [+0.0643, +0.0797] | 0.0105 | **BEATS** |
+| `indep_k4_indep_k{A,B}` | +0.0527 | [+0.0447, +0.0600] | 0.0104 | **BEATS** |
+
+**Controls that make this admissible:** five positive controls reproduce R294's stored `c2` at
+**Δ = 0.00e+00** (`coval_core`, `topw_k4`, `gen`, `generic`, `oracle_k4`); the negative control — an
+arm against itself — returns exactly 0 with a degenerate CI; multiplicity is BH over C = 47.
+
+⭐ **R521's bound is closed in the direction it feared.** Under the declared literal, widening to the
+56-arm population admits **six label-reading arms that BEAT ②**, four outscoring every currently
+admitted arm. Under the derived gate all six are excluded. **The six-line fix is the difference
+between a leaderboard topped by cores and one topped by arms that read the answer.**
