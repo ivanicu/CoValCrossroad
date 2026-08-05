@@ -13158,3 +13158,33 @@ THE OBJECT.** Reading gave 46 and 265 in a single command, after two patterns ha
 **Every pattern written this session to avoid reading has cost more than reading would have** — and
 the cost is not the wasted command, it is that a pattern returns a NUMBER, which reads as a
 measurement, while reading returns a fact.
+
+## 429 · Fleet size does not separate the capping meta-gates
+
+Counted with `sys.addaudithook` on `subprocess.Popen` over a 25s window: non-cappers spawn **5, 5, 7,
+11** and finish; cappers reach **22, 60, 9** as lower bounds before the window cuts them.
+
+⭐⭐⭐ **`attack_every_check` spawns 11 and finishes, while `backfilled_findings_are_rederivable` had
+spawned only 9 when it was cut.** A non-capper exceeds a capper, so **spawn count does not separate
+the groups.** The pre-registered kill fired.
+
+⚠ The capper figures are lower bounds, and that does not rescue the hypothesis: **a lower bound of 9
+against a completed 11 already breaks the ordering at the point the comparison is made.** My NEXT
+line called fleet size *"what separates them"*; it is not.
+
+## 430 · A different class of defect: the measurement succeeded and my error path destroyed it
+
+Two runs returned nothing for all three cappers, and I nearly filed the round UNVERIFIED for it.
+**`subprocess.TimeoutExpired` carries `.stderr` with everything the child printed before the kill.
+My handler returned the string `"TIMEOUT"` and discarded it.**
+
+⭐⭐⭐ **This is not the tenth pattern failure — it is a different kind, and worse.** A pattern that
+misses returns a **wrong number**, which at least invites checking. **An error path that discards
+returns nothing, and "nothing" reads as *the instrument could not reach it* rather than *I dropped it
+on the floor*.** The first framing is a fact about the world; the second is a fact about me, and only
+one of them prompts a fix.
+
+⭐ **What made it visible: the negative and positive controls both passed.** A working instrument
+returning nothing on three specific subjects is a contradiction that has to be resolved somewhere —
+and the only place left was my own handler. **R575 had no positive control and wrote a verdict under
+seven zeros; this round had one and could not.**
