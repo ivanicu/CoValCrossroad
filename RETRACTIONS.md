@@ -17031,3 +17031,15 @@ direction of the miss is the same blind spot three rounds have now hit**: R690 f
 its own audit, R697 found six "at floor" cells were one measurement copied into its own scan, and
 this one finds the sweeper is most of what it sweeps. **A corpus sweep run inside the corpus it
 audits has no natural denominator.**
+
+## 848 · I re-ran R697 while diagnosing it and overwrote the artifact R698 was documenting
+Diagnosing the three-way number disagreement meant running R697 again, which rewrote
+`results/floors.json` — **destroying the committed record of what it had actually produced, which is
+the evidence R698 rests on.** ⚠ **This is the exact hazard I have cited three times in this arc as a
+reason not to re-run a round** (R654's original loss, and twice since as an impossibility-register
+entry). Caught by `every_round_is_committed`, which flags a tracked round whose files changed without
+a re-commit, and restored with `git checkout --`. **The gate that caught it exists because the same
+thing happened before, and the citation of that lesson did not stop me repeating it — only the gate
+did.** ⭐ **A lesson quoted is not a lesson enforced**, which is ledger 797's finding arriving from
+the other direction: there the fix was to build the tool, here the tool was already built and it
+worked.
