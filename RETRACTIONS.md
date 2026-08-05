@@ -10839,3 +10839,31 @@ by construction. R497's artifact is **annotated, not rewritten** — `world_orig
 **The rule: a retraction must reach every artifact a gate reads, and an attack that kills a round
 belongs inside that round's script.** Otherwise the ledger and the machine disagree, and the machine
 is the one anything downstream believes.
+
+## 326 · "two arms with NO functional difference" — R499's null is a CEILING, and calling it zero made a weak comparison look decisive (R499 → R499, self-corrected under §0)
+
+**Retracted:** the description of `random_k4_s0` vs `random_k4_s1` as *"two arms with no functional
+difference"*, and the inference that `gen − generic` **failing to exceed** them settles World B.
+
+**What they actually are:** two arms sharing a **procedure** and differing in **realisation** — two
+arbitrary k=4 criterion sets, which is near the **maximum** difference two sets can have, not zero.
+**Exceeding a maximum-difference baseline was never likely**, so §0's question — *would this result
+probably have failed had the claim been false?* — answers **no** for that comparison. World B is
+killed **against a ceiling**, not cleanly.
+
+⭐⭐⭐ **And the correction makes the round stronger, which is why it is worth doing rather than
+merely admitting.** The severe comparison runs the *other* way and was sitting in the same table:
+`gen` and `generic` are **two different procedures**; `random_k4_s0/s1` are **two realisations of
+one**. Two different procedures landing **closer together** (r 0.9349, true sd 0.1314) than two
+realisations of one random procedure (r 0.9574, true sd 0.1557) is **not forced by any algebra** —
+it could have gone either way and did not.
+
+**The claim that replaces it:** *the per-prompt differences prompt-awareness produces are no larger
+than those produced by drawing criteria arbitrarily; at this resolution it is not distinguishable
+from arbitrariness.* A statement about the **mechanism**, not the mean — and it explains why clause
+②'s admissible side is empty rather than merely recording that it is.
+
+⚠ **The tell, for next time:** I named the null after **what I wanted it to be** (*"no functional
+difference"*) rather than after **what it was built from** (*"two draws of a random procedure"*).
+The name then did the reasoning. **A null should be named by its construction, never by its intended
+role** — the second is a hypothesis about the first, and it is the one nobody re-examines.

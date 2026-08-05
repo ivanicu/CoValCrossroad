@@ -67,6 +67,15 @@ prompt-awareness alone can reach, and only the human labels ③ forbids go furth
 could mean the arms agree, or that they differ per prompt and cancel. The cancelling world required
 the real pairs to **exceed** a null built from arms with no functional difference; they fall **below**
 it, at **percentile 0.0 on both statistics**. **Prompt-awareness buys nothing per-prompt either.**
+
+⭐⭐⭐ **And the severe form of that, which is a claim about the MECHANISM rather than the mean:**
+`gen` and `generic` are **two different procedures**; `random_k4_s0/s1` are **two realisations of
+one**. The two different procedures land **closer together** (r **0.9349**, true sd **0.1314**) than
+the two realisations of a single random procedure (r **0.9574**, true sd **0.1557**). **So the
+per-prompt differences prompt-awareness produces are no larger than those produced by drawing
+criteria arbitrarily — at this resolution it is not distinguishable from arbitrariness.** ⚠ The
+baseline is a **ceiling**, not a zero (two arbitrary k=4 sets are near-maximally different), so the
+*non-exceedance* is what the design resolves and the *ordering* is directional at `n_eff = 3`.
 *(R499)*
 
 ⛔ **AND FOUR ROUNDS WERE SPENT ON THE WRONG DIFFERENCE, BY A STATISTIC THAT COULD NOT SEE ITS OWN

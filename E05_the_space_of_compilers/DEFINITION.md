@@ -569,6 +569,27 @@ artifact of aggregation.** ⚠ The further suggestion — that `gen` lands *clos
 than two random arms land to each other — is **directional only**: k=4 affords 3 independent
 no-difference pairs, so `n_eff = 3` and the permutation floor is `p ≥ 0.25`. *(R499)*
 
+⚠⚠ **AND THAT NULL IS A CEILING, NOT A ZERO — WORDING CORRECTED, CONCLUSION SURVIVES AND SHARPENS
+(R499, re-read under §0's severity test).** I called `random_k4_s0` vs `random_k4_s1` a pair with
+*"no functional difference"*. They share a **procedure** and differ in **realisation** — two
+arbitrary k=4 sets, which is near the **maximum** difference two criterion sets can have, not zero.
+So *"gen − generic does not EXCEED it"* was decided against a high baseline and could not easily have
+come out otherwise. **That specific comparison is not severe, and World B is killed against a
+ceiling rather than cleanly.**
+
+⭐⭐⭐ **WHAT SURVIVES IS STRONGER, AND IT IS THE SENTENCE TO KEEP.** The severe comparison runs the
+other way. `gen` and `generic` are **two different procedures**; `random_k4_s0/s1` are **two
+realisations of one**. Two different procedures landing **closer together** (r **0.9349**, true sd
+**0.1314**) than two realisations of a single random procedure (r **0.9574**, true sd **0.1557**) is
+**not forced by any algebra** — it could have gone either way, and did not.
+
+⭐ **The definitional statement, in the scope the design supports:** *whatever prompt-awareness does
+to `gen`'s criteria, the per-prompt differences it produces are **no larger than those produced by
+drawing criteria arbitrarily** — so at this resolution **prompt-awareness is not distinguishable
+from arbitrariness**.* That is why clause ②'s admissible side is empty, and it is a claim about the
+**mechanism**, not about the mean. ⚠ `n_eff = 3` for the baseline, so the **ordering** is
+directional; the **non-exceedance** is what the design resolves. *(R499)*
+
 ⛔ **AND THE COMPUTE THAT WOULD SETTLE ②∧③ IS NOT THE COMPUTE I NAMED (R490).** The generator already
 exists — `corebench/generate_core.py` states in its own docstring that it *"MUST NOT SEE `coval_full`"*
 and *"sees the CONVERSATION and the FOUR RESPONSES only"*, i.e. rubric-blind, rating-blind and
