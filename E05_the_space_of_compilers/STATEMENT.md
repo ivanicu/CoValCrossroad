@@ -28,6 +28,25 @@ Swept over six agreement targets, the admitted set takes **four distinct values*
 ⭐ **One home for this fact.** It is stated here and not repeated per row, because a scope restated
 ten times drifts and the copy is never the one corrected. **Read every count below as "at A2".**
 
+⛔⛔ **AND THE TARGET WAS NOT THE ONLY MISSING AXIS — THE COLUMN HAS A SHAPE DEFECT** *(R560)*.
+G1 requires four scope dimensions. Measured across the ten rows: **population 8/10 · instrument
+6/10 · regime 4/10 · baseline 0/10 · rows stating all four: 0.** The positive control found
+`population` in 8 of 10, which is what makes the **zero for baseline a measurement rather than a
+broken vocabulary.**
+
+⭐ **So the constants belong here, once, as named fields — patching one axis per round would not
+converge:**
+
+| dimension | value for **every** row below |
+|---|---|
+| **population** | R294's **41** arms · **968** prompts · the 56-tag / **46**-object census |
+| **instrument** | home judge `Qwen3.5-2B-Base`, **target `A2`** |
+| **baseline** | ②'s comparator is **`POOL[0:4]` by file order**, at **percentile 93.7** of its 1,820-subset class. ⚠ **The extension moves 4 → 8 across that class** — so every count is baseline-conditional too |
+| **regime** | k=4 unless the row says otherwise · held-out annotator · one release |
+
+**Where a row departs from this table it says so in its own scope cell.** The table carries what is
+constant; the cell carries what varies. **That is the shape the column was missing.**
+
 | # | claim | scope it holds over |
 |---|---|---|
 | **1** | The definition is **② ∧ ③**. ① and ④ are retired — neither excludes anything ② has not *(R519)* | R294's 41 arms, home judge, 968 prompts |

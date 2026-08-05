@@ -12677,3 +12677,25 @@ removes the question from the register's jurisdiction entirely** — and a quest
 register is a question nobody will price again.
 
 **All seven rows have now had the reading. Every one of them moved.**
+
+## 397 · The scope column stated `baseline` in 0 of 10 rows, and no row stated all four
+
+R558 found the **target** missing from every claim row and fixed it with one note — one axis, found
+by hand. **G1 requires four.** Measured: **population 8/10 · instrument 6/10 · regime 4/10 ·
+baseline 0/10 · all four 0/10.**
+
+**The positive control is load-bearing here**: `population` matched **8 of 10**, so the vocabulary
+demonstrably reads this page's own usage. **An axis vocabulary finding nothing everywhere is broken;
+one finding `population` in 8 rows and `baseline` in none is a measurement.**
+
+⭐⭐⭐ **`baseline` at zero is the consequential gap.** ②'s comparator is `POOL[0:4]` **by file
+order** at percentile **93.7**, and **the extension moves 4 → 8 across that reference class.** So
+every extension count was conditional on a baseline the page never named — exactly the target defect
+again, one axis over.
+
+⭐ **The fix had to be structural.** Patching one axis per round would have cost four rounds and
+converged on nothing, because **the column had no shape: it was prose, and prose omits silently.**
+Constants now sit in one table with four named fields; a row's own cell carries only its departures.
+
+**The general form, which is why this is worth a retraction rather than an edit: a free-text field
+cannot be audited for what it fails to say. Only a schema can.**

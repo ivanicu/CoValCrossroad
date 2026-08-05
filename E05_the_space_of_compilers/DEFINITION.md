@@ -2697,3 +2697,31 @@ cross-round ratio (0.333) as a cell nobody ran.**
 an object where a property is meant — it declares a measurement to be a decision, which removes the
 question from the register's own jurisdiction.** The decision about purpose is real and downstream;
 the measurement in front of it is at **1.57 by one instrument and 0.43 by another.**
+
+## R560 · The scope column's defect is a SHAPE, and `baseline` was stated by zero rows
+
+R558 found the **target** missing from 10 of 10 claim rows and fixed it with one note. That was one
+axis, found by hand. **G1 requires four.** Measured across all ten rows:
+
+| dimension | rows stating it |
+|---|---|
+| **baseline** | **0 / 10** |
+| **regime** | 4 / 10 |
+| instrument | 6 / 10 |
+| population | 8 / 10 |
+| **all four** | **0 / 10** |
+
+**The positive control is what makes the zero admissible**: `population` was found in **8 of 10**, so
+the vocabulary demonstrably matches this page's own usage. **An axis vocabulary that finds nothing
+everywhere is a broken vocabulary; one that finds `population` in 8 rows and `baseline` in none is a
+measurement.** A negative control (an invented axis vocabulary) matched **0** rows.
+
+⭐⭐⭐ **`baseline` at 0/10 is the consequential one.** ②'s comparator is `POOL[0:4]` **by file
+order**, at percentile **93.7** of its 1,820-subset reference class — and **the extension moves
+4 → 8 across that class.** So every extension count on the page was conditional on a baseline the
+page never named, in the same way it was conditional on a target the page never named.
+
+⭐ **This is why the fix is structural rather than another note.** Patching one axis per round would
+have taken four rounds and converged on nothing, because the defect is that **the column had no
+shape**: it was prose, and prose omits silently. The constants now sit in one table with four named
+fields, and a row's own cell carries only its departures from them.
