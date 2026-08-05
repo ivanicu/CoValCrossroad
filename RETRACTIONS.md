@@ -14634,3 +14634,26 @@ round's controls have already fired and the attention they were holding has been
 ⭐ **And the commit gate catches the NUMERIC ones and lets the UNIVERSAL ones through** — every one of
 these four passed `next_line_quantifiers_are_computed.py`. **The gate has been measuring the easy half
 of its own subject.**
+
+## 548 · "BLANKET AMNESTY" printed on n = 1, by a branch with no magnitude test
+
+The verdict string read **`B BLANKET AMNESTY — 1 of 368 NEXT lines (0.3%)`**. The branch was
+`elif not amnesty:` → else B, so **any nonzero count promotes the alarming world.** §4's *"the verdict
+string is not a computation"* row, committed live inside a script auditing closing sentences.
+
+⭐ **The deeper defect: three worlds designed, two branches coded.** World C — *both, with amnesty
+dominant* — had no branch, so **the code could not express the answer the data gives.** *A two-branch
+`== 0` divider silently deletes the middle of a three-world design.*
+
+**Corrected: A VOCABULARY GAP dominates, 87 vs 1.**
+
+## 549 · The closing line was wrong twice, and the planned fix is measured inert
+
+⛔ *"the gate flags bare counts and lets universals through"* — **FALSE.** `QUANT` already contains
+`every|all|none|nothing|never|only`.
+⛔ *"four have now passed it"* — quantifier errors counted as universals. **Pre-registered 4,
+measured 1 → REFUTED.** And **#212 was flagged by the gate all along**, so it was never a miss.
+
+⭐ **The specification curve killed the fix before it was built**: scoping the provenance discharge to
+40 / 80 / 160 characters changes the flagged count by **+0 at every window**. *A curve flat across
+every defensible choice is the cheapest kill of a planned change, and it costs less than the change.*
