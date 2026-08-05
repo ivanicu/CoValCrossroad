@@ -14912,3 +14912,25 @@ so true uniqueness is **≥79.6% and plausibly ~86%**.
 R621 measured `FORMULATION.md` flipping 0 of 6 **under one mutation**, and called `n_flip` a **lower
 bound on coverage** in its own README. **I quoted my own upper-bounded measurement as an absolute,
 one round after writing the bound that forbids it.** Twelfth uncomputed or overstated quantifier.
+
+## 578 · Ten of seventeen ungoverned findings are neither superseded nor live
+
+Status over the full list: **UNSETTLED 10 · RETRACTED 5 · LIVE 2**, with exactly **one** both
+clause-naming and live — `③b REGISTER — clause ③'s TESTABILITY (R335–R338)`.
+
+**`FORMULATION.md` is not a history file** (archiving would bury live material) **and not a live-debt
+file** (only 2 are live). **It is an unsettled-work file**, and the action owed is to mark the 10.
+
+## 579 · Check #229 — I quantified over a truncated print, wrong in both directions
+
+R629 printed `uh[:12]`; I read the slice as the population. **Band count: claimed 9, measured 11.
+Clause count: claimed 6, measured 3.** §4's *"truncated string read as data"*, committed directly —
+and **the same truncation produced an understatement and a 2× overstatement at once**, so "it looked
+roughly right" is not a defence. **The remedy is arithmetic, not care.**
+
+## 580 · A binary world set has missed the MODAL outcome three times out of three
+
+R619 (amnesty vs vocabulary → both, vocabulary dominant), R620 (head-heavy vs long-tail → same
+shape), R630 (superseded vs live → **neither**, 10 of 17 unsettled). ⭐ **This is no longer a slip to
+note per round; it is a design default to change** — a two-world pre-registration in this arc has not
+once contained the answer.
