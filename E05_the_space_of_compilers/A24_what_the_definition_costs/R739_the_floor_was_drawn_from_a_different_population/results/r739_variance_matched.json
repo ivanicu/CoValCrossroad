@@ -1,0 +1,178 @@
+{
+  "A_oracle_rank": 0.5027747724070484,
+  "B_topw_rank": 0.49655443442145863,
+  "C_greedy_matched_floor": 0.8392170620411651,
+  "D_excesses_nonneg": 0,
+  "controls": {
+    "G0": true,
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "SHAM": true
+  },
+  "controls_ok": true,
+  "directional_all_above_one": false,
+  "g0_mean": 0.500490847880124,
+  "g0_sd": 0.002938891405170288,
+  "n_prompts": 734,
+  "negative_ratios": [
+    0.4916416475032479,
+    0.4940175896667476,
+    0.5010348629518643
+  ],
+  "prior_art": [
+    "R738",
+    "select_core.py derivation"
+  ],
+  "ratios": {
+    "coval_core_sham": 0.3848600324370853,
+    "full": 0.5,
+    "full_sham": 0.36512079910025047,
+    "gen": 0.4774813444545258,
+    "gen_sham": 0.3981300637340972,
+    "generic": 0.5349845492810644,
+    "greedy_k4_fit1": 0.46657272759535223,
+    "greedy_k4_greedy_kA": 0.46768221444486263,
+    "greedy_k4_greedy_kB": 0.46768221444486263,
+    "indep_k4_fit1": 0.5343360327069041,
+    "indep_k4_indep_kA": 0.5317860585327248,
+    "indep_k4_indep_kB": 0.5317860585327248,
+    "oracle_k4": 0.5027747724070484,
+    "oracle_k4_fit1": 0.4977526026560212,
+    "oracle_k4_oracle_kA": 0.5027747724070484,
+    "oracle_k4_oracle_kB": 0.5027747724070484,
+    "promptecho": 0.4518805109942583,
+    "promptecho_sham": 0.2959029268385368,
+    "random_k12_s0": 0.5006331693874477,
+    "random_k12_s1": 0.498977944105642,
+    "random_k12_s2": 0.5002250206425405,
+    "random_k2_s0": 0.5007606183444521,
+    "random_k2_s1": 0.4985525738499658,
+    "random_k2_s2": 0.5069252631881602,
+    "random_k3_s0": 0.500850491491568,
+    "random_k3_s1": 0.49324041548688163,
+    "random_k3_s2": 0.5049943461491428,
+    "random_k4_s0": 0.4981903641311428,
+    "random_k4_s0_ctlS0": 0.4981903641311428,
+    "random_k4_s1": 0.5000889289707853,
+    "random_k4_s1_ctlS1": 0.5000889289707853,
+    "random_k4_s2": 0.5014991142111842,
+    "random_k6_s0": 0.498228003963991,
+    "random_k6_s1": 0.5035989748682544,
+    "random_k6_s2": 0.5016986047810484,
+    "random_k8_s0": 0.4995355354179086,
+    "random_k8_s1": 0.4992763671433709,
+    "random_k8_s2": 0.5015595257087437,
+    "topabs_k4": 0.49441082322941465,
+    "topvar_k4": 0.8527987640001787,
+    "topw_k1": 0.4795632456410194,
+    "topw_k12": 0.49799197809178203,
+    "topw_k2": 0.4877836224109674,
+    "topw_k3": 0.49246717758087555,
+    "topw_k4": 0.49655443442145863,
+    "topw_k4_detA": 0.49655443442145863,
+    "topw_k4_detB": 0.49655443442145863,
+    "topw_k4_sham": 0.3708435757625058,
+    "topw_k6": 0.49732350083557697,
+    "topw_k8": 0.49818297357418806,
+    "topwvar_k4": 0.7903474229766472
+  },
+  "registered": "A 1.50 [0,10]; B 1.20 [0,10]; C 0.85 [0,1]; D 5 [0,10]",
+  "residue": "variance is one selected-on property; others are not excluded",
+  "results": {
+    "greedy": {
+      "oracle_k4": {
+        "excess": -0.035954112871014465,
+        "matched_floor": 0.8392170620411651,
+        "overlap": 2.7193460490463215,
+        "r": 0.8032629491701506,
+        "r738_excess": -0.017584985582837165,
+        "r738_floor": 0.8299259172925919
+      },
+      "topw_k3": {
+        "excess": -0.08550553635570057,
+        "matched_floor": 0.5231517572475555,
+        "overlap": 0.7670299727520435,
+        "r": 0.4376462208918549,
+        "r738_excess": -0.12122574340134318,
+        "r738_floor": 0.5576651988869067
+      },
+      "topw_k4": {
+        "excess": -0.036784797903031186,
+        "matched_floor": 0.526461053964216,
+        "overlap": 1.0449591280653951,
+        "r": 0.48967625606118487,
+        "r738_excess": -0.12006857531788351,
+        "r738_floor": 0.6127860774976601
+      },
+      "topw_k6": {
+        "excess": -0.07467969478489567,
+        "matched_floor": 0.6439329145676913,
+        "overlap": 1.6471389645776566,
+        "r": 0.5692532197827956,
+        "r738_excess": -0.10272169042602564,
+        "r738_floor": 0.681139541071559
+      },
+      "topw_k8": {
+        "excess": -0.04823741938039927,
+        "matched_floor": 0.6445358510498342,
+        "overlap": 2.2356948228882834,
+        "r": 0.596298431669435,
+        "r738_excess": -0.1164173190019604,
+        "r738_floor": 0.716783338764962
+      }
+    },
+    "indep": {
+      "oracle_k4": {
+        "excess": -0.019001568155658788,
+        "matched_floor": 0.6896550286205618,
+        "overlap": 1.9550408719346049,
+        "r": 0.670653460464903,
+        "r738_excess": -0.0637892791496576,
+        "r738_floor": 0.7245981398049306
+      },
+      "topw_k3": {
+        "excess": -0.0619097534444506,
+        "matched_floor": 0.5269550020256233,
+        "overlap": 0.9536784741144414,
+        "r": 0.4650452485811727,
+        "r738_excess": -0.12374153528233328,
+        "r738_floor": 0.5921695848357461
+      },
+      "topw_k4": {
+        "excess": -0.016710286286627407,
+        "matched_floor": 0.5330594688911137,
+        "overlap": 1.271117166212534,
+        "r": 0.5163491826044863,
+        "r738_excess": -0.11812758675171608,
+        "r738_floor": 0.6440861833291616
+      },
+      "topw_k6": {
+        "excess": -0.06734069784131846,
+        "matched_floor": 0.6556489855185458,
+        "overlap": 1.938692098092643,
+        "r": 0.5883082876772273,
+        "r738_excess": -0.11549757410076944,
+        "r738_floor": 0.7112540078211009
+      },
+      "topw_k8": {
+        "excess": -0.1271290746076632,
+        "matched_floor": 0.7387006801463045,
+        "overlap": 2.5408719346049047,
+        "r": 0.6115716055386413,
+        "r738_excess": -0.1273366155258221,
+        "r738_floor": 0.7381246450130918
+      }
+    }
+  },
+  "sham_ratios": [
+    0.541634228412752,
+    0.5402775311711403,
+    0.5208467167104665
+  ],
+  "source_sha": "c874ed8d75efae14",
+  "statistic": "mean mid-rank percentile of selected-criterion variance within the prompt pool; null 0.5",
+  "tree_sha": "c6cb5213be7f8f7dec646288542e6230407002b1",
+  "unmatchable_prompts": 222,
+  "world": "\u2b50\u2b50\u2b50 W-REAL \u2014 THE VARIANCE HYPOTHESIS IS REFUTED AND THE SHORTFALL SURVIVES. The rule-produced arms do NOT select higher-variance criteria: against the full candidate set the excluded object ranks 0.5028, greedy 0.4677 and indep 0.5318, all at a null of 0.5, and the registered directional FAILS. \u2b50 The instrument is validated by a known-answer case from the source: topvar_k selects BY that variance and ranks first at 0.8528, while uniform random arms return 0.5005 \u00b1 0.0029 \u2014 exactly the null \u2014 and the sham on criterion text length returns 0.5343. \u2b50\u2b50 Matching the floor on variance as well as overlap therefore moves 0 of 10 excesses to zero or above: the magnitudes shrink but every sign holds. So R738's shortfall is a property of the arms rather than of the null's population, and ONE candidate explanation is eliminated rather than confirmed. \u26a0 Eliminating one confound does not name the cause; the shortfall is now unexplained rather than explained away. \u26a0 And 222 prompts cannot supply a variance-matched subset at the widest target and are excluded, not back-filled."
+}

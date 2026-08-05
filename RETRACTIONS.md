@@ -18569,3 +18569,34 @@ outcome was not predictable from the overlaps and declined to weight it, so the 
 concealed prediction; it is a reminder that a set of registered points can be fully satisfied by a
 run whose headline is something nobody registered. The remedy is to register the sign of the
 quantity the conclusion will be about, not only the quantities the design produces on the way.
+
+## 979 · the explanation I proposed for the negative excesses is refuted by its own instrument
+
+The previous round closed by proposing that rule-produced arms select criteria the random floor does
+not, so the null was drawn from the wrong population. The selection source's own derivation named the
+quantity: a criterion whose satisfaction is identical across responses is arithmetically inert, so a
+target-fitting rule should avoid it. Measured against the full candidate set, the target-reading arms
+rank 0.5028, 0.4677 and 0.5318 on across-response variance against a null of one half, and matching
+the floor on variance as well as overlap moves none of the ten excesses. The magnitudes shrink and
+every sign holds. One candidate explanation is eliminated; the shortfall is now unexplained rather
+than explained away, which is a worse position to be in and the honest one.
+
+## 980 · a mean of per-prompt ratios, and the control that caught it
+
+The first statistic averaged a per-prompt ratio of selected-criterion variance to pool variance. A
+mean of ratios is inflated wherever the denominator is small, and uniformly random arms returned 1.28
+against a null of one. The zero control caught it because uniform selection has an exactly known
+answer and the instrument did not return it. Replaced by the mean percentile rank of a selected
+criterion's variance within its own prompt's pool, whose null is exactly one half by construction and
+which no small denominator can move.
+
+## 981 · the pool was the union of observed selections, which is the process under study
+
+Even on ranks the zero control still failed at 0.5664, and the sham on criterion text length returned
+0.65 — a bias with nothing to do with variance. The cause was the pool: I had built it from the union
+of every arm's selections, which is a sample of the candidate set drawn by the rules being tested. The
+full candidate set is on disk, because the selection source requires every candidate to be judged and
+the full arm selects all of them at a satisfaction coverage of exactly one. With the correct pool the
+zero control returns 0.5005 and the sham 0.5343. This is the second time in three rounds that a wall I
+was about to declare turned out to be a file I had not looked for, and on both occasions the thing
+that sent me looking was a control failing rather than a doubt of my own.

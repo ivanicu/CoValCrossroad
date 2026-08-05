@@ -3895,3 +3895,20 @@ arms, which is a weaker statement and the one the evidence supports. Every floor
 random subsets of the scored pool, and the arms being measured were produced by rules; whether a
 rule-produced arm should meet a random-subset floor at equal overlap is not identified at this site
 and is precisely what the negative excesses now make the open question.
+
+## R739 · the rules do not select higher-variance criteria, so the shortfall is not a population artifact
+
+The previous round's negative excesses had one obvious candidate explanation: the floor is built from
+random subsets while the arms measured against it were produced by rules, and the selection source
+derives that a criterion whose satisfaction is identical across the four responses contributes nothing
+to any pairwise comparison, so a rule fitting the human target should avoid such criteria and a random
+subset should take them at the pool rate. Measured against the full candidate set, that is false. The
+mean percentile rank of a selected criterion's across-response variance, whose null is one half by
+construction, is 0.5028 for the excluded object, 0.4677 and 0.5318 for the two admitted ones, and
+between 0.4925 and 0.4982 for the label-blind arms, while uniformly random arms return 0.5005 with a
+seed spread of 0.0029. The instrument is validated by a known-answer case from the same source: the
+rule that selects by this variance ranks first at 0.8528. Matching the floor on variance as well as
+overlap therefore moves none of the ten excesses to zero or above; the magnitudes shrink and every
+sign holds. So the shortfall is a property of the arms rather than of the population the null was
+drawn from, and one candidate explanation is eliminated rather than confirmed. Eliminating a confound
+does not name a cause, and the shortfall is now unexplained rather than explained away.

@@ -450,7 +450,12 @@ so that comparison mixes no instruments.
 NEGATIVE** — `greedy` correlates with the excluded object at **0.8123** against a matched floor of
 **0.8299**. What survives is a comparison of **shortfalls**: greedy **−0.0176 vs −0.1151**, indep
 **−0.0638 vs −0.1212**, gaps **+0.0975** and **+0.0574** against a band of **0.0151**. **The ordering
-holds; "they move with it prompt by prompt" does not.** The superseded reading follows.
+holds; "they move with it prompt by prompt" does not.** ⭐ **And the obvious explanation for the
+negative sign is REFUTED** *(R739)*: the rules do **not** select higher-variance criteria — mean
+variance percentile rank **0.5028 / 0.4677 / 0.5318** against a null of **0.5**, with uniform arms at
+**0.5005 ± 0.0029** and the rule that *does* select on variance ranking first at **0.8528**. Matching
+the floor on variance too moves **0 of 10** excesses. **The shortfall is unexplained, not explained
+away.** The superseded reading follows.
 
 ⭐ **And they share the excluded object's PROFILE, not merely its level** *(R733 — SUPERSEDED)*. Against a
 shared-subtrahend floor of **0.5034** — computed here, since R284's 0.53 is over a different baseline
