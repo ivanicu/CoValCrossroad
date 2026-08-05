@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 289 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 294 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 289.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 294.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -451,6 +451,20 @@ across three rounds is the lesson: a failed join licenses "this join failed", ne
 — the second quantifies over every possible key, and neither round enumerated one. ⚠ 18 rubric-space
 records have no ranking-space partner (986 > 968) and are reported rather than explained away.
 *(R468)*
+
+⛔ **AND WITH THE JOIN IN HAND, CONTAINMENT TURNS OUT TO BE CONSTANT ON ③'s OWN PARTITION (R469) — SO
+IT CANNOT IMPLEMENT ③ AT ALL.** Every selector in `select_core.py` draws from the prompt's own rubric,
+the ③-excluded ones and the ③-admitted ones alike, so containment is ~1.0 for both by construction —
+a **DERIVATION**, confirmed by measurement rather than asserted: **EXCLUDED 0.9744** (n=39, sd 0.1581)
+against **ADMITTED 0.9767** (n=43, sd 0.1507), **separation −0.0023**. The **UNKNOWN** class sits at
+**0.0002** (n=7), which is the mechanism made visible: those arms are the ones *not* built by a rubric
+selector, so neither instrument can separate them and **the arms the two instruments both fail on are
+the same arms**. ⭐ **This converts R466's UNVERIFIED from "not yet decided" into "NOT DECIDABLE BY
+THIS INSTRUMENT", and makes the definition's third verdict PERMANENT for the 19-arm UNKNOWN region
+rather than provisional.** Controls: the core reproduces **0.0778** vs its committed 0.0779, the
+cross-prompt floor is **0.0000**, and `full` — every rubric criterion — returns **0.9999**, without
+which a low number would be silence. ⚠ It rules out **one** instrument; another would need its own
+round, and this round says so rather than generalising. *(R469)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

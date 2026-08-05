@@ -9862,3 +9862,63 @@ spends its scepticism elsewhere.
 ✅ **Consequence:** R466's UNVERIFIED is now **decidable**. ③'s two instruments can be pointed at one
 population, and the **19-arm UNKNOWN region** can be revisited. ⚠ 18 rubric-space records have no
 ranking-space partner (986 > 968) and are reported rather than explained away.
+
+---
+
+## 286 · The announced confusion matrix was ill-typed AND forced — killed at zero compute (R468 → R469)
+
+**What was proposed.** R468 closed: *"run it on the joined population with the SELECTOR verdict as the
+reference and containment as the candidate, and report the confusion matrix rather than a rate."*
+
+**Two independent reasons it could not run.**
+
+1. **Unit mismatch.** The selector verdict is per **arm** (101 values from `clause3_as_written`);
+   containment is per **prompt** (968). A confusion matrix between them is ill-typed. §4's
+   unit-equality — **and this time the defect was in my own announced plan**, written one sentence
+   after a round whose entire finding was a quantifier error.
+2. **Forced at arm level.** Every selector in `select_core.py` draws from the prompt's **own rubric**
+   — the ③-excluded ones *and* the ③-admitted ones. **Containment is ~1.0 for both classes by
+   construction**, so the matrix is degenerate before any data is read.
+
+**The derivation, confirmed rather than asserted:**
+
+| ③'s class | n | mean containment | sd |
+|---|---|---|---|
+| EXCLUDED | 39 | **0.9744** | 0.1581 |
+| ADMITTED | 43 | **0.9767** | 0.1507 |
+| UNKNOWN | 7 | 0.0002 | 0.0004 |
+
+**Separation −0.0023.** ⭐ **Containment does not merely fail to validate against ③ — it is provably
+unable to implement it**, being constant on ③'s own partition. That converts R466's `UNVERIFIED` from
+*"not yet decided"* into **"not decidable by this instrument"**, and makes the definition's third
+verdict **permanent** for the 19-arm UNKNOWN region.
+
+⭐ **And the UNKNOWN class at 0.0002 is the mechanism made visible.** Those arms are the ones *not*
+built by a rubric selector — so they share nothing with the rubric, which is exactly why the
+selector-based instrument cannot name them and the text-based one collapses them into one bucket.
+**Two instruments, and the arms neither can separate are the same arms.**
+
+⚠ **This rules out ONE instrument, and says so.** R466 and R467 both generalised from a single failed
+instrument to what the data permits (entry 285); this round states the scope in the verdict string
+itself rather than in a caveat afterwards.
+
+---
+
+## 287 · The anchor as designed was unavailable, and the round exited 2 rather than proceed (R469)
+
+**What it was to be.** Read the released core's criterion texts from the **ranking** space and the
+rubric from the **rubric** space, so reproducing the committed **0.0779** would have validated R468's
+join a **third** time, on a third channel.
+
+**Why it could not run.** There is **no `core_coval_core.json`** — the released core's texts exist
+**only** in `conversation_rubrics.jsonl`, in rubric space. **The anchor therefore runs within a single
+space: it validates the containment instrument and *not* the join.**
+
+**What the round did.** Its first version **exited 2**, refusing to report a measurement whose anchor
+could not fire. The second states the weakening **in the output**, beside the number, rather than
+re-labelling a within-space check as the cross-space one that was designed.
+
+⭐ **Worth an entry because the failure mode it avoids is the cheapest one available:** an anchor that
+*almost* runs invites substituting the nearest available check and keeping the original description.
+**The number would have been identical — 0.0778 either way — and only the sentence about what it
+validates would have been false.**

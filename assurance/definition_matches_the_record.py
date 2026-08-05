@@ -504,6 +504,22 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R469 -- containment's degeneracy. BOTH class means are anchored, because the finding is the
+    # SEPARATION and either alone would read as a level rather than as the collapse of a partition.
+    d469 = next(A24.glob("R469_*"), None)
+    f469 = (d469 / "results" / "r469_containment_degenerate.json") if d469 else None
+    a = json.loads(f469.read_text()) if (f469 and f469.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        cl = a["classes"]
+        out["r469_exc"] = (f"{cl['EXCLUDED']['mean']:.4f}", "R469")
+        out["r469_adm"] = (f"{cl['ADMITTED']['mean']:.4f}", "R469")
+        out["r469_unk"] = (f"{cl['UNKNOWN']['mean']:.4f}", "R469")
+        out["r469_sep"] = (f"{cl['EXCLUDED']['mean'] - cl['ADMITTED']['mean']:.4f}", "R469")
+        out["r469_pos"] = (f"{a['positive_full']:.4f}", "R469")
+    else:
+        for k in ("r469_exc", "r469_adm", "r469_unk", "r469_sep", "r469_pos"):
+            out[k] = (None, "R469")
+
     # R468 -- the exact join. The RANDOM-pair similarity is anchored with the joined-pair one,
     # because 0.8811 alone is unreadable: the validation is the CONTRAST, on a channel the join was
     # not built from.
@@ -1198,6 +1214,11 @@ ASSERTIONS = {
     "r468_sim":     r"joined pairs are \*\*([\d.]+)\*\* similar",
     "r468_rnd":     r"against \*\*([\d.]+)\*\* for random pairs",
     "r468_surplus": r"⚠ (\d+) rubric-space\s*\n?records have no ranking-space partner",
+    "r469_exc": r"\*\*EXCLUDED ([\d.]+)\*\*",
+    "r469_adm": r"\*\*ADMITTED ([\d.]+)\*\*",
+    "r469_unk": r"class sits at\s*\n?\*\*([\d.]+)\*\*",
+    "r469_sep": r"separation ([\u2212\-][\d.]+)\*\*",
+    "r469_pos": r"criterion — returns \*\*([\d.]+)\*\*",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",
