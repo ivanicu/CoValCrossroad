@@ -636,6 +636,18 @@ def derive():
         for k in ("r462_old", "r462_new", "r462_cov", "r462_total"):
             out[k] = (None, "R462")
 
+    # R480 -- from the round's artifact.
+    try:
+        _c0 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+                             "R480_does_the_judge_change_the_order_or_only_the_level/results/r480_order.json"))
+        out["r480_surv"]    = (round(_c0["survival"], 4), "R480")
+        out["r480_placebo"] = (round(_c0["placebo"], 4), "R480")
+        out["r480_within"]  = (round(_c0["strata"]["within"][0], 4), "R480")
+        out["r480_corr2b"]  = (round(_c0["reversal"]["random"]["corr_k_2B"], 4), "R480")
+    except (OSError, KeyError):
+        for k in ("r480_surv", "r480_placebo", "r480_within", "r480_corr2b"):
+            out[k] = (None, "R480")
+
     # R479 -- from the round's artifact.
     try:
         _c9 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
@@ -1092,6 +1104,13 @@ def derive():
 # label -> the regex that must find that number in DEFINITION.md. The pattern is the CLAIM's own
 # wording, so an edit that changes the sentence without changing the artifact is caught too.
 ASSERTIONS = {
+    # R480 -- judge swap moves the ORDER. Anchored because the within-family number is below chance
+    # and therefore a claim about direction, not magnitude, and because the placebo is what makes it
+    # readable -- a document that quoted 0.8019 without 0.9848 would be quoting an uninterpretable number.
+    "r480_surv":     r"sign survival is \*\*(0\.\d{4})\*\* \[0\.7610",
+    "r480_placebo":  r"\*\*same-judge\*\* placebo of \*\*(0\.\d{4})\*\*",
+    "r480_within":   r"within-family\s*\nsurvival is (0\.\d{4}) \(65",
+    "r480_corr2b":   r"family is \*\*\+(\d\.\d{4})\*\* at 2B",
     # R479 -- the Bayes ceiling. Anchored because it OVERTURNS the reading that 0.54 is a ceiling,
     # and because the leakage figure is what makes the headroom claim admissible.
     "r479_bayes":   r"It is \*\*(0\.\d{4})\*\* \(resolution",

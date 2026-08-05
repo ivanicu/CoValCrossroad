@@ -10198,3 +10198,39 @@ like rigour while doing it.
 **Sixth or seventh appearance of this family**, depending on whether the false-negative direction is
 counted with the false-positive one. **It is: the remedy — derive or measure both floor and ceiling —
 is identical, and separating them by direction is how the count stayed low enough to feel survivable.**
+
+## 302 · The announced next gradient was void by algebra, not by evidence (R479 → R480)
+
+**Retracted before it was acted on.** R479 closed by proposing that the next round *"select criteria
+to maximise ATTAINMENT rather than raw A2"*.
+
+`attainment = (A2 − chance)/(BAYES − chance)`. **Both constants are properties of the human target**,
+not of the arm or the judge, so the map is affine with slope `1/(BAYES − chance)` = **5.3997 > 0**,
+and `argmax` is invariant under a strictly increasing transform. **Maximising attainment IS maximising
+A2**, and the proposed round could not have come out any other way.
+
+⛔ **This is the arithmetic trap inside a `next gradient` line** — the sentence §4 already names as
+highest-risk (written last, acted on first, no control attached). The trap and the risky sentence
+compounded: a quantity I had just *derived* was immediately proposed as something to *measure*.
+
+⭐ **Cost: zero, because the gauge test is three lines.** Rung 1 of the attack ladder caught it before
+any compute. **Remedy, mechanical: before proposing an objective, check whether it is a monotone
+transform of the objective already in use.** If it is, the proposal is a rename.
+
+## 303 · `hash()` on strings is salted, so the round was not reproducible (R480, caught in-round)
+
+**Caught before publication.** R480 seeded each prompt's annotator draw with
+`np.random.default_rng(abs(hash(p)) % 2**32)`. **Python salts `str.__hash__` with `PYTHONHASHSEED`,
+which is random per process.** Two runs of the same committed code gave g=0 = 0.4375 then 0.4247, and
+negative = 0.5031 then 0.5082.
+
+⚠ **The drift is invisible from inside a single run**, and every figure was small enough to look like
+honest sampling variation rather than a broken seed. It was found only because two runs happened to
+be compared while adding a breakdown.
+
+**Repair:** `zlib.crc32(p.encode())` — deterministic across processes and platforms. Verified by
+running the round in **two separate processes and diffing stdout: byte-identical.**
+
+⭐ **The general form: a seed derived from anything the runtime is free to vary is not a seed.**
+§5 asks for *"two hash seeds byte-identical"* and this round could not have met it at any seed,
+because the non-determinism was upstream of the seed argument entirely.

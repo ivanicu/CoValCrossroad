@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 318 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 322 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 318.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 322.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -521,6 +521,36 @@ rounds defining an object other than the one it measures.** ⛔ **This is not a 
 by choosing the convenient branch** — the two differ in what "core" *means*, and R475 does not
 adjudicate them. *(R475)*
 
+⛔⛔ **AND THE JUDGE MOVES THE ORDER, NOT ONLY THE LEVEL — BUT ONLY IN ONE PLACE (R480).** ② is a
+COMPARATIVE, so what matters is whether *"better than"* survives a judge swap. Over 31 arms carrying
+both judges, on the 318 of 465 pairs resolved under 2B, sign survival is **0.8019** [0.7610, 0.8396]
+against a split-half **same-judge** placebo of **0.9848** — a gap of **−0.1829**. ⭐ **Stratified, the
+pooled number is two different facts: across-family survival is 0.9130 (253 pairs) and within-family
+survival is 0.3692 (65 pairs).** Below chance is not disagreement, it is **reversal**. *(R480)*
+
+⭐⭐ **AND THE ENTIRE REVERSAL IS ONE FAMILY, WITH A DIRECTION.** `corr(k, A2)` for the `random`
+family is **+0.8570** at 2B and **−0.5026** at 0.8B — **adding criteria to an UNSELECTED set helps the
+larger judge and hurts the smaller one** (sign survival 14/55). The `topw` family, which *selects*,
+agrees in direction under both (−0.0211 / −0.4234, survival 10/10). **The judges agree on the ordering
+of selective rules and disagree on the effect of SIZE for unselected ones.** ⛔ **This lands on the
+definition's size clause**: *"more than one; 3–8 indistinguishable"* was established on 2B, and the
+k-gradient for unselected sets has the opposite sign under 0.8B. **A size claim is judge-relative in a
+way a family claim is not.** *(R480)*
+
+⭐ **AND THE SPLIT-HALF PLACEBO IS WHY ANY OF THIS IS READABLE.** Splitting the prompts and treating
+the halves as "two judges" gives **0.9848**, so the design demonstrably resolves order and the gap is
+attributable to the instrument rather than to noise. Without it, 0.80 would be uninterpretable. The
+disagreement is also **concentrated in small differences** — survival rises 0.8019 → 0.9109 → 0.9522
+across thresholds of 1×, 2×, 3× floor while the placebo stays ≈1.0. **At 3× floor the judges agree; at
+the resolution this definition actually operates at, they do not.** *(R480)*
+
+⚠ **AND THE STEP THIS ROUND WAS SUPPOSED TO BE WAS VOID BY ALGEBRA.** R479 proposed selecting criteria
+to maximise *attainment* rather than A2; attainment is affine in A2 with slope **5.3997 > 0**, so the
+two objectives have identical `argmax`. **A quantity I had just derived was immediately proposed as
+something to measure** — the arithmetic trap arriving inside a `next gradient` line, which is the
+sentence written last and controlled never. Cost zero: rung 1 of the attack ladder is three lines.
+*(R480)*
+
 ⭐⭐⭐ **AND THE 0.54 BAND IS NOT THE TARGET'S NOISE — IT IS THE JUDGE (R479).** Four unrelated routes
 converge at 0.54–0.55, which admits three explanations with opposite next moves: the criteria, the
 judge, or the target's own irreducible disagreement. The maximum A2 any scorer *without sight of the
@@ -642,7 +672,7 @@ denominator, on every run. *(R476)*
 Writing R476's result into DEFINITION.md added numeric claims to the very population R476 counted, so
 the live gate now reports **69.0% / 27.7%** where the round measured **69.2% / 28.0%**. That is not
 drift and neither number is wrong: **a document that states its own coverage changes its coverage by
-stating it.** The round's numbers hold at commit `8b57ace` **measured with the gate's 318 anchors** — both halves of the scope, because the instrument grows too; the gate's line is the current value, and
+stating it.** The round's numbers hold at commit `8b57ace` **measured with the gate's 322 anchors** — both halves of the scope, because the instrument grows too; the gate's line is the current value, and
 the two are expected to differ by exactly the size of whatever was last written. *(R476)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
