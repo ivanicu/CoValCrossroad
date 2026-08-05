@@ -16708,3 +16708,31 @@ split is approximate, and its error runs toward **over**-counting structured rec
 "no convention" the conservative verdict rather than the convenient one. **Naming the direction of a
 proxy's error is what lets a reader decide whether it threatens the conclusion; naming only that it
 is a proxy does not.**
+
+## 805 · §4's falsifier does NOT fire against ③ — the first survival in this arc
+CoVal published five arms; ③'s extension contains two. The other three all fail clause ② anyway, so
+**0 of 3 are excluded by ③ alone** and the clause adds no exclusion the behaviour had not already
+made. **After sixteen rounds of retractions and downgrades this is a claim that STANDS about the
+object**, and it is worth naming as such: a programme that only ever kills its own claims has a
+perfect world model of a subject it has produced nothing about.
+
+## 806 · I predicted the definition would look false, and both registered rows say otherwise
+Registered 2 of 3 passing ②; observed 0. Registered directional "at least one passes ②"; it failed.
+**My prior was that ③ over-excludes**, and it was wrong in the direction that would have made the
+definition look bad. **A forecast that errs toward finding a defect is not more rigorous than one
+that errs the other way** — it is the same calibration failure wearing the costume of severity, and
+this arc's ledger would have read it as a success if I had not registered the point first.
+
+## 807 · The drift interrupt is now a step taken BEFORE choosing the round
+R687's NEXT proposed a fifth consecutive corpus round. The audit over R672–R687: 4 object headlines
+of 16, the last six all corpus. R676 caught this drift once and R664 before it; **the third
+occurrence is what turned it from a diagnosis into a step.** The cost of the previous two was that
+the interrupt fired only after several rounds had already gone by — **an apparatus thread names its
+own next question, so nothing internal ever interrupts it.**
+
+## 808 · I registered an unfailable interval again, one round after writing ledger 803 about it
+`A [0, 3]` on a population of 3. I wrote "this interval spans the whole range and is unfailable"
+**into the pre-registration** and registered it anyway. **Naming a defect while committing it is
+better than not naming it, and it is still committing it.** The honest reading: the interval row
+carries nothing, and only the point error (−2) and the failed directional carry information — which
+is what the round reports.

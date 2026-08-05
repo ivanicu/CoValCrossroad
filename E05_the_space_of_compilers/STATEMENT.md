@@ -131,6 +131,18 @@ A **core** for a conversation is a set of criteria such that
   average ratings"* — so `coval_core` is a **weight-reader but not a ranking-reader**. `select_core.py:16`
   calls the same operation **"non-leaky: the weights come from the rubric, not from the outcome."**
 
+> ### ⭐ §4's FALSIFIER DOES NOT FIRE AGAINST ③ *(R688)*
+> The test: *name an admissible object this clause excludes; if your own benchmark ACCEPTS it, the
+> clause is false.* CoVal's published five is `coval_core topabs_k4 topvar_k4 topw_k4 topwvar_k4`;
+> ③'s extension shares **two** of them. The other three — `topabs_k4`, `topvar_k4`, `topwvar_k4` —
+> **all fail clause ② anyway**, so ③ adds **no exclusion ② had not already made**. **0 of 3 are
+> excluded by ③ alone.**
+> ⚠ **The unit gap is the caveat and it cuts both ways:** *published as an arm* is not *accepted as a
+> core*. This corpus records the LIST, not the intent.
+> ⚠ **Where the falsifier could still fire:** the four ②-passers ③ *does* remove —
+> `greedy_k4_fit1 indep_k4_fit1 oracle_k4 oracle_k4_fit1` — which R683 shows rank **above** the
+> extension at 2B.
+
 > ### ⛔ THE JUDGE IS RARELY IN THE RECORD *(R684)*
 > **90 rounds in this arc vary a judge in executable code. Nine record one in their artifact; seven
 > record two.** So for **90%** of judge-varying rounds, the scope condition below is **not recoverable

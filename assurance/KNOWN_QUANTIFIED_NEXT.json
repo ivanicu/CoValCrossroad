@@ -1,5 +1,5 @@
 {
- "count": 168,
+ "count": 169,
  "shas": [
   "0039eceb",
   "029e94ad",
@@ -80,6 +80,7 @@
   "7f7668cf",
   "81c07898",
   "83117b7f",
+  "836e249f",
   "8567f7aa",
   "8580c2c3",
   "868d259f",
@@ -172,6 +173,7 @@
  ],
  "r670_note": "10 shas added 2026-08-05 by R670: newly visible once the pattern learned 'the last' and 'the first'. Past commit bodies cannot be rewritten, so they are recorded as known and any NEW instance fails. Ledger 715/723 are the named cases.",
  "reasons": {
-  "04c3356f": "R685's commit body: 'while 81 rounds vary a judge without recording it'. The count is REAL and cited to R684, but the provenance reference sits outside the gate's window. \u2b50 FROZEN RATHER THAN FIXED BECAUSE THE COMMIT IS PUSHED AND IMMUTABLE -- this is the one legitimate reason to freeze, and R672 found the freeze had no way to say so. A freeze entry with a reason is a ledger; one without is a drain."
+  "04c3356f": "R685's commit body: 'while 81 rounds vary a judge without recording it'. The count is REAL and cited to R684, but the provenance reference sits outside the gate's window. \u2b50 FROZEN RATHER THAN FIXED BECAUSE THE COMMIT IS PUSHED AND IMMUTABLE -- this is the one legitimate reason to freeze, and R672 found the freeze had no way to say so. A freeze entry with a reason is a ledger; one without is a drain.",
+  "836e249f": "R687's commit body: 'The gate does not get built and that is the answer rather than a shortfall... a decision deferred is the one that gets re-litigated.' The quantifier is about a DECISION, not a count over our own work, and the round it describes is cited in the same body. \u2b50 FROZEN BECAUSE THE COMMIT IS PUSHED AND IMMUTABLE \u2014 the second entry to carry a reason, and the reasons are what make this file a ledger instead of a drain (R672)."
  }
 }

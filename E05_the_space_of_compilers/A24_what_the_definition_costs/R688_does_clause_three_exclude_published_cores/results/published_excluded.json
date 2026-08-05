@@ -1,0 +1,51 @@
+{
+  "world": "B \u2462 IS DOING ITS JOB \u2014 the 3 published arms outside \u2462's extension all fail \u2461 anyway, so \u2462 adds no exclusion the behaviour did not already make. \u00a74's falsifier does NOT fire against \u2462.",
+  "controls_ok": true,
+  "tree_sha": "836e249fa20a3fa7a0bde9bc615fdb81000c7a58",
+  "published": [
+    "coval_core",
+    "topabs_k4",
+    "topvar_k4",
+    "topw_k4",
+    "topwvar_k4"
+  ],
+  "extension": [
+    "coval_core",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "overlap": [
+    "coval_core",
+    "topw_k4"
+  ],
+  "published_excluded": [
+    "topabs_k4",
+    "topvar_k4",
+    "topwvar_k4"
+  ],
+  "rows": [
+    {
+      "arm": "topabs_k4",
+      "passes_clause2": false,
+      "in_corpus": true
+    },
+    {
+      "arm": "topvar_k4",
+      "passes_clause2": false,
+      "in_corpus": true
+    },
+    {
+      "arm": "topwvar_k4",
+      "passes_clause2": false,
+      "in_corpus": true
+    }
+  ],
+  "n_excluded_by_three_alone": 0,
+  "kill_fired": true,
+  "directional_holds": false,
+  "registered": "A 2 [0,3] (interval unfailable, said so); >=1 passes \u2461; kill if none",
+  "unit_gap": "'published as an arm' is not 'accepted as a core'. The corpus records the list, not the intent; the release's own text would settle it.",
+  "drift_audit": "4 object headlines of 16 over R672-R687; the last six all corpus."
+}
