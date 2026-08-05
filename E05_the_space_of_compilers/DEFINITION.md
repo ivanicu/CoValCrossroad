@@ -2666,3 +2666,34 @@ measurement rather than silence — the parse demonstrably sees scope tokens.
 unconditional, while two of six defensible targets send the extension to zero and a third excludes
 the only released core.** The fix is one scope note above the table, stated once: a scope restated
 per row drifts, and the copy is never the one that gets corrected.
+
+## R559 · The B recommendation is one cell of a two-cell curve, and row 7 calls it "not a measurement"
+
+Register row 7 reads *"whether reading **A** is correct after all"*, removed by *"a use for 'core'
+that does not require prediction"*, priced as **"not a measurement — a decision about purpose"**.
+**But the recommendation of B rests entirely on a measurement**: `oracle_k4` clearing the ranker
+ceiling, because an object that beats the bound for its own class is reading rather than predicting.
+
+**Two rounds computed that gap. Both persist 4-of-4 passing controls. Their ratios straddle P14's
+admissibility line of 1.5.**
+
+| instrument | gap (rank) | floor | **effect / floor** | admissible |
+|---|---|---|---|---|
+| `R505_…` | **0.009527** | **0.022039** | **0.432** | **no** |
+| `R506_…` — the cell on the statement | **0.007338** | **0.004666** | **1.573** | barely |
+
+**Range 0.432 – 1.573, a spread of 3.64×, and the page shows one cell.** G4 asks for the whole
+specification curve including the cells that kill the finding; **this is the curve, and one of its
+two cells kills it.**
+
+⚠ **What is NOT claimed here.** R506 argues by derivation that only the ranker ceiling applies —
+`corebench/score.py`'s `yvec()` returns one scalar per response, so a core's six verdicts are
+necessarily transitive. **That derivation is not attacked.** What is shown is narrower and enough:
+the *floor* against which the surviving gap is judged differs by **4.7×** between two rounds whose
+controls both pass, and only the flattering one is published. **A negative control excludes the
+cross-round ratio (0.333) as a cell nobody ran.**
+
+⭐⭐⭐ **So row 7 is wrong in the same way rows 1, 2, 5 and 6 were, and worse: it does not merely name
+an object where a property is meant — it declares a measurement to be a decision, which removes the
+question from the register's own jurisdiction.** The decision about purpose is real and downstream;
+the measurement in front of it is at **1.57 by one instrument and 0.43 by another.**

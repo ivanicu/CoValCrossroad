@@ -12650,3 +12650,30 @@ priced as impossible anyway.
 ⭐ **Fourth register row this session whose defect is the same shape**, after rows 1, 2 and 5: the
 row states a requirement by naming the artifact that would satisfy it, and everything true of that
 artifact then reads as true of the requirement.
+
+## 395 · The recommendation of B was one cell of a two-cell curve
+
+`oracle_k4` clears the ranker ceiling by **+0.0073** against a floor of **0.0047** — ratio **1.573**,
+barely over P14's admissibility line of 1.5. **A sibling round measured the same rank gap at
+0.009527 against a floor of 0.022039 — ratio 0.432, inadmissible.** Both artifacts record **4 of 4
+controls passing**, so neither can be dismissed.
+
+**Spread 3.64×. Two cells run, one published, and the published one is the flattering one.** G4 asks
+for the whole curve *including the cells that kill the finding*.
+
+⚠ **Not claimed: that R506 is wrong.** Its derivation — `yvec()` returns one scalar per response, so
+a core's six verdicts are necessarily transitive — is untouched. **The narrower and sufficient
+finding is that the FLOOR judging the surviving gap is instrument-dependent by 4.7×.**
+
+## 396 · Row 7 declared a measurement to be a decision
+
+It prices *"whether reading A is correct after all"* as **"not a measurement — a decision about
+purpose"**. The decision about purpose is real and **downstream**; **the recommendation in front of
+it rests on an effect/floor of 1.573 by one instrument and 0.432 by another.**
+
+⭐⭐⭐ **This is worse than the shape rows 1, 2, 5 and 6 shared.** Those named an object where a
+property was meant, which misprices a row. **This one reclassifies a measurement as a decision, which
+removes the question from the register's jurisdiction entirely** — and a question outside the
+register is a question nobody will price again.
+
+**All seven rows have now had the reading. Every one of them moved.**

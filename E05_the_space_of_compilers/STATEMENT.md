@@ -163,6 +163,15 @@ are shown alongside it.
 ⭐⭐⭐ **B.** `oracle_k4`, which reading **A** admits, scores **0.6293** against the **ranker ceiling
 0.6220** — **gap +0.0073, conservative floor 0.0047, RESOLVED.**
 
+⛔⛔ **THAT IS ONE CELL OF A TWO-CELL CURVE** *(R559)*. Two rounds computed this gap and **both persist 4-of-4 passing controls**; their floors differ by **4.7×** and their effect/floor ratios straddle the **1.5** admissibility line:
+
+| instrument | gap (rank) | floor | effect/floor | admissible |
+|---|---|---|---|---|
+| `R505_…` | **0.009527** | **0.022039** | **0.432** | **no** |
+| `R506_…` — quoted above | **0.007338** | **0.004666** | **1.573** | barely |
+
+**Spread 3.64×.** R506's derivation that only the ranker ceiling applies is **not attacked**; what is shown is that **the floor judging the surviving gap is instrument-dependent and only the flattering cell was on this page.** Read the recommendation as **B, at R506's floor**.
+
 **Why the ranker ceiling is the one that applies is a DERIVATION, not a measurement.**
 `corebench/score.py`'s `yvec()` returns **one scalar per response** and `cls()` takes signs of scalar
 differences, so a core's six pairwise verdicts are **necessarily transitive**. The per-pair Bayes
@@ -441,7 +450,7 @@ cheap**, and a column denominated in compute is blind to that.
 | **4** | ② — no **③-any**-admissible arm clears the blind pool. ⚠ **Under ③-rank, five do** *(R529)*. ⭐ **Priced: the closest prompt-responsive ③-any arm, `gen`, is `c2 = −0.0153` against its own MDE of 0.0119 — 1.29 MDE short** *(R530)* | **a `gen`-like generator ~0.0153 A2 stronger** | ⭐ **the SAME edit as row 3** — nested, one requirement at two bars *(R546)*. Not a second cost. **Unblocked with it** *(R553)*. |
 | **5** | independent replication | **a second team or a second release** | ⚠ **WRONG IN KIND** *(R556)*. The row offers two alternatives and **one is already on disk**: `data/utterances.jsonl`, a second release, used by **3** rounds *(R556)* — the artifacts live under `R398_…` · `R427_…` · `R433_…`, named as FILE provenance rather than as verdicts, because the first two predate this campaign's `world` convention and settle nothing on their own. So the missing half is **a second TEAM**, not a site — and §2.5 says that is dischargeable by clean-context agents given the QUESTION and never the ALGORITHM. **Not "another site": an independent designer.** |
 | **6** | construct validity — is A2-vs-held-out-annotator the right target? ⚠ **TWO QUESTIONS, ONE ROW** *(R558)* | ① **construct validity** — does A2 measure core-ness? **an external gold standard** ② **target robustness** — does the choice change the answer? **ALREADY MEASURED HERE**: 6 targets → **4** distinct admitted sets, 2 empty *(R558)* | ① **another site.** ② **nothing — it is done, and the answer is that the extension is target-dependent** |
-| **7** | whether reading **A** is correct after all | **a use for "core" that does not require prediction** | **not a measurement — a decision about purpose** |
+| **7** | whether reading **A** is correct after all | **a use for "core" that does not require prediction** | ⛔ **"NOT A MEASUREMENT" IS FALSE** *(R559)*. The decision about purpose is real and **downstream**; the recommendation in front of it rests on an effect/floor of **1.573** by one instrument and **0.432** by another, both with passing controls. **Declaring it a decision removed it from the register's own jurisdiction.** |
 
 ⭐ **Rows 1–4 are all on this site.** The campaign's own conclusion — that the definition's extension
 is 0 — rests on row 3 and row 4 being unmet, and **neither needs a second team.** ⚠ **Row 7 is not
