@@ -14400,3 +14400,30 @@ boundary.
 ⚠ The conclusion rests on the observed Δs being **1.0000**, far above either null — **not on the
 control's comfort.** *A control that passes narrowly is a warning about the design, not a licence, and
 reporting the margin is what makes the difference visible.*
+
+## 530 · It was a schema change, not a loss — "provenance stopped" is too strong
+
+Pooling both arms and fixing the cut at **431** (the midpoint of R610's two independently measured
+boundaries, chosen before any feature was read): provenance runs **0.9808 → 0.0455**, Δ **−0.9353**,
+while a `world` key runs **0.0455 → 0.9808**, Δ **+0.9353** — **the same magnitude, opposite sign, to
+four decimals.**
+
+⭐⭐⭐ **The artifact convention swapped a provenance field for a verdict field.** The same rounds that
+recorded *where a number came from* began recording *what it concluded*.
+
+⚠ **One genuine loss sits beside it, unmirrored:** `has_controls` falls **0.8788 → 0.3269** (Δ
+**−0.5519**). Six other structural features — `has_py`, `py_over_8k`, `has_readme`, `readme_over_4k`,
+`multi_artifact`, `many_keys`, `has_mde` — all sit inside the whole-grid null of **0.2057**.
+
+*Four rounds measured a real number and each named its cause a little better: 2.5× shortfall (R606) →
+within-era selection (R607) → a property of the work (R610) → a schema substitution plus one real loss
+(R611). **The number never moved; the story around it did, three times.***
+
+## 531 · A category error: two absences at different levels of the hierarchy
+
+R610's closing line proposed aligning R605's **101 scored matrices** with a per-round boundary. **They
+live in `corebench/results/`, a shared pool with no round attribution at all** — so the comparison was
+ill-posed, and I reached for it because both were absences I had measured.
+
+⚠ *Two facts being the same SHAPE — both absences, both around the same time — is not evidence they
+are the same OBJECT, and the check is whether they are even indexed by the same thing.*

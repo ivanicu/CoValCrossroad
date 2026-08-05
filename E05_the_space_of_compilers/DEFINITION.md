@@ -2908,3 +2908,35 @@ provenance recording ended corpus-wide at ~430 and the page's citations concentr
 
 ⚠ A boundary in id order is not a change in practice — it is equally consistent with a reorganisation,
 a renumbering or a gap in the record, and nothing here carries a timestamp.
+
+---
+
+## R611 · What else changed at the boundary
+
+Band 365–485, **both arms pooled**, n=118, cut fixed at **B = 431** — the midpoint of R610's two
+independently measured boundaries (434 cited, 428 uncited), **chosen before any feature was read**, so
+no feature selects its own cut. Whole-grid null on max|Δ| over 9 random features, 200 draws: median
+**0.1492**, p95 **0.2057**, max **0.2512**.
+
+| feature | before | after | Δ | clears 0.2057 |
+|---|---|---|---|---|
+| provenance *(positive control)* | 0.9808 | 0.0455 | **−0.9353** | yes |
+| `has_world` | 0.0455 | 0.9808 | **+0.9353** | yes |
+| `has_controls` | 0.8788 | 0.3269 | **−0.5519** | yes |
+| `readme_over_4k` | 0.7727 | 0.6154 | −0.1573 | no |
+| `py_over_8k` | 1.0000 | 0.9231 | −0.0769 | no |
+| `multi_artifact` | 0.1212 | 0.0577 | −0.0635 | no |
+| `many_keys` | 0.6061 | 0.5577 | −0.0484 | no |
+| `has_py` | 1.0000 | 0.9615 | −0.0385 | no |
+| `has_readme` | 1.0000 | 0.9808 | −0.0192 | no |
+| `has_mde` | 0.2273 | 0.2115 | −0.0157 | no |
+
+The provenance and `world` shifts are **equal in magnitude and opposite in sign to four decimals**, so
+the convention **substituted** a verdict field for a provenance field rather than losing one. The
+`controls` fall is **unmirrored** and is a genuine reduction.
+
+**Controls.** Provenance clears at the fixed B (**−0.9353** vs 0.2057), so the boundary survives
+pooling and fixing; a feature independent of id returns **0.0262**, so the instrument can fail; a
+constant feature returns **0.0000**.
+
+⚠ A boundary in id order is not a date and a correlate is not a cause.
