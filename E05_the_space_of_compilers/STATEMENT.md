@@ -311,7 +311,16 @@ A **core** for a conversation is a set of criteria such that
 > it does not settle which `k` a definition admits, and the gap between the two is §4's row — the
 > reason "four criteria" read as an accurate observation while being false as a definition.
 
-> ### ⭐ §4's FALSIFIER DOES NOT FIRE AGAINST ③ *(R688)*
+> ### ⚠ §4's FALSIFIER AGAINST ③ — **UNEVALUABLE**, downgraded by R719 *(was ⭐, R688)*
+> ⛔⛔ **R688's population was `PUBLISHED_FIVE`, and R689 retracted that set ONE ROUND LATER.**
+> Its finding — *"the 3 published arms outside ③'s extension all fail ② anyway"* — rests on
+> `topabs_k4`, `topvar_k4`, `topwvar_k4`, three of the four arms the release does **not** name.
+> The card names **1** of the 5, and at **n = 1** the test cannot be run. **UNEVALUABLE, not
+> refuted.** ⚠ **The clause is NOT shown to be decoration**: on R360's 42 arms ③ excludes **37**
+> and **4** that ② does not. What falls is R688's EVIDENCE, not ③.
+> ⛔ **And R718's amendment test was blind to this** — this block cites only R683 and R688, so a
+> retraction filed in a DIFFERENT block was invisible. **R718's "2 of 12 stand" is an
+> overcount**, and both blocks it named touch the retracted literal without citing R689/R714.
 > The test: *name an admissible object this clause excludes; if your own benchmark ACCEPTS it, the
 > clause is false.* CoVal's published five is `coval_core topabs_k4 topvar_k4 topw_k4 topwvar_k4`;
 > ③'s extension shares **two** of them. The other three — `topabs_k4`, `topvar_k4`, `topwvar_k4` —

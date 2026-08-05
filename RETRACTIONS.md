@@ -17960,3 +17960,38 @@ very different size: 79 blocks with 5 amended against 12 with 3. Raw counts said
 
 **Two mis-specifications in one control, in the round whose subject is what survives scrutiny.** Both
 are recorded in the code beside the fix rather than silently corrected.
+
+## 924 · a block certified STANDING one round ago rests on a set retracted thirty rounds ago
+
+R718 reported `⭐ §4's FALSIFIER DOES NOT FIRE AGAINST ③ (R688)` as one of two blocks no later round
+had amended. ⛔⛔ **R688's `published` field is exactly `PUBLISHED_FIVE`, and R689 retracted that set
+THE VERY NEXT ROUND.** Its finding — *"the 3 published arms outside ③'s extension all fail ② anyway"*
+— rests on `topabs_k4`, `topvar_k4`, `topwvar_k4`: three of the four arms R689 showed the release
+does not name.
+
+The card names **1** of the 5, and at **n = 1** R688's test cannot be run. **The block is downgraded
+to UNEVALUABLE — not refuted.** ⚠ **The clause is not shown to be decoration**: on R360's 42 arms ③
+excludes **37**, and **4** that ② does not. **What falls is R688's evidence, not ③.**
+
+## 925 · and R718's amendment test was structurally blind to it
+
+R718 computed "amended" as *a round cited in the block's body outranks the highest round in its
+heading*. R688's block cites only R683 and R688. **The retraction lives in a DIFFERENT block** — the
+one about the release shipping one generator. So the test returned UNAMENDED.
+
+⭐ **An amendment test scoped to a block cannot see a retraction filed elsewhere.** Measured: **2 of
+the 3** blocks touching the retracted literal never cite R689 or R714 — **and both are the blocks
+R718 reported as standing.** Its "2 of 12" is an overcount, and the residue it reported first is now
+**1** block pending a cross-block re-derivation.
+
+## 926 · my own POSITIVE control caught the same error R709 recorded, in the same shape
+
+R719's first version reconstructed ③'s extension from **R703's** formula — *"everything ② rejects is
+unconstrained by ③"* — which **admits** the three arms R688 says ③ excludes. The recomputation
+returned `excluded = []` against R688's committed `['topabs_k4','topvar_k4','topwvar_k4']`, the
+POSITIVE control failed, and the round printed **UNVERIFIED** rather than a verdict.
+
+Fixed by reading ③'s extension from **R688's own committed artifact**. **Auditing a round means using
+ITS object, not a sibling's algebra** — the same error ledger 894 recorded when auditing R685, two
+weeks of rounds apart and caught both times only because the positive control demanded the audited
+round's committed numbers reproduce.

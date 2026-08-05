@@ -3438,3 +3438,34 @@ unanswerable at this site.
 
 The bias cannot be analysed away. Every share with the criteria count in its denominator inherits it,
 and only the raw match count avoids it, at a resolution five to seven times worse.
+
+## R719 · Whether the falsifier verdict against clause three survives its own population
+
+R718 certified two blocks on the statement as standing unamended, one of them the finding that the
+standard's falsifier does not fire against clause three. R719 asks what that finding was computed
+over.
+
+Its population is the five-arm literal that R689 retracted one round after it was written. The
+finding reads that the three published arms outside the clause's extension all fail clause two
+anyway, and those three — topabs_k4, topvar_k4 and topwvar_k4 — are three of the four arms R689
+showed the release does not name. The release's card names **one** of the five, and at a population
+of one the test cannot be run at all: it requires a set of published arms outside the extension, and
+the corrected set contains none.
+
+So the block is downgraded to **unevaluable** rather than refuted. The clause itself is not shown to
+be decoration: over R360's forty-two arms it excludes thirty-seven, and four that clause two does
+not. What falls is the evidence R688 offered for it.
+
+The instrument R718 used could not have seen this. It computed amendment as a round cited in a
+block's body outranking the highest round cited in its heading, and R688's block cites only R683 and
+R688 — the retraction lives in a different block entirely. Measured across the statement, **two of
+the three** blocks touching the retracted literal never cite the retracting round, and both are the
+blocks R718 reported as standing. An amendment test scoped to a block cannot see a retraction filed
+elsewhere, so the earlier count is an overcount.
+
+The round's own positive control caught a defect of the same shape before any verdict was printed.
+Its first version reconstructed the clause's extension from a sibling round's formula, which admits
+the three arms R688 excludes; the recomputation returned an empty list against R688's committed
+three, the control failed, and the round printed unverified. Reading the extension from R688's own
+committed artifact fixed it. Auditing a round means using that round's object rather than a sibling's
+algebra.
