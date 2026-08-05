@@ -13188,3 +13188,25 @@ one of them prompts a fix.
 returning nothing on three specific subjects is a contradiction that has to be resolved somewhere —
 and the only place left was my own handler. **R575 had no positive control and wrote a verdict under
 seven zeros; this round had one and could not.**
+
+## 431 · Three rounds spent factoring a measurement and asking which factor explained it
+
+R576 established that **fleet size does not separate** the capping meta-gates from the rest. This
+round derives per-spawn cost — `secs ÷ spawns`, **an arithmetic trap caught before running anything**
+— and it **does not separate either**: a capper sits at **0.417 s/spawn** while two non-cappers sit
+at **0.788** and **0.883**.
+
+⭐⭐⭐ **Their product is `fleet × cost = total time`, which is what R571 measured and which separates
+by construction.** I factored an observation into two parts and asked each part to explain it.
+**Neither does, and neither could: the product WAS the observation.** A decomposition inherits all of
+its explanatory power from the thing decomposed and can only redistribute it.
+
+⚠ **Not established: that nothing separates the groups.** Only that **these two factors, which
+exhaust the identity, do not** — so any further candidate must come from outside `time = fleet ×
+cost`.
+
+⭐ **The general form, and it is why this took three rounds to see: each factor looked like a fresh
+hypothesis.** "Is it the fleet?" and "is it the per-unit cost?" are different sentences about
+different quantities, and they feel like independent tests. **They are one identity read twice.**
+The tell is available for free and I never applied it: **if the candidate explanations multiply to
+the observation, they are not explanations of it.**
