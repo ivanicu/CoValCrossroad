@@ -45,14 +45,56 @@ def main() -> int:
     if not cites:
         print("  UNRUNNABLE: no citations found. A page with no provenance cannot pass. Exit 2.")
         return 2
+    # ⭐ REPAIRED 2026-08-05 (R596), after an attack of 8 spellings x 2 runs in sandbox trees
+    #    stopped 1 and let 7 through. TWO defects, and the second is the one that matters.
+    #
+    #    ① `w != "UNVERIFIED"` is EXACT string inequality. R594/R595 measured `world` to be an
+    #       open vocabulary: 220 distinct values, 95% of them occurring once. So the exact
+    #       comparison was a string test against a field with no enforced type, and `lowercase`,
+    #       `trailing space`, `leading space`, `trailing newline`, `sentence`, `prefixed` and
+    #       `em-dash form` all walked straight through. LIVE, not hypothetical: cited round R501
+    #       carries "UNVERIFIED — the instrument cannot localise oracle_k4 ..." and was passing.
+    #       Fixed by matching the FIRST TOKEN, case-folded and punctuation-stripped.
+    #
+    #    ② AND THE RULE ITSELF WAS WRONG, which tightening ① alone would have made worse.
+    #       STATEMENT.md line 197 reads "That question is `UNVERIFIED`, not closed" and cites
+    #       R501 AS EVIDENCE THAT THE QUESTION IS OPEN. A gate that forbids every citation of an
+    #       UNVERIFIED round forbids citing a failure as a failure -- so the repaired ① would
+    #       have rejected an honest, correctly-scoped sentence and pushed the author toward
+    #       DELETING the caveat to make the gate green. That is a gate manufacturing the error
+    #       it exists to prevent.
+    #       So: an UNVERIFIED round may be cited IFF the citing line SAYS SO. No new marker is
+    #       introduced -- the document already writes the word, and requiring it is what makes
+    #       the scope machine-visible instead of a matter of the reader's attention.
+    def is_unverified(w):
+        if not w:
+            return True
+        first = re.split(r"[\s,;:.—–-]+", w.strip(), maxsplit=1)[0]
+        return first.strip("`*_'\"").upper() == "UNVERIFIED"
+
+    #    ⚠ THE UNIT IS A PARAGRAPH, NOT A LINE, and a line-scoped version of this rule was
+    #      written first and caught before it ran. R501's citation sits on line 197 while its
+    #      `UNVERIFIED` marker is on line 194 of the same wrapped paragraph -- so line scope
+    #      would have flagged the one sentence in the document that does this correctly.
+    #    ⚠ PROXY LEDGER, stated rather than hidden: paragraph scope cannot bind the marker to a
+    #      SPECIFIC round, so a paragraph citing several rounds allows all of them. SOUND
+    #      DIRECTION: a flagged citation is genuinely undeclared. UNSOUND DIRECTION: an allowed
+    #      citation may be riding another round's marker. Tightening needs per-citation syntax
+    #      the document does not currently carry.
+    paras = re.split(r"\n\s*\n", text)
     print(f"  {'round':>7}  world")
     bad = []
     for c in cites:
         w = world_of("R" + c)
-        flag = "" if (w and w != "UNVERIFIED") else "   ⛔"
-        if flag:
+        declared = any(("R" + c) in p and "UNVERIFIED" in p for p in paras)
+        if not is_unverified(w):
+            flag = ""
+        elif declared:
+            flag = "   ○ UNVERIFIED, and the citing line says so — allowed"
+        else:
+            flag = "   ⛔"
             bad.append(("R" + c, w))
-        print(f"  {'R'+c:>7}  {w or '(no artifact / no world)'}{flag}")
+        print(f"  {'R'+c:>7}  {(w or '(no artifact / no world)')[:72]}{flag}")
     # POSITIVE CONTROL: the checker must be able to FAIL. R466/R467 are known UNVERIFIED.
     known = [r for r in ("R466", "R467") if world_of(r) == "UNVERIFIED"]
     print(f"\n  POSITIVE CONTROL  rounds known to be UNVERIFIED and therefore rejectable: {known}")

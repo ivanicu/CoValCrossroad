@@ -13827,3 +13827,55 @@ the mean is a number with no referent.
 Read per cell on each matcher's **excess over its own control**, the curve first came back
 **SPEC-DEPENDENT** — which is the honest state — and only the unit test of 472 collapsed it to a
 unanimous verdict. *The average would have printed a single confident answer and skipped both steps.*
+
+## 476 · The provenance gate was letting through a cited round whose first word is UNVERIFIED
+
+**R501 is cited by `STATEMENT.md` and carries `world = "UNVERIFIED — the instrument cannot localise
+oracle_k4 (rank 11 of 23), so the null is silence, not an acquittal"`.** The gate's predicate was
+`w != "UNVERIFIED"` — **exact string inequality** — so an em-dash was enough to walk through it.
+
+Attacked with 8 spellings × 2 runs in sandbox trees, evidence by **exit code** rather than by reading
+the source: **1 stopped, 7 accepted.** After the repair: **7 stopped, 1 accepted.** ⚠ That half of it
+was a **DERIVATION** — `!=` forces it — and is labelled as one; only the exploitation count and the
+exit codes could have come out otherwise.
+
+## 477 · The gate's RULE was wrong, and fixing only the comparison would have made it worse
+
+`STATEMENT.md` line 197 reads *"That question is `UNVERIFIED`, not closed"* and cites R501 **as
+evidence that the question is open.** The document was right all along.
+
+⛔ **A gate forbidding every citation of an UNVERIFIED round forbids citing a failure as a failure.**
+The repaired string match alone would have rejected the one sentence in the document that does this
+correctly — **and pushed me toward deleting the caveat to make the gate green.** *A gate
+manufacturing the error it exists to prevent, which is the most expensive shape a gate can have.*
+
+Repair: match the **first token**, plus allow an UNVERIFIED citation **iff the citing paragraph says
+so**. No new marker — the document already writes the word, and requiring it makes the scope
+machine-visible rather than dependent on the reader's attention.
+
+## 478 · The declaration rule was line-scoped, and that was caught BEFORE it ran
+
+R501's citation sits on line 197; its `UNVERIFIED` marker on line 194 of the same **wrapped
+paragraph**. Line scope would have flagged the one sentence doing it correctly.
+
+⚠ **Seventeenth instrument-unit mismatch of the session — and the first caught before execution
+rather than after.** ⚠ **Proxy ledger, stated rather than hidden:** paragraph scope cannot bind a
+marker to a *specific* round. SOUND: a flagged citation is genuinely undeclared. UNSOUND: an allowed
+citation may be riding another round's marker.
+
+## 479 · The fix is where the new hole is — and the obvious patch over-rejects
+
+`"world: UNVERIFIED"` still passes: its first token is `world:`. ⭐ **The obvious patch — match
+"UNVERIFIED" anywhere — over-rejects**, since `"B — not UNVERIFIED, the control fired"` would be
+wrongly flagged. **The same over-strictness trap in mirror image.**
+
+⭐⭐⭐ **This closes the R594→R595→R596 arc: you cannot make a string rule SOUND over an untyped
+field.** R594 measured `world` at 220 distinct values, R595 showed the vocabulary genuinely open,
+R596 is what that costs. **HB8's claim, arrived at from the failure rather than from the doctrine.**
+
+## 480 · Two citation regexes, two populations, and the gate is governed by its own
+
+The gate's own `R(\d{3})[,)]` finds **83** cited rounds; the looser `R(\d{3})` R592 used finds **91**.
+Every statement about "the cited rounds" in this arc silently picked one of the two. *When two
+instruments define a population differently, the one that governs the decision is the one the
+decision-maker runs — not the one that reads better.*
