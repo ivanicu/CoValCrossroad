@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 322 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 326 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 322.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 326.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -521,6 +521,36 @@ rounds defining an object other than the one it measures.** ⛔ **This is not a 
 by choosing the convenient branch** — the two differ in what "core" *means*, and R475 does not
 adjudicate them. *(R475)*
 
+⭐⭐ **AND THE AGGREGATION WAS NEVER A CHOICE ANYONE MADE — IT WAS `score.py:63` (R481).** Every A2 in
+this campaign sums satisfaction over the selected criteria, and `/yvec/` and `/sum/` both returned
+**0** in this document before this round. A sum's variance grows with k, so a k-gradient is precisely
+where an aggregation artifact would hide. ⛔ **Half the sweep is void by algebra**: `mean = sum/k` with
+k fixed within a prompt and `cls()` reading signs of differences, so `cls(mean) ≡ cls(sum)` — **2000/2000
+on random matrices, and 0.00e+00 across 26 real arm×judge cells.** MEAN is therefore used as a
+**positive control on the implementation**, not as a specification. *(R481)*
+
+⭐⭐⭐ **AND THE NULL WAS NEARLY COUNTED WITH BLIND INSTRUMENTS IN IT.** The reversal is present under
+`sum` and `median` and absent under `max`, `min` and `midrange` — which reads as 2 of 5. **But `max`
+and `midrange` cannot resolve k at all**: their A2 range across the whole ladder is 0.0084/0.0059 and
+0.0086/0.0077, **below the 0.0122 floor**, because `max` reports only the single best-satisfied
+criterion and is structurally blind to accumulation. **A null from an instrument that cannot see the
+effect is silence, not an acquittal.** Correct denominator: **2 of the 3 aggregators that can resolve
+k**, with `min` the sole genuine disagreement. *(R481)*
+
+⚠ **AND THE SYNTHETIC NULL DOES NOT RESCUE THE REVERSAL, THOUGH IT INDICTS THE LEVELS.** On
+structureless iid data the spurious `corr(k, A2)` is **+0.4176** for `sum` — **the largest of any
+aggregator**, against +0.0125 for `max` and +0.0036 for `midrange`. So the campaign's committed
+aggregator is the most mechanically k-dependent one. ⭐ **But that term is a property of the
+AGGREGATOR and is identical for both judges, so it shifts both correlations equally and cannot create
+a sign difference between them.** It explains levels, never the reversal. *(R481)*
+
+⭐ **AND THE IDENTITY CONTROL CAUGHT A DEFECT IN ANOTHER CONTROL.** The synthetic null's first version
+printed `sum = +0.4176` and `mean = −0.4790` — two algebraically identical quantities disagreeing,
+which is impossible, so the control was broken (one generator consumed in aggregator order, giving
+each aggregator different random data). ⭐ **An algebraic identity embedded in a sweep is a tripwire
+that fires on any defect in the sweep's plumbing** — shared state, ordering, caching, seeding — and it
+was the only control here capable of catching a bug located inside a control. *(R481)*
+
 ⛔⛔ **AND THE JUDGE MOVES THE ORDER, NOT ONLY THE LEVEL — BUT ONLY IN ONE PLACE (R480).** ② is a
 COMPARATIVE, so what matters is whether *"better than"* survives a judge swap. Over 31 arms carrying
 both judges, on the 318 of 465 pairs resolved under 2B, sign survival is **0.8019** [0.7610, 0.8396]
@@ -536,6 +566,12 @@ of selective rules and disagree on the effect of SIZE for unselected ones.** ⛔
 definition's size clause**: *"more than one; 3–8 indistinguishable"* was established on 2B, and the
 k-gradient for unselected sets has the opposite sign under 0.8B. **A size claim is judge-relative in a
 way a family claim is not.** *(R480)*
+> ⚠ **DOWNGRADED (R481): that correlation is one cell of a two-cell sweep.** With **one seed per
+> budget** instead of three the same quantity is **+0.9381 / +0.0111** — the 0.8B sign flips and the
+> reversal vanishes. The population is not the cause (968 prompts either way, own-pop ≡ common-pop).
+> **The pairwise sign-survival statistic above stands; the directional gloss on this correlation does
+> not.** A correlation over arms is a statistic whose SAMPLE is a design choice, and R480 swept the
+> threshold axis while silently fixing the arm axis.
 
 ⭐ **AND THE SPLIT-HALF PLACEBO IS WHY ANY OF THIS IS READABLE.** Splitting the prompts and treating
 the halves as "two judges" gives **0.9848**, so the design demonstrably resolves order and the gap is
@@ -672,7 +708,7 @@ denominator, on every run. *(R476)*
 Writing R476's result into DEFINITION.md added numeric claims to the very population R476 counted, so
 the live gate now reports **69.0% / 27.7%** where the round measured **69.2% / 28.0%**. That is not
 drift and neither number is wrong: **a document that states its own coverage changes its coverage by
-stating it.** The round's numbers hold at commit `8b57ace` **measured with the gate's 322 anchors** — both halves of the scope, because the instrument grows too; the gate's line is the current value, and
+stating it.** The round's numbers hold at commit `8b57ace` **measured with the gate's 326 anchors** — both halves of the scope, because the instrument grows too; the gate's line is the current value, and
 the two are expected to differ by exactly the size of whatever was last written. *(R476)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'

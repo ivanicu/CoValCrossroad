@@ -10234,3 +10234,50 @@ running the round in **two separate processes and diffing stdout: byte-identical
 ⭐ **The general form: a seed derived from anything the runtime is free to vary is not a seed.**
 §5 asks for *"two hash seeds byte-identical"* and this round could not have met it at any seed,
 because the non-determinism was upstream of the seed argument entirely.
+
+## 304 · R480's mechanism number is one cell of a two-cell sweep, and the sign flips (R480 → R481)
+
+**Downgraded.** R480 reported `corr(k, A2)` for the `random` family as **+0.8570** at 2B and
+**−0.5026** at 0.8B, and read that as *"adding criteria helps the larger judge and hurts the smaller
+one"*. Computed with **one seed per budget** instead of three, the same quantity is **+0.9381** and
+**+0.0111** — **the 0.8B sign flips and the reversal disappears.**
+
+The population is not the cause: own-population and all-arms-common give identical values (968
+prompts either way, verified). **It is which arms enter the correlation** — 18 points (6 budgets × 3
+seeds) versus 6.
+
+⚠ **What survives and what does not.** R480's *pairwise sign-survival* statistic (0.3692 within-family
+on 65 resolved pairs) is a different estimator and stands. Its **mechanistic gloss** — a direction
+attached to a single correlation — does not. ⭐ **A correlation over arms is a statistic whose sample
+is a design choice**, and R480 never swept it, so G4 was satisfied on the threshold axis and silently
+skipped on the arm axis.
+
+## 305 · A synthetic control that gave two different answers to the same algebra (R481, caught in-round)
+
+**Caught in-round by another control.** R481's synthetic null drew `rs_syn.normal(...)` inside the
+per-aggregator loop from one shared generator, so **every aggregator saw different random data**. It
+printed `sum = +0.4176` and `mean = −0.4790`.
+
+⭐ **`sum` and `mean` are algebraically identical under `cls()`** — proven this round, and measured at
+**0.00e+00** on real data. Two identical quantities disagreeing is impossible, so the control was
+broken, not the world. Repaired by drawing the matrices **once** and sharing them; `sum` and `mean`
+then agree exactly at +0.4176.
+
+**The general form, and it is the reusable part:** an algebraic identity embedded in a sweep is a
+**tripwire that fires on any defect touching the sweep's plumbing** — shared state, ordering,
+caching, seeding. It costs one extra column and it is the only control here that could have caught
+this particular bug, because the bug was in a control rather than in the hypothesis.
+
+## 306 · Three disconfirmations, two of them blind (R481, caught in-round)
+
+**Retracted before publication.** R481's first reading was *"reversal present under sum and median,
+absent under max, min and midrange"* — 2 of 5, which reads as a fragile finding.
+
+**`max` and `midrange` cannot resolve k at all.** Their A2 range across the whole k-ladder is
+0.0084/0.0059 and 0.0086/0.0077 — **below the 0.0122 floor**. `max` reports only the single
+best-satisfied criterion, so it is structurally blind to accumulation, which is the entire question.
+
+⛔ **A null from an instrument that cannot see the effect is silence, not an acquittal** — P5's ★ rule,
+applied to an aggregator rather than a search. Correct denominator: **2 of the 3 aggregators that can
+resolve k**. ⚠ Reporting 2 of 5 would have counted **blindness as disagreement**, which is the
+specification-curve equivalent of padding a null with cells that never had power.

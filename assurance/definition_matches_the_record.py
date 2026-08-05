@@ -636,6 +636,18 @@ def derive():
         for k in ("r462_old", "r462_new", "r462_cov", "r462_total"):
             out[k] = (None, "R462")
 
+    # R481 -- from the round's artifact.
+    try:
+        _c1 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+                             "R481_is_the_reversal_the_judge_or_the_sum/results/r481_aggregation.json"))
+        out["r481_ident"]  = (round(_c1["identity_gap"], 2), "R481")
+        out["r481_spur"]   = (round(_c1["synthetic"]["sum"], 4), "R481")
+        out["r481_max_2b"] = (round(_c1["k_range"]["max"]["2B"], 4), "R481")
+        out["r481_flip"]   = (round(_c1["seedspec"]["s0_only"]["2B"], 4), "R481")
+    except (OSError, KeyError):
+        for k in ("r481_ident", "r481_spur", "r481_max_2b", "r481_flip"):
+            out[k] = (None, "R481")
+
     # R480 -- from the round's artifact.
     try:
         _c0 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
@@ -1104,6 +1116,12 @@ def derive():
 # label -> the regex that must find that number in DEFINITION.md. The pattern is the CLAIM's own
 # wording, so an edit that changes the sentence without changing the artifact is caught too.
 ASSERTIONS = {
+    # R481 -- the aggregation sweep. Anchored because it DOWNGRADED a committed correlation and
+    # because the blindness thresholds are what make the 2-of-3 denominator defensible.
+    "r481_ident":   r"\*\*2000/2000\s*\non random matrices, and (0\.00)e\+00 across 26",
+    "r481_spur":    r"spurious `corr\(k, A2\)` is \*\*\+(\d\.\d{4})\*\* for `sum`",
+    "r481_max_2b":  r"across the whole ladder is (0\.\d{4})/0\.0059",
+    "r481_flip":    r"the same quantity is \*\*\+(\d\.\d{4}) / \+0\.0111\*\*",
     # R480 -- judge swap moves the ORDER. Anchored because the within-family number is below chance
     # and therefore a claim about direction, not magnitude, and because the placebo is what makes it
     # readable -- a document that quoted 0.8019 without 0.9848 would be quoting an uninterpretable number.
