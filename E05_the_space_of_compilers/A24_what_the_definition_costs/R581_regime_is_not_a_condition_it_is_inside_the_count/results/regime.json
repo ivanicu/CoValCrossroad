@@ -1,0 +1,40 @@
+{
+  "world": "B",
+  "extension_members": [
+    "coval_core",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "k_per_member": {
+    "coval_core": null,
+    "topw_k3": 3,
+    "topw_k4": 4,
+    "topw_k6": 6,
+    "topw_k8": 8
+  },
+  "distinct_k": [
+    3,
+    4,
+    6,
+    8
+  ],
+  "r441": {
+    "world": "W-DECORATION",
+    "redundant": 0,
+    "k_spread": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      8,
+      12,
+      16,
+      39
+    ],
+    "what_it_measured": "whether the SIZE CLAUSE excludes anything -- it does not; NOT how the extension varies with k"
+  },
+  "corrects": "R580 listed regime as 'conditioned but unmeasured'; it is not a conditioning axis for this number at all"
+}

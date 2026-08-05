@@ -13282,3 +13282,26 @@ same one P6 makes about a null.
 
 ⭐ **The instrument was discriminating: 9 / 6 / 2 / 0 across four axes**, four distinct values rather
 than a uniform column — the check R575 taught me to run before writing any verdict.
+
+## 436 · "Untested" and "not applicable" look identical from outside, and only one is a gap
+
+R580 marked `regime` (k) as **conditioned but unmeasured** against row 2's extension count, and
+flagged it untested — the conservative-looking move, chosen one sentence after warning that a longer
+caveat reads as more careful.
+
+**It is not a condition at all.** The extension's members are `coval_core`, `topw_k3`, `topw_k4`,
+`topw_k6`, `topw_k8` — **k = 3, 4, 6, 8. k varies INSIDE the count.** `5` is already taken across k,
+so k cannot condition it the way `target` and `baseline` do.
+
+**R441 confirms the sweep never touched it**: `k_spread [1,2,3,4,6,8,12,16,39]`, `redundant: 0`,
+`world: W-DECORATION` — it measured whether the **size clause** excludes anything, not how the
+extension moves with k. **That question was malformed, and answering it would have produced a real
+number about the wrong thing.**
+
+⭐⭐⭐ **The general form: "untested" and "not applicable" are indistinguishable from outside, and I
+reached for the conservative label without checking which one it was.** Marking a non-condition as
+untested manufactures a gap — it puts a permanent open question on the page about an axis that
+cannot move the number. **The flattering direction here was caution, not confidence.**
+
+⭐ **What settled it cost one read of the extension's own membership**, parsed from the page rather
+than recalled — and the members had been printed in every version of that row all session.
