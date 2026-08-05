@@ -1,0 +1,90 @@
+{
+  "world": "A EMPTY AT p100 \u2014 \u2461's four admitted arms at the class MAXIMUM are EXACTLY the four clause \u2462 removes, so `\u2461 \u2227 \u2462` read literally admits NOTHING. \u2b50 THE DEFINITION'S NON-EMPTINESS IS PURCHASED ENTIRELY BY THE BASELINE CHOICE: at the published percentile 93.74 it admits 2, and `coval_core` is among them; at p100 it admits 0 and `coval_core` is excluded by \u2461 itself. \u26a0 COULD THIS HAVE COME OUT OTHERWISE? Yes \u2014 \u2461 admits 4 and \u2462 removes 4 out of 42 arms; partial overlap was the likelier outcome. This is a measurement, not a derivation.",
+  "controls_ok": true,
+  "tree_sha": "662a72d876a0b2ca134e4ceae3129e05c6f2d371",
+  "clause2_p100_admits": [
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "oracle_k4",
+    "oracle_k4_fit1"
+  ],
+  "clause3_removes": [
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "oracle_k4",
+    "oracle_k4_fit1"
+  ],
+  "intersection_at_p100": [],
+  "published_pct": 93.73626373626374,
+  "intersection_at_published": [
+    "coval_core",
+    "topw_k4"
+  ],
+  "curve": {
+    "p000": {
+      "c2": 8,
+      "c2_and_c3": [
+        "coval_core",
+        "gen",
+        "generic",
+        "topw_k4"
+      ]
+    },
+    "p005": {
+      "c2": 7,
+      "c2_and_c3": [
+        "coval_core",
+        "generic",
+        "topw_k4"
+      ]
+    },
+    "p025": {
+      "c2": 7,
+      "c2_and_c3": [
+        "coval_core",
+        "generic",
+        "topw_k4"
+      ]
+    },
+    "p050": {
+      "c2": 7,
+      "c2_and_c3": [
+        "coval_core",
+        "generic",
+        "topw_k4"
+      ]
+    },
+    "p075": {
+      "c2": 6,
+      "c2_and_c3": [
+        "coval_core",
+        "topw_k4"
+      ]
+    },
+    "p095": {
+      "c2": 6,
+      "c2_and_c3": [
+        "coval_core",
+        "topw_k4"
+      ]
+    },
+    "p100": {
+      "c2": 4,
+      "c2_and_c3": []
+    },
+    "published": {
+      "c2": 6,
+      "c2_and_c3": [
+        "coval_core",
+        "topw_k4"
+      ]
+    }
+  },
+  "sources": [
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R527_is_clause_two_a_choice/results/clause2_spec_curve.json",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R442_the_extension_under_clause_three_as_written/results/r442_extension.json",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R440_the_four_clauses_on_one_arm_space/results/r440_one_space.json"
+  ],
+  "check266": "R664's NEXT said the literal reading 'selects for FITTING'. Imprecise: `oracle_k4` carries no fit1 marker -- it is an ORACLE arm. The correct statement is PRIVILEGED ACCESS, fitted or oracle.",
+  "impossible": "WHY \u2461's top-ranked arms are exactly \u2462's removals is not decided here; it needs the arms' construction, not their scores."
+}

@@ -16003,3 +16003,27 @@ oracle_k4_fit1` — **`coval_core` is EXCLUDED at p100.** ⭐ So ② read litera
 and the released core is admitted only because the baseline sits below the maximum. **② is not a
 predicate on objects; it is a predicate on (object, baseline) pairs.** This required no new compute —
 the curve had been sitting in `R527/results/clause2_spec_curve.json` for 137 rounds.
+
+## 712 · "Selects for FITTING" — `oracle_k4` is an oracle arm, not a fitted one
+
+R664's NEXT read ②'s p100 extension as evidence that the literal reading *"selects for fitting"*.
+⛔ **Imprecise, and the imprecision matters:** of the four arms, `oracle_k4` carries no `fit1` marker
+— **fitting and oracle access are different mechanisms.** The correct and stronger statement: ② at
+the class maximum selects for **PRIVILEGED ACCESS**, fitted *or* oracle.
+
+## 713 · `② ∧ ③` is EMPTY at the definition's own literal reading — an OBJECT claim, at last
+
+Measured from three committed artifacts (R527, R442, R440, cross-checked): at the baseline class
+MAXIMUM, ② admits exactly `greedy_k4_fit1, indep_k4_fit1, oracle_k4, oracle_k4_fit1` — **exactly the
+four clause ③ removes.** ⭐ **The intersection is empty, and `coval_core` is excluded by ② itself.**
+The extension across the baseline choice is **4 → 3 → 2 → 0**, and at the published percentile
+(93.74) it is **{coval_core, topw_k4}**. **The definition's non-emptiness is purchased entirely by
+the baseline choice.** ⚠ Could have come out otherwise — 4 of 42 admitted vs 4 of 42 removed; partial
+overlap was likelier. A measurement, not a derivation.
+
+## 714 · Two consecutive object-level answers were already on disk
+
+R664's object fact came from **R527** (138 rounds old). R665's came from **R442 and R440** (~225
+rounds old). ⛔ **Neither required new compute.** Twenty-four rounds went to apparatus repair while
+the object questions sat answered in committed artifacts — which is what makes 710's diagnosis
+("the loop is the defect") a measurement rather than a mood.
