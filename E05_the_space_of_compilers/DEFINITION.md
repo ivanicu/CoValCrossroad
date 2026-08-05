@@ -3930,3 +3930,31 @@ quadrature gives 0.0213 while the joint bootstrap gives 0.0162 and resampling th
 gives 0.0181, so the correlation and its floor move together and treating them as independent
 overstates the width. The intervals are conditional on this criterion pool; pricing the pool itself
 would need a second release.
+
+## R741 · the two rounds ran on two populations, and the disagreement was the pool
+
+The round that measured ten excesses and the round that priced them ran on different prompt sets
+against different candidate pools. The first built its pool from the union of every arm's observed
+selections, which a later round showed is a sample of the candidate set biased by the rules under
+study; the second used the full candidate set, against which fewer prompts supply the twelve criteria
+the widest comparison needs, so its population is seven hundred and thirty four rather than nine
+hundred and sixty eight. The mean absolute difference this makes across the ten cells is 0.0857,
+several times the bootstrap standard errors, and it is the whole of the disagreement between them. On
+the corrected population the pricing round's point estimates reproduce within their own standard
+error in every one of the ten cells, so those numbers stand and the ten excesses computed on the
+union pool are withdrawn. What was wrong was the comparison between them: the difference was read as
+a change of sign under resampling when it is a change of population. On one correct population, one
+of the ten excesses excludes zero and neither ordering gap does, so the ordering remains unresolved
+and the honest report is a set of bounds. Correcting the pool drops two hundred and thirty four
+prompts, and because the criterion threshold is applied against the true pool that drop is a selection
+on pool size rather than a random subsample; the surviving population is therefore not the release,
+and both pool-size distributions are recorded rather than exchangeability assumed.
+
+## R741 addendum · the one surviving interval, as this round computes it
+
+The single excess whose interval excludes zero is the independent object against the eight-criterion
+label-blind arm, at minus 0.0556 with a ninety five percent interval from minus 0.1008 to minus
+0.0116 on the corrected population. The pricing round reported minus 0.1009 for the same lower bound;
+the two runs differ in their bootstrap draws and the third decimal is the estimator's own noise, not a
+disagreement. The value recorded on the statement is this round's, and both are within the
+Monte-Carlo error each round reports.

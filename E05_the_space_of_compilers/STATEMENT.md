@@ -453,9 +453,14 @@ NEGATIVE** — `greedy` correlates with the excluded object at **0.8123** agains
 ⛔⛔ **AND THE ORDERING DOES NOT SURVIVE ITS OWN RESOLUTION** *(R740)*. Bootstrapping prompts with the
 correlation, its matched floor **and the overlap** recomputed together, **9 of the 10 excesses cover
 zero** and **both ordering gaps cover zero**: greedy **+0.0396 [−0.0102, +0.0904]**, indep **+0.0511
-[−0.0022, +0.0995]**. The signs are not stable — greedy↔oracle is **+0.0211** here against
-**−0.0176** as a point estimate. **Only `indep`↔`topw_k8` survives, at −0.0556 [−0.1009, −0.0116].**
-**The honest report for the other nine is a bound, not a shortfall.** ⭐ **And the obvious explanation for the
+[−0.0022, +0.0995]**. ⛔ **CORRECTED** *(R741)*: I read the move from **−0.0176** to **+0.0211** as a
+sign flip under resampling. **It is a POPULATION change** — R738 ran on 968 prompts against the union
+of observed selections, the pool R739 showed is biased; R740 used the full candidate set and 734
+prompts. **Mean absolute pool effect 0.0857.** On one correct population R740's numbers reproduce
+within their own SE in all ten cells, so **R738's ten excesses are withdrawn and R740's stand**.
+**Only `indep`↔`topw_k8` survives, at −0.0556 [−0.1008, −0.0116].** **The honest report for the other
+nine is a bound**, and correcting the pool **drops 234 prompts** — a selection on pool size, so the
+surviving population is **not the release**. ⭐ **And the obvious explanation for the
 negative sign is REFUTED** *(R739)*: the rules do **not** select higher-variance criteria — mean
 variance percentile rank **0.5028 / 0.4677 / 0.5318** against a null of **0.5**, with uniform arms at
 **0.5005 ± 0.0029** and the rule that *does* select on variance ranking first at **0.8528**. Matching

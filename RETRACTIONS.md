@@ -18628,3 +18628,31 @@ the design could resolve. The answer took one round and one bootstrap. The cost 
 reasoning about numbers between one and five hundredths against a standard error of one and a half to
 three hundredths. The order should have been reversed: price the resolution before explaining the
 residual, because an unresolvable residual is not a finding waiting for a mechanism.
+
+## 985 · the ten excesses were computed against a pool a later round proved wrong
+
+The round that matched every side on its own overlap built its candidate pool from the union of every
+arm's observed selections. The round after next showed that pool is a sample of the candidate set
+drawn by the rules under study, and the round after that silently used the full candidate set instead.
+The mean absolute difference across the ten cells is 0.0857, several times their standard errors, so
+the two sets of numbers are not comparable and the earlier ten are withdrawn. Nothing about the later
+numbers changes: recomputed here on one population they reproduce within their own standard error in
+all ten cells.
+
+## 986 · I read a population change as a sign flip from sampling noise
+
+My report on the pricing round said the signs were not stable, quoting plus 0.0211 against minus
+0.0176 for the same cell and calling it the interval covering zero seen from the other side. The two
+numbers come from different prompt sets against different pools. The sentence is wrong in its
+mechanism while accidentally right in its conclusion, which is the worst combination, because a
+correct conclusion resting on a wrong mechanism survives review and misleads the next round. It is
+retracted in the statement and here.
+
+## 987 · correcting the pool drops two hundred and thirty four prompts by a rule that is not random
+
+Applying the criterion requirement against the true candidate set rather than the union of selections
+removes prompts whose real pool is too small to supply it. That is a selection on pool size, so the
+surviving population is not a random subsample of the release and any quantity correlated with pool
+size is measured on a shifted population. The round reports both pool-size distributions rather than
+assuming exchangeability, and this entry exists so the restriction is not later mistaken for the
+release itself.
