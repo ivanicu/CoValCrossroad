@@ -1587,3 +1587,30 @@ prompt in the release carries at least three rankings, so **R479's filter exclud
 no-op.** The control requiring the sweep to move **FAILED**, the script refused to report, and the
 round redirected to the axis that does vary. **A flat sweep is not evidence of no effect; it is
 evidence the axis was mis-chosen, and only the control tells those apart.** *(R507)*
+
+
+⭐⭐⭐ **AND ③ HAS A PARTIAL BEHAVIOURAL SURROGATE AFTER ALL — IN THE SELECTION, NOT THE TEXT
+(R508).** R501 failed its own positive control looking for one in per-prompt A2 dispersion. R503 then
+showed both sides of ③ draw **100.0%** of their criteria verbatim from the *same* rubric pool, which
+means no textual test can exist and moves the search to **which items are picked**.
+
+Mean **normalised position** of an arm's selected criteria within that prompt's own rubric list:
+
+| arm | mean position | |
+|---|---|---|
+| `oracle_k4` | **0.2791** | ③-excluded label-**optimiser** — separates |
+| `greedy_k4_fit1` | **0.2880** | ③-excluded label-**optimiser** — separates |
+| `random_k4_s0` / `s1` / `s2` | **0.5012** / **0.5039** / **0.5071** | uniform selectors, spread **0.0059** |
+| `topw_k8` | **0.5051** | ⛔ ③-excluded and **MISSED** |
+| `topwvar_k4` | **0.5090** | ⛔ ③-excluded and **MISSED** |
+
+**POSITIVE control:** `oracle_k4` separates — the case R501's instrument could not see.
+**NEGATIVE control:** uniform selectors land where uniform selection predicts, which validates the
+position index and was discovered to be a control rather than designed as one.
+
+⛔ **The pre-registered kill fired: a surrogate that misses a KNOWN reader cannot certify an unknown
+one, so ③ is NOT replaceable and the fork does not dissolve.** ⭐ **But the shape of the failure is
+the finding: every reader that OPTIMISES against the labels is caught, and every miss is RULE-BASED
+selection. What escapes is rule-following, not optimisation** — sharper than *"no surrogate exists"*,
+and what R501 could not reach. ⚠ Arms whose rule is *stated over the rubric ordering* also separate;
+that is a **derivation** and counts for nothing. *(R503, R508)*
