@@ -1,0 +1,10 @@
+{
+  "n": 968,
+  "mean": 0.031146694214876033,
+  "observed_sd": 0.13878204571439137,
+  "noise_floor": 0.035339026895211005,
+  "true_sd": 0.1342073373209191,
+  "reliability": 0.9355331496863227,
+  "verdict": "MEASURED",
+  "world": "B (REAL STRUCTURE \u2014 the deficit is a reliable per-prompt quantity; the three predictors were wrong, the target is not absent)"
+}
