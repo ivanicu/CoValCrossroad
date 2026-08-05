@@ -15378,3 +15378,23 @@ when the number arrived.*
 *"The production work is done"*: the four inert sites still carry the old code, so the **corrective**
 work is done and the **preventive** installation is not. *"The arc's oldest open item"*: never
 enumerated.
+
+## 635 · Nine of ten claim rows carry no object scope — the qualifier is now written
+
+**10 of 10 rows carry an INSTRUMENT scope** (`home judge`, `968 prompts`, `41 arms`); **1 of 10
+carries an OBJECT scope** (row 7's *"one release"*). ⭐ **These are different claims** — the first
+scopes the measurement, the second the definition — so nine rows read as claims about cores **in
+general** when every one is about cores **in this release**. A scope block is now written into
+`STATEMENT.md`.
+
+## 636 · My own pattern under-matched and reported a rounder number than the truth
+
+v1's OBJECT family lacked *"one release"* and returned **0 of 10**; row 7 carries it, so the count is
+**1 of 10**. ⭐ *A pattern returning a rounder number than the truth is not more conservative — it is
+the one that was not checked against the rows it claims to have read.*
+
+## 637 · Check #246 — a stale measurement quoted in the present tense
+
+*"Every claim row **currently** reads as unconditional"* rested on R601, and `STATEMENT.md` has been
+appended to by R618, R628 and R631 since. ✓ The same line's *"check first"* was right, which is the
+only reason the edit rests on a measurement rather than a memory.

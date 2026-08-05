@@ -1,0 +1,16 @@
+{
+  "world": "B UNQUALIFIED \u2014 9 of 10 claim rows carry no object scope; the qualifier is now written",
+  "rows": 10,
+  "instrument_scope": 10,
+  "object_scope": 1,
+  "object_scoped_row": "7 \u2014 'both judges; one release'",
+  "instrument_correction": "v1's OBJECT pattern lacked 'one release' and reported 0 of 10; row 7 carries it, so the corrected count is 1 of 10",
+  "why_no_second_object": {
+    "home": "5/5",
+    "second_release": "3/5",
+    "best_non_home_file": "4/5",
+    "join_of_all_non_home": "3/5"
+  },
+  "action": "a scope block written into STATEMENT.md above the R628 bound",
+  "impossible": "key presence is necessary and not sufficient; R602 measured the second corpus as disjoint in content, which no schema check can see"
+}

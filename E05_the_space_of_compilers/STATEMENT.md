@@ -473,6 +473,32 @@ silence. **2 of the 3 aggregators that can see k, not 2 of 5.** *(R481)*
 Everything above is a claim someone can act on. Everything below is the price and the
 specification for paying it.*
 
+## ⛔ EVERY CLAIM ROW IS SINGLE-OBJECT-BOUND, AND ONLY ONE SAYS SO *(R645)*
+
+> ## `② ∧ ③` is evaluable on exactly ONE object, and no second object exists on this disk.
+
+**Measured, not asserted.** Of the claim table's ten rows:
+
+| | |
+|---|---|
+| carry an **instrument** scope — `home judge`, `968 prompts`, `41 arms` | **10 of 10** |
+| carry an **OBJECT** scope — *this holds on one release and no other* | **1 of 10** (row 7, *"one release"*) |
+
+**These are different claims.** The first scopes the **measurement**; the second scopes the
+**definition**. The table states the first everywhere and the second almost nowhere — so nine rows
+read as though they were about cores in general, when every one is about cores **in this release**.
+
+**Why no second object can be found** *(R644)*: scored against R618's five fields, the home release
+is **5/5**, the second release **3/5** (missing the criterion pool and the core), the best non-home
+file **4/5**, and **the join of every non-home file is still 3/5.** The pool and the core exist in
+exactly one file and nowhere else — **the missing fields are missing from the disk, not from a
+particular file.** The object is not merely un-found; **it is not constructible from what is here.**
+
+⚠ **THEREFORE, READ EVERY ROW ABOVE AS PREFIXED BY:** *on the home release, the only object on which
+this definition can currently be evaluated.* ⚠ And R602 measured the second corpus as **disjoint in
+content**, so even an object satisfying all five fields would still need its content checked —
+**key presence is necessary, never sufficient.**
+
 ## What the assurance suite establishes about a NUMBER — the bound *(R628)*
 
 > ## Provenance cannot be INFERRED. It must be DECLARED, and then checked.
