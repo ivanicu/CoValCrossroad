@@ -152,8 +152,19 @@ A **core** for a conversation is a set of criteria such that
 >
 > **F2 · BEHAVIOUR ABOVE A PROMPT-BLIND FLOOR.** The criteria beat a baseline that never sees the
 > prompt. ⚠ **NOT justified by agreement with A2** — that agreement is arithmetic, since ② *is* an
-> A2 threshold *(R696)*. Kept for the residual it genuinely owns: **the released core against its own
-> sham** *(R694)*.
+> A2 threshold *(R696)*. ⛔ **AND NOT JUSTIFIED BY THE SHAM RESIDUAL EITHER — DOWNGRADED BY R711.**
+> The residual is **two** pairs, not one: `coval_core` and `topw_k4`, each against its own sham. ②
+> separates **2 of the 5** sham pairs the ledger holds, and separates **0 of the 3** whose base it
+> rejects — because when it rejects the base, both members fall together. So the residual is **2 of
+> 2 POSSIBLE**. Against a uniformly random admission of the same size, 9 of 42, the expected count is
+> **1.7247** and **EXACT P(≥2) = 0.5727**, enumerated over all **445,891,810** admissions with no
+> Monte-Carlo error, and the p never clears 0.05 at any admission size swept (0.2876 at k=5, 0.7577
+> at k=14). ⚠ **This does not say the two separations are wrong** — they are real verdicts. It says
+> they are not EVIDENCE FOR the clause, since a clause with no sham sensitivity produces them 57% of
+> the time. ⚠ And **why** they separate is untestable here: "the prompt was withheld" is an
+> interpretation of a verdict, and no counterfactual over the generator exists in this release.
+> ⭐ **F2 therefore stands on its exclusions** *(R703: 20 unique, the largest of the three clauses)*
+> **and no longer on a justification.**
 > *Excludes:* `coval_core_sham` — the same generator with the prompt withheld.
 >
 > **F3 · SIZE AS A TWO-SIDED BOUND, NEVER A VALUE** *(repaired by R702 one round after being

@@ -3212,3 +3212,33 @@ control flags — positive, g=0, placebo and sham — which pass at both judges 
 already found and excluded exactly that defect, and the audit reimplemented the walk from scratch
 while reading R685's verdict string rather than its exclusion logic. Reported, it would have
 retracted a correct result.
+
+## R711 · Whether the core-versus-sham residual is above a same-size random admission
+
+Clause F2 was kept, after its agreement with A2 was shown to be arithmetic, for the residual it was
+said to genuinely own — the released core against its own sham. R711 tests that residual against the
+only null that matters: a clause that admits the same number of arms with no regard to shams at all.
+
+The ledger holds five sham pairs. Clause ② separates two of them, `coval_core` and `topw_k4`, and
+zero of the other three, because it rejects both members of those. Separation is therefore only
+possible where the base arm is admitted, which is two of the five pairs, so the residual is two of
+two possible rather than two of five — a ceiling of two, and reaching a ceiling of two is precisely
+what makes the exact probability large.
+
+Enumerated over all **445,891,810** admissions of nine arms from forty-two, the separation count has
+mean **1.7247** and the exact probability of reaching two or more is **0.5727**. The enumeration was
+cross-checked against a sixty-thousand-draw sampled null agreeing to within **0.00154**, so the
+figure carries no Monte-Carlo error. Swept over admission sizes the exact probability never clears
+0.05: **0.2876** at k=5 and **0.7577** at k=14.
+
+Controls: a plant admitting all five bases and rejecting all five shams yields five separations at an
+exact probability of **0.002581**, so the instrument registers a maximal effect; an admission drawn
+only from non-pair arms yields zero separations, so the statistic is not free; and three same-family
+non-sham control pairs yield zero separations at an exact probability of 1.0000, so sham-ness is the
+ingredient and removing it removes the signal.
+
+So the justification is downgraded. This does not say the two separations are wrong — they are real
+verdicts — it says they are not evidence for the clause, since a clause with no sham sensitivity
+produces them fifty-seven percent of the time. Why they separate is untestable here: the prompt
+having been withheld is an interpretation of a verdict, and no counterfactual over the generator
+exists in this release. F2 stands on its exclusions and no longer on a justification.

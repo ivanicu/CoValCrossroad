@@ -17623,3 +17623,51 @@ nothing is lost and there is no divergence. **The standing rule against another 
 not to retaliate** — their staged work is left untouched and this round commits only its own paths.
 ⚠ And the corpus growing mid-round is why the README had to be re-synced from the artifact: the first
 draft carried n=1067 figures beside an artifact that said 1073.
+
+## 899 · "that residual is a single arm pair" — it is two, and the gate could not catch this one
+
+R710's NEXT line called F2's residual "a single arm pair". R694's committed artifact names **two**
+mixed cells — `coval_core/none` and `topw/4`. **Fourth false closing-sentence claim in this arc**
+after ledger 873, 892 and 893.
+
+⚠ **And this one is a different species.** The first three carried quantifiers — `the only`, `every`,
+`weakest` — and two of the three were catchable by a word list. This one carries **no quantifier at
+all**: it is a miscount, "single" where the artifact says two. **A word-list detector cannot see a
+wrong number**, which is a limit of the whole approach R710 already refused to extend, arrived at
+from the other direction.
+
+## 900 · F2's sham residual is at chance — the justification is downgraded
+
+`STATEMENT.md` kept clause F2, after its A2 agreement was shown to be arithmetic (R696), "for the
+residual it genuinely owns: the released core against its own sham". Measured against the only null
+that matters — a clause admitting the same number of arms with no regard to shams:
+
+- ② separates **2** of the ledger's **5** sham pairs, and **0** of the 3 whose base it rejects,
+  because rejecting the base drops both members together;
+- so the residual is **2 of 2 POSSIBLE**, not 2 of 5 — a ceiling of two;
+- enumerated over all **445,891,810** admissions of 9 from 42, the null mean is **1.7247** and
+  **EXACT P(≥2) = 0.5727**, with no Monte-Carlo error (cross-checked against a 60,000-draw sampled
+  null to within 0.00154);
+- the exact p **never clears 0.05 at any admission size swept** — 0.2876 at k=5, 0.7577 at k=14.
+
+⭐ **A clause with no sham sensitivity at all produces these two separations 57% of the time.**
+
+⚠ **What this does NOT say:** that the separations are wrong. They are real verdicts. What is
+unsupported is that they are **evidence for** the clause. ⚠ And **why** they separate is untestable
+here — "the prompt was withheld" is an interpretation of a verdict, and no counterfactual over the
+generator exists in this release.
+
+**F2 now stands on its exclusions (R703: 20 unique) and no longer on a justification.** Both of its
+stated justifications have now fallen: the A2 agreement to circularity (R696), the sham residual to
+chance (this round).
+
+## 901 · the ceiling was the finding, and it was visible before any null
+
+The sharpest fact in this round needed no enumeration: **② can only separate a sham pair where it
+admits the base**, so with 2 admitted bases the statistic's ceiling is 2 and "2 of 5" was never the
+right fraction. Reaching a ceiling of two is exactly what makes the exact p large.
+
+**That was derivable from the ledger in one pass and it reframes the claim more than the p does.**
+The enumeration is what makes it a measurement rather than an argument — but the structure came
+first, and I have now twice in this arc (here and R709's `deeper is not wider`) found that the
+load-bearing correction was a counting structure, not a statistic.
