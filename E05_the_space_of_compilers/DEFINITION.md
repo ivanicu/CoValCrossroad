@@ -2882,3 +2882,29 @@ ties, so that statistic is degenerate, and a perfect step is also the extreme sl
 is established; its shape is not.**
 
 ⚠ Round ids order the work; they do not date it.
+
+---
+
+## R610 · The switch appears in the uncited rounds too
+
+The sweep of R609 rerun through one code path on both arms of band 365–485, each read against **its
+own** max-over-cuts null because the arms differ in size.
+
+| arm | n | with provenance | cuts | best cut | Δ | own null p95 | median | max |
+|---|---|---|---|---|---|---|---|---|
+| CITED | 35 | 9 | 26 | **434** | **1.0000** | 0.4800 | 0.3095 | 0.6333 |
+| UNCITED | 83 | 55 | 74 | **428** | **1.0000** | 0.4923 | 0.2841 | 0.7051 |
+
+**Distance between boundaries: 6.** Both switches are total — every round below the cut records its
+source, none at or above it does.
+
+**Controls, on the uncited arm.** A step planted at 412 is recovered **at 412** with |Δ| = 1.0000
+against 0.5385. Provenance independent of id returns |Δ| = **0.4567** against its null of **0.4722** —
+a pass by **0.0155**, narrow enough that the conclusion rests on the observed 1.0000 rather than on
+the control's comfort. Constant provenance returns **0.0000** at every cut.
+
+So the shortfall R606 measured is real and its cause is the **work**, not the **selection**:
+provenance recording ended corpus-wide at ~430 and the page's citations concentrate after it.
+
+⚠ A boundary in id order is not a change in practice — it is equally consistent with a reorganisation,
+a renumbering or a gap in the record, and nothing here carries a timestamp.

@@ -14365,3 +14365,38 @@ described what a step would look like and treated the step as given.
 ⭐ This round refused that framing and asked the prior question — **and the answer happened to be a
 step.** *Being right by luck is not the same as having established it*, which is why 525's caveat
 stands rather than being quietly dropped now that the shape came out as predicted.
+
+## 527 · The switch is in the WORK, not in the selection
+
+The identical sweep on era 3's **83 uncited** rounds finds its own perfect switch at **428**, Δ =
+**1.0000** against its own max-over-cuts null of **0.4923** — **6 rounds** from the cited arm's 434,
+which sat at Δ = 1.0000 against **0.4800**. Both are total: every round below records its source, none
+at or above does.
+
+⭐⭐⭐ **Provenance recording stopped for everyone at ~430.** R606's shortfall stands — 11.4% vs 29.0%,
+p = 0.0003 — **but its diagnosis changes from *what the page selected* to *when the page draws
+from*.** R607's *"genuine within-era selection"* is **re-diagnosed as a corpus-wide practice change.**
+
+⚠ *The measurement was right at every step and the attribution was wrong at two of them. That is the
+shape this arc keeps producing: a real number, correctly computed, carrying a cause it had not
+earned.*
+
+## 528 · My dichotomy omitted a case, and the omission would have been invisible
+
+R609 closed with a **two-branch** reading: same stop ⇒ the WORK, no stop ⇒ SELECTION. **The uncited arm
+could have stopped somewhere else**, which is neither — and a two-branch rule **would have forced that
+outcome into whichever branch it resembled**, silently.
+
+⭐ The answer landed in the first branch anyway, **but only because a third was available to lose to.**
+*A world set that cannot express the outcome will report the nearest one it can, and nothing in the
+output marks the substitution.*
+
+## 529 · A control that passed by 0.0155
+
+The `g = 0` control — provenance independent of round id — returned |Δ| = **0.4567** against its null
+of **0.4722**. It passed, **by 0.0155.** On random data this design comes close to manufacturing a
+boundary.
+
+⚠ The conclusion rests on the observed Δs being **1.0000**, far above either null — **not on the
+control's comfort.** *A control that passes narrowly is a warning about the design, not a licence, and
+reporting the margin is what makes the difference visible.*
