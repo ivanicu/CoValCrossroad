@@ -1,0 +1,160 @@
+{
+ "rows": {
+  "oracle_k4": {
+   "fam": "reader",
+   "n": 3872,
+   "frac": 1.0
+  },
+  "oracle_k4_fit1": {
+   "fam": "reader",
+   "n": 3872,
+   "frac": 1.0
+  },
+  "greedy_k4_fit1": {
+   "fam": "reader",
+   "n": 3872,
+   "frac": 1.0
+  },
+  "indep_k4_fit1": {
+   "fam": "reader",
+   "n": 3872,
+   "frac": 1.0
+  },
+  "topw_k4": {
+   "fam": "reader",
+   "n": 3872,
+   "frac": 1.0
+  },
+  "topw_k2": {
+   "fam": "reader",
+   "n": 1936,
+   "frac": 1.0
+  },
+  "topw_k8": {
+   "fam": "reader",
+   "n": 7670,
+   "frac": 1.0
+  },
+  "topabs_k4": {
+   "fam": "reader",
+   "n": 3872,
+   "frac": 1.0
+  },
+  "topvar_k4": {
+   "fam": "reader",
+   "n": 3872,
+   "frac": 1.0
+  },
+  "topwvar_k4": {
+   "fam": "reader",
+   "n": 3872,
+   "frac": 1.0
+  },
+  "gen": {
+   "fam": "free",
+   "n": 3868,
+   "frac": 0.0
+  },
+  "generic": {
+   "fam": "free",
+   "n": 3872,
+   "frac": 0.0
+  },
+  "genericpool16": {
+   "fam": "free",
+   "n": 15488,
+   "frac": 0.0
+  },
+  "random_k4_s0": {
+   "fam": "free",
+   "n": 3872,
+   "frac": 1.0
+  },
+  "random_k4_s1": {
+   "fam": "free",
+   "n": 3872,
+   "frac": 1.0
+  },
+  "random_k3_s0": {
+   "fam": "free",
+   "n": 2904,
+   "frac": 1.0
+  },
+  "random_k8_s0": {
+   "fam": "free",
+   "n": 7670,
+   "frac": 1.0
+  },
+  "promptecho": {
+   "fam": "free",
+   "n": 1592,
+   "frac": 0.001256281407035176
+  }
+ },
+ "spec": {
+  "exact": {
+   "oracle_k4": 1.0,
+   "oracle_k4_fit1": 1.0,
+   "greedy_k4_fit1": 1.0,
+   "indep_k4_fit1": 1.0,
+   "topw_k4": 1.0,
+   "topw_k2": 1.0,
+   "topw_k8": 1.0,
+   "topabs_k4": 1.0,
+   "topvar_k4": 1.0,
+   "topwvar_k4": 1.0,
+   "gen": 0.0,
+   "generic": 0.0,
+   "genericpool16": 0.0,
+   "random_k4_s0": 1.0,
+   "random_k4_s1": 1.0,
+   "random_k3_s0": 1.0,
+   "random_k8_s0": 1.0,
+   "promptecho": 0.001256281407035176
+  },
+  "strip": {
+   "oracle_k4": 1.0,
+   "oracle_k4_fit1": 1.0,
+   "greedy_k4_fit1": 1.0,
+   "indep_k4_fit1": 1.0,
+   "topw_k4": 1.0,
+   "topw_k2": 1.0,
+   "topw_k8": 1.0,
+   "topabs_k4": 1.0,
+   "topvar_k4": 1.0,
+   "topwvar_k4": 1.0,
+   "gen": 0.0,
+   "generic": 0.0,
+   "genericpool16": 0.0,
+   "random_k4_s0": 1.0,
+   "random_k4_s1": 1.0,
+   "random_k3_s0": 1.0,
+   "random_k8_s0": 1.0,
+   "promptecho": 0.001256281407035176
+  },
+  "lower": {
+   "oracle_k4": 1.0,
+   "oracle_k4_fit1": 1.0,
+   "greedy_k4_fit1": 1.0,
+   "indep_k4_fit1": 1.0,
+   "topw_k4": 1.0,
+   "topw_k2": 1.0,
+   "topw_k8": 1.0,
+   "topabs_k4": 1.0,
+   "topvar_k4": 1.0,
+   "topwvar_k4": 1.0,
+   "gen": 0.0,
+   "generic": 0.0,
+   "genericpool16": 0.0,
+   "random_k4_s0": 1.0,
+   "random_k4_s1": 1.0,
+   "random_k3_s0": 1.0,
+   "random_k8_s0": 1.0,
+   "promptecho": 0.001256281407035176
+  }
+ },
+ "fragile": [],
+ "world": "A SELECTION-ONLY",
+ "positive": 0.0,
+ "negative": 0.0
+}

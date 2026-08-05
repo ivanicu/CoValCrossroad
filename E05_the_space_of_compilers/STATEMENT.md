@@ -53,7 +53,7 @@ record prices both.**
 | what it is a predicate on | a criterion set | a **(set, construction history)** pair |
 | extension here | **5** arms (①∧②∧④) | **0** |
 | checkable by a third party holding only the artifact | **yes** | **no** — and this is a derivation, not a limitation of effort |
-| what it admits that you may not want | arms that **read the human labels** — `oracle_k4`, `greedy_k4_fit1`, `indep_k4_fit1`, `topw_k4` | nothing; it admits nothing here |
+| what it admits that you may not want | arms that **read the human labels** — but their criteria are **100% verbatim items from the prompt's own rubric** *(R503)*: the **right** criteria, selected for the wrong reason. The cost of A is **provenance, not quality** | nothing; it admits nothing here |
 | why the extension is what it is | the label-readers are the only arms clearing the ceiling *(R485)* | the site ships **one** admissible prompt-responsive generator *(R502)* |
 
 ⭐ **Reading B's emptiness is a fact about the RELEASE, not about the definition.** That is the whole
@@ -67,6 +67,12 @@ trace, B would become object-level and the fork would dissolve. **That question 
 closed**: the one instrument tried (per-prompt A2 dispersion residualised on mean A2) failed its own
 positive control — it could not place `oracle_k4`, the maximal label-reader, outside the middle of
 the pack *(R501)*. **A candidate instrument must first be shown to rank `oracle_k4` at an extreme.**
+
+⭐⭐⭐ **AND THE REASON NO SUCH INSTRUMENT HAS BEEN FOUND IS NOW MEASURED, NOT GUESSED.** Every
+③-**excluded** arm draws **100.0%** of its criteria verbatim from the prompt's own rubric — and so do
+the ③-**admissible** `random_k*` arms, while `gen` and `generic` draw **0.0%**. **The two sides of ③
+inhabit the same object space and differ only in the selection map.** There is no textual property to
+check because there is no textual difference to find. *(R503)*
 
 **What the choice costs, in one line each.** Choose **A** and a set that read the answer key is a
 core. Choose **B** and no one handed a criterion set can ever tell you whether it is one.
