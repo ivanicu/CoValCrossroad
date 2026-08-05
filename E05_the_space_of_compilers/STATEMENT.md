@@ -80,7 +80,11 @@ converge:**
 | **population** | R294's **41** arms · **968** prompts · the 56-tag / **46**-object census |
 | **instrument** | home judge `Qwen3.5-2B-Base`, **target `A2`** |
 | **baseline** | ②'s comparator is **`POOL[0:4]` by file order**, at **percentile 93.7** of its 1,820-subset class. ⚠ **The extension moves 4 → 8 across that class** — so every count is baseline-conditional too |
-| **regime** | k=4 unless the row says otherwise · held-out annotator · one release |
+| **regime** | k=4 unless the row says otherwise · held-out annotator · **one release — the HOME release, and this is now measured rather than assumed** *(R601)* |
+
+⛔⛔ **AND THE CLAIM TABLE CITES ZERO OF THE 18 CROSS-RELEASE ROUNDS** *(R601)*. Eighteen rounds score on `data/utterances.jsonl`, the second release, and **not one is cited in the table above** — including **R433**, which measured clause ②'s own subject *(a core generated from the conversation alone)* **losing to a judge-free length heuristic by −0.0545, resolved**, and concluded in its own words that clause ② *"is a description"* of what CoVal did rather than a property of cores. **R403** puts it harder: *"half the definition is a fact about CoVal's schema."*
+
+⚠ **WHETHER THAT SILENCE IS AN OMISSION OR A CORRECT EXCLUSION IS `UNVERIFIED`** — and the counter-evidence is *also* absent from this page. **R399** measures the second corpus as a RATING corpus whose overlap with the home release is **3 strings, 2 of them greetings**; **R400** finds the two share depth *support* and almost no depth *mass*. If those hold, ②-loses-there may be no evidence about cores at all. **What is established either way: every row above is home-release-only and did not say so until now.**
 
 **Where a row departs from this table it says so in its own scope cell.** The table carries what is
 constant; the cell carries what varies. **That is the shape the column was missing.**

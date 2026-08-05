@@ -14044,3 +14044,43 @@ written from."* **It has.** `R427`, `R433`, `R466` are transport rounds, and **`
 `W-LOSES` — clause ②'s subject loses on the second release.**
 
 ⚠ **I was one command from designing a round to do work already done**, and the command was `ls`.
+
+## 496 · The claim table cites zero of the 18 cross-release rounds
+
+**18 rounds score on the second release. The claim table cites 0.** Among them **R433** — *"whether
+clause ② is a property of CORES or a description of what CoVal did. **It is a description.**"* — where
+the clause's own subject **loses to a judge-free length heuristic by −0.0545, resolved**. And **R403**:
+*"half the definition is a fact about CoVal's schema."*
+
+`STATEMENT.md` cited R433 exactly once, in the impossibility register, **as file provenance that a
+second release exists.**
+
+⚠ **The counter-reading is also absent**: **R399** measures the second corpus as a RATING corpus whose
+overlap with home is **3 strings, 2 of them greetings**; **R400** finds almost no shared depth mass.
+**So whether the silence is an omission or a correct exclusion is `UNVERIFIED`** — and the page is
+silent about both halves. **What is established either way: every claim row is home-release-only and
+did not say so.** Now annotated in the scope-constants table.
+
+## 497 · A round that measures a corpus it belongs to will find whatever it looks for
+
+R601's placebo — a nonexistent corpus token that must match nothing — **matched exactly one round:
+R601 itself.** The instrument scanned a population containing its own source, so **any literal it
+searches for is guaranteed present.**
+
+⭐ Same class as R598's harness reading a tree it was mutating. Remedy, and it is general: **a round
+may not be a member of the population it measures.** Fixed by assembling the token at runtime and
+removing the round from its own population.
+
+## 498 · `transport` classed 109 of 376 rounds as cross-release
+
+The negative control caught it: **R519, a home-only round, matched.** The bare word collides with the
+helper `judge_transport` and with the ordinary English word used in prose about whether a result
+transports. Tightened to things that can only mean the second corpus — its data file, its loader, its
+explicit flag: **109 → 18**, and both failing controls pass.
+
+## 499 · A pre-registration without a number is a sentence, not a commitment
+
+R600 closed with *"if that class is LARGE the gate needs a third category… if it is SMALL these two
+are simply owed a `world`"* — **no threshold, so it could not have failed.** ⚠ And it called **R288 a
+census round** on inferred evidence, verified only for R294: **two hypotheses collapsed into one label
+on one round's worth of evidence.**
