@@ -14819,3 +14819,23 @@ Recomputed: **112**. R624 counted string-form value positions; this round counts
 **"The smallest honest flag set this project has produced" was an uncomputed superlative attached to
 an instrument-specific number** — with *"the only thing standing between this arc and a provenance
 claim"* in the same sentence.
+
+## 568 · Multiplicity is informative — and my pre-registered direction was backwards
+
+Conditioned on matching: **document decimals median m = 3.0** · **matched random draws 1.0** ·
+**gate-re-derived values 14.5**. At `m = 1`: **~54% of random matches, 30.7% of document decimals,
+6.9% of gate-verified values.** At `m ≥ 10`: **~4.3% · 13.6% · 59.6%.**
+
+**Low multiplicity is the COINCIDENCE signature; high multiplicity is the MEASUREMENT signature.** A
+load-bearing number is re-persisted across many rounds; an invented one collides in one place.
+
+⛔⛔ I registered the opposite — *"a real measurement is rare"* — so the kill fired **world B, no
+information**, on data refuting it. ⭐ *A pre-registered threshold with the wrong sign fires
+confidently on data that refutes it*, and **§4's "a kill is a conditional" needs a companion clause:
+the conditional must include the arm that establishes the direction.**
+
+## 569 · "Carried by one round is evidence; carried by forty is a coincidence" — exactly inverted
+
+Both numbers were illustrative, neither computed, in a closing line a later round would have turned
+into a threshold. **The truth is the reverse**, and R625's 36% collision floor is precisely why `m=1`
+cannot be read as provenance.
