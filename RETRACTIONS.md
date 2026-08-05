@@ -10658,3 +10658,29 @@ R486/R487's class census rather than four arms.
 R487, maximum unchanged), and R451 (re-derived here, claim intact on a stronger base). **All three
 load-bearing typed populations have now been checked, and the count of conclusions that MOVED is one
 of three.**
+
+## 320 · The one-page residue carried a superseded reading and omitted the session's largest finding (R490)
+
+**Corrected.** `STATEMENT.md` is the deliverable — *"A core — what stands"*. After fifteen rounds it
+cited **3 of them**, and one of those three carried a conclusion two later rounds had qualified.
+
+**① It asserted a conflict that had been downgraded.** The block *"THE EMPTINESS IS A CONFLICT, NOT AN
+ABSENCE"* (R485) stood unannotated while R486 and R487 had established the admissible side is
+represented by a population whose **maximum sits at percentile 32.6** — 22 of the other 22 arms at
+p0.0. **The observation survives; the interpretation is UNDETERMINED.** Annotated in place rather than
+rewritten, because the sequence is the lesson.
+
+**② It omitted the judge entirely.** R479's Bayes ceiling (**0.6132**, headroom **+0.0467**), the
+**0.738 vs 0.193** attainment split across judges, R480's **0.9130 across-family / 0.3692
+within-family** sign survival, and R481's aggregator conditionality — none of it reached the page that
+says what stands. **② already states that a core is only ever "a core under J"; the measurement says
+the judge index is the dominant term**, and the residue did not carry it.
+
+⭐ **The failure is §0.2's, exactly.** Fifteen rounds produced findings, retractions and instruments,
+and the reporting went into commit bodies, round READMEs and DEFINITION.md — **every place except the
+one document whose whole purpose is to be the residue.** ⚠ **A deliverable that is not updated by the
+work is not a deliverable; it is a snapshot with a confident title.**
+
+**Verified:** `statement_provenance` passes — **21 cited rounds all carry settled verdicts, and every
+decimal on the statement is anchored in DEFINITION.md**, so nothing was added that the record cannot
+re-derive.

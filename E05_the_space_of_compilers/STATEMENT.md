@@ -52,6 +52,15 @@ prompt-blind ceiling (**0.5404**) is one ③ excludes — five of five, reaching
 rankings or ratings. The best ③-admissible **prompt-aware** arm is **0.5337**, a gap of **−0.0067**,
 inside the **0.0122** floor. **② asks an arm to beat a class that already performs at the level
 prompt-awareness alone can reach, and only the human labels ③ forbids go further.** *(R485)*
+> ⚠ **DOWNGRADED to UNDETERMINED (R486, R487).** The observation stands — five of five arms clearing
+> the ceiling are ③-excluded. The *interpretation* does not. Placing the best ③-admissible
+> prompt-aware arm inside the class it must beat puts it at **percentile 32.6**, and over the **full**
+> population — **23 scorable arms**, not the three R485 named — **22 of the other 22 sit at p0.0**,
+> below every one of the 1,820 prompt-blind subsets. **A clause-level conflict requires the admissible
+> side to be fairly represented, and a population whose maximum is p32.6 is not.** So this site cannot
+> separate *"③ forbids the winning mechanism"* from *"nobody has built a good rating-blind
+> prompt-aware arm here"*. Settling it needs a **strong** admissible arm, which is a
+> generation-and-judging round. *(R486, R487)*
 
 ⭐ **③ STAYS AS WRITTEN, and the reason is measured rather than stipulated.** R475 left the choice of
 weakening ③ to permit the ratings. What decides it is what the ratings are **worth**: against the best
@@ -93,6 +102,34 @@ neither agreement nor disagreement.** *(R477)*
   **185.7** under no-structure combinatorics, one subset taking **33.57%** of prompts. *(R452)*
 
 ---
+
+## What the score is actually made of
+
+⛔ **The 0.54 band every arm converges to is the JUDGE, not the target.** The maximum any scorer
+*without sight of the target* can reach — the modal human ranking scored against a **held-out**
+annotator — is **0.6132** (resolution 0.0093, four seeds). Against the best non-oracle arm that leaves
+**+0.0467 of headroom, 3.8× the floor.** **The band is not a ceiling.** *(R479)*
+
+⛔⛔ **And the same criteria attain 0.738 of that ceiling under Qwen3.5-2B and 0.193 under 0.8B** — a
+gap of **0.545**. `random_k4_s0` attains **−0.106** at 0.8B, below chance. ② already says a core is
+only ever *"a core under J"*; **this says the judge index is not a caveat but the dominant term.**
+*(R479)*
+
+⭐ **Leave-one-out is worth +0.0388.** Including the held-out annotator in the mode that scores
+against it gives 0.6520 instead of 0.6132 — an error running in exactly the direction that
+manufactures headroom. And a free control: single-annotator-vs-annotator returns **0.5458** against
+this campaign's independently committed human ceiling of **0.5451**, Δ **+0.0007**. *(R479)*
+
+⚠ **The judge preserves which FAMILY is better and reverses which SIZE is better.** On pairs resolved
+under 2B, sign survival is **0.8019** against a split-half **same-judge** placebo of **0.9848** —
+across-family **0.9130**, within-family **0.3692**. Below chance is reversal, not disagreement.
+**A size claim is judge-relative in a way a family claim is not.** *(R480)*
+
+⚠ **And that reversal must name its aggregator.** Every A2 here **sums** satisfaction over the
+selected criteria (`corebench/score.py:63`), a choice never swept until R481. `cls(mean) ≡ cls(sum)`
+by algebra. The reversal holds under `sum` and `median`, is absent under `min`, and **`max` and
+`midrange` cannot resolve k at all** (range 0.0084 / 0.0086, below the floor) — so their nulls are
+silence. **2 of the 3 aggregators that can see k, not 2 of 5.** *(R481)*
 
 ## Instruments that outlive the questions
 
