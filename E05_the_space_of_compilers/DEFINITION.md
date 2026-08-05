@@ -2351,3 +2351,33 @@ by k=15.** Fewer items kept ⇒ selecting them by weight is worth more.
 
 ⚠ **Not shown: that the weights are GOOD.** This prices reading them, not whether the annotators
 were right — register row 6, an external standard.
+
+---
+
+## R534 · ③ has three input classes, not two
+
+R529's partition put `topvar_k`/`topwvar_k` in the **weight** bucket. `select_core.py` disagrees:
+`topw_k` sorts on `-w[i]` and `topabs_k` on `-abs(w[i])` (**annotator weights**), while `topvar_k`
+sorts on `var(ssat)` — **judged satisfaction** — with the code's own comment: *"Non-leaky: the spread
+is a property of the **responses**, never of the human target."* `topwvar_k` reads both.
+
+⭐⭐⭐ **So an arm can read the responses' judged satisfaction while reading no human input at all**
+— a class ③-any's phrase does not cover, **because a judge is not an annotator.**
+
+| class | n | | reading | extension |
+|---|---|---|---|---|
+| rank | 4 | | ③-rank | **5** *(R529: 5)* |
+| weight | 10 | | ③-any | **0** *(R529: 0)* |
+| **sat** | **1** (`topvar_k4`) | | **③-judge** *(new)* | **0** |
+| weight+sat | 1 | | | |
+
+**Both extensions unchanged — R529's conclusion survives and only its taxonomy was wrong.** On this
+population ③-any and ③-judge coincide because no ②-passer is in the `sat` class; **a future
+satisfaction-reading arm clearing ② would separate them.**
+
+**Controls.** Source read: 4/4 selection expressions confirmed verbatim. Positive: the ③-rank
+extension equals R294's own `admitted` restricted to ②-passers. Negative: all three classes
+non-empty on real arms.
+
+⚠ **Register row 7 now carries three options, not two:** must a core be producible without the
+rankings, without any annotator signal, or without any judged signal either?

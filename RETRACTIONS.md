@@ -12089,3 +12089,31 @@ Negative control: the per-prompt draw varies where `random_k4_s0` does not.
 correct sentence about a superseded object.* **What caught it was reading my own last line against
 the current deliverable rather than against my memory of it** — which is the discipline that has now
 caught something in 15 consecutive rounds.
+
+## 365 · ③'s taxonomy had three classes and R529 named two — a latent defect that changed nothing yet
+
+**R529 forked ③ using `WEIGHT_RULES = (topw_k, topabs_k, topvar_k, topwvar_k)`.** `select_core.py`
+disagrees, in code and in its own comment: `topw_k` sorts on `-w[i]` and `topabs_k` on `-abs(w[i])`
+— **annotator weights** — while **`topvar_k` sorts on `var(ssat)`, the JUDGE's satisfaction**, with
+the comment *"Non-leaky: the spread is a property of the **responses**, never of the human target."*
+
+⭐⭐⭐ **So an arm can read the responses' judged satisfaction while reading no human input at all.
+③-any's phrase — "no annotator signal for that prompt" — does not cover it, because a judge is not
+an annotator. There is a THIRD reading, ③-judge.**
+
+**Neither extension moves:** ③-rank **5**, ③-any **0**, ③-judge **0**. **R529's conclusion survives;
+only its taxonomy was wrong.** On this population ③-any and ③-judge coincide because no ②-passer
+sits in the `sat` class — ⚠ **a future satisfaction-reading arm that cleared ② would separate them,
+which is exactly what a latent taxonomy defect costs: nothing today, and a mislabel the first time
+it matters.**
+
+**Controls:** all 4 selection expressions confirmed verbatim from source; the ③-rank extension
+reproduces R294's own `admitted` restricted to ②-passers; all three classes non-empty on real arms.
+
+⚠ **And the premise check exited 2 on the first run** — the quoted comment spans three comment lines,
+so flattening whitespace left a `#` mid-sentence. **The second premise check this session to catch
+source wrapping** (R529 was the first). **Both times the fix was to normalise the markup, never to
+loosen the quote** — a looser quote would have passed while checking nothing.
+
+**Register row 7 now carries three options:** must a core be producible without the rankings,
+without any annotator signal, or without any judged signal either?
