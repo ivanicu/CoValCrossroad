@@ -10538,3 +10538,28 @@ arbitrarily strong reference class *"has never been asked"*.
 `R454_is_the_bound_a_property_of_the_pool` asked it on the **size** axis and settled it: the bound
 saturates by W≈12. I grepped `DEFINITION.md` for `genericpool16` and never searched the round
 directories, where a round is named for the question. **A count over the wrong corpus is not a count.**
+
+## 316 · "gen, topvar_k4 and full are the whole population" — third population error in one arc (R485, R486 → R487)
+
+**Retracted.** R486's report asserted that the ③-admissible prompt-aware population is three arms.
+`corebench/results/` holds **101** `sat_*.npz`; **30** are ③-admissible and prompt-aware, and **23**
+are scorable. R485 and R486 both computed *the best admissible arm* over a **hand-picked list of 14**.
+
+⭐ **The conclusion survives**: `gen` at 0.5337 (p32.6) **is** the maximum over all 23, and 22 of the
+others sit at **p0.0** — below every one of the 1,820 prompt-blind subsets. **R486's "the admissible
+side is weak" is now a measured fact about 23 arms rather than an inference from one**, which is
+strictly stronger than what it claimed.
+
+⛔ **But the error is the same one for the third time in this arc.** R477 bounded the rival class by
+the nine arms with `.npz` files; R478 caught it and the census went to 1,820. R485/R486 then bounded
+the *admissible* class by hand. **Each time the fix was applied to the specific class that had just
+failed, never to the practice.** The practice is: **a class is what a rule admits, not what I
+enumerated.**
+
+⚠ **And the recount was itself inflated.** My first census said "32 admissible prompt-aware arms",
+which counted six `transport_*` files. Their cells are keyed `c365|int10006|ut3170|0` — conversation,
+intent and utterance ids from a different study — against this benchmark's
+`prompt|criterion|response`. They are **not arms on this benchmark**, and they crashed the loader
+rather than quietly skewing a maximum, which is the only reason I looked. ⭐ **Files matching a naming
+pattern are not members of a population — the same error one scale down, committed inside the round
+that was fixing it.** They are now excluded **by schema**, and named in the output.
