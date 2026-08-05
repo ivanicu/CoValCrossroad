@@ -46,14 +46,53 @@ EMPTY = re.compile(r"\b0\s*/\s*0\b|\b0 of 0\b|no (rounds|files|items|checks) (fo
                    re.I)
 
 
+KEEP = None   # set in main(); None = git unavailable => never unlink
+
+
 def snap(d: pathlib.Path):
     return {p: p.read_bytes() for p in d.rglob("*") if p.is_file() and "__pycache__" not in str(p)}
 
 
-def restore(s, d: pathlib.Path):
+def tracked(d: pathlib.Path) -> set[pathlib.Path]:
+    """Files git knows about, absolute. Computed once; a miss must fail CLOSED (see below)."""
+    try:
+        out = subprocess.run(["git", "ls-files"], cwd=str(d),
+                             capture_output=True, text=True, timeout=60)
+        if out.returncode != 0:
+            return None
+        return {(d / ln).resolve() for ln in out.stdout.splitlines() if ln}
+    except Exception:
+        return None
+
+
+def restore(s, d: pathlib.Path, keep: set | None = None):
+    """Undo what a gate did to the directory -- WITHOUT destroying anyone else's work.
+
+    ⚠ REPAIRED 2026-08-04 after this function deleted `residue_debt.py` thirty seconds after
+    that file was committed and pushed. The old predicate was `p not in snapshot -> unlink`,
+    which reads as "the gate under test created this" but actually means "this appeared since
+    my snapshot, BY ANYONE". A sweep takes minutes; anything written in that window by another
+    process, a human, or a concurrent session was silently destroyed. The docstring above says
+    restoration "is verified" -- true for files it knows about, and the exact shape of a check
+    that cannot see the case it fails on.
+
+    The invariant that fixes it: A FILE GIT TRACKS WAS NEVER A GATE'S TRANSIENT ARTIFACT.
+    Tracked files are reported as appeared-tracked and LEFT ALONE. `keep=None` means the git
+    query failed -- in that case nothing is unlinked at all, because an unknown tracked set
+    must fail closed. Deleting on a failed lookup is how a repair becomes the next incident.
+
+    KNOWN REMAINING HAZARD, stated rather than silently carried: the `modified` branch still
+    rewrites a tracked file to its pre-sweep bytes, so a concurrent EDIT to a file a gate also
+    touches is still reverted. That is narrower than the bug fixed here (it needs the same file,
+    not merely the same directory) and it is the branch that gives the function its purpose --
+    undoing a gate that corrupts an artifact. Recorded so the next person does not rediscover it.
+    """
     changed = []
     for p in list(d.rglob("*")):
         if p.is_file() and "__pycache__" not in str(p) and p not in s:
+            if keep is None or p.resolve() in keep:
+                changed.append(("appeared-tracked", p))       # someone else's file, or unknown
+                continue
             changed.append(("created", p)); p.unlink()
     for p, b in s.items():
         if not p.exists() or p.read_bytes() != b:
@@ -83,6 +122,8 @@ os.environ[_SWEEP_FLAG] = "1"
 
 
 def main():
+    global KEEP
+    KEEP = tracked(HERE)
     scripts = sorted(p for p in HERE.glob("*.py")
                      if p.resolve() != SELF and not p.name.startswith("_"))
     # positive control: DEFECTS.py with the repair reverted -- the KNOWN broken case
@@ -105,7 +146,7 @@ def main():
             rc, out = r.returncode, (r.stdout or "") + (r.stderr or "")
         except subprocess.TimeoutExpired:
             rc, out = None, ""
-        touched = restore(before, HERE)
+        touched = restore(before, HERE, KEEP)
         # a WRITE that shrinks a json by >50% is the destroy-a-good-artifact signature
         destroyed = []
         for kind, p in touched:
