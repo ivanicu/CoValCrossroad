@@ -14688,3 +14688,29 @@ identity**: that was a data field I control and could have typed; this is prose,
 nature and not defective for it.
 ⛔ *"cannot be made sound by adding words"* — **a universal never computed**, when the precision/
 recall regime was measurable from data already on disk, and is measured in R620.
+
+## 553 · A fabricated number clears all six gates if written into the anchor first
+
+`0.9187`, invented in R621's own source, passes the entire assurance suite when it is written into
+`DEFINITION.md` before being cited on `STATEMENT.md`. **The confound is isolated**: a settled citation
+alone is still caught (arm 3), so **the `DEFINITION.md` write is the laundering step.**
+
+⭐ `statement_provenance` closes the transcription gap **transitively** — a decimal on the statement
+must also appear in the definition — **and the chain's root was never checked in the write
+direction.** *An anchoring argument is only as good as its anchor, and I built the chain without ever
+asking whether anything guards its far end.*
+
+**Content coverage under one fixed mutation: 1 of 4 documents.** `DEFINITION.md`, `FORMULATION.md`
+and `RETRACTIONS.md` all flip nothing — including the gate **named for** `DEFINITION.md`.
+
+## 554 · The verdict string wrong for the third time in four rounds
+
+It printed **"A NEGLECT — FORMULATION.md flips 0 while an arbitrary round README flips 1."** The
+README's flip is `every_round_is_committed` reacting to **dirtiness, not content**; it fires for any
+modification. **The floor case flipped for a reason unrelated to the defect class under test, so the
+A-vs-B discriminator was void.** Corrected above.
+
+## 555 · Check #220 — "three consecutive rounds" was two
+
+R618 was the third-object specification, not a gate round. **Fifth uncomputed count in nine closing
+lines** — and this one inflated my own drift rather than excusing it.
