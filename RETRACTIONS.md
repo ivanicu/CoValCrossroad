@@ -14427,3 +14427,29 @@ ill-posed, and I reached for it because both were absences I had measured.
 
 ⚠ *Two facts being the same SHAPE — both absences, both around the same time — is not evidence they
 are the same OBJECT, and the check is whether they are even indexed by the same thing.*
+
+## 532 · The complement is exact; the swap is not established
+
+Across band 365–485, **116 of 118 rounds carry exactly one of `provenance` or `world` — 98.3%.**
+Pre-boundary: 63 provenance-only, 3 world-only, **0 both, 0 neither.** Post-boundary: 50 world-only,
+**1 both, 1 neither.**
+
+⛔ **But the pre-registered kill fired on both sides.** Expected co-occurrence under independence is
+**2.86** and **0.98**, both below 5, and the observed BOTH counts sit inside their own permutation
+intervals **[2,3]** and **[1,1]**. **The marginals are so extreme that independence and a perfect swap
+predict nearly the same numbers.**
+
+⭐ **So R611's wording is downgraded**: the complementarity is a **DERIVATION over a complete
+enumeration** and stands; that one field **replaced** the other is a **causal claim this site cannot
+reach.** *A count is not a mechanism, and 98.3% is not evidence of intent.*
+
+## 533 · The arithmetic trap, proposed in my own closing line
+
+R611 closed by proposing a 2×2 of `prov` × `world` **pooled across the boundary**. Pooled, the two are
+**anti-correlated by construction** — each side's marginals *are* the two Δs already measured — so
+"both ≈ 0, neither ≈ 0" is **forced by numbers in hand**. *1+1=2, therefore 2<3*, and it would have
+confirmed the swap without evidence.
+
+⭐ **Conditioning on the side turned a derivation into a test, and the test returned UNRESOLVABLE.**
+*Fixing the design did not rescue the claim — it revealed the claim was never reachable here, which is
+the more useful outcome and the one a pooled table would have hidden.*
