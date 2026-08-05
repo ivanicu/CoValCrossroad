@@ -15608,3 +15608,37 @@ intra-only class is 34, so three classes clear it alone. ⭐ **I wrote an uncomp
 a NEXT line in the same round that retracted R650's for exactly that**, with the cross-tab already
 printed above it. Corrected in place, and the derivation now runs in the round rather than being
 deferred: R650's conclusion **survives** at 56.6%.
+
+## 662 · A number carried across a repair into a population it was never about
+
+R651's NEXT said *"**14** of the 98 INTER verdicts turned on a call-return a one-level inline would
+supply."* **The number is 8.** ⛔ **14 was the bool-predicate over-call count from a PREVIOUS version
+of R651's own classifier** (14 of 108) — a different quantity, a different population, printed in
+the same round. *A repaired instrument invalidates every number the old one produced, including the
+ones I liked.*
+
+## 663 · "A module-local helper" was a name-collision instrument
+
+R651's NEXT listed `values(...)` among *"module-local helpers, not opaque runtime."* It is
+`dict.values()`. Measured across the corpus: **`values` bare-called 0×, attribute-called 401×;
+`get` 0× and 506×.** ⛔ The test matched a **NAME**; a module-local helper is invoked as a **bare
+Name**, a method as an **attribute**. §4's `a search is an instrument`, this time inside the
+sentence that told the next round what to do.
+
+## 664 · "98 of 192 sites need the caller" — retracted, it is 59
+
+⛔ **A whitelist is not a theory of what makes a value non-static.** R651 marked any call outside a
+hand-written `PURE` list as inter-procedural, so `next(...)` (27), `str(...)` (11), `set`, `sum`,
+`repr` — **pure functions of their arguments** — became "needs the caller". On an ontology of what a
+result *depends on*: **D0 pure-computable 123 · D1 caller-dependent 59 · D∞ runtime 9 · UNKNOWN 1.**
+⭐ **The cross-tab is one-directional: all 94 of R651's INTRA are D0, not one mislabelled.** A
+whitelist has no failure mode that announces itself — everything unlisted becomes "impure", and the
+count grows in the direction that makes the corpus look harder than it is.
+
+## 665 · And the ceiling that followed from it
+
+R651 derived *"the true ceiling of any intra-procedural evaluator is `(172+94)/364 = 73.1%`."*
+**The numerator was wrong**: D0, not INTRA, is what a complete in-function evaluator reaches.
+Corrected: **`(172+123)/364 = 81.0%`**, rising to **97.3%** with callers resolved, and **10 sites
+(2.7%) are irreducible at any static depth**. *A derivation inherits every error of its inputs and
+looks exactly as solid as a correct one.*
