@@ -10563,3 +10563,32 @@ intent and utterance ids from a different study — against this benchmark's
 rather than quietly skewing a maximum, which is the only reason I looked. ⭐ **Files matching a naming
 pattern are not members of a population — the same error one scale down, committed inside the round
 that was fixing it.** They are now excluded **by schema**, and named in the output.
+
+## 317 · The check's first detector was blind to the very rounds it was built from (R488, caught by its own positive control)
+
+**Caught before the gate was trusted.** `arm_population_is_derived.py` was written to stop the error
+R477, R485 and R486 each committed — reaching a conclusion over a hand-typed arm population. Its first
+detector looked for assignments whose **name** matched `ARM|arms$`.
+
+**Its positive control — built from those three real rounds plus R487 — failed 3 of 4.** R477 names
+the variable `ADMISSIBLE`; R487 names it `adm_aware`; R486 builds it inline inside a dict
+comprehension. **93 of 143 arm-loading rounds landed in an unclassified bucket.** ⭐ **An invented test
+case would have passed** — which is precisely why §4 requires controls built from real cases.
+
+**Repair: ground the detector in the object.** An arm list is a list of strings that **are** arm names,
+and arm names are on disk (`{p.stem[4:] for p in glob("sat_*.npz")}`). Any literal sequence containing
+≥3 real arm names, anywhere in the tree, is a hand-typed population.
+
+⚠ **And that overshot in the other direction.** R487, which *derives* its population from a glob, was
+then flagged TYPED — because it also contains `BLIND = {...}` and `CORE_FAMILY = {...}`, literal sets
+of real arm names used as **exclusions**. **A literal used to exclude is a rule component, not an
+enumeration.** Resolved by precedence — enumeration-from-disk wins — with the cost named in the file:
+**a round that globs for something else and hand-types its arms reads as DERIVED.** The check is sound
+in one direction only: TYPED is reliable; DERIVED means "not obviously hand-enumerated".
+
+⭐ **And it is a RATCHET, not a gate, because of R483.** 31 rounds carry the defect; freezing them
+means the debt cannot grow silently, and the check **also** fails when a frozen entry stops typing —
+so the list shrinks and cannot become the confession nobody re-reads. Attacked five ways before it was
+trusted: a new typed round → caught · the frozen ledger deleted → all 31 read as new debt, never a
+clean bill · a frozen entry gone stale → caught · the classifier neutered to always say DERIVED → its
+own positive control fails it · an empty corpus → **exit 2**.
