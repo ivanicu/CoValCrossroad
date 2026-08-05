@@ -14657,3 +14657,34 @@ measured 1 → REFUTED.** And **#212 was flagged by the gate all along**, so it 
 ⭐ **The specification curve killed the fix before it was built**: scoping the provenance discharge to
 40 / 80 / 160 characters changes the flagged count by **+0 at every window**. *A curve flat across
 every defensible choice is the cheapest kill of a planned change, and it costs less than the change.*
+
+## 550 · World C again — the retraction did not reach the habit
+
+R619 retracted *"three worlds designed, two branches coded."* **R620 v1 designed two and coded two,
+and the data landed between them**: the unflagged class (top-5 **22.7%**) and the flagged class
+(top-5 **27.6%**) have the **same head-concentration** — both long tails, 83.6% singleton noun types.
+
+⭐ *Fixing the diagnosis did not fix the habit.* The branch structure is written last, with the same
+released attention as the closing sentence, **and it fails the same way.**
+
+**Corrected: there is no category to carve.** Widening the artifact-noun list moves a boundary
+through a continuum rather than closing a gap.
+
+## 551 · A negative control whose threshold was 86% of an uncomputed ceiling
+
+v1 required a forward-only extractor to land on an artifact noun in **≥30% of all flagged lines**.
+Measured afterwards: only **34.8%** of flagged lines have that noun **after** the quantifier — 34.8%
+have it **before** (invisible by construction), 17.0% were flagged by `BARE_COUNT` with no quantifier
+rule, and in 13.4% the first quantifier is not the one that fired.
+
+**Ceiling 34.8%, threshold 30.0% — it demanded 86% of everything reachable.** §4's remedy applied:
+normalised to the reachable subset the control reads **56.4% recall — noisy but not blind**, which is
+a measurement instead of a pass/fail on an uncomputed scale.
+
+## 552 · Two overstatements in a closing line (check #219)
+
+⛔ *"the open-vocabulary failure R594–R596 measured on the `world` field"* — **an analogy stated as an
+identity**: that was a data field I control and could have typed; this is prose, open-vocabulary by
+nature and not defective for it.
+⛔ *"cannot be made sound by adding words"* — **a universal never computed**, when the precision/
+recall regime was measurable from data already on disk, and is measured in R620.
