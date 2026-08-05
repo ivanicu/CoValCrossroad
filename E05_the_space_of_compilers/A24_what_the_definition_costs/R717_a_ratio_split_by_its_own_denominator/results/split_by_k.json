@@ -1,0 +1,165 @@
+{
+ "world": "⭐⭐⭐ A UNREADABLE, AND THE COMPARISON WAS BIASED BEFORE IT WAS UNREADABLE. R716's NEXT line proposed splitting the provenance share by k — but the share IS m/k, so the split conditions on the statistic's own DENOMINATOR, and the groups do not share a support: k=4 admits {0,¼,½,¾,1} and k=2 admits {0,½,1}. ⭐ At the same match count m=1 the share is 0.2500 at k=4 and 0.5000 at k=2, so identical counts FORCE a higher share in the smaller-k group — the bias has a known SIGN and it pushes the small group UP. ⭐⭐ THE OBSERVED DIFFERENCE RUNS AGAINST IT: small minus big is -0.0131 on the share and -0.1052 on the count, both NEGATIVE. ⛔ BUT NONE OF IT IS READABLE: the MDE at the true 44/942 imbalance is 0.080 — 2.0× R716's even-split 0.040 — against an observed |difference| of 0.0131. ⭐ SO R716's OWN CAUTION WAS RIGHT AND ITS QUESTION IS STILL UNANSWERABLE: an even-split MDE does not carry over to a group of 44, and this is the second time in three rounds that computing the resolution first turned a proposed comparison into a bound. ⚠ AND THE SHAM ESTABLISHES LESS THAN IT LOOKS: 0 of 6 sweep cells survive their own null — INCLUDING the k-split cells — so the id-parity sham landing inside the null at -0.0213 does NOT show that the k-split is the ingredient. It shows that NO split at this imbalance is readable, which is weaker and different. ⚠ AND THE BIAS CANNOT BE ANALYSED AWAY: every share with k in its denominator inherits it; only the raw count avoids it, and R716 measured the count's MDE as 5–7× worse. ⚠ UNIT GAP: instrument unit is A CORE INSTANCE, claim unit is WHETHER THE k-GROUPS DIFFER IN PROVENANCE.",
+ "controls_ok": true,
+ "tree_sha": "e0bfb14ba526b1df2fefdc4e7c8b3aea0a7d5a89",
+ "n": 986,
+ "group_sizes": {
+  "k=4": 942,
+  "k<4": 44
+ },
+ "supports": {
+  "2": [
+   0.0,
+   0.5,
+   1.0
+  ],
+  "3": [
+   0.0,
+   0.3333333333333333,
+   0.6666666666666666,
+   1.0
+  ],
+  "4": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ]
+ },
+ "bias_direction": "equal counts give a HIGHER share at SMALLER k",
+ "observed_share_diff_small_minus_big": -0.013052499517467675,
+ "observed_count_diff_small_minus_big": -0.10524030110017371,
+ "runs_against_bias": true,
+ "mde_at_true_imbalance": 0.08,
+ "mde_even_split_R716": 0.04,
+ "mde_ratio": 2.0,
+ "power_curve": [
+  {
+   "shift": 0.0,
+   "power": 0.0625
+  },
+  {
+   "shift": 0.04,
+   "power": 0.515
+  },
+  {
+   "shift": 0.08,
+   "power": 0.9625
+  },
+  {
+   "shift": 0.12,
+   "power": 1.0
+  },
+  {
+   "shift": 0.16,
+   "power": 1.0
+  },
+  {
+   "shift": 0.2,
+   "power": 1.0
+  },
+  {
+   "shift": 0.24,
+   "power": 1.0
+  },
+  {
+   "shift": 0.28,
+   "power": 1.0
+  },
+  {
+   "shift": 0.32,
+   "power": 1.0
+  },
+  {
+   "shift": 0.36,
+   "power": 1.0
+  },
+  {
+   "shift": 0.4,
+   "power": 1.0
+  }
+ ],
+ "unreadable": true,
+ "controls": {
+  "positive_at_0.20": 1.0,
+  "floor": 0.0475,
+  "ceiling": 1.0,
+  "perm_null95": [
+   -0.03882374702438397,
+   0.04641961011387763
+  ],
+  "sham_parity_diff": -0.021286393345216877
+ },
+ "cells": [
+  {
+   "split": "k=4 vs k<4",
+   "statistic": "share",
+   "diff": -0.013052499517467675,
+   "null": [
+    -0.03882374702438397,
+    0.04641961011387763
+   ],
+   "survives": false
+  },
+  {
+   "split": "k=4 vs k<4",
+   "statistic": "m",
+   "diff": -0.10524030110017371,
+   "null": [
+    -0.15281798880524994,
+    0.18022582513028373
+   ],
+   "survives": false
+  },
+  {
+   "split": "id-parity sham",
+   "statistic": "share",
+   "diff": -0.021286393345216877,
+   "null": [
+    -0.03882374702438397,
+    0.04641961011387763
+   ],
+   "survives": false
+  },
+  {
+   "split": "id-parity sham",
+   "statistic": "m",
+   "diff": -0.08057040998217471,
+   "null": [
+    -0.15281798880524994,
+    0.18022582513028373
+   ],
+   "survives": false
+  },
+  {
+   "split": "random 44/942",
+   "statistic": "share",
+   "diff": 0.006771537026314084,
+   "null": [
+    -0.03882374702438397,
+    0.04641961011387763
+   ],
+   "survives": false
+  },
+  {
+   "split": "random 44/942",
+   "statistic": "m",
+   "diff": 0.01370391816251687,
+   "null": [
+    -0.15281798880524994,
+    0.18022582513028373
+   ],
+   "survives": false
+  }
+ ],
+ "n_surviving": 0,
+ "registered": "A[DERIVED] bias direction + observed sign; B MDE 0.10 [0.02,0.40]; C count difference predicted NOT to survive; directional MDE >= 2x 0.040",
+ "observed": {
+  "A": -0.013052499517467675,
+  "B": 0.08,
+  "C": false,
+  "directional": true
+ },
+ "limit": "the bias cannot be analysed away — every share with k in its denominator inherits it; only the raw count avoids it, and its MDE is 5-7x worse."
+}

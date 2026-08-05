@@ -17882,3 +17882,39 @@ statistic has been precise in the mean and coarse in the unit.
 ⚠ **No analysis choice can improve the quantum** — it follows from `k ≤ 4`, the release's own bound.
 Only a release shipping larger cores could. ⚠ And the raw match count, swept as the other side of the
 bound, has an MDE 5–7× worse that **degrades with the split** while the share's does not.
+
+## 918 · R716 proposed splitting a ratio by its own denominator
+
+The provenance share is `m/k` and R716's NEXT line proposed splitting it **by k**. That conditions on
+a component of the statistic, and the groups do not even share a support: k=4 admits
+`{0, ¼, ½, ¾, 1}` while k=2 admits `{0, ½, 1}`.
+
+⭐ **The bias has a known sign, derivable before any data**: at the same match count `m=1` the share
+is **0.2500** at k=4 and **0.5000** at k=2, so **identical counts force a higher share in the
+smaller-k group**. The bias pushes the small group **up**.
+
+⭐⭐ **And the observed difference runs against it** — small minus big is **−0.0131** on the share and
+**−0.1052** on the count, both negative. That makes the direction informative in principle, because
+a biased comparison that lands opposite to its bias understates rather than manufactures.
+
+⛔ **But none of it is readable.** The MDE at the true **44/942** imbalance is **0.080**, exactly
+**2.0×** R716's even-split 0.040, against an observed |difference| of **0.0131**. **R716's own
+caution was right and its question remains unanswerable here** — an even-split MDE does not carry
+over to a group of 44.
+
+⭐ **Second time in three rounds that computing the resolution first turned a proposed comparison
+into a bound**, and the bias could not be analysed away: every share with k in its denominator
+inherits it, and only the raw count avoids it at 5–7× worse resolution.
+
+## 919 · my sham established less than my verdict said, and I caught it before landing
+
+The verdict's first version read: *"the sham split on id-parity returns −0.0213, inside the null — so
+the k-split is the ingredient, not the imbalance."* ⛔ **0 of 6 sweep cells survive their own null,
+including the k-split cells.** When nothing survives, a sham landing inside the null cannot
+discriminate between the split being uninformative and the imbalance being fatal — **it shows that no
+split at this imbalance is readable**, which is weaker and different.
+
+**A sham is a comparison, and a comparison needs the treatment arm to have registered something
+first.** Corrected before the round was committed; recorded because the error is the same shape as
+§4's *control that fails for its own reasons*, inverted — here a control **passed** for its own
+reasons and I nearly read it as evidence.

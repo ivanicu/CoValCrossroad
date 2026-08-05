@@ -3411,3 +3411,30 @@ No analysis choice can improve the quantum. It follows from the release's own bo
 criteria per core, so only a release shipping larger cores could reduce it. The raw match count,
 swept as the other side of that bound, has a minimum detectable difference five to seven times worse
 and degrades as the split becomes uneven, while the share's does not.
+
+## R717 · Why the k-split of the provenance share is biased, and what it can bound
+
+R716 closed by proposing that the provenance share be compared between the cores carrying four
+criteria and the forty-four carrying two or three. The share is the match count divided by the
+criteria count, so that split conditions on the statistic's own denominator, and the groups do not
+share a support: four criteria admit zero, a quarter, a half, three quarters and one, while two admit
+only zero, a half and one.
+
+The bias therefore has a sign that can be derived before any data is read. At the same match count of
+one, the share is **0.2500** at four criteria and **0.5000** at two, so identical counts force a
+higher share in the smaller group. The bias pushes the small group up.
+
+Measured, the small group is **lower** on both statistics — **−0.0131** on the share and **−0.1052**
+on the raw count — so the observed direction runs against the bias, which would make it informative
+in principle, since a biased comparison landing opposite to its bias understates rather than
+manufactures.
+
+None of it is readable. The minimum detectable difference at the true forty-four against
+nine-hundred-forty-two imbalance is **0.080**, exactly twice the even-split figure of 0.040, against
+an observed absolute difference of **0.0131**. Zero of six specification cells survive their own
+permutation null. So the caution R716 attached to its own proposal was correct: an even-split minimum
+detectable difference does not carry over to a group of forty-four, and the question remains
+unanswerable at this site.
+
+The bias cannot be analysed away. Every share with the criteria count in its denominator inherits it,
+and only the raw match count avoids it, at a resolution five to seven times worse.
