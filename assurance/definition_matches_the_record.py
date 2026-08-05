@@ -636,6 +636,22 @@ def derive():
         for k in ("r462_old", "r462_new", "r462_cov", "r462_total"):
             out[k] = (None, "R462")
 
+    # R475 -- read from the round's persisted artifact, so the document is checked against the
+    # RUN and not against itself. Absent artifact -> None, which the gate reports as UNEVALUABLE.
+    try:
+        _r = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+                            "R475_the_card_decides_clause_three/results/r475_card_vs_object.json"))
+        _g = _r["grid"]; _tk = list(_g)
+        _mean = lambda a, k: sum(_g[t][a][k] for t in _tk) / len(_tk)
+        out["r475_ceil_abs"] = (round(_g["words"]["oracle_abs"]["absw"], 4), "R475")
+        out["r475_ceil_raw"] = (round(_g["words"]["oracle_raw"]["w"], 4), "R475")
+        for key, tag, pl in (("absw", "r475_frac_abs", "oracle_abs"), ("w", "r475_frac_w", "oracle_raw")):
+            C = _mean("cross", key); P = _mean(pl, key); R = _mean("real", key)
+            out[tag] = (round(100 * (R - C) / (P - C), 1), "R475")
+    except (OSError, KeyError, ZeroDivisionError):
+        for k in ("r475_ceil_abs", "r475_ceil_raw", "r475_frac_abs", "r475_frac_w"):
+            out[k] = (None, "R475")
+
     # R461 -- the comparator-scope gate. The FLAGGED-at-widest is anchored with the coverage, so a
     # future reader cannot read "0 flagged" as "the document is clean" -- the two numbers mean
     # different things and the round's own lesson is that separating them is the point.
@@ -1025,6 +1041,12 @@ def derive():
 # label -> the regex that must find that number in DEFINITION.md. The pattern is the CLAIM's own
 # wording, so an edit that changes the sentence without changing the artifact is caught too.
 ASSERTIONS = {
+    # R475 -- the dataset card decides clause ③. Anchored because the round MOVED the extension
+    # from [0,1] to 0, and a number that changes a verdict must bring its check with it.
+    "r475_ceil_abs":  r"0\.8399 vs \*\*(0\.\d{4})\*\*",
+    "r475_ceil_raw":  r"vs \*\*(0\.8495)\*\*",
+    "r475_frac_w":    r"\*\*(\d+\.\d)%\*\* of the way from chance to a pure top-4-by-`w`",
+    "r475_frac_abs":  r"and \*\*(\d+\.\d)%\*\* of the\s*\n?way to a pure top-4-by-`\|w\|`",
     "clause1_excludes":      r"\*\*(\d+) of 41\*\*",
     "clause2_excludes":      r"\*\*(\d+) of 42\*\*",
     "clause3_excludes":      r"no prompt labels \| \*\*(\d+) of 42\*\*",

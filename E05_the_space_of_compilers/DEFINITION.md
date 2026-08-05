@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 298 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 302 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 298.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 302.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -478,6 +478,48 @@ form is the interval [0, 1] with the convention named, and the three-valued read
 campaign's own proxy ledger requires**, since UNVERIFIED must never be folded into EXCLUDED or
 ADMITTED — which is what has been happening. ⚠ This does not say the definition is wrong; it says its
 extension has never been *measured*, only **counted under an invisible convention**. *(R470)*
+
+⛔⛔⛔ **AND THE RELEASE'S OWN DATASET CARD DECIDES ③ — AGAINST THE OBJECT THE DEFINITION WAS WRITTEN
+FROM (R475).** `data/DATASET_CARD.md`, 432 lines, **opened for the first time in round 475**, says in
+its own words: *"it aims to **select up to four rubric items with the highest average ratings** that
+remain compatible with each other and do not repeat the same idea"*, having *"first rewrit[ten] all
+rubric items to have positive weight"*. **That is `topabs_k` / `topw_k`, and both are in `W_READERS`.
+So clause ③ as derived by R444 EXCLUDES `coval_core`, and the extension is 0 under EVERY reading —
+not the interval [0, 1] committed one round earlier.** *(R475)*
+
+⭐ **AND R469 WAS RIGHT ABOUT THE INSTRUMENT AND WRONG ABOUT THE WORLD.** The released core items
+carry **only `criterion`** — no `rubric_item_id`, no `scores` — so the rewrite severs the link to the
+rated items and **no instrument on this site can recover the provenance**. R469's measurement was
+sound. Its conclusion, *"③ is not decidable here"*, quantified over the wrong domain: **③ is a
+provenance predicate, and provenance is established by a RECORD, not by a measurement.** The release
+publishes the record. **Four rounds — R466, R469, R470, R471 — reasoned about ③'s undecidability
+while the answer sat in an unopened file in `data/`.** *(R475)*
+
+⭐ **AND THE OBJECT WAS MADE TO JUDGE THE CARD, NOT ONLY QUOTED FROM IT.** Matching each core item to
+its nearest `coval_full` item within the same prompt and reading off that item's weight percentile:
+the core sits **27.1%** of the way from chance to a pure top-4-by-`w` selector, and **21.5%** of the
+way to a pure top-4-by-`|w|` one — **both LOWER BOUNDS**, because the matcher recovers the source text
+at only `sim ≈ 0.49` and imperfect matching attenuates toward chance. All four controls hold: the
+verbatim plant is recovered to within **0.01** of a **measured** ceiling (0.8399 vs **0.8437**; 0.8462
+vs **0.8495**), a verbatim *random* plant lands at **0.492–0.502** so the control could have failed,
+the cross-prompt null is **0.486–0.523**, and the file-index placebo is null. *(R475)*
+
+⚠ **AND THE CARD'S STATED MECHANISM IS THE ONE THING THE OBJECT DOES NOT CONFIRM.** The card says the
+process rewrites every item to positive weight *before* ranking, which predicts `|w|` should track the
+core more closely than `w`. **It is the other way round — 27.1% on `w` against 21.5% on `|w|`.** So the
+negation step exists but does not govern selection: the core tracks items annotators rated **highly**,
+not items they rated **strongly**. **The card is right that ratings are consumed and wrong about which
+functional of them.** *(R475)*
+
+⭐⭐⭐ **THE ONTOLOGY SHIFT, AND IT IS THE LARGEST OF THIS CAMPAIGN. A definition of "core" whose
+extension excludes CoVal-core is not a definition of CoVal-core.** Clause ③ was derived by R444 from
+`corebench/select_core.py` — **this campaign's own arm-generation code** — and then applied to an
+object built by a pipeline that **is not released** and that the card describes as consuming exactly
+what ③ forbids. One of two things must now give: **either ③ is too strong** and should forbid only the
+prompt's *rankings* (`TARGET_READERS`) while permitting its *ratings*, **or the campaign has spent 32
+rounds defining an object other than the one it measures.** ⛔ **This is not a repair that can be made
+by choosing the convenient branch** — the two differ in what "core" *means*, and R475 does not
+adjudicate them. *(R475)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

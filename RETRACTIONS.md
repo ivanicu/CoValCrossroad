@@ -9977,3 +9977,84 @@ count in words and 297 in digits, and the next anchor would have hit the same wa
 ⚠ **This is a recurrence** — the same word-vs-numeral defect appeared earlier in this campaign with
 *"Seven"*. **A defect that recurs after being fixed once was fixed in the wrong place**: the first fix
 was local to one anchor, and nothing prevented the next author (me) from writing another word.
+
+## 290 · The dataset card decides clause ③, and four rounds reasoned around an unopened file (R466, R469, R470, R471 → R475)
+
+**Retracted.** R466 classified `coval_core` as UNKNOWN under ③; R469 concluded ③ was *"not decidable
+by any instrument on this site"*; R470 published the extension as the interval **[0, 1]**; R471's
+STATEMENT.md carried that interval to the one-page residue.
+
+**What was actually true.** `data/DATASET_CARD.md` — 432 lines, in the repo the whole time — states
+the construction: *"it aims to select up to four rubric items with the **highest average ratings**"*,
+after *"first rewrit[ing] all rubric items to have positive weight"*. That is a **w-reader**, which ③
+excludes. `coval_core` is **EXCLUDED**, and the extension is **0 under every reading**.
+
+**Why the error survived four rounds, and it is not carelessness.** R469's *measurement* was correct
+and remains correct: the released core items carry **only `criterion`** — no `rubric_item_id`, no
+`scores` — so the rewrite destroys the join and **no instrument here can recover the provenance**.
+The error was in the quantifier. ⭐ **③ is a provenance predicate, and provenance is established by a
+RECORD, not by a measurement.** *"My instruments cannot decide this"* was silently promoted to
+*"this is undecidable"* — and a documented fact needs no instrument at all.
+
+⛔ **This is the scar named in the standard's own text**: *"Round 140 spent a day 'discovering' a
+published algorithm because nobody read the dataset card."* Here it was **46 rounds**. The remedy is
+not "read documentation" — it is mechanical: **before any round concludes a property is undecidable,
+the release's own documentation is a named, checkable source, and its absence from the round is a
+defect of the round.**
+
+## 291 · A positive control set above the ceiling its own design can return — sixth build (R475, caught in-round)
+
+**Retracted before publication.** The plant required mean weight-percentile `> 0.95`. It returned
+**0.8399** on a plant recovered **verbatim** (`sim = 1.0000`), so the instrument was perfect and the
+threshold was unreachable. Planting the top-4 of `m` items cannot reach 1.0: the 4th-ranked item's
+percentile is bounded by `(m−4+0.5)/m`.
+
+⚠ **And the first repair was also wrong.** I *derived* the ceiling as `mean(1 − 2/m) = 0.8540` and the
+plant still failed at 0.8437. The algebra assumed the `m` weights are **distinct**; `w` is a mean of
+~16 integer scores and ties occur, which lowers every midpoint percentile. ⭐ **A derived ceiling is
+itself a claim, with an assumption that can be false.** The fix was an **ORACLE arm** — the same plant
+with the matcher removed — which *measures* the ceiling at **0.8437**; the matcher then recovers it to
+within **0.01**, which is the only question a positive control here should have been asking.
+
+**Sixth build of this failure mode, sixth catch.** Standing remedy, unchanged and evidently still not
+enough: compute `floor` and `ceiling` and require `floor < t < ceiling`. **Added by this entry: when
+an oracle arm is available, the ceiling is MEASURED, never derived** — the derivation is a second
+place for an assumption to hide.
+
+## 292 · Textual containment was the wrong proxy for selection provenance (R443 → R475)
+
+**Downgraded, not overturned.** R443 admitted `coval_core` under ③ on the evidence that only **0.0779**
+of its criteria appear verbatim in its own prompt's rubric, against a cross-prompt floor of 0.0000.
+That measurement stands and reproduces (0.0778).
+
+**But it answers a different question.** PROPERTY: *did the selector consume the annotator ratings?*
+PROXY: *does the core's text appear in the rubric?* ⭐ **The implication runs one way only** — heavy
+containment would have implied reuse, but **light containment implies nothing about provenance**,
+because the release *rewrites* the items it selects. A pipeline that reads every rating and then
+paraphrases its picks scores **0.0779** exactly like one that read nothing. The proxy was sound for
+absence of *copying* and was used to certify absence of *reading*. Same shape as the campaign's
+founding proxy error: `∂≠0 ⇒ in the ancestor set` used backwards.
+
+## 293 · A substring replace silently altered a measured value, and the value gate passed anyway (R475, caught in-round)
+
+**Caught before commit.** Updating the document's self-referential anchor count I ran
+`t.replace('298','302')` after counting occurrences with `\b298\b`. **The count was word-bounded; the
+replace was not.** Two legitimate self-counts changed — and so did `**+0.1298**`, an R454 sweep
+measurement, which became `+0.1302`. Restored from `HEAD`.
+
+⚠ **The instrument that measured and the instrument that acted disagreed about the unit.** `\b298\b`
+counts *numbers*; `replace('298',…)` rewrites *substrings*. Naming the two units and requiring them to
+be equal is the standard's own stated remedy, and I did not apply it to my own edit.
+
+⛔⛔ **AND THE SECOND HALF IS WORSE THAN THE FIRST.** `assurance/definition_matches_the_record.py`
+ran **after** the corruption and returned **PASS, 302 of 302 assertions evaluable** — because
+`+0.1298` is not one of the 302. ⭐ **The gate's population is a hand-maintained list, not the
+document, so writing prose into DEFINITION.md can never fail it and corrupting an unanchored number
+is invisible to it.** The gate says this honestly in its own output — *"every prose claim not in the
+assertion table is unchecked BY CONSTRUCTION"* — but it reports a **count of anchors**, never a
+**fraction of the document**, and a count with no denominator reads as coverage.
+
+**What this obliges.** The gate must publish its denominator: how many numeric claims DEFINITION.md
+contains, and how many of them are anchored. Until then *"302 of 302"* is a statement about the list,
+and the sentence it invites — *"every number in the document is checked"* — is false. **This defect
+was found by hand, in the one round that happened to inspect its own diff.**

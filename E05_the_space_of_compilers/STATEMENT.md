@@ -38,13 +38,15 @@ precision. *(R465)*
 
 ## The extension
 
-**[0, 1]**, under a **named** convention.
+**0**, under every reading. *(R475)*
 
-Of the **5** arms admitted by ①∧②∧④, four are excluded by ③ and `coval_core` is **UNKNOWN**. So:
-**0** confirmed · **1** unverified. Reporting **1** requires reading UNKNOWN as ADMITTED. *(R470)*
+Of the **5** arms admitted by ①∧②∧④, four are excluded by ③ as target-readers. The fifth,
+`coval_core`, was carried as **UNKNOWN** until the release's own dataset card was read: it is selected
+on *"the highest average ratings"*, i.e. it is a **w-reader**, and ③ excludes it too. *(R475)*
 
-⚠ **The definition has zero confirmed members**, and the one unverified member is the object it was
-written from.
+⛔ **The definition has no members — and the object it was written from is excluded by its own clause
+③.** Either ③ must be weakened to forbid only the prompt's *rankings*, or this is a definition of some
+object other than CoVal-core. **R475 does not decide which**, and the two differ in what "core" means.
 
 ---
 
