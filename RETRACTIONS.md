@@ -15042,3 +15042,26 @@ measured-zero* — P6's UNVERIFIED-vs-OVERTURNED distinction, in the direction t
 pardons. ⚠ And R634's own `decimal value` family returned 0 literals from a **failed extractor**;
 reporting that as a measured zero would have repeated the error **inside the round recording it**. It
 is reported `UNVERIFIED`. Plus *"the one confirmed stale conclusion"* — there were **two**.
+
+## 593 · 43 rounds read a settled verdict as unsettled
+
+**43 rounds accept `world` only; 24 accept `world`+`verdict`; 115 read no key inline. 77 artifacts
+record their result under `verdict` ALONE.** A narrow reader sees those as having no verdict — the
+exact class R600 widened the canonical reader to fix, **in a repair that never reached the inline
+copies.** The at-risk set includes `R596` and `R597`, whose subject *was* the provenance gate.
+
+⚠ **And "195 rounds read a verdict key inline" (R634) is retracted: 80 do.** The 195 came from an
+untightened extractor and I carried it forward one round without re-deriving it.
+
+## 594 · An identical value on every row of a per-item column is the corpus wearing a per-item label
+
+All 43 at-risk rows printed **"reaches 77"** — the same number every time, because the reach test
+matched any round carrying a citation regex. **77 is the corpus-wide count of verdict-only artifacts,
+not a per-round measurement.** 43 is measured; 77 is context.
+
+## 595 · Check #234 — measured: 58% of my closing lines claim something about my own prior work
+
+**7 of the last 12.** Four were caught wrong (#230, #231, #232, #234). ⚠ How many of the seven are
+wrong is **not decidable** — each took a full round to find. **The share that make such a claim is
+the measurable part.** ⛔ And #234 itself: R632's broken reader was the **ledger** test, not a
+verdict-key reader.
