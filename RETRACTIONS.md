@@ -15329,3 +15329,26 @@ and the keyword list gets it right.
 
 > **"Strictly more general" is not "better."** Generality bought hypothetical crash coverage at the
 > price of the corpus's one actual verdict. **Neither dominates.**
+
+## 629 · Verified — all three controls pass and the repair survived its own cleanup
+
+Re-run with the restore scoped to `results/`: **POSITIVE 43 byte-identical (was 38) · NEGATIVE tree
+restored · PLACEBO 0 · VERDICT B SOME MOVE, 12 of 43.** The `PROHIBITION` token is still on disk
+after the run, which R642 established it would **not** be under the directory-scoped restore.
+⚠ Denominator **38 → 43**, numerator held at **12** — the design working, not the finding changing.
+
+## 630 · "The ledger works as a record and fails as an index" is retracted
+
+That framing implies an index is the missing piece. Measured: **26 of 390 entries (7%) record a
+hazard already known when it fired** — six most recent all from this arc — but **10 candidate classes
+cover only 98 of 390 (25%)**, leaving **292 unclassified**.
+
+⭐ **A ledger whose entries do not collapse cannot be fixed by indexing them.** The retrieval problem
+is not a missing index; **most of the ledger has never been classified at all.**
+
+## 631 · Both ledger counts measure my vocabulary, not the ledger
+
+The phrase lists are mine, so they can only find **classes I have already named** — which is exactly
+the class that would explain re-encountering a recorded hazard without recognising it. ⭐ **No
+self-authored keyword instrument can discover a failure class its author has not yet named**, and
+that bound applies to both 26 and 98.

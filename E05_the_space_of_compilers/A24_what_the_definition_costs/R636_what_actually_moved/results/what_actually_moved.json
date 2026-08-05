@@ -1,36 +1,10 @@
 {
-  "world": "B SOME MOVE \u2014 12 of 38 re-runnable rounds return a DIFFERENT verdict today. Those conclusions were wrong on the record and this is the debt.",
+  "world": "B SOME MOVE \u2014 12 of 43 re-runnable rounds return a DIFFERENT verdict today. Those conclusions were wrong on the record and this is the debt.",
   "controls_ok": true,
   "n_target": 43,
-  "ran": 38,
-  "failed": [
-    {
-      "round": "R431_is_the_excess_statistic_size_confounded",
-      "exit": 1,
-      "err": ""
-    },
-    {
-      "round": "R433_does_clause_two_transport_with_its_subject",
-      "exit": 1,
-      "err": ""
-    },
-    {
-      "round": "R437_do_the_two_bars_invert_between_releases",
-      "exit": 1,
-      "err": ""
-    },
-    {
-      "round": "R441_is_the_size_clause_a_clause",
-      "exit": 1,
-      "err": ""
-    },
-    {
-      "round": "R442_the_extension_under_clause_three_as_written",
-      "exit": 1,
-      "err": ""
-    }
-  ],
-  "wall_clock_s": 288.0,
+  "ran": 43,
+  "failed": [],
+  "wall_clock_s": 283.9,
   "artifacts_changed": [
     "R463_the_ordering_is_arbitrary_and_says_so",
     "R464_is_clause_one_vacuous_or_merely_unexercised",
@@ -65,7 +39,7 @@
     "R629_what_formulation_asserts_alone",
     "R631_the_unrecorded_retraction"
   ],
-  "byte_identical": 38,
+  "byte_identical": 43,
   "check235": "'re-runs are expensive' was uncomputed and false; and running under the system python gave ModuleNotFoundError: numpy, which is an ENVIRONMENT claim, not '43 rounds do not execute'",
   "impossible": "determinism is not correctness"
 }
