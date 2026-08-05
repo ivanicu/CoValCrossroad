@@ -1,17 +1,15 @@
 {
  "source_sha": "ec80b1ef7d7a5fff",
  "coverage_before": [
-  553,
-  583
+  583,
+  584
  ],
  "coverage_after": [
-  583,
-  583
+  584,
+  584
  ],
- "rows": 583,
- "readmes_created": [
-  "A25_can_the_instrument_be_run_at_all"
- ],
+ "rows": 584,
+ "readmes_created": [],
  "readmes_updated": [
   "A01_can_this_release_be_analysed_at_all",
   "A02_which_aggregation_rule",
@@ -36,7 +34,8 @@
   "A21_missing_weight_semantics",
   "A22_does_this_epochs_own_method_hold_up",
   "A23_is_the_admissibility_gate_the_right_gate",
-  "A24_what_the_definition_costs"
+  "A24_what_the_definition_costs",
+  "A25_can_the_instrument_be_run_at_all"
  ],
  "slug_fallbacks": [
   "A04_structured_plurality_or_reliability/R25_actor_dyad_sweep",

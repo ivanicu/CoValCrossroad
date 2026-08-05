@@ -13616,3 +13616,51 @@ near-blind in `[0.52, 0.56]`, and that is the only band this campaign reports in
 ⚠ **And R590 could not be audited from its own artifact** — it shipped `README.md` + `results/` and
 **no `run.py`**, so the truncation had to be established indirectly. **A round nobody can re-run is a
 round whose instrument cannot be attacked.**
+
+## 458 · Fourteen consecutive audit rounds shipped no instrument
+
+**R577–R590 is an unbroken run of 14 rounds persisting no code** — measured, not eyeballed
+*(longest-streak computed over all 584 rounds)*. **Every one is a document-audit round: the arc whose
+entire subject was whether other rounds' numbers could be traced.**
+
+⭐ **Corpus-wide the rate is 5.0% (29 of 584), and it is 0.68% in the early half against 9.28% in the
+late half — 13.6×, p = 0.0001.** Not a gradual drift: a phase change.
+
+⚠ **R590 is where it cost something concrete.** Its citation extractor could not be read, so R591 had
+to establish the truncation indirectly through a specification curve. **The practice resumed at
+R591 — the round where check #191 first forced the question.**
+
+## 459 · "The statement leans on unattackable rounds" is REFUTED, by its own confound
+
+Raw: `P(cited | codeless) = 0.2759` against `P(cited | has code) = 0.1495`, **Δ = +0.1263** — nearly
+double, and the tempting headline.
+
+⛔ **It is entirely the time trend.** `STATEMENT.md` was written in the R451–559 era, so recent rounds
+are **both** more codeless **and** more cited. **Stratified inside the late half: Δ = −0.0105,
+p = 1.0000** — the association vanishes and reverses sign.
+
+*The confound was written before the run and its control ran in the same iteration, which is the only
+reason this is one paragraph instead of a retraction three rounds later.*
+
+## 460 · My verdict branch ignored the MDE the same script had just computed
+
+v1 printed **`A INCIDENTAL — p = 0.1057, inside the permutation null`**. But `|Δ| = 0.1263` sits
+**below the design's own MDE of +0.1626** *(dose-response: 10% planting is the first cell to clear
+p < 0.05)*. **A null below the MDE is silence, not an acquittal**, and both worlds were still live.
+
+⚠ **Fifth instance this session of §4's `the verdict string is not a computation`** — and a new
+sub-kind: ⑤ **the branch references the p-value but not the resolution the same round measured.**
+The remedy that works is the one adopted at R587 and it has to extend one step further: *the branch
+must reference every control the round declared, **including the ones that bound what it could have
+detected.***
+
+## 461 · `run.py` is a filename; the property was re-runnability
+
+R591's NEXT line proposed counting rounds carrying a runnable `run.py`. **339 do** — but the corpus
+also holds `selftest.py`, `speccurve.py`, `strata.py`, `recovery.py` and 20 more names, so the census
+would have mis-scored every round that **named its script after its question**.
+
+⚠ **Fifteenth instance this session of instrument-unit ≠ claim-unit.** Rebuilt as *"does the round
+persist ANY `.py`/`.sh`"*, which is a direct property of the directory rather than a proxy. ⚠ **And
+even that is only NECESSARY, never SUFFICIENT** — a script may import a deleted module — so every
+number in R592 is an **upper bound on attackability** and says so.
