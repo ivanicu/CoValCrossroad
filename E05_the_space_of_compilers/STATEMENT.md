@@ -16,7 +16,15 @@ A **core** for a conversation is a set of criteria such that
   first four criteria, at **percentile 93.7** of its own 1,820-subset reference class *(R527)*.
   ⚠ **Not "the best": at the class MAXIMUM the extension of ② ∧ ③ is EMPTY** — ② there admits only
   the four label-readers ③ removes. `coval_core` is the last survivor, holding alone to p99.5 *(R528)*;
-- **③** it was not built by reading the conversation's human labels.
+- **③** it was not built by reading the conversation's human labels — ⚠ **and "which labels" is a FORK,
+  not a detail** *(R529)*:
+  - **③-rank** — not built from the response **rankings**. This is what the code implements, and the
+    extension of ② ∧ ③ is **5 arms**: `coval_core`, `topw_k3`, `topw_k4`, `topw_k6`, `topw_k8`.
+  - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own
+    signed weights. The extension is **EMPTY**.
+  ⭐ The card records annotators assigning **signed weights −10…+10**, and core selects on *"the highest
+  average ratings"* — so `coval_core` is a **weight-reader but not a ranking-reader**. `select_core.py:16`
+  calls the same operation **"non-leaky: the weights come from the rubric, not from the outcome."**
 
 ⭐ **Two clauses, and they are orthogonal by measurement.** On the 41 arms carrying every verdict,
 ③ drops **4 of ②'s 9 passers and 0 of its 32 rejects** — it cuts exactly where ② does not *(R519)*.
@@ -65,7 +73,8 @@ and win-rate versus loss-rate rank them at **Kendall τ = −0.600**, because pe
 and the tie rate rises monotonically with k. **The aggregation decides which arm fails, so it is a
 knob rather than a clause** *(R516)*. ② is **satisfied by `coval_core`**, the one object anyone
 calls a core — 0.5640 in A2 against the 0.5404 prompt-blind ceiling *(R475, R485)*. ④ excludes all
-seven arms on the second release. **③ is what empties the definition**, and the ③-admissible side
+seven arms on the second release. **③ empties the definition ONLY under the ③-any reading** *(R529)*; under ③-rank — what the code
+implements — it leaves **5 arms**. The ③-admissible side
 holds exactly **one** prompt-responsive full-coverage arm *(R502)*.
 
 ⭐⭐⭐ **So "core" is not one definition with an unresolved parameter. It is two definitions, and the

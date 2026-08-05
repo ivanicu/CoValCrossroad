@@ -2193,3 +2193,43 @@ most baseline-robust ③-admissible arm in the class** — a genuine positive re
 **Wording corrected in `STATEMENT.md`:** ② now says *"a **strong** generalising prompt-blind
 criterion set — the released pool's first four, at percentile 93.7 of its own 1,820-subset class"*,
 with the emptiness at the maximum stated in the same clause.
+
+---
+
+## R529 · ③ has been two clauses the whole time, and the page asserted both
+
+**The deliverable said, two sentences apart:** *"② is satisfied by `coval_core`"* and *"③ is what
+**empties** the definition."* R294's census has `coval_core` passing both ② and ③, so both could not
+hold. Tracing it: `DEFINITION.md` recorded R475 excluding `coval_core` as a **w-reader**, while
+R294's code admits it.
+
+**The release settles what a w-reader reads:**
+
+- `DATASET_CARD.md:73` — annotators *"assign **signed weights** ranging from −10 to +10 … the
+  absolute value indicated the **importance**"*;
+- `DATASET_CARD.md:74` — core selects *"up to four rubric items with the **highest average
+  ratings**"*;
+- `select_core.py:16` — `topw_k` is *"the k criteria with the highest MEAN importance score.
+  **Non-leaky: the weights come from the rubric, not from the outcome.**"*
+
+⭐⭐⭐ **So the ratings ARE annotator-authored, and they are NOT the ranking labels A2 predicts.
+`coval_core` is a weight-reader and not a ranking-reader — and ③'s phrase is two-valued:**
+
+| reading | extension of ② ∧ ③ |
+|---|---|
+| **③-rank** — not built from the response **rankings** | **5**: `coval_core`, `topw_k3`, `topw_k4`, `topw_k6`, `topw_k8` |
+| **③-any** — no annotator signal for the prompt at all | **0 — EMPTY** |
+
+**Controls.** Positive: under ③-rank the extension must equal R294's own `admitted` restricted to
+②-passers — it does, exactly, so **③-rank is what the code implements**. Negative: the two readings
+disagree on **16** arms, so the distinction is not vacuous.
+
+⭐⭐⭐ **This resolves the campaign's central contradiction without retracting either sentence.**
+*"② is satisfied by `coval_core`"* is true under ③-rank; *"③ empties the definition"* is true under
+③-any. **Neither said which reading it used, and the difference is exactly "the released core IS a
+core" versus "no core exists."**
+
+⚠ **Which reading is right is NOT a measurement.** The card describes construction, not a definition
+of core. The impossibility register already carries this as **row 7 — a decision about purpose** —
+and this round makes it concrete: *does a core have to be producible without any annotator input for
+that conversation, or only without the outcome it is scored against?*

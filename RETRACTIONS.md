@@ -11960,3 +11960,40 @@ from p99 to p99.5. **The released core is the most baseline-robust ③-admissibl
 **Fixed in the deliverable**, not merely noted: ② now reads *"a **strong** generalising prompt-blind
 criterion set — the released pool's first four, at percentile 93.7 of its own 1,820-subset class"*,
 with the emptiness at the maximum stated in the clause itself.
+
+## 361 · ③ has been two clauses the whole time, and the deliverable asserted both
+
+**Two sentences apart, `STATEMENT.md` said:** *"② is satisfied by `coval_core`"* and *"③ is what
+**empties** the definition."* **R294's census has `coval_core` passing ② and ③.** Both could not hold.
+
+**The trace:** `DEFINITION.md` recorded R475 excluding `coval_core` as a *"w-reader"*, while R294's
+code admits it. **The release settles what a w-reader reads:** the card records annotators assigning
+**signed weights −10…+10** and core selecting on *"the highest average ratings"*; `select_core.py:16`
+calls the identical operation **"non-leaky: the weights come from the rubric, not from the outcome."**
+
+⭐⭐⭐ **So the ratings are annotator-authored but are NOT the rankings A2 predicts, and ③'s phrase
+"the conversation's human labels" is two-valued:**
+
+| reading | extension of ② ∧ ③ |
+|---|---|
+| **③-rank** — not from the response **rankings** | **5**: `coval_core`, `topw_k3/4/6/8` |
+| **③-any** — no annotator signal for that prompt | **0 — EMPTY** |
+
+**Controls:** under ③-rank the extension reproduces R294's own `admitted` set **exactly**, so
+**③-rank is what the code implements** (positive); the readings disagree on **16** arms, so the
+distinction is not vacuous (negative).
+
+⭐ **Nothing is retracted — both sentences are true, under different clauses.** *"② is satisfied by
+`coval_core`"* holds under ③-rank; *"③ empties the definition"* holds under ③-any. **Neither said
+which, and the difference is exactly "the released core IS a core" versus "no core exists."** The
+campaign has been carrying that fork unlabelled since the definition was written.
+
+⚠ **AND THE FIRST RUN OF THIS ROUND RETURNED UNRUNNABLE (exit 2) ON ITS OWN PREMISE CHECK** — the
+source wraps *"Non-leaky: the weights come from…"* across a line and the exact-string test missed it.
+**The gate refused to proceed on an unconfirmed premise, which is what it is for**; the fix was to
+normalise whitespace, not to weaken the check.
+
+⭐⭐⭐ **Which reading is correct is not a measurement.** The card describes construction, not a
+definition. The register already lists this as **row 7, "a decision about purpose"** — and this round
+makes it concrete and unavoidable: **must a core be producible without ANY annotator input for that
+conversation, or only without the outcome it is scored against?**
