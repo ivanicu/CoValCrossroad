@@ -1,0 +1,31 @@
+PRE-REGISTERED BEFORE ANY CODE WAS WRITTEN FOR R663 — 2026-08-05, committed with the round.
+
+CONTEXT: R662's NEXT asserted that my forecast record "currently reads six of seven directional
+predictions held" and that "at least three were about numbers that no longer exist". Both are stated
+from memory. The artifacts carry the actual record.
+
+QUANTITY A (exact): how many rounds in this arc persisted a pre-registered forecast in their artifact.
+QUANTITY B: of those, how many are ADMISSIBLE by a MECHANICAL criterion --
+   INADMISSIBLE if (i) the round's own artifact records controls_ok = false, OR
+                   (ii) a later RETRACTIONS.md entry names that round's statistic as withdrawn.
+   ADMISSIBLE otherwise.
+QUANTITY C: the directional hit-rate computed over ADMISSIBLE forecasts only.
+
+POINT B          : 3
+INTERVAL B       : [1, 5]
+
+DIRECTIONAL PREDICTION, the real content and separately failable:
+  after filtering, the admissible record is TOO SMALL TO SUPPORT ANY CALIBRATION CLAIM -- B <= 4 --
+  and "six of seven directional predictions held" does not survive as a statement about my judgement.
+KILL             : if B >= 6, the filtering changes nothing, the record stands as stated, and this
+                   prediction is RETRACTED.
+
+⚠ THE OBVIOUS SELF-SERVING FAILURE, NAMED BEFORE IT CAN HAPPEN: an author grading his own forecasts
+  can rescue every miss by declaring the statistic inadmissible after the fact. The criterion above
+  is therefore MECHANICAL and reads only fields already committed -- controls_ok in the round's own
+  artifact, and retraction entries written before this round existed. No judgement call is permitted
+  at scoring time, and any forecast whose admissibility I cannot decide mechanically is reported
+  UNDECIDABLE rather than assigned.
+
+⚠ FORECAST RECORD, as currently believed and about to be audited: eight magnitudes -- four over, two
+  under, two inside; eight directional -- seven held, one retracted. Not shading.

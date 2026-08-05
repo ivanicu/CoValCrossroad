@@ -15951,3 +15951,26 @@ over arms*. With power as a **fraction** of draws clearing p95, the design goes 
 to **0 of 8**. And the verdict simultaneously printed *"R661's null survives the whole specification
 curve"* while the block above it **retracted R661** — a contradiction inside one output, and the
 **fourth verdict-string defect in four rounds.**
+
+## 706 · "Six of seven directional predictions held" — restated from memory, and there are six forecasts
+
+R662's NEXT asserted the record *"currently reads six of seven directional predictions held"* and
+that *"at least three were about numbers that no longer exist"*. ⛔ **The artifacts persist SIX
+forecasts, not seven**, and at most **4** are arguably scoreable. **The headline was never read off
+the artifacts.** It falls without needing the audit it asked for.
+
+## 707 · The forecast audit CANNOT be performed — the ledger contradicts itself about R659
+
+The negative control (R659, whose counts R662's README lists under **STANDS**) is marked withdrawn by
+both a loose and a tight rule, because entry **703** says *"the **R659→R662 thread** is withdrawn"*
+while R662 lists R659's censuses as standing. ⛔ **Both statements are committed. No pattern reading
+the ledger can be right.** ⭐ *The record I would grade myself on is not self-consistent.*
+
+## 708 · Two admissibility rules, both wrong, and a third one refused
+
+v1 voided a round merely **mentioned** near a withdrawal word — §4's `a search is an instrument`,
+**inside the rule deciding what I get graded on**. v2 (≤90 chars, no sentence break) was beaten by
+**range phrasing** and simultaneously cleared R660, whose 86.1% *was* withdrawn — **both required
+cases wrong, in opposite directions.** ⭐ **I stopped rather than writing a third**: a scorer tuned
+until it grades its author favourably is the failure the pre-registration named in advance, and the
+negative control existed precisely to catch it.
