@@ -17146,3 +17146,22 @@ formulation exists to be over-permissive. **The arc had no formulation until one
 admission test had nothing to run on — and the moment it did, it fired immediately. **A test that
 cannot run yet is indistinguishable from a test that passes**, and thirty rounds of running only the
 half that worked read as thoroughness.
+
+## 864 · The F3 I wrote in R701 had ZERO unique exclusions — it was decoration by R519's own test
+A lower bound with no ceiling excluded nothing the other two clauses did not already exclude.
+`topw_k1`, its only candidate, is excluded by F2 as well. **That is precisely the criterion R519 used
+to retire ① and ④.** ⭐ **So R702's mirror test did not tighten a clause — it rescued one the
+necessity test would have retired**, and the two halves of §4's single remedy, run one round apart,
+turned out to depend on each other.
+
+## 865 · Registered B missed by one, and the miss is what surfaced the finding
+I counted `topw_k1` as F3-unique. F2 excludes it too. **Following that one arithmetic correction one
+step further is what revealed the original F3 was decoration** — the error and the finding are the
+same fact read at two depths. **A point estimate that misses for a locatable reason is worth more
+than one that lands**, and this arc now has both kinds on record.
+
+## 866 · The previous closing line's example was refuted by a three-line gauge test
+It offered `random_k4_s0` as something F1 admits that a reader would refuse. F1 does admit it; **F2
+refuses it, so the conjunction does.** Naming an object ONE clause admits says nothing when another
+catches it — **the informative question for a conjunction is necessity, not per-clause admission**,
+and the closing line asked the uninformative one.
