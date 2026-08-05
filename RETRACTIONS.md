@@ -10980,3 +10980,34 @@ retraction of a claim that may yet hold.
 specifications and never depended on the recommendation. **What is gone is the basis for preferring
 one reading.** The residue is back where it was two rounds ago, with the reason a recommendation was
 premature now written into it.
+
+## 331 · R479's "Bayes ceiling for any predictor under per-pair 0/1 loss" is the ceiling for RANKERS (R479 → R505)
+
+**Retracted:** the label, not the number. R479 computes the expected agreement of the **modal complete
+ranking vector** with a held-out annotator and reports it as the bound on *any predictor under per-pair
+0/1 loss*.
+
+**Measured:** the per-pair mode — Bayes-optimal for that loss — reaches **0.6466** against the modal
+ranking's **0.6230** on the same population in the same process. **The ordering is a derivation, not a
+finding:** a per-coordinate optimum cannot be beaten coordinate-wise. What makes the two differ by a
+real amount is **intransitivity — the per-pair mode is realisable by some ranking on only 66.5% of 400
+prompts**, so on a third of the corpus no ranker can attain it.
+
+⭐ **Both numbers are legitimate; they bound different constraint classes.** `oracle_k4` emits a
+criterion set whose score sums induce a **ranking**, so the **ranker** bound applies to it. R504
+compared it against the pair-predictor bound and withdrew the recommendation on that basis.
+
+**So R504's withdrawal stands with a changed reason.** Against the ranker ceiling `oracle_k4` is
+**+0.0095**; against the pair-predictor ceiling, **−0.0141**; the floor is **0.0220**. **It is
+resolvably above neither.** The recommendation is not refuted — it is **unresolvable at this design's
+resolution**, and the applicable ceiling had never been named by either side.
+
+⚠⚠ **This is the third revision of one comparison in three rounds**: *0.6282 > 0.6132, therefore B* →
+*recomputed, oracle is below the ceiling, withdrawn* → *there are two ceilings and it is inside the
+floor of both*. **Every step used the best instrument available at that moment, and every step was
+overturned by a better instrument rather than by a better argument** — which is precisely what the
+standard's longest failure-mode entry says happens, written about a different number entirely.
+
+⭐ **The residual gap is stated, not smoothed:** the recomputed ranker ceiling is 0.6230 against
+R479's 0.6132, plausibly the draw convention (one draw per prompt per seed here, 20 reps there).
+**Not isolated.**
