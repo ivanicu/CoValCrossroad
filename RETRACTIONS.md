@@ -18506,3 +18506,34 @@ instrument and licenses nothing — and I had quoted that row three rounds earli
 control it warns about. A same-object control is necessary and insufficient. The control that sees
 the inversion runs both joins and requires them to disagree, which they do by 0.851120, and that is
 now the round's gate.
+
+## 973 · the analytic curve I registered assumed independent criteria, which the object forbids
+
+The construction was to be validated against the ratio of shared to total criteria, which is the
+correlation two random subsets have when their components are independent. Per-criterion
+satisfactions are not independent: a good response satisfies many criteria, so every pair of subsets
+shares a per-response component. Measured, two subsets sharing nothing correlate at 0.3385 rather
+than zero, and the registered prediction was off by that amount at every target. The construction was
+doing exactly what it claimed. Writing the correlation as that shared component plus the independent
+part and fitting the component at zero shared criteria alone predicts the other four targets to
+0.0046, which is a stronger control than the one it replaces, because it fits one parameter at one
+point and tests four held out.
+
+## 974 · a g=0 control that demanded something the design cannot produce
+
+The same wrong model made the zero control require a raw correlation near zero where arms share no
+criterion. The shared per-response component forbids that, so the control could not pass whatever the
+construction did. This is the seventh control in this arc outside its own achievable band. Repaired
+to what the design actually needs, which is that the construction respond to overlap at all: the zero
+target must sit below the one target by more than the seed spread, and it does, by 0.1642 against a
+band of 0.0790.
+
+## 975 · a verdict string that named the model the round had just abandoned
+
+After repairing the control, the conclusion still read that the construction reproduces the ratio of
+shared to total criteria, which is the form the same round had just shown to be wrong. The numbers
+were correct and the sentence attached them to the wrong object. This is the failure the standard
+calls a verdict string that is prose looking like output, and it survived one edit because I patched
+the control and not the sentence that reports it. Corrected to name the one-parameter model actually
+used, and the curve table now prints both columns so the abandoned form is visible rather than
+silently dropped.

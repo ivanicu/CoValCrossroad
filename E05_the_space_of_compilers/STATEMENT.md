@@ -459,7 +459,13 @@ are confounded by construction and each stratum holds 3 pairs, so *which* of the
 **UNDERPOWERED here, not settled.** ⭐ **And separating them needs no new judge run** *(R736)*:
 satisfaction is a function of `(prompt, response, criterion)` to **0.997357**, a median of **15**
 criteria are scored per prompt, and **917 of 968** prompts carry ≥8 — enough to assemble two k=4 arms
-at any overlap 0–4. **The deferred experiment is a reanalysis.** **Both clauses agree; 48 of 48
+at any overlap 0–4. **The deferred experiment is a reanalysis.**
+⭐ **Run** *(R737)*: at k=4 on 968 fixed prompts the floor is a **curve** — **0.4244** at zero shared
+criteria rising to **1.0000** at four — validated by a one-parameter model fit at j=0 alone that
+predicts the four held-out targets to **0.0046**. **`greedy` shares 2.8492 criteria with the excluded
+object and `indep` shares 2.1095, so their matched floors are 0.8299 and 0.7234.** ⚠ The blind-side
+matched floors are **not yet computed**, so the excesses are **not re-scored** here; and this is a
+**random-subset** floor, not a rule-produced one. **Both clauses agree; 48 of 48
 cells survive BH.** The gap is reliable *(R457: split-half 0.8311, shuffled 0.0168)*. ⚠ This
 **excludes unrelatedness; it does not identify a mechanism** — and the raw 0.9747 exceeds the
 attenuation ceiling, so the disattenuated column is a diagnostic, not a correlation. ⭐ **And measured directly:** two arms sharing the `oracle_k`

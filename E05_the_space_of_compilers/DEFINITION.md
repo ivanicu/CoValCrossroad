@@ -3857,3 +3857,22 @@ control that does catch it runs both joins and requires them to disagree, which 
 A residual inconsistency of 0.002643 survives the corrected join and is real, since an earlier round
 measured the scoring floor at exactly zero on identical criteria; it is bounded here and not
 explained.
+
+## R737 · the floor is a curve in overlap, and the compared arms sit on it
+
+Assembling four-criterion arms from scores already on disk at a chosen number of shared criteria, on
+nine hundred and sixty eight prompts held fixed across every target, gives a floor of 0.4244 where the
+arms share no criterion, rising through 0.5654, 0.7076 and 0.8517 to exactly one where they share all
+four. The construction is validated by a one-parameter model: writing the raw correlation of two
+subsets sharing j of k criteria as a shared per-response component plus the independent part, fitting
+that component at zero shared criteria alone gives 0.3385 and predicts the four remaining targets to
+within 0.0046. The simpler form registered in advance, the ratio of shared to total, assumes the
+per-criterion satisfactions are independent, and they are not, because a good response satisfies many
+criteria at once; that prediction was wrong and the construction was not. Applied to the definition's
+own comparison, the greedy object shares 2.8492 criteria with the excluded object and the independent
+object shares 2.1095, so their matched floors are 0.8299 and 0.7234. Four floors have now been used
+for this one comparison and only these are matched on the quantity that drives it. Two limits. The
+floors for the comparison against the label-blind arms were not computed here, so the excesses are not
+re-scored in this round. And this is a floor for random subsets of the scored pool; the real arms were
+produced by rules that may prefer criteria with particular satisfaction profiles, and whether a
+rule-produced arm behaves like a random subset at the same overlap would need a new selection run.

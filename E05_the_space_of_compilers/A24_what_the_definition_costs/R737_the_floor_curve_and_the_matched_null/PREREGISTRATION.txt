@@ -1,0 +1,83 @@
+R737 · the floor curve and the matched null
+written BEFORE run.py. P4 and the ARITHMETIC step ran first.
+
+WHAT IS ALREADY SETTLED AND IS USED HERE, NOT RE-DERIVED
+   R736 established that satisfaction is a function of (prompt, response, criterion) to 0.997357 and
+   that 917 of 968 prompts carry >= 8 distinct scored criteria, so k=4 arms with a CHOSEN overlap can
+   be assembled from disk. That capability is used; it is not re-measured.
+
+⛔ DERIVATION FIRST, USED AS THE POSITIVE CONTROL
+   Two k-subsets of a common pool sharing j components have raw mean correlation j/K by algebra when
+   the components are independent and equal-variance. Verified on synthetic vectors before writing
+   this file: j/K = 0.00 0.25 0.50 0.75 1.00 against measured 0.0379 0.2382 0.5158 0.7566 1.0000.
+   THIS IS NOT A FINDING. It is the curve the construction must reproduce if it is assembling what it
+   claims, and it is the only positive control available that does not share the instrument's blind
+   spot -- the failure R736 was written about.
+
+ESTIMAND
+   (1) the MARGIN FLOOR as a function of constructed overlap j in {0,1,2,3,4}, at k=4, on a FIXED
+       prompt population;
+   (2) the ACTUAL pairwise criteria overlap of the arms the deliverable compares -- greedy, indep and
+       the excluded oracle -- and hence the MATCHED floor each comparison should have used.
+
+IDENTIFICATION
+   (1) identified by construction on the prompts reachable at every target, which R736 counted at
+       917 for j=0 rising to 968 for j=4. The comparison is made on the INTERSECTION, so the
+       population is constant across j and the curve cannot confound overlap with which prompts
+       contribute.
+   (2) identified: both arms' selections are on disk.
+   ⚠ NOT identified: whether the constructed arms are exchangeable with the real ones. A constructed
+   arm draws from the scored pool; a real arm was produced by a rule. If a rule prefers criteria with
+   particular satisfaction profiles, the constructed floor is a floor for RANDOM subsets and not for
+   RULE-PRODUCED ones. That gap is named, and the round reports its floor as the random-subset floor.
+
+SCOPE
+   population : the prompts reachable at every target overlap, k=4 · instrument margin correlation
+                against the reference arm · baseline R735's 0.6458 k-matched floor · regime default
+                emitter
+WORLDS
+   W-CURVE     the floor rises smoothly with j and the matched floor for the real comparison differs
+               from 0.6458. Then every excess reported in this arc has a third value.
+   W-FLAT      the floor does not move with j. Then the construction is not assembling what it claims
+               and the positive control should already have failed.
+   prediction matrix
+      raw corr matches j/K and floor rises  -> CURVE 0.92  FLAT 0.03
+      raw corr matches but floor flat       -> the subtrahend dominates entirely; report that
+      raw corr does NOT match j/K           -> UNVERIFIED; the construction is not what it claims
+
+REGISTERED POINTS (failable)
+   A  max |measured raw corr - j/K| over the five targets        = 0.05 [0.00, 1.00]
+   B  the constructed floor at j=0                               = 0.31 [0.00, 1.00]
+   C  the constructed floor at j=4                               = 1.00 [0.00, 1.00]
+   D  mean actual criteria overlap between greedy and the excluded oracle, k=4  = 2.0 [0.0, 4.0]
+   DIRECTIONAL (separately failable): the matched floor read off the curve at D differs from R735's
+   0.6458 by more than the seed spread of the curve.
+
+KILL (CONDITIONAL -- evaluated only if the POSITIVE and PLACEBO controls both fire)
+   if positive_fires and placebo_exact:
+       floor at j=0 within 0.02 of floor at j=4 -> W-FLAT and the construction is suspect
+       otherwise                                -> W-CURVE, and the matched floor is reported
+   else:
+       verdict = UNVERIFIED   # never OVERTURNED, never CONFIRMED
+
+POSITIVE CTRL   the constructed arms' RAW correlation must reproduce j/K across all five targets,
+                threshold from the algebra: max deviation < 0.05. ⭐ This does not share the
+                instrument's blind spot, because j/K is derived from the construction's definition
+                and not measured with the same code path.
+g=0             at j=0 the two arms share no criterion, so their raw correlation must be at the
+                no-shared-component level and the floor must fall to the subtrahend-only value.
+NEGATIVE CTRL   assign the SHARED criteria at random per prompt rather than fixing them, so the
+                nominal j is not the realised j, and require the curve to flatten. excluded world:
+                "the curve comes from the label j rather than from actual sharing".
+SHAM            build both arms from the SAME draw ignoring j -- the overlap ingredient absent
+                rather than inverted -- and require a single value with no dependence on j.
+PLACEBO         j = 4 makes the two arms identical, so the floor must be EXACTLY 1.0.
+NOISE FLOOR     20 construction seeds per target; the curve is reported with its seed spread and the
+                matched-floor comparison is made in units of that spread.
+MULTIPLICITY    5 targets x 20 seeds x 2 statistics, every cell reported.
+SPECIFICATION   target j x seed x statistic (raw correlation, margin floor)
+SEEDS           20 per target; two PYTHONHASHSEEDs byte-identical, writes verified
+ARTIFACT        results/r737_floor_curve.json with tree_sha
+IMPOSSIBLE      whether a RULE-produced arm behaves like a random subset of the same overlap ->
+                needs arms produced by a rule at controlled overlap, which is a new selection run ·
+                independently replicated -> a second implementer
