@@ -42,6 +42,8 @@ escape passed because `PROVENANCE` matches the *shape* of a citation and **never
 So the first use of the escape in this repository's history was a false one, and the gate certified
 it. Recorded now, not deferred.
 
+> **⚠ RETRACTED BY R674 (check #275, D8).** The section above is wrong about the instance. R672 **never took the escape** — its quantifier had no `ARTIFACT` word inside the gate's window, so the line was never flagged and `PROVENANCE` never ran on it. The escape has exactly **one** taker in 1,233 commits, `8da27ea`, and it is neither R672 nor R673. The mechanism claim (a regex cannot open a file) survives **as a derivation read off the source, not as evidence**. What was actually at stake is measured in R674: **47.5% of cited numbers occur in the cited file, against a 3.8% random baseline.**
+
 ## WHAT THIS DOES TO R672
 R672 concluded the freeze is a **drain** — it only fills. That stands and gets worse: it fills at one
 end and **leaks at the other**, as entries scroll past commit 400 and become unreachable by the only

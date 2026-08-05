@@ -16252,6 +16252,8 @@ because `PROVENANCE` matches the SHAPE of a citation — a path, an `R###` — a
 **A citation gate that does not open the cited artifact certifies the FORM of provenance and licenses
 its absence**, which is worse than no gate, because a false citation now carries a passed check.
 
+> **⚠ THE INSTANCE IN 743 IS RETRACTED (R674, check #275, D8 — measured over all 1,233 commits).** R672 never took the escape. Its quantifier had no ARTIFACT word inside the gate's window, so the line was never flagged and `PROVENANCE` never ran on it — the commit body announced it was taking an escape the gate had not offered. There is exactly **one** taker in this repository's history, `8da27ea`, and it is neither R672 nor R673. **The MECHANISM claim survives, downgraded to what it always was: a DERIVATION read off the source — a regex cannot open a file, and that could not have come out otherwise. It is not evidence.** What R674 measures instead is the thing that was actually at stake: of 80 decidable (path, number) pairs, **38 (47.5%) of cited numbers occur in the cited file** against a 3.8% random baseline. *Announcing that a mechanism fired is not the same as checking that it fired, and a self-congratulatory sentence is the least likely one to be audited.*
+
 ## 744 · I reported a residual of −77 that was an accounting artifact of my own baseline
 R673's first output printed `residual (gap − ext − rng) = −77` beside a 2×2 decomposition. The
 arithmetic could not close because the "gap" was defined against the FREEZE, which is not one of the
@@ -16259,3 +16261,33 @@ four cells. Resolved, the −77 is the 68 scrolled-out entries plus 9 no-longer-
 finding, not a remainder. **A residual computed against a baseline outside your own design is not a
 measure of what you failed to explain; it is a measure of a mismatch you introduced, and printing it
 as "residual" makes a discovery look like noise.**
+
+## 745 · I announced a mechanism had fired without checking that it fired
+R672's commit body said it was "deliberately taking the provenance escape"; R673 built a finding on
+that, and ledger 743 recorded it as the first false use of the escape in this repository. Measured:
+the escape has ONE taker in 1,233 commits and it is neither of them. R672's quantifier had no
+artifact word inside the gate's window, so the line was never flagged and the escape was never
+offered. **The sentence was self-congratulatory, which is precisely the kind least likely to be
+audited — I checked whether the citation was TRUE and never whether the RULE had run.**
+
+## 746 · More than half of cited numbers are not in the file cited
+Of 107 (path, number) pairs written into NEXT lines, 80 are decidable and **38 (47.5%) of the numbers
+occur in the cited artifact**; 42 do not. Against a random-artifact baseline of 3.8% the lift is
+**+43.8 pts**, so citations here are not decorative — they carry real information and they fail
+half the time anyway. Reading at HEAD rather than at citing time biases this DOWN, so 47.5% is a floor.
+**A citation habit can be simultaneously load-bearing and unreliable, and only the random baseline
+separates those two readings.**
+
+## 747 · A failed directional prediction is not a discovery in the opposite direction
+R674 registered that README NEXT sections would verify LOWER than commit bodies. Observed +15.4 pts
+the other way — and the 95% bootstrap CI is [−11.3%, +42.1%] over n_readme=15. **The interval
+straddles zero, so the registered direction is UNVERIFIED, not refuted.** Recording it as a measured
+reversal would have manufactured a finding out of fifteen data points. **The reflex a wrong
+prediction creates is to narrate the opposite; the correct move is to price the precision first.**
+
+## 748 · 27 of 107 cited paths resolve to nothing, and that bucket holds two different failures
+A path that never existed and a path renamed or archived since are not the same defect, and both
+land in `UNRESOLVABLE`. They were kept out of the failure count — folding them in would have
+inflated the citation-failure rate — but they are also not separated from each other, so the
+staleness correction to 47.5% is **unknown in size, not small.** **A bucket named for what it lacks
+hides how many distinct causes are in it.**
