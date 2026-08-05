@@ -13210,3 +13210,30 @@ hypothesis.** "Is it the fleet?" and "is it the per-unit cost?" are different se
 different quantities, and they feel like independent tests. **They are one identity read twice.**
 The tell is available for free and I never applied it: **if the candidate explanations multiply to
 the observation, they are not explanations of it.**
+
+## 432 · The scope note was correct and never reached the row it conditions
+
+R558 established that every extension count on the statement is at the `A2` target, and that at `A1`
+the extension is **∅**. It fixed this with **one note above the claim table** — correct under P16,
+which forbids restating a fact per row.
+
+**Measured now: exactly 1 of 10 rows states an extension count (row 2), and 0 of 10 name the
+target.** The note sits **~40 lines above** that row. **A reader of row 2 alone sees `extension 5`
+as unconditional.**
+
+⭐⭐⭐ **Two laws in tension.** P16 says one home per fact; the correction law says a correction must
+reach the artifact it conditions. **A copy violates the first, silence violates the second — and a
+MARKER violates neither.** Row 2 now reads `5†`, `0†`, `0†` with the condition named inline, and the
+scope table declares that `†` resolves there. **One home, and it is reachable from where the number
+is read.**
+
+⚠ **Only the TARGET axis was checked.** R560 found `baseline` in 0 of 10 rows and R565 found the
+page draws on one arc of ten. **Whether those disclosures reach their rows is not established** —
+and the same tension will apply to both.
+
+## 433 · "Fourteen rounds" was eleven
+
+My closing line said the deliverable had gone untouched for **fourteen** rounds. `git rev-list
+--count` against `STATEMENT.md`'s last commit returns **11**. Overstated by three, in the sentence
+whose whole point was that the imbalance had grown too large — **the direction that makes the
+argument stronger.**

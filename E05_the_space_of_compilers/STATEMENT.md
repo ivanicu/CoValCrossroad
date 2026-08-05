@@ -61,6 +61,8 @@ Swept over six agreement targets, the admitted set takes **four distinct values*
 | `tau·mean` | `coval_core` only |
 | `top1·mean` | `topw_k4` only — **the released core is NOT admitted** |
 
+⭐ **The † marker on any count below resolves here.** A row carries the MARKER, never a copy of the fact — P16 forbids restating it per row, and a correction that never reaches the row it conditions has not landed *(R578)*.
+
 ⭐ **One home for this fact.** It is stated here and not repeated per row, because a scope restated
 ten times drifts and the copy is never the one corrected. **Read every count below as "at A2".**
 
@@ -86,7 +88,7 @@ constant; the cell carries what varies. **That is the shape the column was missi
 | # | claim | scope it holds over |
 |---|---|---|
 | **1** | The definition is **② ∧ ③**. ① and ④ are retired — neither excludes anything ② has not *(R519)* | R294's 41 arms, home judge, 968 prompts |
-| **2** | ③ is **three clauses, not one**: ③-rank (extension **5**), ③-any (**0**), ③-judge (**0**) *(R529, R534)* | the same 41 arms; ③-any and ③-judge coincide *here* only because no ②-passer reads satisfaction |
+| **2** | ③ is **three clauses, not one**: ③-rank (extension **5**†), ③-any (**0**†), ③-judge (**0**†) *(R529, R534)*. **† AT THE `A2` TARGET — at `A1` the extension is ∅; see the scope table above** *(R558, R578)* | the same 41 arms; ③-any and ③-judge coincide *here* only because no ②-passer reads satisfaction |
 | **3** | ②'s baseline is a **choice** — `POOL[0:4]` by file order, at **percentile 93.7** of its 1,820-subset class *(R527)* | k=4 arms; the extension moves **4 → 8** across the class |
 | **4** | Read literally, ②'s own wording (*"the best"*) **empties the definition** — at p100 the four arms ② admits are the four ③ excludes *(R528)* | k=4 arms; `coval_core` survives 7 of 8 specifications |
 | **5** | Weight-reading is worth **+0.0726 at k=4**, decaying **monotonically to exactly 0 at k=all** *(R533)* | 968 prompts, 3 seeds; the k=all zero is a **derivation** |
