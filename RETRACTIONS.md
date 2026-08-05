@@ -16361,3 +16361,45 @@ return to committed artifacts, which is where today's finding also was. **An app
 recruits its own next question: every instrument round ends by naming a defect in the instrument, so
 the NEXT line points back inward, and nothing external ever interrupts it. The interrupt has to be
 scheduled, and the cheapest form is counting how many recent headlines are about the object.**
+
+## 758 · R676's "four extension readings" is retracted — they are four different objects
+Reading each round's own ESTIMAND: `R470.P` is the extension BEFORE ③ is applied, `R442.published_five`
+is the list CoVal published, `R509.five` sits in a round whose stated answer is an extension of ONE,
+and only the 22×-cited set is a ③ reading. R676 compared a ③ extension against a pre-③ set, a
+publication list and an intermediate, and read their shared `coval_core` as a fact about the clause.
+**The census of six distinct five-member sets stands; its interpretation does not.**
+
+## 759 · Second time in this arc I asserted a mechanism produced something without checking it
+Ledger 745 recorded announcing that the provenance escape had fired when it never ran. R676 announced
+that four sets were "produced by a different ③ variant" without opening the four rounds. **Both were
+the round's LAST sentence.** The NEXT line is written after the controls have fired and the attention
+they were holding has been released, it is the sentence a later round acts on, and it is the only one
+with no control attached. **Twice is a pattern: the closing sentence needs the same treatment as a
+result, and the cheapest form is to open every artifact it names before writing it.**
+
+## 760 · The count is decided by an aggregator nobody registered — 0 under majority, 1 otherwise
+A set cited 22× has one producer and 21 copies. Taking a set's denotation by MAJORITY over its
+citations lets the copies outvote the producer and returns 0 genuine ③ extensions; taking ANY
+③-stating citation, or the EARLIEST, returns 1. **My registered point of 1 scores OUTSIDE under one
+specification and INSIDE under two.** So the estimand is NOT IDENTIFIED and only the range 0–1 is
+admissible. **A pre-registered point over an unregistered aggregation is a coin flip wearing a
+prediction's clothes.**
+
+## 761 · Thirty-two citations, and not one records whether it computed the set or copied it
+The corpus stores these arm sets under field names a reader parses as results, with no field
+distinguishing COMPUTED from COPIED. That absence is the mechanism behind both R676's mis-attribution
+and R677's aggregator ambiguity. **A copied number is indistinguishable from a measured one once it
+is in a JSON file, and the distinction cannot be recovered later from the value.**
+
+## 762 · `\bpublished\b` cannot match `published_five`, because `_` is a word character
+The classifier read `R442.published_five` as a ③ extension — a publication list mistaken for a
+measurement — because the word-boundary anchor fails against an underscore. **A regex written to be
+strict was silently permissive in exactly the case it was written for**, and only a control pointed
+at a known member exposed it.
+
+## 763 · An `or` between two non-empty strings never consults the fallback
+The positive control read `kind_of("R339.published") or kind_of("R294.admitted")`, and since the
+first returns a non-empty classification string, the second never ran. The control therefore asked a
+round whose ESTIMAND contains no ③ to certify a ③ classifier, and printed FAIL. **§4's "the control
+fails for its own reasons", in two tokens of Python** — and the fix was to check every candidate
+rather than the first truthy one.

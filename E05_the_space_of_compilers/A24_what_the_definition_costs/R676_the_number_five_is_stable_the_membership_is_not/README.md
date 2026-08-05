@@ -4,6 +4,8 @@
 — `coval_core`, the object the definition was written from. Mean pairwise Jaccard 0.273 against a
 0.008 chance floor.**
 
+> **⚠ RETRACTED IN PART BY R677 (check #278, D8).** The four sets are **not four readings of ③**. `R470.P` is the extension **before ③ is applied**, `R442.published_five` is **CoVal's published list**, and `R509.five` sits in a round whose stated answer is **one**. Only the 22×-cited set is a ③ reading. **The census of six distinct five-member arm sets stands; the interpretation as four readings of one clause does not** — and R677 further shows the count of genuine ③ extensions is **0–1 depending on an unregistered aggregator**, so it is not identified.
+
 ## WHY THIS ROUND AND NOT THE ONE R675 ASKED FOR
 A **gauge test** (attack ladder step 1, zero compute) showed R675's proposed method is sound — a
 round commit touches exactly one `run.py` and one `README.md`, so its diff *does* place a bare
