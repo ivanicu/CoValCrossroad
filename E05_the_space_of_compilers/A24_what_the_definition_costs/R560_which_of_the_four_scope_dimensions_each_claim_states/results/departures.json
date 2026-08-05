@@ -1,0 +1,21 @@
+{
+  "n_rows": 10,
+  "n_departing": 3,
+  "departures": {
+    "5": [
+      "regime"
+    ],
+    "6": [
+      "instrument"
+    ],
+    "7": [
+      "instrument"
+    ]
+  },
+  "constants": {
+    "population": "41 arms / 968 prompts / 56-tag census",
+    "instrument": "home judge Qwen3.5-2B-Base, target A2",
+    "baseline": "POOL[0:4] by file order, percentile 93.7",
+    "regime": "k=4, held-out annotator, one release"
+  }
+}

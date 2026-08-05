@@ -12699,3 +12699,23 @@ Constants now sit in one table with four named fields; a row's own cell carries 
 
 **The general form, which is why this is worth a retraction rather than an edit: a free-text field
 cannot be audited for what it fails to say. Only a schema can.**
+
+## 398 · I committed with a failing gate, because I dropped the `if` guard
+
+Every commit this session has run behind an `&&` conjunction of the assurance gates. **This one did
+not.** The loop that runs them printed `⛔ next_line_quantifiers_are_computed` and `git commit` ran
+anyway, because I wrote the sweep as a bare `for` loop and left the commit unguarded.
+
+**The gate was right.** `e69c7f39`'s NEXT line said the register had been *"fully re-read"* — a
+quantifier over my own work, and check #160 had already found the neighbouring half of that sentence
+partly false. It is now frozen with the correction.
+
+⭐⭐⭐ **The lesson is not "be careful."** A conjunction that is retyped at every call site will
+eventually be retyped wrong, and it was — after **eight** consecutive correct uses. **The gates are
+mechanical and their invocation is not**, which makes the invocation the weakest link in a chain
+built entirely to remove weak links. **A check you have to remember to run is a check you will
+eventually not run.**
+
+⚠ **Nothing was published wrongly** — the flagged line is a NEXT line, now frozen with its
+correction, and the round's own claims all passed their gates. **The defect is the bypass, not the
+content**, and it is recorded because the next bypass will look exactly like this one.
