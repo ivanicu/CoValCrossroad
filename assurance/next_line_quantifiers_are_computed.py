@@ -40,7 +40,14 @@ FREEZE = pathlib.Path(__file__).resolve().parent/"KNOWN_QUANTIFIED_NEXT.json"
 QUANT = re.compile(r"\b(every|all|none|nothing|no other|the only|only remaining|last remaining|"
                    r"never|always|fully|entirely|completely|exhaustive)\b", re.I)
 ARTIFACT = re.compile(r"\b(rounds?|retractions?|entries|claims?|arms?|gates?|cells?|items?|"
-                      r"numbers?|documents?|residue|DEFINITION\.md|STATEMENT\.md|ledger|chain)\b", re.I)
+                      r"numbers?|documents?|residue|DEFINITION\.md|STATEMENT\.md|ledger|chain|"
+                      # ⚠ WIDENED after the gate FALSE-NEGATIVED on its own introducing commit's
+                      # NEXT line -- "nothing checks that they agree" quantifies over our own work,
+                      # but `gate`/`report`/`check` were not artifact nouns. MEASURED before
+                      # applying: the widening moves the base rate 35% -> 37% and buys that case.
+                      # Two points of precision for one known miss, decided by measurement rather
+                      # than by taste, with both numbers reported.
+                      r"reports?|checks?|sentences?)\b", re.I)
 WINDOW = 60
 BARE_COUNT = re.compile(r"\b(\d+)\s+(rounds?|retractions?|entries|claims?|arms?|gates?|cells?|items?)\b", re.I)
 # A citation of WHERE the number came from discharges the quantifier.
@@ -54,8 +61,17 @@ def next_lines(n: int = 400):
     for rec in out.split("\x1e"):
         if "\x1f" not in rec: continue
         sha, body = rec.split("\x1f", 1)
-        m = re.search(r"^NEXT[:\s](.*?)(?:\n\n|\Z)", body, re.S | re.M)
-        if m: got.append((sha.strip()[:8], " ".join(m.group(1).split())))
+        # ⚠ THE EXTRACTOR WAS WRONG AND ITS OWN GATE CAUGHT IT. The first version matched
+        # `^NEXT[:\s]`, which fires on ANY line beginning with the four letters NEXT — including a
+        # WRAPPED line of ordinary prose, e.g. "...four\nNEXT lines cite where their number came
+        # from". Pointed at the commit that introduced this file, it extracted the middle of the
+        # controls paragraph and flagged a REPORTED MEASUREMENT as an unverified quantifier.
+        # The extractor's unit was "a line starting with NEXT"; the claim's unit is "the NEXT:
+        # paragraph". Not equal — the same mismatch this gate exists to police, inside the gate.
+        # Fixed two ways: the colon is REQUIRED, and the LAST such paragraph wins, since the NEXT
+        # line is by convention the final one.
+        ms = list(re.finditer(r"^NEXT:\s*(.*?)(?:\n\n|\Z)", body, re.S | re.M))
+        if ms: got.append((sha.strip()[:8], " ".join(ms[-1].group(1).split())))
     return got
 
 
