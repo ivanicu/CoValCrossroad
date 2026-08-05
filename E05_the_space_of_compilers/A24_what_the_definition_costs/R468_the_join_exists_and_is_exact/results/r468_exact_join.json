@@ -1,0 +1,16 @@
+{
+  "source_sha": "371e837b24c99a1499d429b59e39d9484e4f2565",
+  "world": "W-EXACT",
+  "n_ranking": 968,
+  "n_rubric": 986,
+  "coverage": 1.0,
+  "uniqueness": 1.0,
+  "ambiguous": 0,
+  "no_hit": 0,
+  "surplus_rubric": 18,
+  "sim_joined": 0.8811005217353214,
+  "sim_random": 0.28590655091833694,
+  "anchor_id_intersection": 0,
+  "anchor_convtext_coverage": 0.0,
+  "mapping_size": 968
+}

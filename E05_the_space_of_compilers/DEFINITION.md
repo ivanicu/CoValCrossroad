@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 284 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 289 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 284.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 289.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -437,6 +437,20 @@ null it is silence* — and the missing control was a **cross-file** case with a
 within-file uniqueness checks passed at **1.0000** both ways and could not see a normaliser that was
 merely *incomparable across files*. **R466's UNVERIFIED therefore stands, for a better reason, and
 the campaign-wide claim is dead.** *(R467)*
+
+⛔ **AND BOTH OF THOSE CONCLUSIONS WERE OVER-STATED — THE JOIN EXISTS (R468).** R466 and R467 both
+joined on **conversation** text, which the rubric file stores degraded. The **criterion** texts are
+short exact strings carried in *both* id spaces, and joining on them needs no threshold: **coverage
+1.0000 (968 of 968), uniqueness 1.0000, 0 ambiguous.** ⭐⭐ **And it is validated on a channel it was
+not built from** — built from criteria, checked on conversations: joined pairs are **0.8811** similar
+against **0.2859** for random pairs, so the validation cannot be an artifact of the construction. Both
+prior numbers are reproduced as anchors before anything is narrowed (id intersection **0**;
+conversation-text coverage **0.0000**). ✅ **So R466's UNVERIFIED is now DECIDABLE: ③'s two instruments
+can be pointed at one population, and the 19-arm UNKNOWN region can be revisited.** ⭐ **The pattern
+across three rounds is the lesson: a failed join licenses "this join failed", never "no join exists"**
+— the second quantifies over every possible key, and neither round enumerated one. ⚠ 18 rubric-space
+records have no ranking-space partner (986 > 968) and are reported rather than explained away.
+*(R468)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

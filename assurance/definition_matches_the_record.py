@@ -504,6 +504,22 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R468 -- the exact join. The RANDOM-pair similarity is anchored with the joined-pair one,
+    # because 0.8811 alone is unreadable: the validation is the CONTRAST, on a channel the join was
+    # not built from.
+    d468 = next(A24.glob("R468_*"), None)
+    f468 = (d468 / "results" / "r468_exact_join.json") if d468 else None
+    a = json.loads(f468.read_text()) if (f468 and f468.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r468_cov"] = (f"{a['coverage']:.4f}", "R468")
+        out["r468_n"] = (a["mapping_size"], "R468")
+        out["r468_sim"] = (f"{a['sim_joined']:.4f}", "R468")
+        out["r468_rnd"] = (f"{a['sim_random']:.4f}", "R468")
+        out["r468_surplus"] = (a["surplus_rubric"], "R468")
+    else:
+        for k in ("r468_cov", "r468_n", "r468_sim", "r468_rnd", "r468_surplus"):
+            out[k] = (None, "R468")
+
     # R467 -- the content join. The CROSS-FILE control flag is anchored, not just the coverage,
     # because coverage 0.0000 is SILENCE unless that control passed and it did not.
     d467 = next(A24.glob("R467_*"), None)
@@ -1177,6 +1193,11 @@ ASSERTIONS = {
     "r467_cov":   r"exact-text join\s*\n?\(\*\*([\d.]+)\*\* after the schema was corrected\)",
     "r467_inter": r"an id join \(intersection \*\*(\d+)\*\*\)",
     "r467_self":  r"passed at \*\*([\d.]+)\*\* both ways",
+    "r468_cov":     r"\*\*coverage\s*\n?([\d.]+) \(968 of 968\)",
+    "r468_n":       r"coverage\s*\n?[\d.]+ \((\d+) of 968\)",
+    "r468_sim":     r"joined pairs are \*\*([\d.]+)\*\* similar",
+    "r468_rnd":     r"against \*\*([\d.]+)\*\* for random pairs",
+    "r468_surplus": r"⚠ (\d+) rubric-space\s*\n?records have no ranking-space partner",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

@@ -9821,3 +9821,44 @@ reason than R466 gave**, and the campaign-wide claim is **dead**.
 **narrow and technical**. A wrong claim in the direction of *"everything is contaminated"* reads as
 appropriate rigour and is therefore the least likely to be challenged — **the one flattering direction
 a retraction ledger does not naturally police**, because it looks like the opposite of flattery.
+
+---
+
+## 285 · "Cannot be joined" and "no exact join exists" — both over-stated, and the join is TOTAL (R466, R467 → R468)
+
+**What two consecutive rounds concluded.**
+- R466: *"the two instruments cannot be joined on disk without a mapping, and none was used."*
+- R467: *"no exact join exists, because the same conversation is stored with different wording."*
+
+**What is true.** Both rounds joined on **conversation** text, which the rubric file stores degraded
+(*"eat"* vs *"eating"*, plus `all finished_successfully` tokens). The **criterion** texts are short
+exact strings carried in **both** id spaces. Joining on those:
+
+| coverage | uniqueness | ambiguous | no-hit |
+|---|---|---|---|
+| **1.0000** (968 of 968) | **1.0000** | **0** | 0 |
+
+⭐⭐ **And validated on a channel it was not built from.** The join is constructed from **criteria**
+and checked on **conversations**: joined pairs are **0.8811** similar against **0.2859** for random
+pairs. **A validation on the same channel as the construction proves only self-consistency; this one
+cannot.**
+
+**Both prior numbers were reproduced as anchors before anything was narrowed** — id intersection
+**0**, conversation-text coverage **0.0000**. ⭐ *Requiring a round to reproduce what it is about to
+overturn is what separates a correction from a competing measurement.*
+
+⛔ **The pattern across three rounds is the lesson, and it is a quantifier error, not a coding one.**
+R466 concluded *"cannot be joined"* from one failed join; R467 concluded *"different conversations"*
+from a second. **Both generalised from the instrument they happened to try to what the data permits.**
+**A failed join licenses *"this join failed"*, never *"no join exists"*** — the second quantifies over
+every possible key, and neither round enumerated one.
+
+⚠ **And note the escalation.** Each round's over-claim was *larger* than the last: R466 said two files
+could not be joined; R467 said they described different conversations; the next step in that sequence
+would have been a claim about the release's integrity. **A wrong conclusion that survives one round
+gets amplified by the round that builds on it**, because the successor treats it as settled ground and
+spends its scepticism elsewhere.
+
+✅ **Consequence:** R466's UNVERIFIED is now **decidable**. ③'s two instruments can be pointed at one
+population, and the **19-arm UNKNOWN region** can be revisited. ⚠ 18 rubric-space records have no
+ranking-space partner (986 > 968) and are reported rather than explained away.
