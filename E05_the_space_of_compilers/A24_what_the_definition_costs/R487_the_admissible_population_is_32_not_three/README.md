@@ -17,7 +17,7 @@ of assumed from 3.**
 | — excluded by **coverage** (`provenance_probe`, 4 prompts) | 1 |
 | **scored** | **23** |
 
-⛔ **The `transport_*` family is not on this benchmark.** Its cells are keyed
+⛔ **The `transport_*` family is not on this benchmark's population.** ⚠ **CORRECTED (R489):** this README first called them *"a different study"*. They are **this campaign's own second-release arms** — 2,200 conversations, 74,048 judged cells, cited in `DEFINITION.md` at L113/L1071/L1106. The exclusion is right (different population, different key schema); the reason was wrong, and a right verdict with a wrong reason propagates as a wrong reason. Its cells are keyed
 `c365|int10006|ut3170|0` — conversation / intent / utterance ids from a different study — against this
 benchmark's `prompt|criterion|response`. **Counting them was the same population error one scale
 down: files matching a naming pattern are not members of a population.** They are excluded by schema

@@ -10592,3 +10592,36 @@ so the list shrinks and cannot become the confession nobody re-reads. Attacked f
 trusted: a new typed round → caught · the frozen ledger deleted → all 31 read as new debt, never a
 clean bill · a frozen entry gone stale → caught · the classifier neutered to always say DERIVED → its
 own positive control fails it · an empty corpus → **exit 2**.
+
+## 318 · I was one command from announcing a "hidden second release" the campaign has used for fifty rounds (R489, caught by grepping the record)
+
+**Retracted before publication.** Chasing R451's population, I found `core_gen_second.json` (2,200
+prompts, ids `c365`/`c3651`) sharing **zero** ids with the 968-prompt home release, then
+`data/utterances.jsonl` (68 MB) with per-response `score` (1–100), `if_chosen` (40% True) and **5,456
+sampled interactions carrying exactly four responses** — the structure A2 needs. The impossibility
+register lists cross-release as needing *"a second values-annotation release"*. **The conclusion
+assembled itself: the register is false, the second release is on disk.**
+
+**It is not a discovery. `DEFINITION.md` cites the second release at L113, L1071 and L1106** —
+*"R434 measured ② admitting nothing on the second release"*, *"all 7 arms on the second release"* —
+and `sat_transport_gen.npz` holds **74,048 judged cells over those 2,200 conversations**. R434, R436,
+R437 and R438 are second-release rounds. **The campaign has been using it for weeks.**
+
+⭐ **And the register's wording is exact where my paraphrase was not.** It says a second
+values-annotation release ***with this schema***. The second corpus has `score`/`if_chosen` per
+response, **not** the rank strings `parse_ranking` consumes, and no per-criterion rubric. So
+cross-release *in the sense the register means* remains unavailable, and what exists is a corpus the
+campaign already transports criteria to. **I dropped three words from a sentence and nearly overturned
+it.**
+
+⛔ **The failure mode, and it is not one of the catalogued ones:** every step was a correct
+observation about the object, and the error was **not knowing my own project's history**. Door ① sends
+me to the object and I went; nothing in the object says *"this is already known"*. **The record is
+also an object, and it is the one that establishes novelty.** ⭐ **Before reporting a discovery, grep
+the record for the thing discovered** — the same check that has corrected six next-gradient lines this
+session, applied to a finding rather than to a plan.
+
+⚠ **What survives, and it is small:** R487 excluded the `transport_*` arms as *"a different study"*.
+The exclusion was correct — different population, different key schema — but **the stated reason is
+wrong**. They are this campaign's own second-release arms. A right verdict with a wrong reason
+propagates as a wrong reason.
