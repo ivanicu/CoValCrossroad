@@ -4,6 +4,8 @@
 **three clauses**: provenance at a named judge, behaviour above a prompt-blind floor, and size as a
 bound. **It is now in `STATEMENT.md`.****
 
+> **⚠ F3 REPAIRED BY R702 (check #304), one round later.** As written, F3 gave a **lower bound only** — so the formulation **admitted `topw_k6` and `topw_k8`**, sets larger than any core the release ships (card: up to four). **The mirror test found in one round what the exclusion test missed in thirty.** F3 is now a **two-sided** bound that cites the card as a scope rather than adopting 4 as the category's value. F1 and F2 stand.
+
 ## WHY THIS ROUND, AND WHY IT IS LABELLED PRODUCTION
 The drift audit returned **five consecutive corpus rounds** at the tail, and **all seven** object
 findings were already landed. **The arc had produced a thorough critique of the definition and never

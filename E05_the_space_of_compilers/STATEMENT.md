@@ -149,11 +149,15 @@ A **core** for a conversation is a set of criteria such that
 > sham** *(R694)*.
 > *Excludes:* `coval_core_sham` — the same generator with the prompt withheld.
 >
-> **F3 · SIZE AS A BOUND, NEVER A VALUE.** More than one criterion. ⚠ **No number.** The release's own
-> card gives *~95% are four* for the **instance**; the **category's** k is not resolvable from a
-> release that ships **one** core *(R689)*.
-> *Excludes:* `topw_k1` — which a bound excludes and no k-value could exclude without naming the
-> instance's own number.
+> **F3 · SIZE AS A TWO-SIDED BOUND, NEVER A VALUE** *(repaired by R702 one round after being
+> written)*. **More than one criterion, and no more than the release's own maximum.** ⚠ **No number
+> is named**: the card gives *up to four, ~95% are four* for the **instance**, and the category's k
+> is not resolvable from a release shipping **one** core *(R689)*. The ceiling **cites the card as a
+> scope**; it does not adopt 4 as the category's value.
+> *Excludes:* `topw_k1` below, and **`topw_k6` and `topw_k8` above** — ⛔ **both of which the
+> original one-sided F3 ADMITTED**, and both larger than any core the release ships *(R702)*.
+> ⭐ **This is what the mirror test found in one round that the exclusion test missed in thirty:**
+> every clause had been checked for excluding something right, none for admitting something wrong.
 >
 > ⚠ **THE LIMIT IS THE WHOLE PROJECT.** "Survives" is a judgement of this audit against this
 > statement — bookkeeping, not a measurement of the world. **A second released core is what would

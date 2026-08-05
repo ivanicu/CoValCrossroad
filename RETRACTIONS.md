@@ -17126,3 +17126,23 @@ Instrument unit: a constraint-clause pair. Claim unit: a clause that should be w
 **A second released core is what would test the formulation, and the release ships one** — which is
 constraint C1, the reason no clause may name a k, and the reason this round is production rather
 than a frontier action.
+
+## 861 · The formulation I wrote one round ago admits sets larger than any core the release ships
+F3 stated "more than one criterion" with **no upper bound**, so the formulation admitted `topw_k6`
+and `topw_k8` — 6- and 8-criterion sets, where the release's card says **up to four, ~95% four**.
+**The mirror side of §4's per-clause test found in one round what the exclusion side missed in
+thirty.** Repaired to a two-sided bound in `STATEMENT.md`; R701 annotated.
+
+## 862 · The fix is not a ceiling of four, because four is the instance's number
+Naming 4 as the category's maximum is **exactly the error constraint C1 forbids** — it is the
+released core's distribution, not the category's. The repair states *no more than the release's own
+maximum*, **citing the card as a scope rather than adopting its value**. ⚠ **The gap C1 names
+reappeared inside the repair to C1's own clause**, which is how tightly this failure mode sits to the
+correct move.
+
+## 863 · §4's remedy reads as one question and is two, and the exclusion side is the one that feels like rigour
+*Name an object this clause excludes* kills clauses; *name an object it admits* only bites once a
+formulation exists to be over-permissive. **The arc had no formulation until one round ago**, so the
+admission test had nothing to run on — and the moment it did, it fired immediately. **A test that
+cannot run yet is indistinguishable from a test that passes**, and thirty rounds of running only the
+half that worked read as thoroughness.
