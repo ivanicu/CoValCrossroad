@@ -3377,3 +3377,37 @@ neither.
 
 Separating is not being right. Whether this predicate is the one a definition of core should use is
 construct validity and is impossible at this site.
+
+## R716 · What the provenance statistic can and cannot resolve
+
+R715 found a per-instance predicate that separates: the share of a core's criteria appearing verbatim
+in its own full rubric. R716 prices what that share can support, because a quantity that varies is not
+thereby a quantity that resolves.
+
+The share is quantised. With criteria counts of two, three or four, the ratio can take exactly seven
+values — zero, a quarter, a third, a half, two thirds, three quarters and one — and that count is
+forced before any data is read rather than observed. All seven do appear, which is the measurement.
+The smallest non-zero value a single instance can take is **0.2500**, against a population mean of
+**0.0655**: a ratio of **3.82**. So no single instance can express a value near the mean, which is
+carried entirely by the minority that overlap at all.
+
+The group mean, by contrast, is resolvable. Its bootstrap standard error over four thousand five
+hundred resamples is **0.00469**, with a ninety-five percent interval of 0.0566 to 0.0749, and the
+minimum detectable difference for an even split of the 986 is **0.040** — below the quantum. A
+between-group difference smaller than one instance's smallest step is therefore detectable in
+aggregate while a per-instance reading of the same statistic is not a fine measurement of anything.
+That is the distinction R705 had to make for the gain statistic, and it is the second time in this
+campaign that a statistic has been precise in the mean and coarse in the unit.
+
+Controls: a planted shift of one tenth is detected at unity, with a no-shift floor of 0.07 and a
+maximal-shift ceiling of 1.00, so the eighty-percent target lies strictly inside a real band; a shift
+of exactly zero rejects at 0.07 against a two-alpha bound of 0.10; shuffling the group labels at
+fixed sizes gives a ninety-five percent interval of minus 0.0171 to plus 0.0181, containing zero, so
+no split of these instances shows a difference by itself; and the same question asked of the full
+rubric against itself, which is identically one, returns a bootstrap standard error of exactly zero,
+which is what the machinery should return when there is nothing to resolve.
+
+No analysis choice can improve the quantum. It follows from the release's own bound of at most four
+criteria per core, so only a release shipping larger cores could reduce it. The raw match count,
+swept as the other side of that bound, has a minimum detectable difference five to seven times worse
+and degrades as the split becomes uneven, while the share's does not.

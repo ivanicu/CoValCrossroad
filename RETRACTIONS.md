@@ -17847,3 +17847,38 @@ one has none, and the separating predicate that does exist belongs to neither.
 
 ⚠ **And separating is not being right.** Whether this predicate is the one a definition of core should
 use is construct validity, and it is impossible here.
+
+## 915 · "the first per-instance quantity that varies" — false, and R714 measured the counterexample
+
+R715's NEXT line called the provenance overlap the first per-instance quantity in this campaign that
+varies. **`k` varies — 2, 3 and 4 over the 986 — and R714 measured it one round earlier.**
+
+**Sixth false closing claim in this arc**, and the second after "a single arm pair" that carries **no
+quantifier a word list could catch**: it is a **precedence** claim — *first* — not a count or a
+superlative over a set. ⚠ Three species of closing-sentence failure are now on record: an over-reach
+with a quantifier (873, 892, 893, 907), a **miscount** (899), and a **precedence claim** (this).
+Only the first is detectable by the gate, which is why R710 refused to extend its word list and why
+that refusal still stands.
+
+## 916 · and "seven distinct values" was a derivation I reported as an observation
+
+With `k ∈ {2,3,4}` the share `m/k` can take exactly `{0, ¼, ⅓, ½, ⅔, ¾, 1}` — **seven values, forced
+before any data is read.** That all seven are *observed* is the measurement; that there are seven is
+arithmetic. I reported the count as though the corpus had produced it.
+
+## 917 · what the provenance statistic can and cannot resolve
+
+- **Quantum** — the smallest non-zero value one instance can take — is **0.2500**, against a
+  population mean of **0.0655**: **3.82×**. **No single instance can express a value near the mean**,
+  which is carried entirely by the minority that overlap at all.
+- **The group mean is resolvable**: bootstrap SE **0.00469** over 4500 resamples, 95%
+  `[0.0566, 0.0749]`, and the **MDE for a 493/493 split is 0.040 — below the quantum.**
+
+⭐ **So a between-group difference smaller than one instance's smallest step is detectable in
+aggregate, while a per-instance reading of the same statistic is not a fine measurement of anything.**
+That is the distinction R705 had to make for the gain statistic, and it is the second time this arc a
+statistic has been precise in the mean and coarse in the unit.
+
+⚠ **No analysis choice can improve the quantum** — it follows from `k ≤ 4`, the release's own bound.
+Only a release shipping larger cores could. ⚠ And the raw match count, swept as the other side of the
+bound, has an MDE 5–7× worse that **degrades with the split** while the share's does not.
