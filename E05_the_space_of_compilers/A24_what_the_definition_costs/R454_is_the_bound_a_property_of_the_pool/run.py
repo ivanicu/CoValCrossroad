@@ -78,7 +78,7 @@ CONTROLS
 MULTIPLICITY  6 breadths x 4 selectors x 5 seeds; the whole grid printed, no cell selected.
 ARTIFACT      results/r454_breadth.json
 IMPOSSIBLE HERE, NAMED
-    * a second prompt-blind family with breadth -- exactly one exists; would require generating and
+    * a second prompt-blind family with breadth -- exactly one exists; would require generating and  REQUIRES: SECOND_FAMILY
       scoring >=16 new prompt-blind criteria, which is a generation job with its own assumptions.
     * whether `promptecho` is prompt-blind -- its provenance is not in the source that was searched.
 """

@@ -73,7 +73,7 @@ ARTIFACT      results/r458_explainability.json
 IMPOSSIBLE HERE, NAMED
     * a statement about features not in the set -- no finite design makes it, and the announced
       "nothing observable" was exactly that.
-    * semantic features of the prompt -- would need an embedding model; the round is confined to what
+    * semantic features of the prompt -- would need an embedding model; the round is confined to what  REQUIRES: INTERVENTION
       is computable from the release without a second instrument.
 """
 from __future__ import annotations

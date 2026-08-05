@@ -86,7 +86,7 @@ ARTIFACT      results/r464_clause_one.json
 IMPOSSIBLE HERE, NAMED
     * whether a real GENERATOR would ever produce an ①-failing object -- needs a generator, and this
       round deliberately constructs adversarially instead.
-    * clause ①'s behaviour on the second release -- the rubric does not exist there (R433).
+    * clause ①'s behaviour on the second release -- the rubric does not exist there (R433).  REQUIRES: SECOND_RELEASE
 """
 from __future__ import annotations
 import hashlib, itertools, json, pathlib, subprocess, sys

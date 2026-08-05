@@ -77,9 +77,9 @@ CONTROLS
 MULTIPLICITY  every arm with texts, grouped into 3 classes; all printed, nothing selected.
 ARTIFACT      results/r469_containment_degenerate.json
 IMPOSSIBLE HERE, NAMED
-    * ruling out every possible ③-instrument -- this rules out ONE, by showing it constant on ③'s
+    * ruling out every possible ③-instrument -- this rules out ONE, by showing it constant on ③'s  SCOPE_ONLY
       partition. Another instrument would need its own round.
-    * classifying the UNKNOWN arms -- that is precisely what this round shows containment cannot do.
+    * classifying the UNKNOWN arms -- that is precisely what this round shows containment cannot do.  REQUIRES: PROVENANCE_FIELD
 """
 from __future__ import annotations
 import json, pathlib, re, subprocess, sys

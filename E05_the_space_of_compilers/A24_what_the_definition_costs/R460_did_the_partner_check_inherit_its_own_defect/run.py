@@ -23,7 +23,7 @@ ESTIMAND (named before the method)
 
 IDENTIFICATION
     Identified and exhaustive: the population of size-4 prompt-blind sets from this pool IS 1,820 and
-    all are computed. ⚠ NOT identified: comparators outside this pool -- R454 established that
+    all are computed. ⚠ NOT identified: comparators outside this pool -- R454 established that  RESTATES: R454
     exactly one prompt-blind family with breadth exists on this site.
 
 SCOPE  population : 968 prompts with >=4 annotators; comparators = all 1,820 size-4 pool subsets

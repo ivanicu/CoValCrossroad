@@ -75,7 +75,7 @@ MULTIPLICITY  3 arms x 5 splits; plus the covariate table, reported whole and us
               the gate opens.
 ARTIFACT      results/r457_reliability.json
 IMPOSSIBLE HERE, NAMED
-    * separating conversation structure from annotator-pool structure -- both halves are drawn from
+    * separating conversation structure from annotator-pool structure -- both halves are drawn from  REQUIRES: MORE_ANNOTATORS
       the same pool; would need two independent annotator pools per prompt.
     * a covariate that is a function of the target -- inadmissible by construction, not missing.
 """

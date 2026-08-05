@@ -72,7 +72,7 @@ MULTIPLICITY  7 annotator counts x 5 arms x 3 seeds; the whole grid printed, not
 ARTIFACT      results/r456_annotators.json
 IMPOSSIBLE HERE, NAMED
     * more annotators than the release ships -- 18,384 is the ceiling and this round reaches it.
-    * whether the ANNOTATORS are right -- construct validity needs a standard outside the release.
+    * whether the ANNOTATORS are right -- construct validity needs a standard outside the release.  REQUIRES: GOLD_STANDARD
 """
 from __future__ import annotations
 import hashlib, itertools, json, pathlib, subprocess, sys

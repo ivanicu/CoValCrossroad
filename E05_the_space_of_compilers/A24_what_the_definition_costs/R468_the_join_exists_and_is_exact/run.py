@@ -68,7 +68,7 @@ CONTROLS
 MULTIPLICITY  one join, three validations (joined / random / self); all printed.
 ARTIFACT      results/r468_exact_join.json
 IMPOSSIBLE HERE, NAMED
-    * proving a joined pair is the same release object -- shared criteria and high conversation
+    * proving a joined pair is the same release object -- shared criteria and high conversation  REQUIRES: CROSS_SPACE_KEY
       similarity are evidence; the release ships no cross-space key to settle it.
     * joining the 18 rubric-space records with no ranking-space partner -- 986 > 968, and the
       surplus is reported rather than explained away.

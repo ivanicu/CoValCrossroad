@@ -65,8 +65,8 @@ CONTROLS
 MULTIPLICITY  3 readings over one set; all printed. No selection, nothing to correct.
 ARTIFACT      results/r470_extension_interval.json
 IMPOSSIBLE HERE, NAMED
-    * deciding which reading is correct -- a definitional choice, not a measurable fact.
-    * a ground-truth extension -- none exists; hence no positive control, said plainly.
+    * deciding which reading is correct -- a definitional choice, not a measurable fact.  SCOPE_ONLY
+    * a ground-truth extension -- none exists; hence no positive control, said plainly.  REQUIRES: SECOND_CORE
 """
 from __future__ import annotations
 import json, pathlib, subprocess, sys

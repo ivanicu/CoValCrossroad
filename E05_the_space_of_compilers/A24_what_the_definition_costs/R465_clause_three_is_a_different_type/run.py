@@ -74,8 +74,8 @@ CONTROLS
 MULTIPLICITY  2 selector pairs x 3 seeds x {forced, choice}; all printed.
 ARTIFACT      results/r465_clause_three_type.json
 IMPOSSIBLE HERE, NAMED
-    * a natural collision rate for a real generator -- needs a generator; this constructs instead.
-    * checking ③ on an object without its construction history -- that is the finding, not a gap.
+    * a natural collision rate for a real generator -- needs a generator; this constructs instead.  REQUIRES: GENERATOR
+    * checking ③ on an object without its construction history -- that is the finding, not a gap.  REQUIRES: PROVENANCE_FIELD
 """
 from __future__ import annotations
 import hashlib, itertools, json, pathlib, subprocess, sys
