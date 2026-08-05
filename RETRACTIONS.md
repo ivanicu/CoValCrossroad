@@ -17448,3 +17448,60 @@ the right span for the right reason.
 of instrument work resolve to one missing character class, and the two instrument *findings* raised
 along the way were one retraction (verbosity) and one genuine discovery (chance proximity) that
 nobody was looking for.
+
+## 888 · R707's proposed method was inadmissible, and saying so was the round
+
+R707 closed by proposing I "sample the flagged and unflagged lines blind, judge them by hand against
+the rule the gate claims to enforce". **I wrote that rule and I wrote the gate.** A hand-judgement by
+me correlates with the detector by construction — it would have measured my consistency and been
+reported as the gate's validity. Self-review is void, not weak, and independent judges were
+unavailable.
+
+⭐ The substitute is better than the proposal and it was already on disk: **every round opens with a
+CHECK on the previous round's NEXT line and records whether it held**, by a process that never
+consults the gate. 110 numbered checks (#192–#309), 34 naming a target with a headline, 27
+classifiable. **Criterion validity — the row §2 marks structurally impossible — turned out to be
+partially available, because the project had been generating the labels for 110 rounds without
+anyone noticing they were labels.**
+
+## 889 · the gate caught 2 of the 15 NEXT lines this project later recorded FALSE
+
+Sensitivity **0.1333**, Wilson 95% **[0.037, 0.379]**. Lines that later held: **0 of 12** flagged.
+Gap **+0.1333** against a permutation null of [−0.1667, +0.1333], p = 0.4735, and this design's MDE
+at 80% power is **0.300** — so the gap is **not readable** and neither "the gate works" nor "the gate
+is inert" is supported.
+
+⭐ **One number is readable and it is the useful one: the upper bound.** The gate catches **at most
+~38%** of the NEXT lines this project later called false, and that bound does not depend on the gap
+being resolvable. ⚠ The point estimate sits **below** the corpus base rate 0.2772, so the registered
+directional FAILS; and across three defensible extractors the gap runs **−0.2000 to +0.1333**.
+**Sign instability across specifications is what an unreadable effect looks like**, and it is
+reported rather than resolved by choosing a cell.
+
+## 890 · my verdict string inverted R707's own number, one round after quoting it
+
+R708's first verdict said "R707's finding that **24%** of flagging survives word-scrambling". R707
+measured **76%** — I wrote `1 - 0.758` and read the complement as the quantity. §4's *the verdict
+string is not a computation*, on a number from the immediately preceding round, in the round whose
+subject is whether a detector's output means anything.
+
+**The tell, and it is worth more than the fix:** the inverted figure still read as supporting the
+same conclusion. A number that flatters the sentence either way is a number nobody re-derives.
+
+## 891 · what five rounds on this gate actually produced
+
+R704 → R708 were spent on an instrument, not on the object, after the gate let a false quantifier
+through. Standing at the end:
+
+- **the extractor was the whole defect** — the predicate flags `20d1d1f`'s "the only" correctly, and
+  always could have; 65 of 1270 commits were simply unreadable to it (R706, R707);
+- **the verbosity finding is retracted** — the 9.6× rise across length deciles is 5.3× opportunity
+  count × 1.8× residual, and the normalisation I proposed would have broken a working detector
+  (R707, ledger 884);
+- **the real defect was found by a control nobody asked for** — 76% of the flagging survives
+  scrambling word order (R707, ledger 885);
+- **its sensitivity has a ceiling** — at most ~38% of later-falsified NEXT lines, 2 of 15 caught
+  (this round).
+
+⚠ **And the object has not moved since R703.** The three-clause formulation is where it was. That is
+the cost of this arc, stated plainly rather than folded into the instrument's win column.

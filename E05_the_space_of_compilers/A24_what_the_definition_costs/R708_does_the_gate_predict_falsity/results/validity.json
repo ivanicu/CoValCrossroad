@@ -1,0 +1,531 @@
+{
+ "world": "⭐⭐⭐ D UNRESOLVED, AND THE MDE IS THE FINDING. On the 27 NEXT lines this project has itself judged — 15 later recorded FALSE, 12 recorded to HOLD — the gate flags 0.133 of the false ones and 0.000 of the true ones, a gap of +0.1333. ⛔ This design's MDE at 80% power is 0.300, so a gap of that size IS NOT READABLE HERE and neither 'the gate works' nor 'the gate is inert' is supported. ⭐ WHAT IS SUPPORTED IS THE BOUND: with n=15 false and n=12 held, this corpus could not have detected criterion validity unless it were very large. ⭐⭐ BUT ONE NUMBER HERE IS RESOLVABLE AND IT IS THE USEFUL ONE: the Wilson 95% interval on sensitivity is [0.037, 0.379], so the gate catches AT MOST 38% of the NEXT lines this project later recorded FALSE — an upper bound, and it does not depend on the gap being readable. ⚠ The point estimate 0.133 is BELOW the corpus base rate 0.2772, so the registered directional FAILS, and across the three extractor specifications the gap runs -0.2000 to +0.1333 — SIGN-UNSTABLE, which is what an unreadable effect looks like. ⚠ R707's word-scramble result — that 76% of this gate's flagging survives destroying word order — remains the strongest evidence about it that exists. ⚠ AND THE LABELS ARE NOT INDEPENDENT OF ME: they are independent of the GATE, which is the confound this design controls and the only one. An external judge remains impossible here. ⚠ UNIT GAP: instrument unit is A NEXT PARAGRAPH, claim unit is THE GATE'S PREDICTIVE VALIDITY.",
+ "controls_ok": true,
+ "tree_sha": "e916c7e6baee19f4d6c0cac3f608650da529677e",
+ "n_checks": 34,
+ "n_labelled": 27,
+ "n_abstain": 7,
+ "n_target_without_next": 0,
+ "two_by_two": {
+  "false_flagged": 2,
+  "false_total": 15,
+  "held_flagged": 0,
+  "held_total": 12,
+  "sensitivity": 0.13333333333333333,
+  "false_rate": 0.0,
+  "gap": 0.13333333333333333,
+  "wilson_false": [
+   0.0373604698913593,
+   0.3788249920651624
+  ],
+  "wilson_held": [
+   0.0,
+   0.2425007574992425
+  ]
+ },
+ "mde": 0.3,
+ "mde_curve": [
+  {
+   "true_gap": 0.0,
+   "power": 0.24333333333333335
+  },
+  {
+   "true_gap": 0.05,
+   "power": 0.33166666666666667
+  },
+  {
+   "true_gap": 0.1,
+   "power": 0.4483333333333333
+  },
+  {
+   "true_gap": 0.15,
+   "power": 0.5816666666666667
+  },
+  {
+   "true_gap": 0.2,
+   "power": 0.6983333333333334
+  },
+  {
+   "true_gap": 0.25,
+   "power": 0.785
+  },
+  {
+   "true_gap": 0.3,
+   "power": 0.87
+  },
+  {
+   "true_gap": 0.35,
+   "power": 0.9333333333333333
+  },
+  {
+   "true_gap": 0.4,
+   "power": 0.9616666666666667
+  },
+  {
+   "true_gap": 0.45,
+   "power": 0.9883333333333333
+  },
+  {
+   "true_gap": 0.5,
+   "power": 0.995
+  },
+  {
+   "true_gap": 0.55,
+   "power": 0.9983333333333333
+  },
+  {
+   "true_gap": 0.6,
+   "power": 1.0
+  },
+  {
+   "true_gap": 0.65,
+   "power": 1.0
+  },
+  {
+   "true_gap": 0.7,
+   "power": 1.0
+  },
+  {
+   "true_gap": 0.75,
+   "power": 1.0
+  },
+  {
+   "true_gap": 0.8,
+   "power": 1.0
+  },
+  {
+   "true_gap": 0.85,
+   "power": 1.0
+  },
+  {
+   "true_gap": 0.9,
+   "power": 1.0
+  },
+  {
+   "true_gap": 0.95,
+   "power": 1.0
+  },
+  {
+   "true_gap": 1.0,
+   "power": 1.0
+  }
+ ],
+ "resolvable": false,
+ "sham_gap_null95": [
+  -0.35000000000000003,
+  0.3666666666666667
+ ],
+ "permutation_null95": [
+  -0.16666666666666666,
+  0.13333333333333333
+ ],
+ "p_permutation": 0.47350883038987,
+ "noise_floor_sham_spread": 0.7166666666666668,
+ "rows": [
+  {
+   "n": 258,
+   "target": "R656",
+   "headline": "AND ONE OF THEM IS THE",
+   "by": "R657_bind_the_function_local_bases",
+   "label": "ABSTAIN",
+   "has_commit_next": true,
+   "flag_commit": "quantifier 'every' over 'round'",
+   "flag_readme": "quantifier 'every' over 'round'",
+   "flag_commit_whole": "quantifier 'every' over 'round'"
+  },
+  {
+   "n": 271,
+   "target": "R669",
+   "headline": "AND THE",
+   "by": "R670_the_quantifier_gate_was_green_while_it_failed",
+   "label": "ABSTAIN",
+   "has_commit_next": true,
+   "flag_commit": "quantifier 'Every' over 'retraction'",
+   "flag_readme": "quantifier 'Every' over 'retraction'",
+   "flag_commit_whole": "quantifier 'Every' over 'retraction'"
+  },
+  {
+   "n": 273,
+   "target": "R671",
+   "headline": "AND IT HOLDS, WHICH IS WORTH SAYING PLAINLY.",
+   "by": "R672_is_the_freeze_a_ledger_or_a_drain",
+   "label": "HELD",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 274,
+   "target": "R672",
+   "headline": "AND IT IS FALSE, IN THE ONE CLAUSE I WAS PROUDEST OF.",
+   "by": "R673_reconcile_the_gate_against_my_own_walk",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 275,
+   "target": "R673",
+   "headline": "IT MISCOUNTED, AND THE MISCOUNT IS THE ROUND.",
+   "by": "R674_does_provenance_open_the_file_it_accepts",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 276,
+   "target": "R674",
+   "headline": "ITS POPULATION IS EMPTY.",
+   "by": "R675_a_citation_that_names_a_filetype_not_a_file",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 278,
+   "target": "R676",
+   "headline": "ITS CAUSAL ATTRIBUTION WAS ASSERTED, NEVER CHECKED.",
+   "by": "R677_four_sets_four_objects_not_four_readings",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 279,
+   "target": "R677",
+   "headline": "IT HOLDS.",
+   "by": "R678_git_supplies_the_lineage_the_artifacts_omit",
+   "label": "HELD",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": "quantifier 'all' over 'round'"
+  },
+  {
+   "n": 280,
+   "target": "R678",
+   "headline": "ITS CITATION NAMES THE WRONG FIELD.",
+   "by": "R679_the_deliverable_prints_one_number_for_two_sets",
+   "label": "ABSTAIN",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 281,
+   "target": "R679",
+   "headline": "THE PROPOSED TEST IS BLIND, KILLED BY A GAUGE TEST FOR FREE.",
+   "by": "R680_citations_are_not_computations",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "bare count '22 rounds'",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 282,
+   "target": "R680",
+   "headline": "IT HOLDS.",
+   "by": "R681_fixture_or_finding",
+   "label": "HELD",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 283,
+   "target": "R681",
+   "headline": "IT HOLDS.",
+   "by": "R682_the_residue_and_what_the_arc_leaves_standing",
+   "label": "HELD",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": "quantifier 'nothing' over 'rounds'"
+  },
+  {
+   "n": 284,
+   "target": "R682",
+   "headline": "THE PROPOSAL WAS WEAKER THAN WHAT WAS ALREADY COMMITTED.",
+   "by": "R683_the_membership_null_already_existed",
+   "label": "ABSTAIN",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 285,
+   "target": "R683",
+   "headline": "IT HOLDS. `results/membership_null.json` carries `judges`, both",
+   "by": "R684_the_judge_is_not_in_the_record",
+   "label": "HELD",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 286,
+   "target": "R684",
+   "headline": "IT HOLDS. `multi_judge_rounds` lists exactly the seven, `counts`",
+   "by": "R685_do_the_two_judges_agree",
+   "label": "HELD",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 287,
+   "target": "R685",
+   "headline": "IT PROPOSED A DERIVATION AND I WROTE IT.",
+   "by": "R686_is_the_judge_recoverable_at_all",
+   "label": "ABSTAIN",
+   "has_commit_next": true,
+   "flag_commit": "bare count '81 rounds'",
+   "flag_readme": "bare count '81 rounds'",
+   "flag_commit_whole": "bare count '81 rounds'"
+  },
+  {
+   "n": 288,
+   "target": "R686",
+   "headline": "IT HOLDS. `counts.value` is 13, the field is named correctly, and",
+   "by": "R687_is_there_a_convention_to_enforce",
+   "label": "HELD",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "bare count '62 rounds'",
+   "flag_commit_whole": "quantifier 'none' over 'rounds'"
+  },
+  {
+   "n": 290,
+   "target": "R688",
+   "headline": "TWO DEFECTS, ONE OF THEM ITS PREMISE.",
+   "by": "R689_the_release_ships_one_core",
+   "label": "ABSTAIN",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 291,
+   "target": "R689",
+   "headline": "IT HOLDS. `n_published_named_in_card` is present and reads 1, the",
+   "by": "R690_which_literals_assert_the_release",
+   "label": "HELD",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 292,
+   "target": "R690",
+   "headline": "IT HOLDS. `hits` is present and carries both bindings with their",
+   "by": "R691_was_the_name_reused_or_coincident",
+   "label": "HELD",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 293,
+   "target": "R691",
+   "headline": "IT HOLDS. `results/name_reuse.json` carries both bindings, the",
+   "by": "R692_how_big_is_the_gates_blind_spot",
+   "label": "HELD",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "bare count '2 arm'",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 295,
+   "target": "R693",
+   "headline": "A GAUGE TEST KILLED THE PROPOSED ROUND AT ZERO COMPUTE.",
+   "by": "R694_the_definition_is_two_parameters_plus_the_sham",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 297,
+   "target": "R694",
+   "headline": "ITS DATA IS NOT THERE, AND FINDING THAT OUT TOOK FOUR PROBES OF",
+   "by": "R695_three_sweeps_three_wrong_quantities",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "quantifier 'all' over 'check'",
+   "flag_readme": "",
+   "flag_commit_whole": "quantifier 'all' over 'cells'"
+  },
+  {
+   "n": 298,
+   "target": "R695",
+   "headline": "IT PROPOSED A COMPARISON OVER A POPULATION OF ONE.",
+   "by": "R696_do_the_scores_and_the_verdicts_agree",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "bare count '12 arms'",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 299,
+   "target": "R696",
+   "headline": "IT HOLDS, and its instrument caveat is what shaped this round.",
+   "by": "R697_how_many_non_resolutions_were_silence",
+   "label": "HELD",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": "quantifier 'every' over 'arms'"
+  },
+  {
+   "n": 301,
+   "target": "R698",
+   "headline": "IT PROPOSED THE ACTION R698 HAD JUST PROVED HARMFUL.",
+   "by": "R699_self_inclusion_across_the_sweepers",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 303,
+   "target": "R700",
+   "headline": "IT HOLDS, and it is deferred rather than run.",
+   "by": "R701_what_formulation_the_audit_supports",
+   "label": "HELD",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 304,
+   "target": "R701",
+   "headline": "AND IT FINDS A DEFECT IN THE FORMULATION R701 WROTE.",
+   "by": "R702_what_the_formulation_wrongly_admits",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 305,
+   "target": "R702",
+   "headline": "ITS EXAMPLE IS WRONG, AND A GAUGE TEST SHOWS IT FOR FREE.",
+   "by": "R703_is_every_clause_load_bearing",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 306,
+   "target": "R703",
+   "headline": "ITS COUNTS ARE RIGHT AND ITS OWN ARTIFACT MISREPORTS THEM.",
+   "by": "R704_is_f2s_weight_our_replicate_count",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": "",
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 307,
+   "target": "R704",
+   "headline": "ITS QUANTIFIER IS FALSE AND MY OWN GATE COULD NOT SEE IT.",
+   "by": "R705_what_gain_this_design_can_detect",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "quantifier 'the only' over 'arm'",
+   "flag_readme": null,
+   "flag_commit_whole": "quantifier 'the only' over 'arms'"
+  },
+  {
+   "n": 308,
+   "target": "R705",
+   "headline": "MY OWN COUNT WAS WRONG, BY MY OWN FAILURE MODE.",
+   "by": "R706_widening_a_detector_is_an_experiment",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": null,
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 309,
+   "target": "R706",
+   "headline": "ITS CITATION DOES NOT RESOLVE.",
+   "by": "R707_is_the_length_dependence_a_bug_at_all",
+   "label": "FALSE",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": null,
+   "flag_commit_whole": ""
+  },
+  {
+   "n": 310,
+   "target": "R707",
+   "headline": "THE CITATION RESOLVES, THE PROPOSED METHOD DOES NOT.",
+   "by": "R708_does_the_gate_predict_falsity",
+   "label": "ABSTAIN",
+   "has_commit_next": true,
+   "flag_commit": "",
+   "flag_readme": null,
+   "flag_commit_whole": ""
+  }
+ ],
+ "cells": [
+  {
+   "source": "commit body",
+   "n": 27,
+   "n_false": 15,
+   "n_held": 12,
+   "gap": 0.13333333333333333
+  },
+  {
+   "source": "README ## NEXT",
+   "n": 24,
+   "n_false": 12,
+   "n_held": 12,
+   "gap": 0.0
+  },
+  {
+   "source": "commit, whole-para window",
+   "n": 27,
+   "n_false": 15,
+   "n_held": 12,
+   "gap": -0.19999999999999998
+  }
+ ],
+ "registered": "A sensitivity 0.35 [0.10,0.75]; B gap +0.10 [-0.25,+0.50]; C MDE 0.35 [0.15,0.80]; directional sensitivity > 0.2772",
+ "observed": {
+  "A": 0.13333333333333333,
+  "B": 0.13333333333333333,
+  "C": 0.3,
+  "directional": false
+ },
+ "limit": "the labels are independent of the GATE but NOT of me; an external judge is impossible here and is not substitutable by my own hand-judgement."
+}
