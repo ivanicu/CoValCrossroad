@@ -12719,3 +12719,35 @@ eventually not run.**
 ⚠ **Nothing was published wrongly** — the flagged line is a NEXT line, now frozen with its
 correction, and the round's own claims all passed their gates. **The defect is the bypass, not the
 content**, and it is recorded because the next bypass will look exactly like this one.
+
+## 399 · I was running six of forty-six gates, and a runner for all of them already existed
+
+Every commit this session ran behind a hand-typed six-clause conjunction. Last round I wrote that a
+single entry point *"does not exist yet"*. **`assurance/run_all.py` exists**, discovers **46** gates,
+runs them at 12 workers, and excludes meta-gates by design. **Retraction 1 of this same session was
+already about re-deriving a population `run_all.discover()` defines** — so this is the second time
+the same file was rebuilt rather than asked.
+
+**Of the 40 gates outside my six, classified three-valued:** **9 FAIL on real live debt** · **4
+UNRUNNABLE (exit 2, empty population — correctly refusing to pass)** · **1 UNVERIFIED because its own
+positive control broke.**
+
+⚠ **The UNVERIFIED one is not a tenth failure.** `next_gradient_labels_its_hypotheses` says nothing
+in either direction, and folding it into the count would manufacture a defect out of a broken
+instrument — the precise error P6 exists to prevent.
+
+⚠ **My classifier is imperfect and says so**: 2 of 3 "unclassified" rows are parse artifacts, not
+gates.
+
+⭐⭐⭐ **The hand-typed six were not a redundant subset of a passing whole. They were a filter, and
+nine live failures sat outside it for the entire session** — while I reported, each round, that all
+gates passed. **A subset you choose yourself is not a check; it is a sample you drew after seeing
+the population.**
+
+## 400 · I reimplemented the runner inside the round about having reimplemented the runner
+
+R561's first version ran the 40 gates in a serial loop I wrote. It died on `attack_the_suite.py`, a
+**meta-gate that runs the whole suite**, which `run_all` already knows to exclude.
+
+⭐ **The error the round was about, committed while committing it** — and it is the same shape as
+the original: **reaching for a loop instead of asking what the file already does.**

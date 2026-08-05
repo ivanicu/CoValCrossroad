@@ -1,0 +1,90 @@
+{
+  "world": "B",
+  "n_discovered": 46,
+  "n_hand_run": 6,
+  "n_unrun": 40,
+  "n_failing_unrun": 14,
+  "failing": [
+    {
+      "gate": "arm_population_is_derived",
+      "tail": "FAIL        arm_population_is_derived                        rc=1     0.6s  [LIVE-DEBT] \u26d4 NEW hand-typed arm population(s) \u2014 the d"
+    },
+    {
+      "gate": "artifacts_are_internally_coherent",
+      "tail": "FAIL        artifacts_are_internally_coherent                rc=1     4.2s  [LIVE-DEBT] 1 gate(s) failed."
+    },
+    {
+      "gate": "attack_every_check",
+      "tail": "FAIL        attack_every_check                               rc=1     2.1s  [LIVE-DEBT] no at all -- which before this script had "
+    },
+    {
+      "gate": "attack_no_withdrawn_framings",
+      "tail": "FAIL        attack_no_withdrawn_framings                     rc=1     5.1s  [BY-DESIGN] 1/1 KNOWN GAPS still open, as documented -"
+    },
+    {
+      "gate": "attack_outcome_variable_declared",
+      "tail": "FAIL        attack_outcome_variable_declared                 rc=1     4.8s  [LIVE-DEBT]   silence about the gold head, not silence"
+    },
+    {
+      "gate": "attack_scope_reaches_the_reader",
+      "tail": "FAIL        attack_scope_reaches_the_reader                  rc=1     0.3s  [LIVE-DEBT]   caught entry 57 would be decoration."
+    },
+    {
+      "gate": "code_states_a_bound_the_reader_never_sees",
+      "tail": "FAIL        code_states_a_bound_the_reader_never_sees        rc=1     4.1s  [LIVE-DEBT] Traceback (most recent call last):"
+    },
+    {
+      "gate": "every_round_reaches_the_readme",
+      "tail": "FAIL        every_round_reaches_the_readme                   rc=1     3.5s  [LIVE-DEBT] A round that ran and is never mentioned is"
+    },
+    {
+      "gate": "next_gradient_labels_its_hypotheses",
+      "tail": "FAIL        next_gradient_labels_its_hypotheses              rc=1     0.0s  [CONTROL-BROKE] POSITIVE CONTROL  the two NEXT blocks "
+    },
+    {
+      "gate": "outcome_variable_declared",
+      "tail": "FAIL        outcome_variable_declared                        rc=1     0.3s  [LIVE-DEBT] Add a scope string naming the outcome as m"
+    },
+    {
+      "gate": "registries_are_satisfied",
+      "tail": "FAIL        registries_are_satisfied                         rc=1     3.5s  [LIVE-DEBT] three bugs this check exists for all repor"
+    },
+    {
+      "gate": "retired_framing_in_emittable_source",
+      "tail": "FAIL        retired_framing_in_emittable_source              rc=1     1.7s  [LIVE-DEBT] Traceback (most recent call last):"
+    },
+    {
+      "gate": "seed_filter_is_disclosed",
+      "tail": "FAIL        seed_filter_is_disclosed                         rc=1     0.7s  [LIVE-DEBT] <unknown>:126: SyntaxWarning: invalid esca"
+    },
+    {
+      "gate": "verdict_cites_its_own_contrasts",
+      "tail": "FAIL        verdict_cites_its_own_contrasts                  rc=1     0.0s  [LIVE-DEBT] ! census missing: E03_the_instrument_was_t"
+    }
+  ],
+  "unrunnable": [
+    {
+      "gate": "donor_numbers_carry_their_draw_scope",
+      "rc": 2,
+      "tail": "UNRUNNABLE  donor_numbers_carry_their_draw_scope             rc=2     0.3s    Exit 2 \u2014 an "
+    },
+    {
+      "gate": "readme_row_carries_the_verdict",
+      "rc": 2,
+      "tail": "UNRUNNABLE  readme_row_carries_the_verdict                   rc=2     0.2s  OBSERVED NOTHI"
+    },
+    {
+      "gate": "synthesis_cites_recent_work",
+      "rc": 2,
+      "tail": "UNRUNNABLE  synthesis_cites_recent_work                      rc=2     0.0s  no rounds foun"
+    }
+  ],
+  "hand_run": [
+    "statement_provenance",
+    "residue_debt",
+    "retraction_reaches_the_artifact",
+    "definition_matches_the_record",
+    "next_line_quantifiers_are_computed",
+    "every_round_is_committed"
+  ]
+}
