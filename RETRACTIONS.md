@@ -13524,3 +13524,33 @@ that did not produce those numbers.
 rounds. **The null establishes that the bridge exists and says nothing about which direction the
 numbers travelled** — and only one of those directions is a finding; the other is a defect in the
 deliverable's provenance.
+
+## 452 · My matcher manufactured nine of thirteen "ungrounded citations"
+
+Checking whether each of the 24 cross-era shared values appears in the round `STATEMENT.md` cites for
+it, v1 reported **13 orphans of 19**. **The document rounds to four places; artifacts store full
+floats; my matcher required a PREFIX.** Every value the document rounded **up** failed. Spot-checking
+eight: **7 matched under rounded comparison.**
+
+**Corrected: 15 grounded, 4 orphan** — `0.0200 → R514`, `0.0779 → R535`, `0.5404 → R475`,
+`0.5451 → R479`.
+
+⭐⭐⭐ **A "13 of 19 citations are ungrounded" headline would have been a serious accusation against
+the deliverable's own provenance, resting entirely on my string handling.** Thirteenth instance this
+session of matching the string as I picture it — **and the first caught by asking "what would make
+this wrong?" before the write-up instead of after.**
+
+⚠ **And the positive control could not have caught it.** It passed in v1 too: one true case fires it,
+and a **systematically biased** matcher still produces true cases. **A control that asks "can this
+instrument see?" cannot detect an instrument that sees half the population** — which is §4's row,
+arriving in a new form.
+
+## 453 · What the bridge turns out to be
+
+**Of 24 values shared between the newest and oldest documents, 19 carry a citation and 15 are present
+in the cited round's own artifact.** So R589's bridge is **mostly grounded replication** — the values
+recur in later rounds' artifacts, not merely in later prose.
+
+⚠ **Four are unaccounted and are not yet a defect.** An absent value may sit in a sibling round, in a
+derived quantity, or under a differently-named key. **They are four specific checkable pairs rather
+than a diffuse worry, which is the whole gain from turning a corpus question into per-value ones.**
