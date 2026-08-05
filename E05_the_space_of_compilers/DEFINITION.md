@@ -1658,5 +1658,18 @@ fork's B-column loses the extra cost R509 gave it.
 `coval_full`.** The statistic is a subsample and may be biased. ⭐ **And that is itself a finding: the
 released core is NOT a pure subset of the full rubric**, so 93.4% of its criteria are rewritten or
 drawn from elsewhere — which R503's `coval_core (no text)` row concealed by looking in
-`corebench/results/` rather than in the release. **The claim is bounded accordingly: on every
-criterion this instrument can locate, `coval_core` selects like a label-optimiser.** *(R510)*
+`corebench/results/` rather than in the release. **The claim WAS bounded as "on every criterion this instrument can
+locate" — and that bound is not sufficient (R511).**
+
+⛔⛔ **R510's NUMBER IS DOWNGRADED TO `UNVERIFIED`, AND THE ACCUSATION AGAINST THE CARD IS
+RETRACTED.** The dataset card states the construction in full: *"Our process first **REWRITES** all
+rubric items to have positive weight and then **MERGES** semantically redundant rubric items while
+adjusting their scores. **THEN**, it aims to select up to four rubric items with the highest average
+ratings"* — plus *"LM-assisted synthesis plus human review"* and an explicit warning that the method
+*"can produce core rubrics that **drift from the data**."* **The 93.4% non-match is the documented
+REWRITE step. I quoted step three of three and called the object non-compliant with it.**
+
+**And that voids the statistic.** The 6.6% locatable subset is *exactly the criteria that survived
+rewriting unchanged* — a selection with no reason to be independent of selection position. **0.2746
+is a reading about the unrewritten remainder, not about `coval_core`.** ⭐ What survives: the released
+core's criterion text **is** in the release, so R509's "blind spot" stays retracted. *(R511)*

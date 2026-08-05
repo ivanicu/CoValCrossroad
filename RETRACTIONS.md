@@ -11218,3 +11218,33 @@ place.
 **What this does not settle:** whether the 6.6% that match are representative. A biased subsample
 could put an unbiased arm at 0.2746. **The claim is therefore: on every criterion this instrument can
 locate, `coval_core` selects like a label-optimiser.**
+
+## 339 · "The dataset card describes an operation the data does not show" — I quoted the tail of a three-step process as if it were the whole (R510 → R511)
+
+**Retracted twice over.**
+
+**① The accusation against the release.** I wrote that a core whose criteria are 93.4% absent from
+`coval_full` *"is not doing selection"*, and that the card's *"select up to four rubric items with the
+highest average ratings"* describes an operation the data does not show. **The card's own sentence
+reads: *"Our process first REWRITES all rubric items to have positive weight and then MERGES
+semantically redundant rubric items while adjusting their scores. THEN, it aims to select…"*** — and
+elsewhere: *"LM-assisted synthesis plus human review"*, *"we merge, negate, and select"*, and the
+explicit warning that *"our method can produce core rubrics that **drift from the data**."*
+
+**The 93.4% non-match is the card's REWRITE step, documented.** I quoted step three of three and
+called the object non-compliant with it. **The "truncated string read as data" failure, applied to
+documentation rather than to a print.**
+
+**② R510's measurement, downgraded to `UNVERIFIED`.** Its position statistic was computed on the
+**6.6%** of core criteria that appear verbatim in `coval_full` — which, given a documented rewriting
+step, is **exactly the subset that survived rewriting unchanged**. That is a selection on a property
+with no reason to be independent of the outcome. **`coval_core = 0.2746` is not a reading about
+`coval_core`; it is a reading about the unrewritten remainder.**
+
+⭐ **What survives from R510:** the wall it broke is still broken — the released core's criterion text
+**is** in the release (`data/conversation_rubrics.jsonl`), and R509's "blind spot" framing stays
+retracted. **What does not survive is the number, and the conclusion drawn from it.**
+
+⚠⚠ **Both halves came from the same habit in one round: reading a fragment and treating it as the
+object.** A 6.6% match rate should have been a question about the instrument before it was an answer
+about the data — and it was, for one command, before I turned it back into an accusation.
