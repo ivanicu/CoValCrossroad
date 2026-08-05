@@ -15450,3 +15450,35 @@ printed, correct, and quoted past — by me, one round ago.**
 I counted **nine** FAIL rows by eye off a truncated display; the parse says **ten**. ⭐ *An eyeball
 count of a display is the exact failure this round is about, and it survived into the round's own
 first reading.*
+
+## 644 · R647 IS RETRACTED — the suite is consistent; I truncated its output myself
+
+R647 reported *"the summary exceeds its own printed listing by exactly three."* **Reading
+`run_all.py`: lines 151–153 print every member of `buckets["FAIL"]` and line 161 counts
+`len(buckets['FAIL'])` — the same list. The summary cannot exceed the listing.**
+
+**The discrepancy was in my source.** I invoked the suite as `run_all.py 2>&1 | tail -25`, then
+treated the surviving 25 lines as its complete output. The capture contains **neither** the
+`ran N gates with N worker(s)` header **nor** the `META-gates excluded` line, both printed before the
+listing — **the three "missing" FAIL rows were cut by my own pipe.**
+
+**Corrected: FAIL 13 and LIVE-DEBT 11 are the suite's own bucket counts and were right all along.**
+
+⭐⭐⭐ **And R647 SAW the truncation and did not follow it home.** It corrected an eyeball count of
+nine to a parsed ten, wrote *"off a truncated display"* in its own README — **and still treated the
+truncated file as the population.** *I fixed the symptom and left the cause, in the same round, in
+adjacent sentences.*
+
+## 645 · The "2 of 8 are broken gates" finding is now scoped, not retracted
+
+`retired_framing_in_emittable_source` (Traceback) and `seed_filter_is_disclosed` (SyntaxWarning) are
+still mis-filed as LIVE-DEBT — that observation was read from their own messages and survives. ⚠ But
+its **denominator was wrong**: they are 2 of **11**, not 2 of 8, and **three FAIL rows were never
+seen at all**, so the count of mis-filed gates is a **lower bound** until the full listing is read.
+
+## 646 · Truncation has now cost three rounds in this arc
+
+R630 quantified over a `[:12]` print and was wrong in both directions. R646 read a mid-run `git
+status | head -3` as evidence of deletion. R647 read a `| tail -25` as a complete listing and
+accused a consistent tool of inconsistency. ⭐ **Three different truncations, three different
+commands, one failure: treating what was displayed as what exists.**
