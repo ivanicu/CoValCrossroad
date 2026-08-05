@@ -1,6 +1,6 @@
 {
  "decision": "correct the SET to match the TEXT",
- "forced_by": "R443 showed clause \u2462 as written is mechanically enforceable from select_core.py",
+ "forced_by": "R443 showed clause ③ as written is mechanically enforceable from select_core.py",
  "clause3_excludes_before": 4,
  "clause3_excludes_after": 14,
  "newly_excluded": [
@@ -30,5 +30,7 @@
   "promptecho_sham"
  ],
  "n_arms": 42,
- "adversary": "unavailable \u2014 [unchallenged]"
+ "adversary": "unavailable — [unchallenged]",
+ "world": "③ RECONCILED — the clause-③ exclusion set is DERIVED from the generating source, not hand-listed: it moves 4 → 14 arms, taking the extension 5 → 1. Newly excluded: ['topabs_k4', 'topw_k1', 'topw_k12', 'topw_k2', 'topw_k3', 'topw_k4', 'topw_k4_sham', 'topw_k6', 'topw_k8', 'topwvar_k4']. Unknown provenance at the time: ['coval_core', 'coval_core_sham', 'gen', 'gen_sham', 'generic', 'promptecho', 'promptecho_sham'].",
+ "world_note": "Added when a later round cited R444 from STATEMENT.md and the provenance gate reported 'no artifact'. This round predates the `world` convention and stored its verdict under `decision`, which is preserved unchanged above. The `world` string is COMPUTED from the fields in this file, so it cannot drift from them."
 }

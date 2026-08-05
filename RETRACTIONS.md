@@ -10916,3 +10916,33 @@ all session is running the count before writing the sentence**, and it takes one
 **What the deliverable now says instead:** the fork is stated as a fork, priced on both sides, with
 the open empirical question named — *a candidate instrument must first be shown to rank `oracle_k4`
 at an extreme* — as the thing that would dissolve it.
+
+## 329 · "no third party can ever verify a core" — B is verifiable from a DIFFERENT artifact, not unverifiable
+
+**Retracted:** the B-column of the formulation fork as first written — *"checkable by a third party
+holding only the artifact: **no**"*, glossed as *"no one handed a criterion set can ever tell you
+whether it is one."*
+
+**Corrected, and it is a derivation from two measured facts rather than a new measurement:** the ③
+verdict for every arm here is **derived from the generating source** *(R444 — the exclusion set moves
+4 → 14 arms once derived rather than hand-listed, taking the extension 5 → 1)*, and the release
+**declares its own core's provenance in its dataset card** — *"select up to four rubric items with
+the highest average ratings"* *(R475)*. **③ is checked the way every provenance standard is checked:
+by attestation and inspection of the producer.**
+
+⭐⭐⭐ **The error was a category slip, and it inflated the fork's stakes.** *"Cannot be verified"* and
+*"cannot be verified from the product alone"* are different claims. The first makes B sound
+epistemically defective; the second says only **what must be shipped alongside the criteria** — which
+is an ordinary requirement met by chain-of-custody, preregistration and certification everywhere.
+**The fork's two columns are now symmetric in kind and differ in cost: A ships the product, B ships
+the product and its producer.**
+
+⚠ **And the sentence was, again, the closing one.** *"Nobody has asked what B costs in practice"* was
+the previous report's `NEXT` line. Checking it took one grep and found the answer already in the
+record. **Seventh closing-quantifier correction this session.**
+
+⭐ **The gate caught the cost of the fix, too.** Citing R444 from `STATEMENT.md` made
+`statement_provenance.py` report `R444: no artifact` — that round predates the `world` convention and
+stored its verdict under `decision`. A `world` string **computed from the file's own fields** was
+added beside the original, which is preserved. **Same class as R502's flag two rounds ago: a
+convention drift that only surfaces when someone new cites the round.**

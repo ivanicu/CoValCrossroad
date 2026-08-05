@@ -52,7 +52,7 @@ record prices both.**
 |---|---|---|
 | what it is a predicate on | a criterion set | a **(set, construction history)** pair |
 | extension here | **5** arms (①∧②∧④) | **0** |
-| checkable by a third party holding only the artifact | **yes** | **no** — and this is a derivation, not a limitation of effort |
+| what must be shipped for a third party to check it | **the criterion set** | **the criterion set AND its producer** — the generating code or a provenance declaration |
 | what it admits that you may not want | arms that **read the human labels** — but their criteria are **100% verbatim items from the prompt's own rubric** *(R503)*: the **right** criteria, selected for the wrong reason. The cost of A is **provenance, not quality** | nothing; it admits nothing here |
 | why the extension is what it is | the label-readers are the only arms clearing the ceiling *(R485)* | the site ships **one** admissible prompt-responsive generator *(R502)* |
 
@@ -74,8 +74,19 @@ the ③-**admissible** `random_k*` arms, while `gen` and `generic` draw **0.0%**
 inhabit the same object space and differ only in the selection map.** There is no textual property to
 check because there is no textual difference to find. *(R503)*
 
-**What the choice costs, in one line each.** Choose **A** and a set that read the answer key is a
-core. Choose **B** and no one handed a criterion set can ever tell you whether it is one.
+⭐⭐⭐ **AND B'S COST IS NOT "UNVERIFIABLE" — IT IS "VERIFIABLE FROM A DIFFERENT ARTIFACT".** This is
+a **derivation** from two measured facts, labelled as one: the ③ verdict for every arm here is
+**derived from the generating source** *(R444)*, and the release **declares its own core's provenance
+in its dataset card** — *"select up to four rubric items with the highest average ratings"* *(R475)*.
+So ③ is checked the way every provenance standard is checked — by **attestation and inspection of the
+producer**, never by looking harder at the product. **The earlier framing, "no third party can ever
+verify a core", overstated it: what is impossible is verifying from the criterion set ALONE, which is
+a statement about what must accompany the object, not about whether the property can be known.**
+
+**What the choice costs, in one line each.** Choose **A** and a criterion set that read the answer key
+counts as a core — though R503 shows those are **verbatim human rubric items**, so the cost is
+provenance, not quality. Choose **B** and a core is only ever as trustworthy as the **producer** you
+are shown alongside it.
 
 ---
 
