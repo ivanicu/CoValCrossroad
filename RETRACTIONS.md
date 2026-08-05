@@ -11594,3 +11594,35 @@ same way.** ① was *measured* redundant across 41 arms with a mechanism and a m
 been placed where it could fail. **Folding UNVERIFIED into OVERTURNED manufactures a false acquittal;
 folding it into ESTABLISHED manufactures a false clause.** The definition is **② ③, with ④ carried
 as unverified.**
+
+## 351 · A false UNVERIFIED — ④ is redundant at home, measured, and R517's wall was one merge away
+
+**R517 concluded ④'s independence "has never been observable" in either population, and closed by
+raising a wall: *"settling ④ needs a scoring run rather than a reanalysis."* Both are wrong.**
+
+**The wall, tested first per the attack ladder: 41 arms already carry both a ② verdict (R294) and a
+④ score (R436), and at the home judge ②'s marginal is 9, not 0.** The joint was one merge away, and
+no scoring run was ever needed.
+
+**The substance.** Among the 9 arms passing ②, the margin over ④'s bar in units of each arm's own
+MDE runs **4.90× (`topw_k8`) to 8.65× (`oracle_k4`)**, against a pre-registered kill at 2.00×.
+**So "④ excludes 0 of 56 at home" is a measurement with power, not a resolution limit.**
+
+⭐ **The negative control is what makes that admissible:** the scale *does* place an arm below ④'s
+bar — `promptecho_sham` at **d = −0.0106**. ⚠ It is **under-resolved** (|d|/MDE = 0.29) **and fails
+②**, so it cannot populate the informative cell in either direction. Without that check, "0 excluded"
+would have been silence.
+
+⭐⭐⭐ **④ is REDUNDANT at the judge the definition names — ①'s status, by a different route.** ①
+because its bar sits below ②'s; ④ because its bar sits **so far** below (0.0687 under the weakest of
+②'s 1,820 subsets, R439) that only arms ② already rejects come near it.
+
+⚠ **What R517 got right and is retained:** on the **second release** ④ is genuinely unidentified,
+because ② admits 0 of 7 *(R434)*. One population answered, one cannot.
+
+**The reusable lesson, and it is the mirror of the one this ledger usually records.** Every previous
+entry here is a claim that was too strong. **This one was too weak, and being too weak is not free:
+a false UNVERIFIED manufactures work.** A false acquittal is permanent because nobody re-examines a
+cleared claim; a false *unverified* is expensive because everybody re-runs it — and it invented a
+scoring run the record had already answered. **§4 warns against over-correcting into the opposite
+story; caution is a direction, not a safe harbour.**

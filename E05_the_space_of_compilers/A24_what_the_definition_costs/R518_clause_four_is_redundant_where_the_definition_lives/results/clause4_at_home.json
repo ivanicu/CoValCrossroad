@@ -1,0 +1,27 @@
+{
+  "n_join": 41,
+  "n_pass2": 9,
+  "wall_false": true,
+  "below_bar": {
+    "promptecho_sham": {
+      "d": -0.010608598548297038,
+      "mde": 0.037163473445009816,
+      "ok2": false
+    }
+  },
+  "margins_in_mde": {
+    "coval_core": 5.164135308237709,
+    "greedy_k4_fit1": 7.947591186817398,
+    "indep_k4_fit1": 6.991010776499192,
+    "oracle_k4": 8.64645567799009,
+    "oracle_k4_fit1": 7.940670348707739,
+    "topw_k3": 5.074925027307867,
+    "topw_k4": 5.075015470763117,
+    "topw_k6": 5.334654169757653,
+    "topw_k8": 4.901777573108029
+  },
+  "min_margin": 4.901777573108029,
+  "max_margin": 8.64645567799009,
+  "world": "B",
+  "second_release": "still unidentified -- \u2461 admits 0 of 7 (R434)"
+}

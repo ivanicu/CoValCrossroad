@@ -1852,3 +1852,38 @@ is ② ③ with ④ carried as unverified** — dropping it would be as unwarran
 
 **What would settle it:** arms that clear the blind-pool bar scored against the criterion-free rules
 on the same release. That is a scoring run, and it is the cheapest open item in the register.
+
+---
+
+## R518 · ④ is redundant at home, and R517 under-claimed
+
+**R517's wall — "settling ④ needs a scoring run rather than a reanalysis" — is false.** **41 arms
+carry both a ② verdict (R294) and a ④ score (R436)**, and at the home judge **②'s marginal is 9,
+not 0**. The joint was one merge away.
+
+**Among the 9 arms passing ②, the margin over ④'s bar in units of each arm's own MDE:**
+
+| | margin |
+|---|---|
+| `topw_k8` (smallest) | **4.90×** |
+| `coval_core` | 5.16× |
+| `oracle_k4` (largest) | **8.65×** |
+
+**Pre-registered kill was 2.00×.** So "④ excludes 0 of 56 at home" is a **measurement with power**,
+not a resolution limit — ④ cannot exclude a ②-passer here.
+
+**Negative control:** the scale does place an arm below ④'s bar — `promptecho_sham` at d = −0.0106.
+⚠ But it is **under-resolved** (|d|/MDE = 0.29) **and fails ②**, so it cannot populate the
+informative cell in either direction.
+
+⭐⭐⭐ **④ is REDUNDANT at the judge the definition names — the same status as ①, by a different
+route.** ① is redundant because its bar sits *below* ②'s; ④ because its bar sits **so far** below
+(0.0687 under the weakest of ②'s 1,820 subsets, R439) that only arms ② already rejects come near it.
+
+⚠ **On the second release ④ remains genuinely unidentified** — ② admits 0 of 7 *(R434)*, so nothing
+there can distinguish the clauses. Unchanged from R517.
+
+**Correction to R517, and the direction matters.** It marked ④ UNVERIFIED in *both* populations,
+which is right for one and wrong for the other. **A false UNVERIFIED manufactures work**: it invented
+a scoring run that the record already answered. A false acquittal is permanent because nobody
+re-examines a cleared claim; a false *unverified* is expensive because everybody re-runs it.
