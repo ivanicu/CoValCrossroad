@@ -1513,3 +1513,34 @@ stands as a number; what it measured was the floor.
 
 ⚠ *That closing sentence was published unconditionally one round earlier and was corrected by
 attacking it rather than by building on it. It had survived exactly one round.*
+
+
+⛔⛔⛔ **AND THE RECOMMENDATION THAT RESTED ON THE PREDICTION CEILING IS WITHDRAWN, ONE ROUND AFTER IT
+WAS MADE (R504).** The campaign recommended reading ② over ③-dropping because `oracle_k4` (**0.6282**)
+exceeded the Bayes ceiling for any predictor (**0.6132**). Recomputed **in one process, on one
+population of 968 prompts, with one hold-out convention and three seeds**:
+
+| quantity | recomputed | seed range | as quoted |
+|---|---|---|---|
+| held-out ceiling (majority of the non-held-out annotators) | **0.6466** | [0.6408, 0.6534] | 0.6132 |
+| in-sample ceiling (scored annotator included — the biased one) | **0.6886** | [0.6801, 0.6971] | 0.6520 |
+| `oracle_k4` | **0.6325** | [0.6279, 0.6355] | 0.6282 |
+| random predictor | **0.3321** | [0.3275, 0.3411] | — |
+| ceiling on shuffled annotator assignment | **0.4144** | [0.4005, 0.4225] | — |
+
+**Gap `−0.0141` against a measured noise floor of `0.0220`: `oracle_k4` sits BELOW the ceiling, and
+the difference is inside the floor.** Controls all pass and all could fail — the in-sample ceiling
+exceeds the held-out one by more than the floor, which is the control that would have caught a
+silently biased ceiling; the shuffled ceiling falls toward chance; the random predictor lands at
+0.3321 rather than at zero.
+
+⭐ **The recommendation's own text named this as the first check an attacker should run. I wrote that
+sentence and did not run it** — and it is the same error as two rounds earlier, when `coval_core`
+0.6044 (per-criterion sign agreement) was set against an A2 ceiling. **Twice in three rounds, the
+second time with my own warning already in the artifact.**
+
+⚠ **Three-valued, because the attack must not be over-trusted either.** Both recomputed figures come
+in *higher* than the quoted ones — a systematic offset rather than noise, so this instrument differs
+from the campaign's in a convention not yet isolated. **CONFIRMED: the two compared numbers are not
+comparable, which suffices to withdraw. UNVERIFIED: whether `oracle_k4` exceeds the ceiling under the
+campaign's own instrument.** *(R504)*

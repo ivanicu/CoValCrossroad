@@ -10946,3 +10946,37 @@ record. **Seventh closing-quantifier correction this session.**
 stored its verdict under `decision`. A `world` string **computed from the file's own fields** was
 added beside the original, which is preserved. **Same class as R502's flag two rounds ago: a
 convention drift that only surfaces when someone new cites the round.**
+
+## 330 · The recommendation of reading B — withdrawn one round after it was made, by the check it named itself (R504)
+
+**Retracted:** *"B. Not on taste — on an inequality between two measured quantities. The Bayes ceiling
+for any predictor is 0.6132; `oracle_k4`, which reading A admits, scores 0.6282 — above it by more
+than the resolution."*
+
+**Recomputed in ONE process, on ONE population (968 prompts), with ONE hold-out convention, 3 seeds:**
+held-out ceiling **0.6466**, `oracle_k4` **0.6325**. **Gap −0.0141 against a measured floor of 0.0220
+— `oracle_k4` is BELOW the ceiling, and the difference is inside the floor.** All four controls pass
+and all could fail; in particular the in-sample ceiling (0.6886) exceeds the held-out one, so the
+hold-out is genuinely applied.
+
+⭐⭐⭐ **The recommendation named this check in its own text — *"it is void if the two numbers are not
+on the same population and statistic; checking that is the first thing anyone attacking this should
+do"* — and I did not run it.** Writing the caveat felt like discharging it. **A stated void condition
+is not a control; it is a promise, and an unkept promise reads exactly like a kept one on the page.**
+
+⭐ **Same error as entry 329's neighbourhood, two rounds earlier**, where `coval_core` **0.6044**
+(per-criterion sign agreement) was compared against an A2 ceiling. **Twice in three rounds, and the
+second time the warning was already written by me, in the artifact, one paragraph above.**
+
+⚠ **The attack is not over-trusted either, per §3.** Both recomputed figures come in **higher** than
+the quoted ones — 0.6466 vs 0.6132 and 0.6325 vs 0.6282 — which is a *systematic* offset, so this
+round's instrument differs from the campaign's in a convention not yet isolated.
+**CONFIRMED: the two numbers are not comparable — enough to withdraw, and independent of which
+instrument is right. UNVERIFIED: whether `oracle_k4` exceeds the ceiling under the campaign's own
+instrument.** Nothing here adjudicates that, and calling it OVERTURNED would manufacture a false
+retraction of a claim that may yet hold.
+
+**What survives:** the fork, both columns priced, and the three flip conditions — which are
+specifications and never depended on the recommendation. **What is gone is the basis for preferring
+one reading.** The residue is back where it was two rounds ago, with the reason a recommendation was
+premature now written into it.
