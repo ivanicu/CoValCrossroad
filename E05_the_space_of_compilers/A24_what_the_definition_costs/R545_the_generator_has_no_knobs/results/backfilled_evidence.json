@@ -1,0 +1,19 @@
+{
+  "round": "R545_the_generator_has_no_knobs",
+  "backfilled_by": "R551",
+  "note": "re-verified against source; NOT a copy of the original conclusion",
+  "claims": [
+    {
+      "claim": "generate_core.py exposes NO --model flag",
+      "verified": true,
+      "file": "corebench/generate_core.py",
+      "sha256_16": "acb8b030d862bfbe"
+    },
+    {
+      "claim": "FEWSHOT is a module-level constant, not a parameter",
+      "verified": true,
+      "file": "corebench/generate_core.py",
+      "sha256_16": "acb8b030d862bfbe"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "round": "R543_the_command_was_in_the_log_too",
+  "backfilled_by": "R551",
+  "note": "re-verified against source; NOT a copy of the original conclusion",
+  "claims": [
+    {
+      "claim": "generate_core.py takes --batch, so batch size is a recorded field",
+      "verified": true,
+      "file": "corebench/generate_core.py",
+      "sha256_16": "acb8b030d862bfbe"
+    }
+  ]
+}

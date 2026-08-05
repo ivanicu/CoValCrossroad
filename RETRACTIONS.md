@@ -12406,3 +12406,37 @@ one `json.load` away.
 ⭐ **The general form: I handled the unknown schema with a defensive `isinstance` branch for dict
 vs list, which made the code look careful while never asking the file what it was.** Defensive
 branching over an unread schema is a guess wearing a helmet. Read the object.
+
+## 378 · "Every round appends to DEFINITION.md" — false for 215 rounds
+
+I have been treating `DEFINITION.md` as the per-round reasoning log. **It records 39 of 254 rounds
+= 15%**, and has never done otherwise.
+
+Noticing no section past **R541**, the reflex was *"the document stopped being written."* **Against
+its own history that does not hold**: by the **section** unit — the one that matches the claim — a
+10-round gap sits at the **5.3%** percentile, ordinary for a document whose gap median is 0 and max
+is 71. By the **mention** unit it is at **1.4%** and anomalous. **The two units disagree and the
+weaker bounds the claim**, which is why they were written as separate strings before the control was
+designed.
+
+**Nothing was lost.** P16 names the round README as the home, and all 9 completed late rounds carry
+one at 185–306 words.
+
+## 379 · Four consecutive rounds persisted an EMPTY results/ and no run.py
+
+**R543, R544, R545, R546** — the four that **read source instead of running an experiment** — created
+a `results/` directory and left it empty. Of 254 rounds in the arc: **245 source+artifact · 4 empty ·
+3 no results/ · 2 artifact-with-no-source (R444, R472)**.
+
+⭐⭐⭐ **Found only because two of my own checks disagreed.** The first tested `results/ EXISTS` and
+counted the four as persisted; the second tested **non-empty** and did not. **An empty `results/` is
+worse than no `results/`, because it satisfies the loose check** — and their findings are cited by
+the register, so they were load-bearing with nothing behind them.
+
+**Remedy shipped:** `backfill_reading_rounds.py` **re-verifies** each claim against source rather
+than copying the old conclusion, and persists a sha256 of every file consulted. All **6** hold.
+⭐ **Its positive control earned its place by crashing** — a wrong `parents[3]` for a file that sits
+at arc level rather than round level, which a passing control would have hidden.
+
+⭐ **The general form: a reading round has an artifact too — the quoted source, its `file:line`, and
+its hash.** "I read it and it said X" is a memory; the hash makes it a measurement.
