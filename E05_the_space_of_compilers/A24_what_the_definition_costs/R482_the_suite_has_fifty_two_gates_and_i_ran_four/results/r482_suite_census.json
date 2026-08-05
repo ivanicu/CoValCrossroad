@@ -1,0 +1,310 @@
+{
+  "n_gates": 42,
+  "run_this_session": [
+    "definition_matches_the_record",
+    "comparator_scope",
+    "statement_provenance",
+    "register_requirements"
+  ],
+  "coverage": 0.09523809523809523,
+  "rows": [
+    {
+      "gate": "a_scored_artifact_records_its_configuration",
+      "rc": 0,
+      "sec": 0.2,
+      "msg": "  \u26a0 MY FIRST PATTERN WAS `savez_compressed\\([^)]*provenance=` AND THE NEGATIVE CONTROL CAUGHT IT.",
+      "run_this_session": false
+    },
+    {
+      "gate": "an_mde_records_its_denominator",
+      "rc": 0,
+      "sec": 0.1,
+      "msg": "    count cannot be read back at all, which is the state R373 measured.",
+      "run_this_session": false
+    },
+    {
+      "gate": "artifacts_are_internally_coherent",
+      "rc": 1,
+      "sec": 5.9,
+      "msg": "1 gate(s) failed.",
+      "run_this_session": false
+    },
+    {
+      "gate": "attack_every_check",
+      "rc": 1,
+      "sec": 3.0,
+      "msg": "no at all -- which before this script had no evidence either way.",
+      "run_this_session": false
+    },
+    {
+      "gate": "attack_no_withdrawn_framings",
+      "rc": 1,
+      "sec": 13.2,
+      "msg": "1/1 KNOWN GAPS still open, as documented -- a claim inside a declared payload path is invisible",
+      "run_this_session": false
+    },
+    {
+      "gate": "attack_outcome_variable_declared",
+      "rc": 1,
+      "sec": 6.3,
+      "msg": "  silence about the gold head, not silence about proxies in general.",
+      "run_this_session": false
+    },
+    {
+      "gate": "attack_scope_reaches_the_reader",
+      "rc": 0,
+      "sec": 0.2,
+      "msg": "  caught entry 57 would be decoration.",
+      "run_this_session": false
+    },
+    {
+      "gate": "attack_the_suite",
+      "rc": -1,
+      "sec": 45.0,
+      "msg": "TIMEOUT after 45s",
+      "run_this_session": false
+    },
+    {
+      "gate": "audit_the_auditors",
+      "rc": -1,
+      "sec": 45.0,
+      "msg": "TIMEOUT after 45s",
+      "run_this_session": false
+    },
+    {
+      "gate": "backfilled_findings_are_rederivable",
+      "rc": -1,
+      "sec": 45.0,
+      "msg": "TIMEOUT after 45s",
+      "run_this_session": false
+    },
+    {
+      "gate": "code_states_a_bound_the_reader_never_sees",
+      "rc": 0,
+      "sec": 4.3,
+      "msg": "\u26a0 AND THE CONTROL THAT DECIDES WHETHER A FAILURE IS READABLE. If the features cannot separate the",
+      "run_this_session": false
+    },
+    {
+      "gate": "comparator_scope",
+      "rc": 0,
+      "sec": 0.1,
+      "msg": "  PASS \u2014 every DECLARED difference names its comparator.",
+      "run_this_session": true
+    },
+    {
+      "gate": "consistency",
+      "rc": 0,
+      "sec": 0.0,
+      "msg": "         68 vs 67   |diff| 1.00000  tol 2",
+      "run_this_session": false
+    },
+    {
+      "gate": "corrections_propagated",
+      "rc": 0,
+      "sec": 0.2,
+      "msg": "  here is invisible to this check, so registering is part of correcting.",
+      "run_this_session": false
+    },
+    {
+      "gate": "definition_matches_the_record",
+      "rc": 0,
+      "sec": 0.2,
+      "msg": "  PASS: every locatable claim in DEFINITION.md is re-derived from a committed artifact.",
+      "run_this_session": true
+    },
+    {
+      "gate": "donor_numbers_carry_their_draw_scope",
+      "rc": 2,
+      "sec": 0.3,
+      "msg": "  Exit 2 \u2014 an empty population never passes. GATE 1's result above still holds.",
+      "run_this_session": false
+    },
+    {
+      "gate": "every_round_reaches_the_readme",
+      "rc": 1,
+      "sec": 3.5,
+      "msg": "A round that ran and is never mentioned is a result nobody has.",
+      "run_this_session": false
+    },
+    {
+      "gate": "frozen_frame_verifies",
+      "rc": 0,
+      "sec": 0.0,
+      "msg": "the frozen frame verifies: every hash matches its text and the manifest is intact.",
+      "run_this_session": false
+    },
+    {
+      "gate": "interval_is_centred_on_its_point",
+      "rc": 0,
+      "sec": 3.4,
+      "msg": "    which is a different thing and the one this ordering cannot help with.",
+      "run_this_session": false
+    },
+    {
+      "gate": "markdown_tables_are_well_formed",
+      "rc": 0,
+      "sec": 0.0,
+      "msg": "every table row matches its header's cell count.",
+      "run_this_session": false
+    },
+    {
+      "gate": "next_gradient_is_new",
+      "rc": 0,
+      "sec": 0.7,
+      "msg": "    subject exists under words nobody thought to search.",
+      "run_this_session": false
+    },
+    {
+      "gate": "next_gradient_labels_its_hypotheses",
+      "rc": 1,
+      "sec": 0.0,
+      "msg": "POSITIVE CONTROL  the two NEXT blocks R366 refuted must be flagged: 0/2 caught []  FAIL",
+      "run_this_session": false
+    },
+    {
+      "gate": "no_withdrawn_framings",
+      "rc": 0,
+      "sec": 0.6,
+      "msg": "  This is NOT a certificate that no withdrawn framing is asserted -- the check is sound only in the flagging direction (",
+      "run_this_session": false
+    },
+    {
+      "gate": "outcome_variable_declared",
+      "rc": 1,
+      "sec": 0.4,
+      "msg": "Add a scope string naming the outcome as model-scored. Entry 50 is what happens when a reader meets the number without i",
+      "run_this_session": false
+    },
+    {
+      "gate": "point_and_interval_share_a_source",
+      "rc": 0,
+      "sec": 1.0,
+      "msg": "<unknown>:126: SyntaxWarning: invalid escape sequence '\\)'",
+      "run_this_session": false
+    },
+    {
+      "gate": "readme_agrees_with_results",
+      "rc": 0,
+      "sec": 3.8,
+      "msg": "  matches the artifact it was read from, which has happened twice (entries 18, 42).",
+      "run_this_session": false
+    },
+    {
+      "gate": "readme_row_carries_the_verdict",
+      "rc": 2,
+      "sec": 0.1,
+      "msg": "OBSERVED NOTHING: the set of rounds with both a README row and a verdict is empty. This is exit 2, not success -- a chec",
+      "run_this_session": false
+    },
+    {
+      "gate": "register_requirements",
+      "rc": 0,
+      "sec": 0.0,
+      "msg": "  PASS \u2014 12 DECLARED entries, all well-formed; 88 remain undeclared (not passes).",
+      "run_this_session": true
+    },
+    {
+      "gate": "registries_are_satisfied",
+      "rc": 0,
+      "sec": 3.9,
+      "msg": "  Carried is not correct, and not prominent -- this flags omission only.",
+      "run_this_session": false
+    },
+    {
+      "gate": "results_are_not_degenerate",
+      "rc": 0,
+      "sec": 1.6,
+      "msg": "  not the one that switched on and lied.",
+      "run_this_session": false
+    },
+    {
+      "gate": "results_match_their_code",
+      "rc": 0,
+      "sec": 0.0,
+      "msg": "  this fail a build would push those edits toward not being made at all.",
+      "run_this_session": false
+    },
+    {
+      "gate": "retired_framing_in_assertion_positions",
+      "rc": 0,
+      "sec": 0.0,
+      "msg": "  be asserted in a full sentence and no instrument would see it.",
+      "run_this_session": false
+    },
+    {
+      "gate": "retired_framing_in_emittable_source",
+      "rc": 0,
+      "sec": 1.9,
+      "msg": "<unknown>:126: SyntaxWarning: invalid escape sequence '\\)'",
+      "run_this_session": false
+    },
+    {
+      "gate": "round_links_resolve",
+      "rc": 0,
+      "sec": 0.0,
+      "msg": "  is the SENTENCE, so the unit it checks and the unit it claims are the same.",
+      "run_this_session": false
+    },
+    {
+      "gate": "scope_reaches_the_reader",
+      "rc": 0,
+      "sec": 0.0,
+      "msg": "  Present is not the same as legible or prominent -- this check flags omission only.",
+      "run_this_session": false
+    },
+    {
+      "gate": "seed_filter_is_disclosed",
+      "rc": 1,
+      "sec": 0.2,
+      "msg": "2 gate(s) failed.",
+      "run_this_session": false
+    },
+    {
+      "gate": "source_stamp_is_current",
+      "rc": 1,
+      "sec": 0.2,
+      "msg": "    editing a comment changes the hash and nothing else.",
+      "run_this_session": false
+    },
+    {
+      "gate": "statement_provenance",
+      "rc": 0,
+      "sec": 0.0,
+      "msg": "  PASS \u2014 all 15 cited rounds carry a settled verdict.",
+      "run_this_session": true
+    },
+    {
+      "gate": "synthesis_cites_recent_work",
+      "rc": 2,
+      "sec": 0.0,
+      "msg": "none of the 5 named sections was found -- the README was restructured and this check is looking for something that no lo",
+      "run_this_session": false
+    },
+    {
+      "gate": "the_clustered_estimator_is_sound",
+      "rc": 0,
+      "sec": 0.1,
+      "msg": "\u26d4 a suite that passes on the broken copy is decoration, and this file exits 1 if",
+      "run_this_session": false
+    },
+    {
+      "gate": "verdict_cites_its_own_contrasts",
+      "rc": 2,
+      "sec": 0.1,
+      "msg": "OBSERVED NOTHING: rounds carrying both a verdict and a significant contrast is empty. This is exit 2, not success -- a c",
+      "run_this_session": false
+    },
+    {
+      "gate": "what_did_each_check_actually_read",
+      "rc": -1,
+      "sec": 45.0,
+      "msg": "TIMEOUT after 45s",
+      "run_this_session": false
+    }
+  ],
+  "n_fail": 9,
+  "n_unrunnable": 4,
+  "n_error": 4,
+  "selftest_passed": true
+}

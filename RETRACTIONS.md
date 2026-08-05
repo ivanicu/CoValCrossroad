@@ -10358,3 +10358,33 @@ wrote the defect.
 ⚠ **Note the channel, for the third time this round:** neither the defect nor the missing control was
 found by a gate. Both came from **reading output already on screen** — `ps` in one case, the selftest's
 own line list in the other.
+
+## 310 · I blamed a remembered failure mode instead of running `ps` — the orphans were mine (R482, corrects 308's diagnosis)
+
+**Diagnosis retracted; the retraction it sits inside stands.** Entry 308 recorded that four gates
+returned `EXIT2/EXIT1` and attributed it to *"the documented transient wedge under heavy concurrent
+I/O"* — a known, filed, plausible environment fact.
+
+**It was not that.** `ps -eo pid,ppid,etime,args` showed **my own orphaned process groups**: a census
+I had killed with `pkill -9 -f "R482_the_suite"` left `backfilled_findings_are_rederivable.py` running
+**4 minutes 38 seconds** past its parent's death, plus two more gate processes reparented to a shell.
+`pkill` matched the parent's command line and nothing else — **the exact defect retraction 309 fixed
+inside `run_all.py`, committed by hand at the shell level in the same hour.**
+
+⛔ **This is door ① in its cheapest form.** I had an observation (four gates failing transiently), a
+remembered story that fit it (the wedge), and an object one command away that would have decided it.
+**I reached for the story.** The story was not even wrong in general — it is a real filed behaviour —
+which is precisely what made it usable as an explanation and prevented the check.
+
+⚠ **And the defect is deeper than 309's fix.** `killpg` on a gate does not reach grandchildren that
+**create their own process groups**: `attack_the_suite.py` re-runs the whole suite, and its children
+survived a group kill aimed at it. The general statement is **"a process tree is not a process
+group"**, and neither `pkill -f` nor `killpg` walks a tree. Reaping had to be done by parentage.
+
+**What it cost, measured:** the census sat at 8 of 42 gates for roughly ten minutes while orphans
+competed for CPU, and every gate result taken during that window is suspect — including the four in
+entry 308, which is why they re-ran clean the moment they were run alone.
+
+⭐ **The reusable rule: when a measurement misbehaves, look at the machine before reaching for a
+memory about the machine.** A filed environment fact is a hypothesis with a citation, not a finding —
+and `ps` costs nothing.

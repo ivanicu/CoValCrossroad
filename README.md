@@ -1502,6 +1502,74 @@ round → caught; a frozen entry silently fixed → caught; the frozen list dele
 clean bill; every artifact removed → exit 2; the classifier neutered to always say FRESH → its own
 planted control fails it. Regenerating the 33 is a cost question, not this check's decision.
 
+
+### The definition's own cost — R475–R482
+
+**Clause ③ excludes the object the definition was written from.** `data/DATASET_CARD.md` — opened for
+the first time in R475, after 46 rounds — states that CoVal-core is built by selecting *"up to four
+rubric items with the highest average ratings"*. That is a **w-reader**, and ③ excludes w-readers, so
+`coval_core` is **EXCLUDED** and the extension is **0 under every reading**, not the interval [0, 1]
+committed one round earlier. The object was made to judge the card rather than the card quoted: the
+core sits **27.1%** of the way from chance to a pure top-4-by-`w` selector (a lower bound; the matcher
+recovers rewritten text at `sim ≈ 0.49`), with a verbatim plant recovering a **measured** ceiling to
+within 0.01 and a cross-prompt null at 0.486–0.523.
+→ [`R475`](E05_the_space_of_compilers/A24_what_the_definition_costs/R475_the_card_decides_clause_three)
+
+**The gate that polices this document checks between a quarter and two-thirds of it.**
+`definition_matches_the_record.py` reported *"302 of 302 assertions"* — a fact about the LIST — and
+that is how a substring replace corrupted a measured `+0.1298` while the gate returned PASS. Measured:
+**69.2%** of author-emphasised numbers (117 of 169), 35.2% of decimals, 34.3% of values with ≥2 decimal
+places, **28.0%** of every number (282 of 1007). The denominators differ by **5.96×**, so coverage is a
+range, not a number, and the gate now prints its own denominator on every run.
+→ [`R476`](E05_the_space_of_compilers/A24_what_the_definition_costs/R476_what_fraction_of_the_document_is_checked)
+
+**Keeping ③ costs nothing, and that is measured rather than stipulated.** Against the best
+③-admissible arm — `generic`, **0.5376** — `topw_k4` gains **+0.0099** [+0.0009, +0.0189] against a
+**measured** floor of **0.0122**: `effect/floor` **0.81**, no count admissible, direction only. The
+first comparator, `topvar_k4`, scored **0.4780** — *below* the random baseline — so the **+0.0695** it
+produced was a poison, not a placebo.
+→ [`R477`](E05_the_space_of_compilers/A24_what_the_definition_costs/R477_what_does_clause_three_actually_cost)
+
+**The rival class has 1,820 members, not the nine with files on disk.** Every 4-subset of
+`genericpool16`: min 0.5049, median 0.5261, max **0.5433**; `generic` sits at percentile **94.4** and
+`topw_k4` at **100.0**. Cross-fitted (select on half the prompts, score on the other half) the best
+reaches **0.5404**, so selection inflation is only **+0.0029** and the gain narrows to **+0.0071** —
+still inside the floor. **② is UNRESOLVED for `topw_k4`, not failed.**
+→ [`R478`](E05_the_space_of_compilers/A24_what_the_definition_costs/R478_the_admissible_class_is_1820_not_nine)
+
+**The 0.54 band is the judge, not the target.** The Bayes ceiling — the modal human ranking scored
+against a **held-out** annotator — is **0.6132** (resolution 0.0093, four seeds), leaving **+0.0467**
+of headroom above the best non-oracle arm. The same criteria attain **0.738** of that ceiling under
+Qwen3.5-2B and **0.193** under 0.8B. Leave-one-out is worth **+0.0388**: including the held-out
+annotator in the mode inflates the ceiling in exactly the direction that manufactures headroom.
+→ [`R479`](E05_the_space_of_compilers/A24_what_the_definition_costs/R479_is_the_ceiling_the_judge_or_the_target)
+
+**The judge preserves which family is better and reverses which size is better.** On pairs resolved
+under 2B, sign survival is **0.8019** against a split-half **same-judge** placebo of **0.9848** —
+across-family **0.9130**, within-family **0.3692**. Below chance is reversal, not disagreement.
+→ [`R480`](E05_the_space_of_compilers/A24_what_the_definition_costs/R480_does_the_judge_change_the_order_or_only_the_level)
+
+**And that reversal must name its aggregator.** Every A2 here sums satisfaction over selected criteria
+(`corebench/score.py:63`), a choice never swept. `cls(mean) ≡ cls(sum)` by algebra (**0.00e+00** over
+26 cells), so MEAN serves as a positive control on the implementation. The reversal holds under `sum`
+and `median` and is absent under `min` — while `max` and `midrange` **cannot resolve k at all** (range
+0.0084 / 0.0086, below the floor), so their nulls are silence. **2 of 3 seeing aggregators, not 2 of
+5.**
+→ [`R481`](E05_the_space_of_compilers/A24_what_the_definition_costs/R481_is_the_reversal_the_judge_or_the_sum)
+
+**The suite has 42 gates and this arc ran four.** Coverage **9.5%**. Running all 42:
+**25 PASS · 9 FAIL · 4 UNRUNNABLE · 4 TIMEOUT** — the four that were being run were all PASS, and of
+the 38 that were not, **17 do not return 0**. `assurance/run_all.py` now discovers every gate by a
+written rule, classifies 0/1/2 separately so UNRUNNABLE never reads as PASS, prints the count **beside
+the denominator**, exits 2 on an empty gate population, and kills a timed-out gate's **process group**
+rather than its child. Its `--selftest` plants a failing gate, an empty gate, and a gate that spawns a
+hanging grandchild.
+→ [`R482`](E05_the_space_of_compilers/A24_what_the_definition_costs/R482_the_suite_has_fifty_two_gates_and_i_ran_four)
+
+⚠ **`every_round_reaches_the_readme` still fails: 57 rounds have run and are named nowhere above.**
+The eight in this section are now paid; **49 remain**, and the count is published here rather than
+left to the gate, because a debt only visible to a check nobody runs is not visible.
+
 ---
 
 ## Where this is going
