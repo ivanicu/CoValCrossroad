@@ -200,6 +200,15 @@ A **core** for a conversation is a set of criteria such that
 > (`family` · `k` · `(family,k)` · `(family,k,sham)` · one cell), which is **two arms of 42**, and
 > **no partition clears its own permutation null.** Base rate alone: **0.786**. With the partition:
 > **0.786**.
+> ⛔ **THE `+0.048` IS WITHDRAWN BY R705 — UNRESOLVABLE, NOT WRONG.** The MDE of this statistic at
+> α=0.05 and power 0.80, over 66 dose cells, makes `+0.0476` readable in **1 of 6** specifications:
+> power **0.807** at F1's base rate under `(family,k)`, **0.564** at F2's, **0.037** at a balanced
+> base rate where the permutation null alone sits at **+0.4048**. ⭐ **The ZERO is untouched and is
+> strengthened — a gain of exactly `0.0000` needs no resolution to read — and everything below rests
+> on the zero, never on the withdrawn value.** ⚠ And a derivation separates the two clauses without
+> any of that: `gain ≤ 1 − base_rate`, so F1's ceiling is **0.0952** and F2's **0.2143**, making the
+> same `+0.0476` **50.0%** of one and **22.2%** of the other. *Equality in raw units across different
+> ceilings is not equality.*
 > ⭐ **So "② is recoverable from the generator's name" is an IN-SAMPLE statement and does not survive
 > holding an arm out.** The two blocks above stand as written — they are ceilings, correctly labelled
 > — and this is the matching floor.

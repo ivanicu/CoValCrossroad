@@ -3149,3 +3149,36 @@ prediction books as cell-determined. And the registered population was **outcome
 evaluating a clause on its own exclusions fixes the base rate at 1.000 for any clause excluding a
 majority and 0.000 for any clause excluding a minority, by algebra, before any data is read. That
 population was named in R703's closing sentence, so the defect was inherited from the question.
+
+## R705 · What gain this design can detect, and what that withdraws
+
+R704 reported the `(family,k)` partition as worth `+0.0476` to clause F1 and `+0.0000` to clause ②,
+and read a difference between them. R705 prices that number against the design's own floor.
+
+The minimum detectable gain — the smallest true partition-attributable gain at which this design
+rejects its own nuisance-matched permutation null at alpha 0.05 with power 0.80 — was measured by a
+count-preserving swap dose-response over 66 cells: 3 base rates by 2 partitions by 11 doses, 400
+replicates per cell, 2000 null draws. **The observed `+0.0476` is resolvable in 1 of 6 cells.** At
+F1's base rate under `(family,k)` power is **0.807** and the MDE **0.0468**; at clause ②'s base rate
+power is **0.564** and the MDE **0.0792**; at a balanced base rate power is **0.037** and the
+permutation null alone sits at **+0.4048**. Under `(family,k,sham)` the power target is never reached
+at any dose at F1's base rate.
+
+So the F1-versus-② ordering is **withdrawn as unresolvable, not as wrong**: a comparison between a
+value this design can see and one it cannot is not a comparison. **The zero is untouched and is
+strengthened** — a gain of exactly 0.0000 requires no resolution to read, and the refutation of
+R703's premise rests on it.
+
+A derivation separates the two clauses without any of that. Since `gain <= 1 - base_rate`, F1's
+ceiling is **0.0952** and clause ②'s is **0.2143**, so the same `+0.0476` is **50.0%** of one and
+**22.2%** of the other. Equality in raw units across different ceilings is not equality.
+
+Controls: calibration at dose 0 returned power **0.0625** against a 2-alpha bound of 0.10, so the
+test is not anti-conservative; a maximal plant returned power 1.0000; the negative control — planting
+on the true cells and measuring with shuffled ones — returned **0.0275**; the sham, planting on the
+true cells and measuring with a single cell, returned a mean gain of exactly zero; monotonicity of
+power in dose gave Spearman **+0.9909**; the noise floor, the standard deviation of the gain at dose
+zero, is **0.0453**. Two of these were mis-specified on the first run in the same way — the label was
+planted as a function of the very partition it was then measured with, so the negative control
+destroyed nothing and returned power **0.9975** — and the correction is that the ingredient must be
+removed from the measurement while the plant stays on the true structure.

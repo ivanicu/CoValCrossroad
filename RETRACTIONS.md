@@ -17246,3 +17246,65 @@ Re-probed with `0.4242`, which is shaped like the thing the instrument searches 
 fired. **The rule this is an instance of: a positive control's probe must be shaped like the objects
 the instrument actually matches, and the cheapest way to know is to read the pattern before choosing
 the probe rather than after it passes.**
+
+## 873 · "the only clause the name touches at all" — false in my own committed grid
+
+R704's NEXT line said clause F1 is **the only** clause whose exclusions the name touches **at all**.
+R704's own artifact says F2's best gain is **+0.0476 at `(family,k,sham)`**, identical in raw units
+to F1's +0.0476 at `(family,k)`. §4's row on closing sentences names `only` as the exact tell, and it
+was written one round after I committed a block insisting that comparative words be computed rather
+than typed.
+
+⚠ The sentence is wrong in a second way that took a round to see: **the two numbers were never the
+same quantity**. `gain <= 1 - base_rate`, so F1's ceiling is 0.0952 and F2's is 0.2143, and the same
++0.0476 is **50.0%** of one and **22.2%** of the other. Equality in raw units across different
+ceilings is not equality.
+
+## 874 · my quantifier gate is blind to 4.6% of commits, including the one that needed it
+
+`assurance/next_line_quantifiers_are_computed.py` extracts the NEXT paragraph with `^NEXT:`. R704's
+commit body wrote **`NEXT.`**. The gate therefore found no NEXT paragraph, examined nothing, and
+returned PASS — §4's *empty population passes*, at the level of a single commit rather than the
+whole corpus, which is why the corpus-level exit-2 guard never fired.
+
+Measured over history: **58 of 1269 commits (4.6%)** write `NEXT` with a non-colon separator and are
+invisible; `20d1d1f` — the commit carrying entry 873's false quantifier — is one of them. **A gate
+that examines a per-item population needs its empty-population guard per item, not per run.**
+
+## 875 · both of R705's first-run controls destroyed nothing, in the same way
+
+The NEGATIVE control shuffled the cell assignment and then **planted the label as a pure function of
+the shuffled cells** before measuring with them — so it measured a perfect plant against itself and
+returned power **0.9975**, which reads as "the structure survives destruction". The SHAM used a
+single-cell partition for both plant and measurement, and a single cell **cannot produce 9 positives
+at all**, so it crashed rather than returning null.
+
+One defect, two faces: **the ingredient must be removed from the MEASUREMENT while the plant stays on
+the true structure.** Corrected, they return power **0.0275** and a mean gain of **exactly
++0.000000**. ⚠ Note which way each failed: the negative failed toward "everything is fine", the sham
+toward a crash. A crash is the cheap one — it announces itself.
+
+## 876 · my MDE statistic contradicted the power column printed beside it
+
+R705's first MDE took the smallest **sampled** mean-gain whose dose cell reached power 0.80 across an
+11-point grid — coarse by construction, overstating by up to one grid step. It returned 0.1378 at
+F2's base rate and **0.0632 at F1's**, and the verdict branch keyed on it asserted *"below what this
+design can detect in every one of the 6 cells"* — while the power column two lines above showed
+**0.807 at F1's base rate**, i.e. at the target.
+
+Repaired by interpolating the power curve at the target (0.0468 at F1's, 0.0792 at F2's) and by
+keying the branch on the power figure the round actually reports. ⚠ And the registered POINT A is now
+read off the repaired statistic, which I built **after** seeing the coarse one fail. Both values fall
+inside the registered interval [0.03, 0.35], so the choice did not decide the verdict — **but the
+interval was wide enough that it could not have, and that is a weakness of the registration.**
+
+## 877 · R704's F1-vs-F2 ordering is WITHDRAWN — not wrong, unresolvable
+
+Measured MDE at α=0.05, power 0.80, over 66 dose cells: R704's **+0.0476 is resolvable in 1 of 6
+specifications**. At F1's base rate under `(family,k)` power is **0.807**; at F2's it is **0.564**;
+at a balanced base rate **0.037**, where the permutation null alone sits at **+0.4048**. A comparison
+between a value the design can see and one it cannot is not a comparison.
+
+⭐ **What survives untouched, and is strengthened: R704's ZERO.** The canonical `(family,k)` gain for
+clause ② is exactly **0.0000**, and a zero needs no resolution to read. The refutation of R703's
+premise stands on that zero, not on the +0.0476 that has now been withdrawn from beside it.
