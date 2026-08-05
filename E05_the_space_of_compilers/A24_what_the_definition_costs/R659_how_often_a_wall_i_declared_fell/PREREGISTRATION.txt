@@ -1,0 +1,23 @@
+PRE-REGISTERED BEFORE ANY CODE WAS WRITTEN FOR R659 — 2026-08-05, committed with the round.
+
+QUANTITY A (denominator, exact): how many committed rounds declare an IMPOSSIBLE register in their
+  run.py docstring -- i.e. how many times I have written down a limit at all.
+QUANTITY B (numerator, needs a tight instrument + positive control): how many RETRACTIONS.md entries
+  record a previously-declared wall / impossibility / limit being OVERTURNED.
+
+POINT ESTIMATE B : 10
+INTERVAL B       : [5, 25]
+DIRECTIONAL PREDICTION, the real content and separately failable:
+  R658's NEXT said I have declared such a limit "TWICE". That is an UNDERCOUNT BY AT LEAST 3x.
+  Evidence already in hand before this round: ledger entry 358 is titled "The fourth false wall",
+  and entry 369 records "two more walls fell" -- so by entry 369 the count was already >= 6.
+KILL             : if the tight instrument finds <= 3, the directional prediction is RETRACTED and
+                   "twice" was approximately right.
+
+⚠ UNITS. B/A is NOT a rate: a docstring IMPOSSIBLE section and a ledger entry are different units,
+  and one ledger entry can overturn a wall that was never written into any register. Both counts are
+  reported separately, and only the NAMED overlap -- a ledger entry citing a specific round's
+  declared wall -- may be read as a per-wall failure.
+
+⚠ MY FORECAST RECORD: four consecutive magnitude over-estimates (-25, -7, -5, -16.8pts) while every
+  DIRECTIONAL prediction held. I am again NOT shading the magnitude, for the reason given in R658.

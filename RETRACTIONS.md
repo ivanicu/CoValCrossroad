@@ -15820,3 +15820,34 @@ R658 pre-registered **point 20%, interval [5%, 45%]** and measured **3.2%** — 
 over-estimate. ⭐ But its **directional** prediction — *missing forms are not the blocker* — **HELD**,
 and could have failed at the pre-registered >50%. **A forecast has two failable parts and I have been
 reporting them as one:** the magnitudes are unreliable, the directions have been right.
+
+## 689 · "`d` IS a for-loop variable" — 23 of its 75 sites have no `For` at all
+
+R658's NEXT described all 75 `d` sites as a for-loop variable in one idiom. ⛔ Bound by `For` **only
+in 14 of 75**; **23 are `['Assign']` with no `For` anywhere**, and the rest are multi-form. *I
+described 75 sites from the shape of the few I had happened to read.*
+
+## 690 · "Twice" — the true count is at least 39, and the number was in my own ledger's titles
+
+R658's NEXT: *"I have **twice** now declared a limit that a single mechanical fix would have
+moved."* ⛔ **A tight instrument finds 39; a loose one 132.** ⭐ And no instrument was needed to
+refute it: **entry 358 is TITLED "The fourth false wall"** and **entry 369** records *"two more walls
+fell"*. **The number was in my own ledger, in a heading, and I wrote "twice".** Measured alongside:
+**288 of 334 rounds (86.2%) declare an IMPOSSIBLE register** — the habit is near-universal while my
+memory of its failures was off by an order of magnitude.
+
+## 691 · R658's "closer to structural" is DOWNGRADED
+
+R658 concluded the residual is *"closer to structural"* on the strength of 3.2% unhandled forms.
+⚠ **Not refuted — this round measures my record, not the residual** — but in this corpus a
+structural conclusion of mine has been overturned **at least 39 times**, so the conclusion **may not
+be quoted without that prior attached.**
+
+## 692 · The forecast streak broke, and refusing to correct for it was right
+
+Four consecutive magnitude over-estimates (−25, −7, −5, −16.8 pts) were followed by an
+**UNDER**-estimate: pre-registered point 10, measured **39**, error **+29**. ⭐ The pre-registration
+said explicitly that the streak would **not** be used to shade the estimate, because n=3 licenses no
+correction. **Had I applied the adjustment the streak seemed to justify, this miss would have been
+larger.** The streak was noise at p = 0.125 — and the *directional* prediction held for the fifth
+consecutive time.
