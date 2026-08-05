@@ -636,6 +636,18 @@ def derive():
         for k in ("r462_old", "r462_new", "r462_cov", "r462_total"):
             out[k] = (None, "R462")
 
+    # R479 -- from the round's artifact.
+    try:
+        _c9 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+                             "R479_is_the_ceiling_the_judge_or_the_target/results/r479_ceiling.json"))
+        out["r479_bayes"]  = (round(_c9["bayes"], 4), "R479")
+        out["r479_head"]   = (round(_c9["headroom"], 4), "R479")
+        out["r479_leak"]   = (round(_c9["leak"], 4), "R479")
+        out["r479_single"] = (round(_c9["single"], 4), "R479")
+    except (OSError, KeyError):
+        for k in ("r479_bayes", "r479_head", "r479_leak", "r479_single"):
+            out[k] = (None, "R479")
+
     # R478 -- from the round's artifact.
     try:
         _c8 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
@@ -1080,6 +1092,12 @@ def derive():
 # label -> the regex that must find that number in DEFINITION.md. The pattern is the CLAIM's own
 # wording, so an edit that changes the sentence without changing the artifact is caught too.
 ASSERTIONS = {
+    # R479 -- the Bayes ceiling. Anchored because it OVERTURNS the reading that 0.54 is a ceiling,
+    # and because the leakage figure is what makes the headroom claim admissible.
+    "r479_bayes":   r"It is \*\*(0\.\d{4})\*\* \(resolution",
+    "r479_head":    r"leaves \*\*\+(\d\.\d{4}) of headroom",
+    "r479_leak":    r"gives \*\*(0\.6520)\*\* instead of",
+    "r479_single":  r"returns \*\*(0\.\d{4})\*\* against this campaign",
     # R478 -- the full class census. Anchored because it RETRACTED a committed sentence (② failed ->
     # ② unresolved) and tightened a committed number (+0.0098 -> +0.0071).
     "r478_max":      r"median \*\*0\.5261\*\*, max \*\*(0\.\d{4})\*\*",

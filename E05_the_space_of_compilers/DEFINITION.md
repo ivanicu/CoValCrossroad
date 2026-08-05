@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 314 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 318 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 314.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 318.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -521,6 +521,36 @@ rounds defining an object other than the one it measures.** ⛔ **This is not a 
 by choosing the convenient branch** — the two differ in what "core" *means*, and R475 does not
 adjudicate them. *(R475)*
 
+⭐⭐⭐ **AND THE 0.54 BAND IS NOT THE TARGET'S NOISE — IT IS THE JUDGE (R479).** Four unrelated routes
+converge at 0.54–0.55, which admits three explanations with opposite next moves: the criteria, the
+judge, or the target's own irreducible disagreement. The maximum A2 any scorer *without sight of the
+target* can reach is the **modal human ranking scored against a HELD-OUT annotator** — the Bayes point
+predictor under per-pair 0/1 loss. It is **0.6132** (resolution **0.0093**, measured at four seeds).
+Against the best non-oracle arm (`coval_core`, 0.5665) that leaves **+0.0467 of headroom, 3.8× the
+floor.** **The band is not a ceiling.** *(R479)*
+
+⛔ **AND THE SAME CRITERIA ATTAIN 0.738 OF THAT CEILING UNDER ONE JUDGE AND 0.193 UNDER THE OTHER.**
+`topw_k4`: attainment **0.738** at Qwen3.5-2B, **0.193** at 0.8B — a gap of **0.545**, five times the
+0.10 pre-registered threshold. `random_k4_s0` attains **−0.106** at 0.8B, i.e. *below chance*.
+**World B: the instrument is what the band is made of, not the criteria.** This is the quantitative
+form of what ② already encodes qualitatively — a core is only ever *"a core under J"* — and it says
+the judge index is not a caveat but the dominant term. *(R479)*
+
+⭐ **AND THE LEAVE-ONE-OUT DISCIPLINE IS THE WHOLE DESIGN, WORTH +0.0388.** Including the held-out
+annotator in the mode that is scored against it gives **0.6520** instead of 0.6132 — and that error
+runs in exactly the direction that manufactures headroom and licenses *"the criteria are the
+problem"*. The leakage is **reported beside** the honest number rather than argued away. ⭐ And a free
+positive control fell out: single-annotator-vs-annotator returns **0.5458** against this campaign's
+independently committed human ceiling of **0.5451**, **Δ +0.0007** — a loader written this round
+reproducing a number computed by other code in another round. *(R479)*
+
+⚠ **`oracle_k4` ATTAINS 1.088, AND THAT IS NOT A DEFECT.** It was fitted on the prompt's own rankings,
+so it is not a member of the class BAYES bounds; **its +0.088 excess is the fitting advantage, now
+measured rather than asserted.** ⚠ **And R479's population is 1,078 prompts (≥3 rankings), not
+R477/R478's 968** — so `topw_k4` reads 0.5647 here and 0.5475 there, **both correct for their own
+populations**. This round rules on the ORDERING and the attainment ratio, never on a level quoted
+across the two. *(R479)*
+
 ⭐⭐ **AND THE RIVAL CLASS WAS CENSUSED IN FULL — 1,820 MEMBERS, NOT THE NINE ON DISK (R478).** R477
 bounded the ③-admissible class by the arms that happened to carry a `.npz`, which is the defect R477's
 own retraction had just named. Evaluating **every** 4-subset of `genericpool16` (968 prompts × 16
@@ -612,7 +642,7 @@ denominator, on every run. *(R476)*
 Writing R476's result into DEFINITION.md added numeric claims to the very population R476 counted, so
 the live gate now reports **69.0% / 27.7%** where the round measured **69.2% / 28.0%**. That is not
 drift and neither number is wrong: **a document that states its own coverage changes its coverage by
-stating it.** The round's numbers hold at commit `8b57ace` **measured with the gate's 314 anchors** — both halves of the scope, because the instrument grows too; the gate's line is the current value, and
+stating it.** The round's numbers hold at commit `8b57ace` **measured with the gate's 318 anchors** — both halves of the scope, because the instrument grows too; the gate's line is the current value, and
 the two are expected to differ by exactly the size of whatever was last written. *(R476)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'

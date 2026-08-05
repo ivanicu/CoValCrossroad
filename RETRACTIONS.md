@@ -10178,3 +10178,23 @@ keeps warning about**: a false acquittal is permanent because nobody re-examines
 a false retraction is permanent because nobody re-examines a withdrawn one. ⚠ **And the sentence was
 in the `next gradient` line**, which §4 names as the highest-risk sentence in a report: written last,
 acted on first, and the only one with no control attached.
+
+## 301 · A convergence threshold guessed instead of measured, failing 0.0052 against a resolution of 0.0093 (R479, caught in-round)
+
+**Retracted before publication.** R479 declared its ceiling estimate converged only if the m=16 and
+m=all sweep points agreed within **0.005** — a number with no derivation. They differ by **0.0052**,
+so the round exited 2 with `world D (ceiling construction unfit)`, and the ceiling was fine.
+
+**The estimator's own resolution is measurable and nobody had measured it.** Re-running the ceiling at
+four seeds gives 0.6132 · 0.6169 · 0.6185 · 0.6175 → **0.0093**. The sweep step is **inside** it.
+
+⚠ **This is the "control that cannot PASS" family in its quietest form.** The threshold was not
+absurdly strict — it was *plausibly* strict, within a factor of two of the truth, which is exactly why
+it read as reasonable and got written. ⭐ **A threshold is a claim about the instrument's resolution,
+and it must be measured on the same footing as the quantity it gates.** Guessing it in the
+conservative direction produces a false UNVERIFIED, and a false UNVERIFIED costs a round and looks
+like rigour while doing it.
+
+**Sixth or seventh appearance of this family**, depending on whether the false-negative direction is
+counted with the false-positive one. **It is: the remedy — derive or measure both floor and ceiling —
+is identical, and separating them by direction is how the count stayed low enough to feel survivable.**
