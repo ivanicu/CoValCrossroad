@@ -13333,3 +13333,24 @@ claim 7's survival across the judge change. **0 state a value and stay silent.**
 broadly self-scoping". **A clean result over two cases is a clean result over two cases** — and this
 session has already retracted one claim (R570's) for quoting a number whose population it had not
 stated.
+
+## 440 · Five rounds refined a marker on one of the three places the number lives
+
+The page asserts **the extension is 5** in **three** places: the claim table's row 2, **the
+definition sentence itself**, and a comparison table. **R578, R579, R580 and R581 refined the marker
+on row 2 across four rounds. Sites 2 and 3 stated the same number with no marker at all.**
+
+⭐⭐⭐ **This is P16's warning demonstrated, not quoted:** *a number stated twice drifts, and the copy
+is never the one that gets fixed.* **The copy that received four consecutive corrections was simply
+the one I was looking at.**
+
+⚠ **R582 then concluded "the page scopes itself" — correctly, about the CLAIM TABLE**, a population
+that excluded two of the three sites. **Its n=2 caveat was about rows, and the real limit was that
+the population was the wrong object.** A correctly-scoped conclusion over a wrongly-chosen population
+reads exactly like a general one.
+
+⚠ **And the worst-placed copy is the definition sentence** — the one a reader uses when they **apply**
+the definition rather than cite the table. **The least-scoped statement of the number was the one
+doing the most work.**
+
+**Landed:** all three sites carry `†`.
