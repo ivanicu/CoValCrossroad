@@ -166,7 +166,13 @@ silence. **2 of the 3 aggregators that can see k, not 2 of 5.** *(R481)*
   > `/home/ivan/Qwen2.5-7B-Instruct` — **complete, 4/4 shards, 29 GB**. ⚠ It is a different **family**
   > and an **instruct** model against this campaign's Qwen3.5 **Base** judges, so it tests
   > **cross-architecture**, not scale; and 29 GB against 16 GB of VRAM needs quantisation or offload.
-  > **Not free, and not absent.** ⛔ **Third wall this session that was false when checked** — after
+  > **Not free, and not absent.** ⚠ **AND MEASURED SINCE (R492): it does not RUN in bf16 on this
+> card.** Weights load at **15,744 MiB of 16,303**, leaving 559; batch 16 OOMs at 52 MiB and
+> batch 2 at 16 MiB, so the deficit tracks batch and bf16 is out. **Quantisation is required —
+> and it makes the 7B a different instrument from the bf16 judges every committed number uses,
+> confounding SIZE, FAMILY and PRECISION at once.** The register entry is therefore *present,
+> not runnable at this precision*, which is neither *absent* nor *available*.
+> ⛔ **Third wall this session that was false when checked** — after
   > R475 (the dataset card) and R489 (the second release). All three were claims about the SITE
   > asserted right after correctly checking the RECORD.
   Not a second judge: the 0.8B is **weaker** — `oracle_k4`, which reads the human target directly,
