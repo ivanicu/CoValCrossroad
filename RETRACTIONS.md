@@ -17064,3 +17064,11 @@ R698 measured post-filter admissible cells (14 → 4); this measures raw co-loca
 survive filtering. **Quoting either number without its stage would read as a contradiction between
 two rounds**, and the corpus already has a documented habit of numbers travelling without their
 scope.
+
+## 852 · "at all" trips the quantifier gate, and it is the second time — a phrase habit, not a quantifier habit
+R699's closing line read *"sweep results files at all"*; R694's read *"differ from their arms at all"*.
+Both parse as the quantifier `all` beside an artifact word. **I am not reaching for a universal claim
+in either — I am reaching for emphasis, and the gate cannot tell the two apart.** ⭐ **That is the
+gate being correct and the diagnosis being wrong**: recording these as "quantifier over own work"
+misses that the generating habit is intensifier prose, which no amount of care about quantifiers will
+suppress. Fifth reasoned freeze entry, second of this exact shape.

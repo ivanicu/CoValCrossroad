@@ -45,7 +45,7 @@ one** — the gap R695 named, R698 inherited, and this round inherits again.
 
 ## NEXT
 The three sweepers differ by basis, not by care (`results/self_share.json`, field `rows`). Artifact
-sweepers compound because their output is dense in what they search for. Count how many rounds in
-this arc sweep `results/*.json` at all — not just these three — and of those, how many write an
-artifact containing the same field names they search on. That population is the one where the
+sweepers compound because their output is dense in what they search for. Enumerate the rounds in this arc
+whose `run.py` reads `results/*.json` — a superset of these three — and of those, count how many write
+an artifact containing the same field names they search on. That population is the one where the
 compounding applies, and it has never been enumerated.
