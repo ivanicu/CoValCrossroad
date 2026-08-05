@@ -16984,3 +16984,29 @@ arm of a PAIR scores higher" when R695 had itself measured the assemblable-pair 
 ignoring that measurement.** The closing line is written last, when the round's own numbers have
 already been reported and attention has moved on — **so the sentence most likely to be acted on is
 the one written with the least of the round in mind.**
+
+## 841 · Zero non-resolutions could not have resolved — R495 is singular, and R696's claim narrows
+After three filters the admissible population is 8 cells, of which 0 report a non-resolution from a
+design whose two-sided floor exceeded 0.05. **The pre-registered kill fired.** R696's closing line
+implied a class; **it is one instance**, and the narrowing is recorded rather than left standing.
+
+## 842 · 23 → 38 → 0: the first two counts were artifacts of an unstable `n` field
+The first pass counted 23 "could not have resolved"; adding a multiple-of-`1/n` test moved it to 38;
+excluding `p = 1.0`, where that test is degenerate, moved it to **0**. **Both earlier numbers were
+inflated by `n` fields that are sample sizes or spec counts rather than null cardinalities** — the
+`n` key in this corpus resolves to at least three different quantities. **Had I stopped at either
+earlier filter I would have published a class that does not exist, and each stopping point looked
+like a completed correction.**
+
+## 843 · Co-location was my own pre-registered discriminating rule and it was two notches too loose
+R695's lesson was that a loosened search succeeds at something else. I wrote co-location into R697's
+**pre-registration** as the fix — and it still admitted 35 sample-size `n`s and 49 degenerate cells.
+**Naming a failure mode in advance and choosing a stricter rule against it is not the same as
+choosing a sufficient one**, and the only thing that exposed the gap was a p-value (0.87 over a
+2-cell null) that was arithmetically impossible.
+
+## 844 · The six "at floor" cells are one measurement copied, including into this round's own scan
+Deduplicated by `(n, p)` there is **1** distinct cell — R361's `2B` at `p = 0.0159 = 2/126` —
+appearing in R683, in R697's artifact, and then back into R697's own sweep of that artifact.
+**R680's copy finding, live and self-referential: a round that scans the corpus scans its own output
+and counts its own copies as population.**

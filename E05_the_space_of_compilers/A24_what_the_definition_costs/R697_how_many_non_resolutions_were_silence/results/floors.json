@@ -1,0 +1,231 @@
+{
+  "world": "B ONE INSTANCE \u2014 no co-located cell in this arc reports a non-resolution from a design whose floor exceeded 0.05. R495's case is singular and R696's closing claim narrows to it.",
+  "controls_ok": true,
+  "tree_sha": "d9988e2e094fbf5b25901eb28d03d2d1edb465c0",
+  "threshold": 0.05,
+  "n_cells": 10,
+  "n_dropped_not_multiple": 32,
+  "n_degenerate_p1": 37,
+  "degenerate": [
+    {
+      "where": "R431:slope_cells[1]",
+      "n": 3,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[2]",
+      "n": 4,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[3]",
+      "n": 2,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[4]",
+      "n": 3,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[5]",
+      "n": 4,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[6]",
+      "n": 2,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[7]",
+      "n": 3,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[8]",
+      "n": 4,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[10]",
+      "n": 3,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[11]",
+      "n": 4,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[12]",
+      "n": 2,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[13]",
+      "n": 3,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[14]",
+      "n": 4,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[15]",
+      "n": 2,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[16]",
+      "n": 3,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[17]",
+      "n": 4,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R431:slope_cells[19]",
+      "n": 3,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R697:degenerate[0]",
+      "n": 3,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R697:degenerate[1]",
+      "n": 4,
+      "p": 1.0,
+      "resolved": null
+    },
+    {
+      "where": "R697:degenerate[2]",
+      "n": 2,
+      "p": 1.0,
+      "resolved": null
+    }
+  ],
+  "n_not_resolved": 2,
+  "n_could_not_resolve_two_sided": 0,
+  "n_could_not_resolve_one_sided": 0,
+  "n_at_their_floor": 8,
+  "n_distinct_at_floor": 1,
+  "blind": [],
+  "at_floor": [
+    {
+      "where": "R361:rank_null.2B",
+      "n": 126,
+      "p": 0.015873015873015872,
+      "resolved": null,
+      "floor_2s": 0.015873015873015872,
+      "floor_1s": 0.007936507936507936,
+      "could_not_resolve_2s": false,
+      "could_not_resolve_1s": false,
+      "at_its_floor": true
+    },
+    {
+      "where": "R683:judges[1]",
+      "n": 126,
+      "p": 0.015873015873015872,
+      "resolved": true,
+      "floor_2s": 0.015873015873015872,
+      "floor_1s": 0.007936507936507936,
+      "could_not_resolve_2s": false,
+      "could_not_resolve_1s": false,
+      "at_its_floor": true
+    },
+    {
+      "where": "R697:at_floor[0]",
+      "n": 126,
+      "p": 0.015873015873015872,
+      "resolved": null,
+      "floor_2s": 0.015873015873015872,
+      "floor_1s": 0.007936507936507936,
+      "could_not_resolve_2s": false,
+      "could_not_resolve_1s": false,
+      "at_its_floor": true
+    },
+    {
+      "where": "R697:at_floor[1]",
+      "n": 126,
+      "p": 0.015873015873015872,
+      "resolved": true,
+      "floor_2s": 0.015873015873015872,
+      "floor_1s": 0.007936507936507936,
+      "could_not_resolve_2s": false,
+      "could_not_resolve_1s": false,
+      "at_its_floor": true
+    },
+    {
+      "where": "R697:at_floor[2]",
+      "n": 126,
+      "p": 0.015873015873015872,
+      "resolved": null,
+      "floor_2s": 0.015873015873015872,
+      "floor_1s": 0.007936507936507936,
+      "could_not_resolve_2s": false,
+      "could_not_resolve_1s": false,
+      "at_its_floor": true
+    },
+    {
+      "where": "R697:at_floor[3]",
+      "n": 126,
+      "p": 0.015873015873015872,
+      "resolved": true,
+      "floor_2s": 0.015873015873015872,
+      "floor_1s": 0.007936507936507936,
+      "could_not_resolve_2s": false,
+      "could_not_resolve_1s": false,
+      "at_its_floor": true
+    },
+    {
+      "where": "R697:at_floor[4]",
+      "n": 126,
+      "p": 0.015873015873015872,
+      "resolved": null,
+      "floor_2s": 0.015873015873015872,
+      "floor_1s": 0.007936507936507936,
+      "could_not_resolve_2s": false,
+      "could_not_resolve_1s": false,
+      "at_its_floor": true
+    },
+    {
+      "where": "R697:at_floor[5]",
+      "n": 126,
+      "p": 0.015873015873015872,
+      "resolved": true,
+      "floor_2s": 0.015873015873015872,
+      "floor_1s": 0.007936507936507936,
+      "could_not_resolve_2s": false,
+      "could_not_resolve_1s": false,
+      "at_its_floor": true
+    }
+  ],
+  "kill_fired": true,
+  "directional_holds": false,
+  "registered": "A 18 [3,60]; B 2 [0,10]; >=1 besides R495; kill if zero",
+  "limit": "floor = 2/n assumes n is the null's cardinality and a two-sided test; the one-sided count is reported beside it as the sensitivity."
+}

@@ -1,0 +1,33 @@
+R697 · PRE-REGISTRATION
+
+THE GAP  R696 found R495's exact test had a resolution floor of p=0.0476 with n=7, m=2 -- it could
+         not reach 0.05, so its "not resolved" was silence rather than a finding. The question is
+         whether that is a single instance or a class across this arc.
+
+⚠ THE INSTRUMENT DECISION, MADE BEFORE THE SWEEP AND BECAUSE R695 COST FOUR PROBES. A feasibility
+  pass found 14 artifacts carrying both a resolve-flag and some field named `n`. But `n` means
+  different things: a SAMPLE size (R373's denominators.N=17), a SPEC count (R480's spec.1.n=318), a
+  NULL CELL count (R361's rank_null.2B.n=126). Taking every `n` as a null size is exactly the R695
+  failure -- matching a name and claiming a quantity. ⭐ The discriminating rule: a null size is `n`
+  CO-LOCATED IN THE SAME DICT as a p-value and/or a resolve flag.
+
+POINT A     18 co-located (n, p, resolved) cells exist across the arc.
+INTERVAL A  [3, 60]
+POINT B     2 NOT-resolved cells have a floor above 0.05 -- i.e. could not have resolved.
+INTERVAL B  [0, 10]
+DIRECTIONAL (separately failable) at least one NOT-resolved verdict besides R495's has a floor
+            above its threshold, so this is a class rather than one instance.
+KILL        zero such cells -> R495 is unique, the concern is a single instance, and I should say so
+            instead of generalising. That is live and would narrow R696's closing claim.
+CONTROLS
+  POSITIVE  R361's 0.8B cell (n=126, p=0.2857, not resolved) must be FOUND, and its floor
+            2/126 = 0.0159 is well below 0.05, so it must NOT be flagged. The instrument has to find
+            a real cell and correctly clear it.
+  g=0       a synthetic cell with n=10 (floor 0.2) and p=0.3 not resolved MUST be flagged -- the
+            detector must return both values.
+  NEGATIVE  a dict with a resolve flag and NO p is not counted.
+  PLACEBO   run twice identical.
+IDENTIFICATION LIMIT  a floor computed as 2/n assumes n is the null's cardinality and the test is
+            two-sided. Where a round stored draws rather than cells, or tested one-sided, the floor
+            is off by a factor of two -- which changes the count near the boundary and is reported
+            as a sensitivity rather than hidden.
