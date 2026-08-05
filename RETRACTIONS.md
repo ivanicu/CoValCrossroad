@@ -16321,3 +16321,43 @@ an average across two different worlds.
 those names. This is not an instrument defect and no resolver can repair it. **A citation is only
 provenance if it is unique in the space the reader will search**, and a basename is unique only
 inside a directory the commit body never states.
+
+## 753 · "The extension is five" is four different sets that share one member
+Six distinct five-member arm sets are committed in this arc; four of them assert an extension, and
+their intersection is **`{coval_core}`** — a single arm, and it is the object the definition was
+written from. Mean pairwise Jaccard among them is 0.273 against a 0.008 chance floor, so they are
+near readings of one question rather than unrelated lists. **That nearness is what made the collision
+invisible: the count is stable because the arm pool is small and the readings are adjacent, not
+because they denote the same object.** This is §4's "the definition describes the instance" with a
+number attached — every reading of the extension contains the instance and nothing else in common.
+
+## 754 · My instrument matched arm PAIRS and rule PREFIXES as arms, under a docstring asserting the units were equal
+R676's docstring says "instrument unit = A FIVE-MEMBER SET = claim unit. EQUAL." It was false twice.
+The first matcher admitted `'coval_core(A) − generic(e)'` (arm **pairs**) and `topw_k` (a rule
+**prefix** with no k value). Requiring a canonical arm vocabulary removed the pairs, 7 → 6, and left
+the prefixes, because a prefix appears in two artifacts as a bare string and the filter tests
+presence, not kind. **Writing "the units are equal" in a docstring is an assertion, not a check, and
+it reads afterwards as though it had been verified.**
+
+## 755 · I partitioned instead of patching a third time
+After two unit failures the tempting move was a third matcher refinement. **A third patch tuned
+against the sets I had already seen would have been fitting the instrument to the answer** — the
+sets are few and named, so any rule I wrote would have separated exactly the ones I wanted. Instead
+the census is partitioned by what each FIELD asserts, both counts are published, and the headline
+rests on the extension-claiming subset. **When an instrument has failed twice on the same corpus, the
+next refinement is no longer independent of the result.**
+
+## 756 · The instrument repair moved the score across the pre-registered interval boundary
+Registered mean Jaccard 0.35 [0.15, 0.60]. The contaminated instrument returned **0.131 — OUTSIDE**;
+the repaired one returned **0.183 — INSIDE**. Same registration, same corpus, opposite verdicts, and
+the difference was two non-arm sets. **A pre-registered interval scores the instrument as much as the
+world, and reporting only the post-repair number would have hidden that the forecast's verdict was
+decided by a defect I fixed after seeing it.** Both are recorded.
+
+## 757 · Four consecutive rounds, zero claims about the object — the same drift R664 measured
+R672, R673, R674 and R675 all headline a property of the citation instrument. R664 measured this
+exact failure eleven rounds earlier — 0 of 24 headlines about the object — and its remedy was to
+return to committed artifacts, which is where today's finding also was. **An apparatus thread
+recruits its own next question: every instrument round ends by naming a defect in the instrument, so
+the NEXT line points back inward, and nothing external ever interrupts it. The interrupt has to be
+scheduled, and the cheapest form is counting how many recent headlines are about the object.**
