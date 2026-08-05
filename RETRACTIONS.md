@@ -9922,3 +9922,58 @@ re-labelling a within-space check as the cross-space one that was designed.
 *almost* runs invites substituting the nearest available check and keeping the original description.
 **The number would have been identical — 0.0778 either way — and only the sentence about what it
 validates would have been false.**
+
+---
+
+## 288 · The extension is [0, 1], not 1 — and my own announced premise was inverted (R469 → R470)
+
+**What I announced.** R469 closed: *"the document reports an extension of ONE arm, and that count
+silently treats the 19 UNKNOWN arms as **excluded**."*
+
+**Backwards.** `coval_core` is itself **UNKNOWN** under ③ (R466). Under unknown-as-excluded the
+released core drops out and the extension is **0**. The committed **1** therefore corresponds to
+**unknown-as-ADMITTED** — the opposite convention to the one I named.
+
+**And the committed value rests on an instrument R469 killed.** The document says *"the extension
+under the written reading is 1, not 0 (R443)"*, and R443's justification is the **containment**
+argument — which R469 showed is **constant on ③'s own partition** and provably unable to decide it.
+
+| reading | extension |
+|---|---|
+| unknown-as-EXCLUDED | **0** |
+| unknown-as-ADMITTED | **1** ← the committed value |
+| unknown-as-UNVERIFIED | **0 confirmed + 1 unverified** |
+
+⛔ **The choice is not innocent: the only arm the committed convention admits is `coval_core`, the
+object the definition was written from. Under the other reading the extension is EMPTY.**
+
+⭐ **And the third reading is the one this campaign's own proxy ledger requires** — *UNVERIFIED must
+never be folded into OVERTURNED*, and its symmetric case is that it must never be folded into
+CONFIRMED either. **The document has been folding it into ADMITTED for the whole campaign**, on the
+strength of a single-arm containment number.
+
+⚠ **This does not say the definition is wrong.** It says its extension has never been **measured** —
+it has been **counted under an invisible convention**. *"Counted under a convention"* and *"measured"*
+are different epistemic objects, and a single integer cannot distinguish them, which is precisely why
+the integer is the wrong form.
+
+⚠ **And the round has no positive control, stated in the design rather than omitted.** There is no
+ground-truth extension to recover. **A round that cannot have a positive control should say so where
+the control would have gone**, because a missing line reads as an oversight and a stated impossibility
+reads as a scope.
+
+---
+
+## 289 · A count written as a word, anchored as a number — recurrence (R470, caught by the gate)
+
+`float("five")` crashes. The document had *"Of the five arms admitted by ①∧②∧④"* while every other
+count in it is a numeral, and the anchor captured `(\w+)`.
+
+**Fixed at the source**, not in the pattern: the word was the anomaly, so the document now reads
+**`**5**`**. ⭐ *When prose and instrument disagree about a value's TYPE, change whichever one is
+inconsistent with its own neighbours* — patching the regex would have left the document with one
+count in words and 297 in digits, and the next anchor would have hit the same wall.
+
+⚠ **This is a recurrence** — the same word-vs-numeral defect appeared earlier in this campaign with
+*"Seven"*. **A defect that recurs after being fixed once was fixed in the wrong place**: the first fix
+was local to one anchor, and nothing prevented the next author (me) from writing another word.

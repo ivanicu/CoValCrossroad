@@ -504,6 +504,20 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R470 -- the extension interval. BOTH endpoints are anchored, because the finding is that a
+    # single integer was hiding a convention, and anchoring one endpoint would recreate exactly that.
+    d470 = next(A24.glob("R470_*"), None)
+    f470 = (d470 / "results" / "r470_extension_interval.json") if d470 else None
+    a = json.loads(f470.read_text()) if (f470 and f470.exists()) else None
+    if a and a.get("world") != "UNVERIFIED":
+        out["r470_lo"] = (a["ext_unknown_as_excluded"], "R470")
+        out["r470_hi"] = (a["ext_unknown_as_admitted"], "R470")
+        out["r470_unv"] = (a["ext_unverified_bucket"], "R470")
+        out["r470_np"] = (len(a["P"]), "R470")
+    else:
+        for k in ("r470_lo", "r470_hi", "r470_unv", "r470_np"):
+            out[k] = (None, "R470")
+
     # R469 -- containment's degeneracy. BOTH class means are anchored, because the finding is the
     # SEPARATION and either alone would read as a level rather than as the collapse of a partition.
     d469 = next(A24.glob("R469_*"), None)
@@ -1219,6 +1233,10 @@ ASSERTIONS = {
     "r469_unk": r"class sits at\s*\n?\*\*([\d.]+)\*\*",
     "r469_sep": r"separation ([\u2212\-][\d.]+)\*\*",
     "r469_pos": r"criterion — returns \*\*([\d.]+)\*\*",
+    "r470_lo":  r"extension is \*\*(\d+)\*\* under unknown-as-excluded",
+    "r470_hi":  r"\*\*(\d+)\*\* under unknown-as-admitted",
+    "r470_unv": r"\*\*\d+ confirmed \+ (\d+) unverified\*\*",
+    "r470_np":  r"Of the \*\*(\d+)\*\* arms admitted by",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",

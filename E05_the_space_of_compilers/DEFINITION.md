@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 294 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 298 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 294.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 298.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -465,6 +465,19 @@ rather than provisional.** Controls: the core reproduces **0.0778** vs its commi
 cross-prompt floor is **0.0000**, and `full` — every rubric criterion — returns **0.9999**, without
 which a low number would be silence. ⚠ It rules out **one** instrument; another would need its own
 round, and this round says so rather than generalising. *(R469)*
+
+⛔ **AND THEREFORE THE EXTENSION IS AN INTERVAL, NOT AN INTEGER (R470).** Of the **5** arms admitted by
+①∧②∧④, four — `oracle_k4`, `oracle_k4_fit1`, `greedy_k4_fit1`, `indep_k4_fit1` — are **EXCLUDED** by
+③, and **`coval_core` is the sole UNKNOWN**. So the extension is **0** under unknown-as-excluded,
+**1** under unknown-as-admitted, and **0 confirmed + 1 unverified** under the three-valued reading.
+**The committed value of 1 corresponds to unknown-as-ADMITTED — a convention this document has never
+named** — and its justification (R443's containment argument) is the instrument R469 showed to be
+constant on ③'s partition. ⛔ **The choice is not innocent: the only arm it admits is the object the
+definition was written from, and under the other reading the extension is EMPTY.** ⭐ **The honest
+form is the interval [0, 1] with the convention named, and the three-valued reading is the one this
+campaign's own proxy ledger requires**, since UNVERIFIED must never be folded into EXCLUDED or
+ADMITTED — which is what has been happening. ⚠ This does not say the definition is wrong; it says its
+extension has never been *measured*, only **counted under an invisible convention**. *(R470)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*
