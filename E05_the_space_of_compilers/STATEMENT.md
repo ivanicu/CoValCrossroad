@@ -148,9 +148,23 @@ silence. **2 of the 3 aggregators that can see k, not 2 of 5.** *(R481)*
 
 ## What this campaign has not done
 
-- **No second release, no third judge, no second prompt-blind family with breadth.** Each is named in
-  the impossibility register with what it would require.
-- **③ is not decidable here.** Containment is *constant* on ③'s own partition — **0.9744** excluded
-  against **0.9767** admitted — so it cannot implement ③, and no other instrument on this site does.
-  *(R469)*
+- **No third judge, and no second prompt-blind family with breadth.** Each is named in the
+  impossibility register with what it would require.
+  > ⚠ **CORRECTED (R489):** this line read *"no second release"*. **There is one** — 2,200
+  > conversations in `data/utterances.jsonl`, used by R434, R436, R437 and R438, with 74,048 judged
+  > cells in the `transport_*` arms. What it lacks is the **rank-string schema** the home release
+  > carries, which is what the register's *"with this schema"* qualifier always meant. **A stale
+  > register line understates a site, and understating is not the safe direction: it forecloses work.**
+- **③ is not decidable BY ANY INSTRUMENT here.** Containment is *constant* on ③'s own partition —
+  **0.9744** excluded against **0.9767** admitted — so it cannot implement ③. *(R469)*
+  > ⚠ **AND THAT DOES NOT MAKE ③ UNDECIDABLE (R475).** ③ is a **provenance** predicate, and provenance
+  > is established by a **record**, not a measurement. `data/DATASET_CARD.md` states the released core
+  > is selected on *"the highest average ratings"* — a w-reader — so ③ **excludes** it. R469 measured
+  > correctly and then quantified over the wrong domain.
+- **What would settle ②∧③ is a judge stronger than Qwen3.5-2B, and this site has none.** *(R490)*
+  Not a second judge: the 0.8B is **weaker** — `oracle_k4`, which reads the human target directly,
+  attains **0.105** of the Bayes ceiling under it against **1.088** under 2B. Scoring a new arm there
+  measures that judge. ⭐ And not a new generator either: `corebench/generate_core.py` already builds
+  rating-blind, rubric-blind, prompt-aware cores — **`gen` is its output**, and it is the best
+  ③-admissible arm on the site at **percentile 32.6** of the prompt-blind class.
 - **The definition's extension has never been measured.** It has been counted under a convention.

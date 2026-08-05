@@ -10710,3 +10710,28 @@ lacks is the rank-string schema. *"③ is not decidable here"* — R475 decided 
 ⭐ **A stale register line understates the site, and understating is not the safe direction: it
 forecloses work.** This is R483's rot — *a frozen list that outlives its reason* — on the one document
 whose job is to say what stands.
+
+## 322 · Entry 321 was committed describing corrections that had not been applied (R490, caught one command later)
+
+**The worst shape a record can take, and it shipped.** The previous commit's edit to `STATEMENT.md`
+failed on an `assert` — my pattern said `**0.9744** exclude` where the file says `**0.9744**
+excluded`, **one character** — so the register was never changed. **The commit went through anyway**,
+carrying entry 321, which says *"AND THE REGISTER ITSELF HAD TWO STALE LINES, on the residue,
+corrected here."* **They were not corrected. A retraction described work that did not exist.**
+
+⛔ **And the `gates && commit` conjunction did not protect me** — that is retraction 308's remedy, and
+its scope is narrower than I assumed. The python heredoc died; the shell continued; `git add` staged
+`RETRACTIONS.md` (genuinely modified) and `STATEMENT.md` (unmodified, a no-op); the gates passed,
+because **nothing was wrong with the repo — the edit simply had not happened.** ⭐ **A gate that checks
+the repository cannot detect an edit that was never made.** The conjunction guards against committing
+a *broken* state, not against committing a *missing* one.
+
+**Remedy, and it is the same shape as every other one this session:** an edit script must **assert its
+own effect** and the commit must depend on that assertion, not on the gates. `s.write_text(...)`
+returning is not evidence the replacement occurred; `t.count(old) == 1` before it is, and its failure
+must reach the exit status. Here it reached only stdout, several lines above a `git commit` that never
+read it.
+
+⚠ **Corrections now applied for real** and verified by re-reading the file: the *"no second release"*
+line carries R489's correction, the *"③ is not decidable"* line carries R475's, and the register names
+**a judge stronger than Qwen3.5-2B** as the binding constraint.

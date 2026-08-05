@@ -521,6 +521,16 @@ rounds defining an object other than the one it measures.** ⛔ **This is not a 
 by choosing the convenient branch** — the two differ in what "core" *means*, and R475 does not
 adjudicate them. *(R475)*
 
+⛔ **AND THE COMPUTE THAT WOULD SETTLE ②∧③ IS NOT THE COMPUTE I NAMED (R490).** The generator already
+exists — `corebench/generate_core.py` states in its own docstring that it *"MUST NOT SEE `coval_full`"*
+and *"sees the CONVERSATION and the FOUR RESPONSES only"*, i.e. rubric-blind, rating-blind and
+prompt-aware — and **`gen` is its output**, the best ③-admissible arm at percentile 32.6. And the
+second judge cannot adjudicate: `oracle_k4`, which reads the human target **directly**, keeps only
+**0.105** of the Bayes ceiling under Qwen3.5-0.8B against **1.088** under 2B, while `topw_k4`
+collapses to 0.193 — so the collapse is the judge, not the oracle. **A judge on which an arm that
+reads the answer scores at a tenth cannot separate a +0.0067 gap. What would settle ②∧③ is a judge
+STRONGER than 2B, and this site has none.** *(R490)*
+
 ⛔⛔⛔ **AND THE EXTENSION IS EMPTY BECAUSE ② AND ③ CONFLICT, NOT BECAUSE THE RELEASE OMITS A MEMBER
 (R485).** An empty extension is unremarkable if the world merely contains no member; it is a **defect**
 if the clauses cannot be jointly satisfied. Measured against R478's **cross-fitted** prompt-blind
