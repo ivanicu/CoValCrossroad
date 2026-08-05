@@ -12620,3 +12620,33 @@ times in the sham row of §4.
 whitespace collapse) is strictly more permissive, so a larger share is consistent rather than
 contradictory. **Both are reported; neither silently overrides the other** — a corrected number that
 quietly replaces an old one hides the instrument difference that produced the gap.
+
+## 393 · The claim set's scope column omitted the axis that empties the definition
+
+Parsed mechanically: the statement's ten claim rows name **judge, prompts or arms in 10 of 10** and
+the **target in 0 of 10**. The positive control is what makes that zero admissible — the parse
+demonstrably sees scope tokens.
+
+**Six agreement targets over 968 prompts return four distinct admitted sets** *(R558)*, read from the sweep artifact under `R288_…` — file provenance, not a citation: that round predates the `world` convention.
+`A2·annot` and `A2·consensus` admit `coval_core` and `topw_k4`; **`A1·annot` and `A1·consensus`
+admit nothing at all**; `tau·mean` admits only `coval_core`; **`top1·mean` admits only `topw_k4` —
+excluding the one object anyone calls a core.**
+
+⭐⭐⭐ **So every extension count on the deliverable — the 5, the two 0s — has been readable as
+unconditional, while two of six defensible targets send it to zero.** The artifact was on disk the
+whole time. **This is the largest scope defect this campaign has found, and it was found by asking
+what a row does NOT say rather than by running anything.**
+
+**Fixed with one scope note above the table, stated once**, because a scope restated per row drifts
+and the copy is never the one that gets corrected.
+
+## 394 · Register row 6 is two questions wearing one row
+
+It reads *"construct validity — is A2-vs-held-out-annotator the right target?"*, priced at **another
+site**. ① **Construct validity** — does A2 measure core-ness — genuinely needs an external standard.
+② **Target robustness** — does the choice change the answer — **was measured here** *(R558)* and
+priced as impossible anyway.
+
+⭐ **Fourth register row this session whose defect is the same shape**, after rows 1, 2 and 5: the
+row states a requirement by naming the artifact that would satisfy it, and everything true of that
+artifact then reads as true of the requirement.

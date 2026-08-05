@@ -13,6 +13,21 @@ This page is the residue.*
 **§0.2: report what stands first, what it cost second.** Every row traces to a round with a settled
 verdict; the scope column is the part that makes the claim usable.
 
+⛔⛔ **EVERY ROW BELOW IS AT ONE TARGET, AND THE TARGET IS THE AXIS THAT EMPTIES THE DEFINITION**
+*(R558, which re-read the sweep artifact under `R288_…`; 968 prompts)*. The scope column named **judge, prompts and arms in 10 of 10
+rows and the target in 0 of 10** — so the extension counts have been readable as unconditional.
+Swept over six agreement targets, the admitted set takes **four distinct values**:
+
+| target | admits |
+|---|---|
+| `A2·annot`, `A2·consensus` — **what every number here uses** | `coval_core`, `topw_k4` |
+| `A1·annot`, `A1·consensus` | **∅ — the definition is EMPTY** |
+| `tau·mean` | `coval_core` only |
+| `top1·mean` | `topw_k4` only — **the released core is NOT admitted** |
+
+⭐ **One home for this fact.** It is stated here and not repeated per row, because a scope restated
+ten times drifts and the copy is never the one corrected. **Read every count below as "at A2".**
+
 | # | claim | scope it holds over |
 |---|---|---|
 | **1** | The definition is **② ∧ ③**. ① and ④ are retired — neither excludes anything ② has not *(R519)* | R294's 41 arms, home judge, 968 prompts |
@@ -425,7 +440,7 @@ cheap**, and a column denominated in compute is blind to that.
 | **3** | ②∧③ **under ③-any** — the admissible side is **one** prompt-responsive arm plus a floor. ⚠ **Under ③-rank this row does not bind: the extension is 5** *(R529)* | **more ③-any-admissible prompt-responsive generators** | ⭐⭐⭐ **COMPUTE — the edit was MADE** *(R553)*. `generate_core.py` now takes `--model` and `--fewshot-file`; both reach every load site, and an unflagged run is **byte-identical** to every run before the edit (placebo: the loader sees exactly `MODEL`, the prompt starts with exactly `FEWSHOT`). ⚠ **This is the first register row to MOVE**: it was flag-gated *(R545, R549, R552)* and is now the one on-site row whose first blocker really is compute. |
 | **4** | ② — no **③-any**-admissible arm clears the blind pool. ⚠ **Under ③-rank, five do** *(R529)*. ⭐ **Priced: the closest prompt-responsive ③-any arm, `gen`, is `c2 = −0.0153` against its own MDE of 0.0119 — 1.29 MDE short** *(R530)* | **a `gen`-like generator ~0.0153 A2 stronger** | ⭐ **the SAME edit as row 3** — nested, one requirement at two bars *(R546)*. Not a second cost. **Unblocked with it** *(R553)*. |
 | **5** | independent replication | **a second team or a second release** | ⚠ **WRONG IN KIND** *(R556)*. The row offers two alternatives and **one is already on disk**: `data/utterances.jsonl`, a second release, used by **3** rounds *(R556)* — the artifacts live under `R398_…` · `R427_…` · `R433_…`, named as FILE provenance rather than as verdicts, because the first two predate this campaign's `world` convention and settle nothing on their own. So the missing half is **a second TEAM**, not a site — and §2.5 says that is dischargeable by clean-context agents given the QUESTION and never the ALGORITHM. **Not "another site": an independent designer.** |
-| **6** | construct validity — is A2-vs-held-out-annotator the right target? | **an external gold standard** | **another site** |
+| **6** | construct validity — is A2-vs-held-out-annotator the right target? ⚠ **TWO QUESTIONS, ONE ROW** *(R558)* | ① **construct validity** — does A2 measure core-ness? **an external gold standard** ② **target robustness** — does the choice change the answer? **ALREADY MEASURED HERE**: 6 targets → **4** distinct admitted sets, 2 empty *(R558)* | ① **another site.** ② **nothing — it is done, and the answer is that the extension is target-dependent** |
 | **7** | whether reading **A** is correct after all | **a use for "core" that does not require prediction** | **not a measurement — a decision about purpose** |
 
 ⭐ **Rows 1–4 are all on this site.** The campaign's own conclusion — that the definition's extension

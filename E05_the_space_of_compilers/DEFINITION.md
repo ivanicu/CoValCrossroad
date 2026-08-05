@@ -2637,3 +2637,32 @@ consistent rather than contradictory. **Both are reported; neither silently over
 **So the row's PRICE is right for a COMPLETE mapping and wrong for the requirement.** A partial
 mapping is available on this site with no new field, and the publisher's field remains the only
 route to a *complete* one.
+
+## R558 · The scope column named every axis but the one that empties the definition
+
+Register row 6 asks *"construct validity — is A2-vs-held-out-annotator the right target?"* and
+prices it at **another site**. **That is two questions in one row.** Construct validity — does A2
+measure core-ness — genuinely needs an external standard. **Target robustness — does the choice of
+agreement statistic change the answer — was measured on this site and the artifact has been on disk
+throughout.**
+
+**968 prompts, six targets, four distinct admitted sets** *(R558)*, from the sweep artifact
+under `R288_does_the_partition_survive_the_target/results/target_sweep.json` — named as file
+provenance, because that round predates this campaign's `world` convention and settles nothing
+on its own:
+
+| target | admits |
+|---|---|
+| `A2·annot`, `A2·consensus` | `coval_core`, `topw_k4` |
+| `A1·annot`, `A1·consensus` | **∅** |
+| `tau·mean` | `coval_core` |
+| `top1·mean` | `topw_k4` — **not** `coval_core` |
+
+**And the claim table did not say so.** Parsed mechanically: **10 of 10** rows name a known axis
+(judge, prompts, arms); **0 of 10** name the target. The positive control is what makes that zero a
+measurement rather than silence — the parse demonstrably sees scope tokens.
+
+⭐⭐⭐ **So every extension count on the page — the 5, the two 0s — has been readable as
+unconditional, while two of six defensible targets send the extension to zero and a third excludes
+the only released core.** The fix is one scope note above the table, stated once: a scope restated
+per row drifts, and the copy is never the one that gets corrected.
