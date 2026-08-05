@@ -15701,3 +15701,27 @@ for `src`/`source_hash`/`src_sha`; the corpus writes **`source_sha` (96)** and *
 (73)**. Repaired count: **168 source, 38 tree.** ⭐ And the tree stamp hides under a misleading key —
 38 rounds persist `git rev-parse HEAD` as `head`, `revision`, or **`src`**, which reads as *source*
 and is the **commit**. **A key name is not a type.**
+
+## 673 · A number cited as evidence for a question it was not asked
+
+R654's NEXT justified binding glob bases with *"R653 showed 16 of 59 such bindings are statically
+supplied at every call site."* ⛔ R653's 16 was the blocking **parameter of a D1 read site**; these
+are **glob bases** — a different population and a different quantity. The transfer was never stated
+as an assumption because it was never noticed as one.
+
+## 674 · An uncertainty whose sign I named for free
+
+R654 called its 93 *"an **undercount** by an unknown amount."* ⛔ **The direction was not known** —
+an undecided round can resolve to OWN-SCOPE and leave the count unchanged. The honest form is the
+two-sided bound `[93, 118]`. ⭐ In the event **0 of 25 went either way**, so neither side was right.
+*Naming an uncertainty is worth nothing if you also name its sign for free.*
+
+## 675 · 11 sites were scored by a rule that does not apply to them
+
+R654 and R655 classify a glob by its **receiver**, on the assumption that `X.glob(...)` means `X` is
+a path. ⛔ **11 of the 25 "undecided" rounds use `glob.glob(pattern)` — the stdlib MODULE.** The
+classifier reads `Name(glob)` as a path base; those sites have **no base at all** and their
+corpus-dependence lives in the **pattern argument**. **They are not undecided, they are mis-shaped**,
+and no amount of caller binding could ever have decided them. ⭐ The tell was a **0 with a passing
+synthetic control**: the mechanism worked and was *absent*, which is a different fact from failure,
+and only inspecting the bases distinguished them.
