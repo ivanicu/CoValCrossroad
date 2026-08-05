@@ -13073,3 +13073,28 @@ definite answer.** R569, R570 and R571 each left their question open. The differ
 **negative control**: without a non-hanging gate that *does* call `subprocess`, "not sufficient"
 would have been unsupported and the refutation one-sided. **A one-sided refutation kills a
 hypothesis; a two-sided one answers the question.**
+
+## 424 · "Three gates do not terminate" is retracted — they are meta-gates under a 90-second cap
+
+R571 concluded that `ERROR 3` is **a hang, not a tuning problem**, from a clean bimodality: 43 gates
+below 6.2s, 3 pinned **exactly** at 90.0s. **The bimodality is real; the inference was not.**
+
+Localised step by step: **import completes** · **`ensure_worktree()` 0.0s** · **`restore(wt)` 0.1s**
+· **the loop runs every `assurance/*.py` inside the worktree, with a git restore between subjects.**
+
+⭐⭐⭐⭐ **It is a meta-gate doing ~46 gates' work under a 90-second cap, and R571 itself measured the
+suite at 4–5 minutes serially. 90s is unreachable by arithmetic.** The exact `90.09s` is a **cap-kill
+mid-work** — which produces precisely the signature I read as non-termination.
+
+**Three further hypotheses died inside this round**: the re-entrancy guard (it is a *re-entrancy*
+guard and cannot fire standalone — the 0-byte output proved it never ran), an import hang (import
+completes), and slow git on a 293 MB repo (0.0s / 0.1s).
+
+⚠ **Not established:** whether `backfilled_findings_are_rederivable` is the same shape. **R572's
+two-sided finding stands** — subprocess is neither necessary nor sufficient — and this round adds a
+mechanism for **one** of the three, not a unification.
+
+⭐ **The general form, and it is why R571 was wrong in a way that felt rigorous: a clean bimodal
+distribution invites a categorical reading, and "terminating vs non-terminating" is the most
+available one.** The alternative — *same process, 46× the work* — produces an identical histogram.
+**A gap in a distribution constrains the mechanism far less than it appears to.**
