@@ -13502,3 +13502,25 @@ was false on arrival: it cites rounds, and it cites **different** ones.
 ⭐ **The tell: a closing line that poses a question the round's own artifact answers.** R587's output
 is three numbers wide — 27, 25, 24 — and I wrote *"whether it cites rounds at all"* underneath it.
 **The next-gradient sentence is written last, when the round's numbers have already scrolled past.**
+
+## 451 · The 24 shared values are a real bridge, and what kind is unverified
+
+`STATEMENT` holds **93** distinct decimals, `FORMULATION` **732**, and they share **24**. Against a
+null that shuffles the digits after each decimal point — preserving integer part, length and digit
+multiset while destroying identity — **400 draws give mean 10.64, sd 2.40, max 18. None reached 24.**
+
+⚠ **`p < 0.0025`, not `p = 0`.** A permutation p is floored at `1/(N+1) = 1/401` *(G3)*, and the
+`0.000` the script printed would claim resolution the design does not have.
+
+**Settled:** FORMULATION's values recur in STATEMENT **despite zero shared cited rounds** *(R588)*.
+The oldest document is not disjoint from the newest.
+
+⭐⭐⭐ **Unverified, and this is the fork that matters:** either later rounds **re-measured** the same
+quantities and reproduced them — in which case FORMULATION's findings held — or values were **carried
+forward and re-cited** to later rounds, in which case the newest document's citations point at rounds
+that did not produce those numbers.
+
+⚠ **The second is not hypothetical.** R585 already found one label carrying values from two different
+rounds. **The null establishes that the bridge exists and says nothing about which direction the
+numbers travelled** — and only one of those directions is a finding; the other is a defect in the
+deliverable's provenance.
