@@ -10415,3 +10415,36 @@ structure, so it may only **demote** a FAIL out of LIVE-DEBT and may never promo
 whose control broke silently, or whose register is undeclared, stays LIVE and must. Its selftest uses
 the **two real messages that motivated it** plus a live one and the empty string, because a classifier
 validated on strings I invented is validated against my imagination.
+
+## 312 · I was one line from registering a filter application that never happened (R483, caught by going to the object)
+
+**Retracted before the edit.** `seed_filter_is_disclosed` reported *"1 round(s) apply the filter and
+are not registered: `R382_does_the_pattern_match_anything`"*. The obvious payment — the same shape as
+the `KNOWN_STALE.json` fix minutes earlier — was to add R382 to the registry.
+
+**R382 does not apply the filter.** Its only match is at `run.py:159`, inside a `print()` that
+**quotes the regex while discussing it**:
+
+    print(f"     `len(raters)+1)//2 | >= thr` — it was flagged because `//` is INTEGER DIVISION and
+
+⛔ **The round is named `does_the_pattern_match_anything`.** It is a round *about* the pattern, and the
+detector matched **prose about the thing** rather than the thing. Registering it would have recorded a
+filter application that never occurred — **paying a debt that does not exist and corrupting a registry
+whose whole value is that it is a verified list rather than a set of judgements.**
+
+⭐ **The general form, and why it outranks the specific fix:** *"a search is an instrument"* (§4) is
+usually applied to patterns that are too loose. **This one was exactly right and still wrong**, because
+its input included commentary. **A repository that documents its own checks will contain text that
+matches those checks**, and any detector run over such a repository needs its population restricted to
+code before its unit is what the claim asserts.
+
+**Repair:** `_code_only()` blanks every string literal and comment via `ast`, then searches what
+remains; a parse error falls back to raw source, which over-detects rather than silently dropping a
+round. Controls, all run: a genuine applier (`R01_rater_structure`) is still found (raw True,
+code-only True) · R382 goes raw True → code-only **False** · the pattern in a comment alone does not
+match · and the gate's own line now reads **"rounds applying the filter: 18 registry: 18"**, so
+completeness passes without a single registry edit.
+
+⚠ **The seed gate went from 2 sub-gates failing to 1.** What remains is real: 7 rounds analyse only
+the pre-seeded criteria and disclose it nowhere. **That debt was never the one the gate was loudest
+about.**

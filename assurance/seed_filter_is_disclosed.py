@@ -55,7 +55,7 @@ from __future__ import annotations
 
 import glob
 import json
-import re
+import ast, re
 import sys
 from pathlib import Path
 
@@ -73,6 +73,36 @@ ROUNDS = {
     "R97_rule_tournament_tost",
 }
 
+def _code_only(src: str) -> str:
+    """⛔ THE PATTERN MUST MATCH CODE, NOT TEXT ABOUT CODE.
+    `R382_does_the_pattern_match_anything` was flagged as applying the seed filter. It does not: its
+    only match is inside a `print()` that QUOTES the regex while discussing it. Registering it would
+    have recorded a filter application that never happened and corrupted the registry -- paying a
+    debt that does not exist. A search is an instrument (§4), and this one was matching prose.
+    Repair: blank every string literal and comment via `ast`, then search what remains. Falls back to
+    the raw source on a parse error, which is the SAFE direction -- a round is over-detected (and so
+    surfaces for a human) rather than silently dropped."""
+    try:
+        tree = ast.parse(src)
+    except SyntaxError:
+        return src
+    lines = src.splitlines(keepends=True)
+    offs, tot = [], 0
+    for ln in lines:
+        offs.append(tot); tot += len(ln)
+    def pos(r, c):
+        return offs[r - 1] + c if 0 < r <= len(offs) else len(src)
+    out = list(src)
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Constant) and isinstance(node.value, str) \
+           and node.end_lineno is not None:
+            a, b = pos(node.lineno, node.col_offset), pos(node.end_lineno, node.end_col_offset)
+            for i in range(a, min(b, len(out))):
+                if out[i] != "\n":
+                    out[i] = " "
+    return re.sub(r"#[^\n]*", "", "".join(out))
+
+
 FILTER = re.compile(r"len\(raters\)\s*\+\s*1\)\s*//\s*2|>=\s*thr\b")
 DISCLOSE = re.compile(
     r"majority of (the|a) prompt|pre-?seeded|63\.5%|seed(ed)? (set|class|criteria)|write-?in",
@@ -81,7 +111,7 @@ DISCLOSE = re.compile(
 
 def main() -> int:
     found = {p.parent.name for p in ROOT.glob("E*/A*/R*/run.py")
-             if FILTER.search(p.read_text())}
+             if FILTER.search(_code_only(p.read_text()))}
     readme = README.read_text()
     print(f"rounds applying the majority/seed filter: {len(found)}   registry: {len(ROUNDS)}")
 
