@@ -12230,3 +12230,23 @@ that must agree on a population should share the function that defines it."**
 ⚠ **Process note, third occurrence: R542 and R544 were each measured, reported, and left
 uncommitted until the following round.** Reporting is not committing, and the standing rule is
 commit-and-push every round.
+
+## 370 · Register rows 3 and 4 are nested — one of them cannot buy anything
+
+**Row 3** asks for *more ③-any-admissible prompt-responsive generators*; **row 4** for *a `gen`-like
+arm ~0.0153 A2 stronger*. **They are not two pieces of work.**
+
+The census holds **25** ③-any-admissible arms, of which the prompt-responsive ones are `gen`,
+`gen_sham`, `promptecho`, `promptecho_sham`, and **0 clear ②**. ⭐⭐⭐ **Any arm satisfying row 4
+satisfies row 3; an arm satisfying row 3 but not row 4 leaves the extension at 0 — it changes
+nothing.** With R544/R545 showing both need the same edit, the rows are **one requirement at two
+bars, and only the higher bar is load-bearing.**
+
+⚠ **And the thing this round refused to claim.** Row 3 says the admissible side holds **one**
+prompt-responsive arm; my derivation found **four**. **That is not a miscount in row 3** — it cites
+R502, whose unit is *"prompt-responsive **full-coverage**"*, and I dropped the qualifier. **A
+different criterion, and the nesting result does not depend on either count.**
+
+⭐ **Left unstated, that would have manufactured a fifth register defect out of a qualifier I chose
+not to apply** — the same instrument-unit-versus-claim-unit mismatch behind most of this session's
+retractions, caught this time before it became an entry rather than after.
