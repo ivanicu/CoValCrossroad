@@ -131,6 +131,33 @@ A **core** for a conversation is a set of criteria such that
   average ratings"* — so `coval_core` is a **weight-reader but not a ranking-reader**. `select_core.py:16`
   calls the same operation **"non-leaky: the weights come from the rubric, not from the outcome."**
 
+> ### ⭐ LINEAGE OF THE EXTENSION — what supports the number 5 *(R676–R682)*
+> **The extension under ③ is ONE set** — `coval_core, topw_k3, topw_k4, topw_k6, topw_k8` — and its
+> **unique producing commit is R294** *(R678: 6 of 6 sets have a unique producer; 4 controls,
+> g=0 included)*. **Five other five-member arm sets are committed in this corpus and denote other
+> objects**: `R442.published_five` is **CoVal's publication list**, `R470.P` and `R509.five` are sets
+> **before ③ is applied**, `R404.rubric_rules` holds **rule prefixes**, `R416.arms` is unrelated
+> *(R677)*. Their intersection is **empty**; among extension-claiming sets it is `{coval_core}` alone
+> *(R676)*.
+>
+> ⛔ **The 7 rows on this page asserting an extension size cite 22 rounds, and the producing rounds
+> are NONE of them** *(R679 — traceability, not correctness: a row citing R529 may have re-derived
+> the set correctly, and that is a separate question)*.
+>
+> ⚠ **At most SIX independent computations stand behind the number, not 22.** Of 20 rounds whose
+> artifacts hold the set, **8 derive it** with no member literals in executable source and **12 carry
+> it hard-coded**; of the 8, **two read a prior round's `results/` file** *(R680)*. It is a ceiling
+> twice over — absent literals remove one way of copying, not all.
+>
+> ⭐ **The hard-coding is not contamination.** **1 of the 12** lets the set reach an output field
+> (`R442`, whose estimand *is* the extension as written); **8** use it only as a comparison target;
+> **R361 consumes it as an ANALYSIS POPULATION**, so R361's statistics about "the five" inherit the
+> set as an input assumption; **R676's literals are its own control fixtures** *(R681, R682)*.
+>
+> **What this changes for a reader:** the number **5** on this page is supported by **one identified
+> set with a named producer**, and by **at most six independent computations** — not by the count of
+> rows that quote it.
+
 ⭐ **Two clauses, and they are orthogonal by measurement.** On the 41 arms carrying every verdict,
 ③ drops **4 of ②'s 9 passers and 0 of its 32 rejects** — it cuts exactly where ② does not *(R519)*.
 

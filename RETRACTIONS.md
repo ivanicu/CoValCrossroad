@@ -16538,3 +16538,25 @@ The registered point encoded an unexamined premise: that a round which writes a 
 likely to publish it. Measured, the ratio is the opposite — hard-coding here is overwhelmingly a
 comparison fixture. **The prediction was about my suspicion of the corpus rather than about anything
 the corpus does**, and the interval [2,10] was wide enough to hide that until the point missed by 4.
+
+## 782 · A third use exists that R681's categories could not name: the set as an ANALYSIS POPULATION
+R361 computes `np.mean` and `np.std` over the hard-coded five and concatenates it into `LABELS +
+FIVE`. That is neither a comparison target nor a reported value — the set is an **input assumption of
+the round's statistics**, so any R361 number about "the five" inherits the hard-coding. R681's two
+categories had no name for it, which is why all three residue rounds landed in `OTHER_USE`.
+**Categories built from the cases you have seen do not cover the cases you have not, and the
+residual bucket is where that shows up — twice now in three rounds.**
+
+## 783 · This round is CLOSURE and says so, because the label is what keeps it meaningful
+No outcome of a Load-site trace could have changed R680's ceiling or R681's count; there was no fork.
+Eleven rounds of this arc were Frontier. **Calling a residue trace Frontier would inflate the word
+until it stops distinguishing anything**, and the cost of that is invisible until a genuinely
+forkless action gets treated as evidence. What this round protects is named; what it produces — the
+arc's five standing results landing in `STATEMENT.md` — is the actual output.
+
+## 784 · The arc's results had not reached the deliverable until this round put them there
+R676 through R681 produced five standing facts about what supports the number 5, and `STATEMENT.md`
+said none of them. A finding that lives only in a round directory is **cost recovery, not
+production** — it removed a wrong belief from my head and changed nothing a reader can act on.
+**Landing is a separate step from measuring, and nothing in the gate set was checking that it
+happened.**
