@@ -15202,3 +15202,26 @@ at **150 s**), *"exceeded 750 s"* (**622 s**), *"the second pass is much slower"
 Re-run with nothing touching the repository: **POSITIVE PASS · NEGATIVE PASS · PLACEBO PASS →
 `B SOME MOVE`, 12 of 38.** ⭐ **Check #237's "operator rather than code" was an untested exclusion
 when written and is now supported**: with the operator still, the code restores correctly.
+
+## 611 · `EXIT 1` denotes 18 distinct worlds across 19 rounds — the decoder cannot be built
+
+**95 of 313 rounds (30.4%) declare an `EXIT` convention** — the 43-round subset's 34.9% holds. But
+`EXIT 0` carries **85** distinct meanings across 95 rounds, `EXIT 1` **18** across 19, `EXIT 2` **15**
+across 19. **Essentially one meaning per round.**
+
+⭐ **No generic harness can decode it; the only sound rule is NON-ZERO DOES NOT MEAN FAILURE.** So
+*"the fix is one line"* is false in a deeper way than cost — **there is no fix, only a prohibition.**
+
+## 612 · Retraction 607 was a whitespace artifact — all five "failures" were verdicts
+
+I wrote *"only R431 shows no convention"* from `grep -E "EXIT [0-9]"`, **a single space**. R431:99
+reads `EXIT  0 W-COMPOSITION · 1 W-CONFOUND or W-BOTH · 2 UNVERIFIED` — **two spaces.**
+**Corrected: all five of R636's reported failures were verdicts; zero were failures.**
+⭐ The negative control caught **my own earlier grep**, not the new instrument — which is what a
+negative control validated against a *verified* case, rather than against my prior, is for.
+
+## 613 · Check #239 — an uncomputed cost claim, in the cheap direction this time
+
+*"The fix is one line"* was never measured. ⭐ **In three rounds I have made uncomputed cost claims in
+both directions** — *"re-runs are expensive"* to avoid work, *"the fix is one line"* to justify it —
+**and both felt obviously true.**
