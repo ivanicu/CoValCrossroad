@@ -17572,3 +17572,54 @@ disagreement **more specific and not less real**.
 
 ⚠ And R685 is partly vindicated rather than overturned. Its exclusion of continuous values was a
 stated design choice that cost coverage; it did not hide a second verdict, and its count was right.
+
+## 896 · the gate extension R709 proposed does not ship, and the refusal is the round's output
+
+R709's NEXT line proposed extending the quantifier gate with ranking adjectives, so it would catch
+ledger 893's `weakest`. Measured on 1073 NEXT paragraphs with the same machinery and window, holding
+the trigger class as the only moving part:
+
+| class | flag rate | chance share |
+|---|---|---|
+| QUANT (live) | 0.2535 | **0.7942** |
+| RANKING (proposed) | 0.0401 | **0.8960** |
+| SHAM non-ranking adjectives | 0.0261 | **0.9337** |
+| QUANT ∪ RANKING | 0.2777 | 0.8101 |
+
+**Ranking words are WORSE per flag than the words already in the gate.** Adding them raises the
+union's chance share. ⭐ The extension would have closed ledger 893's class of miss while importing
+24 flags of the same quality as the ones R708 could not show mean anything — **adding words to a
+detector that is three-quarters chance adds three-quarters chance.**
+
+⚠ **The "does it catch the missed case" check is a CONTROL, never evidence.** `weakest` IS the word;
+that check could not have failed and it is recorded as a positive control on the extension.
+
+⚠ And the size-matched non-ranking SHAM adds 7 new flags against ranking's 24, so ranking-ness IS
+distinguishable from adjective density — **but its own chance share is worse than both, so being a
+distinguishable class does not make it a better one.**
+
+## 897 · my registered POINT B was unreadable and the round had to say so mid-flight
+
+POINT B — the chance share of the 24 newly-added flags — came in at 0.5988, comfortably inside its
+registered [0.30, 1.00] and apparently BETTER than QUANT's. ⛔ Its shuffle noise floor is **0.3750**
+over **24** paragraphs, wide enough to contain almost any comparison. **A number inside its
+registered interval is not thereby readable**, and my first verdict string led with it.
+
+Repaired to lead with the full-corpus per-class comparison at n=1073, where the floor is small enough
+to carry a verdict. The registered figure is still reported — it was registered — but labelled
+unreadable rather than quietly dropped.
+
+## 898 · two housekeeping facts this round surfaced, both recorded rather than fixed silently
+
+**① QUANT's chance share re-measures at 0.7942 here against R707's 0.758.** Not a contradiction: R707
+used the full `flagged()` including its `BARE_COUNT` trigger, while this round holds the trigger class
+as the only moving part and therefore excludes it. **Different quantities, both reported, neither
+substituted for the other.**
+
+**② Another session is working in this repository.** `origin/main` moved to a commit I did not make
+while this round ran, the corpus grew from 1067 to 1073 paragraphs mid-round, and the index carries
+their staged files. Verified before touching anything: my last commit is an ancestor of theirs, so
+nothing is lost and there is no divergence. **The standing rule against another session is to queue,
+not to retaliate** — their staged work is left untouched and this round commits only its own paths.
+⚠ And the corpus growing mid-round is why the README had to be re-synced from the artifact: the first
+draft carried n=1067 figures beside an artifact that said 1073.
