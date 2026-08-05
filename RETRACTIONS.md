@@ -14297,3 +14297,39 @@ the tautology printed FAIL.
 to scatter near zero: mean |Δ| **0.0626** against pooled **0.1772**, PASS. *A control whose result the
 algebra forces is not weak evidence; it is none, and it costs a round to notice because it looks like
 diligence.*
+
+## 521 · The era-3 split is temporal, not structural — and my bin edge was in the wrong place
+
+Among era 3's 35 cited rounds, the only feature separating the 9 with provenance from the 26 without
+is **when they happened**: `late_in_era` **0.3333 vs 1.0000**, Δ **−0.6667** against a whole-grid null
+of 0.4359. **All 26 undocumented ones are in the band's late half.** Every non-temporal feature is
+flat — `has_py` 1.0000 vs 0.9615, `has_readme` and `big_readme` 1.0000 vs 1.0000, `has_npz` 0 vs 0,
+arc identical (all `A24`).
+
+⛔ **So R607's *"genuine within-era selection"* is refined:** the collapse happens **inside** era 3,
+not at the boundary I drew. **The 13× figure stands; its location does not.**
+
+⭐ *General form: a stratifier holds a variable fixed only at the resolution of its bins, and a bin
+wide enough to contain the transition will attribute that transition to whatever else varies across
+it.* Five equal bands of ~120 rounds was not holding time fixed.
+
+## 522 · A rate among the cited, read as a rank in the band
+
+R607 closed calling `P(prov | cited) = 0.2571` **"the worst-documented quarter."** It is a **rate**,
+not a **rank** — two different quantities merged because both land near a quarter, and nothing
+measured supports the rank claim.
+
+⚠ The same line proposed *"simply re-derive the 26"* — **a repair R605 had already priced out**, having
+measured the construction step absent for 98 of 101 scored artifacts. **A closing line may not propose
+a repair a previous round has shown impossible.**
+
+## 523 · Power computed before the features, and the multiplicity correction IS the null
+
+At n = 35 (9 vs 26) a null would most likely have been silence, so the design's resolution was
+computed first: max|Δ| over the whole 6-feature grid, 200 draws — median **0.2863**, p95 **0.4359**,
+max 0.5812. The pre-registered kill (`MDE > 0.50 ⇒ unresolvable regardless`) did not fire, so the
+features became admissible to read — **and only then were they read.**
+
+⭐ **The correction is built into the null** by taking it on the maximum across the grid, rather than
+applied afterwards to a per-feature p. *That ordering is what made `late_in_era`'s survival mean
+something instead of being one of six chances.*

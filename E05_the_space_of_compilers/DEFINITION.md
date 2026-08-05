@@ -2821,3 +2821,37 @@ pooled **0.1772**.
 
 ⚠ Two eras have an empty arm and their Δ is **UNDEFINED, never 0**. ⚠ Round id is a proxy for time,
 not time; no artifact carries a timestamp.
+
+---
+
+## R608 · What separates era 3's documented cited rounds
+
+Population: the **35** rounds in 365–485 that `STATEMENT.md` cites, split **9** with a provenance key
+against **26** without. Era and citation are held fixed by construction.
+
+**Power was computed before any feature was read.** Null distribution of max|Δ| over the whole
+6-feature grid, 200 draws: median **0.2863**, p95 **0.4359**, max 0.5812 — so a feature must exceed
+**0.4359** to clear the grid. The pre-registered kill (MDE above 0.50 ⇒ unresolvable regardless) did
+not fire.
+
+| feature | P(f \| provenance) | P(f \| none) | Δ |
+|---|---|---|---|
+| **`late_in_era`** | **0.3333** | **1.0000** | **−0.6667** — SURVIVES |
+| `many_artifacts` | 0.1111 | 0.0000 | +0.1111 |
+| `has_py` | 1.0000 | **0.9615** | +0.0385 |
+| `has_readme` | 1.0000 | 1.0000 | 0.0000 |
+| `big_readme` | 1.0000 | 1.0000 | 0.0000 |
+| `has_npz` | 0.0000 | 0.0000 | 0.0000 |
+
+Arc offers no contrast: all 35 are in `A24`.
+
+**Controls.** A feature perfectly correlated with provenance returns |Δ| = **1.0000**; a feature
+independent of it returns **0.2051**, below the grid null, so the instrument can fail; a constant
+feature returns exactly **0.0000**.
+
+⭐ **All 26 undocumented cited rounds are in the band's late half**, and every non-temporal feature is
+flat. The separation is temporal, so **R607's within-era selection is partly an artifact of a
+120-round bin**: the collapse happens inside era 3, not at the boundary drawn. The 13× figure stands;
+its location does not.
+
+⚠ A structural correlate is not a reason; why a round recorded its source needs the round's author.
