@@ -12,10 +12,16 @@ This page is the residue.*
 
 A **core** for a conversation is a set of criteria such that
 
-- **①** it scores better than a random draw of that conversation's own rubric;
 - **②** it scores better than the best **generalising** prompt-blind criterion set;
-- **③** it was not built by reading the conversation's human labels;
-- **④** it scores better than every rule computable from the responses alone.
+- **③** it was not built by reading the conversation's human labels.
+
+⭐ **Two clauses, and they are orthogonal by measurement.** On the 41 arms carrying every verdict,
+③ drops **4 of ②'s 9 passers and 0 of its 32 rejects** — it cuts exactly where ② does not *(R519)*.
+
+⛔ **① and ④ are retired from the definition.** Both are true of cores and neither excludes anything
+② has not already excluded: **① drops 0 passers and 24 rejects** (nested inside ②), **④ drops 0 and
+0** at the home judge, with every ②-passer sitting **4.90×–8.65× MDE** above ④'s bar *(R518, R519)*.
+They are kept below as history, not as clauses.
 
 Size: **more than one criterion**. The design cannot separate 3 from 8, so no number is named. *(R441)*
 

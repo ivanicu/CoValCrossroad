@@ -1887,3 +1887,42 @@ there can distinguish the clauses. Unchanged from R517.
 which is right for one and wrong for the other. **A false UNVERIFIED manufactures work**: it invented
 a scoring run that the record already answered. A false acquittal is permanent because nobody
 re-examines a cleared claim; a false *unverified* is expensive because everybody re-runs it.
+
+---
+
+## R519 · Only ③ narrows what ② admits — all four clauses, one population, one instrument
+
+R514–R518 tested ① and ④ against ② in separate rounds with separate instruments. Putting all four
+on the **41 arms** that carry both R294's verdicts and R436's ④ scores:
+
+| clause | drops of the **9 ②-passers** | drops of the **32 ②-rejects** | reading |
+|---|---|---|---|
+| **①** | **0** | **24** | **nested inside ②** |
+| **③** | **4** | **0** | ⭐ **orthogonal to ②** |
+| **④** | **0** | **0** | discriminates nothing at home |
+
+⭐⭐⭐ **The sham column is what makes this a mechanism rather than a tally.** ① *does* discriminate
+— on 24 arms — but every one of them is an arm ② has already removed, which is subsumption made
+visible. ④ discriminates on nothing at all here. **③ alone cuts where ② does not, and cuts nothing
+where ② already has.**
+
+**The four arms ③ removes are the highest scorers**, and all four read the prompt's labels:
+`oracle_k4` (all annotators), `oracle_k4_fit1`, `greedy_k4_fit1`, `indep_k4_fit1` (parity 1).
+
+**Surviving all four clauses:** `coval_core`, `topw_k3`, `topw_k4`, `topw_k6`, `topw_k8` —
+**identical to the census's own `admitted`**, confirming ①∧④ contribute nothing to it.
+
+**Controls.** Negative: ② against its own admitted set drops 0 — the join is sound. Positive: ③
+drops 4, so ①'s and ④'s zeros are measurements rather than silence. Noise floor: R518 put every
+②-passer at 4.90×–8.65× MDE above ④'s bar.
+
+⭐⭐⭐ **So the definition is a PAIR, and the two clauses are orthogonal by measurement:**
+
+> A **core** for a conversation is a set of criteria that **② scores better than the best
+> generalising prompt-blind criterion set**, and **③ was not built by reading that conversation's
+> human labels**.
+
+⚠ **The tension, now measured rather than asserted: the only clause doing independent work is the
+one that cannot be checked from the object.** ② is behavioural and anyone can run it. ③ is
+provenance — it needs the producer. And it earns its place by removing the *best-performing* arms,
+which score highest precisely because they read the answer.

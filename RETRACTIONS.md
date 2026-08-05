@@ -11626,3 +11626,40 @@ a false UNVERIFIED manufactures work.** A false acquittal is permanent because n
 cleared claim; a false *unverified* is expensive because everybody re-runs it — and it invented a
 scoring run the record had already answered. **§4 warns against over-correcting into the opposite
 story; caution is a direction, not a safe harbour.**
+
+## 352 · The definition is a PAIR — ① and ④ retired, and my closing line was miscounted for the third round running
+
+**The four-clause definition is reduced to two.** On the 41 arms carrying every verdict:
+
+| clause | drops of the **9 ②-passers** | drops of the **32 ②-rejects** |
+|---|---|---|
+| **①** | **0** | **24** |
+| **③** | **4** | **0** |
+| **④** | **0** | **0** |
+
+**Only ③ narrows what ② admits.** ① and ④ are retired: true of cores, excluding nothing ② had not
+already excluded. The set surviving all four clauses is **identical to the census's own `admitted`**.
+
+⭐ **The sham column is what turns a tally into a mechanism.** ① *does* discriminate — on 24 arms —
+but all 24 are arms ② already removed. That is subsumption made visible, and it is why R514's
+bar-ordering argument was pointing at something real even though its warrant was wrong.
+
+⭐⭐⭐ **② and ③ are orthogonal by measurement** — ③ drops 4 passers and 0 rejects — and the four
+arms ③ removes are the **highest scorers**, all of which read the prompt's labels. **The clause
+doing the only independent work is the one checkable from the PRODUCER and never from the product.**
+
+⚠ **And the process finding, which is now a pattern rather than an incident: my closing NEXT line
+has carried a false count three rounds running.**
+
+| round | the claim | the count |
+|---|---|---|
+| `75df50d` | ②∧④ is "the pair nobody has checked" | **10** READMEs discuss both; R439 is titled with the question |
+| `469a8b9` | settling ④ "needs a scoring run rather than a reanalysis" | **41** arms already carried both verdicts |
+| `83ba86b` | ②∧③ "has been examined together once" | **48** READMEs mention both |
+
+**Three different failure shapes — a population never counted, a wall never checked, a count
+guessed — and one common cause: the closing sentence is written after the round's controls have
+fired, when the attention they were holding has been released.** The NEXT-line gate catches the
+quantifier form; it cannot catch a wall, which is why `469a8b9` passed it and was still false.
+**The remedy that has actually worked, three for three, is running check #N on my own last line as
+the first act of the next round.**
