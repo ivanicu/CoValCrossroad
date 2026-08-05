@@ -128,7 +128,18 @@ def main() -> int:
         print(f"    PASS -- no value appears on the statement that is not anchored elsewhere")
 
     if bad:
-        print(f"\n  ⛔ FAIL: {len(bad)} citation(s) name a round that is UNVERIFIED or has no verdict:")
+        # ⭐ R704: this sentence used to be TYPED, not computed -- it said "N citation(s) name a
+        #   round that is UNVERIFIED" for EVERY failure, including a TRANSCRIPTION one, and it
+        #   misdiagnosed R704's own run. §4: any comparative or descriptive word in a verdict
+        #   string must be computed. The kinds are now counted and named separately.
+        ncite = sum(1 for r, _ in bad if r != "TRANSCRIPTION")
+        ntran = sum(1 for r, _ in bad if r == "TRANSCRIPTION")
+        kinds = []
+        if ncite:
+            kinds.append(f"{ncite} citation(s) naming a round that is UNVERIFIED or has no verdict")
+        if ntran:
+            kinds.append(f"{ntran} transcription failure(s) — a value on the statement anchored nowhere")
+        print(f"\n  ⛔ FAIL: {' AND '.join(kinds)}:")
         for r, w in bad:
             print(f"    {r}: {w or 'no artifact'}")
         return 1

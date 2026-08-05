@@ -51,3 +51,20 @@ F2 carries 20 unique exclusions against F1's 4 and F3's 2 (`results/load_bearing
 discriminating power is recoverable from `(family, k)`, so check how many of F2's 20 are recoverable
 the same way — if most are, F2's apparent weight is our parameterisation showing through, and the
 clause carrying the most exclusions would be the one contributing least that is not ours.
+
+---
+
+## ⚠ ANNOTATED BY R704 (2026-08-05) — two corrections, neither touching this round's numbers
+
+**① This round's own artifact under-reports its own sets.** `run.py:120` builds the verdict string
+with `str(r['unique'][:3])`, so `results/load_bearing.json` prints **three** members for F1 and for F2
+with no ellipsis and no count, beside `n_unique: 4` and `n_unique: 20` in the same file. The `rows`
+field is correct and is the source of record; the `world` string is a lossy display of it. Third
+occurrence of this class (R690's set indexing, R698's README vs its JSON, this).
+
+**② The NEXT line below was answered and its premise is REFUTED.** R704 measured the value of the
+generator name over the base rate on **all 42 arms**: `+0.000` for F2 under `(family,k)`, `+0.048` at
+best across five partitions, and no partition clears its own permutation null. F2's 20 unique
+exclusions are a **count**, not a signal — F2 excludes 33 of 42 arms. The line's own framing carried
+the defect: measuring on *the clause's own unique exclusions* conditions on the label being
+predicted, which fixes the base rate at 1.000 or 0.000 by algebra.

@@ -17165,3 +17165,84 @@ It offered `random_k4_s0` as something F1 admits that a reader would refuse. F1 
 refuses it, so the conjunction does.** Naming an object ONE clause admits says nothing when another
 catches it — **the informative question for a conjunction is necessity, not per-clause admission**,
 and the closing line asked the uninformative one.
+
+## 867 · R703's verdict string prints three members of a twenty-member set
+
+`R703/run.py:120` writes the world string with `str(r['unique'][:3])`. The artifact therefore reports
+`['coval_core_sham', 'gen', 'gen_sham']` for F2 beside `n_unique: 20` in the same JSON — no ellipsis,
+no count, nothing telling a reader the list was cut. `rows` is correct; the display is not.
+
+**Third occurrence of one class**: R690 indexed an unordered `set` into a verdict string and
+attributed R442's members to R360; R698 found a README stating 79/44/8 against its own artifact's 10;
+this. All three are *a display, inside or beside an artifact, asserting something the artifact's own
+fields contradict*. **P7 says build infrastructure at the third occurrence.** Deferred one round with
+the count recorded rather than built blind, because the gate wants a positive control and a measured
+false-positive rate, not a regex written in the same breath as the diagnosis.
+
+## 868 · I registered a statistic its own sham scored higher than
+
+R704 pre-registered **cell-determined share** as the headline. The registered single-cell SHAM scored
+**1.000** against the treatment's **0.650**. §4's tell is exact: a sham above the treatment means the
+statistic does not isolate the ingredient. Mechanism — under one cell the held-out "cell" is the whole
+population, so *every* prediction is booked as cell-determined and the category that was supposed to
+read zero reads maximal.
+
+**The sham did its job.** It was registered before the run, it fired, and it refuted the round's own
+headline rather than the object under test. The replacement statistic — accuracy minus the
+leave-one-out base rate — was then given **its own** positive control and g=0 rather than inheriting
+the old ones, per the standing rule that a replacement proxy returns numbers immediately and inherits
+no validation.
+
+## 869 · my population conditioned on the label I was predicting
+
+R704's registered population was **each clause's own unique exclusions**. That is §4's *conditioning
+on the outcome*. A clause excluding a majority of the population then has a base rate of **1.000 by
+algebra**, and one excluding a minority **0.000** — so the sign of any gain-over-base-rate is fixed
+before any data is read. F2 excludes 33 of 42, so its base rate on its own exclusions was 1.000 and
+its gain could not be positive; F1 admits 38 of 42, so its base rate was 0.000 and its gain could not
+be negative. **The comparison the round was built to make was decided by arithmetic.**
+
+Repaired by adding an un-conditioned population (all 42 arms) as a grid axis. The conditioned rows are
+kept and marked, never deleted. ⚠ And note what this does to R703's NEXT line, which specified that
+population in the first place: **a question can carry a design defect in its own wording**, and the
+round that inherits it will implement the defect faithfully.
+
+## 870 · R703's premise, refuted — F2's weight is a count, not our parameterisation
+
+R703 closed by proposing that F2's 20 unique exclusions (against F1's 4 and F3's 2) might be
+"our parameterisation showing through". Measured on all 42 arms: the generator name is worth
+**+0.000** to F2 under the canonical `(family,k)` partition and **+0.048** at best over five
+partitions — **two arms of 42** — and no partition clears its own permutation null. F1's best is
++0.048; F3's +0.286 is a **derivation**, since F3 *is* the predicate `1 < k ≤ 4`.
+
+So the asymmetry is a **count**: F2 excludes 33 of 42 arms, and a demanding clause produces many
+unique exclusions whatever it encodes. **The hypothesis that the clause carrying the most exclusions
+contributes least that is not ours is dead — nothing beyond the base rate contributes at all.**
+
+⚠ And the round's own leading hypothesis died with it: 13 of 13 arms the partition "determines" for
+F2 sit in cells made only of same-generator replicates we shipped, which is true, and **moot**, since
+the base rate predicts them anyway. Recorded because it was the round's title.
+
+## 871 · my own gate reported a transcription failure as an UNVERIFIED citation
+
+`assurance/statement_provenance.py:131` printed one typed sentence for every failure it collects:
+*"N citation(s) name a round that is UNVERIFIED or has no verdict"*. It collects **two** kinds — a
+citation without a settled verdict, and a decimal value on `STATEMENT.md` anchored nowhere. R704 hit
+the second and was told the first. **I read it, believed R704 was uncommitted-and-therefore-unverified,
+and began reasoning about commit order** — the real cause was two orphan decimals I had just written.
+
+§4's *the verdict string is not a computation*, in a gate whose whole purpose is to catch that class
+elsewhere. Repaired: the kinds are counted separately and the sentence is assembled from the counts.
+**Positive control on the repair**: a synthetic orphan value now yields *"1 transcription failure(s)"*
+and names no citation; removing it returns PASS.
+
+## 872 · my first positive control for that repair could not have fired
+
+I probed with `0.31415926`. The gate's regex is `(\d+\.\d{3,4})(?![\w])` — three or four decimals — so
+an eight-decimal value **cannot match**, and the control passed while testing nothing. It was a
+**check that cannot fail**, built while fixing a display defect, and it failed silently toward PASS.
+
+Re-probed with `0.4242`, which is shaped like the thing the instrument searches for, and the branch
+fired. **The rule this is an instance of: a positive control's probe must be shaped like the objects
+the instrument actually matches, and the cheapest way to know is to read the pattern before choosing
+the probe rather than after it passes.**

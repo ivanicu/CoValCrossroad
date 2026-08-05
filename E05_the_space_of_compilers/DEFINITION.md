@@ -3122,3 +3122,30 @@ quality*. R335's artifact still records `W-DECIDABLE`; **that verdict is superse
 
 ⚠ Whether this bound is *correct* needs re-running R336–R338, which this site cannot do. What R631
 established is that it was **stated only in `FORMULATION.md`**, which no gate reads.
+
+## R704 · What the generator's name is worth once an arm is held out
+
+R693 measured that clause ②'s verdict is **88.1%** predictable from the arm's rule family, and R694
+that a memorising fit on `(family, k)` scores **95.2%**. Both are fits scored on their own data and
+both said so. R704 measures the matching floor: **leave-one-out**, against the **base rate** (the
+majority class, no partition at all), over **all 42 arms** rather than over the arms a clause happens
+to exclude.
+
+The gain from the `(family,k)` partition for clause ② is **+0.000** — base rate **0.786**, with the
+partition **0.786**. Across five partitions (`family` · `k` · `(family,k)` · `(family,k,sham)` · a
+single cell) the best gain is **+0.048**, two arms of 42, and **no partition clears its own
+2000-draw permutation null**. F1 provenance reaches **+0.048** at best. F3's **+0.286** under a
+`k`-partition is a **derivation**, not a measurement: F3 *is* the predicate `1 < k <= 4`.
+
+So the asymmetry R703 opened — clause ② carrying 20 unique exclusions against 4 and 2 — is a
+**count**: ② excludes **33 of 42** arms, and a demanding clause produces many unique exclusions
+whatever it encodes. At n=42 the resolution is **0.024** per arm, so the cross-clause ordering is
+reported and the cross-clause difference is not.
+
+Two designs failed before the object did, each caught by a control registered before the run. The
+round's registered headline — a cell-determined share — was refuted by its own **sham**: a
+single-cell partition scored **1.000** against the treatment's **0.650**, because under one cell every
+prediction books as cell-determined. And the registered population was **outcome-conditioned**:
+evaluating a clause on its own exclusions fixes the base rate at 1.000 for any clause excluding a
+majority and 0.000 for any clause excluding a minority, by algebra, before any data is read. That
+population was named in R703's closing sentence, so the defect was inherited from the question.
