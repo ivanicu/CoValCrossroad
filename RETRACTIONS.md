@@ -12751,3 +12751,35 @@ R561's first version ran the 40 gates in a serial loop I wrote. It died on `atta
 
 ⭐ **The error the round was about, committed while committing it** — and it is the same shape as
 the original: **reaching for a loop instead of asking what the file already does.**
+
+## 401 · My verdict string ignored the control printed three lines above it
+
+R562 asked whether nine failing gates are nine defects or one seen nine ways. Its positive control
+reported **6 of 9 gates name no concrete object**. Its verdict string then printed **"WORLD A — the
+object sets are effectively disjoint: nine gates, nine defects"** — **a disjointness claim computed
+over 3 of 9**, with the control's own words on screen above it.
+
+⭐⭐⭐ **§4's verdict-string failure, committed inside the round about reading failures properly.**
+The branch condition now references **every** control the round declared and returns **UNVERIFIED**
+when any is partial. **A verdict that does not read its own controls is prose that looks like
+output** — and the tell is that it was *fluent*: "nine gates, nine defects, nine rounds" is a
+satisfying sentence, which is exactly why nothing stopped it.
+
+## 402 · "Nine failing gates" is a count that depends on how they were invoked
+
+`attack_scope_reaches_the_reader` and `corrections_propagated` return **rc=0 standalone** and were
+**FAIL under `run_all`**. R561 reported nine and did not check invocation-stability.
+
+⚠ **Direction unknown and stated as such**: this could be run-order dependence, shared-state
+contamination, or a working-tree difference between the two runs. **It is not yet diagnosed, and
+naming a cause would be the fabrication this ledger exists to prevent.** What is established is
+narrower: **the nine is a number with an instrument attached, and the instrument was not named.**
+
+## 403 · Six of nine gates report a failure without naming its object
+
+A gate that prints FAIL and no round id, no path, no symbol **cannot be triaged, deduplicated, or
+fixed** — only re-run. **That is a defect in the gates, not in the code they are auditing**, and it
+is why R562 could not answer its own question.
+
+⭐ **The general form: a check's output is an interface.** A failure that does not name its object
+converts a mechanical check back into a manual search, which is the cost the check existed to remove.
