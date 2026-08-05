@@ -12027,3 +12027,37 @@ a number instead of an adjective.
 matches the census for **41 of 41** arms, so the reading of *why* an arm fails ② is the code's
 (positive); both failure modes are present — **29** resolvedly-below and **3** unresolved — so
 "shortfall" does not conflate a loss with an unresolved tie (negative).
+
+## 363 · I hardcoded a population three rounds after logging that exact defect
+
+**R530 measured "the closest PROMPT-RESPONSIVE ③-any arm" with this filter:**
+
+```python
+responsive = [a for a in anyadm if a in ("gen","gen_sham") or a.startswith("promptecho")]
+```
+
+⛔ **A hardcoded literal. R520 — three rounds earlier, by me — logged precisely this defect in
+`USES_PROMPT_LABELS` and closed with "derive the set from the code's own gate rather than declaring
+it."** I then declared one. And the closing line asserted *"`gen` is the ONE prompt-responsive
+③-any arm in the census"*, which a hand-written tuple cannot establish.
+
+**Derived properly** — an arm is index-varying iff its criterion index set differs across prompts:
+**18 of 41 vary; 14 are also ③-any-admissible.**
+
+⭐ **`gen` really is the closest, at 1.29 MDE, so R530's number survives.** What was false is only
+the word **"one"**: the set has **14** members, including `full` at 2.60 MDE and the whole
+`random_k6/8/12` family.
+
+⚠ **The negative control took two repairs and both were my error, not the instrument's.** It first
+named `random_k4_s0` — which **R294 skips**, being the clause-① comparator — so it returned `None`
+and the control **could not run**. Loaded directly, it comes out **index-FIXED**: at small k the
+same indices exist in every prompt. Only at **k ≥ 6** does the pool differ per prompt. **Twice I
+expected the wrong thing and twice the check reported honestly instead of guessing.**
+
+⭐ **And the proxy limit R530 asserted is now demonstrated**: `random_k6_s0` is index-varying while
+prompt-blind by construction, so index variation is sound for *"criteria differ by prompt"* and not
+for *"criteria were written for this prompt."* **Until that arm was found, the limit was itself an
+unverified claim** — I had asserted a weakness I could not exhibit.
+
+⭐ **Surfaced in passing, and nothing in the record said it: the clause-① comparator
+`random_k4_s0` uses the SAME criterion indices for every prompt.**

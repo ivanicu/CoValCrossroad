@@ -2263,3 +2263,31 @@ unresolved), so "shortfall" does not conflate them.
 
 **Register rows 3 and 4 now carry the fork and the number.** They were always ③-any rows; under
 ③-rank neither binds.
+
+---
+
+## R531 · Prompt-responsiveness derived, and the 1.29 MDE survives
+
+**R530's "prompt-responsive" filter was a hardcoded tuple** — `a in ("gen","gen_sham") or
+a.startswith("promptecho")` — **the exact defect R520 logged in `USES_PROMPT_LABELS`, committed
+three rounds later by its author.** Its closing line then claimed `gen` was *"the ONE"* such arm,
+which a hand-written list cannot establish.
+
+**Derived instead from the artifacts** — an arm is index-varying iff its criterion index set differs
+across prompts: **18 of 41 vary, 14 are also ③-any-admissible.** `gen` is the closest at
+**1.29 MDE**, then `full` at 2.60, then the `random_k12/8/6` family, out to `full_sham` at 5.83.
+
+⭐⭐⭐ **R530's number survives; only the word "one" was wrong — the set has 14 members.**
+
+**Controls.** Positive: `coval_core` VARYING, `generic` BLIND. Negative: `random_k6_s0` is
+index-varying while **prompt-blind by construction**, so the proxy measures index variation and not
+semantics. ⚠ **That control took two repairs** — it first named `random_k4_s0`, which R294 **skips**
+as the clause-① comparator so it could not run, and which loaded directly comes out **FIXED**,
+because at small k the same indices exist in every prompt. **The instrument was right both times;
+my expectation was wrong.**
+
+⭐ **A fact surfaced in passing and worth carrying: the clause-① comparator `random_k4_s0` uses the
+SAME criterion indices for every prompt.** Nothing in the record said so.
+
+**Proxy limit, now demonstrated rather than asserted:** index variation is sound for *"the criteria
+differ by prompt"* and **not** for *"the criteria were written for this prompt."*
