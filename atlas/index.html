@@ -61,6 +61,10 @@ text{font-family:var(--mono);font-size:10px;fill:var(--dim)}
 .mono-sm{font-family:var(--mono);font-size:11.5px;color:var(--dim);white-space:pre-wrap;line-height:1.55}
 .prov{font-family:var(--mono);font-size:10px;color:var(--dimmer);margin-top:9px}
 footer{padding:40px 0;color:var(--dimmer);font-size:12px;font-family:var(--mono)}
+.zh2{display:block;color:var(--dim);font-size:.94em;margin-top:2px;opacity:.88}
+.counts .zh2,.legend .zh2,td .zh2{display:inline;margin-left:6px;font-size:.9em}
+#langsw{position:fixed;top:12px;right:14px;z-index:200;display:flex;gap:4px;background:rgba(20,21,28,.94);border:1px solid var(--line);padding:4px}
+#langsw button{font-size:11px;padding:3px 9px}
 
 /* ---- cloud ---- */
 #cloudwrap{position:relative;background:#101118;border:1px solid var(--line)}
@@ -100,31 +104,27 @@ footer{padding:40px 0;color:var(--dimmer);font-size:12px;font-family:var(--mono)
   font-size:12px;padding:6px 10px;width:290px}
 </style></head><body>
 
-<div id="drawer"><div class="dh"><b id="dtitle"></b><button onclick="closeDrawer()">close ✕</button></div>
+<div id="langsw"></div>
+<div id="drawer"><div class="dh"><b id="dtitle"></b><button onclick="closeDrawer()" data-t="d.close"></button></div>
   <div class="body" id="dbody"></div></div>
 
 <header><div class="wrap">
-  <div class="eyebrow">every prompt · every criterion · every round</div>
-  <h1>CoVal Crossroad — <em>the whole object</em></h1>
-  <p class="lede">Every figure was recomputed from the release and this repository by
-  <code>atlas/extract.py</code>, <code>extract_corpus.py</code> and <code>add_geometry.py</code>.
-  Nothing is typed by hand. <b>Click any point to read that prompt in full</b> — its four answers, its
-  rubric with every raw score, and all sixteen annotators' three rankings with their written reasons.</p>
+  <div class="eyebrow" data-t="eyebrow"></div>
+  <h1 data-t="title"></h1>
+  <p class="lede" data-t="lede"></p>
   <div class="counts" id="counts"></div>
 </div></header>
 
 <div class="wrap">
 
 <section id="s1">
-  <div class="shead"><span class="snum">01</span><h2>The corpus, as a cloud</h2></div>
-  <p class="sub">One point per prompt, <b id="ncloud"></b> of them. Position is a t-SNE of
-  Qwen3.5-0.8B mean-pooled embeddings — <span class="hot">semantic neighbours land near each other</span>.
-  Every other channel is switchable below. Hover to read the prompt; click to open it.</p>
-  <div class="btns" style="margin-bottom:7px"><span class="lbl">projection</span><span id="projb"></span></div>
-  <div class="btns" style="margin-bottom:7px"><span class="lbl">colour</span><span id="hueb"></span></div>
-  <div class="btns" style="margin-bottom:8px"><span class="lbl">size</span><span id="sizeb"></span>
+  <div class="shead"><span class="snum">01</span><h2 data-t="s1.h"></h2></div>
+  <p class="sub" data-t="s1.sub"></p>
+  <div class="btns" style="margin-bottom:7px"><span class="lbl" data-t="lbl.proj"></span><span id="projb"></span></div>
+  <div class="btns" style="margin-bottom:7px"><span class="lbl" data-t="lbl.hue"></span><span id="hueb"></span></div>
+  <div class="btns" style="margin-bottom:8px"><span class="lbl" data-t="lbl.size"></span><span id="sizeb"></span>
     <span class="lbl" style="margin-left:16px">find</span>
-    <input id="searchbox" placeholder="substring of the prompt…"></div>
+    <input id="searchbox" data-tph="ph.find"></div>
   <div id="cloudwrap"><canvas id="cloud"></canvas><div id="tip"></div></div>
   <div class="legend" id="legend"></div>
   <p class="prov" id="cloudprov"></p>
@@ -133,139 +133,118 @@ footer{padding:40px 0;color:var(--dimmer);font-size:12px;font-family:var(--mono)
 </section>
 
 <section id="s1b">
-  <div class="shead"><span class="snum">01b</span><h2>The audit, as layers over the corpus</h2></div>
-  <p class="sub">Every finding of the campaign, re-expressed as <b>the set of prompts it is about</b>, and
-  painted onto the same cloud. <span class="hot">z compares the layer's mean pairwise distance against 60
-  size-matched random draws</span> — near zero means the finding is spread uniformly and is <b>not</b> a
-  property of any domain; strongly negative means it concentrates somewhere real. Click a layer to paint it;
-  click again to clear.</p>
+  <div class="shead"><span class="snum">01b</span><h2 data-t="s1b.h"></h2></div>
+  <p class="sub" data-t="s1b.sub"></p>
   <div id="layerlist"></div>
   <div class="note" id="layernote"></div>
 </section>
 
 <section id="s2">
-  <div class="shead"><span class="snum">02</span><h2>The twelve neighbourhoods, and how they differ</h2></div>
-  <p class="sub">A cluster's name is the terms that most <b>separate</b> it from the rest of the corpus —
-  computed, never assigned. The bars compare each neighbourhood against the corpus mean on seven measured
-  axes, so <span class="hot">a domain's character is a shape, not a label</span>.</p>
+  <div class="shead"><span class="snum">02</span><h2 data-t="s2.h"></h2></div>
+  <p class="sub" data-t="s2.sub"></p>
   <div class="grid3" id="clustercards"></div>
 </section>
 
 <section id="s3">
-  <div class="shead"><span class="snum">03</span><h2>Do the domains behave differently?</h2></div>
-  <p class="sub">Each row is one measured property; each mark is one neighbourhood. If domain mattered, the
-  marks would spread. <span class="hot">Where they collapse onto the corpus mean, the domain is not the
-  variable.</span></p>
+  <div class="shead"><span class="snum">03</span><h2 data-t="s3.h"></h2></div>
+  <p class="sub" data-t="s3.sub"></p>
   <div class="card"><div id="smallmult"></div></div>
-  <div class="card" style="margin-top:18px"><h3>and how each construction scores, by neighbourhood</h3>
+  <div class="card" style="margin-top:18px"><h3 data-t="s3.arm.h"></h3>
     <div class="scroll"><table id="armbydomain"></table></div></div>
 </section>
 
 <section id="s4">
-  <div class="shead"><span class="snum">04</span><h2>One point, fully opened</h2></div>
-  <p class="sub">The same object the drawer shows, printed here for the worked prompt. Four answers to
-  <em>"help me make it sting"</em>: <b>A</b> obeys, <b>D</b> refuses politely, and thirteen of fourteen
-  people put A last.</p>
-  <div class="card" style="margin-bottom:16px"><h3>the prompt</h3>
+  <div class="shead"><span class="snum">04</span><h2 data-t="s4.h"></h2></div>
+  <p class="sub" data-t="s4.sub"></p>
+  <div class="card" style="margin-bottom:16px"><h3 data-t="s4.p"></h3>
     <div class="mono-sm" id="prompt" style="color:var(--fg);font-size:13px"></div></div>
   <div class="grid2" id="responses"></div>
   <p class="prov" id="s1prov"></p>
 </section>
 
 <section id="s5">
-  <div class="shead"><span class="snum">05</span><h2>What each annotator did, in order</h2></div>
-  <p class="sub">The order is the finding. <span class="hot">Rankings come first; the criteria are written
-  last</span> — so a criterion is not independent evidence, it is the same person's standard, authored after
-  they had already decided. <b id="ovl"></b> of the people who scored a prompt's criteria also ranked it.</p>
+  <div class="shead"><span class="snum">05</span><h2 data-t="s5.h"></h2></div>
+  <p class="sub" data-t="s5.sub"></p>
   <div id="flow"></div>
 </section>
 
 <section id="s6">
-  <div class="shead"><span class="snum">06</span><h2>The criterion field</h2></div>
-  <p class="sub">A criterion is a sentence about <b>any</b> answer, with a signed weight −10…+10. Annotators
-  were trained to supply <b>both polarities</b>.</p>
+  <div class="shead"><span class="snum">06</span><h2 data-t="s6.h"></h2></div>
+  <p class="sub" data-t="s6.sub"></p>
   <div class="grid2">
-    <div class="card"><h3>weight × satisfaction spread — the worked prompt</h3><div id="scatter"></div></div>
-    <div class="card"><h3>how many people scored each criterion — whole release</h3><div id="hist"></div>
+    <div class="card"><h3 data-t="s6.c1"></h3><div id="scatter"></div></div>
+    <div class="card"><h3 data-t="s6.c2"></h3><div id="hist"></div>
       <p class="prov" id="histnote"></p></div>
   </div>
-  <div class="card" style="margin-top:18px"><h3>the criteria, and the raw scores behind each weight</h3>
+  <div class="card" style="margin-top:18px"><h3 data-t="s6.c3"></h3>
     <div class="scroll"><table id="crittab"></table></div></div>
 </section>
 
 <section id="s7">
-  <div class="shead"><span class="snum">07</span><h2>The machine that reads them</h2></div>
-  <p class="sub">One yes/no question per (criterion × response). Nothing sampled — two logits at the final
-  position. <b id="njudge"></b> such calls stand behind this page.</p>
+  <div class="shead"><span class="snum">07</span><h2 data-t="s7.h"></h2></div>
+  <p class="sub" data-t="s7.sub"></p>
   <div class="grid2">
-    <div class="card"><h3>the literal prompt sent to the judge</h3><div class="mono-sm" id="jp"></div></div>
-    <div class="card"><h3>and the whole scoring rule</h3>
+    <div class="card"><h3 data-t="s7.c1"></h3><div class="mono-sm" id="jp"></div></div>
+    <div class="card"><h3 data-t="s7.c2"></h3>
       <div class="mono-sm" style="color:var(--fg);font-size:12.5px" id="formula"></div>
-      <div class="note warn" style="margin-bottom:0"><b>⚠ There is no <span class="m">w</span> in that sum.</b>
-      Satisfying a criterion the annotators scored −10 <em>adds</em> exactly as much as one they scored +10.</div>
+      <div class="note warn" style="margin-bottom:0" data-t="s7.warn"></div>
     </div>
   </div>
 </section>
 
 <section id="s8">
-  <div class="shead"><span class="snum">08</span><h2>Ten ways to go from full to core</h2></div>
-  <p class="sub">Pick a rule; see what it selects and what it costs. Humans put <b>D &gt; B &gt; C &gt; A</b>.</p>
+  <div class="shead"><span class="snum">08</span><h2 data-t="s8.h"></h2></div>
+  <p class="sub" data-t="s8.sub"></p>
   <div class="btns" id="rulebtns" style="margin-bottom:16px"></div>
   <div class="grid2">
-    <div class="card"><h3>selected criteria</h3><div id="selview"></div></div>
-    <div class="card"><h3>resulting totals y, and the verdict</h3><div id="yview"></div></div>
+    <div class="card"><h3 data-t="s8.c1"></h3><div id="selview"></div></div>
+    <div class="card"><h3 data-t="s8.c2"></h3><div id="yview"></div></div>
   </div>
-  <div class="card" style="margin-top:18px"><h3>all ten, side by side</h3>
+  <div class="card" style="margin-top:18px"><h3 data-t="s8.c3"></h3>
     <div class="scroll"><table id="ruletab"></table></div></div>
 </section>
 
 <section id="s9">
-  <div class="shead"><span class="snum">09</span><h2>Why the good ones are good</h2></div>
-  <p class="sub">Across all <b id="nmech"></b> prompts, agreement runs almost exactly <b>backwards</b> to how
-  many negative-weight criteria a rule admits.</p>
+  <div class="shead"><span class="snum">09</span><h2 data-t="s9.h"></h2></div>
+  <p class="sub" data-t="s9.sub"></p>
   <div class="grid2">
-    <div class="card"><h3>agreement vs. share of selected criteria with w &lt; 0</h3><div id="mechplot"></div></div>
-    <div class="card"><h3>and what happens if the sum is simply given the sign back</h3><div id="signbars"></div>
-      <p class="prov">Statistic: per-prompt mean pairwise agreement. <b style="color:var(--red)">Not the
-      campaign's A2</b> — not comparable to the leaderboard below.</p></div>
+    <div class="card"><h3 data-t="s9.c1"></h3><div id="mechplot"></div></div>
+    <div class="card"><h3 data-t="s9.c2"></h3><div id="signbars"></div>
+      <p class="prov" data-t="s9.prov"></p></div>
   </div>
   <div class="note" id="mechnote"></div>
 </section>
 
 <section id="s10">
-  <div class="shead"><span class="snum">10</span><h2>The arm × metric hologram</h2></div>
-  <p class="sub"><b id="nlb"></b> arms × <b id="nmet"></b> metrics, verbatim from the committed leaderboard.
-  Shade is the cell's position between that metric's min and max across arms. Hover for the raw value.</p>
+  <div class="shead"><span class="snum">10</span><h2 data-t="s10.h"></h2></div>
+  <p class="sub" data-t="s10.sub"></p>
   <div class="card"><div class="scroll"><table id="holo"></table></div></div>
-  <div class="note warn"><b>⚠ Two arms named <code>r</code> and <code>t</code></b> carry full metric rows and
-  appear in no round's documentation. Shown as found.</div>
+  <div class="note warn" data-t="s10.warn"></div>
 </section>
 
 <section id="s11">
-  <div class="shead"><span class="snum">11</span><h2>The campaign, as its own cloud</h2></div>
-  <p class="sub"><b id="nround"></b> rounds · <b id="narc"></b> arcs · <b id="nep"></b> epochs. Each mark is
-  one round in order; height is persisted artifacts, faded means no README was written. Hover for the title.</p>
+  <div class="shead"><span class="snum">11</span><h2 data-t="s11.h"></h2></div>
+  <p class="sub" data-t="s11.sub"></p>
   <div id="roundcloudwrap" style="position:relative"><div id="roundcloud"></div><div id="rtip" style="position:absolute;pointer-events:none;background:#0d0e14;border:1px solid var(--gold);padding:6px 9px;font-family:var(--mono);font-size:11px;display:none;z-index:20;max-width:420px"></div></div>
   <div class="grid2" style="margin-top:18px">
-    <div class="card"><h3>rounds per arc</h3><div id="arcbars"></div></div>
-    <div class="card"><h3>rounds that left no README</h3><div id="doccov"></div></div>
+    <div class="card"><h3 data-t="s11.c1"></h3><div id="arcbars"></div></div>
+    <div class="card"><h3 data-t="s11.c2"></h3><div id="doccov"></div></div>
   </div>
 </section>
 
 <section id="s12">
-  <div class="shead"><span class="snum">12</span><h2>What was shipped and never read</h2></div>
-  <p class="sub">Every field in the release against the number of <code>*.py</code> files that mention it.
-  <span class="hot">Zero means the campaign never opened it.</span></p>
+  <div class="shead"><span class="snum">12</span><h2 data-t="s12.h"></h2></div>
+  <p class="sub" data-t="s12.sub"></p>
   <div class="grid2">
-    <div class="card"><h3>field → files that touch it</h3><div id="fields"></div></div>
-    <div class="card"><h3>the largest unread object: OpenAI's own moderation scores</h3><div id="modplot"></div>
+    <div class="card"><h3 data-t="s12.c1"></h3><div id="fields"></div></div>
+    <div class="card"><h3 data-t="s12.c2"></h3><div id="modplot"></div>
       <p class="prov" id="modprov"></p></div>
   </div>
 </section>
 
 <section id="s13">
-  <div class="shead"><span class="snum">13</span><h2>Completeness ledger</h2></div>
-  <p class="sub">A visualisation that will not state its own completeness is asserting it.</p>
+  <div class="shead"><span class="snum">13</span><h2 data-t="s13.h"></h2></div>
+  <p class="sub" data-t="s13.sub"></p>
   <div class="card"><div class="scroll"><table id="ledger"></table></div></div>
   <div class="note warn" id="ledgersum"></div>
 </section>
@@ -273,6 +252,7 @@ footer{padding:40px 0;color:var(--dimmer);font-size:12px;font-family:var(--mono)
 <footer><div id="foot"></div></footer>
 </div>
 
+<script src="i18n.js"></script>
 <script>
 const $=s=>document.querySelector(s), EL=(t,a={},...c)=>{const e=document.createElement(t);
  for(const k in a){if(k==='class')e.className=a[k];else if(k==='html')e.innerHTML=a[k];else e.setAttribute(k,a[k]);}
@@ -287,37 +267,43 @@ const CL=['#e0af68','#7aa2f7','#9ece6a','#bb9af7','#ff9e64','#f7768e','#73daca',
           '#b48ead','#a3be8c','#d08770','#88c0d0'];
 
 let P,C,HUE='cluster',SIZE='n_crit',PROJ='tsne',LAYER=null,LSET=null,ACTIVE=new Set(),QUERY='';
+function applyI18N(root){
+  (root||document).querySelectorAll('[data-t]').forEach(e=>{e.innerHTML=T(e.dataset.t);});
+  (root||document).querySelectorAll('[data-tph]').forEach(e=>{e.placeholder=Tt(e.dataset.tph);});}
+function buildLangSwitch(){const h=$('#langsw');h.innerHTML='';
+  LANGS.forEach(L=>{const b=EL('button',{},LANGNAME[L]);b.className=(L===LANG)?'on':'';
+    b.onclick=()=>{LANG=L;localStorage.setItem('atlas_lang',L);location.reload();};h.appendChild(b);});}
 Promise.all([fetch('payload.json').then(r=>r.json()),fetch('corpus.json').then(r=>r.json())])
- .then(([p,c])=>{P=p;C=c;draw();});
+ .then(([p,c])=>{P=p;C=c;buildLangSwitch();applyI18N();draw();});
 
 /* ================= drawer ================= */
 function closeDrawer(){$('#drawer').classList.remove('open');}
 async function openPrompt(pid){
   const d=$('#drawer'),b=$('#dbody');
-  $('#dtitle').textContent=pid; b.innerHTML='<p class="mono-sm">loading…</p>'; d.classList.add('open');
+  $('#dtitle').textContent=pid; b.innerHTML='<p class="mono-sm">'+Tt('d.loading')+'</p>'; d.classList.add('open');
   const x=await fetch('p/'+pid+'.json').then(r=>r.json());
   const row=C.rows.find(r=>r.pid===pid)||{};
   const cl=C.clusters[row.cluster]||{};
   const PAIRS=['AB','AC','AD','BC','BD','CD'];
   let h='';
-  h+='<h4>the prompt</h4>';
-  if(x.developer)h+=`<p class="mono-sm">[developer] ${esc(x.developer)}</p>`;
+  h+='<h4>'+T('d.prompt')+'</h4>';
+  if(x.developer)h+=`<p class="mono-sm">${Tt('d.dev')} ${esc(x.developer)}</p>`;
   h+=`<div class="q">${esc(x.user)}</div>`;
   if(x.prior_assistant&&x.prior_assistant.length)
-    h+=`<p class="mono-sm" style="margin-top:8px">[prior assistant turn] ${esc(x.prior_assistant.join(' … ')).slice(0,600)}</p>`;
+    h+=`<p class="mono-sm" style="margin-top:8px">${Tt('d.prior')} ${esc(x.prior_assistant.join(' … ')).slice(0,600)}</p>`;
   h+=`<div class="kv" style="margin-top:11px">
-    <b>neighbourhood</b><span style="color:${CL[row.cluster%12]}">c${row.cluster} · ${esc(cl.label||'')}</span>
-    <b>annotators</b><span>${x.assessments.length}</span>
-    <b>criteria</b><span>${x.criteria.length}</span>
-    <b>turns</b><span>${x.n_turns}</span>
-    <b>human modal class</b><span>${x.target?x.target.map((v,i)=>PAIRS[i]+(v>0?'+':v<0?'−':'=')).join(' '):'—'} ${x.target_tie?'<b style="color:var(--red)">⚠ MODAL TIE — broken by file order</b>':''}</span>
-    <b>consensus strength</b><span>${f(x.consensus,3)}</span>
-    <b>personal ≠ world</b><span>${x.personal_world_splits} of ${x.assessments.length}</span></div>`;
+    <b>${Tt('d.neigh')}</b><span style="color:${CL[row.cluster%12]}">c${row.cluster} · ${esc(cl.label||'')}</span>
+    <b>${Tt('d.nann')}</b><span>${x.assessments.length}</span>
+    <b>${Tt('d.ncrit')}</b><span>${x.criteria.length}</span>
+    <b>${Tt('d.turns')}</b><span>${x.n_turns}</span>
+    <b>${Tt('d.modal')}</b><span>${x.target?x.target.map((v,i)=>PAIRS[i]+(v>0?'+':v<0?'−':'=')).join(' '):'—'} ${x.target_tie?'<b style="color:var(--red)">'+Tt('d.tie')+'</b>':''}</span>
+    <b>${Tt('d.cons')}</b><span>${f(x.consensus,3)}</span>
+    <b>${Tt('d.split')}</b><span>${x.personal_world_splits} ${Tt('d.of')} ${x.assessments.length}</span></div>`;
 
-  h+='<h4>the four candidate answers</h4>';
+  h+='<h4>'+T('d.four')+'</h4>';
   x.responses.forEach(r=>{h+=`<div class="rsp"><span class="lab">${r.label}</span><div class="txt">${esc(r.text)}</div></div>`;});
 
-  h+='<h4>the rubric — coval_full, with every raw score</h4>';
+  h+='<h4>'+T('d.rubric')+'</h4>';
   h+='<table><tr><th>#</th><th>w</th><th>n</th><th>A</th><th>B</th><th>C</th><th>D</th><th>criterion</th></tr>';
   x.criteria.slice().sort((a,b)=>b.w-a.w).forEach(c=>{
     h+=`<tr class="${c.w<0?'b-neg':''}"><td class="num">${c.i}</td>
@@ -327,36 +313,36 @@ async function openPrompt(pid){
      `<td>${esc(c.text)}</td></tr>`;});
   h+='</table>';
 
-  if(x.coval_core.length){h+='<h4>coval_core — the released 4, LM-distilled</h4><table>';
+  if(x.coval_core.length){h+='<h4>'+T('d.core')+'</h4><table>';
     x.coval_core.forEach((t,i)=>{h+=`<tr><td class="num">${i}</td>
-      <td style="color:${x.core_in_full[i]?'var(--green)':'var(--red)'};white-space:nowrap">${x.core_in_full[i]?'IN full':'NOT in full'}</td>
+      <td style="color:${x.core_in_full[i]?'var(--green)':'var(--red)'};white-space:nowrap">${x.core_in_full[i]?Tt('d.infull'):Tt('d.notin')}</td>
       <td>${esc(t)}</td></tr>`;});h+='</table>';}
 
-  if(Object.keys(x.verdicts||{}).length){h+='<h4>what each construction scored on this prompt</h4><table>';
+  if(Object.keys(x.verdicts||{}).length){h+='<h4>'+T('d.verd')+'</h4><table>';
     Object.entries(x.verdicts).forEach(([k,v])=>{h+=`<tr><td>${k}</td><td class="num" style="color:${v>=4?'var(--green)':v<=1?'var(--red)':'var(--gold)'}">${v}/6</td></tr>`;});
     h+='</table>';}
 
-  h+='<h4>prompt-level ratings</h4><div class="kv">';
-  [['importance',x.importance],['representativeness',x.representativeness],['subjectivity',x.subjectivity]]
+  h+='<h4>'+T('d.rate')+'</h4><div class="kv">';
+  [[Tt('d.imp'),x.importance],[Tt('d.rep'),x.representativeness],[Tt('d.subj'),x.subjectivity]]
    .forEach(([k,v])=>{h+=`<b>${k}</b><span>${v.map(z=>esc(String(z[0])).slice(0,58)+' ×'+z[1]).join('<br>')}</span>`;});
   h+='</div>';
 
-  h+='<h4>the world rankings people gave</h4><div class="kv">';
+  h+='<h4>'+T('d.world')+'</h4><div class="kv">';
   x.world_rankings.forEach(([r,n])=>{h+=`<b>${esc(r)}</b><span>×${n}</span>`;});h+='</div>';
-  h+='<h4>the personal rankings — same people, different question</h4><div class="kv">';
+  h+='<h4>'+T('d.pers')+'</h4><div class="kv">';
   x.personal_rankings.forEach(([r,n])=>{h+=`<b>${esc(r)}</b><span>×${n}</span>`;});h+='</div>';
-  if(x.unacceptable.length){h+='<h4>unacceptable flags</h4><div class="kv">';
+  if(x.unacceptable.length){h+='<h4>'+T('d.unacc')+'</h4><div class="kv">';
     x.unacceptable.forEach(([r,n])=>{h+=`<b>${esc(r).slice(0,80)}</b><span>×${n}</span>`;});h+='</div>';}
 
-  h+=`<h4>every annotator, verbatim — ${x.assessments.length} people</h4>`;
+  h+='<h4>'+T('d.every',{N:x.assessments.length})+'</h4>';
   x.assessments.forEach(a=>{const sp=a.world&&a.personal&&a.world.replace(/ /g,'')!==a.personal.replace(/ /g,'');
    h+=`<div class="ann ${sp?'split':''}"><div class="hd">${a.aid}
      &nbsp;·&nbsp; world <b style="color:var(--gold)">${esc(a.world||'—')}</b>
      &nbsp;·&nbsp; personal <b style="color:${sp?'var(--red)':'var(--dim)'}">${esc(a.personal||'—')}</b>
-     ${sp?'&nbsp;<b style="color:var(--red)">SPLIT</b>':''}</div>`;
-   if(a.world_why)h+=`<div class="why"><b style="color:var(--dim)">world:</b> ${esc(a.world_why)}</div>`;
-   if(a.personal_why)h+=`<div class="why"><b style="color:var(--dim)">personal:</b> ${esc(a.personal_why)}</div>`;
-   if(a.unacceptable_why)h+=`<div class="why"><b style="color:var(--red)">unacceptable:</b> ${esc(a.unacceptable_why)}</div>`;
+     ${sp?'&nbsp;<b style="color:var(--red)">'+Tt('d.split_b')+'</b>':''}</div>`;
+   if(a.world_why)h+=`<div class="why"><b style="color:var(--dim)">${Tt('d.wworld')}</b> ${esc(a.world_why)}</div>`;
+   if(a.personal_why)h+=`<div class="why"><b style="color:var(--dim)">${Tt('d.wpers')}</b> ${esc(a.personal_why)}</div>`;
+   if(a.unacceptable_why)h+=`<div class="why"><b style="color:var(--red)">${Tt('d.wunacc')}</b> ${esc(a.unacceptable_why)}</div>`;
    h+='</div>';});
   b.innerHTML=h;b.parentElement.scrollTop=0;
 }
@@ -366,28 +352,27 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer();});
 function draw(){
 const R=P.release,W=P.worked,M=P.mechanism;
 
-[['prompts',C.n_prompts],['candidate answers',C.n_prompts*4],['annotators',R.n_annotators],
- ['criteria',R.n_criteria.toLocaleString()],['world rankings',R.ranking_blocks.world.toLocaleString()],
- ['rationales',R.n_rationales.toLocaleString()],['neighbourhoods',C.k],['rounds',P.campaign.n_rounds],
- ['commits',P.campaign.n_commits]].forEach(([k,v])=>
-  $('#counts').appendChild(EL('div',{},EL('b',{},''+v),EL('span',{},k))));
+[['c.prompts',C.n_prompts],['c.answers',C.n_prompts*4],['c.annot',R.n_annotators],
+ ['c.criteria',R.n_criteria.toLocaleString()],['c.world',R.ranking_blocks.world.toLocaleString()],
+ ['c.rat',R.n_rationales.toLocaleString()],['c.neigh',C.k],['c.rounds',P.campaign.n_rounds],
+ ['c.commits',P.campaign.n_commits]].forEach(([k,v])=>
+  $('#counts').appendChild(EL('div',{},EL('b',{},''+v),EL('span',{html:T(k)}))));
 
 /* ---------- 01 CLOUD ---------- */
 const cv=$('#cloud'),ctx=cv.getContext('2d');
-const HUES={cluster:'neighbourhood',consensus:'consensus strength',split_rate:'personal≠world rate',
-  negshare:'share of w<0 criteria',tie:'modal tie',has_rubric:'has a rubric',n_ann:'annotators'};
-const SIZES={n_crit:'criteria',n_ann:'annotators',len_user:'prompt length',
-  n_unacc:'unacceptable flags',consensus:'consensus'};
-Object.entries(HUES).forEach(([k,v])=>{const b=EL('button',{},v);b.onclick=()=>{HUE=k;syncBtns();paint();};
+const HUEK=['cluster','consensus','split_rate','negshare','tie','has_rubric','n_ann'];
+const SIZEK=['n_crit','n_ann','len_user','n_unacc','consensus'];
+const HUES={},SIZES={};HUEK.forEach(k=>HUES[k]=Tt('h.'+k));SIZEK.forEach(k=>SIZES[k]=Tt('z.'+k));
+Object.entries(HUES).forEach(([k,v])=>{const b=EL('button',{html:T('h.'+k)});b.onclick=()=>{HUE=k;syncBtns();paint();};
   b.dataset.h=k;$('#hueb').appendChild(b);});
-Object.entries(SIZES).forEach(([k,v])=>{const b=EL('button',{},v);b.onclick=()=>{SIZE=k;syncBtns();paint();};
+Object.entries(SIZES).forEach(([k,v])=>{const b=EL('button',{html:T('z.'+k)});b.onclick=()=>{SIZE=k;syncBtns();paint();};
   b.dataset.s=k;$('#sizeb').appendChild(b);});
-Object.entries(C.projections).forEach(([k,v])=>{const b=EL('button',{},v.label);
+Object.entries(C.projections).forEach(([k,v])=>{const b=EL('button',{html:T('p.'+k)});
   b.onclick=()=>{PROJ=k;syncBtns();paint();};b.dataset.p=k;$('#projb').appendChild(b);});
 function syncBtns(){document.querySelectorAll('[data-h]').forEach(b=>b.classList.toggle('on',b.dataset.h===HUE));
   document.querySelectorAll('[data-s]').forEach(b=>b.classList.toggle('on',b.dataset.s===SIZE));
   document.querySelectorAll('[data-p]').forEach(b=>b.classList.toggle('on',b.dataset.p===PROJ));
-  $('#projnote').textContent='▸ '+C.projections[PROJ].note;}
+  $('#projnote').textContent='▸ '+(LANG==='en'?C.projections[PROJ].note:(LANG==='both'?C.projections[PROJ].note+'  ·  '+C.projections[PROJ].note_zh:C.projections[PROJ].note_zh));}
 $('#searchbox').oninput=e=>{QUERY=e.target.value.toLowerCase();paint();};
 
 C.clusters.forEach(c=>{ACTIVE.add(c.id);
@@ -451,8 +436,8 @@ function paint(){
       pad+cx*(W_-2*pad)-24, pad+(1-cy)*(H_-2*pad));});
   ctx.globalAlpha=1;
   const shown=XY.filter(p=>p.on).length;
-  $('#cloudprov').textContent=`${shown} of ${pts.length} shown · ${C.projections[PROJ].label} · colour = `+
-    `${LSET?'LAYER — '+LAYER.label:HUES[HUE]} · size = ${PROJ==='grid'?'fixed (lattice)':SIZES[SIZE]}`;}
+  $('#cloudprov').innerHTML=T('cloudprov',{S:shown,N:pts.length,P:Tt('p.'+PROJ),
+    H:(LSET?Tt('lay.on')+LB(LAYER):HUES[HUE]), Z:(PROJ==='grid'?Tt('grid.fix'):SIZES[SIZE])});}
 cv.onmousemove=e=>{const b=cv.getBoundingClientRect(),mx=e.clientX-b.left,my=e.clientY-b.top;
   let best=null,bd=1e9;
   XY.forEach(p=>{if(!p.on)return;const d=(p.x-mx)**2+(p.y-my)**2;if(d<bd&&d<(p.rad+7)**2){bd=d;best=p;}});
@@ -464,67 +449,62 @@ cv.onmousemove=e=>{const b=cv.getBoundingClientRect(),mx=e.clientX-b.left,my=e.c
   t.innerHTML=`<span class="t" style="color:${CL[r.cluster%12]}">c${r.cluster} · ${esc(cl.label)}</span>
    ${esc(r.title)}<br><span style="color:var(--dimmer)">${r.n_ann} annotators · ${r.n_crit} criteria ·
    consensus ${f(r.consensus,2)} · ${r.splits} personal≠world${r.tie?' · <b style="color:#f7768e">modal tie</b>':''}
-   <br>click to open</span>`;};
+   <br>${Tt('legend.click')}</span>`;};
 cv.onclick=e=>{const b=cv.getBoundingClientRect(),mx=e.clientX-b.left,my=e.clientY-b.top;
   let best=null,bd=1e9;
   XY.forEach(p=>{if(!p.on)return;const d=(p.x-mx)**2+(p.y-my)**2;if(d<bd&&d<(p.rad+7)**2){bd=d;best=p;}});
   if(best)openPrompt(best.r.pid);};
 cv.onmouseleave=()=>$('#tip').style.display='none';
 addEventListener('resize',resize);syncBtns();resize();
-$('#silnote').innerHTML=`<b>⚠ The structure is weak, and is shown rather than asserted.</b>
- Best silhouette over k∈{8,12,18,24} on the embeddings is <b>${f(Math.max(...Object.values(C.silhouette_by_k)),4)}</b>
- (at k=8); the best TF-IDF partition managed <b>${f(C.silhouette_tfidf_best,4)}</b>. Both are far under the
- ≈0.25 at which a partition is normally called clean. <b>k=12 is a choice.</b> The cloud is drawn ungated
- so the separation you see is the separation there is.`;
+$('#silnote').innerHTML=T('sil',{A:f(Math.max(...Object.values(C.silhouette_by_k)),4),B:f(C.silhouette_tfidf_best,4)});
 
+const LB=L=>LANG==='en'?L.label:(LANG==='both'?L.label+' / '+(L.label_zh||L.label):(L.label_zh||L.label));
+const LF=L=>LANG==='en'?L.finding:(LANG==='both'?L.finding+'<br><span class="zh2">'+(L.finding_zh||'')+'</span>':(L.finding_zh||L.finding));
 /* ---------- 01b LAYERS ---------- */
 {const host=$('#layerlist');
  const t=EL('table');
- t.appendChild(EL('tr',{},['','layer','n','share','z vs random','concentrated in','what it is'].map(x=>EL('th',{},x))));
+ t.appendChild(EL('tr',{},['','lt.layer','lt.n','lt.share','lt.z','lt.conc','lt.what'].map(x=>EL('th',{html:x?T(x):''}))));
  C.layers.forEach(L=>{
-  const zz=L.z, conc=zz==null?'—':(zz<-2?'CONCENTRATED':zz>2?'over-dispersed':'uniform');
+  const zz=L.z, conc=zz==null?'—':Tt(zz<-2?'v.CONC':zz>2?'v.OVER':'v.UNI');
   const zc=zz==null?'var(--dimmer)':(zz<-2?'#f7768e':zz>2?'#7aa2f7':'var(--dimmer)');
   const tr=EL('tr',{style:'cursor:pointer'},
    EL('td',{},EL('span',{style:`display:inline-block;width:10px;height:10px;background:${L.colour};border-radius:2px`})),
-   EL('td',{style:'color:var(--fg)'},L.label),
+   EL('td',{style:'color:var(--fg)',html:LB(L)}),
    EL('td',{class:'num'},''+L.n),
    EL('td',{class:'num'},pct(L.n/C.n_prompts)),
    EL('td',{class:'num',style:'color:'+zc},zz==null?'—':`${zz>0?'+':''}${zz.toFixed(2)}  ${conc}`),
    EL('td',{class:'num'},L.cluster_conc==null?'—':`${(100*L.cluster_conc).toFixed(0)}% in c${L.top_cluster}`),
-   EL('td',{style:'color:var(--dimmer);font-size:11px;max-width:520px;white-space:normal'},L.finding));
+   EL('td',{style:'color:var(--dimmer);font-size:11px;max-width:520px;white-space:normal',html:LF(L)}));
   tr.onclick=()=>{
    if(LAYER&&LAYER.key===L.key){LAYER=null;LSET=null;}
    else{LAYER=L;LSET=new Set(L.pids);}
    [...t.children].forEach((r,i)=>{if(i)r.style.background=(LAYER&&C.layers[i-1].key===LAYER.key)?'#242633':'';});
    $('#layernote').innerHTML=LAYER?
-    `<b style="color:${LAYER.colour}">${LAYER.label}</b> — ${LAYER.n} prompts (${pct(LAYER.n/C.n_prompts)}).
-     ${esc(LAYER.finding)}<br><br>Mean pairwise distance in the t-SNE view is
-     <b>${f(LAYER.dispersion,3)}</b> against a size-matched random mean of <b>${f(LAYER.null_mean,3)}</b>
-     (sd ${f(LAYER.null_sd,3)}) — <b style="color:${zc}">z = ${LAYER.z>0?'+':''}${f(LAYER.z,2)}</b>.
-     ${LAYER.z<-2?'This finding is <b>not evenly spread</b>: it lives somewhere in particular, and the cloud shows where.'
-       :LAYER.z>2?'Spread <b>wider</b> than random — the finding avoids clustering.'
-       :'Statistically indistinguishable from a random subset of the corpus — <b>the domain is not the variable here.</b>'}`
-    :C.layer_note;
+    `<b style="color:${LAYER.colour}">${LB(LAYER)}</b> — ${LAYER.n} / ${pct(LAYER.n/C.n_prompts)}<br>${LF(LAYER)}<br><br>`
+    +T('lay.detail',{O:f(LAYER.dispersion,3),N:f(LAYER.null_mean,3),S:f(LAYER.null_sd,3),C:zc,
+        Z:(LAYER.z>0?'+':'')+f(LAYER.z,2)})+' '
+    +T(LAYER.z<-2?'lay.conc':LAYER.z>2?'lay.over':'lay.uni')
+    : (LANG==='en'?C.layer_note:LANG==='both'?C.layer_note+'<br><span class="zh2">'+C.layer_note_zh+'</span>':C.layer_note_zh);
    paint();$('#s1').scrollIntoView({behavior:'smooth'});};
   t.appendChild(tr);});
  host.appendChild(t);
- $('#layernote').textContent=C.layer_note;}
+ $('#layernote').innerHTML=(LANG==='en'?C.layer_note:LANG==='both'?C.layer_note+'<br><span class="zh2">'+C.layer_note_zh+'</span>':C.layer_note_zh);}
 
 /* ---------- 02 cluster cards ---------- */
-{const AX=[['mean_crit','criteria'],['mean_ann','annotators'],['mean_consensus','consensus'],
-  ['mean_split_rate','personal≠world'],['mean_negshare','w<0 share'],['tie_rate','modal ties'],
-  ['unacc_rate','any unacceptable']];
+{const AX=[['mean_crit','ax.crit'],['mean_ann','ax.ann'],['mean_consensus','ax.cons'],
+  ['mean_split_rate','ax.split'],['mean_negshare','ax.neg'],['tie_rate','ax.tie'],
+  ['unacc_rate','ax.unacc']];
  const mean={},sd={};
  AX.forEach(([k])=>{const v=C.clusters.map(c=>c[k]).filter(x=>x!=null);
    mean[k]=v.reduce((a,b)=>a+b,0)/v.length;
    sd[k]=Math.sqrt(v.reduce((a,b)=>a+(b-mean[k])**2,0)/v.length)||1;});
  C.clusters.forEach(c=>{
   const card=EL('div',{class:'card',style:`border-left:3px solid ${CL[c.id%12]}`});
-  card.appendChild(EL('h3',{style:'color:'+CL[c.id%12]},`c${c.id} — ${c.n} prompts`));
+  card.appendChild(EL('h3',{style:'color:'+CL[c.id%12],html:`c${c.id} — ${c.n} `+T('cc.prompts')}));
   card.appendChild(EL('p',{class:'mono-sm',style:'color:var(--fg);margin:0 0 10px'},c.terms.slice(0,8).join(' · ')));
   AX.forEach(([k,lab])=>{const z=(c[k]-mean[k])/sd[k];
    const row=EL('div',{style:'display:flex;align-items:center;gap:7px;margin-bottom:3px'});
-   row.appendChild(EL('span',{class:'m',style:'width:104px;font-size:10px;color:var(--dimmer)'},lab));
+   row.appendChild(EL('span',{class:'m',style:'width:104px;font-size:10px;color:var(--dimmer)'},Tt(lab)));
    const w=EL('div',{style:'flex:1;height:8px;background:#23252f;position:relative'});
    const mag=Math.min(50,Math.abs(z)*22);
    w.appendChild(EL('span',{style:`position:absolute;left:${z<0?50-mag:50}%;width:${mag}%;height:8px;background:${z<0?'#f7768e':'#9ece6a'}`}));
@@ -532,7 +512,7 @@ $('#silnote').innerHTML=`<b>⚠ The structure is weak, and is shown rather than 
    row.appendChild(w);
    row.appendChild(EL('span',{class:'m',style:'width:40px;text-align:right;font-size:10px'},f(c[k],2)));
    card.appendChild(row);});
-  const b=EL('button',{style:'margin-top:9px'},'isolate in the cloud');
+  const b=EL('button',{style:'margin-top:9px',html:T('btn.iso')});
   b.onclick=()=>{ACTIVE.clear();ACTIVE.add(c.id);
    [...$('#legend').children].forEach((e,i)=>e.classList.toggle('on',i===c.id));
    paint();$('#s1').scrollIntoView({behavior:'smooth'});};
@@ -540,32 +520,31 @@ $('#silnote').innerHTML=`<b>⚠ The structure is weak, and is shown rather than 
   $('#clustercards').appendChild(card);});}
 
 /* ---------- 03 small multiples ---------- */
-{const AX=[['mean_crit','criteria per prompt'],['mean_ann','annotators per prompt'],
-  ['mean_consensus','consensus strength'],['mean_split_rate','personal≠world rate'],
-  ['mean_negshare','share of criteria with w<0'],['tie_rate','modal-tie rate'],
-  ['unacc_rate','any unacceptable flag'],['mean_len_user','prompt length (chars)'],
-  ['mean_turns','turns in the prompt']];
+{const AX=[['mean_crit','ax.crit'],['mean_ann','ax.ann'],
+  ['mean_consensus','ax.cons'],['mean_split_rate','ax.split'],
+  ['mean_negshare','ax.neg'],['tie_rate','ax.tie'],
+  ['unacc_rate','ax.unacc'],['mean_len_user','ax.len'],
+  ['mean_turns','ax.turns']];
  const w=1440,rh=44,h=AX.length*rh+30,s=svg(w,h),ml=240,mr=64;
  AX.forEach(([k,lab],i)=>{const y=24+i*rh;
   const v=C.clusters.map(c=>c[k]).filter(x=>x!=null);
   const lo=Math.min(...v),hi=Math.max(...v),mu=v.reduce((a,b)=>a+b,0)/v.length;
   const X=t=>ml+((t-lo)/((hi-lo)||1))*(w-ml-mr);
   s.appendChild(S('line',{x1:ml,y1:y,x2:w-mr,y2:y,stroke:'#212330'}));
-  txt(s,ml-10,y+4,lab,{'text-anchor':'end',fill:'#7f88a8','font-size':11});
+  txt(s,ml-10,y+4,Tt(lab),{'text-anchor':'end',fill:'#7f88a8','font-size':11});
   s.appendChild(S('line',{x1:X(mu),y1:y-11,x2:X(mu),y2:y+11,stroke:'#565d78','stroke-dasharray':'2 2'}));
   txt(s,ml-10,y+16,`${(+lo).toFixed(2)} … ${(+hi).toFixed(2)}`,{'text-anchor':'end',fill:'#3f455e','font-size':9});
   C.clusters.forEach(c=>{if(c[k]==null)return;
    s.appendChild(S('circle',{cx:X(c[k]),cy:y,r:4.6,fill:CL[c.id%12],'fill-opacity':.75}));});
   const spread=(hi-lo)/(mu||1);
   txt(s,w-mr+8,y+4,(100*spread).toFixed(0)+'%',{fill:spread>0.5?'#e0af68':'#3f455e','font-size':10});});
- txt(s,w-mr+8,14,'spread',{fill:'#565d78','font-size':9});
- txt(s,ml,h-4,'dashed line = corpus mean · % = (max−min)/mean, i.e. how much the domain moves this quantity',
-   {fill:'#565d78','font-size':10});
+ txt(s,w-mr+8,14,Tt('s3.spread'),{fill:'#565d78','font-size':9});
+ txt(s,ml,h-4,Tt('s3.foot'),{fill:'#565d78','font-size':10});
  $('#smallmult').appendChild(s);}
 
 {const arms=[...new Set(C.clusters.flatMap(c=>Object.keys(c.arm_hits)))];
  const t=$('#armbydomain');
- t.appendChild(EL('tr',{},EL('th',{},'neighbourhood'),EL('th',{},'n'),...arms.map(a=>EL('th',{},a))));
+ t.appendChild(EL('tr',{},EL('th',{html:T('s3.arm.c')}),EL('th',{html:T('th.n')}),...arms.map(a=>EL('th',{},a))));
  const all={};arms.forEach(a=>{const v=C.clusters.map(c=>c.arm_hits[a]).filter(x=>x!=null);
    all[a]=[Math.min(...v),Math.max(...v)];});
  C.clusters.forEach(c=>{const tr=EL('tr',{},
@@ -585,11 +564,11 @@ W.responses.forEach(r=>{let t=esc(r.text.replace(/\n/g,' ').slice(0,430));
 $('#s1prov').textContent=R.source;
 
 /* ---------- 05 flow ---------- */
-{const steps=[['1','unacceptable check','which answers must be blocked','',0],
- ['2','personal ranking','which you prefer, + written reason','',0],
- ['3','world ranking','best for the world, + reason','THE TARGET',1],
- ['4','prompt ratings','importance · representativeness · subjectivity','',0],
- ['5','write a criterion','a signed rule, −10…+10','THE FEATURES',1]];
+{const steps=[['1',Tt('f.s1'),Tt('f.s1d'),'',0],
+ ['2',Tt('f.s2'),Tt('f.s2d'),'',0],
+ ['3',Tt('f.s3'),Tt('f.s3d'),Tt('f.tgt'),1],
+ ['4',Tt('f.s4'),Tt('f.s4d'),'',0],
+ ['5',Tt('f.s5'),Tt('f.s5d'),Tt('f.feat'),1]];
  const w=1440,h=152,s=svg(w,h),cw=272;
  steps.forEach((st,i)=>{const x=8+i*(cw+14),u=st[4];
   s.appendChild(S('rect',{x,y:36,width:cw,height:74,fill:u?'#1e1f2a':'#191a23',
@@ -603,7 +582,7 @@ $('#s1prov').textContent=R.source;
  const x3=8+2*(cw+14)+cw/2, x5=8+4*(cw+14)+cw/2;
  s.appendChild(S('path',{d:`M${x3} 120 C ${x3} 144, ${x5} 144, ${x5} 120`,fill:'none',
    stroke:'#f7768e','stroke-width':1.5,'stroke-dasharray':'4 3'}));
- txt(s,x3+30,20,'the feature is authored AFTER the label — by the same person',{fill:'#f7768e','font-size':11.5});
+ txt(s,x3+30,20,Tt('f.arrow'),{fill:'#f7768e','font-size':11.5});
  $('#flow').appendChild(s);
  $('#ovl').textContent=pct(R.author_is_ranker_mean);}
 
@@ -615,8 +594,8 @@ $('#s1prov').textContent=R.source;
   txt(s,X(g),h-mb+15,''+g,{'text-anchor':'middle'});}
  s.appendChild(S('line',{x1:X(0),y1:mt,x2:X(0),y2:h-mb,stroke:'#565d78','stroke-dasharray':'3 3'}));
  s.appendChild(S('line',{x1:ml,y1:h-mb,x2:w-mr,y2:h-mb,stroke:'#292b37'}));
- txt(s,(ml+w)/2-30,h-7,'annotator weight  w',{fill:'#7f88a8'});
- txt(s,8,mt+8,'satisfaction',{fill:'#7f88a8'});txt(s,8,mt+20,'spread',{fill:'#7f88a8'});
+ txt(s,(ml+w)/2-30,h-7,Tt('s6.x'),{fill:'#7f88a8'});
+ txt(s,8,mt+8,Tt('s6.y1'),{fill:'#7f88a8'});txt(s,8,mt+20,Tt('s6.y2'),{fill:'#7f88a8'});
  cs.forEach(c=>{const r=4+Math.sqrt(c.n_scores)*1.1;
   s.appendChild(S('circle',{cx:X(c.w),cy:Y(c.var),r,fill:c.w<0?'#f7768e':'#9ece6a','fill-opacity':.45,
    stroke:c.w<0?'#f7768e':'#9ece6a'}));
@@ -629,12 +608,12 @@ $('#s1prov').textContent=R.source;
    fill:k===1?'#e0af68':'#7aa2f7','fill-opacity':k===1?.95:.5}));
   if(k===1||k%5===0)txt(s,ml+i*bw+bw/2,h-mb+14,''+k,{'text-anchor':'middle','font-size':9});});
  s.appendChild(S('line',{x1:ml,y1:h-mb,x2:w-16,y2:h-mb,stroke:'#292b37'}));
- txt(s,ml,mt+10,H[1].toLocaleString()+' criteria scored by exactly one person',{fill:'#e0af68','font-size':11});
- txt(s,ml,mt+24,pct(R.single_scored_share)+' of the release',{fill:'#e0af68','font-size':11});
+ txt(s,ml,mt+10,Tt('s6.h1',{N:H[1].toLocaleString()}),{fill:'#e0af68','font-size':11});
+ txt(s,ml,mt+24,Tt('s6.h2',{P:pct(R.single_scored_share)}),{fill:'#e0af68','font-size':11});
  $('#hist').appendChild(s);
- $('#histnote').textContent=`${pct(R.sign_contested_share)} of criteria are sign-contested — some annotators gave the same sentence a positive weight, others negative. The mean flattens that.`;}
+ $('#histnote').textContent=Tt('s6.note',{P:pct(R.sign_contested_share)});}
 {const t=$('#crittab');
- t.appendChild(EL('tr',{},['#','w','var','n','A','B','C','D','solo','criterion'].map(x=>EL('th',{},x))));
+ t.appendChild(EL('tr',{},['#','w','var','n','A','B','C','D','solo',Tt('th.crit')].map(x=>EL('th',{},x))));
  W.criteria.slice().sort((a,b)=>b.w-a.w).forEach(c=>t.appendChild(EL('tr',{class:c.w<0?'b-neg':''},
   EL('td',{class:'num'},''+c.i),EL('td',{class:'num '+(c.w<0?'neg':'pos'),title:c.scores.join(', ')},f(c.w,2)),
   EL('td',{class:'num'},f(c.var,5)),EL('td',{class:'num'},''+c.n_scores),
@@ -662,15 +641,15 @@ hit       = how many of those six match the human modal class`;
  function sel(i){[...bb.children].forEach((b,j)=>b.classList.toggle('on',j===i));
   const r=rules[i],sv=$('#selview'),yv=$('#yview');sv.innerHTML='';yv.innerHTML='';
   if(r.sel){const tb=EL('table');
-   tb.appendChild(EL('tr',{},['#','w','A','B','C','D','criterion'].map(x=>EL('th',{},x))));
+   tb.appendChild(EL('tr',{},['#','w','A','B','C','D',Tt('th.crit')].map(x=>EL('th',{},x))));
    r.sel.forEach(ix=>{const c=W.criteria.find(z=>z.i===ix);
     tb.appendChild(EL('tr',{class:c.w<0?'b-neg':''},EL('td',{class:'num'},''+c.i),
      EL('td',{class:'num '+(c.w<0?'neg':'pos')},f(c.w,2)),
      ...c.sat.map(v=>EL('td',{class:'num'},f(v,3))),EL('td',{},c.text.slice(0,60))));});
    sv.appendChild(tb);
-   sv.appendChild(EL('p',{class:'prov'},`${r.sel.length} criteria · ${r.sel.filter(ix=>W.criteria.find(z=>z.i===ix).w<0).length} with w<0`));
+   sv.appendChild(EL('p',{class:'prov'},Tt('s8.nsel',{K:r.sel.length,N:r.sel.filter(ix=>W.criteria.find(z=>z.i===ix).w<0).length})));
   }else sv.appendChild(EL('div',{class:'mono-sm'},
-    'coval_core is a REWRITE, not a subset — judged from its own npz, no index list.\n\n'+
+    Tt('s8.rw')+'\n\n'+
     W.coval_core.texts.map((t,j)=>`[${j}] ${W.coval_core.in_full[j]?'IN full ':'NOT in full'}  ${t}`).join('\n')));
   const mx=Math.max(...r.y);
   ['A','B','C','D'].forEach((L,k)=>{const row=EL('div',{style:'display:flex;align-items:center;gap:10px;margin-bottom:7px'});
@@ -679,12 +658,12 @@ hit       = how many of those six match the human modal class`;
    bw.appendChild(EL('span',{class:'bar',style:`width:${100*r.y[k]/mx}%;background:${L==='D'?'#9ece6a':L==='A'?'#f7768e':'#e0af68'}`}));
    row.appendChild(bw);row.appendChild(EL('span',{class:'m',style:'width:56px;text-align:right'},f(r.y[k],3)));
    yv.appendChild(row);});
-  yv.appendChild(EL('p',{class:'prov'},'machine order: '+
-    ['A','B','C','D'].map((L,k)=>[L,r.y[k]]).sort((a,b)=>b[1]-a[1]).map(z=>z[0]).join(' > ')+'   ·   humans: D > B > C > A'));
+  yv.appendChild(EL('p',{class:'prov'},Tt('s8.mo')+': '+
+    ['A','B','C','D'].map((L,k)=>[L,r.y[k]]).sort((a,b)=>b[1]-a[1]).map(z=>z[0]).join(' > ')+'   ·   '+Tt('s8.ho')+': D > B > C > A'));
   yv.appendChild(EL('div',{style:`font-family:var(--mono);font-size:26px;margin-top:8px;color:${r.hit>=4?'#9ece6a':r.hit<=1?'#f7768e':'#e0af68'}`},r.hit+' / 6'));}
  sel(0);
  const t=$('#ruletab');
- t.appendChild(EL('tr',{},['construction','picked','y(A)','y(B)','y(C)','y(D)','hit'].map(x=>EL('th',{},x))));
+ t.appendChild(EL('tr',{},[T('th.constr'),T('th.picked'),'y(A)','y(B)','y(C)','y(D)',T('th.hit')].map(x=>EL('th',{html:x}))));
  rules.forEach(r=>t.appendChild(EL('tr',{},EL('td',{},r.name),
   EL('td',{},r.sel?(r.sel.length<=6?r.sel.join(','):'all '+r.sel.length):'rewritten'),
   ...r.y.map(v=>EL('td',{class:'num'},f(v,3))),
@@ -699,8 +678,8 @@ hit       = how many of those six match the human modal class`;
  [.50,.54,.58,.62].forEach(g=>{s.appendChild(S('line',{x1:ml,y1:Y(g),x2:w-mr,y2:Y(g),class:'gridline'}));
   txt(s,ml-8,Y(g)+3,g.toFixed(2),{'text-anchor':'end'});});
  s.appendChild(S('line',{x1:ml,y1:h-mb,x2:w-mr,y2:h-mb,stroke:'#292b37'}));
- txt(s,(ml+w-mr)/2-80,h-7,'share of selected criteria with w < 0',{fill:'#7f88a8'});
- txt(s,8,mt+8,'agreement',{fill:'#7f88a8'});
+ txt(s,(ml+w-mr)/2-80,h-7,Tt('s9.x'),{fill:'#7f88a8'});
+ txt(s,8,mt+8,Tt('s9.y'),{fill:'#7f88a8'});
  A.forEach(a=>{const c=a.name==='topw_k4'?'#9ece6a':a.name==='topabs_k4'?'#f7768e':'#e0af68';
   s.appendChild(S('circle',{cx:X(a.neg_share),cy:Y(a.agree),r:6,fill:c,'fill-opacity':.6,stroke:c}));
   txt(s,X(a.neg_share)+10,Y(a.agree)+4,a.name,{fill:c,'font-size':10.5});});
@@ -714,15 +693,12 @@ hit       = how many of those six match the human modal class`;
   row.appendChild(bw);row.appendChild(EL('span',{class:'m',style:'width:52px;text-align:right'},f(a.agree)));
   $('#signbars').appendChild(row);});}
 {const d1=M.topw_minus_topabs,d2=M.topw_minus_randompos;
- $('#mechnote').innerHTML=`<b>The decomposition.</b> <code>topw_k4</code> beats <code>topabs_k4</code> by
- <b>${f(d1.delta)}</b> against MDE ${f(d1.mde)} — <b>${(d1.delta/d1.mde).toFixed(1)}×</b>. What ordering by
- magnitude adds beyond merely excluding w&lt;0 is <b>${f(d2.delta)}</b> against MDE ${f(d2.mde)} — resolved,
- but the smaller half. <b style="color:var(--gold)">And giving the sum its signs back beats every selection
- rule without selecting anything.</b>`;}
+ $('#mechnote').innerHTML=T('s9.note',{D1:f(d1.delta),M1:f(d1.mde),R:(d1.delta/d1.mde).toFixed(1),
+   D2:f(d2.delta),M2:f(d2.mde)});}
 
 /* ---------- 10 ---------- */
 {const L=P.leaderboard,arms=L.arms,mets=L.metrics.filter(m=>!m.startsWith('_')),t=$('#holo');
- t.appendChild(EL('tr',{},EL('th',{},'arm'),...mets.map(m=>EL('th',{title:m},m.split('_')[0]))));
+ t.appendChild(EL('tr',{},EL('th',{html:T('th.arm')}),...mets.map(m=>EL('th',{title:m},m.split('_')[0]))));
  const rg={};mets.forEach(m=>{const v=arms.map(a=>L.table[a][m]&&L.table[a][m][0]).filter(x=>typeof x==='number');
   rg[m]=[Math.min(...v),Math.max(...v)];});
  arms.forEach(a=>{const tr=EL('tr',{},EL('td',{class:'m',style:'color:var(--fg);white-space:nowrap'},a));
@@ -746,8 +722,7 @@ hit       = how many of those six match the human modal class`;
  let last=null;
  RR.forEach((r,i)=>{if(r.arc!==last){last=r.arc;
   s.appendChild(S('line',{x1:ml+i*uw,y1:h-mb+2,x2:ml+i*uw,y2:h-mb+8,stroke:'#3f455e'}));}});
- txt(s,ml,h-8,'each mark = one round, in order · height = persisted artifacts · faded = no README · ticks = arc boundaries',
-  {fill:'#565d78','font-size':10});
+ txt(s,ml,h-8,Tt('s11.foot'),{fill:'#565d78','font-size':10});
  s.style.cursor='crosshair';
  s.addEventListener('mousemove',e=>{const b=s.getBoundingClientRect();
   const i=Math.floor(((e.clientX-b.left)/b.width*w-ml)/uw);const r=RR[i];const t=$('#rtip');
@@ -755,7 +730,7 @@ hit       = how many of those six match the human modal class`;
   t.style.display='block';t.style.left=Math.min(e.clientX-b.left+12,b.width-430)+'px';
   t.style.top=(e.clientY-b.top+12)+'px';
   t.innerHTML=`<b style="color:${EC[r.epoch%5]}">${r.epoch_id} · ${r.arc} · ${r.id}</b><br>${esc(r.title)}
-   <br><span style="color:var(--dimmer)">${r.n_results} artifacts · ${r.readme?'README':'<b style="color:#f7768e">no README</b>'} · ${r.run?'run.py':'no run.py'}</span>`;});
+   <br><span style="color:var(--dimmer)">${r.n_results} ${Tt('s11.art')} · ${r.readme?'README':'<b style="color:#f7768e">'+Tt('s11.nord')+'</b>'} · ${r.run?'run.py':Tt('s11.nrun')}</span>`;});
  s.addEventListener('mouseleave',()=>$('#rtip').style.display='none');
  $('#roundcloud').appendChild(s);
  $('#nround').textContent=P.campaign.n_rounds;$('#narc').textContent=P.campaign.n_arcs;
@@ -770,14 +745,13 @@ hit       = how many of those six match the human modal class`;
   $('#arcbars').appendChild(row);});}
 {const RR=C.rounds,noDoc=RR.filter(r=>!r.readme).length,noRun=RR.filter(r=>!r.run).length;
  const w=600,h=140,s=svg(w,h);let x=0;
- [['code + README',RR.length-noDoc,'#9ece6a'],['code, no README',noDoc,'#f7768e']].forEach(([lab,n,c])=>{
+ [[Tt('s11.d1'),RR.length-noDoc,'#9ece6a'],[Tt('s11.d2'),noDoc,'#f7768e']].forEach(([lab,n,c])=>{
   const ww=(n/RR.length)*w;s.appendChild(S('rect',{x,y:22,width:ww,height:38,fill:c,'fill-opacity':.7}));
   if(ww>100){txt(s,x+9,40,lab,{fill:'#14151c','font-size':10.5,'font-weight':700});
    txt(s,x+9,54,n+`  (${pct(n/RR.length)})`,{fill:'#14151c','font-size':10});}x+=ww;});
- txt(s,0,14,RR.length+' rounds',{fill:'#7f88a8'});
- txt(s,0,84,noDoc+' rounds ran code and left no README — the update happened, the writing did not.',
-  {fill:'#f7768e','font-size':11});
- txt(s,0,102,noRun+' rounds carry no run.py.',{fill:'#7f88a8','font-size':11});
+ txt(s,0,14,RR.length+' '+Tt('s11.rounds'),{fill:'#7f88a8'});
+ txt(s,0,84,Tt('s11.d3',{N:noDoc}),{fill:'#f7768e','font-size':11});
+ txt(s,0,102,Tt('s11.d4',{N:noRun}),{fill:'#7f88a8','font-size':11});
  $('#doccov').appendChild(s);}
 
 /* ---------- 12 ---------- */
@@ -794,7 +768,7 @@ hit       = how many of those six match the human modal class`;
   txt(s,174,y+1,k,{'text-anchor':'end',fill:'#7f88a8'});
   txt(s,186+(v/mx)*(w-220),y+1,''+v,{fill:'#7f88a8','font-size':10});});
  $('#modplot').appendChild(s);
- $('#modprov').textContent=`${M2.n_rows.toLocaleString()} rows · ${M2.flagged} flagged (${pct(M2.flagged/M2.n_rows)}) · read by 0 files.`;}
+ $('#modprov').textContent=Tt('s12.prov',{N:M2.n_rows.toLocaleString(),F:M2.flagged,P:pct(M2.flagged/M2.n_rows)});}
 
 /* ---------- 13 ---------- */
 {const rows=[
@@ -818,7 +792,7 @@ hit       = how many of those six match the human modal class`;
  ['moderation categories','§12','1 / 1','none','full'],
 ];
  const t=$('#ledger');
- t.appendChild(EL('tr',{},['quantity','channel','K / N','occlusion','recoverable resolution'].map(x=>EL('th',{},x))));
+ t.appendChild(EL('tr',{},[T('th.qty'),T('th.chan'),'K / N',T('th.occ'),T('th.res')].map(x=>EL('th',{html:x}))));
  rows.forEach(r=>t.appendChild(EL('tr',{},r.map((c,i)=>EL('td',{class:i===2?'num':'',
   style:c.includes('NOT ON SCREEN')?'color:var(--red)':''},c)))));
  const K=rows.reduce((s,r)=>s+ +r[2].split('/')[0],0),N=rows.reduce((s,r)=>s+ +r[2].split('/')[1],0);
