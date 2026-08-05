@@ -13418,3 +13418,32 @@ this come from*; it does not answer *is this the only value this name has*.**
 
 ⚠ **The 23 agreeing labels are NOT verified.** A 26-character prefix detects disagreement and cannot
 prove agreement — they are *not contradicted*, which is a weaker statement and the only one available.
+
+## 445 · The cross-document instrument does not transfer, and its one hit was a prefix collision
+
+R585's label-prefix method found a real disagreement between STATEMENT and DEFINITION — **24 shared
+labels, 1 genuine**. Against `FORMULATION.md` it connects **1 label out of ~2,000 decimals**:
+
+- **STATEMENT ∩ FORMULATION: 0 shared labels.** No comparison exists. **A zero here is silence.**
+- **DEFINITION ∩ FORMULATION: 1 shared, 1 apparent disagreement — and it is a COLLISION.** The
+  definition's row is `| coval_core | 4 | **+0.0726** | …` (an **advantage**); the formulation's is
+  `| coval_core | 4 | 0.5665 | …` (an **A2 score**). **Two quantities, one 26-character prefix.**
+
+⭐ **This is precisely the false positive my own caveat predicted one round earlier, and it would
+have been published as a cross-document contradiction had I not read both sites.** The caveat was
+written; **reading the sites is what made it operative.**
+
+⭐⭐⭐ **The finding is that the method does not transfer.** The three documents do not share label
+phrasing, so a prefix join has nothing to work with. **A method that succeeded on one pair of files
+is not a method for the corpus**, and its success on the first pair gave no warning about the second.
+
+## 446 · Third time this session my branch printed a verdict over a failing control
+
+The positive control required shared labels in **both** pairs; it printed **FAIL**; the script printed
+**WORLD B** from the other pair regardless. **R562 caught this. R582 caught this. It happened again.**
+
+⚠ **This is no longer a slip — it is the shape of how I write conclusions.** The branch gets written
+while I am thinking about the finding, and **the control is read as a status line rather than as an
+input to the verdict.** The remedy has been known since R562 and applied twice: **the branch must
+reference every control the round declared.** It was not applied here because I wrote the verdict
+before the control existed in my attention, which is the same order of operations every time.
