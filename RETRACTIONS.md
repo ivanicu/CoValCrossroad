@@ -13129,3 +13129,32 @@ defects" *(R572's implication, retracted here)*.
 the file stores it as someone else wrote it.** `\b` before an underscore, `c2` inside a UUID, a
 wrapped docstring, `tail` for a count three times, and now an interpreter alias. **Every one was
 found by reading the hits rather than the number.**
+
+## 427 · Seven identical zeros, and I wrote a verdict underneath them
+
+R575 built a static counter for `run(` call sites to test whether fleet size separates the capping
+meta-gates from the rest. **Its regex required a quote or `f` immediately after `run(`; every call
+in the suite is `run(check)` — a variable.** It returned **0 for all seven gates**, and I printed
+*"these do NOT separate"* under the result.
+
+⭐⭐⭐ **Uniform output across a population an instrument was built to discriminate is the cheapest
+possible signature of a dead instrument.** It is cheaper than a positive control, because it costs
+no extra run — the evidence is already on the screen. **Seven identical zeros should have stopped
+the sentence before it was written.**
+
+**What direct reading established in one command:** `what_did_each_check_actually_read` iterates
+**46** gates; `backfilled_findings_are_rederivable` iterates **265** round `run.py` files; the four
+non-cappers call `run(<named target>)` on a handful. **The fleet of `attack_the_suite` and of the
+four non-cappers remains unmeasured, so fleet-size-as-separator is CONSISTENT and NOT established.**
+
+## 428 · Ninth instrument defect of one class, and the escalation is the finding
+
+`\b` before an underscore · `c2` inside a UUID · a wrapped docstring · `tail` read for a count, three
+separate times · an interpreter alias · a loop-context grep matching 1 of 7 · a quote-anchored call
+matcher returning 0 of 7.
+
+⭐⭐⭐ **Three consecutive rounds now have had their pattern fail, and every time the fix was to READ
+THE OBJECT.** Reading gave 46 and 265 in a single command, after two patterns had produced nothing.
+**Every pattern written this session to avoid reading has cost more than reading would have** — and
+the cost is not the wasted command, it is that a pattern returns a NUMBER, which reads as a
+measurement, while reading returns a fact.
