@@ -11778,3 +11778,42 @@ arm against itself — returns exactly 0 with a degenerate CI; multiplicity is B
 56-arm population admits **six label-reading arms that BEAT ②**, four outscoring every currently
 admitted arm. Under the derived gate all six are excluded. **The six-line fix is the difference
 between a leaderboard topped by cores and one topped by arms that read the answer.**
+
+## 356 · An alias masqueraded as a distinct arm for three rounds — the six are two
+
+**R522 noticed that `oracle_k4_oracle_kA` reproduces `oracle_k4`'s stored contrast to four decimals
+and called it "consistent with oracle-family construction". It is not consistent with — it IS.**
+
+**Exact saturation-matrix comparison:** all three A/B pairs are **byte-identical**, so six tags name
+**three objects**; and `oracle_k4_oracle_k{A,B}` **is exactly `oracle_k4`**, an arm
+`USES_PROMPT_LABELS` already declares.
+
+⭐⭐⭐ **The literal misses TWO distinct objects, not six.**
+
+**What this retracts, all of it mine, from the last three rounds:**
+
+| claim | round | corrected |
+|---|---|---|
+| "6 label-readers absent from the literal" | R520 | **2 objects** (6 tags) |
+| "4 of the 6 outscore every admitted arm" | R521 | ⛔ **false three ways** |
+| "6 of 6 BEATS" | R522 | verdicts hold **per tag**; **2 objects** |
+
+**R521's headline fails three ways at once:** two of the four were `oracle_k4` itself; the remaining
+margin is `greedy` **0.6292 vs 0.6283 = +0.0009, inside an MDE of ~0.0105**, with `indep` at
+**0.6079** resolvedly *below*; and the arm being outscored is `oracle_k4`, **which ③ excludes** — so
+the comparison baseline was itself a label-reader.
+
+⭐ **R519 survives, and it was worth checking rather than assuming:** all 41 census arms are
+readable and **0 exact alias pairs** exist among them, so its counts are counts of objects. **The
+definition ② ∧ ③ stands, and ③ still removes 4 of the 9 ②-passers.**
+
+⭐ **The defect is still real and the fix still warranted** — two distinct label-reading objects that
+BEAT ② are admitted by the literal and excluded by the derived gate. **What died is the framing:**
+not *"a leaderboard topped by label-readers"* but *"two more label-readers admitted, neither
+demonstrably above the admitted set."*
+
+⭐⭐⭐ **The reusable lesson, and it is sharp: I used a summary statistic where an identity test was
+available and free.** "Matches to four decimals" is a tolerance, and a tolerance is exactly what lets
+an alias pass as a distinct object. **Populations of tags are not populations of objects, and
+nothing in a filename says which one you have.** The check is `np.array_equal` on the artifacts and
+it costs nothing.

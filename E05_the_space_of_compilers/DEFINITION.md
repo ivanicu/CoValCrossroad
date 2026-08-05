@@ -2024,3 +2024,34 @@ behave as the same object — consistent with oracle-family construction.
 label-reading arms that BEAT ②, four of them outscoring every currently-admitted arm. Under the
 derived gate, all six are excluded.** The fix is six lines (R520) and the cost of not applying it is
 a leaderboard topped by arms that read the answer.
+
+---
+
+## R523 · The six are two — and R519 survives because its population had no aliases
+
+**Exact matrix comparison, not a summary statistic:**
+
+- all three A/B pairs are **byte-identical** → six tags name **three objects**;
+- `oracle_k4_oracle_k{A,B}` **is exactly `oracle_k4`**, an arm the literal already declares.
+
+⭐⭐⭐ **The literal misses TWO distinct objects — the greedy and indep families — not six.**
+
+**This retracts three of my own claims.** R521's *"four of the six outscore every currently
+admitted arm"* fails three ways: two of that four were `oracle_k4` itself; the remaining margin is
+`greedy` **0.6292 vs 0.6283 = +0.0009, inside the MDE of ~0.0105**, with `indep` at **0.6079**
+resolvedly below; and the arm being outscored is `oracle_k4`, which **③ excludes** — the comparison
+baseline was itself a label-reader. R520's "6 missing" and R522's "6 of 6 BEATS" are counts of
+**tags**; the per-tag verdicts hold, the population was never a list of objects.
+
+⭐ **R519 is safe.** All 41 census arms are readable and **0 exact alias pairs** exist among them, so
+its counts are counts of objects. **The definition ② ∧ ③ stands unchanged, as does ③ removing 4 of
+the 9 ②-passers.**
+
+⭐ **And the defect is still real:** two distinct label-reading objects that **BEAT ②** are admitted
+by the literal and excluded by the derived gate. The six-line fix remains warranted. What is dead is
+the framing — **not "a leaderboard topped by label-readers", but "two more label-readers admitted,
+neither demonstrably above the admitted set."**
+
+**Controls:** arm vs itself equal, `coval_core` vs `generic` unequal (positive); a shuffled copy
+compares unequal, so the test is order-sensitive (negative). **Exact equality has no noise floor,
+which is why it is the right instrument and a four-decimal agreement was the wrong one.**
