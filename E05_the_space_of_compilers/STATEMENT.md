@@ -44,6 +44,8 @@ structural fact stands regardless: **three documents, a gate spanning two.**
 
 ---
 
+⛔⛔ **AND PROVENANCE RECORDING MISSES THIS PAGE'S OWN SOURCES** *(R606)*. The corpus has a source-hash mechanism — **109 of 426** artifacts (**25.6%**) carry `source_sha256` / `source_name` / `sha256` — but it reaches the rounds this page cites **less** than the ones it does not: **11.4% of 105 cited rounds against 29.0% of 272 uncited**, Δ **−0.1762**, **time-stratified p = 0.0003** over 12,000 draws, identical at both key-strictness levels. ⭐ **So the numbers here come disproportionately from artifacts that do not record where they came from** — and per R605 the construction step for 98 of 101 scored matrices is not in this repository either. ⚠ **A recorded hash proves a source was NAMED, not that the bytes match it**; verifying that needs the source file, which R605 found is usually absent.
+
 ## What stands — the claim set, each with its scope
 
 **§0.2: report what stands first, what it cost second.** Every row traces to a round with a settled

@@ -1,0 +1,55 @@
+{
+  "world": "B MISSES \u2014 cited rounds carry provenance LESS, Delta=-0.1762, stratified p=0.0003: the page's numbers come disproportionately from artifacts that do not record their source",
+  "controls_ok": true,
+  "under_powered": false,
+  "n_rounds": 377,
+  "n_cited": 105,
+  "p_prov_cited": 0.11428571428571428,
+  "p_prov_uncited": 0.29044117647058826,
+  "delta": -0.176155462184874,
+  "delta_is": "DERIVATION over a complete enumeration; only the permutation p is tested",
+  "p_unstratified": 0.00016665277893508876,
+  "p_time_stratified": 0.0003333055578701775,
+  "plant_delta": -0.29044117647058826,
+  "plant_p": 8.332638946754438e-05,
+  "g0_ok": true,
+  "placebo": [
+    0.035049019607843124,
+    0.10105042016806723,
+    -0.05735294117647055
+  ],
+  "dose_response": [
+    [
+      0.1,
+      -0.1857,
+      0.0007
+    ],
+    [
+      0.25,
+      -0.2143,
+      0.0007
+    ],
+    [
+      0.5,
+      -0.2428,
+      0.0007
+    ],
+    [
+      0.75,
+      -0.2619,
+      0.0007
+    ],
+    [
+      1.0,
+      -0.2904,
+      0.0007
+    ]
+  ],
+  "mde": [
+    0.1,
+    -0.18567927170868348
+  ],
+  "check205": "R605's closing 'only' was refuted by R605's OWN passing placebo \u2014 a round artifact written by its own run.py is a construction and a committed artifact side by side, and there are hundreds",
+  "corpus_rate": "109 of 426 artifacts (25.6%) carry a provenance-shaped key",
+  "impossible": "a recorded hash proves a source was NAMED, not that the bytes match it; verifying that needs the source file, and R605 found most are not here"
+}

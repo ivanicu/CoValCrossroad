@@ -14233,3 +14233,37 @@ construction code settles the construction, never the provenance of the committe
 
 ⚠ **IMPOSSIBLE, now named where it belongs:** even a found builder proves construction, not that the
 committed matrix came from it. **That needs a write-time hash these artifacts do not carry.**
+
+## 515 · Provenance recording misses the page's own sources by a factor of 2.5
+
+The corpus has the mechanism — **109 of 426 artifacts (25.6%)** carry `source_sha256` / `source_name`
+/ `sha256` / `src_sha` — and it reaches **11.43% of the 105 rounds `STATEMENT.md` cites against 29.04%
+of the 272 it does not.** Δ **−0.1762**, **time-stratified p = 0.0003** over 12,000 draws, identical
+in sign and size at both key-strictness levels.
+
+⭐ **So the page's numbers come disproportionately from artifacts that do not record where they came
+from**, and per R605 the construction step for 98 of 101 scored matrices is not in this repository
+either. ⚠ **A recorded hash proves a source was NAMED, not that the bytes match it** — so even the
+11.4% is an upper bound on attributability.
+
+## 516 · An MDE band that cannot contain the observation, for the third time this session
+
+The plant strips provenance from cited rounds, moving Δ **monotonely away from zero starting at the
+observed value** — so every planted |Δ| is **≥ |Δ_obs| by construction** and `|obs| < MDE` is true
+regardless of the data. v1 printed **BOUND ONLY** on a band that could not contain the observation.
+
+⭐ **Third variant this session** — R592's MDE-vs-p, R593's spread-vs-concentrated plant, now
+monotone-plant-vs-observation — **and the first where the round detects the degeneracy in its own
+output** (smallest planted 0.1857 vs observed 0.1762) rather than my catching it afterwards. *A
+resolution bound is only admissible if the plant can produce effects SMALLER than the one observed.*
+
+## 517 · An "only" refuted by my own passing control, in the same round
+
+R605 closed calling three artifacts *"the **only** place in this tree where a construction and a
+committed matrix sit side by side."* **R605's own placebo was R604's `baseline_name.json`, written by
+R604's own `run.py`** — exactly that, and there are hundreds; R605 had scanned only
+`corebench/results/sat_*.npz`.
+
+⚠ **The control that PASSED contained the counterexample to the sentence written after it.** *The
+closing line does not merely lack a control — it can contradict one the round already ran, which
+means the cheapest check is to re-read the round's own control block before writing it.*

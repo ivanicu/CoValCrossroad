@@ -2760,3 +2760,33 @@ population; the direction replicates and the exact figure does not.
 
 ⚠ **IMPOSSIBLE:** string overlap is not topical comparability. A corpus can share no strings and ask
 the same question. One axis, bounded.
+
+---
+
+## R606 · Provenance recording misses the page's own sources
+
+The corpus carries a source-hash mechanism: **109** of **426** parseable artifacts (**25.6%**) hold a
+`source_sha256` / `source_name` / `sha256` / `src_sha` key. Adoption by citation status, at the round
+level over 377 rounds with artifacts:
+
+| | cited by `STATEMENT.md` | not cited |
+|---|---|---|
+| rounds | 105 | 272 |
+| **carry a provenance key** | **0.1143** | **0.2904** |
+
+**Δ = −0.1762**, time-stratified permutation **p = 0.0003** over 12,000 draws; unstratified 0.0002.
+At the stricter *non-empty value* level the picture is unchanged: **0.1143 vs 0.2868, Δ = −0.1725,
+p = 0.0008.**
+
+**Controls.** Plant — provenance stripped from every cited round — returns **Δ = −0.2904 at
+p = 0.0001**; at g=0 the unplanted statistic reproduces **−0.1762** exactly; the placebo at the same
+marginal returns **+0.0350 / +0.1011 / −0.0574** across three seeds.
+
+⚠ **The dose-response MDE is DEGENERATE for this plant and is not used.** Stripping moves Δ monotonely
+away from zero starting at the observed value, so the smallest planted |Δ| (**0.1857**) necessarily
+exceeds the observed (**0.1762**) and the band cannot contain the observation. The observed effect is
+judged by its own stratified permutation.
+
+⚠ **Δ is a DERIVATION** forced by four counts over a complete enumeration; only the permutation p is
+tested. ⚠ **A recorded hash proves a source was NAMED, not that the bytes match it**, so 0.1143 is an
+upper bound on attributability.
