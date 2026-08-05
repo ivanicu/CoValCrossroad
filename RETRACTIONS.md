@@ -15851,3 +15851,34 @@ said explicitly that the streak would **not** be used to shade the estimate, bec
 correction. **Had I applied the adjustment the streak seemed to justify, this miss would have been
 larger.** The streak was noise at p = 0.125 — and the *directional* prediction held for the fifth
 consecutive time.
+
+## 693 · A check that cannot fail, built one round after quoting the row that names it
+
+R660's join reported **31 of 36 (86.1%)** named wall-entries reaching a declaring round's register —
+apparent near-perfect traceability. ⛔ **Against a random baseline (5 seeds) it is 96.1%
+[94.4%, 100.0%], so the observed share is BELOW chance by 10 points.** Because **290 of 336 rounds
+(86.3%) declare a register**, *"the named round declares one"* is nearly forced. §4's first row,
+`check that cannot fail`. ⭐ Neither R659's inference nor my own pre-registered counter-prediction
+survives: **the quantity both were about carries no information.**
+
+## 694 · "So each overturned wall is traceable to where it was declared" — naming is not tracing
+
+R659's NEXT inferred traceability from the fact that 36 entries NAME a round. ⛔ **An entry names
+where the ERROR WAS FOUND**; the round that declared the limit is usually earlier. The inference is
+retracted, and with it the per-wall rate it proposed. It also called that *"the ONLY per-wall rate
+this corpus can support"* — **false**: a rate over declaring rounds is a second, equally available
+denominator, measured here at **53 of 290 (18.3%)**.
+
+## 695 · The ledger grew under its own comparison — the fifth corpus-growth baseline shift
+
+R660's positive control read **tight 40 vs R659's 39**. ⛔ **R659's own retraction entries 689–692
+were appended after R659 ran**, and entry 690 matches the tight pattern. *A round that writes to the
+corpus it measures — R654's mechanism, now inside the ledger.* Repaired by pinning the population to
+**entry ≤ 688** and reporting the new entry separately rather than folding it in.
+
+## 696 · A verdict string that ignored the control printed two lines above it
+
+R660 v1 printed *"world A TRACEABLE — R659's inference was sound"* on 86.1% **while its own random
+baseline read 96.1%**. ⛔ §4's `the verdict string is not a computation`, sub-kind ①. The branch now
+references the baseline — a requirement this round had written into its own docstring and then not
+implemented.
