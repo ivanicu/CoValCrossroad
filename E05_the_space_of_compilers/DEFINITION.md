@@ -2491,3 +2491,32 @@ itself gives **0**.
 ⭐ **So R537's gap is real: the released core is the one admitted arm whose cross-judge position
 cannot be replicated from anything on disk** — and `Qwen2.5-7B-Instruct`, register row 2, remains
 **an install**, now verified rather than assumed.
+
+---
+
+## R539 · The on-site round is 16,440 model calls
+
+My last line said the honest version of *"why not run rows 3 and 4"* is a cost that had not been
+measured. It is measurable exactly, because **`gen` already exists** — a generation round has been
+run here, so the work is readable rather than estimated.
+
+| component | calls |
+|---|---|
+| generation — one criterion set per prompt | **968** |
+| judging — 16 satisfaction cells per prompt × 968 | **15,472** |
+| **TOTAL** | **16,440** |
+
+⭐⭐⭐ **Comfortably within one local-model session. Cost cannot be the reason not to spend rows 3
+and 4.**
+
+**Controls.** Positive: the counter must read judge cells, so `topw_k4` must give exactly **k × 4 =
+16** per prompt — it does. Negative: `full` keeps every criterion and must exceed any k-limited arm
+— **60 > 16**.
+
+⚠ **Not measured and not guessed: wall-clock and money.** Converting 16,440 calls to time needs a
+measured tokens/sec for the local model on this GPU, through pueue. **That is the one number a "why
+not" would have to cite.**
+
+⭐ `coval_core` ranges **[8, 16]** cells per prompt and `gen` **[4, 16]** — consistent with the
+dataset card's *"about 95% end up with four … the remainder two or three."* **The artifact and the
+card agree without being asked to.**
