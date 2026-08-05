@@ -10448,3 +10448,40 @@ completeness passes without a single registry edit.
 ⚠ **The seed gate went from 2 sub-gates failing to 1.** What remains is real: 7 rounds analyse only
 the pre-seeded criteria and disclose it nowhere. **That debt was never the one the gate was loudest
 about.**
+
+## 313 · Two estimates of the same quantity, both void, and the controls passed through both (R484)
+
+**Retracted; the round exits 2 rather than reporting a number.** Asked how many `assurance/`
+detectors match the repository's own prose, I produced two answers and neither is admissible.
+
+**① The static screen: "30 of 33 exposed."** It counted gates that read files and pattern-match, minus
+those calling `ast`. ⚠ That conflates a gate searching **markdown for a documentation pattern** —
+correctly matching prose — with one searching **Python for a code pattern**, which is the only shape
+R382's flaw can take. The screen's unit was *"reads a file"*; the claim's unit was *"matches
+code-shaped text inside a string literal"*.
+
+**② The measurement: "11 of 15 exposed."** Void for two independent reasons, both visible in its own
+output:
+- **Identical counts across unrelated gates.** Eight gates reported exactly `296 / 66` because they
+  all contain the same boilerplate `smoke|dry[_-]?run|draft|scratch|trial|pilot|prelim|wip` — a
+  throwaway-round filter, **not what any of them detects**. The extractor grabs every `re.compile` in
+  a file and cannot tell a detection pattern from an incidental one.
+- **A captured fragment ending in `|`.** Python concatenates adjacent string literals, so a multi-line
+  pattern is several literals and the extractor captured only the first:
+  `'model[- ]scored|model gold|gold proxy|proxy world|proxy-world|'`. **A trailing pipe is an empty
+  alternative that matches at every position** — hence `4,066,094`.
+
+⭐ **AND EVERY CONTROL PASSED THROUGH BOTH.** The positive control re-found the real R382 case
+(`IN_STRING = 6`), the negative returned 0, and both g=0 arms behaved. **They saturate the MEASUREMENT
+stage while the defect is in the SAMPLING stage, upstream of them.** A control that validates how you
+count says nothing about what you counted — and this is the cleanest instance of that in the campaign,
+because the controls were not weak, they were pointed one stage too late.
+
+**What this leaves:** the question is **not identified by static extraction**, because *which* pattern
+is a gate's detection pattern is a **semantic judgement, not a lexical one**. Answering it would
+require running each gate with and without string-stripping and diffing its FINDING lines — several
+are minutes long, so this round names that cost rather than paying it.
+
+⚠ And the corpus includes **R484's own `run.py`**, whose docstring quotes the boilerplate pattern, so
+the counts moved 296 → 303 between two runs of the same code. **A round measuring a corpus it is
+inside changes the corpus by existing** — R476's self-reference instability, third occurrence.
