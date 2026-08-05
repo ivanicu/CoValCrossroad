@@ -10485,3 +10485,29 @@ are minutes long, so this round names that cost rather than paying it.
 ⚠ And the corpus includes **R484's own `run.py`**, whose docstring quotes the boilerplate pattern, so
 the counts moved 296 → 303 between two runs of the same code. **A round measuring a corpus it is
 inside changes the corpus by existing** — R476's self-reference instability, third occurrence.
+
+## 314 · My new prose hijacked an existing anchor, and the gate caught it (R485)
+
+**Caught by `definition_matches_the_record` on the first run after the edit.** R485's block wrote
+*"indistinguishable from a criterion set that never sees the prompt at all (`generic` **0.5505**…)"*.
+The gate then reported `r437_sec_bar2: document says 0.5505, R437 says 0.4497`.
+
+**R437's anchor pattern was `` `generic` \*\*([\d.]+)\*\* ``** — no context. It had matched R437's own
+table row at L1102 for as long as it existed, because that was the only occurrence. My sentence
+created a second occurrence at L544, and `re.search` returns the **first**. ⛔ **An anchor silently
+retargeted itself onto an unrelated claim.**
+
+⭐ **The fix is the anchor, not the sentence.** Rewording my prose to dodge a fragile pattern would
+have left the fragility in place for whoever writes about `generic` next — and this document discusses
+`generic` constantly. The pattern now anchors on R437's own table row
+(`\*\*second\*\* \|[^|]*\| `generic` \*\*…`), verified to match **exactly once**.
+
+⚠ **The general hazard: an anchor's uniqueness is a property of the document, not of the pattern**, so
+every anchor is one future paragraph away from ambiguity. **A single-occurrence pattern is not a
+unique one; it is an untested one.** The cheap discipline this suggests — and which the gate does not
+currently enforce — is to require every anchor pattern to match **exactly once**, and to fail on 2+
+rather than silently taking the first.
+
+⭐ **And note what worked:** this is the first defect this session found by a gate rather than by
+re-reading output. The value-gate earned its keep on the round that most needed it — one that changed
+what the empty extension MEANS.

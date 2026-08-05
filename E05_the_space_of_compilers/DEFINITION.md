@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 326 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 330 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 326.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 330.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -520,6 +520,36 @@ prompt's *rankings* (`TARGET_READERS`) while permitting its *ratings*, **or the 
 rounds defining an object other than the one it measures.** ⛔ **This is not a repair that can be made
 by choosing the convenient branch** — the two differ in what "core" *means*, and R475 does not
 adjudicate them. *(R475)*
+
+⛔⛔⛔ **AND THE EXTENSION IS EMPTY BECAUSE ② AND ③ CONFLICT, NOT BECAUSE THE RELEASE OMITS A MEMBER
+(R485).** An empty extension is unremarkable if the world merely contains no member; it is a **defect**
+if the clauses cannot be jointly satisfied. Measured against R478's **cross-fitted** prompt-blind
+ceiling of **0.5404** (not its in-sample max, since ② says *the best* set and a max over 1,820 is an
+order statistic): **every arm that clears the ceiling is one ③ excludes.** Five of five —
+`oracle_k4` **0.6282**, `greedy_k4_fit1` **0.6071**, `indep_k4_fit1` **0.5915**, `coval_core`
+**0.5640**, `topw_k4` **0.5618** — reaching it by reading the prompt's rankings, its ratings, or (for
+the released core) via a pipeline that does. **The best ③-admissible prompt-AWARE arm is `gen` at
+0.5337, a gap of −0.0067, inside the 0.0122 floor.** *(R485)*
+
+⭐ **AND THE NULL IS EVIDENCE RATHER THAN SILENCE, BECAUSE THE BAR IS DEMONSTRABLY REACHABLE.** The
+positive control is the excluded class itself: five arms clear the ceiling, so the design can detect
+clearing it, and `random_k4_s0` (0.4920) does not, so the bar is not one a random arm meets. Placebo
+**0.4309** against measured chance 0.428. ⚠ And prompt-BLIND admissible arms — `generic` 0.5505,
+`genericpool16` 0.5416, `promptecho` 0.4540 — are held OUT of the numerator: an arm compared against
+its own class is a degenerate comparison, and folding them in would have produced a "pass" that means
+nothing. *(R485)*
+
+⭐⭐ **THE SHARPER HALF, AND IT IS ABOUT PROMPT-AWARENESS RATHER THAN ABOUT ③.** The best rating-blind
+prompt-aware arm (**0.5337**) is **indistinguishable from a criterion set that never sees the prompt
+at all** (`generic` **0.5505**; the cross-fitted class **0.5404**) — the difference sits inside the
+floor. **Seeing the prompt, without reading what humans said about it, buys nothing measurable here.**
+That is the mechanism behind the conflict: ② asks an arm to beat a class that already performs at the
+level prompt-awareness alone can reach, and only the human labels ③ forbids go further. *(R485)*
+
+⚠ **WHAT THIS DOES NOT SHOW.** That ②∧③ is unsatisfiable *in principle* — that would require
+enumerating all prompt-aware rating-blind selectors, which is not a finite object. It bounds **what
+has been built here**, on 968 prompts and the 2B judge; five admissible arms have no `_08b` build, so
+the second judge cannot host the comparison. **A limit, named, not a result.** *(R485)*
 
 ⭐⭐ **AND THE AGGREGATION WAS NEVER A CHOICE ANYONE MADE — IT WAS `score.py:63` (R481).** Every A2 in
 this campaign sums satisfaction over the selected criteria, and `/yvec/` and `/sum/` both returned
@@ -708,7 +738,7 @@ denominator, on every run. *(R476)*
 Writing R476's result into DEFINITION.md added numeric claims to the very population R476 counted, so
 the live gate now reports **69.0% / 27.7%** where the round measured **69.2% / 28.0%**. That is not
 drift and neither number is wrong: **a document that states its own coverage changes its coverage by
-stating it.** The round's numbers hold at commit `8b57ace` **measured with the gate's 326 anchors** — both halves of the scope, because the instrument grows too; the gate's line is the current value, and
+stating it.** The round's numbers hold at commit `8b57ace` **measured with the gate's 330 anchors** — both halves of the scope, because the instrument grows too; the gate's line is the current value, and
 the two are expected to differ by exactly the size of whatever was last written. *(R476)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'

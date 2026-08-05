@@ -636,6 +636,19 @@ def derive():
         for k in ("r462_old", "r462_new", "r462_cov", "r462_total"):
             out[k] = (None, "R462")
 
+    # R485 -- from the round's artifact.
+    try:
+        _c5 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+                             "R485_is_the_definition_satisfiable_at_all/results/r485_satisfiability.json"))
+        _r = _c5["rows"]
+        out["r485_best_adm"] = (round(_r["gen"]["a2"], 4), "R485")
+        out["r485_gap"]      = (round(abs(_c5["gap"]), 4), "R485")
+        out["r485_oracle"]   = (round(_r["oracle_k4"]["a2"], 4), "R485")
+        out["r485_core"]     = (round(_r["coval_core"]["a2"], 4), "R485")
+    except (OSError, KeyError):
+        for k in ("r485_best_adm", "r485_gap", "r485_oracle", "r485_core"):
+            out[k] = (None, "R485")
+
     # R481 -- from the round's artifact.
     try:
         _c1 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
@@ -1116,6 +1129,12 @@ def derive():
 # label -> the regex that must find that number in DEFINITION.md. The pattern is the CLAIM's own
 # wording, so an edit that changes the sentence without changing the artifact is caught too.
 ASSERTIONS = {
+    # R485 -- satisfiability. Anchored because it changes what the empty extension MEANS: a defect in
+    # the clauses rather than an absence in the release.
+    "r485_best_adm": r"prompt-AWARE arm is `gen` at\s*\n(\d\.\d{4}), a gap of",
+    "r485_gap":      r"a gap of −(\d\.\d{4}), inside the",
+    "r485_oracle":   r"`oracle_k4` \*\*(\d\.\d{4})\*\*",
+    "r485_core":     r"`coval_core`\s*\n\*\*(\d\.\d{4})\*\*",
     # R481 -- the aggregation sweep. Anchored because it DOWNGRADED a committed correlation and
     # because the blindness thresholds are what make the 2-of-3 denominator defensible.
     "r481_ident":   r"\*\*2000/2000\s*\non random matrices, and (0\.00)e\+00 across 26",
@@ -1426,7 +1445,7 @@ ASSERTIONS = {
     "r437_home_bar4": r"`min_ttr` \*\*([\d.]+)\*\*",
     "r437_home_gap":  r"\*\*([+\-][\d.]+)\*\* vs MDE [\d.]+ · RESOLVED \| \*\*②\*\*",
     "r437_home_mde":  r"\*\*[+\-][\d.]+\*\* vs MDE ([\d.]+) · RESOLVED \| \*\*②\*\*",
-    "r437_sec_bar2":  r"`generic` \*\*([\d.]+)\*\*",
+    "r437_sec_bar2":  r"\*\*second\*\* \|[^|]*\| `generic` \*\*([\d.]+)\*\*",
     "r437_sec_bar4":  r"\| `length` \*\*([\d.]+)\*\*",
     "r437_sec_gap":   r"\*\*([+\-][\d.]+)\*\* vs MDE [\d.]+ · RESOLVED \| \*\*④\*\*",
     "r437_sec_mde":   r"\*\*[+\-][\d.]+\*\* vs MDE ([\d.]+) · RESOLVED \| \*\*④\*\*",

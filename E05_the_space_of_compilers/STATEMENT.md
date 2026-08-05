@@ -47,6 +47,12 @@ on *"the highest average ratings"*, i.e. it is a **w-reader**, and ③ excludes 
 ⛔ **The definition has no members — and the object it was written from is excluded by its own clause
 ③.** *(R475)*
 
+⛔⛔ **AND THE EMPTINESS IS A CONFLICT, NOT AN ABSENCE.** Every arm that clears the cross-fitted
+prompt-blind ceiling (**0.5404**) is one ③ excludes — five of five, reaching it by reading the prompt's
+rankings or ratings. The best ③-admissible **prompt-aware** arm is **0.5337**, a gap of **−0.0067**,
+inside the **0.0122** floor. **② asks an arm to beat a class that already performs at the level
+prompt-awareness alone can reach, and only the human labels ③ forbids go further.** *(R485)*
+
 ⭐ **③ STAYS AS WRITTEN, and the reason is measured rather than stipulated.** R475 left the choice of
 weakening ③ to permit the ratings. What decides it is what the ratings are **worth**: against the best
 ③-admissible arm on disk (`generic`, a fixed prompt-blind set at **0.5376**), `topw_k4` gains
