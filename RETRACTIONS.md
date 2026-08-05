@@ -15725,3 +15725,27 @@ corpus-dependence lives in the **pattern argument**. **They are not undecided, t
 and no amount of caller binding could ever have decided them. ⭐ The tell was a **0 with a passing
 synthetic control**: the mechanism worked and was *absent*, which is a different fact from failure,
 and only inspecting the bases distinguished them.
+
+## 676 · A forecast of 11, measured at 4
+
+R655's NEXT forecast that dispatching on the API would *"shrink the residual from 25 to 14"* — 11
+resolutions. Measured with the dispatch built: **4 resolve, residual 21.** ⛔ **RETRACTED and
+replaced by the measured number**, not reinterpreted. ⭐ And the number moved *away* from the
+forecast when my own bug was fixed: the first run said **7**, and stopping two residual-folds gave
+**4**. *Absorbing a residual flatters a forecast, silently.*
+
+## 677 · Two residuals folded into a decided class, in the round whose placebo forbids exactly that
+
+R656 v1 printed `ARG -> OTHER` for R353/R354 and returned **OWN-SCOPE** — `OTHER` is *neither* the
+corpus nor the round's own directory, and a wildcard like `E0*` never literally contains
+`E05_the_space_of_compilers`. It also returned OWN-SCOPE for rounds with a decided site **and** an
+undecided one. ⛔ **A round is decided only if ALL of its sites are.** ⭐ The placebo written for this
+round fires correctly in its own branch; **both leaks were elsewhere. A control guards the path it
+is pointed at, not the property.**
+
+## 678 · "11 easy + 14 hard" — the subsets are not disjoint
+
+R655's NEXT said the remaining 14 *"need function-local binding, which is a DIFFERENT and larger
+change."* ⛔ **5 rounds (R517–R521) carry BOTH defects** — a `glob.glob` API *and* a `root` that is
+function-local. The residual does not split into independent fixes, and a partition asserted without
+checking the intersection is not a partition.
