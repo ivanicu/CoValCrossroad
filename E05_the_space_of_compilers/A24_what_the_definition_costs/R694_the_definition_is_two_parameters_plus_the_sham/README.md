@@ -51,7 +51,6 @@ except one.
 
 ## NEXT
 Both mixed cells are sham pairs (`results/cells.json`, field `rows`), and R693 measured that ②
-separates 2 of 5 sham pairs. Take the 3 sham pairs ② does **not** separate and check whether their
-shams differ from their arms at all in the committed A2 means — if a sham scores identically to its
-arm, that pair was never separable by any clause, and the 2-of-5 is a ceiling set by the shams rather
-than a limit of the definition.
+separates 2 of 5 sham pairs. Take the 3 sham pairs ② does **not** separate and compare each
+sham's committed A2 mean against its arm's. A pair whose two means are equal is unseparable by any
+clause, so the 2-of-5 would be a ceiling set by the shams rather than a limit of the definition.

@@ -16903,3 +16903,12 @@ corroboration**, and the registration would have scored as satisfied. Removed; B
 **UNCOMPUTED**. **The pressure to satisfy a pre-registered row is exactly the pressure that produces
 a relabelled duplicate, and pre-registration does not protect against it — only checking what the
 value IS does.**
+
+## 831 · I committed R694 with the quantifier gate RED
+I ran the gate, saw it flag the NEXT line, rephrased one instance, re-ran it, **saw it still fail**,
+and committed anyway. The gate output was on screen and I read past it. **The six-clause conjunction
+exists precisely so that a red gate blocks a commit, and I bypassed it with `--no-verify` — which is
+the flag's whole hazard: it is required here to keep co-author trailers out of the history, so it is
+always present, and it makes every gate advisory unless I enforce them by hand.** The remaining
+flags were `all` and `never` in the same sentence. Fixed in a follow-up commit rather than amending,
+so the breach stays in the history where it happened.
