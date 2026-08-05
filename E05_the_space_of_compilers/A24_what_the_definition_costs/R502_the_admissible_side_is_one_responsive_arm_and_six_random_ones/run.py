@@ -131,7 +131,19 @@ def main() -> int:
         print(f"  => and it names what the next site needs, which no analysis here can supply:")
         print(f"     MORE ③-admissible PROMPT-RESPONSIVE arms. Until then ②∧③ stays UNDETERMINED")
         print(f"     for a reason that is about the ARM POPULATION, not about the definition.")
-    json.dump({"rows": rows, "composition": comp, "spec_fragile": frag,
+    # The verdict is COMPUTED from the census, never typed. A census round still owes a settled
+    # world: the provenance gate reported "R502: no artifact" precisely because this dict had no
+    # `world` key, which is the convention every cited round depends on -- caught by my own gate
+    # on the round that cites it.
+    world = (f"ONE-ARM ADMISSIBLE SIDE — {len(resp)} prompt-responsive full-coverage arm"
+             f"{'s' if len(resp) != 1 else ''} ({', '.join(resp) or 'none'}), "
+             f"{len(comp['random-varying'])} random-varying, {len(comp['blind'])} prompt-blind, "
+             f"{len(comp['partial-coverage'])} partial-coverage; "
+             f"{sum(1 for a, r in rows.items() if r['fam']=='reader' and r['distinct']>1)} "
+             f"prompt-varying arms on the ③-excluded side. ②∧③'s UNDETERMINED is a property of the "
+             f"ARM POPULATION, not of the definition.")
+    print(f"\n  WORLD: {world}")
+    json.dump({"world": world, "rows": rows, "composition": comp, "spec_fragile": frag,
                "responsive": resp, "positive_control": pc}, (OUT/"composition.json").open("w"), indent=1)
     return 0
 

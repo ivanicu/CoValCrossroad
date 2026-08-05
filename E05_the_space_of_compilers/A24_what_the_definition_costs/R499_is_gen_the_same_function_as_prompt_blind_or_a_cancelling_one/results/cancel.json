@@ -204,5 +204,7 @@
   "gen-genericpool16": false
  },
  "world": "A SAME FUNCTION",
- "positive_control_ok": true
+ "positive_control_ok": true,
+ "retracted_by": null,
+ "note_from_retraction_326": "Entry 326 corrected this round's DESCRIPTION of its null, not its world. The random_k4 seed pair was called 'two arms with NO functional difference'; they share a PROCEDURE and differ in REALISATION, so they sit near the MAXIMUM difference two criterion sets can have, not at zero. Consequence: World B is killed against a CEILING rather than cleanly, and that specific non-exceedance comparison is not severe. The world below STANDS, and the severe comparison runs the other way: two different PROCEDURES (gen, generic) land closer together (r 0.9349, true sd 0.1314) than two REALISATIONS of one random procedure (r 0.9574, true sd 0.1557), which no algebra forces."
 }

@@ -70,6 +70,15 @@ not be compared to an A2 ceiling. *(R475, R485)*
 > prompt-aware arm here"*. Settling it needs a **strong** admissible arm, which is a
 > generation-and-judging round. *(R486, R487)*
 
+⭐⭐⭐ **AND THAT ARM IS NOT WEAK — IT IS ALONE.** Counted from the criterion **text**, the
+③-admissible side is **1** prompt-responsive full-coverage arm (`gen`), **6** random draws, **2**
+fixed sets and **3** partial-coverage arms, against **14** prompt-varying arms on the ③-excluded
+side. **"p32.6 of 23 with 22 at p0.0" is one candidate and a floor, not a field.** `UNDETERMINED`
+keeps its value and changes its scope: **the definition is not unresolvable — this site ships one
+③-admissible prompt-responsive generator.** What a second site must supply is therefore named, and
+no analysis here can produce it. ⚠ *Responsive* vs merely *varying* is assigned from construction
+knowledge, not measured. *(R502)*
+
 ⭐⭐⭐ **AND CLAUSE ② IS A GENUINE WALL, NOT AN ARTIFACT OF AVERAGING.** The gap it turns on is
 `gen − 0.5404` (the cross-fitted prompt-blind ceiling) — **−0.0067, inside the 0.0122 floor**. That
 could mean the arms agree, or that they differ per prompt and cancel. The cancelling world required

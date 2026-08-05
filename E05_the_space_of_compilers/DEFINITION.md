@@ -534,6 +534,18 @@ tracks `generic`'s score at **+0.2577**, so the control fires and the null is ev
 `gen` writes **9.34** words against `coval_core`'s **13.25**, and correlates with the deficit at
 **+0.0319**, CI spanning zero. *(R494, R495, R496)*
 
+⭐⭐⭐ **AND THE ADMISSIBLE SIDE IS NOT A WEAK FIELD — IT IS ONE ARM (R502).** Counted from the
+criterion **text** (`core_<arm>.json`, 968 prompts each) rather than from the scores, the
+③-admissible population is **1** prompt-responsive full-coverage arm (`gen`), **6** prompt-varying
+but *random* draws, **2** prompt-blind fixed sets and **3** partial-coverage arms — against **14**
+prompt-varying arms on the ③-**excluded** side. ⭐ **So "p32.6 of 23, with 22 at p0.0" was never a
+field of weak candidates: it is one candidate and a floor**, and the 22 at p0.0 are random draws and
+fixed sets behaving exactly as they should. **`UNDETERMINED` keeps its value and changes its scope —
+the definition is not unresolvable; the SITE ships one ③-admissible prompt-responsive generator.**
+That is a property of the release, and it names what a second site must supply, which no analysis
+here can produce. ⚠ Bound: *responsive* vs merely *varying* is assigned from construction knowledge,
+not measured — measuring it needs the generator, not its output. *(R502)*
+
 ⭐⭐⭐ **AND THE FIFTH CANDIDATE — THAT THERE IS NOTHING TO EXPLAIN — DIED TOO, WHICH IS THE ONE THAT
 MATTERS.** Three large between-arm differences with three null within-prompt correlations invites the
 conclusion that the deficit is a constant offset. It is not: mean **+0.0311**, observed sd **0.1388**
