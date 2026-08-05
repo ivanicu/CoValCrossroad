@@ -11068,3 +11068,28 @@ stands *because* both sides were held on the same 968. All five open items are d
 ⚠ **Eighth and ninth false closing-quantifier this session.** The direction still is not systematic —
 one hid finished work, one hid unfinished work. **What is systematic is the position: last sentence,
 about my own work, no control attached.**
+
+## 334 · Two tables on one page disagreed for four rounds — the correction reached the fork and not the clause table
+
+**Retracted:** the clause table's ③ row, *"cannot be checked on an object alone"*. Entry **329**
+established that ③ **is** checkable — from the **producer** rather than the product, by attestation or
+by reading the generating code, which is how the ③ verdict for every arm here was derived. **That
+correction reached the fork table and stopped one screen higher.**
+
+⭐⭐⭐ **The failure class is not "I forgot to update a line".** It is that **a correction has a
+population**, and I treated it as having a location. Entry 329 corrected *the fork's B-column*, which
+is where I was looking; the same claim appeared in a table above it, in different words, and nothing
+searched for the other occurrences. **The remedy that has worked elsewhere applies here: a claim
+stated twice on one page is a claim that will drift, and HB7 says it should be stated once.**
+
+⚠ **This is the fourth "the correction did not reach the artifact" of this session**, after: the
+retraction that reached four documents and not the two JSON files a gate reads (325's coda); R502's
+census, which reached commits but neither document; and R507's closure, which reached a commit and
+neither document. **Different targets each time — artifacts, documents, a second table — and the same
+shape: the correction was applied where I was looking.**
+
+**Also landed, and it is the thing the clause table should have said all along:** the two sides of ③
+are **textually identical**. Every ③-excluded arm draws **100.0%** of its criteria verbatim from the
+prompt's own rubric, as do the ③-admissible `random_k*` arms, while `gen` and `generic` draw **0.0%**.
+**No product-side check can exist because there is no product-side difference.** That belongs beside
+the clause, not only in the fork.

@@ -27,13 +27,23 @@ Size: **more than one criterion**. The design cannot separate 3 from 8, so no nu
 |---|---|---|---|
 | **①** | behavioural | **0 of 41** arms | **UNEXERCISED, not vacuous** — an adversarially worst rubric subset *is* excluded, at **−0.2779** [−0.2914, −0.2651] *(R464)* |
 | **②** | behavioural | **33 of 42** | carries the whole boundary among label-free arms |
-| **③** | **provenance** | **14 of 42** | **cannot be checked on an object alone** *(R465)* |
+| **③** | **provenance** | **14 of 42** | **checkable from the PRODUCER, never from the product** — by attestation or by reading the generating code, which is how the ③ verdict for every arm here was derived *(R444, R465)* |
 | **④** | behavioural | **all 7** arms on the second release | not vacuous |
 
-⭐ **①②④ can be checked by anyone handed a criterion set. ③ cannot** — it is a claim about how the set
-was built, and two behaviourally identical sets can differ under it: a label-reading selector and a
-label-free one emit the same criteria on **9 of 967** prompts, with identical A2 to machine
-precision. *(R465)*
+⭐ **①②④ can be checked by anyone handed a criterion set. ③ needs the PRODUCER as well** — it is a
+claim about how the set was built, and two behaviourally identical sets can differ under it: a
+label-reading selector and a label-free one emit the same criteria on **9 of 967** prompts, with
+identical A2 to machine precision. *(R465)*
+
+⚠ **This row said "cannot be checked on an object alone" until retraction 329 corrected the fork
+below it — and the correction did not reach this table.** Two tables on one page disagreed for four
+rounds. ③ is not uncheckable; it is checkable from a **different artifact**, which is how every
+provenance standard works and is a cost rather than a defect.
+
+⭐⭐⭐ **AND THE TWO SIDES OF ③ ARE TEXTUALLY IDENTICAL, WHICH IS WHY NO PRODUCT-SIDE CHECK CAN
+EXIST.** Every ③-**excluded** arm draws **100.0%** of its criteria verbatim from the prompt's own
+rubric — and so do the ③-**admissible** `random_k*` arms, while `gen` and `generic` draw **0.0%**.
+Both sides inhabit the same object space and differ only in the **selection map**. *(R503)*
 
 ---
 
