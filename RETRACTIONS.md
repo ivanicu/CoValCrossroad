@@ -15169,3 +15169,36 @@ is not what moved them.** ⚠ Reported as observations: the round's verdict is `
 
 ⛔ And **R597 flipped from `D FIRES ONCE, correctly bound` to `B LIVE`** — a live defect that exists
 now and did not when the round was written, surfaced only because the document grew.
+
+## 607 · `exit 1` is a VERDICT in this corpus, and R636 read four of them as crashes
+
+R636 reported *"ran 38 · failed 5."* **Four of the five declare an exit convention in their own
+docstrings:** R433 `EXIT 1 = W-LOSES or W-UNRESOLVED` · R437 `W-INVERT` · R441 `W-DECORATION` ·
+R442 `W-INSTANCE`. Only R431 shows none. **Corrected: 42 ran, at most 1 failed.**
+⭐ **An exit code is not a success signal when the program defines it as a verdict** — and **15 of
+the 43 rounds encode their world that way.**
+
+## 608 · World C can fire on nothing — a world whose condition need never obtain
+
+**DERIVATION, not a measurement:** 15 verdict-encoding rounds vs a `≥1/3` threshold of **14.33**;
+**15 ≥ 14.33**. Every verdict-encoding round returning a non-zero *verdict* would be counted as 15
+"failures" and **declare the corpus unreproducible while it ran perfectly, by two-thirds of a round.**
+⭐⭐ **The mirror of "a check that cannot fail" is a WORLD THAT CAN FIRE WITHOUT ITS STATED CONDITION
+EVER OBTAINING.**
+
+## 609 · A wait-loop whose predicate matches its own command line never terminates
+
+`until ! pgrep -f "R636_.../run.py"; do sleep 5; done` — **the shell carries the pattern in its own
+argv**, so `pgrep` always finds it. It waited for itself to disappear. **Sixth self-contamination,
+and the purest: not the artifact in its population, not the operator on the population, but the
+INSTRUMENT MATCHING ITSELF.**
+
+⛔ **And it invalidated three timing claims in one turn:** *"~10 min, 2× the first pass"* (parent was
+at **150 s**), *"exceeded 750 s"* (**622 s**), *"the second pass is much slower"* (**288 s vs
+284 s — the same speed**). **I was timing the observer.**
+
+## 610 · R636's verdict moves from UNVERIFIED to B — the exclusion held
+
+Re-run with nothing touching the repository: **POSITIVE PASS · NEGATIVE PASS · PLACEBO PASS →
+`B SOME MOVE`, 12 of 38.** ⭐ **Check #237's "operator rather than code" was an untested exclusion
+when written and is now supported**: with the operator still, the code restores correctly.

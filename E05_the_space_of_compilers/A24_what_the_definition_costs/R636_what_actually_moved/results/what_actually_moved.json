@@ -1,6 +1,6 @@
 {
-  "world": "UNVERIFIED \u2014 a control did not fire",
-  "controls_ok": false,
+  "world": "B SOME MOVE \u2014 12 of 38 re-runnable rounds return a DIFFERENT verdict today. Those conclusions were wrong on the record and this is the debt.",
+  "controls_ok": true,
   "n_target": 43,
   "ran": 38,
   "failed": [
@@ -30,7 +30,7 @@
       "err": ""
     }
   ],
-  "wall_clock_s": 284.2,
+  "wall_clock_s": 288.0,
   "artifacts_changed": [
     "R463_the_ordering_is_arbitrary_and_says_so",
     "R464_is_clause_one_vacuous_or_merely_unexercised",
