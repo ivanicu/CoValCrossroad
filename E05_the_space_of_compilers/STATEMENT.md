@@ -131,6 +131,23 @@ A **core** for a conversation is a set of criteria such that
   average ratings"* — so `coval_core` is a **weight-reader but not a ranking-reader**. `select_core.py:16`
   calls the same operation **"non-leaky: the weights come from the rubric, not from the outcome."**
 
+> ### ⛔⛔ ② IS AN A2 THRESHOLD, SO ANY A2-BASED CHECK OF ② IS CIRCULAR *(R696)*
+> `R360/run.py` computes `clause2_admits` **from** `a2_vec`. So "②-admitted arms score above
+> ②-rejected ones" is an **arithmetic consequence** wherever the a2 values share that scoring run —
+> and **this corpus records nothing about which run any artifact's a2 came from**. Measured across
+> three independent artifacts, the ②-admitted arms sat at **percentile 100.0 in every one**: the
+> ceiling of the statistic, which is what a threshold predicts.
+> ⚠ **So a consistency check between the corpus's a2 values and the ledger's ② verdicts is a
+> DERIVATION if the runs are shared and a check if they are not, and nothing here can say which.**
+> What would separate them: an a2 from a scoring run **recorded as distinct** — and R684 measured
+> that 90 rounds vary a judge while 9 record which.
+
+> ### ⚠ THE DEFINITION IS TWO PARAMETERS WE CHOSE, PLUS THE SHAM *(R694)*
+> Over 42 arms in 24 `(family, k)` cells, ② and ②∧③ are each irreducible in exactly **2** cells —
+> `coval_core` vs `coval_core_sham`, and `topw_k4` vs `topw_k4_sham`. **A memorising fit on those two
+> parameters scores 95.2% by construction.** The sham distinction is the part that is not ours to
+> choose.
+
 > ### ⚠ ② IS 88.1% RECOVERABLE FROM THE GENERATOR'S NAME *(R693)*
 > With **one** released core and **41** of our own constructions, the arm's **rule family** predicts
 > ②'s verdict at **88.1%** against a **78.6%** majority floor — 98.4th percentile of a 1000-shuffle

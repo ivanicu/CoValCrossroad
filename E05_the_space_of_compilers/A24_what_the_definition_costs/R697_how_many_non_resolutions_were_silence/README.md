@@ -5,6 +5,8 @@ floor exceeded 0.05. R495 is **singular**, and R696's closing claim narrows to i
 is the finding: 23 → 38 → 0 across three successive filters, and the first two would each have
 supported "a class".****
 
+> **⛔ COUNTS RETRACTED BY R698 (check #300). CONCLUSION STANDS.** Every population figure in the table below is wrong in two ways. **① I wrote them from a PRE-PATCH run and never re-read the artifact this round had just written** — 79/44/8 in prose against 10 admissible in the JSON. **② This round sweeps the arc's `results/*.json` and its own artifact is one of them**, so its population grows whenever anything is committed. R698 measured it: **admissible falls 14 → 4 when R697's own output is excluded — 71% of the population was itself.** ⭐ **The verdict is 0 in every exclusion regime**, so the kill fired on the world and not on the denominator. Read the conclusion; do not quote the counts.
+
 ## THE THREE FILTERS, EACH A GENUINE CORRECTION
 
 | filter | cells | what it removed |

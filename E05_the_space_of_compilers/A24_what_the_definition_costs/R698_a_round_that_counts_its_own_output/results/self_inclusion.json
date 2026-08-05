@@ -1,0 +1,61 @@
+{
+  "world": "\u2b50\u2b50\u2b50 A COUNTS DRIFT, VERDICT STABLE. R697's admissible population takes [4, 14] across three exclusion regimes while its could-not-resolve verdict is 0 in every one. \u26d4 SO R697's COUNTS ARE RETRACTED AND ITS CONCLUSION STANDS. \u2b50 THE MECHANISM IS SELF-INCLUSION: R697 sweeps the arc's `results/*.json` and its own artifact is one of them, so its population grows whenever anything is committed \u2014 including by itself. \u26a0 AND THE SECOND CAUSE IS MINE: R697's README was written from a PRE-PATCH run and never checked against the artifact the same round had just written. The round's own output was on disk, disagreeing with my prose, and nothing checks prose against artifact.",
+  "controls_ok": true,
+  "tree_sha": "3d90894990a2a0b5a2c8dad29ad13e6d7b6100c4",
+  "regimes": {
+    "full corpus (what R697 ran)": {
+      "colocated": 83,
+      "after_multiple": 51,
+      "degenerate": 37,
+      "admissible": 14,
+      "not_resolved": 2,
+      "could_not_resolve": 0
+    },
+    "excluding R697's own artifact": {
+      "colocated": 53,
+      "after_multiple": 21,
+      "degenerate": 17,
+      "admissible": 4,
+      "not_resolved": 2,
+      "could_not_resolve": 0
+    },
+    "excluding R697 and everything after it": {
+      "colocated": 53,
+      "after_multiple": 21,
+      "degenerate": 17,
+      "admissible": 4,
+      "not_resolved": 2,
+      "could_not_resolve": 0
+    }
+  },
+  "admissible_values": [
+    4,
+    14
+  ],
+  "verdict_values": [
+    0
+  ],
+  "verdict_stable": true,
+  "drop_excluding_self": 10,
+  "kill_fired": false,
+  "directional_holds": true,
+  "registered": "A drop of 2 [0,8]; B verdict unchanged; counts drift, verdict stable",
+  "reported_vs_artifact": {
+    "readme_said": [
+      79,
+      44,
+      8
+    ],
+    "artifact_said": [
+      null,
+      null,
+      10
+    ],
+    "fresh_run_says": [
+      83,
+      51,
+      14
+    ]
+  },
+  "limit": "this measures sensitivity to which files are present; it cannot recover the corpus as it stood when R697 first ran, because R697 recorded its verdict and not its file list."
+}

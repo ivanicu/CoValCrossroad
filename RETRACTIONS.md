@@ -17010,3 +17010,24 @@ Deduplicated by `(n, p)` there is **1** distinct cell — R361's `2B` at `p = 0.
 appearing in R683, in R697's artifact, and then back into R697's own sweep of that artifact.
 **R680's copy finding, live and self-referential: a round that scans the corpus scans its own output
 and counts its own copies as population.**
+
+## 845 · R697's counts are retracted: 71% of its population was its own output
+Excluding R697's own artifact drops its admissible population from 14 to 4. It sweeps the arc's
+`results/*.json` and its own output is one of them, so the number grows whenever anything is
+committed. ⭐ **Its verdict — 0 non-resolutions from a design that could not resolve — is identical in
+all three exclusion regimes**, so the kill fired on the world and not on the denominator. **Counts
+retracted, conclusion stands, README annotated in place.**
+
+## 846 · I wrote a round's README from a pre-patch run and never re-read the artifact it had just written
+R697's README says 79 / 44 / 8; its committed artifact says 10 admissible. **The round's own output
+was on disk, disagreeing with my prose, and I published the prose.** Two instrument patches landed
+after the run I quoted, each changing the counts. **Nothing in the gate set checks a README's numbers
+against the artifact in the same directory** — every gate here checks provenance, quantifiers,
+tracking, and naming, and none checks that the prose reports what the JSON says.
+
+## 847 · I registered a drop of 2 and measured 10 — self-inclusion is most of the population, not a rounding effect
+The registered point treated a round's own artifact as a marginal contributor. It was **71%**. **The
+direction of the miss is the same blind spot three rounds have now hit**: R690 found an audit finds
+its own audit, R697 found six "at floor" cells were one measurement copied into its own scan, and
+this one finds the sweeper is most of what it sweeps. **A corpus sweep run inside the corpus it
+audits has no natural denominator.**
