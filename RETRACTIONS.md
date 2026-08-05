@@ -16472,3 +16472,40 @@ deliverable's own citations**, which is precisely what a citation is for.
 `coval_core/greedy_k4_fit1`, so six sets produced five keys and **R470 was silently overwritten**.
 Found only by consuming the artifact in the next round. **A key built from a truncation of the value
 is not a key, and the collision is invisible in the file it corrupts** — the JSON looks complete.
+
+## 773 · I named the directory `R680_twenty_two_citations_one_computation` before measuring
+The answer is 8 derivers, at most 6 independent — not one. The name asserted a conclusion the round
+had not yet reached, and it would have survived as a permanent claim in a path that every future grep
+returns. Renamed to `R680_citations_are_not_computations`. **A directory name is a claim, and it is
+the one claim in a round that no control ever touches** — not the pre-registration, not the verdict
+string, not the ledger. It is also the claim most likely to be read by someone who never opens the
+round.
+
+## 774 · R679's proposed test was invariant under the distinction it was meant to make
+It asked to separate "recomputed" from "restated" by whether the set appears as a value in a round's
+`results/`. **A value in `results/` is produced identically by recomputation and by a hard-coded
+literal.** Three lines of gauge test killed it before any compute. And R676's census had already
+recorded `R529.ext_rank` and `R534.ext_rank`, so the proposed test's answer was committed before the
+test was proposed. **The gauge test is the cheapest item on the attack ladder and it keeps being the
+one that fires — the measurement was invariant under exactly the transformation the property is not.**
+
+## 775 · Twenty-two citations, at most six independent computations
+Of 20 rounds whose results hold the ③ extension, 8 derive it with no member literals in executable
+source and 12 carry it hard-coded; of the 8, two read a prior round's `results/` file. So **at most 6
+independent computations** stand behind the **22 rounds** the deliverable's extension rows cite.
+**The citation count and the computation count are different quantities, and only the second bounds
+independent support.** Agreement among copies is not replication — and the copies are not marked.
+
+## 776 · A raw literal count would have measured PROSE, because every docstring quotes arm names
+The first instinct is `grep 'coval_core' run.py`. Every round in this corpus names arms in its header,
+so that count reads documentation as implementation. Stripping comments and docstrings with the
+tokenizer before counting, and **verifying the strip with a negative control whose five members sit
+only in a docstring**, is what makes the number about code. **The confound was written into the
+pre-registration before the run and its control ran in the same iteration** — which is the only
+reason it is a footnote here rather than a retraction.
+
+## 777 · My own R676 hard-codes the set it was measuring, at 5 of 5 literals
+R676 censused five-member arm sets across the corpus and carries the ③ extension as a full literal
+list in its executable source. So does R360 and R361. **A round measuring set membership that
+hard-codes one of the sets is not automatically wrong — a fixture is legitimate — but it cannot then
+be counted as evidence for that set**, and nothing in the corpus marks which use is which.
