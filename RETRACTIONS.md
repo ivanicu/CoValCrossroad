@@ -12845,3 +12845,23 @@ mis-cut arc**, because an arc is a decision made safe and a single belief update
 
 **Recorded, not restructured.** Re-cutting an arc is a decision about what work was for; a repair
 would be me deciding it silently. The row is indexed with the anomaly stated in the row itself.
+
+## 408 · The deliverable draws on one arc of ten, and the page did not say so
+
+Epoch `E05` holds arcs **A16–A25**. **264 rounds live in `A24`, 75 of them cited on the statement.
+The other nine arcs hold 72 rounds: 1 indexed, 0 cited.** The largest uncited arc is
+**`A23_is_the_admissibility_gate_the_right_gate` at 35 rounds** — pointing straight at the ②
+admissibility machinery the definition rests on.
+
+**The positive control is what makes the zeros admissible**: A24 reads as **264/264 = 100%** indexed
+after R564, so the presence test demonstrably works.
+
+⚠ **UNVERIFIED and stated as such: I cannot distinguish supersession from omission.** Those 72
+rounds may have been correctly dropped as A24 overtook them, or they may be evidence the page
+excludes. **The count is measured; the reading is not.**
+
+⭐ **What this cost to notice: nothing but a directory listing.** Ten arcs have been on disk the
+whole campaign, and every round of this session filed itself into A24 without once asking whether
+that was the epoch or a part of it. **A scope error at the level of the container is invisible from
+inside the container** — which is why R564's accidental discovery of `A25` was worth more than the
+index it was rebuilding.

@@ -6,6 +6,23 @@ The reasoning and the corrections live in `DEFINITION.md` and `RETRACTIONS.md`; 
 count has one home and is not restated here.
 This page is the residue.*
 
+⛔⛔ **AND THE PAGE DRAWS ON ONE ARC OF TEN** *(R565)*. Epoch `E05` holds arcs **A16–A25**.
+**264 rounds live in `A24`, of which 75 are cited here. The other nine arcs hold 72 rounds, of which
+0 are cited and 1 carries an index row.**
+
+| arc | rounds | cited here |
+|---|---|---|
+| **`A23_is_the_admissibility_gate_the_right_gate`** | **35** | **0** |
+| `A22_does_this_epochs_own_method_hold_up` | 12 | 0 |
+| `A17_which_definitions_of_core_are_identifiable` | 9 | 0 |
+| `A16`, `A18`, `A19`, `A20`, `A21`, `A25` | 16 | 0 |
+| `A24_what_the_definition_costs` | **264** | **75** |
+
+⚠ **UNVERIFIED, and stated as such: I cannot yet distinguish supersession from omission.** Those 72
+rounds may have been superseded by A24's work and correctly dropped, or they may be evidence this
+page silently excludes. **Reading them is the next question; asserting either reading now would be
+the fabrication this campaign's ledger exists to prevent.** What is measured is only the count.
+
 ---
 
 ## What stands — the claim set, each with its scope
