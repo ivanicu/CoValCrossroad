@@ -15427,3 +15427,26 @@ alarming-sounding of the three, which is exactly why it was reported fastest.**
 The closing line named **two** and called the list complete: there are **seven** nameable from the
 record, including the corrected suite state. ⚠ **And the enumeration is my own reading**, the
 instrument class caught under-counting four times in this arc — **seven is a lower bound.**
+
+## 641 · The suite's summary exceeds its own printed listing by exactly three
+
+**Printed: FAIL 10 · LIVE-DEBT 8. Claimed: FAIL 13 · LIVE-DEBT 11.** The +3 is uniform and equals the
+ERROR/timeout count exactly. ⚠ **The discrepancy is measured; the cause — timeouts counted as FAIL in
+the summary and printed under ERROR — is a hypothesis from an arithmetic coincidence and is labelled
+as one.**
+
+## 642 · Two of the eight printed LIVE-DEBT entries are broken gates
+
+`retired_framing_in_emittable_source` prints a **Traceback**; `seed_filter_is_disclosed` prints
+**`SyntaxWarning: invalid escape sequence`**. Neither is a debt in the deliverable. **Genuine live
+debts among the printed rows: 6 of 8.**
+
+⭐ **The suite predicted this in its own caveat** — the classifier *"may only DEMOTE out of LIVE-DEBT,
+never promote in"*, so LIVE-DEBT is the catch-all and over-reports by construction. **The caveat was
+printed, correct, and quoted past — by me, one round ago.**
+
+## 643 · I made the same error while reporting it
+
+I counted **nine** FAIL rows by eye off a truncated display; the parse says **ten**. ⭐ *An eyeball
+count of a display is the exact failure this round is about, and it survived into the round's own
+first reading.*
