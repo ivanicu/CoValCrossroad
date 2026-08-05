@@ -16197,3 +16197,33 @@ The gate flagged it, and the correct response was to **fix the line rather than 
 rewrite then quoted the offending words to explain them and was flagged AGAIN: the gate cannot
 distinguish use from mention.** No pattern can. Named as a limit rather than worked around — the
 escape a future round should reach for is the `PROVENANCE` citation, not silence.
+
+## 737 · A directional prediction scored HOLDS on a difference of ONE instance
+R672 registered that README `## NEXT` sections would take the gate's PROVENANCE escape LESS often
+than commit bodies. Observed 0.0% vs 0.4% — the registered direction, so the row reads HOLDS. **It is
+degenerate.** The prediction presumed two rates capable of differing; the measurement found both on
+the floor (0 of 34, 1 of 250). Recording `HOLDS` unqualified would have banked a false pass and
+inflated the forecast record with a comparison that carried no information. **A directional
+prediction needs a check that the two quantities are separable BEFORE its sign is scored.**
+
+## 738 · The gate's escape hatch has been used once in 284 opportunities
+`next_line_quantifiers_are_computed.py` flags a quantifier near an artifact word UNLESS a provenance
+reference sits in the same window. Measured over its own rule: 250 commit-body NEXT paragraphs
+qualify, **1 takes the escape**; 34 README sections qualify, **0 do**. So the gate has never operated
+as a citation requirement — it operates as a prohibition, and every pre-existing instance flows into
+the freeze instead. **A rule's stated remedy is a hypothesis about behaviour until the take-up rate
+is measured, and an untaken escape makes a gate stricter than its author believes it is.**
+
+## 739 · The freeze is a drain, not a ledger — 1 retirement in 26 transitions
+27 committed versions, 123 → 167, and the single retirement is the FIRST transition in the file's
+history; the 25 since have retired nothing while adding 35. The positive control matters here and is
+what makes this a measurement: retirement IS detectable, having happened once. **A baseline that only
+accumulates is indistinguishable from suppression, and the distinguishing fact is whether anything
+ever leaves it.**
+
+## 740 · Part A had no admissible forecast, because it was measured before the round opened
+The freeze history was computed in the previous session, before R672's directory held anything but a
+name. Writing a prediction for it afterwards would have scored me against an answer I had already
+read. The round carries a forecast on part B only and the record stays at nine. **The cheapest way to
+fake calibration is to pre-register what you already know, and it leaves no trace unless the round
+says so itself.**
