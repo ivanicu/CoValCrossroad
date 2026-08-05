@@ -1,0 +1,31 @@
+{
+  "world": "B",
+  "observations": [
+    {
+      "mode": "serial (1 worker)",
+      "pass": 30,
+      "fail": 9,
+      "of": 46
+    },
+    {
+      "mode": "serial (1 worker)",
+      "pass": 29,
+      "fail": 10,
+      "of": 46
+    },
+    {
+      "mode": "parallel (12 workers)",
+      "pass": 26,
+      "fail": 13,
+      "of": 46
+    }
+  ],
+  "n_serial": 2,
+  "n_parallel": 1,
+  "established": "the suite's failure count is not reproducible across runs in EITHER mode",
+  "refuted_hypothesis": "a concurrency race is the cause -- REFUTED as sufficient: two SERIAL runs at one worker already disagree (9 vs 10)",
+  "surviving": "concurrency AMPLIFIES it (13 > 10 > 9) but does not explain it",
+  "mechanism": "UNVERIFIED",
+  "consequence": "every failure count quoted this session -- R561's 9, R569's 15/16 -- was an unlabelled draw from a distribution, not a measurement",
+  "caveat": "n=2 serial and n=1 parallel is thin; the SPREAD is established, the DISTRIBUTION is not"
+}

@@ -12998,3 +12998,35 @@ no row for a passing gate**; PASS is a summary count. My regex could only ever s
 the `c2`-inside-a-UUID, the whitespace-wrapped docstring, and the `tail`-instead-of-count, three
 times. **Both controls refused to let a verdict out, which is the whole reason they exist**, and the
 round's correct output is no count at all.
+
+## 420 · The suite's failure count is not reproducible, and every count I quoted was one draw
+
+**Two serial runs of `run_all --serial`, same tree, back to back: `PASS 30 / FAIL 9` and
+`PASS 29 / FAIL 10`. Parallel at 12 workers: `PASS 26 / FAIL 13`.**
+
+⭐⭐⭐⭐ **The count is nondeterministic at ONE worker**, so the concurrency race I built this round
+to confirm **is refuted as sufficient.** Parallelism **amplifies** the effect (13 > 10 > 9) and does
+not cause it. **Mechanism: UNVERIFIED.**
+
+**This retracts the standing of every suite count quoted this session** — R561's *"9 live-debt"*,
+R569's *"15 FAIL"*, my *"13 live"*. **None was wrong to record; each was wrong to state without a run
+count.** They agree with one another only as samples of one unstable quantity.
+
+⚠ **n = 2 serial, n = 1 parallel**, and the run that would have widened it timed out at 9m40s. **The
+spread is established; the distribution is not.**
+
+⭐ **The general form, and it is the sharpest thing this session has produced about instruments: a
+suite verdict is a DRAW, and this suite has never reported how many times it was drawn.** Everything
+downstream — the debt list, the "nine defects" triage, the accepted-debt baseline I proposed two
+rounds ago — was built on a single sample presented as a census.
+
+## 421 · Two consecutive rounds had their central hypothesis refuted by their own controls
+
+R569 predicted CWD-blindness; the gate passed from `/home/ivan` unchanged. R570 predicted a
+concurrency race; two serial runs already disagreed.
+
+⭐ **Both refutations came from the round's own design rather than from a later round**, which is
+the only reason neither reached the deliverable. ⚠ **And R569's premise was additionally wrong:** I
+read `run_all.ROOT` as the repo root when it is the `assurance/` directory, so `cwd=ROOT.parent` is
+the repo root, not `/home/ivan`. **The conclusion was right and the reasoning under it was not** —
+which is the failure mode that survives review, because the verdict looks correct.
