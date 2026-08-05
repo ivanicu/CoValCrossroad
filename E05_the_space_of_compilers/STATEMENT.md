@@ -139,7 +139,14 @@ A **core** for a conversation is a set of criteria such that
 >
 > **F1 · PROVENANCE.** The criteria were selected **without reading the outcome labels** — checkable
 > from the **producer**, never from the product. ⚠ **At the 2B judge**: the separation does not hold
-> at 0.8B, and that scope rests on **one verdict pair** *(R683, R685)*.
+> at 0.8B, and that scope rests on **one ROUND** *(R683, R685; corrected by R709)*.
+> ⚠ **R709 corrects the count, not the conclusion.** "One verdict pair" understates the corpus: under
+> a rule that also reads the SIGN of a continuous per-judge value there are **15** comparisons at
+> **0.8000** agreement, of which **6 bear on the separation — 2 disagree, 4 agree**. ⛔ But all six
+> are in **R361**, so widening the rule added FIELDS, not independent ROUNDS, and **correlated
+> measurements of one comparison are not a second comparison**. The generalisation still rests on
+> **one round**, and the judges are not broadly discordant — they disagree on *this* quantity while
+> agreeing at **80%** elsewhere, which makes the disagreement more specific, not less real.
 > *Excludes:* an arm whose selector reads labels while emitting textually identical criteria — R503
 > measured both sides at **100% verbatim overlap**, which is why no product-side check can exist.
 >

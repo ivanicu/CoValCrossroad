@@ -17529,3 +17529,46 @@ enforces it, and **an unwired check is exactly the "empty population passes" fai
 own workflow.** The commit is public history and is annotated rather than rewritten; the flagged sha
 is frozen with the reason recording that **the flag was correct and the sentence was wrong**, never
 as excused history.
+
+## 893 · "the weakest load-bearing claim in the deliverable" — an unverified superlative, third this arc
+
+The last NEXT line called F1's provenance scope "the weakest load-bearing claim in the deliverable
+since R685". **I never ranked the deliverable's claims by strength.** §4's closing-sentence failure
+for the third time in this arc — after "the only clause the name touches" (ledger 873) and "every
+round attacked the apparatus" (ledger 892). Withdrawn: F1's scope is *a* claim resting on n=1.
+
+**The pattern across all three is one habit**: the closing sentence reaches for a superlative to make
+the next step sound necessary, and a superlative over my own work is the population I am worst at
+enumerating. **The gate catches the ones containing its trigger words; this one it did not, because
+"weakest" is not in its quantifier list.**
+
+## 894 · my audit of R685 regressed to the exact bug R685 had already fixed
+
+R709's first run returned **D1 = 10** against R685's committed 1, which read as R685 having
+miscounted under its own rule. ⛔ **9 of the 10 were `controls.*`** — my own `positive`, `g0`,
+`placebo`, `sham` flags, which pass at BOTH judges **by design**, so counting them as per-judge
+agreement counts the design. **R685 had already found and excluded exactly this defect.**
+
+I reimplemented the walk from scratch and read **R685's verdict string, not its exclusion logic**.
+With the exclusion wired in, D1 = 1 and R685 replicates exactly. **The registered POINT A "failure"
+was my instrument regressing to a closed bug in the round it was auditing** — and had I reported it,
+it would have retracted a correct result. §3's warning holds: the attack that succeeds is the
+dangerous one.
+
+## 895 · F1's scope — the count is corrected, the conclusion is not
+
+`STATEMENT.md` said F1's scope "rests on **one verdict pair**". Measured: under a rule that also
+reads the SIGN of a continuous per-judge value there are **15** comparisons at **0.8000** agreement,
+and **6 bear on the separation — 2 disagree, 4 agree**. So the phrase **understated the corpus**.
+
+⛔⛔ **But deeper is not wider, and that is the load-bearing qualification: all six are in R361.**
+Widening the definition added FIELDS, not independent ROUNDS, and correlated measurements of one
+comparison are not a second comparison. **F1's generalisation still rests on exactly one round**, and
+`STATEMENT.md` is corrected to say "one ROUND" rather than "one verdict pair".
+
+⭐ What genuinely changes is the surrounding claim: **the two judges are not broadly discordant.**
+They agree at 80% across the widened set and disagree on *this* quantity — which makes the
+disagreement **more specific and not less real**.
+
+⚠ And R685 is partly vindicated rather than overturned. Its exclusion of continuous values was a
+stated design choice that cost coverage; it did not hide a second verdict, and its count was right.

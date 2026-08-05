@@ -3182,3 +3182,33 @@ zero, is **0.0453**. Two of these were mis-specified on the first run in the sam
 planted as a function of the very partition it was then measured with, so the negative control
 destroyed nothing and returned power **0.9975** — and the correction is that the ingredient must be
 removed from the measurement while the plant stays on the true structure.
+
+## R709 · Whether clause F1's n=1 is the corpus or the definition that counted it
+
+R685 reported that the judge-dependence of clause ③'s separation rests on a single verdict pair, and
+`STATEMENT.md` carried that as "one verdict pair". R709 applies the standard's own remedy — count
+what the release contains against what the code consumed.
+
+Eleven rounds in this repository carry both judge keys; R685 examined seven. The four it skipped are
+R683 through R686, the instrument rounds themselves, so that exclusion is a self-inclusion control
+and not a search failure. R685 then reduced seven rounds to one pair by counting only booleans and
+small closed-set strings, stating that continuous per-judge values differ by construction and are
+excluded — while clause F1's scope claim is itself about a continuous quantity's sign across judges.
+
+Measured under three nested rules: R685's own gives **1** pair, reproducing its count exactly; adding
+the SIGN of continuous per-judge numerics gives **15** comparisons at **0.8000** agreement; adding
+vector orderings gives 17 at 0.7647. Six of the widened comparisons bear on the separation — two
+disagree and four agree — against the one R685 could use.
+
+**All six are in R361.** Widening the rule added fields, not independent rounds, and correlated
+measurements of a single comparison are not a second comparison. So the phrase understated the
+corpus and is corrected to "one round"; the conclusion is unchanged. What does change is the
+surrounding claim: the two judges are not broadly discordant, agreeing at eighty percent across the
+widened set while disagreeing on this quantity, which makes the disagreement more specific rather
+than less real.
+
+The round's own first pass returned ten pairs under R685's rule rather than one. Nine of the ten were
+control flags — positive, g=0, placebo and sham — which pass at both judges by design. R685 had
+already found and excluded exactly that defect, and the audit reimplemented the walk from scratch
+while reading R685's verdict string rather than its exclusion logic. Reported, it would have
+retracted a correct result.
