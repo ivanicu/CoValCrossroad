@@ -18537,3 +18537,35 @@ calls a verdict string that is prose looking like output, and it survived one ed
 the control and not the sentence that reports it. Corrected to name the one-parameter model actually
 used, and the curve table now prints both columns so the abandoned form is visible rather than
 silently dropped.
+
+## 976 · the profile finding does not survive a floor matched on measured overlap
+
+R733 reported that the two admitted objects track the excluded object beyond the shared-subtrahend
+floor by 0.4632 and 0.3965. With every side matched on its own measured criteria overlap and its own
+pair-of-sizes curve, all ten excesses are negative: the greedy object correlates with the excluded
+object at 0.8123 against a matched floor of 0.8299. What survives is that they fall short of the
+random-subset expectation by less against the excluded object than against the label-blind arms,
+gaps of 0.0975 and 0.0574 against a band of 0.0151. The ordering is intact and the claim it carried
+is not. Three floors were used before this one and each moved the number; this is the first matched
+on the quantity measured to drive it, and it moves the sign.
+
+## 977 · a sham that varied with the ingredient it was supposed to remove, twice
+
+The sham built both arms from one draw so that overlap could not be doing any work, and it failed.
+The first cause was that the branch extended the draw whenever the second arm was larger than the
+first, so the two arms were not the same draw at all. The second, which survived that fix, was that
+the random seed carried the overlap target, so even the same-draw arm was re-drawn at every target
+and the sham could not return a constant whatever it did. Both are mine and both were caught only
+because the control failed rather than because I read it. A sham that moves with the ingredient it
+removes is not a sham, and a control whose seed depends on the axis under test cannot hold anything
+fixed.
+
+## 978 · four registered points passed while the finding they were registered around went the other way
+
+The round registered the model deviation, two floors and the count of surviving orderings, and all
+four landed inside their intervals. None of them asked whether the excesses would be positive, and
+all ten came out negative, which is the round's actual result. The preregistration did say the
+outcome was not predictable from the overlaps and declined to weight it, so the gap is not a
+concealed prediction; it is a reminder that a set of registered points can be fully satisfied by a
+run whose headline is something nobody registered. The remedy is to register the sign of the
+quantity the conclusion will be about, not only the quantities the design produces on the way.

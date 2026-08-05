@@ -3876,3 +3876,22 @@ floors for the comparison against the label-blind arms were not computed here, s
 re-scored in this round. And this is a floor for random subsets of the scored pool; the real arms were
 produced by rules that may prefer criteria with particular satisfaction profiles, and whether a
 rule-produced arm behaves like a random subset at the same overlap would need a new selection run.
+
+## R738 · matched on every side, the admitted objects fall below the floor rather than above it
+
+The comparison the previous rounds left half matched was completed. Each side is now read off a curve
+built for its own pair of selection sizes rather than one curve for all, because three of the four
+comparisons cross sizes; the four curves give shared-component values of 0.3026, 0.3361, 0.3826 and
+0.4007 and each is validated by fitting that component at zero shared criteria alone and predicting
+every remaining target, with a pooled worst deviation of 0.0100. Against those matched floors every
+one of the ten excesses is negative. The greedy object correlates with the excluded object at 0.8123
+against a matched floor of 0.8299, and with the label-blind arms at a mean 0.1151 below their floors;
+the independent object is 0.0638 below against the excluded object and 0.1212 below against the blind
+arms. So the ordering reported earlier survives, with gaps of 0.0975 and 0.0574 against a band of
+0.0151, but it is now a comparison of two shortfalls rather than of two excesses. The earlier reading,
+that these objects track the excluded object beyond what shared selection explains, does not survive a
+floor matched on measured overlap: they track it less far below expectation than they track the blind
+arms, which is a weaker statement and the one the evidence supports. Every floor here is built from
+random subsets of the scored pool, and the arms being measured were produced by rules; whether a
+rule-produced arm should meet a random-subset floor at equal overlap is not identified at this site
+and is precisely what the negative excesses now make the open question.

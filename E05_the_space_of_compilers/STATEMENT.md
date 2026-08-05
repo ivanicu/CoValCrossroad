@@ -446,7 +446,13 @@ effect and an emitter effect, and neither is identified.** So *"construction doe
 behaviour"* is **withdrawn to UNVERIFIED — not refuted**, and the "③ needs a construction predicate"
 proposal returns to **untested**. ⭐ **Untouched:** `greedy` and `indep` are **both default-emitter**,
 so that comparison mixes no instruments.
-⭐ **And they share the excluded object's PROFILE, not merely its level** *(R733)*. Against a
+⛔ **AMENDED** *(R738)*: **against floors matched on measured overlap, all ten excesses are
+NEGATIVE** — `greedy` correlates with the excluded object at **0.8123** against a matched floor of
+**0.8299**. What survives is a comparison of **shortfalls**: greedy **−0.0176 vs −0.1151**, indep
+**−0.0638 vs −0.1212**, gaps **+0.0975** and **+0.0574** against a band of **0.0151**. **The ordering
+holds; "they move with it prompt by prompt" does not.** The superseded reading follows.
+
+⭐ **And they share the excluded object's PROFILE, not merely its level** *(R733 — SUPERSEDED)*. Against a
 shared-subtrahend floor of **0.5034** — computed here, since R284's 0.53 is over a different baseline
 — their per-prompt margins exceed the floor by **+0.4632** and **+0.3965** toward the **excluded**
 object against **+0.1592** and **+0.1966** toward the blind arms. ⭐ **And the floor is not a constant** *(R735)*: it tracks criteria overlap at **r = +0.9264** over
