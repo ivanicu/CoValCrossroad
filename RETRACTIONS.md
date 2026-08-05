@@ -11248,3 +11248,31 @@ retracted. **What does not survive is the number, and the conclusion drawn from 
 ⚠⚠ **Both halves came from the same habit in one round: reading a fragment and treating it as the
 object.** A 6.6% match rate should have been a question about the instrument before it was an answer
 about the data — and it was, for one command, before I turned it back into an accusation.
+
+## 340 · Exact-text overlap cannot answer clause ③ at all — a documented rewrite destroys the trace regardless of provenance
+
+**Not a retraction of a claim, but of an approach.** The previous round's next gradient asked for *"a
+matcher that survives paraphrase"* to re-establish ③′. **No such matcher would help, and the reason is
+a derivation from numbers already measured against matched pools.**
+
+| object | what it is | verbatim overlap with its own pool |
+|---|---|---|
+| `gen` | an LM **generator**, ③-**admissible** | **0.0%** *(R503, against `core_full.json`)* |
+| `coval_core` | an LM **distillation of the pool**, ③-**excluded** | **6.6%** *(R510, against `coval_full`)* |
+| `random_k4_s0` | pure **selection**, no rewrite | **100.0%** *(R503)* |
+
+**An arm that never saw the pool and an arm built entirely from it land in the same bucket, because
+both passed through an LM rewrite.** The dataset card documents that step: *"first REWRITES all rubric
+items… then MERGES… THEN selects."*
+
+⭐⭐⭐ **So the conclusion is stronger than "③ is hard to check."** On this release, **③ is
+irreducibly provenance — not because no clever statistic exists, but because the construction
+pipeline destroys the evidence any text-level statistic would need.** A rewrite erases the trace
+whether the source was the pool or the model, so the two provenances become textually
+indistinguishable by construction. **That is a property of the pipeline, not a limitation of effort.**
+
+⚠ **And the command that motivated this round measured nothing.** I compared `core_gen.json` against
+a pool built from `conversation_rubrics.jsonl` and got `nan% of 0` — the two files use **different id
+spaces** (R466/R467's unresolved join), so zero criteria were counted. **The tell was the `of 0`, and
+it was in the output.** The finding above rests on R503's and R510's numbers, each measured against
+its own matched pool, not on that command.
