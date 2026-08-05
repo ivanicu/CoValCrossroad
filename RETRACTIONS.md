@@ -13098,3 +13098,34 @@ mechanism for **one** of the three, not a unification.
 distribution invites a categorical reading, and "terminating vs non-terminating" is the most
 available one.** The alternative — *same process, 46× the work* — produces an identical histogram.
 **A gap in a distribution constrains the mechanism far less than it appears to.**
+
+## 425 · I quoted "the suite's sixteen non-passes" two rounds after retracting that count
+
+R570 established the suite's failure count is a **draw** — 9, 10, 13 across three runs. My own NEXT
+line then said the *"sixteen non-passes"* should be re-counted. **Quoting an unstable count as fixed
+is the exact error R570 recorded**, and I made it while acting on R570's own conclusion.
+
+**Remedy: partition instead of count.** A static source read is not a draw. The suite is **7
+meta-gates and 39 ordinary ones**, and that number does not move between runs.
+
+## 426 · My pattern returned 1 meta-gate against 3 cap-hitters — the seventh false negative
+
+The first pass required the literal string `executable` in the subprocess argument list.
+**`attack_the_suite` writes `subprocess.run([PY, f"assurance/{check}.py"])`** — a module-level alias.
+Corrected to match **the object being run** rather than the interpreter variable's name, the count
+goes **1 → 7**, and **all three cap-hitters classify META.**
+
+⭐⭐⭐ **This unifies what R572 could not.** R572 asked whether the three share a mechanism and
+answered **no** — correctly, for the feature it tested: `subprocess` presence is neither necessary
+nor sufficient. **The right feature is one level up: *runs a fleet of sibling processes*, which all
+three do.** **R572's two-sided finding stands; its implication — "at least two distinct defects" —
+is retracted.**
+
+⚠ **And META is necessary but not sufficient for capping: 3 of 7 cap, 4 do not.** Cost is part of
+the story, not all of it — sharper than "they hang" *(R571, retracted)* and than "three distinct
+defects" *(R572's implication, retracted here)*.
+
+⭐ **The pattern across seven of these: I write the search against the string as I picture it, and
+the file stores it as someone else wrote it.** `\b` before an underscore, `c2` inside a UUID, a
+wrapped docstring, `tail` for a count three times, and now an interpreter alias. **Every one was
+found by reading the hits rather than the number.**
