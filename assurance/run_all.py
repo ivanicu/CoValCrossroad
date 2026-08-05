@@ -31,7 +31,7 @@ POSITIVE CONTROL (`--selftest`)
     was written to end, so it must be the failure this file can itself be caught committing.
 """
 from __future__ import annotations
-import pathlib, subprocess, sys, tempfile, time
+import collections, os, pathlib, subprocess, sys, tempfile, time
 
 ROOT = pathlib.Path(__file__).resolve().parent
 # Helpers and appliers are NOT gates: they mutate state or expose functions rather than ruling.
@@ -130,7 +130,20 @@ def main(argv: list[str]) -> int:
     if not gates:                       # §4: empty population must EXIT 2, never 0
         print("⛔ no gates discovered — the runner examined nothing. EXIT 2.")
         return 2
-    rows = [run_one(p) for p in gates]
+    # ⚠ SERIAL WAS THE REAL REASON THIS RUNNER WAS ABANDONED. 45 gates x a 90s timeout is 68
+    # minutes worst case on a 24-thread machine using one of them -- unusable as a pre-commit
+    # check, so it was replaced by a for-loop that printed verdicts and blocked nothing (entry
+    # 335). Excluding the meta-gate made the suite ABLE to exit 0; this makes it worth running.
+    # Threads, not processes: run_one is subprocess-bound, so the GIL is irrelevant.
+    # `--serial` keeps the old path so correctness can be CHECKED against it, not assumed.
+    jobs = 1 if "--serial" in sys.argv else min(12, (os.cpu_count() or 4) - 2)
+    if jobs > 1:
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=jobs) as ex:
+            rows = list(ex.map(run_one, gates))
+    else:
+        rows = [run_one(p) for p in gates]
+    print(f"  ran {len(gates)} gates with {jobs} worker(s)")
     buckets = {"PASS": [], "FAIL": [], "UNRUNNABLE": [], "ERROR": []}
     for name, rc, el, msg in rows:
         b = "PASS" if rc == 0 else "FAIL" if rc == 1 else "UNRUNNABLE" if rc == 2 else "ERROR"

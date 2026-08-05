@@ -11125,3 +11125,33 @@ instrument was unusable, so it stopped being used, and nothing recorded the subs
 
 **What this does not retract:** the gate *contents*. Each gate, when actually run, did what it says —
 the failures were in whether its verdict reached the commit decision.
+
+## 336 · The auditor's restore reverted a committed round's work, and the tell was a `git add` that staged nothing
+
+**What happened.** `audit_the_auditors` snapshots `assurance/` and, after its sweep, rewrites every
+**modified** file back to its pre-sweep bytes. A background suite containing it was running while I
+edited `assurance/run_all.py`. When it finished, my parallelisation and a missing-import fix were
+**silently reverted** — the file went back to the bytes committed in `ab5f3eb`.
+
+⭐ **The tell was not an error. It was `git add assurance/run_all.py` staging nothing**, followed by
+`git commit` reporting a clean tree. **A revert presents as "there was nothing to commit."**
+
+⚠⚠ **This is the hazard I documented in that function's own docstring one day earlier**, under
+*"KNOWN REMAINING HAZARD, stated rather than silently carried"* — and then named as the previous
+round's next gradient, and then triggered. **Writing a hazard down does not disarm it; the guard I
+added protects `unlink`, and the `modified` branch was left as-is because it "gives the function its
+purpose".**
+
+⛔ **And I nearly reported the opposite conclusion.** A grep for `META_GATES\|ThreadPoolExecutor\|
+collections` returned **3**, which I read as *three features present*. It was **three lines matching
+any of three alternatives** — the parallelisation was already gone. **A count from an alternation is
+not a count of the alternatives**, and the byte-hash comparison against `HEAD` is what settled it.
+
+**What was actually lost and is now re-applied:** `import collections` (without which the runner
+raises `NameError` after printing its results — **so `run_all.py` had never once completed since R482
+built it**) and the thread pool that takes 45 gates from a **68-minute** serial worst case to **94
+seconds**.
+
+**The rule this earns:** *never run the auditor in the background while editing the directory it
+audits.* It is a **whole-directory** mutation with a snapshot taken minutes earlier, and there is no
+concurrency story in which that is safe.
