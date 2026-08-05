@@ -16849,3 +16849,31 @@ Registered B 3, observed 1. **Three rounds running, the intervals have been fail
 have been off by 30–60%.** That is the correct trade: a failable interval that holds tells me the
 order of magnitude was right, and a point error tells me the model of the mechanism is not. **The
 alternative — a tight point inside an unfailable range — reads better and means nothing.**
+
+## 824 · Clause ② is 88.1% recoverable from the name of the generator that produced the arm
+Rule family predicts ②'s verdict at 88.1% against a 78.6% majority floor, at the 98.4th percentile of
+a 1000-shuffle null, and ② is unanimous inside 11 of 13 families. With one released core and 41 of
+our own constructions, **"② carries the whole boundary" is a claim about OUR arm space** — the clause
+is largely sorting the generators we wrote. **A definition tested on a population you generated
+measures your generator until proven otherwise, and the proof has to be the residual.**
+
+## 825 · The residual is where ② does its work, and reporting only the 88% would have been the error
+The 11.9% family cannot explain is concentrated in two split families and contains **`coval_core` vs
+`coval_core_sham`** — the released core against its own sham, which is the one comparison the
+definition exists to make. **A "reparameterisation" verdict is only honest if the residual is
+examined**, and the first version of this round's verdict string leaned entirely on the 88% before
+the residual was computed. **The flattering direction here was the deflationary one: "it's just our
+generator" is the more impressive-sounding finding, and it was incomplete.**
+
+## 826 · k carries exactly zero information about ②, and that is a measurement not a null
+k alone predicts ② at 78.6% — **the majority floor to four significant figures, +0.0%**. That is not
+"weak"; it is precisely the floor, which means k adds nothing at all at the whole-corpus level.
+⚠ **And it is false inside `topw`**, where ② tracks k exactly (`k3 k4 k6 k8` pass, `k1 k2 k12` fail).
+**A predictor that carries zero marginally can carry everything conditionally, and reporting only the
+marginal would have hidden the one place k is decisive.**
+
+## 827 · A fit scored on its own data is a ceiling, and every accuracy here is one
+No arm was held out. 88.1% is an upper bound on what the family predictor achieves, not an estimate
+of what it would achieve on unseen arms — and with 42 arms and 13 families there is not enough data
+to hold any out honestly. **Stated in the verdict rather than in a footnote, because a number that is
+structurally a ceiling reads as an estimate unless the sentence carrying it says otherwise.**
