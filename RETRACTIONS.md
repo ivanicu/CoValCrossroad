@@ -12504,3 +12504,36 @@ thing being tested**, which is the direction that gets a good edit reverted.
 
 **Remedy: stub the narrowest possible layer.** Real `torch` (no GPU touched by import alone), stub
 only `transformers`, and let the sentinel fire at tokenisation before any `.to("cuda")`.
+
+## 385 · My checkpoint scan passed its positive control while being blind to the population
+
+R554 asked whether the new `--model` flag has a stronger checkpoint to point at. **The first scan
+covered ONE store, found 0, and its positive control PASSED** — because the incumbent lives in that
+store. **It would have concluded WORLD B, and nested register rows 3+4 under row 2, from an
+instrument that could not see the population.**
+
+`Qwen2.5-7B-Instruct` and `Qwen3.5-9B` are both on this box, in sibling projects and the HF caches.
+**Instrument unit: *"top-level dirs of one store."* Claim unit: *"checkpoints `--model` can point
+at."* Not equal** — and §4 says to write those as two strings and require equality **before**
+designing the control. I did not.
+
+**Two further instrument defects, both caught by reading output rather than counts:** HF snapshots
+are **symlinks into `blobs/`**, so a pruned blob leaves a directory that exists with weights that do
+not; and the de-dup keyed on `p.name`, which for an HF cache is the **snapshot hash**, so every
+result was named `851bf6e8…`. **A finding named by a hash is not a finding.**
+
+## 386 · There is a Qwen3.5-4B on this box and no inventory I hold mentions it
+
+**WORLD A: 2 checkpoints are complete, larger than the incumbent, and fit 16 GB in bf16** —
+`Qwen/Qwen3.5-4B` (9.32 GB) and `judge_phi35_mini` (7.64 GB). `Qwen2.5-7B-Instruct` (15.23 GB) and
+`judge_llama31_8b` (16.06 GB) are complete and **do not fit**, which independently confirms row 2's
+OOM.
+
+⭐⭐⭐ **`Qwen3.5-4B` is the same family as the incumbent `Qwen3.5-2B-Base` at 2× the parameters, and
+it is in none of my inventories** — the environment note lists 2B, 0.8B and a *partial* 9B. **So last
+round's register move (rows 3+4 → compute-bound) was correct for a reason I had not checked when I
+made it**, which is luck, not method.
+
+⚠ **The proxy, stated rather than buried: `larger` is not `stronger`.** Size is what this design
+measures; strength needs the benchmark rows 3+4 are priced for. Same family at 2× parameters is a
+defensible proxy and remains one.
