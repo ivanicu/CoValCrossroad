@@ -389,6 +389,15 @@ A **core** for a conversation is a set of criteria such that
 > set with a named producer**, and by **at most one independent computation — the producer itself**
 > — not by the count of rows that quote it, and not by the six this page claimed until R723.
 
+⚠ **And that one computation could have returned otherwise — 6 extensions are reachable, the 5-set
+is modal at 30%** *(R724)*. Over 100 defensible cells of the producer's own rule space, the released
+set is the answer of **15 of 25** clause-①② rule combinations. **So the producer is a measurement,
+not a derivation.** ⛔ **But the released core is not invariant:** every reading requiring clause ②'s
+*whole interval* above resolution — rather than its point estimate — **excludes `coval_core` and
+admits `topw_k6` alone**. Its clause-② interval clears zero and its effect clears the MDE, but its
+lower bound does not. **Membership of the core in its own extension is a choice of reading.**
+⚠ 6 is a **lower bound**: seed, `NBOOT`, `q` and the annotator filter are fixed inside the artifact.
+
 ⭐ **Two clauses, and they are orthogonal by measurement.** On the 41 arms carrying every verdict,
 ③ drops **4 of ②'s 9 passers and 0 of its 32 rejects** — it cuts exactly where ② does not *(R519)*.
 

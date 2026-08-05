@@ -18126,3 +18126,22 @@ comment-like string counted as a cross-round reference. The repair requires ever
 in a path-shaped literal and re-runs the count as a fifth specification; it returns the same seven,
 which is the only reason the headline is reportable. A style classifier is a search, and a search is
 an instrument with no positive control until someone gives it one.
+
+## 938 · the released core's membership in its own extension is a choice of reading, not a fact about the arm
+
+R294 admits an arm on a clause when the bootstrap interval excludes zero AND the point estimate
+clears the design's minimum detectable effect. A stricter and equally defensible reading requires
+the whole interval to sit above resolution. Under that reading every one of the five clause-①
+variants excludes coval_core, and the extension collapses to a single arm, topw_k6. The core's
+clause-② interval runs 0.008274 to 0.024117 against an MDE of 0.010616 — the effect clears, the
+lower bound does not. Nothing here says R294 chose wrongly; it says the deliverable's five-member
+set has a rule dependency that was never stated, and the arm the definition was written from is the
+one that dependency removes.
+
+## 939 · a swept axis that could not have moved the answer was carried as if it were breadth
+
+R724's grid varied whether k-capped arms are dropped. Across all fifty rule combinations the
+extension is identical with and without them, so the axis contributed nothing but a doubling of the
+cell count. R294 was right to flag those arms as favoured by their comparison, but no k-capped arm's
+admission is rule-sensitive, and a specification curve that reports 100 cells when 50 of them are
+copies overstates its own coverage. The remedy is to report the inert axis, not to drop it.

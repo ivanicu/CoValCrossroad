@@ -3576,3 +3576,23 @@ A strict specification requiring every cross-round reference to sit inside a pat
 returns the same seven, which is what makes the count reportable rather than an artifact of a loose
 pattern. The bound remains a ceiling and not a count, because reading an artifact is measured here
 and using its value is not.
+
+## R724 · the producer could have returned otherwise, and the released core is not invariant
+
+The single computation the deliverable rests on was tested for whether its answer was forced. Over
+the decision-rule space of the producer's own procedure — five defensible readings of each measured
+clause, the provenance clause on or off, and the k-capped arms kept or dropped, one hundred cells in
+all — six distinct extensions are reachable and the released set of five is the answer in thirty of
+them, which is the modal cell and the answer of fifteen of the twenty-five rule combinations with
+the provenance clause on. So the producer is a measurement and not a derivation, and the arc's one
+independent computation stands as one rather than collapsing to zero. Two further facts belong with
+that number. Every reading that requires the whole interval of the second clause to sit above the
+design's resolution excludes the released core itself and leaves a single arm, topw_k6, admitted
+alone; the released core's second-clause interval runs from 0.008274 to 0.024117 against a minimum
+detectable effect of 0.010616, so its point estimate clears resolution while its lower bound does
+not. Membership of the core in its own extension therefore rests on reading the clause as effect
+above resolution rather than interval above resolution, and that is a choice. Second, the axis
+dropping k-capped arms changed nothing in any of the fifty rule combinations, so it is an axis that
+could not have moved the answer and is reported as such. The count of six is a lower bound: the
+bootstrap seed, the number of resamples, the multiplicity level and the annotator filter are fixed
+inside the persisted artifact and would need the census re-run to vary.
