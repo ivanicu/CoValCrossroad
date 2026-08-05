@@ -15567,3 +15567,44 @@ literal verdict. ⛔ **But resolving the single largest failure class (54 of 192
 measures how much code I chose to write. ⭐⭐⭐ **The meta-separator: not which world survives, but
 that the decomposition was wrong.** Without the specification curve I would have reported a literally
 correct verdict as a fact about the corpus.
+
+## 657 · "The ONLY class" was wrong by a factor of 32
+
+R650 closed: *"the three sites reading a path from a function ARGUMENT are **the only** class whose
+resolution is genuinely per-call-site … **every other** class above is a missing feature."*
+Measured: **98 of 192 unresolvable read sites are inter-procedural, and 95 sit outside that class.**
+⛔ **The labels those quantifiers rest on were assigned by the SHAPE of the read expression, and a
+shape cannot say where a value comes from.** They are not noise — `Path(...)` is 11/11 INTER and
+`collection built at runtime` 24/27 — but every shape except one contains INTER members. §4's
+`the closing sentence is a claim and never gets a control`, third instance in this arc.
+
+## 658 · A replication control compared two different populations
+
+R651's census check read `355 ≠ 354` and failed. **Neither number was wrong.** R650 excluded
+**itself** from its census; R651 excludes only itself, so R650's own read site was in my population
+and could never be in R650's. ⭐ Compared on the same population: **364 = 364, exact.** *A
+replication must first agree on who is in the room.*
+
+## 659 · The identifier I joined on was not an identifier
+
+R651 keyed read sites by `(round, line)` into a `dict`/`set`. R650's artifact holds **364 records
+but only 354 distinct pairs** — ⛔ **10 sites vanished into the key before any comparison was
+made**, and the collapse was invisible because both sides collapsed. Repaired to a multiset, and
+the join now admits a key only when the baseline's unresolvable count equals the number of sites
+found there (measured: **0 ambiguous**, so the join is *proven* exact rather than assumed).
+
+## 660 · A bool was counted as the source of a path
+
+R651's dependency closure walked the whole defining expression for any non-pure call, so a
+comprehension's **filter** — `[x for x in d.iterdir() if x.is_file()]` — made the value *"depend on
+the return value of `is_file(...)`"*. ⛔ **A call whose return type cannot be a path cannot be the
+source of a path.** **14 of 108 INTER verdicts were manufactured this way**; corrected count 98.
+
+## 661 · And my own NEXT line asserted a threshold I had the numbers to compute
+
+R651's first closing line said the 50% crossing *"needs two classes if the largest intra-only class
+is smaller than 54."* ⛔ **The threshold is 10** — `ceil(0.5 × 364) − 172` — and the largest
+intra-only class is 34, so three classes clear it alone. ⭐ **I wrote an uncomputed quantifier into
+a NEXT line in the same round that retracted R650's for exactly that**, with the cross-tab already
+printed above it. Corrected in place, and the derivation now runs in the round rather than being
+deferred: R650's conclusion **survives** at 56.6%.
