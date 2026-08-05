@@ -1,0 +1,202 @@
+{
+  "world": "B WIDESPREAD \u2014 15 (round, module) pairs stand on a version of an instrument that has since changed. A re-run sweep is owed and this is its size.",
+  "controls_ok": true,
+  "module_commit_counts": {
+    "DEFECTS": 6,
+    "HEADLINES": 3,
+    "_isolated": 7,
+    "_one_home_per_claim_UNVALIDATED": 1,
+    "_repair": 1,
+    "a_scored_artifact_records_its_configuration": 1,
+    "an_mde_records_its_denominator": 1,
+    "apply_freeze_status": 4,
+    "apply_outcome_scope": 6,
+    "arm_population_is_derived": 1,
+    "artifacts_are_internally_coherent": 11,
+    "attack_every_check": 7,
+    "attack_no_withdrawn_framings": 4,
+    "attack_outcome_variable_declared": 3,
+    "attack_scope_reaches_the_reader": 1,
+    "attack_the_suite": 23,
+    "audit_the_auditors": 3,
+    "backfilled_findings_are_rederivable": 1,
+    "clause3_as_written": 1,
+    "code_states_a_bound_the_reader_never_sees": 7,
+    "comparator_scope": 3,
+    "consistency": 6,
+    "corrections_propagated": 13,
+    "definition_matches_the_record": 77,
+    "donor_numbers_carry_their_draw_scope": 7,
+    "every_round_is_committed": 2,
+    "every_round_reaches_the_readme": 7,
+    "frozen_frame_verifies": 8,
+    "generate_round_index": 1,
+    "interval_is_centred_on_its_point": 1,
+    "manifest": 17,
+    "markdown_tables_are_well_formed": 1,
+    "next_gradient_is_new": 1,
+    "next_gradient_labels_its_hypotheses": 2,
+    "next_line_quantifiers_are_computed": 2,
+    "no_withdrawn_framings": 8,
+    "outcome_variable_declared": 7,
+    "point_and_interval_share_a_source": 1,
+    "pueue_wait": 1,
+    "readme_agrees_with_results": 11,
+    "readme_row_carries_the_verdict": 8,
+    "register_requirements": 2,
+    "registries_are_satisfied": 8,
+    "residue_debt": 2,
+    "results_are_not_degenerate": 4,
+    "results_match_their_code": 8,
+    "retired_framing_in_assertion_positions": 2,
+    "retired_framing_in_emittable_source": 5,
+    "retraction_reaches_the_artifact": 1,
+    "round_links_resolve": 5,
+    "run_all": 5,
+    "scope_reaches_the_reader": 2,
+    "seed_filter_is_disclosed": 6,
+    "source_stamp_is_current": 2,
+    "statement_provenance": 3,
+    "synthesis_cites_recent_work": 4,
+    "the_clustered_estimator_is_sound": 1,
+    "verdict_cites_its_own_contrasts": 9,
+    "what_did_each_check_actually_read": 5
+  },
+  "statement_provenance_commits": 3,
+  "rounds_importing": 30,
+  "stale_pairs": [
+    {
+      "round": "R315_how_many_rounds_can_still_run",
+      "module": "_isolated",
+      "n_later": 3,
+      "subjects": [
+        "[guard.research.coval-crossroad.sigma.D8!] the destructive path can no",
+        "[fix.research.coval-crossroad.Omega.D8!] the harness that prints \"do n"
+      ]
+    },
+    {
+      "round": "R317_the_population_was_run_py",
+      "module": "_isolated",
+      "n_later": 2,
+      "subjects": [
+        "[guard.research.coval-crossroad.sigma.D8!] the destructive path can no",
+        "[fix.research.coval-crossroad.Omega.D8!] the harness that prints \"do n"
+      ]
+    },
+    {
+      "round": "R376_the_harness_that_says_do_not_use_it",
+      "module": "_isolated",
+      "n_later": 1,
+      "subjects": [
+        "[guard.research.coval-crossroad.sigma.D8!] the destructive path can no"
+      ]
+    },
+    {
+      "round": "R379_the_exit_code_is_not_the_population",
+      "module": "_isolated",
+      "n_later": 1,
+      "subjects": [
+        "[guard.research.coval-crossroad.sigma.D8!] the destructive path can no"
+      ]
+    },
+    {
+      "round": "R387_is_the_debt_collectable",
+      "module": "_isolated",
+      "n_later": 1,
+      "subjects": [
+        "[guard.research.coval-crossroad.sigma.D8!] the destructive path can no"
+      ]
+    },
+    {
+      "round": "R388_one_unit_of_the_debt",
+      "module": "_isolated",
+      "n_later": 1,
+      "subjects": [
+        "[guard.research.coval-crossroad.sigma.D8!] the destructive path can no"
+      ]
+    },
+    {
+      "round": "R461_every_difference_must_name_its_comparator",
+      "module": "comparator_scope",
+      "n_later": 2,
+      "subjects": [
+        "[verify.research.coval-crossroad.rho.D7~] both orderings eliminated --",
+        "[verify.research.coval-crossroad.rho.D7+] \"oldest first\" was an untest"
+      ]
+    },
+    {
+      "round": "R461_every_difference_must_name_its_comparator",
+      "module": "definition_matches_the_record",
+      "n_later": 17,
+      "subjects": [
+        "[verify.research.coval-crossroad.Omega.D8!] the extension is empty bec",
+        "[verify.research.coval-crossroad.Omega.D8-] the aggregation was never "
+      ]
+    },
+    {
+      "round": "R462_is_oldest_first_the_right_ordering",
+      "module": "comparator_scope",
+      "n_later": 1,
+      "subjects": [
+        "[verify.research.coval-crossroad.rho.D7~] both orderings eliminated --"
+      ]
+    },
+    {
+      "round": "R462_is_oldest_first_the_right_ordering",
+      "module": "definition_matches_the_record",
+      "n_later": 16,
+      "subjects": [
+        "[verify.research.coval-crossroad.Omega.D8!] the extension is empty bec",
+        "[verify.research.coval-crossroad.Omega.D8-] the aggregation was never "
+      ]
+    },
+    {
+      "round": "R463_the_ordering_is_arbitrary_and_says_so",
+      "module": "definition_matches_the_record",
+      "n_later": 15,
+      "subjects": [
+        "[verify.research.coval-crossroad.Omega.D8!] the extension is empty bec",
+        "[verify.research.coval-crossroad.Omega.D8-] the aggregation was never "
+      ]
+    },
+    {
+      "round": "R476_what_fraction_of_the_document_is_checked",
+      "module": "definition_matches_the_record",
+      "n_later": 6,
+      "subjects": [
+        "[verify.research.coval-crossroad.Omega.D8!] the extension is empty bec",
+        "[verify.research.coval-crossroad.Omega.D8-] the aggregation was never "
+      ]
+    },
+    {
+      "round": "R482_the_suite_has_fifty_two_gates_and_i_ran_four",
+      "module": "run_all",
+      "n_later": 3,
+      "subjects": [
+        "[fix.research.coval-crossroad.sigma.D8-] the auditor reverted my edits",
+        "[guard.research.coval-crossroad.rho.D8-] twenty rounds of \"all gates p"
+      ]
+    },
+    {
+      "round": "R498_the_auditor_of_auditors_cannot_run_in_the_suite",
+      "module": "run_all",
+      "n_later": 2,
+      "subjects": [
+        "[fix.research.coval-crossroad.sigma.D8-] the auditor reverted my edits",
+        "[guard.research.coval-crossroad.rho.D8-] twenty rounds of \"all gates p"
+      ]
+    },
+    {
+      "round": "R591_where_the_four_orphan_values_actually_live",
+      "module": "statement_provenance",
+      "n_later": 2,
+      "subjects": [
+        "[verify.research.coval-crossroad.Omega.D8-] the provenance gate passes",
+        "[verify.research.coval-crossroad.Omega.D8-] the gate meant to keep UNV"
+      ]
+    }
+  ],
+  "mention_only_pairs_removed": 163,
+  "check232": "'widened once, repaired once, clause added later' was read off the module's comments, not the git log -- third consecutive closing line describing my own tooling from memory",
+  "impossible": "whether a conclusion CHANGES needs re-running that round; this locates exposure"
+}

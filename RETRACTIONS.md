@@ -14994,3 +14994,27 @@ which existed in the code this time only because R630 made three-world sets the 
 *"asked only the ledger"*: R630 used **ledger membership AND the artifact verdict**; `UNSETTLED` came
 from the latter. **Written one round after a round whose entire finding was that a channel existed
 and nobody read it.**
+
+## 587 · Fifteen conclusions stand on instruments that have since changed — after 163 false pairs were removed
+
+Pre-registered sweep threshold 3; measured **15** (round, module) stale pairs across 9 modules, led by
+`statement_provenance` (12) and `definition_matches_the_record` (6).
+
+⛔ **v1 counted MENTIONS, not imports** — matching a module name anywhere in the source, including
+prose about a gate — which inflated the population to **68 rounds and 44 pairs**. Tightened to real
+import statements: **30 rounds, 15 pairs, 163 mention-only pairs removed.** ⭐ **R631's own lesson —
+a mention is not a recording — committed one round later in a new place**, and *the verdict survived
+only because the threshold was 3; at a kill of 20 I would have reported a sweep that does not exist.*
+
+## 588 · The number was right and the method was wrong
+
+*"`statement_provenance` was widened once, repaired once, clause added later"* — **git shows exactly
+3 commits.** ⭐ **A memory that happens to be right is not a checked memory, and from the inside there
+is no way to tell which it is.** Meanwhile the actual churn champion is
+`definition_matches_the_record` at **77 commits** — 25× — and my line never named it.
+
+## 589 · Check #232 — third consecutive closing line describing my own tooling from memory
+
+#230 *"outside every gate"* · #231 *"asked only the ledger"* · #232 *"widened once, repaired once"*.
+**All three are claims about my own instruments, which is the subject matter of every recent round.**
+*The closing line is where I stop reading and start remembering.*
