@@ -18096,3 +18096,33 @@ recovering *any* schema field from the writer is what the control is actually fo
 §4 row "control that cannot PASS" for the fifth recorded time, and the remedy it prescribes — compute
 floor and ceiling and require floor < t ≤ ceiling — is what fixed it. A threshold I pick is a guess;
 a threshold I compute is a control.**
+
+## 935 · "at most six independent computations" was itself an overcount, and the corrected ceiling is one
+
+The deliverable said six. Measured at the unit the claim is about — does a round read a prior
+round's artifact — the answer is that seven of the eight derivers do, leaving only R294, which is
+the set's own producer. So the extension's independent computational support is the producer and
+nothing else. R680 had already flagged this as a ceiling twice over and was right to; what it could
+not see is how much of the ceiling was slack. The number six survived 43 rounds on the page.
+
+## 936 · the instrument that produced six searched for a substring a constructed path never contains
+
+R680 grepped executable source for `results/[\w.]+\.json|R\d{3}[\w]*/results`. A path written as
+`HERE.parent / "R360_which_clause_is_load_bearing" / "results" / "r360_clause_ledger.json"` puts
+quotation marks and spaces between every segment, so neither alternative matches. The regex caught
+all and only the two rounds that wrote the path inside a single string, and missed all and only the
+five that built it from operands — recall 0.2857, with the partition complete in both directions.
+The measurement was invariant under a rewrite the property is not. R680 killed R679's proposed test
+with a gauge test one round earlier and then shipped a tightening with the same disease.
+
+## 937 · and the classifier I used to name that mechanism was itself an uncontrolled search
+
+R723's first version decided whether a path was written in one string or built from operands by
+matching `R\d{3}[\w*]*/` against every executable literal. It called R409 a single-literal writer on
+the strength of a prose sentence — `(R358/R359), so a second judge cannot host this comparison` —
+and the pre-registered directional therefore failed for a reason that had nothing to do with the
+mechanism. Worse, the same prose false-positive sat in the headline path, where a round id inside a
+comment-like string counted as a cross-round reference. The repair requires every reference to sit
+in a path-shaped literal and re-runs the count as a fifth specification; it returns the same seven,
+which is the only reason the headline is reportable. A style classifier is a search, and a search is
+an instrument with no positive control until someone gives it one.

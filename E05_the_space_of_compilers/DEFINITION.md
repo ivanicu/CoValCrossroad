@@ -3559,3 +3559,20 @@ in its source. The control could not pass and the round printed unverified. The 
 band — floor zero, ceiling two, threshold one — rather than lowering the number, because recovering
 any schema field from the writer is what the control exists to show. A threshold that is picked is a
 guess; a threshold that is computed is a control.
+
+## R723 · the ceiling on independent computations is one, not six
+
+The count of independent computations behind the extension was measured again at the unit the claim
+is about. Of the eight rounds that derive the set without carrying its members as literals, seven
+read a prior round's artifact, and the round that certified the earlier bound found two of those
+seven, a recall of 0.2857. The corrected ceiling on independent computations is therefore one, and
+that one is the round that produced the set. The earlier instrument searched executable source for
+the substring results-slash or a round directory followed by a slash. A path assembled from pathlib
+operands places quotation marks and spaces between its segments, so neither substring occurs, and
+the search was invariant under a rewrite that the property it stood for is not. The five rounds it
+missed are exactly the five that build their paths from operands, and the two it found are exactly
+the two that write the path inside a single string, so the partition is complete in both directions.
+A strict specification requiring every cross-round reference to sit inside a path-shaped literal
+returns the same seven, which is what makes the count reportable rather than an artifact of a loose
+pattern. The bound remains a ceiling and not a count, because reading an artifact is measured here
+and using its value is not.

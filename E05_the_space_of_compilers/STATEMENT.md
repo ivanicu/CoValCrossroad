@@ -371,10 +371,14 @@ A **core** for a conversation is a set of criteria such that
 > are NONE of them** *(R679 — traceability, not correctness: a row citing R529 may have re-derived
 > the set correctly, and that is a separate question)*.
 >
-> ⚠ **At most SIX independent computations stand behind the number, not 22.** Of 20 rounds whose
-> artifacts hold the set, **8 derive it** with no member literals in executable source and **12 carry
-> it hard-coded**; of the 8, **two read a prior round's `results/` file** *(R680)*. It is a ceiling
-> twice over — absent literals remove one way of copying, not all.
+> ⚠ **At most ONE independent computation stands behind the number, not 22 and not six.** Of 20
+> rounds whose artifacts hold the set, **8 derive it** with no member literals in executable source
+> and **12 carry it hard-coded**; **7 of the 8 read a prior round's artifact** *(R723)*, leaving
+> **R294 — the set's own producer — as the only one that reads none.** The earlier figure of six
+> *(R680)* came from a search for the substring `results/`, which a path built from pathlib operands
+> never contains: it caught **all and only** the 2 rounds writing the path in one string and missed
+> **all and only** the 5 building it from operands, **recall 0.2857**. It is still a ceiling —
+> reading an artifact is measured, using its value is not.
 >
 > ⭐ **The hard-coding is not contamination.** **1 of the 12** lets the set reach an output field
 > (`R442`, whose estimand *is* the extension as written); **8** use it only as a comparison target;
@@ -382,8 +386,8 @@ A **core** for a conversation is a set of criteria such that
 > set as an input assumption; **R676's literals are its own control fixtures** *(R681, R682)*.
 >
 > **What this changes for a reader:** the number **5** on this page is supported by **one identified
-> set with a named producer**, and by **at most six independent computations** — not by the count of
-> rows that quote it.
+> set with a named producer**, and by **at most one independent computation — the producer itself**
+> — not by the count of rows that quote it, and not by the six this page claimed until R723.
 
 ⭐ **Two clauses, and they are orthogonal by measurement.** On the 41 arms carrying every verdict,
 ③ drops **4 of ②'s 9 passers and 0 of its 32 rejects** — it cuts exactly where ② does not *(R519)*.
