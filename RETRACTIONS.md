@@ -11342,3 +11342,27 @@ supported. **Testing "is this actionable" needs a reader, not a pattern** — an
 version is the one §0.2 already gives: *ask whether the most quotable sentence is a fact about the
 world with its scope, or a fact about my own rigour.* That is a judgement, and it should be labelled
 as one rather than dressed in a percentage.
+
+## 343 · A consistency sweep of the residue finds no contradiction — and its unit is not the one that actually drifted
+
+**Result, stated with its limitation because the limitation is larger than the result.**
+
+Swept `STATEMENT.md` for numbers stated in more than one place, on the reasoning that HB7 forbids two
+homes for one fact and that a number with two homes drifts. **73 distinct four-decimal numbers; 10
+appear more than once; every repeat is consistent.** The largest surfaces are the prompt-blind ceiling
+**0.5404** (6 homes) and R479's quoted **0.6132** (4).
+
+⚠⚠ **The sweep's unit is not the risk's unit.** The one drift this session actually produced was ③'s
+**checkability** — *"cannot be checked on an object alone"* in the clause table versus *"needs the
+producer"* in the fork — **stated in prose, disagreeing for four rounds, in the same document.** A
+number-sweep cannot see it. **So a clean pass here is evidence about numbers and silence about the
+class of error that actually occurred**, which is the positive-control rule applied to a sweep rather
+than to a gate.
+
+⭐ **What it does establish, narrowly:** the ten multi-home numbers are today mutually consistent, and
+they are the surface to re-check after any edit that touches a ceiling, a floor, or a gap. **That is a
+maintenance note, not a finding, and it is labelled as one.**
+
+⚠ **And I did not build a gate for it**, because a prose-consistency detector would be a third
+unvalidated proxy in one session, after two were declined for exactly that. **The rule written into
+memory this round forbids it until it can pass and fail on command.**
