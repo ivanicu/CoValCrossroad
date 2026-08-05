@@ -1,0 +1,15 @@
+{
+  "controls_ok": true,
+  "seed": 20260805,
+  "under_specified": 27,
+  "readme_sourced": 5,
+  "commit_sourced": 22,
+  "recovered": 5,
+  "recovery_share": 0.18518518518518517,
+  "kill_fired": true,
+  "registered": "A 85% [60,100]; B 50% [40,62]; kill if <10 recovered",
+  "check276": "R674's NEXT proposed splitting the 27 into 'never existed' vs 'renamed'. All 27 are a third cause: a bare basename matching 630 files. Both proposed causes have population zero.",
+  "impossible": "a commit body carries no directory; resolving its bare basenames needs an inference about which round it touched, which is not a citation.",
+  "world": "\u2b50 WORLD B \u2014 UNDER-SPECIFIED. The kill fires: only 5 of 27 pairs recover. 22 of the 27 are cited from COMMIT BODIES, which carry no directory at all, so no resolver can place them \u2014 the defect is in the WRITING, not in my instrument. R674's 47.5% is therefore measured over the citations that IDENTIFY a file, and the 27 that name a file TYPE are correctly outside it. \u26a0 Estimand B is NOT computed, per the pre-registration.",
+  "tree_sha": "93185a0bcf4efd25da567268e7d21bfbe8f4d45e"
+}

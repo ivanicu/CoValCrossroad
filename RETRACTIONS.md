@@ -16291,3 +16291,33 @@ land in `UNRESOLVABLE`. They were kept out of the failure count — folding them
 inflated the citation-failure rate — but they are also not separated from each other, so the
 staleness correction to 47.5% is **unknown in size, not small.** **A bucket named for what it lacks
 hides how many distinct causes are in it.**
+
+## 749 · R674's NEXT proposed a round whose population is zero
+It asked to split the 27 unresolvable citations into "never existed" versus "renamed since". Measured:
+27 of 27 are a third cause — a bare basename matching 630 files. **Both proposed causes have
+population zero**, so the round as specified would have examined nothing and reported a split. The
+worse detail: ledger 748, written in the same commit, says "a bucket named for what it lacks hides
+how many distinct causes are in it." **I stated the law and then undercounted the causes in the very
+sentence the next round was meant to act on — a NEXT line is written last, after the round's controls
+have fired, and it is the one sentence with no control attached.**
+
+## 750 · I wrote the identification limit before the run and predicted as if it did not bind
+R675's pre-registration states, in its own words, that a commit body carries no directory and so
+contextual resolution is available only to README-sourced pairs. It then registers **85% recovery**.
+Observed **18.5%** — 22 of the 27 are commit-sourced and structurally unplaceable. Error **−66.5 pts**,
+and the kill fired. **The limit was not missed, it was written down and not carried into the number.
+Naming a constraint in prose does not propagate it into a prediction; only computing the affected
+population does.**
+
+## 751 · The mechanism was right and the population was wrong, and those need separating
+Contextual resolution recovered **5 of 5** README-sourced pairs — 100% where a directory exists — and
+**0 of 22** where none does. So the repair works and reaches almost nothing. **Reporting 18.5% alone
+would say the idea failed; reporting 100%-where-applicable alone would say it succeeded. Only the
+pair of numbers is true**, and a single recovery rate over a population with a structural split is
+an average across two different worlds.
+
+## 752 · Twenty-two citations name a file TYPE, not a file
+`run.py` and `README.md` written in a commit body identify nothing — 630 files in this tree carry
+those names. This is not an instrument defect and no resolver can repair it. **A citation is only
+provenance if it is unique in the space the reader will search**, and a basename is unique only
+inside a directory the commit body never states.
