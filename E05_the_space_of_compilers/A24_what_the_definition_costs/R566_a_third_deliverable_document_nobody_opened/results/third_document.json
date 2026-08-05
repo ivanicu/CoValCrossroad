@@ -1,0 +1,34 @@
+{
+  "world": "B",
+  "sizes_kb": {
+    "STATEMENT": 44.7,
+    "DEFINITION": 185.2,
+    "FORMULATION": 156.2
+  },
+  "n_decimals": {
+    "STATEMENT": 92,
+    "DEFINITION": 522,
+    "FORMULATION": 732
+  },
+  "overlap_statement_formulation": 24,
+  "overlap_statement_definition": 92,
+  "overlap_formulation_definition": 135,
+  "shared_examples": [
+    "0.0000",
+    "0.0007",
+    "0.0009",
+    "0.0035",
+    "0.0038",
+    "0.0042",
+    "0.0056",
+    "0.0059",
+    "0.0082",
+    "0.0084",
+    "0.0086",
+    "0.0099",
+    "0.0119",
+    "0.0122",
+    "0.0153"
+  ],
+  "caveat": "a shared decimal is an UPPER BOUND on duplication, not evidence of a shared claim"
+}

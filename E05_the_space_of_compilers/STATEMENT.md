@@ -23,6 +23,25 @@ rounds may have been superseded by A24's work and correctly dropped, or they may
 page silently excludes. **Reading them is the next question; asserting either reading now would be
 the fabrication this campaign's ledger exists to prevent.** What is measured is only the count.
 
+⛔⛔ **AND THERE IS A THIRD DELIVERABLE DOCUMENT THIS PAGE DOES NOT REFERENCE** *(R566)*.
+`E05/FORMULATION.md` is **156.2 KB** and holds **732** distinct decimals. **24 of them also appear
+on this page** — past this round's pre-registered kill of 20.
+
+| document | size | distinct decimals | shared with this page |
+|---|---|---|---|
+| `STATEMENT.md` *(this page)* | 44.7 KB | 92 | — |
+| `DEFINITION.md` | 185.2 KB | 522 | 92 — **required** by `statement_provenance.py` |
+| **`FORMULATION.md`** | **156.2 KB** | **732** | **24 — checked by nothing** |
+
+⭐⭐⭐ **`statement_provenance.py` anchors this page against `DEFINITION.md` alone. It has never
+read `FORMULATION.md`.** So a quantity could be stated one way here and another way there and **no
+gate would see it.** P16: *one home per fact — a number stated twice drifts, and the copy is never
+the one that gets fixed.*
+
+⚠ **24 is an UPPER BOUND on duplication, not a duplication count** — two documents can use the same
+decimal for different quantities. **Which of the 24 are genuine collisions is unmeasured**, and the
+structural fact stands regardless: **three documents, a gate spanning two.**
+
 ---
 
 ## What stands — the claim set, each with its scope

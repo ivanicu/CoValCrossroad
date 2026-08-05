@@ -12865,3 +12865,39 @@ whole campaign, and every round of this session filed itself into A24 without on
 that was the epoch or a part of it. **A scope error at the level of the container is invisible from
 inside the container** — which is why R564's accidental discovery of `A25` was worth more than the
 index it was rebuilding.
+
+## 409 · There is a third deliverable document and the provenance gate has never read it
+
+`A23`'s README states that every finding lives in **`E05/FORMULATION.md`** and `RETRACTIONS.md`.
+**It is 156.2 KB, holds 732 distinct decimals, and no round this session opened it.** 24 of its
+decimals also appear on `STATEMENT.md`, past this round's pre-registered kill of 20.
+
+⭐⭐⭐ **`statement_provenance.py` contains zero occurrences of the string `FORMULATION`** — verified
+by grep. It anchors the statement against `DEFINITION.md` alone. **So a quantity could be stated one
+way on the statement and another way in the formulation, and no gate would see it.** P16: one home
+per fact, because a number stated twice drifts and the copy is never the one that gets fixed.
+
+⚠ **24 is an upper bound on duplication, not a duplication count** — two documents can use one
+decimal for different quantities, and which of the 24 collide is unmeasured. **The structural fact
+does not depend on it: three documents, a gate spanning two.**
+
+## 410 · A23's README is stale by seven rounds and calls itself by its old name
+
+It opens *"# A13 — table of contents … 28 rounds, R248–R275"*. The directory is **`A23`** and holds
+**35** rounds, **R248–R283**. A renumbering happened and the file was never updated.
+
+⭐ **It also documents its own mis-cut**: by P16's rule it says it *"should have been three
+directories"* and names the three closed decisions. **That annotation is exactly right and was
+never acted on** — which is the same shape as `A25` holding one round: **the structure was measured
+correctly and the measurement changed nothing.**
+
+## 411 · A23's rounds are not superseded, and one of them may reach A24
+
+A23 records an MDE of **`[0.1250, 0.1250]`** with *"every substantive effect 3–30× below it"* — ⚠
+**scoped to one detector** by its own caveat.
+
+**A24's headline effects are ~0.07.** ⚠ **Whether that floor reaches them is UNMEASURED**, and both
+readings remain open: the detector scope may confine it entirely, or it may be the resolution limit
+under which several A24 claims sit. **Naming either now would be the fabrication this ledger exists
+to prevent — but this is no longer the "supersession vs omission" question. A23 closed decisions;
+they were not superseded. They were never read.**
