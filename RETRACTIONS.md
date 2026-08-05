@@ -10758,3 +10758,33 @@ a configuration. This finds the confound's fix is an environment change rather t
 
 **The register now states what the capability would require rather than that it is unavailable** —
 which is §2's actual instruction, and the difference between a wall and a specification.
+
+## 324 · "the 9 rounds cited in DEFINITION.md but not STATEMENT.md" — the real figure is 54 to 74 (R497 commit body → measured immediately after)
+
+**Retracted:** *"the un-triaged item with a measured base rate is the 9 rounds cited in DEFINITION.md
+but absent from STATEMENT.md"*, written into the commit body of `1c32371` and pushed.
+
+**Measured, one command later, with the same instrument applied to both documents:** the debt is
+**54** under `(R123)`, **61** under grouped citations, **74** under any `R123` in prose. Never 9.
+DEFINITION.md cites 72–102 rounds; STATEMENT.md carries 22–34.
+
+⚠ **The 9 was almost certainly true when someone measured it.** It was then carried forward across
+rounds by memory while both documents grew — DEFINITION.md has gained hundreds of lines since — so a
+correct measurement decayed into a **6× understatement**, in the flattering direction, of my own
+outstanding work.
+
+⭐⭐ **The location is the whole lesson: it was in the `NEXT` line.** §4 of the standard already names
+that sentence as the highest-risk one in a report — written last, acted on by a later round, and the
+only one with no control attached — and it lists exactly this tell: **a quantifier over my own work,
+which is the population I am worst at enumerating.** The row was in the file. I wrote the sentence
+anyway, in the same commit whose body describes catching a P16 failure two rounds late.
+
+⭐ **And the first attempt to check it was itself unfit:** I measured DEFINITION with two patterns and
+STATEMENT with one, which is §4's loose-vs-tight mismatch and would have inflated the debt. The
+honest answer only appeared when the *same* instrument ran on both. **A number computed to correct a
+number needs the control the first one lacked.**
+
+**Remedy, and it is not vigilance:** `assurance/residue_debt.py` now computes the debt under all three
+patterns, runs a positive control first (each pattern must see a citation known to be present in each
+document), and prints the **range** with the instrument beside it. **The number is now unavailable
+except by running it.** A count of my own work that can be typed from memory will be.
