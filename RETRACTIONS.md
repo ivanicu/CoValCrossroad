@@ -15018,3 +15018,27 @@ is no way to tell which it is.** Meanwhile the actual churn champion is
 #230 *"outside every gate"* · #231 *"asked only the ledger"* · #232 *"widened once, repaired once"*.
 **All three are claims about my own instruments, which is the subject matter of every recent round.**
 *The closing line is where I stop reading and start remembering.*
+
+## 590 · Five incompatible definitions of "a round citation" live in the corpus
+
+**25 rounds carry an inline citation regex; 5 distinct literals; 5 distinct BEHAVIOUR classes** on a
+fixed probe set. The bare `R(\d{3})` (18 rounds) matches `R123` inside `R1234`; the paren-required
+form (3 rounds) misses a citation in prose.
+
+⭐ **So the risk R633 named as staleness is really COMPARABILITY** — any two rounds counting
+"citations" may be counting different things. And **195 rounds read a verdict key inline**, which is
+the untested bulk.
+
+## 591 · The g=0 control's own probe contaminated the population — fourth self-contamination
+
+`zzq_no_such_literal` appeared in exactly one round: **this one**, because I wrote it into the source
+the scan reads. R601, R604, R621, now R634. ⭐ **The class recurs because every round here lives
+inside its own population**, so exclusion must be a default, not a repair.
+
+## 592 · Check #233 — "measured at zero by construction" was a false acquittal
+
+R633 did **not** measure inline copies at zero; **it did not measure them at all.** *Unmeasured is not
+measured-zero* — P6's UNVERIFIED-vs-OVERTURNED distinction, in the direction that manufactures
+pardons. ⚠ And R634's own `decimal value` family returned 0 literals from a **failed extractor**;
+reporting that as a measured zero would have repeated the error **inside the round recording it**. It
+is reported `UNVERIFIED`. Plus *"the one confirmed stale conclusion"* — there were **two**.
