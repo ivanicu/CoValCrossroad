@@ -1,0 +1,156 @@
+{
+  "world": "B THE BINDING FAILS \u2014 only 6 of 14 decide; a function-local base is not resolvable by scope binding either. \u26d4 AND WORLD C: 6 is OUTSIDE the pre-registered [8, 14], so the FORECASTING PROCEDURE failed, not merely the number \u2014 three consecutive forecasts in this arc have now missed.",
+  "controls_ok": true,
+  "tree_sha": "71a11b712638f7ac1087b47c94c8481b2c069d29",
+  "prereg": {
+    "point": 11,
+    "interval": [
+      8,
+      14
+    ],
+    "reasoning": "13 of 14 bind exactly one local name; 7 bind `root`, usually Path(__file__).resolve().parents[N]; 3 bind `d`, usually a FOR-LOOP variable, and those are the doubtful ones",
+    "kill": "a measurement outside [8, 14] means the FORECASTING PROCEDURE failed, not merely the number"
+  },
+  "measured_decided": 6,
+  "inside_interval": false,
+  "forecast_record": [
+    {
+      "forecast": "R654 NEXT -> R655",
+      "predicted": 25,
+      "measured": 0,
+      "error": -25
+    },
+    {
+      "forecast": "R655 NEXT -> R656",
+      "predicted": 11,
+      "measured": 4,
+      "error": -7
+    },
+    {
+      "forecast": "R657 prereg -> here",
+      "predicted": 11,
+      "measured": 6,
+      "error": -5
+    }
+  ],
+  "forecast_record_null": {
+    "n": 3,
+    "all_same_sign": true,
+    "p_under_symmetric_null": 0.125,
+    "reading": "a direction, not an established bias"
+  },
+  "counts": {
+    "STILL-LOCAL": 3,
+    "STILL-UNRESOLVED": 5,
+    "OUTSIDE-BOTH": 1,
+    "CORPUS-DEPENDENT": 5
+  },
+  "per_round": {
+    "R322_the_matched_rerun_was_never_gpu_work": {
+      "verdict": "STILL-LOCAL",
+      "notes": [
+        "local from a PARAMETER: ['work']",
+        "local from a PARAMETER: ['work']"
+      ]
+    },
+    "R337_the_wall_is_the_population": {
+      "verdict": "STILL-LOCAL",
+      "notes": [
+        "unresolved",
+        "local from a PARAMETER: ['d']"
+      ]
+    },
+    "R379_the_exit_code_is_not_the_population": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": [
+        "unresolved"
+      ]
+    },
+    "R491_the_third_wall_was_also_false": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": [
+        "unresolved"
+      ]
+    },
+    "R513_the_size_of_my_own_assurance_surface": {
+      "verdict": "OUTSIDE-BOTH",
+      "notes": [
+        "bound local -> assurance",
+        "-> OTHER"
+      ]
+    },
+    "R517_has_clause_four_ever_been_testable": {
+      "verdict": "CORPUS-DEPENDENT",
+      "notes": [
+        "bound local -> *.json",
+        "-> CORPUS",
+        "bound local -> *.json",
+        "-> CORPUS"
+      ]
+    },
+    "R518_clause_four_is_redundant_where_the_definition_lives": {
+      "verdict": "CORPUS-DEPENDENT",
+      "notes": [
+        "bound local -> *.json",
+        "-> CORPUS"
+      ]
+    },
+    "R519_only_clause_three_narrows_what_two_admits": {
+      "verdict": "CORPUS-DEPENDENT",
+      "notes": [
+        "bound local -> *.json",
+        "-> CORPUS"
+      ]
+    },
+    "R520_is_the_provenance_set_complete": {
+      "verdict": "CORPUS-DEPENDENT",
+      "notes": [
+        "bound local -> *.json",
+        "-> CORPUS"
+      ]
+    },
+    "R521_what_the_declared_literal_costs_on_the_wider_population": {
+      "verdict": "CORPUS-DEPENDENT",
+      "notes": [
+        "bound local -> *.json",
+        "-> CORPUS"
+      ]
+    },
+    "R538_the_released_core_has_no_second_judging": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": [
+        "unresolved",
+        "unresolved",
+        "unresolved",
+        "unresolved",
+        "unresolved"
+      ]
+    },
+    "R547_the_register_sorted_on_the_wrong_axis": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": [
+        "unresolved"
+      ]
+    },
+    "R554_the_flag_needs_a_checkpoint_to_point_at": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": [
+        "unresolved",
+        "unresolved",
+        "unresolved"
+      ]
+    },
+    "R555_row_two_named_a_model_where_it_meant_a_requirement": {
+      "verdict": "STILL-LOCAL",
+      "notes": [
+        "local from a PARAMETER: ['d']",
+        "unresolved"
+      ]
+    }
+  },
+  "r656_folds_uncovered": [
+    "R319_six_rounds_read_the_typo"
+  ],
+  "check258": "R656's NEXT said '12 bind a single name' -- it is 13, and I read it off a grid printing notes[:1]. The name list was also wrong (`s`,`st` came from R655's SHAPE table; `sub` was omitted). And 'the previous forecast was wrong by 11' names an error magnitude by reusing the forecast's VALUE.",
+  "impossible": "a local assigned from a parameter needs the call graph, absent across standalone scripts; a local rebound from runtime data is not static."
+}

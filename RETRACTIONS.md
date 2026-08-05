@@ -15749,3 +15749,40 @@ R655's NEXT said the remaining 14 *"need function-local binding, which is a DIFF
 change."* ⛔ **5 rounds (R517–R521) carry BOTH defects** — a `glob.glob` API *and* a `root` that is
 function-local. The residual does not split into independent fixes, and a partition asserted without
 checking the intersection is not a partition.
+
+## 679 · A reproduction control was demanding that I reproduce a defect
+
+R657's `POSITIVE-1` required every round R656 decided to stay decided, and failed 3/4. ⛔ **Not a
+regression**: R656 repaired its residual-folding for `OWN-SCOPE` and **left it in place for
+`CORPUS-DEPENDENT`** — it tests `if "CORPUS" in seen` before the residual check, so
+`R319_six_rounds_read_the_typo` (one CORPUS site, three unresolved) was called decided. ⭐ **A
+reproduction control makes the baseline's defects mandatory.** Repaired: a disagreement is admissible
+iff it is a fold the baseline committed, and each is named — 1 found, 0 unexplained.
+
+## 680 · R656's residual repair was partial, and I reported it as complete
+
+R656's README says the two residual-folds were fixed. **One of two was.** The `OWN-SCOPE` path was
+corrected; the `CORPUS-DEPENDENT` path retained the same fold and is only now named. ⛔ *A repair
+verified on the branch that prompted it is verified on one branch.*
+
+## 681 · "12 bind a single name" — read off my own truncated display
+
+R656's NEXT said 12; it is **13**. ⛔ **I read it from a grid printing `notes[:1]`** — one note per
+round — so `R554` looked like `RECV unresolved` when it names `d`, and `R337` names two (`d`, `sub`).
+**The fourth truncation in this arc** (`[:12]` R630, `head -3` R646, `tail -25` R647, `notes[:1]`
+here) — and this display was **mine, printed three lines above the sentence that misread it.** The
+name list was wrong too: `s` and `st` came from R655's SHAPE table, a different population.
+
+## 682 · An error magnitude named by reusing the forecast's value
+
+R656's NEXT: *"this round's forecast was wrong by 7 and **the previous one by 11**."* ⛔ **No forecast
+in this arc was off by 11.** Eleven was the forecast's VALUE, refuted in that same round. Retraction
+662's shape exactly — a number carried into a quantity it was never about.
+
+## 683 · Widening a forecast to an interval did not make it right
+
+R657 pre-registered **point 11, interval [8, 14]** before any code, precisely because the two prior
+forecasts missed. **Measured 6 — outside.** ⛔ Three consecutive forecasts, all over-estimates:
+**−25, −7, −5.** Under a symmetric null, 3/3 same-signed has **p = 0.125**, so this is a **direction,
+not an established bias** — n=3 clears no correction, and the magnitude is shrinking while the sign
+has not flipped. ⭐ *The widening addressed the forecast's PRECISION and not its DIRECTION.*
