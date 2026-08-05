@@ -17775,3 +17775,47 @@ Fixed by sorting before shuffling. Now byte-identical across runs **and across a
 and the second test is the one that matters, since two runs in the same session can share a seed and
 agree while still being irreproducible tomorrow. ⚠ **The README had already been written quoting the
 0.** A number copied from one run of an irreproducible script is a number that was never measured.
+
+## 910 · the release ships 986 core INSTANCES, and this arc reasoned over 42 arms for fifteen rounds
+
+`data/conversation_rubrics.jsonl` carries a `coval_core` for each of **986** conversations, k
+distributed `{2:1, 3:43, 4:942}`. **Objects this site did not build, on disk in the release,
+untouched by this entire arc** — while the impossibility register used *"one released core"* as a
+hard limit round after round and `STATEMENT.md` carried "THE RELEASE SHIPS ONE CORE" as a headline.
+
+**The claim is true at the ARM level — one core GENERATOR — and false at the OBJECT level.** The
+deliverable never stated which it meant. ⭐ **That is the instrument-unit-versus-claim-unit
+distinction this arc has flagged in eleven rounds, sitting unexamined in its own headline.**
+
+⚠ How it was found is the part worth keeping: **R713's closing line asked whether a definition can be
+attacked by a site that built the objects it is defined over, and taking that question literally
+meant looking for objects the site did not build.** The file was two directories away. §4's remedy
+— *count what the release actually contains* — had been applied to annotators, to judges and to sham
+pairs, and never to cores.
+
+## 911 · the formulation mixes units, and no round in fifteen saw it
+
+F1 and F2 are predicates over a **GENERATOR** — *"the criteria were SELECTED without reading outcome
+labels"* is about a selection procedure, *"BEAT a baseline that never sees the prompt"* needs scores
+across prompts. F3 is a predicate over an **INSTANCE** — the cardinality of one criteria list.
+
+**A three-clause definition whose clauses range over different objects cannot be applied to any
+single object as written.** Measured on the 986: F3 is evaluable and admits 1.0000; **F1 and F2 are
+NOT EVALUABLE and are reported as such, never as passing** — they need a provenance record and
+per-arm scores the rubric file does not carry.
+
+⚠ This was invisible while every round tested the formulation against the 42 arms, because an ARM
+carries both a generator identity and a criteria list, so the unit distinction never had to be made.
+**The 986 instances forced it: they have a k and no provenance record, so they can satisfy F3 and
+cannot even be asked about F1.**
+
+## 912 · and F3 admitting all 986 is weak evidence for F3
+
+F3's ceiling — "no more than the release's own maximum" — was read off **this release's card**. So
+admitting **this release's** instances is close to circular. What the 1.0000 establishes is that the
+card's published statement is **true of the data**: max k = 4 and 0.9554 at exactly 4, against the
+card's *"up to four, ~95% are four"*.
+
+**That is a verification of the object's documentation, not a finding about cores** — the
+`prior_art_in_card` column of the paper template exists for exactly this, and it costs a day when
+nobody fills it in.

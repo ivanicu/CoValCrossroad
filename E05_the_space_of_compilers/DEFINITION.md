@@ -3313,3 +3313,36 @@ and across a changed hash seed.
 The limit is the claim unit. Exact name agreement is evidence about construction and never proof of
 it: that the arms were built to be excluded is a fact about this project's history rather than about
 the ledger, and this round measures reproducibility while reasoning about what a null can price.
+
+## R714 · How many cores the release ships, and whether the clauses share a unit
+
+R713 closed by asking whether a definition can be attacked at all by a site that built the objects it
+is defined over. Taking that question literally meant looking for objects this site did not build,
+and there are 986 of them two directories away: `data/conversation_rubrics.jsonl` carries a
+`coval_core` for each of 986 conversations, with criteria counts distributed two at one, three at
+forty-three, and four at nine hundred forty-two.
+
+So the deliverable's headline, that the release ships one core, is true at the arm level — one core
+generator — and false at the object level, where the release ships **986** core instances. The page
+never stated which it meant, while the impossibility register used one released core as a hard limit
+round after round.
+
+The larger finding is that the formulation mixes units. F1 and F2 are predicates over a generator: a
+selection procedure, and a score across prompts. F3 is a predicate over an instance: the cardinality
+of one criteria list. A three-clause definition whose clauses range over different objects cannot be
+applied to any single object as written, and no round in this arc had said so — invisible while every
+round tested the formulation against the forty-two arms, because an arm carries both a generator
+identity and a criteria list, so the distinction never had to be made. The 986 instances force it:
+they have a size and no provenance record, so they can satisfy F3 and cannot even be asked about F1.
+
+Measured on the 986, **F3 is evaluable and admits 1.0000**, while **F1 and F2 are not evaluable** and
+are reported as such rather than as passing. Controls: the card's own published statistic reproduces
+from the file at a maximum of four and **0.9554** at exactly four; a nonexistent field yields zero
+instances rather than a silent empty pass; F3 applied to the same file's `coval_full` field rejects
+**0.9970**, so the clause reads size rather than the file; and F3 with its bound removed admits
+everything in both fields, so the bound is what does the work.
+
+F3 admitting all 986 is weak evidence for F3. Its ceiling was read off this release's card, so
+admitting this release's instances is close to circular, and what the result establishes is that the
+card's statement is true of the data — a verification of the object's own documentation rather than a
+finding about cores.

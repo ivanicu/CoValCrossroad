@@ -1,0 +1,96 @@
+{
+ "world": "⭐⭐⭐ C THE CLAUSES DO NOT SHARE A UNIT, AND THE RELEASE SHIPS 986 CORE INSTANCES. `data/conversation_rubrics.jsonl` carries a `coval_core` for each of 986 conversations, k distributed {2: 1, 3: 43, 4: 942} — objects this site did NOT build, on disk in the release, untouched by this entire arc. ⛔ SO STATEMENT.md's 'THE RELEASE SHIPS ONE CORE' IS TRUE ONLY AT THE ARM LEVEL: one core GENERATOR, 986 core INSTANCES, and the deliverable never states which it means. That is the instrument-unit-versus-claim-unit distinction this arc has flagged in eleven rounds, sitting in its own headline. ⭐⭐ AND THE FORMULATION ITSELF MIXES UNITS: F1 and F2 are predicates over a GENERATOR — a selection procedure, a score across prompts — while F3 is a predicate over an INSTANCE's cardinality. A three-clause definition whose clauses range over different objects cannot be applied to any single object as written, and no round in this arc has said so. ⭐ THE ONE PORTABLE RESULT: F3 admits 1.0000 of the 986 instances, and the card's published 'up to four, ~95% are four' reproduces at max k = 4 and 0.9554 — the FIRST application of any clause to objects this site did not build, in 1 of 3 clauses. ⚠ The other 2 are NOT EVALUABLE here and are reported as such, never as passing: they need a provenance record and per-arm scores the rubric file does not carry. ⚠ AND F3 ADMITTING ALL 986 IS WEAK EVIDENCE FOR F3 — the clause's ceiling was read off this release's card, so admitting this release's instances is close to circular; what it establishes is that the card's statement is TRUE OF THE DATA. ⚠ UNIT GAP, stated twice because it is both this round's control and its finding: instrument unit is A CORE INSTANCE, claim unit is THE FORMULATION'S APPLICABILITY.",
+ "controls_ok": true,
+ "tree_sha": "d736b0fcdc10d36122a3da74135ae4d3cfea9316",
+ "source": "data/conversation_rubrics.jsonl",
+ "n_rubrics": 986,
+ "n_core_instances": 986,
+ "k_distribution_core": {
+  "2": 1,
+  "3": 43,
+  "4": 942
+ },
+ "k_range_full": [
+  4,
+  39
+ ],
+ "n_distinct_k_full": 32,
+ "f3_admission_rate_core": 1.0,
+ "share_k_equals_4": 0.9553752535496958,
+ "clause_units": {
+  "F1 provenance": {
+   "unit": "GENERATOR",
+   "reading": "'the criteria were SELECTED without reading the outcome labels' is a predicate over a SELECTION PROCEDURE, checkable from the producer"
+  },
+  "F2 behaviour": {
+   "unit": "GENERATOR",
+   "reading": "'the criteria BEAT a baseline that never sees the prompt' needs scores ACROSS prompts, so it ranks a procedure, not one criteria list"
+  },
+  "F3 size": {
+   "unit": "INSTANCE",
+   "reading": "'more than one criterion, no more than the release's maximum' is a predicate over the CARDINALITY of a single criteria list"
+  }
+ },
+ "units_mixed": true,
+ "portability": [
+  {
+   "clause": "F1 provenance",
+   "evaluable": false,
+   "admits": null,
+   "reason": "needs a provenance record / per-arm scores the rubric file does not carry"
+  },
+  {
+   "clause": "F2 behaviour",
+   "evaluable": false,
+   "admits": null,
+   "reason": "needs a provenance record / per-arm scores the rubric file does not carry"
+  },
+  {
+   "clause": "F3 size",
+   "evaluable": true,
+   "admits": 1.0
+  }
+ ],
+ "n_evaluable": 1,
+ "cells": [
+  {
+   "field": "coval_core",
+   "bound": "F3  1<k<=4",
+   "admits": 1.0
+  },
+  {
+   "field": "coval_core",
+   "bound": "sham k>=1",
+   "admits": 1.0
+  },
+  {
+   "field": "coval_core",
+   "bound": "k==4 exactly",
+   "admits": 0.9553752535496958
+  },
+  {
+   "field": "coval_full",
+   "bound": "F3  1<k<=4",
+   "admits": 0.0030425963488843813
+  },
+  {
+   "field": "coval_full",
+   "bound": "sham k>=1",
+   "admits": 1.0
+  },
+  {
+   "field": "coval_full",
+   "bound": "k==4 exactly",
+   "admits": 0.0030425963488843813
+  }
+ ],
+ "registered": "A instances 986 [1,1000]; B F3 admission 1.00 [0.80,1.00]; C share k=4 0.955 [0.90,0.99]; directional >=1 clause not evaluable",
+ "observed": {
+  "A": 986,
+  "B": 1.0,
+  "C": 0.9553752535496958,
+  "directional": true
+ },
+ "corrects": "STATEMENT.md's 'THE RELEASE SHIPS ONE CORE' — true at the ARM level (one generator), false at the OBJECT level (986 instances), and the deliverable never states which.",
+ "limit": "F3's ceiling was read off this release's card, so admitting this release's instances is close to circular; what it establishes is that the card's statement is TRUE OF THE DATA. F1 and F2 are NOT EVALUABLE here."
+}
