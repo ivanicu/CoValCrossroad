@@ -172,72 +172,6 @@ in the release carries at least three rankings. *(R507)*
 
 ---
 
-## The register, ordered by what it costs to remove
-
-**§2 says the impossibility register doubles as the specification for the next site. It only does
-that if it is ordered** — otherwise a reader cannot tell the one-field item from the second-team item.
-Every entry below is already stated somewhere in this page or in `DEFINITION.md`; **what is new is the
-ordering, and the ordering is the deliverable.**
-
-| # | what is blocked | what removes it | cost |
-|---|---|---|---|
-| **1** | ③′ on the released core — only **6.6%** of its criteria are verbatim in `coval_full` | **one field: `coval_core[i].source_rubric_item_ids`** | **a schema line** |
-| **2** | a second, stronger judge — `Qwen2.5-7B-Instruct` is present (29 GB, 4/4 shards) but OOMs in bf16 | **quantisation, or offload** — an environment change to the shared `.venv`, not a GPU run | **an install** |
-| **3** | ②∧③ — the ③-admissible side is **one** prompt-responsive arm plus a floor | **more ③-admissible prompt-responsive generators** | **a generation round, on this site** |
-| **4** | ② — no ③-admissible arm reaches the prompt-blind ceiling **0.5404** | **a strong ③-admissible prompt-aware arm** | **generation + judging** |
-| **5** | independent replication | **a second team or a second release** | **another site** |
-| **6** | construct validity — is A2-vs-held-out-annotator the right target? | **an external gold standard** | **another site** |
-| **7** | whether reading **A** is correct after all | **a use for "core" that does not require prediction** | **not a measurement — a decision about purpose** |
-
-⭐ **Rows 1–4 are all on this site.** The campaign's own conclusion — that the definition's extension
-is 0 — rests on row 3 and row 4 being unmet, and **neither needs a second team.** ⚠ **Row 7 is not
-orderable with the rest**: it is the one entry no amount of data settles, and it is the one that would
-flip the recommendation.
-
----
-
-## What this site cannot do, and exactly what would fix it
-
-⭐ **One wall, checked rather than asserted.** ③′ cannot be evaluated on `coval_core`, because only
-**6.6%** of its criteria appear verbatim in `coval_full` — the dataset card documents a **rewrite and
-merge before selection**. Settling it needs a mapping from each rewritten core item back to its source
-items, and **no file in the release carries one**:
-
-| file | does it link a core item to its sources? |
-|---|---|
-| `conversation_rubrics.jsonl` → `coval_core[i]` | **no** — keys are `criterion` only; `coval_full[i]` has `rubric_item_id`, the core has none |
-| `annotators.jsonl` → `assessments[i]` | **no** — `annotator_id`, `conversation_id`, `ranking_blocks`, `importance`, … |
-| `comparisons.jsonl` → `metadata.assessments` | **no** |
-
-⭐⭐ **What would fix it is one field: `coval_core[i].source_rubric_item_ids`.** With it, ③′ becomes
-decidable for the released core on this data alone — no second site, no external gold standard, no
-stronger judge. **That is a specification, not a complaint, and it is the cheapest item on this
-campaign's whole wish list.**
-
-⚠ **Stated this way because six other "walls" fell this session**, each asserted immediately after
-correctly checking something adjacent. **This one was checked: three files, every schema read.**
-
----
-
-## What is still open
-
-**Five rounds carry an `UNVERIFIED` verdict, and this page can name but not cite them** — the
-provenance gate refuses to let the residue rest a claim on an unsettled round, which is correct and
-is why they appear here as a list rather than as sources:
-
-| round | what it could not settle |
-|---|---|
-| `is_the_shrink_the_arm_or_the_rule` | whether an observed shrink belongs to the arm or to the rule |
-| `does_the_second_instrument_measure_clause_three` | whether the second instrument measures ③ at all |
-| `can_the_two_id_spaces_be_joined` | whether ③'s two instruments range over joinable id spaces |
-| `do_other_artifacts_assert_worlds_the_record_overturned` | how many of 18 ledger-artifact inconsistencies are **stale worlds** (the inconsistency itself is CONFIRMED at 18/98) |
-| `can_provenance_be_replaced_by_a_behavioural_test` | whether ③ has a behavioural surrogate — the instrument tried could not rank `oracle_k4` at an extreme |
-
-⚠ **Only the last of these was named on this page before now.** A residue that discloses one open item
-of five understates what is unresolved, and the count is computed rather than recalled.
-
----
-
 ## The extension
 
 **0**, under every reading. *(R475)*
@@ -387,6 +321,81 @@ silence. **2 of the 3 aggregators that can see k, not 2 of 5.** *(R481)*
   three values and never folding UNKNOWN into ADMITTED.
 - **`id_map.json`** — the two id spaces joined exactly: **968 of 968**, uniqueness 1.0000, validated
   on a channel it was not built from (**0.8811** vs **0.2859**). *(R468)*
+
+---
+
+
+---
+
+## What it cost, and what would remove each cost
+
+*§0.2: the residue leads with what stands and ends with what it cost — never the reverse.
+Everything above is a claim someone can act on. Everything below is the price and the
+specification for paying it.*
+
+## The register, ordered by what it costs to remove
+
+**§2 says the impossibility register doubles as the specification for the next site. It only does
+that if it is ordered** — otherwise a reader cannot tell the one-field item from the second-team item.
+Every entry below is already stated somewhere in this page or in `DEFINITION.md`; **what is new is the
+ordering, and the ordering is the deliverable.**
+
+| # | what is blocked | what removes it | cost |
+|---|---|---|---|
+| **1** | ③′ on the released core — only **6.6%** of its criteria are verbatim in `coval_full` | **one field: `coval_core[i].source_rubric_item_ids`** | **a schema line** |
+| **2** | a second, stronger judge — `Qwen2.5-7B-Instruct` is present (29 GB, 4/4 shards) but OOMs in bf16 | **quantisation, or offload** — an environment change to the shared `.venv`, not a GPU run | **an install** |
+| **3** | ②∧③ — the ③-admissible side is **one** prompt-responsive arm plus a floor | **more ③-admissible prompt-responsive generators** | **a generation round, on this site** |
+| **4** | ② — no ③-admissible arm reaches the prompt-blind ceiling **0.5404** | **a strong ③-admissible prompt-aware arm** | **generation + judging** |
+| **5** | independent replication | **a second team or a second release** | **another site** |
+| **6** | construct validity — is A2-vs-held-out-annotator the right target? | **an external gold standard** | **another site** |
+| **7** | whether reading **A** is correct after all | **a use for "core" that does not require prediction** | **not a measurement — a decision about purpose** |
+
+⭐ **Rows 1–4 are all on this site.** The campaign's own conclusion — that the definition's extension
+is 0 — rests on row 3 and row 4 being unmet, and **neither needs a second team.** ⚠ **Row 7 is not
+orderable with the rest**: it is the one entry no amount of data settles, and it is the one that would
+flip the recommendation.
+
+---
+
+## What this site cannot do, and exactly what would fix it
+
+⭐ **One wall, checked rather than asserted.** ③′ cannot be evaluated on `coval_core`, because only
+**6.6%** of its criteria appear verbatim in `coval_full` — the dataset card documents a **rewrite and
+merge before selection**. Settling it needs a mapping from each rewritten core item back to its source
+items, and **no file in the release carries one**:
+
+| file | does it link a core item to its sources? |
+|---|---|
+| `conversation_rubrics.jsonl` → `coval_core[i]` | **no** — keys are `criterion` only; `coval_full[i]` has `rubric_item_id`, the core has none |
+| `annotators.jsonl` → `assessments[i]` | **no** — `annotator_id`, `conversation_id`, `ranking_blocks`, `importance`, … |
+| `comparisons.jsonl` → `metadata.assessments` | **no** |
+
+⭐⭐ **What would fix it is one field: `coval_core[i].source_rubric_item_ids`.** With it, ③′ becomes
+decidable for the released core on this data alone — no second site, no external gold standard, no
+stronger judge. **That is a specification, not a complaint, and it is the cheapest item on this
+campaign's whole wish list.**
+
+⚠ **Stated this way because six other "walls" fell this session**, each asserted immediately after
+correctly checking something adjacent. **This one was checked: three files, every schema read.**
+
+---
+
+## What is still open
+
+**Five rounds carry an `UNVERIFIED` verdict, and this page can name but not cite them** — the
+provenance gate refuses to let the residue rest a claim on an unsettled round, which is correct and
+is why they appear here as a list rather than as sources:
+
+| round | what it could not settle |
+|---|---|
+| `is_the_shrink_the_arm_or_the_rule` | whether an observed shrink belongs to the arm or to the rule |
+| `does_the_second_instrument_measure_clause_three` | whether the second instrument measures ③ at all |
+| `can_the_two_id_spaces_be_joined` | whether ③'s two instruments range over joinable id spaces |
+| `do_other_artifacts_assert_worlds_the_record_overturned` | how many of 18 ledger-artifact inconsistencies are **stale worlds** (the inconsistency itself is CONFIRMED at 18/98) |
+| `can_provenance_be_replaced_by_a_behavioural_test` | whether ③ has a behavioural surrogate — the instrument tried could not rank `oracle_k4` at an extreme |
+
+⚠ **Only the last of these was named on this page before now.** A residue that discloses one open item
+of five understates what is unresolved, and the count is computed rather than recalled.
 
 ---
 
