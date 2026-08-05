@@ -2291,3 +2291,32 @@ SAME criterion indices for every prompt.** Nothing in the record said so.
 
 **Proxy limit, now demonstrated rather than asserted:** index variation is sound for *"the criteria
 differ by prompt"* and **not** for *"the criteria were written for this prompt."*
+
+---
+
+## R532 · The ③ fork costs +0.0748 in A2
+
+**My previous closing line proposed auditing `random_k4_s0` "because clause ① compares every arm
+against it" — clause ① was retired eight rounds ago.** The comparator matters for a different
+reason: `coval_core`'s **+0.0738** over it is what prices the ③ fork, and R531 showed it uses the
+**same criterion indices for every prompt**.
+
+**Re-measured against a TRUE per-prompt uniform 4-draw from each prompt's own rubric, 3 seeds:**
+
+| | |
+|---|---|
+| published (fixed-index) | **+0.0738** |
+| per-prompt draw, 3 seeds | **+0.0748**, spread 0.0030 |
+| ratio | **1.01×** (kill at 0.50×) |
+
+**Controls.** Positive: the fixed-index contrast reproduces R294's stored `c1` at
+**+0.073790 = +0.073790**, so both comparators share a scale. Negative: the per-prompt draw varies
+across prompts where `random_k4_s0` does not.
+
+⭐⭐⭐ **So ③-any forbids an operation worth +0.0748 in A2 — selecting rubric items by their
+annotator-assigned weights rather than at random.** Against R530's finding that the ③-any world sits
+**1.29 MDE ≈ 0.0153** from non-empty, **the forbidden operation is worth ~5× the gap.** ③-any is not
+marginally restrictive; it removes the largest single source of advantage a ③-rank core has.
+
+⭐ **And the fixed-index property did not bias the number** — a flag I raised that turned out not to
+bite, which is worth saying as plainly as if it had.

@@ -12061,3 +12061,31 @@ unverified claim** — I had asserted a weakness I could not exhibit.
 
 ⭐ **Surfaced in passing, and nothing in the record said it: the clause-① comparator
 `random_k4_s0` uses the SAME criterion indices for every prompt.**
+
+## 364 · A closing line that proposed work on a clause the deliverable had retired
+
+**`d99f45a` closed:** *"…clause ① compares every arm against it, so whether a fixed-index baseline
+is the right random baseline is a question about the comparator… and it has never been asked."*
+
+⛔ **Clause ① was retired eight rounds earlier — R516 showed a per-prompt ① is ill-posed, R519
+showed it drops 0 of ②'s passers, and the deliverable's definition has read ② ∧ ③ ever since.**
+The closing line proposed a round on a retired clause, and the NEXT-line gate blocked the next
+commit over the same sentence's quantifier — **the fifth time it and a hand audit have landed on one
+line independently.**
+
+⭐ **The comparator did still matter, for a different reason, and the round found it:**
+`coval_core`'s **+0.0738** over `random_k4_s0` is what **prices the ③ fork**, and R531 had shown
+that comparator uses the **same criterion indices for every prompt**.
+
+**Re-measured against a true per-prompt uniform 4-draw, 3 seeds: +0.0748, spread 0.0030, ratio
+1.01×** against the published figure. **The fixed-index comparator did not inflate it.** Positive
+control: the fixed-index contrast reproduces R294's stored `c1` at **+0.073790 = +0.073790**.
+Negative control: the per-prompt draw varies where `random_k4_s0` does not.
+
+⭐⭐⭐ **So ③-any forbids an operation worth +0.0748 in A2, against a gap to non-empty of 1.29 MDE
+≈ 0.0153 (R530) — roughly 5× the gap.**
+
+**The reusable part:** *a stale pointer is not caught by any of the five gates, because it is a
+correct sentence about a superseded object.* **What caught it was reading my own last line against
+the current deliverable rather than against my memory of it** — which is the discipline that has now
+caught something in 15 consecutive rounds.
