@@ -18188,3 +18188,27 @@ while the prediction was wrong by its whole content. A wide interval is the righ
 the quantity is genuinely unknown, and it is also an instrument that cannot score calibration.
 Recorded because the alternative — reporting the interval pass and moving on — is how a sequence of
 registered points comes to look like a sequence of confirmations.
+
+## 944 · "the SE spread would have to double" described a constant in the code, not a property of the arms
+
+R726 stated the resolution of its zone as a factor by which the spread of the two standard error
+estimates would have to grow. That spread is Monte-Carlo error of the bootstrap at twelve hundred
+resamples. A synthetic normal world with no skew and no arm-to-arm variation reproduces it to within
+one and a third percent, an asymptotic derivation agrees, and sweeping the resample count gives the
+half-power slope that Monte-Carlo error must have. So the sentence is true and its subject was
+wrong: what would have to double is a number chosen in R294 line 117, and raising it shrinks the
+zone at will. A resolution expressed as a factor sounds like a property of the data and here was a
+property of a configuration constant.
+
+## 945 · a positive control ANDed two halves that answer different questions, and gated the round on the weaker one
+
+R727's first version required both that planting skew move the correlation between the ratio and the
+interval asymmetry by three standard deviations, and that it move the mean asymmetry. The second
+fired overwhelmingly; the first did not, and the round printed unverified. The correlation is a
+weak skew detector at twelve hundred resamples — the same contrast separates cleanly at nineteen
+thousand two hundred — and its threshold was three times a three-seed spread, which is two degrees
+of freedom and not a threshold. The repair splits them: the mean-asymmetry half licenses statements
+about skew, and the correlation half is reported as underpowered, which makes its null silence
+rather than an acquittal. The original directional rested on that null and has been restated on the
+powered statistic, where the observed cells show no detectable skew at one point four standard
+errors from zero.

@@ -400,7 +400,13 @@ with **0 mismatches over 410 checks**. **The 100 cells overstate the dimensional
 that moves with the interval estimate, so **246 of the 410 checks could not have failed** and the
 failable population was **164**. The zero stands over the smaller population — the disagreement zone
 is **0.237796** wide, **no cell of 82** falls inside it, and the SE spread would have to **double**
-before one did. ⛔ **But the released core is not invariant:** every reading requiring clause ②'s
+before one did. ⛔ **And that spread is a resample count, not a property of the arms** *(R727)*: a
+synthetic **normal** world at B = 1200 with no skew and no arm-to-arm variation reproduces
+`sd(r) = 0.027699` against the observed **0.027341**, the asymptotic derivation gives **0.027821**,
+and sweeping B gives a log–log slope of **0.4951** in magnitude — the half-power of Monte-Carlo
+error. **Raising `NBOOT` shrinks the zone.** The arms show **no detectable skew** by a powered test
+(mean asymmetry z = −1.38 vs zero skew, −9.43 vs a planted skewed world), and **`n` is unidentified**
+here — two levels, 4 of 82 cells at the minority. ⛔ **But the released core is not invariant:** every reading requiring clause ②'s
 *whole interval* above resolution — rather than its point estimate — **excludes `coval_core` and
 admits `topw_k6` alone**. Its clause-② interval clears zero and its effect clears the MDE, but its
 lower bound does not. **Membership of the core in its own extension is a choice of reading.**

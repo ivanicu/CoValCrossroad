@@ -3639,3 +3639,26 @@ only one hundred and sixty four had a boundary that could move at all, because t
 readings never touch the interval estimate; the other two hundred and forty six could not have
 disagreed however the data fell. The zero stands, over a failable population smaller than the one
 it was quoted against.
+
+## R727 · the disagreement zone is a resample count, and one skew test had no power
+
+The spread that sets the previous round's disagreement zone was attributed. It is not a property of
+the arms. A synthetic normal world at a sample size of nine hundred and sixty eight with twelve
+hundred resamples, containing no skew and no arm-to-arm variation of any kind, reproduces a standard
+deviation of the ratio of 0.027699 against the observed 0.027341, and an asymptotic derivation from
+the sampling error of a bootstrap percentile independently gives 0.027821. Two routes, one answer.
+Sweeping the resample count over three hundred, twelve hundred, four thousand eight hundred and
+nineteen thousand two hundred gives a fitted log-log slope of 0.4951 in magnitude and negative in
+sign, which is the half-power of Monte-Carlo error. So the zone narrows when the resample count
+rises, and the previous round's statement that the spread would have to double describes a constant
+chosen in the producing round rather than anything the data does. Two further findings belong here.
+The correlation between the ratio and the interval's asymmetry is an underpowered detector of skew
+at this resample count: planting real skew moves it by less than three standard deviations of its
+own seed spread at twelve hundred resamples while moving it clearly at nineteen thousand two
+hundred, so a null from it is silence. On the statistic whose power is established by the positive
+control, the mean asymmetry, the observed cells give a value of minus 0.00410 with a standard error
+of 0.00296, which is one point four standard errors from zero skew and nine point four from the
+planted skewed world, so these cells carry no detectable skew by a powered test. And the sample size
+cannot be tested at all: it takes two values across the arms with four of eighty two cells at the
+minority level, which is an unidentified covariate and is recorded as unidentified rather than as a
+null.
