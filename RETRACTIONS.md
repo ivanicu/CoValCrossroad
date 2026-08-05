@@ -9786,3 +9786,38 @@ conservative-sounding world — which is exactly how a missing number becomes a 
 schema** and found 0 prompts (the empty-population control fired, exit 2, no number reported); and the
 id-space check ran **outside** the round first — moving it **inside** is what turned *"my construction
 failed"* into *"the two instruments cannot be joined"*, which is retraction 276's remedy applied.
+
+---
+
+## 284 · "The two files describe different conversations" — a campaign-wide claim, printed and FALSE (R467, caught in-round)
+
+**What the round first printed.** `W-DISJOINT`, coverage **0.0000**: *"the two files describe
+different conversations, and every campaign number crossing them inherits that."* That is a claim
+about the whole corpus, and it is **wrong**.
+
+**What caught it.** The **NEGATIVE control returned 0.0000 as well** — identical to the result. ⭐
+**When a result equals its own null, it is silence, not a measurement.** The round had already flagged
+that shuffling preserves the multiset and is therefore not a proper null for coverage; **saying so in
+the output is what made the coincidence legible.**
+
+**The defect.** The normaliser assumed both files store messages as `{role, content:str}`. Asked the
+object: rubric messages carry **no role** and their content is `{'content_type':'text','parts':[…]}`;
+comparison messages carry `role` and a plain string. **The two normalisations could never match, so
+coverage was 0 BY CONSTRUCTION.**
+
+**The control that was missing, and it is §4's exact warning.** The g=0 check joined each file
+**against itself** and passed at **1.0000** both ways — but a within-file uniqueness test **cannot
+see a normaliser that is merely incomparable ACROSS files.** *A positive control that shares the
+instrument's blind spot confirms the instrument and licenses nothing.* Adding a **cross-file** case
+with a known answer made the round return UNVERIFIED instead of a false headline.
+
+⭐ **The diagnosis, which is the round's real output.** Record 0 of each file **is the same exchange**
+— but the rubric stores *"should people stop **eat** beef in the world"* against the comparison file's
+*"…stop **eating** beef in the world"*, plus interleaved `all finished_successfully` tokens. **Same
+conversations, different text.** So no exact join exists, R466's UNVERIFIED **stands for a better
+reason than R466 gave**, and the campaign-wide claim is **dead**.
+
+⚠ **The asymmetry worth naming.** The false verdict was **large and alarming**; the true finding is
+**narrow and technical**. A wrong claim in the direction of *"everything is contaminated"* reads as
+appropriate rigour and is therefore the least likely to be challenged — **the one flattering direction
+a retraction ledger does not naturally police**, because it looks like the opposite of flattery.

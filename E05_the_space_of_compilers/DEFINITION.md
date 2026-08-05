@@ -353,13 +353,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 281 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 284 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 281.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 284.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -423,6 +423,20 @@ recorded as **UNVERIFIED, never OVERTURNED**. ⚠ The containment instrument its
 reproduces its anchor (**0.0778** vs 0.0779), its cross-prompt floor is **0.0000** and a verbatim copy
 scores **1.0000**. **What is defective is the join, not the clause** — and **19 arms remain UNKNOWN
 under ③, the paradigm case among them, so the definition still owes a third verdict.** *(R466)*
+
+⚠ **AND THE REASON IS NOT THE ONE R466 GAVE (R467).** R466's *"cannot be joined"* invited the far
+larger reading that the two files describe **different conversations** — and an early version of R467
+printed exactly that. **It is false.** Record 0 of each file is manifestly the same exchange; the
+rubric file simply stores a **different wording** (*"should people stop **eat** beef"* against
+*"…stop **eating** beef"*) and interleaves metadata tokens. **The files describe the SAME
+conversations in DIFFERENT TEXT**, so neither an id join (intersection **0**) nor an exact-text join
+(**0.0000** after the schema was corrected) bridges them, and a fuzzy join is excluded because a
+threshold would decide the question rather than measure it. ⛔ **What caught the false verdict was
+that the NEGATIVE control returned the same 0.0000 as the result** — *when a result equals its own
+null it is silence* — and the missing control was a **cross-file** case with a known answer: the
+within-file uniqueness checks passed at **1.0000** both ways and could not see a normaliser that was
+merely *incomparable across files*. **R466's UNVERIFIED therefore stands, for a better reason, and
+the campaign-wide claim is dead.** *(R467)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
   ordering**, which no reference can reorder. *(R359, R356, R357)*

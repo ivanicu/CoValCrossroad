@@ -504,6 +504,19 @@ def derive():
     else:
         for k in ("r446_gen", "r446_core", "r446_genq", "r446_refs"):
             out[k] = (None, "R446")
+    # R467 -- the content join. The CROSS-FILE control flag is anchored, not just the coverage,
+    # because coverage 0.0000 is SILENCE unless that control passed and it did not.
+    d467 = next(A24.glob("R467_*"), None)
+    f467 = (d467 / "results" / "r467_id_join.json") if d467 else None
+    a = json.loads(f467.read_text()) if (f467 and f467.exists()) else None
+    if a:
+        out["r467_cov"] = (f"{a['coverage_rubric_to_cmp']:.4f}", "R467")
+        out["r467_inter"] = (a["id_intersection"], "R467")
+        out["r467_self"] = (f"{a['self_unique_rubric']:.4f}", "R467")
+    else:
+        for k in ("r467_cov", "r467_inter", "r467_self"):
+            out[k] = (None, "R467")
+
     # R466 -- the id-space join. The INTERSECTION is anchored with both population sizes, because
     # "0" alone reads as an absence rather than as two populations that cannot meet.
     d466 = next(A24.glob("R466_*"), None)
@@ -1161,6 +1174,9 @@ ASSERTIONS = {
     "r466_rank":   r"ranking ids \*\*(\d+)\*\*",
     "r466_inter":  r"\*\*intersection (\d+)\*\*",
     "r466_anchor": r"reproduces its anchor \(\*\*([\d.]+)\*\*",
+    "r467_cov":   r"exact-text join\s*\n?\(\*\*([\d.]+)\*\* after the schema was corrected\)",
+    "r467_inter": r"an id join \(intersection \*\*(\d+)\*\*\)",
+    "r467_self":  r"passed at \*\*([\d.]+)\*\* both ways",
     "r446_gen":  r"resolvedly\*\* better than \*\*([\d.]+)%\*\* of them",
     "r446_core": r"`coval_core` than \*\*([\d.]+)%\*\*",
     "r446_genq": r"would be \*\"better\"\* than \*\*([\d.]+)%\*\* of references",
