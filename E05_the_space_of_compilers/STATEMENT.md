@@ -162,7 +162,7 @@ Both sides inhabit the same object space and differ only in the **selection map*
 
 ## The formulation is a fork, not a fact awaiting measurement
 
-**Everything below is settled enough to state the choice.** ⛔ **① is DELETABLE, and the definition is ② ③ ④.** Globally it is
+**Everything below is settled enough to state the choice.** ⛔ **① is DELETABLE, and the definition is ② ③ ④.** ⚠ **SUPERSEDED — the definition is ② ∧ ③** *(R519, R599)*. This line predates R519, which measured clause **④ dropping 0 of the 9 ②-passers — identical to ①** — so ④ adds nothing and was retired alongside it. **The retirement reached the claim table and not this sentence**, which is why the deliverable stated two different definitions for 80 rounds. Annotated rather than rewritten (L81): the reasoning below about ① is unaffected and still correct. Globally it is
 subsumed by ② — empirically on all 41 arms with ~3 CI-widths of slack, not by derivation *(R514,
 R515)*. Per-prompt it is **ill-posed**: every admitted arm clears the null (0.4897–0.5382 vs 0.3781),
 and win-rate versus loss-rate rank them at **Kendall τ = −0.600**, because per-prompt A2 has 7 levels

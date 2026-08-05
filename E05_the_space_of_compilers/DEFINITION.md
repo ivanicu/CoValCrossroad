@@ -1817,7 +1817,7 @@ choice does more work than the criterion.** It is not a clause; it is a knob.
 
 ⭐ **Resolution of the ① question, across R514–R516:** globally ① is subsumed by ② (empirically, on
 all 41 arms, with ~3 CI-widths of slack); per-prompt it is ill-posed. **① is deletable, and now for
-a demonstrated reason rather than an assumed one.** The definition is **② ③ ④**.
+a demonstrated reason rather than an assumed one.** The definition is **② ③ ④**. ⚠ **SUPERSEDED — the definition is ② ∧ ③** *(R519, R599)*. This line predates R519, which measured clause **④ dropping 0 of the 9 ②-passers — identical to ①** — so ④ adds nothing and was retired alongside it. **The retirement reached the claim table and not this sentence**, which is why the deliverable stated two different definitions for 80 rounds. Annotated rather than rewritten (L81): the reasoning below about ① is unaffected and still correct.
 
 **What is NOT claimed:** that no principled per-prompt aggregation exists. Choosing one is a
 construct claim and needs an external standard for what a core must do — which this site does not

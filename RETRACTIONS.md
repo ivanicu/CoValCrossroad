@@ -13922,3 +13922,84 @@ established.
 ⭐ **Same row as R593's non-partition `elif`, one arc later.** A pre-registered label is only binding
 if the branch tests the condition the label was defined by — writing the definition in the docstring
 and the condition in the code is two chances to disagree, and they did.
+
+## 485 · "None of them is gated by anything" — two of the three are, and one more tightly than STATEMENT
+
+R597 closed by inferring the ungatedness of a **59-script** suite from **one** script. Disproved by
+source I had already read this session: `statement_provenance.py` opens `DEFINITION.md` for its
+transitive-anchoring clause, and `definition_matches_the_record.py` is named for it.
+
+**Measured by intervention (emptying each document and counting gates that flip):**
+`STATEMENT.md` **3/28** · `DEFINITION.md` **4/28** · **`FORMULATION.md` 0/28.**
+
+⚠ **And the instrument R597 proposed would have given the wrong answer.** `grep` names
+`FORMULATION.md` in 1 script — `generate_round_index.py`, a **generator** that exits 0 regardless.
+**A script that OPENS a file is not a GATE on it.** Emptying is the maximal mutation, so
+`FORMULATION.md`'s zero is decisive: **156 KB that no check in the suite can contradict.**
+
+## 486 · One bug of mine produced three wrong numbers, and I invented a second mechanism for one
+
+v1 ran the 59 scripts **concurrently in one tree**, and **22 of the 59 write into it** — L62, read
+isolation. Serial vs concurrent: baseline reproducibility **59/59 vs 57/59**, baseline passing
+**28/59 vs 19/59**, placebo flips **0 vs 1**.
+
+⛔ **When the negative control failed, I diagnosed a "tree-change-sensitive gate" and built an
+exclusion for it. No such gate exists.** The same concurrency bug caused the control failure, the
+under-count of passes, and the false non-determinism. **One cause, three symptoms — and I invented a
+second mechanism for the second symptom instead of asking whether one explanation covered both.**
+
+*The general form, and it is cheap to apply: when two controls fail in the same run, check whether
+one cause explains both BEFORE building machinery for the second.*
+
+⚠ Confirmed independently on the live tree: both "unstable" gates return `0 0 0` across three serial
+runs. **The instability was mine.**
+
+## 487 · My cost alarm measured one population and claimed about another
+
+I ran `du -sh --exclude=.git .` → **7.7 GB** and raised an alarm about copying that six times. **The
+sandbox is 321 MB**; the 7.3 GB is `.venv`, which `ignore_patterns` already excludes.
+
+*The session's recurring error — measured one population, claimed about another — this time aimed at
+my own cost model, which is the direction that stops work rather than the one that fabricates it.*
+
+## 488 · Just over half the assurance suite cannot gate anything
+
+**31 of 59 scripts fail on an untouched tree.** Only a gate that passes untouched can flip, so the
+suite's protective surface is **28 gates, not 59** — the live debt R561 found, now counted.
+
+## 489 · The deliverable was stating TWO different definitions of "core"
+
+`STATEMENT.md` line 90 says **the definition is ② ∧ ③, ① and ④ retired** *(R519)*. `STATEMENT.md`
+line 165 and `DEFINITION.md` line 1820 both say **the definition is ② ③ ④**.
+
+**The artifact decides:** R519's `results/` records clause ④ dropping **0 of the 9 ②-passers —
+identical to ①**. So ④ adds nothing, line 90 is current, and the other two are **stale**: written
+while ④ was still in and never updated when R519 retired it. **A correction must reach the artifact
+that provoked it** — the retirement reached the claim table and stopped there.
+
+⚠ **`definition_matches_the_record.py` PASSES.** Its unit is *document vs artifact*, never *document
+vs itself*, so the deliverable held two incompatible statements of its own central claim and cleared
+the gate named for checking exactly that. **Found by reading the object, not by running a gate.**
+
+## 490 · Under annotate-never-rewrite, a consistency metric can never reach one
+
+Both stale lines were **annotated, not rewritten** (L81). Re-measured, the count **did not move** —
+still 2 distinct sets, now spread over 5 sites, because the superseded sentence is still there.
+
+⭐⭐⭐ **L81 and any "does the document assert one X" metric are jointly incoherent as stated.** The
+estimand had to become **LIVE** sets — a site is dead if a supersession marker follows it within 260
+characters — and only then does it read **1 distinct set, `②③`, agreeing with the artifact.**
+
+*A doctrine and a measurement can each be right and jointly wrong, and only running the repair and
+watching the number refuse to move makes it visible.*
+
+## 491 · Two recogniser defects, both caught by the positive control
+
+① **`(.{0,60})` with `re.S` consumed across sentence boundaries**, so `finditer`'s non-overlapping
+matches cannibalised each other — **3 planted sentences found as 1.** ② **It captured clauses the
+sentence RETIRES**: line 90 reads *"the definition is ② ∧ ③. ① and ④ are retired"* and v1 recorded
+**①②③④**.
+
+⚠ **A recogniser that cannot tell assertion from retirement is measuring mentions, not definitions.**
+Fixed by cutting at the first negation cue, with both readings reported as a specification axis; they
+agree.

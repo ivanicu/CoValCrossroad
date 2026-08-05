@@ -1,14 +1,14 @@
 {
  "source_sha": "ec80b1ef7d7a5fff",
  "coverage_before": [
-  588,
-  589
+  591,
+  591
  ],
  "coverage_after": [
-  589,
-  589
+  591,
+  591
  ],
- "rows": 589,
+ "rows": 591,
  "readmes_created": [],
  "readmes_updated": [
   "A01_can_this_release_be_analysed_at_all",
