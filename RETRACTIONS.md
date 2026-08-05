@@ -14865,3 +14865,25 @@ positive class stand unexamined.*
 R624 reported a three-cell specification curve; R625 a three-band null over three seeds. **Tenth
 uncomputed quantifier in seventeen closing lines — and the first to manufacture a fault rather than
 excuse one.** §4's claim that the direction is not systematic now has a measured instance on each side.
+
+## 573 · "Every mechanical route to provenance has failed" — false, and false pessimistically
+
+**R621's exact-string intervention worked**, and `derive()` re-derives 119 values and would break on
+drift. **What failed is narrower: routes that INFER provenance from value coincidence.** Routes that
+check an **author-declared binding** work.
+
+⭐ **So the bound is not "provenance cannot be mechanised" but "provenance cannot be INFERRED — it
+must be DECLARED and then checked."** A different sentence with a different consequence for the next
+site. **Eleventh uncomputed universal in eighteen closing lines, and the second this arc to
+manufacture a fault rather than excuse one.**
+
+## 574 · The register is committed because four predictions were tested, not because it reads true
+
+Each line was written as a **prediction and tested by intervention**: UNVERIFIED citation → **caught**;
+laundered value → **not caught**; a real value asserted as a different quantity → **not caught**;
+a drifted re-derived label → **caught**. All four held, positive control fired, placebo returned zero,
+tree restored after every arm.
+
+⚠ **Mechanism correction inside the register:** the drift was caught by **transitive anchoring**, not
+by re-derivation — so **a drift in a `DEFINITION.md` value that `STATEMENT.md` does not also carry is
+untested by this design.**

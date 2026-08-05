@@ -3081,3 +3081,22 @@ Validated by reproduction against R603 — home evaluable, second not, missing e
 the g=0 control showing that stripping the home release of the same two fields reproduces the second
 release's exact failure. ⚠ **NECESSARY, NOT SUFFICIENT**: R602 measured the second corpus as disjoint
 in content, which no schema check can see.
+
+## R628 · What the assurance suite establishes about a number — the bound
+
+> **Provenance cannot be INFERRED. It must be DECLARED, and then checked.**
+
+Four register lines, each written as a prediction and tested by intervention; all four held.
+**UNVERIFIED citation → CAUGHT · laundered value → NOT caught · a real value asserted as a different
+quantity → NOT caught · a drifted re-derived label → CAUGHT.**
+
+The two measured limits behind it: **the collision floor** — an invented decimal matches a persisted
+artifact value **35.15 / 36.12 / 37.60%** of the time at 4 dp — R625's own verdict is
+`UNVERIFIED`, since its decomposition's controls failed; **this null is the measured part**
+(R625, 3 seeds × 4000) — and **the
+rarity signal being the gate's own selection**, gate-verified precision **0.072 → 0.905** across the
+threshold sweep against gate-blind **0.450 → ~0.70** (R627).
+
+⚠ The drift was caught by transitive anchoring, not by re-derivation, so a drift in a value
+`STATEMENT.md` does not also carry is untested. ⚠ The register's completeness is not testable from
+its own lines.

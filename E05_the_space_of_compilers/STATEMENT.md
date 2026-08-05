@@ -473,6 +473,41 @@ silence. **2 of the 3 aggregators that can see k, not 2 of 5.** *(R481)*
 Everything above is a claim someone can act on. Everything below is the price and the
 specification for paying it.*
 
+## What the assurance suite establishes about a NUMBER — the bound *(R628)*
+
+> ## Provenance cannot be INFERRED. It must be DECLARED, and then checked.
+
+**Every route that tried to infer provenance from a value's coincidence with an artifact failed, each
+for a measured reason. Every route that checks an author-declared binding works.** The four lines
+below were written as **predictions and tested by intervention** — the register is committed because
+all four held.
+
+| an intervention | the suite | verified |
+|---|---|---|
+| a value cited to a round whose verdict is **UNVERIFIED** | **CAUGHT** — `statement_provenance` | ✓ |
+| a value **laundered** — written into `DEFINITION.md` first, then cited to a settled round | **NOT caught** | ✓ |
+| a **real** artifact value asserted as a **different quantity** in a section citing its round | **NOT caught** | ✓ |
+| a **drifted** value for a label the gate re-derives | **CAUGHT** | ✓ |
+
+⚠ **Mechanism note, because the wording could mislead:** the drift was caught by
+`statement_provenance`'s **transitive-anchoring** clause — the statement's copy became orphaned — not
+by re-derivation. **A drift in a `DEFINITION.md` value that `STATEMENT.md` does not also carry is
+untested by this design.**
+
+**The two measured limits behind the bound:**
+- **A 36% collision floor** — R625's verdict is `UNVERIFIED` because its *decomposition*'s
+  controls failed; **the null below is the part that was measured**, seeded and replicated 3×.
+  *(R625, 3 seeds × 4000)* — an invented decimal matches a persisted
+  artifact value **35.15 / 36.12 / 37.60%** of the time at 4 dp, ~92% at 3 dp, **100%** at 2 dp. So
+  *"the value appears in an artifact"* is not evidence.
+- **The rarity signal is the gate's own selection** *(R627)* — gate-verified values peak at `m0 = 9`
+  while gate-blind README-table values peak at `m0 = 1`, precision **0.072 → 0.905** against
+  **0.450 → ~0.70**. High multiplicity is the **citation** signature, not the measurement signature.
+
+⚠ **This register's COMPLETENESS is not testable from its own lines** — a defect class no line names
+is invisible to a test derived from the lines. **What is claimed is that these four behaviours are
+what they say; not that they exhaust the ways a number can be wrong.**
+
 ## What a next site must provide for clause ② — the register as a specification *(R618)*
 
 §2 says the impossibility register doubles as the specification for the next site. **This is that specification**, derived from ②'s own wording and validated by requiring it to reproduce R603's verdict on the two objects on disk — which it does: **home evaluable, second not, missing exactly a rubric and a core.**
