@@ -16227,3 +16227,35 @@ name. Writing a prediction for it afterwards would have scored me against an ans
 read. The round carries a forecast on part B only and the record stays at nine. **The cheapest way to
 fake calibration is to pre-register what you already know, and it leaves no trace unless the round
 says so itself.**
+
+## 741 · The pre-registered kill fired: I registered extraction, and the range was 9× larger
+R673 registered that >=70% of the 249-vs-167 gap was the NEXT-extraction rule rather than the set of
+commits walked, with a kill if the two walks differed by more than 20 commits. They differ by **833**
+— the gate walks 400, the history holds 1,233. Varying each factor alone: extraction +16 (10.1%),
+range +143 (89.9%). **The hypothesis is dead and the kill was the thing that killed it, not a
+re-reading of the result.** The lesson is narrower than "I guessed wrong": I formed the hypothesis
+after reading the gate's regexes and before reading its walk, and I did not notice that reading half
+an instrument makes the unread half invisible rather than uncertain.
+
+## 742 · The freeze is a MOVING WINDOW, so 68 of its 167 entries can never be retired
+The gate's `next_lines(n=400)` bounds every commit-body check to the last 400 commits. 167 freeze
+entries all resolve to real commits, but only **99 are still inside that window**; **68 (40.7%) have
+scrolled out** and are unreachable by the only instrument that could ever retire them. A further 9
+in-window entries are no longer flagged by the gate's own rule. **R672 called the freeze a drain
+because it only fills. It also leaks, silently, at the far end — and the single retirement in 26
+transitions was not a habit that lapsed, it is what the mechanism permits.**
+
+## 743 · The PROVENANCE escape never opens the file it accepts
+R672 was the first round in this repository to take the gate's provenance escape, citing
+`results/freeze_history.json` for the number 249. That file does not contain 249. The escape passed
+because `PROVENANCE` matches the SHAPE of a citation — a path, an `R###` — and performs no read.
+**A citation gate that does not open the cited artifact certifies the FORM of provenance and licenses
+its absence**, which is worse than no gate, because a false citation now carries a passed check.
+
+## 744 · I reported a residual of −77 that was an accounting artifact of my own baseline
+R673's first output printed `residual (gap − ext − rng) = −77` beside a 2×2 decomposition. The
+arithmetic could not close because the "gap" was defined against the FREEZE, which is not one of the
+four cells. Resolved, the −77 is the 68 scrolled-out entries plus 9 no-longer-flagged ones — a
+finding, not a remainder. **A residual computed against a baseline outside your own design is not a
+measure of what you failed to explain; it is a measure of a mismatch you introduced, and printing it
+as "residual" makes a discovery look like noise.**
