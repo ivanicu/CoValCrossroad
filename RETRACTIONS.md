@@ -13475,3 +13475,30 @@ block was written before the verdict text, and the verdict is UNVERIFIED.**
 branch written while thinking about the finding, the control read afterwards as a status line. **The
 remedy that worked was mechanical: compute and print the controls, then let the verdict be a function
 of them, with no sentence written in between.**
+
+## 449 · The three deliverable documents are three consecutive eras, not three parallel views
+
+Rounds cited beside an attributed decimal: **`FORMULATION.md` R220–R355**, **`DEFINITION.md`
+R366–R530**, **`STATEMENT.md` R451–R559**. **FORMULATION shares zero rounds with either other
+document**, and the gap from R355 to R366 is **11 rounds**.
+
+⭐⭐⭐ **One fact explains three separate failures.** No gate reads FORMULATION *(R566)*; no prose
+label joins it *(R586)*; no cited round joins it *(R587)*. **All three follow from its documenting an
+era the other two moved past.** R566 framed it as *"three documents, a gate spanning two"* — a
+coverage gap. **The third document is not beside the other two; it is behind them.**
+
+⚠ **Separation is measured; supersession is not.** R566 found **24 shared decimal values** between
+STATEMENT and FORMULATION despite zero shared rounds — the same quantities may have been re-measured
+later, or they may be different quantities that coincide. **The ranges cannot distinguish those**, and
+**"superseded" is the flattering reading, because it retires an unaudited 156 KB document by
+narrative rather than by evidence.**
+
+## 450 · My own data had already answered the question my closing line asked
+
+The line asked whether `FORMULATION.md` *"cites rounds at all in the sense the other two do."*
+**R587 had measured 24 rounds carrying attributed decimals in it, one round earlier.** The dichotomy
+was false on arrival: it cites rounds, and it cites **different** ones.
+
+⭐ **The tell: a closing line that poses a question the round's own artifact answers.** R587's output
+is three numbers wide — 27, 25, 24 — and I wrote *"whether it cites rounds at all"* underneath it.
+**The next-gradient sentence is written last, when the round's numbers have already scrolled past.**
