@@ -16953,3 +16953,34 @@ A field named `a2` is not guaranteed to hold A2. Instrument unit: a field name. 
 mean. **The three false positives are what the gap between those units looks like when the instrument
 is loosened one notch at a time** — and the fourth test is stricter, not more correct in principle.
 It is simply the one that was controlled.
+
+## 837 · The agreement between a2 scores and ② verdicts is FORCED, and I nearly reported it as a check
+`R360/run.py` computes `clause2_admits` from `a2_vec` — **② is an A2 threshold**. So ②-admitted arms
+scoring above ②-rejected ones is an arithmetic consequence wherever the a2 values share R360's
+scoring run, and this corpus records nothing about which run any artifact's a2 came from. My first
+verdict read *"the scores and the verdicts are consistent — a precondition for every claim this arc
+built on that ledger, and it had never been checked."* **That is a derivation dressed as a check.**
+The honest reading: a derivation if the runs are shared, a consistency check if not, and **the corpus
+cannot say which**.
+
+## 838 · A saturated statistic is the signature of a forced result, and it was in the output first
+All three sources returned percentile **exactly 100.0** — the ceiling of the rank statistic. **That
+should have stopped the interpretation before it started**: a value pinned at the maximum the design
+can return is what an arithmetic identity looks like, not what an empirical agreement looks like.
+**The tell was in the numbers before it was in the code**, and I read the code only after writing a
+verdict the numbers had already contradicted in form.
+
+## 839 · R495 could not have resolved, and reporting "not resolved" without the floor would mislead
+With n=7 and m=2 the exact null has 21 cells, so the minimum achievable two-sided p is **0.0476** —
+above 0.05 at two decimal places. Its p=0.0952 is **twice its own floor**, i.e. the most extreme
+outcome the design permits short of the single best cell. **A non-resolution from a design that
+cannot reach the threshold is silence, and printing it beside two resolved sources invites reading it
+as disagreement.** The floor is now reported per source.
+
+## 840 · Third consecutive closing line proposing a comparison over a population of about one
+R685's NEXT proposed a derivation; R694's proposed data that does not exist; R695's proposed "which
+arm of a PAIR scores higher" when R695 had itself measured the assemblable-pair count at **1**.
+**Three in a row, each written immediately after the round that measured the population, and each
+ignoring that measurement.** The closing line is written last, when the round's own numbers have
+already been reported and attention has moved on — **so the sentence most likely to be acted on is
+the one written with the least of the round in mind.**
