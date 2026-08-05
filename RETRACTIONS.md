@@ -15524,3 +15524,46 @@ needs a different round"* as IMPOSSIBLE. **It needed one pass over four files** 
 the cap match where the head does not, with a token planted past the cap as its own control.
 ⭐ **§4's `a wall never checked`. The result was NONE TODAY** — so the wall would have concealed
 nothing but a reassurance, which is exactly why nobody would have gone back for it.
+
+## 652 · R649's NEXT line accused my own code of a failure it was not committing
+
+I wrote that the hand-written `population_of()` table is *"a control that fails toward `nothing to
+see`."* **False.** R649 prints `1 further site(s) UNVERIFIED — population not re-derivable` and
+carries that count into its verdict string. ⭐ **UNVERIFIED is named, never folded into an
+acquittal** — the three-valued discipline working exactly as designed. What survives is narrower:
+a hand table cannot grow with the corpus. **The closing line is the highest-risk sentence in a
+report and it is still the one with no control attached.**
+
+## 653 · A control's threshold frozen from a previous tree state
+
+R650's KILL hard-coded R649's published **900** and fired at **901**. The resolver was right; the
+**threshold** was stale — R649 measured before R650's own directory existed, and R601's glob has no
+self-exclusion. ⛔ **Corpus growth inside a control's threshold — the third time this mechanism has
+moved a number (R636, R648).** A control's two sides must be the same object, and **a constant from
+a previous tree is a different object.** Repaired by re-deriving the expectation with the same hand
+method on today's tree (**902**, matched exactly).
+
+## 654 · The branch that handles loop-varying paths could only run when the path did not vary
+
+R650 v1 computed `direct = path_of(target)` with the loop variable **unbound**, then guarded the
+per-loop resolution with `elif direct is not None`. ⛔ **Dead code by construction**: the branch
+written for `(d / "README.md")` inside `for d in …` could fire only in the case where the path did
+not depend on `d`. The second positive control is what found it — **a single positive control would
+have passed and shipped this.**
+
+## 655 · A bound compared against an exact count, and the difference was a real object
+
+R650's second control expected **425** (`d.is_dir()` filtered) and got **426**. The resolver is
+right: it reports what the **glob** yields and deliberately does not model the loop's
+`if not d.is_dir(): continue`, because a resolved population is declared an **upper bound**. The
+extra member is `A23_…/R276_PREDICTION.md`, a stray file matching the round-directory pattern.
+
+## 656 · A/B was the wrong fork — a threshold on the instrument cannot decide a question about the object
+
+R650 pre-registered world **A** *"the corpus is why R649 returned UNVERIFIED"* against world **B**
+*"my code is"*, separated at a **50% resolution rate**. The measured rate is **47.3%**, so A is the
+literal verdict. ⛔ **But resolving the single largest failure class (54 of 192 sites) takes it to
+62.1% and flips it to B.** A resolution rate is a property of the **RESOLVER**, so the threshold
+measures how much code I chose to write. ⭐⭐⭐ **The meta-separator: not which world survives, but
+that the decomposition was wrong.** Without the specification curve I would have reported a literally
+correct verdict as a fact about the corpus.
