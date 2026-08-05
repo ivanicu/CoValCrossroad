@@ -13258,3 +13258,27 @@ from the outside — which is the reason this entry exists rather than a note sa
 ⭐ **And the instrument was discriminating, not uniform**: 1 row states an extension, 2 name a
 baseline without stating one, 7 name neither. **Four distinct states across ten rows** — the check
 R575 taught me to run before writing any verdict.
+
+## 435 · The marker was wrong in both directions at once
+
+R579 corrected row 2's scope marker from one axis to two, and called that the fix. **Measured across
+the arc's artifacts: three axes have measurements against that extension count — `baseline` (9
+artifacts), `population` (6), `target` (2) — and `regime` has zero.**
+
+**Error one, under-naming:** `population` was varied in **6** artifacts and appeared in no caveat.
+R579's "two axes, not one" was itself short by one.
+
+⭐⭐⭐ **Error two, and it is the one worth the entry: the fix is NOT "list all four."** `regime` has
+**no measurement** against this number. **Listing it as a condition would assert conditioning nobody
+measured** — and that is the *flattering* direction, because **a longer caveat reads as more
+careful.** A scope note can overclaim by being generous, and it looks like rigour while doing it.
+
+**The marker now names the three measured axes and states `regime` is untested.** *Conditioned* and
+*measured to be conditioned* are different claims; only the second is evidence.
+
+⚠ **Not established: that `regime` does not condition it.** Only that **nothing has measured
+whether it does** — the distinction between an absent effect and an absent measurement, which is the
+same one P6 makes about a null.
+
+⭐ **The instrument was discriminating: 9 / 6 / 2 / 0 across four axes**, four distinct values rather
+than a uniform column — the check R575 taught me to run before writing any verdict.

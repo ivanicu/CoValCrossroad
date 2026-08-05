@@ -1,0 +1,39 @@
+{
+  "world": "B",
+  "per_axis_artifacts": {
+    "target": [
+      "R288_does_the_partition_survive_the_target",
+      "R558_the_target_is_missing_from_the_scope_colu"
+    ],
+    "baseline": [
+      "R301_is_the_judge_a_shrink_or_a_reorder",
+      "R327_clause2_names_no_reference",
+      "R328_the_three_readings_are_one_budget",
+      "R330_what_the_conservative_reading_costs",
+      "R331_what_makes_a_clause2_reference_safe",
+      "R332_the_closure_level_derives_reading_A",
+      "R446_clause_two_over_every_admissible_referenc",
+      "R472_the_register_half_complies",
+      "R527_is_clause_two_a_choice"
+    ],
+    "population": [
+      "R294_the_definition_against_everything",
+      "R301_is_the_judge_a_shrink_or_a_reorder",
+      "R330_what_the_conservative_reading_costs",
+      "R404_which_conjunct_of_clause_three_does_the_w",
+      "R444_clause_three_reconciled",
+      "R519_only_clause_three_narrows_what_two_admits"
+    ],
+    "regime": []
+  },
+  "measured": [
+    "target",
+    "baseline",
+    "population"
+  ],
+  "unmeasured": [
+    "regime"
+  ],
+  "neg_control_hits": 0,
+  "finding": "the marker should name what was MEASURED, and say the rest is untested"
+}
