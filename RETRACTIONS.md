@@ -14791,3 +14791,31 @@ on it.
 `0.5451` in an `R294` section **still flags C3**. The output that is "100% about numbers" still
 condemns a value the current gate verifies — **section scope did not repair R623's case, it hid the
 other 447.**
+
+## 565 · An invented decimal "anchors" 36% of the time — the anchoring test had no measured null
+
+**23,823 persisted numeric scalars over a 4-digit space.** A uniform random decimal matches an
+artifact value at **4 dp in 36.12% · 37.60% · 35.15%** of draws (3 seeds × 4000), at **3 dp in ~92%**,
+at **2 dp in 100%**.
+
+**Rescoped:** R622's `T2 anchorable 79.0%` carries a **36% floor** — excess **43 points, not 79**.
+R624's 91.1%/96.3% pass rates are substantially collision. **R625's own F1/F2 decomposition is
+VOID.** **R621's laundering demonstration stands** — that was an exact write, not a coincidence.
+
+⭐ **§1 G2's mirror, which had no entry until now: a HIT from an instrument never shown to return a
+MISS is as empty as a zero from one never shown to return non-zero.** Four rounds were built on a
+test whose false-positive rate took one minute and three seeds to measure.
+
+## 566 · Two controls failed twice with the same signature, and both times they were right
+
+The fabricated decimal and the placebo both classified `F1` under a 2–6 dp sweep **and** under a band
+tied to the literal. **v1 loosened precision to admit legitimate rounding and made the test unable to
+fail; v2's repair was correct and insufficient.** *Two failures with the same signature are not a bug
+to patch — they are the instrument reporting its own resolution.*
+
+## 567 · The flag set I promised to read was never 82
+
+Recomputed: **112**. R624 counted string-form value positions; this round counts parsed numerics.
+**"The smallest honest flag set this project has produced" was an uncomputed superlative attached to
+an instrument-specific number** — with *"the only thing standing between this arc and a provenance
+claim"* in the same sentence.
