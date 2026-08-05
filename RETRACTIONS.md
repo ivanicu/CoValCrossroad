@@ -15642,3 +15642,27 @@ R651 derived *"the true ceiling of any intra-procedural evaluator is `(172+94)/3
 Corrected: **`(172+123)/364 = 81.0%`**, rising to **97.3%** with callers resolved, and **10 sites
 (2.7%) are irreducible at any static depth**. *A derivation inherits every error of its inputs and
 looks exactly as solid as a correct one.*
+
+## 666 · A comparison made against a number retracted in the same round
+
+R652's NEXT: *"…25 D1 sites collapse to D0 and **the caller-dependent count falls below half**."*
+**59 − 25 = 34 = 57.6% of 59.** ⛔ It falls below half only of R651's **retracted 98** (34.7%). The
+counts 14, 11 and 25 are all correct — **the comparison is the defect**, and it read as true because
+the wrong denominator was the one still in my head. *A retracted number does not leave the working
+memory of the person who retracted it.*
+
+## 667 · The estimand of R653 defined its own winning class wrongly
+
+v1 wrote: *"COLLAPSES → the site is really D0 and **D1 over-counted it**."* ⛔ **False.** A site whose
+caller passes a module constant is still caller-dependent — no evaluator inside the function body
+can resolve it, which is exactly what D1 asserts. **D1 = 59 is CONFIRMED, not over-counted.**
+⭐ The round measures a *different* quantity that I nearly reported as that one: **whether going one
+level up ANSWERS the question. For 31 of 59 it only moves it.** Caught before the round shipped;
+recorded because the wrong framing was in the docstring, the class name and the verdict string
+simultaneously — **a mis-specified estimand propagates to every surface at once.**
+
+## 668 · And the verdict string characterised a number instead of computing it
+
+R653 v1 printed *"D1=59 is **close to** the real count"* on a 27.1% figure. ⛔ **`close` was typed,
+not computed** — §4's `the verdict string is not a computation`, and the fourth instance in this arc.
+Repaired to derive the descriptor from the measured share against printed thresholds.
