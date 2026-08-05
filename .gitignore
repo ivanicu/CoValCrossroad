@@ -37,3 +37,22 @@ survey.jsonl
 # campaign-anchored globs that must find them; never committed.
 E99_fixtures/
 99_fixtures/
+
+# ── atlas: release-derived content must not be redistributed ──────────────────
+# The remote is PUBLIC and `data/*.jsonl` is excluded above precisely so this
+# repo never republishes the CoVal release. `atlas/` regenerates that release in
+# a different file format -- per-prompt JSON holding every prompt, every candidate
+# answer and all 28,165 annotator rationales -- so it is the SAME redistribution
+# wearing a different extension. The generators are committed; their output is not.
+# Rebuild with: python atlas/extract.py && extract_corpus.py && embed.py && add_geometry.py && add_layers.py
+#
+# ⚠ Matching the THING, not the PLACE (the lesson recorded above): these patterns
+# name release-derived artefacts by what they CONTAIN, so moving atlas/ cannot
+# silently re-expose them.
+atlas/p/
+atlas/corpus.json
+atlas/payload.json
+atlas/emb.npz
+atlas/_xy.npy
+atlas/_lab.npy
+atlas/_k.txt
