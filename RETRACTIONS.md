@@ -14714,3 +14714,31 @@ A-vs-B discriminator was void.** Corrected above.
 
 R618 was the third-object specification, not a gate round. **Fifth uncomputed count in nine closing
 lines** — and this one inflated my own drift rather than excusing it.
+
+## 556 · "Every number in DEFINITION.md is re-derived from an artifact" — 119 of 642
+
+The gate's own opening docstring line is off by a factor of **five**. Measured partition:
+**T1 gate-verified 18.5% · T2 anchorable-but-unchecked 79.0% · T3 unbacked 2.5%.**
+
+**World C: the repair R621 implies is mechanical, not epistemic.** The laundering path is real and is
+**not** the normal case — but `derive()` is hand-enumerated, so its coverage grows only when someone
+adds a label.
+
+## 557 · My own fabricated number read as "anchored", through the record of its own exposure
+
+R622 v1 tested anchoring by raw substring over artifact text. Under it **`0.9187` — invented in
+R621's source, with no measurement behind it — landed in T2 ANCHORABLE**, because R621's artifact
+**records the mutation string containing it**.
+
+⭐ **The laundering path completed itself through the audit record.** Raw-text presence is not
+anchoring; it is *"these digits occur somewhere in a JSON file"*, including prose fields and quoted
+retractions. Repaired to **value positions only**, `0.9187` lands in T3 and the g=0 control passes.
+
+⚠ The repair also normalised number formats, so T2 rose 65.9% → 79.0% and T3 fell 15.6% → 2.5%.
+**Two changes in one edit; the bound direction is unchanged and T3 remains understated.**
+
+## 558 · Check #221 — "the cheapest repair" was never compared
+
+An uncomputed comparative in a closing line. §4: a comparative word must be computed, not typed.
+✓ The same line's claim about `definition_matches_the_record` **was** checked against the object
+before being built on, and held.
