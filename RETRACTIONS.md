@@ -14202,3 +14202,34 @@ one that matters for the definition is **`gen − generic` — clause ②'s own 
 
 ⚠ **The clause names a bar its subject cannot be shown to clear**, and R603 already established that
 the second corpus has no released pool, so even that comparator is a substitute.
+
+## 512 · Clause ②'s comparator cannot be rebuilt from this repository, and neither can 97% of the evidence
+
+`sat_genericpool16.npz` sits in `corebench/results/` and **no script in the tree writes it** — nor do
+**98 of 101** scored `sat_*.npz` artifacts. **The construction step for the whole scored evidence base
+lives outside this repository.**
+
+⭐ **Not a defect specific to ②** — but it means R604's open question (are `POOL[0:4]` and
+`genericpool16[:4]` one arm?) is **UNVERIFIABLE HERE**, not merely unverified. R454's own docstring
+already separates them: *"`genericpool16` k=16 on all 968 prompts; `full` is the RUBRIC
+(prompt-SPECIFIC)"*.
+
+## 513 · My detector found 3 builders, which proves it can see and not that it sees most
+
+The positive control passed at **3 of 101**. That is enough to show the detector **can** return a
+positive, and nowhere near enough to show it is **sensitive** — indirect construction via an f-string
+or a loop over stems is invisible to it.
+
+⭐ **So 97% is an upper bound from a proven-able-to-see instrument, not a proven-sensitive one**, and
+the admissible claim is *"the construction is not locatable here"*, never *"no construction exists"*.
+*The zero-versus-silence distinction, turned on my own search instead of on a corpus.*
+
+## 514 · A location asserted and a distinction elided, in one closing line
+
+R604 closed with `genericpool16[:4]` being *"assembled **in corebench**"* — **a location never
+checked, and wrong.** And with *"the **scorer** can settle what a search cannot"* — **reading
+construction code settles the construction, never the provenance of the committed bytes**, which is
+§4's *determinism read as currency* compressed away in a subordinate clause.
+
+⚠ **IMPOSSIBLE, now named where it belongs:** even a found builder proves construction, not that the
+committed matrix came from it. **That needs a write-time hash these artifacts do not carry.**
