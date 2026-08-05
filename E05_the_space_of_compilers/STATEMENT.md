@@ -378,7 +378,24 @@ silence. **2 of the 3 aggregators that can see k, not 2 of 5.** *(R481)*
 Everything above is a claim someone can act on. Everything below is the price and the
 specification for paying it.*
 
-## The register, ordered by what it costs to remove
+## The register, ordered by WHO CAN REMOVE IT — then by effort
+
+⚠ **Corrected 2026-08-05 *(R547)*.** This table was ordered by **effort alone**, and read as if it
+ordered by **reachability**. Row 1 — *"a schema line"* — is the least work of any entry and is the
+one thing on the page **this site cannot do**: `source_rubric_item_ids` appears nowhere in `data/`
+or `corebench/`, it is a field the **publisher** must add to a shipped release, and the mapping it
+would carry is only **6.6%** reconstructible here *(R509)*. Ranking it first was true in keystrokes
+and false in availability — **and §2 says the register doubles as the specification for the next
+site, which makes agency the load-bearing axis, not keystrokes.**
+
+⭐ **Reachability groups, which is the ordering that can be acted on:**
+**① ON THIS SITE** — row 2 (an install), rows 3+4 (⭐ **nested, one requirement at two bars**, *R546*;
+and needing a **code edit** before compute is worth spending, *R544/R545*).
+**② NEEDS THE PUBLISHER** — row 1. **③ NEEDS ANOTHER SITE** — rows 5, 6.
+**④ NEEDS A DECISION, NOT DATA** — row 7.
+
+**The effort ordering is kept below unchanged**, because it is still the right secondary key and
+because annotating beats rewriting.
 
 **§2 says the impossibility register doubles as the specification for the next site. It only does
 that if it is ordered** — otherwise a reader cannot tell the one-field item from the second-team item.

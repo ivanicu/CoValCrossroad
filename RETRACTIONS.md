@@ -12250,3 +12250,58 @@ different criterion, and the nesting result does not depend on either count.**
 ⭐ **Left unstated, that would have manufactured a fifth register defect out of a qualifier I chose
 not to apply** — the same instrument-unit-versus-claim-unit mismatch behind most of this session's
 retractions, caught this time before it became an entry rather than after.
+
+## 371 · The ordered register was ordered on the wrong axis — and the page calls the ordering its deliverable
+
+**`STATEMENT.md`'s register header reads:** *"Every entry below is already stated somewhere in this
+page or in `DEFINITION.md`; **what is new is the ordering, and the ordering is the deliverable.**"*
+
+⛔ **It orders by EFFORT and reads as if it orders by REACHABILITY.**
+
+**Row 1 — *"a schema line"* — is ranked cheapest, and it is the one entry this site cannot do.**
+`source_rubric_item_ids` appears nowhere in `data/` or `corebench/`; it is a field the **publisher**
+must add to an already-shipped release, and the mapping it would carry is only **6.6%**
+reconstructible here *(R509)*. **True in keystrokes, false in availability.**
+
+⭐ **§2 says the register doubles as the specification for the next site — which makes "who can do
+it" the load-bearing axis and "how many keystrokes" the secondary one.** Re-grouped:
+
+| group | rows |
+|---|---|
+| **on this site** | 2 (an install) · **3+4 nested** *(R546)*, needing a code edit first *(R544/R545)* |
+| **needs the publisher** | 1 |
+| **needs another site** | 5, 6 |
+| **needs a decision, not data** | 7 |
+
+**That moves the cheapest-looking row from first to the third group, and makes row 2 — an install,
+verified genuinely absent *(R538)* and confirmed by a real OOM *(task 654)* — the cheapest thing
+actually reachable.**
+
+⭐⭐⭐ **The defect was in the one thing the page names as its own contribution.** Everything else on
+that page is a claim with a scope; the ordering was the only original object, and it sorted on the
+axis that cannot be acted on. **An ordering is a claim about what to do next, and it needs the same
+scope discipline as a number.**
+
+## 372 · Row 2's cost label collapsed two remedies, and the cheaper one is already installed
+
+**R547 made row 2 the cheapest reachable entry, at cost "an install".** Its own remedy column reads
+**"quantisation, or offload"** — two paths, one label.
+
+| path | packages | present |
+|---|---|---|
+| quantisation | `bitsandbytes`, `optimum`, `auto_gptq`, `awq` | **none** |
+| **offload** | `accelerate` | ⭐ **YES** |
+
+⭐ **So the cost is "an install (quantisation) OR a slower run (offload, already here)".** The
+remedy column was right and the cost column understated what is reachable — **the same
+effort-versus-agency collapse R547 found one row above, repeated one column across.**
+
+⚠ **What this round refuses to do:** estimate whether offload is fast enough for 15,472 judge calls.
+**R540–R542 spent three rounds learning that a modelled runtime is worthless** — 7.25 h became
+4.63 min once the logs were read. **That number requires a 7B offloaded run, which is a measurement,
+not an install, and it is named rather than guessed.**
+
+⚠ **Environment fact: expires at the next infra event.**
+
+⚠ **Process, fourth occurrence: R547 was built, run, and left uncommitted until this round.**
+Reporting is not committing.
