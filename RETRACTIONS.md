@@ -13360,3 +13360,29 @@ the same command printed **`1 of 3`** directly beneath the words *all three site
 the resulting false claim reached the deliverable.** ⭐ The tell was on screen: **a verification
 printed immediately after an edit contradicted the edit's own success message.** Fixed in the
 next command.
+
+## 441 · The repeated numbers agree, and the check can only detect disagreement
+
+Across the statement: **114 decimals, 92 distinct, 14 appearing more than once, and 0 label
+fragments carrying two different values.** Every repeated number agrees with its copies.
+
+⚠ **The identification limit is the shape of the check, not a footnote.** The label is a 34-character
+prefix, which **detects disagreement and can never prove agreement** — two quantities can share a
+prefix and one quantity can be phrased two ways. **`0` means "no collision surfaced", not "no drift
+exists".**
+
+⭐ **This is what a clean result looks like when stated honestly.** P16 warns that a number stated
+twice drifts; **114 decimals with 14 repeats and no detected drift is evidence the discipline held,
+it is not proof, and saying so costs nothing.**
+
+## 442 · The checker under-reported and the claim was true
+
+R583's final command printed **`marked sites now: 2`** while I reported all three sites marked.
+**Re-measured with a different pattern: 3 of 3.** The counter's own regex missed one spelling of the
+marker.
+
+⭐ **A checker can under-report as easily as a claim can over-report.** One round earlier the
+opposite happened — I asserted a landing that had not occurred and the re-measure caught it. **The
+correct response is identical in both directions: when a number and a claim disagree, measure again
+with a different instrument rather than deciding which to believe.** Here that produced a
+confirmation; there it produced a retraction.

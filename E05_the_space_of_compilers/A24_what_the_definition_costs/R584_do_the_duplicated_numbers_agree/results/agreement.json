@@ -1,0 +1,8 @@
+{
+  "world": "A",
+  "n_decimals": 114,
+  "n_distinct": 92,
+  "n_repeated_values": 14,
+  "disagreeing_labels": {},
+  "identification": "PARTIAL \u2014 a 34-char label prefix detects disagreement but cannot prove agreement"
+}
