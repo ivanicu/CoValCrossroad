@@ -16105,3 +16105,28 @@ data I called missing turned out to be committed, R668 ran it before writing any
 R353's per-seed `P_arm` at once. **The residual it also surfaced is real and is NOT explained by the
 threshold story: the rise 1→6 is smooth (0.43 → 1.00) while the fall 8→12 is a hard zero
 (0.96 → 0.0000) at both seeds.**
+
+## 725 · "Something disqualifies k=12 categorically" — zero is the MODAL value
+
+R668's NEXT read `topw_k12`'s `P_arm = 0.0000` as a cliff needing explanation. ⛔ **32 of 41 arms
+score exactly 0 at every seed**, spanning **k = 2, 3, 4, 6, 8, 12** — every `random_k*`, every sham,
+`topabs_k4`, `topvar_k4`, `topwvar_k4`, `full`, `promptecho`. **Zero is the modal value; I read the
+default as an event.**
+
+## 726 · R668's level set holds only inside `topw`, and it did not say so
+
+`clause2_admits` contains **`greedy_k4_fit1, indep_k4_fit1, oracle_k4, oracle_k4_fit1` — all four at
+`P_arm = 0`.** So globally min(P | admitted) = 0.0000 vs max(P | rejected) = 0.80 / 0.7575: **not a
+level set.** ⛔ **The same pool-restriction error R667 caught in R665, committed one round later.**
+⚠ The negative control confirms it *does* hold within `topw`, so this is a **scope** failure rather
+than a wrong result.
+
+## 727 · And `P_arm` is not clause ② at all
+
+`P_arm` is R353's probability that an arm survives a random **pool ORDER**. It is **not** ②'s
+admission. ⛔ **I tested the k-band against a different quantity and reported the fit as though ②
+produced it.** ⭐ Every retraction in R665–R669 has this shape: **I reached for the nearest committed
+number and treated it as the quantity my sentence was about** — `P_arm` for ②, R527's curve for the
+full extension, the in-sample ceiling for a baseline. **The gate that would have caught all four is
+`instrument unit == claim unit`, which every one of those rounds printed in its own docstring and
+none enforced.**
