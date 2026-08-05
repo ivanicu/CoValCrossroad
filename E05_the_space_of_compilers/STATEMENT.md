@@ -163,8 +163,20 @@ A **core** for a conversation is a set of criteria such that
 > they are not EVIDENCE FOR the clause, since a clause with no sham sensitivity produces them 57% of
 > the time. ⚠ And **why** they separate is untestable here: "the prompt was withheld" is an
 > interpretation of a verdict, and no counterfactual over the generator exists in this release.
-> ⭐ **F2 therefore stands on its exclusions** *(R703: 20 unique, the largest of the three clauses)*
-> **and no longer on a justification.**
+> ⛔⛔ **AND ITS EXCLUSIONS DO NOT HOLD IT UP EITHER — WITHDRAWN BY R712 ONE ROUND AFTER I WROTE IT.**
+> A clause's UNIQUE exclusions are the arms the other two admit, so F2's ceiling is |F1∩F3| = **23**
+> and its 20 is **20 of 23 POSSIBLE**. A clause admitting only 9 of 42 arms reaches **18.0714** of
+> that ceiling by admission arithmetic alone: **EXACT P(≥20) = 0.1405**, enumerated
+> hypergeometrically over all **445,891,810** admissions, no Monte-Carlo error.
+> ⭐⭐⭐ **AND THE ASYMMETRY IS INVERTED.** Priced against its own ceiling, the clause with the FEWEST
+> unique exclusions is the only one above chance — **F1 4/7 p=0.0003 · F2 20/23 p=0.1405 ·
+> F3 2/5 p=0.5956** — and F1 alone clears BH over the whole 9-cell grid. *"F2 carries the most
+> exclusions" was a statement about its ADMISSION SIZE*, and R703's raw ranking put the only
+> above-chance clause last.
+> ⚠ **This does not say F2 is wrong or that its exclusions are the wrong arms — it says the COUNT is
+> not evidence.** ⭐ **So all three of F2's supports have now fallen: the A2 agreement to circularity
+> (R696), the sham residual to chance (R711), the exclusion count to admission arithmetic (R712).
+> F2 is retained as a CLAUSE and carries no evidential support this site can supply.**
 > *Excludes:* `coval_core_sham` — the same generator with the prompt withheld.
 >
 > **F3 · SIZE AS A TWO-SIDED BOUND, NEVER A VALUE** *(repaired by R702 one round after being

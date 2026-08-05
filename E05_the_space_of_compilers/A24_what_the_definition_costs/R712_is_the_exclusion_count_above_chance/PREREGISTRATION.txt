@@ -1,0 +1,84 @@
+R712 — PRE-REGISTERED BEFORE ANY CODE.  written 2026-08-05.
+
+CHECK #314 ON R711's NEXT LINE — IT HOLDS, AND ONE CLAUSE IN IT NEEDED CORRECTING BEFORE USE.
+  ✓ STATEMENT.md:166 does now say F2 "stands on its exclusions", written by R711 itself.
+  ✓ Four rounds touch a unique-exclusion count (R494, R678, R703, R704); none gives the COUNT a null.
+    R704 came closest — "a count, not a signal" — but argued it from the base rate rather than
+    testing it against one.
+  ⚠ AND A NUMBER IN MY OWN HEAD WAS WRONG: I estimated F3 admits ~20 arms. It admits 27. Recomputed
+    from the ledger, not carried forward. The ceiling below depends on it.
+
+⭐ THE STRUCTURE, DERIVED BEFORE THE RUN, AND IT IS THE SAME ONE R711 FOUND.
+  A clause's UNIQUE exclusions are the arms the OTHER TWO clauses admit and it does not. So the
+  ceiling is |F1 ∩ F3| = 23, and F2's 20 is 20 OF 23 POSSIBLE, not 20 of 42. Under a uniform random
+  admission of 9 of 42 the expected count is 23 × (1 − 9/42) = 18.0714. ⛔ So "20 unique exclusions,
+  the largest of the three clauses" may be admission-size arithmetic, exactly as the sham residual
+  was, and that must be tested before F2's last remaining leg is relied on.
+
+ESTIMAND
+  For each clause, the number of arms it UNIQUELY excludes, against the EXACT distribution of that
+  count under a uniformly random admission of the SAME SIZE, holding the other two clauses fixed —
+  with the exact P(count >= observed) enumerated hypergeometrically, not sampled.
+
+IDENTIFICATION
+  Exactly computable: with the other two clauses fixed, the count is |others| minus a hypergeometric
+  draw. No sampling error.
+  ⚠ The OBSERVED counts are DERIVATIONS from R360's committed verdicts. The NULLS are the evidence.
+  ⚠ Holding the other two fixed while randomising one is a choice: it asks "is THIS clause's count
+    surprising given the others", not "is the triple surprising". Named, not assumed.
+
+SCOPE
+  population : the 42 arms of R360's ledger, three clauses
+  instrument : exact hypergeometric enumeration at fixed admission size
+               instrument unit = AN ARM
+               claim unit      = A CLAUSE'S EXCLUSION COUNT AS EVIDENCE
+               ⚠ NOT EQUAL — a count exceeding its null says the clause excludes more than chance,
+               never that it excludes the RIGHT arms.
+  baseline   : uniformly random admission of the same size as the clause under test
+  regime     : this repository at HEAD
+
+WORLDS
+  A REAL COUNT   F2's exact P < 0.05 ⇒ its 20 unique exclusions are more than admission arithmetic,
+                 and F2's last leg holds
+  B ARITHMETIC   P >= 0.05 ⇒ the count is what a same-size random admission gives, F2's last leg
+                 falls, and the clause has NO surviving evidential support after R696 and R711
+  C ALL THREE AT CHANCE  every clause's P >= 0.05 ⇒ R703's whole 20-vs-4-vs-2 asymmetry is
+                 admission-size arithmetic and the comparison between clauses was never informative
+
+PREDICTION MATRIX             A         B         C
+  F2 exact P                < 0.05   >= 0.05   >= 0.05
+  F1, F3 exact P             any       any     >= 0.05
+  what falls                nothing   F2's leg  the asymmetry itself
+
+REGISTERED
+  POINT A  [DERIVED, not evidence]  F2 unique exclusions 20, ceiling |F1∩F3| = 23.
+  POINT B  the null MEAN for F2 under random 9-of-42: 18.07, interval [15.0, 21.0]
+  POINT C  the EXACT P(F2 count >= 20): 0.25, interval [0.05, 0.70]
+  DIRECTIONAL (separately failable)  F2's observed count lies at or below its null's 95th percentile.
+  KILL (conditional — evaluated ONLY if POSITIVE fires and g=0 lands below the null mean):
+     F2 exact P < 0.05  → world A, the leg holds;
+     F2 exact P >= 0.05 → world B, F2's last leg falls and STATEMENT.md's "stands on its exclusions"
+                          — written one round ago by me — must be withdrawn.
+
+CONTROLS
+  POSITIVE   a clause admitting 9 arms all OUTSIDE F1∩F3 must yield the full ceiling 23 with a tiny
+             exact P. FLOOR (null mean) and CEILING (23) computed; the threshold must sit between.
+  g=0        a clause admitting 9 arms drawn ONLY from F1∩F3 must yield 23−9 = 14, BELOW the null
+             mean — the statistic must be able to move down as well as up.
+  NEGATIVE   the null itself; the world it excludes is NAMED — "F2 targets the arms the other two
+             clauses admit, rather than admitting 9 arms that happen to miss them".
+  SHAM       run the IDENTICAL machinery on F1 and F3. Same operation, different clause. If all
+             three sit at chance, the asymmetry R703 reported is admission arithmetic.
+  PLACEBO    two identical enumerations differ by exactly 0.
+  EXACTNESS  the enumerated null cross-checked against a sampled one to 3 decimals, because "no
+             Monte-Carlo error" is a resolution CLAIM.
+
+SPECIFICATION SWEEP
+  clause ∈ {F1, F2, F3} × admission size ∈ {observed, 5, 14} = 9 cells, all reported.
+MULTIPLICITY  9 cells; exact p for every one; BH q=0.10 over the whole grid; non-survivors named.
+SEEDS  3, for the sampled cross-check only.
+ARTIFACT  results/exclusions.json — per-clause ceilings, exact nulls, the sweep, AS FIELDS.
+IMPOSSIBLE
+  whether the excluded arms are the RIGHT ones — that is construct validity and needs a standard
+    outside this repo.
+  cross-release — 41 of the 42 arms are ours.

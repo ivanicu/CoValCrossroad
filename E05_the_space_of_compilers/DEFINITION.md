@@ -3242,3 +3242,35 @@ verdicts — it says they are not evidence for the clause, since a clause with n
 produces them fifty-seven percent of the time. Why they separate is untestable here: the prompt
 having been withheld is an interpretation of a verdict, and no counterfactual over the generator
 exists in this release. F2 stands on its exclusions and no longer on a justification.
+
+## R712 · Whether a clause's unique-exclusion count is above a same-size random admission
+
+After its A2 agreement was shown circular and its sham residual shown to be at chance, clause F2 was
+left standing on one thing: the twenty arms it uniquely excludes, the largest count of the three
+clauses. R712 gives that count the null it never had.
+
+A clause's unique exclusions are the arms the other two clauses admit and it does not, so the ceiling
+is the size of that intersection. For F2 the ceiling is twenty-three, making its count twenty of
+twenty-three possible rather than twenty of forty-two. Under a uniformly random admission of nine
+arms from forty-two the expected count is **18.0714**, and the exact probability of reaching twenty
+or more is **0.1405**, enumerated hypergeometrically over all **445,891,810** admissions with no
+Monte-Carlo error, cross-checked against a sixty-thousand-draw sample agreeing to within **0.00097**.
+
+Running the identical machinery on all three clauses inverts the asymmetry the campaign has carried
+since R703. F1 provenance excludes **4** against a ceiling of **7** at an exact probability of
+**0.0003**; F2 behaviour excludes **20** of **23** at **0.1405**; F3 size excludes **2** of **5** at
+**0.5956**. Under Benjamini-Hochberg at q equals 0.10 over the whole nine-cell sweep only F1 at its
+observed admission size survives. So the clause with the fewest unique exclusions is the only one
+whose count beats its own null, and the raw ranking that put F2 first was a statement about its
+admission size.
+
+Controls: a clause admitting nine arms entirely outside the ceiling set yields the full ceiling at an
+exact probability of **0.000207**, so the instrument registers a maximal effect; a clause admitting
+nine arms drawn only from the ceiling set yields fourteen, below the null mean, so the statistic can
+move down as well as up.
+
+This does not say F2 is wrong, nor that the arms it excludes are the wrong arms. It says the count is
+not evidence, and whether the excluded arms are the right ones is construct validity requiring a
+standard outside this repository. All three of F2's supports have now fallen — the A2 agreement to
+circularity, the sham residual to chance, the exclusion count to admission arithmetic — and the
+clause is retained while carrying no evidential support this site can supply.

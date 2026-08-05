@@ -17671,3 +17671,57 @@ right fraction. Reaching a ceiling of two is exactly what makes the exact p larg
 The enumeration is what makes it a measurement rather than an argument — but the structure came
 first, and I have now twice in this arc (here and R709's `deeper is not wider`) found that the
 load-bearing correction was a counting structure, not a statistic.
+
+## 902 · F2's exclusion count is admission arithmetic — its third and last support falls
+
+R711 left clause F2 standing on its 20 unique exclusions. A clause's unique exclusions are the arms
+the **other two** admit, so F2's ceiling is |F1∩F3| = **23** and its count is **20 of 23 possible**.
+Under a uniformly random admission of 9 of 42 the expected count is **18.0714**, and
+**EXACT P(≥20) = 0.1405** over all **445,891,810** admissions, no Monte-Carlo error.
+
+**So all three of F2's supports have now fallen** — the A2 agreement to circularity (R696), the sham
+residual to chance (R711), the exclusion count to admission arithmetic (R712). `STATEMENT.md`'s "F2
+stands on its exclusions", **written by me one round ago**, is withdrawn. The clause is retained; it
+carries no evidential support this site can supply.
+
+## 903 · the asymmetry is INVERTED — the clause with the fewest unique exclusions is the only one above chance
+
+Running the identical machinery on all three clauses:
+
+| clause | admits | ceiling | observed | null mean | exact p |
+|---|---|---|---|---|---|
+| **F1 provenance** | 38 | 7 | **4** | 0.6667 | **0.0003** |
+| F2 behaviour | 9 | 23 | 20 | 18.0714 | 0.1405 |
+| F3 size | 27 | 5 | 2 | 1.7857 | 0.5956 |
+
+**Only F1 clears BH q=0.10 over the whole 9-cell sweep.** ⭐ So R703's "20 unique against 4 and 2",
+which this campaign has carried for nine rounds and which R704 already suspected was "a count, not a
+signal", is **inverted once each count is priced against its own ceiling**: the raw ranking put the
+only above-chance clause **last**.
+
+⚠ R704 got the direction right and the mechanism wrong — it attributed the count to the base rate and
+concluded F2's weight was not our parameterisation. It never computed the ceiling, so it could not
+see that F1's much smaller count was the surprising one.
+
+## 904 · my own verdict string omitted the round's largest finding
+
+R712's first verdict reported F2's leg falling and said nothing about the inversion, even though the
+inversion was printed three lines above it in the same output. The branch was correct — `all_chance`
+was False because F1's p is 0.0003 — but the string it selected had no clause for "one of them is
+above chance and it is not the one you expected".
+
+§4's *the verdict string is not a computation*, in its least dramatic and most common form: **not a
+false statement, an incomplete one.** A branch that handles "all at chance" and "the target at
+chance" but not "a NON-target above chance" is a branch that cannot report a surprise. Repaired to
+compute and state the ranking.
+
+## 905 · three rounds, three ceilings, one habit
+
+R709 found "deeper is not wider" — widening a rule added fields, not rounds. R711 found the sham
+residual's ceiling was 2, not 5. R712 finds the exclusion ceiling is 23, not 42. **In all three the
+load-bearing correction was a counting structure that was visible before any statistic**, and in all
+three I had been quoting a fraction whose denominator was wrong.
+
+**The habit to name: when a count is offered as evidence, the first question is what its maximum
+could have been, and that question is free.** Every one of these three took one pass over data
+already on disk.
