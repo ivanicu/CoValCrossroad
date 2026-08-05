@@ -2725,3 +2725,38 @@ page never named, in the same way it was conditional on a target the page never 
 have taken four rounds and converged on nothing, because the defect is that **the column had no
 shape**: it was prose, and prose omits silently. The constants now sit in one table with four named
 fields, and a row's own cell carries only its departures from them.
+
+---
+
+## R602 · The two corpora are disjoint on the string axis
+
+Re-derived directly from `data/comparisons.jsonl` (home, **1078** distinct prompts) and
+`data/utterances.jsonl` (second, **68371** rows carrying a text key, **26673** distinct), because
+R399's *"3 strings, 2 of them greetings"* was an **exact-match** count and comparability need not be
+an exact-match question.
+
+| definition of overlap | home vs second | shuffled-vocabulary floor |
+|---|---|---|
+| exact identity | **0** | 0 |
+| normalised identity | **0** | 0 |
+| token-Jaccard, median max per prompt | **0.1654** | **0.1654** |
+
+Per seed, real vs floor: **0.1667 / 0.1667 · 0.1628 / 0.1628 · 0.1667 / 0.1667**. p90 **0.2117**
+against a floor of **0.2117**. Maximum observed **0.2778**.
+
+⭐ **The real and shuffled medians are identical to four places**, so the apparent token overlap is
+**shared English function words with no shared content.** The negative control — shuffle tokens to
+preserve the vocabulary and destroy the strings — is what makes that separation, and the gap it
+measures is **0.0000**.
+
+**Controls:** home-vs-home returns exact **1078/1078** and Jaccard max **1.0000**; the synthetic
+placebo returns exact **0** and Jaccard max **0.0000**.
+
+⚠ **Bounded below:** the Jaccard sweep runs against a **3000**-text subsample, so a max over a subset
+cannot exceed the max over the whole — a small value is conservative.
+
+⚠ **Discrepancy, reported:** R399 says **3**, this says **0**. Different extractions of the home
+population; the direction replicates and the exact figure does not.
+
+⚠ **IMPOSSIBLE:** string overlap is not topical comparability. A corpus can share no strings and ask
+the same question. One axis, bounded.

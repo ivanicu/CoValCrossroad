@@ -14084,3 +14084,41 @@ R600 closed with *"if that class is LARGE the gate needs a third category… if 
 are simply owed a `world`"* — **no threshold, so it could not have failed.** ⚠ And it called **R288 a
 census round** on inferred evidence, verified only for R294: **two hypotheses collapsed into one label
 on one round's worth of evidence.**
+
+## 500 · The two corpora are disjoint, and the token overlap is entirely function words
+
+Re-derived from the data files: **exact overlap 0 · normalised overlap 0 · token-Jaccard median
+0.1654 against a shuffled-vocabulary floor of 0.1654** — identical to four places across three seeds.
+
+⭐⭐⭐ **The apparent 16.6% token overlap is shared English function words and no shared content.**
+The negative control — shuffling tokens to keep the vocabulary and destroy the strings — is the whole
+design, and **the gap between real and shuffled is 0.0000.**
+
+**So R601's open question resolves toward CORRECT EXCLUSION**: R399 stands, and R433's `W-LOSES` is
+evidence about a different object. ⚠ **R601's finding survives in the part that mattered — every
+claim row is home-release-only and now says so.**
+
+## 501 · An empty corpus yields overlap 0, which is the answer I was predisposed to accept
+
+The second corpus keys its text as **`user_prompt`**; v1's extractor searched
+`text`/`content`/`utterance`/`prompt`/`message`. **Exact-key matching would have returned an EMPTY
+corpus** — and an empty corpus's overlap of 0 is **silence, not disjointness**, confirming the
+conclusion while measuring nothing.
+
+⭐ **Caught before the first run by opening the file instead of assuming its schema**, and the
+population line now prints `68,371 rows carried a text key, 26,673 distinct` so a reader can see the
+extractor worked. *The dangerous zeros are the ones that agree with you.*
+
+## 502 · R399 says 3 strings; I measure 0
+
+R399 states the overlap as *"3 strings, 2 of them greetings"*. **My re-derivation returns 0**, over
+1,078 home prompts extracted from `comparisons.jsonl`; R399's extraction differs. **Both say
+"essentially nothing" and they disagree on the last unit.** Reported rather than smoothed: the
+direction replicates, **the exact figure does not.**
+
+## 503 · Two more unverified quantifiers in a closing line
+
+R601 closed calling R399/R400 *"uncited and **unaudited**"* — `uncited` was measured, **`unaudited`
+was never checked**, and R401, R402, R427 and R556 all reference them. And *"**the single number** the
+whole cross-release question turns on"* was a superlative never computed; **R400's depth mass and the
+corpora's differing unit are two more axes.** This round measured one of three and said so.
