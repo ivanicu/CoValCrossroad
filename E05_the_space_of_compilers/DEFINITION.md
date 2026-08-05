@@ -3596,3 +3596,25 @@ dropping k-capped arms changed nothing in any of the fifty rule combinations, so
 could not have moved the answer and is reported as such. The count of six is a lower bound: the
 bootstrap seed, the number of resamples, the multiplicity level and the annotator filter are fixed
 inside the persisted artifact and would need the census re-run to vary.
+
+## R725 · the rule space is one statistic with four thresholds, and the core's exclusion is not noise
+
+The five readings of a measured clause swept in the previous round are not five criteria. The
+minimum detectable effect is the effective z multiplied by the sample standard deviation over the
+root of the sample size, and the interval is a percentile bootstrap of the same mean, so every
+reading is a threshold on the ratio of the effect to its standard error. The point reading is that
+ratio above zero, the interval reading above 1.959964, the resolution reading and the round's own
+conjunction both above 2.801585, and the strict reading requiring the whole interval above
+resolution is that ratio above 4.7615. Four thresholds carried by five labels, and the conjunction
+is identical to the resolution reading whenever the effect is positive. That is algebra and not
+evidence. What is evidence is that the equivalence holds on the artifact across four hundred and ten
+checks with no disagreement, even though the bootstrap and analytic standard errors differ by up to
+seven percent, which means no arm sits close enough to a threshold for that discrepancy to change a
+verdict. The consequence for the previous round is that its hundred cells contain at most sixteen
+distinct rule pairs of twenty five, so its coverage was narrower than its cell count suggested.
+Separately, the exclusion of the released core under the strict reading was tested for whether the
+minimum detectable effect's own sampling error could move it. The core's ratio is 4.2336 against a
+threshold of 4.7615, a gap of more than eight sampling standard deviations of that quantity at a
+sample size of nine hundred and sixty eight, and the crossing probability is zero at every seed. The
+exclusion is a property of the arm. The crossing probability assumes the per-prompt differences are
+normal, which this artifact cannot check; the distance in sampling standard deviations does not.

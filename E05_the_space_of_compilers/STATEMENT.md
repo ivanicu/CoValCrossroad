@@ -392,10 +392,16 @@ A **core** for a conversation is a set of criteria such that
 ⚠ **And that one computation could have returned otherwise — 6 extensions are reachable, the 5-set
 is modal at 30%** *(R724)*. Over 100 defensible cells of the producer's own rule space, the released
 set is the answer of **15 of 25** clause-①② rule combinations. **So the producer is a measurement,
-not a derivation.** ⛔ **But the released core is not invariant:** every reading requiring clause ②'s
+not a derivation.** ⛔ **But those 25 combinations are 16** *(R725)*: `mde = ZEFF·sd/√n` and the CI is
+a bootstrap of the same mean, so the five readings are **four thresholds on one statistic** `t =
+eff/SE` — and R294's own rule is identical to `eff ≥ mde`. The algebra is confirmed on the artifact
+with **0 mismatches over 410 checks**. **The 100 cells overstate the dimensionality explored.** ⛔ **But the released core is not invariant:** every reading requiring clause ②'s
 *whole interval* above resolution — rather than its point estimate — **excludes `coval_core` and
 admits `topw_k6` alone**. Its clause-② interval clears zero and its effect clears the MDE, but its
 lower bound does not. **Membership of the core in its own extension is a choice of reading.**
+⭐ **And that reading is not merely a noisier one** *(R725)*: `coval_core`'s clause-② `t` is **4.2336**
+against the threshold **4.7615**, a gap of **8.29 sampling SDs of the MDE itself** at n = 968, with a
+crossing probability of zero at every seed. **The exclusion is a property of the arm.**
 ⚠ 6 is a **lower bound**: seed, `NBOOT`, `q` and the annotator filter are fixed inside the artifact.
 
 ⭐ **Two clauses, and they are orthogonal by measurement.** On the 41 arms carrying every verdict,

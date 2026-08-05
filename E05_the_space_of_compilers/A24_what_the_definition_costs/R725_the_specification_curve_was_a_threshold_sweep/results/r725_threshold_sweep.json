@@ -1,0 +1,64 @@
+{
+  "A_distinct_thresholds": 4,
+  "A_is_a_derivation": true,
+  "B_examples": [],
+  "B_mismatches": 0,
+  "B_per_rule": {
+    "ci_only": 0,
+    "conservative": 0,
+    "mde_only": 0,
+    "point": 0,
+    "strict": 0
+  },
+  "C_distinct_rule_pairs": 16,
+  "C_is_a_derivation": true,
+  "D_gap_in_mde_sampling_sds": 8.2879,
+  "Z95": 1.959964,
+  "ZEFF": 2.801585,
+  "census_source_sha": "2bc1124f6825df0f",
+  "controls": {
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "SHAM": true,
+    "UNIT": true
+  },
+  "controls_ok": true,
+  "coval_core_clause2": {
+    "eff": 0.016041627150725758,
+    "gap": 0.5279836512618621,
+    "hi": 0.024117379650670588,
+    "lo": 0.008273944638210852,
+    "mde": 0.010615634411893863,
+    "n": 968,
+    "rel_sd_of_mde": 0.022739021124401262,
+    "t": 4.233565348738138,
+    "threshold": 4.7615490000000005
+  },
+  "crossing_mc_sd": 0.0,
+  "crossing_probs": {
+    "11": 0.0,
+    "12": 0.0,
+    "13": 0.0
+  },
+  "directional_cannot_flip": true,
+  "n_cells": 82,
+  "n_checks": 410,
+  "registered": "A 4 [1,5] deriv; B 0 [0,410]; C 16 [1,25] deriv; D 7.0 [0,100]; directional crossing<0.01",
+  "residue": "normality of the per-prompt differences is unverifiable from this artifact",
+  "se_ratio": {
+    "max": 1.069100912304191,
+    "median": 1.0048542845221191,
+    "min": 0.9477743345441463
+  },
+  "source_sha": "513bad9429cdb9fa",
+  "thresholds": {
+    "ci_only": 1.959964,
+    "conservative": 4.7615490000000005,
+    "mde_only": 2.801585,
+    "point": 0.0,
+    "strict": 2.801585
+  },
+  "tree_sha": "ed75f7dabffc1f9c43e1c76c8ba9eda62373b10a",
+  "world": "\u2b50\u2b50\u2b50 BOTH: THE GRID COLLAPSES AND THE QUALIFICATION SURVIVES. (1) DERIVATION \u2014 the five rule labels carry 4 distinct thresholds on the same t = eff/SE, and the equivalence holds on the artifact with 0 mismatches over 410 checks, so R724's 5x5 grid has at most 16 distinct rule pairs of 25 and its '100 cells' overstate the dimensionality explored. (2) MEASUREMENT \u2014 coval_core's clause-\u2461 t is 4.2336 against a conservative threshold of 4.7615, a gap of 0.5280, which is 8.3 sampling SDs of the mde at n=968; the crossing probability is 0.000000. \u2b50 SO MY OWN PROPOSED ATTACK FAILS: the exclusion is a property of the arm, not of a noisy threshold, and R724's qualification STANDS. \u26a0 The crossing probability is MODEL-BASED \u2014 it assumes the per-prompt differences are normal, which this artifact cannot check because it does not carry the raw vectors; the gap in sampling SDs is the assumption-light version of the same statement."
+}

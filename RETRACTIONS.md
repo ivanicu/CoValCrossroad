@@ -18145,3 +18145,26 @@ extension is identical with and without them, so the axis contributed nothing bu
 cell count. R294 was right to flag those arms as favoured by their comparison, but no k-capped arm's
 admission is rule-sensitive, and a specification curve that reports 100 cells when 50 of them are
 copies overstates its own coverage. The remedy is to report the inert axis, not to drop it.
+
+## 940 · the hundred-cell specification curve was a threshold sweep with duplicated cells
+
+R724 reported 100 cells across five readings of each measured clause. The minimum detectable effect
+is the effective z times the sample standard deviation over root n, and the interval is a percentile
+bootstrap of the same mean, so all five readings are thresholds on the ratio of effect to standard
+error: zero, 1.959964, 2.801585 twice, and 4.7615. Four thresholds, five labels, and the round's own
+rule identical to the resolution reading. At most sixteen of the twenty five rule pairs are
+distinct. The curve is still a curve and the six extensions it found are still six, but the cell
+count was a measure of how many combinations were enumerated, not of how many were different — the
+same overstatement-of-coverage flagged one round earlier for the inert k-cap axis, one level deeper
+and this time in the axis that carried the finding.
+
+## 941 · and the attack I proposed against my own qualification does not fire
+
+R724 closed by suspecting that requiring the whole interval above resolution was not a stricter rule
+but a noisier one, because it compares a bootstrap bound against a quantity estimated from the same
+sample. Measured, the released core's ratio is 4.2336 against a threshold of 4.7615, a gap of 8.29
+sampling standard deviations of the minimum detectable effect at n = 968, and the crossing
+probability is zero at all three seeds. The suspicion was registered as a failable directional
+before the measurement and it failed. The qualification stands as a property of the arm. Recorded
+here because a proposed attack that quietly evaporates leaves a next-step line in the history that
+later reads as an open question, and this one is closed.
