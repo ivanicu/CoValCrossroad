@@ -62,6 +62,15 @@ prompt-awareness alone can reach, and only the human labels ③ forbids go furth
 > prompt-aware arm here"*. Settling it needs a **strong** admissible arm, which is a
 > generation-and-judging round. *(R486, R487)*
 
+⭐ **AND THE SEARCH FOR THAT ARM IS VALIDATED RATHER THAN OPEN-ENDED.** The per-prompt deficit
+`coval_core − gen` is a **reliable** quantity: mean **+0.0311**, true sd **0.1342** against a measured
+noise floor of **0.0353** (**3.8×**), test-retest **r = +0.9355**. **`gen` wins on some prompts and
+loses badly on others, reproducibly** — its spread is 4.3× its mean. Four candidate explanations are
+excluded, each by a control that could have confirmed it: **repetition**, **discriminativeness across
+arms**, **discriminativeness paired at n=968** (+0.0013, CI [−0.0640, +0.0608], control firing at
++0.2577), and **criterion length** (+0.0319, CI spanning zero). **The target is real; the predictors
+were wrong.** *(R494, R495, R496, R497)*
+
 ⭐ **③ STAYS AS WRITTEN, and the reason is measured rather than stipulated.** R475 left the choice of
 weakening ③ to permit the ratings. What decides it is what the ratings are **worth**: against the best
 ③-admissible arm on disk (`generic`, a fixed prompt-blind set at **0.5376**), `topw_k4` gains

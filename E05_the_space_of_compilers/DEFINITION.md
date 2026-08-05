@@ -521,6 +521,33 @@ rounds defining an object other than the one it measures.** ⛔ **This is not a 
 by choosing the convenient branch** — the two differ in what "core" *means*, and R475 does not
 adjudicate them. *(R475)*
 
+⭐⭐ **AND THE GAP THAT LEAVES ②∧③ UNDETERMINED HAS REAL PER-PROMPT STRUCTURE (R494–R497).** Settling
+②∧③ needs a better ③-admissible arm than `gen` (p32.6). Four candidate explanations for its deficit
+were tested and four died. **Repetition:** `gen` repeats phrasings up to 29× against `coval_core`'s
+near-total uniqueness, but stratifying prompts by that repetition gives a gradient of **−0.0357** in
+`gen` and **−0.0393** in `generic` — whose criteria are identical on every prompt and therefore cannot
+repeat differentially, so the gradient is prompt difficulty. **Discriminativeness across arms:**
+`corr(mean SD, A2)` = **−0.4758** over 7 arms, and dropping `topvar_k4` alone flips it to **+0.4819**
+— one arm, built to be extreme on the predictor, owns the sign. **Discriminativeness paired:** at
+n=968 the correlation with the deficit is **+0.0013** [−0.0640, +0.0608] while the same predictor
+tracks `generic`'s score at **+0.2577**, so the control fires and the null is evidence. **Length:**
+`gen` writes **9.34** words against `coval_core`'s **13.25**, and correlates with the deficit at
+**+0.0319**, CI spanning zero. *(R494, R495, R496)*
+
+⭐⭐⭐ **AND THE FIFTH CANDIDATE — THAT THERE IS NOTHING TO EXPLAIN — DIED TOO, WHICH IS THE ONE THAT
+MATTERS.** Three large between-arm differences with three null within-prompt correlations invites the
+conclusion that the deficit is a constant offset. It is not: mean **+0.0311**, observed sd **0.1388**
+against a **measured** noise floor of **0.0353**, implied true sd **0.1342** — **3.8× the noise** — and
+**test-retest reliability +0.9355** across independent held-out-annotator draws. ⭐ **The floor is
+supplied by the instrument itself**: A2 samples a held-out annotator per prompt, so a second seed is a
+second draw of the same quantity. **`gen` does not lose uniformly — its deficit's spread is 4.3× its
+own mean, it wins on some prompts and loses badly on others, reproducibly.** *(R497)*
+
+⚠ **SO THE SEARCH IS VALIDATED, NOT EXCUSED.** There is a large, stable, per-prompt target; four
+predictors are simply wrong about it. ⛔ **And the design that keeps suggesting itself — "look at the
+prompts where `gen` loses most" — is selection on the outcome (Oldham 1962), proposed twice and killed
+twice before running.** *(R496, R497)*
+
 ⛔ **AND THE COMPUTE THAT WOULD SETTLE ②∧③ IS NOT THE COMPUTE I NAMED (R490).** The generator already
 exists — `corebench/generate_core.py` states in its own docstring that it *"MUST NOT SEE `coval_full`"*
 and *"sees the CONVERSATION and the FOUR RESPONSES only"*, i.e. rubric-blind, rating-blind and
