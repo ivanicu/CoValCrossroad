@@ -146,7 +146,13 @@ arm's chosen criteria within the prompt's own rubric: **`oracle_k4` 0.2791**, `g
 (0.5090) sit inside the null band, and a surrogate that misses a KNOWN reader cannot certify an
 unknown one** — the pre-registered kill, and it fired. **The fork does not dissolve.**
 
-⭐ **The shape of the failure is the finding: what escapes is RULE-FOLLOWING, not OPTIMISATION.**
+⛔ **DOWNGRADED (R512): the position proxy LOSES RECALL.** Measured against the actual per-annotator
+ratings — joinable via R468's `id_map.json` at 968 of 968 — **every ③-excluded arm sits above the
+random band [0.4146, 0.4734]**, including `topw_k8` (**0.6547**) and `topwvar_k4` (**0.5036**), which
+position **missed**. Its catches are real; its misses are genuine. **`coval_full`'s list order is not rating order**, so
+position measured *where an item sits* and ③′ is about *how highly it was rated*. Which
+provenance is detectable is **UNVERIFIED**, and R340's derivation stands: an LM rewrite destroys
+the trace regardless of provenance. *(R512)*
 
 ⛔⛔ **AND THE OBVIOUS REFORMULATION IS REFUSED, ON A MEASUREMENT.** Replacing ③ with ③′ — *"not
 **optimised** against the labels"*, which R508 shows is checkable — gives **extension 1**, and that

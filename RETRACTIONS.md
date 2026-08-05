@@ -11276,3 +11276,38 @@ a pool built from `conversation_rubrics.jsonl` and got `nan% of 0` — the two f
 spaces** (R466/R467's unresolved join), so zero criteria were counted. **The tell was the `of 0`, and
 it was in the output.** The finding above rests on R503's and R510's numbers, each measured against
 its own matched pool, not on that command.
+
+## 341 · R508's position surrogate LOSES RECALL — and my first write-up of this said "inverts", which the null refutes (R508 → R512)
+
+**Downgraded, not retracted.** R508's finding that selection position is a *partial* surrogate
+stands. What is corrected is its account of **which** provenance escapes.
+
+**R468's `id_map.json` (968 of 968) joins corebench's ids to the release, and `coval_full[i].scores`
+carries per-annotator ratings** — so ③′ is testable against the quantity the card names, *"the highest
+average ratings"*, instead of against list position.
+
+| arm | **mean rating percentile** | position (R508) |
+|---|---|---|
+| `oracle_k4` | **0.4888** | 0.2791 — separates |
+| `greedy_k4_fit1` | **0.4964** | 0.2880 — separates |
+| `indep_k4_fit1` | **0.5356** | ~0.29 — separates |
+| `topw_k4` | **0.7857** | 0.5378 — derivation |
+| `topw_k8` | **0.6547** | 0.5051 — ⛔ **missed** |
+| `topwvar_k4` | **0.5036** | 0.5090 — ⛔ **missed** |
+| random band (3 seeds, spread 0.0118) | **[0.4146, 0.4734]** | — |
+
+**Every ③-excluded arm sits ABOVE the rating band — including the two position missed.** So the
+proxy is **incomplete**, not wrong: it catches a subset and its misses are genuine.
+
+⛔⛔ **AND MY FIRST WRITE-UP OF THIS ROUND SAID THE PROXY "INVERTED", claiming `oracle_k4` at 0.4888
+"sits at the random baseline".** It does not — the band is **[0.4146, 0.4734]** and 0.4888 is above
+it. **I compared 0.4888 to a remembered "≈0.5" instead of to a computed null**, which is the same
+failure as everything else this session, committed while writing the retraction *for* that failure.
+
+⭐ **It survived only because a gate blocked the commit.** `statement_provenance` refused the citation
+`R512: no artifact` — I had run the measurement as an inline heredoc and cited it as a round. Building
+it properly, with a negative control that computes the band, produced the correction. **§3's "no cheap
+attacks" earned its keep: the cheap version of this round would have published "inverted".**
+
+⭐⭐ **Prior-art failure, measured:** `id_map.json` was built by R468 and sat unused while the previous
+round returned `nan% of 0` for want of exactly that join. **Second time in three rounds.**

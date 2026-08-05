@@ -135,5 +135,7 @@
   "greedy_k4_fit1",
   "indep_k4_fit1"
  ],
- "world": "B PARTIAL SURROGATE"
+ "world": "DOWNGRADED by R512 — the position proxy LOSES RECALL rather than inverting. Measured on the actual per-annotator ratings (via R468's id_map.json), EVERY ③-excluded arm sits above the random band [0.4146, 0.4734] — including topw_k8 (0.6547) and topwvar_k4 (0.5036), which this round MISSED. So the surrogate is incomplete, its catches are real, and its misses are genuine misses. What does NOT survive is the claim that what escapes is rule-following rather than optimisation: on ratings, every family separates.",
+ "world_original": "B PARTIAL SURROGATE",
+ "retracted_by": "R512"
 }

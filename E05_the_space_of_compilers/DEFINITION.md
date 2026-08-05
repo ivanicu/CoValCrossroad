@@ -1673,3 +1673,28 @@ REWRITE step. I quoted step three of three and called the object non-compliant w
 rewriting unchanged* — a selection with no reason to be independent of selection position. **0.2746
 is a reading about the unrewritten remainder, not about `coval_core`.** ⭐ What survives: the released
 core's criterion text **is** in the release, so R509's "blind spot" stays retracted. *(R511)*
+
+
+⛔⛔⛔ **AND R508's SURROGATE IS RETRACTED — MEASURED ON THE ACTUAL RATINGS IT IDENTIFIES THE WRONG
+ARMS (R512).** R468's `id_map.json` joins corebench's prompt ids to the release at **968 of 968**, and
+`coval_full[i].scores` carries the per-annotator ratings — so ③′ is testable against **the quantity
+the dataset card names**, *"the highest average ratings"*, rather than against list position.
+
+| arm | **mean rating percentile** | position (R508) |
+|---|---|---|
+| `oracle_k4` | **0.4888** | 0.2791 — "separates" |
+| `greedy_k4_fit1` | **0.4964** | 0.2880 — "separates" |
+| `indep_k4_fit1` | 0.5356 | ~0.29 — "separates" |
+| `topw_k4` | **0.7857** | 0.5378 — "derivation" |
+| `topw_k8` | **0.6547** | 0.5051 — ⛔ "missed" |
+| `topwvar_k4` | **0.5036** | 0.5090 — ⛔ "missed" |
+| `random_k4_s0/s1/s2` | 0.4381 / 0.4498 / 0.4473 | 0.5012 / 0.5039 / 0.5071 |
+
+⛔⛔ **The proxy LOSES RECALL — it does not invert.** Against a random band of **[0.4146, 0.4734]**
+(3 seeds, spread 0.0118), **every ③-excluded arm sits ABOVE it**, including the two position missed.
+So its catches are real and its misses are genuine. ⚠ My first write-up said *inverted*, comparing
+0.4888 to a remembered "≈0.5" instead of to the computed band. ⭐ **The
+mechanism: `coval_full`'s list order is not rating order.** Position measured *where an item sits in a
+list*; ③′ is about *how highly it was rated*. **Instrument's unit ≠ claim's unit, inside the check
+built to catch that failure.** ⚠ `gen`, `generic` and `coval_core` remain N/A — no pool overlap — so
+③′ stays open and R340's derivation stands. *(R512)*
