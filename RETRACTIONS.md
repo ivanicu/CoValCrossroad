@@ -11188,3 +11188,33 @@ at **100%** — because the scope is stated in a *different paragraph* from the 
 *"The root README is no longer a per-round table, so this gate's PROXY is gone while its PROPERTY
 stands."* **An empty-population gate that correctly diagnoses its own proxy death beats a repointed
 gate whose new proxy is untested.** Repair declined, with the reason recorded.
+
+## 338 · "`coval_core` has no criterion text" — the release carries it, and adjudicating it makes ③′'s extension 0 (R509 → R510)
+
+**Retracted:** R509's finding that ③′ has **extension 1**, consisting of `coval_core` as an
+un-adjudicable blind spot. Both halves are wrong.
+
+**The wall was false — the sixth this session.** R509 said the released core ships no criterion text
+because `corebench/results/` has no `core_coval_core.json`. **`data/conversation_rubrics.jsonl`
+carries a `coval_core` field with `criterion` text**, in the release itself, and has throughout.
+Like the other five, the wall was asserted immediately after correctly checking something adjacent —
+here, the `corebench/results/` census from R503.
+
+**Adjudicated:** `coval_core`'s mean normalised selection position within its own conversation's
+`coval_full` is **0.2746** (median 0.2222), against `oracle_k4` **0.2791**, `greedy_k4_fit1`
+**0.2880**, and a uniform-selector null band of **[0.4894, 0.5189]**. **It sits with the
+label-optimisers, far outside the null. ③′ EXCLUDES it.**
+
+⭐ **So ③′'s extension is 0 — exactly ③'s.** R509 concluded that a checkable clause *"hides the
+vacuity"*; the truth is simpler and stronger: **a checkable ③′ changes nothing at all.** The
+definition is empty under both readings, and the fork's B-column loses the cost R509 attributed to it.
+
+⚠⚠ **SCOPE, and it is large: only 256 of 3,899 core criteria — 6.6% — were locatable verbatim in
+`coval_full`.** The statistic is a subsample and may be biased. **That is itself a finding: the
+released core is NOT a pure subset of the full rubric**, so 93.4% of its criteria are rewritten or
+drawn from elsewhere — which R503's `coval_core (no text)` row concealed by looking in the wrong
+place.
+
+**What this does not settle:** whether the 6.6% that match are representative. A biased subsample
+could put an unbiased arm at 0.2746. **The claim is therefore: on every criterion this instrument can
+locate, `coval_core` selects like a label-optimiser.**

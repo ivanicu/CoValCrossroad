@@ -1636,3 +1636,27 @@ not a member of ③′, it is missing data wearing a member's clothes.** The ref
 *"empty because ③ excludes everything"* into *"one member the instrument cannot see"*: the same
 vacuity, less visible. ⭐⭐ **The fork is therefore not provenance-vs-checkability but AN HONEST ZERO
 VS A FLATTERING ONE.** *(R508, R509)*
+
+
+⛔⛔⛔ **AND R509's PREMISE WAS FALSE — THE RELEASED CORE'S CRITERIA ARE IN THE RELEASE, AND
+ADJUDICATING THEM MAKES ③′ CHANGE NOTHING AT ALL (R510).** R509 called `coval_core` an
+un-adjudicable blind spot because `corebench/results/` has no `core_coval_core.json`.
+**`data/conversation_rubrics.jsonl` carries a `coval_core` field with `criterion` text** — sixth
+false wall this session, and like the other five it was asserted right after correctly checking
+something adjacent.
+
+**Adjudicated:** `coval_core`'s mean normalised selection position within its own conversation's
+`coval_full` is **0.2746** (median **0.2222**), against `oracle_k4` **0.2791**, `greedy_k4_fit1`
+**0.2880**, and a uniform-selector null band of **[0.4894, 0.5189]**. **It sits with the
+label-optimisers. ③′ EXCLUDES it, so ③′'s extension is 0 — exactly ③'s.**
+
+⭐ **The correction makes the result simpler and stronger.** R509 said a checkable clause *hides* the
+vacuity; it does not — **it changes nothing.** The definition is empty under both readings, and the
+fork's B-column loses the extra cost R509 gave it.
+
+⚠⚠ **SCOPE, and it is large: only 256 of 3,899 core criteria — 6.6% — are locatable verbatim in
+`coval_full`.** The statistic is a subsample and may be biased. ⭐ **And that is itself a finding: the
+released core is NOT a pure subset of the full rubric**, so 93.4% of its criteria are rewritten or
+drawn from elsewhere — which R503's `coval_core (no text)` row concealed by looking in
+`corebench/results/` rather than in the release. **The claim is bounded accordingly: on every
+criterion this instrument can locate, `coval_core` selects like a label-optimiser.** *(R510)*

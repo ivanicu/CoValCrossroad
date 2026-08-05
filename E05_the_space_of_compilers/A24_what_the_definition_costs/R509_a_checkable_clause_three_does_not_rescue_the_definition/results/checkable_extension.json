@@ -26,5 +26,7 @@
   "coval_core"
  ],
  "positive_control": true,
- "world": "B \u2462\u2032 HIDES THE VACUITY"
+ "world": "RETRACTED by R510 — the premise was false. `coval_core` is NOT an un-adjudicable blind spot: data/conversation_rubrics.jsonl carries its criterion text in the release. Adjudicated, its mean normalised selection position is 0.2746 against a uniform null band of [0.4894, 0.5189] and oracle_k4's 0.2791 — so ③′ EXCLUDES it and ③′'s extension is 0, exactly ③'s. A checkable narrowing does not HIDE the vacuity; it changes NOTHING. ⚠ Bounded: only 256 of 3,899 core criteria (6.6%) are locatable verbatim in coval_full, so the statistic is a subsample.",
+ "world_original": "B ③′ HIDES THE VACUITY",
+ "retracted_by": "R510"
 }
