@@ -12537,3 +12537,30 @@ made it**, which is luck, not method.
 ⚠ **The proxy, stated rather than buried: `larger` is not `stronger`.** Size is what this design
 measures; strength needs the benchmark rows 3+4 are priced for. Same family at 2× parameters is a
 defensible proxy and remains one.
+
+## 387 · Register row 2 named a MODEL where the requirement was a PROPERTY — and it is unblocked
+
+Row 2 asked for *"a second, stronger judge"* and then named `Qwen2.5-7B-Instruct`, so **that model's
+OOM became the row's blocker** and the row sat in the impossibility register needing an install.
+
+**The requirement is a property**: a judge stronger than the home `Qwen3.5-2B-Base`
+*(`covalx/judge.py:48,258`)*. **`Qwen/Qwen3.5-4B` loads and scores at 8.89 GB peak against 16** —
+24 real prompts, 16 distinct scores, mean 0.4058 against the home judge's 0.4038 at 4.00 GB.
+
+⭐⭐⭐ **This is §4's "the definition describes the instance" one level up.** A register row is a
+specification, and specifying it by naming an object makes every fact about that object — its size,
+its footprint, its availability — masquerade as a fact about the requirement.
+
+⚠ **The row's size was wrong too:** every copy measures **15.23 GB**, not 29 — an fp32 slip
+(7.6B × 4 ≈ 30). At 15.23 the 7B's OOM on a 16 GB card is **tight rather than hopeless**, which is a
+materially different claim from the one the row made.
+
+⚠ **Scope kept honest: `stronger` is a proxy** — 2× parameters in one family. Demonstrated: it
+loads, fits, scores non-degenerately. Not demonstrated: that it judges better.
+
+## 388 · My closing line put a word in the register's mouth
+
+The NEXT line said the register *"describes row two's blocked judge as the only second judge
+available."* **`grep -c "only second judge\|the only judge"` returns 0.** The row never said "only" —
+I supplied the quantifier while paraphrasing, which is the one class of error the NEXT-line gate
+exists for and the one it cannot catch, because the word was in my prose and not in the artifact.

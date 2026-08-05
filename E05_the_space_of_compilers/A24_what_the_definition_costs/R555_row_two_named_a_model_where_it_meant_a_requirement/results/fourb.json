@@ -1,0 +1,27 @@
+{
+  "world": "B",
+  "home_2b": {
+    "ok": true,
+    "n": 24,
+    "distinct": 15,
+    "peak_vram_gb": 4.0,
+    "secs": 4.3,
+    "mean": 0.4038
+  },
+  "qwen35_4b": {
+    "ok": true,
+    "n": 24,
+    "distinct": 16,
+    "peak_vram_gb": 8.89,
+    "secs": 21.2,
+    "mean": 0.4058
+  },
+  "negative_control": {
+    "ok": false,
+    "error": "OSError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/no/such/checkpoint/at/all'. Use `repo_type` argument if needed.",
+    "secs": 0.1
+  },
+  "n_prompts": 24,
+  "four_b_path": "/mnt/e/cache/huggingface/hub/models--Qwen--Qwen3.5-4B/snapshots/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "note": "row 2 asks for a judge STRONGER than the home judge; 4B is 2x its parameters"
+}

@@ -2558,3 +2558,30 @@ instrument's unit and the claim's unit separately catches it.**
 attempted Qwen2.5-7B judging on 2026-08-04 and died with
 `torch.OutOfMemoryError: 14.60 GiB in use of 15.40 GiB`. **R538's "no 7B artifacts exist" now has
 its mechanism — attempted, not unattempted.**
+
+## R555 · Register row 2 named a model where it meant a requirement — and it is unblocked
+
+Row 2 read *"a second, stronger judge — `Qwen2.5-7B-Instruct` is present (29 GB, 4/4 shards) but
+OOMs in bf16"*, and treated **that model's** OOM as the row's blocker. The **requirement** is a judge
+stronger than the home judge. `covalx/judge.py:48,258` name the campaign's two judges as
+`Qwen3.5-2B-Base` (home) and `Qwen3.5-0.8B-Base` (second) — so anything above 2B satisfies it.
+
+**`Qwen/Qwen3.5-4B` loads and scores.** On 24 real prompts from the home release, judged through
+`covalx.Judge` exactly as the campaign does:
+
+| judge | peak VRAM | secs | distinct scores | mean |
+|---|---|---|---|---|
+| `Qwen3.5-2B-Base` (home, positive control) | **4.00** GB | 4.3 | 15 | **0.4038** |
+| **`Qwen3.5-4B`** | **8.89** GB | 21.2 | 16 | **0.4058** |
+
+**8.89 against 16 GB is 7 GB of headroom** — not marginal. The negative control confirms a
+nonexistent checkpoint fails to load, so *"it loaded"* is informative rather than vacuous.
+
+⚠ **And the register's size for the 7B was wrong.** Every real copy on this box measures
+**15.23** GB of safetensors, not 29 — consistent with an fp32 arithmetic slip (7.6B × 4 bytes).
+At 15.23 GB the 7B's OOM on a 16 GB card is *tight*, not hopeless, which is a different claim from
+the one the row was making.
+
+⚠ **Scope: `stronger` remains a proxy.** 2× parameters in the same family is defensible and is not a
+demonstration that the 4B is a *better* judge. What is demonstrated is that it **loads, fits, and
+returns non-degenerate scores** — which is what row 2 said could not be had without an install.
