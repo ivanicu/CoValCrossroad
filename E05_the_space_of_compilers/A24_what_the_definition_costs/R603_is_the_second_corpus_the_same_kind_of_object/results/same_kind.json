@@ -1,0 +1,130 @@
+{
+  "world": "B DIFFERENT KIND \u2014 2 requirement(s) UNSATISFIABLE in the second release: ['SHIPPED criteria (a rubric)', 'a released CORE']. It is a second DATASET, not a second RELEASE of the same object, so row 5's 'already on disk' does not discharge independent replication and R556 is OVERTURNED on that point.",
+  "controls_ok": true,
+  "keys": {
+    "HOME/comparisons": [
+      "metadata",
+      "prompt",
+      "prompt_id",
+      "responses"
+    ],
+    "HOME/rubrics": [
+      "conversation",
+      "coval_core",
+      "coval_full"
+    ],
+    "SECOND/utterances": [
+      "conversation_id",
+      "conversation_type",
+      "if_chosen",
+      "included_in_balanced_subset",
+      "interaction_id",
+      "model_name",
+      "model_provider",
+      "model_response",
+      "score",
+      "turn",
+      "user_id",
+      "user_prompt",
+      "utterance_id",
+      "within_turn_id"
+    ]
+  },
+  "rows_scanned": {
+    "HOME/comparisons": 1078,
+    "HOME/rubrics": 986,
+    "SECOND/utterances": 60000
+  },
+  "requirements": [
+    {
+      "requirement": "a prompt / user turn",
+      "serves": "\u2461\u2462 both score responses TO something",
+      "keys": [
+        "prompt",
+        "user_prompt"
+      ],
+      "home": [
+        "prompt"
+      ],
+      "second": [
+        "user_prompt"
+      ],
+      "status": "DIRECT"
+    },
+    {
+      "requirement": "MULTIPLE responses per unit",
+      "serves": "\u2461 compares a core's ranking of responses",
+      "keys": [
+        "responses",
+        "model_response"
+      ],
+      "home": [
+        "responses"
+      ],
+      "second": [
+        "model_response"
+      ],
+      "status": "DIRECT"
+    },
+    {
+      "requirement": "a human preference target",
+      "serves": "A2 is agreement with a held-out annotator",
+      "keys": [
+        "responses",
+        "score"
+      ],
+      "home": [
+        "responses"
+      ],
+      "second": [
+        "score"
+      ],
+      "status": "DIRECT"
+    },
+    {
+      "requirement": "SHIPPED criteria (a rubric)",
+      "serves": "\u2461 is 'better than the released pool' \u2014 the pool is the baseline",
+      "keys": [
+        "coval_full",
+        "coval_core"
+      ],
+      "home": [
+        "coval_core",
+        "coval_full"
+      ],
+      "second": [],
+      "status": "ABSENT"
+    },
+    {
+      "requirement": "a released CORE",
+      "serves": "the object the definition is written from",
+      "keys": [
+        "coval_core"
+      ],
+      "home": [
+        "coval_core"
+      ],
+      "second": [],
+      "status": "ABSENT"
+    }
+  ],
+  "unsatisfiable": [
+    "SHIPPED criteria (a rubric)",
+    "a released CORE"
+  ],
+  "reconstruction_interaction": {
+    "units": 23846,
+    "median": 2,
+    "max": 4,
+    "frac_ge_2": 0.9890128323408538
+  },
+  "reconstruction_conversation": {
+    "units": 7024,
+    "median": 8,
+    "max": 44,
+    "frac_ge_2": 0.9998576309794989
+  },
+  "check202": "R602's closing line asserted the per-interaction/per-prompt unit fact from a docstring comment, never from the keying code \u2014 door \u2460",
+  "overswing_recorded": "my first reading treated LOW OVERLAP as an objection to row 5. It is not: disjointness is what a replication WANTS. The question is KIND, not overlap, and the schemas decide it.",
+  "impossible": "'the same kind of object' is a judgement about what the estimand needs, not a property of a file; every requirement is printed with what it serves"
+}

@@ -14122,3 +14122,45 @@ R601 closed calling R399/R400 *"uncited and **unaudited**"* — `uncited` was me
 was never checked**, and R401, R402, R427 and R556 all reference them. And *"**the single number** the
 whole cross-release question turns on"* was a superlative never computed; **R400's depth mass and the
 corpora's differing unit are two more axes.** This round measured one of three and said so.
+
+## 504 · The second file is a second DATASET, not a second RELEASE — R556's argument is overturned
+
+Measured from both schemas: the two releases share **0 top-level key names**, and **2 of 5**
+structural requirements are **unsatisfiable** in the second file — **shipped criteria (a rubric)** and
+**a released core**.
+
+⭐⭐⭐ **Clause ②'s baseline is *"better than the released pool"*, and there is no released pool
+there. ② as written is not evaluable on that file** — R433 had to substitute a generated baseline,
+which is why its `W-LOSES` is a result about a different comparison.
+
+| | |
+|---|---|
+| ⛔ **overturned** | R556's *"one is already on disk"* |
+| ✅ **stands, strengthened** | R556's *"what is missing is a second DESIGNER"* — with the release route closed it is the **only** live one |
+
+## 505 · Low overlap was never the objection, and reading it as one was an over-swing
+
+R602 measured the corpora disjoint and I began to read that as refuting row 5. **It does not.
+Disjointness is what a replication WANTS** — new data is the point. **The question is KIND, not
+overlap**, and the schemas decide it with no corpus statistic at all.
+
+*Recorded because the over-swing was one sentence from being written: a measurement that looks
+alarming in one frame can be the desired property in the correct one, and the frame is chosen before
+the number is read.*
+
+## 506 · My placebo presupposed a non-null effect, and the zero it tripped over was the finding
+
+v1's placebo — *"a key present in BOTH releases must be found in both"* — is **undefined when the
+intersection is empty, and it is empty.** §4's *the control presupposes a non-null effect*.
+
+⭐ **Zero shared top-level key names is a RESULT, not a broken control**: it is the schema-level form
+of the same answer the requirement table gives. Replaced with one that can pass either way — `prompt`
+found home-only, `score` second-only.
+
+## 507 · A unit fact asserted from a docstring, never from the code
+
+R602 closed with *"R433 scores per interaction while the home release scores per prompt"* **stated as
+fact**, from a `generate_core.py` comment read once. **Door ①.** Read from the data instead: keyed on
+`interaction_id` the second corpus gives **median 2** responses per unit (**98.90%** have ≥2); on
+`conversation_id`, **median 8** (**99.99%**). *The reconstruction is real and the assertion was still
+unearned.*
