@@ -11366,3 +11366,34 @@ maintenance note, not a finding, and it is labelled as one.**
 ⚠ **And I did not build a gate for it**, because a prose-consistency detector would be a third
 unvalidated proxy in one session, after two were declined for exactly that. **The rule written into
 memory this round forbids it until it can pass and fail on command.**
+
+## 344 · The prose one-home gate could not validate, so it does not ship — the rule carved last round blocked its own author
+
+**The announced next step was an instrument for prose drift.** The rule committed to memory one round
+earlier — *a replacement proxy must pass AND fail on command before it scores anything* — was applied
+to it, and **blocked it.**
+
+**Its positive control had to find a historical version asserting both wordings of ③'s checkability.
+All 28 versions of `STATEMENT.md` were scanned. None does.** Before 21:19 the retracted wording is
+asserted and the current wording is **not on the page at all**; from 21:19 it is present **only inside
+quotation marks**, in the correction note L81 requires.
+
+⛔ **Why the probe was wrong, and it is the instrument/claim mismatch for the fifth time this session:
+I gave the gate the FIX's vocabulary — *"checkable from the PRODUCER"* — as the string it must find in
+PRE-fix history. That string was written BY the fix.** The contradiction entry 334 describes was
+between the clause table's wording and the **fork's wording of the day**, neither of which is what I
+probed for. **A positive control built from post-fix language cannot fire on pre-fix text.**
+
+⚠ **And the gate's first act was to flag the CORRECTED document**, because the retracted phrase
+survives as a quotation. **An instrument that cannot tell an assertion from a citation of a retracted
+assertion punishes correcting properly** — which is what L81's *annotate, never rewrite* produces by
+design.
+
+⭐⭐⭐ **Entry 334's substance stands** — the clause table asserted ③ *cannot be checked* while the fork
+said it needs the producer, contradictory in meaning. **What is retracted is nothing; what is
+established is that I cannot yet build the instrument that would have caught it.** The file is kept,
+renamed `_one_home_per_claim_UNVALIDATED.py` so `run_all` skips it, because **the reason it failed is
+worth more than the gate would have been.**
+
+⭐ **Third declined instrument this session, and the first declined by a rule rather than by
+inspection.** That is the difference between a lesson and a control.
