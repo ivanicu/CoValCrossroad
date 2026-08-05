@@ -26,4 +26,9 @@ does the most work.**
 - **Positive** — at least one site reads as marked, so the detector can see markers. **PASS.**
 - **Negative** — an invented value (`extension is 97`) appears nowhere. **PASS.**
 
-**Landed:** all three sites now carry `†`.
+⛔ **THE FIRST ATTEMPT DID NOT LAND, AND I COMMITTED A README SAYING IT HAD.** The edit threw an
+`AssertionError` — the file wraps the sentence as `\n    extension of …` while my match string
+had it on one line — **and the commit ran anyway.** The re-measure in the same command printed
+**`1 of 3`**, contradicting the sentence I had just written. **Eleventh instance of matching the
+string as I picture it rather than as the file stores it, and the first where the false claim
+reached a commit.** Corrected in the next command; all three sites now carry `†`.

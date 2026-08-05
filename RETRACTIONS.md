@@ -13353,4 +13353,10 @@ reads exactly like a general one.
 the definition rather than cite the table. **The least-scoped statement of the number was the one
 doing the most work.**
 
-**Landed:** all three sites carry `†`.
+⛔ **AND THE FIRST ATTEMPT DID NOT LAND WHILE I COMMITTED A CLAIM THAT IT HAD.** The edit threw an
+`AssertionError` on a **line-wrapped** sentence, the commit ran regardless, and the re-measure in
+the same command printed **`1 of 3`** directly beneath the words *all three sites carry †*.
+**Eleventh instance of matching my mental string rather than the stored one — and the first where
+the resulting false claim reached the deliverable.** ⭐ The tell was on screen: **a verification
+printed immediately after an edit contradicted the edit's own success message.** Fixed in the
+next command.

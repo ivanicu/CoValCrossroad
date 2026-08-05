@@ -114,7 +114,7 @@ A **core** for a conversation is a set of criteria such that
 - **③** it was not built by reading the conversation's human labels — ⚠ **and "which labels" is a FORK,
   not a detail** *(R529)*:
   - **③-rank** — not built from the response **rankings**. This is what the code implements, and the
-    extension of ② ∧ ③ is **5 arms**: `coval_core`, `topw_k3`, `topw_k4`, `topw_k6`, `topw_k8`.
+    extension of ② ∧ ③ is **5 arms†**: `coval_core`, `topw_k3`, `topw_k4`, `topw_k6`, `topw_k8`.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own
     signed weights. The extension is **EMPTY**.
   ⭐ The card records annotators assigning **signed weights −10…+10**, and core selects on *"the highest
@@ -178,7 +178,7 @@ record prices both.**
 | | **A · core as an OBJECT-property** (drop ③) | **B · core as a PROCESS-property** (keep ③) |
 |---|---|---|
 | what it is a predicate on | a criterion set | a **(set, construction history)** pair |
-| extension here | **5** arms (①∧②∧④) | **0** |
+| extension here | **5†** arms (①∧②∧④) | **0†** |
 | what must be shipped for a third party to check it | **the criterion set** | **the criterion set + the prompt's RUBRIC** catches label-*optimisers*; only *rule-based* selection additionally needs the **producer** *(R508)* |
 | what it admits that you may not want | arms that **read the human labels** — but their criteria are **100% verbatim items from the prompt's own rubric** *(R503)*: the **right** criteria, selected for the wrong reason. The cost of A is **provenance, not quality** | nothing; it admits nothing here |
 | why the extension is what it is | the label-readers are the only arms clearing the ceiling *(R485)* | the site ships **one** admissible prompt-responsive generator *(R502)* |
