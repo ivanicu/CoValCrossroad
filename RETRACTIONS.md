@@ -13724,3 +13724,56 @@ stratification took Δ = +0.1263 to −0.0105.
 
 *Same control, same corpus, opposite directions in consecutive rounds. That is the case for running
 it either way rather than for holding a prior about which way confounds run.*
+
+## 467 · "verdict and world are the ONLY keys with meaningful prevalence" — there were four
+
+R593's closing line. **Four keys cleared the 20% floor**: `verdict` 0.49, `world` 0.44, `controls`
+0.26, `n_prompts` 0.22. "Only two" is true **solely under a ≥40% threshold I never stated**, and the
+same sentence quoted **"the 239 rounds that write one"** — the CODE-BEARING count, presented as a
+corpus count, where the corpus has 569 rounds with artifacts and 270 write `world`.
+
+⚠ **Two quantifier errors in one closing sentence**, which is §4's row: *the next-gradient line is
+written last, acted on by a later round, and is the only sentence with no control attached.*
+
+## 468 · The corpus's most-used keys are free text, and one has more values than rounds
+
+Measured as a growth exponent — an enum's distinct-value count **saturates**, free text grows
+**linearly** — against a floor (synthetic 3-value enum, β = +0.0180) and a **per-key matched** ceiling:
+
+- `verdict`: **290 rounds, 334 distinct values**, β = +0.9558 vs ceiling +0.9898 → **FREE TEXT**, 94.0% singletons
+- `world`: 270 rounds, 217 distinct, β = +0.9279 vs +0.9953 → **PARTIAL**, 95.4% singletons
+- `controls`: 145 rounds, 138 distinct, β = +0.9868 vs +1.0062 → **FREE TEXT**, 97.1% singletons
+
+⛔ **`verdict` has more distinct values than the rounds that write it.** `world` keeps a real enum core
+— `B`×52, `A`×20, `UNVERIFIED`×8, ~30% of rounds — on a **207-value singleton tail**. HB8 names this
+exactly: a `text_free` field wearing an enum's name **is a schema bug**, and every `GROUP BY` over
+this corpus's own verdicts is already broken.
+
+## 469 · My ceiling was one a real key could jump over
+
+The synthetic free-text control wrote **exactly one value per round**, pinning β at 1.0000 — but real
+keys write **sets** (`n_prompts` averages 1.70 values/round) and returned **β = +1.0677**, above a
+ceiling meant to bound it. **A ceiling the object under test can exceed is not a ceiling** (§4,
+floor/ceiling row). Rebuilt per key, matched to that key's own values-per-round distribution.
+
+⚠ **And `n_prompts` is a SCALAR.** v1 classified a count as FREE TEXT — my instrument's unit was
+*distinct serialised values*, the claim's unit was *an unbounded vocabulary for a categorical field*.
+HB8 types a count `scalar_with_range`; its vocabulary is unbounded **by definition** and β is simply
+the wrong instrument. Kept in the sweep under its own type rather than dropped, because a silent drop
+would have hidden the defect.
+
+## 470 · The confound was refuted in the direction opposite to my expectation
+
+R592 measured a 13.6× late-half decay in code persistence, so I expected the free-text tail to be
+recent and therefore mine. **Short values (≤12 chars) went 0.333 → 0.718 for `world` and 0.161 →
+0.453 for `verdict`, early half to late half.** The late rounds are MORE enum-like. **The discipline
+was acquired, not lost.**
+
+⭐ **Two practices moved in OPPOSITE directions over the same rounds** — code persistence decayed
+13.6×, verdict vocabulary tightened ~2.2× and ~2.8×. *"My practice degraded" is not a general truth;
+it is specific to one axis, and R592 does not license the wider version of itself.*
+
+⚠ **And the singleton comparison (1.000 → 0.921) is INADMISSIBLE for this**: singleton fraction falls
+mechanically as sample size rises, and early n = 93 against late n = 209. The short-value fraction is
+the clean contrast — per-value, unbiased by n — and it happens to move the same way. *Two statistics
+agreeing does not make the biased one usable.*
