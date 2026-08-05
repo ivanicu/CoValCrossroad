@@ -131,6 +131,14 @@ A **core** for a conversation is a set of criteria such that
   average ratings"* — so `coval_core` is a **weight-reader but not a ranking-reader**. `select_core.py:16`
   calls the same operation **"non-leaky: the weights come from the rubric, not from the outcome."**
 
+> ### ⛔ THE JUDGE IS RARELY IN THE RECORD *(R684)*
+> **90 rounds in this arc vary a judge in executable code. Nine record one in their artifact; seven
+> record two.** So for **90%** of judge-varying rounds, the scope condition below is **not recoverable
+> from the artifact** — only by reading the source. ⚠ **270 further rounds mention no judge at all and
+> are excluded rather than counted**: absence of a judge key is not evidence of one judge.
+> ⚠ **10.0% is a CEILING** — the source test is lexical, so rounds varying a judge without naming it
+> are missed, which biases the share up.
+
 > ### ⚠ SCOPE CONDITION ON ③ — the separation is INSTRUMENT-DEPENDENT *(R683, from R361's exact null)*
 > R361 enumerates **all `C(9,4) = 126`** ways to split its 9 arms into a 4-group and its complement —
 > an **exact** null on the membership itself, not a sample. Against it:

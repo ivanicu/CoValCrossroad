@@ -16589,3 +16589,34 @@ top and one near the bottom. A mean rank gap of +2.25 describes neither. R361's 
 registers this as NOT RESOLVED rather than as a small effect, which is the correct behaviour, but the
 **tell is in the spread and not in the p**: a group whose sd is twice the comparison group's is not
 one thing being measured.
+
+## 789 · Ninety rounds vary a judge; nine record it, and the scope R683 proved decisive is unrecoverable in 90% of them
+R683 established that the ③ separation resolves at the 2B judge and does not at 0.8B — so the judge
+is the scope, not a detail. Of the 90 rounds in this arc whose executable code references a judge,
+**9 record one in their artifact and 7 record two**. For the remaining 81 a reader cannot tell a
+one-judge verdict from a two-judge one without opening the source, and the deliverable inherits that
+ambiguity. **A scope condition that lives only in code is a scope condition the artifact cannot
+carry, and an artifact is what a later round reads.**
+
+## 790 · I re-implemented a source scan without the docstring strip R680 built for exactly this
+Every round's header discusses judges in prose. The raw scan counted 179 judge-referencing rounds;
+stripped of comments and docstrings it counts **90** — **half the population was documentation**.
+R680 named this confound, built the tokenizer strip, and controlled for it with a negative control.
+Four rounds later I wrote a fresh scan and did not import it. **Ledger 766 said a validated
+instrument does not carry itself forward, and this is the second instance: the reflex is to write the
+cheapest thing that looks sufficient, and it looks sufficient precisely because the confound is
+invisible in the output.**
+
+## 791 · The repair moved BOTH pre-registered scores across their boundaries
+Contaminated: A = 6.7%, **OUTSIDE** the registered [10%, 80%]; B = 8, error +1. Repaired: A = 10.0%,
+**INSIDE at the exact boundary**; B = 7, **error exactly 0**. Same registration, same corpus, and the
+verdict on my own forecast decided by an instrument fix I made *after seeing it miss*. Both numbers
+are recorded. **A forecast rescued by a post-hoc repair is not a clean forecast, and reporting only
+the second number would convert an instrument correction into an apparent calibration success.**
+Second occurrence of this exact shape (ledger 756).
+
+## 792 · 270 rounds mention no judge at all, and counting them as "unrecorded" would have manufactured the finding
+A set census has no judge dimension; asking whether it recorded one is a category error. Excluding
+them holds the measured gap at 10% instead of 3%. **Absence of a field is evidence about the
+question's applicability before it is evidence about the answer** — and the flattering direction here
+was the one that made the corpus look worse, which is exactly why it needed the control.

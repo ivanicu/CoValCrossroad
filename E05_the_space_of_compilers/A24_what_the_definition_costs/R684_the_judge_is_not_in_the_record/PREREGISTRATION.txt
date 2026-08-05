@@ -1,0 +1,29 @@
+R684 · PRE-REGISTRATION
+
+⚠ DISCLOSURE. A feasibility scan ran before this file and printed that 14 of 407 artifacts carry a
+  judge-keyed structure. That number is an OBSERVATION and no forecast is scored on it. It also
+  changed the design: an instrument reading only the artifact would classify 393 rounds as
+  single-judge by silence, which is the failure this round exists to avoid rather than commit.
+
+ESTIMAND A  of the rounds whose CODE references a judge, what share RECORD the judge in their
+            committed artifact? (the scope-recording gap)
+POINT A     40%       INTERVAL A [10%, 80%]
+ESTIMAND B  among artifacts that DO record it, how many record two or more judges?
+POINT B     7         INTERVAL B [2, 14]
+DIRECTIONAL (separately failable) more rounds reference a judge in code than record one in the
+            artifact — i.e. the gap is in the direction of under-recording, not over-recording.
+KILL        if fewer than 10 rounds reference a judge in code, the population cannot carry a share
+            and only the counts are reported.
+⚠ CONFOUND, NAMED BEFORE THE RUN, CONTROL IN THE SAME ITERATION
+  Absence of a judge key does NOT mean one judge — a round may have no judge dimension at all
+  (a set census does not). Rounds are counted only if their CODE references a judge; a round with
+  no mention anywhere is EXCLUDED, never silently counted as unrecorded. The g=0 control checks
+  exactly this.
+CONTROLS
+  POSITIVE  R361 references two judges in code and records both -> RECORDED-MULTI.
+  g=0       a round mentioning no judge anywhere -> EXCLUDED, not "unrecorded".
+  NEGATIVE  synthetic: code mentioning a judge, artifact lacking it -> UNRECORDED.
+  PLACEBO   run twice identical.
+IDENTIFICATION LIMIT  "code references a judge" is a lexical test over source. A round may vary the
+            judge without naming it in a way this pattern catches, which biases the population DOWN
+            and therefore biases the recorded-share UP. Stated, not corrected.
