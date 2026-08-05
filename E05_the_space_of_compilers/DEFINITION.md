@@ -2940,3 +2940,30 @@ pooling and fixing; a feature independent of id returns **0.0262**, so the instr
 constant feature returns **0.0000**.
 
 ⚠ A boundary in id order is not a date and a correlate is not a cause.
+
+---
+
+## R614 · How much of the era the claim table draws on
+
+Population: rounds **431–606** with at least one parseable `results/*.json` — **171** of them. The
+numbered claim table cites **17 distinct** rounds, spanning **519–581**; that span holds **63** id
+positions and **63** existing rounds, so it is dense.
+
+| quantity | value |
+|---|---|
+| coverage of the era | 17/171 = **0.0994** |
+| coverage within the span | 17/63 = **0.2698** |
+| observed mean gap between cited rounds | **3.8750** |
+| null over 2,000 random 17-subsets | 5% **8.5000** · median **10.0000** · 95% **10.8125** |
+
+The observed gap sits far below the null's 5th percentile, so the cited set is **more clustered than
+chance**: the concentration is a habit rather than a shortage, and **154 rounds of the same era exist
+and are not cited.**
+
+**Controls.** A contiguous block of 17 returns a mean gap of **1.0000** against the same null, so
+clustering is detectable; a random 17-subset returns **10.0625**, inside [8.5000, 10.8125], so the
+instrument can fail; the full era as its own cited set returns coverage exactly **1.0000**. The
+pre-registered kill required at least 10 cited rounds for the clustering statistic; 17 clears it.
+
+⚠ Coverage is a **DERIVATION** over a complete enumeration — only the clustering is tested. ⚠ A
+citation may carry a caveat rather than a number, so coverage bounds the evidence base from **above**.

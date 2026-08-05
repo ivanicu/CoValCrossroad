@@ -14479,3 +14479,34 @@ rounds of corpus archaeology"* — **the thread is R605 through R612, eight.**
 
 ⚠ *Two quantifiers in one sentence, neither computed, in a round whose entire subject was the
 difference between a count and a claim.*
+
+## 536 · Narrow by habit — the page cites 9.9% of the era, more clustered than chance
+
+Rounds 431–606 hold **171** with artifacts. The claim table cites **17 distinct** of them: **17/171 =
+0.0994** over the era, **17/63 = 0.2698** within its own span. The cited set's mean gap is **3.8750**
+against a null of **8.5000** at the 5th percentile over 2,000 random 17-subsets — **significantly more
+clustered than chance.**
+
+⭐ **So the concentration is a habit, not a shortage: 154 rounds of the same era exist and are not
+cited**, and *why those seventeen* is the live question about the definition's evidence base.
+
+⚠ Coverage is a **DERIVATION** over a complete enumeration; only the clustering is tested. And a
+citation may carry a **caveat** rather than a **number**, so coverage bounds the evidence base from
+**above**.
+
+## 537 · A units objection that was itself wrong about the units
+
+Check #213 objected that *"R519–R581, a 63-round window"* conflated **id positions** with **rounds**.
+**The run prints the refutation: that span holds 63 id positions AND 63 existing rounds.** The phrase
+was accurate; **my correction conflated *window size* with *cited count*.**
+
+⚠ *A units objection is itself a claim about units and needs the same count the sentence it corrects
+needed.* The check was right that two units were in play and wrong about which number belonged to
+which — **the self-correction reflex is not exempt from the failure it is correcting.**
+
+## 538 · A drift in the NEXT lines, named rather than repeated silently
+
+R612's closing line asked to leave corpus archaeology and return to the definition. **R613 did exactly
+that — and then its own closing line went straight back.** ⚠ *The pull toward the tractable
+neighbouring question is strong enough to survive an explicit instruction one round old, which is why
+it is worth writing down rather than resolving privately.*
