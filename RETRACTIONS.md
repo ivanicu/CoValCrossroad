@@ -16403,3 +16403,35 @@ first returns a non-empty classification string, the second never ran. The contr
 round whose ESTIMAND contains no ③ to certify a ③ classifier, and printed FAIL. **§4's "the control
 fails for its own reasons", in two tokens of Python** — and the fix was to check every candidate
 rather than the first truthy one.
+
+## 764 · The g=0 control voided the first lineage result: five strings co-occurring is not a set
+R678 v1 located a set's producer by asking whether all five member names appear in a committed JSON.
+A **synthetic combination never committed** resolved to `corebench/results/leaderboard.json`, and
+three real sets resolved to R294's `full_census.json` — because both files list **every** arm. The
+instrument's unit was "five strings present in a blob"; the claim's unit is "a file holds this SET as
+a value". Repair: parse the JSON and require a list field whose sorted contents **equal** the set.
+**Without the g=0 control this round ships a lineage table in which a census file is the producer of
+everything, and it would have read as a clean result.**
+
+## 765 · The extension count stops being a choice: 6 of 6 producers, exactly 1 ③ extension
+Every five-member set has a unique producing commit. By producer, exactly one denotes a ③-reading
+extension — `{coval_core, topw_k3, topw_k4, topw_k6, topw_k8}`, written by R294. The other five are a
+publication list, two pre-③ sets, a different field of a ③ round, and an unrelated set. **R677's
+"not identified, range 0–1" is now identified at 1**, and the majority-over-citations aggregator is
+refuted rather than merely disfavoured. **A lineage fact does not always overturn the aggregators —
+sometimes it adjudicates between them, and that is a stronger outcome than either.**
+
+## 766 · I regressed to a cruder classifier one round after validating a better one
+R678's first B asked only whether ③ appears in the producer's ESTIMAND and returned **5**, counting
+`R470` — whose estimand reads "the extension BEFORE ③ is applied" — as a ③ reading. **That is
+precisely the error R677 was built to catch, committed one round after building the instrument that
+catches it.** With R677's classifier the answer is 1. **A validated instrument does not carry
+forward by itself; the next round re-implements the cheapest thing that looks sufficient unless the
+instrument is imported explicitly.**
+
+## 767 · A failed directional that adjudicates is worth more than one that holds
+R678 registered that the producer-based count would differ from BOTH R677 aggregators. It **equals**
+the any/earliest one, so the prediction fails. But the failure is the informative outcome: it shows
+the two aggregators were not equally wrong, and it converts an unidentified range into a value.
+**Registering "differs from both" encoded an assumption that a new instrument must overturn
+everything before it — which is a bias toward novelty, not toward truth.**
