@@ -1,0 +1,15 @@
+{
+  "families": {
+    "2B (sat_*)": 101,
+    "0.8B judging (sat08_*)": 13,
+    "0.8B arms (*_08b)": 32,
+    "7B (*_7b*)": 0,
+    "qwen-tagged": 0
+  },
+  "third_judge_artifacts": 0,
+  "n_2bA": 200,
+  "n_core": 968,
+  "n_shared": 200,
+  "n_differing": 0,
+  "world": "B"
+}

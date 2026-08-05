@@ -2469,3 +2469,25 @@ its absence as missing data would have made this round look impossible.
 
 ⚠ **`sat_coval_core_08b` is absent, so the released core is the one admitted arm whose curve
 position is unreplicated.**
+
+---
+
+## R538 · No second judging of the released core, and the first wall to survive
+
+**The wall check, which this session has run seven times and which failed six:** artifacts from a
+judge stronger than the home 2B are **`*_7b*` → 0, `*qwen*` → 0**. **This one holds.** Six false
+walls made "my walls are false" feel like a law; it was a tendency, and only checking each one
+distinguishes them.
+
+**And `coval_core_2bA` is not the missing second judging.** R524 had it in a duplicate class not
+containing `coval_core`, with no documented prediction. Measured: it covers **200 prompts** against
+`coval_core`'s 968, and on the **200 shared prompts 0 cells differ**. It is the **same judging on a
+subsample**; its identity to `_2bB` is the correct outcome for a deterministic judge run twice.
+
+**Controls.** Positive: `coval_core` vs its **sham** on the same 200 shared prompts differs on
+**200 of 200**, so a zero is a measurement rather than silence. Negative: `coval_core` against
+itself gives **0**.
+
+⭐ **So R537's gap is real: the released core is the one admitted arm whose cross-judge position
+cannot be replicated from anything on disk** — and `Qwen2.5-7B-Instruct`, register row 2, remains
+**an install**, now verified rather than assumed.
