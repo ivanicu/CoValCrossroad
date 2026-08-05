@@ -16058,3 +16058,27 @@ R666's own verdict string first read *"the extension … CONTAINS coval_core, to
 while its bound was **[0, 2]**. ⛔ The lower bound is **0**; non-emptiness is **not established**.
 Caught before commit — **the fifth verdict-string defect in this arc**, and the second where the
 number and the word disagreed in the same sentence.
+
+## 719 · The extension is FIVE, not two — R665's answer was computed on a restricted pool
+
+Two independent rounds ~80 apart, **R360 (`clause23_admits`) and R442 (`ext_impl`)**, give
+`② ∧ ③` = **{coval_core, topw_k3, topw_k4, topw_k6, topw_k8}**. R665 reported **2**
+(`{coval_core, topw_k4}`) via R527's percentile curve — **which sweeps 8 arms of 42 and never
+contains `topw_k3`, `topw_k6`, `topw_k8`.** ⛔ **R665's "the definition admits exactly two objects"
+is RETRACTED.** ⭐ The object-level consequence is sharper: the definition admits **four top-weight
+arms at four different k**, and **nothing in `② ∧ ③` distinguishes k**. ⚠ Reported as a disagreement,
+not adjudicated — which pool the definition quantifies over is a choice the release does not make.
+
+## 720 · "The only unresolved cell" — budget-0 is a bracket too
+
+R666's NEXT called the held-out `[0, 2]` *"the only cell in this whole curve that is unresolved"*.
+⛔ **Budget-0 is `[2, 3]`** — also a bracket, printed in the same table three lines above.
+
+## 721 · Third consecutive round asserting absence where the gate was one command
+
+R666's NEXT said pinning the bracket needs per-arm `a2` scores *"which the corpus has not
+surfaced"*. ⛔ **The prior-art gate was not run. It finds 21 artifacts carrying a per-arm map**, two
+of which answer the question outright. ⭐ **R664's object fact came from R527; R665's from
+R442/R440; R667's from R360/R442. Three consecutive rounds, all answered from committed artifacts
+I claimed did not exist.** *I assert absence at exactly the point where running the gate is one
+command — a measured pattern, not an anecdote.*
