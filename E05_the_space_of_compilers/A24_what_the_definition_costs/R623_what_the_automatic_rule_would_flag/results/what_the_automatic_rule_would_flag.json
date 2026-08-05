@@ -1,0 +1,201 @@
+{
+  "world": "B UNUSABLE AS STATED \u2014 C1+C2 are 84.0% of 537 flags. The rule would mostly measure PROSE CONVENTION and ARTIFACT HYGIENE, and an author facing it would be trained to add citations rather than to check values.",
+  "controls_ok": true,
+  "rounds_on_disk": 326,
+  "rounds_with_artifact": 322,
+  "totals": {
+    "C1": 447,
+    "C2": 4,
+    "C3": 86,
+    "PASS": 521
+  },
+  "flags": 537,
+  "c3_share_of_flags": 0.1601,
+  "per_document": {
+    "DEFINITION.md": {
+      "C1": 437,
+      "C2": 4,
+      "C3": 68,
+      "PASS": 391,
+      "C3_examples": [
+        [
+          "0.0340",
+          [
+            "331",
+            "442",
+            "443",
+            "445",
+            "446"
+          ]
+        ],
+        [
+          "0.1298",
+          [
+            "453",
+            "454"
+          ]
+        ],
+        [
+          "0.500",
+          [
+            "456"
+          ]
+        ],
+        [
+          "0.0023",
+          [
+            "466",
+            "469"
+          ]
+        ],
+        [
+          "0.0319",
+          [
+            "494",
+            "495",
+            "496",
+            "497"
+          ]
+        ],
+        [
+          "0.0067",
+          [
+            "499"
+          ]
+        ],
+        [
+          "0.0122",
+          [
+            "499"
+          ]
+        ],
+        [
+          "0.5337",
+          [
+            "499"
+          ]
+        ]
+      ]
+    },
+    "STATEMENT.md": {
+      "C1": 10,
+      "C2": 0,
+      "C3": 18,
+      "PASS": 130,
+      "C3_examples": [
+        [
+          "0.0254",
+          [
+            "605",
+            "606",
+            "607",
+            "608",
+            "609",
+            "610",
+            "611",
+            "612",
+            "617"
+          ]
+        ],
+        [
+          "0.0420",
+          [
+            "605",
+            "606",
+            "607",
+            "608",
+            "609",
+            "610",
+            "611",
+            "612",
+            "617"
+          ]
+        ],
+        [
+          "0.2966",
+          [
+            "605",
+            "606",
+            "607",
+            "608",
+            "609",
+            "610",
+            "611",
+            "612",
+            "617"
+          ]
+        ],
+        [
+          "0.5424",
+          [
+            "605",
+            "606",
+            "607",
+            "608",
+            "609",
+            "610",
+            "611",
+            "612",
+            "617"
+          ]
+        ],
+        [
+          "0.0271",
+          [
+            "519",
+            "591",
+            "605",
+            "612",
+            "613",
+            "614",
+            "615",
+            "616"
+          ]
+        ],
+        [
+          "0.2335",
+          [
+            "519",
+            "591",
+            "605",
+            "612",
+            "613",
+            "614",
+            "615",
+            "616"
+          ]
+        ],
+        [
+          "0.2482",
+          [
+            "519",
+            "591",
+            "605",
+            "612",
+            "613",
+            "614",
+            "615",
+            "616"
+          ]
+        ],
+        [
+          "0.0200",
+          [
+            "434",
+            "439",
+            "444",
+            "465",
+            "514",
+            "515",
+            "516",
+            "518",
+            "591"
+          ]
+        ]
+      ]
+    }
+  },
+  "check222": "the closing line said EVERY round's results JSON carries its values; 322 of 326 rounds have an artifact. Sixth uncomputed universal in twelve closing lines.",
+  "contamination_note": "the planted literal is assembled at runtime and appears in this artifact only inside this sentence, never as a value position, so R622's g=0 failure is not repeated",
+  "impossible": "C3 is an upper bound; the paragraph cannot bind a decimal to one cited round"
+}

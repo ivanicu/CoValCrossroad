@@ -14742,3 +14742,29 @@ retractions. Repaired to **value positions only**, `0.9187` lands in T3 and the 
 An uncomputed comparative in a closing line. §4: a comparative word must be computed, not typed.
 ✓ The same line's claim about `definition_matches_the_record` **was** checked against the object
 before being built on, and held.
+
+## 559 · The proposed anchoring rule would flag 50.8% of pairs, 84% of them for punctuation
+
+**537 of 1058 (decimal, paragraph) pairs flag; C3 — the only class that is evidence about a number —
+is 16.0% of flags** against a pre-registered kill of 33%. **World B: do not build it as stated.**
+
+⭐ **The design law is worth more than the rule:** *a gate satisfiable by formatting will be satisfied
+by formatting.* Facing 447 `no citation` failures an author adds citations, not checks — producing a
+document that passes, numbers no better verified, **and the appearance that provenance was
+established.**
+
+## 560 · Check #222 was right about the universal and wrong about its size by two orders of magnitude
+
+The closing line's *"every round's results JSON carries its values"* is false — **by 4 rounds**, not
+by the **269** my check asserted (345 of 614). **The 614 counts the round index across ALL arcs; the
+rule's population is A24, where 322 of 326 rounds carry an artifact.**
+
+⭐ *The check that caught an uncomputed magnitude attached an uncomputed magnitude of its own.* **A
+check on a closing line is itself a claim and inherits every rule the closing line has.**
+
+## 561 · A negative control I wired not to count, in the round measuring buildability
+
+`0.5451 (R294)` — R622 classes it **T1, gate-verified** — **flags C3** under the proposed rule, so
+the rule condemns a value the current gate verifies. **I set `neg_ok = True` unconditionally**:
+§4's *check that cannot fail*, built by me. The result strengthens the verdict rather than changing
+it, but the wiring was wrong.
