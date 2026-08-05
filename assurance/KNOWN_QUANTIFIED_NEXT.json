@@ -1,5 +1,5 @@
 {
- "count": 134,
+ "count": 135,
  "shas": [
   "0039eceb",
   "092dc038",
@@ -54,6 +54,7 @@
   "70d7512d",
   "7282b8a4",
   "731e20bb",
+  "75df50db",
   "76a8b316",
   "7aa86603",
   "7ae10745",
@@ -135,7 +136,5 @@
   "fecc2d4c",
   "fee5b52a",
   "ff0ea043"
- ],
- "note_ad1e0de8": "Caught by this gate four rounds after it was built, on my own NEXT line: 'nothing in the residue ranks them by removal cost'. The claim was TRUE \u2014 verified the next round at cost=0, order=0 occurrences \u2014 but it was written BEFORE the check and cites no instrument, which is precisely what this gate polices. Frozen rather than rewritten because the commit is pushed; the record now shows a quantifier asserted first and verified after, which is the sequence the gate exists to invert.",
- "note_0039eceb": "'nothing on this page distinguishes a claim stated once from a claim stated twice in different words' \u2014 an unverified quantifier, and the NEXT round spent itself trying to build the instrument that would have verified it. It could not: the positive control found no historical version asserting both wordings, because I probed for the FIX's vocabulary in PRE-fix text. So the sentence was not merely uncited, it was UNVERIFIABLE with the means to hand \u2014 which is the strongest case yet for the gate that flagged it."
+ ]
 }

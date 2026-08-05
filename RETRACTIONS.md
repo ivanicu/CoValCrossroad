@@ -11557,3 +11557,40 @@ and it took one round, with better controls, to find that the recipe is underdet
 ⚠ **And note what did NOT go wrong:** every control in both rounds passed, the numbers are exact,
 and no measurement is being withdrawn. **The retraction is entirely at the join between a number and
 the sentence built on it**, which is where 11 of the 12 retractions in the audited programme lived.
+
+## 350 · "④ is not vacuous" rests on a population where the question cannot be asked — and my NEXT line was false three ways
+
+**First the NEXT line.** R516 closed with *"two of them have never been attacked in the same round as
+each other … the pair nobody has checked."* False three ways: **20 round READMEs mention ④**, **10
+discuss ② and ④ together**, and **`R439_is_clause_four_a_reparameterisation_of_two`** asked exactly
+the question I proposed. ⚠ **And the search that found this initially returned 0 — a glob one `*`
+too deep, caught by a positive control that reported 0 READMEs on disk. Sixth search-instrument
+failure this session.**
+
+**Then the substance.** R439's answer is sound: ④'s bar (**0.4512**) sits **0.0687 below the weakest
+of all 1,820 subsets** in ②'s reference class, so ④ is **not reachable by turning ②'s knob**. That is
+a claim about the **bar**. The STATEMENT read it as a claim about the **extension**.
+
+⛔ **④ adds to the definition only if some arm passes ② and fails ④, and that cell has never been
+observable:**
+
+| population | n | ②pass | ④fail | identified? |
+|---|---|---|---|---|
+| home judge J | 56 | 0 | **0** | ⛔ ④'s marginal is 0 |
+| second release | 7 | **0** | 7 | ⛔ ②'s marginal is 0 |
+
+**In both, one marginal is degenerate, so the joint is 0 BY CONSTRUCTION — a derivation, not a
+null.** The negative control rules out a design problem: pairing the home population with ④'s global
+fail rate (22/93) and a 50% ② pass rate expects **6.62 arms** in that cell. The positive control
+confirms the instrument sees exclusion where it exists (**22 of 93**).
+
+⭐ **So "④ excludes all 7 arms on the second release — not vacuous" is true and is not evidence.**
+On that release **② excludes the same 7** *(R434)*; at home ④ excludes **nobody** *(R436,
+`W-REDUNDANT-AT-J`)*. **The row cited the one population where ④ excludes things and omitted that ②
+excludes them too.**
+
+⭐⭐⭐ **④ is UNVERIFIED — and that is NOT ①'s situation, which is why they must not be written the
+same way.** ① was *measured* redundant across 41 arms with a mechanism and a margin. ④ has never
+been placed where it could fail. **Folding UNVERIFIED into OVERTURNED manufactures a false acquittal;
+folding it into ESTABLISHED manufactures a false clause.** The definition is **② ③, with ④ carried
+as unverified.**

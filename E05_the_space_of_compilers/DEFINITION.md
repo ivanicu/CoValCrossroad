@@ -1822,3 +1822,33 @@ a demonstrated reason rather than an assumed one.** The definition is **② ③ 
 **What is NOT claimed:** that no principled per-prompt aggregation exists. Choosing one is a
 construct claim and needs an external standard for what a core must do — which this site does not
 have, and which the impossibility register already names.
+
+---
+
+## R517 · Clause ④ has never been placed where it could fail
+
+**R439 established ④ is not a reparameterisation of ②** — its bar (**0.4512**) sits **0.0687 below
+the weakest of all C(16,4) = 1,820 subsets** in ②'s reference class (min 0.5199, percentile 0.00).
+That is a claim about **reachability of the bar within ②'s knob**, and it is sound.
+
+⚠ **The deliverable read it as a claim about the extension, and those are different properties.**
+④ adds to the definition only if some arm **passes ② and fails ④**. That cell:
+
+| population | n | ②pass | ④fail | E[both] | identified? |
+|---|---|---|---|---|---|
+| home judge J | 56 | 0 | **0** | 0.000 | ⛔ **④'s marginal is 0** |
+| second release | 7 | **0** | 7 | 0.000 | ⛔ **②'s marginal is 0** |
+
+**In both populations one marginal is degenerate, so the cell is 0 by construction.** A derivation,
+not a null. The negative control shows the design is not the problem: pairing the home population
+with ④'s global fail rate (22/93) and a 50% ② pass rate expects **6.62 arms** in that cell.
+
+⭐ **So "④ excludes all 7 arms on the second release" is true and is not evidence of independence** —
+**② excludes the same 7** *(R434)*. And at home ④ excludes nobody *(R436, `W-REDUNDANT-AT-J`)*.
+
+⭐⭐⭐ **④ is UNVERIFIED, and that is NOT ①'s situation.** ① was measured redundant across 41 arms
+with a mechanism and a margin; ④ has simply never been tested where it could fail. **The definition
+is ② ③ with ④ carried as unverified** — dropping it would be as unwarranted as asserting it.
+
+**What would settle it:** arms that clear the blind-pool bar scored against the criterion-free rules
+on the same release. That is a scoring run, and it is the cheapest open item in the register.
