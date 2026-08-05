@@ -3756,3 +3756,21 @@ indistinguishable precisely because that third object drags the mean across, whi
 per-object table in spread units is the reportable form and the two means are not. This compares
 outcomes and not mechanisms: a margin near the excluded object's does not establish that the same
 construction produced it, and establishing that would require an intervention this site cannot run.
+
+## R732 · the third admitted object differs in two ways at once, so its cell carries nothing
+
+The comparison that placed the third admitted object with the label-blind arms mixed two factors. That
+object and the excluded oracle object select identical criteria on only 0.0888 of their 968 shared
+prompts, against a floor of 1.0000 that every same-object tag pair in the partition returns, so the
+selection genuinely differs; and their per-cell satisfaction agreement is 0.0354, with an earlier
+round having established that the suffixed family is scored by an emitter foreign to the default one.
+Their margin gap is therefore a sum of a selection effect and an emitter effect and neither term is
+identified from the gap. No arm on disk carries the third object's criteria under a default-emitter
+score, so the design that would separate them does not exist at this site. The reading drawn from
+that cell — that construction and behaviour come apart — is withdrawn to unverified. It is not
+refuted, and unverified is not an acquittal in either direction, so the proposal that the provenance
+clause needs a predicate over construction returns to untested rather than being restored. Two things
+are untouched. The greedy and independent objects both sit with the excluded object on both clauses
+and both are scored by the default emitter, so that comparison mixes no instruments. And the rule
+name is a poor proxy for construction, which is now measured directly at 8.9 percent selection
+agreement between two arms that share a rule, rather than inferred from a margin.

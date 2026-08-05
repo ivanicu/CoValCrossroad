@@ -437,10 +437,16 @@ recognise two of its tags.**
 ⭐ **And what it admits is SPLIT** *(R731)*. Against the excluded oracle's clause-② margin **0.077867**
 and a label-blind mean near 0.0169: `greedy` **0.072210** and `indep` **0.052679** sit with the
 **excluded** object — 1.81 and 8.07 within-topw spreads from it, against 17.71 and 11.45 to the blind
-group — on **both** clauses. ⛔ **But `oracle_k4_08bR`, oracle-ruled by construction, behaves like a
-blind arm**: ②/mde **1.04** against oracle's **7.29**, 0.78 spreads from topw. **So a predicate over
-construction alone would exclude it, and construction does not determine behaviour.** *(Outcomes,
-not mechanisms — that separation needs an intervention this site cannot run.)* R729 adds a **name-independent** second route — the selected criteria in
+group — on **both** clauses. ⛔ **The third object's cell is UNVERIFIED and carries nothing** *(R732)*. `oracle_k4_08bR` differs
+from `oracle_k4` in **two factors at once**: identical criteria on only **0.0888** of 968 shared
+prompts — against a floor of **1.0000** that every same-object tag pair returns — **and** a foreign
+emitter *(R424)*, with per-cell agreement **0.0354**. **0 arms** on disk carry its criteria under a
+default-emitter score, so the 2×2 does not exist here. **Its margin gap is a sum of a selection
+effect and an emitter effect, and neither is identified.** So *"construction does not determine
+behaviour"* is **withdrawn to UNVERIFIED — not refuted**, and the "③ needs a construction predicate"
+proposal returns to **untested**. ⭐ **Untouched:** `greedy` and `indep` are **both default-emitter**,
+so that comparison mixes no instruments. ⭐ **And measured directly:** two arms sharing the `oracle_k`
+rule agree on **8.9%** of selections — **the rule name is a poor proxy for construction.** R729 adds a **name-independent** second route — the selected criteria in
 `core_*.json` — agreeing with the tag route on **all 82** arms both can classify, which matters
 because R520's own record notes a keyword search on this question failed **19 of 19**.
 ⚠ This does **not** say those arms leak. **It says ③ never asks** — and its coverage decays with

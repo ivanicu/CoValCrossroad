@@ -18352,3 +18352,35 @@ side and drags the mean across, so averaging over a split group destroys exactly
 statistic was registered to detect. Both points passed their intervals, which is what a wide interval
 does. The per-object table in units of the within-group spread is the reportable form, and the two
 means are kept only as a caution against themselves.
+
+## 958 · R731 compared a foreign-emitter object against default-emitter objects and read a number off it
+
+The round that split the three admitted objects placed one of them, a suffixed oracle variant, in the
+same column as the excluded oracle object and the label-blind arms. An earlier round had already
+established that the suffixed family is scored by an emitter foreign to the default one, and R731
+cited that round in its own next-step line while having already used the comparison. Measured now,
+the two objects also select identical criteria on only 0.0888 of their shared prompts against a floor
+of exactly 1.0000 for same-object pairs, so selection differs as well. Two factors vary at once, no
+arm on disk carries the suffixed object's criteria under a default score, and the margin gap is a sum
+whose terms are not identified. The reading is withdrawn to unverified. It is not refuted; the cell
+cannot carry it either way.
+
+## 959 · a retraction I made on the strength of that cell is itself withdrawn
+
+R731 used the third cell to retract the remedy proposed in the two rounds before it, that the
+provenance clause needs a predicate over construction rather than a longer list of names. That
+retraction rested on the claim that an object satisfying a construction predicate behaves like the
+objects the definition accepts, and that claim came from the confounded cell. It returns to untested.
+The remedy is neither supported nor refuted, and this is the second time in this arc that a
+correction inherited the resolution of whatever produced it — the standard names that failure and I
+reproduced it while quoting it.
+
+## 960 · a value-alphabet probe cannot see an emitter difference
+
+Before the measurement above I compared the two arms' sets of distinct satisfaction values and got
+0.96 containment, which reads as agreement. The satisfaction alphabet is a small set of fractions
+shared by every arm by construction, so that instrument cannot distinguish emitters at all. The
+earlier round measured per-cell agreement, which is 0.0354 for the same pair. The alphabet is not the
+text, and a containment statistic over a shared vocabulary answers a question nobody asked. Recorded
+because the probe took seconds, returned a confident number, and would have supported the opposite
+conclusion had I stopped there.
