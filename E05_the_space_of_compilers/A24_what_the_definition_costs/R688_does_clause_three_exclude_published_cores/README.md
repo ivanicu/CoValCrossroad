@@ -4,6 +4,8 @@
 `topabs_k4`, `topvar_k4`, `topwvar_k4` — **all fail clause ② anyway**. So ③ adds no exclusion the
 behaviour had not already made, and §4's falsifier for a definition **does not fire against ③**.**
 
+> **⚠ PREMISE CORRECTED BY R689 (D8).** *"CoVal's published five"* is **R442's hard-coded literal**, not the release. `data/DATASET_CARD.md` names **`coval_core` only**; the other four are our own `corebench` constructions. **The verdict below SURVIVES and strengthens** — the one core the release publishes is *in* ③'s extension — but the population it was run on was one released object and four we built. R688's impossibility line ("needs the release's own text") was a **wall never checked**: the card was on disk throughout.
+
 ## THE TEST §4 SPECIFIES FOR A DEFINITION
 > *"Name an admissible object this clause EXCLUDES. If the excluded object is one your own benchmark
 > ACCEPTS, the clause is false."*
