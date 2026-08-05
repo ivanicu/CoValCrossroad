@@ -14968,3 +14968,29 @@ same scrutiny was applied to a PASS that contradicted me.
 ⭐ *Recording a correction did not prevent its recurrence in the very next closing line* — which is
 why the ledger is worth more than the resolution to be careful. Plus *"the sharpest single item this
 arc has"*, an uncomputed superlative. Fifteenth and sixteenth.
+
+## 584 · Two of R630's five RETRACTED were false — the instrument was repaired and the round never re-run
+
+R631 caught its own ledger test matching a **bare `R335`** and tightened it to require a supersession
+verb **bound to the round id**. Applying the repaired test to all 16 ungoverned findings:
+**`CLAUSE ② NOW NAMES ITS REFERENCE BY A PROCEDURE (R327–R333)` moves RETRACTED → LIVE**, and
+**`The impossibility register, AUDITED (R290, R291)` moves RETRACTED → UNSETTLED.**
+
+Counts: **LIVE 2→1 · RETRACTED 5→3 · UNSETTLED 10→12.**
+
+⭐⭐ **A repaired instrument obliges a re-run of everything it measured.** A fix applied at one call
+site leaves every earlier conclusion standing on the broken version, **and those conclusions do not
+announce themselves** — R630's counts read exactly as confidently before and after.
+
+## 585 · R631's case was a singleton, not a class
+
+**One supersession sentence exists in all 160 KB of `FORMULATION.md`** (`"This also retracts R335"`),
+precision 1/1 on hand-check. So the prose channel is real, admissible, and has **one member**.
+⚠ My closing line offered *"a fix or a sweep"* and **the answer was neither** — the fourth branch,
+which existed in the code this time only because R630 made three-world sets the default.
+
+## 586 · Check #231 — I described my own instrument from memory
+
+*"asked only the ledger"*: R630 used **ledger membership AND the artifact verdict**; `UNSETTLED` came
+from the latter. **Written one round after a round whose entire finding was that a channel existed
+and nobody read it.**

@@ -1,14 +1,14 @@
 {
  "source_sha": "ec80b1ef7d7a5fff",
  "coverage_before": [
-  622,
-  623
+  623,
+  624
  ],
  "coverage_after": [
-  623,
-  623
+  624,
+  624
  ],
- "rows": 623,
+ "rows": 624,
  "readmes_created": [],
  "readmes_updated": [
   "A01_can_this_release_be_analysed_at_all",
@@ -51,7 +51,6 @@
   "A13_the_chain_from_a_person_to_the_standard/R164_instrument",
   "A19_triple_blind/R234_independent_A",
   "A19_triple_blind/R235_independent_B",
-  "A23_is_the_admissibility_gate_the_right_gate/R283_is_there_headroom_above_a_constant",
-  "A24_what_the_definition_costs/R631_the_unrecorded_retraction"
+  "A23_is_the_admissibility_gate_the_right_gate/R283_is_there_headroom_above_a_constant"
  ]
 }
