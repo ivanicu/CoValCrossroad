@@ -18031,3 +18031,32 @@ worst way for a registration to pass.
 **A new criterion is a CONJUNCT, never a substitute.** With R718's amendment test ANDed back in, the
 residue is **1**. ⚠ And note the shape: I built a better instrument and, in using it, silently
 dropped the one it was meant to improve on.
+
+## 930 · the last standing block SURVIVED its attack, and my prediction was wrong by a factor of five
+
+R720's NEXT line proposed checking whether the lineage block's "at most SIX independent computations"
+are independent in the sense claimed. I registered **2** distinct upstream sources, expecting the six
+derivers to collapse onto R294's census. **There are 11**: `full_census.json`,
+`conjunct_decomposition.json`, `readings.json`, `universal_reading.json`, `literal_test.json`,
+`ordering.json`, `clause2_spec_curve.json`, `extension.json`, `extension_reconciled.json`,
+`clause_ledger.json`, `sat_*.npz`.
+
+⭐ **The registered directional FAILED, and that is the round's most useful output.** An attack that
+fails is evidence about the claim, and **this is the first block in this arc to survive one.**
+
+⚠ **The survival is qualified, not clean.** 3 files are read by more than one deriver —
+`clause_ledger.json` by **4 of 6** — and **all 6** read at least one shared file. They are 11 files
+with 3 in common, **not disjoint evidences**, and the block's word **"at most"** is exactly what makes
+it survivable. The negative control puts 6 random arc rounds at [15, 15, 14] sources against these
+six's 11, so the derivers are **slightly** more convergent than the corpus, not dramatically so.
+
+## 931 · and the block had already made the naive attack against itself
+
+Before running anything, the block's own text says *"at most SIX"* and *"It is a ceiling twice over —
+absent literals remove one way of copying, not all."* **The attack R720 proposed — "the six is really
+smaller" — is one the block states in its own body.**
+
+⭐ That is worth recording as the shape of a good claim: **a block that names its own ceiling twice
+cannot be killed by pointing at the ceiling.** The only live attack left was on what "independent"
+MEANS — independence from copying versus independence of source — and the measurement answered it in
+the block's favour.

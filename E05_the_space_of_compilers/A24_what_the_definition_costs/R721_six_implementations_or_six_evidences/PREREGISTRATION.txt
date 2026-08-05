@@ -1,0 +1,88 @@
+R721 — PRE-REGISTERED BEFORE ANY CODE.  written 2026-08-05.
+
+CHECK #323 ON R720's NEXT LINE — IT HOLDS, AND THE BLOCK IS MORE CAREFUL THAN THE LINE ASSUMED.
+  ✓ "7 rows cite 22 rounds" and "at most SIX independent computations" are both in the block, and
+    R680's artifact carries the derivation: 8 of 20 rounds DERIVE the set, 2 of the 8 read a prior
+    round's artifact, leaving the 6.
+  ⭐ AND THE BLOCK ALREADY LABELS ITS OWN NUMBER A CEILING, TWICE: "at most SIX" and "It is a ceiling
+    twice over — absent literals remove one way of copying, not all." So the naive attack — "the 6
+    is really smaller" — is one the block has already made against itself.
+
+⛔ THE LIVE QUESTION IS WHAT "INDEPENDENT" MEANS, AND THE BLOCK DOES NOT SAY.
+  R680's 6 are rounds that derive the set with no member literals in executable source and without
+  reading a prior round's `results/`. That is independence FROM COPYING. It is not independence OF
+  SOURCE: R678 names the extension's unique producer as R294's `full_census.json`, and R294 is itself
+  one of the 6. ⭐ Six programs computing the same predicate over the same release data agree BY
+  CONSTRUCTION — §2.5: "a re-implementation of your algorithm tests your CODE." So the number may
+  bound independent IMPLEMENTATIONS while the block's reader will take it as independent EVIDENCE.
+
+ESTIMAND
+  (i)  SOURCE OVERLAP — for each of the 6 derivers, which data file(s) its computation reads, and
+       how many DISTINCT upstream sources the 6 draw on.
+  (ii) The corrected reading: how many independent SOURCES stand behind the number 5, against the
+       6 independent implementations the block reports.
+
+IDENTIFICATION
+  (i) is exactly computable by reading each round's own source for the paths it opens. ⚠ "reads" is
+  operationalised as a path literal appearing in the round's executable source, which OVERCOUNTS a
+  path mentioned in a comment and UNDERCOUNTS one built by glob. Both directions are named, and the
+  glob case is measured rather than assumed.
+
+SCOPE
+  population : the 6 derivers R680 identified — R294, R404, R405, R408, R409, R667
+  instrument : path extraction from each round's run.py, plus a glob-pattern audit
+               instrument unit = A FILE PATH READ BY A ROUND
+               claim unit      = HOW MUCH INDEPENDENT SUPPORT THE NUMBER 5 HAS
+               ⚠ NOT EQUAL — sharing a source does not make two computations wrong, and it does not
+               make them one computation; it makes them one EVIDENCE.
+  baseline   : the block's own "at most six independent computations"
+  regime     : this repository at HEAD
+
+WORLDS
+  A SIX EVIDENCES   the 6 read substantially different sources ⇒ the block's number carries the
+                    reading a reader will give it, and nothing needs changing
+  B SIX IMPLEMENTATIONS  the 6 converge on one or two upstream sources ⇒ the number bounds
+                    implementations, not evidence, and the block must say so
+  C UNMEASURABLE    paths are built by glob in most of the 6 ⇒ the extraction cannot answer it and
+                    the round reports that rather than a count
+
+PREDICTION MATRIX             A          B          C
+  distinct sources           >= 4       1–2        n/a
+  glob-built paths           few        few       most
+
+REGISTERED
+  POINT A  derivers whose executable source names at least one data path: 5, interval [2, 6]
+  POINT B  DISTINCT upstream sources across the 6: 2, interval [1, 6]
+  POINT C  derivers whose paths are built by glob rather than literal: 3, interval [0, 6]
+  DIRECTIONAL (separately failable)  the number of distinct SOURCES is strictly LESS than 6, i.e.
+           the six implementations do not rest on six evidences.
+  KILL (conditional — evaluated ONLY if the POSITIVE recovers a known path and g=0 returns none):
+     distinct sources >= 4 → world A, the block stands unchanged;
+     distinct sources <= 2 → world B, and the block must be amended to say INDEPENDENT
+                             IMPLEMENTATIONS, not independent computations, with the source count.
+
+CONTROLS
+  POSITIVE   R294 is named by R678 as the producer whose artifact is `full_census.json`; the
+             extraction must recover a data path from R294's own source. A path reader that cannot
+             find a path in the one round whose output is on record is not reading paths.
+  g=0        a round with no data access at all — this round's own PREREGISTRATION has none — must
+             yield zero paths, not a default.
+  NEGATIVE   run the extraction over 6 rounds chosen at random from the arc; the distinct-source
+             count must be HIGHER than for the 6 derivers if the derivers genuinely converge. The
+             world it excludes: "every round in this corpus reads the same two files, so convergence
+             is a property of the project and not of these six".
+  SHAM       count paths in each round's DOCSTRING only, with the executable body removed — the
+             ingredient is the code, and a docstring-only count should find far fewer.
+  PLACEBO    two identical runs differ by exactly 0.
+  UNIT       instrument unit != claim unit, asserted and carried into the verdict.
+
+SPECIFICATION SWEEP
+  extraction ∈ {literal path strings, literal + glob patterns} × population ∈ {the 6 derivers, 6
+  random arc rounds} = 4 cells, all reported with their distinct-source counts.
+MULTIPLICITY  4 cells; counts are exact, so no p-values are computed and none are implied.
+SEEDS  3, for the random comparison population only.
+ARTIFACT  results/sources.json — per deriver, the paths found, the extraction mode, the source set.
+IMPOSSIBLE
+  deciding whether sharing a source makes a computation WRONG — it does not, and this round measures
+    how much independent evidence exists, never whether any of it is correct.
+  cross-release.

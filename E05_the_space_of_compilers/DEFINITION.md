@@ -3503,3 +3503,31 @@ The round's own first residue was wrong. It computed asserting-and-not-premise a
 counting two blocks R718 had already found amended by later rounds, so the registered point would
 have landed inside its interval for the wrong reason. A new criterion is a conjunct rather than a
 substitute, and with the earlier amendment test restored the residue is one.
+
+## R721 · Whether the six independent computations are six independent evidences
+
+The one block on the statement that no later round has undermined asserts that the number five is
+supported by one identified set with a named producer and by at most six independent computations.
+R721 asks what independent means there, since the block does not say.
+
+R680's six derive the set with no member literals in executable source and without reading a prior
+round's results file. That is independence from copying. It is not independence of source, and R678
+names the extension's unique producer as R294's census with R294 itself among the six, so six
+programs computing the same predicate over the same data would agree by construction.
+
+Measured, they do not share one source. The six read **eleven** distinct upstream files. The
+registered prediction was two, so the round's directional failed by a factor of five, and that
+failure is its most useful output: an attack that fails is evidence about the claim, and this is the
+first block in this campaign to survive one.
+
+The survival is qualified rather than clean. Three files are read by more than one deriver, the
+clause ledger by four of the six, and all six read at least one shared file. They are eleven files
+with three in common rather than six disjoint evidences, and the block's phrase at most is precisely
+what makes it survivable. A negative control puts six randomly chosen rounds from the same arc at
+fifteen, fifteen and fourteen distinct sources against these six's eleven, so the derivers are
+slightly more convergent than the corpus and not dramatically so.
+
+The block had also already made the naive attack against itself, calling its own number a ceiling
+twice over and noting that absent literals remove one way of copying rather than all. A block that
+names its own ceiling twice cannot be killed by pointing at the ceiling, and the only live attack
+remaining was on the meaning of independent, which the measurement answered in the block's favour.
