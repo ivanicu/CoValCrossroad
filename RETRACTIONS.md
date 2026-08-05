@@ -15921,3 +15921,33 @@ R661 v1 printed *"B NOT EXPOSURE"* while the observed bin-level `|rho| = 0.762` 
 null `[0.238, 0.857]`. ⛔ That is **no detectable gradient**, not "the gradient is not exposure".
 Corrected to **a NULL WITH POWER**, with the MDE stated: the planted gradient clears the null by only
 **0.071**, so the design sees ~5× across the range and nothing weaker.
+
+## 702 · R661's "a null with power" — RETRACTED, its control passed on an understated null
+
+R661 concluded no age gradient was detectable *at a unit where a planted one is*. ⛔ Its null came
+from **5 draws read as min/max** → `[0.238, 0.857]` at k=8. **The 200-draw empirical p95 is 0.976**,
+and R661's planted 0.929 **does not clear it.** ⭐ The planted arm's spread across 7 draws is
+**0.190–0.952** — R661's single value sat near the top. **A positive control run once is a point
+estimate of power: the same error as a 5-draw null, one level up.**
+
+## 703 · The design has ≤14% power at every resolution tried
+
+8 resolutions × 200 permutations × 7 planted draws: **max power 0.14, and 0 of 8 resolutions reach
+0.5.** ⭐ At k = 3, 4, 6 the null's `p95 = 1.000` is **forced** — a Spearman over k points has
+`P(|rho|=1) = 2/k!` by chance, **33.3% at k=3.** §4's `floor == ceiling`: the statistic is degenerate
+and no threshold is admissible. **Every inferential claim in the R659→R662 thread is withdrawn; the
+censuses (39/132 wall-entries, 288–290 declaring rounds, 53 named) stand, because they are counts.**
+
+## 704 · "The MDE is set by having 8 bins, not by the data" — asserted, and undecidable
+
+R661's NEXT named the cause of its own resolution limit without computing it. ⛔ Computed here, the
+question **cannot be settled at 0.14 power** — neither "the grid binds" nor "the data binds" is
+admissible. *A closing line that names a cause is a claim, and this one was unanswerable.*
+
+## 705 · Power read off the BEST of 7 draws — max() over arms, in the round quoting that row
+
+R662 v1 set its positive control from `max(planted)`. ⛔ §4's sub-kind ③, *selecting with `max()`
+over arms*. With power as a **fraction** of draws clearing p95, the design goes from "fires at k=12"
+to **0 of 8**. And the verdict simultaneously printed *"R661's null survives the whole specification
+curve"* while the block above it **retracted R661** — a contradiction inside one output, and the
+**fourth verdict-string defect in four rounds.**

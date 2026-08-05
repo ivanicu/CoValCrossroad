@@ -1,0 +1,28 @@
+PRE-REGISTERED BEFORE ANY CODE WAS WRITTEN FOR R662 — 2026-08-05, committed with the round.
+
+CONTEXT: R661 reached "a null with power" using a 5-draw min/max null over 8 bins -- which is the
+`min/max of N draws quoted as an interval` failure the standard names by name, sitting inside my own
+null. Its NEXT then ASSERTED, without computing it, that the MDE is set by the GRID (8 bins) rather
+than by the DATA (86 mentions).
+
+QUANTITY A: with the null re-run at 200 permutations and read as an EMPIRICAL PERCENTILE (95th), the
+  bin count k in {3,4,6,8,12,16,24,32} at which the planted-gradient MARGIN (|rho_planted| - p95) is
+  largest -- i.e. where this design actually has the most power.
+QUANTITY B: at how many of those 8 resolutions the OBSERVED |rho| clears its own p95.
+
+POINT A (argmax k) : 8
+INTERVAL A         : {4, 6, 8, 12}
+POINT B            : 0
+INTERVAL B         : [0, 2]
+
+DIRECTIONAL PREDICTION, the real content and separately failable:
+  power is NON-MONOTONE in k and the DATA is the binding constraint, not the grid. More bins means
+  fewer mentions per bin, so the margin must rise then fall; and the observed will clear at 0 of 8
+  resolutions, so R661's null-with-power survives the whole specification curve.
+KILL             : if the observed clears p95 at >= 3 of the 8 resolutions, the directional
+                   prediction is RETRACTED and R661's null was a resolution artifact.
+                   And if the margin is MONOTONE INCREASING in k, "the grid is the constraint" wins
+                   and my NEXT's assertion was right for the wrong reason -- record it as such.
+
+⚠ FORECAST RECORD: seven pre-registered magnitudes -- four over, two under, one inside (on a
+  statistic later withdrawn); seven directional -- six held, one retracted. Not shading.
