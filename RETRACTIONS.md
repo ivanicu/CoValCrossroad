@@ -12178,3 +12178,24 @@ strings before converting.**
 2026-08-04 and died with `torch.OutOfMemoryError: 14.60 GiB in use of 15.40 GiB`. **Register row 2 —
 *"present but OOMs in bf16"* — is confirmed by a real run, and R538's "no 7B artifacts" now has its
 mechanism: attempted, not unattempted.**
+
+## 368 · "The batch size is unavailable from the logs" — it was one JSON field away
+
+**R542 closed by naming a limit:** *"the logs record elapsed time and artifact name, but not batch
+size or prompt count. That attribution is genuinely unavailable from the logs."*
+
+⛔ **`pueue status --json` records the full command.** Tasks 646–650 read
+`--corpus second --convs 2200 --batch 24`; tasks 602/603 carry no `--corpus`, so they are the home
+release. **The 79 s vs 157 s gap is 968 prompts against 2200** — 2.27× the work for 1.99× the time,
+**sub-linear, as batching should be.**
+
+⭐ **79 s is therefore the correct figure for the home release**, which is what a rows-3/4 round
+targets, and the 4.63 min total now has its population attributed rather than assumed.
+
+⭐⭐⭐ **The timing is the lesson. R542 had just concluded — in the same commit — that every modelled
+figure was wrong by 17×–94× and every logged figure held. One round later I wrote that a log could
+not answer something, without opening it.**
+
+**Seven walls checked this session; six false, one true** *(R538)*. **A wall does not feel like a
+model. It feels like a fact about the world — which is exactly why it needs the same check, and why
+"I already learned this" is not evidence that I did.**
