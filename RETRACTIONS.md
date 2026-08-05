@@ -15786,3 +15786,37 @@ forecasts missed. **Measured 6 — outside.** ⛔ Three consecutive forecasts, a
 **−25, −7, −5.** Under a symmetric null, 3/3 same-signed has **p = 0.125**, so this is a **direction,
 not an established bias** — n=3 clears no correction, and the magnitude is shrinking while the sign
 has not flipped. ⭐ *The widening addressed the forecast's PRECISION and not its DIRECTION.*
+
+## 684 · "Labelled by mechanism" — 5 of 8 carried no mechanism
+
+R657's NEXT said every remaining undecided round is *"labelled by mechanism — STILL-LOCAL versus
+STILL-UNRESOLVED."* ⛔ **`STILL-UNRESOLVED` means "no binding found at all" — the ABSENCE of a
+mechanism.** Measured: 3 of 8 carry one, 5 do not. *A sentence that presents a residual bucket as a
+label is how a residual stops being counted.*
+
+## 685 · An extractor that silently skipped the commonest shape
+
+R658 v1 walked a glob base through `Attribute`/`Subscript` only, so a **`BinOp` base** —
+`(d / "results").glob(...)` — fell through a `continue` and was **dropped from the population**.
+⛔ R337 vanished from its own population and `POSITIVE-2` caught it at 7/8. Repaired, the population
+went **57 → 126**. *An extractor that silently skips a shape reports a census of the shapes it likes.*
+
+## 686 · An entire outcome class was an artifact of the extractor
+
+R658 v1 took the **first Name in a Call subtree**, which for `glob.glob(str(ROOT / X))` is the
+**callee `str`**. ⛔ **All 8 `UNBOUND` pairs were that** — a class invented by the instrument, not
+observed in the corpus. After repair: **UNBOUND = 0.**
+
+## 687 · My own bug had put a pre-registered estimate INSIDE its interval
+
+Before the extraction repair, R658 measured **7.0% — inside the pre-registered [5%, 45%]**. After
+repair: **3.2%, outside.** ⛔ **The pre-registration would have passed on a broken instrument.**
+⭐ Second time in this arc that fixing my own defect moved a number *away* from my forecast (R656:
+7 → 4). **A passing pre-registration is not evidence the instrument was sound.**
+
+## 688 · Four consecutive magnitude forecasts, all over — while the DIRECTIONAL one held
+
+R658 pre-registered **point 20%, interval [5%, 45%]** and measured **3.2%** — the fourth consecutive
+over-estimate. ⭐ But its **directional** prediction — *missing forms are not the blocker* — **HELD**,
+and could have failed at the pre-registered >50%. **A forecast has two failable parts and I have been
+reporting them as one:** the magnitudes are unreliable, the directions have been right.
