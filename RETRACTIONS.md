@@ -18414,3 +18414,34 @@ effect on the correlation is not monotone. Measured, it lowered it, 0.9690 again
 control printed FAIL for a claim about arithmetic rather than about the data. A control may test a
 quantity; it may not assume the sign of an effect it has not derived. The repair reports the quantity
 and requires only that the subtraction do something.
+
+## 964 · the floor I used one round ago was too high by two thirds of its own excess
+
+The profile comparison measured excesses against a floor of 0.5034 built from pairs of
+random-selection arms. Isolating the shared subtrahend alone gives 0.3062. The random arms therefore
+contribute 0.1972 of structure beyond the subtrahend, more than ten times the seed spread. The floor
+was too high and the excesses were understated, so the direction of the error favours the conclusion
+rather than the report, which is the direction that gets audited least. Neither verdict changes under
+either floor, so nothing on the page is withdrawn; what is corrected is the size of the margin by
+which it holds.
+
+## 965 · the round I proposed as the next step would have measured nothing, and algebra said so for free
+
+The previous round closed by proposing a floor built from re-pairing a real arm's per-prompt margin
+to prompts at random. A margin is the arm's value minus the shared baseline's, so re-pairing it
+destroys the baseline's alignment as well as the arm's own signal, and the statistic collapses to the
+shuffle null that same round had already run as its negative control. Demonstrated on synthetic
+vectors in three lines before this round was written: real 0.5107, margin-shuffled 0.0374,
+arm-part-shuffled 0.4796. The correct construction re-pairs the arm's own contribution and leaves the
+baseline aligned. The gauge test is first on the attack ladder for exactly this reason and it cost
+nothing here.
+
+## 966 · two registered point predictions were wrong by an order of magnitude and their intervals hid it
+
+I registered the corrected floor at 0.48 and the pool component at 0.02. They measured 0.3062 and
+0.1972. Both passed their intervals, which spanned the whole admissible range, so the round reports
+four points inside their brackets while two of them were wrong by roughly ten times on the quantity
+that mattered. I under-estimated how much structure two arms drawing criteria at random from one pool
+share with each other. A wide interval is the honest instrument when a quantity is genuinely unknown
+and it is also an instrument that cannot score calibration, and this is the third round in this arc
+where a point prediction missed while its interval passed.

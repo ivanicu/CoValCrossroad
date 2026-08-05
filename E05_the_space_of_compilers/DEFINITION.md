@@ -3793,3 +3793,20 @@ before any mechanism is shared. And the raw correlation of 0.9747 for the greedy
 attenuation ceiling that the reliability estimate implies, which means that estimate does not
 transfer to these arms or the shared subtrahend inflates past it; the disattenuated column is
 therefore a diagnostic and not a correlation.
+
+## R734 · the floor the previous round used was too high, so its excesses were understated
+
+The floor against which the previous round measured profile similarity was built from pairs of
+random-selection arms. Those arms share the subtrahend and they also share whatever structure their
+common selection pool imposes. Isolating the subtrahend by re-pairing one arm's own contribution to
+prompts at random, while leaving the subtrahend aligned, gives a floor of 0.3062 against the
+random-arm value of 0.5034, a difference of 0.1972 which is more than ten times the seed spread of
+0.0190. So the random arms do carry structure beyond the subtrahend, the floor used was too high, and
+the excesses reported were understated rather than inflated. Re-scoring the previous round's
+comparisons under both floors changes neither verdict: both admitted objects sit with the excluded
+one either way, so the ordering never depended on the choice. Two limits. The difference names a
+magnitude and not a cause; attributing it to the selection pool would require an intervention on that
+pool. And the design the previous round proposed for this measurement would have measured nothing,
+because re-pairing the margin destroys the subtrahend's alignment along with the arm's own signal and
+collapses to a null that round had already run under another name — established by algebra before any
+compute was spent.
