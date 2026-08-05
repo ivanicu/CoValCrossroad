@@ -1,0 +1,82 @@
+R735 · the floor is a function of overlap
+written BEFORE run.py. P4 and an IDENTIFICATION CHECK ran first, and the check corrected me.
+
+⛔ MY OWN IDENTIFICATION WORRY WAS WRONG, AND CHECKING IT IS WHY THIS ROUND EXISTS
+   R734's NEXT proposed regressing a pair's floor on its criteria overlap. I expected n=3 pairs and
+   an unidentified regression. Counted: the release carries random-selection arms at
+   k in {2,3,4,6,8,12} x 3 seeds, of which 19 are usable as floor members -> 171 pairs, with per-pair
+   mean overlap spanning roughly 0.3 to 9. The regression is identified with room to spare.
+   ⭐ AND R734's FLOOR USED THREE PAIRS FROM ONE k-FAMILY. If the floor depends on k, that floor was
+   matched to nothing, and a k-matched floor is the correct comparator for every claim built on it.
+
+ESTIMAND -- three, and the first is a DERIVATION used as a control
+   (1) DERIVATION. Two arms drawing k1 and k2 criteria uniformly at random from a prompt's candidate
+       set of size n_p share, in expectation, k1*k2/n_p criteria. This is algebra and is NOT evidence.
+       It is used as a POSITIVE CONTROL on the whole framing: if measured overlap does not match it
+       for arms that ARE random by construction, the overlap instrument is broken and nothing below
+       is readable.
+   (2) MEASUREMENT. Across the 171 pairs, does the shared-subtrahend floor track measured overlap?
+   (3) CONSEQUENCE. What is the k-MATCHED floor for the comparisons R733 and R734 rest on, and does
+       it differ from the 0.5034 those rounds used?
+
+IDENTIFICATION
+   (1) exact. (2) identified over 171 pairs with overlap spanning an order of magnitude.
+   (3) identified for the k values the release carries; NOT identified for k values it does not.
+   ⚠ AND A CONFOUND NAMED BEFORE THE RUN: overlap and k are not independent -- overlap rises with
+   both k1 and k2 by construction. So a floor-overlap relation could be a floor-k relation wearing
+   overlap's clothes. The round therefore reports the relation WITHIN k-strata as well as across
+   them, and a relation that survives only across strata is reported as confounded with k.
+
+SCOPE
+   population : 171 pairs of random-selection arms, 968 prompts each · instrument Pearson on
+                clause-① margins and set intersection on core_*.json · baseline R734's 3-pair floor ·
+                regime default emitter only
+WORLDS
+   W-OVERLAP   the floor is a function of measured overlap, holding within k-strata. Then the floor
+               has a name and is predictable rather than measured pair by pair.
+   W-K-ONLY    the relation holds across strata but vanishes within them. Then the floor is a
+               function of k and overlap is a proxy, which is a weaker and different statement.
+   W-NEITHER   no relation. Then R734's pool component of 0.1972 is something else entirely.
+   prediction matrix
+      relation holds within strata      -> OVERLAP 0.85  K-ONLY 0.10  NEITHER 0.02
+      only across strata                -> OVERLAP 0.05  K-ONLY 0.90  NEITHER 0.02
+      no relation anywhere              -> OVERLAP 0.02  K-ONLY 0.03  NEITHER 0.92
+
+REGISTERED POINTS (failable)
+   A  usable pairs                                                      = 171  [1, 500]
+   B  Pearson r between per-pair mean overlap and the pair's floor       = 0.85 [-1.00, 1.00]
+   C  measured mean overlap / analytic k1*k2/n_p, averaged over pairs    = 1.00 [0.00, 5.00]
+   D  the k-matched floor for k=4 vs k=4 pairs                           = 0.47 [0.00, 1.00]
+   DIRECTIONAL (separately failable): the relation survives WITHIN k-strata, not only across them.
+
+KILL (CONDITIONAL -- evaluated only if the POSITIVE and NEGATIVE controls both fire)
+   if positive_fires and negative_collapses:
+       |B| < 0.2              -> W-NEITHER: R734's pool component is not overlap
+       within-strata relation absent -> W-K-ONLY, reported as confounded with k
+       otherwise              -> W-OVERLAP
+   else:
+       verdict = UNVERIFIED   # never OVERTURNED, never CONFIRMED
+
+POSITIVE CTRL   measured overlap must match the analytic k1*k2/n_p for these arms, which ARE random
+                by construction. threshold computed from the binomial spread of the overlap count,
+                not chosen: |measured - analytic| < 3 SE of the mean. An overlap instrument that
+                cannot reproduce the overlap random selection must produce is broken.
+g=0             pairs whose measured overlap is ZERO on a prompt must, on those prompts, show no
+                excess above the subtrahend-only floor. The control must not fire on nothing.
+NEGATIVE CTRL   permute the pair -> overlap assignment across pairs and require the correlation to
+                collapse to its permutation null. excluded world: "any per-pair number correlates
+                with the floor because both scale with k".
+SHAM            regress the floor on the SEED INDICES of the two arms -- a per-pair quantity carrying
+                no overlap information, the ingredient absent rather than inverted -- and require a
+                null.
+PLACEBO         a pair against itself -> overlap = k and floor = 1.0 exactly.
+NOISE FLOOR     the seed spread of each pair's floor over 20 permutation seeds; the regression is
+                reported with that spread as the error on each point.
+MULTIPLICITY    171 pairs x 2 statistics + 6 k-strata regressions; BH over the whole grid,
+                non-survivors printed.
+SPECIFICATION   overlap measure (mean per prompt, Jaccard) x floor (raw, subtrahend-corrected) x
+                stratification (pooled, within-k)
+SEEDS           20 permutation seeds per pair; two PYTHONHASHSEEDs byte-identical, writes verified
+ARTIFACT        results/r735_floor_vs_overlap.json with tree_sha
+IMPOSSIBLE      k values the release does not carry -> a new selection run · independently
+                replicated -> a second implementer

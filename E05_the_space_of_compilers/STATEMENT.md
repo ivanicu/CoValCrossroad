@@ -449,10 +449,14 @@ so that comparison mixes no instruments.
 ⭐ **And they share the excluded object's PROFILE, not merely its level** *(R733)*. Against a
 shared-subtrahend floor of **0.5034** — computed here, since R284's 0.53 is over a different baseline
 — their per-prompt margins exceed the floor by **+0.4632** and **+0.3965** toward the **excluded**
-object against **+0.1592** and **+0.1966** toward the blind arms. ⭐ **And that floor is too HIGH**
-*(R734)*: the subtrahend **alone** buys only **0.3062**, so the random arms add **+0.1972** of their
-own structure (10.4 seed SDs). **The excesses above are understated, and neither floor changes either
-verdict.** **Both clauses agree; 48 of 48
+object against **+0.1592** and **+0.1966** toward the blind arms. ⭐ **And the floor is not a constant** *(R735)*: it tracks criteria overlap at **r = +0.9264** over
+153 pairs, running **0.4003** at k=2 to **0.8438** at k=12. **The k-matched floor for these k=4 arms
+is 0.6458**, so the corrected excesses are **+0.3289 / +0.0989** and **+0.2781 / +0.1311** — the
+margins **halve** and **both objects still sit with the excluded one**. ⛔ This **reverses** R734's
+direction: its subtrahend-only **0.3062** strips all overlap, but the compared arms all select k=4,
+so the floor was too **LOW** and those excesses were **overstated**, not understated. ⚠ Overlap and k
+are confounded by construction and each stratum holds 3 pairs, so *which* of the two drives it is
+**UNDERPOWERED here, not settled.** **Both clauses agree; 48 of 48
 cells survive BH.** The gap is reliable *(R457: split-half 0.8311, shuffled 0.0168)*. ⚠ This
 **excludes unrelatedness; it does not identify a mechanism** — and the raw 0.9747 exceeds the
 attenuation ceiling, so the disattenuated column is a diagnostic, not a correlation. ⭐ **And measured directly:** two arms sharing the `oracle_k`

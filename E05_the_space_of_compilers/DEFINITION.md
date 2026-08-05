@@ -3810,3 +3810,29 @@ pool. And the design the previous round proposed for this measurement would have
 because re-pairing the margin destroys the subtrahend's alignment along with the arm's own signal and
 collapses to a null that round had already run under another name — established by algebra before any
 compute was spent.
+
+## R735 · the floor depends on how many criteria the compared arms share
+
+The floor used in the two preceding rounds was a single number built from three pairs of one size
+family. Measured across one hundred and fifty three pairs of random-selection arms spanning six
+selection sizes, the floor tracks the criteria the two arms actually share, at a correlation of
+0.9264, rising from 0.4003 where arms select two criteria to 0.8438 where they select twelve. The
+size-matched floor for the four-criterion arms the definition's comparisons involve is 0.6458. That
+reverses the direction of the previous round's correction: measuring against a floor that strips all
+overlap gave 0.3062 and suggested the excesses were understated, but the arms being compared all
+select four criteria, and two unrelated four-criterion arms already reach 0.6458, so for the
+comparison that matters the floor was too low and the excesses were overstated. Both admitted objects
+still sit with the excluded one under every floor tried; the margins halve. Two limits. Overlap rises
+with selection size by construction and each same-size stratum holds three pairs, so this design
+cannot separate a floor that depends on overlap from one that depends on size, and the within-stratum
+test is underpowered rather than negative. And the pool size used to predict overlap is the union of
+observed selections, a lower bound, which biases the prediction upward and explains why measured
+overlap is 0.9694 of predicted rather than equal to it.
+
+## R735 addendum · the corrected excesses at the size-matched floor
+
+Re-read against the size-matched floor of 0.6458 rather than the 0.5034 previously used, the greedy
+object's excess toward the excluded object is 0.3289 and toward the label-blind arms 0.0989, and the
+independent object's are 0.2781 and 0.1311. Both orderings are unchanged from every earlier floor and
+both margins are roughly halved. These four values are the ones the statement carries and they are
+recorded here so each resolves to this round rather than standing alone on the deliverable.

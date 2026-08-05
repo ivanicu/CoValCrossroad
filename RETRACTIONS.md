@@ -18445,3 +18445,35 @@ that mattered. I under-estimated how much structure two arms drawing criteria at
 share with each other. A wide interval is the honest instrument when a quantity is genuinely unknown
 and it is also an instrument that cannot score calibration, and this is the third round in this arc
 where a point prediction missed while its interval passed.
+
+## 967 · the previous round's correction pointed the wrong way for the comparison it was correcting
+
+That round measured a floor with all overlap structure destroyed, got 0.3062 against the 0.5034 in
+use, and concluded the excesses reported were understated. The arms being compared all select four
+criteria, and two unrelated four-criterion arms already correlate at 0.6458 through shared selections
+alone. So the size-matched floor is higher than the one in use, not lower, and those excesses were
+overstated rather than understated. The two numbers answer different questions and both are correct;
+what was wrong is which one the comparison needs. Both admitted objects still sit with the excluded
+one under every floor tried, so nothing is withdrawn beyond the size of the margin, which halves.
+
+## 968 · I excluded the subtrahend by name when a partition on disk defined it by object
+
+The floor members were filtered by dropping the reference arm's name. An earlier round had already
+proved that arm shares an object with a control-suffixed twin, so the twin's margin against the
+reference is identically zero and its correlation undefined. That produced a nan through an entire
+size stratum and took the pooled statistic with it. The partition was committed by me five rounds
+earlier for exactly this class of question and I did not consult it. Filtering by object rather than
+by name removes one arm and eighteen of its pairs, which is why the registered pair count of one
+hundred and seventy one is one hundred and fifty three.
+
+## 969 · a positive control that tested a proxy's bias instead of the instrument
+
+The control required measured criteria overlap to match an analytic prediction within three standard
+errors of the mean. Over nine hundred and sixty eight prompts that standard error is about one
+hundredth, so any error in the model registers as many standard errors, and the mean absolute z was
+9.52 while the ratio was 0.9694. The prediction needs the size of each prompt's candidate pool, and
+the value available is the union of observed selections, a lower bound, which biases the prediction
+upward — so a ratio below one is what the proxy predicts rather than a failure of the instrument. The
+control was measuring the proxy. Split into two: the instrument is checked exactly, by requiring an
+arm's overlap with itself to equal its own criterion count, and the model is reported as a ratio with
+the direction of its bias stated.
