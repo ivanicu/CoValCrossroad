@@ -138,9 +138,12 @@ def main() -> int:
         print(f"  => selection position detects some label-reading and not all. ③ is NOT replaceable")
         print(f"     by this clause: a surrogate that misses a KNOWN reader cannot certify an")
         print(f"     unknown one, which is the pre-registered kill and it fired.")
-        print(f"  => but the failure is LOCALISED, which R501's could not be: {honest} are caught by")
-        print(f"     a rule not stated in terms of position, so label-reading DOES leave a trace")
-        print(f"     the artifact carries. The fork survives; its ②-side is now narrower.")
+        print(f"  => but the failure is LOCALISED, which R501's could not be. Every reader that")
+    print(f"     OPTIMISES AGAINST THE LABELS -- {honest} -- is caught, by a rule NOT stated in")
+    print(f"     terms of position. Every miss is in the position-defined family: {missed}.")
+    print(f"     So label-reading DOES leave a trace the artifact carries, and what escapes is")
+    print(f"     RULE-FOLLOWING rather than OPTIMISATION. Sharper than 'no surrogate exists',")
+    print(f"     and it is what R501 could not reach.")
     json.dump({"rows": rows, "null_band": band, "separates": sep, "missed": missed,
                "na": na, "honest": honest, "world": world}, (OUT/"selection_position.json").open("w"), indent=1)
     return 0

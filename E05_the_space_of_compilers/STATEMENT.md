@@ -62,7 +62,7 @@ record prices both.**
 |---|---|---|
 | what it is a predicate on | a criterion set | a **(set, construction history)** pair |
 | extension here | **5** arms (①∧②∧④) | **0** |
-| what must be shipped for a third party to check it | **the criterion set** | **the criterion set AND its producer** — the generating code or a provenance declaration |
+| what must be shipped for a third party to check it | **the criterion set** | **the criterion set + the prompt's RUBRIC** catches label-*optimisers*; only *rule-based* selection additionally needs the **producer** *(R508)* |
 | what it admits that you may not want | arms that **read the human labels** — but their criteria are **100% verbatim items from the prompt's own rubric** *(R503)*: the **right** criteria, selected for the wrong reason. The cost of A is **provenance, not quality** | nothing; it admits nothing here |
 | why the extension is what it is | the label-readers are the only arms clearing the ceiling *(R485)* | the site ships **one** admissible prompt-responsive generator *(R502)* |
 
@@ -136,6 +136,19 @@ arm reaching **0.5404**; ② an instrument that ranks `oracle_k4` at an extreme 
 use for "core" that does not require prediction** — if the object is meant to *summarise* a judgment
 already made rather than *anticipate* one, the ceiling is irrelevant and **A is correct.** ③ is a
 question about purpose, not data, and this campaign cannot answer it.
+
+⭐⭐⭐ **AND FLIP CONDITION ② IS NOW PARTLY MET — an instrument DOES rank `oracle_k4` at an extreme
+(R508).** Since both sides of ③ draw their criteria from the *same* rubric pool *(R503)*, no textual
+test can exist, so the instrument moved to the **selection**. Mean normalised **position** of an
+arm's chosen criteria within the prompt's own rubric: **`oracle_k4` 0.2791**, `greedy_k4_fit1`
+**0.2880**, the other two label-**optimisers** likewise near 0.29 — against uniform selectors at
+**0.5012 / 0.5039 / 0.5071**, spread **0.0059**. ⛔ **But `topw_k8` (0.5051) and `topwvar_k4`
+(0.5090) sit inside the null band, and a surrogate that misses a KNOWN reader cannot certify an
+unknown one** — the pre-registered kill, and it fired. **The fork does not dissolve.**
+
+⭐ **The shape of the failure is the finding: what escapes is RULE-FOLLOWING, not OPTIMISATION.**
+Arms whose selection rule is *stated in terms of the rubric ordering* also separate, but that is a
+**derivation** and counts for nothing. *(R503, R508)*
 
 ⭐ **Residual CLOSED.** The recomputed ranker ceiling is **0.6220** on `oracle_k4`'s 968 prompts and
 **0.6174** on R479's actual population of all **1078** ≥3-ranking prompts — **0.0042** from the quoted
