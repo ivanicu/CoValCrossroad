@@ -2520,3 +2520,41 @@ not" would have to cite.**
 ⭐ `coval_core` ranges **[8, 16]** cells per prompt and `gen` **[4, 16]** — consistent with the
 dataset card's *"about 95% end up with four … the remainder two or three."* **The artifact and the
 card agree without being asked to.**
+
+---
+
+## R540 · R541 · The on-site round is 25.3 minutes, and the first figure was 17× too high
+
+**R539 priced one rows-3/4 round at 16,440 model calls and named wall-clock as unmeasured.**
+R540 measured decode throughput on the two sizes that *are* the campaign's judges — **89.2 tok/s
+(0.8B), 80.6 tok/s (2B)**, both controls passing — and converted it to **7.25 h**.
+
+⛔ **The conversion was wrong. The judging step does not decode.** `judge_core.py` calls
+`Judge(model).score(prompts)` on a batch and contains no `generate()`; R417, quoted in that file's
+own provenance comment, had already established the judge has no stochastic step.
+
+⭐ **And the project had measured the right thing four times, in its own pueue logs**, because
+`judge_core.py:117` prints elapsed seconds beside the call count:
+
+| task | calls | seconds | calls/s |
+|---|---|---|---|
+| 634 / 635 / 636 | 3,168 | 40.1 / 40.0 / 40.0 | 79.0 / 79.2 / 79.2 |
+| **642** | **15,488** | **199.3** | **77.7** |
+
+| step | time |
+|---|---|
+| judging — 15,472 calls @ 77.7/s | **3.3 min** |
+| generation — 968 × 110 tok @ 80.6 tok/s | **22.0 min** |
+| **TOTAL** | **25.3 min** |
+
+**Controls.** Positive: three replicates agree at **0.25%** spread. Negative: **4.89×** the work took
+**4.98×** the time — throughput, not startup.
+
+⭐ **R540 is not void — its decode figure is the right instrument for the GENERATION half.**
+**A correct measurement pointed at the wrong operation is a wrong APPLICATION, and only naming the
+instrument's unit and the claim's unit separately catches it.**
+
+⭐ **Register row 2 is confirmed by a real failure**, not asserted: pueue task 654 (`r492-7b-b2`)
+attempted Qwen2.5-7B judging on 2026-08-04 and died with
+`torch.OutOfMemoryError: 14.60 GiB in use of 15.40 GiB`. **R538's "no 7B artifacts exist" now has
+its mechanism — attempted, not unattempted.**

@@ -12141,3 +12141,40 @@ each with the scope that makes it usable**, ahead of the definition rather than 
 because the true half carries the false half past inspection. **Here the production instinct was
 correct and the survey of what remained was invented** — and only the false half was checkable in
 one grep.
+
+## 367 · A throughput measured on the wrong operation — 7.25 h was 17× the truth
+
+**R540 measured decode throughput correctly** — 89.2 tok/s (0.8B) and 80.6 tok/s (2B), positive and
+negative controls both passing — **and then multiplied 16,440 calls × 128 tokens to claim 7.25 h for
+one rows-3/4 round.**
+
+⛔ **The judging step does not decode.** `judge_core.py` calls `Judge(model).score(prompts)` on a
+batch and contains **no `generate()`**; R417, quoted inside that same file's provenance comment, had
+already established the judge has **no stochastic step**. **The instrument's unit was tokens/sec.
+The claim's unit was judge-calls/sec. They are not equal** — §4's row, committed one round after I
+cited that row about someone else's number.
+
+⭐ **And the project had measured the right thing four times, in its own logs**, because
+`judge_core.py:117` prints elapsed seconds beside the call count. **No modelling was ever needed:**
+
+| task | calls | seconds | calls/s |
+|---|---|---|---|
+| 634 / 635 / 636 | 3,168 | 40.1 / 40.0 / 40.0 | 79.0 / 79.2 / 79.2 |
+| **642** | **15,488** | **199.3** | **77.7** |
+
+**Corrected: judging 3.3 min + generation 22.0 min = 25.3 min. R540 said 7.25 h — overstated 17×.**
+
+**Controls that make the correction admissible:** the three 3,168-call runs are independent
+replicates agreeing at **0.25%** spread (positive); the 15,488-call run took **4.98×** the time for
+**4.89×** the work, so the number is throughput rather than startup (negative).
+
+⭐⭐⭐ **R540 is not void, and the distinction is the lesson.** Its decode figure is the *correct*
+instrument for the **generation** half, which does decode at `max_new_tokens=110`. **A correct
+measurement pointed at the wrong operation is a wrong APPLICATION, not a wrong measurement — and the
+only thing that catches it is naming the instrument's unit and the claim's unit as two separate
+strings before converting.**
+
+⭐ **Bonus, from the same queue:** pueue task 654 (`r492-7b-b2`) attempted Qwen2.5-7B judging on
+2026-08-04 and died with `torch.OutOfMemoryError: 14.60 GiB in use of 15.40 GiB`. **Register row 2 —
+*"present but OOMs in bf16"* — is confirmed by a real run, and R538's "no 7B artifacts" now has its
+mechanism: attempted, not unattempted.**
