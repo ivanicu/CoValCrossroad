@@ -11093,3 +11093,35 @@ are **textually identical**. Every ③-excluded arm draws **100.0%** of its crit
 prompt's own rubric, as do the ③-admissible `random_k*` arms, while `gen` and `generic` draw **0.0%**.
 **No product-side check can exist because there is no product-side difference.** That belongs beside
 the clause, not only in the fork.
+
+## 335 · Twenty rounds of "all gates pass" were printed by a loop that could not block anything — and a suite runner already existed
+
+**Retracted:** the standing implication of every *"all gates pass"* line in this session's reports.
+The command behind them was
+
+```
+for g in a b c d e; do python assurance/$g.py >/dev/null && echo PASS || echo FAIL; done
+```
+
+followed by `git commit` **as a separate command**. The loop **prints** verdicts. It returns the exit
+status of `echo`. **A FAIL could appear on screen and change nothing**, and on the last round it did:
+`statement_provenance` reported FAIL and the commit went through.
+
+⛔ **This is R482's defect verbatim — *"a gate loop cannot block a commit"* — recurring three hundred
+rounds after it was found and written down.** The fix then was `gates && commit`; the fix now is
+`if gate; then commit; fi`. Same shape, same lesson, relearned at cost.
+
+⭐⭐⭐ **And the part that is worse than the bug: `assurance/run_all.py` has existed since R482.** It
+discovers every gate by rule, classifies `0/1/2` separately so UNRUNNABLE never reads as PASS, kills
+by process group, and returns a real exit code. **I built it, then hand-rolled a decorative for-loop
+for twenty rounds instead of calling it.** The prior-art gate is supposed to catch exactly this, and I
+apply it to libraries and never to my own tools.
+
+⚠ **The excuse was real and is not sufficient.** `run_all.py` includes `audit_the_auditors`, which
+R498 measured at **≥150 s against the suite's 90 s timeout** — so the suite cannot exit 0, and a
+runner that always fails gets abandoned. **A gate that cannot pass is a gate that will be replaced by
+a decoration.** That is the same failure class as "control that cannot PASS", one level up: the
+instrument was unusable, so it stopped being used, and nothing recorded the substitution.
+
+**What this does not retract:** the gate *contents*. Each gate, when actually run, did what it says —
+the failures were in whether its verdict reached the commit decision.

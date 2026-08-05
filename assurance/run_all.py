@@ -36,7 +36,16 @@ import pathlib, subprocess, sys, tempfile, time
 ROOT = pathlib.Path(__file__).resolve().parent
 # Helpers and appliers are NOT gates: they mutate state or expose functions rather than ruling.
 NOT_A_GATE = {"run_all", "DEFECTS", "HEADLINES", "manifest", "pueue_wait",
-              "clause3_as_written", "generate_round_index"}
+              "clause3_as_written", "generate_round_index",
+              # ⚠ audit_the_auditors is a META-GATE: it runs every gate in this directory,
+              # including this runner. R498 measured the cycle (run_all discovers it; it
+              # discovers run_all) and measured it at >=150s against this suite's 90s timeout,
+              # so the suite could NEVER exit 0 while it was inside. A runner that cannot pass
+              # gets replaced by a decoration -- which is exactly what happened for twenty
+              # rounds, entry 335. Excluded here for the same reason run_all excludes itself,
+              # and RUN SEPARATELY, which is printed below so the exclusion is never invisible.
+              "audit_the_auditors"}
+META_GATES = {"audit_the_auditors"}
 PREFIX_SKIP = ("_", "apply_")
 
 
@@ -115,6 +124,9 @@ def main(argv: list[str]) -> int:
     if "--selftest" in argv:
         return selftest()
     gates = discover()
+    print(f"  META-gates excluded from this suite and RUN SEPARATELY: "
+          f"{sorted(META_GATES)} — see entry 335 for why an unpassable runner "
+          f"gets replaced by a decoration.")
     if not gates:                       # §4: empty population must EXIT 2, never 0
         print("⛔ no gates discovered — the runner examined nothing. EXIT 2.")
         return 2
