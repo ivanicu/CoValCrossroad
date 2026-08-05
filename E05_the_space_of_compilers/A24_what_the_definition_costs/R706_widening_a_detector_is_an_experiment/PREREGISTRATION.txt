@@ -1,0 +1,89 @@
+R706 — PRE-REGISTERED BEFORE ANY CODE.  written 2026-08-05.
+
+CHECK #308 ON R705's NEXT LINE — MY OWN COUNT WAS WRONG, BY MY OWN FAILURE MODE.
+  R705 said the gate is blind to "fifty-eight commits". ⛔ The true figure is 65. I measured 58 with
+  a HAND-PICKED character class `^NEXT[.\-—\s]`; the general `^NEXT[^A-Za-z]` finds 7 more, all of
+  them genuine NEXT paragraphs written `NEXT, and ...`. §4: a search is an instrument and mine had
+  no positive control — I chose the class and published the number in a commit body and a report.
+  ⚠ AND THE SEPARATOR IS THE WRONG DISCRIMINATOR ANYWAY. Measured over all 1270 commits, a
+    line-initial NEXT is followed by: `:` 1002 · `.` 58 · `,` 7 · ` ` 6 · `-` 2. Inspected: all 8 of
+    the space and dash cases are WRAPPED PROSE ("NEXT-line detector's first version at 61%"), which
+    is the exact false positive this gate's own docstring records. The real rule is
+    PARAGRAPH-INITIAL vs LINE-WRAP: requiring `(?:\A|\n\n)NEXT[:.,]` returns 1002 + 58 + 7 and ZERO
+    space or dash matches. The discriminator is the paragraph break, not the punctuation.
+  ⚠ AND MY CONTROL FOR THAT WAS MIS-SPECIFIED TOO: I printed "7 known wrapped-prose commits still
+    matched" at COMMIT level while the claim was at LINE level — those 7 commits match through their
+    OWN genuine `NEXT:` paragraphs. Instrument unit vs claim unit, inside the probe checking a gate
+    that exists to police exactly that.
+
+ESTIMAND
+  Three quantities about the WIDENED DETECTOR, before it is allowed to ship:
+    (i)  LOSS      — NEXT paragraphs the old extractor found that the new one does not.
+    (ii) GAIN      — commits newly visible, in full history and in the gate's own 400-commit window.
+    (iii) FLAG RATE on the newly-visible population, against the already-visible one.
+
+IDENTIFICATION
+  Fully identified: both extractors are deterministic functions of the commit corpus on disk.
+  ⚠ The FLAG RATE comparison is identified only up to the corpus being fixed; it is a property of
+  this history, not of NEXT lines in general.
+
+SCOPE
+  population : 1270 commits (full history) and the gate's own last-400 window, both reported
+  instrument : two regular expressions and the gate's existing `flagged()` predicate, unchanged
+               instrument unit = A NEXT PARAGRAPH
+               claim unit      = A COMMIT
+               ⚠ NOT EQUAL — a commit may carry several; the counts are reported separately and
+               the mismatch is what made check #308's own control meaningless.
+  baseline   : the gate's documented commit-body flag rate, 37.2%
+  regime     : this repository at HEAD
+
+WORLDS
+  A CLEAN WIDENING  loss 0, flag rate on the newly visible indistinguishable from the already
+                    visible → the 65 are the same kind of object and may be frozen with a reason
+  B DIFFERENT OBJECT flag rate differs beyond the null → the newly visible are NOT the same
+                    population and freezing them wholesale would launder them
+  C NOT A WIDENING  loss > 0 → the new rule drops paragraphs the old one caught, and must not ship
+
+PREDICTION MATRIX            A          B          C
+  loss                       0          0         > 0
+  |rate difference|        small      large       any
+  ships                     yes    yes, per-item   NO
+
+REGISTERED
+  POINT A  commits newly visible inside the gate's own 400-commit window: 25, interval [5, 65]
+  POINT B  flag rate on the newly-visible NEXT paragraphs (full history): 0.40, interval [0.10,0.75]
+  POINT C  LOSS — paragraphs the old extractor found and the new one does not: 0, interval [0, 10]
+  DIRECTIONAL (separately failable)  |flag_rate(new) − flag_rate(old)| lies inside the 95% interval
+           of a label-permutation null over the pooled paragraphs.
+  KILL (conditional — evaluated ONLY if the positive and false-positive controls both fire):
+     LOSS > 0                        → world C, the fix does not ship as written;
+     rate difference outside the null → world B, the newly visible are frozen ONLY with individual
+                                        reasons, never as a block.
+
+CONTROLS
+  POSITIVE       the new extractor must recover every one of the 4 known-false NEXT lines the gate's
+                 own positive control names, and the `flagged()` predicate is used UNCHANGED so the
+                 comparison is of extractors only.
+  FALSE-POSITIVE the 8 measured wrapped-prose lines (`NEXT-line detector's...`, `NEXT lines cite...`,
+                 `NEXT STEP --`, …) must NOT be extracted by the new rule. This is the control the
+                 first version of this gate lacked, and it is validated on REAL corpus lines, never
+                 on invented ones.
+  g=0            an extractor identical to the old one must show LOSS 0 and GAIN 0 against itself —
+                 the comparison machinery returns nothing when nothing changed.
+  NEGATIVE       shuffle which paragraphs are labelled "newly visible", preserving the counts, and
+                 recompute the rate difference → the observed difference must sit inside that null.
+  SHAM           the ingredient is the NEXT-paragraph LOCALISATION. Remove it: run `flagged()` on the
+                 first 200 characters of every commit body instead. Size-matched, compute-matched.
+  PLACEBO        two identical runs differ by exactly 0.
+  UNIT           instrument unit ≠ claim unit, asserted and carried into the verdict.
+
+SPECIFICATION SWEEP
+  corpus window ∈ {400 (the gate's own), 1270 (all)} × separator set ∈ {`:` only, `:.`, `:.,`,
+  `:., -` (the unsafe one, included so the curve shows what it costs)} = 8 cells, all reported.
+MULTIPLICITY  8 cells; the rate comparison is one test per cell, reported whole.
+SEEDS  3 for the permutation null; the seed flag is verified to change the draws.
+ARTIFACT  results/widening.json with tree sha.
+IMPOSSIBLE
+  cross-release — the NEXT convention is this project's.
+  construct validity of "a quantifier that needed a source" — the `flagged()` predicate IS the
+  construct here; this round tests the EXTRACTOR and deliberately holds the predicate fixed.

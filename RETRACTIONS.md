@@ -17308,3 +17308,72 @@ between a value the design can see and one it cannot is not a comparison.
 ⭐ **What survives untouched, and is strengthened: R704's ZERO.** The canonical `(family,k)` gain for
 clause ② is exactly **0.0000**, and a zero needs no resolution to read. The refutation of R703's
 premise stands on that zero, not on the +0.0476 that has now been withdrawn from beside it.
+
+## 878 · "fifty-eight commits" was 65, and I published it twice
+
+R705's NEXT line and its terminal report both said the quantifier gate is blind to **58** commits.
+The figure is **65**. I found 58 with a character class I picked by hand — `^NEXT[.\-—\s]` — and the
+general `^NEXT[^A-Za-z]` finds 7 more, every one a genuine `NEXT, and ...` paragraph.
+
+§4's *a search is an instrument and has no positive control*, committed in the same round whose
+subject was a search instrument failing. **The tell I walked past: I never ran the pattern where the
+answer was known**, and there was no reason to prefer that class over any other.
+
+⚠ **And the separator was never the discriminator.** Line-initial `NEXT` is followed across 1270
+commits by `:` 1002 · `.` 58 · `,` 7 · ` ` 6 · `-` 2, and **all 8 space and dash cases are wrapped
+prose** — the exact false positive the gate's own docstring already recorded. Requiring
+PARAGRAPH-INITIAL `NEXT[:.,]` returns 1067 with zero space or dash matches. *Two rounds were spent
+choosing punctuation when the structural feature was a blank line.*
+
+## 879 · my probe for that used a commit-level control against a line-level claim
+
+Checking whether the paragraph-initial rule excluded the wrapped-prose lines, I printed *"7 known
+wrapped-prose commits still matched"* — at **commit** level, while the claim was at **line** level.
+Those 7 commits match through their **own genuine `NEXT:` paragraphs**; not one prose line matched.
+The control asserted a failure that had not happened.
+
+Instrument unit versus claim unit, inside a probe auditing the gate that exists to police exactly
+that mismatch. **The remedy §4 gives — name the two units as separate strings and require them equal
+before designing the control — is one I had already written into two rounds' docstrings this week
+and did not apply to a three-line inline probe.**
+
+## 880 · R706's pre-registered kill fired on a confound I failed to pre-register
+
+The widened extractor's newly-visible NEXT lines flag at **0.4615** against **0.2655** for the
+already-visible — difference **+0.1961**, p = **0.0008**, outside the permutation null. The
+pre-registered reading was *world B: a different population, freeze individually*.
+
+⛔ **The newly-visible paragraphs are 2.0× longer** (median 479 vs 242 chars), and `flagged()` scans
+a 60-character window, so a longer paragraph has more chances **by construction**. Its rate is
+monotone across pooled length deciles: **0.065 → 0.620**. Length-matched, the difference falls to
+**+0.0908**, inside a stratified null [−0.1335, +0.1337], **p = 0.1933**. The shortest four deciles
+contain **zero** newly-visible paragraphs — the raw test compared two barely-overlapping
+distributions.
+
+**54% of the raw gap is length.** The confound was written after the kill fired, which is the
+weakness: §5 asks for the strongest confound *before* the run, with its control in the same
+iteration, and had I done that the pre-registration would have specified the stratified test and
+never the raw one.
+
+## 881 · this gate's flag rate is a function of verbosity, and every round in this arc has passed it
+
+The finding above is bigger than the round that produced it. `next_line_quantifiers_are_computed.py`
+flags **0.065** of the shortest-decile NEXT paragraphs and **0.620** of the longest. So *"quantified
+NEXT lines"* is partly a count of long paragraphs, and a round that writes a terse NEXT line passes
+more easily than one that writes a careful one — **the wrong direction entirely.**
+
+Not acted on here: R706 holds `flagged()` FIXED on purpose, because a round that changes both the
+extractor and the predicate cannot attribute either result. Recorded as the debt it is.
+
+## 882 · what shipped, and what it cost to be allowed to ship
+
+Extractor widened to paragraph-initial `NEXT[:.,]`: **loss 0**, gain **65** in full history and
+**58** in the gate's own window, **0** false positives against 8 real wrapped-prose lines. A
+**per-item empty-population guard** added — HEAD without an extractable NEXT paragraph now exits 1,
+because the corpus-level guard could never fire when a single commit contributed nothing, which is
+exactly how R704's false quantifier passed. Positive-controlled: planting HEAD into the missing list
+returns 1, and 0 of the 13 genuinely-missing commits contain even a leading `next` line.
+
+**26 newly-flagged NEXT lines frozen with an individual reason, and 0 of them are new violations** —
+all 26 were invisible to the old extractor. Frozen as history the gate could not read, never as an
+acquittal of the sentences themselves.

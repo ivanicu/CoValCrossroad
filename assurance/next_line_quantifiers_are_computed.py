@@ -80,9 +80,23 @@ def next_lines(n: int = 400):
         # paragraph". Not equal — the same mismatch this gate exists to police, inside the gate.
         # Fixed two ways: the colon is REQUIRED, and the LAST such paragraph wins, since the NEXT
         # line is by convention the final one.
-        ms = list(re.finditer(r"^NEXT:\s*(.*?)(?:\n\n|\Z)", body, re.S | re.M))
+        # ⭐⭐ WIDENED BY R706, AND THE WIDENING WAS RUN AS AN EXPERIMENT BEFORE IT SHIPPED.
+        #   `^NEXT:` missed 65 of 1270 commits whose NEXT paragraph is written `NEXT.` (58) or
+        #   `NEXT, and ...` (7) -- including the commit whose NEXT line carried a FALSE quantifier,
+        #   so the gate passed on an EMPTY POPULATION exactly when it was needed (ledger 874).
+        #   The separator is NOT the discriminator: a line-initial NEXT is also followed by ` ` (6)
+        #   and `-` (2), and ALL EIGHT of those are wrapped prose ("NEXT-line detector's first
+        #   version at 61%"), the very false positive recorded above. PARAGRAPH-INITIAL is the
+        #   discriminator. Measured by R706: loss 0, gain 65, false positives 0 against the 8 real
+        #   wrapped-prose lines, and the newly-visible flag rate is explained by paragraph LENGTH
+        #   (2.0x longer; matched, the gap falls inside its null).
+        ms = list(re.finditer(r"(?:\A|\n\n)NEXT[:.,]\s*(.*?)(?:\n\n|\Z)", body, re.S | re.M))
         if ms: got.append((sha.strip()[:8], " ".join(ms[-1].group(1).split())))
+        else: MISSING.append(sha.strip()[:8])
     return got
+
+
+MISSING: list[str] = []   # commits in the window with NO extractable NEXT paragraph (per-item guard)
 
 
 def flagged(text: str) -> str:
@@ -160,7 +174,21 @@ def main() -> int:
     rows = next_lines()
     if len(rows) < 20:
         print(f"  only {len(rows)} NEXT lines found -- population too small to police"); return 2
-    print(f"  NEXT lines in history: {len(rows)}")
+    print(f"  NEXT lines in history: {len(rows)}   commits with none extractable: {len(MISSING)}")
+
+    # ⭐⭐ PER-ITEM EMPTY-POPULATION GUARD (R706, ledger 874). The corpus-level guard above cannot
+    #   fire when ONE commit contributes nothing -- which is exactly how R704's false quantifier
+    #   passed. Every round is supposed to write a NEXT paragraph, so HEAD having none is either a
+    #   missing NEXT or an extractor this gate cannot read; both must be visible, and neither is
+    #   an acquittal.
+    head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT,
+                          capture_output=True, text=True).stdout.strip()[:8]
+    if head in MISSING:
+        print(f"  ⛔ HEAD ({head}) has NO extractable NEXT paragraph. This gate examined NOTHING for")
+        print(f"     the commit under test, which is silence and not a pass. Write the NEXT paragraph")
+        print(f"     starting a line with `NEXT:` (or `NEXT.` / `NEXT,`), preceded by a blank line.")
+        return 1
+    print(f"  PER-ITEM GUARD: HEAD ({head}) carries an extractable NEXT paragraph -> PASS")
 
     # POSITIVE CONTROL, from real history: these four commits carry a NEXT line this session
     # proved false. The detector must flag every one.
