@@ -14768,3 +14768,26 @@ check on a closing line is itself a claim and inherits every rule the closing li
 the rule condemns a value the current gate verifies. **I set `neg_ok = True` unconditionally**:
 §4's *check that cannot fail*, built by me. The result strengthens the verdict rather than changing
 it, but the wiring was wrong.
+
+## 562 · C3-share is an inverted usability metric
+
+Sweeping the binding unit: **paragraph 16.0% C3-share at 49.2% pass · section 100.0% at 91.1% ·
+document 100.0% at 96.3%.** Section scope buys a perfect score by **passing 361 pairs the paragraph
+rule flags.**
+
+⭐ **The law:** *the share of flags that are meaningful rises monotonically as a gate gets weaker,
+because weakening removes the mechanical failure classes first.* `C1` is exactly what a wider scope
+eliminates by construction. **A metric that improves as the instrument weakens is a laxity metric
+with the sign flipped** — and R623's own closing line pointed straight at it.
+
+## 563 · "No current syntax binds a decimal to a round" — DEFINITION.md is built of R-sections
+
+**45 `## R###` headings; 57 by any heading naming a round.** I declared the binding absent **while
+appending one such record every round for ten rounds.** The previous round's entire NEXT line rested
+on it.
+
+## 564 · The negative control fails at section scope too
+
+`0.5451` in an `R294` section **still flags C3**. The output that is "100% about numbers" still
+condemns a value the current gate verifies — **section scope did not repair R623's case, it hid the
+other 447.**

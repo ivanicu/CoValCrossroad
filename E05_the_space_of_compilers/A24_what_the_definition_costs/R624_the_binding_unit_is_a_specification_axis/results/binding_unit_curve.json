@@ -1,0 +1,46 @@
+{
+  "world": "B USABILITY IS BOUGHT WITH LAXITY \u2014 section, document reaches C3 >= 33% only by passing >90% of pairs. The output becomes about numbers by ceasing to ask about most of them.",
+  "controls_ok": true,
+  "r_headed_sections": {
+    "DEFINITION.md": 57,
+    "STATEMENT.md": 1
+  },
+  "curve": [
+    {
+      "scope": "paragraph",
+      "pairs": 1058,
+      "pass_rate": 0.4924,
+      "flags": 537,
+      "C1": 447,
+      "C2": 4,
+      "C3": 86,
+      "c3_share": 0.1601,
+      "laxity_vs_strictest": 82
+    },
+    {
+      "scope": "section",
+      "pairs": 919,
+      "pass_rate": 0.9108,
+      "flags": 82,
+      "C1": 0,
+      "C2": 0,
+      "C3": 82,
+      "c3_share": 1.0,
+      "laxity_vs_strictest": 361
+    },
+    {
+      "scope": "document",
+      "pairs": 777,
+      "pass_rate": 0.9627,
+      "flags": 29,
+      "C1": 0,
+      "C2": 0,
+      "C3": 29,
+      "c3_share": 1.0,
+      "laxity_vs_strictest": 392
+    }
+  ],
+  "negative_control_repaired_by_section_scope": false,
+  "check223": "'every remaining design' was a universal over an unenumerated set, and 'no current syntax binds a decimal to a round' was false -- DEFINITION.md has 45 `## R###` sections and I had been appending to them every round",
+  "impossible": "C3 is an upper bound at every scope and loosens as the scope widens"
+}
