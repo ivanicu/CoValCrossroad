@@ -2129,3 +2129,36 @@ home-judge identities are runs where the variant treatment was never applied.**
 ⚠ **Limit, stated:** this tests the **mechanism** on the second-release population. The home-judge
 A/B invocations are genuinely unrecorded — the round establishes the flag is capable of what R525
 assumed, not what was typed elsewhere. **Labelled CLOSURE, not a new world.**
+
+---
+
+## R527 · ②'s baseline is a choice, and the baseline-robust arms are the ones ③ excludes
+
+**Sweeping ②'s comparator across its own reference class** — all C(16,4) = 1,820 pool subsets, k=4
+arms, R294's estimator:
+
+| baseline | A2 | admitted |
+|---|---|---|
+| p0 | 0.5144 | **8** |
+| p5 · p25 · p50 | 0.5242–0.5391 | **7** |
+| p75 · p95 · **PUBLISHED (0.5504, pct 93.7)** | 0.5446–0.5511 | **6** |
+| p100 | 0.5575 | **4** |
+
+**The published reference is `POOL[0:4]`, picked by FILE ORDER, landing at percentile 93.7** — a
+strict comparator, and the extension moves from **4 to 8** across the class.
+
+⭐⭐⭐ **The four arms admitted at every specification are exactly the four ③ excludes.** The
+label-readers are baseline-robust *because* they read the answer; **every arm whose admission is
+contingent on the pick is a ③-admissible one.**
+
+⭐ **`coval_core` clears ② at 7 of 8 specifications**, failing only against the strongest of 1,820
+subsets — an extreme order statistic, so over-strict by §4. **Its admission is robust; its scope is
+not "beats the prompt-blind pool" but "beats it at every baseline below the class maximum."**
+
+**Controls.** Positive: **16/16** k=4 arms reproduce R294's stored `c2` at **Δ ≤ 1e-6**. Negative: a
+subset against itself gives exactly 0. ⚠ The first version failed its own positive control and
+returned UNVERIFIED, targeting R439's 0.5537 — **a different annotator draw**; 0.5504 is R514's
+measured bar₂ maximum, i.e. R294's scale. **The control was comparing two different objects.**
+
+**What the formulation owes:** ②'s *"best generalising prompt-blind criterion set"* hides a choice.
+The record should name the subset, that file order picked it, and that it sits at p93.7.

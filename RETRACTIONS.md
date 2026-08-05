@@ -11890,3 +11890,40 @@ controls cannot control anything."* **`random_k` is satisfaction-blind, so that 
 what the source predicts.** I flagged it on the **naming convention** rather than on the **rule** —
 a label read as a description, one round after writing that nothing in a filename tells you what you
 have. **The flag was right about three classes and I aimed it at the wrong three.**
+
+## 359 · Clause ②'s baseline was picked by file order, and the arms robust to it are the ones ③ excludes
+
+**My last closing line said clause ② had never been attacked. False** — R439 censused all
+C(16,4) = 1,820 subsets of its reference class. **What had never been run is the specification
+curve**, and it moves the extension from **4 admitted arms to 8**:
+
+| baseline | admitted |
+|---|---|
+| p0 | **8** |
+| p5–p50 | **7** |
+| p75 · p95 · **PUBLISHED (pct 93.7)** | **6** |
+| p100 | **4** |
+
+⭐⭐⭐ **The four arms admitted at EVERY specification are exactly the four ③ excludes.** The
+label-readers are baseline-robust *because* they read the answer. **Every arm whose admission
+depends on the pick — `coval_core`, `topw_k4`, `generic`, `gen` — is ③-admissible.**
+
+⭐ **`coval_core` clears ② at 7 of 8**, failing only against the strongest of 1,820 subsets. Per §4
+a max over 1,820 draws is an extreme order statistic and comparing to it is over-strict, so **the
+released core's admission is robust — but its SCOPE is not "beats the prompt-blind pool", it is
+"beats it at every baseline below the class maximum."**
+
+⚠ **AND THE FIRST VERSION OF THIS ROUND FAILED ITS OWN POSITIVE CONTROL AND CORRECTLY RETURNED
+UNVERIFIED**, suppressing the entire curve. It targeted R439's `published_ref_a2` = **0.5537**.
+That is a **different annotator draw**: this round's **0.5504** is exactly R514's measured bar₂
+maximum, i.e. R294's all-annotator scale, and repointed at R294's stored `c2` the control passes
+**16/16 at Δ ≤ 1e-6**. **The control was comparing two different objects — failing for its own
+reasons, which §4 already names as the dominant mode.**
+
+⭐ **Two numbers in the record for one quantity, on two scales, and neither said so.** R439's 0.5537
+at pct 91.70 and this round's 0.5504 at pct 93.7 are both correct and not comparable. **A percentile
+inherits the scale of whatever produced it, and nothing in "percentile 91.7" carries that.**
+
+**What the formulation owes:** ②'s *"best generalising prompt-blind criterion set"* hides a choice.
+**The record should name the subset, say that file order picked it, and state that it sits at
+p93.7 of its own class.**
