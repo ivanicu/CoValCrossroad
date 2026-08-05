@@ -17105,3 +17105,24 @@ tripping it. ⭐ **This is use versus mention — the limit R671 established thi
 distinguish — in its purest available form**: the sentence makes no universal claim, it reports that
 the gate treats a word as one. **The remedy was the gate's own: cite the field rather than quote the
 values.** Arrived at by being caught, which is what a working gate feels like from the inside.
+
+## 858 · The arc had a critique and no formulation, and the drift audit is what surfaced it
+Five consecutive corpus rounds at the tail, and all seven object findings already landed in the
+deliverable. **The audit had characterised the existing definition thoroughly and never written the
+formulation its own constraints support** — which is the standing task. **A programme can be
+productive and still never produce the thing it was for**, and the interrupt that caught it was a
+count of headlines, not an insight.
+
+## 859 · One clause of five survives unchanged, and the audit is subtractive
+③ survives with a scope condition. ② survives **rescoped** — the clause stands but its justification
+cannot be agreement with A2, because ② *is* an A2 threshold. The size clause must state a bound and
+never a value, since the card's ~95%-are-four describes the **instance**. ① and ④ stay retired.
+**The formulation the audit supports is three clauses, each naming an object it excludes that this
+benchmark actually contains.** Landed in `STATEMENT.md`.
+
+## 860 · "Survives" is bookkeeping of my audit against my statement, not a measurement
+Every constraint cites a committed round, and every clause verdict is still **my judgement**.
+Instrument unit: a constraint-clause pair. Claim unit: a clause that should be written. **Not equal.**
+**A second released core is what would test the formulation, and the release ships one** — which is
+constraint C1, the reason no clause may name a k, and the reason this round is production rather
+than a frontier action.

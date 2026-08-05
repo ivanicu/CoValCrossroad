@@ -1,0 +1,109 @@
+{
+  "world": "\u2b50\u2b50\u2b50 A SUBTRACTIVE. Of 5 clause-positions, 1 survives unchanged: \u2462. \u2461 survives RESCOPED -- the clause stands, its justification does not, because agreement with A2 is arithmetic. The size clause must state a BOUND and never a value. \u2460 and \u2463 stay retired. \u2b50 THE FORMULATION THE AUDIT SUPPORTS IS THREE CLAUSES: provenance at a named judge, behaviour above a prompt-blind floor, and size as a bound. \u26a0 EACH CARRIES WHAT IT EXCLUDES, per \u00a74's per-clause test, and the excluded object is one this benchmark actually contains. \u26a0 AND THE LIMIT IS THE WHOLE PROJECT: 'survives' is MY judgement against rounds I ran -- bookkeeping of my audit against my statement, not a measurement of the world. A second released core is what would test it, and the release ships one.",
+  "controls_ok": true,
+  "tree_sha": "3a9ec6171a8bae38c1d6a868f24f2b8e7deb9d81",
+  "action_type": "PRODUCTION",
+  "constraints": {
+    "C1": {
+      "round": "R689",
+      "text": "the release ships ONE core; the card gives the INSTANCE's size, not the CATEGORY's -> no clause may name a k"
+    },
+    "C2": {
+      "round": "R696",
+      "text": "\u2461 IS an A2 threshold -> no clause may be justified by agreement with A2"
+    },
+    "C3": {
+      "round": "R694",
+      "text": "95.2% of the discriminating power is recoverable from (family,k) -- two parameters we chose; the residual is the sham distinction"
+    },
+    "C4": {
+      "round": "R688",
+      "text": "\u2462 (provenance) survives \u00a74's falsifier on the reachable population"
+    },
+    "C5": {
+      "round": "R683/R685",
+      "text": "the \u2462 separation is judge-dependent, on n=1 -> a scope condition is required and it rests on a single verdict pair"
+    }
+  },
+  "clauses": {
+    "\u2460": {
+      "status_now": "retired (R518/R519: drops 0 passers)",
+      "hit_by": [],
+      "verdict": "STAYS RETIRED",
+      "survives": false,
+      "why": "already retired before this arc; nothing here revives it"
+    },
+    "\u2461": {
+      "status_now": "live -- 'carries the whole boundary'",
+      "hit_by": [
+        "C2",
+        "C3"
+      ],
+      "verdict": "SURVIVES, RESCOPED",
+      "survives": false,
+      "why": "the clause stands but its JUSTIFICATION cannot be agreement with A2 (C2), and its boundary is 95.2% our own parameterisation (C3). It is kept for the residual it does own: the released core against its own sham."
+    },
+    "\u2462": {
+      "status_now": "live -- provenance, checkable from the producer",
+      "hit_by": [
+        "C4",
+        "C5"
+      ],
+      "verdict": "SURVIVES, WITH A SCOPE CONDITION",
+      "survives": true,
+      "why": "survives \u00a74's falsifier (C4); needs 'at the 2B judge' attached, and that condition itself rests on one verdict pair (C5)"
+    },
+    "\u2463": {
+      "status_now": "retired (R518/R519: drops 0 of 9)",
+      "hit_by": [],
+      "verdict": "STAYS RETIRED",
+      "survives": false,
+      "why": "already retired; nothing here revives it"
+    },
+    "size": {
+      "status_now": "'more than one criterion; 3-8 indistinguishable'",
+      "hit_by": [
+        "C1"
+      ],
+      "verdict": "MUST NOT NAME A NUMBER",
+      "survives": false,
+      "why": "the card's ~95%-are-four is the INSTANCE's distribution; the category's k is not resolvable here, so the clause may state a bound and never a value"
+    }
+  },
+  "n_surviving_unchanged": 1,
+  "surviving": [
+    "\u2462"
+  ],
+  "formulation": [
+    {
+      "name": "F1 \u00b7 PROVENANCE",
+      "text": "the criteria were selected without reading the outcome labels -- checkable from the PRODUCER, never from the product. \u26a0 AT THE 2B JUDGE: the separation does not hold at 0.8B, and that scope rests on ONE verdict pair.",
+      "constraints": [
+        "C4",
+        "C5"
+      ],
+      "excludes": "an arm whose selector reads labels but whose emitted criteria are textually identical to a label-free one -- R503 measured both sides at 100% verbatim overlap"
+    },
+    {
+      "name": "F2 \u00b7 BEHAVIOUR ABOVE A PROMPT-BLIND FLOOR",
+      "text": "the criteria beat a baseline that never sees the prompt. \u26a0 NOT justified by agreement with A2, because that agreement is arithmetic (C2). Kept for the residual it owns: the released core against its own sham.",
+      "constraints": [
+        "C2",
+        "C3"
+      ],
+      "excludes": "coval_core_sham -- the same generator with the prompt withheld"
+    },
+    {
+      "name": "F3 \u00b7 SIZE AS A BOUND, NEVER A VALUE",
+      "text": "more than one criterion. \u26a0 NO NUMBER: the release's own card gives ~95%-are-four for the INSTANCE, and the category's k is not resolvable from a release that ships one core (C1).",
+      "constraints": [
+        "C1"
+      ],
+      "excludes": "a one-criterion arm -- topw_k1, which the bound excludes and no k-value could exclude without naming the instance's own number"
+    }
+  ],
+  "kill_fired": false,
+  "directional_holds": true,
+  "registered": "A 1 [0,5] surviving; B 3 [1,6] clauses; subtractive; kill if all survive",
+  "limit": "'survives' is my judgement against rounds I ran -- bookkeeping of my audit against my statement, not a measurement of the world."
+}

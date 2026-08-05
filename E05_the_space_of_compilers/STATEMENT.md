@@ -131,6 +131,34 @@ A **core** for a conversation is a set of criteria such that
   average ratings"* — so `coval_core` is a **weight-reader but not a ranking-reader**. `select_core.py:16`
   calls the same operation **"non-leaky: the weights come from the rubric, not from the outcome."**
 
+> ## ⭐⭐⭐ THE FORMULATION THE AUDIT SUPPORTS — THREE CLAUSES *(R701)*
+> Of the five clause-positions this page has carried, **one survives unchanged (③)**. ② survives
+> **rescoped** — the clause stands, its justification does not. The size clause must state a **bound**
+> and never a value. ① and ④ stay retired. **Each clause below names what it EXCLUDES, and the
+> excluded object is one this benchmark actually contains** (§4's per-clause test).
+>
+> **F1 · PROVENANCE.** The criteria were selected **without reading the outcome labels** — checkable
+> from the **producer**, never from the product. ⚠ **At the 2B judge**: the separation does not hold
+> at 0.8B, and that scope rests on **one verdict pair** *(R683, R685)*.
+> *Excludes:* an arm whose selector reads labels while emitting textually identical criteria — R503
+> measured both sides at **100% verbatim overlap**, which is why no product-side check can exist.
+>
+> **F2 · BEHAVIOUR ABOVE A PROMPT-BLIND FLOOR.** The criteria beat a baseline that never sees the
+> prompt. ⚠ **NOT justified by agreement with A2** — that agreement is arithmetic, since ② *is* an
+> A2 threshold *(R696)*. Kept for the residual it genuinely owns: **the released core against its own
+> sham** *(R694)*.
+> *Excludes:* `coval_core_sham` — the same generator with the prompt withheld.
+>
+> **F3 · SIZE AS A BOUND, NEVER A VALUE.** More than one criterion. ⚠ **No number.** The release's own
+> card gives *~95% are four* for the **instance**; the **category's** k is not resolvable from a
+> release that ships **one** core *(R689)*.
+> *Excludes:* `topw_k1` — which a bound excludes and no k-value could exclude without naming the
+> instance's own number.
+>
+> ⚠ **THE LIMIT IS THE WHOLE PROJECT.** "Survives" is a judgement of this audit against this
+> statement — bookkeeping, not a measurement of the world. **A second released core is what would
+> test it, and the release ships one.**
+
 > ### ⛔⛔ ② IS AN A2 THRESHOLD, SO ANY A2-BASED CHECK OF ② IS CIRCULAR *(R696)*
 > `R360/run.py` computes `clause2_admits` **from** `a2_vec`. So "②-admitted arms score above
 > ②-rejected ones" is an **arithmetic consequence** wherever the a2 values share that scoring run —
