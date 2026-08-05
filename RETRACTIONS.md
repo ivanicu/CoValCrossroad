@@ -14453,3 +14453,29 @@ confirmed the swap without evidence.
 ⭐ **Conditioning on the side turned a derivation into a test, and the test returned UNRESOLVABLE.**
 *Fixing the design did not rescue the claim — it revealed the claim was never reachable here, which is
 the more useful outcome and the one a pooled table would have hidden.*
+
+## 534 · Ten of ten claim rows cite only post-boundary rounds
+
+Every row of `STATEMENT.md`'s claim table cites rounds at or after **B = 431**. **Anchored: 0 of 10.
+Uncited: 0 of 10.** The earliest citation anywhere in the table is **R519** — 88 rounds past the point
+where artifacts stopped recording their sources.
+
+⭐⭐⭐ **So the eight-round thread R605–R612 is not about the corpus's filing habits — it is about this
+claim set.**
+
+⚠ **The precise scope, because the numbers ARE still anchored:** `statement_provenance.py` requires
+each decimal to appear in `DEFINITION.md`, which is re-derived from artifacts. The chain is **one link
+short**, not broken: **every claim rests on artifacts that do not record where THEIR numbers came
+from.** One link verified, the one behind it absent.
+
+⚠ *Cites* is not *takes its number from* — but the count is **0**, so nothing is over-credited and the
+zero is exact.
+
+## 535 · A false "every" and a wrong count, in one closing line
+
+R612 closed with *"**every** quantity in this arc is now a property of ARTIFACTS"* — **R602 measured
+corpus overlap and R603 measured release schemas, both properties of the DATA FILES.** And *"**six**
+rounds of corpus archaeology"* — **the thread is R605 through R612, eight.**
+
+⚠ *Two quantifiers in one sentence, neither computed, in a round whose entire subject was the
+difference between a count and a claim.*

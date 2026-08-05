@@ -1,0 +1,143 @@
+{
+  "world": "B POST-BOUNDARY \u2014 10 of 10 rows cite only rounds at or after 431, so the definition rests on the era whose artifacts do not record their sources, and the thread lands on the deliverable itself.",
+  "controls_ok": true,
+  "B": 431,
+  "n_rows": 10,
+  "anchored": 0,
+  "post_only": 10,
+  "uncited": 0,
+  "rows": [
+    {
+      "row": 1,
+      "cites": [
+        519
+      ],
+      "pre": [],
+      "post": [
+        519
+      ],
+      "text": "| **1** | The definition is **\u2461 \u2227 \u2462**. \u2460 and \u2463 are retired \u2014 neither excludes anything \u2461 has not *(R519)* | R2"
+    },
+    {
+      "row": 2,
+      "cites": [
+        527,
+        529,
+        534,
+        558,
+        580,
+        581
+      ],
+      "pre": [],
+      "post": [
+        527,
+        529,
+        534,
+        558,
+        580,
+        581
+      ],
+      "text": "| **2** | \u2462 is **three clauses, not one**: \u2462-rank (extension **5**\u2020), \u2462-any (**0**\u2020), \u2462-judge (**0**\u2020) *(R529,"
+    },
+    {
+      "row": 3,
+      "cites": [
+        527
+      ],
+      "pre": [],
+      "post": [
+        527
+      ],
+      "text": "| **3** | \u2461's baseline is a **choice** \u2014 `POOL[0:4]` by file order, at **percentile 93.7** of its 1,820-subset"
+    },
+    {
+      "row": 4,
+      "cites": [
+        528
+      ],
+      "pre": [],
+      "post": [
+        528
+      ],
+      "text": "| **4** | Read literally, \u2461's own wording (*\"the best\"*) **empties the definition** \u2014 at p100 the four arms \u2461 "
+    },
+    {
+      "row": 5,
+      "cites": [
+        533
+      ],
+      "pre": [],
+      "post": [
+        533
+      ],
+      "text": "| **5** | Weight-reading is worth **+0.0726 at k=4**, decaying **monotonically to exactly 0 at k=all** *(R533)"
+    },
+    {
+      "row": 6,
+      "cites": [
+        536,
+        537
+      ],
+      "pre": [],
+      "post": [
+        536,
+        537
+      ],
+      "text": "| **6** | That curve **replicates under a second judge** at ~0.70\u20130.74\u00d7 *(R537)*, as does the topw-vs-topvar o"
+    },
+    {
+      "row": 7,
+      "cites": [
+        535,
+        536
+      ],
+      "pre": [],
+      "post": [
+        535,
+        536
+      ],
+      "text": "| **7** | The release's own rationale \u2014 spread-selection is *\"the direct fix\"* \u2014 is **refuted**: weights beat "
+    },
+    {
+      "row": 8,
+      "cites": [
+        520,
+        523,
+        525
+      ],
+      "pre": [],
+      "post": [
+        520,
+        523,
+        525
+      ],
+      "text": "| **8** | \u2462's implementation misses **2 distinct objects**, all traceable to **variant runs that produced no v"
+    },
+    {
+      "row": 9,
+      "cites": [
+        524
+      ],
+      "pre": [],
+      "post": [
+        524
+      ],
+      "text": "| **9** | 56 tags are **46 objects**; most collapse is intentional replication *(R524)* | home judge; every de"
+    },
+    {
+      "row": 10,
+      "cites": [
+        530,
+        535
+      ],
+      "pre": [],
+      "post": [
+        530,
+        535
+      ],
+      "text": "| **10** | \u2462-any is **1.29 MDE** from non-empty; \u2462-judge is **4.24** *(R530, R535)* | R294's census; the close"
+    }
+  ],
+  "check212": "R612's closing line said EVERY quantity in the arc is a property of artifacts \u2014 R602 measured corpus overlap and R603 release schemas, both properties of the DATA FILES \u2014 and called the thread SIX rounds when it is eight, R605 through R612",
+  "impossible": "which citation carries a row's NUMBER rather than its caveat is not decidable from the row's text"
+}
