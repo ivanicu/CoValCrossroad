@@ -15225,3 +15225,28 @@ negative control validated against a *verified* case, rather than against my pri
 *"The fix is one line"* was never measured. ⭐ **In three rounds I have made uncomputed cost claims in
 both directions** — *"re-runs are expensive"* to avoid work, *"the fix is one line"* to justify it —
 **and both felt obviously true.**
+
+## 614 · Seven harnesses run rounds, not one — and the failure count feeds a verdict
+
+My closing line said *"only one harness in the corpus runs rounds."* **Seven do.** And
+`elif len(failed) >= len(names) / 3:` is present in R636, so **the world-C threshold is computed from
+the failure count** while R638 established that a non-zero exit is a *verdict* in 95 of 313 rounds.
+**The world that fires on nothing is live in committed code.**
+
+**The prohibition** — a non-zero exit is UNKNOWN, never failure; only an unrunnable path counts —
+takes the same four cells from **3 failures to 1**.
+
+## 615 · The pattern was wrong in BOTH directions, and only the positive control told them apart
+
+**v1 over-matched** on path construction (`/ "run.py"`), the mention-vs-use error of R631 and R633 a
+**third time**, reporting **25**. **v2 under-matched** by requiring `run.py` outside any parenthesised
+subexpression while every real call nests it, reporting **5 and missing R636** — the one round I had
+watched execute 43 others. **v3, windowed and validated against the known member first: 7.**
+
+⭐ *A loose and a tight pattern disagreed and neither was "more conservative" — both were wrong.*
+
+## 616 · Check #240 — the third uncomputed cost claim in four rounds
+
+*"Cheap to install"*, after *"re-runs are expensive"* (to avoid work) and *"the fix is one line"* (to
+justify it). ⭐ **All three felt obviously true; the two later measured were wrong by 260× and by
+"there is no fix at all".**
