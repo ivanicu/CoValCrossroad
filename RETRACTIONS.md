@@ -16160,3 +16160,40 @@ Recording the 10 new shas, I wrote `KNOWN_QUANTIFIED_NEXT.json` as a flat `{sha:
 **its real schema is `{"count": N, "shas": [...]}`, and I destroyed all 157 entries.** ⛔ Restored
 from git and redone correctly (157 → 167). *A state file is an instrument's memory; writing it
 without reading its schema is the same class as R642's restore destroying its own subject.*
+
+## 732 · The retracted number reappeared in the closing line of the round that retracted it
+
+R670 established that **three** of the R665–R669 quantifier failures are in scope (725 is a
+categorical claim about an object, a different class). ⛔ **R670's own NEXT then said "three of this
+arc's FOUR quantifier failures"** — one paragraph later. *A number does not stop being available to
+me because I retracted it.*
+
+## 733 · "Three reached a README" — two did
+
+⛔ Measured: ledger **715** (R665's README) and **720** (R666's README) live in a `## NEXT` section;
+**723 does not.** Two of three.
+
+## 734 · The gate's "structural" unit gap was structural for half of it
+
+`next_line_quantifiers_are_computed.py` says *"reports go to the terminal, not to disk, so no gate
+can read them"*. ⛔ **Half of every report is a README `## NEXT` section — on disk, versioned,
+greppable — and there are 80 of them.** Measured with the gate's own rule: **34 of 80 flag (42.5%)
+against 37.2% in commit bodies, +5.3 pts.** ⭐ **The surface where the failures actually landed was
+the one never read.** Extension applied, 34 frozen as a baseline; the terminal half remains genuinely
+unreadable and is still named.
+
+## 735 · Two path-depth slips in two rounds
+
+R670 wrote `HERE.parents[3]` where the repo root is `[2]`; R671 wrote `A24.parents[2]` where it is
+`[1]`. ⛔ Both failed loudly and cost one command each — **but twice in two rounds is a habit, not an
+accident**, and the fix is to derive the root from a landmark (`while not (p/"assurance").is_dir()`)
+rather than by counting directory levels by eye.
+
+## 736 · The extended gate's first live act was to catch the round that built it — twice
+
+R671's own README `## NEXT` asserted that the freeze baseline had not been paid down and that no
+entry had been retired — **an unsourced quantifier over our own work that I had not measured.** ⛔
+The gate flagged it, and the correct response was to **fix the line rather than freeze it**. ⚠ **The
+rewrite then quoted the offending words to explain them and was flagged AGAIN: the gate cannot
+distinguish use from mention.** No pattern can. Named as a limit rather than worked around — the
+escape a future round should reach for is the `PROVENANCE` citation, not silence.

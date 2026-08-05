@@ -96,6 +96,54 @@ def flagged(text: str) -> str:
     return ""
 
 
+
+# ⭐ POPULATION EXTENDED 2026-08-05 (R671). This gate's docstring calls the unit gap structural --
+#    "reports go to the terminal, not to disk". HALF of that is false: a round's README carries a
+#    `## NEXT` section, on disk and versioned, and it is the surface where the failures actually
+#    land (ledger 715 and 720 both live in one). Measured before extending: 34 of 80 README NEXT
+#    sections flag, 42.5%, against 37.2% for commit bodies -- +5.3 points, and under the 60% line
+#    this file already records. The 34 are frozen as a baseline so only NEW ones fail, exactly as
+#    the commit-body half works. The TERMINAL report is still unreadable; that residue stands.
+README_FREEZE = pathlib.Path(__file__).resolve().parent / "KNOWN_QUANTIFIED_README_NEXT.json"
+
+
+def readme_next_sections(root):
+    out = []
+    for f in sorted(root.rglob("README.md")):
+        if "/_archive/" in str(f):
+            continue
+        txt = f.read_text(errors="ignore")
+        m = re.search(r"^##+\s*NEXT\b(.*?)(?=\n##\s|\Z)", txt, re.M | re.S)
+        if m:
+            out.append((f.parent.name, " ".join(m.group(1).split())))
+    return out
+
+
+def check_readmes():
+    secs = readme_next_sections(ROOT)
+    bad = []
+    for name, s in secs:
+        for m in QUANT.finditer(s):
+            w = s[max(0, m.start() - WINDOW): m.end() + WINDOW]
+            if ARTIFACT.search(w) and not PROVENANCE.search(w):
+                bad.append((name, m.group(0)))
+                break
+    if not README_FREEZE.exists():
+        README_FREEZE.write_text(json.dumps(
+            {"count": len(bad), "rounds": sorted(n for n, _ in bad),
+             "note": "seeded by R671; only NEW README NEXT sections fail"}, indent=1))
+    fr = json.loads(README_FREEZE.read_text())
+    known = set(fr["rounds"])
+    new = [(n, q) for n, q in bad if n not in known]
+    print(f"\n  README `## NEXT` sections: {len(secs)}   quantified: {len(bad)}   "
+          f"frozen: {len(known)}")
+    if new:
+        print("  NEW -- a README NEXT quantifies over our own work without citing its source:")
+        for n, q in new:
+            print(f"    {n[:56]:<56} quantifier {q!r}")
+    return len(new)
+
+
 def main() -> int:
     rows = next_lines()
     if len(rows) < 20:
@@ -139,8 +187,11 @@ def main() -> int:
         print(f"\n  NEW -- a NEXT line quantifies over our own work without saying where the number")
         print(f"  came from. Drop the quantifier, or cite the instrument that computed it:")
         for sha in new: print(f"    {sha}  {cur[sha]}")
+    # ⭐ R671: the README half of the population, previously unread entirely.
+    n_readme = check_readmes()
+    if new or n_readme:
         return 1
-    print(f"  PASS -- no new quantified NEXT line. Known gaps still open, as documented.")
+    print(f"  PASS -- no new quantified NEXT line, in commit bodies or READMEs.")
     return 0
 
 
