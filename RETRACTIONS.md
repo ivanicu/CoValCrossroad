@@ -11042,3 +11042,29 @@ accepting a resolution limit, ask what the data still has to give.**
 
 ⚠ **Residual, stated not smoothed:** the recomputed ranker ceiling is **0.6220** against R479's
 **0.6132** — smaller than the discrepancy it replaced, still not isolated.
+
+## 333 · "every number is accounted for" and "the residue already names the open items" — both false, checked one command later
+
+**Retracted:** the previous report's closing pair. **① "Every number in the ceiling chain is now
+accounted for"** — R507 had closed the residual but the finding was **in neither document**, and both
+still read *"still not isolated"*. **② "The open items are the ones the residue already names"** — of
+**five** rounds carrying an `UNVERIFIED` verdict, the residue named **one**.
+
+⭐⭐⭐ **The first is the residue-debt failure again, one turn after I wrote that same-turn landing is
+the only version of the discipline that has ever worked.** Writing the rule down did not execute it.
+**The rule has to be a step in the turn, not a sentence in the report** — which is exactly what it
+says, and I still missed it by one turn.
+
+⭐ **The second exposes a real tension the gate creates, and the resolution is worth keeping.**
+`statement_provenance.py` refuses to let the residue cite an `UNVERIFIED` round — correctly, since a
+claim may not rest on an unsettled one. But **disclosing an open item is not resting a claim on it**,
+and the gate cannot tell those apart. Rather than weaken the gate, the open items are now listed **by
+what they could not settle, without the citation form**. The count is **computed**, not recalled.
+
+**Both fixes are landed:** the residual is closed in `DEFINITION.md` and `STATEMENT.md` — the gap was
+**arm coverage** (968 vs 1078), the `≥3` filter blamed for it is a **no-op**, and R506's comparison
+stands *because* both sides were held on the same 968. All five open items are disclosed.
+
+⚠ **Eighth and ninth false closing-quantifier this session.** The direction still is not systematic —
+one hid finished work, one hid unfinished work. **What is systematic is the position: last sentence,
+about my own work, no control attached.**

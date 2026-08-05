@@ -1571,3 +1571,19 @@ draws, and R479 had been averaging twenty all along.** *(R505, R506)*
 
 ⚠ **Bound stated, not smoothed:** the recomputed ranker ceiling is **0.6220** against R479's quoted
 **0.6132** — smaller than the discrepancy it replaced, and **still not isolated**. *(R506)*
+
+
+⭐⭐⭐ **AND THE LAST RESIDUAL IS CLOSED — IT WAS ARM COVERAGE, AND THE FILTER I BLAMED EXCLUDES
+NOTHING (R507).** R506 reported a ranker ceiling of **0.6220** against R479's quoted **0.6132** and
+left it open. On R479's **actual** population — all prompts with ≥3 rankings — the ceiling recomputes
+to **0.6174**, which is **0.0042** from the quoted value and **inside R479's own stated resolution of
+0.0093**. On the **968** prompts `oracle_k4` covers it is **0.6218**. **The residual was the
+arm-coverage restriction, and R506's comparison stays correct BECAUSE of it** — comparing an arm to a
+ceiling requires both sides on the same prompts.
+
+⛔ **The hypothesis that round was built on died to its own positive control.** I opened on
+`R479:91`'s `len(v) >= 3` against my `>= 2`. Swept: **n = 1078 at m = 1, 2 and 3 alike** — every
+prompt in the release carries at least three rankings, so **R479's filter excludes nothing and is a
+no-op.** The control requiring the sweep to move **FAILED**, the script refused to report, and the
+round redirected to the axis that does vary. **A flat sweep is not evidence of no effect; it is
+evidence the axis was mis-chosen, and only the control tells those apart.** *(R507)*

@@ -127,8 +127,31 @@ use for "core" that does not require prediction** — if the object is meant to 
 already made rather than *anticipate* one, the ceiling is irrelevant and **A is correct.** ③ is a
 question about purpose, not data, and this campaign cannot answer it.
 
-⚠ **Residual, stated not smoothed:** the recomputed ranker ceiling is **0.6220** against R479's
-**0.6132**. Smaller than the discrepancy it replaced, **still not isolated.** *(R506)*
+⭐ **Residual CLOSED.** The recomputed ranker ceiling is **0.6220** on `oracle_k4`'s 968 prompts and
+**0.6174** on R479's actual population of all **1078** ≥3-ranking prompts — **0.0042** from the quoted
+**0.6132**, inside R479's own resolution of **0.0093**. **The gap was the arm-coverage restriction,
+and the comparison above stays correct because of it:** an arm and a ceiling must be measured on the
+same prompts. ⛔ The filter first blamed — `≥3` vs `≥2` — turned out to be a **no-op**: every prompt
+in the release carries at least three rankings. *(R507)*
+
+---
+
+## What is still open
+
+**Five rounds carry an `UNVERIFIED` verdict, and this page can name but not cite them** — the
+provenance gate refuses to let the residue rest a claim on an unsettled round, which is correct and
+is why they appear here as a list rather than as sources:
+
+| round | what it could not settle |
+|---|---|
+| `is_the_shrink_the_arm_or_the_rule` | whether an observed shrink belongs to the arm or to the rule |
+| `does_the_second_instrument_measure_clause_three` | whether the second instrument measures ③ at all |
+| `can_the_two_id_spaces_be_joined` | whether ③'s two instruments range over joinable id spaces |
+| `do_other_artifacts_assert_worlds_the_record_overturned` | how many of 18 ledger-artifact inconsistencies are **stale worlds** (the inconsistency itself is CONFIRMED at 18/98) |
+| `can_provenance_be_replaced_by_a_behavioural_test` | whether ③ has a behavioural surrogate — the instrument tried could not rank `oracle_k4` at an extreme |
+
+⚠ **Only the last of these was named on this page before now.** A residue that discloses one open item
+of five understates what is unresolved, and the count is computed rather than recalled.
 
 ---
 
