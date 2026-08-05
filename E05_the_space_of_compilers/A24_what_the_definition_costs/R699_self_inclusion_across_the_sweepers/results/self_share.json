@@ -1,0 +1,34 @@
+{
+  "world": "\u2b50\u2b50 A R697 IS THE EXTREME CASE. Self-inclusion is 0.0% for R690, 1.0% for R692, and 34.6% for R697. \u2b50 THE DIFFERENCE IS THE BASIS: R690 and R692 sweep SOURCE files, where a round contributes one file among hundreds; R697 sweeps ARTIFACTS, and an artifact that RECORDS matched items is itself dense in them. A round that writes what it found into the corpus it searches compounds; a round that reads code does not. \u26a0 AND THE UNIT GAP: these are counts under MY re-implementation, not under their matchers -- the gap R698 had for R697 and did not name. \u26a0 SAFETY: no round was executed, because R698's own closing line proposed exactly the re-run that destroyed an artifact one round earlier.",
+  "controls_ok": true,
+  "tree_sha": "41e80e02093d79883cffbad994dd266445f788c3",
+  "rows": [
+    {
+      "round": "R690",
+      "with_self": 3,
+      "without_self": 3,
+      "self_share": 0.0,
+      "basis": "source"
+    },
+    {
+      "round": "R692",
+      "with_self": 98,
+      "without_self": 97,
+      "self_share": 0.01020408163265306,
+      "basis": "source"
+    },
+    {
+      "round": "R697",
+      "with_self": 81,
+      "without_self": 53,
+      "self_share": 0.345679012345679,
+      "basis": "artifact"
+    }
+  ],
+  "n_over_20pct": 1,
+  "kill_fired": false,
+  "directional_holds": true,
+  "registered": "A R690 15% / R692 5% [0,60]; B 1 of 3 over 20%; R697 largest; kill if both >50%",
+  "safety": "no other round's run.py was executed; every sweep is re-implemented here.",
+  "limit": "counts are under MY re-implementation, not under each round's own matcher -- the gap R698 had for R697 and did not name."
+}

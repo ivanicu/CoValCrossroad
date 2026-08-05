@@ -1,0 +1,29 @@
+R699 · PRE-REGISTRATION
+
+⛔ WHY R698's NEXT IS NOT RUN AS WRITTEN. It says "re-run each with its own output excluded".
+  R698 itself documented, one round earlier, that re-running a round OVERWRITES its artifact — and
+  that I had just done exactly that to R697 while diagnosing it (ledger 848). ⭐ THE CLOSING LINE
+  PROPOSED THE ACTION THE SAME ROUND HAD JUST PROVED HARMFUL. The safe form, and the one R698 itself
+  used on R697: RE-IMPLEMENT the sweep inside this round and never execute the other rounds.
+
+ESTIMAND A  for R690 and R692, what share of each one's reported population came from its OWN
+            committed artifact?
+POINT A     R690 15%, R692 5%.        INTERVAL A [0%, 60%] each
+ESTIMAND B  how many of the three sweepers (R690, R692, R697) exceed 20% self-inclusion?
+POINT B     1 (only R697).            INTERVAL B [0, 3]
+DIRECTIONAL (separately failable) R697's 71% is EXTREME rather than typical — the other two are each
+            below it. If they are comparable, self-inclusion is systemic and needs a standing rule.
+KILL        if both R690 and R692 also exceed 50%, self-inclusion is systemic; a standing exclusion
+            rule is warranted and this round should say so instead of calling R697 an outlier.
+CONTROLS
+  POSITIVE  excluding a round's own file must reduce its count WHERE that file contains matching
+            items — verified on R697, whose drop is already measured at 14 -> 4.
+  g=0       a round whose artifact contains NO matching item must show ZERO change; the instrument
+            must be able to return no-effect.
+  NEGATIVE  excluding a nonexistent round changes nothing.
+  PLACEBO   run twice identical.
+⚠ SAFETY  no other round's run.py is executed. Each sweep is re-implemented here, so no committed
+          artifact is touched. This is the constraint R698's NEXT violated.
+IDENTIFICATION LIMIT  a re-implementation is not the original. If my re-implementation differs from
+          R690's or R692's actual matcher, the share is measured on my code and not theirs — which
+          is exactly the gap R698 had for R697 and did not name.

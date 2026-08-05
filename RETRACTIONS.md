@@ -17043,3 +17043,24 @@ thing happened before, and the citation of that lesson did not stop me repeating
 did.** ⭐ **A lesson quoted is not a lesson enforced**, which is ledger 797's finding arriving from
 the other direction: there the fix was to build the tool, here the tool was already built and it
 worked.
+
+## 849 · R698's closing line proposed the re-run its own ledger entry had just forbidden
+R698 measured that re-running a round overwrites its artifact, recorded in ledger 848 that I had done
+exactly that to R697 while diagnosing it — **and then closed by proposing to re-run three rounds.**
+The safe form was available and R698 had used it: re-implement the sweep and never execute. **The
+closing sentence is written after the round's own lesson has been recorded, and it did not carry that
+lesson forward by one paragraph.**
+
+## 850 · Self-inclusion is 0.0%, 1.0% and 34.6% — the basis decides, not the care
+R690 and R692 sweep SOURCE files and are essentially unaffected; R697 sweeps ARTIFACTS and draws over
+a third of its raw population from its own output. **An artifact that records matched items is dense
+in them, so a round that writes what it found into the corpus it searches compounds.** A round that
+reads code does not. **This is a structural property of the sweep target, and no amount of care in
+writing the round changes it.**
+
+## 851 · 34.6% here and 71% in R698 are the same phenomenon at two stages
+R698 measured post-filter admissible cells (14 → 4); this measures raw co-located triples (81 → 53).
+**The filters CONCENTRATE self-inclusion**, because R697's artifact stores exactly the cells that
+survive filtering. **Quoting either number without its stage would read as a contradiction between
+two rounds**, and the corpus already has a documented habit of numbers travelling without their
+scope.
