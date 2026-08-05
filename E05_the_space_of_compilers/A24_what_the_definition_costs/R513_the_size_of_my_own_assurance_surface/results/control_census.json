@@ -1,0 +1,12 @@
+{
+  "n_gates": 45,
+  "counts": {
+    "both": 8,
+    "pos": 13,
+    "neg": 1,
+    "neither": 23
+  },
+  "frac_neither": 0.5111,
+  "world": "B",
+  "bound": "upper -- >=2 of the flagged gates currently FAIL, so they demonstrably can return non-zero"
+}

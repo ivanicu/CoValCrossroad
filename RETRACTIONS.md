@@ -11427,3 +11427,34 @@ right words.**
 ⚠ **And the honest reading of the 14 gates the audit listed: their compliance is UNVERIFIED.** Some
 almost certainly clear the rule; the audit cannot say which. **Establishing that needs each gate's
 controls run and observed, which is fourteen small experiments, not one grep.**
+
+## 346 · Four sizes for my own assurance surface in four rounds, and the correct one was in the code the whole time
+
+**14 → 45 → 54 → 0.** Each was produced by re-deriving a population that
+`assurance/run_all.py::discover()` already defines, and it has returned the correct **45** throughout.
+
+- **14** — gates whose source contains `positive control`. Reported as "the campaign's whole
+  assurance surface" in `96a1bbf`'s NEXT line. It is 31% of it.
+- **54** — a raw glob excluding only `_*` and `run_all`. Over-counts by 13: `discover()` excludes
+  eight files **by name** (`DEFECTS`, `HEADLINES`, `manifest`, `pueue_wait`, `generate_round_index`,
+  `clause3_as_written`, `audit_the_auditors`, `run_all`) and two **prefixes** (`_`, `apply_`).
+- **0** — "gates that assert a verdict", from a regex for `exit(1)`. **The codebase's idiom is
+  `sys.exit(main())` with an int return**, which that pattern cannot match. A 100% rate, which §4
+  already says means the recogniser is extinct rather than the corpus empty.
+
+⛔ **`96a1bbf`'s NEXT line is therefore false as written**, and my own check #111 caught it — the
+quantifier *"the campaign's whole assurance surface"* was never counted.
+
+⭐ **The substantive result, now on the right population (R513):** of **45** gates, **8 declare both
+controls, 13 positive only, 1 negative only, 23 (51%) neither**; 18 of the 23 also carry no
+empty-population guard. **So the suite's aggregate PASS cannot be cited as an acquittal** — for half
+its members nobody has shown the check could have failed.
+
+⚠ **And that number is an UPPER BOUND, by a free positive control:** two of the eighteen
+(`round_links_resolve`, `seed_filter_is_disclosed`) are the census's standing FAILs, so they
+demonstrably return non-zero. **"Declares no control" is not "cannot fail."**
+
+**The general lesson, and it is P4's, not a new one:** *ask the system for a population; never
+re-derive one that is already defined in code.* Four rounds of careful reasoning about a set whose
+definition was one function call away — and the re-derivations were confident, cheap, and wrong in
+a different direction each time.
