@@ -11490,3 +11490,35 @@ things, which exposed that 5 consecutive commits had not touched the deliverable
 a 52% base rate over the last 40. The campaign had drifted into auditing its own auditors. **§0.2:
 a programme that only ever kills its own claims has a perfect world model of a subject it has
 produced nothing about.**
+
+## 348 · R514 called an empirical regularity a DERIVATION, and clause ① is not deletable after all
+
+**Two corrections, one round old.**
+
+**① The warrant.** R514 stated both clauses have the form `a2 > bar`, so `bar₁ < bar₂` forces
+subsumption by transitivity of `>`. **R294's code says otherwise** — line 139:
+`c1 = cell_a(on(S[a], ps), on(S["random_k4_s0"], ps))`. Both clauses are **paired-difference
+interval verdicts with an MDE**, against two comparator **arms**. Transitivity of `>` does not carry
+to interval verdicts: **`c1`'s CI is wider than `c2`'s on 20 of 41 arms**, so the flip route is open.
+What closes it is **margin, not algebra** — the tightest ②-passer clears ① by **+0.0582** against a
+mean CI width of **0.0200**.
+
+⛔ **So the label was wrong in the flattering direction.** "Derivation" sounds more certain than
+"empirical regularity on 41 arms", and it removes the reason to look for the flip route. **The
+conclusion survives; the warrant does not.**
+
+**② The escape is real, so ① is NOT deletable.** R515 measures the two comparators prompt by prompt:
+mean **0.4927** vs **0.5504**, gap **+0.0577** — but the ordering **reverses on 26.96% of prompts**
+(20.56% exact ties, sd 0.1597). The global gap is an average concealing a large minority.
+
+⭐ **The positive control fired three times, catching a DIFFERENT wrong object each time**, and each
+version printed plausible numbers:
+1. a **random-draw distribution** instead of the fixed comparator arm — 0.4171 vs 0.4927;
+2. the **wrong population** — R294 uses each arm's own prompt subset and truncates the pool to that
+   arm's k, so the target is k-dependent (+0.0470 to +0.0577; all k=4 arms agree at +0.0577);
+3. the **wrong release** — R294 loads `sat_{a}.npz`, I loaded `sat08_{a}.npz`. **Both exist, both
+   load without error**, and the wrong one reproduced the aggregate at +0.0685.
+
+**The first version would have reported "30% of prompts have a local bar above ②'s" — a striking,
+false number, from an instrument pointed at the wrong object three ways.** The only thing that
+stopped it was requiring the reconstruction to reproduce an independently computed value first.

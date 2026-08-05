@@ -1738,3 +1738,44 @@ contrasts only, so running it means re-scoring against each conversation's own d
 
 **What this does NOT overturn.** The R464 adversarial subset is still excluded at −0.2779; ① is a
 *true statement about cores*. It is simply not doing work in the definition as operationalised.
+
+---
+
+## R515 · The per-prompt escape is real, and R514's warrant was wrong
+
+**R514's mechanism claim is retracted.** It said both clauses have the form `a2 > bar`, so `bar₁ <
+bar₂` forces subsumption by transitivity. **Reading R294's code shows they are not.** Line 139:
+
+```python
+c1 = cell_a(on(S[a], ps), on(S["random_k4_s0"], ps))
+c2 = cell_a(on(S[a], ps), on(POOL, ps, list(range(min(K[a], npool)))))
+ok1 = verdict(*c1[:3], c1[4]) == POS
+```
+
+Both clauses are **paired-difference interval verdicts with an MDE**, against two comparator **arms**
+— ① against `random_k4_s0`, ② against the blind pool truncated to the arm's own k.
+
+**Why that matters.** Transitivity of `>` does not carry to interval verdicts, because the two
+contrasts have different variances. **`c1`'s CI is WIDER than `c2`'s on 20 of 41 arms**, so the
+route by which ① could fail while ② passes is genuinely open. What closes it is not algebra but
+**margin**: the tightest ②-passer clears ① by **+0.0582** against a mean CI width of **0.0200** —
+about three widths of headroom.
+
+⭐ **Corrected claim: ① is subsumed by ② EMPIRICALLY on all 41 arms with ~3 CI-widths of slack,
+NOT by derivation.** The conclusion (① adds nothing as operationalised) survives; the warrant is an
+empirical regularity, not a theorem. Calling it a derivation made it sound more certain than it is
+and removed the reason to check the flip route.
+
+**And the escape R514 named is real.** Per prompt, `random_k4_s0` scores **0.4927** on average and
+the pool **0.5504**, gap **+0.0577** — but the ordering **reverses on 26.96% of prompts** (20.56%
+exact ties, sd of the per-prompt difference 0.1597). So the global gap is an average concealing a
+large minority.
+
+⭐⭐⭐ **Consequence for the formulation.** ① is **not deletable**. As a global bar it is subsumed;
+**per-prompt it has something to bind on, on roughly a quarter of conversations.** The open question
+is no longer *"is ① vacuous"* but *"does any actual arm fail a per-prompt ①"*, which needs each
+admitted arm re-scored prompt-by-prompt against `random_k4_s0`.
+
+**Instrument note, carried because it will recur:** the release ships **two** saturation families,
+`sat_*` and `sat08_*`. Both load without error. R294 uses `sat_*`; a reconstruction on `sat08_*`
+reproduces the aggregate to +0.0685 instead of +0.0577 and looks entirely plausible.
