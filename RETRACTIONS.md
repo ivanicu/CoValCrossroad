@@ -14542,3 +14542,33 @@ scope is how both of these happened.*
 and smallest expected cell 6.00 ≥ 5 — so the round proceeded on measurement rather than on my wrong
 prior. *Pre-registration protects against the author's errors, including the ones in the author's
 corrections.*
+
+## 541 · Selected for form — and three axes give three answers
+
+Era six-token rate **117/171 = 0.6842**; cited **17/17 = 1.0000**; uncited **0.6494**; Δ **+0.3506**
+against a null 97.5% of **+0.2200** over 2,100 random 17-subsets. The pre-registered ceiling kill (era
+rate > 0.95) did not fire, so the value is informative rather than saturated.
+
+⭐⭐⭐ **Position clustered (R614) · outcome flat (R615) · form selected (R616).** Three axes, three
+answers, one population — **the page selects on WHEN and HOW a round wrote, never on WHAT it
+concluded.** *A single axis returning "selected" would have been ambiguous between all three.*
+
+## 542 · I named the property "legibility" and measured six letters
+
+R615 closed calling this **legibility** — *"writing a verdict in the corpus's shared vocabulary"*. The
+instrument measures **first token ∈ {A,B,C,D,E,UNVERIFIED}**, and **R591's own `world` value,
+`"MIXED — …"`, is a well-formed verdict the rule excludes.**
+
+⚠ Renamed to **SIX-TOKEN FORM**. *The renaming is not cosmetic: "prefers legible rounds" and "prefers
+rounds using six specific letters" license completely different conclusions, and only the second is
+supported.*
+
+## 543 · A positive control that lands exactly on the observation
+
+Drawing a cited set only from six-token rounds returns **Δ = +0.3506 — identical to the observed
+value**, because the cited set already is 17/17 and the ceiling is 1.0.
+
+⚠ **So the control proves the instrument can REACH the value; it cannot show the value could be
+exceeded.** *A control that coincides with the observation demonstrates attainability, not
+discrimination* — the verdict therefore rests on the null (+0.2200), and that is stated rather than
+left for a reader to notice.

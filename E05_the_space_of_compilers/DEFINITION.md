@@ -3000,3 +3000,32 @@ expected cell **6.00 ≥ 5** — both cleared, so the comparison was admissible.
 late — so nothing here speaks for the 54 rounds whose verdict is unclassifiable. ⚠ A first-token class
 is a convenience, not a type: R595 measured this field as open **corpus-wide**, which is a different
 population from this era.
+
+---
+
+## R616 · Is the cited set's six-token rate more than chance?
+
+Property: the first token of `world`, case-folded and punctuation-stripped, lies in
+{A, B, C, D, E, UNVERIFIED}. **This is FORM, not legibility or quality** — R591's own value,
+`"MIXED — …"`, is a well-formed verdict the rule excludes.
+
+| quantity | value |
+|---|---|
+| era 431–606, six-token rate | 117/171 = **0.6842** |
+| cited | **17/17 = 1.0000** |
+| uncited | **0.6494** |
+| Δ = cited − uncited | **+0.3506** |
+| null, 2,100 random 17-subsets | 2.5% **−0.2372** · median **+0.0241** · 97.5% **+0.2200** |
+
+The observed Δ sits **above** the null, so the cited set takes the six-token form more often than
+drawing 17 rounds from the era at random would give. The pre-registered ceiling kill — unresolvable
+if the era rate exceeds 0.95 — did not fire at 0.6842.
+
+**Controls.** A cited set drawn only from six-token rounds returns **+0.3506**, ⚠ *identical to the
+observation*, since the cited set already is 17/17 and the ceiling is 1.0: the control proves the
+value is **attainable**, not that it could be **exceeded**, so the verdict rests on the null. A random
+17-subset returns **+0.1547**, inside the interval, so the instrument can fail. A property every round
+has returns **+0.0000** exactly.
+
+Taken with R614 (position: clustered) and R615 (outcome: flat), the selection is sensitive to **when**
+and **how** a round wrote and not to **what it concluded**.
