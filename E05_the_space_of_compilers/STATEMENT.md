@@ -2,7 +2,8 @@
 
 *One page. Every number here traces to a round whose verdict is not UNVERIFIED; the check is
 mechanical (`assurance/statement_provenance.py`) and it fails if a citation is added that does not.
-The reasoning, the corrections and the 289 retractions live in `DEFINITION.md` and `RETRACTIONS.md`.
+The reasoning and the corrections live in `DEFINITION.md` and `RETRACTIONS.md`; the retraction
+count has one home and is not restated here.
 This page is the residue.*
 
 ---
@@ -52,6 +53,13 @@ prompt-blind ceiling (**0.5404**) is one ③ excludes — five of five, reaching
 rankings or ratings. The best ③-admissible **prompt-aware** arm is **0.5337**, a gap of **−0.0067**,
 inside the **0.0122** floor. **② asks an arm to beat a class that already performs at the level
 prompt-awareness alone can reach, and only the human labels ③ forbids go further.** *(R485)*
+
+⭐⭐⭐ **AND ② IS NOT THE CLAUSE AT FAULT — the one object anyone calls a core SATISFIES it.**
+`coval_core` scores **0.5640** in A2 against the cross-fitted prompt-blind ceiling of **0.5404**, so
+it clears ② comfortably. **The definition's empty extension is ③'s doing, not ②'s.** ⚠ Scope, because
+the record carries two numbers for this arm under different **statistics**: **0.5640** is A2, the
+metric ② is stated in; **0.6044** is per-criterion sign agreement, a different statistic that must
+not be compared to an A2 ceiling. *(R475, R485)*
 > ⚠ **DOWNGRADED to UNDETERMINED (R486, R487).** The observation stands — five of five arms clearing
 > the ceiling are ③-excluded. The *interpretation* does not. Placing the best ③-admissible
 > prompt-aware arm inside the class it must beat puts it at **percentile 32.6**, and over the **full**

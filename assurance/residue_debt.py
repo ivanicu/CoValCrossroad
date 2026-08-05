@@ -54,6 +54,29 @@ def main() -> int:
         debts[name] = len(D - S)
         print(f"  {name:<30}{len(D):>11}{len(S):>10}{len(D-S):>7}")
 
+    # A count of our own work must not be hand-typed into the deliverable. The retraction total
+    # had ONE home (RETRACTIONS.md) and STATEMENT.md restated it as 289 while the ledger stood at
+    # 326 -- stale by 37, in the document's first paragraph. HB7: one home per fact.
+    led = (ROOT/"RETRACTIONS.md").read_text()
+    real = max(int(x) for x in re.findall(r"^## (?:Entry )?(\d+)", led, re.M))
+    bad = []
+    for doc in (DEF, STM):
+        for m in re.finditer(r"(\d+)\s+retractions", doc.read_text()):
+            # ⚠ ANY restatement fails, not merely a WRONG one. An earlier draft compared the
+            # number to the ledger and passed a correct-today count -- which is the seed of the
+            # next incident, since it goes stale the moment the ledger grows and nobody re-reads
+            # a number that was right when written. The invariant is HB7 (one home per fact),
+            # not accuracy. Caught by attacking the check rather than by reasoning about it.
+            stale = "" if int(m.group(1)) == real else f" (ledger is at {real} — already stale)"
+            bad.append(f"{doc.name} restates the count as '{m.group(0)}'{stale}")
+    print(f"\n  ledger high-water mark: {real}")
+    if bad:
+        print("  STALE SELF-COUNT in a document:")
+        for b in bad: print(f"    {b}")
+        print("  Remove it -- the count has one home. Do not update it; deleting is the fix.")
+        return 1
+    print(f"  no document restates the retraction count  PASS")
+
     lo, hi = min(debts.values()), max(debts.values())
     print(f"\n  DEBT = {lo}-{hi} rounds, depending on the instrument."
           f" Quote the range or name the pattern; never a bare number.")

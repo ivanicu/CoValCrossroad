@@ -10867,3 +10867,28 @@ from arbitrariness.* A statement about the **mechanism**, not the mean — and i
 difference"*) rather than after **what it was built from** (*"two draws of a random procedure"*).
 The name then did the reasoning. **A null should be named by its construction, never by its intended
 role** — the second is a hypothesis about the first, and it is the one nobody re-examines.
+
+## 327 · "the 289 retractions" — in the deliverable's first paragraph, while the ledger stood at 326
+
+**Retracted:** the count `289` in `STATEMENT.md`'s header. **The ledger's high-water mark is 326 —
+stale by 37**, in the most-read sentence of the document the whole campaign exists to produce.
+
+⭐ **Same failure as entry 324 (`"9 rounds"`), eight entries later, in a more expensive place.** A
+count of my own work, correct when written, decaying silently as the work grew, and never re-read
+because a header reads as furniture rather than as an assertion.
+
+**Fix, and it is deletion rather than correction:** the retraction count has **one home**
+(`RETRACTIONS.md`). `STATEMENT.md` now points at it and states no number. **Updating the number
+would have rebuilt the same trap** — a correct count is exactly what the next stale count looks like
+on the day it is written.
+
+⚠⚠ **AND THE CHECK I BUILT TO PREVENT IT HAD THAT BUG TOO, CAUGHT ONLY BY ATTACKING IT.** The first
+version compared the restated number to the ledger and failed only on a **mismatch** — so it would
+have **passed** `326 retractions` today and gone quiet until the ledger moved. **A check that
+enforces accuracy where the invariant is HB7 licenses the seed of the next incident.** Tightened:
+**any** restatement in `DEFINITION.md` or `STATEMENT.md` now fails, whatever the number.
+**Attacking the lock found this; reasoning about it did not.**
+
+⭐⭐ **Scanned the rest of the deliverable rather than fixing the one:** `289` was the **only**
+hand-typed self-count. The other figure that looked like one — `23 scorable arms` — is an anchored
+measurement from R486/R487.
