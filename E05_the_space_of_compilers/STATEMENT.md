@@ -172,6 +172,30 @@ in the release carries at least three rankings. *(R507)*
 
 ---
 
+## The register, ordered by what it costs to remove
+
+**§2 says the impossibility register doubles as the specification for the next site. It only does
+that if it is ordered** — otherwise a reader cannot tell the one-field item from the second-team item.
+Every entry below is already stated somewhere in this page or in `DEFINITION.md`; **what is new is the
+ordering, and the ordering is the deliverable.**
+
+| # | what is blocked | what removes it | cost |
+|---|---|---|---|
+| **1** | ③′ on the released core — only **6.6%** of its criteria are verbatim in `coval_full` | **one field: `coval_core[i].source_rubric_item_ids`** | **a schema line** |
+| **2** | a second, stronger judge — `Qwen2.5-7B-Instruct` is present (29 GB, 4/4 shards) but OOMs in bf16 | **quantisation, or offload** — an environment change to the shared `.venv`, not a GPU run | **an install** |
+| **3** | ②∧③ — the ③-admissible side is **one** prompt-responsive arm plus a floor | **more ③-admissible prompt-responsive generators** | **a generation round, on this site** |
+| **4** | ② — no ③-admissible arm reaches the prompt-blind ceiling **0.5404** | **a strong ③-admissible prompt-aware arm** | **generation + judging** |
+| **5** | independent replication | **a second team or a second release** | **another site** |
+| **6** | construct validity — is A2-vs-held-out-annotator the right target? | **an external gold standard** | **another site** |
+| **7** | whether reading **A** is correct after all | **a use for "core" that does not require prediction** | **not a measurement — a decision about purpose** |
+
+⭐ **Rows 1–4 are all on this site.** The campaign's own conclusion — that the definition's extension
+is 0 — rests on row 3 and row 4 being unmet, and **neither needs a second team.** ⚠ **Row 7 is not
+orderable with the rest**: it is the one entry no amount of data settles, and it is the one that would
+flip the recommendation.
+
+---
+
 ## What this site cannot do, and exactly what would fix it
 
 ⭐ **One wall, checked rather than asserted.** ③′ cannot be evaluated on `coval_core`, because only

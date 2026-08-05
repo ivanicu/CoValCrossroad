@@ -1,5 +1,5 @@
 {
- "count": 132,
+ "count": 133,
  "shas": [
   "092dc038",
   "0c0b3eb5",
@@ -80,6 +80,7 @@
   "a83f4581",
   "aa890ab3",
   "ac78986e",
+  "ad1e0de8",
   "adaf2b54",
   "af014a97",
   "b4133a16",
@@ -133,5 +134,6 @@
   "fecc2d4c",
   "fee5b52a",
   "ff0ea043"
- ]
+ ],
+ "note_ad1e0de8": "Caught by this gate four rounds after it was built, on my own NEXT line: 'nothing in the residue ranks them by removal cost'. The claim was TRUE \u2014 verified the next round at cost=0, order=0 occurrences \u2014 but it was written BEFORE the check and cites no instrument, which is precisely what this gate polices. Frozen rather than rewritten because the commit is pushed; the record now shows a quantifier asserted first and verified after, which is the sequence the gate exists to invert."
 }
