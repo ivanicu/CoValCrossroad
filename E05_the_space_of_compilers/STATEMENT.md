@@ -666,3 +666,25 @@ of five understates what is unresolved, and the count is computed rather than re
   rating-blind, rubric-blind, prompt-aware cores — **`gen` is its output**, and it is the best
   ③-admissible arm on the site at **percentile 32.6** of the prompt-blind class.
 - **The definition's extension has never been measured.** It has been counted under a convention.
+
+## R631 · Clause ③'s testability — the bound, carried in from FORMULATION.md
+
+**Clause ③ is decided per arm by reading `select_core.py`. That is an annotation, not a
+measurement**, and whether it *could* be a measurement was tested along both available routes.
+**Both bound out.**
+
+- **Route 1 · through PERFORMANCE — REFUTED.** The leak slope has sensitivity **1.000** and
+  specificity **0.886** blind over 41 arms, but `corr(slope, A2) = +0.934`, its four false positives
+  are exactly the admitted set, and `oracle_k4` — the *maximally* leaky arm — sits **3.25 sd BELOW**
+  what its quality alone predicts. **No residual leak signal.** The confound is structural: fitting
+  on labels is *what makes an arm better*, so a performance detector measures the leak's effect and
+  cannot be separated from it.
+- **Route 2 · through SELECTION — one rule family only.** Label-free features of the selected
+  criterion set reach **0.866** held-out-by-arm (structure+text), but **0.510 — chance — held out by
+  MECHANISM.**
+
+⛔ **Route 1's refutation also retracts R335**, whose 32.9-sd dose-response separated *dose-induced
+quality*. R335's artifact still records `W-DECIDABLE`; **that verdict is superseded.**
+
+⚠ Whether this bound is *correct* needs re-running R336–R338, which this site cannot do. What R631
+established is that it was **stated only in `FORMULATION.md`**, which no gate reads.

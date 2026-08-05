@@ -14934,3 +14934,37 @@ R619 (amnesty vs vocabulary → both, vocabulary dominant), R620 (head-heavy vs 
 shape), R630 (superseded vs live → **neither**, 10 of 17 unsettled). ⭐ **This is no longer a slip to
 note per round; it is a design default to change** — a two-world pre-registration in this arc has not
 once contained the answer.
+
+## 581 · R335 is RETRACTED — and the retraction lived only in the document no gate reads
+
+**`FORMULATION.md` retracts R335 in its own words** (*"This also retracts R335, whose 32.9-sd
+dose-response separated dose-induced quality"*), **`RETRACTIONS.md` never recorded it, and R335's
+artifact still says `W-DECIDABLE`.** Route 1 through performance is refuted: `corr(slope, A2) =
++0.934`, and `oracle_k4` sits **3.25 sd BELOW** its quality prediction — **no residual leak signal.**
+
+**Recorded here, and the bound is now carried into both gated documents.** R630's `LIVE`
+classification of this finding was an artifact of asking only the ledger.
+
+## 582 · Both PASSes that refuted my hypothesis were instrument artifacts
+
+R631 v1 reported *"the retraction IS in the ledger"* and *"the gated pair DOES state the bound"* —
+**both false.**
+- The ledger match found **my own entry 578 from the previous round**, which *names* the register
+  while calling it LIVE. **A citation is not a recording** — and ⭐ **the retraction ledger is a
+  population my own rounds write to, so a round scanning it for its own subject contaminates itself
+  within one round.** Same class as R601/R604, **new vector.**
+- The bound search's alternation `(testab|bound)` matched **the bare English word "bound"**. None of
+  the four specific phrases occurs in either gated document. **A search whose broadest alternative is
+  an ordinary word is not an instrument.**
+
+⭐ **A lenient instrument that REFUTES you is as dangerous as one that confirms you — and it feels
+safer, because disagreeing with yourself reads as rigour.** I had already stated the refuted
+hypothesis as established in the report before the test ran; the correction survived only because the
+same scrutiny was applied to a PASS that contradicted me.
+
+## 583 · Check #230 — the checks catch, they do not prevent
+
+*"outside every gate"* repeats check #228's exact overstatement **one round after it was recorded**.
+⭐ *Recording a correction did not prevent its recurrence in the very next closing line* — which is
+why the ledger is worth more than the resolution to be careful. Plus *"the sharpest single item this
+arc has"*, an uncomputed superlative. Fifteenth and sixteenth.
