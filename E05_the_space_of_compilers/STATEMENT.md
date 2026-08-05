@@ -421,6 +421,15 @@ extra arms were built by later rounds for other purposes, so this is **not** a c
 extension — it is a scope condition. **The number 5 is indexed to a population that a glob no longer
 returns.**
 
+⛔ **And clause ③ is a BLOCKLIST, so it fails open** *(R729)*. `select_core.py:102` reads the human
+target for three rules — `oracle_k`, `indep_k`, `greedy_k` — while ③ is implemented as **four literal
+arm names**. Of the 16 arms today's population admits, **7 are built by a target-reading rule and ③
+excludes none of them**; population-wide **13** pass by default. Two independent provenance routes —
+the builder-emitted tag, and the selected criteria in `core_*.json`, which never sees a name — agree
+on **all 82** arms both can classify, and both re-derive ③'s own four names from construction.
+⚠ This does **not** say those arms leak *(R295)*. **It says ③ never asks** — and its coverage decays
+with every round that adds an arm.
+
 ⭐ **And that reading is not merely a noisier one** *(R725)*: `coval_core`'s clause-② `t` is **4.2336**
 against the threshold **4.7615**, a gap of **8.29 sampling SDs of the MDE itself** at n = 968, with a
 crossing probability of zero at every seed. **The exclusion is a property of the arm.**

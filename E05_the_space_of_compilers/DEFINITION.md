@@ -3682,3 +3682,22 @@ than five. The additional arms were built by later rounds for other purposes and
 is a separate question, so this is not a correction to the extension. It is a statement about the
 procedure: the same code returns a different answer depending on when it is run, because its
 population is not fixed by anything the definition says.
+
+## R729 · the provenance clause is a blocklist and admits by default
+
+The third clause requires the evaluation annotator to be held out from the core's own construction.
+It is implemented as a set of four literal arm names. The selection program loads the human target
+for exactly three of its rules, and any arm built by one of those rules is an object the clause was
+written to exclude. Of the sixteen arms today's population admits, seven are built by such a rule and
+the clause excludes none of them; across the whole population thirteen target-reading arms pass by
+default. The clause excludes exactly and only its four literal names. Two independent routes agree on
+every one of the eighty two arms both can classify, with no disagreement: one parses the tag the
+builder emits from the rule, the size, the seed and the fit parity, and the other compares the
+selected criteria per prompt and never sees a name. Both re-derive the four names the census already
+knew, from construction rather than from the list, which is what makes the rest readable rather than
+circular. Six arms carry no rule prefix because the selection program never emitted them; they are
+reported as single-route and the one called target-reading by that single route is marked
+uncorroborated and excluded from every count. None of this says those arms leak into the evaluation,
+which is a question settled elsewhere and not re-opened. It says the clause never asks. The defect is
+structural rather than clerical: an arm built after the census passes unless someone edits a literal,
+so the clause's coverage decays with every round that adds an arm.

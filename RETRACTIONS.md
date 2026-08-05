@@ -18233,3 +18233,39 @@ every arm the comparison contains. This is the sixth control in this arc whose t
 its own achievable band. The tell the standard gives was present and I did not use it: the control
 failed while nothing else about the run looked wrong, and the failure did not localise to a
 mechanism. The repair computes the ceiling as the size of the intersection rather than assuming it.
+
+## 948 · the provenance clause is a blocklist, so it admits every object nobody listed
+
+The third clause of the definition asks whether the evaluation annotator was held out from the core's
+construction. It is implemented as a set of four literal arm names. The selection program reads the
+human target for three of its rules, and seven of the sixteen arms today's population admits are
+built by one of those rules. The clause excludes none of them, and thirteen such arms pass it
+population-wide. Both provenance routes agree on every arm they can both classify, and both
+re-derive the clause's own four names from construction rather than from the list, so this is not an
+artifact of an instrument echoing what it audits. The clause is not wrong about the four arms it
+names. It is not a predicate, and a definition whose clause is a blocklist admits every object
+nobody thought to list.
+
+## 949 · a mean over an unsorted set of strings made a deterministic round hash-seed dependent
+
+R729's content route averaged per-prompt Jaccard over the intersection of two dictionaries, iterating
+the resulting set directly. A set of strings iterates in hash order, so the float summation order and
+the last decimals of every mean moved between interpreter hash seeds, and the two-seed check
+diverged. Nothing about the classification changed, but the artifact was not byte-identical and the
+round would have shipped a reproducibility claim it did not meet. This is the same species as the
+seeded shuffle over a set caught earlier in this arc: a set is not an ordering, and any numeric
+reduction over one inherits whatever order the interpreter happens to give it. Repaired by sorting
+the intersection and by giving the score ranking a stable secondary key on the rule name.
+
+## 950 · I registered the agreement of two instruments at the wrong unit, and then counted a missing verdict as a disagreement
+
+R729's second registered point was the agreement of its two provenance routes. Its first version
+measured nine-way rule agreement and returned fifty four disagreements of eighty eight, which read
+as an instrument failure. It is not one: the content route cannot separate the oracle rule from the
+greedy and independent rules because the selection program states that those two are fitted exactly
+like the oracle and differ only in blindness to interactions. The claim's unit is binary — built by a
+target-reading rule or not — and the instrument must be scored there. Correcting the unit left six
+disagreements, all of them arms where the name route returns no verdict at all because the selection
+program never emitted them. Counting an absent verdict as a disagreement is the same error as
+folding unverified into overturned, and correcting it took the count to zero. Both mistakes were mine
+and both were caught by controls rather than by reading the output.
