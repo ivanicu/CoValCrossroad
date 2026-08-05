@@ -139,6 +139,13 @@ A **core** for a conversation is a set of criteria such that
 > ⚠ **10.0% is a CEILING** — the source test is lexical, so rounds varying a judge without naming it
 > are missed, which biases the share up.
 
+> ⛔ **DOWNGRADED BY R685 (D8): the generalisation rests on n = 1.** Of the 7 rounds recording two
+> judges, **exactly one exposes a per-judge verdict about the object** — R361's `rank_resolved`,
+> below. The other six record only control flags, which pass at both judges by design. **So the
+> measurement below stands and the word "instrument-dependent" does not generalise**: one verdict
+> pair cannot separate a property of clause ③ from a property of this benchmark. Read the block
+> below as *what R361 measured*, not as a pattern.
+
 > ### ⚠ SCOPE CONDITION ON ③ — the separation is INSTRUMENT-DEPENDENT *(R683, from R361's exact null)*
 > R361 enumerates **all `C(9,4) = 126`** ways to split its 9 arms into a 4-group and its complement —
 > an **exact** null on the membership itself, not a sample. Against it:

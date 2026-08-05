@@ -16620,3 +16620,32 @@ A set census has no judge dimension; asking whether it recorded one is a categor
 them holds the measured gap at 10% instead of 3%. **Absence of a field is evidence about the
 question's applicability before it is evidence about the answer** — and the flattering direction here
 was the one that made the corpus look worse, which is exactly why it needed the control.
+
+## 793 · The whole corpus contains ONE per-judge verdict about the object, and "instrument-dependent" rests on it
+Of the 7 rounds recording two judges, six expose only control flags; exactly one — R361's
+`rank_resolved` — is a verdict about the object, and it splits (2B resolved, 0.8B not). **So the
+scope condition R683 measured is real and the generalisation R683 and R684 wrote into STATEMENT.md is
+not.** One pair cannot separate a property of clause ③ from a property of this benchmark. Annotated
+in place rather than rewritten.
+
+## 794 · My instrument counted my own control flags as verdicts, manufacturing 90% of its population
+The first run found 10 per-judge "verdict pairs" and reported 10.0% disagreement. Nine were
+`controls.positive`, `controls.g0`, `controls.placebo`, `controls.sham`. **A control flag passes at
+both judges by design — that is what makes it a control** — so the measured "agreement" was my own
+controls passing, and it diluted the single real split from 100% to 10%. Instrument unit: a per-judge
+boolean. Claim unit: a per-judge verdict about the object. **Not equal, and the artifacts of a
+rigorous protocol are exactly the fields most likely to be keyed by judge — the discipline created
+the confound.**
+
+## 795 · The pre-registered kill stopped a very quotable number
+With the control flags excluded the disagreement rate is **100%** — one pair, one split. That is the
+most striking number this arc has produced and it is **inadmissible**: the kill fired at "<4 rounds
+scored" and the round reports counts only. **A share over one observation is not a share, and the
+kill was registered before the population size was known**, which is the only reason it could bind.
+
+## 796 · Excluding the six no-verdict rounds is what stopped a manufactured agreement result
+Six of the seven expose no per-judge verdict field. Scoring them AGREE — the default an instrument
+falls into — would have produced *"6 of 7 rounds agree across judges"*: clean, quotable, and entirely
+an artifact of absence. **Absence of a verdict field is not agreement, in the same way absence of a
+judge key was not one judge (ledger 792), and this is the second round in a row where the
+excluded-versus-counted decision was worth more than the measurement.**
