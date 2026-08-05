@@ -2320,3 +2320,34 @@ marginally restrictive; it removes the largest single source of advantage a ③-
 
 ⭐ **And the fixed-index property did not bias the number** — a flag I raised that turned out not to
 bite, which is worth saying as plainly as if it had.
+
+---
+
+## R533 · Weight-reading is the operation, not the core: a dose curve to a forced zero
+
+My previous closing line called `topw_k4` *"the other admitted arm that reads weights"* — **there
+are four**, which turns one check into a dose-response.
+
+| arm | k | advantage over a per-prompt random draw @k | spread |
+|---|---|---|---|
+| `coval_core` | 4 | **+0.0726** | 0.0031 |
+| `topw_k3` | 3 | +0.0724 | 0.0057 |
+| `topw_k4` | 4 | +0.0705 | 0.0015 |
+| `topw_k6` | 6 | +0.0644 | 0.0007 |
+| `topw_k8` | 8 | +0.0585 | 0.0020 |
+| **`full`** | **15** | **+0.000000** | 0.0000 |
+
+⭐⭐⭐ **`coval_core` (+0.0726) is indistinguishable from `topw_k4` (+0.0705): the released core's
+advantage IS generic top-weight selection.** The number prices the **operation**, not the object.
+
+**Controls.** Positive: `coval_core` reproduces R532's +0.0748 at +0.0726, within its seed spread.
+Negative: `full` selects every criterion, so weight-reading can be worth nothing — **+0.000000,
+exactly**. ⛔ **That zero is a DERIVATION** (at k=all both arms take the same items), which is what
+makes it a good endpoint: **a curve failing to hit it would indict the construction.** It hits to
+six decimals.
+
+⭐ **So the fork's price is a curve: ③-any forbids an operation worth +0.0726 at k=4, decaying to 0
+by k=15.** Fewer items kept ⇒ selecting them by weight is worth more.
+
+⚠ **Not shown: that the weights are GOOD.** This prices reading them, not whether the annotators
+were right — register row 6, an external standard.
