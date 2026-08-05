@@ -2412,3 +2412,30 @@ arms. Negative: `topw_k4` and `coval_core` **clear** ②, so the shortfall scale
 sides. ⚠ **Scope correction to R534:** one sat-class arm in *this census*; `topvar_k4_08b` and
 `_08bR` are on the second release. ⚠ **Impossible here:** whether spread wins under a different
 judge — register row 2.
+
+---
+
+## R536 · The selector ordering survives a second judge
+
+**The wall fell first, for the sixth time.** R535 closed saying a second judge needs *"an install"*.
+**`rebuild_selection_08b.sh` had already re-run every selection arm under the 0.8B judge** — 32
+`_08b` artifacts on disk.
+
+**Which arms, from the source:** `topw_k` is satisfaction-blind, so its frozen and rerun
+specifications *"coincide exactly"* — hence **no `topw_k4_08bR` exists**, and `topw_k4_08b` *is* the
+0.8B-judge topw arm. `topvar_k4_08bR` is the 0.8B-judge topvar arm.
+
+| judge | n | topw | topvar | diff | 95% CI |
+|---|---|---|---|---|---|
+| **2B** | 968 | 0.5642 | 0.4863 | **+0.0779** | [+0.0679, +0.0879] |
+| **0.8B** | 968 | 0.4646 | 0.4009 | **+0.0636** | [+0.0551, +0.0720] |
+
+⭐⭐⭐ **Weights beat spread under both judges. R535's refutation of `select_core.py`'s own "direct
+fix" rationale is a fact about SELECTION, not about the 2B model** — and the `cross-model` criterion
+the register lists as needing another site is **met on this one**.
+
+**Controls.** Source read: the satisfaction-blind claim confirmed, and the **absence** of
+`topw_k4_08bR` confirms it operationally. Positive: `topw_k4_08b` differs from `topw_k4`, so the
+judge swap bit. Negative: `topvar_k4_08b` differs from `_08bR`, so the 0.8B topvar arm is a distinct
+object. ⚠ **Correction to my own caveat: both judges resolve to n = 968, not different populations —
+an over-cautious scope statement is still a wrong one.**
