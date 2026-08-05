@@ -12117,3 +12117,27 @@ loosen the quote** — a looser quote would have passed while checking nothing.
 
 **Register row 7 now carries three options:** must a core be producible without the rankings,
 without any annotator signal, or without any judged signal either?
+
+## 366 · "Every remaining open item needs something this site does not have" — the register says otherwise
+
+**`177c91c` closed with that sentence.** The register, four screens above it in the same document:
+
+| row | what removes it | cost |
+|---|---|---|
+| **3** | more ③-any-admissible prompt-responsive generators | ⭐ **a generation round, ON THIS SITE** |
+| **4** | a `gen`-like generator ~0.0153 A2 stronger | ⭐ **generation + judging** |
+
+⛔ **Two of seven rows are explicitly on-site.** The claim was a quantifier over my own register,
+written without reading it — **the same failure the closing-line check has now caught in fifteen
+consecutive rounds, and the register was the very artifact the sentence was about.**
+
+⭐ **And the sentence's second half was right, which is why the first half survived writing:** *"the
+next real move is to state the deliverable's claim set with its scopes rather than run another
+reanalysis."* **That is §0.2's ordering — report what stands first — and this session had led with a
+correction every single round.** The claim set is now the deliverable's opening section: **ten rows,
+each with the scope that makes it usable**, ahead of the definition rather than behind it.
+
+**The reusable part.** A closing line that is *half* right is more dangerous than one that is wrong,
+because the true half carries the false half past inspection. **Here the production instinct was
+correct and the survey of what remained was invented** — and only the false half was checkable in
+one grep.

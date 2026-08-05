@@ -8,6 +8,29 @@ This page is the residue.*
 
 ---
 
+## What stands — the claim set, each with its scope
+
+**§0.2: report what stands first, what it cost second.** Every row traces to a round with a settled
+verdict; the scope column is the part that makes the claim usable.
+
+| # | claim | scope it holds over |
+|---|---|---|
+| **1** | The definition is **② ∧ ③**. ① and ④ are retired — neither excludes anything ② has not *(R519)* | R294's 41 arms, home judge, 968 prompts |
+| **2** | ③ is **three clauses, not one**: ③-rank (extension **5**), ③-any (**0**), ③-judge (**0**) *(R529, R534)* | the same 41 arms; ③-any and ③-judge coincide *here* only because no ②-passer reads satisfaction |
+| **3** | ②'s baseline is a **choice** — `POOL[0:4]` by file order, at **percentile 93.7** of its 1,820-subset class *(R527)* | k=4 arms; the extension moves **4 → 8** across the class |
+| **4** | Read literally, ②'s own wording (*"the best"*) **empties the definition** — at p100 the four arms ② admits are the four ③ excludes *(R528)* | k=4 arms; `coval_core` survives 7 of 8 specifications |
+| **5** | Weight-reading is worth **+0.0726 at k=4**, decaying **monotonically to exactly 0 at k=all** *(R533)* | 968 prompts, 3 seeds; the k=all zero is a **derivation** |
+| **6** | That curve **replicates under a second judge** at ~0.70–0.74× *(R537)*, as does the topw-vs-topvar ordering *(R536)* | 0.8B judge, 968 prompts; `coval_core` **not** replicated — no artifact |
+| **7** | The release's own rationale — spread-selection is *"the direct fix"* — is **refuted**: weights beat spread by **0.0779** *(R535)*, and it survives the judge change *(R536)* | both judges; one release |
+| **8** | ③'s implementation misses **2 distinct objects**, all traceable to **variant runs that produced no variant** *(R520, R523, R525)* | the 56-tag home-judge population |
+| **9** | 56 tags are **46 objects**; most collapse is intentional replication *(R524)* | home judge; every denominator drawn from it is overstated by up to 10 |
+| **10** | ③-any is **1.29 MDE** from non-empty; ③-judge is **4.24** *(R530, R535)* | R294's census; the closest arms are `gen` and `topvar_k4` |
+
+⭐ **What is still open, and where:** register rows **3 and 4 are on THIS site** — generation rounds.
+Rows 1, 2, 5, 6 need the release, an install, or another site. Row 7 is a decision about purpose.
+
+---
+
 ## The definition
 
 A **core** for a conversation is a set of criteria such that
