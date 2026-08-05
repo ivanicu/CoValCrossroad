@@ -15274,3 +15274,27 @@ failure-word marker measures the documentation unless the documentation is remov
 
 I meant *predate the R630s*. **Twenty-seventh, and the same class as the previous four: a claim about
 my own corpus written from narrative position rather than from the object.**
+
+## 620 · The repair is entirely preventive — no committed conclusion changes
+
+Every classifying harness records **zero failures, or none at all**: R319 `n_failed = 0` · R322
+`failures = {}` · R388 and R396 **persist no failure key** · R636 `failed = 5`, and **5 of 5 of those
+declare an `EXIT` convention**, so under the prohibition its count is **0**.
+
+⚠ **Absence and zero are different claims** — R388 and R396 are "no change to the record", not "no
+change at all", because **console output is not the record**.
+
+## 621 · The cost claim justified the expensive plan, for the second time
+
+My closing line proposed **re-running four harnesses** to diff their counts. Those harnesses run
+other rounds and one is **GPU work**, so the plan was to execute a large fraction of the corpus.
+**Four artifact reads answered it.**
+
+⭐ **Fifth uncomputed cost claim in six rounds** — *expensive · one line · cheap to install · one
+predicate and seven call sites · small enough for one round* — **and the second time the cheapest
+path was not the one the claim pointed at.**
+
+## 622 · Check #242 — the first closing-line count in five rounds to survive its own check
+
+*"Four of the five predate the current line"* is **correct**. Recorded because the previous four were
+not, and a run of errors that ends is worth marking as precisely as one that continues.
