@@ -14267,3 +14267,33 @@ R604's own `run.py`** — exactly that, and there are hundreds; R605 had scanned
 ⚠ **The control that PASSED contained the counterexample to the sentence written after it.** *The
 closing line does not merely lack a control — it can contradict one the round already ran, which
 means the cheapest check is to re-read the round's own control block before writing it.*
+
+## 518 · Provenance collapsed 13×, and citation concentrates exactly where it collapsed
+
+Decomposed by round-id band: provenance adoption runs **0.0870 · 0.1695 · 0.5424 · 0.0420** across the
+four non-empty eras, while citation runs **0.0000 · 0.0254 · 0.2966 · 0.5714.**
+
+⭐⭐⭐ **A 13× collapse between eras 3 and 4, and 57.1% of era 4 is cited.** So the pooled −0.1762 is
+**two things**: a genuine within-era selection in era 3 — cited **0.2571** against uncited **0.6627**,
+**Δ −0.4055**, in the corpus's *best*-documented band — and a **compositional** effect from citing
+heavily into a band where provenance had already collapsed for everyone (**Δ +0.0049**).
+
+⚠ **Two eras have an empty arm; their Δ is UNDEFINED and is reported as such, never as 0.**
+
+## 519 · The conditional's antecedent was unverified, and the measurement refutes it
+
+R606 closed with *"if it rose **while citation concentrated in the earlier era**"* — never measured.
+**Citation concentrates LATE.** ⚠ And the fossil reading it offered had already been largely closed by
+**R606's own time-stratified p = 0.0003**: *proposing as live a world the previous round had shut.*
+
+## 520 · A placebo that was a tautology AND could not pass
+
+v1 shuffled **era labels** and asked whether the **pooled** Δ moved — but the pooled statistic **has no
+era term**, so the answer is **forced by the algebra**. ⛔ **The arithmetic trap, committed inside a
+control.** And it compared a `round(·,4)` print value to an unrounded pooled one at **1e-9**, so even
+the tautology printed FAIL.
+
+⭐ Replaced with one that can go either way — **shuffle provenance WITHIN era**, requiring per-era Δs
+to scatter near zero: mean |Δ| **0.0626** against pooled **0.1772**, PASS. *A control whose result the
+algebra forces is not weak evidence; it is none, and it costs a round to notice because it looks like
+diligence.*

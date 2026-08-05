@@ -2790,3 +2790,34 @@ judged by its own stratified permutation.
 ⚠ **Δ is a DERIVATION** forced by four counts over a complete enumeration; only the permutation p is
 tested. ⚠ **A recorded hash proves a source was NAMED, not that the bytes match it**, so 0.1143 is an
 upper bound on attributability.
+
+---
+
+## R607 · Which eras drive the provenance gap
+
+R606's pooled gap of −0.1762 decomposed over five equal round-id bands, 378 rounds, 106 cited.
+**Every cell is a DERIVATION** — a count over a complete enumeration; only the reconstruction check
+is a test.
+
+| era | round ids | n | cited | P(prov \| cited) | P(prov \| uncited) | Δ |
+|---|---|---|---|---|---|---|
+| 0 | — | 0 | 0 | — | — | UNDEFINED |
+| 1 | 220–242 | 23 | 0 | — | 0.0870 | UNDEFINED |
+| 2 | 243–364 | 118 | 3 | 0.0000 | 0.1739 | −0.1739 |
+| 3 | 365–485 | 118 | 35 | **0.2571** | **0.6627** | **−0.4055** |
+| 4 | 486–606 | 119 | 68 | 0.0441 | 0.0392 | **+0.0049** |
+
+**Citation rate by era:** 0.0000 · **0.0254** · **0.2966** · **0.5714** — citation concentrates LATE.
+**Provenance rate by era:** 0.0870 · 0.1695 · **0.5424** · **0.0420** — a 13× collapse between the
+last two bands.
+
+So the pooled value is two effects: a within-era selection in the best-documented band (era 3), and a
+compositional effect from citing heavily into the band where the practice had collapsed (era 4).
+
+**Controls.** The cell-weighted mean of the per-era Δs reconstructs the pooled value at **−0.1625 vs
+−0.1772**. A random `cited` label at the same marginal returns **−0.0461 / −0.0199 / −0.0330**.
+Shuffling provenance **within** each era gives per-era Δs of mean magnitude **0.0626** against the
+pooled **0.1772**.
+
+⚠ Two eras have an empty arm and their Δ is **UNDEFINED, never 0**. ⚠ Round id is a proxy for time,
+not time; no artifact carries a timestamp.
