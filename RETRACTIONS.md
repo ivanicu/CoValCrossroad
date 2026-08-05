@@ -14572,3 +14572,35 @@ value**, because the cited set already is 17/17 and the ceiling is 1.0.
 exceeded.** *A control that coincides with the observation demonstrates attainability, not
 discrimination* — the verdict therefore rests on the null (+0.2200), and that is stated rather than
 left for a reader to notice.
+
+## 544 · The `controls` key is empty form, and R611's one unmirrored loss is retracted
+
+Only **0.1462** of era rounds write a `controls` key, while **0.9006** discuss controls in their README
+and **0.8596** carry control-shaped identifiers in their code. Agreement is **0.2339** with prose and
+**0.2865** with code — both far below the pre-registered 0.60, and the kill fired **before** the
+contrast was read.
+
+⭐⭐⭐ **So `has_controls` falling 0.8788 → 0.3269 at the boundary is a SCHEMA change, not a loss of
+controls** — and it was the single substantive casualty the whole R605–R617 arc had identified. **The
+~430 boundary is now entirely about what artifacts RECORD; nothing measured shows a change in what
+rounds DID.**
+
+⚠ README prose and code identifiers are proxies too: this bounds the construct from above and cannot
+show any round's controls were **correct**.
+
+## 545 · Three consecutive closing lines promoted a key to a property
+
+| check | I called it | it measures |
+|---|---|---|
+| #214 | "verdict class" | first token in a six-member set |
+| #215 | "legibility" | first token in a six-member set |
+| #216 | "evidential quality" | a key named `controls` |
+
+⭐⭐⭐ **Three rounds asserted what a key means; the first one to TEST it found the key agrees with
+independent signals at 0.23 and 0.29.** *A key-presence measure is a measurement of the schema, and
+calling it a property of the work is a promotion that needs its own construct check — which is cheap,
+and which I skipped three times in a row before running it once.*
+
+⚠ The contrast on that key was computed and printed anyway — Δ = **−0.1623**, null **[−0.1623,
++0.1642]** — and marked **NOT READ AS EVIDENCE**, because a number about a schema habit is not a
+number about controls.

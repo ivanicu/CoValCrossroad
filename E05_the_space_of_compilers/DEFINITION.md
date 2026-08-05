@@ -3029,3 +3029,37 @@ has returns **+0.0000** exactly.
 
 Taken with R614 (position: clustered) and R615 (outcome: flat), the selection is sensitive to **when**
 and **how** a round wrote and not to **what it concluded**.
+
+---
+
+## R617 · Does the `controls` key track controls being run?
+
+Population: rounds **431–606** with artifacts (**171**). The property under test is a JSON key named
+`controls` at any depth; the construct is checked against two independent signals before any contrast
+is read.
+
+| quantity | value |
+|---|---|
+| rounds writing the key | **0.1462** |
+| rounds whose README discusses controls | **0.9006** |
+| rounds whose `.py` carries control-shaped names | **0.8596** |
+| agreement key ↔ README prose | **0.2339** |
+| agreement key ↔ code names | **0.2865** |
+
+Both agreements fall far below the pre-registered floor of 0.60, so the kill fired and the contrast
+was **not read as evidence**. Ninety per cent of rounds discuss controls and eighty-six per cent carry
+control-shaped code while fifteen per cent write the key: **the key is a schema habit.**
+
+**So R611's `has_controls` fall from 0.8788 to 0.3269 is a schema change, not a loss of controls** —
+retracting the one unmirrored casualty the R605–R617 arc had identified.
+
+**Controls.** A round with key and signal alongside one with neither scores agreement **1.0000**;
+shuffling the key across rounds moves agreement to **0.2456 / 0.1754 / 0.2105**, so the observed value
+is not merely the marginal; a key every round has scores **0.9006**, exactly the signal's own rate
+rather than 1, so the statistic does not saturate.
+
+The contrast was computed and printed for completeness — Δ = **−0.1623** against a null of
+**[−0.1623, +0.1642]** — and marked NOT READ AS EVIDENCE.
+
+⚠ README prose and code identifiers are proxies too; agreement bounds the construct from above and
+nothing here shows any round's controls were correct.
