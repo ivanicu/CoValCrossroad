@@ -2,13 +2,13 @@
  "source_sha": "ec80b1ef7d7a5fff",
  "coverage_before": [
   606,
-  606
+  607
  ],
  "coverage_after": [
-  606,
-  606
+  607,
+  607
  ],
- "rows": 606,
+ "rows": 607,
  "readmes_created": [],
  "readmes_updated": [
   "A01_can_this_release_be_analysed_at_all",

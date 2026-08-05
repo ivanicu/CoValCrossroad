@@ -14510,3 +14510,35 @@ R612's closing line asked to leave corpus archaeology and return to the definiti
 that — and then its own closing line went straight back.** ⚠ *The pull toward the tractable
 neighbouring question is strong enough to survive an explicit instruction one round old, which is why
 it is worth writing down rather than resolving privately.*
+
+## 539 · The selection tracks position, not outcome
+
+Of the era's **171** rounds, **170 write a `world`** and **117 (68.4%)** carry a classifiable first
+token — **17 of 17 cited, 100%**, against 100 of 154 uncited. The verdict mix is **B 73 · A 27 · C 9 ·
+UNVERIFIED 7 · D 1**, and the cited-vs-uncited difference on the most common class is **+0.0271**,
+inside a permutation null of **[−0.2482, +0.2335]**.
+
+⭐ **So R614's clustering is positional, not outcome-driven: the page is not citing the rounds that
+agreed with it.** ⚠ Conditional on classifiability — that subset is non-random and cannot speak for
+the 54 rounds whose verdict is unclassifiable.
+
+## 540 · My own check was wrong, in exactly the way it exists to catch
+
+Check #214 refused R614's proposed round on the grounds that `world` is an OPEN vocabulary — *"220
+distinct values, ~95% singletons"*. **That measurement is R595's and it is CORPUS-WIDE.** In the
+post-431 era the field is near-universal (R611: 0.0455 → 0.9808) and **68.4% of values are
+classifiable.**
+
+⛔ **The self-correction applied a measurement from one population to another — the exact error it was
+invoked to prevent** — and it is the **second over-fire in two rounds**, after R614's units objection
+was wrong about which number belonged to which unit.
+
+⭐⭐⭐ *A correction is a claim and carries the same scope obligation as the sentence it corrects,
+including naming the population it was measured on. The check reflex is not a privileged position
+outside the failure modes; it is another place they occur, and reusing a remembered number outside its
+scope is how both of these happened.*
+
+⭐ **The design absorbed it anyway**: the kill was computed before any distribution was read — 17 ≥ 8
+and smallest expected cell 6.00 ≥ 5 — so the round proceeded on measurement rather than on my wrong
+prior. *Pre-registration protects against the author's errors, including the ones in the author's
+corrections.*

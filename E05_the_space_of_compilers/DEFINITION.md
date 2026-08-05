@@ -2967,3 +2967,36 @@ pre-registered kill required at least 10 cited rounds for the clustering statist
 
 ⚠ Coverage is a **DERIVATION** over a complete enumeration — only the clustering is tested. ⚠ A
 citation may carry a caveat rather than a number, so coverage bounds the evidence base from **above**.
+
+---
+
+## R615 · Does the citation selection track outcome?
+
+Population: rounds **431–606** with artifacts (**171**), split by whether the numbered claim table
+cites them (**17** / 154). Classification is the first token of `world`, case-folded and
+punctuation-stripped — the rule `statement_provenance.py` already uses.
+
+| quantity | value |
+|---|---|
+| rounds writing a `world` | 170 of 171 |
+| with a classifiable first token | **117** = 0.6842 |
+| classifiable among the cited | **17 of 17** |
+| classifiable among the uncited | 100 of 154 |
+| class mix | B **73** · A **27** · C **9** · UNVERIFIED **7** · D **1** |
+| Δ on the most common class, cited − uncited | **+0.0271** |
+| permutation null, 2,100 draws | **[−0.2482, +0.2335]** |
+
+The observed Δ sits inside the null, so **the selection does not track outcome on the classifiable
+slice**: R614's clustering is positional.
+
+**Kill, evaluated before any distribution was read:** classifiable cited **17 ≥ 8** and smallest
+expected cell **6.00 ≥ 5** — both cleared, so the comparison was admissible.
+
+**Controls.** A synthetic population with cited all one class and uncited all another returns Δ =
+**+1.0000**; classes assigned independently of citation return **−0.0200**; a constant class returns
+**+0.0000** exactly.
+
+⚠ Conditional on classifiability: that subset is non-random — R594 measured short values as commoner
+late — so nothing here speaks for the 54 rounds whose verdict is unclassifiable. ⚠ A first-token class
+is a convenience, not a type: R595 measured this field as open **corpus-wide**, which is a different
+population from this era.

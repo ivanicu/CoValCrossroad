@@ -1,0 +1,23 @@
+{
+  "world": "B ANSWERABLE AND FLAT \u2014 Delta=+0.0271 inside the null [-0.2482, +0.2335]; selection does not track outcome on the classifiable slice",
+  "controls_ok": true,
+  "n_era": 171,
+  "n_cited": 17,
+  "n_with_world": 170,
+  "n_classifiable": 117,
+  "classifiable_cited": 17,
+  "classifiable_uncited": 100,
+  "class_distribution": {
+    "B": 73,
+    "A": 27,
+    "C": 9,
+    "UNVERIFIED": 7,
+    "D": 1
+  },
+  "p_cited": 0.6470588235294118,
+  "p_uncited": 0.62,
+  "smallest_expected_cell": 5.999999999999999,
+  "admissible": true,
+  "check214": "R614's closing line proposed comparing `world` distributions, but R595 measured that field as an OPEN vocabulary \u2014 220 distinct values, ~95% singletons, tail not translatable into the core \u2014 so 'verdict class' is not a variable this corpus carries",
+  "impossible": "a first-token class is a convenience, not a type; nothing here can speak for the unclassifiable rounds, which are the majority"
+}
