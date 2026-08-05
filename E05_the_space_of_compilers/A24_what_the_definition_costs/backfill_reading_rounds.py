@@ -57,6 +57,9 @@ for rd, claims in CLAIMS.items():
     d.mkdir(parents=True, exist_ok=True)
     out = {"round": rd, "backfilled_by": "R551", "note":
            "re-verified against source; NOT a copy of the original conclusion", "claims": []}
+    # ⭐ R552: the first backfill persisted EVIDENCE and no VERDICT, and statement_provenance
+    # refused three citations because of it. A `world` is what makes an artifact answerable.
+    # It is COMPUTED from whether every claim verified -- never typed.
     print(f"\n  {rd}")
     for text, fn, f in claims:
         v = bool(fn())
@@ -64,6 +67,11 @@ for rd, claims in CLAIMS.items():
         out["claims"].append({"claim": text, "verified": v, "file": f, "sha256_16": sha(f)})
         print(f"    [{'OK ' if v else 'XX '}] {text}")
         print(f"           {f} @ {sha(f)}")
+    ok = all(c["verified"] for c in out["claims"])
+    out["world"] = "B" if ok else "UNVERIFIED"
+    out["world_means"] = ("B = every claim this round made still holds against source at the "
+                          "recorded hashes" if ok else
+                          "UNVERIFIED = at least one claim no longer verifies")
     (d / "backfilled_evidence.json").write_text(json.dumps(out, indent=2) + "\n")
 
 print(f"\n  every re-verified claim still holds: {allok}")

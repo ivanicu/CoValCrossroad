@@ -12440,3 +12440,39 @@ at arc level rather than round level, which a passing control would have hidden.
 
 ⭐ **The general form: a reading round has an artifact too — the quoted source, its `file:line`, and
 its hash.** "I read it and it said X" is a memory; the hash makes it a measurement.
+
+## 380 · The register's cost column was denominated in the wrong unit
+
+It priced each row in **what you must RUN**. For every on-site row that is false: **0 of 3 have
+compute as their first blocker** *(R549, re-verified R552)*. Two are gated by a **missing flag at a
+hard-coded call site**, one by an **install**.
+
+**§2 says the register doubles as the specification for the next site.** A specification denominated
+in the *last* obstacle cannot tell a reader whether a row is reachable — which is the only question
+it exists to answer. The column now names **what must change FIRST**, with every superseded value
+kept beside it.
+
+⭐⭐⭐ **What the old unit structurally could not express:** `judge_core.py` **does** expose
+`--model`, which is exactly why R536's cross-judge replication and R537's dose-curve replication were
+**reanalyses rather than edits**. **The flags that already exist decide which questions are cheap.**
+
+## 381 · I shipped a check that could not fail — in the round about measurement units
+
+R552's first loop computed `compute_bound += 0`. Hard-coded. **WORLD A was unreachable, so the
+pre-registered kill was decoration and the verdict string was prose.** Caught before the commit, by
+re-reading my own loop rather than my own output.
+
+**Fixed to a real computation:** a row is compute-bound exactly when its non-compute blocker
+**stops** holding. **And then proven fireable** — simulating row 3+4's flag existing returns
+`compute-bound = 1` and **WORLD A**. A kill that has never been shown to fire is not pre-registered,
+it is punctuation.
+
+## 382 · The backfill persisted evidence with no verdict
+
+R551's `backfill_reading_rounds.py` recorded **what was read** — claims, files, sha256 — and **no
+`world`**. `statement_provenance` then refused three citations for *"no artifact"*, which is the gate
+saying an artifact without a verdict is not answerable.
+
+⭐ **The distinction is the whole point of the backfill:** evidence says *what the source contains*;
+a world says *what that settles*. The artifacts now carry a `world` **computed** from whether every
+claim verified, never typed — `B` when all hold, `UNVERIFIED` when any does not.

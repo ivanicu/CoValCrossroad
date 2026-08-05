@@ -15,5 +15,7 @@
       "file": "covalx/judge.py",
       "sha256_16": "70e9a47298a57d4b"
     }
-  ]
+  ],
+  "world": "B",
+  "world_means": "B = every claim this round made still holds against source at the recorded hashes"
 }
