@@ -16435,3 +16435,40 @@ the any/earliest one, so the prediction fails. But the failure is the informativ
 the two aggregators were not equally wrong, and it converts an unidentified range into a value.
 **Registering "differs from both" encoded an assumption that a new instrument must overturn
 everything before it — which is a bias toward novelty, not toward truth.**
+
+## 768 · I committed the `\b`-versus-underscore regex defect again, two rounds after writing it down
+Ledger 762 records `\bpublished\b` failing on `published_five` because `_` is a word character. R679
+used `\bR(\d{3})\b` against paths like `R294_the_definition_against_everything` and built a producer
+map with **0 of 5 rounds**. The failure was asymmetric — the same pattern works on a prose citation
+like `(R529, R534)`, where the trailing character is punctuation — so half the instrument behaved and
+the dead half was invisible. **Writing a defect into the ledger does not inoculate the next round
+against it; only a shared helper would have, and there is none.**
+
+## 769 · The g=0 control passed while the instrument was dead, because they have the same signature
+R679's g=0 control asserts that a line citing a nonexistent round resolves to nothing. A **completely
+dead resolver** satisfies that perfectly. So the control passed with a 0-round producer map and
+licensed a verdict about an empty population. **§4's "a control that shares the instrument's blind
+spot confirms the instrument and licenses nothing" — here the shared blind spot is the value `None`
+itself.** What actually caught it was an incidental footer line printing `7 lines × 0 producing
+rounds`. **A negative control whose expected value is "nothing found" must be paired with a positive
+one whose expected value is "something found", on the same map, in the same run.**
+
+## 770 · A kill threshold of "≤1 distinct set" is satisfied by ZERO sets
+R679 printed "B NO COLLISION — every resolved line denotes one set" while **no** line resolved.
+`len({...}) <= 1` is true at zero, so the pre-registered kill fired on an empty population and the
+verdict string asserted a substantive conclusion about nothing. **A kill must be gated on the
+resolved count BEFORE it is gated on its own threshold** — and this is the second empty-population
+failure in the same round, at a different level.
+
+## 771 · The deliverable's extension rows and the rounds that produced those sets do not intersect
+Seven STATEMENT.md lines assert an extension size and cite 22 rounds between them. The sets were
+produced by R294, R404, R416, R442, R470 and R509. **The overlap is empty.** This is a traceability
+fact and not a correctness one — a row citing R529 may have re-derived the extension correctly — but
+**the deliverable's central number cannot be traced to the artifact that computed it using the
+deliverable's own citations**, which is precisely what a citation is for.
+
+## 772 · R678's producer map is keyed by a truncation, so two sets collided and one was lost
+`producers` uses `"/".join(sorted(s)[:2])` as its key. `R470.P` and `R509.five` both start
+`coval_core/greedy_k4_fit1`, so six sets produced five keys and **R470 was silently overwritten**.
+Found only by consuming the artifact in the next round. **A key built from a truncation of the value
+is not a key, and the collision is invisible in the file it corrupts** — the JSON looks complete.

@@ -4,6 +4,8 @@
 extension: `{coval_core, topw_k3, topw_k4, topw_k6, topw_k8}`, produced by R294. R677's range 0–1
 collapses to 1 — the majority aggregator was simply wrong.**
 
+> **⚠ DEFECT FOUND BY R679 WHILE CONSUMING THIS ARTIFACT (D8).** `results/lineage.json` keys `producers` and `producer_fields` by a **two-member prefix** of each set. `R470.P` and `R509.five` both begin `coval_core/greedy_k4_fit1`, so **six sets produced five keys and R470 was silently overwritten.** The table below is correct; the JSON under-reports. A key built from a truncation of the value is not a key.
+
 ## THE LINEAGE (G3 — all six printed)
 
 | producer | field | what it denotes |
