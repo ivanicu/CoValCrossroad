@@ -13030,3 +13030,27 @@ the only reason neither reached the deliverable. ⚠ **And R569's premise was ad
 read `run_all.ROOT` as the repo root when it is the `assurance/` directory, so `cwd=ROOT.parent` is
 the repo root, not `/home/ivan`. **The conclusion was right and the reasoning under it was not** —
 which is the failure mode that survives review, because the verdict looks correct.
+
+## 422 · The timeout-boundary hypothesis is refuted: nothing sits within 84 seconds of the cap
+
+R570 left the flip's mechanism unverified. A concrete rival was that gates die at a 90s cap, so a
+gate near 90s would flip with machine load — and serial being less loaded than 12 workers predicts
+serial < parallel failures, which is observed.
+
+**Timed serially and unloaded: three gates at 90.09s / 90.09s / 90.00s, and the next slowest at
+6.18s. Zero gates in [10s, 90s).** Load cannot move a 6-second gate across an 84-second gap. **The
+hypothesis is dead**, and it is the third consecutive round whose central explanation its own design
+refuted — after CWD-blindness *(R569)* and a concurrency race *(R570)*.
+
+⭐ **What the gap establishes instead: those three gates do not terminate.** All three hit the cap
+**exactly** while 43 others finish under 7 seconds. **A distribution with 43 points below 6.2s and 3
+pinned at the limit is not a runtime spread — it is 43 terminating processes and 3 hanging ones.**
+`ERROR 3` is a hang, not a tuning problem.
+
+⚠ **And what is still not established:** check #171 asked for a gate that flips between two runs of
+the **same mode on the same tree**. **I do not have one.**
+`code_states_a_bound_the_reader_never_sees` reads `rc=0` here and `rc=1` with a traceback earlier —
+**but the tree changed between those observations**, so it is not the object the question asked for.
+**Naming it as the flipper is precisely the shortcut three consecutive refutations have been
+protecting against**, and the flattering version of that shortcut is that it would let me close the
+question.

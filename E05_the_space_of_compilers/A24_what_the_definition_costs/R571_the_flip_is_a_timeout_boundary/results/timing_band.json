@@ -1,0 +1,65 @@
+{
+  "world": "A",
+  "cap_s": 90.0,
+  "n_gates": 46,
+  "always_timeout": [
+    "backfilled_findings_are_rederivable",
+    "attack_the_suite",
+    "what_did_each_check_actually_read"
+  ],
+  "band_30_to_90": [],
+  "band_10_to_90": [],
+  "slowest": [
+    {
+      "gate": "backfilled_findings_are_rederivable",
+      "rc": -1,
+      "secs": 90.09
+    },
+    {
+      "gate": "attack_the_suite",
+      "rc": -1,
+      "secs": 90.09
+    },
+    {
+      "gate": "what_did_each_check_actually_read",
+      "rc": -1,
+      "secs": 90.0
+    },
+    {
+      "gate": "attack_no_withdrawn_framings",
+      "rc": 1,
+      "secs": 6.18
+    },
+    {
+      "gate": "code_states_a_bound_the_reader_never_sees",
+      "rc": 0,
+      "secs": 4.95
+    },
+    {
+      "gate": "attack_outcome_variable_declared",
+      "rc": 1,
+      "secs": 3.94
+    },
+    {
+      "gate": "interval_is_centred_on_its_point",
+      "rc": 0,
+      "secs": 3.42
+    },
+    {
+      "gate": "readme_agrees_with_results",
+      "rc": 0,
+      "secs": 3.4
+    },
+    {
+      "gate": "artifacts_are_internally_coherent",
+      "rc": 1,
+      "secs": 3.11
+    },
+    {
+      "gate": "every_round_reaches_the_readme",
+      "rc": 1,
+      "secs": 3.01
+    }
+  ],
+  "note": "timed SERIAL and unloaded; under 12 workers every gate is slower"
+}
