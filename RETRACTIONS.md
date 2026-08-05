@@ -16649,3 +16649,33 @@ falls into — would have produced *"6 of 7 rounds agree across judges"*: clean,
 an artifact of absence. **Absence of a verdict field is not agreement, in the same way absence of a
 judge key was not one judge (ledger 792), and this is the second round in a row where the
 excluded-versus-counted decision was worth more than the measurement.**
+
+## 797 · The same underscore bug three times, so I built the tool instead of a third patch
+`_` is a word character in Python regex. Ledger 762: `\bpublished\b` missed `published_five`. Ledger
+768: `\bR(\d{3})\b` missed `R294_the_definition...` and built a producer map from 0 of 5 paths.
+R686: `(?<![\w.])(2B)` missed `scores_2B.json` and the positive control failed. Three instances, one
+root cause, three local fixes — **because a lesson in a ledger is not a function anyone calls.**
+Built `assurance/token_boundaries.py` with a self-check over seven boundary cases. **P7 says the
+third occurrence is the signal to build infrastructure, and it took exactly three to act on it.**
+
+## 798 · My own NEXT line proposed a derivation, one round after quoting the arithmetic trap
+R685 closed by asking how many of the 81 unrecorded rounds store per-judge means. R684 DEFINED those
+81 as having no judge key, and a per-judge mean is stored under one — so the answer is zero by
+construction and the algebra forces it. **"Could this have come out otherwise?" No.** The closing
+sentence is written after the round's controls have fired, and it is the one place a derivation can
+masquerade as a question because nothing computes it. **Third defect in this arc traced to the NEXT
+line specifically** (ledger 759, 785, this).
+
+## 799 · The scope is 23.5% a formatting defect and 76.5% genuinely absent
+Of the 81 rounds recording no judge key, 19 carry one elsewhere — 13 in a value field, 6 only as an
+embedded token, **0 in a filename** — and 62 carry none in any encoding. So "the corpus did not print
+its scope" and "the corpus lost its scope" are **both true, of different rounds**, and the split is
+now a number rather than a choice of framing. **For the 62 the scope cannot be recovered without
+re-running rounds that are corpus-dependent.**
+
+## 800 · I predicted filename encoding would dominate and it is exactly zero
+The registered directional said a judge would most often be recoverable from a filename. Measured:
+**0 by filename, 13 in a value field.** Nobody in this corpus puts the judge in the filename — the
+convention is a JSON value. **The point estimate landed at 19 against a registered 20 while the
+mechanism behind it was completely wrong**, which is the cleanest demonstration in this arc that a
+correct total says nothing about a correct model of how it arises.

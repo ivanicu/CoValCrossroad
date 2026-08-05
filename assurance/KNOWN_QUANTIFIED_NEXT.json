@@ -1,9 +1,10 @@
 {
- "count": 167,
+ "count": 168,
  "shas": [
   "0039eceb",
   "029e94ad",
   "040f88b1",
+  "04c3356f",
   "0622949b",
   "06dc7cb7",
   "092dc038",
@@ -169,5 +170,8 @@
   "fee5b52a",
   "ff0ea043"
  ],
- "r670_note": "10 shas added 2026-08-05 by R670: newly visible once the pattern learned 'the last' and 'the first'. Past commit bodies cannot be rewritten, so they are recorded as known and any NEW instance fails. Ledger 715/723 are the named cases."
+ "r670_note": "10 shas added 2026-08-05 by R670: newly visible once the pattern learned 'the last' and 'the first'. Past commit bodies cannot be rewritten, so they are recorded as known and any NEW instance fails. Ledger 715/723 are the named cases.",
+ "reasons": {
+  "04c3356f": "R685's commit body: 'while 81 rounds vary a judge without recording it'. The count is REAL and cited to R684, but the provenance reference sits outside the gate's window. \u2b50 FROZEN RATHER THAN FIXED BECAUSE THE COMMIT IS PUSHED AND IMMUTABLE -- this is the one legitimate reason to freeze, and R672 found the freeze had no way to say so. A freeze entry with a reason is a ledger; one without is a drain."
+ }
 }

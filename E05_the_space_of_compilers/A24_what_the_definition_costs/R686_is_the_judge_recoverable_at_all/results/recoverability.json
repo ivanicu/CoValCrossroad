@@ -1,0 +1,669 @@
+{
+  "world": "\u2b50\u2b50 A NOT PRINTED (partly) \u2014 19 of 81 (23.5%) carry a judge somewhere in the artifact that R684's exact-key test could not see: 0 by filename, 13 in a value field, 6 only as an embedded token. \u2b50 SO THE SCOPE IS NOT UNIFORMLY LOST \u2014 for those it is a FORMATTING defect, recoverable by reading bytes rather than re-running anything. \u26a0 AND FOR THE REMAINING 62 IT IS GENUINELY ABSENT. \u26a0 UPPER BOUND: a recovered judge NAME is not proof it produced the verdict \u2014 the instrument's unit is a mention, the claim's unit is a provenance, and those are not equal.",
+  "controls_ok": true,
+  "tree_sha": "04c3356fbae58dd3cb3b7f9e156c08fbeb200d6f",
+  "n_unrecorded": 81,
+  "n_classified": 81,
+  "counts": {
+    "embedded": 6,
+    "none": 62,
+    "value": 13
+  },
+  "n_recoverable": 19,
+  "kill_fired": false,
+  "directional_holds": false,
+  "rows": [
+    {
+      "round": "R290",
+      "via": "embedded",
+      "filename": [],
+      "value": [],
+      "embedded": [
+        "0.8B",
+        "2B"
+      ]
+    },
+    {
+      "round": "R291",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R292",
+      "via": "embedded",
+      "filename": [],
+      "value": [],
+      "embedded": [
+        "0.8B"
+      ]
+    },
+    {
+      "round": "R301",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R307",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R309",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R310",
+      "via": "embedded",
+      "filename": [],
+      "value": [],
+      "embedded": [
+        "2B"
+      ]
+    },
+    {
+      "round": "R311",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R312",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R313",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R330",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R337",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R338",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R356",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R357",
+      "via": "value",
+      "filename": [],
+      "value": [
+        "0.8B",
+        "2B"
+      ],
+      "embedded": [
+        "0.8B",
+        "2B"
+      ]
+    },
+    {
+      "round": "R358",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R359",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R360",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R363",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R364",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R366",
+      "via": "value",
+      "filename": [],
+      "value": [
+        "0.8B",
+        "2B"
+      ],
+      "embedded": [
+        "0.8B",
+        "2B"
+      ]
+    },
+    {
+      "round": "R367",
+      "via": "value",
+      "filename": [],
+      "value": [
+        "2B"
+      ],
+      "embedded": [
+        "2B"
+      ]
+    },
+    {
+      "round": "R402",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R405",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R409",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R412",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R413",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R414",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R415",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R416",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R417",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R418",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R419",
+      "via": "value",
+      "filename": [],
+      "value": [
+        "2B"
+      ],
+      "embedded": [
+        "2B"
+      ]
+    },
+    {
+      "round": "R420",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R422",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R423",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R424",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R425",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R426",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R427",
+      "via": "value",
+      "filename": [],
+      "value": [
+        "2B"
+      ],
+      "embedded": [
+        "2B"
+      ]
+    },
+    {
+      "round": "R432",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R433",
+      "via": "value",
+      "filename": [],
+      "value": [
+        "2B"
+      ],
+      "embedded": [
+        "2B"
+      ]
+    },
+    {
+      "round": "R436",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R440",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R443",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R447",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R448",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R449",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R451",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R452",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R459",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R460",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R480",
+      "via": "embedded",
+      "filename": [],
+      "value": [],
+      "embedded": [
+        "2B"
+      ]
+    },
+    {
+      "round": "R489",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R490",
+      "via": "value",
+      "filename": [],
+      "value": [
+        "2B"
+      ],
+      "embedded": [
+        "2B"
+      ]
+    },
+    {
+      "round": "R491",
+      "via": "value",
+      "filename": [],
+      "value": [
+        "2B",
+        "7B"
+      ],
+      "embedded": [
+        "0.8B",
+        "2B",
+        "7B"
+      ]
+    },
+    {
+      "round": "R492",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R493",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R517",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R524",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R526",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R534",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R535",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R536",
+      "via": "embedded",
+      "filename": [],
+      "value": [],
+      "embedded": [
+        "0.8B",
+        "2B"
+      ]
+    },
+    {
+      "round": "R537",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R538",
+      "via": "embedded",
+      "filename": [],
+      "value": [],
+      "embedded": [
+        "0.8B",
+        "2B",
+        "7B"
+      ]
+    },
+    {
+      "round": "R539",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R541",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R542",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R548",
+      "via": "value",
+      "filename": [],
+      "value": [
+        "7B"
+      ],
+      "embedded": [
+        "7B"
+      ]
+    },
+    {
+      "round": "R549",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R552",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R554",
+      "via": "value",
+      "filename": [],
+      "value": [
+        "0.8B",
+        "2B",
+        "7B"
+      ],
+      "embedded": [
+        "0.8B",
+        "2B",
+        "7B"
+      ]
+    },
+    {
+      "round": "R555",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R556",
+      "via": "value",
+      "filename": [],
+      "value": [
+        "0.8B"
+      ],
+      "embedded": [
+        "0.8B"
+      ]
+    },
+    {
+      "round": "R557",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R558",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R560",
+      "via": "value",
+      "filename": [],
+      "value": [
+        "2B"
+      ],
+      "embedded": [
+        "2B"
+      ]
+    },
+    {
+      "round": "R629",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R630",
+      "via": "none",
+      "filename": [],
+      "value": [],
+      "embedded": []
+    },
+    {
+      "round": "R684",
+      "via": "value",
+      "filename": [],
+      "value": [
+        "0.8B",
+        "2B"
+      ],
+      "embedded": [
+        "0.8B",
+        "2B"
+      ]
+    }
+  ],
+  "registered": "A 20 [5,50]; filename beats value-field; kill if zero recoverable",
+  "check287": "R685's NEXT asked how many of the 81 store per-judge means. R684 defined them as having no judge key, and a per-judge mean is stored under one. Zero by construction \u2014 a DERIVATION, not a test.",
+  "derivation_not_evidence": "the arithmetic control confirms R684's partition and could not have come out otherwise; no claim rests on it.",
+  "limit": "a recovered judge NAME is not proof it produced the verdict. Upper bound."
+}
