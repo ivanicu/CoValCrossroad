@@ -26818,3 +26818,46 @@ other claim here needs a check before publication.**
   offered because none is identified.
 - **Not that the blocked NEXTs were worthless** — two produced real findings *about why* they were
   blocked.
+
+## 1379 · the NEXT-citation gate — built, and its own g=0 arms caught two defects the positive arm could not
+
+R858 measured that **7 of 26** NEXT lines pointed at something already done or impossible, and that
+the prior-art check **caught all seven but one round too late.** This builds the ratchet.
+
+⚠ **Stated up front, not discovered later: this gate reads commit bodies, so it can only act AFTER
+the fact. It is a RATCHET, not a preventive.** What it buys is that the omission becomes **visible
+and countable** instead of being rediscovered one round later, every time.
+
+### ⭐⭐ THE TWO DEFECTS ITS OWN CONTROLS CAUGHT
+
+**① The citation lives in the bracket, and the regex excluded it.** `NEXT [checked against prior art,
+check #514]: …` — the first version captured only what follows the colon, so a **correctly cited**
+NEXT was flagged. ⭐ **The POSITIVE arm could not see this**: it only asks whether an *uncited* NEXT
+is caught. **A control that only proves the detector fires is half a control.**
+
+**② The g=0 arm was validated against my imagination.** It tested the word **mid-sentence**, but the
+corpus's real failure mode is a line **beginning** `NEXT lines. A grep is…` — from R858's own body.
+Requiring a **colon on the first line** fixed it: **395 → 300 blocks, so 95 were prose false
+positives.**
+
+⚠ **That is §4's `a control validated on imagined cases`, committed and caught here.**
+
+### ⭐ THE GATE
+
+| control | result |
+|---|---|
+| **POSITIVE** an uncited NEXT is flagged | **PASS** |
+| **g=0** a cited NEXT is not flagged | **PASS** *(failed first — defect ①)* |
+| **g=0** prose beginning with the word is not a NEXT | **PASS** *(failed first — defect ②)* |
+
+**300 NEXT blocks in the last 400 commits · 297 uncited · 297 frozen · 0 NEW · exit 0.**
+
+**PROXY LEDGER, on the file:** *no citation ⇒ not cleared* is **SOUND** — you cannot cite a check you
+did not run. *Citation ⇒ cleared* is **NOT** — the number could name the wrong check, or one that
+returned nothing. **It rules on ABSENCE only, and says so rather than letting a passing exit imply
+otherwise.**
+
+⚠ **And its own expiry is named in the file**, because entries 1353/1354 found this exact shape twice:
+the frozen set is **hashes** and the population is a **400-commit window**, so as commits accumulate
+the frozen entries scroll out and the count silently becomes a **prevalence** rather than an
+**increment**. **The gate prints that when it happens** instead of leaving it to be rediscovered.
