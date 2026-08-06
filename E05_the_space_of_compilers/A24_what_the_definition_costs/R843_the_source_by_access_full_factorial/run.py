@@ -89,7 +89,15 @@ def main():
                   {p for p in tg if len(tg[p]) >= 2})
     H0 = {p: np.array([cls(np.array(t[0], float))
                        for i, t in enumerate(tg[p]) if i % 2 == 0]) for p in pids}
-    pids = [p for p in pids if len(H0[p]) >= 1 and len(rub[p][0]) >= max(KS)]
+    # ⭐ H1, THE ODD HALF, ADDED BY THE REPAIR. A3 means "may read THIS prompt's human labels".
+    #    Instantiating it as a maximum over subsets taken ON THE SCORING HALF is not an access
+    #    level, it is an in-sample supremum: the first run's own positive control measured that
+    #    search reaching 0.6736 against a PURE NOISE target, above the 0.6662 it reached against
+    #    the real one. So the subset is now chosen on the odd annotators and scored on the even.
+    H1 = {p: np.array([cls(np.array(t[0], float))
+                       for i, t in enumerate(tg[p]) if i % 2 == 1]) for p in pids}
+    pids = [p for p in pids if len(H0[p]) >= 1 and len(H1[p]) >= 1
+            and len(rub[p][0]) >= max(KS)]
     N = len(pids)
     NPOOL = len({i for i, _ in POOL[pids[0]]})
 
@@ -167,7 +175,8 @@ def main():
 
     # ---------------------------------------------------------------- A3: this prompt's labels
     rng_or = np.random.default_rng(4343)
-    def oracle(SRC, p, k):
+    def oracle(SRC, p, k, on=None):
+        """Choose on `on` (default H1, the HELD-OUT odd half); the caller scores on H0."""
         C = SRC[p]
         n = C.shape[0]
         tot = math.comb(n, k)
@@ -179,7 +188,8 @@ def main():
         M[np.arange(len(subs))[:, None], subs] = 1.0
         Y = M @ C
         Sg = np.sign(Y[:, [u for u, _ in PR]] - Y[:, [w for _, w in PR]])
-        sc = (Sg[:, None, :] == H0[p][None, :, :]).mean(axis=(1, 2))
+        key = (H1 if on is None else on)[p]
+        sc = (Sg[:, None, :] == key[None, :, :]).mean(axis=(1, 2))
         return tuple(subs[int(np.argmax(sc))])
 
     # ---------------------------------------------------------------- the eight cells
@@ -275,29 +285,47 @@ def main():
                                                    .normal(size=NPOOL), 4)) for p in pids]).mean()
                      for s in range(3)])
     a0_2, a1_2 = TAB[(4, "S2", "A0")], TAB[(4, "S2", "A1")]
+    # ⭐ THE CONTEXTUALISATION ESTIMAND IS A1 MINUS ITS OWN PLACEBO, NEVER A1 MINUS A0. The first
+    #    run measured A1-A0 = +0.0111 and the permuted selector reached the same place, so that
+    #    difference is "a better FIXED subset", not "this conversation". What is left after the
+    #    placebo is the only part that can be about the prompt.
+    ctx = a1_2 - plac2
+    # and the reason it is small is measurable rather than narrated: how much does the selection
+    # actually MOVE across prompts?
+    sel = np.array([top(REL2[pidx[p]], 4) for p in pids])
+    jac = float(np.mean([len(set(sel[i]) & set(sel[j])) / len(set(sel[i]) | set(sel[j]))
+                         for i, j in zip(rng.integers(0, N, 400), rng.integers(0, N, 400))]))
+    modal = len({tuple(sorted(s)) for s in sel})
     plac_ok = abs(plac2 - a0_2) < 0.01
     sham_ok = sham2 < a1_2
     print(f"     PLACEBO   A1 relevance sent to the WRONG prompt: S2 {plac2:.6f} vs its A0 "
           f"{a0_2:.6f}   PASS: {plac_ok}   (S1 within-prompt shuffle {plac1:.6f})")
     print(f"     SHAM      A1 with RANDOM relevance, matched cardinality: {sham2:.6f} · "
           f"A1's excess over it {a1_2 - sham2:+.6f}   PASS: {sham_ok}")
+    print(f"     ⭐ CONTEXT  A1 − its own PLACEBO = {ctx:+.6f}  (A1 − A0 = {a1_2 - a0_2:+.6f}, and "
+          f"that larger number is a better FIXED subset, not this conversation)")
+    print(f"     ⭐ WHY      the S2 selection barely moves: {modal} distinct subsets over {N} "
+          f"prompts · mean Jaccard between two random prompts' picks {jac:.3f}")
 
     # POSITIVE: a planted target built from a KNOWN subset of the generic 16
     pos = {}
     plant = (1, 5, 9, 13)
     for g in (1.0, 0.0):
         r3 = np.random.default_rng(77)
-        Hp = {}
+        Hp, Hq = {}, {}
         for p in pids:
             y = S2[p][list(plant)].sum(axis=0)
             sg = np.sign(y[[u for u, _ in PR]] - y[[w for _, w in PR]])
-            noise = np.sign(r3.normal(size=6))
-            Hp[p] = np.array([np.where(r3.random(6) < g, sg, noise)])
-        keep = H0
-        H0 = Hp
+            # BOTH halves are planted, with INDEPENDENT noise. At g=0 they are two independent
+            # noise draws, so a held-out oracle must land at chance; the first run planted only
+            # the scoring half and could not have caught its own in-sample search.
+            Hp[p] = np.array([np.where(r3.random(6) < g, sg, np.sign(r3.normal(size=6)))])
+            Hq[p] = np.array([np.where(r3.random(6) < g, sg, np.sign(r3.normal(size=6)))])
+        keep0, keep1 = H0, H1
+        H0, H1 = Hp, Hq
         pos[str(g)] = {"A3": float(cell(*make("S2", "A3"), 4).mean()),
                        "A0": float(np.mean([cell(*make("S2", "A0", s), 4).mean() for s in SEEDS]))}
-        H0 = keep
+        H0, H1 = keep0, keep1
     pos_ok = bool(pos["1.0"]["A3"] > 0.90 and abs(pos["0.0"]["A3"] - pos["0.0"]["A0"]) < 0.08)
     print(f"     POSITIVE  planted target from generic criteria {plant}: "
           f"g=1 A3 {pos['1.0']['A3']:.4f} vs A0 {pos['1.0']['A0']:.4f} · "
@@ -309,6 +337,8 @@ def main():
     print(f"     GATE      {'PASS — the kill may evaluate' if gate else 'FAIL — UNVERIFIED'}")
     out["controls"] = {"placebo_s2": float(plac2), "placebo_s1": float(plac1), "sham_s2": float(sham2),
                        "positive": pos, "noise": nf, "placebo_ok": plac_ok, "sham_ok": sham_ok,
+                       "context_vs_placebo": float(ctx), "n_distinct_subsets": int(modal),
+                       "mean_jaccard": jac,
                        "positive_ok": pos_ok, "gate": gate}
 
     # ---------------------------------------------------------------- E2-E4, paired bootstrap
