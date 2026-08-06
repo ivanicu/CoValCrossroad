@@ -363,7 +363,45 @@ defence is contradicted by the elicitation format.**
 > is real and its controls hold, but **it is the shallow axis**, and reporting `11.7 e-folds` beside a
 > committed result where one change of view already crosses the bar was scope-blind. **The honest
 > statement of clause ④'s status is that it is READING-DEPENDENT and unresolved as a definition until
-> the reading is fixed in the text.** The metric is still
+> the reading is fixed in the text.**
+>
+> ## ⛔⛔⛔ AND FIXING THE READING DOES NOT SAVE IT — BOTH READINGS FAIL, FOR OPPOSITE REASONS
+>
+> *(entry 1368; both numbers read from committed artifacts, not from prose.)*
+>
+> | reading | clause ④ excludes | consequence |
+> |---|---:|---|
+> | **strict** — no fitting | **0 of 42** (`R440.excluded_by_4 == []`), and **0 of 56** at the judge the definition names | **untested decoration** |
+> | **permissive** — fitting allowed | **25 of 58** (`R824.e1.excluded_permissive`), and the bar beats `coval_core` **12 of 12 splits** (R825) | **the extension is EMPTY** |
+>
+> ⭐ **The register's own rule decides the first row:** *"name an admissible object this clause
+> EXCLUDES. If nothing you have built is excluded, the clause is untested decoration."* **Under the
+> strict reading nothing is excluded — so clause ④ does no definitional work at all.** Under the
+> permissive reading it excludes 25 arms **including the object the definition was written from.**
+>
+> ⭐⭐ **There is no third reading.** The clause constrains what a rule consumes; it either counts
+> construction or it does not. **So clause ④ as written cannot both do work and admit its own
+> instance — and that is a property of the WORDING, not of the object.**
+>
+> ## ⭐⭐⭐ THE REPAIR THIS ARC HAS EARNED — the first constructive proposal, not another defect
+>
+> Three findings compose into one wording:
+>
+> | from | finding | what it forces |
+> |---|---|---|
+> | **R845** | the binary admission test is at chance; the **margin** resolves in 9 of 10 cells | state a **margin**, not an admission |
+> | **R847** | *"every"* is a max over a convenience family, and the bar rose **+0.0241** on the first honest enlargement | **name the family**; report a **LOWER BOUND** |
+> | **1368** | strict excludes 0 (vacuous), permissive excludes the core (empty) | **do not use a universal quantifier at all** |
+>
+> ⭐ **Proposed form of ④:** *"…exceeds, by a margin reported with its interval, the best rule in a
+> NAMED reference class R, where R is stated in full and the margin is a lower bound on the margin
+> against any superset of R."*
+>
+> ⚠ **What this buys and what it costs.** It buys a clause that is **checkable, falsifiable and
+> honest about its own search** — R845 showed the margin is measurable and resolvable, R848 showed the
+> bound moves at a measurable rate. **It costs the word "every"**, and with it the appearance that the
+> clause states a universal property. **That appearance was never true**: every "every" in this
+> definition has always been a max over something someone enumerated. The metric is still
 > **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
 > that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a

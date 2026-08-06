@@ -26328,3 +26328,44 @@ a new measurement — it is putting both readings in the same table, which is no
 ⚠ **Labelled honestly: this round is CLOSURE, not a frontier action.** It ran no new experiment. Its
 value is that a prior-art check caught two of my own rounds overselling, and the composition of two
 committed artifacts said something neither said alone.
+
+## 1368 · both readings of clause ④ fail, for opposite reasons — and the repair the arc has earned
+
+Prior-art check #509 answered the NEXT before it was built: **R824 had already computed the extension
+under both readings.** Read from committed artifacts, not prose:
+
+| reading | clause ④ excludes | consequence |
+|---|---:|---|
+| **strict** — no fitting | **0 of 42** (`R440.excluded_by_4 == []`); **0 of 56** at the named judge | **untested decoration** |
+| **permissive** — fitting allowed | **25 of 58** (`R824.e1.excluded_permissive`); bar beats `coval_core` **12/12 splits** (R825) | **the extension is EMPTY** |
+
+⭐ **The register's own rule decides the first row** — *"name an admissible object this clause
+EXCLUDES; if nothing you have built is excluded, the clause is untested decoration."* **Strict
+excludes nothing.** Permissive excludes 25 **including the object the definition was written from.**
+
+⭐⭐ **There is no third reading**: the clause constrains what a rule consumes, and it either counts
+construction or it does not. **So ④ as written cannot both do work and admit its own instance — a
+property of the WORDING, not of the object.**
+
+### ⭐⭐⭐ THE REPAIR — the first constructive proposal in this arc rather than another defect
+
+| from | finding | what it forces |
+|---|---|---|
+| **R845** | binary admission at chance; the **margin** resolves in 9 of 10 cells | state a **margin**, not an admission |
+| **R847** | *"every"* is a max over a convenience family; bar rose **+0.0241** on the first enlargement | **name the family**, report a **LOWER BOUND** |
+| **this** | strict vacuous, permissive empty | **drop the universal quantifier** |
+
+**Proposed ④:** *"…exceeds, by a margin reported with its interval, the best rule in a NAMED
+reference class R, where R is stated in full and the margin is a lower bound on the margin against
+any superset of R."*
+
+⚠ **What it buys**: a clause that is checkable, falsifiable and honest about its own search — R845
+showed the margin is measurable, R848 that the bound moves at a measurable rate. ⚠ **What it costs**:
+the word *"every"*, and with it the appearance of a universal property. **That appearance was never
+true — every "every" in this definition has always been a max over something someone enumerated.**
+
+⚠ **Labelled: CLOSURE plus a proposal.** No new experiment ran; both numbers pre-existed in committed
+artifacts. **What was new is that nobody had put them in one table**, and the table forces a
+conclusion neither round stated alone. **Could it have come out otherwise?** Yes — a non-zero strict
+count would have made strict work, and a permissive exclusion set without the core would have made
+permissive work. Both were live until the artifacts were read.
