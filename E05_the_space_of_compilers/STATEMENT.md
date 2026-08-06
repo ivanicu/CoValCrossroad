@@ -271,8 +271,23 @@ A **core** for a conversation is a set of criteria such that
   pairs** (random ordering: **131.3 [89, 174]**), and **three of the four are one arm**. So robustness is
   **98.9% a rank statistic of A2**, and *"the label-readers are baseline-robust **because** they read the
   answer"* has the arrow backwards: reading the answer raises A2, and **A2** buys robustness.
-  ⭐ **The separating case is `oracle_k4_08bR` — it reads the target (rule `oracle_k`), scores A2 0.5649,
-  and is LESS baseline-robust (0.9401) than `coval_core` (0.9978), which does not read it.**
+  ⛔⛔ **AND THAT RETRACTION IS ITSELF RETRACTED, ONE ROUND LATER** *(R762)*. **① The separating case
+  was cross-instrument**: `corebench/rebuild_selection_08b.sh` says in its own header that `_08bR` is
+  *"the rule itself re-run under 0.8B"*, and the anchor test confirms it — its satisfaction values match
+  `sat08_full.npz` at **0.4609** and the default table at **0.0345**, exactly inverting `oracle_k4`'s
+  **0.5342 / 0.0342**. **② The 4 inversions were never resolved**: the paired MDE of a between-arm ΔA2
+  has median **0.0136**, all four sit at **|ΔA2| ≤ 0.0017**, and at **0.5× that floor the count is 0**
+  with **319 of 346** pairs surviving while a random equal-size subset retains **3.70** *(P(=0) =
+  0.000)*. **③ `rob` had no interval**: nested bootstrap (120 outer × 300 inner) gives
+  `oracle_k4_08bR` **0.9401 [0.6077, 1.0000]** and the paired gap to `coval_core` **−0.0932 [−0.3584,
+  +0.0212]** — **not separated**, and **only `oracle_k4` is resolvably at the ceiling**.
+  ⇒ **What SURVIVES — and is CONFIRMED, not merely spared — is the rank-statistic reading, now at 100%
+  of the resolved range**; ⚠ it was R761's **prose** reading, which its own registered branch at
+  `inv ≥ 3` contradicted and its fired verdict `C` ignored, so the round asserted it without licence. What is
+  **UNVERIFIED** is the causal direction: R527's *"because they read the answer"* returns to
+  **unattacked, not to true**, and R761's counterexample is withdrawn.
+  ⚠ **Consequently `{rob = 1.0}` is a point-estimate partition**, so the Jaccards below are read as an
+  **ordering** (③rule > random blocklist > ③name, at every threshold) and not as three numbers;
   ⚠ **And R527's ③ had no resolution to find its own identity**: as a blocklist its Jaccard with the
   robust set is **0.400**, *inside* the band of a random size-matched blocklist (**0.254 [0.105, 0.500]**,
   200 draws); as R760's **rule** it is **0.909**, outside. The identity is real and the instrument that

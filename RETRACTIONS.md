@@ -19335,3 +19335,62 @@ be robust; under *"reading raises A2 and A2 buys robustness"* it should not be. 
 correlate of the score all along** — and it survived four rounds because every arm that could separate
 the two was missing from the census. *A causal word attached to a real correlation is the cheapest
 overshoot there is, and the only thing that catches it is the case where the two come apart.*
+
+## 1061 · the arm carrying three of four inversions is measured by a different judge
+
+R761's NEXT asked what separates `oracle_k4_08bR` from `oracle_k4` — *"same rule, same target access,
+0.0634 less A2"*. **`select_core.py:75` makes `--tag-suffix` MANDATORY when `--full-npz` is not the
+default**, and `corebench/rebuild_selection_08b.sh` says in its own header: *"`_08bR` RERUN — the rule
+itself re-run under 0.8B."* Anchor test, both controls present: `oracle_k4_08bR`'s satisfaction values
+match `sat08_full.npz` at **0.4609** and the default table at **0.0345**, while `oracle_k4` matches the
+default at **0.5342** and the 0.8B table at **0.0342**. **The two arms are scored by two different
+judges.** So R761 ranked 27 arms on one axis while one of them was measured with a different
+instrument — *and it was the arm carrying three of the four inversions the round was about.*
+**A gauge test costing three lines answered a question I had proposed spending a round on**, which is
+what the attack ladder says to do first and what I did not do when I wrote the NEXT line.
+
+## 1062 · I counted inversions with no resolution on the quantity being ordered
+
+R761 reported *"4 of 351 inverting pairs"* and read it as **rob carrying information A2 does not**.
+Every one of the four sits at **|ΔA2| ≤ 0.0017**, and the paired MDE of a between-arm ΔA2 in this
+design has median **0.0136** *(IQR 0.0097–0.0149)*. **At 0.5× that floor the resolved-inversion count
+is 0, with 319 of 346 pairs surviving; a random subset of the same size retains 3.70 inversions and
+reaches zero in 0.000 of 200 draws.** So the filter's specific content is what removed them, not its
+size. R761's preregistration never asked for a resolution on ΔA2 — it asked for an inversion count,
+and a count is what it got. *A ranking statistic needs a floor exactly as much as a difference does,
+and it is easier to forget because nothing in the word "inversion" sounds like a measurement.*
+
+## 1063 · the controls failed, and the failure was a population defect I had carried for two rounds
+
+POSITIVE-1 and g=0 both returned False on the first run, because `mde_min` was **exactly 0.0000**:
+five pairs in the 351 have **identical per-prompt vectors** — R730's replica arms, one object wearing
+two tags. For those, floor == ceiling and **no threshold is admissible** (§4), yet `|ΔA2| = 0 ≥ 0`
+would have read as **RESOLVED** at every floor. R761 carried those five pairs inside its 351 without
+noticing, because an inversion count never divides by anything. **Excluded and counted: 346
+resolvable pairs.** *The controls did not fail — they refused to run on a degenerate statistic, which
+is the only way that degeneracy was ever going to surface.*
+
+## 1064 · two runs wrote one artifact while the harness told me both had finished
+
+I launched R762 twice with `nohup … &` and got a **completed** notification for each. Both were about
+the **shell wrapper**, which exits immediately; `pgrep` showed **two live python processes** writing
+the **same** `results/*.json`. The reproducibility check I was about to run would have compared a file
+against itself, or against a torn write, and would have printed **byte-identical** either way — the
+most reassuring possible output from the least informative possible state. **§4's *determinism read as
+currency*, one level down: there the two runs were real and the comparison was wrong; here the two
+runs were not even separate.** The artifact was quarantined rather than trusted, and the round re-run
+through `cpu-run`, which serialises and reports the *computation* finishing rather than the launcher.
+*A completion signal is an instrument, and this one had never been asked what it measures.*
+
+## 1065 · the round said three different things off one number, and the unlicensed one was right
+
+R761 measured **4 inversions of 351** and then: its **prose** concluded *"rob carries essentially no
+information that mean A2 does not"*; its **pre-registered branch** for `inversions >= 3` reads *"rob
+carries information A2 does not"*; and its **fired verdict** was **WORLD C**, off a different clause
+entirely. **Three readings, one number, and no line in the round noting they disagree.** R762 shows
+the prose was right — 0 resolved inversions once ΔA2 carries a floor — so the registration was
+**answered on noise** and the author **silently overrode it and got lucky**. Both halves are defects,
+and the second is the worse one: *a preregistration that is quietly ignored when it gives the
+unwelcome answer is not a preregistration, it is a decoration that happens to be typed first.* The
+remedy is mechanical and is now owed: when the prose and the registered branch disagree, the round
+must **say so and name which it is following, before the verdict line**.

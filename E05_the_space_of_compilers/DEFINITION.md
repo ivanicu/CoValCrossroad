@@ -5057,3 +5057,55 @@ t ∈ {1.00, 0.99, 0.95, 0.90, 0.75} → ③name {0.400, 0.364, 0.286, 0.267, 0.
 and only the residual measures. ② the 1,820-wide bootstrap is exact at marginal cost (linearity of the
 bootstrap mean; `var(x−y)` by one matrix product) — asserted at 4 probe cells. ③ the exact self-cell
 is `UNRESOLVED` by `verdict()`'s first branch.
+
+## R762 · the resolution behind R761's ordering, and the interval rob never had
+
+**Scope.** population = R761's 27 arms unchanged (so the rounds are comparable), of which **5 pairs
+are degenerate** — identical per-prompt vectors, one object under R730 — leaving **346** resolvable
+pairs of 351; instrument = R294's estimator, reproduced **exactly on 27/27** arms before any
+contradiction was permitted; baseline = all 1,820 references; regime = first release, home judge,
+968 prompts.
+
+**E1 · resolution of a between-arm ΔA2** paired MDE median **0.0136**, IQR **[0.0097, 0.0149]**,
+min 0.0031, max 0.0237. A second and **different** floor, R415's committed run-to-run re-selection
+shift, is **0.116489**; the two are not interchangeable and both are reported.
+
+**E2 · the floor curve**
+
+| floor | surviving pairs | inversions | SHAM mean | P(sham = 0) |
+|---|---|---|---|---|
+| 0 | 346 | 4 | — | — |
+| 0.5× MDE | 319 | **0** | 3.70 | 0.000 |
+| 1× MDE | 304 | **0** | 3.54 | 0.000 |
+| 2× MDE | 280 | **0** | 3.35 | 0.000 |
+| 0.116489 | 81 | 0 | 0.90 | 0.375 |
+
+R761's 4 inverting pairs collapse to **2 independent events** (`oracle_k4_08bR`, `topw_k4`).
+
+**E3 · nested-bootstrap intervals on rob** (120 outer × 300 inner; POSITIVE-2: inner 1200 → 300 moves
+rob by 0.0000 on all 27)
+
+| arm | rob | 2.5% | 97.5% | share of outer draws at 1.0 |
+|---|---|---|---|---|
+| `oracle_k4` | 1.0000 | 1.0000 | 1.0000 | 1.000 |
+| `coval_core` | 0.9978 | 0.8943 | 1.0000 | 0.250 |
+| `topw_k6` | 0.9863 | 0.8463 | 1.0000 | 0.092 |
+| `topw_k4` | 0.9835 | 0.8411 | 1.0000 | 0.067 |
+| `topw_k3` | 0.9703 | 0.7997 | 1.0000 | 0.067 |
+| `oracle_k4_08bR` | 0.9401 | 0.6077 | 1.0000 | 0.092 |
+
+paired `08bR − coval_core` = **−0.0932 [−0.3584, +0.0212]**, not separated.
+
+**Instrument identity of `oracle_k4_08bR`** — anchor test, both controls: matches `sat08_full.npz`
+(0.8B) at **0.4609**, `sat_full.npz` (default) at **0.0345**; `oracle_k4` matches them at **0.0342**
+and **0.5342**. `select_core.py:75` makes `--tag-suffix` mandatory off-default; R416 measured 91.1%
+of this arm's prompts changing selection.
+
+**Controls.** PROVENANCE 27/27 exact (exit 2 otherwise) · POSITIVE-1 346/346 at 2× MDE, none at 0.5× ·
+POSITIVE-2 worst |Δrob| 0.0000 · g=0 planted zero never resolved · NEGATIVE pairing destroyed → MDE
+×**1.80 [0.96, 3.70]** · PLACEBO 215 pairs at |ΔA2| > 0.05, **0** inversions · SHAM as tabled.
+**WORLD A**, E3 verdict **UNRESOLVED**.
+
+**Derived, not measured.** ① a floor can only remove inversions (monotone by subset), so only reaching
+zero measures, and the size-matched random subset is what attributes it. ② three of R761's four pairs
+are one arm against three arms lying within 0.0010 of each other — one event, three labels.
