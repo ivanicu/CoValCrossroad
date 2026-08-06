@@ -1,5 +1,5 @@
 {
- "count": 210,
+ "count": 211,
  "notes": {
   "44f05d1f": "R789's commit body: 'every arm above it reads the target'. VERIFIED at the object in check #392a -- corebench/select_core.py:161 (indep_k), :168 (greedy_k), :180 (oracle) each call tgt.get(pid). Frozen because gate 5 cannot see the commit it gates: the body becomes visible only once HEAD has moved past it.",
   "4f484ca9": "Another session's commit, frozen not rewritten -- same case as 9f353596. Its 'every gate' quantifies over run_all.py's own code and over eleven MEASURED orphaned stashes. A concurrent writer's message is not mine to reword and rebase is prohibited here.",
@@ -8,7 +8,8 @@
   "d32e00ff": "My own commit. The NEXT says 'do not extrapolate these 21 modules to the 781 round files' -- a bare count. Provenance, recorded here rather than by rewriting the message (rebase is prohibited): 781 = len(sorted(Path('.').glob('E0*/*/*/run.py'))), the same glob used by the unread-artifact scan, re-verified at freeze time. The quantifier is a REFUSAL to extrapolate, which is the conservative direction, but the gate is right that a bare count needs its instrument named.",
   "eae6d0f9": "R791's commit body: 'R733, R457, R771, R772 and R774 all decompose across PROMPTS'. VERIFIED at each README's opening lines in check #395 -- R733 per-prompt profile, R457 per-prompt advantage reliable, R771/R772 a shared prompt factor, R774 the separability scale is 28% prompt. Frozen because gate 5 cannot see the commit it gates.",
   "ef7617e9": "R817's commit body: 'a large part of A2 is available with no prompt-specific content at ALL. Construct the best ARM that uses NO per-prompt information'. FALSE POSITIVE of the detector: the 'all' is an intensifier inside 'at all', not a quantifier over arms, and it happens to sit within +/-60 chars of 'arm'. VERIFIED in check #420 and MEASURED by R818, which is the round that acted on this very line: the best constant weak order scores 0.449421 prompt-weighted, 65.08% of the attainable 0.686265 -- so the claim the line makes is not merely unquantified, it is now quantified and confirmed. Frozen because gate 5 cannot see the commit it gates: a body becomes visible only once HEAD has moved past it.",
-  "d0817ac8": "quantifier 'never' over 'rounds': \"the gauge test ... has never been pointed at the rounds whose numbers ARE in the deliverable\". TRUE when written and DISCHARGED in the next command: assurance/a_control_that_cannot_fail.py was run over all 862 modules under E01-E05 and returned 6 rounds, all in E05/A24, one of them R436 (14 citations in DEFINITION.md). Provenance is that run; see RETRACTIONS.md 1283."
+  "d0817ac8": "quantifier 'never' over 'rounds': \"the gauge test ... has never been pointed at the rounds whose numbers ARE in the deliverable\". TRUE when written and DISCHARGED in the next command: assurance/a_control_that_cannot_fail.py was run over all 862 modules under E01-E05 and returned 6 rounds, all in E05/A24, one of them R436 (14 citations in DEFINITION.md). Provenance is that run; see RETRACTIONS.md 1283.",
+  "f2122b4f": "quantifier 'the only' over 'round': \"the differential detector ... is the only form that can reach a constant control whose constancy is not syntactic\". UNSOURCED WHEN WRITTEN AND REFUTED ONE ROUND LATER: R829 measured 23 instances of a second such form -- `f() == f()`, invoking the producer twice -- already in the corpus. Frozen with its refutation, not with a provenance. See RETRACTIONS.md 1284 (annotated) and 1285."
  },
  "r670_note": "10 shas added 2026-08-05 by R670: newly visible once the pattern learned 'the last' and 'the first'. Past commit bodies cannot be rewritten, so they are recorded as known and any NEW instance fails. Ledger 715/723 are the named cases.",
  "r706_note": "R706 widened the extractor from `^NEXT:` to paragraph-initial `NEXT[:.,]`, making 65 commits visible in full history and 26 newly-flagged inside the gate's 400-commit window. ALL 26 were invisible to the OLD extractor -- 0 are new violations; they are pre-existing history the gate could not read. Measured before freezing: loss 0, false positives 0 against 8 real wrapped-prose lines, and the newly-visible flag rate 0.4615 vs 0.2655 is explained by paragraph LENGTH (2.0x longer; length-matched the gap is +0.0908, inside a stratified null, p=0.1933). Frozen as history, not as an acquittal of the sentences themselves.",
@@ -256,6 +257,7 @@
   "9f353596",
   "4f484ca9",
   "d32e00ff",
-  "d0817ac8"
+  "d0817ac8",
+  "f2122b4f"
  ]
 }

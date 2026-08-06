@@ -35,23 +35,36 @@ NAN_COND = {ast.Eq: "x == x", ast.LtE: "x <= x", ast.GtE: "x >= x"}
 
 
 def _aliases(tree):
-    """names bound directly to another name: `a = b`. Only single, unconditional bindings count --
-    a name rebound anywhere else is dropped, because then `a - b` is not provably constant."""
-    binds, rebound = {}, set()
+    """names bound directly to another name: `a = b`. Only SINGLE, unconditional bindings count --
+    a name assigned more than once, or mutated, is dropped, because then `a - b` is not provably
+    constant.
+
+    ⛔ v1 CONFLATED `assigned from a non-Name` WITH `rebound`, and its own positive control caught
+       it before any count was published. In the plant `b = compute(); a = b`, `b` is assigned once
+       from a Call -- a perfectly stable single binding -- and v1 marked it unstable, so the alias
+       `a -> b` was discarded and F1 was invisible. Stability is about HOW MANY TIMES a name is
+       bound, never about WHAT it is bound to."""
+    count: dict = {}
+    unstable, binds = set(), {}
     for n in ast.walk(tree):
-        if isinstance(n, ast.Assign) and len(n.targets) == 1 and isinstance(n.targets[0], ast.Name):
-            t = n.targets[0].id
-            if t in binds or t in rebound:
-                rebound.add(t); binds.pop(t, None); continue
-            if isinstance(n.value, ast.Name):
-                binds[t] = n.value.id
-            else:
-                rebound.add(t)
-        elif isinstance(n, (ast.AugAssign, ast.For)):
-            for m in ast.walk(n.target if isinstance(n, (ast.AugAssign, ast.For)) else n):
+        if isinstance(n, ast.Assign):
+            for t in n.targets:
+                for m in ast.walk(t):
+                    if isinstance(m, ast.Name):
+                        count[m.id] = count.get(m.id, 0) + 1
+            if len(n.targets) == 1 and isinstance(n.targets[0], ast.Name) \
+                    and isinstance(n.value, ast.Name):
+                binds[n.targets[0].id] = n.value.id
+        elif isinstance(n, (ast.AugAssign, ast.For, ast.comprehension)):
+            tgt = n.target
+            for m in ast.walk(tgt):
                 if isinstance(m, ast.Name):
-                    rebound.add(m.id); binds.pop(m.id, None)
-    return {k: v for k, v in binds.items() if k not in rebound and v not in rebound}
+                    unstable.add(m.id)
+        elif isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            for a in n.args.args + n.args.kwonlyargs:      # a parameter is rebound per call
+                unstable.add(a.arg)
+    unstable |= {k for k, v in count.items() if v > 1}
+    return {k: v for k, v in binds.items() if k not in unstable and v not in unstable}
 
 
 def scan(src: str):

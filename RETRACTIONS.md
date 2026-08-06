@@ -22508,3 +22508,59 @@ both. Kill was a conditional, not a threshold; two seeds byte-identical
 ⚠ **What this does NOT license.** The gate that found all six is sound in **one direction only** —
 a flag proves constancy, its silence proves nothing. **6 is a lower bound on the defect and an upper
 bound on nothing**, and no rate may be quoted from it.
+
+> ⛔ **AND THIS ENTRY'S COMMIT SHIPPED A FALSE NEXT LINE, refuted by the very next round.** It closed
+> with *"the differential detector … is **the only** form that can reach a constant control whose
+> constancy is not syntactic."* **R829 measured 23 instances of a second form already in the corpus** —
+> `f() == f()`, invoking the producer twice, which is exactly what R828 hand-built three times and
+> never noticed was idiomatic here. The sentence was unsourced when written and wrong one round
+> later. §4's *the closing sentence is a claim and never gets a control* — and the tell it names,
+> the word **"only"**, is the word that was used. **It was caught by my own gate on the next commit,
+> which is the argument for the gate: the NEXT line is written last, acted on first, and is the
+> one sentence in a report with no control attached.**
+
+## 1285 · my pre-registration stopped a 44-count false accusation I constructed twenty minutes after writing it
+
+R829 asked whether the constant-control class is wider than the `a OP a` rule that found the six.
+**Registered estimand: 0 of 947 modules** under three sound syntactic forms, all three positive
+controls firing, g=0 and negative arms null, two-seed byte-identical
+(`e85a54dfdb2803b9e25c1d77f6b0a698`). **W-SATURATED.**
+
+The pre-registration excluded `x == x` and `abs(x) >= 0` from the estimand, in writing, because they
+are constant *except at NaN* and `x == x` is a legitimate NaN idiom — *"counting them would be
+unsound in exactly the direction that manufactures a false accusation."*
+
+**Then I found 67 of them and immediately re-admitted 44.** The axis I built was real and useful —
+does each side **INVOKE** a producer or **READ** a stored value? — and I read the READS as constant:
+
+```python
+plc  = flagged_spans('x') == flagged_spans('x')     # INVOKES, 23 -- the producer runs TWICE
+pos  = (dose[1.0] == dose[1.0]) and dose[1.0] > nhi # READS,   44 -- "constant", I said
+```
+
+⛔ **Three of the 44 read at random were all legitimate NaN guards.** The second line above is one of
+them, and the very next line in that file is `g0 = dose[0.0] != dose[0.0]  # NaN: undefined, as
+registered`. A weaker proxy — *no NaN word within ±2 lines* — flags 27, and it has a **named
+witness**: `R247:214` is `(sc == sc).all(-1).mean()`, an elementwise array NaN check with no NaN word
+nearby. **Proxy satisfied, property violated ⇒ unsound toward accusation.** The 44 stay excluded and
+UNVERIFIED, exactly as written before the data was seen.
+
+⭐ **This is what a pre-registration is FOR, and I have never had it demonstrated this cleanly on
+myself.** The exclusion was not a rule I followed; it was a rule that stopped me — twenty minutes
+after I wrote it, holding data that made the opposite look obvious. `attack_every_check.py` paid the
+same tuition at **3 false accusations of 6** and its remedy was structural: every plant must
+self-validate. Mine was textual and it held.
+
+⭐ **And the by-product is worth more than the null.** The 23 INVOKES cases are the *correct*
+determinism idiom — the producer called twice — which is **exactly what R828 hand-built for R332,
+R672 and R731.** The right pattern was on disk 23 times while 6 rounds subtracted a stored value
+from itself. **That makes the six a habit rather than an accident**, and it is the next thing to test.
+
+⚠ **What the null does NOT license.** 0 under three *syntactic* forms says nothing about **semantic**
+constancy, which is what a differential detector would address. The decision it does support: that
+detector is **not justified by any known instance**, at a price its own prior art measured at 50%.
+
+⚠ **And the first run of this round returned UNVERIFIED with the count withheld** — F1's positive
+control missed, because `_aliases` conflated *assigned from a non-Name* with *rebound*. In the plant
+`b = compute(); a = b`, the alias was discarded. **Stability is how many times a name is bound, never
+what it is bound to.** The conditional kill published nothing while the instrument was blind.
