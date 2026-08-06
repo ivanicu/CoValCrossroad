@@ -21254,3 +21254,46 @@ twice before running at all** — first because R810/R811 restrict to the **734-
 intersection** while R805 uses all 968, then because R811 averages `random_k` over **three committed
 seeds** where I had used one. Both were population and estimator mismatches that would have produced
 a confident, wrong design effect.
+
+## 1227 · R813's "tension" never existed, and three lines of simulation on zero real data killed it
+
+R813 closed by calling it a tension that annotators agree pairwise only **0.551880** of the time while
+their errors look independent, and proposed an ICC to resolve it. Simulating a crossed panel at
+planted `rater_sd` = 0.00 / 0.15 / 0.35 gives pairwise agreement **0.6230 / 0.6244 / 0.6223** — flat
+— while the rater ICC goes **0.0002 / 0.1751 / 0.3803**. **The two quantities are independent**;
+pairwise agreement carries no information about the rater main effect in either direction. There was
+nothing to reconcile. *This is realstat §4's "the closing sentence is a claim and never gets a
+control", and it was committed in a NEXT written ONE ROUND AFTER this project filed a ledger entry
+naming that exact failure mode — which is the part worth recording, because knowing the mode did not
+prevent it. The gauge test that killed it cost three lines and no data access.*
+
+## 1228 · the annotator main effect is 9.42%, and it straddles the threshold I pre-registered
+
+Measured against a 500-draw label-permutation null: observed variance of annotator means **0.004298**
+against a null of **0.001753 [0.001608, 0.001901]**, excess **+0.002545** on a total of **0.027007**
+→ **rater share 9.42% weighted, 10.23% unweighted**, both clearing the null band. ⚠ **The
+preregistration put WORLD B above 10% and WORLD C below, so the two weightings land on opposite
+sides.** D3 had pre-registered reporting both, because weighting is a defensible-choice axis — which
+is the only reason this reads as a boundary rather than as a result. **The honest statement is ~9–10%,
+not a side of a line**, and the half-split noise floor of **9.71% ± 0.79%** says the estimate is
+stable while the threshold was the fragile part. ⭐ This also explains R813 rather than contradicting
+it: a 9.42% rater share is exactly the size that yields design effects of 1.14–1.30 rather than ≥1.5,
+so R813's indirect reading ("almost no shared error", from a negative control I flagged as weak) is
+replaced by a number. **What clause ③ buys is now quantified: an annotator holdout removes at most
+9.42% of this table's variance.** ⚠ D4 bounds it: the release ships one judgement per (annotator,
+prompt) pair, so the residual absorbs the rater×prompt interaction and this is the ADDITIVE effect
+only — annotators are not shown to be interchangeable.
+
+## 1229 · my g=0 control presupposed the answer, in the mirror of the mode the skill names
+
+The pre-registered g=0 check required the **observed** table not to fire at zero planted dose. But
+firing at g=0 is exactly what a real rater effect looks like, so the criterion **presumed the data has
+no rater effect — the very thing under test** — and it duly printed FAIL against a real 9.43%. §4
+names "the control presupposes a non-null effect"; this is the same error inverted, presupposing a
+**null** one. **A true zero exists only on a table whose rater structure has been destroyed**, so the
+dose ladder now runs on both: the rater-nulled table gives **0.00% at g=0** and fires from g=0.05
+(0.00 / 0.50 / 6.16 / 22.10 / 52.09%), which is a control that can fail in both directions. ⚠ A
+second defect was caught by a **crash** rather than a check — the noise floor passed a subsetted
+`agree` against the closure's full-length `rows_a` and raised `ValueError`. *It failed loudly, which
+is the only reason it did not silently compute the statistic on mismatched rows; the three degenerate
+negative controls of R809, R810 and R813 all failed quietly instead.*

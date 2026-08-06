@@ -6943,3 +6943,37 @@ repairs · PLACEBO an arm minus itself, **0.0e+00** over 200 crossed draws · PO
 dose and null at g=0 · NEGATIVE ⚠ weak · D1 the crossed interval is never narrower than the prompt
 one · DROPPED **2.6 / 968 (0.3%)** per draw · NOISE FLOOR crossed width sd **0.0004** (H1), **0.0009**
 (H2).
+
+## R814 · the annotator main effect is 9.42%, and clause ③ can be written against that number
+
+**Why here.** R813's NEXT called it a **tension** that annotators agree pairwise only 0.551880 of the
+time while their errors look independent. ⛔ CHECK #416 killed the framing with a three-line gauge
+test on **zero real data**: at planted `rater_sd` = 0.00 / 0.15 / 0.35 the pairwise agreement is
+**0.6230 / 0.6244 / 0.6223** — flat — while the rater ICC goes **0.0002 / 0.1751 / 0.3803**. The two
+quantities are **independent**; there was never a tension. That is §4's *"the closing sentence is a
+claim and never gets a control"*, committed one round after this project filed a ledger entry about
+that exact mode.
+
+**⭐ The measurement, against a label-permutation null.** Observed variance of annotator means
+**0.004298** against a null of **0.001753 [0.001608, 0.001901]**, excess **+0.002545** on a total of
+**0.027007** → **rater share 9.42% weighted**, **10.23% unweighted**, both above the null band.
+⚠ **The verdict straddles the pre-registered 10% boundary** — weighted gives WORLD C, unweighted
+WORLD B — and **D3 pre-registered reporting both** because weighting is a defensible-choice axis. The
+honest statement is **~9–10%**, not a side of a line. Noise floor over 20 annotator half-splits:
+**9.71% ± 0.79%**, so the estimate is stable and the threshold was the fragile part.
+
+**⭐ The dose ladder, on the observed AND a rater-nulled table**: observed 9.43 / 10.41 / 15.59 /
+29.95 / 56.73% at g = 0 / 0.02 / 0.05 / 0.10 / 0.20; **rater-nulled 0.00 / 0.50 / 6.16 / 22.10 /
+52.09%**, firing only from g = 0.05. Monotone on both. ⛔ **My first g=0 check required the OBSERVED
+table not to fire — which presumes the real data has no rater effect, the very thing under test.**
+§4's "the control presupposes a non-null effect", inverted. A true zero exists only where the rater
+structure has been destroyed.
+
+**E4 · what clause ③ buys**: an annotator holdout can remove **at most 9.42%** of this table's
+variance; the remaining **90.58%** is prompt plus interaction. ⚠ D4: on a crossed design the residual
+absorbs the interaction and the release ships one judgement per (annotator, prompt) pair, so this
+bounds the **additive** effect and does not show annotators are interchangeable.
+
+**Controls.** OBJECT `CEIL_H` recomputed from this round's own table, **0.551880** exactly · PLACEBO
+**0.0e+00** · POSITIVE monotone on both ladders · g=0 **PASS after repair** · NEGATIVE the null has
+spread (sd **0.000075**) · population **968 / 968, 0 dropped**.

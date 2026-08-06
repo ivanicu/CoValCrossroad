@@ -2554,3 +2554,29 @@ can see such structure; but destroying the crossing changes the width by **0.000
 **Scope**: 968 prompts (R805's headline) and the 734-prompt common intersection (the rest) × 964
 parity-0 annotators × 3 schemes × NBOOT 1,200 · annotator identity recovered from
 `metadata.assessments[].annotator_id`, which `load_targets()` discards.
+
+## R814 · The annotator main effect is 9.42%, so clause ③'s holdout is worth at most that
+
+| | observed | permutation null | excess | **rater share** |
+|---|---:|---|---:|---:|
+| **weighted** | 0.004298 | 0.001753 [0.001608, 0.001901] | +0.002545 | **9.42%** |
+| unweighted | 0.005203 | 0.002440 [0.002116, 0.002840] | +0.002763 | **10.23%** |
+
+⚠ **The verdict straddles the pre-registered 10% boundary** — weighted is WORLD C, unweighted WORLD
+B — and both were pre-registered for reporting because weighting is a defensible-choice axis. The
+honest statement is **~9–10%**. Noise floor over 20 annotator half-splits: **9.71% ± 0.79%**.
+
+⭐ **R813's "tension" is dead, killed on zero real data.** At planted `rater_sd` = 0.00 / 0.15 / 0.35,
+pairwise agreement is **0.6230 / 0.6244 / 0.6223** — flat — while the rater ICC goes **0.0002 /
+0.1751 / 0.3803**. Pairwise agreement and the rater main effect are independent quantities.
+
+⭐ **The dose ladder has a true zero**: on a rater-nulled table the share is **0.00%** at g=0 and
+fires only from g=0.05 (0.00 / 0.50 / 6.16 / 22.10 / 52.09%), against the observed table's 9.43 /
+10.41 / 15.59 / 29.95 / 56.73%.
+
+**What clause ③ buys**: an annotator holdout removes **at most 9.42%**; the other **90.58%** is
+prompt plus interaction. ⚠ The release ships one judgement per (annotator, prompt) pair, so the
+interaction cannot be separated from noise — this bounds the **additive** effect only.
+
+**Scope**: 968 prompts × 1,012 annotators × **15,593 cells**, load median 16 max 32 · leave-one-out
+agreement · 500-draw label-permutation null · first release, home judge.
