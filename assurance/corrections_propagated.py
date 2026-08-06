@@ -169,7 +169,45 @@ def _floor(n: int, what: str) -> int:
     return 0
 
 
+# ⛔ THIS GATE HAD NO POSITIVE CONTROL. Its 11 patterns were never shown able to match anything, so
+#    "No superseded form survives" was a zero from an instrument that had never returned non-zero --
+#    silence, not an acquittal, which is the failure its own PROXY LEDGER warns about one section up.
+#    A plant per pattern, each a synthetic string carrying the form that pattern forbids. Every one
+#    must fire, or the run is INADMISSIBLE and exits 2.
+PLANTS = (
+    "Spearman-Brown **0.9132** and nothing else",
+    "see r14/r20 for retention",
+    "a further +0.0149 to which items survive",
+    "+0.102 \u2192 -0.042 across arms",
+    "replicates at -0.058 on held-out",
+    "filtered at 99.2% of pairs",
+    "we found polarity carries roughly half the above-chance signal",
+    "r56's held-out value is +0.0198 on the same split",
+    "attributes\n+0.0733 of it to the polarity rewrite (r44). Compatibility selection follows",
+    "a personal ranking is present for **76.9%** of raters",
+    ("It does **not** touch shared-menu\n endogeneity: every participant saw the same four "
+     "responses, so `menu \u2192 shared salience \u2192 S\u1d62` can\n produce cross-rater "
+     "agreement that is still menu-induced construction.\n\n**Design"),
+)
+
+
+def selftest() -> bool:
+    """every registered pattern must match its own plant. Prints the misses by index."""
+    if len(PLANTS) != len(CORRECTED):
+        print(f"  \u26d4 {len(PLANTS)} plants for {len(CORRECTED)} patterns -- every pattern needs one.")
+        return False
+    blind = [i for i, ((rx, _, _), pl) in enumerate(zip(CORRECTED, PLANTS))
+             if not re.search(rx, pl)]
+    print(f"  POSITIVE CONTROL: {len(CORRECTED) - len(blind)}/{len(CORRECTED)} patterns fire on "
+          f"their own plant   {'PASS' if not blind else f'\u26d4 FAIL, blind at {blind}'}")
+    return not blind
+
+
 def main() -> int:
+    if not selftest():
+        print("  \u26d4 a pattern cannot match its own plant; this gate certifies "
+              "nothing. Exit 2, never 0.")
+        return 2
     files = [(f, (_ROOT / f)) for f in WATCHED if (_ROOT / f).exists()]
     absent = [f for f in WATCHED if not (_ROOT / f).exists()]
     print(f"watched documents present: {len(files)} of {len(WATCHED)}  "

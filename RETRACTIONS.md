@@ -23549,3 +23549,39 @@ were least likely to accumulate. **The clean result is real and it is the easy h
 ⭐ **What the round produced**: a coverage gap became a **partial verdict with its scope attached**,
 using the gate's own list as the population and a plant per pattern as the control. **That is the
 cheapest form of closing a gap — no new instrument, and the honest answer was six, not eleven.**
+
+## 1313 · full acquittal on 11 of 11, and the gate that gave it had no positive control until now
+
+The five missing plants were written. **All 11 registered patterns fire on their own plant**, and
+searching **176** per-round `PREREGISTRATION.txt` with the full live set returns **0 superseded
+forms**. **The partial acquittal of the previous round becomes complete**, on an instrument where
+every pattern is now proven able to see.
+
+⛔ **AND THE GATE ITSELF HAD NO POSITIVE CONTROL.** `corrections_propagated.py` has printed *"No
+superseded form survives in a watched document"* on every run of this campaign — **a zero from an
+instrument that had never been shown to return non-zero.** Its own PROXY LEDGER warns about exactly
+that one section above the code. **The plants now live in the gate**, not in my shell, and the
+self-test is `main`'s **first** action:
+
+```
+POSITIVE CONTROL: 11/11 patterns fire on their own plant   PASS
+```
+
+**Attacked, and the exit codes verified without a pipe** (a `| head` had reported `exit=0` for both
+failing cases — the shell's status, not the script's):
+
+| vector | exit |
+|---|---|
+| blind one pattern (`zzzznevermatches`) | **2** — *"a pattern cannot match its own plant; this gate certifies nothing"* |
+| drop one plant (10 for 11) | **2** — *"every pattern needs one"* |
+| unmodified | **0** |
+
+⚠ **The two bounds from the previous round carry forward unchanged and are not re-argued**: this
+covers only corrections **registered in the gate**, and a pre-registration is written **before** a
+round runs, so it is the population where superseded forms were least likely to accumulate.
+
+⭐ **What changed is durability, not the number.** The acquittal was available last round; what was
+missing was that **the next round would have had to re-derive the plants from scratch, because they
+lived in a shell command.** A control that exists only in the session that used it is a control the
+corpus does not have — **and this gate has been printing an acquittal for its whole life without
+one.**
