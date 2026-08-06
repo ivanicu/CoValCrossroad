@@ -186,6 +186,24 @@ reading nobody had chosen."* **The correction reached the TABLE and never reache
 Kept, annotated rather than deleted (L81), because it is the correct and still-live argument **for
 the strict reading**, and the strict reading is a defensible cell of the specification curve — but it
 is no longer the argument for the clause **as stated**.
+
+⭐ **PARTLY REVERSED 2026-08-06 (entry 1328) — THE ARGUMENT SURVIVES THE READING CHANGE, THE NUMBER
+DOES NOT.** The paragraph below argues ④ is *free where the definition works and binding where it
+fails*. That turns on ④'s **MARGINAL** exclusion over ②, not on its **STANDALONE** count — and the
+two were being conflated. R518 measured the marginal at the strict bar: among the **9 arms that pass
+②**, every one clears ④'s bar by **4.90×–8.65× its own MDE**, so ④ removes none of them, WORLD B.
+**Rebased onto the adopted permissive bar (0.519689, R824), all 9 still clear it — margins
+1.84×–5.40×, none below the 1.5× admissibility floor**, the tightest being `topw_k8` (4.90× → 1.84×).
+So ④'s **25 of 58** are *entirely among arms ② already rejects*, and the clause is free at the
+conjunction under **both** readings.
+⛔ **This is a DERIVATION, not a measurement** — subtracting a known bar shift from published margins
+is forced once both bars are known. **Assumption 1:** R518's `d` and R824's bars share one A2 scale —
+**UNVERIFIED, and the two strict bars already disagree (0.4512 vs 0.455679)** because R823 widened the
+rule class from 6 to 30. **Assumption 2:** each arm's MDE is unchanged by moving the bar. A measured
+answer needs R518 re-run against R824's bar.
+⚠ **And R518's artifact cannot support this on its own** — it persists `margins_in_mde` ratios and no
+bar and no per-arm `d`; the numbers above were recovered from its **README**. §5 requires an artifact
+to carry *"what a LATER round needs to ATTACK this"*, and this one does not.
 ⚠ **And note why no gate caught it:** `definition_matches_the_record.py` passes, because **both
 numbers are present and both are right.** The defect is a *sentence* that a correct number stopped
 supporting. Nothing in the assurance layer checks that.

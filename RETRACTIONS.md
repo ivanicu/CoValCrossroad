@@ -24356,3 +24356,47 @@ artifact, not only here.
 ⚠ **Resolution:** the statement's denominator is **10 values**, so 80% is coarse — one value moves it
 10 points. **What is solid is the LIST** (`441`, `824`, both citations), not the percentage. Reported
 as a list precisely because the percentage cannot carry that little data.
+
+## 1328 · ④ is free at the conjunction under BOTH readings — which partly reverses entry 1322
+
+**P4, thirteenth firing:** my NEXT proposed asking whether ④ does any work under the adopted reading.
+`R518_clause_four_is_redundant_where_the_definition_lives` had already asked it — and answered
+**WORLD B**: among the **9 arms passing ②**, every one clears ④'s bar by **4.90×–8.65×** its own MDE.
+⚠ **But R518's baseline is `min_ttr` at 0.4512 — the STRICT bar**, and the definition adopts the
+**permissive** one.
+
+### ⛔ THE CONFLATION THIS EXPOSES, AND IT IS MINE
+
+Entry 1322 said the L161 argument — *"④ is free where the definition works and binding where it
+fails"* — **"is no longer the argument for the clause as stated"**, because ④ excludes 25 of 58 rather
+than 0. **That conflated ④'s STANDALONE count with its MARGINAL contribution over ②.** The argument
+turns on the marginal. Rebased onto R824's permissive bar (**0.519689**):
+
+| arm (passes ②) | d @ R518 bar | MDE | margin @0.4512 | margin @permissive |
+|---|---:|---:|---:|---:|
+| `topw_k8` | +0.1098 | 0.0224 | 4.90× | **1.84×** |
+| `topw_k3` | +0.1143 | 0.0225 | 5.07× | 2.04× |
+| `topw_k4` | +0.1150 | 0.0227 | 5.08× | 2.05× |
+| `coval_core` | +0.1186 | 0.0230 | 5.16× | 2.18× |
+| `topw_k6` | +0.1179 | 0.0221 | 5.33× | 2.24× |
+| `indep_k4_fit1` | +0.1482 | 0.0212 | 6.99× | 3.76× |
+| `greedy_k4_fit1` | +0.1674 | 0.0211 | 7.95× | 4.69× |
+| `oracle_k4_fit1` | +0.1701 | 0.0214 | 7.94× | 4.75× |
+| `oracle_k4` | +0.1824 | 0.0211 | 8.65× | 5.40× |
+
+⭐ **9 of 9 still clear, none below the 1.5× admissibility floor.** So **④'s 25 of 58 are entirely
+among arms ② already rejects**, and the clause is free at the conjunction under **both** readings.
+**Entry 1322 was right about the NUMBER and wrong about the ARGUMENT**, and the annotation now says so
+in the artifact.
+
+⛔ **DERIVATION, NOT MEASUREMENT.** Subtracting a known bar shift from published margins is forced
+once both bars are known — it could not have come out otherwise. **Assumption 1:** R518's `d` and
+R824's bars share one A2 scale — **UNVERIFIED, and the two STRICT bars already disagree (0.4512 vs
+0.455679)** because R823 widened the rule class from 6 rules to 30. **Assumption 2:** each arm's MDE
+is unchanged by moving the bar. A measured answer needs R518 re-run against R824's bar.
+
+⚠ **AND R518'S ARTIFACT CANNOT SUPPORT THIS.** It persists `margins_in_mde` (ratios), `min_margin`,
+`max_margin`, `world`, and a `below_bar` entry for one non-②-passer — **no bar value and no per-arm
+`d`**. Every number in the table above came from its **README**. §5 requires the artifact to carry
+*"what a LATER round needs to ATTACK this"*; here the prose is richer than the record, which is the
+one direction that discipline exists to prevent.
