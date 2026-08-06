@@ -21829,6 +21829,12 @@ because σ is stable. **And the sign is negative — the leaked version scores l
 concrete refutation of the tempting argument that a leak can only inflate and therefore makes a null
 verdict conservative. That argument would have been a fabricated impossibility.
 
+⚠ **THE SIGN IS RETRACTED IN 1263.** An independent implementation at 10 splits returns
+**+0.000419** — the opposite sign, also inside the floor, with a between-design spread of
+0.000623 = **1.5× the larger point estimate**. Both are noise. The magnitude conclusion
+stands; the direction never did, and entry 1261 in this same commit computed the MDE that
+said so.
+
 ## 1261 · the preregistration stated a kill and never its resolution
 
 §1 G2 requires the MDE. R825's preregistration named a threshold — *is the bar within reach of
@@ -21861,3 +21867,38 @@ live.
 ⚠ **And it is not sufficient**: R825's tier table prints only after both grid loops complete, so the
 run is *still* unobservable for its expensive hour. **Unbuffering makes output timely; it does not
 make a silent loop report progress.** Those are two different defects and I fixed only the first.
+
+## 1263 · CORRECTION to 1260: I read the sign of a channel my own MDE says is unresolvable
+
+Entry 1260 reported the lexical-σ channel at **−0.000204** and drew a lesson from its sign — *"the
+leaked version scores lower, which is the concrete refutation of the argument that a leak can only
+inflate."* **The measurement is right and the sign was not mine to read.**
+
+An **independent implementation** of the same channel, written by another session at 10 splits
+instead of 8, returns **+0.000419** — the opposite sign.
+
+| | value | against its own resolution |
+|---|---|---|
+| mine, 8 splits, C=1.0 | **−0.000204** | 0.029 × MDE (0.007072) |
+| theirs, 10 splits, C=1.0 | **+0.000419** | 0.072 × floor (0.0058) |
+| **spread between designs** | **0.000623** | **1.5× the larger point estimate** |
+
+⭐ **A spread larger than either point estimate is the definition of a number that is noise**, and
+entry 1261 — written by me, in the same commit — computed the MDE that says so. **I published a
+sign in one entry that the arithmetic in the neighbouring entry forbids.**
+
+**What survives, and it is stronger than what I wrote:** the claim *"leak direction is not
+derivable"* is now **demonstrated rather than asserted** — two independent designs, opposite signs,
+both far inside the floor. That is exactly what an unresolvable sign looks like, and it is better
+evidence for the lesson than a single negative point estimate would ever have been.
+
+**What is retracted:** the phrase *"the sign is negative"* as a finding about the leak. The correct
+statement is that **the lexical-σ channel is below this design's resolution and its sign is not
+resolved by either implementation.** The magnitude conclusion — the channel is negligible relative
+to the 0.046788 gap — is unchanged and was never in doubt.
+
+⚠ **The shape of this error is the one this arc keeps finding, now committed by me twice in one
+hour**: §2's rule is that a result of magnitude X licenses a claim of magnitude ≤ X. A value at
+0.029 × MDE licenses *"indistinguishable from zero"* and nothing else — not a direction, not a
+mechanism, not a moral. **The tell was available before the second measurement arrived: I had
+already computed that the value was 0.029 × MDE and quoted its sign in the same report.**

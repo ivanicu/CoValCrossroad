@@ -131,9 +131,37 @@ def repair_full(root: pathlib.Path | None = None, verbose: bool = True) -> dict:
             d = {}
         stash = pathlib.Path(d.get("stash", ""))
         out["breadcrumb"] = str(bc)
+        # ⭐ IN FLIGHT or ORPHANED -- these demand opposite responses and the marker alone cannot
+        #    tell them apart. A live writer must be left alone (racing it is the livelock case); a
+        #    dead one must be repaired NOW. On 2026-08-06 a second session read this marker, could
+        #    not distinguish the two, correctly chose not to race, and left 2,896 files broken --
+        #    the writer had been SIGKILLed by the suite's own 90s timeout. `os.kill(pid, 0)` is the
+        #    whole fix. Breadcrumbs written before this carry no pid: report UNKNOWN, never assume.
+        pid = d.get("pid")
+        if pid is None:
+            live = None
+        else:
+            try:
+                os.kill(int(pid), 0)
+                live = True
+            except (ProcessLookupError, ValueError, TypeError):
+                live = False
+            except PermissionError:
+                live = True                      # exists, owned by someone else
+        out["writer_pid"], out["writer_live"] = pid, live
         if verbose:
-            print(f"  ⛔ a breadcrumb is present: a hide was IN FLIGHT and never restored.")
+            state = ("IN FLIGHT — pid %s is alive. DO NOT RACE IT; this repair leaves it alone"
+                     % pid) if live else (
+                "ORPHANED — pid %s is gone, so the restore never ran and repair is safe NOW" % pid
+                if live is False else
+                "UNKNOWN — this breadcrumb predates the pid field, so liveness cannot be decided")
+            print(f"  ⛔ a breadcrumb is present: {state}")
             print(f"     stash={stash}  moved={d.get('moved')}")
+        if live:
+            # A live writer still owns the stash and will restore it in its own `finally:`.
+            out["skipped_live_writer"] = True
+            out.update(repair(root, verbose=verbose))
+            return out
         if stash.is_dir():
             for name in d.get("moved", []):
                 src = stash / name

@@ -16,6 +16,7 @@ defect each check hunts. It covers the axis those all missed.
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -77,7 +78,15 @@ def hide_rounds():
     #    presence means exactly "a hide is in flight or was killed mid-flight", and
     #    `assurance/_repair.py` can then put back the untracked files too.
     (ROOT / "assurance" / "results").mkdir(parents=True, exist_ok=True)
-    BREADCRUMB.write_text(json.dumps({"stash": str(tmp), "moved": [c.name for c in camps]}))
+    # ⭐ THE PID IS LOAD-BEARING, added 2026-08-06 after the marker cost 2,896 files of hesitation.
+    #    Without it the breadcrumb's presence means "a hide is IN FLIGHT **or** was killed
+    #    mid-flight" -- two states that demand OPPOSITE responses. A second session met this exact
+    #    marker, read the first reading, correctly refused to race a live writer, and left the tree
+    #    broken; the writer had been SIGKILLed ninety seconds earlier. A marker that conflates a
+    #    live operation with a dead one makes waiting look correct forever, which is the failure
+    #    mode a crash marker exists to prevent. `os.kill(pid, 0)` settles it in one call.
+    BREADCRUMB.write_text(json.dumps({"stash": str(tmp), "moved": [c.name for c in camps],
+                                      "pid": os.getpid()}))
     moved = []
     for c in camps:
         shutil.move(str(c), str(tmp / c.name))
