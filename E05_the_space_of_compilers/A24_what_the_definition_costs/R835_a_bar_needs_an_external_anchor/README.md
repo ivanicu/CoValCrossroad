@@ -64,6 +64,10 @@ between-arm MDE needs per-pair difference vectors R436 did not persist.
 > `generic`/`gen` at **0.692**, `promptecho`/`topvar_k4_08b` at **0.822**.
 > **The verdict below is NOT rewritten** — its kill fired as pre-registered. Its SCOPE is
 > **ρ ≤ 0.5**, and ρ is not measured on this site. See `R836_the_null_used_a_conservative_resolution`.
+> ⭐ **AND R837 MEASURED IT.** The true between-arm MDEs are roughly **half** the ones used here
+> (0.0118 · 0.0104 · 0.0221 against 0.0232 · 0.0232 · 0.0384), implying **ρ = 0.835–0.899**.
+> **`gen` vs `random_k12_s0` IS separable at 2.9× its true MDE** — so this round's
+> W-NO-SEPARABLE-BEST holds only at the resolution it assumed, and the label-free class is not noise.
 
 ## NEXT
 

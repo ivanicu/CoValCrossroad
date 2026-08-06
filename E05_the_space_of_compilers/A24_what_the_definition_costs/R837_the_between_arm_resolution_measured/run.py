@@ -32,7 +32,7 @@ RES = HERE / "results"
 ZEFF = 1.959963984540054
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "corebench"))
-import select_core as SC                                                   # noqa: E402
+import score as SC     # REUSE, exactly as R436 does: cls, yvec, load_sat, load_targets
 
 SATD = ROOT / "corebench" / "results"
 PAIRS = [("gen", "random_k12_s0"), ("generic", "gen"), ("promptecho", "topvar_k4_08b")]
@@ -41,19 +41,6 @@ SEEDS = (0, 1, 2)
 
 def stable(pid: str) -> int:
     return int(hashlib.sha256(pid.encode()).hexdigest()[:8], 16)
-
-
-def load_targets():
-    m = __import__("importlib").import_module("corebench.compare") if False else None
-    for name in ("sat_transport_gen", "sat_coval_core"):
-        f = SATD / f"{name}.npz"
-        if f.exists():
-            pass
-    import runpy
-    r433 = next(A24.glob("R433_*/run.py"), None) or next(A24.glob("R43*/run.py"))
-    ns = runpy.run_path(str(r433), run_name="_r433")
-    _s, targets, _pv = ns["load_arm"]("sat_transport_gen")
-    return targets
 
 
 def per_prompt(arm: str, targets, pids=None):
@@ -90,7 +77,11 @@ def main() -> int:
     RES.mkdir(parents=True, exist_ok=True)
     print("\n  R837 · THE BETWEEN-ARM RESOLUTION, MEASURED\n")
     try:
-        targets = load_targets()
+        # ⛔ load_targets returns (targets, demographics). v1 passed the TUPLE as `targets`, so
+        #    `p not in targets` was membership in a 2-element tuple -> n=0 for every pair, and I
+        #    briefly blamed R466's disjoint id spaces. The id spaces are fine: |targets ∩ sat| = 968.
+        #    The kill fired UNVERIFIED rather than publishing n=0, which is what it is for.
+        targets = SC.load_targets()[0]
     except Exception as e:
         print(f"  ⛔ UNRUNNABLE: could not load human rankings -- {type(e).__name__}: {e}")
         print("     Exit 2, never 0.")

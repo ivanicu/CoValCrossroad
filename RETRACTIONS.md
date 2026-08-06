@@ -22994,3 +22994,41 @@ from a different pairing, recorded in the artifact as borrowed rather than used 
 ⭐ **The general rule this earns**: *"this is an approximation"* is not a limitation, it is a
 placeholder for one. **A caveat has to name the DIRECTION**, because a bound that errs toward your
 own conclusion is not a caveat at all — it is the conclusion, restated as modesty.
+
+## 1297 · the true between-arm resolution is half what I bounded it at, and one pair separates
+
+R836's NEXT said *"measure ρ."* ⛔ **ρ was only ever a route to `MDE_AC`.** R436's arm path needs the
+human rankings and the committed `sat_*.npz` — **no response texts, no features, no judge** — so the
+per-prompt difference vector is computable **directly**. §4's *does the data have more to give?*,
+asked **before** the re-run this time rather than three rounds after.
+
+| upper | lower | n | gap | **TRUE MDE** | R835's | verdict |
+|---|---|---|---|---|---|---|
+| `gen` | `random_k12_s0` | 968 | **+0.0347** | **0.0118** | 0.0232 | **SEPARABLE** (2.9×) |
+| `generic` | `gen` | 968 | +0.0137 | 0.0104 | 0.0232 | inside 2×MDE |
+| `promptecho` | `topvar_k4_08b` | 398 | +0.0302 | 0.0221 | 0.0384 | inside 2×MDE |
+
+Controls: `oracle_k4` vs `generic` gap **+0.0759** / MDE **0.0106** → SEPARABLE · arm against itself,
+scored twice through the same path → **sd exactly 0** · three seeds byte-identical.
+
+⭐ **W-RESOLVED, and the substantive part matters: `gen` separates from the random cluster at 2.9× its
+true MDE.** The label-free class is **not** noise — clause ② holds *inside* it. R835's
+W-NO-SEPARABLE-BEST holds only at the resolution it assumed.
+
+⭐ **R836's derivation is validated by measurement.** Implied **ρ = 0.835 – 0.899**, close to its
+borrowed 0.8377 and in the predicted direction. ⚠ **But R836's published ρ\* used the 1× criterion
+while R835's verdict used 2×**, so its table **over-predicted** the flips. Recomputed at 2×, the
+thresholds are 0.719 · 0.956 · 0.923 and the measured ρ predicts **SEPARABLE · not · not** — **3 of
+3, exactly what R837 measured.** The derivation was right; the threshold it was evaluated at did not
+match its parent round.
+
+⛔ **AND THE KILL CAUGHT MY OWN BUG BEFORE IT BECAME A FINDING.** v1 passed `SC.load_targets()` — a
+**2-tuple** `(targets, demographics)` — as `targets`, so `p not in targets` tested membership in a
+2-element tuple and returned **n = 0 for every pair**. **I briefly blamed R466's disjoint id
+spaces.** They are fine: **|targets ∩ sat| = 968.** The conditional kill returned **UNVERIFIED**
+instead of publishing a zero, which is exactly what it is for — and the reflex to blame a *recorded*
+prior defect before checking my own call is the thing to watch.
+
+⚠ **Neither R835's nor R836's pre-registered verdict is rewritten.** Both fired as written; both are
+annotated with what R837 measured. **And the per-prompt difference vectors are persisted this
+time**, because R436 not persisting them is what cost these two rounds a round each of bounding.

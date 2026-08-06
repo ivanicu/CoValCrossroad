@@ -45,6 +45,12 @@ class does not separate from random"* is the claim most at risk from R835's unst
 
 **W-CONSERVATIVE.** R835's null is scope-dependent, and its scope is **ρ ≤ its own implicit 0.5**.
 
+> ⚠ **CORRECTED BY R837 — the ρ\* above use the 1× criterion, while R835's verdict used 2×.**
+> So this table **over-predicts** how many pairs flip at R835's own bar. Recomputed at 2×, the
+> thresholds are **0.719 · 0.956 · 0.923**, and R837's measured **ρ = 0.870 · 0.899 · 0.835**
+> predicts **SEPARABLE · not · not** — which is exactly what R837 measured, **3 of 3**.
+> **The derivation was right; the threshold it was evaluated at did not match its parent round.**
+
 ## What this round does not do
 
 ⚠ **ρ is not measured here** — the per-prompt difference vectors were never persisted — so **no pair
