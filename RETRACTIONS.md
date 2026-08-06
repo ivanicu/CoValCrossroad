@@ -25061,3 +25061,55 @@ and both return 0. The hostile object exists to prove the instrument can report 
 because it never reached its target is indistinguishable, from the outside, from a control that passed
 because the code is sound — and the difference is one line of the control's own behaviour. **Before
 believing a control's zero, check that the control's input actually traverses the branch under test.**
+
+## 1342 · the gate is sound, and I added a check that cannot fail while writing the round about checks that cannot fail
+
+Entry 1341 caught a control of mine that passed **without reaching the code it tested**. The NEXT
+pointed the same question at `a_control_that_cannot_fail.py`, which exists to catch that shape.
+
+### ⭐ THE GATE IS SOUND — AND THIS IS A MEASUREMENT, NOT AN ASSUMPTION
+
+**Test: disable the detector and require every plant to go undetected.** A plant that still "fires"
+with the rule off was never testing the rule.
+
+| | detector live | detector stubbed to `[]` |
+|---|---|---|
+| plant `a / a is identically 1` | flagged **True** | **False** — correctly missed |
+| plant `a - a is identically 0` | flagged **True** | **False** — correctly missed |
+| `SYNTH_CLEAN` not flagged | **True** | **True** ⚠ |
+
+**Both positive plants genuinely traverse the detection branch** — the opposite outcome to entry
+1341's probe, and the test could have gone either way.
+
+⚠ **But the g=0 arm is individually vacuous**: `SYNTH_CLEAN not flagged` is **True whether the rule
+works or is absent**, so on its own it cannot distinguish a live rule from no rule. **It is sound only
+because the code already requires the conjunction** — `synth_ok = all(fired.values()) and
+synth_clean`. Written as a named pair with an explicit `and`, which is precisely what my inline probe
+last round was not.
+
+### ⛔ AND THEN I ADDED A CHECK THAT CANNOT FAIL
+
+To make the inversion durable I wrote `plants_reach_the_branch()`: stub `audit` to return `[]`, run
+the plants, require none to fire. It printed `0 of 2  PASS` and the gate exited 0.
+
+**It cannot do anything else.** With `audit` stubbed to `[]`, `any(... for ... in [])` is `False` for
+every plant, so `reach_ok` is `True` **unconditionally** — the first row of §4's table, built by me,
+in the round about that row, one command after reporting it.
+
+⭐ **And it was redundant as well as vacuous.** A plant that did **not** reach the detection branch
+**could not be flagged by the real detector** — so `fired == True` already proves reach. The property
+I set out to add was established by the arm that was already there.
+
+**Reverted.** `git checkout` on the file; gate still exits 0. Keeping a decoration that always passes
+would have added a line to the output and nothing to the evidence.
+
+### ⭐ WHAT ACTUALLY SEPARATES THE TWO CASES
+
+Entry 1341's failure was **not** "the plant missed the branch in a way a positive arm cannot see". It
+was that the crash case **had no positive arm at all** — I invented a hostile object and never asked
+whether it could produce a detection. Here the positive arm exists, passes, and thereby carries the
+reach property for free.
+
+**So the rule is narrower and more useful than "check that your plant reaches the branch":**
+**a positive control that FIRES already proves reach; a control with no positive arm proves nothing,
+and adding a second arm that cannot fail does not fix it.**
