@@ -401,7 +401,42 @@ defence is contradicted by the elicitation format.**
 > honest about its own search** — R845 showed the margin is measurable and resolvable, R848 showed the
 > bound moves at a measurable rate. **It costs the word "every"**, and with it the appearance that the
 > clause states a universal property. **That appearance was never true**: every "every" in this
-> definition has always been a max over something someone enumerated. The metric is still
+> definition has always been a max over something someone enumerated.
+>
+> ## ⭐⭐⭐ AND R849 INSTANTIATED IT AND COUNTED ITS EXTENSION — the proposal survives its own test
+>
+> *(entry 1369. It could have failed; the same question killed four earlier clauses.)*
+>
+> **Reference class R = 394 response-only rules, named in full. Bar selected on the ODD annotators
+> (`+mean_word_len+uppercase`, 0.4785) and every margin evaluated on the EVEN half (bar 0.4820) —
+> the other writer's R843 remedy, because selecting on the scoring set would FLATTER the clause.**
+>
+> | control | result |
+> |---|---|
+> | PLACEBO bar vs itself | **+0.00e+00 · PASS** |
+> | POSITIVE `oracle_k4` | satisfies, **+0.1390 · PASS** |
+> | NEGATIVE `random_k4_s0` | does **not** satisfy · **PASS** |
+>
+> | | |
+> |---|---:|
+> | arms tested | **99** (77 survive BH q=0.05; 22 non-survivors) |
+> | **EXTENSION of ④′** | **41** |
+> | **arms EXCLUDED** | **58** |
+> | `coval_core` | **+0.0794 [+0.0667, +0.0915] — SATISFIES** |
+>
+> ⭐ **Strictly between 1 and 99** — neither the *describes-the-instance* failure nor decoration.
+> **It excludes 58 admissible objects, which neither reading of the original ④ could do** (strict
+> excluded 0; permissive excluded the core).
+>
+> ⭐⭐⭐ **And the negative control is the whole argument for the margin form:** `random_k4_s0` has a
+> **positive point estimate, +0.0057.** The original wording *"scores better than"* is a point
+> comparison and **admits it**. ④′'s interval **rejects it**. **The original clause would have called
+> a random baseline better than every rule computable from responses alone.**
+>
+> ⚠ **Not claimed:** that 41 of 99 is selective enough to *define* a core — it is one clause of four,
+> and ①②③ do the rest. The extension is **scoped to this R**; a richer R (char n-grams, R825) raises
+> the bar and shrinks it, which is precisely why the clause **requires R to be stated**. **Construct
+> validity is untouched** — no external gold standard for corehood exists. The metric is still
 > **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
 > that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a

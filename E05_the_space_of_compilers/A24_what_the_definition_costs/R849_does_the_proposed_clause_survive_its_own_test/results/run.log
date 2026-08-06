@@ -1,0 +1,16 @@
+  prompts usable: 1078
+  prompts with BOTH halves non-empty: 1078
+  reference class R: 394 rules, named in full and persisted
+  bar rule selected on the ODD half: `+mean_word_len+uppercase` (odd-half A2 0.4785)
+  its EVEN-half A2 (the bar every arm must clear): 0.4820
+  PLACEBO  bar rule vs itself: +0.00e+00  PASS
+  POSITIVE  `oracle_k4` must satisfy ④′: True (+0.1390 if present)  PASS
+  NEGATIVE  `random_k4_s0` must NOT satisfy: True (+0.0057 if present)  PASS
+
+  MULTIPLICITY  99 arms tested · 77 survive BH q=0.05 · 22 non-survivors
+  ⭐ EXTENSION of ④′: 41 of 99 arms
+     `coval_core`: margin +0.0794 [0.06666721591750795, 0.09147824323837253] — SATISFIES
+  ⭐ WORLD C: extension is strictly between — ④′ DOES definitional work
+     excluded: 58 arms. A clause is only as good as what it excludes.
+
+  artifact: results/proposed_clause_extension.json @ 0c2d498f

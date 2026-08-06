@@ -26369,3 +26369,51 @@ artifacts. **What was new is that nobody had put them in one table**, and the ta
 conclusion neither round stated alone. **Could it have come out otherwise?** Yes — a non-zero strict
 count would have made strict work, and a permissive exclusion set without the core would have made
 permissive work. Both were live until the artifacts were read.
+
+## 1369 · R849 — the proposed clause survives its own test, and the negative control is the argument
+
+Entry 1368 proposed a repair for ④. **A proposal is a suggestion until its extension is counted**, and
+the question that killed four earlier clauses — *name an admissible object this clause EXCLUDES* —
+now pointed at my own wording. **It could have failed.**
+
+### ⭐ CONTROLS — all three required, all three passed
+
+| control | result |
+|---|---|
+| **PLACEBO** bar rule vs itself | **+0.00e+00 exactly** |
+| **POSITIVE** `oracle_k4` must satisfy | **True, +0.1390** |
+| **NEGATIVE** `random_k4_s0` must NOT | **True** |
+
+⚠ **Selection held out, verbatim from the other writer's R843:** bar chosen on the **ODD** annotators
+(`+mean_word_len+uppercase`, 0.4785), every margin evaluated on the **EVEN** half (bar **0.4820**).
+Selecting on the scoring set would inflate the bar and **flatter** the clause.
+
+### ⭐⭐ RESULT — world C
+
+| | |
+|---|---:|
+| arms tested | **99** (77 survive BH q=0.05, 22 non-survivors) |
+| **EXTENSION of ④′** | **41** |
+| **arms EXCLUDED** | **58** |
+| `coval_core` | **+0.0794 [+0.0667, +0.0915] — SATISFIES** |
+
+⭐ **Strictly between 1 and 99.** Neither *describes-the-instance* nor decoration — **58 admissible
+objects excluded**, which **neither reading of the original ④ could manage** (strict excluded 0;
+permissive excluded the core itself).
+
+### ⭐⭐⭐ THE NEGATIVE CONTROL IS THE ARGUMENT FOR THE MARGIN FORM
+
+`random_k4_s0` has a **positive point estimate: +0.0057.** The original wording — *"scores better
+than"* — is a **point comparison and admits it.** ④′'s interval **rejects it.**
+
+**The original clause would have called a random baseline "better than every rule computable from
+responses alone."** That is the admissible object the margin form excludes and the original admits —
+the register's test, passed constructively rather than by another retraction.
+
+### ⚠ NOT CLAIMED
+
+- **41 of 99 is not "selective enough to define a core."** ④′ is one clause of four; ①②③ do the rest.
+  **The claim is that it does definitional WORK.**
+- **Scoped to this R.** A richer R (char n-grams, R825) raises the bar and shrinks the extension —
+  **which is exactly why the clause requires R to be stated.**
+- **Construct validity untouched**: no external gold standard for corehood exists, and none is claimed.
