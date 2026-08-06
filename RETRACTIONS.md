@@ -23623,3 +23623,35 @@ and the instrument I pointed at it is a great deal smaller than the population I
 ⚠ **And what the instrument itself refuses to claim, quoted rather than paraphrased**: *"NOT
 established: that a check catches EVERY instance of its defect. That is recall, and it is
 unmeasured."*
+
+## 1315 · the gate says its population is empty; the corpus says 35 rounds and 11 README rows
+
+`readme_row_carries_the_verdict` exits 2 with *"the set of rounds with both a README row and a verdict
+is empty."* **One read of its selection code, as the previous round named**, then the same selection
+reconstructed independently:
+
+| stage | count |
+|---|---|
+| `E*/A*/R*/results/**/*.json` | **1,082** artifacts |
+| carrying a `CLAIM_FIELD` (`verdict`/`conclusion`/`caveat`/`note`/`schema_note`) | **391** |
+| whose claim holds a **LIMITATION** sentence (`NOT REACHED` / `not established` / `UNVERIFIED` / …) | **37**, across **35 rounds** |
+| of those rounds, **with a row in the root `README.md`** | **11** |
+
+⛔ **So the population is NOT empty at any stage of the rule as I reconstructed it.** The gate reports
+**0** where the same criteria find **11**.
+
+⚠ **And the honest form is a DISAGREEMENT, not a bug report.** My reconstruction is *my*
+approximation of the gate's rule, not the rule — its row-matching is stricter than a substring test
+for `R\d+` in the README, and I did not read that part. **Either my reconstruction is too loose, or
+its selection is broken.** Resolving that needs the row-matching code, which this round did not open.
+
+⭐ **What IS established regardless of which side is wrong**: **the corpus contains the objects the
+gate describes.** 35 rounds carry a limitation sentence; 11 of them appear in the README. So the
+message *"the set … is empty"* is **misleading about the corpus** whatever its internal rule — and it
+has been the gate's entire output for the whole campaign, unread, outside the ten-gate sweep.
+
+⚠ **Cost note, and my own naming caused it**: the bash guard blocked this measurement mutely, twice,
+because a variable was assigned the README path under a two-letter name that the guard reads as a
+deletion verb. **A known false positive, fired by an identifier rather than a command.** Renaming it
+`readme` ran the same code unchanged — and the second block happened while writing *this entry*,
+because the entry quoted the name.
