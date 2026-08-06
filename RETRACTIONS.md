@@ -19920,3 +19920,39 @@ and took the whole round to UNVERIFIED. Repaired by making the covariate clause 
 covariate **exists**, and printing `undefined (no plant)` at width 0. *Seventh instance this arc of a
 control that cannot pass, and the third whose cause is a degenerate quantity rather than a wrong
 threshold — a cosine identity, a zero-variance statistic, and now a constant regressor.*
+
+## 1113 · k died on a composition table, with no measurement at all
+
+R776's NEXT registered k-overlap as the next candidate axis. The families' k-sets settle it before any
+code runs: `F3` and `M` are **both {4}** — k-overlap 1.000 — and correlate at **−0.0137**, the lowest
+of the fifteen pairs; `Ra` and `M` share **no** k and correlate at **+0.7151**, the highest.
+corr(k-overlap, relative correlation) = **+0.1620** with its two extremes inverted. *Three closing
+lines in a row have now named an axis that the composition of my own families refuted — rule, then k —
+and both were readable from a table I could have printed when I built the families. The pattern is not
+that the guesses are bad; it is that I write the guess into the NEXT line instead of testing it in the
+round that has the data open.*
+
+## 1114 · the second arm-free covariate, genuinely different, and dead the same way
+
+R776's `poolspread` measured the spread of satisfaction VALUES. R777's `orderdisagree` measures
+disagreement among the criteria's INDUCED ORDERINGS — the quantity a random draw's variance actually
+depends on. They are not the same: **corr = −0.5901**, and *negatively* related. Measured against the
+six families: **+0.07 to +0.22**, **0 of 4** random-containing families above 0.30, **5 of 6** below
+0.15, and — the decisive cell — conditioning on it drops the M×R co-movement from 0.60 to 0.60, a
+**0.4–0.7%** change. ⭐ And the gap runs BACKWARDS: the two NON-random families correlate more (0.182)
+than the four random-containing ones (0.090). *Two arm-free pool statistics have now been built and
+both failed to touch a co-movement of 0.59–0.72. The register gains a line that is worth more than
+either round's hypothesis: no pool statistic tried explains it.*
+
+## 1115 · a derivation I labelled FORCED is 6.5x absent from the data it was derived about
+
+D3 stated, before the run: *"a random draw's expected |d| rises with ordering disagreement BY
+CONSTRUCTION — if all 16 criteria induce one ordering, any two draws agree and |d| = 0 whatever k
+is."* The positive control builds that world and the mechanism fires hard: **+0.6260, +0.6503,
++0.5465** across the sweep, and **UNDEFINED** at zero disagreement. The real `random_k` families show
+**+0.0699 to +0.0994** — **6.5x less**. **The forcing argument is not wrong; the synthetic world proves
+it operates. What is wrong is that its premises do not describe these arms.** ⭐ That is a sharper
+result than either world the round registered, and it came from a control rather than from an
+estimand. *A derivation is a claim about a MODEL, and labelling one "forced" says nothing about
+whether the object obeys the model — the only thing that separates them is building the model's world
+and measuring the gap, which is what a positive control is for.*

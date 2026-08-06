@@ -5590,3 +5590,41 @@ in the diff-rule block. **Post-hoc**: pure-random pairs **0.6279** vs pairs with
 **Controls.** DISJOINT 0 shared objects · POSITIVE planted scale, all 15 detected from width 0.25,
 covariate 0.5806 → 0.9106, monotone · g=0 not all detected at width 0 · NEGATIVE **+0.0058 [−0.0607,
 +0.0651]** · SHAM as above · PLACEBO **1.000000**.
+
+## R777 · ordering disagreement — the second arm-free candidate, and a failed derivation
+
+**Scope.** population = 968 prompts; R776's six disjoint families unchanged; instrument = A2 per
+prompt over all annotators, plus `orderdisagree(p)` = mean pairwise disagreement of the 16 pool
+criteria's induced sign vectors over the 6 response pairs; regime = first release, home judge, this
+tree_sha.
+
+**k is dead by derivation.** `F3` × `M` share k exactly (both {4}) → **−0.0137**, the lowest of 15;
+`Ra` × `M` share none → **+0.7151**, the highest. corr(k-overlap, relative) = **+0.1620**.
+
+**The covariates are distinct.** corr(orderdisagree, poolspread) = **−0.5901**; corr(orderdisagree,
+tieshare) = **+0.7392** (the registered confound). `orderdisagree` mean **0.2618**, sd **0.1210**.
+
+| family | random? | corr | partial (tie share) |
+|---|---|---|---|
+| F1_committed | — | **+0.2182** | +0.1755 |
+| F3_target | — | +0.1461 | +0.1089 |
+| Rb_random_s1 | RANDOM | +0.0994 | +0.0550 |
+| Rc_random_s2 | RANDOM | +0.0961 | +0.0236 |
+| M_mixed_sel | RANDOM | +0.0956 | +0.0677 |
+| Ra_random_s0 | RANDOM | +0.0699 | +0.0385 |
+
+random-containing mean |corr| **0.0902** · others **0.1821** · **gap −0.0919** (backwards).
+**0 of 4** random families ≥ 0.30; **5 of 6** < 0.15. **WORLD B.**
+
+**Conditioning changes nothing.** `Ra`×`M` 0.6017 → 0.5992 (**0.4%**) · `Rb`×`M` 0.5917 → 0.5878
+(0.7%) · `Rc`×`M` 0.5895 → 0.5857 (0.6%).
+
+**The failed derivation.** D3 held that |d| must rise with ordering disagreement by construction. The
+synthetic control confirms the mechanism — width 0.25 → **+0.6260**, 0.50 → **+0.6503**, 1.00 →
+**+0.5465**, and **UNDEFINED** at zero disagreement — so it recovers **6.5×** what the real arms show.
+⚠ Not monotone at the top: at high disagreement the between-prompt variance the correlation needs
+collapses.
+
+**Controls.** POSITIVE as above · g=0 undefined at zero, printed as undefined · NEGATIVE 200
+permutations **+0.0011 [−0.0604, +0.0674]** · SHAM random draw from the covariate's own distribution
+**+0.0033 [−0.0657, +0.0662]** · PLACEBO **1.000000**.

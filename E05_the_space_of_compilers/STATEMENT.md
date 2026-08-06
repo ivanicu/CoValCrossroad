@@ -415,7 +415,18 @@ A **core** for a conversation is a set of criteria such that
     gap. ⚠ **Both numbers are post-hoc**: the registered axis test returned **p = 0.2000** because
     `M_mixed_sel` holds **3 of 5** `random_k` arms, so pairs I labelled *diff-rule* were majority
     same-rule. ⚠ And `M` reaches **0.70+** with each pure-random family — **above** the pure-random
-    block — which no rule story predicts. And the confound is answered: the
+    block — which no rule story predicts.
+    ⛔⛔ **AND k IS NOT THE AXIS EITHER, NOR IS A SECOND ARM-FREE POOL STATISTIC** *(R777)*. The
+    k-identical pair (`F3` × `M`, both k = {4}) is the **lowest** at **−0.0137** and a zero-overlap
+    pair (`Ra` × `M`) the **highest** at **+0.7151** — k dies on the composition table with no
+    measurement. And `orderdisagree(p)`, the mean pairwise disagreement of the 16 pool criteria's
+    **induced sign vectors** (arm-free, and genuinely distinct from `poolspread`: they correlate
+    **−0.5901**), correlates with the six families' scales at **+0.07 to +0.22** — **0 of 4** random
+    families reach 0.30, **5 of 6** sit below 0.15 — and conditioning on it drops the M×R co-movement
+    by **0.4–0.7%**. ⭐⭐ **A derivation I labelled FORCED failed by 6.5×**: the same mechanism recovers
+    **+0.65** in a synthetic pool where it is the only signal, against **+0.099** in the release. So
+    the real `random_k` arms do not behave like random draws from this pool, and **two arm-free pool
+    statistics now fail to explain a co-movement of 0.59–0.72.** And the confound is answered: the
     `topw_k` family is an inverted U peaking at **k = 6** (eff/MDE 1.311) with `eff/MDE` falling
     monotonically 6 → 8 → 12, so `topw_k8` is not an anomaly but where the curve re-enters the floor.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own
