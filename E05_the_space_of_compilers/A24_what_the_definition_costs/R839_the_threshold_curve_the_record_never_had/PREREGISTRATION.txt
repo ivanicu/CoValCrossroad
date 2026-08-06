@@ -1,0 +1,52 @@
+R839 · the threshold curve the record never had
+registered 2026-08-06, BEFORE execution.
+
+⛔ MY OWN NEXT INVOKED PRE-REGISTRATION TO AVOID A CURVE THE STANDARD REQUIRES.
+   It said re-thresholding 133 pre-registered rounds "would invalidate the pre-registrations that
+   make them readable." That is false, and G4 says so in the standard's own words: enumerate every
+   defensible choice and run all of them, reporting the cells that KILL the finding.
+   A pre-registration protects against CHOOSING A THRESHOLD AFTER SEEING THE RESULT. It does not
+   forbid REPORTING THE CURVE. I conflated the two and used the first to excuse skipping the second.
+   R836 already did exactly this for R835 and nobody called it invalid.
+⛔ AND THE DATA IS ALREADY ON DISK. Measured before designing: of 563 artifacts under A24, 47
+   persist BOTH an effect and its MDE per cell -- 1,335 cells whose threshold sweep costs nothing.
+
+ESTIMAND
+  Across every cell that persists an effect and its MDE, the share whose SEPARABLE/not verdict
+  changes between the 1x and 2x thresholds -- reported per CELL and per ROUND. Named before method.
+
+⚠ STRONGEST CONFOUND, WRITTEN BEFORE THE RUN, WITH ITS CONTROL IN THE SAME ITERATION
+  The cell count is dominated by a few rounds: R789 alone holds 416 of 1,335, so a cell-level share
+  is mostly a statement about R789. CONTROL: report the per-ROUND distribution beside the pooled
+  cell share, and report the pooled share with the largest round EXCLUDED. If those disagree, the
+  per-round number is the finding and the pooled one is an artifact of where cells accumulated.
+
+WORLDS
+  W-ROBUST              few verdicts move. The 1x/2x inconsistency is cosmetic and the record reads
+                        the same either way.
+  W-THRESHOLD-DEPENDENT a material share moves. Then a large part of the committed record depends
+                        on a choice that was never stated as a choice, and the curve belongs beside
+                        every one of those verdicts.
+
+POSITIVE CONTROL  a synthetic cell with gap = 1.5x MDE MUST flip between the two thresholds, and one
+                  with gap = 5x MDE must NOT. Both required: the first bounds blindness, the second
+                  bounds over-firing.
+NEGATIVE CONTROL  a cell with gap exactly 0 must never be separable at either threshold.
+g=0               three PYTHONHASHSEEDs byte-identical; the computation is deterministic by
+                  construction and this checks that claim rather than assuming it.
+
+KILL -- a CONDITIONAL
+  if the 1.5x synthetic flips AND the 5x synthetic does not AND the zero cell is never separable:
+      evaluate -> W-THRESHOLD-DEPENDENT if the per-ROUND median share exceeds 0.10, else W-ROBUST
+  else:
+      UNVERIFIED, and no share is reported.
+
+MULTIPLICITY   every round contributing a cell is listed with its own share, survivors and
+               non-survivors alike. No round is dropped for being small.
+SCOPE          population: the 47 artifacts under A24 persisting an effect and an MDE per cell.
+               instrument: the committed artifacts, read. baseline: the round's own MDE. regime:
+               whatever each round measured -- ⚠ THE CELLS ARE NOT COMMENSURABLE ACROSS ROUNDS and
+               the share is a count of verdict changes, never a pooled effect size.
+ARTIFACT       results/r839_threshold_curve.json -- per round: cells, flips at each threshold.
+IMPOSSIBLE     rounds whose artifacts do not persist an MDE cannot be swept and are reported as
+               OUT OF SCOPE with their count, never silently omitted.
