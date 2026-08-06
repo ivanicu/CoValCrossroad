@@ -6481,3 +6481,38 @@ POSITIVE two synthetic crossed grids — interaction-heavy 0.01/0.03/0.12 recove
 **0.012/0.030/0.118**, prompt-heavy 0.01/0.12/0.03 as **0.013/0.123/0.027**, both distinguished in
 the right direction · NEGATIVE criterion labels shuffled within prompt drives `s2_criterion`
 **0.000237 → 0.000004** with the total unchanged to **3.5e-18**. **WORLD B.**
+
+## R801 · the pooled-mean/robustness frontier over 1,820 blind cores
+
+**Well-posedness first.** `select_core.py:121` loops PER PROMPT, so rubric-derived arms have no
+cross-prompt objective and cannot express this choice. It is real only for BLIND arms, where one
+criterion set serves all 968 prompts — giving C(16,4) = **1,820** candidate cores.
+
+**Derived before measuring.** D1 two anchors — the all-16 subset IS `genericpool16` (exact) and
+(0,1,2,3) IS `generic` ⛔ (**refuted by R788 before this round was written**: same criterion set,
+different judge pass, satisfactions differing by mean |Δ| 0.005638). D2 an affine robustness
+statistic cannot disagree with the mean, so the estimand is the RESIDUAL. D3 a worst-decile is an
+order statistic, biased down and noisier. D4 the 1,820 share the same prompts, so differences need a
+PAIRED bootstrap.
+
+**E1 · the space**: pooled mean **[0.5144, 0.5575]**, across-subset sd **0.0082**; cross-prompt sd
+**[0.1479, 0.1614]**, noise-corrected **[0.1354, 0.1501]**; worst-decile **[0.2257, 0.2783]**.
+
+**E2 · the residual**: −cross-prompt sd R² on the mean **0.7844** (residual sd 0.00119) ·
+worst-decile **0.8366** (0.00417) · −noise-corrected sd **0.7843** (0.00129). Argmaxes:
+pooled mean **(0,3,9,14)** · −sd **(1,2,3,14)** · worst-decile **(0,1,9,14)** — **the two robustness
+statistics disagree with each other.**
+
+**E3 · the price**: mean forgone by the −sd argmax **+0.00358 [−0.00136, +0.00818]**, by the
+worst-decile argmax **+0.00085 [−0.00280, +0.00429]** — both **unresolved**. Pareto-optimal in
+(mean, −sd): **4 of 1,820**, and the pooled-mean winner is among them.
+
+**E4 · the released blind arm**: `generic` = `POOL[0:4]` — mean **0.5504, percentile 93.7**;
+cross-prompt sd **0.1504, percentile 3.1**; worst-decile 0.2721. Near-optimal on both at once.
+
+**Controls.** OBJECT anchor 1 exact at **0.0e+00**; anchor 2 **|Δ| 0.000918** inside R788's
+**0.005638** after repair, having exited 2 first · PLACEBO **0.0e+00** · POSITIVE a mean-preserving
+perturbation leaves the mean at **+0.00e+00** while cross-prompt sd goes 0.1490 → **0.1500** →
+**0.1731** and the decile 0.2765 → **0.2726** → **0.2436** · NEGATIVE humans shuffled sends the mean
+**0.5386 → 0.4247** · NOISE FLOOR per-prompt split-half variance **0.003527**.
+**NO WORLD CLAIMED** — the pre-registered first branch.

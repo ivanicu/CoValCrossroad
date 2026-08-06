@@ -2150,3 +2150,41 @@ placebo **0.0e+00** · POSITIVE two synthetic grids recovered as **0.012/0.030/0
 
 **Scope**: 968 prompts × 16 criteria fully crossed (15,482 of 15,488 cells) × all annotators · first
 release, home judge.
+
+## R801 · "Robust across prompts" is not one objective — two statistics, two different winners
+
+Over all **1,820** blind 4-criterion cores (C(16,4) of `genericpool16`):
+
+| objective | argmax subset | value |
+|---|---|---:|
+| pooled mean | **(0, 3, 9, 14)** | 0.5575 |
+| −cross-prompt sd | **(1, 2, 3, 14)** | sd 0.1479 |
+| worst-decile | **(0, 1, 9, 14)** | 0.2783 |
+
+**The two robustness statistics disagree with each other**, not merely with the mean — the branch the
+preregistration checked FIRST, so **no world is claimed**. And the price is unresolved either way:
+mean forgone **+0.00358 [−0.00136, +0.00818]** and **+0.00085 [−0.00280, +0.00429]** on a paired
+bootstrap.
+
+⚠ **Four fifths of "robustness" is the mean restated**: R² on the pooled mean **0.7844** (−sd),
+**0.8366** (worst-decile), **0.7843** (noise-corrected). Only **4 of 1,820** are Pareto-optimal in
+(mean, −sd), and the pooled-mean winner is among them.
+
+⭐ **The released blind arm is already near the joint optimum**: `generic` = `POOL[0:4]` sits at
+**percentile 93.7** on the mean and **percentile 3.1** on cross-prompt spread.
+
+⛔⛔ **And half the population cannot ask this question**: `select_core.py:121` selects **per prompt**
+from that prompt's own rubric, so rubric-derived arms have no cross-prompt objective to vary.
+
+⛔ **My own object anchor was refuted by R788 before I wrote it.** D1 demanded the subset (0,1,2,3)
+equal `generic`'s A2 to 1e-9; the run exited 2 at **0.5504358540** against **0.5513543392**. R788 had
+established they are the same criterion set scored in **different judge passes** (mean |Δ|
+**0.005638**). Repaired to that tolerance: observed **|Δ| 0.000918**. The other anchor is exact — the
+all-16 subset **is** `genericpool16`, |Δ| **0.0e+00**.
+
+**Controls**: placebo **0.0e+00** · POSITIVE a mean-preserving perturbation leaves the mean at
+**+0.00e+00** while both robustness statistics move monotonically (sd 0.1490 → 0.1500 → **0.1731**) ·
+NEGATIVE humans shuffled sends the mean **0.5386 → 0.4247** · NOISE FLOOR per-prompt split-half
+variance **0.003527**.
+
+**Scope**: 1,820 subsets × 968 prompts × all annotators · NBOOT 1,200 · first release, home judge.

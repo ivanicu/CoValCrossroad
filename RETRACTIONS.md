@@ -20759,3 +20759,35 @@ read a share off that. **The same selection-on-outcome error at a coarser grain,
 diagnosing it.** Check #402 caught it before any code. The identified version is reported here: naive
 **0.733** against deconvolved **0.743**, so the bias was small this time — *which was not knowable in
 advance, and is exactly why the design had to be replaced rather than run and checked afterwards.*
+
+## 1189 · "robust across prompts" is not one objective, and its two statistics pick different winners
+
+Over all **1,820** blind 4-criterion cores: the pooled mean is maximised by subset **(0,3,9,14)** at
+0.5575, the negated cross-prompt sd by **(1,2,3,14)**, and the worst-decile by **(0,1,9,14)**. **The
+two robustness statistics disagree with EACH OTHER**, not merely with the mean — which the
+preregistration made the branch checked FIRST, so the round claims no world rather than choosing the
+statistic that gives an answer. And the price is unresolved either way: mean forgone **+0.00358
+[−0.00136, +0.00818]** and **+0.00085 [−0.00280, +0.00429]** on a paired bootstrap. ⚠ D2's trap was
+real — the robustness statistics are **R² 0.78–0.84** on the mean, so four fifths of "robustness" is
+the mean restated. *An objective that cannot be stated one way is not an objective a definition can
+adopt.*
+
+## 1190 · my own object anchor was refuted by R788 before I wrote it
+
+D1 required the subset (0,1,2,3) to equal `generic`'s committed A2 to **1e-9**. The run exited 2 at
+**0.5504358540** against **0.5513543392**. R788 — committed by me — had already established that
+`generic` IS `POOL[0:4]` as a criterion SET but was **scored in a different judge pass**, with
+satisfactions differing by mean |Δ| **0.005638** and up to 0.121 on 73 of 968 prompts. **An exact
+match was never available and my own prior round contained the reason.** Repaired to agreement within
+that measured discrepancy: observed **|Δ| 0.000918**. ⭐ The other anchor stands exact — the all-16
+subset IS `genericpool16`, **|Δ| 0.0e+00**. *Reading my own committed rounds before writing an anchor
+would have cost one grep; not reading them cost a run.*
+
+## 1191 · and the released blind arm is already near the joint optimum of 1,820
+
+`generic` = `POOL[0:4]` sits at **percentile 93.7 on the pooled mean** and **percentile 3.1 on
+cross-prompt spread** — top decile on one, bottom decile on the other, simultaneously. Only **4 of
+1,820** subsets are Pareto-optimal in (mean, −sd) and the pooled-mean winner is one of them. *So the
+choice R800's NEXT asked the definition to make was never forced for the object the release actually
+ships, and the space is flat enough — across-subset mean sd **0.0082** against an across-prompt sd of
+**0.1549** — that no clause ② built on it could discriminate much of anything.*
