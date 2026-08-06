@@ -1,0 +1,68 @@
+R833 · the wall had a construction record behind it
+registered 2026-08-06, BEFORE execution.
+
+THE WALL I PUBLISHED ONE ROUND AGO, AND WHY IT IS THE FIRST THING CHECKED
+  R832 closed: "Narrowing it needs a per-arm construction record -- that is a requirement for the
+  next release, not something this one can answer." §4: AN UNCHECKED WALL IS UNVERIFIED, NEVER
+  SETTLED, and its real case is three "permanent limits" of a dataset, one of which was a query
+  never run.
+  The wall rests on DEFINITION.md's sentence "7 arms have provenance the source cannot classify".
+  ⛔ "THE SOURCE" THERE MEANS select_core.py's SELECTORS LIST. I read it as a claim about the
+  REPOSITORY. Instrument's unit vs claim's unit -- fourth time this session, and the first time I
+  inherited the error from my own document instead of making it fresh.
+
+ESTIMAND
+  For each arm ③ returns UNKNOWN: does a construction record exist in the repository, and does it
+  decide ③? Named before the method. The record is the commit that INTRODUCED the arm's core file
+  -- P1/L79's own discipline, "the commit IS the diary entry", which this campaign has applied to
+  every commit it has ever made.
+
+THE DECISION RULE, FIXED BEFORE ANY RECORD IS READ
+  ADMITTED   the record NAMES the arm's inputs, and those inputs contain no human labels, no
+             rubric, and no annotator scores.
+  EXCLUDED   the record names inputs that include any of those.
+  UNDECIDED  the record does not name the inputs. Silence is UNDECIDED, never a guess in either
+             direction, and an arm whose record is silent stays UNKNOWN.
+
+⚠ THE EPISTEMIC DISTINCTION THIS ROUND TURNS ON, STATED BEFORE THE RESULT
+  A construction record for an arm I BUILT is a record of my own ACTION, not a claim about the
+  world, and it is the primary source for that arm's provenance. For `coval_core` -- someone
+  else's object -- no such record exists and R475 correctly required the RELEASE's dataset card.
+  These are different evidentiary situations and the round must not collapse them.
+
+⚠ STRONGEST CONFOUND, WRITTEN BEFORE THE RUN
+  I am reading MY OWN commit messages and may decide they support the conclusion I want. Controls:
+  ① the decision rule above is fixed in source before any record is read; ② `coval_core` is the
+  POSITIVE CONTROL -- its ③ verdict is known EXCLUDED by R475, and if this method cannot reach a
+  decision for it the method is not reaching provenance at all; ③ every record's decisive sentence
+  is QUOTED in the artifact, so a later reader can overturn the reading without re-running.
+
+POSITIVE CONTROL  `coval_core`: the method must return a decision, and it must not be ADMITTED. If
+                  it returns ADMITTED the rule is over-firing toward the flattering answer.
+NEGATIVE CONTROL  a synthetic record naming no inputs must return UNDECIDED.
+g=0               the record extraction run twice must return identical text -- the producer
+                  invoked on both sides, not `x - x`.
+
+WORLDS
+  W-RECORD-EXISTS   >=1 UNKNOWN arm is decided by its record. The wall is FALSE, R832's interval
+                    lower end becomes established rather than a reading, and R831's "build a second
+                    family" NEXT is answered by arms already on disk.
+  W-WALL-STANDS     no UNKNOWN arm is decided. The wall is confirmed and stays as published.
+
+KILL -- a CONDITIONAL
+  if the positive control returns a decision that is not ADMITTED AND the negative returns
+  UNDECIDED AND g=0 is identical:
+      evaluate -> W-RECORD-EXISTS if any arm is decided, else W-WALL-STANDS
+  else:
+      UNVERIFIED, the wall is left as published, and no arm is reclassified.
+
+⚠ WHAT THIS ROUND MAY NOT DO
+  It may not change ③'s committed partition or DEFINITION.md's three-valued discipline. Those are
+  the instrument's output and a deliberate policy. This round reports what the RECORDS say beside
+  them, and any reclassification is a separate decision this round only supplies evidence for.
+
+SCOPE       population: the 11 arms ③ returns UNKNOWN over R831's 93. instrument: git log
+            --diff-filter=A on each arm's core_*.json, plus the fixed rule above.
+ARTIFACT    results/r833_records.json, with the decisive quote per arm and a source hash.
+IMPOSSIBLE  arms whose core file predates its builder, or whose record was squashed away, cannot
+            be reached by this method. They are reported as NO-RECORD, distinct from UNDECIDED.
