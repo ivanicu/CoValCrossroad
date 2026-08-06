@@ -1483,3 +1483,27 @@ quality*. R335's artifact still records `W-DECIDABLE`; **that verdict is superse
 
 ⚠ Whether this bound is *correct* needs re-running R336–R338, which this site cannot do. What R631
 established is that it was **stated only in `FORMULATION.md`**, which no gate reads.
+
+## R779 · The covariate route is closed by arithmetic, not by fatigue
+
+**No single prompt-level covariate available on this site can explain the arm families' co-movement,
+and the shortfall is a factor of 2.11.** To account for a co-movement of `r = 0.5943` a covariate `Z`
+needs `|corr(Z, each scale)| >= sqrt(r) = 0.7709`; the best any covariate in R776–R779 achieves with
+either scale is **0.3649** (`rubricdisagree`). The in-sample multiple correlation of all six together
+— fitted and evaluated on the same 968 prompts, so an over-optimistic ceiling — reaches at most
+**0.4290**, and **0 of 6 families** reach the requirement.
+
+⭐ **And the most-shared variable explains the least.** Realised criterion overlap is shared across
+families at **0.8871**, well above the scales' own 0.5943, and moves `|d|` by only −0.15. **Sharing is
+not mediation**: a common driver transmits co-movement in proportion to how much it *drives* the
+outcome, and four rounds of this thread searched for shared variables without asking that.
+
+⚠ **The bound is an INEQUALITY, and R779's preregistration stated it as an equality.** Partialling
+gives `r_AB.Z = (r_AB − r_ZA·r_ZB)/sqrt((1−r_ZA²)(1−r_ZB²))`, whose denominator inflates the partial
+and therefore pushes the measured drop **below** `r_ZA·r_ZB` except in the weak regime. All 18 cells
+are below their bound (worst gap −0.0691); none exceeds it. The registered POSITIVE, which demanded
+agreement within 0.05, **failed** at intermediate mediation and was rebuilt against a generative
+truth — a mediator carrying a share of 1.0 by construction, recovered at 1.0526 and 1.0000.
+
+**Scope**: 968 prompts · A2 over all annotators · six covariates × three M×R pairs · first release,
+home judge, tree_sha `1d64e4cdccc6`.

@@ -19994,3 +19994,27 @@ and UNDEFINED at fixed size — and the real families come in at **+0.105 to +0.
 small to matter (0 of 4 reach 0.30), so draw geometry is refuted regardless of sign. *A derivation
 labelled "forced" gets less scrutiny than a measurement, which is exactly backwards: nobody checks the
 arithmetic of a claim that announces itself as arithmetic.*
+
+## 1119 · R779's preregistered mediation bound was an inequality written as an equality
+
+D1 said *"the part of `corr(A,B)` a covariate Z can account for is bounded by `corr(Z,A)*corr(Z,B)`.
+**The bound is tight in both cases**"* — and then the POSITIVE control required the measured drop to
+**match** the product within 0.05. Exactly, `r_AB.Z = (r_AB − r_ZA·r_ZB)/sqrt((1−r_ZA²)(1−r_ZB²))`,
+and the denominator inflates the partial, so the drop sits **below** the product everywhere except
+where both correlations are small. The synthetic sweep produced gaps of **−0.0031 / −0.0848 /
+−0.1359 / +0.0080** and the round gated to UNVERIFIED, correctly. **"Tight in both cases" was true
+only because both cases I checked it against were in the weak regime** — 0.15 and 0.33, where the
+denominator is 0.99 — which is the same regime every real covariate on this site occupies, so the
+approximation would never have been caught by the data it was built for. *An approximation validated
+only inside the regime it will be used in is indistinguishable from a law until something walks out
+of that regime, and only a control with a DOSE SWEEP ever does.*
+
+## 1120 · the repair could have been a tautology, and the first repair I reached for was
+
+The obvious fix is to compare the measured drop against the **exact** partial formula. Both sides are
+then built from the same three correlations and the check cannot fail — §4's *check that cannot fail*,
+arrived at by way of a correct derivation rather than a careless threshold. The admissible repair is a
+**generative** truth instead: build `A` and `B` from a common `Z` so the mediated share is **1.0 by
+construction**, and require the measured drop to recover the whole correlation. It returns **1.0526**
+at w=0.5 and **1.0000** at w=1.0, and it can fail. *When an equality is corrected to an identity, the
+control stops being a control — the direction of the repair matters as much as its content.*

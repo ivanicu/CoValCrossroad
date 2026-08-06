@@ -1,0 +1,146 @@
+R779 · the mediation bound — what ANY single covariate would have to achieve, and how far the best is
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R778's NEXT registered the realised Jaccard overlap between two arms' criterion sets against their
+|d|, on the grounds that two `random_k` arms draw from the SAME rubric so their sets overlap and that
+overlap is the variable each pair's difference actually sees.
+
+CHECK #381 RAN IT, AND THE ANSWER IS A DECOMPOSITION RATHER THAN A HIT:
+    within a family   corr(overlap, |d|)                 **-0.1270 to -0.1758**
+    across families   corr(overlap_A, overlap_B)         **+0.8423 to +0.9304**
+    conditioning M x R on the mean overlap                drop **1.0% to 1.9%**
+So the four families share a near-common variable (overlap, r up to 0.93 -- far MORE shared than the
+scales themselves at 0.52-0.60) which is nearly IRRELEVANT to the outcome (|d|, r = -0.15). A shared
+driver transmits co-movement only in proportion to how much it DRIVES the outcome, and this one
+barely does.
+
+⭐ AND THAT IS AN ARITHMETIC LAW THIS THREAD HAS BEEN IGNORING FOR FOUR ROUNDS. For a covariate Z, the
+   part of `corr(A, B)` that Z can account for is bounded by `corr(Z,A) * corr(Z,B)`. Checked against
+   what is already committed:
+     overlap        0.92 x (-0.15) x (-0.15) = 0.021   observed drop 1.0-1.9%   MATCHES
+     rubricdisagree                0.33 x 0.36 = 0.119  observed drop 9.6%      MATCHES
+   **The bound is tight in both cases, and it was computable before either round ran.**
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the mediation bound `corr(Z,A) * corr(Z,B)` against the MEASURED drop in `corr(A,B)` when
+    conditioning on Z, for every covariate this thread has built: `poolspread` (R776),
+    `orderdisagree` (R777), `n_rubric`, `rubricdisagree`, `rubricspread` (R778), and realised
+    `overlap` (here). Six covariates x three M x R pairs.
+E2  the REQUIRED correlation: for a single covariate to explain a co-movement of `r`, it needs
+    `corr(Z, each scale) >= sqrt(r)`. With r = 0.59 that is **0.77**. Reported against the best
+    achieved, so the shortfall is a number rather than an impression.
+E3  whether ANY LINEAR COMBINATION of the six does better -- the multiple correlation of the six
+    covariates with each family's scale, which bounds what the whole set can explain jointly and is
+    the honest ceiling for "keep trying covariates".
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1, E2 exact -- both sides are computable correlations.
+E3 IDENTIFIED but OPTIMISTIC BY CONSTRUCTION: a multiple correlation fitted on the same 968 prompts it
+   is evaluated on is an in-sample ceiling, so it OVERSTATES what the covariate set can do. That makes
+   it a valid UPPER bound on the covariate programme and an invalid estimate of its performance, and
+   the round reports it only as the former.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  968 prompts; R776's six disjoint families, unchanged across R776-R779
+instrument  A2 per prompt over all annotators; six covariates from pool, rubric and criterion sets
+baseline    the measured drops from R776, R777, R778, recomputed here so the bound is checked against
+            numbers this round produces rather than quoted ones
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  THE MEDIATION BOUND. Partialling Z out of corr(A,B) removes `corr(Z,A)*corr(Z,B)` from the
+    numerator, so a covariate weakly related to either scale cannot explain much of their
+    correlation HOWEVER strongly the two families share it. **This is algebra**, and the round's
+    contribution is to CHECK it against six measured drops, not to discover it.
+D2  THE REQUIRED CORRELATION IS sqrt(r) IN THE SYMMETRIC CASE. To account for 0.59 a single covariate
+    needs about 0.77 with each scale. Also algebra. The measurement is the SHORTFALL.
+D3  OVERLAP IS SHARED MORE THAN THE SCALES ARE (0.92 vs 0.59) AND STILL EXPLAINS NOTHING. That is the
+    counter-intuitive cell and it is the reason D1 is worth stating: sharing is not mediation, and
+    four rounds of this thread searched for shared variables without checking whether they drive the
+    outcome.
+
+STRONGEST CONFOUND, written BEFORE the run: a covariate could mediate NON-LINEARLY, in which case a
+Pearson partial understates it and the bound does not apply. CONTROL IN THE SAME ITERATION: report
+the SPEARMAN version of every correlation beside the Pearson one, so a monotone-but-curved relation
+is visible; a genuinely non-monotone mediator would still escape, and that is in the register.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE BOUND HOLDS AND CLOSES THE PROGRAMME. Measured drops match `corr(Z,A)*corr(Z,B)` for all six
+    covariates, the best single covariate is far below sqrt(0.59), and the in-sample multiple
+    correlation is also below it. Then no covariate of this kind can explain the co-movement, the
+    search is closed with a number, and the residual is a property of the arms rather than of any
+    prompt-level variable available here.
+B · A COVARIATE BEATS ITS BOUND. Some measured drop materially exceeds the product, which would mean
+    the partial is picking up something the two-path decomposition misses -- suppression, or a
+    non-linearity -- and the bound is not the right instrument.
+C · THE JOINT SET REACHES THE THRESHOLD. The in-sample multiple correlation exceeds sqrt(0.59) for a
+    majority of families, in which case the programme is not closed and the next step is an
+    out-of-sample check of the combination rather than another single covariate.
+
+PREDICTION MATRIX
+  A -> every |measured drop - product| < 0.05 AND best single < 0.40 AND multiple R < 0.77
+  B -> some measured drop exceeds its product by >= 0.05
+  C -> multiple R >= 0.77 for >= 4 of 6 families
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE fires (a SYNTHETIC covariate constructed to mediate a known share recovers that share
+   within tolerance) and g=0 fires (a covariate independent of both scales removes ~nothing)
+   and PLACEBO fires (a family against itself = 1.0):
+        some drop exceeds its product by >= 0.05  -> WORLD B. The bound is the wrong instrument.
+        multiple R >= 0.77 for >= 4 families      -> WORLD C. The programme is not closed.
+        otherwise, if A's three conditions hold   -> WORLD A. The covariate search is closed with a
+                                                    number, and the residual is named as arm-level.
+        else                                      -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE  build `Z = a*scale_A + b*scale_B + noise` with a KNOWN implied product, and require the
+          measured drop to match it within 0.05. BAND, COMPUTED: at a = b = 0 the drop must be ~0
+          (g=0 below); at large a, b it must approach the full correlation. The threshold sits
+          strictly between two computed ends.
+g=0       a covariate drawn independently of both scales: measured drop must sit inside the negative
+          control's interval.
+NEGATIVE  permute each covariate across prompts, 200 draws, and report the drop distribution -- the
+          world excluded is "conditioning on ANY vector removes this much".
+SHAM      ingredient ABSENT, not inverted. Ingredient = THE COVARIATE'S RELATION TO THE SCALES. A
+          random vector with the same marginal distribution as the covariate, 200 draws.
+PLACEBO   a family's scale against itself = exactly 1.0.
+SPEARMAN  every correlation reported in both Pearson and Spearman form (the registered confound).
+UNIT      instrument unit = a PROMPT; intermediate = an ARM PAIR; claim unit = a COVARIATE (6) and a
+          FAMILY PAIR (3). All three named.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+6 covariates x 3 family pairs x {bound, measured drop, Pearson, Spearman} + 6 families x multiple R
++ 4 plant levels + 200 sham draws + 200 permutation draws. Whole table printed, including the
+covariates that beat or miss their bound.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+a NON-MONOTONE mediator                        a functional-form search, which on 968 prompts and six
+                                               covariates would be fitting noise; the Spearman column
+                                               bounds the monotone case only
+an out-of-sample multiple correlation          a held-out prompt set, which halves an n already
+                                               short by a factor of two (R769)
+cross-release                                  a second release
+independently replicated                       a second team; the session prompt forbids agents

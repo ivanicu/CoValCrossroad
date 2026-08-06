@@ -5659,3 +5659,30 @@ prompt over all annotators, covariates from the prompt's own rubric (`sat_full.n
 +0.0379, 0.50 → +0.1273, 1.00 → **+0.3109**, monotone · g=0 fixed size → **UNDEFINED** · NEGATIVE 200
 permutations **−0.0003 [−0.0552, +0.0667]** · SHAM **+0.0010 [−0.0619, +0.0549]** · PLACEBO
 **1.000000** · CONFOUND corr(`n_rubric`, a baseline arm's A2) **−0.0190**. **WORLD B.**
+
+## R779 · the mediation bound
+
+`corr(A,B)` between arm families **0.5943**. Required single-covariate correlation `sqrt(r)`
+**0.7709**. Best achieved with either scale **0.3649** (`rubricdisagree`) → **2.11× short**.
+
+**Bound vs measured drop**, 6 covariates × 3 M×R pairs, largest four:
+
+| covariate × pair | r(Z,A) | r(Z,B) | bound | measured | gap |
+|---|---|---|---|---|---|
+| rubricdisagree × Rc | +0.3588 | +0.3649 | +0.1309 | +0.0618 | −0.0691 |
+| rubricdisagree × Rb | +0.3393 | +0.3649 | +0.1238 | +0.0575 | −0.0663 |
+| rubricdisagree × Ra | +0.3206 | +0.3649 | +0.1170 | +0.0521 | −0.0649 |
+| overlap × Rb | −0.1708 | −0.1543 | +0.0264 | +0.0110 | −0.0154 |
+
+**All 18 gaps negative**; worst |gap| **0.0691**. Spearman bounds are larger than Pearson in every
+cell, so the Pearson figure does not flatter the null.
+
+**In-sample multiple correlation** (a ceiling, not an estimate): Ra **0.3938** · Rb **0.4110** ·
+Rc **0.4133** · F1 **0.3102** · F3 **0.2034** · M **0.4290**. Reaching 0.7709: **0 of 6**.
+
+**Overlap shared across families 0.8871** against scales at **0.5943**.
+
+**Controls.** PLACEBO **1.000000** · g=0 **+0.0000** inside the negative band · NEGATIVE 200
+permutations **+0.0001 [−0.0010, +0.0023]** · SHAM **+0.0000** · POSITIVE (rebuilt, generative share
+1.0 by construction) recovered **1.0526** at w=0.5 and **1.0000** at w=1.0 · SPEARMAN on every
+correlation. **WORLD A.**
