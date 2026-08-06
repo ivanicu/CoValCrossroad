@@ -117,6 +117,19 @@ all 1,820 size-4 subsets of ②'s own reference pool, **0.0687 below the weakest
 ⚠ **Its scope:** two releases, one judge, and a **30-rule hand-built family** standing in for "every
 criterion-free rule". The family is published in R435's artifact so that extending it is how this
 clause gets refuted.
+⭐⭐ **AND THAT ROUTE WAS TAKEN (R823) — THE CLAUSE SURVIVED IT.** R803's judge-free floor, on which
+R821 retained ④, was the max over **six** rules, and all six are members of this thirty. Recomputed
+on R803's own 968-prompt population, **`max_len_chars` 0.455679 is the argmax over the whole family,
+not merely over the subset — the 6→30 rise is exactly +0.000000**, and ④ still excludes **0 of 58**.
+The zero is admissible only because the sham prices it: 30 **random** scorers reach 0.440503 against
+0.437091 ± 0.002830 for a random six, so **pure selection buys +0.003412 on noise and the real rise
+is below that** — the extra 24 rules add less than random scorers of the same count would. And
+R803's choice of six was not luck: a **random** six of this thirty reaches only 0.439060 ± 0.018355,
+so the choice bought **+0.0166**, while a random six contains the argmax **6/30 = 0.200** of the time
+(measured 0.208 over 2,000 draws — the search's own positive control). ⚠ **The held-out bar moves the
+other way**: fitting the max on half the prompts and scoring on the other half gives 0.456094 ±
+0.004345 at m=6 and **0.454779 ± 0.004791 at m=30**, a rise of **−0.001315** — inside its own sd, so
+a direction and not a value, but the opposite of what "a larger class is a stronger bar" predicts.
 
 ---
 
@@ -7212,3 +7225,19 @@ matched size** — reproduces the real demographic subgroups at **corr 0.99988**
 plain prompt weighting at **0.99938**. The ingredient is not *which* groups; it is barely that
 grouping happens. **Any future proposal for a demographically-weighted estimand should be shown this
 number before it is built.**
+
+
+## R823 · the floor was a fifth of its own published family, and it cost nothing
+
+**④'s scope widens from a 6-rule class to the full 30-rule family this file names**, with no change
+to any number. `max_len_chars` **0.455679** is the family argmax on the 968-prompt population; the
+6→30 rise is **+0.000000**; ④ excludes **0 of 58** at both, with `full_sham` UNVERIFIED at +0.0047
+[−0.0079, +0.0185].
+
+⛔ **A DERIVATION, not evidence:** max over a superset is monotone non-decreasing, so "the floor
+rises" is forced and is not a finding. What is measurable is its size, whether it crosses an arm, and
+how much is winner's curse — which is what the sham prices at **+0.003412**.
+
+**The zero is a measurement rather than silence only because of that sham**, and the sham had to be
+rebuilt: its first version sorted 30 random scorers and took the top six, making `sham6 == sham30`
+by construction — a control that could not fail, inside the round whose subject is selection.

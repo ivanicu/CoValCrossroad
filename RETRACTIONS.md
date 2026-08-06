@@ -21642,3 +21642,64 @@ noise-floor and E1 blocks had the identical defect and were fixed only because t
 ⛔ **And the subgroup cell's negative control was computed under *prompt* weighting** while being
 compared to a **subgroup**-weighted real margin — R818's mixed-weighting defect, committed inside the
 control built to guard this very grid, one round after R818 entered the ledger for it.
+
+## 1253 · the third NEXT line in three rounds to be algebra dressed as a measurement
+
+R822 closed with *"measure whether any arm already on disk clears that swing"* — the 0.0028 swing
+between extreme weightings. **Most arms' ② margins are an order of magnitude larger than 0.0028**, so
+the answer is forced and the measurement could not have come out otherwise.
+
+R821's NEXT was the same defect (ledger 1250). R820's NEXT survived only because R821 rewrote it.
+**Three rounds, three NEXT lines, three derivations.**
+
+The mechanism is now clear enough to state: **a NEXT line is written after the gates have passed,
+after the artifact is stamped, and after the round's attention has been released.** Every other
+sentence in a round is produced under a control; the NEXT is produced under none, and it is the one
+sentence the *following* round acts on. `next_line_quantifiers_are_computed.py` guards it against
+bare quantifiers and cannot see this, because the sentence is quantified, provenanced, and merely
+**derivable**.
+
+**The remedy is not another gate.** It is the check discipline adopted at #424 and used again at
+#425: **the first act of every check is to run the previous NEXT through the gauge test and the
+arithmetic rung before designing anything from it.** Both times it fired, and both times what it
+found instead was a better round — #424 found the unnamed estimand, #425 found that ④'s floor was
+the max over a fifth of its own published family.
+
+## 1254 · the sham could not have failed, inside the round whose subject was selection
+
+R823 exists to price how much of a class-maximum's rise is **winner's curse**. Its sham draws 30
+random scorers and compares `max over 6` to `max over 30`.
+
+**The first version sorted the 30 descending and took the top six.** `sham_acc[:6].max()` is then
+`sham_acc[0]`, which *is* `sham_acc.max()` — so **`sham6 == sham30` identically** and the printed
+rise was `+0.000000` **by construction**. It read as a passing control sitting beside a real rise of
+`+0.000000`, and the agreement looked like corroboration.
+
+§4's opening row — *a check that cannot fail* — built into the control that the round's headline
+depends on. **A six-subset must be drawn at RANDOM, because a random six is precisely the object
+R803's six has to be compared against.** Corrected, the sham returns **+0.003412** — pure selection
+on noise — and the real rise of **+0.000000** is *below* it, which is what makes the zero a
+measurement instead of silence.
+
+⭐ **The tell, and it generalises past this round:** a control whose output exactly equals the
+quantity it is meant to calibrate is not agreeing with it — **it is the same computation twice.**
+Before believing a control that matches the result, check whether it *could* have differed.
+
+## 1255 · CONFIRMED, and the confirmation is scoped: ④ survives its own published refutation route
+
+`DEFINITION.md:118` states that ④'s 30-rule family is *"published in R435's artifact so that
+extending it is how this clause gets refuted."* R803 used **six** of those thirty, and R821 retained
+④ on that subset.
+
+**The route was taken and the clause survived.** `max_len_chars` **0.455679** is the argmax over all
+thirty on R803's own population, the 6→30 rise is **+0.000000**, and ④ excludes **0 of 58** at both.
+Recorded here rather than only in the deliverable because **a confirmation that arrives from an
+attack is the only kind worth its cost**, and because the scope changed even though no number did:
+④'s floor is now known to be the maximum of the family the definition names, not of a subset nobody
+had checked was representative.
+
+⚠ **And one number moves the other way.** The **held-out** floor is 0.456094 ± 0.004345 at m=6 and
+**0.454779 ± 0.004791** at m=30 — a rise of **−0.001315**. Inside its own sd, so a direction and not
+a value, but it is the opposite of what "a larger reference class is a stronger bar" predicts, and ④
+quantifies over rules that must generalise. **Anyone extending this family further should measure
+the held-out bar, not the in-sample one.**

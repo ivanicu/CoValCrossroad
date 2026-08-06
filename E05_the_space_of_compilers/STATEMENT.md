@@ -2814,3 +2814,39 @@ closed by adding data. What would close it is a **③-admissible arm whose ② m
 — measured in R822 at 0.0028 between the extreme weightings, see
 `R822_does_the_definition_depend_on_the_estimand_nobody_chose/results/estimand_grid.json`. The next
 round measures whether any arm on disk already clears that swing, before any new arm is generated.
+
+---
+
+## R823 · clause ④'s scope widens from six rules to thirty, and nothing moves
+
+`DEFINITION.md:118` names ④'s reference class as R435's **30-rule** family and says extending it is
+how the clause gets refuted. **R803 built six of those thirty, and R821 retained ④ against that
+subset.** R823 took the route the file invites.
+
+**`max_len_chars` 0.455679 is the argmax over all thirty, not merely over the six.** The 6→30 rise is
+**+0.000000**, and ④ excludes **0 of 58** at both floors (`full_sham` UNVERIFIED, +0.0047 [−0.0079,
++0.0185]).
+
+**The zero is admissible because the sham prices it.** Thirty **random** per-response scorers reach
+0.440503, against 0.437091 ± 0.002830 for a random six — **pure selection buys +0.003412 on noise, and
+the real rise is below that.** The extra 24 rules add less than random scorers of the same count.
+
+**R803's six were chosen, not lucky.** A random six of the same thirty reaches 0.439060 ± 0.018355,
+so the choice bought **+0.0166**; a random six contains the argmax **6/30 = 0.200** of the time
+(measured 0.208 over 2,000 draws).
+
+⚠ **The held-out bar moves the other way**: 0.456094 ± 0.004345 at m=6 versus **0.454779 ± 0.004791**
+at m=30, a rise of **−0.001315**. Inside its own sd, so a direction and not a value.
+
+**Scope** · 968 prompts, 58 arms, 30 rules · instrument A2 against human pairwise signs, no model
+judge · baseline the family maximum · regime: noise floors 0.0051 (m=6) and 0.0043 (m=30); BH over 58
+tests, 57 survive.
+
+## NEXT
+
+R823 widened ④'s class along one axis — more hand-built rules of the same kind. The clause quantifies
+over **every** rule computable from the response set, and 30 lexical surface features are one family
+among several; a *learned* response-only scorer is a different family and is not represented at all.
+See `R823_the_floor_was_a_fifth_of_its_own_published_family/results/full_family_floor.json` for the
+30 accuracies actually measured. The next round fits a response-only predictor on held-out prompts
+and asks where its bar lands relative to 0.455679.
