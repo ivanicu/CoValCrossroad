@@ -22257,3 +22257,82 @@ which test should govern is a judgement the author made in code and contradicted
 picking the branch.** What is established is that **the verdict does not follow from the checks the
 round registered**, and nothing cites the artifact — measured, filename-anchored: **1 reference, its
 own module.**
+
+## 1278 · a scan whose count moved 2 → 1 → 4 → 5 → 2, every change from fixing the instrument and none from evidence
+
+Auditing `corebench` for §4's *verdict string is not a computation* took four versions, and the number
+changed at every one:
+
+| version | count | what changed |
+|---|---|---|
+| v1, name heuristic | **2 of 3** | — |
+| v2, walks `orelse` | **1 of 3** | `pairwise_matrix` was a false positive: its `pos_ok` gates an if/elif/else from the outside |
+| v3, structural flags | **4 of 7** | the name list had `_ok` and missed `ok_pos`/`ok_neg`/`ok_pla` — an entire control block — on one character of prefix order |
+| v4, skips the module guard, walks `IfExp` | **5 of 8** | three of v3's four hits were `if __name__ == "__main__":` matched as a verdict chain; and a verdict decided by a TERNARY was invisible |
+| **adjudicated** | **2 unmarked · 1 self-disclosed · 2 artifacts** | reading each hit |
+
+⭐ **Not one of those changes came from new evidence about the corpus.** Every one came from finding
+a defect in my own scan. **A number that moves only when you fix the instrument is a property of the
+instrument**, and quoting any of the intermediate values as a rate would have been reporting my
+own bugs as findings about someone else's code.
+
+**The adjudications:**
+- `synthetic_world.py` — **REAL, unmarked.** `dose_ok` IS its docstring's registered kill, computed,
+  printed FAIL, absent from the branch, which tests `fires` alone.
+- `is_importance_recoverable.py` — **REAL, unmarked.** `ok_pos`, `ok_neg`, `ok_pla` all orphaned; the
+  ternary tests `d.max() <= 0.02` alone. A run with all three controls failing still prints WORLD A.
+- `dimension_curve.py` — **REAL but SELF-DISCLOSED.** `ok` is a per-dimension control the verdict
+  does not consult, **and the module says so in a comment at the decision point.**
+- `learned_core.py` — **FALSE POSITIVE.** `ok`/`items` are loop variables (`for pid, items, ok in
+  test:`); the verdict tests `lo > 0`, the paired CI bound its docstring registers.
+- `unit_robustness.py` — **FALSE POSITIVE.** `both`/`ok` are per-pair and per-unit loop descriptors;
+  the verdict tests its registered inversion rule.
+
+⭐ **`dimension_curve` earns a distinction I had been collapsing: a check orphaned SILENTLY is a
+defect; one whose author saw the gap and carved a note at the decision point is a documented
+limitation.** Only the first is a finding. The instrument cannot tell them apart and a reader must.
+
+**The instrument ships with this record inside its own docstring**, so the next user reads it as a
+candidate generator with a known 2-in-5 artifact rate, never as a detector.
+
+## 1279 · the module whose verdict I folded into the deliverable does not gate that verdict on its controls
+
+Two commits ago I folded `importance_recoverable.json`'s **WORLD A — partially recoverable, held-out
+R² up to 0.0555** into `DEFINITION.md` and `STATEMENT.md`.
+
+```python
+ok_pos = np.mean(res["LEAKY(+sd)"]) > np.mean(d)          # printed PASS/FAIL, orphaned
+ok_neg = abs(np.mean(res["shuffled y"])) < 0.02           # printed PASS/FAIL, orphaned
+ok_pla = abs(np.mean(res["PLACEBO(y~y)"]) - 1.0) < 1e-6   # printed PASS/FAIL, orphaned
+v = ("WORLD B …" if d.max() <= 0.02 else "WORLD A -- partially recoverable …")
+```
+
+**The ternary tests `d.max()` alone.** A run in which all three controls FAILED would still print
+WORLD A.
+
+**Re-verified from the artifact rather than trusted:** `ok_pos` mean(leaky) **0.054111** >
+mean(deployable) **0.050958** → TRUE · `ok_neg` |mean(shuffled)| **0.003154** < 0.02 → TRUE ·
+⛔ `ok_pla` **UNVERIFIABLE — PLACEBO(y~y) is not persisted in the artifact**, so its run-time PASS
+print is the only record of it. Unverifiable, not failed.
+
+⚠ **And the positive control's band is 6.2%**: leaky exceeds deployable by 0.001481–0.004408 across
+five splits. `DEFINITION.md` now states all of this and says the WORLD A string is quoted **only
+because the controls were re-verified**, not because the module gated it.
+
+⭐ **The measurements I published were never in question** — I had quoted the control values
+explicitly, including the narrow leaky band. **What was in question was inheriting a verdict STRING
+from a module whose controls do not reach it.** A verdict is a claim about the checks; quoting it
+imports whatever wiring produced it.
+
+## 1280 · a value that is only printed is a value that cannot be re-verified
+
+`ok_pla` requires `PLACEBO(y~y)`, and the artifact persists `leaky`, `r`, `r2_deployable`,
+`shuffled` — **not the placebo.** The control ran, printed PASS, and left no trace on disk.
+
+So the placebo is **UNVERIFIABLE**, which is a third status distinct from PASS and FAIL: the check
+happened, and no one who was not watching the terminal can confirm what it returned.
+
+**Remedy, and it is one line per control: persist every control's VALUE, not its verdict.** §5's
+ARTIFACT line asks what a later round needs to ATTACK this — a printed PASS is exactly what it
+cannot attack. This session has now hit the same shape three ways: a floor compared to the wrong
+dispersion, a sign quoted below resolution, and now a control whose number never left stdout.

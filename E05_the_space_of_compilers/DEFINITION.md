@@ -7398,6 +7398,18 @@ length, position in the rubric, the prompt's criterion count?
 
 **WORLD A — partially recoverable, held-out R² ≤ 0.0555.**
 
+⚠ **THAT VERDICT STRING IS NOT GATED BY ITS OWN CONTROLS, so it is quoted here only after the
+controls were re-verified from the artifact.** The module computes `ok_pos`, `ok_neg`, `ok_pla`,
+prints all three PASS/FAIL, and then decides with `v = "WORLD B" if d.max() <= 0.02 else "WORLD A"`
+— **the ternary tests `d.max()` alone.** A run with all three controls failing would still print
+WORLD A. Re-checked from `importance_recoverable.json`:
+**`ok_pos` mean(leaky) 0.054111 > mean(deployable) 0.050958 → TRUE** ·
+**`ok_neg` |mean(shuffled)| 0.003154 < 0.02 → TRUE** ·
+⛔ **`ok_pla` UNVERIFIABLE — the PLACEBO(y~y) value is NOT PERSISTED in the artifact**, so its
+run-time PASS print is the only record of it. Unverifiable, not failed.
+⚠ And the positive control's band is thin: leaky exceeds deployable by 0.001481–0.004408 across the
+five splits, **6.2% above the arm it is meant to bound**.
+
 ⚠ **The positive control's band is narrow and must be stated, not glossed.** Leaky exceeds deployable
 by only **+0.0015 to +0.0044** (5 of 5 splits, consistent in sign but tiny). Floor ≈ 0, ceiling ≈ 0.06,
 deployable 0.0555 — **the deployable arm reaches ~92% of what the leaky arm reaches.** ⭐ The binding
