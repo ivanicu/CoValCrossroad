@@ -25016,3 +25016,48 @@ evaluable, 5 UNEVALUABLE lines** (R440 carries five labels); restored **343 of 3
 · assertion orphaned → **FAIL, named** · artifact absent → **PASS with the loss counted and printed**,
 never a pass that pretends nothing was missed and never a failure that blames the document for the
 filesystem.
+
+## 1341 · the fix is complete across all 31 artifact paths — and my first crash control passed without ever reaching the code it tested
+
+Entry 1340 fixed two labels that vanished when an artifact went missing, creating a false positive.
+**ESTIMAND: how many of `derive()`'s artifact paths still use the omitting form?** Identified, and
+runnable in-process — monkeypatch `art()` per pattern and see which labels **vanish** (omitting form)
+rather than **survive as `None`** (the file's convention).
+
+| | |
+|---|---:|
+| labels in `derive()` | **348** |
+| distinct artifact patterns it reads | **31** |
+| ⭐ **patterns whose absence makes a label VANISH** | **0** |
+| patterns whose absence CRASHES `derive()` | **0** |
+| same, with a **malformed** artifact (`art() → {}`) | **0 / 0** |
+
+**So entry 1340's fix was complete, not partial** — the two labels it repaired were the only ones,
+and every one of the 31 paths now degrades to `UNEVALUABLE` rather than to silence.
+
+### ⭐ AND BOTH ZEROS ARE MEASURED, NOT SILENT
+
+**Vanish arm — PLANT:** the old omitting form was temporarily restored for one label; the probe
+reported exactly `R440_* → ['clause4_excludes_strict']`, then **0** again on restore. It can see the
+defect it is looking for.
+
+### ⛔ CRASH ARM — MY FIRST CONTROL PASSED WITHOUT TOUCHING THE CODE IT TESTED
+
+I planted a `Hostile` artifact whose `__getitem__` raises, on 6 patterns. **Crashes detected: 0 of 6**
+— and I nearly recorded that as *"the gate is crash-proof"*. It is not what happened. `derive()`'s
+guards read `if a is not None and "key" in a:`, and `Hostile` overrode `__getitem__` and `get` but
+**not `__contains__`** — so `"key" in a` was **False**, the guard short-circuited, and the raising
+method **was never called**. **The control could not reach the code it was testing, and reported a
+zero that looked like an acquittal.**
+
+Corrected by making `__contains__` return `True` so every guard passes: **2 of 31 patterns crash.**
+The probe's crash arm is therefore live, and the two zeros above are **measurements**.
+
+⚠ **And the 2 crashes are a CONTROL, not a finding.** An object that claims to contain a key and then
+raises on access is not producible by `json.loads`; the realistic modes are *absent* and *malformed*,
+and both return 0. The hostile object exists to prove the instrument can report a crash at all.
+
+⭐ **The transferable lesson is the failed control, not the clean result.** A control that passes
+because it never reached its target is indistinguishable, from the outside, from a control that passed
+because the code is sound — and the difference is one line of the control's own behaviour. **Before
+believing a control's zero, check that the control's input actually traverses the branch under test.**
