@@ -21333,3 +21333,42 @@ n=293 — but the headline label named a different number from the one the analy
 label on a correct computation is the cheapest kind of error to make and the most expensive to
 inherit, because a later round quoting "321 prompts" from the header would have been quoting a
 population that was never analysed.* Fixed to print `len(BOTH)` and to state the distinction.
+
+## 1233 · the shift toward `personal` is the TIE RATE, and my own NEXT named the wrong mechanism
+
+R815 found nine arms scoring 0.005–0.012 higher against `personal` and its NEXT proposed a single
+explanation: the target is more reliable, so compute `CEIL_H` on it. ⛔ CHECK #418 found two things
+wrong with that. **First, the direction of the inference is nearly forced** — higher inter-annotator
+agreement raises A2 for ANY predictor — so "does the ceiling point the same way" is not evidence and
+the test has to be **slope = 1**, not slope > 0. **Second, a rival mechanism was never named**:
+[DERIVATION] a strict-signed arm cannot match a tied human pair, so its attainable A2 is bounded by
+`1 − tie_rate`, and the tie rate is **world 0.145080 vs personal 0.124460** — a drop of **0.020620**,
+which is MORE than the whole observed shift and could over-explain it alone. Measured: mean ceiling
+slope **+0.313** with the CI containing 1 in **0 of 9 arms**, mean tie slope **−0.476** with the CI
+excluding 0 in **9 of 9**. ⚠ Both terms are live — every ceiling slope is resolvedly positive — so
+what died is not the ceiling but the claim that it ACCOUNTS for the shift. ⭐ Jointly, on `gen_sham`
+the ceiling term **vanishes** (**−0.031 [−0.158, +0.089]**) while the tie term holds at **−0.572**.
+*A mechanism that can over-explain an effect is not a footnote to the one you thought of; it is the
+first thing the round has to price.*
+
+## 1234 · my negative control OVERSHOT the observation, which is a tell I had not seen before
+
+The first version permuted only the **`personal` side** of the outcome, so the outcome still carried
+the un-permuted `world` A2 and the tie regressor still carried the un-permuted `world` tie rate — and
+those two are coupled, because an arm scores lower where humans tie more. The tie-slope null came
+back at **−0.870**, **more negative than the real −0.553**. ⭐ **A null that overshoots the
+observation has not removed structure — it has added some**, and that is a distinct signature from
+the three degenerate nulls of R809, R810 and R813, which returned zero width. *Four rounds, four
+broken negative controls, and this is the first whose output looked like a STRONGER effect rather
+than a precise one.* Repaired by destroying the pairing the design actually rests on — between the
+REGRESSORS and the OUTCOME — after which the nulls sit at **+0.004 [−0.091, +0.086]** and **−0.004
+[−0.141, +0.156]** with both real slopes outside them.
+
+## 1235 · and one pre-registered family was forced, which R804 had already taught me
+
+The round pre-registered BH over the per-arm RESIDUAL means and it returns **0 of 9 surviving** —
+because **an OLS residual has mean 0 by construction**, exactly the lesson R804 filed when it
+abandoned an intercept estimand for the same reason. The family is printed because it was
+pre-registered and **labelled as forced** rather than reported. *Pre-registering a quantity does not
+make it identified, and a family that the algebra fixes will pass or fail on schedule while measuring
+nothing — which is the arithmetic trap wearing a preregistration's clothes.*

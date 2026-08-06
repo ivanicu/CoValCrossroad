@@ -7008,3 +7008,33 @@ best real arm's **0.5939** · g=0 the same construction from `world` scores **0.
 lower · NEGATIVE block labels shuffled within each assessment, null **+0.0002 [−0.0056, +0.0053]**
 against a real **−0.0119** · NOISE FLOOR **0.0032**. ⚠ The `unacceptable` block cannot be a third
 target: it records ratings, not a ranking, so `cls()` cannot consume it — checked against the record.
+
+## R816 · the shift toward `personal` is the TIE RATE, not the target's reliability
+
+**Why here.** R815 found nine arms scoring 0.005–0.012 higher against `personal` and its NEXT
+proposed one explanation: the target is more reliable. ⛔ CHECK #418 found that inference's
+**direction is nearly forced** — higher inter-annotator agreement raises A2 for any predictor — so
+only the magnitude is evidence, and the test must be **slope = 1**, not slope > 0. It also found the
+rival R815 never named: **[DERIVATION] a strict-signed arm can never match a tied human pair**, so
+its attainable A2 is bounded by `1 − tie_rate`, and the tie rate is **world 0.145080 vs personal
+0.124460**, a drop of **0.020620** — more than the whole shift, available on its own. Panel depth is
+**median 12 in both blocks**, so that rival is out by measurement.
+
+**⭐ The result.** Mean **ceiling slope +0.313**, with the CI containing 1 in **0 of 9 arms** — the
+reliability account as posed is refuted. Mean **tie slope −0.476**, with the CI excluding 0 in **9 of
+9**. ⚠ Both mechanisms are live: every ceiling slope is resolvedly positive (**+0.123 to +0.441**).
+What died is that reliability *accounts for* the shift. **WORLD B.**
+
+**The joint model is admissible** — `corr(ceiling, tie) = −0.4314`, below the pre-registered 0.7.
+Jointly, `coval_core` ceiling **+0.269 [+0.162, +0.351]** / tie **−0.367 [−0.493, −0.244]**; and on
+`gen_sham` the ceiling term **vanishes** at **−0.031 [−0.158, +0.089]** while the tie term holds at
+**−0.572 [−0.744, −0.379]**.
+
+**Controls.** OBJECT R815's shifts reproduced exactly (`coval_core` **−0.011944**, `gen_sham`
+**−0.010529**) · PLACEBO **0.0e+00** · POSITIVE planted c = 0/0.5/1.0/2.0 recovered as
+**+0.000/+0.500/+1.000/+2.000** · NEGATIVE the regressor-to-outcome pairing destroyed, ceiling null
+**+0.004 [−0.091, +0.086]** vs real **+0.368**, tie null **−0.004 [−0.141, +0.156]** vs real
+**−0.553** · NOISE FLOOR **0.044**. ⚠ D3's strictness ordering has the right sign (**+0.4899**) on a
+regressor spanning only **0.994–1.000**, and is reported as weak. ⚠ The pre-registered per-arm
+RESIDUAL family is **forced** — an OLS residual has mean 0 by construction — and is labelled rather
+than reported as a finding.

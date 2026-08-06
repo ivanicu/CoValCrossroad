@@ -2609,3 +2609,30 @@ block labels shuffled gives a null of **+0.0002 [−0.0056, +0.0053]** against a
 
 **Scope**: 293 prompts (⚠ **not** a random third — they are where the second question was asked) × 9
 arms × 2 targets · NBOOT 1,200 · first release, home judge.
+
+## R816 · The `personal` shift is the tie rate, not the target's reliability
+
+| | mean over 9 arms | resolved |
+|---|---:|---|
+| **ceiling** slope — the test is whether it is **1** | **+0.313** | CI contains 1 in **0 of 9** |
+| **tie-rate** slope — the test is whether it is **0** | **−0.476** | CI excludes 0 in **9 of 9** |
+
+**If the shift were the reliability shift the ceiling slope would be 1. It is 0.313.** ⚠ Both terms
+are live — every ceiling slope is resolvedly positive (**+0.123 to +0.441**) — but reliability does
+not *account for* the shift.
+
+⭐ **[DERIVATION] a strict-signed arm can never match a tied human pair**, so its attainable A2 is
+bounded by `1 − tie_rate`. Tie rate: **world 0.145080 · personal 0.124460**, a drop of **0.020620** —
+more than the whole observed shift, available from ties alone. Panel depth is **median 12 in both**
+blocks, so the shift is not depth.
+
+⭐ **Jointly** (`corr = −0.4314`, below the pre-registered 0.7): `coval_core` ceiling **+0.269
+[+0.162, +0.351]** / tie **−0.367 [−0.493, −0.244]**; on `gen_sham` the ceiling term **vanishes** at
+**−0.031 [−0.158, +0.089]** while the tie term holds at **−0.572**.
+
+**Controls**: planted c = 0/0.5/1.0/2.0 recovered as **+0.000/+0.500/+1.000/+2.000** · the
+regressor-to-outcome pairing destroyed gives nulls of **+0.004** and **−0.004** against reals of
+**+0.368** and **−0.553**.
+
+**Scope**: 293 prompts × 9 arms × 3 models · within-pair differences across two blocks about the
+**same** four responses · NBOOT 1,200 · first release, home judge.
