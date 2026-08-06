@@ -24092,3 +24092,66 @@ strict reading*, which is a defensible cell of the specification curve; what was
 were false positives: my own new annotation, and the ⭐ paragraph whose scope marker I had just put on
 the PRECEDING line.** The check is **line-oriented**; scope is **paragraph-oriented**. Unit vs unit,
 in the quick grep I wrote to audit unit-vs-unit errors.
+
+## 1323 · I built the instrument my own NEXT asked for, and its specification curve says it cannot answer the question it was built for
+
+**ESTIMAND, named before method:** in `DEFINITION.md`, for each **downgrade marker**, does an
+**earlier** line assert the same claim **without** the qualifier the marker introduces? Entry 1322
+found one such pair by hand; this asks how common it is.
+
+**P4, twelfth firing — partial.** My NEXT claimed this would catch *"a defect no existing gate has a
+bucket for."* `retired_framing_in_assertion_positions.py` covers a neighbouring property already —
+but only **structural positions** (headers, subtitle, first-four-lines bold, table cells) in
+**README / FROZEN / PREREGISTRATION**, and its own docstring says *"absent ⇒ NOTHING about body
+prose, which remains unwatchable."* Entry 1322's defect was **body prose in DEFINITION.md**, which is
+outside both the position set and the file set. ⚠ **And it is a different property anyway:**
+*"④ is free-but-real"* is **not a retired phrase** — it is still true under the strict reading. The
+defect is **scope omission on a live claim**, which no retired-phrase list can express. So the
+quantifier was **too strong, and the gap is real**.
+
+### ⛔ THE POSITIVE CONTROL FAILED TWICE, AND BOTH TIMES FOR ITS OWN REASONS
+
+① First form asked *"is the earliest occurrence of `free-but-real` before the earliest marker?"* —
+**False**, because the earliest occurrence had become **my own SCOPE ADDED annotation from entry
+1322**. The control's two sides were not different objects.
+② Second form excluded marker lines from the assertion side — **still False**, because my repair
+**deliberately placed the scope warning ABOVE the stale sentence**. The control was asking the
+post-repair file to still exhibit the pre-repair defect. **A control that encodes the instance
+cannot survive the instance being fixed.**
+
+⭐ **The correct control is the PARENT COMMIT, and it is stronger than what I first wrote:**
+
+| revision | fired | expected | evidence |
+|---|---|---|---|
+| `c4a8bf3f~1` — **before** entry 1322's repair | **True** ✓ | True | assertion **L7195**, downgrade **L7283** |
+| `HEAD` — **after** | **False** ✓ | False | marker L7215 now precedes assertions L7218/7221 |
+
+**Negative control**: `prompt-blind`, 41 occurrences, 0 markers → no pair. **Null control**: absent
+phrase → silent. **The instrument detects the known defect where it existed and goes quiet where it
+was fixed.**
+
+### ⭐ AND THE SPECIFICATION CURVE REFUSES TO GIVE A COUNT
+
+The only free parameter is the word-overlap threshold used to decide "same claim":
+
+| threshold | markers with an earlier unmarked antecedent | share |
+|---|---:|---:|
+| ≥2 | **15 of 42** | 36% |
+| ≥3 | **2 of 42** | 5% |
+| ≥4 | **1 of 42** | 2% |
+| ≥5 | 0 | 0% |
+| ≥6 | 0 | 0% |
+
+⛔ **The count moves 0 → 15 of 42 across one arbitrary knob.** I would have reported **"2 of 42"** —
+that is a single cell, and it does not even determine the *direction* of the answer (is the pattern
+pervasive at 36%, or a one-off at 2%?). **The prevalence question is UNRESOLVED by this design**, and
+saying so is the result.
+
+⚠ **And every cell is a LOWER BOUND for a second reason:** a line-level lexical proxy cannot see an
+antecedent phrased differently, which is the likely majority. The instrument's unit is **a line**;
+the claim's unit is **an assertion**. Same unit-vs-unit limit that has now appeared in four
+consecutive rounds, here stated in advance rather than discovered afterwards.
+
+**What stands:** 42 downgrade markers in the file · one confirmed stale-antecedent pair (entry 1322,
+now repaired, before/after verified) · and a design that **cannot** scale that finding. **What would
+resolve it** is a claim-level match, i.e. reading all 42 — feasible, and not done here.
