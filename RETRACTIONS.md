@@ -19017,3 +19017,31 @@ sit under a correction marker that also carries scope language, so the keyword a
 it repairs a groundedness defect or records a change of scope. That is the same confusion which
 inverted the pooled detector one round earlier, now visible at the level of the individual figure
 rather than as an aggregate rate, which is what a census buys that a rate does not.
+
+## 1028 · I under-predicted the disagreement between my own deliverables by a factor of five
+
+I registered that the three deliverable documents would differ in flagged rate by about twelve points,
+with a band up to sixty. The largest difference is sixty two points, outside the band, and the ungated
+document's rate landed at the ceiling of its own band rather than near the middle. Two of five
+registered points failed in the same direction: I expected three pages of one project, written by one
+process, to be roughly one population. They are not. The within document floor, measured by splitting
+one page in half, is nine points, so the between document difference is nearly seven times what
+exchangeability would produce.
+
+## 1029 · the governance reading is confounded with era and this design cannot separate them
+
+The document with the highest share of unsupported figures is also the one that flips no gates and the
+one whose median citation is oldest. Being ungated and being old are the same column in this design, so
+the finding is that the three pages are not one population, and the attribution to governance is not
+established. The confound was written into the preregistration before the run and the era is printed
+beside each rate rather than absorbed into it, which is the only reason it is visible rather than a
+story about gates.
+
+## 1030 · the approximation that failed one round earlier held in this one, and the reason is the count
+
+The previous round found the normal approximation overstated its design's power by more than a third
+and had to search for the true detectable effect. Here the same formula lands within one per cent of
+the simulated answer. The difference is the expected number of events: under two in the previous
+design's smaller arm against about fifty here. The lesson is not that the formula is unreliable, it is
+that its failure is predictable from the counts, so the check is cheap and belongs in every round that
+quotes a detectable effect rather than in the ones where I happen to suspect it.

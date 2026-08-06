@@ -4624,3 +4624,54 @@ only claim about the page.
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 86420, **both writes confirmed to
 disk** (4,259 / 4,263 bytes, differing only in the recorded seed).
+
+## R753 · the three deliverables are not one population, and the ungated one is 4.5× worse
+
+**Question.** R752 left a requirement of **846 figures per arm** and asked how many pages reach it.
+⛔ **That is division.** The count settles itself; the question worth asking is whether pooling is
+legitimate — §1's G1, *asking for power on an unidentified quantity is how a well-powered-looking
+round gets built*.
+
+| document | figures | lines | flagged | **rate** | median cited era |
+|---|---|---|---|---|---|
+| `STATEMENT.md` | 184 | 68 | 33 | **0.1793** | R607 |
+| `DEFINITION.md` | 118 | 67 | 45 | **0.3814** | R439 |
+| **`FORMULATION.md`** | 125 | 57 | **100** | **0.8000** | R256 |
+| **pooled** | **427** | | 178 | 0.4169 | — |
+
+**427 / 846 = 0.50 of one arm**; **12** documents of average size would be needed.
+
+**Pairwise, with the MDE computed before interpretation.**
+
+| pair | diff | MDE (figures) | MDE (lines) | verdict |
+|---|---|---|---|---|
+| STATEMENT vs DEFINITION | 0.2020 | 0.1629 | 0.2378 | **DIFFERENT** |
+| **STATEMENT vs FORMULATION** | **0.6207** | 0.1601 | 0.2481 | **DIFFERENT** |
+| DEFINITION vs FORMULATION | 0.4186 | 0.1773 | 0.2489 | **DIFFERENT** |
+
+⭐ **The SHAM makes it readable.** Ingredient **absent** = being a different document: two halves of
+`STATEMENT.md`, exchangeable **by construction**, differ by **0.0933**. The largest between-document
+difference is **6.7×** that.
+
+⚠ **The confound is live and unresolved** *(ledger 1029)*. The ungated document is also the **oldest**
+— governance and era are the same column here. The directional fires (`FORMULATION.md` at **4.5×**
+this page's rate) but **"being ungated caused it" is not established**, and the era is printed beside
+each rate.
+
+**Controls — 5 PASS, 0 FAIL.** POSITIVE the monotone ladder `0.0529 → 0.2955 → 0.8026 → 0.9999` ·
+g=0 rejects at **0.0532 ≈ α** · NEGATIVE document labels shuffled collapses the spread **0.6207 →
+0.0482** · SHAM as above · PLACEBO exactly 0.
+
+⭐ **The formula was honest here** — analytic **0.1601**, empirical **0.1620**, ratio **1.01×**, against
+**1.37×** in R752. **The difference is expected count**: under 2 events there, ~52 here. *The
+approximation's failure is predictable from the counts* *(ledger 1030)*.
+
+**Registered against measured.** P1 0.18 → **0.1793** ✓ · **P2 0.30 → 0.8000 ⛔ at the ceiling** ·
+**P3 0.12 → 0.6207 ⛔ outside the band** · P4 0.125 → **0.1601** ✓ · P5 0.75 → **0.7955** ✓ · D ✓.
+**I under-predicted the disagreement between my own pages by 5×** *(ledger 1028)*.
+
+**Verdict — `WORLD C`.** The documents are **not exchangeable**; pooling would manufacture power
+without validity, which is worse than the shortfall. **And the shortfall stands regardless.**
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 97531, **both writes confirmed to
+disk** (2,287 / 2,291 bytes, differing only in the recorded seed).

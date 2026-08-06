@@ -165,7 +165,17 @@ seeing the breakdown and is a hypothesis, not a finding.
 ⛔ **AND THE COMPARISON THAT WOULD TEST IT IS REFUSED ON POWER** *(R752)*. At **33** flagged against
 **150** supported figures, the **empirical** minimum detectable effect is **0.1604** — **3.95×** the
 largest observed gap of **0.0406**, and **0 of 24** design cells can detect it. **846** figures per arm
-would be needed. ⚠ The analytic formula said **0.1174**, and planting exactly that rejects only
+would be needed.
+⛔⛔ **AND THE OTHER DELIVERABLES CANNOT SUPPLY THEM — THEY ARE NOT ONE POPULATION** *(R753)*.
+Flagged rates: this page **0.1793** · `DEFINITION.md` **0.3814** · `FORMULATION.md` **0.8000**. **All
+three pairwise differences clear the MDE**, and the largest, **0.6207**, is **6.7×** the
+exchangeability floor of **0.0933** measured by splitting this page in half. **Pooling them would
+manufacture power without validity.** ⛔ And it would not suffice anyway: **427** pooled figures is
+**0.50 of ONE arm**; **12** documents of average size would be needed.
+⚠ **`FORMULATION.md` carries 100 unsupported figures of 125** — the largest such block in the
+repository, in the one document R598 measured as flipping **0 of 28** gates. ⚠ **But governance and
+ERA are confounded**: its median citation is **R256** against this page's **R607**, and this design
+cannot separate them. The era is printed beside each rate rather than absorbed into it. ⚠ The analytic formula said **0.1174**, and planting exactly that rejects only
 **0.6237** of the time, not 0.80 — **the normal approximation overstates this design's power by 1.37×**
 because the smaller arm expects under 2 events. **What stands is a census of 4**, from which no rate is
 computed: **2** are the ungrounded pair already annotated, and **2** sit under a `CORRECTED` marker that
