@@ -25825,3 +25825,61 @@ risky operation and rules on what vanished after.
 ⭐ **The general point: when a cause cannot be identified, the deliverable is the instrument that
 would identify the next one — not a plausible story.** Two confident names, both killed within
 minutes of being tested, is the argument for that.
+
+## 1357 · R841 — the exact-class interval CLOSES on every annotator, and entry 1352's numbers were unseeded
+
+Four consecutive rounds had confirmed the same story — *an instrument was blind* — which is a basin.
+The escape was a step on the **object** whose positive outcome I would find unwelcome. It was
+unwelcome.
+
+### ⛔ FINDING 0 — 1352's numbers are UNREPRODUCIBLE BY CONSTRUCTION
+
+1352 seeded its per-prompt annotator draw with `hash(p)`. **Python randomises `hash()` of a `str`
+per process.** Measured, with a control on the test itself:
+
+| | run 1 | run 2 | run 3 |
+|---|---:|---:|---:|
+| `hash('prompt_42')%1000` | **924** | **294** | **947** |
+| `crc32` *(control)* | 632 | 632 | 632 |
+
+⭐ **So the draw was unseeded**: `+0.0151` / `+0.0083`, their CIs, their MDEs and the verdicts
+`RESOLVED`/`undecidable` are **one unlabelled sample — UNVERIFIED, not to be quoted.**
+⚠ **The 3-draw seed spread is 0.0041 on an effect of ~0.007 — 59% of the effect.**
+
+### ⭐ AND THE COUNT THE REGISTER DEMANDS
+
+**18,384 annotator rankings, 1,078 prompts, median 16. Entry 1352 consumed 3,234 — 17.6%.**
+The register's row is mechanical: *count what the release contains and what your code consumed, and
+require those two numbers to match.* **Fourth instance of a row already wrong three times.**
+
+### ⭐⭐ RESULT — world A. Controls: placebo exactly 0 · reproducible byte-identically · seed-sensitive
+
+| annotators | GRADED | EXACT |
+|---|---|---|
+| 3 draws | +0.0191 [+0.0099, +0.0285] | **+0.0010 [−0.0103, +0.0127]** contains 0 |
+| ≤16 | +0.0159 [+0.0084, +0.0235] | **+0.0085 [+0.0016, +0.0155]** RESOLVED |
+| **ALL** | +0.0151 [+0.0076, +0.0226] | **+0.0073 [+0.0005, +0.0141]** **RESOLVED** |
+
+8 cells reported whole; the only two non-survivors are the 3-draw cells. `≤64` ≡ `ALL` to four
+places, so the 1,012-annotator prompt drives nothing. Negative sham −0.0193 [−0.0255, −0.0129] —
+**below zero**, the *poison-not-placebo* tell, reported as a magnitude only.
+
+⭐ **Clause ② is NOT undecidable under exact-class — it RESOLVES**, CI narrowing 42%.
+
+### ⛔⛔ THE ONTOLOGY SHIFT IS OVERTURNED IN THE OPPOSITE DIRECTION
+
+1352: *"the stricter reading is also the lower-resolution one"* (`MDE_exact 0.0159 > MDE_graded
+0.0134`). **On all annotators the ordering REVERSES — `MDE_exact 0.0096 < MDE_graded 0.0106`.**
+**The property 1352 attributed to the METRIC belonged to the SAMPLE SIZE.**
+
+### ⭐ WHAT NOW STANDS — the first thing this thread has ADDED rather than withdrawn
+
+**Clause ② holds under BOTH admissible readings of its own metric**, on the human target, at n≈968
+paired prompts, using every annotator the release ships. The metric is still **unnamed in the
+statement** — entry 1349's gap is untouched — but *naming it the strict way no longer costs the
+clause its verdict.*
+
+⚠ **The arc, honestly:** 1350 said the faithful reading kills the core. 1351 said the sign holds.
+1352 said the design cannot tell. **1357 says it can, and the reason all three failed is the same
+one: none of them counted the data it was using.** Four rounds of increasingly careful reasoning
+about what could not be known, with 5.68× more of it sitting on disk, unused.

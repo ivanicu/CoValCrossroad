@@ -165,7 +165,40 @@ defence is contradicted by the elicitation format.**
 > lower-resolution one.** ⭐ **Consequence for the definition: even a reader who prefers exact-class on
 > construct grounds cannot adjudicate clause ② under it on this release at n = 968.** The clause is
 > not merely unqualified — under one of its two admissible readings it is **undecidable here**, and
-> that is a property of the data, not of the wording. ⚠ **What this does NOT establish:** that
+> that is a property of the data, not of the wording.
+>
+> ⛔⛔⛔ **BOTH OF THOSE SENTENCES ARE OVERTURNED BY R841, AND THE NUMBER THEY REST ON IS
+> UNVERIFIED.** Entry 1352 drew **3 annotators per prompt**. The release ships **18,384 annotator
+> rankings over 1,078 prompts, median 16** — 1352 consumed **17.6%** of what was on disk. Worse, it
+> seeded that draw with `hash(p)`, and **Python randomises `hash()` of a str per process**: measured
+> against a `crc32` control, `hash('prompt_42')%1000` returns **924 / 294 / 947** across three fresh
+> processes while `crc32` returns **632 / 632 / 632**. **So 1352's draw was unseeded and its numbers
+> are one unlabelled sample — UNVERIFIED, and not to be quoted.** Its seed spread alone is **0.0041
+> on an effect of ~0.007, 59% of the effect.**
+>
+> **R841, stable seed, every annotator, 8 cells reported whole** (placebo exactly 0; reproducible
+> byte-identically; a different seed does move the draw):
+>
+> | annotators used | GRADED | EXACT |
+> |---|---|---|
+> | 3 draws | +0.0191 [+0.0099, +0.0285] | **+0.0010 [−0.0103, +0.0127]** — contains 0 |
+> | ≤16 | +0.0159 [+0.0084, +0.0235] | **+0.0085 [+0.0016, +0.0155]** — RESOLVED |
+> | **ALL** | +0.0151 [+0.0076, +0.0226] | **+0.0073 [+0.0005, +0.0141]** — **RESOLVED** |
+>
+> ⭐ **Clause ② is NOT undecidable under exact-class. It resolves** — the CI narrows 42% and excludes
+> zero. **The undecidability was an artifact of consuming a sixth of the data.**
+>
+> ⭐⭐ **And the ontology shift is overturned too, in the opposite direction.** 1352 said *"the
+> stricter reading is also the lower-resolution one"* from `MDE_exact 0.0159 > MDE_graded 0.0134`. On
+> all annotators **the ordering REVERSES: `MDE_exact 0.0096 < MDE_graded 0.0106`.** Exact-class is
+> **not** intrinsically lower-resolution; a binary hit simply needs more annotators to stabilise than
+> a 6-pair mean. **The property 1352 attributed to the METRIC belonged to the SAMPLE SIZE.**
+>
+> ⭐ **What this settles for the definition, and it is the first thing this thread has settled rather
+> than withdrawn:** clause ② holds **under both admissible readings of its own metric**, on the human
+> target, at n≈968 paired prompts, with every annotator the release ships. The metric is still
+> **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
+> that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a
 CONSTRUCT question, and the card explicitly declines to settle it. **What is settled is that the
 graded choice cannot be defended as "what the data is" — it is a choice this campaign made, on which
