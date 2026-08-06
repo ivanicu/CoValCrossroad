@@ -26936,3 +26936,45 @@ been"*, *"is untested"* and *"what would settle"* swept in **corrections, conven
 already-superseded markers**. The verified position is **1 live, 2 stale, 1 unrelocatable, 3
 miscategorised** — and **a phrase is not a category**, which is the same lesson as
 *a label is not a description*, arriving for the third time today at a different level.
+
+## 1382 · the universal reading of clause ② is RUN — `coval_core` clears the MAXIMUM, and the resolution is unverified
+
+Entry 1381 verified one forward-looking claim still live: *"the universal reading of clause ② has
+never been run."* **It is now run — from committed artifacts, with no new scoring.**
+
+⚠ **Arithmetic first: raising a bar can only REMOVE arms.** That direction is a **DERIVATION**. What
+was open is whether the released core survives the raise.
+
+### ⭐⭐ THE OBJECT — R331's `blind_dist`, the full order-statistic set over 1,820 prompt-blind subsets
+
+| | |
+|---|---:|
+| p90 | 0.5490166733 |
+| **p99** — the bar *"every"* was tested against | **0.5546396620** |
+| **max** — the bar *"every"* actually means | **0.5574753088** |
+| **`coval_core`** | **0.5664774812** |
+| **margin over the MAXIMUM** | **+0.0090021724** |
+
+⭐ **The universal reading is SATISFIED on the point estimate.** `coval_core` clears not the p99 but
+**the maximum of all 1,820 prompt-blind subsets.**
+
+### ⚠⚠ THE RESOLUTION IS UNMEASURED — the honest remainder
+
+R331's three `clearing_sets` each clear their reference by a gap barely over its **own** MDE —
+**0.006191/0.005936 · 0.005628/0.005508 · 0.006793/0.006631**, ratios **≈1.02–1.04** — **at the
+resolution limit.** Against those MDEs `coval_core`'s **+0.0090** is **1.36×–1.63×**, straddling this
+project's own **1.5× admissibility bar.**
+
+⛔ **And no round has computed an MDE for THIS comparison** — core versus the blind maximum.
+**Borrowing the subsets' MDEs is an approximation, and it is labelled as one rather than quoted as a
+ratio.**
+
+### ⭐ STATUS
+
+**RUN and PASSED on the point estimate; resolution UNVERIFIED.** Strictly better than *"has never been
+run"*, and it names exactly one thing still owed: **the MDE of `coval_core` against the blind
+maximum.**
+
+⚠ **Not claimed:** that clause ② is settled. R855 showed ② and ③ are a chain, R857 that ② is the only
+score clause doing work, and R854 that ② cannot tell content from having-been-fitted. **This closes a
+reading, not the clause.**

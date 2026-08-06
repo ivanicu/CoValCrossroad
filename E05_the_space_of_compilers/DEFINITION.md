@@ -1775,6 +1775,32 @@ p99**: between **1% and 10%** of the blind subsets beat the bar the word *every*
 > accurate as written. **Marked verified rather than left ambiguous** — an unchecked forward-looking
 > claim and a checked-and-live one are indistinguishable to a reader, which is the whole defect
 > entry 1380 found.
+>
+> ⭐⭐⭐ **AND IT IS NOW RUN — from committed artifacts, no new scoring (entry 1382).** R331's
+> `blind_dist` carries the whole order-statistic set of the 1,820 prompt-blind subsets:
+>
+> | | |
+> |---|---:|
+> | p90 | 0.5490166733 |
+> | **p99** — the bar the word *"every"* was tested against | **0.5546396620** |
+> | **max** — the bar *"every"* actually means | **0.5574753088** |
+> | **`coval_core`** | **0.5664774812** |
+> | **margin over the MAXIMUM** | **+0.0090021724** |
+>
+> ⭐ **So the universal reading is SATISFIED on the point estimate: `coval_core` clears not the p99
+> but the maximum of all 1,820.** ⚠ **Raising a bar can only remove arms — that direction is a
+> DERIVATION** — and what was open was whether the released core itself survived the raise. **It does.**
+>
+> ⚠⚠ **BUT THE RESOLUTION IS UNMEASURED, AND THAT IS THE HONEST REMAINDER.** R331's three
+> `clearing_sets` each clear their reference by a gap barely over its own MDE — **0.006191/0.005936,
+> 0.005628/0.005508, 0.006793/0.006631, ratios ≈ 1.02–1.04** — i.e. **at the resolution limit.**
+> Against those MDEs, `coval_core`'s +0.0090 is **1.36×–1.63×**, which straddles this project's own
+> **1.5× admissibility bar**. ⛔ **And no round has computed an MDE for THIS comparison** —
+> core-versus-max. **Borrowing the subsets' MDEs is an approximation and is labelled as one.**
+>
+> ⭐ **Status: the universal reading is RUN and PASSED on the point estimate; its resolution is
+> UNVERIFIED.** That is a strictly better position than *"has never been run"*, and it names exactly
+> one thing still owed: **the MDE of `coval_core` against the blind maximum.**
 
 **So the universal reading of clause ② has never been run**, and the disagreement about whether this
 definition admits its own instance is exactly that `0.0029`: `coval_core` clears a p99 bar and does
