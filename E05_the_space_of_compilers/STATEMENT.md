@@ -2694,3 +2694,28 @@ f recovers f to **2.2e-16**.
 
 **Scope**: 968 prompts × 9 arms × 75 weak orders · per-prompt view excludes the 48 prompts where
 `att_p = floor_p` · NBOOT 1,200 · first release, home judge.
+
+## R819 · The per-prompt share is estimable only under trimming, and R818's reordering does not survive it
+
+| estimator | Spearman vs corpus-level | arms below the floor | half-split sd |
+|---|---:|---:|---:|
+| **naive** (R818's) | **+0.9833** | **4** | **0.0693** |
+| trim10 · trim20 · median | **+1.0000** | 1 · 0 · 0 | 0.0151 · — · 0.0167 |
+| **weighted** ( = corpus-level, by identity) | **+1.0000** | **0** | **0.0110** |
+
+**R818's reordering and its "four arms below the constant floor" appear under the naive mean alone**,
+which carries **6.3×** the half-split noise of the minimum-variance member.
+
+⭐ **The denominator is why**: **12.8% of prompts have span < 0.05**, the ratio reaches **−29.00**,
+and the smallest-span decile **contributes −503.1% of the total sum** — it flips the aggregate's sign
+by itself.
+
+⭐ **D1, derived before the run and confirmed to 6.66e-16**: `Σmargin/Σspan` **is** the corpus-level
+ratio, so that number was always the minimum-variance member of the family.
+
+⚠ **WORLD C, not A**: the ordering agrees under every trimmed member, but `trim10`'s `coval_core`
+**0.4136** lies outside the corpus-level CI **[0.4827, 0.5499]**. A trimmed mean is a **different
+estimand**, not a better estimate of the same one.
+
+**Scope**: 968 prompts, **920** with a defined ratio × 9 arms × 7 estimators · NBOOT 1,200 · first
+release, home judge.

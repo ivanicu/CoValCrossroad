@@ -21451,3 +21451,44 @@ committing — which is the only reason this is a near-miss and not a committed 
 two-seed stamps. None of them guards the PROSE, and the prose is what a later round reads. The
 cheapest possible fix is the one that worked here — read every number back out of the artifact before
 the commit, not after.*
+
+## 1242 · R818's per-prompt reordering is RETRACTED — it appears under the naive mean alone
+
+R818 returned WORLD C on a reordering (Spearman **+0.9833**) and reported that **four arms fall below
+the constant floor**. Across the estimator family the Spearman against the corpus-level ordering is
+**+1.0000** for trim5, trim10, trim20, median and weighted, and **+0.9833** only for the naive and
+winsorised means; the arms-below-the-floor count runs **4 / 2 / 1 / 0 / 0 / 3 / 0**, and is **0 under
+the minimum-variance member**. The naive estimator carries a half-split sd of **0.0693** against the
+weighted member's **0.0110** — **6.3×**. ⭐ The cause is the denominator: **12.8% of prompts have a
+span below 0.05**, the ratio reaches **−29.00**, and the smallest-span decile **contributes −503.1%
+of the total sum**, flipping the aggregate's sign on its own. ⚠ R818 named this risk and excluded
+only EXACT zeros — 48 prompts — which is not enough when an eighth of the population sits under 0.05.
+*Naming a risk in prose and excluding the degenerate cases is not the same as bounding it, and the
+gap between those two is exactly one round.*
+
+## 1243 · and CHECK #421 killed R818's NEXT on arithmetic before any regression was run
+
+R818's NEXT proposed regressing each arm's margin on the span to test proportionality. **[D2] If
+`margin_p = c·span_p` exactly, every member of the estimator family returns c** — so proportionality
+produces AGREEMENT between the per-prompt and corpus-level statistics, not the divergence R818
+observed. The NEXT asked a question whose affirmative answer would have explained the opposite of
+what was seen. ⭐ And the derivation that replaced it is exact: **`Σmargin/Σspan` IS the corpus-level
+ratio**, confirmed at **6.66e-16**, so the corpus number was always a member of the family and the
+minimum-variance one. *Writing D1 and D2 down before the run is what made both of these arithmetic
+rather than discoveries — and D2 in particular killed a proposed round for the cost of two lines.*
+
+## 1244 · the fifth degenerate negative control of this session, and the check that would have caught four of them
+
+R819's first negative control targeted `weighted = Σm/Σs`, which is **permutation-invariant by
+construction** — reordering `m` cannot change `Σm` — and it returned **+0.5162 [+0.5162, +0.5162]**,
+a point mass exactly equal to the observation. That is the fifth: **R809** permuted both sides of a
+regression with the same permutation; **R810** permuted criterion indices `select_core.py` had
+already re-indexed to `0..k−1`; **R813** assigned to a global name no closure read; **R816** left the
+un-permuted `world` term in both the outcome and the regressor, overshooting the observation; and now
+this. ⚠ **Two more controls failed in this same round**: D1's identity was compared across two
+different populations (920 vs 968), and the separating dose planted `m = f·s` **exactly** — the one
+shape D2 had already said collapses the family — while targeting the MEAN when what distinguishes
+these estimators is VARIANCE. *Every one was caught by its output looking wrong, never by a check.
+The mechanism this project is missing is small and mechanical: run each declared null twice at
+different seeds and fail when its spread is zero or its centre equals the observation. Four of the
+five would have been stopped before the round shipped.*

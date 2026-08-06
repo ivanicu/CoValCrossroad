@@ -7100,3 +7100,34 @@ PLACEBO the constant arm's own share **0.0e+00** · POSITIVE a synthetic arm at 
 recovers **0.000000/0.250000/0.500000/1.000000**, max |Δ| **2.2e-16** · NEGATIVE a **synthetic world
 with no aggregate human tendency**, floor refitted and prompt-weighted: **0.416423 [0.414047,
 0.419088]**, max **0.420731**, entirely below the real **0.449421** · NOISE FLOOR **0.006628**.
+
+## R819 · R818's per-prompt statistic was one estimator with 6× the noise — its reordering is retracted
+
+**Why here.** R818 returned WORLD C on a reordering (Spearman **+0.9833**) and reported four arms
+falling below the constant floor. ⛔ CHECK #421 killed its NEXT on arithmetic first: **[D2] if
+`margin_p = c·span_p` exactly, every estimator returns c**, so proportionality produces AGREEMENT,
+not the divergence observed — the NEXT asked a question whose affirmative answer explains the
+opposite of what was seen.
+
+**The cause is the denominator.** Span mean **0.2368**, median 0.2131, with **12.8% of prompts below
+0.05** and 24.5% below 0.10; the ratio runs to **−29.00**; the smallest-span decile averages
+**−3.105** against the other nine at **+0.414** and **contributes −503.1% of the total sum**.
+
+**⭐ Across the estimator family**, Spearman against the corpus-level ordering is **+1.0000** for
+trim5, trim10, trim20, median and weighted, and **+0.9833** for the naive mean and winsorised mean
+alone. Arms below the floor: naive **4**, trim5 2, trim10 1, trim20 **0**, median **0**, winsor 3,
+weighted **0**. Half-split sd: naive **0.0693** against weighted **0.0110** — **6.3×**.
+⭐ **D1 holds exactly**: `weighted` = `Σmargin/Σspan` **is** the corpus-level ratio, max |difference|
+**6.66e-16** — so the corpus number was always the minimum-variance member of this family.
+
+**⚠ WORLD C, not A.** The ordering agrees under every trimmed member, but `trim10`'s `coval_core` of
+**0.4136** lies **outside** the corpus-level bootstrap CI **[0.4827, 0.5499]**. Retracted: R818's
+reordering and its four-arms-below-the-floor count. Not established: that the two shares are the same
+number — a trimmed mean is a different estimand, not a better estimate of the same one.
+
+**Controls.** OBJECT R818's **+0.0617** and **−0.5938** reproduced exactly · PLACEBO the constant arm
+returns **0.0e+00** under every member · POSITIVE a plant at f = 0/0.25/0.5 recovers f exactly, and
+the repaired separating dose targets SPREAD: at eps=0.05 naive **±0.0348** vs weighted **±0.0073**,
+both exactly 0 at eps=0 · NEGATIVE ⛔ the first version targeted `weighted`, which is
+**permutation-invariant by construction**, and returned a point mass — the **fifth degenerate null of
+this session**; repaired to the six movable members, each real value outside its own null.
