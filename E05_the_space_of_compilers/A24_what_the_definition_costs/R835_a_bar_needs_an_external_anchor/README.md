@@ -56,6 +56,15 @@ tie-break and verified at three seeds.
 ⚠ The MDE used is each arm's paired MDE **against the BAR**, not against the other arm. A true
 between-arm MDE needs per-pair difference vectors R436 did not persist.
 
+> ⛔ **ANNOTATED BY R836 — the approximation errs TOWARD THIS NULL, and this round never said so.**
+> Both arms are scored against the **same** bar, so `MDE_AC = MDE_A·√(2(1−ρ))`. **Using `MDE_A`
+> directly IS the assumption ρ = 0.5**, and for any ρ > 0.5 the true resolution is finer. Arms
+> sharing a bar share its noise, so ρ > 0.5 is the expected case; R825 measured **0.8377** for a
+> comparable pairing. **3 of 45 pairs flip below that**: `gen`/`random_k12_s0` at ρ\* **0.334**,
+> `generic`/`gen` at **0.692**, `promptecho`/`topvar_k4_08b` at **0.822**.
+> **The verdict below is NOT rewritten** — its kill fired as pre-registered. Its SCOPE is
+> **ρ ≤ 0.5**, and ρ is not measured on this site. See `R836_the_null_used_a_conservative_resolution`.
+
 ## NEXT
 
 The clause cannot be repaired by restatement because the label-free class is **unresolved at this

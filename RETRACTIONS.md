@@ -22951,3 +22951,46 @@ identical A2 to 10 dp**, so tied arms swapped between seeds. **The verdict never
 did.** That is precisely the silent nondeterminism the check exists for, and it fires on the *shape*
 of the artifact rather than on any number in it. Fixed with a name tie-break, verified at seeds 1,
 2 and 7.
+
+## 1296 · I flagged an approximation and never said which direction it errs in, and it errs toward my own null
+
+R835 reported **W-NO-SEPARABLE-BEST** and noted its MDE was *"arm-vs-BAR, not arm-vs-arm — an
+approximation."* ⛔ **A direction-free caveat is not a caveat.** Both arms are scored as differences
+against the **same** bar, so
+
+```
+d_AC = d_AB − d_CB   ⇒   MDE_AC = MDE_A · √(2(1−ρ))
+```
+
+**Using `MDE_A` directly IS the assumption ρ = 0.5.** For any ρ > 0.5 the true resolution is
+**finer** — and arms sharing a bar share its noise, so ρ > 0.5 is the **expected** case, not the
+exotic one. R825 measured `corr(bar, core) = +0.8377` for a comparable pairing here.
+
+⭐ **The positive control is on the DERIVATION, because the arithmetic trap demands it.** 4000
+replicates at n=968: empirical `sd(d_AC)` **1.4138 · 1.0002 · 0.5656 · 0.3162** against the closed
+form **1.4142 · 1.0000 · 0.5657 · 0.3162** at ρ ∈ {0, 0.5, 0.84, 0.95} — **match within 1% at all
+four.** Application positive `oracle_k4` vs `generic` → ρ\* **−5.18**; negative, arm against itself
+→ ρ\* **1.0000** exactly. Three seeds byte-identical.
+
+**3 of 45 adjacent pairs flip below the borrowed 0.8377:**
+
+| upper | lower | gap | ρ\* |
+|---|---|---|---|
+| `gen` | `random_k12_s0` | +0.0267 | **0.334** |
+| `generic` | `gen` | +0.0182 | **0.692** |
+| `promptecho` | `topvar_k4_08b` | +0.0229 | 0.822 |
+
+⭐ **`gen` vs the random cluster flips at ρ = 0.334, barely above independence** — so *"the label-free
+class does not separate from random"* is the claim most at risk from an assumption I never wrote down.
+
+**W-CONSERVATIVE. R835's null is scope-dependent and its scope is ρ ≤ 0.5.**
+
+⚠ **What is NOT done, and it matters**: ρ is **not measured** — the per-prompt difference vectors
+were never persisted — so **no pair is re-labelled SEPARABLE**, and **R835's pre-registered verdict
+is not rewritten.** Its kill fired as written; a verdict is not reopened because a later round
+prefers a different resolution model. It is **annotated with its scope**. And **0.8377 is borrowed**
+from a different pairing, recorded in the artifact as borrowed rather than used as this site's value.
+
+⭐ **The general rule this earns**: *"this is an approximation"* is not a limitation, it is a
+placeholder for one. **A caveat has to name the DIRECTION**, because a bound that errs toward your
+own conclusion is not a caveat at all — it is the conclusion, restated as modesty.
