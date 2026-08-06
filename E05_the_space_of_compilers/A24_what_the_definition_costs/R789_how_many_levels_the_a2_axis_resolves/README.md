@@ -167,7 +167,7 @@ first release, home judge.
 
 | | what it would require |
 |---|---|
-| whether A2 is the RIGHT target for clause ② | an external gold standard — the construct-validity wall (R631). This round prices the axis, not its choice |
+| whether A2 is the RIGHT target for clause ② | an external gold standard — an external gold standard for what a core should preserve — the register at `corebench/score.py:34`. ⚠ **R787–R791 cited this as "the wall (R631)"; that citation is FALSE — R631 is `the_unrecorded_retraction`. Corrected in R792.**. This round prices the axis, not its choice |
 | a cut validated outside this release | a second values-annotation release with this schema |
 | independently replicated | a second designer; the session prompt forbids agents |
 | the judge's own pass-to-pass variance | repeated judge passes of one arm; the release ships one per arm (R788) |

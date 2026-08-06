@@ -1,7 +1,8 @@
 {
- "count": 203,
+ "count": 204,
  "notes": {
-  "44f05d1f": "R789's commit body: 'every arm above it reads the target'. VERIFIED at the object in check #392a -- corebench/select_core.py:161 (indep_k), :168 (greedy_k), :180 (oracle) each call tgt.get(pid). Frozen because gate 5 cannot see the commit it gates: the body becomes visible only once HEAD has moved past it."
+  "44f05d1f": "R789's commit body: 'every arm above it reads the target'. VERIFIED at the object in check #392a -- corebench/select_core.py:161 (indep_k), :168 (greedy_k), :180 (oracle) each call tgt.get(pid). Frozen because gate 5 cannot see the commit it gates: the body becomes visible only once HEAD has moved past it.",
+  "eae6d0f9": "R791's commit body: 'R733, R457, R771, R772 and R774 all decompose across PROMPTS'. VERIFIED at each README's opening lines in check #395 -- R733 per-prompt profile, R457 per-prompt advantage reliable, R771/R772 a shared prompt factor, R774 the separability scale is 28% prompt. Frozen because gate 5 cannot see the commit it gates."
  },
  "r670_note": "10 shas added 2026-08-05 by R670: newly visible once the pattern learned 'the last' and 'the first'. Past commit bodies cannot be rewritten, so they are recorded as known and any NEW instance fails. Ledger 715/723 are the named cases.",
  "r706_note": "R706 widened the extractor from `^NEXT:` to paragraph-initial `NEXT[:.,]`, making 65 commits visible in full history and 26 newly-flagged inside the gate's 400-commit window. ALL 26 were invisible to the OLD extractor -- 0 are new violations; they are pre-existing history the gate could not read. Measured before freezing: loss 0, false positives 0 against 8 real wrapped-prose lines, and the newly-visible flag rate 0.4615 vs 0.2655 is explained by paragraph LENGTH (2.0x longer; length-matched the gap is +0.0908, inside a stratified null, p=0.1933). Frozen as history, not as an acquittal of the sentences themselves.",
@@ -227,6 +228,7 @@
   "e76a51f3",
   "e9c1be00",
   "e9dcd296",
+  "eae6d0f9",
   "ed5b6e5d",
   "ed5ba6f9",
   "efb2f2f7",

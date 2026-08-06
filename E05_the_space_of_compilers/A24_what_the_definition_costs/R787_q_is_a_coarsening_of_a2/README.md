@@ -111,7 +111,7 @@ first release, home judge.
 | | what it would require |
 |---|---|
 | whether a finer statistic would rank arms differently | a statistic that is not a function of the paired mean; every one used in this arc is |
-| whether the class's cut points are the RIGHT ones | an external criterion for what clause ② should admit — the construct-validity wall (R631) |
+| whether the class's cut points are the RIGHT ones | an external criterion for what clause ② should admit — an external gold standard for what a core should preserve — the register at `corebench/score.py:34`. ⚠ **R787–R791 cited this as "the wall (R631)"; that citation is FALSE — R631 is `the_unrecorded_retraction`. Corrected in R792.** |
 | observing the variance inversion in real arms | two real arms with equal A2 and a variance ratio ≥ 1.5; the population has no such pair |
 | q for arms outside modal-k=4 | their own C(16,k) class |
 

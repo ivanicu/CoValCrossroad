@@ -20426,3 +20426,50 @@ directly beneath a **different** pair's component block, one of whose components
 the screen read as though the decisive pair had a survivor. The artifact says otherwise and the
 artifact is what was used. *§4's truncated string read as data, in its layout form: adjacency on a
 terminal is not evidence of subject, and a verdict must be read from the persisted object.*
+
+## 1160 · "not separable" was true of ONE estimand, and four rounds said it without the scope
+
+R789, R790 and R791 all state that `coval_core` cannot be separated from `topw_k4`. Measured across
+the 2x2 of {pooled, subgroup} weighting x {prompt, annotator} resampling: **exactly 1 of 4 cells
+separates them** — subgroup-weighted, annotator-resampled, **+0.004107 [+0.000424, +0.007765],
+p 0.0300** — while the arc's silent default returns +0.002297 [−0.002203, +0.007005]. **Neither
+factor alone flips the verdict**, so the prior round's SEPARABLE rests on a CONJUNCTION and the
+arc's NOT-separable rests on a default. *Eleven of twelve retractions in the audited programme this
+project's standard was written from were a correct number reported without the scope over which it
+held; this is the twelfth shape of the same error, at the level of the estimand rather than the
+population.*
+
+## 1161 · the answer was in a 328-byte artifact that had been on disk for three days
+
+`corebench/results/subgroup_coval_core_vs_topw_k4.json` reads `verdict: SEPARABLE`, was committed
+2026-08-03, and was opened by **no round of this arc** — through five rounds that each closed on the
+pair being inseparable. Its commit (`42362e0b`) even carries the instruction: *"the estimand
+ambiguity found here is not local to G — every A-family comparison today was prompt-weighted by
+default, and nobody chose that."* **That NEXT was never acted on.** ⛔ And the same check found a
+second error of the same family: **four rounds cite "the construct-validity wall (R631)" and R631 is
+`the_unrecorded_retraction`** — the register lives at `corebench/score.py:34`. All four READMEs are
+corrected in this commit. *A citation nobody resolves is a wall nobody tests, and the cheapest
+correction of the last five rounds cost one `ls`.*
+
+## 1162 · the estimand moves verdicts and does not move the definition
+
+Over all 190 pairs, the four cells resolve 166 / 180 / 161 / 177, and **11 of 190 verdicts flip**
+between the arc's default and the prior round's cell. But `corr(pooled eff, subgroup eff) = 0.9993`
+— D4's own threshold for a reparameterisation — and **all four clause-② admitted sets are IDENTICAL
+at 14 named arms.** ⚠ And the SHAM constrains the reading further: random groups of the same 36
+sizes give **+0.002586 [+0.001073, +0.005076]** against the real **+0.004107**, so most of the uplift
+over pooled comes from re-grouping at all rather than from *these* groups. *A sensitivity that
+changes individual confidences and leaves the decision unchanged is worth reporting as exactly that,
+and not as either a vindication or a threat.*
+
+## 1163 · my subgroup control failed for its own reasons, and my own D2 had forbidden its expectation
+
+The subgroup-specific POSITIVE planted a shift on the LARGEST subgroup (`gender=Male`, n=9,535) and
+returned subgroup-weighted **0.024743** below pooled **0.026102** — FAIL. **D2, written before the
+run, says the 36 subgroups are six OVERLAPPING partitions of one judgement set**, so a plant on a
+large group of one axis contaminates every other axis's groups in proportion and the two estimators
+must agree by construction. The criterion presumed disjointness that my own derivation denied.
+Repaired to a dose over group size, whose expectation needs no data — pooled weights a group by its
+SIZE and subgroup-weighting does not, so the ratio must FALL as the group grows: **3.870 (n=155) >
+1.053 (n=2,125) > 0.948 (n=9,535)**. *A derivation written in the preregistration is worthless if the
+controls in the same file contradict it.*

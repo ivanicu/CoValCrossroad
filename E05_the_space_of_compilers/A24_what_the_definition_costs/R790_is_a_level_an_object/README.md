@@ -128,7 +128,7 @@ the specification and control cells, 3 seeds.
 
 | | what it would require |
 |---|---|
-| whether the levels are the RIGHT grouping | an external criterion for what clause ② should admit — the construct-validity wall (R631) |
+| whether the levels are the RIGHT grouping | an external criterion for what clause ② should admit — an external gold standard for what a core should preserve — the register at `corebench/score.py:34`. ⚠ **R787–R791 cited this as "the wall (R631)"; that citation is FALSE — R631 is `the_unrecorded_retraction`. Corrected in R792.** |
 | a partition that is not construction-dependent | a transitive resolution relation, which this data does not supply (E1) |
 | independently replicated | a second designer; the session prompt forbids agents |
 | levels for arms outside modal-k=4 | their own comparator class and sat files |

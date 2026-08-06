@@ -122,7 +122,7 @@ home judge.
 
 | | what it would require |
 |---|---|
-| whether a component difference MATTERS to a reader | an external criterion for what clause ② should admit — the construct-validity wall (R631) |
+| whether a component difference MATTERS to a reader | an external criterion for what clause ② should admit — an external gold standard for what a core should preserve — the register at `corebench/score.py:34`. ⚠ **R787–R791 cited this as "the wall (R631)"; that citation is FALSE — R631 is `the_unrecorded_retraction`. Corrected in R792.** |
 | a decomposition finer than the six comparisons | graded judgements rather than pairwise signs; the release ships signs |
 | independently replicated | a second designer; the session prompt forbids agents |
 | cross-release | a second values-annotation release |

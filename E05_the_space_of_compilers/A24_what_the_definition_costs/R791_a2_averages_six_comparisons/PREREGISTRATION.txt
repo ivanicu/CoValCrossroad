@@ -22,8 +22,9 @@ CHECK #393 — the GAUGE TEST, which is the cheapest rung of the attack ladder a
 CHECK #393 — P4, and the prior art is close but not this.
   L1 live code   R733 (`a shared level or a shared profile`) built the per-prompt PROFILE comparison
                  with a shared-subtrahend floor (0.5034) and an alias ceiling (1.000000).
-  L2 archive+git R457 established the per-prompt gap IS reliable — split-half rho 0.8311 against a
-                 shuffled null of 0.0168 — so per-prompt structure is not noise. That kills, in
+  L2 archive+git R457 established the per-prompt gap IS reliable — split-half reliability against a shuffled
+                 null of 0.0168 -- R733 quotes it as 0.8311; R457's own README says rho_full 0.8812,
+                 and the PRIMARY source governs (corrected in R792) — so per-prompt structure is not noise. That kills, in
                  advance, the lazy world in which everything below the scalar is measurement error.
   L3 this project R771/R772 sized a shared PROMPT factor; R774 found the scale is an arm property.
   => every one of those decomposes across PROMPTS. **No round in this arc has decomposed across the
@@ -34,7 +35,7 @@ CHECK #393 — P4, and the prior art is close but not this.
 DISCLOSURE -- what was already known when this was written
 --------------------------------------------------------------------------------
 KNOWN and quoted: R789's `coval_core` − `topw_k4` = +0.002297 [−0.00378, +0.00844], mde 0.00853,
-t 0.75; R790's P(same level) = 0.975; R457's reliability; R733's floor and ceiling. **NOT known:
+t 0.75; R790's P(same level) = 0.975; R457's reliability (see the correction in R792); R733's floor and ceiling. **NOT known:
 any component-level quantity.** Not the six effects, not their spread, not the effective rank of the
 component matrix, not how many of the 190 pairs a componentwise test resolves.
 

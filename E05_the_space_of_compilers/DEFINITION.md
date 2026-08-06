@@ -6122,3 +6122,45 @@ topw_k4_detB}`, all on the losing side.
 **Noise floor**, measured by annotator split-half over 20 draws: AB 0.006317 · AC 0.005018 ·
 AD 0.006572 · BC 0.005035 · BD 0.005624 · CD 0.005867. ⚠ MARGINAL, per arm — R790's unit note
 forbids comparing it to the paired effects. **WORLD C.**
+
+## R792 · the estimand 2×2, and the three defaults nobody chose
+
+**The question.** A committed round separated `coval_core` from `topw_k4` on a *subgroup-weighted,
+annotator-resampled* estimand while this arc reported them inseparable on a *prompt-weighted,
+prompt-resampled* one. That round changed two things at once and said so. A 2×2 separates them.
+
+**Derived before measuring.** D1 weighting fixes the ESTIMAND, the resampling unit fixes its SE —
+changing both confounds target with precision. D2 the 36 subgroups are six OVERLAPPING partitions of
+one judgement set. D3 alias arms return exactly 0 in every cell. D4 a weighting correlation above
+~0.99 makes the second a reparameterisation.
+
+**E1 · the 2×2** (decisive pair, 1,200 draws):
+
+| weighting | resampling | eff | 95% CI | p | verdict |
+|---|---|---:|---|---:|---|
+| pooled | prompt | +0.002297 | [−0.002203, +0.007005] | 0.2917 | not separable |
+| pooled | annotator | +0.002297 | [−0.000163, +0.004650] | 0.0683 | not separable |
+| subgroup | prompt | +0.004107 | [−0.002590, +0.010857] | 0.2267 | not separable |
+| **subgroup** | **annotator** | **+0.004107** | **[+0.000424, +0.007765]** | **0.0300** | **SEPARABLE** |
+
+**E2 · the grid.** 190 pairs per cell, BH over each whole grid: resolved **166 / 180 / 161 / 177**;
+non-survivors 24 / 10 / 29 / 13. **11 of 190 verdicts flip** between the default and the prior cell.
+`corr(pooled eff, subgroup eff) = 0.9993`.
+
+**E3 · the decision.** All four admitted sets **IDENTICAL**, 14 named arms.
+
+**A third default, found by the code failing.** The judgement table spans **1,078** prompts, the arms
+share **968**, and the prior round used whatever each arm had. Both populations are carried: per-arm
+availability for the reproduction, the common set for the grid.
+
+**Controls.** OBJECT — the committed artifact reproduced by different code on a different day: 36
+subgroups, mean 0.004107, win_rate 0.833333, exit 2 otherwise · PLACEBO 9 alias pairs, worst
+per-judgement difference exactly 0.0 · POSITIVE floor **0 of 4** at δ=0, ceiling **4 of 4** at δ=0.002
+· SUBGROUP-SPECIFIC plant, ratio (subgroup/pooled) by group size **3.870 (n=155) → 1.053 (n=2,125) →
+0.948 (n=9,535)**, monotone as D2 requires — ⛔ the first version planted on the largest group and
+failed against my own D2 · NEGATIVE demographics permuted across annotators, pooled unchanged to
+0.0e+00, subgroup difference moves 0.000581 · SHAM random groups of the same 36 sizes **+0.002586
+[+0.001073, +0.005076]** against the real +0.004107 · NOISE FLOOR sham sd **0.000974**.
+
+**WORLD C** — only the corner separates. **The estimand moves verdicts and does not move the
+definition.**

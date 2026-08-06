@@ -1856,3 +1856,38 @@ at exactly 0.0 · POSITIVE component-**specific** (a plant on AB fires AB alone,
 
 **Scope**: 20 distinct objects × 968 prompts × 6 components · 1,140 cells · NBOOT 1,200 · 3 seeds ·
 first release, home judge.
+
+## R792 · The arc's estimand was a default nobody chose — and it does not move the definition
+
+**`coval_core` − `topw_k4` separates in exactly 1 of 4 estimand cells.**
+
+| weighting | resampling | eff | 95% CI | |
+|---|---|---:|---|---|
+| pooled | prompt *(the arc's default)* | +0.002297 | [−0.002203, +0.007005] | not separable |
+| pooled | annotator | +0.002297 | [−0.000163, +0.004650] | not separable |
+| subgroup | prompt | +0.004107 | [−0.002590, +0.010857] | not separable |
+| **subgroup** | **annotator** | **+0.004107** | **[+0.000424, +0.007765]** | **SEPARABLE** |
+
+**Neither factor alone flips it**, so a prior round's `SEPARABLE` rests on a conjunction and this
+arc's `not separable` rested on a default. R789/R790/R791 state it unscoped; corrected.
+
+⭐ **AND THE DEFINITION DOES NOT MOVE.** The four cells resolve 166 / 180 / 161 / 177 of 190 pairs,
+**11 verdicts flip**, `corr(pooled, subgroup) = 0.9993`, and **all four clause-② admitted sets are
+IDENTICAL at 14 named arms.**
+
+⚠ **The sham constrains it further**: random groups of the same 36 sizes give **+0.002586
+[+0.001073, +0.005076]** against the real **+0.004107**, so most of the uplift over pooled comes from
+regrouping at all rather than from these groups.
+
+⛔ **Two citation errors, corrected at the artifacts.** `corebench/results/subgroup_coval_core_vs_topw_k4.json`
+(328 bytes, committed 2026-08-03) had read `SEPARABLE` for three days unopened; and **four rounds
+cite "the construct-validity wall (R631)" when R631 is `the_unrecorded_retraction`** — the register
+is `corebench/score.py:34`.
+
+**Controls**: the committed artifact **reproduced** (36 / 0.004107 / 0.833333, exit 2 otherwise) ·
+PLACEBO 9 alias pairs at exactly 0.0 · POSITIVE band 0 of 4 at δ=0 → 4 of 4 at δ=0.002 ·
+subgroup-specific plant **monotone in group size, 3.870 → 1.053 → 0.948** · NEGATIVE demographics
+permuted across annotators leaves the pooled estimate unchanged to 0.0e+00.
+
+**Scope**: 18,384 judgements · 1,078 prompts in the table, 968 shared by all arms · 1,012 annotators
+· 36 subgroups at n ≥ 100 across 6 axes · NBOOT 1,200 · 3 seeds · first release, home judge.
