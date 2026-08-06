@@ -25472,3 +25472,58 @@ single instance passes.
 **Annotated beside the statement, not edited into the clause lines (L81)** — those lines are anchored
 by `definition_matches_the_record.py`, and silently editing a statement its gate keys on is the one
 change that should never be made quietly. Gate re-run: **exit 0**.
+
+## 1350 · the card refutes the graded metric's stronger defence — the humans were asked for an ORDERING, and that is the reading on which the core fails
+
+Entry 1349 named the gap (the statement names its judge, never its metric) and moved a burden: *why is
+graded per-prompt agreement the right target rather than the convenient one?* Two arguments could pay
+it. **Both were checked against `data/DATASET_CARD.md` — the object, not a description of it.**
+
+### ⛔ ① "GRADED MATCHES HOW THE HUMANS WERE ASKED" — REFUTED
+
+The card, on the per-prompt task flow: annotators *"**ranked the four responses from most preferred to
+least preferred**"*, and then **ranked them again** for "what would be best for the world overall",
+each with a written rationale. The release stores the result as
+
+```
+"ranking_blocks": { "personal": [ { "rationale": "...", "ranking": "A>B>C=D" } ], ... }
+```
+
+**A complete weak ordering, ties included.** The elicited unit is the **whole ordering** — so the
+reading faithful to the elicitation is the **exact-class** one, R231's, **on which `coval_core` scores
+0.3864 against a floor of 0.3891 and fails clause ②.**
+
+⭐ **The defence does not merely fail; it points the other way.** I expected the card to license the
+graded reading and it licenses the one under which the definition's own extension is empty.
+
+### ⛔ ② "GRADED IS WHAT THE RELEASE ITSELF SCORES" — VOID
+
+The card publishes **no ranking aggregation**. Its one construction paragraph is about distilling
+*rubric items*, not scoring responses — *"our process first **rewrites** all rubric items to have
+positive weight and then merges semantically redundant rubric items while adjusting their scores…
+aims to select up to four…"* — and it ends:
+
+> *"Core is a proof of concept that surfaces difficult design choices in distilling the full rubrics
+> and **an invitation for others to develop and validate better synthesis and aggregation methods for
+> this format**."*
+
+**There is no published target for "scores better" to be right about.** The release names the
+aggregation as *open*.
+
+⚠ *(Incidental convergence: that same sentence is the object-level source of the withdrawn "launder"
+framing — the card states the polarity rewrite and the discarding of per-item ratings plainly, so the
+rescope registered in `no_withdrawn_framings` is the card's own description.)*
+
+### ⭐ WHAT IS SETTLED AND WHAT IS NOT
+
+**Settled:** the graded choice **cannot be defended as "what the data is."** It is a choice this
+campaign made — on which its single instance passes, and on which the elicitation-faithful alternative
+fails.
+
+⚠ **NOT settled:** that exact-class is *correct*. Whether a core should reproduce an ordering or track
+it gradedly is a **construct** question, and the card explicitly declines to settle it — which is
+also, precisely, the release's stated reason for existing.
+
+⭐ **The shape of this round is the part worth keeping.** I went to the card expecting to *pay* a
+burden and came back having *raised* it. The two defences were named before reading, one was refuted
+and one was void, and neither outcome was the one that would have been comfortable to write.

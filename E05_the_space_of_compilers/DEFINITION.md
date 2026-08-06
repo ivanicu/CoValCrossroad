@@ -92,6 +92,30 @@ rather than leaving it as an unstated default.
 `assurance/definition_matches_the_record.py`, and a silent edit to a statement its gate keys on is the
 one change that should never be made quietly.
 
+⛔⛔ **AND THE BURDEN IS NOT MERELY UNPAID — THE CARD ANSWERS BOTH DEFENCES, AND ONE POINTS THE OTHER
+WAY (entry 1350).** Two arguments could license the graded metric. Both were checked against
+`data/DATASET_CARD.md`, the object itself.
+
+**① "Graded matches how the humans were asked" — REFUTED.** The card: annotators *"ranked the four
+responses from most preferred to least preferred"*, twice (personal and world-view), each with a
+written rationale, and the release stores **`"ranking": "A>B>C=D"`** — a **complete weak ordering with
+ties**. **The elicited unit is the WHOLE ORDERING.** The reading faithful to the elicitation is the
+**exact-class** one — R231's — which is the reading on which `coval_core` sits **below** its floor.
+
+**② "Graded is what the release itself scores" — VOID.** The card publishes **no ranking aggregation**.
+Its only construction paragraph is about distilling *rubric items* — *"rewrites all rubric items to
+have positive weight and then merges semantically redundant rubric items"* — and it closes: *"Core is
+a proof of concept that surfaces difficult design choices in distilling the full rubrics and **an
+invitation for others to develop and validate better synthesis and aggregation methods for this
+format**."* **There is no published target for "scores better" to be right about.**
+
+⭐ **So the metric this statement omits has no support from the object, and its stronger available
+defence is contradicted by the elicitation format.** ⚠ **What this does NOT establish:** that
+exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a
+CONSTRUCT question, and the card explicitly declines to settle it. **What is settled is that the
+graded choice cannot be defended as "what the data is" — it is a choice this campaign made, on which
+its one instance passes and the alternative fails.**
+
 ⚠ **The size line was two different things and is now written as two (R441).** *"3 to 8 are not
 distinguishable"* is a statement about **resolution**, and a non-result cannot remove a member — it
 excludes nothing **by construction**, so it is a **caveat, not a clause**. That is a derivation and
