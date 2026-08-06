@@ -23483,3 +23483,35 @@ everywhere** — the other is discarded, not quoted.
 middle value came from reading the *pre-registration* and assuming the script implemented it. **A
 promise and its implementation are two artifacts, and this arc has now been caught conflating them at
 the script level, at the report level, and here at the design level.**
+
+## 1311 · "invisible to every gate" survives being counted, and the count finds a 176-file population nobody watches
+
+My NEXT said a condition promised in a pre-registration and absent from the code is *"invisible to
+every gate in the suite."* **A quantifier over my own work, so it was counted before it was acted on.
+It holds** — and the counting produced two things the sentence did not.
+
+| | |
+|---|---|
+| assurance gates | **66** |
+| that mention `PREREGISTRATION` at all | **6** |
+| that also read `run.py` | **1** — `corrections_propagated.py` |
+| **that compare a promised condition to the code implementing it** | **0** |
+
+⭐ **The positive control is what makes the zero admissible.** A weak pattern returning 0 is silence;
+so the one candidate was read. `corrections_propagated.py` **does** compare across documents — *"a
+claim corrected in one document must not survive uncorrected in another"* — but it compares a **CLAIM
+across DOCUMENTS**, not a **CONDITION against CODE**. Its `run.py` hit is a citation inside a
+correction string (`r44 run.py:112`), not a file read. **So the zero is a measurement: a real
+cross-document comparator exists, and it is aimed at a different property.**
+
+⭐⭐ **AND THE READ FOUND SOMETHING THE QUESTION DID NOT ASK.** Its `WATCHED` list is
+`README.md · FROZEN.md · PREREGISTRATION.md · assurance/ASSURANCE.md` — **a ROOT-LEVEL
+`PREREGISTRATION.md`**. All four exist, so the gate is not blind. But the rounds keep their designs
+in **per-round `PREREGISTRATION.txt`**, and there are **176 of them**. **A correction that reaches
+the root file and not the 176 is exactly the defect this gate was built to prevent, in the population
+it does not watch.**
+
+⚠ **Scope, honestly**: this is a **coverage** observation, not a demonstrated failure. Whether any
+superseded claim actually survives in one of the 176 is **unmeasured** — the gate's own closing line
+says it covers only corrections registered in it, so **its silence about the 176 is not an acquittal
+of them.** Naming the gap is not the same as finding a defect in it.
