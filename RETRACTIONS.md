@@ -23068,3 +23068,38 @@ that guard, and R835's table does not have one.
 ⭐ **The substantive result: one separable boundary in 45.** The ③-admissible ordering is **not a
 ranking** — it is the substantive label-free arms above the random cluster, and everything inside
 each group is noise at this design's true resolution.
+
+## 1299 · the clause my own NEXT asked me to draft would have been the instance described again
+
+My NEXT said: *"writing the clause that names a two-way split is a drafting step."* ⛔ **The premise
+fails, and checking it before drafting is what caught it.**
+
+**① ④'s extension is already correctly resolved and does not move.** R436 adjudicates each arm
+against the bar with `ZEFF · std(bootstrap of mean(arm − bar))` on the **per-prompt paired
+difference** — the correct MDE for the comparison ④ makes. The two-group finding concerns the
+ordering **among ③-admissible arms**, a different comparison. **So the five rounds of resolution work
+change nothing in ④**, and a resolution parameter added to ④ would be decoration.
+
+**② The boundary is a fact about the arm inventory, not about cores.** It sits between `gen` and
+`random_k12_s0` because those are the arms that were built. **Add one arm between them and it moves.**
+A clause whose extension depends on which competitors happened to be constructed is **a leaderboard
+position wearing a definition's clothes.**
+
+**③ It fails this document's own exclusion test.** Asked to name an admissible object it excludes,
+the honest answer is *"whatever is currently below the boundary"* — **not an object but a rank.**
+
+⭐ **This is §4's *the definition describes the instance*, caught at draft time instead of after
+commit.** The row's whole lesson is that a clause can be **true of the object and false as a
+definition**, and that the two are indistinguishable from the inside — the only thing that separates
+them is the mechanical question *what does this exclude?*, asked before the sentence is written.
+**Five clauses died to that question in one morning; this one died before it was one.**
+
+**So the measured resolution belongs in `DEFINITION.md` as a SCOPE on what ④ can express, and nowhere
+in the conjunction.** That is where it now sits, with the rejection and its three reasons beside it,
+because a clause that was considered and refused is evidence about the definition and vanishes if it
+is only not-written.
+
+⚠ **One inconsistency recorded, not resolved**: R436 excludes at **1× MDE** (`d.mean() < -mde`) while
+R835/R838 call a pair separable at **2×**. Both are pre-registered in their own rounds and neither is
+wrong, but a reader comparing the two tables is comparing different bars. **Named here so the next
+round that touches either one knows it is choosing, not inheriting.**

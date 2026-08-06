@@ -7494,3 +7494,22 @@ site**, whatever bar it names.
 MDEs fall below **0.0104**, and the smallest is **0.000000** — two pairs of duplicate arms whose
 difference vector is identically zero across every prompt. A single bound applied to the whole
 ordering is wrong in both directions, not merely conservative. *(R835 · R836 · R837 · R838)*
+
+⛔ **AND THIS IS NOT A CLAUSE, WHICH IS THE POINT.** The obvious next move — *"a core must be in the
+upper group"* — was drafted and rejected here. Three reasons, in order of decisiveness:
+
+1. **④'s extension is already correctly resolved and does not change.** R436 adjudicates each arm
+   against the bar with `ZEFF · std(bootstrap of mean(arm − bar))` on the **per-prompt paired
+   difference** — the right MDE for the comparison ④ actually makes. The two-group finding concerns
+   the ordering **among ③-admissible arms**, which is a different comparison, so nothing in ④'s
+   extension moves. Adding a resolution parameter to ④ on these grounds would be decoration.
+2. **The boundary is a fact about the arm inventory, not about cores.** It sits between `gen` and
+   `random_k12_s0` because those are the arms that were built. Add one arm between them and it
+   moves. **A clause whose extension depends on which competitors happened to be constructed is not
+   a definition** — it is a leaderboard position wearing a definition's clothes.
+3. **It fails the exclusion test this document applies to every clause.** Asked to name an
+   admissible object it excludes, the honest answer is *"whatever is currently below the boundary"*,
+   which is not an object but a rank.
+
+**So the measured resolution belongs here as a SCOPE on what ④ can express, and nowhere in the
+conjunction.** *(R838; the rejection is a derivation, not a measurement.)*
