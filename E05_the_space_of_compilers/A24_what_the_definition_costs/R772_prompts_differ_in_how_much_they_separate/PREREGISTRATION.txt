@@ -1,0 +1,144 @@
+R772 · prompts differ in how much they SEPARATE arms — a multiplicative scale, not an additive nuisance
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R771 found the two estimands split: the pairwise excess says no factor (-0.0074) while the spectrum
+says structure (leading share 0.3791 vs a simulated band [0.2974, 0.3172]). Its NEXT named a shared
+nuisance -- "each arm is scored against the same human annotations, so a prompt whose annotators
+disagree more depresses each arm's A2 together" -- and registered a partial correlation on annotator
+agreement.
+
+⛔ CHECK #374 REFUTES THAT NUISANCE FROM R771's OWN ALGEBRA, BEFORE ANY MEASUREMENT.
+   An effect that depresses every arm EQUALLY is ADDITIVE AND COMMON, and R771 proved -- and its
+   positive control demonstrated at four loadings -- that a common additive term CANCELS in every
+   difference: `d_ab = (A2_a + u) - (A2_b + u) = A2_a - A2_b`. **So the nuisance I registered is the
+   exact object R771 showed is invisible here.** EIGHTH closing line this arc needing repair, and the
+   first refuted by the round that wrote it.
+
+⭐ WHAT DOES NOT CANCEL IS A MULTIPLICATIVE SCALE. If a prompt's capacity to SEPARATE arms varies --
+   `d_ab(p) = c(p) * delta_ab + noise` -- then `c(p)` multiplies every pair's difference together, does
+   NOT cancel, and predicts exactly the three things R771 measured: small positive DISJOINT
+   correlations, ~zero excess among arm-SHARING pairs (dominated by the shared-arm term), and extra
+   spectral concentration.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the correlation of |d| across pairs, reported SEPARATELY for the 15 DISJOINT pairs (clean) and
+    the 30 arm-sharing pairs (inflated by the shared arm, D2 below). The disjoint block is the test.
+E2  the correlation between the per-prompt scale `c(p)` and per-prompt ANNOTATOR AGREEMENT -- which
+    answers R771's registered question in the form that survives the algebra.
+E3  whether normalising by `c(p)` removes the spectral excess, estimated LEAVE-ONE-PAIR-OUT so that
+    no pair is normalised by a scale computed from itself.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1 IDENTIFIED and exact.
+E2 IDENTIFIED; annotator agreement is computable as the mean pairwise agreement among a prompt's own
+   annotators, and prompts with a single annotator are excluded and counted.
+E3 ⚠ IDENTIFIED ONLY UNDER LEAVE-ONE-PAIR-OUT. `c(p)` computed from all ten pairs and then used to
+   normalise those same ten is **conditioning on the outcome** -- §4's row -- and would shrink the
+   correlations mechanically whether or not any scale exists. A quick probe gave 0.3791 -> 0.3330
+   under the circular version; **that number is inadmissible and this round does not report it as
+   evidence.** Leave-one-pair-out breaks the circularity: pair i is normalised by the mean |d| of the
+   other nine.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  968 prompts; 5 committed members; their 10 pairwise differences
+instrument  per-prompt A2 over all annotators; Pearson correlation across prompts
+baseline    a simulated independence model with a planted scale -- generated, not chosen
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  AN ADDITIVE COMMON TERM CANCELS. Proven in R771 and demonstrated by its own failed plant at four
+    loadings. So annotator agreement can only act here MULTIPLICATIVELY, and the registered partial
+    correlation on an additive nuisance was answering a question the algebra had already closed.
+D2  |d| CORRELATES AMONG ARM-SHARING PAIRS EVEN WITH NO SCALE. `|d_ab|` and `|d_ac|` share arm a, so
+    their magnitudes co-move for the same reason their signed values do. **The arm-sharing block is
+    therefore NOT evidence for a scale**, and only the 15 disjoint pairs are admissible.
+D3  DIVIDING BY A SCALE ESTIMATED FROM THE SAME DATA SHRINKS CORRELATIONS MECHANICALLY. Any drop in
+    the leading share under the circular normalisation is uninformative in BOTH directions.
+D4  c(p) HAS A FLOOR AT ZERO AND SOME PROMPTS SIT ON IT. A ratio to a near-zero denominator explodes;
+    the round reports c's QUANTILES, never its min/max ratio, and normalises with a floored divisor
+    whose floor is stated.
+
+STRONGEST CONFOUND, written BEFORE the run: a multiplicative scale and a heteroscedastic noise floor
+are observationally similar -- prompts where the JUDGE is noisier inflate every |d| together without
+any real difference in separability. CONTROL IN THE SAME ITERATION: compute the per-prompt
+annotator-level SE of each difference (R770's within component) and report the correlation between
+`c(p)` and that SE. If they track, the "scale" is a noise-amplitude map and not a separability map,
+and the round says so.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · A REAL SEPARABILITY SCALE. Disjoint |d| correlations are positive and exceed what an
+    independence simulation gives; leave-one-pair-out normalisation brings the leading share inside
+    the sham band; and `c(p)` does NOT merely track the noise SE. Then "which prompts separate cores"
+    HAS an answer and it is a per-prompt scale, not a partition.
+B · A NOISE-AMPLITUDE MAP. `c(p)` tracks the within-prompt SE, so the co-movement is heteroscedastic
+    noise and separability is not a property of prompts at all.
+C · NEITHER. Disjoint |d| correlations sit inside the simulated band and the normalisation changes
+    nothing beyond what the sham normalisation does.
+
+PREDICTION MATRIX
+  A -> disjoint |d| corr above the simulated band, LOPO-normalised share inside the sham band,
+       corr(c, within-SE) < 0.5
+  B -> corr(c, within-SE) >= 0.5
+  C -> disjoint |d| corr inside the simulated band
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE fires (a planted MULTIPLICATIVE scale is recovered, swept, monotone, detected at the top
+   rung and not at zero) and g=0 fires (no planted scale -> no detection) and PLACEBO fires (an
+   identical pair contributes nothing):
+        disjoint above band, LOPO inside sham band, corr(c, SE) < 0.5 -> WORLD A
+        corr(c, within-SE) >= 0.5                                     -> WORLD B
+        disjoint inside the band                                      -> WORLD C
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE  plant `d_ab -> s(p) * d_ab` with `s` lognormal at sweep width in {0, 0.25, 0.5, 1.0}, and
+          require the DISJOINT |d| correlation to rise monotonely and be detected at 1.0.
+          BAND, COMPUTED: at width 0 nothing may be detected; at 1.0 it must be. ⚠ AND THE PLANT IS
+          MULTIPLICATIVE, because that is the object under test -- the defect R771 caught in its own
+          control was planting an additive factor the instrument cannot see.
+g=0       width 0: the same machinery must return a disjoint correlation inside its own simulated band.
+NEGATIVE  permute `c(p)` across prompts, 200 draws, and normalise by the permuted scale. World
+          excluded: "dividing by ANY vector of this distribution lowers the leading share".
+SHAM      ingredient ABSENT, not inverted. Ingredient = THE SCALE'S ALIGNMENT WITH THE DATA. Normalise
+          by a random vector drawn from `c`'s own empirical distribution, 200 draws -- same marginal,
+          same floor, no alignment -- and report the leading-share distribution. The LOPO result must
+          beat it.
+PLACEBO   `topw_k4` vs `_detA`: |d| identically 0, so it must contribute no correlation and must be
+          excluded by construction rather than dividing by zero.
+NOISE     the within-prompt SE from R770 is recomputed here and used as the confound axis, not assumed.
+UNIT      instrument unit = a PROMPT; intermediate = an ARM PAIR (10); claim unit = the per-prompt
+          SCALE, which is a property of the PROMPT. All three named.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+45 |d| correlation cells split 15 disjoint / 30 arm-sharing and reported separately; 4 sweep widths;
+200 sham draws; 200 permutation draws; the LOPO normalisation over 10 pairs. Whole grid printed.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether the scale is a property of PROMPTS or of
+  the JUDGE reading them                          a second judge scoring the same arms
+whether a high-scale prompt is "better" in any
+  sense a user would recognise                    an external criterion
+cross-release                                     a second release
+independently replicated                          a second team; the session prompt forbids agents

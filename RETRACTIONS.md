@@ -19730,3 +19730,39 @@ instrument on purpose.** Rebuilt with **differential** loadings summing to zero,
 monotonically and detects from λ = 0.25. *This is the second round running whose positive control
 failed for a reason about the PLANT rather than the instrument, and both times the fix was to make
 the plant the thing under test rather than to relax what counts as detection.*
+
+## 1097 · the eighth closing line, refuted by the round that wrote it
+
+R771 closed by naming a shared nuisance — *"a prompt whose annotators disagree more depresses each
+arm's A2 together"* — and registered a partial correlation on it. **That is an additive common term,
+and R771 itself proved such a term cancels exactly in every difference**, with its own failed positive
+control demonstrating the point at four loadings. So the closing line aimed at the one object the
+round had just shown the instrument cannot see. ⭐ The repair was in the same algebra: a
+**multiplicative** scale does not cancel, and it predicts all three of R771's observations at once.
+*Eight closing lines in this arc have now needed repair at the next round's first check — three prior
+art, two mis-specified tests, one refuted by my own committed table, one not well-formed, and this one
+contradicted by the round it was written in. The line is written after the controls have fired and the
+attention they held has been released, which is exactly when the algebra stops being consulted.*
+
+## 1098 · the obvious normalisation was circular, and the controls run the other way
+
+Dividing each prompt's differences by `c(p)` — the mean |d| over the same ten pairs — is conditioning
+on the outcome, and shrinks correlations mechanically whether or not a scale exists. A quick probe
+gave **0.3791 → 0.3330** that way; **that number is inadmissible and the round does not report it as
+evidence**, which is the whole point of having derived D3 before running. Under leave-one-pair-out —
+each pair normalised by the mean |d| of the **other nine** — the share falls to **0.3298**, while
+normalising by a **random draw from `c`'s own distribution** gives **0.3822 [0.3541, 0.4090]** and a
+**permuted** `c` gives **0.3826**. ⭐ **Both controls RAISE the share; only the aligned scale lowers
+it.** *A control that moves the statistic the opposite way from the treatment is worth more than one
+that sits at zero, because it rules out the arithmetic explanation instead of merely not supporting it.*
+
+## 1099 · the verdict fired by 0.028, and the label overstates the number
+
+The registered confound drew a binary line: `corr(c, within-prompt SE) >= 0.50` means the scale is a
+noise-amplitude map rather than a separability map. Measured **+0.5278** — **WORLD B, by a margin of
+0.028**. But r² is **0.2786**, so **~72% of the scale's variance is not noise amplitude**, and calling
+the result "a noise-amplitude map" is the registered label rather than a description. The round
+reports the verdict the line gives **and prints r² beside it**, because the alternative — quietly
+relabelling to World A on the grounds that 0.53 is "basically 0.5" — is the tuning this arc has caught
+twice already. *A pre-registered threshold is binding when it goes against you and that is the only
+time it does any work; what it is not is a substitute for reporting the magnitude it thresholded.*

@@ -363,7 +363,19 @@ A **core** for a conversation is a set of criteria such that
     is a size: interpolating on a monotone plant curve gives a differential loading of
     **λ ≈ 0.59 × the residual sd**. ⭐ The reconciling detail is the **15 disjoint pairs at +0.0312**
     where independence predicts exactly 0 — small, same-signed, and enough to tilt an eigenvector
-    without moving an average. And the confound is answered: the
+    without moving an average.
+    ⭐⭐ **AND THE MECHANISM IS A MULTIPLICATIVE PER-PROMPT SCALE** *(R772)*. An ADDITIVE shared
+    nuisance cancels in every difference — proven above — so it cannot be the cause; a **multiplicative**
+    one does not. Measured: the 15 disjoint pairs' **|d|** co-move at **+0.2974** against an
+    independence reference of **+0.0000 [−0.0314, +0.0323]**, calibrating to a lognormal width of
+    **≈0.55**. Leave-one-pair-out normalisation — no pair divided by a scale computed from itself —
+    drops the leading share **0.3791 → 0.3298**, while a **random** or **permuted** divisor of the same
+    distribution *raises* it to **[0.3541, 0.4090]**: the alignment is what explains it, not the
+    division. ⛔ **But ~28% of the scale is heteroscedastic noise**: `corr(c, within-prompt SE) =
+    **+0.5278**` (r² 0.279) against a pre-registered line of 0.50 — the verdict fires by **0.028**, so
+    the separability reading is bounded rather than clean. ⚠ Annotator agreement is **not** the driver:
+    **+0.1246**. ⭐ **And 223 of 968 prompts have `c(p) = 0`** — the five extension members score
+    identically on them, so 23% of the population carries no information about any ordering. And the confound is answered: the
     `topw_k` family is an inverted U peaking at **k = 6** (eff/MDE 1.311) with `eff/MDE` falling
     monotonically 6 → 8 → 12, so `topw_k8` is not an anomaly but where the curve re-enters the floor.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own

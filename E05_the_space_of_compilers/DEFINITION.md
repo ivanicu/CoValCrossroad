@@ -5440,3 +5440,27 @@ SHAM as above · NEGATIVE 200 independent prompt permutations → **0.1164 [0.11
 ⛔ **A factor loading EQUALLY on all arms is invisible in differences** — `d_ab` retains only
 `λ(√v_a − √v_b)·f`, which vanishes at equal variances. The first plant was that object and produced
 0.308–0.312 at every loading including 1.0.
+
+## R772 · the per-prompt separability scale
+
+**Scope.** population = 968 prompts, 5 committed members, 10 pairwise differences; instrument =
+per-prompt A2 over all annotators; baseline = a generated independence model with a planted
+multiplicative scale; regime = first release, home judge, this tree_sha.
+
+**E1 · |d| co-movement.** disjoint (15 cells, admissible) **+0.2974** · arm-sharing (30 cells, co-move
+with no scale by D2) +0.4560 · independence reference over 200 simulations **+0.0000 [−0.0314,
++0.0323]**. Dose curve: width 0.25 → +0.0950 · 0.50 → +0.2731 · 1.00 → +0.5204 ⇒ observed calibrates
+to a **lognormal width ≈ 0.55**.
+
+**E2 · what the scale is.** corr(`c`, per-prompt annotator agreement) **+0.1246** · corr(`c`,
+per-prompt within-SE) **+0.5278** (r² **0.2786**) against a pre-registered line of **0.50** — fires by
+**+0.0278**. `c(p)` quantiles **[0.0000, 0.0055, 0.0333, 0.0667, 0.3042]**, **223 zeros**.
+
+**E3 · leave-one-pair-out normalisation** (the all-pairs version is circular and its 0.3330 is
+inadmissible): raw leading share **0.3791** → LOPO **0.3298**; SHAM, a random draw from `c`'s own
+distribution, **0.3822 [0.3541, 0.4090]**; NEGATIVE, a permuted `c`, **0.3826 [0.3528, 0.4099]**.
+Both controls **raise** the share; only the aligned scale lowers it. Divisor floor **0.00893**.
+
+**Controls.** POSITIVE a **multiplicative** plant, monotone, detected from width 0.25 not at 0 · g=0
+width 0 inside the band · PLACEBO `topw_k4` vs `_detA` max |d| **0.0** · SHAM/NEGATIVE as above.
+**WORLD B — a partly noise-amplitude map**, called on a 0.028 margin, with r² printed beside the label.
