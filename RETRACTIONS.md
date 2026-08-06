@@ -22873,3 +22873,44 @@ fifth time this session.**
 **Nothing in R834's substantive result moves**: the 6-arm / 4-family set and the rank-21 best are
 built on `generic`, `gen` and `promptecho`, whose `core_*.json` files exist and whose introducing
 commits **are** their building rounds. What is withdrawn is the diary-defect story and the gate.
+
+## 1294 · CLOSURE · the four unresolved arms cannot move the headline, and that is arithmetic
+
+**Labelled CLOSURE.** R834's leftover thread — four arms whose ③-provenance no record reaches — is
+closed here **by derivation, not by more searching.**
+
+R419 was the last lead: its commit introduced `sat_coval_core_2bA/2bB.npz`. **It only CONSUMES them**
+— `run.py:97` is `A = RES / "sat_coval_core_2bA.npz"`. So no constructing round is reachable for any
+of the four, and the P6 witness from entry 1293 stands: an introducing commit is the constructing
+round **only when the file was first committed by the round that made it.**
+
+⛔ **AND IT CHANGES NOTHING, WHICH IS THE POINT.** The headline is *the best substantive label-free
+arm sits at rank 21 of 93, while the top 8 are all label-readers.* Resolving all four leaves it
+untouched:
+
+| arm | rank | why it cannot move the headline |
+|---|---|---|
+| `generic_reprov` | 22 | **below 21** — admitting it cannot improve the best rank |
+| `genericpool16` | 25 | **below 21** — same |
+| `coval_core_2bA` | 14 | a `coval_core` variant, and the **parent is EXCLUDED by the release's own dataset card** (R475) — resolving it can only ADD an exclusion |
+| `coval_core_2bB` | 15 | same |
+
+**So the two arms that sit above rank 21 are the two whose provenance points the wrong way, and the
+two that could be admitted sit below it.** Best label-free rank stays **21**; top-8 stays **8/8**.
+
+⭐ **This is the check §4's *closing sentence* row asks for, run before the sentence rather than
+after.** Three rounds in a row I named a NEXT that turned out to be flat, forced, or a check that
+cannot fail — R832's ④, R833's regex, R834's gate. **Pricing the thread against the headline it
+would move is what stops the fourth**, and it cost one arithmetic comparison.
+
+**What stands from this arc** — and it is stated first because a ledger is an instrument, not a
+product:
+- **`coval_core` is a label-reader sitting among label-readers**, excluded by ③ for the same reason
+  as the top 8 (R475's record + R831's ordering);
+- **the definition's extension is empty because A2 is monotone in the information ③ forbids** —
+  6 substantive label-free arms across 4 families, best at rank **21**, top-8 **8/8** label-readers,
+  robust to both readings of ③'s UNKNOWN (R831 · R832 · R834);
+- **two portable, attacked instruments** — `a_control_that_cannot_fail.py` (synthetic controls, 7
+  attack vectors, works on a foreign corpus) and `kill_is_wired_into_the_branch.py` (candidate
+  generator with a measured artifact rate);
+- **four collapsed controls recovered and re-run, all passing**, so R436's citations stand (R828).
