@@ -3977,3 +3977,81 @@ extension has five members, both without any prompt restriction. The per-cell fi
 comparable across cells because each rests on a different prompt set, which is why the global column
 is recorded beside them and why the ordering gap is left on the global population, where an average
 across cells is defined.
+
+## R743 · what the claim table's population constant actually rests on
+
+**Question.** The four-row constants table declares one population — *"R294's 41 arms · 968 prompts ·
+the 56-tag / 46-object census"* — for all ten claim rows. Do the rounds those rows cite establish that
+population, and is the number a scope or a timestamp?
+
+**Estimand, named before the method.** Among the rounds cited inside the ten claim rows, the fraction
+whose `run.py` obtains its arm population by a live glob rather than by explicit enumeration.
+
+**Identification.** From SOURCE, by `ast`. **Not** from artifact fields: across **465** artifacts a
+population size is recorded under **19** distinct key spellings, the commonest (`n_arms`) covering
+**35**. An instrument reading one key measures spelling. The gauge test killed that estimand before
+any code existed *(ledger 991)*.
+
+**Instrument.** The classifier is **reused** from `assurance/arm_population_is_derived.py`, whose
+`ARM_NAMES` come from the arm store on disk rather than from a naming convention. Three detectors
+sweep the one free choice — what counts as a population-bearing glob:
+
+| detector | rule |
+|---|---|
+| `loose` | any `glob`/`iglob`/`iterdir`/`listdir`/`discover` call anywhere — **the existing gate's rule** |
+| `medium` | a glob whose pattern literal contains `sat_` or `.npz` |
+| `tight` | a glob whose pattern literal starts with `sat_` — the arm store's own pattern |
+
+**The grid — 3 detectors × 2 populations, all six cells reported.** `f = DERIVED / (DERIVED + TYPED +
+DECLARED)`, denominator fixed in the preregistration before any code.
+
+| detector | population | DERIVED | TYPED | DECL | NO_ARMS | NONE | n with a population | f |
+|---|---|---|---|---|---|---|---|---|
+| loose | cited | 2 | 4 | 0 | 6 | 4 | 6 | 0.3333 |
+| loose | complement | 49 | 38 | 1 | 262 | 53 | 88 | 0.5568 |
+| **medium** | **cited** | **1** | **4** | **0** | **6** | **5** | **5** | **0.2000** |
+| medium | complement | 26 | 41 | 1 | 262 | 73 | 68 | 0.3824 |
+| tight | cited | 1 | 4 | 0 | 6 | 5 | 5 | 0.2000 |
+| tight | complement | 25 | 41 | 1 | 262 | 74 | 67 | 0.3731 |
+
+**The SHAM is the complement population — the ingredient ABSENT, not inverted.** The ingredient is
+*being cited by a claim row*. Globbing is **more** common outside the cited set (0.3824) than inside
+it (0.2000) at the same detector, so "the cited rounds glob" is not a property of the tree that the
+citation inherits — it is a property the citation *lacks*.
+
+**Registered against measured.**
+
+| | registered | measured | |
+|---|---|---|---|
+| P1 distinct rounds cited | 17 [12, 24] | **18** | ✓ |
+| P2 glob fraction, medium | 0.60 [0.30, 0.90] | **0.2000** | ⛔ **outside the band, low side** |
+| P3 cited derived globs returning ≠ 41 today | ≥ 1 | **1 of 1** | ✓ |
+| P4 detector agreement per round | ≥ 0.70 | **15/16 = 0.9375** | ✓ |
+| D directional: derived rounds spread across eras | true | **false** — there is exactly one | ⛔ |
+
+**Controls — 5 PASS, 0 FAIL, both after repair.**
+
+| control | returned |
+|---|---|
+| **POSITIVE** | `R728 → DERIVED`, `R477 → TYPED`. Band **computed**: floor 0 DERIVED, ceiling 16 parseable cited rounds, threshold 2 — `0 < 2 ≤ 16` |
+| **g=0** | a source with no arm code → `NO_ARMS` — unknown, never a silent class |
+| **NEGATIVE** | every glob call deleted from R728's source, everything else kept → `DERIVED → TYPED`. Excludes *"the classifier fires on any file"* |
+| **PLACEBO** | 410 `README.md` → **0 DERIVED**, reported as **0 of 410** and not 0 of 0; 21 of them mention an arm artifact in prose, so the detector was pointed at a real population |
+| **UNIT** | 0 cited rounds map to >1 `run.py`; the 2 mapping to **zero** are named (`R580`, `R581`) and excluded from every denominator by construction |
+
+**⛔ Both repaired controls had failed for their own reasons** *(ledger 993)* — the positive control's
+second case expected `R719 → TYPED` when R719 loads no arm artifact at all, and the unit control
+demanded exactly one source file per round when codeless rounds are a known category here.
+
+**⛔ The confound is UNCONTROLLED, and the script now says so** *(ledger 994)*. Written before the run:
+class might be a function of ERA rather than of the claim. With `|DERIVED| = 1` and `|TYPED| = 4`,
+separability of the two round-number sets is **forced** — a single point is separable from every set —
+so the computed `true` was algebra, not evidence. It prints `UNINFORMATIVE`.
+
+**Verdict.** `WORLD A` on the registered threshold (`f ≤ 0.25`): the constant is a scope for the rows.
+**But the shape none of the three worlds named is the finding**: the constant's *source* is derived and
+expired (`sat_*.npz` → **101** today vs the stated **41**) while its *inheritors* are stable, and **11
+of 16** cited rounds with code establish no arm population at all.
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 12345, **both writes confirmed to disk
+before the comparison ran**. No rng in the design.

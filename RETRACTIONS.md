@@ -18675,3 +18675,54 @@ population, up to nine hundred and fifty. Recomputed at maximal power the key ce
 and eighty five prompts and its standard error falls from 0.0162 to 0.0138. Nothing resolves that did
 not before, so the loss cost no conclusions, but a uniform threshold across heterogeneous cells is a
 choice that must be justified rather than defaulted to, and it was not.
+
+## 990 · a next-step line proposed a unit an earlier round had already measured blind
+
+The previous round closed by proposing an audit whose unit is the claim block, on the ground that the
+provenance gate resolves citations without checking whether a cited round still supports the sentence
+citing it. The first half holds and the gate says so in its own docstring. The second half does not:
+an earlier round measured the block unit against exactly this hazard and found that two of the three
+blocks touching a retracted literal never cite the retracting round, so a block-scoped test cannot see
+a retraction filed in another block. Proposing the blind unit again, twenty four rounds later, is the
+cost of writing a closing line without reading the round that already answered it.
+
+## 991 · the population I proposed to measure is recorded under nineteen spellings
+
+The first estimand asked what population each cited round recorded in its artifact. Across four
+hundred and sixty five artifacts a population size appears under nineteen distinct key names and the
+commonest covers thirty five of them. An instrument reading one key would have measured spelling and
+returned a low count that reads as a finding about the rounds. The gauge test caught it before any
+code was written and the estimand moved from the artifact field to the source, where the same fact is
+a syntactic property with no vocabulary at all. Third time in this arc that the cheapest rung of the
+ladder has killed a design for free.
+
+## 992 · my registered fraction was wrong and fell outside its own band
+
+I registered that sixty per cent of the rounds cited by the claim table would obtain their arm
+population by a live glob, with an admissible band of thirty to ninety. The measured value is twenty
+per cent, outside the band on the low side, and the separately registered directional prediction also
+failed: the glob derived rounds are not spread across eras, there is exactly one of them. Both are
+recorded as failures rather than reinterpreted. The number was wrong because I generalised from the
+one round that had just been shown to glob to the rounds that cite it, which is the same inference the
+whole arc keeps having to undo.
+
+## 993 · two controls failed for their own reasons before either said anything about the object
+
+The positive control expected a round running on a literal five member set to classify as hand typed.
+It returned no arm population, correctly, because that round works on published arm names from a card
+and never loads an arm artifact, so the classifier's gate is not reached at all. My expectation was
+aimed at a different statistic than the instrument reports. The unit control demanded exactly one
+source file per cited round and failed on two rounds that carry a readme and results and no code,
+which is a known category here and has nothing to do with the estimand. Both were repaired by
+grounding the expectation outside the instrument and by naming the zero source case rather than
+scoring it. Four of seven mis specified controls in an earlier session failed this same way, and this
+round reproduced the ratio.
+
+## 994 · my own verdict string would have reported the algebra as evidence
+
+The confound written before the run was that class might be a pure function of era rather than of the
+claim. The script computed separability of the two round number sets and printed true. With one
+derived round and four typed rounds, separability is forced: a single point is separable from every
+set. The line was a derivation wearing the clothes of a control, and it would have appeared in the
+report as the confound being ruled out. It now prints uninformative and states that the confound is
+uncontrolled, which is the honest reading and leaves the work undone rather than pretending it is not.

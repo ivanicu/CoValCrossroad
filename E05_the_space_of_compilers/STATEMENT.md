@@ -86,6 +86,24 @@ converge:**
 | **baseline** | ⛔⛔ **AND THE COMPARATOR ITSELF CANNOT BE REBUILT FROM THIS REPOSITORY** *(R605)*. `sat_genericpool16.npz` sits in `corebench/results/` and **no script in the tree writes it** — nor do **98 of 101** scored `sat_*.npz` artifacts. **The construction step lives outside this repository**, so the page's description of ②'s baseline cannot be checked against how it was actually assembled. ⚠ **Upper bound, and the instrument is weak**: indirect construction is invisible to it and it found only **3** builders in total, so 97% is what a proven-able-to-see detector reports, not what a proven-sensitive one does. ⚠ **Not specific to ②** — it is a property of the whole scored evidence base. ⭐ And R454's own docstring distinguishes the objects: *"`genericpool16` k=16 on all 968 prompts; `full` is the RUBRIC (prompt-SPECIFIC)"*. — ⚠ **THE NAME BELOW APPEARS IN NO SCORING ARTIFACT** *(R604)* — `POOL[0:4]` occurs in **2** artifacts, both **register/scope audits of this page**, and as a JSON **key** in **0**. The rounds that scored ② record the comparator as **`sat_genericpool16[:4]`**, a key in **13** scoring artifacts across R391·R392·R426·R449·R477·R479·R485·R499. **No artifact contains both names**, so whether they denote the same arm is `UNVERIFIED` from names alone — it needs the scorer, not a search. The percentile **93.7** was computed against the `genericpool16` label. — ②'s comparator is **`POOL[0:4]` by file order**, at **percentile 93.7** of its 1,820-subset class. ⚠ **The extension moves 4 → 8 across that class** — so every count is baseline-conditional too |
 | **regime** | k=4 unless the row says otherwise · held-out annotator · **one release — the HOME release, and this is now measured rather than assumed** *(R601)* |
 
+⛔⛔ **AND 11 OF THE 16 CITED ROUNDS WITH CODE ESTABLISH NO ARM POPULATION OF THEIR OWN** *(R743)*.
+The ten rows cite **18** distinct rounds; **2** carry no `run.py` at all (**R580, R581**), and of the
+16 that do, **11 never load an arm artifact**. Only **5** have an identifiable arm population, and
+**4 of those 5 hand-enumerate it** — `R523, R528, R533, R535`. **The population row above is
+inherited, not re-established**, by most of what cites it.
+
+⭐ **The expiry is at the ROOT, not in the rows** *(R743)*. The one cited round that DERIVES its
+population is **R294** — the round the constant is named after — and its glob is `sat_*.npz`, which
+returns **101 files today** against the stated **41**. ⚠ **Whether 101 and R728's post-filter 92 are
+the same quantity is `UNVERIFIED` from a source search** — it needs the construction step, not a
+pattern. So the rows are *stable* and the constant they inherit is *expired*, which is the opposite
+of the shape I predicted: I registered that ≥60% of the citing rounds would glob, and the measured
+figure is **20%**, outside the registered band *(ledger 992)*.
+⭐ **This inverts `assurance/arm_population_is_derived.py`, which certifies `DERIVED` as the SAFE
+side** — sound for its own property (nothing was silently hand-omitted) and exactly backwards for
+this one: a derived population is the one whose stated value expires. **Two gates, one axis, opposite
+signs, and both are right about different things.**
+
 ⛔⛔ **AND THE CLAIM TABLE CITES ZERO OF THE 18 CROSS-RELEASE ROUNDS** *(R601)*. Eighteen rounds score on `data/utterances.jsonl`, the second release, and **not one is cited in the table above** — including **R433**, which measured clause ②'s own subject *(a core generated from the conversation alone)* **losing to a judge-free length heuristic by −0.0545, resolved**, and concluded in its own words that clause ② *"is a description"* of what CoVal did rather than a property of cores. **R403** puts it harder: *"half the definition is a fact about CoVal's schema."*
 
 ⭐ **RESOLVED TOWARD CORRECT EXCLUSION** *(R602)*. Re-derived from the two data files directly: **exact overlap 0, normalised overlap 0**, and the token-Jaccard median is **0.1654 against a shuffled-vocabulary floor of 0.1654** — identical to four places, so the apparent token overlap is **entirely shared English function words and no shared content**. The corpora are disjoint on this axis, R399 stands, and **②-losing-there is evidence about a different object.** ⚠ String overlap is not TOPICAL comparability — one axis, bounded — and the earlier reading is kept below because the scope it forced is the part that stands.

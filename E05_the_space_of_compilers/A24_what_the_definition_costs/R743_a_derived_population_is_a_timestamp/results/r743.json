@@ -1,0 +1,245 @@
+{
+  "P1_n_cited": 18,
+  "P2_f_medium_cited": 0.2,
+  "P3_globs_today": [
+    {
+      "differs_from_stated_41": true,
+      "pattern": "sat_*.npz",
+      "returns_today": 101,
+      "round": 294
+    }
+  ],
+  "P3_n_differing": 1,
+  "P4_detector_agreement": 0.9375,
+  "cited": [
+    294,
+    519,
+    520,
+    523,
+    524,
+    525,
+    527,
+    528,
+    529,
+    530,
+    533,
+    534,
+    535,
+    536,
+    537,
+    558,
+    580,
+    581
+  ],
+  "codeless_cited": [
+    580,
+    581
+  ],
+  "controls": {
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "UNIT": true,
+    "g0": true
+  },
+  "directional": false,
+  "era_informative": false,
+  "era_pure": null,
+  "grid": {
+    "loose|cited": {
+      "counts": {
+        "DERIVED": 2,
+        "NONE": 4,
+        "NO_ARMS": 6,
+        "TYPED": 4
+      },
+      "f": 0.3333333333333333,
+      "n_total": 16,
+      "n_with_population": 6
+    },
+    "loose|complement": {
+      "counts": {
+        "DECLARED": 1,
+        "DERIVED": 49,
+        "NONE": 53,
+        "NO_ARMS": 262,
+        "TYPED": 38
+      },
+      "f": 0.5568181818181818,
+      "n_total": 403,
+      "n_with_population": 88
+    },
+    "medium|cited": {
+      "counts": {
+        "DERIVED": 1,
+        "NONE": 5,
+        "NO_ARMS": 6,
+        "TYPED": 4
+      },
+      "f": 0.2,
+      "n_total": 16,
+      "n_with_population": 5
+    },
+    "medium|complement": {
+      "counts": {
+        "DECLARED": 1,
+        "DERIVED": 26,
+        "NONE": 73,
+        "NO_ARMS": 262,
+        "TYPED": 41
+      },
+      "f": 0.38235294117647056,
+      "n_total": 403,
+      "n_with_population": 68
+    },
+    "tight|cited": {
+      "counts": {
+        "DERIVED": 1,
+        "NONE": 5,
+        "NO_ARMS": 6,
+        "TYPED": 4
+      },
+      "f": 0.2,
+      "n_total": 16,
+      "n_with_population": 5
+    },
+    "tight|complement": {
+      "counts": {
+        "DECLARED": 1,
+        "DERIVED": 25,
+        "NONE": 74,
+        "NO_ARMS": 262,
+        "TYPED": 41
+      },
+      "f": 0.373134328358209,
+      "n_total": 403,
+      "n_with_population": 67
+    }
+  },
+  "hashseed": "12345",
+  "n_cited": 18,
+  "n_claim_rows": 10,
+  "n_complement": 403,
+  "negative_detail": {
+    "after": "TYPED",
+    "before": "DERIVED"
+  },
+  "per_round": {
+    "294": {
+      "loose": "DERIVED",
+      "medium": "DERIVED",
+      "tight": "DERIVED"
+    },
+    "519": {
+      "loose": "NO_ARMS",
+      "medium": "NO_ARMS",
+      "tight": "NO_ARMS"
+    },
+    "520": {
+      "loose": "NO_ARMS",
+      "medium": "NO_ARMS",
+      "tight": "NO_ARMS"
+    },
+    "523": {
+      "loose": "TYPED",
+      "medium": "TYPED",
+      "tight": "TYPED"
+    },
+    "524": {
+      "loose": "DERIVED",
+      "medium": "NONE",
+      "tight": "NONE"
+    },
+    "525": {
+      "loose": "NONE",
+      "medium": "NONE",
+      "tight": "NONE"
+    },
+    "527": {
+      "loose": "NONE",
+      "medium": "NONE",
+      "tight": "NONE"
+    },
+    "528": {
+      "loose": "TYPED",
+      "medium": "TYPED",
+      "tight": "TYPED"
+    },
+    "529": {
+      "loose": "NO_ARMS",
+      "medium": "NO_ARMS",
+      "tight": "NO_ARMS"
+    },
+    "530": {
+      "loose": "NO_ARMS",
+      "medium": "NO_ARMS",
+      "tight": "NO_ARMS"
+    },
+    "533": {
+      "loose": "TYPED",
+      "medium": "TYPED",
+      "tight": "TYPED"
+    },
+    "534": {
+      "loose": "NO_ARMS",
+      "medium": "NO_ARMS",
+      "tight": "NO_ARMS"
+    },
+    "535": {
+      "loose": "TYPED",
+      "medium": "TYPED",
+      "tight": "TYPED"
+    },
+    "536": {
+      "loose": "NONE",
+      "medium": "NONE",
+      "tight": "NONE"
+    },
+    "537": {
+      "loose": "NONE",
+      "medium": "NONE",
+      "tight": "NONE"
+    },
+    "558": {
+      "loose": "NO_ARMS",
+      "medium": "NO_ARMS",
+      "tight": "NO_ARMS"
+    }
+  },
+  "placebo": {
+    "derived": 0,
+    "mention_arms": 21,
+    "n_readmes": 410
+  },
+  "positive_detail": {
+    "R477": {
+      "got": "TYPED",
+      "ok": true,
+      "want": [
+        "TYPED",
+        "DECLARED"
+      ]
+    },
+    "R728": {
+      "got": "DERIVED",
+      "ok": true,
+      "want": "DERIVED"
+    }
+  },
+  "round": "R743",
+  "shape": {
+    "cited_with_no_arm_population": 11,
+    "inheritors_with_own_population": [
+      523,
+      528,
+      533,
+      535
+    ],
+    "n_cited_with_code": 16,
+    "source_R294_derived": true
+  },
+  "tree_sha": "669af71f526e8df2be951de5e0504622e430b0ec",
+  "unit_bad": [],
+  "why": "the constant is a SCOPE; World B killed",
+  "world": "A"
+}
