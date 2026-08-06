@@ -26177,3 +26177,50 @@ was aimed one level off.**
 ⚠ And the incidental repair: R436's committed `bar`, `best_rule` and `excluded` all reproduce exactly
 from committed code, so that anchor is **currency**, not merely determinism — which is more than R842
 established, and it was established by the gate failing on an edit that had nothing to do with it.
+
+## 1365 · R847 — clause ④'s "EVERY" is a convenience max, and the bar was understated twice
+
+R406 measured this defect in clause ②: *"better than EVERY prompt-blind set"* had been tested against
+a **p99** bar while the max over 1,820 subsets is **0.5574753088** vs a reference of **0.5546019830**.
+**Clause ④ is the same shape** — its *"every rule computable from responses alone"* is realised as a
+max over **30 hand-picked single-feature rules** — and nobody had said so.
+
+### ⭐ THE ATTACK CARRIES THE OTHER WRITER'S CONTROL
+
+Their R843 found a **max over 1,820 subsets scores higher on pure noise than on the real target**. An
+enlarged-family search is exactly that shape, so the **noise arm is the kill condition, not a
+formality.**
+
+### ⭐⭐ RESULT — world B. 1,078 prompts, every annotator, no fitting on labels.
+
+| family | rules | best | A2 | noise max | **excess over noise** |
+|---|---:|---|---:|---:|---:|
+| **F0** R436's committed | 30 | `min_ttr` | 0.4560 | 0.4412 | **+0.0148** |
+| **F1** + two-feature combos | **394** | `+mean_word_len+uppercase` | **0.4801** | 0.4451 | **+0.0351** |
+
+**Controls:** human-vs-itself **1.0000 PASS** · reversed **0.2523 PASS**.
+
+⭐ **Raw max +0.0241; noise max only +0.0039.** The excess over what family size buys **more than
+doubled** — so the gain is **not** a search artifact, and reporting the raw jump would have been
+R843's exact error.
+
+### ⚠ WHAT IS AND IS NOT ESTABLISHED
+
+- **IS**: clause ④'s bar **understates the response-only supremum by ≥ +0.0241**. The bar is a
+  **LOWER BOUND**, not a supremum.
+- **IS NOT**: clause ④ is **not flipped**. `coval_core` (0.5664774812) clears the enlarged bar by
+  **0.0864**. `crossed = False`.
+- ⚠ **IS NOT**: the gap is **not shown safe** — the first honest push closed **21%** of it; triples
+  and ratios are untested; the supremum is unknown and **≥ 0.4801**.
+- ⚠ **The committed bar was understated TWICE**: **+0.0048** from 3 annotator draws instead of all
+  (R841's lesson, now applied to R436 itself) and **+0.0241** from family size.
+
+### ⭐⭐⭐ THE FORMULATION CONSEQUENCE — the same defect in BOTH universal clauses
+
+*"Better than every X"* reads as a **supremum** and is implemented as a **max over an enumerated
+family**. **The definition's "every"s are searches, and a search reports what it searched.**
+
+**So each such clause must (a) name its family and (b) report its bar as a LOWER BOUND** — because
+*"computable from responses alone"* is not a finite set and no round can enumerate it. ⭐ **That is a
+permanent property of the clause, not a gap to be closed later**, and it is the second change to the
+definition's SHAPE this arc has earned.

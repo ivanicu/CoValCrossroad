@@ -263,7 +263,38 @@ defence is contradicted by the elicitation format.**
 > ⭐⭐ **The general lesson this earns for the FORMULATION: a universal clause must name the population
 > it quantifies over, and that population must be checkable.** *"Every rule computable from responses
 > alone"* is a **specification** (30 rules realise it); *"every arm"* would have been a **directory
-> listing**. The difference is invisible in prose and decides whether the clause has a fixed meaning. The metric is still
+> listing**. The difference is invisible in prose and decides whether the clause has a fixed meaning.
+>
+> ⛔⛔⛔ **AND R847 SHOWS THE SPECIFICATION IS NOT THE SUPREMUM — clause ④ has R406's defect too.**
+> R406 already measured this for clause ②: *"better than EVERY prompt-blind set"* had been tested
+> against a **p99** bar while the max over 1,820 subsets is **0.5574753088** vs a reference of
+> **0.5546019830**. **Clause ④ is the same shape**, and its 30 rules are a *convenience family*, not
+> a universal.
+>
+> **Enlarged mechanically — every normalised TWO-FEATURE combination, no fitting on labels, so
+> "computable from responses alone" on any reading — 1,078 prompts, every annotator:**
+>
+> | family | rules | best | A2 | noise max | excess over noise |
+> |---|---:|---|---:|---:|---:|
+> | R436's committed | 30 | `min_ttr` | 0.4560 | 0.4412 | **+0.0148** |
+> | enlarged | **394** | `+mean_word_len+uppercase` | **0.4801** | 0.4451 | **+0.0351** |
+>
+> ⚠ **The noise arm is the other writer's R843 control and it is what makes this readable**: the raw
+> max moved **+0.0241** while the noise max moved only **+0.0039**, so the excess over what family
+> size buys **more than doubled**. Controls: human-vs-itself **1.0000**, reversed **0.2523**.
+>
+> ⭐ **Clause ④ is NOT flipped** — `coval_core` at 0.5664774812 clears the enlarged bar by **0.0864**.
+> ⚠ **But the gap is not shown safe: the first honest push closed 21% of it**, triples and ratios are
+> untested, and the supremum is unknown and **≥ 0.4801**.
+> ⚠ **And the committed bar was understated TWICE**: **+0.0048** from using 3 annotator draws instead
+> of all (R841's lesson, applied to R436 itself) and **+0.0241** from family size.
+>
+> ⭐⭐⭐ **THE FORMULATION CONSEQUENCE, and it is the same one in both universal clauses:** *"better
+> than every X"* reads as a **supremum** and is implemented as a **max over an enumerated family**.
+> **The definition's "every"s are searches, and a search reports what it searched.** So each such
+> clause must (a) name its family, and (b) report its bar as a **LOWER BOUND**, never as the
+> supremum — because "computable from responses alone" is not a finite set and no round can enumerate
+> it. **That is a permanent property of the clause, not a gap to be closed later.** The metric is still
 > **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
 > that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a

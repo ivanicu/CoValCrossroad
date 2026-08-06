@@ -1,0 +1,30 @@
+{
+  "commit": "a0509c56340b5f0dd649fac6cda6dbd166e28564",
+  "n_prompts": 1078,
+  "families": {
+    "F0": {
+      "n_rules": 30,
+      "best": "min_ttr",
+      "max": 0.45603863117017157,
+      "noise_best": "first",
+      "noise_max": 0.4412269432570593,
+      "excess": 0.01481168791311227
+    },
+    "F1": {
+      "n_rules": 394,
+      "best": "+mean_word_len+uppercase",
+      "max": 0.48012262874903283,
+      "noise_best": "+mean_word_len+uppercase",
+      "noise_max": 0.4450641087396664,
+      "excess": 0.035058520009366434
+    }
+  },
+  "raised": true,
+  "crossed": false,
+  "coval_core": 0.5664774811929549,
+  "r436_committed_bar": 0.4511956297670583,
+  "controls": {
+    "human_vs_itself": 1.0,
+    "reversed": 0.2523249556933452
+  }
+}
