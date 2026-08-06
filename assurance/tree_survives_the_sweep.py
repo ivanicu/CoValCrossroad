@@ -40,12 +40,18 @@ def tracked_rounds():
     return sorted(ln for ln in out.stdout.splitlines() if ln)
 
 
+def head():
+    r = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "HEAD"],
+                       capture_output=True, text=True, timeout=60)
+    return r.stdout.strip() if r.returncode == 0 else None
+
+
 def census():
     t = tracked_rounds()
     if t is None:
         return None
     missing = [p for p in t if not (ROOT / p).exists()]
-    return {"tracked": len(t), "missing": len(missing), "sample": missing[:5]}
+    return {"tracked": len(t), "missing": len(missing), "sample": missing[:5], "head": head()}
 
 
 def synthetic_controls() -> bool:
@@ -91,15 +97,38 @@ def main() -> int:
 
     was = json.loads(STAMP.read_text())
     lost = c["missing"] - was["missing"]
+
+    # ⛔ THE WORLD ENTRY 1356 DID NOT HAVE, AND IT IS WHY THE CAUSE WAS NEVER NAMED (entry 1360).
+    # 1356 enumerated candidates -- generate_round_index, audit_the_auditors -- killed both by
+    # direct test, and concluded UNVERIFIED. The population it enumerated from was "my own
+    # scripts", and THAT was the error: this repository has TWO CONCURRENT WRITERS. Proven at
+    # D8 by `git reflog`, which showed a commit landing that this session did not make, and by
+    # two distinct shell-snapshot ids among the live processes. A second agent running
+    # `git restore` or a tree-mover in the same directory produces the destruction signature
+    # exactly, and no amount of auditing my own scripts could ever have found it.
+    # So the tripwire now records WHO as well as WHAT: HEAD is stamped, and any movement that
+    # this session did not cause is reported beside the file count. Without it, a destruction is
+    # attributable only to the candidates you happen to think of.
+    moved = was.get("head") and c["head"] and was["head"] != c["head"]
+    if moved:
+        n = subprocess.run(["git", "-C", str(ROOT), "rev-list", "--count",
+                            f"{was['head']}..{c['head']}"], capture_output=True, text=True)
+        print(f"\n  ⚠ HEAD MOVED since the stamp: {was['head'][:8]} -> {c['head'][:8]} "
+              f"({n.stdout.strip() or '?'} commit(s))")
+        print("    If this session made none of them, a SECOND WRITER shares this tree — and a")
+        print("    whole-tree `git restore` by either one silently destroys the other's work.")
+        print("    Scope every restore to your own paths.")
     print(f"\n  tracked round files: {was['tracked']} at stamp -> {c['tracked']} now")
     print(f"  missing from disk  : {was['missing']} at stamp -> {c['missing']} now  (Δ {lost:+d})")
     if c["missing"] > was["missing"]:
         print(f"\n  FAIL: {lost} tracked round file(s) VANISHED since the stamp. Examples:")
         for p in c["sample"]:
             print(f"    {p}")
-        print("  Recover with `git restore --staged --worktree .` — this has been needed twice,")
-        print("  and both times the cause was named confidently and both names were later killed")
-        print("  by direct test. Record what ran between the stamp and now BEFORE restoring.")
+        print("  ⚠ Recover by restoring ONLY YOUR OWN PATHS — `git restore --staged --worktree")
+        print("  <your paths>`. A whole-tree `.` restore is what this repository's two concurrent")
+        print("  writers do to each other, and it is silent in both directions: it looks like a")
+        print("  recovery to the one running it and like a destruction to the other.")
+        print("  Record what ran between the stamp and now, and check HEAD, BEFORE restoring.")
         return 1
     print("\n  PASS: nothing tracked vanished. ⚠ This rules on DESTRUCTION only — a file can be")
     print("  present and corrupted, which this does not test and does not claim to.")
