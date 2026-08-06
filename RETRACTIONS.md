@@ -23724,3 +23724,57 @@ still record real judgements.
 
 ⚠ **Not added to the ten-gate push sweep.** It exits 1 on a genuine finding, so wiring it in now would
 block every push behind 6 unadjudicated rows. Wiring follows adjudication, not the reverse.
+
+## 1317 · 5 of the 6 were real, and one of them upgraded UNVERIFIED to "fails" in the reader's copy
+
+The previous entry left 6 no-echo rows as a bounded candidate set and said adjudication was not done
+here. Done here, by reading each sentence against its row — which is the only method available,
+because the gate's sound direction is *no shared vocabulary*, and that is **absent OR paraphrased**.
+
+**r221 — PARAPHRASED, exempted.** Verdict: *"UNVERIFIED — and the cause is identified: the objective
+is degenerate."* The row leads with ***"The question has no resolution here"*** — which **is**
+UNVERIFIED in other words — and carries the degeneracy twice more without the vocabulary: *"a planted
+perfect predictor is indistinguishable from the real ones"*, *"log₂(4!) = 4.6 bits cannot rank 15
+criteria"*. **Force fully preserved, zero shared content words.** The instrument's declared blind
+spot, behaving exactly as documented. Added to `REVIEWED`.
+
+**r101 — REAL OMISSION, ×3.** The round says, in its own artifact: *"That is CONSISTENT WITH the
+original having made that choice and is **NOT an identification** — several methods can share a
+value, and the original is unrecoverable"* and *"**cannot show** the original used it"*. The README
+row asserted flatly: ***"The reliability shortfall against 0.707 IS a TIE-HANDLING artifact, not a
+property of the raters."*** **The row performs precisely the identification the round disclaims** —
+"consistent with" silently became "is". This is entries 66/67/70's defect, unchanged.
+
+**r181 — REAL OMISSION, ×2, and it is the worse kind.** Verdict: *"**UNVERIFIED** — raw-clustered
+crosses zero, stratified-clustered excludes it, quartiles non-monotonic; the specification curve does
+not survive its grid."* The row said the card's claim ***"fails"*** — a definite refutation.
+
+⚠ **The row cites TWO rounds, so I checked whether "fails" belonged to r171 instead. It cannot:
+`r171` ships no claim-field string at all** — it is on this check's own UNCHECKABLE list. So the only
+artifact-level verdict behind that row is r181's, and it says UNVERIFIED. **Folding UNVERIFIED into
+OVERTURNED is exactly what P6 forbids, and a false retraction is as permanent as a false acquittal.**
+(⚠ Scope: this establishes that *no artifact on disk* supports "fails". Whether r171's own analysis
+does is **UNVERIFIED** and needs its own read.)
+
+**Both rows repaired in `README.md` — the qualifier added, the row not rewritten.**
+
+**INVERTING CONTROL on my own repair.** Reverting the two rows on a scratch copy re-fires **exactly 5
+flags, exit 1**; the repaired tree flags **0, exit 0**. So the repair is what removed them.
+
+⛔ **And the limit of that control, which is the whole point of this check's proxy ledger: the gate
+cannot distinguish "I preserved the force" from "I sprinkled the words."** It sees vocabulary. My
+repair's *detectability* is proven; its *correctness* is unchecked, and I wrote it, so under door ③
+that is void rather than weak.
+
+**The 4 "stale" exemptions were misdiagnosed by the gate itself.** It printed *"the verdict changed
+and the judgement behind them no longer applies"* for `r27`/`r48`/`r54`/`r55`. The verdicts did not
+change — measured, **all four rounds have 0 links in the README**. Split into two messages, which is
+§4's own remedy for a control whose failure text conflates two causes:
+- **STALE** — round still has a row, sentence moved ⇒ re-justify ⇒ **exit 1**
+- **DORMANT** — round has no link at all ⇒ its sentence is outside the population
+
+⚠ **DORMANT is deliberately not a failure, and that takes this check from exit 1 to exit 0 on the
+current tree — a real loosening, named rather than buried.** Nothing about a dormant exemption is
+actionable *on the exemption*. What **is** actionable — **four rounds whose verdicts have no
+representation in the README at all** — is a different property, is printed in full, and **no check
+in this package measures it.**

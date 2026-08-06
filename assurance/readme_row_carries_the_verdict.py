@@ -115,6 +115,12 @@ REVIEWED = {
     ("r54", "shifts every prompt equally would correlate with nothing"):
         "PARAPHRASED: the row says 'a uniform contribution is not ruled out', which is this "
         "sentence's exact point with no shared vocabulary.",
+    ("r221", "the objective is degenerate"):
+        "PARAPHRASED: the row leads with 'The question has no resolution here' -- which IS "
+        "UNVERIFIED in other words -- and carries the degeneracy twice without the vocabulary: "
+        "'a planted perfect predictor is indistinguishable from the real ones' and 'log2(4!) = 4.6 "
+        "bits cannot rank 15 criteria'. Force fully preserved, zero shared content words. This is "
+        "the instrument's declared blind spot, not an omission.",
     ("r55", "cannot explain r12"):
         "PARAPHRASED: the row leads with 'no, equivalently so' and closes r54's escape; the "
         "row for r54 carries 'the mechanism is real and does not explain it' verbatim.",
@@ -240,13 +246,30 @@ def main() -> int:
         for rid, s, _sw, why in reviewed:
             print(f"  {rid}: {s[:104]}")
             print(f"       {why}")
-    stale = [k for k in REVIEWED
-             if not any(k[0] in {f"r{rid}", f"r{rid:02d}"} and k[1].lower() in s.lower()
-                        for rid, s, _sw, _w in reviewed)]
+    # An exemption can stop matching for TWO reasons, and they demand opposite actions.
+    # Printing one message for both is the failure this file's §4 twin warns about: a
+    # control's failure text must separate "the thing under test moved" from "my subject
+    # left the building". Measured (entry 1317): all four legacy exemptions were being
+    # reported as "the verdict changed" when the verdicts are untouched and the ROUNDS
+    # have no link in the README at all.
+    unmatched = [k for k in REVIEWED
+                 if not any(k[0] in {f"r{rid}", f"r{rid:02d}"} and k[1].lower() in s.lower()
+                            for rid, s, _sw, _w in reviewed)]
+    in_readme = {f"r{r}" for r in rows} | {f"r{r:02d}" for r in rows}
+    stale   = [k for k in unmatched if k[0] in in_readme]      # round present, text moved
+    dormant = [k for k in unmatched if k[0] not in in_readme]  # round gone from the README
+
     if stale:
-        print(f"\n  {len(stale)} exemption(s) match nothing any more -- the verdict changed and the")
-        print("  judgement behind them no longer applies. Remove or re-justify:")
+        print(f"\n  {len(stale)} exemption(s) STALE -- the round still has a README row but the")
+        print("  verdict sentence changed, so the judgement no longer applies. Re-justify:")
         for r, frag in stale:
+            print(f"    {r}: \"{frag}\"")
+    if dormant:
+        print(f"\n  {len(dormant)} exemption(s) DORMANT -- the round has NO link in the README, so")
+        print("  its sentence is outside the population and cannot match. This is not a defect in")
+        print("  the exemption; it means these rounds' verdicts are now unrepresented in the")
+        print("  README entirely, which no check in this package measures:")
+        for r, frag in dormant:
             print(f"    {r}: \"{frag}\"")
 
     if flagged:
@@ -264,6 +287,15 @@ def main() -> int:
     floor = _floor(len(both), "the set of rounds with both a README row and a verdict")
     if floor:
         return floor
+    # ⚠ DORMANT is deliberately NOT a failure, and that is a real loosening -- it takes this
+    # check from exit 1 to exit 0 on the current tree. The justification is that nothing about
+    # a dormant exemption is actionable ON THE EXEMPTION: the sentence it guards is outside the
+    # population, so there is no judgement left to re-justify. What IS actionable -- four rounds
+    # whose verdicts have no representation in the README at all -- is a DIFFERENT property from
+    # the one this check enforces, it is printed above in full, and no check in this package
+    # measures it. Failing here would book that finding under the wrong instrument and make the
+    # exit code unreadable. This is the one place a reader should suspect a make-it-green move,
+    # so the loosening is named rather than buried.
     return 1 if (flagged or stale) else 0
 
 
