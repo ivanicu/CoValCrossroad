@@ -25259,3 +25259,46 @@ this thread has hit five times.
 
 ⚠ **Scope:** this is `README.md`, not `DEFINITION.md`. Entry 1326's `[7.1%, 21.2%]` anchored share is
 a different document and a different question, and the two must not be added together.
+
+## 1346 · the weakened tail is one round holding 22% of every stored value — and the README never uses it at the precision where it bites
+
+Entry 1345 found the chance-match calibration had drifted: means down, **worst pool up** (3-decimal
+56.5% → 100.0%). The NEXT asked which round owns that pool and whether anything load-bearing rests on
+it.
+
+### ⭐ ONE ROUND OWNS IT, AT EVERY PRECISION
+
+| round | ⎮pool⎮ | 1 dec | 2 dec | 3 dec | 4 dec |
+|---|---:|---:|---:|---:|---:|
+| **R235** | **25,458** | **100%** | **100%** | **100%** | **72%** |
+| R37 | 4,827 | 69% | 32% | 19% | 14% |
+| R341 | 4,602 | 100% | 100% | 59% | 21% |
+| R43 | 4,317 | 100% | 81% | 46% | 28% |
+| R234 | 4,292 | 100% | 100% | 83% | 25% |
+| R44 | 4,151 | 88% | 75% | 50% | 22% |
+
+**R235's pool is 5× the next largest and holds 22% of all 114,750 stored values across 804 pools.**
+Pool density is nowhere near uniform, and **a single round sets the worst case at every precision.**
+
+### ⭐ AND THE README DOES NOT USE IT WHERE IT MATTERS
+
+**R235 appears in exactly 1 citing block, carrying 9 numeric tokens — and 0 of them at ≥3 decimals.**
+The tokens there sit at ≤2 decimals, a precision at which a match was **already** near-free and the
+gate has always said so. `R234` and `R43` have **0 citing blocks** at all.
+
+⭐ **So the drift is real, measured, and reaches nothing load-bearing.** The instrument weakened in a
+region the document does not draw on. **That is a genuine acquittal and it was not the expected
+outcome** — a 3-decimal match going from 1-in-2 to free is the kind of thing that usually turns out
+to sit under a headline.
+
+### ⚠ TWO SCOPE NOTES, BOTH AGAINST MY OWN NUMBERS
+
+**① My re-run is a RE-DRAW, not a reproduction.** Same seed, but I draw per-pool while the gate draws
+per-decimal across pools, so the streams differ. 3-decimal reproduces exactly (**100.0%**); 4-decimal
+came out **71.7%** against the gate's **75.8%**. ⭐ **That 4-point gap is the estimate's own noise at
+120 draws** — so `75.8%` should never have been read to three digits, and I nearly did.
+
+**② My block rule is an approximation.** I split the README on blank lines; the gate has its own
+block-attribution rule. So *"1 citing block, 9 tokens"* approximates the gate's attribution rather
+than reproducing it — the same instrument-vs-claim distinction this thread has now hit six times,
+stated in advance this time rather than discovered afterwards.
