@@ -22564,3 +22564,41 @@ detector is **not justified by any known instance**, at a price its own prior ar
 control missed, because `_aliases` conflated *assigned from a non-Name* with *rebound*. In the plant
 `b = compute(); a = b`, the alias was discarded. **Stability is how many times a name is bound, never
 what it is bound to.** The conditional kill published nothing while the instrument was blind.
+
+## 1286 · the idiom was in use 55 rounds before the first defect, so the remedy was never education
+
+R829's NEXT asked whether the six defective rounds are disjoint from the correct-idiom ones,
+*"because a defect co-occurring with a missing idiom is a habit rather than an accident."*
+
+⛔ **I corrected my own framing before running it.** Habit-vs-accident needs variation across
+**authors**, and this corpus has one. The only real axis is **time**, and the R-index is a time index
+because indices are assigned in sequence.
+
+| | |
+|---|---|
+| rounds using `f() == f()` | **22 rows — n_eff = 13 clusters** |
+| **before the earliest defect (R332)** | **R255, R277 — by 55 indices** |
+| after the latest defect (R746) | **0** |
+| controls: synthetic separated · identical · straddle | SEPARATED · null · null |
+
+**W-ALWAYS-THERE. An idiom already in use at R255 cannot be learned at R332.** So the six are not a
+legacy the corpus grew out of, and no note in the record would have prevented them. **Only a
+mechanical gate can, and it is already built.** The line closes.
+
+⚠ **Labelled as partly a derivation.** R-indices are sequential, so the *ordering* is free. What is
+not forced is whether the sets **separate** along it — every idiom round could have fallen above
+R746. It could have come out otherwise, so it is a cheap measurement and not a theorem.
+
+⛔ **A null I computed, rejected, and kept.** Drawing 22 rounds at random from the 822 gives
+**p = 0.0002** for the idiom rounds falling inside the defects' span. **Inadmissible**: 14 of the 22
+are the contiguous arc R679–R708, so the draw counts one arc as fourteen independent units. **n_eff
+is clusters, not rows** — P14's first line, and I wrote the null before I applied it. It lives inside
+the artifact rather than being deleted, because **a null that was computed and rejected is evidence
+about the design and disappears if it is only dropped.**
+
+⚠ **And I guessed n_eff ≈ 6 before measuring; it is 13.** Adjacency has to be counted against the
+indices that actually **exist** — a gap in the numbering is not evidence of separation, and counting
+integer runs would have manufactured clusters wherever the numbering skips.
+
+**Not claimed: intent.** Why a round used one form and not the other is not in the repository. Only
+**availability** is established, and availability is the whole of what the decision needed.
