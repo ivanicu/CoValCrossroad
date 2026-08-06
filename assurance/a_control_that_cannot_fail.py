@@ -88,6 +88,15 @@ def audit(src: str):
 def main(argv):
     dirs = argv[1:] or ["corebench", "assurance"]
     mods = sorted(p for d in dirs for p in pathlib.Path(d).rglob("*.py"))
+    # ⛔ THE CONTROLS MUST BE IN THE POPULATION OR THEY MEASURE NOTHING. Pointed at the arc
+    #    directories alone, this gate exited 2 with "the scan is blind" -- correct, but the cause
+    #    was that POS_CTRL lives under corebench/ and was simply not scanned. That is the same
+    #    defect as a positive control whose object sits outside the scanned set. The controls now
+    #    travel with the gate, so the population can never exclude them.
+    have = {p.name for p in mods}
+    for ctrl in (POS_CTRL, NEG_CTRL):
+        if ctrl not in have:
+            mods += sorted(pathlib.Path(".").rglob(ctrl))
     rows, scanned = [], 0
     for m in mods:
         h = audit(m.read_text(errors="ignore"))

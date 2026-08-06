@@ -22403,3 +22403,59 @@ its silence proves nothing.
 `STATEMENT.md` and this ledger.** Nothing downstream rests on it. **This is a contained defect, not
 a retraction** — and the reason it is contained is the same reason it is unverifiable: it persists no
 artifact, so nothing could have cited it.
+
+## 1283 · a round cited 14 times shipped an assurance it never possessed — and the check it skipped would have passed
+
+Pointing the new gate at the **arc** rather than at `corebench` found **6 more rounds** carrying an
+algebraically-constant control, every one in `E05·A24`. One is load-bearing:
+`R436_does_clause_four_exclude_anything_at_home` — **14 citations in `DEFINITION.md`**, and its
+`bar = 0.4511956297670583` **is clause ④'s strict bar.**
+
+Its docstring registers a **genuine** check at line 67:
+
+> *g=0 — a rule identical to an arm must give exactly that arm's A2, **so the two scoring paths agree***
+
+Two different call sites score A2: the **rule** path (line 180) and the **arm** path (line 228). If
+they diverge, every `d = arm − bar` is contaminated by a path artifact, and the exclusion decisions
+are decided by the contamination. The implementation, at line 238:
+
+```python
+g0 = abs(float(np.mean(list(arms[a_name].values())))
+         - float(np.mean(list(arms[a_name].values())))) == 0.0    # the ARM path against ITSELF
+ok &= g0
+```
+
+**The second path never appears.** `x − x == 0`. The round printed `g=0 … PASS` and the property it
+named was never touched.
+
+⭐ **This is a different and better finding than `price_of_annotation`, where the docstring's INTENT
+was already a derivation.** Here **the intent was sound and the implementation collapsed it** — the
+check was recoverable, and the round shipped believing it had run.
+
+**So I ran it.** Both call sites invoke the same `a2_of` with the same seed expression
+`1000*s + stable(p)` and the same prompt argument (AST, 2 sites found — the search's own positive
+control). The only textual difference is `seeds` vs `(0, 1, 2)`, and `seeds` is bound to `(0, 1, 2)`
+at the sole call site `rule_a2(*r)`, because **every `RULES` entry is a 3-tuple**. Pairing intersects:
+`common = [p for p in pids if p in per and p in bar_per]`.
+
+**VERDICT: the un-run check PASSES. R436's numbers stand and its 14 citations stand.** What was
+defective is the assurance, not the result.
+
+⚠ **AND MY FIRST VERSION OF THAT CHECK PRINTED `⛔ FAIL`**, because it compared **source text** while
+the claim is about **the seed set actually used**. §4's *name the instrument's unit and the claim's
+unit as two separate strings and require them to be equal* — committed to this ledger, and violated
+while acting on it. A syntactic FAIL on a semantic claim is inadmissible in both directions.
+
+⭐ **The two defect classes are ORTHOGONAL, and that is the ontology shift.** `g0` **is** correctly
+wired into the branch — `ok &= g0`, and `if not ok:` writes `UNVERIFIED` and returns 2. The wiring is
+right and the content is empty. **A module can pass the kill-wiring gate and fail this one**, so the
+`4 of 7` precision from that scan says nothing about this population and never did.
+
+⚠ **The gate refused its own first run, correctly, and for a reason worth keeping.** Pointed at the
+arc directories alone it exited 2 with *"the scan is blind"* — because `POS_CTRL` lives under
+`corebench/` and was simply outside the scanned set. Same shape as an unread-artifact scan whose
+positive control's object was outside its population. **The controls now travel with the gate.**
+
+**Not a discrepancy, checked and dropped:** R436's `n_prompts = 1078` is the rule-side population
+(`texts ∩ targets`), already recorded **7 times** in `DEFINITION.md`; **89 of 93 arms score at
+n = 968**, and `d` uses `common` for both sides, so only the printed BAR column spans a wider set.
