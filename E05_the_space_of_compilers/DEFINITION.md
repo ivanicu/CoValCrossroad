@@ -4724,3 +4724,55 @@ survives its strongest confound** — the most it can do, since the decisive con
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 11223, **both writes confirmed to
 disk** (2,830 / 2,834 bytes, differing only in the recorded seed).
+
+## R755 · era, governance and maintenance are one variable here, and it is n = 1
+
+**Question.** R754 proposed measuring MAINTENANCE from git to separate *ungated* from *abandoned*.
+
+**⛔ The design died twice before running.** ① A correlation over **three** documents is not a
+measurement — three points always admit a line. ② `git blame`: every line of all three deliverables
+was last touched inside a **two-day** window (`distinct days = 2` each). **No maintenance gradient
+exists in wall-clock time.**
+
+**⛔⛔ The ontology error, running back through R753 and R754** *(ledger 1034)*:
+
+| document | commits | last touched | new citations | **max R ever cited** |
+|---|---|---|---|---|
+| **`FORMULATION.md`** | **99** | **2026-08-04T02:11** | 105 | **R360** |
+| `STATEMENT.md` | 131 | 2026-08-05T18:51 | 202 | R754 |
+
+**It is not abandoned** — 99 commits, stopped **41 hours** ago. **Round ids 164–755 are a LOGICAL
+clock**, and *old-era*, *ungated* and *unmaintained* are **one variable**: position in a three-day
+burst. ⚠ **One document stopped ⇒ the treatment is n = 1**, collinear with document identity; 417
+commits do not repair a document-level contrast *(ledger 1036)*. **This line is CLOSED.**
+
+**What IS identified — within `FORMULATION.md`, governance constant.**
+
+| | value |
+|---|---|
+| new citations per commit, mean | **1.0606** |
+| slope, raw / per added line | **−0.0090** / −0.001052 — **same sign**, not a commit-size artifact |
+| shuffled-order slopes ×5 | mean −0.0021, sd **0.0046** |
+| first 10 / last 10 commits | **23** / **11** |
+| terminal zero-adding run | **1** |
+
+**Neither a reliable slope (−0.0090 against a −2σ threshold of −0.0092, missing by 0.0002) nor a
+cutoff ⇒ `UNRESOLVED`, and the series is published rather than a slope.**
+
+**⭐ The informative residue is a registered point whose SIGN I got wrong** *(ledger 1035)*. I
+registered `STATEMENT.md`'s slope at **+0.05**; it is **−0.0074** — **the same decline as the stopped
+document**. A declining citation rate is not a property of abandonment; it is what happens when a
+document consumes uncited rounds faster than the pool refills.
+
+**Controls — 5 PASS, 0 FAIL.** POSITIVE the live stream adds **23** citations in its last 20 commits,
+band `0 < 23 ≤ 202` · g=0 **31 of 99** zero-adding commits are **in the series, not skipped** ·
+NEGATIVE shuffled order → mean −0.0021 · **SHAM** the ingredient **absent** — added `⛔` markers slope
+**+0.0032** against the citation slope **−0.0090**, so the trend is about **citing**, not commit style ·
+PLACEBO exactly 0.
+
+⛔ **A derivation I failed to label in the preregistration:** *new distinct citations per commit* is
+partly self-exhausting. For `FORMULATION.md`, whose pool froze at R360, it is close to forced. **The
+parity with `STATEMENT.md`, whose pool kept growing, is what makes the comparison informative.**
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 44556, **both writes confirmed to
+disk** (2,158 / 2,162 bytes, differing only in the recorded seed).

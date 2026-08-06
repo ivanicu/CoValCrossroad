@@ -186,7 +186,18 @@ ranges — it explains nothing**: old-era **0.3958** (n=48) vs new-era **0.4054*
 arbitrary one.** ⚠ `STATEMENT.md` shows +0.3391 on the same split but at **n_old = 10**, far below its
 own MDE, and is reported as **uninformative at that n**.
 ⇒ **The governance reading survives its strongest confound — which is the most it can do, because the
-decisive contrast cannot be identified at all.** ⚠ The analytic formula said **0.1174**, and planting exactly that rejects only
+decisive contrast cannot be identified at all.**
+⛔⛔ **AND THE WHOLE AXIS WAS MIS-READ: ROUND IDS ARE A LOGICAL CLOCK, NOT TIME** *(R755, whose verdict
+is `UNRESOLVED` and which is cited here as evidence that the question is CLOSED, not settled)*. Every
+line of all three deliverables was last touched inside a **two-day** window; the corpus is **three days
+old**. `FORMULATION.md` is **not abandoned** — **99 commits**, last touched **2026-08-04T02:11**, 41
+hours before the others, and its highest-ever citation across its **full history** is **R360**.
+**Old-era, ungated and unmaintained are one variable here: position in a three-day burst.**
+⚠ **And exactly ONE document stopped, so the treatment is n = 1** — anything correlating with
+"stopped" is collinear with that document's identity, and 417 commits do not repair a document-level
+contrast. **This line is CLOSED, not open.**
+⭐ **The citing-rate decline is not a property of abandonment:** `FORMULATION.md`'s slope is
+**−0.0090** and `STATEMENT.md`'s — edited today — is **−0.0074**. Indistinguishable. ⚠ The analytic formula said **0.1174**, and planting exactly that rejects only
 **0.6237** of the time, not 0.80 — **the normal approximation overstates this design's power by 1.37×**
 because the smaller arm expects under 2 events. **What stands is a census of 4**, from which no rate is
 computed: **2** are the ungrounded pair already annotated, and **2** sit under a `CORRECTED` marker that

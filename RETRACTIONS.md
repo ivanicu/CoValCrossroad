@@ -19075,3 +19075,31 @@ unremarkable against its own permutation null. The prior was real, published and
 it was measured on rounds while I applied it to a document's cited figures. Borrowing an effect across
 units is not the same as replicating it, and labelling the registration honestly did not make the
 number less wrong.
+
+## 1034 · I read a logical clock as a wall clock for three rounds
+
+Round identifiers in this campaign run from one hundred and sixty four to seven hundred and fifty
+five, and I have been treating that span as though it measured elapsed time. Every line of all three
+deliverables was last touched inside a two day window, and the whole corpus is three days old. The
+document I called old and abandoned has ninety nine commits and stopped forty one hours ago. Old era,
+ungated and unmaintained are not three variables in this repository; they are one, which is position
+in a three day burst. The gauge test that established this cost one command and it should have been
+the first thing asked when the era column was introduced, two rounds earlier.
+
+## 1035 · the live document declines at the same rate as the stopped one, and I registered the opposite sign
+
+I registered that the document still being edited would show a rising rate of new citations per commit,
+because that is what being maintained looked like to me. Its slope is negative and statistically
+indistinguishable from the stopped document's. So a declining citation rate is not a property of
+abandonment at all; it is what happens when a document consumes its pool of uncited rounds faster than
+the pool refills. The axis I built the round to measure does not separate the two streams, and the only
+thing that does is the plain fact that one stopped receiving commits.
+
+## 1036 · one treated unit is a structural limit and no amount of commit level data repairs it
+
+Exactly one of three documents stopped, so any variable correlating with stopping is perfectly
+collinear with that document's identity. Four hundred and seventeen commits do not help, because the
+treatment is assigned at the document level and there is one treated unit. Recognising that before
+building meant the round changed question rather than gathering more data at the wrong level, and the
+document level line is now closed rather than open. A closed decision is a result; an open one that
+cannot be closed is a queue entry pretending to be one.
