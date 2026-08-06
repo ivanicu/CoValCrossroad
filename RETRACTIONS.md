@@ -19585,3 +19585,35 @@ they give **4 vs 5**; at p100 they give **0 vs 1**. **The published comparator s
 invisible across five sixths of the specification curve and decisive at the published cell is not a
 technicality; it is the reason the cell was worth reporting, and neither R527 nor any later round
 noticed that the two questions separate exactly there.*
+
+## 1084 · the sixth NEXT line, killed by arithmetic on my own committed table
+
+R767 closed with *"the k-curve peaks at k = 6 (eff/MDE 1.311), not at the released core's k = 4
+(1.264)"*. The same table printed both effects: **k4 = 0.013745, k6 = 0.013681**. On the effect the
+curve peaks at **k = 4**. `MDE = z·sd/√n`, so `eff/MDE` orders by `eff/sd` — implied sds 0.1208 and
+0.1159 — and **it rewards low variance, not high effect**. The SHAM measures it rather than asserting
+it: re-ranking with a pooled sd removes the inversion exactly (1 transposition → 0). *The statistic
+was correct for ADMISSION, which is what R767 used it for, and I then reused it for ORDERING in the
+closing sentence — the same symbol, a different question, and no line in between to notice.*
+
+## 1085 · the verdict string fired off BH while the verdict column read zero
+
+R768's first branch chose its world from **BH survival** — 2 of 10 committed pairs — and printed
+*"ordered in part"*, while the verdict column beside it read **0 of 10 resolvable**. BH tests *is the
+difference non-zero*; the verdict additionally requires **|eff| ≥ MDE**. **R767, one round earlier,
+had just established that this exact floor is what separates a 4-member extension from a 5-member
+one** — so the branch contradicted its own lineage. §4's *the verdict string is not a computation*,
+fixed by printing both counts above the verdict and naming which question each answers. *The pull is
+always toward the count that produces a finding: "2 pairs are ordered" is a result and "0 are" reads
+like a failure, and only one of them is what the instrument said.*
+
+## 1086 · the confound came back negative, which is a different answer from absent
+
+I registered, before the run, that a pairwise difference might resolve merely because two arms share
+most of their criteria — nested sets differ on few prompts, so the difference vector is mostly zeros
+and its sd is tiny, making resolution a function of OVERLAP rather than quality. Measured:
+**corr(overlap, |eff|/MDE) = −0.3949** over 27 pairs. **Negative** — more shared criteria means *less*
+resolution, not more. So the worry was real, the direction was backwards, and the mechanism is the
+one nesting predicts: a small difference and a small variance move together, and the ratio does not
+inflate. *A confound that measures to the wrong sign is worth more than one that measures to zero,
+because it names a mechanism instead of clearing a suspicion.*

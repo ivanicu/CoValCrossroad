@@ -5302,3 +5302,38 @@ UNRESOLVED** · PLACEBO `coval_core_sham`, `topw_k4_sham`, `gen_sham` → **LOSE
 **This explains R760 vs R764.** R760's `admitted_rule` = 9 tags / 5 objects; R764's published
 `3-rank` = 6 / 4. Two tags are R764's declared coverage exclusion (`coval_core_2bA/_2bB`, 200 of 968
 prompts); the third, `topw_k8`, is the three-valued verdict read two-valued.
+
+## R768 · the pairwise ordering matrix over the extension
+
+**Scope.** population = the 5 committed extension members and the 7-arm `topw_k` family (11 distinct
+arms); instrument = R294's estimator on **paired per-prompt differences**, B = 1200, `report.verdict`;
+baseline = **none — these are arm vs arm**, the baseline appears only in controls; regime = first
+release, home judge, 968 prompts, this tree_sha.
+
+| a | b | eff | CI | MDE | verdict |
+|---|---|---|---|---|---|
+| `coval_core` | `topw_k8` | +0.0072 | [+0.0012, +0.0131] | 0.0085 | BELOW RESOLUTION |
+| `topw_k4` | `topw_k8` | +0.0049 | [−0.0001, +0.0101] | 0.0076 | UNRESOLVED |
+| `topw_k6` | `topw_k8` | +0.0048 | [+0.0009, +0.0087] | 0.0056 | BELOW RESOLUTION |
+| `topw_k3` | `topw_k8` | +0.0039 | [−0.0024, +0.0095] | 0.0087 | UNRESOLVED |
+| `coval_core` | `topw_k3` | +0.0033 | [−0.0031, +0.0096] | 0.0090 | UNRESOLVED |
+| `coval_core` | `topw_k6` | +0.0024 | [−0.0030, +0.0075] | 0.0079 | UNRESOLVED |
+| `coval_core` | `topw_k4` | +0.0023 | [−0.0038, +0.0084] | 0.0085 | UNRESOLVED |
+| `topw_k3` | `topw_k4` | −0.0010 | [−0.0048, +0.0028] | 0.0054 | UNRESOLVED |
+| `topw_k3` | `topw_k6` | −0.0009 | [−0.0062, +0.0040] | 0.0076 | UNRESOLVED |
+| `topw_k4` | `topw_k6` | **+0.0001** | [−0.0041, +0.0044] | 0.0063 | UNRESOLVED |
+
+**Resolvable by verdict: 0 of 10.** Surviving BH on the bootstrap p with no MDE floor: **2** —
+`topw_k6 vs topw_k8`, `coval_core vs topw_k8`. The gap between those two counts is the MDE floor.
+
+**Multiplicity**: 31 unordered pairs (D3 — antisymmetric, not 62), BH at q = 0.05, **17 survivors**,
+all k-family pairs involving `k1`, `k2` or `k12`, the arms that lose outright.
+
+**The ranking decomposition.** by **eff**: k4, k6, k3, k8, k2, k12, k1 · by **eff/MDE**: k6, k4, k3,
+k8, k2, k12, k1 · by eff/**pooled** sd (sd removed): k4, k6, … — **1 transposition vs 0**, so the
+"peak at k=6" is exactly one sd-driven inversion. `MDE = z·sd/√n`, so eff/MDE ranks by eff/sd.
+
+**Controls.** POSITIVE `coval_core` vs `gen_sham` **+0.0837 [+0.0733, +0.0936]**, MDE 0.0153, BEATS ·
+g=0 arm vs itself eff **0.000000** → UNRESOLVED · PLACEBO `topw_k4` vs `_detA` eff **0.000000** ·
+NEGATIVE pairing destroyed ×200 → MDE **×2.25 [2.18, 2.32]** · CONFOUND corr(criterion overlap,
+|eff|/MDE) = **−0.3949** over 27 pairs, so resolution does not track overlap. **WORLD A.**

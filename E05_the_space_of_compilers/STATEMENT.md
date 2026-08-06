@@ -320,7 +320,18 @@ A **core** for a conversation is a set of criteria such that
     BEATS, so **`5` IS the two-valued reading** and `4` is the estimator's own three-valued one.
     ⚠ P6: folding the third value into either side manufactures a verdict, and 5 folds it toward pass.
     ⭐ **The two conventions agree at every weaker comparator (p000–p075 both give 5) and separate only
-    at p095 and the published draw** — the one the release chose. And the confound is answered: the
+    at p095 and the published draw** — the one the release chose.
+    ⛔⛔ **AND THE FOUR THAT SURVIVE ARE AN UNORDERED SET** *(R768)*. Of the **10** pairs among the five
+    committed members, **0 are resolvably ordered**. The released core against each alternative it
+    admits: `topw_k3` **+0.0033 [−0.0031, +0.0096]** · `topw_k4` **+0.0023 [−0.0038, +0.0084]** ·
+    `topw_k6` **+0.0024 [−0.0030, +0.0075]**, all **UNRESOLVED** against MDEs of **0.0079–0.0090**.
+    ⇒ **the definition cannot say the released core is better than the arms it admits alongside it.**
+    ⚠ These are PAIRED arm-vs-arm comparisons and the pairing is load-bearing — destroying it inflates
+    the MDE **×2.25 [2.18, 2.32]** — so this is the *tightest* comparison available and it still does
+    not resolve. ⭐ `topw_k4` vs `topw_k6` is **+0.0001 [−0.0041, +0.0044]**, and the page's earlier
+    *"3 to 8 are indistinguishable"* is now confirmed **pairwise** rather than inferred from separate
+    baseline comparisons. ⚠ Resolution does **not** track criterion overlap:
+    corr(overlap, |eff|/MDE) = **−0.3949** over 27 pairs. And the confound is answered: the
     `topw_k` family is an inverted U peaking at **k = 6** (eff/MDE 1.311) with `eff/MDE` falling
     monotonically 6 → 8 → 12, so `topw_k8` is not an anomaly but where the curve re-enters the floor.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own
