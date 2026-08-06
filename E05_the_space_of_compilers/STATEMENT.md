@@ -2249,3 +2249,39 @@ it.
 
 **Scope**: 968 prompts × 4 responses × all annotators × 27 arms · NBOOT 1,200 · first release, home
 judge.
+
+## R804 · The A2 axis has both ends: floor 0.4557, exact ceiling 0.686265
+
+**The number this campaign has been calling the human ceiling is the score of ONE annotator
+predicting another, and a deterministic predictor beats it by construction.**
+
+| | A2 | |
+|---|---:|---|
+| judge-free floor (R803) | 0.4557 | response length |
+| `CEIL_H` | **0.551880** | one annotator vs another — the k=1 point, **not a ceiling** |
+| best arm `oracle_k4` | 0.6283 | |
+| `CEIL_HO` | **0.633370** | ⭐ generalising ceiling — fitted on half the annotators, scored on the other half |
+| `CEIL_ATT` | **0.686265** | ⭐ exact in-sample supremum over **all** scoring functions (75 weak orders) |
+
+⭐ **As a share of the generalising range**: `coval_core` **62.4%** · `generic` 53.8% ·
+`genericpool16` 48.7% · `gen_sham` 15.3%; the two oracle arms 94–97%, which is a **selection**
+advantage since they are chosen on the humans they are scored against.
+
+**14 of 27 arms exceed `CEIL_H`. 0 exceed `CEIL_ATT`** — the latter is forced by algebra and is run
+as a code check, never reported as a finding. **Headroom to the ceiling is resolved for all 27 arms
+and 27 of 27 survive BH: no arm is at the ceiling**, `oracle_k4` included (**+0.0580 [+0.0529,
++0.0633]**).
+
+⭐ **Human intransitivity costs +0.000436** — allowing an incoherent predictor that answers each pair
+independently buys almost nothing.
+
+⭐ **And the advantage is not the tie structure**: on human-tied pairs the best arm scores **0.0186**
+against one annotator's 0.2182 — it forfeits that mass — while on strictly-ordered pairs it leads
+**0.7220 to 0.5875**, an advantage of **+0.1346**.
+
+**Controls**: `CEIL_H` reproduced exactly at **0.551880** by R793's own method · the constant-predictor
+placebo again lands on its derived value **0.1397355039** · NEGATIVE **0.686265 → 0.527548** · noise
+floor **0.001991**.
+
+**Scope**: 968 prompts × 4 responses × all annotators × 27 arms × 75 weak orders · NBOOT 1,200 ·
+first release, home judge.

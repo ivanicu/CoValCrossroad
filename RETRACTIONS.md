@@ -20847,3 +20847,49 @@ it is the reason this round's object check reproduces a committed arm (0.5664774
 RELEASE rather than from a stored artifact.* ⚠ The same round also printed a residual mean of
 −0.000000 which is **0 by construction** (OLS forces it); the informative quantity is the slope, and
 the README says so rather than letting a forced zero read as a result.
+
+## 1197 · the human ceiling was never a ceiling — it is the k=1 point, and the real one is 0.686265
+
+R803 closed by asking what it means that 14 arms score above `CEIL_H = 0.551880`. It means nothing:
+`whose_verdicts.py:65` computes that number as `a2(annotator_i, annotator_j)` — **noise on both
+sides** — while an arm is a deterministic predictor scored against each annotator. A noiseless
+predictor of the human central tendency beats pair-agreement **by construction**, and the k-consensus
+curve confirms it lands at k=1 (0.551055 vs 0.551880). The actual ceiling is **exactly computable**:
+four responses admit **75 weak orders**, every scoring function induces one, so the supremum of A2 is
+a per-prompt brute-force max — **`CEIL_ATT` = 0.686265**, with a **generalising** counterpart
+**`CEIL_HO` = 0.633370** (fitted on half the annotators, scored on the other half; optimism
++0.052895). ⭐ **So the axis now has both ends**, and every committed number reads as a share of what
+is achievable: **`coval_core` captures 62.4%** of the generalising range, `genericpool16` 48.7%,
+`gen_sham` 15.3%. **Headroom is resolved for all 27 arms and 27 of 27 survive BH — no arm is at the
+ceiling.** *Calling the single-annotator score a ceiling understated the attainable maximum by 0.134,
+and it had been the normalising constant in a WORLD A/B verdict since R793.*
+
+## 1198 · two of my own instruments were broken this round and both announced themselves
+
+**① The object check exited 2 on a silent Python defect.** `score.cls` returns a **tuple**, so
+`np.mean(cls(a) == cls(b))` compares two tuples as objects — a single scalar `False` — and returns
+**0.083488** where the truth is 0.551880. It reads as a measurement, not as an error. Swept the whole
+arc: every other use is `float(tuple == tuple)`, an **exact-match indicator**, which is those rounds'
+intended semantics — **no committed number is contaminated**. **② The first NEGATIVE control could
+not fail**: it permuted *which prompt* an annotator-set attached to, and `CEIL_ATT` is a per-prompt
+max, so that permutes the multiset and leaves the mean **exactly** invariant — measured, 0.686265 →
+0.686265. The quantity has no cross-prompt structure to destroy; it measures **within-prompt**
+annotator concentration, and the repaired control breaks that (→ 0.527548). ⚠ **And a third, in the
+artifact under audit**: `whose_verdicts.py`'s shipped sampled ceiling is **dict-order dependent** —
+0.551251 sorted, 0.546143 in insertion order — and neither equals the committed 0.551880, which came
+from the exhaustive method. *That constant decides a WORLD A/B verdict in R793.*
+
+## 1199 · my own pre-registered diagnostic killed this round's headline statistic
+
+I intended to report every arm in **annotator-equivalents** — "this core is worth n humans" — which
+is the most quotable thing the round could have produced. D4 required the k-consensus curve to be
+monotone; **it is not, under either estimator, so no equivalent is quoted.** The sign-sum estimator
+saws on parity (0.5511 / 0.5058 / 0.5905 / 0.5789 at k = 1/2/3/4) because `sign(Σ signs)` ties
+whenever k annotators split evenly and a tie can never match a strict held-out sign. Switching to a
+real scoring function removes nearly all of it — the residual violation is **−0.000112 against a k=1
+sd of 0.005372**, one forty-eighth of its own noise — **and the pre-registration still binds.**
+⭐ **But the ESTIMAND survived the unfit method**: what was registered is *"does a k ≤ 3 consensus
+beat `CEIL_H`"*, and interpolation was only one way to evaluate it. Directly: a 3-annotator consensus
+scores **0.584223** against **0.551880**. *Substituting a direct evaluation of the same estimand is a
+repair; substituting a different estimand would have been a moved goalpost, and the distinction is
+the only thing standing between a pre-registration and a decoration.*

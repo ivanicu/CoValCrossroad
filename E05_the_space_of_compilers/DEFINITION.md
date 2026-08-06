@@ -6577,3 +6577,47 @@ R789's committed **0.5664774812** exactly, exit 2 otherwise · **PLACEBO a const
 assumed** · POSITIVE `oracle_k4` − floor **+0.1726**, band placebo **0.1397** → oracle **0.6283** ·
 NEGATIVE lengths shuffled within prompt **0.4557 → 0.4305** · NOISE FLOOR annotator split-half
 **0.003295**, and the weakest arm's margin is 8× it. **WORLD A.**
+
+## R804 · both ends of the A2 axis, and the "human ceiling" was never one
+
+**Why here.** R803's NEXT asked what an A2 above the human ceiling means. CHECK #406 read the
+ceiling's source: `whose_verdicts.py:65` computes it as `a2(annotator_i, annotator_j)` — noise on
+both sides — while an arm is a deterministic predictor scored against each annotator. A noiseless
+predictor of the central tendency beats pair-agreement **by construction**.
+
+**Derived before measuring.** D1 two noisy raters agree less than a noiseless one. D2 a strict
+predictor forfeits the tie mass outright. D3 `CEIL_PLUR ≥ CEIL_ATT`, the gap being human
+intransitivity. D4 the k-consensus curve must be monotone.
+
+**E1 · the ceiling is EXACT, not estimated.** Four responses admit **75 weak orders** and every
+scoring function induces one, so the supremum of A2 is a per-prompt brute-force max:
+**`CEIL_ATT` = 0.686265**. Per-pair plurality (transitivity ignored) is 0.686701, so **human
+intransitivity costs +0.000436** — the human plurality is very nearly transitive.
+
+**E5 · and the in-sample oracle is not attainable.** Fitted on half the annotators and scored on the
+other half: **`CEIL_HO` = 0.633370, optimism +0.052895.** Both are reported; quoting only `CEIL_ATT`
+flatters every arm.
+
+**E2 · the axis.** floor **0.4557** (R803) < `CEIL_H` **0.551880** < best arm **0.6283** <
+`CEIL_HO` **0.633370** < `CEIL_ATT` **0.686265**. As a share of the **generalising** range:
+`oracle_k4` 97.1% · `greedy_k4` 94.0% · **`coval_core` 62.4%** · `generic` 53.8% ·
+`genericpool16` 48.7% · `gen_sham` 15.3%. **14 of 27 arms exceed `CEIL_H`; 0 exceed `CEIL_ATT`**
+(forced — a code check, never evidence). Headroom to the ceiling is resolved for all 27 and **27 of
+27 survive BH**, so **no arm is at the ceiling** — `oracle_k4`'s own headroom is **+0.0580 [+0.0529, +0.0633]**.
+
+**E4 · ties.** On human-tied pairs the best arm scores **0.0186** against one annotator's 0.2182; on
+strict pairs **0.7220** against 0.5875. A strict predictor forfeits the tie mass and wins anyway —
+its advantage on strict pairs alone is **+0.1346**. World C dead.
+
+**E3 · what was NOT computed.** Annotator-equivalents. D4 failed on both estimators, so none is
+quoted. The k-curve (mean-score consensus): 0.551055 / 0.550943 / 0.584223 / 0.597517 / 0.614237 /
+0.620795 / 0.624963 at k = 1/2/3/4/6/8/12. The pre-registered estimand survived the unfit method
+because it does not need monotonicity: **a 3-annotator consensus scores 0.584223 against `CEIL_H`
+0.551880 and beats it directly.** ⚠ `CEIL_H` landing at k=1 is FORCED, and is used as a positive
+control on the curve rather than quoted as a result.
+
+**Controls.** OBJECT `CEIL_H` reproduced by R793's own exhaustive method **0.551880** exactly ·
+PLACEBO constant predictor **0.1397355039** = the human tie rate **0.1397355039** · POSITIVE one
+annotator as predictor **0.555874**, band **0.1397 < t < 0.6863** · NEGATIVE each annotator slot
+filled from a different prompt **0.686265 → 0.527548** (best corpus-wide constant 0.451773) ·
+NOISE FLOOR **0.001991**. **WORLD A.**

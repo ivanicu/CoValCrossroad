@@ -1,0 +1,64 @@
+R804 · THE HUMAN CEILING IS NOT A CEILING — the exact attainable maximum of A2
+written before the run · seeds 31337/31338/31339 · NBOOT 1200 · ZEFF 2.801585
+
+PROVOCATION
+R803's NEXT: arms occupy 0.4828-0.6283 while CEIL_H = 0.551880, so several arms score "above the
+human self-agreement ceiling", which no round has reconciled. CHECK #406 read the ceiling's source:
+`corebench/whose_verdicts.py:65` computes it as a2(annotator_i, annotator_j) over sampled pairs.
+An ARM is a DETERMINISTIC predictor scored against each annotator; CEIL_H has noise on BOTH sides.
+
+ESTIMAND
+E1  CEIL_ATT  the exact supremum of A2 over ALL per-response scoring functions, computed by brute
+    force over every weak order of 4 items (75 of them), per prompt, against all annotators.
+E2  where the 27 arms sit on floor(R803) -> CEIL_H -> CEIL_ATT, and the share of attainable range.
+E3  ANNOTATOR-EQUIVALENTS: consensus of k annotators as a predictor, scored on a HELD-OUT half,
+    k = 1,2,3,4,6,8,12 -> a dose-response curve; each arm located on it.
+E4  TIES: A2 decomposed into human-TIED pairs and STRICT pairs, for the arms and for CEIL_H.
+
+IDENTIFICATION
+E1 EXACT and FORCED: every arm is a scoring function, so arm_A2 <= CEIL_ATT is an inequality the
+   algebra requires. It is therefore a CODE CHECK, never evidence -- labelled DERIVATION.
+E2 exact given E1. E3 estimated, resampled over annotator splits. E4 exact decomposition.
+
+DERIVED BEFORE MEASURING
+D1 [DERIVATION] two noisy raters agree LESS than a noiseless predictor of their central tendency
+   agrees with either. CEIL_H is the expected score of a ONE-NOISE-UNIT rater, not an upper bound.
+D2 [DERIVATION] a strict (tie-free) predictor can never agree on a human-TIED pair, so it forfeits
+   the tie mass (R803: 0.1397355039) outright. Arms are strict; annotators are not.
+D3 the per-pair plurality ceiling CEIL_PLUR >= CEIL_ATT, with equality iff the human plurality is
+   transitive on every prompt. The gap is a measurable fact nobody has.
+D4 the k-consensus curve must be MONOTONE in k if it is measuring what it claims.
+
+WORLDS
+A  CEIL_H is not an upper bound: CEIL_ATT is materially above the top arm and the k-consensus curve
+   crosses CEIL_H at small k.  =>  "above the human ceiling" was a units error.
+B  the arms genuinely saturate: top arm >= 0.98 * CEIL_ATT.
+C  the excess is TIES: the arms' advantage over CEIL_H vanishes on strictly-ordered human pairs.
+CHECKED FIRST: B, because it is the flattering one.
+
+PREDICTION MATRIX
+                          A                   B                   C
+CEIL_ATT vs top arm       clearly above       within 2%           either
+k crosses CEIL_H          at k <= 3           never               either
+strict-pair advantage     survives            survives            vanishes
+
+CONTROLS
+OBJECT   CEIL_H reproduced to 1e-6 by whose_verdicts.py's OWN method (same seeds, same sampling).
+         AND arm_A2 <= CEIL_ATT for all 27 arms -- forced, so a violation means the code is wrong.
+PLACEBO  a CONSTANT predictor (all ties) must score exactly the human tie rate. Derived, not fitted.
+POSITIVE a single held-out annotator used as a PREDICTOR must land at CEIL_H. Band computed at both
+         ends: constant (tie rate) < t < CEIL_ATT.
+NEGATIVE annotators shuffled ACROSS prompts: CEIL_ATT must collapse toward the best-constant level.
+NOISE FLOOR annotator split-half on CEIL_ATT, 20 draws.
+
+PRE-REGISTERED KILL -- conditional, never a bare threshold
+  if positive_control_fires and negative_control_is_null and object_passes:
+      if top_arm >= 0.98 * CEIL_ATT:                       -> WORLD B
+      elif strict_pair_advantage_ci_contains_0:            -> WORLD C
+      elif CEIL_ATT - top_arm > 0.02 and k_cross <= 3:     -> WORLD A
+      else:                                                -> NO WORLD CLAIMED
+  else:
+      UNVERIFIED   (never OVERTURNED, never CONFIRMED)
+
+MULTIPLICITY  27 arms x 1 comparison to CEIL_ATT, BH q=0.05, non-survivors reported.
+STOPPING RULE one round. If CEIL_ATT cannot be computed exactly, exit 2 rather than approximate it.
