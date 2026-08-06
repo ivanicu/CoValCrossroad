@@ -25356,3 +25356,73 @@ about it, measured:
 carry what a later round needs to attack it, and 6.9 MB of values with no stated design is the
 opposite — **maximum data, minimum interpretability**, in the arm of the design whose whole purpose is
 independent scrutiny.
+
+## 1348 · the triple-blind arm disagreed on SIGN, the assumption was found and swept, and the definition sits on the side where the core separates
+
+Entry 1347 ended on a suspicion: `R235_independent_B` ships 6.9 MB and **no README**, so *"if the
+largest round in the triple-blind arm states no design, the independence claim is unverifiable."*
+**The premise is false, and the correction is the round.**
+
+### ⛔ THE DESIGN IS STATED — ONE LEVEL UP, AND MORE COMPLETELY THAN A ROUND README WOULD
+
+`A19_triple_blind/README.md` records, before any result:
+
+| arm | who | seed | given |
+|---|---|---|---|
+| R231 | me | — | the whole context |
+| R234 | clean-context agent A | **11** | the question in plain words, the data schema, `realstat`, a list of files they may not open |
+| R235 | clean-context agent B | **29** | the same, plus the alternate-judge tensors |
+
+*"**Neither agent was given:** the estimand, the statistic, the aggregation, the controls, my numbers,
+or my conclusion."* — with the blocklist named by filename, the reading rule **fixed before either
+agent launched**, and *"the three will not be averaged."*
+
+⚠ **So R234 and R235 having no README is not the defect I took it for.** Under P16 a round README
+states the design; here the design is a property of the **arc**, because the whole point is that the
+two agents did not design the arc. What they carry — 1,528 and 1,162 lines of code plus their
+artifacts — is what an independent implementation is *supposed* to hand back.
+
+⭐ **And the arc README carries a finding I had not recorded:** *"E04 did this ten times. **E05 has
+done it zero times.** Fourteen rounds, R220–R233, every one a single implementation by the same
+author, several of them listing `independently replicated` in their own register as impossible —
+**while the machinery sat in the previous epoch of the same repository.**"* Same class as Entry 96,
+and as this thread's sixteen P4 firings: **an impossibility asserted while the counter-artifact is in
+the repo.**
+
+### ⭐⭐ AND THE RESULT IS THE INFORMATIVE ONE — THEY DISAGREED ON SIGN
+
+| arm | `Q` | result |
+|---|---|---|
+| **R231** (mine, full context) | reproduce Full's **exact** weak ordering | core **0.3864** vs random floor **0.3836** — **inside**; *"indistinguishable from random"* |
+| **R235** (blind, seed 29) | Kendall **τ_b** against Full's ordering | core **0.663** vs random **0.416**, **η = +0.982 [0.917, 1.046]**; *"as good as an oracle"* |
+
+**Same object, same release, same judge family, opposite practical verdicts.** §2.5's pre-registered
+rule fired: *disagree on sign → the framing is the finding.* R243 then found and swept the assumption:
+
+| `Q` = "a match means…" | core | floor | core − floor |
+|---|---:|---:|---:|
+| **≥ 6 of 6 pairs** (R231's Q) | 0.3864 | 0.3891 | **−0.0027** |
+| ≥ 5 of 6 | 0.7603 | 0.7331 | **+0.0273** |
+| ≥ 4 of 6 | 0.8957 | 0.8854 | +0.0102 |
+| ≥ 3 of 6 | 0.9607 | 0.9617 | −0.0010 |
+| ≥ 2 of 6 | 0.9897 | 0.9857 | +0.0039 |
+| ≥ 1 of 6 | 1.0000 | 0.9968 | +0.0032 |
+| mean pairwise (R235's kind) | 0.8321 | 0.8253 | **+0.0068** |
+
+**The sign flips between 6-of-6 and 5-of-6. Demanding the ENTIRE class is the only setting at which
+the core is not above its floor.** **Controls:** positive — `t=6` reproduces R231 at **0.3864**
+exactly. Negative — `t=0` returns **1.0000 / 1.0000**, a derivation, confirming the harness invents no
+difference.
+
+### ⭐ WHAT THIS SAYS ABOUT THE DEFINITION
+
+Clauses ② and ④ are *"scores better, under a named judge J, than …"* — a **graded** comparison on A2,
+never an exact-class match. **So the definition operates in the regime where the core separates from
+its floor**, and the single regime where it does not (`≥6 of 6`) is a reading the definition does not
+use. That is not an accident to be pleased about: it means **the definition's verdict inherits the
+threshold choice**, and the arm that chose the strictest reading got *"indistinguishable from random"*.
+
+⚠ **And the limit the arc states about itself, which does not close:** *"Three designs from one model
+family test **framing**, not **population** — and if all three share a blind spot native to the weights
+they were sampled from, convergence would look identical to correctness."* Here they did **not**
+converge, which is the only reason the sweep exists.
