@@ -20392,3 +20392,37 @@ original failure recorded rather than relaxed. ② `ri` was keyed by union-find 
 `P(core ~ generic)`** — the one number the round was built to produce — while every other line printed
 normally. *§4's empty population passes: a guard that skips is a guard that reports success having
 examined nothing. It must exit 2.*
+
+## 1157 · the finest decomposition this release supports is a REPARAMETERISATION
+
+R790's NEXT asked whether clause ② should be a scalar comparison at all. The gauge test found the
+freedom: A2 per prompt is the mean over annotators of the mean over the SIX response-pairs, the two
+means commute, so **A2 is exactly the mean of six component agreements** (verified to 1.1e-16) and
+the measurement is invariant under permuting which comparison an arm gets right. Measured: the
+centred 20 × 6 component matrix has eigenvalue shares **0.9936 · 0.0031 · 0.0015 · 0.0009 · 0.0007 ·
+0.0002**. **99.36% in one direction.** So there is no second axis hiding inside A2, and no reweighting
+of these six comparisons can separate anything the mean does not. *The scalar was not throwing
+information away — a conclusion only reachable by decomposing it and finding nothing.*
+
+## 1158 · and the decomposition resolves FEWER pairs, losing exactly the arms nearest the core
+
+D2 was registered before the run because the flattering reading is arithmetic: a 6× larger family
+cannot resolve fewer cells at the same nominal level, so only the post-BH comparison is a finding.
+After each family's own BH over its whole grid: **scalar 155 of 190 pairs, componentwise 152** —
+identical at all three seeds. And the clause-② admitted sets differ by **exactly three arms,
+`topw_k4` and its two aliases**, which the componentwise version **drops**. `coval_core` − `topw_k4`
+is unresolved on all six components (max `t` 1.73, signs mixed). *A formulation that differs from the
+incumbent solely by losing power is not a better formulation, and the arms it loses are the three
+this arc has spent five rounds failing to separate from the released core.*
+
+## 1159 · a control that computed nothing while printing a line, and a verdict read off the wrong block
+
+Two near-misses in one round, both caught before the round shipped. ① The first NOISE FLOOR loop
+accumulated `0.0 * g`, so it returned zeros and would have printed a floor that was an artefact of
+multiplying by zero — a **control that cannot fail**, in its purest form. Replaced by a real
+annotator split-half computed from the stored sign matrices (AB 0.006317 … CD 0.005867), which the
+first draft had thrown away. ② The `⭐ any component resolving the decisive pair` line printed
+directly beneath a **different** pair's component block, one of whose components DOES survive — so
+the screen read as though the decisive pair had a survivor. The artifact says otherwise and the
+artifact is what was used. *§4's truncated string read as data, in its layout form: adjacency on a
+terminal is not evidence of subject, and a verdict must be read from the persisted object.*

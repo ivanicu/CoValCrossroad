@@ -6084,3 +6084,41 @@ fire · SHAM equal-width binning at the same level count, adjusted Rand **0.7798
 
 **Multiplicity.** 190 unordered pairs among 20 objects — not 351; the 9 alias pairs are the placebo.
 Bootstrap resolution 1/1000, so 0 is reported as `< 0.001`. **WORLD B.**
+
+## R791 · the six-comparison decomposition, and why it is a reparameterisation
+
+**The gauge freedom.** A2 per prompt = mean over annotators of mean over the six response-pairs of
+`(sign == class)`. The two means commute, so `A2 = (1/6)·Σ_c component_c` **exactly** — worst
+deviation 1.1e-16 over 27 arms. The measurement is invariant under permuting which comparison an arm
+gets right; the property "is a core" is not obviously invariant, which is what made the decomposition
+worth computing.
+
+**E4 · the effective rank.** Centred 20 × 6 matrix, eigenvalue shares
+**0.9936 · 0.0031 · 0.0015 · 0.0009 · 0.0007 · 0.0002**. Shared component profile (mean over arms):
+AB 0.5356 · AC 0.5536 · AD 0.5479 · BC 0.5342 · BD 0.5411 · CD 0.5458.
+
+**E2 · the decisive pair, `coval_core` − `topw_k4`** (scalar +0.002297, mde 0.008528, `t` 0.75):
+
+| | AB | AC | AD | BC | BD | CD |
+|---|---|---|---|---|---|---|
+| eff | +0.010331 | +0.005510 | −0.002140 | −0.004866 | +0.001375 | +0.003569 |
+| mde | 0.016766 | 0.017702 | 0.017495 | 0.019459 | 0.017368 | 0.017240 |
+| `t` | 1.73 | 0.87 | 0.34 | 0.70 | 0.22 | 0.58 |
+
+**None survives BH + MDE.**
+
+**`coval_core` − `generic`** (scalar +0.015123, mde 0.010694, `t` 3.96): AB 1.80 · **AC 3.47** ·
+AD 1.23 · BC 0.70 · BD 1.54 · **CD 3.20** — two of six survive.
+
+**E1/E3 · the decision.** Scalar: 190 cells, **155** resolve. Componentwise: 1,140 cells, 855 resolve
+across **152** pairs. D2 registered in advance that a 6× family cannot resolve fewer at the same
+nominal level, so only the post-BH comparison counts — and it **loses three**. Clause-② admitted
+sets: scalar **14** named arms, componentwise **11**, symmetric difference `{topw_k4, topw_k4_detA,
+topw_k4_detB}`, all on the losing side.
+
+**Pre-multiplicity specification curve** (published because D2 makes it arithmetic): ci_only 167 vs
+161 · strict 152 vs 155 · conservative 138 vs 145.
+
+**Noise floor**, measured by annotator split-half over 20 draws: AB 0.006317 · AC 0.005018 ·
+AD 0.006572 · BC 0.005035 · BD 0.005624 · CD 0.005867. ⚠ MARGINAL, per arm — R790's unit note
+forbids comparing it to the paired effects. **WORLD C.**

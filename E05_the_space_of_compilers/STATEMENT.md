@@ -1829,3 +1829,30 @@ random — but admits every target-reading arm, cannot separate `coval_core` fro
 **Scope**: 20 distinct objects (27 named arms, 9 alias pairs collapsed) × 968 prompts · A2 over all
 annotators · B=1,000 headline, 3 seeds · first release, home judge. The point-estimate partition
 reproduces R789's to **1.066e-14**.
+
+## R791 · A2 decomposes into six comparisons, and they carry one direction
+
+**A2 per prompt is exactly the mean of six pairwise-comparison agreements** (verified to 1.1e-16),
+and the centred 20 × 6 component matrix has eigenvalue shares **0.9936 · 0.0031 · 0.0015 · 0.0009 ·
+0.0007 · 0.0002**. **99.36% in the first direction** — the decomposition is a **reparameterisation**,
+so on the finest decomposition this release supports there is nothing the scalar was hiding.
+
+⭐ **`coval_core` − `topw_k4` is unresolved on all six components**: max `t` **1.73** (AB), signs
+mixed, every magnitude inside its own MDE. The two arms are the same object at every resolution
+available here.
+
+⛔ **And the decomposition resolves FEWER pairs**: after each family's own BH over its whole grid,
+**155 of 190** for the scalar against **152** componentwise, identical at three seeds. The clause-②
+admitted sets differ by exactly three arms — `topw_k4` and its two aliases — which the componentwise
+version **drops**. It changes the definition's output only by losing power.
+
+⚠ **What the components do show**: `coval_core` − `generic` (+0.01512, `t` 3.96 on the scalar) is
+carried by **AC (`t` 3.47) and CD (`t` 3.20)** and is unresolved on the other four.
+
+**Controls**: D1 identity 1.11e-16 · scalar `t` against R789 worst 1.07e-14 · PLACEBO 9 alias pairs
+at exactly 0.0 · POSITIVE component-**specific** (a plant on AB fires AB alone, at δ=0.05; nothing at
+δ=0) · NEGATIVE the gauge permutation leaves A2 unchanged to 2.2e-16 while component effects move
+0.021265 · synthetic i.i.d. arm 0 of 6 · SHAM the scalar alone, stronger.
+
+**Scope**: 20 distinct objects × 968 prompts × 6 components · 1,140 cells · NBOOT 1,200 · 3 seeds ·
+first release, home judge.
