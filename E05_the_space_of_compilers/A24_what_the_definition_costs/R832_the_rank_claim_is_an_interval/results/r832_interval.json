@@ -1,0 +1,47 @@
+{
+ "world": "W-DIRECTION-SURVIVES",
+ "verdict": "the top 8 are \u2462-EXCLUDED under BOTH readings -- R831's world stands and only its rank number becomes the interval [11, 50]",
+ "interval_rank": [
+  11,
+  50
+ ],
+ "lower_end": {
+  "arm": "coval_core",
+  "rank": 11,
+  "a2": 0.5715105601469237,
+  "reading": "unknown-as-ADMITTED"
+ },
+ "upper_end": {
+  "arm": "topvar_k4",
+  "rank": 50,
+  "a2": 0.4873163452708907,
+  "reading": "unknown-as-EXCLUDED"
+ },
+ "top_excluded_cells": {
+  "unknown-as-EXCLUDED|top8": 8,
+  "unknown-as-EXCLUDED|top16": 16,
+  "unknown-as-ADMITTED|top8": 8,
+  "unknown-as-ADMITTED|top16": 13
+ },
+ "n_unknown": 11,
+ "unknown_arms": [
+  "coval_core",
+  "coval_core_2bA",
+  "coval_core_2bB",
+  "coval_core_sham",
+  "gen",
+  "gen_sham",
+  "generic",
+  "generic_reprov",
+  "genericpool16",
+  "promptecho",
+  "promptecho_sham"
+ ],
+ "controls": {
+  "pos_all_admitted": true,
+  "pos_all_excluded": true,
+  "g0_deterministic": true
+ },
+ "is_a_derivation": true,
+ "source_sha": "e52f366523d4fc2f"
+}

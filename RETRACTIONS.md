@@ -22711,3 +22711,36 @@ card), not by measurement. **So the released core is a label-reader sitting amon
 ⭐ **And this round used the `f() == f()` idiom deliberately for the first time** — ③'s partition
 recomputed from source twice and compared — which R828 hand-built three times and R829 found already
 in the corpus. **The instrument arc paid for itself here**, three rounds after it closed.
+
+## 1290 · a rank I published one round ago was a point where the evidence supports an interval
+
+R831's README said *"the best **label-free** substantive arm this site contains sits at rank 50 of
+93."* ⛔ **The instrument's unit is `③-ADMITTED`; the sentence's unit is `label-free`.** ③ returns
+**11 UNKNOWN**, and UNKNOWN does not mean *reads labels* — it means `selector_of` found no known
+selector prefix in the arm's name. Those 11 include `generic` at rank **21** and `gen` at rank **27**.
+**§4's *instrument's unit vs claim's unit*, for the THIRD time in this session**, and the first two
+were in rounds whose whole subject was that row.
+
+| reading of UNKNOWN | best substantive arm | rank |
+|---|---|---|
+| unknown-as-ADMITTED | `coval_core` | **11** |
+| unknown-as-EXCLUDED | `topvar_k4` | **50** |
+
+**Pre-registered interval [11, 50].** ⚠ **Post-hoc, labelled**: the lower end is `coval_core`, which
+**R475 settled as a label-reader by RECORD**, so removing that family gives **[21, 50]** with
+`generic` at the low end. Reported *beside* the pre-registered interval, never instead of it.
+
+⭐ **The direction survives both ends and that is what makes the correction safe rather than
+destabilising**: the **top 8 are ③-EXCLUDED under BOTH readings** (top-16: **16/16** strict,
+**13/16** lenient). R831's W-SELF-DEFEATING is not an artifact of how UNKNOWN was read; **only the
+number moved.**
+
+⛔ **And P4 stopped the round I first wanted to run.** My instinct was to *decide* the 11 by record,
+the way R475 decided `coval_core` from the dataset card. `DEFINITION.md` already records the decision
+**not** to — *"7 arms have provenance the source cannot classify … returned UNKNOWN, never silently
+admitted"* — a deliberate three-valued discipline, committed. **The correction I wanted to make was
+already made, in the opposite direction, by me.**
+
+⚠ **The whole round is a DERIVATION** — committed ranks, committed partition, nothing re-measured —
+and the artifact carries `is_a_derivation: true` as a field rather than only as prose. What could
+have come out otherwise was the robustness cell, and that is the only part reported as a test.

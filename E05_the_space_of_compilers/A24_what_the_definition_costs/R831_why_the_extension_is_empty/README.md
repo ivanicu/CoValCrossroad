@@ -54,8 +54,21 @@ selection fact about my inventory. **Substantive ③-admitted arms: 3.**
 | `topvar_k4_08bR` | 0.4018 | **93 / 93** |
 
 **n = 3.** The permutation p is computed over 82 arms, most of them baselines. **The substantive
-claim is a description of three arms, not a tested effect** — the best label-free substantive arm
-this site contains sits at rank 50 of 93, and no p is available at that n.
+claim is a description of three arms, not a tested effect** — the best **③-ADMITTED** substantive arm
+sits at rank 50 of 93, and no p is available at that n.
+
+> ⛔ **CORRECTED BY R832, and the original sentence is the reason.** It read *"the best **label-free**
+> substantive arm this site contains sits at rank 50"*. **The instrument's unit is `③-ADMITTED`; the
+> sentence's unit is `label-free`, and they are not equal.** ③ returns **11 UNKNOWN** here, and
+> UNKNOWN does not mean *reads labels* — it means `selector_of` found no known selector prefix in
+> the arm's name. Those 11 include `generic` (rank 21) and `gen` (rank 27).
+> **So the claim is an INTERVAL, not a point:**
+> **[11, 50]** as pre-registered (lower end = unknown-as-ADMITTED), and **[21, 50]** once `coval_core`
+> is removed at the lower end because **R475 settled it as a label-reader by RECORD** — that
+> refinement is **post-hoc** and labelled as such.
+> ⭐ **W-SELF-DEFEATING survives both ends**: the **top 8 are ③-EXCLUDED under BOTH readings**
+> (top-16: 16/16 strict, 13/16 lenient). Only the rank *number* moves; the direction does not.
+> §4's *instrument's unit vs claim's unit*, for the third time in this session.
 
 ## The 11 arms ③ cannot classify
 
