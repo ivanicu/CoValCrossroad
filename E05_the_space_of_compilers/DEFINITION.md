@@ -6664,3 +6664,38 @@ number left standing. Matched: **79.3%**.
 POSITIVE each fit scores higher on its own half (0.630410 > 0.599331 · 0.624184 > 0.598415 ·
 0.602500 > 0.586595), band **0.1390 < t < 0.7071** · NEGATIVE cores against another prompt's humans
 0.567696 → **0.422319** · NOISE FLOOR **0.002181** · population 968 prompts, **0 dropped**.
+
+## R806 · the relative test is blind, so the leak verdict stands and R805's clause must narrow
+
+**Why here.** CHECK #408 killed R805's NEXT — R295 had already run the low-agreement stratification
+and committed `killed = True` — and found the contradiction R805 created: R805's WORLD A ("fitting
+has real content", +0.0553 pooled) against R295's committed **−0.0054** for the same arm in the
+quintile where the two annotator halves disagree. R805 cited R295 for a caveat and never reconciled.
+
+**The attack, and it failed honestly.** R295 subtracts the honest arm's slope **additively** while
+the confound is plausibly **multiplicative** (agreement raises every arm). Relative profiles —
+each arm's quintile margin over its own pooled margin — give **fitted − honest = +0.2491 [−0.1838,
++0.6804]**, a CI holding 0. ⭐ **But the same statistic cannot separate a PERFECT LEAK either**:
+`_perfect_leak` (parity-1's own modal class as the predictor) **minus honest = +0.4499 [−0.0447,
++0.9647]**. **A statistic blind to a maximal leak cannot exonerate anything** — E2 is **UNVERIFIED**,
+never OVERTURNED.
+
+**E3 · so an independent binning variable decides.** R295 binned on parity-1↔parity-0 agreement
+while scoring on parity-0 — a shared term it named and left. Re-binned on agreement **within
+parity-1 only**: fitted slopes **+0.0302 [+0.0217, +0.0392]** · **+0.0251 [+0.0165, +0.0344]** ·
+**+0.0213 [+0.0124, +0.0309]**, all resolved; honest slopes **+0.0084 [−0.0001, +0.0164]** and
+**+0.0049 [−0.0029, +0.0127]**, both holding zero. Fitted mean **+0.0256**, honest **+0.0067**,
+excess **+0.0189**, against a perfect-leak ceiling of **+0.0350**. **BH 4 of 6 survive**; the two
+non-survivors are the honest arms. ⚠ D3: `corr(within-parity-1, half-agreement) = +0.7790`, so this
+is a **weaker** instrument, not an independent replication.
+
+**E4 · the reconciliation.** Bottom quintile: **fitted −0.0110, honest −0.0024**. The fitted arms go
+negative exactly where parity-1 stops predicting parity-0. **So R805's +0.0553 is a property of
+high-agreement prompts, not of the fitted route** — R295's W-LEAK stands and the clause narrows.
+**WORLD A.**
+
+**Controls.** OBJECT R295 reproduced exactly (N 968 · agreement 0.552048 · slope 0.033719 · floor
+0.008548 · full quintile vector) · PLACEBO the k=4 pool against itself, **0.0e+00** in all five
+quintiles · POSITIVE (absolute) synthetic perfect leak **+0.046491 [+0.034749, +0.058202]**, steepest
+of all seven · **POSITIVE (relative) FAILS, and that failure is the finding** · NEGATIVE binning
+permuted, all three slopes hold 0 · population 968, **0 dropped**.

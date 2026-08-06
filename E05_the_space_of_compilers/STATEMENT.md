@@ -2317,3 +2317,33 @@ Matched, the best held-out arm reaches **79.3%**.
 
 **Scope**: 968 prompts (**0 dropped**) × 11 arms · annotators split by index parity, fit on 1,
 evaluate on 0 · NBOOT 1,200 · first release, home judge.
+
+## R806 · Fitting has content only where the annotators agree — and the test that says otherwise is blind
+
+**R805's WORLD A is narrowed, not retracted.** Under a binning variable that does not contain the
+outcome (agreement **within parity-1 only**):
+
+| arm | bottom quintile | slope |
+|---|---:|---|
+| `oracle_k4_fit1` | **−0.0122** | **+0.0302 [+0.0217, +0.0392]** |
+| `greedy_k4_fit1` | −0.0066 | +0.0251 [+0.0165, +0.0344] |
+| `indep_k4_fit1` | −0.0143 | +0.0213 [+0.0124, +0.0309] |
+| `coval_core` (honest) | −0.0030 | +0.0084 **[−0.0001, +0.0164]** |
+| `topw_k4` (honest) | −0.0018 | +0.0049 **[−0.0029, +0.0127]** |
+| `_perfect_leak` | −0.0099 | +0.0350 [+0.0231, +0.0475] |
+
+**All three fitted slopes resolve; both honest slopes hold zero.** Fitted excess over the honest
+floor **+0.0189**, against a perfect-leak ceiling of **+0.0350** — the fitted arms sit at roughly
+half the maximal-leak profile. **BH 4 of 6 survive**, the two non-survivors being the honest arms.
+
+⭐ **And the attack that would have overturned this is blind.** Comparing arms on their *relative*
+profile gives fitted − honest **+0.2491 [−0.1838, +0.6804]**, a CI holding 0 — but the same statistic
+gives **+0.4499 [−0.0447, +0.9647]** for a **perfect leak** minus an honest arm. **A statistic that
+cannot separate maximal leakage from an arm that never saw a label exonerates nothing**, so that
+result is UNVERIFIED and no future round should read a null from it as an acquittal.
+
+**So R805's +0.0553 [+0.0456, +0.0653] is a property of high-agreement prompts, not of fitting.**
+
+**Scope**: 968 prompts (**0 dropped**) × 7 arms × 2 binning variables · outcome = arm − `POOL[0:4]`
+on parity-0 · NBOOT 1,200 · first release, home judge · ⚠ `corr` between the two binning variables
+**+0.7790**, so E3 is a weaker instrument, not an independent replication.

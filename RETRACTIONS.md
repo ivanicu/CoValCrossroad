@@ -20935,3 +20935,44 @@ number anyway**. Matched under one split, the best held-out arm reaches **79.3%*
 text is not a corrected number. The failure is not that I missed the confound — I named it — it is
 that naming it felt like handling it, and the table went out with the wrong row in the headline
 position.*
+
+## 1203 · R805's WORLD A narrowed — fitting has content only where the annotators agree
+
+R805 committed *"fitting a core to a prompt's own humans has real content"* on a pooled **+0.0553
+[+0.0456, +0.0653]**, while R295 had already committed that the same arm's margin is **−0.0054** in
+the quintile where the two annotator halves disagree. **Both were headlines in the same record and
+they contradicted each other**; R805 cited R295 for a lower-bound caveat and never reconciled them.
+Re-binned on a variable that does not contain the outcome — agreement **within parity-1 only** — all
+three fitted slopes resolve (**+0.0302 / +0.0251 / +0.0213**) while both honest arms' slopes hold
+zero (**+0.0084 [−0.0001, +0.0164]**, **+0.0049 [−0.0029, +0.0127]**), and the fitted arms go
+**negative** in the bottom quintile (−0.0110) where the honest arms sit at −0.0024. **R295's W-LEAK
+stands. R805's number is real and its scope was wrong**: +0.0553 is a property of high-agreement
+prompts, not of the fitted route. *The tension was visible in the record the day R805 shipped — one
+round's headline against another's committed table — and nothing in the seven gates looks for it.*
+
+## 1204 · the attack I built to overturn R295 is blind, and its own positive control is what said so
+
+R295 subtracts the honest arm's slope **additively**; the confound it prices — agreement raises
+*every* arm's margin — is plausibly **multiplicative**, so I built the relative test: each arm's
+quintile margin over its own pooled margin. It returned **fitted − honest = +0.2491 [−0.1838,
++0.6804]**, a CI holding 0, which reads as *R295's verdict is a scale artifact*. ⭐ **Then the
+relative-scale positive control returned +0.4499 [−0.0447, +0.9647] for a PERFECT LEAK minus an
+honest arm** — a synthetic arm that IS parity-1's modal class, i.e. maximal leakage by construction.
+**A statistic that cannot separate a perfect leak from an arm that never saw a human label has no
+power to exonerate anything.** E2 is UNVERIFIED, never OVERTURNED — and the instrument fact is worth
+more than the verdict, because it forecloses this whole class of attack for future rounds.
+
+## 1205 · and my kill branch read that CI as a verdict, because the gate checked a different statistic
+
+The round's gate validated *"the perfect-leak arm is the steepest"* on the **absolute** slope and
+passed. The kill branch then fired on the **relative** slope. **They are different statistics, and
+the control never touched the one the verdict used** — realstat §4's *"the control targets a
+different statistic than the one being reported"*, verbatim, committed inside the round written to
+catch that class. The first run printed **WORLD B**. Repaired: the relative branch is now gated on a
+relative-scale control, and the verdict became WORLD A. ⚠ **A second defect in the same estimand**:
+the preregistration says E2 is a RATIO needing a denominator far from zero and **names** the two
+honest arms for that reason; the first run added `generic`, which **is** `POOL[0:4]` and whose margin
+against the k=4 pool is **+0.0011**. Its relative profile is a ratio to zero (1.78, −0.62, **3.07**,
+0.94, −0.16) and it moved the headline from +0.4977 to +0.2491. *Both defects were pre-registered
+against in words and committed in code — the preregistration named the failure and did not prevent it,
+which is what a gate is for and prose is not.*
