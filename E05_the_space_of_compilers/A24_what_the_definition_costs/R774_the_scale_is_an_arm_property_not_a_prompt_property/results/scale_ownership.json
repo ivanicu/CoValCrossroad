@@ -1,0 +1,72 @@
+{
+  "tree_sha": "1a5db7bc7b9ee405",
+  "n_prompts": 968,
+  "committed": [
+    "coval_core",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "comparison": [
+    "random_k4_s0",
+    "random_k4_s1",
+    "random_k4_s2",
+    "topabs_k4",
+    "topvar_k4"
+  ],
+  "curves": {
+    "Q1": {
+      "n": 242,
+      "c": 0.0002533322457530585,
+      "committed": 0.004744344156365724,
+      "sham": 0.035429840878465346,
+      "ratio": 7.467805814830561
+    },
+    "Q2": {
+      "n": 237,
+      "c": 0.020015388549738188,
+      "committed": 0.005947221508120942,
+      "sham": 0.037607743010609526,
+      "ratio": 6.3235820221688535
+    },
+    "Q3": {
+      "n": 244,
+      "c": 0.04861199440002819,
+      "committed": 0.006082574748146609,
+      "sham": 0.031328091171972064,
+      "ratio": 5.150465463908666
+    },
+    "Q4": {
+      "n": 245,
+      "c": 0.11238406742779188,
+      "committed": 0.007819061387728903,
+      "sham": 0.0339564621874784,
+      "ratio": 4.342779843213544
+    }
+  },
+  "corr_c_sham": -0.021219252717640046,
+  "corr_c_committed": 0.20423518032902235,
+  "reliability_committed": 0.8806128648614464,
+  "reliability_comparison": 0.8437881388159113,
+  "ceiling": 0.8620038806518143,
+  "cross_family_corr": 0.24376576880501916,
+  "relative_to_ceiling": 0.28278964199174234,
+  "controls": {
+    "disjoint": true,
+    "placebo": 1.0,
+    "negative_mean": -0.002132929247119271,
+    "negative_hi": 0.06653929276074799,
+    "sham_shared_arms": 0.5097432850408838,
+    "dose": {
+      "0.0": -0.01918937922231182,
+      "0.25": 0.33801558459312353,
+      "0.5": 0.6075572086048504,
+      "1.0": 0.8582250929999337
+    },
+    "positive": true,
+    "g0": true,
+    "monotone": true
+  },
+  "world": "NO WORLD \u2014 0.283 x the ceiling sits between the registered bands"
+}

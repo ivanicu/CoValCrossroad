@@ -19804,3 +19804,39 @@ must exceed the largest COMMITTED-pair distance on the same prompts (0.0082), wh
 **4.36×**. *Both failures pointed at the instrument and both were in the criterion, and the tell was
 that nothing else about the run looked wrong — §4's row on controls failing for their own reasons,
 which is now the fourth time this arc.*
+
+## 1103 · the registered ratio put the regressor inside its own denominator
+
+R773 closed by registering the sham-to-committed distance ratio as a function of `c(p)`. But `c(p)`
+**is** the committed-pair A2 distance and the denominator is the committed-pair satisfaction distance —
+the same quantity in another metric, correlated at **+0.2042**. **So the ratio must fall in `c`
+whether or not the sham varies at all.** Run as two separate curves the reading inverts: the sham
+distance is **flat** (corr −0.0212, quartile means 0.0354 / 0.0376 / 0.0313 / 0.0340) while only the
+committed distance rises. **R773's "those prompts compress real arms much more than a bad one" was the
+denominator moving**, and it was measured on the tied subset — selection on the outcome — which R773
+itself flagged. *A ratio is two claims wearing one number, and the discipline is not to be careful with
+it but to refuse to compute it.*
+
+## 1104 · a ceiling that had to be measured, and it excluded the flattering world
+
+Two noisy estimates of the same latent quantity cannot correlate above the geometric mean of their
+reliabilities, so the cross-family correlation had to be read against a **measured** ceiling rather
+than against 1.0. Split-half: committed **0.8806**, comparison **0.8438**, ceiling **0.8620**. ⭐ That
+number does two things. It **excludes World C** — *"the question is unanswerable at this n"* — which
+would have been the comfortable exit from a small correlation. And it turns **+0.2438** into
+**0.283× of what is achievable**, which is a much sharper statement than the raw number. *An
+attenuation ceiling is the difference between "the correlation is small" and "the correlation is
+small relative to what this instrument could have shown", and only the second is a finding.*
+
+## 1105 · R772's λ was inflated ~3× by measuring within one family
+
+R772 read a differential-loading width of **λ ≈ 0.59** off the leading eigenvalue share of the ten
+committed difference vectors. R774's plant calibrates the **disjoint-family** correlation of +0.2438 to
+a width of **≈0.18**. The sham says where the gap went: splitting the committed five into
+**overlapping** halves gives **+0.5097** against the disjoint **+0.2438** — **arm-sharing buys 2.09×**.
+**So R772's estimate absorbed the arm-set component and reported it as a prompt property**, and the
+name "separability scale" carries that overstatement into the page. ⚠ The prompt component is REAL —
++0.2438 sits far outside a permutation band of [−0.0654, +0.0665] — it is about a third of what the
+within-family reading suggested. *Every statistic computed inside one family inherits that family's
+internal structure, and the only control that separates them is a disjoint family, which costs one
+`set()` intersection to verify and was available the whole time.*

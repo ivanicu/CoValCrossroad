@@ -384,7 +384,17 @@ A **core** for a conversation is a set of criteria such that
     **0.0358** away on those same prompts against a ceiling of **0.2794** elsewhere, so the prompts
     themselves compress everything. ⛔ **Dropping the ties changes no verdict**: `eff/MDE` is invariant
     to removing exact zeros — measured ratios **0.9998–1.0008**, **0 of 10** verdicts move, and
-    `n_required` scales by exactly **745/968 = 0.7696**, the same information in a different unit. And the confound is answered: the
+    `n_required` scales by exactly **745/968 = 0.7696**, the same information in a different unit.
+    ⛔⛔ **AND THE WORD "SEPARABILITY" OVERSTATES WHAT `c(p)` IS** *(R774)*. Two **disjoint** arm
+    families' scales correlate at **+0.2438** against a **measured** attenuation ceiling of **0.8620**
+    — **0.283×** — while splitting the committed five into **overlapping** halves gives **+0.5097**, so
+    **arm-sharing buys 2.09×**. Calibrated on a planted prompt-scale the prompt-level component is a
+    width of **≈0.18** against the **0.59** R772 read within one family: **inflated ~3×**. ⚠ And the
+    **sham distance is FLAT in `c(p)`** (−0.0212) while the committed distance rises (+0.2042), so
+    R773's *"those prompts compress everything"* is not the population's behaviour — the ratio's
+    decline was its denominator. ⇒ **`c(p)` mostly measures how close THESE FIVE are on a prompt**;
+    a real prompt component exists (far outside a permutation band of [−0.065, +0.067]) and is about a
+    third of what the within-family reading suggested. And the confound is answered: the
     `topw_k` family is an inverted U peaking at **k = 6** (eff/MDE 1.311) with `eff/MDE` falling
     monotonically 6 → 8 → 12, so `topw_k8` is not an anomaly but where the curve re-enters the floor.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own

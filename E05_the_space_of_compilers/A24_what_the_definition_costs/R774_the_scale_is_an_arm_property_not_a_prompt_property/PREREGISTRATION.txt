@@ -1,0 +1,142 @@
+R774 · is `c(p)` a property of the PROMPT or of the five arms that defined it?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R772 named `c(p) = mean |d|` a per-prompt SEPARABILITY SCALE and R773 inherited that reading, closing
+with "those prompts compress real arms much more than they compress a bad one" and registering the
+sham-to-committed distance RATIO as a function of `c(p)` over the full 968.
+
+⛔ CHECK #376: THE REGISTERED RATIO IS CONTAMINATED, AND THE ARITHMETIC SAYS SO.
+   `c(p)` IS the committed-pair A2 distance, and the ratio's DENOMINATOR is the committed-pair
+   satisfaction distance -- the same quantity in a different metric. Measured before designing:
+   **corr(c, committed distance) = +0.2042**. So the regressor sits inside the denominator and the
+   ratio trends downward by construction. **The clean form is two SEPARATE curves**, and running them
+   changes the answer:
+
+       c(p) quartile      n     c        committed    sham      ratio
+       Q1               242   0.0003     0.0047      0.0354     7.47
+       Q2               237   0.0200     0.0059      0.0376     6.32
+       Q3               244   0.0486     0.0061      0.0313     5.15
+       Q4               245   0.1124     0.0078      0.0340     4.34
+
+   **corr(c, SHAM distance) = -0.0212 — the sham distance is FLAT across the whole range**, while the
+   committed distance rises 1.7x. So the ratio's decline is entirely its denominator.
+   ⇒ R773's reading -- "those prompts compress everything" -- is not what the full population shows.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the SHAM distance as a function of `c(p)`, as a curve over quartiles with each cell's interval --
+    the test of whether prompts vary in how much they separate an ARBITRARY arm from the core.
+E2  the COMMITTED distance as the same curve, reported beside it and never divided into it.
+E3  ⭐ THE ONTOLOGY TEST. If `c(p)` is a property of the PROMPT, a scale computed from a DIFFERENT arm
+    family must agree with it. If it is a property of THESE FIVE ARMS, it will not. Estimand: the
+    correlation between `c(p)` from the committed five and `c'(p)` from a disjoint arm family
+    (`random_k4_s0/s1/s2` plus `topabs_k4`, `topvar_k4`) which shares no member with the committed set.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1, E2 exact.
+E3 IDENTIFIED provided the two arm families are DISJOINT -- otherwise a shared arm induces correlation
+   for the same reason R771's arm-sharing pairs correlate. The families are checked disjoint in code
+   and the round EXITS 2 if they are not.
+⚠ AND THE CEILING ON E3 IS NOT 1.0. Even a perfect prompt property would correlate below 1 because
+  each `c` is a noisy estimate; the round therefore reports the correlation ALONGSIDE the reliability
+  bound obtained by splitting each family in half and correlating the halves -- the standard
+  attenuation ceiling -- rather than against an imagined 1.0.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  968 prompts; committed family = the 5 extension members; comparison family = 5 arms
+            sharing no member with it
+instrument  A2 per prompt over all annotators; cosine distance on satisfaction vectors
+baseline    none -- these are within-prompt comparisons
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  A RATIO WHOSE DENOMINATOR TRACKS THE REGRESSOR TRENDS BY CONSTRUCTION. corr(c, committed) =
+    +0.2042, so `sham/committed` must fall in `c` whether or not the sham varies at all. **Reporting
+    that decline as "prompts compress everything" would be the same error as R773's NEXT.** The round
+    reports the two curves separately and states the ratio only to show it is uninformative.
+D2  THE TWO FAMILIES' SCALES SHARE A PROMPT-DIFFICULTY COMPONENT ONLY IF ONE EXISTS. Nothing forces a
+    positive correlation between disjoint families' `c`, because each is a within-family DIFFERENCE
+    magnitude and differencing removes what is common (R771's result, used here as a tool).
+    ⇒ E3's correlation is a genuine measurement, not an artifact of shared difficulty.
+D3  ATTENUATION. Two noisy estimates of the same latent quantity correlate at most at the geometric
+    mean of their reliabilities, so E3 must be read against a measured split-half ceiling.
+
+STRONGEST CONFOUND, written BEFORE the run: the comparison family is made of weaker arms, so its `c'`
+may be dominated by a different regime (all arms bad) rather than by prompt structure. CONTROL IN THE
+SAME ITERATION: report each family's mean A2 level and its `c` distribution, so a regime difference is
+visible rather than assumed absent.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · `c` IS A PROMPT PROPERTY. The two disjoint families' scales correlate substantially relative to
+    the split-half ceiling. Then "some prompts separate cores" is real and R772's name was right.
+B · `c` IS AN ARM-SET PROPERTY. The correlation is near zero against a healthy ceiling. Then `c(p)`
+    measures how close THESE FIVE happen to be on that prompt, R772's "separability scale" is a
+    misnomer, and R773's tie finding is about the five arms rather than about the prompts.
+C · UNIDENTIFIED. The split-half ceiling is itself near zero, so neither family's `c` is reliable
+    enough to correlate with anything and the question cannot be asked at this n.
+
+PREDICTION MATRIX
+  A -> corr(c, c') >= 0.5 x the split-half ceiling
+  B -> corr(c, c') <= 0.2 x the ceiling, with the ceiling >= 0.4
+  C -> ceiling < 0.4
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if DISJOINTNESS holds (exit 2 otherwise) and POSITIVE fires (a planted prompt-level scale makes the
+   two families' `c` correlate) and g=0 fires (no planted scale -> no correlation) and PLACEBO fires
+   (a family correlated with ITSELF returns 1.0):
+        ceiling < 0.4                          -> WORLD C. The question is unanswerable at this n.
+        corr >= 0.5 x ceiling                  -> WORLD A. `c` is a prompt property.
+        corr <= 0.2 x ceiling                  -> WORLD B. `c` is an arm-set property; rename it.
+        otherwise                              -> report the number, claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+DISJOINT   the two arm families must share no member. Asserted; the round EXITS 2 if violated,
+           because a shared arm manufactures the correlation E3 is measuring.
+POSITIVE   plant a prompt-level scale `s(p)` multiplying BOTH families' difference vectors, sweep the
+           width in {0, 0.25, 0.5, 1.0}, and require corr(c, c') to rise monotonely and be detected at
+           1.0. BAND, COMPUTED: at width 0 the correlation must sit at its unplanted value; at 1.0 it
+           must exceed the g=0 upper interval. Threshold strictly between two computed ends.
+g=0        width 0 on simulated independent arms: corr(c, c') must sit at ~0 with its interval.
+NEGATIVE   permute prompts in one family only, 200 draws, and report the correlation distribution.
+           World excluded: "any two |d| vectors of this shape correlate".
+SHAM       ingredient ABSENT, not inverted. Ingredient = THE SECOND FAMILY BEING A DIFFERENT ARM SET.
+           Split the COMMITTED five into two overlapping halves and correlate their scales -- same
+           machinery, but the arms are shared, so this measures what sharing alone buys.
+PLACEBO    a family's scale correlated with ITSELF must be exactly 1.0.
+NOISE      the split-half reliability of each family's `c` is measured, not assumed, and every
+           correlation is reported against it (D3).
+UNIT       instrument unit = a PROMPT; claim unit = the SCALE, whose ownership -- prompt or arm-set --
+           is the round's question. Both named.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+2 curves x 4 quartiles with intervals; 1 cross-family correlation with its ceiling; 4 sweep widths;
+200 permutation draws; the split-half sham. Whole grid printed including the cells that kill a reading.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether a high-`c` prompt is "harder" in any sense
+  a user would recognise                        human judgement on the prompts
+whether the scale is a property of the JUDGE     a second judge scoring the same arms
+cross-release                                   a second release
+independently replicated                        a second team; the session prompt forbids agents

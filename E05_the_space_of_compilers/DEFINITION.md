@@ -5490,3 +5490,36 @@ committed pair **0.0082** (**4.36×**), band computed on this subset [−8.46e-1
 not exactly zero) · SHAM the same distance on the 745 discriminating prompts **0.0066** vs tied
 **0.0046** (0.696) · NEGATIVE 200 random equal-sized subsets **0.0062 [0.0055, 0.0069]**.
 **WORLD A — STRUCTURAL.**
+
+## R774 · who owns the scale — the prompt, or the five arms that defined it
+
+**Scope.** population = 968 prompts; committed family = the 5 extension members; comparison family =
+`random_k4_s0/s1/s2`, `topabs_k4`, `topvar_k4` — **disjoint**, asserted, exit 2 otherwise; instrument =
+A2 per prompt over all annotators, cosine distance on satisfaction vectors; regime = first release,
+home judge, this tree_sha.
+
+**E1/E2 · two curves, never their ratio** (D1: corr(c, committed) = +0.2042 puts the regressor in the
+denominator):
+
+| c quartile | n | c | committed | sham | ratio |
+|---|---|---|---|---|---|
+| Q1 | 242 | 0.0003 | 0.0047 | 0.0354 | 7.47 |
+| Q2 | 237 | 0.0200 | 0.0059 | 0.0376 | 6.32 |
+| Q3 | 244 | 0.0486 | 0.0061 | 0.0313 | 5.15 |
+| Q4 | 245 | 0.1124 | 0.0078 | 0.0340 | 4.34 |
+
+**corr(c, sham) = −0.0212** (flat) · **corr(c, committed) = +0.2042** (rising).
+
+**E3 · ownership.** split-half reliability committed **0.8806**, comparison **0.8438**, attenuation
+ceiling **0.8620**. Cross-family **+0.2438 = 0.283× ceiling**. SHAM — the committed five split into
+**overlapping** halves — **+0.5097**, i.e. arm-sharing buys **2.09×**. NEGATIVE 200 one-sided
+permutations **−0.0021 [−0.0654, +0.0665]**. PLACEBO a family against itself **1.000000**.
+
+**Calibration.** Planted prompt-scale dose curve: 0.00 → −0.0192 · 0.25 → +0.3380 · 0.50 → +0.6076 ·
+1.00 → +0.8582. Observed **+0.2438** interpolates to a width of **≈0.18**; R772's within-family
+spectral estimate was **0.59**.
+
+**Confound printed, not assumed away.** mean A2 committed **0.5635** vs comparison **0.4910**; `c`
+quartiles committed [0.0055, 0.0333, 0.0667] vs comparison [0.0416, 0.0856, 0.1479].
+
+**WORLD: none claimed** — registered A needed ≥0.5× the ceiling, B ≤0.2×, and 0.283 is neither.
