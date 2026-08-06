@@ -47,6 +47,34 @@ LIMIT           detection is STRUCTURAL (any name assigned a boolean expression)
    OVERSTATES by 2, and across four versions of this scan the number ran 2 -> 1 -> 4 -> 5 -> 2,
    every change caused by fixing the INSTRUMENT and none by new evidence. ADJUDICATION IS THE
    MEASUREMENT; the scan only generates candidates.
+
+⭐ v5 -- TWO MORE BLIND SPOTS CLOSED, and the count moved again for the same reason as before:
+   (c) `ok &= bool(pv)` is an AugAssign, invisible to the Assign-only rule. similarity_gradient.py
+       accumulates its controls that way. It was CLEARED BY BLINDNESS and happens to be exemplary
+       (`if not ok: v = "UNVERIFIED -- a control failed"`); now all three of its flags are found
+       IN its chain, so it is cleared for the RIGHT reason. A clear from a blind scan and a clear
+       from a seeing one print the same word and are not the same evidence.
+   (d) the verdict VOCABULARY was a keyword list, and ablate_novel.py labels its worlds `W2 --`.
+       Detection there is structural now: any print() containing "VERDICT" is a verdict site.
+   Judgeable 8 -> 10, cannot-judge 5 -> 3, candidates 5 -> 7. Two hits are NEW:
+     ablate_novel.py             REAL, unmarked   ok_pos/ok_pla computed, printed, orphaned; the
+                                                  verdict tests `surv` alone. Was invisible only
+                                                  because its world label was outside the list.
+     compare.py                  REAL, unmarked   `ok_dose`, a monotone dose positive control, is
+                                                  computed and printed PASS/FAIL; the verdict
+                                                  tests `excl` alone. Same shape as synthetic_world.
+   ADJUDICATED TOTAL: 4 unmarked · 1 self-disclosed · 2 artifacts, of 7 candidates over 10
+   judgeable. Precision 0.57. It rose because the scan got WIDER, not because a label changed.
+
+⛔ AND THE `cannot judge` BUCKET WAS NEVER THE RESIDUE I ASSUMED -- it held a DIFFERENT DEFECT.
+   Resolving all three: score.py is a scorer and select_core.py is a builder, both correctly
+   verdict-free. price_of_annotation.py is a full round whose two registered controls are
+   ALGEBRAICALLY CONSTANT (`(T-R).mean()/(T-R).mean()` and `R-R`) -- 0 failures in 2000 random
+   worlds. That is §4's FIRST row, not this one, and no amount of widening this scan would ever
+   have found it, because the module has no verdict branch to be un-wired. It is now caught by
+   the sibling gate assurance/a_control_that_cannot_fail.py. THE GENERAL POINT: an instrument's
+   `cannot judge` bucket is not leftovers, it is a POPULATION WITH A DIFFERENT DEFECT PROFILE,
+   and reporting a rate over the judgeable set silently excludes it.
 """
 from __future__ import annotations
 import ast, pathlib, sys
@@ -81,12 +109,28 @@ def audit(src: str):
     #    Detection is now STRUCTURAL: a flag is any name assigned a boolean-valued expression.
     #    That is complete over boolean assignments and OVER-FIRES on intermediates, so every hit
     #    is a CANDIDATE requiring adjudication, never a finding.
+    # ⛔ THIRD BLIND SPOT: `ok &= bool(pv)` is an AugAssign. similarity_gradient.py accumulates
+    #    its controls that way, so `ok` was never a candidate and the module was CLEARED BY
+    #    BLINDNESS -- it happens to be exemplary (it returns UNVERIFIED when any control fails)
+    #    but the scan could not have said so either way. AugAssign is now walked.
     flags = {t.id for n in ast.walk(tree) if isinstance(n, ast.Assign)
              for t in n.targets if isinstance(t, ast.Name) and _boolish(n.value)}
+    flags |= {n.target.id for n in ast.walk(tree) if isinstance(n, ast.AugAssign)
+              and isinstance(n.target, ast.Name) and isinstance(n.op, (ast.BitAnd, ast.BitOr))}
     if not flags:
         return set(), set(), False
     used, found = set(), False
     seen = set()
+    # ⛔ FOURTH BLIND SPOT: the verdict VOCABULARY was a keyword list, and ablate_novel.py labels
+    #    its worlds `W2 --`, which is not in it. Detection is now STRUCTURAL there too: any print()
+    #    whose text contains "VERDICT" is a verdict site, and every Name in it counts as consulted.
+    for n in ast.walk(tree):
+        if (isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == "print"
+                and "VERDICT" in ast.dump(n)):
+            found = True
+            for m in ast.walk(n):
+                if isinstance(m, ast.Name) and m.id != "print":
+                    used.add(m.id)
     # ⭐ a verdict decided by a TERNARY is an IfExp, not an If -- walk those first
     for n in ast.walk(tree):
         if isinstance(n, ast.IfExp):

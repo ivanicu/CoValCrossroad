@@ -22336,3 +22336,70 @@ happened, and no one who was not watching the terminal can confirm what it retur
 ARTIFACT line asks what a later round needs to ATTACK this — a printed PASS is exactly what it
 cannot attack. This session has now hit the same shape three ways: a floor compared to the wrong
 dispersion, a sign quoted below resolution, and now a control whose number never left stdout.
+
+⚠ **SECOND INSTANCE, same session (2026-08-06).** `corebench/price_of_annotation.py` persists **no
+artifact at all** — no file under `corebench/results/`, measured. Its share, its bootstrap CI, its
+two control PASSes and its closing prose exist only as stdout from a run nobody kept. So this is not
+one control's value going unrecorded; it is **a whole round that cannot be re-verified, attacked, or
+even confirmed to have been run.** The remedy in the entry above is unchanged and its scope widens:
+persist every control's VALUE — and if a module has no artifact, it has not reported, it has printed.
+
+## 1281 · two more blind spots, and one of my two "clean" verdicts had been a clear from a blind scan
+
+The kill-wiring scan gained two fixes. Neither came from evidence; both came from reading its own
+misses, which is now **six consecutive count changes with the same cause**.
+
+| blind spot | what it hid |
+|---|---|
+| `ok &= bool(pv)` is an **AugAssign**, not an Assign | `similarity_gradient.py` accumulates its controls that way. It was **CLEARED BY BLINDNESS** |
+| the verdict vocabulary was a **keyword list** | `ablate_novel.py` labels its worlds `W2 --`, outside it. Unjudgeable, not clean |
+
+⭐ **The first is the one that matters, and it is the mirror of ledger 1276.** There, a passing
+positive control certified a scan with a 1-in-2 false-positive rate. Here, a *clean* verdict was
+issued by a scan that could not have seen the flag either way — and `similarity_gradient` **is**
+exemplary (`if not ok: v = "UNVERIFIED -- a control failed"`), so the verdict was right and the
+evidence for it was absent. **A clear from a blind instrument and a clear from a seeing one print the
+same word.** Only the second is a measurement, and nothing in the output distinguishes them.
+
+Corrected: judgeable 8 → 10, cannot-judge 5 → 3, candidates 5 → 7. Adjudicated **4 unmarked · 1
+self-disclosed · 2 artifacts**, precision **0.57** — risen because the scan got wider, not because a
+label moved. New: `ablate_novel.py` (`ok_pos`/`ok_pla` orphaned, verdict tests `surv`) and
+`compare.py` (`ok_dose`, a monotone dose positive control, orphaned; verdict tests `excl`).
+
+## 1282 · the "cannot judge" bucket was not leftovers — it held a different and worse defect
+
+Three modules had computed flags and no locatable verdict chain. I had been treating that bucket as
+the instrument's residue. Resolving all three:
+
+- `score.py` — a scorer, `select_core.py` — a builder. **Correctly verdict-free.**
+- ⛔ `corebench/price_of_annotation.py` — **a full round whose two registered controls cannot fail.**
+
+```python
+okT = abs(((T-R).mean()/(T-R).mean()) - 1.0) < 1e-12   # docstring: POSITIVE, "topw vs itself = 1.0"
+okR = abs(((R-R).mean())) < 1e-12                       # docstring: PLACEBO,  "random vs itself = 0"
+```
+
+**Gauge test, rung 1, zero compute** — 2000 worlds with `T` and `R` drawn independently, no
+relationship between the arms at all: **okT failed 0 of 2000, okR failed 0 of 2000.** `okT` is
+`x/x − 1 < ε` and `okR` is `mean(x−x)`. The measurement is invariant under every transformation of
+the data; the property it names — *is the share's scale anchored?* — is not. **Measurement invariant
++ property not ⇒ blind.**
+
+⚠ **And the docstring's INTENT is a derivation too, so this is not a coding slip.** "topw against
+itself must give a share of exactly 1.0" is a property of the ratio formula, true before any data is
+read. Fixing the code cannot rescue the control; it has to be replaced by one that could return
+something else.
+
+⭐ **The general finding, and it is about the instrument, not the module.** No amount of widening the
+kill-wiring scan would ever have reached this, because the defect needs *no verdict branch* — it is
+§4's first row (`check that cannot fail`), not its `verdict string is not a computation` row. **An
+instrument's `cannot judge` bucket is a population with a DIFFERENT DEFECT PROFILE, not a residue**,
+and quoting a rate over the judgeable set silently excludes it. Now gated by
+`assurance/a_control_that_cannot_fail.py`, sound in one direction only: a flag proves constancy, and
+its silence proves nothing.
+
+**Containment, measured and anchored (positive control: `0.566477` → 13 hits, `0.4557` → 14):**
+`price_of_annotation` and every string of its output are **ABSENT from `DEFINITION.md`,
+`STATEMENT.md` and this ledger.** Nothing downstream rests on it. **This is a contained defect, not
+a retraction** — and the reason it is contained is the same reason it is unverifiable: it persists no
+artifact, so nothing could have cited it.
