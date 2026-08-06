@@ -1,0 +1,48 @@
+R834 · adjudicating the eleven records by reading
+registered 2026-08-06, BEFORE the recomputation was run.
+
+⛔ WHY NOT THE ROUND MY OWN NEXT NAMED. R833 closed: "any replacement instrument must parse
+   negation before its per-arm statuses mean anything." That is a THIRD regex refinement, and §4's
+   `a search is an instrument` row has already been wrong TWICE -- once at the loose pattern, once
+   at the tight pattern WITH a passing positive control. A third refinement is the same move again.
+   AND R833 ALREADY SHOWED WHAT WORKS: I read four full commit bodies by hand in one command and
+   got the right answer; the regex is the thing that got it wrong. ADJUDICATION IS THE MEASUREMENT,
+   established four times in this arc. So this round reads all eleven and records what each says.
+
+ESTIMAND
+  ① the ③-status of each of the 11 UNKNOWN arms, adjudicated by reading its construction record,
+     with the decisive sentence quoted; and
+  ② the rank distribution of the SUBSTANTIVE ③-admissible-by-record set, recomputed.
+  Named before either was computed.
+
+⚠ THE CONFOUND IS UNCHANGED AND IT IS THE POINT
+  I am reading my own commit messages and may read them toward the conclusion I want. Controls:
+  ① every adjudication carries the VERBATIM sentence it rests on, committed as data, so a later
+     reader can overturn any single one without re-running anything;
+  ② `coval_core` is the POSITIVE CONTROL -- known EXCLUDED by R475 from the RELEASE's dataset card,
+     not from my own record. If my adjudication returns anything else, it is reading toward comfort;
+  ③ silence stays UNDECIDED and a missing introducing commit stays NO-RECORD. Neither is a guess.
+  ④ the baseline classifier and rank source are copied UNCHANGED from R831, so the recomputed
+     picture is comparable to the number it replaces.
+
+WORLDS
+  W-STRENGTHENED   the substantive ③-admissible set grows beyond R831's 3 arms / 1 family, and its
+                   best rank stays below the top 8. W-SELF-DEFEATING then rests on more evidence,
+                   not less.
+  W-OVERTURNED     the set's best rank enters the top 8. The label-reader monopoly at the top is an
+                   artifact of ③'s name-prefix rule, and R831's world must be withdrawn.
+  W-UNCHANGED      no UNKNOWN arm adjudicates to substantive-ADMITTED; R831 stands exactly.
+
+KILL -- a CONDITIONAL
+  if `coval_core` adjudicates EXCLUDED AND every ADMITTED verdict carries a verbatim quote naming
+  the arm's inputs:
+      evaluate the recomputed rank set -> W-OVERTURNED if its best rank <= 8, W-STRENGTHENED if the
+      set grew and its best rank > 8, else W-UNCHANGED
+  else:
+      UNVERIFIED, and R831's picture stands as published.
+
+SCOPE      population: the 11 arms ③ returns UNKNOWN over R831's 93. instrument: the commit that
+           introduced each arm's core file, READ. baseline: R831's committed ranks and regex.
+ARTIFACT   results/r834_adjudicated.json -- every arm, its status, and its verbatim quote.
+IMPOSSIBLE arms with no introducing commit cannot be reached by any reading of the git log. They
+           are NO-RECORD, and inheriting a sibling's provenance would be INFERENCE, not record.
