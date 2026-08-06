@@ -25970,3 +25970,46 @@ demanded from the start, never run until now.
 `git restore` and stamps the tree census first — but **if the outer timeout truncates the run, the
 restore never executes.** Named here because a reproducibility test that destroys the artifact it is
 testing is not a test.
+
+## 1360 · the tree's destroyer was never in the candidate list — this repository has TWO WRITERS
+
+Entry 1356 enumerated causes for a 2,967-file deletion, **killed both by direct test**, and filed the
+cause **UNVERIFIED**. That was honest and it was still the wrong shape of answer, because **the
+population it enumerated from was "my own scripts."**
+
+### ⛔ MEASURED AT D8, TWO INDEPENDENT WAYS
+
+| evidence | what it shows |
+|---|---|
+| `git reflog HEAD@{0}` | a commit — *"R843 returns UNVERIFIED"* — **landed while I was working, which this session did not make** |
+| `git log --since` | **`432e8092` (14:26) and `d4205a7e` (14:32) are interleaved with my ten commits** and are not mine |
+| live processes | **two distinct shell-snapshot ids** in this repo — `…whzxwo` (mine) and `…fdd9jn` |
+| the other writer's own commit body | *"…because an untracked round has no revert base and **this repository has two writers**"* |
+
+⭐ **A second agent running a whole-tree `git restore` or a tree-mover in this directory produces
+the destruction signature exactly** — and **no amount of auditing my own scripts could ever have
+found it.**
+
+### ⭐⭐ THE META-SEPARATOR FIRED — my world-decomposition was wrong, not my worlds
+
+1356 asked *"which of my scripts did it?"*. The answer was **"was it me at all?"** — a question one
+level up from the fork I built. This is the outcome §0's meta-separator is for: not *A beats B*, but
+*A, B and C were all the wrong question.* **I could have run those two kill-tests forever.**
+
+### ⚠ AND THE HARM RAN BOTH WAYS — stated because it is mine
+
+I ran **`git restore --staged --worktree .` — whole tree — twice today**, believing I was the only
+writer. **Any uncommitted work the other session held at those moments was destroyed silently.** A
+whole-tree restore *looks like a recovery to the one running it and like a destruction to the other*,
+which is precisely why neither of us could name a cause.
+
+### ⭐ REPAIR
+
+`tree_survives_the_sweep.py` now **stamps HEAD alongside the file census** and reports any movement
+the stamping session did not cause — verified by its own positive control (a commit moved HEAD by 1;
+the branch fired). And the recovery advice is **scoped to your own paths**, no longer `.`.
+
+⭐ **The general rule this earns: before attributing a system-level event to your own actions,
+establish that you are the only actor.** Two of this project's standing memories say the same thing
+from the other side — *`Killed` says nothing about the MACHINE* — and I did not apply either, because
+a repository feels like a private object in a way a shared machine does not.
