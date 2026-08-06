@@ -47,6 +47,12 @@ NOT_A_GATE = {"run_all", "DEFECTS", "HEADLINES", "manifest", "pueue_wait",
               "audit_the_auditors"}
 META_GATES = {"audit_the_auditors"}
 PREFIX_SKIP = ("_", "apply_")
+# Gates that MOVE the epoch directories out of the live tree. Killing one of these does not lose a
+# verdict, it loses the repository's working tree into a `mkdtemp` nobody can name. Kept as an
+# explicit list rather than detected, because a heuristic that misses one fails silently in the
+# expensive direction — and there are two, both named in `_repair.py`'s docstring.
+MUTATES_TREE = {"attack_the_suite", "attack_every_check"}
+MUTATES_TREE_TIMEOUT = 600      # measured 40.9s alone in a worktree; 600 is room for a loaded box
 
 
 def discover(root: pathlib.Path = ROOT) -> list[pathlib.Path]:
@@ -160,13 +166,31 @@ def main(argv: list[str]) -> int:
     # Threads, not processes: run_one is subprocess-bound, so the GIL is irrelevant.
     # `--serial` keeps the old path so correctness can be CHECKED against it, not assumed.
     jobs = 1 if "--serial" in sys.argv else min(12, (os.cpu_count() or 4) - 2)
+    # ⛔ A GATE THAT MOVES THE TREE MAY NOT RUN INSIDE THE POOL, AND THE REASON IS MEASURED.
+    #    `attack_the_suite` and `attack_every_check` hide every E##_ epoch and restore in a
+    #    `finally:`, which SIGKILL does not run. On 2026-08-06 `attack_the_suite` was killed at
+    #    90.1s here and left 2,911 files in /tmp.
+    #    ⭐ THE OBVIOUS DIAGNOSIS WAS WRONG AND I HAD ALREADY WRITTEN IT DOWN: "the gate cannot
+    #    finish in 90s." Measured alone in a linked worktree it finishes in 40.9s -- comfortably
+    #    inside. It exceeded 90s because it was competing with ELEVEN OTHER GATES for the machine.
+    #    So the defect is not the timeout's value; it is that the only gates whose interruption
+    #    DESTROYS STATE were the ones made slowest by the pool. Raising the timeout would have
+    #    made the window rarer and left the mechanism intact.
+    #    They therefore run ALONE, after the pool, with a timeout set from the measurement plus
+    #    room for a loaded machine. Serial cost: ~40s each, paid once.
+    pool = [p for p in gates if p.stem not in MUTATES_TREE]
+    solo = [p for p in gates if p.stem in MUTATES_TREE]
     if jobs > 1:
         from concurrent.futures import ThreadPoolExecutor
         with ThreadPoolExecutor(max_workers=jobs) as ex:
-            rows = list(ex.map(run_one, gates))
+            rows = list(ex.map(run_one, pool))
     else:
-        rows = [run_one(p) for p in gates]
-    print(f"  ran {len(gates)} gates with {jobs} worker(s)")
+        rows = [run_one(p) for p in pool]
+    for p in solo:
+        print(f"  … {p.stem} runs ALONE (it moves the tree; an interrupted hide is not a red line, "
+              f"it is a lost round)")
+        rows.append(run_one(p, timeout=MUTATES_TREE_TIMEOUT))
+    print(f"  ran {len(gates)} gates with {jobs} worker(s) · {len(solo)} run serially after the pool")
     buckets = {"PASS": [], "FAIL": [], "UNRUNNABLE": [], "ERROR": []}
     for name, rc, el, msg in rows:
         b = "PASS" if rc == 0 else "FAIL" if rc == 1 else "UNRUNNABLE" if rc == 2 else "ERROR"
