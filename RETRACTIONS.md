@@ -22643,3 +22643,33 @@ unparseable `.py` — all exit 2.
 ⭐ **Only vector ③ of seven found it.** Vectors ①②④⑤ — normal run, arc-only, broken rule, over-firing
 rule — all behaved correctly and would have shipped it. **A fix is where the next hole is, and the
 hole was in the interaction between two correct fixes, not in either one.**
+
+## 1288 · the branch I called unreachable was reachable from one directory away, and it works
+
+**Labelled CLOSURE.** 1287 closed by saying the gate's `N/A` branch — for a file control absent from
+the population — *"is unreachable inside this repository, because the controls `rglob` the whole tree
+and always find themselves. Its behaviour is asserted and untested."*
+
+**Unreachable from this CWD is not unreachable.** Copying the gate into a foreign tree — one where
+neither control file exists anywhere — makes the branch fire, and it can then be attacked:
+
+| vector | result |
+|---|---|
+| ① foreign corpus with a planted `scores.mean() - scores.mean()` | both file controls **N/A · skipped**, all three synthetic controls PASS, **defect caught**, the real check `abs(treat.mean() - ctrl.mean()) > 0.01` not flagged, exit 0 |
+| ② foreign + rule made blind to `a / a` | **synthetic positive FAILS → exit 2**, with the file controls skipped and nothing else able to catch it |
+| ③ foreign + rule made to over-fire | **synthetic g=0 FAILS → exit 2**, before its false accusations could be believed |
+| ④ foreign corpus with no defect | 0 hits, exit 0 |
+
+⭐ **Vector ② is the whole point of the change and it is now a measurement.** The claim was *"the
+synthetic controls carry the validation when the file controls degrade to N/A."* In ②, the file
+controls are skipped, the rule is broken, and **the synthetic control alone stops the run.** Before
+this round that was an assertion about code I had written.
+
+⚠ **The generalisable part is the mistake, not the result.** *"This branch cannot fire"* was a claim
+about the **environment**, stated as a claim about the **code** — and the environment was one `cp` and
+one `cd` away from being different. That is the same shape as every row this arc has been chasing: **a
+check whose failing world cannot occur where it runs.** The remedy was not to reason about
+reachability but to **move the runner** until the world occurs.
+
+**Cost note**: the first attempt was blocked mutely by the bash guard's known `rm` false positive.
+"No stderr" is the guard, not a crash — re-run without `rm`.
