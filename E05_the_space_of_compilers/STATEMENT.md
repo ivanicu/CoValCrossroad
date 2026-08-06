@@ -2347,3 +2347,37 @@ result is UNVERIFIED and no future round should read a null from it as an acquit
 **Scope**: 968 prompts (**0 dropped**) × 7 arms × 2 binning variables · outcome = arm − `POOL[0:4]`
 on parity-0 · NBOOT 1,200 · first release, home judge · ⚠ `corr` between the two binning variables
 **+0.7790**, so E3 is a weaker instrument, not an independent replication.
+
+## R807 · The fitted arms are 0.50–0.65 of a copy of the leak, on a scale calibrated to 0.008
+
+**On a scale where a pure copy of the leak is 1.000 by derivation and arms that never saw a human
+label sit at ~0.34:**
+
+| | disattenuated slope on `_perfect_leak` |
+|---|---:|
+| pure copy of the leak | **1.000** (derivation — the ceiling) |
+| planted half-honest/half-leak | **0.651** vs a predicted **0.659** |
+| `oracle_k4_fit1` | **0.650 [+0.558, +0.751]** |
+| `greedy_k4_fit1` | 0.611 [+0.520, +0.719] |
+| `indep_k4_fit1` | 0.504 [+0.407, +0.606] |
+| `coval_core` (honest) | 0.349 [+0.246, +0.454] |
+| `topw_k4` (honest) | 0.338 [+0.237, +0.457] |
+
+**No fitted arm's interval reaches 1.0**, and the paired contrast is **+0.245 [+0.154, +0.333]**. So
+**the fitted route is neither a copy of the leak nor free of it** — the first quantitative statement
+this arc has about *how much*.
+
+⛔ **The round nevertheless returns WORLD C**, because my own pre-registered first branch tests **CI
+overlap** rather than the paired difference, and `indep_k4_fit1`'s [0.407, 0.606] overlaps
+`coval_core`'s [0.246, 0.454]. Overlapping intervals do not test a difference; the preregistration
+binds anyway.
+
+⛔ **And the estimand I started with was unidentified.** The g=0 control returned a resolved positive
+intercept with **nothing planted** — errors-in-variables, `intercept = (1 − λ)·mean(y)`, checked at
+**(1 − 0.4774) × 0.0512 = +0.026772** against an observed **+0.027134**.
+
+⭐ **The shared parity-0 draw was worth about half the apparent association**: same-draw minus
+split-draw slope **+0.2757 / +0.2593 / +0.2233** (fitted) and **+0.1328 / +0.1372** (honest).
+
+**Scope**: 968 prompts (**0 dropped**) × 5 arms + 3 synthetic · leak on parity-0 half A, arm on half
+B · λ = **0.4597** estimated on the same split · 1,200 bootstrap draws · first release, home judge.

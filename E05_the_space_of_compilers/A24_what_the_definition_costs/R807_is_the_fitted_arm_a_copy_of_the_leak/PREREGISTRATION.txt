@@ -1,0 +1,81 @@
+R807 · IS THE FITTED ARM A RANK-CONSTRAINED COPY OF THE LEAK?
+written before the run · NBOOT 1200 · ZEFF 2.801585
+
+PROVOCATION
+R806 left the fitted arms at roughly HALF the maximal-leak agreement profile (+0.0189 excess against
+a +0.0350 ceiling) -- neither "content" nor "pure label access". Its NEXT: regress each fitted arm's
+per-prompt margin on the synthetic `_perfect_leak`'s and read what is left over.
+
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+`oracle_k4_fit1` selects the 4-subset of the rubric that best matches parity-1's modal class m1(p).
+`_perfect_leak` PREDICTS m1(p) exactly. So if the rubric could always reproduce m1(p), the two
+margins would be IDENTICAL: slope 1, intercept 0. The deviation is exactly "how often the rubric's
+4-subsets cannot express the modal class" -- and the sign of what is left over is NOT forced,
+because a rank-4 constrained arm can be a SMOOTHER estimator of the population than the raw modal
+class of 8 annotators.
+
+⛔ AND THE ESTIMAND IS THE INTERCEPT, NOT THE RESIDUAL. R804 already committed the lesson: an OLS
+residual MEAN is 0 by construction. The informative quantity is the arm's margin AT ZERO LEAK
+MARGIN -- i.e. on prompts where the modal class does no better than the size-matched blind pool.
+
+ESTIMAND
+E1  slope, intercept and R^2 of arm-margin on leak-margin, SAME parity-0 draw (R806's NEXT as posed).
+E2  ⭐ the SHARED-DRAW FIX: `_perfect_leak` scored on parity-0 half A, the arm on half B. Both
+    margins then carry INDEPENDENT annotator noise. The E1-minus-E2 slope difference IS the
+    shared-term inflation, and it is reported as a number rather than argued away.
+E3  the HONEST FLOOR: `coval_core` and `topw_k4` -- which never saw a parity-1 label -- regressed
+    identically. Their slope is what the shared prompt-difficulty term buys with no leak at all.
+E4  content = fitted intercept minus honest intercept, with a paired CI.
+
+IDENTIFICATION
+E1 confounded by construction (shared parity-0 draw) and reported only as the contrast for E2.
+E2/E3/E4 identified. ⚠ Splitting parity-0 halves the annotators behind every margin, so E2 is
+NOISIER than E1; the noise floor below measures how much.
+
+DERIVED BEFORE MEASURING
+D1 [DERIVATION] `_perfect_leak` regressed on ITSELF gives slope exactly 1 and intercept exactly 0.
+   PLACEBO.
+D2 [DERIVATION] an arm that is m1's class on half the prompts and an honest arm's class on the
+   other half must give slope ~0.5 with a resolved positive intercept. POSITIVE, with a known
+   magnitude, and it must NOT pass for the pure-leak arm (intercept ~0) -- that is its g=0 check.
+D3 the honest arms have never seen parity-1, so any slope they show is shared prompt difficulty.
+D4 E1's slope >= E2's slope, or the shared-draw story is wrong and the round says so.
+
+WORLDS
+A  CONTENT: fitted intercept resolvedly ABOVE the honest arms' -> the fitted route agrees with
+   parity-0 for reasons the modal-class copy does not capture, and clause (3) rewritten as "held
+   out from the PROMPT" would exclude a route with real content.
+B  COPY: slope ~1 after the fix and fitted intercept not above honest -> the fitted arms ARE the
+   leak, and clause (3) must be rewritten to exclude them.
+C  UNINFORMATIVE: honest arms show the same slope as fitted -> the slope is shared difficulty and
+   this design cannot separate anything.
+CHECKED FIRST: C, because it kills the round.
+
+PREDICTION MATRIX
+                             A                  B                  C
+slope after the fix       < 1, resolved      ~ 1                 any
+fitted intercept          > honest, resolved  CI holds honest    any
+honest slope              << fitted           << fitted          ~ fitted
+
+CONTROLS
+OBJECT   reproduce R806's committed slopes under R806's own binning: `_perfect_leak` +0.0350 and
+         `oracle_k4_fit1` +0.0302, to 1e-6. Exit 2 otherwise.
+PLACEBO  D1: `_perfect_leak` on itself -> slope 1.000000, intercept 0.000000, exactly.
+POSITIVE D2: the planted half-and-half arm -> slope ~0.5, intercept resolved > 0; and the pure-leak
+         arm must show intercept ~0 (the g=0 check, so the control can fail).
+NEGATIVE `_perfect_leak` PERMUTED across prompts -> slope CI must contain 0.
+NOISE FLOOR 20 independent parity-0 half-splits; the sd of every reported slope and intercept.
+
+PRE-REGISTERED KILL -- conditional, never a bare threshold
+  if object_reproduces and placebo_exact and positive_fires_and_fails_at_g0 and negative_is_null:
+      if honest slope CI overlaps fitted slope CI                    -> WORLD C
+      elif (fitted intercept - honest intercept) CI excludes 0 above -> WORLD A
+      elif slope CI contains 1 and that difference CI contains 0     -> WORLD B
+      else                                                            -> NO WORLD CLAIMED
+  else:
+      UNVERIFIED   (never OVERTURNED, never CONFIRMED)
+
+MULTIPLICITY 6 arms x {E1, E2} x {slope, intercept} reported in full; BH q=0.05 over the
+intercept family; non-survivors printed.
+STOPPING RULE one round. Prompts with <2 parity-0 annotators cannot carry the half-split: measured
+at 0 of 968 before writing this, and the count is printed at run time regardless.

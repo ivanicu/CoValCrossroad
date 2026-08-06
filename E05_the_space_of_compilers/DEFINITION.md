@@ -6699,3 +6699,41 @@ high-agreement prompts, not of the fitted route** — R295's W-LEAK stands and t
 quintiles · POSITIVE (absolute) synthetic perfect leak **+0.046491 [+0.034749, +0.058202]**, steepest
 of all seven · **POSITIVE (relative) FAILS, and that failure is the finding** · NEGATIVE binning
 permuted, all three slopes hold 0 · population 968, **0 dropped**.
+
+## R807 · a calibrated scale for "how much of an arm is the leak" — and WORLD C by my own branch
+
+**Why here.** R806 left the fitted arms at roughly half the maximal-leak profile and proposed
+regressing each fitted arm's per-prompt margin on the synthetic `_perfect_leak`'s. CHECK #409 found
+that as posed both margins are scored on the **same** parity-0 annotators, so their errors are
+correlated — the shared-term defect R806 had just corrected in R295.
+
+**⛔ The original estimand was unidentified, and this round's own g=0 control found it.** R804 had
+already killed the OLS residual mean (0 by construction), so I used the **intercept**. The g=0
+control — the same predictor scored on two independent halves, nothing planted — returned intercept
+**+0.0271**. That is errors-in-variables: `intercept = (1 − λ)·mean(y)`. **Derivation check:
+(1 − 0.4774) × 0.0512 = +0.026772 vs observed +0.027134, |diff| 0.000362.** So "content = +0.0213"
+was mostly the fitted arms having larger mean margins — R806's scale trap in a new coordinate.
+
+**⭐ The identified estimand: the DISATTENUATED slope.** λ is measured directly as the leak's own
+split-half reliability (**0.4597** on the fixed split), and a pure copy of the leak scores exactly
+**1.000** — a derivation, the ceiling. On that scale: `oracle_k4_fit1` **0.650 [+0.558, +0.751]** ·
+`greedy_k4_fit1` 0.611 [+0.520, +0.719] · `indep_k4_fit1` 0.504 [+0.407, +0.606] · `coval_core`
+**0.349 [+0.246, +0.454]** · `topw_k4` 0.338 [+0.237, +0.457]. **Paired, fitted − honest = +0.245
+[+0.154, +0.333].** ⭐ The positive control lands at **0.651** against a predicted midpoint of
+**0.659**, |diff| **0.008** — the scale is calibrated at a point neither end determines.
+
+**⭐ The shared-draw inflation, measured**: same-draw minus split-draw slope is **+0.2757** ·
++0.2593 · +0.2233 for the fitted arms and +0.1328 · +0.1372 for the honest ones. D4 held for all
+five. The shared annotator draw was worth about **half** the apparent association.
+
+**⛔ WORLD C, and I am not overturning it.** My preregistration's first branch — placed first because
+it kills the round — reads *"if honest slope CI overlaps fitted slope CI → WORLD C"*, and
+`indep_k4_fit1`'s [0.407, 0.606] overlaps `coval_core`'s [0.246, 0.454]. **CI overlap between two
+separately estimated quantities is not a test of their difference**, and the paired difference here
+excludes zero — but the preregistration binds, so WORLD C stands with the paired number beside it.
+
+**Controls.** OBJECT binning-free pooled margins **+0.051224409 / +0.047060767**, exact · PLACEBO
+leak on itself, slope **1.000000000**, intercept **+0.000000000** · POSITIVE (repaired estimand)
+0.651 vs 0.659 predicted · NEGATIVE **permutation null over 200 permutations**, null +0.0031
+[−0.0492, +0.0561], the real slope +0.5727 outside the entire null · NOISE FLOOR 20 half-splits, sd
+0.0136 / 0.0121 / 0.0109 / 0.0098 / 0.0112.

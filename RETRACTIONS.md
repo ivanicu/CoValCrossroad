@@ -20976,3 +20976,49 @@ against the k=4 pool is **+0.0011**. Its relative profile is a ratio to zero (1.
 0.94, −0.16) and it moved the headline from +0.4977 to +0.2491. *Both defects were pre-registered
 against in words and committed in code — the preregistration named the failure and did not prevent it,
 which is what a gate is for and prose is not.*
+
+## 1206 · the intercept was never a measure of content, and this round's own g=0 control proved it
+
+R806's NEXT asked for the residual left after regressing a fitted arm's margin on the synthetic
+perfect leak's. R804 had already killed the OLS residual mean (0 by construction), so I used the
+**intercept** — the arm's margin where the leak's margin is zero — and it looked like a clean
+content estimand. The g=0 control is the same predictor scored on two independent halves **with
+nothing planted**; it returned intercept **+0.0271**. That is textbook errors-in-variables: noise in
+`x` attenuates the slope to λ and forces `intercept = (1 − λ)·mean(y)`. **Checked:
+(1 − 0.4774) × 0.0512 = +0.026772 against an observed +0.027134, |diff| 0.000362.** So the headline
+"content = fitted intercept − honest intercept = +0.0213" was mostly **the fitted arms having larger
+mean margins** — R806's multiplicative scale trap reappearing in a new coordinate exactly one round
+after it was named. ⭐ The repair is not a caveat but a different estimand: λ is measured directly as
+the leak's split-half reliability and the quantity becomes the **disattenuated slope**, on which a
+pure copy of the leak scores exactly **1.000** by derivation. *A g=0 control earns its cost about
+once every twenty rounds, and this is the one — it fired on a quantity that had already survived two
+rounds of my thinking about what could go wrong with it.*
+
+## 1207 · the scale that replaced it, and what it says: 0.50–0.65 of a copy
+
+On the disattenuated scale — honest floor ~**0.34**, pure copy **1.000** — the fitted arms read
+`oracle_k4_fit1` **0.650 [+0.558, +0.751]**, `greedy_k4_fit1` 0.611, `indep_k4_fit1` 0.504, against
+`coval_core` **0.349 [+0.246, +0.454]** and `topw_k4` 0.338. Paired, **fitted − honest = +0.245
+[+0.154, +0.333]**, and **no fitted arm's interval reaches 1.0**. ⭐ The scale is calibrated at a
+point neither end determines: a planted half-honest/half-leak arm lands at **0.651** against a
+predicted `0.5×(0.318 + 1.000) = 0.659`, |diff| **0.008**. **So the fitted route is neither a copy of
+the leak nor free of it** — the first quantitative statement this arc has about *how much* rather
+than *whether*. ⚠ And the shared parity-0 draw was worth about **half** the apparent association:
+same-draw minus split-draw slope is +0.2757 / +0.2593 / +0.2233 for the fitted arms.
+
+## 1208 · WORLD C, because my own first branch tests CI overlap instead of the difference
+
+The preregistration's first branch — placed first precisely because it kills the round — reads *"if
+honest slope CI overlaps fitted slope CI → WORLD C"*. It does: `indep_k4_fit1`'s **[0.407, 0.606]**
+overlaps `coval_core`'s **[0.246, 0.454]**. **But overlapping intervals are not a test of a
+difference** — two quantities can have overlapping CIs while their paired difference excludes zero,
+which is exactly the case here (**+0.245 [+0.154, +0.333]**). The preregistration binds, so the round
+reports **WORLD C** with the paired number beside it and the defect in the ledger rather than a
+quiet substitution. ⚠ **A second control failed for its own reasons in the same run**: the negative
+control bootstrapped around **one** permuted draw, which measures that permutation's precision and
+not the null, and condemned a pairing that had in fact been destroyed. Repaired to a proper
+permutation null over 200 permutations, the observed +0.0843 turns out to be the null's own
+**maximum**. *Two of this round's four verdict-bearing devices were wrong in ways that had nothing to
+do with the object, which is the failure mode the skill says dominates — and the count this session
+now stands at three rounds in a row where a control, not a result, was the thing that had to be
+fixed.*
