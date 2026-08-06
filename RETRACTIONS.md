@@ -23239,3 +23239,31 @@ is the part of a report §4 says gets no control.
 ⭐ **The pattern across all five instances is one sentence**: *the instrument's population and the
 claim's population were never written down as two separate strings.* Every time, the fix was a
 single re-probe costing one command — and every time, the sentence had already been committed.
+
+## 1304 · a CI IS an MDE, and my reason for keeping them apart was the wrong one
+
+My NEXT said to extend R839 with *"a second detector keyed on intervals rather than widening the
+first, because a CI and an MDE answer the same question through different arithmetic."*
+
+⭐ **THE ARITHMETIC IS THE SAME, AND IT IS A DERIVATION.** For a symmetric 95% CI,
+`MDE = (hi − lo)/2`, and *"the CI excludes zero"* is **exactly** `|eff| > 1 × MDE`. The `2×` bar is
+*"the half-width doubled still excludes zero."* **They are one quantity in two notations**, so the
+reason I gave for keeping them apart was false.
+
+⚠ **AND THE CONCLUSION SURVIVES ANYWAY, FOR A DIFFERENT REASON — measured.** Over **500 cells across
+13 rounds** carrying `(effect, lo, hi)` and no MDE, the asymmetry `|centre − effect| / half-width` is
+**median 0.0232 · mean 0.0836 · max 9.0999**, and **383 of 500 (77%)** sit within 5% of symmetric.
+**23% do not.** Bootstrap percentile intervals are not symmetric, so `(hi − lo)/2` is **not** the MDE
+for roughly a quarter of them.
+
+**So the specification is neither of the two I proposed**: not *widen the first detector* (that would
+silently mis-convert 23%), and not *a second detector on different arithmetic* (there is no different
+arithmetic). It is **a conversion with a symmetry precondition, applied per cell**, reporting the
+asymmetric quarter as **UNCONVERTIBLE** rather than approximating them.
+
+⭐ **And the population is larger than the artifact count suggested**: **500 cells**, not 13 items —
+about **38% more** than R839's 1,330. **I had been counting artifacts where the unit is cells**,
+which is the same unit error as the arm/pair confusions earlier in this arc.
+
+**What this changes about the record**: nothing measured moves. **What moves is a specification** —
+the extension is now a precise, checkable procedure instead of a direction.
