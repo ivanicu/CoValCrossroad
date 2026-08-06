@@ -1,6 +1,6 @@
 # R225 — do raters add identification bits?
 
-**Arc E05·A04.** R224 published a bound making the decision-preserving definition of `core`
+**Arc E05·A17.** R224 published a bound making the decision-preserving definition of `core`
 NOT IDENTIFIED. The whole bound rests on **one sentence I asserted and never measured**:
 
 > *"Adding raters does not raise `H_have`. Every rater orders the same `m` responses; their

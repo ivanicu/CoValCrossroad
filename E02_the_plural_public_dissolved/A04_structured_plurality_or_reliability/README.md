@@ -1,6 +1,6 @@
 # Structured plurality or reliability
 
-**Arc E02·A01.** An arc closes when a decision becomes safe. This one: *structured plurality or reliability*.
+**Arc E02·A04.** An arc closes when a decision becomes safe. This one: *structured plurality or reliability*.
 
 Table of contents only. Each round's README states its design; the finding lives in [`../../README.md`](../../README.md).
 

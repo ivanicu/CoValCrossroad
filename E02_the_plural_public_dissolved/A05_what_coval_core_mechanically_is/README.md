@@ -1,6 +1,6 @@
 # What coval core mechanically is
 
-**Arc E02·A02.** An arc closes when a decision becomes safe. This one: *what coval core mechanically is*.
+**Arc E02·A05.** An arc closes when a decision becomes safe. This one: *what coval core mechanically is*.
 
 Table of contents only. Each round's README states its design; the finding lives in [`../../README.md`](../../README.md).
 

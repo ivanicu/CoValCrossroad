@@ -1,6 +1,6 @@
 # R229 — the control band
 
-**Arc E05·A05.** The decision this makes safe: **how do I set a positive control's threshold?**
+**Arc E05·A22.** The decision this makes safe: **how do I set a positive control's threshold?**
 
 Three of the last five rounds failed *first* on a control whose target the design made unreachable.
 `realstat` §4 names the mirror image — *"check that cannot fail", built 4×, caught 4×* — and has

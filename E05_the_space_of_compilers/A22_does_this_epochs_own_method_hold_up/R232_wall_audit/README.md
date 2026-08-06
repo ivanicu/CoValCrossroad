@@ -1,6 +1,6 @@
 # R232 — auditing every wall this arc asserted
 
-**Arc E05·A06.** `realstat` §4, last row: *"a wall never checked — one was a query never run, and the
+**Arc E05·A22.** `realstat` §4, last row: *"a wall never checked — one was a query never run, and the
 falsifying arithmetic was in the author's own sentence. **An unchecked wall is UNVERIFIED, never
 SETTLED.**"*
 

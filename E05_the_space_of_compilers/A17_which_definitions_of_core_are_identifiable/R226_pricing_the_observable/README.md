@@ -1,6 +1,6 @@
 # R226 — pricing the observable
 
-**Arc E05·A04.** R224's bound has two assumptions. R225 attacked the rater half and it survived.
+**Arc E05·A17.** R224's bound has two assumptions. R225 attacked the rater half and it survived.
 This attacks the other: **"the observable is the ordering."** It need not be — a richer per-prompt
 observable raises `H_have` **without adding a single candidate**, and the release chose which one to
 ship.

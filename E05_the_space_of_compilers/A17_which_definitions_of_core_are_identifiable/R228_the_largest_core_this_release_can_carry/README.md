@@ -1,6 +1,6 @@
 # R228 — the largest core this release can carry
 
-**Arc E05·A04.** R224–R227 all held `H_need = log₂C(n,k)` fixed and asked what could raise `H_have`.
+**Arc E05·A17.** R224–R227 all held `H_need = log₂C(n,k)` fixed and asked what could raise `H_have`.
 But **`k` is a choice** — it belongs to the *definition* of core, not to the data — and the same
 inequality solves for it.
 

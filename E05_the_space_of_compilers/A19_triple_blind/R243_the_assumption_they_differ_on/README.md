@@ -1,6 +1,6 @@
 # R243 — the two arms disagree on sign, and the framing is the finding
 
-**Arc E05·A08.** `realstat` §2.5, the rule fixed before either agent launched: *"disagree on sign →
+**Arc E05·A19.** `realstat` §2.5, the rule fixed before either agent launched: *"disagree on sign →
 **your framing is the finding**. Do not adjudicate by picking the design you like; find the
 assumption they differ on and test THAT."*
 

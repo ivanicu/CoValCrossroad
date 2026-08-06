@@ -1,6 +1,6 @@
 # Do our own claims survive an adversary
 
-**Arc E04·A03.** An arc closes when a decision becomes safe. This one: *do our own claims survive an adversary*.
+**Arc E04·A14.** An arc closes when a decision becomes safe. This one: *do our own claims survive an adversary*.
 
 Table of contents only. Each round's README states its design; the finding lives in [`../../README.md`](../../README.md).
 

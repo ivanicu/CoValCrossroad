@@ -1,6 +1,6 @@
 # R241 — no valid stratifier exists, and that is the answer
 
-**Arc E05·A07.** R238 used **separation** to match R233's arms without first checking that
+**Arc E05·A18.** R238 used **separation** to match R233's arms without first checking that
 separation predicts anything, and its own positive control killed it. The lesson is not *try
 another one* — it is that **a stratifier must be validated as a predictor before it is used to
 match**. So this validates every per-prompt variable this release carries, and reports the failures

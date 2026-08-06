@@ -1,6 +1,6 @@
 # The chain from a person to the standard
 
-**Arc E04·A02.** An arc closes when a decision becomes safe. This one: *the chain from a person to the standard*.
+**Arc E04·A13.** An arc closes when a decision becomes safe. This one: *the chain from a person to the standard*.
 
 Table of contents only. Each round's README states its design; the finding lives in [`../../README.md`](../../README.md).
 

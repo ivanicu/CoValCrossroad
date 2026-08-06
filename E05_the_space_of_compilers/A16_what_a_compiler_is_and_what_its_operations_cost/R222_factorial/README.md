@@ -1,6 +1,6 @@
 # R222 — the compiler factorial
 
-**Arc E05·A03.** The decision this makes safe: *when the compiled core differs from the full rubric,
+**Arc E05·A16.** The decision this makes safe: *when the compiled core differs from the full rubric,
 which of the compiler's operations is responsible, and on which axis?*
 
 Every round in this project has reported compilation as **one number**. The official pipeline is

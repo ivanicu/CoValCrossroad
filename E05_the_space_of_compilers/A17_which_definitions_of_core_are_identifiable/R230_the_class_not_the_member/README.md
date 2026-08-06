@@ -1,6 +1,6 @@
 # R230 — the arc was identifying the wrong object
 
-**Arc E05·A04.** R224–R228 all set `H_need = log₂C(n,k)` — the bits needed to name *which* k-subset
+**Arc E05·A17.** R224–R228 all set `H_need = log₂C(n,k)` — the bits needed to name *which* k-subset
 — found it too large, and concluded the core was unidentifiable.
 
 But the project's own definition (paper §2, **C6**) says normative information **is** the equivalence

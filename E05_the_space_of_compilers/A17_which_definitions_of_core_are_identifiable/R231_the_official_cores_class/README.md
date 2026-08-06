@@ -1,6 +1,6 @@
 # R231 — the official core's actual Q-class
 
-**Arc E05·A04.** Every number in this arc so far is on a **planted** class. This measures the
+**Arc E05·A17.** Every number in this arc so far is on a **planted** class. This measures the
 official core's own — no plant, no simulation, 968 prompts.
 
 ## Controls first, and the band check refused the cell

@@ -1,6 +1,6 @@
 # R233 — the candidate-set test, and why I am not taking its verdict
 
-**Arc E05·A07.** The test everyone said was impossible, on 250 prompts × 4 **freshly generated**
+**Arc E05·A18.** The test everyone said was impossible, on 250 prompts × 4 **freshly generated**
 responses cached in this repository since 2026-07-28 (`RETRACTIONS.md` entry 96). 33,320 judgements,
 GPU via pueue, both arms judged in the same run.
 

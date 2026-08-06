@@ -1,4 +1,4 @@
-# A13 — table of contents
+# A23 — is the admissibility gate the right gate
 
 **28 rounds, R248–R275.** Per P16 this file is a **table of contents only**: the sub-round → what it
 asked. Every finding, its interval and its scope live in `E05/FORMULATION.md` and `RETRACTIONS.md`.

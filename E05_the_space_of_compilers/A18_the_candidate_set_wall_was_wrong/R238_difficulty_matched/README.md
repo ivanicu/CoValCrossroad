@@ -1,6 +1,6 @@
 # R238 — the control I proposed for R233, and it does not control anything
 
-**Arc E05·A07.** R233 measured a transport signal and I refused it, naming a confound: *the fresh
+**Arc E05·A18.** R233 measured a transport signal and I refused it, naming a confound: *the fresh
 responses are more homogeneous, therefore easier, and the floors prove it.* R238 tests that
 explanation. **It does not survive.**
 

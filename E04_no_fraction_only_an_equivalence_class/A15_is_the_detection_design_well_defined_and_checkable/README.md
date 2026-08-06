@@ -1,6 +1,6 @@
 # Is the detection design well defined
 
-**Arc E04·A04.** An arc closes when a decision becomes safe. This one: *is the detection design well defined*.
+**Arc E04·A15.** An arc closes when a decision becomes safe. This one: *is the detection design well defined*.
 
 Table of contents only. Each round's README states its design; the finding lives in [`../../README.md`](../../README.md).
 

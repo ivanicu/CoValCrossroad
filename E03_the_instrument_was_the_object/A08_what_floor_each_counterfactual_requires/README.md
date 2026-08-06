@@ -1,6 +1,6 @@
 # What floor each counterfactual requires
 
-**Arc E03·A02.** An arc closes when a decision becomes safe. This one: *what floor each counterfactual requires*.
+**Arc E03·A08.** An arc closes when a decision becomes safe. This one: *what floor each counterfactual requires*.
 
 Table of contents only. Each round's README states its design; the finding lives in [`../../README.md`](../../README.md).
 

@@ -1,6 +1,6 @@
 # R224 — which definitions of "core" this release can identify
 
-**Arc E05·A04.** `realstat` G1: **estimand before method, identification before power.** Asking for
+**Arc E05·A17.** `realstat` G1: **estimand before method, identification before power.** Asking for
 power on an unidentified quantity is how a well-powered-looking round gets built. So: before
 proposing any definition of `core`, is it identifiable here?
 

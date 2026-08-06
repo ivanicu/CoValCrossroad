@@ -1,6 +1,6 @@
 # R223 — the textual half of the rewrite
 
-**Arc E05·A03.** The decision this makes safe: *R222 found polarity normalisation to be
+**Arc E05·A16.** The decision this makes safe: *R222 found polarity normalisation to be
 decision-null by derivation yet the largest positive contributor to instrument stability in the
 lattice. Both cannot be about the same thing. Which half of the operation carries the gauge gain?*
 

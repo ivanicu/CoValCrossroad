@@ -1,6 +1,6 @@
 # Who pays for compilation
 
-**Arc E04·A01.** An arc closes when a decision becomes safe. This one: *who pays for compilation*.
+**Arc E04·A12.** An arc closes when a decision becomes safe. This one: *who pays for compilation*.
 
 Table of contents only. Each round's README states its design; the finding lives in [`../../README.md`](../../README.md).
 

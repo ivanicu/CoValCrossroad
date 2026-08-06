@@ -1,6 +1,6 @@
 # Does the protocol have the power it needs
 
-**Arc E02·A03.** An arc closes when a decision becomes safe. This one: *does the protocol have the power it needs*.
+**Arc E02·A06.** An arc closes when a decision becomes safe. This one: *does the protocol have the power it needs*.
 
 Table of contents only. Each round's README states its design; the finding lives in [`../../README.md`](../../README.md).
 

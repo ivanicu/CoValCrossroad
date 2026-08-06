@@ -1,6 +1,6 @@
 # R221 — the contamination test
 
-**Arc E05·A02.** The decision this round must make safe: *when a compiler selects four criteria to
+**Arc E05·A16.** The decision this round must make safe: *when a compiler selects four criteria to
 reproduce the source's decisions, is it selecting normative content, or whatever predicts the
 decisions?*
 

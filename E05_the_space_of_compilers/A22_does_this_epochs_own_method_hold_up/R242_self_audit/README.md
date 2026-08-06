@@ -1,6 +1,6 @@
 # R242 — E05 audited against E05's own standard
 
-**Arc E05·A11.** Twenty-three rounds have audited CoVal. **Nothing had audited E05.** Constitution
+**Arc E05·A22.** Twenty-three rounds have audited CoVal. **Nothing had audited E05.** Constitution
 L03: *"I apply every law to the system and none to the document that designed it."*
 
 ## The obvious way to do this is broken, and it broke here first

@@ -1,6 +1,6 @@
 # R245 — R244 tested one round and claimed ten; this tests the load-bearing three
 
-**Arc E05·A12.** R244's commit said the undeclared missing-weight choice *"sits under ten rounds"*
+**Arc E05·A21.** R244's commit said the undeclared missing-weight choice *"sits under ten rounds"*
 having measured **one**. That sentence is wider than its evidence — the exact overreach `realstat`
 G1 exists for, committed while writing up a round about that overreach.
 

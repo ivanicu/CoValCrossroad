@@ -1,4 +1,4 @@
-# A16 — what the definition costs
+# A24 — what the definition costs
 
 **The decision this arc must make safe:** *may `FORMULATION.md` quote a price for clause 2?*
 

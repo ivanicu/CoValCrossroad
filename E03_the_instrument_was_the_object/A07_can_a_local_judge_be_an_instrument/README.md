@@ -1,6 +1,6 @@
 # Can a local judge be an instrument
 
-**Arc E03·A01.** An arc closes when a decision becomes safe. This one: *can a local judge be an instrument*.
+**Arc E03·A07.** An arc closes when a decision becomes safe. This one: *can a local judge be an instrument*.
 
 Table of contents only. Each round's README states its design; the finding lives in [`../../README.md`](../../README.md).
 

@@ -1,6 +1,6 @@
 # Can direction be read from text alone
 
-**Arc E03·A03.** An arc closes when a decision becomes safe. This one: *can direction be read from text alone*.
+**Arc E03·A09.** An arc closes when a decision becomes safe. This one: *can direction be read from text alone*.
 
 Table of contents only. Each round's README states its design; the finding lives in [`../../README.md`](../../README.md).
 

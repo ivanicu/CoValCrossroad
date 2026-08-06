@@ -1,6 +1,6 @@
 # How wide every interval really is
 
-**Arc E03·A05.** An arc closes when a decision becomes safe. This one: *how wide every interval really is*.
+**Arc E03·A11.** An arc closes when a decision becomes safe. This one: *how wide every interval really is*.
 
 Table of contents only. Each round's README states its design; the finding lives in [`../../README.md`](../../README.md).
 

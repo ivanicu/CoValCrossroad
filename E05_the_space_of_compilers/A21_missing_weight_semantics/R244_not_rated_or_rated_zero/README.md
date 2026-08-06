@@ -1,6 +1,6 @@
 # R244 — "not rated" and "rated zero" are indistinguishable, and every weighted number here picked one
 
-**Arc E05·A12.** The blind arm (R235, seed 29, no sight of E05) reported the weight matrix is
+**Arc E05·A21.** The blind arm (R235, seed 29, no sight of E05) reported the weight matrix is
 sparsely filled and that an exact `0` is essentially never used, so a criterion someone **did not
 rate** and one they **rated zero** cannot be told apart. **A number from another arm is a hypothesis,
 not a fact** — this verifies it first, then tests what it does to my own central claim.

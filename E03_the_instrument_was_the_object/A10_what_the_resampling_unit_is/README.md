@@ -1,6 +1,6 @@
 # What the resampling unit is
 
-**Arc E03·A04.** An arc closes when a decision becomes safe. This one: *what the resampling unit is*.
+**Arc E03·A10.** An arc closes when a decision becomes safe. This one: *what the resampling unit is*.
 
 Table of contents only. Each round's README states its design; the finding lives in [`../../README.md`](../../README.md).
 

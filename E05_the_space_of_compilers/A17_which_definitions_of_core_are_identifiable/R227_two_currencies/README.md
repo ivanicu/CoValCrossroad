@@ -1,6 +1,6 @@
 # R227 — two currencies, and a capacity that is not usable
 
-**Arc E05·A04.** Two corrections to R226, one round old, both mine.
+**Arc E05·A17.** Two corrections to R226, one round old, both mine.
 
 ## 1 · The price list mixed two currencies — `WITHDRAWN`
 
