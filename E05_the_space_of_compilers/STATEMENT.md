@@ -2118,3 +2118,35 @@ against prompt-weighted **+0.0538** — same sign, both resolved, corrected at R
 
 **Scope**: 968 prompts × all annotators · 14,979 `coval_full` and 15,482 pool instances · split
 halves over ANNOTATORS only, so prompt variation sits inside "signal" · first release, home judge.
+
+## R800 · Criterion identity is 0.9% of the variance; the prompt is 67%
+
+On the only fully-crossed grid the release contains — the pool's 16 criteria on all 968 prompts:
+
+| component | variance | sd | share |
+|---|---:|---:|---:|
+| **criterion** | 0.000237 | 0.0154 | **0.9%** |
+| **prompt** | **0.018197** | **0.1349** | **67.0%** |
+| interaction | 0.004965 | 0.0705 | 18.3% |
+| annotator noise | 0.003773 | 0.0614 | 13.9% |
+
+**A criterion is not globally good and not even prompt-specifically good** — the interaction is 18.3%
+against the prompt's 67.0%. ⚠ D2 held as stated in advance: R799's 0.0157 was an upper bound;
+corrected, **0.0154**.
+
+⭐ **The rubric loses on three prompts in four.** Deficit (`coval_full` − pool) mean **−0.0538**,
+observed sd 0.0885 = noise **0.0309** + signal **0.0829**; share of prompts where the rubric loses
+**naive 0.733**, **deconvolved 0.743**. Size-matched deficit **−0.0543**, so the varying criterion
+count is worth 0.0006.
+
+⛔⛔ **D3 was load-bearing.** The deficit is paired, so its noise measured on the DIFFERENCE is
+**0.0309**; assembled from each pool's own it would have been **0.0869** — nearly the whole observed
+spread of 0.0885 — and the round would have concluded the deficit is all noise.
+
+**Controls**: instance sd **0.1648692616** and across-criteria sd **0.0156900510** reproduced to 1e-9 ·
+placebo **0.0e+00** · POSITIVE two synthetic grids recovered as **0.012/0.030/0.118** and
+**0.013/0.123/0.027** · NEGATIVE criterion labels shuffled within prompt drives the criterion term
+**0.000237 → 0.000004**, total unchanged to **3.5e-18**.
+
+**Scope**: 968 prompts × 16 criteria fully crossed (15,482 of 15,488 cells) × all annotators · first
+release, home judge.

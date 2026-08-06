@@ -6445,3 +6445,39 @@ prompt-weighted **+0.0538**, same sign, both resolved · PLACEBO self-split **1.
 POSITIVE planted sd 0.020 → **0.0200**, 0.080 → **0.0791**, band at both ends · NEGATIVE zero-spread
 synthetic **+0.0080 / −0.0060** · NOISE FLOOR analytic 0.0521 against measured 0.0578 / 0.0609, so
 the binomial model understates it. BH over 18 tests: **18 survive**. **WORLD A.**
+
+## R800 · the two-way decomposition on the only fully-crossed grid in the release
+
+**The grid.** All 968 prompts carry the identical pool criterion set `(0..15)`, so criterion, prompt
+and interaction are separately identified (check #402). `coval_full`'s are not — each appears on one
+prompt (R799 D3) — and the round declines that half rather than estimating it.
+
+**Derived before measuring.** D1 on a crossed grid the marginal means identify the parts. D2 R799's
+0.0157 is an UPPER bound; the correction is expected small. D3 the deficit is PAIRED, so its noise
+must be measured on the DIFFERENCE. D4 a share read off a ranking is biased away from the centre.
+
+**E1 · the components:**
+
+| component | variance | sd | share of total 0.027171 |
+|---|---:|---:|---:|
+| criterion | 0.000237 | 0.0154 | **0.9%** |
+| **prompt** | **0.018197** | **0.1349** | **67.0%** |
+| interaction | 0.004965 | 0.0705 | 18.3% |
+| annotator noise | 0.003773 | 0.0614 | 13.9% |
+
+D2 held: 0.0157 → **0.0154**.
+
+**E2/E3 · the prompt-level deficit** (`coval_full` − pool): mean **−0.0538**, observed sd **0.0885** =
+noise **0.0309** + signal **0.0829**; share of prompts where the rubric loses **naive 0.733**,
+**deconvolved 0.743**. ⛔ Measured unpaired the noise would have been **0.0869** — nearly the whole
+observed spread, and the round would have concluded the deficit is noise.
+
+**E4 · the size confound**: `full` carries 4–39 criteria (mean 15.48); size-matched deficit
+**−0.0543** against raw **−0.0538**, worth 0.0006.
+
+**Controls.** OBJECT instance sd **0.1648692616** and across-criteria sd **0.0156900510** against
+R799's committed values to 1e-9, exit 2 otherwise · PLACEBO a cell against itself **0.0e+00** ·
+POSITIVE two synthetic crossed grids — interaction-heavy 0.01/0.03/0.12 recovered as
+**0.012/0.030/0.118**, prompt-heavy 0.01/0.12/0.03 as **0.013/0.123/0.027**, both distinguished in
+the right direction · NEGATIVE criterion labels shuffled within prompt drives `s2_criterion`
+**0.000237 → 0.000004** with the total unchanged to **3.5e-18**. **WORLD B.**

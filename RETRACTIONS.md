@@ -20729,3 +20729,33 @@ measured signal sd is **0.1760**. The honest figures are naive **0.509** against
 share rather than deflating it.** *The design was still wrong for the reason given, but the number I
 used to argue it was an artifact of the uniform world I was arguing against — a worked example is a
 claim and needs the same control as the conclusion it supports.*
+
+## 1186 · criterion identity is 0.9% of the variance and the prompt is 67%
+
+On the pool's fully-crossed 16 × 968 grid — the only such grid in the release — the two-way
+decomposition gives **criterion 0.000237 (sd 0.0154, 0.9%)**, **prompt 0.018197 (sd 0.1349, 67.0%)**,
+**interaction 0.004965 (sd 0.0705, 18.3%)**, **annotator noise 0.003773 (13.9%)**. So a criterion is
+neither globally good nor prompt-specifically good: the prompt term is **77×** the criterion term.
+⚠ D2 held exactly as registered — R799's across-criteria sd of 0.0157 was an UPPER bound and the
+corrected value is 0.0154, a small correction stated in advance so it could not be reported as a
+discovery. *A definition specifying WHICH criteria a core contains is specifying the smallest
+component of what determines whether it predicts humans.*
+
+## 1187 · the deficit's noise had to be measured on the DIFFERENCE, or the signal vanished
+
+`coval_full` loses to the generic pool on **74%** of prompts, mean deficit **−0.0538**, observed sd
+**0.0885**. The deficit is PAIRED — both pools are scored by the same annotators on the same
+responses — so measured on the difference its noise sd is **0.0309** and the signal **0.0829**.
+⛔ **Assembled from each pool's own noise instead, it would have been 0.0869** — nearly the entire
+observed spread — and the round would have concluded the per-prompt deficit is all noise. D3 was
+registered before the run for exactly this. *The natural way to get a difference's noise is to add
+the two variances, and it is wrong whenever the two are measured on the same units.*
+
+## 1188 · and R799's own NEXT proposed the design R799 had just killed, one level up
+
+R799 established that ranking 14,979 noisy per-instance accuracies and reading a share off the
+ranking measures the noise — and then closed by asking to rank **968 noisy per-prompt deficits** and
+read a share off that. **The same selection-on-outcome error at a coarser grain, one round after
+diagnosing it.** Check #402 caught it before any code. The identified version is reported here: naive
+**0.733** against deconvolved **0.743**, so the bias was small this time — *which was not knowable in
+advance, and is exactly why the design had to be replaced rather than run and checked afterwards.*
