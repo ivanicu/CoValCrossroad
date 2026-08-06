@@ -23411,3 +23411,36 @@ smallest-MDE readable two rounds ago.
 > agreement between two wrong units, not corroboration. **Two instruments sharing a blind spot
 > confirm each other and license nothing** — which is §4's own sentence about positive controls,
 > arriving one level up.
+
+## 1309 · the nine read, and the count is 8 — but only ONE is executable rather than asserted
+
+My NEXT said the tight pattern names nine rounds and I had read none. **Read all nine. Adjudicated
+by whether the phrase is a COMMITMENT (a promise with a consequence) or a DESCRIPTION of the design.**
+
+| verdict | n | evidence |
+|---|---|---|
+| **commitment** | **8** | R822 · R823 · R824 · R825 · R826 — *"Two seeds byte-identical **or it does not ship**"* · R837 — *"run twice **must** give byte-identical vectors"* · R838 · R839 — *"g=0 three PYTHONHASHSEEDs byte-identical"* |
+| **description, not a commitment** | **1** | **R811** — *"all four k therefore carry THREE seeds and the seed spread is measured"* — a **design parameter**, not a promise |
+
+**So the defensible count is 8 of 40**, after a sequence that ran **0 → 27 → 9 → 8**, every step a
+different instrument and only the last one a read.
+
+⭐ **AND THE READ FOUND A GRADATION THE COUNT COULD NOT SEE.** The eight are not the same strength:
+
+- **1 of 8 — `R838` — puts it INSIDE THE KILL CONDITIONAL**: *"if the positive is separable AND the
+  negative gives sd exactly 0 **AND three seeds agree**"*. The condition is **executed**; a failure
+  branches the verdict.
+- **7 of 8 state it in a BUDGET line or as a `g=0` label** — *"or it does not ship"*. That is a
+  promise **enforced by me**, not by code. **Nothing in the round fails if I run it once and ship.**
+
+**So across 40 pre-registrations, exactly ONE makes seed-determinism a machine-checked condition.**
+
+⭐ **The distinction is the finding, and it is not about this checklist line.** *Asserted* and
+*executed* commitments read identically in a pre-registration and differ completely in what happens
+when they are violated — **the same asymmetry as `kill_is_wired_into_the_branch`, arriving at the
+pre-registration instead of the script.** A promise that no code consults is a **verdict string in
+prose**, one document earlier.
+
+⚠ **What this does not license**: 8 is a count of *candidates that survived a read*, on a population
+the tight pattern selected. **Pre-registrations that commit to determinism in words the pattern does
+not match are still uncounted**, and nothing here bounds how many.
