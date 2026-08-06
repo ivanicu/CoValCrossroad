@@ -141,7 +141,31 @@ defence is contradicted by the elicitation format.**
 > six pairs right) and the gaps are correspondingly small. **Sign preserved, size unmeasured.**
 > ⚠ **What still stands from entry 1350:** the metric is unnamed, and *"graded is how the humans were
 > asked"* remains **refuted as a justification** — the humans gave orderings. What is withdrawn is the
-> stronger implication that the faithful reading kills the core. ⚠ **What this does NOT establish:** that
+> stronger implication that the faithful reading kills the core.
+>
+> ⛔⛔ **AND ENTRY 1351's OWN SENTENCE IS NOW TOO STRONG (entry 1352, measured the same hour).** It
+> read *"the sign does NOT flip."* **Priced against the design's own resolution — paired per-prompt
+> differences over the same 968 prompts, cluster bootstrap over prompts, 4,000 resamples:**
+>
+> | reading | `coval_core` − `generic` | 95% CI | MDE | verdict |
+> |---|---:|---|---:|---|
+> | **GRADED** | **+0.0151** | **[+0.0060, +0.0243]** | 0.0134 | **RESOLVED** — CI excludes 0 |
+> | **EXACT** | +0.0083 | **[−0.0024, +0.0196]** | 0.0159 | **BELOW its own MDE — CI includes 0** |
+>
+> ⭐ **So under exact-class the design CANNOT TELL.** That is **UNVERIFIED** — not a confirmation, and
+> not the overturn entry 1350 claimed. Reading the positive point estimate as "the sign holds" is the
+> same overshoot as reading R243's negative one as "the core fails"; **both were a point estimate
+> inside an interval that contains zero.** I made the weaker version of the error I had just withdrawn.
+>
+> ⭐⭐ **AND THE ONTOLOGY SHIFT, which is the part worth keeping.** Entry 1350 framed graded-vs-exact
+> as a pure **construct** question that *"the card explicitly declines to settle."* **It is not purely
+> a construct question — it is partly a POWER question.** Exact-class is a ~7% binary hit, so its
+> per-prompt variance against the effect is large and its MDE (**0.0159**) is *worse* than graded's
+> (**0.0134**) despite testing the same arms on the same prompts. **The stricter reading is also the
+> lower-resolution one.** ⭐ **Consequence for the definition: even a reader who prefers exact-class on
+> construct grounds cannot adjudicate clause ② under it on this release at n = 968.** The clause is
+> not merely unqualified — under one of its two admissible readings it is **undecidable here**, and
+> that is a property of the data, not of the wording. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a
 CONSTRUCT question, and the card explicitly declines to settle it. **What is settled is that the
 graded choice cannot be defended as "what the data is" — it is a choice this campaign made, on which

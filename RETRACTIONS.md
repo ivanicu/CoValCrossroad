@@ -25592,3 +25592,51 @@ this file has logged eleven times.
 came back having raised it."* 1351 is *"the burden I raised was against the wrong object, and the
 measurement that should have been step one dissolved it."* Both rounds moved because a premise got
 checked before it got built on — 1350 checked the card, 1351 checked 1350.
+
+## 1352 · I made the weaker version of the error I had just withdrawn — and the exact-class reading turns out to be UNDECIDABLE on this release
+
+Entry 1351 withdrew 1350's overclaim and, in the same breath, wrote *"both positive under both
+readings — the sign does NOT flip."* **That is a point estimate read as a fact.** Its NEXT said so
+and priced it in the same hour.
+
+### ⭐ THE PRICE — paired per-prompt differences, 968 prompts, cluster bootstrap over prompts, 4,000 resamples
+
+| reading | `coval_core` − `generic` | 95% CI | SE | MDE | verdict |
+|---|---:|---|---:|---:|---|
+| **GRADED** | **+0.0151** | **[+0.0060, +0.0243]** | 0.0048 | 0.0134 | **RESOLVED** — CI excludes 0 |
+| **EXACT** | +0.0083 | **[−0.0024, +0.0196]** | 0.0057 | 0.0159 | **below its own MDE — CI includes 0** |
+
+⭐ **Under exact-class the design CANNOT TELL.** Three-valued: **UNVERIFIED** — not the confirmation
+1351 wrote, and not the overturn 1350 wrote. **Both of those sentences were a point estimate sitting
+inside an interval that contains zero, differing only in which sign happened to be convenient.**
+
+⚠ **The correction to 1351, stated plainly:** *"the sign does not flip"* → **"the point estimate does
+not flip, and the design cannot resolve the sign under exact-class."** What survives 1351 intact is
+the part that mattered — R243's flip is about **Full's ordering**, the definition's metric is
+**human**-targeted (`a2(c,h)`), and 1350's "the faithful reading kills the core" is withdrawn.
+
+### ⭐⭐ THE ONTOLOGY SHIFT — graded-vs-exact is not purely a construct question
+
+Entry 1350 filed it as a **construct** choice that *"the card explicitly declines to settle."* **It is
+partly a POWER question.** Exact-class is a **~7% binary hit** (0.0730 vs 0.0644), so its per-prompt
+variance against the effect is large: **its MDE is 0.0159, WORSE than graded's 0.0134**, on the same
+arms and the same prompts. **The stricter reading is also the lower-resolution one.**
+
+⭐ **Consequence for the definition:** a reader who prefers exact-class on construct grounds **still
+cannot adjudicate clause ② under it on this release at n = 968.** The clause is not merely
+unqualified — under one of its two admissible readings it is **undecidable here**. That is a property
+of the data, not of the wording, and no rewrite fixes it.
+
+### ⚠ WHAT THIS DOES NOT SETTLE
+
+The MDE is computed from **this** design's own noise (3 draws, bootstrap over prompts). §4's own
+standing lesson applies with full force: a resolution limit measured on the instrument you happen to
+have is not a law. **The release ships a median of 16 annotators and this used 3 draws** — the same
+shape as the sequence that already overturned itself three times in this file. **So "undecidable"
+means undecidable *by this design*, and the cheapest next question is whether more annotators close
+the exact-class interval.** It is on disk.
+
+⭐ **Three rounds, one arc, and the arc is the finding.** 1350 claimed the faithful reading kills the
+core. 1351 refuted that and claimed the sign holds. 1352 shows neither claim was ever supported —
+**the same interval contains both stories.** Each step used the best instrument available at that
+moment; each was overturned by a **better instrument, never by a better argument.**
