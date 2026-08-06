@@ -25771,3 +25771,57 @@ fall for free. It does not preserve **what the number counts.**
 ⭐ **Three consecutive rounds, three corrections, and every one came from a measurement rather than
 an argument** — 1352 corrected 1351 with an MDE, 1353 corrected the census with a commit depth, 1354
 corrects 1353 with a second commit depth. **The same three-line query would have caught all three.**
+
+## 1355 · R840 — of 14 gates in the census FAIL column, only 3 are failing
+
+Full round: [`E05/A25/R840`](E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R840_a_failing_gate_and_a_blind_gate_share_an_exit_code).
+Pre-registration written before any gate was read; classification rule three-valued and fixed in
+advance; kill stated as a conditional.
+
+| class | n | meaning |
+|---|---:|---|
+| **DARK** | **5** | output is **silence about the repo** — 1 timeout, 4 exit-2 |
+| **FAILING** | **3** | controls printed and all passed; the defect is real |
+| **UNCLASSIFIED** | **6** | no control line found — **a claim about my classifier** |
+
+**Positive control passed on all three arms** — the same gate at two pinned hashes (`fd99c0f0` DARK,
+`098784e9` FAILING) plus a g=0 green arm. Re-run at a second commit: identical classes.
+
+⭐ **The FAIL column was never a defect count.** The 6 UNCLASSIFIED split 4 (controls exist in source,
+my output matcher is blind) / 2 (**no control detected** in 137 and 161 lines — never *no controls*).
+
+⛔ **And the round built the defect into itself**: its first positive control read `HEAD~1`, a sliding
+reference to a fixed object — the third instance in one hour, committed inside the round investigating
+the first two. **A control's anchor must be an IDENTITY, never a POSITION.**
+
+## 1356 · the tree was destroyed again, both named causes were killed by direct test, and the cause is UNVERIFIED
+
+**2,967 tracked round files deleted**, recovered whole with `git restore --staged --worktree .`.
+I named two causes with confidence. **Both are dead:**
+
+| candidate | test | result |
+|---|---|---|
+| `generate_round_index.py --apply` | run alone on an intact tree | **832 → 832 dirs, 0 deleted — KILLED** |
+| `audit_the_auditors.py` | run alone, to completion **and** interrupted | **832 → 832, 0 deleted — KILLED** |
+
+⚠ **So the cause is UNVERIFIED — not "probably the sweep", not "some tree-mover".** Naming a
+mechanism here would be the fabricated-impossibility failure with the sign flipped: a confident cause
+makes the incident feel closed, and a closed incident is never instrumented.
+
+⭐ **What was built instead — `assurance/tree_survives_the_sweep.py`.** The reason the cause could not
+be named is that **nobody was measuring the tree ACROSS the operation**; by the time it was noticed,
+every candidate looked equally guilty. The tripwire stamps the tracked-round-file census before a
+risky operation and rules on what vanished after.
+
+- **`--stamp` → 2,967 tracked round files** — the number matches the incident exactly.
+- **synthetic controls**: sees a disappearance **PASS** · does not invent one (`g=0`) **PASS**
+- **end-to-end control on the real object**: 3 tracked files removed → **fired, named all three, exit 1**;
+  restore returned 0 deleted. ⚠ *Validated on the real tree, not on an imagined temp dir.*
+- **no stamp → exit 2**, and git unavailable → exit 2. **An unknown baseline fails CLOSED**, because
+  reporting "fine" with no baseline is exactly how the first hour was lost.
+- **Proxy ledger stated on the file**: *missing ⇒ destroyed* is sound; *present ⇒ intact* is **not** —
+  a file can be present and corrupted. **It rules on destruction only.**
+
+⭐ **The general point: when a cause cannot be identified, the deliverable is the instrument that
+would identify the next one — not a plausible story.** Two confident names, both killed within
+minutes of being tested, is the argument for that.
