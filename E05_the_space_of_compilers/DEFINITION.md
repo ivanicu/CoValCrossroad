@@ -110,7 +110,38 @@ invitation for others to develop and validate better synthesis and aggregation m
 format**."* **There is no published target for "scores better" to be right about.**
 
 ⭐ **So the metric this statement omits has no support from the object, and its stronger available
-defence is contradicted by the elicitation format.** ⚠ **What this does NOT establish:** that
+defence is contradicted by the elicitation format.**
+
+> ⛔⛔ **AND THE ALARM THAT SENTENCE RAISED IS REFUTED BY MEASUREMENT (entry 1351).** Entry 1350 went
+> on to imply that the elicitation-faithful reading is the one on which the core FAILS. **That joined
+> two different targets.** R243's exact-class number — core `0.3864` against floor `0.3891` — is
+> *"reproduce **Full's** exact weak ordering"*, the **rubric's** ordering. The card's `A>B>C=D` is the
+> **human's**. Different targets, and the definition's own metric is human-targeted:
+> `corebench/rule_sweep.py` defines `a2(c,h) = mean(c[q]==h[q] for q in range(6))` with `h` the
+> held-out **human** ranking. **So the exact-class reading of the definition's own target is one word
+> away — `all(...)` instead of `mean(...)` — and it had never been run.**
+>
+> **Run, on the same 968 prompts, the same three draws, the same arms:**
+>
+> | arm | GRADED A2 | EXACT (all 6 pairs) |
+> |---|---:|---:|
+> | **`coval_core`** | **0.5680** | **0.0730** |
+> | `generic` — clause ②'s prompt-blind comparator | 0.5548 | 0.0644 |
+> | `full` | 0.5110 | 0.0458 |
+> | `random_k4` ×3 | 0.4939 / 0.4999 / 0.4900 | 0.0475 / 0.0551 / 0.0437 |
+> | `coval_core_sham` | 0.4998 | 0.0444 |
+>
+> **`coval_core` − random floor: GRADED +0.0733 · EXACT +0.0242.**
+> **`coval_core` − `generic`: GRADED +0.0132 · EXACT +0.0086.**
+> ⭐ **Both positive under both readings — on the HUMAN target the sign does NOT flip.** The flip R243
+> found is a fact about reproducing the **rubric**, not the people.
+>
+> ⚠ **Magnitude is UNRESOLVED and no significance is claimed.** These are point comparisons over three
+> draws with **no MDE and no interval**; the exact-class rates are small (**7.3%** of prompts get all
+> six pairs right) and the gaps are correspondingly small. **Sign preserved, size unmeasured.**
+> ⚠ **What still stands from entry 1350:** the metric is unnamed, and *"graded is how the humans were
+> asked"* remains **refuted as a justification** — the humans gave orderings. What is withdrawn is the
+> stronger implication that the faithful reading kills the core. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a
 CONSTRUCT question, and the card explicitly declines to settle it. **What is settled is that the
 graded choice cannot be defended as "what the data is" — it is a choice this campaign made, on which

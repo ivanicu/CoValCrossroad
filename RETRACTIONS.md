@@ -25527,3 +25527,68 @@ also, precisely, the release's stated reason for existing.
 ⭐ **The shape of this round is the part worth keeping.** I went to the card expecting to *pay* a
 burden and came back having *raised* it. The two defences were named before reading, one was refuted
 and one was void, and neither outcome was the one that would have been comfortable to write.
+
+## 1351 · my own alarm was a target confusion — on the HUMAN ordering the exact-class reading does NOT flip the sign
+
+Entry 1350's NEXT rested on a premise I had not checked: *"the extension under exact-class is already
+measured at zero."* **Checked first, and it is false — the two halves of that sentence are about
+different objects.**
+
+### ⛔ THE CRACK: TWO ORDERINGS, ONE SENTENCE
+
+| | |
+|---|---|
+| what 1350's card argument is about | the **human's** `"ranking": "A>B>C=D"` |
+| what R243's exact-class number is about | *"reproduce **Full's** exact weak ordering"* — `R243_the_assumption_they_differ_on/README.md:9` |
+| R235's arm, same arc | *"Kendall τ_b against **Full's** ordering"* — same file, line 10 |
+
+**Both triple-blind arms target the rubric. 1350 joined a fact about the people to a measurement
+about the rubric.** The definition's own metric targets the people:
+
+```
+corebench/rule_sweep.py:7   def a2(c,h): return float(np.mean([c[q]==h[q] for q in range(6)]))
+corebench/score.py:89       """held-out human rankings + per-annotator demographics, per prompt"""
+```
+
+⭐ **So the exact-class reading of the definition's OWN target was never run — and it is one word
+away: `all(...)` for `np.mean(...)` over the same six pairs, the same `h`.**
+
+### ⭐ RUN — same 968 prompts, same three held-out draws, same arms
+
+| arm | GRADED A2 | EXACT (all 6 pairs) |
+|---|---:|---:|
+| **`coval_core`** | **0.5680** | **0.0730** |
+| `generic` — clause ②'s prompt-blind comparator | 0.5548 | 0.0644 |
+| `full` | 0.5110 | 0.0458 |
+| `random_k4_s0 / s1 / s2` | 0.4939 / 0.4999 / 0.4900 | 0.0475 / 0.0551 / 0.0437 |
+| `coval_core_sham` | 0.4998 | 0.0444 |
+
+**`coval_core` − random floor: GRADED +0.0733 · EXACT +0.0242.**
+**`coval_core` − `generic`: GRADED +0.0132 · EXACT +0.0086.**
+
+⭐⭐ **Both positive under both readings. On the human target the sign does NOT flip.** The flip R243
+found is a fact about reproducing the **rubric**, and the definition has never claimed to.
+
+### ⛔ WITHDRAWN
+
+Entry 1350's step — *"the elicitation-faithful reading is the one on which the core fails"* — is
+**refuted by measurement**, not merely descoped. It was a scope error (rubric target read as human
+target) that happened to point at a conclusion I found uncomfortable and therefore credible.
+
+⚠ **What still stands, unchanged:** defence ① (*"graded matches how the humans were asked"*) remains
+**refuted as a justification** — the card elicits orderings — and defence ② remains **void** — the
+release publishes no aggregation. **The metric is still unnamed and still unjustified.** What is gone
+is the claim that naming it the faithful way costs the core its extension.
+
+### ⚠ WHAT THIS ROUND DOES NOT SETTLE
+
+**Magnitude.** Three draws, one seed triplet, **no MDE and no interval**. The exact-class rates are
+small — **7.3%** of prompts get all six pairs right, against 6.4% for the prompt-blind comparator —
+and nothing here licenses calling `+0.0086` resolved. **Sign preserved, size unmeasured.** Reporting
+this as "the core wins under both readings" at any strength beyond *sign* would be the same overshoot
+this file has logged eleven times.
+
+⭐ **The shape worth keeping is the inverse of last round's.** 1350 was *"I went to pay a burden and
+came back having raised it."* 1351 is *"the burden I raised was against the wrong object, and the
+measurement that should have been step one dissolved it."* Both rounds moved because a premise got
+checked before it got built on — 1350 checked the card, 1351 checked 1350.
