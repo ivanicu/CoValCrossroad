@@ -27088,3 +27088,43 @@ reporting only the ratio understates it.** Both are reported.
 
 ⚠ **Winner's curse stated, not corrected**: the max over 1,820 is an extreme order statistic, biased
 up — which makes it a **conservative** bar for the core, the direction the reading wants.
+
+## 1386 · auditing the definition's own ratios — six sound, one open, and the open one is where a max is treated as fixed
+
+R860 measured a borrowed denominator costing **56%** on one comparison. This audits whether other
+clause verdicts rest on the same move.
+
+⚠ **Reading beat counting again.** **91** lines carry an explicit `N.NN×` ratio — far too broad, and
+most are not clause verdicts. **The sharp population is the phrase `its own MDE` — 7 lines that
+explicitly ASSERT the denominator is own-comparison, which is exactly where the defect would be a
+FALSE claim.**
+
+### ⭐ SIX OF SEVEN — sound or already corrected
+
+| line | status |
+|---|---|
+| L153 | mine (entry 1352) — own MDE, but from an **unseeded draw**; already annotated UNVERIFIED |
+| L1795 | mine (entry 1383) — the borrowed proxy; **already corrected by R860** |
+| L986 | *"1.04× its own MDE — the edge of what this design can see, so the INTERVAL is the claim"* — self-limiting |
+| L999 | per-cell own MDEs across a 7-cell spec curve |
+| L1622 | `−0.0000 against its own MDE of 0.0096`, three seeds — own |
+| L2064 | a register row, not a ratio verdict |
+
+### ⚠⚠ ONE OPEN — L764, and it is a question, not a defect
+
+*"among the 9 arms that pass ②, every one clears ④'s bar by **4.90×–8.65× its own MDE**"*, rebased to
+**1.84×–5.40×** on the permissive bar. **The block is already well-guarded**: it labels itself *"a
+DERIVATION, not a measurement"* and names **Assumption 1** (shared A2 scale). **Its denominators ARE
+own-comparison** — R518 measured margin and MDE for the same arm-vs-bar comparison.
+
+⭐ **But R860 revealed what this block predates: when the bar is a MAXIMUM over a family, it carries
+its own sampling variability, and an MDE that treats it as fixed is understated** — by **1.56×** in
+the one case measured, moving a ratio from **1.358 to 0.870**.
+
+⭐ **④'s bar IS a maximum.** ⚠ **Whether R518's MDEs treat it as fixed is not stated in that block and
+I have not opened R518 to check. So this is recorded as a QUESTION.**
+
+⚠ **Where it would bite:** the tightest rebased margin is **1.84×** (`topw_k8`); `1.84 / 1.56 ≈ 1.18`,
+**below the 1.5 floor**. ⛔ **That is an ILLUSTRATIVE PROPAGATION, not a measurement** — it imports a
+factor from a different comparison, **the exact move R860 showed costs 56%**. It exists only to locate
+the one cell where the question could change a verdict.

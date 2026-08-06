@@ -766,6 +766,26 @@ two were being conflated. R518 measured the marginal at the strict bar: among th
 1.84×–5.40×, none below the 1.5× admissibility floor**, the tightest being `topw_k8` (4.90× → 1.84×).
 So ④'s **25 of 58** are *entirely among arms ② already rejects*, and the clause is free at the
 conjunction under **both** readings.
+
+> ⚠⚠ **AN EXPOSURE THIS BLOCK PREDATES, NAMED NOT ASSERTED (entry 1386).** R860 measured that when a
+> bar is a **MAXIMUM over a family**, it carries its own sampling variability, and an MDE computed as
+> though the bar were fixed is **understated** — there, by **1.56×** (0.0066 → 0.0103), which moved a
+> ratio from **1.358 to 0.870**, across the 1.5 floor and across 1.0.
+>
+> ⭐ **④'s bar IS a maximum** — over the response-only family. **Whether R518's per-arm MDEs treat it
+> as fixed is not stated in this block, and I have not opened R518 to check.** ⚠ **So this is a
+> QUESTION, not a defect**, and it is recorded as one.
+>
+> ⚠ **Where it would bite, if it bites at all:** the tightest rebased margin here is **1.84×**
+> (`topw_k8`). R860's measured correction factor on a structurally identical comparison was **1.56×**.
+> `1.84 / 1.56 ≈ 1.18` — **below the 1.5 admissibility floor.** ⛔ **That arithmetic is an
+> ILLUSTRATIVE PROPAGATION, not a measurement**: it imports a factor from a different comparison,
+> which is precisely the borrowed-denominator move R860 just showed costs 56%. **It is written to
+> locate the one cell where the question could change a verdict — and for no other purpose.**
+>
+> ⭐ **The other six `its own MDE` claims in this file were checked and are sound or already
+> corrected**: two are mine and annotated (entries 1352, 1383), three are per-cell own MDEs that state
+> their own limits, one is a register row. **This is the only cell where the question is open.**
 ⛔ **This is a DERIVATION, not a measurement** — subtracting a known bar shift from published margins
 is forced once both bars are known. **Assumption 1:** R518's `d` and R824's bars share one A2 scale —
 **UNVERIFIED, and the two strict bars already disagree (0.4512 vs 0.455679)** because R823 widened the
