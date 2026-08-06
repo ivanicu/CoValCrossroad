@@ -5337,3 +5337,39 @@ k8, k2, k12, k1 · by eff/**pooled** sd (sd removed): k4, k6, … — **1 transp
 g=0 arm vs itself eff **0.000000** → UNRESOLVED · PLACEBO `topw_k4` vs `_detA` eff **0.000000** ·
 NEGATIVE pairing destroyed ×200 → MDE **×2.25 [2.18, 2.32]** · CONFOUND corr(criterion overlap,
 |eff|/MDE) = **−0.3949** over 27 pairs, so resolution does not track overlap. **WORLD A.**
+
+## R769 · contains vs consumed, and the n each ordering would require
+
+**Scope.** population = the release's **1,078** prompts against the estimator's **968**; instrument =
+R294's estimator on paired per-prompt differences; regime = first release, home judge, this tree_sha.
+
+**Contains vs consumed.** prompts 1,078 / 968 · annotations **18,384 / 15,593 = 0.8482** · annotators
+per prompt median **16** on both sides — **the annotator dimension is exhausted**.
+
+**Why the 110 drop.** absent from the base arm only **0** · absent from the pool only **0** · fewer
+than 2 annotators **0** · **both coverage clauses at once 110**. **Recoverable for the five committed
+arms: 0.** So 968 is the correct population and the campaign's numbers carry no hidden scope.
+
+**The power curve** (`coval_core` vs `topw_k4`, 50 subsamples per n; the 1/√n law asserted, not fitted):
+
+| n | MDE | sd | law | ratio | sham (with replacement) | negative / real |
+|---|---|---|---|---|---|---|
+| 100 | 0.02648 | 0.00304 | 0.02653 | 0.998 | 0.02689 | 2.22 |
+| 200 | 0.01871 | 0.00160 | 0.01876 | 0.998 | 0.01864 | 2.23 |
+| 400 | 0.01347 | 0.00064 | 0.01327 | 1.015 | 0.01337 | 2.23 |
+| 600 | 0.01079 | 0.00038 | 0.01083 | 0.996 | 0.01082 | 2.26 |
+| 800 | 0.00935 | 0.00017 | 0.00938 | 0.997 | 0.00932 | 2.26 |
+| 968 | 0.00853 | 0.00000 | 0.00853 | 1.000 | 0.00796 | 2.17 |
+
+Worst deviation **1.5%**.
+
+**Required n per pair — a DERIVATION from the measured sd under a stated stability assumption:**
+`topw_k6`/`topw_k8` **1,293** · `coval_core`/`topw_k8` **1,373** · `topw_k4`/`topw_k8` **2,376** ·
+`topw_k3`/`topw_k8` **4,880** · `coval_core`/`topw_k3` **7,132** · `coval_core`/`topw_k6` **10,761** ·
+`coval_core`/`topw_k4` **13,346** · `topw_k3`/`topw_k4` **28,456** · `topw_k3`/`topw_k6` **63,241** ·
+**`topw_k4`/`topw_k6` 9,534,441**.
+
+**Controls.** POSITIVE the 1/√n law to 1.5% · g=0 reproduces R768's committed MDEs exactly · NEGATIVE
+pairing destroyed → ratio **2.17–2.26** at every n · SHAM drawing with replacement gives the same MDE
+(0.993 at n = 400), so only NEW prompts move the curve · PLACEBO self-difference MDE **0.0** ·
+CONFOUND **UNIDENTIFIED** — 0 recoverable, so the sd comparison could not be made. **WORLD B.**

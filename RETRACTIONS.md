@@ -19617,3 +19617,35 @@ resolution, not more. So the worry was real, the direction was backwards, and th
 one nesting predicts: a small difference and a small variance move together, and the ratio does not
 inflate. *A confound that measures to the wrong sign is worth more than one that measures to zero,
 because it names a mechanism instead of clearing a suspicion.*
+
+## 1087 · the lever §4's row found was already fully pulled, and saying so is the honest direction
+
+§4's sham row records a bound that dissolved when all 16 annotators were used instead of 3, and its
+remedy is to count contains against consumed before accepting any resolution limit. Counted here:
+**median 16 annotators, 15,593 annotations — exactly the release's own total.** The estimator consumes
+every annotator. **So the ×5 gain is not available on this design**, and R768's "unordered" cannot be
+dismissed as an under-powered annotator draw. *The flattering move was available and would have read
+as diligence — "the data may have more to give" — and the count says it does not.*
+
+## 1088 · the 968-prompt scope is correct, and the check that could have shown otherwise was cheap
+
+The release carries **1,078** prompts; the estimator uses **968**. Attributing every drop to the
+clause responsible: **0** fail on annotator count, **0** on the base arm alone, **0** on the pool
+alone — **all 110 fail BOTH coverage clauses at once**, so they were never scored by any arm, and
+**0 of 110** are recoverable for the five arms under comparison. So the campaign's population is a
+property of the release rather than an accident of which arm covered what, and the world where every
+② number carried an unstated 89.8% scope is excluded. *This is the good outcome, and it was worth one
+set operation to establish rather than assume — R743 found the opposite for a different constant, and
+nothing distinguished the two cases from the inside.*
+
+## 1089 · "unordered" was one word for two different facts
+
+R768 concluded the extension is an unordered set. The required-n column splits that conclusion:
+`topw_k6`/`topw_k8` **1,293** prompts, `coval_core`/`topw_k8` **1,373**, `topw_k4`/`topw_k8` **2,376**
+— **power failures a 1.3–2.5× larger release would fix.** But `topw_k4`/`topw_k6` needs **9,534,441**,
+because its gap is **0.0001**. **That is not a data-collection plan; it is a statement that the two
+arms are the same to any feasible measurement.** ⚠ AND THE FIGURE IS A DERIVATION, labelled as one:
+it scales as (MDE/gap)² × n and rests on the per-prompt difference sd being stable as n grows — an
+assumption the round declared and could not test, because the recoverable subset was empty. *A null
+that reports no required-n hides which of its members are one release away from resolving and which
+are unreachable, and those are opposite recommendations.*

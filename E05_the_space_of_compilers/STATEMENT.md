@@ -331,7 +331,17 @@ A **core** for a conversation is a set of criteria such that
     not resolve. ⭐ `topw_k4` vs `topw_k6` is **+0.0001 [−0.0041, +0.0044]**, and the page's earlier
     *"3 to 8 are indistinguishable"* is now confirmed **pairwise** rather than inferred from separate
     baseline comparisons. ⚠ Resolution does **not** track criterion overlap:
-    corr(overlap, |eff|/MDE) = **−0.3949** over 27 pairs. And the confound is answered: the
+    corr(overlap, |eff|/MDE) = **−0.3949** over 27 pairs.
+    ⭐⭐ **AND "UNORDERED" HAS TWO DIFFERENT CAUSES** *(R769)*, separated by the n each pair would
+    require — a DERIVATION from the measured sd, with `MDE ∝ 1/√n` verified against the real data to
+    **1.5%** across n = 100…968. `topw_k6`/`topw_k8` **1,293** · `coval_core`/`topw_k8` **1,373** ·
+    `topw_k4`/`topw_k8` **2,376** — **power failures a 1.3–2.5× larger release would fix**. Against
+    `coval_core`/`topw_k4` **13,346** and **`topw_k4`/`topw_k6` 9,534,441** — **structural**: nine and
+    a half million prompts is not a collection plan, it is a statement that those two arms are the same
+    to any feasible measurement. ⚠ **And the design IS at its limit on annotators** — median **16**,
+    **15,593** consumed, the release's own total. On prompts the release holds **1,078** to the
+    estimator's **968**, but all **110** extra fail **both** coverage clauses at once and **0** are
+    recoverable, so the 968 scope is correct and recovering them would buy **5.2%** of MDE. And the confound is answered: the
     `topw_k` family is an inverted U peaking at **k = 6** (eff/MDE 1.311) with `eff/MDE` falling
     monotonically 6 → 8 → 12, so `topw_k8` is not an anomaly but where the curve re-enters the floor.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own
