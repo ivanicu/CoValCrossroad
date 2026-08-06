@@ -90,35 +90,22 @@ def main():
     TXT = [[text[p][j] for j in range(4)] for p in pids]
     XL = np.array([[lex(t) for t in row] for row in TXT], float)
     Y = np.array([np.sign(H[p].sum(axis=0)) for p in pids])
+    # ⛔ THE FIRST VERSION REUSED R826's RANDOM 50/50 SPLITS and the assert below caught it:
+    #    a prompt lands in the FIT half all 8 times with probability (1/2)^8, so ~3.8 of 968 were
+    #    never scored out of fold. Random halves do not guarantee coverage; K-FOLD does.
+    # ⚠ SCOPE CHANGE, STATED: 8-fold cross-fitting trains on 7/8 = 847 prompts, not 484, so this
+    #    bar is NOT the same estimator as R826's half-split bar and its LEVEL is not comparable.
+    #    Only its per-prompt PROFILE is used here, which is what the correlation needs.
     acc = np.zeros(N); cnt = np.zeros(N)
-    for s in range(NSPLIT):
-        pm = np.random.default_rng(3000 + s).permutation(N)
-        fit, ev = pm[: N // 2], pm[N // 2:]
-        rows = np.array([i * 4 + j for i in fit for j in range(4)])
-        mu, sd = XL.reshape(-1, 14)[rows].mean(0), XL.reshape(-1, 14)[rows].std(0) + 1e-12
-        XLz = (XL - mu) / sd
-        docs = [TXT[i][j] for i in fit for j in range(4)]
-        alld = [TXT[i][j] for i in range(N) for j in range(4)]
-        v = TfidfVectorizer(analyzer="char_wb", ngram_range=(3, 5), min_df=5, max_features=8000)
-        v.fit(docs); Mf = v.transform(docs)
-        svd = TruncatedSVD(n_components=KDIM, random_state=0).fit(Mf)
-        Zf = svd.transform(Mf); zm, zs = Zf.mean(0), Zf.std(0) + 1e-12
-        Z = ((svd.transform(v.transform(alld)) - zm) / zs).reshape(N, 4, -1)
-        Xs = np.concatenate([XLz, Z], axis=2)
-        d, y = [], []
-        for i in fit:
-            for k, (u, w) in enumerate(PR):
-                if Y[i][k] == 0: continue
-                d.append(Xs[i][u] - Xs[i][w]); y.append(Y[i][k])
-        m = LogisticRegression(C=1.0, max_iter=1500).fit(np.array(d), np.array(y))
-        S = Xs @ np.asarray(m.coef_).ravel()
-        for i in ev:
-            acc[i] += float((H[pids[i]] == np.sign(S[i][[u for u, _ in PR]]
-                             - S[i][[w for _, w in PR]])).mean()); cnt[i] += 1
-    assert cnt.min() > 0, "a prompt was never in an eval half"
+    order = np.random.default_rng(3000).permutation(N)
+    folds = np.array_split(order, NSPLIT)
+    for s_, ev in enumerate(folds):
+        fit = np.setdiff1d(order, ev)
+    assert cnt.min() > 0, "a prompt was never in an eval fold"
+    assert cnt.max() == 1, f"k-fold must score each prompt ONCE, got max {cnt.max()}"
     BAR = acc / cnt
     print(f"     out-of-fold bar {BAR.mean():.6f} · each prompt scored by "
-          f"{cnt.min():.0f}-{cnt.max():.0f} models (mean {cnt.mean():.1f})")
+          f"exactly {cnt.min():.0f} model each (8-fold cross-fitting, fit on 7/8)")
     out["bar_oof_mean"] = float(BAR.mean())
 
     CORE = V["coval_core"]
