@@ -190,11 +190,44 @@ def main() -> int:
         return 1
     print(f"  PER-ITEM GUARD: HEAD ({head}) carries an extractable NEXT paragraph -> PASS")
 
-    # POSITIVE CONTROL, from real history: these four commits carry a NEXT line this session
-    # proved false. The detector must flag every one.
+    # ⛔ THE HISTORICAL POSITIVE CONTROL WENT BLIND, AND IT WAS ALWAYS GOING TO.
+    #    It matched four SPECIFIC NEXT texts from real history. `rows` is a bounded scan, so as the
+    #    log grows those commits scroll out and the control reports "0 found -- cannot run". That is
+    #    the same defect as a positive control anchored to a FILE that a later population excludes:
+    #    a control tied to the corpus goes blind when the corpus moves. Measured here at 0 of 4.
+    #    Remedy, and it is the one already built for a_control_that_cannot_fail.py: a SYNTHETIC
+    #    plant validates the RULE and cannot age out; the historical fixtures stay as an extra check
+    #    that degrades to N/A. The two changes are inseparable -- degrading to N/A without a
+    #    synthetic control would be `empty population passes`.
+    SYNTH_BAD = [
+        "the 9 rounds cited above are the ones that still need a source",
+        "every number in the ceiling chain is now anchored",
+        "the only unexplained number left is the floor",
+    ]
+    # ⚠ THE g=0 ARM MUST BE SENSITIVE TO THE PROVENANCE RULE, NOT MERELY UNFLAGGED. My first
+    #    choice was unflagged under the real rules AND still unflagged when PROVENANCE was broken --
+    #    so it could not detect over-firing, and an attack that made the rule over-fire on 14 real
+    #    items passed this arm. The corpus caught it; the control did not. This string is unflagged
+    #    normally and IS flagged when PROVENANCE is disabled, which is what makes it an arm.
+    SYNTH_OK = [
+        "every round in the arc is listed by assurance/every_round_is_committed.py, so re-run it",
+    ]
+    synth_hit = [t for t in SYNTH_BAD if flagged(t)]
+    synth_fp = [t for t in SYNTH_OK if flagged(t)]
+    ok_s = len(synth_hit) == len(SYNTH_BAD) and not synth_fp
+    print(f"  SYNTHETIC POSITIVE: {len(synth_hit)}/{len(SYNTH_BAD)} planted quantifiers flagged   "
+          f"SYNTHETIC g=0: {len(synth_fp)} false alarm(s)   "
+          f"{'PASS' if ok_s else 'FAIL — the RULE is blind or over-fires'}")
+    if not ok_s:
+        print("  ⛔ the synthetic control failed; this gate certifies nothing. Exit 2, never 0.")
+        return 2
     KNOWN_BAD = [t for _, t in rows if re.search(
         r"the 9 rounds cited|every number in the ceiling chain|the open items are the ones|"
         r"only unexplained number", t, re.I)]
+    if not KNOWN_BAD:
+        print("  HISTORICAL POSITIVE: N/A — the four fixture commits are outside the scanned "
+              "window. The synthetic control above carries the validation.")
+        KNOWN_BAD = list(SYNTH_BAD)
     hit = [t for t in KNOWN_BAD if flagged(t)]
     print(f"  POSITIVE CONTROL: known-false NEXT lines found in history: {len(KNOWN_BAD)}"
           f"   flagged by the detector: {len(hit)}"

@@ -23103,3 +23103,77 @@ is only not-written.
 R835/R838 call a pair separable at **2×**. Both are pre-registered in their own rounds and neither is
 wrong, but a reader comparing the two tables is comparing different bars. **Named here so the next
 round that touches either one knows it is choosing, not inheriting.**
+
+## 1300 · "the only unreconciled choice" was false, and the one I named is a convention I invented three rounds ago
+
+My NEXT said the 1× vs 2× MDE split was *"the only unreconciled choice left in the arc."* ⚠ **That is
+a quantifier over my own work — the population §4 names as the one I am worst at enumerating — so I
+ran the count before acting on it. It is false.** Across **133** `run.py` under `A24`:
+
+| axis | conventions found |
+|---|---|
+| BH `q` | **0.05** (28) · **0.10** (9) |
+| bootstrap draws | **200 · 400 · 3000 · 2000 · 4000 · 120** |
+| permutation `B` | **2000 · 300 · 1200 · 20000 · 4000 · 400** |
+| seed tuple | **(0,1,2)** (16) · **(1,2,3)** (6) |
+
+⛔ **AND THE AXIS I NAMED INVERTED WHEN I MEASURED IT.** I framed it as *"two conventions, pick one."*
+**17 rounds use a 1× MDE comparison. Three use 2× — R835, R837, R838, which are my last three
+rounds.** So the campaign's bar is **1×**, and **I introduced 2× in R835 and carried it silently
+through two more rounds.**
+
+**What that cost, measured on R838's own artifact:**
+
+| bar | separable of 45 |
+|---|---|
+| **2×** — the bar I introduced | **1** |
+| **1×** — the campaign's, 17 rounds | **6** |
+
+⚠ **And this does NOT make 1× the right answer.** Three of the five extra pairs are **random-vs-random**
+(`random_k3_s0`/`random_k2_s0` 1.16× · `random_k2_s2`/`full_sham` 1.13× · `random_k12_s2`/`random_k8_s0`
+**1.03×**). **Random arms separating from each other at 1.03× across 45 uncorrected tests is a
+multiplicity signature, not a finding** — which is the argument *for* 2×. **So the switch was
+defensible and the silence was not.** The defect is that a campaign convention changed without a
+sentence saying so, and three published rounds inherited it.
+
+⭐ **The two-group conclusion survives either bar in the sense that matters**: at 2× the boundary is
+`gen`/`random_k12_s0`; at 1× more boundaries appear and **3 of the 5 additions are noise against
+noise**. R838's pre-registered verdict is **not rewritten** — it fired at the bar it registered.
+
+⚠ **PROXY LEDGER for the scan itself.** PROPERTY: the campaign's threshold conventions. PROXY:
+regexes over `run.py`. **My first pattern reported *"MDE multiple: single"* because it missed the
+`d.mean() < -mde` form entirely** — the very axis under discussion. A hit is a candidate; a miss
+proves nothing. These are **candidate counts across axes, never a census.**
+
+## 1301 · the gate that caught 1300's false quantifier had gone blind itself, and its g=0 arm could not detect over-firing
+
+Running the gates after 1300, `next_line_quantifiers_are_computed` **refused to pass**:
+*"known-false NEXT lines found in history: **0** — the known-bad cases are not in the searched
+history — the control cannot run."*
+
+⭐ **Its positive control matched four SPECIFIC historical NEXT texts, and history grew past them.**
+That is the same defect as a positive control anchored to a **file** a later population excludes:
+**a control tied to the corpus goes blind when the corpus moves.** Measured at **0 of 4**. The gate
+refusing rather than passing is the behaviour that made it visible.
+
+**Remedy, and it is the one already built for `a_control_that_cannot_fail.py`**: a **synthetic** plant
+validates the RULE and cannot age out; the historical fixtures stay as an extra check that **degrades
+to N/A**. ⚠ Inseparable, as before — N/A without a synthetic control is `empty population passes`.
+
+⛔ **AND ATTACKING THE FIX FOUND THE FIX'S OWN WEAK ARM.** Three vectors:
+
+| vector | before | after |
+|---|---|---|
+| normal run | exit 0 | exit 0 |
+| **rule blinded** (`QUANT` matches nothing) | exit 2 ✓ | exit 2 ✓ |
+| **rule made to over-fire** (`PROVENANCE` disabled) | ⛔ **synthetic g=0 PASSED** while the rule flagged **5 commits + 9 READMEs** | **exit 2, caught by the g=0 arm** |
+
+**My first g=0 string was unflagged under the real rules and STILL unflagged when `PROVENANCE` was
+broken** — so it could not detect over-firing at all. **The corpus caught the attack; the control did
+not.** Replaced with a string that is unflagged normally and **IS** flagged when `PROVENANCE` is
+disabled, which is what makes it an arm rather than a decoration.
+
+⭐ **The general shape, third time in this session**: *a control that never changes state under the
+mutation it is supposed to detect is not a control.* It read PASS in both worlds — the same
+`cleared by blindness` pattern as `similarity_gradient`, and the same reason it was invisible: **a
+passing control and an inert one print the same word.**
