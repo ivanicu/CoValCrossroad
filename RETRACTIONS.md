@@ -26273,3 +26273,58 @@ CLASS** — the first time any clause in this definition has had that.
 `dose_response.json` persists **all 394 per-rule real and noise scores**, so a later round can re-cut
 the curve without recomputing. *"What a LATER round needs to ATTACK this"* is a checklist line, and
 **R847 shipped only its summary.** Caught by needing it one round later.
+
+## 1367 · I reported ONE reading of clause ④ twice in a row while a committed round had settled the other AGAINST it
+
+**Prior-art check #508 fired on my own NEXT** — *"add a class with fitted combiners"* — and returned
+`R824_is_clause_fours_class_closed_under_fitting` and
+`R825_does_the_permissive_bar_reach_the_released_core`. **The round I was about to build already
+exists, and its answer is the opposite of the comfort my last two rounds implied.**
+
+### ⛔ THE OBJECT — R825's committed artifact, not its README
+
+| | |
+|---|---:|
+| leak-free **char-n-gram** response-only bar | **0.572335** |
+| `coval_core` | **0.566477** |
+| paired difference, 12 splits | **+0.006197072 [+0.004172, +0.008222]**, SE 0.001033 |
+| splits where the bar BEATS the core | **12 of 12** |
+
+⚠ **The R825 README quotes [+0.003923, +0.008471]** — wider than its own artifact. *The artifact
+recomputes and prose does not*, so the artifact's interval is used. **Recorded, not silently
+adopted.**
+
+### ⭐⭐⭐ THE TWO READINGS DISAGREE ON THE DEFINITION'S OWN INSTANCE
+
+| reading | bar | `coval_core` | verdict |
+|---|---:|---:|---|
+| **strict** — no fitting, hand-built lexical (my R847) | 0.4801 | 0.5665 | core clears by **+0.0864** |
+| **permissive** — fitted, char n-grams (R825) | **0.5723** | 0.5665 | **core FAILS by −0.0058** |
+
+**R824 established the clause's text is SILENT on which reading applies.** So clause ④'s verdict on
+the object the definition was written from is **READING-DEPENDENT and unresolved as a definition.**
+
+### ⛔⛔ WHAT I DID WRONG, TWICE, IN CONSECUTIVE ROUNDS
+
+R847 wrote *"clause ④ is NOT flipped, `coval_core` clears the enlarged bar by 0.0864"*. R848 wrote
+*"≈ 11.7 e-folds of headroom"* and called it **"the first POSITIVE result about clause ④"**. Both
+numbers are **correct in the strict class and were reported without the scope over which they hold**
+— which the register names as **eleven of twelve retractions** in the audited programme. **I did not
+check whether another reading had already been settled, and it had been, before today.**
+
+### ⭐⭐ AND THE TECHNICAL CORRECTION, WHICH IS THE PART WORTH KEEPING
+
+R848 measured the dose-response along **family SIZE**: **+0.00741 per e-fold**, 2.7× noise, controls
+holding. R825 reports **char n-grams buy +0.0487 over lexical features** — *(arithmetic, labelled:
+0.0487 / 0.00741 ≈ **6.6 e-folds** of my rate)* — **from a change of REPRESENTATION, not a bigger
+family.**
+
+⭐ **The axis that threatens clause ④ is representational richness, not enumeration.** R848's curve
+stands and its controls hold; **it is simply the shallow axis.** Quoting `11.7 e-folds` beside a
+committed result where one change of view already crosses the bar was scope-blind, and the fix is not
+a new measurement — it is putting both readings in the same table, which is now done in
+`DEFINITION.md`.
+
+⚠ **Labelled honestly: this round is CLOSURE, not a frontier action.** It ran no new experiment. Its
+value is that a prior-art check caught two of my own rounds overselling, and the composition of two
+committed artifacts said something neither said alone.

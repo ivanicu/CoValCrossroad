@@ -326,7 +326,44 @@ defence is contradicted by the elicitation format.**
 > ⚠ **And the scope that matters most: the rate belongs to a family CLASS** — single- and two-feature
 > rules over 14 response features. **A class with learned features or fitted combiners is a different
 > curve, and this says nothing about it.** Clause ④ is not *safe*; its exposure is **quantified within
-> one class**, which is the first time any clause in this definition has had that. The metric is still
+> one class**, which is the first time any clause in this definition has had that.
+>
+> ⛔⛔⛔ **AND R847/R848 REPORTED ONE READING OF ④ WHILE A COMMITTED ROUND ALREADY SETTLED THE OTHER
+> AGAINST IT (entry 1367). `11.7 e-folds of headroom` is a correct number without its scope — the
+> register's dominant retraction mode, committed twice today by me.**
+>
+> **R824** established the clause's text is **silent** about whether *"computable from the response
+> set alone"* constrains **inference** or also **construction**. **R825** then measured the
+> permissive reading, and its committed artifact says:
+>
+> | | |
+> |---|---:|
+> | leak-free **char-n-gram** response-only bar | **0.572335** |
+> | `coval_core` | **0.566477** |
+> | paired difference, 12 splits | **+0.006197072 [+0.004172, +0.008222]**, SE 0.001033 |
+> | splits where the bar BEATS the core | **12 of 12** |
+>
+> ⛔ **Under the permissive reading, clause ④ EXCLUDES the released core.** ⚠ *(The R825 README quotes
+> [+0.003923, +0.008471]; the artifact recomputes and prose does not, so the artifact's interval is
+> the one used here.)*
+>
+> ⭐⭐⭐ **So the two readings give OPPOSITE verdicts on the definition's own instance:**
+>
+> | reading | bar | `coval_core` | verdict |
+> |---|---:|---:|---|
+> | **strict** — no fitting, hand-built lexical rules (R847) | 0.4801 | 0.5665 | core clears by **+0.0864** |
+> | **permissive** — fitted, char n-grams (R825) | **0.5723** | 0.5665 | **core FAILS by −0.0058** |
+>
+> ⭐⭐ **AND THE TECHNICAL POINT THAT CORRECTS R848's AXIS.** R848 measured the dose-response along
+> **family SIZE**: +0.00741 per e-fold. R825 reports that **char n-grams buy +0.0487 over lexical
+> features** — *(arithmetic, labelled: 0.0487 / 0.00741 ≈ **6.6 e-folds** of my rate)* — **from a
+> change of REPRESENTATION, not a bigger family.**
+>
+> ⭐ **The axis that threatens clause ④ is representational richness, not enumeration.** R848's curve
+> is real and its controls hold, but **it is the shallow axis**, and reporting `11.7 e-folds` beside a
+> committed result where one change of view already crosses the bar was scope-blind. **The honest
+> statement of clause ④'s status is that it is READING-DEPENDENT and unresolved as a definition until
+> the reading is fixed in the text.** The metric is still
 > **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
 > that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a
