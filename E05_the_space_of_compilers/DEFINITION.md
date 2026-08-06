@@ -6545,3 +6545,35 @@ PLACEBO the extractor over an empty list returns **0**, not an error swallowed a
 known-TRUE line is **not** condemned (an over-firing instrument would) · NEGATIVE a known-FALSE line
 **is** condemned (without it the extractor is untested in one direction) · both extractors reported.
 **WORLD A.**
+
+## R803 · the judge-free floor, drawn on release one for the first time
+
+**Why here.** R802's NEXT proposed transporting R794's Q2 to release two; that needs a judge pass over
+68,371 utterances which does not exist, since every `sat_*.npz` is keyed to release one. R433 had
+measured a judge-free length heuristic on release TWO; the FIRST release — where every committed A2
+lives — had never been checked against one.
+
+**Derived before measuring.** D1 a judge-free predictor is a FLOOR, not a rival. D2 the sign is not
+forced, so this is a measurement. D3 the comparison is paired and needs no new instrument. D4 if
+length predicts criterion satisfaction the arms inherit its power.
+
+**E1 · the six predictors** (all reported; the floor is a MAX over them, which is a selection and is
+stated): characters longer **0.4557** / shorter 0.4023 · tokens longer 0.4351 / shorter 0.4063 ·
+position 0.4182 / 0.4421.
+
+**E2/E3 · the arms**: floor **0.4557**; arms span **0.4828–0.6283**, median **0.5642**.
+**27 of 27 beat the floor resolvedly and 27 of 27 survive BH.** `gen_sham` (weakest) **+0.0271
+[+0.0134, +0.0409]** · `coval_core` **+0.1108 [+0.0989, +0.1233]** · `oracle_k4` **+0.1726
+[+0.1610, +0.1844]**.
+
+**E4 · D4's partialling**: slope of an arm's per-prompt A2 on the floor's — mean **+0.1211**, range
+**[+0.0632, +0.1738]**, `coval_core` **+0.1005**. ⚠ The residual MEAN is 0 by construction (OLS), so
+the slope is the informative quantity; and the residual is a lower bound because partialling removes
+shared prompt difficulty too.
+
+**Controls.** OBJECT `coval_core` recomputed **from raw response text + annotators** reproduces
+R789's committed **0.5664774812** exactly, exit 2 otherwise · **PLACEBO a constant predictor gives A2
+0.1397355039 against a human tie rate of 0.1397355039 — identical to ten decimals, computed not
+assumed** · POSITIVE `oracle_k4` − floor **+0.1726**, band placebo **0.1397** → oracle **0.6283** ·
+NEGATIVE lengths shuffled within prompt **0.4557 → 0.4305** · NOISE FLOOR annotator split-half
+**0.003295**, and the weakest arm's margin is 8× it. **WORLD A.**

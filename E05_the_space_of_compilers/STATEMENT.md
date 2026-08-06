@@ -2220,3 +2220,32 @@ line **condemned** · tight 52 / loose 65, ratio **1.25**, inside the pre-regist
 R802 excluded from its own population.
 
 **Scope**: 13 rounds, 52 lines, 30 distinct claims · this repository at this tree_sha.
+
+## R803 · The judge-free floor is 0.4557 and all 27 arms clear it
+
+**Every committed A2 in this campaign now has a baseline that needs no judge, no rubric and no
+criteria.**
+
+| | A2 | vs floor |
+|---|---:|---|
+| **judge-free floor** (characters, longer-is-better) | **0.4557** | — |
+| `gen_sham` (weakest arm) | 0.4828 | **+0.0271 [+0.0134, +0.0409]** RESOLVED |
+| `coval_core` | 0.5665 | **+0.1108 [+0.0989, +0.1233]** RESOLVED |
+| `oracle_k4` | 0.6283 | **+0.1726 [+0.1610, +0.1844]** RESOLVED |
+
+**27 of 27 arms beat it resolvedly; 27 of 27 survive BH.** The floor sits below every arm including
+the shams, so length is a *weaker* predictor of the human ordering than random criteria are. All six
+judge-free predictors are reported (0.4023–0.4557) because the floor is a **max over six**, which
+makes it harder to beat and so works against the conclusion.
+
+⭐ **And the arms are not length in disguise**: the slope of an arm's per-prompt A2 on the floor's is
+mean **+0.1211**, range **[+0.0632, +0.1738]**, `coval_core` **+0.1005**.
+
+**Controls**: `coval_core` recomputed **from raw response text** reproduces the committed
+**0.5664774812** · **the PLACEBO landed exactly on its derived value — a constant predictor scores
+0.1397355039 and the human tie rate is 0.1397355039** · POSITIVE band **0.1397 → 0.6283** · NEGATIVE
+lengths shuffled within prompt **0.4557 → 0.4305** · noise floor **0.003295**, the weakest margin 8×
+it.
+
+**Scope**: 968 prompts × 4 responses × all annotators × 27 arms · NBOOT 1,200 · first release, home
+judge.

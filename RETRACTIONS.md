@@ -20824,3 +20824,26 @@ from §4's narrative about a different morning's clauses — and **7** rounds ru
 this session to fail §4's own remedy**, after R796's, R799's and R801's. *The remedy costs one grep
 and I have now skipped it four times in thirteen rounds; the fix is not more care but running the
 count as part of writing the sentence.*
+
+## 1195 · the judge-free floor is 0.4557 and every arm clears it — the scale is earned
+
+The campaign's entire A2 scale had never been priced against a baseline that needs no judge, no rubric
+and no criteria. Measured on release one: response length in **characters, longer-is-better**, scores
+**0.4557** against the same annotators by the same instrument. **All 27 committed arms beat it
+resolvedly and all 27 survive BH** — the weakest, `gen_sham`, by **+0.0271 [+0.0134, +0.0409]**;
+`coval_core` by **+0.1108 [+0.0989, +0.1233]**. **The floor sits below every arm including the shams**,
+so length predicts the human ordering *worse* than random criteria do. ⭐ And D4's confound does not
+bite: the slope of an arm's per-prompt A2 on the floor's is mean **+0.1211** (range +0.0632 to
++0.1738), so the arms are not length wearing a rubric. *A floor that nobody draws is a floor nobody
+can be shown to clear, and this one took one round after nineteen.*
+
+## 1196 · and the placebo landed exactly on its derived value
+
+A CONSTANT judge-free predictor — all four responses scored equal — makes every one of the six signs
+zero, so its A2 must equal the human TIE RATE exactly. Computed: **0.1397355039** against
+**0.1397355039**, identical to ten decimals. *That single number validates the whole chain from raw
+response text through class construction to A2, which is more than any `sat`-file anchor can do — and
+it is the reason this round's object check reproduces a committed arm (0.5664774812) from the RAW
+RELEASE rather than from a stored artifact.* ⚠ The same round also printed a residual mean of
+−0.000000 which is **0 by construction** (OLS forces it); the informative quantity is the slope, and
+the README says so rather than letting a forced zero read as a result.
