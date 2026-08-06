@@ -179,6 +179,19 @@ has no artifact"* identically to *"the artifact does not hold this value"*. ⭐ 
 REVERSES once absence is separated:** restricted to rounds that DO have artifacts, `FORMULATION.md`'s
 rounds average **0.2188** and this page's **0.4455** *(ledger 1039)*. **The document I treated as the
 worst is the better-cited of the two on evidence that can be checked.**
+⛔⛔ **AND THE WHOLE FLAGGED-RATE INSTRUMENT WAS SCOPED TO ONE ARC OF TEN** *(R757, whose verdict is
+`UNVERIFIED` and which is cited as evidence that the question is OPEN)*. This repository holds **ten
+arcs, A16–A25**; `A24` begins at **R276**. Nine rounds resolved artifacts by globbing `A24` alone, so
+**98 of 577 artifacts across 72 round directories were invisible**. Recomputed repo-wide on the SAME
+document text: `FORMULATION.md` **0.8000 → 0.3680**, while this page and `DEFINITION.md` move
+**exactly 0.0000** — they cite only A24 rounds. ⭐ A per-figure size-matched **sham** drops only
+**0.0800** against the real **0.4320**, so the correction is **5.4×** the haystack and is evidence.
+⛔ **But the NEGATIVE control FAILED**: restricted to A24, today's rates no longer reproduce R753's
+committed ones (`DEFINITION.md` **0.3814 → 0.3984**) **because a section is appended to two of these
+three documents every round**. **The deliverable is a moving population**, so any rate compared to an
+earlier round's crosses two document versions *(ledger 1043)*. **The corpus defect is established; its
+size against the published numbers is not.**
+
 ⭐ **The rate belongs to ROUNDS, not documents** *(R756)*: between-round variance **0.0905** is
 **2.30×** its structure-free sampling null (**0.0394**) over the 76 rounds with ≥3 figures. ⚠ **But
 only 1.06× a position-preserving null** (line-blocked, same sizes, **0.0852**) — much of the clustering

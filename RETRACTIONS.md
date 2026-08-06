@@ -19142,3 +19142,42 @@ blocks of the same sizes, it is one point zero six times. Random reassignment de
 while line blocking preserves positional clustering, and adjacent figures share support status, so the
 two nulls answer different questions and the second bounds the claim much more tightly than the first.
 Reporting only the flattering null would have made a positional artefact look like a property of rounds.
+
+## 1041 · nine rounds resolved artifacts against one arc of ten
+
+The repository holds ten arcs and the one I have been working in begins at round two hundred and
+seventy six. Every round from the cell resolver onward looked up a cited round's artifact by globbing
+that single directory, so ninety eight artifacts across seventy two round directories were invisible,
+and every verdict of the form the cited round does not hold this value meant only that no round in one
+arc holds it. Recomputed against the whole repository, the document that cites the oldest rounds falls
+from eighty per cent flagged to thirty seven while the two documents that cite only the current arc do
+not move at all. The previous round contradicted itself on exactly this and I read the contradiction
+rather than the object for one full round before checking.
+
+## 1042 · my first sham was more generous than the treatment it was matched to
+
+The control appended a size matched blob of non artifact text to every figure's lookup and produced a
+larger drop than the real correction, which would have read as the movement being nothing but a bigger
+haystack. But the real correction gives each figure only its own out of arc round, about one round's
+worth, while that sham handed every figure ninety eight rounds' worth. Matched per figure instead, the
+sham drop is eight hundredths against a real drop of forty three, a ratio of one to five. Size matching
+in aggregate is not size matching where the treatment is applied, and the aggregate version inverted
+the conclusion.
+
+## 1043 · the deliverable is a moving population and every rate I have published crosses two versions
+
+Restricted to the old narrow corpus the rates no longer reproduce what was committed three rounds ago:
+one document reads three hundred and ninety eight thousandths where four hundred and eighty one was
+published. The cause is that I append a section to two of the three documents in every round, so the
+population of figures grows under the measurement. The third document reproduces exactly, and it is
+the one nobody has edited, which is what localises the drift. So the corpus finding is established and
+its size relative to the published numbers is not, and the round is unverified rather than a corrected
+figure. Every rate in this arc that was compared to an earlier rate is confounded with my own editing.
+
+## 1044 · every registered point landed and the round is still unverified
+
+Five of five registered values fell inside their bands, four of them close to the point, which is the
+first time in this arc that has happened. The negative control still failed and the verdict is still
+unverified. Recording this because the temptation runs the other way: a report where every prediction
+hit reads as a strong round, and prediction accuracy is not a verdict. The controls decide, and one of
+them said the comparison could not be attributed.

@@ -4829,3 +4829,47 @@ weighted average of its rounds', so *"documents differ"* **follows**. Only the v
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 66778, **both writes confirmed to
 disk** (1,866 / 1,870 bytes, differing only in the recorded seed).
+
+## R757 · the artifact corpus was scoped to ONE arc of ten
+
+**Question.** R756 contradicted itself — its era table said 17 of 17 early rounds have artifacts, its
+g=0 said 27 cited rounds have none. **Both cannot be true.**
+
+**⛔ The object settles it.** `E05_the_space_of_compilers/` holds **ten arcs, A16–A25**; **A24 begins
+at R276**. The "artifact-less" rounds live in **A17 and A23**. Every round from **R748 to R756**
+resolved `A24.glob(f"R{rid:03d}_*")` — **98 of 577 artifacts across 72 round directories were
+invisible** *(ledger 1041)*. **§4's *a search is an instrument*, at repository scale.**
+
+| document | A24 corpus | repo-wide | drop | flagged |
+|---|---|---|---|---|
+| `STATEMENT.md` | 0.1784 | 0.1784 | **0.0000** | 33 → 33 |
+| `DEFINITION.md` | 0.3984 | 0.3984 | **0.0000** | 51 → 51 |
+| **`FORMULATION.md`** | **0.8000** | **0.3680** | **0.4320** | **100 → 46** |
+
+⭐ **Both arms use the same document text**, so this contrast is internally valid. ⛔ The repo corpus
+**contains** the A24 one, so the rate can only fall — *"it fell"* is algebra.
+
+**⛔ My first SHAM was more generous than the treatment** *(ledger 1042)*: it appended the whole blob
+to **every** figure and dropped **0.4880**, which would have read as pure haystack. The real correction
+gives each figure **its own** out-of-arc round. **Per-figure matched:** sham **0.0800** vs real
+**0.4320** — **ratio 0.185**, so the correction is **5.4×** the haystack.
+
+**⛔ The NEGATIVE control FAILED, and it is the more important finding** *(ledger 1043)*. Restricted to
+A24, today's rates do not reproduce R753's: `DEFINITION.md` **0.3814 → 0.3984**, `STATEMENT.md`
+**0.1793 → 0.1784**, `FORMULATION.md` **0.8000 → 0.8000** exactly. **The two that moved are the two I
+append to every round; the one that matches is the one nobody edits.** The deliverable is a **moving
+population**. ⇒ **the corpus defect is established, its size against published numbers is not, and the
+verdict is `UNVERIFIED`.**
+
+**Controls — 4 PASS, 1 FAIL.** POSITIVE `0.6602` found **verbatim by direct search** in
+`A16/R220/tournament.json` — flagged under A24, supported repo-wide; **the FLIP is unreachable from
+either degenerate end** · g=0 a fabricated value stays flagged under **both** · SHAM as above ·
+PLACEBO exactly 0. **CONFOUND printed:** newly-resolved matches span **six arcs**
+(`A23:25 · A19:16 · A20:7 · A16:4 · A17:4 · A18:1`), so it is not one arc's format.
+
+**Registered — all five landed** (P1 **0.3680** · P2 **0.1784** · P3 **26** · P4 **0.2201** ·
+P5 **0.0800**, D true). **And the round is still `UNVERIFIED`: prediction accuracy is not a verdict**
+*(ledger 1044)*.
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 13131, **both writes confirmed to
+disk** (1,979 / 1,983 bytes, differing only in the recorded seed).
