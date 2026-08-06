@@ -21770,3 +21770,94 @@ anchors on prose is disarmed by editing the prose, and the edit that disarms it 
 improvement.** The gate's own message names the remedy, and it is the only reason a silent blinding
 did not ship inside a commit whose entire subject was that a count had been published without its
 scope.
+
+## 1259 · a round I had not committed was destroyed, and only a manual backup brought it back
+
+R825's directory sat **untracked for ~90 minutes across three launches** while I waited for a result
+before committing it. In that window a concurrent session stashed all six epoch directories to
+`/tmp/attack_rounds_n6s3qn01` as a deliberate, reversible attack — `git status` showed **2,896
+unstaged deletions**, and every `E*/A*/R*` path vanished from disk.
+
+**Its restore returned TRACKED paths and left R825 behind.** Nothing but a manual copy out of the
+stash recovered the preregistration, `run.py`, both leak audits and the one artifact already
+produced.
+
+⭐ **The finding is not that the other session did something wrong — it did the operation correctly
+and recorded its own in-progress marker.** The finding is that **an untracked round has no revert
+base, and this repository has more than one writer.** Everything committed (R821–R824, verified 4
+files each at `9ac336eb`) was never at risk for one second.
+
+**Remedy, operational rather than another gate: commit `PREREGISTRATION.txt` and `run.py` BEFORE
+launching, never after the verdict.** That is also the only order in which a preregistration *is*
+one — registered before the result, not alongside it. Applied in `d60a618f`, which commits R825's
+design carrying no verdict.
+
+⚠ **And what I did NOT do, deliberately:** I did not force-restore 2,896 files. The deletions were
+**unstaged** and a marker said an operation was in flight; restoring would have raced a concurrent
+writer, which is the livelock case. **The correct response to a concurrent session's in-flight
+operation is to copy what is only yours out of harm's way and leave the rest alone.**
+
+## 1260 · ④'s permissive bar had FOUR unguarded stages, and my own leak audit could see none of them
+
+R825 guards the TF-IDF **vocabulary** by fitting it inside the split, and E4 measures what that guard
+is worth. **Three further unsupervised stages were fit on all prompts**: the SVD basis, the SVD
+z-score, and the lexical z-score.
+
+⛔ **E4 was structurally blind to all three.** The SVD leaked in *both* of E4's conditions, and **a
+leak present in the control as well as the treatment is invisible to that control** (§4). D3 named
+the vocabulary and stopped there, and the audit built to check the guard confirmed only the part
+that was already guarded.
+
+**Stages 2–3 were found by an independent session auditing this directory.** I accepted nothing on
+its authority — the claim was verified against my own source at lines 13–14 and 20–21 before the fix
+went in — and **reviewing their implementation is what revealed stage 4, which I had missed while
+fixing the other two.**
+
+⭐ **Stage 4 was then decomposed rather than restarted for**, because half of it dies to algebra: the
+model consumes **pairwise differences**, so `((x_u − μ) − (x_w − μ))/σ = (x_u − x_w)/σ` and **the
+mean cancels exactly** — 3.55e-15 on the real features. Only per-feature σ survives, entering solely
+through L2 penalty geometry, **which predicts the channel must vanish as C grows.** It did:
+
+| C | as_run | strict | channel |
+|---|---|---|---|
+| 0.01 | 0.520782 | 0.520743 | +0.000039 |
+| **1.0** | 0.524466 | 0.524670 | **−0.000204** |
+| 10000 | 0.524094 | 0.524095 | **−0.000001** |
+
+σ itself moves **16.28%** half-vs-all, so the channel is small because of *where* it enters, not
+because σ is stable. **And the sign is negative — the leaked version scores lower**, which is the
+concrete refutation of the tempting argument that a leak can only inflate and therefore makes a null
+verdict conservative. That argument would have been a fabricated impossibility.
+
+## 1261 · the preregistration stated a kill and never its resolution
+
+§1 G2 requires the MDE. R825's preregistration named a threshold — *is the bar within reach of
+0.566477* — without ever stating what effect the design could resolve. Computed from the held-out
+bar's own per-split sd of 0.007144: **se = 0.002526 at n=8 splits, MDE(80% power) = 0.007072**,
+against a gap of **0.046788 — 6.6× the MDE**.
+
+**The number also retroactively justified a budget cut I had made on feel.** Reducing 20 splits to 8
+moved the MDE from 0.004473 to 0.007072, still 6.6× below the gap, so the cut did not compromise the
+question. **Before that calculation, "the reduction is fine" was an assertion in the flattering
+direction** — precisely what §2 forbids. A budget cut is a design change and must be priced against
+the design's own resolution, not against how much compute it saves.
+
+## 1262 · every round in this arc printed into a buffer, and 494 of 501 still do
+
+R825's first attempt produced **zero bytes** of output. I diagnosed the output pipe; that was wrong.
+**Python block-buffers stdout on ANY non-tty**, so a file redirect loses output identically — and the
+run was not even killed: two orphaned processes were still alive 25 minutes later, because the
+harness wrapper exited while its Python child kept running.
+
+Measured across the arc: **494 of 501 `run.py` files never flush.** The 7 that do are all rounds with
+long subprocess loops that discovered it ad hoc — **and not one of them recorded it**, so it never
+reached the ledger, never became a convention, and 494 rounds later cost a 15-minute diagnostic.
+
+⭐ **Same shape as the defect this whole arc keeps finding: a fix that reached the code and not the
+record.** R821 retracted a repair that landed in one place and not the other; this is that failure at
+the level of practice. `sys.stdout.reconfigure(line_buffering=True)` is now in R825 and output is
+live.
+
+⚠ **And it is not sufficient**: R825's tier table prints only after both grid loops complete, so the
+run is *still* unobservable for its expensive hour. **Unbuffering makes output timely; it does not
+make a silent loop report progress.** Those are two different defects and I fixed only the first.

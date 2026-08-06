@@ -253,5 +253,15 @@ if __name__ == "__main__":
     if "--selftest" in sys.argv:
         sys.exit(selftest())
     print("assurance/_repair.py · entry-time tree repair")
-    res = repair()
+    # ⛔ 2026-08-06: this called `repair()`, the TRACKED-ONLY path, while `repair_full()` sat two
+    #    functions above it with a PASSING selftest for the untracked channel. On 08-06 the suite
+    #    SIGKILLed a hide holding 2,911 files; `repair()` reported "tree is whole: 0 tracked paths
+    #    missing" -- true, and useless, because the round in flight (R825) was UNTRACKED and existed
+    #    only inside the stash. Its four source files were then copied back BY HAND, doing exactly
+    #    what `repair_full()` does and is tested to do.
+    #    A capability that is built, controlled, and not reachable from the entry point is not a
+    #    capability. It is a comment. The breadcrumb branch is a no-op when no hide is in flight,
+    #    and `repair_full` never overwrites an existing path, so this is strictly more recovery at
+    #    no risk to a healthy tree.
+    res = repair_full()
     sys.exit(0 if not res["still_missing"] else 1)

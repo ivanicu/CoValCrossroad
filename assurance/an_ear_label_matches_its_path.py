@@ -42,7 +42,13 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 SELF = [
-    re.compile(r"^#\s+([EAR]\d{2,3})\b", re.M),                              # "# A24 - ..."
+    # ⛔ `\b` HERE WAS A FALSE NEGATIVE AND THE VACUOUS COUNT IS WHAT EXPOSED IT. The R-level
+    # READMEs label themselves `# R01_rater_structure` -- the directory name, underscore and all.
+    # `[EAR]\d{2,3}\b` does not match that, because the character after the digits is `_`, which
+    # is a word character, so there is no boundary. 21 documents that DO name themselves were
+    # being counted as carrying no label, i.e. passing vacuously. Printing the vacuous population
+    # is the only reason this was ever visible: the check was GREEN both before and after.
+    re.compile(r"^#\s+([EAR]\d{2,3})(?!\d)", re.M),                          # "# A24 - ", "# R01_x"
     re.compile(r"\*\*Arc\s+(E\d{2})[·.](A\d{2})", re.M),                     # "**Arc E05·A24**"
     re.compile(r"\*\*(E\d{2})\s*[·.]\s*(A\d{2})\s*[·.]\s*(R\d{2,3})", re.M),  # "**E05 · A24 · R825**"
 ]
@@ -72,11 +78,12 @@ def violations(text, path):
 
 def main():
     docs = sorted(ROOT.glob("E*/**/README.md"))
-    bad, labelled, vacuous = [], 0, 0
+    bad, labelled, vacuous = [], 0, []
     for md in docs:
         v, lab = violations(md.read_text(encoding="utf-8", errors="replace"), md)
         labelled += lab
-        vacuous += (not lab)
+        if not lab:
+            vacuous.append(md.relative_to(ROOT))
         for tok, mine in v:
             bad.append((md.relative_to(ROOT), tok, mine))
 
@@ -90,7 +97,11 @@ def main():
     print(f"  positive control: fires on a planted `# A16` in A24 -> {pos[0][0]} != {pos[0][1]}  PASS")
 
     print(f"  population: {len(docs)} READMEs · {labelled} carry a self-label · "
-          f"{vacuous} carry none and pass VACUOUSLY (not a clean bill -- see the proxy ledger)")
+          f"{len(vacuous)} carry none and pass VACUOUSLY (not a clean bill -- see the proxy ledger)")
+    # NAME them while they are few. A count says the gap exists; the list says where it is, and a
+    # gap nobody can point at is the one that grows back.
+    for p in vacuous[:12]:
+        print(f"       outside the check: {p}")
     if not labelled:
         print("  ⛔ no document carries a self-label. The check has no population. Exit 2.")
         return 2

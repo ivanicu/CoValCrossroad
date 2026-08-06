@@ -123,6 +123,29 @@ def _classifier_selftest() -> bool:
 def main(argv: list[str]) -> int:
     if "--selftest" in argv:
         return selftest()
+    # ⛔ REPAIR ON ENTRY, BECAUSE THIS RUNNER IS THE THING THAT BREAKS THE TREE.
+    #    `attack_the_suite` MOVES every E##_ epoch aside to prove the gates fail on an empty
+    #    population, and restores in a `finally:` -- which SIGKILL does not run. This runner kills
+    #    every gate at a flat 90s (`run_one`), and `attack_the_suite` does not finish in 90s: on
+    #    2026-08-06 it was killed at 90.1s and left the ENTIRE tree, 2,911 files, in /tmp.
+    #    ⭐ /tmp then held ELEVEN orphaned `attack_rounds_*` stashes over four days -- R428 counted
+    #    eight over two and diagnosed it, and the rate did not fall, because the diagnosis produced
+    #    `_repair.py` and nothing CALLED it. It was reachable from `attack_the_suite` (which is
+    #    the gate that gets killed) and from its own `__main__` (which nobody runs on a schedule).
+    #    The runner that causes the damage was the one place it was not wired.
+    #    `repair_full` never overwrites an existing path and is a no-op with no breadcrumb, so this
+    #    costs a healthy tree one `git ls-files --deleted`.
+    try:
+        from _repair import repair_full
+        r = repair_full(verbose=False)
+        if r["moved_home"] or r["still_missing"] or r["restored"]:
+            print(f"  ⛔ ENTRY REPAIR: a previous run left the tree damaged. "
+                  f"recovered {len(r['moved_home'])} untracked from the stash · "
+                  f"{len(r['restored'])} tracked from the index · "
+                  f"{len(r['still_missing'])} STILL MISSING")
+    except Exception as e:                       # a broken repair must not hide the suite
+        print(f"  ⚠ ENTRY REPAIR UNAVAILABLE ({type(e).__name__}: {e}) — the tree was NOT checked, "
+              f"so a green run below is not evidence the population was whole.")
     gates = discover()
     print(f"  META-gates excluded from this suite and RUN SEPARATELY: "
           f"{sorted(META_GATES)} — see entry 335 for why an unpassable runner "
