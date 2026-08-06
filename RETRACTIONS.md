@@ -23047,12 +23047,12 @@ in the opposite direction.** So all 45 were measured — it costs seconds per ar
 | **SEPARABLE at the true MDE** | **1 of 45** — `gen` vs `random_k12_s0`, +0.0347 / MDE 0.0118 (**2.9×**) |
 | skipped-by-filter pairs that separate | **0** |
 | **smallest measured MDE** | **0.0000** — assumption **FALSE** |
-| **true MDEs below the assumed 0.0104** | **25 of 45** |
+| **true MDEs below the assumed 0.0104** | **27 of 45** |
 
 Controls: `oracle_k4` vs `generic` **+0.0759 / 0.0106 SEPARABLE** · arm against itself **sd exactly
 0** · three seeds byte-identical.
 
-⭐ **W-FILTER-WAS-SAFE, and the two halves are the finding.** The filter's **premise is false for 56%
+⭐ **W-FILTER-WAS-SAFE, and the two halves are the finding.** The filter's **premise is false for 60%
 of the population**; its **conclusion is right for 100%** — because where the MDE is small the gap is
 small too. **That is what "right by luck" looks like when you actually measure it**, and the
 smallest-MDE check is what turns the phrase from a hedge into a number. Had I shipped the filter, the

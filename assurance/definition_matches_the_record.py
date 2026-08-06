@@ -636,6 +636,32 @@ def derive():
         for k in ("r462_old", "r462_new", "r462_cov", "r462_total"):
             out[k] = (None, "R462")
 
+    # R838/R837 -- the measured between-arm resolution. Anchored because it is what makes
+    # "clause four can express at most a two-way split here" a measurement rather than a reading:
+    # a single bounded MDE over the whole ordering was wrong in BOTH directions.
+    d838 = next(A24.glob("R838_*"), None)
+    f838 = (d838 / "results" / "r838_all_pairs.json") if d838 else None
+    a8 = json.loads(f838.read_text()) if (f838 and f838.exists()) else None
+    if a8 and a8.get("world") != "UNVERIFIED":
+        sep = [x for x in a8["pairs"] if x["separable"]]
+        out["r838_npairs"] = (len(a8["pairs"]), "R838")
+        out["r838_nsep"] = (a8["n_separable"], "R838")
+        out["r838_gap"] = (round(sep[0]["gap"], 6) if sep else None, "R838")
+        out["r838_mde"] = (round(sep[0]["mde"], 6) if sep else None, "R838")
+        out["r838_small"] = (round(a8["smallest_measured_mde"], 6), "R838")
+        out["r838_below"] = (sum(1 for x in a8["pairs"] if x["mde"] < 0.0104), "R838")
+    else:
+        for k in ("r838_npairs", "r838_nsep", "r838_gap", "r838_mde", "r838_small", "r838_below"):
+            out[k] = (None, "R838")
+    d837 = next(A24.glob("R837_*"), None)
+    f837 = (d837 / "results" / "r837_true_mde.json") if d837 else None
+    a7 = json.loads(f837.read_text()) if (f837 and f837.exists()) else None
+    if a7 and a7.get("world") != "UNVERIFIED":
+        out["r837_posgap"] = (round(a7["positive"]["gap"], 6), "R837")
+        out["r837_posmde"] = (round(a7["positive"]["mde"], 6), "R837")
+    else:
+        out["r837_posgap"] = out["r837_posmde"] = (None, "R837")
+
     # R485 -- from the round's artifact.
     try:
         _c5 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
@@ -1129,6 +1155,15 @@ def derive():
 # label -> the regex that must find that number in DEFINITION.md. The pattern is the CLAIM's own
 # wording, so an edit that changes the sentence without changing the artifact is caught too.
 ASSERTIONS = {
+    # R838/R837 -- the measured resolution. Every one is anchored on words unique to its sentence.
+    "r838_npairs":  r"Over the \*\*(\d+)\*\* adjacent pairs of the ③-admissible ordering",
+    "r838_nsep":    r"ordering, exactly \*\*(\d+)\*\* separates at twice its own",
+    "r838_gap":     r"a gap of\n\*\*(\d\.\d{6})\*\* against an MDE of",
+    "r838_mde":     r"against an MDE of \*\*(\d\.\d{6})\*\*, which is 2\.9",
+    "r837_posgap":  r"against `generic`, gives \*\*(\d\.\d{6})\*\* against",
+    "r837_posmde":  r"gives \*\*\d\.\d{6}\*\* against \*\*(\d\.\d{6})\*\*;",
+    "r838_below":   r"\*\*(\d+)\*\* of the 45 true\nMDEs fall below",
+    "r838_small":   r"the smallest is \*\*(\d\.\d{6})\*\* — two pairs of duplicate",
     # R485 -- satisfiability. Anchored because it changes what the empty extension MEANS: a defect in
     # the clauses rather than an absence in the release.
     "r485_best_adm": r"prompt-AWARE arm is `gen` at\s*\n(\d\.\d{4}), a gap of",

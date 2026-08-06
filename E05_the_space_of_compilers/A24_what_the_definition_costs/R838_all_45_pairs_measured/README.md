@@ -24,7 +24,7 @@ same move one round later, in the opposite direction.** The recomputation costs 
 | **SEPARABLE at the true MDE** | **1** — `gen` vs `random_k12_s0`, gap **+0.0347**, MDE **0.0118** (**2.9×**) |
 | pairs the filter would have skipped that separate | **0** |
 | **smallest measured MDE** | **0.0000** — the filter assumed ≥ 0.0104, **assumption FALSE** |
-| **pairs whose true MDE is below 0.0104** | **25 of 45** |
+| **pairs whose true MDE is below 0.0104** | **27 of 45** — ⚠ **corrected from 25**, which was the count with `mde > 0` and silently excluded the two zero-MDE pairs while the sentence said *below* |
 | controls | `oracle_k4` vs `generic` **+0.0759 / 0.0106 SEPARABLE** ✓ · arm vs itself **sd exactly 0** ✓ · three seeds byte-identical ✓ |
 
 **W-FILTER-WAS-SAFE.** ⭐ **The filter's premise is false for 56% of the population and its conclusion

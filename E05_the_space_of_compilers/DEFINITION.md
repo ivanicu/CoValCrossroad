@@ -369,13 +369,13 @@ control** — the comparator is now **DECLARED per anchor and checked** by
 200 (`r456_gap16`, `r456_ratio16`, `r460_iqr`) — **a window artifact, and the sweep is the only thing
 that distinguishes it from a real defect.** The window mechanism is positive-controlled on a
 comparator planted at a known distance (flagged below it, passing above it, at both 300 and 1200
-chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 330 anchors
+chars), and a declared-absolute claim is never flagged. ⚠ **Declaration coverage is 27 of 338 anchors
 (10.3%)** — ⛔ a SELF-REFERENTIAL count: this sentence lives inside the document the
 gate checks, so it goes stale the moment an anchor is added, and it did, one commit after R461 ran; the 230 undeclared are **not passes**, and that count measures the instrument's coverage
 rather than any property of this document. **The product of that round is the enforced instrument: a
 future difference-anchor cannot be added without naming its comparator.** *(R461)*
 
-⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 330.** The proposed
+⭐ **AND THE OLDEST BLOCK IS CLEAN TOO (R462) — declaration coverage now 80 of 338.** The proposed
 ordering for the remaining work was *"oldest first, because old numbers have survived the most
 rewrites"*; nothing measured that, and every anchor defect this campaign's value-gate has caught was
 in a **newly written** anchor. Declaring the whole **R442–R454** block — the one called riskiest —
@@ -850,7 +850,7 @@ denominator, on every run. *(R476)*
 Writing R476's result into DEFINITION.md added numeric claims to the very population R476 counted, so
 the live gate now reports **69.0% / 27.7%** where the round measured **69.2% / 28.0%**. That is not
 drift and neither number is wrong: **a document that states its own coverage changes its coverage by
-stating it.** The round's numbers hold at commit `8b57ace` **measured with the gate's 330 anchors** — both halves of the scope, because the instrument grows too; the gate's line is the current value, and
+stating it.** The round's numbers hold at commit `8b57ace` **measured with the gate's 338 anchors** — both halves of the scope, because the instrument grows too; the gate's line is the current value, and
 the two are expected to differ by exactly the size of whatever was last written. *(R476)*
 - **Self-normalising does not repair that.** At matched strictness the relative and absolute forms
   are indistinguishable — 9 vs 9 at 2B, 0 vs 0 at 0.8B. The judge-dependence is in the **arms'
@@ -7469,3 +7469,28 @@ Found by `assurance/kill_is_wired_into_the_branch.py`, which carries a positive 
 (`synthetic_world` must fire) **and** a negative control (`pairwise_matrix` must not) and exits 2 if
 either fails. ⚠ Its flag list is a name heuristic, so a clean report is silence about the names not
 searched, never a clean bill.
+
+---
+
+## What the clause can distinguish here — the resolution, measured rather than bounded
+
+Clause ④'s bar is a comparison, and a comparison is only as fine as the design that makes it. The
+between-arm resolution of this site was **bounded** for two rounds and is now **measured**: the
+per-prompt difference vector between two arms is a pure function of their committed selections and
+the committed human rankings, so no judge call is needed to obtain it.
+
+Over the **45** adjacent pairs of the ③-admissible ordering, exactly **1** separates at twice its own
+paired MDE — `gen` above `random_k12_s0`, a gap of
+**0.034722** against an MDE of **0.011805**, which is 2.9×. The positive control, `oracle_k4`
+against `generic`, gives **0.075872** against **0.010615**; an arm scored twice through the same
+path gives a standard deviation of exactly zero.
+
+⛔ **So the ③-admissible ordering is not a ranking. It is two groups with one boundary** — the
+substantive label-free arms above the random cluster — and every distinction inside either group is
+below this design's resolution. **Clause ④ can therefore express at most a two-way split on this
+site**, whatever bar it names.
+
+⚠ **And the resolution is not uniform, which is why it had to be measured.** **27** of the 45 true
+MDEs fall below **0.0104**, and the smallest is **0.000000** — two pairs of duplicate arms whose
+difference vector is identically zero across every prompt. A single bound applied to the whole
+ordering is wrong in both directions, not merely conservative. *(R835 · R836 · R837 · R838)*
