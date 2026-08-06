@@ -5880,3 +5880,34 @@ delete 0% → **1.0000**, 25% → 0.7536, 50% → 0.4992, 75% → 0.2523, monoto
 ⛔ SHAM not built (the ingredient's removal IS the null). **WORLD A.**
 **Release data quality**: **3 of 19,147** criteria tokenise to nothing — `'Lwa'`, a bare UUID, an
 empty string.
+
+## R786 · the affinity axis, enumerated
+
+**Arms with criterion text: 89** (counted in code). **Rubric-derived (verbatim ≥ 0.5): 79.**
+**Not rubric-derived: 10.**
+
+| arm | verbatim | aff@3 | aff@4 | aff@5 | null@4 | A2 | q_res |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| coval_core | 0.0670 | 0.4944 | **0.4954** | 0.5018 | 0.0552 | 0.5665 | 0.9978 |
+| promptecho | 0.0006 | 0.1479 | 0.1401 | 0.1478 | 0.0359 | — | — |
+| gen | 0.0000 | 0.1410 | 0.0865 | 0.0867 | 0.0357 | 0.5352 | 0.0396 |
+| topw_k4_sham | 0.0000 | 0.0905 | 0.0564 | 0.0471 | 0.0562 | 0.4909 | 0.0000 |
+| full_sham | 0.0000 | 0.0885 | 0.0561 | 0.0465 | 0.0579 | — | — |
+| coval_core_sham | 0.0000 | 0.0836 | 0.0550 | 0.0459 | 0.0558 | 0.4956 | 0.0000 |
+| gen_sham | 0.0000 | 0.1028 | 0.0356 | 0.0319 | 0.0360 | 0.4828 | 0.0000 |
+| promptecho_sham | 0.0000 | 0.0595 | 0.0352 | 0.0214 | 0.0353 | — | — |
+| genericpool16 | 0.0000 | 0.1094 | 0.0316 | 0.0265 | 0.0316 | — | — |
+| **generic** | 0.0000 | 0.1212 | **0.0249** | 0.0243 | **0.0249** | 0.5514 | **0.7780** |
+
+**Correlation** affinity vs q_resolved: with shams n=6, r **+0.7678 / +0.6907 / +0.6993** ·
+sham-free n=3, r **+0.6421 / +0.5841 / +0.5841**. **D3 MDE** n=5 **0.963** · 6 **0.924** · 7 **0.886**
+· 8 **0.849** · 10 **0.785**, printed before any r. **All inside.**
+**A2-CHECK**: corr(affinity, A2) **+0.6391** with shams, **+0.7878** sham-free ·
+**corr(A2, q_resolved) +0.8747** with shams, **+0.9601** sham-free.
+
+**Arms with text but no q_resolved**, listed: full_sham, genericpool16, promptecho, promptecho_sham.
+
+**Controls.** OBJECT enumeration computed in code, exit 2 otherwise · PLACEBO **1.000000** · POSITIVE
+rubric-derived arms return **1.0** exactly (D1, a derivation used as an instrument check) · NULL
+per-arm cross-conversation · SHAM-SPLIT both populations printed · A2-CHECK the registered confound ·
+SWEEP {3,4,5} · MDE printed FIRST. **WORLD C — underpowered, as D3 predicted.**

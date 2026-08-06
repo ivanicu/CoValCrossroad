@@ -20222,3 +20222,30 @@ FREEZE baseline that fails new lines only — the shape `next_line_quantifiers_a
 has — and the frozen ones stay wrong. *Infrastructure whose reach is bounded by what it cannot touch,
 protecting a deliverable that is one file. Correcting `STATEMENT.md` is production; gating 780 READMEs
 is not, and the difference is §0.2's floor between an instrument and the thing it is for.*
+
+## 1141 · R785's E3 population was a hard-coded dict and its count was wrong by a factor of five
+
+R785 reported *"arms with criterion TEXT available: 2"* and built a NEXT on it — *"the axis cannot be
+extended on this site"*. The line that produced the 2 is `q782 = {"coval_core": 0.9978, "gen":
+0.0396}`, **a literal I typed**. Counted from the object: **89 arms carry criterion text, 79 are
+rubric-derived, 10 are not.** *A check that cannot fail, written in the round that had just caught its
+own placebo — and the tell was available in the code I was looking at, because a population that
+appears as a dict literal was never enumerated.*
+
+## 1142 · the affinity hypothesis is withdrawn, killed by one arm rather than by a correlation
+
+R785 raised, on two points, that **clause ② may score rubric affinity rather than quality**. Extended:
+**`generic` has affinity 0.0249 against its own null of 0.0249 — zero above chance — and clears clause
+② at q_resolved 0.7780.** High ② standing does not require rubric affinity, and one counterexample
+settles it more cleanly than any r at n = 3. *The correlation would have looked supportive: +0.69 with
+shams, +0.58 without. Both are inside a pre-printed MDE of 0.924, and the arm that breaks the pattern
+is worth more than either.*
+
+## 1143 · and the confound registered before the run is what explains the relation
+
+The A2-CHECK was written into the preregistration because affinity and ② standing could both be driven
+by arm quality. **corr(A2, q_resolved) is +0.8747 with shams and +0.9601 sham-free**, against
+affinity→q_resolved of +0.69 and +0.58. `q_resolved` counts how much of a fixed 0.043-wide band an arm
+beats, so it is very nearly a monotone re-expression of A2. *The confound was named in advance, its
+control was built in the same iteration, and it won — which is the only reason the round can say the
+hypothesis died rather than that the data were quiet.*

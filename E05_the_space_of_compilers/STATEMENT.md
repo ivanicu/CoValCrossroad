@@ -1683,3 +1683,31 @@ the degenerate as 1.0 fixed it; that is a definition, not a loosened threshold.
 **Scope**: 986 released conversations, 968 joined · verbatim intersection and token Jaccard at
 {3,4,5} · cross-conversation and nearest-topic nulls · first release, this tree_sha. **E3's
 population is 2 arms.**
+
+## R786 · `generic` has zero rubric affinity and clears clause ② at 0.7780 — the affinity hypothesis dies
+
+**R785's hypothesis, that clause ② may score rubric affinity rather than quality, does not survive its
+own extended population, and the decisive datum is one arm rather than a correlation.** `generic`'s
+affinity is **0.0249** against its own cross-conversation null of **0.0249** — zero above chance — and
+it clears clause ② at **q_resolved 0.7780**. **High ② standing does not require rubric affinity.**
+
+⛔ **AND R785's POPULATION WAS TYPED, NOT COUNTED.** Its E3 read `q782 = {"coval_core": 0.9978,
+"gen": 0.0396}`, a literal that cannot return a different value. Counted from the object: **89 arms
+carry criterion text, 79 rubric-derived, 10 not** — `coval_core`, `gen`, `generic`, `genericpool16`,
+`promptecho` and five shams. **Five times the number R785 reported**, and the extension is what killed
+the hypothesis R785 wanted written into the definition.
+
+⭐⭐ **AND THE REGISTERED CONFOUND IS THE EXPLANATION.** Affinity against q_resolved gives r =
+**+0.7678 / +0.6907 / +0.6993** at token lengths 3/4/5 over 6 arms, and **+0.6421 / +0.5841 /
++0.5841** over the 3 sham-free — all inside a D3 MDE of **0.924** at n=6, printed before the numbers.
+Meanwhile **corr(A2, q_resolved) is +0.8747 with shams and +0.9601 without.** `q_resolved` counts how
+much of a fixed 0.043-wide band an arm beats, so it is very nearly a re-expression of A2, and
+"affinity predicts ② standing" reduces to "affinity predicts A2" — which sits inside any MDE this
+population supports.
+
+⭐ **What survives untouched is R785's paraphrase measurement**: `coval_core` at **0.4954** against a
+**0.0552** null, nine times chance, and **the only arm in the population that rises above its own
+null**. That remains a fact about the released core; it does not explain clause ②.
+
+**Scope**: 89 arms with criterion text, 10 non-rubric-derived, 6 with q_resolved, 3 sham-free · 968
+joined conversations · verbatim intersection and token Jaccard at {3,4,5} · first release, home judge.
