@@ -23515,3 +23515,37 @@ it does not watch.**
 superseded claim actually survives in one of the 176 is **unmeasured** — the gate's own closing line
 says it covers only corrections registered in it, so **its silence about the 176 is not an acquittal
 of them.** Naming the gap is not the same as finding a defect in it.
+
+## 1312 · the 176 unwatched pre-registrations are clean for 6 of 11 registered corrections, and silent for the other 5
+
+The previous round named a **coverage gap**: `corrections_propagated.py` watches five root documents,
+while **176 per-round `PREREGISTRATION.txt`** go unwatched. **A gap is not a defect**, so it was
+converted into a verdict using the gate's own registered list rather than a new pattern.
+
+| | |
+|---|---|
+| registered corrections in `CORRECTED` | **11** |
+| **patterns proven able to fire** (synthetic plant each) | **6 / 6 written** — every one matched its plant |
+| patterns with **no plant written** | **5** |
+| per-round `PREREGISTRATION.txt` searched | **176** |
+| **superseded forms found** | **0** |
+
+⭐ **ACQUITTAL — for six of the eleven.** The zero is a measurement rather than silence **only where a
+plant fired**: `0.9132` without its caveat, `r14/r20`, *"a further +0.0149 to which items survive"*,
+`+0.102 → −0.042`, *"replicates at −0.058"*, *"filtered at 99.2%"* — six live patterns, 176 files,
+nothing surviving.
+
+⚠ **UNVERIFIED for the other five.** I wrote plants for six and stopped. **A zero from a pattern never
+shown to fire is silence**, and reporting *"0 of 176, clean"* over all eleven would be exactly the
+`a search is an instrument` failure this session has now hit six ways. **The count is 6 acquitted, 5
+unverified — not 11 clean.**
+
+⚠ **And the acquittal is bounded twice more, by the gate's own words**: it covers only corrections
+**registered in it** — *"a correction not added here is invisible to this check, so registering is
+part of correcting"* — so this says nothing about corrections made and never registered. And a
+pre-registration is written **before** a round runs, so the population is one where superseded forms
+were least likely to accumulate. **The clean result is real and it is the easy half of the corpus.**
+
+⭐ **What the round produced**: a coverage gap became a **partial verdict with its scope attached**,
+using the gate's own list as the population and a plant per pattern as the control. **That is the
+cheapest form of closing a gap — no new instrument, and the honest answer was six, not eleven.**
