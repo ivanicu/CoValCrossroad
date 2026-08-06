@@ -460,7 +460,12 @@ prompts. **Mean absolute pool effect 0.0857.** On one correct population R740's 
 within their own SE in all ten cells, so **R738's ten excesses are withdrawn and R740's stand**.
 **Only `indep`↔`topw_k8` survives, at −0.0556 [−0.1008, −0.0116].** **The honest report for the other
 nine is a bound**, and correcting the pool **drops 234 prompts** — a selection on pool size, so the
-surviving population is **not the release**. ⭐ **And the obvious explanation for the
+surviving population is **not the release**.
+⭐ **Maximal power changes nothing** *(R742)*: each cell needs only `4 + k_b`, so the key cell runs on
+**919** prompts, not 734, with SE **0.0138** — and its interval still spans zero. **1 of 10, the same
+one. Nothing newly resolves.** ⭐ **And two of the three standing quantities were never restricted at
+all**: clause ③ is a **name lookup** *(R294:144)* and the extension comes from a census on each arm's
+own population. **The admission count of 3 and the 5-member extension carry no prompt restriction.** ⭐ **And the obvious explanation for the
 negative sign is REFUTED** *(R739)*: the rules do **not** select higher-variance criteria — mean
 variance percentile rank **0.5028 / 0.4677 / 0.5318** against a null of **0.5**, with uniform arms at
 **0.5005 ± 0.0029** and the rule that *does* select on variance ranking first at **0.8528**. Matching

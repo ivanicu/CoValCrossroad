@@ -18656,3 +18656,22 @@ surviving population is not a random subsample of the release and any quantity c
 size is measured on a shifted population. The round reports both pool-size distributions rather than
 assuming exchangeability, and this entry exists so the restriction is not later mistaken for the
 release itself.
+
+## 988 · the scope worry I closed a round with applied to one quantity, not three
+
+The previous round ended by asking whether the pool-size selection contaminates the three things the
+deliverable still asserts. Two of them never touched that population. The provenance clause is a name
+lookup that reads a hard-coded set and consults no prompt, and the extension comes from a census
+computed on each arm's own population rather than from any constructed floor. Only the excesses were
+ever restricted. The worry was real and one third the size I gave it, and stating it at full size in a
+next-step line is how a later round inherits work that does not exist.
+
+## 989 · a global threshold cost a quarter of the sample for no reason
+
+The round that put every cell on one population applied the widest comparison's criterion requirement
+to all of them, so a comparison needing eight criteria was computed on the seven hundred and thirty
+four prompts that can supply twelve. Each cell has its own requirement and its own reachable
+population, up to nine hundred and fifty. Recomputed at maximal power the key cell gains a hundred
+and eighty five prompts and its standard error falls from 0.0162 to 0.0138. Nothing resolves that did
+not before, so the loss cost no conclusions, but a uniform threshold across heterogeneous cells is a
+choice that must be justified rather than defaulted to, and it was not.

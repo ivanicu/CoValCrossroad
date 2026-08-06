@@ -3958,3 +3958,22 @@ label-blind arm, at minus 0.0556 with a ninety five percent interval from minus 
 the two runs differ in their bootstrap draws and the third decimal is the estimator's own noise, not a
 disagreement. The value recorded on the statement is this round's, and both are within the
 Monte-Carlo error each round reports.
+
+## R742 · maximal power resolves nothing new, and two of the three quantities were never restricted
+
+The previous round applied the widest comparison's criterion requirement, twelve, to every cell,
+leaving seven hundred and thirty four prompts throughout. Each cell needs only four plus its own
+reference size: seven, eight, eight, ten and twelve, which against the true candidate set give nine
+hundred and fifty, nine hundred and nineteen, nine hundred and nineteen, eight hundred and fifty nine
+and seven hundred and thirty four prompts. Recomputed at that maximal power the cell the arc turns on
+rises from seven hundred and thirty four prompts to nine hundred and nineteen and its standard error
+falls from 0.0162 to 0.0138, and its interval still spans zero. One of the ten excesses excludes zero,
+the same one as before, and no cell resolves that did not. So the global threshold was not the binding
+constraint and the bounds stand as reported. Separately, the scope worry that closed the previous
+round applied to one of the three quantities rather than all three: the provenance clause is a name
+lookup that consults no prompt, and the extension comes from a census computed on each arm's own
+population, so neither is a function of the restricted set. The admission count is three and the
+extension has five members, both without any prompt restriction. The per-cell figures are not
+comparable across cells because each rests on a different prompt set, which is why the global column
+is recorded beside them and why the ordering gap is left on the global population, where an average
+across cells is defined.
