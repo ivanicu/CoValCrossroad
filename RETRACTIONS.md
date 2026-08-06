@@ -19956,3 +19956,41 @@ result than either world the round registered, and it came from a control rather
 estimand. *A derivation is a claim about a MODEL, and labelling one "forced" says nothing about
 whether the object obeys the model — the only thing that separates them is building the model's world
 and measuring the gap, which is what a positive control is for.*
+
+## 1116 · two rounds of arm-free covariates were computed on criteria no arm uses
+
+R776 built `poolspread` and R777 built `orderdisagree`, both from `sat_genericpool16.npz`, and both
+returned clean nulls. **The pool is PROMPT-BLIND — one identical 16-criterion set for all 968 prompts
+— and no arm draws from it.** `random_k4_s0` uses **3,869** distinct criteria with **zero** pool
+overlap; `topw_k4` likewise **0/968**; and **968/968** of the random arm's sets are subsets of the
+prompt's own **rubric**. **So both nulls were guaranteed by construction: a covariate on criteria
+disjoint from every arm's cannot correlate with those arms' differences.** They were never tests, and
+they are retracted as evidence about prompts. ⭐ This is §4's unit rule, and I had written that rule
+into two consecutive preregistrations while violating it in both: *name the instrument's unit and the
+claim's unit and require them EQUAL*. The instrument's unit was the pool's criteria; the claim's unit
+was the arms' criteria; the intersection is empty. *Checking that took one `set(...) <= set(...)` on
+a committed JSON, and the reason I never ran it is that "the pool" and "the criteria" felt like the
+same object — which is what a unit error always feels like from inside.*
+
+## 1117 · right hypothesis, wrong object — the same statistic gains 3.7x on the correct criteria
+
+R777 concluded that ordering disagreement is not the axis, measuring **+0.0699 to +0.0994** across the
+four random-containing families. Recomputed on the criteria the arms actually draw from, the identical
+statistic gives **+0.3206, +0.3393, +0.3588, +0.3649** — **4 of 4** above 0.30, a **3.7x** gain from
+changing nothing but which criteria it reads. And R777's sharpest line — *"the mechanism recovers 6.5x
+more in simulation than the real arms show"* — is **explained rather than mysterious**: the simulation
+was of the right mechanism on the wrong object. ⚠ R776's `rubricspread` is **still** dead on the right
+object (6/6 below 0.15), so its conclusion survives its own retraction by accident. *Two rounds
+produced the same verdict for two different reasons, and only one of them was a measurement.*
+
+## 1118 · my own forced prediction contradicted its own mechanism, in one sentence
+
+D2, written before the run: *"two k-subset draws from an n-criterion rubric overlap in expectation
+k^2/n, so their difference shrinks as n falls and vanishes at n <= k. **A NEGATIVE correlation between
+`n_rubric` and |d| is therefore partly forced.**"* **If |d| shrinks as n falls then |d| GROWS with n,
+and the forced sign is POSITIVE.** The mechanism and the stated sign contradict each other inside one
+sentence. The synthetic control settles it — **+0.0379, +0.1273, +0.3109** as size variation rises,
+and UNDEFINED at fixed size — and the real families come in at **+0.105 to +0.155**, positive and too
+small to matter (0 of 4 reach 0.30), so draw geometry is refuted regardless of sign. *A derivation
+labelled "forced" gets less scrutiny than a measurement, which is exactly backwards: nobody checks the
+arithmetic of a claim that announces itself as arithmetic.*

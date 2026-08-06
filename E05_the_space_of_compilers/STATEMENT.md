@@ -426,7 +426,19 @@ A **core** for a conversation is a set of criteria such that
     by **0.4–0.7%**. ⭐⭐ **A derivation I labelled FORCED failed by 6.5×**: the same mechanism recovers
     **+0.65** in a synthetic pool where it is the only signal, against **+0.099** in the release. So
     the real `random_k` arms do not behave like random draws from this pool, and **two arm-free pool
-    statistics now fail to explain a co-movement of 0.59–0.72.** And the confound is answered: the
+    statistics now fail to explain a co-movement of 0.59–0.72.**
+    ⛔⛔⛔ **AND BOTH WERE COMPUTED ON CRITERIA NO ARM USES** *(R778)*. The 16-criterion pool is
+    **prompt-blind** — one identical set for all 968 prompts — and **`random_k4_s0` shares ZERO
+    criteria with it**, using **3,869** of its own; **968/968** of its sets are subsets of the prompt's
+    **rubric** (median 15, range 4–39). ⇒ **both nulls were guaranteed by construction and are
+    retracted as evidence.** ⭐⭐ Recomputed on the right criteria, `rubricdisagree` reaches **0.3206,
+    0.3393, 0.3588, 0.3649** — **4 of 4** random families ≥ 0.30, against **0.07–0.10** on the pool,
+    a **3.7×** gain from changing only which criteria the statistic reads. ⚠ `rubricspread` stays dead
+    (6/6 < 0.15) and `n_rubric` reaches 0.30 for **0 of 4**, so draw geometry is not the mechanism.
+    ⭐ Conditioning on `rubricdisagree` drops the co-movement by **9.6%** — 20× what the pool version
+    managed, and **90% of the 0.59 survives**. ⛔ And **`random_k12` is degenerate on 302 prompts
+    (31%)**, where the rubric holds ≤ 12 criteria so the draw is the whole rubric and |d| = 0 by
+    construction — R772's ties seen from the construction side. And the confound is answered: the
     `topw_k` family is an inverted U peaking at **k = 6** (eff/MDE 1.311) with `eff/MDE` falling
     monotonically 6 → 8 → 12, so `topw_k8` is not an anomaly but where the curve re-enters the floor.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own

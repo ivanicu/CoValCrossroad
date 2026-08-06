@@ -5628,3 +5628,34 @@ collapses.
 **Controls.** POSITIVE as above · g=0 undefined at zero, printed as undefined · NEGATIVE 200
 permutations **+0.0011 [−0.0604, +0.0674]** · SHAM random draw from the covariate's own distribution
 **+0.0033 [−0.0657, +0.0662]** · PLACEBO **1.000000**.
+
+## R778 · the covariates were computed on the wrong criterion set
+
+**Scope.** population = 968 prompts; R776's six disjoint families unchanged; instrument = A2 per
+prompt over all annotators, covariates from the prompt's own rubric (`sat_full.npz` /
+`core_full.json`); regime = first release, home judge, this tree_sha.
+
+**Object check.** distinct pool sets across 968 prompts **1** (prompt-blind) · `random_k4_s0` ⊂ pool
+**0/968** · `topw_k4` ⊂ pool **0/968** · `random_k4_s0` ⊂ **rubric 968/968** · distinct criteria used
+**3,869** against the pool's **16**. Rubric size median **15**, range **4–39**.
+
+| family | random? | `n_rubric` | `rubricdisagree` | `rubricspread` |
+|---|---|---|---|---|
+| Ra_random_s0 | RND | +0.1052 | **+0.3206** | +0.1041 |
+| Rb_random_s1 | RND | +0.1549 | **+0.3393** | +0.0653 |
+| Rc_random_s2 | RND | +0.1119 | **+0.3588** | +0.0977 |
+| M_mixed_sel | RND | +0.1289 | **+0.3649** | +0.0742 |
+| F1_committed | — | −0.0181 | +0.2742 | −0.0911 |
+| F3_target | — | −0.0552 | +0.1689 | −0.0612 |
+| **≥ 0.30 among the 4 random** | | **0/4** | **4/4** | **0/4** |
+
+**Degenerate prompts** (`n_rubric ≤ k`, the draw is the whole rubric and |d| = 0): k=4 **3** · k=6
+**18** · k=8 **80** · **k=12 302 (31%)**.
+
+**Conditioning on each covariate**, M × R raw 0.5895–0.6017: `n_rubric` **+1.1%** · `rubricdisagree`
+**+9.6%** · `rubricspread` **+0.4%**.
+
+**Controls.** OBJECT as above (exit 2 otherwise) · POSITIVE synthetic k-subsets, size-spread 0.25 →
++0.0379, 0.50 → +0.1273, 1.00 → **+0.3109**, monotone · g=0 fixed size → **UNDEFINED** · NEGATIVE 200
+permutations **−0.0003 [−0.0552, +0.0667]** · SHAM **+0.0010 [−0.0619, +0.0549]** · PLACEBO
+**1.000000** · CONFOUND corr(`n_rubric`, a baseline arm's A2) **−0.0190**. **WORLD B.**
