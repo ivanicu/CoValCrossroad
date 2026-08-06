@@ -25640,3 +25640,73 @@ the exact-class interval.** It is on disk.
 core. 1351 refuted that and claimed the sign holds. 1352 shows neither claim was ever supported —
 **the same interval contains both stories.** Each step used the best instrument available at that
 moment; each was overturned by a **better instrument, never by a better argument.**
+
+## 1353 · a control that EXPIRES — anchored to fixed commits, evaluated inside a sliding window, dark for ~646 commits
+
+The census counts `next_gradient_labels_its_hypotheses.py` as a standing FAIL. **It is not failing.
+It is dark, and it says so** — *"POSITIVE CONTROL … 0/2 caught … FAIL: a control misbehaved; the
+counts above are silence."* The gate is written correctly; the control underneath it had died.
+
+### ⛔ THE MECHANISM — measured, with the measuring instrument's own control passing
+
+| | |
+|---|---|
+| `N_COMMITS` | **60** — `flagged` is computed over the last 60 commits |
+| control anchors | `a83f458`, `5422ffa` — **fixed historical commits** |
+| `a83f458` depth from HEAD | **707** (`git rev-list --count`) |
+| `5422ffa` depth from HEAD | **706** |
+| my instrument's positive control | a known in-window commit resolves at depth **4** — so "not found" is a depth, not an absence |
+
+⭐ **The control demanded that a 60-commit window contain objects ~707 deep. It has been
+STRUCTURALLY IMPOSSIBLE TO PASS for ~646 commits** — and during all of them the gate refused to
+report, exactly as designed, while the census filed its silence as an ordinary FAIL.
+
+### ⭐⭐ THE CLASS IS NEW — and it is not either of the two already in the register
+
+| existing row | why this is not it |
+|---|---|
+| **a check that cannot fail** | this one *can* fail, and does |
+| **a control that cannot PASS** | that is a threshold set outside the achievable band. **This threshold was achievable.** |
+
+⭐ **A control that EXPIRES.** It could pass, it *did* pass, and then **the population moved out from
+under it.** Nothing about the detector, the threshold, or the claim changed — only the calendar.
+**Tell: the control's anchors are fixed objects while its population is a sliding window.** Remedy:
+fetch the anchors by identity, never through the window.
+
+### ⛔⛔ AND THE FILE HAD ALREADY FOUND THIS BUG — FIFTEEN LINES ABOVE
+
+The `scrolled` block drops frozen entries that leave the window, with its reason stated in full:
+*"counting them as fixed would make this ratchet shrink by the passage of time rather than by work,
+which is the opposite of what every other ratchet means."* **That is this exact defect, diagnosed,
+and corrected for the RATCHET — then left standing in the POSITIVE CONTROL directly below it.** Same
+file, same author, same session. A correction reached the artifact that provoked it and stopped
+there.
+
+### ⭐ REPAIR — and it fires immediately
+
+Anchors now fetched **by hash**, independent of `N_COMMITS`, and run through the **same `offends`
+predicate the gate rules with**, so the control still tests the ruling code rather than a copy. An
+anchor that carries no `NEXT:` block returns **exit 2** — an unreadable anchor is silence about the
+anchor, not a verdict on the detector.
+
+```
+POSITIVE CONTROL  the two NEXT blocks R366 refuted must be flagged: 2/2 caught  PASS
+g=0               cites a round -> not flagged; labelled -> not flagged;
+                  neither -> flagged; word merely MENTIONED -> still flagged.  PASS
+FAIL: 15 NEW unlabelled causal NEXT block(s)
+```
+
+⭐ **And two of the fifteen are `fd99c0f0` and `496a1aba` — entries 1352 and 1351, written by me
+today.** An instrument I resurrected an hour later convicted the rounds that resurrected it. That is
+the strongest evidence available that it is measuring something: **it had no opportunity to be tuned
+to its own author's habits, because its author could not see it.**
+
+⚠ **What this does not claim:** the 15 are *unlabelled*, not *wrong*. The gate's own proxy ledger says
+so — it enforces LABELLING and cannot tell a right explanation from a wrong one. **The number is a
+verdict on form, and reading it as a defect count would be the instrument's-unit-vs-claim's-unit
+error this project has logged before.**
+
+⭐ **The finding worth carrying out of here: the census's FAIL column has been mixing two populations
+— gates that fail because the repo is wrong, and gates that fail because the GATE is blind.** They
+are not the same object and one of them was invisible. `audit_the_auditors.py` timed out at 124 in
+the same sweep; whether other rows are also dark rather than failing is now a live question.

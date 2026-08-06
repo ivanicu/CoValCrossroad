@@ -124,8 +124,32 @@ def main() -> int:
         print(f"    rather than by work, which is the opposite of what every other ratchet means.")
 
     # ---- positive control: it must see the two blocks R366 refuted -------------------------------
-    seen = {h for h, _ in flagged}
-    caught = [k for k in KNOWN_BAD if any(h.startswith(k) or k.startswith(h) for h in seen)]
+    # ⚠ REPAIRED: this control was ANCHORED TO FIXED COMMITS AND EVALUATED INSIDE A SLIDING WINDOW.
+    # `flagged` is computed over the last N_COMMITS=60 commits; a83f458 and 5422ffa are 707 and 706
+    # commits deep. So it demanded a 60-commit window contain objects ~707 deep, and had been
+    # STRUCTURALLY IMPOSSIBLE TO PASS for ~646 commits — during which the gate refused to report
+    # (correctly) and its silence was counted in the census as an ordinary FAIL.
+    # The class is new and is NOT "a check that cannot fail" nor "a control that cannot pass":
+    # this control COULD pass and DID pass, and then THE POPULATION MOVED OUT FROM UNDER IT.
+    # A control that expires. The identical time-dependence was already found and corrected for the
+    # ratchet 15 lines above — `scrolled` drops out-of-window frozen entries precisely so the number
+    # cannot shrink "by the passage of time rather than by work" — and was never applied down here.
+    # Fix: fetch the two anchors BY HASH, independent of the window, and run the SAME `offends`
+    # predicate the gate rules with, so the control still tests the ruling code and not a copy.
+    _pc = subprocess.run(["git", "-C", str(ROOT), "show", "-s", "--format=%b", *KNOWN_BAD],
+                         capture_output=True, text=True)
+    _pc_blocks = []
+    for _k in KNOWN_BAD:
+        _b = subprocess.run(["git", "-C", str(ROOT), "show", "-s", "--format=%b", _k],
+                            capture_output=True, text=True).stdout
+        _m = NEXT.search(_b or "")
+        _pc_blocks.append((_k, _m.group(1) if _m else None))
+    _missing = [k for k, t in _pc_blocks if t is None]
+    if _missing:
+        print(f"\n  POSITIVE CONTROL UNRUNNABLE: {_missing} carry no NEXT: block — the anchor is")
+        print( "    gone, not the detector. Exit 2: an anchor that cannot be read is silence.")
+        return 2
+    caught = [k for k, t in _pc_blocks if offends(t)]
     pos_ok = len(caught) == len(KNOWN_BAD)
     print(f"\n  POSITIVE CONTROL  the two NEXT blocks R366 refuted must be flagged: "
           f"{len(caught)}/{len(KNOWN_BAD)} caught {sorted(caught)}  "
