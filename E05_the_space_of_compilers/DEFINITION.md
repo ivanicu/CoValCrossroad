@@ -525,7 +525,32 @@ defence is contradicted by the elicitation format.**
 >
 > ⭐ **What N1 does measure, and it is worth keeping:** how much of an arm's A2 advantage is
 > **marginal-format agreement** — for clause ②, **14.3 of 99 arms' worth.** A real quantity, wrongly
-> used as a null. The metric is still
+> used as a null.
+>
+> ⛔⛔ **THAT LAST SENTENCE IS REFUTED ONE ROUND LATER, BY A CONTROL BUILT TO CONFIRM IT (entry
+> 1373).** Cohen's **κ** is *defined* to subtract marginal-expected agreement, so *"N1 survives on
+> marginal format"* predicts **κ-extension under N1 ≈ 0**. Pre-registered as R853's key control.
+> **It failed:**
+>
+> | | A2 | **κ** |
+> |---|---:|---:|
+> | REAL | 29 | **30** |
+> | **N1 pair-shuffle** | **14.3** | **15.7** — *rises* |
+> | N2 cross-prompt | 0.0 | **0.0** |
+> | N3 uniform | 0.0 | **0.0** |
+>
+> ⭐ **κ removes the marginal component and the count does not move. So what survives N1 is NOT
+> marginal-format agreement.** R853 exits **2** and reports **no** content-vs-format verdict.
+>
+> ⚠ **What still stands:** the two proper nulls return **0** under κ as well as A2, three seeds each
+> — so **R852's retraction of R850/R851 is unaffected.** N1 remains the wrong null; **why** it is
+> wrong has changed.
+>
+> ⭐⭐ `[HYPOTHESIS — untested]` **N1 is not a null at all but a comparison against a DIFFERENT BUT
+> FIXED target**: permuting the six pairs yields a per-prompt target that no ranking realises, yet is
+> the *same* target for every arm and is still **a function of this prompt**. N2 and N3 give 0
+> because they sever the prompt-level coupling; N1 keeps it. **That is the separation the next round
+> owes.** The metric is still
 > **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
 > that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a

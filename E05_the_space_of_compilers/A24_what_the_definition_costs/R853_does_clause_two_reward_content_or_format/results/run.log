@@ -1,0 +1,13 @@
+  prompts: 1078 · verdict alphabet {-1,0,+1} -> 3x3 confusion
+  arms: 99
+  PLACEBO  comparator vs itself: κ difference is identically 0 by construction  PASS
+  POSITIVE `oracle_k4` satisfies ② under κ: True  PASS
+
+  REAL target: 30 of 99 arms satisfy ② under κ (A2 gave 29)
+  N1_pair_shuffle         15.7   [18, 14, 15]
+  N2_cross_prompt          0.0   [0, 0, 0]
+  N3_uniform               0.0   [0, 0, 0]
+
+  ⭐ KEY CONTROL  κ-extension under the PAIR SHUFFLE must be ≈0 (A2 gave 14.3): 15.7  FAIL
+  UNVERIFIED: κ did not remove the marginal component it is defined to remove, or
+  the positive control failed. Nothing here is readable. Exit 2, never 0.

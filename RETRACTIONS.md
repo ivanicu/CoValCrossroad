@@ -26549,3 +26549,40 @@ something TRUE** — §3's named most-expensive error, *"a cheap attack that app
 ⭐ **What N1 does measure, kept rather than discarded:** how much of an arm's A2 advantage is
 **marginal-format agreement**. For clause ②, **14.3 of 99 arms' worth.** A real quantity, wrongly used
 as a null — which is the same shape as *"the sham is a poison, not a placebo"*, one level up.
+
+## 1373 · R853 — UNVERIFIED, and the control built to confirm R852's mechanism refuted it
+
+**R852 explained the pair-shuffle survivors as marginal-FORMAT agreement.** Cohen's **κ** is *defined*
+to subtract exactly that, so the explanation made a sharp failable prediction — **κ-extension under
+N1 ≈ 0** — and it was **pre-registered as this round's key control.**
+
+### ⛔⛔ IT FAILED
+
+| | A2 (R851/R852) | **κ (R853)** |
+|---|---:|---:|
+| **REAL** | 29 | **30** |
+| **N1 pair-shuffle** | **14.3** `[16,12,15]` | **15.7** `[18,14,15]` — *rises* |
+| N2 cross-prompt | 0.0 | **0.0** `[0,0,0]` |
+| N3 uniform | 0.0 | **0.0** `[0,0,0]` |
+
+Placebo identically 0; positive control `oracle_k4` **PASS**. ⭐ **κ removes the marginal component
+and the count does not move.** ⛔ **So R852's mechanism claim is refuted, and R853 exits 2 reporting
+no content-vs-format verdict.**
+
+### ⚠ WHAT IS RETRACTED AND WHAT STANDS
+
+| claim | status |
+|---|---|
+| R852: *"what survives the pair shuffle is marginal-format agreement"* | ⛔ **RETRACTED** |
+| R852: *"two proper nulls return exactly 0"* | ⭐ **STANDS** — reproduced under κ, 3 seeds each |
+| R852: *"R850/R851's excesses were artifacts of a bad null"* | ⭐ **STANDS** — N1 is still the wrong null; **why** has changed |
+| R853's own content-vs-format verdict | ⚠ **NOT REPORTED** — the kill fired |
+
+⭐⭐ `[HYPOTHESIS — untested]` **N1 is not a null but a comparison against a DIFFERENT BUT FIXED
+target**: permuting the six pairs yields a per-prompt target no ranking realises, yet the *same* one
+for every arm and still **a function of this prompt**. N2/N3 give 0 because they sever the
+prompt-level coupling; N1 keeps it.
+
+⭐ **The round's value is that it could fail and did** — a control designed to confirm an explanation
+refuted it **one round after the explanation was published.** That is the only way a mechanism claim
+in this project has ever been caught: **not by argument, by an instrument that was allowed to say no.**
