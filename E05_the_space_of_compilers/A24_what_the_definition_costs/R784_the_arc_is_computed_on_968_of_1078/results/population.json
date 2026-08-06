@@ -1,0 +1,111 @@
+{
+  "instrument_unit": "a parsed ranking record",
+  "claim_unit": "a prompt",
+  "e1": {
+    "ranked": 1078,
+    "rubricked": 968,
+    "scored": 968,
+    "released": 986,
+    "missing_rubric": 110,
+    "released_unscored": 18
+  },
+  "controls": {
+    "placebo": 0.0,
+    "g0": {
+      "rankings": [
+        -0.10626218478491209,
+        0.10735749099385454
+      ],
+      "flags": [
+        -0.08565665395210845,
+        0.09312486755668578
+      ],
+      "flag_rate": [
+        -0.09801970756516214,
+        0.08592260012714574
+      ]
+    },
+    "dose": {
+      "0.0": {
+        "stat": 0.04000847637211269,
+        "resolves": false
+      },
+      "0.25": {
+        "stat": 0.09133290951472772,
+        "resolves": false
+      },
+      "0.5": {
+        "stat": 0.3816910362364907,
+        "resolves": true
+      },
+      "1.0": {
+        "stat": 0.5746556473829201,
+        "resolves": true
+      }
+    },
+    "negative": {
+      "rankings": [
+        -0.12706517655897825,
+        0.11497793012772363
+      ],
+      "flags": [
+        -0.08958842036063115,
+        0.10286861382419228
+      ],
+      "flag_rate": [
+        -0.09882419233658901,
+        0.0806912096168294
+      ]
+    },
+    "gate": true
+  },
+  "e2": {
+    "rankings": {
+      "mean_a": 16.108471074380166,
+      "mean_b": 25.37272727272727,
+      "med_a": 16.0,
+      "med_b": 17.0,
+      "var_ratio": 395.7956238849989,
+      "rank": 0.05260142749812169,
+      "resolves": false,
+      "mde_mean": 25.39386121255179,
+      "mde_rank": 0.12102155334335093
+    },
+    "flags": {
+      "mean_a": 4.163223140495868,
+      "mean_b": 10.10909090909091,
+      "med_a": 0.0,
+      "med_b": 0.0,
+      "var_ratio": 82.98779292506775,
+      "rank": -0.053014650638617544,
+      "resolves": false,
+      "mde_mean": 19.414706145748095,
+      "mde_rank": 0.09622851709241172
+    },
+    "flag_rate": {
+      "mean_a": 0.34136211164503766,
+      "mean_b": 0.29030561158467455,
+      "med_a": 0.0,
+      "med_b": 0.0,
+      "var_ratio": 0.9850606957160593,
+      "rank": -0.05103305785123968,
+      "resolves": false,
+      "mde_mean": 0.1743392593825734,
+      "mde_rank": 0.08975770097670921
+    }
+  },
+  "e3": {
+    "mde_sd_110": 0.28188967095427186,
+    "mde_sd_18": 0.6664511623556543,
+    "cells": 3,
+    "surviving": 0
+  },
+  "e4": {
+    "coverage": 0.8979591836734694,
+    "axes_resolving": 0,
+    "identified": false,
+    "would_require": "rubrics for the 110 prompts"
+  },
+  "world": "C - UNDERPOWERED: no axis resolves and the MDE is 0.2819 SD, too coarse to exclude a difference that matters",
+  "tree_sha": "19cb8fa2602d58270726dec2ef3930252c11fcbe"
+}

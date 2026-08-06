@@ -20162,3 +20162,33 @@ which is §0's test failed, and the honest report is the narrow statement it doe
 core's ② standing does not rest on its short prompts. *Not a retraction of a number but of a claim's
 weight — recorded because an unlabelled near-determined cell is how the arithmetic trap enters a
 round that is otherwise controlled.*
+
+## 1135 · every scope line in this arc names a sample as though it were the frame
+
+`STATEMENT.md` and every round README report their population as **"968 prompts"**. The ranked corpus
+is **1078**; `core_full.json` covers **968**; **110 ranked prompts, 10.20%, have no rubric**, and no
+filter in this repository produces that drop — the `>=2 rankings` rule removes 0 and absence from the
+sat file removes 0. **The arc's population is 89.80% of the ranked corpus, selected upstream**, and
+no round in this arc has ever said so. *A denominator that never appears cannot be questioned, and
+"968 prompts" reads as a corpus rather than as a sample precisely because the frame was never named.*
+
+## 1136 · this round's own headline was a tail effect and its pre-registered estimator killed it
+
+Check #386 found the excluded 110 carrying **2.4×** the unacceptable flags — mean **10.109** against
+**4.163** — and that difference is what the round was built around. **Both medians are 0, the rank
+statistic is −0.0530, and it sits inside its group-label permutation null of [−0.0896, +0.1029].** The
+variance ratio is **82.99** and one prompt carries **1012** rankings. **D2 fixed the estimand on
+medians and a rank statistic before the statistic ran, on the variance ratio alone** — reporting the
+mean would have published a false claim about the corpus every number in this arc rests on. *The rule
+that saved it is narrow and mechanical: when two groups' variances differ by an order of magnitude,
+the estimator is decided by that ratio and not by which number is more interesting.*
+
+## 1137 · R783's NEXT was an underpowered design and is retracted before being run
+
+R783 closed by proposing to compare the 18 released-but-unscored conversations against the 968 on
+rubric size, conversation length and response count. **With n = 18 the MDE is 0.6665 SD**, so any null
+it returned would have been manufactured by the design — and R783's own text had already called the
+18's size profile "indistinguishable", which at n = 18 it would be almost regardless. *This is the
+third `NEXT` line in five rounds that had to be killed by the check that opens the following round,
+and the pattern is now specific enough to name: a NEXT written from what is INTERESTING rather than
+from what is RESOLVABLE, in the one sentence of a report that carries no control.*

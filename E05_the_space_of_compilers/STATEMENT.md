@@ -1623,3 +1623,32 @@ released core's ② standing does not rest on its short prompts, and it is label
 
 **Scope**: 986 released conversations and 968 scored prompts · JSON list length, distinct criterion
 indices, A2 over all annotators · the 1,820-subset class carries n_eff = 1.1 (R781) · home judge.
+
+## R784 · Every number in this arc is computed on 968 of 1078 ranked prompts
+
+**`load_targets()` returns 1078 prompts with parsed human rankings; `core_full.json` covers 968.
+110 — 10.20% — have no rubric, and no filter in this repository accounts for it**: the `>=2 rankings`
+rule drops **0** and absence from the sat file drops **0**. The arc's population is **89.80% of the
+ranked corpus**, selected upstream of everything this repository does. Every scope line that reads
+"968 prompts" has been naming a sample as though it were the frame.
+
+⛔ **AND THE ROUND'S OWN HEADLINE DIED TO ITS PRE-REGISTERED ESTIMATOR.** The 110 carry **2.4× the
+unacceptable flags** by the mean — **10.109** against **4.163** — and that difference **does not
+resolve**: both medians are **0**, and the rank statistic is **−0.0530**, inside its group-label
+permutation null of **[−0.0896, +0.1029]**. The 2.4× is entirely a tail effect, variance ratio
+**82.99**, one prompt carrying **1012** rankings. ⭐ **D2 fixed the estimand on medians and a rank
+statistic BEFORE the statistic ran, on the variance ratio alone** — had the mean been reported this
+round would have published a false finding about the corpus the whole arc rests on.
+
+⚠ **The verdict is C — UNDERPOWERED, not "no difference".** The design's MDE is **0.2819 SD** (the
+POSITIVE resolves at 0.50 SD and not at 0.25), and 110 is the entire excluded set: reaching 0.20 SD
+needs n = **246**, 0.15 SD needs **545**, 0.10 SD needs **4,149**. **So the character of the excluded
+decile is permanently unresolvable below ~0.28 SD here** — the finding is not that the exclusion is
+harmless but that it cannot be shown to be. And its effect on any clause-② verdict is structurally
+unidentified: no rubric means no rubric-derived arm has criteria there at all.
+
+⭐ **R783's NEXT was killed on arithmetic before it was written**: an 18-vs-968 comparison has an MDE
+of **0.6665 SD**, so its null would have been manufactured by the design.
+
+**Scope**: 1078 ranked prompts · 968 rubricked · 110 excluded · 986 released conversations · parsed
+rankings and `unacceptable` ratings from `comparisons.jsonl` · first release, this tree_sha.

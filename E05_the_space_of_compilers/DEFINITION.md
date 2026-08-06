@@ -5820,3 +5820,34 @@ had already measured 0.9978.
 identical recount · g=0 empty list counts 0, **0** empty cores · POSITIVE injected {0,1,4,39}
 recovered exactly, broken character-counter returns {2,20,80,809} · DUPLICATES **0** ·
 ⛔ NEGATIVE and SHAM **declined in the preregistration** on D2 and D3. **WORLD A.**
+
+## R784 · the population, measured
+
+| set | n |
+|---|---:|
+| ranked (parsed human rankings) | **1078** |
+| rubricked (`core_full.json`) | **968** |
+| scored (this arc's population) | **968** |
+| released conversations | **986** |
+| **ranked WITHOUT a rubric** | **110 (10.20%)** |
+| rubricked without rankings | 0 |
+| dropped by the `>=2 rankings` rule | **0** |
+| dropped by absence from the sat file | **0** |
+| released but never scored | 18 (R783) |
+
+**The 110 against the 968**, three estimators, 3 primary cells, **0 surviving**:
+
+| axis | mean 968 | mean 110 | med 968 | med 110 | var ratio | rank | verdict |
+|---|---:|---:|---:|---:|---:|---:|---|
+| rankings per prompt | 16.108 | 25.373 | 16.0 | 17.0 | 395.80 | +0.0526 | inside null |
+| unacceptable flags | 4.163 | 10.109 | 0.0 | 0.0 | 82.99 | −0.0530 | inside null |
+| flag rate per ranking | 0.341 | 0.290 | 0.0 | 0.0 | 0.99 | −0.0510 | inside null |
+
+**MDE**: this design **0.2819 SD** · R783's proposed n=18 **0.6665 SD** · required n for 0.20 SD
+**246**, 0.15 SD **545**, 0.10 SD **4,149**.
+
+**Controls.** OBJECT 1078 = 968 + 110 exactly, exit 2 otherwise · PLACEBO **+0.000000** · g=0 200
+random 110-subsets: rankings [−0.1063, +0.1074], flags [−0.0857, +0.0931], rate [−0.0980, +0.0859] ·
+POSITIVE 0.00 inside · 0.25 inside · **0.50 RESOLVES** · 1.00 RESOLVES · NEGATIVE group-label
+permutation (**valid here, unlike ledger 1125/1129**) rankings [−0.1271, +0.1150], flags [−0.0896,
++0.1029], rate [−0.0988, +0.0807] · CONFOUND flag rate reported beside the raw count. **WORLD C.**
