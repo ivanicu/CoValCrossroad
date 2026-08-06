@@ -22116,3 +22116,71 @@ silent deletion is visible in the log rather than only in an assert firing three
 R826's halves trained on 484. **This bar's LEVEL is not comparable to R826's**; only its per-prompt
 profile is used here, which is what a correlation needs — but a later round reading the level would
 be reading a different quantity.
+
+## 1273 · the mechanism question R826 opened was answered on disk three days before I asked it
+
+R826 found the response-only bar saturating **on** `coval_core` and named the mechanism question. R827
+spent a full round trying to answer it by correlation and produced **no verdict**. R828 was about to be
+registered on the same axis.
+
+**P4 stopped it.** `corebench/is_importance_recoverable.py` asks the question almost verbatim in its own
+docstring — *"If that quantity is PREDICTABLE from the rubric text and the responses… If it is NOT
+predictable, the gap is structural"* — with feature hygiene, a pre-registered kill, a leaky positive
+control and a shuffled-target negative control. `corebench/learned_core.py` builds the deployable
+fitted rule. **Both were committed 2026-08-03 with artifacts on disk.**
+
+| | |
+|---|---|
+| deployable held-out R², 5 splits | **0.044030 – 0.055475** |
+| Pearson r | 0.211657 – **0.236674** |
+| POSITIVE, leaky | 0.045511 – **0.059883** |
+| NEGATIVE, shuffled target | −0.007808 – +0.001432 |
+| `learned − topw_k4`, 3 splits | **−0.011019 · −0.025482 · +0.002772** |
+| `leaky − topw_k4` | +0.102617 · +0.084711 · +0.120523 |
+
+**So the core is NOT a response-only rule.** Response-side information reconstructs ~5% of the variance
+in what drives its selection, and fitting on it **loses** to an unfitted top-weight rule. R826's
+coincidence is one of level, not mechanism.
+
+⛔ **And the round I would have run was FORCED.** Response-only features are a strict subset of the
+rubric-text + response features these modules admit, so a subset's ceiling is ≤ 0.0555 **by nesting**.
+Running it would have produced a derivation labelled as a measurement.
+
+⭐ **The cost of not checking first: R827 in full, and R828 nearly.** P4's ladder exists for exactly
+this and I reached step L1 only after two rounds had gone by. **The prior-art gate is cheapest before
+the estimand is written, and I keep running it after.**
+
+## 1274 · three consecutive turns I asserted a count about my own repository and was wrong each time
+
+| I said | truth | cost to check |
+|---|---|---|
+| *"a file this arc has never opened"* | **250 files** read `conversation_rubrics.jsonl` | one `grep -rl` |
+| *"986 vs 968 is a gap that needs explaining"* | the joiner **prints its own coverage**: `role_canonical 966, fuzzy>=0.95 2, unmatched 18` | one function call |
+| *"the deliverable cites neither result"* → *"wrong, `0.0555` is in both"* | **neither**; the hit was an unrelated table cell | one anchored search |
+
+⭐ **The third is the instructive one, because the CORRECTION was worse than the claim.** I searched for
+the bare decimal `0.0555`, found it in `coval_core | 4 | 0.0668 | 0.4951 | 0.0555 | +0.4396`, and
+reversed a statement that had been right. §4's *a search is an instrument and has no positive control*,
+committed while writing about that very row. Re-run anchored, with a positive control on values I knew
+were recorded (`0.571263` → 2 hits, `0.566477` → 7), **all seven values from the artifact returned 0**.
+
+**The population these three claims quantify over is my own corpus**, which §4 names as the one I am
+worst at enumerating. The remedy is not vigilance, it is mechanical: **a full-precision anchored search
+with a positive control, or no count.** A bare decimal is not an instrument.
+
+## 1275 · I nearly hand-edited a count that an instrument produced
+
+Folding `importance_recoverable` into the deliverable retires one of the seven artifacts R793 measured
+as never opened. My first draft edited R793's `**7**` down and wrote a corrected list — which came out
+as *"SIX names for five slots"*, a muddle I would have committed.
+
+⛔ **R793's `7` is instrument output**, from a scan of 468 `run.py` files. **Editing it by hand makes
+the text disagree with the instrument that computed it**, and the disagreement is invisible because the
+number still looks computed. The annotation now says the artifact is read and explicitly **does not
+decrement the count**, because the correct repair is to re-run R793's scan — which is a round, not an
+edit.
+
+⭐ **General rule this earns: reading an artifact does not license editing a count nobody recomputed.**
+A number produced by a scan may only be changed by that scan. Anything else is a hand-tally wearing the
+authority of a measurement — the same class as quoting a mean over splits against a per-split floor,
+where the units silently stop matching.

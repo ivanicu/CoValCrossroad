@@ -6190,7 +6190,13 @@ definition.**
 
 **Coverage.** 11 deliberate artifacts (not `sat_`, `sat08_`, `core_`); **4** opened by this arc's 468
 `run.py` files, **7** by none: `ablate_novel`, `dimension_curve`, `importance_recoverable`,
-`similarity_gradient`, `synthetic_world`, `unit_robustness`, `whose_verdicts`. Positive control (R792
+`similarity_gradient`, `synthetic_world`, `unit_robustness`, `whose_verdicts`.
+⭐ **`importance_recoverable` IS NOW READ AND FOLDED IN** — see the closure section at the end
+of this file. ⚠ **The `7` above is NOT decremented here.** R793's count was produced by an
+instrument that scanned 468 `run.py` files; editing the number by hand would make the text
+disagree with the instrument that computed it. The correct repair is to re-run R793's scan,
+which is a round, not an edit. **Reading an artifact does not license editing a count nobody
+recomputed.** Positive control (R792
 found for the file R792 opens) PASS; negative control PASS after repair.
 
 **Derived before measuring.** D1 the `vs FULL` column is deterministic and cannot move — the exact
@@ -7368,3 +7374,63 @@ the kill to the answer.
 **What this fixes in the record regardless:** any future comparison of per-prompt profiles must
 residualise, and must build its difficulty index from arms **excluding both** members of the pair, or
 it is measuring difficulty and calling it structure.
+
+
+## CLOSURE · two artifacts committed 2026-08-03 and never read, folded in — the core is NOT a response-only rule
+
+R826 left the response-only bar saturating **on** `coval_core` and named the mechanism question. **Two
+artifacts already answer it**, both committed 2026-08-03, both on R793's list of seven never opened by
+any of this arc's 468 `run.py` files. This is **CLOSURE**, not a new measurement: nothing was run.
+
+### `corebench/is_importance_recoverable.py` → `importance_recoverable.json` *(`1cbde4ca62843f46`)*
+
+The core selects rubric items by **mean human importance**. Is that quantity predictable from features
+computable **without any human importance data** — satisfaction on the four responses, criterion text
+length, position in the rubric, the prompt's criterion count?
+
+| arm | 5 prompt splits |
+|---|---|
+| **deployable held-out R²** | 0.046610 · 0.053298 · **0.055375** · 0.044030 · **0.055475** |
+| Pearson r | 0.211657 – **0.236674** |
+| **POSITIVE, leaky** (adds importance sd) | 0.045511 – **0.059883** |
+| **NEGATIVE, target shuffled** | −0.007808 – **+0.001432** |
+| PLACEBO, importance from importance | R² exactly 1 |
+
+**WORLD A — partially recoverable, held-out R² ≤ 0.0555.**
+
+⚠ **The positive control's band is narrow and must be stated, not glossed.** Leaky exceeds deployable
+by only **+0.0015 to +0.0044** (5 of 5 splits, consistent in sign but tiny). Floor ≈ 0, ceiling ≈ 0.06,
+deployable 0.0555 — **the deployable arm reaches ~92% of what the leaky arm reaches.** ⭐ The binding
+limit is therefore **not feature hygiene**: mean importance is only ~5% predictable *at all* from text
+and satisfaction, and leaking the target's own dispersion barely moves it.
+
+### `corebench/learned_core.py` → `learned.json` *(`9b027237d67d59e9`)*
+
+A ridge fit over 8 deployable features → top-4 selection, evaluated on **held-out prompts**, against
+unfitted `topw_k4`. Exact-class agreement, 3 splits:
+
+| arm | splits |
+|---|---|
+| **LEAKY** (target-derived usefulness) | 0.241736 · 0.210744 · 0.206612 |
+| `topw_k4`, unfitted | 0.117769 · 0.115702 · 0.117769 |
+| **learned, deployable** | 0.107438 · 0.109504 · 0.101240 |
+| shuffled coefficients | 0.053719 · 0.051653 · 0.095041 |
+| PLACEBO, fit on test | 0.109504 · 0.092975 · 0.107438 |
+
+**`d_learn_topw` = −0.011019 · −0.025482 · +0.002772** — the fitted deployable rule does **not** beat
+the unfitted one, and is worse in 2 of 3 splits. **`d_leak_topw` = +0.102617 · +0.084711 · +0.120523**,
+so the pipeline is validated: a leaky arm clears `topw_k4` by ~0.1 and the honest arm does not.
+
+⭐ **WORLD B, in that round's own words: *"importance alone is the best deployable rule found, and the
+benchmark's answer is that the trivial rule is the answer."***
+
+### What this settles for R826's open question
+
+**`coval_core` sits at the response-only ceiling, and it is not a response-only rule.** Deployable
+features reconstruct **~5%** of the variance in the quantity driving its selection, and fitting on them
+**loses** to a hand-built top-weight rule. The coincidence of level is not a coincidence of mechanism.
+
+⚠ **Bound on this claim**: both artifacts admit **rubric-side** features (criterion text, position,
+count), which is a *superset* of the response-only class clause ④ names. A response-only predictor is
+nested inside them, so its ceiling is ≤ 0.0555 **by nesting, not by measurement** — a derivation, and
+the reason no further round was run on this axis.

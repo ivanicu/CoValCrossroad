@@ -3036,3 +3036,46 @@ an arm's name implies — pairs at ≥ 0.5 overlap are the ones with content to 
 `R827_is_the_coincidence_structural_or_difficulty/results/structural_or_difficulty.json` for the null
 and the four controls as run. Re-register on that basis and re-run; the estimand and the difficulty
 index need no change.
+
+---
+
+## CLOSURE · the released core is not a response-only rule — two artifacts, read three days late
+
+R826 left `coval_core` sitting **on** the response-only ceiling and named the mechanism question. It
+was already answered on disk. **Nothing was run for this section; it is closure.**
+
+**The core selects rubric items by mean human importance. That quantity is ~5% predictable without
+human importance data** — held-out R² **0.044030 – 0.055475** over 5 prompt splits, Pearson r **0.211657 –
+0.236674**, against a shuffled-target null of **−0.007808 – +0.001432**.
+
+⚠ **And the positive control's band is narrow**: the leaky arm, which is handed the importance sd,
+reaches only **0.045511 – 0.059883** — it clears the deployable arm by **+0.0015 to +0.0044**, consistent
+in sign across 5 of 5 splits but tiny. **The deployable arm reaches ~92% of the leaky ceiling**, so
+the binding limit is not feature hygiene: mean importance is barely predictable at all.
+
+**And fitting on deployable features does not help.** A ridge over 8 such features, top-4 selected,
+scored on held-out prompts: **`learned − topw_k4` = −0.011019 · −0.025482 · +0.002772** — worse in 2 of 3
+splits than the *unfitted* rule. The pipeline is validated by its own leaky arm, which clears `topw_k4`
+by **+0.102617 · +0.084711 · +0.120523**.
+
+⭐ **So the coincidence R826 found is one of level, not of mechanism.** `coval_core` reaches the
+response-only ceiling, and response-only information reconstructs about a twentieth of what drives its
+selection.
+
+⚠ **Bound, and it is a derivation not a measurement**: both artifacts admit **rubric-side** features
+(criterion text, position, count), a *superset* of the response-only class clause ④ names. A
+response-only predictor is nested inside them, so its ceiling is **≤ 0.0555 by nesting**. That is why
+no further round was run on this axis.
+
+**Scope** · 968 prompts · 5 splits (recoverability) and 3 splits (learned rule), both split **by
+prompt** · instrument: ridge, held-out · artifacts `1cbde4ca62843f46` and `9b027237d67d59e9`, both
+committed 2026-08-03.
+
+## NEXT
+
+Both artifacts were on R793's list of seven that **no** `run.py` in this arc had opened, and they sat
+unread for three days while two rounds tried to answer their question by correlation. See
+`corebench/results/importance_recoverable.json` and `learned.json`. **Five items on that list remain
+unread**, and the count itself is R793's instrument output rather than a hand tally — re-run that scan
+before quoting a new number. The next round opens the remaining artifacts before designing anything
+new, because this arc has now twice built an experiment whose answer was already committed.
