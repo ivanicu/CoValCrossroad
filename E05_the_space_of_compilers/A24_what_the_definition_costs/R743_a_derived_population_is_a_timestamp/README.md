@@ -1,8 +1,14 @@
 # R743 · a derived population is a timestamp — and the expiry is at the root, not in the rows
 
+> ⛔ **CORRECTED BY R744, THE ROUND AFTER THIS ONE** *(ledger 995, 996)*. The headline below first
+> said *"11 of the remaining 16 never load an arm artifact"*. The artifact says **6 `NO_ARMS` + 5
+> `NONE`** — the 11 is their sum and means *no identifiable population*. **And the 6 is an upper
+> bound**: following named cache edges, **5 of those 6 reach the arm store**, only `R558` does not.
+> `NO_ARMS` measured **files**; the sentence asserted **rounds**.
+
 **The claim table's one population constant, `R294's 41 arms`, is inherited by rounds that mostly do
-not establish it: of the 18 rounds the ten rows cite, 2 carry no code and 11 of the remaining 16 never
-load an arm artifact. Only 5 have an arm population and 4 of those hand-enumerate it. The single round
+not establish it: of the 18 rounds the ten rows cite, 2 carry no code and 11 of the remaining 16 name
+no arm population in their own source. Only 5 have an arm population and 4 of those hand-enumerate it. The single round
 that DERIVES one is R294 itself — the round the constant is named after — and its glob returns 101
 files today against the stated 41. ⛔ I registered ≥60% of citing rounds would glob; the measured
 figure is 20%, outside my own band.**
@@ -105,8 +111,10 @@ from a source search — it needs the construction step, not a pattern.
 
 ## the sentence I can no longer write
 
-*"the ten claim rows hold over R294's 41 arms."* Eleven of the sixteen with code never touch an arm
-artifact; the constant is inherited, and its source no longer returns 41.
+*"the ten claim rows hold over R294's 41 arms."* Eleven of the sixteen with code name no arm
+population in their own source; the constant is inherited, and its source no longer returns 41.
+⛔ *"six of them never touch an arm artifact"* is also now unwritable — R744 reaches the store from
+**5 of those 6** through named cache edges.
 
 ## NEXT
 
@@ -118,4 +126,6 @@ that reads a persisted summary of it. R728's README records that the rounds from
 R294's persisted summary rather than the sat store, so *paths opened* is the population that decides
 whether a row is grounded in the object, and it is readable from the same ASTs parsed here.
 The quantity to register is the share of the ten rows whose supporting rounds open the arm store —
-measured, not assumed, since this round found 11 of 16 opening no arm artifact.
+measured, not assumed, since this round found 11 of 16 naming no arm population in their own source.
+⛔ **R744 ran exactly this and inverted it**: the flat detector is blind to indirection, and 5 of the
+6 `NO_ARMS` rounds reach the store through a cache they name.

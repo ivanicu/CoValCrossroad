@@ -4051,7 +4051,75 @@ so the computed `true` was algebra, not evidence. It prints `UNINFORMATIVE`.
 **Verdict.** `WORLD A` on the registered threshold (`f ≤ 0.25`): the constant is a scope for the rows.
 **But the shape none of the three worlds named is the finding**: the constant's *source* is derived and
 expired (`sat_*.npz` → **101** today vs the stated **41**) while its *inheritors* are stable, and **11
-of 16** cited rounds with code establish no arm population at all.
+of 16** cited rounds with code name no arm population in their own source — **6** naming no arm
+artifact and **5** naming one without a classifiable population.
+
+> ⛔ **CORRECTED BY R744** *(ledger 995, 996)*. This paragraph first read *"establish no arm population
+> at all"*, and the block above reported the 6 as a count. Following named cache edges, **5 of the 6
+> reach the arm store**; only `R558` does not. **The 6 is an upper bound on a FILE-level property, and
+> the sentence asserted a ROUND-level one.**
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 12345, **both writes confirmed to disk
 before the comparison ran**. No rng in the design.
+
+## R744 · is `NO_ARMS` a measurement or silence? — the bound on R743's central count
+
+**Question.** R743 reported 6 cited rounds as `NO_ARMS` — loading no arm artifact — from a **regex over
+each round's own file**. Its positive control validated the `DERIVED`/`TYPED` split *among rounds that
+already pass that gate*, and never asked whether the gate can MISS.
+
+**Estimand.** Among those 6, how many reach the arm store through a static path the flat regex cannot
+see (a local import, or a cache written by a store-reading round).
+
+**Identification — PARTIAL, so the answer is a BOUND.** Transitive closure only ADDS reach, so it
+lower-bounds the reachers and upper-bounds `NO_ARMS`. Non-reachability is not establishable statically.
+R650 already measured the general resolution question undecidable (**172 of 364** read sites resolve);
+this round asks only the binary a bound can answer.
+
+**The grid — 4 levels × 3 populations.**
+
+| level | NO_ARMS(6) | all cited(16) | complement(404) |
+|---|---|---|---|
+| **L0** own file *(= R743's detector)* | **0/6** | 10/16 | 142/404 |
+| **L1** + locally imported modules | **0/6** | 10/16 | 145/404 |
+| **L2 tight** + caches naming their round dir | **5/6** | 15/16 | 165/404 |
+| ⛔ L2 loose *(uncontrolled, for contrast)* | 6/6 | 16/16 | 259/404 |
+
+⛔ **`L0 ≤ L1 ≤ L2` is FORCED** — each level is a superset. **A derivation.** Only the gain is measured.
+
+**Per round.** `R519, R520, R529, R530, R534` gain at L2-tight; **`R558` does not.**
+
+**Registered against measured.**
+
+| | registered | measured | |
+|---|---|---|---|
+| P1 reach at L1 | 2, band [0, 5] | **0** | in band, point wrong |
+| P2 reach at L2 tight | 3, band [0, 6] | **5** | in band, point wrong |
+| P3 L0 reproduces R743 | 16/16 (hard) | **16/16** | ✓ |
+| P4 cited rounds with an import edge | ≥ 5 | **8** | ✓ |
+| **D** gainers carry an import edge | true | **false** | ⛔ mechanism refuted |
+
+⭐ **The directional failing is the finding.** Imports contribute **0** to the gain in every cell; the
+tree shares data through **artifacts**, not through code.
+
+**Controls — 6 PASS, 0 FAIL.**
+
+| control | returned |
+|---|---|
+| **POSITIVE** | R294's `sat_` literals moved into an imported constant → flat goes **blind**, L1 still reaches; refactor **asserted to parse**; band computed `True → True` |
+| **g=0** | a store-free helper adds **no** reach — the detector counts data, not edges |
+| **NEGATIVE** | import graph emptied → L2 equals L0 on **16/16** exactly |
+| **SHAM** | ingredient **absent**: L1 gain on the 8 import-free cited rounds = **0** |
+| **PLACEBO** | L0 recomputed differs by exactly **0** |
+| **P3** | L0 is R743's instrument, not a lookalike |
+
+⛔ **Both of this round's own instruments were broken first** — a positive control whose refactor did
+not parse *(ledger 997)*, and an L2 cache detector matching by basename across **155** round
+directories, which would have printed **6/6** *(ledger 998)*.
+
+**What it retracts.** R743's *"11 of 16 never load an arm artifact"* → **6 name none + 5 name one
+without a classifiable population** *(995)*; the 6 → **an upper bound**, ≥5 of 6 reach the store
+*(996)*; `NO_ARMS` as a round property → **a file property**.
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 99, **both writes confirmed to disk**
+before the comparison ran (3384 and 3385 bytes, differing only in the recorded seed).

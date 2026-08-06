@@ -86,11 +86,25 @@ converge:**
 | **baseline** | ⛔⛔ **AND THE COMPARATOR ITSELF CANNOT BE REBUILT FROM THIS REPOSITORY** *(R605)*. `sat_genericpool16.npz` sits in `corebench/results/` and **no script in the tree writes it** — nor do **98 of 101** scored `sat_*.npz` artifacts. **The construction step lives outside this repository**, so the page's description of ②'s baseline cannot be checked against how it was actually assembled. ⚠ **Upper bound, and the instrument is weak**: indirect construction is invisible to it and it found only **3** builders in total, so 97% is what a proven-able-to-see detector reports, not what a proven-sensitive one does. ⚠ **Not specific to ②** — it is a property of the whole scored evidence base. ⭐ And R454's own docstring distinguishes the objects: *"`genericpool16` k=16 on all 968 prompts; `full` is the RUBRIC (prompt-SPECIFIC)"*. — ⚠ **THE NAME BELOW APPEARS IN NO SCORING ARTIFACT** *(R604)* — `POOL[0:4]` occurs in **2** artifacts, both **register/scope audits of this page**, and as a JSON **key** in **0**. The rounds that scored ② record the comparator as **`sat_genericpool16[:4]`**, a key in **13** scoring artifacts across R391·R392·R426·R449·R477·R479·R485·R499. **No artifact contains both names**, so whether they denote the same arm is `UNVERIFIED` from names alone — it needs the scorer, not a search. The percentile **93.7** was computed against the `genericpool16` label. — ②'s comparator is **`POOL[0:4]` by file order**, at **percentile 93.7** of its 1,820-subset class. ⚠ **The extension moves 4 → 8 across that class** — so every count is baseline-conditional too |
 | **regime** | k=4 unless the row says otherwise · held-out annotator · **one release — the HOME release, and this is now measured rather than assumed** *(R601)* |
 
-⛔⛔ **AND 11 OF THE 16 CITED ROUNDS WITH CODE ESTABLISH NO ARM POPULATION OF THEIR OWN** *(R743)*.
+⛔⛔ **AND 11 OF THE 16 CITED ROUNDS WITH CODE NAME NO ARM POPULATION IN THEIR OWN SOURCE** *(R743)*.
 The ten rows cite **18** distinct rounds; **2** carry no `run.py` at all (**R580, R581**), and of the
-16 that do, **11 never load an arm artifact**. Only **5** have an identifiable arm population, and
-**4 of those 5 hand-enumerate it** — `R523, R528, R533, R535`. **The population row above is
-inherited, not re-established**, by most of what cites it.
+16 that do, **6** name no arm artifact in their own file and **5** name one without a classifiable
+population. Only **5** have an identifiable arm population, and **4 of those 5 hand-enumerate it** —
+`R523, R528, R533, R535`. **The population row above is inherited, not re-established**, by most of
+what cites it.
+
+> ⛔ **RETRACTED WORDING, ONE ROUND LATER** *(R744, ledger 995)*. This block first read *"11 never
+> load an arm artifact"*. The artifact says **6 `NO_ARMS` + 5 `NONE`**; the 11 is their sum and means
+> *no identifiable population*, which is weaker. My script printed the right words and I transcribed
+> the wrong ones into prose.
+> ⛔⛔ **AND THE 6 IS ITSELF AN UPPER BOUND, NOT A COUNT** *(R744)*. R743's detector is a regex over
+> each round's **own file**. Following named cache edges, **5 of the 6 reach the arm store** through a
+> cache written by a store-reading round — only **`R558`** does not. **`NO_ARMS` measured FILES and
+> the sentence asserted ROUNDS.** The controls that establish this: a real refactor of R294 that moves
+> its `sat_` literals into a helper makes the flat detector go **blind** while the transitive one does
+> not; an emptied import graph returns the transitive detector to the flat one on **16 of 16**.
+> ⚠ The bound is one-directional — static closure can only ADD reach, so **≥5 of 6** is what stands
+> and non-reachability is not establishable here without execution tracing.
 
 ⭐ **The expiry is at the ROOT, not in the rows** *(R743)*. The one cited round that DERIVES its
 population is **R294** — the round the constant is named after — and its glob is `sat_*.npz`, which

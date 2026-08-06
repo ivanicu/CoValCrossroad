@@ -18726,3 +18726,47 @@ derived round and four typed rounds, separability is forced: a single point is s
 set. The line was a derivation wearing the clothes of a control, and it would have appeared in the
 report as the confound being ruled out. It now prints uninformative and states that the confound is
 uncontrolled, which is the honest reading and leaves the work undone rather than pretending it is not.
+
+## 995 · I transcribed my own output into a stronger sentence than it said
+
+The round before this one printed that eleven of sixteen cited rounds have no identifiable arm
+population, a figure made of six that name no arm artifact and five that name one without a
+classifiable population. The statement amendment, the round readme and the pushed commit body all say
+the eleven never load an arm artifact. That is a different and stronger claim, and nothing computed it.
+The script chose its words correctly and the prose did not, which is the failure that no gate in this
+tree can see because both sentences are about the same number.
+
+## 996 · the count I published was a property of files and I asserted it of rounds
+
+The six rounds reported as loading no arm artifact were classified by a regex over each round's own
+source file. Following the cache paths those rounds name, five of the six read a file written by a
+round that does load the store, so the six is an upper bound on a file level property and was
+published as a round level count. The instrument's unit and the claim's unit were different strings
+and I never required them to be equal, which is the remedy an earlier session wrote down after being
+burned by exactly this and which I did not apply to my own headline.
+
+## 997 · my positive control failed on its own construction, in the same session as the last one
+
+The control moved the store touching lines out of a real round to demonstrate that the flat detector
+goes blind under indirection. Deleting those lines left a file that does not parse, so the import
+resolver found nothing and the control reported failure of the detector when what had failed was my
+refactor. Repaired by substituting the literals into an imported constant, which keeps the code valid,
+and by asserting that the refactored source parses before the control is allowed to mean anything. A
+control that passes or fails on unparseable input is void in both directions.
+
+## 998 · the cache detector I built to attack a loose search was itself a loose search
+
+The second level of the reachability instrument matched any npz or json literal by basename against
+every round directory. Shared basenames made one literal resolve to a hundred and fifty five
+directories, and every round under test reached the store through files it never names. The headline
+would have been six of six. Requiring the literal to carry the round directory component gives five of
+six, and both columns are now printed so the distance between a tested and an untested pattern is on
+the page rather than in my confidence.
+
+## 999 · my registered directional was wrong about the mechanism, not just the size
+
+I registered that any round gaining reach under transitive closure would carry a local import edge,
+because indirection through imports was the blindness I had in mind. No round gained through an import
+at all; the gain is entirely through named cache files, and imports contributed nothing. The bound
+holds and the mechanism I predicted for it does not, which is worth more than the bound because it
+says the tree shares data through artifacts rather than through code.
