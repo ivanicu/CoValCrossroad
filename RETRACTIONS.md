@@ -18897,3 +18897,29 @@ I nearly reported that the extension is five objects under both identity rules a
 reassuring measurement. Its five members already sit in five distinct classes under the coarser rule,
 and a refinement cannot merge what is already separate, so the outcome was forced before any code ran.
 It is asserted in the script as a consistency check and is excluded from the round's findings.
+
+## 1015 · my own round under-counted its population with a single pattern, one round after I wrote that down
+
+The previous round enumerated the deliverable's object counts with one regular expression and reported
+a share of the three sentences it matched. A slightly looser pattern over the same page matches five,
+including the claim row that says the third clause misses two distinct objects. The row about a search
+being an instrument with no positive control is in the standard I load every round, I quoted it while
+building the previous round, and I then used a single untested pattern to define a population. The fix
+is three patterns with the disagreement printed rather than resolved by preference.
+
+## 1016 · three of the five object counts on the page cannot be traced to the round that computed them
+
+Two resolve, and to different cells of the identity grid. The remaining three do not. Two of them sit
+in sentences that carry no citation at all, so no amount of instrument improvement can attribute them.
+The third cites a round whose source holds no identity relation, and the row in question cites three
+rounds of which the resolver reads the first. So that row's cell depends on which citation a reader
+follows, and calling it untraceable is a statement about my resolver rather than about the row.
+
+## 1017 · the blindness I built the instrument to defeat never occurred
+
+I anticipated that rounds importing their identity relation from another round would defeat a source
+scan, because two of my own recent rounds do exactly that, and I built import following to handle it.
+Zero of the resolved rounds import. The three failures have a different cause entirely, which is
+missing citations, and the elaborate part of the instrument contributed nothing to the result. The
+anticipation was correct as a limitation and wrong as a diagnosis, and a design that defends against
+the failure mode you can imagine will still meet the one you did not.

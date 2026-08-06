@@ -1,0 +1,152 @@
+R749 · which cell of the identity grid did each object-count claim come from?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R748 established that the deliverable's object counts sit in an 8-cell grid --
+{raw cells, aggregated vectors} x {full overlap, subset} x {56 tags, 93 tags} -- and that the two
+counts the page states come from DIFFERENT cells. It closed by proposing that each object-count
+claim be traced to the cell its computing round used.
+
+⛔ AND IT LEFT A DEFECT IN ITS OWN INSTRUMENT, WHICH THIS ROUND FIXES FIRST. R748's E2 enumerated
+claims with the single pattern `(\d+) tags? are (\d+) objects?`, which matches THREE assertions.
+A looser pattern over the same page matches FIVE: the counts `2` (claim row 8, "③'s implementation
+misses 2 distinct objects"), `46`, `81`, `4` and `10`. So R748's `P5 = 2` was a share of a
+population its own pattern under-counted -- §4's "a search is an instrument and has no positive
+control", committed by me one round after quoting it.
+
+--------------------------------------------------------------------------------
+ESTIMAND
+--------------------------------------------------------------------------------
+E1  the number of object-count assertions on STATEMENT.md, under three patterns of increasing
+    looseness, with the disagreement between patterns reported rather than resolved by preference.
+E2  for each assertion, the CELL of R748's grid -- quantity x rule x population -- used by the round
+    that computed it, or UNRESOLVED.
+E3  how many distinct cells the page's object counts descend from.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1 EXACT given a pattern; the pattern IS the instrument, so three are run and all three reported.
+E2 PARTIALLY IDENTIFIED, and the limit is named before it is measured:
+
+   ⚠ GAUGE TEST. Reading a relation out of a round's own source is BLIND to an IMPORTED relation.
+   R747 and R748 both import `same()` from R730 and R524 -- a source scan of their files finds no
+   relation at all. So the resolver must follow repo-local imports, and any round whose relation
+   still cannot be located returns UNRESOLVED rather than a default. The share of computing rounds
+   that IMPORT rather than DEFINE is measured, not assumed.
+
+E3 follows from E2 and inherits its bound.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  EVERY object-count assertion on STATEMENT.md -- a CENSUS of a small population, not a
+            sample. There is no sampling uncertainty and no power to generalise; both are stated.
+instrument  three regex patterns + citation resolution + AST import following
+baseline    R748's 8-cell grid, committed
+regime      the page and the tree at this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · ONE CELL. Every resolved object count descends from the same quantity/rule/population, the page
+    is internally consistent, and it needs one sentence naming the cell.
+B · MULTIPLE CELLS. Rows are not comparable with one another; each must carry its cell, and any row
+    that compares two counts from different cells is comparing different quantities.
+
+PREDICTION MATRIX -- distinct cells among resolved assertions
+    A -> 1            B -> >= 2
+
+--------------------------------------------------------------------------------
+⚠ SIGHTED, DECLARED BEFORE REGISTERING
+--------------------------------------------------------------------------------
+While checking that R748's pattern under-counted, I ran the three patterns and saw 3 / 5 / 48 and
+the medium pattern's values ['2','46','81','4','10']. So E1 is SIGHTED and no blind prediction is
+registered for it. Third declared sighting in five rounds; declaring costs nothing and hiding one is
+an unavailability claim in the flattering direction.
+
+--------------------------------------------------------------------------------
+REGISTERED POINTS -- each independently failable
+--------------------------------------------------------------------------------
+P1  ⚠ SIGHTED  assertions under the medium pattern                     3 / 5 / 48 across patterns
+P2  BLIND      distinct cells among RESOLVED assertions                registered 2   [1, 4]
+P3  BLIND      assertions that resolve to a cell at all                registered 3   [0, 5]
+P4  BLIND      computing rounds that IMPORT their relation rather
+               than define it in their own source                      registered 2   [0, 10]
+P5  BLIND      assertions whose citation names a round with no
+               `results/*.json` at all                                 registered 0   [0, 5]
+
+DIRECTIONAL, separately failable
+D   the assertions that fail to resolve are exactly the ones whose computing round IMPORTS its
+    relation. If an assertion fails to resolve while its round defines its relation locally, the
+    resolver is failing for a reason other than the blindness named in the gauge test.
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+FORCED and labelled derivations, not evidence:
+  - loose_count >= medium_count >= tight_count ALWAYS, by construction of the patterns. The ORDER
+    is algebra; only the SIZES of the gaps are measurements.
+  - E3 <= E2's resolved count, trivially. Reporting "fewer cells than assertions" is not a finding.
+  - a CENSUS has no confidence interval. Any interval around these counts would be manufactured,
+    and none is reported.
+
+STRONGEST CONFOUND, written BEFORE the run: an assertion may cite a round that merely REPEATS a
+number computed elsewhere, so the resolver would attribute the cell of the citing round rather than
+of the computing one. CONTROL IN THE SAME ITERATION: for each resolved assertion, check whether the
+cited round's own artifact CONTAINS the value; if it does not, mark the attribution SECOND-HAND and
+report it separately rather than folding it into E3.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE resolves two known assertions to their known cells, and g=0 returns UNRESOLVED on an
+assertion citing nothing, and NEGATIVE changes the cells when the citation map is scrambled:
+        E3 == 1   -> WORLD B KILLED. The page is one-celled; one naming sentence suffices.
+        E3 >= 2   -> WORLD A KILLED. Every object-count row carries its cell from here on.
+        E3 == 0   -> UNVERIFIED, not World A. Nothing resolved means the resolver is unfit, which
+                     is not the same as the page being consistent.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE   two assertions whose cell is known independently of this resolver, from R748's committed
+           grid: `46` -> [raw cells x full overlap x 56] via R524, and `81` -> [aggregated vectors x
+           subset x 93] via R730. BOTH must resolve, and to DIFFERENT cells. BAND, COMPUTED: floor =
+           a resolver returning one constant cell (cannot separate them), ceiling = 2 distinct
+           cells. The threshold is "both correct AND distinct", unreachable at the floor by
+           construction and asserted in code.
+g=0        an assertion with no `(R###)` citation anywhere in its sentence must return UNRESOLVED,
+           never a default cell. A default would manufacture World A by making everything agree.
+NEGATIVE   scramble the assertion -> round map by rotation. The assigned cells must change.
+           World excluded: "the resolver assigns cells from the number rather than from the round".
+SHAM       the same operation with the INGREDIENT ABSENT, not inverted. Ingredient = the round
+           having a relation to read. Run the resolver on rounds that define and import NO identity
+           relation; it must return UNRESOLVED for every one, not a cell.
+PLACEBO    resolve the same page twice -> exactly 0 differing assignments, reported as 0 of N.
+NOISE      no rng. The variance is the PATTERN choice, and three are swept.
+UNIT       instrument unit = a regex MATCH in the page's text; claim unit = an ASSERTION a reader
+           would act on. NOT equal -- one sentence can carry two matches, and a match inside a
+           retraction block is not a live assertion. So matches are de-duplicated per sentence and
+           matches inside blocks marked RETRACTED are counted separately, never merged in.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+3 patterns x {assertions, resolved, distinct cells} = 9 reported quantities, plus the second-hand
+attribution split. Survivors and non-survivors alike.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+which cell is CORRECT             an external criterion for object identity; R730's residue says
+                                  the same and this round assigns rather than adjudicates
+assertions that rest on an object
+count without naming one          reading intent out of prose; reported out of scope, never
+                                  assumed consistent
+generalising beyond this page     more than one deliverable; this is a census of five
+independently replicated          a second team; the session prompt forbids dispatching agents

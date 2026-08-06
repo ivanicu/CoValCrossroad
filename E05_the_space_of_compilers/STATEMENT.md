@@ -127,6 +127,22 @@ signs, and both are right about different things.**
 **Where a row departs from this table it says so in its own scope cell.** The table carries what is
 constant; the cell carries what varies. **That is the shape the column was missing.**
 
+⛔⛔ **AND THREE OF THE FIVE OBJECT COUNTS ON THIS PAGE CANNOT BE TRACED TO A COMPUTING ROUND** *(R749)*.
+Censused under three patterns — **3 / 5 / 50** sentences at tight / medium / loose, so an earlier
+single-pattern count was over an under-counted population *(ledger 1015)*:
+
+| count | cites | cell of R748's grid |
+|---|---|---|
+| **46** | R524 | `raw cells × full overlap` — relation defined in its own source |
+| **81** | R730 | `agg vectors × subset` — relation defined in its own source |
+| **2** *(row 8: ③ misses 2 distinct objects)* | R520, R523, R525 | ⛔ **UNRESOLVED** — R520 holds no identity relation, and the row's cell depends on **which of its three citations** a reader follows |
+| **4** *(the target-reading tags are 4 objects)* | — | ⛔ **UNRESOLVED — the sentence cites nothing** |
+| **10** *(13 tags are 10 objects)* | — | ⛔ **UNRESOLVED — the sentence cites nothing** |
+
+⭐ **The two that resolve come from DIFFERENT cells**, which is R748's finding at the claim level.
+⚠ **`4` and `10` need a citation, not a better instrument.** ⚠ **Row 8 needs its cell chosen**, since
+rotating the citation the resolver reads changes **2 of 5** assignments.
+
 | # | claim | scope it holds over |
 |---|---|---|
 | **1** | The definition is **② ∧ ③**. ① and ④ are retired — neither excludes anything ② has not *(R519)* | R294's 41 arms, home judge, 968 prompts |

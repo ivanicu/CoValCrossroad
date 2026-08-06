@@ -4402,3 +4402,64 @@ ones they claim to be.
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 98765, **both writes confirmed to
 disk** (1,905 / 1,909 bytes, differing only in the recorded seed).
+
+## R749 · which cell did each object-count claim come from?
+
+**Question.** R748 established an 8-cell identity grid and that the page's two headline counts sit in
+different cells. Which cell does *each* object-count claim descend from?
+
+**⛔ First, a defect in R748's own instrument** *(ledger 1015)*. It enumerated claims with one pattern
+matching **3** sentences; a medium pattern matches **5**. Its `P5` was a share of an under-counted
+population — §4's *a search is an instrument*, one round after quoting it.
+
+| pattern | sentences | live | in a retracted block |
+|---|---|---|---|
+| tight *(R748's)* | 3 | 3 | 0 |
+| **medium** | **5** | 5 | 0 |
+| loose | 50 | 50 | 0 |
+
+⛔ `loose ≥ medium ≥ tight` is **FORCED**. The order is algebra; only the gaps measure.
+
+**The five, resolved.**
+
+| count | cites | cell | how |
+|---|---|---|---|
+| **46** | R524 | `raw cells × full overlap` | defined in its own source |
+| **81** | R730 | `agg vectors × subset` | defined in its own source |
+| **2** | R520, R523, R525 | **UNRESOLVED** | R520 holds no identity relation |
+| **4** | — | **UNRESOLVED** | the sentence cites nothing |
+| **10** | — | **UNRESOLVED** | the sentence cites nothing |
+
+**E3 = 2 distinct cells among the resolved → `WORLD B`:** the rows are not comparable and each must
+carry its cell.
+
+**Registered against measured.**
+
+| | registered | measured | |
+|---|---|---|---|
+| P1 assertions per pattern | ⚠ **SIGHTED**, declared before registering | 3 / 5 / 50 | — |
+| P2/E3 distinct cells | 2 [1, 4] | **2** | ✓ exact |
+| P3 assertions resolving | 3 [0, 5] | **2** | in band, point wrong |
+| **P4** resolved rounds importing their relation | 2 [0, 10] | **0** | in band, point wrong |
+| P5 citing a round with no `run.py` | 0 [0, 5] | **0** | ✓ |
+| **D** the unresolved are the importers | true | **false** | ⛔ *(1017)* |
+
+⭐ **D failing is the finding.** Import-following was built because R747 and R748 both import
+`same()` — a real limitation, correctly anticipated, that **never bit**. The three failures are
+**missing citations**, which no instrument improvement can repair.
+
+⚠ **The resolver takes the FIRST citation and that choice has a measured cost**: the NEGATIVE control
+rotates it and **2 of 5** cells change. So *"row 8 is untraceable"* is a statement about the resolver,
+not about the row.
+
+**Controls — 5 PASS, 0 FAIL.** POSITIVE resolves R524 and R730 to their known cells, **correct and
+distinct**, against a constant-cell floor that cannot separate them · g=0 an uncited assertion →
+`UNRESOLVED`, since **a default cell would have manufactured World A** · NEGATIVE rotation moves 2/5 ·
+SHAM ingredient **absent**: 36 of the first 40 rounds hold no locatable relation and every one returns
+`UNRESOLVED` · PLACEBO 0 of 5.
+
+⛔ **A CENSUS HAS NO CONFIDENCE INTERVAL.** n = 5 is every object count on the page: no sampling
+uncertainty, and **no power to generalise**. None is reported.
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 55555, **both writes confirmed to
+disk** (2,756 / 2,760 bytes, differing only in the recorded seed).

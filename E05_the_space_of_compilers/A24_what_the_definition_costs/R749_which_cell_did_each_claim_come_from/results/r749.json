@@ -1,0 +1,97 @@
+{
+  "E1_counts": {
+    "loose": {
+      "in_retracted_block": 0,
+      "live": 50,
+      "sentences": 50
+    },
+    "medium": {
+      "in_retracted_block": 0,
+      "live": 5,
+      "sentences": 5
+    },
+    "tight": {
+      "in_retracted_block": 0,
+      "live": 3,
+      "sentences": 3
+    }
+  },
+  "E2": [
+    {
+      "cell": "UNRESOLVED",
+      "defined_here": null,
+      "round": 520,
+      "second_hand": null,
+      "sentence": "| **8** | \u2462's implementation misses **2 distinct objects**, all traceable to **variant runs that produced no variant** *(R520, R523, R525)* | the 56-tag home-judge population |",
+      "why": "no relation locatable (quant=None, rule=None)"
+    },
+    {
+      "cell": "raw cells x full overlap",
+      "defined_here": true,
+      "round": 524,
+      "second_hand": false,
+      "sentence": "| **9** | 56 tags are **46 objects**; most collapse is intentional replication *(R524)*.",
+      "why": "resolved"
+    },
+    {
+      "cell": "agg vectors x subset",
+      "defined_here": true,
+      "round": 730,
+      "second_hand": false,
+      "sentence": "\u2b50 **On today's population 93 tags are 81 objects, and that partition SURVIVED an attack** *(R730, R747)*: all 8 multi-tag classes are **cliques**, so the union-find count is not a chaining artifact of",
+      "why": "resolved"
+    },
+    {
+      "cell": "UNRESOLVED",
+      "defined_here": null,
+      "round": null,
+      "second_hand": null,
+      "sentence": "At exact satisfaction-vector identity they are **4 objects**, and \u2462 **already",
+      "why": "no citation"
+    },
+    {
+      "cell": "UNRESOLVED",
+      "defined_here": null,
+      "round": null,
+      "second_hand": null,
+      "sentence": "*(The population-wide 13 tags are 10 objects, 9 admitted \u2014 computed from the same",
+      "why": "no citation"
+    }
+  ],
+  "E3_distinct_cells": 2,
+  "P3_resolved": 2,
+  "P4_imported_relation": 0,
+  "P5_no_run_py": 0,
+  "cells": [
+    "agg vectors x subset",
+    "raw cells x full overlap"
+  ],
+  "census_has_no_interval": true,
+  "controls": {
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "SHAM": true,
+    "g0": true
+  },
+  "hashseed": "55555",
+  "pattern_order_is_a_derivation": true,
+  "positive_detail": {
+    "R524": {
+      "got": "raw cells x full overlap",
+      "ok": true,
+      "want": "raw cells x full overlap"
+    },
+    "R730": {
+      "got": "agg vectors x subset",
+      "ok": true,
+      "want": "agg vectors x subset"
+    }
+  },
+  "round": "R749",
+  "second_hand": 0,
+  "sham_rounds_without_relation": 36,
+  "tree_sha": "59981de60dafcd20565ec38c7db73ee29ffa5cea",
+  "why": "the page's object counts descend from 2 different cells; rows are not comparable and each must carry its cell",
+  "world": "B"
+}
