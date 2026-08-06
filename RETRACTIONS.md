@@ -22602,3 +22602,44 @@ integer runs would have manufactured clusters wherever the numbering skips.
 
 **Not claimed: intent.** Why a round used one form and not the other is not in the repository. Only
 **availability** is established, and availability is the whole of what the decision needed.
+
+## 1287 · the fix that made the controls travel defeated the empty-population guard, and it was live for two rounds
+
+**Labelled PRODUCTION + CLOSURE.** R830's NEXT asked whether a commit-time gate would have fired on
+the six *at the moment they were written*. **Both axes are forced, so it was never a round:**
+
+| axis | measurement | consequence |
+|---|---|---|
+| would the gate see the same text? | all six `run.py` have **exactly 1 commit** — never modified since introduction | the input is byte-identical, so the answer is **derived** |
+| would its control have existed? | `price_of_annotation.py` introduced **2026-08-03T09:34**, the earliest of the six at **20:47** — **11 hours** | available for all six, also **derived** |
+
+Running it would have produced a quantity computed and reported as though it had been tested.
+
+⭐ **But the check exposed something not derived: the gate's positive control was A FILE.** It
+predated the six by eleven hours **by luck**. Written a day earlier, the gate would have exited 2 —
+*"the scan is blind"* — permanently, on a corpus where its rule works perfectly. And it could not be
+pointed at any other corpus at all. **A file-based positive control validates the POPULATION, never
+the RULE.**
+
+**The remedy was one round old and already on disk** — R829's synthetic plants, one per form, carried
+inside the module. P4 again. The gate now runs **synthetic** controls first (corpus-independent) and
+lets the **file** controls degrade to `N/A` when absent. ⚠ **The two changes are inseparable**: `N/A`
+without a synthetic control is exactly `empty population passes`.
+
+⛔ **AND ATTACKING THE FIX FOUND A DEFECT I BUILT TWO ROUNDS AGO.** Making the controls *travel* with
+the gate — itself a correct fix — meant `scanned` counted the appended control files:
+
+```python
+mods += sorted(pathlib.Path(".").rglob(ctrl))   # the fix
+...
+if scanned == 0:   # <- now counts the travelled controls. An EMPTY DIRECTORY returned 2 and exited 0.
+```
+
+**§4's own `empty population passes`, self-inflicted, live for two rounds, and invisible to every
+run** — the gate passed on real corpora the whole time. The guard now tests the **requested**
+population, never the augmented one. Verified on three shapes of empty: no files, no `.py`, and an
+unparseable `.py` — all exit 2.
+
+⭐ **Only vector ③ of seven found it.** Vectors ①②④⑤ — normal run, arc-only, broken rule, over-firing
+rule — all behaved correctly and would have shipped it. **A fix is where the next hole is, and the
+hole was in the interaction between two correct fixes, not in either one.**

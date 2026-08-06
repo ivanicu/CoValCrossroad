@@ -85,6 +85,34 @@ def audit(src: str):
     return hits
 
 
+# ⛔ THE FILE-BASED CONTROLS ARE CONTINGENT ON THIS REPOSITORY'S HISTORY, AND THAT IS A DEFECT.
+#    `price_of_annotation.py` was introduced 2026-08-03T09:34, eleven hours before the earliest of
+#    the six rounds this gate exists to catch (R332, 2026-08-03T20:47). It happened to be there.
+#    Had this gate been written a day earlier it would have exited 2 -- "the scan is blind" --
+#    permanently, on a corpus where it detects the defect perfectly well. And it cannot be pointed
+#    at any OTHER corpus at all. A positive control that is a FILE validates the population, never
+#    the rule.
+#    R829 demonstrated the remedy one round earlier: SYNTHETIC PLANTS, one per form, carried inside
+#    the module. These validate the RULE and are independent of every corpus, so the file controls
+#    can now degrade to N/A when absent instead of manufacturing a blind verdict. The two changes
+#    are inseparable: N/A without a synthetic control would be `empty population passes`.
+SYNTH = {
+    "a / a is identically 1": "def f():\n    ok = (d.mean() / d.mean()) == 1.0\n    return ok\n",
+    "a - a is identically 0": "def f():\n    ok = abs(v - v) < 1e-09\n    return ok\n",
+}
+SYNTH_CLEAN = "def f():\n    ok = abs(left.mean() - right.mean()) < 1e-09\n    return ok\n"
+
+
+def synthetic_controls():
+    """validate the RULE, not the population. Corpus-independent by construction."""
+    fired = {}
+    for why, code in SYNTH.items():
+        h = audit(code) or []
+        fired[why] = any(w == why for _, _, _, w in h)
+    clean_ok = not (audit(SYNTH_CLEAN) or [])
+    return fired, clean_ok
+
+
 def main(argv):
     dirs = argv[1:] or ["corebench", "assurance"]
     mods = sorted(p for d in dirs for p in pathlib.Path(d).rglob("*.py"))
@@ -93,28 +121,53 @@ def main(argv):
     #    was that POS_CTRL lives under corebench/ and was simply not scanned. That is the same
     #    defect as a positive control whose object sits outside the scanned set. The controls now
     #    travel with the gate, so the population can never exclude them.
+    requested = set(mods)                  # what the CALLER asked to scan, before controls travel
     have = {p.name for p in mods}
     for ctrl in (POS_CTRL, NEG_CTRL):
         if ctrl not in have:
             mods += sorted(pathlib.Path(".").rglob(ctrl))
-    rows, scanned = [], 0
+    rows, scanned, req_scanned = [], 0, 0
     for m in mods:
         h = audit(m.read_text(errors="ignore"))
         if h is None:
             continue
         scanned += 1
+        req_scanned += m in requested
         if h:
             rows.append((m.name, h))
-    if scanned == 0:                       # §4: an empty population must not pass
-        print("  ⛔ EMPTY POPULATION -- nothing was examined. Exit 2, never 0.")
+    # ⛔ §4 `empty population passes`, AND I BUILT IT MYSELF TWO ROUNDS AGO. Making the controls
+    #    TRAVEL fixed one defect and created this one: `scanned` counted the appended control files,
+    #    so an empty target directory came back as 2 modules and exited 0. The guard has to test the
+    #    REQUESTED population, never the augmented one. Caught by attack vector 3, not by a run.
+    if req_scanned == 0:
+        print(f"  ⛔ EMPTY POPULATION -- {dirs} contains no parseable module. "
+              f"The controls travel with the gate and must not be counted as coverage. "
+              f"Exit 2, never 0.")
         return 2
     names = {r[0] for r in rows}
-    pos, neg = POS_CTRL in names, NEG_CTRL not in names
+    present = {p.name for p in mods}
     print(f"  population: {scanned} modules parsed under {dirs}")
-    print(f"  POSITIVE CONTROL {POS_CTRL} flagged: {pos}   "
-          f"{'PASS' if pos else 'FAIL — the scan is blind'}")
-    print(f"  NEGATIVE CONTROL {NEG_CTRL} NOT flagged: {neg}   "
-          f"{'PASS' if neg else 'FAIL — the scan over-fires'}")
+
+    # ---- SYNTHETIC controls first: they validate the RULE and hold on any corpus.
+    fired, synth_clean = synthetic_controls()
+    for why, ok in fired.items():
+        print(f"  SYNTHETIC POSITIVE  a plant of `{why}` -> "
+              f"{'flagged, reason named   PASS' if ok else '⛔ MISSED — the rule is blind'}")
+    print(f"  SYNTHETIC g=0       two DIFFERENT operands -> "
+          f"{'not flagged   PASS' if synth_clean else '⛔ FLAGGED — the rule over-fires'}")
+    synth_ok = all(fired.values()) and synth_clean
+
+    # ---- FILE controls second: they validate THIS corpus, and degrade to N/A when absent.
+    pos = POS_CTRL in names if POS_CTRL in present else None
+    neg = (NEG_CTRL not in names) if NEG_CTRL in present else None
+    print(f"  CORPUS POSITIVE  {POS_CTRL} flagged: "
+          f"{'N/A — not in this population' if pos is None else pos}   "
+          f"{'skipped' if pos is None else ('PASS' if pos else 'FAIL — blind on this corpus')}")
+    print(f"  CORPUS NEGATIVE  {NEG_CTRL} NOT flagged: "
+          f"{'N/A — not in this population' if neg is None else neg}   "
+          f"{'skipped' if neg is None else ('PASS' if neg else 'FAIL — over-fires here')}")
+    pos = True if pos is None else pos
+    neg = True if neg is None else neg
     print(f"\n  CONTROLS THAT CANNOT FAIL: {len(rows)} module(s)")
     for n, h in rows:
         for name, line, expr, why in h:
@@ -122,7 +175,7 @@ def main(argv):
     print("\n  ⚠ LIMIT: sound in ONE direction. A flag PROVES constancy; the absence of a flag "
           "proves\n     nothing, because constancy has forms this syntactic rule cannot see. "
           "Never report\n     this scan's silence as 'the remaining controls can fail'.")
-    if not (pos and neg):
+    if not (synth_ok and pos and neg):
         print("\n  ⛔ a control failed — this scan's findings are INADMISSIBLE. Exit 2, never 0.")
         return 2
     return 0
