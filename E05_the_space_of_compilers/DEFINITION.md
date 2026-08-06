@@ -6516,3 +6516,32 @@ perturbation leaves the mean at **+0.00e+00** while cross-prompt sd goes 0.1490 
 **0.1731** and the decile 0.2765 → **0.2726** → **0.2436** · NEGATIVE humans shuffled sends the mean
 **0.5386 → 0.4247** · NOISE FLOOR per-prompt split-half variance **0.003527**.
 **NO WORLD CLAIMED** — the pre-registered first branch.
+
+## R802 · auditing the register, and what a `## IMPOSSIBLE HERE` line is worth
+
+**Derived before measuring.** D1 an impossibility is a UNIVERSAL claim — refuted by one instance,
+never confirmed by their absence, so verdicts are FALSE / UNVERIFIED. D2 a `run.py` grep UNDERcounts
+readers, so 23 is a lower bound. D3 the cross-release line has two readings and both are reported.
+D4 this round excludes itself from its own population, as R793 had to.
+
+**E1 · the population**: 13 rounds (R789–R801), **52** tight lines / **65** loose, ratio **1.25**,
+**30** distinct claims after normalisation.
+
+**E2/E3 · the verdicts**: **1 FALSE of 30** — base rate **3.3%**. The false line is *cross-release*,
+contaminating **8 rounds** (R791, R792, R793, R795, R796, R798, R799, R800). The 29 survivors are
+listed in full in the run output; the most repeated are *independently replicated* (13 rounds),
+*construct validity* (3), *a blind pool larger than 16* (2).
+
+**D3 · both readings**: (i) any second corpus with human judgement → **FALSE**, since
+`data/utterances.jsonl` holds 68,371 utterances with a human `score` and **23** rounds read it;
+(ii) rubrics + per-annotator rankings → **UNVERIFIED**, since it carries neither.
+
+**E4 · the correction to R801**: clause markers **① 6 · ② 56 · ③ 18 · ④ 0 · ⑤ 0**; exclusion-test
+rounds **7** (R360, R403, R436, R464, R665, R688, R790). R801 said "two of five"; both are wrong, and
+"five" was imported from §4's narrative.
+
+**Controls.** OBJECT the file present at 68,231,088 bytes with ≥18 readers, exit 2 otherwise ·
+PLACEBO the extractor over an empty list returns **0**, not an error swallowed as 0 · POSITIVE a
+known-TRUE line is **not** condemned (an over-firing instrument would) · NEGATIVE a known-FALSE line
+**is** condemned (without it the extractor is untested in one direction) · both extractors reported.
+**WORLD A.**

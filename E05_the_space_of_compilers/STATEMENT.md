@@ -2188,3 +2188,35 @@ NEGATIVE humans shuffled sends the mean **0.5386 → 0.4247** · NOISE FLOOR per
 variance **0.003527**.
 
 **Scope**: 1,820 subsets × 968 prompts × all annotators · NBOOT 1,200 · first release, home judge.
+
+## R802 · The impossibility register audited — 1 of 30 lines is false, and it hid a second release
+
+| | |
+|---|---|
+| register lines written by R789–R801 | **52** tight · 65 loose · ratio 1.25 |
+| distinct claims | **30** |
+| **claims that did not survive one grep** | **1** — base rate **3.3%** |
+| rounds that line contaminated | **8** — R791, R792, R793, R795, R796, R798, R799, R800 |
+
+⛔⛔ **The false line is `cross-release: a second values-annotation release`.**
+**`data/utterances.jsonl` exists — 68,231,088 bytes, 68,371 records — and 23 rounds of this arc open
+it**, against R601's committed figure of 18 quoted in this very document.
+
+⚠ **Both readings, because the line is TOO BROAD rather than simply false**: (i) *any second corpus
+with human judgement* → **FALSE** (68,371 utterances with a human `score`, 2–4 per turn, and R413
+already derives an ordering from it); (ii) *a second corpus with rubrics and per-annotator rankings*
+→ **UNVERIFIED** (no rubric criteria, no ranking blocks).
+
+⚠ **And the over-correction is refuted by the same count**: World B required ≥2 false lines and got
+**1**. The 29 survivors are **not acquitted** — an impossibility is a universal claim, so FALSE needs
+one counterexample and TRUE needs an argument this data cannot supply.
+
+⛔ **R801's closing sentence was wrong in both numbers**: clause markers measure **① 6 · ② 56 · ③ 18 ·
+④ 0 · ⑤ 0** (not five), and **7** rounds ran the exclusion test (not two) — R360, R403, R436, R464,
+R665, R688, R790.
+
+**Controls**: extractor over an empty list **0** · a known-true line **not condemned** · a known-false
+line **condemned** · tight 52 / loose 65, ratio **1.25**, inside the pre-registered factor of 2 ·
+R802 excluded from its own population.
+
+**Scope**: 13 rounds, 52 lines, 30 distinct claims · this repository at this tree_sha.

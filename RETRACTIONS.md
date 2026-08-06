@@ -20791,3 +20791,36 @@ cross-prompt spread** — top decile on one, bottom decile on the other, simulta
 choice R800's NEXT asked the definition to make was never forced for the object the release actually
 ships, and the space is flat enough — across-subset mean sd **0.0082** against an across-prompt sd of
 **0.1549** — that no clause ② built on it could discriminate much of anything.*
+
+## 1192 · I declared a release impossible that 23 rounds of this arc have already read
+
+Eight rounds of this session — R791, R792, R793, R795, R796, R798, R799, R800 — wrote
+*"cross-release: a second values-annotation release"* into their IMPOSSIBLE registers.
+**`data/utterances.jsonl` exists: 68,231,088 bytes, 68,371 records with a human `score`, 2–4
+responses per turn — and 23 rounds' `run.py` open it**, against R601's committed figure of 18 quoted
+in `STATEMENT.md`, the document I appended to in every one of those rounds. ⚠ **The line is TOO BROAD
+rather than simply false**: under *any second corpus with human judgement* it is FALSE (R413 already
+derives an ordering from that `score`); under *rubrics and per-annotator rankings* it is UNVERIFIED,
+since the file carries neither, so R795–R801's pool comparisons genuinely cannot be made there.
+*A register line is written at whatever width comes to hand, and nobody checks the width — for eight
+rounds it made a real second release invisible.*
+
+## 1193 · but the base rate refutes the flattering-in-the-other-direction reading
+
+Of **30** distinct impossibility claims written across R789–R801 (52 tight lines, 65 loose, ratio
+1.25), **exactly 1 did not survive one grep — 3.3%.** The preregistration's World B — "impossibility
+is a genre convention here" — required ≥2 and got 1, so **the register is mostly sound and saying
+otherwise would have been its own error.** ⚠ And the 29 survivors are NOT acquitted: an impossibility
+is a universal claim, so FALSE needs one counterexample while TRUE needs an argument the data cannot
+supply (D1). *The register's value is exactly that the lines sit in a fixed place and can be extracted
+mechanically — it is the only reason the one lapse was findable at all.*
+
+## 1194 · and R801's closing sentence was wrong in both of its numbers
+
+R801 closed with *"the §4 test … which this arc has run on two of its five clauses."* Measured:
+clause markers in STATEMENT + DEFINITION are **① 6 · ② 56 · ③ 18 · ④ 0 · ⑤ 0** — "five" was imported
+from §4's narrative about a different morning's clauses — and **7** rounds run the exclusion test
+(R360, R403, R436, R464, R665, R688, R790), not two. **This is the fourth closing-sentence quantifier
+this session to fail §4's own remedy**, after R796's, R799's and R801's. *The remedy costs one grep
+and I have now skipped it four times in thirteen rounds; the fix is not more care but running the
+count as part of writing the sentence.*
