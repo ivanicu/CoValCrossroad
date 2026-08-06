@@ -22744,3 +22744,43 @@ already made, in the opposite direction, by me.**
 ⚠ **The whole round is a DERIVATION** — committed ranks, committed partition, nothing re-measured —
 and the artifact carries `is_a_derivation: true` as a field rather than only as prose. What could
 have come out otherwise was the robustness cell, and that is the only part reported as a test.
+
+## 1291 · I published a wall one round ago and the record was in my own git log
+
+R832 closed: *"Narrowing it needs a per-arm construction record — that is a requirement for the next
+release, not something this one can answer."* **§4: an unchecked wall is UNVERIFIED, never SETTLED.**
+
+⛔ **The wall was false, and it was false in the way §4 names.** It rested on `DEFINITION.md`'s
+*"7 arms have provenance the source cannot classify"* — where **"the source" means
+`select_core.py`'s `SELECTORS` list**, and I read it as a claim about the **repository**. The record
+is in the **git log**, because P1/L79 makes the commit body the diary entry, **a discipline I applied
+to every commit I made while believing no record existed.**
+
+**7 of 11 UNKNOWN arms are decided by a record already committed.** Two are unambiguous:
+`generic` (rank **21**) — *"four GENERIC quality criteria, identical on every prompt"*, all four
+listed verbatim — and `promptecho` (rank 66) — *"use the prompt's own user sentences as the four
+criteria."* Controls: positive `coval_core`-style record → **EXCLUDED** (not the flattering answer),
+negative silent record → UNDECIDED, extraction twice → identical. Two-seed byte-identical.
+
+⭐ **And R831's NEXT — "build a second family of label-free substantive arms" — is answered by arms
+already on disk.** P4 again, and this time the thing I proposed to **build** was committed.
+
+⛔ **THE RULE OVER-FIRES, AND ITS SIGN FLIPS — 3 of 7 statuses are misreadings**, adjudicated from
+the quotes the artifact carries by design:
+
+| arm | rule said | why it is wrong |
+|---|---|---|
+| `gen` | EXCLUDED | *"the generator **never having seen** coval_full"* — **a negation** read as an assertion of use |
+| `genericpool16` | EXCLUDED | the quote describes the **clause's wording**, not the arm's inputs |
+| `coval_core_sham` | ADMITTED | the quote is a commit **subject line**, not a construction record |
+
+⭐ **Negation blindness is the general finding, and it is worse than a miscount.** A regex cannot
+separate *"X was used"* from *"X was never seen"*, so it **inverted the meaning of the sentence it
+matched.** §4's *a search is an instrument* — with the **sign** flipped rather than the count. And
+the arms whose records are most careful about what they did NOT use are exactly the ones it
+mis-signs.
+
+**So the existence claim is CONFIRMED — it needs one record and two are unambiguous — while the
+per-arm table is a CANDIDATE LIST with a ~43% misread rate.** The confound control I pre-registered
+(*quote every decisive sentence into the artifact*) is the only reason that is visible, and it was
+written because I knew I would be reading my own commit messages.
