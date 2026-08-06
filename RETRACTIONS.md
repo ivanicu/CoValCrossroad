@@ -27015,3 +27015,43 @@ straddling it.**
 core-versus-max. The right floor needs the argmax's membership — **not committed, and requiring a
 re-run.** **A number this close to a threshold is exactly where a proxy must not be quoted as the
 answer**, and it is not.
+
+## 1384 · the 1,820 are a COMPLETE ENUMERATION — the wall was named twice and shrank twice
+
+Entry 1383 left the exact MDE needing the argmax's membership, and asked whether R331's committed
+`pool` and `n_blind` suffice to regenerate the enumeration deterministically.
+
+### ⭐ ANSWER — yes, decisively
+
+| | |
+|---|---:|
+| `pool` (the pool **SIZE**, an integer) | **16** |
+| `n_blind` | **1820** |
+| **C(16, 4)** | **1820 — exact** |
+| negative check: C(15,4) | 1365 |
+| negative check: C(17,4) | 2380 |
+| clearing subset index range | **0..14**, consistent with a 16-member pool |
+
+⭐⭐ **The 1,820 "blind subsets" are the COMPLETE ENUMERATION of all 4-subsets of the 16-criterion
+pool — not a sample.** No seed, no draw, **nothing that could have been lost**. **The argmax is
+exactly recoverable by re-scoring, and the exact MDE of core-versus-max is a scoring job with no
+missing information.**
+
+### ⛔ AND MY OWN VERDICT STRING GOT IT WRONG, LIVE
+
+The first command printed **`complete enumeration: False`** — because it computed `math.comb(len(pool), 4)`
+while **`pool` is an int, not a list**. **§4's `the verdict string is not a computation`, committed
+and caught inside the same command.** The corrected comparison is `math.comb(pool, 4) == n_blind`, and
+a **negative check** was added so `1820` could not be a coincidence of some other pool size. **It
+cannot: only 16 gives it.**
+
+### ⭐⭐⭐ THE WALL WAS NAMED TWICE AND SHRANK TWICE
+
+| entry | what it said | what happened |
+|---|---|---|
+| **1382** | *"requires re-running the sweep"* | named as a blocker |
+| **1383** | — | margin **bounded to ±0.00025** with no re-run |
+| **1384** | — | **the re-run itself is unobstructed** — complete deterministic enumeration |
+
+⚠ **§4's `a wall never checked` — fired twice on the same wall.** *An unchecked wall is UNVERIFIED,
+never SETTLED*, and this one was neither impassable nor even, in the end, in the way.

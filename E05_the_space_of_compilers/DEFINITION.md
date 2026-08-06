@@ -1823,6 +1823,20 @@ p99**: between **1% and 10%** of the blind subsets beat the bar the word *every*
 > statistic, not the MDE of core-versus-max** — the right floor still needs the argmax's membership,
 > which is **not committed** and requires re-running the sweep. **Labelled as a proxy, not quoted as
 > the answer.**
+>
+> ⭐⭐⭐ **AND THE RE-RUN NEEDS NOTHING THAT WAS LOST (entry 1384).** R331 commits `pool = 16` — the
+> pool **SIZE**, an integer — and `n_blind = 1820`. **C(16,4) = 1820 exactly**, and the identity is
+> unique to 16: **C(15,4) = 1365, C(17,4) = 2380.** The clearing subsets index **0..14**, consistent
+> with a 16-member pool.
+>
+> ⭐ **So the 1,820 "blind subsets" are the COMPLETE ENUMERATION of all 4-subsets of the 16-criterion
+> pool — not a sample.** No seed, no draw, nothing to have been lost. **The argmax is exactly
+> recoverable by re-scoring, and the exact MDE of core-versus-max is a scoring job with no missing
+> information.**
+>
+> ⚠ **The wall was named twice and shrank twice**: 1382 called it *"requires re-running the sweep"*,
+> 1383 bounded the margin to **±0.00025** without one, and this shows the re-run itself is
+> unobstructed. **§4's `a wall never checked` — fired twice on the same wall.**
 
 **So the universal reading of clause ② has never been run**, and the disagreement about whether this
 definition admits its own instance is exactly that `0.0029`: `coval_core` clears a p99 bar and does
