@@ -23778,3 +23778,56 @@ current tree — a real loosening, named rather than buried.** Nothing about a d
 actionable *on the exemption*. What **is** actionable — **four rounds whose verdicts have no
 representation in the README at all** — is a different property, is printed in full, and **no check
 in this package measures it.**
+
+## 1318 · 191 consecutive rounds had no home in any index, and the check that says so has been failing unheard
+
+My own closing sentence last round: *"no check in this package measures it."* **False.**
+`assurance/every_round_reaches_the_readme.py` measures exactly it — *"no completed round is
+invisible to a reader"* — and it was **already failing**. This is §4's `the closing sentence is a
+claim and never gets a control`, and P4's eighth firing in this campaign.
+
+**What the gate says, run rather than described:**
+
+| | |
+|---|---|
+| round directories | **831** |
+| with a non-smoke result | **821** |
+| reachable from an index | **630** |
+| ⛔ **completed rounds reachable from nothing** | **191** |
+| rounds containing no `.py` at all | 29 |
+| rounds with no non-smoke result | 9 |
+
+⭐ **The 191 are not scattered — they are a clean cutover.** Verified as set equality, not by
+counting: every one of the **640** existing rounds ≤ R648 is reachable; **every one of the 191 rounds
+R649–R839 is not.** `undelivered == every existing round in [649,839]` → `True`, delivered inside the
+span → `[]`, undelivered outside → `[]`. **Zero exceptions on either side**, and all 191 sit in one
+arc, `A24_what_the_definition_costs`, whose index stops dead at R648.
+
+**⛔ THREE HYPOTHESES DIED BEFORE THE RIGHT ONE, AND ALL THREE WERE READING INSTEAD OF ASKING.**
+① *the property has no instrument* — it has one. ② *the proxy is "directory name in the root
+README"* — it was **widened to root-OR-OWN-ARC on 2026-08-03**, because the root stopped being a
+per-round table at `3d14d1b` ("Restructured 217 rounds into epochs and arcs"). ③ *the gate's "630"
+disagrees with the 140 names I can find in the root, so something is broken* — nothing was broken;
+**the print's caption was stale.** The label read `named in README.md:` while the test was
+root-or-arc. I scanned the root, found 140, and burned two hypotheses on a contradiction that was a
+mislabelled string. **Caption fixed** — §4's own remedy (instrument's unit and sentence's unit must
+be the same string), applied to a `print`.
+
+**The cause was in the gate's own proxy ledger, already written:** *"its real and ongoing power is
+forward-looking: a NEW round added without regenerating the index still fails here, which is the only
+thing that keeps the index from rotting."* **That is precisely what fired.**
+`generate_round_index.py` was last run when R648 was newest; 191 rounds were appended without it.
+
+**Repaired.** `generate_round_index.py --apply` → **831/831, +191 rounds, 25 arc READMEs updated,
+542 rows in A24 alone**, artifact `assurance/results/round_index.json` with a source hash. Gate now
+**exit 0**. 14 descriptions fell back to the slug and are **listed, not hidden**.
+
+⚠ **Read the pass exactly as the gate's author demanded, because it applies verbatim to me: this is
+a CONSTRUCTION, not a discovery.** I made the check pass by running the generator it exists to
+prompt. It is weak evidence about the property and strong evidence about nothing at all — the index
+is accurate *at this instant* and will rot again on the next round added without it.
+
+⚠ **And the scale is the indictment, not the fix.** 191 rounds — **every round of this entire
+session included** — produced results no reader could reach. The gate was correct, complete and
+running the whole time, and it is **not in the ten-gate push sweep**, which is the second instrument
+in three rounds found to have been refusing to an audience of nobody.

@@ -109,7 +109,13 @@ def main() -> int:
                           if not PROVISIONAL.search(f.name) and "_smoke" not in str(f)]]
 
     print(f"round directories: {len(rounds)}   with a non-smoke result: {with_results}")
-    print(f"named in README.md: {with_results - len(missing)}")
+    # ⚠ THIS LABEL SAID "named in README.md" AND THE TEST IS NOT THAT (entry 1318). The proxy
+    # was widened to root-README-OR-OWN-ARC-README on 2026-08-03, and the print was not. A reader
+    # (me, this round) took 630 as a count of root-README mentions, scanned the root, found 140,
+    # and spent two hypotheses on a contradiction that was a stale caption. The instrument's unit
+    # and the sentence's unit must be the same string -- §4's own remedy, applied to a print.
+    print(f"reachable from an index (root README or own arc README): "
+          f"{with_results - len(missing)}")
     if codeless:
         print(f"\n⚠ {len(codeless)} round(s) contain NO .py FILE: {', '.join(codeless)}")
         print("  A round with no code cannot be recomputed, and every other enumeration in")
