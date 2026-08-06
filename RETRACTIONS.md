@@ -20695,3 +20695,37 @@ criterion's DIRECTION, with the band computed rather than asserted: floor **0.51
 **0.3184**, achievable drop **0.1958**, criterion set at a quarter of it. *Two control failures in one
 round, both mine, both diagnosable by arithmetic that needed no data — and the round reported
 UNVERIFIED until they were fixed.*
+
+## 1183 · R798's table put instance-weighted LEVELS beside prompt-weighted GAPS
+
+R799's object check exited 2 because `coval_full`'s accuracy reproduced at **0.4795** against R798's
+committed **0.4805**. Diagnosed at the object: **R798 printed `np.nanmean(vf)`, an INSTANCE-weighted
+mean, while every gap in the same row was computed from PROMPT-weighted means.** The
+instance-weighted gap is **+0.0527** and the prompt-weighted one **+0.0538** — same sign, both
+resolved — so the substance is unaffected and the presentation was not on one footing. R798's README
+now carries the correction and R799 reports both. *An object check earns its cost on the day it fires
+against a number I committed one round earlier, and the only reason it could fire is that it demanded
+1e-9 rather than "about right".*
+
+## 1184 · the spread is real, and for the one pool that can separate them it is PROMPT not criterion
+
+Split-half reliability over annotators: `coval_full` **+0.8204 [+0.8172, +0.8278]** against a
+zero-signal control of **+0.0080**; `genericpool16` **+0.7597** against **−0.0060**. Deconvolved
+signal sd **0.1760**, which is **95.0%** of the observed 0.1853. So World B — uniform — is dead.
+⭐⭐ But the pool's 16 criteria each span all 968 prompts, and **across criteria the sd is 0.0157
+while across instances it is 0.1532**: roughly a tenth of the reliable variation is the criterion and
+the rest is the prompt. ⛔ For `coval_full` that split is unavailable IN PRINCIPLE — each criterion
+appears on one prompt, so criterion and prompt are perfectly confounded — and the round declines to
+estimate it. *A large reliable variance is not evidence about whatever you happened to be varying;
+the pool is the only place in this release where the two can be told apart.*
+
+## 1185 · and check #401's own worked example described a world the data refutes
+
+Check #401 correctly killed R798's proposed ranking design: one instance is 92 draws with SE ≈ 0.0521,
+so sorting 14,979 noisy estimates measures the noise. But its illustration — *"if every criterion were
+truly at 0.4805 the observed share below 0.5 would be 0.646"* — assumed **zero true spread**, and the
+measured signal sd is **0.1760**. The honest figures are naive **0.509** against deconvolved
+**0.544** for the rubric, and **0.388** against **0.416** for the pool: **the deconvolution RAISES the
+share rather than deflating it.** *The design was still wrong for the reason given, but the number I
+used to argue it was an artifact of the uniform world I was arguing against — a worked example is a
+claim and needs the same control as the conclusion it supports.*

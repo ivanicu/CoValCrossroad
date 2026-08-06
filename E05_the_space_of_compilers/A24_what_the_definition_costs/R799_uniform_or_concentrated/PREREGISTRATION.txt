@@ -1,0 +1,163 @@
+R799 · is the rubric's sub-coin accuracy UNIFORM or CONCENTRATED — and can that even be asked?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-06.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R798 measured `coval_full`'s singleton criteria at accuracy **0.4805** against `genericpool16`'s
+**0.5332**, gap +0.0538 resolved. Its NEXT proposed sorting the 14,984 instances by their own
+accuracy and reporting what share are actively anti-predictive.
+
+⛔ CHECK #401 KILLED THAT DESIGN BEFORE IT WAS BUILT, WITH ARITHMETIC AND NO DATA FITTING.
+Each `full` criterion instance is ONE prompt's measurement: **5.73 non-tied pairs x 16.1 annotators
+= 92 draws**, so one instance's accuracy has an SE near **0.0521** at p = 0.5. Therefore:
+
+  **if EVERY criterion were truly at 0.4805, the observed share below 0.5 would be 0.646.**
+
+R798's NEXT would have reported roughly two thirds of the rubric "anti-predictive" from **noise
+alone**, with no inverted minority anywhere. That is §4's *conditioning on the outcome*: ranking
+noisy estimates and reading a share off the ranking measures the noise as much as the object.
+⚠ And the 0.0521 is OPTIMISTIC — annotators agree with each other, so the effective draws are fewer
+than 92 and the true SE is larger, which makes the inflation worse rather than better.
+
+⭐ THE IDENTIFIED VERSION IS A DECONVOLUTION. Split each instance's annotators in half and ask
+whether half-1 accuracy predicts half-2 accuracy. If criteria genuinely differ in quality the two
+halves correlate; if the spread is noise they do not. That needs no threshold and no ranking.
+
+⭐⭐ AND THERE IS AN ASYMMETRY WORTH EXPLOITING. `genericpool16`'s 16 criteria each appear on ALL 968
+prompts, so **each pool criterion IS well estimated** (n = 968) while no `full` criterion is (n = 1,
+R798's D2). So "is the advantage concentrated?" is ANSWERABLE for the pool and NOT for the rubric,
+and the round reports that asymmetry rather than pretending to one answer.
+
+--------------------------------------------------------------------------------
+DISCLOSURE -- what was already known when this was written
+--------------------------------------------------------------------------------
+KNOWN and quoted: R798's two accuracy means and the gap; the per-instance draw count and SE from
+check #401. **NOT known: any split-half reliability**, the deconvolved spread, the corrected share
+below chance, or any individual pool criterion's accuracy.
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  OBSERVED VARIANCE = SIGNAL + NOISE. `var(observed) = var(true) + E[var(sampling)]`, so the true
+    spread is `sqrt(max(var_obs - var_noise, 0))` and can be ZERO while the observed spread is large.
+    **DERIVATION**, and it is why the naive share is inadmissible.
+D2  SPLIT-HALF RELIABILITY ESTIMATES THE SAME THING WITHOUT A NOISE MODEL. `corr(half1, half2)` is
+    positive only if `var(true) > 0`, and Spearman-Brown corrects it to the full-length reliability.
+    **DERIVATION**, and it is the instrument that needs no assumption about the draw count.
+D3  A POOL CRITERION IS ESTIMATED ON 968 PROMPTS AND A RUBRIC CRITERION ON 1. So the pool's
+    per-criterion ranking is admissible and the rubric's is not, and NO amount of care makes the
+    rubric's estimable from this release. **DERIVATION**, and it fixes what each half of the round
+    may claim.
+D4  A SPLIT-HALF ON ANNOTATORS MEASURES ONLY THE ANNOTATOR-SAMPLING COMPONENT. Variation across
+    PROMPTS (a criterion's quality depending on which responses it faces) is inside "true" here, not
+    inside "noise". **DERIVATION**, and it bounds the interpretation: reliability > 0 means "stable
+    across annotators", not "a property of the criterion text".
+
+STRONGEST CONFOUND, written BEFORE the run: the two halves of a prompt's annotators are not
+independent -- annotators agree with each other, so a split-half correlation can be positive because
+both halves see the SAME responses, not because the criterion has stable quality. CONTROL IN THE SAME
+ITERATION: a synthetic population with ZERO true spread, built by resampling each instance's
+judgements from a single common accuracy, run through the identical split-half pipeline. Its
+reliability is what "no signal" looks like on this data's own correlation structure.
+
+--------------------------------------------------------------------------------
+ESTIMANDS (before method)
+--------------------------------------------------------------------------------
+E1  ⭐ split-half reliability of per-instance accuracy, both pools, Spearman-Brown corrected, with a
+    bootstrap CI and the zero-signal synthetic beside it.
+E2  ⭐ the deconvolved spread: observed sd, estimated noise sd, and `sqrt(max(diff, 0))` -- with the
+    corrected share below 0.5 implied by it, against the NAIVE share R798's NEXT would have reported.
+E3  ⭐ the pool's 16 criteria INDIVIDUALLY (n = 968 each, D3): accuracies, spread, and whether its
+    +0.0538 advantage is carried by a minority or spread across all 16.
+E4  the asymmetry itself, stated: what is estimable for the pool and not for the rubric, and why.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1, E2, E3 identified. ⛔ NOT identified: any individual `full` criterion's accuracy (D3), and
+therefore no "which criteria are the bad ones" answer. The round declines it explicitly.
+⚠ PARTIAL on E2: the deconvolution assumes the noise variance is the binomial one; the synthetic
+zero-signal control is what tests that assumption rather than asserting it.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  968 prompts; 14,984 `full` instances and 15,488 pool instances (16 x 968)
+instrument  per-instance accuracy on non-tied pairs, against the human annotators
+baseline    a synthetic zero-true-spread population run through the same pipeline
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · CONCENTRATED. Split-half reliability is resolvedly above its zero-signal control for `full`, and
+    the deconvolved spread is a material fraction of the observed one. Then criteria genuinely differ
+    and "which ones" is a real question this release cannot answer (D3) but a future one could.
+B · UNIFORM. Reliability is at or below the zero-signal control. Then the observed spread is noise,
+    the rubric's criteria are interchangeable at this resolution, and R798's NEXT would have
+    reported ~0.646 of a population that does not exist.
+C · ASYMMETRIC. The pool shows resolved reliability and `full` does not. Then the answer differs by
+    pool -- and since the pool is the one with 968 observations per criterion, C is partly a
+    statement about POWER rather than about criteria, and must be said that way.
+
+PREDICTION MATRIX
+  A -> `full` reliability CI excludes the synthetic control's, and deconvolved sd >= 0.3 x observed
+  B -> `full` reliability CI contains or falls below the synthetic control's
+  C -> pool reliability resolved above its control while `full`'s is not
+  any other pattern -> report; CLAIM NO WORLD.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (both pools' mean accuracy reproduces R798's committed 0.4805 and 0.5332 to 1e-9 --
+   exit 2 otherwise)
+   and PLACEBO returns reliability 1.0 for a split of an instance against ITSELF
+   and POSITIVE fires (a synthetic population with a KNOWN true spread returns a deconvolved
+       estimate within 20% of it, at two different planted spreads -- band computed at both ends)
+   and NEGATIVE fires (the zero-true-spread synthetic returns reliability indistinguishable from 0):
+        pool resolved and `full` not                    -> WORLD C   (checked FIRST)
+        `full` reliability above its control            -> WORLD A
+        `full` reliability at or below its control      -> WORLD B
+        otherwise                                       -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT      both mean accuracies against R798's committed values, to 1e-9. Exit 2, never 0.
+PLACEBO     an instance split against itself: reliability exactly 1.0.
+POSITIVE    BAND COMPUTED AT BOTH ENDS: synthetic populations with planted true sd in {0.02, 0.08};
+            the deconvolution must recover each within 20%, and the two must differ.
+NEGATIVE    the zero-true-spread synthetic, built from this data's own annotator structure. World it
+            excludes: "a positive split-half correlation here can only mean the criteria differ."
+NOISE FLOOR MEASURED: the analytic binomial SE (0.0521 from check #401) beside the empirically
+            measured half-to-half sd, so the assumption in D1 is checked rather than asserted.
+UNIT        instrument unit = a (prompt, criterion, annotator-half) accuracy; claim unit = a POOL;
+            E3's unit = a POOL CRITERION. Three strings, required unequal.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+2 reliability tests + 2 deconvolved spreads + E3's 16 per-criterion contrasts = 20 tests, BH at
+q = 0.05 over the whole set. Cells tested, surviving, non-survivors printed.
+
+--------------------------------------------------------------------------------
+SPECIFICATION CURVE
+--------------------------------------------------------------------------------
+split          random annotator halves | odd/even by annotator index
+statistic      accuracy on non-tied | composite agreement
+correction     raw split-half | Spearman-Brown
+NBOOT          1200
+seeds          3
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+which `full` criteria are the bad ones     each criterion on more than one prompt (D3); the release
+                                           gives each exactly one
+separating criterion quality from PROMPT   the same criterion applied to different prompts, which
+difficulty                                 only the generic pool provides
+independently replicated                   a second designer; the session prompt forbids agents
+cross-release                              a second values-annotation release

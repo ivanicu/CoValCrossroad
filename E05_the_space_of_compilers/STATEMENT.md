@@ -2087,3 +2087,34 @@ overstates the clustered **±0.0085** by 3.4×.
 
 **Scope**: 968 prompts × all annotators · 14,984 `full` instances, 15,488 pool instances · NBOOT
 1,200 · first release, home judge. Both summed aggregates reproduced to 1e-9.
+
+## R799 · The spread is real, and for the pool it is PROMPT rather than criterion
+
+**Split-half reliability over annotators**: `coval_full` **+0.8204 [+0.8172, +0.8278]** (SB +0.9013)
+against a zero-signal control of **+0.0080**; `genericpool16` **+0.7597 [+0.7531, +0.7668]** against
+**−0.0060**. Deconvolved signal sd **0.1760 (95.0% of the observed 0.1853)** and **0.1532 (92.9% of
+0.1649)**.
+
+⭐⭐ **And the pool separates what the rubric cannot.** Its 16 criteria each span all 968 prompts:
+**across criteria sd 0.0157** against **across instances sd 0.1532** — so roughly a tenth of the
+reliable variation is the criterion and the rest is the prompt. For `coval_full` each criterion
+appears on **one** prompt, so criterion and prompt are perfectly confounded and its 95% signal
+**cannot** be attributed to criterion text.
+
+⭐ **16 of 16 pool criteria individually exceed `coval_full`'s mean accuracy 0.4805** (range
+**0.5048 – 0.5585**, top-4 0.5526, bottom-4 0.5133) — the pool's advantage is not a strong minority.
+
+⛔ **The share below chance, naive against deconvolved**: `coval_full` 0.509 → **0.544**;
+`genericpool16` 0.388 → **0.416**. ⚠ Check #401's own illustration — "0.646 from noise alone" —
+assumed a uniform population the data refutes.
+
+⛔⛔ **And the object check caught a defect in R798**: its LEVELS were **instance-weighted**
+(`full` 0.4805) while its GAPS were **prompt-weighted** (0.4795). Instance-weighted gap **+0.0527**
+against prompt-weighted **+0.0538** — same sign, both resolved, corrected at R798's README.
+
+**Controls**: PLACEBO self-split **1.000000000000** · POSITIVE planted sd 0.020 → **0.0200** and
+0.080 → **0.0791** · NEGATIVE zero-spread synthetic **+0.0080 / −0.0060** · NOISE FLOOR analytic
+0.0521 against measured 0.0578 and 0.0609. BH over 18 tests: **18 survive**.
+
+**Scope**: 968 prompts × all annotators · 14,979 `coval_full` and 15,482 pool instances · split
+halves over ANNOTATORS only, so prompt variation sits inside "signal" · first release, home judge.

@@ -6406,3 +6406,42 @@ first threshold demanded a 0.05 drop where **0.0284** was the maximum; repaired 
 inversion with a computed band **0.5142 → 0.3184**, drop 0.1958 · NEGATIVE humans shuffled sends
 `full` to **0.4115** and the pool to **0.4103** · NOISE FLOOR annotator split-half **0.001699**, the
 gap 29× it. BH over 3 tests: **3 survive**. **WORLD A.**
+
+## R799 · deconvolving the instance spread, and what only the generic pool can separate
+
+**The design R798 proposed was inadmissible.** One instance is 5.73 non-tied pairs × 16.1 annotators
+= 92 draws, SE ≈ 0.0521, so ranking 14,979 noisy estimates and reading a share off the ranking
+measures the noise (§4, *conditioning on the outcome*).
+
+**Derived before measuring.** D1 `var(obs) = var(true) + var(noise)`. D2 split-half needs no noise
+model. D3 a pool criterion is observed on 968 prompts and a rubric criterion on 1. D4 an
+annotator split-half leaves PROMPT variation inside "signal".
+
+**E1/E2 · reliability and deconvolution:**
+
+| | `coval_full` | `genericpool16` |
+|---|---:|---:|
+| split-half r (annotators) | **+0.8204 [+0.8172, +0.8278]** | **+0.7597 [+0.7531, +0.7668]** |
+| Spearman-Brown | +0.9013 | +0.8635 |
+| zero-signal control | +0.0080 | −0.0060 |
+| observed sd | 0.1853 | 0.1649 |
+| noise sd | 0.0578 | 0.0609 |
+| **deconvolved signal sd** | **0.1760 (95.0%)** | **0.1532 (92.9%)** |
+| naive share below 0.5 | 0.509 | 0.388 |
+| **deconvolved share below 0.5** | **0.544** | **0.416** |
+
+**E3 · the pool's 16 criteria, individually** (n = 968 each): 0.5585, 0.5553, 0.5483, 0.5482, 0.5452,
+0.5404, 0.5404, 0.5329, 0.5310, 0.5278, 0.5265, 0.5246, 0.5198, 0.5154, 0.5130, 0.5048 — **sd
+0.0157**, top-4 mean 0.5526, bottom-4 0.5133, and **16 of 16 exceed `coval_full`'s 0.4805**.
+
+**⭐ The decomposition that follows**: criterion identity contributes **sd 0.0157** while the
+instance-level signal is **sd 0.1532**, so most reliable variation is PROMPT, not criterion. For
+`coval_full` this split is unavailable in principle (D3) and is declined rather than estimated.
+
+**Controls.** OBJECT R798's accuracies reproduced to 1e-9 once the aggregation was matched — ⛔ the
+first run exited 2 and located a defect in R798, whose LEVELS were instance-weighted (`full` 0.4805)
+while its GAPS were prompt-weighted (0.4795); instance-weighted gap **+0.0527** against
+prompt-weighted **+0.0538**, same sign, both resolved · PLACEBO self-split **1.000000000000** ·
+POSITIVE planted sd 0.020 → **0.0200**, 0.080 → **0.0791**, band at both ends · NEGATIVE zero-spread
+synthetic **+0.0080 / −0.0060** · NOISE FLOOR analytic 0.0521 against measured 0.0578 / 0.0609, so
+the binomial model understates it. BH over 18 tests: **18 survive**. **WORLD A.**
