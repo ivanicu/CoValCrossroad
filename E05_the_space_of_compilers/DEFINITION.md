@@ -4123,3 +4123,83 @@ without a classifiable population** *(995)*; the 6 → **an upper bound**, ≥5 
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 99, **both writes confirmed to disk**
 before the comparison ran (3384 and 3385 bytes, differing only in the recorded seed).
+
+## R745 · are the added arms candidate cores, or our own apparatus?
+
+**Question.** R728 measured the census admitting **16** on today's 92-arm store against **5** on the
+committed 41, and called it a scope condition. Its residue, verbatim: *"whether R294's construction is
+the right one is not addressed here."* Are the added arms candidate cores at all?
+
+**Estimand.** The class composition of the 51 arms present today and absent from the committed 41, and
+separately of the 11 newly admitted, under a partition **read off the builder**.
+
+**Identification — from `corebench/select_core.py`, asserted at runtime.**
+
+| line | establishes |
+|---|---|
+| `:50-52` | the rule vocabulary is a closed set of **nine** |
+| `:102` | `if a.rule in ("oracle_k", "indep_k", "greedy_k"):` **loads the human target** |
+| `:204` | the tag is **emitted by the builder** from rule + k + seed + fit-parity + `tag_suffix` |
+
+⇒ **TARGET-READING** `oracle_k · indep_k · greedy_k` · **RANDOM** `random_k` · **CEILING** `full` ·
+**SELECTOR** `topw_k · topabs_k · topvar_k · topwvar_k`. The round **exits 2** if the source does not
+carry all three assertions.
+
+⚠ **Gauge bound.** A name is invariant under renaming while the property is not, so name
+classification is blind **in general**; it is admissible here **only** because `:204` emits the tag
+from the rule. Non-parsing tags return **`UNPARSED`**, never a class.
+
+**The grid — 3 classifiers × 3 populations.**
+
+| classifier | population | SEL | TGT | RND | CEIL | UNPARSED | non-SEL share |
+|---|---|---|---|---|---|---|---|
+| loose / **tight** / family | added(51) | 14 | 13 | 20 | 0 | 4 | **0.7021** |
+| loose / **tight** / family | newly admitted(11) | 2 | 7 | 0 | 0 | 2 | **0.7778** |
+| loose / **tight** / family | committed extension(5) | 4 | 0 | 0 | 0 | 1 | **0.0000** |
+
+⚠ **The curve is FLAT and that is a fact about the tags, not robustness** — every tag here is
+builder-emitted with a clean rule prefix, so the three classifiers **could not have differed**
+*(ledger 1002)*.
+
+**The 11, named.** `oracle_k4_08bR`, `oracle_k4_oracle_kA/kB`, `greedy_k4_greedy_kA/kB`,
+`indep_k4_indep_kA/kB` → **TARGET-READING** (7). `topw_k4_detA/detB` → **SELECTOR** (2).
+`coval_core_2bA/2bB` → **UNPARSED** (2).
+
+⚠ **`UNVERIFIED`:** whether the four suffixed tags are **replicas** of `coval_core` and `topw_k4` —
+which would leave the 11 containing **no new object at all** — is not readable from a name, because
+`tag_suffix` is caller-supplied rather than rule-emitted. It needs **R525's satisfaction-vector
+partition on today's 92**.
+
+**Registered against measured.**
+
+| | registered | measured | |
+|---|---|---|---|
+| P1 share of the 51 parsing | ≥ 0.70 | **0.9216** | ✓ |
+| P2 non-SELECTOR share of the 51 | 0.55 [0.20, 0.90] | **0.7021** | ✓ in band |
+| P3 non-SELECTOR of the 11 | 9 [0, 11] | **7** | in band, point wrong *(1001)* |
+| **D** the 11 exceed the 51 | true | **true**, 0.7778 vs 0.7021 | ✓ |
+
+⚠ **P3 was PARTIALLY SIGHTED**, declared in the preregistration: 6 of the 11 names were visible in a
+truncated print before registration. ⛔ **The 11 are a SUBSET of the 51** — a within-population
+contrast, **no significance claimed**, and labelled a derivation.
+
+**Controls — 6 PASS, 0 FAIL.**
+
+| control | returned |
+|---|---|
+| **PROVENANCE** | all three source assertions hold; otherwise exit 2 |
+| **POSITIVE** | `random_k8_s0 → RANDOM`, `topw_k4 → SELECTOR`, **different classes**; band computed — at a floor classifier assigning one class they **cannot** separate |
+| **g=0** | out-of-grammar tags → `UNPARSED`; a silent `SELECTOR` default would have **manufactured World A** |
+| **NEGATIVE** | rule→class shuffled → `{TGT 29, SEL 14, CEIL 2, RND 2}` vs real `{RND 20, SEL 14, TGT 13}` |
+| **SHAM** | ingredient **absent**: the committed extension, **0/4** non-SELECTOR |
+| **PLACEBO** | 10 non-tag strings → 0 in every class, stated as **0 of 10** |
+
+⚠ **SHAM shortfall stated:** R728 records the committed **count** (41), not the committed **names**, so
+the sham ran on the **5** it does record.
+
+**Verdict — `WORLD B`.** The census's new admissions are dominated by apparatus. **World A is killed:
+the wider population is not a wider sample of cores**, and `16` beside `5` would present our own
+instruments as rival subject matter *(ledger 1000)*.
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 7777, **both writes confirmed to
+disk** before the comparison ran (5734 / 5737 bytes, differing only in the recorded seed).

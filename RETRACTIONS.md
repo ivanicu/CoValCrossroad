@@ -18770,3 +18770,37 @@ because indirection through imports was the blindness I had in mind. No round ga
 at all; the gain is entirely through named cache files, and imports contributed nothing. The bound
 holds and the mechanism I predicted for it does not, which is worth more than the bound because it
 says the tree shares data through artifacts rather than through code.
+
+## 1000 · a wider population read as a wider sample, when it was our own apparatus
+
+An earlier round found the census admits sixteen arms on the store as it stands today against five on
+the population it was committed against, and framed that as a scope condition on the extension. Its own
+residue said that whether the construction is the right one was not addressed. Classified against the
+builder's rule vocabulary, seven of the eleven extra admissions read the human target, which is the
+exact class the third clause exists to exclude, and none of the eleven is an established new candidate
+core. The wider population is not a wider sample of cores. Reporting sixteen beside five as two
+readings of one quantity would have presented our instruments as rival subject matter.
+
+## 1001 · my registered count was wrong and the sighting that biased it is declared
+
+I registered nine of the eleven newly admitted arms as non selector. The measured value is seven,
+inside the band and wrong as a point. And the registration was not blind: while confirming that the
+prior round's artifact carried the objects at all, a truncated print showed six of the eleven names
+before I wrote the number down. Declaring a partial sighting costs nothing and hiding one is an
+unavailability claim in the flattering direction, which this standard forbids in both directions.
+
+## 1002 · a flat specification curve is not robustness
+
+Three classifiers returned identical counts on all three populations. Every tag in these populations is
+emitted by the builder with a clean rule prefix, so a loose substring match, a grammar match anchored
+at position zero and a prefix match could not have differed. Presenting that agreement as a
+specification curve would be claiming a test that did not run. It is reported as a fact about the tags.
+
+## 1003 · the design my own previous round proposed would have mutated its subject
+
+The preceding round closed by proposing an audit hook over each round's execution to compare the files
+a round names against the files it opens. Executing those rounds means running bootstraps of up to
+seventy six thousand resamples and overwriting their committed artifacts, so the instrument would have
+rewritten the objects it measures, and opened does not imply depended upon in either direction. The
+line is deferred with its reason on the page rather than dropped, because an unrecorded deferral looks
+identical to an oversight one round later.

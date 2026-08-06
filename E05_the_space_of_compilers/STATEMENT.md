@@ -453,6 +453,21 @@ extra arms were built by later rounds for other purposes, so this is **not** a c
 extension — it is a scope condition. **The number 5 is indexed to a population that a glob no longer
 returns.**
 
+⭐⭐ **AND `16` IS NOT A RIVAL NUMBER TO `5` — THE ADMISSIONS ARE OUR OWN APPARATUS** *(R745)*.
+Classified against `select_core.py`'s own grammar — `:50-52` a closed nine-rule vocabulary, `:102`
+`if a.rule in ("oracle_k", "indep_k", "greedy_k"):` **loads the human target**, `:204` the tag is
+**emitted from the rule** — the 11 extra admissions are **7 TARGET-READING** (`oracle_k4_08bR`,
+`oracle_k4_oracle_kA/kB`, `greedy_k4_greedy_kA/kB`, `indep_k4_indep_kA/kB`), **2 SELECTOR**
+(`topw_k4_detA/detB`) and **2 UNPARSED** (`coval_core_2bA/2bB`). **Seven of eleven are the exact class
+clause ③ exists to exclude, and zero is an established new candidate core.** Across the 51 added arms
+the non-SELECTOR share is **0.7021**; across the committed extension it is **0.0000**.
+⚠ **`UNVERIFIED` and load-bearing:** whether the four suffixed tags are *replicas* of `coval_core` and
+`topw_k4` — which would leave the 11 containing **no new object at all** — cannot be read from a
+name. `tag_suffix` is caller-supplied, not rule-emitted. **It needs R525's satisfaction-vector
+partition on today's 92.**
+⭐ **So the widening does not widen the sample of cores.** The realised defect is the apparatus
+entering its own population — R637's observer, one level up, in the DEFINITION's population.
+
 ⛔ **And clause ③ is a BLOCKLIST, so it fails open** — **established by R520**, re-measured and
 extended by *(R729)*. `select_core.py:102` reads the human target for three rules — `oracle_k`,
 `indep_k`, `greedy_k` — while ③ is implemented as **four literal arm names**. **R520 named the 6 arms
