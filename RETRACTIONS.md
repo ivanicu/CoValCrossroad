@@ -20893,3 +20893,45 @@ beat `CEIL_H`"*, and interpolation was only one way to evaluate it. Directly: a 
 scores **0.584223** against **0.551880**. *Substituting a direct evaluation of the same estimand is a
 repair; substituting a different estimand would have been a moved goalpost, and the distinction is
 the only thing standing between a pre-registration and a decoration.*
+
+## 1200 · fitting a core to a prompt's own humans SURVIVES holding the labels out
+
+The campaign has carried the fitted arms as a labelled upper bound for hundreds of rounds without
+ever asking whether the honest version of them is any good. With the annotators split by parity —
+fit on 1, evaluate on 0, and **every** quantity in the frame computed under that same split —
+`oracle_k4_fit1` beats the blind 16-criterion pool by **+0.0553 [+0.0456, +0.0653]** on parity-0,
+**20× the noise floor**. `greedy_k4_fit1` +0.0543, `indep_k4_fit1` +0.0425. ⭐ **So "fit a core to
+human judgements" is an admissible route with real content, not a fitting artifact** — WORLD A, and
+the two flattering-in-the-other-direction worlds (it collapses to the pool / below it) are dead. The
+matched axis this produces: `floor_p0` 0.457228 · `CEIL_HO_p0` **0.636344** (best weak order fitted
+on parity-1 — the *same estimator class* as the fitted arms, which is what makes the share a matched
+statement) · `CEIL_ATT_p0` 0.707062. On it, `coval_core` captures **61.7%**, the best held-out fitted
+arm **79.3%**, and the whole rubric `full` **29.4%** — below the blind pool.
+
+## 1201 · R294's census evaluated the held-out arms on the annotators they were fitted to
+
+R293 declared the restriction in its own docstring — *"For `*_fit1` the evaluation is restricted to
+parity-0"* — and implemented it (`R293/run.py:80-93`). **R294, the 41-arm census that later rounds
+actually read, builds `HC[p]` from ALL annotators (`R294/run.py:110`)**, so its published
+`oracle_k4_fit1 = 0.6142` is scored on a set that is **half its own fit data**. Measured
+contamination: **+0.014832 [+0.011175, +0.018461]** for `oracle_k4_fit1`, +0.012214 for `greedy`,
++0.007470 for `indep`. ⭐ **The honest arm is what turns this into a leak measurement**: `coval_core`,
+which never touches prompt labels, shows **−0.001218 [−0.004766, +0.002230]** under the identical
+all-vs-parity-0 comparison — a null — so the gap is the labels and not the change of annotator set.
+Separately, the answer key itself is worth **+0.032022 [+0.026225, +0.038194]** (leaky `oracle_k4`
+minus held-out `oracle_k4_fit1`, both on parity-0). ⚠ Both are **lower bounds**: R295 measured that
+the fit1 advantage concentrates where the two halves agree, so parity-0 is a proxy for the labels
+the fit consumed. *Declared ≠ implemented, and the declaration was in a different round from the
+code — which is exactly why nobody caught it: the docstring that promised the restriction and the
+census that skipped it were never read side by side.*
+
+## 1202 · and R804's 97.1% was mine, published with the caveat in prose and the number left standing
+
+R804 scored 27 arms against a **held-out** ceiling while including the **LEAKY** `oracle_k4` — fitted
+on all annotators — and excluding all three held-out arms, then reported *"the best arm reaches
+97.1% of the generalising range"*. R293 had already written that the leaky arm **"is not comparable
+to the others"**, and R804's own README flagged the selection caveat in a ⚠ line **and printed the
+number anyway**. Matched under one split, the best held-out arm reaches **79.3%**. *A caveat in the
+text is not a corrected number. The failure is not that I missed the confound — I named it — it is
+that naming it felt like handling it, and the table went out with the wrong row in the headline
+position.*

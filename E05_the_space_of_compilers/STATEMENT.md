@@ -2285,3 +2285,35 @@ floor **0.001991**.
 
 **Scope**: 968 prompts × 4 responses × all annotators × 27 arms × 75 weak orders · NBOOT 1,200 ·
 first release, home judge.
+
+## R805 · Fitting to a prompt's own humans survives holding the labels out — by +0.0553
+
+**With the annotators split and every quantity computed under the same split:**
+
+> `oracle_k4_fit1` − `genericpool16`, both on parity-0: **+0.0553 [+0.0456, +0.0653]**, 20× the
+> noise floor of 0.002181.
+
+**Fit a core to human judgements is an admissible route with real content**, not a fitting artifact.
+
+| arm | parity-0 | share of `[floor_p0, CEIL_HO_p0]` |
+|---|---:|---:|
+| `oracle_k4` (**LEAKY**) | 0.6314 | 97.2% |
+| `oracle_k4_fit1` (held out) | **0.5993** | **79.3%** |
+| `coval_core` | 0.5677 | **61.7%** |
+| `genericpool16` | 0.5441 | 48.5% |
+| `full` | 0.5099 | 29.4% |
+
+Axis: `floor_p0` **0.457228** · **`CEIL_HO_p0` 0.636344** · `CEIL_ATT_p0` 0.707062.
+
+⛔ **Two committed numbers were inflated and both are now measured.** R294's census evaluates the
+held-out arms on **all** annotators — half of them each arm's own fit set — inflating
+`oracle_k4_fit1` by **+0.014832 [+0.011175, +0.018461]**; the honest `coval_core` shows
+**−0.001218 [−0.004766, +0.002230]** under the same comparison, which is what makes it a leak
+measurement and not a split artifact. And the answer key itself is worth **+0.032022 [+0.026225,
++0.038194]**. ⚠ Both are **lower bounds** (R295: the halves are not independent).
+
+⛔ **And R804's "97.1% of the generalising range" was a LEAKY arm against a HELD-OUT ceiling.**
+Matched, the best held-out arm reaches **79.3%**.
+
+**Scope**: 968 prompts (**0 dropped**) × 11 arms · annotators split by index parity, fit on 1,
+evaluate on 0 · NBOOT 1,200 · first release, home judge.

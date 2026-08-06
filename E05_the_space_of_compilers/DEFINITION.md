@@ -6621,3 +6621,46 @@ PLACEBO constant predictor **0.1397355039** = the human tie rate **0.1397355039*
 annotator as predictor **0.555874**, band **0.1397 < t < 0.6863** · NEGATIVE each annotator slot
 filled from a different prompt **0.686265 → 0.527548** (best corpus-wide constant 0.451773) ·
 NOISE FLOOR **0.001991**. **WORLD A.**
+
+## R805 · the held-out arms scored held-out — fitting survives, and the census was contaminated
+
+**Why here.** R804's NEXT proposed cross-validating the oracle selection over PROMPTS. CHECK #407
+read the selector: `select_core.py` chooses **per prompt** against that prompt's own modal human
+class, so nothing transfers across prompts and the split is ill-posed — R801 established this and
+the NEXT proposed it anyway. The correct split is over **annotators**, and it already existed:
+`--fit-parity` (`select_core.py:55`) with 16 committed `*_fit1` files.
+
+**One split, every quantity under it.** floor_p0 **0.457228** · **`CEIL_HO_p0` 0.636344** (best weak
+order fitted on parity-1, scored on parity-0 — the same estimator class as the fitted arms) ·
+`CEIL_ATT_p0` 0.707062 (in-sample upper bound; `CEIL_HO ≤ CEIL_ATT` is forced and run as a code
+check).
+
+**E2 · the arms on parity-0, as a share of `[floor_p0, CEIL_HO_p0]`**: LEAKY `oracle_k4` 0.6314
+(97.2%) · held-out `oracle_k4_fit1` **0.5993 (79.3%)** · `greedy_k4_fit1` 0.5984 (78.8%) ·
+`indep_k4_fit1` 0.5866 (72.2%) · **`coval_core` 0.5677 (61.7%)** · `topw_k4` 0.5656 (60.5%) ·
+`generic` 0.5533 (53.7%) · `genericpool16` 0.5441 (48.5%) · `full` 0.5099 (29.4%) · `random_k4_s0`
+0.4937 (20.4%) · `gen_sham` 0.4845 (15.2%). **BH 10 of 11 survive**; the non-survivor is
+`genericpool16` against **itself**, a degenerate self-test and a built-in placebo.
+
+**⭐ THE FINDING.** `oracle_k4_fit1` − `genericpool16` on parity-0 = **+0.0553 [+0.0456, +0.0653]**,
+20× the noise floor. **Fitting a core to a prompt's own human labels is an admissible route with
+real content** — it does not vanish when the labels it is scored on are held out. WORLD A.
+
+**⛔ E3 · two inflations, both now measured.** (a) R294's committed census builds `HC[p]` from ALL
+annotators (`R294/run.py:110`), so its `oracle_k4_fit1 = 0.6142` is scored on annotators half of
+which are its own fit set: contamination **+0.014832 [+0.011175, +0.018461]**, and `greedy` +0.012214,
+`indep` +0.007470. ⭐ The honest arm prices the confound: `coval_core` (no prompt labels) shows
+**−0.001218 [−0.004766, +0.002230]**, a null — so the gap is the labels, not the split.
+(b) The answer key itself: LEAKY `oracle_k4` − held-out `oracle_k4_fit1` on parity-0 =
+**+0.032022 [+0.026225, +0.038194]**. ⚠ D3 — R295 measured that the fit1 advantage concentrates
+where the halves agree, so **every leak number here is a LOWER bound**.
+
+**⛔ E4 · and R804's headline was mine to correct.** R804 published *"the best arm reaches 97.1% of
+the generalising range"* — a LEAKY arm against a HELD-OUT ceiling, with the caveat in prose and the
+number left standing. Matched: **79.3%**.
+
+**Controls.** OBJECT R293's committed **0.631353 / 0.625062** reproduced exactly, plus `coval_core`
+**0.5664774812** · PLACEBO parity-0 constant **0.1389806792** = parity-0 tie rate **0.1389806792** ·
+POSITIVE each fit scores higher on its own half (0.630410 > 0.599331 · 0.624184 > 0.598415 ·
+0.602500 > 0.586595), band **0.1390 < t < 0.7071** · NEGATIVE cores against another prompt's humans
+0.567696 → **0.422319** · NOISE FLOOR **0.002181** · population 968 prompts, **0 dropped**.
