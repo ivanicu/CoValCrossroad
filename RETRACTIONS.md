@@ -23585,3 +23585,41 @@ missing was that **the next round would have had to re-derive the plants from sc
 lived in a shell command.** A control that exists only in the session that used it is a control the
 corpus does not have — **and this gate has been printing an acquittal for its whole life without
 one.**
+
+## 1314 · 2 of 6 checks demonstrably fire, and one has been correctly refusing to an audience of nobody
+
+`attack_every_check.py` was run rather than described. **Its verdict, verbatim: 2 of 6 checks
+demonstrably fire on the defect they hunt.**
+
+| check | fired? | detail |
+|---|---|---|
+| `retired_framing_in_assertion_positions` | **YES** | exit 1 on a withdrawn framing in a heading |
+| `corrections_propagated` | **YES** | exit 1 on a superseded number reinstated |
+| `every_round_reaches_the_readme` | **INVALID** | *"the mutation changed nothing"* — says nothing about the check |
+| `code_states_a_bound_the_reader_never_sees` | **INVALID** | README already contains the planted word |
+| `readme_row_carries_the_verdict` | **NO** | *"fires on the CLEAN tree too (exit 2) — not specific"* |
+| `results_match_their_code` | **NO** | did not flag the planted item |
+
+⭐ **`corrections_propagated` firing is the independent confirmation of last round's work** — its
+ability to say no is now established twice, by its own 11 plants and by an external attack that
+plants a superseded number and watches it exit 1.
+
+⭐⭐ **AND THE `NO` FOR `readme_row_carries_the_verdict` IS NOT WHAT IT LOOKS LIKE.** Run directly:
+
+```
+OBSERVED NOTHING: the set of rounds with both a README row and a verdict is empty.
+This is exit 2, not success -- a check with no population has not passed, it has not run.
+```
+
+**The gate is behaving correctly** — §4's `empty population passes`, refused exactly as the row
+demands. **But its population is EMPTY, and it is not in the ten-gate sweep I run every round**, so
+**that refusal has been printing to nobody.** ⚠ **A correct refusal no one reads is indistinguishable
+from no gate at all** — and this one has been right, and unheard, for the whole campaign.
+
+⚠ **Scope, and it corrects my own NEXT.** I said *"the same question applies to the other 65 gates."*
+**`attack_every_check.py` covers 6.** So the question is **answered for 6** and **open for the rest**,
+and the instrument I pointed at it is a great deal smaller than the population I pointed it at.
+
+⚠ **And what the instrument itself refuses to claim, quoted rather than paraphrased**: *"NOT
+established: that a check catches EVERY instance of its defect. That is recall, and it is
+unmeasured."*
