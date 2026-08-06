@@ -5686,3 +5686,33 @@ Rc **0.4133** · F1 **0.3102** · F3 **0.2034** · M **0.4290**. Reaching 0.7709
 permutations **+0.0001 [−0.0010, +0.0023]** · SHAM **+0.0000** · POSITIVE (rebuilt, generative share
 1.0 by construction) recovered **1.0526** at w=0.5 and **1.0000** at w=1.0 · SPEARMAN on every
 correlation. **WORLD A.**
+
+## R780 · clause ② across two releases
+
+**Release 2**: 2,200 conversations · 7,344 interactions · strata 2:**5204** / 3:**456** / 4:**1684** ·
+7 arms · blind reference `core_generic.json`, **the same file as release 1's**.
+
+| contrast | n | eff | CI | MDE | verdict |
+|---|---:|---:|---|---:|---|
+| r1 `gen` − blind | 968 | **−0.0267** | [−0.0424, −0.0115] | 0.0216 | **LOSES** |
+| r2 `gen` − blind | 1684 | **+0.0020** | [−0.0065, +0.0104] | 0.0124 | **UNRESOLVED** |
+| r1 `gen_sham` − blind | 968 | −0.1043 | [−0.1191, −0.0887] | 0.0219 | LOSES |
+| r2 `gen_sham` − blind | 1684 | −0.0243 | [−0.0346, −0.0134] | 0.0151 | LOSES |
+| r2 `vacuous` − blind | 1684 | −0.0396 | [−0.0487, −0.0306] | 0.0131 | LOSES |
+| r2 `randblind_s0` − blind | 1684 | −0.0313 | [−0.0424, −0.0192] | 0.0168 | LOSES |
+| r2 `randblind_s1` − blind | 1684 | −0.0516 | [−0.0664, −0.0358] | 0.0219 | LOSES |
+| r2 `randblind_s2` − blind | 1684 | −0.0221 | [−0.0317, −0.0112] | 0.0153 | LOSES |
+| r1 `gen` − blind, ALL annotators *(specification)* | 968 | −0.0162 | [−0.0247, −0.0082] | 0.0119 | LOSES |
+| r2 n=2 *(not gauge-matched)* | 5204 | +0.0065 | [−0.0050, +0.0183] | 0.0170 | UNRESOLVED |
+| r2 n=3 *(not gauge-matched)* | 456 | +0.0117 | [−0.0124, +0.0358] | 0.0357 | UNRESOLVED |
+
+**Blind-arm spread on release 2: 0.0295**, against an MDE of 0.0124–0.0219.
+**Required n** to resolve a release-1-sized effect on release 2: **366**, have **1,684**.
+**Census**: 21 unscoped-wall lines, **13** at or before R556, **8** after.
+
+**Controls.** OBJECT as above, exit 2 otherwise · PLACEBO **0.000000** both · g=0 **0.000000** both ·
+NEGATIVE target-permuted 200 draws r1 **[−0.0215, +0.0221]**, r2 **[−0.0159, +0.0161]** · the
+pairing permutation is a **DERIVATION** (3.4e-18 / 7.5e-19), labelled not reported · SHAM
+prompt-specificity ABSENT **−0.0313** · POSITIVE swept 0 → **UNRESOLVED**, 0.25/0.50/1.00 → BEATS on
+both releases, band floor **+0.0000** < t < ceiling **+0.4478** · SEARCH positive and negative both
+PASS. **NO WORLD CLAIMED.**

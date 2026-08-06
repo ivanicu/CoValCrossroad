@@ -1507,3 +1507,34 @@ truth — a mediator carrying a share of 1.0 by construction, recovered at 1.052
 
 **Scope**: 968 prompts · A2 over all annotators · six covariates × three M×R pairs · first release,
 home judge, tree_sha `1d64e4cdccc6`.
+
+## R780 · The cross-release wall is false as written, and the site it hid is better powered
+
+**A second release is on disk and, for the definition's load-bearing contrast, it resolves better
+than release 1.** 2,200 conversations / 7,344 interactions, seven arms already scored; on the
+gauge-matched n=4 stratum its MDE is **0.0124** against release 1's **0.0216**, and the n needed to
+resolve a release-1-sized effect is **366** against **1,684 available — a 4.6× surplus**.
+
+⚠ **The existence is R556's finding, not this round's.** What is new is that **21 lines across 21
+rounds** still assert an unscoped `cross-release` impossibility, and **8 of them were written after
+R556** — 704, 714, 716, 718, 720, 721, 722, and 779, which I wrote an hour earlier. **The object
+scopes it correctly** (`corebench/score.py:33`: *"a second values-annotation release WITH THIS
+SCHEMA"*); the round READMEs drop *"with this schema"* and so assert more than the object supports.
+The schema-bound half is REAL: release 2 ships no rubric, so clause ① is untestable there.
+
+⛔ **NO WORLD IS CLAIMED, because my prediction matrix could not describe the outcome.** All three
+branches presupposed that clause ② holds for `gen` on release 1; under the matched estimator it does
+not — **`gen` LOSES to the prompt-blind reference, −0.0267 [−0.0424, −0.0115]**, and the
+all-annotator specification agrees on sign at −0.0162. On release 2 the same contrast is **+0.0020,
+UNRESOLVED**.
+
+⭐ **AND THE PROMPT-BLIND REFERENCE IS NOT A POINT.** Three blind `randblind` arms sit at −0.0221,
+−0.0313 and −0.0516 from `generic`, all resolvedly LOSING, **spanning 0.0295 — more than twice the
+MDE of the contrast clause ② is asked to decide.** Clause ② is the definition's only MEASURED clause
+(R360: ① excludes 0, ③ derived, ④ excludes 0), and on release 2 its verdict depends on which blind
+arm is named as the reference. **Scope: release 2 only** — release 1 carries exactly 2 prompt-blind
+scored arms, which gives one difference and not a spread.
+
+**Scope**: r1 968 prompts · r2 1,684 n=4 interactions · pairwise sign agreement against a single
+score vector, identical code both releases · `core_generic.json` as the baseline on both sides ·
+home judge, k=4.

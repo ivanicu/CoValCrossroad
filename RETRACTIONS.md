@@ -20018,3 +20018,39 @@ arrived at by way of a correct derivation rather than a careless threshold. The 
 construction**, and require the measured drop to recover the whole correlation. It returns **1.0526**
 at w=0.5 and **1.0000** at w=1.0, and it can fail. *When an equality is corrected to an identity, the
 control stops being a control — the direction of the repair matters as much as its content.*
+
+## 1121 · `cross-release` was written as an impossibility in 21 lines while the second release sat on disk
+
+R556 established in its own title that *"the second release row five asks for is on disk"*, and R398,
+R427, R433 and R434 measured on it. **Twenty-one lines across twenty-one rounds still register
+`cross-release | N/A — one release`, and eight of them were written AFTER R556** — R704, R714, R716,
+R718, R720, R721, R722 and **R779, which I wrote an hour before this round.** The object was right the
+whole time: `corebench/score.py:33` scopes it *"a second values-annotation release WITH THIS SCHEMA"*,
+and release 2 genuinely ships no rubric, so half the wall is real. **What the READMEs did was drop
+four words and thereby assert something stronger than the instrument does.** *A correction that lands
+in one artifact and not in the template that reproduces it is not a correction; it is a fact about one
+file. The impossibility register is COPIED between rounds, so an error there replicates at the rate
+rounds are written, and nothing in the loop reads it.*
+
+## 1122 · R780's own prediction matrix presupposed the conclusion it was testing
+
+All three registered branches began with clause ② holding for `gen` on release 1 — A required both
+releases to resolve, B required release 1 to resolve, C conditioned on release 2's power given a
+release-1 effect. **Under the matched estimator `gen` LOSES to the prompt-blind reference on release
+1 (−0.0267, and −0.0162 on the all-annotator specification), so no branch describes what happened**
+and the script printed NO WORLD CLAIMED rather than inventing a fourth. *A prediction matrix is
+supposed to enumerate the outcomes; writing one whose every row shares an unstated premise converts
+it from a commitment into a filter that only passes the results I expected.* The correct reading is
+that the round is informative and worldless, and adding the missing branch now would be a threshold
+chosen after seeing the data.
+
+## 1123 · the census regex counted `one released core` as `one release`
+
+E1's first pattern was `(one release|a second release|N/A)`, and `release` is a prefix of `released`,
+so it flagged *"cross-release | one released core, and its sham is ours"* — a line that scopes the
+wall **correctly**. Count 23 across 9 post-R556 rounds; tightened to `one release(?!d)`, **21 across
+8**, and R711 leaves the list entirely. **The loose pattern inflated the indictment using exactly the
+entries that prove the arc sometimes gets this right.** Caught by the round's own SEARCH negative
+control, which is the only reason it is a footnote instead of a finding. *§4's rule earns its place
+again: a grep is a measuring instrument, and its negative control must be built from lines you have
+already decided are innocent.*
