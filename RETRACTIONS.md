@@ -24242,6 +24242,14 @@ without the suite failing."* Tested against the clause table it introduces.
 **There was no `clause4_*` assertion of any kind.** So the opening sentence was **false for 2 of 5
 rows**, and the uncovered clause is **exactly the one entry 1322 found stale arguments about**.
 
+> ⛔ **HALF WRONG, CORRECTED BY ENTRY 1336.** The **strict** row was already anchored — not under a
+> `clause4_*` name, which is why the name-based search missed it: `r440_e4` binds `a["E4"]` from R440
+> with the regex `criterion-free rule \| \*\*(\d+) of \d+\*\* \| \*\*MEASURED\*\*`, and
+> `r440_arms` binds the denominator 42. **`clause4_excludes_strict` is therefore a DUPLICATE anchor on
+> the same cell.** The **permissive** row (`25 of 58`) genuinely had none, so **1 of 5 rows was
+> unchecked, not 2**. ⚠ The searching error was mine and is the one this package names most often:
+> **I searched for a NAME (`clause4`) and the claim was about a CELL.**
+
 ### ⛔ AND THE THREE THAT WERE CHECKED WERE CHECKED BY POSITION
 
 `clause1_excludes` was `\*\*(\d+) of 41\*\*` — **matching 4 sites in the file, capturing
@@ -24750,3 +24758,57 @@ prevalence** — it can only generate reading work.
 than one unexamined hope.** What would identify it is a claim-level reading of the file — the same
 answer entry 1323 reached about a smaller version of this question, arrived at again from a different
 direction, which is itself evidence the obstacle is real rather than a gap in effort.
+
+## 1336 · the claim table carries NAMES, not referents — and the one real duplicate it found was mine
+
+Entry 1335's NEXT: does the file's own claim table carry claim identity that no lexical scan can
+reconstruct? **ESTIMAND:** among the gate's computed values, how many labels resolve to the same
+`(round, value)` cell — i.e. how many places the table could cross-check itself at all?
+
+**POSITIVE CONTROL, known answer:** `r461_anchors` and `r462_total` both resolve to `340` and both
+failed together when I added two assertions in entry 1325. **Required to appear, and did:
+`('LIVE','340') ← ['r462_total','r461_anchors']` → PASS.**
+
+### ⭐ THE TABLE HAS ALMOST NO REDUNDANCY
+
+`derive()` returns **348** labels with a computed value. **Only 9 `(round, value)` groups are shared
+by more than one label — 329 of 348 labels have no partner at all.** A label with no partner cannot
+be contradicted by the table, only by the document.
+
+⚠ **And grouping by `(round, value)` reads COINCIDENCE as IDENTITY.** `R434 0 ←
+['r434_sat2','r434_useful']` are **different quantities** — `Clause ② admits (\d+) of 7` and
+`And (\d+) of 7 beat the length rule` — that happen both to be zero. **So 9 is an overcount**, and the
+same unit-vs-unit error one more time: I grouped on *value*, the claim is about *quantity*.
+
+⭐ **So the answer to the NEXT is NO.** The table records `label → (value, round)` and **never records
+which quantity a label is about**. It carries **names**, and names are precisely what a lexical scan
+already has. Referent identity is in neither. **Three methods now eliminated for one root cause** —
+marker vocabulary (blind), value collision (0/4), claim-table redundancy (names, not referents).
+
+### ⛔ AND THE ONE REAL DUPLICATE IT FOUND WAS MINE — P4, SIXTEENTH FIRING
+
+`R440 0 ← ['clause4_excludes_strict', 'r440_e4']`. Read rather than assumed:
+
+| | |
+|---|---|
+| `r440_e4` | `out["r440_e4"] = (a["E4"], "R440")` · regex `criterion-free rule \| \*\*(\d+) of \d+\*\* \| \*\*MEASURED\*\*` |
+| `r440_arms` | binds the denominator **42** on the same row |
+| `clause4_excludes_strict` *(mine, entry 1325)* | `len(a["excluded_by_4"])` · regex `better than every criterion-free rule \| \*\*(\d+) of 42\*\*` |
+
+**Same table cell, same artifact quantity.** So entry 1325's headline — *"the guarantee was false for
+**2 of 5** clause rows"* — is **half wrong: the strict ④ row was already anchored, and the true count
+is 1 of 5.** The permissive row genuinely had no anchor, so that half stands. **Corrected in entry
+1325 itself, not only here.**
+
+⚠ **Why I missed it, and it is this package's most-repeated error**: I searched for the **NAME**
+`clause4_*` and the claim was about a **CELL**. `r440_e4` anchors clause ④'s row without ever saying
+"clause 4".
+
+**The duplicate is KEPT, deliberately.** This round's own finding is that 329 of 348 labels have no
+partner; two independent anchors on one cell is the redundancy the table lacks, and it costs nothing.
+Removing it to tidy the count would delete the only cross-check on that row.
+
+⚠ **Precision, stated because last round's method had none:** 3 of the 9 groups were read —
+`LIVE/340` **real**, `R440/0` **real**, `R434/0` **coincidence**. **2 of 3**, against 0 of 4 for the
+value-collision scan. Six groups remain unread and are reported as unread. ⚠ And `derive()` yields
+**348** values against `ASSERTIONS`' **340** regexes — an 8-label gap this round did not explain.
