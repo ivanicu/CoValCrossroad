@@ -24698,3 +24698,55 @@ rate is **≥1**, and unbounded above, because plain-assertion corrections are i
 branch and printed *"could have seen it"* while the measurement said the paragraph carries no marker.
 **§4's "the verdict string is not a computation", live, in the same round that reports it** — caught
 because the numbers above the string disagreed with it.
+
+## 1335 · the prevalence estimand is not lexically identified, and the identified substitute has 0/4 precision — two methods eliminated
+
+Entry 1334's NEXT proposed measuring the 1322 structure by finding *"pairs of lines making
+incompatible claims about the same quantity"*, calibrated on the one confirmed pair.
+
+### ⛔ THAT ESTIMAND IS NOT IDENTIFIED BY ANY LEXICAL METHOD — CHECKED ON THE CALIBRATION PAIR ITSELF
+
+The confirmed pair is `L281` *"② removes **none**"* against `L1999` *"② excludes the same **7**"*.
+**They share no number, no quantity name, and no vocabulary.** A detector keyed on either would have
+to understand that *removes none* and *excludes the same 7* are claims about one quantity. **No
+regex expresses that**, and the calibration case proves it rather than suggesting it.
+
+### ⭐ SO I TOOK THE IDENTIFIED SUB-QUESTION INSTEAD
+
+**ESTIMAND:** among the gate's **340** anchored quantities, how many have their *own defining phrase*
+appear elsewhere in `DEFINITION.md` with a **different value**? That is mechanically decidable: widen
+each `ASSERTIONS` regex's capture group to any number, and count distinct matches.
+
+**CONTROLS.** *Positive*: planted a second value for `r838_npairs` (`45` → `99999`); **detected,
+`['45','99999']` → PASS**. *Negative*: unmodified text re-scanned, **6 collisions, stable**.
+
+### ⛔ AND THE DETECTOR HAS 0/4 PRECISION ON THIS CORPUS
+
+**6 candidates. 4 read. All 4 are widening artifacts:**
+
+| label | values | why it is not a contradiction |
+|---|---|---|
+| `r485_core` | `0.5640` · `0.5664774812` | L773 is a different scoring table; multiple legitimate A2 scales for `coval_core` — the fact entry 1330 established when R436 and R824 disagreed on `a2` for **0 of 52** arms |
+| `r485_oracle` | `0.6282` · `0.2791` | two different metrics — `oracle_k4` at ~0.63 (A2) and ~0.28 (another quantity) |
+| `r432_floor` | `0.0084` · `0.2117` | *"against a floor of **X**"* is a generic phrase used by two rounds |
+| `overlap_ratio` | `58` · `1.01` | *"ratio **N×**"* is generic; `58` is an arm count |
+
+⚠ **2 of the 6 were NOT read** — `published_ref_pctile` (3 values) and `r475_ceil_raw` (4 values,
+including `33`, plainly a different quantity). Reported as unread rather than assumed.
+
+⭐ **The cause is exactly the defect entry 1325 repaired, re-introduced deliberately.** Those anchors
+were fragile because they were unanchored; I widened them **on purpose** to scan, and the price is a
+candidate set that is **0 for 4** on reading. **A detector with 0/4 precision cannot measure
+prevalence** — it can only generate reading work.
+
+### ⭐ WHAT STANDS: TWO METHODS ELIMINATED, WITH THE REASON FOR EACH
+
+| method | verdict |
+|---|---|
+| **marker vocabulary** (entry 1324) | **blind** — the confirmed pair's correction carries no marker word (entry 1334) |
+| **value collision on anchored quantities** (here) | **0/4 precision** — widening destroys the anchoring that made the quantity identifiable |
+
+**Prevalence of the entry-1322 structure remains UNMEASURED, and now with two named failures rather
+than one unexamined hope.** What would identify it is a claim-level reading of the file — the same
+answer entry 1323 reached about a smaller version of this question, arrived at again from a different
+direction, which is itself evidence the obstacle is real rather than a gap in effort.
