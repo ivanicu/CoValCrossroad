@@ -2497,3 +2497,33 @@ committed seeds, sd 0.0033–0.0055 · **BH 10 of 12 survive**.
 
 **Scope**: 968 prompts, common intersection **734** · every arm scored on parity-0 · NBOOT 1,200 ·
 first release, home judge · ⚠ the `pool × informative` cell is structurally absent.
+
+## R812 · Every verdict survives all 1,820 admissible baselines
+
+**R811 was right that `POOL[0:4]` is a 96th-percentile draw, and wrong that it matters.**
+
+| verdict | holds at |
+|---|---|
+| every fitted arm above every honest arm | **1,820 / 1,820** |
+| no arm reaches the pure-copy ceiling of 1.000 | **1,820 / 1,820** |
+| R809's log contrast is negative | **1,820 / 1,820** |
+
+| arm | committed | family mean | range | **percentile** |
+|---|---:|---:|---|---:|
+| `oracle_k4_fit1` | 0.6497 | 0.6740 | [0.5912, 0.7328] | **15.6%** |
+| `coval_core` | 0.3489 | 0.3917 | [0.2717, 0.4991] | **18.0%** |
+
+⭐ **Extreme for the pool's own A2 is not extreme for the derived slope** — 96.0 against ~18 — because
+a slope depends on the baseline's per-prompt covariance, not its level. ⚠ **But the committed choice
+was conservative**: at a typical baseline the fitted arms read **0.54–0.67** rather than 0.50–0.65,
+and across the family **0.44–0.73**.
+
+⭐ **The baseline is second-order against sampling**: prompt-bootstrap sd **0.0496** against the whole
+family's **0.0229**, reported side by side and never pooled.
+
+**Controls**: an arm minus itself gives **0.0e+00** · `_perfect_leak` on itself deviates **0.0e+00**
+from 1.000 at every one of the 1,820 · the permuted baseline's range **[0.782, 0.900]** is **disjoint**
+from the real family's **[0.591, 0.733]** · **0 of 1,820** degenerate.
+
+**Scope**: 968 prompts × 5 arms × **C(16,4) = 1,820 baselines enumerated exhaustively** — population
+quantities over the family, not estimates of it · first release, home judge.

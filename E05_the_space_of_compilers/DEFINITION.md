@@ -6877,3 +6877,39 @@ its forced zero · g=0 at k=2 it must not be zero, and is not · NEGATIVE every 
 prompt's humans, null **−0.0004 [−0.0067, +0.0061]** vs a real **+0.0419** · NOISE FLOOR three
 committed seeds, sd **0.0033 · 0.0055 · 0.0040 · 0.0037**. **BH 10 of 12 survive**; the two
 non-survivors are the E4 cells at k=2 and k=12 reported as holding zero.
+
+## R812 · the baseline was a 96th-percentile draw and it changed nothing — all 1,820 swept
+
+**Why here.** R811 measured `POOL[0:4]` at the **96.0th percentile** of C(16,4)=1,820. CHECK #414
+established which rounds carry it: **R806, R807, R808 and R809 each subtract
+`yvec(POOL[p], [0,1,2,3])`**. Four consecutive rounds on one near-best draw, and the baseline was a
+defensible-choice axis never swept — realstat G4. ⚠ R811's NEXT proposed the subset MEAN, which is
+one cell for another; the estimand is the curve.
+
+**⭐ Every verdict holds at 1,820 of 1,820**: every fitted arm above every honest arm (100.0%) · no
+arm reaching the pure-copy ceiling of 1.000 (100.0%) · R809's log contrast negative (100.0%).
+
+**D3, written before the run, is why.** The baseline is subtracted from **both** sides of the slope
+and partially cancels. Committed vs family: `oracle_k4_fit1` **0.6497** vs mean **0.6740**, sd
+0.0229, range [0.5912, 0.7328], percentile **15.6** · `greedy_k4_fit1` 0.6115 / 0.6379 / [0.5547,
+0.7023] / 14.9 · `indep_k4_fit1` 0.5035 / 0.5356 / [0.4388, 0.6100] / 18.2 · `coval_core` 0.3489 /
+0.3917 / [0.2717, 0.4991] / 18.0 · `topw_k4` 0.3379 / 0.3640 / [0.2715, 0.4626] / 25.2.
+⭐ **No committed value is in a tail** — so *extreme for the pool's own A2* is **not** *extreme for
+the derived slope*: 96.0 vs ~18, because a slope depends on the baseline's per-prompt covariance and
+not its level.
+
+**⚠ The point estimates do move, conservatively.** The committed baseline sits below the family mean
+for every arm, so R807's scale understated leak-likeness: at a typical baseline the fitted arms read
+**0.54–0.67** rather than 0.50–0.65, and across the family **0.44–0.73**.
+
+**⭐ And the baseline is second-order against sampling**: the prompt bootstrap's sd is **0.0496**
+against the whole family's **0.0229** — reported side by side and never pooled.
+
+**E2**: R809's contrast, committed **−0.1317** (reproduced), family mean −0.1256, sd 0.0347, range
+[−0.2428, −0.0374], committed at the **43.1st** percentile, **negative at 100%** of baselines.
+
+**Controls.** OBJECT R807's λ **0.459704** and all five values · OBJECT (E2) R809's **−0.131725**
+reproduced **after repair** · PLACEBO an arm minus itself, **0.0e+00** · POSITIVE `_perfect_leak` on
+itself **0.0e+00** deviation from 1.000 across all 1,820 · g=0 the honest arms sit **0.501** from the
+ceiling · NEGATIVE the permuted baseline's range **[0.782, 0.900]** is **disjoint** from the real
+family's **[0.591, 0.733]** · **0 of 1,820** degenerate λ.

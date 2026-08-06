@@ -21173,3 +21173,45 @@ so all four k carry three seeds and the seed spread is measured throughout (sd 0
 reason recorded**, rather than edited away. *A preregistration that silently self-corrects between
 writing and running is not a preregistration — it is a description with a timestamp on it, and the
 timestamp is the only thing that was ever doing any work.*
+
+## 1221 · the baseline was a 96th-percentile draw and it changed nothing — all 1,820 enumerated
+
+R811 measured `POOL[0:4]` at the **96.0th percentile** of the C(16,4)=1,820 subset family, and
+CHECK #414 established that **R806, R807, R808 and R809 each subtract exactly that vector**. Four
+consecutive rounds on one arbitrary near-best draw is a G4 gap, so the family was enumerated in full.
+**Every verdict holds at 1,820 of 1,820**: fitted above honest (100.0%), no arm at the pure-copy
+ceiling (100.0%), R809's log contrast negative (100.0%). ⭐ **And the reason was derived before the
+run (D3): the baseline is subtracted from BOTH sides of the slope and partially cancels** — which is
+what stops a small spread being read as a null result. ⚠ **The point estimates do move, and
+conservatively**: the committed baseline sits at the 14.9th–25.2nd percentile for every arm, so
+R807's scale understated leak-likeness — at a typical baseline the fitted arms read **0.54–0.67**
+rather than 0.50–0.65, across the family **0.44–0.73**.
+
+## 1222 · extreme for the POOL's A2 is not extreme for the DERIVED slope — 96.0 against ~18
+
+R811's finding was about the baseline's own **level**; four rounds' statistics depend on its
+per-prompt **covariance** with the quantities it is subtracted from. Those are different questions and
+the percentiles differ by nearly eighty points: **96.0** in the pool's own A2 distribution, **14.9 to
+25.2** in the derived slopes' distributions. *The inference "the baseline is extreme, therefore the
+results built on it are suspect" is exactly the kind that feels forced and is not — and the round
+that would have been justified in assuming it is the one that had to measure it instead.* ⭐ A second
+number from the same sweep bounds how much any of this matters: **the prompt bootstrap's sd is
+0.0496 against the entire baseline family's 0.0229**, so choosing the baseline is worth less than
+half of what sampling the prompts is worth. The two are reported side by side and never pooled.
+
+## 1223 · two defects in the round that swept them, both caught by its own object checks
+
+**① E2 did not reproduce R809 on the first run** — **+0.0815** against a committed **−0.1317**, a sign
+flip. R809 draws a **fresh** parity-0 half-split inside each `build(j)` call (seed 90000+j) while
+this round reused R807's fixed split (seed 20240). **A sweep of a different estimator cannot speak to
+R809's verdict**, and the object check had anchored only R807 — so the round was one gate short of
+publishing a curve about the wrong thing. Fixed, and E2 now carries its own object check at 1e-6.
+**② The negative control failed on the wrong statistic.** It compared standard deviations — permuted
+**0.0223** against the family's **0.0229** — on an asserted expectation that permuting must move the
+scale "far more". That was never derived: the family's sd is variation across **1,820 different
+subsets**, the permuted sd is variation across draws of **one subset's misassigned values**. Two
+different sources, no ordering between them. Meanwhile the permuted range **[0.782, 0.900]** is
+entirely **disjoint** from the real family's **[0.591, 0.733]** — the control had separated perfectly
+and the criterion could not see it. *realstat §4, "the control targets a different statistic than the
+one being reported", and this is the third round in five where a control, not a result, was what had
+to be repaired.*
