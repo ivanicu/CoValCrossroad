@@ -24043,3 +24043,52 @@ not what was asked for.
 **Recorded here rather than resolved here**, because noticing it at the end of a round is not the
 same as fixing it, and a round that renamed its own drift as a plan would be the same error one level
 up.
+
+## 1322 · the deliverable section calls clause ④ "free-but-real" and this same file downgrades it 88 lines later
+
+Back on the object after seven apparatus rounds. **P4, eleventh firing**: my NEXT proposed asking each
+clause *"name an admissible object it EXCLUDES"* — `R360_which_clause_is_load_bearing` and
+`R518_clause_four_is_redundant_where_the_definition_lives` already did it, and **DEFINITION.md L140
+carries the finished table**:
+
+| clause | excludes | status |
+|---|---:|---|
+| ① better than a random draw of the prompt's own rubric | **0 of 41** | DERIVED — region empty by arithmetic |
+| ② better than a prompt-blind set | **33 of 42** | MEASURED — carries the whole boundary |
+| ③ no prompt labels | **14 of 42** | DERIVED from source (R444) |
+| ④ better than every criterion-free rule | **0 of 42** | MEASURED — *strict reading* |
+| ④ **under the PERMISSIVE reading adopted by R824** | **25 of 58** | MEASURED |
+
+⛔ **AND THE DOCUMENT ARGUES FROM THE ROW IT NO LONGER USES.** The statement at the top of the file
+adopts the **permissive** reading — it is written into the clause text. Three separate places still
+assert ④'s zero as a present-tense fact about the clause:
+
+| line | sentence | severity |
+|---|---|---|
+| **L7209** | under the heading **"The deliverable is the head"** — *"**Clause ④ is free-but-real.** Excludes **0 of 58** arms at home"* | ⛔ worst — it is the deliverable |
+| **L148** | *"**④'s zero is the argument, not an embarrassment.** On this release ④ costs nothing…"* | the whole argument for ④ as a sufficiency clause |
+| **L1907** | *"So '④ excludes 0 of **56** at home' is a measurement with power… ④ cannot exclude a ②-passer here"* | a **third denominator**, unharmonised with 42 or 58 |
+
+⭐ **The downgrade already exists — 88 lines BELOW the deliverable claim, in the same file**: *"THIS
+DOWNGRADES R821. ④ is 'free-but-real' **under the strict reading only**. Under the adopted reading it
+is a **BINDING** clause."* And entry 1257 retracted it in scope a while ago: *"'④ excludes nothing at
+home' was never a fact about the clause — it was a fact about a reading nobody had chosen."*
+
+⭐ **THE MECHANISM, AND IT IS GENERAL.** This is an **append-only evidence document**. A correction
+lands where the new evidence lands — **at the end**. The claim it corrects lives **earlier**, because
+it is older. So the ordering *guarantees* a top-down reader meets the stale claim first and the
+downgrade only if they keep going. **`retraction_reaches_the_artifact` at intra-document scale: the
+correction reached the file and still did not reach the sentence.**
+
+⚠ **AND NO GATE CAN SEE IT.** `definition_matches_the_record.py` exits **0** — because **both numbers
+are present and both are correct**. The defect is a *sentence a correct number stopped supporting*.
+Nothing in the 52-gate suite checks that, and the census has no bucket for it.
+
+**All three annotated in place, never rewritten (L81)** — each argument is still correct *for the
+strict reading*, which is a defensible cell of the specification curve; what was missing is the words
+"under the strict reading".
+
+⚠ **My own search instrument had the same defect it was hunting.** It flagged 5 lines, of which **2
+were false positives: my own new annotation, and the ⭐ paragraph whose scope marker I had just put on
+the PRECEDING line.** The check is **line-oriented**; scope is **paragraph-oriented**. Unit vs unit,
+in the quick grep I wrote to audit unit-vs-unit errors.

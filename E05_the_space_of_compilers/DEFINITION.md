@@ -145,7 +145,21 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 | **④** better than every criterion-free rule | **0 of 42** | **MEASURED** — coverage of this space is 42/42 | R440 |
 | **④** *under the PERMISSIVE reading adopted by R824* | **25 of 58** | **MEASURED** — the rule class is supervised response-only predictors; 21 specification cells, held out over 20 splits | R824 |
 
-⭐ **④'s zero is the argument, not an embarrassment.** On this release ④ **costs nothing** — it
+⛔ **SCOPE ADDED 2026-08-06 (entry 1322) — THE PARAGRAPH BELOW IS ABOUT THE READING THIS DOCUMENT NO
+LONGER USES.** The statement at the top of this file adopts the **PERMISSIVE** reading of ④, and the
+row directly above says so — *"under the PERMISSIVE reading adopted by R824 · **25 of 58**."* Under
+that reading **④ does not cost nothing; it removes 25 of 58 arms.** Entry 1257 already retracted this
+in scope: *"'④ excludes nothing at home' was never a fact about the clause — it was a fact about a
+reading nobody had chosen."* **The correction reached the TABLE and never reached the ARGUMENT.**
+Kept, annotated rather than deleted (L81), because it is the correct and still-live argument **for
+the strict reading**, and the strict reading is a defensible cell of the specification curve — but it
+is no longer the argument for the clause **as stated**.
+⚠ **And note why no gate caught it:** `definition_matches_the_record.py` passes, because **both
+numbers are present and both are right.** The defect is a *sentence* that a correct number stopped
+supporting. Nothing in the assurance layer checks that.
+
+⭐ **④'s zero is the argument, not an embarrassment** *(under the STRICT reading only — see above)*.
+On this release ④ **costs nothing** — it
 removes no arm the definition already admits — while on the second release it removes **all 7** and
 ② removes **none** (R434). A clause that is free where the definition works and binding where it
 fails is what a sufficiency clause is for; a **non-zero** here would have meant ④ was quietly
@@ -1892,6 +1906,11 @@ not 0**. The joint was one merge away.
 
 **Pre-registered kill was 2.00×.** So "④ excludes 0 of 56 at home" is a **measurement with power**,
 not a resolution limit — ④ cannot exclude a ②-passer here.
+⛔ **SCOPE ADDED 2026-08-06 (entry 1322): "0 of 56" is the STRICT reading**, on this round's own arm
+space — a **third denominator** beside the table's 42 and 58, and it is not harmonised with either.
+The power result stands as stated; what does **not** follow is that ④ excludes nothing under the
+**permissive** reading the statement adopts, where it removes **25 of 58** (R824). A measurement with
+power is still a measurement **of one cell of the reading axis**.
 
 **Negative control:** the scale does place an arm below ④'s bar — `promptecho_sham` at d = −0.0106.
 ⚠ But it is **under-resolved** (|d|/MDE = 0.29) **and fails ②**, so it cannot populate the
@@ -7191,6 +7210,13 @@ invariant to it by construction* — which is what four of those five rounds nee
 **The deliverable is the head: ② ∧ ③ ∧ ④, size > 1.** The `② ∧ ③` retirement at the R470 line is
 overturned above; the contradiction that stood for 80 rounds is closed by evidence rather than by
 choosing the newer sentence.
+
+⛔ **SCOPE ADDED 2026-08-06 (entry 1322): the sentence below is DOWNGRADED 88 LINES FURTHER DOWN, in
+this same file** — *"THIS DOWNGRADES R821. ④ is 'free-but-real' **under the strict reading only**.
+Under the adopted reading it is a **BINDING** clause."* This paragraph sits under the heading **"The
+deliverable is the head"**, so it is the sentence a reader of the deliverable meets, and it is the one
+that is stale. **Read it as: free-but-real UNDER THE STRICT READING; BINDING (25 of 58) under the
+permissive reading the statement adopts.**
 
 **Clause ④ is free-but-real.** Excludes **0 of 58** arms at home (1 UNVERIFIED: `full_sham`, margin
 +0.0047 [−0.0080, +0.0178] against R803's judge-free floor **0.4557**). Removes planted below-floor
