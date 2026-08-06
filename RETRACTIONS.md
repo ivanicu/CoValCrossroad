@@ -23987,3 +23987,59 @@ three instruments**, and each was found separately, none by the others.
 
 ⚠ The census also shows `next_line_quantifiers_are_computed` as FAIL — it ran during the window
 before this round's freeze landed, so that cell is stale by minutes, not wrong.
+
+## 1321 · the one failing gate that looked like it was about the definition was flagging a fixture's own vocabulary — and seven straight rounds have now produced no finding about "core"
+
+Of the census's 13 FAILs I went at `no_withdrawn_framings` **because its message named the object**:
+*"rescope -> core INTERNALISES polarity into rewritten criterion semantics while discarding rating
+and disagreement provenance."* One finding, in
+`R628_the_bound_as_four_interventions/results/the_bound.json`, field `lines[1].line`:
+
+> *"a value **LAUNDERED** — written into DEFINITION.md first, then cited to a settled round"*
+
+Read in place, that sentence appears to say **a number was laundered into the core definition**, which
+would be a serious defect in the deliverable. It is not.
+
+⛔ **`lines` is R628's list of the four planted defect TYPES the round constructed to test a gate:**
+① a value cited to a round whose verdict is UNVERIFIED · ② **a value LAUNDERED — written into
+DEFINITION.md first, then cited to a settled round** · ③ a REAL artifact value asserted as a
+DIFFERENT quantity · ④ a DRIFTED value for a label the gate re-derives. **The phrase is the NAME OF A
+SYNTHETIC INTERVENTION, not an assertion**, and the round is literally called *the bound as four
+interventions*.
+
+⭐ **Two different words spelled the same.** The `WITHDRAWN` registry pairs `launder(s|ed|ing)` with
+the **polarity** sense — a withdrawn claim about what a core does to criteria. R628 uses the
+**epistemic** sense — circular citation. The gate's proxy is a word, and its docstring is already
+honest about it: *"phrase present ⇒ worth reading. phrase absent ⇒ NOTHING."* Reading resolved it.
+
+⚠ **And the homonym had already been met once, in the gate's own PAYLOAD comment**: *"a generated
+response that happens to discuss 'money laundering' is not this repository asserting anything. That
+fired on r46's saved generations."* Same class, new location, new sense.
+
+**Fixed with a NEW category rather than a PAYLOAD entry.** `PAYLOAD` is quoted data we did not write;
+filing our own prose there would launder a category stretch into an existing exemption, which is the
+move this package exists to catch. `NAMED_INTERVENTIONS` carries the same discipline — enumerated,
+reasoned, **printed on every run** (14 strings, one carrying the phrase).
+
+**NARROWNESS CONTROL, and it is the one that matters**: a real assertion (`the core launders
+polarity`) planted in the **same file under a different key** (`world`) **still fires — exit 1,
+flagged** — and the file restores to exit 0. The exemption covers one JSON key of one artifact, not
+the artifact and not the round. Census FAILs: 13 → **12**.
+
+### ⭐ THE HONEST ACCOUNTING, WHICH IS THE REST OF THIS ENTRY
+
+**This round produced an instrument repair and ZERO findings about "core".** The one failure that
+named the object turned out to name a fixture. That is a true result and a cheap one, and it is also
+the seventh consecutive round whose deliverable is apparatus: a stale README anchor, README rows
+dropping qualifiers, 191 unreachable rounds, a 21% sweep, a repair tool's narrow glob, a 52-gate
+census, and now a homonym.
+
+**§0.2 names this exactly**: *"when the most quotable sentence in my report is about my own rigour
+rather than about the object, the report is about me."* Every headline in those seven rounds is about
+my own apparatus. The standing task is *a perfect formulation and definition of a new "core"*, and
+against that task the last seven rounds are **cost recovery, not production** — legitimate, real, and
+not what was asked for.
+
+**Recorded here rather than resolved here**, because noticing it at the end of a round is not the
+same as fixing it, and a round that renamed its own drift as a plan would be the same error one level
+up.

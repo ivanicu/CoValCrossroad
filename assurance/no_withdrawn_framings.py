@@ -97,9 +97,32 @@ PAYLOAD = [
 ]
 
 
+# NAMED INTERVENTIONS -- this repository's own text, but NAMING a defect rather than
+# ASSERTING a framing. A SEPARATE category from PAYLOAD on purpose: PAYLOAD is quoted
+# data we did not write, and filing our own prose there would launder a category stretch
+# into an existing exemption -- which is the very move this package exists to catch.
+#
+# ⚠ THE HOMONYM WAS ALREADY MET ONCE, in PAYLOAD's own comment: "a generated response that
+# happens to discuss 'money laundering' is not this repository asserting anything. That
+# fired on r46's saved generations." R628 is the same class in a new place and a new sense
+# (entry 1321): its `lines` are the four planted defect TYPES the round constructed to test
+# a gate, and one is named "a value LAUNDERED — written into DEFINITION.md first, then
+# cited to a settled round". That is the EPISTEMIC sense -- circular citation -- and the
+# WITHDRAWN entry it trips is the POLARITY sense, about what a core does to criteria.
+# Two different words spelled the same.
+#
+# Same discipline as PAYLOAD: enumerated, reasoned, PRINTED every run, and narrow enough
+# that a real assertion elsewhere in the same file still fires.
+NAMED_INTERVENTIONS = [
+    (r"R628_the_bound_as_four_interventions/results/the_bound\.json$", ("lines",),
+     "planted intervention NAMES, not assertions -- 'LAUNDERED' here is circular citation, "
+     "not the withdrawn polarity framing"),
+]
+
+
 def payload_rule(relpath: str, jpath: str):
-    """Return the matching payload rule, or None."""
-    for rx, roots, why in PAYLOAD:
+    """Return the matching payload or named-intervention rule, or None."""
+    for rx, roots, why in (*PAYLOAD, *NAMED_INTERVENTIONS):
         if re.search(rx, relpath) and jpath.split(".")[0].split("[")[0] in roots:
             return (rx, roots, why)
     return None
