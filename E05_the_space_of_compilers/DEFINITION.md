@@ -6034,3 +6034,53 @@ MARGINAL quantity that may not be compared to paired gaps.
 **Multiplicity.** 351 cells tested · 305 survive the verdict rule · 46 do not (39 UNRESOLVED, of
 which 9 are byte-identical duplicates; 7 BELOW RESOLUTION) · 311 survive BH at q=0.05 with no MDE
 floor. **WORLD A.**
+
+## R790 · whether a LEVEL can carry a definition, and why the answer is no
+
+**The question.** R789's NEXT proposed rewriting clause ② as a membership claim. Membership needs
+levels to be objects; this round asks whether they are.
+
+**Derived before measuring.** D1 a non-transitive relation induces no partition, so the two
+constructions are FORCED. D2 the sort key is an estimate, so the partition is rebuilt end-to-end in
+every draw and never by re-thresholding a fixed order. D3 `t = |Δ|√P/sd`, so a rule change is a pure
+rescaling — every difference between the four rules is threshold placement alone. D4 the 9 alias
+pairs must return P = 1.000 exactly, which is this round's placebo with a known expected value.
+
+**E1 · the relation is not an equivalence relation.**
+
+| rule | intransitive chains | of | rate |
+|---|---:|---:|---:|
+| point | 0 | 0 | — |
+| ci_only | 23 | 146 | 15.8% |
+| strict / mde | 16 | 202 | 7.9% |
+| conservative | 16 | 253 | 6.3% |
+
+**E2/E3 · the bootstrap, B = 1,000.** Level count (adjacent) 7:0.084 · 8:0.359 · **9:0.408** ·
+10:0.138 · 11:0.011. Greedy 8:0.022 · 9:0.209 · **10:0.560** · 11:0.192 · 12:0.017.
+
+| pair | P(same level) adjacent | greedy |
+|---|---:|---:|
+| **`coval_core` ~ `generic`** | **0.339** | **0.132** |
+| `coval_core` ~ `topw_k4` | **0.975** | 0.758 |
+| `generic` ~ `gen` | 0.045 | 0.094 |
+| `coval_core` ~ `gen` | 0.004 | <0.001 |
+| `coval_core` ~ `genericpool16` | 0.005 | <0.001 |
+| `coval_core` ~ `indep_k4_fit1` | <0.001 | <0.001 |
+
+**The specification curve** (3 seeds per cell, all twelve published): `P(core ~ generic)` = 0.000
+(point) · 0.065–0.090 (ci_only) · 0.310–0.339 (strict) · 0.920–0.955 (conservative).
+
+**E4 · the formulation.** `generic` in level **3 of 9**; admits 8 classes = **14 named arms**;
+excludes 12 classes = **13**; the same admitted set in **0.640** of 300 resamples.
+
+**Controls.** OBJECT 20 distinct objects from 27 named arms, worst `t` delta against R789
+**1.066e-14**, exit 2 otherwise · PLACEBO the 9 alias pairs at exactly **1.000** · POSITIVE δ sweep
+0.990 → 0.955 → 0.755 → 0.110 → **0.000**, band admissible; ⛔ **the pre-registered criterion
+`floor == 1.000` FAILED at 0.990 and was itself mis-specified** — at δ=0 the plant adds zero-mean
+noise, so the rule fires at `α = 0.005085` and `P(floor == 1) = 0.361` over 200 draws, a **64%
+false-failure rate by construction**; repaired against its own binomial null, |−0.00491| ≤ 0.01509,
+PASS · NEGATIVE synthetic matched-spread arms mode **5** against the real **9**, so World C does not
+fire · SHAM equal-width binning at the same level count, adjusted Rand **0.7798**.
+
+**Multiplicity.** 190 unordered pairs among 20 objects — not 351; the 9 alias pairs are the placebo.
+Bootstrap resolution 1/1000, so 0 is reported as `< 0.001`. **WORLD B.**

@@ -1801,3 +1801,31 @@ inside the rival world's registered range.
 prompts · A2 over all annotators · 1,200 prompt-cluster draws, 600 hierarchical · first release, home
 judge. Seeds 31337/31338/31339 × NBOOT 600/1200 and the hierarchical bootstrap all return 9/10 and
 305 of 351 resolved.
+
+## R790 · A level is not an object — the threshold is doing the definition's work
+
+**Over 1,000 cluster-bootstrap resamples with the partition rebuilt end-to-end,
+`P(coval_core and generic share a level) = 0.339`** (adjacent construction) and **0.132** (greedy).
+One resample in three puts the released core in the same level as the arm that never reads the
+prompt. The level count itself takes **five** values (7–11) with a modal share of **0.408**.
+
+⛔ **AND THE SPECIFICATION CURVE IS THE FINDING.** Across the four defensible thresholds R725
+enumerated, `P(core ~ generic)` runs **0.000 · 0.065–0.090 · 0.310–0.339 · 0.920–0.955**. Nothing
+about the arms changed; only where the line was drawn. **So the membership formulation R789 proposed
+cannot be written** — it inherits exactly the arbitrariness the ranking formulations had.
+
+⛔ **"Same level" is NOT TRANSITIVE** — 16 of 202 chains at strict, 23 of 146 at ci_only — so a
+partition needs a tie-break from outside the relation. R789's two constructions were **forced, not
+chosen**, and they disagree by a factor of **2.6** on the decisive probability.
+
+⚠ **The clause, written out and priced.** *"Admissible iff strictly above the prompt-blind
+baseline's level"* admits **8 classes = 14 named arms** and excludes **13** — every sham and every
+random — but admits every target-reading arm, cannot separate `coval_core` from `topw_k4`
+(**P(same level) = 0.975**), and returns the same admitted set in only **0.640** of resamples.
+
+⚠ **And equal-width binning of A2 at the same level count recovers the partition at adjusted Rand
+0.7798**, so most of what the resolution machinery produces is available from the spacing alone.
+
+**Scope**: 20 distinct objects (27 named arms, 9 alias pairs collapsed) × 968 prompts · A2 over all
+annotators · B=1,000 headline, 3 seeds · first release, home judge. The point-estimate partition
+reproduces R789's to **1.066e-14**.

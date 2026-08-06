@@ -20358,3 +20358,37 @@ the annotator draw is common to both arms; *"14 of 26 gaps sit below the annotat
 not like-for-like and licenses nothing. The like-for-like instrument is the hierarchical bootstrap,
 which resamples annotators jointly for both arms and left the ladder at **9/10 with all 305 resolved
 pairs intact**. *A floor and a gap must be built on the same pairing before either bounds the other.*
+
+## 1154 · a LEVEL is a threshold artefact, and the threshold is doing the definition's work
+
+R789's NEXT proposed rewriting clause ② as a MEMBERSHIP claim, because the released core shares its
+level with three arms it cannot be ordered against. Membership needs levels to be objects. Over 1,000
+cluster-bootstrap resamples with the partition rebuilt end-to-end, **`P(coval_core and generic share a
+level) = 0.339`** — one draw in three puts the released core in the same level as the arm that never
+reads the prompt — and the level count takes **five** values (7–11) with a modal share of **0.408**.
+⛔ Across R725's four defensible thresholds on the same data the probability runs **0.000 · 0.065–0.090
+· 0.310–0.339 · 0.920–0.955**. Nothing about the arms changed; only where the line was drawn.
+*Three formulations have now failed for the same reason, and the reason is that each is a threshold on
+one scalar.*
+
+## 1155 · "same level" is not transitive, so the two constructions were FORCED, and they disagree
+
+`a ~ b` and `b ~ c` but `a ≁ c` occurs in **16 of 202** chains at the strict rule and **23 of 146** at
+ci_only, over the 20 distinct objects. A non-transitive relation induces no partition, so any grouping
+needs a tie-break from outside the relation. **R789 reported adjacent AND greedy constructions as
+though that were a reporting choice; it was not, and I did not know it when I reported them.** They
+disagree by a factor of **2.6** on this round's decisive probability — 0.339 adjacent against 0.132
+greedy. *Reporting two constructions is not robustness when the data cannot support one.*
+
+## 1156 · a criterion with a 64% false-failure rate, and a guard that skipped the number the round existed for
+
+Two defects in R790's first run, both mine. ① The POSITIVE control's pre-registered criterion was
+`floor == 1.000` at δ=0, and it FAILED at 0.990 — but at δ=0 the planted copy is the original **plus
+zero-mean noise**, so the rule separates them at its own false-positive rate `α = 0.005085`, giving
+`P(floor == 1.000 | instrument correct) = 0.361` over 200 draws: **a 64% false-failure rate by
+construction.** Repaired against its own binomial null and PASSING at |−0.00491| ≤ 0.01509, with the
+original failure recorded rather than relaxed. ② `ri` was keyed by union-find representative, so
+`ri["generic"]` did not exist, and the guard `if a in ri and b in ri` **silently omitted
+`P(core ~ generic)`** — the one number the round was built to produce — while every other line printed
+normally. *§4's empty population passes: a guard that skips is a guard that reports success having
+examined nothing. It must exit 2.*
