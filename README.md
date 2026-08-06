@@ -236,6 +236,26 @@ Full list, ordered by the concrete wrong answer each produces:
 **13 withdrawn claims.** [`RETRACTIONS.md`](RETRACTIONS.md) has all 235 entries, each naming what killed it — the claim graph refuses a
 retraction that names no killer.
 
+⛔ **And the newest failure mode is a THIRD kind: the instrument that stops working by the passage of
+time.** Three instances found in one hour, all the same shape — **a fixed anchor evaluated inside a
+sliding window** — and none of them announces itself as staleness:
+
+| where | what expired | how it read |
+|---|---|---|
+| `next_gradient_labels_its_hypotheses.py` control | two anchors at depth **707/706**, window **60** | **dark for ~646 commits**; the census filed its silence as a FAIL |
+| the same gate's ratchet baseline | **12 of 12** frozen hashes at depth **707–765** | the headline silently became a **prevalence** still labelled `NEW` |
+| [`R840`](E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R840_a_failing_gate_and_a_blind_gate_share_an_exit_code)'s own positive control | `HEAD~1` — built **while investigating the first two** | correct at launch, wrong 20 minutes later |
+
+⭐ **The rule: a control's anchor must be an IDENTITY, never a POSITION.** `HEAD~1`, `-n 60`, *"the
+last release"*, *"recent commits"* are all positions.
+
+⭐⭐ **And the consequence for this suite's own scoreboard, measured in
+[`R840`](E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R840_a_failing_gate_and_a_blind_gate_share_an_exit_code):
+of 14 gates in the census's FAIL column, only 3 are established as genuinely failing** — 5 are DARK
+(their output is silence about the repo) and 6 print no control line at all. **The FAIL column was
+never a defect count.** Positive control passed on all three arms; re-run at a second commit returned
+identical classes.
+
 The failure mode changed halfway. Early phases retracted **measurements**. From r175 on, the sweep
 turned on its own output and retracted **descriptions of measurements that were correct**:
 
