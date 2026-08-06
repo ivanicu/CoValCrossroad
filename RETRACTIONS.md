@@ -19469,3 +19469,45 @@ registered branch gives **C** in one unit and **B** in the other. Per the remedy
 own UNIT control mandates, and prints the tag-unit verdict rather than discarding it.** *A
 preregistration can be wrong; what it may not be is quietly resolved. The difference between this
 round and R761 is one printed paragraph.*
+
+## 1073 · the arm that carried my finding was the comparator, and one object read said so
+
+R764 reported ③-any non-empty in 4 of 8 baseline cells. `core_generic.json[p]` equals
+`core_genericpool16.json[p][:4]` on **968 of 968** prompts — **`generic` IS `POOL[0:4]`**, the
+published comparator, sitting in the census as a candidate core. Three of the four cells are the
+comparator beating weaker draws from its own class, and R527 had already committed that it sits at
+percentile **93.7**, so clearing ② below that is **algebra**. Excluded: **1 of 8**, `gen` at the class
+minimum, pool-overlap 0.0010. *The check cost one file read and zero compute, and it was available
+before R764 ran — the attack ladder says gauge first, and I ran the grid first because the grid was
+the interesting part.*
+
+## 1074 · R415's "pipeline noise floor" is three different objects, and one of them is exactly zero
+
+R415 reported 0.116489 as the pipeline's run-to-run floor; R416 showed its pairs were not scoring
+replicates. This round found what they were. Grouping every pair of artifacts with **identical
+per-prompt criterion strings** and splitting by whether the judge also changed:
+**same judge → |Δ| = 0.0000 on 10 pairs, identical on 968/968 prompts, exact to every printed digit.
+Different judge → 0.0969 [0.0597, 0.1799] on 38 pairs. Re-selection at one judge → 0.1165, R415's.**
+So **the scoring step contributes nothing**, and 0.116 read as generic instability only because it
+sits inside the judge term's range. *A "noise floor" that was never decomposed is a name for
+everything that was not held fixed, and holding things fixed was one grouping operation over files
+already on disk.*
+
+## 1075 · an anomaly named instead of absorbed
+
+`generic` vs the pool tensor's first four columns gives |Δ| **0.0009**, identical on **896 of 968**
+prompts — while ten other same-judge identical-criteria pairs are exact on **968 of 968**. Either the
+pool tensor sums columns by **index order** where the core JSON lists by **string order**, or the two
+artifacts scored different response sets. The registered confound check passed on every pair it could
+evaluate and structurally cannot evaluate this one, because a tensor slice is not a tag. **Reported as
+open, with the one comparison that settles it.** *If it is the index order, then `POOL[0:4]` — the
+comparator behind every ② verdict in this campaign — is not the four criteria the page prints.*
+
+## 1076 · a placebo that could only fail, because absence defaulted onto the scale
+
+I wrote the placebo as `cen.get("coval_core", {}).get("prefix_rate", 1.0)`. **There is no
+`core_coval_core.json`** — R441 recorded precisely that, listing `coval_core` under *"arms with no
+core file → UNKNOWN, never 0, never dropped"*. So the missing file returned the **default 1.0**, which
+on this scale reads *"the released core IS the comparator"* — the most alarming sentence the round
+could have produced, manufactured entirely by a default argument. *A defaulting `.get` converts
+absence into whatever value you happened to type, and the value you type is never `UNKNOWN`.*

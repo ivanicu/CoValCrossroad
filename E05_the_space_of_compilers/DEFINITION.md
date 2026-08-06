@@ -5184,3 +5184,46 @@ unit; the tag-unit branch says C — both printed).
 **Excluded, on evidence, named.** 7 foreign-key-schema artifacts (`transport_*`, another corpus);
 5 with partial prompt coverage (`coval_core_2bA/2bB`, `promptecho`, `promptecho_sham`,
 `provenance_probe`).
+
+## R765 · the comparator in the census, and the pipeline's variance decomposition
+
+**Scope.** population = **88** arms with a committed `core_*.json`; instrument = string equality on
+per-prompt criterion sets, plus R294's estimator; baseline = all 8 percentiles as R764; regime =
+first release, home judge, 968 prompts, this tree_sha.
+
+**E1 · containment against `genericpool16`.** Comparator-identical (exact prefix on every shared
+prompt): **`generic` alone**, 968/968, k=4, overlap 1.0000. `gen` 0.0010 · `full` 0.0000 ·
+`coval_core_sham` 0.0000 · all 84 others 0.0000. **`coval_core` has no committed core JSON** (R441).
+
+**E2 · ③-any with the comparator excluded.**
+
+| baseline | ③-any as R764 ran it | comparator excluded |
+|---|---|---|
+| p000 | `gen`, `generic` | **`gen`** (pool-overlap 0.0010) |
+| p005 · p025 · p050 | `generic` | — |
+| p075 · p095 · published · p100 | — | — |
+
+**1 of 8 cells**, not 4. `POOL[0:4]` at percentile 93.7 clears ② below itself by **construction**.
+
+**E3 · the variance decomposition, from 34 identical-criteria groups.**
+
+| class | pairs | \|Δ A2\| mean | min | max |
+|---|---|---|---|---|
+| same judge, identical criteria | **10** | **0.0000** | 0.0000 | 0.0000 |
+| different judge, identical criteria | **38** | **0.0969** | 0.0597 | 0.1799 |
+| same judge, re-selected criteria *(R415)* | — | **0.1165** | — | — |
+
+Exact same-judge pairs: `topw_k4`/`_detA`/`_detB` · `random_k4_s0`/`_ctlS0` · `random_k4_s1`/`_ctlS1`
+· `oracle_k4`/`_oracle_kA`/`_oracle_kB` · `greedy_k4_greedy_kA`/`kB` · `indep_k4_indep_kA`/`kB`.
+
+**Open anomaly.** `generic` vs `genericpool16[:4]` = **0.0009 [−0.0006, +0.0024]**, identical on
+**896/968** where every other same-judge pair is exact. Candidates: the pool tensor sums by index
+order while the core JSON lists by string order, or the two artifacts scored different response sets.
+The registered confound check passed on all pairs it could evaluate (**0 failures**) and cannot
+evaluate this one.
+
+**Controls.** PROVENANCE R764's 8×3 grid reproduced (exit 2 otherwise) · POSITIVE `generic` 1.0000
+**and** `gen` 0.0010, band from both degenerate ends · g=0 shuffled pool → prefix 0.0000 · SHAM random
+size-4 subsets → prefix 0.0000, subset 1.0000 · PLACEBO `full` 0.0000 · NEGATIVE **uninformative by
+construction** — `generic` has **1** distinct criterion set across 968 prompts, so a derangement
+changes nothing. **WORLD B.**

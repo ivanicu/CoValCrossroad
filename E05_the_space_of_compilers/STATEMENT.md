@@ -83,7 +83,14 @@ converge:**
 |---|---|
 | **population** | R294's **41** arms · **968** prompts · the 56-tag / **46**-object census |
 | **instrument** | home judge `Qwen3.5-2B-Base`, **target `A2`** |
-| **baseline** | ⛔⛔ **AND THE COMPARATOR ITSELF CANNOT BE REBUILT FROM THIS REPOSITORY** *(R605)*. `sat_genericpool16.npz` sits in `corebench/results/` and **no script in the tree writes it** — nor do **98 of 101** scored `sat_*.npz` artifacts. **The construction step lives outside this repository**, so the page's description of ②'s baseline cannot be checked against how it was actually assembled. ⚠ **Upper bound, and the instrument is weak**: indirect construction is invisible to it and it found only **3** builders in total, so 97% is what a proven-able-to-see detector reports, not what a proven-sensitive one does. ⚠ **Not specific to ②** — it is a property of the whole scored evidence base. ⭐ And R454's own docstring distinguishes the objects: *"`genericpool16` k=16 on all 968 prompts; `full` is the RUBRIC (prompt-SPECIFIC)"*. — ⚠ **THE NAME BELOW APPEARS IN NO SCORING ARTIFACT** *(R604)* — `POOL[0:4]` occurs in **2** artifacts, both **register/scope audits of this page**, and as a JSON **key** in **0**. The rounds that scored ② record the comparator as **`sat_genericpool16[:4]`**, a key in **13** scoring artifacts across R391·R392·R426·R449·R477·R479·R485·R499. **No artifact contains both names**, so whether they denote the same arm is `UNVERIFIED` from names alone — it needs the scorer, not a search. The percentile **93.7** was computed against the `genericpool16` label. — ②'s comparator is **`POOL[0:4]` by file order**, at **percentile 93.7** of its 1,820-subset class. ⚠ **The extension moves 4 → 8 across that class** — so every count is baseline-conditional too |
+| **baseline** | ⭐ **THE PIPELINE'S VARIANCE IS THREE OBJECTS, NOT ONE** *(R765)*, measured on
+identical-criteria pairs: **scoring alone `0.0000`** (10 pairs, identical on 968/968 prompts, exact to
+every printed digit) · **judge alone `0.0969` [0.0597, 0.1799]** (38 pairs) · **re-selection alone
+`0.1165`** (R415's committed number). So R415's figure was never a "pipeline noise floor" — it is the
+re-selection term, and it sits inside the judge term's range, which is why it read as generic
+instability. ⚠ One anomaly is open: `generic` vs the pool tensor's first four columns gives `0.0009`
+on 896/968 prompts where 10 other same-judge pairs are exact, so the tensor's COLUMN ORDER may not be
+the core JSON's LIST ORDER. — ⛔⛔ **AND THE COMPARATOR ITSELF CANNOT BE REBUILT FROM THIS REPOSITORY** *(R605)*. `sat_genericpool16.npz` sits in `corebench/results/` and **no script in the tree writes it** — nor do **98 of 101** scored `sat_*.npz` artifacts. **The construction step lives outside this repository**, so the page's description of ②'s baseline cannot be checked against how it was actually assembled. ⚠ **Upper bound, and the instrument is weak**: indirect construction is invisible to it and it found only **3** builders in total, so 97% is what a proven-able-to-see detector reports, not what a proven-sensitive one does. ⚠ **Not specific to ②** — it is a property of the whole scored evidence base. ⭐ And R454's own docstring distinguishes the objects: *"`genericpool16` k=16 on all 968 prompts; `full` is the RUBRIC (prompt-SPECIFIC)"*. — ⚠ **THE NAME BELOW APPEARS IN NO SCORING ARTIFACT** *(R604)* — `POOL[0:4]` occurs in **2** artifacts, both **register/scope audits of this page**, and as a JSON **key** in **0**. The rounds that scored ② record the comparator as **`sat_genericpool16[:4]`**, a key in **13** scoring artifacts across R391·R392·R426·R449·R477·R479·R485·R499. **No artifact contains both names**, so whether they denote the same arm is `UNVERIFIED` from names alone — it needs the scorer, not a search. The percentile **93.7** was computed against the `genericpool16` label. — ②'s comparator is **`POOL[0:4]` by file order**, at **percentile 93.7** of its 1,820-subset class. ⚠ **The extension moves 4 → 8 across that class** — so every count is baseline-conditional too |
 | **regime** | k=4 unless the row says otherwise · held-out annotator · **one release — the HOME release, and this is now measured rather than assumed** *(R601)* |
 
 ⛔⛔ **AND 11 OF THE 16 CITED ROUNDS WITH CODE NAME NO ARM POPULATION IN THEIR OWN SOURCE** *(R743)*.
@@ -301,6 +308,14 @@ A **core** for a conversation is a set of criteria such that
     signed weights. The extension is **EMPTY** — ⛔ **AT AND ABOVE THE PUBLISHED COMPARATOR ONLY**
     *(R764)*. On **86 arms** (R529/R534 measured **41**) and across ②'s baseline curve, ② ∧ ③-any is
     **non-empty in 4 of 8 cells**: `generic` at **p005 · p025 · p050**, and `gen` with it at **p000**.
+    ⛔⛔ **AND THREE OF THOSE FOUR WERE THE COMPARATOR ITSELF** *(R765)*: `core_generic.json[p]` equals
+    `core_genericpool16.json[p][:4]` on **968 of 968** prompts — **`generic` IS `POOL[0:4]`**, entered in
+    the census as a candidate. `POOL[0:4]` sits at percentile 93.7, so its clearing ② below that is
+    **algebra**. With it excluded the count is **1 of 8** — `gen` at **p000** only, pool-overlap
+    **0.0010**. ⇒ **③-any is empty everywhere except the baseline class MINIMUM**, which is a much
+    narrower qualifier than R764 gave it. ⚠ **And every ② number in this campaign was computed over a
+    population containing its own baseline** — exactly 1 of 88 arms with a core JSON is
+    comparator-identical, and it is this one.
     ⚠ The `|②|` column rules out the registered confound — at p050 ② admits **21 of 86**, so it is not
     that ② admits everything. ⭐ **③-any and ③-judge are identical in all 8 cells**, because all three
     sat-class arms (`topvar_k4`, `_08b`, `_08bR`) fail ② everywhere — so R534's conflation of the two

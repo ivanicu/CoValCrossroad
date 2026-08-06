@@ -1,0 +1,147 @@
+R765 · `generic` IS `POOL[0:4]` — so how much of R764 survives, and what does an identical-criteria
+       pair measure that R415 could not?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS -- IT ATTACKS THE ROUND I PUBLISHED ONE COMMIT AGO
+--------------------------------------------------------------------------------
+R764's NEXT asked whether `generic` -- the arm that makes ③-any non-empty -- is admissible as a core,
+or whether at low baselines ② is comparing the pool to itself.
+
+⛔ CHECK #367, ONE OBJECT READ, ZERO COMPUTE: `core_generic.json[p] == core_genericpool16.json[p][:4]`
+   for **968 of 968** prompts -- identical strings, exact PREFIX, not merely a subset.
+   **`generic` IS `POOL[0:4]`. It is the published comparator, entered in the census as a candidate.**
+   And `gen` is NOT: mean overlap with the pool is **0.0010**, prefix 0 of 968.
+
+TWO CONSEQUENCES, AND THEY POINT IN OPPOSITE DIRECTIONS:
+① R764's WORLD B IS MOSTLY DEGENERATE. `generic` clearing ② at p000/p005/p025/p050 is the comparator
+   beating weaker draws from its own class, and R527 already committed that `POOL[0:4]` sits at
+   percentile **93.7**. ⇒ THIS IS A DERIVATION, NOT A MEASUREMENT (D1 below).
+② AN IDENTICAL-CRITERIA PAIR IS A SCORING REPLICATE -- the thing R415 tried to measure and R416
+   showed it had not. `generic` and the pool's first four columns are THE SAME CRITERIA scored into
+   TWO artifacts, so their A2 difference is the pipeline's SCORING-ONLY floor with the selection step
+   held exactly fixed. R761 measured `generic` at A2 0.5514 and the published POOL[0:4] at 0.5504.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the containment relation of every arm's per-prompt criterion set to `genericpool16`'s: exact
+    prefix / subset / overlap. Census over ALL arms with a committed core JSON, not just `generic`.
+E2  R764's grid recomputed with comparator-identical arms EXCLUDED from the candidate population:
+    how many of the 4 non-empty ③-any cells survive, and by which arms.
+E3  the SCORING-ONLY noise floor: over every pair of distinct artifacts whose per-prompt criterion
+    sets are IDENTICAL, the per-prompt A2 difference -- point, interval, and the count of such pairs.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1 exact -- the core JSONs are committed and the comparison is string equality per prompt.
+E2 exact given E1 and R764's estimator.
+E3 IDENTIFIED ONLY IF SUCH PAIRS EXIST, and the round must not assume they do. If the census finds
+   fewer than 2 identical-criteria pairs, E3 is UNIDENTIFIED at this site and is reported as such --
+   never as "the floor is small".
+   ⚠ AND THE PAIR MUST BE A SCORING REPLICATE, NOT A RE-RUN OF THE SELECTOR: R416's finding is that
+   `_08b`/`_08bR` pairs changed 91-99% of their criteria, so they measure the RULE's variance, not
+   the JUDGE's. Identity of the criterion strings is what separates the two, and it is the estimand.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  every arm with a committed `core_*.json` AND a loadable `sat_*.npz` at full coverage
+instrument  string equality on criterion sets; R294's estimator for A2 and ②
+baseline    all 8 percentiles of the 1,820-subset class, as R764
+regime      first release, home judge, 968 prompts, this tree_sha
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  `generic` CLEARS ② BELOW PERCENTILE 93.7 BY CONSTRUCTION. It IS `POOL[0:4]`, whose A2 sits at the
+    93.7th percentile of the 1,820-subset class (R527, committed). A subset at percentile q beats
+    every subset below q on the point estimate, so "generic clears ② at p000..p050" is FORCED.
+    ⇒ THE ONLY NON-FORCED PART is whether it clears RESOLVEDLY (the CI and MDE could refuse it), and
+      that is what the round reports -- never the bare admission.
+D2  EXCLUDING A COMPARATOR-IDENTICAL ARM CAN ONLY SHRINK AN EXTENSION. Monotone by subset. So "fewer
+    cells survive" is algebra; the measurement is WHICH survive and by WHICH arms.
+D3  IF `generic` == `POOL[0:4]` EXACTLY, THEIR A2 SHOULD BE EQUAL. R761 reports 0.5514 and 0.5504.
+    A non-zero difference on identical criteria is therefore NOT a property of the criteria -- it is
+    the scoring pipeline's own variance, and it is the E3 estimand rather than an anomaly to explain.
+
+STRONGEST CONFOUND, written BEFORE the run: two artifacts could carry identical criterion STRINGS but
+score DIFFERENT RESPONSES (a different response set per prompt), in which case their A2 difference is
+not a scoring replicate at all. CONTROL IN THE SAME ITERATION: require the two artifacts to cover the
+SAME prompt set and the SAME response letters, and report the count that fails this before any floor
+is quoted.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · R764's WORLD B WAS THE COMPARATOR. Every non-empty ③-any cell is carried by comparator-identical
+    arms; with them excluded ③-any is empty in all 8 cells and the page's original sentence stands
+    unqualified. R764's amendment is retracted.
+B · IT SURVIVES IN PART. At least one cell stays non-empty by a NON-comparator arm (`gen` is the
+    candidate: overlap 0.0010). The page's sentence needs a narrower qualifier than R764 gave it,
+    not none.
+C · THE CENSUS IS WIDER THAN ONE ARM. Several arms are comparator-identical, so the population that
+    every ② number in this campaign was computed over contains its own baseline more than once.
+
+PREDICTION MATRIX
+  A -> non-empty cells after exclusion = 0
+  B -> >= 1 cell, carried by an arm with pool-overlap < 0.10
+  C -> >= 2 arms with prefix-identity to `genericpool16[:k]` for some k
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if PROVENANCE fires (R764's grid reproduced EXACTLY before it is contradicted)
+   and POSITIVE fires (the containment test finds `generic` ⊂ pool at 968/968 AND finds `gen` at
+   < 0.05, so it can both see and not-see)
+   and g=0 fires (an arm compared against a SHUFFLED pool tests as prefix on ~0 prompts):
+        0 cells survive                   -> WORLD A. R764's amendment is retracted on the page.
+        >= 1 cell by a low-overlap arm    -> WORLD B. The qualifier narrows; name the arm and cell.
+        >= 2 comparator-identical arms    -> WORLD C, reported ALONGSIDE A or B, not instead.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+E3 IS SEPARATELY FAILABLE, because it decides a different sentence:
+        >= 2 identical-criteria pairs passing the response-set check -> report the floor with its
+                                                                        interval and pair count
+        < 2 such pairs                                               -> E3 UNIDENTIFIED at this site
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+PROVENANCE  R764's committed grid must be reproduced EXACTLY (all 8 cells x 3 readings) before this
+            round is permitted to contradict it. EXIT 2 otherwise.
+POSITIVE    the containment test must return 968/968 prefix for `generic` and < 0.05 mean overlap for
+            `gen`. BAND, COMPUTED: a test that always says "contained" returns 968/968 for `gen` too;
+            one that never does returns 0 for `generic`. The threshold needs BOTH and is unreachable
+            from either degenerate end.
+g=0         a per-prompt SHUFFLE of the pool's 16 criteria must break the prefix test (~0 of 968),
+            proving the test reads ORDER and CONTENT rather than mere membership.
+NEGATIVE    destroy the prompt pairing: compare arm p against pool p' for a random derangement, 200
+            draws, and report the prefix rate. World excluded: "any two criterion sets from this
+            release match, because the vocabulary is small."
+SHAM        ingredient ABSENT, not inverted. Ingredient = the PREFIX structure. Take a RANDOM size-4
+            subset of the pool per prompt (a subset, not the prefix), 200 draws, and report subset
+            rate vs prefix rate. If the prefix rate is not distinguishable from a random subset's,
+            the identity claim is about membership only.
+PLACEBO     `coval_core` vs the pool: it is the released core and must NOT be comparator-identical.
+NOISE       E3 IS the noise floor and is measured, not assumed; its own replicate count is reported.
+UNIT        instrument unit = a PROMPT (968 per pair); claim unit = an ARM. Both reported.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+all arms with a core JSON x {prefix, subset, overlap} + 8 baselines x 3 readings recomputed + every
+identical-criteria pair found. The whole containment census is printed, not just the hits.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether the census SHOULD exclude the comparator   a specification of the population, which the
+                                                   release does not carry
+whether the scoring difference is the judge or
+  the harness                                      two runs of the judge on one artifact, which the
+                                                   release does not ship
+cross-release                                      a second release
+independently replicated                           a second team; the session prompt forbids agents
