@@ -23361,3 +23361,36 @@ count it. Retrospectively there is nothing to count.
 differ if the habit changed.* Here the answer was **none** — and the check cost three lines against a
 round I was otherwise about to design. **§2's register has a line for this: `temporally resolved` is
 N/A here, and what it would require is a timestamped log of in-conversation actions.**
+
+## 1308 · there is no pre-registration template, my field count was wrong by 39, and one §5 line appears in none of the 40
+
+My NEXT proposed adding a `PRIOR ART` line **"to the pre-registration template."** ⛔ **There is no
+template.** No file, and no gate checks pre-registration structure. The fields are a de-facto habit.
+
+⛔ **AND MY FIRST COUNT OF THAT HABIT WAS WRONG BY 39.** A pattern anchored on `^FIELD` + two spaces
+reported `ESTIMAND` in **18 of 40** and `KILL` in **1 of 40**. **The positive control killed it in one
+line**: R828's own pre-registration returns `tight KILL=False, loose KILL=True`. **`KILL` is in all
+40.** Had I published the tight numbers they would have read as a damning audit of my own discipline,
+and every one of them would have been an artifact of the pattern.
+
+**Neither pattern is admissible alone** — tight under-counts by anchoring on layout, loose
+over-counts by matching prose — so the honest form is a **bracket**:
+
+| §5 field | tight | loose | of 40 |
+|---|---|---|---|
+| ESTIMAND · WORLDS · KILL | 18 · 18 · 1 | **40 · 40 · 40** | 40 |
+| NEGATIVE · MULTIPLICITY | 4 · 16 | 39 · 37 | 40 |
+| IDENTIFICATION · PLACEBO · NOISE FLOOR | 6 · 22 · 0 | 28 · 28 · 27 | 40 |
+| SCOPE · ARTIFACT · SEED · IMPOSSIBLE | 11 · 12 · 0 · 11 | 21 · 20 · 16 · 16 | 40 |
+| SHAM · SPECIFICATION | 0 · 0 | 10 · 7 | 40 |
+| **REPRODUCIBILITY** | **0** | **0** | **40** |
+
+⭐ **The one unambiguous result is the last row.** §5's *"REPRODUCIBILITY — two hash seeds
+byte-identical"* appears in **0 of 40 under BOTH patterns** — and I **ran** two- or three-seed checks
+in most of these rounds and **reported them**. **The check was performed and never pre-registered**,
+which means it was chosen after the design each time. **A check you can add after seeing the result is
+not a commitment**, and this one has been decorating reports as though it were.
+
+⚠ **What this does not license**: the brackets are wide and neither bound is the truth. **Only the
+zero is safe**, because it holds under both instruments — which is the same rule that made the 0.0000
+smallest-MDE readable two rounds ago.
