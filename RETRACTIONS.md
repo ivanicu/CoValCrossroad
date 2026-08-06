@@ -24855,9 +24855,65 @@ thread** (entry 1325 saw 338 → 340). A count that describes the instrument, ch
 instrument, is the cheapest positive control in this package — it fires on every real change and
 cannot be satisfied by intention.
 
+> ⛔ **HEADLINE DOWNGRADED BY ENTRY 1338.** *"never compared to anything"* reads as a defect in all 8.
+> **For 5 of the 6 below there was nothing to compare to** — `DEFINITION.md` never states them; they
+> are internals. Corrected: **3 of 8 were document claims** (the 2 denominators here, plus
+> `closure_k_count`), **5 were intermediates**, and the `derive()`/`ASSERTIONS` gap is mostly benign.
+
 ⚠ **What is NOT claimed:** that the other 6 are defects. `closure_*`, `r407_top`, `r408_strict` and
 `r419_maxabs` may be intermediates the gate computes for its own use and the document never states.
 **Deciding that needs reading each one against the prose** — the same referent problem entries
 1334–1336 eliminated three methods against — so they are left **UNVERIFIED and named**, not quietly
 counted as fine. The two anchored here were resolvable precisely because the document's phrasing
 already located them.
+
+## 1338 · I probed the wrong document, and the corrected probe downgrades my own alarm — 5 of 6 were never document claims
+
+Entry 1337's NEXT proposed deciding the 6 remaining unchecked labels by asking whether **the round that
+produced each states it in its own README**.
+
+### ⛔ THAT IS THE WRONG POPULATION, AND IT IS MY OWN DESIGN THIS TIME
+
+`definition_matches_the_record` checks **`DEFINITION.md`**. Whether `R355`'s README states `9` says
+**nothing** about whether the definition does. **Unit-vs-unit — the instrument's population (round
+READMEs) against the claim's population (the definition) — for the fifth time in this thread, and
+here it was in the design I wrote rather than in a legacy check.**
+
+The README probe did run and did pass its control (`41` ×12 in R347, `42` ×3 in R360), and all 6
+values occur in their READMEs. **That result is discarded, not reported, because it answers a question
+nobody asked.**
+
+### ⭐ THE CORRECTED PROBE, ON THE GATE'S ACTUAL POPULATION
+
+Occurrences in `DEFINITION.md`, restricted to **within 3 lines of the producing round's own citation**
+— because these are small integers and the raw counts are meaningless (`4` occurs **705** times):
+
+| label | value | round | near its citation | reading |
+|---|---:|---|---:|---|
+| **`closure_k_count`** | **9** | R355 | **1** | L307 *"at 6 of **9** k"* — **real** |
+| `closure_violations_08B` | 4 | R358 | 1 | L312 is about `POOL[0:4]` — **spurious** |
+| `closure_violations_2B` | 18 | R355 | **0** | not stated |
+| `r407_top` | 4 | R407 | **0** | not stated |
+| `r408_strict` | 0 | R408 | 1 | L1153 is about `e > 0` — **spurious** |
+| `r419_maxabs` | 0.0 | R419 | 2 | a determinism note and an unrelated cell — **spurious** |
+
+**POSITIVE CONTROL:** both values anchored last round occur in `DEFINITION.md` (41 ×38, 42 ×21) → the
+probe can see.
+
+### ⭐ WHICH DOWNGRADES ENTRY 1337's OWN FRAMING
+
+That entry led with *"8 values were computed from artifacts and **never compared to anything**"*, which
+reads as a defect in all 8. **For 5 of the 6 remaining there was nothing to compare to** — the
+definition never states them. They are **intermediates**, and the gap between `derive()`'s 348 and
+`ASSERTIONS`' 340 is **mostly benign**. What was a real gap was the **2 denominators**, and those were
+anchored in 1337. **Corrected count: 3 of 8 were document claims; 5 were internals.**
+
+### ⭐ AND THE ONE CANDIDATE WAS ADJUDICATED BY THE INSTRUMENT, NOT BY MY READING
+
+`closure_k_count` was anchored to `at 6 of (\d+) k` **as a self-test**: if `closure_k_count` is not
+that quantity, the gate fails on it. **It did not** — the only failure was the self-referential count
+moving **342 → 343**, which fired again as it has every time this thread added an assertion (**third
+occurrence**: 338→340, 340→342, 342→343). Counts updated; the gate now **PASSes** at 343.
+
+**So the guess was confirmed by something that is not me** — the cheapest form of door ③ available
+inside a single round, and the reason to anchor a suspected match rather than argue for it.

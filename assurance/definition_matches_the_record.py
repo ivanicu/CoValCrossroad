@@ -1244,6 +1244,11 @@ ASSERTIONS = {
     # They appeared inside the numerator patterns as LITERALS (`of 41`, `of 42`), so a change in the
     # DOCUMENT breaks the match and is reported as not-in-document — but a change in the ARTIFACT's
     # `n_arms` was never compared to them at all. Anchored to the same clause text as the numerators.
+    # ⚠ ANCHORED 2026-08-06 (entry 1338) as a SELF-TEST: of the 8 computed-but-unchecked values,
+    # this is the ONLY one the definition plausibly states near its own round citation —
+    # L307, "at 6 of 9 k". If `closure_k_count` is not that quantity the gate will FAIL here,
+    # which is the point: the instrument adjudicates the guess instead of my reading it.
+    "closure_k_count": r"at 6 of (\d+) k",
     "n_arms_r347": r"better than a random draw of the prompt's own rubric \| \*\*\d+ of (\d+)\*\*",
     "n_arms_r360": r"better than a prompt-blind set \| \*\*\d+ of (\d+)\*\*",
     "clause4_excludes_strict":     r"better than every criterion-free rule \| \*\*(\d+) of 42\*\*",
