@@ -265,7 +265,19 @@ A **core** for a conversation is a set of criteria such that
 - **②** it scores better than a **strong generalising** prompt-blind criterion set — the released pool's
   first four criteria, at **percentile 93.7** of its own 1,820-subset reference class *(R527)*.
   ⚠ **Not "the best": at the class MAXIMUM the extension of ② ∧ ③ is EMPTY** — ② there admits only
-  the four label-readers ③ removes. `coval_core` is the last survivor, holding alone to p99.5 *(R528)*;
+  the four label-readers ③ removes. `coval_core` is the last survivor, holding alone to p99.5 *(R528)*.
+  ⛔ **AND THE CAUSATION R527 ATTACHED TO THIS IS RETRACTED** *(R761)*. Over the **whole** 1,820-reference
+  class and a **27-arm** population, an arm's robustness share inverts against its mean A2 in **4 of 351
+  pairs** (random ordering: **131.3 [89, 174]**), and **three of the four are one arm**. So robustness is
+  **98.9% a rank statistic of A2**, and *"the label-readers are baseline-robust **because** they read the
+  answer"* has the arrow backwards: reading the answer raises A2, and **A2** buys robustness.
+  ⭐ **The separating case is `oracle_k4_08bR` — it reads the target (rule `oracle_k`), scores A2 0.5649,
+  and is LESS baseline-robust (0.9401) than `coval_core` (0.9978), which does not read it.**
+  ⚠ **And R527's ③ had no resolution to find its own identity**: as a blocklist its Jaccard with the
+  robust set is **0.400**, *inside* the band of a random size-matched blocklist (**0.254 [0.105, 0.500]**,
+  200 draws); as R760's **rule** it is **0.909**, outside. The identity is real and the instrument that
+  published it could not distinguish itself from chance. Set equality holds at **no** threshold in
+  {1.00, 0.99, 0.95, 0.90, 0.75} — one target-reading arm is baseline-contingent;
 - **③** it was not built by reading the conversation's human labels — ⚠ **and "which labels" is a FORK,
   not a detail** *(R529)*:
   - **③-rank** — not built from the response **rankings**. This is what the code implements, and the

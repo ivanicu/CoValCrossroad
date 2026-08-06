@@ -1,0 +1,147 @@
+R761 · is ②-robustness a fact about clause ③, or a rank statistic of A2?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R760's NEXT proposed sweeping the admitted set under rule-③ over ②'s baseline reference class.
+
+⛔ CHECK #363 KILLS THAT AS PROPOSED -- it is prior art in THREE places:
+   R527  swept the baseline over 7 percentiles of the 1,820-subset class on 16 k=4 arms
+   R446  swept all 1,820 references, on 3 arms + an oracle control
+   R353  swept 400 pool ORDERINGS x 2 seeds and gave per-arm inclusion probabilities
+SIXTH rebuild this gate has stopped in this arc.
+
+WHAT IS ACTUALLY OPEN IS R527'S SHARP FINDING, and TWO independent things now attack it. R527
+published, and STATEMENT.md carries: "the four arms admitted at EVERY specification are exactly the
+four ③ excludes -- the label-readers are baseline-robust BECAUSE they read the answer."
+
+① THE INSTRUMENT WAS WRONG IN THE DIRECTION THAT MATTERS. R760 showed ③-as-a-blocklist excludes 4
+   names where ③-as-a-rule excludes 11 tags. R527's "exactly the four ③ excludes" was measured
+   against the under-excluding implementation.
+② THE POPULATION COULD NOT HAVE CONTAINED THE COUNTEREXAMPLES. R527 drew its arms from R294's
+   census, and MEASURED HERE BEFORE THE RUN: none of R729's seven target-reading tags is in that
+   census, though all seven have sat_*.npz on disk. So 7 of the 11 target-reading arms were
+   invisible to the round that concluded the target-readers are the robust ones.
+
+⚠ AND A THIRD, WHICH IS MINE AND NOT R527'S: robustness to the baseline may be a RANK STATISTIC OF
+   A2, in which case the finding is a reparameterisation and not a fact about ③ at all.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  rob(a) = the share of the 1,820 admissible size-4 references at which arm a clears clause ②,
+    under R294's exact estimator (paired cluster bootstrap, MDE floor, three-valued verdict).
+E2  the INVERSION COUNT of rob against mean A2: pairs (a,b) with A2(a) > A2(b) but rob(a) < rob(b).
+E3  R527's identity re-evaluated on the widened population under BOTH ③ implementations:
+    is { a : rob(a) = 1.0 } equal to { a : ③ excludes a } ?
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+IDENTIFIED and exact -- no approximation is used anywhere, and the reason is arithmetic (D2 below).
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  the union of R294's 18 k=4 census arms, R729's seven target-reading tags, and the five
+            committed extension members. Coverage per arm is REPORTED, never silently dropped.
+instrument  R294's estimator, reproduced at tolerance 1e-6 before anything else runs
+baseline    ⭐ THE SWEPT AXIS -- all C(16,4) = 1,820 size-4 subsets of the generic pool
+regime      first release, home judge, 968 prompts, this tree_sha
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING -- TWO RESULTS ARE FORCED
+--------------------------------------------------------------------------------
+D1  ROBUSTNESS IS MONOTONE IN A2 UP TO THE PAIRED SE. Admission is
+    mean(x_a - y_s) - z*se(a,s) > 0. If se(a,s) were constant in s and a, rob(a) would be a
+    STRICTLY INCREASING function of mean A2 and the arm ORDERING WOULD BE FORCED. So "the
+    highest-scoring arms are the most baseline-robust" is ALGEBRA, not a finding. The only
+    measurement available is the RESIDUAL -- how many arm pairs invert, and which.
+    ⇒ E2 is the round's real content, and the sham for it is a computed random-ordering baseline.
+D2  THE FULL 1,820-WIDE BOOTSTRAP IS EXACTLY COMPUTABLE AT MARGINAL COST. Under a shared index
+    matrix the bootstrap mean is LINEAR: (x-y)[ib].mean(1) = x[ib].mean(1) - y[ib].mean(1). And
+    var(x-y) = var(x) + var(y) - 2cov(x,y), whose cross term is one matrix product. So 45,500 exact
+    bootstrap cells cost the same as 1,845 marginals. NOTHING IS EARNED BY THE GRID BEING LARGE and
+    the report must not present its size as effort.
+
+STRONGEST CONFOUND, written BEFORE the run: the seven newly-visible arms may fail ② for a reason
+that has nothing to do with reading the target -- e.g. missing prompt coverage, so their difference
+vectors are shorter and their MDE larger. CONTROL IN THE SAME ITERATION: report each arm's prompt
+coverage beside its rob, and recompute the identity on the coverage-complete subset as a second
+specification.
+
+--------------------------------------------------------------------------------
+WORLDS -- two axes, registered separately because they are not exclusive
+--------------------------------------------------------------------------------
+Q1 · IS rob A REPARAMETERISATION OF A2?
+  B · YES. inversions <= 1. R527's sharp finding restates "the label-readers score highest", which
+      is what label-reading DOES, and it must be relabelled a DERIVATION on the page.
+  B'· NO. inversions >= 3. rob carries information A2 does not, and the identity is testable.
+Q2 · DOES ③ TRACK rob ON THE WIDENED POPULATION?
+  A · YES. { rob = 1.0 } == { ③rule excludes }. The repair to ③ strengthens R527's identity.
+  C · NO. some target-reading arm has rob < 1.0, or a ③-admitted arm has rob = 1.0. Then ③ does not
+      track baseline-robustness and R527's identity was an artifact of its 16-arm population.
+
+PREDICTION MATRIX  (E2 inversions, E3 set equality)
+  B  -> inversions in [0,1]                         ; E3 outcome is uninformative whatever it is
+  B' -> inversions >= 3
+  A  -> the two sets are equal under ③rule
+  C  -> the two sets differ, and the differing arms are named
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if PROVENANCE passes (R294's stored c2 reproduced at 1e-6) and POSITIVE passes (R527's committed
+   coval_core_by_spec reproduced on all 8 keys) and g=0 passes (self-comparison admitted 0/1820):
+        inversions <= 1                    -> WORLD B. rob is a rank statistic; R527's finding is
+                                              relabelled a DERIVATION on STATEMENT.md.
+        inversions >= 3 and sets equal     -> WORLD A. ③rule tracks robustness; identity survives.
+        sets differ                        -> WORLD C. Identity was a population artifact; named.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+PROVENANCE R294's stored c2 for the k=4 census arms at the published baseline, tolerance 1e-6. The
+           round EXITS 2 if it fails, because every number below is on R294's scale or on none.
+POSITIVE   reproduce R527's COMMITTED coval_core_by_spec -- {p000..p095: True, p100: False} -- at
+           the same 7 percentiles plus published. BAND, COMPUTED: an instrument admitting
+           everything returns True on all 8 (wrong at p100); one admitting nothing returns False on
+           all 8 (wrong on the other 7). The threshold is EXACT MATCH ON ALL 8, unreachable from
+           either degenerate end. This is the "run the pattern where the answer is known" remedy,
+           and R527's artifact is the known answer.
+g=0        an arm compared AGAINST ITSELF must be admitted at 0 of 1,820. A zero difference is never
+           resolvedly better; any admission means the verdict rule is broken.
+NEGATIVE   destroy the per-prompt PAIRING -- permute prompt ids on the arm side only, 200 draws,
+           refit nothing (the estimator has no fit) -- and report the rob DISTRIBUTION, not one
+           draw. World excluded: "rob is carried by the per-prompt pairing rather than by the
+           marginal gap". ⚠ A permutation answers DID THE PAIRING MATTER and never WHY, so the
+           result is read only as that.
+SHAM       ingredient ABSENT, not inverted, and there are two ingredients so there are two shams:
+           S1 for Q1 -- a RANDOM arm ordering in place of the A2 ordering, 200 draws. Its expected
+              inversion count is C(n,2)/2 and that is the computed ceiling for E2.
+           S2 for Q2 -- a RANDOM blocklist of the same size as ③rule's excluded set, 200 draws,
+              scored on set-equality with { rob = 1.0 }. R760 ran this at size 4; here at size 11.
+PLACEBO    the *_sham arms (coval_core_sham, gen_sham, promptecho_sham, topw_k4_sham) must have
+           rob ~ 0. They are built to fail ②; if they are robust, the estimator is not measuring ②.
+NOISE      no rng except the bootstrap index matrix and the two shams; all seeded, spreads printed.
+UNIT       instrument unit = an (arm, reference) CELL; claim unit = an ARM. 45,500 vs 30. Never
+           conflated, and the cell count is NOT evidence of anything (D2).
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+|population| x 1,820 references = the whole grid, computed and persisted. Reported: rob per arm,
+the inversion count, both shams' distributions, and BOTH ③ implementations' set comparisons --
+survivors and non-survivors alike.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether the identity holds for a DIFFERENT pool   a second generic pool; this one is 16 criteria
+whether it holds off this release                 a second release
+whether an arm reads the target without its rule
+  saying so                                       the arm's construction code (carried from R760)
+independently replicated                          a second team; the session prompt forbids agents

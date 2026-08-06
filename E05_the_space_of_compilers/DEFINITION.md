@@ -5007,3 +5007,53 @@ harness *is* the census.**
 external criterion the impossibility register has always named.
 
 **Reproducibility.** Two `PYTHONHASHSEED` runs, both writes confirmed to disk.
+
+## R761 · ②-robustness over the full reference class, and its residual on A2 rank
+
+**Scope.** population = 27 arms (R294's 18 k=4 census arms ∪ R729's seven target-reading tags ∪ the
+five committed extension members); instrument = R294's estimator (paired cluster bootstrap, NBOOT
+1200, seed 31337, MDE floor, three-valued `verdict`), reproduced at **1e-6 on 16/16** stored `c2`;
+baseline = **the swept axis**, all C(16,4) = **1,820** size-4 subsets of `sat_genericpool16`; regime =
+first release, home judge, **968** prompts. `promptecho_sham` has coverage **398/968** and is flagged;
+the identity is recomputed on the 26 coverage-complete arms and is unchanged.
+
+**rob(a)** = share of the 1,820 references at which arm *a* clears ②.
+
+| arm | A2 | rob | ③name | ③rule |
+|---|---|---|---|---|
+| `oracle_k4` · `oracle_k4_oracle_kA` · `oracle_k4_oracle_kB` | 0.6283 | 1.0000 | 1 of 3 | BLK |
+| `greedy_k4_greedy_kA` · `greedy_k4_greedy_kB` | 0.6226 | 1.0000 | . | BLK |
+| `oracle_k4_fit1` | 0.6142 | 1.0000 | BLK | BLK |
+| `greedy_k4_fit1` | 0.6106 | 1.0000 | BLK | BLK |
+| `indep_k4_indep_kA` · `indep_k4_indep_kB` | 0.6031 | 1.0000 | . | BLK |
+| `indep_k4_fit1` | 0.5941 | 1.0000 | BLK | BLK |
+| `coval_core` | 0.5665 | 0.9978 | . | . |
+| **`oracle_k4_08bR`** | **0.5649** | **0.9401** | **.** | **BLK** |
+| `topw_k6` | 0.5641 | 0.9863 | . | . |
+| `topw_k4` | 0.5642 | 0.9835 | . | . |
+| `topw_k3` | 0.5632 | 0.9703 | . | . |
+| `topw_k8` | 0.5593 | 0.8857 | . | . |
+| `generic` | 0.5514 | 0.7780 | . | . |
+| `gen` | 0.5352 | 0.0396 | . | . |
+| the 6 sham/random/topabs/topvar/topwvar arms | 0.4828–0.5040 | 0.0000 | . | . |
+| `promptecho_sham` *(coverage 398)* | 0.2599 | 0.0000 | . | . |
+
+**E2 · inversions** rob vs mean A2: **4 of 351** pairs — `oracle_k4_08bR` vs `topw_k3` (ΔA2 +0.0017,
+Δrob −0.0302), vs `topw_k4` (+0.0007, −0.0434), vs `topw_k6` (+0.0008, −0.0462), and `topw_k4` vs
+`topw_k6` (+0.0001, −0.0027). SHAM S1, random ordering, 200 draws: **131.3 [89, 174]**, computed
+ceiling 176.
+
+**E3 · Jaccard with { rob = 1.0 }** ③name **0.400** · ③rule **0.909** · SHAM S2 random size-11
+blocklist **0.254 [0.105, 0.500]**, exact-match rate **0.000**. Threshold curve
+t ∈ {1.00, 0.99, 0.95, 0.90, 0.75} → ③name {0.400, 0.364, 0.286, 0.267, 0.235},
+③rule {0.909, 0.833, 0.667, 0.733, 0.647}; **set equality at none**.
+
+**Controls.** PROVENANCE 16/16 at 1e-6 · POSITIVE R527's committed `coval_core_by_spec` **8/8**
+(band: admit-everything 7/8, admit-nothing 1/8) · g=0 planted null **0.0050 of 200** (band [0, ~0.50])
+· NEGATIVE `coval_core` 0.9978 vs permuted **0.8422 [0.8242, 0.8599]**, `oracle_k4` 1.0000 vs 1.0000
+· PLACEBO four `*_sham` arms **0.0000**. **WORLD C.**
+
+**Derived, not measured.** ① rob is monotone in A2 up to the paired SE, so the arm ordering is forced
+and only the residual measures. ② the 1,820-wide bootstrap is exact at marginal cost (linearity of the
+bootstrap mean; `var(x−y)` by one matrix product) — asserted at 4 probe cells. ③ the exact self-cell
+is `UNRESOLVED` by `verdict()`'s first branch.

@@ -19291,3 +19291,47 @@ controls, was identical. The cause is that I amended the statement between the t
 non determinism in the round; it is the pin built two rounds ago detecting me editing the document
 under my own verification, which is the drift an earlier round could not attribute and this one names
 in a single field. The check was re run with the page stable.
+
+## 1057 · the sixth rebuild, and the gate found it in three separate rounds at once
+
+R760's NEXT proposed sweeping the admitted set over ②'s baseline reference class. **R527** already
+swept 7 percentiles × 16 arms, **R446** all 1,820 references on 3 arms, **R353** 400 pool orderings ×
+2 seeds. Sixth time P4 has stopped a rebuild in this arc. **What is new about this one: the prior art
+was not one round but three, each covering a different slice, and none covering the whole** — which is
+exactly the shape that makes a gap look real. The gap that survived was not the sweep; it was R527's
+*sharp finding* about what the sweep meant.
+
+## 1058 · a published identity whose instrument could not distinguish itself from chance
+
+R527 published *"the four arms admitted at EVERY specification are exactly the four ③ excludes."*
+Measured over the full class: as a **blocklist**, ③'s Jaccard with the robust set is **0.400**, and a
+**random size-matched blocklist** scores **0.254 [0.105, 0.500]** over 200 draws — **0.400 is inside
+that band.** As R760's **rule** it is **0.909**, outside. So the finding was *true* and its instrument
+had *no resolution to find it*: six of the ten robust arms are the target-reading tags R527's census
+did not contain. **A correct conclusion drawn with an instrument that cannot beat its own sham is not
+evidence, and nothing about the conclusion's correctness reveals that** — the sham is the only thing
+that does, and R527 did not have one on this axis.
+
+## 1059 · the control that cannot PASS, now caught in the PREREGISTRATION rather than the code
+
+I registered g=0 as *"the published reference compared against itself must be admitted at 0 of 1,820."*
+But 1,819 of those cells compare it against **other** references, and a reference at percentile 93.7
+beats most of them by construction. **Measured 1350/1820.** The threshold was unreachable, so the
+control carried no information whichever way it came out. Fifth instance of this failure mode, and the
+first that was **written into a preregistration** — where it is worse, because the preregistration is
+what makes a threshold binding. **Repaired in flight** to a planted null (reference + mean-zero noise,
+0.0050 of 200, band [0, ~0.50]); the exact self-cell is relabelled a **derivation** — `verdict(0,0,0,0)`
+returns `UNRESOLVED` from its first branch, so testing it was always theatre. *A preregistered
+threshold is not safe from this: registering a number early makes it binding, not correct.*
+
+## 1060 · the causation was backwards, and one arm in twenty-seven proves it
+
+R527's sentence: *"the label-readers are baseline-robust **because** they read the answer."* Robustness
+inverts against mean A2 in **4 of 351 arm pairs** against a random ordering's **131.3** — it is a rank
+statistic of A2 to 98.9%. And **three of the four inversions are one arm**: `oracle_k4_08bR` reads the
+target by its rule, scores A2 **0.5649**, and is **less** baseline-robust (**0.9401**) than
+`coval_core` (**0.9978**), which does not read it. Under *"robust because they read"* that arm should
+be robust; under *"reading raises A2 and A2 buys robustness"* it should not be. **The mechanism was a
+correlate of the score all along** — and it survived four rounds because every arm that could separate
+the two was missing from the census. *A causal word attached to a real correlation is the cheapest
+overshoot there is, and the only thing that catches it is the case where the two come apart.*
