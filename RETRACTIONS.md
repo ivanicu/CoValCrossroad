@@ -24204,6 +24204,13 @@ instrument separates the exemplar from the known defect.
 
 ⭐ **So the entry-1322 structure survives in 0 of 42 markers. It was a one-off, and it is repaired.**
 
+> ⛔ **DOWNGRADED BY ENTRY 1334 — "0 of 42" is about MARKERS, not about corrections.** A real instance
+> was found by a different route: `DEFINITION.md:281` claims *"② removes none"* on the second release
+> and **L1999–2000 corrects it 1,718 lines below**, writing *"② excludes the same 7"*. That paragraph
+> carries **no downgrade-marker word at all**, so this census was blind to it **by construction**. The
+> count stands for what it measured; as a claim about **prevalence** it is withdrawn — the true rate is
+> **≥1 and unbounded above**, because a correction written as a plain assertion is invisible here.
+
 ### ⛔ WHICH DOWNGRADES MY OWN ENTRY 1322
 
 That entry said the append-only ordering *"**GUARANTEES** a top-down reader meets the stale claim
@@ -24648,3 +24655,46 @@ the artifact beside the sentence.**
 ⚠ **What is NOT claimed:** that no core exists on the second release. R434 is explicit — *"7 arms is a
 census of what this campaign built, not a sample of criterion-space"*, and R432's oracle over five of
 them reaches **0.7220**, far above every arm there.
+
+## 1334 · entry 1333's finding was already in the file 1,718 lines below the sentence — and it proves entry 1324's "0 of 42" was an underestimate
+
+My NEXT called the withdrawn half *"the definition's **only** cross-release support"*. **Refuted by
+counting: 71 lines of DEFINITION.md make or cite a cross-release claim.** (Search positive-controlled:
+the sentence entry 1333 contradicted was required to appear, and did, at L281.)
+
+### ⛔ AND THE CORRECTION I "FOUND" LAST ROUND WAS ALREADY WRITTEN
+
+**L1999–L2000, in the same file:**
+
+> ⭐ *"So **"④ excludes all 7 arms on the second release" is true and is not evidence of
+> independence** — **② excludes the same 7** (R434). And at home ④ excludes nobody (R436,
+> `W-REDUNDANT-AT-J`)."*
+
+with the table above it reading `| second release | 7 | **0** | 7 | 0.000 | ⛔ **②'s marginal is 0** |`
+and the honest gloss *"In both populations one marginal is degenerate, so the cell is 0 by
+construction. A derivation, not a null."* — plus a negative control (pairing the home population with
+④'s global fail rate expects **6.62** arms in that cell).
+
+**P4, fifteenth firing, and this time on my own previous round.** Entry 1333's conclusion is correct
+and is now independently confirmed by the file itself; what is wrong is its framing as a discovery.
+**Claim at L281 · correction at L1999 · 1,718 lines apart.**
+
+### ⭐ WHICH MEASURES SOMETHING ENTRY 1324 GOT WRONG
+
+Entry 1324 swept 42 downgrade markers, found 33 co-located and 2 false positives, and concluded the
+entry-1322 structure *"survives in 0 of 42"* — a one-off. **This is an instance of that structure, and
+the census could not see it**: the correction at L1999–2000 carries **no marker word** — not
+`DOWNGRADED`, `RETRACTED`, `SUPERSEDED`, `SCOPE ADDED`, nor any other — **in the line or in its whole
+paragraph**. It is written as a plain assertion.
+
+⭐ **So "0 of 42" was never a statement about corrections; it was a statement about MARKERS.** The
+instrument's population is *lines carrying downgrade vocabulary*; the claim's population is
+*corrections*. **Same unit-vs-unit failure, now caught on a known case rather than argued.** Entry
+1324's count stands for what it measured and is **downgraded as a claim about prevalence** — the true
+rate is **≥1**, and unbounded above, because plain-assertion corrections are invisible to that method.
+
+⚠ **And my own inline check printed the inverted verdict.** The line
+`f"-> entry 1324's census could{'' if not any(MARK…) else ' NOT'} have seen it"` fired the wrong
+branch and printed *"could have seen it"* while the measurement said the paragraph carries no marker.
+**§4's "the verdict string is not a computation", live, in the same round that reports it** — caught
+because the numbers above the string disagreed with it.
