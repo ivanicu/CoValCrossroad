@@ -341,7 +341,18 @@ A **core** for a conversation is a set of criteria such that
     to any feasible measurement. ⚠ **And the design IS at its limit on annotators** — median **16**,
     **15,593** consumed, the release's own total. On prompts the release holds **1,078** to the
     estimator's **968**, but all **110** extra fail **both** coverage clauses at once and **0** are
-    recoverable, so the 968 scope is correct and recovering them would buy **5.2%** of MDE. And the confound is answered: the
+    recoverable, so the 968 scope is correct and recovering them would buy **5.2%** of MDE.
+    ⭐⭐ **AND THE ANNOTATOR LEVER IS NOW BOUNDED, NOT MERELY COUNTED** *(R770)*. Decomposing each
+    pair's per-prompt difference into an **annotator** component and a **prompt** component gives a
+    ratio of **4.99–6.34** and an annotator share of **13.6–16.7%**, so **infinite annotators would cut
+    the MDE by at most 7.1%–8.7%** — a DERIVATION agreeing with R769's count from an independent
+    direction. **I² = 0.833–0.864**: ~85% of the variance is between prompts, so the difference is a
+    property of PROMPTS, not one number measured with annotator noise, and inverse-variance weighting
+    would change the estimand rather than tighten this one. ⭐ **And the heterogeneity does NOT
+    partition the extension**: **0 flips in 90 cells** across three strata fixed before the run and
+    independent of the outcome (annotator count · response-set size · the **baseline's** A2), against a
+    sham of **0.00 [0, 0]**. ⚠ Scope: the flip test needs ≳**2×** the half-sample MDE ≈ **0.024**, so
+    this is *no partition detectable at that resolution*, not *no partition*. And the confound is answered: the
     `topw_k` family is an inverted U peaking at **k = 6** (eff/MDE 1.311) with `eff/MDE` falling
     monotonically 6 → 8 → 12, so `topw_k8` is not an anomaly but where the curve re-enters the floor.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own

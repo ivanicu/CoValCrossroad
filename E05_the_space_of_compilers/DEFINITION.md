@@ -5373,3 +5373,36 @@ Worst deviation **1.5%**.
 pairing destroyed → ratio **2.17–2.26** at every n · SHAM drawing with replacement gives the same MDE
 (0.993 at n = 400), so only NEW prompts move the curve · PLACEBO self-difference MDE **0.0** ·
 CONFOUND **UNIDENTIFIED** — 0 recoverable, so the sd comparison could not be made. **WORLD B.**
+
+## R770 · the variance decomposition, and the partition test
+
+**Scope.** population = 968 prompts, the 5 committed members (10 pairs); instrument = annotator-level
+agreement vectors, paired per-prompt differences; regime = first release, home judge, this tree_sha.
+
+**E1 · decomposition** (within = annotator draw, between = prompts):
+
+| pair | between | within | ratio | within share | max MDE gain |
+|---|---|---|---|---|---|
+| `coval_core`/`topw_k3` | 0.009901 | 0.001867 | 5.30 | 0.1587 | 8.3% |
+| `coval_core`/`topw_k4` | 0.008970 | 0.001689 | 5.31 | 0.1585 | 8.3% |
+| `coval_core`/`topw_k6` | 0.007637 | 0.001529 | 4.99 | 0.1668 | 8.7% |
+| `coval_core`/`topw_k8` | 0.008982 | 0.001546 | 5.81 | 0.1469 | 7.6% |
+| `topw_k3`/`topw_k4` | 0.003657 | 0.000659 | 5.55 | 0.1527 | 8.0% |
+| `topw_k3`/`topw_k6` | 0.007135 | 0.001228 | 5.81 | 0.1469 | 7.6% |
+| `topw_k3`/`topw_k8` | 0.009287 | 0.001464 | 6.34 | 0.1362 | 7.1% |
+| `topw_k4`/`topw_k6` | 0.004871 | 0.000823 | 5.92 | 0.1446 | 7.5% |
+| `topw_k4`/`topw_k8` | 0.007177 | 0.001139 | 6.30 | 0.1370 | 7.1% |
+| `topw_k6`/`topw_k8` | 0.003805 | 0.000635 | 5.99 | 0.1431 | 7.4% |
+
+**E2 · heterogeneity** I² **0.833–0.864**; `mean/sd` **0.0009–0.0779**, so a balanced sign split is
+nearly forced (D3) and the observed `d > 0` shares of **0.16–0.32** are **not** read as a minority
+carrying the mean, because the complement includes exact ties.
+
+**E3 · partition test** — a flip = two levels with opposite-sign means, both clearing their own MDE.
+S1 annotator count **0** · S2 response-set size **0** · S3 baseline A2 **0**. **90 cells, 0 flips**;
+sham (200 random equal-sized partitions) **0.00 [0, 0]**; negative (200 label permutations) **0.00**.
+
+**Controls.** POSITIVE a centred, swept plant: 0× **False**, 0.5× False, 1.0× False, **2.0× True** —
+the registered band is *0× must not fire, 2× must*; 1× is the test's own 50%-power point and was never
+a registered criterion. g=0 delta 0 finds nothing · PLACEBO an arm against itself, variance **0.0**,
+flips 0. **WORLD A.** ⚠ Resolution: a flip needs ≳2× the half-sample MDE ≈ **0.024**.

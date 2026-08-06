@@ -19649,3 +19649,48 @@ it scales as (MDE/gap)² × n and rests on the per-prompt difference sd being st
 assumption the round declared and could not test, because the recoverable subset was empty. *A null
 that reports no required-n hides which of its members are one release away from resolving and which
 are unreachable, and those are opposite recommendations.*
+
+## 1090 · the seventh closing line, and this one named a quantity that does not exist
+
+R769 registered *"the per-prompt difference sd regressed on the strata the release ships."* The
+difference vector holds **one value per prompt**, so there is no per-prompt sd — an sd computed
+*across* prompts cannot be regressed *on* prompts. Seven closing lines in this arc have now needed
+repair at the next round's first check: three were prior art, two were mis-specified tests, one was
+refuted by my own committed table, and this one was **not well-formed at all**. ⭐ The repair was
+available in the data: `A2(p)` is a mean over that prompt's annotators, so `d(p)` DOES have a standard
+error, and that is what made this round's decomposition possible. *The closing line was reaching for a
+real quantity and named an impossible one, which is worse than naming none — it reads as a plan.*
+
+## 1091 · the annotator lever, bounded rather than counted
+
+R769 established the estimator consumes every annotator the release ships. This round bounds what
+consuming **more** could buy: decomposing each pair's difference into an annotator component and a
+prompt component gives ratios of **4.99–6.34**, an annotator share of **13.6–16.7%**, and therefore a
+maximum MDE reduction of **7.1%–8.7%** as annotators → ∞. **A count and a bound, from independent
+directions, agreeing.** And **I² = 0.833–0.864** says ~85% of the variance is between prompts, so the
+per-prompt difference is a property of PROMPTS rather than one number measured with annotator noise —
+which also means inverse-variance weighting would change the estimand rather than tighten it.
+*"Exhausted" was the right word and it was worth converting into a number, because a count says the
+lever is pulled and only the bound says pulling harder was never worth much.*
+
+## 1092 · the positive control could not pass, and the denominator was the defect
+
+I planted a partition at `2 × mde(d0)` — the **full**-sample MDE — while the flip test evaluates each
+LEVEL against its own **half**-sample MDE, which is **√2 larger**. So "2× MDE" was really 1.41× the
+relevant one, and the uncentred baseline mean (+0.0060) pushed the negative side to **|m2| = 0.01107
+against MDE2 = 0.01234** — just under. §4's *control that cannot PASS*, with the sub-kind named: the
+threshold sat above what the design returns under the plant I chose. **The fix was not a bigger delta
+until it passed** — it was sizing the plant against the MDE the test actually uses, centring it, and
+sweeping it into a dose-response. *A plant sized against the wrong denominator fails silently in the
+direction that looks like a broken instrument, and I nearly published UNVERIFIED on a working one.*
+
+## 1093 · and my code demanded 100% power at the design's 50%-power point
+
+The repaired dose-response reads 0× **False**, 0.5× False, 1.0× **False**, 2.0× **True** — a clean
+monotone curve with the boundary between 1× and 2×, exactly where a threshold belongs. But my code
+required recovery at **both** 1× and 2×, and **the preregistration never said that**: it says *"at
+delta = 0 no flip may be found; at delta = 2 MDE it must be."* 1× is by construction the test's own
+detection threshold, i.e. its **50%-power point**, so requiring a hit there requires 100% power where
+the design has 50%. Restoring the registered band is **matching the registration, not loosening a
+control** — and the distinction is the whole entry. *The dangerous version of this is the same edit
+made without checking what was registered, which is indistinguishable from tuning until it passes.*
