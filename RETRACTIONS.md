@@ -22411,6 +22411,13 @@ algebraically-constant control, every one in `E05·A24`. One is load-bearing:
 `R436_does_clause_four_exclude_anything_at_home` — **14 citations in `DEFINITION.md`**, and its
 `bar = 0.4511956297670583` **is clause ④'s strict bar.**
 
+> ⚠ **CORRECTED, same session, by re-running the count per file: 14 is `DEFINITION.md` 12 + `STATEMENT.md` 2.**
+> The instrument summed **two** files; the sentence named **one**. Nothing about R436 changes — it is
+> cited in the deliverable either way — but this is §4's *instrument's unit vs claim's unit* for the
+> **second time in one round**, the first being the syntactic FAIL below. Both times the instrument was
+> right and the sentence widened its scope by one silent step. **A summed count needs the population it
+> was summed over written beside it**, or the next reader inherits the wrong denominator.
+
 Its docstring registers a **genuine** check at line 67:
 
 > *g=0 — a rule identical to an arm must give exactly that arm's A2, **so the two scoring paths agree***
@@ -22459,3 +22466,45 @@ positive control's object was outside its population. **The controls now travel 
 **Not a discrepancy, checked and dropped:** R436's `n_prompts = 1078` is the rule-side population
 (`texts ∩ targets`), already recorded **7 times** in `DEFINITION.md`; **89 of 93 arms score at
 n = 968**, and `d` uses `common` for both sides, so only the printed BAR column spans a wider set.
+
+## 1284 · six rounds shipped an assurance they never possessed, and the recovered checks all pass
+
+R828 ran the controls the six flagged rounds registered and never executed. **All recoverable ones
+pass.** The rounds' numbers stand; what was absent was the assurance.
+
+| round | collapsed to | second producer? | verdict |
+|---|---|---|---|
+| R436 | `mean(arm) − mean(arm)` | `a2_of` at two call sites | RECOVERED · PASS *(prev. round)* |
+| R332 | `\|v − v\|.max()` | `rate()` `run.py:155` | **RECOVERED · PASS** (0.0, perturbed 1.0) |
+| R672 | `len(s0 − s0)` | `versions()` `run.py:64` | **RECOVERED · PASS** |
+| R731 | `abs(eff − eff)` | `cell()` `run.py:43` | **RECOVERED · PASS** |
+| R361 | `rank[j][a] − rank[j][a]` | **none** | **UNRECOVERABLE** |
+| R746 | `cov[a]['prompts'] − itself` | **none** | **PARTIAL** |
+
+⭐ **The discriminator was named before any answer was looked at, and it held: a collapsed control is
+recoverable iff a SECOND PRODUCER of the quantity exists.** R436 supplied it (two scoring call
+sites); three more rounds had one; two did not.
+
+⭐ **R361 is the one that pays for the distinction.** It is not un-implemented — it is **false as
+registered**. `rank[j]` is one dict comprehension, and a *duplicated* arm receives an **adjacent**
+rank, not an equal one, so *"each arm ranked against itself: difference exactly 0"* names a property
+the ranker cannot have. **UNVERIFIED, never a pass and never a fail** — the third status, again.
+R746 is **partial**: its constant difference is conjoined with `and len(cov) > 0`, a real
+empty-population guard, so half the control is live.
+
+**The arm that turns this from a reading into a measurement.** Every perturbed producer was fed to
+**both** checks side by side:
+
+| | recovered check | the original `x − x` |
+|---|---|---|
+| g=0 | PASS ×3 | PASS ×3 |
+| perturbed | **FAIL ×3** | **PASS ×3 — blind** |
+
+Without the second column, *"the collapsed control had no power"* is an assertion about code I read.
+**With it, it is a number.** R332 separates 0.0 → 1.0 while `|v−v|.max()` stays exactly 0 through
+both. Kill was a conditional, not a threshold; two seeds byte-identical
+(`1c35cc0c7eaca56fa1b0f095738e36a3`).
+
+⚠ **What this does NOT license.** The gate that found all six is sound in **one direction only** —
+a flag proves constancy, its silence proves nothing. **6 is a lower bound on the defect and an upper
+bound on nothing**, and no rate may be quoted from it.
