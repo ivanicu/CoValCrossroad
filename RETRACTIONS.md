@@ -22914,3 +22914,40 @@ product:
   attack vectors, works on a foreign corpus) and `kill_is_wired_into_the_branch.py` (candidate
   generator with a measured artifact rate);
 - **four collapsed controls recovered and re-run, all passing**, so R436's citations stand (R828).
+
+## 1295 · both forms of the performance clause are forced, and the one that is not comes back empty
+
+**The quest's own question, answered on the object.** Can the definition's performance clause be
+repaired by restating it? **Not on this site.**
+
+⚠ **A hypothesis checked and discarded first**: I expected ③ to forbid the core its labels while ④
+lets the bar be fit on them. Verbatim, ③ forbids *"that prompt's **own**"* and ④ permits **other**
+prompts' — **and the core is not forbidden other prompts' either.** No asymmetry. Discarded before
+any design.
+
+⛔ **THE DERIVATION.** `[restriction P] ∧ [beat an ABSOLUTE bar B]` is **empty** when `B >
+ceiling(P)` and possibly **vacuous** when `B ≤ ceiling(P)`, and **nothing ties `B` to `ceiling(P)`**
+— which is what R826 measured when the bar saturated *on* the released core. **And the obvious fix
+is broken too**: *"beats every rule in the same class"* is satisfied by the class maximum **by
+construction**, §4's `check that cannot fail`. **Both forms are forced; neither is a measurement.**
+
+**So only an EXTERNAL anchor can carry a clause.** ④'' — *beats the best other rule in its class by
+more than the MDE*:
+
+| | |
+|---|---|
+| ③-admissible pool · adjacent pairs | **46** · **45** |
+| **separable (gap > 2× MDE)** | **0** |
+| positive · negative | `oracle_k4` vs `generic` **+0.0797 / MDE 0.0227 → SEPARABLE** · arm vs itself → null |
+| three seeds | byte-identical |
+
+**W-NO-SEPARABLE-BEST. ④'' is empty too.** `generic` (0.5556) is **+0.0182** above `gen` — **inside
+its own MDE of 0.0232**. ⚠ Beside the verdict, not instead of it: `generic` vs the best random arm
+is **+0.0449 / MDE 0.0228 = 1.97×**, at the boundary and **unresolved**.
+
+⛔ **AND THE TWO-SEED CHECK CAUGHT A REAL BUG IN THIS ROUND.** v1 sorted a `set` by `-a2[a]` alone;
+set iteration over strings depends on `PYTHONHASHSEED`, and **24 arms in 11 groups share an
+identical A2 to 10 dp**, so tied arms swapped between seeds. **The verdict never moved — the order
+did.** That is precisely the silent nondeterminism the check exists for, and it fires on the *shape*
+of the artifact rather than on any number in it. Fixed with a name tie-break, verified at seeds 1,
+2 and 7.

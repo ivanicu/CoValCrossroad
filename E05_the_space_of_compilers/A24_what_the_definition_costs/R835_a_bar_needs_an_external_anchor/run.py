@@ -41,7 +41,12 @@ def main() -> int:
     # ③-admissible: the partition's ADMITTED, plus the three settled by construction record (R834)
     _, adm, _ = C3.partition(list(a2))
     by_record = ["generic", "gen", "promptecho"]
-    pool = sorted(set(adm) | {a for a in by_record if a in a2}, key=lambda a: -a2[a])
+    # ⛔ TIE-BREAK BY NAME, AND THE TWO-SEED GATE IS WHY. v1 sorted a SET by `-a2[a]` alone. Set
+    #    iteration order over strings depends on PYTHONHASHSEED, and 24 arms in 11 groups share an
+    #    identical A2 to 10dp -- so tied arms swapped places between seeds and the artifact was not
+    #    byte-reproducible. The verdict never moved; the ORDER did, which is exactly the kind of
+    #    silent nondeterminism a two-seed check exists to catch.
+    pool = sorted(set(adm) | {a for a in by_record if a in a2}, key=lambda a: (-a2[a], a))
 
     # ---- controls -------------------------------------------------------------------------
     best = pool[0]
