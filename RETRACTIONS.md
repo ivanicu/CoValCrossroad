@@ -23394,3 +23394,20 @@ not a commitment**, and this one has been decorating reports as though it were.
 ⚠ **What this does not license**: the brackets are wide and neither bound is the truth. **Only the
 zero is safe**, because it holds under both instruments — which is the same rule that made the 0.0000
 smallest-MDE readable two rounds ago.
+
+> ⛔ **AND THE ZERO WAS NOT SAFE EITHER — corrected the next round.** *"Only the zero is safe"* was
+> the one sentence I called unambiguous, and it is **the sixth instrument-unit-vs-claim-unit slip of
+> this session**: the instrument matched the **WORD** `REPRODUCIB`; the claim was about a
+> **COMMITMENT**. Pre-registrations write the concept without the word — *byte-identical*,
+> *PYTHONHASHSEED*, *two seeds*.
+> **Re-measured with three patterns**: WORD `REPRODUCIB` → **0**; loose stem `reproduc` → **27**,
+> which **over-fires** because *"reproduces R799's 0.1649"* is **replicating a prior number**, a
+> different concept sharing a stem; tight `byte-identical / PYTHONHASHSEED / N seeds` → **9 of 40**.
+> ⭐ **Both of this entry's instruments were wrong, in OPPOSITE directions**, and the defensible
+> number is **9**. So the headline *"performed and never pre-registered"* is **FALSE for 9 rounds**
+> and stands for the other 31 only under a pattern I have not defended.
+> **The lesson survives and inverts**: I wrote *only the zero is safe because it holds under both
+> instruments* — and **both instruments were the same mistake**, so agreement between them was
+> agreement between two wrong units, not corroboration. **Two instruments sharing a blind spot
+> confirm each other and license nothing** — which is §4's own sentence about positive controls,
+> arriving one level up.
