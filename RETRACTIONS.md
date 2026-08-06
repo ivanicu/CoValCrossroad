@@ -19427,3 +19427,45 @@ remedy is that row's own: **the branch condition must reference every control th
 Repaired to compute an admissible-unit list first. *The failure mode is not carelessness about the
 number — it is that a disagreement is a more interesting result than a broken instrument, and the
 branch was written before the sham had answered.*
+
+## 1069 · a correction that was right in principle and null in fact, reported as null
+
+R534's headline says *"a judge is not an annotator"*, and then its code computes ③-any and ③-judge
+with the same expression — so ③-any was one class too strict. I corrected the nesting **before**
+writing any code for R764, from R534's own text. **It changed nothing**: ③-any equals ③-judge in all
+8 baseline cells, because all three sat-class arms fail ② everywhere. *The temptation is to bill a
+correct repair as a result. It is a repair whose effect on this population is zero, and the round
+says so in the same table that would have carried the finding.*
+
+## 1070 · a stricter parser emptied the exact class the round existed to measure
+
+R764's first `parses()` accepted only a rule prefix, so `gen`, `generic`, `gen_sham` and
+`coval_core_sham` came back **UNPARSED**. R534's classifier assigns all four to `neither` — and
+**`neither` is ③-any's entire candidate pool.** So a parser stricter than the one it was extending
+deleted the candidates for the world the round was designed to detect, and the first run reported
+**③-any empty in 8 of 8 cells**, agreeing with the sentence already on the page. Repaired to *rule
+prefix OR named in R294's census*: **non-empty in 4 of 8.** *Strictness is not conservatism. A filter
+tightened past the instrument it extends fails toward the incumbent claim, and the incumbent claim is
+the one nobody re-examines.*
+
+## 1071 · the UNIT control was decorative because the object map covered 4 groups of 8
+
+R764 declared *"instrument unit = an ARM TAG; claim unit = an OBJECT"* and then loaded R730's
+`objects_of_the_seven` — **four** groups covering the seven target-reading tags. Every other tag
+mapped to itself, so the **objects column reported tags** wherever the map was silent, and the
+control that was supposed to keep the two units apart merged them. Repaired to `multi_tag_classes`
+(**8** cliques): the published cell is **6 tags = 4 objects**, not 6 = 6. *Declaring the two units is
+one line; carrying a complete map of one onto the other is the actual work, and I did the first and
+called it the second.*
+
+## 1072 · my own registered branch was written in the wrong unit, and both verdicts are published
+
+I registered `UNPARSED >= 1 -> WORLD C`, whose stated world is *"the partition does not extend to
+today's POPULATION"* — a claim about **objects** — while `UNPARSED` counts **tags**. The one case
+decides it: `generic_reprov` is a re-provenance run inside R730's object class
+`[generic, generic_reprov, provenance_probe]`, so the count is **1 tag and 0 objects**, and the
+registered branch gives **C** in one unit and **B** in the other. Per the remedy owed since ledger
+1065, the round **states the conflict above its verdict line, names the object unit as the one its
+own UNIT control mandates, and prints the tag-unit verdict rather than discarding it.** *A
+preregistration can be wrong; what it may not be is quietly resolved. The difference between this
+round and R761 is one printed paragraph.*

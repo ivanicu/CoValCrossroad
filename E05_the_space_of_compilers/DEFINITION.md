@@ -5139,3 +5139,48 @@ PLACEBO keyword-free headline negative · SHAM ×2 as tabled. **WORLD A on the o
 is **not reconstructible from diffs** — two positional units, two sham failures. It would require a
 **per-round declaration recorded at the time**: each README naming the clause it moves or naming NONE.
 Intent is not in a diff.
+
+## R764 · the three readings of ③ over 86 arms and ②'s whole baseline curve
+
+**Scope.** population = **86** arms with full 968-prompt coverage (R534: 41); instrument = R294's
+estimator for ②, `select_core.py`'s own selection expressions for ③; baseline = **the swept axis**,
+8 percentiles of the 1,820-subset class including the published one; regime = first release, home
+judge, this tree_sha.
+
+**Readings, corrected from R534's own text before any code was written.**
+
+| reading | excludes | admits |
+|---|---|---|
+| ③-rank | rank | weight, sat, weight+sat, neither |
+| ③-any | rank, weight, weight+sat | **sat**, neither |
+| ③-judge | rank, weight, sat, weight+sat | neither |
+
+R534 computed ③-any and ③-judge with the same expression; its headline says *"a judge is not an
+annotator"*, which admits the sat class to ③-any. Nesting `judge ⊆ any ⊆ rank` is **derived**.
+
+**E1 · partition over 86 arms** rank **17** · weight **20** · sat **3** (`topvar_k4`, `_08b`,
+`_08bR`) · weight+sat **3** (`topwvar_k4`, `_08b`, `_08bR`) · neither **42** · UNPARSED **1**
+(`generic_reprov`, a re-provenance run of `generic` — **0 objects** under R730's partition).
+
+**E3 · the grid**, tags (objects):
+
+| baseline | \|②\| | ③-rank | ③-any | ③-judge |
+|---|---|---|---|---|
+| p000 | 24 | 11 (9) | **2 (2)** `gen`, `generic` | **2 (2)** |
+| p005 | 23 | 10 (8) | **1 (1)** `generic` | **1 (1)** |
+| p025 | 21 | 9 (7) | **1 (1)** `generic` | **1 (1)** |
+| p050 | 21 | 9 (7) | **1 (1)** `generic` | **1 (1)** |
+| p075 | 18 | 7 (5) | 0 | 0 |
+| p095 | 16 | 6 (4) | 0 | 0 |
+| **published** | 17 | **6 (4)** | **0** | **0** |
+| p100 | 10 | 0 | 0 | 0 |
+
+**Controls.** PROVENANCE R534's 41-arm partition reproduced exactly (exit 2 otherwise) · POSITIVE
+four arms into four classes, band from both degenerate ends · g=0 `zzz_k4` UNPARSED not `neither` ·
+NEGATIVE 200 random 5-class partitions → ③-any at published **6.90 [4, 11]** vs real **0** · PLACEBO
+3 `*_sham` arms in 0 extensions · SHAM ② with no clause = the `|②|` column. **WORLD B** (object
+unit; the tag-unit branch says C — both printed).
+
+**Excluded, on evidence, named.** 7 foreign-key-schema artifacts (`transport_*`, another corpus);
+5 with partial prompt coverage (`coval_core_2bA/2bB`, `promptecho`, `promptecho_sham`,
+`provenance_probe`).

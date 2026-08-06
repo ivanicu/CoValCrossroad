@@ -298,7 +298,16 @@ A **core** for a conversation is a set of criteria such that
   - **③-rank** — not built from the response **rankings**. This is what the code implements, and the
     extension of ② ∧ ③ is **5 arms†**: `coval_core`, `topw_k3`, `topw_k4`, `topw_k6`, `topw_k8`.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own
-    signed weights. The extension is **EMPTY**.
+    signed weights. The extension is **EMPTY** — ⛔ **AT AND ABOVE THE PUBLISHED COMPARATOR ONLY**
+    *(R764)*. On **86 arms** (R529/R534 measured **41**) and across ②'s baseline curve, ② ∧ ③-any is
+    **non-empty in 4 of 8 cells**: `generic` at **p005 · p025 · p050**, and `gen` with it at **p000**.
+    ⚠ The `|②|` column rules out the registered confound — at p050 ② admits **21 of 86**, so it is not
+    that ② admits everything. ⭐ **③-any and ③-judge are identical in all 8 cells**, because all three
+    sat-class arms (`topvar_k4`, `_08b`, `_08bR`) fail ② everywhere — so R534's conflation of the two
+    readings was wrong in principle *(a judge is not an annotator, R534's own words)* and **null in
+    effect on this population**. ⚠ Whether `generic` is admissible as a core **at all** is open: it is
+    the comparator's own family (`sat_genericpool16`), so at low baselines ② may be comparing the pool
+    to itself. **The published cell is 6 tags = 4 objects.**
   ⭐ The card records annotators assigning **signed weights −10…+10**, and core selects on *"the highest
   average ratings"* — so `coval_core` is a **weight-reader but not a ranking-reader**. `select_core.py:16`
   calls the same operation **"non-leaky: the weights come from the rubric, not from the outcome."**

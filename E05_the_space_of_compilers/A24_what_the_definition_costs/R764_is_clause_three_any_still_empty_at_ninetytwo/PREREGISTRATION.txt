@@ -1,0 +1,167 @@
+R764 · is ③-any still EMPTY at 92 arms, and anywhere on ②'s baseline class?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND, AND WHY IT IS AN OBJECT ROUND
+--------------------------------------------------------------------------------
+R763 registered a stopping rule and it BINDS: 1 object headline in 24 rounds, so R764 may not be
+another apparatus round. This one moves the definition or it does not run.
+
+WHAT THE PAGE STATES, AND WHERE IT CAME FROM. STATEMENT.md's ③ bullet forks the clause:
+    ③-rank  not built from the response RANKINGS      -> extension 5 arms
+    ③-any   no annotator-supplied signal at all,
+            including the rubric's own signed weights -> extension EMPTY
+R529 measured the fork; R534 corrected its taxonomy to THREE input classes read off
+`select_core.py`'s own selection expressions (rank / weight / judged-satisfaction) and re-measured:
+③-rank 5, ③-any 0, ③-judge 0. **BOTH ROUNDS RAN ON R294's 41 CENSUS ARMS.**
+
+⚠ Today's population is **92 arms** (R728's construction over `corebench/results/sat_*.npz`), and
+R760 established a fourth reading -- ③ implemented as a RULE rather than a name list. **"③-any is
+EMPTY" has never been evaluated on the population the page's other numbers now use**, and it is the
+sentence that makes ③-rank the only live reading of the clause.
+
+⚠ AND ② IS BASELINE-CONDITIONAL (R527): the ② admitted set grows as the comparator falls, from 4 at
+the class maximum to 8 at the minimum. So "EMPTY" is a claim about ONE CELL of a (reading x baseline)
+grid, and the page states it without the cell.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the input-class partition (rank / weight / sat / weight+sat / neither) over all 92 arms, by the
+    source's own selection expressions -- R534's taxonomy, unchanged, on the wider population.
+E2  the extension of ② ∧ ③ under FOUR readings -- ③-rank, ③-rule (R760), ③-judge, ③-any -- at the
+    published baseline.
+E3  the same over ②'s baseline percentile curve {p000, p005, p025, p050, p075, p095, published,
+    p100}: the whole (4 readings x 8 baselines) grid, and the cells where a reading other than
+    ③-rank is NON-EMPTY.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1 IDENTIFIED and exact -- the tag is emitted from the rule at `select_core.py:204` and the rule
+   vocabulary is closed at `:50-52`. An arm whose tag does not parse is UNPARSED, counted, and
+   assigned to NO class (never silently to "neither", which would inflate ③-any's extension in the
+   direction that makes this round interesting).
+E2, E3 IDENTIFIED given E1 and R294's estimator.
+⚠ WHAT IS NOT IDENTIFIED: whether "annotator-supplied signal" in the page's prose MEANS the source's
+  input classes. That is a reading of my own prose by the mind that wrote it, so the round reports
+  the extension under EACH class-based reading and does NOT adjudicate which the prose intends.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  the 92 arms R728's construction admits (2.2x R534's 41)
+instrument  R294's estimator for ②; `select_core.py`'s selection expressions for ③
+baseline    ⭐ THE SWEPT AXIS -- 8 percentiles of the 1,820-subset class, including the published one
+regime      first release, home judge, 968 prompts, this tree_sha
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  THE READINGS ARE NESTED, AND R534's CODE HAS THE NESTING WRONG. Corrected here BEFORE any code
+    is written for this round, and corrected FROM R534's OWN TEXT:
+
+      ③-rank   excludes {rank}                        -> admits weight, sat, weight+sat, neither
+      ③-any    excludes {rank, weight, weight+sat}    -> admits SAT and neither
+      ③-judge  excludes {rank, weight, sat, wgt+sat}  -> admits neither only
+
+    so extension(③-judge) ⊆ extension(③-any) ⊆ extension(③-rank) at every baseline. The nesting is
+    ALGEBRA; the measurement is WHETHER THE SMALLEST IS ZERO and at which baseline it stops being so.
+
+    ⛔ R534 computed `ext_any` and `ext_judge` with the SAME expression (`klass(a) == "neither"`),
+    annotated "same here; stated, not assumed". But R534's own headline paragraph says: *"an arm can
+    read the responses' judged satisfaction while reading no human input at all -- a class ③-any's
+    phrase does not cover, because A JUDGE IS NOT AN ANNOTATOR."* Under that sentence the SAT class is
+    ADMITTED by ③-any, so R534's ③-any was computed one class too strict. It did not matter at 41
+    arms because the sat class held exactly one arm (`topvar_k4`) and that arm fails ②.
+    ⇒ AT 92 ARMS THIS IS THE WHOLE ROUND: the wider population carries more sat-class arms
+      (`topvar_k*`, `topwvar_k*`), and if ANY of them clears ② then ③-any is non-empty while ③-judge
+      stays 0 -- WORLD B by a route R534's code could not have taken.
+D2  THE EXTENSION IS MONOTONE NON-INCREASING IN THE BASELINE for a fixed reading, because ② gets
+    strictly harder. So a reading that is non-empty at the published baseline is non-empty below it.
+    ⇒ THE ONLY INFORMATIVE DIRECTION IS THE LOW END, and the round must look there rather than
+      reporting the published cell and stopping -- which is what the page does.
+
+STRONGEST CONFOUND, written BEFORE the run: ③-any could become non-empty at a low baseline purely
+because ② stops excluding anything -- if at p000 almost every arm clears ②, then ANY clause admits
+something and the result says nothing about ③. CONTROL IN THE SAME ITERATION: report |②| beside
+every cell, so a non-empty ③-any is read against how permissive ② was in that cell.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · ③-any IS EMPTY EVERYWHERE. The page's dismissal survives 2.2x the population and the whole
+    baseline class. ③-rank remains the only live reading and the fork is settled, not merely stated.
+B · ③-any IS NON-EMPTY SOMEWHERE. The definition has a SECOND LIVE READING, the page's "EMPTY" is a
+    one-cell claim, and the arms that make it non-empty are named -- they are candidate cores under
+    a strictly stronger clause than the one the release satisfies.
+C · THE PARTITION DOES NOT EXTEND. Some of the 92 tags are UNPARSED, so the fork is not statable on
+    today's population and the page's fork inherits R534's 41-arm scope.
+
+PREDICTION MATRIX  (|extension(③-any)| over the 8-baseline curve, UNPARSED count)
+  A -> 0 in all 8 cells, UNPARSED = 0
+  B -> >= 1 in at least one cell, with |②| in that cell < 92 (else the confound fires)
+  C -> UNPARSED >= 1
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if PROVENANCE fires (R534's 41-arm partition reproduced EXACTLY: rank 4, weight 10, sat 1,
+   weight+sat 1, neither 25) and POSITIVE fires (a known rank arm classifies rank, a known weight arm
+   classifies weight) and g=0 fires (an unparseable tag is counted UNPARSED, not assigned):
+        UNPARSED >= 1                          -> WORLD C. The fork keeps R534's scope.
+        ③-any non-empty in >= 1 cell with
+          |②| < 92 in that cell                -> WORLD B. Name the arms; the definition has a
+                                                  second live reading and the page must say so.
+        ③-any 0 in all 8 cells                 -> WORLD A. The dismissal is confirmed at 2.2x the
+                                                  population and across the baseline class.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+⚠ WORLD A IS CLOSURE AND WILL BE LABELLED CLOSURE. It protects a sentence already on the page. That
+  is legitimate and it is not a finding; §0.2 forbids billing it as one. WORLD B is the frontier
+  branch, and the round is worth running because B is live -- 51 arms exist here that R534 never saw.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+PROVENANCE R534's committed 41-arm partition must be reproduced EXACTLY by this round's classifier
+           before it is pointed at 92. The round EXITS 2 otherwise -- a classifier that cannot
+           reproduce the partition it extends is not the same instrument.
+POSITIVE   `oracle_k4` -> rank · `topw_k4` -> weight · `topvar_k4` -> sat · `random_k4_s1` ->
+           neither. BAND, COMPUTED: a classifier assigning everything to `neither` fails the first
+           three; one assigning everything to `rank` fails the last. The threshold "all four land in
+           their own class" is unreachable from either degenerate end.
+g=0        a synthetic tag with no rule prefix (`zzz_k4`) must be UNPARSED, not `neither` -- because
+           `neither` is the class that makes ③-any's extension GROW, and a silent assignment there
+           would manufacture WORLD B.
+NEGATIVE   destroy the class structure: assign each arm a class drawn uniformly at random, 200 draws,
+           and report the resulting ③-any extension distribution. World excluded: "any partition of
+           this population into five classes yields an empty ③-any", which would make WORLD A
+           uninformative.
+SHAM       ingredient ABSENT, not inverted. Ingredient = the CLASS RESTRICTION. Compute the
+           extension with ③ replaced by NO clause at all (② alone) at every baseline, and report it
+           beside each cell. If ②∧③-any equals ② everywhere, ③ is not binding on this population.
+PLACEBO    the `*_sham` arms must never enter any extension at any baseline; they are built to fail ②.
+NOISE      no rng except the NEGATIVE control's random partitions and R294's bootstrap index, both
+           seeded; spreads printed.
+UNIT       instrument unit = an ARM TAG; claim unit = an OBJECT (R730's 81-object partition). R760
+           measured 16 tags = 9 objects, so these are NOT equal and every extension is reported in
+           BOTH.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+4 readings x 8 baselines x {tags, objects} = 64 cells, plus |②| and ②-alone per baseline, plus the
+5-class partition over 92 arms, plus 200 negative-control draws. The whole grid is printed --
+including the cells where every reading is identical, which is most of them.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether the PROSE's "annotator-supplied signal"
+  means the source's input classes            a reader who is not the author
+whether an arm reads labels without its rule
+  saying so                                   the arm's construction code (carried from R760/R762)
+cross-release                                 a second release
+independently replicated                      a second team; the session prompt forbids agents
