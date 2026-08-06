@@ -143,6 +143,16 @@ single-pattern count was over an under-counted population *(ledger 1015)*:
 ⚠ **`4` and `10` need a citation, not a better instrument.** ⚠ **Row 8 needs its cell chosen**, since
 rotating the citation the resolver reads changes **2 of 5** assignments.
 
+⛔⛔ **AND A CITATION GROUP ON THIS PAGE TYPICALLY HAS ONE MEMBER THAT HOLDS THE NUMBER** *(R750)*.
+Across the **17** sentences citing ≥2 rounds and stating a figure, the **median support depth is 1**:
+usually exactly one cited round has that figure in its own artifact. **7 of 17** have ≥2 supporters;
+**2 have none.** ⭐ The base rate makes it readable — single-citation sentences are supported **78.4%**
+of the time, so the artifacts *do* store printed values and shallow depth is a property of the groups.
+⚠ Checked against the rounds' **READMEs** instead of their artifacts: **identical** (median 1.0,
+share≥2 0.4118), so *"the number is in the prose"* does not rescue it.
+⇒ **Row 8 is not an unlucky row — it is the typical shape**, and a citation group must not be read as
+joint grounding. **Where a figure matters, the page must name WHICH citation computed it.**
+
 | # | claim | scope it holds over |
 |---|---|---|
 | **1** | The definition is **② ∧ ③**. ① and ④ are retired — neither excludes anything ② has not *(R519)* | R294's 41 arms, home judge, 968 prompts |

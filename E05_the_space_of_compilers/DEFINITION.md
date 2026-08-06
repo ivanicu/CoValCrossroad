@@ -4463,3 +4463,60 @@ uncertainty, and **no power to generalise**. None is reported.
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 55555, **both writes confirmed to
 disk** (2,756 / 2,760 bytes, differing only in the recorded seed).
+
+## R750 · when a sentence cites several rounds, how many of them hold the number?
+
+**Severity check first, and it changed the round.** R749's NEXT asked about multi-cited **object-count**
+sentences — there is exactly **1**. **A round with n = 1 is not a measurement.** One level up the page
+holds **1,389** sentences, **65** citing ≥2 rounds, **17** of those carrying a number, with group sizes
+2, 3, 4, 5, 8. That is measurable; the narrower version was not.
+
+**Estimand.** For each such sentence, the **support depth**: how many cited rounds' own artifacts
+contain the stated number.
+
+**⚠ R590's repair reused.** Its prefix matcher required the printed value to be a prefix of a stored
+float, so rounded-up values failed — 13 orphans of which **9 were its own bug**. R590 has no `run.py`,
+so the relation is re-implemented with the repair carried forward and the prefix rule kept only to
+price it.
+
+| matcher | population | n | median | share ≥2 | share = 0 |
+|---|---|---|---|---|---|
+| prefix *(broken)* | multi-cited | 17 | 1.0 | 0.4118 | **0.2353** |
+| **rounded** *(repair)* | **multi-cited** | **17** | **1.0** | **0.4118** | **0.1176** |
+| **rounded** | **single-cited (SHAM)** | **37** | **1.0** | — | **0.2162** |
+| tolerance | multi-cited | 17 | 1.0 | 0.4706 | 0.1176 |
+
+⛔ `support ≤ group size` **ALWAYS**. ⛔ The **SHAM's `share ≥2` is structurally 0** — a single-citation
+sentence cannot have support 2; its informative column is `share = 0`.
+⭐ **The broken rule manufactures 2 extra orphans on this page** (4 vs 2) — R590's bug, re-measured.
+
+**Registered against measured.** P1 median 1 **[0,3] → 1** ✓ · P2 share≥2 0.35 → **0.4118** ✓ ·
+P3 SHAM 0.79 → **0.7838** ⚠ **prior-art informed from R590's 15/19, declared, not scored as a blind
+hit** *(ledger 1021)* · P4 zero-support 2 → **2 of 17** ✓ · P5 manufactured orphans ≥1 → **2** ✓ ·
+D no growth with size → **true on usable sizes** ✓.
+
+⚠ **The directional excludes sizes with n < 3.** Sizes 4 and 8 hold **one sentence each** at mean 4.00;
+a mean over n=1 is not a trend *(ledger 1020)*. They stay in the table with their counts visible.
+
+**⛔ The NEGATIVE control could not have fired** *(ledger 1019)*. v1 rotated the group **within** a
+sentence — but `support` **sums over every member**, so rotation permutes a set being summed and the
+count is invariant **by construction**. ⭐ **The identical operation was a valid control one round
+earlier**, because R749's resolver reads exactly one citation and order is load-bearing there.
+**A control is a property of its design and cannot be carried across.** Repaired by giving each
+sentence **another sentence's** group: **10 of 17** change.
+
+**Controls — 4 PASS, 0 FAIL.** POSITIVE `0.0316`, found by **direct search** in both R294 and R426 —
+not by the matcher — scores **2** against a never-matching floor of 0 · g=0 a number in no artifact →
+**0, reported not skipped**, since a skipped zero would raise the median by deleting the worst cases ·
+NEGATIVE as above · PLACEBO 0 of 17 · SHAM the ingredient **absent** · UNIT **7 of 17** sentences state
+more than one number, so support is per **number** and the sentence value is the **maximum**.
+
+**⚠ The confound, written before the run, does not rescue the result.** Against the rounds' READMEs
+rather than their artifacts: **median 1.0, share ≥2 = 0.4118** — identical. Reported beside, never
+merged.
+
+**Verdict — `WORLD B`.** A citation group is not joint grounding. **Where a figure matters, the page
+must name which citation computed it.**
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 13579, **both writes confirmed to
+disk** (7,990 / 7,994 bytes, differing only in the recorded seed).

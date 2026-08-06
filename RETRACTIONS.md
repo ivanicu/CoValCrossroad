@@ -18923,3 +18923,38 @@ Zero of the resolved rounds import. The three failures have a different cause en
 missing citations, and the elaborate part of the instrument contributed nothing to the result. The
 anticipation was correct as a limitation and wrong as a diagnosis, and a design that defends against
 the failure mode you can imagine will still meet the one you did not.
+
+## 1018 · a citation group usually has one member that holds the number, so a group is not joint grounding
+
+Across the seventeen sentences on the deliverable that cite two or more rounds and state a number, the
+median number of cited rounds whose own artifact contains that number is one. Seven of the seventeen do
+have two or more supporters and two have none at all. The base rate from single citation sentences is
+seventy eight per cent, so the artifacts do store printed values and the shallow depth is a property of
+the groups rather than of the store. The failure that made an earlier round unable to resolve a claim
+row was not one bad row; it is the typical shape, and a reader following a citation at random lands on
+a round that never computed the figure more often than not.
+
+## 1019 · my negative control could not have fired, and the same operation was valid one round earlier
+
+The control rotated the citation group inside each sentence and reported that nothing changed. Nothing
+could have changed: support sums over every member of the group, so rotating permutes a set being
+summed and the count is invariant by construction. The control was incapable of excluding the world it
+named. What makes this worth recording is that the identical operation was a correct control in the
+previous round, whose resolver reads exactly one citation and for which order is therefore load
+bearing. A control is a property of the design it sits in and cannot be carried across.
+
+## 1020 · two of my four group sizes hold one sentence each and I nearly read them as a trend
+
+The table of support by citation group size shows means of one point two, one point three, four and
+four. The last two cells contain a single sentence apiece. Comparing a one observation cell against a
+twelve observation one and calling the difference a slope is reading one sentence as a trend, so the
+directional is now computed only over sizes carrying at least three sentences and the thin cells stay
+in the table with their counts visible. Excluding them from the test is not the same as hiding them.
+
+## 1021 · a base rate borrowed from an earlier round is not a blind prediction
+
+I registered the single citation support rate at seventy nine per cent and measured seventy eight point
+four. That is not a calibration success: an earlier round had already measured fifteen of nineteen on an
+overlapping population, which is seventy eight point nine, and I copied it. The preregistration says so
+and the result is recorded as prior art informed rather than scored as a hit. A registered value whose
+source is a previous measurement tests the reproduction, not the forecast.

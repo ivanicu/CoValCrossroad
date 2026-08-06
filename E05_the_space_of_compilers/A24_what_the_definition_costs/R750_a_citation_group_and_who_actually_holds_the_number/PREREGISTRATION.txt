@@ -1,0 +1,155 @@
+R750 · when a sentence cites several rounds, how many of them actually hold the number?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R749 could not resolve claim row 8's object count because the row cites THREE rounds and the
+resolver reads whichever appears earliest -- which happens to be the one holding no identity
+relation, while another citation in the same group is the round that built the partition. Rotating
+which citation is read moved 2 of 5 assignments.
+
+That is a general defect wearing a specific costume. R590 asked whether A cited round holds the
+number a sentence states, and found 15 of 19 grounded. It never asked what happens when SEVERAL
+rounds are cited together: whether the group jointly supports the number, or whether one member
+carries it and the rest are decoration a reader can follow into a round that never computed it.
+
+SEVERITY CHECK, RUN BEFORE COMMITTING TO THE ROUND: the page holds 1,389 sentences, 65 citing >=2
+distinct rounds, of which 17 carry a number. Citation-group sizes run 2, 3, 4, 5 and 8. That is a
+real population, so the question is measurable here. Had it been n=1 -- which is what the
+object-count-only version would have given -- this round would not have been worth running and the
+honest move would have been to say so.
+
+--------------------------------------------------------------------------------
+ESTIMAND
+--------------------------------------------------------------------------------
+For each sentence on STATEMENT.md citing >= 2 distinct rounds and stating a number, the SUPPORT
+DEPTH: how many of the cited rounds' own artifacts contain that number.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+IDENTIFIED given a matching rule, and the matching rule IS the instrument, so three are swept.
+
+⚠ R590'S DOCUMENTED REPAIR IS REUSED RATHER THAN REDISCOVERED. Its first matcher required the
+printed value to be a PREFIX of a stored float, so every value the document rounded UP failed: it
+reported 13 orphans of which 9 were its own bug, and rounded matching cut them to 4. R590 has no
+run.py -- it is one of the codeless rounds -- so the relation is re-implemented, but the repair is
+carried forward and the prefix rule is included ONLY as the loose end of the specification curve,
+to show what it costs.
+
+⚠ AND THE UNIT PROBLEM, NAMED BEFORE THE CONTROL IS DESIGNED. Instrument unit = a (sentence,
+number, cited round) triple. Claim unit = a SENTENCE a reader acts on. They are not equal: one
+sentence can state several numbers. Support depth is therefore computed PER NUMBER and the
+per-sentence figure is the maximum over its numbers, with the count of multi-number sentences
+reported separately rather than silently averaged.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  the 17 sentences on STATEMENT.md citing >=2 rounds and stating a number
+instrument  three matchers -- prefix (R590's broken one), rounded (its repair), tolerance
+baseline    the SHAM: single-citation numeric sentences, which is R590's own population
+regime      the page and the committed artifacts at this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · SHARED SUPPORT. In most groups >= 2 cited rounds hold the number. The group is a genuine
+    multi-round grounding and a reader following any member lands somewhere that computed it.
+B · DILUTED SUPPORT. In most groups exactly one member holds it, or none. The extra citations are
+    decoration; which member a reader follows decides what they find, and R749's row-8 failure is
+    an instance of a general property rather than one bad row.
+
+PREDICTION MATRIX -- median support depth over the 17
+    A -> >= 2            B -> <= 1
+
+--------------------------------------------------------------------------------
+REGISTERED POINTS -- each independently failable
+--------------------------------------------------------------------------------
+P1  BLIND   median support depth, ROUNDED matcher                registered 1    [0, 3]
+P2  BLIND   share of groups with support >= 2                    registered 0.35 [0.00, 1.00]
+P3  ⚠ PRIOR-ART INFORMED, DECLARED: the SHAM's base rate -- single-citation numeric sentences whose
+    one cited round holds the number. R590 measured 15 of 19 = 0.789 on an overlapping population,
+    so this is not a blind guess and is not scored as one.
+                                                                 registered 0.79 [0.40, 1.00]
+P4  BLIND   groups with support EXACTLY 0                        registered 2    [0, 17]
+P5  BLIND   orphan count under the PREFIX matcher minus under the
+    ROUNDED matcher -- i.e. how many "orphans" the broken rule
+    would manufacture on THIS page                               registered >= 1
+
+DIRECTIONAL, separately failable
+D   support depth does NOT increase with citation-group size: a sentence citing 8 rounds is no
+    better grounded than one citing 2. If it DOES increase, large groups are genuine consensus and
+    the dilution reading is wrong.
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+FORCED, labelled derivations, not evidence:
+  - support <= group size, always. "Support is less than the number of citations" is not a finding;
+    only the DISTRIBUTION is.
+  - prefix_matches <= rounded_matches is NOT forced in general -- a prefix rule can match a value
+    the rounded rule rejects when the stored float has more digits. So P5 could come out either
+    sign, and that is why it is registered rather than derived.
+  - the SHAM's population and the main population are DISJOINT by construction (one citation versus
+    two or more), so no arm shares a sentence with the other and the comparison is between-groups.
+    Stated because a shared sentence would make the base rate partly its own comparator.
+
+STRONGEST CONFOUND, written BEFORE the run: a cited round may hold the number in its README rather
+than in its artifact, which would read as unsupported while being perfectly documented. CONTROL IN
+THE SAME ITERATION: run the identical check against each round's README and report the two
+supports side by side, never merged.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE recovers a known-supported synthetic group, and g=0 returns 0 for a number in no
+artifact, and NEGATIVE changes the distribution under a rotated citation map, and PLACEBO is
+exactly 0:
+        median support >= 2  -> WORLD B KILLED. Citation groups are genuine joint grounding and
+                                row 8 is one bad row rather than an instance.
+        median support <= 1  -> WORLD A KILLED. The group does not ground the number; the page must
+                                name WHICH citation computed each figure.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE   SYNTHETIC, and built so the answer is known without this instrument: take a value that
+           two rounds' artifacts both provably contain (found by direct search, not by the
+           matcher), and a fabricated sentence citing exactly those two. Support must be 2.
+           BAND, COMPUTED: floor = a matcher that never matches (support 0 on a known-supported
+           group), ceiling = the group size, 2. Threshold 2, strictly above the floor, asserted.
+g=0        a number present in NO artifact must return support 0 AND be reported, never skipped.
+           A skipped zero would raise the median by removing the worst cases.
+NEGATIVE   rotate the sentence -> citation-group map. The support distribution must change. World
+           excluded: "support is a property of the NUMBER, not of the cited rounds".
+SHAM       the same operation with the INGREDIENT ABSENT, not inverted. Ingredient = being cited
+           alongside others. Run the identical check on SINGLE-citation numeric sentences. That is
+           R590's population and it supplies the base rate; without it a low support depth could
+           simply mean the artifacts do not store printed values at all.
+PLACEBO    the same sentence scored twice -> exactly 0 difference, reported as 0 of N.
+NOISE      no rng. The variance is the MATCHER, and three are swept: prefix / rounded / tolerance.
+UNIT       instrument unit = (sentence, number, round) triple; claim unit = sentence. Support is
+           computed per NUMBER, the per-sentence value is the MAXIMUM over its numbers, and the
+           count of multi-number sentences is printed rather than averaged away.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+3 matchers x 2 populations (multi-cited, single-cited) x {median support, share >=2, share ==0}
+= 18 reported quantities, plus the README-vs-artifact confound split. All reported.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether a citation SHOULD support the
+number it accompanies                 an editorial standard for what a citation asserts; this
+                                      round measures support, it does not adjudicate intent
+values a round computed but never
+persisted                             re-running that round, which for several would overwrite
+                                      committed artifacts -- deferred with the reason, as in R745
+generalising beyond this page         a second deliverable
+independently replicated              a second team; the session prompt forbids dispatching agents
