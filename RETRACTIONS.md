@@ -20519,3 +20519,48 @@ pair verdicts flip** between those same two units. **Both are true.** An ORDERIN
 PAIRWISE-RESOLUTION claim are different objects, and R792's headline — "the arc's estimand was a
 default nobody chose" — is correct about verdicts and would be wrong about the ordering. *Two rounds
 can disagree in tone while agreeing in fact, and the reconciliation is worth more than either.*
+
+## 1168 · the WORLD A / WORLD B fork was an artifact of comparing two different targets
+
+`whose_verdicts` asked whether a core tracks the HUMAN more than the RUBRIC it compresses, by putting
+`vs HUMAN` (ceiling 0.5519) beside `vs FULL` (ceiling 1.0) — two proportions of DIFFERENT targets —
+and the answer then depended on a normalisation R793 called undecidable. **Two SAME-TARGET questions
+need no ceiling at all**, and both resolve: `coval_core` agrees with its own prompt's rubric at
+**0.7850 against a shuffled-rubric floor of 0.4888, excess +0.2961 [+0.2744, +0.3166]**; and it beats
+that rubric at predicting the human by **+0.0578 [+0.0502, +0.0658]** against an MDE of 0.0111.
+**Both hold.** D2, registered before the run, is why that was possible — nothing in the algebra forced
+one to exclude the other, because `full` predicts the human at 0.5087, barely above a random arm's
+0.4927. *The fork was not adjudicated; it was dissolved, and a dichotomy that dissolves was never a
+fact about the object.*
+
+## 1169 · a fifth wall, and it fell in three lines
+
+R793 closed with *"the first thing in this arc that no further computation can decide."* It was
+decided by two comparisons computable from data R793 itself had already loaded, at zero new
+instrument cost. **Fifth wall to fall in seven rounds** — after the cross-release wall (R780), the
+construct-validity citation (R792), the coverage assumption (R793) and the estimand default (R792).
+*A wall is the cheapest thing in a report to write and the most expensive to leave standing, because
+nothing downstream ever re-opens it. The tell is that it always arrives in the closing sentence,
+which is the one line with no control attached.*
+
+## 1170 · my registered confound was refuted by its own control, in the conservative direction
+
+D3 held that `core vs FULL` is inflated because both track the human. Regressing `vs FULL` on
+`vs HUMAN` across the 20 distinct objects gives a slope of **−0.4825**: arms that track humans BETTER
+agree with `full` LESS. So the confound runs the other way and Q1 was conservative rather than
+inflated. `coval_core`'s residual is **+0.0286 [+0.0199, +0.0377]**, resolved against prompt
+resampling — but only **+0.64 of the across-arm residual sd (0.0450)**, so it is not exceptional
+among arms. ⚠ **And the preregistration asked for that residual's CI while the first draft computed a
+point**, which made the World-A branch ("residual CI contains 0") unable to fire — a check that
+cannot fail, closed before the round shipped. *Two uncertainties answer two questions and reporting
+only the flattering one is how a resolved number becomes an exceptional one.*
+
+## 1171 · Q1 is resolved for MATCHING and a point estimate for SPECIFICITY
+
+The resolved part of Q1 is *prompt-matched rubric versus SHUFFLED rubric*: +0.2961 [+0.2744,
++0.3166]. The part that would license the words "its own rubric" — `full` rather than ANY other arm's
+class — is a gap of **+0.0487** against the random-arm sham, **with no interval computed**. So the
+clause is supported in the sense that a core tracks its own prompt's rubric far above a mismatched
+one, and it is NOT established that it tracks the rubric rather than tracking what any competent arm
+tracks. *Stating which half of a two-part claim carries the interval is the difference between a
+finding and a sentence.*

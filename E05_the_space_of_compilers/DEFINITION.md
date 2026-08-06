@@ -6205,3 +6205,43 @@ objects.
 `full` vs FULL **1.000000000000** · POSITIVE band, raw crosses zero only at δ=0.30 · NEGATIVE
 `full`'s class shuffled 0.7850 → 0.4998 with vs HUMAN unchanged to 0.0e+00 · SHAM against
 `random_k4_s0`'s class 0.7342 · NOISE FLOOR split-half 0.003523. **WORLD A.**
+
+## R794 · why the normalisation question did not have to be asked
+
+**The wall.** R793 closed on *"the first thing in this arc that no further computation can decide."*
+It was decided by two comparisons already computable from data R793 had loaded — the fifth wall to
+fall in seven rounds.
+
+**Derived before measuring.** D1 a same-target comparison needs no ceiling, because a common ceiling
+divides out. D2 Q1 and Q2 are not complementary, so the fork can be FALSE rather than mis-measured.
+D3 `core vs FULL` may be inflated by both tracking the human — **refuted by its own control**. D4
+`full` is 1.0 against itself by construction and must be excluded from the regression.
+
+**Q1 · preserving the rubric** (both sides against `coval_full`'s class):
+
+| arm | vs FULL | shuffled-full floor | random-arm sham | excess over shuffled |
+|---|---:|---:|---:|---|
+| `coval_core` | 0.7850 | 0.4888 | 0.7363 | **+0.2961 [+0.2744, +0.3166]** |
+| `gen` | 0.7414 | 0.4941 | 0.6993 | +0.2472 [+0.2268, +0.2689] |
+| `full` | 1.0000 | 0.4969 | 0.8192 | +0.5031 [+0.4876, +0.5183] |
+
+**Q2 · beating the rubric at the human** (both sides against the human annotators):
+
+| arm | vs HUMAN | `full` vs HUMAN | difference | MDE | |
+|---|---:|---:|---|---:|---|
+| `coval_core` | 0.5665 | 0.5087 | **+0.0578 [+0.0502, +0.0658]** | 0.0111 | RESOLVED |
+| `gen` | 0.5352 | 0.5087 | +0.0265 [+0.0173, +0.0352] | 0.0130 | RESOLVED |
+
+**D3's regression**, 20 objects, `full` excluded: slope **−0.4825**, residual sd **0.0450**,
+`coval_core` residual **+0.0286 [+0.0199, +0.0377]** = **+0.64** residual sd. Resolved against prompt
+resampling; not exceptional among arms. ⚠ The preregistration asked for this CI and the first draft
+computed a point, which would have made the World-A branch unable to fire; closed before shipping.
+
+**Controls.** OBJECT R793's two columns reproduced to **0.000e+00**, exit 2 otherwise · PLACEBO every
+arm against its own class exactly 1.0 · POSITIVE the plant alone does not resolve at δ=0 and resolves
+from 0.005 · NEGATIVE `full`'s class shuffled sends Q1 to 0.4888 while Q2 is unchanged to 0.0e+00 (a
+derivation — Q2 never touches `full`'s class) · SHAM Q1 against a random arm's class 0.7363 ·
+NOISE FLOOR split-half 0.003523.
+
+**Multiplicity.** 41 tests, BH over the UNION of both families: **40 survive, 1 does not.**
+**WORLD C — the fork is false.**

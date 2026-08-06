@@ -1,0 +1,167 @@
+R794 · the WORLD A / WORLD B fork was an artifact of comparing two different targets
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-06.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R793 closed with a WALL: *"the step is to settle the normalisation by argument ... That is a
+formulation act, and it is the first thing in this arc that no further computation can decide."*
+§4 says an unchecked wall is UNVERIFIED and never SETTLED, and four walls have fallen in this arc's
+last six rounds. CHECK #396 attacked it first, and it took three lines.
+
+⭐ THE WALL IS FALSE. The normalisation problem exists ONLY because `whose_verdicts` compares
+`vs HUMAN` (a proportion against a noisy target, ceiling 0.5519) with `vs FULL` (a proportion against
+a deterministic one, ceiling 1.0). **Two SAME-TARGET questions answer the clause without any ceiling:**
+
+  Q1  does a core preserve the RUBRIC's verdicts?
+      `core vs FULL` = 0.7850, against a random arm's class 0.7342 and a shuffled full 0.4998.
+      Both sides scored against the SAME target.
+  Q2  does a core track the HUMAN better than the rubric it compresses does?
+      `core vs HUMAN` = 0.5665 against `full vs HUMAN` = 0.5087, gap +0.0578.
+      Both sides scored against the SAME target.
+
+**Neither needs a ceiling.** So the A/B dichotomy is not a fact about cores; it is a consequence of
+one cross-target comparison, and the choice of normalisation R793 called undecidable is a question
+that does not have to be asked.
+
+--------------------------------------------------------------------------------
+DISCLOSURE -- what was already known when this was written
+--------------------------------------------------------------------------------
+KNOWN and quoted: every number in check #396 above, all of them read off R793's committed artifact.
+**NOT known: any interval on either quantity**, the floor for Q1 over the full 20-arm population,
+whether the core's agreement with the rubric survives controlling for its agreement with the human,
+or whether both questions resolve in the same direction.
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  A SAME-TARGET COMPARISON NEEDS NO CEILING. If two quantities are proportions against the SAME
+    target, their difference is on the target's own scale and a ceiling divides out of the
+    comparison. **DERIVATION**, and it is the whole reason this round exists.
+D2  Q1 AND Q2 ARE NOT COMPLEMENTARY. Nothing in the algebra forces `core vs FULL` high to imply
+    `core vs HUMAN` low. A core can preserve the rubric AND beat it at predicting the human, because
+    the rubric is not a perfect predictor of the human. **DERIVATION**, and it is why the fork can be
+    false rather than merely mis-measured.
+D3  `core vs FULL` IS INFLATED BY BOTH TRACKING THE HUMAN. Any two arms with signal about the human
+    agree with each other more than chance. So Q1's raw number is not evidence that the core tracks
+    the RUBRIC specifically. **DERIVATION**, and it is the confound this round must control.
+D4  `full vs FULL` = 1.0 EXACTLY and `full vs HUMAN` is just an arm's A2, so `full` appears on both
+    sides of Q1 and only one side of Q2. Q2 is therefore the cleaner of the two, and Q1 needs its
+    floor built explicitly. **DERIVATION.**
+
+STRONGEST CONFOUND, written BEFORE the run: D3. An arm that predicts the human well will agree with
+`full` well, so the released core's 0.7850 may be entirely explained by its A2. CONTROL IN THE SAME
+ITERATION: regress `vs FULL` on `vs HUMAN` across all 20 distinct objects and report `coval_core`'s
+RESIDUAL, with the residual's own null from the same regression. A residual at zero means Q1's raw
+number is an A2 restatement and the clause is untested, not confirmed.
+
+--------------------------------------------------------------------------------
+ESTIMANDS (before method)
+--------------------------------------------------------------------------------
+E1  ⭐ Q1: `vs FULL` for all 20 distinct objects, with (a) the shuffled-full floor, (b) the
+    random-arm-class sham, and (c) D3's regression residual for `coval_core`, each with a
+    cluster-bootstrap interval over the 968 prompts.
+E2  ⭐ Q2: the paired per-prompt difference `core vs HUMAN - full vs HUMAN`, over ALL annotators,
+    with a cluster-bootstrap CI and its own MDE; and the same for every arm against `full`.
+E3  ⭐ THE DISSOLUTION: do Q1 and Q2 both resolve, and in the directions that make them compatible?
+    If so the A/B fork is not exhaustive and the third world is the answer.
+E4  the wall audit: R793's NEXT asserted no computation could decide the normalisation. Recorded
+    with what actually decided it.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1, E2, E4 exact. E3 is a statement about the two verdicts jointly and is exact given them.
+⚠ PARTIALLY IDENTIFIED: D3's regression has n = 20 ARMS, which is a small population, and the
+residual's interval must be read as such. It is reported with the n, and no claim is made that
+would need more arms than exist.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  20 distinct objects x 968 prompts x all annotators (median 16)
+instrument  pairwise-sign agreement, against the HUMAN annotators for Q2 and against `coval_full`'s
+            deterministic class for Q1
+baseline    for Q1 a shuffled `full` and a random arm's class; for Q2 the arm `full` itself
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE CLAUSE IS FALSE ON ITS OWN TERMS. Q1 fails: `coval_core`'s agreement with `full` does not
+    exceed its floor once D3's confound is controlled. Then "preserves ITS verdicts" is untrue and
+    the retirement stands, by a route that needs no normalisation.
+B · THE CLAUSE STANDS AND ITS REFUTATION WAS THE ARTIFACT. Q2 fails: the core does NOT beat the
+    rubric at predicting the human. Then `whose_verdicts`'s WORLD B was produced entirely by the
+    cross-target normalisation.
+C · ⭐ THE FORK IS FALSE. Both Q1 and Q2 resolve positive. Then a core preserves the rubric's
+    verdicts AND beats the rubric at predicting the human -- two compatible facts that the
+    cross-target comparison forced into a dichotomy. The normalisation question dissolves rather
+    than being answered, and that is an ontology change, not a parameter update.
+
+PREDICTION MATRIX
+  A -> Q1 residual CI contains 0, or `core vs FULL` within the sham's interval
+  B -> Q2's paired difference CI contains 0 or is negative
+  C -> Q1 resolves positive (raw AND residual) AND Q2 resolves positive
+  any other pattern -> report; CLAIM NO WORLD.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (every `vs FULL` and `vs HUMAN` reproduces R793's committed artifact to 1e-9, and
+   `full` vs FULL is exactly 1.0 -- exit 2 otherwise)
+   and PLACEBO returns exactly 1.0 for every arm against its own class
+   and POSITIVE fires with a computed band on Q2 (a planted shift does not resolve at delta = 0 and
+       does at the top; floor == ceiling is DEGENERATE and fails)
+   and NEGATIVE fires (shuffling `full`'s class collapses Q1 toward chance while leaving Q2 EXACTLY
+       unchanged -- a derivation, checked):
+        Q1 fails                                  -> WORLD A
+        Q2 fails                                  -> WORLD B
+        both resolve positive                     -> WORLD C
+        otherwise                                 -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT      exact reproduction of R793's `vs FULL` and `vs HUMAN` columns to 1e-9; exit 2 otherwise.
+PLACEBO     every arm against its OWN class: exactly 1.0. A contrast where no effect can exist.
+POSITIVE    BAND COMPUTED AT BOTH ENDS on Q2: plant delta in {0, 0.005, 0.01, 0.02, 0.05} on the
+            core's human column and require no resolution at 0 and resolution at the top.
+NEGATIVE    shuffle `full`'s class across prompts. Q1 must collapse toward chance; Q2 must be
+            EXACTLY unchanged, since it never touches `full`'s class. World it excludes: "Q1 measures
+            something other than agreement with the PROMPT-MATCHED rubric."
+SHAM        Q1 computed against a RANDOM ARM's class in place of `full`'s -- the ingredient removed
+            is the identity of the compressed object, not misdirected. Reported for every arm.
+D3 CONTROL  the regression of `vs FULL` on `vs HUMAN` over 20 arms, and `coval_core`'s residual with
+            its interval. This is the confound written before the run, controlled in the same round.
+NOISE FLOOR MEASURED: annotator split-half on the human column; and for Q1 the spread of the
+            random-arm sham over the available arms.
+UNIT        instrument unit = a (prompt, annotator) judgement for Q2 and a PROMPT for Q1; claim unit
+            = an ARM; E3's unit = a WORLD. Three strings, required unequal.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+20 arms x 2 questions = 40 tests, BH at q = 0.05 over the whole 40. Cells tested, surviving and the
+non-survivors are printed. The two questions are NOT independent -- both involve the same arms -- and
+the correction is over the union rather than per question, which is the stricter reading.
+
+--------------------------------------------------------------------------------
+SPECIFICATION CURVE
+--------------------------------------------------------------------------------
+Q1 floor      shuffled full | a random arm's class | the regression residual
+Q2 baseline   `full` | `gen` (a second compression) | the arm population's mean
+estimator     paired mean difference | median difference
+NBOOT         1200
+seeds         3
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether preserving the rubric is DESIRABLE    a stated purpose for the benchmark; both questions can
+                                              resolve without settling what a core is FOR
+construct validity                            an external gold standard -- `corebench/score.py:34`
+independently replicated                      a second designer; the session prompt forbids agents
+cross-release                                 a second values-annotation release

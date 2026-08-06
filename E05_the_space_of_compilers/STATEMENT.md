@@ -1929,3 +1929,36 @@ takes vs FULL 0.7850 → 0.4998 while vs HUMAN is unchanged to 0.0e+00.
 
 **Scope**: 11 artifacts × 468 `run.py` files · 7 arms × 968 prompts × all annotators · first release,
 home judge.
+
+## R794 · The fork was an artifact of two targets — a core does both
+
+**A core preserves the rubric's verdicts AND beats the rubric at predicting the human.** Two
+SAME-TARGET questions, neither needing a ceiling:
+
+| question | both sides against | `coval_core` | |
+|---|---|---|---|
+| **Q1** preserves the RUBRIC's verdicts? | `coval_full`'s class | 0.7850 vs a shuffled-rubric floor 0.4888 — excess **+0.2961 [+0.2744, +0.3166]** | **YES** |
+| **Q2** tracks the HUMAN better than the rubric? | the human annotators | 0.5665 vs `full`'s 0.5087 — **+0.0578 [+0.0502, +0.0658]**, MDE 0.0111 | **YES** |
+
+R793's undecidable normalisation was needed only to compare `vs HUMAN` (ceiling 0.5519) with
+`vs FULL` (ceiling 1.0). **Ask two same-target questions and the choice never arises** — and nothing
+forbade both being true, because `full` predicts the human at 0.5087, barely above a random arm's
+0.4927.
+
+⚠ **SCOPE, stated precisely**: Q1 is **resolved for MATCHING** (prompt-matched rubric vs shuffled)
+and a **point estimate for SPECIFICITY** — the gap to a random arm's class is **+0.0487** with no
+interval computed. So "tracks *its own* rubric" is supported; "tracks the rubric rather than what any
+competent arm tracks" is not settled.
+
+⛔ **And my registered confound was refuted by its own control.** Regressing `vs FULL` on `vs HUMAN`
+over 20 objects gives slope **−0.4825** — arms that track humans better agree with `full` *less* — so
+D3's confound runs backwards and Q1 was conservative. `coval_core`'s residual **+0.0286 [+0.0199,
++0.0377]**, resolved against prompt noise but only **+0.64** of the across-arm residual sd 0.0450.
+
+**Controls**: R793's columns reproduced to **0.000e+00** · every arm vs its own class exactly 1.0 ·
+POSITIVE floor does not resolve at δ=0 and resolves at 0.005 · NEGATIVE shuffling `full`'s class
+takes Q1 0.7850 → 0.4888 while **Q2 is unchanged to 0.0e+00**. BH over the union of 41 tests: 40
+survive.
+
+**Scope**: 21 distinct objects × 968 prompts × all annotators · NBOOT 1,200 · first release, home
+judge.
