@@ -20054,3 +20054,43 @@ entries that prove the arc sometimes gets this right.** Caught by the round's ow
 control, which is the only reason it is a footnote instead of a finding. *§4's rule earns its place
 again: a grep is a measuring instrument, and its negative control must be built from lines you have
 already decided are innocent.*
+
+## 1124 · the "1,820-member reference class" is 1.1 references
+
+Nine rounds — R446, R488, R527, R528, R604, R664, R665, R666, R761 — describe clause ②'s comparator as
+a class of **1,820** k=4 subsets, and R527's whole baseline-is-a-choice finding is stated as a sweep
+across it. **Measured here for the first time: the members correlate at +0.8709 pairwise, so the
+effective class size is 1.1**, and the entire class spans A2 0.5144 to 0.5575 — **0.0431**, about two
+MDEs of the contrast it decides. The percentile curve is real and the numbers in it stand; what is
+retracted is the *cardinality* as a description of its resolving power. *A class is not its member
+count. 1,820 subsets drawn from 16 criteria share, on average, half their content, and nobody in nine
+rounds asked what that did to the class's rank — because a big number reads as a big design.*
+
+## 1125 · R781's negative control was the derivation R780 caught one round earlier
+
+`q` counts references whose mean paired difference is positive, and `mean(v) − mean(REF_i)` is
+invariant under permuting `v` across prompts. **So the permuted q equals the real q by construction**
+— [0.9374, 0.9379] against 0.9379, the residue being float noise. R780 identified exactly this,
+labelled its own pairing permutation a DERIVATION in its README table, and I built the same control
+again in the very next round. **That makes it a habit, not an accident**, and it leaves R781 with no
+valid negative control for `q`. *A lesson recorded in a round's own artifact does not transfer to the
+next round unless something mechanical carries it; prose in a README I wrote yesterday is not a gate.*
+
+## 1126 · R781's sham degraded the comparator instead of the arm
+
+The registered sham destroyed criterion content by shuffling pool satisfactions across prompts — which
+destroys the **references'** alignment with their own prompts, collapsing the entire class, so a fixed
+arm beat all of it: **q = 1.0000, above the real 0.9379**. §4's *the sham is a poison, not a placebo*,
+mirrored: the gap moved in the flattering direction because I removed the ingredient from the wrong
+side of the comparison. **The ingredient is the arm's relation to the class; I removed the class's
+relation to the prompts.** *When a sham makes the result stronger, the operation was performed on the
+baseline.*
+
+## 1127 · R780's NEXT counted blind arms with an npz instead of blind references available
+
+R780 closed with *"release 1 carries exactly 2 prompt-blind scored arms, so it gives one difference
+and not a spread"*. **Every k=4 subset of `sat_genericpool16.npz` is a prompt-blind arm — C(16,4) =
+1,820 of them, constructible with no generation** — and the construction is prior art in nine rounds.
+My enumeration's unit was *arms with their own npz on disk*; the claim's unit was *blind references
+available*. **Instrument unit versus claim unit, in the round whose own headline was an instrument-unit
+error, one round after documenting the rule.**

@@ -1538,3 +1538,30 @@ scored arms, which gives one difference and not a spread.
 **Scope**: r1 968 prompts · r2 1,684 n=4 interactions · pairwise sign agreement against a single
 score vector, identical code both releases · `core_generic.json` as the baseline on both sides ·
 home judge, k=4.
+
+## R781 · Clause ②'s 1,820-member reference class is effectively ONE reference
+
+**The class's members correlate at +0.8709 pairwise, giving an effective size of 1.1 of 1,820**, and
+the whole class spans A2 **0.5144 to 0.5575** — a range of **0.0431**, about **2× the MDE** of the
+contrast it decides (0.0216, R780). ⭐ **So the baseline choice R527 and R665 exposed is not a choice
+among 1,820 comparators; it is a choice of where to stand on a 0.043-wide line**, and the extension's
+8 → 2 collapse happens inside that window.
+
+⭐⭐ **AND THE SENSITIVITY IS CARRIED BY ONE ARM.** Of 20 k=4 arms, **13 beat every reference and 6
+beat none**; the single arm strictly between is **`generic` = POOL[0:4] at q = 0.9379** — the
+published comparator itself, which is a MEMBER of the class and therefore cannot be far from it.
+Leave-one-out excluded exactly **1** self-matching reference, for that arm alone.
+
+⚠ **THE DISTRIBUTIONAL READING IS UNVERIFIED, killed by this round's own control.** `q` was
+registered as an admission probability over a reference *drawn at random*; with n_eff = 1.1 there is
+no meaningful draw, so the printed WORLD B (100% of arms outside [0.10, 0.90]) is the arithmetic
+consequence of comparing 20 arms to a 0.043-wide band, not evidence about the arms.
+
+⛔ **TWO OF THE ROUND'S CONTROLS ARE VOID.** The NEGATIVE permuted the arm across prompts, and
+`mean(v) − mean(REF)` is invariant under that — a **DERIVATION**, returning [0.9374, 0.9379] against a
+real 0.9379, and **the same defect R780 caught one round earlier**. The SHAM destroyed the
+*references'* prompt alignment rather than the arm's ingredient, collapsing the class so a fixed arm
+beat all of it (**1.0000 > 0.9379**) — §4's *poison, not placebo*, in the flattering direction.
+
+**Scope**: 968 prompts · 20 k=4 home-judge arms with full coverage · A2 over all annotators · the
+1,820-subset class (r1) and 5 blind arms (r2) as the swept axis · home judge, k=4.

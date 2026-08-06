@@ -5716,3 +5716,43 @@ pairing permutation is a **DERIVATION** (3.4e-18 / 7.5e-19), labelled not report
 prompt-specificity ABSENT **−0.0313** · POSITIVE swept 0 → **UNRESOLVED**, 0.25/0.50/1.00 → BEATS on
 both releases, band floor **+0.0000** < t < ceiling **+0.4478** · SEARCH positive and negative both
 PASS. **NO WORLD CLAIMED.**
+
+## R781 · the reference class, measured
+
+**Class**: C(16,4) = **1820** subsets of `sat_genericpool16.npz` · 968 prompts · mean A2 **0.5386** ·
+range **[0.5144, 0.5575]** = **0.0431** wide · mean pairwise correlation **+0.8709** →
+**n_eff = 1.1**.
+
+**q = fraction of the class an arm beats, leave-one-out** (20 k=4 arms, full coverage):
+
+| arm | A2 | q | q resolved |
+|---|---:|---:|---:|
+| oracle_k4 / _oracle_kA / _oracle_kB | 0.6283 | 1.0000 | 1.0000 |
+| greedy_k4_greedy_kA / _kB | 0.6226 | 1.0000 | 1.0000 |
+| oracle_k4_fit1 | 0.6142 | 1.0000 | 1.0000 |
+| greedy_k4_fit1 | 0.6106 | 1.0000 | 1.0000 |
+| indep_k4_indep_kA / _kB | 0.6031 | 1.0000 | 1.0000 |
+| indep_k4_fit1 | 0.5941 | 1.0000 | 1.0000 |
+| topw_k4 / _detA / _detB | 0.5642 | 1.0000 | 0.9835 |
+| **generic = POOL[0:4]** | 0.5504 | **0.9379** | 0.7422 |
+| topwvar_k4 | 0.5040 | 0.0000 | 0.0000 |
+| random_k4_s1 | 0.4981 | 0.0000 | 0.0000 |
+| random_k4_s0 | 0.4927 | 0.0000 | 0.0000 |
+| topabs_k4 | 0.4894 | 0.0000 | 0.0000 |
+| random_k4_s2 | 0.4884 | 0.0000 | 0.0000 |
+| topvar_k4 | 0.4863 | 0.0000 | 0.0000 |
+
+**Shape**: in [0.35, 0.65] **0 of 20** · outside [0.10, 0.90] **20 of 20**. Self-matching references
+excluded: **1**.
+
+**Release 2** (5-member blind class, q takes 6 values): transport_gen 0.5541 / 1.00 ·
+transport_generic 0.5522 / 1.00 · randblind_s2 0.5301 / 0.75 · gen_sham 0.5278 / 0.60 ·
+randblind_s0 0.5209 / 0.50 · vacuous 0.5126 / 0.25 · randblind_s1 0.5006 / 0.00.
+
+**DERIVED, not measured**: median-dominance IS p50; mean-dominance is the skew's percentile.
+
+**Controls.** OBJECT as above, exit 2 otherwise · PLACEBO **0.0000** · g=0 a class member returns
+**0.7273** against its own rank **0.7269** · POSITIVE dominating plant **1.0000**, dominated
+**0.0000**, all real arms inside the measured band · ⛔ NEGATIVE **[0.9374, 0.9379]** vs real 0.9379 —
+**VOID, a derivation** · ⛔ SHAM **1.0000 > 0.9379** — **VOID, a poison**. **WORLD B printed; the
+distributional reading UNVERIFIED on n_eff.**
