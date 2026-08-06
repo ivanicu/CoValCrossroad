@@ -461,10 +461,23 @@ Classified against `select_core.py`'s own grammar — `:50-52` a closed nine-rul
 (`topw_k4_detA/detB`) and **2 UNPARSED** (`coval_core_2bA/2bB`). **Seven of eleven are the exact class
 clause ③ exists to exclude, and zero is an established new candidate core.** Across the 51 added arms
 the non-SELECTOR share is **0.7021**; across the committed extension it is **0.0000**.
-⚠ **`UNVERIFIED` and load-bearing:** whether the four suffixed tags are *replicas* of `coval_core` and
-`topw_k4` — which would leave the 11 containing **no new object at all** — cannot be read from a
-name. `tag_suffix` is caller-supplied, not rule-emitted. **It needs R525's satisfaction-vector
-partition on today's 92.**
+⭐⭐ **RESOLVED ONE ROUND LATER — THE FOUR ARE REPLICAS** *(R746)*. At exact satisfaction-vector
+identity: `topw_k4_detA` and `topw_k4_detB` are **identical to `topw_k4` on all 15,488 cells**, and
+`coval_core_2bA`/`_2bB` are **identical to `coval_core` on all 3,168 cells they share with it** —
+which is **200 of its 968 prompts**. **So the census's 11 extra admissions contain no new SELECTOR
+object: 7 are the target-reading class ③ excludes and 4 are duplicates of members already counted.**
+⚠ Whether the 7 target-reading **tags** are 7 **objects** is not measured here; R730's precedent —
+7 tags collapsing to 4 — says expect fewer. `UNVERIFIED`.
+
+⛔⛔ **AND THE CENSUS ADMITS ACROSS TWO POPULATIONS** *(R746)*. Prompt coverage over the 92 takes
+**4 distinct values, from 4 to 968**. The committed extension's five members are **all at 968**; the
+two `coval_core_2b*` admissions sit at **200**. Low-coverage arms are **over-represented among the
+admitted — 2/16 = 0.1250 against 3/76 = 0.0395** in the arms the census rejected.
+⭐ **But over-representation is NOT an admission advantage, and the arithmetic said so before the
+measurement**: `mde = ZEFF·std/√n`, so 968 → 200 multiplies the bar by **2.20**. Realised, the
+low-coverage admissions cleared a bar **2.03× wider** than the rest *(0.026962 vs 0.013275)*. **They
+were admitted despite a harder threshold; the mechanism for the over-representation is unexplained
+and is stated as unexplained** *(ledger 1006)*.
 ⭐ **So the widening does not widen the sample of cores.** The realised defect is the apparatus
 entering its own population — R637's observer, one level up, in the DEFINITION's population.
 

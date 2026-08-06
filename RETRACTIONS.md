@@ -18804,3 +18804,37 @@ seventy six thousand resamples and overwriting their committed artifacts, so the
 rewritten the objects it measures, and opened does not imply depended upon in either direction. The
 line is deferred with its reason on the page rather than dropped, because an unrecorded deferral looks
 identical to an oversight one round later.
+
+## 1004 · the instrument my previous round proposed is undefined on half its subject
+
+The preceding round closed by proposing exact satisfaction vector identity to settle whether four
+suffixed tags are replicas of arms already counted. Two of the four are stored over three thousand
+cells and their supposed originals over fifteen thousand, so identity between them is not false but
+undefined, and the file sizes said so before any code was written. The comparison had to be restricted
+to shared cells, which is a different relation with a weaker guarantee, and saying that out loud is the
+difference between a bound and a claim.
+
+## 1005 · looking at the object first turned a naming question into a population one
+
+The four unresolved tags were supposed to be a question about provenance suffixes. Reading the arrays
+showed two of them cover two hundred prompts where every member of the committed extension covers nine
+hundred and sixty eight, and the census admitted them anyway. Coverage over the whole population takes
+four distinct values and the smallest arm carries four prompts. The naming question was answerable and
+small; the population question was underneath it and was not on anyone's list.
+
+## 1006 · my verdict string asserted a defect that the same run refuted three lines above
+
+The branch printed that low coverage is an admission advantage and that the construction is wrong on
+its own terms, because it read only the share comparison. The realised threshold each admitted arm had
+to clear was computed in the same run and printed immediately above it: the low coverage admissions
+cleared a bar twice as wide as the rest, which is what the arithmetic predicted before the measurement.
+Over representation and advantage are different claims and only the first was measured. The branch now
+references the threshold it had already computed and the mechanism is reported as unexplained.
+
+## 1007 · my registered count for the added low coverage arms was off by more than a factor of two
+
+I registered eight of the fifty one added arms as covering fewer than the full prompt set. The measured
+number is three, inside the band and wrong as a point, and the distinct coverage count was four against
+a registered three. Both are small misses in the same direction: I expected the drift to be messier
+than it is. The coverage spread is concentrated, which makes the two admitted low coverage arms more
+conspicuous rather than less.

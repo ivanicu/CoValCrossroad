@@ -4203,3 +4203,79 @@ instruments as rival subject matter *(ledger 1000)*.
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 7777, **both writes confirmed to
 disk** before the comparison ran (5734 / 5737 bytes, differing only in the recorded seed).
+
+## R746 · the census admitted arms measured on two different populations
+
+**Question.** R745 left four tags unresolved and proposed exact satisfaction-vector identity to settle
+them. ⛔ **The objects refused half of it before any code:** `sat_coval_core.npz` holds 15,312 cells
+over 968 prompts; `sat_coval_core_2bA/2bB.npz` hold 3,168 over **200**. Identity across different cell
+sets is **undefined**, not false *(ledger 1004)*.
+
+**E1 estimand.** The prompt-coverage distribution of today's 92-arm population, split by the 16
+admitted, the 51 added, and the whole 92. **Identified exactly** — `select_core.py:200` emits meta as
+`f"{pid}|{j}|{x}"`, so the prompt set is field 0 of a builder-emitted structured string.
+
+**E2 estimand.** Whether the four unresolved tags coincide with an extension member, **on shared
+cells**. **Partially identified → a BOUND**: `identical ⇒ indistinguishable THERE`; `not identical ⇒
+different objects`.
+
+**E2 result — all four are replicas.**
+
+| pair | identical | shared / larger |
+|---|---|---|
+| `topw_k4_detA` / `detB` vs `topw_k4` | ✓ | 15,488 / 15,488 = **1.000** |
+| `coval_core_2bA` vs `coval_core_2bB` | ✓ | 3,168 / 3,168 = **1.000** |
+| `coval_core_2bA` vs `coval_core` | ✓ | 3,168 / 15,312 = **0.207** |
+
+⇒ **the 11 extra admissions contain no new SELECTOR object** — 7 target-reading *(R745)* + 4
+duplicates. ⚠ Whether the 7 target-reading **tags** are 7 **objects** is `UNVERIFIED`; R730's
+precedent (7 → 4) says expect fewer.
+
+**E1 result — the coverage grid, 3 definitions × 3 populations.**
+
+| definition | population | min | median | max | distinct | below max |
+|---|---|---|---|---|---|---|
+| **prompts** | **admitted(16)** | **200** | 968 | 968 | **2** | **2** |
+| prompts | added(51) | 4 | 968 | 968 | 3 | 3 |
+| prompts | all(92) | **4** | 968 | 968 | **4** | 5 |
+| cells | admitted / added / all | 3,168 / 256 / 256 | 15,488 | 30,680 / 43,812 / 59,936 | 6 / 9 / 13 | 15 / 47 / 90 |
+| pairs | admitted / added / all | 792 / 64 / 64 | 3,872 | 7,670 / 10,953 / 14,984 | 6 / 9 / 13 | 15 / 47 / 90 |
+
+⭐ **The committed extension is uniform — all five at 968.** The heterogeneity arrived with the drift.
+
+**⛔ The arithmetic, derived before measuring, points AWAY from a defect.** `mde = ZEFF·std/√n`, so
+968 → 200 multiplies the bar by **2.2000**. Realised, the low-coverage admissions cleared a mean
+`mde1` of **0.026962** against **0.013275** for the rest — **2.03× wider**. They were admitted
+**despite** a harder threshold.
+
+⛔ **The first verdict string said the opposite and the same run refuted it three lines above**
+*(ledger 1006)*: it branched on the share comparison alone while the realised-threshold comparison sat
+computed and unused. **Over-representation ≠ advantage.** The branch now references it and the
+mechanism is reported as **unexplained**.
+
+**Registered against measured.**
+
+| | registered | measured | |
+|---|---|---|---|
+| B1 distinct coverage values over the 92 | 3 [1, 10] | **4** | in band, point wrong |
+| B2 added arms below 968 | 8 [0, 51] | **3** | in band, point wrong *(1007)* |
+| B3 committed extension all at 968 | yes | **yes** | ✓ |
+| B4 admitted arms below 968 | 2 [2, 16] | **2** | ✓ |
+| B5 the five identity tests | all yes | **all yes** | ✓ |
+| **D** coverage does not predict admission | true | **false** — 0.1250 vs 0.0395 | ⛔ |
+
+⚠ **World A was dead before registration and the preregistration declares it** — the 200-prompt
+coverage was visible while inspecting the objects. Second declared sighting in two rounds.
+
+**Controls — 6 PASS, 0 FAIL.** POSITIVE separates two arms whose **file sizes** differ 4.52×, a signal
+the parser never reads, against a floor parser that cannot separate them · g=0 an empty-meta arm →
+`UNREADABLE`, never `0`, since **a silent zero would have manufactured World B** · NEGATIVE field-1
+parsing moves coverage on 20/20 · SHAM the ingredient **absent**, the 76 non-admitted arms (3/76) ·
+PLACEBO 0 on all 92 · UNIT every tag → exactly one `.npz`, asserted.
+
+**Verdict — `WORLD B`.** The census admits across two populations. Low-coverage arms are
+over-represented among the admitted, **but cleared a wider bar**, so it is not an admission advantage
+and the mechanism is unexplained.
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 424242, **both writes confirmed to
+disk** (11,963 / 11,968 bytes, differing only in the recorded seed).
