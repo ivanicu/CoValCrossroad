@@ -64,3 +64,10 @@ atlas/*
 !atlas/*.js
 !atlas/*.html
 !atlas/*.md
+
+# A BREADCRUMB IS A STATEMENT ABOUT ONE MACHINE'S /tmp AT ONE MOMENT.
+# Committed 2026-08-06 in 5d79af8a: it names a stash under /tmp that exists on exactly one
+# host. Anywhere else `repair_full` finds the breadcrumb, fails to find the stash, and
+# reports 'THE STASH IS GONE -- any untracked artifact in it is unrecoverable' -- a real
+# alarm about an event that never happened there, on every run, forever.
+assurance/results/.hide_in_progress.json
