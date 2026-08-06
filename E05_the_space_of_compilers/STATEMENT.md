@@ -1770,3 +1770,34 @@ its q_resolved value does not.
 
 **Scope**: 27 arms × the 1,820-subset class × 968 prompts · A2 over all annotators · first release,
 home judge. Decomposition `Var(v−REF) = Var(v)+Var(REF)−2Cov` verified to **2.082e-17**.
+
+## R789 · The A2 axis resolves 9 levels, the core clears the blind baseline, and a stated cut is weaker
+
+**Under the codebase's own resolution rule (`|t| ≥ 2.801585`) the arms fall into 9 levels by adjacent
+gaps and 10 by the greedy construction — against `q`'s 4 distinct values.** So R787's *"`q` destroys
+information"* is a claim about **resolvable** distinctions, not only about point estimates. The
+pre-registered branch that would have downgraded it did not fire.
+
+⭐ **The released core clears the prompt-blind baseline resolvedly**: `coval_core` − `generic` =
+**+0.01512 [+0.00746, +0.02283]**, MDE **0.01069**, `t` **3.96** → **BEATS**, and BEATS again under a
+hierarchical bootstrap that resamples annotators as well as prompts.
+
+⛔ **AND THE SHAM KILLS R788's PROPOSED FIX.** A *stated cut* is a scalar and carries no per-prompt
+vector, so it forfeits the pairing. `generic` against the class-median **scalar** 0.539126:
+**+0.01223, MDE 0.01351 — BELOW RESOLUTION.** Against the median reference's **vector**: the same
+**+0.01223, MDE 0.00591 — BEATS.** **The effect is identical to five decimals; only the MDE moved,
+2.29×.** The cut would exclude the blind baseline **by being less powerful**, not by discriminating.
+
+⚠ **`coval_core` is UNRESOLVED from `topw_k4`** — +0.002297 [−0.00378, +0.00844], MDE 0.00853, `t`
+0.75 — so the released core shares its level, and **every arm above that level reads the target**.
+Cuts admitting `coval_core` while excluding `generic` occupy a band 0.01512 wide, **1.41×** that
+pair's MDE, and **admit 14 arms**.
+
+⛔ **The world verdict is rule-dependent and the curve is published**: adjacent ladder **20** (point) ·
+**10** (ci_only) · **9** (strict, pre-registered) · **5** (conservative). The conservative cell sits
+inside the rival world's registered range.
+
+**Scope**: 27 named arms / **20 distinct objects** (9 of 351 pairs are byte-identical copies) × 968
+prompts · A2 over all annotators · 1,200 prompt-cluster draws, 600 hierarchical · first release, home
+judge. Seeds 31337/31338/31339 × NBOOT 600/1200 and the hierarchical bootstrap all return 9/10 and
+305 of 351 resolved.

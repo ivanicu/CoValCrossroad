@@ -20320,3 +20320,41 @@ of **−0.2352**, five hundred and fifty times the self-reference effect. Blind 
 **So the clause that certifies a core rewards being less prompt-specific.** *R787 found the variance
 term "live but unexercised" on the observed arms; it is exercised here, and the direction runs against
 the definition's own intent.*
+
+## 1151 · a control that could not FAIL, and it printed a nine-digit number on its way past me
+
+R789's NEGATIVE control destroys the prompt pairing and asks how far the MDE inflates. Its first
+version swept `names[:8]`, and that slice contains **exact-duplicate arms** — `generic ==
+generic_reprov` is byte-identical per prompt — whose paired sd is **exactly 0**. So the ratio was
+`perm_sd / 1e-12`, the mean came back **7,523,259,381×**, and the criterion `infl > 1.0` passed.
+§4 has an entry for a control that cannot PASS; **this is the same defect in the other direction, and
+it is worse, because a control that cannot fail is never diagnosed.** Repaired: degenerate pairs
+excluded and counted (9 of 351), a two-sided band (`1.02 < r < 10`), the sweep over every pair —
+**median ×1.529, mean ×1.795 over 342 pairs**, synthetic independent arms ×1.036. *The tell was in the
+output the whole time: an inflation ratio with nine digits is not a measurement, and I read past it
+because the verdict line said PASS.*
+
+## 1152 · the fix I proposed one round ago excludes the baseline by LOSING POWER, not by discriminating
+
+R788's NEXT said clause ② should compare A2 against a **stated cut** instead of `q_resolved`. A stated
+cut is a **scalar**, and a scalar carries no per-prompt vector, so the comparison forfeits the pairing
+`var(a−b) = var(a)+var(b)−2cov(a,b)` depends on. Measured: `generic` against the class-median **scalar**
+scores **+0.01223 with MDE 0.01351 — BELOW RESOLUTION**; against the median reference's **vector**, the
+same **+0.01223 with MDE 0.00591 — BEATS**. **The effect is identical to five decimals; only the MDE
+moved, by 2.29×.** So the proposal would exclude the prompt-blind baseline — the outcome I wanted —
+purely by being less powerful on that arm. *A definition that excludes an arm because its test got
+noisier has not become more discriminating, and this is the first time in this arc the failure mode
+has appeared in a FORMULATION rather than in a control.*
+
+## 1153 · the population is 27 names and 20 objects, and I priced paired gaps against a marginal floor
+
+Two unit errors in one round, both caught inside it. ① **9 of R789's 351 pairs compare an arm with a
+byte-identical copy of itself** (`topw_k4 == _detA == _detB`, `oracle_k4 == _oracle_kA == _oracle_kB`,
+`generic == generic_reprov`, and two more), so the honest counts are **20 distinct objects, 342
+non-degenerate pairs, 30 genuinely UNRESOLVED** — and the "20 distinct A2 values" that D1 treats as an
+axis property is really the number of distinct **arms**. ② The annotator split-half floor **0.003416**
+is a **per-arm marginal** quantity, while every gap in the ladder is a **paired** difference in which
+the annotator draw is common to both arms; *"14 of 26 gaps sit below the annotator floor"* is therefore
+not like-for-like and licenses nothing. The like-for-like instrument is the hierarchical bootstrap,
+which resamples annotators jointly for both arms and left the ladder at **9/10 with all 305 resolved
+pairs intact**. *A floor and a gap must be built on the same pairing before either bounds the other.*

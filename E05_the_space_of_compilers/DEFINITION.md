@@ -5971,3 +5971,66 @@ crosses the gap.
 **Controls.** OBJECT membership verified, exit 2 otherwise · E1 decomposition worst mismatch
 **2.082e-17** · PLACEBO **0.000000** · POSITIVE band computed at both ends · COUNTERFACTUAL labelled a
 construction. **WORLD C.**
+
+## R789 · what the A2 axis can resolve, and why a scalar cut is not a free simplification
+
+**The question.** R788's NEXT proposed replacing `q_resolved` with A2 against a stated cut. A cut is
+only as good as its axis, so this round prices the axis: how many levels does A2 resolve, and is the
+released core resolvedly above the prompt-blind baseline?
+
+**Derived before measuring.** D1 the admitted set `{arm : A2 > c}` changes at each distinct A2 value,
+so ℝ gives (#distinct)+1 admitted sets — algebra, not a finding. D2 a cut's plateau IS the gap it
+sits in, and a gap below its pair's MDE is not a distinction. D3 `var(a−b)=var(a)+var(b)−2cov(a,b)`,
+so the paired MDE cannot be predicted from marginals and the pairing must be destroyed to be priced.
+D4 #levels ≤ #distinct A2, so the measurement is where in [1, 20] it lands.
+
+**The ladder, over the whole grid.**
+
+| rule | `t` | adjacent | greedy |
+|---|---|---:|---:|
+| point | 0 | 20 | 20 |
+| ci_only | 1.959964 | 10 | 11 |
+| **strict / mde** (pre-registered, the rule `corebench/report.py` implements) | **2.801585** | **9** | **10** |
+| conservative | 4.761549 | 5 | 7 |
+
+**The levels** (strict, adjacent; emitted by `run.py`, not derived in prose): ① 9 floor arms
+0.4828–0.5040 · ② `gen`, `genericpool16` 0.5352–0.5422 · ③ `generic`, `generic_reprov` 0.5514 ·
+④ **`topw_k4`, `_detA`, `_detB`, `coval_core` 0.5642–0.5665** · ⑤ `indep_k4_fit1` 0.5941 ·
+⑥ `indep_k4_indep_kA/kB` 0.6031 · ⑦ `greedy_k4_fit1`, `oracle_k4_fit1` 0.6106–0.6142 ·
+⑧ `greedy_k4_greedy_kA/kB` 0.6226 · ⑨ `oracle_k4`, `_kA`, `_kB` 0.6283.
+
+**The decisive pairs.**
+
+| pair | eff | CI | MDE | `t` | verdict |
+|---|---|---|---|---|---|
+| `coval_core` − `generic` | **+0.01512** | [+0.00746, +0.02283] | 0.01069 | 3.96 | **BEATS** |
+| `coval_core` − `gen` | +0.03130 | [+0.02314, +0.04002] | 0.01223 | 7.17 | BEATS |
+| `generic` − `gen` | +0.01618 | [+0.00816, +0.02470] | 0.01185 | 3.82 | BEATS |
+| `coval_core` − `genericpool16` | +0.02424 | [+0.01649, +0.03183] | 0.01081 | 6.29 | BEATS |
+| `generic` − `genericpool16` | +0.00912 | [+0.00570, +0.01278] | 0.00489 | 5.23 | BEATS |
+| **`coval_core` − `topw_k4`** | +0.002297 | [−0.00378, +0.00844] | 0.00853 | 0.75 | **UNRESOLVED** |
+
+**SHAM (the second arm removed) versus NEUTRAL (a non-arm vector).** Scalar cut **0.539126**, median
+reference **#1151** of 1,820.
+
+| arm | vs the SCALAR cut | vs the median reference's VECTOR |
+|---|---|---|
+| `coval_core` | +0.02735 · mde 0.01351 · BEATS | +0.02735 · mde 0.01088 · BEATS |
+| **`generic`** | +0.01223 · mde 0.01351 · **BELOW RESOLUTION** | +0.01223 · mde **0.00591** · **BEATS** |
+| `gen` | −0.00395 · mde 0.01516 · UNRESOLVED | −0.00396 · mde 0.01214 · UNRESOLVED |
+
+Population-wide: **23 of 27** resolve against the scalar, **25 of 27** against the vector; mean sd
+**0.15333** versus **0.13103**.
+
+**Controls.** OBJECT 27 arms · 968 prompts · annotators median 16, max 46 · **0** A2 mismatches
+against R782 beyond 1e-9, exit 2 otherwise · PLACEBO eff 0.000000, CI [0,0], UNRESOLVED · POSITIVE
+δ=0 UNRESOLVED (the floor fails, as required) → 0.01 BELOW RESOLUTION → 0.02 BEATS → 0.05 BEATS,
+empirical MDE **0.01331**; the constant plant resolves at every δ>0 because its sd is 0 and it is
+labelled degenerate in the docstring before the run · NEGATIVE pairing destroyed → MDE ×**1.529**
+median, ×1.795 mean over 342 non-degenerate pairs, 9 duplicates excluded, synthetic independent arms
+×1.036 · SHAM and NEUTRAL as above · NOISE FLOOR annotator split-half **0.003416**, and it is a
+MARGINAL quantity that may not be compared to paired gaps.
+
+**Multiplicity.** 351 cells tested · 305 survive the verdict rule · 46 do not (39 UNRESOLVED, of
+which 9 are byte-identical duplicates; 7 BELOW RESOLUTION) · 311 survive BH at q=0.05 with no MDE
+floor. **WORLD A.**
