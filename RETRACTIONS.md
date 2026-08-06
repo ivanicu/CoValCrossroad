@@ -23177,3 +23177,40 @@ disabled, which is what makes it an arm rather than a decoration.
 mutation it is supposed to detect is not a control.* It read PASS in both worlds — the same
 `cleared by blindness` pattern as `similarity_gradient`, and the same reason it was invisible: **a
 passing control and an inert one print the same word.**
+
+## 1302 · a material share of the record moves with a threshold nobody stated, and my NEXT had used pre-registration to avoid checking
+
+My NEXT said re-thresholding 133 pre-registered rounds *"would invalidate the pre-registrations."*
+⛔ **G4 says the opposite in the standard's own words** — enumerate every defensible choice and run
+all of them, reporting the cells that kill the finding. **A pre-registration protects against
+CHOOSING a threshold after seeing the result; it does not forbid REPORTING the curve.** I conflated
+the two and used the first to excuse skipping the second. **R836 had already done exactly this for
+R835 and nobody called it invalid.**
+
+**And the data was on disk**: of **563** artifacts under `A24`, **44** persist an effect with its
+MDE — **1,330 cells** whose sweep costs nothing.
+
+| | |
+|---|---|
+| verdicts that change between 1× and 2× | **239 of 1,330** — **18.0%** pooled |
+| pooled share **excluding the largest artifact** | **22.0%** (R789 alone holds 416 cells) |
+| **per-artifact median share** | **15.6%** · min 0.0% · max 100.0% |
+
+Controls: a 1.5× cell must flip **PASS** · a 5× cell must not **PASS** · a zero-gap cell never
+separable **PASS** · three seeds byte-identical.
+
+**W-THRESHOLD-DEPENDENT.**
+
+⭐ **And it concentrates**: of the **11** artifacts where ≥40% of verdicts move, **6 are clause ②
+rounds** — its baseline, its reference, whether it can be strengthened. `R331` and `R455` go
+**3 → 0**; `R456` **7 → 0**; `R326` **8 → 3**. **The evidence base for ② is the most
+threshold-sensitive part of the record.** ⚠ **That is a NAME match, not a content audit** — a
+candidate pattern, and the next round touching ② should treat it as one.
+
+⛔ **A labelling bug the numbers survived.** v1 used `f.parts[2]`; `A24` is an **absolute** path, so
+every one of the 44 rows was labelled **`ivan`**. Counts correct, table unreadable — **which is the
+failure a reader meets first**, and it would have made the finding unusable while looking complete.
+
+⚠ **Not claimed**: cells are not commensurable across artifacts. The share counts **verdict changes**,
+never a pooled effect size, and the kill reads the per-artifact **median** precisely so it is not
+dominated by wherever cells happened to accumulate.

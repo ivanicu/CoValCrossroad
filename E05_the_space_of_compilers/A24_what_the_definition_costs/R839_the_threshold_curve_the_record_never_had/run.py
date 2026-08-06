@@ -74,7 +74,11 @@ def main() -> int:
         if not cs:
             out_of_scope += 1; continue
         flips = sum(1 for v, m in cs if sep(v, m, 1) != sep(v, m, 2))
-        rows.append({"round": f.parts[2], "artifact": f.name, "cells": len(cs),
+        # ⛔ v1 used f.parts[2]. A24 is an ABSOLUTE path, so parts[2] is "ivan" -- every one
+        #    of the 44 rows was labelled with a home-directory component. The counts were
+        #    right and the table was unreadable, which is the failure a reader meets first.
+        rows.append({"round": f.relative_to(A24).parts[0], "artifact": f.name,
+                     "cells": len(cs),
                      "sep_1x": sum(1 for v, m in cs if sep(v, m, 1)),
                      "sep_2x": sum(1 for v, m in cs if sep(v, m, 2)),
                      "flips": flips, "share": flips / len(cs)})
