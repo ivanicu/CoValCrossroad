@@ -19766,3 +19766,41 @@ reports the verdict the line gives **and prints r² beside it**, because the alt
 relabelling to World A on the grounds that 0.53 is "basically 0.5" — is the tuning this arc has caught
 twice already. *A pre-registered threshold is binding when it goes against you and that is the only
 time it does any work; what it is not is a substitute for reporting the magnitude it thresholded.*
+
+## 1100 · the registered recomputation was fixed by algebra, and running it first is what showed that
+
+R772 registered "recompute the paired MDE and required-n on the discriminating subset, reported beside
+the full-population figures as a different estimand". Dropping prompts whose difference is exactly 0
+scales the EFFECT by `n_f/n_d` and the MDE by `sd_ratio·√(n_f/n_d)` — **the same factor** to
+O(μ²/σ²), and μ/σ is 0.024 here. **So `eff/MDE` is invariant and no verdict can move.** Measured:
+ratios **0.9998–1.0008**, **0 of 10** verdicts changed. What does change is the UNIT: `n_required`
+scales by exactly **745/968**, which is the same information counted over fewer prompts, not less data
+needed. *The registered question was worth asking and its answer was worth one derivation rather than
+a round — and the only way to find that out was to derive it before designing anything.*
+
+## 1101 · a tie in the statistic is not a tie in the arms, and it had to be measured separately
+
+`A2` is built from `sign(Y_i − Y_j)`, so two arms tie on a prompt iff their criteria induce the same
+SIGN PATTERN — and two different criterion sets can order four responses identically. **So "the arms
+are identical there" does not follow from a tie**, and D2 said so before the run. Measured on the 223:
+sign vectors identical **0.9740**, satisfaction cosine distance **0.0046** with **99.69%** under 0.05
+and **0.00%** above 0.20, and a magnitude-sensitive estimator separates **0 of 10** pairs. **The
+structural reading is true — but it is true as a measurement, not as an inference from the tie.**
+⭐ And the positive control produced the sharper fact: a *sham* arm sits only **0.0358** away on those
+prompts against a **0.2794** ceiling elsewhere, so the tied prompts compress everything, not just the
+extension. *The finding I would have written without D2 — "the arms are identical on 23% of prompts"
+— is what the data says, and I would have had no right to it.*
+
+## 1102 · two controls could not have passed, and one of them was a floating-point identity
+
+**① `g=0` and `PLACEBO` required `== 0.0` on a cosine distance.** For identical vectors that computes
+`1 − (u·u)/(|u||u|)`, which lands at **−8.46e-18** and **−4.98e-19**. **Requiring exact zero of a
+floating-point identity is a check that cannot pass**, and it flagged two working controls as
+failures. Repaired with a stated tolerance of 1e-9. **② `POSITIVE` required `> 0.05`, a threshold I
+typed without computing what the known-different pair returns on that subset** — it returns
+**0.0358**. §4's *control that cannot PASS*, sixth instance. **The repair is not a lower number chosen
+to clear the observation**: the criterion is now computed and non-tunable — the known-different pair
+must exceed the largest COMMITTED-pair distance on the same prompts (0.0082), which it does by
+**4.36×**. *Both failures pointed at the instrument and both were in the criterion, and the tell was
+that nothing else about the run looked wrong — §4's row on controls failing for their own reasons,
+which is now the fourth time this arc.*

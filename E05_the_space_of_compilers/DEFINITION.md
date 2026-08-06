@@ -5464,3 +5464,29 @@ Both controls **raise** the share; only the aligned scale lowers it. Divisor flo
 **Controls.** POSITIVE a **multiplicative** plant, monotone, detected from width 0.25 not at 0 · g=0
 width 0 inside the band · PLACEBO `topw_k4` vs `_detA` max |d| **0.0** · SHAM/NEGATIVE as above.
 **WORLD B — a partly noise-amplitude map**, called on a 0.028 margin, with r² printed beside the label.
+
+## R773 · the 223 ties, and the invariance of eff/MDE to dropping them
+
+**Scope.** population = 968 prompts split into **223 tied** and **745 discriminating** — two
+populations, never pooled; instrument = A2 (sign-based) plus a magnitude-sensitive alternative, both
+stated; regime = first release, home judge, this tree_sha.
+
+**E1 · the invariance (a DERIVATION).** Dropping exact zeros scales the effect by `n_f/n_d` and the
+MDE by `sd_ratio·√(n_f/n_d)` — the same factor to O(μ²/σ²), μ/σ = 0.024. Measured over ten committed
+pairs: ratios **0.9998–1.0008**, **verdict changes 0 of 10**, `n_required × 0.7696`.
+
+**E2 · on the 223 tied prompts.** sign vectors identical **0.9740** [0.9596, 0.9910] · satisfaction
+cosine distance **0.0046** [0.0014, 0.0082] · quantiles **[0.0002, 0.0008, 0.0021, 0.0051, 0.0185]** ·
+share > 0.20 **0.0000** · share < 0.05 **0.9969**.
+
+**E3 · a magnitude-sensitive estimator on the same prompts.** Largest eff/MDE **0.570**
+(`topw_k3`/`topw_k4`); **0 of 10** pairs separate. ⚠ A different estimand — *"does the arm order the
+responses like the human"* vs *"does its sign pattern match"* — so a separation would not have shown
+A2 wrong.
+
+**Controls.** POSITIVE `coval_core` vs `gen_sham` on tied prompts **0.0358** against the largest
+committed pair **0.0082** (**4.36×**), band computed on this subset [−8.46e-18, 0.2794] · g=0
+**−8.46e-18**, PLACEBO **−4.98e-19**, both at tolerance **1e-9** (a floating-point cosine identity is
+not exactly zero) · SHAM the same distance on the 745 discriminating prompts **0.0066** vs tied
+**0.0046** (0.696) · NEGATIVE 200 random equal-sized subsets **0.0062 [0.0055, 0.0069]**.
+**WORLD A — STRUCTURAL.**

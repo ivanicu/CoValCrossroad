@@ -375,7 +375,16 @@ A **core** for a conversation is a set of criteria such that
     **+0.5278**` (r² 0.279) against a pre-registered line of 0.50 — the verdict fires by **0.028**, so
     the separability reading is bounded rather than clean. ⚠ Annotator agreement is **not** the driver:
     **+0.1246**. ⭐ **And 223 of 968 prompts have `c(p) = 0`** — the five extension members score
-    identically on them, so 23% of the population carries no information about any ordering. And the confound is answered: the
+    identically on them, so 23% of the population carries no information about any ordering.
+    ⭐⭐ **AND THOSE TIES ARE STRUCTURAL, NOT A COARSENESS ARTIFACT** *(R773)*. On the 223, the members'
+    **satisfaction vectors** are near-identical — cosine distance mean **0.0046**, quantiles
+    **[0.0002 … 0.0185]**, **99.69%** below 0.05 and **0.00%** above 0.20 — and a magnitude-sensitive
+    estimator separates **0 of 10** pairs there. So the extension's unorderedness is partly a fact
+    about the arms: on 23% of prompts they **do the same thing**. ⚠ And a *sham* arm sits only
+    **0.0358** away on those same prompts against a ceiling of **0.2794** elsewhere, so the prompts
+    themselves compress everything. ⛔ **Dropping the ties changes no verdict**: `eff/MDE` is invariant
+    to removing exact zeros — measured ratios **0.9998–1.0008**, **0 of 10** verdicts move, and
+    `n_required` scales by exactly **745/968 = 0.7696**, the same information in a different unit. And the confound is answered: the
     `topw_k` family is an inverted U peaking at **k = 6** (eff/MDE 1.311) with `eff/MDE` falling
     monotonically 6 → 8 → 12, so `topw_k8` is not an anomaly but where the curve re-enters the floor.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own

@@ -1,0 +1,137 @@
+R773 · the 223 ties — a property of the arms, or the coarseness of a sign statistic?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R772 found 223 of 968 prompts with `c(p) = 0` -- the five committed extension members score
+IDENTICALLY on them -- and registered a recomputation of the paired MDE and required-n on the
+discriminating subset, reported as a different estimand.
+
+⛔ CHECK #375: THE RECOMPUTATION IS ANSWERABLE BY ALGEBRA, AND WAS RUN BEFORE DESIGNING.
+   Dropping prompts whose difference is exactly 0, when the mean is small relative to the spread,
+   scales the EFFECT by `n_full/n_disc` and the MDE by `sd_ratio * sqrt(n_full/n_disc)`, and those
+   are the same factor to O(mu^2/sigma^2). **So `eff/MDE` is INVARIANT and no verdict can move.**
+   Measured across all ten committed pairs: ratios **0.9998 to 1.0008**, verdict changes **0 of 10**.
+   And `n_required` scales by exactly `745/968 = 0.7696` -- the same information expressed in a
+   different unit, not less data needed.
+   ⇒ R772's registered quantity is a DERIVATION. It is reported as one, and it is not this round.
+
+⭐ WHAT IS OPEN IS WHAT THE 223 ARE. `A2` is built from `sign(Y_i - Y_j)` over the 6 pairs among 4
+   responses, so two arms score identically on a prompt IFF their criterion sets induce THE SAME SIGN
+   PATTERN on those 4 responses. Two readings, and they imply opposite things about the definition:
+     STRUCTURAL -- the arms genuinely rank those responses identically. Then the extension is
+                   unordered partly because its members DO THE SAME THING on 23% of prompts.
+     GRANULAR   -- the sign statistic discards magnitude, and the arms differ there in a way A2
+                   cannot see. Then the coarseness is a CHOICE that costs resolution, and a
+                   magnitude-sensitive statistic would separate them.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the invariance, verified rather than assumed: `eff/MDE` on the full 968 against the
+    discriminating 745, per committed pair, with the ratio and the verdict change count.
+E2  on the 223 tied prompts, whether the five arms' SIGN VECTORS are identical (structural) and
+    whether their underlying satisfaction VECTORS differ (granular). Both counted, not one.
+E3  a magnitude-sensitive estimator on the same prompts -- the per-prompt correlation between an
+    arm's satisfaction ordering and the human's -- and whether it separates arms A2 ties.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1 exact.
+E2 exact -- sign vectors and satisfaction vectors are both computable per prompt per arm.
+E3 IDENTIFIED but it is a DIFFERENT ESTIMAND, and that is stated rather than smuggled: a
+   magnitude-sensitive statistic answers "does the arm's satisfaction ORDER the responses like the
+   human" whereas A2 answers "does its sign pattern MATCH the human's". A finer statistic separating
+   more arms is NOT evidence that A2 is wrong -- only that the two questions differ. The round
+   reports the separation and refuses the promotion.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  968 prompts, of which 745 discriminate and 223 tie; the 5 committed members
+instrument  A2 (sign-based) and a magnitude-sensitive alternative, both stated
+baseline    none -- arm vs arm as R768/R772
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  `eff/MDE` IS INVARIANT TO DROPPING EXACT ZEROS when mu << sigma. Effect scales by `n_f/n_d`,
+    sd by `sqrt((n_f-1)/(n_d-1))`, MDE by `sd_ratio * sqrt(n_f/n_d)`, and the product equals the
+    effect's factor. Verified at 0.9998-1.0008. **This is the whole of R772's registered question.**
+D2  A TIE IN A2 IS A TIE IN THE SIGN PATTERN, not in the criteria. Two different criterion sets can
+    induce the same ordering of four responses; nothing about A2 requires the arms to be similar.
+    **So "the arms are identical there" does NOT follow from a tie and must be measured separately.**
+D3  A FINER STATISTIC WILL SEPARATE MORE PAIRS ON ANY DATA. Strictly more information is retained, so
+    "the magnitude statistic separates arms A2 ties" is nearly forced and is NOT the finding. The
+    measurement is whether that separation AGREES WITH THE HUMAN better or is merely non-zero.
+
+STRONGEST CONFOUND, written BEFORE the run: a magnitude-sensitive statistic has a different noise
+floor, so more separation may be more noise. CONTROL IN THE SAME ITERATION: compute the new
+statistic's own MDE on the same prompts and report separation RELATIVE to it, never as a raw count of
+non-ties.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · STRUCTURAL. On the 223, the arms' sign vectors are identical AND their satisfaction vectors are
+    near-identical. The five members genuinely do the same thing on 23% of prompts, and the
+    extension's unorderedness is partly a fact about the arms rather than about power.
+B · GRANULAR. Sign vectors identical but satisfaction vectors differ materially. A2's coarseness
+    hides real differences, and the estimator is a resolution choice the page has never stated.
+C · MIXED, AND THE SPLIT IS THE FINDING. Some tied prompts are structural and some granular, in
+    which case the 223 is not one population and no single reading is admissible.
+
+PREDICTION MATRIX
+  A -> mean cosine distance between arms' satisfaction vectors on the 223 < 0.05
+  B -> >= 0.20
+  C -> a bimodal distribution of that distance, with both modes populated
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE fires (two arms known to differ -- `coval_core` vs `gen_sham` -- show a large satisfaction
+   distance on the same prompts) and g=0 fires (an arm against ITSELF shows distance exactly 0)
+   and PLACEBO fires (`topw_k4` vs `_detA` shows distance exactly 0):
+        mean distance < 0.05                  -> WORLD A. The ties are structural; the page says so.
+        mean distance >= 0.20                 -> WORLD B. A2's coarseness is a stated resolution choice.
+        bimodal with both modes populated     -> WORLD C. The 223 is not one population.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE  `coval_core` vs `gen_sham` on the same 223 prompts must show a LARGE satisfaction distance.
+          BAND, COMPUTED: floor = an arm against itself (exactly 0, g=0 below); ceiling = the maximum
+          distance the metric admits on this data, computed rather than assumed. The threshold sits
+          strictly inside.
+g=0       an arm against ITSELF: distance exactly 0 on every prompt.
+NEGATIVE  permute which prompts are called "tied", 200 draws, and report the distance distribution.
+          World excluded: "the 223 are unremarkable -- any 223 prompts look like this".
+SHAM      ingredient ABSENT, not inverted. Ingredient = THE TIE. Compute the same distance on the 745
+          DISCRIMINATING prompts. If tied and discriminating prompts have the same satisfaction
+          distance, then the tie is not about the arms' similarity at all.
+PLACEBO   `topw_k4` vs `_detA` -- one object under R730 -- distance exactly 0.
+NOISE     the magnitude statistic's own MDE is computed on the same prompts and every separation is
+          reported relative to it (the registered confound).
+UNIT      instrument unit = a PROMPT; claim unit = an ARM PAIR ON A PROMPT SUBSET. The 223 and the
+          745 are different populations and are never pooled.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+10 pairs x {223 tied, 745 discriminating} x {sign agreement, satisfaction distance, magnitude
+statistic} + 200 negative draws. Whole grid printed, including the cells that kill the reading.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether A2 or a magnitude statistic is the RIGHT
+  target                                        an external criterion for core quality
+whether a tied prompt is "easy" in any sense a
+  user would recognise                          human judgement on the prompts themselves
+cross-release                                   a second release
+independently replicated                        a second team; the session prompt forbids agents
