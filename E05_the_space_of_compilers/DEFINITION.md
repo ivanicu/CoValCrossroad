@@ -196,7 +196,41 @@ defence is contradicted by the elicitation format.**
 >
 > ⭐ **What this settles for the definition, and it is the first thing this thread has settled rather
 > than withdrawn:** clause ② holds **under both admissible readings of its own metric**, on the human
-> target, at n≈968 paired prompts, with every annotator the release ships. The metric is still
+> target, at n≈968 paired prompts, with every annotator the release ships.
+>
+> ⭐⭐⭐ **AND R845 LOCATES WHAT IS ACTUALLY WEAK IN CLAUSE ② — the BINARISATION, not the property.**
+> R711 measured clause ②'s sham separation as **2 of 5 pairs**, against an exactly enumerated null
+> (445,891,810 admissions) giving **p = 0.5727** — at chance. **That verdict is correct and stands.**
+> But R711 wrote its own ceiling and never followed it: *"separation is only POSSIBLE where the base
+> is admitted — 2 of 5 pairs, so the residual is 2 of 2 possible."* **A statistic capped at 2, scoring
+> 2, is saturated.**
+>
+> **Un-binarised — the paired margin `base − its OWN wrong-prompt sham`, every annotator, 10 cells,
+> BH at q=0.05, 9 surviving, the one non-survivor printed:**
+>
+> | pair | graded margin | exact | R711 binary |
+> |---|---|---|---|
+> | `coval_core` | **+0.0709** [+0.0615, +0.0806] | +0.0265 | SEPARATED |
+> | **`full`** | **+0.0483** [+0.0385, +0.0583] | +0.0167 | **not separated** |
+> | **`gen`** | **+0.0524** [+0.0416, +0.0637] | +0.0228 | **not separated** |
+> | `promptecho` | +0.0122 [−0.0067, +0.0302] *(ns)* | +0.0130 | not separated |
+> | `topw_k4` | **+0.0733** [+0.0631, +0.0835] | +0.0286 | SEPARATED |
+>
+> ⭐ **`full` and `gen` carry resolved margins the binary test scored as nothing**, because for those
+> pairs *both* arms were rejected, so separation was structurally impossible. **Reference scale: three
+> same-family NON-sham pairs give |margin| ≤ ~0.014**, so these are 3.4–5.2× mere arm-difference.
+>
+> ⛔ **And the poison check is UNIFORM: all five shams sit BELOW the arm that reads no prompt at all**
+> (−0.0466, −0.0818, −0.0594, −0.0954, −0.0513). **Reading the WRONG conversation is worse than
+> reading none, for every arm measured.** ⚠ This **downgrades R844's "the deflation is arm-specific"**
+> — that was n=1 against n=1; across five pairs the property is uniform and `coval_core` is not
+> special. ⚠ It does **not** license calling the other writer's A1 an outlier: A1 was not measured here.
+>
+> ⭐⭐ **THE FORMULATION CONSEQUENCE, which is what this whole quest is for:** *a clause that asks
+> "is it admitted?" throws the margin away, and the margin is where the content is.* **Clause ② should
+> state a margin against the arm's own wrong-prompt twin, with its interval — not an admission
+> verdict.** That is the first change to the definition's SHAPE, rather than to its numbers, that this
+> arc has earned. The metric is still
 > **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
 > that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a

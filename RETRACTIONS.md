@@ -26062,3 +26062,73 @@ someone who could not see my framing, scored on *their* estimand.
 my own numbers unseeded, and my own candidate list missing its answer. **The one round that
 strengthened a claim used an attack I did not write** — which is exactly what door ③ says and what
 §2.5 exists for, arriving by accident because two agents were sharing a filesystem.
+
+## 1362 · R845 — the margin the binary test could not see; clause ②'s weakness is the BINARISATION
+
+R711 measured clause ②'s sham separation at **2 of 5**, against an exactly enumerated null
+(445,891,810 admissions, **p = 0.5727**) — at chance. **That verdict is correct and stands.** But
+R711 wrote its own ceiling and never followed it: *"separation is only POSSIBLE where the base is
+admitted — 2 of 5 pairs, so the residual is **2 of 2 possible**."* **A statistic capped at 2, scoring
+2, is saturated**, and R711 says `margin` **zero times**.
+
+### ⭐⭐ UN-BINARISED — 10 cells, BH q=0.05, 9 survive, the non-survivor printed
+
+| pair | graded | exact | R711 binary |
+|---|---:|---:|---|
+| `coval_core` | **+0.0709** [+0.0615, +0.0806] | +0.0265 | SEPARATED |
+| **`full`** | **+0.0483** [+0.0385, +0.0583] | +0.0167 | **not separated** |
+| **`gen`** | **+0.0524** [+0.0416, +0.0637] | +0.0228 | **not separated** |
+| `promptecho` | +0.0122 [−0.0067, +0.0302] **ns, p=.192** | +0.0130 | not separated |
+| `topw_k4` | **+0.0733** [+0.0631, +0.0835] | +0.0286 | SEPARATED |
+
+**Controls:** placebo on all **17** arms exactly 0 · magnitude reference (R711's own 3 same-family
+NON-sham pairs, not re-chosen) **|margin| ≤ ~0.014**, so these are **3.4–5.2×** mere arm-difference.
+
+⭐ **`full` and `gen` carry resolved margins the binary test scored as nothing** — both their arms
+were rejected, so separation was structurally impossible. **R711's null measured its ceiling.**
+
+### ⛔ POISON UNIFORM — and it DOWNGRADES R844
+
+All five shams sit **below** `genericpool16`, the arm that reads no prompt at all: −0.0466, −0.0818,
+−0.0594, −0.0954, −0.0513. **Reading the WRONG conversation is worse than reading none, for every arm
+measured.**
+
+⚠ **R844 concluded the deflation is "ARM-SPECIFIC" from n=1 against n=1.** Across five pairs it is
+**uniform**; `coval_core` is not special. ⚠ Does **not** license calling their A1 an outlier — A1 was
+not measured here.
+
+### ⭐⭐⭐ THE FORMULATION CONSEQUENCE
+
+**Clause ② as a binary admission test is at chance. The property underneath holds for every arm
+measured.** *A clause that asks "is it admitted?" throws the margin away, and the margin is where the
+content is.* **Clause ② should state a margin against the arm's own wrong-prompt twin, with its
+interval — not an admission verdict.** First change to the definition's **shape** this arc has earned.
+
+## 1363 · `determinism ≠ currency` — and the third instance of a fixed claim on a moving population
+
+The definition gate failed on my own edit and the failure was **not** my edit: **3 anchored claims no
+longer matched their artifacts** (`r398_refs` 0 vs 44, `r436_arms` 93 vs 99, `r436_armsJ` 56 vs 62).
+
+**Cause chain, each step measured:**
+1. **R842's wide sweep was truncated by its outer timeout, so its `git restore` never ran** — the
+   exact hazard R842's own README recorded, fired within the hour. **7 round artifacts left modified.**
+2. ⛔ **R842 committed §4's `determinism read as currency`.** It compared **run₁ to run₂** and never
+   to disk. *"3 of 3 anchors byte-identical"* means they reproduce **each other** — and R436's fresh
+   run differs from its **committed** artifact in **64 lines**.
+3. ⭐ **But the cause is neither non-determinism nor code drift.** `R436/run.py:214` is
+   `for f in sorted(SATD.glob("sat_*.npz"))` — **its population is a DIRECTORY LISTING**, and 107
+   arms sit there now against 93 when it was committed. **Input growth, not irreproducibility.**
+
+⭐⭐ **And this is the THIRD instance today of one class: a fixed claim anchored to a moving
+population** — 1353's control (fixed commits, sliding window), 1354's baseline (same), and now this.
+**The first two hit instruments. This one hits the DEFINITION.**
+
+⛔ **Clause ④ says "better than EVERY rule computable from responses alone."** If the arm population
+is a glob, **"every" is a moving target**: the clause's extension changes whenever anyone drops a new
+`.npz` into a directory. **A clause quantified over "every arm" where the arm set is a directory
+listing is not a definition — it is a query against mutable state.** **33 rounds enumerate arms this
+way.**
+
+⚠ **Restored SCOPED, never `.`** (entry 1360): seven named round directories. The committed numbers
+are kept, because re-running R436 to today's 107 arms would require re-running every round, and the
+honest form is the number **with its arm-count scope attached**.
