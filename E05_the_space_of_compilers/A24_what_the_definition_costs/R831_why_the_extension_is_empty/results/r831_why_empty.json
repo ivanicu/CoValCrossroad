@@ -1,0 +1,42 @@
+{
+ "world": "W-SELF-DEFEATING",
+ "verdict": "\u2462-admitted arms sit systematically lower in the A2 ordering -- the conjunction is near-empty by construction, and that is a fact about the DEFINITION",
+ "n_arms": 93,
+ "clause3": {
+  "excluded": 39,
+  "admitted": 43,
+  "unknown": 11
+ },
+ "mean_rank_gap_admitted_minus_excluded": 27.24746571258199,
+ "perm_p": 4.999750012499375e-05,
+ "substantive_admitted": [
+  "topvar_k4",
+  "topvar_k4_08b",
+  "topvar_k4_08bR"
+ ],
+ "substantive_admitted_ranks": {
+  "topvar_k4": 50,
+  "topvar_k4_08b": 72,
+  "topvar_k4_08bR": 93
+ },
+ "unknown_arms": [
+  "coval_core",
+  "coval_core_2bA",
+  "coval_core_2bB",
+  "coval_core_sham",
+  "gen",
+  "gen_sham",
+  "generic",
+  "generic_reprov",
+  "genericpool16",
+  "promptecho",
+  "promptecho_sham"
+ ],
+ "controls": {
+  "pos_independent_null": true,
+  "pos_bottom_half_fires": true,
+  "g0_partition_deterministic": true
+ },
+ "source_r436": "8b4e31cbfd31b2df",
+ "source_sha": "0744c32bfecf5683"
+}

@@ -22673,3 +22673,41 @@ reachability but to **move the runner** until the world occurs.
 
 **Cost note**: the first attempt was blocked mutely by the bash guard's known `rm` false positive.
 "No stderr" is the guard, not a crash — re-run without `rm`.
+
+## 1289 · the definition asks for a set that beats label-readers without reading labels
+
+**The extension being 0 was recorded. WHY has never been asked** — 0 occurrences in `DEFINITION.md`
+of *anti-correlated · self-contradictory · mutually exclusive · why the extension is empty*, against
+a positive control (`clause ③` → 15, `39 EXCLUDED` → 1).
+
+⛔ **And my own previous NEXT was aimed at a clause that cannot change the outcome.** It asked
+whether **④** can be restated so R826's saturation does not make it vacuous. **R475 had already
+settled ③ against the released core** from the release's own dataset card, and `DEFINITION.md:503`
+records *"the extension is 0 under EVERY reading"*. No restatement of ④ rescues a conjunction ③ has
+already emptied. **The gradient I named was flat, and I named it in a published report.**
+
+| | |
+|---|---|
+| population | **93** arms with a committed A2 and a satisfaction file |
+| ③ | **39 EXCLUDED · 43 ADMITTED · 11 UNKNOWN** |
+| mean rank, ③-admitted − ③-excluded | **+27.25** of 93 · permutation **p = 0.00005** |
+| **the top 8 arms** | **all ③-EXCLUDED** — every one a label-reader |
+
+**W-SELF-DEFEATING.** A2 on this site is monotone in how much human-label information an arm
+consumed, and **③ forbids exactly that information**. The definition asks for a set at the top of an
+ordering whose top is *defined by what ③ forbids*.
+
+⚠ **The confound control is what decides how far this reads, and it was fixed in source before any
+rank was computed.** The ③-admitted set is dominated by random baselines — arms **I** chose to build
+— so a shift over all of them is a fact about my inventory. **Substantive ③-admitted arms: 3**, all
+one family, at ranks **50 · 72 · 93 of 93**. **n = 3, and the p = 0.00005 is over 82 arms most of
+which are baselines.** The substantive claim is a **description of three arms, not a tested effect**;
+no p is available at that n and none is quoted.
+
+⭐ **`coval_core` is rank 11 and UNKNOWN to ③'s instrument** — settled by **record** (the dataset
+card), not by measurement. **So the released core is a label-reader sitting among label-readers, and
+③ excludes it for the same reason it excludes the top 8.** That is the whole emptiness in one line.
+
+⭐ **And this round used the `f() == f()` idiom deliberately for the first time** — ③'s partition
+recomputed from source twice and compared — which R828 hand-built three times and R829 found already
+in the corpus. **The instrument arc paid for itself here**, three rounds after it closed.
