@@ -19252,3 +19252,42 @@ and the between document difference built from them. Nothing else was reused mor
 what a working retraction chain looks like from the inside, and it is the clearest positive result the
 sub arc produced, but it also means the reuse I measured is almost entirely reuse for the purpose of
 correction rather than for building.
+
+## 1053 · I proposed a round whose answer I had already read
+
+The previous round's closing line asked whether the seven target reading tags the census admits are
+seven objects or fewer, and named an existing partition as the instrument. That partition's committed
+artifact records the answer as four classes, and I read that exact field two rounds earlier while
+checking something else. So the proposal was prior art, the prior art gate caught it, and this is the
+fifth rebuild it has stopped in this arc. What makes this one different from the other four is that I
+was not ignorant of the answer; I had held it and forgotten, which is what a closing line written last
+and acted on first will do.
+
+## 1054 · the sixteen against five tension was an artifact of the clause being a list
+
+Three rounds have carried the observation that the census admits sixteen arms on today's population
+against the five committed, treating it as a scope condition on the extension. Implemented as a rule
+read from the builder's own source rather than as four literal arm names, the third clause excludes
+seven more tags, which are four more objects, and the admitted set becomes nine tags and five objects.
+The five committed members all survive, which was forced by their prefixes and is verified on the
+outcome. So the tension was not about populations at all; it was about a clause implemented as a list
+that fails open on anything the list does not name.
+
+## 1055 · the blocklist was doing about a third of the work a clause would do
+
+Five random blocklists of the same size admit nineteen point six arms on average, the actual blocklist
+admits sixteen, and the rule admits nine. So the specific content of the four names buys three and a
+half arms over an arbitrary list of the same length, while the rule buys ten and a half. The list was
+not worthless and it was not a clause, and quoting either of those alone would have been wrong in a
+different direction.
+
+## 1056 · the reproducibility check failed and the pin explained it in one field
+
+The two hash seed artifacts were not identical, and the only differing field was the document pin for
+the statement, which read one thousand two hundred and sixty four lines on the first run and one
+thousand two hundred and eighty six on the second. Every substantive field, the admitted sets under
+all three clause implementations, the excluded arms, the object counts, the sham draws and the
+controls, was identical. The cause is that I amended the statement between the two runs. That is not a
+non determinism in the round; it is the pin built two rounds ago detecting me editing the document
+under my own verification, which is the drift an earlier round could not attribute and this one names
+in a single field. The check was re run with the page stable.

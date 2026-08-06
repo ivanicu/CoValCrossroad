@@ -594,6 +594,28 @@ and is stated as unexplained** *(ledger 1006)*.
 ⭐ **So the widening does not widen the sample of cores.** The realised defect is the apparatus
 entering its own population — R637's observer, one level up, in the DEFINITION's population.
 
+⭐⭐⭐ **AND THE WHOLE `16 vs 5` TENSION DISSOLVES — IT WAS ③ BEING A BLOCKLIST** *(R760)*. Clause ③ is
+implemented as **four literal arm names** (`USES_PROMPT_LABELS`), which R520 and R729 showed **fails
+open**. Implemented instead as a **RULE** read off the builder's own source — `select_core.py:102`
+names the target-reading rules `oracle_k · indep_k · greedy_k` — the census on today's 92-arm
+population admits:
+
+| clause ③ | admitted tags | admitted **objects** |
+|---|---|---|
+| **name** (current) | **16** | **9** |
+| **RULE** | **9** | **5** |
+| inverted *(block selectors)* | 14 | 8 |
+
+**The 7 arms it newly excludes are exactly R729's seven and R730's four objects**, and **all five
+committed members survive** — `coval_core, topw_k3, topw_k4, topw_k6, topw_k8`. ⇒ **the extension over
+today's population is 5 objects, the same as the committed one** *(ledger 1054)*.
+⭐ **And the SHAM prices the list**: five **random** blocklists of the same size admit **19.6** on
+average, the actual blocklist **16**, the rule **9** — so the four names buy **3.6** arms over an
+arbitrary list and the rule buys **10.6** *(ledger 1055)*. ⚠ `② ∧ ③rule` is **NON-VACUOUS** (9 tags /
+5 objects), so R509's warning against a checkable ③′ does not reach this implementation. ⚠ This repairs
+③'s **implementation**, not whether ③ is the right **clause** — that still needs the external criterion
+the register has always named.
+
 ⛔ **And clause ③ is a BLOCKLIST, so it fails open** — **established by R520**, re-measured and
 extended by *(R729)*. `select_core.py:102` reads the human target for three rules — `oracle_k`,
 `indep_k`, `greedy_k` — while ③ is implemented as **four literal arm names**. **R520 named the 6 arms

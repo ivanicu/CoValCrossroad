@@ -4962,3 +4962,48 @@ parent-commit pin *(R758)*, and the 4.51× spurious-match price on non-distincti
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 31415 **after** the set-ordering
 repair, **both writes confirmed to disk**.
+
+## R760 · clause ③ by RULE instead of by NAME — the `16 vs 5` tension dissolves
+
+**Question.** ③ is implemented as **four literal arm names**; R520 and R729 showed it **fails open**,
+and R745 measured the cost — the census admits **3 target-reading objects** ③ is meant to exclude.
+The builder names those rules exactly at `select_core.py:102`. **What does ③-by-rule cost?**
+
+**⚠ P4 on both questions.** R509 killed a **behavioural** ③′ (*"makes the same vacuity harder to
+see"*); R623 is a documentation-anchor rule. **A rule-based PROVENANCE ③ keeps ③'s type and changes
+only its implementation — that is the gap.**
+
+| clause ③ | admitted tags | admitted **objects** | excluded tags |
+|---|---|---|---|
+| **name** (current) | **16** | **9** | 76 |
+| **RULE** | **9** | **5** | 83 |
+| inverted *(block selectors)* | 14 | 8 | 78 |
+
+**The 7 newly excluded** — `greedy_k4_greedy_kA/kB`, `indep_k4_indep_kA/kB`, `oracle_k4_08bR`,
+`oracle_k4_oracle_kA/kB` — **are exactly R729's seven and R730's four objects.** Three rounds converge
+on the same set from different directions. **All 5 committed members survive**, and `② ∧ ③rule` admits
+**9 tags / 5 objects — NON-VACUOUS**.
+
+⇒ **The extension over today's 92-arm population is 5 objects, identical to the committed one. The
+`16 vs 5` tension was ③ being a list** *(ledger 1054)*.
+
+**⛔ Two results were FORCED and are labelled.** **D1** the rule set is a **superset** of the blocklist
+(every blocklisted name carries a target-reading prefix, asserted in code), so *"rule excludes more"*
+is algebra and only the **size** measures. **D2** no committed member carries a target-reading prefix,
+so the committed 5 are **invariant** — stated before the run, verified 5/5 on the outcome.
+
+**⭐ The SHAM prices the list.** Five **random** size-4 blocklists admit **[20, 20, 19, 20, 19]**,
+mean **19.6**, against the actual blocklist's **16** and the rule's **9**. **The four names buy 3.6
+arms over an arbitrary list; the rule buys 10.6** *(ledger 1055)*.
+
+**Controls — 6 PASS, 0 FAIL.** PROVENANCE all three source facts hold, else **exit 2** · POSITIVE
+rule-③ **excludes** `oracle_k4_oracle_kA` and **keeps** `topw_k4`, against a band where a ③ blocking
+**nothing** and one blocking **everything** are both unable to separate them · g=0 **0 UNPARSED** tags,
+none silently admitted or blocked · NEGATIVE inverting the rule changes the set (14 vs 16), so **③ is
+not decoration** · SHAM as above · **PLACEBO name-③ reproduces R728's committed 16 EXACTLY — the
+harness *is* the census.**
+
+⚠ **This repairs ③'s IMPLEMENTATION, not whether ③ is the right CLAUSE** — that still requires the
+external criterion the impossibility register has always named.
+
+**Reproducibility.** Two `PYTHONHASHSEED` runs, both writes confirmed to disk.
