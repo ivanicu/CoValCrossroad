@@ -179,10 +179,52 @@ def _floor(n: int, what: str) -> int:
         return 2
     return 0
 
+# ⭐ SYNTHETIC POSITIVE CONTROL, added 2026-08-06 (entry 1343). A census of the thirteen sweep gates
+# found this one had NO positive control of any kind: it has run for the whole campaign reporting
+# "1 withdrawn framing still asserted" or none, and nothing ever demonstrated that its patterns can
+# match. Its own docstring is one-directional — "phrase absent => NOTHING" — which makes an unproven
+# matcher exactly the silence-mistaken-for-acquittal failure. One planted string per registered
+# pattern, corpus-independent, so the control validates the RULE and holds on any tree.
+SYNTH = {
+    r"\bmeasures?\s+values\b":                    "this arm measures values and nothing else",
+    r"\bvalue[-_ ]carrying share\b":               "the value-carrying share is 0.42",
+    r"\bnot\s+(?:same-sample\s+)?leakage\b":      "this is not leakage, it is endogeneity",
+    r"\bdoes not depend on forcing\b":             "the result does not depend on forcing",
+    r"\bnor country-conditional\b|\bnot population-conditional\b": "nor country-conditional",
+    r"\bnot\s+(?:an\s+)?OOD artifact\b":          "this is not an OOD artifact",
+    r"\blaunder(?:s|ed|ing)\b":                    "the core launders polarity into criteria",
+}
+
+
+def synthetic_controls():
+    """Every registered pattern must fire on its own plant, and a clean string on none of them."""
+    fired = {}
+    for rx, _why in WITHDRAWN:
+        plant = SYNTH.get(rx)
+        fired[rx] = bool(plant and re.search(rx, plant, re.I))
+    clean = not any(re.search(rx, "the arm scores 0.5667 against its own floor", re.I)
+                    for rx, _ in WITHDRAWN)
+    return fired, clean
+
+
 def main() -> int:
     # ** rather than * : an attack put a results file one directory deeper and
     # the flat glob never saw it.  A checker's population must be the files
     # that exist, not the layout I assumed.
+    # ---- SYNTHETIC CONTROLS FIRST: they validate the RULE and hold on any corpus.
+    _fired, _clean = synthetic_controls()
+    _n_ok = sum(_fired.values())
+    print(f"  SYNTHETIC POSITIVE  {_n_ok}/{len(_fired)} registered patterns fire on their own plant"
+          f"   {'PASS' if _n_ok == len(_fired) else '⛔ BLIND — a pattern cannot match'}")
+    print(f"  SYNTHETIC g=0       a clean sentence matches none   "
+          f"{'PASS' if _clean else '⛔ OVER-FIRES'}")
+    if _n_ok != len(_fired) or not _clean:
+        for rx, ok in _fired.items():
+            if not ok:
+                print(f"    ⛔ no plant fires for {rx}")
+        print("\n  FAIL: this check cannot be trusted to flag; its own patterns are unvalidated.")
+        return 1
+
     files = sorted(_ROOT.glob("E*/A*/R*/results/**/*.json"))
     files = [f for f in files if "_smoke_archive" not in f.parts and not PROVISIONAL.search(f.name)]
     hits, scanned, fields = [], 0, 0

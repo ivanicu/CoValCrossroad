@@ -25113,3 +25113,51 @@ reach property for free.
 **So the rule is narrower and more useful than "check that your plant reaches the branch":**
 **a positive control that FIRES already proves reach; a control with no positive arm proves nothing,
 and adding a second arm that cannot fail does not fix it.**
+
+## 1343 · 2 of the 13 sweep gates have no positive control at all, and both are ones I added or edited this session
+
+Entry 1342 established the rule: **a positive control that FIRES already proves the plant reaches the
+branch; a gate with no positive arm proves nothing.** **ESTIMAND: how many of the 13 sweep gates have
+a positive arm that demonstrably fires?** Classified by reading each gate's own output — the lexical
+route was eliminated three rounds ago.
+
+**POSITIVE CONTROL for the census itself:** `a_control_that_cannot_fail` and `corrections_propagated`
+are known to have firing arms (verified last round, and 11/11 respectively). Both came out FIRED.
+
+| | n | gates |
+|---|---:|---|
+| **internal positive control, fires in this run** | **10** | `statement_provenance` (rejects R466/R467) · `residue_debt` · `retraction_reaches_the_artifact` · `definition_matches_the_record` (`plant_detected`) · `next_line_quantifiers_are_computed` (3/3) · `release_names_resolve_to_one_set` · `every_round_is_committed` · `a_control_that_cannot_fail` (2/2) · `kill_is_wired_into_the_branch` · `corrections_propagated` (11/11) |
+| no internal arm, but **externally shown to fire** | **1** | `retired_framing_in_assertion_positions` — one of the 2 of 6 that fired under `attack_every_check` (entry 1319) |
+| ⛔ **neither** | **2** | `every_round_reaches_the_readme` · `no_withdrawn_framings` |
+
+⚠ **Both of the two are mine from this session** — I promoted `every_round_reaches_the_readme` into
+the sweep at entry 1318, and edited `no_withdrawn_framings` at entry 1321. **Adding a gate to the
+sweep is not the same as showing it can fire, and I did the first twice without the second.**
+
+### ⭐ ONE OF THE TWO IS NOW CLOSED
+
+`no_withdrawn_framings` had run the whole campaign reporting *"1 withdrawn framing still asserted"* or
+none, with **nothing ever demonstrating its patterns can match**. Its own docstring is
+one-directional — *"phrase absent ⇒ NOTHING"* — which makes an unproven matcher precisely the
+silence-mistaken-for-acquittal failure.
+
+**Added:** one synthetic plant per registered pattern (**7**), plus a clean sentence that must match
+none, wired into `main` as a hard **FAIL** before the corpus is scanned. Live: **7/7 fire, g=0 clean,
+exit 0**.
+
+**AND ATTACKED FROM BOTH SIDES, because entry 1342 was a check that could not fail:**
+
+| attack | expectation | result |
+|---|---|---|
+| blind one plant so its pattern has nothing to match | must FAIL | **exit 1**, `6/7` — **caught** |
+| dirty the g=0 sentence with a withdrawn phrase | must FAIL | **exit 1** — the over-fire arm can fail |
+| restore | must PASS | **exit 0** |
+
+**Neither arm is vacuous.** That is the difference between this and what I built and reverted last
+round.
+
+⚠ **`every_round_reaches_the_readme` still has none**, and is left named rather than quietly counted.
+Its own docstring already concedes the shape: its pass *"is a CONSTRUCTION, not a discovery"* — it
+passed at entry 1318 because I ran the index generator in the same session. **A gate that passes
+because you made it pass, with no plant, is the weakest cell in this sweep, and it is in it because I
+put it there.**
