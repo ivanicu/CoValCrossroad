@@ -25426,3 +25426,49 @@ threshold choice**, and the arm that chose the strictest reading got *"indisting
 family test **framing**, not **population** — and if all three share a blind spot native to the weights
 they were sampled from, convergence would look identical to correctness."* Here they did **not**
 converge, which is the only reason the sweep exists.
+
+## 1349 · the definition names its judge and never its metric — and on the metric it omits, its own instance fails clause ②
+
+Entry 1348 ended on a question about the **text**, not the evidence: clauses ② and ④ say *"scores
+better"* while R243 showed that choice is the difference between separation and the floor.
+
+### ⛔ MEASURED: THE STATEMENT NAMES `J` AND NEVER NAMES THE SCORE
+
+| | |
+|---|---|
+| clause ② | *"scores better, **under a named judge J**, than a size-matched criterion set…"* |
+| clause ④ | *"scores better, under that same judge J, than every rule…"* |
+| **the scoring quantity** | **never stated** |
+| first appearance of `A2` in the file | **line 200**, inside an annotation |
+| graded-vs-exact distinction, definitionally | **absent** |
+
+**A judge is not a metric.** J produces a score; *which* score is the choice the triple-blind arm
+split on.
+
+### ⭐ AND THE OMISSION IS LOAD-BEARING — R243's SWEEP, RESTATED AS A CLAUSE TEST
+
+| what "a match" means | core | floor | core − floor |
+|---|---:|---:|---:|
+| **exact class — ≥ 6 of 6 pairs** | 0.3864 | 0.3891 | **−0.0027** |
+| ≥ 5 of 6 | 0.7603 | 0.7331 | +0.0273 |
+| **graded, mean pairwise** *(what A2 is)* | 0.8321 | 0.8253 | **+0.0068** |
+
+⭐ **Under exact-class agreement, `coval_core` sits BELOW its floor — the definition's own extension
+fails clause ② on the reading the definition does not exclude.**
+
+### ⭐ SO THE QUALIFIER PASSES §4's OWN TEST
+
+The register's rule for any clause is **name an admissible object it EXCLUDES**, or it is untested
+decoration. *"…on the graded per-prompt agreement A2"* excludes **the exact-class reading**, and that
+reading excludes **the released core itself**. **Not decoration.**
+
+⚠ **And the uncomfortable half, stated rather than buried:** the metric was never named **because
+there has only ever been one**. That is exactly the *"definition describes the instance"* failure this
+file's own register warns about, arrived at from the text rather than from the arm space. **Naming it
+does not justify it** — it makes the choice visible and moves the burden onto *why a graded agreement
+is the right target*, instead of leaving it as an unstated default that happens to be the one its
+single instance passes.
+
+**Annotated beside the statement, not edited into the clause lines (L81)** — those lines are anchored
+by `definition_matches_the_record.py`, and silently editing a statement its gate keys on is the one
+change that should never be made quietly. Gate re-run: **exit 0**.

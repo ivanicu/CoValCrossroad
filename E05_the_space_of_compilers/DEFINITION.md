@@ -62,6 +62,36 @@ those cannot drift from the evidence without the suite failing.
 >
 > *(Reported, not required: sizes **3 to 8 are not distinguishable** by this release.)*
 
+⛔ **THE STATEMENT NAMES ITS JUDGE AND NEVER ITS METRIC (entry 1349).** *"Scores better, under a named
+judge J"* is incomplete: **J produces a score, and the statement never says which one.** `A2` — the
+graded per-prompt agreement every clause is actually computed on — first appears at **line 200 of this
+file, inside an annotation**, and nowhere in the statement.
+
+**That omission is load-bearing, and R243 measured how much.** The triple-blind arm disagreed on
+**sign** over exactly this choice, and the sweep of it reads:
+
+| what "a match" means | core | floor | core − floor |
+|---|---:|---:|---:|
+| **exact class — ≥ 6 of 6 pairs** | 0.3864 | 0.3891 | **−0.0027** |
+| ≥ 5 of 6 | 0.7603 | 0.7331 | **+0.0273** |
+| **graded, mean pairwise** *(what A2 is)* | 0.8321 | 0.8253 | **+0.0068** |
+
+⭐ **So the clause should read *"scores better, under a named judge J, ON THE GRADED PER-PROMPT
+AGREEMENT A2"*** — and by §4's own test, that qualifier is **not decoration, because it EXCLUDES a
+real reading**: under exact-class agreement `coval_core` sits **below** its floor and **fails clause ②
+itself**. The definition's one instance is admissible only on the metric the definition failed to
+name.
+
+⚠ **And that is the uncomfortable half, stated rather than buried.** The metric was never named
+because **there has only ever been one**, which is precisely the *"definition describes the instance"*
+failure this file's own register warns about. Naming it does not make the choice more justified — it
+makes the choice **visible**, and it moves the burden onto why a graded agreement is the right target
+rather than leaving it as an unstated default.
+
+⚠ **Not rewritten into the clause text (L81)** — the clause lines above are anchored by
+`assurance/definition_matches_the_record.py`, and a silent edit to a statement its gate keys on is the
+one change that should never be made quietly.
+
 ⚠ **The size line was two different things and is now written as two (R441).** *"3 to 8 are not
 distinguishable"* is a statement about **resolution**, and a non-result cannot remove a member — it
 excludes nothing **by construction**, so it is a **caveat, not a clause**. That is a derivation and
