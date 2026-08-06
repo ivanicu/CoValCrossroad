@@ -1,0 +1,142 @@
+R776 · six disjoint families, and a prompt covariate computed without any arm
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R775 found the six cross-family relative correlations order by rule similarity -- two `random_k`
+families at 0.7154, different-rule selector pairs at 0.2841 and 0.2003, selector-to-target-reading at
+~0 -- but WORLD C fired (the target-reading family is compressed 3x) and its axis null had only four
+outcomes, so nothing was resolved. Its NEXT registered six families and claimed "2^6 - 2 = 62
+labelings".
+
+⛔ CHECK #378, TWO CORRECTIONS BEFORE ANY DESIGN:
+ ① MY OWN ARITHMETIC WAS WRONG. 62 counts BIPARTITIONS of families into two labelled groups. The axis
+   test labels each family by its RULE, and with six families of which three share a rule the number
+   of distinct assignments is **C(6,3) = 20**, so the permutation p floors at **1/20 = 0.05** rather
+   than 1/62. The improvement over R775's 1/4 is real (5x) and smaller than I claimed.
+ ② AND THE REGISTERED READING MAY BE BACKWARDS. `random_k` arms draw their criteria AT RANDOM from
+   the pool, so two random families with different seeds hold DIFFERENT criteria. Their difference
+   magnitudes would still co-move wherever the POOL ITSELF is heterogeneous on a prompt -- which is a
+   PROMPT PROPERTY, not a rule artifact. **So the 0.7154 may be the prompt component showing most
+   clearly where the arms are least structured**, which is the opposite of R775's reading.
+
+⭐ THAT SUGGESTS THE INSTRUMENT THIS WHOLE THREAD HAS LACKED: a prompt covariate computed with NO ARMS
+   AT ALL. `sat_genericpool16.npz` gives, per prompt, the satisfaction of 16 fixed criteria on 4
+   responses. Its per-prompt SPREAD is a property of (prompt, pool) alone -- no selection, no arm, no
+   difference vector -- and it is exactly what "how much do criteria disagree here" means.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the 15 cross-family relative correlations over SIX disjoint families (3 same-rule `random_k`
+    seeds, plus committed, target-reading, mixed-selector), each against its own attenuation ceiling.
+E2  the axis test -- same-rule (3 pairs) against different-rule (12 pairs) -- with the null generated
+    by permuting WHICH THREE families carry the shared rule label, C(6,3) = 20 assignments, and the
+    p floor of 0.05 stated rather than discovered.
+E3  ⭐ the ARM-FREE COVARIATE: `poolspread(p)` = the spread of the 16 pool criteria's satisfaction on
+    that prompt. Its correlation with EACH family's scale, and whether conditioning on it removes the
+    same-rule excess. This is the first quantity in this thread that no arm participates in.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1 exact given object-level disjointness -- asserted, exit 2 otherwise.
+E2 PARTIALLY IDENTIFIED and its limit is stated: 20 assignments means p cannot fall below 0.05, so a
+   null result is "not resolvable at 20 permutations", never "no effect".
+E3 IDENTIFIED and this is the round's point: `poolspread` involves no arm, no selection rule and no
+   difference, so a correlation with it cannot be an artifact of arm similarity.
+   ⚠ It is NOT independent of the A2 machinery -- both read the same satisfaction table -- so it
+     tests "is the scale a function of the prompt's criterion spread", not "is it a prompt property
+     in some judge-free sense". That distinction is in the register, not smuggled into the claim.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  968 prompts; six families of five arms, zero shared OBJECTS under R730
+instrument  A2 per prompt over all annotators; `poolspread` from `sat_genericpool16.npz`
+baseline    each pair's own measured ceiling; the axis null by rule-label permutation
+regime      first release, home judge, this tree_sha
+⚠ every member default-judge (no `_08b`, R765) and non-replica (no `_ctl`/`_det`, R766).
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  C(6,3) = 20, so the axis p floors at 0.05. A "significant" axis result at exactly 0.05 is the
+    permutation's resolution limit and must be reported as such, not as a threshold cleared.
+D2  THREE `random_k` FAMILIES DIFFER ONLY IN SEED. Their criteria are DIFFERENT draws from one pool,
+    so any co-movement of their difference magnitudes cannot come from shared criteria -- it must come
+    from the prompt. **This makes the same-rule block the STRONGEST available evidence FOR a prompt
+    component, not against it**, and R775 read it the other way.
+D3  `poolspread` AND THE SCALES SHARE THE SATISFACTION TABLE. A correlation between them is therefore
+    not arm-free evidence of a prompt property in general -- only that the scale tracks the pool's own
+    per-prompt spread. Stated as a bound on the claim.
+
+STRONGEST CONFOUND, written BEFORE the run: `poolspread` may correlate with every family's scale
+merely because a prompt where all criteria saturate has small differences for ARITHMETIC reasons -- a
+ceiling effect, not a structure. CONTROL IN THE SAME ITERATION: report the correlation between
+`poolspread` and the prompt's MEAN pool satisfaction, so a saturation explanation is visible; and
+report the partial correlation of scale on `poolspread` holding mean satisfaction fixed.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · A REAL PROMPT PROPERTY, IDENTIFIED. `poolspread` correlates with the families' scales, the
+    same-rule block is explained by it, and conditioning on it removes the same-rule excess. Then the
+    thread's answer is that prompts differ in criterion spread and everything else followed from that.
+B · A RULE ARTIFACT AFTER ALL. `poolspread` correlates weakly or not at all, and the same-rule excess
+    survives conditioning. R775's reading stands and D2's argument is wrong.
+C · SATURATION. `poolspread` correlates with the scales but also with mean satisfaction, and the
+    partial correlation collapses. Then the whole scale story is a ceiling effect.
+
+PREDICTION MATRIX
+  A -> corr(poolspread, scale) >= 0.3 for a majority of families AND the same-rule excess falls by
+       >= half after conditioning
+  B -> corr(poolspread, scale) < 0.15 for a majority AND the excess survives
+  C -> the partial correlation holding mean satisfaction fixed drops below a third of the raw one
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if DISJOINT holds at the OBJECT level (exit 2 otherwise) and POSITIVE fires (a planted prompt-level
+   scale raises all 15 correlations and raises corr with a planted covariate) and g=0 fires (no plant
+   -> neither) and PLACEBO fires (a family against itself = 1.0):
+        partial corr < a third of raw            -> WORLD C. Saturation; reported first.
+        corr >= 0.3 majority and excess halves   -> WORLD A. The prompt property is identified.
+        corr < 0.15 majority and excess survives -> WORLD B. R775 stands, D2 refuted.
+        otherwise                                -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+DISJOINT   six families, zero shared OBJECTS under R730's partition; verified before this file and
+           asserted in code; exit 2 on violation.
+POSITIVE   plant a prompt-level scale, sweep width in {0, 0.25, 0.5, 1.0}, require all 15 correlations
+           to rise monotonely and be detected at 1.0. BAND, COMPUTED from both degenerate ends.
+g=0        width 0: nothing detected, and the planted-covariate correlation sits at ~0.
+NEGATIVE   permute prompts in one family per pair, 200 draws -> the correlation distribution.
+SHAM       ingredient ABSENT, not inverted. Ingredient = THE COVARIATE'S ALIGNMENT. Correlate each
+           family's scale with a RANDOM vector drawn from `poolspread`'s own empirical distribution,
+           200 draws -- same marginal, no alignment.
+PLACEBO    a family's scale against itself = exactly 1.0.
+NOISE      split-half reliability per family, 200 draws, Spearman-Brown, printed.
+UNIT       instrument unit = a PROMPT; intermediate = an ARM PAIR within a family; claim unit = a
+           FAMILY PAIR (15) and, for E3, a FAMILY (6). All three named.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+15 family pairs x {raw, ceiling, relative} + 6 reliabilities + 6 covariate correlations + 6 partials
++ 20 rule-label assignments + 4 sweep widths x 15 pairs + 200 sham and 200 permutation draws.
+The whole matrix is printed, including the pairs that contradict whichever world fires.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+a judge-free prompt property                    a second judge, or a prompt feature computed from the
+                                                text rather than from satisfaction
+p below 0.05 on the axis test                   more than six families; C(6,3) = 20 is the ceiling
+whether criterion spread is "difficulty"        human judgement on the prompts
+independently replicated                        a second team; the session prompt forbids agents

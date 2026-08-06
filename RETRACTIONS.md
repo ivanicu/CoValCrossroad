@@ -19877,3 +19877,46 @@ its p cannot fall below 1/4. Measured: observed difference **+0.3544**, permutat
 for a reason that has nothing to do with the data. *Identifying a dependence and building a
 permutation to handle it is the right move; checking how many distinct permutations exist is a
 separate step, and I did the first and skipped the second.*
+
+## 1109 · my own permutation count was wrong by the wrong kind of combinatorics
+
+R775's NEXT claimed six families give "2^6 − 2 = 62 labelings". That counts **bipartitions of families
+into two labelled groups**. The axis test labels each family by its **rule**, and with six families of
+which three share one the count is **C(6,3) = 20**, so the p floor is **0.05**, not 1/62. The gain over
+R775's 1/4 is real — 5× — and a third of what I promised. *Two rounds running I have written a
+combinatorial claim into a closing line without evaluating it; the first (four families, four
+labelings) I caught only after the test returned its own maximum, and this one I caught before the run
+because the previous failure made me check.*
+
+## 1110 · the instrument built to support my hypothesis refuted it
+
+R775's reading was that same-rule co-movement is a rule artifact. R776's D2 argued the opposite: three
+`random_k` families differ **only in seed** and hold **different** criteria, so their co-movement
+cannot come from shared criteria and must come from the prompt. **The round was designed to test D2,
+and built the first quantity in this thread that no arm participates in** — `poolspread(p)`, the
+spread of the 16 fixed pool criteria on a prompt: no selection, no arm, no difference vector.
+Measured: **−0.049 to −0.178** across six families, **0 of 6** above 0.30, **5 of 6** below 0.15,
+against a sham band of **[−0.064, +0.059]**. **The pool's per-prompt heterogeneity does not explain the
+scale, and D2 is refuted.** *I built the instrument because I expected it to confirm the reading I
+preferred, and the reason it is worth anything is that it could return this.*
+
+## 1111 · I labelled the blocks without reading the families' own composition
+
+The registered axis test compares SAME-RULE against diff-rule pairs and returned **p = 0.2000**. But
+`M_mixed_sel` = `random_k4_s0/s1/s2, topabs_k4, topvar_k4` — **three of its five members are
+`random_k`** — so `Ra×M = 0.7151`, `Rb×M = 0.7033` and `Rc×M = 0.7018` are **majority-same-rule pairs
+sitting in the diff-rule block**, pulling its mean from 0.14 to 0.27 and destroying the contrast.
+**The composition is one `startswith` away and I inherited the family from R775 without recomputing
+it.** Post-hoc, and labelled post-hoc: pure-random pairs **0.6279** against pairs with no pure-random
+family **0.1406**. *A family is not its name. I checked object-disjointness with a set intersection,
+asserted it in code, and never asked what the members WERE.*
+
+## 1112 · a control that could not pass, because a constant has no correlation
+
+The g=0 cell plants a scale of width 0, which is the constant vector `ones`. `corr(scale, ones)`
+divides by a zero standard deviation and is **NaN — undefined, not zero** — and my criterion required
+it **below 0.15**. NaN fails every comparison, so the control returned FAIL on a working instrument
+and took the whole round to UNVERIFIED. Repaired by making the covariate clause apply only where a
+covariate **exists**, and printing `undefined (no plant)` at width 0. *Seventh instance this arc of a
+control that cannot pass, and the third whose cause is a degenerate quantity rather than a wrong
+threshold — a cosine identity, a zero-variance statistic, and now a constant regressor.*

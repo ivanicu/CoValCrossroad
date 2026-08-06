@@ -404,7 +404,18 @@ A **core** for a conversation is a set of criteria such that
     target-reading family is **compressed** — internal |d| **0.0305** against 0.0457 / 0.1017 / 0.0935 —
     so its ≈0 correlations are its members agreeing with each other, not a clean statement about rules.
     ⚠ **And the axis null is nearly vacuous**: four families admit only four labelings, so the observed
-    difference sits AT its own 97.5th percentile by construction and the test has no resolution. And the confound is answered: the
+    difference sits AT its own 97.5th percentile by construction and the test has no resolution.
+    ⛔⛔ **AND THE PROMPT READING IS REFUTED BY AN ARM-FREE COVARIATE** *(R776)*. Six disjoint families;
+    `poolspread(p)` — the spread of the 16 fixed pool criteria on a prompt, involving **no arm, no
+    selection and no difference** — correlates with the families' scales at **−0.049 to −0.178**:
+    **0 of 6** above 0.30, **5 of 6** below 0.15, against a sham band of **[−0.064, +0.059]**. So
+    *"the random families co-move because the pool is heterogeneous on some prompts"* is **false**.
+    ⭐ The rule gradient sharpens instead: three pure-`random_k` families differing **only in seed**
+    correlate at **0.6279**, against **0.1406** for pairs containing no pure-random family — a **4.5×**
+    gap. ⚠ **Both numbers are post-hoc**: the registered axis test returned **p = 0.2000** because
+    `M_mixed_sel` holds **3 of 5** `random_k` arms, so pairs I labelled *diff-rule* were majority
+    same-rule. ⚠ And `M` reaches **0.70+** with each pure-random family — **above** the pure-random
+    block — which no rule story predicts. And the confound is answered: the
     `topw_k` family is an inverted U peaking at **k = 6** (eff/MDE 1.311) with `eff/MDE` falling
     monotonically 6 → 8 → 12, so `topw_k8` is not an anomaly but where the curve re-enters the floor.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own

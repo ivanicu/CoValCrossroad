@@ -5554,3 +5554,39 @@ within-family overlapping halves F1 **+0.5097** · F2 **+0.6545** · F3 **+0.851
 
 ⚠ **The axis null is under-powered by construction**: four families admit four labelings, so the
 observed difference **+0.3544** equals the permutation interval's upper end **[−0.2117, +0.3544]**.
+
+## R776 · six families, and the first quantity with no arm in it
+
+**Scope.** population = 968 prompts; six families of five arms, **zero shared objects** under R730,
+all default-judge and non-replica — `Ra/Rb/Rc` = `random_k{2,3,6,8,12}_s{0,1,2}` (pure `random_k`,
+differing only in seed) · `F1_committed` · `F3_target` · `M_mixed_sel`; regime = first release, home
+judge, this tree_sha.
+
+**E3 · the arm-free covariate** `poolspread(p)` = spread of the 16 pool criteria × 4 responses.
+
+| family | corr | with poolmean | partial |
+|---|---|---|---|
+| F1_committed | **−0.1782** | +0.0250 | −0.1861 |
+| F3_target | −0.0914 | −0.0248 | −0.1139 |
+| Rb_random_s1 | −0.0767 | +0.1244 | −0.0248 |
+| M_mixed_sel | −0.0688 | +0.0703 | −0.0423 |
+| Rc_random_s2 | −0.0664 | +0.1016 | −0.0244 |
+| Ra_random_s0 | −0.0490 | +0.1138 | +0.0010 |
+
+**0 of 6 ≥ 0.30 · 5 of 6 < 0.15**; SHAM **−0.0005 [−0.0644, +0.0591]**; corr(poolspread, poolmean)
+**−0.4387**. **WORLD B — rule artifact; the prompt-property mechanism is refuted.**
+
+**E1 · the 15 pairs, relative to each pair's own ceiling.** pure-random × pure-random **0.6283 ·
+0.6386 · 0.6168** · pure-random × mixed **0.7151 · 0.7033 · 0.7018** · pure-random × committed
+**0.1995 · 0.2578 · 0.2224** · committed × mixed **0.2835** · committed × target **0.1519** ·
+target × anything **−0.0023 · 0.0033 · −0.0103 · −0.0137**.
+
+**E2 · the registered axis test.** SAME-RULE **0.6279** (n=3) vs "diff-rule" **0.2677** (n=12),
+difference **+0.3602**, rank 4/20, **p = 0.2000** (floor **0.0500** — C(6,3) = 20 assignments).
+⚠ **Uninformative**: `M_mixed_sel` holds 3 of 5 `random_k` arms, so three majority-same-rule pairs sat
+in the diff-rule block. **Post-hoc**: pure-random pairs **0.6279** vs pairs with no pure-random family
+**0.1406**.
+
+**Controls.** DISJOINT 0 shared objects · POSITIVE planted scale, all 15 detected from width 0.25,
+covariate 0.5806 → 0.9106, monotone · g=0 not all detected at width 0 · NEGATIVE **+0.0058 [−0.0607,
++0.0651]** · SHAM as above · PLACEBO **1.000000**.
