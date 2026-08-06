@@ -1768,6 +1768,14 @@ is `0.5574753088`.** The gap is **`+0.0028733259`**, and the reference brackets 
 p99**: between **1% and 10%** of the blind subsets beat the bar the word *every* was tested against.
 *(A bracket, not a count — R331 committed seven order statistics, not 1,820 scores.)*
 
+> ⭐ **VERIFIED STILL LIVE, 2026-08-06 (entry 1381).** Checked against the whole committed record: the
+> **maximum is known** (`0.5574753088`) but **no round has instantiated clause ② against it**. R847
+> enlarged clause ④'s family; R851 measured ②'s extension against `genericpool16`; neither is the
+> universal reading. ⭐ **Knowing the maximum is not running the reading**, and the sentence below is
+> accurate as written. **Marked verified rather than left ambiguous** — an unchecked forward-looking
+> claim and a checked-and-live one are indistinguishable to a reader, which is the whole defect
+> entry 1380 found.
+
 **So the universal reading of clause ② has never been run**, and the disagreement about whether this
 definition admits its own instance is exactly that `0.0029`: `coval_core` clears a p99 bar and does
 not clear the maximum.

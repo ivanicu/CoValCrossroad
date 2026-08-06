@@ -26899,3 +26899,40 @@ claimed open, what closed it, and how long the gap was.**
 ⚠ **Not claimed: that the other five are live.** They were read, not tested against the record —
 checking each needs its own search, and asserting they are current would be the same error one level
 down. **≈7 identified, 2 verified stale, 5 UNCHECKED and named as such.**
+
+## 1381 · reading the five corrected my own count — "≈7 forward-looking claims" was a phrase, not a category
+
+Entry 1380 identified **≈7** genuine forward-looking claims in `DEFINITION.md`, verified **2** stale,
+and named **5 UNCHECKED**. **Reading the five shows most are not the category I put them in.**
+
+| line | what it actually is |
+|---|---|
+| **L1328** | ⛔ **already a correction** — *"the compute that would settle ②∧③ is NOT the compute I named (R490)"*; the generator exists |
+| **L1191** | criticism of a **convention** (*"unknown-as-admitted, a convention this document has never named"*), not a claim about undone work |
+| **L1965** | the heading of a **correction block** whose own table already reads *"the route is now WALKED, not open. R427 measured…"* |
+| **L1764** | ⭐ **GENUINELY LIVE, and correctly stated** |
+| **L2544** | ⚠ **could not be re-located** — see the instrument note below |
+
+### ⭐ L1764 — VERIFIED LIVE, and the distinction is exact
+
+*"The universal reading of clause ② has never been run."* The **maximum is known**
+(`0.5574753088` against the p99 reference `0.5546019830`, gap `+0.0028733259`) — **but no round has
+instantiated clause ② against it.** R847 enlarged clause ④'s family; R851 measured ②'s extension
+against `genericpool16`; **neither is the universal reading.** ⭐ **Knowing the maximum is not running
+the reading.** Marked **verified live** in the file rather than left ambiguous — *an unchecked
+forward-looking claim and a checked-and-live one are indistinguishable to a reader*, which is exactly
+the defect 1380 found.
+
+### ⚠ THE INSTRUMENT NOTE, AND IT IS THE SESSION'S OWN LESSON AGAIN
+
+**L2544 no longer resolves: my own edit in entry 1380 added 16 lines, and the file moved under the
+line numbers 1380 recorded.** Same family as the expiring anchors of 1353/1354 and the population
+mismatch of 1371 — **a reference taken against a mutable object, quoted later as if fixed.**
+
+### ⭐⭐ WHAT THIS CORRECTS
+
+**"≈7 genuine forward-looking claims" was an over-count produced by phrase matching.** *"has never
+been"*, *"is untested"* and *"what would settle"* swept in **corrections, convention criticisms and
+already-superseded markers**. The verified position is **1 live, 2 stale, 1 unrelocatable, 3
+miscategorised** — and **a phrase is not a category**, which is the same lesson as
+*a label is not a description*, arriving for the third time today at a different level.
