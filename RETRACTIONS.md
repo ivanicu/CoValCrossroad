@@ -24453,3 +24453,53 @@ now carries the withdrawal beside the claim.
 ⚠ **The measured answer needs one run**: recompute each ②-passer's paired difference and MDE against
 the permissive rule class, not against `min_ttr`. That is a scoring join, not a reanalysis — the
 opposite of R518's own finding about R517's wall, and this time the wall is real.
+
+## 1330 · the measurement was in R824's own artifact — ④ is free at the conjunction under both readings, and my "wall" was R517's wall again
+
+Entry 1329 closed: *"the measured answer needs each ②-passer's paired difference and MDE recomputed
+against the permissive rule class … a scoring join rather than a reanalysis — and **this time the wall
+is real**."* **P4, fourteenth firing, and the wall was not real.**
+
+**R824's `e1.rows` carries all 58 arms with `perm_margin`, `perm_lo`, `perm_hi`** — the paired margin
+against the permissive bar **with a 95% CI** — beside `strict_margin` and both `*_excluded` flags. It
+had been on disk since R824 ran. **This is R517's wall exactly, one layer up**: R517 said settling ④
+needed a scoring run, R518 showed it was one merge away, and I reproduced the error against the very
+round that had already answered it.
+
+### ⭐ THE MEASURED ANSWER
+
+Join R294's ② verdicts × R824's permissive rows: **39 arms, 9 ②-passers.**
+
+| arm | a2 | perm_margin | 95% CI | ④ excludes? |
+|---|---:|---:|---|---|
+| `topw_k8` | 0.5593 | **+0.039622** | [+0.025045, +0.054199] | no |
+| `topw_k3` | 0.5632 | +0.043487 | [+0.029442, +0.057532] | no |
+| `topw_k6` | 0.5641 | +0.044428 | [+0.030036, +0.058821] | no |
+| `topw_k4` | 0.5642 | +0.044492 | [+0.030234, +0.058749] | no |
+| **`coval_core`** | 0.5665 | **+0.046789** | [+0.032645, +0.060932] | no |
+| `indep_k4_fit1` | 0.5941 | +0.074376 | [+0.060404, +0.088347] | no |
+| `greedy_k4_fit1` | 0.6106 | +0.090940 | [+0.077115, +0.104765] | no |
+| `oracle_k4_fit1` | 0.6142 | +0.094474 | [+0.080605, +0.108343] | no |
+| `oracle_k4` | 0.6283 | +0.108614 | [+0.095025, +0.122203] | no |
+
+**0 of 9 have a CI touching zero. 0 of 9 are excluded by ④.**
+**NEGATIVE CONTROL:** 28 of 58 arms sit *below* the permissive bar — the scale is two-sided.
+**POSITIVE CONTROL:** `full_sham` at **−0.059260 [−0.0741, −0.0444]**, `perm_excluded = True`.
+
+⭐ **④ is FREE at the conjunction under BOTH readings, on measured evidence with intervals.**
+
+### ⚠ AND THE OLD REBASE WAS INVALID A SECOND WAY
+
+Entry 1329 killed the constant shift because `d` is paired. There is an independent second reason
+nobody had checked: **R436 and R824 do not share an A2 scale.** Of 52 arms carrying `a2` in both,
+**0 are identical**; mean Δ **+0.003440**, max **0.009722** (`greedy_k4_fit1`). So entry 1329's own
+point estimates — R436's `a2` minus R824's bar — mixed two scales as well, though the direction
+survived (`topw_k8` +0.0431 there vs **+0.039622** measured).
+
+### ⭐ THE ARC, STATED PLAINLY BECAUSE IT IS THE LESSON
+
+**1328 reached the right conclusion by an invalid derivation and against the wrong threshold.
+1329 withdrew it correctly — the evidence genuinely did not support it — and then invented a wall.
+1330 establishes it by measurement.** The middle round was **not** wasted: withdrawing a true claim
+whose evidence is bad is the correct move, and the cost of that correctness was one round. What *was*
+wasted is 1329's closing sentence, which asserted an impossibility instead of opening one artifact.

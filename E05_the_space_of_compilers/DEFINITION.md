@@ -218,6 +218,22 @@ answer needs R518 re-run against R824's bar.
 > separate a MEASUREMENT from a RESOLUTION LIMIT, is **NOT IDENTIFIED** here.
 > **So ④'s freedom at the conjunction is CONFIRMED under the strict reading (R518) and UNVERIFIED
 > under the adopted permissive one** — not refuted, and not established.
+>
+> ⭐⭐ **RESOLVED THE NEXT ROUND — MEASURED, NOT DERIVED (entry 1330).** The claim above that a
+> measured answer *"needs a scoring run"* was **false**, and the numbers were in **R824's own
+> artifact** all along: `e1.rows` carries, for all 58 arms, `perm_margin` with `perm_lo`/`perm_hi` —
+> **the paired margin against the permissive bar, with a 95% CI.** Joined to R294's ② verdicts
+> (39 arms, **9** ②-passers):
+> **all 9 clear the permissive bar with CIs excluding zero** — narrowest `topw_k8`
+> **+0.039622 [+0.025045, +0.054199]**, then `topw_k3` +0.0435, `topw_k6` +0.0444, `topw_k4` +0.0445,
+> **`coval_core` +0.046789 [+0.032645, +0.060932]**, up to `oracle_k4` +0.108614. **0 of 9 excluded
+> by ④.**
+> **NEGATIVE CONTROL:** 28 of 58 arms sit *below* the permissive bar, so the scale is two-sided.
+> **POSITIVE CONTROL:** `full_sham` at **−0.059260 [−0.0741, −0.0444]**, `perm_excluded = True`.
+> ⭐ **④ is FREE at the conjunction under BOTH readings — now on measured evidence with intervals.**
+> ⚠ And the earlier rebase was invalid in a **second** way nobody had checked: **R436 and R824 do not
+> share an A2 scale** — of 52 arms carrying `a2` in both, **0 are identical**, mean Δ **+0.003440**,
+> max **0.009722**. Two independent reasons the constant shift could not have been trusted.
 ⚠ **And R518's artifact cannot support this on its own** — it persists `margins_in_mde` ratios and no
 bar and no per-arm `d`; the numbers above were recovered from its **README**. §5 requires an artifact
 to carry *"what a LATER round needs to ATTACK this"*, and this one does not.
