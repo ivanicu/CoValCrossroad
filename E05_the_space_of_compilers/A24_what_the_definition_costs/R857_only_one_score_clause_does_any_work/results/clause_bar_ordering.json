@@ -1,0 +1,17 @@
+{
+  "commit": "278503ce5fd612cc6ad65b774ef5f2e9564da997",
+  "world": "A",
+  "bars": {
+    "c1_random_own_rubric": 0.4921726345617002,
+    "c2_prompt_blind_r347": 0.5462058303207565,
+    "c2_genericpool16_even": 0.5404313909409183,
+    "c4prime_response_only": 0.48201592554408285
+  },
+  "ordering": "c2 > c1 > c4prime",
+  "holds_under_both_c2_values": true,
+  "r347_ref_gap_min": 0.047039223342039416,
+  "r347_verdict": "W1_DERIVATION",
+  "measured": "the ORDERING of the bars",
+  "derived": "that a higher bar dominates a lower one",
+  "c3_excluded_by_construction": "provenance predicate, no bar exists"
+}

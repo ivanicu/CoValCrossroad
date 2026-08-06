@@ -737,6 +737,7 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 | **③** no prompt labels | **14 of 42** | **DERIVED** from the source, not hand-listed (R444) — target-readers *and* w-readers | R360·R444 |
 | **④** better than every criterion-free rule | **0 of 42** | **MEASURED** — coverage of this space is 42/42 | R440 |
 | ⭐ *why that zero* — **④ is DOMINATED by ②** (R856, entry 1376) | ②'s comparator **0.5404** sits **+0.0584 above** ④′'s bar **0.4820**, so **②⇒④ is largely FORCED**: ④ can only bind on arms ② already rejected. **Everything ④ would exclude, ② already excluded.** | **DERIVATION** — labelled, not banked | R856 |
+| ⭐⭐⭐ **AND SO IS ① — only ② does work** (R857, entry 1377) | **Bar ordering, measured: ② 0.5404–0.5462 > ① 0.4922 > ④′ 0.4820.** R347 already committed this for ① — verdict `W1_DERIVATION`, `ref_gap_min = 0.0470` (②'s reference exceeds ①'s on **every** arm), `contingent: []` — **and nobody generalised it.** **The definition reduces to ② + ③ (provenance, no bar) + the size floor.** | ordering **MEASURED**; domination **DERIVED** | R857·R347 |
 | **④** *under the PERMISSIVE reading adopted by R824* | **25 of 58** | **MEASURED** — the rule class is supervised response-only predictors; 21 specification cells, held out over 20 splits | R824 |
 
 ⛔ **SCOPE ADDED 2026-08-06 (entry 1322) — THE PARAGRAPH BELOW IS ABOUT THE READING THIS DOCUMENT NO

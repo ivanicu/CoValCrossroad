@@ -26726,3 +26726,47 @@ intersecting different populations is entry 1371's error — and it is the real 
 Classifying 99 arms from their **names** would be *"a label is not a description"*. ⚠ **Entry 1375
 established this one round ago, and my own NEXT then asked me to do it anyway** — named as impossible
 here rather than approximated.
+
+## 1377 · R857 — only ONE of the definition's score clauses does any work, and the pattern was committed for ① long ago
+
+R856's NEXT asked whether other clause pairs stand in the domination relation it found for ④.
+**Reading R347's committed artifact answers it — and shows the pattern was already established for ①
+and never generalised.** Its verdict string is literally **`W1_DERIVATION`**, with
+`ref_gap_min = 0.0470` (②'s reference exceeds ①'s on **every** arm) and `contingent: []`.
+
+### ⭐ THE BARS ON ONE SCALE
+
+| clause | reference bar | source |
+|---|---:|---|
+| **②** prompt-blind set | **0.5462** (41 arms) · **0.5404** (`genericpool16`, even half, 99 arms) | R347 · R856 |
+| **①** random draw of the prompt's own rubric | **0.4922** | R347 |
+| **④′** response-only rule max | **0.4820** | R849 |
+
+⚠ **Two values for ②'s comparator** — different constructions, different halves. **Both reported with
+provenance; the KILL CHECK requires the ordering to hold under both.** It does.
+
+### ⭐⭐ ORDERING **② > ① > ④′** — measured; domination — derived
+
+**MEASURED**: the ordering. Nothing forces a random-rubric draw below a prompt-blind set; it is an
+empirical fact about this release. ⚠ **DERIVED**: that a higher bar dominates a lower one — algebra,
+as in R856, **labelled rather than banked.**
+
+### ⭐⭐⭐ THE DEFINITION REDUCES
+
+**① and ④ are both dominated: anything they would exclude, ② has already excluded.** So:
+
+> **② — the one working score clause · ③ — PROVENANCE (a different kind of test, no bar) · the size floor**
+
+⚠ **③ is outside the comparison BY CONSTRUCTION** — forcing a provenance predicate onto a score scale
+is a category error, **named rather than approximated.**
+
+### ⚠ WHAT THIS DOES NOT SAY
+
+- **Not that ① and ④ are wrong** — they are true of the object and would bind where the bars order
+  differently. **They are inert HERE.**
+- **Not that the definition is "really two clauses"** — R855 showed ② and ③ are **not independent**;
+  ③ covers ②'s permutation blind spot. **A chain of two is not a conjunction of two.**
+- **Nothing about construct validity.**
+
+⭐ **The shape of the finding: a fact sat committed in R347's own verdict string for many rounds, and
+it took finding the same thing independently for ④ before anyone read it as a pattern.**
