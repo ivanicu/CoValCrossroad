@@ -2527,3 +2527,30 @@ from the real family's **[0.591, 0.733]** · **0 of 1,820** degenerate.
 
 **Scope**: 968 prompts × 5 arms × **C(16,4) = 1,820 baselines enumerated exhaustively** — population
 quantities over the family, not estimates of it · first release, home judge.
+
+## R813 · Every interval in this arc is 14–30% too narrow — and every verdict survives
+
+**Annotators are crossed with prompts (1,012 annotators, median 19 prompts each; 964 and median 8 on
+parity-0) and no round had resampled them.**
+
+| headline | point | prompt CI | **crossed CI** | **DE** |
+|---|---:|---|---|---:|
+| R805 `oracle_k4_fit1` − `genericpool16` | +0.0553 | [+0.0456, +0.0653] | **[+0.0435, +0.0666]** | **1.17** |
+| R810 fitted − `topw_k12` at k=12 | +0.0116 | [+0.0069, +0.0164] | **[+0.0054, +0.0178]** | **1.30** |
+| R811 rule effect at k=12 | +0.0419 | [+0.0356, +0.0482] | **[+0.0346, +0.0493]** | **1.17** |
+| R811 source effect at k=12 | +0.0373 | [+0.0272, +0.0483] | **[+0.0249, +0.0489]** | **1.14** |
+
+**All four remain resolved**, H2 included — the arc's smallest surviving effect, half-width 0.0047 →
+0.0062.
+
+⭐ **There is no prompt-level clustering to correct for**: the release carries **1,078 conversations
+for 1,078 prompts, max 1 each**.
+
+⭐ **And the data carries almost no annotator-level shared error.** The scheme responds to a planted
+annotator offset (width **0.0096 → 0.0228** across dose) while the prompt scheme stays flat, so it
+can see such structure; but destroying the crossing changes the width by **0.0002 against an sd of
+0.0007** — a weak pass, reported as one.
+
+**Scope**: 968 prompts (R805's headline) and the 734-prompt common intersection (the rest) × 964
+parity-0 annotators × 3 schemes × NBOOT 1,200 · annotator identity recovered from
+`metadata.assessments[].annotator_id`, which `load_targets()` discards.

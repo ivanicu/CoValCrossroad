@@ -1,0 +1,91 @@
+R813 · THE ANNOTATOR-CROSSED BOOTSTRAP — are this arc's intervals too narrow?
+written before the run · NBOOT 1200 · ZEFF 2.801585
+
+PROVOCATION
+R812 closed with: two axes swept exhaustively (annotator precision, baseline choice) and both moved
+the estimate less than resampling the 968 prompts does, so the dominant term is the prompt sample --
+resample at the PROMPT level and ask whether the ordering survives.
+
+⛔ CHECK #415 KILLED THAT AS POSED, TWICE OVER.
+ (1) Every round in this arc ALREADY bootstraps over prompts -- `rng.integers(0, N, (NBOOT, N))` is
+     in each run.py. The NEXT asked for what is already done.
+ (2) It proposed a CLUSTER bootstrap "over whatever grouping the release carries". Measured: the
+     release carries 1,078 conversations for 1,078 prompts, **max 1 prompt per conversation, 0
+     conversations spanning more than one**. There is no coarser grouping over prompts. Void.
+
+⭐ BUT THE SAME CHECK FOUND THE REAL DEPENDENCE, AND IT IS NOT OVER PROMPTS. **1,012 distinct
+annotators, each judging a MEDIAN OF 19 PROMPTS (mean 18.1, max 38), and ALL 1,012 touch more than
+one.** Annotators are CROSSED with prompts. Every interval this arc has quoted resamples prompts
+while holding the annotator panel fixed, so annotator-level error is treated as if it were
+independent across the ~19 prompts each annotator touches. Ignoring a crossed random effect makes
+intervals TOO NARROW, and this arc's smallest surviving effect (R810's +0.0116 at k=12, half-width
+0.0046) would not survive a design effect of 2.
+
+ESTIMAND
+E1  the ANNOTATOR bootstrap: resample the 1,012 annotators with replacement, rebuild every prompt's
+    A2 from the resampled panel, recompute each headline. Interval width vs the prompt bootstrap.
+E2  ⭐ the CROSSED bootstrap: resample prompts AND annotators in the same draw.
+E3  ⭐ the DESIGN EFFECT per headline: width(crossed) / width(prompt). One number per claim saying
+    how much this arc's intervals were understated.
+E4  which headline verdicts survive the widest interval, and which lose resolution.
+
+HEADLINES UNDER TEST (the load-bearing ones, named before measuring)
+  H1 R805  `oracle_k4_fit1` - `genericpool16` on parity-0, committed +0.0553 [+0.0456, +0.0653]
+  H2 R810  fitted - `topw_k12` at k=12, committed +0.0116 [+0.0070, +0.0162]   <- most at risk
+  H3 R811  the RULE effect at k=12, committed +0.0419 [+0.0353, +0.0479]
+  H4 R811  the SOURCE effect at k=12, committed +0.0372 [+0.0253, +0.0491]
+
+IDENTIFICATION
+Identified: annotator ids are on every assessment. ⚠ Resampling annotators leaves some prompts with
+ZERO annotators in a draw; those prompts are dropped FROM THAT DRAW and the mean number dropped is
+reported. If more than 10% of prompts are lost on average the estimand is degraded and the round
+says UNVERIFIED rather than quoting a width built on a shrinking population.
+
+DERIVED BEFORE MEASURING
+D1 [DERIVATION] a bootstrap that resamples one axis cannot be WIDER than one resampling two, in
+   expectation. If the crossed interval comes out NARROWER than the prompt interval, the code is
+   wrong and the round says so rather than reporting a design effect below 1.
+D2 [DERIVATION] an arm against ITSELF is exactly 0 in every draw, so its interval has zero width
+   under every scheme. PLACEBO.
+D3 breaking the crossing -- reassigning annotator ids at random -- must collapse the annotator
+   bootstrap's width toward the prompt bootstrap's. NEGATIVE, and it is the world "annotators do not
+   carry shared error" built explicitly rather than assumed.
+D4 a planted annotator-specific offset must widen the ANNOTATOR interval and leave the PROMPT
+   interval nearly unmoved. POSITIVE, with a known direction; and at offset 0 it must NOT fire.
+
+WORLDS
+A  NARROW: design effects <= 1.2 -> prompts dominate and this arc's intervals stand as quoted.
+B  UNDERSTATED: design effects >= 1.5 on any headline AND at least one loses resolution -> the
+   intervals must be restated, and the correction reaches the DEFINITION broadly.
+C  BETWEEN: widths grow but no verdict flips -> intervals restated, conclusions kept.
+CHECKED FIRST: B, because it is the one that reaches every number in the arc.
+
+PREDICTION MATRIX
+                          A               B                  C
+design effect          <= 1.2          >= 1.5             1.2 - 1.5
+H2 (+0.0116) resolved  yes             no                 yes
+what must be restated  nothing         every interval     the intervals only
+
+CONTROLS
+OBJECT   reproduce all four committed point estimates to 1e-4. Exit 2 otherwise.
+PLACEBO  D2: an arm minus itself -> 0 with zero width under prompt, annotator and crossed schemes.
+POSITIVE D4: plant an annotator-specific offset of g in {0, 0.05, 0.15}; the ANNOTATOR interval must
+         widen monotonically in g while the PROMPT interval does not, and at g=0 it must not fire.
+NEGATIVE D3: annotator ids reassigned at random across assessments -> the annotator interval must
+         collapse toward the prompt interval. 200 reassignments, reported as a distribution.
+NOISE FLOOR three bootstrap seeds; the sd of each reported width.
+
+PRE-REGISTERED KILL -- conditional, never a bare threshold
+  if object_reproduces and placebo_zero_width and positive_monotone_and_null_at_g0
+     and negative_collapses and dropped_prompts <= 10%:
+      let DEmax = the largest design effect over H1..H4
+      if DEmax >= 1.5 and any headline's crossed CI contains 0   -> WORLD B
+      elif DEmax <= 1.2                                          -> WORLD A
+      else                                                        -> WORLD C
+  else:
+      UNVERIFIED   (never OVERTURNED, never CONFIRMED)
+
+MULTIPLICITY 4 headlines x 3 schemes reported in full; BH q=0.05 over the crossed-scheme family;
+non-survivors printed.
+STOPPING RULE one round. The dropped-prompt rate is printed per scheme; above 10% the round returns
+UNVERIFIED rather than summarising over a shrinking population.

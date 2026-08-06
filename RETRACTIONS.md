@@ -21215,3 +21215,42 @@ entirely **disjoint** from the real family's **[0.591, 0.733]** — the control 
 and the criterion could not see it. *realstat §4, "the control targets a different statistic than the
 one being reported", and this is the third round in five where a control, not a result, was what had
 to be repaired.*
+
+## 1224 · every interval in this arc is 14–30% too narrow, and every verdict survives anyway
+
+R812 closed by proposing a prompt-level cluster bootstrap. **CHECK #415 killed it twice**: every
+round already bootstraps prompts (`rng.integers(0, N, (NBOOT, N))` is in each `run.py`), and the
+release carries **1,078 conversations for 1,078 prompts, max 1 prompt each, 0 conversations spanning
+more than one** — there is no coarser grouping over prompts. ⭐ **But the same check found the real
+dependence, and it is not over prompts**: **1,012 annotators, each judging a median of 19 prompts**,
+crossed with prompts, while every interval this arc quotes holds that panel fixed. Resampled:
+design effects of **1.17 · 1.30 · 1.17 · 1.14** on the four load-bearing headlines. **All four remain
+resolved**, including R810's **+0.0116**, whose half-width goes 0.0047 → 0.0062. *So the honest
+statement is two-sided: the intervals were wrong, and the conclusions were not.*
+
+## 1225 · two controls that are worth more read together than apart
+
+The POSITIVE control plants an annotator-specific offset and the annotator scheme's width tracks it
+monotonically — **0.0096 → 0.0120 → 0.0228** at dose 0 / 0.05 / 0.15 — while the prompt scheme stays
+flat at ratio 1.01. So the instrument **can** see annotator-level dependence. The NEGATIVE control
+destroys the crossing entirely and returns **0.0097 ± 0.0007** against a real **0.0099**: it clears
+the pre-registered criterion by **0.0002 inside an sd of 0.0007**, which the noise does not support,
+and it is recorded as a **weak pass rather than upgraded**. ⭐ **Together they say something neither
+says alone: the scheme can detect annotator structure and finds almost none**, which is why the
+design effect is 1.14–1.30 rather than the ≥1.5 the round was built to catch. ⚠ And it sits in
+tension with R793's `CEIL_H` of **0.551880** — annotators disagree with each other constantly while
+their errors look nearly independent — which is the next round's target, not this one's conclusion.
+
+## 1226 · the third degenerate negative control in three rounds, and the tell has been identical every time
+
+R809's permuted both sides of a regression with the same permutation and returned a point mass on the
+observation. R810's permuted criterion indices that `select_core.py` had already re-indexed to
+`0..k−1`, so nothing moved. R813's did `globals()["rows_a"] = fake` while `rows_a` is **local to
+`main()`** — the closures never read it, and the control printed a width **identical to the real one
+with an sd of exactly 0.0000**. *Three different causes, one signature: a zero-width or
+exactly-equal result does not look like a failure, it looks like precision, which is why each one
+needed the next round's attention rather than its own.* ⚠ **And this round's object check exited 2
+twice before running at all** — first because R810/R811 restrict to the **734-prompt common
+intersection** while R805 uses all 968, then because R811 averages `random_k` over **three committed
+seeds** where I had used one. Both were population and estimator mismatches that would have produced
+a confident, wrong design effect.

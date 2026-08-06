@@ -6913,3 +6913,33 @@ reproduced **after repair** · PLACEBO an arm minus itself, **0.0e+00** · POSIT
 itself **0.0e+00** deviation from 1.000 across all 1,820 · g=0 the honest arms sit **0.501** from the
 ceiling · NEGATIVE the permuted baseline's range **[0.782, 0.900]** is **disjoint** from the real
 family's **[0.591, 0.733]** · **0 of 1,820** degenerate λ.
+
+## R813 · the intervals are 14–30% too narrow, and nothing breaks
+
+**Why here.** R812 proposed a prompt-level cluster bootstrap. CHECK #415 killed it twice: every
+round already bootstraps prompts, and the release carries **1,078 conversations for 1,078 prompts,
+max 1 each, 0 spanning more than one** — there is no coarser grouping. ⭐ But the same check found
+the real dependence: **1,012 annotators, each judging a median of 19 prompts** (on parity-0, **964
+annotators at a median of 8**), crossed with prompts, with every committed interval holding that
+panel fixed.
+
+**⭐ The design effect, per headline.** H1 (R805, +0.0553): prompt [+0.0456, +0.0653] → crossed
+**[+0.0435, +0.0666]**, DE **1.17**. H2 (R810, +0.0116): [+0.0069, +0.0164] → **[+0.0054, +0.0178]**,
+DE **1.30**. H3 (R811 rule, +0.0419): [+0.0356, +0.0482] → **[+0.0346, +0.0493]**, DE **1.17**.
+H4 (R811 source, +0.0373): [+0.0272, +0.0483] → **[+0.0249, +0.0489]**, DE **1.14**. **All four
+remain resolved**, including H2, the arc's smallest surviving effect, whose half-width goes 0.0047 →
+0.0062.
+
+**⭐ And two controls read together explain why the effect is small.** The annotator scheme responds
+monotonically to a planted annotator offset — width **0.0096 → 0.0120 → 0.0228** at g = 0 / 0.05 /
+0.15 — while the prompt scheme stays flat (ratio 1.01), so the instrument *can* see annotator
+dependence. ⚠ But destroying the crossing entirely (ids reassigned at random) gives **0.0097 ±
+0.0007** against the real **0.0099** — a **weak pass**, separating by 0.0002 inside an sd of 0.0007.
+**The data carries almost no annotator-level shared error**, so the design effect comes mostly from
+resampling a second axis at all.
+
+**Controls.** OBJECT all four points reproduced (**+0.0553 · +0.0116 · +0.0419 · +0.0373**) after two
+repairs · PLACEBO an arm minus itself, **0.0e+00** over 200 crossed draws · POSITIVE monotone in
+dose and null at g=0 · NEGATIVE ⚠ weak · D1 the crossed interval is never narrower than the prompt
+one · DROPPED **2.6 / 968 (0.3%)** per draw · NOISE FLOOR crossed width sd **0.0004** (H1), **0.0009**
+(H2).
