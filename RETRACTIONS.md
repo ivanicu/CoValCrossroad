@@ -25710,3 +25710,64 @@ error this project has logged before.**
 — gates that fail because the repo is wrong, and gates that fail because the GATE is blind.** They
 are not the same object and one of them was invisible. `audit_the_auditors.py` timed out at 124 in
 the same sweep; whether other rows are also dark rather than failing is now a live question.
+
+## 1354 · a BASELINE that expires — "15 NEW" is the whole population, because 12 of 12 frozen hashes are outside the window
+
+Entry 1353 resurrected `next_gradient_labels_its_hypotheses.py` and reported that it *"now returns a
+verdict instead of silence: 15 NEW unlabelled causal NEXT blocks."* **That sentence is over-read, and
+the same root cause is why.**
+
+### ⛔ MEASURED
+
+| | |
+|---|---|
+| frozen baseline `assurance/KNOWN_UNLABELLED.json` | **12** hashes |
+| their depth from HEAD | **707 … 765** |
+| the gate's window `N_COMMITS` | **60** |
+| **frozen hashes INSIDE the window** | **0 of 12** |
+| unresolvable hashes | 0 — so this is a depth, not an absence |
+
+⭐ **The effective baseline is EMPTY.** Every offending commit in the current window is therefore
+labelled `NEW`, because there is nothing left to subtract. **"15 NEW" is a PREVALENCE — the entire
+offending population of the window — wearing the word an INCREMENT would use.**
+
+### ⭐⭐ A SECOND FAILURE MODE, DISTINCT FROM 1353's
+
+Same root cause — **fixed anchors inside a sliding window** — but a different victim:
+
+| | 1353 | 1354 |
+|---|---|---|
+| what expired | the **positive control** | the **ratchet's baseline** |
+| symptom | the gate refuses to report: silence | the gate reports, **with the wrong noun** |
+| how it reads | FAIL in the census | **a regression count that is actually a prevalence** |
+| which is worse | it announces itself | ⭐ **it does not** |
+
+**The second is the more dangerous one.** A gate that goes dark says so. A baseline that empties keeps
+printing a plausible number under a word that no longer describes it.
+
+### ⛔⛔ AND THE FILE'S OWN CORRECTION IS THE MECHANISM
+
+1353 praised the `scrolled` block for refusing to count out-of-window frozen entries as *fixed* —
+*"counting them as fixed would make this ratchet shrink by the passage of time rather than by work."*
+**That correction is right, and it is what produces this.** Refusing to call them fixed while the
+window slides past them leaves the baseline correct-but-empty, and **an empty baseline silently
+converts a ratchet from `increment` to `prevalence`.** The author fixed the direction the number
+could move and never noticed the number had changed its meaning.
+
+⭐ **The general shape, which is why this belongs in the register:** *a correction that preserves an
+invariant can still destroy a definition.* `scrolled` preserves **monotonicity** — the number cannot
+fall for free. It does not preserve **what the number counts.**
+
+### ⚠ WHAT THIS DOES NOT SAY
+
+- It does **not** say the 15 are wrong. They are 15 genuine unlabelled causal NEXT blocks — the
+  detector and both its controls pass. **The defect is in the word `NEW`, not in the finding.**
+- It does **not** say the baseline should be refreshed to today. That would freeze 15 live offenders
+  into permanence, which is the ratchet failing in the flattering direction. **Naming the quantity is
+  the fix; re-freezing is not.**
+- Two of the 15 are `496a1aba` and `fd99c0f0`, mine, from today. **They are new by any reading** —
+  so the correction to 1353 is about the other thirteen, not about the self-conviction.
+
+⭐ **Three consecutive rounds, three corrections, and every one came from a measurement rather than
+an argument** — 1352 corrected 1351 with an MDE, 1353 corrected the census with a commit depth, 1354
+corrects 1353 with a second commit depth. **The same three-line query would have caught all three.**

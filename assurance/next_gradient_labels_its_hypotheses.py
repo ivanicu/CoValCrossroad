@@ -117,6 +117,23 @@ def main() -> int:
     for h in sorted(frozen):
         if h in in_window and h not in {x[0] for x in flagged}:
             fixed.append(h)
+    # ⚠⚠ AND THE COUNT ABOVE CHANGES ITS MEANING WHEN `frozen` EMPTIES (entry 1354, measured).
+    # `scrolled` is correct and is the mechanism: refusing to call out-of-window entries FIXED, while
+    # the window slides past all of them, leaves the baseline correct-but-EMPTY. Measured today:
+    # 12 of 12 frozen hashes sit at depth 707..765 with N_COMMITS=60, so ZERO are in population.
+    # With an empty baseline every offender is labelled NEW, and the headline silently converts from
+    # an INCREMENT (a regression since baseline) to a PREVALENCE (the whole offending population).
+    # This is the sibling of the expiring positive control below: same root cause, fixed anchors in a
+    # sliding window -- but where that one goes SILENT and says so, this one keeps printing a
+    # plausible number under a word that no longer describes it, which is the more dangerous half.
+    # The general shape: A CORRECTION THAT PRESERVES AN INVARIANT CAN STILL DESTROY A DEFINITION.
+    # `scrolled` preserves MONOTONICITY -- the count cannot fall for free. It does not preserve WHAT
+    # THE COUNT COUNTS. Not "fixed" by re-freezing today's offenders: that would ratchet in the
+    # flattering direction. Named instead, so the headline cannot be read as a regression count.
+    if not (frozen & in_window) and frozen:
+        print(f"\n  ⚠ BASELINE OUT OF POPULATION: all {len(frozen)} frozen hashes are outside the")
+        print(f"    {N_COMMITS}-commit window, so the effective baseline is EMPTY and the count below")
+        print( "    is a PREVALENCE (the whole offending population), not an INCREMENT since baseline.")
     if scrolled:
         print(f"\n  ⓘ {len(scrolled)} frozen entr(ies) have SCROLLED OUT of the {N_COMMITS}-commit")
         print(f"    window and are out of population, not fixed: {scrolled}. Dropped silently —")
