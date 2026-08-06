@@ -5911,3 +5911,33 @@ sham-free n=3, r **+0.6421 / +0.5841 / +0.5841**. **D3 MDE** n=5 **0.963** · 6 
 rubric-derived arms return **1.0** exactly (D1, a derivation used as an instrument check) · NULL
 per-arm cross-conversation · SHAM-SPLIT both populations printed · A2-CHECK the registered confound ·
 SWEEP {3,4,5} · MDE printed FIRST. **WORLD C — underpowered, as D3 predicted.**
+
+## R787 · q against A2
+
+**Identity** `sign(mean(v − REF)) == sign(A2_arm − A2_ref)`: **0 disagreements of 47,320 pairs**
+(26 arms × 1,820 references).
+
+| | distinct values, 26 arms |
+|---|---:|
+| A2 | **19** |
+| q | **4** |
+| q_resolved | **6** |
+
+**Kendall tau(A2, q)** +1.0000, 197 concordant, **0 discordant** ·
+**tau(A2, q_resolved)** +1.0000, 240 concordant, **0 discordant**. ⚠ the first is a DERIVATION.
+
+**The class**: reference A2 min **0.514375**, max **0.557475**, range **0.043100** ·
+p0 0.5144 · p5 0.5242 · p25 0.5329 · p50 0.5391 · p75 0.5446 · p95 0.5511 · p100 0.5575.
+**Baseline-conditional ⇔ A2 ∈ [0.5144, 0.5575]** → `generic` 0.5514, `gen` 0.5352.
+
+**SHAM (class removed, ONE reference at A2 0.5504)**: agrees with `q > 0.5` on **26 of 26** arms.
+
+**E4, the variance term** (two synthetic arms, identical A2): ratio 1.0 → 0.9835 / 0.9835 no
+inversion · **1.5 → 0.9819 / 0.9835 INVERTS** · 2.0 → 0.9731 / 0.9835 · 4.0 → 0.8385 / 0.9835 ·
+8.0 → 0.1714 / 0.9835. Real arms' per-reference sd **[0.0711, 0.1744]**, ratio **2.453** —
+**inversion is inside the observed range**.
+
+**Controls.** OBJECT 1820 rebuilt, exit 2 otherwise · PLACEBO **0.000000** · PLACEBO-2 a class member
+returns q **0.726923** = its own A2 rank **0.726923** · POSITIVE `gen` swept 0 → **0.3308**, +0.02 →
+**0.9923**, +0.05 → **1.0000**, +0.30 → **1.0000**, all matching the independent percentile to 1e-12,
+band **admissible** · ⛔ NEGATIVE not built (D1 makes a permutation void). **WORLD B.**

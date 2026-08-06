@@ -1711,3 +1711,35 @@ null**. That remains a fact about the released core; it does not explain clause 
 
 **Scope**: 89 arms with criterion text, 10 non-rubric-derived, 6 with q_resolved, 3 sham-free · 968
 joined conversations · verbatim intersection and token Jaccard at {3,4,5} · first release, home judge.
+
+## R787 · `q` is exactly A2's percentile, and one reference does the work of 1,820
+
+**Clause ②'s measurement is not an independent quantity.** Since `mean(v_arm − REF_i) = A2_arm −
+A2_ref_i`, an arm beats a reference **iff** its A2 exceeds that reference's — verified on **all 47,320
+(arm, reference) pairs, 0 disagreements**. So `q` is the arm's percentile in the reference A2
+distribution, and **it destroys information**: over 26 arms, **19 distinct A2 values collapse to 4
+distinct q values and 6 q_resolved values**, with Kendall tau **+1.0000** and **0 discordant** pairs
+in both cases. ⚠ **The tau is a DERIVATION and a check on the code, not evidence.**
+
+⭐ **AND THE CLASS BUYS NOTHING OVER ONE REFERENCE.** The SHAM removed it and compared each arm to a
+**single** reference at A2 0.5504: it agrees with `q > 0.5` on **26 of 26** arms. The class's whole
+contribution is a set of cut points on the A2 axis — reference A2 spans **[0.514375, 0.557475]**,
+range **0.043100**, quantiles p5 0.5242 · p25 0.5329 · p50 0.5391 · p75 0.5446 · p95 0.5511.
+
+⭐⭐ **SO "BASELINE-CONDITIONAL" HAS A ONE-LINE CRITERION**: an arm is conditional **iff its A2 lies
+inside [0.5144, 0.5575]**. Of R782's 26 that is `generic` (0.5514) and `gen` (0.5352) — **exactly the
+two arms R781 and R782 found empirically, now derived.** R781's n_eff = 1.1 said the class was
+effectively one reference; this says why.
+
+⛔ **BUT `q_resolved` IS NOT A FUNCTION OF A2, AND THE ROUND'S OWN SYNTHETIC REFUSED THE TIDY
+CONCLUSION.** Its per-reference MDE depends on the VARIANCE of `v − REF_i`. Two synthetic arms with
+identical A2 invert from a variance ratio of **1.5**, and the real arms span **[0.0711, 0.1744], a
+ratio of 2.453** — **the capability is inside the observed range**. So the zero discordant pairs is a
+fact about **this population**, not about the statistic. **WORLD B.**
+
+⚠ **Every q-based ordering this arc reported stands** — R781's shape, R782's `gen`, R783's
+`coval_core`, R786's counterexample — because each is equivalent to the A2 ordering. **What changes is
+what they mean**: each was an A2 statement wearing a percentile's clothes.
+
+**Scope**: 26 modal-k=4 arms · 1,820-subset class · 968 prompts · A2 over all annotators · first
+release, home judge.

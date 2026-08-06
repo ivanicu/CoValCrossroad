@@ -20249,3 +20249,44 @@ affinity→q_resolved of +0.69 and +0.58. `q_resolved` counts how much of a fixe
 beats, so it is very nearly a monotone re-expression of A2. *The confound was named in advance, its
 control was built in the same iteration, and it won — which is the only reason the round can say the
 hypothesis died rather than that the data were quiet.*
+
+## 1144 · `q` was never an independent measurement — it is A2's percentile, by algebra
+
+Four rounds — R781, R782, R783, R786 — reported `q` and `q_resolved` as though they were quantities
+separate from the arm's score. They are not. `mean(v_arm − REF_i) = A2_arm − A2_ref_i`, so an arm
+beats a reference **iff** its A2 exceeds that reference's: verified on **all 47,320 (arm, reference)
+pairs with 0 disagreements**, Kendall tau **+1.0000** and **0 discordant** over 26 arms, and **19
+distinct A2 values collapsing to 4 distinct q values**. **A coarsening cannot add information.** ⚠ No
+ordering reported in those rounds changes — each is equivalent to the A2 ordering — but every one of
+them was an A2 statement wearing a percentile's clothes. *The tell was available from the first line
+of the estimator: a paired mean of two per-prompt vectors is the difference of their means, and I
+wrote that estimator myself in R781.*
+
+## 1145 · and the 1,820-member class buys nothing over ONE reference
+
+R781 measured the class's effective size at **1.1** and called it a dependence problem. R787's SHAM
+makes it concrete: comparing every arm to a **single** reference at A2 0.5504 reproduces `q > 0.5` on
+**26 of 26** arms. The class's entire contribution to clause ② is a set of cut points on the A2 axis,
+spanning **[0.514375, 0.557475]** — width **0.043100** — of which the arms resolve **four**. *So
+"baseline-conditional" reduces to "A2 inside the class range", which picks out `generic` and `gen`,
+exactly the two arms R781 and R782 identified by measurement. The derivation was cheaper than either
+round.*
+
+## 1146 · but the round's own synthetic refused the tidy conclusion, and that is WORLD B not A
+
+I expected `q_resolved` to be a coarsening too. Its per-reference MDE depends on the VARIANCE of
+`v − REF_i`, and two synthetic arms with **identical A2** invert from a variance ratio of **1.5**,
+while the real arms span **[0.0711, 0.1744] — a ratio of 2.453**. **The capability sits inside the
+observed range**, so the 240 concordant pairs with zero discordant is a fact about this population and
+not about the statistic. *A pre-registered synthetic that contradicts the expected world is the one
+thing an observational null cannot supply, and it is the reason this round says "did not fire" rather
+than "cannot fire".*
+
+## 1147 · R787's first positive control had a degenerate band
+
+The first draft swept `sorted(arms)[0]` — `coval_core` at A2 0.5665, **above the entire class** — so
+every shift returned q = 1.0 while the identity check passed, and I printed *"band computed at both
+ends"* with **floor == ceiling == 1.0**. §4's *control that cannot PASS*, sub-kind one. The sweep arm
+is now **chosen in code** as the one nearest the class median, which selects `gen`, and the band runs
+**0.3308 → 1.0000**. *An identity check passing beside a degenerate band is what made it easy to miss:
+one control was doing real work and lent its credibility to the other.*
