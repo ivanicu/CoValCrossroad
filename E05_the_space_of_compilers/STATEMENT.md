@@ -1962,3 +1962,38 @@ survive.
 
 **Scope**: 21 distinct objects × 968 prompts × all annotators · NBOOT 1,200 · first release, home
 judge.
+
+## R795 · The specificity was target SIZE, and the negative control was a poison
+
+⛔ **R794's specificity gap of +0.0487 does not survive a size-matched comparison, and the sign
+flips.** Holding the target at k = 4: a random 4-subset of the prompt's own rubric agrees with
+`coval_core` at **0.7362**, the mean k = 4 **other core** at **0.7734** — contrast **−0.0372
+[−0.0446, −0.0294], p 0.0008, RESOLVED and NEGATIVE.**
+
+⭐ **The mechanism is dose.** With content fixed, agreement rises monotonically with target size and
+terminates exactly at the committed value:
+
+| k | 1 | 2 | 4 | 8 | 12 | all (15.48) |
+|---|---:|---:|---:|---:|---:|---:|
+| matched | 0.6403 | 0.6944 | 0.7362 | 0.7691 | 0.7801 | **0.7850** |
+| mismatched prompt | 0.4762 | 0.4975 | 0.4999 | 0.4995 | 0.5029 | 0.5053 |
+
+⛔⛔ **AND THE MISMATCHED FLOOR IS A POISON.** Another prompt's criteria pointed at these responses is
+**misdirection, not absence**. The NEUTRAL target — prompt-blind, size-matched — is `genericpool16`:
+**`coval_core` agrees with it at 0.7886 against `full`'s 0.7850, contrast −0.0036 [−0.0195, +0.0119],
+UNRESOLVED.** A prompt-blind target of the same size matches the core as well as its own rubric does.
+
+⚠ **So R794's Q1 excess of +0.2961 is DOWNGRADED, not overturned**: it measures the cost of pointing
+a target at the wrong prompt, not the value of pointing it at the right one. R794's **Q2 is
+untouched** — it never used `full`'s class as a target.
+
+**NO WORLD CLAIMED.** The prediction matrix registered positive-and-resolved, contains-zero, and
+flat; the result was resolved and NEGATIVE — reachable only through the pre-registered *"otherwise →
+claim no world."*
+
+**Controls**: the k = all cell reproduces R794's `vs full` to **0.000e+00** · `coval_core` vs its own
+class **1.000000000000** · POSITIVE dose monotone with band 0.6403 → 0.7850 · degenerate target
+share **0.000** at every k. BH over 21 size-matched comparators: **17 survive, 4 do not.**
+
+**Scope**: 968 prompts · targets from `coval_full`'s per-criterion satisfactions (min 4, mean 15.48,
+max 39) · 20 draws per cell · NBOOT 1,200 · first release, home judge.

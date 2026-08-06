@@ -6245,3 +6245,42 @@ NOISE FLOOR split-half 0.003523.
 
 **Multiplicity.** 41 tests, BH over the UNION of both families: **40 survive, 1 does not.**
 **WORLD C — the fork is false.**
+
+## R795 · size versus identity, and why the matching floor was misdirection
+
+**The confound, found before building.** `full` carries mean k **15.48**; every k4 arm carries
+**4.00**; `genericpool16` carries **16.00** and is prompt-blind. R794's specificity comparison varied
+whose criteria the target is built from AND how many, at once.
+
+**Derived before measuring.** D1 a k-subset dose must terminate at `vs full` = 0.7850 — the positive
+control. D2 k = 1 targets may be degenerate; the share is reported (measured **0.000** at every k).
+D3 size and identity separate into two one-factor comparisons. D4 the core is 98.8% novel (R785), so
+no subset of `full` is a superset of it.
+
+**E1 · the dose, content fixed** (20 draws per cell):
+
+| k | matched | sd | mismatched prompt | sd | gap |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 0.6403 | 0.0066 | 0.4762 | 0.0059 | +0.1641 |
+| 2 | 0.6944 | 0.0094 | 0.4975 | 0.0071 | +0.1969 |
+| 4 | 0.7362 | 0.0058 | 0.4999 | 0.0060 | +0.2362 |
+| 8 | 0.7691 | 0.0039 | 0.4995 | 0.0040 | +0.2696 |
+| 12 | 0.7801 | 0.0031 | 0.5029 | 0.0016 | +0.2772 |
+| all | **0.7850** | 0.0000 | 0.5053 | 0.0000 | +0.2796 |
+
+Monotone; terminates at the committed value.
+
+**E2/E3 · identity at matched k = 4**, 21 size-matched comparators: a 4-subset of `full` **0.7362**
+against the mean k = 4 arm **0.7734** → **−0.0372 [−0.0446, −0.0294], p 0.0008**. Tails: the
+full-subset beats `topw_k4_sham` (+0.0203) and `topabs_k4` (+0.0155) resolvedly and loses to
+`topw_k4` and its aliases by **−0.0990 [−0.1097, −0.0880]**. BH q=0.05: 17 of 21 survive.
+
+**E4 · the neutral, size-matched comparator**: `coval_core` vs `genericpool16` (k = 16, blind)
+**0.7886** against `vs full` (k = 15.48, matched) **0.7850** → **−0.0036 [−0.0195, +0.0119],
+p 0.6550, UNRESOLVED**.
+
+**The poison correction.** The mismatched-prompt floor is another prompt's *specific* criteria — 
+misdirection, landing at ≈0.50 — while the *neutral* floor lands at 0.7886, level with the matched
+target. R794's Q1 excess of +0.2961 is therefore priced against a poison and is **DOWNGRADED**.
+
+**NO WORLD CLAIMED** — the outcome was resolved and negative, which no registered branch covered.

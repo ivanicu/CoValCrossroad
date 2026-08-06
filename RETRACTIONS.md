@@ -20564,3 +20564,35 @@ clause is supported in the sense that a core tracks its own prompt's rubric far 
 one, and it is NOT established that it tracks the rubric rather than tracking what any competent arm
 tracks. *Stating which half of a two-part claim carries the interval is the difference between a
 finding and a sentence.*
+
+## 1172 · R794's specificity gap was TARGET SIZE, and the size-matched version has the opposite sign
+
+R794 reported that `coval_core` agrees with `full` at 0.7850 against a random arm's class at 0.7363 —
+a gap of +0.0487 — and called it a point estimate of specificity. **`full` carries mean k 15.48 and
+every k4 arm carries 4**, so the comparison varied WHOSE criteria and HOW MANY at once. Holding size
+fixed at k = 4: a random 4-subset of the prompt's own rubric agrees at **0.7362** while the mean k=4
+OTHER CORE agrees at **0.7734** — **contrast −0.0372 [−0.0446, −0.0294], p 0.0008, RESOLVED and
+NEGATIVE.** And the dose with content fixed rises **0.6403 → 0.7850** monotonically across k, which
+is where the +0.0487 came from. *An interval around a confounded quantity is worse than the point
+estimate it replaces, because an interval reads as settled — and R794's NEXT asked for exactly that
+interval.*
+
+## 1173 · my NEGATIVE control was a poison, and the neutral target ties the matched one
+
+R794's Q1 floor, and R795's own dose baseline, is a target built from ANOTHER PROMPT's rubric — which
+is **misdirection, not absence**, and it sits flat at ≈0.50 at every k. §4's poison row, in my own
+control. The genuinely NEUTRAL target is `genericpool16`: criteria that never see the prompt, k = 16,
+size-matched to `full`. **`coval_core` agrees with it at 0.7886 against `full`'s 0.7850 — contrast
+−0.0036 [−0.0195, +0.0119], UNRESOLVED.** ⛔ **So a prompt-BLIND target of the same size matches the
+core as well as its own rubric does**, and R794's Q1 excess of +0.2961 measures the cost of pointing
+a target at the WRONG prompt rather than the value of pointing it at the right one. **DOWNGRADED, not
+overturned**: matching holds against a wrong-prompt target and is unsupported against a blind one.
+
+## 1174 · a fourth outcome no branch predicted, and the honest move was to claim no world
+
+The prediction matrix registered A (the size-matched contrast positive and resolved), B (it contains
+zero) and C (the dose flat). It came back **resolved and NEGATIVE** — an outcome none of the three
+covered, reachable only through the pre-registered *"otherwise → report; claim no world."* Naming a
+world would have meant choosing one after seeing a result none of them predicted. *A prediction
+matrix earns its keep on the day reality lands outside it, and the value of the `otherwise` line is
+that it is written when you still believe your own three worlds are exhaustive.*
