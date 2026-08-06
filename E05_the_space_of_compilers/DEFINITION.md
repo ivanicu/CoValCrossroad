@@ -22,7 +22,9 @@ so it cannot drift from the evidence without the suite failing.
 > the conversation; **and**
 >
 > **④** scores better, under that same judge J, than **every rule computable from the response set
-> alone**.
+> alone** — **where a rule may be FIT on other prompts' human labels, and reads only the responses
+> at inference** *(the permissive reading; R824 measured that the choice changes ④'s extension from
+> 0 to 25 of 58 arms, so the clause is not well-formed without it)*.
 >
 > Its size, **under that same judge J**, is **greater than one**.
 >
@@ -141,6 +143,7 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 | **②** better than a prompt-blind set | **33 of 42** | **MEASURED** — carries the whole boundary among label-free arms | R360 |
 | **③** no prompt labels | **14 of 42** | **DERIVED** from the source, not hand-listed (R444) — target-readers *and* w-readers | R360·R444 |
 | **④** better than every criterion-free rule | **0 of 42** | **MEASURED** — coverage of this space is 42/42 | R440 |
+| **④** *under the PERMISSIVE reading adopted by R824* | **25 of 58** | **MEASURED** — the rule class is supervised response-only predictors; 21 specification cells, held out over 20 splits | R824 |
 
 ⭐ **④'s zero is the argument, not an embarrassment.** On this release ④ **costs nothing** — it
 removes no arm the definition already admits — while on the second release it removes **all 7** and
@@ -7241,3 +7244,42 @@ how much is winner's curse — which is what the sham prices at **+0.003412**.
 **The zero is a measurement rather than silence only because of that sham**, and the sham had to be
 rebuilt: its first version sorted 30 random scorers and took the top six, making `sham6 == sham30`
 by construction — a control that could not fail, inside the round whose subject is selection.
+
+
+## R824 · ④'s class is not closed under fitting, and the text never said which
+
+**④'s extension is 0 or 25 of 58 depending on a reading of its own sentence.** *"Every rule
+computable from the response set alone"* constrains what a rule CONSUMES AT INFERENCE and is silent
+about what its CONSTRUCTION consumed.
+
+| reading | ④'s bar | ④ excludes |
+|---|---|---|
+| **STRICT** — no parameters fit on human data | **0.455679** (`max_len_chars`, R823) | **0 of 58** |
+| **PERMISSIVE** — fit on other prompts allowed | **0.519689 ± 0.005438** | **25 of 58** |
+
+**The deliverable adopts the PERMISSIVE reading**, recorded in the head clause above. Grounds, not
+taste: the 25 it removes are exactly the arms that read nothing (`random_k*`, `topvar`, `topabs`,
+`topwvar`) or are shams (`full_sham`, `gen_sham`, `topw_k4_sham`, `coval_core_sham`), while **every
+③-admissible load-bearing arm survives** — `coval_core` +0.0468, `topw_k4` +0.0445, `generic`
++0.0317, `genericpool16` +0.0225. ③'s own wording already uses the fit-on-other-prompts distinction,
+so the permissive reading is the one consistent with the rest of the definition.
+
+⚠ **THIS DOWNGRADES R821.** ④ is *"free-but-real"* **under the strict reading only**. Under the
+adopted reading it is a **BINDING** clause. R823's confirmation is scoped the same way — it widened
+the **strict** class from 6 rules to 30.
+
+⭐ **`gen` clears ④'s permissive bar by +0.0005 at its lower bound** (+0.0155 [+0.0005, +0.0304]).
+R822 found `gen`'s ② verdict straddling its threshold across weightings; **the arm the ②∧③ question
+rests on is now marginal under two independent clauses.**
+
+**Specification curve**: 19 of 21 cells clear the strict bar. Only `length_only|logistic_C0.01`
+(0.454833) and `length_only|gboost` (0.426911) fall below. **The non-length features alone reach
+0.5063**, beating the strict bar by more than 10× its noise floor.
+
+⛔ **A DERIVATION, not evidence:** a fitted combination cannot score below its best single feature
+IN SAMPLE, so an in-sample rise is forced. Every number above is HELD OUT — fit on half the prompts,
+scored on the other half, 20 splits.
+
+**The sham is what makes the rise attributable**: the identical learner on 14 RANDOM features reaches
+**0.429425 ± 0.004633**, so held-out fitting on noise buys **+0.000684** over chance and the learned
+bar sits **+0.090263 above it**.

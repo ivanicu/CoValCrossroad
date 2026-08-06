@@ -21703,3 +21703,70 @@ had checked was representative.
 a value, but it is the opposite of what "a larger reference class is a stronger bar" predicts, and ④
 quantifies over rules that must generalise. **Anyone extending this family further should measure
 the held-out bar, not the in-sample one.**
+
+## 1256 · the positive control scored a planted model against the wrong answer key, and its zero-dose arm returned nan
+
+R824's positive control plants a target that is a known linear function of the features and requires
+the learner to recover it.
+
+**It planted `w = len_chars`, fit on the plant, and then evaluated against `H` — the REAL human
+labels.** So it measured how well a length-planted rule predicts *humans* — **0.4511**, which is just
+the strict bar — and reported that as failed recovery. §4: *the control targeted a different
+statistic than the one being reported*, and its two sides were **not the same object**.
+
+⛔ **And the g=0 arm returned `nan`.** Planting `w = 0` makes every target sign zero; `pairdata` drops
+zero-signed pairs; the fit set was empty. **A control that returns `nan` cannot fail and cannot pass
+— it is not a control**, and it was the very arm §1 requires to prove the control *can* fail.
+
+**The gate refused the verdict while this was broken**, printing `WORLD UNVERIFIED` beside a 0-vs-25
+result — the largest finding of the session held behind a control that was wrong in the *unflattering*
+direction. Rebuilt as a **dose-response scored against the plant**: g = 1.0 → **0.9863**, 0.5 →
+0.5792, 0.2 → 0.5179, **0.0 → 0.5104**, monotone. g=0 now plants **random** signs — a
+learnable-shaped target with no learnable signal — so the arm has data and no answer.
+
+⭐ **The general rule this earns:** a positive control has **two** answer keys in play — the one the
+instrument normally uses, and the one the plant defines — and **the plant's key is the only correct
+one.** Scoring a plant against the production key measures the plant's resemblance to reality, which
+is not what recovery means.
+
+## 1257 · RETRACTED IN SCOPE: R821's "④ is free-but-real" holds only under the strict reading
+
+R821 (2026-08-06) retained clause ④ and characterised it as **free-but-real** — excluding 0 of 58
+arms at home while removing every planted below-floor arm. R823 confirmed the zero against the full
+30-rule family. **Both are now scoped, because ④'s own sentence is ambiguous and nobody had noticed.**
+
+④ says *"every rule computable from the response set alone."* That constrains what a rule **consumes
+at inference** and says nothing about what its **construction** consumed. Under the strict reading
+(no parameters fit on human data) the bar is **0.455679** and ④ excludes **0 of 58**. Under the
+permissive reading (fit on other prompts, responses only at inference) the bar is
+**0.519689 ± 0.005438** and ④ excludes **25 of 58**.
+
+**So "④ excludes nothing at home" was never a fact about the clause — it was a fact about a reading
+nobody had chosen**, exactly as R822 found that "④ excludes 0 of 58" was reported under a weighting
+nobody had chosen. **Two rounds apart, the same defect in the same clause, along two different
+unnamed axes.** The pattern is not the ambiguity; it is that a count gets published without the
+choice that produced it.
+
+**The deliverable now adopts the permissive reading and ④'s clause text says so**, on grounds rather
+than taste: the 25 arms it removes are exactly those that read nothing (`random_k*`, `topvar`,
+`topabs`, `topwvar`) or are shams, while every ③-admissible load-bearing arm survives. ③'s own
+wording already uses the fit-on-other-prompts distinction, so the permissive reading is the one
+consistent with the rest of the definition. **Under it ④ is BINDING, not free.**
+
+⚠ **And `gen` clears the permissive bar by +0.0005 at its lower bound** (+0.0155 [+0.0005, +0.0304]).
+With R822's finding that its ② verdict straddles the exclusion threshold across weightings, **the arm
+the ②∧③ question rests on is marginal under two independent clauses.**
+
+## 1258 · my own edit broke three gate assertions, and the gate caught it in the same commit
+
+Adding the permissive figure to ④'s clause-table row rewrote the row in place, and three tracked
+assertions — `r440_e4`, `r440_arms`, `r440_cov` — became unlocatable. `definition_matches_the_record`
+failed with *"an assertion that cannot be located is not a pass — it means the claim was deleted or
+reworded and this gate went blind to it."*
+
+**The correct structural answer was not to reword the tracked row but to add a row beside it**, which
+is what shipped. Recorded because the failure mode is general and cheap to repeat: **a gate that
+anchors on prose is disarmed by editing the prose, and the edit that disarms it is usually an
+improvement.** The gate's own message names the remedy, and it is the only reason a silent blinding
+did not ship inside a commit whose entire subject was that a count had been published without its
+scope.

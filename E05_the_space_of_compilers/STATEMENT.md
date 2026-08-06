@@ -2850,3 +2850,51 @@ among several; a *learned* response-only scorer is a different family and is not
 See `R823_the_floor_was_a_fifth_of_its_own_published_family/results/full_family_floor.json` for the
 30 accuracies actually measured. The next round fits a response-only predictor on held-out prompts
 and asks where its bar lands relative to 0.455679.
+
+---
+
+## R824 · ④'s extension is 0 or 25 of 58, depending on how you read its own sentence
+
+**④ reads *"better than every rule computable from the response set alone."*** That constrains what a
+rule consumes **at inference**, and is silent about what its **construction** consumed. R435's thirty
+hand-built rules read no labels ever; a supervised predictor reads only responses at inference but was
+fit on *other prompts'* labels. Both readings are defensible English, and ③'s own wording — *"no
+information from **that prompt's** own human labels"* — shows the deliverable already uses the
+fit-on-other-prompts distinction elsewhere.
+
+| reading | ④'s bar | ④ excludes |
+|---|---|---|
+| **STRICT** — no parameters fit on human data | **0.455679** | **0 of 58** |
+| **PERMISSIVE** — fit on other prompts allowed | **0.519689 ± 0.005438** | **25 of 58** |
+
+**The deliverable now adopts the permissive reading, and ④'s clause text says so.** The 25 removed are
+exactly the arms that read nothing or are shams; every load-bearing arm survives — `coval_core`
++0.0468, `topw_k4` +0.0445, `generic` +0.0317, `genericpool16` +0.0225.
+
+⚠ **This downgrades R821.** ④ is *"free-but-real"* **under the strict reading only**; under the adopted
+reading it is **binding**. R823's confirmation is scoped the same way.
+
+⭐ **`gen` clears the permissive bar by +0.0005 at its lower bound** (+0.0155 [+0.0005, +0.0304]).
+With R822's finding that its ② verdict straddles the exclusion threshold across weightings, **the arm
+the ②∧③ question rests on is marginal under two independent clauses.**
+
+**Scope** · 968 prompts × 4 responses × 14 features · 58 arms · 21 specification cells × 20 splits ·
+instrument A2 against human pairwise signs, no model judge · baseline the strict bar 0.455679 ·
+regime: all figures **held out**, noise floor 0.005438, BH over 58 arm tests, 57 survive.
+
+⛔ **DERIVATION, not evidence**: a fitted combination cannot score below its best single feature in
+sample, so an in-sample rise is forced. Every figure here is held out.
+
+**The sham makes the rise attributable**: the same learner on 14 random features reaches
+**0.429425 ± 0.004633**, so fitting on noise buys **+0.000684** and the learned bar sits **+0.090263**
+above it.
+
+## NEXT
+
+The permissive bar 0.519689 was measured with 14 lexical features and 7 model classes; ④ quantifies
+over **every** rule computable from the response set, and a bar that rises with the modeller's effort
+is not a fixed property of the release. See
+`R824_is_clause_fours_class_closed_under_fitting/results/closed_under_fitting.json` for the 21 cells
+run. The next round measures whether the permissive bar has an asymptote — sweeping feature count and
+model capacity to find where it stops rising — because if it does not saturate, ④ cannot be evaluated
+without also fixing the modelling budget, and that is a clause-text problem rather than a measurement.
