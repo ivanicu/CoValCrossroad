@@ -22823,7 +22823,53 @@ the thing I proposed to build or measure was on disk.
 
 ⚠ **What the adjudication could not reach, and it is a defect in the DIARY not the definition**:
 `coval_core_2bA`, `coval_core_2bB` and `generic_reprov` have **no introducing commit**, so their
-core files were committed without the round that built them. `genericpool16`'s record does not name
+core files were committed without the round that built them.
+
+> ⛔ **BOTH HALVES OF THAT SENTENCE ARE FALSE, corrected the next round.** ① Those three arms have
+> **no `core_*.json` at all** — they are scored from `sat_*.npz`, and my record-finder searched one
+> filename pattern and read its own miss as the corpus's silence. ② The `sat_*.npz` files **do**
+> have introducing commits — **0 of 232 tracked files lack one**, because every tracked file has one
+> by construction of git.
+> ⭐ **So the NEXT that followed was a CHECK THAT CANNOT FAIL** — §4's first row — proposed one round
+> after I built a gate specifically to detect that. See entry 1293. `genericpool16`'s record does not name
 its construction. **Inheriting a sibling's provenance would be inference, not record**, so all four
 stay NO-RECORD or UNDECIDED — and the commit-as-diary discipline is exactly what would have
 prevented the gap.
+
+## 1293 · the gate my own NEXT proposed is a check that cannot fail, and I proposed it one round after building a gate to detect exactly that
+
+R834 closed: *"a gate that requires every scored artifact to have an introducing commit is what
+closes this, and it is checkable today."*
+
+⛔ **Measured: 0 of 232 tracked files under `corebench/results/` lack an introducing commit** —
+because **every tracked file has one by construction of git**. The gate would be `assert True`.
+**§4's FIRST row, `check that cannot fail`, proposed one round after I built and hardened
+`assurance/a_control_that_cannot_fail.py` for that exact defect.**
+
+**And the premise underneath it was false too, in both halves.** R834 said *"three core files were
+committed without the round that built them."*
+
+| what I said | what is true |
+|---|---|
+| their core files were committed without a round | ⛔ **there are no `core_*.json` files** for `coval_core`, `coval_core_2bA/2bB`, `generic_reprov` — they are scored from `sat_*.npz` |
+| they have no introducing commit | ⛔ the `sat_*.npz` files **all** have one |
+
+⭐ **My record-finder searched a single filename pattern — `core_<arm>.json` — and I read its own
+miss as the corpus's silence.** §4's *a search is an instrument*: the instrument's population was
+`core_*.json`; the sentence's population was *"scored artifacts"*. **Instrument-unit vs claim-unit,
+fifth time this session.**
+
+⭐ **And the proxy that actually matters is now named, with a witness.** P6's ledger:
+
+- **PROPERTY**: the round that built this arm.
+- **PROXY**: the commit that introduced its file.
+- **IMPLICATION**: sound only when the file was first committed **by** the round that made it.
+- **WITNESS**: `generic_reprov` — its introducing commit is `dc5c7e3d`, a **file-restoration** after
+  a gate deleted 1,552 files; `coval_core_2bA/2bB`'s is a *"commit R419 and its pair before running
+  it"* housekeeping commit that never names their construction.
+- **SAFE SIDE**: a construction record found this way is admissible; **its absence is UNVERIFIED,
+  never "no record exists"** — which is precisely the error entries 1291 and 1292 made in sequence.
+
+**Nothing in R834's substantive result moves**: the 6-arm / 4-family set and the rank-21 best are
+built on `generic`, `gen` and `promptecho`, whose `core_*.json` files exist and whose introducing
+commits **are** their building rounds. What is withdrawn is the diary-defect story and the gate.

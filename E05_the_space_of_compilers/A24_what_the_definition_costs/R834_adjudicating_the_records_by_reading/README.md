@@ -54,6 +54,9 @@ unchanged from R831, so the new number is comparable to the one it replaces.
 ## NEXT
 
 Four arms remain unreachable — `coval_core_2bA`, `coval_core_2bB`, `generic_reprov` have **no
-introducing commit**, and `genericpool16`'s record does not name its construction. That is a gap in
-the **diary**, not in the definition: three core files were committed without the round that built
-them, and the commit-as-diary discipline is what would have prevented it.
+introducing commit**, and `genericpool16`'s record does not name its construction. ⛔ **CORRECTED THE NEXT ROUND.** Those three arms have **no `core_*.json`** — they are scored from
+`sat_*.npz`, whose introducing commits exist but are **housekeeping**: `generic_reprov`'s is a
+**file-restoration** commit, `coval_core_2bA/2bB`'s does not name their construction. So the gap is
+in **my record-finder's population**, and the proxy limit is that **an introducing commit is the
+constructing round only when the file was first committed by the round that made it**. See
+`RETRACTIONS.md` 1293.
