@@ -25924,3 +25924,49 @@ The 29 are frozen as **RECORDED, NOT FORGIVEN** — each still cannot reproduce 
 the gate ratchets on **new** offenders. ⭐ **Anchored by FILE PATH, which is an identity**: entry
 1354's baseline expired because it was anchored to a **position**, and that lesson is now load-bearing
 two rounds later.
+
+## 1359 · R842 — the definition's anchors ARE byte-reproducible, and the tempting proof was a derivation
+
+Entry 1358's NEXT, redirected at the object: not *"are old rounds reproducible"* but **"does the
+definition's own evidence depend on an unstable round?"**
+
+### ⚠ THE SHORTCUT WAS A DERIVATION, AND SAYING SO IS THE FIRST FINDING
+
+The definition's anchor table names **83 source rounds, all R301–R838**. The unstable-seed rounds are
+**25, all R122–R302**. **Intersection 0 — but the ranges overlap only at `{R301, R302}`.** The zero
+was very nearly forced by arithmetic. **A clean bill from that intersection would have been the
+arithmetic trap**, and 1358's own proxy ledger already said *absence ⇒ reproducible* is unsound.
+
+### ⭐ SO IT WAS MEASURED — sha256 over `results/`, two FRESH processes per round
+
+| control | result |
+|---|---|
+| **POSITIVE** synthetic `hash()`-seeded script must be non-identical | **PASS** |
+| **g=0** synthetic `crc32`-seeded script must be identical | **PASS** — required, or a differ answering "different" to everything passes |
+
+| round | role | identical |
+|---|---|---|
+| **R243** | positive control on the real corpus (on the frozen unstable list) | **False** |
+| R436 · R440 · R824 | definition anchors | **True · True · True** |
+| R301 · R331 · R347 *(wide sweep, in flight)* | definition anchors | **True · True · True** |
+
+⭐ **World A: the practice was corrected; the rounds the definition rests on reproduce.** This is the
+**first direct satisfaction** of the checklist's `REPRODUCIBILITY two hash seeds byte-identical` —
+demanded from the start, never run until now.
+
+### ⚠ SCOPE
+
+- **6 of 83 anchors tested.** This licenses *"the tested anchors reproduce"*, **never** *"the
+  definition's evidence is reproducible."*
+- Says **whether**, never **why**. A round can be on the unstable list and still write an artifact
+  that does not depend on the unstable draw — a real outcome, not a failure of the differ.
+- **Cross-machine untested**: one box, one interpreter build.
+- ⚠ `R436` exits **1** and still reproduces — **an exit code is a verdict about the repo, not about
+  determinism.** The two are independent, and this suite has conflated them before.
+
+### ⚠ A HAZARD RECORDED RATHER THAN DISCOVERED LATER
+
+**Re-running a round overwrites its committed artifacts.** R842 restores every touched round with
+`git restore` and stamps the tree census first — but **if the outer timeout truncates the run, the
+restore never executes.** Named here because a reproducibility test that destroys the artifact it is
+testing is not a test.
