@@ -23334,3 +23334,30 @@ genuinely refused population, and R341 already priced it.** ⭐ **And it puts P4
 this arc**, every one a case where the thing I proposed to build, measure, or ask was already
 committed. **The prior-art gate is cheapest before the estimand is written; I have now run it after,
 seven times, and the cost each time was the round I had already designed.**
+
+## 1307 · the measurement my NEXT proposed is not identified, and the count it quoted is a hand-tally
+
+My NEXT said: *"Seven P4 hits in one arc is a rate, not an anecdote … the measurable version is when
+in each round the prior-art check appeared relative to the design, which the commit order records and
+nobody has read."* **Two claims, and the gauge test kills the first in three lines.**
+
+⛔ **NOT IDENTIFIED.** Running P4 **before** writing the estimand and running it **after** produce
+**the same commits, the same files, the same order**. The repository is **invariant under exactly the
+transformation the claim distinguishes** — measurement invariant, property not ⇒ **blind**. The
+ordering lives in the conversation, which this site does not persist. **The commit order does not
+record it, and I asserted an instrument that does not exist.**
+
+⛔ **AND THE COUNT IS MINE, NOT THE RECORD'S.** `RETRACTIONS.md` carries **5** mentions of P4 firing.
+**"Seven" is a running tally I kept in reports and never derived from the ledger** — the same shape as
+every count-about-my-own-corpus this arc has retracted, and the reason the ledger exists is that a
+number carried in the head drifts from the number in the file.
+
+⚠ **What is measurable, and it is prospective**: **2 of 40** R8xx pre-registrations mention prior art
+at all. **If the ordering matters, the pre-registration has to RECORD that P4 ran and what it
+returned** — then the artifact carries the ordering instead of the conversation, and a later round can
+count it. Retrospectively there is nothing to count.
+
+⭐ **The general rule this earns**: *before proposing to measure a habit, ask which artifact would
+differ if the habit changed.* Here the answer was **none** — and the check cost three lines against a
+round I was otherwise about to design. **§2's register has a line for this: `temporally resolved` is
+N/A here, and what it would require is a timestamped log of in-conversation actions.**
