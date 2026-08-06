@@ -54,6 +54,19 @@ def derive():
     a = art("R347_*")
     out["clause1_excludes"] = (len(a["counterexamples"]) if a else None, "R347")
     out["n_arms_r347"] = (a["n_arms"] if a else None, "R347")
+    # ⚠ ADDED 2026-08-06 (entry 1325). BOTH clause-④ rows of the L140 table were UNCHECKED —
+    # there was no `clause4_*` assertion of any kind — while DEFINITION.md's opening paragraph
+    # promises "Every number in it is checked against a committed artifact on every run ... so it
+    # cannot drift from the evidence without the suite failing." That sentence was FALSE for 2 of
+    # the table's 5 rows, and ④ is the exact clause entry 1322 found stale arguments about.
+    # Both numbers were on disk the whole time: R440 ships `excluded_by_4` (empty) with n_arms 42,
+    # and R824 ships `e1.excluded_permissive` = 25 plus the 25 names.
+    a = art("R440_*")
+    if a is not None and "excluded_by_4" in a:
+        out["clause4_excludes_strict"] = (len(a["excluded_by_4"]), "R440")
+    a = art("R824_*")
+    if a is not None and isinstance(a.get("e1"), dict) and "excluded_permissive" in a["e1"]:
+        out["clause4_excludes_permissive"] = (a["e1"]["excluded_permissive"], "R824")
     a = art("R360_*")
     if a:
         out["clause2_excludes"] = (len(a["arms"]) - len(a["clause2_admits"]), "R360")
@@ -1213,9 +1226,20 @@ ASSERTIONS = {
     "r475_ceil_raw":  r"vs \*\*(0\.8495)\*\*",
     "r475_frac_w":    r"\*\*(\d+\.\d)%\*\* of the way from chance to a pure top-4-by-`w`",
     "r475_frac_abs":  r"and \*\*(\d+\.\d)%\*\* of the\s*\n?way to a pure top-4-by-`\|w\|`",
-    "clause1_excludes":      r"\*\*(\d+) of 41\*\*",
-    "clause2_excludes":      r"\*\*(\d+) of 42\*\*",
+    # ⚠ ANCHORED 2026-08-06 (entry 1325). Both patterns below were UNANCHORED and matched the
+    # right cell only by DOCUMENT POSITION. `**(\d+) of 41**` matched FOUR sites capturing
+    # 0 / 0 / 24 / 41; `**(\d+) of 42**` matched four capturing 33 / 14 / 0 / 33 — and the
+    # clause-④ row `**0 of 42**` sits TWO LINES below clause ②'s. Reordering the table, or
+    # inserting any earlier `**N of 4x**`, would silently repoint the check.
+    # The failure direction is the bad one: a DECOY above the real cell whose value happens to
+    # match the artifact makes the gate PASS while the table itself has drifted. Anchored to the
+    # clause text so the pattern names the row it is about — §4's unit-vs-unit rule applied to a
+    # regex. ③ was already anchored this way and is left as it was.
+    "clause1_excludes":      r"better than a random draw of the prompt's own rubric \| \*\*(\d+) of 41\*\*",
+    "clause2_excludes":      r"better than a prompt-blind set \| \*\*(\d+) of 42\*\*",
     "clause3_excludes":      r"no prompt labels \| \*\*(\d+) of 42\*\*",
+    "clause4_excludes_strict":     r"better than every criterion-free rule \| \*\*(\d+) of 42\*\*",
+    "clause4_excludes_permissive": r"PERMISSIVE reading adopted by R824\* \| \*\*(\d+) of 58\*\*",
     "admitted_2B":           r"\*\*(\d+)\*\* arms admitted at Qwen3\.5-2B-Base",
     "admitted_08B":          r"\*\*(\d+)\*\* at\s*\n?\s*Qwen3\.5-0\.8B-Base",
     "n_arms_r301":           r"on all (\d+) arms",

@@ -24217,3 +24217,55 @@ paragraph with *an* assertion, not with **the** assertion it modifies. A marker 
 unrelated claim would pass. So **33 is an upper bound on safety**; what is established is that **no
 instance of the 1322 separation survives at paragraph granularity**, not that all 33 pairings are
 semantically right. Verifying that needs reading all 33, which this round did not do.
+
+## 1325 · the definition's opening guarantee was false for 2 of its 5 clause rows, and both numbers were on disk the whole time
+
+`DEFINITION.md` opens with a promise: *"**Every number in it is checked against a committed artifact
+on every run** by `assurance/definition_matches_the_record.py`, so it cannot drift from the evidence
+without the suite failing."* Tested against the clause table it introduces.
+
+| clause row | machine-checked? | anchored to its artifact |
+|---|---|---|
+| ① 0 of 41 | ✅ | `R347` · `len(counterexamples)` |
+| ② 33 of 42 | ✅ | `R360` · `len(arms) − len(clause2_admits)` |
+| ③ 14 of 42 | ✅ | `R444` · `clause3_excludes_after` |
+| **④ 0 of 42** *(strict)* | ⛔ **NO** | — |
+| **④ 25 of 58** *(permissive, the adopted reading)* | ⛔ **NO** | — |
+
+**There was no `clause4_*` assertion of any kind.** So the opening sentence was **false for 2 of 5
+rows**, and the uncovered clause is **exactly the one entry 1322 found stale arguments about**.
+
+### ⛔ AND THE THREE THAT WERE CHECKED WERE CHECKED BY POSITION
+
+`clause1_excludes` was `\*\*(\d+) of 41\*\*` — **matching 4 sites in the file, capturing
+`0 / 0 / 24 / 41`**. `clause2_excludes` was `\*\*(\d+) of 42\*\*` — 4 sites, `33 / 14 / 0 / 33`, and
+**clause ④'s `**0 of 42**` sits two lines below clause ②'s row**. Both read the right cell only
+because `re.search` takes the first match and the table happens to come first.
+
+**DECOY CONTROL.** A line stating `**99 of 41**` and `**77 of 42**` inserted *above* the table:
+**the old patterns read 99 / 77** — fully repointed — while the anchored replacements still read
+**0 / 33**. Both are now anchored to their clause text and match **exactly once**.
+⚠ **Stated precisely: this demonstrates REPOINTING, not a live false PASS.** A false pass needs a
+decoy whose value happens to equal the artifact's; what is shown is that the pattern's target is
+positional, which is the precondition for it.
+
+### ⭐ BOTH ④ NUMBERS WERE ALREADY IN COMMITTED ARTIFACTS
+
+`R440_*/results/r440_one_space.json` → `n_arms = 42`, `excluded_by_4 = []` → **0**.
+`R824_*/results/closed_under_fitting.json` → `e1.excluded_permissive = **25**`, with
+`e1.excluded_permissive_names` holding all 25. **Nothing had to be recomputed and nothing was
+missing** — the wiring simply did not exist. Both are now assertions, anchored to their own row text.
+
+### ⭐ AND THE GATE PROVED IT CAN FIRE — ON MY OWN CHANGE
+
+Adding two assertions moved the suite's **self-referential** anchor count 338 → 340, and the gate
+immediately failed with *"r461_anchors: document says 338, LIVE says 340"* and the same for
+`r462_total`. That is a positive control I did not have to construct: **the instrument detected a
+drift created by improving the instrument.** Both document counts corrected; the gate now reports
+**340 of 340 assertions evaluable** and **PASS**.
+
+⚠ **Scope, quoted from the gate rather than paraphrased:** *"This check is sound in ONE direction: a
+failure means the document is wrong about the record. A pass does NOT certify the document — every
+prose claim not in the assertion table is unchecked BY CONSTRUCTION."* So 340 of 340 is a statement
+about the **assertion table**, not about the document, and the opening guarantee remains true only
+for numbers someone has bothered to anchor.

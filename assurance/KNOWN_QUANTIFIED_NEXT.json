@@ -1,5 +1,5 @@
 {
-  "count": 220,
+  "count": 221,
   "notes": {
     "44f05d1f": "R789's commit body: 'every arm above it reads the target'. VERIFIED at the object in check #392a -- corebench/select_core.py:161 (indep_k), :168 (greedy_k), :180 (oracle) each call tgt.get(pid). Frozen because gate 5 cannot see the commit it gates: the body becomes visible only once HEAD has moved past it.",
     "4f484ca9": "Another session's commit, frozen not rewritten -- same case as 9f353596. Its 'every gate' quantifies over run_all.py's own code and over eleven MEASURED orphaned stashes. A concurrent writer's message is not mine to reword and rebase is prohibited here.",
@@ -18,7 +18,8 @@
     "4c832514": "'four rounds whose verdicts have no representation in the README AT ALL ... no check in this package measures it' -- wrong twice, and entry 1318 measured both. The check exists (every_round_reaches_the_readme) and was already failing; and the count is 191, not four -- every existing round in R649-R839, set-equality verified. Frozen with the disproof, not a provenance: the commit is pushed and the sentence was a closing quantifier over my own work, which is the population I enumerate worst.",
     "5d1e7c91": "'the census is THE ONLY instrument that publishes the denominator' -- unsupported and probably false. audit_the_auditors.py:127 enumerates the same full population with sorted(HERE.glob('*.py')), and run_all's own NOT_A_GATE comment calls it a META-GATE that 'runs every gate in this directory, including this runner'. Frozen with the counter-example rather than a provenance: a closing universal over my own gates, the population I enumerate worst.",
     "3fb50577": "'the current DEFINITION.md has clauses that have NEVER been asked' the exclusion question -- FALSE, and entry 1322 refuted it in one read. DEFINITION.md L140 carries the finished per-clause table: (1) 0 of 41, (2) 33 of 42, (3) 14 of 42, (4) 0 of 42 strict / 25 of 58 permissive, each with its round. All four had been asked and answered; R360 and R518 did the work. Frozen with the counter-evidence rather than a provenance -- a closing 'never' over my own record, which is the population I enumerate worst, for the fourth time in this thread.",
-    "c4a8bf3f": "'the first thing in this thread that would catch a defect NO EXISTING GATE has a bucket for' -- too strong, and entry 1323 measured the overlap. retired_framing_in_assertion_positions.py already covers the neighbouring property, though only in STRUCTURAL POSITIONS (headers, subtitle, table cells) of README/FROZEN/PREREGISTRATION, and its own docstring concedes body prose is unwatchable. The gap is real -- entry 1322's defect was body prose in DEFINITION.md, and is SCOPE OMISSION on a live claim rather than a retired phrase -- but 'no existing gate' was an uncomputed universal over my own suite, the fifth in this thread."
+    "c4a8bf3f": "'the first thing in this thread that would catch a defect NO EXISTING GATE has a bucket for' -- too strong, and entry 1323 measured the overlap. retired_framing_in_assertion_positions.py already covers the neighbouring property, though only in STRUCTURAL POSITIONS (headers, subtitle, table cells) of README/FROZEN/PREREGISTRATION, and its own docstring concedes body prose is unwatchable. The gap is real -- entry 1322's defect was body prose in DEFINITION.md, and is SCOPE OMISSION on a live claim rather than a retired phrase -- but 'no existing gate' was an uncomputed universal over my own suite, the fifth in this thread.",
+    "a10fa2b7": "'the definition's own head is now THE ONLY place in this thread where a claim and its evidence have not been checked against each other' -- FALSE, and entry 1325 refuted it in the same table the NEXT pointed at. BOTH clause-④ rows of the L140 table had no assertion of any kind, and the three that did were anchored only by DOCUMENT POSITION (clause1's pattern matched 4 sites capturing 0/0/24/41). Frozen with the counter-evidence, not a provenance: a closing 'the only' over my own record, the sixth in this thread."
   },
   "r670_note": "10 shas added 2026-08-05 by R670: newly visible once the pattern learned 'the last' and 'the first'. Past commit bodies cannot be rewritten, so they are recorded as known and any NEW instance fails. Ledger 715/723 are the named cases.",
   "r706_note": "R706 widened the extractor from `^NEXT:` to paragraph-initial `NEXT[:.,]`, making 65 commits visible in full history and 26 newly-flagged inside the gate's 400-commit window. ALL 26 were invisible to the OLD extractor -- 0 are new violations; they are pre-existing history the gate could not read. Measured before freezing: loss 0, false positives 0 against 8 real wrapped-prose lines, and the newly-visible flag rate 0.4615 vs 0.2655 is explained by paragraph LENGTH (2.0x longer; length-matched the gap is +0.0908, inside a stratified null, p=0.1933). Frozen as history, not as an acquittal of the sentences themselves.",
@@ -276,6 +277,7 @@
     "4c832514",
     "5d1e7c91",
     "3fb50577",
-    "c4a8bf3f"
+    "c4a8bf3f",
+    "a10fa2b7"
   ]
 }
