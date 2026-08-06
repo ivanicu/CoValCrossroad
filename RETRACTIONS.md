@@ -25883,3 +25883,44 @@ clause its verdict.*
 1352 said the design cannot tell. **1357 says it can, and the reason all three failed is the same
 one: none of them counted the data it was using.** Four rounds of increasingly careful reasoning
 about what could not be known, with 5.68× more of it sitting on disk, unused.
+
+## 1358 · the unstable seed is project-wide — 33 code lines in 29 files, and the ratchet now exists
+
+R841's NEXT, executed immediately: *if `hash(p)` unseeded one round's draw it may have unseeded
+others.* **It did.**
+
+| | |
+|---|---|
+| files scanned | **816** (`E0*/A*/R*/run.py` + `corebench/*.py`) |
+| code lines seeding an RNG from `hash(...)` | **33** |
+| files | **29** |
+| of those, hashing a string id | **≥25** (the rest hash tuples whose members are also strings) |
+| prompt id type | `'6b346e96-a9ba-…'` — **`str`**, so `hash()` is per-process randomised |
+
+⚠ **My first sweep was wrong and its own negative control caught it**: `grep 'default_rng(.*hash('`
+matched **R841's own explanatory comment**, reporting a file that had already been repaired. The
+recount excludes comment lines and trailing comments; **both controls then pass** (a known offender
+appears, R841 does not). **A grep is an instrument** — the uncontrolled version would have published
+30 with one of them a repaired file.
+
+### ⚠ SCOPE — stated because this is the direction a project-wide finding overreaches
+
+- **DOES establish**: those draws cannot be reproduced; an exact number quoted from them cannot be
+  re-derived; `≥3 seeds` never isolated seed variance; two-seed byte-identity was **unachievable**.
+- **DOES NOT establish that the results are wrong.** An unseeded draw is still an *unbiased sample*.
+  What is void is the **reproducibility** and **seed-spread** claims — not the estimates.
+- **DOES NOT generalise R841's 59%** (spread 0.0041 on an effect of ~0.007) to the other 28. **One
+  measured case is not a rate**, and saying otherwise would be the overreach this ledger logs most.
+
+### ⭐ WHAT WAS BUILT — `assurance/a_seed_must_be_stable.py`
+
+Positive control: a `hash()`-seeded RNG **is** flagged. **g=0**: a `crc32` seed *and a comment
+mentioning `hash(p)`* are **not** — the arm that exists precisely because the first sweep failed it.
+Proxy ledger on the file: *`hash(` in a seed ⇒ not reproducible* is **sound**; *absence ⇒
+reproducible* is **not** — a seed can be stable and still be read from the clock. **It rules on one
+failure mode and says so.**
+
+The 29 are frozen as **RECORDED, NOT FORGIVEN** — each still cannot reproduce its own numbers — so
+the gate ratchets on **new** offenders. ⭐ **Anchored by FILE PATH, which is an identity**: entry
+1354's baseline expired because it was anchored to a **position**, and that lesson is now load-bearing
+two rounds later.
