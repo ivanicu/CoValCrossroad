@@ -4,19 +4,29 @@
  "isolation": "git worktree per subject, restored from git between subjects",
  "read_nothing": [
   "attack_scope_reaches_the_reader.py",
-  "results_match_their_code.py"
+  "clause3_as_written.py",
+  "every_round_is_committed.py",
+  "null_is_informative.py",
+  "results_match_their_code.py",
+  "token_boundaries.py"
  ],
  "docs_only": [
+  "a_control_that_cannot_fail.py",
+  "a_scored_artifact_records_its_configuration.py",
   "apply_freeze_status.py",
-  "attack_the_suite.py",
+  "comparator_scope.py",
+  "kill_is_wired_into_the_branch.py",
   "markdown_tables_are_well_formed.py",
-  "next_gradient_labels_its_hypotheses.py",
+  "residue_debt.py",
   "retired_framing_in_assertion_positions.py",
   "round_links_resolve.py",
   "scope_reaches_the_reader.py",
+  "the_clustered_estimator_is_sound.py",
   "_poscontrol_unrepaired.py"
  ],
- "never_ran": [],
+ "never_ran": [
+  "backfilled_findings_are_rederivable.py"
+ ],
  "positive_control_ok": true,
  "fails_at_g0": true,
  "rows": {
@@ -43,9 +53,46 @@
     "covalx/__pycache__/judge.cpython-313.pyc"
    ]
   },
+  "a_control_that_cannot_fail.py": {
+   "exit": 0,
+   "round_files": 0,
+   "other_files": 22,
+   "assurance_files": 65,
+   "verdict": "docs-only (scoped)",
+   "dirtied": 1,
+   "sample": [
+    "<unknown>",
+    "corebench/ablate_novel.py",
+    "corebench/compare.py",
+    "corebench/compare_matrix.py"
+   ]
+  },
+  "a_scored_artifact_records_its_configuration.py": {
+   "exit": 0,
+   "round_files": 0,
+   "other_files": 122,
+   "assurance_files": 0,
+   "verdict": "docs-only (scoped)",
+   "dirtied": 1,
+   "sample": [
+    "corebench/__pycache__/judge_core.cpython-313.pyc",
+    "corebench/judge_core.py",
+    "corebench/results/sat08_coval_core.npz",
+    "corebench/results/sat08_coval_core_sham.npz"
+   ]
+  },
+  "an_ear_label_matches_its_path.py": {
+   "exit": 0,
+   "round_files": 593,
+   "other_files": 0,
+   "assurance_files": 0,
+   "verdict": "read the tree",
+   "dirtied": 1,
+   "sample": []
+  },
   "an_mde_records_its_denominator.py": {
    "exit": 0,
-   "round_files": 415,
+   "round_files": 860,
    "other_files": 0,
    "assurance_files": 1,
    "verdict": "read the tree",
@@ -68,16 +115,25 @@
   },
   "apply_outcome_scope.py": {
    "exit": 0,
-   "round_files": 385,
+   "round_files": 808,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
    "dirtied": 1,
    "sample": []
   },
+  "arm_population_is_derived.py": {
+   "exit": 1,
+   "round_files": 793,
+   "other_files": 0,
+   "assurance_files": 1,
+   "verdict": "exit 1, not a pass",
+   "dirtied": 1,
+   "sample": []
+  },
   "artifacts_are_internally_coherent.py": {
    "exit": 1,
-   "round_files": 605,
+   "round_files": 1077,
    "other_files": 10,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
@@ -92,7 +148,7 @@
   "attack_every_check.py": {
    "exit": 1,
    "round_files": 1,
-   "other_files": 697,
+   "other_files": 1150,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
    "dirtied": 1,
@@ -136,17 +192,17 @@
    "sample": []
   },
   "attack_the_suite.py": {
-   "exit": 0,
+   "exit": 1,
    "round_files": 0,
-   "other_files": 4,
-   "assurance_files": 2,
-   "verdict": "docs-only (scoped)",
-   "dirtied": 1,
+   "other_files": 867,
+   "assurance_files": 6,
+   "verdict": "exit 1, not a pass",
+   "dirtied": 0,
    "sample": [
-    "FROZEN.md",
-    "PREREGISTRATION.md",
-    "README.md",
-    "covalx/frozen.py"
+    "A01_can_this_release_be_analysed_at_all",
+    "A02_which_aggregation_rule",
+    "A03_is_the_attribution_real_and_against_what_floor",
+    "A04_structured_plurality_or_reliability"
    ]
   },
   "audit_the_auditors.py": {
@@ -158,9 +214,29 @@
    "dirtied": 1,
    "sample": []
   },
+  "backfilled_findings_are_rederivable.py": {
+   "exit": "EXC RuntimeError",
+   "round_files": 0,
+   "other_files": 1,
+   "assurance_files": 1,
+   "verdict": "\u26d4 NEVER RAN (EXC RuntimeError)",
+   "dirtied": 0,
+   "sample": [
+    "README.md"
+   ]
+  },
+  "clause3_as_written.py": {
+   "exit": 0,
+   "round_files": 0,
+   "other_files": 0,
+   "assurance_files": 0,
+   "verdict": "\u26a0 READ NOTHING",
+   "dirtied": 1,
+   "sample": []
+  },
   "code_states_a_bound_the_reader_never_sees.py": {
    "exit": 0,
-   "round_files": 410,
+   "round_files": 855,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -168,6 +244,15 @@
    "sample": [
     "README.md"
    ]
+  },
+  "comparator_scope.py": {
+   "exit": 0,
+   "round_files": 0,
+   "other_files": 0,
+   "assurance_files": 3,
+   "verdict": "package-scoped (by design)",
+   "dirtied": 1,
+   "sample": []
   },
   "consistency.py": {
    "exit": 0,
@@ -180,7 +265,7 @@
   },
   "corrections_propagated.py": {
    "exit": 0,
-   "round_files": 601,
+   "round_files": 1073,
    "other_files": 4,
    "assurance_files": 1,
    "verdict": "read the tree",
@@ -194,7 +279,7 @@
   },
   "definition_matches_the_record.py": {
    "exit": 0,
-   "round_files": 19,
+   "round_files": 88,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -203,7 +288,7 @@
   },
   "donor_numbers_carry_their_draw_scope.py": {
    "exit": 2,
-   "round_files": 370,
+   "round_files": 793,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "exit 2, not a pass",
@@ -212,18 +297,27 @@
     "README.md"
    ]
   },
+  "every_round_is_committed.py": {
+   "exit": 0,
+   "round_files": 0,
+   "other_files": 0,
+   "assurance_files": 0,
+   "verdict": "\u26a0 READ NOTHING",
+   "dirtied": 1,
+   "sample": []
+  },
   "every_round_reaches_the_readme.py": {
    "exit": 0,
-   "round_files": 24,
-   "other_files": 7,
+   "round_files": 25,
+   "other_files": 12,
    "assurance_files": 0,
    "verdict": "read the tree",
    "dirtied": 1,
    "sample": [
-    "README.md",
-    "covalx/__init__.py",
-    "covalx/__pycache__/__init__.cpython-313.pyc",
-    "covalx/__pycache__/judge.cpython-313.pyc"
+    "A99_synth",
+    "E99_synth",
+    "R9001_indexed",
+    "R9002_orphan"
    ]
   },
   "frozen_frame_verifies.py": {
@@ -237,7 +331,7 @@
   },
   "generate_round_index.py": {
    "exit": 0,
-   "round_files": 394,
+   "round_files": 845,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -248,7 +342,7 @@
   },
   "interval_is_centred_on_its_point.py": {
    "exit": 0,
-   "round_files": 605,
+   "round_files": 1077,
    "other_files": 6,
    "assurance_files": 2,
    "verdict": "read the tree",
@@ -260,11 +354,25 @@
     "covalx/__pycache__/rounds.cpython-313.pyc"
    ]
   },
+  "kill_is_wired_into_the_branch.py": {
+   "exit": 0,
+   "round_files": 0,
+   "other_files": 21,
+   "assurance_files": 0,
+   "verdict": "docs-only (scoped)",
+   "dirtied": 1,
+   "sample": [
+    "corebench/ablate_novel.py",
+    "corebench/compare.py",
+    "corebench/compare_matrix.py",
+    "corebench/dimension_curve.py"
+   ]
+  },
   "manifest.py": {
    "exit": 0,
-   "round_files": 975,
+   "round_files": 1870,
    "other_files": 18,
-   "assurance_files": 45,
+   "assurance_files": 67,
    "verdict": "read the tree",
    "dirtied": 3,
    "sample": [
@@ -290,9 +398,9 @@
   },
   "next_gradient_is_new.py": {
    "exit": 0,
-   "round_files": 517,
-   "other_files": 50,
-   "assurance_files": 43,
+   "round_files": 1387,
+   "other_files": 51,
+   "assurance_files": 65,
    "verdict": "read the tree",
    "dirtied": 1,
    "sample": [
@@ -303,35 +411,56 @@
    ]
   },
   "next_gradient_labels_its_hypotheses.py": {
-   "exit": 0,
+   "exit": 1,
    "round_files": 0,
    "other_files": 0,
    "assurance_files": 1,
-   "verdict": "package-scoped (by design)",
+   "verdict": "exit 1, not a pass",
    "dirtied": 1,
    "sample": []
   },
+  "next_line_quantifiers_are_computed.py": {
+   "exit": 0,
+   "round_files": 593,
+   "other_files": 2,
+   "assurance_files": 2,
+   "verdict": "read the tree",
+   "dirtied": 1,
+   "sample": [
+    "README.md",
+    "ontology/README.md"
+   ]
+  },
   "no_withdrawn_framings.py": {
    "exit": 0,
-   "round_files": 601,
+   "round_files": 1073,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
+   "dirtied": 1,
+   "sample": []
+  },
+  "null_is_informative.py": {
+   "exit": 0,
+   "round_files": 0,
+   "other_files": 0,
+   "assurance_files": 0,
+   "verdict": "\u26a0 READ NOTHING",
    "dirtied": 1,
    "sample": []
   },
   "outcome_variable_declared.py": {
-   "exit": 0,
-   "round_files": 383,
+   "exit": 1,
+   "round_files": 808,
    "other_files": 0,
    "assurance_files": 0,
-   "verdict": "read the tree",
+   "verdict": "exit 1, not a pass",
    "dirtied": 1,
    "sample": []
   },
   "point_and_interval_share_a_source.py": {
    "exit": 0,
-   "round_files": 370,
+   "round_files": 794,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -349,7 +478,7 @@
   },
   "readme_agrees_with_results.py": {
    "exit": 0,
-   "round_files": 601,
+   "round_files": 1073,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "read the tree",
@@ -359,20 +488,29 @@
    ]
   },
   "readme_row_carries_the_verdict.py": {
-   "exit": 2,
-   "round_files": 599,
+   "exit": 0,
+   "round_files": 1071,
    "other_files": 1,
    "assurance_files": 0,
-   "verdict": "exit 2, not a pass",
+   "verdict": "read the tree",
    "dirtied": 1,
    "sample": [
     "README.md"
    ]
   },
+  "register_requirements.py": {
+   "exit": 0,
+   "round_files": 94,
+   "other_files": 0,
+   "assurance_files": 0,
+   "verdict": "read the tree",
+   "dirtied": 1,
+   "sample": []
+  },
   "registries_are_satisfied.py": {
    "exit": 0,
-   "round_files": 556,
-   "other_files": 8,
+   "round_files": 979,
+   "other_files": 10,
    "assurance_files": 0,
    "verdict": "read the tree",
    "dirtied": 1,
@@ -381,6 +519,26 @@
     "covalx/__init__.py",
     "covalx/__pycache__/__init__.cpython-313.pyc",
     "covalx/__pycache__/frozen.cpython-313.pyc"
+   ]
+  },
+  "release_names_resolve_to_one_set.py": {
+   "exit": 0,
+   "round_files": 791,
+   "other_files": 0,
+   "assurance_files": 1,
+   "verdict": "read the tree",
+   "dirtied": 1,
+   "sample": []
+  },
+  "residue_debt.py": {
+   "exit": 0,
+   "round_files": 0,
+   "other_files": 1,
+   "assurance_files": 0,
+   "verdict": "docs-only (scoped)",
+   "dirtied": 1,
+   "sample": [
+    "RETRACTIONS.md"
    ]
   },
   "results_are_not_degenerate.py": {
@@ -415,17 +573,28 @@
    ]
   },
   "retired_framing_in_emittable_source.py": {
-   "exit": 0,
-   "round_files": 410,
+   "exit": 1,
+   "round_files": 855,
    "other_files": 17,
    "assurance_files": 1,
-   "verdict": "read the tree",
+   "verdict": "exit 1, not a pass",
    "dirtied": 1,
    "sample": [
     "covalx/__init__.py",
     "covalx/certificate.py",
     "covalx/cluster.py",
     "covalx/control_band.py"
+   ]
+  },
+  "retraction_reaches_the_artifact.py": {
+   "exit": 0,
+   "round_files": 25,
+   "other_files": 1,
+   "assurance_files": 1,
+   "verdict": "read the tree",
+   "dirtied": 1,
+   "sample": [
+    "RETRACTIONS.md"
    ]
   },
   "round_links_resolve.py": {
@@ -442,6 +611,15 @@
     "NORTH_STAR.md"
    ]
   },
+  "run_all.py": {
+   "exit": 1,
+   "round_files": 0,
+   "other_files": 0,
+   "assurance_files": 0,
+   "verdict": "exit 1, not a pass",
+   "dirtied": 0,
+   "sample": []
+  },
   "scope_reaches_the_reader.py": {
    "exit": 0,
    "round_files": 0,
@@ -453,7 +631,7 @@
   },
   "seed_filter_is_disclosed.py": {
    "exit": 1,
-   "round_files": 394,
+   "round_files": 817,
    "other_files": 1,
    "assurance_files": 0,
    "verdict": "exit 1, not a pass",
@@ -464,7 +642,7 @@
   },
   "source_stamp_is_current.py": {
    "exit": 0,
-   "round_files": 556,
+   "round_files": 1118,
    "other_files": 3,
    "assurance_files": 1,
    "verdict": "read the tree",
@@ -474,6 +652,15 @@
     "R001_plant",
     "results"
    ]
+  },
+  "statement_provenance.py": {
+   "exit": 0,
+   "round_files": 204,
+   "other_files": 0,
+   "assurance_files": 0,
+   "verdict": "read the tree",
+   "dirtied": 1,
+   "sample": []
   },
   "synthesis_cites_recent_work.py": {
    "exit": 2,
@@ -486,9 +673,29 @@
     "README.md"
    ]
   },
+  "the_clustered_estimator_is_sound.py": {
+   "exit": 0,
+   "round_files": 0,
+   "other_files": 1,
+   "assurance_files": 0,
+   "verdict": "docs-only (scoped)",
+   "dirtied": 1,
+   "sample": [
+    "lib/cluster.py"
+   ]
+  },
+  "token_boundaries.py": {
+   "exit": 0,
+   "round_files": 0,
+   "other_files": 0,
+   "assurance_files": 0,
+   "verdict": "\u26a0 READ NOTHING",
+   "dirtied": 1,
+   "sample": []
+  },
   "verdict_cites_its_own_contrasts.py": {
    "exit": 2,
-   "round_files": 541,
+   "round_files": 999,
    "other_files": 0,
    "assurance_files": 0,
    "verdict": "exit 2, not a pass",
