@@ -294,7 +294,39 @@ defence is contradicted by the elicitation format.**
 > **The definition's "every"s are searches, and a search reports what it searched.** So each such
 > clause must (a) name its family, and (b) report its bar as a **LOWER BOUND**, never as the
 > supremum — because "computable from responses alone" is not a finite set and no round can enumerate
-> it. **That is a permanent property of the clause, not a gap to be closed later.** The metric is still
+> it. **That is a permanent property of the clause, not a gap to be closed later.**
+>
+> ⭐⭐⭐ **AND R848 GIVES THAT LOWER BOUND A RATE — the first POSITIVE result about clause ④ in this
+> arc.** Every prior finding here was a caveat; this one is a margin with a growth law.
+>
+> ⚠ **First, the trap:** *"is membership monotone in search effort?"* is **forced** — `core > max(F)`
+> and a max is non-decreasing, so membership is non-increasing **by construction**. Not asked.
+>
+> **The dose-response, 1,078 prompts, every annotator, 24 subfamily draws per size:**
+>
+> | n | real max | noise max | excess |
+> |---:|---:|---:|---:|
+> | 5 | 0.4461 | 0.4326 | +0.0135 |
+> | **30** *(R436's family)* | 0.4636 | 0.4397 | +0.0240 |
+> | 100 | 0.4716 | 0.4423 | +0.0293 |
+> | **394** | **0.4801** | 0.4451 | **+0.0351** |
+>
+> **Slope per `ln(n)`: real +0.00741 · noise +0.00278 — the real curve grows 2.7× faster**, so
+> enlarging buys **content**, not search. Controls: human-vs-itself 1.0000, reversed 0.2523, and a
+> **seed check** confirming the draw seed changes the subfamily (entry 1358 found 29 files where it
+> did not). ⚠ The **noise slope is positive**, which quantifies the other writer's R843 mechanism.
+>
+> ⭐ **So "every" has a price: the bar rises +0.0074 per e-fold of family size, and `coval_core`
+> leads the 394-rule bar by 0.0864 — about 11.7 e-folds of headroom.**
+>
+> > ⚠ **D4, NOT A MEASUREMENT.** `max ≈ 0.4377 + 0.00741·ln(n)` puts the crossing at **n ≈ 3.5×10⁷
+> > rules**. A2 is **bounded above**, so a log fit must eventually break; this is what a 9-point
+> > model says, not what the world says.
+>
+> ⚠ **And the scope that matters most: the rate belongs to a family CLASS** — single- and two-feature
+> rules over 14 response features. **A class with learned features or fitted combiners is a different
+> curve, and this says nothing about it.** Clause ④ is not *safe*; its exposure is **quantified within
+> one class**, which is the first time any clause in this definition has had that. The metric is still
 > **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
 > that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a

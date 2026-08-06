@@ -1,0 +1,27 @@
+  prompts with 4 response texts AND a human ranking: 1078
+  POSITIVE  human vs itself 1.0000, must be 1.0   PASS
+  NEGATIVE  reversed        0.2523, must be low   PASS
+  family: 394 rules (R847's 30 committed + 364 combinations)
+  scored 394 rules on both targets · real max 0.4801 · noise max 0.4451
+  SEED CHECK  a different draw seed changes the subfamily: True  PASS
+
+      n   real max (mean of draws)    noise max    excess
+      5                     0.4461       0.4326   +0.0135
+     10                     0.4553       0.4349   +0.0204
+     20                     0.4606       0.4395   +0.0211
+     30                     0.4636       0.4397   +0.0240
+     50                     0.4714       0.4425   +0.0289
+    100                     0.4716       0.4423   +0.0293
+    200                     0.4758       0.4442   +0.0317
+    300                     0.4796       0.4450   +0.0347
+    394                     0.4801       0.4451   +0.0351
+
+  slope per ln(n):  real +0.00741   noise +0.00278   separation +0.00464
+  ⭐ WORLD A: the real curve outgrows noise — enlarging buys content
+
+  ⚠ EXTRAPOLATION, D4 AND NOT A MEASUREMENT: fitting max ≈ 0.4377 + 0.00741·ln(n),
+    reaching coval_core 0.5665 would need n ≈ 3.53e+07 rules.
+    A2 is BOUNDED ABOVE by 1 and by the human ceiling, so a log fit MUST eventually
+    break; the number above is what the fitted model says, not what the world says.
+
+  artifact: results/dose_response.json @ c04e6dcc — per-rule scores PERSISTED

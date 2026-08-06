@@ -26224,3 +26224,52 @@ family**. **The definition's "every"s are searches, and a search reports what it
 *"computable from responses alone"* is not a finite set and no round can enumerate it. ⭐ **That is a
 permanent property of the clause, not a gap to be closed later**, and it is the second change to the
 definition's SHAPE this arc has earned.
+
+## 1366 · R848 — "every" now has a PRICE: +0.0074 per e-fold, and clause ④ has 11.7 e-folds of headroom
+
+### ⛔ THE TRAP KILLED MY OWN NEXT, AND THAT IS THE FIRST RESULT
+
+R847's NEXT proposed *"is membership monotone in search effort?"* **Forced.** `core > max(F)` and a
+max is non-decreasing, so membership is non-increasing **by construction** — the same derivation
+trap caught one round earlier in 1364. **Not asked.** The non-forced question is the dose-response.
+
+### ⭐⭐ THE CURVE — 1,078 prompts, every annotator, 24 subfamily draws per size
+
+| n | real max | noise max | **excess** |
+|---:|---:|---:|---:|
+| 5 | 0.4461 | 0.4326 | +0.0135 |
+| **30** *(R436's committed family)* | 0.4636 | 0.4397 | +0.0240 |
+| 100 | 0.4716 | 0.4423 | +0.0293 |
+| **394** | **0.4801** | 0.4451 | **+0.0351** |
+
+**Slope per `ln(n)`: real +0.00741 · noise +0.00278 · separation +0.00464.**
+
+**Controls:** human-vs-itself **1.0000** · reversed **0.2523** · **seed check PASS** (a different draw
+seed changes the subfamily — entry 1358 found **29 files** where a seeds flag changed nothing).
+
+⭐ **WORLD A: the real curve grows 2.7× faster than noise** — enlarging buys **content**, not search.
+⭐ R847's *"the excess more than doubled"* is now a **smooth monotone rise**, +0.0135 → +0.0351, not
+a jump. ⚠ **The noise slope is positive**, which quantifies the other writer's R843 mechanism rather
+than merely citing it.
+
+### ⭐⭐⭐ THE FIRST POSITIVE RESULT ABOUT CLAUSE ④ IN THIS ARC
+
+Every prior finding here was a caveat. **This is a margin with a growth law:** the bar rises
+**+0.0074 per e-fold of family size**, and `coval_core` leads the 394-rule bar by **0.0864** —
+**≈ 11.7 e-folds of headroom.**
+
+> ⚠ **D4, NOT A MEASUREMENT.** `max ≈ 0.4377 + 0.00741·ln(n)` puts the crossing at **n ≈ 3.5×10⁷**.
+> A2 is **bounded above by 1 and by the human ceiling**, so a log fit **must** break. A 9-point model.
+
+### ⚠ THE SCOPE THAT MATTERS MOST
+
+The rate belongs to a **family CLASS** — single- and two-feature rules over **14** response features.
+**A class with learned features, embeddings or fitted combiners is a different curve and this round
+says nothing about it.** ⭐ **Clause ④ is not shown safe; its exposure is QUANTIFIED WITHIN ONE
+CLASS** — the first time any clause in this definition has had that.
+
+### ⭐ AND AN ARTIFACT R847 SHOULD HAVE SHIPPED
+
+`dose_response.json` persists **all 394 per-rule real and noise scores**, so a later round can re-cut
+the curve without recomputing. *"What a LATER round needs to ATTACK this"* is a checklist line, and
+**R847 shipped only its summary.** Caught by needing it one round later.
