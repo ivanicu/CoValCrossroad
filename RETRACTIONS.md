@@ -21984,3 +21984,61 @@ refusing to force-restore 2,896 files was right either way. **It changes what I 
 narrated a mechanism (*"deliberate, reversible, correctly recorded"*) from an artifact that was only
 evidence of *state*, not of *intent*, and the true mechanism was one `git log` away in a commit
 already in my own repository. **A marker tells you what a process wrote, never what it meant.**
+
+## 1267 · SCOPED: R825's "④ excludes the released core" was one point on a plateau that straddles it
+
+R825 measured the leak-free char-n-gram bar at **k = 100 SVD components** and reported that ④
+excludes `coval_core` — paired +0.006197 [+0.003923, +0.008471], 12 of 12 splits.
+
+**R826 swept the effort dial and the bar saturates**: k = 0…200 gives 0.524670 → 0.528836 →
+**0.558620** → 0.564312 → 0.570737 → 0.570526 → 0.572551 → 0.572162 → 0.570339, last rise
+**−0.001823** against a noise floor of **0.007376**. Most of the gain arrives by **k = 10**.
+
+⭐ **The plateau sits ON the core.** Bar **0.571263** vs **0.566477**; of the five saturated cells
+(k ≥ 40) **2 exclude · 3 indistinguishable · 0 admit**.
+
+**R825's exclusion is real at k = 100** — reproduced here at 0.572551 — **and does not generalise
+across the plateau.** k = 100 was not chosen because anything distinguishes it; it is where the
+previous round's TF-IDF happened to be truncated.
+
+**What this settles:** ④ *is* evaluable — the bar does not climb without end, so WORLD C is dead.
+**What it leaves open:** at the modelling limit, ④'s bar and the released core are the same number to
+within this design's resolution, so ④'s verdict on the object the definition describes is
+**undetermined rather than decided**.
+
+## 1268 · the outcome was a world I had not registered, and the kill correctly refused rather than being bent
+
+R826 pre-registered three worlds: **A** saturates above the core · **B** saturates below · **C** no
+saturation. The observed outcome was a **fourth — saturates ON the core** — and the kill, reading the
+k = 200 endpoint (`lo` = −0.000332), matched none of them and printed **UNVERIFIED**.
+
+⭐ **That is the kill working, and the verdict stands as UNVERIFIED.** It is not being rewritten to
+name the world I discovered afterwards. A pre-registration whose worlds are re-cut once the answer is
+visible is a narrative with a timestamp.
+
+**But the kill also had a real defect, and it is a different one:** it read a **single endpoint**
+where the plateau spans five cells. `bar(k=200)` is not "the saturated value" — the saturated value
+is a property of the plateau, and k = 200 is the one cell where the held-out curve has already begun
+to fall. **A saturation test that samples the last point measures the last point.** The remedy is to
+define the plateau by the rise falling inside the noise floor and then take the statistic over every
+cell in it — which is what the report does, labelled as a post-hoc reading.
+
+## 1269 · my multiplicity test had five possible values and could not rank nine cells
+
+R826 printed *"BH q=0.05 over 9 paired tests: 3 survive, 6 do not"*. The p it ranked on was
+`2 * min((d>0).mean(), (d<0).mean())` at **n = 8** — a sign proportion whose granularity is 2/8, so it
+can take only **0, 0.25, 0.50, 0.75, 1.00**. **A statistic with five distinct values cannot order
+nine cells**, and BH is nothing but an ordering.
+
+Recomputed from each cell's own CI with a t-derived p: **9 of 9 survive.**
+
+⚠ **The coarse version would have retracted k = 100 and k = 150** — the two cells carrying R825's
+result — **for a reason that was an artifact of the test's resolution, not of the data.**
+
+⭐ **And note the direction: it failed toward *no effect*.** That is the second time this session — the
+first was comparing a mean over 10 splits to a per-split noise floor, a √n mismatch. **Both would have
+manufactured a null.** This arc has a rich vocabulary for checks that fail toward PASS, because a pass
+gets doubted. **A check that fails toward NULL gets thanked**, reads as conservatism, and is the
+harder failure to see. Remedy, mechanical: **before running a multiplicity correction, print how many
+distinct values the p-statistic can take at this n, and refuse to rank if that number is smaller than
+the number of cells.**

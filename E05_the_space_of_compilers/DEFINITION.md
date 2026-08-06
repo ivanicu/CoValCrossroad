@@ -7297,7 +7297,12 @@ bar sits **+0.090263 above it**.
 
 ## R825 · the permissive bar reaches the released core
 
-**Clause ④, under the permissive reading adopted in R824, excludes `coval_core`.** A response-only
+**Clause ④, under the permissive reading adopted in R824, excludes `coval_core`.** ⚠⚠ **SCOPED BY R826: THAT HOLDS AT
+ONE POINT ON A PLATEAU THAT STRADDLES THE CORE.** Sweeping modelling effort k = 0…200 SVD components,
+the held-out bar **saturates** at **0.571263** (last rise −0.001823 against a noise floor of
+0.007376) — and across the five saturated cells k ≥ 40 it **excludes the core in 2, is
+indistinguishable in 3, and admits it in 0**. R825's k = 100 reproduces here at 0.572551 and its
+exclusion is real *at k = 100*; it does not generalise across the plateau. A response-only
 predictor over character n-grams — every unsupervised stage (vectoriser, SVD basis, SVD z-score,
 lexical z-score) fit on the fit half — reaches a held-out bar of **0.572335** against the core's
 **0.566477**. Paired on the same evaluation halves over 12 splits: **+0.006197 [+0.003923,
@@ -7312,3 +7317,31 @@ difference *"inside the floor"* — it compared a **mean over 10 splits** agains
 floor**. A floor is a single draw's dispersion; a mean's standard error is `sd/√n`, ~3× smaller.
 **That is a √n units mismatch, and it fails toward "no effect", which is why it reads as caution and
 passes unexamined.** Both the paired and unpaired intervals exclude zero at n = 12.
+
+
+## R826 · the response-only bar saturates, and it saturates ON the released core
+
+**The effort curve settles.** Held out, over k = 0, 5, 10, 20, 40, 60, 100, 150, 200 SVD components
+of character 3–5-grams, the bar runs 0.524670 → 0.528836 → **0.558620** → 0.564312 → 0.570737 →
+0.570526 → 0.572551 → 0.572162 → 0.570339. **Most of the gain arrives by k = 10.** The last rise is
+**−0.001823** against a noise floor of **0.007376**, so it is saturated — and it *falls* at k = 150
+and 200, which is R823's held-out-bar-falls result appearing again.
+
+⭐ **The plateau sits ON `coval_core`.** Bar **0.571263** against **0.566477**, mean paired
+**+0.003836**, and of the five saturated cells **2 exclude · 3 indistinguishable · 0 admit**.
+**At the modelling limit, ④'s bar and the released core are the same number to within this design's
+resolution**, so ④'s verdict on the object the definition was written to describe depends on where in
+the plateau one samples.
+
+⛔ **A DERIVATION, not evidence (D2, written before the run):** a crossing between k = 0 (admits) and
+k = 100 (excludes) exists **by construction** given those endpoints. Finding one is not a finding —
+only its location, its sharpness and the saturation are measurable.
+
+⭐ **The sham is what makes the rise attributable.** Run at *every* k on random features of matched
+dimension, it **declines** 0.524670 → 0.493813, so the excess grows monotonically to **+0.076527**.
+**Capacity alone makes the held-out bar worse**; every point of the rise is the features.
+
+⚠ **The pre-registered verdict is UNVERIFIED, and it is not being rewritten.** Three worlds were
+registered — saturates above, below, or not at all. **The observed outcome was a fourth: saturates
+ON the core.** The kill read the k = 200 endpoint, matched nothing, and refused. A kill that refuses
+because the outcome was not in the world list is the kill working.

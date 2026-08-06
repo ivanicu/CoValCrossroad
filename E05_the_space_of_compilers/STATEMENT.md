@@ -2950,3 +2950,54 @@ reading leaves ④ excluding nothing. Neither is a definition anyone can ship. S
 paired splits. The next round asks whether ④ is salvageable at all — whether any reading of *"better
 than every rule computable from the response set alone"* both binds and admits the released core, or
 whether the clause must be replaced rather than repaired.
+
+---
+
+## R826 · the response-only bar saturates, and it saturates ON the released core
+
+R825 reported that ④ excludes `coval_core`. **That holds at one point on a plateau that straddles the
+core.**
+
+Sweeping modelling effort — k = 0…200 SVD components of character 3–5-grams, held out, every
+unsupervised stage fit on the fit half — the bar **saturates**:
+
+| k | 0 | 10 | 20 | 40 | 60 | 100 | 150 | 200 |
+|---|---|---|---|---|---|---|---|---|
+| bar | 0.524670 | 0.558620 | 0.564312 | 0.570737 | 0.570526 | 0.572551 | 0.572162 | 0.570339 |
+
+Last rise **−0.001823** against a noise floor of **0.007376**. **Most of the gain arrives by k = 10.**
+
+⭐ **The plateau (k ≥ 40) sits on the core.** Bar **0.571263** vs **0.566477**, mean paired
+**+0.003836**; of the five saturated cells, **2 exclude · 3 indistinguishable · 0 admit**. **At the
+modelling limit, ④'s bar and the released core are the same number to within this design's
+resolution.**
+
+**What this scopes:** R825's exclusion is real at k = 100 (reproduced here at 0.572551) and does not
+generalise across the plateau. **What it settles:** ④ *is* evaluable — the bar does not climb without
+end — but its verdict on the released core is undetermined at the limit rather than decided.
+
+⛔ **DERIVATION, not evidence:** a crossing between k = 0 (admits) and k = 100 (excludes) exists **by
+construction**. Only its location, sharpness and the saturation are measurable.
+
+⭐ **Sham, swept at every k:** on random features of matched dimension the bar **declines** 0.524670 →
+0.493813, so the excess grows to **+0.076527**. Capacity alone makes the held-out bar worse; every
+point of the rise is the features.
+
+⚠ **The pre-registered verdict is UNVERIFIED and stands.** Three worlds were registered — saturates
+above, below, or not at all. The outcome was a **fourth**: saturates *on* the core. The kill matched
+no world and refused rather than being rewritten.
+
+**Scope** · 968 prompts × 4 responses · 9 effort levels × 8 splits · instrument A2 against human
+pairwise signs, no model judge · baseline `coval_core` 0.566477 · regime: held out, noise floor
+0.007376; k* is a property of this feature family on this release and transfers to no other without
+re-measurement.
+
+## NEXT
+
+The released core landing *on* the response-only ceiling is a stronger statement about the object
+than either verdict was, and it is the one thing here with no mechanism attached. See
+`R826_is_clause_four_evaluable_without_a_budget/results/effort_curve.json` for the nine cells. The
+next round asks whether that coincidence is **structural** — the core's criteria are recoverable from
+response surface features, making it a response-only rule in disguise — or **numerical**, two
+unrelated quantities that happen to meet. That is a question about mechanism, and it is answered by
+regressing the core's per-prompt scores on the saturated predictor's, not by moving any threshold.
