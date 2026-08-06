@@ -175,7 +175,18 @@ manufacture power without validity.** ⛔ And it would not suffice anyway: **427
 ⚠ **`FORMULATION.md` carries 100 unsupported figures of 125** — the largest such block in the
 repository, in the one document R598 measured as flipping **0 of 28** gates. ⚠ **But governance and
 ERA are confounded**: its median citation is **R256** against this page's **R607**, and this design
-cannot separate them. The era is printed beside each rate rather than absorbed into it. ⚠ The analytic formula said **0.1174**, and planting exactly that rejects only
+cannot separate them. The era is printed beside each rate rather than absorbed into it.
+⛔⛔ **AND THAT CONTRAST IS UNIDENTIFIABLE, NOT MERELY UNDER-POWERED** *(R754)*. `FORMULATION.md` has
+**0** figures in two of four era bins (`450-600`, `600+`), which together hold **174** of this page's.
+**No stratification can separate document from era there**, and more data does not fix it.
+⭐ **Where era CAN be tested with governance held constant — inside `DEFINITION.md`, which spans both
+ranges — it explains nothing**: old-era **0.3958** (n=48) vs new-era **0.4054** (n=74), difference
+**−0.0096**, at the **14.5th percentile** of a 5,000-shuffle permutation null (sd 0.0915). Five
+*arbitrary* split points give differences up to **0.0763** — **the era split is less different than an
+arbitrary one.** ⚠ `STATEMENT.md` shows +0.3391 on the same split but at **n_old = 10**, far below its
+own MDE, and is reported as **uninformative at that n**.
+⇒ **The governance reading survives its strongest confound — which is the most it can do, because the
+decisive contrast cannot be identified at all.** ⚠ The analytic formula said **0.1174**, and planting exactly that rejects only
 **0.6237** of the time, not 0.80 — **the normal approximation overstates this design's power by 1.37×**
 because the smaller arm expects under 2 events. **What stands is a census of 4**, from which no rate is
 computed: **2** are the ungrounded pair already annotated, and **2** sit under a `CORRECTED` marker that

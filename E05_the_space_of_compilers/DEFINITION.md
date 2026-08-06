@@ -4675,3 +4675,52 @@ without validity, which is worse than the shortfall. **And the shortfall stands 
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 97531, **both writes confirmed to
 disk** (2,287 / 2,291 bytes, differing only in the recorded seed).
+
+## R754 · era does not explain it where it can be measured, and where the effect lives it cannot be
+
+**Question.** R753 found the ungated `FORMULATION.md` at a **0.8000** flagged rate and flagged that
+governance and era are confounded. Separate them by comparing eras *within* a document.
+
+**⛔ The identification check ran first and killed the main contrast.**
+
+| document | `<300` | `300-450` | `450-600` | `600+` | total |
+|---|---|---|---|---|---|
+| `STATEMENT.md` | 4 | 6 | 86 | 88 | 184 |
+| `DEFINITION.md` | 5 | 43 | 55 | 19 | 122 |
+| **`FORMULATION.md`** | **110** | **15** | **0** | **0** | 125 |
+
+**2 of 3 pairs have an empty joint bin ⇒ UNIDENTIFIABLE.** Only `STATEMENT`–`DEFINITION` is 4/4.
+⛔ **An empty joint bin cannot be stratified — definitional.** This is an **identification** failure,
+not a power failure *(ledger 1031)*, and more data does not repair it.
+
+**E2 — within `DEFINITION.md`, governance constant, era varying.**
+
+| | n_old | n_new | rate_old | rate_new | diff |
+|---|---|---|---|---|---|
+| **`DEFINITION.md`** | 48 | 74 | **0.3958** | **0.4054** | **−0.0096** |
+| `STATEMENT.md` | 10 | 174 | 0.5000 | 0.1609 | +0.3391 ⚠ **n_old = 10, far below its MDE — uninformative** |
+| `FORMULATION.md` | 125 | **0** | 0.8000 | **UNDEFINED** | ⛔ undefined is **not** zero |
+
+**The difference sits at the 14.5th percentile** of a 5,000-shuffle permutation null (sd **0.0915**,
+95% band **[−0.1813, +0.1622]**). ⭐ And five **arbitrary** split points give `|diff|` up to **0.0763**
+— **the era split is less different than an arbitrary one.**
+
+**⛔ My first negative control presupposed a non-null effect** *(ledger 1032)*. It asked whether one
+shuffle beat the real difference; with a real difference of −0.0096 that is **§4 row ② verbatim** —
+*"a coin flip when the real effect is null, which is exactly when you are running it."* Repaired to the
+shuffle **distribution**.
+
+**Controls — 5 PASS, 0 FAIL.** POSITIVE the monotone ladder `0.0504 → 0.2833 → 0.7991 → 1.0000` ·
+g=0 at **0.0497 ≈ α** · NEGATIVE as above · SHAM the arbitrary splits · PLACEBO exactly 0.
+⭐ The formula was honest again: analytic **0.2545**, empirical **0.2565**, **1.01×**.
+
+**Registered against measured.** **P1 +0.30 ⚠ prior-art-informed from R607's 13× era effect → −0.0096**
+— in band, point badly wrong, and **the prior did not transfer from rounds to a document's figures**
+*(ledger 1033)* · P2 15 → **4** ✓ · P3 0.25 → **0.2545** ✓ · P4 0.78 → **0.7939** ✓ · P5 2 → **2** ✓ ·
+**D false** — DEFINITION's old-era rate is closer to STATEMENT's than to FORMULATION's.
+
+**Verdict — `WORLD B`.** Era does not explain it where it can be measured, so **the governance reading
+survives its strongest confound** — the most it can do, since the decisive contrast is unidentifiable.
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 11223, **both writes confirmed to
+disk** (2,830 / 2,834 bytes, differing only in the recorded seed).

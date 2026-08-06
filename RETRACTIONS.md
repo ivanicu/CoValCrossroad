@@ -19045,3 +19045,33 @@ the simulated answer. The difference is the expected number of events: under two
 design's smaller arm against about fifty here. The lesson is not that the formula is unreliable, it is
 that its failure is predictable from the counts, so the check is cheap and belongs in every round that
 quotes a detectable effect rather than in the ones where I happen to suspect it.
+
+## 1031 · the contrast carrying my strongest finding is unidentifiable, not merely confounded
+
+The formulation cites nothing above round four hundred and fifty, so two of four era bins are empty for
+it while they hold three hundred and fifty four of the statement's citations. Two of the three document
+pairs therefore have no joint stratum on that axis, and no amount of stratification separates document
+from era for them. That is an identification failure rather than a power failure and the two must not
+be reported as one, because more data fixes the second and nothing short of a differently written
+document fixes the first. Only the definition spans both ranges, so it alone can hold governance
+constant while era varies, and it is not the document carrying the effect.
+
+## 1032 · my negative control presupposed the effect it was testing
+
+The control shuffled the old and new labels once and asked whether the shuffled difference was smaller
+than the real one. The real difference is one hundredth, essentially zero, and a single shuffle
+produces a difference of order the standard error, so the comparison almost always fails when the
+effect is null, which is exactly the case in which it is run. The standard names this in its own words
+as a coin flip when the real effect is null. Repaired to the shuffle distribution over five thousand
+draws, the real difference sits at the fifteenth percentile of the null, which confirms the null rather
+than failing the control.
+
+## 1033 · a strong prior art effect measured on one unit did not transfer to another
+
+An earlier round measured a thirteen fold difference in provenance rate between two eras of rounds, so
+I registered a thirty point era effect inside a document and declared the registration as prior art
+informed rather than blind. The measured difference is one hundredth of a point, near zero and
+unremarkable against its own permutation null. The prior was real, published and correctly cited, and
+it was measured on rounds while I applied it to a document's cited figures. Borrowing an effect across
+units is not the same as replicating it, and labelling the registration honestly did not make the
+number less wrong.
