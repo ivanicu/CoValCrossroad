@@ -1726,6 +1726,21 @@ def main() -> int:
     print(f"    assertion table is unchecked BY CONSTRUCTION, and that remainder is why this line")
     print(f"    prints a count instead of a clean bill.")
 
+    # ⛔ SET IDENTITY, NOT CARDINALITY (entry 1339). `r461_anchors`/`r462_total` compare
+    # `len(ASSERTIONS)` against a number in the prose. That is a COUNT, and it is blind to every
+    # CARDINALITY-PRESERVING change. Measured by attack: renaming one assertion key left 343 == 343
+    # and the suite PASSED — the regex survived under a bogus name with no computation behind it,
+    # while its real label kept a computation with no regex. Deleting a key (343 -> 342) was caught,
+    # which is why the count looked 3-for-3: every change this thread had made was UNBALANCED.
+    # This is the set check that count cannot do, and it is the attack's own remedy.
+    _orphan_rx = sorted(set(ASSERTIONS) - set(truth))
+    if _orphan_rx:
+        print(f"\n  FAIL: {len(_orphan_rx)} assertion(s) have a regex but NO computed value, so nothing")
+        print( "  compares them. A count of assertions cannot see this; only the set can:")
+        for k in _orphan_rx:
+            print(f"    {k}")
+        return 1
+
     if not caught:
         print("\n  FAIL: the comparison could not reject a planted wrong value.")
         return 1

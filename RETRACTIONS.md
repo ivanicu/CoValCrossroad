@@ -24917,3 +24917,50 @@ occurrence**: 338→340, 340→342, 342→343). Counts updated; the gate now **P
 
 **So the guess was confirmed by something that is not me** — the cheapest form of door ③ available
 inside a single round, and the reason to anchor a suspected match rather than argue for it.
+
+## 1339 · the 3-for-3 control is blind to every cardinality-preserving change, and its record was an artifact of what I happened to do
+
+Entry 1338 closed on the self-referential anchor count being **3 for 3** — 338→340, 340→342, 342→343 —
+the only control in this package with that record. **ESTIMAND: what transformation changes the
+property (which assertions exist) while leaving the measurement (their count) invariant?**
+
+`r461_anchors` and `r462_total` are both `len(ASSERTIONS)` compared against a number in the prose.
+**A cardinality, never a set.** The gauge test names the attack in one line: **a SWAP.**
+
+### ⛔ THE ATTACK, RUN RATHER THAN ARGUED
+
+| | count | exit | verdict |
+|---|---|---:|---|
+| baseline | 343 | **0** | PASS |
+| **A · one assertion key RENAMED** | 343 → **343** | **0** | ⛔ **SILENT FAILURE** |
+| B · one assertion key DELETED *(positive control for the attack)* | 343 → 342 | **1** | caught |
+| restored | 343 | **0** | PASS |
+
+After the rename the regex survived under a bogus name **with no computation behind it**, while its
+real label kept a computation **with no regex** — and the suite passed.
+
+⭐ **So the 3-for-3 record is real and means less than it looked.** Every change this thread made was
+**UNBALANCED** (add-only), which is the one class a count can see. The control was never tested against
+the class it is blind to, and *"three consecutive catches"* measured **my editing habits**, not the
+control's reach.
+
+⚠ **And the gate was already classifying the orphan as `⚠ UNEVALUABLE` while passing** — the anomaly
+was computed and displayed, and nothing branched on it. `feedback_confession_is_never_audited`: the
+information was on screen for the taking.
+
+### ⭐ THE REMEDY IS THE CHECK ENTRY 1337 MEASURED AND NEVER WIRED
+
+Entry 1337 differenced the two label sets and reported *"0 regexes without a computation"* — as a
+**measurement**, not as a **rule**. It is now a rule: `set(ASSERTIONS) − set(derive())` must be empty,
+and the gate FAILs naming each orphan.
+
+**Verified with the attack as its own positive control**: live **exit 0**; Attack A replayed →
+**exit 1, `zz_bogus_swapped_key` named**; restored → **exit 0**. Assertion count unchanged at 343,
+because a check is not an assertion.
+
+⚠ **What this does NOT fix.** The reverse difference is still legitimately non-empty — `derive()`
+yields intermediates the definition never states (entry 1338: 5 of 6 were internals), so it cannot be
+required to be zero. And a swap that **replaces one assertion with another that is both computed and
+matched** would still preserve cardinality *and* pass the set check on names alone. **The control is
+now set-identity on labels, which is strictly stronger than a count and still not referent identity**
+— the same wall entries 1334–1336 hit three times.
