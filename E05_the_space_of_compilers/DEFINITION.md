@@ -5523,3 +5523,34 @@ spectral estimate was **0.59**.
 quartiles committed [0.0055, 0.0333, 0.0667] vs comparison [0.0416, 0.0856, 0.1479].
 
 **WORLD: none claimed** — registered A needed ≥0.5× the ceiling, B ≤0.2×, and 0.283 is neither.
+
+## R775 · four disjoint families, and the rule gradient
+
+**Scope.** population = 968 prompts; four families of five arms with **zero shared objects** under
+R730, every member default-judge (no `_08b`, R765) and non-replica (no `_ctl`/`_det`, R766) —
+F1 committed `coval_core, topw_k3/k4/k6/k8` · F2 selector-seed `random_k4_s0/s1/s2, topabs_k4,
+topvar_k4` · F3 target-reading `oracle_k4, oracle_k4_fit1, greedy_k4_fit1, indep_k4_fit1,
+greedy_k4_greedy_kA` · F4 selector-k `random_k2/k3/k6/k8/k12_s0`; regime = first release, home judge,
+this tree_sha.
+
+| pair | raw | ceiling | relative | class |
+|---|---|---|---|---|
+| F2 × F4 *(both `random_k`)* | 0.6017 | 0.8410 | **0.7154** | sel–sel |
+| F1 × F2 | 0.2438 | 0.8580 | **0.2841** | sel–sel |
+| F1 × F4 | 0.1716 | 0.8565 | **0.2003** | sel–sel |
+| F1 × F3 | 0.1353 | 0.8863 | 0.1527 | sel–TARGET |
+| F3 × F4 | −0.0020 | 0.8688 | −0.0023 | sel–TARGET |
+| F2 × F3 | −0.0120 | 0.8702 | −0.0138 | sel–TARGET |
+
+**Reliabilities** F1 0.8738 · F2 0.8424 · F3 0.8990 · F4 0.8396.
+**Family levels** mean A2 0.5635 / 0.4910 / **0.6140** / 0.4942 · internal mean |d| 0.0457 / 0.1017 /
+**0.0305** / 0.0935 — **F3 is compressed to a third of the selector families**.
+
+**Controls.** DISJOINT 0 shared objects (exit 2 otherwise) · POSITIVE a planted prompt-scale, all six
+detected from width 0.25, min **+0.2770 → +0.7871**, monotone · g=0 width 0 not all detected ·
+NEGATIVE 200 one-sided permutations **+0.0017 [−0.0629, +0.0603]** · PLACEBO **1.000000** · SHAM
+within-family overlapping halves F1 **+0.5097** · F2 **+0.6545** · F3 **+0.8512** · F4 **+0.4256**.
+**WORLD C** — the target-reading family is compressed.
+
+⚠ **The axis null is under-powered by construction**: four families admit four labelings, so the
+observed difference **+0.3544** equals the permutation interval's upper end **[−0.2117, +0.3544]**.

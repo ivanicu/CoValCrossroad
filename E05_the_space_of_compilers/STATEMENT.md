@@ -394,7 +394,17 @@ A **core** for a conversation is a set of criteria such that
     R773's *"those prompts compress everything"* is not the population's behaviour — the ratio's
     decline was its denominator. ⇒ **`c(p)` mostly measures how close THESE FIVE are on a prompt**;
     a real prompt component exists (far outside a permutation band of [−0.065, +0.067]) and is about a
-    third of what the within-family reading suggested. And the confound is answered: the
+    third of what the within-family reading suggested.
+    ⛔⛔ **AND WHAT REMAINS IS MOSTLY A RULE GRADIENT** *(R775)*. Over **four** families of five with
+    **zero shared objects** (R730), no foreign judge (R765) and no replicas (R766), the six relative
+    cross-family correlations order by **how similar the families' RULES are**: two families both built
+    by `random_k` reach **0.7154**; different-rule selector pairs **0.2841** and **0.2003**;
+    selector-to-target-reading **0.1527, −0.0023, −0.0138**. R774's **+0.2438** is a different-rule
+    selector pair — the middle of that range, not a prompt constant. ⛔ **World C fires**: the
+    target-reading family is **compressed** — internal |d| **0.0305** against 0.0457 / 0.1017 / 0.0935 —
+    so its ≈0 correlations are its members agreeing with each other, not a clean statement about rules.
+    ⚠ **And the axis null is nearly vacuous**: four families admit only four labelings, so the observed
+    difference sits AT its own 97.5th percentile by construction and the test has no resolution. And the confound is answered: the
     `topw_k` family is an inverted U peaking at **k = 6** (eff/MDE 1.311) with `eff/MDE` falling
     monotonically 6 → 8 → 12, so `topw_k8` is not an anomaly but where the curve re-enters the floor.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own
