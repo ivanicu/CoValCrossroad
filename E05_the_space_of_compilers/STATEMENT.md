@@ -152,6 +152,16 @@ of the time, so the artifacts *do* store printed values and shallow depth is a p
 share≥2 0.4118), so *"the number is in the prose"* does not rescue it.
 ⇒ **Row 8 is not an unlucky row — it is the typical shape**, and a citation group must not be read as
 joint grounding. **Where a figure matters, the page must name WHICH citation computed it.**
+⛔ **CORRECTED: the actionable residue was 1, not 2** *(R751, ledger 1022)*. One of the two zero-support
+sentences is the `+0.0582 / 0.0200` row, which this page **already annotates** as ungrounded citing
+R591. A defect count that does not check for an existing repair measures the flag plus the backlog.
+⚠ **And netting repairs off a residue count cannot be automated with a keyword detector** *(R751,
+whose own verdict is `UNVERIFIED` — its estimand was not answerable with the instrument it built, and
+it is cited here as evidence that the question is OPEN, not that it is settled)*: figures that ARE
+supported carry annotation keywords at **0.5133** against **0.3030** for flagged ones — the SHAM
+**inverted**. The two keywords meaning *no source* (`ungrounded`, `corrected`) do point
+the right way at **0.0606 vs 0.0400** and **0.0606 vs 0.0200**, but that subset was identified **after**
+seeing the breakdown and is a hypothesis, not a finding.
 
 | # | claim | scope it holds over |
 |---|---|---|

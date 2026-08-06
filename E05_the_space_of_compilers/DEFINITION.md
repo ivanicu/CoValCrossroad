@@ -4520,3 +4520,54 @@ must name which citation computed it.**
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 13579, **both writes confirmed to
 disk** (7,990 / 7,994 bytes, differing only in the recorded seed).
+
+## R751 · `UNVERIFIED` — the annotation detector inverted its own SHAM
+
+**Question.** How much of what a defect-flag counts is **already repaired** on the page? R750 reported
+2 zero-support figures as residue; one of them is the row this page already annotates as ungrounded
+*(ledger 1022)*.
+
+**⛔ P4 first, and it stopped the fourth rebuild in this arc.** R750's proposed corpus-wide value search
+**is R591**, which scanned 355 rounds for R590's four orphans and returned four different verdicts,
+including `0.0200` **CONFIRMED UNGROUNDED**.
+
+**The grid — 3 matchers × 3 windows, SHAM arm beside every cell.**
+
+| matcher | window | flagged | annot | share | **SHAM (supported)** |
+|---|---|---|---|---|---|
+| **rounded** | **tight** | **33** | **6** | **0.1818** | **0.4600** |
+| rounded | medium | 33 | 8 | 0.2424 | 0.4667 |
+| **rounded** | **loose** | **33** | **10** | **0.3030** | **0.5133** |
+| prefix | tight / loose | 71 | 23 / 27 | 0.3239 / 0.3803 | 0.4643 / 0.5357 |
+
+⛔ `annotated ≤ flagged` and `loose ≥ tight` are **both FORCED** — order is algebra, only gaps measure.
+
+**⛔ The SHAM did not match, it INVERTED.** Supported figures carry annotation keywords **more** often
+than flagged ones, at every window and matcher. **Annotation does not track groundedness**, so the
+question is unanswerable with this detector and the verdict is `UNVERIFIED`.
+
+**Where the failure lives — the confound run on BOTH arms:**
+
+| keyword | flagged | supported | |
+|---|---|---|---|
+| **`ungrounded`** | **0.0606** | 0.0400 | flagged 1.5× |
+| **`corrected`** | **0.0606** | 0.0200 | flagged 3.0× |
+| `retracted` | 0.1515 | **0.2867** | supported |
+| `unverified` | 0.1818 | **0.4400** | supported |
+
+**A keyword detector cannot separate *"this number is ungrounded"* from *"this claim's scope is
+unverified"*.** ⚠ **The restricted detector is NOT reported as a result** — selecting it after seeing
+which subset favours the hypothesis is choosing the specification from the outcome *(ledger 1024)*.
+
+**Registered against measured.** P1 10 [3,40] → **33** in band, point wrong · P2/P3 ⛔ **registered with
+bands `[0.00, 1.00]`, which no share can fall outside — a check that cannot fail, in the
+preregistration of a round about instruments that cannot fail** *(ledger 1023)* · P4 the known case
+found loose and **missed tight** ✓ *(hard)* · P5 2 [0,10] → **10**, at the ceiling · D ✓.
+
+**Controls — 4 PASS, 1 FAIL.** POSITIVE `0.0200` missed tight, found loose, against a never-annotating
+floor — **a detector finding it at every window would not be measuring the window** · g=0 **23** flagged
+figures carry no keyword anywhere · NEGATIVE detached windows drop the share 0.3030 → 0.2424 · PLACEBO
+0 of 33 · **SHAM FAIL, inverted** · UNIT **17 of 33** flagged figures share a line.
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 24680, **both writes confirmed to
+disk** (3,356 / 3,360 bytes, differing only in the recorded seed).

@@ -1,0 +1,156 @@
+R751 · how much of what a defect-flag counts is already repaired on the page?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R750 closed by proposing that the whole artifact corpus be searched for its two zero-support
+figures. P4 found R591 did exactly that: it scanned 355 rounds for R590's four orphan values, with a
+collision floor and a hit null, and returned four DIFFERENT verdicts -- one truncated citation, one
+grounded-as-a-derived-difference, one where the estimand was false, and `0.0200` CONFIRMED
+UNGROUNDED. That is the fourth rebuild the prior-art gate has stopped in this arc.
+
+⛔ AND IT EXPOSED A DEFECT IN R750's OWN REPORT. Of its two zero-support sentences, ONE is the row
+carrying `+0.0582` and `0.0200` -- which STATEMENT.md already annotates, in its own words, as
+`⁇ BOTH DECIMALS ARE UNGROUNDED (R591)`, with the reason the correction is an annotation rather
+than a substitution. So R750 reported as actionable residue a defect the page had already repaired
+and documented. The actionable residue is ONE figure, not two.
+
+That is not a one-off. It is the founding incident of `assurance/residue_debt.py` -- a count of my
+own debt carried forward while the documents moved -- in a new place: **a defect FLAG counts
+instances, and some of those instances are already annotated.** No round has measured that gap.
+
+--------------------------------------------------------------------------------
+ESTIMAND
+--------------------------------------------------------------------------------
+Among the figures on STATEMENT.md that the support instrument flags as held by NO cited round, the
+share that the page ALREADY annotates as ungrounded, unverified, retracted or otherwise repaired --
+i.e. the PRECISION of the flag as a measure of outstanding debt.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+IDENTIFIED given (a) a support matcher and (b) an annotation window, and BOTH are instruments, so
+both are swept.
+
+⚠ GAUGE TEST. "Is it annotated" is a search over prose, and prose annotation can sit in the same
+sentence, the same table row, or the following block. A one-sentence window is BLIND to the real
+case: the `0.0200` annotation lives on the line AFTER the row it repairs. So the window is a
+specification axis with three levels, and a flag counted at one window is a statement about that
+window.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  every figure on STATEMENT.md that cites >=1 round and is found in NO cited round's
+            artifact under the ROUNDED matcher -- a CENSUS, not a sample
+instrument  R750's three matchers (REUSED) x three annotation windows
+baseline    R591's committed verdicts on four values, which supply the known-annotated case
+regime      the page and committed artifacts at this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE FLAG IS CLEAN DEBT. Few or none of the flagged figures are already annotated, so the flag
+    counts outstanding work and R750's residue was right in size if not in detail.
+B · THE FLAG OVERSTATES THE DEBT. A material share is already annotated, so a raw flag count is a
+    measure of the INSTRUMENT plus the backlog, and any round reporting it as residue -- including
+    R750 -- overstates what is owed.
+
+PREDICTION MATRIX -- share of flagged figures already annotated
+    A -> <= 0.20            B -> >= 0.40            between -> mixed, report the split
+
+--------------------------------------------------------------------------------
+⚠ SIGHTED, DECLARED BEFORE REGISTERING
+--------------------------------------------------------------------------------
+While running P4 I saw R750's two zero-support sentences: the `+0.0582 / 0.0200` row, which IS
+annotated, and a `15.23` row about a model's on-disk size, which I have not examined. So for the
+multi-cited subset I already know the answer is 1 of 2. No blind prediction is registered for that
+subset; the blind quantities are over the WHOLE flagged population, which is larger and which I have
+not looked at. Fourth declared sighting in six rounds.
+
+--------------------------------------------------------------------------------
+REGISTERED POINTS -- each independently failable
+--------------------------------------------------------------------------------
+P1  BLIND   flagged figures over the whole page, ROUNDED matcher   registered 10  [3, 40]
+P2  BLIND   share already annotated, TIGHT window (same sentence)  registered 0.10 [0.00, 1.00]
+P3  BLIND   share already annotated, LOOSE window (next 3 lines)   registered 0.40 [0.00, 1.00]
+P4  HARD    the known case `0.0200` must be flagged AND found
+            annotated at the loose window                          registered yes -- if it is not,
+                                                                   the instrument is unfit and the
+                                                                   round stops
+P5  BLIND   flagged figures whose sentence cites a round that
+            R591 already adjudicated                               registered 2   [0, 10]
+
+DIRECTIONAL, separately failable
+D   annotation share RISES with window size. If a wider window finds no more, annotations do not sit
+    near their figures and the window is not the mechanism -- which would mean the tight count is
+    already right and my gauge concern was misplaced.
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+FORCED, labelled derivations, not evidence:
+  - annotated <= flagged, always. "Not everything flagged is annotated" is not a finding.
+  - the LOOSE window's count >= the TIGHT window's, always, since it is a superset of text. The
+    ORDER is algebra; only the GAP measures. This is the same shape as R749's pattern ladder and it
+    is stated again because I reported that order as a result once already.
+  - a CENSUS has no confidence interval, and none is reported.
+
+STRONGEST CONFOUND, written BEFORE the run: an annotation may say something OTHER than "this figure
+is ungrounded" -- a scope note, a target caveat -- and a keyword window would count it as a repair.
+CONTROL IN THE SAME ITERATION: classify each hit by WHICH keyword fired and report the breakdown, so
+a reader can see whether the annotations are about groundedness or about something else.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE finds the known annotated case, and g=0 does NOT annotate a figure with no nearby
+annotation text, and NEGATIVE (shuffled windows) drops the annotation share:
+        share_loose <= 0.20  -> WORLD B KILLED. The flag is clean debt.
+        share_loose >= 0.40  -> WORLD A KILLED. A raw flag count overstates outstanding work, and
+                                R750's residue figure must be restated as flagged-minus-annotated.
+        otherwise            -> MIXED; publish the split rather than a headline.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE   the `0.0200` row is annotated on the line FOLLOWING it, in the page's own words
+           `BOTH DECIMALS ARE UNGROUNDED (R591)`. The detector must find it at the loose window and
+           MISS it at the same-sentence window. BAND, COMPUTED: floor = a detector that never
+           annotates (0 on a known-annotated case), ceiling = 1. Threshold 1, strictly above the
+           floor, asserted in code. The MISS at the tight window is required too -- a detector that
+           finds it at every window is not measuring the window.
+g=0        a flagged figure with no annotation keyword within any window must return NOT ANNOTATED.
+           A detector that annotates everything would manufacture World B.
+NEGATIVE   detach the windows: pair each figure with ANOTHER figure's surrounding lines. The
+           annotation share must drop. World excluded: "annotation keywords are so common on this
+           page that any window finds one".
+SHAM       the same operation with the INGREDIENT ABSENT, not inverted. Ingredient = being flagged.
+           Run the identical annotation detector on figures that ARE supported. If the annotation
+           share is the same there, annotation is not tracking groundedness at all and the whole
+           reading collapses -- which is the most informative way this round can fail.
+PLACEBO    the same figure scored twice -> exactly 0 difference, reported as 0 of N.
+NOISE      no rng except NEGATIVE's pairing, which is deterministic rotation, not sampling.
+UNIT       instrument unit = a (figure, window) pair; claim unit = a FIGURE owed repair. Not equal:
+           one sentence can carry several figures sharing one annotation. Annotation is therefore
+           resolved per FIGURE and the count of figures sharing an annotation is printed.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+3 matchers x 3 windows = 9 cells for the annotation share, plus the SHAM arm at each window and the
+keyword breakdown. All reported.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether an annotation is ADEQUATE     an editorial standard; this round detects presence, not
+                                      sufficiency, and says so
+figures owed repair that the support
+instrument does not flag              a correct support instrument, which is what R750 measured and
+                                      this round takes as given rather than re-deriving
+generalising beyond this page         a second deliverable
+independently replicated              a second team; the session prompt forbids dispatching agents

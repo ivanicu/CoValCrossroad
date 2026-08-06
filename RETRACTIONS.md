@@ -18958,3 +18958,33 @@ four. That is not a calibration success: an earlier round had already measured f
 overlapping population, which is seventy eight point nine, and I copied it. The preregistration says so
 and the result is recorded as prior art informed rather than scored as a hit. A registered value whose
 source is a previous measurement tests the reproduction, not the forecast.
+
+## 1022 · I reported an already-repaired defect as outstanding residue
+
+The previous round flagged two figures whose cited rounds hold no such number and closed by proposing
+they be chased through the artifact corpus. One of the two is the row the deliverable already annotates,
+in its own words, as both decimals being ungrounded, citing the round that established it and stating
+why the repair is an annotation rather than a substitution. So the actionable residue was one figure
+rather than two, and the prior art gate found the proposed chase had already been run on a neighbouring
+population. A defect count that does not check whether the page has already repaired the instance
+measures the flag plus the backlog, which is the incident that created the residue gate in the first
+place, in a new place.
+
+## 1023 · I registered two points with bands no measurement could fall outside
+
+The preregistration gave the annotation share a band from zero to one at two windows. A share is
+already bounded by zero and one, so the band excludes nothing and the registration cannot fail. This is
+the check that cannot fail, written by me, in the preregistration of a round whose entire subject is
+instruments that cannot fail. A band is only a commitment where it forbids an outcome the design could
+otherwise produce.
+
+## 1024 · the detector inverted its own control, and the subset that would rescue it was chosen after seeing the answer
+
+Figures that are supported by their cited rounds carry annotation keywords more often than figures that
+are not, at every window and every matcher. Annotation does not track groundedness, so the question the
+round asked is unanswerable with the instrument it built, and the verdict is unverified rather than a
+number. Breaking the keywords apart shows the two meaning that a figure has no source do point the
+right way while the two carrying scope and verdict language dominate the pool and point the other way.
+That restricted detector is not reported as a result, because selecting it after seeing which subset
+favours the hypothesis is choosing the specification from the outcome. It is a hypothesis for a round
+that preregisters it.
