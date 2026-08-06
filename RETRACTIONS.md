@@ -26508,3 +26508,44 @@ shuffled target.**
 
 ⚠ **Not a retraction of ②'s published 33 of 42** — different space (R360's 42 arms), different
 comparator. **What transfers is the shape, not the number.** ⚠ **① and ③ are untouched.**
+
+## 1372 · R852 — the null was wrong; I retracted two TRUE results with it, twice
+
+⛔ **The arithmetic I should have run first.** Under BH at q=0.05 over 99 arms a **pure** null yields
+on the order of `q·N ≈ 5` rejections. **R850 reported 30 and R851 reported 16 as "noise" — 3–6× that
+scale — and I called it noise twice without asking what my shuffle preserved.**
+
+§1's own row, verbatim: *"A permutation null answers `did the pairing matter`, never `why`. Before
+calling one load-bearing, **name the world it excludes and build that world synthetically to
+check**."* **I made it load-bearing in two consecutive rounds and never built the world.**
+
+### ⭐⭐ THREE NULLS, THREE SEEDS EACH · controls: placebo +0.00e+00, positive `oracle_k4` PASS
+
+| null | what it preserves | extension | seeds |
+|---|---|---:|---|
+| **REAL** | — | **29** of 99 | — |
+| **N1 pair-shuffle** *(mine)* | **each prompt's marginal verdict mix** | **14.3** | `[16, 12, 15]` |
+| **N2 cross-prompt swap** | another prompt's ranking | **0.0** | `[0, 0, 0]` |
+| **N3 uniform** — pure null | nothing | **0.0** | `[0, 0, 0]` |
+
+⭐⭐⭐ **Two independent proper nulls return EXACTLY ZERO.** Permuting *which pair is which* leaves the
+prompt's mix of ties and strict orderings intact, so an arm with a human-like **format** matches above
+chance whatever the pairing is. **That is format agreement — real and measurable — not a null.**
+
+### ⛔⛔⛔ WHAT THIS RETRACTS — all mine, from the last two rounds
+
+| claim | status |
+|---|---|
+| R850: *"④′'s excess is 11, not 41"* | ⛔ **RETRACTED** — against a proper null, **41** |
+| R851: *"②'s extension is ~55% free; excess 13"* | ⛔ **RETRACTED** — the excess is **29** |
+| R851: *"both measured clauses agree in the low teens"* | ⛔ **RETRACTED** — agreement between two artifacts of the same bad null |
+| R849: *"extension 41 of 99, excludes 58"* | ⭐ **RESTORED as reported** |
+
+⚠ **And the DIRECTION is the rare one.** The register records that of 7 mis-specified controls,
+**only 1 failed in the flattering direction.** **This failed the other way: a bad null made me retract
+something TRUE** — §3's named most-expensive error, *"a cheap attack that appears to kill a claim"* —
+**and I ran it twice and published both.**
+
+⭐ **What N1 does measure, kept rather than discarded:** how much of an arm's A2 advantage is
+**marginal-format agreement**. For clause ②, **14.3 of 99 arms' worth.** A real quantity, wrongly used
+as a null — which is the same shape as *"the sham is a poison, not a placebo"*, one level up.

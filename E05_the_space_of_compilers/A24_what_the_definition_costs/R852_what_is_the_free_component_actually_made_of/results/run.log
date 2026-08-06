@@ -1,0 +1,18 @@
+  prompts: 1078
+  arms: 99  ·  pure-null SCALE q·N = 0.05×99 ≈ 5.0
+  PLACEBO  comparator vs itself +0.00e+00  PASS
+  POSITIVE `oracle_k4` satisfies ② on the REAL target: True  PASS
+
+  REAL target: 29 of 99 arms satisfy ②
+
+  null                   extension (mean of 3 seeds)      sd
+  N1_pair_shuffle                               14.3     1.7   [16, 12, 15]
+  N2_cross_prompt                                0.0     0.0   [0, 0, 0]
+  N3_uniform                                     0.0     0.0   [0, 0, 0]
+
+  ⭐ WORLD B: the PAIR SHUFFLE keeps far more than the cross-prompt swap — what survives it is MARGINAL structure (verdict mix, tie rate), so the 'free component' is FORMAT agreement rather than noise, and the correct null is the cross-prompt swap
+     real 29 · N1 14.3 · N2 0.0 · N3 0.0 · pure-null scale ≈ 5.0
+     ⚠ q·N is the FDR bound's SCALE, not an exact prediction — BH bounds the expected
+     false-discovery PROPORTION among rejections. It is a ruler, not a test.
+
+  artifact: results/null_anatomy.json @ 89225641

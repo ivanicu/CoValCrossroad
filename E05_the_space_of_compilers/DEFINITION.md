@@ -489,7 +489,43 @@ defence is contradicted by the elicitation format.**
 >
 > ⚠ **Not a retraction of ②'s published 33 of 42** — that is R360's 42-arm space with a different
 > comparator; this is 99 arms against `genericpool16`. **Different populations.** What transfers is
-> the **shape**, not the number. The metric is still
+> the **shape**, not the number.
+>
+> ## ⛔⛔⛔ AND R852 RETRACTS BOTH BLOCKS ABOVE — THE NULL WAS WRONG (entry 1372)
+>
+> **The arithmetic that should have been run first:** under BH at q=0.05 over 99 arms, a **pure**
+> null yields on the order of `q·N ≈ 5` rejections. R850 reported **30** and R851 **16** as "noise".
+> **3–6× the pure-null scale — and I called it noise twice without checking what my shuffle
+> preserved.** §1's own row says: *"a permutation null answers `did the pairing matter`, never `why`
+> — before calling one load-bearing, NAME THE WORLD IT EXCLUDES and build that world."*
+>
+> | null | extension | seeds |
+> |---|---:|---|
+> | **REAL** | **29** of 99 | — |
+> | **N1 pair-shuffle** *(what R850/R851 used)* | **14.3** | `[16, 12, 15]` |
+> | **N2 cross-prompt swap** | **0.0** | `[0, 0, 0]` |
+> | **N3 uniform — the pure null** | **0.0** | `[0, 0, 0]` |
+>
+> ⭐⭐⭐ **Two independent proper nulls return EXACTLY ZERO.** The pair-shuffle permutes *which pair
+> is which* but **preserves each prompt's marginal verdict mix**, so an arm whose output has a
+> human-like mix of ties and strict orderings scores above chance **whatever the pairing is**. **That
+> is FORMAT agreement — real, measurable, and not a null.**
+>
+> | claim | status |
+> |---|---|
+> | *"④′'s excess is 11, not 41"* (R850) | ⛔ **RETRACTED** — against a proper null it is **41** |
+> | *"②'s extension is ~55% free; excess 13"* (R851) | ⛔ **RETRACTED** — the excess is **29** |
+> | *"both measured clauses agree in the low teens"* | ⛔ **RETRACTED** — an agreement between two artifacts of the same bad null |
+> | *"extension 41 of 99, excludes 58"* (R849) | ⭐ **RESTORED as reported** |
+>
+> ⚠ **The direction matters and it is the rarer one.** The register records that of 7 mis-specified
+> controls only **1** failed in the flattering direction. **This failed the other way: a bad null made
+> me retract something true — §3's named most-expensive error — and I ran it twice and published
+> both.**
+>
+> ⭐ **What N1 does measure, and it is worth keeping:** how much of an arm's A2 advantage is
+> **marginal-format agreement** — for clause ②, **14.3 of 99 arms' worth.** A real quantity, wrongly
+> used as a null. The metric is still
 > **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
 > that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a

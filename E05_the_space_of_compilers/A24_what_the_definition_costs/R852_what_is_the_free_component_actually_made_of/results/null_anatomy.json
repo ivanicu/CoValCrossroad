@@ -1,0 +1,43 @@
+{
+  "commit": "892256412416ba68ca5dee421060dd77022a3037",
+  "world": "B",
+  "n_arms": 99,
+  "real": 29,
+  "pure_null_scale": 4.95,
+  "nulls": [
+    {
+      "null": "N1_pair_shuffle",
+      "mean": 14.333333333333334,
+      "sd": 1.699673171197595,
+      "counts": [
+        16,
+        12,
+        15
+      ]
+    },
+    {
+      "null": "N2_cross_prompt",
+      "mean": 0.0,
+      "sd": 0.0,
+      "counts": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "null": "N3_uniform",
+      "mean": 0.0,
+      "sd": 0.0,
+      "counts": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "controls": {
+    "placebo": 0.0,
+    "pos": true
+  }
+}
