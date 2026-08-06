@@ -230,7 +230,40 @@ defence is contradicted by the elicitation format.**
 > "is it admitted?" throws the margin away, and the margin is where the content is.* **Clause ② should
 > state a margin against the arm's own wrong-prompt twin, with its interval — not an admission
 > verdict.** That is the first change to the definition's SHAPE, rather than to its numbers, that this
-> arc has earned. The metric is still
+> arc has earned.
+>
+> ⛔⛔ **AND ENTRY 1363's ALARM NAMED THE WRONG POPULATION — corrected by measurement (entry 1364).**
+> 1363 wrote: *"a clause quantified over 'every arm' where the arm set is a directory listing is not a
+> definition — it is a query against mutable state."* **The arm set is indeed mutable and did move:
+> R436 saw 93 arms when committed and 99 on a fresh run, with 107 `sat_*.npz` on disk today.**
+>
+> **But clause ④ does not quantify over the arm set.** Its own words are *"every rule computable from
+> responses alone"* — and R436 realises that as a **response-only FAMILY of 30**. Re-run against the
+> grown arm set:
+>
+> | | committed | fresh re-run |
+> |---|---|---|
+> | **bar** | **0.4511956297670583** | **0.4511956297670583** — identical to 16 dp |
+> | **best_rule** | `min_ttr` | `min_ttr` |
+> | **excluded** | 22 | 22 |
+> | **response-only family** | **30** | **30 — nothing added, nothing removed** |
+> | n_arms | 93 | 99 |
+> | n_arms_at_J | 56 | 62 |
+>
+> ⚠ **The stability of the bar is a DERIVATION, not evidence.** The bar is a `max` over the family;
+> the family did not change; therefore the bar could not change. **Reporting it as robustness would be
+> the arithmetic trap.**
+>
+> ⭐ **What IS measured, and it is the useful part: the family did not grow even though the arm set
+> grew by six.** All six new arms fall outside *"computable from responses alone"*. **So clause ④'s
+> exposure is to FAMILY growth, and that exposure has never been exercised** — no response-only rule
+> has been added since R436. The clause's wording was right; entry 1363 attached its alarm to the
+> wrong set.
+>
+> ⭐⭐ **The general lesson this earns for the FORMULATION: a universal clause must name the population
+> it quantifies over, and that population must be checkable.** *"Every rule computable from responses
+> alone"* is a **specification** (30 rules realise it); *"every arm"* would have been a **directory
+> listing**. The difference is invisible in prose and decides whether the clause has a fixed meaning. The metric is still
 > **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
 > that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a

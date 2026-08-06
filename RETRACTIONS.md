@@ -26132,3 +26132,48 @@ way.**
 ⚠ **Restored SCOPED, never `.`** (entry 1360): seven named round directories. The committed numbers
 are kept, because re-running R436 to today's 107 arms would require re-running every round, and the
 honest form is the number **with its arm-count scope attached**.
+
+## 1364 · entry 1363 named the wrong mutable population — clause ④ quantifies over a FAMILY, not the arm set
+
+1363 wrote: *"a clause quantified over 'every arm' where the arm set is a directory listing is not a
+definition — it is a query against mutable state."* **Measured, and the alarm attached to the wrong
+set.**
+
+### ⭐ THE OBJECT — R436 re-run against today's grown arm set
+
+| | committed | fresh re-run |
+|---|---|---|
+| **bar** | **0.4511956297670583** | **0.4511956297670583** — identical to **16 dp**, not 4 |
+| **best_rule** | `min_ttr` | `min_ttr` |
+| **excluded** | 22 | 22 |
+| **response-only family** | **30** | **30 — nothing added, nothing removed** |
+| n_arms | 93 | **99** |
+| n_arms_at_J | 56 | **62** |
+
+### ⚠ THE STABILITY OF THE BAR IS A DERIVATION — labelled, not banked
+
+The bar is a `max` over the family. **The family did not change. Therefore the bar could not change.**
+`1+1=2`. **Reporting it as evidence that clause ④ is robust would be the arithmetic trap** this
+standard opens with, and I was one sentence from doing it.
+
+### ⭐⭐ WHAT IS ACTUALLY MEASURED
+
+**The family did not grow even though the arm set grew by six.** All six new arms fall outside
+*"computable from responses alone"*. So:
+
+- **clause ④'s exposure is to FAMILY growth, not arm growth**;
+- **that exposure has never been exercised** — no response-only rule has been added since R436;
+- the structural vulnerability (a universal over a growable set is non-increasing in satisfaction)
+  is **real and unrealised**. ⚠ **Unrealised is not safe** — it is untested.
+
+### ⭐⭐⭐ THE FORMULATION LESSON
+
+**A universal clause must name the population it quantifies over, and that population must be
+checkable.** *"Every rule computable from responses alone"* is a **specification** — 30 rules realise
+it. *"Every arm"* would have been a **directory listing**. **The two are invisibly different in prose
+and decide whether the clause has a fixed meaning at all.** Clause ④'s wording was right; **my alarm
+was aimed one level off.**
+
+⚠ And the incidental repair: R436's committed `bar`, `best_rule` and `excluded` all reproduce exactly
+from committed code, so that anchor is **currency**, not merely determinism — which is more than R842
+established, and it was established by the gate failing on an edit that had nothing to do with it.
