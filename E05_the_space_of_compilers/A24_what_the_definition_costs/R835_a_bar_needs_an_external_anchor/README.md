@@ -68,6 +68,10 @@ between-arm MDE needs per-pair difference vectors R436 did not persist.
 > (0.0118 · 0.0104 · 0.0221 against 0.0232 · 0.0232 · 0.0384), implying **ρ = 0.835–0.899**.
 > **`gen` vs `random_k12_s0` IS separable at 2.9× its true MDE** — so this round's
 > W-NO-SEPARABLE-BEST holds only at the resolution it assumed, and the label-free class is not noise.
+> ⭐ **AND R838 MEASURED ALL 45 PAIRS.** Exactly **1** separates — `gen` vs `random_k12_s0` at
+> **2.9×** — so this ordering is **not a ranking**, it is two groups with one boundary. **25 of
+> the 45 true MDEs are BELOW 0.0104** and the smallest is **0.0000** (two duplicate arms), so the
+> bounded MDEs in the table below are wrong in both directions, not merely conservative.
 
 ## NEXT
 

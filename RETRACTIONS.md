@@ -23032,3 +23032,39 @@ prior defect before checking my own call is the thing to watch.
 ⚠ **Neither R835's nor R836's pre-registered verdict is rewritten.** Both fired as written; both are
 annotated with what R837 measured. **And the per-prompt difference vectors are persisted this
 time**, because R436 not persisting them is what cost these two rounds a round each of bounding.
+
+## 1298 · a filter whose premise is false for 56% of the population and whose conclusion is right for all of it
+
+R837 measured three true MDEs and I immediately built an arithmetic filter — *"a pair can only
+separate if gap > 2 × 0.0104"* — leaving 2 of 45 pairs worth measuring. ⛔ **That assumes
+`MDE ≥ 0.0104` everywhere and I never measured it.** `MDE = ZEFF·sd(d)/√n`, so two arms differing
+**systematically but slightly** have a small `sd(d)`, a small MDE, and could separate on a small gap.
+**R836 retracted a null resting on an unmeasured resolution; this is the same move one round later,
+in the opposite direction.** So all 45 were measured — it costs seconds per arm.
+
+| | |
+|---|---|
+| **SEPARABLE at the true MDE** | **1 of 45** — `gen` vs `random_k12_s0`, +0.0347 / MDE 0.0118 (**2.9×**) |
+| skipped-by-filter pairs that separate | **0** |
+| **smallest measured MDE** | **0.0000** — assumption **FALSE** |
+| **true MDEs below the assumed 0.0104** | **25 of 45** |
+
+Controls: `oracle_k4` vs `generic` **+0.0759 / 0.0106 SEPARABLE** · arm against itself **sd exactly
+0** · three seeds byte-identical.
+
+⭐ **W-FILTER-WAS-SAFE, and the two halves are the finding.** The filter's **premise is false for 56%
+of the population**; its **conclusion is right for 100%** — because where the MDE is small the gap is
+small too. **That is what "right by luck" looks like when you actually measure it**, and the
+smallest-MDE check is what turns the phrase from a hedge into a number. Had I shipped the filter, the
+verdicts would all have been correct and the reasoning would all have been wrong, which is the
+hardest kind of error to find later.
+
+⚠ **Two degeneracies, checked**: `random_k4_s1` vs `random_k4_s1_ctlS1` and `random_k4_s0` vs
+`random_k4_s0_ctlS0` give **sd exactly 0 over 968 prompts** — **duplicate arms** in R835's ordering.
+Their gap is exactly 0 too, so `|gap| > 2·MDE` is `0 > 0` → False. **Pairs with degenerate MDE and a
+nonzero gap: 0**, so nothing fires spuriously here — but an ordering with near-duplicates would need
+that guard, and R835's table does not have one.
+
+⭐ **The substantive result: one separable boundary in 45.** The ③-admissible ordering is **not a
+ranking** — it is the substantive label-free arms above the random cluster, and everything inside
+each group is noise at this design's true resolution.
