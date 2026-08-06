@@ -55,7 +55,22 @@ from pathlib import Path
 _ROOT = Path(__file__).resolve().parents[1]
 _SKIPPED: list[str] = []   # files a parse error skipped; printed if non-empty
 
-ROW = re.compile(r"^\|\s*\[[Rr]?(\d+)\]\((?:[EA]\d\d_[a-z0-9_]+/){0,2}")
+# ⚠ THIS ANCHOR DIED WHEN THE README WAS RESTRUCTURED, AND THE CHECK SAID SO FOR
+# ITS WHOLE LIFE WITHOUT ANYONE HEARING IT (entry 1316).
+# The original pattern was `^\|\s*\[[Rr]?(\d+)\]\(...` -- a row whose FIRST CELL is
+# the round link. That was the README's shape when this was written. The README now
+# leads with the QUESTION and carries the round links inside the answer cell, so the
+# anchored pattern matched 0 of 1,653 lines, `both` was empty by construction, and
+# the check exited 2 with "OBSERVED NOTHING". That exit is CORRECT behaviour for an
+# empty population -- which is exactly why nobody looked: a correct refusal is
+# indistinguishable from a real absence, and this one was reporting a fact about the
+# CHECK while reading as a fact about the CORPUS.
+# The instrument encoded the ARTIFACT'S LAYOUT rather than the property, and the
+# artifact was reformatted. No code changed and no test failed.
+# Fixed by matching the link ANYWHERE in a table row. Round ids are normalised to
+# INT because the README uses the old lowercase `r220` while artifacts use `R220`,
+# and zero-padding (`r04`) is not consistent across either.
+ROW = re.compile(r"\[[Rr]?(\d+)\]\((?:[EA]\d\d_[a-z0-9_]+/)")
 # Fields in which a round states a claim or a bound. `frozen_line` is
 # DELIBERATELY absent: it is package-level boilerplate identical across a
 # bloc, already enforced by registries_are_satisfied.py, and requiring a
@@ -106,9 +121,12 @@ REVIEWED = {
 }
 
 
-def reviewed_reason(rid: str, sentence: str) -> str | None:
+def reviewed_reason(rid: int, sentence: str) -> str | None:
+    # rid is an INT now; the table is keyed by the label the round was written under,
+    # and padding was never consistent -- accept both `r4` and `r04`.
+    labels = {f"r{rid}", f"r{rid:02d}"}
     for (r, frag), why in REVIEWED.items():
-        if r == rid and frag.lower() in sentence.lower():
+        if r in labels and frag.lower() in sentence.lower():
             return why
     return None
 
@@ -138,18 +156,27 @@ def main() -> int:
                     help="distinctive words a limitation must share with the row")
     a = ap.parse_args()
 
-    rows: dict[str, str] = {}
+    rows: dict[int, str] = {}
     for ln in a.readme.read_text().splitlines():
-        m = ROW.match(ln.strip())
-        if m:
-            rows.setdefault(m.group(1), ln)
+        s = ln.strip()
+        if not s.startswith("|"):      # still a TABLE ROW; only the anchor moved
+            continue
+        for m in ROW.finditer(s):
+            rows.setdefault(int(m.group(1)), s)
 
-    verdicts: dict[str, str] = {}
+    verdicts: dict[int, str] = {}
     for f in sorted(_ROOT.glob("E*/A*/R*/results/**/*.json")):
         if "smoke" in f.name.lower() or any(p.startswith("_") for p in f.parts):
             continue
-        rid = f.parts[-3].split("_")[0] if f.parent.name == "results" \
-            else f.parts[1].split("_")[0]
+        # ⚠ was `f.parts[-3] if parent is results else f.parts[1]`. `_ROOT.glob`
+        # yields ABSOLUTE paths, so the else-branch read `f.parts[1]` == "home" --
+        # the same positional-index-on-an-absolute-path defect R839's labelling hit.
+        # Scan from the right for the R-component instead; it cannot be positional.
+        rid_m = next((re.fullmatch(r"R(\d+)_.*|R(\d+)", p) for p in reversed(f.parts)
+                      if re.match(r"R\d+(_|$)", p)), None)
+        if rid_m is None:
+            continue
+        rid = int(rid_m.group(1) or rid_m.group(2))
         try:
             doc = json.loads(f.read_text())
         except (OSError, json.JSONDecodeError):
@@ -178,14 +205,15 @@ def main() -> int:
         merged = "\n".join(dict.fromkeys([prev, *parts]).keys()).strip()
         verdicts[rid] = merged
 
-    both = sorted(set(rows) & set(verdicts), key=lambda r: int(r[1:]))
-    uncheckable = sorted(set(rows) - set(verdicts), key=lambda r: int(r[1:]))
+    both = sorted(set(rows) & set(verdicts))
+    uncheckable = sorted(set(rows) - set(verdicts))
 
     if _SKIPPED:
         print(f"  ⚠ {len(_SKIPPED)} results file(s) could not be parsed and were SKIPPED")
     print(f"README rows: {len(rows)}   rounds with a verdict string: {len(verdicts)}")
     print(f"  checkable (row AND verdict): {len(both)}")
-    print(f"  UNCHECKABLE (row, no verdict): {len(uncheckable)}  {', '.join(uncheckable)}")
+    print(f"  UNCHECKABLE (row, no verdict): {len(uncheckable)}  "
+          f"{', '.join(f'r{r}' for r in uncheckable)}")
     print("  An uncheckable row is hand-written prose with nothing in the artifact to")
     print("  compare it against. That is not a pass; it is the absence of an instrument.\n")
 
@@ -213,7 +241,7 @@ def main() -> int:
             print(f"  {rid}: {s[:104]}")
             print(f"       {why}")
     stale = [k for k in REVIEWED
-             if not any(k[0] == rid and k[1].lower() in s.lower()
+             if not any(k[0] in {f"r{rid}", f"r{rid:02d}"} and k[1].lower() in s.lower()
                         for rid, s, _sw, _w in reviewed)]
     if stale:
         print(f"\n  {len(stale)} exemption(s) match nothing any more -- the verdict changed and the")

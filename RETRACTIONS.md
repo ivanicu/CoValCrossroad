@@ -23655,3 +23655,72 @@ because a variable was assigned the README path under a two-letter name that the
 deletion verb. **A known false positive, fired by an identifier rather than a command.** Renaming it
 `readme` ran the same code unchanged — and the second block happened while writing *this entry*,
 because the entry quoted the name.
+
+## 1316 · the gate was anchored to a README layout that no longer exists, and its correct refusal hid that for the whole campaign
+
+The previous entry left a disagreement: my reconstruction found 11 candidate rounds where
+`readme_row_carries_the_verdict` found 0, and named its row-matching code as the deciding read. It
+was read. **Neither branch of my NEXT was right.**
+
+**The anchor, `assurance/readme_row_carries_the_verdict.py:58`:**
+```
+ROW = re.compile(r"^\|\s*\[[Rr]?(\d+)\]\((?:[EA]\d\d_[a-z0-9_]+/){0,2}")
+```
+`^\|\s*\[` — a table row whose **FIRST CELL is the round link**. That was the README's shape when the
+check was written. **The README now leads with the QUESTION** and carries round links inside the
+answer cell:
+
+> `| Can anyone compile a *better* core than the official one? | **Nobody wins every axis.** … ([r220](E05_the_spa…`
+
+Measured: 1,653 lines · 70 begin with `|` · 39 of those name a round · **5 have a link in the first
+cell** · and the anchored pattern matched **0**. So `rows` was empty, `set(rows) & set(verdicts)` was
+empty by construction, and the artifact side was **healthy the whole time — 331 rounds carrying a
+verdict string.**
+
+⛔ **The emptiness was never about the corpus.** The check exited 2 saying *"a check with no
+population has not passed, it has not run"* — which is **correct behaviour for an empty population**,
+and is precisely why nobody looked. **A correct refusal is indistinguishable from a real absence.**
+It was reporting a fact about *itself* in words that read as a fact about the *record*.
+
+⭐ **The class, which is the part worth keeping**: **the instrument encoded the ARTIFACT'S LAYOUT
+instead of the property.** The artifact was reformatted; no code changed, no test failed, and the
+check silently went from scanning ~40 rows to scanning zero. This is
+`feedback_check_encodes_instance_not_property` with the fixture mutating **on its own** — and it did
+disarm it.
+
+**Repaired** — link matched anywhere in a table row; ids normalised to `int` because the README uses
+old lowercase `r220` while artifacts use `R220` and zero-padding is inconsistent in both. Also fixed
+in passing: the rid fallback read `f.parts[1]`, which on `_ROOT.glob`'s **absolute** paths is
+`"home"` — the same positional-index defect R839's labelling hit.
+
+**What the repair recovers, and its control:**
+
+| | |
+|---|---|
+| README rows found | **31** |
+| checkable (row **and** verdict) | **16** |
+| uncheckable (row, no verdict) | **15** |
+| limitation sentences in that population | **12** |
+| **carrying NO lexical echo in their row** | **6** — rounds 101 (×3), 181 (×2), 221 |
+| results files unparseable, skipped and counted | 11 |
+
+**POSITIVE CONTROL, both arms, via `--readme` on scratch copies.** *g=0*, an untouched copy:
+16 / 12 / **6 flagged**, identical to live — the copy is not the variable. *Planted*, the flagged
+rounds' own distinctive words appended to their own rows: 16 / 12 / **0 flagged**, printing *"Every
+unreviewed limitation sentence has some echo in its round's README row."* **The gate fires because of
+the absent vocabulary and stops when it is present.** Population and control both now exist, for the
+first time in this check's life.
+
+⚠ **The 6 are candidates, not verdicts.** The check's own sound direction is *no echo ⇒ the qualifier
+is absent from the row*; it cannot see a weakened paraphrase, and it says so on every run. Whether
+each of the 6 is a defect needs reading — that is what the `REVIEWED` table is for, and adjudicating
+them is not done here.
+
+⚠ **And its 4 exemptions now report stale for a cause the gate misdiagnoses.** `r27`/`r48`/`r54`/`r55`
+are flagged as *"the verdict changed"*. The verdicts did not change — **those rounds no longer appear
+in the README at all**, so their sentences are outside the population and cannot match. The table is
+**left in place**: deleting it to reach exit 0 would be the make-it-green move, and the exemptions
+still record real judgements.
+
+⚠ **Not added to the ten-gate push sweep.** It exits 1 on a genuine finding, so wiring it in now would
+block every push behind 6 unadjudicated rows. Wiring follows adjudication, not the reverse.
