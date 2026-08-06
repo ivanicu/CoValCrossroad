@@ -6737,3 +6737,37 @@ leak on itself, slope **1.000000000**, intercept **+0.000000000** · POSITIVE (r
 0.651 vs 0.659 predicted · NEGATIVE **permutation null over 200 permutations**, null +0.0031
 [−0.0492, +0.0561], the real slope +0.5727 outside the entire null · NOISE FLOOR 20 half-splits, sd
 0.0136 / 0.0121 / 0.0109 / 0.0098 / 0.0112.
+
+## R808 · the scale is precision-invariant, and the leak proxy's identity matters to the fitted arms
+
+**Why here.** R807's scale is one division by an estimated λ and had never been swept. CHECK #410
+also found that R807's NEXT asked for the wrong sweep: λ is the reliability of the **evaluation
+draw** (parity-0), not of the proxy (parity-1). More parity-1 annotators change **what the leak is**;
+more parity-0 annotators change **how noisily it is measured**. Two axes, two predictions.
+
+**⭐ A-AXIS — the §4 remedy aimed at my own headline.** Holding the y-side fixed and varying the
+x-side over k = 1,2,3,4 parity-0 annotators: **λ 0.2094 / 0.3477 / 0.4291 / 0.4864 (×2.32)**,
+**raw slope 0.1292 / 0.2175 / 0.2671 / 0.3077 (×2.38)**, **disattenuated fitted mean 0.561 / 0.572 / 0.569 / 0.576 — spread 0.0154 against
+3× its across-split sd of 0.1281.** **A-STABLE.** The pre-registered derivations both held: D1 λ
+rises with k, D2 the raw slope rises with it, so raw drift is what attenuation predicts and only
+corrected drift would have been evidence. *An estimate that does not move when its instrument
+sharpens 2.3× is the one property that makes a disattenuated number trustworthy.*
+
+**⭐ B-AXIS — a differential leak test no earlier round ran.** Building the leak's modal class from
+j = 1,2,4,8 parity-1 annotators: `oracle_k4_fit1` **0.403 → 0.617**, `greedy_k4_fit1` 0.387 → 0.578,
+`indep_k4_fit1` 0.339 → 0.492, against `coval_core` 0.231 → 0.314 and `topw_k4` 0.231 → 0.332.
+**Fitted mean rise +0.186, honest +0.092, contrast +0.094** vs a pre-registered threshold of
+**0.079** → **B-SPECIFIC**: the fitted arms track the specific labels they were fitted to, at twice
+the rate of arms that never saw one. ⚠ The honest rise is **not** a defect but the floor — a modal
+class from more annotators is a better estimate of the population ordering, which any good arm
+tracks, and that is why the estimand is the differential. ⚠⚠ **MARGINAL at 1.19× the threshold; a
+paired CI was not pre-registered and is not quoted**, so B-SPECIFIC is the rule firing, not a
+resolved interval.
+
+**Controls.** OBJECT R807's λ **0.459704** and all five disattenuated values reproduced exactly ·
+PLACEBO the leak on itself **1.000000000** at every k · **g=0 the pure copy lands at 1.000000000 at
+every k** · POSITIVE the planted arm within **0.006** of its predicted midpoint at all four k — a
+calibration holding at one k and failing at another *is* the drift this round hunted · NEGATIVE
+permutation nulls at both ends (k=1 max +0.0481 vs real +0.1467; k=4 max +0.0679 vs real +0.2867) ·
+NOISE FLOOR **0.0427**. Population: 968 prompts, parity-0 median 8 (min 2, max 23), **620 of 968**
+carry ≥8, and the A-axis uses each prompt's own cap rather than dropping prompts.

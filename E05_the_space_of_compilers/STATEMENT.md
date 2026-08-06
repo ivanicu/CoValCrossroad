@@ -2381,3 +2381,32 @@ split-draw slope **+0.2757 / +0.2593 / +0.2233** (fitted) and **+0.1328 / +0.137
 
 **Scope**: 968 prompts (**0 dropped**) × 5 arms + 3 synthetic · leak on parity-0 half A, arm on half
 B · λ = **0.4597** estimated on the same split · 1,200 bootstrap draws · first release, home judge.
+
+## R808 · The scale survived a 2.3× sharpening of its own instrument
+
+**R807's disattenuated scale is not an artifact of one λ estimate.**
+
+| k | λ | raw slope | **disattenuated (fitted mean)** |
+|---:|---:|---:|---:|
+| 1 | 0.2094 | 0.1292 | **0.561** |
+| 2 | 0.3477 | 0.2175 | **0.572** |
+| 3 | 0.4291 | 0.2671 | **0.569** |
+| 4 | 0.4864 | 0.3077 | **0.576** |
+
+**λ ×2.32, raw slope ×2.38, corrected estimate spread 0.0154** — against 3× its across-split sd of
+**0.1281**. **A-STABLE.**
+
+⭐ **And the leak proxy's identity matters, more to the fitted arms than to honest ones.** Building
+the leak from j = 1 → 8 parity-1 annotators: `oracle_k4_fit1` **0.403 → 0.617**, `greedy_k4_fit1`
+0.387 → 0.578, `indep_k4_fit1` 0.339 → 0.492, versus `coval_core` 0.231 → 0.314 and `topw_k4`
+0.231 → 0.332. **Fitted mean rise +0.186 · honest +0.092 · contrast +0.094** against a pre-registered
+threshold of **0.079** → **B-SPECIFIC**. ⚠ **Marginal at 1.19×; no paired CI was pre-registered and
+none is quoted.**
+
+**Controls**: the pure leak copy lands at **1.000000000** at every k · the planted half-and-half arm
+sits within **0.006** of its predicted midpoint at all four k · permutation nulls at both ends
+(max +0.0481 vs real +0.1467; max +0.0679 vs real +0.2867) · noise floor **0.0427**.
+
+**Scope**: 968 prompts · y-side a fixed half of parity-0, x-side k ∈ {1,2,3,4} from the complement ·
+j ∈ {1,2,4,8} · 20 splits per cell · parity-0 median 8 (min 2, max 23), **620 of 968** carry ≥8 ·
+first release, home judge.

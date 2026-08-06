@@ -21022,3 +21022,40 @@ permutation null over 200 permutations, the observed +0.0843 turns out to be the
 do with the object, which is the failure mode the skill says dominates — and the count this session
 now stands at three rounds in a row where a control, not a result, was the thing that had to be
 fixed.*
+
+## 1209 · the scale survived a 2.3× sharpening of its own instrument, which is the only thing that makes a disattenuated number trustworthy
+
+R807's whole scale is one division by an estimated λ = 0.4597, and realstat §4's nastiest entry is
+the control that passes *because the instrument is bad* — the remedy being to sweep the instrument's
+own precision. Swept: holding the evaluation side fixed and varying the leak side over k = 1,2,3,4
+parity-0 annotators, **λ went 0.2094 → 0.4864 (×2.32)** and the **raw slope 0.1292 → 0.3077 (×2.38)**,
+while the **disattenuated fitted mean moved 0.561 → 0.576 — a spread of 0.0154 against 3× its own
+across-split sd of 0.1281.** ⭐ **A-STABLE.** Both pre-registered derivations held (λ rises with k;
+the raw slope rises with it), so the alarming-looking raw drift is exactly what attenuation predicts
+and only *corrected* drift would have been evidence. The load-bearing control is the positive one:
+the planted half-honest/half-leak arm sat within **0.006** of its predicted midpoint at **all four**
+k, and a calibration that held at one k and failed at another is precisely the drift being hunted.
+
+## 1210 · and R807's NEXT asked for the wrong sweep — λ measures the evaluation draw, not the proxy
+
+R807 closed by proposing to recompute the scale at 2, 3, 4 and 8 **parity-1** annotators "as λ
+improves". λ is defined in R807's own code as the slope of the leak's margin on parity-0 half B
+against half A: it is the reliability of the **evaluation draw**. More parity-1 annotators change
+**what the leak is**; more parity-0 annotators change **how noisily it is measured**. *A closing
+sentence naming a quantity is still a claim about that quantity, and this one misread a definition
+the same round had written forty lines earlier.* Separating the axes turned one confused sweep into
+two with different predictions — and the second one produced the round's new finding.
+
+## 1211 · the leak proxy's identity matters, and twice as much to the arms that were fitted to it
+
+Building the leak's modal class from j = 1, 2, 4, 8 parity-1 annotators changes the OBJECT rather
+than its measurement error, so the fitted arms — fitted on the full parity-1 set — should converge on
+it as j grows, while arms that never saw a parity-1 label should not. Measured: `oracle_k4_fit1`
+**0.403 → 0.617**, `greedy_k4_fit1` 0.387 → 0.578, `indep_k4_fit1` 0.339 → 0.492, against
+`coval_core` 0.231 → 0.314 and `topw_k4` 0.231 → 0.332. **Fitted mean rise +0.186, honest +0.092,
+contrast +0.094** against a pre-registered threshold of 0.079 → **B-SPECIFIC**. ⚠ The honest arms
+rising is the FLOOR, not a defect: a modal class from more annotators is a better estimate of the
+population ordering and any good arm tracks it, which is why the estimand is the differential.
+⚠⚠ **The verdict is MARGINAL — 1.19× its threshold — and no paired CI was pre-registered, so this is
+the pre-registered rule firing and not a resolved interval.** Saying so is the difference between a
+finding and a number that will have to be withdrawn two rounds from now.
