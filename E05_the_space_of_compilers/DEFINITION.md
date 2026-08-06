@@ -6807,3 +6807,36 @@ non-positive cells. **BH 4 of 5 per-arm log-rises survive; `coval_core` does not
 
 **What survives**: R808's A-axis invariance and R807's scale itself. What is withdrawn is the claim
 about how the fitted arms' position **changes** as the proxy sharpens, not the position.
+
+## R810 · three quarters of the fitted advantage was size, and the remaining quarter is resolved
+
+**Why here.** R809 left LEVEL as the only thing separating fitted from honest arms, but the fitted
+arms measured throughout this arc are k=4 while `genericpool16` carries 16 — size and fitting were
+confounded in every number. CHECK #412 also killed R809's NEXT as named: `--rule oracle_k` caps
+enumeration at **20,000** combinations and **samples** above it (prompts over the cap: k=2 → 0,
+k=4 → 31, **k=8 → 367**, k=12 → 254 of 968), so the oracle's identity changes with k. `greedy_k` and
+`indep_k` are linear and were used instead, generated fresh at k ∈ {2,8,12}.
+
+**⭐ The gap at matched k**, on the 734 prompts attaining nominal k at every k: **+0.0472 [+0.0374,
++0.0580]** at k=2 · **+0.0343 [+0.0256, +0.0426]** at k=4 · **+0.0160 [+0.0096, +0.0223]** at k=8 ·
+**+0.0116 [+0.0070, +0.0162]** at k=12. **Monotone decreasing, 4× smaller at k=12, BH 4 of 4
+survive.** The fitted levels themselves are **0.6046 · 0.6032 · 0.5896 · 0.5645** against `topw_k`'s
+0.5574 · 0.5689 · 0.5735 · 0.5528 and the size-matched blind pool `POOL[0:k]`'s **0.5556** · 0.5568 ·
+**0.5497** · 0.5482. **WORLD B** — fitting survives matched — **but three quarters of it was size**, and
+R805's +0.0553 and R807's 0.50–0.65 were both measured at k=4 against a 16-criterion pool.
+
+**⚠ D2, written before the run: the closure is partly forced.** A fitted arm at k = n **is** `full`,
+so the gap must reach 0 at k = n. Median candidates here is **16**, so at k=12 the median prompt
+leaves 4 unselected. ⭐ **But the shrinkage is not "less freedom":** median `C(16,k)` is 120 · 1,820 ·
+12,870 · 1,820 at k = 2 · 4 · 8 · 12 — **non-monotone, peaking near k=8** — while the gap falls
+monotonically. **The gap tracks k, not the option count**, which is what a size explanation predicts.
+
+**E3, measured not assumed**: effective k is 2.00 · 4.00 · **7.92** · **11.32**, and prompts attaining
+nominal k are 968 · 968 · 919 · **734**. Both populations reported; they agree to within 0.008.
+
+**Controls.** OBJECT `greedy_k4_fit1` **0.598415** and `indep_k4_fit1` **0.586595** reproduce R805 ·
+PLACEBO the blind pool against itself, `0.0e+00` at all four k · POSITIVE D1 `topw_k` → `full`,
+⚠ **weakly**: the curve is non-monotone (0.5574 · 0.5689 · 0.5735 · 0.5528) and k=12 beats k=2 by
+only 0.0046 · g=0 at k=2 the arms must not coincide, and do not · NEGATIVE each prompt's fitted core
+against **another prompt's** parity-0 humans, null **−0.1211 [−0.1325, −0.1107]** vs real +0.0116 ·
+NOISE FLOOR **0.0017**, so the surviving gap is 6.8× it.

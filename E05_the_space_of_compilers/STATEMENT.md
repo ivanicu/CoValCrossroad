@@ -2438,3 +2438,33 @@ arms' position **changes** as the proxy sharpens — not the position itself.
 
 **Scope**: 968 prompts × 5 arms + 2 synthetic × j ∈ {1,2,4,8} · paired bootstrap over prompts,
 NBOOT 1,200, one fixed split · 20 splits for the noise floor · first release, home judge.
+
+## R810 · Matched on size, the fitted advantage falls 4× — and does not close
+
+| k | fitted | `topw_k` | `POOL[0:k]` | **gap vs `topw_k`** |
+|---:|---:|---:|---:|---|
+| 2 | 0.6046 | 0.5574 | 0.5556 | **+0.0472 [+0.0374, +0.0580]** |
+| 4 | 0.6032 | 0.5689 | 0.5568 | **+0.0343 [+0.0256, +0.0426]** |
+| 8 | 0.5896 | 0.5735 | 0.5497 | **+0.0160 [+0.0096, +0.0223]** |
+| 12 | 0.5645 | 0.5528 | 0.5482 | **+0.0116 [+0.0070, +0.0162]** |
+
+**Monotone decreasing · BH 4 of 4 survive · noise floor 0.0017, so the surviving gap is 6.8× it.**
+
+**Both halves are the finding**: R805's **+0.0553** and R807's **0.50–0.65** were measured at k=4
+against a 16-criterion pool, so **three quarters of the fitted advantage was size** — and the
+remaining quarter is resolved at every k.
+
+⚠ **The closure is partly forced and the preregistration said so first**: a fitted arm at k = n **is**
+`full`. Median candidates is **16**, so k=12 leaves 4 unselected on the median prompt. ⭐ But median
+`C(16,k)` is 120 · 1,820 · **12,870** · 1,820 — non-monotone, peaking near k=8 — while the gap falls
+monotonically, so **the gap tracks k, not the option count**.
+
+**Effective k, measured**: 2.00 · 4.00 · **7.92** · **11.32**; prompts attaining nominal k: 968 · 968
+· 919 · **734**.
+
+**Controls**: blind pool against itself `0.0e+00` at all four k · each prompt's fitted core against
+**another prompt's** humans gives a null of **−0.1211 [−0.1325, −0.1107]** against a real +0.0116 ·
+⚠ the positive control (D1, `topw_k` → `full`) passes **weakly** on a non-monotone curve.
+
+**Scope**: 968 prompts, common intersection 734 · `greedy_k` and `indep_k` averaged · fitted on
+parity-1, scored on parity-0 · NBOOT 1,200 · first release, home judge.

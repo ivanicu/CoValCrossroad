@@ -21098,3 +21098,41 @@ actually rests on: the **arm-label** split, which with 5 arms is **exactly enume
 ways to split them 3/2 rather than sampled. Result: null [−0.1317, +0.1021], and the real
 fitted/honest split ranks **1 of 10** — the most negative of every possible labelling, where
 B-SPECIFIC predicted it should rank last.
+
+## 1215 · three quarters of the fitted route's advantage was SIZE, and the remaining quarter is resolved
+
+Every number this arc has reported about the fitted route — R805's **+0.0553**, R807's 0.50–0.65 of a
+pure copy, R809's 1.97× level ratio — was measured at **k=4** against a **16-criterion** pool, so size
+and fitting were confounded throughout. Matched at k and scored on held-out annotators, the gap
+against `topw_k` runs **+0.0472 → +0.0343 → +0.0160 → +0.0116** at k = 2 · 4 · 8 · 12 — **monotone
+decreasing, 4× smaller at k=12, and BH 4 of 4 survive** against a noise floor of 0.0017. ⭐ **Both
+halves are the finding**: the unqualified claim "the fitted route's advantage is fitting" is dead, and
+so is "it is size". *This is the fourth consecutive round where a claim survived in a smaller form
+rather than dying — and the pattern is that the arc kept measuring a difference without matching the
+one dimension the two objects obviously differed on.*
+
+## 1216 · and the closure is partly ALGEBRA, which the preregistration had to say first to be entitled to the rest
+
+A fitted arm at k = n **is** `full` — selection has nothing left to choose — so the gap **must** reach
+zero at k = n. Median candidates on this population is **16**, so at k=12 the median prompt leaves 4
+unselected: part of the observed shrinkage is forced. Writing D2 down before the run is the only
+thing that separates this round's claim from an artefact of its own design. ⭐ **But the shrinkage is
+not merely "less freedom to choose"**: median `C(16,k)` is **120 · 1,820 · 12,870 · 1,820** at
+k = 2 · 4 · 8 · 12 — non-monotone, peaking near k=8 — while the gap falls monotonically at every step.
+**The gap tracks k, not the number of options**, which is what a size explanation predicts and a
+freedom explanation does not.
+
+## 1217 · my negative control returned a zero-width null for the second round running, and this time the cause was in the selector
+
+The first version permuted **which prompt's selected criteria** were applied and returned
+**+0.0156 [+0.0156, +0.0156]** — a point mass. The cause is structural: `select_core.py` **re-indexes**
+the chosen criteria as `0..k−1` when it emits the npz (`meta.append(f"{pid}|{j}|{x}")`, `j` the
+position in `sel`), **so "another prompt's selected indices" is always the same list** and the
+permutation permuted nothing. The selections are not recoverable from the emitted npz at all.
+Repaired to destroy the prompt↔core pairing instead — each prompt's fitted core scored against
+another prompt's parity-0 humans — giving a null of **−0.1211 [−0.1325, −0.1107]** against a real
+**+0.0116**. ⚠ **Two rounds in a row with a degenerate null.** *A zero-width interval does not read as
+a failure; it reads as an extremely precise measurement, which is exactly why it survived R809 into
+R810.* And a third defect is recorded rather than fixed: the POSITIVE control (D1, `topw_k` → `full`)
+**passes weakly** — the curve is non-monotone (0.5574 · 0.5689 · 0.5735 · 0.5528) and k=12 beats k=2
+by only 0.0046. It is reported as weak rather than upgraded.
