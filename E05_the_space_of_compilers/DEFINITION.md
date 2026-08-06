@@ -7261,7 +7261,17 @@ about what its CONSTRUCTION consumed.
 taste: the 25 it removes are exactly the arms that read nothing (`random_k*`, `topvar`, `topabs`,
 `topwvar`) or are shams (`full_sham`, `gen_sham`, `topw_k4_sham`, `coval_core_sham`), while **every
 ③-admissible load-bearing arm survives** — `coval_core` +0.0468, `topw_k4` +0.0445, `generic`
-+0.0317, `genericpool16` +0.0225. ③'s own wording already uses the fit-on-other-prompts distinction,
++0.0317, `genericpool16` +0.0225.
+
+⛔⛔ **THAT GROUNDS STATEMENT IS RETRACTED (R825). `coval_core` DOES NOT SURVIVE.** The survival was
+measured on **14 lexical features**. Adding **character n-grams** — a response-only family never in
+the 30-rule class this file names at L118 — raises the leak-free held-out bar to **0.572335**, and
+paired against `coval_core` on the same evaluation halves the difference is **+0.006197 [+0.003923,
++0.008471], 12 of 12 splits positive**, sign-test p = 0.00049. **Under the permissive reading, ④
+excludes the released core.** Character n-grams alone buy **+0.0487 = 104% of the whole gap**.
+⚠ The per-split effect ranges +0.000945 to +0.011824, a 12.5× spread: the claim is about the MEAN
+over evaluation halves, never about a given half. **R824's finding that ④'s extension depends on the
+reading stands; the REASON given for choosing the permissive one does not.** ③'s own wording already uses the fit-on-other-prompts distinction,
 so the permissive reading is the one consistent with the rest of the definition.
 
 ⚠ **THIS DOWNGRADES R821.** ④ is *"free-but-real"* **under the strict reading only**. Under the
@@ -7283,3 +7293,22 @@ scored on the other half, 20 splits.
 **The sham is what makes the rise attributable**: the identical learner on 14 RANDOM features reaches
 **0.429425 ± 0.004633**, so held-out fitting on noise buys **+0.000684** over chance and the learned
 bar sits **+0.090263 above it**.
+
+
+## R825 · the permissive bar reaches the released core
+
+**Clause ④, under the permissive reading adopted in R824, excludes `coval_core`.** A response-only
+predictor over character n-grams — every unsupervised stage (vectoriser, SVD basis, SVD z-score,
+lexical z-score) fit on the fit half — reaches a held-out bar of **0.572335** against the core's
+**0.566477**. Paired on the same evaluation halves over 12 splits: **+0.006197 [+0.003923,
++0.008471]**, **12 of 12** positive, sign-test **p = 0.00049**.
+
+⛔ **A DERIVATION, not evidence:** `mean(bar) − mean(core) ≡ mean(bar − core)` by linearity, checked
+at **1.21e-16**. Pairing cannot move the point estimate; it moves the standard error from 0.002353 to
+**0.001033**, a 2.3× shrink, because `corr(bar, core) = +0.8377`.
+
+⚠ **AND A UNITS CORRECTION THAT MATTERS MORE THAN THE PAIRING.** The first comparison called this
+difference *"inside the floor"* — it compared a **mean over 10 splits** against a **per-split noise
+floor**. A floor is a single draw's dispersion; a mean's standard error is `sd/√n`, ~3× smaller.
+**That is a √n units mismatch, and it fails toward "no effect", which is why it reads as caution and
+passes unexamined.** Both the paired and unpaired intervals exclude zero at n = 12.

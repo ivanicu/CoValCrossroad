@@ -2898,3 +2898,55 @@ is not a fixed property of the release. See
 run. The next round measures whether the permissive bar has an asymptote — sweeping feature count and
 model capacity to find where it stops rising — because if it does not saturate, ④ cannot be evaluated
 without also fixing the modelling budget, and that is a clause-text problem rather than a measurement.
+
+---
+
+## R825 · under the adopted reading, ④ excludes the released core
+
+R824 adopted the **permissive** reading of ④ on the stated grounds that it removes the junk while
+**every ③-admissible load-bearing arm survives**. That was measured on **14 lexical features**.
+
+**Adding character n-grams retracts it.** A response-only predictor over char 3–5-grams — with the
+vectoriser, the SVD basis, the SVD z-score **and** the lexical z-score all fit on the fit half —
+reaches a held-out bar of **0.572335**. Paired against `coval_core` (**0.566477**) on the same
+evaluation halves across 12 splits:
+
+| | |
+|---|---|
+| paired difference | **+0.006197 [+0.003923, +0.008471]** |
+| splits positive | **12 of 12** |
+| sign test | two-sided **p = 0.00049** |
+| per-split range | +0.000945 … +0.011824 (**12.5×** spread) |
+
+**Clause ④, as this deliverable now words it, excludes the released core.** Character n-grams alone
+buy **+0.0487 — 104% of the entire gap** — and were never in the 30-rule family named at
+`DEFINITION.md:118`.
+
+⚠ **The claim is about the MEAN over evaluation halves.** The per-split effect spans 12.5×; nothing
+here licenses a statement about any single half, still less about a conversation.
+
+⛔ **DERIVATION, not evidence:** `mean(bar) − mean(core) ≡ mean(bar − core)` by linearity (checked at
+1.21e-16). Pairing moves only the standard error — 0.002353 → **0.001033**, 2.3×, since
+`corr(bar, core) = +0.8377`.
+
+⚠ **UNITS CORRECTION.** The first reading of this comparison called it *"inside the floor"* by
+setting a **mean over 10 splits** against a **per-split noise floor**. A floor is one draw's
+dispersion; a mean's standard error is `sd/√n`. **That is a √n mismatch that fails toward "no
+effect"** — which is exactly why it reads as caution and survives review. Both intervals exclude zero
+at n = 12.
+
+**Scope** · 968 prompts × 4 responses · instrument A2 against human pairwise signs, no model judge ·
+baseline `coval_core` 0.566477 · regime: held out, 12 splits, MDE(80%) 0.007072 · independently
+replicated by a second session at different splits and a different implementation.
+
+**What stands from R824:** ④'s extension depends on the reading — 0 of 58 strict, 25 of 58
+permissive. **What falls:** the reason given for adopting the permissive one.
+
+## NEXT
+
+The permissive reading now excludes the object the definition was written to describe, and the strict
+reading leaves ④ excluding nothing. Neither is a definition anyone can ship. See
+`R825_does_the_permissive_bar_reach_the_released_core/results/decisive_t2_paired.json` for the 12
+paired splits. The next round asks whether ④ is salvageable at all — whether any reading of *"better
+than every rule computable from the response set alone"* both binds and admits the released core, or
+whether the clause must be replaced rather than repaired.

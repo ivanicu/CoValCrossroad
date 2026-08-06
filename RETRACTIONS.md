@@ -21778,6 +21778,8 @@ before committing it. In that window a concurrent session stashed all six epoch 
 `/tmp/attack_rounds_n6s3qn01` as a deliberate, reversible attack — `git status` showed **2,896
 unstaged deletions**, and every `E*/A*/R*` path vanished from disk.
 
+⚠ **THE WORD "DELIBERATE" IS CORRECTED IN 1266.** That session's commit `9f353596` shows `run_all.py` kills every gate at a flat 90s and `attack_the_suite` does not finish in 90s: the stash was **orphaned by a timeout mid-move**, and eleven such orphans exist. The marker recorded state, never intent.
+
 **Its restore returned TRACKED paths and left R825 behind.** Nothing but a manual copy out of the
 stash recovered the preregistration, `run.py`, both leak audits and the one artifact already
 produced.
@@ -21902,3 +21904,83 @@ hour**: §2's rule is that a result of magnitude X licenses a claim of magnitude
 0.029 × MDE licenses *"indistinguishable from zero"* and nothing else — not a direction, not a
 mechanism, not a moral. **The tell was available before the second measurement arrived: I had
 already computed that the value was 0.029 × MDE and quoted its sign in the same report.**
+
+## 1264 · RETRACTED: R824's grounds for adopting the permissive reading — `coval_core` does not survive it
+
+R824 adopted the **permissive** reading of ④ and wrote the reason into `DEFINITION.md`: the 25 arms it
+removes are exactly the junk, while **every ③-admissible load-bearing arm survives** — `coval_core`
++0.0468, `topw_k4` +0.0445, `generic` +0.0317, `genericpool16` +0.0225.
+
+**Those margins were measured on 14 lexical features.** Adding **character 3–5-grams** — a
+response-only family that was never in the 30-rule class `DEFINITION.md:118` names — raises the
+leak-free held-out bar to **0.572335**, above `coval_core`'s **0.566477**.
+
+Paired on the same evaluation halves, 12 splits, every unsupervised stage fit on the fit half:
+
+| | |
+|---|---|
+| paired difference | **+0.006197 [+0.003923, +0.008471]** |
+| splits positive | **12 of 12** |
+| sign test | two-sided **p = 0.00049** |
+| per-split range | +0.000945 … +0.011824, a **12.5×** spread |
+
+**Under the reading this deliverable adopted two rounds ago, ④ excludes the released core.**
+Character n-grams alone buy **+0.0487 — 104% of the entire gap.**
+
+⚠ **The claim is about the MEAN over evaluation halves.** With a 12.5× per-split spread, nothing here
+licenses a statement about a given half, still less about a conversation.
+
+**What stands from R824:** ④'s extension depends on the reading, 0 of 58 versus 25 of 58. **What
+falls:** the reason given for choosing one. ⭐ **The grounds were an artifact of the feature set I
+happened to build**, and R823's lesson — that a class-maximum bar depends on how much of the class you
+enumerate — applied to ② and ④ and was never carried to *this* comparison.
+
+## 1265 · CORRECTION: I called a mean-vs-floor comparison "under-powered pairing" and it was a √n units error
+
+Reporting this round mid-flight, I wrote that the unpaired comparison said *indistinguishable* while
+the paired one said *resolvable* — **"same data, opposite verdicts"** — and concluded that *an
+unpaired comparison of paired data is not conservative, it is under-powered.*
+
+**Both halves of that are wrong, and the arithmetic was available when I wrote it.**
+
+⛔ **First, a DERIVATION I should have run before claiming any flip:** `mean(bar) − mean(core) ≡
+mean(bar − core)` by linearity — checked at **1.21e-16**. **Pairing cannot move the point estimate at
+all.** It moves only the standard error: 0.002353 → **0.001033**, a 2.3× shrink, because
+`corr(bar, core) = +0.8377`.
+
+⛔ **Second, at n = 12 BOTH intervals exclude zero** — paired [+0.003923, +0.008471], unpaired
+[+0.001017, +0.011377]. There were never opposite verdicts to explain.
+
+**What actually produced the original "INSIDE the floor"** was comparing a **mean over 10 splits**
+against a **per-split noise floor**. A floor is one draw's dispersion; the mean's standard error is
+`sd/√n`, roughly 3× smaller at n = 10. **A √n units mismatch.**
+
+⭐ **And the direction of the error is why it survives:** it fails toward *"no effect"*, so it reads as
+caution and nobody audits it. This arc has a whole family of these — a check that fails toward PASS
+gets caught because someone doubts the pass; **a check that fails toward NULL gets thanked.**
+
+**The general rule: a noise floor and a standard error are different statistics.** Name which
+dispersion a threshold is built from before comparing anything to it, and if the quantity is a mean
+over n draws, the floor is not the right scale by a factor of √n.
+
+## 1266 · the /tmp stash was an ORPHANED GATE, not a deliberate choice — and I reported it as deliberate
+
+Entry 1259 records that a concurrent session *"deliberately stashed all six epoch directories to
+`/tmp` as a reversible attack"* and *"recorded its own in-progress marker"*, and praised it for doing
+the operation correctly.
+
+**The marker was real; the deliberateness was my inference.** That session's own commit `9f353596`
+states the mechanism: `run_all.py` **kills every gate at a flat 90 s**, and `attack_the_suite` — the
+one gate that moves the tree — does not finish in 90 s. **Every full suite run orphans a stash, and
+eleven such orphans exist.**
+
+So the tree was in `/tmp` because a timeout killed the writer **mid-move**, not because anyone chose
+to leave it there. The `.hide_in_progress.json` I read as *"a marker saying an operation is in
+flight"* was in fact **a marker that could not distinguish a live writer from a dead one** — which is
+that session's own finding, and the reason both waiting and repairing looked correct.
+
+⭐ **The correction does not change what I did** — copying my untracked round out of the stash and
+refusing to force-restore 2,896 files was right either way. **It changes what I claimed to know.** I
+narrated a mechanism (*"deliberate, reversible, correctly recorded"*) from an artifact that was only
+evidence of *state*, not of *intent*, and the true mechanism was one `git log` away in a commit
+already in my own repository. **A marker tells you what a process wrote, never what it meant.**
