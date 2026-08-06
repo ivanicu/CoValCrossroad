@@ -1997,3 +1997,35 @@ share **0.000** at every k. BH over 21 size-matched comparators: **17 survive, 4
 
 **Scope**: 968 prompts · targets from `coval_full`'s per-criterion satisfactions (min 4, mean 15.48,
 max 39) · 20 draws per cell · NBOOT 1,200 · first release, home judge.
+
+## R796 · With the floor set to ABSENCE, prompt-matching is worth nothing
+
+**At every target size where it resolves, a prompt-BLIND target matches `coval_core` BETTER than its
+own prompt's rubric does.**
+
+| k | 1 | 2 | 4 | 8 | 12 |
+|---|---:|---:|---:|---:|---:|
+| matched | 0.6391 | 0.6928 | 0.7356 | 0.7693 | 0.7805 |
+| blind | **0.7175** | **0.7590** | **0.7771** | **0.7848** | 0.7863 |
+| gap | **−0.0784** | **−0.0663** | **−0.0415** | **−0.0155** | −0.0058 |
+
+**0 resolved positive, 4 of 5 clean cells resolved NEGATIVE** (CIs: [−0.0890,−0.0686],
+[−0.0770,−0.0554], [−0.0530,−0.0290], [−0.0285,−0.0014]; k=12 [−0.0201,+0.0086] unresolved).
+⭐ **The registered pool-size confound control strengthens it**: on the 437 prompts with ≥16 criteria
+every cell moves further negative (−0.0550, −0.0311, −0.0228) and k=12 becomes resolved.
+
+⭐ **And the released core is rank 15 of 27** on preferring its own prompt's rubric, at **−0.0036
+[−0.0195, +0.0119]**, while `topvar_k4` reaches **+0.1572 [+0.1424, +0.1723]** — the axis is
+measurable and the core is unremarkable on it.
+
+**So "a core preserves the rubric's verdicts" dies in the form R794 wrote it.** R794's **Q2 survives
+untouched**: the core beats `full` at predicting the human, +0.0578 [+0.0502, +0.0658].
+
+**Controls**: matched all-criteria reproduces to **2.2e-16** and blind k=16 to **0.0e+00** · placebo
+**1.000000000000** · both doses monotone · shuffling the core's class collapses both to ≈0.51 ·
+⛔ D4 failed at 20 draws and was **repaired exactly** over all **1,820** blind 4-subsets — `generic`
+at percentile **76.3, INSIDE**, dose unbiased (20-draw mean 0.7771 vs exact 0.7767). BH over 33
+tests: 23 survive.
+
+**Scope**: 968 prompts (437 for the confound cell) · `coval_full` min 4 / mean 15.48 / max 39
+criteria, `genericpool16` exactly 16 · 20 draws per cell · NBOOT 1,200 · first release, home judge.

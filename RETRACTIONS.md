@@ -20596,3 +20596,46 @@ covered, reachable only through the pre-registered *"otherwise → report; claim
 world would have meant choosing one after seeing a result none of them predicted. *A prediction
 matrix earns its keep on the day reality lands outside it, and the value of the `otherwise` line is
 that it is written when you still believe your own three worlds are exhaustive.*
+
+## 1175 · with the floor set to ABSENCE, prompt-matching is worth nothing, and the sign is negative
+
+R795 showed R794's Q1 floor was a poison. Rebuilt against the NEUTRAL floor — random k-subsets of
+`genericpool16`, criteria that never see the prompt — at every target size:
+
+| k | matched | blind | gap |
+|---:|---:|---:|---|
+| 1 | 0.6391 | 0.7175 | **−0.0784 [−0.0890, −0.0686]** |
+| 2 | 0.6928 | 0.7590 | **−0.0663 [−0.0770, −0.0554]** |
+| 4 | 0.7356 | 0.7771 | **−0.0415 [−0.0530, −0.0290]** |
+| 8 | 0.7693 | 0.7848 | **−0.0155 [−0.0285, −0.0014]** |
+| 12 | 0.7805 | 0.7863 | −0.0058 [−0.0201, +0.0086] |
+
+**0 cells resolved positive, 4 of 5 clean cells resolved NEGATIVE.** A prompt-BLIND target matches
+the released core BETTER than its own prompt's rubric does, and the gap is largest where the target
+is smallest — one generic criterion beats one of the core's own rubric's by −0.0784. ⭐ **And the
+registered pool-size confound control STRENGTHENS it**: on the 437 prompts with ≥16 criteria, where
+both pools are ≥16, every cell moves further negative (−0.0550, −0.0311, −0.0228) and k=12 becomes
+resolved. *"A core preserves the rubric's verdicts" dies in the form R794 wrote it: what was measured
+is agreement with any competent target of that size.*
+
+## 1176 · the released core is rank 15 of 27 on preferring its own prompt's rubric
+
+`vs full` minus `vs genericpool16`, over 27 named arms: `topvar_k4` **+0.1572 [+0.1424, +0.1723]`,
+`topwvar_k4` +0.1420, `random_k4_s2` +0.1231 … `coval_core` **−0.0036 [−0.0195, +0.0119]** …
+`generic` −0.2076, `genericpool16` −0.2467. ⭐ **Arms that genuinely prefer the matched rubric exist,
+so the instrument can see the preference — and the released core shows none of it**, while the blind
+arms prefer the blind pool as they must, which is the population's own built-in positive control.
+*An axis on which the object of study is unremarkable is still a measurement, and it is the one a
+definition must not be built on.*
+
+## 1177 · my consistency check sampled 20 of 1,820 and asked whether a specific member fell in the range
+
+D4 predicted `coval_core vs generic` (= `POOL[0:4]`) must lie inside the blind k=4 draw distribution.
+It returned **0.7856 against a 20-draw range of [0.7727, 0.7803] — OUTSIDE**, and the tempting
+reading was that the construction disagrees with a released arm. It does not: `generic` is one
+SPECIFIC subset while the dose draws RANDOM ones, and 20 draws cannot span a **C(16,4) = 1,820**
+family. Repaired by computing the family exactly — range **[0.7357, 0.8025]**, mean **0.7767**,
+`generic` at percentile **76.3, INSIDE** — and the 20-draw mean **0.7771** against the exact
+**0.7767** shows the dose was **unbiased**; only its range was too narrow. *A control that fails for
+its own reasons is repaired by computing the population it sampled, not by widening the claim it
+was meant to test.*

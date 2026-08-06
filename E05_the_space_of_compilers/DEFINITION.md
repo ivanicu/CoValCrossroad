@@ -6284,3 +6284,46 @@ misdirection, landing at ≈0.50 — while the *neutral* floor lands at 0.7886, 
 target. R794's Q1 excess of +0.2961 is therefore priced against a poison and is **DOWNGRADED**.
 
 **NO WORLD CLAIMED** — the outcome was resolved and negative, which no registered branch covered.
+
+## R796 · the matched-versus-blind dose: what prompt-matching buys when the floor is absence
+
+**The instrument.** `sat_genericpool16.npz` ships per-criterion satisfactions, so a BLIND dose over k
+is constructible exactly parallel to R795's matched one. ⚠ `randblind_k4_s0/s1/s2` cover **1 prompt
+each** and are not population arms — caught in check #398 before use.
+
+**Derived before measuring.** D1 the blind k=16 cell IS `vs genericpool16`, the object check. D2 both
+doses must rise with k or the curves are not comparable. D3 the matched k=16 cell is a MIXTURE
+(`full` has mean 15.48 criteria), so the clean cells are k ≤ 12. D4 `generic` = `POOL[0:4]` must lie
+inside the blind k=4 distribution.
+
+**E1/E2 · the two doses and the gap** (20 draws per cell, 968 prompts):
+
+| k | matched | sd | blind | sd | gap | |
+|---:|---:|---:|---:|---:|---|---|
+| 1 | 0.6391 | 0.0080 | 0.7175 | 0.0068 | **−0.0784 [−0.0890, −0.0686]** | RESOLVED |
+| 2 | 0.6928 | 0.0058 | 0.7590 | 0.0030 | **−0.0663 [−0.0770, −0.0554]** | RESOLVED |
+| 4 | 0.7356 | 0.0063 | 0.7771 | 0.0025 | **−0.0415 [−0.0530, −0.0290]** | RESOLVED |
+| 8 | 0.7693 | 0.0036 | 0.7848 | 0.0028 | **−0.0155 [−0.0285, −0.0014]** | RESOLVED |
+| 12 | 0.7805 | 0.0024 | 0.7863 | 0.0016 | −0.0058 [−0.0201, +0.0086] | unresolved |
+| 16 | 0.7842 | 0.0018 | 0.7886 | 0.0000 | −0.0044 [−0.0196, +0.0111] | unresolved ⚠ MIXTURE |
+
+Both monotone: matched 0.6391 → 0.7842, blind 0.7175 → 0.7886.
+
+**The pool-size confound control**, registered before the run, on the **437 of 968** prompts with
+≥ 16 criteria: k=4 **−0.0550 [−0.0705, −0.0380]** · k=8 **−0.0311 [−0.0493, −0.0132]** · k=12
+**−0.0228 [−0.0418, −0.0031]**. Every cell more negative; k=12 becomes resolved.
+
+**E3 · the whole population**, `vs full` − `vs genericpool16`: `topvar_k4` **+0.1572 [+0.1424,
++0.1723]** · `topwvar_k4` +0.1420 · `random_k4_s2` +0.1231 · **`coval_core` −0.0036 [−0.0195,
++0.0119], rank 15 of 27** · `generic` and `generic_reprov` −0.2076 · `genericpool16` −0.2467.
+
+**D4, failed and repaired exactly.** 20 draws gave [0.7727, 0.7803] and `generic` at **0.7856** sat
+outside. The admissible check is the exact family: all **1,820** blind 4-subsets span
+**[0.7357, 0.8025]**, mean **0.7767**, `generic` at percentile **76.3 — INSIDE**; the 20-draw mean
+**0.7771** against the exact **0.7767** shows the dose unbiased and only its range too narrow.
+
+**Controls.** OBJECT matched all-criteria to **2.2e-16** and blind k=16 to **0.0e+00** against
+committed values, exit 2 otherwise · PLACEBO **1.000000000000** · POSITIVE both doses monotone with
+bands printed · NEGATIVE the core's class shuffled sends matched to **0.5138** and blind to
+**0.5083** · NOISE FLOOR largest draw sd **0.0080**. BH over 33 tests: **23 survive, 10 do not**.
+**WORLD B.**
