@@ -21297,3 +21297,39 @@ second defect was caught by a **crash** rather than a check — the noise floor 
 `agree` against the closure's full-length `rows_a` and raised `ValueError`. *It failed loudly, which
 is the only reason it did not silently compute the statistic on mismatched rows; the three degenerate
 negative controls of R809, R810 and R813 all failed quietly instead.*
+
+## 1230 · a second human construct was on disk for the whole arc, and nobody had looked
+
+R814 closed by calling the next step a WRITING decision, on the ground that the release "ships one
+judgement per (annotator, prompt) pair" so the rater×prompt interaction is unidentifiable. ⛔ **There
+are 111 repeated (prompt, annotator) pairs**, so the premise was a flat fact that was not one. And
+behind it: **`ranking_blocks` carries three keys — `world` (18,384 rankings), `personal` (4,901),
+`unacceptable` (4,901) — and this arc has scored A2 against `world` alone, for its entire length.**
+Where the same annotator answered both on the same prompt, the rankings **differ in 2,374 of 4,901
+cases, 48.4%**. *Several rounds had listed construct validity as needing "an external gold standard"
+and therefore impossible; it is not external, but a second question put to the same people about the
+same responses was sitting in the file the whole time. This is the same shape as R802's second
+RELEASE: the impossibility was real about the thing named and false about the thing available.*
+
+## 1231 · and the ordering is identical under it — Spearman 1.0000, 36 of 36 concordant
+
+On the 293 prompts carrying both blocks with ≥2 annotators each, the nine arms come out in **exactly
+the same order** under `personal` as under `world`: Spearman **1.0000**, Kendall τ **1.0000**, **36
+of 36** concordant pairs, and **0 of 4** committed margins flipping sign (fitted − blind pool
++0.0549 → +0.0514; released core − blind pool +0.0256 → +0.0282; rule effect +0.0717 → +0.0711; sham
+gap +0.0822 → +0.0836). The MDE at n=293 is **0.0173**, below the smallest margin tested at 0.0256,
+and it was computed before any null was interpreted. ⭐ **The shift is uniform and small — every arm
+scores 0.005–0.012 HIGHER on `personal`** — which is a level property of the target rather than
+anything about the arms, and is exactly why the ordering survives. *So the arc's numbers are scoped
+to `world` and survive the one construct swap the release permits: a stronger statement than any
+round had been able to make, produced by reading a field nobody had opened.*
+
+## 1232 · the label said 321 and the population was 293
+
+The E1 header first printed "SAME 321 PROMPTS". **321** is the count of prompts with ≥1 annotator in
+each block; the population this round actually uses requires **≥2 in each** and is **293**. The
+computation was correct throughout — `BOTH` was built with the ≥2 condition and the MDE line printed
+n=293 — but the headline label named a different number from the one the analysis ran on. *A stale
+label on a correct computation is the cheapest kind of error to make and the most expensive to
+inherit, because a later round quoting "321 prompts" from the header would have been quoting a
+population that was never analysed.* Fixed to print `len(BOTH)` and to state the distinction.

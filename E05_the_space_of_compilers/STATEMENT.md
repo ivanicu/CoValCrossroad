@@ -2580,3 +2580,32 @@ interaction cannot be separated from noise — this bounds the **additive** effe
 
 **Scope**: 968 prompts × 1,012 annotators × **15,593 cells**, load median 16 max 32 · leave-one-out
 agreement · 500-draw label-permutation null · first release, home judge.
+
+## R815 · The arms' ordering is identical under the release's second human question
+
+**Every A2 this campaign has published is against `world`, one of three `ranking_blocks` the release
+ships.** Asked `personal` instead, on the 293 prompts carrying both:
+
+| | |
+|---|---|
+| Spearman between the two orderings | **1.0000** |
+| Kendall τ · concordant pairs | **1.0000** · **36 / 36** |
+| committed margins flipping sign | **0 of 4** |
+| MDE at n=293 | **0.0173**, below the smallest margin tested (0.0256) |
+
+⭐ **The shift is uniform**: every arm scores **higher** on `personal` by 0.005–0.012 — `coval_core`
+**0.5587 → 0.5707**, `gen_sham` **0.4766 → 0.4871**. A level shift in the target, not a reordering.
+
+⭐ **And the annotators themselves disagree across the two questions 48.4% of the time** (2,374 of
+4,901 same-annotator, same-prompt pairs) — yet that does not reorder a single arm.
+
+**Committed margins under the second target**: fitted − blind pool **+0.0549 → +0.0514** · released
+core − blind pool **+0.0256 → +0.0282** · rule effect **+0.0717 → +0.0711** · sham gap **+0.0822 →
++0.0836**.
+
+**Controls**: an arm built from `personal`'s modal class tops that table at **0.6555** against the
+best real arm's **0.5939**, while the same construction from `world` reaches only **0.6366** there ·
+block labels shuffled gives a null of **+0.0002 [−0.0056, +0.0053]** against a real **−0.0119**.
+
+**Scope**: 293 prompts (⚠ **not** a random third — they are where the second question was asked) × 9
+arms × 2 targets · NBOOT 1,200 · first release, home judge.

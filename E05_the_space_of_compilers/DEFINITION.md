@@ -6977,3 +6977,34 @@ bounds the **additive** effect and does not show annotators are interchangeable.
 **Controls.** OBJECT `CEIL_H` recomputed from this round's own table, **0.551880** exactly · PLACEBO
 **0.0e+00** · POSITIVE monotone on both ladders · g=0 **PASS after repair** · NEGATIVE the null has
 spread (sd **0.000075**) · population **968 / 968, 0 dropped**.
+
+## R815 · a second human construct was on disk all along, and the ordering is identical under it
+
+**Why here.** R814 closed by calling the next step a writing decision, on the ground that the release
+ships one judgement per (annotator, prompt) pair. ⛔ CHECK #417 found **111 repeated pairs** — and,
+behind that, **`ranking_blocks` carries three keys**: `world` (18,384 rankings), `personal` (4,901),
+`unacceptable` (4,901). **This arc has scored A2 against `world` alone for its entire length.** Where
+the same annotator answered both on the same prompt, the rankings **differ in 2,374 of 4,901 cases —
+48.4%**.
+
+**⭐ Asked the other question, the arms come out in exactly the same order.** Spearman **1.0000**,
+Kendall τ **1.0000**, **36/36** concordant pairs, on 293 prompts carrying both blocks with ≥2
+annotators each. Order under both: `oracle_k4_fit1` > `greedy_k4_fit1` > `indep_k4_fit1` > `topw_k4`
+> `coval_core` > `genericpool16` > `random_k4_s0` > `full` > `gen_sham`.
+
+**⭐ The shift is uniform and small**: every arm scores **higher** on `personal`, by 0.005–0.012 —
+`coval_core` **0.5587 → 0.5707**, `oracle_k4_fit1` **0.5880 → 0.5939**, `gen_sham` **0.4766 →
+0.4871**. A level shift in the target, not a reordering, which is why the ordering survives.
+**BH: 7 of 9 differences survive.**
+
+**E4 · the committed margins hold their sign**: R805 fitted − blind pool **+0.0549 → +0.0514**;
+released core − blind pool **+0.0256 → +0.0282**; R811's rule effect **+0.0717 → +0.0711**; the sham
+gap **+0.0822 → +0.0836**. **0 of 4 flip.** MDE at n=293 is **0.0173**, below the smallest margin
+tested (**0.0256**), and it was computed before any null was read.
+
+**Controls.** OBJECT `coval_core` on `world` over 968 = **0.5664774812** exactly · PLACEBO
+**0.0e+00** · POSITIVE an arm built from `personal`'s modal class scores **0.6555** there, above the
+best real arm's **0.5939** · g=0 the same construction from `world` scores **0.6366** on `personal`,
+lower · NEGATIVE block labels shuffled within each assessment, null **+0.0002 [−0.0056, +0.0053]**
+against a real **−0.0119** · NOISE FLOOR **0.0032**. ⚠ The `unacceptable` block cannot be a third
+target: it records ratings, not a ranking, so `cls()` cannot consume it — checked against the record.
