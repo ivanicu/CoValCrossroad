@@ -24077,7 +24077,13 @@ home' was never a fact about the clause — it was a fact about a reading nobody
 ⭐ **THE MECHANISM, AND IT IS GENERAL.** This is an **append-only evidence document**. A correction
 lands where the new evidence lands — **at the end**. The claim it corrects lives **earlier**, because
 it is older. So the ordering *guarantees* a top-down reader meets the stale claim first and the
-downgrade only if they keep going. **`retraction_reaches_the_artifact` at intra-document scale: the
+downgrade only if they keep going.
+> ⛔ **"GUARANTEES" IS DOWNGRADED BY ENTRY 1324 — measured the next round.** The ordering **permits**
+> this; it does not produce it. Of **42** downgrade markers in **35** paragraphs, **33 are
+> CO-LOCATED** with the claim they modify and the 2 flagged are false positives (a table column
+> header, a section heading). **The 1322 structure survives in 0 of 42** — it was a one-off, because
+> the campaign's habit of annotating in place rather than rewriting (L81) keeps marker and claim
+> together. Real as a **risk**, false as a **rule**. **`retraction_reaches_the_artifact` at intra-document scale: the
 correction reached the file and still did not reach the sentence.**
 
 ⚠ **AND NO GATE CAN SEE IT.** `definition_matches_the_record.py` exits **0** — because **both numbers
@@ -24155,3 +24161,59 @@ consecutive rounds, here stated in advance rather than discovered afterwards.
 **What stands:** 42 downgrade markers in the file · one confirmed stale-antecedent pair (entry 1322,
 now repaired, before/after verified) · and a design that **cannot** scale that finding. **What would
 resolve it** is a claim-level match, i.e. reading all 42 — feasible, and not done here.
+
+## 1324 · prevalence resolved at 0 of 42 — and my own entry 1322 overstated its mechanism
+
+Last round's design could not answer how common the entry-1322 defect is: the count moved **0→15 of
+42** across one arbitrary threshold, so I reported the non-answer. This round the object supplied the
+right unit.
+
+### ⭐ THE EXEMPLAR WAS IN THE POPULATION, AND IT NAMED THE DEFECT ITSELF
+
+`DEFINITION.md:1855` looked like the worst marker in the file — *"The definition is **② ③ ④**. ⚠
+**SUPERSEDED — the definition is ② ∧ ③**"* — against a head that states ②∧③∧④. Read whole, it is the
+**model of the correct pattern**: claim → supersession with its reason → ⭐⭐ *"AND THE RETIREMENT IS
+ITSELF OVERTURNED (R821)"* → and it **closes on the current state**: *"The definition is ② ∧ ③ ∧ ④
+with size > 1, as the head states."* It even diagnoses entry 1322's defect in its own words:
+*"**The retirement reached the claim table and not this sentence**, which is why the deliverable
+stated two different definitions for 80 rounds."*
+
+**That gave the estimand its correct unit — PARAGRAPH CO-LOCATION**, not lexical overlap: is the
+downgrade marker in the same paragraph as the claim it modifies, so a reader cannot meet one without
+the other?
+
+| | |
+|---|---|
+| downgrade markers | **42** |
+| paragraphs containing one | **35** |
+| **CO-LOCATED** — marker sits with an assertion | **33** |
+| ⛔ flagged ORPHANED | **2** (L4455, L7150) |
+
+**CONTROLS, both sides, both from known cases:** ⓐ L1855, the exemplar → co-located **True** ✓ ·
+ⓑ pre-repair `c4a8bf3f~1`, claim at L7195 and downgrade at L7283 → same paragraph **False** ✓. The
+instrument separates the exemplar from the known defect.
+
+### ⭐ AND BOTH FLAGS ARE FALSE POSITIVES, ADJUDICATED BY READING
+
+- **L4455** is a **markdown table**. Every row is under 40 chars, so my "paragraph contains an
+  assertion" proxy found none — and the marker match is the phrase *"in a retracted block"*, which is
+  a **column header**, not a downgrade at all.
+- **L7150** is a **section heading**: *"R819 · R818's per-prompt statistic was one estimator with 6×
+  the noise — its reordering is retracted."* A heading has no sibling lines by construction, and a
+  heading is the **correct** place for a downgrade — it governs everything beneath it.
+
+⭐ **So the entry-1322 structure survives in 0 of 42 markers. It was a one-off, and it is repaired.**
+
+### ⛔ WHICH DOWNGRADES MY OWN ENTRY 1322
+
+That entry said the append-only ordering *"**GUARANTEES** a top-down reader meets the stale claim
+first."* **Overstated.** The ordering **permits** it; the campaign's actual habit — annotate in place
+rather than rewrite (L81) — **prevents** it, in 33 of 35 paragraphs. L1855 is the exemplar and the
+file follows it almost everywhere. The mechanism I named is real as a *risk* and false as a *rule*,
+and one round of measurement was enough to tell the difference.
+
+⚠ **Scope, stated because co-location is not correctness:** the proxy asks whether a marker shares a
+paragraph with *an* assertion, not with **the** assertion it modifies. A marker co-located with an
+unrelated claim would pass. So **33 is an upper bound on safety**; what is established is that **no
+instance of the 1322 separation survives at paragraph granularity**, not that all 33 pairings are
+semantically right. Verifying that needs reading all 33, which this round did not do.
