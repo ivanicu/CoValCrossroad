@@ -24269,3 +24269,55 @@ failure means the document is wrong about the record. A pass does NOT certify th
 prose claim not in the assertion table is unchecked BY CONSTRUCTION."* So 340 of 340 is a statement
 about the **assertion table**, not about the document, and the opening guarantee remains true only
 for numbers someone has bothered to anchor.
+
+## 1326 · the guarantee is unchecked for 79–93% of the file's numbers, and my extractor was blind twice before that was admissible
+
+Entry 1325 found DEFINITION.md's opening promise — *"**Every number in it is checked** against a
+committed artifact on every run … so it cannot drift"* — false for 2 of the clause table's 5 rows.
+This measures how false it is overall.
+
+**ESTIMAND, named before method:** the share of DEFINITION.md's distinct numeric claims that appear
+as a captured value of some entry in the gate's `ASSERTIONS` table.
+**IDENTIFICATION: PARTIAL.** *"Numeric claim"* has no crisp boundary, so per G1 this returns
+**bounds, not a point** — the answer is a sweep over what counts as one.
+
+### ⛔ THE POSITIVE CONTROL FAILED TWICE AND THE FIRST FOUR SHARES WERE INADMISSIBLE
+
+The control: **the extractor must see every value the gate already anchors.** If it cannot, its
+denominator is wrong *and* its matching is wrong.
+
+| attempt | invisible anchored values | cause |
+|---|---:|---|
+| `\d+(\.\d+)?` | **48** | `+` signs (`+0.0364`) and thousands separators (`15,593`) |
+| `[-+]?\d[\d,]*(\.\d+)?` | **7** | the **Unicode minus `−` (U+2212)**, not the ASCII hyphen |
+| `[-+−]?\d[\d,]*(\.\d+)?` | **0** ✓ | admissible |
+
+**The first run printed four coverage shares — 41.5% / 44.6% / 18.5% / 47.1% — from an instrument
+proven blind to 48 of the values it was measuring against.** They are withdrawn here rather than
+corrected, because they were computed with the wrong denominator *and* the wrong match set.
+
+### ⭐ THE ADMISSIBLE MEASUREMENT
+
+340 assertions capture **254 distinct values** from this file.
+
+| definition of "a numeric claim" | tokens | distinct | anchored | share |
+|---|---:|---:|---:|---:|
+| every number token | 11,307 | 3,590 | 254 | **7.1%** |
+| numbers inside `**bold**` | 3,347 | 1,437 | 195 | **13.6%** |
+| bold + decimal or "of N" | 1,050 | 813 | 106 | **13.0%** |
+| bold + a claim verb on the line | 1,011 | 518 | 110 | **21.2%** |
+
+⭐ **Anchored share bounded in [7.1%, 21.2%] — so between 79% and 93% of this file's distinct numeric
+values are UNCHECKED by the gate the file says checks every number.** The loose end counts line
+numbers, round ids and dates; the tight end counts only bolded values on claim-bearing lines. **No
+point estimate**, because last round's lesson was that a single cell of a definition sweep does not
+even fix the direction.
+
+⚠ **Scope, and it matters:** the unit is a distinct **VALUE**, not a distinct **CLAIM**. Two unrelated
+claims sharing the value `0.5` collapse to one, so the claim-level share is a *different quantity*
+this design does not estimate.
+
+**The opening sentence is corrected in the artifact**, not just here — it now says *"Numbers … that
+are anchored in the assertion table are checked"*, carries the bound, and ends by noting that **these
+very numbers are themselves unanchored**, which is the honest shape of the finding rather than a
+defect hidden inside it. The gate still exits **0** after the edit.

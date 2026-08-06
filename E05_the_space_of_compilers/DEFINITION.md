@@ -4,9 +4,28 @@
 attacked and corrected, in the order it happened. It is titled *"stated once"* and it opens with a
 correction, because the statement itself was never separated from its history.
 
-**This file is the statement.** Every number in it is checked against a committed artifact on every
-run by [`assurance/definition_matches_the_record.py`](../assurance/definition_matches_the_record.py),
-so it cannot drift from the evidence without the suite failing.
+**This file is the statement.** Numbers in it that are **anchored in the assertion table** are checked
+against a committed artifact on every run by
+[`assurance/definition_matches_the_record.py`](../assurance/definition_matches_the_record.py), and
+those cannot drift from the evidence without the suite failing.
+
+> ⛔ **CORRECTED 2026-08-06 (entry 1326). This sentence used to read "EVERY number in it is checked …
+> so it cannot drift", and that was false by a wide margin — measured, not estimated.** The gate holds
+> **340 assertions** capturing **254 distinct values** from this file. Against four definitions of
+> "a numeric claim", the anchored share is:
+> `every number token` **7.1%** · `bold` **13.6%** · `bold + decimal or "of N"` **13.0%** ·
+> `bold + a claim verb on the line` **21.2%**.
+> ⭐ **So the anchored share is bounded in [7.1%, 21.2%], and between 79% and 93% of this file's
+> distinct numeric values are UNCHECKED.** Reported as a bound rather than a point because *"numeric
+> claim"* has no crisp boundary — the loose end counts line numbers, round ids and dates, the tight
+> end counts only bolded values on claim-bearing lines.
+> ⚠ **Scope:** the unit is a distinct **VALUE**, not a distinct **claim** — two different claims that
+> share the value `0.5` collapse to one, so the claim-level share is a different quantity.
+> ⚠ **The extractor was blind twice before this was admissible**: it missed 48 anchored values that
+> carry `+` signs or thousands separators, then 7 more using the Unicode minus `−` (U+2212). Both
+> were caught by requiring it to see every value the gate already anchors.
+> ⚠ **And these very numbers are themselves unanchored**, which is the honest shape of the finding
+> rather than a defect hidden in it.
 
 ---
 
