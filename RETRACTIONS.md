@@ -19394,3 +19394,36 @@ and the second is the worse one: *a preregistration that is quietly ignored when
 unwelcome answer is not a preregistration, it is a decoration that happens to be typed first.* The
 remedy is mechanical and is now owed: when the prose and the registered branch disagree, the round
 must **say so and name which it is following, before the verdict line**.
+
+## 1066 · the gate that says "stop doing this" was hardcoded to the era it was written in
+
+R664 committed **0 of 24 object headlines** with controls and the verdict *"the loop is the defect,
+and the next round must move the definition or not run."* Its glob is `R6[0-9][0-9]_*`. **So the one
+instrument in the project whose job is to stop apparatus drift could not see any round after R699**,
+and nothing has run it in **99 rounds**. Re-run on R739–R762 it returns **1 of 24** — the same verdict,
+a second time, in a window where I twice proposed another instrument round in the NEXT line.
+*A gate scoped to the era that wrote it will always report that the problem was solved, because the
+only population it can still see is the one that provoked it.*
+
+## 1067 · I built two instruments to fix a blind spot and both measured their own size
+
+R664's keyword rule is a declared **lower bound**. §4's remedy is to name the instrument's unit and
+the claim's unit and require them equal, so I built a structural classifier: *did the round's commit
+edit `STATEMENT.md`'s definition block?* It returned **9 of 24** — and its sham, a **random contiguous
+block of the same length elsewhere on the page**, returned **[4, 12]**. A tighter unit, the clause
+bullets at 3.1% of the page, returned **2** against **[0, 2]**. **Both inside their own bands.**
+The arithmetic is the whole lesson: **23 of 24 rounds edit the page**, so any positional unit covering
+*p* of it is hit at ≈ *p* by chance — 36.7% of the page caught 39% of the editing rounds. *Naming the
+units was necessary and it was not sufficient: I named them correctly and still built an instrument
+whose resolution I never asked about until the sham answered.*
+
+## 1068 · the verdict string printed WORLD C while its own sham forbade it
+
+The first version of R763's branch read `if abs(C1 - C2) >= 6: world = "C"` — two admissible units
+disagreeing — and it fired, **two lines below a SHAM saying C2 sits inside its random-block band**.
+The round would have published *"the drift metric depends on which unit you count"* when what it had
+measured is *"my second unit has no resolution."* §4's *verdict string is not a computation*, and the
+remedy is that row's own: **the branch condition must reference every control the round declared.**
+Repaired to compute an admissible-unit list first. *The failure mode is not carelessness about the
+number — it is that a disagreement is a more interesting result than a broken instrument, and the
+branch was written before the sham had answered.*

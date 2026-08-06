@@ -767,6 +767,17 @@ Both sides inhabit the same object space and differ only in the **selection map*
 
 ---
 
+## ⛔ How much of this page's recent work moved the definition — 1 round in 24, twice measured
+
+**R664** measured **0 of 24** object headlines over R640–R663 and concluded *"the loop is the defect."*
+**R763** re-ran the same rule, unchanged, over **R739–R762: 1 of 24** *(`R760`)*. **One object headline
+in 48 rounds.** ⚠ The rule is a **keyword test on a headline** and therefore a **LOWER bound** — and
+**two attempts to build an upper bound failed their own shams**: the definition block (36.7% of the
+page) fires 9 against a random-block sham of **[4, 12]**, the clause bullets (3.1%) fire 2 against
+**[0, 2]**, because **23 of 24 rounds edit this page** and any positional unit is hit at roughly its
+own size share. ⇒ **Whether a round moved the definition is not reconstructible from diffs**; it needs
+a per-round declaration recorded at the time, which this campaign has never kept.
+
 ## The formulation is a fork, not a fact awaiting measurement
 
 **Everything below is settled enough to state the choice.** ⛔ **① is DELETABLE, and the definition is ② ③ ④.** ⚠ **SUPERSEDED — the definition is ② ∧ ③** *(R519, R599)*. This line predates R519, which measured clause **④ dropping 0 of the 9 ②-passers — identical to ①** — so ④ adds nothing and was retired alongside it. **The retirement reached the claim table and not this sentence**, which is why the deliverable stated two different definitions for 80 rounds. Annotated rather than rewritten (L81): the reasoning below about ① is unaffected and still correct. Globally it is

@@ -5109,3 +5109,33 @@ POSITIVE-2 worst |Δrob| 0.0000 · g=0 planted zero never resolved · NEGATIVE p
 **Derived, not measured.** ① a floor can only remove inversions (monotone by subset), so only reaching
 zero measures, and the size-matched random subset is what attributes it. ② three of R761's four pairs
 are one arm against three arms lying within 0.0010 of each other — one event, three labels.
+
+## R763 · whether a round moved the definition, measured three ways
+
+**Scope.** population = the 24 rounds R739–R762 (matched to R664's n = 24 so the eras compare);
+instrument = three classifiers, each with its own control set; baseline = R664's committed
+**0 of 24** over R640–R663; regime = this repository, this tree_sha.
+
+| unit | what it tests | % of page | count / 24 | own sham 95% | admissible |
+|---|---|---|---|---|---|
+| **C1** | R664's keyword rule on the headline | — | **1** | R664's control set | **YES** |
+| C2 | commit edits `## The definition` block | 36.7% | 9 | [4, 12] | **NO** |
+| C3 | commit edits a clause bullet | 3.1% | 2 | [0, 2] | **NO** |
+
+**Rounds editing `STATEMENT.md` at all: 23 of 24**, so a positional unit covering *p* of the page is
+hit at ≈ *p* of them by chance — C2 caught 9 of 23 = 39% against a 36.7% block.
+
+**2×2 (C1 × C2).** OBJECT/OBJECT **1** (`R760`) · OBJECT/apparatus **0** · apparatus/OBJECT **8**
+(`R739 R740 R741 R742 R745 R746 R761 R762`) · apparatus/apparatus **15**.
+
+**Controls.** POSITIVE-1 C1 reproduces R664's committed `0 of 24` on R664's own era **exactly** ·
+POSITIVE-2 C1 fires on R527/R519, C2 fires on R760 · NEGATIVE C1 not OBJECT on R654; 1 round touches
+no `STATEMENT.md` and C2 fired on 0 of it · g=0 empty headline and empty diff both negative ·
+PLACEBO keyword-free headline negative · SHAM ×2 as tabled. **WORLD A on the only admissible unit.**
+
+**Combined with R664: 1 object headline in 48 rounds** (R640–R663: 0 of 24; R739–R762: 1 of 24).
+
+**Impossible here, and now named with what it would require.** *Whether a round moved the definition*
+is **not reconstructible from diffs** — two positional units, two sham failures. It would require a
+**per-round declaration recorded at the time**: each README naming the clause it moves or naming NONE.
+Intent is not in a diff.
