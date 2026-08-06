@@ -101,6 +101,28 @@ def main():
     folds = np.array_split(order, NSPLIT)
     for s_, ev in enumerate(folds):
         fit = np.setdiff1d(order, ev)
+        rows = np.array([i * 4 + j for i in fit for j in range(4)])
+        mu, sd = XL.reshape(-1, 14)[rows].mean(0), XL.reshape(-1, 14)[rows].std(0) + 1e-12
+        XLz = (XL - mu) / sd
+        docs = [TXT[i][j] for i in fit for j in range(4)]
+        alld = [TXT[i][j] for i in range(N) for j in range(4)]
+        v = TfidfVectorizer(analyzer="char_wb", ngram_range=(3, 5), min_df=5, max_features=8000)
+        v.fit(docs); Mf = v.transform(docs)
+        svd = TruncatedSVD(n_components=KDIM, random_state=0).fit(Mf)
+        Zf = svd.transform(Mf); zm, zs = Zf.mean(0), Zf.std(0) + 1e-12
+        Z = ((svd.transform(v.transform(alld)) - zm) / zs).reshape(N, 4, -1)
+        Xs = np.concatenate([XLz, Z], axis=2)
+        d, y = [], []
+        for i in fit:
+            for k, (u, w) in enumerate(PR):
+                if Y[i][k] == 0: continue
+                d.append(Xs[i][u] - Xs[i][w]); y.append(Y[i][k])
+        m = LogisticRegression(C=1.0, max_iter=1500).fit(np.array(d), np.array(y))
+        S = Xs @ np.asarray(m.coef_).ravel()
+        for i in ev:
+            acc[i] += float((H[pids[i]] == np.sign(S[i][[u for u, _ in PR]]
+                             - S[i][[w for _, w in PR]])).mean()); cnt[i] += 1
+        print(f"     fold {s_}: fit {len(fit)} · scored {len(ev)}")
     assert cnt.min() > 0, "a prompt was never in an eval fold"
     assert cnt.max() == 1, f"k-fold must score each prompt ONCE, got max {cnt.max()}"
     BAR = acc / cnt
