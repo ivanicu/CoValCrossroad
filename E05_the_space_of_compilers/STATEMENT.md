@@ -2636,3 +2636,32 @@ regressor-to-outcome pairing destroyed gives nulls of **+0.004** and **−0.004*
 
 **Scope**: 293 prompts × 9 arms × 3 models · within-pair differences across two blocks about the
 **same** four responses · NBOOT 1,200 · first release, home judge.
+
+## R817 · Six ways of removing the tie handicap, one ordering
+
+| normalisation | Spearman vs raw | margins flipping |
+|---|---:|---:|
+| ÷ att (shared) · ÷ att (**split-half**) · ÷ (1 − tie) · subtractive · ÷ √att | **+1.0000** each | **0 of 4** each |
+
+**Removing the tie handicap does not move a single arm**, and the shared-annotator and split-half
+orderings agree at **+1.0000** with each other.
+
+⭐ **On the identified (split-half) normalisation**: `oracle_k4_fit1` **0.8780** · `coval_core`
+**0.8132** · `topw_k4` 0.8059 · `genericpool16` 0.7764 · `gen_sham` **0.6925** of their prompts'
+attainable maximum.
+
+⭐ **Only the split-half version is identified**: `corr(A2, att)` is **+0.6138** with shared
+annotators and **+0.3798** with disjoint halves, so **+0.2340** of the coupling is shared annotator
+noise that dividing would inject rather than remove.
+
+⭐ **R793's "1.0264" pathology does not recur**, and the reason is measurable: it divided by a pooled
+`CEIL_H` = 0.5519 **below** the arms' scores, while per-prompt `att` averages **0.686265**, above
+every arm — **no normalisation produced a value above 1**.
+
+**Controls**: a constant divisor leaves the ordering at **1.000000000000** · a dose ladder holds the
+raw mean at **0.5664774812** while the normalised mean moves **0.822608 → 0.820424 → 0.816057**,
+matching its derived slope **−0.02183537** to **1.46e-16**. ⚠ The negative control is uninformative
+here and is reported as such.
+
+**Scope**: 968 prompts × 9 arms × 6 normalisations · per-prompt maximum over the 75 weak orders ·
+disjoint annotator halves for numerator and denominator · NBOOT 1,200 · first release, home judge.

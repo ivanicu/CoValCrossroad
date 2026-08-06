@@ -21372,3 +21372,46 @@ abandoned an intercept estimand for the same reason. The family is printed becau
 pre-registered and **labelled as forced** rather than reported. *Pre-registering a quantity does not
 make it identified, and a family that the algebra fixes will pass or fail on schedule while measuring
 nothing — which is the arithmetic trap wearing a preregistration's clothes.*
+
+## 1236 · removing the tie handicap changes nothing, six ways
+
+R816 established that A2 penalises a strict-signed arm on every tied human pair, and its NEXT
+proposed re-expressing each committed A2 as a fraction of its prompt's attainable maximum. ⛔ CHECK
+#419 found this arc had been burned by that operation twice — **R793 swept three ceiling
+normalisations and got WORLD A / B / A**, and **R807's g=0 control** caught a denominator estimated
+from the numerator's own data — so the estimand had to be the CURVE, and only a split-half version
+could be identified. Measured: `corr(A2, att)` is **+0.6138** shared against **+0.3798** disjoint, so
+**+0.2340 of the coupling is shared annotator noise**. Result: **six normalisations — raw, ÷att
+shared, ÷att split-half, ÷(1−tie), subtractive, ÷√att — all give Spearman +1.0000 against raw with
+0 of 4 margins flipping**, and the shared and split-half orderings agree at +1.0000 with each other.
+⭐ R793's pathology does not recur and the reason is measurable rather than lucky: **R793 divided by
+a pooled CEIL_H of 0.5519, below the arms' own scores; per-prompt `att` averages 0.686265, above
+every arm**, and no normalisation produced a value above 1. ⭐ The number this yields, which the arc
+could not previously state: **`coval_core` achieves 0.8132 of what is attainable on its prompts**,
+`gen_sham` 0.6925.
+
+## 1237 · the same positive control was mis-specified three times in one round
+
+**① Built from an arbitrary level.** "An arm proportional to `att`" was `att × 0.8`; whether it
+changes RANK depends on the constant 0.8, not on whether normalising does anything. **② The g=0 check
+contradicted a derivation the round had already written.** "An arm independent of `att` must not
+move" — but a CONSTANT arm divided by a per-prompt divisor has `mean(c/att) > c/mean(att)` by
+**Jensen's inequality**, so it moves; and D1 had already stated that a per-prompt divisor reorders
+after averaging *because the weights change*. The control asserted the opposite of the round's own
+derivation. **③ The direction was asserted, not derived.** Repaired to a dose ladder — add
+`c × (att − mean att)`, leaving the raw mean unchanged BY CONSTRUCTION — I then asserted the
+normalised mean must RISE. It falls, and two lines settle it:
+`mean(cen/att) = 1 − mean(att)·mean(1/att) < 0` by Jensen. ⭐ **Derived slope −0.02183537, observed
+−0.02183537, |Δ| 1.46e-16.** *Three failures of one control, all §4's dominant mode, each fixed by
+deriving instead of asserting — and the final form is worth more than the original would have been,
+because it predicts its own slope to machine precision rather than merely pointing a direction.*
+
+## 1238 · and this round's negative control is uninformative, which is a property of the finding
+
+Because **every** normalisation leaves the ordering at Spearman 1.0000, permuting `att` across
+prompts also leaves it at 1.0000. The control therefore **cannot distinguish "the normalisation does
+nothing" from "the permutation destroyed it"**, and its PASS carries no information. It is reported
+as uninformative rather than counted as saturation. *A control whose discriminating power is
+destroyed by the very result it is meant to guard is not a failure of the control's construction —
+it is what a perfectly flat outcome does to any permutation null — and the honest move is to name the
+one control that IS load-bearing, which here is the positive one.*

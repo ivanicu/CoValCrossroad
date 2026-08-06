@@ -7038,3 +7038,33 @@ Jointly, `coval_core` ceiling **+0.269 [+0.162, +0.351]** / tie **−0.367 [−0
 regressor spanning only **0.994–1.000**, and is reported as weak. ⚠ The pre-registered per-arm
 RESIDUAL family is **forced** — an OLS residual has mean 0 by construction — and is labelled rather
 than reported as a finding.
+
+## R817 · removing the tie handicap changes nothing — six normalisations, one ordering
+
+**Why here.** R816 showed A2 penalises strict arms on tied human pairs, and its NEXT proposed
+dividing by each prompt's attainable maximum. ⛔ CHECK #419 found this arc burned by that operation
+twice: **R793 swept three ceiling normalisations and got WORLD A / B / A**, flagging a "fraction of
+ceiling" of **1.0264** as proof the quantity was not a proportion; and **R807's g=0 control** caught a
+denominator estimated from the numerator's own data. Measured here, `corr(A2, att)` is **+0.6138**
+with shared annotators against **+0.3798** with disjoint halves — **+0.2340 is shared annotator
+noise**, so only the SPLIT-HALF normalisation is identified.
+
+**⭐ Six normalisations, zero reorderings.** raw · ÷att(shared) · ÷att(split-half) · ÷(1−tie) ·
+subtractive · ÷√att — every one gives **Spearman +1.0000** against raw and **0 of 4** committed
+margins flipping sign; the shared and split-half orderings agree at **+1.0000** with each other.
+⭐ R793's pathology does not recur, and the reason is measurable: R793 divided by a pooled `CEIL_H`
+= 0.5519, **below** the arms' scores; per-prompt `att` has mean **0.686265**, above every arm, and
+**no normalisation produced a value above 1**.
+
+**⭐ The number the arc could not previously state**: on the identified normalisation `coval_core`
+reads **0.8132** of its prompts' attainable maximum, `oracle_k4_fit1` **0.8780**, `topw_k4` 0.8059,
+`genericpool16` 0.7764, `gen_sham` **0.6925**.
+
+**Controls.** OBJECT mean per-prompt attainable max **0.686265** matching R804, plus `coval_core`
+**0.5664774812** · PLACEBO a constant divisor leaves the ordering at **1.000000000000** · POSITIVE a
+dose ladder holding the raw mean fixed at 0.5664774812 while the normalised mean moves **0.822608 →
+0.820424 → 0.816057**, matching its **derived** slope `1 − mean(att)·mean(1/att) = −0.02183537` to
+**1.46e-16** · NOISE FLOOR **0.0046**. ⚠ The NEGATIVE control is **uninformative here and is not
+upgraded**: because every normalisation leaves the ordering at 1.0000, permuting `att` also leaves it
+at 1.0000, so it cannot separate "the normalisation does nothing" from "the permutation destroyed
+it". The load-bearing control is the positive one, which predicts its own slope.
