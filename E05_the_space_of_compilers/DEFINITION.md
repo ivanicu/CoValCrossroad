@@ -264,6 +264,20 @@ supporting. Nothing in the assurance layer checks that.
 
 ⭐ **④'s zero is the argument, not an embarrassment** *(under the STRICT reading only — see above)*.
 On this release ④ **costs nothing** — it
+⛔ **AND THE SECOND-RELEASE HALF OF THIS ARGUMENT IS CONTRADICTED BY ITS OWN CITATION (entry 1333).**
+The sentence below says *"on the second release it removes all 7 and **② removes none** (R434)"*, and
+it is the **load-bearing support for ④ being a sufficiency clause** — free where the definition works,
+binding where it fails. **R434's artifact says `sat2 = []` and `world = "W-EMPTY"`, and its own title
+is *"on a second release the definition admits NO CORE AT ALL"*.** An empty SAT2 means **② admits 0 of
+7 — ② removes all 7 there too.** So ④ is **not** distinguished from ② on that release; both are
+binding, and the "binding where it fails" half does not isolate ④. R434 refuses the inference in its
+own words: *"The SAT2→USEFUL relation is **UNVERIFIED**, and honestly so: with an empty SAT2 the
+relation has no referent."* ⚠ The charitable reading — *② removes none that ④ has not already removed*
+— is **vacuously true** when ④ removes all 7, and it reads as "② is inert there", which is the
+opposite of what R434 measured. **The clause-④ sufficiency argument therefore rests on the home
+release alone**, where entry 1332 measured it: ④ excludes 0 of the arms ②∧③ admits, under both
+readings.
+
 removes no arm the definition already admits — while on the second release it removes **all 7** and
 ② removes **none** (R434). A clause that is free where the definition works and binding where it
 fails is what a sufficiency clause is for; a **non-zero** here would have meant ④ was quietly

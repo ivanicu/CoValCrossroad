@@ -24599,3 +24599,52 @@ so `0 flips` is exhaustive, not under-powered. ② The `n=1` cell rests on `cova
 the derived one. ③ **2 of the 42 arms carry no row in R824**; neither is in either ②∧③ set, so the
 census is complete for the question asked. ④ This is **one release and one judge J** — the
 impossibility register's cross-release line is untouched.
+
+## 1333 · ④'s sufficiency argument cites a second release where its own artifact says ② removes everything too
+
+Entry 1332's NEXT: does the bar choice matter where the extension exceeds one — the second corpus
+being the only place a different extension was ever reported? **Three findings, and the third is on
+the deliverable's central argument.**
+
+### ① THE READING DISTINCTION EXISTS IN EXACTLY ONE ROUND
+
+Scanned every `E05*/A*/R*/results/**/*.json` for a strict-and-permissive pair: **`R824` alone.**
+⚠ **And one homonym was caught before it became a fourth candidate**: `R427` carries `perm_mde` and
+`perm_null`, which sit beside `pooled_mde`, `pooled_tau` and `strata` — **per-stratum/permutation, not
+permissive.** Same class as the `LAUNDERED` homonym of entry 1321; a substring match on `perm` would
+have manufactured a second corpus for the comparison.
+
+### ② AND THE SECOND CORPUS CANNOT HOST THE QUESTION — FOR A REASON ABOUT THE OBJECT
+
+Not an instrument gap. `R434`'s artifact: **`world = "W-EMPTY"`, `sat2 = []`, `both = []`**, over
+**7,342 interactions / 2,200 conversations**. **② admits nothing there**, so ②∧③ is empty and the
+extension question has no population — the same obstacle as entry 1331's join, from the opposite
+cause. So the question is askable on **R360's 42-arm space and nowhere else I could find**, and it was
+answered there last round.
+
+### ⛔ ③ THE SENTENCE THAT CARRIES ④'s SUFFICIENCY ARGUMENT IS CONTRADICTED BY ITS OWN CITATION
+
+`DEFINITION.md` argues ④ is a sufficiency clause because it is *free where the definition works and
+binding where it fails*, and supports the second half with:
+
+> *"on this release ④ costs nothing … while on the second release it removes **all 7** and **② removes
+> none** (R434)."*
+
+**R434 says the opposite about ②.** `sat2 = []` — **② admits 0 of 7, so ② removes all 7 there.** Its
+README's title is *"on a second release the definition admits **no core at all** — `W-EMPTY`"*, and it
+declines the very inference the sentence draws: *"The SAT2→USEFUL relation is **UNVERIFIED**, and
+honestly so: with an empty SAT2 the relation has no referent."*
+
+⚠ **The charitable reading is vacuous.** *"② removes none that ④ has not already removed"* is trivially
+true once ④ removes all 7 — and as written it reads as *"② is inert there"*, which is the reverse of
+what R434 measured. Either way **④ is not distinguished from ② on that release**: both are binding, so
+that half cannot isolate ④.
+
+⭐ **Consequence for the deliverable: ④'s sufficiency argument rests on the HOME release alone**, where
+entry 1332 measured it properly — 0 flips over a census of 5 (hand ③) and 1 (derived ③), with 23 of 40
+arms on the same space flipping as a live control. **The cross-release half is withdrawn, annotated in
+the artifact beside the sentence.**
+
+⚠ **What is NOT claimed:** that no core exists on the second release. R434 is explicit — *"7 arms is a
+census of what this campaign built, not a sample of criterion-space"*, and R432's oracle over five of
+them reaches **0.7220**, far above every arm there.
