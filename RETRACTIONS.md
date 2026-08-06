@@ -19181,3 +19181,40 @@ first time in this arc that has happened. The negative control still failed and 
 unverified. Recording this because the temptation runs the other way: a report where every prediction
 hit reads as a strong round, and prediction accuracy is not a verdict. The controls decide, and one of
 them said the comparison could not be attributed.
+
+## 1045 · an empty lookup produced a reassuring answer in my own first command of the round
+
+I asked git for the commit that introduced an earlier round by searching its log messages, and the
+pattern I used matched the directory name rather than anything in the message, so the variable came
+back empty. Showing a file at an empty commit prefix resolves to the index, which is today's file, so
+the comparison printed three deltas of zero and read as nothing has moved. The repaired command asserts
+the lookup is non-empty and refuses to continue, and the round's own entry point exits rather than
+proceeding on an empty commit. A search that finds nothing must not be allowed to look like a
+measurement that found no difference.
+
+## 1046 · the correct pin is the parent commit, because a round edits the document it measures
+
+Pinned to the commit that introduced an earlier round, one of three rates failed to reproduce, off by
+two hundredths. Pinned to that commit's parent, all three reproduce exactly, including the figure count
+and the flagged count. The gap is that round's own appended section: the document gains four figures
+between the parent and the commit, and those four are what the round itself wrote after measuring. A
+round's own commit therefore holds the document after that round edited it, and pinning to it
+overcounts by exactly the round's own additions. The preregistration named this limit before the run
+and printed the bracket; the bracket turned out to be the answer rather than a caveat.
+
+## 1047 · the earlier diagnosis was right in kind and wrong in size
+
+The previous round attributed its failed control to the deliverables growing every round, and
+quantified nothing. Isolated, document drift between that round's tree and today accounts for sixteen
+ten thousandths on the document in question, while the discrepancy it could not explain was two
+hundredths, more than ten times larger. The growth explanation was true and small; the real cause was
+the choice of tree. Both are population problems, which is why the wrong one looked sufficient.
+
+## 1048 · and the finding that survived the corpus correction is worth recording as surviving
+
+Recomputed against the whole repository rather than one arc, between round variance is one tenth
+against a null of four hundredths, a ratio of two and a half where the narrow corpus gave two and a
+third. The claim that the flagged rate belongs to rounds rather than to documents therefore stands,
+and it stands on a corpus five times wider than the one that produced it. Recording this because the
+recent ledger is dense with retractions and a surviving claim needs the same explicit treatment, or
+the record reads as though nothing ever holds.

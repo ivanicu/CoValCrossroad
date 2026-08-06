@@ -189,8 +189,17 @@ document text: `FORMULATION.md` **0.8000 → 0.3680**, while this page and `DEFI
 ⛔ **But the NEGATIVE control FAILED**: restricted to A24, today's rates no longer reproduce R753's
 committed ones (`DEFINITION.md` **0.3814 → 0.3984**) **because a section is appended to two of these
 three documents every round**. **The deliverable is a moving population**, so any rate compared to an
-earlier round's crosses two document versions *(ledger 1043)*. **The corpus defect is established; its
-size against the published numbers is not.**
+earlier round's crosses two document versions *(ledger 1043)*.
+⭐⭐ **REPAIRED** *(R758)*. Pinned to R753's **PARENT** tree, all three rates reproduce **EXACTLY** —
+`0.1793 / 0.3814 / 0.8000`, including 118 figures and 45 flagged. **The correct pin is the parent,
+because a round's own commit holds the document AFTER that round appended to it** — `DEFINITION.md`
+reads **122** figures at the commit and **118** at the parent, and the four are R753's own section
+*(ledger 1046)*. ⚠ Document drift itself contributes only **0.0016**, so the earlier diagnosis was
+right in kind and **10× too small** *(ledger 1047)*. **0 artifacts were edited in place**; 4 were
+added. ⇒ **the corpus finding stands on clean, pinned text**, and `FORMULATION.md` **0.8000 → 0.3680**
+holds at every tree.
+⭐ **And R756's round-level finding SURVIVES the corpus correction**: repo-wide, between-round variance
+**0.1036** against a null of **0.0420** — **2.47×**, against 2.30× on the narrow corpus *(ledger 1048)*.
 
 ⭐ **The rate belongs to ROUNDS, not documents** *(R756)*: between-round variance **0.0905** is
 **2.30×** its structure-free sampling null (**0.0394**) over the 76 rounds with ≥3 figures. ⚠ **But

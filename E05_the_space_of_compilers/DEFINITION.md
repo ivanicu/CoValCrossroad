@@ -4873,3 +4873,48 @@ P5 **0.0800**, D true). **And the round is still `UNVERIFIED`: prediction accura
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 13131, **both writes confirmed to
 disk** (1,979 / 1,983 bytes, differing only in the recorded seed).
+
+## R758 · git pins the population — both of them — and the correct pin is the PARENT commit
+
+**Question.** R757 failed its NEGATIVE control and left `UNVERIFIED`, diagnosing *"the deliverables
+grow every round"*. **Git holds every version, so the population can be pinned retrospectively.**
+
+**⭐ Result.** Pinned to R753's **parent** tree, all three rates reproduce **EXACTLY**:
+`0.1793 / 0.3814 / 0.8000`, including `DEFINITION.md`'s **118** figures and **45** flagged.
+
+| document | PARENT | commit | today | vs R753 |
+|---|---|---|---|---|
+| `STATEMENT.md` | **0.1793** | 0.1793 | 0.1784 | **EXACT at parent** |
+| **`DEFINITION.md`** | **0.3814** | **0.4016** | 0.4000 | **EXACT at parent, +0.0202 at its own commit** |
+| `FORMULATION.md` | **0.8000** | 0.8000 | 0.8000 | **EXACT** (A24 corpus) |
+
+⭐ **The correct pin is the PARENT**, because a round's own commit holds the document **after** that
+round appended to it: `DEFINITION.md` is **122** figures at the commit and **118** at the parent, and
+the four are R753's own appended section *(ledger 1046)*. **The preregistration named this limit before
+the run and printed the bracket; the bracket was the answer.**
+
+⚠ **The earlier diagnosis was right in kind and 10× too small** *(ledger 1047)*: isolated document
+drift contributes **0.0016**, against a **0.0202** discrepancy.
+
+**Two populations, and R757 pinned neither.** At R753: documents 1205 / 4677 / 2397 lines; A24 rounds
+**456**; repo-wide **525**. At HEAD: 1255 / 4875 / 2397; **460**; **529**.
+
+**Controls — 5 PASS, 0 FAIL.** POSITIVE recovered deltas `{+50, +198, +0}`; band computed — a recovery
+returning today's file gives **all-zero** deltas, **the exact failure this round's own first lookup
+produced** *(ledger 1045)* · g=0 HEAD's tree reproduces today's rates exactly · NEGATIVE **both**
+crossed cells fail, so **both** populations are needed · **SHAM** R750's trees reproduce R753 in only
+**1 of 3**, so reproduction is specific to the right tree · PLACEBO byte-identical.
+**CONFOUND, decisive:** 574 artifacts present at both commits, **0 changed in place**, 4 added.
+
+**⭐ R756's finding SURVIVES the corpus correction** *(ledger 1048)*: repo-wide, between-round variance
+**0.1036** vs null **0.0420** = **2.47×**, against 2.30× narrow. **The rate belongs to rounds, and that
+was not an artifact of the scoping defect.**
+
+**Registered.** P1 **yes at the parent** *(hard)* · P2 0.43 → **0.4320** ✓ · **P3 0.017 → 0.0016**, in
+band but **10× wrong — drift was not the cause** · P4 2.0 → **2.47** ✓ · P5 455 → **456** ✓ · D ✓.
+
+**The pin, applied to this round's own numbers:** `STATEMENT.md` 1255 / `f792bdd6bfc417e3` ·
+`DEFINITION.md` 4875 / `7fbde36cf36daf8d` · `FORMULATION.md` 2397 / `36ae2fbc2875c9f4`.
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 99887, **both writes confirmed to
+disk** (4,386 / 4,390 bytes, differing only in the recorded seed).
