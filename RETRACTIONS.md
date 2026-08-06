@@ -24321,3 +24321,38 @@ this design does not estimate.
 are anchored in the assertion table are checked"*, carries the bound, and ends by noting that **these
 very numbers are themselves unanchored**, which is the honest shape of the finding rather than a
 defect hidden inside it. The gate still exits **0** after the edit.
+
+## 1327 · the guarantee holds exactly where the deliverable lives — and my last round's headline was scope-free
+
+Entry 1326 reported that **79–93% of DEFINITION.md's distinct numeric values are unchecked**. True of
+the **file**. This round asks the question that actually decides the deliverable: **what share of the
+numbers in the DEFINITION'S OWN STATEMENT is anchored?** Both outcomes were informative — if the
+statement were as thin as the file, the guarantee fails where it matters most.
+
+**Positive control re-run rather than assumed:** the sign- and U+2212-aware extractor still sees all
+**254** anchored values.
+
+| population | distinct | anchored | share |
+|---|---:|---:|---:|
+| **the STATEMENT** (L32–64) | **10** | **8** | **80.0%** |
+| statement + extension (L32–156) | 84 | 33 | 39.3% |
+| + clause-table head (L32–200) | 93 | 36 | 38.7% |
+| whole file (entry 1326) | 3,590 | 254 | **7.1%** |
+
+⭐ **And the two unanchored values in the statement are `441` and `824` — the round IDs inside "R441"
+and "R824", not numeric claims at all.** Excluding citations, **the statement is 8 of 8 = 100%
+anchored.**
+
+⭐ **Coverage declines monotonically with distance from the statement** — 80% → 39.3% → 38.7% → 7.1%.
+That is the right shape and it was not guaranteed: the alternative, a deliverable as thinly covered as
+its evidence record, was live before the measurement.
+
+⛔ **WHICH CORRECTS MY OWN ENTRY 1326.** Its headline named a real quantity and **omitted the scope
+over which it holds** — the exact failure G1 opens with (*"Eleven of twelve retractions in one audited
+programme were a correct number reported without the scope over which it held"*). "79–93% unchecked"
+is **true of the file and misleading of the definition**. Both halves are now written into the
+artifact, not only here.
+
+⚠ **Resolution:** the statement's denominator is **10 values**, so 80% is coarse — one value moves it
+10 points. **What is solid is the LIST** (`441`, `824`, both citations), not the percentage. Reported
+as a list precisely because the percentage cannot carry that little data.

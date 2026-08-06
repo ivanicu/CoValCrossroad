@@ -26,6 +26,19 @@ those cannot drift from the evidence without the suite failing.
 > were caught by requiring it to see every value the gate already anchors.
 > ⚠ **And these very numbers are themselves unanchored**, which is the honest shape of the finding
 > rather than a defect hidden in it.
+>
+> ⭐ **SCOPE ADDED 2026-08-06 (entry 1327) — THE BOUND ABOVE IS ABOUT THIS FILE, NOT ABOUT THE
+> DEFINITION.** Measured per section, coverage **declines monotonically with distance from the
+> statement**: the **STATEMENT itself (this section) is 8 of 10 distinct values anchored = 80%, and
+> the two that are not are `441` and `824` — round IDs in "R441" and "R824", not claims.** Excluding
+> citations, **the statement is 8 of 8 = 100% anchored.** Statement + extension is **39.3%** (33 of
+> 84), through the clause-table head **38.7%** (36 of 93), and the whole file **7.1%** (254 of 3,590).
+> **So the guarantee holds exactly where the deliverable lives and decays through the evidence
+> record** — which is the right shape and was not guaranteed in advance.
+> ⚠ The statement's denominator is **10 values**, so 80% has coarse resolution; what is solid is the
+> *list*, not the percentage. And entry 1326's "79–93% unchecked" remains true **of the file** and is
+> misleading **of the definition** — a correct number reported without the scope over which it holds,
+> which is G1's own opening line.
 
 ---
 
