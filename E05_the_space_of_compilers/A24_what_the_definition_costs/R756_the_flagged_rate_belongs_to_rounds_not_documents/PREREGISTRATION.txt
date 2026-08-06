@@ -1,0 +1,164 @@
+R756 · whose property is the flagged rate — the document, or the rounds it cites?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R755 closed by proposing that FORMULATION.md's commits after its last new citation be read as diffs.
+
+⛔ CHECK #358 KILLED THAT: R755's own artifact records `terminal_zero_run = 1`. There is exactly ONE
+such commit, not "41 hours of them". The 41 hours is elapsed time SINCE it stopped, during which the
+OTHER documents were edited. My closing line mis-stated the object -- the third closing-line error in
+this arc, and the standard names that sentence as the highest-risk one in a report.
+
+⛔⛔ AND TWO CHEAP CHECKS THEN KILLED THE REPLACEMENT DESIGN AND DOWNGRADED AN EARLIER HEADLINE.
+① Artifact availability by era is UNIFORM -- 1.00 / 1.00 / 0.98 / 1.00 across the four era bins -- so
+   FORMULATION's 0.8000 flagged rate is NOT an artifact of missing artifacts. That rival is dead.
+② But the documents cite NEAR-DISJOINT round sets at the figure level:
+
+       rounds cited by figures:  FORMULATION 43   DEFINITION 61   STATEMENT 97
+       F ∩ D = 2                 F ∩ S = 0
+       DEFINITION figures citing a FORMULATION-cited round:   5 of 125
+       STATEMENT  figures citing a FORMULATION-cited round:   0 of 184
+
+   There is NO MATCHED STRATUM. R753's 0.6207 between-document difference is not two measurements of
+   one population -- it is two different populations OF ROUNDS. The document-versus-rounds question is
+   UNIDENTIFIABLE by matching, which is the same structural failure R754 found at the era-bin level,
+   confirmed here at the exact-round level and far more severely.
+
+--------------------------------------------------------------------------------
+ESTIMAND
+--------------------------------------------------------------------------------
+E1  the flagged rate per CITED ROUND, pooled across all three documents -- the unit being the round
+    whose artifact is or is not being found in.
+E2  the variance of flagged rate ACROSS ROUNDS against the variance ACROSS DOCUMENTS: whose property
+    is it?
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1 IDENTIFIED and exact: for each (figure, cited round) pair, whether that round's artifact holds the
+   figure's value is a deterministic lookup. Pooling across documents is legitimate HERE precisely
+   because the round is the unit and each round's figures are its own.
+E2 IDENTIFIED as a variance decomposition, with one part FORCED (below).
+
+⛔ THE FORCED PART, DERIVED BEFORE MEASURING AND LABELLED: with near-disjoint round sets, a document's
+   rate is a WEIGHTED AVERAGE of its own rounds' rates. So "the documents differ" FOLLOWS from "the
+   rounds differ" plus disjointness. That implication is algebra and is NOT evidence. What is NOT
+   forced, and is the measurement, is the SIZE of the round-level variance -- rounds could all sit at
+   0.4 and the documents still differ only by sampling.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  every (figure, cited round) pair across the three deliverables
+instrument  R750's rounded matcher against each round's committed results/*.json
+baseline    R753's per-document rates, which this round re-attributes
+regime      this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE RATE BELONGS TO ROUNDS. Between-round variance is large relative to what sampling would give,
+    and the document differences are its shadow. "Document X has a flagged rate" is then a category
+    error, and R753's headline must be restated as a statement about which rounds each document cites.
+B · THE RATE BELONGS TO DOCUMENTS. Rounds are homogeneous; the document differences are not explained
+    by which rounds are cited, so a document-level property survives.
+
+PREDICTION MATRIX -- between-round variance vs its own sampling null
+    A -> observed variance >> null            B -> observed variance ~ null
+
+--------------------------------------------------------------------------------
+⚠ SIGHTED, DECLARED BEFORE REGISTERING
+--------------------------------------------------------------------------------
+I ran the artifact-availability table and the round-set overlap during P4, and I already hold R753's
+0.8000 / 0.3814 / 0.1793 and R754's 0.3958. So the DISJOINTNESS and the document rates are SIGHTED,
+and no blind prediction is registered for either. Ninth declared sighting in eleven rounds. The blind
+quantities are every round-level rate, the variance, the null, and the share of rounds at the extremes.
+
+--------------------------------------------------------------------------------
+REGISTERED POINTS -- each independently failable
+--------------------------------------------------------------------------------
+P1  BLIND   distinct rounds cited by at least one figure            registered 150  [50, 400]
+P2  BLIND   between-round variance of the flagged rate              registered 0.09 [0.00, 0.25]
+P3  BLIND   the same statistic under the sampling null (figures
+            reassigned to rounds at random, preserving counts)      registered 0.03 [0.00, 0.25]
+P4  BLIND   share of cited rounds at rate exactly 0.0 or exactly 1.0
+            -- the degenerate ends                                  registered 0.55 [0.00, 1.00]
+            ⚠ note this band spans the whole range and therefore CANNOT FAIL; it is registered as a
+              REPORTED QUANTITY, not as a prediction, and is not scored. R751 made that mistake
+              silently and this one is labelled.
+P5  BLIND   rounds cited by MORE THAN ONE document                  registered 20   [0, 100]
+
+DIRECTIONAL, separately failable
+D   the rounds FORMULATION cites have a HIGHER mean flagged rate than the rounds STATEMENT cites,
+    computed per ROUND rather than per figure -- i.e. the document difference reproduces at the round
+    level, which is what World A requires.
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+FORCED, labelled, not evidence:
+  - a document's rate is a weighted average of its rounds' rates. Documents differing FOLLOWS from
+    rounds differing plus disjoint sets. Only the SIZE of round-level variance is measured.
+  - a round cited by ONE figure has a rate of exactly 0 or exactly 1 by construction. Such rounds
+    inflate between-round variance mechanically, so the variance MUST be reported both over all
+    rounds and over rounds with >= 3 figures, and the two never merged.
+  - the sampling null must preserve each round's FIGURE COUNT, or it compares different designs.
+
+STRONGEST CONFOUND, written BEFORE the run: a round's flagged rate depends on how many numbers its
+artifact stores, which is a property of the round's own design rather than of anyone's citing. CONTROL
+IN THE SAME ITERATION: report each round's artifact SIZE beside its flagged rate and the correlation
+between them, so an artifact-size explanation is visible rather than absorbed.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE fires (a round known to store many values shows a low rate) and g=0 holds (a round with no
+artifact returns UNDEFINED, never 0) and NEGATIVE collapses the variance under reassignment:
+        variance(>=3 figures) > 2x the null   -> WORLD A. The rate belongs to ROUNDS; R753's headline
+                                                is restated as a statement about which rounds each
+                                                document cites.
+        variance ~ null                       -> WORLD B. A document-level property survives.
+        otherwise                             -> UNRESOLVED; publish both variances.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE   a round whose artifact is large and number-dense must show a LOW flagged rate among the
+           figures citing it. Chosen by artifact size BEFORE its rate is computed, so the control is
+           not selected on the outcome. BAND, COMPUTED: floor = the rate of a round with an empty
+           artifact (1.0 by construction), ceiling = 0.0; the measured rate must sit strictly below
+           the pooled mean.
+g=0        a cited round with NO results/*.json must return UNDEFINED and be excluded with its count
+           printed -- never scored as 0.0, which would look like perfect support, nor as 1.0, which
+           would look like total failure. Both directions are wrong and the exclusion is named.
+NEGATIVE   reassign figures to rounds at random, PRESERVING each round's figure count, 5 seeds. The
+           between-round variance must collapse. World excluded: "any partition of these figures into
+           groups of these sizes shows this variance".
+SHAM       the same operation with the INGREDIENT ABSENT, not inverted. Ingredient = grouping by the
+           CITED ROUND. Group the same figures by their LINE NUMBER into blocks of the same sizes and
+           compute the same variance. A real round effect must exceed what an arbitrary blocking gives.
+PLACEBO    the variance computed twice -> exactly 0 difference, reported as 0 of N.
+NOISE      5 null seeds and 5 sham blockings; spreads printed, never averaged into one number.
+UNIT       instrument unit = a (figure, round) PAIR; claim unit = a ROUND. Not equal -- a figure citing
+           three rounds contributes to three -- so the per-figure and per-pair totals are both printed
+           and the round-level rate is computed over pairs, which is stated rather than assumed.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+{all rounds, rounds with >=3 figures} x {observed, null, sham} + 5 null seeds + 5 sham blockings + the
+artifact-size correlation. All reported.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+a matched document comparison       documents citing overlapping rounds; F∩S = 0 makes this
+                                    structurally unavailable, not under-powered
+whether a round's artifact SHOULD
+store a printed value               an editorial standard for what an artifact owes its reader
+generalising beyond this repo       a second repository
+independently replicated            a second team; the session prompt forbids dispatching agents

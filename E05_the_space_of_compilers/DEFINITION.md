@@ -4776,3 +4776,56 @@ parity with `STATEMENT.md`, whose pool kept growing, is what makes the compariso
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 44556, **both writes confirmed to
 disk** (2,158 / 2,162 bytes, differing only in the recorded seed).
+
+## R756 · the flagged rate belongs to ROUNDS — and R753's headline was mostly artifact ABSENCE
+
+**⛔⛔ RETRACTION.** R753 reported `FORMULATION.md` at **0.8000** against `STATEMENT.md`'s **0.1793**
+and read it as governance. **93 of FORMULATION's 125 figures — 74.4% — cite ONLY rounds with no
+`results/` directory**, against **4.0%** (DEFINITION) and **0.0%** (STATEMENT). The matcher scored
+*"no artifact"* identically to *"artifact does not hold this value"* *(ledger 1038)*.
+
+**⭐ And the direction REVERSES once absence is separated:** among rounds that DO have artifacts,
+FORMULATION's average **0.2188**, STATEMENT's **0.4455** *(ledger 1039)*.
+
+**Two cheap checks did the work.** ① Artifact availability by era is **uniform** (1.00/1.00/0.98/1.00),
+killing the era-level version of the rival. ② At the exact-round level the documents are
+**near-disjoint** — 43 / 61 / 97 rounds cited by figures, **`F ∩ S = 0`**, DEFINITION matching
+FORMULATION on **5 of 125**. **A matched comparison is structurally unavailable, not under-powered.**
+
+**The identified estimand — the ROUND as the unit.** 1,186 (figure, round) **pairs** from 416 figures.
+⭐ **The g=0 control caught the retraction:** **27** cited rounds have no artifact and return
+**UNDEFINED**, excluded **with their count printed** — never `0.0` (perfect support) nor `1.0` (total
+failure). **R753 had no such control.**
+
+| | all rounds | ≥3 figures |
+|---|---|---|
+| n | 138 | 76 |
+| between-round variance | 0.1396 | **0.0905** |
+| sampling null (5 seeds) | 0.1165 | **0.0394** |
+| ratio | 1.20× | **2.30×** |
+
+⛔ A round cited by ONE figure is 0 or 1 **by construction**; the columns are never merged.
+
+**⚠ The SHAM bounds it.** Line-blocked at the same sizes: **0.0852** vs observed **0.0905** — only
+**1.06×**. Random reassignment destroys all structure; line-blocking preserves **positional**
+clustering. **Much of the clustering is positional**, and that is reported rather than resolved
+favourably *(ledger 1040)*.
+
+**Controls — 5 PASS, 0 FAIL.** POSITIVE **R392**, chosen by **artifact size** (116,141 B) *before* its
+rate was seen — **not selected on the outcome** — scores **0.2000** vs pooled **0.6233** · g=0 as above ·
+NEGATIVE 0.0905 → 0.0394 · SHAM as above · PLACEBO exactly 0. **CONFOUND printed:**
+`corr(artifact size, rate) = −0.1382`.
+
+**Registered against measured.** P1 150 → **138** ✓ · P2 0.09 → **0.0905** ✓ near-exact · P3 0.03 →
+**0.0394** ✓ · **P4 ⚠ its band spanned [0,1] and could not fail — reported, not scored, and labelled**
+(R751 made that mistake silently) · P5 20 → **36** ✓ · **D predicted true, measured FALSE and
+INVERTED**.
+
+⛔ **The document-level implication is ALGEBRA**: with near-disjoint round sets a document's rate is a
+weighted average of its rounds', so *"documents differ"* **follows**. Only the variance was measured.
+
+**Verdict — `WORLD A`.** The rate belongs to **rounds**; R753's document headline is a shadow of
+**which rounds each document cites**.
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 66778, **both writes confirmed to
+disk** (1,866 / 1,870 bytes, differing only in the recorded seed).

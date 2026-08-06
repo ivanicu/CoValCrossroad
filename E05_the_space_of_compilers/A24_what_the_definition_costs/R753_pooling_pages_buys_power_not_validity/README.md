@@ -1,5 +1,13 @@
 # R753 · the three deliverables are NOT one population — and the ungated one is 4.5× worse
 
+> ⛔⛔ **RETRACTED IN PART BY R756** *(ledger 1038, 1039)*. The **0.8000** flagged rate for
+> `FORMULATION.md` is dominated by **artifact ABSENCE**: **93 of its 125 figures (74.4%) cite only
+> rounds with no `results/` directory**, and this round's matcher scored that identically to a value
+> not being found. ⭐ **The directional INVERTS** once absence is separated — FORMULATION's rounds
+> average **0.2188**, STATEMENT's **0.4455**. **The non-exchangeability finding stands** (the
+> documents cite near-disjoint rounds, `F ∩ S = 0`); **the governance reading does not.**
+
+
 **Flagged rates: `STATEMENT.md` **0.1793** · `DEFINITION.md` **0.3814** · `FORMULATION.md` **0.8000**.
 All three pairwise differences clear the MDE, and the largest (**0.6207**) is **6.7×** the
 within-document floor the SHAM measured (**0.0933**). **Pooling them to reach R752's sample size would

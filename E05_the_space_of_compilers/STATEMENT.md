@@ -172,8 +172,23 @@ three pairwise differences clear the MDE**, and the largest, **0.6207**, is **6.
 exchangeability floor of **0.0933** measured by splitting this page in half. **Pooling them would
 manufacture power without validity.** ⛔ And it would not suffice anyway: **427** pooled figures is
 **0.50 of ONE arm**; **12** documents of average size would be needed.
-⚠ **`FORMULATION.md` carries 100 unsupported figures of 125** — the largest such block in the
-repository, in the one document R598 measured as flipping **0 of 28** gates. ⚠ **But governance and
+⛔⛔ **RETRACTED — THAT NUMBER IS MOSTLY ARTIFACT ABSENCE** *(R756, ledger 1038)*. **93 of
+`FORMULATION.md`'s 125 figures — 74.4% — cite ONLY rounds that have no `results/` directory at all**,
+against **4.0%** for `DEFINITION.md` and **0.0%** for this page. The matcher scored *"the cited round
+has no artifact"* identically to *"the artifact does not hold this value"*. ⭐ **And the direction
+REVERSES once absence is separated:** restricted to rounds that DO have artifacts, `FORMULATION.md`'s
+rounds average **0.2188** and this page's **0.4455** *(ledger 1039)*. **The document I treated as the
+worst is the better-cited of the two on evidence that can be checked.**
+⭐ **The rate belongs to ROUNDS, not documents** *(R756)*: between-round variance **0.0905** is
+**2.30×** its structure-free sampling null (**0.0394**) over the 76 rounds with ≥3 figures. ⚠ **But
+only 1.06× a position-preserving null** (line-blocked, same sizes, **0.0852**) — much of the clustering
+is **positional**, and that bound is reported rather than resolved favourably *(ledger 1040)*.
+⛔ **And the document-level implication is ALGEBRA**: the three deliverables cite **near-disjoint**
+rounds (`F ∩ S = 0` at the figure level), so a document's rate is a weighted average of its rounds' and
+*"documents differ"* **follows**. Only the variance was measured.
+⚠ *(superseded reading, kept for the scope it forced)* `FORMULATION.md` carries 100 flagged figures of
+125 — the largest such block in the repository, in the one document R598 measured as flipping **0 of
+28** gates. ⚠ **But governance and
 ERA are confounded**: its median citation is **R256** against this page's **R607**, and this design
 cannot separate them. The era is printed beside each rate rather than absorbed into it.
 ⛔⛔ **AND THAT CONTRAST IS UNIDENTIFIABLE, NOT MERELY UNDER-POWERED** *(R754)*. `FORMULATION.md` has

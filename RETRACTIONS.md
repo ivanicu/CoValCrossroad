@@ -19103,3 +19103,42 @@ treatment is assigned at the document level and there is one treated unit. Recog
 building meant the round changed question rather than gathering more data at the wrong level, and the
 document level line is now closed rather than open. A closed decision is a result; an open one that
 cannot be closed is a queue entry pretending to be one.
+
+## 1037 · my closing line mis-stated the object for the third time in this arc
+
+The previous round proposed reading the formulation's commits after its last new citation, describing
+them as a further forty one hours of editing. Its own artifact records the terminal run of
+citation-free commits as one. There is a single such commit, and the forty one hours is elapsed time
+since it stopped, during which the other two documents were edited. The standard names the closing
+sentence as the highest risk line in a report because it is written last, acted on first, and carries
+no control. This is the third time in this arc, and each time the correction cost one read of an
+artifact I had already committed.
+
+## 1038 · I scored an absent artifact identically to a silent one, and the headline was mostly absence
+
+Three rounds ago I reported that the ungated deliverable carries eighty per cent unsupported figures
+against eighteen on the gated one, and read that as a governance signal. Ninety three of its hundred
+and twenty five figures, three quarters of them, cite only rounds that have no results directory at
+all, against four per cent for the second document and none for the third. My matcher asked whether a
+value appears in a cited round's artifact and returned the same answer when there was no artifact to
+look in. Almost the whole gap is that absence. The control that caught it is one this round added and
+the earlier one lacked: an artifact-less round returns undefined and is excluded with its count
+printed, never scored as a failure and never as a success.
+
+## 1039 · the direction of that finding reverses once absence is separated
+
+Restricted to rounds that do have artifacts, the rounds the formulation cites carry a mean flagged rate
+of twenty two per cent while the rounds the statement cites carry forty five. The registered
+directional predicted the opposite and it is inverted, not merely absent. So the document I have spent
+three rounds treating as the worst is, on the evidence that can actually be checked, the better cited
+of the two, and the appearance of the opposite came entirely from an instrument that could not
+distinguish nothing from silence.
+
+## 1040 · the round grouping is barely better than an arbitrary one once position is preserved
+
+Between round variance is two point three times a null that reassigns figures at random, which is the
+registered comparison and it passes. Against a null that blocks the same figures by line number into
+blocks of the same sizes, it is one point zero six times. Random reassignment destroys every structure
+while line blocking preserves positional clustering, and adjacent figures share support status, so the
+two nulls answer different questions and the second bounds the claim much more tightly than the first.
+Reporting only the flattering null would have made a positional artefact look like a property of rounds.
