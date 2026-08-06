@@ -2029,3 +2029,32 @@ tests: 23 survive.
 
 **Scope**: 968 prompts (437 for the confound cell) · `coval_full` min 4 / mean 15.48 / max 39
 criteria, `genericpool16` exactly 16 · 20 draws per cell · NBOOT 1,200 · first release, home judge.
+
+## R797 · The prompt's own rubric is the weaker human predictor
+
+⭐ **A generic 16-criterion pool predicts a prompt's own human rankings BETTER than that prompt's own
+rubric does**: `genericpool16` **0.5422329001** against `coval_full` **0.5087225654** —
+**+0.0335 [+0.0251, +0.0420]**, MDE **0.0118**, p 0.0008, **RESOLVED**. Both sides are proportions
+against the same target, so no ceiling enters.
+
+⭐ **It survives the registered size confound.** Stratified by the prompt's own criterion count the
+gap keeps its sign in all five strata (+0.0268, +0.0361, +0.0292, +0.0450, +0.0267) and the
+**12–20 matched-size stratum (n=573) gives +0.0369 [+0.0244, +0.0454]**, resolved. BH over 6 tests:
+**6 survive, 0 do not.** Annotator split-half noise floor on the gap **0.002832** — the effect is 12×
+it.
+
+⛔ **And R796's closing sentence does not survive its own test.** The pair it named is already
+separated (0.5665 against 0.4863, MDE ≈ 0.011, different levels in R789). Its inverse relation, on
+the **20 distinct objects**, is **−0.3138, permutation p 0.1820, against an MDE of |r| = 0.6** —
+unresolved. ⛔⛔ **And its sign is forced**: synthetic mixtures give **−0.6872 [−0.8817, −0.4018]** by
+construction, so the sign is arithmetic given the gap above.
+
+**So the mechanism behind R794's Q2 and R796 is one fact**: `coval_full` is a weak predictor of its
+own prompt's humans, and both a released core (+0.0578 [+0.0502, +0.0658]) and a prompt-blind pool
+(+0.0335 [+0.0251, +0.0420]) beat it.
+
+**Controls**: both A2 values reproduced to 1e-9 · placebo **0.000000000000** · POSITIVE floor does
+not resolve at δ=0 · NEGATIVE shuffling humans sends both columns to ≈0.426 and the gap to −0.0011.
+
+**Scope**: 968 prompts × all annotators · `full` criteria min 4, mean 15.48, max 39 · NBOOT 1,200 ·
+first release, home judge.

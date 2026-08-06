@@ -20639,3 +20639,27 @@ family. Repaired by computing the family exactly — range **[0.7357, 0.8025]**,
 **0.7767** shows the dose was **unbiased**; only its range was too narrow. *A control that fails for
 its own reasons is repaired by computing the population it sampled, not by widening the claim it
 was meant to test.*
+
+## 1178 · the prompt's own rubric predicts its own prompt's humans WORSE than a generic pool
+
+Both columns are proportions against the SAME target, so no ceiling enters: `genericpool16` vs HUMAN
+**0.5422329001**, `coval_full` vs HUMAN **0.5087225654**, paired over 968 prompts and all annotators
+— **+0.0335 [+0.0251, +0.0420]**, MDE **0.0118**, p 0.0008, **RESOLVED**, with an annotator
+split-half noise floor of **0.002832** that the effect exceeds twelvefold. The registered size
+confound does not explain it: the gap keeps its sign in all five criterion-count strata and the
+**12–20 matched-size stratum (n=573) gives +0.0369 [+0.0244, +0.0454]**. *This is the mechanism
+behind R794's Q2 and R796 at once — `full` is a weak predictor of its own prompt's humans, so both a
+released core and a prompt-blind pool beat it — and it is a statement about the RELEASE that every
+"preserves the rubric" clause inherits.*
+
+## 1179 · R796's closing sentence generalised from the two arms at the ends of its own scatter
+
+R796 closed by proposing to ask what distinguishes `coval_core` from `topvar_k4`. They differ by
+**0.0802** on A2 against an MDE near **0.011** and R789 had already placed them in different levels —
+one of the best-separated pairs in the population, not a live question. And the inverse relation it
+generalised from is **−0.3138 over the 20 distinct objects** (−0.2550 over 27 names, which
+double-counts seven aliases), **permutation p 0.1820**, against a design **MDE of |r| = 0.6** at 80%
+power. ⛔ **And the sign was forced anyway**: synthetic mixtures of `full`-like and pool-like classes
+give **−0.6872 [−0.8817, −0.4018]** by construction whenever the pool is the better predictor.
+*§4's closing-sentence row, in my own previous round: the `next gradient` line is written last, is
+the one the following round acts on, and is the only sentence with no control attached.*

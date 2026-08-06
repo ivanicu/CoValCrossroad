@@ -6327,3 +6327,44 @@ committed values, exit 2 otherwise · PLACEBO **1.000000000000** · POSITIVE bot
 bands printed · NEGATIVE the core's class shuffled sends matched to **0.5138** and blind to
 **0.5083** · NOISE FLOOR largest draw sd **0.0080**. BH over 33 tests: **23 survive, 10 do not**.
 **WORLD B.**
+
+## R797 · the target-quality gap: the rubric is the weaker human predictor
+
+**The question.** Check #399 found R796's NEXT rested on a pair R789 had already separated
+(`coval_core` 0.5665 against `topvar_k4` 0.4863) and on a correlation of −0.2550 over 27 names. But
+it surfaced a sharper object: the two TARGETS differ as human predictors.
+
+**Derived before measuring.** D1 both columns are proportions against the same target, so no ceiling
+enters. D2 |r| must reach ~0.44 at n=20 to exclude zero, so a correlation without its MDE is silence.
+D3 the 27 names collapse to 20 distinct objects. D4 mixtures of the two targets produce an inverse
+relation BY CONSTRUCTION whenever the pool is the better predictor.
+
+**E1 · the gap**: `genericpool16` vs HUMAN **0.5422329001**, `coval_full` vs HUMAN **0.5087225654**,
+paired over 968 prompts and all annotators: **+0.0335 [+0.0251, +0.0420]**, MDE **0.0118**,
+p 0.0008 — **RESOLVED**.
+
+**E2 · the size confound**, stratified by the prompt's own criterion count:
+
+| criteria | n | gap | mde | |
+|---|---:|---|---:|---|
+| 4–8 | 80 | +0.0268 [+0.0019, +0.0527] | 0.0368 | unresolved |
+| 9–12 | 222 | +0.0361 [+0.0194, +0.0558] | 0.0258 | RESOLVED |
+| 13–16 | 299 | +0.0292 [+0.0160, +0.0429] | 0.0204 | RESOLVED |
+| 17–20 | 206 | +0.0450 [+0.0269, +0.0634] | 0.0266 | RESOLVED |
+| 21–39 | 161 | +0.0267 [+0.0054, +0.0475] | 0.0295 | unresolved |
+| **12–20 matched** | **573** | **+0.0369 [+0.0244, +0.0454]** | 0.0155 | **RESOLVED** |
+
+Same sign in all five; BH over 6 tests: **6 survive**.
+
+**E3 · R796's correlation, done properly**: −0.2550 over 27 names, **−0.3138 over the 20 distinct
+objects**, permutation **p 0.1820**, against an **MDE of |r| = 0.6** at 80% power. Unresolved.
+
+**E4 · and its sign was forced**: synthetic mixtures of `full`-like and pool-like classes give
+**−0.6872 [−0.8817, −0.4018]** by construction. The observed −0.3138 is weaker than the forced
+value, which is stated rather than used.
+
+**Controls.** OBJECT both A2 values reproduced to 1e-9 against committed numbers, exit 2 otherwise ·
+PLACEBO a target against itself **0.000000000000** · POSITIVE the plant does not resolve at δ=0 and
+resolves from 0.01 · NEGATIVE human classes shuffled sends `full` to **0.4266**, the pool to
+**0.4255**, and the gap to **−0.0011** · NOISE FLOOR annotator split-half on the gap **0.002832**,
+twelve times smaller than the effect. **WORLD A.**
