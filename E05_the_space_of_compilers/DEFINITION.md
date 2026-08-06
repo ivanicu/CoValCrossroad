@@ -4279,3 +4279,58 @@ and the mechanism is unexplained.
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 424242, **both writes confirmed to
 disk** (11,963 / 11,968 bytes, differing only in the recorded seed).
+
+## R747 · 81 objects is *not* a transitive-closure artifact — the attack failed
+
+**Question.** R730's object partition merges tags that are equal **on the prompts they share**, with a
+guard `len(shared) ≥ 0.5·min(|A|,|B|)`, and builds classes by **union-find**. Equality on a shared
+subset is **not transitive**, and union-find takes the closure regardless. Since **81** is the
+denominator R730, R745, R746 and this page all rest on, it is worth attacking.
+
+**Estimand.** E1 how many of R730's multi-tag classes are **not cliques** under its own `same()`.
+E2 the object count under the **clique** partition. **Exact and finite** — 93 tags, 4,278 pairs, R730's
+own cached vectors, imported rather than re-implemented.
+
+**Result — the attack failed.**
+
+| | registered | measured | |
+|---|---|---|---|
+| P1 non-clique multi-tag classes | 1, band [0, 8] | **0** | in band, point wrong |
+| P2 clique-partition object count | 83, band [81, 93] | **81** | at the floor, point wrong |
+| P3 reproduce R730's 81 with its own code | yes *(hard)* | **81 = 81** | ✓ |
+| **P4** pairs rejected **only** by the guard | **≥ 1** | **0** | ⛔ **FAILED** *(ledger 1010)* |
+
+**8 multi-tag classes, 4 of size ≥ 3, 0 not cliques.**
+
+**Specification curve — flat, and the flatness is arithmetic, not robustness.**
+
+| guard | 0.00 | 0.25 | **0.50** | 0.75 | 1.00 |
+|---|---|---|---|---|---|
+| objects | 81 | 81 | **81** | 81 | 81 |
+| non-clique | 0 | 0 | **0** | 0 | 0 |
+
+⛔ The guard is `len(shared) ≥ g·min(|A|,|B|)`. For a **strict subset** pair `len(shared) = min`, so
+the test is `min ≥ g·min` — **true for every g ≤ 1**. The guard can only reject a **partial** overlap,
+and this population has none. That is why `P4 = 0`, and it means the sweep could not have failed.
+
+⛔ `E2 ≥ union-find count` is **FORCED** — the clique partition refines the closure. Only the **size**
+of the increase is a measurement, and it is **0**.
+
+**⭐ But the subset rule IS load-bearing, and the SHAM locates it.** Ingredient **absent** — require
+**identical** prompt sets — gives **83 objects**, still 0 non-cliques. So the count carries **one
+unstated parameter worth 2 objects**: `81` under shared-subset merging, `83` under full overlap. The
+two extra are the `coval_core`/`_2b*` case R746 measured at 200 of 968 prompts. **R730's own residue
+already calls this a modelling choice, and this round does not adjudicate it.**
+
+**Controls — 6 PASS, 0 FAIL.** POSITIVE is a **synthetic** non-transitive triple built by construction
+(A≈B, B≈C, A≢C): union-find merges to 1 class and the clique test flags it, against a never-flagging
+floor of 0 — **that is what makes the zero on real data admissible rather than silent** · g=0 a
+synthetic clique triple → 0 flagged, since flagging every multi-tag class would have manufactured
+World B · NEGATIVE `same()` forced False → 93 singletons, 0 violations · SHAM as above · PLACEBO 73
+singletons → 0, stated as 0 of 73 · P3 the instrument is R730's, not a lookalike.
+
+**Verdict — `WORLD A`.** Union-find added nothing the relation did not already give. **81 is well
+defined and every downstream count is clear of a chaining artifact.**
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 31337, **both writes confirmed to
+disk** (1,357 / 1,361 bytes, differing only in the recorded seed).

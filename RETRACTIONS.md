@@ -18838,3 +18838,29 @@ number is three, inside the band and wrong as a point, and the distinct coverage
 a registered three. Both are small misses in the same direction: I expected the drift to be messier
 than it is. The coverage spread is concentrated, which makes the two admitted low coverage arms more
 conspicuous rather than less.
+
+## 1008 · I rebuilt a committed partition because I ran the prior-art gate on the wrong half
+
+The previous round asked two questions, one about coverage and one about identity. I ran the prior-art
+gate on the coverage question, found a true gap, and never ran it on the identity question. The
+identity result — that two determinism replicas and two second judging replicas are identical to
+members already counted — was sitting in an earlier round's committed artifact, in a field listing the
+multi tag classes, and my round recomputed it. The gate works when it is pointed at every question a
+round asks, and a round that asks two questions needs two passes.
+
+## 1009 · my attack on the object count failed and the number stands
+
+I registered that at least one of the eight multi tag classes would turn out to be a chaining artifact,
+because the relation merges arms that agree only on the prompts they share and the partition is built
+by union find, which takes the transitive closure of whatever it is given. Every class is a clique. The
+clique partition returns the same count as the closure at every guard level. The attack was correct in
+principle and empty in this data, and reporting it as a failed attack is the whole of its value.
+
+## 1010 · the registered guard prediction failed outright and the reason is arithmetic
+
+I registered that at least one pair would be equal on its shared prompts and rejected by the size
+guard. There are none, and the guard can never produce one for a subset pair: it requires the shared
+count to reach a fraction of the smaller arm, and for a strict subset the shared count equals the
+smaller arm exactly, so the test holds at every fraction up to one. The guard can only reject a partial
+overlap and this population has none. Sweeping it was flat by construction, and reporting that flatness
+as robustness would have been claiming a test that could not have failed.
