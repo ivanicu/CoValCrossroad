@@ -462,7 +462,34 @@ defence is contradicted by the elicitation format.**
 > *describes-the-instance* failure arriving inside my own repair. ⚠ **But the honest headline is
 > `excess 11 at |R| = 394`, not `41`** — and the clause must state **both** its class **and** the
 > noise level of its own selection procedure, which is a third requirement neither the original ④
-> nor my first draft of ④′ carried. The metric is still
+> nor my first draft of ④′ carried.
+>
+> ⭐⭐⭐ **AND R851 APPLIED THAT SAME NULL TO THE PUBLISHED CLAUSES — the two MEASURED ones agree
+> (entry 1371).** ⚠ First, entry 1370's *"every extension may carry a free component"* was **too
+> broad, and the table at lines 582–586 of this file already refuted it**: ① and ③ are **DERIVED**
+> (0 of 41 by arithmetic; 14 of 42 read from the source), so they have **no noise floor of this
+> kind** — no selection, no interval, no BH — and ④ strict excludes 0, so it has nothing to inflate.
+> **Exactly one published extension was exposed: ②'s.**
+>
+> | clause | real | **noise** | **excess** |
+> |---|---:|---:|---:|
+> | **② — published** | **29** of 99 | **16** | **13** |
+> | **④′ — proposed (R850)** | 41 of 99 | 30 | **11** |
+>
+> Controls on ②: placebo **+0.00e+00**, positive `oracle_k4` **PASS**, negative `random_k4_s0`
+> **PASS** *(not a formality — the same control failed for ④′ at 7 of 8 class sizes)*.
+> `coval_core` satisfies ② at **+0.0250**.
+>
+> ⭐⭐ **Both measured clauses land in the low teens.** The definition's **measured** selectivity is
+> on the order of **11–13 arms per clause**, not the 29–41 the raw counts suggest — and **the
+> proposed ④′ is neither better nor worse than the clause it replaces on this axis.** That comparison
+> is worth more than either number alone, and it is the closing state of this arc: **the definition's
+> clauses do real work, and roughly half of what each appears to do is what the procedure would do to
+> a shuffled target.**
+>
+> ⚠ **Not a retraction of ②'s published 33 of 42** — that is R360's 42-arm space with a different
+> comparator; this is 99 arms against `genericpool16`. **Different populations.** What transfers is
+> the **shape**, not the number. The metric is still
 > **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
 > that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a

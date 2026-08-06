@@ -26462,3 +26462,49 @@ first draft of ④′ carried that.
 
 ⚠ **No trend is fitted across the sizes whose negative control fails** — that would be a trend in how
 often a random arm is admitted, not in the clause.
+
+## 1371 · R851 — my NEXT was too broad, and the ONE exposed clause is ~55% free
+
+⛔ **Entry 1370 closed with *"every extension this project has ever reported may carry a similar free
+component."* Too broad — and the refutation was already in `DEFINITION.md:582-586`:**
+
+| clause | excludes | evidence type |
+|---|---:|---|
+| **①** | 0 of 41 | **DERIVED** — region empty by arithmetic |
+| **②** | **33 of 42** | **MEASURED** |
+| **③** | 14 of 42 | **DERIVED** — read from the source |
+| **④** | 0 of 42 | **MEASURED** — excludes nothing |
+
+⭐ **A DERIVED clause has no noise floor of this kind** — no selection, no interval, no BH, and
+shuffling the target cannot move a count obtained by reading which arms consume labels. **④ strict
+excludes 0.** **Exactly ONE published extension was exposed: ②'s.**
+
+### ⭐ CONTROLS · ⭐⭐ RESULT — world A
+
+Placebo **+0.00e+00** · positive `oracle_k4` **PASS** · negative `random_k4_s0` **PASS** — ⚠ **not a
+formality: the same control failed for ④′ at 7 of 8 class sizes in R850.**
+⚠ Population **not intersected** (R850's bug, not repeated). **7 arms unreadable + 1 thin, named and
+counted** — an arm that cannot be read is not an arm that failed the clause.
+
+| | |
+|---|---:|
+| ② on the **REAL** target | **29 of 99** |
+| on a **SHUFFLED** target | **16 of 99** |
+| **EXCESS** | **13** |
+| `coval_core` | **+0.0250 — SATISFIES** |
+
+### ⭐⭐⭐ THE TWO MEASURED CLAUSES AGREE — the closing state of this arc
+
+| clause | real | noise | **excess** |
+|---|---:|---:|---:|
+| **②** published | 29 | 16 | **13** |
+| **④′** proposed | 41 | 30 | **11** |
+
+**Both in the low teens.** The definition's **measured** selectivity is on the order of **11–13 arms
+per clause**, not the 29–41 the raw counts suggest, and **my proposed ④′ is neither better nor worse
+than the clause it replaces on this axis.** ⭐ **That comparison is worth more than either number: the
+clauses do real work, and roughly half of what each appears to do is what the procedure would do to a
+shuffled target.**
+
+⚠ **Not a retraction of ②'s published 33 of 42** — different space (R360's 42 arms), different
+comparator. **What transfers is the shape, not the number.** ⚠ **① and ③ are untouched.**
