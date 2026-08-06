@@ -27055,3 +27055,36 @@ cannot: only 16 gives it.**
 
 ⚠ **§4's `a wall never checked` — fired twice on the same wall.** *An unchecked wall is UNVERIFIED,
 never SETTLED*, and this one was neither impassable nor even, in the end, in the way.
+
+## 1385 · R860 — the exact MDE, and my own proxy was optimistic by 56%
+
+The wall was named four times and shrank four times. **R860 closes it.**
+
+**KILL CHECKS, both load-bearing and both able to fail:** the construction reproduces **blind max
+`0.55747530882624`** and **`coval_core` `0.5664774811929549`**, each **|Δ| = 0.000e+00**, before
+computing anything new.
+
+⭐ **ARGMAX subset recovered: `[0, 3, 9, 14]`** — membership never previously committed anywhere.
+
+| | |
+|---|---:|
+| margin `coval_core` − argmax | **+0.0090021724** |
+| **95% CI** | **[+0.0017734642, +0.0163000494]** |
+| **EXACT MDE** | **0.0103435305** |
+| **margin / MDE** | **0.870** |
+
+### ⛔⛔ THE PROXY WAS OPTIMISTIC BY 56%
+
+Entry 1383 borrowed a neighbouring subset's MDE — **0.0066309665** — giving **1.358**. The real MDE
+is **1.56× larger** and the true ratio is **0.870**. ⭐ **1383 wrote that a proxy must not be quoted
+near a threshold; this measures the cost — the proxy moved the ratio across 1.0 and toward 1.5.**
+
+### ⭐⭐⭐ THE FINAL STATEMENT — two things at once
+
+**RESOLVABLY POSITIVE**: the CI excludes zero, so `coval_core` clears the maximum of all 1,820
+prompt-blind quadruples. **NOT ADMISSIBLE AS A MAGNITUDE**: **0.870×** the design's own MDE, below
+the **1.5×** floor. **Sign established, size not.** ⚠ **Reporting only the CI overstates it;
+reporting only the ratio understates it.** Both are reported.
+
+⚠ **Winner's curse stated, not corrected**: the max over 1,820 is an extreme order statistic, biased
+up — which makes it a **conservative** bar for the core, the direction the reading wants.

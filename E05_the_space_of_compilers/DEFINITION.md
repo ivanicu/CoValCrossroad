@@ -1837,6 +1837,37 @@ p99**: between **1% and 10%** of the blind subsets beat the bar the word *every*
 > ⚠ **The wall was named twice and shrank twice**: 1382 called it *"requires re-running the sweep"*,
 > 1383 bounded the margin to **±0.00025** without one, and this shows the re-run itself is
 > unobstructed. **§4's `a wall never checked` — fired twice on the same wall.**
+>
+> ## ⭐⭐⭐ AND R860 CLOSED IT — the exact MDE, and the proxy was optimistic by 56%
+>
+> *(entry 1385. Both kill checks reproduce EXACTLY: blind max `0.55747530882624` and `coval_core`
+> `0.5664774811929549`, |Δ| = 0.000e+00 — the construction reproduces the two numbers the round is
+> about before computing anything new.)*
+>
+> ⭐ **ARGMAX subset recovered: `[0, 3, 9, 14]`** — membership never previously committed anywhere.
+>
+> | | |
+> |---|---:|
+> | margin `coval_core` − argmax | **+0.0090021724** |
+> | **95% CI** | **[+0.0017734642, +0.0163000494]** — **excludes zero** |
+> | SE | 0.0036914813 |
+> | **EXACT MDE** | **0.0103435305** |
+> | **margin / MDE** | **0.870** |
+>
+> ⛔⛔ **Entry 1383's proxy gave 1.358. The true ratio is 0.870.** The neighbouring subset's MDE
+> (`0.0066309665`) **understated the real one by 36%**, moving the ratio **across 1.0** and toward the
+> 1.5 bar. **1383 said a proxy must not be quoted near a threshold; this measures exactly what that
+> costs.**
+>
+> ⭐⭐ **THE FINAL STATEMENT OF THE UNIVERSAL READING, and it holds two things at once:**
+> **the margin is RESOLVABLY POSITIVE** — the CI excludes zero, so `coval_core` does clear the maximum
+> of all 1,820 prompt-blind quadruples — **and it is NOT ADMISSIBLE AS A MAGNITUDE**, at **0.870× the
+> design's own MDE**, below this project's **1.5×** floor. **Sign established; size not.**
+>
+> ⚠ **Winner's-curse note, stated rather than corrected:** the max over 1,820 is an extreme order
+> statistic and is biased *up* as an estimate of a typical blind quadruple. **That makes it a
+> CONSERVATIVE bar for the core** — the direction the universal reading wants — and it is not quoted
+> as an estimate of anything else.
 
 **So the universal reading of clause ② has never been run**, and the disagreement about whether this
 definition admits its own instance is exactly that `0.0029`: `coval_core` clears a p99 bar and does
