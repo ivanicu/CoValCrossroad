@@ -23214,3 +23214,28 @@ failure a reader meets first**, and it would have made the finding unusable whil
 ⚠ **Not claimed**: cells are not commensurable across artifacts. The share counts **verdict changes**,
 never a pooled effect size, and the kill reads the per-artifact **median** precisely so it is not
 dominated by wherever cells happened to accumulate.
+
+## 1303 · the wall I published measured a key name, and it was overstated by 13 rounds
+
+R839 closed: *"the 519 artifacts that persist no MDE cannot be swept at all."* ⛔ **That measured
+"has a key literally named `mde`."** Re-probed across the 564 artifacts under `A24`:
+
+| what the artifact persists | count |
+|---|---|
+| an **MDE** with an effect | **47** — R839 swept these |
+| a **CI** with an effect instead | **13** ⚠ **sweepable, by a different route** |
+| a **p** with an effect only | 1 |
+| none of the three | **503** |
+
+**So the unsweepable count is 503, not 519**, and **13 rounds were excluded by a key name** —
+`R304`, `R429`, `R430`, `R607`, `R740`, `R741` among them. **Instrument unit vs claim unit, the
+fifth time this session**, and this one was in a sentence I had just published as a limit.
+
+⚠ **Scope, both ways.** The 13 are sweepable by **CI-excludes-zero**, not by a `k × MDE` multiple —
+**not a drop-in**, so R839's curve could not simply have included them. And **R839's numbers do not
+move**: 239 of 1,330, median 15.6%, all unchanged. **What moves is the impossibility claim**, which
+is the part of a report §4 says gets no control.
+
+⭐ **The pattern across all five instances is one sentence**: *the instrument's population and the
+claim's population were never written down as two separate strings.* Every time, the fix was a
+single re-probe costing one command — and every time, the sentence had already been committed.

@@ -58,7 +58,15 @@ per-artifact **median** rather than the pooled number dominated by wherever cell
 
 ## NEXT
 
-The 519 artifacts that persist no MDE cannot be swept at all, so this curve covers the part of the
-record that already recorded its own resolution. Whether the unswept remainder is threshold-free or
+⛔ **CORRECTED THE NEXT ROUND — the wall was overstated by 13.** *"The 519 artifacts that persist
+no MDE cannot be swept at all"* measured **"has a key literally named `mde`"**. Re-probed: **13
+artifacts across 13 rounds carry a CI with an effect** — the same information under a different
+key, sweepable by a different route (CI-excludes-zero rather than a k×MDE multiple, so not a
+drop-in). The re-probe that found those 13 also counted **503**, not 519, carrying no MDE, no CI
+and no p beside an effect. **Instrument unit vs claim unit, again.**
+The R839 numbers do not move; the impossibility claim does.
+
+The remaining 503 artifacts genuinely cannot be swept from what is on disk, so this curve covers
+the part of the record that already recorded its own resolution. Whether the unswept remainder is threshold-free or
 merely unmeasurable is decided by what each of those rounds persisted, and that is a property of the
 artifact format rather than of the finding.
