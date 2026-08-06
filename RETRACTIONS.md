@@ -25302,3 +25302,57 @@ came out **71.7%** against the gate's **75.8%**. ⭐ **That 4-point gap is the e
 block-attribution rule. So *"1 citing block, 9 tokens"* approximates the gate's attribution rather
 than reproducing it — the same instrument-vs-claim distinction this thread has now hit six times,
 stated in advance this time rather than discovered afterwards.
+
+## 1347 · the pool concentration does not reach the definition, because the definition is anchored by NAME and not by pool — and half its anchored values are high-precision
+
+Entry 1346 found one round, `R235`, holding **22%** of every stored value and making a 3-decimal match
+free in its pool. The NEXT asked which instruments inherit that. **The deliverable-facing version of
+that question is the one worth answering: does it reach `DEFINITION.md`?**
+
+### ⛔ FIRST, THE SCOPE, BECAUSE THE NUMBER IS MISLEADING WITHOUT IT
+
+**120 of the 343 anchored values in `DEFINITION.md` also sit in R235's pool at ≤3 decimals.** Left
+there, that reads as *"35% of the definition's numbers are free matches"*. **It is not what it means.**
+
+`definition_matches_the_record` anchors each value to a **specific named artifact** — `R347`, `R360`,
+`R440`, `R824` — and compares against **that** round's computed quantity. **It never searches a pool.**
+Pool density is a property of `readme_agrees_with_results`, which attributes *by pool* because the
+README cites rounds in blocks rather than binding each number to one.
+
+⭐ **So the concentration reaches the pool-based instrument and not the name-based one.** The 120 is a
+measure of how much a *pool-based* check would be fooled if the definition were checked that way. It
+is not, and that is a design property, not luck: **binding a value to a named round is immune to how
+many values that round happens to store.**
+
+### ⭐ AND THE PRECISION PROFILE IS THE OBJECT-LEVEL CONTENT
+
+Decimals among the definition's 343 anchored values:
+
+| decimals | 0 | 1 | 2 | 3 | 4 | 6 | 10 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| count | **136** | 27 | 10 | 1 | **159** | 7 | 3 |
+
+**169 of 343 (49%) sit at ≥4 decimals** — the band where entry 1345's calibration puts a chance match
+at **0.7% mean**. **136 (40%) are integers**, where the precision argument does not apply in the same
+way at all: they are counts (arm totals, exclusion counts), and a count is checked by recomputation,
+not by numeric coincidence.
+
+**So the definition's evidence base is roughly half high-precision measurements and 40% counts**, with
+only **38 values (11%)** in the 1–3 decimal band where a pool match would be cheap — and even those
+are name-anchored.
+
+### ⚠ AND R235 ITSELF: 6.9 MB, TRIPLE-BLIND, NO README
+
+`R235_independent_B` lives in `A19_triple_blind` — it is one of the **independent blind
+implementations** §2.5 prescribes, which is exactly why it dumps raw output at that volume. Two facts
+about it, measured:
+
+- **it has no `README.md` of its own** — so the round that sets the corpus's worst-case pool density
+  states its own design nowhere;
+- **it is nevertheless REACHABLE** — `is_unreachable` returns **False**, because the arc index
+  generated at entry 1318 names it. **Its only description is a generated table row.**
+
+⭐ **That is a real gap and it is not the one I went looking for**: §5's checklist requires a round to
+carry what a later round needs to attack it, and 6.9 MB of values with no stated design is the
+opposite — **maximum data, minimum interpretability**, in the arm of the design whose whole purpose is
+independent scrutiny.
