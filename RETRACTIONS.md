@@ -21136,3 +21136,40 @@ a failure; it reads as an extremely precise measurement, which is exactly why it
 R810.* And a third defect is recorded rather than fixed: the POSITIVE control (D1, `topw_k` → `full`)
 **passes weakly** — the curve is non-monotone (0.5574 · 0.5689 · 0.5735 · 0.5528) and k=12 beats k=2
 by only 0.0046. It is reported as weak rather than upgraded.
+
+## 1218 · clause ② needs TWO baselines: informative selection and prompt-specific sourcing are the same size
+
+R810 closed by asking whether `topw_k`'s advantage over `POOL[0:k]` is resolved, to decide whether
+clause ② names one baseline or two. That gap is non-monotone (+0.0018 · +0.0121 · +0.0238 · +0.0046)
+because it confounds **source** — the prompt's own rubric versus a fixed generic set of 16 — with
+**rule** — weight-ranked versus uninformative. Decomposed at matched k on 734 prompts: the RULE
+effect runs **+0.0752 → +0.0419** and the SOURCE effect **+0.0568 → +0.0372**, both resolved at every
+k, and at k=12 their difference is **+0.0047 [−0.0073, +0.0173]** — it contains zero. **WORLD C, the
+branch that makes the definition more expensive.** ⭐ And the source effect runs against clause ②'s
+own premise: **a fixed generic list, blind to the prompt, beats a random subset of the prompt's own
+rubric by +0.0372 to +0.0568 at every matched k** — under an uninformative rule, prompt-specificity
+is a liability. ⚠ One cell of the 2×2 is structurally absent and named: `pool × informative` cannot
+be built, because the pool is one fixed list with no per-prompt weights.
+
+## 1219 · and the blind baseline this arc has used throughout is a 96th-percentile draw from its own family
+
+`POOL[0:k]` — the first k of the 16 generic criteria in file order — has been treated as *the*
+prompt-blind baseline by R810 and earlier rounds. The pool is FIXED across prompts, so the honest
+cell is the **distribution over k-subsets**, and it is exactly enumerable: 120 · 1,820 · 12,870 ·
+1,820 at k = 2 · 4 · 8 · 12. The first-k sits at percentile **95.8** (k=2), **96.0** (k=4), 69.2
+(k=8), 50.9 (k=12) — **+0.0166** and **+0.0119** stronger than a typical subset at small k. ⭐ **The
+direction is the part worth writing down: because the baseline is unusually STRONG, every
+"beats the blind pool" gap this arc reported at small k is UNDERSTATED, so the correction makes prior
+claims LARGER.** *That is the kind of correction that gets banked silently, and banking it silently is
+how a programme ends up with a set of numbers that all lean one way for reasons nobody recorded.*
+R810's k=12 headline sits at the 50.9th percentile and needs no correction.
+
+## 1220 · the preregistration was amended before the run, and the amendment is stamped inside it
+
+Its identification section first stated that `random_k` carries only seed s0 at k=12 — written from
+memory of a truncated `ls`. The inventory run one command later shows **s0, s1 and s2 at every k**,
+so all four k carry three seeds and the seed spread is measured throughout (sd 0.0033 · 0.0055 ·
+0.0040 · 0.0037). The false sentence is **left in the file with the correction attached and the
+reason recorded**, rather than edited away. *A preregistration that silently self-corrects between
+writing and running is not a preregistration — it is a description with a timestamp on it, and the
+timestamp is the only thing that was ever doing any work.*

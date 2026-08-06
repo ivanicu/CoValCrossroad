@@ -2468,3 +2468,32 @@ monotonically, so **the gap tracks k, not the option count**.
 
 **Scope**: 968 prompts, common intersection 734 · `greedy_k` and `indep_k` averaged · fitted on
 parity-1, scored on parity-0 · NBOOT 1,200 · first release, home judge.
+
+## R811 · Clause ② needs two baselines — informative selection and prompt-specific sourcing are the same size
+
+| k | RULE (informative − uninformative, rubric) | SOURCE (generic pool − rubric, uninformative) |
+|---:|---|---|
+| 2 | **+0.0752 [+0.0651, +0.0851]** | **+0.0568 [+0.0468, +0.0664]** |
+| 4 | +0.0743 [+0.0646, +0.0829] | +0.0503 [+0.0390, +0.0613] |
+| 8 | +0.0699 [+0.0619, +0.0780] | +0.0436 [+0.0320, +0.0552] |
+| 12 | **+0.0419 [+0.0353, +0.0479]** | **+0.0372 [+0.0253, +0.0491]** |
+
+**At k=12 the difference is +0.0047 [−0.0073, +0.0173] — it contains zero.** Neither dominates, so
+**two baselines, not one**.
+
+⭐ **And the source effect runs against clause ②'s own premise**: a fixed generic list of 16, blind to
+the prompt, beats a random subset of the prompt's **own** rubric by **+0.0372 to +0.0568** at every
+matched k. Under an uninformative rule, prompt-specificity is a liability.
+
+⛔⛔ **The blind baseline this arc has been using is a 96th-percentile draw.** `POOL[0:k]` is one
+arbitrary subset; enumerating all k-subsets of the 16 exactly (120 · 1,820 · 12,870 · 1,820) puts it
+at percentile **95.8** (k=2), **96.0** (k=4), 69.2 (k=8), 50.9 (k=12) — **+0.0166** and **+0.0119**
+above a typical subset at small k. **The correction makes prior gaps larger**, and is stated for that
+reason. R810's k=12 headline needs none.
+
+**Controls**: the pool's first-k against itself `0.0e+00` at all four k · every arm against another
+prompt's humans gives a null of **−0.0004 [−0.0067, +0.0061]** against a real **+0.0419** · three
+committed seeds, sd 0.0033–0.0055 · **BH 10 of 12 survive**.
+
+**Scope**: 968 prompts, common intersection **734** · every arm scored on parity-0 · NBOOT 1,200 ·
+first release, home judge · ⚠ the `pool × informative` cell is structurally absent.

@@ -6840,3 +6840,40 @@ PLACEBO the blind pool against itself, `0.0e+00` at all four k · POSITIVE D1 `t
 only 0.0046 · g=0 at k=2 the arms must not coincide, and do not · NEGATIVE each prompt's fitted core
 against **another prompt's** parity-0 humans, null **−0.1211 [−0.1325, −0.1107]** vs real +0.0116 ·
 NOISE FLOOR **0.0017**, so the surviving gap is 6.8× it.
+
+## R811 · source and rule are the same size, so clause ② needs two baselines — and one was a 96th-percentile draw
+
+**Why here.** R810 asked whether `topw_k`'s advantage over `POOL[0:k]` is resolved, to decide whether
+clause ② names one baseline or two. CHECK #413 found that gap is non-monotone (+0.0018 · +0.0121 ·
++0.0238 · +0.0046) and confounds **source** (the prompt's own rubric vs a fixed generic set of 16)
+with **rule** (weight-ranked vs uninformative). `random_k` — the rubric under an uninformative rule —
+decomposes it.
+
+**⭐ The decomposition, at matched k on 734 prompts.** RULE (informative − uninformative, within the
+rubric): **+0.0752 [+0.0651, +0.0851]** · +0.0743 · +0.0699 · **+0.0419 [+0.0353, +0.0479]**.
+SOURCE (generic pool − rubric, both uninformative): **+0.0568 [+0.0468, +0.0664]** ·
++0.0503 [+0.0390, +0.0613] · +0.0436 [+0.0320, +0.0552] · **+0.0372 [+0.0253, +0.0491]**. The k=4 and
+k=8 rule cells carry [+0.0646, +0.0829] and [+0.0619, +0.0780]. **At k=12 the difference is +0.0047 [−0.0073, +0.0173] —
+it contains zero. WORLD C: two baselines, not one.**
+
+**⭐ And the source effect points against clause ②'s own assumption.** A fixed generic list of 16,
+blind to the prompt, beats a random subset of the prompt's own rubric by **+0.0372 to +0.0568** at
+every matched k. Under an uninformative rule, prompt-specificity is a **liability**. Cell levels:
+rubric/uninformative **0.4823 · 0.4946 · 0.5036 · 0.5109**, rubric/informative 0.5574 · 0.5689 ·
+0.5735 · 0.5528, pool/uninformative **0.5390 · 0.5449 · 0.5472 · 0.5482**. ⚠ The `pool × informative`
+cell is **structurally absent** — the pool is one fixed list with no per-prompt weights (verified: 1
+distinct criterion-list over 50 prompts) — and is named rather than dropped.
+
+**⛔⛔ The blind baseline this arc has been using is a near-best draw.** `POOL[0:k]` is one arbitrary
+subset; the cell is the distribution over k-subsets of 16, enumerated **exactly at every k** (120 ·
+1,820 · 12,870 · 1,820). The first-k sits at percentile **95.8** (k=2), **96.0** (k=4), 69.2 (k=8),
+50.9 (k=12) — stronger than a typical subset by **+0.0166** and **+0.0119** at small k. **The
+correction makes prior gaps LARGER**, which is why it is stated rather than banked. At k=12, where
+R810 drew its headline, no correction is needed.
+
+**Controls.** OBJECT R810's k=12 cells reproduced (**0.552830 · 0.515424 · 0.548235**) · PLACEBO the
+pool's first-k against itself, `0.0e+00` at all four k · POSITIVE D1 the rule effect shrinks toward
+its forced zero · g=0 at k=2 it must not be zero, and is not · NEGATIVE every arm against another
+prompt's humans, null **−0.0004 [−0.0067, +0.0061]** vs a real **+0.0419** · NOISE FLOOR three
+committed seeds, sd **0.0033 · 0.0055 · 0.0040 · 0.0037**. **BH 10 of 12 survive**; the two
+non-survivors are the E4 cells at k=2 and k=12 reported as holding zero.
