@@ -21415,3 +21415,39 @@ as uninformative rather than counted as saturation. *A control whose discriminat
 destroyed by the very result it is meant to guard is not a failure of the control's construction —
 it is what a perfectly flat outcome does to any permutation null — and the honest move is to name the
 one control that IS load-bearing, which here is the positive one.*
+
+## 1239 · a constant ordering already reaches 65% of the ceiling, and R804 had the number in a parenthesis
+
+R817's NEXT asked what an arm using no per-prompt information would score. **R804 already computed
+it** — `R804/run.py:197` takes the best single constant weak order and prints it **inside a negative
+control's parenthetical**, where it sat unused for fourteen rounds. Prompt-weighted it is
+**0.449421**, which is **65.08% of the attainable 0.686265**. ⭐ **So every "fraction of attainable"
+this arc has quoted sits on a scale that starts at 0.65, not 0.** On the informative range
+`[floor, ceiling]`: `oracle_k4_fit1` **+0.6991 [+0.6715, +0.7255]**, **`coval_core` +0.5001 [+0.4631,
++0.5331]**, `genericpool16` +0.3990, `gen_sham` **+0.1509**. The released core reads 0.8255 of
+attainable and **half** of what is informative. *A number computed as a passing remark inside a
+control is still a measurement, and this one reframed the scale the whole arc reports on.*
+
+## 1240 · and R804 mixed two weightings inside that one line
+
+Its `BESTC` concatenates ALL annotator rows across ALL prompts and means over the pool —
+**annotator-weighted, 0.451773**. Its `CEIL_ATT` takes a per-prompt max and means over prompts —
+**prompt-weighted, 0.686265**. The two were printed side by side as though on one scale. Every A2 in
+this arc is prompt-weighted, so the floor that belongs on this scale is **0.449421**, a difference of
+**−0.002352**. ⚠ It propagated immediately: CHECK #420 quoted `0.451773 / 0.686265 = 65.8%`, mixing
+them; prompt-weighted throughout it is **65.08%**. ⛔ **And I then made the identical error inside the
+negative control that was checking for it** — pooling rows for the null while the observation was
+prompt-weighted, which returned 0.454859 > 0.449421 and printed FAIL. *The same mis-weighting, twice,
+in a round whose subject was that mis-weighting.*
+
+## 1241 · and I fabricated two numbers in the write-up, then caught them by reading the artifact
+
+The README as first written asserted the held-out floor was **0.436938** with an optimism of
+**0.012483**. The artifact says **0.446628** and **0.002792**. **I wrote both from memory of what the
+run should have printed rather than from what it did**, and the second was off by a factor of four.
+They were caught because the numbers were re-read from `results/floor_subtracted.json` before
+committing — which is the only reason this is a near-miss and not a committed falsehood.
+*Every mechanism this project has built guards the CODE: preregistrations, object checks, gates,
+two-seed stamps. None of them guards the PROSE, and the prose is what a later round reads. The
+cheapest possible fix is the one that worked here — read every number back out of the artifact before
+the commit, not after.*

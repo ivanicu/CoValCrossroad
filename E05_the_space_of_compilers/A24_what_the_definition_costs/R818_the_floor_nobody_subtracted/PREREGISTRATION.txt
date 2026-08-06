@@ -1,0 +1,84 @@
+R818 · THE FLOOR NOBODY SUBTRACTED — what share of the INFORMATIVE range does a core capture?
+written before the run · NBOOT 1200 · ZEFF 2.801585
+
+PROVOCATION
+R817 put every arm on a per-prompt normalised scale and found the ordering invariant across six
+normalisations, with `coval_core` at **0.8132** of attainable and `gen_sham` at **0.6925**. Its NEXT
+asked whether an arm using NO per-prompt information would land near `gen_sham`.
+
+⛔ CHECK #420 FOUND THAT R804 ALREADY COMPUTED IT — AND LEFT IT UNUSED.
+`R804/run.py:197` computes `BESTC`, the best single constant weak order corpus-wide, at
+**0.451773**, and prints it inside a NEGATIVE CONTROL's parenthetical. No round has used it since.
+R817's NEXT proposed recomputing a number this arc has had for fourteen rounds.
+
+⭐ AND THE NUMBER IT LEFT ON THE TABLE IS THE FINDING. **0.451773 / 0.686265 = 65.8%**: a single
+fixed ordering, identical on every prompt, already reaches nearly two thirds of what ANY scoring
+function could attain. So the scale this arc has been quoting shares on runs from **0.658 to 1**, not
+from 0 to 1, and **no committed share has had that floor subtracted**.
+
+ESTIMAND
+E1  the best constant weak order, HELD OUT: chosen on one half of the prompts, evaluated on the
+    other. R804's 0.451773 is an in-sample optimum over 75 options and is the confounded contrast.
+E2  ⭐ every arm's share of the INFORMATIVE range `[floor, ceiling]`, beside its share of
+    `[0, ceiling]` — the quantity the arc has been quoting.
+E3  the per-prompt version: `(A2_p − floor_p) / (att_p − floor_p)` averaged over prompts, where
+    `floor_p` is the corpus-constant order evaluated on prompt p.
+E4  which committed statements change meaning once the floor is subtracted.
+
+IDENTIFICATION
+⚠⚠ E2's CORPUS-LEVEL rescaling is AFFINE — subtract a constant, divide by a constant — and therefore
+**CANNOT reorder the arms. That is a DERIVATION, not a measurement**, and it is labelled as one.
+The only part of this round that CAN come out otherwise is E3, the per-prompt version, because
+`att_p − floor_p` varies across prompts and the reweighting is not affine.
+⚠ Prompts where `att_p == floor_p` make E3's ratio undefined; they are counted, printed, and
+excluded, and if they exceed 10% the round reports E3 as UNVERIFIED.
+
+DERIVED BEFORE MEASURING
+D1 [DERIVATION] a corpus-constant floor and ceiling give an affine map, so E2's ordering is fixed.
+   Stating this first is what stops "the ordering survived" being reported as a result.
+D2 [DERIVATION] the held-out floor is <= the in-sample floor, so the held-out informative range is
+   WIDER and every arm's share is LOWER than it would be with R804's 0.451773. The correction
+   therefore runs AGAINST the arms, and saying so before the run is what makes it reportable.
+D3 an arm that IS the constant order scores exactly the floor and takes share 0. PLACEBO.
+D4 `genericpool16` is prompt-blind in its CRITERIA but its judge SCORES vary per prompt, so it is
+   not a constant arm and should sit above the floor. A testable expectation, not an assumption.
+
+WORLDS
+A  THE FLOOR IS MOST OF THE SCORE: with the floor subtracted, `coval_core` captures under half the
+   informative range -> every "fraction of attainable" this arc has quoted overstates what a core
+   does, and clause ② must name the floor.
+B  THE FLOOR IS MINOR: `coval_core` still captures most of the informative range -> the arc's
+   shares stand roughly as quoted.
+C  E3 REORDERS: the per-prompt version changes the ordering -> the floor is not a constant of the
+   metric but a property of prompts, and the scale needs a per-prompt statement.
+CHECKED FIRST: C, because it would break the ordering every prior round has relied on.
+
+PREDICTION MATRIX
+                                A                 B                C
+coval_core share of informative  < 0.5            > 0.7            any
+E3 ordering vs E2                same             same             differs
+what clause ② must add           the floor        nothing          a per-prompt floor
+
+CONTROLS
+OBJECT   reproduce R804's in-sample `BESTC` = **0.451773** and `CEIL_ATT` = **0.686265** exactly.
+         Exit 2 otherwise.
+PLACEBO  D3: the constant arm itself scores exactly the floor, share exactly 0.
+POSITIVE a synthetic arm placed at a KNOWN fraction f of the informative range must recover share f
+         for f in {0, 0.25, 0.5, 1.0}; at f=0 it must recover 0 and NOT more.
+NEGATIVE the floor computed from PERMUTED annotators -> it must fall, since a constant order fitted
+         to destroyed structure cannot track the real aggregate. 200 permutations.
+NOISE FLOOR 20 independent prompt half-splits for the held-out floor; its sd.
+
+PRE-REGISTERED KILL -- conditional, never a bare threshold
+  if object_reproduces and placebo_is_exactly_zero and positive_recovers_f and negative_falls:
+      if E3's ordering differs from E2's (Spearman < 1.0)          -> WORLD C
+      elif coval_core's informative share < 0.5                    -> WORLD A
+      elif coval_core's informative share > 0.7                    -> WORLD B
+      else                                                          -> NO WORLD CLAIMED
+  else:
+      UNVERIFIED   (never OVERTURNED, never CONFIRMED)
+
+MULTIPLICITY 9 arms x 3 scales reported in full; the headline is one share per arm and the whole
+table is printed, including the arms whose share goes negative if any do.
+STOPPING RULE one round. If more than 10% of prompts have `att_p == floor_p`, E3 is reported
+UNVERIFIED rather than averaged over a mutilated population.

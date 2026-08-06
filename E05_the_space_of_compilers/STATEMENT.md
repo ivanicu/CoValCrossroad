@@ -2665,3 +2665,32 @@ here and is reported as such.
 
 **Scope**: 968 prompts × 9 arms × 6 normalisations · per-prompt maximum over the 75 weak orders ·
 disjoint annotator halves for numerator and denominator · NBOOT 1,200 · first release, home judge.
+
+## R818 · The scale's floor is 0.449421 — a fixed ordering already reaches 65% of the ceiling
+
+**A single weak order, identical on every prompt, scores 0.449421 — 65.08% of the attainable
+0.686265.** Every "fraction of attainable" this arc has quoted sits on a scale starting there.
+
+| arm | ÷ attainable | **share of the INFORMATIVE range** |
+|---|---:|---|
+| `oracle_k4_fit1` | 0.8949 | **+0.6991 [+0.6715, +0.7255]** |
+| **`coval_core`** | **0.8255** | **+0.5001 [+0.4631, +0.5331]** |
+| `genericpool16` | 0.7901 | +0.3990 [+0.3596, +0.4338] |
+| `gen_sham` | 0.7035 | **+0.1509 [+0.1071, +0.1950]** |
+
+⭐ **The released core reads 0.8255 of attainable and 0.5001 of what is informative.**
+
+⛔ **R804 had this number for fourteen rounds**, in a negative control's parenthetical — and mixed
+two weightings in that same line: its **0.451773** is annotator-weighted while its ceiling is
+prompt-weighted. Prompt-weighted throughout: floor **0.449421**, held out **0.446628 ± 0.006628**.
+
+⚠⚠ **The corpus-level rescaling is affine and cannot reorder — a derivation.** The per-prompt version
+can, and does: Spearman **+0.9833**, with **four arms falling below the constant floor**
+(`genericpool16` −0.1118 · `full` −0.4221 · `gen_sham` −0.5398 · `random_k4_s0` −0.5938).
+
+**Controls**: a synthetic world with no aggregate human tendency puts the floor at **0.416423 [0.414047,
+0.419088]**, max **0.420731** — entirely below the real 0.449421 · a synthetic arm at known fraction
+f recovers f to **2.2e-16**.
+
+**Scope**: 968 prompts × 9 arms × 75 weak orders · per-prompt view excludes the 48 prompts where
+`att_p = floor_p` · NBOOT 1,200 · first release, home judge.

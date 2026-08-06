@@ -7068,3 +7068,35 @@ dose ladder holding the raw mean fixed at 0.5664774812 while the normalised mean
 upgraded**: because every normalisation leaves the ordering at 1.0000, permuting `att` also leaves it
 at 1.0000, so it cannot separate "the normalisation does nothing" from "the permutation destroyed
 it". The load-bearing control is the positive one, which predicts its own slope.
+
+## R818 · a fixed ordering already reaches 65% of the ceiling, and the released core captures half of what is left
+
+**Why here.** R817's NEXT asked what an arm with no per-prompt information would score. ⛔ CHECK #420
+found **R804 already computed it** — `R804/run.py:197` gives the best constant weak order and prints
+it **inside a negative control's parenthetical**, unused for fourteen rounds.
+
+**⛔ And the object check caught a unit inconsistency in that same line.** R804's `BESTC` pools all
+annotator rows across all prompts — **annotator-weighted**, **0.451773** (reproduced exactly here) —
+while its `CEIL_ATT` is **prompt-weighted**, 0.686265. Every A2 in this arc is prompt-weighted, and
+on that scale the floor is **0.449421**, a difference of **−0.002352**. Held out over 20 prompt
+half-splits: **0.446628 ± 0.006628**, optimism **0.002792**.
+
+**⭐ So the scale runs from 0.6508 to 1, not from 0 to 1.** Share of the INFORMATIVE range:
+`oracle_k4_fit1` **+0.6991 [+0.6715, +0.7255]** · `greedy_k4_fit1` +0.6844 · `indep_k4_fit1` +0.6152
+· **`coval_core` +0.5001 [+0.4631, +0.5331]** · `topw_k4` +0.4905 · `genericpool16` +0.3990 · `full`
++0.2591 · `random_k4_s0` +0.1922 · `gen_sham` **+0.1509 [+0.1071, +0.1950]**. **`coval_core` reads
+0.8255 of attainable and 0.5001 of what is informative.** The ÷attainable column reads
+`oracle_k4_fit1` **0.8949** · `genericpool16` **0.7901** · `gen_sham` **0.7035**, and
+`genericpool16`'s informative share carries **[+0.3596, +0.4338]**.
+
+**⚠⚠ D1, stated before the run**: the corpus-level rescaling is **affine** and cannot reorder — a
+DERIVATION, not a measurement. Only E3 can come out otherwise, and it does: per-prompt, Spearman
+**+0.9833** with one swap at the bottom, and **four arms fall BELOW the constant floor**
+(`genericpool16` −0.1118, `full` −0.4221, `gen_sham` −0.5398, `random_k4_s0` −0.5938). ⚠ 48 of 968
+prompts (5.0%) are excluded there because `att_p = floor_p`.
+
+**Controls.** OBJECT R804's **0.451773** reproduced exactly once the weighting was separated ·
+PLACEBO the constant arm's own share **0.0e+00** · POSITIVE a synthetic arm at f = 0/0.25/0.5/1.0
+recovers **0.000000/0.250000/0.500000/1.000000**, max |Δ| **2.2e-16** · NEGATIVE a **synthetic world
+with no aggregate human tendency**, floor refitted and prompt-weighted: **0.416423 [0.414047,
+0.419088]**, max **0.420731**, entirely below the real **0.449421** · NOISE FLOOR **0.006628**.
