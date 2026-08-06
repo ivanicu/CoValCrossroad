@@ -1743,3 +1743,30 @@ what they mean**: each was an A2 statement wearing a percentile's clothes.
 
 **Scope**: 26 modal-k=4 arms · 1,820-subset class · 968 prompts · A2 over all annotators · first
 release, home judge.
+
+## R788 · Clause ② pays 0.235 of `q_resolved` for low variance, and prompt-blind arms are low-variance
+
+**The definition's only measured clause rewards resembling its own baseline.** Holding `generic`'s A2
+fixed and giving it `gen`'s per-reference sd — a factor of **1.871** — moves its `q_resolved` from
+**0.7780 to 0.5429**, a shift of **−0.2352**. And the blind arms sit at sd **0.0635–0.0711** while
+every prompt-specific arm sits at **0.123–0.174**, a gap no arm in the population crosses. **A core is
+supposed to be prompt-specific; the clause certifying it pays arms for being less so.**
+
+⛔ **AND MY REGISTERED CONFOUND KILLED THE WORLD I EXPECTED.** I hypothesised the advantage was
+self-comparison: `core_generic.json`'s criteria **are** pool indices [0,1,2,3], so `generic` **is**
+reference **#0** of the 1,820 — an object fact, verified. But `genericpool16` is blind and **not** a
+member, and its sd is **0.0635, LOWER**. **So the low variance is prompt-blindness, not membership.**
+
+⭐ **THE EXCLUSION RULE MATCHES THE WRONG UNIT.** R781/R782 drop a self-matching reference when the
+per-prompt difference is identically zero — the judge's OUTPUT — while `generic` and its own subset
+were scored in two passes and differ by mean **0.005638**. Satisfaction-based rule excludes **0**;
+criterion-based excludes **1**. ⚠ **And fixing it changes nothing**: removing one reference of 1,820
+shifts q_resolved by **+0.000428**, inside the derived bound of 0.000549. The leak is real, exactly
+located, and **550× smaller than the variance effect**.
+
+⚠ **`generic`'s q_resolved 0.7780 is therefore contaminated by roughly 0.235.** R786's counterexample
+— that high ② standing does not require rubric affinity — **survives as a statement about A2**, and
+its q_resolved value does not.
+
+**Scope**: 27 arms × the 1,820-subset class × 968 prompts · A2 over all annotators · first release,
+home judge. Decomposition `Var(v−REF) = Var(v)+Var(REF)−2Cov` verified to **2.082e-17**.

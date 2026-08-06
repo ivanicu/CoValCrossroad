@@ -20290,3 +20290,33 @@ ends"* with **floor == ceiling == 1.0**. §4's *control that cannot PASS*, sub-k
 is now **chosen in code** as the one nearest the class median, which selects `gen`, and the band runs
 **0.3308 → 1.0000**. *An identity check passing beside a degenerate band is what made it easy to miss:
 one control was doing real work and lent its credibility to the other.*
+
+## 1148 · my self-comparison hypothesis was wrong, and the confound I registered is what killed it
+
+I built R788 on the hypothesis that `generic`'s anomalous position — sd **0.0711** against everyone
+else's 0.12–0.17, corr with the class **0.8859** against 0.45–0.67 — came from its being a MEMBER of
+its own comparator class. It is one: `core_generic.json` is pool indices **[0,1,2,3]**, reference #0
+of the 1,820. **But `genericpool16` is prompt-blind and NOT a member, and its sd is 0.0635 — lower.**
+The advantage is **blindness**, not membership. *The confound was written into the preregistration
+because the two properties were conflated in my own hypothesis, and separating them in advance is the
+only reason the round reports World C rather than the world I wanted.*
+
+## 1149 · the leave-one-out matches the judge's OUTPUT where it should match the criterion SET
+
+R781 and R782 exclude a self-matching reference when the per-prompt difference is identically zero.
+`generic` and its own subset were scored in **two different judge passes** and differ by a mean of
+**0.005638**, so the rule excludes **0** where a criterion-based rule excludes **1**. The POSITIVE
+control pins it: at jitter 0 the satisfaction rule catches it, at 0.001 and beyond it does not.
+⚠ **And repairing it is worth +0.000428**, inside the derived bound of 1/1820 = 0.000549. *A rule that
+is wrong in its unit and negligible in its effect is still worth fixing — but the round that finds it
+must say the second half, or the fix reads as the finding.*
+
+## 1150 · and clause ②'s resolution criterion pays arms for resembling its own baseline
+
+`MDE_i = ZEFF·sd_i/sqrt(P)`, so a low-variance arm faces a proportionally lower bar. Holding A2 fixed
+and giving `generic` `gen`'s sd (**1.871×**) moves its q_resolved from **0.7780 to 0.5429** — a shift
+of **−0.2352**, five hundred and fifty times the self-reference effect. Blind arms sit at sd
+**0.0635–0.0711**; every prompt-specific arm sits at **0.123–0.174**; no arm crosses the gap.
+**So the clause that certifies a core rewards being less prompt-specific.** *R787 found the variance
+term "live but unexercised" on the observed arms; it is exercised here, and the direction runs against
+the definition's own intent.*

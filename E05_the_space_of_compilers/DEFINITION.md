@@ -5941,3 +5941,33 @@ inversion · **1.5 → 0.9819 / 0.9835 INVERTS** · 2.0 → 0.9731 / 0.9835 · 4
 returns q **0.726923** = its own A2 rank **0.726923** · POSITIVE `gen` swept 0 → **0.3308**, +0.02 →
 **0.9923**, +0.05 → **1.0000**, +0.30 → **1.0000**, all matching the independent percentile to 1e-12,
 band **admissible** · ⛔ NEGATIVE not built (D1 makes a permutation void). **WORLD B.**
+
+## R788 · membership, the exclusion rule, and the variance advantage
+
+**`generic` IS a class member**: `core_generic.json` = pool indices **[0, 1, 2, 3]** = reference
+**#0** of the C(16,4) = 1,820.
+
+| exclusion rule | references excluded for `generic` |
+|---|---:|
+| satisfaction-based (R781/R782) | **0** |
+| criterion-based (the right unit) | **1** (reference #0) |
+
+**POSITIVE**: jitter 0 → satisfaction rule catches **1**; 0.001 → **0**; observed 0.005638 → **0**;
+criterion rule catches **1** at every level.
+
+| | q | q_resolved |
+|---|---:|---:|
+| published (R782) | 0.9538 | 0.7780 |
+| recomputed | 0.9538 | 0.7780 |
+| self-reference #0 removed | 0.9538 | 0.7784 (**+0.000428**, D1 bound 0.000549) |
+| **sd scaled to `gen`'s (1.871×)** | — | **0.5429 (−0.2352)** |
+
+**CONFOUND (it won)**: `generic` blind AND member, k=4, sd **0.0711** · `genericpool16` blind, NOT a
+member, k=16, sd **0.0635** — ratio **0.893**. **Blindness, not membership.**
+
+**sd(v − REF) by arm class**: blind **0.0635–0.0711** · prompt-specific **0.123–0.174** · no arm
+crosses the gap.
+
+**Controls.** OBJECT membership verified, exit 2 otherwise · E1 decomposition worst mismatch
+**2.082e-17** · PLACEBO **0.000000** · POSITIVE band computed at both ends · COUNTERFACTUAL labelled a
+construction. **WORLD C.**
