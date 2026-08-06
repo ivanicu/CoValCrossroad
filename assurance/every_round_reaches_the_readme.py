@@ -59,11 +59,57 @@ from covalx.rounds import (fixture_dir, iter_round_dirs,  # noqa: E402
                             round_dir)
 
 
+def is_unreachable(d, root_readme: str) -> bool:
+    """THE GATE'S OWN PREDICATE, extracted (entry 1344) so a plant can exercise the same code.
+
+    A census of the thirteen sweep gates found this one had NO positive control of any kind — it
+    passed at entry 1318 only because I ran `generate_round_index.py` in the same session, which its
+    own docstring already calls "a CONSTRUCTION, not a discovery". A gate that passes because you
+    made it pass, with nothing ever shown to be flagged, is silence wearing a PASS.
+
+    Reimplementing the rule inside a control would validate my imagination instead of the gate, so
+    the rule lives here once and both `main` and the plant call it."""
+    arc = d.parent / "README.md"
+    arc_txt = arc.read_text(errors="ignore") if arc.exists() else ""
+    return d.name not in root_readme and d.name not in arc_txt
+
+
+def synthetic_controls():
+    """Corpus-independent plant: two rounds on disk, one named in its arc index and one not.
+
+    POSITIVE  the orphan MUST be flagged unreachable.
+    NEGATIVE  the indexed one MUST NOT be — otherwise the rule flags everything and means nothing."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        arc = Path(td) / "E99_synth" / "A99_synth"
+        arc.mkdir(parents=True)
+        for name in ("R9001_indexed", "R9002_orphan"):
+            d = arc / name
+            (d / "results").mkdir(parents=True)
+            (d / "results" / "out.json").write_text('{"verdict": "synthetic"}')
+            (d / "run.py").write_text("# plant\n")
+        (arc / "README.md").write_text("| R9001_indexed | a row a reader can follow |\n")
+        return {d.name: is_unreachable(d, root_readme="")
+                for d in sorted(arc.iterdir()) if d.is_dir()}
+
+
 def main() -> int:
     readme = (_ROOT / "README.md").read_text()
     # iterdir() over rounds/ now yields the twelve CAMPAIGN directories, not rounds -- and the
     # failure was silent in the worst way: the glob still matched, so this reported twelve rounds
     # with no results, a completeness verdict computed over the wrong population.
+    # ---- SYNTHETIC CONTROL FIRST: validates the RULE, corpus-independently.
+    _plant = synthetic_controls()
+    _pos = _plant.get("R9002_orphan") is True
+    _neg = _plant.get("R9001_indexed") is False
+    print(f"  SYNTHETIC POSITIVE  a round on disk in NO index is flagged unreachable: {_pos}   "
+          f"{'PASS' if _pos else '⛔ BLIND — the rule cannot flag'}")
+    print(f"  SYNTHETIC NEGATIVE  a round named in its arc index is NOT flagged: {_neg}   "
+          f"{'PASS' if _neg else '⛔ OVER-FIRES — the rule flags everything'}")
+    if not (_pos and _neg):
+        print("\n  FAIL: the rule is unvalidated; a clean corpus below would prove nothing.")
+        return 1
+
     rounds = [d for d in iter_round_dirs(_ROOT) if not d.name.startswith("_")]
     missing, with_results = [], 0
     for d in rounds:
@@ -92,9 +138,11 @@ def main() -> int:
         # CONSTRUCTION, not a discovery, and it is weak evidence of the property. Its real and
         # ongoing power is forward-looking: a NEW round added without regenerating the index
         # still fails here, which is the only thing that keeps the index from rotting.
-        arc_readme = d.parent / "README.md"
-        arc_txt = arc_readme.read_text(errors="ignore") if arc_readme.exists() else ""
-        if d.name not in readme and d.name not in arc_txt:
+        # ⚠ CALLS THE EXTRACTED PREDICATE (entry 1344). This was an inline copy of the same three
+        # lines, so the plant below would have exercised a duplicate rather than the code that
+        # rules — a control validated against my imagination, which is the failure it exists to
+        # prevent. One rule, one place, both callers.
+        if is_unreachable(d, readme):
             missing.append((d.name, len(res)))
 
     # A round with NO CODE is invisible to every enumeration in this package,

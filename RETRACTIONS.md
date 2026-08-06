@@ -25161,3 +25161,56 @@ Its own docstring already concedes the shape: its pass *"is a CONSTRUCTION, not 
 passed at entry 1318 because I ran the index generator in the same session. **A gate that passes
 because you made it pass, with no plant, is the weakest cell in this sweep, and it is in it because I
 put it there.**
+
+## 1344 · the last gate without a positive control now has one — and I nearly gave it a plant that tested a copy of the rule instead of the rule
+
+Entry 1343 left `every_round_reaches_the_readme` as the one sweep gate with **no positive control of
+any kind**. Its own docstring already conceded the shape: it passed at entry 1318 *"because
+`generate_round_index.py` wrote those arc tables in the same session — a **CONSTRUCTION**, not a
+discovery."*
+
+### ⭐ THE PLANT
+
+A corpus-independent temp tree with **two** rounds, each with a non-smoke result and a `run.py`:
+`R9001_indexed` named in its arc README, `R9002_orphan` named nowhere.
+
+**POSITIVE** — the orphan must be flagged unreachable. **NEGATIVE** — the indexed one must not be,
+or the rule flags everything and means nothing. Live: `{'R9001_indexed': False, 'R9002_orphan': True}`,
+both **PASS**, wired into `main` as a hard **FAIL** before the corpus is read.
+
+### ⛔ AND I NEARLY VALIDATED A COPY OF THE RULE
+
+I extracted the predicate into `is_unreachable(d, root_readme)` and pointed the plant at it — **and
+left `main`'s inline three-line duplicate in place.** The plant would have exercised the extracted
+function while the gate ruled with its own copy: **a control validated against my imagination, which
+is precisely the failure the extraction was for.** `main` now calls the same function. One rule, one
+place, both callers.
+
+**The refactor is behaviour-preserving, measured:** `831 round directories · 821 with a non-smoke
+result · 821 reachable` — identical to entry 1318's numbers.
+
+### ⭐ ATTACKED IN BOTH DIRECTIONS, AND EACH ARM BREAKS ALONE
+
+| attack | POSITIVE arm | NEGATIVE arm | exit |
+|---|---|---|---:|
+| baseline | PASS | PASS | **0** |
+| **rule flags NOTHING** (`return False`) | ⛔ **BLIND** | PASS | **1** |
+| **rule flags EVERYTHING** (`return True`) | PASS | ⛔ **OVER-FIRES** | **1** |
+| restored | PASS | PASS | **0** |
+
+**Each arm fails independently and for its own reason** — the discrimination §4 demands of a control,
+and the thing my reverted attempt at entry 1342 could not do in either direction.
+
+### ⭐ THE SWEEP IS NOW COVERED
+
+| | before 1343 | now |
+|---|---:|---:|
+| internal positive control that fires | 10 | **12** |
+| no internal arm, externally shown to fire | 1 | **1** (`retired_framing_in_assertion_positions`) |
+| ⛔ neither | **2** | **0** |
+
+⚠ **What that does and does not mean.** Every sweep gate can now be shown to flag *something* — the
+property entry 1342 established as the minimum. It does **not** mean any gate's proxy equals its
+property: `every_round_reaches_the_readme` still checks that a round's **name occurs in an index**,
+which its docstring says is *"NOT the same as accurately summarised"*, and 12 firing plants do not
+change that. **A validated instrument measuring the wrong thing is still measuring the wrong thing.**
