@@ -1,0 +1,83 @@
+R809 · THE B CONTRAST ON A SCALE WHERE LAMBDA CANCELS
+written before the run · NBOOT 1200 · ZEFF 2.801585
+
+PROVOCATION
+R808 returned B-SPECIFIC on an ADDITIVE contrast: fitted arms rise +0.186 from j=1 to j=8 while
+honest arms rise +0.092, contrast +0.094 against a pre-registered threshold of 0.079 -- a ratio of
+1.19, which R808 itself flagged as marginal and as the next round's first job. Its NEXT asked for a
+bootstrap CI on that contrast.
+
+⛔ CHECK #411 FOUND THE ARITHMETIC FIRST, AND IT IS THE MULTIPLICATIVE TRAP FOR THE THIRD TIME IN
+FOUR ROUNDS (R806 relative-vs-additive; R807 the intercept; now this). Every disattenuated value is
+raw_slope / lambda_j, and lambda_j FALLS with j: 0.5834, 0.5658, 0.5546, 0.4954. So every j=8 value
+is inflated by a common multiplicative factor, and an arm STARTING HIGHER collects a larger ABSOLUTE
+rise for free. The additive contrast cannot separate "rises faster" from "starts higher".
+
+[DERIVATION] lambda_j is COMMON TO ALL ARMS at a given j, so in a difference of LOGS it cancels
+exactly:  log dis(a,j) = log raw(a,j) - log lambda_j, hence
+  [log dis(a,8) - log dis(a,1)] - [log dis(b,8) - log dis(b,1)]
+is free of lambda entirely. That is the identified estimand, and it is the PRIMARY one here.
+
+ESTIMAND
+E1  the ADDITIVE contrast, bootstrapped over prompts -- R808's NEXT exactly as posed.
+E2  ⭐ PRIMARY: the LOG contrast, bootstrapped over prompts. lambda cancels by derivation.
+E3  a CALIBRATED j-sensitivity scale: floor = the honest arms, ceiling = `_target_full`, a synthetic
+    arm that IS the full parity-1 modal class -- i.e. the fitted arms' actual fit target, hence
+    maximal j-sensitivity by construction. Where do the fitted arms sit between them?
+E4  the decomposition of R808's +0.094 into a LEVEL part and a RISE part.
+
+IDENTIFICATION
+E2 identified and lambda-free by the derivation above. E1 confounded by the common lambda_j factor
+and reported only as E2's contrast. E3 identified as a POSITION between two measured ends.
+⚠ A log ratio is undefined at or below zero. Every disattenuated value entering E2 must be > 0; any
+arm-j cell that is not is printed and EXCLUDED, with the count stated, never silently dropped.
+
+DERIVED BEFORE MEASURING
+D1 [DERIVATION] the pure leak copy has dis = 1.000 at every j, so its log-rise is exactly 0. PLACEBO.
+D2 [DERIVATION] `_target_full` is what the proxy converges TO, so its log-rise must be the largest
+   of any arm. POSITIVE, with the honest arms as the floor of the same scale.
+D3 the additive and log contrasts can disagree, and if they do the disagreement IS the finding --
+   the additive one is then measuring level, not rise.
+D4 lambda_j falling with j is itself worth checking: a modal class from more annotators is a
+   sharper object, so its margin has more between-prompt variance and a half-split reproduces it
+   less well. If lambda_j does NOT fall, this round's whole premise is wrong and it says so.
+
+WORLDS
+A  B-SPECIFIC SURVIVES: the LOG contrast CI excludes 0 above -> the fitted arms genuinely converge
+   on their fit target faster, and clause (3) can be written against a resolved claim.
+B  B-SPECIFIC WITHDRAWN: the LOG contrast CI contains 0 -> R808's additive +0.094 was the
+   multiplicative trap and the B-axis returns UNVERIFIED; only R808's A-axis invariance survives.
+C  UNVERIFIED: a control fails.
+CHECKED FIRST: B, because it withdraws the previous round's finding.
+
+PREDICTION MATRIX
+                              A                    B
+log contrast CI            excludes 0 above     contains 0
+additive contrast          excludes 0 above     may still exclude 0 (that is the trap)
+fitted position on E3      well above floor     at or near the floor
+
+CONTROLS
+OBJECT   reproduce R808's committed B-axis table -- all 5 arms x 4 j disattenuated values and all
+         four lambda_j -- to 1e-6. Exit 2 otherwise.
+PLACEBO  D1: the pure leak copy, log-rise exactly 0.000000.
+POSITIVE D2: `_target_full` must have the largest log-rise of any arm; band computed at both ends
+         (honest floor < fitted < target ceiling). g=0 check: the placebo must NOT show a rise,
+         so the control can fail.
+NEGATIVE the j-labels PERMUTED across prompts (each prompt gets another prompt's j=8 proxy) ->
+         the contrast must collapse; 200 permutations, reported as a null distribution and not as a
+         bootstrap around one draw (R807's repaired error).
+NOISE FLOOR 20 independent parity-0 splits; the sd of both contrasts.
+
+PRE-REGISTERED KILL -- conditional, never a bare threshold
+  if object_reproduces and placebo_is_exactly_zero and positive_is_largest and negative_collapses:
+      if LOG contrast CI contains 0                    -> WORLD B  (B-SPECIFIC withdrawn)
+      elif LOG contrast CI excludes 0 above            -> WORLD A
+      else                                              -> NO WORLD CLAIMED
+  else:
+      UNVERIFIED   (never OVERTURNED, never CONFIRMED)
+
+MULTIPLICITY 5 arms x 4 j x {additive, log} reported in full; BH q=0.05 over the per-arm log-rise
+family; non-survivors printed.
+STOPPING RULE one round. If any disattenuated value is <= 0 the log estimand is undefined for that
+cell: print it, exclude it, state the count, and if more than one arm is affected return UNVERIFIED
+rather than reporting a contrast over a mutilated population.

@@ -21059,3 +21059,42 @@ population ordering and any good arm tracks it, which is why the estimand is the
 ⚠⚠ **The verdict is MARGINAL — 1.19× its threshold — and no paired CI was pre-registered, so this is
 the pre-registered rule firing and not a resolved interval.** Saying so is the difference between a
 finding and a number that will have to be withdrawn two rounds from now.
+
+## 1212 · B-SPECIFIC withdrawn — "twice as fast" was "twice as high", and it is the multiplicative trap for the third time in four rounds
+
+R808 returned B-SPECIFIC on an additive contrast: fitted arms rise +0.186 from j=1 to j=8 against
+honest +0.092, contrast +0.094 versus a threshold of 0.079. Every disattenuated value is `raw/λ_j`
+and **λ_j FALLS with j** (0.5834 → 0.4954), so every j=8 value carries a common multiplicative
+inflation and an arm starting higher collects a bigger absolute rise for nothing. λ_j is common to
+all arms, so it **cancels exactly** in a difference of log-rises — and on that scale the contrast is
+**−0.1317 [−0.4044, +0.1397]**: it contains zero **and points the other way**. The additive contrast
+with a CI attached is **+0.0242 [−0.0606, +0.1131]**, which also contains zero. ⭐ **The
+decomposition is the finding**: fitted arms START at 0.383 against honest 0.195, a ratio of **1.97×
+before anything about rising is measured**, and their log-rises are +0.276 against the honest arms'
++0.408 — a ratio of **0.68×**. ⭐ **`topw_k4`, which never saw a human label for its prompt, has the
+steepest log-rise of any real arm at +0.494.** *R806 named this trap in a relative-vs-additive
+coordinate, R807 met it again as an OLS intercept, and R808 walked into it a third time. The pattern
+is not carelessness about any one statistic — it is that "bigger" and "grows faster" are the same
+number whenever a common factor multiplies everything, and every new coordinate hides that afresh.*
+
+## 1213 · and R808's contrast was inside its own split noise, which its threshold could not see
+
+R808's threshold was built from **per-arm** across-split sds and came to 0.079, against a contrast of
++0.094. Measured directly here, the across-split sd **of the contrast itself** is **0.1077** — larger
+than the entire effect it was meant to bound — and the single-split additive estimate is +0.0242
+where R808's 20-split average was +0.094. **A threshold assembled from the components' noise does
+not bound the composite's noise**, and the gap between those two quantities is exactly where a
+marginal verdict lives. R808 did flag the result as marginal at 1.19× and named the CI as the next
+round's first job, which is the only reason this took one round to catch rather than twenty.
+
+## 1214 · my negative control permuted nothing, and its output was a point mass on the observation
+
+The first negative control permuted `lk8[pm]` **and** `arm8[a][pm]` with the **same** permutation. A
+regression slope is **invariant to reordering the (x, y) pairs**, so the null destroyed nothing and
+returned **[−0.1317, −0.1317]** — a point mass exactly equal to the observed contrast. ⚠ **The tell
+is the degenerate interval, and it is worth naming because a null with zero width does not look like
+a failure — it looks like an extremely precise measurement.** Repaired to the null the estimand
+actually rests on: the **arm-label** split, which with 5 arms is **exactly enumerable** over all 10
+ways to split them 3/2 rather than sampled. Result: null [−0.1317, +0.1021], and the real
+fitted/honest split ranks **1 of 10** — the most negative of every possible labelling, where
+B-SPECIFIC predicted it should rank last.

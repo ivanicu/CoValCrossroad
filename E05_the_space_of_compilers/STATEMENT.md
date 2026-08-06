@@ -2410,3 +2410,31 @@ sits within **0.006** of its predicted midpoint at all four k · permutation nul
 **Scope**: 968 prompts · y-side a fixed half of parity-0, x-side k ∈ {1,2,3,4} from the complement ·
 j ∈ {1,2,4,8} · 20 splits per cell · parity-0 median 8 (min 2, max 23), **620 of 968** carry ≥8 ·
 first release, home judge.
+
+## R809 · The fitted arms rise LESS than honest ones once λ is cancelled
+
+**R808's B-SPECIFIC is withdrawn.**
+
+| estimand | contrast |
+|---|---|
+| additive (as R808 posed it) | **+0.0242 [−0.0606, +0.1131]** — contains 0 |
+| ⭐ **log, where λ cancels by derivation** | **−0.1317 [−0.4044, +0.1397]** — contains 0, and negative |
+
+⭐ **The decomposition**: fitted arms **start** at **0.383**, honest at **0.195** — a ratio of
+**1.97× before anything about rising is measured**. Rises are +0.122 vs +0.098 additively (1.25×) but
+**+0.276 vs +0.408 on the log scale (0.68×)**. **"Twice as fast" was "twice as high."**
+
+⭐ **`topw_k4`, which never saw a human label for its prompt, has the steepest log-rise of any real
+arm (+0.494)** — steeper than all three fitted arms.
+
+**Controls**: the pure leak copy's log-rise is **+0.000000000** · `_target_full`, the fitted arms'
+actual fit target, is the largest at **+0.6620** · the **arm-label null is exact over all 10 ways to
+split 5 arms 3/2**, [−0.1317, +0.1021], and the real fitted/honest split ranks **1 of 10** — the most
+negative of every possible labelling · across-split sd of the contrast **0.1077**, larger than
+R808's entire +0.094.
+
+**What survives**: R808's A-axis invariance and R807's scale. What is withdrawn is how the fitted
+arms' position **changes** as the proxy sharpens — not the position itself.
+
+**Scope**: 968 prompts × 5 arms + 2 synthetic × j ∈ {1,2,4,8} · paired bootstrap over prompts,
+NBOOT 1,200, one fixed split · 20 splits for the noise floor · first release, home judge.

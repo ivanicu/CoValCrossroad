@@ -6771,3 +6771,39 @@ calibration holding at one k and failing at another *is* the drift this round hu
 permutation nulls at both ends (k=1 max +0.0481 vs real +0.1467; k=4 max +0.0679 vs real +0.2867) ·
 NOISE FLOOR **0.0427**. Population: 968 prompts, parity-0 median 8 (min 2, max 23), **620 of 968**
 carry ≥8, and the A-axis uses each prompt's own cap rather than dropping prompts.
+
+## R809 · B-SPECIFIC withdrawn — on a λ-free scale the fitted arms rise LESS than honest ones
+
+**Why here.** R808 returned B-SPECIFIC on an additive contrast (+0.094 vs a 0.079 threshold, ratio
+1.19) and flagged it as marginal. CHECK #411 found the arithmetic before the bootstrap ran: every
+disattenuated value is `raw/λ_j`, and **λ_j falls with j** (0.5834 · 0.5658 · 0.5546 · 0.4954), so
+every j=8 value carries a common multiplicative inflation and an arm **starting higher** collects a
+larger absolute rise for free. **[DERIVATION]** `log dis(a,j) = log raw(a,j) − log λ_j`, and λ_j is
+common to all arms, so it **cancels exactly** in a difference of log-rises.
+
+**The two contrasts.** E1 additive **+0.0242 [−0.0606, +0.1131]** — contains 0. ⭐ E2 log
+**−0.1317 [−0.4044, +0.1397]** — contains 0 **and points the other way**. **WORLD B: B-SPECIFIC
+withdrawn.**
+
+**⭐ The decomposition is the whole story.** Fitted arms **start** at 0.383, honest at 0.195 — a
+ratio of **1.97× before anything about rising is measured**. Rises: additive +0.122 vs +0.098
+(1.25×); **log +0.276 vs +0.408 (0.68×)**. R808's "the fitted arms rise twice as fast" was the fitted
+arms **starting twice as high**. ⭐ And `topw_k4` — which never saw a human label for the prompt —
+has the **steepest log-rise of any real arm, +0.494**: relative sensitivity to the proxy's identity
+is not a property of having been fitted.
+
+**⛔ R808's contrast was inside its own split noise.** Measured here, the across-split sd of the log
+contrast is **0.1077** — larger than R808's entire +0.094, and the single-split additive estimate is
++0.0242. A threshold built from per-arm sds could not bound a contrast whose split-to-split
+variation exceeds the effect.
+
+**Controls.** OBJECT R808's whole B table reproduced — 4 λ_j and 20 disattenuated cells to 1e-6 ·
+D4 λ_j falls with j, checked not assumed · PLACEBO the pure leak copy's log-rise **+0.000000000** ·
+POSITIVE `_target_full` (the arms' actual fit target) **+0.6620**, largest of any arm, band
+**+0.4081 < fitted < +0.6620** · NEGATIVE **arm-label permutation, exact over all 10 splits of 5
+arms 3/2**, null [−0.1317, +0.1021], the real split ranking **1 of 10** — the most negative of every
+possible labelling, where B-SPECIFIC predicted last · NOISE FLOOR **0.1077** · LOG DOMAIN 0
+non-positive cells. **BH 4 of 5 per-arm log-rises survive; `coval_core` does not.**
+
+**What survives**: R808's A-axis invariance and R807's scale itself. What is withdrawn is the claim
+about how the fitted arms' position **changes** as the proxy sharpens, not the position.
