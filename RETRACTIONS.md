@@ -26861,3 +26861,41 @@ otherwise.**
 the frozen set is **hashes** and the population is a **400-commit window**, so as commits accumulate
 the frozen entries scroll out and the count silently becomes a **prevalence** rather than an
 **increment**. **The gate prints that when it happens** instead of leaving it to be rediscovered.
+
+## 1380 · the deliverable's own forward-looking claims go stale too — and one did so within a single round, by my hand
+
+R858 measured that **27%** of my NEXT lines pointed at something already done. **The same exposure
+exists inside `DEFINITION.md`**, where sentences of the form *"what would settle it is X"* live in the
+**deliverable** — so a stale one misleads a reader directly, not just the next round.
+
+⚠ **Reading beat counting.** `"owed"` matches **19** lines and is mostly not forward-looking; a word
+list cannot establish a category. The tight, readable population is **11 lines** — *"what would
+settle"* (3), *"has never been"* (4), *"is untested"* (4) — and **reading all eleven shows ~4 are not
+forward-looking at all**: L378 **quotes the register's own rule**, L3822 and L7273 are descriptive.
+**≈7 are genuine claims that something is undone.**
+
+### ⛔⛔ AT LEAST TWO OF THE SEVEN ARE STALE
+
+**① `R517`, L2569** — *"arms that clear the blind-pool bar scored against the criterion-free rules on
+the same release. That is a scoring run, and it is **the cheapest open item in the register**."*
+**R849 ran exactly that scoring run** (99 arms vs the response-only bar, selected on the odd
+annotator half, scored on the even). **R856 intersected the two sets** — ② (**29**) against ④′
+(**41**) — and found **② ⊆ ④′**, ②'s comparator **0.5404** sitting **+0.0584** above ④′'s bar
+**0.4820**. ⚠ **And two lines above it**, *"④ has simply never been tested where it could fail"* was
+answered by **R847** (family 30 → 394, bar **+0.0241**, noise **+0.0039**). **Both still described as
+open.**
+
+**② L259 — MINE, entry 1364** — *"clause ④'s exposure is to FAMILY growth, and that exposure has
+never been exercised."* **R847, the very next round, exercised it.** ⛔ **I wrote the claim, answered
+it one round later, annotated R847 into THIS SAME FILE, and never corrected the sentence it
+answered.** *A correction must reach the artifact that provoked it* — **and here the correction and
+the stale claim sit forty lines apart in one document.**
+
+### ⭐ BOTH ANNOTATED IN PLACE
+
+Not rewritten (L81). The original text stands with the answer beside it, so a reader sees **what was
+claimed open, what closed it, and how long the gap was.**
+
+⚠ **Not claimed: that the other five are live.** They were read, not tested against the record —
+checking each needs its own search, and asserting they are current would be the same error one level
+down. **≈7 identified, 2 verified stale, 5 UNCHECKED and named as such.**

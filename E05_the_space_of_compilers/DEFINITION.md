@@ -260,6 +260,13 @@ defence is contradicted by the elicitation format.**
 > has been added since R436. The clause's wording was right; entry 1363 attached its alarm to the
 > wrong set.
 >
+> ⛔⛔ **STALE WITHIN ONE ROUND, BY MY OWN HAND (entry 1380).** **R847 — the very next round —
+> exercised exactly this exposure**, enlarging the family **30 → 394** with two-feature combinations
+> and measuring the bar rise **+0.0241** against a noise arm that moved **+0.0039**. **I wrote this
+> claim, answered it one round later, annotated R847 into THIS FILE, and never corrected the sentence
+> it answered.** *A correction must reach the artifact that provoked it* — and here the correction and
+> the stale claim are in the same document, forty lines apart.
+>
 > ⭐⭐ **The general lesson this earns for the FORMULATION: a universal clause must name the population
 > it quantifies over, and that population must be checkable.** *"Every rule computable from responses
 > alone"* is a **specification** (30 rules realise it); *"every arm"* would have been a **directory
@@ -2568,6 +2575,15 @@ is ② ③ with ④ carried as unverified** — dropping it would be as unwarran
 
 **What would settle it:** arms that clear the blind-pool bar scored against the criterion-free rules
 on the same release. That is a scoring run, and it is the cheapest open item in the register.
+
+> ⛔⛔ **ANSWERED — AND THIS LINE WENT ON CALLING IT OPEN (entry 1380).** **R849** ran exactly that
+> scoring run: all 99 arms against the response-only (criterion-free) family bar, the bar selected on
+> the ODD annotator half and every margin scored on the EVEN half. **R856** then intersected the two
+> sets — the blind-pool-bar clearers (② , **29**) against the criterion-free clearers (④′, **41**) —
+> and found **② ⊆ ④′**, with ②'s comparator **0.5404** sitting **+0.0584 above** ④′'s bar **0.4820**.
+> ⚠ **And the sentence two lines above — *"④ has simply never been tested where it could fail"* — was
+> answered by R847**, which enlarged the family 30 → 394 and measured the bar rise **+0.0241** against
+> a noise arm that moved only **+0.0039**. **Both were still described here as open.**
 
 ---
 
