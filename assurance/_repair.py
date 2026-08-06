@@ -57,6 +57,7 @@ EXIT (as a script)  0 nothing needed or repair verified · 1 repair incomplete �
 """
 from __future__ import annotations
 import json
+import os
 import pathlib
 import shutil
 import subprocess
@@ -273,7 +274,51 @@ def selftest() -> int:
     shutil.rmtree(stash, ignore_errors=True)
     ISO.restore(wt)
 
-    print(f"\n  {'PASS — the repair fixes the exact event that has now happened eight times, on BOTH channels.' if ok else '⛔ FAIL — the repair is not shown to fix the event it exists for.'}")
+    # ── LIVENESS, the branch added 2026-08-06. Both directions, because only one of them is the
+    #    dangerous one: reading ORPHANED as IN FLIGHT leaves a broken tree (what happened), and
+    #    reading IN FLIGHT as ORPHANED races a live writer (the livelock). A control that only
+    #    exercised the repairing direction would certify exactly half of it.
+    def _plant(pid_value):
+        ep2 = sorted(p for p in wt.iterdir() if p.is_dir() and p.name.startswith("E0"))[0]
+        st = wt.parent / "_repair_selftest_live_stash"
+        shutil.rmtree(st, ignore_errors=True); st.mkdir(parents=True)
+        (wt / "assurance" / "results").mkdir(parents=True, exist_ok=True)
+        (wt / "assurance" / "results" / ".hide_in_progress.json").write_text(
+            json.dumps({"stash": str(st), "moved": [ep2.name], "pid": pid_value}))
+        shutil.move(str(ep2), str(st / ep2.name))
+        return ep2, st
+
+    dead_pid = 999_000 + (os.getpid() % 1000)         # a pid that cannot be running
+    while True:
+        try:
+            os.kill(dead_pid, 0); dead_pid += 1
+        except OSError:
+            break
+    ep2, st = _plant(dead_pid)
+    r_dead = repair_full(wt, verbose=False)
+    dead_ok = (r_dead.get("writer_live") is False) and bool(r_dead["moved_home"]) \
+        and not r_dead["still_missing"]
+    shutil.rmtree(st, ignore_errors=True); ISO.restore(wt)
+
+    ep3, st3 = _plant(os.getpid())                    # a pid that IS running: this process
+    r_live = repair_full(wt, verbose=False)
+    live_ok = (r_live.get("writer_live") is True) and r_live.get("skipped_live_writer") is True \
+        and not r_live["moved_home"]
+    shutil.move(str(st3 / ep3.name), str(ep3))        # undo the plant by hand, as the writer would
+    shutil.rmtree(st3, ignore_errors=True)
+    (wt / "assurance" / "results" / ".hide_in_progress.json").unlink(missing_ok=True)
+    ISO.restore(wt)
+    ok &= dead_ok and live_ok
+    print(f"  LIVENESS   dead writer -> repaired ({len(r_dead['moved_home'])} moved home): "
+          f"{dead_ok} · LIVE writer -> left strictly alone, 0 moved: {live_ok}   "
+          f"{'PASS' if dead_ok and live_ok else '⛔ FAIL — the marker still cannot tell them apart'}")
+
+    # R428 wrote "eight times, on BOTH channels" when it had counted eight stashes and two
+    # channels. Both numbers moved (11 stashes by 2026-08-06, and liveness is a third channel) and
+    # the sentence did not, which is what a hand-typed count in a passing message always does.
+    print(f"\n  {'PASS — the repair fixes the exact event on all THREE channels: tracked, untracked, and liveness.' if ok else '⛔ FAIL — the repair is not shown to fix the event it exists for.'}")
+    print(f"  ⚠ orphan count is measured, never quoted: "
+          f"{len(list(pathlib.Path('/tmp').glob('attack_rounds_*')))} stashes in /tmp right now.")
     return 0 if ok else 1
 
 
