@@ -1914,6 +1914,39 @@ p99**: between **1% and 10%** of the blind subsets beat the bar the word *every*
 > CONSERVATIVE bar for the core** — the direction the universal reading wants — and it is not quoted
 > as an estimate of anything else.
 
+> ⛔⛔ **AND THE PHRASE "SELECTION COMPONENT" ATTACHED TO THIS NUMBER IS WRONG — R861, measured,
+> D8.** For three entries `1.56 = 0.0103435 / 0.0066310` was carried forward as *the factor by which
+> a fixed argmax understates an MDE*. **It is nothing of the kind, and this artifact says so in its
+> own field:** `results/exact_mde.json` records `replaces_proxy = {entry: 1383, proxy_mde:
+> 0.0066309665}`. **1.56 is the ratio between the RIGHT subset's MDE and a DIFFERENT subset's** — a
+> borrowed-denominator correction, which is what the round was actually for. The selection reading
+> was my gloss, applied afterwards, and it survived because the number it produced was plausible.
+>
+> ⭐ **R861 measured the real thing for the first time, and the sign is REVERSED: 0.966.**
+> Re-selecting `best_rule` INSIDE each bootstrap resample rather than once outside gives an MDE
+> **3.4% SMALLER**, consistently across four arms (0.965–0.966) at a seed spread of ~5e-5.
+> **So the fixed-argmax MDE is CONSERVATIVE, and every margin computed against it is UNDERSTATED:
+> the tightest published cell moves 1.84× → 1.91×, further ABOVE the 1.5 floor, not below it.**
+>
+> ⛔ **The mechanism, and why I got the direction wrong while calling it forced.** A max has TWO
+> consequences and I derived one and assumed the other. The LEVEL rises — `max_k mean_b(R_k) >=
+> mean_b(R_star)` — and that IS forced, confirmed at **100.0%** of 4,000 resamples. The VARIANCE
+> does not follow: when the rank-1 rule dips on a resample **a different rule wins instead**, so the
+> max **clips the downside** and is LESS variable (bar sd **0.004968 → 0.004606**, ratio 0.927).
+> Here rank1 `min_ttr` 0.4560 and rank2 `max_len_chars` 0.4515 differ by **0.0045 against a bar sd
+> of 0.0050** — the top rules are tied relative to bootstrap noise, which is exactly the regime
+> where switching is frequent (**21.8%**, 4 distinct winners) and clipping dominates.
+>
+> ⚠ **SCOPE, stated because it is the same trap one level up:** 0.966 is the **30-rule** family.
+> R860's own MDE carries the identical fixed-argmax omission over **1,820** subsets, and whether the
+> sign holds at that width is **UNMEASURED**. It is not transferred.
+>
+> ⭐ **What this row is really a record of:** the correction ran three deep — a borrowed MDE (1383),
+> then a borrowed factor (1386), then a corrected magnitude that accepted the wrong label (1387) —
+> and each was caught by reading the source instead of carrying the number forward. **The last one
+> was caught by the measurement contradicting my own derivation**, which is the only reason a
+> mislabelling that had been quoted three times was ever examined.
+
 **So the universal reading of clause ② has never been run**, and the disagreement about whether this
 definition admits its own instance is exactly that `0.0029`: `coval_core` clears a p99 bar and does
 not clear the maximum.

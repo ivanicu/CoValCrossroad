@@ -1,0 +1,29 @@
+  prompts 1078 · rules 30 (R435's criterion-free family)
+  rule means, top 3: min_ttr 0.4560 · max_len_chars 0.4515 · first 0.4412   gap rank1-rank2 = 0.0045
+  KILL CHECK  fixed-argmax best_rule = `min_ttr` (R436 published `min_ttr`)  PASS
+  POSITIVE CONTROL  the argmax SWITCHES across resamples: 21.8% (4 distinct winners)  PASS
+    Without this the two constructions are the same object and the ratio is 1.000 by
+    construction — a bug and a finding would print identically.
+  MECHANISM  selective bar is HIGHER in 100.0% of resamples (forced: max>=any)
+             selective bar sd / fixed bar sd = 0.927  -> the max CLIPS THE DOWNSIDE, so it is LESS variable, not more
+  topw_k8          MDE fixed 0.018445  selective 0.017819  ratio 0.966   (seed spread fixed 5.55e-05, sel 3.96e-05)
+  coval_core       MDE fixed 0.018589  selective 0.017942  ratio 0.965   (seed spread fixed 6.52e-05, sel 4.64e-05)
+  topw_k4          MDE fixed 0.018575  selective 0.017940  ratio 0.966   (seed spread fixed 1.53e-05, sel 4.44e-05)
+  greedy_k4_fit1   MDE fixed 0.017076  selective 0.016480  ratio 0.965   (seed spread fixed 4.08e-05, sel 8.82e-05)
+
+  ⭐ mean ratio across 4 arms: 0.966
+  ⭐ WORLD C: the omission has the OPPOSITE SIGN — the fixed-argmax MDE is CONSERVATIVE, so every margin computed against it is UNDERSTATED: 1.84 / 0.966 = 1.91, FURTHER above 1.5
+     ⛔ I called this direction FORCED. It was not: a max raises the LEVEL (forced) and
+        CLIPS the downside (not forced, and it dominates here). The derivation was a
+        guess wearing a derivation's label, caught only because the number contradicted it.
+     ⛔ AND R860's `1.56×` WAS NEVER A SELECTION COMPONENT. Its own artifact records
+        replaces_proxy = {entry: 1383, proxy_mde: 0.0066309665} — 1.56 = 0.0103435 /
+        0.0066310, the ratio between the RIGHT subset's MDE and a DIFFERENT subset's.
+        A borrowed-denominator correction. Entry 1386 imported it as a selection factor;
+        entry 1387 corrected its MAGNITUDE and accepted the MISLABELLING. This is the
+        first round that measured the thing all three entries were talking about.
+     ⚠ SCOPE, and it is the same trap: 0.966 is the 30-RULE family. R860's own MDE has
+        the identical omission over 1,820 subsets, and whether the sign holds there is
+        UNMEASURED. It is not transferred here.
+
+  artifact: results/selection_component.json @ fb3f9bd5
