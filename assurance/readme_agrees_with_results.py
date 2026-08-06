@@ -79,6 +79,25 @@ is strong; a match on a 1-decimal figure is nearly free, and on the largest pool
 it is free outright. The table is recomputed at run time and printed with the
 results, so the PASS side can never again be read as if it were uniform.
 
+⚠ THE TABLE ABOVE IS A DATED SNAPSHOT, AND IT HAS MOVED — measured 2026-08-06
+(entry 1345). It is kept, not rewritten (L81), because the LIVE table is printed
+on every run and is the authority; what the drift shows is which direction the
+corpus is going, and it is the unwelcome one:
+
+    decimals    mean  (was)        worst pool  (was)
+        1      41.8%  (56.5%)         100.0%  (100.0%)
+        2      14.3%  (22.8%)         100.0%   (98.5%)
+        3       3.5%   (8.4%)         100.0%   (56.5%)
+        4       0.7%   (2.3%)          75.8%   (24.5%)
+
+MEANS FELL while WORST POOL ROSE. A 3-decimal match used to be ~1 in 2 in the
+densest pool and is now FREE there; a 4-decimal match went from 1 in 4 to 3 in 4.
+So the strong tail this check leaned on has weakened exactly where it was doing
+the work, and reading the MEAN alone would have reported the opposite.
+⚠ And the token-share sentence above is NOT comparable to the live line: the live
+run excludes bare 1-2 digit integers, so its 12/8/5/14% per precision covers a
+different denominator. Two populations, stated rather than merged.
+
 WHAT AN UNMATCHED NUMBER MEANS DEPENDS ON THE DOCUMENT (entry 149)
 ------------------------------------------------------------------
 `--readme` accepts any file, and the verdict it supports is NOT the same for all

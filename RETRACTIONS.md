@@ -25214,3 +25214,48 @@ property entry 1342 established as the minimum. It does **not** mean any gate's 
 property: `every_round_reaches_the_readme` still checks that a round's **name occurs in an index**,
 which its docstring says is *"NOT the same as accurately summarised"*, and 12 firing plants do not
 change that. **A validated instrument measuring the wrong thing is still measuring the wrong thing.**
+
+## 1345 · the calibration table drifted, the means fell, and the worst pool got worse — reading the mean alone would have reported the opposite
+
+Entry 1344 left proxy-vs-property as the binding limit and named `readme_agrees_with_results` as the
+place to size it. **It already computes the sizing**, on every run, with 120 seeded random draws per
+round pool — the honest question *"would a value that CANNOT have come from this round usually miss?"*
+
+### ⭐ AND ITS DOCUMENTED TABLE IS STALE, IN THE DIRECTION THAT MATTERS
+
+| decimals | mean **now** | (docstring) | **worst pool now** | (docstring) |
+|---|---:|---:|---:|---:|
+| 1 | **41.8%** | 56.5% | **100.0%** | 100.0% |
+| 2 | **14.3%** | 22.8% | **100.0%** | 98.5% |
+| 3 | **3.5%** | 8.4% | **100.0%** | 56.5% |
+| 4 | **0.7%** | 2.3% | **75.8%** | 24.5% |
+
+⛔ **The means FELL and the worst pool ROSE.** A **3-decimal** match used to be ~1 in 2 by chance in
+the densest pool and is now **free** there. A **4-decimal** match went from **1 in 4** to **3 in 4**.
+
+⭐ **Reading the mean alone would have reported the opposite conclusion** — "chance matching halved,
+the check got stronger" — when the tail it actually leans on has weakened. **The mean improved
+because most pools thinned; the pool that decides the worst case got denser.** Two statistics, one
+table, opposite stories, and only one of them is about the risk.
+
+### ⭐ WHAT THE GATE ALREADY SAYS, AND WHY IT IS NOT IN THE SWEEP
+
+`COVERAGE: 1,163 of 1,413 eligible numbers reached a pool (82%)` — and it exits **0** regardless,
+because it is a **measurement, not a gate**: *"an unmatched number is a QUESTION, not a verdict."* It
+does not belong in a pass/fail sweep and its absence there was not an oversight.
+
+**Its own closing line is the proxy-vs-property statement entry 1344 asked for:** *"A match is
+evidence in proportion to precision. At 1 decimal it is nearly free."* **12% of README tokens sit at
+1 decimal**, where a match carries **41.8%** chance weight on average and **none at all** in the worst
+pool.
+
+**Annotated, not rewritten (L81)** — the live table is printed every run and is the authority; the
+snapshot is kept so the *direction* of drift stays visible.
+
+⚠ **And one comparison I did NOT make.** The docstring's token shares (*"25.6% at ≤1 decimal, 63.8%
+at ≥3"*) are **not comparable** to the live line's 12/8/5/14%: the live run excludes bare 1–2 digit
+integers, so the denominators differ. **Two populations, stated rather than merged** — the failure
+this thread has hit five times.
+
+⚠ **Scope:** this is `README.md`, not `DEFINITION.md`. Entry 1326's `[7.1%, 21.2%]` anchored share is
+a different document and a different question, and the two must not be added together.
