@@ -1565,3 +1565,30 @@ beat all of it (**1.0000 > 0.9379**) — §4's *poison, not placebo*, in the fla
 
 **Scope**: 968 prompts · 20 k=4 home-judge arms with full coverage · A2 over all annotators · the
 1,820-subset class (r1) and 5 blind arms (r2) as the swept axis · home judge, k=4.
+
+## R782 · The released core does not have four criteria, and R781's conditional arm was a regex artifact
+
+**`coval_core` carries 4 criteria on 925 prompts, 3 on 42, and 2 on 1** — and the rubric `full` is
+**never smaller than 4** on any of the 968, so the shortness is not the rubric running out. Size is a
+DISTRIBUTION, not a number: **18 of 50** scored arms are ragged, most of them forcedly (a k=6 draw is
+short exactly where the rubric holds fewer than 6 — `random_k6` on 4 prompts, `random_k8` on 49,
+`random_k12` on 234). **`coval_core` is the exception, and it is the released core.**
+
+⛔ **AND THIS OVERTURNS R781's HEADLINE.** R781 selected its population with the name regex
+`_k4(_|$)`, which admits 20 arms and excludes six k=4 objects — `coval_core`, `gen`, `generic`,
+`generic_reprov` and two shams. Read from the object, the population is **26**, and the single arm in
+neither the middle band nor the extreme is **`gen` at q = 0.3308, q_resolved = 0.0396** — the
+prompt-specific generated core. R781 reported the conditional arm as `generic` (0.9538) because `gen`
+was not in its table. ⭐ **`gen` is exactly the arm R665's percentile curve admits at p000 and drops
+at p005, so R665's 8 → 7 step is `gen`** — invisible to R781 by construction.
+
+⭐⭐ **R604's UNVERIFIED IS CLOSED, BOTH WAYS AT ONCE.** R604 asked whether `POOL[0:4]` and the scored
+`generic` denote the same arm and said *"it needs the scorer, not a search"*. They do not: the raw
+satisfaction arrays differ by up to **0.120967**, per-prompt A2 on **73 of 968** prompts, max
+**0.2500**. And the difference is **below resolution** — paired **−0.000918** [−0.002430, +0.000562]
+against MDE **0.002188**, UNRESOLVED. **So the pages must name which arm they mean, and no published
+② verdict moves.** Both filters this thread wrote — the name regex (20) and strict-k-everywhere (22) —
+are strict subsets of the object's 26, and both drop the released core.
+
+**Scope**: 968 prompts · 50 home-judge arms with full coverage, 26 modal-k=4 · criterion indices per
+prompt and A2 over all annotators · the 1,820-subset class with n_eff = 1.1 (R781) · home judge.

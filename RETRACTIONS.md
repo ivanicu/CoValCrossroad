@@ -20094,3 +20094,41 @@ and not a spread"*. **Every k=4 subset of `sat_genericpool16.npz` is a prompt-bl
 My enumeration's unit was *arms with their own npz on disk*; the claim's unit was *blind references
 available*. **Instrument unit versus claim unit, in the round whose own headline was an instrument-unit
 error, one round after documenting the rule.**
+
+## 1128 · the released core does not have four criteria
+
+`coval_core` carries **4 criteria on 925 prompts, 3 on 42, and 2 on 1**. §4's row already retracted
+*"four criteria"* as a CLAUSE, on the ground that the k-sweep cannot separate 3 from 8; this is the
+stronger and simpler fact, and it is about the object rather than the design: **the instance the
+clause was read off does not have a single k.** And the shortness is not forced — the rubric `full` is
+never smaller than 4 on any of the 968 prompts, while the k=6, k=8 and k=12 arms ARE forced short
+exactly where the rubric holds fewer than k (4, 49 and 234 prompts respectively). *A number in a
+definition should be checked against the object's distribution before it is checked against a sweep.*
+
+## 1129 · R781's population was a NAME REGEX and it excluded the arm that carried the finding
+
+R781 selected k=4 arms with `_k4(_|$)`, admitting 20 and silently excluding six k=4 objects:
+`coval_core`, `gen`, `generic`, `generic_reprov` and two shams. **Read from the object the population
+is 26, and the single arm that is neither extreme nor middle is `gen` at q = 0.3308** — not `generic`
+at 0.9538, which is what R781 reported as the seat of the definition's baseline sensitivity. `gen` is
+also exactly the arm R665's percentile curve admits at p000 and drops at p005, so **R665's 8 → 7 step
+was invisible to R781 by construction.** *This is the instrument-unit-versus-claim-unit error a fourth
+time in four rounds — the instrument selected on a FILENAME, the claim was about a CRITERION COUNT —
+and the previous three were all documented in the rounds immediately before it.*
+
+## 1130 · my replacement filter was also exact-match, and dropped the same object
+
+Correcting the regex, I required `k == 4 on every prompt`. That admits **22** and still excludes
+`coval_core` and `gen`, because both are ragged. **An exact-match rule on an object with a ragged tail
+excludes the object however typical the modal value is** — trivial arithmetic, applied wrongly twice
+in one check. Only `k == 4 on most prompts` recovers all 26. *The fix for a filter that encodes the
+wrong unit is not a stricter filter.*
+
+## 1131 · the sham was inadmissible, and this time because the object has no ingredient
+
+`generic` is prompt-blind: the same four criteria on every prompt. A sham removes the ingredient under
+study, here prompt-specificity, and **this arm has none to remove** — so what the code did was
+misalign predictions against targets, §4's poison, returning **−0.1234**. Third sham defect in three
+rounds, and the first whose remedy is not a better sham but the admission that **the control is
+undefined for the object**. The REPLICA pair carried the round instead. *Before building a control,
+check that the object HAS the thing the control removes.*

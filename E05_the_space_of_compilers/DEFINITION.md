@@ -5756,3 +5756,40 @@ randblind_s0 0.5209 / 0.50 · vacuous 0.5126 / 0.25 · randblind_s1 0.5006 / 0.0
 **0.0000**, all real arms inside the measured band · ⛔ NEGATIVE **[0.9374, 0.9379]** vs real 0.9379 —
 **VOID, a derivation** · ⛔ SHAM **1.0000 > 0.9379** — **VOID, a poison**. **WORLD B printed; the
 distributional reading UNVERIFIED on n_eff.**
+
+## R782 · realised size, the comparator pair, and the corrected population
+
+**Size read from the sat file** (distinct criterion indices per prompt), 50 arms, **18 ragged**:
+
+| arm | size distribution | off-modal |
+|---|---|---:|
+| `full` (the rubric) | 4 … 39 | 887 of 968 |
+| `random_k12_s0/s1/s2` · `topw_k12` | {4:3, 5:1, 6:14, 7:31, 8:31, 9:29, 10:57, 11:68, 12:734} | 234 |
+| `random_k8_s0/s1/s2` · `topw_k8` | {4:3, 5:1, 6:14, 7:31, 8:919} | 49 |
+| **`coval_core`** · `coval_core_sham` | **{2:1, 3:42, 4:925}** | **43** |
+| `random_k6_s0/s1/s2` · `topw_k6` | {4:3, 5:1, 6:964} | 4 |
+| `gen` · `gen_sham` | {1:1, 3:1, 4:966} | 2 |
+
+**Prompts whose rubric holds fewer than 4 criteria: 0.** Core files and sat files agree on size for
+all **48** arms with a readable core file; `coval_core` and `generic_reprov` have none.
+
+**`POOL[0:4]` vs `sat_generic.npz`**: arrays identical **False**, max |dY| **0.120967** · A2
+**0.550436** vs **0.551354** · paired **−0.000918** [−0.002430, +0.000562], MDE **0.002188**,
+**UNRESOLVED** · differs on **73 of 968** prompts, max |diff| **0.2500**.
+
+**Filters**: name regex **20** · strict k=4 everywhere **22** · modal k=4 **26**.
+`modal \ name` = coval_core, coval_core_sham, gen, gen_sham, generic, generic_reprov.
+`modal \ strict` = coval_core, coval_core_sham, gen, gen_sham. `name \ modal` = ∅.
+
+**q over the corrected 26** (n_eff 1.1, so a band fraction, not a probability): oracle family
+0.6283/1.0000 · greedy_kA/kB 0.6226/1.0000 · oracle_fit1 0.6142/1.0000 · greedy_fit1 0.6106/1.0000 ·
+indep_kA/kB 0.6031/1.0000 · indep_fit1 0.5941/1.0000 · **coval_core 0.5665/1.0000, q_res 0.9978** ·
+topw_k4/detA/detB 0.5642/1.0000, q_res 0.9835 · generic & generic_reprov 0.5514/0.9538, q_res 0.7780 ·
+**gen 0.5352/0.3308, q_res 0.0396** · nine arms 0.4828–0.5040 at 0.0000.
+**Shape: middle band 0.0000 · extreme 0.9615 · the one arm in neither is `gen`.**
+
+**Controls.** OBJECT as above, exit 2 otherwise · PLACEBO **0.000000** · g=0 same file twice
+**0.000000**, UNRESOLVED · REPLICA `topw_k4` vs `topw_k4_detA` **0.000000** — the negative's job, the
+permutation null being void by derivation · POSITIVE 0× / 0.5× / 1× UNRESOLVED, 4× **BEATS**, band
+computed at both ends · ⛔ SHAM **INADMISSIBLE**: a sham is undefined for a prompt-blind arm.
+**WORLD B — different objects, below resolution.**
