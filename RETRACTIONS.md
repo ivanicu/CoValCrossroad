@@ -24812,3 +24812,52 @@ Removing it to tidy the count would delete the only cross-check on that row.
 `LIVE/340` **real**, `R440/0` **real**, `R434/0` **coincidence**. **2 of 3**, against 0 of 4 for the
 value-collision scan. Six groups remain unread and are reported as unread. ⚠ And `derive()` yields
 **348** values against `ASSERTIONS`' **340** regexes — an 8-label gap this round did not explain.
+
+## 1337 · 8 values were computed from artifacts and never compared to anything — two of them were the clause table's own denominators
+
+Entry 1336 closed on an unexplained gap: `derive()` returned **348** values against `ASSERTIONS`'
+**340** regexes. Fully identified from two lists in memory, so it was differenced both ways.
+
+| | |
+|---|---:|
+| `derive()` labels | **348** |
+| `ASSERTIONS` regexes | **340** |
+| intersection | **340** |
+| ⛔ **computed from an artifact, NO regex to check it** | **8** |
+| **has a regex but is not computed** | **0** |
+
+**POSITIVE CONTROL:** the two labels added in entry 1325 must appear in **neither** difference —
+confirmed.
+
+**The 8**: `closure_k_count` (9, R355) · `closure_violations_2B` (18, R355) ·
+`closure_violations_08B` (4, R358) · **`n_arms_r347` (41, R347)** · **`n_arms_r360` (42, R360)** ·
+`r407_top` (4, R407) · `r408_strict` (0, R408) · `r419_maxabs` (0.0, R419).
+
+### ⭐ TWO OF THEM ARE THE CLAUSE TABLE'S OWN DENOMINATORS
+
+`n_arms_r347 = 41` and `n_arms_r360 = 42` are the `of 41` and `of 42` in the table this thread has
+been reading for six rounds. They appeared inside the **numerator** patterns as **literals**, so the
+asymmetry was exact and easy to miss:
+
+- a change in the **DOCUMENT** breaks the literal, the regex stops matching, and the gate reports it
+  as **not in the document** — a soft but real check;
+- a change in the **ARTIFACT's `n_arms`** was **never compared to the document at all**. If R360's
+  arm space grew to 43 while the table still said 42, the suite would have passed.
+
+**Both anchored**, to the same clause text as their numerators. Verified: doc `41`/`42`, artifact
+`41`/`42`.
+
+### ⭐ AND THE INSTRUMENT CAUGHT ITS OWN GROWTH AGAIN — A CONTROL I DID NOT HAVE TO BUILD
+
+Adding two assertions moved the **self-referential** anchor count **340 → 342**, and the gate failed
+immediately on `r461_anchors` and `r462_total` before I touched the prose. **Second time in this
+thread** (entry 1325 saw 338 → 340). A count that describes the instrument, checked by the
+instrument, is the cheapest positive control in this package — it fires on every real change and
+cannot be satisfied by intention.
+
+⚠ **What is NOT claimed:** that the other 6 are defects. `closure_*`, `r407_top`, `r408_strict` and
+`r419_maxabs` may be intermediates the gate computes for its own use and the document never states.
+**Deciding that needs reading each one against the prose** — the same referent problem entries
+1334–1336 eliminated three methods against — so they are left **UNVERIFIED and named**, not quietly
+counted as fine. The two anchored here were resolvable precisely because the document's phrasing
+already located them.
