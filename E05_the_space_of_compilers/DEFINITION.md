@@ -436,7 +436,33 @@ defence is contradicted by the elicitation format.**
 > ⚠ **Not claimed:** that 41 of 99 is selective enough to *define* a core — it is one clause of four,
 > and ①②③ do the rest. The extension is **scoped to this R**; a richer R (char n-grams, R825) raises
 > the bar and shrinks it, which is precisely why the clause **requires R to be stated**. **Construct
-> validity is untouched** — no external gold standard for corehood exists. The metric is still
+> validity is untouched** — no external gold standard for corehood exists.
+>
+> ⛔⛔⛔ **AND R850 DOWNGRADES THE ROUND ABOVE — mine, one round old (entry 1370).** R849's cell
+> reproduces exactly through different code (**|R| = 394 → 41.0**), and then two things it never
+> measured cut against it:
+>
+> | \|R\| | extension | **noise** | excess | controls |
+> |---:|---:|---:|---:|---|
+> | 5 | 63.8 | 55.2 | 8.5 | **neg FAIL** |
+> | **30** *(R436's committed family)* | 57.1 | 38.2 | 18.9 | **neg FAIL** |
+> | 200 | 43.8 | 30.8 | 13.0 | **neg FAIL** |
+> | **394** | **41.0** | **30.0** | **11.0** | **neg PASS** |
+>
+> **① The negative control passes at ONE size only.** `random_k4_s0` **satisfies ④′ at every
+> |R| ≤ 200 — including 30, the original ④'s own family size.** ④′ rejects a random baseline only
+> when R is essentially the whole family, so **its selectivity is contingent on R being large, and
+> the original clause's family is far too small to have it.**
+>
+> **② The noise arm says most of the extension is free.** **30 of 99 arms satisfy ④′ against a
+> SHUFFLED target.** The excess is **11, not 41.** R849 ran **no noise arm**; its *"excludes 58"*
+> stands as arithmetic, but *"does definitional work"* is now **quantified at 11 arms of excess.**
+>
+> ⭐ **What survives:** the extension **stabilises well above 1**, so ④′ is not the
+> *describes-the-instance* failure arriving inside my own repair. ⚠ **But the honest headline is
+> `excess 11 at |R| = 394`, not `41`** — and the clause must state **both** its class **and** the
+> noise level of its own selection procedure, which is a third requirement neither the original ④
+> nor my first draft of ④′ carried. The metric is still
 > **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
 > that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a

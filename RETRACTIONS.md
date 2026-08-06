@@ -26417,3 +26417,48 @@ the register's test, passed constructively rather than by another retraction.
 - **Scoped to this R.** A richer R (char n-grams, R825) raises the bar and shrinks the extension —
   **which is exactly why the clause requires R to be stated.**
 - **Construct validity untouched**: no external gold standard for corehood exists, and none is claimed.
+
+## 1370 · R850 — my own R849 downgraded: the excess is 11, not 41, and ④′ rejects a random arm at ONE class size
+
+⛔ **Arithmetic trap first:** the extension is non-increasing in |R| **by construction** (the bar is a
+max). *"Does 41 shrink?"* is `1+1=2` — **not asked.** *(Third forced question this arc: 1364, 1366,
+here.)*
+
+### ⛔⛔ TWO DEFECTS OF MINE, CAUGHT BEFORE REPORTING
+
+**① Population collapse.** The first version intersected every arm's coverage, **1,078 → 87**,
+silently changing the estimand out from under the comparison with R849. **Its own print
+`"prompts common to all arms: 87"` exposed it** — an instrument that reports its population beats one
+that reports only its result. ⭐ After the fix, **R849's cell reproduces exactly: |R|=394 → 41.0.**
+
+**② The verdict string was not a computation.** It read `good[0]`/`good[-1]`; **only one size passes
+controls**, so both were 394 and it printed *"does not fall"* from a Δ over a **single point** — §4's
+named failure, committed here and fixed.
+
+### ⭐⭐ THE CURVE
+
+| \|R\| | extension | noise | excess | controls |
+|---:|---:|---:|---:|---|
+| 5 | 63.8 | 55.2 | 8.5 | **neg FAIL** |
+| **30** *(R436's family)* | 57.1 | 38.2 | 18.9 | **neg FAIL** |
+| 200 | 43.8 | 30.8 | 13.0 | **neg FAIL** |
+| **394** | **41.0** | **30.0** | **11.0** | **neg PASS** |
+
+### ⛔⛔⛔ BOTH FINDINGS CUT AGAINST R849
+
+**① The negative control passes at ONE size.** `random_k4_s0` satisfies ④′ at every **|R| ≤ 200**,
+**including 30 — the original ④'s own family size.** **④′'s selectivity is contingent on a large R,
+and the original clause's family is far too small to have it.**
+
+**② The noise arm says most of the extension is free.** **30 of 99 arms satisfy ④′ against a shuffled
+target.** Excess = **11, not 41.** ⚠ **R849 ran no noise arm.** Its *"excludes 58"* stands as
+arithmetic; *"does definitional work"* is now **quantified at 11.**
+
+⭐ **What survives:** the extension **stabilises well above 1** — ④′ is not the
+*describes-the-instance* failure arriving inside my own repair. ⚠ **But the honest headline is
+`excess 11 at |R| = 394`.** And a third requirement is now forced on the wording: **a clause must
+state its class AND the noise level of its own selection procedure** — neither the original ④ nor my
+first draft of ④′ carried that.
+
+⚠ **No trend is fitted across the sizes whose negative control fails** — that would be a trend in how
+often a random arm is admitted, not in the clause.
