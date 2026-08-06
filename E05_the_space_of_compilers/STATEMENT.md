@@ -1891,3 +1891,41 @@ permuted across annotators leaves the pooled estimate unchanged to 0.0e+00.
 
 **Scope**: 18,384 judgements · 1,078 prompts in the table, 968 shared by all arms · 1,012 annotators
 · 36 subgroups at n ≥ 100 across 6 axes · NBOOT 1,200 · 3 seeds · first release, home judge.
+
+## R793 · Seven of eleven artifacts unread, and a clause retired on 1 normalisation of 3
+
+**Of 11 deliberate artifacts in `corebench/results/`, 4 are opened by any of this arc's 468 `run.py`
+files and 7 by none** — all eleven committed in one batch on 2026-08-03. `pairwise.json` carries 39
+rounds; two artifacts carry one each.
+
+⭐ **`whose_verdicts.json` retired *"a core preserves ITS verdicts"* on the one normalisation of
+three that returns that answer.** Recomputed on ALL annotators:
+
+| statistic | `coval_core` | vs FULL | verdict |
+|---|---:|---:|---|
+| raw difference — **the statistic its docstring registers** | **−0.2185 [−0.2336, −0.2024]** | — | **WORLD A** |
+| / CEIL_H — the statistic it ships | **1.0264** | 0.7850 | WORLD B |
+| / √CEIL_H — standard disattenuation | **0.7625** | 0.7850 | **WORLD A** |
+
+CEIL_H = **0.551880 [0.544992, 0.558997]**; swept over its own interval the ceiling cell returns B in
+**1.000 of 400** draws, so **the fragility is the choice of normalisation, not the ceiling estimate**.
+⚠ **UNVERIFIED, not OVERTURNED** — which normalisation is right is an argument, not a measurement.
+
+⭐ **And the instrument was not the defect.** `whose_verdicts.py:79` samples **1 annotator of a median
+16**; recomputed on all of them the point estimates move **at most 0.0078**, every move negative —
+exactly what D3 predicted before the run.
+
+⛔ **The enumeration contaminated itself within one round**: scanning its own `run.py` dropped UNREAD
+**7 → 5** and failed its own NEGATIVE control, whose sentinel was a literal in a scanned file. Both
+repaired — `THIS_ROUND` excluded and printed, sentinel assembled at runtime.
+
+⚠ **And it qualifies R792**: `unit_robustness.json` reports the arm ORDERING identical across prompt
+and annotator units (0 inversions) while R792 measured **11 of 190 pair VERDICTS** flip. Both hold —
+they are different objects.
+
+**Controls**: the deterministic `vs FULL` column reproduced to **1.110e-16** · `full` vs FULL exactly
+**1.000000000000** · POSITIVE band crosses zero only at δ=0.30 · NEGATIVE `full`'s class shuffled
+takes vs FULL 0.7850 → 0.4998 while vs HUMAN is unchanged to 0.0e+00.
+
+**Scope**: 11 artifacts × 468 `run.py` files · 7 arms × 968 prompts × all annotators · first release,
+home judge.

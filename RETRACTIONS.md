@@ -20473,3 +20473,49 @@ Repaired to a dose over group size, whose expectation needs no data — pooled w
 SIZE and subgroup-weighting does not, so the ratio must FALL as the group grows: **3.870 (n=155) >
 1.053 (n=2,125) > 0.948 (n=9,535)**. *A derivation written in the preregistration is worthless if the
 controls in the same file contradict it.*
+
+## 1164 · seven of eleven artifacts unread, and the enumeration contaminated itself within one round
+
+R792's NEXT asked which files in `corebench/results/` this arc has opened. Of **11** deliberate
+artifacts — not `sat_`, not `sat08_`, not `core_` — **4** are opened by any of the arc's **468**
+`run.py` files and **7 are opened by none**. All eleven were committed on 2026-08-03, one batch, four
+of it read; `pairwise.json` carries **39** rounds while two artifacts carry one each. ⛔ **And the
+first run of the enumeration scanned its own `run.py`**, which names three of the artifacts it was
+counting: UNREAD fell **7 → 5** and the NEGATIVE control FAILED because its sentinel was a literal in
+a scanned file. **A count and a control, both wrong, from one cause.** R631 recorded this vector and
+R780 fixed it the same way — `THIS_ROUND` excluded and printed, the sentinel assembled at runtime.
+*A round that measures a population its own rounds write to must subtract itself before it counts.*
+
+## 1165 · a definitional clause was retired on 1 normalisation of 3, and it is the non-standard one
+
+`whose_verdicts.json` ships **WORLD B** — *"'preserves ITS verdicts' misdescribes what a core does"* —
+and that is the basis on which the clause was retired. Recomputed on **all** annotators, the three
+defensible statistics disagree: the **raw paired difference** (the statistic its own docstring
+REGISTERS) is **−0.2185 [−0.2336, −0.2024]** → **WORLD A**; **/CEIL_H** (the statistic it SHIPS) gives
+`coval_core` **1.0264** against `vs FULL` 0.7850 → **WORLD B**; **/√CEIL_H** (standard disattenuation,
+derived as D4 before the run) gives **0.7625** against 0.7850 → **WORLD A**. Swept over CEIL_H's own
+bootstrap interval the ceiling cell returns B in **1.000 of 400** draws, so **the fragility is the
+CHOICE, not the ceiling estimate.** ⚠ And a "fraction of ceiling" of **1.0264** is a tell that the
+shipped quantity is not a proportion. ⚠⚠ **UNVERIFIED, not OVERTURNED** — which normalisation is
+right is an argument about what the two ceilings mean, and this data does not identify it. *Saying
+otherwise would be the cheap attack that retracts something true.*
+
+## 1166 · the artifact that decided a clause consumed 1 annotator of 16 — and the prediction held
+
+`whose_verdicts.py:79` samples ONE random annotator per prompt over 3 seeds; the release ships a
+median of **16**. This is the standard's own poison row, in the artifact that retired a clause.
+Recomputed on every annotator, the point estimates move **at most 0.0078** and every move is
+negative — the under-powered design slightly OVERSTATED the human column. **D3, written before the
+run, predicted exactly that**: sampling 1 of 16 inflates variance and leaves expectation alone. So
+World C correctly did not fire, and **the instrument was not the defect**. *An upgrade that changes
+nothing is still worth running, because it is what converts "we never checked" into "it does not
+matter", and only one of those two is a result.*
+
+## 1167 · ordering-robust and verdict-fragile are different claims, and R792 needed the qualifier
+
+`unit_robustness.json` ships *"the ordering is UNIT-ROBUST; the day's prompt-default was harmless"* —
+prompt order == annotator order, **0 inversions**. R792, committed the same day, measured **11 of 190
+pair verdicts flip** between those same two units. **Both are true.** An ORDERING claim and a
+PAIRWISE-RESOLUTION claim are different objects, and R792's headline — "the arc's estimand was a
+default nobody chose" — is correct about verdicts and would be wrong about the ordering. *Two rounds
+can disagree in tone while agreeing in fact, and the reconciliation is worth more than either.*

@@ -1,0 +1,185 @@
+R793 · seven artifacts nobody opened, and the one that retired a clause consumed 1 annotator of 16
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-06.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R792's NEXT: enumerate `corebench/results/` against the paths this arc's `run.py` files open.
+CHECK #395 ran it, with both controls.
+
+  deliberate artifacts (not sat_, not sat08_, not core_)                        11
+  opened by at least one of this arc's 468 run.py files                          4
+  UNREAD BY EVERY ROUND                                                          7
+    ablate_novel · dimension_curve · importance_recoverable · similarity_gradient
+    · synthetic_world · unit_robustness · whose_verdicts
+  POSITIVE CONTROL  the artifact R792 opens is found, and only in R792           PASS
+  NEGATIVE CONTROL  a name that cannot appear is found nowhere                   PASS
+  base rate         `pairwise.json` is opened by 39 rounds; 2 artifacts by 1 round
+
+⭐ AND THE UNREAD SET IS NOT INERT. Two of the seven bear directly on committed work.
+
+(a) `whose_verdicts.json` ships `WORLD B -- ... every top core tracks the HUMAN more closely than
+    the RUBRIC it compresses. 'preserves ITS verdicts' misdescribes what a core does.` That verdict
+    is the basis on which a DEFINITIONAL CLAUSE was retired.
+    ⚠ AND ITS OWN DOCSTRING REGISTERS A DIFFERENT STATISTIC. The KILL reads: *"paired CI on
+    (agreement with human - agreement with full) per arm. Positive and excluding zero for the top
+    arms -> world B."* The shipped raw difference for `coval_core` is **-0.2167 [-0.2284, -0.2051]**
+    -- NEGATIVE and excluding zero, which by the registered branch is WORLD A.
+    ⚠⚠ AND THIS IS NOT A SILENT SWAP, and saying so would be the cheap attack §3 forbids. The
+    script's own line 54 documents it: *"first version of this script printed a WORLD A verdict off
+    it. Fix: measure the human ceiling ... and report each agreement AS A FRACTION OF ITS OWN
+    TARGET'S CEILING."* The reason is real -- the human ceiling is ~0.55 and the rubric's is 1.0 by
+    construction. What was never done is updating the ESTIMAND and the KILL to match, so the JSON
+    ships a verdict its own preregistration contradicts and records only the answer.
+(b) `unit_robustness.json` ships `WORLD A -- the ordering is UNIT-ROBUST; the day's prompt-default
+    was harmless.` R792, committed today, found 11 of 190 pair verdicts flip between the prompt and
+    annotator units. Both may be true -- ORDERING and PAIRWISE RESOLUTION are different claims --
+    and no round has checked that they are consistent.
+
+⭐⭐ THE DECISIVE DEFECT, and it is mechanical. `whose_verdicts.py:79` draws **ONE random annotator
+per prompt** (`targets[p][int(rng.integers(len(targets[p])))]`), over 3 seeds. **The release ships a
+median of 16 per prompt.** This is the exact failure the standard's own §4 poison row records --
+"every number came from 3 of them ... recomputed on EVERY annotator, it is RESOLVED" -- occurring in
+the artifact that retired a clause. The remedy is stated there and is mechanical: count what the
+release contains and what the code consumed, and require the two to match.
+
+--------------------------------------------------------------------------------
+DISCLOSURE -- what was already known when this was written
+--------------------------------------------------------------------------------
+KNOWN and quoted: the enumeration above; `whose_verdicts.json`'s seven columns per arm and its
+verdict string; `unit_robustness.json`'s orders and surviving counts; R792's four cells. **NOT
+known: any quantity recomputed on all annotators**, the size of the change, whether the verdict
+moves, or where on a normalisation curve it flips.
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  THE `vs FULL` COLUMN CANNOT MOVE. `coval_full`'s class is deterministic per prompt, so an arm's
+    agreement with it does not involve annotator sampling at all. **DERIVATION**, and it is this
+    round's exact OBJECT check: recomputing must reproduce the shipped `vs FULL` figures to
+    floating-point, and `full` vs FULL must be exactly 1.0.
+D2  THE `vs HUMAN` COLUMN IS A2 IN THE LIMIT. Averaging over ALL annotators is exactly the arc's A2,
+    so the upgrade connects this artifact to every number R787-R792 computed. **DERIVATION.**
+D3  SAMPLING ONE ANNOTATOR OF ~16 INFLATES THE VARIANCE OF THE HUMAN COLUMN AND LEAVES ITS
+    EXPECTATION UNCHANGED. So the POINT estimates should move little and the INTERVALS should
+    narrow; a large move in the point estimate would indicate something other than sampling.
+    **DERIVATION**, and it is the prediction that makes the upgrade falsifiable rather than free.
+D4  DIVIDING BY A MEASURED CEILING IS NOT DISATTENUATION. The standard correction divides by
+    sqrt(reliability), not by reliability. So `nh = mean_h / CEIL_H` and `nh = mean_h / sqrt(CEIL_H)`
+    are two different defensible choices and they can disagree. **DERIVATION**, and it is why the
+    normalisation is swept rather than picked.
+
+STRONGEST CONFOUND, written BEFORE the run: `CEIL_H` is itself an ESTIMATE, and it appears in the
+denominator of the quantity the verdict is read off. Its sampling noise therefore moves the verdict
+-- the standard's *control validated by its own instrument's noise* row, in the numerator this time.
+CONTROL IN THE SAME ITERATION: CEIL_H is bootstrapped and the verdict recomputed across its own
+interval, so the share of CEIL_H draws that return each world is reported rather than one point.
+
+--------------------------------------------------------------------------------
+ESTIMANDS (before method)
+--------------------------------------------------------------------------------
+E1  the coverage enumeration, persisted with its two controls (already run as check #395).
+E2  ⭐ `whose_verdicts` recomputed on ALL annotators: per arm, `vs HUMAN`, `vs FULL`, and the paired
+    per-prompt difference with a cluster-bootstrap CI. Against the shipped 1-annotator figures.
+E3  ⭐ THE NORMALISATION CURVE: the verdict under (i) raw difference -- the REGISTERED statistic,
+    (ii) ceiling-normalised -- the SHIPPED statistic, (iii) sqrt-ceiling disattenuation, and
+    (iv) the ceiling-normalised verdict swept across CEIL_H's own bootstrap interval. Which cells
+    return WORLD A and which WORLD B.
+E4  the reconciliation: is the arm ORDERING identical across R792's four estimand cells, as
+    `unit_robustness.json` claims, while 11 of 190 pair VERDICTS flip, as R792 measured?
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1, E2, E4 exact. E3 is exact GIVEN a normalisation, and the choice among normalisations is NOT
+identified by this data -- it is an argument about what the two ceilings mean. This round reports
+the curve and does not adjudicate; naming the choice is the deliverable.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  the 7 arms `whose_verdicts` scores x 968 prompts x all annotators (median 16)
+instrument  A2 against the human annotators; agreement against `coval_full`'s deterministic class
+baseline    the shipped 1-annotator figures in `corebench/results/whose_verdicts.json`
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE VERDICT IS ROBUST TO THE INSTRUMENT AND FRAGILE TO THE NORMALISATION. All-annotator
+    recomputation leaves the shipped conclusion standing (D3), but the raw and normalised statistics
+    disagree and the CEIL_H sweep does not return one world in >= 95% of draws. Then the clause's
+    fate rests on an unregistered choice, and that is the finding.
+B · THE VERDICT IS ROBUST TO BOTH. Every normalisation and >= 95% of CEIL_H draws return WORLD B.
+    Then the artifact's conclusion stands, the docstring's KILL line is simply stale, and the only
+    defect is that nobody read it.
+C · THE INSTRUMENT CHANGES THE ANSWER. The all-annotator recomputation moves the point estimates
+    enough to flip a world -- which D3 says should NOT happen, so C firing means the 1-annotator
+    design was doing something other than adding variance.
+
+PREDICTION MATRIX
+  A -> raw says WORLD A, ceiling-normalised says WORLD B, CEIL_H sweep splits
+  B -> all four cells of E3 say WORLD B
+  C -> the all-annotator point estimates move a world relative to the shipped ones
+  any other pattern -> report; CLAIM NO WORLD.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (D1: the recomputed `vs FULL` column matches the shipped one to 1e-9 for every
+   shipped arm, and `full` vs FULL is exactly 1.0 -- exit 2 otherwise)
+   and PLACEBO returns exactly 1.0 for an arm against its own class
+   and POSITIVE fires with a computed band (a planted shift moves the raw difference monotonically
+       and does not fire at delta = 0)
+   and NEGATIVE fires (shuffling `full`'s class across prompts destroys the `vs FULL` column while
+       leaving `vs HUMAN` EXACTLY unchanged -- a derivation, checked):
+        the all-annotator point estimates flip a world      -> WORLD C   (checked FIRST)
+        every E3 cell returns WORLD B                       -> WORLD B
+        the E3 cells disagree                               -> WORLD A
+        otherwise                                           -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT      D1's exact reproduction of the deterministic column; the shipped JSON is the baseline
+            and a mismatch is exit 2, never 0.
+PLACEBO     an arm against its OWN class: exactly 1.0. A contrast where no effect can exist.
+POSITIVE    BAND COMPUTED AT BOTH ENDS. Plant a per-prompt shift on the human column and sweep
+            {0, 0.05, 0.10, 0.20, 0.30}; require the raw difference not to cross zero at delta = 0
+            and to cross at the top. floor == ceiling is DEGENERATE and fails.
+NEGATIVE    shuffle `coval_full`'s class across prompts. `vs HUMAN` must be EXACTLY unchanged (a
+            derivation, checked) and `vs FULL` must collapse toward chance. World it excludes: "the
+            vs-FULL column reflects something other than the prompt-matched rubric."
+SHAM        the same comparison against a RANDOM arm's class instead of `full`'s -- the ingredient
+            removed is the identity of the compressed object, not misdirected.
+NOISE FLOOR MEASURED: CEIL_H's own bootstrap spread, and the annotator split-half spread of the
+            human column.
+UNIT        instrument unit = a (prompt, annotator) judgement for the human column and a PROMPT for
+            the full column; claim unit = an ARM; E1's unit = an ARTIFACT. Three strings, unequal.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+7 arms x 4 normalisation cells = 28 verdicts, plus 7 raw paired CIs. BH at q = 0.05 over the 7 raw
+tests; the normalisation cells are a SPECIFICATION CURVE and are reported whole, not corrected --
+they are the same test under different transforms of the same data, and correcting them as though
+independent would overstate the correction.
+
+--------------------------------------------------------------------------------
+SPECIFICATION CURVE
+--------------------------------------------------------------------------------
+statistic       raw difference | ceiling-normalised | sqrt-ceiling | CEIL_H swept over its interval
+annotators      1 sampled (the shipped design) | ALL (median 16)
+NBOOT           1200
+seeds           3
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+which normalisation is CORRECT              an argument about what the two ceilings mean; it is not
+                                            identified by this data
+construct validity                          an external gold standard -- `corebench/score.py:34`
+independently replicated                    a second designer; the session prompt forbids agents
+cross-release                               a second values-annotation release

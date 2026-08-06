@@ -6164,3 +6164,44 @@ failed against my own D2 · NEGATIVE demographics permuted across annotators, po
 
 **WORLD C** — only the corner separates. **The estimand moves verdicts and does not move the
 definition.**
+
+## R793 · the coverage audit, and where the "preserves ITS verdicts" retirement actually rests
+
+**Coverage.** 11 deliberate artifacts (not `sat_`, `sat08_`, `core_`); **4** opened by this arc's 468
+`run.py` files, **7** by none: `ablate_novel`, `dimension_curve`, `importance_recoverable`,
+`similarity_gradient`, `synthetic_world`, `unit_robustness`, `whose_verdicts`. Positive control (R792
+found for the file R792 opens) PASS; negative control PASS after repair.
+
+**Derived before measuring.** D1 the `vs FULL` column is deterministic and cannot move — the exact
+object check. D2 all-annotator averaging IS the arc's A2. D3 sampling 1 of 16 inflates variance and
+leaves expectation alone, so a POINT move would mean something other than sampling. D4 dividing by a
+ceiling is **not** disattenuation; that divides by its square root.
+
+**E2 · all annotators against the shipped 1-annotator design.**
+
+| arm | vs HUMAN (all) | shipped | Δ | vs FULL | raw difference |
+|---|---:|---:|---:|---:|---|
+| `coval_core` | 0.5665 | 0.5682 | −0.0018 | 0.7850 | −0.2185 [−0.2336, −0.2024] |
+| `topw_k4` | 0.5642 | 0.5650 | −0.0008 | 0.8049 | −0.2407 [−0.2567, −0.2255] |
+| `gen` | 0.5352 | 0.5386 | −0.0035 | 0.7414 | −0.2062 [−0.2217, −0.1914] |
+| `full` | 0.5087 | 0.5136 | −0.0049 | 1.0000 | −0.4913 [−0.5009, −0.4811] |
+| `gen_sham` | 0.4828 | 0.4834 | −0.0006 | 0.7023 | −0.2195 [−0.2343, −0.2045] |
+| `random_k4_s0` | 0.4927 | 0.5005 | −0.0078 | 0.8247 | −0.3320 [−0.3454, −0.3176] |
+| `topvar_k4` | 0.4863 | 0.4882 | −0.0019 | 0.8586 | −0.3724 [−0.3845, −0.3592] |
+
+Largest move **0.0078**, all negative — the under-powered design overstated the human column, as D3
+predicted. **World C did not fire.**
+
+**E3 · the normalisation curve.** raw → **A** (registered) · /CEIL_H → **B** (shipped) · /√CEIL_H →
+**A** (standard). Normalised values: `coval_core` 1.0264 / 0.7625 against `vs FULL` 0.7850;
+`topw_k4` 1.0223 / 0.7594 against 0.8049; `gen` 0.9697 / 0.7204 against 0.7414. CEIL_H sweep returns
+B in 1.000 of 400 draws.
+
+**E4 · reconciliation.** `unit_robustness.json` — prompt order == annotator order, 0 inversions.
+R792 — 11 of 190 pair verdicts flip. Both hold; ORDERING and PAIRWISE RESOLUTION are different
+objects.
+
+**Controls.** OBJECT worst |Δ| **1.110e-16** on the deterministic column, exit 2 otherwise · PLACEBO
+`full` vs FULL **1.000000000000** · POSITIVE band, raw crosses zero only at δ=0.30 · NEGATIVE
+`full`'s class shuffled 0.7850 → 0.4998 with vs HUMAN unchanged to 0.0e+00 · SHAM against
+`random_k4_s0`'s class 0.7342 · NOISE FLOOR split-half 0.003523. **WORLD A.**
