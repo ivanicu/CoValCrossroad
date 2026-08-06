@@ -786,6 +786,31 @@ conjunction under **both** readings.
 > ⭐ **The other six `its own MDE` claims in this file were checked and are sound or already
 > corrected**: two are mine and annotated (entries 1352, 1383), three are per-cell own MDEs that state
 > their own limits, one is a register row. **This is the only cell where the question is open.**
+>
+> ⭐⭐⭐ **AND IT IS NOW ANSWERED, FROM SOURCE — the alarm NARROWS (entry 1387).** R518 line 27:
+> *"NOISE FLOOR: each arm's own MDE, **as computed by R436**"* — so the denominator is imported, but
+> from a round computing **the same comparison**. Going one level down to R436:
+>
+> | | |
+> |---|---|
+> | `run.py:249` | `bar_per = rule_per[best_rule]` — the bar's **per-prompt vector** |
+> | the bootstrap | resamples **prompts**, with `d = arm − bar_per` — **both sides together** |
+> | ⭐ **so the bar IS resampled with the arm** | a proper paired bootstrap, capturing their covariance |
+> | ⚠ `run.py:187` | `best_rule = max(rule_mean, …)` — selected **once, before** the bootstrap, held **fixed** |
+>
+> ⭐ **So the MDE captures that rule's sampling variability but NOT the variability of WHICH rule is
+> the max.** That is exactly the component R860 measured — **direction confirmed: understated.**
+>
+> ⚠⚠ **But the MAGNITUDE almost certainly does not transfer.** R860's 1.56× came from a max over
+> **1,820** subsets; **R436's family is 30 rules — 60× smaller — and selection variability scales with
+> family size.** ⭐ **So entry 1386's illustrative `1.84 / 1.56 ≈ 1.18` imported a factor from a
+> 60×-larger family and OVERSTATED the concern** — the same borrowed-quantity move, one level up, and
+> caught by reading the source instead of propagating a number.
+>
+> ⭐⭐ **Final status of this cell: the omission is REAL and its size is UNMEASURED.** The tightest
+> margin, **1.84×**, would need a correction factor above **1.23** to fall under the 1.5 floor.
+> **Whether a 30-rule selection carries that is unknown** — and it is the one thing this thread leaves
+> open, stated as a magnitude nobody has measured rather than as a defect.
 ⛔ **This is a DERIVATION, not a measurement** — subtracting a known bar shift from published margins
 is forced once both bars are known. **Assumption 1:** R518's `d` and R824's bars share one A2 scale —
 **UNVERIFIED, and the two strict bars already disagree (0.4512 vs 0.455679)** because R823 widened the

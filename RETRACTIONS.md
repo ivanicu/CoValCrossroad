@@ -27128,3 +27128,38 @@ I have not opened R518 to check. So this is recorded as a QUESTION.**
 **below the 1.5 floor**. ⛔ **That is an ILLUSTRATIVE PROPAGATION, not a measurement** — it imports a
 factor from a different comparison, **the exact move R860 showed costs 56%**. It exists only to locate
 the one cell where the question could change a verdict.
+
+## 1387 · read from source: the bar IS bootstrapped, the ARGMAX is not — and my own alarm was overstated
+
+Entry 1386 left one open cell and asked whether R518's MDEs bootstrap the bar or hold it fixed.
+**Read from source, and the answer is two-sided.**
+
+| | |
+|---|---|
+| `R518:27` | *"NOISE FLOOR: each arm's own MDE, **as computed by R436**"* — imported, but from a round computing **the same comparison** |
+| `R436:249` | `bar_per = rule_per[best_rule]` — the bar's **per-prompt vector** |
+| the bootstrap | resamples **prompts**, `d = arm − bar_per` — **both sides together** |
+| ⭐ | **the bar IS resampled with the arm** — a proper paired bootstrap capturing their covariance |
+| ⚠ `R436:187` | `best_rule = max(rule_mean, …)` — selected **once, before** the bootstrap, held **fixed** |
+
+⭐ **So the MDE captures that rule's sampling variability but not the variability of WHICH rule is the
+max** — exactly the component R860 measured. **Direction confirmed: understated.**
+
+### ⛔⛔ AND MY OWN ALARM WAS OVERSTATED
+
+Entry 1386 wrote the illustrative `1.84 / 1.56 ≈ 1.18`, importing R860's correction factor. **R860's
+1.56× came from a max over 1,820 subsets. R436's family is 30 rules — 60× smaller — and selection
+variability scales with family size.** ⭐ **So I imported a factor from a 60×-larger family: the same
+borrowed-quantity move, one level up, in the very round that named it.** Caught by **reading the
+source instead of propagating a number.**
+
+### ⭐⭐ FINAL STATUS OF THIS CELL
+
+**The omission is REAL and its size is UNMEASURED.** The tightest margin, **1.84×**, needs a
+correction factor above **1.23** to fall under the 1.5 floor. **Whether a 30-rule selection carries
+that is unknown** — stated as a magnitude nobody has measured, not as a defect.
+
+⚠ **The pattern this thread ends on, three instances deep:** a quantity borrowed from a neighbouring
+comparison was wrong at **56%** (1383→R860), then a factor borrowed from a 60×-larger family
+overstated a concern (1386→here). **Both were caught the same way — by going to the source rather
+than carrying the number forward.**
