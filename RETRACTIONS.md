@@ -26638,3 +26638,48 @@ none removed by κ's marginal correction.
 ⚠ **Owed, not asserted:** these nine look like arms **clause ③ already excludes**. **If so, ③ removes
 exactly the arms ② is most fooled by — an interlock the definition has never claimed, and this round
 did not check it.**
+
+## 1375 · R855 — the interlock HOLDS on the checkable third, and my own NEXT hit the population trap
+
+R854 owed a check: are its nine permutation-survivors the arms clause ③ already excludes?
+
+### ⛔ THE FIRST RESULT — the check could not be run as I stated it
+
+**R854's nine live in a 99-arm space. ③ was measured by R360/R444 on 42.**
+
+| | |
+|---|---:|
+| survivors in that population | **3 of 9** |
+| **uncheckable** | **6** — `greedy_k2_fit1`, `greedy_k4_greedy_kA/kB`, `indep_k2_fit1`, `oracle_k4_oracle_kA/kB` |
+
+⚠ **This is the population trap entry 1371 recorded earlier today** (*"29 of 99 is not 33 of 42"*) —
+**and my own NEXT walked into it.** Approximating the other six would be that error committed
+knowingly.
+
+⚠ **No control, and that is honest here**: this is set membership over two **committed artifacts** —
+no scoring, no model, nothing to be noisy. The analogue of a control is the **population check, which
+CAN fail and DID**, cutting the answerable set to a third. The nine are read from R854's own JSON,
+never retyped.
+
+### ⭐⭐ RESULT — world A on the checkable third
+
+| | |
+|---|---:|
+| checkable | **3** — `greedy_k4_fit1`, `oracle_k4`, `oracle_k4_fit1` |
+| **admitted by ②** | **3 of 3** |
+| **admitted by ②∧③** | **0 of 3** |
+
+⭐⭐⭐ **Every checkable survivor passes ② and is removed by ③.** The arms that fool ② under a pair
+shuffle are exactly the arms ③ takes out.
+
+### ⭐⭐⭐ WHAT IT SAYS ABOUT THE DEFINITION
+
+**The clauses are not independent filters — they form a CHAIN, and ③ covers ②'s permutation blind
+spot.** A conjunction whose parts each stand alone is a **different object** from one whose parts
+repair each other, **and every report of "② excludes N, ③ excludes M" has been written as if the parts
+were independent.**
+
+⚠⚠ **The structural point that outlives the round:** ② and ③ were measured on **42** arms while this
+session's ②-work used **99**. **"② admits X" and "③ excludes Y" cannot be composed into a statement
+about the conjunction unless the populations match.** **Extensions reported on different spaces are
+not intersectable, and this project has laid them side by side.**

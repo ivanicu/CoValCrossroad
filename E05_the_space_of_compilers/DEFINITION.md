@@ -584,7 +584,38 @@ defence is contradicted by the elicitation format.**
 >
 > ⚠ **And one thing owed rather than asserted:** these nine look like arms **clause ③ (*no prompt
 > labels*) already excludes**. **If so, ③ removes exactly the arms ② is most fooled by — an interlock
-> the definition has never claimed and this round did not check.** The metric is still
+> the definition has never claimed and this round did not check.**
+>
+> ## ⭐⭐⭐ R855 CHECKED IT — the interlock HOLDS, on the third of the set that is checkable
+>
+> *(entry 1375. The first result is that the check could not be run as I stated it.)*
+>
+> **R854's nine live in a 99-arm space; ③ was measured by R360/R444 on 42.** ⚠ **Only 3 of the 9 are
+> in that population at all** — the population trap this file recorded earlier today (*"29 of 99 is
+> not 33 of 42"*), and **my own NEXT walked into it.**
+>
+> | | |
+> |---|---:|
+> | checkable survivors | **3** — `greedy_k4_fit1`, `oracle_k4`, `oracle_k4_fit1` |
+> | **admitted by ②** | **3 of 3** |
+> | **admitted by ②∧③** | **0 of 3** |
+> | uncheckable | **6** — never in the space where ③ was measured |
+>
+> ⭐⭐⭐ **Every checkable survivor passes ② and is removed by ③.** The arms that fool ② under a pair
+> shuffle are exactly the arms ③ takes out.
+>
+> ⭐ **So the clauses are NOT independent filters — they form a CHAIN, and ③ covers ②'s permutation
+> blind spot.** That changes what the definition **is**: a conjunction whose parts each stand alone is
+> a different object from one whose parts repair each other, **and every report of "② excludes N, ③
+> excludes M" in this file has been written as if the parts were independent.**
+>
+> ⚠ **Established on 3 of 9**; the other six need ③ re-measured on the 99-arm space — a different
+> experiment, named rather than approximated.
+>
+> ⚠⚠ **And the structural point that outlives the round: ② and ③ were measured on 42 arms while this
+> session's ②-work used 99. "② admits X" and "③ excludes Y" cannot be composed into a statement about
+> the conjunction unless the populations match.** Extensions reported on different spaces are **not
+> intersectable**, and this file has laid them side by side. The metric is still
 > **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
 > that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a
