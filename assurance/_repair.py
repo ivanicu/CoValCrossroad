@@ -77,7 +77,14 @@ def missing_tracked(root: pathlib.Path) -> list[str]:
 
 
 def orphan_stashes() -> list[pathlib.Path]:
-    return sorted(p for p in pathlib.Path("/tmp").glob("attack_rounds_*") if p.is_dir())
+    # ⚠ THE GLOB WAS `attack_rounds_*` AND MISSED A WHOLE FAMILY (entry 1320). `attack_the_suite`
+    # names its stash `attack_rounds_*`; `attack_every_check` names its own `attack_every_*`, and
+    # the repair tool could not see it -- 11 of the 12 present on 2026-08-06. The missed one was
+    # the WORST of them: 1.3 GB, and the only one holding a full `.git/` clone.
+    # This is the package's own recurring shape -- the instrument's population narrower than the
+    # sentence's -- in the function whose entire job is to enumerate the population.
+    return sorted(p for p in pathlib.Path("/tmp").glob("attack_*")
+                  if p.is_dir() and p.name.startswith(("attack_rounds_", "attack_every_")))
 
 
 def repair(root: pathlib.Path | None = None, verbose: bool = True) -> dict:

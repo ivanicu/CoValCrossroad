@@ -23909,3 +23909,81 @@ that week" confound predicts. Testing it needs a defect→gate mapping produced 
 ⭐ **What stands:** the sweep is a **21% sample of the gate population reported as a completion**, and
 the census that would fix that is **destructive under interruption and takes longer than the harness
 will let a foreground command live**. Those two facts together are why it has never been in the loop.
+
+## 1320 · the repair tool's own population was too narrow, and it missed the biggest stash; and two of my three measurements of those stashes were my own unit errors
+
+My NEXT proposed running the census *"isolated, with repair-on-entry, off the foreground clock."*
+**P4, tenth firing** — `run_all.py:145` already does `from _repair import repair_full; repair_full()`,
+and `_isolated.py:200` already defines `run_isolated(..., restore_first=True)`. **Nothing to build.**
+Last round's damage was not a missing mechanism; it was **my kill**, and the census says so itself
+while running: *"attack_every_check runs ALONE (it moves the tree; an interrupted hide is not a red
+line, it is a lost round)."*
+
+### ⛔ THE REPAIR TOOL COULD NOT SEE THE WORST STASH
+
+`_repair.orphan_stashes()` globbed `attack_rounds_*`. **`attack_the_suite` names its stash
+`attack_rounds_*`; `attack_every_check` names its own `attack_every_*`.** So the enumerator saw
+**11 of the 12** present on disk — and the one it could not see was the **largest, 1.3 GB, and the
+only one holding a full `.git/` clone.**
+
+**This is the package's own recurring shape — the instrument's population narrower than the
+sentence's — inside the function whose entire job is to enumerate the population.**
+Widened to both prefixes. **POSITIVE CONTROL with a decoy**: a planted `attack_rounds_*` is seen ✓,
+a planted `attack_every_*` is seen ✓ (the family the old glob missed), and a planted `attack_DECOY_*`
+is **not** seen ✓ — so the glob was widened, not turned into *everything*. Inventory 11 → **12**.
+
+### THE 2.0 GB QUESTION, ANSWERED — AND MOSTLY THE OTHER WAY
+
+`repair()` refuses to delete the stashes, citing R428: *"21 untracked artifacts that existed only
+inside one."* Re-measured today, **against `git ls-tree HEAD` rather than the live tree, because the
+census was mutating the tree while I measured**:
+
+| | |
+|---|---|
+| files in all 12 stashes, excluding `.git/` internals | **13,828** |
+| **paths not tracked in HEAD** | **109 = 0.8%** |
+| ↳ `__pycache__/*.pyc` | 40 — **`.gitignore:9`, deliberate** |
+| ↳ `_smoke_archive/*` | 35 — not ignored, genuinely uncommitted |
+| ↳ `*.emb.npz` | 4, 50.1 MB — **`.gitignore:8`, deliberate cache** |
+| ↳ json artifacts | 8 |
+| ↳ other | 22 |
+
+⭐ **So the two biggest "unique content" classes are files git is configured to exclude.** R428's
+refusal to delete still stands and is still right — the residue is **non-empty** — but it is far
+smaller than the 2.0 GB headline, and most of what is there is cache by design rather than lost work.
+
+### ⚠ TWO OF MY THREE MEASUREMENTS WERE MY OWN UNIT ERRORS, CAUGHT BEFORE PUBLISHING
+
+① First pass: **6,331 files "not in HEAD"** — because `attack_every_dicxz9me` nests the entire repo
+under `c/`, so every path compared as `c/E01/...` against HEAD's `E01/...`. A **path-prefix artifact
+of my comparison.** Fixed by *detecting* the repo root inside each stash rather than assuming it.
+② Second pass: still **6,254** — because that stash carries a full `.git/`, and I was counting git
+internals as content.
+**Only the third number, 109, is about the object.** Same failure as §4's unit-vs-unit row, twice in
+one round, in the measurement I built to check someone else's instrument.
+
+### ⭐ AND THE CENSUS FINISHED — THE DENOMINATOR, AT LAST
+
+Run detached and **not killed**, it completed in ~10 minutes and **restored the tree itself**:
+`git ls-files --deleted` → **0**. Its closing line is the point of the whole thread:
+
+> **`PASS 35 of 52 · FAIL 13 · UNRUNNABLE 3 · ERROR 1`**
+> *"⭐ the denominator is 52. A pass count quoted without it is not a coverage claim."*
+
+FAIL breakdown, which it refuses to collapse into one word: **LIVE-DEBT 11 · BY-DESIGN 1 ·
+CONTROL-BROKE 1**, with its own proxy note that the classifier reads messages and *"may only DEMOTE
+out of LIVE-DEBT, never promote in."*
+
+⛔ **So the answer to this thread's question is concrete: 13 gates FAIL and 11 of those are live debt,
+and my eleven-gate sweep sees none of them.** All eleven of mine pass; that was never in doubt and was
+never the issue. `what_did_each_check_actually_read` TIMED OUT at 90 s — an ERROR, not a pass.
+
+⚠ **And a third gate turns out to be broken by the same README restructure.**
+`synthesis_cites_recent_work` is UNRUNNABLE with *"none of the 5 named sections was found — the README
+was restructured and this check is looking for something that no longer exists."* That is
+`readme_row_carries_the_verdict`'s defect exactly (entry 1316), and `every_round_reaches_the_readme`'s
+proxy was repaired for it on 2026-08-03. **The 2026-08-02 restructure silently disarmed at least
+three instruments**, and each was found separately, none by the others.
+
+⚠ The census also shows `next_line_quantifiers_are_computed` as FAIL — it ran during the window
+before this round's freeze landed, so that cell is stale by minutes, not wrong.

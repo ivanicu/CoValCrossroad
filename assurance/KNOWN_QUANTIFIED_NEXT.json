@@ -1,5 +1,5 @@
 {
-  "count": 217,
+  "count": 218,
   "notes": {
     "44f05d1f": "R789's commit body: 'every arm above it reads the target'. VERIFIED at the object in check #392a -- corebench/select_core.py:161 (indep_k), :168 (greedy_k), :180 (oracle) each call tgt.get(pid). Frozen because gate 5 cannot see the commit it gates: the body becomes visible only once HEAD has moved past it.",
     "4f484ca9": "Another session's commit, frozen not rewritten -- same case as 9f353596. Its 'every gate' quantifies over run_all.py's own code and over eleven MEASURED orphaned stashes. A concurrent writer's message is not mine to reword and rebase is prohibited here.",
@@ -15,7 +15,8 @@
     "79ebee93": "quantifier 'every' over 'gate': \"a condition promised in a pre-registration and absent from the code is invisible to every gate in the suite\". COUNTED THE NEXT ROUND AND IT HOLDS: 66 assurance gates, 6 mention PREREGISTRATION, 1 also reads run.py (corrections_propagated.py), 0 compare a promised condition to the code. The zero is admissible because the one candidate was READ: it compares a CLAIM across DOCUMENTS, not a CONDITION against CODE. Frozen with a provenance, not a refutation. See RETRACTIONS.md 1311.",
     "e229e3e8": "bare count '65 gates': \"the same question applies to the other 65 gates -- how many print an acquittal without a plant that proves they can fire\", pointing at attack_every_check.py as the instrument. CORRECTED THE NEXT ROUND BY RUNNING IT: attack_every_check covers SIX checks, not 65. Its verdict is 2 of 6 demonstrably fire, 2 PLANT INVALID, 2 never fired. So the question is answered for 6 and open for the rest, and the instrument I named is far smaller than the population I named it for. Frozen with its correction. See RETRACTIONS.md 1314.",
     "7be337de": "'the only remaining question about a gate' -- an uncomputed universal over our own gates, and it was FALSE: the answer was a third possibility neither branch named (a stale README anchor), and resolving it opened two more questions (6 unadjudicated no-echo rows, 4 stale exemptions). Frozen with the disproof rather than a provenance, because the commit is pushed and the claim was wrong.",
-    "4c832514": "'four rounds whose verdicts have no representation in the README AT ALL ... no check in this package measures it' -- wrong twice, and entry 1318 measured both. The check exists (every_round_reaches_the_readme) and was already failing; and the count is 191, not four -- every existing round in R649-R839, set-equality verified. Frozen with the disproof, not a provenance: the commit is pushed and the sentence was a closing quantifier over my own work, which is the population I enumerate worst."
+    "4c832514": "'four rounds whose verdicts have no representation in the README AT ALL ... no check in this package measures it' -- wrong twice, and entry 1318 measured both. The check exists (every_round_reaches_the_readme) and was already failing; and the count is 191, not four -- every existing round in R649-R839, set-equality verified. Frozen with the disproof, not a provenance: the commit is pushed and the sentence was a closing quantifier over my own work, which is the population I enumerate worst.",
+    "5d1e7c91": "'the census is THE ONLY instrument that publishes the denominator' -- unsupported and probably false. audit_the_auditors.py:127 enumerates the same full population with sorted(HERE.glob('*.py')), and run_all's own NOT_A_GATE comment calls it a META-GATE that 'runs every gate in this directory, including this runner'. Frozen with the counter-example rather than a provenance: a closing universal over my own gates, the population I enumerate worst."
   },
   "r670_note": "10 shas added 2026-08-05 by R670: newly visible once the pattern learned 'the last' and 'the first'. Past commit bodies cannot be rewritten, so they are recorded as known and any NEW instance fails. Ledger 715/723 are the named cases.",
   "r706_note": "R706 widened the extractor from `^NEXT:` to paragraph-initial `NEXT[:.,]`, making 65 commits visible in full history and 26 newly-flagged inside the gate's 400-commit window. ALL 26 were invisible to the OLD extractor -- 0 are new violations; they are pre-existing history the gate could not read. Measured before freezing: loss 0, false positives 0 against 8 real wrapped-prose lines, and the newly-visible flag rate 0.4615 vs 0.2655 is explained by paragraph LENGTH (2.0x longer; length-matched the gap is +0.0908, inside a stratified null, p=0.1933). Frozen as history, not as an acquittal of the sentences themselves.",
@@ -270,6 +271,7 @@
     "79ebee93",
     "e229e3e8",
     "7be337de",
-    "4c832514"
+    "4c832514",
+    "5d1e7c91"
   ]
 }
