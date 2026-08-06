@@ -234,6 +234,27 @@ answer needs R518 re-run against R824's bar.
 > ⚠ And the earlier rebase was invalid in a **second** way nobody had checked: **R436 and R824 do not
 > share an A2 scale** — of 52 arms carrying `a2` in both, **0 are identical**, mean Δ **+0.003440**,
 > max **0.009722**. Two independent reasons the constant shift could not have been trusted.
+>
+> ⭐⭐ **AND THE READING DOES NOT MOVE THE EXTENSION (entry 1332).** ④'s standalone count swings
+> **0 → 25 of 58** between readings, which is why the clause is *"not well-formed without"* naming
+> one. **It does not follow that the reading changes what a core IS**, and on R360's 42-arm space it
+> does not. Swept over **both defensible ③ definitions**, because they give different populations:
+>
+> | ③ definition | ②∧③ admits | ④ verdicts that FLIP between readings |
+> |---|---:|---:|
+> | R360's hand-written ③ | **5** — `coval_core`, `topw_k3/k4/k6/k8` | **0** |
+> | R444's derived ③ (`clause3_as_written`) | **1** — `coval_core` | **0** |
+>
+> **POSITIVE CONTROL, on this same 42-arm space: 23 of 40 arms DO flip** (`coval_core_sham`,
+> `full_sham`, `gen_sham`, the `random_k*` family …). The contrast is live exactly where the
+> comparison runs — this is not a null from a blind instrument.
+> ⭐ **The margins move a great deal and the verdicts not at all**: `coval_core` **+0.110798 →
+> +0.046789**, `topw_k8` **+0.103632 → +0.039622**. **The reading choice sets ④'s BAR; it does not
+> set the definition's EXTENSION.**
+> ⚠ **Both populations are CENSUSES, not samples** — 5 and 1 are *every* arm ②∧③ admits here, so the
+> zero is exhaustive rather than under-powered. ⚠ But the `n=1` cell rests on `coval_core`, which
+> `clause3_as_written` returns as **UNKNOWN**, and 2 of the 42 arms carry no row in R824 (neither is
+> in either ②∧③ set).
 ⚠ **And R518's artifact cannot support this on its own** — it persists `margins_in_mde` ratios and no
 bar and no per-arm `d`; the numbers above were recovered from its **README**. §5 requires an artifact
 to carry *"what a LATER round needs to ATTACK this"*, and this one does not.

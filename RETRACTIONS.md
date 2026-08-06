@@ -24550,3 +24550,52 @@ the population. **The instrument can see; there was nothing in front of it.**
 named obstacle** — the extension question needs the arm space on which the extension is *non-empty*
 (R360's 42-arm space, where the definition admits `coval_core`), not this 39-arm join, on which
 ②∧③ admits nothing at all.
+
+## 1332 · the reading sets ④'s BAR and not the definition's EXTENSION — measured on a non-empty census, with the control live on the same space
+
+Entry 1331 could not answer this: the join it used had **②∧③ = 0 of 39**, so its "WORLD B" was
+printed over an empty set and withdrawn. The obstacle was named as a **population**, and it was.
+
+**ESTIMAND, unchanged:** among arms admitted by **②∧③**, how many have a *different* ④ verdict under
+the strict and permissive readings? **World A** — ≥1 flips, the reading changes the **extension**.
+**World B** — none flips, it changes only ④'s **standalone** count.
+
+### ⭐ RUN ON R360'S 42-ARM SPACE, SWEPT OVER BOTH ③ DEFINITIONS
+
+The two ③ versions give different populations, so reporting one would have been a single cell:
+
+| ③ definition | ②∧③ admits | in R824's rows | **④ verdicts that FLIP** |
+|---|---:|---:|---:|
+| **R360's hand-written ③** | **5** — `coval_core`, `topw_k3`, `topw_k4`, `topw_k6`, `topw_k8` | 5 | **0** |
+| **R444's derived ③** (`clause3_as_written`) | **1** — `coval_core` | 1 | **0** |
+
+**POSITIVE CONTROL, on this same 42-arm space: 23 of 40 arms DO flip** — `coval_core_sham`,
+`full_sham`, `gen_sham`, the `random_k*` family. **The contrast is live exactly where the comparison
+runs**, so the zero is a measurement and not a blind instrument. (Entry 1331's control passed on the
+wider 58; this one passes on the 42 the claim is about — instrument's population and claim's
+population, the same string.)
+
+### ⭐ WHAT MOVES AND WHAT DOES NOT
+
+| arm | strict_margin | perm_margin | verdict |
+|---|---:|---:|---|
+| `coval_core` | **+0.110798** | **+0.046789** | admitted under both |
+| `topw_k3` | +0.107497 | +0.043487 | admitted under both |
+| `topw_k4` | +0.108501 | +0.044492 | admitted under both |
+| `topw_k6` | +0.108438 | +0.044428 | admitted under both |
+| `topw_k8` | +0.103632 | **+0.039622** | admitted under both |
+
+**The margins fall by ~0.064 — more than half — and not one verdict moves.** ④'s standalone count
+swings **0 → 25 of 58** across the same choice.
+
+⭐ **So: the reading choice sets ④'s BAR. It does not set the definition's EXTENSION.** The clause is
+still *"not well-formed without"* naming a reading — the bar is undefined otherwise — but the object
+the definition picks out on this release is **invariant** to that choice.
+
+⚠ **SCOPE, and the first point is the one that makes the small n admissible.**
+① **Both populations are CENSUSES, not samples**: 5 and 1 are *every* arm ②∧③ admits on this space,
+so `0 flips` is exhaustive, not under-powered. ② The `n=1` cell rests on `coval_core`, which
+`clause3_as_written` returns as **UNKNOWN** — admitted under R360's hand list, unclassifiable under
+the derived one. ③ **2 of the 42 arms carry no row in R824**; neither is in either ②∧③ set, so the
+census is complete for the question asked. ④ This is **one release and one judge J** — the
+impossibility register's cross-release line is untouched.
