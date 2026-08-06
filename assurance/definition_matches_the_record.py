@@ -61,12 +61,23 @@ def derive():
     # the table's 5 rows, and ④ is the exact clause entry 1322 found stale arguments about.
     # Both numbers were on disk the whole time: R440 ships `excluded_by_4` (empty) with n_arms 42,
     # and R824 ships `e1.excluded_permissive` = 25 plus the 25 names.
+    # ⚠ REWRITTEN 2026-08-06 (entry 1340) to the file's OWN convention. These two originally used
+    # `if a is not None and <key> in a:` which OMITS the label when the artifact is missing — and the
+    # orphan check added in entry 1339 then FAILED on a perfectly correct document merely because an
+    # artifact file was absent. Measured: moving R440's artifact aside, changing nothing else, took
+    # the suite from exit 0 to exit 1. `derive`'s own docstring says the opposite is intended —
+    # "Returns None for a value whose artifact is absent, so the caller can count it as UNEVALUABLE
+    # rather than silently skipping it" — and I read that docstring in this thread before writing the
+    # other pattern. Absent artifact => UNEVALUABLE; absent LABEL => a real orphan. Two states, two
+    # signals, which is exactly what a control's failure message owes its reader.
     a = art("R440_*")
-    if a is not None and "excluded_by_4" in a:
-        out["clause4_excludes_strict"] = (len(a["excluded_by_4"]), "R440")
+    out["clause4_excludes_strict"] = (
+        (len(a["excluded_by_4"]) if a is not None and "excluded_by_4" in a else None), "R440")
     a = art("R824_*")
-    if a is not None and isinstance(a.get("e1"), dict) and "excluded_permissive" in a["e1"]:
-        out["clause4_excludes_permissive"] = (a["e1"]["excluded_permissive"], "R824")
+    out["clause4_excludes_permissive"] = (
+        (a["e1"]["excluded_permissive"]
+         if a is not None and isinstance(a.get("e1"), dict) and "excluded_permissive" in a["e1"]
+         else None), "R824")
     a = art("R360_*")
     if a:
         out["clause2_excludes"] = (len(a["arms"]) - len(a["clause2_admits"]), "R360")

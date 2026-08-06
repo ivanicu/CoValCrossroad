@@ -24964,3 +24964,55 @@ required to be zero. And a swap that **replaces one assertion with another that 
 matched** would still preserve cardinality *and* pass the set check on names alone. **The control is
 now set-identity on labels, which is strictly stronger than a count and still not referent identity**
 — the same wall entries 1334–1336 hit three times.
+
+## 1340 · the check I added last round fires on a correct document, and the cause was my own code contradicting the docstring I had just read
+
+Entry 1339 added an orphan check and validated it against a **false negative** (a silent pass). This
+round asks the mirror: **can it fire when nothing is wrong?**
+
+### ⛔ YES — MEASURED, AND THE DOCUMENT WAS NEVER TOUCHED
+
+Move `R440`'s results artifact aside; change nothing else. `DEFINITION.md` remains entirely correct.
+
+| | exit |
+|---|---:|
+| baseline | **0** |
+| **artifact moved, document unchanged** | **1** — *"1 assertion(s) have a regex but NO computed value"* |
+| restored | **0** |
+
+**The check conflates two states**: *an assertion was orphaned* (a real defect in the instrument) and
+*an artifact is missing* (the environment, and no defect in the definition at all). That is §4's
+row verbatim — **a control's failure message must separate "the thing under test leaked" from "I
+destroyed nothing"** — and *"the control fails for its own reasons"*.
+
+### ⛔ AND THE CAUSE IS MY OWN CODE, AGAINST THE CONVENTION I HAD JUST READ
+
+Entry 1325's two additions were written as `if a is not None and <key> in a: out[k] = ...`, which
+**omits the label** when the artifact is absent. The rest of the file uses `out[k] = (None, "R360")`,
+which **keeps the label with a None value** — and `derive`'s own docstring says why:
+
+> *"Returns None for a value whose artifact is absent, so the caller can count it as **unevaluable**
+> rather than silently skipping it."*
+
+**That docstring printed in this thread, and I wrote the opposite pattern two rounds later.** The
+orphan check then turned a deliberate distinction into a false alarm.
+
+### ⭐ FIXED AT THE CAUSE, NOT THE SYMPTOM — AND VALIDATED ON THREE ARMS
+
+Both additions rewritten to the None-preserving form. Special-casing the check would have hidden the
+inconsistency; changing the code removes it.
+
+| arm | expectation | result |
+|---|---|---|
+| **A** artifact moved, document correct | must **not** fire | **exit 0**, orphan check silent — **false positive gone** |
+| **B** assertion key renamed (a real orphan) | must fire | **exit 1**, `zz_bogus_key` named — **true positive kept** |
+| **C** clean tree | must pass | **exit 0** |
+
+⭐ **And the loss is REPORTED, not silent** — the distinction is only worth anything if the reader
+sees it: baseline **343 of 343 evaluable, 0 UNEVALUABLE**; with the artifact moved **338 of 343
+evaluable, 5 UNEVALUABLE lines** (R440 carries five labels); restored **343 of 343**.
+
+**So the gate is now three-valued in the way this package's own P6 demands:** document wrong → **FAIL**
+· assertion orphaned → **FAIL, named** · artifact absent → **PASS with the loss counted and printed**,
+never a pass that pretends nothing was missed and never a failure that blames the document for the
+filesystem.
