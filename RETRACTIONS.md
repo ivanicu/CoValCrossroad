@@ -22042,3 +22042,77 @@ gets doubted. **A check that fails toward NULL gets thanked**, reads as conserva
 harder failure to see. Remedy, mechanical: **before running a multiplicity correction, print how many
 distinct values the p-statistic can take at this n, and refuse to rank if that number is smaller than
 the number of cells.**
+
+## 1270 · I put a pair in the POSITIVE control that belongs in the NULL, and the gate refused
+
+R827's positive control required pairs *"KNOWN to share mechanism"* to exceed the unrelated-pair
+null. Two were named: `topw_k4` × `topw_k6`, and `random_k4_s0` × `random_k4_s1`.
+
+| pair | partial r | vs null p95 (+0.5588) | Jaccard of the ACTUAL criterion texts |
+|---|---|---|---|
+| `topw_k4` × `topw_k6` | **+0.5739** | passes | **0.6696** |
+| `random_k4_s0` × `random_k4_s1` | **+0.0905** | fails | **0.1931** |
+| *(cross-family reference)* `random_k4_s0` × `topw_k4` | — | — | 0.1868 |
+
+**The random pair overlaps at essentially the cross-family rate.** Two independent seeds share a
+*procedure* and almost no *content*; there is nothing for them to agree about beyond item
+difficulty. **They belong in the null, and I wrote them into the positive control.**
+
+⭐ **The gate demanded all positive pairs pass, so the verdict is UNVERIFIED and it STANDS.**
+Reclassifying the pair after seeing it fail would be bending the kill to the answer — the same move
+R826 refused when its outcome landed in an unregistered world. **A control I specified wrongly is my
+error, not a licence to respecify it downstream of the result.**
+
+**What the round does establish about its own instrument:** `topw_k4` × `topw_k6`, which genuinely
+shares selected content, clears the null. **So the statistic can see shared mechanism when there is
+content to share** — which is what makes the failure diagnosable rather than fatal.
+
+**Remedy for the re-run, and it is mechanical:** build the positive control from the **measured**
+criterion-text Jaccard — pairs at ≥ 0.5 overlap — rather than from what an arm's *name* implies
+about its mechanism. §4's rule about naming the instrument's unit and the claim's unit applies to
+control membership too: *"shares a generating procedure"* and *"shares selected content"* are two
+different predicates and I used one word for both.
+
+## 1271 · my first diagnosis of that failure used an instrument that returns 1.0 for every pair
+
+Having found the positive control split, I tried to show the random pair selects different criteria
+by computing Jaccard on the **sat-file criterion indices**. It returned **1.0000** — and I quoted it
+as support for the claim that they pick *different* criteria, which the number contradicts on its
+face.
+
+⛔ **The number supports nothing in either direction.** `select_core.py` **re-indexes selected
+criteria to `0..k−1` on emit**, so the sat `meta` field is `prompt|re-indexed-position|response` and
+its Jaccard is **1.0 for every pair of k=4 arms**. The instrument measured **labels**, not
+**identity** — the same defect class as R810's degenerate null, where a permutation of already
+re-indexed criteria destroyed nothing.
+
+**The instrument that can see is `core_*.json`**, which stores the criterion **texts**: random pair
+0.1931, topw pair 0.6696, cross-family 0.1868.
+
+⭐ **The conclusion survived; the evidence I first offered for it did not**, and the tell was
+visible without any domain knowledge: **a similarity that returns exactly 1.0000 for objects I was
+arguing are different is a broken instrument, not a surprising finding.** A measurement that
+contradicts the sentence it is offered in support of has to be examined before the sentence is.
+
+## 1272 · two asserts caught two design defects before any number was produced
+
+**① The out-of-fold construction had no coverage guarantee.** It reused R826's random 50/50 splits
+and accumulated each prompt's score from the splits where it fell in `eval`. A prompt lands in `fit`
+all eight times with probability (1/2)⁸ — **~3.8 of 968 prompts never scored**, and `BAR = acc/cnt`
+would have divided by zero on exactly those. Random halves do not guarantee coverage; **k-fold
+does**. Replaced with 8-fold cross-fitting, plus a second assert requiring `cnt.max() == 1` so a
+later edit cannot quietly reintroduce averaging.
+
+**② The k-fold patch deleted the loop body.** The replacement sliced from the accumulator
+declaration to the assert, taking the entire fit-and-score block with it. The loop ran eight times
+doing nothing, `cnt` stayed all-zero, and the assert fired.
+
+⭐ **That is §4's *empty population* row working as designed: a computation that examined nothing
+refused rather than returning a number.** Without it the round would have correlated a vector of
+NaNs against the core and reported whatever emerged. Restored with **per-fold logging**, so the next
+silent deletion is visible in the log rather than only in an assert firing three steps later.
+
+⚠ **And a scope change recorded rather than absorbed:** k-fold trains on 7/8 = 847 prompts where
+R826's halves trained on 484. **This bar's LEVEL is not comparable to R826's**; only its per-prompt
+profile is used here, which is what a correlation needs — but a later round reading the level would
+be reading a different quantity.

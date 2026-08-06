@@ -3001,3 +3001,38 @@ next round asks whether that coincidence is **structural** — the core's criter
 response surface features, making it a response-only rule in disguise — or **numerical**, two
 unrelated quantities that happen to meet. That is a question about mechanism, and it is answered by
 regressing the core's per-prompt scores on the saturated predictor's, not by moving any threshold.
+
+---
+
+## R827 · no verdict: the positive control failed, and it failed because I specified it wrongly
+
+R826 left the response-only bar saturating **on** `coval_core`. R827 asked whether that is structural
+— the core agreeing with the bar on *which prompts each wins*, beyond difficulty — or numerical.
+
+**The round produced no admissible answer.** Its positive control required pairs known to share
+mechanism to exceed the unrelated-pair null. `topw_k4` × `topw_k6` did (**+0.5739** against a null
+95th of **+0.5588**, criterion-text overlap **0.6696**). `random_k4_s0` × `random_k4_s1` did not
+(**+0.0905**, overlap **0.1931** — essentially the cross-family rate of **0.1868**). **Two seeds
+share a procedure, not content; that pair belongs in the null and I wrote it into the control.**
+The gate required all positive pairs to pass, so the verdict is **UNVERIFIED and stands**.
+
+⛔ **What the round does fix in the record**: a raw per-prompt correlation between any two arms is
+**forced by item difficulty** — `random_k4_s0` × `oracle_k4` = **+0.5132** with no shared mechanism.
+Any future round comparing per-prompt profiles must residualise, and must build its difficulty index
+from arms **excluding both** members of the pair.
+
+**Unadmitted direction, recorded so the re-run cannot claim it as new**: partial r(core, bar) came
+out **+0.1278 [+0.0605, +0.1935]**, at the **75.4th** percentile of a 1,596-pair null spanning
+[−0.3053, +0.5588] — inside the band, which would point at *numerical, not structural*.
+
+**Scope** · 968 prompts · 58 arms · 8-fold cross-fitting, each prompt scored exactly once by a model
+that never saw it · difficulty index = mean arm A2, human tie rate, log annotator count.
+
+## NEXT
+
+The positive control must be built from the **measured** criterion-text Jaccard rather than from what
+an arm's name implies — pairs at ≥ 0.5 overlap are the ones with content to share, and
+`core_*.json` is where that overlap is readable. See
+`R827_is_the_coincidence_structural_or_difficulty/results/structural_or_difficulty.json` for the null
+and the four controls as run. Re-register on that basis and re-run; the estimand and the difficulty
+index need no change.

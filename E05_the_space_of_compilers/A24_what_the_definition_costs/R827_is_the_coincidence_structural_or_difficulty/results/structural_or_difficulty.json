@@ -1,0 +1,34 @@
+{
+ "bar_oof_mean": 0.5771451568194235,
+ "claim_unit": "PROFILE AGREEMENT, never mechanism",
+ "controls": {
+  "gate": false,
+  "negative": 0.13539786830901088,
+  "negative_ok": true,
+  "placebo": 0.008339436257062932,
+  "placebo_ok": true,
+  "positive": {
+   "random_k4_s0|random_k4_s1": 0.0905419486193445,
+   "topw_k4|topw_k6": 0.5739051035379004
+  },
+  "positive_ok": false,
+  "sham": 0.45245318547205593,
+  "sham_ok": true
+ },
+ "e1": {
+  "hi": 0.19346772445593943,
+  "lo": 0.060520485221654936,
+  "n_index_arms": 57,
+  "partial": 0.12782477015677615,
+  "raw": 0.44949976433514155
+ },
+ "e2": {
+  "n_pairs": 1596,
+  "p05": -0.3052780223761944,
+  "p50": -0.0064194921007333285,
+  "p95": 0.5587849900741505,
+  "pctile_of_core_bar": 75.43859649122807
+ },
+ "instrument_unit": "a PROMPT",
+ "world": "UNVERIFIED"
+}

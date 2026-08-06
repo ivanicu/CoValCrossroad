@@ -7345,3 +7345,26 @@ dimension, it **declines** 0.524670 → 0.493813, so the excess grows monotonica
 registered — saturates above, below, or not at all. **The observed outcome was a fourth: saturates
 ON the core.** The kill read the k = 200 endpoint, matched nothing, and refused. A kill that refuses
 because the outcome was not in the world list is the kill working.
+
+## R827 · a per-prompt correlation is forced by item difficulty, and the round that would have used one produced no verdict
+
+R826 left the response-only bar saturating **on** `coval_core`. Asking whether that is *structural*
+requires comparing the two arms' per-prompt profiles — and **a raw correlation between any two arms
+is forced.** Every arm scores accuracy against the same human labels on the same items, so pairs
+sharing no mechanism still correlate: `random_k4_s0` × `oracle_k4` = **+0.5132**.
+
+**The round therefore used a PARTIAL correlation**, residualising both on a difficulty index built
+from arms excluding both members of every pair. It returned **+0.1278 [+0.0605, +0.1935]**, at the
+**75.4th** percentile of a 1,596-pair null spanning **−0.3053** to **+0.5588**.
+
+⛔ **That number is NOT admitted.** The round's positive control required pairs known to share
+mechanism to clear the null. `topw_k4` × `topw_k6` did — **+0.5739**, criterion-text overlap
+**0.6696**. `random_k4_s0` × `random_k4_s1` did not — **+0.0905**, overlap **0.1931**, essentially
+the cross-family rate of **0.1868**. **Two seeds share a procedure and not content; that pair belongs
+in the null and was written into the control.** The gate required all positive pairs to pass, so the
+verdict is **UNVERIFIED and it stands** — respecifying the control after seeing it fail would bend
+the kill to the answer.
+
+**What this fixes in the record regardless:** any future comparison of per-prompt profiles must
+residualise, and must build its difficulty index from arms **excluding both** members of the pair, or
+it is measuring difficulty and calling it structure.
