@@ -5267,3 +5267,38 @@ differing · NEGATIVE two different criteria differ on **0.9287** of cells · PL
 the release does not carry · whether a sat file scored the strings its core JSON lists would need
 criterion **strings** in the npz, which stores **indices** · whether the offset is temperature, judge
 version or batching would need the scoring harness's logs.
+
+## R767 · the five committed members, three-valued
+
+**Scope.** population = the five committed extension members plus the `topw_k` family and 3 placebo
+arms; instrument = R294's estimator with `report.verdict`, B ∈ {1200, 4800, 19200}; baseline =
+`POOL[0:4]` published (A2 **0.550436**) and the 8-point percentile curve; regime = first release,
+home judge, **968** prompts, this tree_sha.
+
+| arm | A2 | eff | CI | MDE | eff/MDE | verdict |
+|---|---|---|---|---|---|---|
+| `coval_core` | 0.5665 | +0.0160 | [0.0083, 0.0241] | 0.0106 | 1.509 | BEATS |
+| `topw_k6` | 0.5641 | +0.0137 | [0.0059, 0.0209] | 0.0104 | 1.311 | BEATS |
+| `topw_k4` | 0.5642 | +0.0137 | [0.0054, 0.0216] | 0.0109 | 1.264 | BEATS |
+| `topw_k3` | 0.5632 | +0.0127 | [0.0045, 0.0203] | 0.0111 | 1.152 | BEATS |
+| **`topw_k8`** | 0.5593 | **+0.0089** | **[0.0009, 0.0163]** | **0.0107** | **0.827** | **BELOW RESOLUTION** |
+
+Unchanged at B = 4800 and B = 19200.
+
+**The `topw_k` family** (the registered confound): k=1 **−0.0249 / −1.825 LOSES** · k=2 +0.0031 /
+0.263 UNRESOLVED · k=3 BEATS · k=4 BEATS · **k=6 +0.0137 / 1.311 BEATS (peak)** · k=8 BELOW
+RESOLUTION · k=12 −0.0124 / −1.094 LOSES. An inverted U with eff/MDE monotone falling 6 → 8 → 12.
+
+**The convention, measured by the SHAM** (`mde=None`, the floor absent): exactly **1** verdict
+changes — `topw_k8` → BEATS. **Extension = 4 with the floor, 5 without.**
+
+**Across the baseline curve** — p000·p005·p025·p050·p075: **5 / 5** (both conventions agree) ·
+**p095: 4 / 5** · **published: 4 / 5** · p100: 0 / 1.
+
+**Controls.** POSITIVE 4 of 5 return BEATS, band from both degenerate ends · g=0 baseline vs itself
+eff 0.000000 → **UNRESOLVED** · NEGATIVE `topw_k8` with the pairing destroyed ×200 → **200/200
+UNRESOLVED** · PLACEBO `coval_core_sham`, `topw_k4_sham`, `gen_sham` → **LOSES**. **WORLD A.**
+
+**This explains R760 vs R764.** R760's `admitted_rule` = 9 tags / 5 objects; R764's published
+`3-rank` = 6 / 4. Two tags are R764's declared coverage exclusion (`coval_core_2bA/_2bB`, 200 of 968
+prompts); the third, `topw_k8`, is the three-valued verdict read two-valued.

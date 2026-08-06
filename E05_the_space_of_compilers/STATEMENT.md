@@ -312,6 +312,17 @@ A **core** for a conversation is a set of criteria such that
   not a detail** *(R529)*:
   - **③-rank** — not built from the response **rankings**. This is what the code implements, and the
     extension of ② ∧ ③ is **5 arms†**: `coval_core`, `topw_k3`, `topw_k4`, `topw_k6`, `topw_k8`.
+    ⛔⛔ **THAT FIVE IS FOUR CONFIRMED PLUS ONE UNRESOLVED** *(R767)*. At the published comparator
+    `topw_k8` returns **BELOW RESOLUTION** — effect **+0.0089**, CI **[0.0009, 0.0163]** excluding
+    zero, MDE **0.0107**, **eff/MDE 0.827** — while the other four are BEATS at eff/MDE **1.152–1.509**.
+    Identical at B = 4800 and 19200, and a B-sweep *cannot* change it: raising B narrows the CI and
+    leaves the MDE untouched. ⭐ **Removing the MDE floor changes exactly one verdict**, `topw_k8` →
+    BEATS, so **`5` IS the two-valued reading** and `4` is the estimator's own three-valued one.
+    ⚠ P6: folding the third value into either side manufactures a verdict, and 5 folds it toward pass.
+    ⭐ **The two conventions agree at every weaker comparator (p000–p075 both give 5) and separate only
+    at p095 and the published draw** — the one the release chose. And the confound is answered: the
+    `topw_k` family is an inverted U peaking at **k = 6** (eff/MDE 1.311) with `eff/MDE` falling
+    monotonically 6 → 8 → 12, so `topw_k8` is not an anomaly but where the curve re-enters the floor.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own
     signed weights. The extension is **EMPTY** — ⛔ **AT AND ABOVE THE PUBLISHED COMPARATOR ONLY**
     *(R764)*. On **86 arms** (R529/R534 measured **41**) and across ②'s baseline curve, ② ∧ ③-any is

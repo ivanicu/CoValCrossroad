@@ -19551,3 +19551,37 @@ inside. **Nothing on the page moves at any value the floor could take.** *The ch
 perturbation of one vector and it should have been the FIRST thing any of these rounds ran — §0's
 stop test asks whether the result could change the next step, and for three rounds the answer was no
 and nobody asked.*
+
+## 1081 · the fifth NEXT line this arc killed by the next round's first check
+
+R766 closed by asking whether `gen` clears ② *"resolvedly"* at the class minimum, or only on the
+point estimate. R764's own admission test is `verdict(eff, lo, hi, mde) == POS`, and `report.py`
+returns POS only when the CI excludes zero **and** `|eff| >= MDE`. **Every admission in that grid was
+already resolved by construction**, and the file was open in front of me when I wrote the line.
+Five NEXT lines in this arc have now been killed by the first check of the round that acted on them:
+prior art three times, a mis-specified test once, and this. *The closing sentence is written when the
+round's controls have already fired and the attention they were holding has been released — §4 says
+exactly this, and the remedy is to run the check BEFORE writing the line, not after.*
+
+## 1082 · the deliverable's headline number is the two-valued reading of a three-valued verdict
+
+`topw_k8` is one of the five committed extension members. At the published comparator its effect is
+**+0.0089** with a CI of **[0.0009, 0.0163]** that excludes zero, against an MDE of **0.0107** —
+**eff/MDE 0.827**, i.e. `BELOW RESOLUTION`. The other four sit at 1.152–1.509. Unchanged at B = 4800
+and 19200, and a B-sweep structurally cannot change it because raising B narrows the CI and leaves
+the MDE alone. **The sham settles what the number means: removing the floor (`mde=None`) changes
+exactly one verdict, `topw_k8` → BEATS, so the extension is 4 with the floor and 5 without.**
+⇒ **"the extension is 5" is not wrong so much as two-valued**, and P6's rule is that folding the
+third value into either side manufactures a verdict. The page now reads **4 CONFIRMED + 1
+UNRESOLVED**. *An arm whose CI excludes zero and whose effect is inside its own resolution is exactly
+the case the estimator's third value was built for, and it took 767 rounds to look at it.*
+
+## 1083 · the convention only bites at the comparator the release chose
+
+Swept over the baseline's own percentile curve, the two readings of ② agree everywhere except two
+cells: at p000, p005, p025, p050 and p075 both give **5**; at **p095** and at the **published** draw
+they give **4 vs 5**; at p100 they give **0 vs 1**. **The published comparator sits at percentile 93.7
+— inside the only region where the choice of convention changes the answer.** *A convention that is
+invisible across five sixths of the specification curve and decisive at the published cell is not a
+technicality; it is the reason the cell was worth reporting, and neither R527 nor any later round
+noticed that the two questions separate exactly there.*

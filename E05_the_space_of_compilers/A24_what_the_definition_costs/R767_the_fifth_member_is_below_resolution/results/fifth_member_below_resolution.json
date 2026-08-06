@@ -1,0 +1,350 @@
+{
+  "tree_sha": "7dc1e3ac03eea445",
+  "n_prompts": 968,
+  "baseline_a2": 0.550435854042229,
+  "E1": {
+    "coval_core@1200": {
+      "eff": 0.016041627150725758,
+      "lo": 0.008273944638210856,
+      "hi": 0.024117379650670585,
+      "mde": 0.010615634411893865,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.5111322157771894
+    },
+    "coval_core@4800": {
+      "eff": 0.016041627150725758,
+      "lo": 0.008550709703635733,
+      "hi": 0.023760808042219615,
+      "mde": 0.010615634411893865,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.5111322157771894
+    },
+    "coval_core@19200": {
+      "eff": 0.016041627150725758,
+      "lo": 0.008571015742397025,
+      "hi": 0.023551710225514052,
+      "mde": 0.010615634411893865,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.5111322157771894
+    },
+    "topw_k3@1200": {
+      "eff": 0.012740415117272603,
+      "lo": 0.004524887321390959,
+      "hi": 0.020291571531529305,
+      "mde": 0.011060963307600492,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.1518359443899504
+    },
+    "topw_k3@4800": {
+      "eff": 0.012740415117272603,
+      "lo": 0.004728807632702992,
+      "hi": 0.02033102944439432,
+      "mde": 0.011060963307600492,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.1518359443899504
+    },
+    "topw_k3@19200": {
+      "eff": 0.012740415117272603,
+      "lo": 0.005001420348520513,
+      "hi": 0.020479598197659283,
+      "mde": 0.011060963307600492,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.1518359443899504
+    },
+    "topw_k4@1200": {
+      "eff": 0.013744769497422402,
+      "lo": 0.005420011013862377,
+      "hi": 0.021619243849227646,
+      "mde": 0.010875456975043774,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.2638337431671076
+    },
+    "topw_k4@4800": {
+      "eff": 0.013744769497422402,
+      "lo": 0.00598129290353714,
+      "hi": 0.021190982937024188,
+      "mde": 0.010875456975043774,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.2638337431671076
+    },
+    "topw_k4@19200": {
+      "eff": 0.013744769497422402,
+      "lo": 0.006156396859171369,
+      "hi": 0.021203795244303145,
+      "mde": 0.010875456975043774,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.2638337431671076
+    },
+    "topw_k6@1200": {
+      "eff": 0.013681448836864795,
+      "lo": 0.005878929160364381,
+      "hi": 0.020918430767165812,
+      "mde": 0.01043506732452382,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.311103073068972
+    },
+    "topw_k6@4800": {
+      "eff": 0.013681448836864795,
+      "lo": 0.006269526555486781,
+      "hi": 0.020864542463217395,
+      "mde": 0.01043506732452382,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.311103073068972
+    },
+    "topw_k6@19200": {
+      "eff": 0.013681448836864795,
+      "lo": 0.0063392624499611005,
+      "hi": 0.02091053856979813,
+      "mde": 0.01043506732452382,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.311103073068972
+    },
+    "topw_k8@1200": {
+      "eff": 0.008875225146357324,
+      "lo": 0.000879692063098969,
+      "hi": 0.016290653178162945,
+      "mde": 0.010733741340970939,
+      "verdict": "BELOW RESOLUTION",
+      "eff_over_mde": 0.8268528991359597
+    },
+    "topw_k8@4800": {
+      "eff": 0.008875225146357324,
+      "lo": 0.0012067100275441436,
+      "hi": 0.016144217521838818,
+      "mde": 0.010733741340970939,
+      "verdict": "BELOW RESOLUTION",
+      "eff_over_mde": 0.8268528991359597
+    },
+    "topw_k8@19200": {
+      "eff": 0.008875225146357324,
+      "lo": 0.0013334049111628468,
+      "hi": 0.016296160960964697,
+      "mde": 0.010733741340970939,
+      "verdict": "BELOW RESOLUTION",
+      "eff_over_mde": 0.8268528991359597
+    }
+  },
+  "beats": [
+    "coval_core",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6"
+  ],
+  "not_beats": [
+    "topw_k8"
+  ],
+  "controls": {
+    "positive_n_beats": 4,
+    "g0": {
+      "eff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "mde": 0.0,
+      "verdict": "UNRESOLVED",
+      "eff_over_mde": Infinity
+    },
+    "placebo": {
+      "coval_core_sham": "LOSES",
+      "topw_k4_sham": "LOSES",
+      "gen_sham": "LOSES"
+    },
+    "negative_verdicts": {
+      "UNRESOLVED": 200
+    }
+  },
+  "sham_no_mde": {
+    "coval_core": "BEATS",
+    "topw_k3": "BEATS",
+    "topw_k4": "BEATS",
+    "topw_k6": "BEATS",
+    "topw_k8": "BEATS"
+  },
+  "sham_flipped": [
+    "topw_k8"
+  ],
+  "k_family": {
+    "1": {
+      "eff": -0.024854189222785497,
+      "lo": -0.03514990323812418,
+      "hi": -0.01595382792741978,
+      "mde": 0.013615069514870733,
+      "verdict": "LOSES",
+      "eff_over_mde": -1.8254911732649697
+    },
+    "2": {
+      "eff": 0.0031241124992000117,
+      "lo": -0.006235814597019268,
+      "hi": 0.011705937624304278,
+      "mde": 0.011864201975143176,
+      "verdict": "UNRESOLVED",
+      "eff_over_mde": 0.26332259900374044
+    },
+    "3": {
+      "eff": 0.012740415117272603,
+      "lo": 0.004524887321390959,
+      "hi": 0.020291571531529305,
+      "mde": 0.011060963307600492,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.1518359443899504
+    },
+    "4": {
+      "eff": 0.013744769497422402,
+      "lo": 0.005420011013862377,
+      "hi": 0.021619243849227646,
+      "mde": 0.010875456975043774,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.2638337431671076
+    },
+    "6": {
+      "eff": 0.013681448836864795,
+      "lo": 0.005878929160364381,
+      "hi": 0.020918430767165812,
+      "mde": 0.01043506732452382,
+      "verdict": "BEATS",
+      "eff_over_mde": 1.311103073068972
+    },
+    "8": {
+      "eff": 0.008875225146357324,
+      "lo": 0.000879692063098969,
+      "hi": 0.016290653178162945,
+      "mde": 0.010733741340970939,
+      "verdict": "BELOW RESOLUTION",
+      "eff_over_mde": 0.8268528991359597
+    },
+    "12": {
+      "eff": -0.012410278110131387,
+      "lo": -0.02043665996428981,
+      "hi": -0.004284450220925735,
+      "mde": 0.011341659175202622,
+      "verdict": "LOSES",
+      "eff_over_mde": -1.094220688386157
+    }
+  },
+  "baseline_curve": {
+    "p000": {
+      "with_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "no_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "topw_k8": "BEATS"
+    },
+    "p005": {
+      "with_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "no_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "topw_k8": "BEATS"
+    },
+    "p025": {
+      "with_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "no_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "topw_k8": "BEATS"
+    },
+    "p050": {
+      "with_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "no_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "topw_k8": "BEATS"
+    },
+    "p075": {
+      "with_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "no_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "topw_k8": "BEATS"
+    },
+    "p095": {
+      "with_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "no_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "topw_k8": "BELOW RESOLUTION"
+    },
+    "published": {
+      "with_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "no_floor": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "topw_k8": "BELOW RESOLUTION"
+    },
+    "p100": {
+      "with_floor": [],
+      "no_floor": [
+        "coval_core"
+      ],
+      "topw_k8": "UNRESOLVED"
+    }
+  },
+  "world": "A \u00b7 the headline folds a three-valued verdict into two \u2014 4 CONFIRMED + 1 UNRESOLVED, not 5"
+}
