@@ -26013,3 +26013,52 @@ the branch fired). And the recovery advice is **scoped to your own paths**, no l
 establish that you are the only actor.** Two of this project's standing memories say the same thing
 from the other side — *`Killed` says nothing about the MACHINE* — and I did not apply either, because
 a repository feels like a private object in a way a shared machine does not.
+
+## 1361 · R844 — the second writer's attack was run against my claim, and clause ② came out STRONGER
+
+Entry 1360 established two concurrent writers at D8. §2 lists **`independently replicated`** as
+structurally impossible *"needs a second team"*. **There is one.** §2.5 says what to do with it:
+take a claim the other designer derived independently and run it against yours.
+
+### ⛔ THEIR ATTACK, WHICH I COULD NOT HAVE GENERATED
+
+R843 (`d4205a7e`): *"A1's relevance vector sent to the WRONG prompt scores **0.552705** against A1's
+own **0.551732** … the permuted selector is as good as the real one … what it buys is a better fixed
+subset."* Remedy: *"the contextualisation estimand is A1 minus **ITS OWN PLACEBO**, never A1 minus
+A0."* **R841 used `core − generic` — an A1-minus-A0 estimand. If the deflation transfers, my result
+is about a better fixed subset, not about reading the conversation.**
+
+### ⭐ RUN, on their estimand, every annotator, placebo exactly 0
+
+| estimand | metric | obs | 95% CI | MDE | verdict |
+|---|---|---:|---|---:|---|
+| **(a) core − its OWN wrong-prompt sham** | graded | **+0.0709** | [+0.0617, +0.0801] | 0.0133 | **RESOLVED** |
+| | exact | **+0.0265** | [+0.0198, +0.0329] | 0.0093 | **RESOLVED** |
+| **(b) sham − never-reads-a-prompt pool** | graded | **−0.0466** | [−0.0558, −0.0376] | 0.0129 | RESOLVED |
+| **NEG** two never-read arms | graded | −0.0091 | [−0.0126, −0.0058] | 0.0049 | RESOLVED |
+
+⭐ **World B — it does not transfer.** Their A1 gap was **+0.001**; mine is **+0.0709**, ~70× larger.
+⭐⭐ **(b) is below zero — the poison signature.** Misdirection lands *beneath* the arm that reads no
+prompt at all: **WHICH conversation is read matters, not merely that one is.** That is a stronger
+property than clause ② asserts.
+⭐⭐⭐ **Their mechanism is real here and the wrong size**: the fixed-subset effect is **0.0091**, and
+the gap is **7.8×** it. **The negative control is the quantitative answer to their challenge.**
+
+### ⭐ WHAT IT DOES TO THE DEFINITION
+
+Clause ② rested on `core − generic` (+0.0151 / +0.0073). **Their remedy demands the more conservative
+placebo estimand — and it also resolves, larger.** The clause survives a challenge designed by
+someone who could not see my framing, scored on *their* estimand.
+
+### ⚠ NOT CLAIMED
+
+- **Not a refutation of R843.** Their A1 finding stands on their arm. What is established is that the
+  deflation is **ARM-SPECIFIC**: prompt-*reading* is not automatically prompt-*specific*, and it must
+  be measured per arm rather than assumed in either direction. **That is the transferable lesson, and
+  neither of us could have reached it alone.**
+- Not causal, not cross-release.
+
+⭐ **The session's shape, honestly.** Six rounds spent finding that my own instruments were blind,
+my own numbers unseeded, and my own candidate list missing its answer. **The one round that
+strengthened a claim used an attack I did not write** — which is exactly what door ③ says and what
+§2.5 exists for, arriving by accident because two agents were sharing a filesystem.
