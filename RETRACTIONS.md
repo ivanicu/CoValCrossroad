@@ -26586,3 +26586,55 @@ prompt-level coupling; N1 keeps it.
 ⭐ **The round's value is that it could fail and did** — a control designed to confirm an explanation
 refuted it **one round after the explanation was published.** That is the only way a mechanism claim
 in this project has ever been caught: **not by argument, by an instrument that was allowed to say no.**
+
+## 1374 · R854 — the pair-shuffle survivors are ARM-INTRINSIC, and they are the label-touching arms
+
+R853's NEXT proposed two more nulls. **One rung lower on the attack ladder decided it for almost
+nothing**, and the discriminating statistic was already sitting in the previous runs: **survivor-set
+stability across null seeds**, never measured (check #512, no prior art).
+
+| world | prediction |
+|---|---|
+| **A** arm-intrinsic bias | the **same** arms survive every permutation |
+| **B** a different-but-fixed target each seed | overlap at **chance** |
+
+### ⭐ CONTROLS — the load-bearing one can fail
+
+| control | result |
+|---|---|
+| the REAL survivor set must not move on a repeat call | **True · PASS** (29 arms) |
+| ⭐ **closed-form chance overlap vs SIMULATED** | max\|Δ\| = **0.0086 · PASS** |
+
+⚠ **The second is load-bearing**: a closed form I derived is a claim about my own algebra, and this
+project does not accept those unchecked. The first is degenerate by construction and is not relied on.
+
+### ⭐⭐ RESULT — world A
+
+| | |
+|---|---:|
+| survivor sizes, 8 seeds | `[16, 12, 15, 13, 13, 15, 9, 17]` |
+| **observed mean Jaccard** | **0.8047** [0.5294, 1.0000] |
+| chance | 0.0752 → **10.70×** |
+| surviving all 8 seeds | **9** |
+
+⛔ **R853's hypothesis — "a different-but-fixed target each seed" — is REFUTED**: it predicts chance
+overlap, and the overlap is **10.7× chance**.
+
+### ⭐⭐⭐ AND WHICH ARMS — the part that reaches the definition
+
+`oracle_k4` · `oracle_k4_fit1` · `oracle_k4_oracle_kA` · `greedy_k2_fit1` · `greedy_k4_fit1` ·
+`greedy_k4_greedy_kA` · `greedy_k4_greedy_kB` · `indep_k2_fit1` (+1) — **every one an ORACLE or
+FITTED arm, an arm that touched the human labels.**
+
+⭐ **An arm fitted to the labels acquires a property that beats a prompt-blind comparator even when
+which-pair-is-which is scrambled, and clause ② alone cannot tell that apart from tracking the
+humans.** **The first measured statement in this thread about what ② CONFUSES, rather than how large
+its extension is.**
+
+⚠ **Mechanism NOT claimed** — R853 refuted my last one a round after publication. `[HYPOTHESIS —
+untested]`: shape properties of a fitted verdict vector — transitivity, tie rate, strict/tie mix —
+none removed by κ's marginal correction.
+
+⚠ **Owed, not asserted:** these nine look like arms **clause ③ already excludes**. **If so, ③ removes
+exactly the arms ② is most fooled by — an interlock the definition has never claimed, and this round
+did not check it.**

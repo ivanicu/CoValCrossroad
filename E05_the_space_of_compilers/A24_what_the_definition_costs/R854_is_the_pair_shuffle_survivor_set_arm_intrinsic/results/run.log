@@ -1,0 +1,13 @@
+  prompts 1078 · arms 99
+  CONTROL  the REAL survivor set is identical on a repeat call: True  PASS   (|set| = 29)
+  pair-shuffle survivor sizes over 8 seeds: [16, 12, 15, 13, 13, 15, 9, 17]
+  CONTROL  closed-form vs simulated chance overlap: max|Δ| = 0.0086  PASS
+    A closed form I derived is a claim about my algebra; this project does not accept
+    those unchecked, so it is simulated beside it and the two must agree.
+
+  ⭐ observed mean Jaccard across 28 seed pairs: 0.8047 [min 0.5294, max 1.0000]
+     chance at the same sizes: 0.0752  ->  ratio 10.70×
+  ⭐ WORLD A: the SAME arms survive every permutation — ARM-INTRINSIC bias, and the ~15 names a real property of those arms
+     arms surviving at ALL 8 seeds: 9  ['greedy_k2_fit1', 'greedy_k4_fit1', 'greedy_k4_greedy_kA', 'greedy_k4_greedy_kB', 'indep_k2_fit1', 'oracle_k4', 'oracle_k4_fit1', 'oracle_k4_oracle_kA']
+
+  artifact: results/survivor_stability.json @ 8548e4bb

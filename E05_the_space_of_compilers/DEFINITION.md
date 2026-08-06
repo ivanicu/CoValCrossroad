@@ -550,7 +550,41 @@ defence is contradicted by the elicitation format.**
 > FIXED target**: permuting the six pairs yields a per-prompt target that no ranking realises, yet is
 > the *same* target for every arm and is still **a function of this prompt**. N2 and N3 give 0
 > because they sever the prompt-level coupling; N1 keeps it. **That is the separation the next round
-> owes.** The metric is still
+> owes.**
+>
+> ## ⭐⭐⭐ R854 SETTLES IT — the survivors are ARM-INTRINSIC, and they are the LABEL-TOUCHING arms
+>
+> *(entry 1374. The hypothesis above is **refuted**: the target-per-seed story predicts chance
+> overlap, and the overlap is 10.7× chance.)*
+>
+> | | |
+> |---|---:|
+> | pair-shuffle survivor sizes, 8 seeds | `[16, 12, 15, 13, 13, 15, 9, 17]` |
+> | **observed mean Jaccard**, 28 pairs | **0.8047** [0.5294, 1.0000] |
+> | chance at the same sizes | 0.0752 → **ratio 10.70×** |
+> | arms surviving **all 8** seeds | **9** |
+>
+> **Controls:** the real survivor set is identical on a repeat call (29 arms); and — the load-bearing
+> one, because a closed form I derived is a claim about my own algebra — the **closed-form chance
+> overlap agrees with a simulated one to max\|Δ\| = 0.0086**.
+>
+> ⭐⭐⭐ **The nine that survive every permutation are `oracle_k4`, `oracle_k4_fit1`,
+> `oracle_k4_oracle_kA`, `greedy_k2_fit1`, `greedy_k4_fit1`, `greedy_k4_greedy_kA`,
+> `greedy_k4_greedy_kB`, `indep_k2_fit1` (+1) — every one an ORACLE or FITTED arm, an arm that
+> touched the human labels.**
+>
+> ⭐ **So an arm fitted to the labels acquires a property that beats a prompt-blind comparator even
+> when which-pair-is-which is scrambled, and CLAUSE ② ALONE CANNOT TELL THAT APART FROM TRACKING THE
+> HUMANS.** That is a concrete, measured limitation of ② — the first one this thread has established
+> about what the clause *confuses*, rather than about how big its extension is.
+>
+> ⚠ **The mechanism is NOT claimed** (R853 refuted the last one a round after publication).
+> `[HYPOTHESIS — untested]`: shape properties of a fitted verdict vector — transitivity, tie rate,
+> the strict/tie mix — none of which κ's marginal correction removes.
+>
+> ⚠ **And one thing owed rather than asserted:** these nine look like arms **clause ③ (*no prompt
+> labels*) already excludes**. **If so, ③ removes exactly the arms ② is most fooled by — an interlock
+> the definition has never claimed and this round did not check.** The metric is still
 > **unnamed in the statement** — that gap from entry 1349 is untouched — but it is no longer true
 > that naming it the strict way costs the clause its verdict. ⚠ **What this does NOT establish:** that
 exact-class is *correct*. Whether a core should reproduce an ordering or track it gradedly is a
