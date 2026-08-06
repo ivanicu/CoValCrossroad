@@ -1,0 +1,140 @@
+{
+  "n_next": 26,
+  "blocked": 7,
+  "forced": 2,
+  "not_run": 5,
+  "executed": 11,
+  "rows": [
+    [
+      "496a1aba",
+      "price the exact-class MDE",
+      "EXECUTED"
+    ],
+    [
+      "fd99c0f0",
+      "recompute on every annotator",
+      "EXECUTED"
+    ],
+    [
+      "098784e9",
+      "is the FAIL column two populations",
+      "EXECUTED"
+    ],
+    [
+      "c37a45b8",
+      "every ratchet may carry the expiry",
+      "NOT RUN"
+    ],
+    [
+      "81b9d242",
+      "gates whose controls never reach stdout",
+      "NOT RUN"
+    ],
+    [
+      "450dcdc3",
+      "test the two tree-destruction candidates",
+      "EXECUTED"
+    ],
+    [
+      "05838911",
+      "have the sweep call the tripwire",
+      "NOT RUN"
+    ],
+    [
+      "29534999",
+      "hash() may have unseeded other rounds",
+      "EXECUTED"
+    ],
+    [
+      "e97d14dc",
+      "measure reproducibility directly",
+      "EXECUTED"
+    ],
+    [
+      "0d7b0034",
+      "six anchors may not represent 77",
+      "PARTIAL"
+    ],
+    [
+      "bfaa2557",
+      "every arm needs its own placebo",
+      "EXECUTED"
+    ],
+    [
+      "ae9021eb",
+      "clause4's extension may have moved",
+      "EXECUTED"
+    ],
+    [
+      "a0509c56",
+      "exercise clause4 adversarially",
+      "EXECUTED"
+    ],
+    [
+      "c04e6dcc",
+      "extension as a function of search effort",
+      "EXECUTED (question FORCED)"
+    ],
+    [
+      "e24f6bc3",
+      "add a fitted-combiner class",
+      "BLOCKED \u2014 prior art R824/R825"
+    ],
+    [
+      "5aa96ea2",
+      "draft both wordings, compute extensions",
+      "BLOCKED \u2014 already in R824"
+    ],
+    [
+      "0c2d498f",
+      "instantiate the proposed clause",
+      "EXECUTED"
+    ],
+    [
+      "25368036",
+      "extension vs reference-class size",
+      "EXECUTED (question FORCED)"
+    ],
+    [
+      "038d9943",
+      "noise component for clauses 1,2,3",
+      "BLOCKED \u2014 refuted by the file's own table"
+    ],
+    [
+      "89225641",
+      "sweep the noise arm across comparators",
+      "REDIRECTED"
+    ],
+    [
+      "81dc2504",
+      "hold the marginal mix fixed",
+      "EXECUTED (kill fired)"
+    ],
+    [
+      "8548e4bb",
+      "two nulls separating coupling/ordering",
+      "SUPERSEDED \u2014 cheaper rung"
+    ],
+    [
+      "624f1828",
+      "intersect with the clause-3 set",
+      "BLOCKED \u2014 population, 3 of 9"
+    ],
+    [
+      "1713002e",
+      "recompute the conjunction on 99 arms",
+      "BLOCKED \u2014 clause 3 unmeasurable there"
+    ],
+    [
+      "278503ce",
+      "domination test on the other pairs",
+      "BLOCKED \u2014 already committed in R347"
+    ],
+    [
+      "2f73917b",
+      "the three bars on the second corpus",
+      "BLOCKED \u2014 R603, different KIND"
+    ]
+  ],
+  "classification": "BY HAND from the committed record; not machine-verifiable"
+}
