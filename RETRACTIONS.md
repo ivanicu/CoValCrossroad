@@ -19511,3 +19511,43 @@ core file → UNKNOWN, never 0, never dropped"*. So the missing file returned th
 on this scale reads *"the released core IS the comparator"* — the most alarming sentence the round
 could have produced, manufactured entirely by a default argument. *A defaulting `.get` converts
 absence into whatever value you happened to type, and the value you type is never `UNKNOWN`.*
+
+## 1077 · the registered confound fired, and it changed the answer from "noise" to "setting"
+
+I registered, before the run, that a systematic OFFSET would mean judge-or-setting rather than
+run-to-run variance, and that the test is the SHARE above zero rather than the signed mean. Measured:
+signed mean **+0.000613**, which looks like nothing, and **share(`generic` > `pool`) = 0.1793** —
+when the two artifacts differ, one side is higher **82%** of the time. Two thirds of cells are exact
+and the rest are lopsided. **Had I looked only at the mean I would have called it symmetric noise and
+published an across-pass floor of 0.0086.** *A near-zero mean over a lopsided distribution is the
+cheapest way to mistake a bias for a wobble, and the share costs one line.*
+
+## 1078 · a pair built to be identical cannot measure whether scoring is identical
+
+R765 published *"same judge, identical criteria → |Δ A2| = 0.0000 on 10 pairs, 968/968 exact"* as the
+scoring floor. Of the **48** identical-criteria pairs the release carries, **16 carry a replication
+marker** — `_det` (determinism control), `_ctl` (control), `_kA`/`_kB` (the same object under R730's
+partition) — and every one of R765's ten is among them. **They agree because they were built to
+agree.** §4's first row, *a check that cannot fail*, and I did not merely fail to notice it: I named
+the pairs in my own table and read their names as arm identifiers rather than as what they say.
+⚠ AND THE ZERO IS NOT RETRACTED — the placebo here confirms cell-level determinism on exactly such a
+pair. What is retracted is the SCOPE: it certifies within-pass replay, never across-pass scoring.
+
+## 1079 · P4 missed a round with the answer in its title
+
+R419 is named `the_scoring_only_floor_measured` and its headline reads *"the scoring-only floor is
+exactly zero, and that locates R415's 0.116 entirely in selection"*. R765 re-derived that zero from
+replica pairs and presented it as new. **My P4 for R765 searched for `jaccard`, `overlap` and
+`set-equality` — the shape of the round I was building — and never for the quantity I was about to
+report.** *The prior-art gate is run against the thing you are about to CLAIM, not against the
+technique you happen to be using, and those are different search strings.*
+
+## 1080 · the thread was decision-inert and three rounds did not check
+
+R415 → R419 → R765 → R766 all chase the pipeline's noise floor. The decision that floor could affect
+is ②, which is defined against `POOL[0:4]`'s percentile in its own 1,820-subset class. Perturbing the
+comparator at the measured discrepancy: **93.74 → 94.16 [91.59, 96.59]**, with R527's committed 93.7
+inside. **Nothing on the page moves at any value the floor could take.** *The check is one
+perturbation of one vector and it should have been the FIRST thing any of these rounds ran — §0's
+stop test asks whether the result could change the next step, and for three rounds the answer was no
+and nobody asked.*

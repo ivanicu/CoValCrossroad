@@ -1,0 +1,159 @@
+R766 · every "scoring floor = 0" in this campaign was measured on within-pass replicas
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS -- IT ATTACKS R765 (one commit ago) AND R419 (published long before)
+--------------------------------------------------------------------------------
+R765's NEXT proposed that the pool tensor's COLUMN ORDER might not be the core JSON's LIST ORDER,
+which would make `POOL[0:4]` -- the comparator behind every ② verdict -- the wrong four criteria.
+
+⛔ CHECK #368 KILLED THAT HYPOTHESIS AND TWO MORE, ALL BEFORE ANY ROUND WAS BUILT:
+ ① ORDER. `score.py:58` does `o[pid][(int(i), ltr)] = ...` -- the index is an **int**, so `sorted()`
+   is numeric and `idxs[0:4] == [0,1,2,3]`. No lexicographic bug. HYPOTHESIS DEAD.
+ ② CONTEXT. Maybe satisfaction depends on which OTHER criteria were scored in the same call. The
+   `topw_k{1,2,3,4,6,8,12}` family is NESTED (verified on all 968 prompts), and the top-1 criterion's
+   satisfaction is **identical to 9 decimals at every k**. HYPOTHESIS DEAD.
+ ③ JUDGE IDENTITY. R424/R426's anchor test cannot identify `generic`'s judge: its criteria are the
+   generic pool's and appear in NO full table, so the positive control (`topw_k4` vs `sat_full`)
+   returns **0.1087**, near the ~0.03 coincidence floor. THE INSTRUMENT IS INADMISSIBLE HERE (P5's
+   star rule: a `not found` from an instrument never shown to fire on this class is silence).
+
+WHAT SURVIVES IS THE MEASUREMENT ITSELF, AND IT CONTRADICTS TWO PUBLISHED ZEROS.
+`sat_generic.npz` and `sat_genericpool16.npz` hold the SAME four criterion strings (verified string-
+identical in R765 on 968/968 prompts), the same indices 0..3, the same response letters A-D -- and
+their satisfaction values differ on **957 of 968 prompts**.
+
+  R419 published: "the scoring-only floor is exactly zero -- two runs of identical criteria are
+                  bitwise identical on all 200 prompts" (`--limit 200`).
+  R765 published: "same judge, identical criteria -> |Δ A2| = 0.0000 on 10 pairs, 968/968 exact."
+
+⚠ AND EVERY ONE OF R765's 10 EXACT PAIRS IS A REPLICATION ARTIFACT BY ITS OWN NAME OR BY R730:
+  `topw_k4`/`_detA`/`_detB` · `random_k4_s0`/`_ctlS0` · `random_k4_s1`/`_ctlS1` ·
+  `oracle_k4`/`_oracle_kA`/`_oracle_kB` · `greedy_k4_greedy_kA`/`kB` · `indep_k4_indep_kA`/`kB`.
+  `_det` = determinism control · `_ctl` = control · the `_kA`/`_kB` pairs are the SAME OBJECT under
+  R730's partition. **A pair built to be identical cannot measure whether scoring is identical.**
+  That is §4's first row -- a check that cannot fail -- and I published it as a finding.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the ACROSS-PASS scoring discrepancy: over the 15,488 cells (968 prompts x 4 criteria x 4
+    responses) shared by `sat_generic` and `sat_genericpool16[0:4]`, the distribution of
+    |Δ satisfaction| -- exact-equal count, mean, median, quantiles, max.
+E2  the classification of every identical-criteria pair in the release as WITHIN-PASS (a replication
+    artifact by name or by R730's object partition, or nested inside another arm's criterion set) or
+    ACROSS-PASS. The count of across-pass pairs available at this site is the round's power.
+E3  the DECISION-RELEVANT propagation: does the comparator's percentile in its own 1,820-subset class
+    move under the measured discrepancy? R527 committed **93.7**; ② is defined against that draw.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1 exact at the cell level.
+E2 PARTIALLY IDENTIFIED. "Same pass" is not recorded anywhere in the release; it is INFERRED from
+   naming (`_det`, `_ctl`), from R730's object partition, and from criterion-set nesting. So E2 is
+   reported as a LOWER bound on within-pass pairs, never as a certified partition.
+E3 exact given E1, because the perturbation is applied to the comparator's own A2 vector and the
+   class is a complete enumeration.
+⚠ AND THE CONFOUND THAT CANNOT BE CLOSED HERE: **the sat artifacts store criterion INDICES, not
+  STRINGS.** "The same criterion was scored twice" is inferred from the core JSONs, never read off
+  the artifact. If a core JSON does not describe what its own sat file scored, E1 measures something
+  else entirely. This is stated as an impossibility, not as a control.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  the 15,488 shared cells of `generic` / `genericpool16[0:4]`, plus every identical-criteria
+            pair the release carries
+instrument  direct value comparison; R294's estimator for the A2 propagation
+baseline    R419's committed 0.000000000 and R765's committed 0.0000, both to be re-scoped
+regime      first release, home judge, 968 prompts, this tree_sha
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  A PAIR BUILT TO BE IDENTICAL RETURNS ZERO BY CONSTRUCTION. `_detA`/`_detB` are determinism
+    controls; that they agree is what their name asserts, not what a measurement found. Counting them
+    as evidence about scoring variance is circular. THE MEASUREMENT IS HOW MANY PAIRS ARE **NOT** OF
+    THAT KIND, and what they say.
+D2  |Δ A2| ≤ propagation of |Δ satisfaction| THROUGH A SIGN FUNCTION, so a large cell-level
+    discrepancy can produce a small A2 discrepancy whenever it does not flip a pairwise ordering.
+    "A2 barely moved" is therefore NOT evidence that the values agree, and R765 read it as such.
+
+STRONGEST CONFOUND, written BEFORE the run: the 957 differing prompts might carry a systematic
+OFFSET (one artifact uniformly higher), which would indicate a different judge or temperature rather
+than run-to-run noise. CONTROL IN THE SAME ITERATION: report the SIGNED mean alongside the absolute
+one, and the share of cells where `generic` exceeds `pool` -- 0.5 means symmetric noise, far from 0.5
+means a systematic shift.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE ZEROS WERE SCOPE ERRORS. Every zero-floor pair is within-pass; the one across-pass pair says
+    the floor is NOT zero. Both published zeros are re-scoped to "within a scoring pass", and the
+    across-pass floor becomes a number this campaign has never had.
+B · THE DISCREPANCY IS NOT SCORING. The signed mean is far from zero -- a systematic offset -- so the
+    two artifacts differ by JUDGE or SETTING, not by run-to-run variance, and the floor question is
+    still open with a different instrument required.
+C · THE PAIR IS NOT WHAT I THINK. The core JSONs do not describe what the sat files scored, and E1
+    measures two different criterion sets. Unfalsifiable here (see IMPOSSIBLE) and therefore the
+    round's stated ceiling on what it may claim.
+
+PREDICTION MATRIX
+  A -> exact-equal cells << 15,488 AND share(generic > pool) in [0.40, 0.60] AND >= 1 across-pass pair
+  B -> share(generic > pool) outside [0.40, 0.60], or a signed mean above the absolute median
+  C -> not decidable at this site; declared, not tested
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE fires (the nested k-sweep returns |Δ| = 0 to 1e-12 for a criterion shared across k, so
+   the comparison can detect SAMENESS) and g=0 fires (an artifact against itself gives 0 differing
+   cells) and NEGATIVE fires (two genuinely different criteria DO differ):
+        share in [0.40,0.60] and exact-equal < 15,488  -> WORLD A. Both zeros re-scoped on the page.
+        share outside [0.40,0.60]                      -> WORLD B. Judge/setting, not noise.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+E3 IS SEPARATELY FAILABLE:
+        the comparator's percentile moves off 93.7 under the measured discrepancy -> ② inherits it
+        it does not move                                                          -> the discrepancy
+                                                                                     is decision-inert
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE  the nested `topw_k{1..12}` family: a criterion present at every k must have |Δ| = 0 to
+          1e-12 across all of them. BAND, COMPUTED: an instrument that calls everything different
+          fails this; one that calls everything identical fails the NEGATIVE below. Unreachable from
+          either degenerate end.
+g=0       `sat_generic` compared against itself: exactly 0 differing cells of 15,488.
+NEGATIVE  two DIFFERENT criteria (`generic[0]` vs `generic[1]`) must differ on a large share of
+          cells -- the world excluded is "these satisfaction values are so coarse that anything
+          matches anything".
+SHAM      ingredient ABSENT, not inverted. Ingredient = CRITERION IDENTITY. Compare `generic` to a
+          size-matched arm whose criteria are NOT identical (`gen`, overlap 0.0010) and report its
+          |Δ| distribution. If identical-criteria and different-criteria pairs have the same |Δ|,
+          then criterion identity buys nothing and E1 is not about scoring at all.
+PLACEBO   `topw_k4` vs `topw_k4_detA` at the CELL level (not the A2 level): must be exactly 0.
+NOISE     E1 IS the noise measurement; its own cell count and quantiles are the report.
+UNIT      instrument unit = a CELL (prompt x criterion x response); claim unit = an A2 NUMBER.
+          15,488 vs 1. Never conflated -- D2 says the map between them is a sign function.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+15,488 cells x {signed, absolute} + every identical-criteria pair classified + the 1,820-subset
+percentile recomputed under perturbation. The whole cell distribution is reported by quantile, not
+by its mean alone.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether two artifacts came from ONE scoring pass   a run identifier in the artifact, which the
+                                                   release does not carry
+whether a sat file scored the strings its core
+  JSON lists                                       criterion STRINGS in the npz; it stores indices
+whether the discrepancy is temperature, judge
+  version, or batching                             the scoring harness's own logs
+independently replicated                           a second team; the session prompt forbids agents

@@ -5227,3 +5227,43 @@ evaluate this one.
 size-4 subsets → prefix 0.0000, subset 1.0000 · PLACEBO `full` 0.0000 · NEGATIVE **uninformative by
 construction** — `generic` has **1** distinct criterion set across 968 prompts, so a derangement
 changes nothing. **WORLD B.**
+
+## R766 · the across-pass scoring floor, and why the thread is decision-inert
+
+**Scope.** population = the 15,488 cells (968 prompts × 4 criteria × 4 responses) shared by
+`sat_generic` and `sat_genericpool16[0:4]`, criterion strings identical (R765, 968/968); instrument =
+direct value comparison, plus R294's estimator for the propagation; regime = first release, home
+judge, this tree_sha.
+
+**E1 · the discrepancy.** differing cells **5,235 / 15,488 = 0.3380** · differing prompts **957 / 968**
+· \|Δ\| mean **0.008574**, median **0.000000**, p95 **0.030967**, max **0.062419** · signed mean
+**+0.000613** · **share(`generic` > `pool`) = 0.1793**, outside the registered symmetric band
+[0.40, 0.60] ⇒ **systematic offset, not run-to-run variance**.
+
+**E2 · identical-criteria pairs.** 48 total; **16 carry a replication marker** (`_det`, `_ctl`,
+`_kA`, `_kB` — determinism controls, or the same object under R730); 32 across-pass candidates.
+⚠ LOWER BOUND: "same pass" is recorded nowhere in the release and is inferred from naming and R730.
+
+**E3 · propagation to the decision.**
+
+| | percentile of `POOL[0:4]` in its 1,820-subset class |
+|---|---|
+| committed *(R527)* | 93.7 |
+| recomputed | **93.74** |
+| perturbed ×200 at sd = 0.012816 | **94.16 [91.59, 96.59]** |
+
+The point lies inside the interval — **the discrepancy cannot move any ② verdict**.
+
+**Controls.** POSITIVE nested `topw_k` sweep, worst spread **0.000e+00** · g=0 artifact vs itself **0**
+differing · NEGATIVE two different criteria differ on **0.9287** of cells · PLACEBO `topw_k4` vs
+`_detA` at the **cell** level **0** differing · SHAM `generic` vs `gen` \|Δ\| mean **0.190755** vs
+**0.008574**, so criterion identity buys **95.5%**. **WORLD B.**
+
+**Status of the two published zeros.** R419 (`--limit 200`) and R765 (10 pairs) both measured
+**within-pass** determinism and both are correct at that scope. The **across-pass** floor is
+`UNVERIFIED` — neither measured nor refuted here.
+
+**Impossible, named.** Whether two artifacts came from one scoring pass would need a run identifier
+the release does not carry · whether a sat file scored the strings its core JSON lists would need
+criterion **strings** in the npz, which stores **indices** · whether the offset is temperature, judge
+version or batching would need the scoring harness's logs.
