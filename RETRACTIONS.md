@@ -19218,3 +19218,37 @@ third. The claim that the flagged rate belongs to rounds rather than to document
 and it stands on a corpus five times wider than the one that produced it. Recording this because the
 recent ledger is dense with retractions and a surviving claim needs the same explicit treatment, or
 the record reads as though nothing ever holds.
+
+## 1049 · the tracer read its own source and detected its own test constants
+
+The instrument scans every round's readme, source and artifacts looking for a published value, and the
+round that defines the instrument is one of those rounds. So the fabricated value written into the zero
+control as a literal was found once, by the file that defines it, and the positive control counted this
+round as a reader of a value it had quoted in its own control. The instrument was part of its own
+corpus. Excluding the current round from the reader set repairs both, and the lesson generalises: a
+forward trace over a corpus that contains the tracer will always find the tracer's own constants.
+
+## 1050 · the two seed check caught a real non determinism, not a cosmetic one
+
+The artifacts under two hash seeds were not identical. The cause is that the set of values published by
+a round is a python set, string set iteration is hash seed dependent, and the rule that the first
+publisher of a value wins therefore resolved ties differently between runs. That is not formatting: a
+different value can win a tie and carry a different set of readers into the headline share. Sorting the
+set fixes it. The check exists for exactly this and it earned its keep.
+
+## 1051 · the arc is write only, and that is the finding rather than a complaint
+
+Of a hundred and ten distinctive numbers published across nine rounds, fifteen appear in any strictly
+later round. With eight more rounds of exposure the older era reaches under twenty per cent. So the
+recomputation debt two rounds ago identified is close to zero and paying it would be spending compute
+to tidy a ledger. The constitution's own warning is that the ledger must not become the product, and
+this is that warning measured rather than asserted. The sub arc closes.
+
+## 1052 · the numbers that were read are the numbers that were wrong
+
+The four most read values in the arc all come from one round and all four were subsequently corrected
+or re attributed: a document level rate that turned out to be artifact absence, its two comparators,
+and the between document difference built from them. Nothing else was reused more than once. That is
+what a working retraction chain looks like from the inside, and it is the clearest positive result the
+sub arc produced, but it also means the reuse I measured is almost entirely reuse for the purpose of
+correction rather than for building.

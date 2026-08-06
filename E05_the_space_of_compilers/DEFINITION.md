@@ -4918,3 +4918,47 @@ band but **10× wrong — drift was not the cause** · P4 2.0 → **2.47** ✓ �
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 99887, **both writes confirmed to
 disk** (4,386 / 4,390 bytes, differing only in the recorded seed).
+
+## R759 · the provenance arc is WRITE-ONLY, and it closes here
+
+**Question.** R758 refused to pay the recomputation debt blindly and asked which of R748–R756's
+numbers anything actually reads.
+
+**Answer.** Of **110 distinctive** numbers (≥4 dp) published across those nine rounds, **15 — 13.6% —**
+appear in any strictly later round.
+
+| class | era | n | **read by a later round** |
+|---|---|---|---|
+| **distinctive** | **R748–R756** | **110** | **0.1364** |
+| NON-distinctive *(SHAM)* | R748–R756 | 65 | **0.6154** — **4.51× inflation** |
+| distinctive | R700–R747 | 174 | **0.1954** — with 8 more rounds of exposure |
+
+⛔ **"Appears in a deliverable" is NEAR-FORCED** — every round appends its own numbers to this file.
+Printed, **excluded from the verdict**. ⛔ **A number can only be read by later rounds**, so decline
+toward the present is partly mechanical — which is why the older era was measured.
+
+⚠ **The confound bounds it, and was written before the run:** later rounds cite a round's **ID** 30
+times against **9** value-reprints — **3.3×**. `13.6%` measures *numbers reprinted*, not *findings
+used*, and the two are not converted into each other.
+
+**Controls — 5 PASS, 0 FAIL.** POSITIVE `0.8000` read by [754, 756, 757, 758], band `0 < 2 ≤ 6` ·
+g=0 a fabricated value read by **0** · NEGATIVE shuffled publishing rounds give 0.44–0.49 against the
+real **0.1364** · SHAM as above · PLACEBO 0 of 110.
+
+⛔ **Two defects in this round's own instrument, both caught by its controls.** ① The tracer scanned
+**its own `run.py`**, detecting the fabricated constant it defines and counting itself as a reader —
+**the instrument was part of its own corpus** *(ledger 1049)*. ② The **two-seed check** caught a real
+non-determinism: `published()` returns a **set**, and hash-seed-dependent iteration resolved the
+first-publisher tie-break differently, so a different value could win a tie and carry a different
+reader set *(ledger 1050)*.
+
+**⭐ The four most-read values are all R753's — `0.8000 / 0.3814 / 0.1793 / 0.6207` — and all four were
+subsequently corrected.** The numbers this arc reused are the ones that turned out to be wrong: a
+working retraction chain, and also reuse *for correction* rather than for building *(ledger 1052)*.
+
+**Verdict — `WORLD B`.** The debt is near zero. **The provenance sub-arc closes** *(ledger 1051)*.
+What outlives it is three instruments, not their rates: the one-arc lookup defect *(R757)*, the
+parent-commit pin *(R758)*, and the 4.51× spurious-match price on non-distinctive values *(here)*.
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 31415 **after** the set-ordering
+repair, **both writes confirmed to disk**.
