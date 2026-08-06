@@ -24503,3 +24503,50 @@ survived (`topw_k8` +0.0431 there vs **+0.039622** measured).
 1330 establishes it by measurement.** The middle round was **not** wasted: withdrawing a true claim
 whose evidence is bad is the correct move, and the cost of that correctness was one round. What *was*
 wasted is 1329's closing sentence, which asserted an impossibility instead of opening one artifact.
+
+## 1331 · my own verdict string printed WORLD B on an empty population, and the extension question is not answerable on this join
+
+**ESTIMAND, named before method:** among arms admitted by **②∧③**, how many have a *different* ④
+verdict under the strict and the permissive readings? **World A** — ≥1 flips, so the reading choice
+changes the definition's **extension**. **World B** — none flips, so it changes only ④'s **standalone**
+count (0 vs 25 of 58) and leaves what a core *is* untouched.
+
+### ⛔ THE SCRIPT PRINTED "WORLD B" AND THE POPULATION WAS ZERO
+
+`②∧③ admitted: 0 of 39`. The verdict line then read *"WORLD B — the reading changes only ④'s
+standalone count, not the extension"* — **computed over an empty set.** That is §4's *"empty
+population passes — a gate reports success having examined nothing"*, and §4's *"the verdict string is
+not a computation"*, in the same line, in a script I wrote this round. **The verdict is WITHDRAWN.**
+
+### ⭐ WHY THE POPULATION IS EMPTY — AND IT IS THE FINDING
+
+| ②-passer | ③ verdict | selector |
+|---|---|---|
+| **`coval_core`** | **UNKNOWN** | `None` |
+| `topw_k3` · `topw_k4` · `topw_k6` · `topw_k8` | EXCLUDED | `topw_k` |
+| `oracle_k4` · `oracle_k4_fit1` | EXCLUDED | `oracle_k` |
+| `indep_k4_fit1` | EXCLUDED | `indep_k` |
+| `greedy_k4_fit1` | EXCLUDED | `greedy_k` |
+
+**8 of 9 ②-passers are ③-EXCLUDED, 0 are ③-admitted, and `coval_core` is ③-UNKNOWN.** In the other
+direction: of the **20** ③-admitted arms on this join (`full`, the `random_k*` family, the shams),
+**0 pass ②.** The two clauses partition this arm space almost disjointly, which is the
+already-recorded fact that A2 is monotone in exactly the information ③ forbids — here it is visible as
+an **empty intersection**.
+
+⚠ **`coval_core`'s UNKNOWN is by design, not a defect.** `clause3_as_written.py` derives ③ from
+`select_core.py`'s selectors and returns **UNKNOWN, never admitted**, for anything it cannot attribute
+to one — and the released core is not a selector output, so it has no selector to read. But the
+consequence is exact: **any ②∧③ join built on that deriver has a population of at most one arm, and
+that arm is three-valued.**
+
+### ⭐ THE CONTROL PASSED — THE CONTRAST IS FINE, THE POPULATION IS NOT
+
+**POSITIVE CONTROL:** the two readings **disagree on 25 of 58 arms** (strict excludes **0**, permissive
+excludes **25**), so the comparison is non-degenerate and would have detected a flip had one existed in
+the population. **The instrument can see; there was nothing in front of it.**
+
+⭐ **So: World A and World B are both still live, and the round's honest output is UNVERIFIED with a
+named obstacle** — the extension question needs the arm space on which the extension is *non-empty*
+(R360's 42-arm space, where the definition admits `coval_core`), not this 39-arm join, on which
+②∧③ admits nothing at all.
