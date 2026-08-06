@@ -5793,3 +5793,30 @@ topw_k4/detA/detB 0.5642/1.0000, q_res 0.9835 · generic & generic_reprov 0.5514
 permutation null being void by derivation · POSITIVE 0× / 0.5× / 1× UNRESOLVED, 4× **BEATS**, band
 computed at both ends · ⛔ SHAM **INADMISSIBLE**: a sham is undefined for a prompt-blind arm.
 **WORLD B — different objects, below resolution.**
+
+## R783 · the release side, measured
+
+**Release** `data/conversation_rubrics.jsonl`: **986** records, **986** distinct ids, **0**
+duplicates, **0** missing a key.
+
+| field | release | scored sat file |
+|---|---|---|
+| `coval_core` size | **{2: 1, 3: 43, 4: 942}** | **{2: 1, 3: 42, 4: 925}** |
+| `coval_full` size | min **4** max **39**, below 4 **0** | min **4** max **39**, below 4 **0** |
+| fewer than 4 criteria | **44 of 986 = 4.46%** | **43 of 968 = 4.44%** |
+
+**Residual** per cell {2: 0, 3: 1, 4: 17}, worst **17**, D1 bound **18**.
+**Join** on rubric criterion texts: **968 of 968 exact**, 0 unmatched, 0 ambiguous (R468 reproduced).
+**Unscored**: **18**, core sizes **{3: 1, 4: 17}**; `release − unscored` = **{2: 1, 3: 42, 4: 925}** =
+the scored distribution **exactly**.
+**Short-core mechanism**: empty **0** · whitespace-only **0** · duplicate-within-record **0** ·
+criterion text length min **31** median **89** max **215**.
+
+**`coval_core` clause-② standing**: all 968 prompts A2 **0.5665**, q **1.0000**, q_res **0.9978** ·
+4-criterion-only 925 prompts A2 **0.5671**, q **1.0000**, q_res **0.9978**. ⚠ near-determined — R782
+had already measured 0.9978.
+
+**Controls.** OBJECT as above, exit 2 otherwise · CROSS-INSTRUMENT exact after the join · PLACEBO
+identical recount · g=0 empty list counts 0, **0** empty cores · POSITIVE injected {0,1,4,39}
+recovered exactly, broken character-counter returns {2,20,80,809} · DUPLICATES **0** ·
+⛔ NEGATIVE and SHAM **declined in the preregistration** on D2 and D3. **WORLD A.**

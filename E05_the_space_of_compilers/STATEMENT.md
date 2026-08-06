@@ -1592,3 +1592,34 @@ are strict subsets of the object's 26, and both drop the released core.
 
 **Scope**: 968 prompts · 50 home-judge arms with full coverage, 26 modal-k=4 · criterion indices per
 prompt and A2 over all annotators · the 1,820-subset class with n_eff = 1.1 (R781) · home judge.
+
+## R783 · The shortness is SHIPPED, and two instruments agree exactly once the join is applied
+
+**R782's headline survives its own attack and upgrades from *the scored core* to *the core as
+released*.** `data/conversation_rubrics.jsonl` carries **986** conversations, and **44 of them
+(4.46%)** ship a `coval_core` with fewer than four criteria — **{2:1, 3:43, 4:942}** — while
+`coval_full`, the rubric, never drops below 4 on any record. The scored side reads **{2:1, 3:42,
+4:925}** from `sat_coval_core.npz`, an instrument sharing no code path with the release JSON.
+
+⭐⭐ **AND THE AGREEMENT IS EXACT, NOT MERELY BOUNDED.** The **18** released records never scored have
+core sizes **{3:1, 4:17}**, so `release − unscored = {2:1, 3:42, 4:925}` — the scored distribution,
+cell for cell. The join was rebuilt from rubric criterion texts: **968 of 968 exact, 0 unmatched, 0
+ambiguous**, reproducing R468.
+
+⭐ **The 44 short cores are short for no artifactual reason**: **0** empty items, **0**
+whitespace-only, **0** duplicates within a record, criterion text length 31 / 89 / 215 (min / median /
+max). The generator produced fewer distinct substantive criteria.
+
+⛔ **AND THE ROUND'S OWN IMPOSSIBILITY REGISTER CONTAINED A FALSE WALL.** I registered *"which 18
+records went unscored, by id — requires the recovered cross-space key"*, and **R468 had already
+established the join is exact and total and needs no new data.** The wall was mine: `NEXT_SITE.md`
+item 2 states the join correctly. **A fabricated impossibility, written into the round adjacent to
+R780, which exists because I had been copying a fabricated impossibility into every round.**
+
+⚠ **E4 is reported with its power rather than as a finding**: `coval_core`'s clause-② standing is
+q_resolved **0.9978** on all 968 prompts and **0.9978** on the 925 four-criterion prompts — but R782
+had already put it at 0.9978, so the cell had almost no room to move. It establishes only that the
+released core's ② standing does not rest on its short prompts, and it is labelled as near-determined.
+
+**Scope**: 986 released conversations and 968 scored prompts · JSON list length, distinct criterion
+indices, A2 over all annotators · the 1,820-subset class carries n_eff = 1.1 (R781) · home judge.

@@ -20132,3 +20132,33 @@ misalign predictions against targets, §4's poison, returning **−0.1234**. Thi
 rounds, and the first whose remedy is not a better sham but the admission that **the control is
 undefined for the object**. The REPLICA pair carried the round instead. *Before building a control,
 check that the object HAS the thing the control removes.*
+
+## 1132 · R783's impossibility register contained a wall that R468 had already demolished
+
+I registered *"which 18 records went unscored, by id — the recovered cross-space key; the id spaces
+are disjoint"* as structurally impossible. **R468, titled "the join exists and is exact", established
+that the rubric CRITERION texts are short exact strings carried in both spaces, so the join needs no
+threshold and no new data.** Rebuilt from scratch inside the same round: **968 of 968 exact, 0
+unmatched, 0 ambiguous**, and the 18 unscored records are named. `NEXT_SITE.md` item 2 states this
+correctly, so the spec was right and my register was wrong. *A fabricated impossibility written into
+the round standing next to R780 — the round that exists because I had been copying a fabricated
+impossibility into every round for two hundred rounds. The lesson did not transfer across two days;
+what stopped it here was reading R468, not remembering R780.*
+
+## 1133 · the object check printed an impossibility the same script refuted forty lines later
+
+`OBJECT CHECK` printed *"per-record join IMPOSSIBLE, marginal only"* on the strength of a zero id
+overlap, and E2 then built the join. **§4's *the verdict string is not a computation*: the string
+asserted a property of the DATA from a fact about one COLUMN.** What is absent is a shared ID; a join
+is a different object. The string now says that. *An impossibility printed by a script reads as
+output and is never audited, which is exactly what makes it the cheapest place to put a false claim.*
+
+## 1134 · E4 was near-determined and is reported as such rather than as evidence
+
+`coval_core`'s clause-② standing came out q_resolved **0.9978** on all prompts and **0.9978** on the
+4-criterion subset. R782 had already measured 0.9978 — 1,816 of 1,820 references beaten resolvedly —
+so dropping 43 prompts had almost no room to move it. **The design could barely have embarrassed me**,
+which is §0's test failed, and the honest report is the narrow statement it does support: the released
+core's ② standing does not rest on its short prompts. *Not a retraction of a number but of a claim's
+weight — recorded because an unlabelled near-determined cell is how the arithmetic trap enters a
+round that is otherwise controlled.*
