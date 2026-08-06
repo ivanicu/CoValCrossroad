@@ -1947,6 +1947,46 @@ p99**: between **1% and 10%** of the blind subsets beat the bar the word *every*
 > was caught by the measurement contradicting my own derivation**, which is the only reason a
 > mislabelling that had been quoted three times was ever examined.
 
+> ⭐⭐ **AND THE SIGN SURVIVES THE 60× WIDER FAMILY, MONOTONICALLY — R862, measured, D8.** R861
+> refused to transfer its 0.966 to R860's 1,820-subset family. R862 measured it there instead, as a
+> **dose-response in family width** rather than one cell:
+>
+> | w | ratio `MDE_sel/MDE_fix` | switch % | distinct winners |
+> |---:|---:|---:|---:|
+> | **1** | **1.000000** (placebo, exact) | 0.0% | 1.0 |
+> | 30 | 0.9901 | 12.4% | 5.7 |
+> | 100 | 0.9729 | 44.5% | 11.1 |
+> | 300 | 0.9698 | 60.2% | 19.5 |
+> | 1000 | 0.9631 | 60.7% | 26.7 |
+> | **1820** (complete enumeration) | **0.9564** | 69.3% | 36.7 |
+>
+> ⭐ **Monotone decreasing across all six widths, no reversal**, trend −0.0337 at roughly 10× its
+> own between-cell SE. **WORLD A: clipping STRENGTHENS with width.** 4-subsets of a 16-pool overlap
+> heavily, so a wider family is a max over more and *more correlated* variables, and extreme-value
+> concentration truncates the lower tail harder.
+>
+> ⛔ **R861's closing sentence guessed the opposite** — *"clipping should weaken as the family
+> widens and the winners stop being near-tied."* **Refuted.** That is the second directional guess
+> in two rounds the measurement reversed, and both were catchable **only because they were written
+> down**. R862 therefore pre-registered no direction at all and stated both mechanisms as a fork.
+>
+> ⚠ **Width is not the only variable, and the two rounds must not be merged.** At the SAME width
+> w=30 the two families give **0.966** (R861, criterion-free rules) and **0.9901** (R862, blind
+> 4-subsets). Different composition, different correlation structure, different clipping. **The
+> numbers sit side by side; neither stands for the other.**
+>
+> ⭐ **What this does to the object.** R860's published `margin/MDE = 0.870` for the universal
+> reading of clause ② becomes **0.910** once the argmax is re-selected inside the resample.
+> **It is still BELOW this project's 1.5× admissibility floor** — it would need a ratio ≤ **0.5800**
+> to clear, and the measured ratio is 0.9564. ⭐ **So the correction is real, it moves the number in
+> the flattering direction, and it changes no verdict: the universal reading of clause ② remains
+> unresolved at this design's resolution.**
+>
+> ⭐ **The kill checks are what make this readable**: R331's blind max, `coval_core`, **and R860's
+> own committed MDE `0.010343530538451993`** all reproduced at **|Δ| = 0.000e+00**, the last by
+> replaying R860's seed *and its draw order* — a comparison against the number on disk rather than
+> against a fresh re-derivation of it.
+
 **So the universal reading of clause ② has never been run**, and the disagreement about whether this
 definition admits its own instance is exactly that `0.0029`: `coval_core` clears a p99 bar and does
 not clear the maximum.
