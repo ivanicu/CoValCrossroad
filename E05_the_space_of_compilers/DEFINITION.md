@@ -7131,3 +7131,29 @@ the repaired separating dose targets SPREAD: at eps=0.05 naive **±0.0348** vs w
 both exactly 0 at eps=0 · NEGATIVE ⛔ the first version targeted `weighted`, which is
 **permutation-invariant by construction**, and returned a point mass — the **fifth degenerate null of
 this session**; repaired to the six movable members, each real value outside its own null.
+
+## R820 · the null-degeneracy detector — validated on ten labelled cases, and installed
+
+**Why here.** R819 counted five degenerate negative controls this session and proposed a gate. ⛔
+CHECK #422 found the architectural problem: **the committed artifacts do not contain the degenerate
+nulls** — each was repaired before anything was written — so a commit-time gate like the existing
+seven is structurally blind to this class. Only 9 recent rounds record a null field at all, under six
+inconsistent names. The detector therefore had to be a **runtime assertion**, not a gate.
+
+**⭐ Validated on ten labelled cases** — the five broken nulls and their five repaired counterparts,
+transcribed from `RETRACTIONS.md` and `R819/README.md`. **R1 (zero spread) fires on 4 of 5 BROKEN and
+0 of 5 REPAIRED**; **R2 (overshoot) fires on 2 of 5 broken and 2 of 5 REPAIRED** and is **unusable** —
+exactly as D1 predicted before the run, because R816's bad null and R819's good one both have
+|null| > |observation| with the same sign. Threshold sweep: R1 separates from 0 through **1e-3** and
+breaks at 1e-2; the installed default is **1e-9**.
+
+**⛔ The transcription check fired on 6 of 10 and was right** — my table used ASCII hyphens where the
+files use the Unicode minus U+2212, and cited the wrong file for two values. **⛔ And I manufactured
+the signature on R816**, encoding its reported centre **−0.870** as a zero-width interval when its
+real null was **[−1.283, −0.416]** over 200 draws; that inflated R1 to 5/5 until corrected back to
+the **4/5** R819 predicted.
+
+**Installed**: `assurance/null_is_informative.py`, raising on an all-zero null, on a point mass at
+the observation, and on fewer than two draws; silent on a null with genuine spread. Its message names
+the diagnosis — *the permutation is a no-op on this statistic; check whether the statistic is
+invariant to it by construction* — which is what four of those five rounds needed and none had.

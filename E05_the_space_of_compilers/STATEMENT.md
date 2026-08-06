@@ -2719,3 +2719,26 @@ estimand**, not a better estimate of the same one.
 
 **Scope**: 968 prompts, **920** with a defined ratio × 9 arms × 7 estimators · NBOOT 1,200 · first
 release, home judge.
+
+## R820 · One of the two candidate null-degeneracy rules works; the other must not be used
+
+| rule | fires on BROKEN | fires on REPAIRED | verdict |
+|---|---:|---:|---|
+| **R1 · zero spread** | **4 / 5** | **0 / 5** | **installed** |
+| R2 · overshoot | 2 / 5 | **2 / 5** | **unusable** |
+
+**R1 separates at every threshold from 0 through 1e-3** and breaks at 1e-2; the installed default is
+**1e-9**, six orders inside the boundary. ⭐ **R2's failure was predicted before the run**: R816's bad
+null and R819's good one both have |null| > |observation| with the same sign, so no centre-based rule
+can separate them — and it false-positives on two passing controls.
+
+⭐ **A commit-time gate cannot catch this class at all**: the artifacts hold only the *repaired*
+nulls, and 9 recent rounds record a null field under **six different names**. The detector is a
+runtime assertion, installed at `assurance/null_is_informative.py`.
+
+⛔ **The transcription check fired on 6 of 10** — ASCII hyphens against the files' Unicode minus, and
+two wrong file citations. ⛔ **And encoding R816's reported centre −0.870 as a zero-width interval
+manufactured the signature**, inflating R1 to 5/5 until corrected to its real **[−1.283, −0.416]**.
+
+**Scope**: 10 labelled cases from R809, R810, R813, R816, R819 · 2 rules × 6 thresholds · ⚠ **n = 10
+and no rate beyond this set is claimed** · the detector is deterministic.

@@ -21492,3 +21492,31 @@ these estimators is VARIANCE. *Every one was caught by its output looking wrong,
 The mechanism this project is missing is small and mechanical: run each declared null twice at
 different seeds and fail when its spread is zero or its centre equals the observation. Four of the
 five would have been stopped before the round shipped.*
+
+## 1245 · the null-degeneracy detector is installed, catches 4 of 5, and the rule that would catch the fifth is unusable
+
+R819 proposed a gate against the five degenerate negative controls of this session. ⛔ CHECK #422
+found it could not be a gate at all: **the committed artifacts do not contain the degenerate nulls**,
+because each was repaired before anything was written, and only 9 recent rounds record a null field —
+under **six inconsistent names**. A commit-time check sees only what survived, so the detector had to
+be a RUNTIME assertion. Validated against ten labelled cases: **R1 (zero spread) fires on 4 of 5
+broken and 0 of 5 repaired**, separating at every threshold from 0 through **1e-3** and breaking at
+1e-2, with the installed default at **1e-9**. **R2 (overshoot) fires on 2 of 5 broken and 2 of 5
+REPAIRED and is unusable** — predicted by D1 before the run, since R816's bad null and R819's good
+one both carry |null| > |observation| with the same sign. ⭐ So the honest bound is stated rather than
+smoothed: **the zero-spread signature is catchable and the overshoot one is not**, and the rule that
+would catch it costs more in false alarms than it buys.
+
+## 1246 · the transcription check fired on 6 of 10, and I had manufactured a signature on the seventh
+
+§4 warns that a control validated only against invented cases is validated against imagination, so
+every one of the ten transcribed values had to be found LITERALLY in the file it cites before any
+rule ran. **Six of ten were missing**: my table used ASCII hyphens where the committed files use the
+**Unicode minus U+2212**, and cited `RETRACTIONS.md` for two values living only in a round README.
+⛔ **And the corrected run then reported R1 firing on 5 of 5 — better than predicted — because I had
+encoded R816's null as a POINT.** Its broken null was `−0.870 [−1.283, −0.416]` over 200 draws:
+**not degenerate in spread at all**, only wrong in centre. Recording a reported centre as a
+zero-width interval **manufactured exactly the signature the rule detects**, and corrected to its
+real interval the count returned to the **4/5 R819 predicted**. *A validation set is an instrument
+too, and encoding a point estimate as an interval is the same class of error as the nulls it was
+built to catch — committed inside the round whose whole subject was that class.*

@@ -1,7 +1,8 @@
 {
- "count": 205,
+ "count": 206,
  "notes": {
   "44f05d1f": "R789's commit body: 'every arm above it reads the target'. VERIFIED at the object in check #392a -- corebench/select_core.py:161 (indep_k), :168 (greedy_k), :180 (oracle) each call tgt.get(pid). Frozen because gate 5 cannot see the commit it gates: the body becomes visible only once HEAD has moved past it.",
+  "566547cf": "R819's commit body: 'Each was caught by its output looking wrong, NEVER by a CHECK.' MEASURED by R820, the round that acted on this line: CHECK #422 established that no check existed which could have caught them -- the committed artifacts hold only the REPAIRED nulls, and 9 rounds record a null field under 6 inconsistent names, so a commit-time gate is structurally blind to this class. R820 then built the first such check and validated it at 4/5 broken, 0/5 repaired. So the quantifier is not unquantified; it is now the measured premise of an installed instrument. Frozen because gate 5 cannot see the commit it gates.",
   "eae6d0f9": "R791's commit body: 'R733, R457, R771, R772 and R774 all decompose across PROMPTS'. VERIFIED at each README's opening lines in check #395 -- R733 per-prompt profile, R457 per-prompt advantage reliable, R771/R772 a shared prompt factor, R774 the separability scale is 28% prompt. Frozen because gate 5 cannot see the commit it gates.",
   "ef7617e9": "R817's commit body: 'a large part of A2 is available with no prompt-specific content at ALL. Construct the best ARM that uses NO per-prompt information'. FALSE POSITIVE of the detector: the 'all' is an intensifier inside 'at all', not a quantifier over arms, and it happens to sit within +/-60 chars of 'arm'. VERIFIED in check #420 and MEASURED by R818, which is the round that acted on this very line: the best constant weak order scores 0.449421 prompt-weighted, 65.08% of the attainable 0.686265 -- so the claim the line makes is not merely unquantified, it is now quantified and confirmed. Frozen because gate 5 cannot see the commit it gates: a body becomes visible only once HEAD has moved past it."
  },
@@ -100,6 +101,7 @@
   "512ccf26",
   "5363b408",
   "547ffd79",
+  "566547cf",
   "57000438",
   "589f3097",
   "59aada3c",

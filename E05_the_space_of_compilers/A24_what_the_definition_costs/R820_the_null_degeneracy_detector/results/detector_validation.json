@@ -1,0 +1,150 @@
+{
+ "claim_unit": "a RULE",
+ "controls": {
+  "gate": true,
+  "ladder": {
+   "0.0": true,
+   "0.001": false,
+   "0.01": false,
+   "1e-06": false,
+   "1e-09": true
+  },
+  "negative_ok": true,
+  "placebo_ok": true,
+  "positive_ok": true
+ },
+ "e2": {
+  "r1_broken": 4,
+  "r1_repaired": 0,
+  "r2_broken": 2,
+  "r2_repaired": 2,
+  "rows": [
+   {
+    "hi": -0.1317,
+    "label": "BROKEN",
+    "lo": -0.1317,
+    "obs": -0.1317,
+    "r1": true,
+    "r2": false,
+    "round": "R809"
+   },
+   {
+    "hi": 0.0156,
+    "label": "BROKEN",
+    "lo": 0.0156,
+    "obs": 0.0116,
+    "r1": true,
+    "r2": true,
+    "round": "R810"
+   },
+   {
+    "hi": 0.0099,
+    "label": "BROKEN",
+    "lo": 0.0099,
+    "obs": 0.0099,
+    "r1": true,
+    "r2": false,
+    "round": "R813"
+   },
+   {
+    "hi": -0.416,
+    "label": "BROKEN",
+    "lo": -1.283,
+    "obs": -0.553,
+    "r1": false,
+    "r2": true,
+    "round": "R816"
+   },
+   {
+    "hi": 0.5162,
+    "label": "BROKEN",
+    "lo": 0.5162,
+    "obs": 0.5162,
+    "r1": true,
+    "r2": false,
+    "round": "R819"
+   },
+   {
+    "hi": 0.1021,
+    "label": "REPAIRED",
+    "lo": -0.1317,
+    "obs": -0.1317,
+    "r1": false,
+    "r2": false,
+    "round": "R809"
+   },
+   {
+    "hi": -0.1107,
+    "label": "REPAIRED",
+    "lo": -0.1325,
+    "obs": 0.0116,
+    "r1": false,
+    "r2": true,
+    "round": "R810"
+   },
+   {
+    "hi": 0.0104,
+    "label": "REPAIRED",
+    "lo": 0.009,
+    "obs": 0.0099,
+    "r1": false,
+    "r2": false,
+    "round": "R813"
+   },
+   {
+    "hi": 0.086,
+    "label": "REPAIRED",
+    "lo": -0.091,
+    "obs": 0.368,
+    "r1": false,
+    "r2": false,
+    "round": "R816"
+   },
+   {
+    "hi": 1.2287,
+    "label": "REPAIRED",
+    "lo": 1.0591,
+    "obs": 0.0617,
+    "r1": false,
+    "r2": true,
+    "round": "R819"
+   }
+  ]
+ },
+ "e3": {
+  "0.0": [
+   4,
+   0
+  ],
+  "0.0001": [
+   4,
+   0
+  ],
+  "0.001": [
+   4,
+   0
+  ],
+  "0.01": [
+   4,
+   1
+  ],
+  "1e-06": [
+   4,
+   0
+  ],
+  "1e-09": [
+   4,
+   0
+  ]
+ },
+ "e4": {
+  "installed": true,
+  "path": "assurance/null_is_informative.py"
+ },
+ "instrument_unit": "a declared NULL",
+ "object": {
+  "total": 10,
+  "verified": 10
+ },
+ "world": "A"
+}
