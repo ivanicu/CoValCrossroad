@@ -23267,3 +23267,40 @@ which is the same unit error as the arm/pair confusions earlier in this arc.
 
 **What this changes about the record**: nothing measured moves. **What moves is a specification** —
 the extension is now a precise, checkable procedure instead of a direction.
+
+## 1305 · the gate I proposed to build exists, computes my exact formula, and its population is disjoint from the one I need
+
+My NEXT said to implement the symmetry precondition *"as its own gate."*
+⛔ **`assurance/interval_is_centred_on_its_point.py` already does, and with my formula verbatim:**
+
+```
+offcentre = (point − (lo + hi)/2) / ((hi − lo)/2)
+```
+
+which is exactly the asymmetry I computed last round as *"|centre − effect| / half-width"* and
+presented as a specification. **It carries a synthetic control (centred → +0.000, displaced →
++0.900) and a REAL control (R141's `raters` nodes must sit off-centre — 14 nodes, |offcentre|
+0.80–1.37), both PASS.** **P4, again, and this time the thing I proposed to build was not merely on
+disk — it was already controlled better than my sketch.**
+
+⭐ **AND THE POPULATIONS ARE DISJOINT, WHICH IS THE PART THAT MATTERS.**
+
+| | rounds | example |
+|---|---|---|
+| the gate covers | **42** | `R06` · `R111` · `R116` — early epochs |
+| my A24 probe reaches | **13** | `R304` · `R429` · `R430` |
+| **intersection** | **0** | — |
+
+**So the gate does not reach a single one of the A24 intervals R839's extension needs**, and its own
+scope note already says why: *"this only sees pairs the coherence scanner could pair UNAMBIGUOUSLY,
+and that scanner skips **5,186** nodes because the CI's own stem names another key. A candidate
+absent from this table is NOT cleared — it is unpaired, which is a different thing."*
+
+**The remaining work is therefore widening the PAIRING, not writing a gate** — and the gate had
+already named that as its known limit before I went looking.
+
+⚠ **The general shape, and it is the cheapest lesson in the arc**: *P4 was run on the NAME and passed
+the formula.* I checked whether a symmetry gate existed only after deriving the formula, writing the
+specification, and publishing it as a NEXT. **The prior-art gate is cheapest before the estimand is
+written, and I keep running it after** — which is the same sentence ledger 1273 recorded, in an arc
+that has since fired P4 six times.
