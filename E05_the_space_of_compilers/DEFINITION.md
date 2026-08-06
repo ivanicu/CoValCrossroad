@@ -522,7 +522,12 @@ by choosing the convenient branch** — the two differ in what "core" *means*, a
 adjudicate them. *(R475)*
 
 ⭐⭐ **AND THE GAP THAT LEAVES ②∧③ UNDETERMINED HAS REAL PER-PROMPT STRUCTURE (R494–R497).** Settling
-②∧③ needs a better ③-admissible arm than `gen` (p32.6). Four candidate explanations for its deficit
+②∧③ needs a better ③-admissible arm than `gen` (p32.6). ⭐⭐ **AND R822 SHOWS THAT GAP IS ALSO AN
+UNNAMED-ESTIMAND GAP, NOT ONLY A POWER GAP.** `gen`'s ② margin against the prompt-blind pool moves
+**−0.0049 (annotator-weighted) → −0.0071 (prompt-weighted) → −0.0077 (subgroup-weighted)** — a 57%
+swing, larger than the design's own noise floor of **0.0057**, and it **straddles the exclusion
+threshold**: ② excludes 29, 30 or 31 of 58 arms depending on the cell. **More data cannot settle a
+question whose estimand is unnamed.** Four candidate explanations for its deficit
 were tested and four died. **Repetition:** `gen` repeats phrasings up to 29× against `coval_core`'s
 near-total uniqueness, but stratifying prompts by that repetition gives a gradient of **−0.0357** in
 `gen` and **−0.0393** in `generic` — whose criteria are identical on every prompt and therefore cannot
@@ -7178,3 +7183,32 @@ this one round before that was derived; both were caught by `assurance/null_is_i
 first live use, one round after being installed. The admissible negative control resamples the arm
 from the floor's own per-prompt distribution: **−0.00001 ± 0.00525** against a real margin of
 **+0.08188**.
+
+
+## R822 · the clause counts under the estimand nobody chose
+
+**The grid**: weighting {prompt, annotator, subgroup} × resampling {prompt, annotator}, 6 cells,
+968 prompts · 1,012 annotators · 15,593 judgements · 33 subgroups at n≥200 · 58 arms.
+
+⭐ **ALL CLAUSE COUNTS IN THIS FILE ARE PROMPT-WEIGHTED. That default was never chosen, and for two
+of the three clauses it does not matter.**
+
+| clause | over the 6 cells | |
+|---|---|---|
+| **④** | **0 of 58 in all six** | invariant — R821's retention does not rest on the default |
+| **③** | **23 of 58 in all six** | invariant, and **necessarily so**: ③ reads the arm's SOURCE, not its score. Its invariance is this grid's free falsifier and it passed. |
+| **②** | **29 / 30 / 31** | **MOVES.** Two arms flip: `gen` (outside the noise floor) and `topw_k12` (inside it, sign unresolved). |
+
+**So ② — the clause the table at L128 records as carrying the whole boundary among label-free arms —
+is the one whose boundary is estimand-dependent.** Any future ② count must state its weighting.
+
+⛔ **A DERIVATION, not evidence.** Resampling cannot move a point estimate, only its CI, so the 6
+cells carry **3** distinct quantities; a verdict change at fixed weighting is precision, never
+estimand. The three weightings are nonetheless genuinely distinct (max |Δmargin| 0.0086 / 0.0053 /
+0.0076, pairwise corr ≥ 0.99904), so the grid is not a reparameterisation.
+
+⭐ **AND THE SUBGROUP COLUMN IS NEARLY FREE.** The sham — subgroup weighting over **random groups of
+matched size** — reproduces the real demographic subgroups at **corr 0.99988**, and correlates with
+plain prompt weighting at **0.99938**. The ingredient is not *which* groups; it is barely that
+grouping happens. **Any future proposal for a demographically-weighted estimand should be shown this
+number before it is built.**

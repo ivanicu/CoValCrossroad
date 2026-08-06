@@ -21588,3 +21588,57 @@ was applied to ① and never to ④**, and nothing in 300 rounds carried it the 
 **The definition is ② ∧ ③ ∧ ④ with size > 1, as the head states.** The repair landed in the head,
 the L1820 annotation, `STATEMENT.md` and this ledger **in one commit** — because the thing being
 retracted is precisely a repair that reached one place and not the other.
+
+## 1250 · my own R821 NEXT line was algebra dressed as a measurement, and CHECK #424 killed it
+
+R821's NEXT proposed building an arm **below the floor on average but above it on some prompts**, to
+see where ④'s bar sits as the per-prompt overlap grows.
+
+**R821 had already derived that ④'s statistic is a difference of corpus means.** An arm below the
+floor *in the mean* is therefore removed **regardless of its per-prompt profile** — the proposed
+measurement was forced by algebra I had written down in the same commit. And R516
+(`a per-prompt clause ① is not well-defined`) had already measured per-prompt win rate against a
+clause comparator, so the proposal was *also* a re-run with the comparator swapped.
+
+**The NEXT line is where the arithmetic trap survives a round that otherwise caught it.** R821's own
+ledger entry 1247 is about paying two runs for a derivation I could have done in three lines; the
+NEXT line at the bottom of that same commit proposed a third. **A round's NEXT is written when the
+round is finished and the gates have already passed — it is the one sentence in the artifact that no
+check ever reads.** `next_line_quantifiers_are_computed.py` guards the NEXT for bare quantifiers and
+would not have caught this, because the sentence was quantified and provenanced and simply
+*derivable*. Remedy adopted: **the first act of every check is to run the previous NEXT through the
+gauge test and the arithmetic rung before designing anything from it** — which is how #424 found it.
+
+## 1251 · WORLD B fired on a kill that did not implement its own preregistration
+
+R822's preregistration states the three-way branch explicitly: identical in all six cells → WORLD A;
+differs **across weightings** → WORLD B; differs **only across resampling** → precision, not
+estimand. Derivation D1, written before any compute, makes the distinction load-bearing: *resampling
+cannot move a point estimate, only its CI.*
+
+**The kill I coded branched to WORLD B on `not c2_same` alone.** Clause ②'s counts are 29/29/29 under
+prompt-resampling and 31/30/30 under annotator-resampling — a pattern dominated by the resampling
+unit, which by D1 cannot change the quantity. **The code would have reported a PRECISION effect as
+an ESTIMAND effect**, and it printed `WORLD B` with the correct-looking evidence beside it.
+
+§4's *"the verdict string is not a computation"* — this time inside the kill, in a round whose
+preregistration contained the correct logic in plain English two files away. **A preregistration is
+not a control unless something checks the code against it.** The corrected branch separates the two
+axes and additionally requires a flipping arm to sit **outside** the noise floor. WORLD B survives:
+`gen` flips at −0.0049 / −0.0071 / −0.0077 against a floor of 0.0057.
+
+## 1252 · the bootstrap would have silently collapsed every repeated draw to weight one
+
+R822's `agg` closed over the full-length judgement index arrays, so every resampled call raised
+`ValueError`. **That it raised is luck.** Had the shapes happened to align, `np.bincount(PJ, ...)`
+would have pooled a prompt drawn twice back into a single bin — giving it weight **one**, not two —
+and the bootstrap would have returned intervals that looked entirely normal while sampling from the
+wrong distribution.
+
+**A resampling bug that raises is a bug; a resampling bug that pools is a published CI.** Callers now
+pass **draw-indexed** labels so a prompt drawn twice occupies two bins. Recorded because the
+noise-floor and E1 blocks had the identical defect and were fixed only because the first one crashed.
+
+⛔ **And the subgroup cell's negative control was computed under *prompt* weighting** while being
+compared to a **subgroup**-weighted real margin — R818's mixed-weighting defect, committed inside the
+control built to guard this very grid, one round after R818 entered the ledger for it.

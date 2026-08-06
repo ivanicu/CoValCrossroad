@@ -2777,3 +2777,40 @@ from the floor, so they are below it **uniformly**. Whether ④ removes an arm t
 *on average but above it on some prompts* is not measured by R821 — see R821 `results/which_definition.json`
 for the four plants actually run. The next round builds that arm and measures where ④'s bar sits as
 the per-prompt overlap grows.
+
+---
+
+## R822 · the clause counts are prompt-weighted, and for clause ② that matters
+
+**All clause counts in this deliverable are prompt-weighted. Nobody chose that.** R822 ran the
+estimand grid — weighting {prompt, annotator, subgroup} × resampling {prompt, annotator} — on the
+clause verdicts themselves.
+
+**④ and ③ are invariant.** ④ excludes **0 of 58** in all six cells, so R821's retention of it does
+not rest on the default. ③ excludes **23 of 58** in all six, and necessarily: ③ reads the arm's
+source, not its score. That invariance was this grid's free falsifier, and it passed.
+
+**② moves: 29 / 30 / 31 of 58.** Two arms flip. One is `topw_k12`, inside the noise floor with its
+sign unresolved. **The other is `gen` — the arm this deliverable's own open question rests on.** Its
+② margin runs **−0.0049 → −0.0071 → −0.0077** across weightings, a 57% swing against a noise floor
+of **0.0057**, straddling the exclusion threshold. **The ②∧③ question is open for lack of a named
+estimand, not only for lack of power — and more data cannot close that.**
+
+**Scope** · 968 prompts, 1,012 annotators, 15,593 judgements, 33 subgroups at n≥200, 58 arms ·
+instrument A2 against human pairwise signs, no model judge · baseline `genericpool16` for ②,
+R803's judge-free floor 0.4557 for ④ · regime: noise floors 0.00515 / 0.00556 / 0.00569 per
+weighting; BH over all 348 tests, 343 survive.
+
+⛔ **DERIVATION, not evidence**: resampling moves only the CI, so 6 cells carry **3** distinct
+quantities. The three weightings are genuinely distinct (max |Δmargin| 0.0086 / 0.0053 / 0.0076).
+
+⭐ **The subgroup column is nearly free**: random groups of matched size reproduce the real
+demographic subgroups at **corr 0.99988**.
+
+## NEXT
+
+`gen`'s ② verdict straddles the threshold under three weightings, so the ②∧③ question cannot be
+closed by adding data. What would close it is a **③-admissible arm whose ② margin exceeds the swing**
+— measured in R822 at 0.0028 between the extreme weightings, see
+`R822_does_the_definition_depend_on_the_estimand_nobody_chose/results/estimand_grid.json`. The next
+round measures whether any arm on disk already clears that swing, before any new arm is generated.
