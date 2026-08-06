@@ -4571,3 +4571,56 @@ figures carry no keyword anywhere · NEGATIVE detached windows drop the share 0.
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 24680, **both writes confirmed to
 disk** (3,356 / 3,360 bytes, differing only in the recorded seed).
+
+## R752 · the MDE refuses the comparison, and the formula computing it was too generous
+
+**Question.** R751 demanded the restricted detector be preregistered **and its MDE computed before the
+run**. Done in the preregistration: at **n = 33 vs 150**, MDE ∈ **[0.1174, 0.1924]** against gaps of
+**0.0206** and **0.0406**. **The comparison was dead before any code ran.**
+
+**⛔ Then the formula failed its own control.** Planting a difference of exactly the analytic MDE and
+running the exact test it approximates rejects **0.6237**, not 0.80 — 3 seeds, spread **0.0101**. The
+confound was written before the run: `0.05 × 33` is **under 2 expected events**.
+
+⭐ **The preregistration pre-authorised the repair**, so it was applied rather than improvised:
+
+| | analytic | **empirical (searched)** |
+|---|---|---|
+| MDE | 0.1174 | **0.1604** — 1.37× larger |
+| ratio to the gap | 2.89× | **3.95×** |
+| required n per arm | 453 | **846** vs **33** available |
+
+⚠ **The positive control is the monotone LADDER, not the search's own answer** — asserting the searched
+MDE rejects at 0.80 would be circular. `0 → m/2 → m → 2m` gives **0.0395 → 0.4460 → 0.7999 → 0.9954**.
+
+**The grid — 0 of 24 cells detect the gap.** Even the most permissive (p̄ 0.05, α 0.10, power 0.80,
+one-sided) is **0.0838**, twice the gap.
+
+**Controls — 5 PASS, 0 FAIL.** g=0 rejects at **0.0395 ≈ α** · NEGATIVE at 10× n moves the MDE
+0.1174 → **0.0371**, ratio **3.16** against √10 = 3.16, and the gap then rejects at **0.7823** —
+**the sample is the problem, not the estimator** · SHAM with the imbalance removed (both arms at the
+harmonic mean 54.1) leaves the MDE **unchanged**, so the imbalance is not the binding constraint ·
+PLACEBO exactly 0.
+
+**E2 — the census, n = 4, no rate computed.**
+
+| line | value | cites | keyword | scope language too? |
+|---|---|---|---|---|
+| 551 | `0.0022`, `0.0995` | R741 | `corrected` | **yes** — ambiguous |
+| 620 | `+0.0582`, `0.0200` | R514, R515 | `ungrounded` | **no** — clean |
+
+⇒ **2 of 4 are unambiguous groundedness declarations**; the other 2 sit under a `CORRECTED` marker that
+also carries scope language. **The same confusion that inverted R751's pooled detector, visible at the
+level of the individual figure** *(ledger 1027)*. ⛔ A census of 4 has **no interval and no power to
+generalise**.
+
+**Registered against measured.** P1 0.80 [0.70, 0.90] → **0.6237** ⛔ **FAILED, and it is the formula
+that failed, not the design** *(1025)* · P2 0.05 → **0.0395** ✓ · P3 800 → **453 analytic / 846
+empirical**, ⚠ **the registration named neither and neither is scored as a hit** *(1026)* · P4 4 → **4**
+✓ · P5 2 → **2** ✓ · D ✓.
+
+**Verdict — `WORLD B`.** The design is blind; the comparison is **REFUSED**; the census is the round's
+only claim about the page.
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 86420, **both writes confirmed to
+disk** (4,259 / 4,263 bytes, differing only in the recorded seed).

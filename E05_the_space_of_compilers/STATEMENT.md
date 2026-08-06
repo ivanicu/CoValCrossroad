@@ -162,6 +162,14 @@ supported carry annotation keywords at **0.5133** against **0.3030** for flagged
 **inverted**. The two keywords meaning *no source* (`ungrounded`, `corrected`) do point
 the right way at **0.0606 vs 0.0400** and **0.0606 vs 0.0200**, but that subset was identified **after**
 seeing the breakdown and is a hypothesis, not a finding.
+⛔ **AND THE COMPARISON THAT WOULD TEST IT IS REFUSED ON POWER** *(R752)*. At **33** flagged against
+**150** supported figures, the **empirical** minimum detectable effect is **0.1604** — **3.95×** the
+largest observed gap of **0.0406**, and **0 of 24** design cells can detect it. **846** figures per arm
+would be needed. ⚠ The analytic formula said **0.1174**, and planting exactly that rejects only
+**0.6237** of the time, not 0.80 — **the normal approximation overstates this design's power by 1.37×**
+because the smaller arm expects under 2 events. **What stands is a census of 4**, from which no rate is
+computed: **2** are the ungrounded pair already annotated, and **2** sit under a `CORRECTED` marker that
+also carries scope language, so the keyword cannot say which job it does.
 
 | # | claim | scope it holds over |
 |---|---|---|

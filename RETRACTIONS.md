@@ -18988,3 +18988,32 @@ right way while the two carrying scope and verdict language dominate the pool an
 That restricted detector is not reported as a result, because selecting it after seeing which subset
 favours the hypothesis is choosing the specification from the outcome. It is a hypothesis for a round
 that preregisters it.
+
+## 1025 · the power formula I used to refuse a comparison was itself too generous by a third
+
+The refusal rested on a minimum detectable effect computed from the normal approximation. Planting a
+difference of exactly that size and running the exact test it approximates rejects sixty two per cent
+of the time rather than eighty, across three seeds with a spread of one point. The approximation is
+poor here because the smaller arm expects under two events, which is the confound written into the
+preregistration before the run. Searching for the plant size that really rejects eighty per cent gives
+a minimum detectable effect a third larger, and the required sample per arm rises from four hundred and
+fifty three to eight hundred and forty six against thirty three available. The refusal stands and is
+stronger, but it would have been quoted on a number the design could not deliver.
+
+## 1026 · my registered sample size did not say which of two quantities it meant
+
+I registered the required sample per arm at eight hundred with a band from two hundred to five
+thousand. The analytic answer is four hundred and fifty three and the empirical answer is eight hundred
+and forty six, and the registration named neither, because when I wrote it I did not know the formula
+would fail its own control. Both are reported and neither is scored as a hit, since choosing the one
+nearer the registered value after seeing both is the same error as choosing a subset after seeing which
+way it points.
+
+## 1027 · two of the four annotations a groundedness detector found are doing a different job
+
+The census reads all four figures the restricted detector flags. Two carry the word ungrounded with no
+scope language nearby and are the pair an earlier round established as having no source. The other two
+sit under a correction marker that also carries scope language, so the keyword alone cannot say whether
+it repairs a groundedness defect or records a change of scope. That is the same confusion which
+inverted the pooled detector one round earlier, now visible at the level of the individual figure
+rather than as an aggregate rate, which is what a census buys that a rate does not.
