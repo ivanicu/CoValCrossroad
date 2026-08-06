@@ -2742,3 +2742,38 @@ manufactured the signature**, inflating R1 to 5/5 until corrected to its real **
 
 **Scope**: 10 labelled cases from R809, R810, R813, R816, R819 · 2 rules × 6 thresholds · ⚠ **n = 10
 and no rate beyond this set is claimed** · the detector is deterministic.
+
+---
+
+## R821 · the deliverable is the head, and clause ④ is falsifiable
+
+**The definition is ② ∧ ③ ∧ ④ with size > 1.** The competing `② ∧ ③` sentence that had stood beside
+it for 80 rounds is overturned, not merely superseded — its stated reason was that ④ is *identical to
+①*, and it is not.
+
+**Why they differ.** ① is DERIVED: its binding region is empty by arithmetic. ④ is MEASURED, and its
+binding region is **non-empty and reachable** — planted arms are removed at δ = 0.10, 0.05 and 0.01
+below the judge-free floor **0.4557**, and the arm planted at δ = 0 is correctly kept. Two clauses at
+`0 of N` for opposite reasons.
+
+**Why 380 rounds could not see this.** Every prior round counted arms. The claim's unit is a
+**clause**; the instrument's unit is an **arm**. Counting a fixed arm space measures the space, never
+the clause — only planting does, and no round had planted.
+
+**Scope** · population 968 prompts, 58 arms · instrument A2 against human pairwise signs, no model
+judge · baseline R803's judge-free floor **0.4557** · regime: δ = 0.01 is resolved against a
+half-split noise floor of **0.0067**. ④ excludes **0 of 58** at home, with `full_sham` UNVERIFIED at
++0.0047 [−0.0080, +0.0178].
+
+⛔ **DERIVATION, not evidence**: ④'s statistic is a difference of corpus means and is
+permutation-invariant by algebra (max |Δ| over 20 permutations = 0.000e+00), so **no permutation null
+exists for clause ④**. The negative control resamples instead: **−0.00001 ± 0.00525** against a real
+margin of **+0.08188**.
+
+## NEXT
+
+R821 retained ④ on the strength of a *planted* arm. The plants were built by subtracting a constant
+from the floor, so they are below it **uniformly**. Whether ④ removes an arm that is below the floor
+*on average but above it on some prompts* is not measured by R821 — see R821 `results/which_definition.json`
+for the four plants actually run. The next round builds that arm and measures where ④'s bar sits as
+the per-prompt overlap grows.

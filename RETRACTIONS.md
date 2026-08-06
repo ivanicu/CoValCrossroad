@@ -21520,3 +21520,71 @@ zero-width interval **manufactured exactly the signature the rule detects**, and
 real interval the count returned to the **4/5 R819 predicted**. *A validation set is an instrument
 too, and encoding a point estimate as an interval is the same class of error as the nulls it was
 built to catch — committed inside the round whose whole subject was that class.*
+
+## 1247 · the sixth AND seventh degenerate nulls, one round apart, and the second was my fix for the first
+
+`assurance/null_is_informative.py` was installed by R820. **It fired on R821 — the very next round,
+on the first live use, on my own code, twice.**
+
+**v1** counted how many arms ④ excludes under a floor permuted across prompts. That count is **0 in
+every draw by construction**, so spread was exactly `0.000e+00` over 200 draws.
+
+**v2 — the repair — was degenerate for the same reason as v1.** I replaced the count with the mean
+arm margin, and `(A2[a] − fp).mean() = A2[a].mean() − fp.mean()` while `fp` is a permutation of
+`floor_v`, so `fp.mean() == floor_v.mean()` **exactly**. Centre `+0.081884`, observed `+0.081884`,
+spread `0.000e+00`. **I fixed one permutation-invariant statistic by choosing another.**
+
+⭐ **The three-line derivation that made both unnecessary, run only on the third attempt:** ④'s
+statistic is a **difference of corpus means**, hence permutation-invariant **by algebra** — verified
+over 20 permutations, max |Δ| = `0.000e+00`. So **a permutation null is structurally unavailable for
+clause ④**, and that is not a defect but a fact about the clause: *④ cannot see which prompt the
+floor came from.* The admissible control resamples the ARM from the floor's own per-prompt
+distribution: `−0.00001 ± 0.00525` against a real margin of `+0.08188`, on zero and outside its whole
+range.
+
+**Why this is the entry and not the fix.** §3's attack ladder puts **arithmetic at rung 2 and
+compute at rung 4**, and R819's entry already named `Σm/Σs` as permutation-invariant by
+construction. I had the rule, the ledger entry, *and* a freshly-installed detector for exactly this,
+and still reached for a second permutation before asking whether the algebra forbade it. **A
+detector that catches the error is not a substitute for the derivation that prevents it — it only
+makes the second attempt cheap.** The right cost here was three lines of algebra; I paid two full
+runs instead.
+
+## 1248 · I printed the counts one line below declaring the instrument uncalibrated
+
+R821's E3 counts contradictory statements in `DEFINITION.md` by regex. §4: **a search is an
+instrument and needs a positive control**, so the round calibrated the pattern on two known answers
+first. **The calibration failed** — my literal carried the asterisks inside the phrase
+(`the definition is **② ∧ ③**`) where the file has them outside
+(`**SUPERSEDED — the definition is ② ∧ ③**`).
+
+The round printed `⛔ the pattern cannot see a known answer — it is not used to count. UNVERIFIED.`
+**and then printed `statements conjoining ②∧③∧④: 3   statements saying ②∧③: 1` on the next line.**
+
+§4's *"the verdict string is not a computation"*, committed one line below the sentence that declared
+the instrument unfit. The counts are now **withheld** (`n_full = n_pair = None`), not printed with a
+caveat — because **a number printed beside a disclaimer is read as a number**, and the disclaimer is
+what gets dropped when it is quoted. The calibration now passes and the counts are earned.
+
+## 1249 · RETRACTED: clause ④'s retirement (R519, R599) — the reason was wrong
+
+R519 retired clause ④ from the definition on the ground that it is **"identical to ①"**: both exclude
+`0 of N` arms. `DEFINITION.md:1820` has carried that retirement, and the file's head has carried
+**②∧③∧④** — **two incompatible definitions, for 80 rounds, in one deliverable.**
+
+**The reason does not survive R821.** ① is **DERIVED**: its binding region is *empty by arithmetic*
+(`GAP ≥ SLACK` on every arm, R347). ④ is **MEASURED**, and R821 planted arms below R803's judge-free
+floor **0.4557**: ④ removes them at δ = 0.10, 0.05 and **0.01** — finer than the design's own
+half-split noise floor of **0.0067** — and correctly keeps the one at δ = 0. **④'s binding region is
+non-empty and reachable.** Two clauses sitting at `0 of N` for opposite reasons.
+
+**Why 380 rounds could not separate them.** Every round counted arms. **The claim's unit is a CLAUSE;
+the instrument's unit is an ARM.** Counting a fixed arm space measures the space, never the clause —
+only planting can, and no round had planted. The distinction was already written in this same file
+eight lines from its own clause table (L385–393): *"excludes nothing BUILT" ≠ "excludes nothing
+CONSTRUCTIBLE"*, and `0 of 41` is *"a fact about the ARM SPACE rather than about the clause."* **It
+was applied to ① and never to ④**, and nothing in 300 rounds carried it the eight lines across.
+
+**The definition is ② ∧ ③ ∧ ④ with size > 1, as the head states.** The repair landed in the head,
+the L1820 annotation, `STATEMENT.md` and this ledger **in one commit** — because the thing being
+retracted is precisely a repair that reached one place and not the other.

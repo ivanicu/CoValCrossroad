@@ -1817,7 +1817,7 @@ choice does more work than the criterion.** It is not a clause; it is a knob.
 
 ⭐ **Resolution of the ① question, across R514–R516:** globally ① is subsumed by ② (empirically, on
 all 41 arms, with ~3 CI-widths of slack); per-prompt it is ill-posed. **① is deletable, and now for
-a demonstrated reason rather than an assumed one.** The definition is **② ③ ④**. ⚠ **SUPERSEDED — the definition is ② ∧ ③** *(R519, R599)*. This line predates R519, which measured clause **④ dropping 0 of the 9 ②-passers — identical to ①** — so ④ adds nothing and was retired alongside it. **The retirement reached the claim table and not this sentence**, which is why the deliverable stated two different definitions for 80 rounds. Annotated rather than rewritten (L81): the reasoning below about ① is unaffected and still correct.
+a demonstrated reason rather than an assumed one.** The definition is **② ③ ④**. ⚠ **SUPERSEDED — the definition is ② ∧ ③** *(R519, R599)*. This line predates R519, which measured clause **④ dropping 0 of the 9 ②-passers — identical to ①** — so ④ adds nothing and was retired alongside it. **The retirement reached the claim table and not this sentence**, which is why the deliverable stated two different definitions for 80 rounds. Annotated rather than rewritten (L81): the reasoning below about ① is unaffected and still correct. ⭐⭐ **AND THE RETIREMENT IS ITSELF OVERTURNED (R821) — THE HEAD IS THE DELIVERABLE, ④ IS RETAINED.** The retirement's stated reason was that ④ is *"identical to ①"*. It is not, and the distinction is one this very file already draws eight lines from its own clause table (L385–393): **"excludes nothing BUILT" ≠ "excludes nothing CONSTRUCTIBLE"**, and a count of `0 of N` is *"a fact about the ARM SPACE rather than about the clause."* ① is **DERIVED** — its binding region is *empty by arithmetic* (`GAP ≥ SLACK` on every arm, R347). ④ is **MEASURED**, and R821 ran the test no round in 380 had run: **plant an arm below the floor and see whether ④ removes it.** It removes the plants at δ = 0.10, 0.05 and **0.01** — finer than the design's own noise floor of **0.0067** — and does **not** remove the one at δ = 0. So ④'s binding region is **non-empty and reachable**; it is a clause that has never had to fire, not one that cannot. Two clauses sitting at `0 of N` for opposite reasons, and 80 rounds of counting arms could never have separated them, because **the claim's unit is a CLAUSE and the instrument's unit is an ARM** (§4). On the current 58-arm set ④ still excludes **0 of 58**, with `full_sham` **UNVERIFIED** at +0.0047 [−0.0080, +0.0178]. **The definition is ② ∧ ③ ∧ ④ with size > 1, as the head states.**
 
 **What is NOT claimed:** that no principled per-prompt aggregation exists. Choosing one is a
 construct claim and needs an external standard for what a core must do — which this site does not
@@ -7157,3 +7157,24 @@ the **4/5** R819 predicted.
 the observation, and on fewer than two draws; silent on a null with genuine spread. Its message names
 the diagnosis — *the permutation is a no-op on this statistic; check whether the statistic is
 invariant to it by construction* — which is what four of those five rounds needed and none had.
+
+
+## R821 · which definition is the deliverable
+
+**The deliverable is the head: ② ∧ ③ ∧ ④, size > 1.** The `② ∧ ③` retirement at the R470 line is
+overturned above; the contradiction that stood for 80 rounds is closed by evidence rather than by
+choosing the newer sentence.
+
+**Clause ④ is free-but-real.** Excludes **0 of 58** arms at home (1 UNVERIFIED: `full_sham`, margin
++0.0047 [−0.0080, +0.0178] against R803's judge-free floor **0.4557**). Removes planted below-floor
+arms at δ = 0.10 (A2 0.3549), δ = 0.05 (0.4058) and δ = 0.01 (0.4450), and correctly does **not**
+remove the arm planted at δ = 0. Half-split noise floor **0.0067**, so the δ = 0.01 detection is
+inside the design's resolution.
+
+⛔ **A DERIVATION, not evidence (§0's arithmetic trap).** ④'s statistic is a difference of corpus
+means, hence **permutation-invariant by algebra** — checked over 20 permutations, max |Δ| = 0.000e+00.
+**A permutation null is structurally unavailable for clause ④.** Two degenerate nulls were built in
+this one round before that was derived; both were caught by `assurance/null_is_informative.py` on its
+first live use, one round after being installed. The admissible negative control resamples the arm
+from the floor's own per-prompt distribution: **−0.00001 ± 0.00525** against a real margin of
+**+0.08188**.
