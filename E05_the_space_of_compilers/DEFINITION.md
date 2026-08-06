@@ -1801,6 +1801,28 @@ p99**: between **1% and 10%** of the blind subsets beat the bar the word *every*
 > ⭐ **Status: the universal reading is RUN and PASSED on the point estimate; its resolution is
 > UNVERIFIED.** That is a strictly better position than *"has never been run"*, and it names exactly
 > one thing still owed: **the MDE of `coval_core` against the blind maximum.**
+>
+> ⭐⭐⭐ **AND THE RESOLUTION IS NOW BOUNDED — the wall was not a wall (entry 1383).** R331 does **not**
+> commit the argmax's membership (all three `clearing_sets` return `IS-ARGMAX = False`). **But the
+> highest subset that DOES carry membership, `[0, 3, 9, 13]` at `0.5572285602`, sits only
+> `0.0002467487` below the true max.** So:
+>
+> | | |
+> |---|---:|
+> | `coval_core` − nearest membership-carrying subset | **+0.0092489210** |
+> | **`coval_core` − the true blind maximum** | **+0.0090021724** |
+> | the two differ by | **0.0002467487** |
+> | that subset's own committed MDE | **0.0066309665** |
+> | **ratio `margin / MDE`** | **1.358** |
+>
+> ⭐ **The margin is pinned to ±0.00025 from committed artifacts, with no re-run of the 1,820-subset
+> sweep.** ⚠ **And entry 1382's "straddles the 1.5× bar" is sharpened to a number: 1.358 — BELOW it.**
+>
+> ⭐⭐ **So the universal reading PASSES on the point estimate and FAILS this project's own 1.5×
+> admissibility bar on the best available resolution proxy.** ⚠ **That MDE is the subset's own gap
+> statistic, not the MDE of core-versus-max** — the right floor still needs the argmax's membership,
+> which is **not committed** and requires re-running the sweep. **Labelled as a proxy, not quoted as
+> the answer.**
 
 **So the universal reading of clause ② has never been run**, and the disagreement about whether this
 definition admits its own instance is exactly that `0.0029`: `coval_core` clears a p99 bar and does

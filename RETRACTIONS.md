@@ -26978,3 +26978,40 @@ maximum.**
 ⚠ **Not claimed:** that clause ② is settled. R855 showed ② and ③ are a chain, R857 that ② is the only
 score clause doing work, and R854 that ② cannot tell content from having-been-fitted. **This closes a
 reading, not the clause.**
+
+## 1383 · the wall was not a wall — the universal reading's margin is bounded to ±0.00025, and it fails the 1.5× bar at 1.358
+
+Entry 1382 left one thing owed: the MDE of `coval_core` against the blind maximum, which needs the
+**maximising subset's membership**. The check: does R331's artifact carry it?
+
+### ⭐ ANSWER — no, and it does not matter
+
+**The argmax's membership is NOT committed**: all three `clearing_sets` return `IS-ARGMAX = False`
+against `blind_dist.max = 0.55747530882624`. ⭐ **But the highest subset that DOES carry membership —
+`[0, 3, 9, 13]` at `0.5572285602` — sits only `0.0002467487` below the true max.**
+
+| | |
+|---|---:|
+| `coval_core` − nearest membership-carrying subset | **+0.0092489210** |
+| **`coval_core` − the true blind maximum** | **+0.0090021724** |
+| difference between the two | **0.0002467487** |
+| that subset's own committed MDE | **0.0066309665** |
+| **ratio `margin / MDE`** | **1.358** |
+
+⭐⭐ **The margin is pinned to ±0.00025 from committed artifacts, with no re-run of the 1,820-subset
+sweep.** ⚠ **This is the register's `a wall never checked` row again** — entry 1382 named a blocker
+(*"needs the maximising subset's membership"*) and the blocker dissolved on one query.
+
+### ⛔ AND IT SHARPENS MY OWN LAST ROUND
+
+Entry 1382 said the ratio *"straddles the 1.5× bar"*, quoting a range **1.36×–1.63×** taken across
+three different subsets' MDEs. **The right comparison is the nearest one: 1.358 — BELOW the bar, not
+straddling it.**
+
+⭐ **So the universal reading of clause ② PASSES on the point estimate and FAILS this project's own
+1.5× admissibility bar on the best available resolution proxy.**
+
+⚠ **Still labelled a PROXY.** That MDE is the subset's own gap statistic, not the MDE of
+core-versus-max. The right floor needs the argmax's membership — **not committed, and requiring a
+re-run.** **A number this close to a threshold is exactly where a proxy must not be quoted as the
+answer**, and it is not.
