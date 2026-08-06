@@ -24400,3 +24400,56 @@ is unchanged by moving the bar. A measured answer needs R518 re-run against R824
 `d`**. Every number in the table above came from its **README**. §5 requires the artifact to carry
 *"what a LATER round needs to ATTACK this"*; here the prose is richer than the record, which is the
 one direction that discipline exists to prevent.
+
+## 1329 · my own rebase was invalid in principle and used the wrong threshold — ④ at the adopted reading is UNVERIFIED, not free
+
+Entry 1328's NEXT said assumption 1 was *"one script away"*. It was, and **it is false.**
+
+### ⛔ ① THE REBASE WAS INVALID IN PRINCIPLE
+
+R436 records `bar = 0.4511956` and carries **both `a2` and `d`** per arm. If `d` were `a2 − bar`, a
+constant shift would be a legitimate rebase. It is not:
+
+| | |
+|---|---|
+| cells at judge J | **56** |
+| cells where `d == a2 − bar` **exactly** | **0** |
+| `(a2 − bar) − d` | min **−0.020640**, max **+0.001743**, mean +0.000670, sd 0.004340 |
+| worst arm | `coval_core_2bA` — off by **0.98× an MDE** |
+
+**`d` is PAIRED against `min_ttr`.** Moving the comparator changes the pairing, not just a constant,
+so entry 1328's shift is invalid **whatever its size** — and its size is up to one MDE, the same order
+as the margins it produced.
+
+### ⛔ ② AND I USED THE WRONG THRESHOLD
+
+R518's `run.py` pre-registers: *"**KILL (pre-registered): if any ②-passing arm's margin over ④'s bar
+is under 2x its MDE**, world B dies and R517's UNVERIFIED stands."* Entry 1328 compared against a
+generic **1.5×** admissibility floor and reported "none below". At the permissive bar `topw_k8`'s
+derived margin is **1.85×** — **under R518's own kill.** Even on its own invalid arithmetic, entry
+1328's verdict was wrong by its round's own pre-registration.
+
+### ⭐ WHAT SURVIVES, AND IT IS IDENTIFIED
+
+All **9** ②-passers sit **above** the permissive bar as point estimates. `a2 − 0.5196889`:
+
+`topw_k8` **+0.0431** · `topw_k3` +0.0475 · `topw_k4` +0.0483 · `topw_k6` +0.0511 ·
+`coval_core` **+0.0518** · `indep_k4_fit1` +0.0814 · `greedy_k4_fit1` +0.1007 ·
+`oracle_k4_fit1` +0.1033 · `oracle_k4` **+0.1156** — **0 of 9 below.**
+
+### ⚠ WHAT DOES NOT, AND IT IS THE WHOLE STATISTIC
+
+**The MDEs against the permissive bar are not on disk.** R436's variance is paired against `min_ttr`,
+so *margin in MDE units* — the exact quantity R518 used to separate a **MEASUREMENT** from a
+**RESOLUTION LIMIT** — is **NOT IDENTIFIED** at the adopted bar. Point estimates alone cannot make
+that distinction; that is what R518 exists to say.
+
+⭐ **So: ④'s freedom at the conjunction is CONFIRMED under the STRICT reading (R518, margins
+4.90×–8.65×) and UNVERIFIED under the ADOPTED PERMISSIVE one.** Not refuted — the point estimates all
+clear, and clear comfortably. Not established — the noise scale that would license the word "free"
+was computed against a different comparator. **Entry 1328's headline is withdrawn**, and the artifact
+now carries the withdrawal beside the claim.
+
+⚠ **The measured answer needs one run**: recompute each ②-passer's paired difference and MDE against
+the permissive rule class, not against `min_ttr`. That is a scoring join, not a reanalysis — the
+opposite of R518's own finding about R517's wall, and this time the wall is real.

@@ -201,6 +201,23 @@ is forced once both bars are known. **Assumption 1:** R518's `d` and R824's bars
 **UNVERIFIED, and the two strict bars already disagree (0.4512 vs 0.455679)** because R823 widened the
 rule class from 6 to 30. **Assumption 2:** each arm's MDE is unchanged by moving the bar. A measured
 answer needs R518 re-run against R824's bar.
+
+> ⛔⛔ **WITHDRAWN THE NEXT ROUND (entry 1329). Assumption 1 was tested and is FALSE, and the
+> threshold above was the wrong one.**
+> ① **`d` is a PAIRED quantity, not `a2 − bar`.** R436 records `bar = 0.4511956` and both `a2` and
+> `d` per arm: **0 of 56 cells satisfy `d = a2 − bar`**, and the disagreement reaches **0.98× an
+> MDE** (`coval_core_2bA`). Moving the comparator changes the pairing, so a constant shift is not a
+> valid rebase **in principle**, whatever its size.
+> ② **R518 pre-registered its kill at `2× MDE`** — *"if any ②-passing arm's margin over ④'s bar is
+> under 2x its MDE, world B dies"*. The paragraph above compared against a generic **1.5×** floor.
+> At the permissive bar `topw_k8`'s derived margin is **1.85×**, which **fires R518's own kill.**
+> ⭐ **WHAT SURVIVES, and it is identified:** all **9** ②-passers are **above** the permissive bar as
+> point estimates — `a2 − 0.519689` runs **+0.0431 (`topw_k8`) … +0.1156 (`oracle_k4`)**, **0 below**.
+> ⚠ **WHAT DOES NOT:** their **MDEs against that bar are not on disk** — R436 computed variance paired
+> against `min_ttr` only — so *margin in MDE units*, which is the entire statistic R518 used to
+> separate a MEASUREMENT from a RESOLUTION LIMIT, is **NOT IDENTIFIED** here.
+> **So ④'s freedom at the conjunction is CONFIRMED under the strict reading (R518) and UNVERIFIED
+> under the adopted permissive one** — not refuted, and not established.
 ⚠ **And R518's artifact cannot support this on its own** — it persists `margins_in_mde` ratios and no
 bar and no per-arm `d`; the numbers above were recovered from its **README**. §5 requires an artifact
 to carry *"what a LATER round needs to ATTACK this"*, and this one does not.
