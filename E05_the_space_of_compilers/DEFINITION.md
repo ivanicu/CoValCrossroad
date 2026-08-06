@@ -5851,3 +5851,32 @@ random 110-subsets: rankings [−0.1063, +0.1074], flags [−0.0857, +0.0931], r
 POSITIVE 0.00 inside · 0.25 inside · **0.50 RESOLVES** · 1.00 RESOLVES · NEGATIVE group-label
 permutation (**valid here, unlike ledger 1125/1129**) rankings [−0.1271, +0.1150], flags [−0.0896,
 +0.1029], rate [−0.0988, +0.0807] · CONFOUND flag rate reported beside the raw count. **WORLD C.**
+
+## R785 · rubric affinity, measured
+
+**Join** ranking→release: exact **968**, unmatched **0**, ambiguous **0** (R468, rebuilt in R783).
+
+| object | tok | verbatim | affinity | null | own − null | MDE | |
+|---|---:|---:|---:|---:|---:|---:|---|
+| coval_core | 3 | 0.0668 | 0.4938 | 0.0836 | +0.4103 | 0.0139 | RESOLVES |
+| gen | 3 | 0.0000 | 0.1410 | 0.1028 | +0.0382 | 0.0044 | RESOLVES |
+| **core − gen** | 3 | | | | **+0.3535** | 0.0149 | **RESOLVES** |
+| coval_core | 4 | 0.0668 | 0.4951 | 0.0555 | +0.4396 | 0.0145 | RESOLVES |
+| gen | 4 | 0.0000 | 0.0865 | 0.0356 | +0.0508 | 0.0048 | RESOLVES |
+| **core − gen** | 4 | | | | **+0.4090** | 0.0154 | **RESOLVES** |
+| coval_core | 5 | 0.0668 | 0.5014 | 0.0465 | +0.4549 | 0.0147 | RESOLVES |
+| gen | 5 | 0.0000 | 0.0867 | 0.0319 | +0.0549 | 0.0053 | RESOLVES |
+| **core − gen** | 5 | | | | **+0.4150** | 0.0157 | **RESOLVES** |
+
+**Containment**: cores entirely inside their rubric **1 of 986**; records with zero verbatim overlap
+**792 of 986**.
+
+**The pair** (n = 2, no correlation computed): coval_core affinity **0.4951**, q_resolved **0.9978** ·
+gen affinity **0.0865**, q_resolved **0.0396**.
+
+**Controls.** OBJECT join exact, exit 2 otherwise · PLACEBO **1.000000** · NULL **+0.4396**
+[+0.4293, +0.4499], MDE 0.0145, 986 of 986 · NULL-TOPIC **+0.4013**, MDE 0.0363, n=150 · POSITIVE
+delete 0% → **1.0000**, 25% → 0.7536, 50% → 0.4992, 75% → 0.2523, monotone · SWEEP {3,4,5} ·
+⛔ SHAM not built (the ingredient's removal IS the null). **WORLD A.**
+**Release data quality**: **3 of 19,147** criteria tokenise to nothing — `'Lwa'`, a bare UUID, an
+empty string.

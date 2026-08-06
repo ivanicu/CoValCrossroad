@@ -1652,3 +1652,34 @@ of **0.6665 SD**, so its null would have been manufactured by the design.
 
 **Scope**: 1078 ranked prompts · 968 rubricked · 110 excluded · 986 released conversations · parsed
 rankings and `unacceptable` ratings from `comparisons.jsonl` · first release, this tree_sha.
+
+## R785 · The released core PARAPHRASES its rubric, and that separates it from the arm clause ② rejects
+
+**The relation is neither containment nor independence, and the definition has no clause for it.**
+Only **1 of 986** released cores sits entirely inside its own `coval_full`, and **6.68%** of core
+criteria appear in it verbatim — **792 of 986** records share none at all. But the content relation is
+strong: best-match token Jaccard **0.4951** against a cross-conversation null of **0.0555**, a
+difference of **+0.4396 against an MDE of 0.0145 — thirty times — with 986 of 986 records in the same
+direction**. Against the *nearest-topic* other rubric it is still **+0.4013** (MDE 0.0363), so shared
+topic does not explain it.
+
+⭐⭐ **AND IT SEPARATES THE TWO CONVERSATION-ONLY ARMS.** `coval_core`, which clears clause ② at
+q_resolved **0.9978** (R782), has affinity **0.4951**. `gen`, which fails at **0.0396**, has
+**0.0865** — barely above its own null of 0.0356 — and shares **exactly zero** criteria verbatim. The
+difference resolves at **+0.3535 / +0.4090 / +0.4150** for token lengths 3 / 4 / 5, same sign at every
+tokenisation.
+
+⚠ **AND THE SCOPE IS THE FINDING'S LIMIT: n = 2 arms.** A correlation is undefined at n = 2 and none
+was computed. Only arms whose criterion TEXTS exist can be placed on this axis, and every other scored
+arm is sat-indices only. **Two arms differing on two axes in the same direction is one bit of
+evidence, not a mechanism** — it makes available, and does not establish, the hypothesis that
+**clause ② scores rubric affinity rather than quality**.
+
+⛔ **The first run was UNVERIFIED and its own PLACEBO is why**: a rubric against itself returned
+0.999848 because Jaccard is undefined on two empty sets and the guard turned 0/0 into 0. **Three of
+19,147 release criteria tokenise to nothing** — `'Lwa'`, a bare UUID, and an empty string. Defining
+the degenerate as 1.0 fixed it; that is a definition, not a loosened threshold.
+
+**Scope**: 986 released conversations, 968 joined · verbatim intersection and token Jaccard at
+{3,4,5} · cross-conversation and nearest-topic nulls · first release, this tree_sha. **E3's
+population is 2 arms.**

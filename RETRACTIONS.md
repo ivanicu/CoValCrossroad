@@ -20192,3 +20192,33 @@ it returned would have been manufactured by the design — and R783's own text h
 third `NEXT` line in five rounds that had to be killed by the check that opens the following round,
 and the pattern is now specific enough to name: a NEXT written from what is INTERESTING rather than
 from what is RESOLVABLE, in the one sentence of a report that carries no control.*
+
+## 1138 · "the released core shares nothing with its rubric" is true verbatim and false as content
+
+Check #387's first instrument was exact string matching: **6.68%** of core criteria appear verbatim in
+the prompt's own rubric, **792 of 986** records share none, and only **1 of 986** cores is entirely
+contained. Reported alone that reads as independence. The token instrument says the opposite —
+best-match Jaccard **0.4951** against a cross-conversation null of **0.0555**, thirty times its MDE,
+**986 of 986** records in the same direction, and still **+0.4013** against the nearest-topic other
+rubric. **The exact-match instrument measured string identity; the sentence would have been about
+content.** *§4's row, caught by running the second instrument before writing the first number down —
+the two numbers are both correct and they belong in different sentences.*
+
+## 1139 · R785's first run was UNVERIFIED because Jaccard is undefined on two empty sets
+
+A rubric compared to ITSELF returned **0.999848**, and the POSITIVE's zero-degradation floor returned
+0.9998 rather than 1.0. One cause: `max(len(a | b), 1)` turns 0/0 into 0, so **a criterion whose token
+set is empty scored zero against itself**. **Three of 19,147 release criteria tokenise to nothing**,
+and all three are junk — `'Lwa'`, a bare UUID `d6886713-34db-4490-9aa8-6ac8a9e9f718`, and an empty
+string. Two empty sets are identical, so the value is 1.0. *The repair is a degenerate being DEFINED,
+not a threshold being loosened, and the distinction is the whole of §4's control rows: the placebo was
+right and the instrument was wrong, which is the case those rows exist to make visible.*
+
+## 1140 · R784's proposed gate is declined, on arithmetic rather than taste
+
+R784 closed by proposing a gate that fails a push when a scope line names a population size without
+its frame. **Every scope line in 780+ round READMEs says "968"**, so the only implementable form is a
+FREEZE baseline that fails new lines only — the shape `next_line_quantifiers_are_computed.py` already
+has — and the frozen ones stay wrong. *Infrastructure whose reach is bounded by what it cannot touch,
+protecting a deliverable that is one file. Correcting `STATEMENT.md` is production; gating 780 READMEs
+is not, and the difference is §0.2's floor between an instrument and the thing it is for.*
