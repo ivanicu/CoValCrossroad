@@ -23444,3 +23444,42 @@ prose**, one document earlier.
 ⚠ **What this does not license**: 8 is a count of *candidates that survived a read*, on a population
 the tight pattern selected. **Pre-registrations that commit to determinism in words the pattern does
 not match are still uncounted**, and nothing here bounds how many.
+
+## 1310 · not one round checks its own seed-determinism, and R838's kill implements two of the three conditions it promised
+
+Last round I reported *"exactly ONE of forty makes seed-determinism a machine-checked condition"* —
+`R838`, because its pre-registration puts *"three seeds agree"* inside the kill. ⛔ **It is ZERO.**
+
+**Measured across all eight rounds that pre-register the concept:**
+
+| | R822 | R823 | R824 | R825 | R826 | R837 | R838 | R839 |
+|---|---|---|---|---|---|---|---|---|
+| `run.py` re-runs itself under a second seed | **✗** | ✗ | ✗ | ✗ | ✗ | ✗ | **✗** | ✗ |
+| `PYTHONHASHSEED` appears in the script | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+
+**Not one script re-runs itself.** Every *"two/three seeds byte-identical PASS"* I reported this
+session was executed **from my shell, after `run.py` exited** — so **no round's code could have
+failed on it**, including the one I called machine-checked.
+
+⛔ **AND R838'S KILL IMPLEMENTS TWO OF THE THREE CONDITIONS IT PROMISED.**
+
+```
+PREREGISTRATION:  if the positive is separable AND the negative gives sd exactly 0
+                  AND three seeds agree:
+run.py:           controls_ok = pc and nc          # ← the seed term is absent
+```
+
+**That is §4's `the verdict string is not a computation`, one document earlier** — the
+pre-registration names a three-part condition and the branch tests two. **I wrote R838 in this
+session, in the session where I built `kill_is_wired_into_the_branch.py` for exactly that defect,
+and the instrument does not look at pre-registrations.**
+
+⚠ **My own scan was unreliable in the flattering direction and is reported as such.** A
+`branches on it?` column returned **True for R822–R826** by matching `if|assert` near words like
+*identical* / *determinis* in unrelated lines. **The decisive column is `runs twice?`, which is False
+everywhere** — the other is discarded, not quoted.
+
+⭐ **The count across three rounds went 0 → 1 → 0, and only the last is a read of the code.** The
+middle value came from reading the *pre-registration* and assuming the script implemented it. **A
+promise and its implementation are two artifacts, and this arc has now been caught conflating them at
+the script level, at the report level, and here at the design level.**
