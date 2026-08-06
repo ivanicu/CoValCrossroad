@@ -5406,3 +5406,37 @@ sham (200 random equal-sized partitions) **0.00 [0, 0]**; negative (200 label pe
 the registered band is *0× must not fire, 2× must*; 1× is the test's own 50%-power point and was never
 a registered criterion. g=0 delta 0 finds nothing · PLACEBO an arm against itself, variance **0.0**,
 flips 0. **WORLD A.** ⚠ Resolution: a flip needs ≳2× the half-sample MDE ≈ **0.024**.
+
+## R771 · the correlation structure of the ten difference vectors
+
+**Scope.** population = 968 prompts, 5 committed members, their 10 pairwise differences; instrument =
+per-prompt A2 over all annotators, Pearson correlation across prompts; baseline = a **generated**
+independence model, not a chosen number; regime = first release, home judge, this tree_sha.
+
+**Rank and spectrum.** rank **4** (forced: 5 arms − 1); eigenvalues **[3.791, 2.957, 1.771, 1.481,
+0, 0, 0, 0, 0, 0]**; leading share **0.3791**; uniform reference at rank 4 = **0.2500**.
+
+**E1 · residual variances**, identified from 10 equations in 5 unknowns (`var(d_ab) = v_a + v_b`):
+`coval_core` **0.005878** · `topw_k3` **0.004042** · `topw_k8` **0.003799** · `topw_k4` **0.002273** ·
+`topw_k6` **0.001864**. Relative fit residual **0.1748**, all positive → admissible. A negative `v`
+would have refuted the model at that arm; clipping was forbidden in advance.
+
+**E2 · observed vs the independence prediction** (computed per pair from the fitted `v`, never a 0.5
+constant): arm-sharing (n=30) |observed| **0.4864** vs |predicted| **0.4938**, **excess −0.0074**;
+disjoint (n=15) observed **+0.0312** vs predicted **0**.
+
+**E3 · spectrum vs simulation.** sham — 200 draws of independent residuals at the fitted variances —
+**0.3072 [0.2974, 0.3172]**; observed **0.3791**, above the band.
+
+**Calibration.** The positive control's monotone dose curve (differential loadings
+[+1.0, +0.5, 0, −0.5, −1.0]): λ 0.00 → 0.3121 · 0.25 → 0.3183 · 0.50 → 0.3556 · 1.00 → 0.4843.
+Observed 0.3791 interpolates to **λ ≈ 0.59 × the residual sd**.
+
+**Controls.** POSITIVE monotone, detected from λ = 0.25, not at 0 · g=0 λ = 0 inside the sham band ·
+SHAM as above · NEGATIVE 200 independent prompt permutations → **0.1164 [0.1127, 0.1207]** · PLACEBO
+`topw_k4` vs `_detA` sd **0.0** and excluded by construction.
+**WORLD: none claimed — the two estimands split, and A and B each required both.**
+
+⛔ **A factor loading EQUALLY on all arms is invisible in differences** — `d_ab` retains only
+`λ(√v_a − √v_b)·f`, which vanishes at equal variances. The first plant was that object and produced
+0.308–0.312 at every loading including 1.0.

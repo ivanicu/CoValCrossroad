@@ -19694,3 +19694,39 @@ detection threshold, i.e. its **50%-power point**, so requiring a hit there requ
 the design has 50%. Restoring the registered band is **matching the registration, not loosening a
 control** — and the distinction is the whole entry. *The dangerous version of this is the same edit
 made without checking what was registered, which is indistinguishable from tuning until it passes.*
+
+## 1094 · the null I reached for first was off by the largest component in the data
+
+R770's NEXT asked for the correlation matrix of the ten difference vectors and its leading eigenvalue
+share. Two arithmetic facts had to be established before any of it meant anything. **The rank is 4**,
+forced by ten pairwise differences among five arms, so the uniform reference is **0.25** and comparing
+a leading share against 1/10 would have manufactured a finding. And my first analytic null predicted
+arm-sharing correlations of **+0.9271** against an observed **+0.2687**, because I used the **raw** arm
+variances — which are dominated by prompt difficulty, the very thing differencing removes. The null
+needs the **residual** variances, and those are identifiable from the ten observed `var(d)`.
+*Both errors point the same way: I reached for a reference before asking what the algebra had already
+fixed, and one of them would have produced a confident finding out of a rank constraint.*
+
+## 1095 · the two estimands split, and the registration is what stopped a story
+
+Registered worlds A and B each required **two** conditions. Reality gave one of each: the pairwise
+excess over the independence prediction is **−0.0074** (World B) while the leading eigenvalue share
+is **0.3791** against a simulated band of **[0.2974, 0.3172]** (World A). **Neither is claimed.**
+Without the two-conditional registration the natural report would have been *"a latent prompt factor
+exists"* off the spectrum alone, with the pairwise null quietly omitted — and the pairwise test is the
+one that directly asks the question. ⭐ What the round produces instead is a **size**: the observed
+share interpolates on the plant's monotone curve to **λ ≈ 0.59 × the residual sd**, which is a number
+where there would otherwise have been an adjective. *A split verdict is a worse headline and a better
+result, and the only reason it survived is that the kill was written with an AND in it.*
+
+## 1096 · the positive control planted an object the test cannot see, by construction
+
+I injected a "common prompt factor" as `R_a + λ√v_a·f` — the same factor on every arm — and the
+leading share sat at **0.308–0.312 at every loading including 1.0**, not even monotone. The reason is
+one line of algebra: `d_ab = (R_a − R_b) + λ(√v_a − √v_b)·f`, so **a factor common to both arms
+cancels in their difference**, exactly and by design. **Differencing removes what is shared — that is
+precisely why R770 used differences to strip prompt difficulty — so the plant was invisible to the
+instrument on purpose.** Rebuilt with **differential** loadings summing to zero, the control recovers
+monotonically and detects from λ = 0.25. *This is the second round running whose positive control
+failed for a reason about the PLANT rather than the instrument, and both times the fix was to make
+the plant the thing under test rather than to relax what counts as detection.*

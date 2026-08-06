@@ -352,7 +352,18 @@ A **core** for a conversation is a set of criteria such that
     partition the extension**: **0 flips in 90 cells** across three strata fixed before the run and
     independent of the outcome (annotator count · response-set size · the **baseline's** A2), against a
     sham of **0.00 [0, 0]**. ⚠ Scope: the flip test needs ≳**2×** the half-sample MDE ≈ **0.024**, so
-    this is *no partition detectable at that resolution*, not *no partition*. And the confound is answered: the
+    this is *no partition detectable at that resolution*, not *no partition*.
+    ⚠⚠ **AND ASKING WHETHER ONE LATENT PROMPT FACTOR EXPLAINS THE HETEROGENEITY SPLITS THE ANSWER**
+    *(R771)*. Ten pairwise differences among five arms have **rank 4 by construction**, so the uniform
+    reference is **0.25**, not 0.10. Against a simulated independence band the **spectrum** says
+    structure — leading eigenvalue share **0.3791** vs **[0.2974, 0.3172]** — while the **pairwise
+    excess** says none: arm-sharing |observed| **0.4864** against |predicted| **0.4938**, an excess of
+    **−0.0074**, where independence already predicts ~0.5 because the pairs SHARE AN ARM. Registered
+    worlds A and B each required both conditions, so **neither is claimed**. What is produced instead
+    is a size: interpolating on a monotone plant curve gives a differential loading of
+    **λ ≈ 0.59 × the residual sd**. ⭐ The reconciling detail is the **15 disjoint pairs at +0.0312**
+    where independence predicts exactly 0 — small, same-signed, and enough to tilt an eigenvector
+    without moving an average. And the confound is answered: the
     `topw_k` family is an inverted U peaking at **k = 6** (eff/MDE 1.311) with `eff/MDE` falling
     monotonically 6 → 8 → 12, so `topw_k8` is not an anomaly but where the curve re-enters the floor.
   - **③-any** — no annotator-supplied signal for that prompt at all, including the rubric's own
