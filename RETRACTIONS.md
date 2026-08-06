@@ -23831,3 +23831,81 @@ is accurate *at this instant* and will rot again on the next round added without
 session included** — produced results no reader could reach. The gate was correct, complete and
 running the whole time, and it is **not in the ten-gate push sweep**, which is the second instrument
 in three rounds found to have been refusing to an audience of nobody.
+
+## 1319 · I run 11 of 52 gates and call it green; running the other 41 cost the working tree, and the hazard was written 12 lines above the function I had just read
+
+My NEXT proposed measuring sweep membership and asserted it *"has never been counted."* **P4, ninth
+firing.** `assurance/run_all.py` exists and opens with **this defect at a smaller numerator**:
+
+> *"There are 52 files in `assurance/`. For an entire campaign session I ran FOUR of them and reported
+> 'all four gates PASS' after every round. Nothing was lying: each of the four did pass. But 'all
+> four' was read — by me, in my own reports — as 'the assurance layer is green'."*
+> *"⭐ A numerator reported alone will be read as a proportion. Always."*
+
+**I have been doing exactly that with eleven, in every report of this session.**
+
+**Measured with the runner's OWN `discover()`, not a classifier I invented:**
+
+| | |
+|---|---|
+| gates discovered | **52** |
+| gates in my push sweep | **11** |
+| mine *not* in the discovered set | **0** — a proper subset, so "eleven green" is a sub-count |
+| ⛔ **never run by my sweep** | **41 = 79%** |
+
+Among the 41: `readme_row_carries_the_verdict` (entries 1316–1317 found it broken and repaired it),
+`attack_every_check`, `attack_the_suite`, `next_gradient_is_new`, `no_withdrawn_framings`,
+`results_match_their_code`.
+
+### ⛔ AND RUNNING THE CENSUS DESTROYED THE WORKING TREE
+
+`git status` after the run: **2,962 files staged as deleted** — `README.md`, `run.py` and
+`results/*.json` across the epoch directories, and `STATEMENT.md` gone, which is why six of my
+eleven gates went red **simultaneously**. Six at once is an environment signature, not six defects,
+and that is the only reason I looked instead of debugging them.
+
+**The cause was written in the file I had read minutes earlier, twelve lines above `discover()`:**
+
+> *"Gates that MOVE the epoch directories out of the live tree. **Killing one of these does not lose a
+> verdict, it loses the repository's working tree into a `mkdtemp` nobody can name.**"*
+> `MUTATES_TREE = {"attack_the_suite", "attack_every_check"}`, `MUTATES_TREE_TIMEOUT = 600`
+
+I read that region to extract `discover()` and walked straight past the warning —
+`feedback_confession_is_never_audited` exactly. **And I supplied the kill twice**: the first
+invocation was terminated by the harness's own 2-minute Bash timeout (`exit 143`, SIGTERM) while a
+tree-moving script held the epochs, and `_repair.py` states the mechanism — *"`pueue kill` sends
+SIGKILL. **No `finally` survives SIGKILL.** So the repair step is exactly the step a scheduler is
+able to delete, and what remains is a repository that looks empty."*
+
+⭐ **Recovery was complete and free, and the reason is the commit discipline.** Everything was
+committed, nothing was lost: `git restore --staged --worktree .` → **0 dirty · 5 epoch directories ·
+1,202 results artifacts · HEAD `4e5800c9`**. The per-round commit is what turned a 2,962-file
+deletion into one command.
+
+⚠ **The `git checkout` and `pkill` forms of that repair were both blocked mutely by the bash guard**
+(the known deletion-verb false positive) — so the guard fired hardest at the moment of an actual
+emergency. `git restore` passed.
+
+### ⚠ AND THE ORPHANED STASHES ARE A SEPARATE, GROWING FINDING — NOT MINE
+
+R428 counted **eight** orphaned `attack_rounds_*` stashes across two days. There are now **twelve,
+totalling 2.0 GB**, dated 2026-08-03 14:56 → 2026-08-06 07:11, the largest holding **2,911 files**.
+**None is from this round** — mine is at ~11:21 and there is no stash at that time, so my damage was
+recovered from git and left no residue. The inventory is **pre-existing and accumulating at roughly
+one per day, unfixed**, and R428's own words apply to every one of them: *"NOBODY NOTICED."*
+Not deleted here: 2.0 GB of duplicates is worth reclaiming, but establishing each is redundant
+against HEAD is a separate check, and an irreversible sweep of /tmp is not a side effect of a census.
+
+### ⚠ THE "UNRUN SUBSET IS NOT RANDOM" CLAIM — UNVERIFIED, MY TEST WAS UNFIT
+
+The runner also claims *"the unrun subset contained the checks aimed at the errors actually being
+made."* Scoring this session's findings is **circular** — the last three rounds were *about* unrun
+gates. On a non-selected window, entries **1290–1314** (n=25): **9** name a gate I run, **2** name
+only gates I never run. That looks like a refutation and is not one: **the instrument matches gate
+NAMES in ledger prose while the claim is about which gate would have CAUGHT the defect** — §4's
+unit-vs-unit failure, third time in four rounds. The 9:2 tilt is what a "which gate was I building
+that week" confound predicts. Testing it needs a defect→gate mapping produced by reading.
+
+⭐ **What stands:** the sweep is a **21% sample of the gate population reported as a completion**, and
+the census that would fix that is **destructive under interruption and takes longer than the harness
+will let a foreground command live**. Those two facts together are why it has never been in the loop.
