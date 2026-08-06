@@ -2058,3 +2058,32 @@ not resolve at δ=0 · NEGATIVE shuffling humans sends both columns to ≈0.426 
 
 **Scope**: 968 prompts × all annotators · `full` criteria min 4, mean 15.48, max 39 · NBOOT 1,200 ·
 first release, home judge.
+
+## R798 · One criterion at a time, the rubric's are right less often than a coin
+
+| | `coval_full` | `genericpool16` | gap |
+|---|---:|---:|---|
+| singleton agreement | 0.4664 | 0.5142 | **+0.0490 [+0.0441, +0.0543]**, MDE 0.0078, RESOLVED |
+| discrimination (1 − tie) | **0.9526** | 0.9476 | **−0.0053 [−0.0077, −0.0029]**, RESOLVED |
+| **accuracy on non-tied** | **0.4805** | **0.5332** | **+0.0538 [+0.0486, +0.0592]**, RESOLVED |
+
+**The entire gap is accuracy.** `full`'s criteria discriminate *more* often and are right **0.4805**
+of the time — below a coin — while the generic pool reaches **0.5332**. ⭐ And the singleton gap
+**+0.0490** exceeds R797's aggregate **+0.0335** (ratio 1.461): summing partially recovers what the
+individual criteria lack.
+
+⚠ **The spread confound enlarges it**: quintile gaps +0.0285, +0.0418, +0.0485, +0.0664, +0.0892;
+**spread-matched +0.0577** against the raw +0.0490.
+
+⛔ **My registered derivation D1 was FALSE** — a tied sign CAN agree, because a human class is 0 when
+two responses are ranked equally. Its placebo caught it at **3.246e-01**; the corrected identity
+checks at **2.220e-16**. ⛔ **And my first POSITIVE control could not pass**: it demanded a 0.05 drop
+where **0.0284** was the maximum achievable. Repaired to a direction inversion with a computed band
+**0.5142 → 0.3184**.
+
+⚠ **Not identified**: any individual `full` criterion's power — each appears on **one** prompt. And
+the pool's 15,488 instances are 16 criteria seen 968 times, so the naive half-width **±0.0025**
+overstates the clustered **±0.0085** by 3.4×.
+
+**Scope**: 968 prompts × all annotators · 14,984 `full` instances, 15,488 pool instances · NBOOT
+1,200 · first release, home judge. Both summed aggregates reproduced to 1e-9.

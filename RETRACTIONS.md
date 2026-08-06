@@ -20663,3 +20663,35 @@ power. ⛔ **And the sign was forced anyway**: synthetic mixtures of `full`-like
 give **−0.6872 [−0.8817, −0.4018]** by construction whenever the pool is the better predictor.
 *§4's closing-sentence row, in my own previous round: the `next gradient` line is written last, is
 the one the following round acts on, and is the only sentence with no control attached.*
+
+## 1180 · the rubric's criteria are individually weaker, and the whole gap is ACCURACY not discrimination
+
+One criterion at a time, against the human annotators: `coval_full` **0.4664**, `genericpool16`
+**0.5142**, paired-by-prompt gap **+0.0490 [+0.0441, +0.0543]** against an MDE of 0.0078 — RESOLVED,
+and **larger than R797's aggregate +0.0335** (ratio 1.461). Decomposed: `full` **discriminates more
+often** (0.9526 against 0.9476, gap −0.0053, resolved) and is **right less than a coin when it does**
+(accuracy 0.4805 against 0.5332, gap +0.0538, resolved). ⭐ **The entire effect is accuracy.** The
+registered spread confound enlarges rather than explains it: quintile gaps rise +0.0285 → +0.0892 and
+the spread-matched gap is **+0.0577**. *Summing partially recovers what the individual criteria lack —
+which is a fact about the rubric's composition, not a contradiction of R797.*
+
+## 1181 · my registered derivation was FALSE, and only its numerical placebo caught it
+
+D1 stated `composite = (1 − tie) × accuracy`, on the assumption that a tied sign can never agree with
+a human. **It can**: `cls()` returns 0 whenever a HUMAN ranks two responses equally, so a tie-tie
+match counts. The placebo returned **worst |Δ| 3.246e-01** — a third of the scale — and the corrected
+identity `(1 − tie)·acc_nontied + tie·acc_tied` checks at **2.220e-16**. *A derivation written into a
+preregistration is still a hypothesis. This one was labelled DERIVATION, used to structure the round,
+and was wrong — and the only reason it did not propagate is that it had a numerical placebo attached.
+Every D-line should have one.*
+
+## 1182 · and my POSITIVE control demanded a drop larger than the design can produce
+
+The first version mirrored the agreement value (`v → 1−v`) on a share of instances and required the
+result to fall 0.05 below the base. From a base of **0.5142** the maximum achievable drop by that
+operation is **0.0284** — the threshold sat OUTSIDE the band, so the control could not pass whatever
+the instrument did. §4's *control that cannot PASS*, sub-kind two. Repaired to a real inversion of the
+criterion's DIRECTION, with the band computed rather than asserted: floor **0.5142**, ceiling
+**0.3184**, achievable drop **0.1958**, criterion set at a quarter of it. *Two control failures in one
+round, both mine, both diagnosable by arithmetic that needed no data — and the round reported
+UNVERIFIED until they were fixed.*

@@ -6368,3 +6368,41 @@ PLACEBO a target against itself **0.000000000000** · POSITIVE the plant does no
 resolves from 0.01 · NEGATIVE human classes shuffled sends `full` to **0.4266**, the pool to
 **0.4255**, and the gap to **−0.0011** · NOISE FLOOR annotator split-half on the gap **0.002832**,
 twelve times smaller than the effect. **WORLD A.**
+
+## R798 · the singleton decomposition: individually weaker, and it is accuracy not discrimination
+
+**Derived before measuring.** D1 `composite = (1 − tie) × accuracy` — **FALSE as registered**; a tie
+CAN agree, because `cls()` returns 0 when a human ranks two responses equally. D2 each `full`
+criterion appears on exactly one prompt, so no per-criterion estimate exists. D3 the aggregate is not
+the mean of the singletons. D4 the pool's instances cluster by CRITERION (16), not by instance.
+
+**E1 · the two distributions**, over criterion instances:
+
+| pool | n | mean | interval | clustered by |
+|---|---:|---:|---|---|
+| `coval_full` | 14,984 | **0.4664** | [0.4609, 0.4730] | PROMPT |
+| `genericpool16` | 15,488 | **0.5142** | [0.5057, 0.5228] | CRITERION (16) |
+
+Paired-by-prompt gap **+0.0490 [+0.0441, +0.0543]**, MDE 0.0078 — **RESOLVED**.
+⚠ The naive independent-instance half-width would be **±0.0025** against the clustered **±0.0085** —
+a 3.4× overstatement avoided (D4).
+
+**E2 · the decomposition**: discrimination `full` **0.9526** vs pool **0.9476**, gap
+**−0.0053 [−0.0077, −0.0029]** RESOLVED · accuracy-on-non-tied `full` **0.4805** vs pool **0.5332**,
+gap **+0.0538 [+0.0486, +0.0592]** RESOLVED. **The whole effect is accuracy; `full` discriminates
+slightly more and is right less than a coin.**
+
+**E3 · individual versus aggregate**: singleton **+0.0490** against R797's aggregate **+0.0335**,
+ratio **1.461**. Different quantities by D3 — summing partially recovers what the individual criteria
+lack.
+
+**E4 · the spread confound**: satisfaction spread `full` **0.1403**, pool **0.1192**; quintile gaps
++0.0285, +0.0418, +0.0485, +0.0664, +0.0892; **spread-matched gap +0.0577** against the raw +0.0490.
+The confound was suppressing the effect.
+
+**Controls.** OBJECT both summed aggregates to 1e-9 against committed values, exit 2 otherwise ·
+PLACEBO ⛔ D1 failed at **3.246e-01**; corrected identity checks at **2.220e-16** · POSITIVE ⛔ the
+first threshold demanded a 0.05 drop where **0.0284** was the maximum; repaired to a direction
+inversion with a computed band **0.5142 → 0.3184**, drop 0.1958 · NEGATIVE humans shuffled sends
+`full` to **0.4115** and the pool to **0.4103** · NOISE FLOOR annotator split-half **0.001699**, the
+gap 29× it. BH over 3 tests: **3 survive**. **WORLD A.**

@@ -1,0 +1,166 @@
+R798 · are the rubric's criteria individually weaker, or does the loss appear only in AGGREGATE?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-06.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R797 measured that `genericpool16` predicts a prompt's own human rankings better than that prompt's
+own rubric: **+0.0335 [+0.0251, +0.0420]**, MDE 0.0118, resolved, surviving a size stratification.
+Its NEXT asked whether `full`'s criteria are individually weaker predictors or whether the loss
+appears only when they are summed.
+
+CHECK #400 attacked the question before designing it and found two things.
+
+(a) ⭐ THE COMPOSITE IS TWO QUANTITIES. A singleton criterion's class is `sign(y_i[a] - y_i[b])` over
+    the six response pairs. When a criterion is satisfied EQUALLY by two responses the sign is 0, and
+    a 0 can never agree with a human's ±1. So singleton agreement mixes **DISCRIMINATION** (how often
+    the criterion produces a non-zero sign) with **ACCURACY** (whether it is right when it does).
+    Measured on 300 prompts before designing: the zero-sign share is **0.0444** for `full` and
+    **0.0508** for `genericpool16`. ⚠ Small, and it runs AGAINST the pool — so ties cannot explain
+    R797's gap, and the decomposition is a control rather than the expected mechanism.
+(b) ⛔ AND THE PER-CRITERION QUESTION AS WRITTEN IS NOT IDENTIFIED. Each of `full`'s criteria appears
+    on EXACTLY ONE prompt, while each of `genericpool16`'s 16 appears on all 968. So a `full`
+    criterion has n = 1 prompt of evidence and cannot be estimated individually at all. The
+    identified estimand is the **distribution over criterion INSTANCES**, and the round says so
+    rather than reporting per-criterion numbers that do not exist. G1: identification before power.
+
+--------------------------------------------------------------------------------
+DISCLOSURE -- what was already known when this was written
+--------------------------------------------------------------------------------
+KNOWN and quoted: R797's aggregate gap and its strata; the two tie shares above (300 prompts, check
+#400). **NOT known: any singleton agreement value**, either pool's distribution, the decomposition
+into discrimination and accuracy, or how the singleton gap compares to the aggregate one.
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  SINGLETON AGREEMENT = DISCRIMINATION x ACCURACY + 0 x TIE-SHARE, exactly, because a tied pair
+    contributes 0 to the agreement count and 1 to the denominator. So `A2_single = (1 - tie) *
+    accuracy_on_nontied`. **DERIVATION**, and it is why the two components must be reported beside
+    the composite rather than instead of it.
+D2  A `full` CRITERION IS OBSERVED ON ONE PROMPT. Its singleton agreement is a single prompt's
+    measurement with ~16 annotators, so its own sampling error is large and no per-criterion ranking
+    is admissible. **DERIVATION**, and it converts the question from "which criteria" to "what
+    distribution".
+D3  THE AGGREGATE IS NOT THE MEAN OF THE SINGLETONS. Summing k criteria then taking signs is not the
+    same as averaging k singleton classes -- a sum can flip a sign that no individual criterion
+    carried. So a singleton gap and an aggregate gap are DIFFERENT quantities and either could be
+    larger. **DERIVATION**, and it is exactly what makes worlds A and B distinguishable.
+D4  THE POOL'S 16 CRITERIA ARE THE SAME 16 EVERYWHERE, so their instance-level values are 968
+    repeated measurements of 16 objects, not 15,488 independent ones. Any interval over pool
+    instances must cluster by CRITERION, not treat instances as independent. **DERIVATION**, and it
+    is this round's most likely place to overstate precision.
+
+STRONGEST CONFOUND, written BEFORE the run: the two pools' criteria may differ in how many responses
+they are satisfied by at all -- a criterion satisfied by none or all of the four responses is inert
+regardless of its content. CONTROL IN THE SAME ITERATION: report the satisfaction SPREAD per
+criterion instance (the sd across the four responses) for both pools, and re-run the comparison on
+instances matched on that spread.
+
+--------------------------------------------------------------------------------
+ESTIMANDS (before method)
+--------------------------------------------------------------------------------
+E1  ⭐ the two DISTRIBUTIONS of singleton agreement with the human, over criterion instances:
+    mean, sd, quantiles, and the paired-by-prompt difference of the two pools' prompt-level means.
+E2  ⭐ D1's DECOMPOSITION: discrimination (1 − tie share) and accuracy-on-non-tied, per pool, each
+    with an interval clustered correctly (by prompt for `full`, by CRITERION for the pool, per D4).
+E3  ⭐ INDIVIDUAL VERSUS AGGREGATE: the singleton-level gap against R797's aggregate +0.0335. If the
+    singleton gap is near zero while the aggregate is resolved, the loss is in how criteria COMBINE.
+E4  the satisfaction-spread confound: the spread distribution per pool and the gap on
+    spread-matched instances.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1-E4 identified at the INSTANCE and POOL level. ⛔ NOT identified: any individual `full` criterion's
+predictive power, because each is observed on one prompt (D2). The round reports the distribution and
+explicitly declines the per-criterion ranking its own NEXT-of-origin asked for.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  968 prompts; `full` criterion instances (mean 15.48/prompt) and the pool's 16 x 968
+instrument  singleton pairwise-sign agreement with the human annotators, all of them
+baseline    `genericpool16`'s instances against `coval_full`'s
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · INDIVIDUALLY WEAKER. The pool's singleton instances beat `full`'s, resolved, and the gap is of
+    the same order as R797's aggregate +0.0335. Then the rubric's disadvantage is in its criteria,
+    one at a time, and the aggregate result is a restatement.
+B · ONLY IN AGGREGATE. The singleton gap is unresolved or much smaller than the aggregate. Then
+    individual criteria are comparable and the loss appears in how they COMBINE -- a claim about the
+    rubric's composition rather than its content.
+C · THE OPPOSITE. `full`'s singletons are resolvedly BETTER while the aggregate favours the pool.
+    Then summing actively destroys what the rubric's criteria individually carry, which would be the
+    strongest version of B and must be named separately so it cannot be absorbed into it.
+
+PREDICTION MATRIX
+  A -> singleton gap resolved, positive, and >= half the aggregate 0.0335
+  B -> singleton gap unresolved, or resolved but < half the aggregate
+  C -> singleton gap resolved and NEGATIVE
+  any other pattern -> report; CLAIM NO WORLD.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (summing ALL of a pool's criteria reproduces that pool's committed aggregate A2 --
+   `full` 0.5087225654 and `genericpool16` 0.5422329001, both to 1e-9 -- exit 2 otherwise, since a
+   singleton decomposition whose sum disagrees with the whole is decomposing something else)
+   and PLACEBO returns exactly the identity: D1's `(1 - tie) * accuracy` equals the composite to 1e-12
+   and POSITIVE fires with a computed band (a planted sign-flip on a share of instances degrades
+       singleton agreement monotonically and does not move it at share 0)
+   and NEGATIVE fires (shuffling the human classes across prompts collapses BOTH pools' singleton
+       agreement toward chance):
+        singleton gap resolved and negative                  -> WORLD C   (checked FIRST)
+        singleton gap resolved and >= 0.01675 (half 0.0335)  -> WORLD A
+        singleton gap unresolved or < 0.01675                -> WORLD B
+        otherwise                                            -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT      both pools' summed-criteria A2 against R793's and R789's committed values, to 1e-9.
+            Exit 2, never 0.
+PLACEBO     D1's identity, checked numerically: composite == (1 - tie) * accuracy to 1e-12.
+POSITIVE    BAND COMPUTED AT BOTH ENDS: flip the sign of a share s of instances' classes, sweep
+            s in {0, 0.1, 0.25, 0.5}; singleton agreement must be unmoved at 0 and degrade at 0.5.
+NEGATIVE    shuffle the HUMAN classes across prompts; both pools' singleton agreement must fall
+            toward chance. World it excludes: "singleton agreement measures a property of the
+            criteria alone rather than of their fit to THIS prompt's humans."
+CLUSTERING  D4: the pool's instances cluster by CRITERION (16 clusters), `full`'s by PROMPT. Both
+            intervals are computed on the correct cluster and the naive independent-instance
+            interval is printed BESIDE them to show what it would have overstated.
+CONFOUND    E4's satisfaction-spread matching.
+NOISE FLOOR MEASURED: annotator split-half on each pool's singleton mean.
+UNIT        instrument unit = a (prompt, criterion, annotator) judgement; claim unit = a POOL;
+            E1's reporting unit = a criterion INSTANCE. Three strings, required unequal.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+E1's gap + E2's two component gaps + E4's matched gap = 4 tests, BH at q = 0.05 over the four.
+Distributions are reported whole. Cells tested, surviving and non-survivors printed.
+
+--------------------------------------------------------------------------------
+SPECIFICATION CURVE
+--------------------------------------------------------------------------------
+statistic      composite singleton A2 | discrimination | accuracy-on-non-tied
+clustering     by prompt | by criterion | naive (printed to show the overstatement)
+population     all instances | spread-matched instances
+NBOOT          1200
+seeds          3
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+any INDIVIDUAL `full` criterion's power     that criterion appearing on more than one prompt (D2);
+                                            the release gives each exactly one
+why a criterion predicts well or badly      its text and a relevance judgement -- the construct wall
+                                            (`corebench/score.py:34`)
+independently replicated                    a second designer; the session prompt forbids agents
+cross-release                               a second values-annotation release
