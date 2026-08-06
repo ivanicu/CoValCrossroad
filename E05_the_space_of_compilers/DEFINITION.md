@@ -7434,3 +7434,26 @@ features reconstruct **~5%** of the variance in the quantity driving its selecti
 count), which is a *superset* of the response-only class clause ④ names. A response-only predictor is
 nested inside them, so its ceiling is ≤ 0.0555 **by nesting, not by measurement** — a derivation, and
 the reason no further round was run on this axis.
+
+## `synthetic_world` · the round that licenses additivity does not follow its own registered kill
+
+**STATUS: UNVERIFIED.** `corebench/synthetic_world.py` exists to check whether the set-structure
+separator can detect set structure at all, and registers its kill in its own docstring: *"if the gap
+at g=1.0 does not exceed the gap at g=0 by more than the g=0 spread across seeds, the separator is
+BLIND and the additivity claim on real data is downgraded to UNVERIFIED."*
+
+That test is `dose_ok`. It is computed, printed **FAIL**, and never enters a condition — the verdict
+branches on `fires` alone. Artifact: `fires: True`, **`dose_ok: False`**, **`monotone: False`**,
+`real_gap: 0.0079`; doses 0.0→1.0 give 0.5483 · 0.5708 · 0.5625 · 0.5800 · 0.5775, **not monotone**.
+
+The additivity claim rests on two non-rejections (`oracle_HO − indep_HO = +0.0079 [−0.0079,
++0.0238]`) and this is the round meant to license them. ⚠ **Both branches are stated and neither is
+adopted here**: `fires` is a real signal at a 10× threshold, and which test should govern is a
+judgement made in code and contradicted in prose. **What is established is that the verdict does not
+follow from the checks the round registered.** Nothing cites the artifact — measured,
+filename-anchored: 1 reference, its own module.
+
+Found by `assurance/kill_is_wired_into_the_branch.py`, which carries a positive control
+(`synthetic_world` must fire) **and** a negative control (`pairwise_matrix` must not) and exits 2 if
+either fails. ⚠ Its flag list is a name heuristic, so a clean report is silence about the names not
+searched, never a clean bill.

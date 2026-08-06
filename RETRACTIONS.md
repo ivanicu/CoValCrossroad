@@ -22184,3 +22184,76 @@ edit.
 A number produced by a scan may only be changed by that scan. Anything else is a hand-tally wearing the
 authority of a measurement — the same class as quoting a mean over splits against a per-split floor,
 where the units silently stop matching.
+
+## 1276 · my scan for un-wired kills had a 1-in-2 false positive rate, and its positive control passed
+
+Auditing `corebench` for §4's *verdict string is not a computation*, my AST scan reported **2 of 3**
+modules branching their verdict without a flag they had computed. **One of the two was wrong.**
+
+`pairwise_matrix.py` is **clean**:
+
+```python
+pos_ok = len(surv & set(ci)) > 0
+if not pos_ok:   v = "UNVERIFIED -- even incompetent arms do not separate…"
+elif …:          v = "WORLD B …"
+else:            v = "WORLD A …"
+```
+
+`pos_ok` gates the chain from the outside, and its failure branch returns **UNVERIFIED**. That is a
+correctly built kill, and I described it as *"the sharper case… a verdict reached without consulting
+its own positive control."* Both sentences were false.
+
+**The mechanism.** The scan collected names from `n.test` only for `If` nodes whose **body** held one
+of `VERDICT/WORLD/BLIND`. In an `if/elif/else`, the outermost body said **UNVERIFIED** — not on my
+keyword list — so the node was skipped, its `elif` was scored instead, and the outermost flag came
+back orphaned.
+
+⭐ **AND MY POSITIVE CONTROL PASSED.** `synthetic_world.py` was correctly flagged, which established
+that the scan **can see** — and nothing about whether what it sees is what I was claiming. §4 names
+exactly this, one turn after I had quoted it: *"a control that shares the instrument's blind spot
+confirms the instrument and licenses nothing."*
+
+**Remedy, built rather than resolved**: `assurance/kill_is_wired_into_the_branch.py` now walks the
+`orelse` chain, unions the names from **every** test in it, dumps **every** branch body when deciding
+whether the chain is a verdict, and carries **both** controls — `synthetic_world` MUST fire,
+`pairwise_matrix` MUST NOT — exiting 2 if either fails. Corrected result: **1 of 3**, and the
+"cannot judge" bucket went from 1 to 0, because the chain-walk also reached the module the first
+version could not parse into a decision.
+
+**The general rule: a one-sided control cannot detect over-firing.** A positive control bounds
+*blindness*; only a known-clean case bounds *noise*. An instrument with a positive control alone
+reports its hits as findings and has no way to price its false positives — which is how a 1-in-2
+rate reached a report.
+
+## 1277 · `synthetic_world` computes its own pre-registered kill and branches on something else
+
+The one surviving hit is real and it matters more than the scan.
+
+`corebench/synthetic_world.py` exists to answer *can the set-structure separator DETECT set
+structure?* Its docstring registers the kill explicitly: *"if the gap at g=1.0 does not exceed the
+gap at g=0 by more than the g=0 spread across seeds, the separator is BLIND and the additivity claim
+on real data is downgraded to UNVERIFIED."*
+
+That test is `dose_ok`. It is computed, printed as **FAIL**, and **never reaches a condition**:
+
+```python
+fires    = max(gap) > 10 * abs(real)          # ← the only thing the branch tests
+dose_ok  = top_gap > floor_gap + max(floor_sd, 1e-9)     # FAIL, orphaned
+monotone = all(non-decreasing in g)                      # FAIL, orphaned
+if fires:  "the separator CAN see set structure"
+else:      "the separator is BLIND … downgraded to UNVERIFIED"
+```
+
+Artifact: `fires: True`, **`dose_ok: False`, `monotone: False`**, `real_gap: 0.0079`. Doses 0.0→1.0
+give 0.5483 · 0.5708 · 0.5625 · 0.5800 · 0.5775 — **not monotone in g**.
+
+**So the printed verdict is *"the separator CAN see set structure"* while the round's own registered
+criterion says it cannot.** The additivity claim rests on two non-rejections
+(`oracle_HO − indep_HO = +0.0079 [−0.0079, +0.0238]`), and this is the round that was supposed to
+license them.
+
+⚠ **STATUS: UNVERIFIED, both branches stated.** `fires` is a real signal at a 10× threshold, and
+which test should govern is a judgement the author made in code and contradicted in prose. **I am not
+picking the branch.** What is established is that **the verdict does not follow from the checks the
+round registered**, and nothing cites the artifact — measured, filename-anchored: **1 reference, its
+own module.**
