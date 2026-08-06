@@ -4334,3 +4334,71 @@ defined and every downstream count is clear of a chaining artifact.**
 
 **Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 31337, **both writes confirmed to
 disk** (1,357 / 1,361 bytes, differing only in the recorded seed).
+
+## R748 · the page's two object counts differ in three factors, and both move under the rule
+
+**Question.** R747 priced one unstated parameter and closed by proposing it be priced at the claim
+level. Running P4 on that question — on **every** question the round asks, which is R747's own lesson
+— found something larger: the deliverable's two object counts were computed by **different relations
+on different quantities over different populations**.
+
+| round | relation | quantity |
+|---|---|---|
+| **R524** | `len(ma)==len(mb) and (ma==mb).all() and array_equal(sa,sb)` | **full overlap**, raw satisfaction cells |
+| **R730** | equal on **shared** prompts, guard `≥ 0.5·min` | **subset**, per-prompt aggregated agreement vectors |
+
+They disagree on a class both computed: R524 has `['coval_core_2bA','coval_core_2bB']`; R730 has
+`['coval_core','coval_core_2bA','coval_core_2bB']`.
+
+**⛔ The first implementation was wrong and its own control caught it** *(ledger 1011)*. v1 applied both
+rules to raw cells and `P4` returned **70** against R730's committed **81**. R730's relation never
+touches raw cells. The two published rules differ in **two ways at once** — R732's failure in this same
+arc — so the grid became **2 quantities × 2 rules × 2 populations**.
+
+**The grid — 8 cells.**
+
+| quantity | population | full overlap | subset | gap |
+|---|---|---|---|---|
+| **raw cells** | **56 (R524)** | **46** ← *the page's number* | **39** | 7 |
+| raw cells | 93 (R730) | 83 | 70 | 13 |
+| agg vectors | 56 (R524) | 45 | 44 | 1 |
+| **agg vectors** | **93 (R730)** | **83** | **81** ← *the page's number* | 2 |
+
+⛔ `subset ≤ full` is **FORCED** — full overlap refines subset. Only the **gap** is measured.
+⭐ **Aggregation absorbs most of what the overlap rule would separate** — gaps 7→1 on the 56 and
+13→2 on the 93.
+
+**E2 — both stated counts move under the rule alone.** *"56 tags are 46 objects"* → 46 full / **39**
+subset. *"93 tags are 81 objects"* → **83** full / 81 subset. *"13 tags are 10 objects"* → population
+not reconstructible, **OUT OF SCOPE**, not assumed unaffected.
+
+**Registered against measured.**
+
+| | registered | measured | |
+|---|---|---|---|
+| P1 56 under subset | 45 [40, 46] | **39** raw / **44** agg | ⚠ **under-specified as written** — it presupposed one quantity *(1012)* |
+| P2 93 under full overlap | 83 | **83** on both quantities | ✓ |
+| P3 / P4 reproduce 46 and 81 | yes *(hard)* | **46 = 46**, **81 = 81** | ✓ |
+| P5 stated counts that move | 1 [0, 10] | **2** | in band, point wrong |
+| P6 disagreeing classes | 2 [0, 20] | **2** | ✓ exact |
+| **D** all disagreements carry a strict subset | true | **false — 1 of 2** | ⛔ *(1013)* |
+
+⭐ **D failing is the informative part**: the second disagreeing class is a **partial overlap** with no
+containment, so there are **two** mechanisms and a fix aimed at subsetting alone would leave half in
+place.
+
+⛔ **D2, a DERIVATION asserted and excluded from the findings** *(1014)*: the extension's 5 members sit
+in 5 classes under both rules — forced, because a refinement cannot merge what is already separate.
+
+**Controls — 7 PASS, 0 FAIL.** POSITIVE a synthetic **strict-subset** pair: subset merges, full overlap
+does not — **opposite sides**, band computed against merge-nothing/merge-everything · g=0 a synthetic
+**unequal** pair, both refuse, since a subset rule merging unequal arms would have manufactured P1 ·
+NEGATIVE distinct seeded noise ×3 seeds → **(93, 93)** every time · **SHAM** the ingredient **absent**,
+the 88 arms sharing one prompt set → **79 = 79**, so the rules are identical where overlap is constant
+and the gaps are attributable to overlap structure · PLACEBO 0 of 93 · P3/P4 both instruments are the
+ones they claim to be.
+
+**Verdict — `WORLD B`.** Both stated counts move; **every object count must carry its cell**.
+
+**Reproducibility.** Byte-identical under `PYTHONHASHSEED` 0 and 98765, **both writes confirmed to
+disk** (1,905 / 1,909 bytes, differing only in the recorded seed).

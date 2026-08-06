@@ -18864,3 +18864,36 @@ count to reach a fraction of the smaller arm, and for a strict subset the shared
 smaller arm exactly, so the test holds at every fraction up to one. The guard can only reject a partial
 overlap and this population has none. Sweeping it was flat by construction, and reporting that flatness
 as robustness would have been claiming a test that could not have failed.
+
+## 1011 · the two published object counts differ in three factors and I had assumed one
+
+I set out to price a single choice, whether identity merges arms on the prompts they share or requires
+identical prompt sets, and my first implementation applied both rules to the raw satisfaction cells. It
+failed its own reproduction check, returning seventy where the earlier round committed eighty one, and
+the check was right. That round's relation never touches raw cells; it compares a per prompt aggregated
+agreement score. So the two numbers the deliverable carries side by side differ in quantity, in rule
+and in population simultaneously, and I had been treating them as two readings of one thing. Holding
+quantity and population fixed, both stated counts move under the rule alone.
+
+## 1012 · my registered point was unanswerable as written because it presupposed the finding
+
+I registered that the fifty six tag population under the subset rule would give forty five objects with
+a band from forty to forty six. The measurement is thirty nine on raw cells and forty four on
+aggregated vectors, and the registration named no quantity because at the time I did not know there
+were two. One of those lands inside the band and one does not. Scoring it by whichever fits would be
+choosing the answer after seeing it, so it is recorded as under specified and both values are carried.
+
+## 1013 · the mechanism I named for the disagreement is one of two
+
+I registered that every class on which the two rules disagree would contain a pair whose prompt set is
+a strict subset of another's, because subsetting was the mechanism I had in mind. Two classes disagree
+and only one carries a strict subset. The other is a partial overlap, where neither set contains the
+other and they still share more than half the smaller. The bound holds and my account of why does not,
+which matters because a fix aimed only at subsetting would have left half the disagreement in place.
+
+## 1014 · the extension's invariance under the rule is algebra and is not a result
+
+I nearly reported that the extension is five objects under both identity rules as though it were a
+reassuring measurement. Its five members already sit in five distinct classes under the coarser rule,
+and a refinement cannot merge what is already separate, so the outcome was forced before any code ran.
+It is asserted in the script as a consistency check and is excluded from the round's findings.
