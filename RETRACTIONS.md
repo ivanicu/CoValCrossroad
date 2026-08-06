@@ -22784,3 +22784,46 @@ mis-signs.
 per-arm table is a CANDIDATE LIST with a ~43% misread rate.** The confound control I pre-registered
 (*quote every decisive sentence into the artifact*) is the only reason that is visible, and it was
 written because I knew I would be reading my own commit messages.
+
+## 1292 · reading beat the regex, and the second family I was told to build was already on disk
+
+R833 closed by saying a replacement instrument must parse negation. ⛔ **That is a third regex
+refinement, and §4's *a search is an instrument* has already been wrong twice** — at the loose
+pattern, and at the tight pattern **with a passing positive control**. R833 had already shown what
+works: four commit bodies read by hand in one command gave the right answer, and the regex is what
+got it wrong. **So this round read all eleven.**
+
+**Three of R833's regex statuses are corrected, and the corrections are visible only because the
+artifact carried the quotes:**
+
+| arm | regex said | reading says | what the regex matched |
+|---|---|---|---|
+| `gen` | EXCLUDED | **ADMITTED** | the **negation** *"never having seen coval_full"* |
+| `genericpool16` | EXCLUDED | **UNDECIDED** | a sentence about the **clause's wording** |
+| `coval_core_sham` | ADMITTED | **EXCLUDED** | a commit **subject line** |
+
+Controls: `coval_core` adjudicates **EXCLUDED** from the **release's own dataset card** (R475), not
+from anything I wrote — **the positive control passes, so my reading did not drift toward comfort**
+— and every ADMITTED/EXCLUDED verdict carries a verbatim quote, **7 of 7**. Two-seed byte-identical.
+
+| | R831 | R834 |
+|---|---|---|
+| substantive ③-admissible set | **3** arms | **6** |
+| families | **1** (`topvar`) | **4** (`generic`, `gen`, `promptecho`, `topvar`) |
+| best rank | 50 / 93 | **21 / 93** |
+| top-8 that are label-readers | 8/8 | **8/8** |
+
+**W-STRENGTHENED. R831's W-SELF-DEFEATING rests on more evidence, not less** — and `gen`'s
+admissibility is **measured**, not asserted: I2 verbatim **0.0000**, I3 novel **0.9920** against
+`coval_full`.
+
+⭐ **R831's NEXT said *"build a second family of label-free substantive arms."* Two more were
+already committed, and a third.** That is P4 firing for the fourth time in this arc, and each time
+the thing I proposed to build or measure was on disk.
+
+⚠ **What the adjudication could not reach, and it is a defect in the DIARY not the definition**:
+`coval_core_2bA`, `coval_core_2bB` and `generic_reprov` have **no introducing commit**, so their
+core files were committed without the round that built them. `genericpool16`'s record does not name
+its construction. **Inheriting a sibling's provenance would be inference, not record**, so all four
+stay NO-RECORD or UNDECIDED — and the commit-as-diary discipline is exactly what would have
+prevented the gap.

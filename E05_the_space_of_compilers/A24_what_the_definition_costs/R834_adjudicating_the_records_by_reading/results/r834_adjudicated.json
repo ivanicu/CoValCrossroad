@@ -1,0 +1,132 @@
+{
+ "world": "W-STRENGTHENED",
+ "verdict": "the substantive set grows from 3 arm(s) in 1 family to 6 across 4, and its best rank 21 is still below the top 8 -- W-SELF-DEFEATING rests on more evidence, not less",
+ "adjudication": {
+  "coval_core": {
+   "status": "EXCLUDED",
+   "source": "the RELEASE's dataset card, via R475 -- NOT any record I wrote",
+   "quote": "it aims to select up to four rubric items with the highest average ratings that remain compatible with each other and do not repeat the same idea",
+   "note": "POSITIVE CONTROL. Decided from an external record, which is the correct evidentiary situation for someone else's object."
+  },
+  "coval_core_2bA": {
+   "status": "NO-RECORD",
+   "source": "no introducing commit reachable for core_coval_core_2bA.json",
+   "quote": "",
+   "note": "Inheriting coval_core's provenance would be INFERENCE, not record."
+  },
+  "coval_core_2bB": {
+   "status": "NO-RECORD",
+   "source": "no introducing commit reachable for core_coval_core_2bB.json",
+   "quote": "",
+   "note": "Inheriting coval_core's provenance would be INFERENCE, not record."
+  },
+  "generic": {
+   "status": "ADMITTED",
+   "source": "d9185142",
+   "quote": "The object that settles it: four GENERIC quality criteria, identical on every prompt.",
+   "note": "The record lists all four verbatim. No labels, no rubric, and it does not read the prompt."
+  },
+  "generic_reprov": {
+   "status": "NO-RECORD",
+   "source": "no introducing commit reachable for core_generic_reprov.json",
+   "quote": "",
+   "note": "The name suggests a `generic` variant, which is inference and not record."
+  },
+  "genericpool16": {
+   "status": "UNDECIDED",
+   "source": "d05f3c80",
+   "quote": "",
+   "note": "The record discusses clause 2's WORDING and reports scores; it does not name this arm's construction. R833's regex called it EXCLUDED on a sentence about the clause, which is a misread."
+  },
+  "gen": {
+   "status": "ADMITTED",
+   "source": "14f60e6b and d566326c",
+   "quote": "generating k=4 criteria per prompt with a local 2B model that saw the CONVERSATION and the FOUR RESPONSES and never the rubric",
+   "note": "MEASURED, not asserted: I2 verbatim 0.0000, I3 novel 0.9920 against coval_full. R833's regex called it EXCLUDED by matching `coval_full` inside the NEGATION 'never having seen coval_full'."
+  },
+  "gen_sham": {
+   "status": "ADMITTED",
+   "source": "d566326c",
+   "quote": "generating k=4 criteria per prompt with a local 2B model that saw the CONVERSATION and the FOUR RESPONSES and never the rubric",
+   "note": "A misdirected form of `gen`; the misdirection changes which prompt the criteria are applied to, not what was read at construction."
+  },
+  "promptecho": {
+   "status": "ADMITTED",
+   "source": "fd488e22",
+   "quote": "use the prompt's own user sentences as the four \"criteria\"",
+   "note": "No labels, no rubric. Built to test whether the definition wrongly ADMITS."
+  },
+  "promptecho_sham": {
+   "status": "ADMITTED",
+   "source": "fd488e22",
+   "quote": "use the prompt's own user sentences as the four \"criteria\"",
+   "note": "Same construction, misdirected to another prompt."
+  },
+  "coval_core_sham": {
+   "status": "EXCLUDED",
+   "source": "e6fde984",
+   "quote": "Sham built the same way: prompt i gets prompt i+1's coval_core criteria.",
+   "note": "Built FROM coval_core's criteria, which the release's own card says are the highest-average-rated rubric items. R833's regex called it ADMITTED off a commit SUBJECT line."
+  }
+ },
+ "by_status": {
+  "EXCLUDED": [
+   "coval_core",
+   "coval_core_sham"
+  ],
+  "NO-RECORD": [
+   "coval_core_2bA",
+   "coval_core_2bB",
+   "generic_reprov"
+  ],
+  "ADMITTED": [
+   "gen",
+   "gen_sham",
+   "generic",
+   "promptecho",
+   "promptecho_sham"
+  ],
+  "UNDECIDED": [
+   "genericpool16"
+  ]
+ },
+ "r831_substantive": [
+  "topvar_k4",
+  "topvar_k4_08b",
+  "topvar_k4_08bR"
+ ],
+ "added_by_record": [
+  "gen",
+  "generic",
+  "promptecho"
+ ],
+ "recomputed_substantive": [
+  "generic",
+  "gen",
+  "topvar_k4",
+  "promptecho",
+  "topvar_k4_08b",
+  "topvar_k4_08bR"
+ ],
+ "families": [
+  "gen",
+  "generic",
+  "promptecho",
+  "topvar"
+ ],
+ "ranks": {
+  "generic": 21,
+  "gen": 27,
+  "topvar_k4": 50,
+  "promptecho": 66,
+  "topvar_k4_08b": 72,
+  "topvar_k4_08bR": 93
+ },
+ "best_rank": 21,
+ "top8_excluded": 8,
+ "controls": {
+  "positive_coval_core_excluded": true,
+  "every_verdict_quoted": true
+ },
+ "source_sha": "e8efecbaa401d4ee"
+}

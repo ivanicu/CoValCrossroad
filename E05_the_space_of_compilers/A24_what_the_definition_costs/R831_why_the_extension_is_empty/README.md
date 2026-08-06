@@ -53,6 +53,15 @@ selection fact about my inventory. **Substantive ③-admitted arms: 3.**
 | `topvar_k4_08b` | 0.4236 | 72 / 93 |
 | `topvar_k4_08bR` | 0.4018 | **93 / 93** |
 
+> ⭐ **SUPERSEDED BY R834 — the set is 6 arms across 4 families, not 3 in 1.** Reading the eleven
+> UNKNOWN arms' construction records adjudicated `generic` (**21**), `gen` (27) and `promptecho`
+> (66) as ③-admissible, each on a verbatim quote committed as data. **`gen`'s is measured, not
+> asserted**: I2 verbatim 0.0000, I3 novel 0.9920 against `coval_full`.
+> **Best substantive rank moves 50 → 21, and the top 8 stay 8/8 label-readers**, so
+> W-SELF-DEFEATING is strengthened rather than moved. The `BASELINE` regex and rank source are
+> unchanged, so the two numbers are comparable.
+> ⚠ **And this round's NEXT — *"build a second family"* — was answered by arms already on disk.**
+
 **n = 3.** The permutation p is computed over 82 arms, most of them baselines. **The substantive
 claim is a description of three arms, not a tested effect** — the best **③-ADMITTED** substantive arm
 sits at rank 50 of 93, and no p is available at that n.
