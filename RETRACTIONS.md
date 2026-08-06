@@ -23304,3 +23304,33 @@ the formula.* I checked whether a symmetry gate existed only after deriving the 
 specification, and publishing it as a NEXT. **The prior-art gate is cheapest before the estimand is
 written, and I keep running it after** — which is the same sentence ledger 1273 recorded, in an arc
 that has since fired P4 six times.
+
+## 1306 · I re-derived a NEXT line that was written 500 rounds ago and already caught
+
+My NEXT asked whether the pairer's **5,186** skipped nodes are genuinely refused or merely
+unrecoverable. **P4, run on the PREDICATE this time rather than the name, found
+`R341_is_the_skipped_population_real` — a round whose title is my question, already run.**
+
+**Its verdict: `COUNT_REAL_BREADTH_RETRACTED`.** `actually_declined` **5,157** of **5,186** —
+a decline rate of **0.9944**. The count is real; what was retracted is breadth, because the **18**
+published suspects were only **9 distinct** and a source read refutes them.
+
+⭐⭐ **And the shape is exact, which is what makes it worth an entry.** R341's README opens by
+quoting **R340's closing sentence** as the risky one:
+
+> *"those 5,186 skipped nodes are now the largest unexamined population in the repo … Nobody has
+> ever measured which."*
+
+and names why: **§4's *the closing sentence is a claim and never gets a control*, with its tells
+`"the largest"` and `"nobody has ever"` — both typed, neither computed.**
+
+**I wrote R340's NEXT again, in my own words, roughly 500 rounds later.** Not a similar question —
+the same one, about the same 5,186, arrived at by the same route: a closing sentence that quantified
+over the repository and was published before it was checked.
+
+⚠ **What this does and does not change.** It does not move a number: R341's measurement stands and
+the population is real. It changes what the next step is — **widening the pairer would reach a
+genuinely refused population, and R341 already priced it.** ⭐ **And it puts P4 at seven firings in
+this arc**, every one a case where the thing I proposed to build, measure, or ask was already
+committed. **The prior-art gate is cheapest before the estimand is written; I have now run it after,
+seven times, and the cost each time was the round I had already designed.**
