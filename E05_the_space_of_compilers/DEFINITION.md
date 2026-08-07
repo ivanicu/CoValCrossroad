@@ -996,6 +996,23 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > ⚠ **1 of 3 specifications does NOT separate** (matched k=4, −0.024) and is reported, not
 > > dropped. Three specs is a wider family than R909's two, which is why the **primary was
 > > designated before the run** rather than chosen after.
+> >
+> > ⭐ **AND THE LAST DISSENTING SPECIFICATION FLIPS — BUT IRREDUCIBLY ONE-SIDEDLY (R912).**
+> > `--select-npz` re-runs a satisfaction-consuming rule on a DIFFERENT satisfaction while still
+> > emitting values from the same judge, so two new k=4 variance arms were built at 0 judge calls
+> > (`topvar_k4_sel08`, `topwvar_k4_sel08` — selection from 0.8B, **values from 2B**, so R895's
+> > judge-mixing defect is not reintroduced). They differ from their originals on **931/968**
+> > prompts and are **both rejected**, with the most negative margins in the group (−0.091,
+> > −0.071). k=4 goes **0/8 → 0/10**, [0.000, 0.324] → **[0.000, 0.278]**, and the gap moves
+> > **−0.024 → +0.023**. **All three specifications now separate.**
+> > ⛔⛔ **AND THE STRUCTURAL FACT LEADS RATHER THAN TRAILS.** `select_core.py:72` says
+> > `topw_k` and `topabs_k` are **satisfaction-BLIND**, so `--select-npz` cannot make a new
+> > SIGNED arm at k=4. **Only the variance side can grow there — growing one side is the very
+> > defect R911 fixed everywhere else, and at k=4 it is irreducible.**
+> > **IMPOSSIBILITY REGISTER, new and STRUCTURAL:** *a balanced k=4 comparison* — would require
+> > **a second signed-weight rule that consumes satisfaction**, and the generator has none.
+> > ⚠ **So the k=4 result is weaker than the k-matched one by construction, whatever its verdict.
+> > R911's PRIMARY specification (+0.250) remains the one to quote.**
 >
 > | clause | verdict | comparator | criterion |
 > |---|---|---|---|
