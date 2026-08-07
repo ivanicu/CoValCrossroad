@@ -862,6 +862,28 @@ is applied — the 9-arm extension exists only because the set was never closed.
 ⚠ **N/A** — the exhaustive 65,535-mask closure with a full bootstrap is ~254 GFLOP per seed; what it
 would require is the matrix form at float32 on the GPU.
 
+⛔⛔ **AND R1034's `∅` IS SEED-DEPENDENT — R1035 WITHDRAWS THE WORD `EXACT`.** Two of my own rounds
+disagreed: R1034 measured `∅` at q=100 under seeds (1034, 2068, 3102); the same construction at
+(1035, 2070, 3105) admits `coval_core`. Measured across **seven** seeds including R1034's own,
+`coval_core` is admitted in **4 of 7**, with min `lo` in **[−0.000167, +0.000484]** against R923's
+reference scale of **+0.005736** — **34× larger**. **The boundary sits inside the design's
+resolution: the extension under closure is neither `∅` nor `{coval_core}` but UNRESOLVED.**
+⭐ R1034's **monotonicity** argument survives — more comparators can only remove arms. **What falls is
+calling the measured `∅` exact.**
+
+⭐ **AND THE CURVE IS WHAT STANDS, NOT THE ENDPOINT.** Requiring an arm to resolvably beat **≥ q%** of
+the family gives a small, stable, non-empty extension, **seed-identical at all seven seeds**:
+
+| q | 0 | 50 | 75 | 90 | **95** | **99** | 100 |
+|---|---:|---:|---:|---:|---:|---:|---|
+| \|ext\| | 73 | 12 | 12 | 11 | **9** | **8** | ⚠ seeds disagree |
+
+Only q=100 is unstable — exactly where a **maximum over a search** sits. ⛔ The device is **R863's**,
+which bounded clause ④'s 1,820-member family at `null_p95` rather than its max; what is new is the
+curve for ②′.
+⚠ **N/A** — whether a quantile bound is the *right* clause is construct validity, needing an external
+criterion this release does not carry.
+
 | | |
 |---|---:|
 | extension under `generic` alone | 9 |

@@ -605,6 +605,17 @@ def main() -> int:
                       [r"(vacuous|empty|∅).{0,300}(clos\w+).{0,200}(repair|imput)",
                        r"(clos\w+).{0,300}(extension is (empty|∅)|admits nothing)"]))
 
+    # ⛔⛔ R1035: R1034's ∅ is seed-dependent (4 of 7) at a ~1e-4 boundary; the quantile CURVE is
+    #    what stands, stable and non-empty over q in {50..99}.
+    d = load("A27_*/R1035_*/results/quantile_bound_curve.json")
+    if d:
+        b = d["boundary"]
+        facts.append(("R1035", "R1034's ∅ is seed-dependent; the quantile curve stands",
+                      f"admitted {b['admitted_in']} of {len(b['seeds'])}, "
+                      f"stable q {d['stable_q']}",
+                      [r"(4 of 7|seed[- ]dependent).{0,300}(exact|withdraw)",
+                       r"(q\s*=?\s*95|>= q%).{0,300}(stable|seed-identical)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

@@ -1,0 +1,232 @@
+{
+  "round": "R1035",
+  "seeds": [
+    1034,
+    2068,
+    3102,
+    1035,
+    2070,
+    3105,
+    4141
+  ],
+  "quantiles": [
+    0,
+    50,
+    75,
+    90,
+    95,
+    99,
+    100
+  ],
+  "precedent": "R863 bounded clause \u2463's 1,820-member family at null_p95, not the max",
+  "family_size": 4261,
+  "sample_seed": 77,
+  "positive": {
+    "q100_is_empty": true,
+    "two_member_reproduces_R1000": true
+  },
+  "placebo_one_comparator_invariant": false,
+  "negative_sweep_moves": true,
+  "curve": [
+    {
+      "q": 0,
+      "ext": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "coval_core_sham",
+        "gen",
+        "gen_sham",
+        "generic",
+        "generic_reprov",
+        "promptecho",
+        "promptecho_sham",
+        "random_k12_s0",
+        "random_k12_s0_08b",
+        "random_k12_s1",
+        "random_k12_s1_08b",
+        "random_k12_s2",
+        "random_k12_s2_08b",
+        "random_k2_s0",
+        "random_k2_s0_08b",
+        "random_k2_s1",
+        "random_k2_s1_08b",
+        "random_k2_s2",
+        "random_k2_s2_08b",
+        "random_k3_s0",
+        "random_k3_s0_08b",
+        "random_k3_s1",
+        "random_k3_s1_08b",
+        "random_k3_s2",
+        "random_k3_s2_08b",
+        "random_k4_s0",
+        "random_k4_s0_08b",
+        "random_k4_s0_ctlS0",
+        "random_k4_s1",
+        "random_k4_s1_08b",
+        "random_k4_s1_ctlS1",
+        "random_k4_s2",
+        "random_k4_s2_08b",
+        "random_k6_s0",
+        "random_k6_s0_08b",
+        "random_k6_s1",
+        "random_k6_s1_08b",
+        "random_k6_s2",
+        "random_k6_s2_08b",
+        "random_k8_s0",
+        "random_k8_s0_08b",
+        "random_k8_s1",
+        "random_k8_s1_08b",
+        "random_k8_s2",
+        "random_k8_s2_08b",
+        "topabs_k4",
+        "topabs_k4_08b",
+        "topvar_k4",
+        "topvar_k4_08b",
+        "topvar_k4_08bR",
+        "topw_k1",
+        "topw_k12",
+        "topw_k12_08b",
+        "topw_k1_08b",
+        "topw_k2",
+        "topw_k2_08b",
+        "topw_k3",
+        "topw_k3_08b",
+        "topw_k4",
+        "topw_k4_08b",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k4_sham",
+        "topw_k6",
+        "topw_k6_08b",
+        "topw_k8",
+        "topw_k8_08b",
+        "topwvar_k4",
+        "topwvar_k4_08b",
+        "topwvar_k4_08bR"
+      ],
+      "n": 73,
+      "seed_agree": true
+    },
+    {
+      "q": 50,
+      "ext": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "generic",
+        "generic_reprov",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 12,
+      "seed_agree": true
+    },
+    {
+      "q": 75,
+      "ext": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "generic",
+        "generic_reprov",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 12,
+      "seed_agree": true
+    },
+    {
+      "q": 90,
+      "ext": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "generic",
+        "generic_reprov",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 11,
+      "seed_agree": true
+    },
+    {
+      "q": 95,
+      "ext": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9,
+      "seed_agree": true
+    },
+    {
+      "q": 99,
+      "ext": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6"
+      ],
+      "n": 8,
+      "seed_agree": true
+    },
+    {
+      "q": 100,
+      "ext": null,
+      "n": -1,
+      "seed_agree": false
+    }
+  ],
+  "stable_q": [
+    50,
+    75,
+    90,
+    95,
+    99
+  ],
+  "boundary": {
+    "seeds": [
+      1034,
+      2068,
+      3102,
+      1035,
+      2070,
+      3105,
+      4141
+    ],
+    "admitted_in": 4,
+    "min_lo_range": [
+      -0.00016671120829414576,
+      0.00048426687135361135
+    ],
+    "reference_scale_R923": 0.005736252758651972,
+    "verdict": "R1034's measured \u2205 is seed-dependent at ~1e-4"
+  },
+  "world": "\u26d4 C R1034's \u2205 IS SEED-DEPENDENT AND ITS `EXACT` MUST BE WITHDRAWN \u2014 `coval_core` is admitted in 4 of 7 bootstrap seeds at q=100, with a minimum margin in [-0.000167, +0.000484] against a reference scale of +0.005736. The boundary sits INSIDE the design's resolution, so the extension under closure is neither \u2205 nor {coval_core} \u2014 it is UNRESOLVED. R1034's monotonicity argument survives (more comparators can only remove arms); what falls is calling the measured \u2205 exact.",
+  "limitation": "asks only whether a non-empty stable regime exists, never whether a quantile bound is the right clause"
+}
