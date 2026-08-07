@@ -332,6 +332,19 @@ removes that **no other clause removes**:
 
 **Clauses ② and ③ carry the entire extension. ① and ④ remove nothing the others do not.**
 
+⛔⛔ **CORRECTION, added 2026-08-07 while building R1005 — HALF OF THIS WAS ALREADY IN THIS DOCUMENT.**
+**Clause ①'s inertness is PRIOR ART, and R1000 presented it as a finding.** This file's own section
+*"① — a consequence, not a test"* (from the R327–R347 work) already states that on this arm space
+clause ② **implies** clause ①, that the cell *(① fails, ② passes)* is **empty**, that it is empty
+**by derivation** — a counterexample needs `GAP < SLACK` and the measured minimum GAP exceeds the
+maximum SLACK on all 41 arms — and it closes with the instruction **"State it as a consequence and
+stop presenting it as independent evidence."** ⭐ **R1000 did exactly what that sentence forbids.**
+**What R1000 legitimately added for ①** is scope: 41 arms → **96**, and pairwise ①-vs-② → unique
+removals under the **full four-clause conjunction**. That is a widening, not a discovery, and the
+headline should have read *"one ornament, confirmed; one newly measured."* **④'s inertness is the
+genuinely new half** and is unaffected. Recorded here rather than by editing R1000's artifact, which
+is a record of what that round computed (L81).
+
 ⚠ **THAT IS A FACT ABOUT THIS RELEASE'S ARM SET, NOT A PROOF EITHER CLAUSE IS EMPTY.** Exercising ①
 or ④ requires an arm that violates *only* that clause, and this release contains none. The two arms
 ① removes — `topw_k1`, `topw_k1_08b` — are removed by ② and ④ as well.

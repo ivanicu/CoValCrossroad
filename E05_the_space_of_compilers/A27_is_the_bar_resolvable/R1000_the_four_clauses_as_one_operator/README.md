@@ -42,6 +42,14 @@ Unique removals — arms a clause removes that **no other clause removes**:
 | **③** consumes no prompt-specific labels | 73 | 23 | **15 / 16** |
 | **④** beats every response-only rule | 39 | 57 | **0** |
 
+⛔⛔ **CORRECTION (2026-08-07, found while building R1005): clause ①'s inertness is PRIOR ART.**
+`DEFINITION.md`'s section *"① — a consequence, not a test"* already states that clause ② **implies**
+clause ① on this arm space, that *(① fails, ② passes)* is empty **by derivation** on 41 arms, and
+that one should *"stop presenting it as independent evidence."* **This round presented it as a
+finding.** What it legitimately added is scope — 41 → 96 arms, pairwise → the full conjunction.
+**④'s inertness is the new half.** The headline should have read *"one ornament confirmed, one newly
+measured."*
+
 ⚠ **A fact about this release's arm set, not a proof either clause is empty.** Exercising ① or ④
 needs an arm violating *only* that clause, and none exists here. ①'s two removals — `topw_k1`,
 `topw_k1_08b` — are removed by ② and ④ as well.
