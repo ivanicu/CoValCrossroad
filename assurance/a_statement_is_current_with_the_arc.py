@@ -530,6 +530,17 @@ def main() -> int:
                       [r"968\s*[×x]\s*4\s*[×x]\s*k",
                        r"(3,?872).{0,120}(15,?488).{0,120}(61,?952)"]))
 
+    # ⛔⛔ R1028: the cross-release line stands, but its REASON does not. R802 refuted "another
+    #    release" on a FILE-level instrument; the populations are disjoint (overlap 0 on all three
+    #    keys) yet carry no criterion vocabulary. The binding requirement is the vocabulary.
+    d = load("A27_*/R1028_*/results/second_file_or_second_release.json")
+    if d:
+        facts.append(("R1028", "cross-release binds on the CRITERION VOCABULARY, not the release",
+                      f"overlap {d['best_share_of_scored']:.4f}, "
+                      f"carries criteria {d['carries_criterion_vocabulary']}",
+                      [r"(criterion vocabulary|carrying a criterion)",
+                       r"(overlap is exactly 0|overlap.{0,40}exactly 0).{0,200}(join key|key)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

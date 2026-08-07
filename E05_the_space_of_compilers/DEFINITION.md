@@ -387,6 +387,25 @@ was closed before this measured why.
 ⚠ **This prices the OPERATOR, not the TARGET.** Whether `A2` or `A1·consensus` is the right thing to
 admit on still needs an external criterion this release does not carry.
 
+⛔⛔ **AND THE `cross-release` REGISTER LINE IS RIGHT FOR THE WRONG REASON — R1028.** R802 declared it
+**FALSE** (30 distinct impossibility claims, 1 false, base rate 0.0333) because `data/utterances.jsonl`
+exists at 68 MB and 22+ rounds open it. ⚠ **That instrument measured a FILE; the claim asserts a
+RELEASE**, and a second release implies more files while more files do not imply a second release.
+
+Comparing the **populations** instead: overlap is **exactly 0 on all three join keys** — conversation
+id, prompt id, and prompt **text** (1,078 scored prompts vs 8,011 conversations / 26,673 distinct
+prompts). So a second, **genuinely disjoint** population does exist. **But it carries `score` and
+`if_chosen` and NO criterion vocabulary at all.**
+
+⭐ **So the line stands and its stated reason does not.** The requirement that actually binds is not
+*"another release"* — R802 refuted that — but **"another release CARRYING A CRITERION VOCABULARY"**,
+which neither side ever wrote down. A criteria-based definition cannot be validated against a
+population that has no criteria, however independent it is.
+⚠ Controls: the overlap instrument separates a **constructed** disjoint split (0) and returns exactly
+**1.0000** for the scored release against itself, so the measured 0 is a measurement and not silence.
+⭐ And `responses per prompt = [4]` read here directly **independently confirms** the `replies = 4`
+that R1027 inferred from cell counts — different route, same value.
+
 ⚠ **AND R288's ∅ IS NOT REFUTED BY THIS.** The **target** is identical (Δ = 0). But R288 swept
 **clause ② alone** against its own `_blind4`/`_blind15` references over **10** arms; this is **②′∧③**
 against R921's certified comparators over **96**. **Different admission rule AND different

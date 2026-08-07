@@ -1,0 +1,69 @@
+{
+  "round": "R1028",
+  "prior_art": {
+    "source": "R802",
+    "distinct_claims": 30,
+    "false": 1,
+    "base_rate": 0.03333333333333333,
+    "its_instrument_unit": "one FILE on disk, opened by >=18 rounds",
+    "the_claim_unit": "one RELEASE, an independently collected population"
+  },
+  "sizes": {
+    "utterances_bytes": 68231088,
+    "comparisons_bytes": 18403444
+  },
+  "counts": {
+    "comparisons_prompts": 1078,
+    "utterances_rows": 68371,
+    "utterances_conversations": 8011,
+    "utterances_interactions": 27172,
+    "responses_per_prompt": [
+      4
+    ]
+  },
+  "overlap_by_key": [
+    {
+      "key": "conversation id",
+      "n_scored": 1078,
+      "n_other": 8011,
+      "shared": 0,
+      "share_of_scored": 0.0
+    },
+    {
+      "key": "prompt_id vs conversation_id",
+      "n_scored": 1078,
+      "n_other": 8011,
+      "shared": 0,
+      "share_of_scored": 0.0
+    },
+    {
+      "key": "prompt TEXT",
+      "n_scored": 1078,
+      "n_other": 26673,
+      "shared": 0,
+      "share_of_scored": 0.0
+    }
+  ],
+  "best_share_of_scored": 0.0,
+  "utterances_fields": [
+    "conversation_id",
+    "conversation_type",
+    "if_chosen",
+    "included_in_balanced_subset",
+    "interaction_id",
+    "model_name",
+    "model_provider",
+    "model_response",
+    "score",
+    "turn",
+    "user_id",
+    "user_prompt",
+    "utterance_id",
+    "within_turn_id"
+  ],
+  "carries_criterion_vocabulary": false,
+  "positive_disjoint_split_ok": true,
+  "placebo_self_overlap": 1.0,
+  "world": "\u2b50 D \u26a0 NOT PRE-REGISTERED \u2014 A DISJOINT POPULATION WITHOUT CRITERIA. Overlap is EXACTLY 0 on all three join keys (1,078 scored prompts vs 8,011 conversations / 26,673 distinct prompts), so it is NOT the same collection \u2014 and it carries `score`/`if_chosen` but NO criterion vocabulary. So R802's FALSE verdict is wrong FOR ITS STATED REASON (file != release) while being closer to true than expected: a second population does exist. It still cannot validate a CRITERIA-based definition, because it has no criteria. The `cross-release: N/A` line therefore STANDS, but for a reason neither R802 nor this arc ever stated.",
+  "limitation": "speaks only about the two files in data/; whether an independent second values-annotation release exists anywhere needs a release index beyond this repository"
+}
