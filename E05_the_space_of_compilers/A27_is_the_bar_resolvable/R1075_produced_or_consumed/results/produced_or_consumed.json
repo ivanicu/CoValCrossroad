@@ -1,0 +1,68 @@
+{
+  "round": "R1075",
+  "rows": [
+    {
+      "value": "0.009103",
+      "round": "R981",
+      "r1074_role": "incidental",
+      "origin": "CONSUMED",
+      "source_line": "finding, it is a population error: `0.009103` IS in the statement, but the assertion"
+    },
+    {
+      "value": "0.559311",
+      "round": "R1000",
+      "r1074_role": "candidate-finding",
+      "origin": "PRODUCED",
+      "source_line": null
+    },
+    {
+      "value": "0.551354",
+      "round": "R782",
+      "r1074_role": "candidate-finding",
+      "origin": "PRODUCED",
+      "source_line": null
+    }
+  ],
+  "RETRACTION": {
+    "kills": [
+      "R1070 `31 unstored`",
+      "R1071",
+      "R1073",
+      "R1074",
+      "this round's premise"
+    ],
+    "cause": "R1070 used an exact float comparison; the statement prints rounded display values while artifacts store full precision",
+    "prior_fix": "R1047 found and fixed this exact defect; R1070 wrote a fresh exact has() instead of reusing has_rounded()",
+    "recheck": [
+      {
+        "value": "0.009103",
+        "exact_in_artifacts": false,
+        "rounds_to_it": 1,
+        "example": 0.009102604212460431
+      },
+      {
+        "value": "0.559311",
+        "exact_in_artifacts": false,
+        "rounds_to_it": 2,
+        "example": 0.5593110791885862
+      },
+      {
+        "value": "0.551354",
+        "exact_in_artifacts": false,
+        "rounds_to_it": 2,
+        "example": 0.5513543391990778
+      }
+    ],
+    "stored_at_full_precision": 3
+  },
+  "produced": 2,
+  "consumed": 1,
+  "candidates": 2,
+  "candidates_produced": 2,
+  "world": "\u2b50 A PRODUCED \u2014 both R1074 candidates appear nowhere in their carrying round's source, so each is a value that round COMPUTED and failed to persist. Writing them back closes a real gap: ['0.559311', '0.551354'].",
+  "controls": {
+    "positive_known_literal": true,
+    "negative_computed_absent": true
+  },
+  "limitation": "a literal may be a chosen threshold rather than a consumed measurement; the source line is printed for that judgement"
+}

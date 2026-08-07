@@ -696,6 +696,16 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1075_*/results/produced_or_consumed.json")
+    if d:
+        facts.append(("R1075", "the unstored-values chain is void: they are stored at full precision",
+                      f"produced {d['produced']}, consumed {d['consumed']}, "
+                      f"candidates produced {d['candidates_produced']} of {d['candidates']}",
+                      # ⛔ the FIRST pattern here matched a longer value in a DEFINITION.md table
+                      # (0.5593110792) and that coincidence is what exposed the whole chain
+                      [r"premise of five rounds is void",
+                       r"0\.5593110791885862"]))
+
     d = load("A27_*/R1074_*/results/role_of_the_six.json")
     if d:
         u = d["unit_correction"]

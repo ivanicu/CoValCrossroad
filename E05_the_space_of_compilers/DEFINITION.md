@@ -1530,6 +1530,28 @@ establish *incidental*; a result placement does **not** establish *finding*, bec
 also carries baselines and quoted comparisons — `0.551354` is exactly that. **Result placement returns
 CANDIDATE, never CONFIRMED.**
 
+⛔⛔⛔ **AND R1075 VOIDS THE PREMISE OF FIVE ROUNDS: THE `UNSTORED` VALUES ARE ALL STORED, AT FULL
+PRECISION.** R1070 declared 31 clause decimals *stored by no round* using an **exact float
+comparison**. Checked properly: `0.559311` is **`0.5593110791885862`** on disk, `0.551354` is
+`0.5513543391990778`, `0.009103` is `0.009102604212460431` — **3 of 3 checked are stored.** The
+statement prints a **rounded display value**, the artifact stores the **full** one, and exact matching
+finds nothing. **This kills R1070's `31 unstored`, and with it R1071, R1073, R1074 and R1075's own
+premise.**
+⭐⭐ **THE LESSON IS WORTH MORE THAN THE CHAIN IT KILLED: R1047 FOUND AND FIXED THIS EXACT DEFECT** —
+display rounding versus stored precision — and wrote `has_rounded()` for it. **R1070 wrote a fresh
+exact `has()` instead of reusing it.** ⭐ **A fix that lives inside one round's script does not
+propagate.** Five rounds inherited the broken population without re-deriving it, and **every control
+in each of them was correctly aimed at the wrong question** — none could have caught this, because each
+tested its own instrument against its own population, and the population *was* the defect.
+⛔ **AND IT WAS NOT CAUGHT BY A CONTROL. It was caught by the currency gate going GREEN when it should
+have gone RED**: a registered pattern matched a table in this document reading `0.5593110792 …
+0.5513543392` — **longer values that my six-digit tokens were truncations of.** The coincidental match
+was the evidence.
+⭐ **What survives is the origin test, whose own controls fired**: `0.009103` CONSUMED (a literal in
+R981's source), `0.559311` and `0.551354` PRODUCED — agreeing with R1074's independent
+position-based classification. **Two instruments converged; they answer a question that no longer
+needs asking.**
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
