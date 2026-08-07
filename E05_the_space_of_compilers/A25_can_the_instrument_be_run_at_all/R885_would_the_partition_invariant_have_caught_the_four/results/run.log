@@ -1,0 +1,22 @@
+  globbed populations read live: 1122 artifacts · 836 run.py · 13 baselines
+
+  round    globbed  reported     gap  FIRES  CATCHES  
+  R873        1122      3697   -2575  True   False    
+  R882         836       159     677  True   False    
+  R883        1122      3431   -2309  True   False    
+  R884          13         6       7  True   True     
+
+  ① R884 both FIRES and CATCHES (the one case already decomposed in a commit): True  PASS
+  ② at least one round does NOT catch, so the split is measurable: True  PASS
+
+  ⭐ FIRES on 4/4 · CATCHES on 1/4
+  ⭐ WORLD B: it fires everywhere and catches once — the 'class' is really TWO classes, ACCOUNTING failures (parts do not sum) and FRAMING failures (parts sum, population is wrong), and the invariant addresses only the first
+     ⛔ SO THE REMEDY I PROPOSED IS MOSTLY THEATRE FOR THIS CLASS: it would have
+        flagged all four and pointed at the actual error in one. A gate that fires
+        for the wrong reason on 3 of 4 gets dismissed the first time it is
+        inconvenient, and that is worse than not having it.
+     ⚠ CATCHES is a JUDGEMENT, not a measurement — it asks whether two descriptions
+       refer to the same thing. FIRES is exact. The split is reported so the
+       measurement does not have to be taken on the judgement's credit.
+
+  artifact: results/invariant_counterfactual.json @ 789e02aa
