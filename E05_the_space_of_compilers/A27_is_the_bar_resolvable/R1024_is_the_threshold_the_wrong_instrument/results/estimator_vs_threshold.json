@@ -1,0 +1,459 @@
+{
+  "round": "R1024",
+  "seeds": [
+    1024,
+    2048,
+    3072
+  ],
+  "nboot": 2000,
+  "draws_per_seed": 100,
+  "ks": [
+    4,
+    10,
+    25,
+    50,
+    100,
+    200,
+    400,
+    800,
+    968
+  ],
+  "nominal": 0.975,
+  "withdrawn": "R1023's NEXT proposed resampling the censoring; that requires the full vector a partially-covered arm does not have, so it is withdrawn rather than attempted. The realizable fix is to stop imputing.",
+  "positive_vs_r1023": [
+    {
+      "target": "A2",
+      "k": 200,
+      "mine": 0.17,
+      "r1023": 0.19000000000000003
+    },
+    {
+      "target": "A2",
+      "k": 800,
+      "mine": 0.03666666666666667,
+      "r1023": 0.04
+    },
+    {
+      "target": "A1\u00b7consensus",
+      "k": 200,
+      "mine": 0.17666666666666667,
+      "r1023": 0.17333333333333334
+    },
+    {
+      "target": "A1\u00b7consensus",
+      "k": 800,
+      "mine": 0.043333333333333335,
+      "r1023": 0.043333333333333335
+    }
+  ],
+  "positive_worst_gap": 0.020000000000000018,
+  "adequacy_worst_abs_diff": 0.0005213437621064887,
+  "placebo_nesting_violations": 0,
+  "placebo_range_violations": 0,
+  "shift_diagnostic": {
+    "impute (committed)": {
+      "worst_P_lo_below_truth_minus_half": 0.0,
+      "worst_P_lo_below_truth_plus_half": 0.9733333333333334
+    },
+    "observed-only (fix)": {
+      "worst_P_lo_below_truth_minus_half": 0.29,
+      "worst_P_lo_below_truth_plus_half": 1.0
+    }
+  },
+  "deltas": [
+    -2.0,
+    -0.5,
+    -0.1,
+    0.0,
+    0.1,
+    0.5,
+    2.0
+  ],
+  "coverage": [
+    {
+      "estimator": "impute (committed)",
+      "arm": "coval_core",
+      "comparator": "generic",
+      "target": "A2",
+      "delta_true": 0.0151231419938769,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.5633333333333334,
+        "10": 0.5566666666666668,
+        "25": 0.6533333333333333,
+        "50": 0.6866666666666666,
+        "100": 0.7833333333333333,
+        "200": 0.8566666666666666,
+        "400": 0.9333333333333332,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "impute (committed)",
+      "arm": "coval_core",
+      "comparator": "generic",
+      "target": "A1\u00b7consensus",
+      "delta_true": 0.02066115702479339,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.53,
+        "10": 0.5933333333333334,
+        "25": 0.6866666666666666,
+        "50": 0.61,
+        "100": 0.7566666666666667,
+        "200": 0.8300000000000001,
+        "400": 0.9733333333333333,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "impute (committed)",
+      "arm": "coval_core",
+      "comparator": "genericpool16",
+      "target": "A2",
+      "delta_true": 0.024244581049358314,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.5633333333333334,
+        "10": 0.5566666666666668,
+        "25": 0.6533333333333333,
+        "50": 0.6866666666666666,
+        "100": 0.7866666666666667,
+        "200": 0.8566666666666666,
+        "400": 0.9333333333333332,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "impute (committed)",
+      "arm": "coval_core",
+      "comparator": "genericpool16",
+      "target": "A1\u00b7consensus",
+      "delta_true": 0.025826446280991736,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.53,
+        "10": 0.5933333333333334,
+        "25": 0.6866666666666666,
+        "50": 0.61,
+        "100": 0.7566666666666667,
+        "200": 0.8266666666666667,
+        "400": 0.9733333333333333,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "impute (committed)",
+      "arm": "topw_k6",
+      "comparator": "generic",
+      "target": "A2",
+      "delta_true": 0.012762963680015938,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.5333333333333333,
+        "10": 0.58,
+        "25": 0.64,
+        "50": 0.65,
+        "100": 0.7799999999999999,
+        "200": 0.86,
+        "400": 0.9166666666666666,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "impute (committed)",
+      "arm": "topw_k6",
+      "comparator": "generic",
+      "target": "A1\u00b7consensus",
+      "delta_true": 0.028925619834710745,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.48333333333333334,
+        "10": 0.5366666666666666,
+        "25": 0.6433333333333334,
+        "50": 0.6766666666666666,
+        "100": 0.7566666666666667,
+        "200": 0.8266666666666667,
+        "400": 0.9566666666666667,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "impute (committed)",
+      "arm": "topw_k6",
+      "comparator": "genericpool16",
+      "target": "A2",
+      "delta_true": 0.02188440273549735,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.5333333333333333,
+        "10": 0.58,
+        "25": 0.6366666666666667,
+        "50": 0.65,
+        "100": 0.7799999999999999,
+        "200": 0.8633333333333333,
+        "400": 0.9199999999999999,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "impute (committed)",
+      "arm": "topw_k6",
+      "comparator": "genericpool16",
+      "target": "A1\u00b7consensus",
+      "delta_true": 0.03409090909090909,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.48333333333333334,
+        "10": 0.5366666666666666,
+        "25": 0.6433333333333334,
+        "50": 0.6766666666666666,
+        "100": 0.7566666666666667,
+        "200": 0.8266666666666667,
+        "400": 0.9466666666666668,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "impute (committed)",
+      "arm": "generic",
+      "comparator": "generic",
+      "target": "A2",
+      "delta_true": 0.0,
+      "exact_null": true,
+      "coverage": {
+        "4": 0.5866666666666666,
+        "10": 0.6,
+        "25": 0.6433333333333334,
+        "50": 0.6733333333333333,
+        "100": 0.7433333333333333,
+        "200": 0.8566666666666668,
+        "400": 0.8766666666666666,
+        "800": 0.9766666666666666,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "impute (committed)",
+      "arm": "generic",
+      "comparator": "generic",
+      "target": "A1\u00b7consensus",
+      "delta_true": 0.0,
+      "exact_null": true,
+      "coverage": {
+        "4": 0.6,
+        "10": 0.6133333333333333,
+        "25": 0.6133333333333333,
+        "50": 0.68,
+        "100": 0.7733333333333333,
+        "200": 0.8033333333333333,
+        "400": 0.9,
+        "800": 0.9633333333333333,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "observed-only (fix)",
+      "arm": "coval_core",
+      "comparator": "generic",
+      "target": "A2",
+      "delta_true": 0.0151231419938769,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.92,
+        "10": 0.96,
+        "25": 0.9666666666666667,
+        "50": 0.9766666666666666,
+        "100": 0.9766666666666666,
+        "200": 0.9866666666666667,
+        "400": 0.9933333333333333,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "observed-only (fix)",
+      "arm": "coval_core",
+      "comparator": "generic",
+      "target": "A1\u00b7consensus",
+      "delta_true": 0.02066115702479339,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.9899999999999999,
+        "10": 0.9899999999999999,
+        "25": 0.9766666666666666,
+        "50": 0.9700000000000001,
+        "100": 0.9866666666666667,
+        "200": 0.9899999999999999,
+        "400": 0.9966666666666667,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "observed-only (fix)",
+      "arm": "coval_core",
+      "comparator": "genericpool16",
+      "target": "A2",
+      "delta_true": 0.024244581049358314,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.9533333333333333,
+        "10": 0.9533333333333333,
+        "25": 0.9566666666666667,
+        "50": 0.9833333333333334,
+        "100": 0.9700000000000001,
+        "200": 0.98,
+        "400": 0.9933333333333333,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "observed-only (fix)",
+      "arm": "coval_core",
+      "comparator": "genericpool16",
+      "target": "A1\u00b7consensus",
+      "delta_true": 0.025826446280991736,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.9899999999999999,
+        "10": 0.9866666666666667,
+        "25": 0.9700000000000001,
+        "50": 0.9666666666666667,
+        "100": 0.98,
+        "200": 0.98,
+        "400": 0.9933333333333333,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "observed-only (fix)",
+      "arm": "topw_k6",
+      "comparator": "generic",
+      "target": "A2",
+      "delta_true": 0.012762963680015938,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.9400000000000001,
+        "10": 0.9666666666666667,
+        "25": 0.9566666666666667,
+        "50": 0.98,
+        "100": 0.9899999999999999,
+        "200": 0.9866666666666667,
+        "400": 1.0,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "observed-only (fix)",
+      "arm": "topw_k6",
+      "comparator": "generic",
+      "target": "A1\u00b7consensus",
+      "delta_true": 0.028925619834710745,
+      "exact_null": false,
+      "coverage": {
+        "4": 1.0,
+        "10": 0.9766666666666666,
+        "25": 0.9666666666666667,
+        "50": 0.9666666666666667,
+        "100": 0.9766666666666666,
+        "200": 0.9966666666666667,
+        "400": 0.9933333333333333,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "observed-only (fix)",
+      "arm": "topw_k6",
+      "comparator": "genericpool16",
+      "target": "A2",
+      "delta_true": 0.02188440273549735,
+      "exact_null": false,
+      "coverage": {
+        "4": 0.9400000000000001,
+        "10": 0.96,
+        "25": 0.9733333333333333,
+        "50": 0.98,
+        "100": 0.9766666666666666,
+        "200": 0.9866666666666667,
+        "400": 0.9966666666666667,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "observed-only (fix)",
+      "arm": "topw_k6",
+      "comparator": "genericpool16",
+      "target": "A1\u00b7consensus",
+      "delta_true": 0.03409090909090909,
+      "exact_null": false,
+      "coverage": {
+        "4": 1.0,
+        "10": 0.9866666666666667,
+        "25": 0.9566666666666667,
+        "50": 0.96,
+        "100": 0.9966666666666667,
+        "200": 0.9899999999999999,
+        "400": 0.9966666666666667,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "observed-only (fix)",
+      "arm": "generic",
+      "comparator": "generic",
+      "target": "A2",
+      "delta_true": 0.0,
+      "exact_null": true,
+      "coverage": {
+        "4": 1.0,
+        "10": 1.0,
+        "25": 1.0,
+        "50": 1.0,
+        "100": 1.0,
+        "200": 1.0,
+        "400": 1.0,
+        "800": 1.0,
+        "968": 1.0
+      }
+    },
+    {
+      "estimator": "observed-only (fix)",
+      "arm": "generic",
+      "comparator": "generic",
+      "target": "A1\u00b7consensus",
+      "delta_true": 0.0,
+      "exact_null": true,
+      "coverage": {
+        "4": 1.0,
+        "10": 1.0,
+        "25": 1.0,
+        "50": 1.0,
+        "100": 1.0,
+        "200": 1.0,
+        "400": 1.0,
+        "800": 1.0,
+        "968": 1.0
+      }
+    }
+  ],
+  "worst_coverage_k_ge_10_fix": 0.9533333333333333,
+  "first_k_reaching_0.95_fix": 10,
+  "k4_worst_fix": 0.92,
+  "world": "\u2b50 A THE THRESHOLD IS THE WRONG INSTRUMENT \u2014 the observed-only estimator holds coverage at 0.953 or better across every real pair at k>=10. The defect was the ESTIMATOR, not the sample size: drop the imputation and the guard has no job left to do.",
+  "limitation": "prices the ESTIMATOR under each target as given; whether A2 or A1\u00b7consensus is the right target needs an external gold standard this release lacks"
+}

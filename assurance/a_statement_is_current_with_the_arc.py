@@ -479,6 +479,19 @@ def main() -> int:
                       [r"(false[- ]admission|false positive).{0,300}(nominal|0\.025|2\.5)",
                        r"(calibrat\w*).{0,200}(full[- ]coverage|uncensored|complete)"]))
 
+    # ⛔⛔ R1024: the miscalibration is the ESTIMATOR's, not a sample-size limit. Dropping the
+    #    imputation and bootstrapping only the observed prompts restores coverage at every k, so the
+    #    coverage THRESHOLD is the wrong instrument and is deletable. The statement must say the
+    #    repair is an estimator change, not a better constant.
+    d = load("A27_*/R1024_*/results/estimator_vs_threshold.json")
+    if d:
+        facts.append(("R1024", "the repair is an ESTIMATOR change, not a threshold",
+                      f"observed-only coverage >= {d['worst_coverage_k_ge_10_fix']:.3f} at k>=10 "
+                      f"vs nominal {d['nominal']}",
+                      [r"(observed[- ]only|without imput\w*|stop imput\w*|do not impute)"
+                       r".{0,400}(coverage|calibrat\w*)",
+                       r"(estimator).{0,200}(not|rather than).{0,80}(threshold|guard|constant)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

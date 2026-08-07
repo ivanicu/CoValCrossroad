@@ -355,6 +355,28 @@ operator's own nominal level nothing below full coverage qualifies; at a relaxed
 it only between k=800 and k=968. It also **explains** R1011's withdrawal of the twins quantitatively
 rather than retracting anything further.
 
+⭐⭐ **AND R1024 SETTLES WHAT TO DO ABOUT IT: THE REPAIR IS AN ESTIMATOR CHANGE, NOT A BETTER
+CONSTANT — THE COVERAGE THRESHOLD IS THE WRONG INSTRUMENT AND IS DELETABLE.** The realizable fix
+needs no new machinery: **do not impute.** Bootstrap the `k` observed prompts and nothing else, which
+is what R1021 did by hand when it restricted the core/twin comparison to the 200 shared prompts.
+Measured as one-sided coverage `P(lo ≤ Δ_true)` against the true full-population difference, nominal
+0.975:
+
+| estimator | k=4 | 10 | 50 | 200 | 400 | 968 |
+|---|---:|---:|---:|---:|---:|---:|
+| impute (committed) | 0.48–0.59 | 0.54–0.60 | 0.61–0.69 | **0.83–0.86** | 0.92–0.97 | 1.000 |
+| **observed-only (fix)** | 0.92–1.00 | 0.95–0.99 | 0.96–0.98 | **0.98–1.00** | 0.99–1.00 | 1.000 |
+
+**Worst observed-only coverage across every real pair at k ≥ 10 is 0.953**; even at k=4 it is 0.920.
+So a minimum-`k` threshold answers a question that exists **only because of the imputation**.
+⚠ The fix is **conservative, not exact** — it over-covers slightly at large k, costing power and
+never correctness; the committed estimator errs in the other, unforgivable direction.
+⚠ **No committed extension figure moves.** Only 4 arms are partial (the twins and the `promptecho`
+pair), `promptecho` is in no extension, and R1011 already withdrew the twins — so the blast radius
+was closed before this measured why.
+⚠ **This prices the OPERATOR, not the TARGET.** Whether `A2` or `A1·consensus` is the right thing to
+admit on still needs an external criterion this release does not carry.
+
 ⚠ **AND R288's ∅ IS NOT REFUTED BY THIS.** The **target** is identical (Δ = 0). But R288 swept
 **clause ② alone** against its own `_blind4`/`_blind15` references over **10** arms; this is **②′∧③**
 against R921's certified comparators over **96**. **Different admission rule AND different
