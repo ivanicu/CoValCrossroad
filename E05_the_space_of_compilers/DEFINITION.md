@@ -807,6 +807,47 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > enough that a second release remains the only thing that could settle whether they define a
 > category or trace one contour of a single object.
 
+> ⭐⭐⭐ **AND THE AXIS HAS A NAME: THE HUMAN TIE RATE — R877, four controls PASS, D8.**
+> R876 left the admitted set at **1.6 effective dimensions** with that direction unnamed. R877 takes
+> **PC1 of the 25×968 score matrix in prompt space** — which explains **77.08%** of the admitted
+> set's variance, consistent with the PR — and correlates it against prompt properties **split by
+> whether they can see an arm score at all.**
+>
+> | candidate | kind | r | p | BH |
+> |---|---|---:|---:|:--:|
+> | `mean_A2_of_REJECTED_arms` | PARTIALLY INDEPENDENT | **−0.7069** | ≤0.001 | ✓ |
+> | ⭐ `human_tie_rate` | **INDEPENDENT** | **+0.5662** | ≤0.001 | ✓ |
+> | `mean_response_length` | INDEPENDENT | +0.1013 | 0.0020 | ✓ |
+> | `n_annotators` | INDEPENDENT | −0.0838 | 0.0080 | ✓ |
+> | `response_length_spread` | INDEPENDENT | +0.0833 | 0.0130 | ✓ |
+>
+> ⚠ **The bottom three are RESOLVED BUT NEGLIGIBLE** — `r ≈ 0.08–0.10` survives BH and means
+> nothing. Calling them "tracked" would confuse significance with magnitude, so they are listed and
+> dismissed. ⚠ And **`p ≤ 0.001` is the resolution floor** (1000 draws → 1/1001), not a measurement
+> of 0.001.
+>
+> ⭐⭐ **THE ONE CHECK THAT DECIDED IT.** A prompt where humans tie a lot is plausibly also a prompt
+> where any arm's A2 behaves oddly — so `human_tie_rate` could be the difficulty proxy under another
+> name. They do share variance (`r = −0.4752`, `r² = 0.2258`). **But the partial correlation
+> `corr(PC1, tie | difficulty) = +0.3700` — the tie rate SURVIVES controlling for difficulty.** It
+> is a third smaller than the raw +0.5662, so difficulty accounts for about a third of it and not
+> the rest.
+>
+> ⭐⭐⭐ **WHAT THIS SAYS ABOUT THE DEFINITION, and it is not flattering.** The set the two retained
+> clauses admit is essentially **one axis**, and that axis co-varies with **how often the humans
+> declined to choose**. So the definition may be selecting on **tie-handling behaviour** as much as
+> on criterion quality — a property of how an arm resolves indifference, not of what it measures.
+> **That is a live alternative reading of clause ②, and nothing measured so far excludes it.**
+>
+> ⚠ **CORRELATION IS NOT IDENTITY.** This licenses *"the axis co-varies with the tie rate"*, never
+> *"the axis IS the tie rate"*. ⚠ And the wiring control — `|corr(PC1, mean A2 of admitted)| =
+> 0.9999` — is **circular by construction** and is reported as a wiring check, never as evidence.
+>
+> ⚠ **A correction to my own NEXT, recorded because it was written from memory.** Check #543 asked
+> for *"the per-prompt loadings of R876's eigenvector"*. **R876's eigenvector is over ARMS** (25×25);
+> its components are 25 per-arm loadings, not 968 per-prompt ones. The per-prompt axis is a
+> different object, and the matrix was in the artifact the whole time.
+
 | clause | excludes | status | scope |
 |---|---:|---|---|
 | **①** better than a random draw of the prompt's own rubric | **0 of 41** | **DERIVED** — the region where ① could bind is empty by arithmetic (`GAP ≥ SLACK` on every arm) | R347 |
