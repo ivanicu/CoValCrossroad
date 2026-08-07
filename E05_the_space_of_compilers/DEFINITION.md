@@ -737,6 +737,38 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 
 ## What each clause is measured to do
 
+> ⭐⭐⭐ **THE DEFINITION, RESTATED — R874, all four kills read committed artifacts, D8.**
+> Thirteen rounds bound a comparator and a criterion to every clause below. **Two clauses survive.**
+>
+> > **A CORE is a criterion set of size > 1 that ③ consumes no prompt-specific labels and
+> > ② beats a prompt-blind comparator — WITH THE COMPARATOR AND THE ADMISSIBILITY CRITERION
+> > NAMED.**
+>
+> | clause | verdict | comparator | criterion |
+> |---|---|---|---|
+> | **①** better than a draw of the prompt's own rubric | ⛔ **DROPPED — dominated** | n/a: no comparator rescues a dominated bar | invariant (no threshold) |
+> | **②** better than a prompt-blind set | ⭐ **RETAINED — the only clause doing score work** | **must be named**; published `argmax_arm`; **vacuous at `per_prompt_max` (0 of 99, oracle included)** | **must be named**; `ratio ≥ 1.5` is *strictly* stricter than BH q=0.05 + CI |
+> | **③** consumes no prompt-specific labels | ⭐ **RETAINED — provenance, no bar** | invariant | invariant |
+> | **④** better than every criterion-free rule | ⛔ **DROPPED — vacuous or unmet at every comparator** | none makes it both meaningful and satisfied | **UNVERIFIABLE** — its negative control clears the clause |
+>
+> ⭐ **Why ① goes:** the bar ordering is MEASURED — ② **0.5404–0.5462** > ① **0.4922** > ④′
+> **0.4820** (R857) — and R347 had already committed that ①'s binding region is empty by arithmetic
+> (`ref_gap_min = 0.0470`, ②'s reference exceeds ①'s on **every** arm, `contingent: []`).
+> ⭐ **Why ④ goes:** its meaningful window is a **single** comparator, `family_p90`, and the
+> published `argmax_arm` is **outside** it — there `random_k4_s0` scores **+1.816** and clears the
+> bar. At `family_p90`, the one comparator where ④ has content, `coval_core` scores **−0.565** and
+> **fails** it. **At every comparator where the core passes ④, so does random noise** (R867).
+> ⭐ **Why ② must carry its scopes:** its extension runs **29 → 0** across six defensible
+> comparators (R866) and **23–24 vs 29** across the two criteria, with A a **strict** subset of B at
+> every seed (R865). **A count quoted without both is arbitrary, not merely imprecise.**
+>
+> ⚠ **SIZE:** the design supports *"more than one"*; **3 to 8 are indistinguishable**, so no number
+> is stated. That is what the k-sweep could resolve, not a preference.
+> ⚠ **THE CEILING ON ALL OF IT, unretired:** this is still written from a release shipping exactly
+> **ONE** core, so *the definition describes the instance* stays live for every clause above. **It
+> would take a second release with a differently-built core to retire it** — and that is an
+> availability claim in the unflattering direction, not a plan.
+
 | clause | excludes | status | scope |
 |---|---:|---|---|
 | **①** better than a random draw of the prompt's own rubric | **0 of 41** | **DERIVED** — the region where ① could bind is empty by arithmetic (`GAP ≥ SLACK` on every arm) | R347 |
