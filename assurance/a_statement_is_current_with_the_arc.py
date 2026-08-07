@@ -584,6 +584,18 @@ def main() -> int:
                       [r"(clause text itself is repaired|repaired here).{0,300}(annotated|beside)",
                        r"(actually covers).{0,160}(never on imputed|imputed values)"]))
 
+    # ⛔⛔ R1033: a subset of pool16's criteria is a prompt-blind comparator costing ZERO judge
+    #    calls, 35 of 713 are stricter than `generic`, and adding the strictest removes 6 of the 9
+    #    extension arms — leaving only the core and its twins.
+    d = load("A27_*/R1033_*/results/free_third_comparator.json")
+    if d:
+        e = d["extension_under_enlarged_set"]
+        facts.append(("R1033", "a third prompt-blind comparator costs zero and cuts the extension",
+                      f"{d['n_stricter_than_generic']} of {d['family_size']} stricter; "
+                      f"{len(e['fall'])} of 9 fall",
+                      [r"(0 judge calls|costs zero|costs 0).{0,300}(subset|prompt-blind)",
+                       r"(6 of (the )?9).{0,200}(fall|remov)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

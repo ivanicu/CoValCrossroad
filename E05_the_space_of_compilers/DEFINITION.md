@@ -823,6 +823,26 @@ report under — which is why it survived four rounds of annotation.
 `generic` binds 94/94 here, and naming it would harden an accident of this release into the
 definition. The set is named; which member binds is measured, not asserted.
 
+⛔⛔ **AND R1033 MEASURED THAT THE CHOICE WAS LOAD-BEARING, BY BUILDING THE SEPARATING OBJECT FOR
+FREE.** `score.yvec(sat_p, idxs)` sums over an arbitrary criterion subset and `sat_genericpool16.npz`
+holds all 16 × 4 × 968 cells, so **every subset of pool16's criteria is a fixed checklist —
+prompt-blind by construction, and already scored. A third certified comparator costs 0 judge calls,
+not `968 × 4 × k`.**
+
+Over a family pre-registered **by size** (713 subsets, k ∈ {1,2,3,15,16}), **35 are stricter than
+`generic`'s 24**; the strictest admits **17** at k=2, and its strictness **holds out** (15 vs 24 on
+prompts it was not selected on, 3 seeds).
+
+⭐ **Adding it removes 6 of the 9 extension arms** — `topw_k3`, `topw_k4`, `topw_k4_detA`,
+`topw_k4_detB`, `topw_k6`, `topw_k8` — **leaving `coval_core` and its two twins.** So the extension is
+not robust to a comparator that costs nothing to add, and the arms it loses are exactly the
+non-instance ones.
+⚠ **R1026 is not contradicted**: 2 of 96 *arms in the release* are prompt-blind, and that stands. What
+falls is the implication beside it, and in R1027's cost line, that a third comparator must be **built
+and scored**.
+⚠ **N/A:** whether a stricter comparator exists *outside* pool16's criteria — that needs new criteria
+scored at `968 × 4 × k`. This bounds what is reachable from the committed cells.
+
 | | |
 |---|---:|
 | extension under `generic` alone | 9 |
