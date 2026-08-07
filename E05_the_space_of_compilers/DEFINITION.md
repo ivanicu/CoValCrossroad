@@ -899,6 +899,19 @@ first" is an **ordering guess** that should be labelled as one rather than dress
 attainable p is **0.0002**, so only near-perfect separation could clear correction. This design cannot
 see a weak signal, and says so.
 
+⭐ **AND R1042 LANDS THE FORWARD-ONLY REMEDY.** An `IMPOSSIBLE` block now declares `SETTLES:` plus one
+tag from a **closed set** — `IN-RELEASE <object>` · `OUT-OF-RELEASE <what>` · `UNATTACKED` — enforced
+by `assurance/an_impossibility_names_where_it_would_be_settled.py`. That is HB8 (*if it can be an
+enum, it may not be text*) and R1029 (*store the field, do not recover it*), applied to the field
+whose absence R1039 priced at 5 of 16.
+⚠ **`OUT-OF-RELEASE` is the tag the five falsified lines wrongly deserved**, so it is the one to
+distrust when writing it; **`UNATTACKED` is the honest default and costs one word**.
+⛔ **Red-first in the only sense a forward-only check admits**: with no round newer than R1041 the
+gate exits **2 — UNRUNNABLE**, on the suite's own convention that an empty population is not a pass.
+R1042's own block turns that into a live check at n = 1.
+⚠ **It checks that a declaration EXISTS, never that it is TRUE** — tagging a genuinely external limit
+`IN-RELEASE` passes. The enum removes the **wording** loophole, not the **mislabelling** one.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

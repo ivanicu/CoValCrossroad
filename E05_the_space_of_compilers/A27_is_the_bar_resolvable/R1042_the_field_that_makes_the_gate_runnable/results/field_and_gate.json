@@ -1,0 +1,15 @@
+{
+  "round": "R1042",
+  "kind": "PRODUCTION \u2014 no estimand, no worlds, no kill",
+  "gate": "assurance/an_impossibility_names_where_it_would_be_settled.py",
+  "tags": [
+    "IN-RELEASE",
+    "OUT-OF-RELEASE",
+    "UNATTACKED"
+  ],
+  "cutoff": 1041,
+  "selftest_rc": 0,
+  "live_rc": 0,
+  "was_unrunnable_before_this_round": true,
+  "limitation": "checks that a declaration EXISTS and is well-formed, never that it is TRUE; the enum removes the wording loophole, not the mislabelling one"
+}

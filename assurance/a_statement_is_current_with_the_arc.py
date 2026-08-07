@@ -675,6 +675,16 @@ def main() -> int:
                       [r"(indistinguishable).{0,300}(committed text|text)",
                        r"(forward[- ]only|going forward only).{0,200}(declared field|field)"]))
 
+    # ⛔ R1042: PRODUCTION — the declared-field gate, forward-only, with this round as its first
+    #    live block. No estimand and no worlds; it is registered so the statement carries the
+    #    discipline rather than only the findings.
+    d = load("A27_*/R1042_*/results/field_and_gate.json")
+    if d:
+        facts.append(("R1042", "IMPOSSIBLE blocks now declare where they would be settled",
+                      f"tags {d['tags']}, cutoff R{d['cutoff']}, live rc {d['live_rc']}",
+                      [r"(SETTLES:).{0,200}(IN-RELEASE|UNATTACKED|OUT-OF-RELEASE)",
+                       r"(forward[- ]only).{0,300}(declar\w+|enum)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
