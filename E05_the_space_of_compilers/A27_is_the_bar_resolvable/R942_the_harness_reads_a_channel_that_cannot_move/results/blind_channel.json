@@ -1,33 +1,72 @@
 {
-  "verdict": "UNVERIFIED",
-  "c0": true,
-  "c1": true,
-  "c2": false,
-  "c4": true,
-  "res": {
+  "commit": "ef8638aa33110a6ce003fde50f36d0e379216059",
+  "world": "A",
+  "baseline": {
+    "exit": 1,
+    "known_undeclared_named": [
+      "R422_did_the_judge_differ_or_only_the_selection",
+      "R425_how_far_does_the_unknown_instrument_reach"
+    ]
+  },
+  "cells": {
     "fixed": {
       "undeclared": {
         "exit": 1,
-        "named": true,
+        "scanned": true,
+        "tag": "UNDECLARED",
+        "flagged": true,
         "path": "E99_fixtures/A01_planted/R91_r942_gauge"
       },
       "declared": {
         "exit": 1,
-        "named": true,
+        "scanned": true,
+        "tag": "declared",
+        "flagged": false,
         "path": "E99_fixtures/A01_planted/R91_r942_gauge"
       }
     },
     "reverted": {
       "undeclared": {
         "exit": 1,
-        "named": false,
+        "scanned": false,
+        "tag": null,
+        "flagged": false,
         "path": "E99_fixtures/A01_planted/r91_r942_gauge"
       },
       "declared": {
         "exit": 1,
-        "named": false,
+        "scanned": false,
+        "tag": null,
+        "flagged": false,
         "path": "E99_fixtures/A01_planted/r91_r942_gauge"
       }
     }
-  }
+  },
+  "fixture_leaf": {
+    "fixed": "R91_r942_gauge",
+    "reverted": "r91_r942_gauge"
+  },
+  "gauge": {
+    "exits": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "exit_constant": true,
+    "flagged_channel_varies": true,
+    "channels_read_separately": "scanned (the gate examined it) vs flagged (the gate reported it undeclared); `name in stdout` collapses them",
+    "reading": "measurement invariant + property not => the exit code the harness reads is blind to what it claims about"
+  },
+  "vector3_verdict": {
+    "declared_plant_flagged": false,
+    "declared_plant_scanned": true,
+    "declared_plant_tag": "declared",
+    "meaning": "vector 3's expectation was correct; the harness could not observe it because its channel is saturated",
+    "harness_footer_explains": "vector 4 only"
+  },
+  "corrects": "R941's WORLD B sentence, not its WORLD B verdict",
+  "unit_note": "counts are CELLS (plant kind x normalisation state)",
+  "scope_not_measured": "the other gates globbing E*/A*/R*",
+  "live_limitation": "the definition describes the instance; one release, one core"
 }
