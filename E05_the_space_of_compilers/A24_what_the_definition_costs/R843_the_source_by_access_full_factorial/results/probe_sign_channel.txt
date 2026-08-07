@@ -1,0 +1,8 @@
+  join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}
+  919 prompts · share of rubric criteria with NEGATIVE mean human weight: 0.254 (median 0.250, prompts with >=1 negative: 0.973)
+
+  A0 (random k=4), matched rule, matched k:
+     S1 ALL rubric criteria      0.492106   (n=919)
+     S1 POSITIVE-weight only     0.547204   (n=919)   Δ vs ALL +0.055098
+     S2 generic 16               0.542380   (n=919)   Δ_source now +0.004825
+     S1 with NEGATIVE criteria SIGN-FLIPPED  0.556983   Δ vs ALL +0.064877   Δ_source now +0.014603
