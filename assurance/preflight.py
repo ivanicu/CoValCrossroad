@@ -46,6 +46,10 @@ GATES = [
     # to a second, unrelated sentence, and were green only because of document ORDER. This gate
     # enforces the invariant that repair rests on, so the next anchor cannot reintroduce it.
     ("one-home", "assurance/an_anchor_binds_to_one_number.py"),
+    # R1083: the anchoring gate read 8 artifacts through a HARD-CODED RELATIVE PATH, so it lost 32
+    # of 343 anchors to `⚠ UNEVALUABLE` when invoked from anywhere but the repository root -- and
+    # exited 0 either way. A gauge test made permanent: a gate's coverage is not the caller's.
+    ("cwd-invariant", "assurance/a_gate_is_cwd_invariant.py"),
 ]
 
 

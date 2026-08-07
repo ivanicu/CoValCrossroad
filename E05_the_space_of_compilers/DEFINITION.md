@@ -1708,6 +1708,35 @@ sits in it today.**
 reading the live file would regenerate the artifact from the repaired gate and **the finding would
 vanish from its own evidence.** The specification curve is `4 / 3 / 0` in all 8 cells.
 
+⛔⛔ **AND R1083 FINDS THE GATE'S COVERAGE WAS DECIDED BY THE CALLER'S WORKING DIRECTORY.** Eight of
+the anchoring gate's artifacts were loaded through a **hard-coded relative path** —
+`json.load(open("E05_the_space_of_compilers/A24_…/results/….json"))` — which resolves against the
+process's CWD. Measured by running the same gate on the same files from two directories: **0** anchors
+`⚠ UNEVALUABLE` from the repository root, **32 of 343** from a round directory, **and it exits 0 both
+times**. 9.3% of this document's coverage, silently, in the direction of passing.
+⭐ **The route was found by intervention, not by reading.** Blocking each declared round's artifacts
+and re-deriving: **32 of 348** keys are unchanged when their **own** declared round is removed, and
+the same 32 are killed by **no** single-round block at all. The gate prints a round beside every
+number and **nothing verifies it**. The blocker's completeness is a measured cell, not a claim — an
+`art()`-only blocker reports **252** instead of 32.
+⛔ **AND THIS ROUND'S OWN VERDICT STRING WAS WRONG BEFORE IT WAS CHECKED.** It first said the 32 were
+*"a literal in the gate rather than a reading of the record"*. **Nobody computed that.** Zero of the
+32 were `None` in the baseline, which is what a literal would have looked like — they read the
+record, through the CWD. §4's `the verdict string is not a computation`, committed inside the round
+that cites it.
+⛔ **R1082's PROPOSED NEXT WAS NOT IDENTIFIED, and that is measured rather than shrugged.** It asked
+whether each anchor lands in the region naming its declared round: **166** per-round headings exist
+and **83 of the 84** declared rounds have none. A region model would have invented a region for 99%
+of the population.
+⭐ **Repaired and guarded in the same commit.** All 8 sites now build from the module's own `ROOT`
+(`0 / 0 / 0` unevaluable from the root, a round directory and `/`), and
+`assurance/a_gate_is_cwd_invariant.py` is wired into `preflight.py`: it runs each watched gate from
+two directories and requires the exit code **and** the coverage count to match. **Attacked five
+ways** — reverting one of the eight paths turns it red at `UNEVALUABLE 311→315`; neutering its
+comparator makes its own POSITIVE control fail and it exits 2. ⚠ It cannot say the coverage two
+agreeing runs share is *correct*, and it does **not** make `UNEVALUABLE` fatal — that is a policy
+change and is not smuggled in.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches

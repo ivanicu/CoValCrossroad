@@ -688,7 +688,7 @@ def derive():
 
     # R485 -- from the round's artifact.
     try:
-        _c5 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+        _c5 = json.load(open(ROOT / "E05_the_space_of_compilers/A24_what_the_definition_costs/"
                              "R485_is_the_definition_satisfiable_at_all/results/r485_satisfiability.json"))
         _r = _c5["rows"]
         out["r485_best_adm"] = (round(_r["gen"]["a2"], 4), "R485")
@@ -701,7 +701,7 @@ def derive():
 
     # R481 -- from the round's artifact.
     try:
-        _c1 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+        _c1 = json.load(open(ROOT / "E05_the_space_of_compilers/A24_what_the_definition_costs/"
                              "R481_is_the_reversal_the_judge_or_the_sum/results/r481_aggregation.json"))
         out["r481_ident"]  = (round(_c1["identity_gap"], 2), "R481")
         out["r481_spur"]   = (round(_c1["synthetic"]["sum"], 4), "R481")
@@ -713,7 +713,7 @@ def derive():
 
     # R480 -- from the round's artifact.
     try:
-        _c0 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+        _c0 = json.load(open(ROOT / "E05_the_space_of_compilers/A24_what_the_definition_costs/"
                              "R480_does_the_judge_change_the_order_or_only_the_level/results/r480_order.json"))
         out["r480_surv"]    = (round(_c0["survival"], 4), "R480")
         out["r480_placebo"] = (round(_c0["placebo"], 4), "R480")
@@ -725,7 +725,7 @@ def derive():
 
     # R479 -- from the round's artifact.
     try:
-        _c9 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+        _c9 = json.load(open(ROOT / "E05_the_space_of_compilers/A24_what_the_definition_costs/"
                              "R479_is_the_ceiling_the_judge_or_the_target/results/r479_ceiling.json"))
         out["r479_bayes"]  = (round(_c9["bayes"], 4), "R479")
         out["r479_head"]   = (round(_c9["headroom"], 4), "R479")
@@ -737,7 +737,7 @@ def derive():
 
     # R478 -- from the round's artifact.
     try:
-        _c8 = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+        _c8 = json.load(open(ROOT / "E05_the_space_of_compilers/A24_what_the_definition_costs/"
                              "R478_the_admissible_class_is_1820_not_nine/results/r478_class_census.json"))
         out["r478_max"]     = (round(_c8["census4"]["max"], 4), "R478")
         out["r478_gen_pct"] = (round(_c8["generic_pct"], 1), "R478")
@@ -749,7 +749,7 @@ def derive():
 
     # R477 -- from the round's artifact; the 2B judge is the one whose admissible class is bounded.
     try:
-        _v = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+        _v = json.load(open(ROOT / "E05_the_space_of_compilers/A24_what_the_definition_costs/"
                             "R477_what_does_clause_three_actually_cost/results/r477_value_of_ratings.json"))
         _b = _v["admissible_class"]["2B"]
         out["r477_gain"]    = (round(_b["topw_minus_best"]["diff"], 4), "R477")
@@ -762,7 +762,7 @@ def derive():
 
     # R476 -- from the round's artifact, so the document is checked against the RUN, not itself.
     try:
-        _c = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+        _c = json.load(open(ROOT / "E05_the_space_of_compilers/A24_what_the_definition_costs/"
                             "R476_what_fraction_of_the_document_is_checked/results/r476_coverage.json"))
         _e = _c["extractors"]
         out["r476_cov_bold"] = (round(100*_e["bold_any"]["coverage"], 1), "R476")
@@ -777,7 +777,7 @@ def derive():
     # R475 -- read from the round's persisted artifact, so the document is checked against the
     # RUN and not against itself. Absent artifact -> None, which the gate reports as UNEVALUABLE.
     try:
-        _r = json.load(open("E05_the_space_of_compilers/A24_what_the_definition_costs/"
+        _r = json.load(open(ROOT / "E05_the_space_of_compilers/A24_what_the_definition_costs/"
                             "R475_the_card_decides_clause_three/results/r475_card_vs_object.json"))
         _g = _r["grid"]; _tk = list(_g)
         _mean = lambda a, k: sum(_g[t][a][k] for t in _tk) / len(_tk)

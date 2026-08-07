@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1083_*/results/label_or_dependency.json")
+    if d:
+        c = d["cwd_invariance"]
+        facts.append(("R1083", "the gate's coverage was decided by the caller's working directory",
+                      f"unevaluable root {c['unevaluable_from_repository_root']} vs elsewhere "
+                      f"{c['unevaluable_from_elsewhere']}, exit {c['exit_from_elsewhere']}",
+                      [r"decided\s+by\s+the\s+caller",
+                       r"hard-coded\s+relative\s+path"]))
+
     d = load("A27_*/R1082_*/results/first_home_only.json")
     if d:
         facts.append(("R1082", "three anchors were green because of document order, now repaired",
