@@ -1,0 +1,68 @@
+{
+ "source_sha": "693ed18cf01dfef8",
+ "head": "aa23d89b",
+ "n_prompts": 986,
+ "n_usable": 986,
+ "nboot": 2000,
+ "seeds": [
+  11,
+  22,
+  33
+ ],
+ "instrument_controls": {
+  "paraphrase": 0.625,
+  "unrelated": 0.0,
+  "self": 1.0,
+  "ok": true
+ },
+ "cells": [
+  {
+   "seed": 11,
+   "core_within": 0.025331602896206274,
+   "full_within": 0.032590885620928434,
+   "core_cross": 0.00805538134811452,
+   "full_cross": 0.005784183339587521,
+   "did": -0.009530480733249157,
+   "ci": [
+    -0.011941828937861684,
+    -0.0069971250114903415
+   ],
+   "resolved": true
+  },
+  {
+   "seed": 22,
+   "core_within": 0.025331602896206274,
+   "full_within": 0.03074182980627042,
+   "core_cross": 0.00756811339758174,
+   "full_cross": 0.005888513655299197,
+   "did": -0.0070898266523466875,
+   "ci": [
+    -0.009374601842988816,
+    -0.00485539077952494
+   ],
+   "resolved": true
+  },
+  {
+   "seed": 33,
+   "core_within": 0.025331602896206274,
+   "full_within": 0.03153279795821905,
+   "core_cross": 0.00895799936850055,
+   "full_cross": 0.006436303137553407,
+   "did": -0.008722891292959917,
+   "ci": [
+    -0.011087291516255003,
+    -0.006390255649626241
+   ],
+   "resolved": true
+  }
+ ],
+ "raw_gap_mean": -0.0062902348989330266,
+ "did_mean": -0.00844773289285192,
+ "world": "A SELECTION REMOVES REDUNDANCY \u2014 DiD is negative with a CI excluding 0 on all 3 seeds; the core's pairs overlap less than size-matched full pairs beyond what rewriting alone explains",
+ "proxy_ledger": {
+  "property": "criteria do not repeat the same idea",
+  "proxy": "Jaccard over content words",
+  "implication": "high overlap => repetition; low overlap =/=> distinctness",
+  "safe_side": "a NEGATIVE DiD is evidence of removal; a null is NOT evidence of redundancy"
+ }
+}
