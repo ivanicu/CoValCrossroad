@@ -9190,3 +9190,55 @@ upper group"* — was drafted and rejected here. Three reasons, in order of deci
 
 **So the measured resolution belongs here as a SCOPE on what ④ can express, and nowhere in the
 conjunction.** *(R838; the rejection is a derivation, not a measurement.)*
+
+---
+
+## ⛔ R917 · EVERY RATE IN THIS ARC WAS COMPUTED OVER TWO JUDGES — corrected, and the findings hold
+
+**R906's `RUBRIC_SELECTOR` population is 86 arms of which 37 (43%) are `_08b`/`_08bR` — rebuilds
+scored by the 0.8B judge.** R908 reads that list; R911 reads R908. So every per-rule admitted share
+published in this arc is a share over **two instruments**, which R895 established must never be
+pooled. It was found by R917's wiring control, after I first mistook it for my own glob bug — and it
+was my glob bug too, the same prefix-regex shape R894 found in R893.
+
+⚠ **AND R917's OWN OPENING PREMISE WAS FALSE AND IS RETRACTED HERE.** It claimed `topw_k4_sham` sat
+inside R908's `topw` 16. R906 types that arm `OTHER_SOURCE`; R908's population is `RUBRIC_SELECTOR`;
+the sham was never in the denominator. Its admission was measured anyway before this was known —
+`margin −0.051343, lo −0.060777, not admitted` — and answers a question no cell depended on.
+
+**Candidates only = apparatus removed (R916) and judge matched to 2B (R895): 86 → 48 arms.**
+
+| rule | published (mixed) | Wilson 95% | **candidates only** | Wilson 95% |
+|---|---|---|---|---|
+| `random` | 0/38 · 0.000 | [0.000, 0.092] | **0/20 · 0.000** | [0.000, 0.161] |
+| `topw` | 7/16 · 0.438 | [0.231, 0.668] | **7/9 · 0.778** | [0.453, 0.937] |
+| `greedy` | 6/8 · 0.750 | [0.409, 0.929] | **6/6 · 1.000** | [0.610, 1.000] |
+| `indep` | 5/8 · 0.625 | [0.306, 0.863] | **5/6 · 0.833** | [0.436, 0.970] |
+| `oracle` | 5/7 · 0.714 | [0.359, 0.918] | **4/4 · 1.000** | [0.510, 1.000] |
+| `topvar` | 0/3 | [0.000, 0.562] | **0/1** | [0.000, 0.793] |
+| `topwvar` | 0/3 | [0.000, 0.562] | **0/1** | [0.000, 0.793] |
+| `topabs` | 0/2 | [0.000, 0.658] | **0/1** | [0.000, 0.793] |
+
+**All eight rules move. The direction is not uniform**: `oracle`'s NUMERATOR falls 5 → 4, because
+`oracle_k4_08bR` is an admitted 0.8B arm. That is what makes this a measurement rather than a
+denominator derivation, and R917 checked it rather than assuming it.
+
+**R911's objective separation, recomputed on candidates only:**
+
+| specification | signed (published) | **signed (candidates)** | **other (candidates)** | gap | disjoint |
+|---|---|---|---|---|---|
+| PRIMARY k-matched | 8/11 | **8/8** | **0/12** | **+0.433** (was +0.250) | ✅ |
+| pooled over k | 10/19 | **10/12** | **0/12** | **+0.309** (was +0.133) | ✅ |
+
+⭐⭐⭐ **The primary cell is now 8 of 8.** Every candidate signed-mean-weight arm at a shared k is
+admitted, and no arm built on magnitude or variance is. The separation the arc reported was
+understated, not overstated.
+
+⚠ **WHAT THE PLACEBO WILL NOT LET ME SAY.** Dropping the same NUMBER of arms per rule uniformly at
+random (2000 draws) reproduces the corrected share in **7 of 8 rules**; only `topw` escapes its
+own small-n null (0.778 vs [0.222, 0.667]). So **only `topw`'s correction is resolvable as a
+judge effect** — the other seven are consistent with having simply dropped arms. And for the four
+rules whose share is 0 the null is a **point mass at 0**, so the placebo there *cannot fail* and
+certifies nothing (P6: UNVERIFIED, not acquitted).
+
+**⚠ EVERY per-rule number written above this section is the MIXED one and is superseded.**
