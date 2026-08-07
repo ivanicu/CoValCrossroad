@@ -1,0 +1,62 @@
+{
+ "source_sha": "619cfb03b06088e2",
+ "head": "does the formulation admit an arm that never reads the conversation",
+ "n_prompts": 968,
+ "nboot": 8000,
+ "seed": 921,
+ "prompt_blind_set": [
+  "generic",
+  "genericpool16"
+ ],
+ "controls": {
+  "positive_r922_wiring": true,
+  "positive_core_admitted": true,
+  "negative_self_never_admitted": true,
+  "placebo_sham_excluded": true
+ },
+ "rows": [
+  {
+   "comparator": "generic",
+   "prompt_blind_arm": "genericpool16",
+   "admitted": false,
+   "mean_diff": -0.00912143905548135,
+   "lo": -0.01248750889494531,
+   "hi": -0.005729650586872896
+  },
+  {
+   "comparator": "generic",
+   "prompt_blind_arm": "generic (SELF)",
+   "admitted": false,
+   "mean_diff": 0.0,
+   "lo": 0.0,
+   "hi": 0.0
+  },
+  {
+   "comparator": "genericpool16",
+   "prompt_blind_arm": "generic",
+   "admitted": true,
+   "mean_diff": 0.00912143905548135,
+   "lo": 0.005729650586872895,
+   "hi": 0.012487508894945307
+  },
+  {
+   "comparator": "genericpool16",
+   "prompt_blind_arm": "genericpool16 (SELF)",
+   "admitted": false,
+   "mean_diff": 0.0,
+   "lo": 0.0,
+   "hi": 0.0
+  }
+ ],
+ "blind_admitted": [
+  {
+   "comparator": "genericpool16",
+   "arm": "generic",
+   "lo": 0.005729650586872895
+  }
+ ],
+ "world": "B SELF-ADMITTING \u2014 1 prompt-blind arm(s) are admitted by the formulation",
+ "mechanism": "R921's two certified comparators are not of equal strength; naming the weaker one as clause \u2461's reference lets the stronger one through as a core",
+ "limitation": "says the definition as written admits it, not that the release intends `generic` to be a candidate arm",
+ "would_require": "a statement in the release about what may be a core"
+}

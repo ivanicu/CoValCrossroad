@@ -323,6 +323,18 @@ def main() -> int:
                       [r"(retract|withdraw).{0,300}(R1005|convergen)",
                        r"(6 of 30|band-matched null).{0,300}(retract|withdraw|not established)"]))
 
+    # ⛔⛔ R1009: the formulation admits a PROMPT-BLIND arm. A statement carrying R1004's two
+    #    conditions without this is publishing a definition that admits its own null.
+    d = load("A27_*/R1009_*/results/prompt_blind_admitted.json")
+    if d:
+        facts.append(("R1009", "the formulation admits a prompt-blind arm, and the repair",
+                      f"{len(d['blind_admitted'])} admitted; "
+                      f"{[x['arm'] for x in d['blind_admitted']]}",
+                      [r"(prompt-blind|never reads the conversation).{0,300}"
+                       r"(admitted|is a core|qualifies)",
+                       r"(every certified|all certified|quantif).{0,300}"
+                       r"(comparator).{0,200}(repair|9|excluded)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

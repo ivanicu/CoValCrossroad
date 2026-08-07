@@ -258,6 +258,53 @@ returns **0.523072** for a genuinely different arm — so it can see identity *a
 `coval_core_2bA`, is an effective duplicate. Repaired to assert the instrument's *range* rather than
 to trust an arm I picked by hand.
 
+### ⛔⛔⛔ THE FORMULATION ADMITS AN ARM THAT NEVER READS THE CONVERSATION — AND THE REPAIR (added 2026-08-07, R1009)
+
+**Read the extension arm by arm and `genericpool16`'s contains `generic` and `generic_reprov`.**
+R921 certified `generic` as **prompt-blind**, and clause ② is *"resolvably beats a NAMED prompt-blind
+comparator."* ⭐ **So under one certified comparator, the other certified comparator qualifies as a
+core.** A criterion set that never reads the conversation is admitted by the definition of a core.
+
+| comparator | prompt-blind arm | Δmean | lo | hi | admitted |
+|---|---|---:|---:|---:|---|
+| `generic` | `genericpool16` | −0.0091 | −0.0125 | −0.0057 | no |
+| **`genericpool16`** | **`generic`** | **+0.0091** | **+0.0057** | +0.0125 | **YES** |
+
+**`lo = +0.0057` — resolvable, not marginal.**
+
+⭐ **THE MECHANISM.** R921's two certified comparators are **not of equal strength**: `generic`
+resolvably beats `genericpool16`. Clause ② says *"a NAMED prompt-blind comparator"* and **never says
+which** — so naming the weaker one lets the stronger one through. **That silence is the defect**, and
+it is the standard's own test answered badly: *name an admissible object this clause excludes.*
+Clause ② excludes 68–72 arms and does **not** exclude the comparator it is defined against.
+
+### ⭐ THE REPAIR, WITH ITS COST MEASURED
+
+> **②′** it **resolvably beats EVERY comparator in the certified prompt-blind set** — not *a* named one.
+
+| | |
+|---|---:|
+| extension under `generic` alone | 9 |
+| extension under `genericpool16` alone | 12 |
+| **②′ — the intersection** | **9** |
+| `coval_core` survives | **yes** |
+| `generic`, `generic_reprov` excluded | **yes** |
+| only other loss | `topw_k2` |
+
+**The repair costs three arms and keeps the instance.** ⚠ And note the intersection equals
+`generic`'s extension exactly, i.e. **`generic`'s extension is contained in `genericpool16`'s** —
+**measured, not derived**: resolvable beats are not transitive in general, so this is a fact about
+this release and not a theorem.
+
+**Controls.** R922's cut and count reproduced at 1e-9; `coval_core` admitted under both comparators;
+**an arm is never admitted against itself** (the paired difference is identically zero, so `lo > 0` is
+False — without this the counts would be void); and `topw_k4_sham`, the same operation with the
+ingredient inverted, is **excluded** under both. A definition that admits the sham has no content.
+
+⚠ **What this does not say:** that the release *intends* `generic` to be a candidate arm. R921
+certified it as a **comparator**; nothing says it may not also be scored, and the definition as
+written places no restriction. **The silence is the defect, and the repair removes it.**
+
 ### ⭐⭐⭐ THE FORMULATION THIS ARC HAS EARNED — two conditions, and both of them bind (added 2026-08-07, R1004)
 
 Twenty-nine rounds of this arc killed wordings. **This is the one that survives all of them**, and it
