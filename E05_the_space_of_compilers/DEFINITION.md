@@ -744,6 +744,34 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > ② beats a NAMED prompt-blind comparator by a RESOLVABLY POSITIVE margin — its bootstrap
 > > CI lower bound above zero.**
 > >
+> > ⛔⛔ **CORRECTED R888 — `28` WAS CLAUSE ②'s EXTENSION, REPORTED AS THE DEFINITION'S.**
+> > **The TWO-clause definition admits 12 arms.** Clause ② admits 29 (R856's committed `c2`);
+> > **clause ③ then excludes 17 of them — 58.6%** — because their generator opens
+> > `data/comparisons.jsonl` and parses human rankings. Read from the object, not the name:
+> > `corebench/select_core.py:102` branches on `a.rule in ("oracle_k", "indep_k", "greedy_k")`,
+> > and **those three rules, and only those three, consume the labels clause ③ forbids.**
+> > The 17: 7 `greedy_*`, 5 `indep_*`, 5 `oracle_*`. The 12 that survive BOTH clauses:
+> > `coval_core`, `coval_core_2bA/2bB`, `generic`, `generic_reprov`, `topw_k2/k3/k4/k6/k8`,
+> > `topw_k4_detA/detB`.
+> >
+> > ⛔ **AND A WALL FELL.** R856 recorded `clause3_on_99_arms: "IMPOSSIBLE — provenance measured
+> > only on 42"` — **while the same JSON printed a `c2` list containing five arms named
+> > `oracle_*`.** The falsifying evidence was inside the artifact that declared the wall. *An
+> > unchecked wall is UNVERIFIED, never SETTLED*, and this one cost 17 arms of a headline number.
+> > ⚠ Why it was believable: the comment above that branch says *"human target, for the ORACLE
+> > arm only"* — **one rule behind its own code** — so the name-level story and the code-level
+> > story disagreed, and the name-level one was the one written down.
+> >
+> > ⚠ **OPEN AND NOT PAPERED OVER:** this file said `28`, R856's `c2` holds `29`. R888 used
+> > R856's committed list and reports against it. **The 28-vs-29 gap is UNRESOLVED** — a
+> > different comparator or the core's own self-inclusion — and is the next thing to measure.
+> > ⚠ Units: `29`, `17`, `12` are all **ARMS** — not prompts, not criteria.
+> >
+> > ⚠ **SUPERSEDED BELOW (kept per L81):** the `25 procedurally distinct` / `1.6 vs 3.6
+> > effective dimensions` / `0.28 MDE` figures were all computed on the **29-arm** clause-②
+> > set. They characterise clause ②'s extension and must NOT be quoted for the definition
+> > until recomputed on the 12.
+> >
 > > ⚠ **On this release that admits 28 arms** *(including the core)*, **of which 25 are
 > > procedurally distinct**; the admitted set spans **1.6 effective dimensions** against **3.6**
 > > for a random 25, and its **closest member clears the boundary by 0.28 MDE**.

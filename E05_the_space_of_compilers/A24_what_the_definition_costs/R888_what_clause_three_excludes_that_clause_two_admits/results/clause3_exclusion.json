@@ -1,0 +1,58 @@
+{
+  "commit": "2041768c29bfa4bc9a122c57740fa3eae724751d",
+  "world": "B",
+  "rules_read_from_source": [
+    "oracle_k",
+    "indep_k",
+    "greedy_k"
+  ],
+  "n_c2": 29,
+  "n_excluded_by_clause3": 17,
+  "n_surviving_both": 12,
+  "excluded": [
+    "greedy_k12_fit1",
+    "greedy_k2_fit1",
+    "greedy_k4_fit1",
+    "greedy_k4_fit1_08bR",
+    "greedy_k4_greedy_kA",
+    "greedy_k4_greedy_kB",
+    "greedy_k8_fit1",
+    "indep_k2_fit1",
+    "indep_k4_fit1",
+    "indep_k4_indep_kA",
+    "indep_k4_indep_kB",
+    "indep_k8_fit1",
+    "oracle_k4",
+    "oracle_k4_08bR",
+    "oracle_k4_fit1",
+    "oracle_k4_oracle_kA",
+    "oracle_k4_oracle_kB"
+  ],
+  "surviving": [
+    "coval_core",
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "generic",
+    "generic_reprov",
+    "topw_k2",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_detA",
+    "topw_k4_detB",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "share_excluded": 0.5862068965517241,
+  "wall_overturned": "R856 clause3_on_99_arms = 'IMPOSSIBLE \u2014 provenance measured only on 42' is FALSE; provenance is in the generator's rule branch, select_core.py:102",
+  "controls": {
+    "positive_oracle_k4_fit1": true,
+    "g0_random_k4_s0": true,
+    "comparator_genericpool16": true
+  },
+  "unit_note": {
+    "n_c2": "ARMS admitted by clause 2",
+    "n_surviving_both": "ARMS surviving both clauses",
+    "warning": "every count here is ARMS \u2014 not prompts, not criteria"
+  },
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
