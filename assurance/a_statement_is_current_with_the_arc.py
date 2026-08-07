@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1078_*/results/argument_traces.json")
+    if d:
+        facts.append(("R1078", "the census excluded the one confirmed defect; the gap size is unverified",
+                      f"R1070 missing {d['R1070_was_missing_from_census']}, "
+                      f"sizing control {d['sizing_control_passed']}",
+                      [r"R1070\s+has\s+NO\s+rows\s+in\s+that\s+census",
+                       r"249.{0,60}not\s+a\s+count|reproduced\s+the\s+contamination"]))
+
     d = load("A27_*/R1077_*/results/exposed_sites.json")
     if d:
         facts.append(("R1077", "most precision-blind sites cannot be exposed at all",

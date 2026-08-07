@@ -1,0 +1,1277 @@
+{
+  "round": "R1078",
+  "missed_single_arg_tests": 249,
+  "missed_precision_blind": 244,
+  "missed_rows": [
+    {
+      "file": "E05_the_space_of_compilers/A16_what_a_compiler_is_and_what_its_operations_cost/R220_compiler_tournament/run.py",
+      "name": "kendall_pairs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A16_what_a_compiler_is_and_what_its_operations_cost/R220_compiler_tournament/run.py",
+      "name": "content_toks",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A16_what_a_compiler_is_and_what_its_operations_cost/R222_factorial/run.py",
+      "name": "toks",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A16_what_a_compiler_is_and_what_its_operations_cost/R223_the_textual_half/run.py",
+      "name": "toks",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A17_which_definitions_of_core_are_identifiable/R225_do_raters_add_bits/run.py",
+      "name": "pair_sign",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A17_which_definitions_of_core_are_identifiable/R226_pricing_the_observable/run.py",
+      "name": "canon",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A17_which_definitions_of_core_are_identifiable/R228_the_largest_core_this_release_can_carry/run.py",
+      "name": "rank_obs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A17_which_definitions_of_core_are_identifiable/R230_the_class_not_the_member/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A17_which_definitions_of_core_are_identifiable/R231_the_official_cores_class/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A17_which_definitions_of_core_are_identifiable/R237_the_noisy_channel_bound/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A17_which_definitions_of_core_are_identifiable/R239_global_vs_per_prompt/run.py",
+      "name": "toks",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A18_the_candidate_set_wall_was_wrong/R233_fresh_candidate_transport/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A18_the_candidate_set_wall_was_wrong/R238_difficulty_matched/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A18_the_candidate_set_wall_was_wrong/R241_find_a_valid_stratifier/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A19_triple_blind/R234_independent_A/run.py",
+      "name": "content_key",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A19_triple_blind/R243_the_assumption_they_differ_on/run.py",
+      "name": "sg",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A20_is_a_global_core_real/R240_fit_a_global_core/run.py",
+      "name": "toks",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A20_is_a_global_core_real/R240_fit_a_global_core/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A20_is_a_global_core_real/R246_is_it_a_modal_class_predictor/run.py",
+      "name": "cls_arr",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A20_is_a_global_core_real/R247_is_the_selection_doing_the_work/run.py",
+      "name": "cls_arr",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A21_missing_weight_semantics/R244_not_rated_or_rated_zero/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A21_missing_weight_semantics/R245_does_it_move_the_formulation/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R344_what_fraction_can_be_rerun/run.py",
+      "name": "screen",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A22_does_this_epochs_own_method_hold_up/R351_did_a_published_number_move/run.py",
+      "name": "renderings",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R248_capacity_versus_realised_alphabet/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R249_which_printed_criteria_do_work/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R250_can_provenance_be_reconstructed/run.py",
+      "name": "content",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R252_was_it_redundancy_or_the_marginal/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R253_is_A_real_just_n_in_a_costume/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R254_targeted_substitution_and_where_the_real_core_sits/run.py",
+      "name": "cset",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R255_is_the_redundancy_lexical_at_all/run.py",
+      "name": "cset",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R255_is_the_redundancy_lexical_at_all/run.py",
+      "name": "signvec",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R256_is_the_rubric_rank_one/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R257_label_order_gauge_propagation/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R259_does_the_rate_survive_noise/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R260_instrument_noise_intervals/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R261_hash_seed_sweep/run.py",
+      "name": "tuple_elements",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R267_what_this_release_can_resolve/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R268_a_calibrated_detector_and_the_real_MDE/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R269_a_sham_that_can_fail/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R274_the_site_MDE_at_fine_resolution/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R275_what_a_replication_can_and_cannot_catch/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R281_does_the_coherent_gate_admit_this_release/run.py",
+      "name": "H_mm",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R282_is_the_saturation_forced_by_sample_size/run.py",
+      "name": "parse_ranking",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R283_is_there_headroom_above_a_constant/run.py",
+      "name": "parse_ranking",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R284_are_the_two_winners_one_mechanism/run.py",
+      "name": "vec",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R298_is_importance_monotone/run.py",
+      "name": "sc",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R302_are_the_artifacts_reproducible/run.py",
+      "name": "snapshot",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R311_does_the_shrink_differ_within_family/run.py",
+      "name": "vec",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R316_did_the_repair_do_only_what_it_claimed/run.py",
+      "name": "cohort",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R316_did_the_repair_do_only_what_it_claimed/run.py",
+      "name": "load",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R335_can_provenance_be_detected/run.py",
+      "name": "cls_slopes",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R358_does_the_closure_defect_replicate_at_the_second_judge/run.py",
+      "name": "viol_above",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R365_is_the_empty_channel_a_2B_statement/run.py",
+      "name": "pool_ref",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R372_is_the_resolving_set_stable/run.py",
+      "name": "data_run",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R381_do_the_red_gates_share_a_dead_path/run.py",
+      "name": "looks_like_regex",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R381_do_the_red_gates_share_a_dead_path/run.py",
+      "name": "path_shaped",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R381_do_the_red_gates_share_a_dead_path/run.py",
+      "name": "roundpath",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R382_does_the_pattern_match_anything/run.py",
+      "name": "not_self",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R388_one_unit_of_the_debt/run.py",
+      "name": "unverified",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R389_the_reading_burden/run.py",
+      "name": "parse",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R395_can_a_gauge_test_replace_the_rerun/run.py",
+      "name": "scan",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R419_the_scoring_only_floor_measured/run.py",
+      "name": "prov",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R427_does_the_definition_transport_at_all/run.py",
+      "name": "load",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R448_is_the_inversion_regression_to_the_mean/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R449_is_judge_stability_a_new_axis/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R450_does_the_definition_admit_a_neighbourhood/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R450_does_the_definition_admit_a_neighbourhood/run.py",
+      "name": "by",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R451_is_a_disjoint_core_admissible/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R452_is_the_oracle_per_conversation/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R453_does_a_fixed_prompt_blind_set_generalise/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R454_is_the_bound_a_property_of_the_pool/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R455_can_clause_two_be_strengthened/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R456_the_strengthened_gap_on_every_annotator/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R457_is_the_per_prompt_gap_reliable/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R458_what_predicts_the_per_prompt_advantage/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R459_is_the_reliability_a_partner_artifact/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R460_did_the_partner_check_inherit_its_own_defect/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R464_is_clause_one_vacuous_or_merely_unexercised/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R465_clause_three_is_a_different_type/run.py",
+      "name": "signs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R475_the_card_decides_clause_three/run.py",
+      "name": "tok_char3",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R477_what_does_clause_three_actually_cost/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R478_the_admissible_class_is_1820_not_nine/run.py",
+      "name": "cls_arr",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R479_is_the_ceiling_the_judge_or_the_target/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R480_does_the_judge_change_the_order_or_only_the_level/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R481_is_the_reversal_the_judge_or_the_sum/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R485_is_the_definition_satisfiable_at_all/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R486_is_clause_two_bar_an_outlier_or_the_class/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R487_the_admissible_population_is_32_not_three/run.py",
+      "name": "cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R502_the_admissible_side_is_one_responsive_arm_and_six_random_ones/run.py",
+      "name": "norm",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R525_the_variants_that_were_supposed_to_differ/run.py",
+      "name": "rule_of",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R527_is_clause_two_a_choice/run.py",
+      "name": "a2_of_y",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R528_where_the_definition_empties/run.py",
+      "name": "a2",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R528_where_the_definition_empties/run.py",
+      "name": "ext",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R531_prompt_responsiveness_derived_not_declared/run.py",
+      "name": "varying",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R550_is_the_new_gates_blind_spot_inhabited/run.py",
+      "name": "ncommits",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R555_row_two_named_a_model_where_it_meant_a_requirement/run.py",
+      "name": "_flat",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R594_is_world_an_enum_or_free_text_wearing_its_name/run.py",
+      "name": "ols",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R594_is_world_an_enum_or_free_text_wearing_its_name/run.py",
+      "name": "short",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R597_is_the_repaired_allowance_reachable_in_this_document/run.py",
+      "name": "cites_in",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R600_the_rounds_the_deliverable_leans_on_that_the_gate_never_sees/run.py",
+      "name": "rejectable",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R600_the_rounds_the_deliverable_leans_on_that_the_gate_never_sees/run.py",
+      "name": "real_round",
+      "kind": "precision-aware"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R601_does_the_claim_set_carry_the_cross_release_result/run.py",
+      "name": "cites",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R614_narrow_by_necessity_or_by_habit/run.py",
+      "name": "spread",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R631_the_unrecorded_retraction/run.py",
+      "name": "BOUND_hits",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R651_which_unresolvability_needs_the_caller/run.py",
+      "name": "names_in",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R652_at_what_depth_does_a_population_stop_being_static/run.py",
+      "name": "module_defs",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R656_two_apis_one_rule/run.py",
+      "name": "base_names",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R676_the_number_five_is_stable_the_membership_is_not/run.py",
+      "name": "is_armset",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R677_four_sets_four_objects_not_four_readings/run.py",
+      "name": "kind_of",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R680_citations_are_not_computations/run.py",
+      "name": "literals",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R680_citations_are_not_computations/run.py",
+      "name": "walk",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R686_is_the_judge_recoverable_at_all/run.py",
+      "name": "recover",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R692_how_big_is_the_gates_blind_spot/run.py",
+      "name": "arms_in",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R695_three_sweeps_three_wrong_quantities/run.py",
+      "name": "a2_named",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R705_what_gain_this_design_can_detect/run.py",
+      "name": "mde_of",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R706_widening_a_detector_is_an_experiment/run.py",
+      "name": "rate",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R714_the_release_ships_986_cores/run.py",
+      "name": "ks",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R719_a_standing_block_on_a_retracted_set/run.py",
+      "name": "excl_by_three_alone",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R719_a_standing_block_on_a_retracted_set/run.py",
+      "name": "excl_by_three",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R732_the_third_cell_varied_two_things/run.py",
+      "name": "cells",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R736_the_wall_was_an_inverted_index/run.py",
+      "name": "load",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R737_the_floor_curve_and_the_matched_null/run.py",
+      "name": "load",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R738_every_side_matched_on_its_own_overlap/run.py",
+      "name": "load",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R738_every_side_matched_on_its_own_overlap/run.py",
+      "name": "vec",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R739_the_floor_was_drawn_from_a_different_population/run.py",
+      "name": "load",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R739_the_floor_was_drawn_from_a_different_population/run.py",
+      "name": "armvec",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R740_is_the_shortfall_resolvable_at_all/run.py",
+      "name": "load",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R740_is_the_shortfall_resolvable_at_all/run.py",
+      "name": "vec",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R741_two_rounds_two_populations/run.py",
+      "name": "load",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R741_two_rounds_two_populations/run.py",
+      "name": "population",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R741_two_rounds_two_populations/run.py",
+      "name": "vec",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R742_the_requirement_was_per_cell/run.py",
+      "name": "load",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R742_the_requirement_was_per_cell/run.py",
+      "name": "vec",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R743_a_derived_population_is_a_timestamp/run.py",
+      "name": "det_loose",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R743_a_derived_population_is_a_timestamp/run.py",
+      "name": "det_medium",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R743_a_derived_population_is_a_timestamp/run.py",
+      "name": "det_tight",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R743_a_derived_population_is_a_timestamp/run.py",
+      "name": "run_dir",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R748_the_page_carries_two_identity_rules/run.py",
+      "name": "classes_of",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R754_only_one_document_can_separate_era_from_governance/run.py",
+      "name": "binof",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R755_era_governance_and_maintenance_are_one_variable/run.py",
+      "name": "ols",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R759_are_the_published_numbers_read_by_anything/run.py",
+      "name": "published",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R759_are_the_published_numbers_read_by_anything/run.py",
+      "name": "distinctive",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R759_are_the_published_numbers_read_by_anything/run.py",
+      "name": "share",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R761_is_baseline_robustness_a_rank_statistic/run.py",
+      "name": "inversions",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R764_is_clause_three_any_still_empty_at_ninetytwo/run.py",
+      "name": "parses",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R764_is_clause_three_any_still_empty_at_ninetytwo/run.py",
+      "name": "nobj",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R765_the_admitted_arm_was_the_baseline_itself/run.py",
+      "name": "keyset",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R773_the_ties_are_structural_not_granular/run.py",
+      "name": "a2_of",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R774_the_scale_is_an_arm_property_not_a_prompt_property/run.py",
+      "name": "a2",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R774_the_scale_is_an_arm_property_not_a_prompt_property/run.py",
+      "name": "scale",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R774_the_scale_is_an_arm_property_not_a_prompt_property/run.py",
+      "name": "sc",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R775_four_families_separate_the_two_axes/run.py",
+      "name": "mags",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R780_the_cross_release_wall_is_false_as_written/run.py",
+      "name": "sgn",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R780_the_cross_release_wall_is_false_as_written/run.py",
+      "name": "prov_core",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R780_the_cross_release_wall_is_false_as_written/run.py",
+      "name": "score2",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R782_the_released_core_does_not_have_four_criteria/run.py",
+      "name": "yvec",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R783_the_shortness_is_in_the_release/run.py",
+      "name": "arm_Y",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R791_a2_averages_six_comparisons/run.py",
+      "name": "admitted",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R792_the_estimand_was_a_default_nobody_chose/run.py",
+      "name": "parse_ranking",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R793_seven_artifacts_nobody_opened/run.py",
+      "name": "vs_human_all",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R794_the_fork_was_an_artifact_of_two_targets/run.py",
+      "name": "vs_human",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R795_specificity_or_target_size/run.py",
+      "name": "cls_from_y",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R796_matched_against_blind_at_every_size/run.py",
+      "name": "cls_from_y",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R797_the_rubric_is_a_worse_predictor_than_a_generic_pool/run.py",
+      "name": "klass",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R797_the_rubric_is_a_worse_predictor_than_a_generic_pool/run.py",
+      "name": "vs_human",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R797_the_rubric_is_a_worse_predictor_than_a_generic_pool/run.py",
+      "name": "vs_human_sh",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R799_uniform_or_concentrated/run.py",
+      "name": "acc",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R809_the_b_contrast_where_lambda_cancels/run.py",
+      "name": "c2",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R813_the_annotator_crossed_bootstrap/run.py",
+      "name": "parse_ranking",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R814_does_the_annotator_have_a_main_effect/run.py",
+      "name": "parse_ranking",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R815_the_second_construct/run.py",
+      "name": "parse_ranking",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R816_what_accounts_for_the_shift/run.py",
+      "name": "parse_ranking",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R816_what_accounts_for_the_shift/run.py",
+      "name": "per_prompt_tie",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R823_the_floor_was_a_fifth_of_its_own_published_family/run.py",
+      "name": "rule_matrix",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R824_is_clause_fours_class_closed_under_fitting/run.py",
+      "name": "feats",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R825_does_the_permissive_bar_reach_the_released_core/run.py",
+      "name": "lex",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R826_is_clause_four_evaluable_without_a_budget/run.py",
+      "name": "lex",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R827_is_the_coincidence_structural_or_difficulty/run.py",
+      "name": "lex",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R865_which_clause_verdicts_are_criterion_invariant/run.py",
+      "name": "vec",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R867_the_window_in_which_a_clause_means_anything/run.py",
+      "name": "armvec",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R889_the_two_admitted_sets_differ_by_the_word_resolvably/run.py",
+      "name": "split",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R892_what_clause_three_costs_and_which_half_of_it_is_identified/run.py",
+      "name": "stratum",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R892_what_clause_three_costs_and_which_half_of_it_is_identified/run.py",
+      "name": "paired_gap",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R895_leakage_with_the_judge_in_the_cell_key/run.py",
+      "name": "parse",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R899_is_the_component_reliable_or_an_averaging_artifact/run.py",
+      "name": "sep_count",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R906_does_the_bar_favour_a_criterion_source/run.py",
+      "name": "sel_of",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R907_what_expanding_each_kind_would_cost/run.py",
+      "name": "hits",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R868_can_a_gate_be_dead_and_green_at_once/run.py",
+      "name": "injectable",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A25_is_the_population_itself_a_choice/R918_the_typing_is_a_decision_tree_on_two_thresholds/run.py",
+      "name": "sel_of",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A26_can_the_definition_be_applied_without_provenance/R922_is_clause_two_a_comparison_or_a_threshold/run.py",
+      "name": "boot_means",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A26_can_the_definition_be_applied_without_provenance/R922_is_clause_two_a_comparison_or_a_threshold/run.py",
+      "name": "is_cand",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1011_does_the_definition_single_out_its_own_instance/run.py",
+      "name": "cover",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1026_is_the_certification_predicate_discriminating/run.py",
+      "name": "exact_of",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1033_a_third_comparator_costs_zero/run.py",
+      "name": "arm_vec",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1035_is_the_vacuity_a_max_over_search/run.py",
+      "name": "ext_two",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1036_which_q_is_scale_free/run.py",
+      "name": "ext_two",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1037_state_the_clause_with_its_parameter/run.py",
+      "name": "ext_two",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1038_what_false_admission_does_each_q_buy/run.py",
+      "name": "ext_two",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1040_is_the_target_choice_measurable_in_release/run.py",
+      "name": "arm_cls",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1044_the_anchoring_gate_is_narrow_not_blind/run.py",
+      "name": "covered",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1053_does_R1050_survive_the_corrected_set/run.py",
+      "name": "rate",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1058_does_the_clause_admit_a_core_it_has_never_seen/run.py",
+      "name": "rule_parity",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1069_which_clause_numbers_have_a_source/run.py",
+      "name": "sourced",
+      "kind": "precision-aware"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1070_from_sourceable_to_an_address/run.py",
+      "name": "cands",
+      "kind": "precision-aware"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1070_from_sourceable_to_an_address/run.py",
+      "name": "cands_str",
+      "kind": "precision-aware"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1071_recording_failure_or_nowhere_at_all/run.py",
+      "name": "where",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1073_attributable_or_propagated/run.py",
+      "name": "carriers",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R923_run_clause_two_on_its_own_comparators/run.py",
+      "name": "boot",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R924_does_clause_one_exclude_anything_clause_two_does_not/run.py",
+      "name": "boot",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R933_does_R141s_headline_survive_the_repaired_estimator/run.py",
+      "name": "hw",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R947_do_the_statements_own_numbers_come_from_artifacts/run.py",
+      "name": "traces",
+      "kind": "precision-aware"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R948_does_the_cited_round_actually_hold_the_number/run.py",
+      "name": "find",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R949_does_the_key_that_holds_it_mean_what_the_sentence_says/run.py",
+      "name": "toks",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R949_does_the_key_that_holds_it_mean_what_the_sentence_says/run.py",
+      "name": "stems",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R952_do_the_retractions_instance_the_standards_own_twenty_modes/run.py",
+      "name": "toks",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R953_three_near_zeros_are_three_silences_until_each_probe_has_a_positive_control/run.py",
+      "name": "toks",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R955_does_the_definition_contradict_itself_between_statement_and_record/run.py",
+      "name": "toks",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R956_the_qualifier_rule_turns_the_read_into_something_checkable/run.py",
+      "name": "toks",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R982_where_the_unbacked_decimals_live_and_which_arc_was_searched/run.py",
+      "name": "not_self",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R986_the_definition_names_a_scalar_size_the_released_core_does_not_have/run.py",
+      "name": "per_prompt",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R988_the_card_caps_size_and_names_two_properties_the_definition_has_no_clause_for/run.py",
+      "name": "admits",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R990_does_the_cores_construction_actually_remove_redundancy/run.py",
+      "name": "toks",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R992_what_the_two_closable_departures_would_actually_exclude/run.py",
+      "name": "toks",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R992_what_the_two_closable_departures_would_actually_exclude/run.py",
+      "name": "admits",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R992_what_the_two_closable_departures_would_actually_exclude/run.py",
+      "name": "beats_floor",
+      "kind": "exact"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R993_the_caps_cost_is_a_value_not_a_bound/run.py",
+      "name": "derive",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/_repair.py",
+      "name": "missing_tracked",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/a_commit_body_names_its_own_round.py",
+      "name": "added_rounds",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/a_next_names_the_check_that_cleared_it.py",
+      "name": "uncited",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/a_published_number_is_named.py",
+      "name": "toks",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/a_published_number_is_named.py",
+      "name": "stems",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/a_published_number_is_named.py",
+      "name": "path_tokens",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/an_ear_label_matches_its_path.py",
+      "name": "own_of",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/audit_the_auditors.py",
+      "name": "snap",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/audit_the_auditors.py",
+      "name": "tracked",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/backfilled_findings_are_rederivable.py",
+      "name": "rows_of",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/clause3_as_written.py",
+      "name": "excluded",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/code_states_a_bound_the_reader_never_sees.py",
+      "name": "words",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/every_round_is_committed.py",
+      "name": "has_tracked",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/readme_row_carries_the_verdict.py",
+      "name": "content_words",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/readme_row_carries_the_verdict.py",
+      "name": "sentences",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/register_requirements.py",
+      "name": "classify",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/registries_are_satisfied.py",
+      "name": "results_of",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/retraction_reaches_the_artifact.py",
+      "name": "is_annotated",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/run_all.py",
+      "name": "discover",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/source_stamp_is_current.py",
+      "name": "classify",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/valuematch.py",
+      "name": "displayed_precision",
+      "kind": "exact"
+    },
+    {
+      "file": "assurance/verdict_cites_its_own_contrasts.py",
+      "name": "printed_forms",
+      "kind": "exact"
+    }
+  ],
+  "sizing_control_passed": false,
+  "sizing_contaminants": [
+    "canon",
+    "cls",
+    "content_toks",
+    "kendall_pairs",
+    "pair_sign",
+    "rank_obs",
+    "toks"
+  ],
+  "SIZE_IS_UNVERIFIED": true,
+  "R1070_was_missing_from_census": true,
+  "world": "\u26d4 THE CENSUS PROVABLY EXCLUDES THE ONE CONFIRMED DEFECT, AND THAT IS THE WHOLE FINDING. R1070's membership test is `cands` \u2014 ONE argument, closing over its container \u2014 and R1076's classifier required two, so **R1070 has no rows in that census at all.** The single confirmed exposure in this repository, the cause of R1075's retraction, was never among the 38. \u2b50 And R1076's positive control passed throughout because it checked a two-argument pair: **it confirmed the instrument could see A membership test, never THE one the claim was about** \u2014 \u00a74's row, at a new level. R1077's 34-to-12 narrowing inherits the hole.\n\u26a0 HOW BIG THE MISSING POPULATION IS: **UNVERIFIED.** My one-argument scan returned 249, but its own sizing control FAILS \u2014 it readmitted ['canon', 'cls', 'content_toks', 'kendall_pairs', 'pair_sign', 'rank_obs', 'toks'], the very scoring helpers R1076 removed in three repairs. **I reproduced the contamination in the round about that instrument's blind spot.** So `249` is not a count and is not reported as one; what stands is n=1, verified, and it is enough to void the census as a characterisation.",
+  "proxy_ledger": {
+    "property": "the compared value was displayed before being compared",
+    "proxy": "its name traces to a regex over text read from a .md file",
+    "sound": "traces => exposed",
+    "unsound": "no trace => safe",
+    "safe_side": "a non-trace returns NOT-TRACED, never SAFE"
+  },
+  "controls": {
+    "positive_R1070_in_missed_population": true,
+    "negative_main_excluded": true
+  },
+  "limitation": "depth-bounded, single-file, name-based; NOT-TRACED is a lower bound on safety"
+}

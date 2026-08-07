@@ -1586,6 +1586,24 @@ window. ⭐ **The fix was not a tighter word list: it was to STRIP COMMENTS AND 
 search executable code only.** A mention is not a read. The negative control — R923, which reads only
 `.npz` and prior artifacts — went from **False to True** on that change alone, and is what forced it.
 
+⛔⛔⛔ **AND R1078 FINDS THAT THE CENSUS THOSE TWO ROUNDS REST ON EXCLUDES THE ONE CONFIRMED DEFECT.**
+R1070's membership test is `cands(t)` — **ONE argument, closing over its container** — and R1076's
+classifier required two, so **R1070 has NO rows in that census at all.** The single confirmed exposure
+in this repository, the cause of R1075's retraction, **was never among the 38**. ⭐ **And R1076's
+positive control passed throughout**, because it checked `has`/`has_rounded`, which happen to take two
+arguments: **it confirmed the instrument could see A membership test, never THE one the claim was
+about** — §4's row at a new level. R1077's `34 → 12` narrowing inherits the hole.
+⛔⛔ **HOW BIG THE MISSING POPULATION IS: UNVERIFIED, AND THAT IS A CONTROL FAILING, NOT A GAP IN
+EFFORT.** A one-argument scan returned 249, and **its own sizing control FAILS** — it readmitted
+`cls`, `pair_sign`, `rank_obs`, `toks`, `canon`, `content_toks`, `kendall_pairs`, **the very scoring
+helpers R1076 removed in three successive repairs**. ⭐ **I reproduced the contamination inside the
+round whose entire subject was that instrument's blind spot.** So `249` is **not a count**, no
+corrected total is claimed, and **what stands is n = 1, verified — enough to void the census as a
+characterisation.**
+⛔ **AND THE TRACE QUESTION IS DELIBERATELY NOT ANSWERED.** Tracing arguments through a population
+known to be incomplete would produce a tidy number over the wrong set — **precisely the error R1075
+cost five rounds to find.** The population is fixed first.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
