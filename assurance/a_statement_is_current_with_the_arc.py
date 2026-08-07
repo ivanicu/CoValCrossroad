@@ -409,6 +409,17 @@ def main() -> int:
                       [r"(belong).{0,300}(not|rather than).{0,120}(merit|good|quality)",
                        r"(random).{0,200}(18|47%|chance).{0,300}(discriminat|quality)"]))
 
+    # ⛔ R1017: the belonging clause fails twice over — not evaluable, and implied by ② where it is.
+    #    A statement still carrying discriminativeness as a candidate clause is carrying a dead one.
+    d = load("A27_*/R1017_*/results/belonging_vs_clause_two.json")
+    if d:
+        facts.append(("R1017", "the belonging clause is not evaluable, and is implied by ② where "
+                               "it is",
+                      f"{d['n_evaluable']}/{d['n_population']} evaluable; "
+                      f"clause2_only={d['clause2_only']}",
+                      [r"(4\.2%|4 of 96|not evaluable).{0,300}(sham|scored|clause)",
+                       r"(implied by|weaker than|adds nothing).{0,260}(clause ②|clause two)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

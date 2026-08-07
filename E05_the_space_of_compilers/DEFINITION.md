@@ -258,6 +258,41 @@ returns **0.523072** for a genuinely different arm — so it can see identity *a
 `coval_core_2bA`, is an effective duplicate. Repaired to assert the instrument's *range* rather than
 to trust an arm I picked by hand.
 
+### ⛔⛔ THE BELONGING CLAUSE FAILS TWICE OVER — NOT EVALUABLE, AND IMPLIED BY ② WHERE IT IS (added 2026-08-07, R1017)
+
+R1016 left discriminativeness able to support a **belonging** clause. Its natural form is
+self-referential and mentions no rival:
+
+> **⑤** an arm belongs iff it discriminates **resolvably more than the same criteria on the wrong
+> prompt** — i.e. it beats **its own sham**.
+
+⛔ **FIRST FAILURE — IDENTIFICATION.** A sham must be **SCORED**, not computed: misdirecting criteria
+changes which `(criterion, response)` pairs exist, so a sham's satisfaction matrix cannot be derived
+from its parent's. **⑤ is evaluable for 4 of 96 arms — 4.2%.** A clause that cannot be applied to 96%
+of candidates is **not a clause**. Making it one would mean running the judge on a misdirected version
+of every candidate, which R921 prices at **15,488 judge calls per new scored object**.
+
+⛔ **SECOND FAILURE — AND IT IS INDEPENDENT.** On the 4 arms where ⑤ *can* be evaluated:
+
+| | belongs | does not belong |
+|---|---|---|
+| **clause ②** | `coval_core`, `topw_k4` | **0** |
+| **not clause ②** | `gen`, `promptecho` | **0** |
+
+**Nothing clause ② admits fails belonging, and belonging admits two more.** So ⑤ is **strictly weaker**
+on this sample — implied by ②, and stating it would be decoration. ⚠ **On 4 arms this is a bound from
+a handful, not a law** — the same limit as the identification result, seen from the other side.
+
+**Controls.** `coval_core` passes ⑤ at +0.013993 [+0.012842, …]. **Every sham, treated as a candidate,
+FAILS ⑤ against its parent** — the direction that matters, because a belonging test a sham passes is
+not a belonging test. An arm against itself returns exactly 0 and fails the strict `lo > 0`, so the
+clause is not degenerate.
+
+⭐ **So the arc's answer on additional clauses is now negative on both available routes**: text-only
+properties are closed (R1014), and the one pairing-dependent candidate is post-hoc (R1015), measures
+belonging rather than merit (R1016), and is neither evaluable nor additive (R1017). **The formulation
+stands at ②′ ∧ ③**, with size and margin reported.
+
 ### ⭐⭐ WHAT DISCRIMINATIVENESS ACTUALLY MEASURES: BELONGING, NOT MERIT (added 2026-08-07, R1016)
 
 R1015's candidate was post-hoc — chosen after `topw` was named as the rival. The pre-registered form

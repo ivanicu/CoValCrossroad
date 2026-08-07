@@ -1,0 +1,72 @@
+{
+ "source_sha": "05f2e9b50b6e48d3",
+ "head": "does a belonging clause add anything to clause \u2461, and is it evaluable",
+ "n_prompts": 968,
+ "nboot": 8000,
+ "seed": 1017,
+ "n_population": 96,
+ "n_evaluable": 4,
+ "evaluable_share": 0.041666666666666664,
+ "evaluable": [
+  "coval_core",
+  "gen",
+  "promptecho",
+  "topw_k4"
+ ],
+ "controls": {
+  "positive_core_belongs": true,
+  "negative_shams_fail": true,
+  "placebo_self_fails": true
+ },
+ "rows": [
+  {
+   "arm": "coval_core",
+   "delta": 0.013993151882489672,
+   "lo": 0.01284171532014392,
+   "hi": 0.0151802873917209,
+   "belongs": true,
+   "clause2": true,
+   "agree": true
+  },
+  {
+   "arm": "gen",
+   "delta": 0.0067515258480615814,
+   "lo": 0.005592460986196303,
+   "hi": 0.007938770248757665,
+   "belongs": true,
+   "clause2": false,
+   "agree": false
+  },
+  {
+   "arm": "promptecho",
+   "delta": 0.011653482936229335,
+   "lo": 0.010896350310103465,
+   "hi": 0.012425176350787447,
+   "belongs": true,
+   "clause2": false,
+   "agree": false
+  },
+  {
+   "arm": "topw_k4",
+   "delta": 0.010233046749574344,
+   "lo": 0.009134617021680985,
+   "hi": 0.011341686484931411,
+   "belongs": true,
+   "clause2": true,
+   "agree": true
+  }
+ ],
+ "both": [
+  "coval_core",
+  "topw_k4"
+ ],
+ "belongs_only": [
+  "gen",
+  "promptecho"
+ ],
+ "clause2_only": [],
+ "neither": [],
+ "world": "C NOT EVALUABLE \u2014 \u2464 applies to 4 of 96 arms (4.2%)",
+ "identification_note": "a sham must be SCORED, not computed: misdirecting criteria changes which (criterion, response) pairs exist, so a sham's satisfaction matrix cannot be derived from its parent's",
+ "price": "R921 records 15,488 judge calls for one new scored object"
+}
