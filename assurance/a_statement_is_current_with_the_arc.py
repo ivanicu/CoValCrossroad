@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1056_*/results/certification_curve.json")
+    if d:
+        facts.append(("R1056", "q cannot be exercised: the family is 2 at every defensible threshold",
+                      f"arms {d['arms']}, usable rules {len(d['usable_rules'])}, "
+                      f"k needed {d['k_needed_for_q']}",
+                      [r"permanently inert",
+                       r"admits .{0,4}nobody new|250.{0,40}admits"]))
+
     d = load("A27_*/R1055_*/results/component_ablation.json")
     if d:
         facts.append(("R1055", "two clause components bind, q is inert at this family size",

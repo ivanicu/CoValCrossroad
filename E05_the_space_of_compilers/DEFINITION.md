@@ -1159,6 +1159,33 @@ it is exercised by the operator as the clause currently runs.** `q` first become
 wrongly. **Controls**: resolvability must bind — True; ablating nothing reproduces the baseline — True;
 seed-only change leaves the set unchanged — True; 3-seed spread **24 in / 75 out / 0 unstable**.
 
+⛔⛔⛔ **AND R1056 SETTLES WHETHER `q` CAN EVER BE EXERCISED HERE: IT CANNOT.** `q` first distinguishes
+anything at `|family| = 10`. Sweeping the prompt-blindness threshold over the 95 arms with a committed
+selection:
+
+| rule | family | reaches q@10 |
+|---|---:|---|
+| `n_distinct ≤ 1` (the committed `fixed`) | **2** | No |
+| `n_distinct ≤ 2 … ≤ 250` | **2** | No |
+| `n_distinct ≤ 500` | 4 | No |
+| `n_distinct ≤ 1000` | **95 — everything** | Yes, vacuously |
+| `modal_share ≥ 1.0 … ≥ 0.25` | **2** | No |
+
+⭐ **The distribution is extreme, not merely bimodal.** Two arms use one selection across all prompts;
+essentially every other arm uses a **near-unique selection per prompt**. Relaxing "identical on every
+prompt" all the way to "at most 250 distinct selections" **admits nobody new**. There is no middle to
+stand on, so **the clause declares a parameter this release cannot exercise at any defensible
+threshold** — `q` should be adopted with an explicit relaxation that does not exist, or dropped.
+⛔ **AND THE KNOB THAT LOOKED RIGHT WAS THE WRONG ONE.** R918 stores `fixed` (*same across prompts*, 2
+arms) and `exact` (*subset of the rubric*, **86 arms at 1.0**) one field name apart, and they are **not
+nested** — every `exact` threshold from 0.01 to 1.0 returns the same 86. **Sweeping `exact` would have
+manufactured a family of 86 and declared `q` testable.** The eighth unit confusion this window and the
+first caught *before* any number was computed, by reading both definitions out of R918's source.
+⚠ **Reaching 10 is necessary for `q` to bite and never sufficient for the family to be legitimate**: an
+arm using few-but-more-than-one selections still conditions on the prompt, only coarsely.
+**Controls**: strictest cell equals the committed `fixed` set — True; most permissive contains all 95 —
+True; `coval_core` named untypable rather than dropped.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

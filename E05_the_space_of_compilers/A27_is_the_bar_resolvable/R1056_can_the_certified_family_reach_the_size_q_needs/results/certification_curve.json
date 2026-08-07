@@ -1,0 +1,123 @@
+{
+  "round": "R1056",
+  "arms": 95,
+  "untypable": [
+    "coval_core"
+  ],
+  "k_needed_for_q": 10,
+  "committed_fixed": [
+    "generic",
+    "genericpool16"
+  ],
+  "curve": [
+    {
+      "rule": "n_distinct <= 1",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "n_distinct <= 2",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "n_distinct <= 3",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "n_distinct <= 5",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "n_distinct <= 10",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "n_distinct <= 25",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "n_distinct <= 50",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "n_distinct <= 100",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "n_distinct <= 250",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "n_distinct <= 500",
+      "family": 4,
+      "reaches_q": false,
+      "share_of_population": 0.042105263157894736
+    },
+    {
+      "rule": "n_distinct <= 1000",
+      "family": 95,
+      "reaches_q": true,
+      "share_of_population": 1.0
+    },
+    {
+      "rule": "modal_share >= 1.0",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "modal_share >= 0.95",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "modal_share >= 0.9",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "modal_share >= 0.75",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "modal_share >= 0.5",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    },
+    {
+      "rule": "modal_share >= 0.25",
+      "family": 2,
+      "reaches_q": false,
+      "share_of_population": 0.021052631578947368
+    }
+  ],
+  "usable_rules": [],
+  "world": "\u26d4 B q IS PERMANENTLY INERT IN THIS RELEASE \u2014 no rule on the curve reaches a family of 10 while remaining under half the population. The distribution is bimodal: a tiny genuinely blind set and a large prompt-conditioned one, with nothing usable between. The clause declares a parameter this release cannot exercise at any defensible threshold.",
+  "controls": {
+    "positive_strictest_equals_committed": true,
+    "negative_permissive_is_everything": true
+  },
+  "limitation": "reaching the size q needs is necessary, never sufficient: an arm using few but more than one selection still conditions on the prompt"
+}
