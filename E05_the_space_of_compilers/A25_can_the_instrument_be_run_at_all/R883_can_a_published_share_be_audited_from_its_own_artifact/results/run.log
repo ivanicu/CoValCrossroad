@@ -1,0 +1,24 @@
+  ① POSITIVE  R872's 0.4884 recomputes from its own counts: True  PASS   -> 21/43
+  ② g=0       a bare {'rate': 0.403} with no counts is UNAUDITABLE: True  PASS
+    Arm ② exists because a detector that calls everything auditable passes ① by luck.
+
+  ③ population contains BOTH classes (a sweep finding one cannot discriminate): True  PASS
+
+  3014 published share(s) across 417 artifact(s)
+    AUDITABLE   1226    0.407   (n/d recomputable from the same file)
+    UNAUDITABLE 1788    0.593
+
+  a few UNAUDITABLE shares — the denominator is not in the file at all:
+    R02_label_and_regime                       position_drift[0].tie_rate         0.5168
+    R02_label_and_regime                       position_drift[0].veto_rate        0.6413
+    R02_label_and_regime                       position_drift[1].tie_rate         0.5079
+    R02_label_and_regime                       position_drift[1].veto_rate        0.6907
+    R02_label_and_regime                       position_drift[2].tie_rate         0.5276
+    R02_label_and_regime                       position_drift[2].veto_rate        0.6911
+
+  ⭐ WORLD B: most published shares are NOT auditable — the corpus publishes rates whose denominators are unrecoverable from their own artifacts, and no amount of per-case fixing reaches them
+     ⚠ AUDITABLE means CHECKABLE, never CORRECT. Whether a recorded `d` is the RIGHT
+       denominator is a judgement per claim; this measures only whether the claim can
+       be checked at all — the necessary condition all three instances failed.
+
+  artifact: results/share_auditability.json @ e64f08d6
