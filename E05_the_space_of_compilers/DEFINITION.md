@@ -879,6 +879,34 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > against a mismatched floor of [−0.0759, +0.0248], weakest at 3.0 SE).
 > > ⚠ Reliable is not interesting: split-half says STABLE, never MATTERS. And naming it would
 > > need a prompt property the release does not ship.
+> >
+> > ⭐⭐⭐ **WHAT `ADMITTED` SPANS — THE CRITERION-SOURCE PARTITION, COMPLETE (R903–R905).**
+> > The admitted arms do not merely disagree about criteria; **their criteria come from three
+> > structurally different SOURCES**, verified from the committed strings and the release's own
+> > schema (`coval_full` items carry a `rubric_item_id`; **`coval_core` items carry none** — the
+> > data model itself says the core's criteria are free text, not rubric references):
+> >
+> > | source kind | arm | exact ⊆ rubric | lexical coverage @0.60 |
+> > |---|---|---|---|
+> > | **rubric selector** | `topw_k*`, `topabs_k4` | **1.000** | **1.0000** |
+> > | **paraphrasing generator** | `coval_core` | **0.001** | **0.5959** |
+> > | **fixed external checklist** | `generic` | 0.000 | 0.0003 |
+> >
+> > ⭐ **The core selects almost no rubric item verbatim (0.001) yet reuses ~60% of the rubric's
+> > wording.** That independently reproduces `corebench/ablate_novel.py:5` — *40.3% have no
+> > counterpart above 0.60*, i.e. 59.7% — to within 0.11 pp, with the arm comparison it lacked.
+> > ⚠ **Threshold-dependent, so the curve is the result, not the cell:** 0.7850 / 0.5959 /
+> > 0.4360 / 0.3017 at t = 0.50 / 0.60 / 0.70 / 0.80, all four committed thresholds read from
+> > the source rather than chosen.
+> > ⚠ **Every coverage figure is a LOWER bound:** `difflib` compares CHARACTERS, so it is
+> > LEXICAL, not semantic — a true paraphrase sharing no wording is invisible to it.
+> > ⛔ **And overlap is not a meaningful statistic ACROSS these kinds.** R903 reported `generic`
+> > and `topw_k4` as *literally disjoint* and banked it as a finding; it is forced — two arms
+> > drawing from disjoint vocabularies overlap 0 whatever the definition does. **RETRACTED.**
+> > Within the one kind where overlap can vary, the admitted arms agree well: minimum Jaccard
+> > **0.4475** against a random floor of **0.1820**.
+> > ⭐ **So `admitted` means CLEARED THE BAR, and the bar is source-agnostic.** That is a
+> > property of the definition worth stating plainly rather than a defect.
 >
 > | clause | verdict | comparator | criterion |
 > |---|---|---|---|
