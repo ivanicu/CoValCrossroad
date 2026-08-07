@@ -9667,3 +9667,62 @@ CRITERION INDEX.** Repaired with an order-preserving two-pointer match — 0 dif
 ⚠ **WHAT THIS CANNOT SAY:** that *no* label-blind size-1 selector exists. It sweeps the orderings
 **this generator expresses**; a selector built on some other property of the criteria is uncovered,
 and nothing here excludes one.
+
+---
+
+## ✅ R926 · THE PRICE OF CLAUSE ③ DECAYS MONOTONICALLY IN k — at every sampling cap
+
+R925 gave two points (0.1164 at k=1, 0.0639 at k=4). Two points are not a curve, and the shape
+decides how clause ① should be worded.
+
+⛔ **THE STRONGEST CONFOUND WAS IN MY OWN INSTRUMENT AND POINTED THE SAME WAY AS THE HYPOTHESIS.**
+The oracle at each k is a maximum over `C(m,k)` subsets, sampled above a cap — and a sampled maximum
+is a **lower bound**. `C(m,k)` peaks at middle k, so a fixed cap biases the oracle down most exactly
+where the gap was predicted to fall. **So the cap is a swept axis, not a constant.**
+
+**THE CURVE, at M = 8000:**
+
+| k | oracle | best label-blind | **gap** | blind spec |
+|---|---|---|---|---|
+| 1 | 0.6478 | 0.5314 | **0.1164** | `weight` rank 2 |
+| 2 | **0.6565** | 0.5536 | **0.1029** | `weight` rank 1 |
+| 3 | 0.6547 | 0.5632 | **0.0915** | `weight` rank 1 |
+| 4 | 0.6497 | **0.5642** | **0.0856** | `weight` rank 1 |
+| 6 | 0.6332 | 0.5641 | **0.0691** | `weight` rank 1 |
+| 8 | 0.6145 | 0.5593 | **0.0552** | `weight` rank 1 |
+
+⭐ **The oracle peaks at k=2, the best blind selector at k=4.** Neither peaks at the released core's
+k, and both are interior optima — so "more criteria is better" is false on both sides.
+
+**② THE PRECISION SWEEP — and the bias runs AGAINST the finding, not for it:**
+
+| k | M=500 | M=2000 | M=8000 | spread | exhaustive @8000 |
+|---|---|---|---|---|---|
+| 1 | 0.1164 | 0.1164 | 0.1164 | 0.0000 | 968 |
+| 2 | 0.1029 | 0.1029 | 0.1029 | 0.0001 | 968 |
+| 3 | 0.0893 | 0.0913 | 0.0915 | 0.0023 | 965 |
+| 4 | 0.0814 | 0.0847 | 0.0856 | 0.0041 | 873 |
+| 6 | 0.0644 | 0.0677 | 0.0691 | 0.0047 | 531 |
+| 8 | 0.0494 | 0.0530 | 0.0552 | 0.0057 | 531 |
+
+⭐⭐⭐ **More sampling RAISES the high-k gaps, so a bigger cap makes the curve FLATTER, never
+steeper.** The measured decay is therefore an **upper bound on the steepness**, and the confound
+cannot have manufactured it. Worst spread **0.0057**, below the **0.0103** yardstick — and the curve
+is **monotone at all three caps**, so the ordering is robust across the whole specification.
+
+**CONTROLS.** ① k=1 reproduces R925's oracle 0.6478 and blind 0.5314 to Δ 4.3e-05 / 6.3e-06 — and
+k=1 is exhaustive for every rubric, so drift there would be code, not sampling. ③ forced endpoint:
+**0** prompts with `m ≤ k` where oracle ≠ blind. ④ placebo: a random k-subset sits at percentile
+0.490–0.504 across all six k.
+
+⭐⭐ **WORLD A: `size > 1` is correctly shaped as a lower bound.** Label access is worth most at the
+smallest set and its value decays as the set grows — **the regime clause ① excludes is precisely the
+one where clause ③ is cheapest to violate profitably.** The two clauses are not independent
+requirements that happen to coexist; they guard the same failure from opposite sides.
+
+⚠ **THE TAIL IS FORCED**: at `k = m` every selector picks the whole rubric and the gap is exactly 0,
+so decay near the top of the range is a derivation. It does not dominate here — **888 of 968 prompts
+still have a real choice at k=8.**
+
+⚠ **EVERY GAP IS AN UPPER BOUND ON THE PRICE**: the blind side is the best of the orderings *this
+generator* expresses, so a better label-blind selector shrinks all of them.

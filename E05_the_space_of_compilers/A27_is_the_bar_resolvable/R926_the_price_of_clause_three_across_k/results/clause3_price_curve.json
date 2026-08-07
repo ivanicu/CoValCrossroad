@@ -1,0 +1,357 @@
+{
+  "commit": "4f0f1f033c821a4ff73daaa7247ce65256fbf051",
+  "world": "A",
+  "seed": 926,
+  "ks": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    8
+  ],
+  "caps": [
+    500,
+    2000,
+    8000
+  ],
+  "cells": [
+    {
+      "k": 1,
+      "M": 500,
+      "oracle": 0.6477568871361731,
+      "blind": 0.5313937510348857,
+      "blind_spec": [
+        "weight",
+        2
+      ],
+      "gap": 0.11636313610128735,
+      "exhaustive_prompts": 968,
+      "random_percentile": 0.4963081449512927
+    },
+    {
+      "k": 1,
+      "M": 2000,
+      "oracle": 0.6477568871361731,
+      "blind": 0.5313937510348857,
+      "blind_spec": [
+        "weight",
+        2
+      ],
+      "gap": 0.11636313610128735,
+      "exhaustive_prompts": 968,
+      "random_percentile": 0.4963081449512927
+    },
+    {
+      "k": 1,
+      "M": 8000,
+      "oracle": 0.6477568871361731,
+      "blind": 0.5313937510348857,
+      "blind_spec": [
+        "weight",
+        2
+      ],
+      "gap": 0.11636313610128735,
+      "exhaustive_prompts": 968,
+      "random_percentile": 0.4963081449512927
+    },
+    {
+      "k": 2,
+      "M": 500,
+      "oracle": 0.6564237262694507,
+      "blind": 0.553559966541429,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.10286375972802164,
+      "exhaustive_prompts": 962,
+      "random_percentile": 0.5041915657686058
+    },
+    {
+      "k": 2,
+      "M": 2000,
+      "oracle": 0.6564975161159678,
+      "blind": 0.553559966541429,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.10293754957453882,
+      "exhaustive_prompts": 968,
+      "random_percentile": 0.5042097871581027
+    },
+    {
+      "k": 2,
+      "M": 8000,
+      "oracle": 0.6564975161159678,
+      "blind": 0.553559966541429,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.10293754957453882,
+      "exhaustive_prompts": 968,
+      "random_percentile": 0.5042097871581027
+    },
+    {
+      "k": 3,
+      "M": 500,
+      "oracle": 0.6524292830248711,
+      "blind": 0.5631762691595017,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.08925301386536943,
+      "exhaustive_prompts": 531,
+      "random_percentile": 0.49505863540729245
+    },
+    {
+      "k": 3,
+      "M": 2000,
+      "oracle": 0.6545173882976048,
+      "blind": 0.5631762691595017,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.09134111913810306,
+      "exhaustive_prompts": 898,
+      "random_percentile": 0.49420315756123784
+    },
+    {
+      "k": 3,
+      "M": 8000,
+      "oracle": 0.654718125663478,
+      "blind": 0.5631762691595017,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.09154185650397628,
+      "exhaustive_prompts": 965,
+      "random_percentile": 0.49433074515077274
+    },
+    {
+      "k": 4,
+      "M": 500,
+      "oracle": 0.6456264794840438,
+      "blind": 0.5641806235396515,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.08144585594439235,
+      "exhaustive_prompts": 302,
+      "random_percentile": 0.4902786021370732
+    },
+    {
+      "k": 4,
+      "M": 2000,
+      "oracle": 0.6488855481027437,
+      "blind": 0.5641806235396515,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.0847049245630922,
+      "exhaustive_prompts": 601,
+      "random_percentile": 0.4900575920865177
+    },
+    {
+      "k": 4,
+      "M": 8000,
+      "oracle": 0.6497397096422547,
+      "blind": 0.5641806235396515,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.08555908610260321,
+      "exhaustive_prompts": 873,
+      "random_percentile": 0.49014396288668305
+    },
+    {
+      "k": 6,
+      "M": 500,
+      "oracle": 0.6285247171214018,
+      "blind": 0.5641173028790937,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.06440741424230811,
+      "exhaustive_prompts": 234,
+      "random_percentile": 0.49623561768809704
+    },
+    {
+      "k": 6,
+      "M": 2000,
+      "oracle": 0.6317941436964094,
+      "blind": 0.5641173028790937,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.06767684081731573,
+      "exhaustive_prompts": 383,
+      "random_percentile": 0.4962338569660367
+    },
+    {
+      "k": 6,
+      "M": 8000,
+      "oracle": 0.6332425642272295,
+      "blind": 0.5641173028790937,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.06912526134813579,
+      "exhaustive_prompts": 531,
+      "random_percentile": 0.49607549412966506
+    },
+    {
+      "k": 8,
+      "M": 500,
+      "oracle": 0.6087505309302973,
+      "blind": 0.5593110791885864,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.04943945174171094,
+      "exhaustive_prompts": 302,
+      "random_percentile": 0.5031911470072628
+    },
+    {
+      "k": 8,
+      "M": 2000,
+      "oracle": 0.6123502258006228,
+      "blind": 0.5593110791885864,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.05303914661203646,
+      "exhaustive_prompts": 383,
+      "random_percentile": 0.5036589753221985
+    },
+    {
+      "k": 8,
+      "M": 8000,
+      "oracle": 0.6144895461704437,
+      "blind": 0.5593110791885864,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.055178466981857355,
+      "exhaustive_prompts": 531,
+      "random_percentile": 0.503289152601588
+    }
+  ],
+  "final_by_k": {
+    "1": {
+      "k": 1,
+      "M": 8000,
+      "oracle": 0.6477568871361731,
+      "blind": 0.5313937510348857,
+      "blind_spec": [
+        "weight",
+        2
+      ],
+      "gap": 0.11636313610128735,
+      "exhaustive_prompts": 968,
+      "random_percentile": 0.4963081449512927
+    },
+    "2": {
+      "k": 2,
+      "M": 8000,
+      "oracle": 0.6564975161159678,
+      "blind": 0.553559966541429,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.10293754957453882,
+      "exhaustive_prompts": 968,
+      "random_percentile": 0.5042097871581027
+    },
+    "3": {
+      "k": 3,
+      "M": 8000,
+      "oracle": 0.654718125663478,
+      "blind": 0.5631762691595017,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.09154185650397628,
+      "exhaustive_prompts": 965,
+      "random_percentile": 0.49433074515077274
+    },
+    "4": {
+      "k": 4,
+      "M": 8000,
+      "oracle": 0.6497397096422547,
+      "blind": 0.5641806235396515,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.08555908610260321,
+      "exhaustive_prompts": 873,
+      "random_percentile": 0.49014396288668305
+    },
+    "6": {
+      "k": 6,
+      "M": 8000,
+      "oracle": 0.6332425642272295,
+      "blind": 0.5641173028790937,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.06912526134813579,
+      "exhaustive_prompts": 531,
+      "random_percentile": 0.49607549412966506
+    },
+    "8": {
+      "k": 8,
+      "M": 8000,
+      "oracle": 0.6144895461704437,
+      "blind": 0.5593110791885864,
+      "blind_spec": [
+        "weight",
+        1
+      ],
+      "gap": 0.055178466981857355,
+      "exhaustive_prompts": 531,
+      "random_percentile": 0.503289152601588
+    }
+  },
+  "gaps": [
+    0.11636313610128735,
+    0.10293754957453882,
+    0.09154185650397628,
+    0.08555908610260321,
+    0.06912526134813579,
+    0.055178466981857355
+  ],
+  "monotone": true,
+  "cap_sensitivity": {
+    "1": 0.0,
+    "2": 7.378984651718046e-05,
+    "3": 0.0022888426386068472,
+    "4": 0.004113230158210857,
+    "6": 0.004717847105827677,
+    "8": 0.005739015240146417
+  },
+  "worst_spread": 0.005739015240146417,
+  "yardstick": 0.0103,
+  "forced_tail": "at k = m every selector picks the whole rubric, so gap(m) = 0 by construction; decay near the top of the range is a DERIVATION",
+  "gaps_are_upper_bounds": "the blind side is the best of the orderings this generator expresses (R925's scope); a better blind selector shrinks every gap",
+  "unit_note": "A2 and gaps are in agreement units; counts are PROMPTS",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
