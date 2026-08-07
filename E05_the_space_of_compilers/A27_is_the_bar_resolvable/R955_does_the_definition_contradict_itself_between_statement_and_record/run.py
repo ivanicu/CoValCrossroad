@@ -196,18 +196,43 @@ def main() -> int:
     if len(named) > 10:
         print(f"     … and {len(named) - 10} more, all in the artifact")
 
-    world = "C" if c["n_pairs"] == 0 else ("A" if c3 and named else "B")
+    # ⛔ ⑥ THE ARTIFACT I DID NOT NAME BEFORE THE RUN, AND IT DOMINATES. The window is ±70 CHARS,
+    #    and a markdown TABLE ROW packs many numerals into that span, so every numeral in a row
+    #    pairs with every other and inherits the row's vocabulary. The confound I DID name --
+    #    correct pairs differing by a qualifier -- is real and is not the main one. Measured, not
+    #    assumed: the share of disagreeing pairs whose record phrase is a table row.
+    tbl = sum(1 for r in named if "|" in r["record_phrase"])
+    tbl_share = tbl / len(named) if named else float("nan")
+    both_tbl = sum(1 for r in named if "|" in r["record_phrase"] and "|" in r["statement_phrase"])
+    c6 = tbl_share <= 0.5
+    print(f"\n  ⑥ IS THE PAIRING A TABLE ARTIFACT — disagreeing pairs whose RECORD phrase is a "
+          f"markdown table row: {tbl:,}/{len(named):,} = {tbl_share:.3f} "
+          f"(both sides tables: {both_tbl:,})")
+    print(f"     {'PASS — the pairs are prose, so the candidate list is readable' if c6 else 'FAIL — a fixed-width window spans table CELLS, so every numeral in a row pairs with every other and the candidate count is an artifact of the window, not a property of the document'}")
+    print(f"     agree-share {c['agree_share']:.4f} means {1 - c['agree_share']:.4f} of pairs "
+          f"differ, which is what a matcher pairing everything inside a row produces.")
+
+    world = "C" if c["n_pairs"] == 0 else ("A" if (c3 and named and c6) else "B")
     print(f"\n  ⭐⭐⭐ WORLD {world}: " + (
         f"at t={t} the matcher pairs {c['n_pairs']:,} numeral occurrences across the statement and "
         f"the record, agreeing {c['agree_share']:.4f} of the time against a shuffled floor of at "
-        f"most {fl_hi:.4f} — so it is finding genuinely-same quantities. **{len(named)} distinct "
-        f"value pairs DISAGREE**, and every one is named above for a reader to adjudicate."
+        f"most {fl_hi:.4f} — so it is finding genuinely-same quantities, and control ⑥ says the "
+        f"pairs are prose rather than table cells. **{len(named)} distinct value pairs DISAGREE**, "
+        f"and every one is named above for a reader to adjudicate."
         if world == "A" else
-        f"the agree-share {c['agree_share']:.4f} sits at the shuffled floor "
-        f"{min(c['floor']):.4f}–{fl_hi:.4f}. **The pairing is coincidence**, so this instrument "
-        f"provides no evidence about self-contradiction, and the question needs the supersession "
-        f"markers the file does not carry — 0 of its 193 round-tagged headings name what they "
-        f"overturn."
+        (f"the agree-share {c['agree_share']:.4f} clears the shuffled floor "
+         f"{min(c['floor']):.4f}–{fl_hi:.4f} by a real but tiny margin, and **control ⑥ kills the "
+         f"reading**: {tbl_share:.3f} of the {len(named):,} disagreeing pairs have a markdown TABLE "
+         f"ROW on the record side. A ±{WIN}-char window spans table cells, so every numeral in a "
+         f"row pairs with every other and inherits its vocabulary. **The candidate count is a "
+         f"property of my window, not of the document**, and it is uninformative about "
+         f"self-contradiction."
+         if not c6 else
+         f"the agree-share {c['agree_share']:.4f} sits at the shuffled floor "
+         f"{min(c['floor']):.4f}–{fl_hi:.4f}. **The pairing is coincidence**, so this instrument "
+         f"provides no evidence about self-contradiction, and the question needs the supersession "
+         f"markers the file does not carry — 0 of its 193 round-tagged headings name what they "
+         f"overturn.")
         if world == "B" else
         f"no pairs survive t={t}; the threshold sweep above is the whole answer and the question is "
         f"unanswerable at this resolution."))
@@ -224,6 +249,12 @@ def main() -> int:
                "curve": {str(k): v for k, v in curve.items()},
                "chosen_threshold": t,
                "disagreeing_value_pairs": named,
+               "table_artifact": {"share_record_side_is_a_table_row": tbl_share,
+                                  "both_sides_tables": both_tbl,
+                                  "window_chars": WIN,
+                                  "reading": ("pairs are prose" if c6 else
+                                              "a fixed-width window spans table cells; the "
+                                              "candidate count is a property of the window")},
                "prior_art_checked": "definition_matches_the_record is document↔artifact; "
                                     "corrections_propagated is document↔document; nothing checks "
                                     "the file against itself",
