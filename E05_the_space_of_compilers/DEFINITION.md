@@ -1002,6 +1002,29 @@ give opposite verdicts, and **READMEs are still guarded by nothing**. And R1047'
 proposed gate is neither built nor abandoned**: what splits it is whether a number shared by source and
 README is a constant or a coincidence, which needs the **line**, not the value.
 
+⛔⛔ **AND R1048 CANNOT SETTLE THAT, BECAUSE THE TEST IT BUILT CANNOT FAIL.** Partitioning R1047's
+residue into constant / external / derived / floating requires a derivation test, and its **measured
+coincidence floor over 3 seeds is `[0.965, 0.975]`** — it classifies **97.5% of RANDOM values on the
+same order of magnitude as DERIVED**. The observed DERIVED share is **0.717**, *below* the floor: real
+residue numbers are matched **less** often than random ones, which is the diagnostic that the test is
+**saturated**, not merely noisy. The arithmetic is why — **410** artifact values and four operations
+give **~672,400** candidate results, and at 2–4 decimal places the reachable set is dense in the unit
+interval, so *"is x a product of two of these"* is nearly *"is x a number"*.
+⭐ **VERDICT: UNVERIFIED.** `CONSTANT` **17 of 60** survives because it never routed through this test.
+**The remaining 43 UNCLASSIFIED — never FLOATING, never exculpated.** ⭐ **The remedy is not a tighter
+tolerance: it is requiring a derivation to be NAMED in the text**, which is what the arithmetic-trap
+rule demands of one anyway. A number the author derived says so; a number that merely *could* be
+derived says nothing.
+⛔⛔ **AND TWO GATE DEFECTS WERE FOUND WHILE COMMITTING THIS ROUND, BOTH IN MY OWN INSTRUMENTS.**
+① The verdict string printed **World B** while the line two above it said the class was inside its own
+floor — the pre-registered kill said *"if the controls fire"*, and the floor **is** a control that was
+measured and then not read. ② **The currency gate went GREEN with no annotation written at all**: this
+fact's registered patterns matched **unrelated pre-existing text** — `97.5%` in an old table beside the
+word *random*, and `UNVERIFIED` beside `R243`. **That gate has certified every round in this window**,
+so a pattern loose enough to match by coincidence is not a defect of one entry. ③ A third, smaller:
+**3 of 60** residue entries are written with a leading unicode minus whose negation the artifacts do
+carry — the tokenizer is **sign-blind**, the same class as R1047's precision blindness.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

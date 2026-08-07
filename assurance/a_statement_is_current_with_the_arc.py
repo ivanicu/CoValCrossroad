@@ -696,6 +696,19 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1048_*/results/residue_partition.json")
+    if d:
+        fl = d["coincidence_floor_3_seeds"]
+        facts.append(("R1048", "the derivation test cannot fail, so the residue is UNCLASSIFIED",
+                      f"floor {fl[0]:.3f}-{fl[1]:.3f} vs observed "
+                      f"{d['derived_share_upper_bound']:.3f}, unclassified "
+                      f"{d['unclassified_not_floating']}",
+                      # ⛔ TIGHTENED AFTER THIS PAIR PASSED WITH NO ANNOTATION WRITTEN: the loose
+                      #   form matched `97.5%` in an unrelated table beside the word "random", and
+                      #   `UNVERIFIED` beside `R243`. A fact's pattern must name the fact.
+                      [r"coincidence floor.{0,120}0\.975",
+                       r"43 (are |remain )?UNCLASSIFIED"]))
+
     d = load("A27_*/R1047_*/results/floating_or_constant.json")
     if d:
         rc = d["R1046_recomputed"]

@@ -1,0 +1,115 @@
+{
+  "round": "R1048",
+  "residue_total": 60,
+  "counts": {
+    "CONSTANT": 17,
+    "EXTERNAL": 0,
+    "DERIVED": 43,
+    "FLOATING": 0
+  },
+  "sign_blind_residue_entries": 3,
+  "verdict": "UNVERIFIED",
+  "derived_test_resolved": false,
+  "unclassified_not_floating": 43,
+  "floating_share_lower_bound": 0.0,
+  "derived_share_upper_bound": 0.7166666666666667,
+  "coincidence_floor_3_seeds": [
+    0.965,
+    0.975
+  ],
+  "base_size": 410,
+  "controls": {
+    "positive_product_is_derived": true,
+    "negative_offset_is_not": true
+  },
+  "examples": {
+    "CONSTANT": [
+      {
+        "round": "R1022",
+        "value": "2.5",
+        "line": "| target | comparator | `lo` (2.5%) | seed spread | admitted |"
+      },
+      {
+        "round": "R1022",
+        "value": "99.6",
+        "line": "| `provenance_probe` | 4 | 99.6% | \u22120.1335 | **+0.3476** |"
+      },
+      {
+        "round": "R1023",
+        "value": "2.5",
+        "line": "has no imputation-uncertainty correction, so its nominal 2.5% is not its actual level. Thi"
+      },
+      {
+        "round": "R1024",
+        "value": "180",
+        "line": "testing it.* Replaced with two estimator-independent checks over all **180** cells:"
+      },
+      {
+        "round": "R1027",
+        "value": "151",
+        "line": "`covalx/judge.py:151` \u2014 `build_prompt(criterion: str, reply: str, ...)`. **One call scores"
+      },
+      {
+        "round": "R1028",
+        "value": "68",
+        "line": "`data/utterances.jsonl` **exists, is 68 MB, and 22+ rounds' `run.py` open it.**"
+      },
+      {
+        "round": "R1028",
+        "value": "68",
+        "line": "`utterances.jsonl`: **68,371 rows \u00b7 8,011 conversations \u00b7 27,172 interactions \u00b7 26,673 dis"
+      },
+      {
+        "round": "R1032",
+        "value": "768",
+        "line": "as-written reading because it **imputes 768 of their 968 values** ( ), excluded by the rep"
+      }
+    ],
+    "EXTERNAL": [],
+    "DERIVED": [
+      {
+        "round": "R1022",
+        "value": "98",
+        "line": "- **\u2460 The regime count.** Coverage over the 98 arms this round loads takes exactly **four*"
+      },
+      {
+        "round": "R1022",
+        "value": "0.1247",
+        "line": "| `A2` | `genericpool16` | \u22120.1247 | 0.0001 | No |"
+      },
+      {
+        "round": "R1022",
+        "value": "79.3",
+        "line": "| `coval_core_2bA` | 200 | 79.3% | +0.0095 | **+0.0020** |"
+      },
+      {
+        "round": "R1022",
+        "value": "0.0042",
+        "line": "| `coval_core` | 968 | 0.0% | +0.0078 | **\u22120.0042** |"
+      },
+      {
+        "round": "R1022",
+        "value": "0.0021",
+        "line": "| `topw_k4` | 968 | 0.0% | +0.0054 | **\u22120.0021** |"
+      },
+      {
+        "round": "R1024",
+        "value": "0.092",
+        "line": "exact null. Worst \u0394 **0.020** against 4\u00d7SE = 0.092: **PASS** (4 cells)."
+      },
+      {
+        "round": "R1026",
+        "value": "2904",
+        "line": "Binomial SE (worst case, 2904 draws): **\u00b10.0093**. Worst per-seed spread: **0.0000**."
+      },
+      {
+        "round": "R1026",
+        "value": "0.0093",
+        "line": "Binomial SE (worst case, 2904 draws): **\u00b10.0093**. Worst per-seed spread: **0.0000**."
+      }
+    ],
+    "FLOATING": []
+  },
+  "world": "\u26d4 UNVERIFIED \u2014 NOT World A, NOT World B. The derivation test classifies 97.5% of RANDOM values on the same order of magnitude as DERIVED, so it is a test that cannot fail, and every number it exculpates is exculpated by an instrument with no discriminating power. \u2b50 The observed DERIVED share 0.717 is BELOW that floor, which is the diagnostic: the residue's real numbers are matched LESS often than random ones, so the test is saturated rather than merely noisy. What survives is only what did not route through it: CONSTANT 17 of 60, measured by R1047's exact source test. The remaining 43 are UNCLASSIFIED \u2014 never FLOATING, and never exculpated. A false acquittal is permanent because nobody re-examines a cleared claim.",
+  "limitation": "DERIVED cannot establish that the author derived it that way; only that the value is reachable from artifact values by one operation"
+}
