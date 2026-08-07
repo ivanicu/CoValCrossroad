@@ -945,6 +945,26 @@ own control — the discipline that caught this.
 ⚠ **Coverage is a denominator, not a verdict on the remainder**: whether the 92–97% the gate does not
 cover contains an error is untested.
 
+⛔⛔ **AND R1045 WITHDRAWS R1044's OWN CLOSING SENTENCE: IT WAS AN INCIDENT, NOT A HABIT.** R1044
+generalised its cause — reading an exit code where output was available — as *"a habit rather than an
+incident"*, and proposed checking that against the round sources. **The check refutes the claim that
+proposed it.** Of the **3** rounds in this window that invoke `subprocess` at all, exactly **1** reads
+`returncode` without ever touching `.stdout`: R1043, the round already retracted. **A population of
+one is an incident.** On the broader form of the same door-① question — does a round read an
+artifact's VALUES or only check that it EXISTS — the answer is **0 of 14** artifact-loading rounds
+check existence only; every one of the 14 reads a value. ⭐ **§4's row predicted this exactly**, and
+the only surprise is the direction: *"asserting 'they all flattered me' was itself a narrative claim
+that the count refuted."* Here the narrative was self-critical rather than flattering, and **a
+self-critical generalisation from n=1 is still a generalisation from n=1.**
+⚠ **The classifier's own negative control caught the classifier, not R1044.** A first regex version
+scored R1044 as failing both axes — the round that reads `.stdout`, indexes `doc[a:b]` and iterates
+`A.values()`. It never binds a name from `json.loads`, so it is **not in that population at all**, and
+scoring it zero on an axis it does not join is the empty-denominator failure one level down. Replaced
+by AST: in the population iff a name is bound from `json.loads`, reading values iff that name is later
+subscripted. ⚠ **And 0 of 14 is `≤ 3/14 ≈ 0.21` at 95%, not "none exist"** — nor does reading values
+license the conclusions built on them: **R1043 read artifact values throughout** and still reported an
+exit code as its finding.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

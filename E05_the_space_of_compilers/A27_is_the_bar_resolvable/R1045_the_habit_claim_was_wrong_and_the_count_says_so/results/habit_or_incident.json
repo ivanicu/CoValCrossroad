@@ -1,0 +1,23 @@
+{
+  "round": "R1045",
+  "retracts": "R1044's 'a habit rather than an incident'",
+  "axis_subprocess": {
+    "population": 3,
+    "rc_without_stdout": [
+      "R1043"
+    ],
+    "share": 0.3333333333333333
+  },
+  "axis_artifact": {
+    "population": 14,
+    "existence_only": [],
+    "share": 0.0,
+    "binomial_se": 0.0
+  },
+  "controls": {
+    "positive_R1043_flagged": true,
+    "negative_R1044_clean": true
+  },
+  "world": "\u2b50 B AN INCIDENT, AND R1044's CLOSING SENTENCE IS WITHDRAWN \u2014 0 of 14 artifact-opening rounds (0.0%) check existence only, and on the axis R1044 actually named, 1 of 3 subprocess rounds read an exit code without its output \u2014 a population of ONE, which is the round already retracted. \u00a74 predicted exactly this: the over-correction into 'they all did it' is itself a narrative claim, and the count refutes it.",
+  "limitation": "reading the object is necessary, not sufficient; R1043 read artifact values throughout and still reported an exit code as a finding"
+}

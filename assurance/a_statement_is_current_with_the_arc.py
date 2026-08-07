@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1045_*/results/habit_or_incident.json")
+    if d:
+        s, a = d["axis_subprocess"], d["axis_artifact"]
+        facts.append(("R1045", "R1044's habit claim is withdrawn: the count is an incident",
+                      f"subprocess {len(s['rc_without_stdout'])} of {s['population']}, "
+                      f"artifact {len(a['existence_only'])} of {a['population']}",
+                      [r"(incident).{0,300}(1 of 3|one|population)",
+                       r"(0 of 14|14).{0,200}(existence|value)"]))
+
     d = load("A27_*/R1044_*/results/narrow_not_blind.json")
     if d:
         mm = d["mutation"]
