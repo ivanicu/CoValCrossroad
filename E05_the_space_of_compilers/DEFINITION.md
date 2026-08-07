@@ -860,6 +860,31 @@ unit** and is **not** compared to the baseline proportion.
 ⚠ **N/A** — an unfalsified line is not a true one. Absence of a later contradiction is the *unchecked
 wall* itself; attacking each remaining line is one round each.
 
+⭐⭐ **AND R1040 ATTACKED THE LONGEST-EXPOSED ONE AND IT FELL — THE FIFTH, IN THE SAME SHAPE.** R1023
+wrote *"whether A2 or A1·consensus is the RIGHT target needs an external gold standard"*. It does not:
+the release's **own annotator panel** answers it.
+
+⛔ **The obvious criterion is circular and was refused, not overlooked** — *"which target better
+predicts held-out annotators"* **is A2 by construction**. The neutral criterion is **reproducibility**:
+a target whose induced arm ordering flips when the annotator panel is resampled is measuring
+idiosyncrasy rather than the object, and it is defined identically for both targets.
+
+| target | median ρ across 25 disjoint annotator splits | sd |
+|---|---:|---:|
+| **A2** | **0.9973** | 0.0007 |
+| A1·consensus | 0.9664 | 0.0063 |
+
+**Gap 0.0309 against a pooled across-split SD of 0.0045 — 6.9×.** ⭐ So **A2 is selectable on
+evidence**, which is the first support for R1019's committed scoping that every extension figure here
+is A2's answer — previously inherited, now measured.
+⚠ Controls: within-prompt agreement reproduces R295's **0.5520** (mine 0.5556); permuting annotator
+identity across prompts collapses A1c to **0.3439** while A2 holds at 0.9267 — **A2 averages over
+annotators, A1·consensus depends on a consensus that shuffling destroys**; a half against itself gives
+ρ exactly 1.
+⚠ **N/A** — reproducibility is **necessary, not sufficient**, the same limit R1036 hit for `q`. A
+stable target can still be the wrong one, and that needs a statement of intent the dataset card does
+not carry.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

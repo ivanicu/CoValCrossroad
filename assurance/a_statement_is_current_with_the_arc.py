@@ -655,6 +655,16 @@ def main() -> int:
                       [r"(4 of 16|0\.25).{0,300}(0\.0333|R802)",
                        r"(outside the release).{0,200}(inside it|already inside)"]))
 
+    # ⛔⛔ R1040: R1023's wall falls — A2's arm ordering is 6.9x more reproducible across
+    #    annotator splits, so the target is selectable from inside the release.
+    d = load("A27_*/R1040_*/results/target_choice_in_release.json")
+    if d:
+        facts.append(("R1040", "the target is selectable in-release; A2 more reproducible",
+                      f"A2 {d['rho']['A2']['median']:.4f} vs A1c {d['rho']['A1c']['median']:.4f}, "
+                      f"gap {d['gap']:.4f}",
+                      [r"(reproducib\w+).{0,300}(A2).{0,200}(0\.99|6\.9)",
+                       r"(annotator (panel|split)).{0,300}(select|falls)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

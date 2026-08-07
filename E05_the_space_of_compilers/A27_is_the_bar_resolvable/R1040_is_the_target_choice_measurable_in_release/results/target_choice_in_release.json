@@ -1,0 +1,37 @@
+{
+  "round": "R1040",
+  "n_prompts": 968,
+  "n_arms": 96,
+  "splits": 25,
+  "positive_agreement": {
+    "mine": 0.5556495640249424,
+    "R295": 0.5520479147387437
+  },
+  "rho": {
+    "A2": {
+      "median": 0.9973277265328269,
+      "sd": 0.0006768406575856304,
+      "min": 0.9964867064568638,
+      "max": 0.9987655995659251
+    },
+    "A1c": {
+      "median": 0.9664405860010852,
+      "sd": 0.006299559662446366,
+      "min": 0.9545442213781878,
+      "max": 0.9795984807379272
+    }
+  },
+  "gap": 0.030887140531741686,
+  "pooled_sd": 0.0044800985043011235,
+  "negative_shuffled": {
+    "A2": 0.9266820401519261,
+    "A1c": 0.34393651654910473
+  },
+  "placebo": [
+    1.0,
+    1.0
+  ],
+  "world": "\u2b50 A THE TARGETS DIFFER IN REPRODUCIBILITY \u2014 `A2` induces the more stable arm ordering across disjoint annotator halves, gap 0.0309 against a pooled across-split SD of 0.0045 (6.9x). So the target IS selectable from INSIDE the release, and R1023's wall falls in the same shape as the other four R1039 counted: it said the answer needed something outside, and the answer was the release's own annotator panel.",
+  "refused_criterion": "which target better predicts held-out annotators \u2014 that IS A2 by construction and would have manufactured a separation",
+  "limitation": "reproducibility is necessary, not sufficient; a stable target can still be the wrong one"
+}
