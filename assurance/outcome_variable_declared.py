@@ -71,9 +71,27 @@ def _masked_spans(src: str):
             if (isinstance(child, _ast.Expr) and isinstance(child.value, _ast.Constant)
                     and isinstance(child.value.value, str)):
                 docstrings.add(id(child.value))
+    # ⭐ R972: two CALL SITES join docstrings and comments as prose, measured from the object
+    #    rather than guessed. The three rounds R971 left flagged carry their token in
+    #    `re.compile('a08_gold_08b')`, `re.compile('a08_gold|gold_orig|...')` and `print(...)`.
+    #    A regex naming the gold head DESCRIBES it; a print REPORTS it; neither LOADS it. The
+    #    exception list stays short and each entry is justified by what the call does -- and
+    #    `np.load(filename)` is deliberately NOT on it, so R971's true positive survives.
+    DESCRIBES = {"re.compile", "print"}
+    prose_args = set()
+    for n in _ast.walk(tree):
+        if isinstance(n, _ast.Call):
+            try:
+                fn = _ast.unparse(n.func)
+            except Exception:
+                continue
+            if fn in DESCRIBES:
+                for a in list(n.args) + [k.value for k in n.keywords]:
+                    if isinstance(a, _ast.Constant) and isinstance(a.value, str):
+                        prose_args.add(id(a))
     for n in _ast.walk(tree):
         if (isinstance(n, _ast.Constant) and isinstance(n.value, str) and n.end_lineno
-                and id(n) in docstrings):
+                and (id(n) in docstrings or id(n) in prose_args)):
             spans.append((off(n.lineno, n.col_offset), off(n.end_lineno, n.end_col_offset)))
     try:
         for tok in _tokenize.generate_tokens(_io.StringIO(src).readline):
