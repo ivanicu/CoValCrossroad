@@ -945,6 +945,37 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > ~322 and ~138 prompts, where the set does move — that movement is what their Jaccards measure.
 > **Stability at full n does not imply stability at stratum n**, and R879's MDE curve is the number
 > that governs there.
+>
+> ⛔⛔⛔ **AND R880's "NOT MARGINAL" IS RETRACTED — R881, four controls PASS, D8.** R880 saw zero
+> flips across a 32× budget range and concluded the 28 arms sit *"far from the decision boundary"*.
+> **That was an inference, and R881 measured the quantity it stood in for.**
+>
+> ⭐ **CI slack among the 28 admitted, in A2 units:** min **+0.00314** · p25 +0.01415 ·
+> median +0.02070 · max +0.07808, against a typical per-arm MDE of **0.01126**.
+> **The closest admitted arm sits 0.28 MDEs above the boundary**, and four are inside 0.6 MDE:
+> `topw_k2` **0.28** · `greedy_k12_fit1` **0.39** · `generic` and `generic_reprov` **0.51**.
+> **That is hairline, not far.**
+>
+> ⭐⭐ **WHY ZERO FLIPS WAS NEVER EVIDENCE OF DISTANCE.** Bootstrap Monte-Carlo error at
+> `NBOOT ≥ 250` is far smaller than 0.28 MDE, so **the ESTIMATE of `lo` is precise even when `lo`
+> itself is small.** R880 read **the precision of the instrument** as **the distance of the
+> object** — and that is the alternative R881 was built to separate.
+>
+> ⭐⭐⭐ **AND A SECOND FINDING THAT NEEDS NO THRESHOLD: criterion B's BH correction is DECORATION.**
+> **BH binds for 0 of 28 admitted arms; the CI condition binds for all 28.** That is a count, not a
+> comparison against a cutoff. **So clause ②'s criterion B reduces to its CI condition** — simpler
+> than it has been written throughout this project.
+>
+> ⛔ **AND MY OWN CUTOFF DECIDED WHICH FINDING PRINTED.** The branch read
+> `C if closest/MDE < 0.25`. The measured value is **0.28**. **Had I written 0.30, the file would
+> print "the set IS marginal" instead.** Nothing justified 0.25, and **the two worlds are not
+> alternatives — both are supported by the same numbers**, so both are reported. Sixth commission
+> of the invented-threshold error this session.
+>
+> ⚠ **What survives from R880 untouched:** the set really is budget-invariant — 28 arms, Jaccard
+> 1.0000, zero flips, two seeds. **That measurement stands; only the interpretation laid on top of
+> it falls.** The corrected reading is **stable BUT marginal**: stable because the bootstrap is
+> precise, marginal because 4 of 28 members clear by less than 0.6 MDE.
 
 | clause | excludes | status | scope |
 |---|---:|---|---|
