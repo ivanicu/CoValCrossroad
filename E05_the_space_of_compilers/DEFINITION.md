@@ -258,6 +258,45 @@ returns **0.523072** for a genuinely different arm — so it can see identity *a
 `coval_core_2bA`, is an effective duplicate. Repaired to assert the instrument's *range* rather than
 to trust an arm I picked by hand.
 
+### ⭐⭐⭐ A PAIRING-DEPENDENT QUANTITY THAT DOES SEPARATE — AND IT IS POST-HOC (added 2026-08-07, R1015)
+
+R1014 closed the text-only class: content must read the criteria AND their own prompt. R1011 showed
+clause ②'s metric cannot rank the instance above `topw_k4`. ⭐ **A different pairing-dependent
+quantity can.**
+
+**Criterion DISCRIMINATIVENESS** — the variance of a criterion's satisfaction across *this prompt's
+own* responses, averaged over criteria then prompts. It reads **no human labels**, so it satisfies
+clause ③ automatically and is independent of the comparator.
+
+| arm | discriminativeness | Δ (core − arm) | lo | hi | resolvable |
+|---|---:|---:|---:|---:|---|
+| **`coval_core`** | **0.030628** | — | | | |
+| `topw_k3` | 0.025345 | +0.005283 | +0.004300 | +0.006245 | **yes** |
+| `topw_k4` (+ both dets) | 0.025579 | +0.005050 | +0.004176 | +0.005926 | **yes** |
+| `topw_k6` | 0.025683 | +0.004945 | +0.004135 | +0.005746 | **yes** |
+| `topw_k8` | 0.025753 | +0.004876 | +0.004097 | +0.005658 | **yes** |
+
+**Resolvable against all six.** The released core's criteria discriminate among the prompt's own
+responses more than a top-weight selector's do.
+
+⭐ **THE CONTROL THAT MAKES IT ADMISSIBLE.** Discriminativeness must **drop** for the sham — the same
+criteria on the **wrong** prompt — or the quantity is text-only by R1014's argument and the round is
+void. It drops by **+0.013993 [+0.012817, +0.015174]**. ⭐⭐ **And the pairing effect is ~2.8× the
+family effect** (0.0140 vs 0.0050), which is the scale worth carrying.
+Self-comparison is exactly 0; the deterministic pair `topw_k4_detA`/`_detB` is exactly 0, and its
+interval width — **0.00000000** — is the measured floor.
+
+⛔⛔ **AND IT IS POST-HOC, WHICH THE ARC MUST NOT FORGET.** The quantity was chosen *after* R1011
+identified `topw` as the rival it needed to exclude. **A property selected because it excludes the
+known rival is the "definition describes the instance" failure with a better metric.** What would
+make it a clause rather than a fitted separator: a reason to require discrimination that does not
+mention `topw`, and an admissible object it excludes **for that reason**. **Neither is established
+here**, and the finding is recorded as a **candidate**, not a clause.
+
+⚠ Two further bounds. **A discriminative criterion is not thereby a good one** — this asks whether the
+quantity separates, never whether separation means quality. And **every satisfaction value routes
+through the release's judge**, so it is a claim about what that judge scores.
+
 ### ⭐⭐ THE TEXT-ONLY CLASS IS CLOSED — THE INSTANCE'S SHAM IS AN EXACT DERANGEMENT (added 2026-08-07, R1014)
 
 R1013 withdrew size on the instance's evidence (R986: 43 = 43) but could not check the instance's

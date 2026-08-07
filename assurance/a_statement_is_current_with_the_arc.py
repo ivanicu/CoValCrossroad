@@ -386,6 +386,19 @@ def main() -> int:
                        r"(exact re-pairing|permutation of the core).{0,300}"
                        r"(text-only|no text|closed)"]))
 
+    # ⭐ R1015: the FIRST pairing-dependent quantity that separates the instance. It is post-hoc and
+    #    the statement must carry that caveat with it, or the arc has re-run "the definition
+    #    describes the instance" with a better metric.
+    d = load("A27_*/R1015_*/results/discriminativeness.json")
+    if d:
+        facts.append(("R1015", "discriminativeness separates the instance where A2 does not, and it "
+                               "is post-hoc",
+                      f"{d['n_higher']} of {d['n_rivals']} resolvable; sham drop "
+                      f"{d['controls']['positive_sham_drops']['d']:.6f}",
+                      [r"(discriminat).{0,300}(separat|higher|0\.0306|resolv)",
+                       r"(post-?hoc|chosen after|discovered after).{0,300}"
+                       r"(discriminat|candidate|clause)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

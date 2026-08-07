@@ -1,0 +1,87 @@
+{
+ "source_sha": "cf4a67359e456443",
+ "head": "is clause \u2461's A2 the only pairing-dependent content that could be definitional",
+ "n_prompts": 968,
+ "nboot": 8000,
+ "seed": 1015,
+ "extension": [
+  "coval_core",
+  "topw_k3",
+  "topw_k4",
+  "topw_k4_detA",
+  "topw_k4_detB",
+  "topw_k6",
+  "topw_k8"
+ ],
+ "controls": {
+  "positive_sham_drops": {
+   "d": 0.013993151882489672,
+   "lo": 0.012816561105717023,
+   "hi": 0.01517411440421766,
+   "ok": true
+  },
+  "negative_self_zero": true,
+  "placebo_det_pair": {
+   "d": 0.0,
+   "ok": true
+  }
+ },
+ "noise_floor": 0.0,
+ "core_disc": 0.030628189472983985,
+ "sham_disc": 0.016635037590494315,
+ "rows": [
+  {
+   "arm": "topw_k3",
+   "disc": 0.025345152141295058,
+   "delta": 0.005283037331688926,
+   "lo": 0.004299944968712013,
+   "hi": 0.006245353066944565,
+   "resolvable": "core HIGHER"
+  },
+  {
+   "arm": "topw_k4",
+   "disc": 0.0255786703649521,
+   "delta": 0.00504951910803189,
+   "lo": 0.004175571698813186,
+   "hi": 0.005926089036928892,
+   "resolvable": "core HIGHER"
+  },
+  {
+   "arm": "topw_k4_detA",
+   "disc": 0.0255786703649521,
+   "delta": 0.00504951910803189,
+   "lo": 0.004175571698813186,
+   "hi": 0.005926089036928892,
+   "resolvable": "core HIGHER"
+  },
+  {
+   "arm": "topw_k4_detB",
+   "disc": 0.0255786703649521,
+   "delta": 0.00504951910803189,
+   "lo": 0.004175571698813186,
+   "hi": 0.005926089036928892,
+   "resolvable": "core HIGHER"
+  },
+  {
+   "arm": "topw_k6",
+   "disc": 0.025683249422773738,
+   "delta": 0.004944940050210252,
+   "lo": 0.004135057638334474,
+   "hi": 0.005745715712347958,
+   "resolvable": "core HIGHER"
+  },
+  {
+   "arm": "topw_k8",
+   "disc": 0.025752553872398058,
+   "delta": 0.0048756356005859305,
+   "lo": 0.004096820481055579,
+   "hi": 0.005658074180217794,
+   "resolvable": "core HIGHER"
+  }
+ ],
+ "world": "A ANOTHER QUANTITY SEPARATES \u2014 discriminativeness resolvably orders the instance above all 6 topw arms",
+ "n_higher": 6,
+ "n_lower": 0,
+ "n_rivals": 6,
+ "limitation": "a discriminative criterion is not thereby a good one; and every satisfaction value routes through the release's judge"
+}
