@@ -406,6 +406,25 @@ population that has no criteria, however independent it is.
 ⭐ And `responses per prompt = [4]` read here directly **independently confirms** the `replies = 4`
 that R1027 inferred from cell counts — different route, same value.
 
+⛔⛔ **AND THE REGISTER CANNOT BE AUDITED FOR WHETHER ITS REQUIREMENTS ARE RIGHT — R1029, UNVERIFIED
+ON IDENTIFICATION.** The obvious follow-up is to ask how many other entries name the requirement
+R1028 falsified. **That question is not identified from what the register stores.** Three instruments
+give three denominators — R472's committed tabulation **17**, a token matcher **9**, a direct phrase
+regex **7** — and the spread is not noise: **the requirement TYPE was never stored as a field.** R472
+derived its tabulation with a phrasing classifier and said so in its own README, verbatim: *"the
+instrument's unit is PHRASING, the claim's unit is NAMING A REQUIREMENT."*
+
+⭐ **The repair is structural, not analytic: store the requirement type when the entry is written.** A
+register whose requirements must be recovered afterwards by a classifier cannot be audited for
+whether those requirements are **right** — which is the one audit that separates a specification from
+a list of excuses.
+⭐ **The numerator survives even though the share does not.** At least **4** committed entries
+(**R450, R451, R453, R464**) name the falsified requirement *and* guard a criteria-based check, so
+R1028's repair applies to them whatever the true denominator is. **A lower bound is a result; a share
+over a guessed population is not.**
+⚠ R472 is **extended, not contradicted** — it measured whether a requirement is NAMED (46 of 100);
+this asks whether a named one is RIGHT, and finds the question unanswerable as stored.
+
 ⚠ **AND R288's ∅ IS NOT REFUTED BY THIS.** The **target** is identical (Δ = 0). But R288 swept
 **clause ② alone** against its own `_blind4`/`_blind15` references over **10** arms; this is **②′∧③**
 against R921's certified comparators over **96**. **Different admission rule AND different

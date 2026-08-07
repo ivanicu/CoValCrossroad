@@ -1,0 +1,125 @@
+{
+  "round": "R1029",
+  "falsified_requirement": "a second release / corpus",
+  "prior_art": {
+    "source": "R472",
+    "n_entries": 100,
+    "explicit": 35,
+    "implied": 11,
+    "none": 54,
+    "types": {
+      "an external gold standard": 6,
+      "a second judge / third judge": 10,
+      "an intervention on the mechanism": 2,
+      "a second release / corpus": 17,
+      "a generator": 5,
+      "more annotators / draws": 4,
+      "a second prompt-blind family": 1
+    },
+    "note": "R472 measured PRESENCE of a requirement; this measures whether a named one is RIGHT. Different property, not a re-run."
+  },
+  "classifier_controls": {
+    "positive": true,
+    "negative": true,
+    "g0": true,
+    "discriminates_vs_other_types": true,
+    "target_share": 0.4444444444444444,
+    "other_share": 0.2777777777777778
+  },
+  "by_requirement": [
+    {
+      "requirement": "a second release / corpus",
+      "r472_count": 17,
+      "matched": 9,
+      "criteria_based": 4,
+      "share": 0.4444444444444444,
+      "rounds": [
+        "R450",
+        "R451",
+        "R453",
+        "R464"
+      ]
+    },
+    {
+      "requirement": "a second judge / third judge",
+      "r472_count": 10,
+      "matched": 4,
+      "criteria_based": 0,
+      "share": 0.0,
+      "rounds": []
+    },
+    {
+      "requirement": "an external gold standard",
+      "r472_count": 6,
+      "matched": 2,
+      "criteria_based": 0,
+      "share": 0.0,
+      "rounds": []
+    },
+    {
+      "requirement": "a generator",
+      "r472_count": 5,
+      "matched": 6,
+      "criteria_based": 1,
+      "share": 0.16666666666666666,
+      "rounds": [
+        "R450"
+      ]
+    },
+    {
+      "requirement": "more annotators / draws",
+      "r472_count": 4,
+      "matched": 1,
+      "criteria_based": 0,
+      "share": 0.0,
+      "rounds": []
+    },
+    {
+      "requirement": "an intervention on the mechanism",
+      "r472_count": 2,
+      "matched": 2,
+      "criteria_based": 1,
+      "share": 0.5,
+      "rounds": [
+        "R429"
+      ]
+    },
+    {
+      "requirement": "a second prompt-blind family",
+      "r472_count": 1,
+      "matched": 3,
+      "criteria_based": 3,
+      "share": 1.0,
+      "rounds": [
+        "R454",
+        "R455",
+        "R460"
+      ]
+    }
+  ],
+  "target": {
+    "matched": 9,
+    "misnamed": 4,
+    "false_runnable": 1,
+    "unverified": 4,
+    "misnamed_rounds": [
+      "R450",
+      "R451",
+      "R453",
+      "R464"
+    ],
+    "runnable_rounds": [
+      "R458"
+    ]
+  },
+  "affected_numerator": 5,
+  "denominator_not_identified": {
+    "r472_tabulation": 17,
+    "token_matcher": 9,
+    "direct_regex": 7,
+    "why": "R472 README: the instrument's unit is PHRASING, the claim's unit is NAMING A REQUIREMENT"
+  },
+  "repair": "store the requirement TYPE as a field when the entry is written",
+  "world": "\u26d4 UNVERIFIED ON IDENTIFICATION \u2014 the estimand fails G1 before power is even asked. The requirement TYPE was never stored as a field, so the population of entries whose requirement is `a second release / corpus` is not recoverable from committed text: three instruments give 17, 9 and 7. 5 entries are affected AS A NUMERATOR, and no share is admissible. \u2b50 THE REPAIR IS STRUCTURAL, NOT ANALYTIC: store the requirement type when the entry is WRITTEN. A register whose requirements must be recovered by a classifier cannot be audited for whether those requirements are RIGHT \u2014 which is the one audit that decides if it is a specification or a list of excuses.",
+  "limitation": "text is a proxy for the check; the classifier is used only in its sound direction and the FALSE column requires the field to exist in the data"
+}

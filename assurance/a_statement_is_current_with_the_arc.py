@@ -541,6 +541,18 @@ def main() -> int:
                       [r"(criterion vocabulary|carrying a criterion)",
                        r"(overlap is exactly 0|overlap.{0,40}exactly 0).{0,200}(join key|key)"]))
 
+    # ⛔⛔ R1029: the register's requirement TYPE was never stored, so "is a named requirement
+    #    right" is UNVERIFIED ON IDENTIFICATION — three instruments give 17 / 9 / 7. The statement
+    #    must carry the structural repair, not a share over a guessed denominator.
+    d = load("A27_*/R1029_*/results/requirement_class.json")
+    if d:
+        dn = d["denominator_not_identified"]
+        facts.append(("R1029", "requirement correctness is not identified as stored",
+                      f"denominators {dn['r472_tabulation']}/{dn['token_matcher']}/"
+                      f"{dn['direct_regex']}, numerator {d['affected_numerator']}",
+                      [r"(requirement type was never stored|store the requirement type)",
+                       r"(17).{0,80}(9).{0,80}(7).{0,200}(denominator|instrument)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
