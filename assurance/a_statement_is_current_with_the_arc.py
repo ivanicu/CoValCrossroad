@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1061_*/results/reconciliation.json")
+    if d:
+        facts.append(("R1061", "R1060 compared against a reconstructed arm, not the comparator",
+                      f"differ on {d['sources_differ_on_prompts']} prompts, "
+                      f"object_explains {d['object_explains']}",
+                      [r"0\.6632",
+                       r"764 of 968"]))
+
     d = load("A27_*/R1060_*/results/fixed_rule_bound.json")
     if d:
         facts.append(("R1060", "no fixed-subset core can close the gap on this site",

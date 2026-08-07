@@ -1283,6 +1283,30 @@ margins must not be quoted against each other** until one round re-derives the o
 other's code. Each round's internal comparison — arm against comparator, same prompts, same
 aggregation — stands.
 
+⛔⛔⛔ **AND R1061 RECONCILES ALL THREE EXACTLY — THE CAUSE IS TWO ERRORS AT ONCE, AND R1060's
+COMPARATOR WAS NOT THE COMPARATOR.**
+
+| source | aggregation | value | |
+|---|---|---:|---|
+| **read `sat_generic.npz`** | per-annotator | **0.5514** | R1059's committed number |
+| **read `sat_generic.npz`** | consensus | **0.6632** | ⭐ the cell nobody computed |
+| reconstructed `sat_full[0:4]` | per-annotator | **0.5023** | R1060's 3-line reimplementation |
+| reconstructed `sat_full[0:4]` | consensus | **0.5880** | R1060's committed number |
+
+**All three published values reproduce to four decimals**, so the discrepancy is fully explained — and
+not by aggregation alone. R1060 **reconstructed** `generic` as `sat_full` restricted to criteria
+`[0,1,2,3]` while R1059 **read** `sat_generic.npz`; the two disagree on **`764 of 968` prompts**.
+⭐ **Under R1060's own consensus aggregation the true comparator scores `0.6632`, not `0.5880`.** So
+R1060's margins were measured against an arm that is not the comparator. **R1060's numbers are
+RETRACTED; its conclusion survives and HARDENS** — the shortfall against the real comparator is ≈`0.08`
+rather than ≈`0.015`, so **the bound binds about five times harder than reported**.
+⭐⭐ **And the third number was never a measurement.** R1060's `0.5023` was a three-line guess at
+another round's code; it lands in a real cell, but as *the reconstructed object under the read
+object's aggregation* — a combination **neither round intended**. **R1060 was right to refuse to reason
+from it, and that refusal is the only reason this reconciliation happened instead of a silently-wrong
+cross-round gap.** ⚠ **Controls**: both committed numbers **read from artifacts**, never remembered;
+the two sources shown to **differ** before the object hypothesis was entertained at all.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

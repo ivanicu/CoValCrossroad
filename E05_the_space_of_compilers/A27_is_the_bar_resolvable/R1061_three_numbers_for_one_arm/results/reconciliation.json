@@ -1,0 +1,27 @@
+{
+  "round": "R1061",
+  "prompts": 968,
+  "committed": {
+    "R1059": 0.5513543391990778,
+    "R1060_consensus": 0.587982093663912,
+    "R1060_reimplementation": 0.5022635496763068
+  },
+  "cells": {
+    "read sat_generic | per-annotator": 0.5513543391990778,
+    "read sat_generic | consensus": 0.6632231404958677,
+    "reconstructed sat_full[0:4] | per-annotator": 0.5022635496763068,
+    "reconstructed sat_full[0:4] | consensus": 0.587982093663912
+  },
+  "sources_differ_on_prompts": 764,
+  "object_explains": true,
+  "matches_R1059": [
+    "read sat_generic | per-annotator"
+  ],
+  "world": "\u26d4 B THE OBJECT EXPLAINS IT \u2014 reading `sat_generic` under R1060's OWN consensus aggregation gives 0.6632, not the 0.5880 R1060 committed. R1060 did not compare its subsets against the comparator; it compared them against `sat_full` restricted to criteria 0-3, which is a different arm. \u2b50 R1060's margins are therefore RETRACTED as stated \u2014 its bound is against a reconstructed object, and the sources differ on 764 of 968 prompts.",
+  "controls": {
+    "positive_numbers_read_from_artifacts": true,
+    "negative_sources_differ": true,
+    "placebo_self_zero": true
+  },
+  "limitation": "which aggregation the CLAUSE should use is a definitional question this round does not touch"
+}
