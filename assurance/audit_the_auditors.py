@@ -52,6 +52,31 @@ WHAT ISOLATING IT WOULD REQUIRE: instrumenting this file to log argv, cwd, env a
 gate and re-running the sweep, which is ~7 minutes. Until then its per-gate table stays unquotable
 and its UNVERIFIED verdict stays correct.
 
+⛔⛔ EVERYTHING IN THE TWO BLOCKS ABOVE IS RETRACTED (R965). THE FILE IS NOT BROKEN; I RAN IT ONCE.
+
+The instrumenting was done and it answered a different question than the one it was built for. Run 2
+logs `DEFECTS.py` at `rc=0, 0.02s`, with stdout `CoVal DEFECT LIST -- 46 checks across five waves`.
+Run 3 agrees. Both report `world=ONLY-THE-TWO`, `positive_control_ok=True`, `fails_at_g0=True`,
+`flagged=[]` -- every control behaving, nothing flagged, and the sweep's own closing line reading
+`0 of 73 others are blind. The defect was confined to the two already found.`
+
+**So the exit-2 rows, the EMPTY tells and the UNVERIFIED verdict came from ONE run and do not
+reproduce.** R962 read that run, R963 built a diagnosis on it, and R964 spent a round ruling out five
+mechanisms for an artifact of a single unreplicated measurement. The checklist asks for two hash
+seeds byte-identical; I never ran this file twice before drawing three rounds of conclusions from it.
+
+WHAT IS ACTUALLY TRUE, at n=2 agreeing:
+  · the verdict is stable and clean, and the detector works
+  · THREE rows remain unstable run to run -- `attack_the_suite.py`, `tree_survives_the_sweep.py`,
+    `verdict_cites_its_own_contrasts.py` -- and all three touch the harness that HIDES the live E0*
+    trees. Row-level instability in exactly the state-mutating gates is expected and is now measured
+    rather than assumed.
+  · what caused run 1 is still unknown, and with the verdict reproducing clean twice it is no longer
+    worth the budget to chase.
+
+**The lesson is not about this file.** A verdict read once is n=1, and an instrument whose output I
+quote in three consecutive reports is exactly the one that has to be run twice first.
+
 
 WHY, AND IT IS A MEASURED PRIOR, NOT A SUSPICION. `DEFECTS.py` and `consistency.py` resolved their
 inputs as `HERE / <round> / results / <file>`. The E/A/R migration (2026-08-02) moved every round
