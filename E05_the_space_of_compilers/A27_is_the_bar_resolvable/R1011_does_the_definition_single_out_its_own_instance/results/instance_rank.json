@@ -1,0 +1,116 @@
+{
+ "source_sha": "ba7c0ad017ab6aea",
+ "head": "does the definition single out its own instance, or merely contain it",
+ "n_prompts": 968,
+ "nboot": 8000,
+ "seed": 1011,
+ "extension": [
+  "coval_core",
+  "topw_k3",
+  "topw_k4",
+  "topw_k4_detA",
+  "topw_k4_detB",
+  "topw_k6",
+  "topw_k8"
+ ],
+ "rivals": [
+  "topw_k3",
+  "topw_k4",
+  "topw_k4_detA",
+  "topw_k4_detB",
+  "topw_k6",
+  "topw_k8"
+ ],
+ "coverage": {
+  "coval_core": 968,
+  "coval_core_2bA": 200,
+  "coval_core_2bB": 200,
+  "coval_core_sham": 968,
+  "random_k4_s0": 968,
+  "topw_k3": 968,
+  "topw_k4": 968,
+  "topw_k4_detA": 968,
+  "topw_k4_detB": 968,
+  "topw_k6": 968,
+  "topw_k8": 968
+ },
+ "dropped_for_partial_coverage": [
+  "coval_core_2bA",
+  "coval_core_2bB"
+ ],
+ "coverage_finding": "coval_core_2bA and _2bB are scored on 200 of 968 prompts (21%); the committed A2 loader imputes the missing 768 with the arm's own mean, so their admission in R1000's extension rests on 79% imputed values. Deduplication removes them and the 4 distinct objects are all at 968.",
+ "controls": {
+  "positive_vs_random": {
+   "d": 0.07379048339598263,
+   "lo": 0.06459991549563707,
+   "hi": 0.08288197324819128,
+   "ok": true
+  },
+  "negative_vs_twin": {
+   "d": 0.0,
+   "lo": 0.0,
+   "hi": 0.0,
+   "ok": true
+  },
+  "sham": {
+   "d": 0.07086329309288562,
+   "lo": 0.06150059704210821,
+   "hi": 0.08014140831655388,
+   "ok": true
+  },
+  "placebo_self": {
+   "d": 0.0,
+   "ok": true
+  }
+ },
+ "noise_floor_twin_interval_width": 0.0,
+ "rows": [
+  {
+   "arm": "topw_k3",
+   "delta": 0.003301212033453155,
+   "lo": -0.002913804123541093,
+   "hi": 0.009548393075310508,
+   "resolvable": "no"
+  },
+  {
+   "arm": "topw_k4",
+   "delta": 0.0022968576533033557,
+   "lo": -0.003684718207717126,
+   "hi": 0.008368215712523632,
+   "resolvable": "no"
+  },
+  {
+   "arm": "topw_k4_detA",
+   "delta": 0.0022968576533033557,
+   "lo": -0.003684718207717126,
+   "hi": 0.008368215712523632,
+   "resolvable": "no"
+  },
+  {
+   "arm": "topw_k4_detB",
+   "delta": 0.0022968576533033557,
+   "lo": -0.003684718207717126,
+   "hi": 0.008368215712523632,
+   "resolvable": "no"
+  },
+  {
+   "arm": "topw_k6",
+   "delta": 0.0023601783138609616,
+   "lo": -0.00319582057364249,
+   "hi": 0.007856488434076398,
+   "resolvable": "no"
+  },
+  {
+   "arm": "topw_k8",
+   "delta": 0.0071664020043684315,
+   "lo": 0.0013388701921547843,
+   "hi": 0.013041790839015025,
+   "resolvable": "core BETTER"
+  }
+ ],
+ "world": "B INDISTINGUISHABLE \u2014 5 of 6 admitted arms are not resolvably ordered against the instance",
+ "n_resolvably_better": 1,
+ "n_rivals": 6,
+ "limitation": "'better' means agrees more with this release's annotators; A2 is the release's own target and there is no external criterion",
+ "withdrawn_next": "R1010's NEXT asked for the reader-ratio of each artifact's STRONGEST field; `strongest` is not identified without a per-artifact judgement, so the quantity is not estimable and the question is withdrawn rather than approximated"
+}

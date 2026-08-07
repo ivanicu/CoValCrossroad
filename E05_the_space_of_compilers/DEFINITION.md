@@ -258,6 +258,53 @@ returns **0.523072** for a genuinely different arm — so it can see identity *a
 `coval_core_2bA`, is an effective duplicate. Repaired to assert the instrument's *range* rather than
 to trust an arm I picked by hand.
 
+### ⛔⛔⛔ THE DEFINITION CONTAINS THE RELEASED CORE WITHOUT SINGLING IT OUT (added 2026-08-07, R1011)
+
+After every repair in this arc, the extension under ②′ is **9 arms, 4 distinct objects**:
+`coval_core` and `topw_k` at k ∈ {3, 4, 6, 8}. **Paired A2 differences inside that extension**, all
+arms at full 968-prompt coverage, 8,000 cluster-bootstrap draws:
+
+| admitted arm | Δ (core − arm) | lo | hi | resolvable |
+|---|---:|---:|---:|---|
+| `topw_k3` | +0.0033 | −0.0029 | +0.0095 | **no** |
+| `topw_k4` | +0.0023 | −0.0037 | +0.0084 | **no** |
+| `topw_k4_detA` / `_detB` | +0.0023 | −0.0037 | +0.0084 | **no** |
+| `topw_k6` | +0.0024 | −0.0032 | +0.0079 | **no** |
+| `topw_k8` | +0.0072 | +0.0013 | +0.0130 | core better |
+
+⭐⭐⭐ **5 of 6 are not resolvably ordered against the instance.** The definition **admits a set in
+which the released core has no special status** — it *contains* the core and does not *single it
+out*. **That is "the definition describes the instance" read from the other side:** the clauses were
+written from one object and cannot rank that object above the trivial family they also admit.
+
+**Controls.** `coval_core` beats `random_k4_s0` by **+0.0738 [+0.0646, +0.0829]** — the instrument
+can order. The **sham** (`coval_core_sham`, ingredient inverted) is beaten by **+0.0709 [+0.0615,
++0.0801]**. `topw_k4_detA` vs `_detB`, a deterministic pair, returns **exactly zero with a degenerate
+interval** — the measured noise floor of this design on a known-zero effect. Self-comparison is zero.
+
+### ⛔ AND TWO EXTENSION ARMS WERE ADMITTED ON 79% IMPUTED DATA
+
+The first negative control used `coval_core_2bA`, which R1005's census reports as agreeing with
+`coval_core` at **exactly 1.000**, so their A2 difference had to be zero. It came back
+**−0.0033 [−0.0122, +0.0051]**, and the diagnosis is a defect rather than a bug:
+
+| arm | prompts scored |
+|---|---:|
+| `coval_core` | 968 / 968 |
+| **`coval_core_2bA`**, **`_2bB`** | **200 / 968 (21%)** |
+| `promptecho`, `promptecho_sham` | 398 / 968 (41%) |
+| all other 92 arms | 968 / 968 |
+
+**The committed A2 loader fills missing prompts with the arm's OWN MEAN**
+(`np.nan_to_num(v, nan=np.nanmean(v))`, guarded only by `< 200`). So the two twins entered R1000's
+extension with **79% of their A2 vector imputed**, and R1005's census figure of 1.000 is a statement
+about the **200 shared prompts**, not about 968 — its `pair_agree` skipped missing prompts.
+
+⭐ **The consequence is bounded and states itself:** deduplication removes both twins, and the **4
+distinct objects are all at 968/968**. So R1004's count of **9** was inflated by duplication **and**
+by imputation; the **distinct** figure is clean, and every number in the table above is
+imputation-free.
+
 ### ⛔⛔⛔ THE FORMULATION ADMITS AN ARM THAT NEVER READS THE CONVERSATION — AND THE REPAIR (added 2026-08-07, R1009)
 
 **Read the extension arm by arm and `genericpool16`'s contains `generic` and `generic_reprov`.**

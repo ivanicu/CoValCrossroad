@@ -345,6 +345,16 @@ def main() -> int:
                        r"(never adopted|not adopted|1 reader|one reader)",
                        r"(survives_all_legitimate).{0,300}(13|1\b|adopt)"]))
 
+    # ⛔⛔ R1011: the definition CONTAINS its instance without SINGLING IT OUT, and two extension
+    #    arms were admitted on 79% imputed A2. Both belong beside the formulation.
+    d = load("A27_*/R1011_*/results/instance_rank.json")
+    if d:
+        facts.append(("R1011", "the definition contains the instance without singling it out",
+                      f"{d['n_resolvably_better']} of {d['n_rivals']} rivals resolvably worse; "
+                      f"dropped {d['dropped_for_partial_coverage']}",
+                      [r"(contains|admits).{0,200}(without singling|no special status)",
+                       r"(200 of 968|21%|imputed).{0,300}(coverage|extension|A2)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

@@ -20,6 +20,14 @@ was overstated ~2×.**
 
 ---
 
+## ⚠ SCOPE ADDED BY R1011 — the `coval_core` twin collapse is on 200 prompts, not 968
+
+> `coval_core_2bA` and `_2bB` are scored on **200 of 968 prompts (21%)**. This round's `pair_agree`
+> **skips** prompts an arm does not cover, so *"agreement exactly 1.000"* is a statement about the
+> **200 shared prompts**. ⭐ The census's other pairs are between full-coverage arms and are
+> unaffected, and the deduplicated counts (8→4, 11→6) stand — the twins collapse into `coval_core`
+> either way. What needed the scope is the word *"identical"*.
+
 ## ⛔ The correction, first
 
 Over the 96-arm population there are **14 effectively identical pairs** — arms agreeing at **exactly
