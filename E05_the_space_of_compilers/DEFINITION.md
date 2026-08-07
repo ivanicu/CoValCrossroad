@@ -175,6 +175,37 @@ others to develop and validate better synthesis and aggregation methods"*. But a
 silently inverts the direction of its source's own size criterion is departing **by omission**, and
 this section exists so that it no longer is.
 
+#### ⭐ DECIDED (R994): the cap is REFUSED, and the reason is measured
+
+**The size departure stays open deliberately.** Clause ① keeps its lower bound and gains no upper
+one. The reason is not that the card is only an invitation — it is that **the cap's boundary is below
+this release's resolution.**
+
+The cap would uniquely exclude two arms (R992–R993). Against `coval_core`, paired over the same 968
+prompts, 8000-draw cluster bootstrap, 3 seeds:
+
+| arm | size | margin vs `coval_core` | 95% CI | resolvable? |
+|---|---|---|---|---|
+| **`topw_k6`** | 6 | −0.002360 | [−0.00786, +0.00328] | **NO** |
+| `topw_k8` | 8 | −0.007166 | [−0.01318, −0.00114] | yes (worse) |
+
+**`topw_k6` is indistinguishable from the instance the cap would keep.** Adopting the cap would
+assert a distinction this release cannot support — **which is exactly how the number "four" entered
+this definition the first time**, and the failure the standard records under *a definition that names
+a number it cannot resolve*.
+
+⭐ **The statement's own parenthetical was checked, not assumed**: `topw_k3` vs `topw_k8` is
+unresolvable (margin −0.003865, CI [−0.00997, +0.00219]), so *"sizes 3 to 8 are not distinguishable"*
+holds as a positive control on the premise. And the instrument can resolve — `random_k4_s0` sits
+resolvably below the instance at −0.073790.
+
+⚠ **`topw_k8` IS resolvably worse than the instance and still clears clause ②.** Excluding it is
+available to the bar on the metric; it does not need a size clause, and reading this as an argument
+*for* the cap would be taking the one arm the evidence separates and generalising from it.
+
+⛔ **THIS REOPENS IF** a release's design resolves sizes 3 from 8. That condition — not the verdict —
+is the thing to watch.
+
 ### ⛔ WHAT `ITS SIZE` MEANS — the clause named a scalar the released core does not have (R986–R987)
 
 **`coval_core`'s per-prompt size runs 2 to 4**, and **34 of 96 arms have no single size at all**. So

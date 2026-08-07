@@ -1,0 +1,53 @@
+{
+ "source_sha": "bf095e3359d037c1",
+ "head": "4b196bb4",
+ "n_prompts": 968,
+ "nboot": 8000,
+ "seeds": [
+  11,
+  22,
+  33
+ ],
+ "members": [
+  "topw_k6",
+  "topw_k8"
+ ],
+ "rows": [
+  {
+   "arm": "topw_k6",
+   "mean_a2": 0.5641173028790937,
+   "margin": -0.0023601783138609616,
+   "lo": -0.00785565519235044,
+   "hi": 0.003279623216124354,
+   "resolvable": false
+  },
+  {
+   "arm": "topw_k8",
+   "mean_a2": 0.5593110791885864,
+   "margin": -0.0071664020043684315,
+   "lo": -0.013182345328803852,
+   "hi": -0.0011376453500940179,
+   "resolvable": true
+  }
+ ],
+ "controls": {
+  "positive_k3_k8_unresolvable": true,
+  "positive_detail": {
+   "arm": "topw_k8",
+   "mean_a2": 0.5593110791885864,
+   "margin": -0.0038651899709152768,
+   "lo": -0.009967264262688113,
+   "hi": 0.0021881860099707815,
+   "resolvable": false
+  },
+  "negative_random_resolvably_below": true,
+  "placebo_self_zero": true,
+  "all_ok": true
+ },
+ "world": "B THE BOUNDARY IS BELOW RESOLUTION \u2014 ['topw_k6'] is indistinguishable from coval_core, so the cap would assert a distinction this release cannot support",
+ "decision": "REFUSE the cap",
+ "unresolvable": [
+  "topw_k6"
+ ],
+ "reopens_if": "a release whose design resolves sizes 3 from 8"
+}

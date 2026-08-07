@@ -210,6 +210,16 @@ def main() -> int:
                        r"(redundan|Jaccard|overlap)",
                        r"(redundan|overlap).{0,260}(difference-in-differences|DiD)"]))
 
+    # ⛔ R994: the size departure is DECIDED. Registering it stops a later round settling the
+    #    question by whichever clause it finds convenient — R986's own warning.
+    d = load("A27_*/R994_*/results/cap_refused.json")
+    if d:
+        facts.append(("R994", "the size cap is refused, and why",
+                      d["decision"],
+                      [r"(refus|not adopt|declin).{0,300}(cap|upper bound).{0,300}"
+                       r"(resolution|resolv|cannot see|indistinguish)",
+                       r"(cap|upper bound).{0,300}(below|inside).{0,120}resolution"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
