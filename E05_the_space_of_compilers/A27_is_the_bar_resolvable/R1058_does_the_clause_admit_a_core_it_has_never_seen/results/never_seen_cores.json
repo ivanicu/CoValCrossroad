@@ -1,0 +1,93 @@
+{
+  "round": "R1058",
+  "prompts": 968,
+  "common_criteria": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "nboot": 2000,
+  "verdict": "UNVERIFIED_ON_IDENTIFICATION",
+  "confound": "every synthetic rule is unselected; every admitted released arm was optimised",
+  "what_would_settle_it": "a never-seen core built by an optimiser other than the one that produced the released arms, i.e. a second team or a second release",
+  "rules": [
+    {
+      "rule": "random per prompt (size 2)",
+      "admitted_seeds": 0,
+      "rate": 0.0
+    },
+    {
+      "rule": "random per prompt (size 3)",
+      "admitted_seeds": 0,
+      "rate": 0.0
+    },
+    {
+      "rule": "prompt-parity alternation",
+      "admitted_seeds": 0,
+      "rate": 0.0
+    },
+    {
+      "rule": "per-prompt first 2 of available",
+      "admitted_seeds": 0,
+      "rate": 0.0
+    },
+    {
+      "rule": "per-prompt last 2 of available",
+      "admitted_seeds": 0,
+      "rate": 0.0
+    },
+    {
+      "rule": "per-prompt first 3 of available",
+      "admitted_seeds": 0,
+      "rate": 0.0
+    },
+    {
+      "rule": "per-prompt last 3 of available",
+      "admitted_seeds": 0,
+      "rate": 0.0
+    },
+    {
+      "rule": "per-prompt first 4 of available",
+      "admitted_seeds": 0,
+      "rate": 0.0
+    },
+    {
+      "rule": "per-prompt last 4 of available",
+      "admitted_seeds": 0,
+      "rate": 0.0
+    },
+    {
+      "rule": "per-prompt first 6 of available",
+      "admitted_seeds": 0,
+      "rate": 0.0
+    },
+    {
+      "rule": "per-prompt last 6 of available",
+      "admitted_seeds": 0,
+      "rate": 0.0
+    },
+    {
+      "rule": "per-prompt all but one available",
+      "admitted_seeds": 0,
+      "rate": 0.0
+    },
+    {
+      "rule": "per-prompt random half of available",
+      "admitted_seeds": 0,
+      "rate": 0.0
+    }
+  ],
+  "released_admitted": 24,
+  "released_total": 97,
+  "released_rate": 0.24742268041237114,
+  "world": "\u26d4 UNVERIFIED ON IDENTIFICATION \u2014 NOT World A, NOT World B. All 13 never-seen cores are admitted at 0 while 0.247 of released arms pass, but every construction rule available to me is UNSELECTED and every admitted released arm was OPTIMISED. The comparison therefore confounds PROVENANCE with QUALITY, and a definition ought to reject unoptimised objects. \u2b50 The gap cannot be closed inside this release: a never-seen GOOD core requires the optimiser that made the released arms, and using it makes the core no longer never-seen. **The clause's central claim \u2014 that it defines a category rather than describing its instance \u2014 is UNIDENTIFIED here, and that is a stronger statement than any rate: it names WHY no rate on this site can settle it.**",
+  "r1057_next_closed": "at k=2,4,8 R1057 measured identical sets under q=90 and q=100, so the operator silently returns the q=100 answer; the behaviour question is answered and was not re-run",
+  "use_everything_core_admitted": false,
+  "controls": {
+    "harness_known_admitted_arm": true,
+    "negative_self_not_admitted": true,
+    "placebo_empty": true
+  },
+  "limitation": "never-seen means never seen by this clause; I built these cores"
+}

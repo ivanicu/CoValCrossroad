@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1058_*/results/never_seen_cores.json")
+    if d:
+        facts.append(("R1058", "whether the clause defines or describes is UNIDENTIFIED here",
+                      f"rules {len(d['rules'])}, released {d['released_rate']:.3f}, "
+                      f"verdict {d['verdict']}",
+                      [r"UNVERIFIED ON IDENTIFICATION|UNIDENTIFIED on this site",
+                       r"unselected.{0,80}optimised|confounds PROVENANCE with QUALITY"]))
+
     d = load("A27_*/R1057_*/results/q_in_its_own_world.json")
     if d:
         big = [r for r in d["rows"] if r["k"] >= 10]

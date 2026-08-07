@@ -1213,6 +1213,33 @@ construction**, not merely unsupported.
 comparators leave `q` inert — True; k=0 admits nothing — True; 3 seeds, unstable arms excluded and
 counted.
 
+⛔⛔⛔ **AND R1058 REACHES THE CLAUSE'S CENTRAL CLAIM AND FINDS IT UNIDENTIFIED ON THIS SITE.** The
+question §4 names for a definition written from one instance — *has it ever judged an object other
+than the one it was written from?* — was run: **13 never-seen synthetic cores, 3 seeds each, admitted
+at 0**, against **`24 of 97 = 0.247`** for the released arms.
+⭐ **The verdict is UNVERIFIED ON IDENTIFICATION, not World B**, and the reason is worth more than the
+rate. **Three confounds, each found only after the round was built on it:** ① the positive control
+built the comparator — the 4 criteria common to every prompt **are `generic`'s own selection**, so it
+asked whether the comparator beats itself; ② every fixed subset of those criteria is a **subset of the
+comparator**, so `0 admitted` meant only that a subset of X does not beat X — and **the verdict string
+fired World B on a rule set that could not separate the worlds**; ③ the one that cannot be engineered
+away: **every rule available to me is UNSELECTED and every admitted released arm was OPTIMISED**, so
+the comparison confounds **provenance with quality**, and a definition *ought* to reject unoptimised
+objects.
+⭐⭐ **THE GAP CANNOT BE CLOSED INSIDE THIS RELEASE.** A never-seen *good* core needs an optimiser other
+than the one that produced the released arms, and using that optimiser makes it no longer never-seen.
+**So the clause's central claim — that it defines a category rather than describing its instance —
+is UNIDENTIFIED here, and naming why no rate on this site can settle it is the stronger statement.**
+This converts the register's standing `second release` entry from a formality into **the binding
+constraint on the definition**.
+⚠ **Reported as a finding rather than a control**: a never-seen core using **every** criterion
+available per prompt is **not admitted** — more criteria is not better agreement with humans.
+**Controls**: a known-admitted released arm from R1055's baseline **is** admitted (else every zero
+would be silence); a comparator's own vector is **not**; the empty selection admits **0**.
+⚠ **And R1057's NEXT is CLOSED, not run**: its own table already showed identical sets at k = 2, 4, 8,
+so the operator returns the `q=100` answer **and emits no signal** — silent degradation, already
+measured. Re-running it would have been a third derivation reported as an experiment.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
