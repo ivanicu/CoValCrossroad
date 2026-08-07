@@ -25,3 +25,4 @@ in `E05/DEFINITION.md`.
 | `R934` the gate paired two different kills | is R235's flag-vs-interval contradiction real, or did the guard pair an interval from one kill with a boolean from another? |
 | `R935` which gates pass on silence | how many assurance checks have neither a plant nor any finding on the corpus, so their green means nothing? |
 | `R936` the restore must refuse to delete what it did not stash | does `attack_the_suite`'s restore destroy work created during its window, and does refusing to delete close it? |
+| `R937` the object test R936 refused to claim | does a sentinel planted inside a LIVE hide survive the patched restore? |

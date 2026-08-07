@@ -1,0 +1,34 @@
+{
+  "commit": "41a4c07f4b4b4ccb85ae4ebdd26cd86f146eb374",
+  "world": "A",
+  "state": "PRESERVED_AND_NAMED",
+  "window_proof": {
+    "breadcrumb_present": true,
+    "target": "E01_the_rubric_was_the_object",
+    "target_absent": true,
+    "target_empty": false,
+    "stash": "/tmp/attack_rounds_9l1leb3a",
+    "planted_at": "E01_the_rubric_was_the_object/R937_sentinel_planted_inside_the_hide.txt"
+  },
+  "harness_exit": 1,
+  "breadcrumb_path_read_from_module": "assurance/results/.hide_in_progress.json",
+  "r936_printed_wrong_path": "assurance/results/.attack_the_suite_inflight.json",
+  "in_place": false,
+  "preserved_hits": [
+    "/tmp/attack_preserved_9ox9vbs2"
+  ],
+  "harness_preserved_lines": [
+    "\u26a0 PRESERVED work created during the hide: /tmp/attack_preserved_9ox9vbs2/E01_the_rubric_was_the_object"
+  ],
+  "e0_dirs_after": [
+    "E01_the_rubric_was_the_object",
+    "E02_the_plural_public_dissolved",
+    "E03_the_instrument_was_the_object",
+    "E04_no_fraction_only_an_equivalence_class",
+    "E05_the_space_of_compilers"
+  ],
+  "breadcrumb_cleared": true,
+  "tests_only": "the NORMAL-completion path; SIGKILL is untouched",
+  "unit_note": "one sentinel file",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
