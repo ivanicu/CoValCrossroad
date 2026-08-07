@@ -9,7 +9,10 @@ Four gates run both ways, all disagreeing. The table reports exit 2 with an EMPT
 `an_ear_label_matches_its_path.py`. Run directly -- same interpreter, same absolute path,
 `cwd=ROOT`, which is this file's own documented invocation -- all four exit 0. `DEFECTS.py` exits 0
 in 0.1s printing `16/46 checks came back clean`, i.e. a full population, while this file calls it
-EMPTY. Every one completes in 2.3s or less, so `TIMEOUT = 120` is not the cause; that was measured,
+EMPTY. Every one completes in 2.3s or less, so `TIMEOUT = 120
+# ⭐ R968: transcribed from run_all.py:54, not invented here. These HIDE the live E0* trees and
+#    restore in a `finally:` that SIGKILL does not run, so they are scheduled LAST and alone.
+MUTATES_TREE = {"attack_the_suite", "attack_every_check"}` is not the cause; that was measured,
 not assumed.
 
 The consequence for the g=0 control: it asserts the REPAIRED `DEFECTS.py` must not be flagged and
@@ -79,8 +82,19 @@ quote in three consecutive reports is exactly the one that has to be run twice f
 
 ⭐⭐ R967 — THE MECHANISM, ESTABLISHED FROM TIMESTAMPS RATHER THAN BY RE-RUNNING THIS FILE.
 
-**This sweep runs `attack_the_suite.py`, which HIDES the live `E0*` trees.** `run_all.py` excludes
-that harness by name as destructive; this file does not. So every run of this file removes the corpus
+**This sweep runs `attack_the_suite.py`, which HIDES the live `E0*` trees.**
+
+⛔ R968 CORRECTION TO THE SENTENCE THAT WAS HERE. It said *"`run_all.py` excludes that harness by name
+as destructive; this file does not."* **That is false and I checked it one round too late.** `run_all`
+does NOT exclude it -- `NOT_A_GATE` contains `run_all, DEFECTS, HEADLINES, manifest, pueue_wait,
+clause3_as_written, generate_round_index, audit_the_auditors` and no attack harness. What `run_all`
+actually does is ISOLATE:
+    MUTATES_TREE = {"attack_the_suite", "attack_every_check"}
+    pool = [p for p in gates if p.stem not in MUTATES_TREE]
+    solo = [p for p in gates if p.stem in MUTATES_TREE]      # run alone, 600s timeout
+**Isolation, not exclusion**, and the distinction is the whole repair: the tree-mutators still get
+audited, they simply never run while another gate is reading the tree. This file does neither -- one
+alphabetical sequence -- so every gate sorting after `attack_the_suite` runs inside its hide window. So every run of this file removes the corpus
 partway through, and any gate scheduled during the hide window measures an EMPTY REPOSITORY.
 
 The timestamps settle it without repeating a destructive action:
@@ -230,8 +244,14 @@ os.environ[_SWEEP_FLAG] = "1"
 def main():
     global KEEP
     KEEP = tracked(HERE)
-    scripts = sorted(p for p in HERE.glob("*.py")
-                     if p.resolve() != SELF and not p.name.startswith("_"))
+    # ⭐ R968: run_all's ISOLATION design, ported. The tree-mutators still get audited -- they are
+    #    simply moved to the END and run when nothing else is reading the tree. Without this, every
+    #    gate alphabetically after `attack_the_suite` measures a repository that has been moved to
+    #    /tmp, which is what produced the exit-2/EMPTY rows R962-R964 spent three rounds on.
+    _all = sorted(p for p in HERE.glob("*.py")
+                  if p.resolve() != SELF and not p.name.startswith("_"))
+    scripts = ([p for p in _all if p.stem not in MUTATES_TREE]
+               + [p for p in _all if p.stem in MUTATES_TREE])
     # positive control: DEFECTS.py with the repair reverted -- the KNOWN broken case
     pos = HERE / "_poscontrol_defects_unrepaired.py"
     src = (HERE / "DEFECTS.py").read_text()
