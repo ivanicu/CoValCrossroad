@@ -1,0 +1,33 @@
+{
+  "verdict": "UNVERIFIED",
+  "c0": true,
+  "c1": true,
+  "c2": false,
+  "c4": true,
+  "res": {
+    "fixed": {
+      "undeclared": {
+        "exit": 1,
+        "named": true,
+        "path": "E99_fixtures/A01_planted/R91_r942_gauge"
+      },
+      "declared": {
+        "exit": 1,
+        "named": true,
+        "path": "E99_fixtures/A01_planted/R91_r942_gauge"
+      }
+    },
+    "reverted": {
+      "undeclared": {
+        "exit": 1,
+        "named": false,
+        "path": "E99_fixtures/A01_planted/r91_r942_gauge"
+      },
+      "declared": {
+        "exit": 1,
+        "named": false,
+        "path": "E99_fixtures/A01_planted/r91_r942_gauge"
+      }
+    }
+  }
+}

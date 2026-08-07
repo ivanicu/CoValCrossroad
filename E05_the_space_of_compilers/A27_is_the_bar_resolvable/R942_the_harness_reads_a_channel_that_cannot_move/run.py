@@ -36,19 +36,20 @@ must actually come back uppercase-R in FIXED and lowercase-r in REVERTED. An arg
 is what failed last time.
 
 ESTIMAND        for a planted round that is undeclared, and one that is declared: (a) whether the gate
-                NAMES it, and (b) the gate's exit code — each with and without R928's normalisation.
-IDENTIFICATION  exact — the gate prints the directory name of every round it flags, and returns an
-                exit code; both are read from the same stdout.
+                FLAGS it, (b) whether it SCANNED it at all, and (c) the gate's exit code — each with
+                and without R928's normalisation.
+IDENTIFICATION  exact — the gate prints a scan line for every round it examines and a separate flag
+                block for the undeclared ones, and returns an exit code; all read from one stdout.
 SCOPE           population: 2 planted rounds × 2 normalisation states = 4 cells, plus one baseline
                 instrument: the gate's own stdout and returncode
                 baseline:   the clean repo, where the gate exits 1 naming R422 and R425
                 regime:     HEAD, working tree clean; `covalx/rounds.py` reverted temporarily and
                             restored from the index
-WORLDS          A · the undeclared plant is NAMED with the fix and ABSENT without it -> the
+WORLDS          A · the undeclared plant is FLAGGED with the fix and ABSENT without it -> the
                     fixture-name channel is live for this gate, the harness's exit-code reading is
                     blind to it, and R941's WORLD B sentence is wrong for the right reason: the fix
                     did reach this harness's plant and the harness cannot report it
-                B · it is named in both states -> the plant really was visible all along, the
+                B · it is flagged in both states -> the plant really was visible all along, the
                     lowercase name is harmless here, and R941's sentence stands as written
 KILL            CONDITIONAL:
                   ⭐ ⓪ REVERT EFFECTIVE ON THE OBJECT: `fixture_dir` must return a path whose leaf
@@ -56,13 +57,16 @@ KILL            CONDITIONAL:
                      interpreter each time. **If the two paths are equal the baseline was never
                      re-established and every comparison below is void** — this is exactly how R941's
                      first run failed, and an argument is not a substitute for the check.
-                  ⭐ ① POSITIVE: the name-reader must find `R422` and `R425` in the baseline stdout.
-                     They are undeclared at HEAD and the gate names them. If the reader cannot see
-                     rounds already read off the gate's own output, it cannot be trusted on a plant.
-                  ⭐ ② NEGATIVE / DISCRIMINATION: the DECLARED plant must NOT be named in the FIXED
-                     state. Its declaration is nested inside a list — vector 3's exact payload — and
-                     the gate walks nested structures. If it is named anyway the reader is reporting
-                     any planted directory, and separately vector 3's expectation was right.
+                  ⭐ ① POSITIVE: `R422` and `R425` must appear in the FLAG channel — the same unit
+                     every claim below uses, not merely somewhere in stdout. They are undeclared at
+                     HEAD. If the reader cannot see rounds already read off the gate's own output,
+                     it cannot be trusted on a plant.
+                  ⭐ ② NEGATIVE / DISCRIMINATION, TWO-SIDED: the DECLARED plant must be SCANNED and
+                     tagged `declared` and NOT flagged. Its declaration is nested inside a list —
+                     vector 3's exact payload — and the gate walks nested structures. Requiring
+                     `scanned` as well as `not flagged` is what separates *the gate judged it
+                     correctly* from *the gate never saw it*, which a one-sided control cannot do
+                     and which is exactly the confusion this round is about.
                   ⭐ ③ GAUGE TEST: the exit code must be IDENTICAL in all four cells while the named
                      channel differs in at least one pair. Measurement invariant + property not
                      ⇒ the measurement is blind. **If the exit code DOES move, the harness's channel
@@ -70,7 +74,7 @@ KILL            CONDITIONAL:
                      branch that kills it.
                   ⭐ ④ RESTORATION VERIFIED: `covalx/rounds.py` byte-identical to HEAD by
                      `git diff --quiet`, and no fixture left behind.
-MULTIPLICITY    2 plants × 2 states × {exit, named} = 8 readings, plus baseline; all printed,
+MULTIPLICITY    2 plants × 2 states × {exit, scanned, tag, flagged} = 16 readings, plus baseline; all printed,
                 including the cells that do not move.
 ARTIFACT        results/blind_channel.json
 IMPOSSIBLE      independently replicated · cross-release · construct validated · criterion validated
@@ -78,6 +82,17 @@ IMPOSSIBLE      independently replicated · cross-release · construct validated
                 measures the FIXTURE-NAME channel for ONE gate. It says nothing about whether the
                 other 20-odd gates reading `E*/A*/R*` have the same exposure; that is a wider
                 population and a separate round.
+⛔ **AND MY FIRST READER MEASURED THE WRONG UNIT, WHICH CONTROL ② CAUGHT.** It asked
+`path.name in stdout`. The gate prints a SCAN line for every round it examines, tagged `declared` or
+`UNDECLARED` (`outcome_variable_declared.py:115-119`), and separately a FLAG BLOCK listing only the
+undeclared ones (`:130-132`). So `in stdout` reads **scanned**, while every sentence this round wants
+to write is about **flagged**. The declared plant was named, control ② failed, and the round exited
+UNVERIFIED rather than banking a false verdict. **Control ① did not catch it: it proved the reader
+can SEE a name, never that what it sees is the thing being claimed.** That is the documented gap —
+a positive control asks *can this instrument see?* and never *is what it sees the thing I am about to
+claim about?* Both channels are now parsed separately and the units are printed and compared before
+any verdict, which is the mechanical remedy rather than the resolution to be careful.
+
 ⚠ ONLY `covalx/rounds.py` IS REVERTED HERE, deliberately. R928's second change was the glob inside
 `assurance/no_withdrawn_framings.py`, a DIFFERENT gate, irrelevant to this one. R941's lesson is not
 "always revert both" — it is "verify the revert moved the thing you are measuring", which is ⓪.
@@ -118,6 +133,32 @@ def fixture_path() -> pathlib.Path:
     return pathlib.Path(r.stdout.strip()) if r.returncode == 0 else None
 
 
+INSTRUMENT_UNIT = "flagged"          # what the reader below computes
+CLAIM_UNIT = "flagged"                # what every sentence in this round asserts
+FLAG_HEADER = re.compile(r"round\(s\) score against a model proxy without saying so:")
+FLAG_ROW = re.compile(r"^\s{2}(\S+)\s{3}\(\d+ results file\(s\)\)\s*$")
+SCAN_ROW = re.compile(r"^\s{2}(\S+)\s+human_rankings=\S+\s+(declared|UNDECLARED)")
+
+
+def read_channels(out: str):
+    """TWO channels, never conflated: `scanned` = the gate examined it; `flagged` = the gate
+    reported it as undeclared. `name in out` collapses them, which is the error control 2 caught."""
+    scanned = {m.group(1): m.group(2) for m in
+               (SCAN_ROW.match(l) for l in out.splitlines()) if m}
+    lines, flagged, seen = out.splitlines(), set(), False
+    for l in lines:
+        if FLAG_HEADER.search(l):
+            seen = True
+            continue
+        if seen:
+            m = FLAG_ROW.match(l)
+            if m:
+                flagged.add(m.group(1))
+            elif l.strip() and not l.startswith("  "):
+                break
+    return scanned, flagged
+
+
 def run_gate():
     r = subprocess.run([PY, GATE], cwd=ROOT, capture_output=True, text=True, timeout=300)
     return r.returncode, (r.stdout or "")
@@ -132,7 +173,10 @@ def cell(path: pathlib.Path, doc):
         rc, out = run_gate()
     finally:
         shutil.rmtree(path, ignore_errors=True)
-    return {"exit": rc, "named": path.name in out, "path": str(path.relative_to(ROOT))}
+    scanned, flagged = read_channels(out)
+    return {"exit": rc, "scanned": path.name in scanned,
+            "tag": scanned.get(path.name), "flagged": path.name in flagged,
+            "path": str(path.relative_to(ROOT))}
 
 
 def main() -> int:
@@ -146,13 +190,20 @@ def main() -> int:
         print("  UNRUNNABLE: R928's normalisation not found in covalx/rounds.py. Exit 2, never 0.")
         return 2
 
+    print(f"  UNITS — instrument computes `{INSTRUMENT_UNIT}`, every claim asserts "
+          f"`{CLAIM_UNIT}`, equal: {INSTRUMENT_UNIT == CLAIM_UNIT}")
+    if INSTRUMENT_UNIT != CLAIM_UNIT:
+        print("  UNRUNNABLE: the instrument measures a different unit than the claim. Exit 2.")
+        return 2
+
     base_rc, base_out = run_gate()
-    named_base = sorted(set(re.findall(r"\bR4(?:22|25)\w*", base_out)))
+    base_scan, base_flag = read_channels(base_out)
+    named_base = sorted(n for n in base_flag if n.startswith(("R422", "R425")))
     c1 = len(named_base) >= 2
-    print(f"  BASELINE — gate exits {base_rc} on the clean repo, naming {len(named_base)} known "
-          f"undeclared round(s): {[n[:28] for n in named_base]}")
-    print(f"  ① POSITIVE — the name-reader finds R422 and R425 in the gate's own output: {c1}  "
-          f"{'PASS' if c1 else 'FAIL — the reader cannot see rounds I have already read'}")
+    print(f"  BASELINE — gate exits {base_rc}; {len(base_scan)} rounds SCANNED, "
+          f"{len(base_flag)} FLAGGED: {sorted(n[:28] for n in base_flag)}")
+    print(f"  ① POSITIVE — R422 and R425 appear in the FLAG channel, the same unit the claims "
+          f"use: {c1}  {'PASS' if c1 else 'FAIL — the reader cannot see rounds I have already read'}")
 
     res, paths = {}, {}
     try:
@@ -167,7 +218,8 @@ def main() -> int:
                           "declared": cell(p, DECLARED_DOC)}
             print(f"\n  state = {state.upper():<9} fixture leaf = {p.name}")
             for k, v in res[state].items():
-                print(f"     {k:<12} exit {v['exit']}   named-by-the-gate {v['named']}")
+                print(f"     {k:<12} exit {v['exit']}   scanned {str(v['scanned']):<5} "
+                      f"tag {str(v['tag']):<11} flagged {v['flagged']}")
     finally:
         subprocess.run(["git", "-C", str(ROOT), "checkout", "--", "covalx/rounds.py"], check=True)
         for p in paths.values():
@@ -179,13 +231,15 @@ def main() -> int:
           f"`{paths['reverted'].name}`: {c0}  "
           f"{'PASS' if c0 else 'FAIL — the baseline was never re-established, every cell is void'}")
 
-    c2 = not res["fixed"]["declared"]["named"]
-    print(f"\n  ② NEGATIVE / DISCRIMINATION — the DECLARED plant (declaration nested in a list, "
-          f"vector 3's payload) must NOT be named with the fix in place: {c2}  "
-          f"{'PASS' if c2 else 'FAIL — the reader reports any planted directory'}")
+    dec = res["fixed"]["declared"]
+    c2 = (not dec["flagged"]) and dec["scanned"] and dec["tag"] == "declared"
+    print(f"\n  ② NEGATIVE / DISCRIMINATION, TWO-SIDED — the DECLARED plant (declaration nested in "
+          f"a list, vector 3's payload) must be SCANNED ({dec['scanned']}), tagged "
+          f"`{dec['tag']}`, and NOT flagged ({not dec['flagged']}): {c2}")
+    print(f"     {'PASS — visible AND correctly judged, which separates `invisible` from `passed`' if c2 else 'FAIL'}")
 
     exits = [res[s][k]["exit"] for s in ("fixed", "reverted") for k in ("undeclared", "declared")]
-    named = {(s, k): res[s][k]["named"] for s in ("fixed", "reverted")
+    named = {(s, k): res[s][k]["flagged"] for s in ("fixed", "reverted")
              for k in ("undeclared", "declared")}
     exit_constant = len(set(exits)) == 1
     name_moves = len(set(named.values())) > 1
@@ -210,8 +264,8 @@ def main() -> int:
                   open(OUT / "blind_channel.json", "w"), indent=2)
         return 2
 
-    u_fixed = res["fixed"]["undeclared"]["named"]
-    u_rev = res["reverted"]["undeclared"]["named"]
+    u_fixed = res["fixed"]["undeclared"]["flagged"]
+    u_rev = res["reverted"]["undeclared"]["flagged"]
     world = "A" if (u_fixed and not u_rev) else "B"
 
     print(f"\n  ⭐⭐⭐ WORLD {world}: " + (
@@ -242,10 +296,13 @@ def main() -> int:
                "cells": res,
                "fixture_leaf": {s: p.name for s, p in paths.items()},
                "gauge": {"exits": exits, "exit_constant": exit_constant,
-                         "named_channel_varies": name_moves,
+                         "flagged_channel_varies": name_moves,
+                         "channels_read_separately": "scanned (the gate examined it) vs flagged (the gate reported it undeclared); `name in stdout` collapses them",
                          "reading": "measurement invariant + property not => the exit code the "
                                     "harness reads is blind to what it claims about"},
-               "vector3_verdict": {"declared_plant_named": res["fixed"]["declared"]["named"],
+               "vector3_verdict": {"declared_plant_flagged": res["fixed"]["declared"]["flagged"],
+                                   "declared_plant_scanned": res["fixed"]["declared"]["scanned"],
+                                   "declared_plant_tag": res["fixed"]["declared"]["tag"],
                                    "meaning": "vector 3's expectation was correct; the harness could "
                                               "not observe it because its channel is saturated",
                                    "harness_footer_explains": "vector 4 only"},
