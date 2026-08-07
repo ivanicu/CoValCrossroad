@@ -120,6 +120,52 @@ property of the DESIGN rather than of the clause.
 - **Not established:** whether φ\* also depends on the corpus. Subsampling varies N only; the closed
   form needs no corpus term to predict the table, which is weaker than having measured a second one.
 
+### ⛔⛔⛔ THE SURVIVING REPAIR'S REFERENCE CLASS IS NOT CLOSED UNDER ITS OWN CLAUSE (added 2026-08-07, R1002)
+
+R1001 left exactly one wording standing: entry 1368's repair — *"exceeds, by a margin reported with
+its interval, the best rule in a **NAMED reference class R**"* — instantiated by R849 as **394
+response-only rules**, the only form under which the definition admits its own instance.
+
+**R is not closed under the predicate the clause quantifies over.**
+
+Re-enumerated from R849's own construction and reproducing its committed count **exactly**:
+
+```
+14 hand-picked lexical features
+   30 singletons  +  364 signed pairs  =  394      (R849 committed 394 — positive control PASS)
+```
+
+⭐ **So R is: every linear rule in AT MOST TWO of fourteen hand-chosen lexical features.** The clause
+says *"every rule computable from responses alone."* **R825's char 3–5-gram TF-IDF + SVD predictor is
+computable from responses alone, is not in R, and is known to beat the instance.** Witness exhibited.
+
+⛔ **THE REPAIR INHERITS THE DEFECT 1368 DIAGNOSED, ONE LEVEL UP.** 1368 killed the universal
+quantifier because *"every"* ranged over a convenience family. The repair replaced *"every"* with
+*"the best rule in a named class R"* — **and R is a convenience family too.** Naming it makes the bar
+**honest and reproducible**; it does not make it **closed**. ⭐ **The definition's verdict on its own
+instance is therefore a property of a boundary we drew.**
+
+⭐ **AND THAT IS A DERIVATION, NOT A MEASUREMENT.** A max over a superset is ≥ a max over a subset,
+by definition. No experiment can overturn the closure failure; an experiment could only say **how
+much** the bar moves — which is **not claimed here**, because R825's number is on its own 12 splits
+and R849's is on parity halves. **Different splits, different units, not compared.**
+
+⚠ **NOT the size axis, which is prior art.** R847 enlarged the family once (bar **raised**, not
+crossed) and R848 gave the dose-response, **+0.007412 per e-fold**, with an extrapolation whose own
+artifact key reads `extrapolated_n_for_core_D4_NOT_A_MEASUREMENT`. This is about **closure**, and it
+does not re-ask either.
+
+⚠ **The one disputable step, stated rather than hidden in a boolean.** R825's source touches the
+human ranking, because *scoring* any rule needs it. Reading the witness as response-**only** is a
+judgement about what the **rule** consumes versus what its **evaluation** consumes. It is R826's own
+framing — that artifact calls the family response-only — and it is the step a reader could reasonably
+dispute.
+
+**Controls.** Re-enumeration reproduces 394 exactly, which is what makes my reading of R *be* R849's
+R; R849's own selected bar rule `+mean_word_len+uppercase` tests as a member; and a rule that
+consumes the human ranking (`oracle_k4`) is outside R **and** inadmissible under the clause — without
+that control, *"outside R"* alone would make every arm in the release look like a witness.
+
 ### ⛔⛔⛔ AND UNDER THE PERMISSIVE READING THE OPERATOR ADMITS NOTHING — BECAUSE ③ AND ④ ARE DISJOINT (added 2026-08-07, R1001)
 
 **R1000's headline is READING-DEPENDENT and is restated here with its reading attached.** Running the

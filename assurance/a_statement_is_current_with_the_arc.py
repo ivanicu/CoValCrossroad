@@ -250,6 +250,19 @@ def main() -> int:
                        r"(③|clause three).{0,260}(④|clause four).{0,200}"
                        r"(disjoint|no arm satisf|cannot be jointly|direct conflict)"]))
 
+    # ⛔ R1002: the surviving repair's reference class is NOT CLOSED under the clause it
+    #    instantiates. This is the one that decides whether the arc has a definition or a boundary,
+    #    so a statement carrying R849's repair without it is presenting a subset max as a max.
+    d = load("A27_*/R1002_*/results/class_closure.json")
+    if d:
+        facts.append(("R1002", "the repair's reference class is not closed under its own clause",
+                      f"closed={d['closed']}, class {d['reenumerated_class_size']} "
+                      f"= {d['n_singletons']} singletons + {d['n_pairs']} pairs",
+                      [r"(not closed|proper subset|subset of what the clause).{0,320}"
+                       r"(class|R849|reference)",
+                       r"(reference class|named class).{0,300}"
+                       r"(not closed|convenience family|boundary we drew|proper subset)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

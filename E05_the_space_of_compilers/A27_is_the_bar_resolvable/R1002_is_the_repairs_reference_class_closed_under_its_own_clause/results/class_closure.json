@@ -1,0 +1,41 @@
+{
+ "source_sha": "b8c93cfac4eb66a4",
+ "head": "is R849's reference class closed under the clause it instantiates",
+ "committed_class_size": 394,
+ "reenumerated_class_size": 394,
+ "base_features": [
+  "bullets",
+  "colons",
+  "commas",
+  "digits",
+  "distinct_words",
+  "len_chars",
+  "len_words",
+  "mean_word_len",
+  "newlines",
+  "parens",
+  "questions",
+  "sentences",
+  "ttr",
+  "uppercase"
+ ],
+ "n_singletons": 30,
+ "n_pairs": 364,
+ "controls": {
+  "positive_reenumeration_matches": true,
+  "placebo_bar_rule_is_member": true,
+  "negative_inadmissible_rule_outside_R": true
+ },
+ "witness": "char 3-5-gram TF-IDF + SVD response-only predictor (R825/R826)",
+ "witness_in_R": false,
+ "witness_builds_from_response_text": true,
+ "witness_source_mentions_rankings": true,
+ "authorial_judgement": "R825's source touches the human ranking because SCORING any rule needs it. Reading the witness as response-ONLY is therefore a judgement about what the RULE consumes versus what its EVALUATION consumes, not an automated test. It is R826's own framing (it calls the family response-only) and it is stated here rather than hidden in a boolean, because it is the one step of this round a reader could reasonably dispute.",
+ "world": "B NOT CLOSED \u2014 an admissible response-only rule sits outside R, so R849's bar is a max over a PROPER SUBSET of what the clause quantifies over",
+ "closed": false,
+ "prior_art": "R847 enlarged the family once (raised, not crossed) and R848 gave the size dose-response with an extrapolation its own key labels NOT_A_MEASUREMENT. This round is about CLOSURE, not size, and does not re-ask either.",
+ "derivation": "a max over a superset is >= a max over a subset \u2014 no experiment can overturn the closure failure; only its MAGNITUDE is empirical",
+ "not_measured": "how far the bar would move if the witness were added to R",
+ "would_require": "re-running R825's predictor under R849's odd/even parity split",
+ "limitation": "says the class is not closed, never that a closed class is achievable"
+}
