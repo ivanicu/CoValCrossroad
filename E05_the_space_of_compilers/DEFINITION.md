@@ -949,6 +949,32 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > Printed, never quoted. (R902 caught this at n=1, R906 at n=2, R908 at n≈2.)
 > > ⚠ **What it does NOT say: WHY.** It shows THAT the bar separates these rules — not what it
 > > separates on — and no share here is an admission probability, since the arms were built.
+> >
+> > ⭐⭐ **AND IT REWARDS A SPECIFIC SELECTION OBJECTIVE, NOT MERELY BEING INFORMED (R909–R910).**
+> > Among **label-free** rubric selectors — label-consuming rules excluded, since R900/R907 made
+> > label access a separate axis — the split is what the rule optimises, read from the
+> > generator's docstrings: `topw` takes the **highest signed MEAN importance**; `topabs`,
+> > `topvar`, `topwvar` take **|mean| or variance**.
+> >
+> > | objective | spec | adm/built | Wilson 95% |
+> > |---|---|---|---|
+> > | signed mean weight | pooled | 7/16 | **[0.231, 0.668]** |
+> > | variance or magnitude | pooled | **0/14** | **[0.000, 0.215]** |
+> > | signed mean weight | matched k=4 | 3/4 | [0.301, 0.954] |
+> > | variance or magnitude | matched k=4 | 0/8 | [0.000, 0.324] |
+> >
+> > **Disjoint in the pooled specification by +0.016.** ⚠ **NOT in the matched-k=4 one**
+> > (−0.024) — 1 of 2 specifications separates, and both are reported.
+> > ⭐ **The route matters more than the number.** R909 missed separation by 0.024, reported the
+> > near-miss AS a near-miss, and pre-registered the kill — *disjoint in either specification, or
+> > WORLD B stands*. Six new arms were then generated at **k values not yet built, never by
+> > expected outcome**, for **0 judge calls** (verified: rubric selectors are subset 1.000 of
+> > `coval_full`). All six came back not admitted. **Overturned by more data, not by argument.**
+> > ⚠ **Only one group was enlarged** — `topw` is still 16 arms / 4 at k=4 — so the separation
+> > comes entirely from the variance group's interval tightening 0.324 → 0.215, which is what
+> > more data should do if the effect is real, and the comparison is asymmetric by design.
+> > ⚠ Cross-round wiring: the admission test reproduced R881's `lo` on four reference arms to
+> > within **0.00032** — numbers checked, not only verdicts.
 >
 > | clause | verdict | comparator | criterion |
 > |---|---|---|---|
