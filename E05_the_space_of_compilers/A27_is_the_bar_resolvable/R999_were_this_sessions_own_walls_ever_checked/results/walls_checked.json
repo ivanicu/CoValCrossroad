@@ -1,0 +1,124 @@
+{
+ "source_sha": "fa0d03ed3cf805ff",
+ "head": "b16f083a",
+ "n_walls": 11,
+ "n_eligible": 11,
+ "n_revisited": 8,
+ "share": 0.7272727272727273,
+ "n_unanchored": 11,
+ "rows": [
+  {
+   "round": 979,
+   "keys": [
+    "limitation"
+   ],
+   "later_commits": 19,
+   "revisited": false,
+   "unanchored": true
+  },
+  {
+   "round": 984,
+   "keys": [
+    "limitation"
+   ],
+   "later_commits": 14,
+   "revisited": true,
+   "unanchored": true
+  },
+  {
+   "round": 987,
+   "keys": [
+    "still_authorial"
+   ],
+   "later_commits": 11,
+   "revisited": true,
+   "unanchored": true
+  },
+  {
+   "round": 988,
+   "keys": [
+    "not_measured",
+    "would_require"
+   ],
+   "later_commits": 10,
+   "revisited": true,
+   "unanchored": true
+  },
+  {
+   "round": 989,
+   "keys": [
+    "not_measured"
+   ],
+   "later_commits": 9,
+   "revisited": true,
+   "unanchored": true
+  },
+  {
+   "round": 991,
+   "keys": [
+    "not_shown"
+   ],
+   "later_commits": 7,
+   "revisited": false,
+   "unanchored": true
+  },
+  {
+   "round": 992,
+   "keys": [
+    "redundancy_not_closable",
+    "not_decided"
+   ],
+   "later_commits": 6,
+   "revisited": true,
+   "unanchored": true
+  },
+  {
+   "round": 994,
+   "keys": [
+    "reopens_if"
+   ],
+   "later_commits": 4,
+   "revisited": false,
+   "unanchored": true
+  },
+  {
+   "round": 995,
+   "keys": [
+    "not_done"
+   ],
+   "later_commits": 3,
+   "revisited": true,
+   "unanchored": true
+  },
+  {
+   "round": 996,
+   "keys": [
+    "upper_bound_note"
+   ],
+   "later_commits": 2,
+   "revisited": true,
+   "unanchored": true
+  },
+  {
+   "round": 997,
+   "keys": [
+    "reopens_at_entry"
+   ],
+   "later_commits": 1,
+   "revisited": true,
+   "unanchored": true
+  }
+ ],
+ "controls": {
+  "positive_r997_revisited": true,
+  "negative_ghost_id_unrevisited": true,
+  "placebo_anchor_matters": true,
+  "all_ok": true,
+  "unavailable_zero_opportunity_control": true
+ },
+ "world": "A THE LOOP CHECKS ITSELF \u2014 8 of 11 eligible walls were revisited (73%)",
+ "caveats": [
+  "eligibility is unequal: later rounds had fewer chances to be checked",
+  "counts whether a wall was returned to, never whether the return was right"
+ ]
+}
