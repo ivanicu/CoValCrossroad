@@ -1,7 +1,0 @@
-  ① R881: BH binds 0 · CI binds 28: True  PASS
-  ② R881: closest admitted arm at 0.2792 MDE < 1.0: True  PASS
-  ③ R876: 25 arms, PR 1.6368: True  PASS
-  ④ the headline does NOT already carry the reduction: False  FAIL — WORLD A, nothing owed
-
-  ⭐ WORLD A: the headline already entails the evidence — nothing is owed, and this round writes nothing rather than manufacturing an edit
-     A round that edits a file already correct is manufacturing work.

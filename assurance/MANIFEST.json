@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-08-06T20:36:27.426755+00:00",
- "git": "496a1abaa8f70d88c8995d453118acd5de1a4bf5",
+ "generated_utc": "2026-08-07T10:40:00.207170+00:00",
+ "git": "f7c4ceb1e0dcd3e6ad9f6e901ab3af6cabd451ac",
  "python": "3.13.13",
  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.43",
  "seed": 20260727,
@@ -88,8 +88,8 @@
    "sha256": "c9679130480d43ad02f27aebcf74aebb9ce780391a929c867702de9fec1ca601"
   },
   "covalx/rounds.py": {
-   "bytes": 4745,
-   "sha256": "719e81a7ff48a7e24c4c0a60d5cea96b10933892a80baa73c3af6e652796f3b5"
+   "bytes": 5898,
+   "sha256": "b6f7a9b5f19ac20ceef333cdce0d40dbdd633acb3777a523aaf2e62515057814"
   },
   "covalx/rules.py": {
    "bytes": 2786,
@@ -3267,9 +3267,445 @@
    "bytes": 6756,
    "sha256": "3ae337e9988ce25ceb824143a772eb3c6baf9c79b8d133dae220fe3f4636d926"
   },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R841_does_the_exact_class_interval_close_on_every_annotator/run.py": {
+   "bytes": 12396,
+   "sha256": "c07a883b6cb8f2e9f4119114f964b80fa7a8c518a11795eb0a07128a723b27a3"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R843_the_source_by_access_full_factorial/run.py": {
+   "bytes": 21689,
+   "sha256": "b1a5990a4fe72d19da9484ab8d9894866aec3438ae576169d68ec8a2b9cf9d94"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R844_does_the_other_writers_deflation_transfer_to_coval_core/run.py": {
+   "bytes": 8423,
+   "sha256": "c917069542e22ace8bce50cd7c93862b1fde7fd08cc16c99bf13f6e4f6feb686"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R845_the_margin_the_binary_test_could_not_see/run.py": {
+   "bytes": 11548,
+   "sha256": "af32303e0c0f2c893dd8513dcb18d7382f78a88610066705f3a25f357fbffe8d"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R847_does_clause_fours_EVERY_survive_an_honest_family/run.py": {
+   "bytes": 10704,
+   "sha256": "ee93bd71fe79e0b9f5cb4d03a1eef3f5a4d20a33702154d5e171a94032dc02aa"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R848_what_does_the_word_every_cost_dose_response/run.py": {
+   "bytes": 11295,
+   "sha256": "09385bcf9539a04a5e60c2c786dbb565b05f6947d3a2edb850c42e72cba58fc8"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R849_does_the_proposed_clause_survive_its_own_test/run.py": {
+   "bytes": 11441,
+   "sha256": "565032de3eba8ca17ad280a0d0495eca607473ed92cd2a5e99902cfebb871257"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R850_is_the_extension_selective_or_merely_small/run.py": {
+   "bytes": 14104,
+   "sha256": "dc1bcab35764fa8e1bec1244c2529521741da4986d54ee9ff84fb57aaa482181"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R851_which_published_extension_is_actually_exposed/run.py": {
+   "bytes": 9708,
+   "sha256": "5b09622258cf492f60b2dc3bd4445227563b9ed976c31931c9051ea8a4e3cf3f"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R852_what_is_the_free_component_actually_made_of/run.py": {
+   "bytes": 9529,
+   "sha256": "ba791296e6802bf6464d634ba4570615522a80acbf25fe1b43c88881cfe260a3"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R853_does_clause_two_reward_content_or_format/run.py": {
+   "bytes": 10428,
+   "sha256": "9ef76f8450d18001eaeeadcf807a21b264e75552d0fab228e98d3b75aeb7291d"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R854_is_the_pair_shuffle_survivor_set_arm_intrinsic/run.py": {
+   "bytes": 9654,
+   "sha256": "68a719b306058ac7cddc87b392b20ca88e0a7da28b4622a44992464cc73de33f"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R855_do_the_clauses_cover_each_others_blind_spots/run.py": {
+   "bytes": 4955,
+   "sha256": "812684d762db9563a9b661e5975a4aedfe560b64e7bf7b994fb1d04b4292419c"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R856_clause_four_is_dominated_by_clause_two/run.py": {
+   "bytes": 6046,
+   "sha256": "b264a56e291eceb582de81d7db85de35cfbc944ad0595e50b872cd87604d9913"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R857_only_one_score_clause_does_any_work/run.py": {
+   "bytes": 6398,
+   "sha256": "53e7a204bc7061d43f8c802de8998392180f7bab1ef28ab6680be4076d692e9c"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R860_the_exact_MDE_of_the_universal_reading/run.py": {
+   "bytes": 7190,
+   "sha256": "0948c9c38e5f38f92c9266f707aad63f0fad43339102c6adf7c5c59069189bf7"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R861_the_selection_component_of_a_max_bar/run.py": {
+   "bytes": 13172,
+   "sha256": "9bbfe12417fd40f4ad75e216c2138d2d07f73a57fd27fb5ed0e3c8f7827bcf40"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R862_does_the_selection_sign_survive_a_60x_wider_family/run.py": {
+   "bytes": 13051,
+   "sha256": "7c169b2c970ed371bc918f7522fede09f3a7b18895ac16a170cde697fb0a5fc4"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R863_is_the_1p5_floor_calibrated_for_a_max_comparator/run.py": {
+   "bytes": 18177,
+   "sha256": "f10c34e5f81c9f9ee7184dbe905f07098b338f0746350f19ac006566bb8efa6e"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R864_a_powered_null_for_the_statistic_being_thresholded/run.py": {
+   "bytes": 13770,
+   "sha256": "d6f750044fa4a37c83141b69426081153b3d8643bcfd0abcf2f8906a3c3c4d3f"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R865_which_clause_verdicts_are_criterion_invariant/run.py": {
+   "bytes": 17008,
+   "sha256": "c3f88d207b6b8f43c705ae8dd5bd48914ec3e2fbb85c970638e34ed36b63fa71"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R866_the_comparator_is_a_swept_axis_not_a_choice/run.py": {
+   "bytes": 12549,
+   "sha256": "09c57ca86adf372b8c43eef338e769a03d6047492fd818ed28f7e30b872421d1"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R867_the_window_in_which_a_clause_means_anything/run.py": {
+   "bytes": 12880,
+   "sha256": "5abdc4eb767719857565e321789b7542e95bbf2f58820fdcc3c1343aea4e525d"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R874_the_definition_restated_with_its_scopes_bound/run.py": {
+   "bytes": 11881,
+   "sha256": "05fe50136571e39b905da5b2bf1e4063f00e4ad28eb90c176946d4065f99269c"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R875_does_the_definition_admit_anything_but_its_own_instance/run.py": {
+   "bytes": 13927,
+   "sha256": "d5b5ae6da7e6c239765906c7e2280aa803c2bf3096fe17afc4df11b9a7781406"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R876_are_the_admitted_arms_distinct_from_each_other/run.py": {
+   "bytes": 11667,
+   "sha256": "b6a3edf04ddb0c5fd385a43489ce5cb2ce03515ea924e7389b538594711a4b55"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R877_what_is_the_single_axis_the_definition_selects_on/run.py": {
+   "bytes": 13535,
+   "sha256": "433dea9ec5c092ec819365d0267851831bc3ce57f7c75f00ec3747d76764d0e3"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R878_does_clause_two_select_on_the_tie_rate/run.py": {
+   "bytes": 12608,
+   "sha256": "ab067b6c657e14184eb7b88cb4bc73f03cf25eabfde34ef72140b07caad87998"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R879_how_small_a_tie_dependence_could_R878_have_seen/run.py": {
+   "bytes": 11971,
+   "sha256": "bea74aa206e78fbfbe9de6b92afd2fab3964f8ba6081fb06dfa1507cbffaa146"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R880_is_the_admitted_set_stable_in_the_bootstrap_count/run.py": {
+   "bytes": 11163,
+   "sha256": "3cf3f6b294448cc19b1cb53f6737a6744b26b1096cb7c552071022ec95fb945c"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R881_how_far_from_the_boundary_and_which_condition_binds/run.py": {
+   "bytes": 12786,
+   "sha256": "ff16a09308983293cfc984673c99c9672c2c99a54f18935fd81a396b76e8769b"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R886_the_headline_statement_is_one_round_behind_its_evidence/run.py": {
+   "bytes": 8751,
+   "sha256": "4da4d2db0f42b187f6cabf513ba4b0b6277870ae269d1da4851ed396f637a85e"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R888_what_clause_three_excludes_that_clause_two_admits/run.py": {
+   "bytes": 10901,
+   "sha256": "908e90bd098fb0529ee44bebaac8ea941f301c8256c66434a7ec15020a8c788a"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R889_the_two_admitted_sets_differ_by_the_word_resolvably/run.py": {
+   "bytes": 11044,
+   "sha256": "19a9ae5629fd1393eaac6628376a4040d11db785a729e0d3470a6fa2ed3c2117"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R890_the_diversity_of_the_twelve_that_survive_both_clauses/run.py": {
+   "bytes": 13018,
+   "sha256": "94b07d93d91f3769884f24cbfa792c6274584403f176d60ed4bf275f3bbbf7d0"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R891_is_the_concentration_forced_by_selecting_on_score/run.py": {
+   "bytes": 15026,
+   "sha256": "12ad944df6529b43ab94244e1ce7a0acb8b9208a485c57bd854c9024da84499e"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R892_what_clause_three_costs_and_which_half_of_it_is_identified/run.py": {
+   "bytes": 22424,
+   "sha256": "88c6d779eb27408232c89fcd253116910905b7073175e1f4c2bf413f11826972"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R893_leakage_priced_at_eight_matched_cells/run.py": {
+   "bytes": 16836,
+   "sha256": "7e1e3417d7e115d3bfb266a5a97e02567a64dcdb13f94f27d71296bea2439d19"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R894_is_my_own_generation_the_confound/run.py": {
+   "bytes": 16285,
+   "sha256": "e99c7af5919698b55ed16dcf37208457ddffc8ac7046c989a79b6662e68d2a11"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R895_leakage_with_the_judge_in_the_cell_key/run.py": {
+   "bytes": 12898,
+   "sha256": "05e1676f6d8c108173628802f595ce3239300c4d0d710301cb6cfe7218eaa9fa"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R896_is_leakage_a_property_of_the_arms_or_of_the_judge/run.py": {
+   "bytes": 14613,
+   "sha256": "3bcfb39f8b7fc19d2f810fc3f1bdb7727a4ac9c7dab674b104ee35231b6f937d"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R897_the_common_component_and_what_the_residual_keeps/run.py": {
+   "bytes": 15267,
+   "sha256": "60de9617e77e3f40594440ef4735ba83dbf402e58933bac469809972cee054bf"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R898_can_the_common_component_be_named/run.py": {
+   "bytes": 17149,
+   "sha256": "eb896f86926700c49b62b766ba86fa63642d1944599ad49e371f21608d8015e7"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R899_is_the_component_reliable_or_an_averaging_artifact/run.py": {
+   "bytes": 12813,
+   "sha256": "dcfe9f36b5c56ceb9dce9cc7be79c46743014ef0ab01ceccc4ebb2511b186d8c"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R900_clause_threes_price_identified_by_a_label_free_search/run.py": {
+   "bytes": 18368,
+   "sha256": "4ab63de7adc161a9d8e103f9296d3047d69385697f81e41ee0ef82b72160067a"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R901_a_tier_named_by_an_absence_is_not_a_tier/run.py": {
+   "bytes": 12749,
+   "sha256": "927f27ec36c9ae9134de4f1cb99f754e6ff17acf699fa8677a7b586092a116ee"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R902_the_gap_conditional_on_how_much_the_rules_differ/run.py": {
+   "bytes": 12989,
+   "sha256": "2174d941aae0c15dd560c1c7149f74e0fcb1c1f7fe8d36f8f8c08c55984fc113"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R903_do_the_admitted_twelve_agree_about_criteria/run.py": {
+   "bytes": 15772,
+   "sha256": "28ab19f14dca05222770479f603f495306c95100a7887dba28e4512266f047ed"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R904_the_disjointness_was_forced_by_the_criterion_source/run.py": {
+   "bytes": 12566,
+   "sha256": "46991a63f1ed550ba703e929a30b7a00b9d2495603ac734bf53d002dd43892b7"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R905_typing_the_core_completes_the_partition/run.py": {
+   "bytes": 15281,
+   "sha256": "135637b197fa44f9abaeb5f45e76d236441ae56d90b206eac9295ee3b47d1a1e"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R906_does_the_bar_favour_a_criterion_source/run.py": {
+   "bytes": 15158,
+   "sha256": "0a105e63de71d2946a14f7d4a4e75ed5a121f98f74510644364c0f506df82038"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R907_what_expanding_each_kind_would_cost/run.py": {
+   "bytes": 13084,
+   "sha256": "213b7880a090ccd0a0ef88a58606f581e7b5e8e6e2a68d7947f1c49eba25ac14"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R908_the_bar_discriminates_by_rule_not_by_source/run.py": {
+   "bytes": 12093,
+   "sha256": "60b84f83bd85fa7b7917e6388dd88d791506d5a063f42f9c0850c98672336b4d"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R909_does_the_bar_reward_a_selection_objective/run.py": {
+   "bytes": 12517,
+   "sha256": "74864d2a1924863ca22c7b9ac0f77d8322bbfb4d3f0a2330b42940847c0c8e64"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R910_the_objective_contrast_at_fourteen_arms/run.py": {
+   "bytes": 13055,
+   "sha256": "fdb63c982706eb18f898def50401d854d305af0c9b929c3184997273f270912f"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R911_both_groups_grown_at_matched_k/run.py": {
+   "bytes": 13491,
+   "sha256": "82e558dc4e608f59e530c71513d229ad04aedc0083d3e3cb77488d9e867e9e82"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R912_the_k4_cell_can_never_be_balanced/run.py": {
+   "bytes": 13233,
+   "sha256": "a70df978cde37a1c5b50bbb8373debfb3938109d20164f749ac5ca3a021052d8"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R913_does_the_ordering_survive_a_different_named_comparator/run.py": {
+   "bytes": 15256,
+   "sha256": "61eff945770f591087c60eeb3947a879164288dd454b2e73226a6d13928fa61d"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R914_the_transport_arms_are_a_different_corpus/run.py": {
+   "bytes": 10097,
+   "sha256": "5c0bd76127720cb482e583b566a8ad38c73a97016e00d6271c711cc1998f46c5"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R915_a_structural_zero_in_the_denominator/run.py": {
+   "bytes": 12643,
+   "sha256": "1a7c14413ac7cd7b687a802c28600094aa7db47a082d3e658b999eb19b5f86f5"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R916_which_reported_units_are_apparatus/run.py": {
+   "bytes": 14080,
+   "sha256": "041a217e9741721433f67884eb6d44b9c4989728841e91ae6bf8083bac78f183"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R917_the_arc_recomputed_without_apparatus/run.py": {
+   "bytes": 16790,
+   "sha256": "a6127b656c9d600786ab478d19af5c51b8c235b0dbe725a113090efa28b0bcb2"
+  },
   "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R428_did_the_eight_mutilations_cost_untracked_data/run.py": {
    "bytes": 15912,
    "sha256": "881ca0befb16fe4dfbe52a18630388e1eedba162284d822884ae911de8e4b9fd"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R840_a_failing_gate_and_a_blind_gate_share_an_exit_code/run.py": {
+   "bytes": 8726,
+   "sha256": "964b7b1cbe3342c9b9e127e391c1fb4cf3b3e97516b5cbe9102fd70cff773d2c"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R842_is_the_definitions_own_evidence_reproducible/run.py": {
+   "bytes": 8747,
+   "sha256": "d3ffe4253257f2d8d38e18ace82f0ccf84fcc5f376bc7d14c17a2c2ddbca4627"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R868_can_a_gate_be_dead_and_green_at_once/run.py": {
+   "bytes": 17756,
+   "sha256": "f7cf1e866cd2298827f51861e8d3bd2a1f219bfd326713726695f7320b7f2bdc"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R869_which_gates_can_write_outside_their_own_scope/run.py": {
+   "bytes": 14655,
+   "sha256": "9f353382966fffca05f7a4599447813ad5bb8127ef57eff909095d3dd7f76c8a"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R870_were_my_declared_worlds_ever_entered/run.py": {
+   "bytes": 13104,
+   "sha256": "a88caaa2a9830bed39422bb32e0863ccb423ab9da0647fd00022fc741ec826ab"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R871_is_the_worlds_convention_growing_or_decaying/run.py": {
+   "bytes": 13992,
+   "sha256": "7b10116e28f71c88d276d94219a67d8206c549d5ba082d4a36fd565f5f5e3fa5"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R872_how_many_directional_claims_were_measured_at_two_ends/run.py": {
+   "bytes": 14895,
+   "sha256": "aaa93f1b66351e97e835edb6e92ce45501693ae98b507d3f30f26578043c795d"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R873_does_a_series_ordering_carry_direction_beyond_chance/run.py": {
+   "bytes": 16362,
+   "sha256": "77dfa190574855724283efe2a0d956e409f45344a2471090fa45807c773730e2"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R882_do_my_verdicts_compare_against_measured_references/run.py": {
+   "bytes": 13222,
+   "sha256": "91d99de4dcc49fb37a2a656127298f29a7063de378d9f50e86eb6fce88f5fcd7"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R883_can_a_published_share_be_audited_from_its_own_artifact/run.py": {
+   "bytes": 10161,
+   "sha256": "9ffda146178a7cf6f9d600c2e8137641269de88e9a94d8e2af799f9a50650afa"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R884_how_much_of_each_gates_baseline_is_the_gate_itself/run.py": {
+   "bytes": 11375,
+   "sha256": "909b13ce905392266cf8a91a36986d7c41658ea886c824004f661e87f6305786"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R885_would_the_partition_invariant_have_caught_the_four/run.py": {
+   "bytes": 12473,
+   "sha256": "71e7d21a1a6501c7430b6517a1dcd11df7699383347365502912e1aa716d3921"
+  },
+  "E05_the_space_of_compilers/A25_is_the_population_itself_a_choice/R918_the_typing_is_a_decision_tree_on_two_thresholds/run.py": {
+   "bytes": 17331,
+   "sha256": "ff2f7f7f8b2ace7512d2085cd34b6fce39b4b4334da4e9a668831ae1de303580"
+  },
+  "E05_the_space_of_compilers/A25_is_the_population_itself_a_choice/R919_which_of_the_eight_placebos_could_ever_have_fired/run.py": {
+   "bytes": 13718,
+   "sha256": "d770552152b286166793546f5bb880da2044773d3e142680a33a4d7603878357"
+  },
+  "E05_the_space_of_compilers/A26_can_the_definition_be_applied_without_provenance/R920_is_clause_three_detectable_from_the_artifact/run.py": {
+   "bytes": 21915,
+   "sha256": "9012f9a878c640987564a04783c2ed46b50040ebe995f6ff3f272b8150468d58"
+  },
+  "E05_the_space_of_compilers/A26_can_the_definition_be_applied_without_provenance/R921_is_the_admitted_set_a_property_of_the_arms_or_of_the_comparator/run.py": {
+   "bytes": 18255,
+   "sha256": "cfc1cae10db96bc7512514316e9670f5cdcbf4aa93f5d99a1b3acaf2c5f9b304"
+  },
+  "E05_the_space_of_compilers/A26_can_the_definition_be_applied_without_provenance/R922_is_clause_two_a_comparison_or_a_threshold/run.py": {
+   "bytes": 20943,
+   "sha256": "35a71771cd6e74c8090283e4f29a9e0a7baba8c2cddb3a2f5fac3765d666d393"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R923_run_clause_two_on_its_own_comparators/run.py": {
+   "bytes": 17386,
+   "sha256": "e2c73b8c5b9d301d38b111421e08b57aadd9fa894c20208b973024ea11960709"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R924_does_clause_one_exclude_anything_clause_two_does_not/run.py": {
+   "bytes": 18554,
+   "sha256": "5ae4bf30820c9a62ee3d0befd1eb692beee77dd345d43759a4131c665b28a8e6"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R925_can_any_label_blind_size_one_selector_clear_the_bar/run.py": {
+   "bytes": 24484,
+   "sha256": "f9bc405a00694a2faad061a69b40a09b58db7607c9c7c93987cd04a14b953387"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R926_the_price_of_clause_three_across_k/run.py": {
+   "bytes": 15363,
+   "sha256": "975ca4e81aef1669705a56299abc00b956ab87dd851cda3d9c84c446f5b82b74"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R929_the_point_and_its_interval_are_different_objects/run.py": {
+   "bytes": 17169,
+   "sha256": "895086cd6e64463e0caee89b657a32461487b4d66c958add3721ca24ef0904b1"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R930_does_rebuilding_the_matching_inside_the_replicate_repair_it/run.py": {
+   "bytes": 18558,
+   "sha256": "56f7626ab4b9c9f1deb8ecad300df33256164c9cbef3195249ee4e99153ff4b3"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R931_how_much_of_the_negative_group_R141_never_matched/run.py": {
+   "bytes": 16542,
+   "sha256": "03a9c00578444d74e3c68f2da2bc9e2fdd7dd4f5ab0a50d27b59312fa7f39726"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R932_what_the_tied_cuts_cost_R141/run.py": {
+   "bytes": 16878,
+   "sha256": "6bed127215a38791bdb37687daa19d85060335b0b168830fab8a18b89488cb86"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R933_does_R141s_headline_survive_the_repaired_estimator/run.py": {
+   "bytes": 13975,
+   "sha256": "5e9cb89f6d310eaf67e6a24efb78ade71241f004a4cefc265f54ec9abb3dae72"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R934_the_gate_paired_two_different_kills/run.py": {
+   "bytes": 14698,
+   "sha256": "d1674f26585dc0e2a2cfdac5354fc0c28409eb7446cefa0c5a9792373c7dd05b"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R935_which_gates_pass_on_silence/run.py": {
+   "bytes": 13091,
+   "sha256": "2d6ec3bb4d99ca6b1d18d7fea3d6b52fc1b8f4639407296ba7b9bbaf04ed83d7"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R936_the_restore_must_refuse_to_delete_what_it_did_not_stash/run.py": {
+   "bytes": 13482,
+   "sha256": "cd902edda19a77022474251d016098da3c388b772006c8e106ea806dba8b24b2"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R937_the_object_test_R936_refused_to_claim/run.py": {
+   "bytes": 10575,
+   "sha256": "f5e1906479837b8a1ab8c4d2d6dc74d97ba50a675836698319401230ea6b9786"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R938_the_kept_branch_has_no_control/run.py": {
+   "bytes": 14471,
+   "sha256": "1be21b050ccc1e7137ab58b4ab46ace3b205c89c4d5d780b98d20883fa82d8bb"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R940_R935s_bound_was_two_sided_and_I_stated_one/run.py": {
+   "bytes": 10811,
+   "sha256": "c3c1e07a803b5b7d531c7dc831586aeea074bfe3ec517816bed10e88653813ce"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R941_did_R928s_fix_repair_a_second_harness/run.py": {
+   "bytes": 11690,
+   "sha256": "d95960806da3e27a311d108aaf1d4a9e8858cad34bc693d264407d5e2b1eb28a"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R942_the_harness_reads_a_channel_that_cannot_move/run.py": {
+   "bytes": 19827,
+   "sha256": "ac7a22c763a9394328151a9181be60fe13dd58f270a8e09cd5de51872c24932e"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R943_the_gate_sees_13_and_the_proxy_routes_number_26/run.py": {
+   "bytes": 17272,
+   "sha256": "9993c7afc29545a3b56ea601f3683fbebaa0e0159b97d2a0b45646758c6f1a65"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R944_of_the_blind_15_how_many_declare_anyway/run.py": {
+   "bytes": 13340,
+   "sha256": "58b4f56c2c6aaf588787c5bac1ec59b047539caccdbbbf4df6992d132181e7b4"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R945_is_disclosure_caused_by_enforcement_or_by_practice/run.py": {
+   "bytes": 20194,
+   "sha256": "eb4d4a6ea39ad47a343a995616f904c7aac7872bd1aa38f1e86a0e15a470ef17"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R946_is_the_zero_silence_or_the_readers_blindness/run.py": {
+   "bytes": 16644,
+   "sha256": "5010f205192cbb0e221aaf2301212edd7184ae51dda352af9404d8d8913cebae"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R947_do_the_statements_own_numbers_come_from_artifacts/run.py": {
+   "bytes": 16899,
+   "sha256": "2bbbc324df7eae0fa58f160fa37c1971d91667994cd0b08a7028d8e90c0c9286"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R948_does_the_cited_round_actually_hold_the_number/run.py": {
+   "bytes": 16629,
+   "sha256": "c231bab4a5c56c65cb932fadab06310e97e578b4734cf31bca62893bc3f1225f"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R949_does_the_key_that_holds_it_mean_what_the_sentence_says/run.py": {
+   "bytes": 17989,
+   "sha256": "dbba91f8eddbbc38a82cc379288b0f829dbd6b9cb02cc9488bdd3545c7424168"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R950_the_naming_convention_shipped_and_its_first_user_is_this_round/run.py": {
+   "bytes": 9249,
+   "sha256": "a19e807452859f715c54b75c8d994e60435dd3d548c5bdb133e41528db379d67"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R951_do_the_1338_retractions_name_their_own_error_classes/run.py": {
+   "bytes": 15227,
+   "sha256": "2e3dff1446008edfe7eb1faa4bb267a2c12eb5d6135310a6fb7c99a48ae22bad"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R952_do_the_retractions_instance_the_standards_own_twenty_modes/run.py": {
+   "bytes": 18396,
+   "sha256": "0cbd9ec603e38ca1a6c6d34e3cd0c49c02ebd56cf2f5219f9a6c620311160689"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R953_three_near_zeros_are_three_silences_until_each_probe_has_a_positive_control/run.py": {
+   "bytes": 13766,
+   "sha256": "076d4300b2f18103efbde82a02ad41cfd82e0f8e007722bd13b938b02313a472"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R955_does_the_definition_contradict_itself_between_statement_and_record/run.py": {
+   "bytes": 16399,
+   "sha256": "97eb598730fbdd375fab3817df3a9593b7f4c5a52517cecd545d35c2b9b275e6"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R956_the_qualifier_rule_turns_the_read_into_something_checkable/run.py": {
+   "bytes": 18199,
+   "sha256": "7ffe4fa58480e627c09baedb29e9aa48096e4a0cfe8be3000c8e93db83172d5f"
   },
   "assurance/DEFECTS.py": {
    "bytes": 14429,
@@ -3292,16 +3728,52 @@
    "sha256": "36ea3aad5552b176843e97d80abe419cbd23ccaf38cbcdb303ca167c19006df7"
   },
   "assurance/_repair.py": {
-   "bytes": 19627,
-   "sha256": "245197adf6469c0b46099e9d2e9b8ade58781184f594141bb90d078abd5c1b1a"
+   "bytes": 23813,
+   "sha256": "6e209c5a6566b2087061e57ebdadfe7870a69bc6c9cd1735d81555c7e3e97fcf"
+  },
+  "assurance/a_commit_body_names_its_own_round.py": {
+   "bytes": 6976,
+   "sha256": "c4fcf5ff2e7e393bda6d0ffee751b22b29149aa9e3202f387573432bd1acbd65"
   },
   "assurance/a_control_that_cannot_fail.py": {
    "bytes": 10248,
    "sha256": "7b70a0ac23c1e8a5829c486bb05e50389986cabe77cdc376d4d5402b0d6c338f"
   },
+  "assurance/a_detector_marker_matches_something.py": {
+   "bytes": 10844,
+   "sha256": "0ec29a5805a4d73cb4fd1113536b2f1737d318ce621b8d36e214950e2f663559"
+  },
+  "assurance/a_next_names_the_check_that_cleared_it.py": {
+   "bytes": 8003,
+   "sha256": "e7ffe2cdef02774dd57575fd4cc37ce68f063602c19a5c50ee7a83e9a6876da7"
+  },
+  "assurance/a_published_number_is_named.py": {
+   "bytes": 10684,
+   "sha256": "b0da2215ebe206249f06c93145f24d85ee3efa7fc3685ca3a8a7a59c4f6eb3a4"
+  },
+  "assurance/a_retraction_declares_its_class.py": {
+   "bytes": 7453,
+   "sha256": "2b61bce98506de6b47254e36f52439a671076a9151aa3615932814fc3e9b7ab6"
+  },
   "assurance/a_scored_artifact_records_its_configuration.py": {
    "bytes": 7312,
    "sha256": "74e60608e414ab78cf9333749104bb8b67e35ba064806668f39181a92ef333c9"
+  },
+  "assurance/a_seed_must_be_stable.py": {
+   "bytes": 9037,
+   "sha256": "0930a9b8728b282867001b430028d50ca026bfa888d7233f96f007d9ee1f577b"
+  },
+  "assurance/a_share_carries_its_counts.py": {
+   "bytes": 5650,
+   "sha256": "0a536cd5e5d23566ed31d8cd67ffa4f9757d6559a41314f5ccbe6e106b0cca33"
+  },
+  "assurance/a_statement_is_current_with_the_arc.py": {
+   "bytes": 6670,
+   "sha256": "e8b8cae4faf039e0790ac49b811aeea29e653c5109141097689800b1d7bead00"
+  },
+  "assurance/a_verdict_threshold_is_named.py": {
+   "bytes": 6605,
+   "sha256": "cbcd41a4d26f9933ac24ecd965c6d3d67b1ceb05be1928a254f3067fd63c1448"
   },
   "assurance/an_ear_label_matches_its_path.py": {
    "bytes": 5956,
@@ -3324,8 +3796,16 @@
    "sha256": "0cf62e316d5124b2f5e81ddff7696ba7bcfd4e6a3666360a4438e55d60acd455"
   },
   "assurance/artifacts_are_internally_coherent.py": {
-   "bytes": 16944,
-   "sha256": "653d2b0f5f227b8cf9745ce64e574aa816cd5e6857e00105d974f2cd0519c7e6"
+   "bytes": 18278,
+   "sha256": "847378a3646c4088cdf1f11a192e276137c2c7b74be2b526814aab88726333cd"
+  },
+  "assurance/attack_a_published_number_is_named.py": {
+   "bytes": 4894,
+   "sha256": "cc1d2e016f0b771661c276405d8ebcc1c94d24988519abdb7250f765fcb96648"
+  },
+  "assurance/attack_a_retraction_declares_its_class.py": {
+   "bytes": 3665,
+   "sha256": "a1bb2075e1dc611a0e2f0f1d532f8da6ebb0a2f9e1494afa9cca5f4a010a1831"
   },
   "assurance/attack_every_check.py": {
    "bytes": 13630,
@@ -3344,8 +3824,8 @@
    "sha256": "82b5eebb2af188322a5a3cecc03d1e5932fe9c9e98c6af1091fdad9b36c66066"
   },
   "assurance/attack_the_suite.py": {
-   "bytes": 21239,
-   "sha256": "39fbd92cfcbd20cc9eacb747a75ae0ae4f0406456be6147bf39333efd5ee3189"
+   "bytes": 22462,
+   "sha256": "6728860a84bd76caa0b8e2fbe274aa9adea8a233df13149e7754312c0a2ffa72"
   },
   "assurance/audit_the_auditors.py": {
    "bytes": 10566,
@@ -3420,16 +3900,16 @@
    "sha256": "2d7c762018697b733c73adf8df89ae917f2cd8c51f1567bcdc0423cf13a2a082"
   },
   "assurance/next_gradient_labels_its_hypotheses.py": {
-   "bytes": 9877,
-   "sha256": "57e613a8c338fe224c87a4b8c54c41a1612a67349ae8e22134efa43eeca5f659"
+   "bytes": 13331,
+   "sha256": "e4e7997bbe72aad2fc298a5a9f2f6b6e754e66bd5af5a40d34066df83cb662e0"
   },
   "assurance/next_line_quantifiers_are_computed.py": {
    "bytes": 17040,
    "sha256": "56c95d0400d06e5992fe4d3fe1672b799f1891684b5d037adb526e3cb86d86c9"
   },
   "assurance/no_withdrawn_framings.py": {
-   "bytes": 13976,
-   "sha256": "9d460650c52302e38860d0192838e55bf7d56b1208ba97f9dc16c2422354ee31"
+   "bytes": 14612,
+   "sha256": "2bbe39dbeae4da3d8800acc1e57da287b0b608c23bb90f198f78bd770495ba78"
   },
   "assurance/null_is_informative.py": {
    "bytes": 1829,
@@ -3526,6 +4006,10 @@
   "assurance/token_boundaries.py": {
    "bytes": 2802,
    "sha256": "d8e96cc1bea4a5934f920127ee308e951b1ab539978e2f9456f5ee5f2b65992e"
+  },
+  "assurance/tree_survives_the_sweep.py": {
+   "bytes": 7420,
+   "sha256": "d066a130f47d0ff180956eed41678ccebcfe13764b680c32d604d2ad712f3ae7"
   },
   "assurance/verdict_cites_its_own_contrasts.py": {
    "bytes": 12034,
@@ -7837,6 +8321,258 @@
    "bytes": 9053,
    "sha256": "62117357c7c1032a8a0e2850bca5776f3ae2d2a5e03acd214cc4f90f656e60ff"
   },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R841_does_the_exact_class_interval_close_on_every_annotator/results/exact_class_full_annotators.json": {
+   "bytes": 3039,
+   "sha256": "990c2c5421b04bb0b37fc725e087f191b71aded306ac11d2907d9f24ee20304c"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R843_the_source_by_access_full_factorial/results/source_by_access.json": {
+   "bytes": 6248,
+   "sha256": "0cee6c93332297767c60248d5a9a5167ecfadcc50cc2aa3ff29799652a94f5f0"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R844_does_the_other_writers_deflation_transfer_to_coval_core/results/deflation_transfer.json": {
+   "bytes": 1994,
+   "sha256": "5368ddc4f5e80ac023fbbc439cfdd2dc000fc2e04c8a465611db313eb13e9bc9"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R845_the_margin_the_binary_test_could_not_see/results/margin_sweep.json": {
+   "bytes": 5370,
+   "sha256": "bf5be9af3440b44b63ba6421be129477340d240c2b333142679ff56ef47f4e09"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R847_does_clause_fours_EVERY_survive_an_honest_family/results/every_family.json": {
+   "bytes": 745,
+   "sha256": "e996bd9620f92f15773c931c2daa54d0df18e6a54ce1b313bc7ccaa6db229fdc"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R848_what_does_the_word_every_cost_dose_response/results/dose_response.json": {
+   "bytes": 33971,
+   "sha256": "5c51d6c482b63ebf2abb8677f0e90d30e2525b5935e950e0adbc71d72ddd1a18"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R849_does_the_proposed_clause_survive_its_own_test/results/proposed_clause_extension.json": {
+   "bytes": 24213,
+   "sha256": "49d73f86710b94ff05e447c075206d25a2579424c37cf776a286a66421c95c7c"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R850_is_the_extension_selective_or_merely_small/results/extension_vs_class_size.json": {
+   "bytes": 1736,
+   "sha256": "25a061e268cf86f520304d0123651fd994340994b13f17fb87418352b0307dcf"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R851_which_published_extension_is_actually_exposed/results/clause2_noise_extension.json": {
+   "bytes": 14432,
+   "sha256": "0dea887a39c529a7036c8d384937a6691c58a69bf2d5042397a45a7260625ece"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R852_what_is_the_free_component_actually_made_of/results/null_anatomy.json": {
+   "bytes": 652,
+   "sha256": "e1060a714807ad8512262c9073dede88a39af6db7c4b314342e5d2102bf818ce"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R853_does_clause_two_reward_content_or_format/results/content_vs_format.json": {
+   "bytes": 75,
+   "sha256": "db8dc9db615a3dcc31471b81ce459bec7264ac42067c1106552a1e6d87fc5ae7"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R854_is_the_pair_shuffle_survivor_set_arm_intrinsic/results/survivor_stability.json": {
+   "bytes": 688,
+   "sha256": "5abd7f9765d26435eb60967b1108e70d8cfb63fe07d8d289fcf40863f9ce5762"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R855_do_the_clauses_cover_each_others_blind_spots/results/clause_interlock.json": {
+   "bytes": 722,
+   "sha256": "2d182b71b2f231e87ecf9ff9ec48ba5f956da07f511ab824ab4d877b85b7ce9b"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R856_clause_four_is_dominated_by_clause_two/results/clause4_dominated.json": {
+   "bytes": 2478,
+   "sha256": "0a51f38911ac706bd28b3bb331f15fab87ccde9a0d44fe21c8f0dc820b6d11d4"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R857_only_one_score_clause_does_any_work/results/clause_bar_ordering.json": {
+   "bytes": 607,
+   "sha256": "bda83aec684405c18031b33a6f5aa5272e00c75a73a359d1d4d0725e7cd4cce2"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R860_the_exact_MDE_of_the_universal_reading/results/exact_mde.json": {
+   "bytes": 634,
+   "sha256": "fa9a2679f0aa4c7de476fdd72c9319c3342a6545edb63793ff99832fb52ca4a5"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R861_the_selection_component_of_a_max_bar/results/selection_component.json": {
+   "bytes": 2433,
+   "sha256": "9f395e202342e1fde51470ecdbddd24a8775ea946943d0d0c3d2f9fa07f9ad87"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R862_does_the_selection_sign_survive_a_60x_wider_family/results/width_sweep.json": {
+   "bytes": 2238,
+   "sha256": "75e8cca2eaa0e993f907fce976e95677d71fdccdeea9ae811384fd6042042a1b"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R863_is_the_1p5_floor_calibrated_for_a_max_comparator/results/floor_calibration.json": {
+   "bytes": 1577,
+   "sha256": "7d25997ecc5fc245d0cf1c143a82dc99993e9432a3f8ef4163358e045668e4b2"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R864_a_powered_null_for_the_statistic_being_thresholded/results/powered_null.json": {
+   "bytes": 3681,
+   "sha256": "5fad9cf740a65a4348bef0bf92114372e44b8ab96874763306526d047e356f57"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R865_which_clause_verdicts_are_criterion_invariant/results/criterion_invariance.json": {
+   "bytes": 2128,
+   "sha256": "ef15b14e8a670c9fd12cbae3337ef0e4e6ed908da66c07f7c103f2869c6283cd"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R866_the_comparator_is_a_swept_axis_not_a_choice/results/comparator_sweep.json": {
+   "bytes": 2703,
+   "sha256": "3cd2ccb1a307f11829705cfc915f88ab6dae0a4da4beeff7ad3a52f7eb07e737"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R867_the_window_in_which_a_clause_means_anything/results/meaningful_window.json": {
+   "bytes": 6228,
+   "sha256": "4db9a6a5634e2ff84ed7502e31dddc1f0a6a4c2e058b86ce412be4ec817dc5f0"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R874_the_definition_restated_with_its_scopes_bound/results/definition_restated.json": {
+   "bytes": 3655,
+   "sha256": "ffab2467eb2aa5f5dfa7ad808b3f544b858df2eea19d3aed522e3c63ffafdce3"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R875_does_the_definition_admit_anything_but_its_own_instance/results/admits_beyond_instance.json": {
+   "bytes": 16712,
+   "sha256": "133b967a15384343a4dfb22d4307fe60d113b0abbf7b0b9f97bab98f88e33f0a"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R876_are_the_admitted_arms_distinct_from_each_other/results/admitted_diversity.json": {
+   "bytes": 706,
+   "sha256": "7345028ac821f313b2f4002343eb049c43c75972cb7ae1b0cefb2413a6d7d55e"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R877_what_is_the_single_axis_the_definition_selects_on/results/the_axis.json": {
+   "bytes": 1758,
+   "sha256": "d9fa49445c8dd13a6a3c7ffba2970dfcdecc4a2f21536e40f30e19e94eeaf9c2"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R878_does_clause_two_select_on_the_tie_rate/results/tie_strata.json": {
+   "bytes": 2529,
+   "sha256": "99346fd8f463a1585c87e989c4a507af1f564fa67979749f3b15e36bcde3f77d"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R879_how_small_a_tie_dependence_could_R878_have_seen/results/power_curve.json": {
+   "bytes": 3519,
+   "sha256": "452d9e56eaeb4e11b14621e88630cc6f0c79e9b0eb9e40872ca28421d68c577a"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R880_is_the_admitted_set_stable_in_the_bootstrap_count/results/nboot_stability.json": {
+   "bytes": 1798,
+   "sha256": "c801ca855cd2a1bada2b8483a2b95aba8acf6aa1910aac94dc08bdb9323e94ea"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R881_how_far_from_the_boundary_and_which_condition_binds/results/boundary_distance.json": {
+   "bytes": 23954,
+   "sha256": "4e4595de493a57b36afaaa3f92e70d03df0e6bfc96bb6b1b6c0bac72b25e3434"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R886_the_headline_statement_is_one_round_behind_its_evidence/results/headline_debt.json": {
+   "bytes": 35,
+   "sha256": "ee728d63378512d0e6cb6c703e09eefd5384b02b6911929c089383aab7405f15"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R888_what_clause_three_excludes_that_clause_two_admits/results/clause3_exclusion.json": {
+   "bytes": 1497,
+   "sha256": "c5df7d0d077885df91c988de83f74a846f7015a6dbb36dbd3a3a3f836554028f"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R889_the_two_admitted_sets_differ_by_the_word_resolvably/results/two_admitted_sets.json": {
+   "bytes": 1265,
+   "sha256": "8f5669d090777fc580849bba82950b106d8dfb0654f4615de706cbd1340dad91"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R890_the_diversity_of_the_twelve_that_survive_both_clauses/results/twelve_diversity.json": {
+   "bytes": 1653,
+   "sha256": "13e0f9485592e67ab56dcfe8276cf6da16c847bd4bfea7da230d6abc513c5798"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R891_is_the_concentration_forced_by_selecting_on_score/results/score_matched_null.json": {
+   "bytes": 1993,
+   "sha256": "866a92276490e719f67952203e2c1390cd77516b4f8547fed980e0694ef5b74e"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R892_what_clause_three_costs_and_which_half_of_it_is_identified/results/clause3_price.json": {
+   "bytes": 1714,
+   "sha256": "762349b352f3478711737554bd3626a74326b5a84916201b836c48301563831d"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R893_leakage_priced_at_eight_matched_cells/results/leakage_eight_cells.json": {
+   "bytes": 2215,
+   "sha256": "d65b18f0eb5c2c2cd39cafc91fb9ace6512ada25843c9dd037246bee8e8bfb02"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R894_is_my_own_generation_the_confound/results/provenance_separator.json": {
+   "bytes": 2368,
+   "sha256": "cb11374672b0f25e650640c859e987692723395b436beddd6d479bb4b4e73df0"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R895_leakage_with_the_judge_in_the_cell_key/results/judge_matched_leakage.json": {
+   "bytes": 1878,
+   "sha256": "bf306e9f11803a4123729fcd079f7fdd44928875bfdbc7046a097e41422fb812"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R896_is_leakage_a_property_of_the_arms_or_of_the_judge/results/arms_or_judge.json": {
+   "bytes": 2730,
+   "sha256": "8409ae3606d89acb1b1cc22022970de0db86527de95a3d4dcece8c537e857fec"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R897_the_common_component_and_what_the_residual_keeps/results/common_component.json": {
+   "bytes": 2462,
+   "sha256": "7eafe37365c8099798e36c9e28ebf12a2c9db2a604c193235af9a039b947ed5e"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R898_can_the_common_component_be_named/results/naming_the_component.json": {
+   "bytes": 3045,
+   "sha256": "a60fffc5e4bdc8cef46255815bbc02cfd6dded261382f6d693b78b45b418d24f"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R899_is_the_component_reliable_or_an_averaging_artifact/results/component_reliability.json": {
+   "bytes": 1689,
+   "sha256": "7e2de975fd9beaa859808fd667b8588d964da71254d5193fb3cc36c4850a6ffa"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R900_clause_threes_price_identified_by_a_label_free_search/results/clause3_identified.json": {
+   "bytes": 1402,
+   "sha256": "b2306772c36ef8412f46e36b40560727e23dfb07a354fc7c53b119e6940a7a92"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R901_a_tier_named_by_an_absence_is_not_a_tier/results/tier_was_not_a_tier.json": {
+   "bytes": 1558,
+   "sha256": "23ccfbfc59026c3bb6859f762ea1e9eec8fea7176511093c1b1f6e3356a3ec1d"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R902_the_gap_conditional_on_how_much_the_rules_differ/results/gap_conditional_on_overlap.json": {
+   "bytes": 2316,
+   "sha256": "9dfbb8c1ee6fc012841e58f51a0795929b63fd5e789c4cbe9ead13c34438460c"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R903_do_the_admitted_twelve_agree_about_criteria/results/admitted_agreement.json": {
+   "bytes": 7552,
+   "sha256": "b1aaad41feee65bac88e948bdcbb07e49ce7e68254d62c5726f1eb2f8cadcbc9"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R904_the_disjointness_was_forced_by_the_criterion_source/results/criterion_source_types.json": {
+   "bytes": 7013,
+   "sha256": "26056025b1275a224e05148e29efad48902ff77633cb1ca512707182fca499c2"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R905_typing_the_core_completes_the_partition/results/core_type.json": {
+   "bytes": 1914,
+   "sha256": "bd7af4f37c96cb7c1b1fa6f0cd13d1fa45d2d2008ae445edab885590875e5a2c"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R906_does_the_bar_favour_a_criterion_source/results/bar_by_source.json": {
+   "bytes": 5519,
+   "sha256": "56769b9e35cffada4ef0a756340da37133eadbe035f8f6cac8ec42d3b2ef29dc"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R907_what_expanding_each_kind_would_cost/results/expansion_cost.json": {
+   "bytes": 2197,
+   "sha256": "48e161e5864d9cf837149f8b8bf17de4d2ae9fc618edd32409d6c9b3a038fc89"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R908_the_bar_discriminates_by_rule_not_by_source/results/bar_by_rule.json": {
+   "bytes": 5426,
+   "sha256": "d5056a070264c2b2b54f4b6847e59032b628196758e88feaec28f6b06a20f457"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R909_does_the_bar_reward_a_selection_objective/results/selection_objective.json": {
+   "bytes": 2773,
+   "sha256": "3c580631ca99bebc9da08262e0f9621dc359423779f5dec7846fa738dd4fcc51"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R910_the_objective_contrast_at_fourteen_arms/results/objective_at_14.json": {
+   "bytes": 2893,
+   "sha256": "869cf1a4cb3e60792d614aedf6ebfb08d438b52d09d0709d1618230a2e9043d9"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R911_both_groups_grown_at_matched_k/results/matched_k_contrast.json": {
+   "bytes": 3940,
+   "sha256": "3955028ebc9ced50b40b7f9fb918f012f7c29e771588358eea4df7152a33f24f"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R912_the_k4_cell_can_never_be_balanced/results/k4_one_sided.json": {
+   "bytes": 2366,
+   "sha256": "88bcb7437efb022f6f21b7964911ed3770c233c2e16439d4daa811efd0a9bb77"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R913_does_the_ordering_survive_a_different_named_comparator/results/comparator_sweep.json": {
+   "bytes": 917,
+   "sha256": "73b2592fc5d0f18e27bfb21933150c96f3c8a8ffab5ab62c98a201699062b7dd"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R914_the_transport_arms_are_a_different_corpus/results/transport_schema.json": {
+   "bytes": 2029,
+   "sha256": "acd54d439968139656cc662b8932a2de33788406b258c94af6f2789f6a36ca2f"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R915_a_structural_zero_in_the_denominator/results/structural_zero.json": {
+   "bytes": 2600,
+   "sha256": "2375b90b0abd665372b01d8f0eeefd004db433ac190080bf8442def06251c5f9"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R916_which_reported_units_are_apparatus/results/apparatus_audit.json": {
+   "bytes": 4260,
+   "sha256": "b6e1f7a3417f77cb201d25e05739bed2e914202b7026791317056744e9f6cc37"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R917_the_arc_recomputed_without_apparatus/results/candidates_only.json": {
+   "bytes": 7636,
+   "sha256": "1d27501547667054bbd23e96d0ea086a73bcc43effa155fbd90a54c9de1b8d41"
+  },
+  "E05_the_space_of_compilers/A24_what_the_definition_costs/R917_the_arc_recomputed_without_apparatus/results/recomputed_without_apparatus.json": {
+   "bytes": 136,
+   "sha256": "5f8806c9f0e4964d5edcba1248929bf60b11d940d444b74338e359de161a5710"
+  },
   "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R428_did_the_eight_mutilations_cost_untracked_data/results/loss_census.json": {
    "bytes": 15215,
    "sha256": "ea7b4710ce1ccb4410af9b722365623f1241993f6efd13c360037e6328a00942"
@@ -7848,6 +8584,210 @@
   "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R428_did_the_eight_mutilations_cost_untracked_data/results/what_was_lost.json": {
    "bytes": 5737,
    "sha256": "e1e241530b3f748149421ede2d2fb1a4947e64edabbf76c10ee6418d728f703e"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R840_a_failing_gate_and_a_blind_gate_share_an_exit_code/results/classification.json": {
+   "bytes": 2676,
+   "sha256": "ca458261b19e23c44c1db5f91c6ca6b0c92060c8aff95b62b0cf559dd7636624"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R840_a_failing_gate_and_a_blind_gate_share_an_exit_code/results/unclassified_split.json": {
+   "bytes": 1647,
+   "sha256": "c87193bae7f6da85f0cc77595a5ce8827dafc8f1b1b6a307fd8d1852f233412a"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R842_is_the_definitions_own_evidence_reproducible/results/reproducibility.json": {
+   "bytes": 918,
+   "sha256": "e05295ebb07e6f29cf81a4d3a5f2d4874627dd933de1d48f54d7f87f3a9e6652"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R858_how_often_does_my_own_NEXT_point_at_nothing/results/next_line_audit.json": {
+   "bytes": 2831,
+   "sha256": "3f5e7e656bd0675de02e6a255eb3b686c50a18dfc5c8e78835349b444f5d676a"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R868_can_a_gate_be_dead_and_green_at_once/results/gate_liveness.json": {
+   "bytes": 9368,
+   "sha256": "b41892ce669cbffdea97d6a492414a2da2f127b350990632b20869c651f62282"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R869_which_gates_can_write_outside_their_own_scope/results/write_scope.json": {
+   "bytes": 32265,
+   "sha256": "d3450fbbce918fc2d084f35206dd1cc390803eb81d39fd640e4078351a19ec6e"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R870_were_my_declared_worlds_ever_entered/results/world_occupancy.json": {
+   "bytes": 10635,
+   "sha256": "42ab2789432540285ff237505ef53c33175e15a3b0aa07664194ab82d696557a"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R871_is_the_worlds_convention_growing_or_decaying/results/convention_trend.json": {
+   "bytes": 1630,
+   "sha256": "f2d9ab0815fc968b3ec8eb3ac06bd9a1bc44a862d76102fdfe5c4e92f8240c4a"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R872_how_many_directional_claims_were_measured_at_two_ends/results/endpoint_claims.json": {
+   "bytes": 941543,
+   "sha256": "150755abf48de7a052e9e3e96c4e59afc1cea62782a4ed24bd94293e17a1b15c"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R873_does_a_series_ordering_carry_direction_beyond_chance/results/ordering_informative.json": {
+   "bytes": 362121,
+   "sha256": "0e306a6726c2da266069f05d1115e23b866015423628d7c74edf4aae12173f06"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R882_do_my_verdicts_compare_against_measured_references/results/verdict_reference_kind.json": {
+   "bytes": 36663,
+   "sha256": "b386ff0aaecc2660de04f558545ff696120798a3d91ac862188aa01d47b7b1ab"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R883_can_a_published_share_be_audited_from_its_own_artifact/results/share_auditability.json": {
+   "bytes": 447114,
+   "sha256": "29cfb75def06033a819ef9c30ca37b416355e56e905b3e6f49ea066034eb0d4f"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R884_how_much_of_each_gates_baseline_is_the_gate_itself/results/gate_self_inclusion.json": {
+   "bytes": 1412,
+   "sha256": "9a443cc03b5c8c35a09aa7a86976d15cb30daf82a605687112de081fbfb76bb8"
+  },
+  "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R885_would_the_partition_invariant_have_caught_the_four/results/invariant_counterfactual.json": {
+   "bytes": 2513,
+   "sha256": "41619e7b971c25ddd4ffec7b48e84728aef7914808ab86cc1c3a72099861eaf0"
+  },
+  "E05_the_space_of_compilers/A25_is_the_population_itself_a_choice/R918_the_typing_is_a_decision_tree_on_two_thresholds/results/typing_specification_curve.json": {
+   "bytes": 24411,
+   "sha256": "3e8046133f2ee326dc931c675f3358d4db33abea7944c87efd9d31ecbd548d9d"
+  },
+  "E05_the_space_of_compilers/A25_is_the_population_itself_a_choice/R919_which_of_the_eight_placebos_could_ever_have_fired/results/placebo_resolution.json": {
+   "bytes": 5930,
+   "sha256": "ea4ee474e19308a803a0d4069013406df0b7c6c786665abb9093e694761a131b"
+  },
+  "E05_the_space_of_compilers/A26_can_the_definition_be_applied_without_provenance/R920_is_clause_three_detectable_from_the_artifact/results/clause3_detectability.json": {
+   "bytes": 5645,
+   "sha256": "78276fe31e7f3b9074f61544c9bac7e67427a1c11b77e9284fffcd75efdb0f8f"
+  },
+  "E05_the_space_of_compilers/A26_can_the_definition_be_applied_without_provenance/R921_is_the_admitted_set_a_property_of_the_arms_or_of_the_comparator/results/comparator_sweep.json": {
+   "bytes": 5995,
+   "sha256": "62a119e83979e6c99baf2f4c3fb0870e1163461e9d91521e7333a6fad443d3b5"
+  },
+  "E05_the_space_of_compilers/A26_can_the_definition_be_applied_without_provenance/R922_is_clause_two_a_comparison_or_a_threshold/results/threshold_or_comparison.json": {
+   "bytes": 21646,
+   "sha256": "357d3eaf68767355f20d78deddcc723886d1685d78340241b68a950eb9ceaff8"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R923_run_clause_two_on_its_own_comparators/results/bar_resolution.json": {
+   "bytes": 3008,
+   "sha256": "aa30f3051cacb3d8475656a4e06c9b98d95598fa786d7697128f17a8a7e2da03"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R924_does_clause_one_exclude_anything_clause_two_does_not/results/clause_one_necessity.json": {
+   "bytes": 1823,
+   "sha256": "3f6c92f6d23cb6c356614deb6de1cef0c22aa5406e793ae68f007d2b9d724628"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R925_can_any_label_blind_size_one_selector_clear_the_bar/results/label_blind_k1_sweep.json": {
+   "bytes": 39075,
+   "sha256": "49a7a9708c70d1114133cd060c65f405a77f754f07104c9f147fb289ac371301"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R926_the_price_of_clause_three_across_k/results/clause3_price_curve.json": {
+   "bytes": 8053,
+   "sha256": "38617a39cff4c124888d1c5efdd5714545b6f9eed7744700ef3da5a3e4d87a04"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R929_the_point_and_its_interval_are_different_objects/results/point_and_interval.json": {
+   "bytes": 2008,
+   "sha256": "8eb8ce2c846937490b2a539f9bb20598b773252ae22d3e42ccb6e2b9c80121a1"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R930_does_rebuilding_the_matching_inside_the_replicate_repair_it/results/matching_repair.json": {
+   "bytes": 3982,
+   "sha256": "cd8af1feefc9d745b02820d9e8fbb7625d056410014a17de75b91da39bc57e33"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R931_how_much_of_the_negative_group_R141_never_matched/results/stratum_fill.json": {
+   "bytes": 5247,
+   "sha256": "216748556de8007f775ca5d7e78175bead91e68d2977f355b0e2264a1a7732f8"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R932_what_the_tied_cuts_cost_R141/results/tie_repair_shift.json": {
+   "bytes": 15286,
+   "sha256": "80b7a6265187b1e654cb58a4acf1b9ef9ae796153290f38d8c2255cb90d94c78"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R933_does_R141s_headline_survive_the_repaired_estimator/results/repaired_intervals.json": {
+   "bytes": 6841,
+   "sha256": "9bd2b4c4baa612c52a9a0c50868af0398776e7a2eecf4506383778a375872411"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R934_the_gate_paired_two_different_kills/results/pairing_discipline.json": {
+   "bytes": 1288,
+   "sha256": "8fe6c341795f4be6dfe69c6676e8edfeb2a2ed71797354665f9badc6b18cbb95"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R935_which_gates_pass_on_silence/results/pass_on_silence.json": {
+   "bytes": 8789,
+   "sha256": "b40cbed58fb022eb9907c3ec6875505ab1f1ec6a5f981c13b72c5e4a9fc9bc48"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R936_the_restore_must_refuse_to_delete_what_it_did_not_stash/results/restore_refusal.json": {
+   "bytes": 1477,
+   "sha256": "8f3da1e451738a8b954a5aa142b9d062777993b536e1d85f668a0af9d3d45fa9"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R937_the_object_test_R936_refused_to_claim/results/object_test.json": {
+   "bytes": 1266,
+   "sha256": "853f29711fa0d14eab31082408c8aedab68e958feeca39f20745fa7801c81c0a"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R938_the_kept_branch_has_no_control/results/kept_branch.json": {
+   "bytes": 1368,
+   "sha256": "4249bcc4414c0a2bb0fe7b42ad397f6284b799450545af2befa368cea6910ba3"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R939_the_preserve_channel_and_its_mutation_test/results/mutation_test.json": {
+   "bytes": 2240,
+   "sha256": "1ce42c9e8fb2a33558b7e6f83674235505a0bece31b54dd5c72a1333c82b672f"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R940_R935s_bound_was_two_sided_and_I_stated_one/results/two_sided_bound.json": {
+   "bytes": 3192,
+   "sha256": "cbf58fc7dd273589cecb8a64dafab52f0e7a145dee77cbd8b72c667a8be83d62"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R941_did_R928s_fix_repair_a_second_harness/results/second_harness.json": {
+   "bytes": 2239,
+   "sha256": "c58f1b5cf829d998af68066209af92f0bb7bc03249a50fedc9efb11698f041ac"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R942_the_harness_reads_a_channel_that_cannot_move/results/blind_channel.json": {
+   "bytes": 2134,
+   "sha256": "cf8ca93ec1e9b6d2920bad8fbdadd658a471ee4c5ccfd9ad6d66e67a0d40c7d1"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R943_the_gate_sees_13_and_the_proxy_routes_number_26/results/blind_side.json": {
+   "bytes": 2872,
+   "sha256": "abd0e48a6609999facd9814c430e66252466354a2213d8cc478455ef6a84ccb0"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R944_of_the_blind_15_how_many_declare_anyway/results/who_declares.json": {
+   "bytes": 4424,
+   "sha256": "348968e80fdef42404ccf50e5cadd3cef6f362192ba539f414bb0cf6198bf170"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R945_is_disclosure_caused_by_enforcement_or_by_practice/results/enforcement_or_practice.json": {
+   "bytes": 4877,
+   "sha256": "a52ad25a70fd081ab35cded0ee43ca5e684828d85d39487c8313b45ec3017fca"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R946_is_the_zero_silence_or_the_readers_blindness/results/silence_or_blindness.json": {
+   "bytes": 4356,
+   "sha256": "2e5e48d816cffaf876ad878bb7a7037fc297c8558518e5bd88eb93ee56bd62f7"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R947_do_the_statements_own_numbers_come_from_artifacts/results/numbers_trace.json": {
+   "bytes": 4012,
+   "sha256": "437e0d4ef817c1cbe4ef230190ea98149a8d8d9af8e414331b5be8159e8b498b"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R948_does_the_cited_round_actually_hold_the_number/results/attribution.json": {
+   "bytes": 15372,
+   "sha256": "648850dc4a1007666cb682e211bd69cb9c5814b03e214e79c0a83a4428f0f9b2"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R949_does_the_key_that_holds_it_mean_what_the_sentence_says/results/quantity_agreement.json": {
+   "bytes": 65893,
+   "sha256": "bec9c388d4e5804b724c300a6eeaa11e1d263717b9e441e1c7daa584dbdcddde"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R950_the_naming_convention_shipped_and_its_first_user_is_this_round/results/shipped.json": {
+   "bytes": 781,
+   "sha256": "62288db30ce2112b658ec38c07c50d56373e1835862f1bc2afaacfa260255bfe"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R951_do_the_1338_retractions_name_their_own_error_classes/results/error_classes.json": {
+   "bytes": 704,
+   "sha256": "dcfdb9da1edfe257e55d77b7fdbb4bc3a7cfe06a8bae06eadfc8cf9cb2d48910"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R952_do_the_retractions_instance_the_standards_own_twenty_modes/results/mode_coverage.json": {
+   "bytes": 5596,
+   "sha256": "59e0bc050d3a12956244bcfb79722dee1aadcb9c40221510fa5f9540fc0a7146"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R953_three_near_zeros_are_three_silences_until_each_probe_has_a_positive_control/results/three_silences.json": {
+   "bytes": 1290,
+   "sha256": "82d9d7cbe76fbb286f480cc84546fc72dc4f737f4e689e20f29508ac65a3fb51"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R954_the_retraction_header_shipped_and_the_attack_found_my_floor/results/shipped.json": {
+   "bytes": 671,
+   "sha256": "9197f8e099e893ab2e4909136955d30f2b576bc763cd80058ba9015f91a0e010"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R955_does_the_definition_contradict_itself_between_statement_and_record/results/self_contradiction.json": {
+   "bytes": 907497,
+   "sha256": "f40473ec333bdf5e668d824a854cc54d52564a1f571832110bff0e08d750a45f"
+  },
+  "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R956_the_qualifier_rule_turns_the_read_into_something_checkable/results/qualifier_split.json": {
+   "bytes": 20633,
+   "sha256": "f6623a230f3f9d53147a7658202977c8572929e47c6988d757c0b66ffc2c1ed9"
   }
  },
  "claims": [

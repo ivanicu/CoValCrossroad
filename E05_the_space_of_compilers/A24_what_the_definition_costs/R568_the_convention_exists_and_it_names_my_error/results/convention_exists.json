@@ -1,9 +1,0 @@
-{
-  "world": "B",
-  "gate_exists": true,
-  "gate_passes": true,
-  "docstring_names_the_error": true,
-  "attributes_to_r373": true,
-  "retracts": "R567's conclusion that the campaign has no floor schema",
-  "corrected_finding": "the convention exists as a FORWARD RATCHET with frozen debt 0; the 60+ historical key names are what it does not attempt to migrate"
-}
