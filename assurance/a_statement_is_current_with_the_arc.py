@@ -355,6 +355,15 @@ def main() -> int:
                       [r"(contains|admits).{0,200}(without singling|no special status)",
                        r"(200 of 968|21%|imputed).{0,300}(coverage|extension|A2)"]))
 
+    # ⭐ R1012: the cut is clean; the COUNTS are not. A statement quoting 24/28 without saying two
+    #    of each are partial-coverage arms is quoting a count with imputed members.
+    d = load("A27_*/R1012_*/results/cut_provenance.json")
+    if d:
+        facts.append(("R1012", "the cut survives excluding imputed arms; the counts do not",
+                      f"moved={d['comparators_whose_cut_moved']}",
+                      [r"(cut).{0,220}(unchanged|clean|survives|not an artifact)",
+                       r"(24\s*(?:→|->|to)\s*22|28\s*(?:→|->|to)\s*26)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

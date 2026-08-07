@@ -1,0 +1,71 @@
+{
+ "source_sha": "1c9b57d2248eedf9",
+ "head": "does the load-bearing cut rest on partial-coverage arms",
+ "n_prompts": 968,
+ "nboot": 8000,
+ "seed": 921,
+ "partial_coverage": {
+  "coval_core_2bA": 200,
+  "coval_core_2bB": 200,
+  "promptecho": 398,
+  "promptecho_sham": 398
+ },
+ "controls": {
+  "positive_reproduces_r922": true,
+  "placebo_empty_exclusion": true,
+  "negative_top2_exclusion": true,
+  "top2_excluded": [
+   "oracle_k4",
+   "oracle_k4_oracle_kA"
+  ]
+ },
+ "rows": [
+  {
+   "comparator": "generic",
+   "population": "full",
+   "cut": 0.5593110791885864,
+   "n": 24,
+   "argmin": "topw_k8"
+  },
+  {
+   "comparator": "generic",
+   "population": "minus partial",
+   "cut": 0.5593110791885864,
+   "n": 22,
+   "argmin": "topw_k8"
+  },
+  {
+   "comparator": "generic",
+   "population": "minus top-2",
+   "cut": 0.5593110791885864,
+   "n": 22,
+   "argmin": "topw_k8"
+  },
+  {
+   "comparator": "genericpool16",
+   "population": "full",
+   "cut": 0.5513543391990778,
+   "n": 28,
+   "argmin": "generic"
+  },
+  {
+   "comparator": "genericpool16",
+   "population": "minus partial",
+   "cut": 0.5513543391990778,
+   "n": 26,
+   "argmin": "generic"
+  },
+  {
+   "comparator": "genericpool16",
+   "population": "minus top-2",
+   "cut": 0.5513543391990778,
+   "n": 26,
+   "argmin": "generic"
+  }
+ ],
+ "world": "A THE CUT IS CLEAN \u2014 the argmin is a full-coverage arm under every comparator",
+ "imputed_argmin": [],
+ "comparators_whose_cut_moved": [],
+ "limitation": "recomputing what the partial arms' A2 WOULD be with real scores is impossible here; those 768 prompts were never scored for them",
+ "would_require": "scoring the partial-coverage arms on the full corpus"
+}

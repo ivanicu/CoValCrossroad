@@ -282,6 +282,39 @@ can order. The **sham** (`coval_core_sham`, ingredient inverted) is beaten by **
 +0.0801]**. `topw_k4_detA` vs `_detB`, a deterministic pair, returns **exactly zero with a degenerate
 interval** — the measured noise floor of this design on a known-zero effect. Self-comparison is zero.
 
+### ⭐ THE CUT SURVIVES THE IMPUTATION — THE COUNTS DO NOT (added 2026-08-07, R1012)
+
+R1011 found two extension arms scored on 21% of the corpus. **The load-bearing question is whether the
+CUT depends on them**, because every round in this arc pins its wiring control to R922's cut at 1e-9.
+Recomputed with the same operator, same seed, same 8,000 draws, one population change:
+
+| comparator | population | cut | n | argmin |
+|---|---|---:|---:|---|
+| `generic` | full | **0.5593110792** | 24 | `topw_k8` |
+| `generic` | **minus partial-coverage** | **0.5593110792** | **22** | `topw_k8` |
+| `genericpool16` | full | **0.5513543392** | 28 | **`generic`** |
+| `genericpool16` | **minus partial-coverage** | **0.5513543392** | **26** | **`generic`** |
+
+⭐ **The cut does not move — Δ = 0.0000000000 under both comparators**, and the argmin is a
+full-coverage arm in each. **So the arc's calibration number is not an artifact of the imputation.**
+
+⛔ **The COUNTS are.** `24 → 22` and `28 → 26`: **two of each committed count are partial-coverage
+arms.** Any statement quoting *"24 admitted"* is quoting a count with two imputed members.
+
+⭐⭐ **And a cross-check falls out of the argmin column.** Under `genericpool16` the cut is set by
+**`generic`** — the prompt-blind arm R1009 found admitted. Two rounds reaching the same object by
+different routes: the arm that should not qualify is the one defining the boundary.
+
+**Controls.** The full-population recomputation reproduces R922's cut **and** count at 1e-9 under both
+comparators — without which no difference here would mean anything. Excluding the **empty set**
+reproduces the full result. Excluding the two **highest-A2** arms (never the argmin) leaves the cut
+exactly unchanged, which is what distinguishes "removing arms moves the cut" from "removing *these*
+arms moves the cut".
+
+⚠ **What cannot be done here:** recomputing what the partial arms' A2 *would* be with real scores.
+Those 768 prompts were never scored for them — that is the defect, not a gap in the round. It would
+require scoring them on the full corpus.
+
 ### ⛔ AND TWO EXTENSION ARMS WERE ADMITTED ON 79% IMPUTED DATA
 
 The first negative control used `coval_core_2bA`, which R1005's census reports as agreeing with
