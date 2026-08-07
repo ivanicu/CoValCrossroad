@@ -1,0 +1,29 @@
+{
+ "source_sha": "68ddf36f4c8274f3",
+ "head": "d212bb6c",
+ "claimed": {
+  "rounds": 415,
+  "arcs": 24,
+  "epochs": 5,
+  "highest": 421
+ },
+ "actual": {
+  "rounds": 965,
+  "arcs": 28,
+  "epochs": 5,
+  "highest": 995
+ },
+ "n_unmentioned": 828,
+ "unmentioned_range": [
+  2,
+  994
+ ],
+ "fixtures_excluded": 0,
+ "controls": {
+  "positive_known_mentioned": true,
+  "negative_nonexistent": true,
+  "all_ok": true
+ },
+ "world": "B THE HEAD IS STALE \u2014 it describes 415 rounds to R421 across 24 arcs; the tree holds 965 to R995 across 28",
+ "not_done": "the 828 missing round summaries; this round repairs the HEAD and states the rest as a measured debt rather than restating it as a plan"
+}

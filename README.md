@@ -4,11 +4,25 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**415 rounds** in **5 epochs** and **24 arcs**, numbered to **R421** — **53 standing claims, 13
-withdrawn**, and **46 defect checks on the release, 16 of them clean.** (**359 of the 365 carry a
-non-smoke result**, and the six that do not are named by
-[`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) on every run —
-which is why this line is recounted from the gate rather than incremented by hand.)
+**965 rounds** in **5 epochs** and **28 arcs**, numbered to **R995** — counted from the tree by
+[`R995`](E05_the_space_of_compilers/A27_is_the_bar_resolvable/R995_the_readme_head_was_570_rounds_stale/),
+not typed.
+
+⛔ **AND THIS LINE WAS 574 ROUNDS STALE UNTIL R995 MEASURED IT.** It read *"415 rounds in 5 epochs
+and 24 arcs, numbered to R421"* — while the tree held 965 rounds across 28 arcs. The head of the
+document P16 designates as the home for findings was describing a project **less than half this
+size**, and it said so directly beneath a sentence boasting that its counts are *"recounted from the
+gate rather than incremented by hand"*. **The counts that WERE gate-derived stayed honest; the ones
+typed into prose went stale and nothing noticed.**
+
+⚠ **THE DEBT IS LARGER THAN THIS FIX. 829 of the 965 round directories are never mentioned in this
+file** — [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) is RED
+and names them on every run. R995 repaired the **head**, which is what a reader meets first; it did
+not write 829 summaries, and saying it "will" would restate the debt as a plan. **Treat every count
+below that is not explicitly gate-derived as of unknown vintage.**
+
+**Claim counts, as of R340 and NOT re-derived since:** 53 standing claims, 13 withdrawn; 46 defect
+checks on the release, 16 clean.
 
 ⚠ **The claim count has a narrower population than the round count, and adding them would mislead.**
 Both consolidators below re-derive on every run and were re-run at R340: the ledger reports
