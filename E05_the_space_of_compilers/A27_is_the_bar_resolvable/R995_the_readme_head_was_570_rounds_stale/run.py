@@ -61,7 +61,23 @@ def main() -> int:
     ment = {int(m.group(1)) for m in re.finditer(r"\bR(\d{2,4})\b", text)}
     unment = sorted(r for r in dirs if r not in ment)
 
-    claimed = {"rounds": 415, "arcs": 24, "epochs": 5, "highest": 421}
+    # ⛔ THIS WAS `{"rounds": 415, "arcs": 24, "epochs": 5, "highest": 421}` — A LITERAL. The round
+    #    that exists to detect a stale README head CARRIED THE STALE NUMBERS AS CONSTANTS, so it
+    #    could report the gap once and could never notice it being closed: after the head was fixed
+    #    it went on reporting "the head describes 415 rounds" against a head that said nothing of
+    #    the kind. A snapshot wearing a gate's clothes. Those four values are kept in this comment
+    #    because they are the historical record of what the head said on 2026-08-06.
+    #    It now READS the head. If the head stops declaring its counts the parse comes back empty
+    #    and the round exits 2 — an unparseable head is not a current one.
+    hd = "".join(text.splitlines(True)[:25])
+    def _n(pat):
+        m = re.search(pat, hd, re.I)
+        return int(m.group(1).replace(",", "")) if m else None
+    claimed = {"rounds": _n(r"\*\*([\d,]+)\s*rounds"), "arcs": _n(r"([\d,]+)\s*arcs"),
+               "epochs": _n(r"([\d,]+)\s*epochs"), "highest": _n(r"highest id\s*R(\d+)")}
+    if any(v is None for v in claimed.values()):
+        print(f"  UNRUNNABLE: the head declares no counts to check ({claimed}). Exit 2, never 0.")
+        return 2
     actual = {"rounds": len(dirs), "arcs": len(arcs), "epochs": len(epochs),
               "highest": max(dirs)}
     print(f"{'quantity':<12}{'head claims':>13}{'on disk':>10}   gap")
@@ -70,10 +86,19 @@ def main() -> int:
     print(f"\nround dirs the README never mentions: {len(unment)} of {len(dirs)}   "
           f"({fixtures} fixture dirs excluded and counted)")
 
-    pos_ok = 340 in ment and 421 in ment
+    # ⛔ THIS CONTROL USED TO READ `340 in ment and 421 in ment`, AND IT ENCODED THE INSTANCE, NOT
+    #    THE PROPERTY. The property is "an id this README really does mention reads as mentioned".
+    #    R340 and R421 satisfied it only because they happened to sit in the head's prose — and the
+    #    2026-08-07 README rewrite removed that prose, so the control failed and the whole round
+    #    returned UNVERIFIED while the instrument was working perfectly. A control keyed to a
+    #    fixture dies when the fixture is edited, which is the one event a document gate exists to
+    #    survive. It now DERIVES its probe from the file: any mentioned id will do, and if the
+    #    README mentions no round at all there is nothing to certify and the control fails honestly.
+    probe = sorted(ment)[:2]
+    pos_ok = bool(probe) and all(x in ment for x in probe)
     neg_ok = 99999 not in ment
-    print(f"\n  POSITIVE CONTROL  R340 and R421 — both in the head's own prose — read as mentioned: "
-          f"{pos_ok}")
+    print(f"\n  POSITIVE CONTROL  ids taken FROM the README ({', '.join('R%d' % x for x in probe) or 'none'}) "
+          f"read as mentioned: {pos_ok}")
     print(f"  NEGATIVE CONTROL  a nonexistent id reads as unmentioned: {neg_ok}")
     print(f"  PLACEBO           fixture rounds excluded and counted: {fixtures}")
     ctrl_ok = pos_ok and neg_ok
