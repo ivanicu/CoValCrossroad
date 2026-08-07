@@ -1,0 +1,1174 @@
+{
+  "commit": "d8abfbb5b99ab49ba93ad8bfbfdf7d29dc1bde5f",
+  "world": "B",
+  "n_rounds": 159,
+  "unparsed": 0,
+  "by_round": {
+    "MEASURED": 50,
+    "STRUCTURAL": 34,
+    "BARE_LITERAL": 64,
+    "NAMED_CONSTANT": 11
+  },
+  "by_comparison": {
+    "MEASURED": 77,
+    "STRUCTURAL": 88,
+    "BARE_LITERAL": 82,
+    "NAMED_CONSTANT": 18
+  },
+  "shares": {
+    "measured": 0.29056603773584905,
+    "named_constant": 0.06792452830188679,
+    "bare_literal": 0.30943396226415093
+  },
+  "counts_form_not_quality": true,
+  "rounds": [
+    {
+      "file": "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R01_rater_structure/run.py",
+      "kinds": {
+        "MEASURED": 2
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R06_rule_tournament/run.py",
+      "kinds": {
+        "STRUCTURAL": 2
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R11_backbone_control/run.py",
+      "kinds": {
+        "STRUCTURAL": 2
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R15_indistribution_transfer/run.py",
+      "kinds": {
+        "STRUCTURAL": 2
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R21_donor_distance/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R24_regime_receipt/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E02_the_plural_public_dissolved/A04_structured_plurality_or_reliability/R28_multiplicative/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R33_core_launders_polarity/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R34_global_rater_crossfit/run.py",
+      "kinds": {
+        "STRUCTURAL": 1,
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R35_polarity_abstention/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R36_channel_shapley/run.py",
+      "kinds": {
+        "STRUCTURAL": 1,
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E02_the_plural_public_dissolved/A05_what_coval_core_mechanically_is/R37_leakage_topology/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R47_gold_is_length/run.py",
+      "kinds": {
+        "MEASURED": 1,
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A07_can_a_local_judge_be_an_instrument/R53_join_audit/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R61_s_pre_power/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R62_matching_floor/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R63_r60_projection_audit/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R65_edit_symmetry_floor/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1,
+        "MEASURED": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R66_r56_reconstruction/run.py",
+      "kinds": {
+        "STRUCTURAL": 1,
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R67_predictor_reliability/run.py",
+      "kinds": {
+        "BARE_LITERAL": 3
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R68_r40_predictor_reliability/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A08_what_floor_each_counterfactual_requires/R71_r67_split_variance/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R73_direction_from_text_alone/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R74_specificity_vs_exposure/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R75_menu_read_direction/run.py",
+      "kinds": {
+        "STRUCTURAL": 2
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R76_absence_cannot_overlap/run.py",
+      "kinds": {
+        "STRUCTURAL": 2,
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R77_topicality_control/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R78_tokeniser_robustness/run.py",
+      "kinds": {
+        "MEASURED": 2,
+        "STRUCTURAL": 2
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A09_can_direction_be_read_from_text_alone/R83_low_magnitude_drop/run.py",
+      "kinds": {
+        "STRUCTURAL": 5
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R91_precision_budget/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R93_clustering_unit_transfers/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R95_layer_separability/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R100_rater_reliability/run.py",
+      "kinds": {
+        "NAMED_CONSTANT": 1
+      },
+      "strongest": "NAMED_CONSTANT"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R101_reliability_offset/run.py",
+      "kinds": {
+        "MEASURED": 2
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R102_margin_calibration/run.py",
+      "kinds": {
+        "STRUCTURAL": 2,
+        "NAMED_CONSTANT": 1
+      },
+      "strongest": "NAMED_CONSTANT"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R103_consensus_conditioned/run.py",
+      "kinds": {
+        "STRUCTURAL": 1,
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R104_deattenuated_consensus/run.py",
+      "kinds": {
+        "NAMED_CONSTANT": 2,
+        "STRUCTURAL": 1,
+        "MEASURED": 1
+      },
+      "strongest": "NAMED_CONSTANT"
+    },
+    {
+      "file": "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R106_share_level_under_redraw/run.py",
+      "kinds": {
+        "NAMED_CONSTANT": 2,
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R115_shrink_is_one_parameter/run.py",
+      "kinds": {
+        "NAMED_CONSTANT": 1
+      },
+      "strongest": "NAMED_CONSTANT"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R117_multidimensional_sacrifice/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1,
+        "STRUCTURAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R118_sacrifice_factorial/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1,
+        "STRUCTURAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R120_cell_calibration/run.py",
+      "kinds": {
+        "MEASURED": 2
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R122_metric_gauge_grid/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R123_the_baseline_was_crippled/run.py",
+      "kinds": {
+        "STRUCTURAL": 1,
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R127_whose_sign/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R130_judge_gauge/run.py",
+      "kinds": {
+        "NAMED_CONSTANT": 1
+      },
+      "strongest": "NAMED_CONSTANT"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R133_the_veto/run.py",
+      "kinds": {
+        "NAMED_CONSTANT": 2,
+        "MEASURED": 1
+      },
+      "strongest": "NAMED_CONSTANT"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R137_batch_gauge/run.py",
+      "kinds": {
+        "NAMED_CONSTANT": 1
+      },
+      "strongest": "NAMED_CONSTANT"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R138_is_there_a_standard/run.py",
+      "kinds": {
+        "NAMED_CONSTANT": 3
+      },
+      "strongest": "NAMED_CONSTANT"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R149_price_of_inclusion/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1,
+        "STRUCTURAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R152_what_fails_the_menu/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R157_is_it_a_quality_detector/run.py",
+      "kinds": {
+        "STRUCTURAL": 2
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R160_out_of_sample/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R174_did_the_second_question_collect_anything/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A14_do_our_own_claims_survive_an_adversary/R184_two_poles_or_two_islands/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R208_welldefinedness/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E04_no_fraction_only_an_equivalence_class/A15_is_the_detection_design_well_defined_and_checkable/R209_repaired_design/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A16_what_a_compiler_is_and_what_its_operations_cost/R221_contamination/run.py",
+      "kinds": {
+        "MEASURED": 1,
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R307_a_size_matched_neutral_arm/run.py",
+      "kinds": {
+        "STRUCTURAL": 2
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R332_the_closure_level_derives_reading_A/run.py",
+      "kinds": {
+        "NAMED_CONSTANT": 1
+      },
+      "strongest": "NAMED_CONSTANT"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R374_were_the_red_gates_ever_green/run.py",
+      "kinds": {
+        "MEASURED": 2
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R430_is_the_null_gap_the_null_or_the_weighting/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R433_does_clause_two_transport_with_its_subject/run.py",
+      "kinds": {
+        "MEASURED": 2
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R435_is_a_sufficiency_clause_even_statable/run.py",
+      "kinds": {
+        "MEASURED": 2
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R436_does_clause_four_exclude_anything_at_home/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R437_do_the_two_bars_invert_between_releases/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R438_does_the_gap_flip_inside_one_release/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1,
+        "STRUCTURAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R439_is_clause_four_a_reparameterisation_of_two/run.py",
+      "kinds": {
+        "MEASURED": 1,
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R440_the_four_clauses_on_one_arm_space/run.py",
+      "kinds": {
+        "STRUCTURAL": 2
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R441_is_the_size_clause_a_clause/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R442_the_extension_under_clause_three_as_written/run.py",
+      "kinds": {
+        "STRUCTURAL": 1,
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R443_does_clause_three_as_written_exclude_the_core_itself/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2,
+        "MEASURED": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R445_is_the_extension_empty_on_a_resolved_difference/run.py",
+      "kinds": {
+        "MEASURED": 4
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R446_clause_two_over_every_admissible_reference/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R447_is_the_judge_emptiness_a_reference_artifact/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R462_is_oldest_first_the_right_ordering/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R475_the_card_decides_clause_three/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R476_what_fraction_of_the_document_is_checked/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R483_nine_fails_were_three_unlike_things/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R484_how_many_detectors_read_their_own_prose/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R488_a_class_is_what_a_rule_admits/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R501_can_provenance_be_replaced_by_a_behavioural_test/run.py",
+      "kinds": {
+        "MEASURED": 1,
+        "STRUCTURAL": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R502_the_admissible_side_is_one_responsive_arm_and_six_random_ones/run.py",
+      "kinds": {
+        "STRUCTURAL": 3
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R503_the_two_sides_of_clause_three_draw_from_the_same_pool/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R505_two_ceilings_one_for_rankers_one_for_pair_predictors/run.py",
+      "kinds": {
+        "MEASURED": 2
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R512_the_position_proxy_inverts_against_the_actual_ratings/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R513_the_size_of_my_own_assurance_surface/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R515_can_clause_one_bind_per_prompt/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R516_does_a_per_prompt_clause_one_exclude_any_admitted_arm/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R518_clause_four_is_redundant_where_the_definition_lives/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R519_only_clause_three_narrows_what_two_admits/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R521_what_the_declared_literal_costs_on_the_wider_population/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R522_the_six_candidacies_become_verdicts/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1,
+        "STRUCTURAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R523_are_the_six_arms_three_or_aliases/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R527_is_clause_two_a_choice/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R528_where_the_definition_empties/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R529_which_human_labels_does_clause_three_mean/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R530_what_the_empty_world_costs/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R531_prompt_responsiveness_derived_not_declared/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R532_what_the_fork_costs_in_a2/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R533_the_weight_reading_dose_curve/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R534_three_input_classes_not_two/run.py",
+      "kinds": {
+        "MEASURED": 2
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R535_how_remote_is_the_third_reading/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R536_does_the_ordering_survive_a_second_judge/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R539_what_the_on_site_round_costs/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R540_tokens_per_second_on_this_box/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R541_the_throughput_was_measured_on_the_wrong_operation/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R542_every_model_was_wrong_every_log_was_right/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R550_is_the_new_gates_blind_spot_inhabited/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R555_row_two_named_a_model_where_it_meant_a_requirement/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R559_the_recommendation_rests_on_one_cell_of_a_two_cell_curve/run.py",
+      "kinds": {
+        "NAMED_CONSTANT": 1
+      },
+      "strongest": "NAMED_CONSTANT"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R563_the_gates_were_never_silent_my_regex_was_blind/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R564_the_round_index_is_236_rounds_behind/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R565_nine_arcs_the_deliverable_may_not_reach/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R566_a_third_deliverable_document_nobody_opened/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R574_meta_gates_are_a_structural_partition_not_a_count/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R627_the_multiplicity_threshold_swept/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R661_is_the_naming_rate_just_exposure/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R663_audit_my_own_forecast_record/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R690_which_literals_assert_the_release/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R704_is_f2s_weight_our_replicate_count/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R705_what_gain_this_design_can_detect/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R708_does_the_gate_predict_falsity/run.py",
+      "kinds": {
+        "STRUCTURAL": 2
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R709_is_the_n_equals_one_the_corpus_or_the_definition/run.py",
+      "kinds": {
+        "STRUCTURAL": 5
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R710_are_ranking_words_a_better_trigger_class/run.py",
+      "kinds": {
+        "STRUCTURAL": 1,
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R711_is_the_core_sham_residual_above_chance/run.py",
+      "kinds": {
+        "MEASURED": 3
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R715_do_instance_predicates_exist_and_separate/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R716_what_the_quantised_statistic_can_resolve/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R717_a_ratio_split_by_its_own_denominator/run.py",
+      "kinds": {
+        "STRUCTURAL": 2
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R763_did_the_drift_return_and_which_unit_says_so/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R773_the_ties_are_structural_not_granular/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R786_the_affinity_axis_has_ten_points_not_two/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R806_is_the_leak_verdict_a_scale_artifact/run.py",
+      "kinds": {
+        "STRUCTURAL": 1,
+        "MEASURED": 2
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R821_which_definition_is_the_deliverable/run.py",
+      "kinds": {
+        "STRUCTURAL": 2
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R841_does_the_exact_class_interval_close_on_every_annotator/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R845_the_margin_the_binary_test_could_not_see/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R848_what_does_the_word_every_cost_dose_response/run.py",
+      "kinds": {
+        "MEASURED": 2
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R849_does_the_proposed_clause_survive_its_own_test/run.py",
+      "kinds": {
+        "STRUCTURAL": 1,
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R850_is_the_extension_selective_or_merely_small/run.py",
+      "kinds": {
+        "STRUCTURAL": 1
+      },
+      "strongest": "STRUCTURAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R851_which_published_extension_is_actually_exposed/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R853_does_clause_two_reward_content_or_format/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R854_is_the_pair_shuffle_survivor_set_arm_intrinsic/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R861_the_selection_component_of_a_max_bar/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1,
+        "STRUCTURAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R862_does_the_selection_sign_survive_a_60x_wider_family/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R863_is_the_1p5_floor_calibrated_for_a_max_comparator/run.py",
+      "kinds": {
+        "NAMED_CONSTANT": 2
+      },
+      "strongest": "NAMED_CONSTANT"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R865_which_clause_verdicts_are_criterion_invariant/run.py",
+      "kinds": {
+        "STRUCTURAL": 3,
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R866_the_comparator_is_a_swept_axis_not_a_choice/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R875_does_the_definition_admit_anything_but_its_own_instance/run.py",
+      "kinds": {
+        "STRUCTURAL": 1,
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R876_are_the_admitted_arms_distinct_from_each_other/run.py",
+      "kinds": {
+        "MEASURED": 2
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R878_does_clause_two_select_on_the_tie_rate/run.py",
+      "kinds": {
+        "MEASURED": 2
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R879_how_small_a_tie_dependence_could_R878_have_seen/run.py",
+      "kinds": {
+        "MEASURED": 3
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R880_is_the_admitted_set_stable_in_the_bootstrap_count/run.py",
+      "kinds": {
+        "STRUCTURAL": 2,
+        "BARE_LITERAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R881_how_far_from_the_boundary_and_which_condition_binds/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1,
+        "STRUCTURAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R868_can_a_gate_be_dead_and_green_at_once/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R869_which_gates_can_write_outside_their_own_scope/run.py",
+      "kinds": {
+        "BARE_LITERAL": 1,
+        "STRUCTURAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R870_were_my_declared_worlds_ever_entered/run.py",
+      "kinds": {
+        "MEASURED": 1
+      },
+      "strongest": "MEASURED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R872_how_many_directional_claims_were_measured_at_two_ends/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R873_does_a_series_ordering_carry_direction_beyond_chance/run.py",
+      "kinds": {
+        "BARE_LITERAL": 2,
+        "STRUCTURAL": 1
+      },
+      "strongest": "BARE_LITERAL"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R882_do_my_verdicts_compare_against_measured_references/run.py",
+      "kinds": {
+        "MEASURED": 1,
+        "STRUCTURAL": 1
+      },
+      "strongest": "MEASURED"
+    }
+  ]
+}

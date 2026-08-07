@@ -1,6 +1,6 @@
 {
  "why": "Verdict branches comparing against a bare numeric literal, as of the gate's first run. FROZEN means RECORDED, not forgiven: each is a verdict decided by a number chosen in the same line, and R881 showed how much can turn on one (0.28 measured vs a 0.25 I wrote).",
- "population": "550 of 832 round files assign a `world`/`verdict` variable; 64 of those 550 (11.6%) contain at least one bare-literal verdict comparison.",
+ "population": "\u26d4 CORRECTED by R882. This first read '550 of 832 ... 64 of those 550 (11.6%)'. The 550 counts rounds assigning a world/verdict AT ALL, including ones that assign a plain string with no comparison \u2014 where a threshold cannot exist. The population for 'how often is a verdict decided by a bare literal' is rounds that decide BY A COMPARISON: 159. CORRECTED RATE: 64 of 159 = 40.3%, not 11.6%. The problem is 3.5x larger than first reported; the gate and its 78 entries are unaffected.",
  "composition": "78 comparisons; by literal VALUE, 58 uses are bespoke and 24 are conventional (0.05, 0.5, 1.5, 2.0, ...). The convention set is named in the round's report so the split is auditable rather than asserted.",
  "n": 78,
  "keys": [
