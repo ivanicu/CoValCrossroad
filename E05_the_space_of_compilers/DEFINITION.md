@@ -913,6 +913,38 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > (noisier) versus more pairs averaged (less noisy) — **so it was a fork, not a derivation.** The
 > curve settles it toward narrowing, but non-monotonically: `0.0696 → 0.1266 → 0.0838 → 0.0610 →
 > 0.0402 → 0.0287 → 0.0349`. **That is the third time this session a NEXT presumed its own answer.**
+>
+> ⭐⭐⭐ **AND THE ADMITTED SET IS EXACTLY STABLE IN THE RESAMPLING BUDGET — R880, four controls
+> PASS, D8.** R878 ran at `NBOOT=500`, R865 at `2000`, and R875/R876/R877 inherited whichever they
+> were handed. **If clause ②'s admitted set moved with that number, "25 arms" and everything stacked
+> on it would be a resampling artifact.** Swept 250 → 8000 at two seeds:
+>
+> | NBOOT | 250 | 500 | 1000 | 2000 | 4000 | 8000 |
+> |---|---:|---:|---:|---:|---:|---:|
+> | admitted | 28 | 28 | 28 | 28 | 28 | 28 |
+> | Jaccard vs the 8000-set | **1.0000** | **1.0000** | 1.0000 | 1.0000 | 1.0000 | — |
+> | flips vs reference | 0 | 0 | 0 | 0 | 0 | — |
+>
+> ⭐⭐ **Identical at every budget and both seeds — zero flips.** So `NBOOT=500` was already enough
+> and **no downstream count is a resampling artifact on this axis.**
+>
+> ⭐⭐⭐ **AND THAT IS A SUBSTANTIVE PROPERTY OF THE CLAUSE, NOT A FORMALITY: the admitted set is not
+> MARGINAL.** The check could plainly have failed — arms sitting near the BH boundary would flip
+> between draws. **None does.** At n=968 the 28 arms are far from the decision boundary in both
+> directions.
+>
+> ⭐ **FULL RECONCILIATION ACROSS FOUR ROUNDS, computed rather than asserted:**
+> **28** (R880, total) = **1** core + **2** aliases (`coval_core_2bA/2bB`, r > 0.9999) + **25**
+> distinct — and 28 − 1 = **27** is exactly R875's *"admitted besides `coval_core`"*, while 25 is
+> exactly R876's population. **Four rounds, four numbers, one object.**
+>
+> ⛔ **THE DERIVATION, STATED SO IT IS NOT MISTAKEN FOR THE FINDING:** Monte-Carlo error falls as
+> `NBOOT → ∞`, so the largest budget is the best estimate **by arithmetic**. What was measured is
+> the **convergence**, and it is immediate.
+> ⚠ **SCOPE, and it matters:** this is the FULL 968-prompt population. R878/R879 stratified to
+> ~322 and ~138 prompts, where the set does move — that movement is what their Jaccards measure.
+> **Stability at full n does not imply stability at stratum n**, and R879's MDE curve is the number
+> that governs there.
 
 | clause | excludes | status | scope |
 |---|---:|---|---|

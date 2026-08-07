@@ -1,0 +1,98 @@
+{
+  "commit": "1ab20d8fe32f063c6b79ed50a86830355a8f7d4e",
+  "world": "A",
+  "n_prompts": 968,
+  "n_arms": 99,
+  "budgets": [
+    250,
+    500,
+    1000,
+    2000,
+    4000,
+    8000
+  ],
+  "seeds": [
+    11,
+    77
+  ],
+  "rows": [
+    {
+      "nboot": 250,
+      "n_seed1": 28,
+      "n_seed2": 28,
+      "jaccard_vs_ref": 1.0,
+      "jaccard_seed_vs_seed": 1.0,
+      "flips_vs_ref": []
+    },
+    {
+      "nboot": 500,
+      "n_seed1": 28,
+      "n_seed2": 28,
+      "jaccard_vs_ref": 1.0,
+      "jaccard_seed_vs_seed": 1.0,
+      "flips_vs_ref": []
+    },
+    {
+      "nboot": 1000,
+      "n_seed1": 28,
+      "n_seed2": 28,
+      "jaccard_vs_ref": 1.0,
+      "jaccard_seed_vs_seed": 1.0,
+      "flips_vs_ref": []
+    },
+    {
+      "nboot": 2000,
+      "n_seed1": 28,
+      "n_seed2": 28,
+      "jaccard_vs_ref": 1.0,
+      "jaccard_seed_vs_seed": 1.0,
+      "flips_vs_ref": []
+    },
+    {
+      "nboot": 4000,
+      "n_seed1": 28,
+      "n_seed2": 28,
+      "jaccard_vs_ref": 1.0,
+      "jaccard_seed_vs_seed": 1.0,
+      "flips_vs_ref": []
+    },
+    {
+      "nboot": 8000,
+      "n_seed1": 28,
+      "n_seed2": 28,
+      "jaccard_vs_ref": 1.0,
+      "jaccard_seed_vs_seed": 1.0,
+      "flips_vs_ref": []
+    }
+  ],
+  "counts": [
+    28,
+    28,
+    28,
+    28,
+    28,
+    28
+  ],
+  "count_spread": 0,
+  "stable_from_nboot": 250,
+  "at_500": {
+    "nboot": 500,
+    "n_seed1": 28,
+    "n_seed2": 28,
+    "jaccard_vs_ref": 1.0,
+    "jaccard_seed_vs_seed": 1.0,
+    "flips_vs_ref": []
+  },
+  "reference": {
+    "nboot": 8000,
+    "seed": 11,
+    "why": "largest budget is best BY DERIVATION (MC error -> 0)"
+  },
+  "controls": {
+    "oracle_all": true,
+    "random_none": true,
+    "seed_vs_budget_separable": true,
+    "mean_seed_jaccard": 1.0,
+    "mean_adjacent_budget_jaccard": 1.0
+  }
+}
