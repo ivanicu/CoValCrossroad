@@ -14,3 +14,27 @@
 | [`R858`](R858_how_often_does_my_own_NEXT_point_at_nothing) | R858 · how often does my own NEXT line point at nothing? | 1 |
 
 <!-- ROUND-INDEX:END -->
+
+## Rounds indexed 2026-08-07 — GENERATED FROM ARTIFACTS, not authored
+
+⚠ Each row's text is READ from that round's own results JSON (its `world`/`verdict` and its own
+scope note). Nothing here is written from memory, and nothing is a summary I composed: a table of
+contents that paraphrases is a second account of the results, which P16 forbids. For the finding,
+its interval and its caveat, open the round.
+
+`every_round_reaches_the_readme` had been failing for 93 rounds across five arcs, and
+had been failing unasked for a whole session. A round that ran and is never mentioned is a result
+nobody has.
+
+| round | as its artifact states it |
+|---|---|
+| `R868_can_a_gate_be_dead_and_green_at_once` | world **A** |
+| `R869_which_gates_can_write_outside_their_own_scope` | world **B** |
+| `R870_were_my_declared_worlds_ever_entered` | world **C** |
+| `R871_is_the_worlds_convention_growing_or_decaying` | world **A** |
+| `R872_how_many_directional_claims_were_measured_at_two_ends` | world **B** |
+| `R873_does_a_series_ordering_carry_direction_beyond_chance` | world **C** |
+| `R882_do_my_verdicts_compare_against_measured_references` | world **B** |
+| `R883_can_a_published_share_be_audited_from_its_own_artifact` | world **B** |
+| `R884_how_much_of_each_gates_baseline_is_the_gate_itself` | world **A** |
+| `R885_would_the_partition_invariant_have_caught_the_four` | world **B** |

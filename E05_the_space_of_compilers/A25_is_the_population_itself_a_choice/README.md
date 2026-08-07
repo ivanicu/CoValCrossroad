@@ -16,3 +16,19 @@ in `E05/DEFINITION.md`.
 |---|---|
 | `R918` the typing is a decision tree on two thresholds | are `exact > 0.95` and `lex > 0.25` degrees of freedom, or structural predicates wearing a threshold's clothes? |
 | `R919` which of the eight placebos could ever have fired | is R917's "7 of 8 inside the null" evidence of no effect, or a test with no power? |
+
+## Rounds indexed 2026-08-07 — GENERATED FROM ARTIFACTS, not authored
+
+⚠ Each row's text is READ from that round's own results JSON (its `world`/`verdict` and its own
+scope note). Nothing here is written from memory, and nothing is a summary I composed: a table of
+contents that paraphrases is a second account of the results, which P16 forbids. For the finding,
+its interval and its caveat, open the round.
+
+`every_round_reaches_the_readme` had been failing for 93 rounds across five arcs, and
+had been failing unasked for a whole session. A round that ran and is never mentioned is a result
+nobody has.
+
+| round | as its artifact states it |
+|---|---|
+| `R918_the_typing_is_a_decision_tree_on_two_thresholds` | world **A** · counts are ARMS; share = admitted/built within a kind |
+| `R919_which_of_the_eight_placebos_could_ever_have_fired` | world **B** · counts are ARMS; MDE is in admitted-share units on the KEPT set |

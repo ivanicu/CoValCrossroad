@@ -657,3 +657,63 @@ with its own verification, and the finding is recorded here where a reader will 
 | [`R860`](R860_the_exact_MDE_of_the_universal_reading) | the exact MDE of the universal reading | 2 |
 
 <!-- ROUND-INDEX:END -->
+
+## Rounds indexed 2026-08-07 — GENERATED FROM ARTIFACTS, not authored
+
+⚠ Each row's text is READ from that round's own results JSON (its `world`/`verdict` and its own
+scope note). Nothing here is written from memory, and nothing is a summary I composed: a table of
+contents that paraphrases is a second account of the results, which P16 forbids. For the finding,
+its interval and its caveat, open the round.
+
+`every_round_reaches_the_readme` had been failing for 93 rounds across five arcs, and
+had been failing unasked for a whole session. A round that ran and is never mentioned is a result
+nobody has.
+
+| round | as its artifact states it |
+|---|---|
+| `R861_the_selection_component_of_a_max_bar` | world **C** |
+| `R862_does_the_selection_sign_survive_a_60x_wider_family` | world **A** |
+| `R863_is_the_1p5_floor_calibrated_for_a_max_comparator` | world **A** |
+| `R864_a_powered_null_for_the_statistic_being_thresholded` | world **A** |
+| `R865_which_clause_verdicts_are_criterion_invariant` | world **A** |
+| `R866_the_comparator_is_a_swept_axis_not_a_choice` | world **C** |
+| `R867_the_window_in_which_a_clause_means_anything` | world **B** |
+| `R874_the_definition_restated_with_its_scopes_bound` | world **B** |
+| `R875_does_the_definition_admit_anything_but_its_own_instance` | world **B** |
+| `R876_are_the_admitted_arms_distinct_from_each_other` | world **A** |
+| `R877_what_is_the_single_axis_the_definition_selects_on` | world **A** |
+| `R878_does_clause_two_select_on_the_tie_rate` | world **A** |
+| `R879_how_small_a_tie_dependence_could_R878_have_seen` | world **A** |
+| `R880_is_the_admitted_set_stable_in_the_bootstrap_count` | world **A** |
+| `R881_how_far_from_the_boundary_and_which_condition_binds` | world **B** |
+| `R886_the_headline_statement_is_one_round_behind_its_evidence` | world **A** |
+| `R888_what_clause_three_excludes_that_clause_two_admits` | world **B** |
+| `R889_the_two_admitted_sets_differ_by_the_word_resolvably` | world **A** · every count is ARMS |
+| `R890_the_diversity_of_the_twelve_that_survive_both_clauses` | world **A** · counts are ARMS; PR is EFFECTIVE DIMENSIONS |
+| `R891_is_the_concentration_forced_by_selecting_on_score` | world **B** |
+| `R892_what_clause_three_costs_and_which_half_of_it_is_identified` | verdict **UNVERIFIED** |
+| `R893_leakage_priced_at_eight_matched_cells` | world **A** · gaps are A2 margin units vs genericpool16; counts are CELLS |
+| `R894_is_my_own_generation_the_confound` | world **A** · r is a correlation; mean|Δ| is in A2 units; counts are PROMPTS |
+| `R895_leakage_with_the_judge_in_the_cell_key` | world **A** · gaps are A2 margin units vs genericpool16; counts are CELLS |
+| `R896_is_leakage_a_property_of_the_arms_or_of_the_judge` | world **B** · r is a correlation over PROMPTS; gaps are A2 margin units |
+| `R897_the_common_component_and_what_the_residual_keeps` | world **B** · R² is a share of variance; r is a correlation over PROMPTS |
+| `R898_can_the_common_component_be_named` | world **B** · r is a correlation over PROMPTS |
+| `R899_is_the_component_reliable_or_an_averaging_artifact` | world **A** · r is a correlation over PROMPTS; n is SPLITS |
+| `R900_clause_threes_price_identified_by_a_label_free_search` | verdict **UNVERIFIED** |
+| `R901_a_tier_named_by_an_absence_is_not_a_tier` | world **B** · Jaccard is a set overlap; margins are A2 units |
+| `R902_the_gap_conditional_on_how_much_the_rules_differ` | world **A** · gaps are A2 units; J is a set overlap; n is PROMPTS |
+| `R903_do_the_admitted_twelve_agree_about_criteria` | world **B** · J and C are set overlaps; k is CRITERIA per prompt |
+| `R904_the_disjointness_was_forced_by_the_criterion_source` | world **A** · J is a set overlap over TEXT STRINGS; k is CRITERIA per prompt |
+| `R905_typing_the_core_completes_the_partition` | world **A** · coverage is a SHARE OF CRITERIA per prompt, averaged over prompts |
+| `R906_does_the_bar_favour_a_criterion_source` | world **A** · counts are ARMS; share = admitted/built within a kind |
+| `R907_what_expanding_each_kind_would_cost` | world **A** · cost is JUDGE CALLS per new arm |
+| `R908_the_bar_discriminates_by_rule_not_by_source` | world **A** · counts are ARMS; share = admitted/built within a rule |
+| `R909_does_the_bar_reward_a_selection_objective` | world **B** · counts are ARMS; share = admitted/built |
+| `R910_the_objective_contrast_at_fourteen_arms` | world **A** · counts are ARMS; margins are A2 units vs genericpool16 |
+| `R911_both_groups_grown_at_matched_k` | world **A** · counts are ARMS; margins are A2 units vs genericpool16 |
+| `R912_the_k4_cell_can_never_be_balanced` | world **A** · counts are ARMS; margins are A2 units vs genericpool16 |
+| `R913_does_the_ordering_survive_a_different_named_comparator` | verdict **UNVERIFIED** |
+| `R914_the_transport_arms_are_a_different_corpus` | world **B** · field counts are KEY SEGMENTS; price is JUDGE CALLS |
+| `R915_a_structural_zero_in_the_denominator` | world **B** · counts are ARMS |
+| `R916_which_reported_units_are_apparatus` | world **B** · counts are ARMS |
+| `R917_the_arc_recomputed_without_apparatus` | world **A** · counts are ARMS; share = admitted/built within a rule |
