@@ -23,3 +23,4 @@ in `E05/DEFINITION.md`.
 | `R932` what the tied cuts cost R141 | how far do the 42 points move once the duplicated strata are deduped, and does `length` stay still? |
 | `R933` does R141's headline survive the repaired estimator | with the tie fixed AND the matching rebuilt in-replicate, do the same cells still exclude zero? |
 | `R934` the gate paired two different kills | is R235's flag-vs-interval contradiction real, or did the guard pair an interval from one kill with a boolean from another? |
+| `R935` which gates pass on silence | how many assurance checks have neither a plant nor any finding on the corpus, so their green means nothing? |
