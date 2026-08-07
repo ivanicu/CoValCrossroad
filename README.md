@@ -4,7 +4,7 @@ An independent audit of [OpenAI's CoVal release](https://huggingface.co/datasets
 dataset in which ~1,000 people from 19 countries ranked four candidate assistant responses to
 contentious prompts, *and wrote down the criteria they judged by*.
 
-**965 rounds** in **5 epochs** and **28 arcs**, numbered to **R995** — counted from the tree by
+**987 rounds** in **5 epochs** and **28 arcs**, numbered to **R1017** — counted from the tree by
 [`R995`](E05_the_space_of_compilers/A27_is_the_bar_resolvable/R995_the_readme_head_was_570_rounds_stale/),
 not typed.
 
@@ -44,6 +44,49 @@ but **not** the criterion-by-response satisfaction labels, so its own scoring ca
 from it. This repository rebuilds that layer locally and then asks what the rubric measures.
 
 ---
+
+## The definition, as it stands
+
+⭐ **This is the deliverable.** The full annotated statement, with every clause's scope, lives in
+[`E05_the_space_of_compilers/DEFINITION.md`](E05_the_space_of_compilers/DEFINITION.md) — **one home
+per fact**, so nothing below restates the clause text.
+
+> An arm is a **CORE** iff
+> **②′** it **resolvably beats EVERY comparator in the certified prompt-blind set** — the 2.5th
+> percentile of the bootstrapped paired difference is > 0 — **and**
+> **③** it **consumes no prompt-specific human labels**.
+>
+> **Reported, never required:** its **size**, and its **margin over a declared response-only class**
+> as a lower bound with its interval.
+
+**Its extension on this release: 9 arms, 4 distinct objects** —
+`coval_core`, `topw_k3`, `topw_k4` (with two deterministic twins), `topw_k6`, `topw_k8`.
+
+### What it costs, and what it does not do
+
+| | |
+|---|---|
+| both conditions **bind** | ② removes 64/61 arms nothing else removes; ③ removes 15/16 (R1004) |
+| the **instance is admitted** | under both comparators (R1000) |
+| it is **stable** where the release has the prompts | median churn **0** at N ≥ 484; at N = 242 one seed collapses it to **0 arms** (R1004) |
+| ⛔ it **does not single out the instance** | 5 of 6 admitted arms are **not resolvably ordered** against `coval_core`; only `topw_k8` is (R1011) |
+| ⛔ it is **not validated** | the release ships **no external standard** — its own card calls core *"a proof of concept … an invitation"* |
+
+### Every route to a further clause is closed
+
+| candidate | why it is dead |
+|---|---|
+| **size · size residual · size variability** | the sham shares them — `coval_core` 43, `coval_core_sham` **43** (R1013) |
+| **vocabulary · length · within-set redundancy** | the instance's sham is an **exact derangement** of its own criterion sets, so every text-only property is identical by construction (R1014) |
+| **discriminativeness** (the one quantity that *does* separate) | **post-hoc** (R1015) · measures **belonging, not merit** — random draws from the prompt's own pool sit at chance (R1016) · **evaluable for 4.2% of candidates** and **implied by ②** where it is (R1017) |
+| **clause ④ as a filter** | vacuous or empty at **every** setting; its class is **not closed** (R1002, R1003) |
+| **clause ①** | 0 unique removals — and that was **already in this document** before R1000 restated it (R1010) |
+
+### What was retracted
+
+**R1005's convergence (Δ = +0.0828)** — withdrawn by **R1007** on the negative control R1005 declared
+in its own docstring and never implemented. Full account in
+[`RETRACTIONS.md`](RETRACTIONS.md).
 
 ## The short version
 
