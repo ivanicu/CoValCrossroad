@@ -454,6 +454,19 @@ def main() -> int:
                       [r"(200).{0,300}(imputation|imputed|artifact).{0,200}(twin|split|contrast)",
                        r"(twins|contrast).{0,200}(not|artifact).{0,200}(target|real)"]))
 
+    # ⛔ R1022: the imputation advantage under A1·consensus is MONOTONE in how much is imputed —
+    #    an arm with 4 real prompts of 968 clears clause ②′ against both comparators at lo +0.35,
+    #    while the same arm is rejected under A2. The statement must carry that the A1·consensus
+    #    extension is coverage-driven, not merely that the twins were.
+    d = load("A27_*/R1022_*/results/coverage_threshold_curve.json")
+    if d:
+        e = d["extreme_arm"]
+        facts.append(("R1022", "imputation manufactures admission under A1·consensus",
+                      f"{e['real_prompts']} real prompts clear ②′: "
+                      f"{e['clears_clause2_by_target']}",
+                      [r"(imput\w*).{0,300}(A1).{0,300}(monoton|dose|4 of 968|coverage)",
+                       r"(A1.{0,40}consensus).{0,300}(coverage[- ]driven|monoton\w*)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

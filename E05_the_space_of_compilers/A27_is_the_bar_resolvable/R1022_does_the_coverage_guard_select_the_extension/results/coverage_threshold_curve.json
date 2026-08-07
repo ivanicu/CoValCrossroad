@@ -1,0 +1,339 @@
+{
+  "round": "R1022",
+  "seeds": [
+    1022,
+    2044,
+    3066
+  ],
+  "nboot": 8000,
+  "taus": [
+    1,
+    200,
+    398,
+    968
+  ],
+  "coverage_levels": {
+    "4": [
+      "provenance_probe"
+    ],
+    "200": [
+      "coval_core_2bA",
+      "coval_core_2bB"
+    ],
+    "398": [
+      "promptecho",
+      "promptecho_sham"
+    ],
+    "968": [
+      "coval_core",
+      "coval_core_sham",
+      "gen",
+      "gen_sham",
+      "generic",
+      "generic_reprov",
+      "genericpool16",
+      "greedy_k12_fit1",
+      "greedy_k2_fit1",
+      "greedy_k4_fit1",
+      "greedy_k4_fit1_08b",
+      "greedy_k4_fit1_08bR",
+      "greedy_k4_greedy_kA",
+      "greedy_k4_greedy_kB",
+      "greedy_k8_fit1",
+      "indep_k12_fit1",
+      "indep_k2_fit1",
+      "indep_k4_fit1",
+      "indep_k4_fit1_08b",
+      "indep_k4_fit1_08bR",
+      "indep_k4_indep_kA",
+      "indep_k4_indep_kB",
+      "indep_k8_fit1",
+      "oracle_k4",
+      "oracle_k4_08b",
+      "oracle_k4_08bR",
+      "oracle_k4_fit1",
+      "oracle_k4_fit1_08b",
+      "oracle_k4_oracle_kA",
+      "oracle_k4_oracle_kB",
+      "random_k12_s0",
+      "random_k12_s0_08b",
+      "random_k12_s1",
+      "random_k12_s1_08b",
+      "random_k12_s2",
+      "random_k12_s2_08b",
+      "random_k2_s0",
+      "random_k2_s0_08b",
+      "random_k2_s1",
+      "random_k2_s1_08b",
+      "random_k2_s2",
+      "random_k2_s2_08b",
+      "random_k3_s0",
+      "random_k3_s0_08b",
+      "random_k3_s1",
+      "random_k3_s1_08b",
+      "random_k3_s2",
+      "random_k3_s2_08b",
+      "random_k4_s0",
+      "random_k4_s0_08b",
+      "random_k4_s0_ctlS0",
+      "random_k4_s1",
+      "random_k4_s1_08b",
+      "random_k4_s1_ctlS1",
+      "random_k4_s2",
+      "random_k4_s2_08b",
+      "random_k6_s0",
+      "random_k6_s0_08b",
+      "random_k6_s1",
+      "random_k6_s1_08b",
+      "random_k6_s2",
+      "random_k6_s2_08b",
+      "random_k8_s0",
+      "random_k8_s0_08b",
+      "random_k8_s1",
+      "random_k8_s1_08b",
+      "random_k8_s2",
+      "random_k8_s2_08b",
+      "topabs_k4",
+      "topabs_k4_08b",
+      "topvar_k4",
+      "topvar_k4_08b",
+      "topvar_k4_08bR",
+      "topw_k1",
+      "topw_k12",
+      "topw_k12_08b",
+      "topw_k1_08b",
+      "topw_k2",
+      "topw_k2_08b",
+      "topw_k3",
+      "topw_k3_08b",
+      "topw_k4",
+      "topw_k4_08b",
+      "topw_k4_detA",
+      "topw_k4_detB",
+      "topw_k4_sham",
+      "topw_k6",
+      "topw_k6_08b",
+      "topw_k8",
+      "topw_k8_08b",
+      "topwvar_k4",
+      "topwvar_k4_08b",
+      "topwvar_k4_08bR"
+    ]
+  },
+  "derivation_regime_count": 4,
+  "derivation_threshold_cannot_flip_retained": {
+    "violations": [],
+    "holds": true
+  },
+  "positive": {
+    "tau200": [
+      "coval_core",
+      "coval_core_2bA",
+      "coval_core_2bB",
+      "topw_k3",
+      "topw_k4",
+      "topw_k4_detA",
+      "topw_k4_detB",
+      "topw_k6",
+      "topw_k8"
+    ],
+    "tau968": [
+      "coval_core",
+      "topw_k3",
+      "topw_k4",
+      "topw_k4_detA",
+      "topw_k4_detB",
+      "topw_k6",
+      "topw_k8"
+    ],
+    "range_ok": true
+  },
+  "placebo_flat": true,
+  "extreme_arm": {
+    "name": "provenance_probe",
+    "real_prompts": 4,
+    "rows": [
+      {
+        "target": "A2",
+        "comparator": "generic",
+        "lo": -0.1334610624720893,
+        "lo_seed_spread": 0.00024353256125317357,
+        "admitted": false
+      },
+      {
+        "target": "A2",
+        "comparator": "genericpool16",
+        "lo": -0.12469428376833315,
+        "lo_seed_spread": 0.00010694489920898276,
+        "admitted": false
+      },
+      {
+        "target": "A1\u00b7consensus",
+        "comparator": "generic",
+        "lo": 0.3476239669421488,
+        "lo_seed_spread": 0.0005165289256198746,
+        "admitted": true
+      },
+      {
+        "target": "A1\u00b7consensus",
+        "comparator": "genericpool16",
+        "lo": 0.3527892561983471,
+        "lo_seed_spread": 0.0005165289256198191,
+        "admitted": true
+      }
+    ],
+    "in_population": false,
+    "in_size_record": false,
+    "clears_clause2_by_target": {
+      "A2": false,
+      "A1\u00b7consensus": true
+    },
+    "in_extension_at_tau1": false
+  },
+  "dose_response": [
+    {
+      "arm": "provenance_probe",
+      "real": 4,
+      "min_lo": {
+        "A2": -0.1334610624720893,
+        "A1\u00b7consensus": 0.3476239669421488
+      }
+    },
+    {
+      "arm": "coval_core_2bA",
+      "real": 200,
+      "min_lo": {
+        "A2": 0.009486764198464106,
+        "A1\u00b7consensus": 0.002035123966942164
+      }
+    },
+    {
+      "arm": "coval_core",
+      "real": 968,
+      "min_lo": {
+        "A2": 0.00775412840989532,
+        "A1\u00b7consensus": -0.004158057851239659
+      }
+    },
+    {
+      "arm": "topw_k4",
+      "real": 968,
+      "min_lo": {
+        "A2": 0.005442162133265297,
+        "A1\u00b7consensus": -0.002066115702479332
+      }
+    }
+  ],
+  "curve": {
+    "A2|1": {
+      "tau": 1,
+      "target": "A2",
+      "n_pool": 97,
+      "ext": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "seed_stable": true
+    },
+    "A2|200": {
+      "tau": 200,
+      "target": "A2",
+      "n_pool": 96,
+      "ext": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "seed_stable": true
+    },
+    "A2|398": {
+      "tau": 398,
+      "target": "A2",
+      "n_pool": 94,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "seed_stable": true
+    },
+    "A2|968": {
+      "tau": 968,
+      "target": "A2",
+      "n_pool": 92,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "seed_stable": true
+    },
+    "A1\u00b7consensus|1": {
+      "tau": 1,
+      "target": "A1\u00b7consensus",
+      "n_pool": 97,
+      "ext": [
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "seed_stable": true
+    },
+    "A1\u00b7consensus|200": {
+      "tau": 200,
+      "target": "A1\u00b7consensus",
+      "n_pool": 96,
+      "ext": [
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "seed_stable": true
+    },
+    "A1\u00b7consensus|398": {
+      "tau": 398,
+      "target": "A1\u00b7consensus",
+      "n_pool": 94,
+      "ext": [
+        "topw_k6",
+        "topw_k8"
+      ],
+      "seed_stable": true
+    },
+    "A1\u00b7consensus|968": {
+      "tau": 968,
+      "target": "A1\u00b7consensus",
+      "n_pool": 92,
+      "ext": [
+        "topw_k6",
+        "topw_k8"
+      ],
+      "seed_stable": true
+    }
+  },
+  "world": "\u2b50 C THE ANSWER IS TARGET-DEPENDENT, AND NEITHER WORLD AS WRITTEN \u2014 under `A2` the 4-prompt arm is REJECTED (lo -0.1335), under `A1\u00b7consensus` it is ADMITTED by both comparators (lo +0.3476). So imputation MANUFACTURES admission, but only under the exact-match target, where broadcasting one arm's own mean over 964 unmeasured prompts is worth more than any real signal.",
+  "limitation": "the guard's value is shown inert ON THIS RELEASE; four coverage levels is this benchmark's accident and a continuous spectrum would need the curve re-run"
+}

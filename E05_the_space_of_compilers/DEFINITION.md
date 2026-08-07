@@ -295,6 +295,35 @@ the core is real. The contrast with its twins is not.**
 is not a tie the design could not resolve — the intervals are printed above. And what the twins would
 score on the other 768 is **unknowable**: they were never run there.
 
+⭐⭐ **GENERALISED BY R1022 — THE `A1·consensus` EXTENSION IS COVERAGE-DRIVEN, AND THE EFFECT IS
+MONOTONE IN HOW MUCH IS IMPUTED.** R1021 measured this on the two twins. It is not a fact about those
+two arms. Putting the release's most extreme arm in front of the same operator — `provenance_probe`,
+**4 real prompts of 968, 99.6% of its vector filled with its own mean** — it **clears clause ②′ against
+BOTH comparators under `A1·consensus` at lo +0.3476**, while the *same* arm is **rejected under `A2` at
+lo −0.1335**. The margin is monotone in real coverage:
+
+| arm | real prompts | imputed | `A2` | `A1·consensus` |
+|---|---:|---:|---:|---:|
+| `provenance_probe` | 4 | 99.6% | −0.1335 | **+0.3476** |
+| `coval_core_2bA` | 200 | 79.3% | +0.0095 | **+0.0020** |
+| `coval_core` | 968 | 0.0% | +0.0078 | **−0.0042** |
+| `topw_k4` | 968 | 0.0% | +0.0054 | **−0.0021** |
+
+(`lo` = the worse of the two comparators; > 0 means admitted by ②′.) **Under the exact-match target,
+broadcasting an arm's own mean over unmeasured prompts is worth more than any real signal it could
+carry** — so an `A1·consensus` extension is a statement about coverage before it is one about cores.
+⚠ `provenance_probe` is **not** in R1000's population and **not** in ③'s size record, so it could never
+enter a committed extension; it is a **declared counterfactual on the OPERATOR**, not a candidate.
+
+⭐ **And the threshold itself cannot change any other answer — that is forced, not measured.** An arm's
+imputed vector depends only on its **own** observed values, and each comparator is a single scored arm
+loaded from its own file, never a pool recomputed over surviving candidates. So `admitted(τ) =
+admitted(τ=1) − removed(τ)` **exactly**, verified at all 8 (target, τ) cells as a bookkeeping check.
+Coverage takes only **four** distinct values here — {4, 200, 398, 968} — so the curve below is
+**complete, not sampled**: `A2` 9 → 9 → 7 → 7 and `A1·consensus` 4 → 4 → 2 → 2.
+⚠ The `200` is a bare literal in **22 round scripts**, 21 with no nearby comment. R1022 is the first
+round to ask what it decides. **That is a finding about the programme, not about the release.**
+
 ⚠ **AND R288's ∅ IS NOT REFUTED BY THIS.** The **target** is identical (Δ = 0). But R288 swept
 **clause ② alone** against its own `_blind4`/`_blind15` references over **10** arms; this is **②′∧③**
 against R921's certified comparators over **96**. **Different admission rule AND different
