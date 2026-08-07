@@ -9612,3 +9612,58 @@ R921 proved the admitted sets **nest** and committed both, so recomputing under 
 arithmetic on committed data. Arms lost: **`generic_reprov`, `greedy_k12_fit1`, `topw_k2`** (plus
 `generic` itself, a self-exclusion structural zero). **R911's OTHER group was already 0 admitted and
 cannot fall** — its survival is forced, and reporting it as a replication would be false.
+
+---
+
+## ✅ R925 · CLAUSE ① IS INDEPENDENTLY NECESSARY — and label access is worth 1.82× more at k=1
+
+R924 left clause ①'s independent necessity open: the k=1 oracle clears the bar, but clause ③
+excludes it anyway, and only **one** label-blind size-1 arm had ever been built. **This sweeps every
+label-blind ordering the generator itself expresses** — mean weight, |weight|, satisfaction variance,
+weight×variance — across **rank positions r = 1…15** (the arc had only ever used rank 1) and **both
+coverage rules**. 120 arms, all subsets of `coval_full`, **zero judge calls**.
+
+⭐⭐⭐ **WORLD A: 0 of 120 arms clear clause ②, under either comparator. 240 cells tested, 0
+surviving BH at q=0.05.** Clause ① is **independently necessary** against every ordering this
+generator can express.
+
+| arm | mean A2 | lo vs `generic` |
+|---|---|---|
+| `weight` rank **2** (best of 120) | **0.5314** | −0.028963 |
+| `weight` rank 1 (= `topw_k1`) | 0.5256 | −0.035329 |
+| `weight` rank 3 | 0.5233 | −0.037314 |
+| comparator `generic` | **0.5514** | — |
+| comparator `genericpool16` | **0.5422** | — |
+| **k=1 ORACLE** | **0.6478** | +0.089529 |
+
+⭐ **Rank 2 beats rank 1** — the top-weighted criterion is not the best label-blind single choice,
+which is a question the arc never asked because it only ever built rank 1.
+
+⭐⭐ **THE PRICE OF CLAUSE ③ AT k=1: 0.6478 − 0.5314 = 0.1164.** ⚠ Its **sign** is forced (the oracle
+is a per-prompt maximum) and is a derivation; its **size** is not. Against the same gap at k=4
+(0.6287 − 0.5648 = **0.0639**), **label access is worth 1.82× as much at k=1** — **clause ③ protects
+most exactly where clause ① bites.**
+
+**CONTROLS.** ① `weight` rank 1 reproduces the built `topw_k1` on **all 968 prompts, 0 differences**,
+and its R881 admission decision. ② upper-bound validity: **0** of 108,936 defined cells exceed the
+oracle. ③ placebo: a uniformly random rank sits at percentile **0.4939**. ④ the orderings genuinely
+differ — max pairwise rank-1 agreement **0.6043**, so the grid is as wide as it looks.
+
+⚠ **FOUR OF MY OWN DEFECTS, ALL CAUGHT BY CONTROLS ① AND ②, NONE AFTER PUBLICATION.**
+**① The emission index is not the rubric index.** `select_core.py` emits `f"{pid}|{j}|{x}"` where `j`
+is the position in `sel`, and for `full`, `sel = ok` — a *filtered* subset of the rubric. Reading
+`items[p][i]` with those indices misaligned every weight; control ① caught it at **|ΔA2| = 0.544**.
+**② The 529 "bound violations" were my own NaN-fill.** A RESTRICTED arm is undefined below rank `r`;
+filling those cells with the arm's mean can exceed that prompt's oracle maximum. The bound must be
+checked only where the arm is *defined*.
+**③ Sort stability is part of the specification.** `select_core` uses Python's stable `sorted()`;
+`np.argsort` defaults to unstable quicksort. Measured: rank 1 differs on **137 of 968** prompts under
+the default sort, **8** under `kind="stable"`. A tie-breaking rule was a 26%-of-population difference.
+**④ A text key is not an identity key.** The last 2 mismatches were prompts carrying a criterion
+whose **text appears twice** with different weights and satisfaction rows; a `text → index` dict
+collapses the pair onto its first occurrence. **The instrument's unit was TEXT; the claim's unit is
+CRITERION INDEX.** Repaired with an order-preserving two-pointer match — 0 differences remain.
+
+⚠ **WHAT THIS CANNOT SAY:** that *no* label-blind size-1 selector exists. It sweeps the orderings
+**this generator expresses**; a selector built on some other property of the criteria is uncovered,
+and nothing here excludes one.

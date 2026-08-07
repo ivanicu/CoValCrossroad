@@ -15,3 +15,4 @@ in `E05/DEFINITION.md`.
 |---|---|
 | `R923` run clause ② on its own comparators | does either legitimate comparator resolvably beat the other, and how many admitted arms sit inside the design's own resolution? |
 | `R924` does clause ① exclude anything clause ② does not | is `size > 1` an independent requirement, or implied by the bar? |
+| `R925` can any label-blind size-1 selector clear the bar | sweeping 4 orderings × 15 ranks × 2 coverage rules — does clause ① exclude an admissible core, or an inadmissible one? |
