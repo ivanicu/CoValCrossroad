@@ -42,7 +42,7 @@ ARTIFACT        results/headline_debt.json
 IMPOSSIBLE      cross-release · construct validated · causally identified. ⚠ And unchanged since
                 R874: `the definition describes the instance` stays live for every clause.
 """
-import json, pathlib, subprocess, sys
+import json, pathlib, re, subprocess, sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 OUT = pathlib.Path(__file__).resolve().parent / "results"
@@ -70,8 +70,15 @@ def main() -> int:
     k3 = r876.get("n_admitted_excl_aliases") == 25 and \
         abs((r876.get("pr_observed") or 0) - 1.6368) < 1e-3
     hi = text.find(HEADLINE)
-    block = text[hi:hi + 400] if hi >= 0 else ""
-    k4 = hi >= 0 and ("CI-lower" not in block and "reduces to" not in block)
+    block = text[hi:hi + 900] if hi >= 0 else ""   # widened: the stamp sits below
+    # ⛔ MARKER CORRECTED. This first tested for the literal "CI-lower" while the corrected
+    # headline I wrote says "CI lower bound" — hyphen versus space — so KILL ④ could not see the
+    # very edit it demanded and the re-run still printed WORLD B after the file was already
+    # fixed. Fourth string-mismatch of this shape this session (three annotation anchors, now a
+    # detector marker). The rule the other three taught applies here too: **the marker must be
+    # read from the text it is meant to match, never written from memory of it.** Now a regex
+    # tolerant of both, plus the round-id stamp the edit leaves behind.
+    k4 = hi >= 0 and not re.search(r"CI[ -]lower|reduces to|CORRECTED R886", block, re.I)
     print(f"  ① R881: BH binds {r881.get('binds_BH')} · CI binds {r881.get('binds_CI')}: {k1}  "
           f"{'PASS' if k1 else 'FAIL'}")
     print(f"  ② R881: closest admitted arm at {r881.get('closest_in_mdes'):.4f} MDE < 1.0: {k2}  "
