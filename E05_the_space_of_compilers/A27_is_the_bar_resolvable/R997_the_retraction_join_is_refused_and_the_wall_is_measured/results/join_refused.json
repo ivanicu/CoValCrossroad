@@ -1,0 +1,22 @@
+{
+ "source_sha": "6b2b0c197f5011a6",
+ "head": "2c39519a",
+ "n_entries": 1149,
+ "id_min": 236,
+ "id_max": 1387,
+ "gate_floor": 1388,
+ "n_declared": 0,
+ "n_loose": 799,
+ "loose_share": 0.6953872932985204,
+ "kill_threshold": 20,
+ "controls": {
+  "positive_header_matches_documented_format": true,
+  "negative_header_ignores_prose_mention": true,
+  "placebo_max_id_below_floor": true,
+  "all_ok": true
+ },
+ "world": "B THE JOIN IS UNAVAILABLE \u2014 0 declared links. R954's format binds from entry 1388 and the ledger stops at 1387, so it has never bound on a single entry. 504 stands as an upper bound.",
+ "reopens_at_entry": 1388,
+ "unverified": "R951 reported 8 entries declaring a link; under R954's header the count is 0. R951 predates that format, so probably different instruments \u2014 not resolved.",
+ "upper_bound_stands": 504
+}
