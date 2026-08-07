@@ -467,6 +467,18 @@ def main() -> int:
                       [r"(imput\w*).{0,300}(A1).{0,300}(monoton|dose|4 of 968|coverage)",
                        r"(A1.{0,40}consensus).{0,300}(coverage[- ]driven|monoton\w*)"]))
 
+    # ⛔⛔ R1023: clause ②′'s operator is CALIBRATED ONLY ON FULL-COVERAGE ARMS. Censored to the
+    #    guard's own k=200, an arm whose true difference is EXACTLY zero is admitted ~21% of the
+    #    time against a nominal 2.5%, and the closed-form ratio predicts the whole curve. The
+    #    statement must carry this as a SCOPE limit on the operator, not as a note about one round.
+    d = load("A27_*/R1023_*/results/false_admission_rate.json")
+    if d:
+        facts.append(("R1023", "②′ is calibrated only on full-coverage arms",
+                      f"false-admission at k=200 is {d['far_at_k200_worst']:.3f} "
+                      f"vs nominal {d['nominal']}",
+                      [r"(false[- ]admission|false positive).{0,300}(nominal|0\.025|2\.5)",
+                       r"(calibrat\w*).{0,200}(full[- ]coverage|uncensored|complete)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

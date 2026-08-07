@@ -324,6 +324,37 @@ Coverage takes only **four** distinct values here — {4, 200, 398, 968} — so 
 ⚠ The `200` is a bare literal in **22 round scripts**, 21 with no nearby comment. R1022 is the first
 round to ask what it decides. **That is a finding about the programme, not about the release.**
 
+⛔⛔ **SCOPE LIMIT ON THE OPERATOR ITSELF, MEASURED BY R1023 — CLAUSE ②′ IS CALIBRATED ONLY ON
+FULL-COVERAGE ARMS.** Censoring is an intervention, so this is identified by construction rather than
+adjusted for: take a full-coverage arm, hide all but `k` prompts, impute exactly as the committed
+loader does, and compare it **against itself** — the true difference is then **exactly zero**, and
+every admission is a false positive with no model involved.
+
+| k real prompts | 4 | 25 | 100 | **200** | 400 | 800 | 968 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| false-admission rate | 0.45–0.51 | 0.33–0.38 | 0.21–0.28 | **0.17–0.21** | 0.07–0.16 | 0.04–0.05 | **0.000** |
+
+**At the guard's own `k = 200`, an arm with a true difference of exactly zero is certified as
+resolvably better ~21% of the time, against the operator's nominal 2.5% — eight times its stated
+level.** Binomial SE at 300 draws is ±0.009, so the gap is not a resolution artifact.
+
+⭐ **And the mechanism predicts the whole curve, so this is understood rather than merely observed.**
+Imputing `968−k` cells with the observed mean leaves that mean exactly unchanged but makes those
+cells **constants**, and the bootstrap reads a constant as zero-variance when it is in fact an
+*estimate*. The ratio `SD_true / SE_boot` is closed-form (`sd(v)` cancels): 2.20 at k=200, predicting
+level 0.186 against 0.195 measured; worst gap over the 8 censored levels **0.024**.
+⚠ A consistency check, **not** an independent confirmation — both sides use the same normal
+approximation, so it rules out a coding artifact and not a shared model error.
+
+⚠ **Censoring is not conservative in either direction.** At k=200 a truly-*admitted* arm fails 24–31%
+of the time **and** a truly-*excluded* arm is admitted 51% of the time. It destroys the verdict both
+ways, so a partial-coverage admission cannot be read as "probably right, just noisy".
+
+⭐ **What this buys:** the threshold is no longer a habit. The null curve is a **price list** — at the
+operator's own nominal level nothing below full coverage qualifies; at a relaxed 5% the curve reaches
+it only between k=800 and k=968. It also **explains** R1011's withdrawal of the twins quantitatively
+rather than retracting anything further.
+
 ⚠ **AND R288's ∅ IS NOT REFUTED BY THIS.** The **target** is identical (Δ = 0). But R288 swept
 **clause ② alone** against its own `_blind4`/`_blind15` references over **10** arms; this is **②′∧③**
 against R921's certified comparators over **96**. **Different admission rule AND different
