@@ -1117,6 +1117,24 @@ clause-proximate rounds to saturate, and a random set of the same size usually d
 license *"the clause depends on unattributable work"* at any stated strength. **R1050's downgrade
 stands as a direction; its number is withdrawn as a magnitude.**
 
+⛔⛔ **AND R1054 WITHDRAWS THE DIRECTION TOO, BY CHANGING THE UNIT.** A 12,000-character window catches
+every round the document mentions nearby; **a SENTENCE containing both a clause component and a round
+id asserts that the component rests on that round.** At the sentence unit nothing saturates: of
+**113** arc rounds, **70** are cited in some sentence (the measured ceiling) and **21** are cited in a
+sentence stating a clause component — the **declared dependency set**, nameable at last.
+⭐⭐ **AND THE ENRICHMENT IS ZERO.** The declared set is flagged at **`0.667`** (14 of 21) against a
+registry-wide rate of **`0.676`** (46 of 68) — a difference of **`−0.010`** against an **MDE of
+`0.202`**, i.e. **0.05 of the MDE**. **R1050's claim that the clause rests DISPROPORTIONATELY on
+unattributable work does not survive at the unit that matches its own wording**, and R1053 preserved
+it only as a direction on a statistic already at its ceiling.
+⚠ **This is a null, not a proof of no enrichment** — the design could not have resolved a difference
+below `0.202`. ⭐ **What stands is the unconditional fact, and it is worse than the one withdrawn:
+`0.676` of the whole registry is unattributable on currency, clause or no clause.** The clause is not
+special; the gate is.
+⚠ **And declared is not NECESSARY**: a sentence citing a round asserts a relation, not that the clause
+would fail without it. Necessity needs the clause restated without each cited round and the admission
+operator re-run.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

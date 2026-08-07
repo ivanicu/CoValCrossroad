@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1054_*/results/declared_dependencies.json")
+    if d:
+        facts.append(("R1054", "at the sentence unit the clause shows no enrichment",
+                      f"declared {len(d['declared'])}, rate {d['declared_flagged_rate']:.3f} vs "
+                      f"{d['registry_flagged_rate']:.3f}, MDE {d['enrichment_mde']:.3f}",
+                      [r"0\.667[^.]{0,60}0\.676",
+                       r"MDE[^.]{0,40}0\.202|0\.05 of the MDE"]))
+
     d = load("A27_*/R1053_*/results/recomputed_dependence.json")
     if d:
         facts.append(("R1053", "R1050's direction survives but its magnitude is at the ceiling",
