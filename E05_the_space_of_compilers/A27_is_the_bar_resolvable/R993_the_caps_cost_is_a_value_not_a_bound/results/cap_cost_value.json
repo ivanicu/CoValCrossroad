@@ -1,0 +1,25 @@
+{
+ "source_sha": "45c2a7171f077b57",
+ "head": "f8033007",
+ "generator": "corebench/select_core.py:204 tag grammar; :102 label-reading guard",
+ "control": {
+  "reproduces_r920": 21,
+  "of": 21,
+  "mismatches": [],
+  "ok": true,
+  "placebo_full_false": true
+ },
+ "four_arms": {
+  "greedy_k8_fit1": true,
+  "indep_k8_fit1": true,
+  "topw_k6": false,
+  "topw_k8": false
+ },
+ "cap_unique_cost_value": 2,
+ "cap_unique_cost_members": [
+  "topw_k6",
+  "topw_k8"
+ ],
+ "r992_bound": 4,
+ "world": "A THE COST FALLS \u2014 2 of the 4 consume human labels and are already excluded by clause \u2462, so the cap's unique cost is 2: ['topw_k6', 'topw_k8']"
+}
