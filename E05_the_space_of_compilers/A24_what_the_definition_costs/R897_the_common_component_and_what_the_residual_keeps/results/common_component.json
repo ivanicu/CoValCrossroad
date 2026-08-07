@@ -1,0 +1,76 @@
+{
+  "commit": "1c2848e25e76d9709b1f8f6f41ca91c3056b7247",
+  "world": "B",
+  "seed": 897,
+  "n_prompts": 968,
+  "cells": [
+    {
+      "cell": "greedy_k2",
+      "r2_loo": 0.6507000910149614,
+      "r2_all": 0.7506069484340437
+    },
+    {
+      "cell": "greedy_k4",
+      "r2_loo": 0.7103318623254289,
+      "r2_all": 0.7887359589655388
+    },
+    {
+      "cell": "greedy_k8",
+      "r2_loo": 0.5439209405871426,
+      "r2_all": 0.634640723097151
+    },
+    {
+      "cell": "greedy_k12",
+      "r2_loo": 0.38789663854161666,
+      "r2_all": 0.4602446141749427
+    },
+    {
+      "cell": "indep_k2",
+      "r2_loo": 0.5934677252705793,
+      "r2_all": 0.7008257886170244
+    },
+    {
+      "cell": "indep_k4",
+      "r2_loo": 0.578073610077351,
+      "r2_all": 0.6774293152392243
+    },
+    {
+      "cell": "indep_k8",
+      "r2_loo": 0.33240256078654373,
+      "r2_all": 0.4333085950404818
+    },
+    {
+      "cell": "oracle_k4",
+      "r2_loo": 0.7382489911602095,
+      "r2_all": 0.8123572003953027
+    }
+  ],
+  "mean_r2_loo": 0.5668803024704792,
+  "mean_r2_all_circular": 0.6572686429954637,
+  "self_inclusion_inflation": 0.09038834052498455,
+  "residual_matched": {
+    "greedy_k4": 0.17785876978342421,
+    "indep_k4": 0.09515142952952352,
+    "oracle_k4": 0.19835494112985116
+  },
+  "residual_mismatched_floor": {
+    "mean": -0.03268732858990978,
+    "min": -0.07593495979445256,
+    "max": 0.02482720000110121,
+    "n": 6
+  },
+  "wiring_permuted_r2": {
+    "mean": 0.0009697446684572897,
+    "max": 0.014728714012303511
+  },
+  "loo_is_not_optional": "regressing a cell on a mean that CONTAINS it is circular; the inflation is measured above, not asserted",
+  "overturns_R896": {
+    "R896_said": "the leakage gaps are NOT cell-specific \u2014 raw matched min +0.2965 failed to clear raw mismatched max +0.3183",
+    "why_it_was_wrong": "the common component is present in BOTH matched and mismatched pairings, inflating the floor and masking the cell-specific part the test was looking for",
+    "corrected": "after removing the common component, every matched residual clears the mismatched max \u2014 a cell signature exists and is small"
+  },
+  "residual_se": null,
+  "does_not_name": "what the common component IS. Calling it prompt difficulty would be a label, not a measurement.",
+  "unit_note": "R\u00b2 is a share of variance; r is a correlation over PROMPTS",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
