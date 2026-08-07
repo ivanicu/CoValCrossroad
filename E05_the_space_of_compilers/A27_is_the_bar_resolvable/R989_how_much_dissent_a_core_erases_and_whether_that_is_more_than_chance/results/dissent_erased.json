@@ -1,0 +1,53 @@
+{
+ "source_sha": "6bbab7039f937cf1",
+ "head": "1a45d5e6",
+ "n_prompts": 986,
+ "core_size_share_four": 0.9553752535496958,
+ "core_size_distribution": {
+  "2": 1,
+  "3": 43,
+  "4": 942
+ },
+ "verbatim_match": {
+  "matched": 303,
+  "total": 3899,
+  "share": 0.07771223390612977
+ },
+ "n_items": 5564,
+ "n_excluded": 9684,
+ "observed_contested_share": 0.7999640546369519,
+ "null_bands": {
+  "11": {
+   "lo": 0.9284687275341481,
+   "hi": 0.9378145219266715,
+   "mean": 0.9332072250179726
+  },
+  "22": {
+   "lo": 0.9286439611790079,
+   "hi": 0.9376392882818116,
+   "mean": 0.933340222861251
+  },
+  "33": {
+   "lo": 0.9289989216391086,
+   "hi": 0.937284327821711,
+   "mean": 0.9331479151689431
+  }
+ },
+ "nperm": 200,
+ "seeds": [
+  11,
+  22,
+  33
+ ],
+ "controls": {
+  "positive_card_size_reproduced": true,
+  "placebo_allpos_not_contested": true,
+  "all_ok": true
+ },
+ "world": "B-INVERTED \u00b7 ITEMS ARE MORE COHERENT THAN CHANCE \u2014 observed 80.0% sits +0.1285 BELOW the null's lower bound 92.8% on every seed. The raw share reads as 'most criteria are contested'; against its own null it means the opposite.",
+ "sense_of_conflict": "WITHIN-item (annotators disagree about one criterion). The card's non-conflicting is BETWEEN-item compatibility and is not measured here.",
+ "not_measured": [
+  "between-item conflict",
+  "what a particular core erased"
+ ]
+}
