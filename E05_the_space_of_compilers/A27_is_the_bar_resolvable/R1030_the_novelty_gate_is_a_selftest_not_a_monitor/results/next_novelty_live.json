@@ -1,0 +1,128 @@
+{
+  "round": "R1030",
+  "baseline_r858": 0.2692307692307692,
+  "corpus_files": 1767,
+  "instrument": "next_gradient_is_new.search, imported from the committed gate",
+  "controls": {
+    "positive_historical": true,
+    "positive_live_labelled": true,
+    "negative": true,
+    "placebo": true,
+    "g0": true
+  },
+  "rows": [
+    {
+      "round": "R1022",
+      "subject": "does raising the loader guard change other counts",
+      "terms": [
+        "coverage guard",
+        "isfinite"
+      ],
+      "prior_art": true,
+      "prior_art_contents_only": true,
+      "where": "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R21_donor_distance/run.py",
+      "counted": true,
+      "hand_label": null
+    },
+    {
+      "round": "R1023",
+      "subject": "price the guard by false-admission rate",
+      "terms": [
+        "false-admission"
+      ],
+      "prior_art": false,
+      "prior_art_contents_only": true,
+      "where": "\u2014",
+      "counted": true,
+      "hand_label": null
+    },
+    {
+      "round": "R1024",
+      "subject": "resample the censoring / drop the imputation",
+      "terms": [
+        "observed-only"
+      ],
+      "prior_art": false,
+      "prior_art_contents_only": true,
+      "where": "\u2014",
+      "counted": true,
+      "hand_label": null
+    },
+    {
+      "round": "R1025",
+      "subject": "attack the certification rule",
+      "terms": [
+        "legitimate_comparators"
+      ],
+      "prior_art": true,
+      "prior_art_contents_only": true,
+      "where": "E05_the_space_of_compilers/A26_can_the_definition_be_applied_without_provenance/R921_is_the_admitted_set_a_property_of_the_arms_or_of_the_comparator/run.py",
+      "counted": true,
+      "hand_label": null
+    },
+    {
+      "round": "R1026",
+      "subject": "re-derive the 15,488 judge-call cost",
+      "terms": [
+        "15,488"
+      ],
+      "prior_art": true,
+      "prior_art_contents_only": true,
+      "where": "E05_the_space_of_compilers/A24_what_the_definition_costs/R503_the_two_sides_of_clause_three_draw_from_the_same_pool/README.md",
+      "counted": false,
+      "hand_label": "NEW_AT_THE_TIME"
+    },
+    {
+      "round": "R1027",
+      "subject": "audit the impossibility register as an instrument",
+      "terms": [
+        "the impossibility register audited"
+      ],
+      "prior_art": true,
+      "prior_art_contents_only": true,
+      "where": "E05_the_space_of_compilers/A24_what_the_definition_costs/R802_the_impossibility_register_audited/README.md",
+      "counted": true,
+      "hand_label": "EXISTED"
+    },
+    {
+      "round": "R1028",
+      "subject": "re-score entries for whether they name a requirement",
+      "terms": [
+        "the register half complies"
+      ],
+      "prior_art": true,
+      "prior_art_contents_only": false,
+      "where": "E05_the_space_of_compilers/A24_what_the_definition_costs/R472_the_register_half_complies/README.md",
+      "counted": true,
+      "hand_label": "EXISTED"
+    },
+    {
+      "round": "R1029",
+      "subject": "a typed entry template enforced by one gate",
+      "terms": [
+        "register_requirements"
+      ],
+      "prior_art": true,
+      "prior_art_contents_only": true,
+      "where": "E05_the_space_of_compilers/A24_what_the_definition_costs/R482_the_suite_has_fifty_two_gates_and_i_ran_four/run.py",
+      "counted": true,
+      "hand_label": "EXISTED"
+    }
+  ],
+  "n_scored": 7,
+  "n_prior_art": 5,
+  "rate": 0.7142857142857143,
+  "searcher_blind_spot": {
+    "n_found_only_with_paths": 1,
+    "rounds": [
+      "R1028"
+    ],
+    "cause": "NG.corpus() returns file CONTENTS; round subjects live in DIRECTORY NAMES"
+  },
+  "rate_contents_only": 0.8571428571428571,
+  "excluded": [
+    "R1026"
+  ],
+  "world": "\u2b50 B THE GATE IS BLIND TO ITS OWN DOMINANT FAILURE \u2014 5 of 7 (71.4%) of this session's NEXT lines proposed a subject that already exists, against R858's 26.9%, WHILE `next_gradient_is_new.py` exits 0. It is a SELF-TEST: it validates its searcher on four historical cases and never points it at the live NEXT. A passing self-test is evidence about the instrument, not about the corpus \u2014 the same shape as `determinism read as currency`.",
+  "limitation": "the HIT direction is sound and the MISS direction is not, because the terms are author-chosen; the rate is a LOWER BOUND and subject novelty is not substantive novelty"
+}

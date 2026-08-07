@@ -425,6 +425,23 @@ over a guessed population is not.**
 ⚠ R472 is **extended, not contradicted** — it measured whether a requirement is NAMED (46 of 100);
 this asks whether a named one is RIGHT, and finds the question unanswerable as stored.
 
+⛔⛔ **AND THE GATE THAT EXISTS TO CATCH THIS PASSES WHILE IT HAPPENS — R1030.** Five consecutive
+rounds of this arc proposed NEXT work that already existed, and `assurance/next_gradient_is_new.py`
+was built for exactly that after R858 measured **7 of 26 (0.269)**. It exits **0** throughout, because
+it is a **self-test, not a monitor**: it validates its searcher on four *historical* cases and never
+points it at the NEXT lines being written. On the live population the rate is **5 of 7 = 0.714**.
+
+⛔ **And the gate is STRUCTURALLY unable to find the dominant form of prior art here.** Round
+directories are `R472_the_register_half_complies` — **underscores** — while a NEXT is prose, with
+**spaces**; `NG.search` compiles `re.escape(term)`, so an exact match can never bridge them. ⚠
+Normalising separators is a **trade, not a fix** — it breaks the gate's own underscore-literal cases —
+so the instrument must search **both** corpora.
+⚠ **0.714 is a LOWER BOUND**: only the HIT direction is sound, since the search terms are
+author-chosen, and it survived four self-attacks that each could only lower it (the first figure was
+1.000, inflated by searching this round's own file and by counting the round that *acted* on each
+NEXT). ⚠ And **subject novelty is not substantive novelty** — R1027–R1029 each produced a real result
+on an existing subject; the cost is the part of each round spent rediscovering prior art.
+
 ⚠ **AND R288's ∅ IS NOT REFUTED BY THIS.** The **target** is identical (Δ = 0). But R288 swept
 **clause ② alone** against its own `_blind4`/`_blind15` references over **10** arms; this is **②′∧③**
 against R921's certified comparators over **96**. **Different admission rule AND different

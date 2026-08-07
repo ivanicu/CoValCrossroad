@@ -553,6 +553,16 @@ def main() -> int:
                       [r"(requirement type was never stored|store the requirement type)",
                        r"(17).{0,80}(9).{0,80}(7).{0,200}(denominator|instrument)"]))
 
+    # ⛔⛔ R1030: the NEXT-novelty gate is a SELF-TEST, not a monitor — it exits 0 while 5 of 7 of
+    #    this session's NEXT lines proposed a subject that already existed (R858's baseline: 0.269).
+    d = load("A27_*/R1030_*/results/next_novelty_live.json")
+    if d:
+        facts.append(("R1030", "the NEXT-novelty gate is a self-test, not a monitor",
+                      f"{d['n_prior_art']}/{d['n_scored']} = {d['rate']:.3f} vs "
+                      f"R858 {d['baseline_r858']:.3f}",
+                      [r"(self[- ]test).{0,300}(monitor|live|never (points|runs))",
+                       r"(0\.714|5 of 7).{0,200}(0\.269|R858|27)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
