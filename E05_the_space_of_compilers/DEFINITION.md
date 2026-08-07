@@ -1365,6 +1365,27 @@ attack is the load-bearing one**: without it, emptying the registry would have t
 green. ⚠ **Existence is not correctness** — a resolving glob may still point at the wrong artifact,
 which is the currency gate's own pattern check and not this one's.
 
+⛔⛔⛔ **AND R1065 TURNS THAT ATTACK ON THE CURRENCY GATE ITSELF: IT IS TEXT-ONLY. IT CERTIFIES PROSE
+AGAINST PROSE.** A registered artifact's measured value was changed from `79` to `4321` and its `dead`
+list given a **fabricated** entry, with the statement **untouched** — **the gate exited 0, identical to
+baseline.** ⭐⭐ **And it PRINTED the falsified numbers as it passed**:
+`R1064 … = globs 4321, dead 1`. It reads the artifact, displays its values, and **its verdict ignores
+them**. Read from the source: each fact is `(round, description, value_string, patterns)`; the
+`value_string` is an f-string that is *printed*, the `patterns` are hand-written literals matched
+against this document, and **nothing in the match consumes the artifact**. Its only roles are to exist
+(R1063) and to supply a display string.
+⭐ **THE CONTROLS ARE WHAT MAKE THIS ADMISSIBLE, AND THE POSITIVE ONE FAILED FIRST — CORRECTLY.**
+Redacting **one** anchor left the gate green, because the gate is `any(...)` and the fact had two
+patterns; **calling that a control would have made a working gate look broken.** Defeating **every**
+anchor turns it red (exit 1). The **sham** — mutating an artifact key no pattern mentions — leaves the
+verdict unchanged, which is what shows the intervention result is not *"any file edit is ignored"*.
+Placebo restores the baseline; both mutated files were restored in a `finally` and the worktree
+verified clean.
+⚠ **THIS IS A SCOPE FINDING, NOT A DEFECT VERDICT.** A currency gate may be *meant* to ask *did the
+statement get updated*, which is a real question and the one it answers well. **What is not licensed is
+reading its PASS as *the statement agrees with what was measured* — which is how every round in this
+window has been reading it.**
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

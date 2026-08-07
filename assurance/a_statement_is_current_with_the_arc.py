@@ -696,6 +696,13 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1065_*/results/gate_coupling.json")
+    if d:
+        facts.append(("R1065", "this gate is text-only: its verdict ignores the artifact it loads",
+                      f"coupled {d['artifact_coupled']}, exits {d['exits']}",
+                      [r"globs\s+4321,\s+dead\s+1",
+                       r"certifies\s+prose\s+against\s+prose"]))
+
     d = load("A27_*/R1064_*/results/registry_inputs.json")
     if d:
         facts.append(("R1064", "every registered artifact glob resolves, and the skip is now loud",

@@ -1,0 +1,20 @@
+{
+  "round": "R1065",
+  "exits": {
+    "baseline": 0,
+    "statement_mutated": 1,
+    "artifact_mutated": 0,
+    "sham_mutated": 0,
+    "placebo_restored": 0
+  },
+  "artifact_coupled": false,
+  "target_artifact": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1064_how_many_registered_facts_never_load/results/registry_inputs.json",
+  "world": "\u26d4 B THE GATE IS TEXT-ONLY \u2014 the measured value was changed by +4242 and the `dead` list was given a fabricated entry, and the gate still exited 0, identical to baseline. **Its patterns are hand-written literals matched against DEFINITION.md; nothing in the match consumes the artifact.** So every currency PASS in this arc means exactly `these words appear in the document` \u2014 it certifies PROSE AGAINST PROSE, and the artifact's only roles are to exist (R1063) and to supply a printed string.",
+  "controls": {
+    "positive_statement_mutation_reds": true,
+    "negative_baseline_green": true,
+    "sham_unrelated_key_no_change": true,
+    "placebo_restore": true
+  },
+  "limitation": "establishes which question the gate answers, not which it should"
+}
