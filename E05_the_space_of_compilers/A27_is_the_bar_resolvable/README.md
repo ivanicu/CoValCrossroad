@@ -20,3 +20,4 @@ in `E05/DEFINITION.md`.
 | `R929` the point and its interval are different objects | are R141's out-of-interval point estimates an arithmetic slip, or an estimand mismatch? |
 | `R930` does rebuilding the matching inside the replicate repair it | UNVERIFIED — the synthetic world never reproduced R141's symptom, so nothing transfers; by-product: the matcher under-fills strata silently |
 | `R931` how much of the negative group R141 never matched | is the under-fill inert on the real corpus — and if so, what does explain the `raters`-only incoherence? |
+| `R932` what the tied cuts cost R141 | how far do the 42 points move once the duplicated strata are deduped, and does `length` stay still? |
