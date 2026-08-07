@@ -182,6 +182,21 @@ def main() -> int:
                   open(OUT / "silence_or_blindness.json", "w"), indent=2)
         return 2
 
+    live = {}
+    for r in rows:
+        v = set(r["vocab"])
+        fired = sorted({k for n in invisible for k in keys_of[n] & v})
+        r["vocab_keys_that_ever_fire"] = fired
+        live[r["seed"]] = fired
+    dead = {r["seed"]: r["vocab_size"] - len(r["vocab_keys_that_ever_fire"]) for r in rows}
+    c6 = all(len(v) > 1 for v in live.values())
+    print(f"\n  ⑥ IS THE READER A PROVENANCE READER OR A TOPIC DETECTOR — of each seed's "
+          f"vocabulary, how many keys ever fire on the 14:")
+    for r in rows:
+        print(f"     seed {r['seed']}: {len(r['vocab_keys_that_ever_fire'])} live of "
+              f"{r['vocab_size']} ({dead[r['seed']]} dead) -> {r['vocab_keys_that_ever_fire']}")
+    print(f"     {'PASS — more than one key carries the signal' if c6 else 'FAIL — the entire rate is carried by ONE convention key and the rest of the vocabulary is data-field names containing `gold`. The reader is a TOPIC DETECTOR in the key channel, which is USES_GOLD-s defect relocated, and the held-out recall passed because declarers share gold-named DATA fields, not because they share a disclosure convention.'}")
+
     hits = sorted({n for n in invisible if keys_of[n] & vocab_all})
     print(f"\n  ④ THE OVERLAP, NAMED — {len(hits)} of the 14 carry a declarer key:")
     for n in hits:
@@ -201,6 +216,13 @@ def main() -> int:
         f"the 14 fire at [{inv_lo:.3f}, {inv_hi:.3f}] and the floor is [{floor_lo:.3f}, "
         f"{floor_hi:.3f}] — **overlapping.** The design cannot separate silence from blindness at "
         f"n=14, and the honest output is the two intervals rather than a verdict."))
+    if not c6:
+        print(f"     ⛔ AND WORLD {world} IS NOT `n IS TOO SMALL`. Control ⑥ says the reader that "
+              f"produced it was a topic detector: {min(len(v) for v in live.values())} of "
+              f"{min(r['vocab_size'] for r in rows)}-{max(r['vocab_size'] for r in rows)} keys ever "
+              f"fired. More n would buy a sharper estimate of the WRONG quantity. The repair is a "
+              f"reader restricted to provenance CONVENTIONS -- `outcome_variable_scope`, "
+              f"`instrument`, `judge_family` -- measured against the same floor.")
     print(f"     ⚠ BOUND FROM ABOVE, IN ONE DIRECTION: this counts whether a provenance CHANNEL "
           f"exists, never whether its content tells a reader anything. A `model` key holding a "
           f"boolean satisfies this reader and informs nobody.")
@@ -215,6 +237,15 @@ def main() -> int:
                "seeds": rows,
                "invisible_range": [inv_lo, inv_hi],
                "noroute_floor_range": [floor_lo, floor_hi],
+               "reader_is_a_topic_detector": {
+                   "live_keys_per_seed": live,
+                   "dead_keys_per_seed": dead,
+                   "reading": ("more than one key carries the signal" if c6 else
+                               "the entire rate is carried by one convention key; the rest of the "
+                               "vocabulary is data-field names containing `gold`, so the reader is "
+                               "a topic detector in the key channel and World C is not a sample-size "
+                               "problem"),
+                   "separates": bool(c6)},
                "overlap_named": {n: sorted(keys_of[n] & vocab_all) for n in hits},
                "derivation_is_split_half": "the vocabulary is learned from a random half of the "
                                            "declarers and scored on the half it never saw; deriving "
