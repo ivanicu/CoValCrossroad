@@ -1,0 +1,154 @@
+R803 · the judge-free floor on release ONE — what does a word count score against the same humans?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-06.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R802's NEXT proposed transporting R794's Q2 to `utterances.jsonl`. CHECK #405 killed that and found
+a better question in the same place.
+
+(a) ⛔ Q2 IS NOT TRANSPORTABLE. Scoring any arm on the second release needs its criteria applied to
+    those 68,371 responses -- a judge pass that does not exist, since every `sat_*.npz` is keyed to
+    the FIRST release's prompt ids. R802's own register said so and said it was CHECKED; the NEXT
+    proposed it anyway.
+(b) ⭐ BUT R433 NAMES SOMETHING THAT COSTS NOTHING. On the second release it measured a core
+    "losing to a judge-free length heuristic by −0.0545, resolved". A length heuristic needs no
+    judge, no rubric and no criteria.
+(c) ⭐⭐ AND THE FIRST RELEASE HAS NEVER BEEN CHECKED AGAINST ONE. `comparisons.jsonl` carries
+    `responses` -- four per prompt, each with `messages` -- so response length is computable, and
+    a grep over the arc finds the length baseline only on release TWO (R433). **Every committed A2
+    in this campaign -- `coval_core` 0.5665, `coval_full` 0.5087, all 27 arms -- sits against a floor
+    nobody has drawn.**
+
+--------------------------------------------------------------------------------
+DISCLOSURE -- what was already known when this was written
+--------------------------------------------------------------------------------
+KNOWN and quoted: R433's −0.0545 on release two; the committed A2 values from R789's ladder; the
+presence of `responses` in `comparisons.jsonl`. **NOT known: any judge-free predictor's A2 on release
+one**, how many arms beat it, or whether length explains the arms' own scores.
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  A JUDGE-FREE PREDICTOR IS A FLOOR, NOT A RIVAL. It needs no criteria, no rubric and no judge, so
+    any criteria-based claim must clear it to be a claim ABOUT CRITERIA at all. **DERIVATION**, and
+    it is why this is the right comparison rather than one more arm.
+D2  THE SIGN IS NOT FORCED. Humans may prefer longer OR shorter, so length's A2 can land above or
+    below 0.5 and the round is a MEASUREMENT. **DERIVATION**, stated so a positive result is not read
+    as inevitable.
+D3  THE COMPARISON IS PAIRED AND NEEDS NO NEW INSTRUMENT. Length produces a per-response score, hence
+    a class over the same six pairs, scored against the same annotators as every arm.
+    **DERIVATION**, and it means the arms' committed A2 values are directly comparable.
+D4  ⚠ IF LENGTH PREDICTS CRITERION SATISFACTION, THE ARMS INHERIT ITS POWER. Longer responses may
+    satisfy more criteria, so an arm's A2 could be length wearing a rubric. **DERIVATION**, and it is
+    the confound: the control is to partial length out of each arm's per-prompt A2 and report the
+    residual, not just the raw comparison.
+
+STRONGEST CONFOUND, written BEFORE the run: D4. CONTROL IN THE SAME ITERATION: for every arm,
+regress its per-prompt A2 on the length predictor's per-prompt A2 across the 968 and report the
+intercept-adjusted residual, so "the arm beats length" is separated from "the arm IS length".
+
+--------------------------------------------------------------------------------
+ESTIMANDS (before method)
+--------------------------------------------------------------------------------
+E1  ⭐ the judge-free predictors' A2 on release one: response length in characters, in whitespace
+    tokens, and response POSITION (index within the four), each turned into a class over the six
+    pairs and scored against all annotators on all 968 prompts.
+E2  ⭐ the 27 committed arms against the best judge-free floor: how many beat it, each with a paired
+    cluster-bootstrap CI and BH over the whole set.
+E3  ⭐ the decisive pair: `coval_core` (0.5665) and `coval_full` (0.5087) against the floor.
+E4  D4's residual: each arm's A2 with the length predictor partialled out, so "beats length" is
+    distinguished from "is length".
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1-E4 exact -- the response text, the annotator rankings and the committed A2 values are all on disk.
+⚠ PARTIAL on E4: partialling a per-prompt A2 on another per-prompt A2 removes shared PROMPT
+difficulty as well as length, so the residual is a LOWER bound on what the arm adds over length.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  968 prompts x 4 responses x all annotators (median 16); 27 named arms
+instrument  A2 -- pairwise-sign agreement with the human annotators, identical to every prior round
+baseline    the judge-free predictor, which is the point
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE ARMS BEAT THE FLOOR. A clear majority of the 27 exceed the best judge-free predictor,
+    resolved after BH. Then clause ② is about criteria and the campaign's scale is earned.
+B · THE FLOOR SITS AT THE ARMS' LEVEL. The best judge-free predictor lands within the arms' range and
+    few beat it resolvedly. Then A2's whole scale is priced by a feature that needs no rubric, and
+    every clause built on A2 inherits that.
+C · THE FLOOR IS ABOVE THE ARMS. Length beats most arms. Then the campaign has been measuring
+    something a word count outperforms, and that is the finding regardless of how unwelcome.
+
+PREDICTION MATRIX
+  A -> >= 20 of 27 arms beat the floor, resolved after BH
+  B -> the floor is inside [min arm A2, max arm A2] and < 14 arms beat it resolvedly
+  C -> the floor exceeds the median arm's A2
+  anything else -> report; CLAIM NO WORLD.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (recomputing `coval_core`'s A2 from the responses and annotators reproduces R789's
+   committed 0.5664772727 to 1e-9 -- exit 2 otherwise, since a floor measured by code that cannot
+   reproduce a committed arm is measuring something else)
+   and PLACEBO returns the degenerate value for a CONSTANT predictor (every response equal -> all six
+       signs zero -> A2 equals the human tie rate exactly, computed and stated, not assumed)
+   and POSITIVE fires (a known-strong arm -- the target-reading `oracle_k4` at 0.6283 -- beats the
+       floor resolvedly; if it does not, the comparison cannot detect a real difference)
+   and NEGATIVE fires (shuffling the four lengths WITHIN each prompt destroys the predictor and sends
+       it to the tie-rate floor):
+        the floor exceeds the median arm            -> WORLD C   (checked FIRST)
+        >= 20 of 27 beat it after BH                -> WORLD A
+        < 14 beat it and the floor is in range      -> WORLD B
+        otherwise                                   -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT      `coval_core`'s A2 reproduced from raw responses + annotators to 1e-9 against R789's
+            committed value. Exit 2, never 0.
+PLACEBO     a CONSTANT predictor: all four responses scored equal, so every sign is 0 and the A2 is
+            exactly the human tie rate. Computed and printed, never assumed.
+POSITIVE    `oracle_k4` (0.6283, reads the target) must beat the floor resolvedly -- the band's upper
+            end. And the placebo above is its lower end, so the band is computed at both.
+NEGATIVE    shuffle the four response lengths WITHIN each prompt. The predictor must collapse to the
+            tie-rate floor. World it excludes: "the length predictor scores well because of how the
+            class is built rather than because length tracks the humans."
+CONFOUND    D4's partialling, reported for every arm.
+NOISE FLOOR MEASURED: annotator split-half on the floor's own A2.
+UNIT        instrument unit = a (prompt, annotator) judgement; claim unit = an ARM; E1's unit = a
+            PREDICTOR. Three strings, required unequal.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+27 arms x 1 floor = 27 tests, BH at q = 0.05 over all 27, with the three judge-free predictors
+reported as a curve (the floor is the MAX of them, and taking a max over 3 is a selection -- stated,
+and the individual three are printed so the selection is visible).
+
+--------------------------------------------------------------------------------
+SPECIFICATION CURVE
+--------------------------------------------------------------------------------
+predictor      characters | whitespace tokens | position index
+direction      longer-is-better | shorter-is-better (both, since D2 says the sign is not forced)
+NBOOT          1200
+seeds          3
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each checked before being written
+--------------------------------------------------------------------------------
+scoring any arm on the second release       a judge pass over its 68,371 utterances; `sat_*.npz` are
+                                            keyed to release one -- CHECKED, this is why R802's NEXT
+                                            was not followed
+whether humans SHOULD prefer length         a normative claim; this round measures only whether they
+                                            do on these 968 prompts
+independently replicated                    a second designer; the session prompt forbids agents

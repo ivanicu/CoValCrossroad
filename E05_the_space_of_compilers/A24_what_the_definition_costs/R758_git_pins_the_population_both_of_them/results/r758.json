@@ -1,0 +1,179 @@
+{
+  "P1_all": true,
+  "P1_reproduces_at_own_commit": {
+    "DEFINITION.md": false,
+    "FORMULATION.md": true,
+    "STATEMENT.md": true
+  },
+  "P1_reproduces_at_parent": {
+    "DEFINITION.md": true,
+    "FORMULATION.md": true,
+    "STATEMENT.md": true
+  },
+  "P2_corpus_drop_pinned": 0.43200000000000005,
+  "P3_document_drift": 0.0016393442622950616,
+  "P4_variance_ratio_repowide": 2.465234344137807,
+  "P5_a24_rounds_at_r753": 453,
+  "a24_rounds_head": 457,
+  "artifacts_added": 4,
+  "artifacts_changed_in_place": 0,
+  "artifacts_shared": 574,
+  "commit_r750": "c172bc7f5dd0003b93c8b3b3984ea26f6df0e2a8",
+  "commit_r753": "e4b28c080aa1ec8cd51f398279ff12dbeac1edf8",
+  "controls": {
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "SHAM": true,
+    "g0": true
+  },
+  "crossed_hist_doc_today_corpus": {
+    "DEFINITION.md": false,
+    "FORMULATION.md": false,
+    "STATEMENT.md": true
+  },
+  "crossed_today_doc_hist_corpus": {
+    "DEFINITION.md": false,
+    "FORMULATION.md": true,
+    "STATEMENT.md": false
+  },
+  "directional": true,
+  "document_pin": {
+    "DEFINITION.md": {
+      "lines": 4875,
+      "sha256": "7fbde36cf36daf8d"
+    },
+    "FORMULATION.md": {
+      "lines": 2397,
+      "sha256": "36ae2fbc2875c9f4"
+    },
+    "STATEMENT.md": {
+      "lines": 1255,
+      "sha256": "f792bdd6bfc417e3"
+    }
+  },
+  "grid": {
+    "DEFINITION.md|hist|a24": {
+      "flagged": 49,
+      "n": 122,
+      "rate": 0.4016393442622951
+    },
+    "DEFINITION.md|hist|repo": {
+      "flagged": 49,
+      "n": 122,
+      "rate": 0.4016393442622951
+    },
+    "DEFINITION.md|parent|a24": {
+      "flagged": 45,
+      "n": 118,
+      "rate": 0.3813559322033898
+    },
+    "DEFINITION.md|parent|repo": {
+      "flagged": 45,
+      "n": 118,
+      "rate": 0.3813559322033898
+    },
+    "DEFINITION.md|today|a24": {
+      "flagged": 52,
+      "n": 130,
+      "rate": 0.4
+    },
+    "DEFINITION.md|today|repo": {
+      "flagged": 52,
+      "n": 130,
+      "rate": 0.4
+    },
+    "FORMULATION.md|hist|a24": {
+      "flagged": 100,
+      "n": 125,
+      "rate": 0.8
+    },
+    "FORMULATION.md|hist|repo": {
+      "flagged": 46,
+      "n": 125,
+      "rate": 0.368
+    },
+    "FORMULATION.md|parent|a24": {
+      "flagged": 100,
+      "n": 125,
+      "rate": 0.8
+    },
+    "FORMULATION.md|parent|repo": {
+      "flagged": 46,
+      "n": 125,
+      "rate": 0.368
+    },
+    "FORMULATION.md|today|a24": {
+      "flagged": 100,
+      "n": 125,
+      "rate": 0.8
+    },
+    "FORMULATION.md|today|repo": {
+      "flagged": 46,
+      "n": 125,
+      "rate": 0.368
+    },
+    "STATEMENT.md|hist|a24": {
+      "flagged": 33,
+      "n": 184,
+      "rate": 0.1793478260869565
+    },
+    "STATEMENT.md|hist|repo": {
+      "flagged": 33,
+      "n": 184,
+      "rate": 0.1793478260869565
+    },
+    "STATEMENT.md|parent|a24": {
+      "flagged": 33,
+      "n": 184,
+      "rate": 0.1793478260869565
+    },
+    "STATEMENT.md|parent|repo": {
+      "flagged": 33,
+      "n": 184,
+      "rate": 0.1793478260869565
+    },
+    "STATEMENT.md|today|a24": {
+      "flagged": 33,
+      "n": 185,
+      "rate": 0.1783783783783784
+    },
+    "STATEMENT.md|today|repo": {
+      "flagged": 33,
+      "n": 185,
+      "rate": 0.1783783783783784
+    }
+  },
+  "hashseed": "99887",
+  "head": "7b3430d89b8895ccb2f324f6511269fe99de1bff",
+  "line_deltas": {
+    "DEFINITION.md": 198,
+    "FORMULATION.md": 0,
+    "STATEMENT.md": 50
+  },
+  "null_repowide": 0.042024925492555924,
+  "parent_bracket": {
+    "DEFINITION.md": true,
+    "FORMULATION.md": false,
+    "STATEMENT.md": true
+  },
+  "parent_commit": "c94d357c5374d1feb22549bcac22b94087977b47",
+  "repo_rounds_at_r753": 525,
+  "repo_rounds_head": 529,
+  "reproduction_is_consistency_not_validity": true,
+  "round": "R758",
+  "sham_r750_rates": {
+    "DEFINITION.md": 0.35964912280701755,
+    "FORMULATION.md": 0.8,
+    "STATEMENT.md": 0.18032786885245902
+  },
+  "sham_reproduces": {
+    "DEFINITION.md": false,
+    "FORMULATION.md": true,
+    "STATEMENT.md": false
+  },
+  "tree_sha": "9cfb579fb742dda3b7bf48e2611ec0b4c83bd7c8",
+  "var_repowide": 0.1036012896340813,
+  "why": "the POPULATION explains it -- pinned to R753's PARENT trees all three rates reproduce EXACTLY, so R757's control failed only by comparing across versions. And the correct pin is the PARENT, because a round's own commit holds the document AFTER that round appended to it",
+  "world": "A"
+}

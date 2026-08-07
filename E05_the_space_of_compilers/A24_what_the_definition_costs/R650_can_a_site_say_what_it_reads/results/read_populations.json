@@ -1,0 +1,2950 @@
+{
+  "world": "A/B UNRESOLVED \u2014 THE FORK WAS THE WRONG FORK. The rate is 47.3% (172/364), below the pre-registered 50%, so world A is the literal verdict. But resolving the SINGLE largest failure class (54 sites) takes it to 62.1% and flips it to B. A and B were defined by a resolution rate, and a resolution rate is a property of the RESOLVER, not of the corpus \u2014 so the threshold measures how much code I chose to write. The claim 'the corpus, not my code' is UNVERIFIED, and would be unverifiable by any amount of running THIS design.",
+  "controls_ok": true,
+  "rounds_scanned": 325,
+  "sites": 364,
+  "resolved": 172,
+  "unresolvable": 192,
+  "resolved_empty": 0,
+  "rate": 0.4725274725274725,
+  "known_answers": {
+    "R601:104": {
+      "expected": 902,
+      "got": 902
+    },
+    "R601:109": {
+      "expected": 426,
+      "runtime_exact": 425,
+      "got": 426
+    }
+  },
+  "unresolvable_reasons": {
+    "a loop variable over an UNRESOLVABLE iterable": 37,
+    "a comprehension variable": 12,
+    "a function ARGUMENT \u2014 resolvable only per call site": 3,
+    "a `base / literal` whose BASE is not statically known": 45,
+    "an element of a collection built at runtime": 27,
+    "the result of a call: joinpath(...)": 2,
+    "a name bound by nothing resolvable in scope": 54,
+    "the result of a call: Path(...)": 11,
+    "the result of a call: next(...)": 1
+  },
+  "spec_curve_crossing": "a name bound by nothing resolvable in scope",
+  "rate_if_largest_class_resolved": 0.6208791208791209,
+  "all_sites": [
+    {
+      "line": 65,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R285_how_wide_is_the_admissible_band"
+    },
+    {
+      "line": 65,
+      "verdict": "RESOLVED",
+      "n_files": 373,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "f.read_text()",
+      "round": "R292_audit_every_published_cell"
+    },
+    {
+      "line": 140,
+      "verdict": "RESOLVED",
+      "n_files": 604,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "s.read_text()",
+      "round": "R302_are_the_artifacts_reproducible"
+    },
+    {
+      "line": 115,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "j.read_text()",
+      "round": "R302_are_the_artifacts_reproducible"
+    },
+    {
+      "line": 64,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R306_the_table_at_every_annotator"
+    },
+    {
+      "line": 122,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_",
+      "round": "R307_a_size_matched_neutral_arm"
+    },
+    {
+      "line": 81,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "SRC.read_text()",
+      "round": "R309_is_the_missing_r2_noise_or_structure"
+    },
+    {
+      "line": 89,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "SRC.read_text()",
+      "round": "R310_what_the_structure_is"
+    },
+    {
+      "line": 90,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R309.read_text()",
+      "round": "R310_what_the_structure_is"
+    },
+    {
+      "line": 84,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "SRC.read_text()",
+      "round": "R312_is_the_shrink_the_arm_or_the_rule"
+    },
+    {
+      "line": 121,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "SRC.read_text()",
+      "round": "R313_is_the_signed_shrink_precision_or_shared_noise"
+    },
+    {
+      "line": 166,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a comprehension variable",
+      "src": "s.read_text(errors=\"replace\")",
+      "round": "R315_how_many_rounds_can_still_run"
+    },
+    {
+      "line": 108,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a function ARGUMENT \u2014 resolvable only per call site",
+      "src": "p.read_text()",
+      "round": "R316_did_the_repair_do_only_what_it_claimed"
+    },
+    {
+      "line": 143,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a comprehension variable",
+      "src": "f.read_text(errors=\"replace\")",
+      "round": "R317_the_population_was_run_py"
+    },
+    {
+      "line": 174,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a comprehension variable",
+      "src": "e_path.read_text()",
+      "round": "R317_the_population_was_run_py"
+    },
+    {
+      "line": 77,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "PUBLISHED.read_text()",
+      "round": "R318_is_the_site_mde_draw_dependent"
+    },
+    {
+      "line": 78,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "DRAW_A.read_text()",
+      "round": "R318_is_the_site_mde_draw_dependent"
+    },
+    {
+      "line": 79,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "DRAW_B.read_text()",
+      "round": "R318_is_the_site_mde_draw_dependent"
+    },
+    {
+      "line": 119,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(d / \"run.py\").read_text()",
+      "round": "R319_six_rounds_read_the_typo"
+    },
+    {
+      "line": 124,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "art[0].read_text()",
+      "round": "R319_six_rounds_read_the_typo"
+    },
+    {
+      "line": 131,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: joinpath(...)",
+      "src": "work.joinpath(\"run.py\").read_text()",
+      "round": "R319_six_rounds_read_the_typo"
+    },
+    {
+      "line": 164,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "got[0].read_text()",
+      "round": "R319_six_rounds_read_the_typo"
+    },
+    {
+      "line": 84,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "REF.read_text()",
+      "round": "R321_four_detectors_two_estimands"
+    },
+    {
+      "line": 70,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: joinpath(...)",
+      "src": "work.joinpath(\"run.py\").read_text()",
+      "round": "R322_the_matched_rerun_was_never_gpu_work"
+    },
+    {
+      "line": 104,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "COMMITTED.read_text()",
+      "round": "R322_the_matched_rerun_was_never_gpu_work"
+    },
+    {
+      "line": 97,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "got[0].read_text()",
+      "round": "R322_the_matched_rerun_was_never_gpu_work"
+    },
+    {
+      "line": 105,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R321.read_text()",
+      "round": "R322_the_matched_rerun_was_never_gpu_work"
+    },
+    {
+      "line": 83,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "path.read_text()",
+      "round": "R323_the_tau_gap_was_NCAL"
+    },
+    {
+      "line": 91,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "REF.read_text()",
+      "round": "R324_the_dose_grid"
+    },
+    {
+      "line": 64,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "SRC.read_text()",
+      "round": "R325_what_the_definition_can_and_cannot_see"
+    },
+    {
+      "line": 66,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R326_the_clause2_baseline_curve"
+    },
+    {
+      "line": 62,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "CURVE.read_text()",
+      "round": "R327_clause2_names_no_reference"
+    },
+    {
+      "line": 156,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R328_the_three_readings_are_one_budget"
+    },
+    {
+      "line": 106,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"corebench\" / \"select_core.py\").read_text()",
+      "round": "R329_the_budget_is_unobservable"
+    },
+    {
+      "line": 120,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R329_the_budget_is_unobservable"
+    },
+    {
+      "line": 102,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R330_what_the_conservative_reading_costs"
+    },
+    {
+      "line": 131,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "f.read_text()",
+      "round": "R330_what_the_conservative_reading_costs"
+    },
+    {
+      "line": 141,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "rl.read_text()",
+      "round": "R330_what_the_conservative_reading_costs"
+    },
+    {
+      "line": 113,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R332_the_closure_level_derives_reading_A"
+    },
+    {
+      "line": 108,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R333_the_resolution_floor"
+    },
+    {
+      "line": 110,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R334_why_clause_one_closes"
+    },
+    {
+      "line": 105,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R335_can_provenance_be_detected"
+    },
+    {
+      "line": 96,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R336_clause_three_tested_not_declared"
+    },
+    {
+      "line": 91,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R337_the_wall_is_the_population"
+    },
+    {
+      "line": 137,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(RES / f\"core_{a}.json\").read_text()",
+      "round": "R337_the_wall_is_the_population"
+    },
+    {
+      "line": 92,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R338_does_the_signature_transfer_to_a_new_rule"
+    },
+    {
+      "line": 130,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(RES / f\"core_{a}.json\").read_text()",
+      "round": "R338_does_the_signature_transfer_to_a_new_rule"
+    },
+    {
+      "line": 87,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R339_the_conjunction_is_a_different_object"
+    },
+    {
+      "line": 98,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R340_the_definition_against_an_adversary"
+    },
+    {
+      "line": 112,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text(encoding=\"utf-8\")",
+      "round": "R347_does_clause_one_ever_bind"
+    },
+    {
+      "line": 110,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text(encoding=\"utf-8\")",
+      "round": "R348_is_it_blindness_or_curation"
+    },
+    {
+      "line": 93,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: Path(...)",
+      "src": "pathlib.Path(hits[0]).read_text()",
+      "round": "R353_the_admitted_set_under_every_pool_order"
+    },
+    {
+      "line": 102,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: Path(...)",
+      "src": "pathlib.Path(hits[0]).read_text()",
+      "round": "R354_what_the_safe_reference_admits"
+    },
+    {
+      "line": 162,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R355_is_the_closed_region_upward_closed"
+    },
+    {
+      "line": 181,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R356_is_the_within_family_disagreement_resolvable"
+    },
+    {
+      "line": 136,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R357_does_the_inversion_survive_swapping_truth"
+    },
+    {
+      "line": 156,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f355[0].read_text()",
+      "round": "R358_does_the_closure_defect_replicate_at_the_second_judge"
+    },
+    {
+      "line": 146,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R362_does_the_size_band_survive_the_judge"
+    },
+    {
+      "line": 109,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f[0].read_text()",
+      "round": "R366_does_anything_predict_which_claims_survive_the_judge"
+    },
+    {
+      "line": 113,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f368[0].read_text()",
+      "round": "R369_the_transport_contrast_decomposes_two_ways"
+    },
+    {
+      "line": 258,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "f368[0].read_text()",
+      "round": "R370_a_non_subset_floor_for_the_fresh_arm"
+    },
+    {
+      "line": 285,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R371.read_text()",
+      "round": "R372_is_the_resolving_set_stable"
+    },
+    {
+      "line": 189,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R372.read_text()",
+      "round": "R373_can_the_campaign_audit_its_own_resolution"
+    },
+    {
+      "line": 222,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R373_can_the_campaign_audit_its_own_resolution"
+    },
+    {
+      "line": 279,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "a.read_text()",
+      "round": "R373_can_the_campaign_audit_its_own_resolution"
+    },
+    {
+      "line": 193,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "f.read_text()",
+      "round": "R377_is_the_flicker_in_the_check_itself"
+    },
+    {
+      "line": 159,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "README.read_text()",
+      "round": "R378_does_one_gate_decide_another"
+    },
+    {
+      "line": 224,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "PRIOR.read_text()",
+      "round": "R379_the_exit_code_is_not_the_population"
+    },
+    {
+      "line": 128,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "GATE.read_text()",
+      "round": "R380_the_gate_convicted_a_registry_it_never_read"
+    },
+    {
+      "line": 185,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"README.md\").read_text()",
+      "round": "R380_the_gate_convicted_a_registry_it_never_read"
+    },
+    {
+      "line": 148,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "p.read_text()",
+      "round": "R380_the_gate_convicted_a_registry_it_never_read"
+    },
+    {
+      "line": 249,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(ASSUR / GATE).read_text()",
+      "round": "R381_do_the_red_gates_share_a_dead_path"
+    },
+    {
+      "line": 231,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R379.read_text()",
+      "round": "R381_do_the_red_gates_share_a_dead_path"
+    },
+    {
+      "line": 266,
+      "verdict": "RESOLVED",
+      "n_files": 60,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "p.read_text()",
+      "round": "R381_do_the_red_gates_share_a_dead_path"
+    },
+    {
+      "line": 124,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(ASSUR / f\"{gate}.py\").read_text()",
+      "round": "R382_does_the_pattern_match_anything"
+    },
+    {
+      "line": 140,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(ASSUR / f\"{gate}.py\").read_text()",
+      "round": "R382_does_the_pattern_match_anything"
+    },
+    {
+      "line": 182,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "p.read_text()",
+      "round": "R382_does_the_pattern_match_anything"
+    },
+    {
+      "line": 123,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "GATE.read_text()",
+      "round": "R383_test_the_proxy_before_adopting_it"
+    },
+    {
+      "line": 158,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"README.md\").read_text()",
+      "round": "R383_test_the_proxy_before_adopting_it"
+    },
+    {
+      "line": 188,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a comprehension variable",
+      "src": "p.read_text()",
+      "round": "R383_test_the_proxy_before_adopting_it"
+    },
+    {
+      "line": 172,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text()",
+      "round": "R383_test_the_proxy_before_adopting_it"
+    },
+    {
+      "line": 177,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a comprehension variable",
+      "src": "p.read_text()",
+      "round": "R383_test_the_proxy_before_adopting_it"
+    },
+    {
+      "line": 131,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"README.md\").read_text()",
+      "round": "R384_where_the_findings_are_not"
+    },
+    {
+      "line": 222,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "a.read_text(errors=\"ignore\")",
+      "round": "R384_where_the_findings_are_not"
+    },
+    {
+      "line": 145,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"README.md\").read_text()",
+      "round": "R385_can_the_artifact_write_the_finding"
+    },
+    {
+      "line": 177,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "js[0].read_text()",
+      "round": "R385_can_the_artifact_write_the_finding"
+    },
+    {
+      "line": 131,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"README.md\").read_text()",
+      "round": "R386_what_the_artifact_cannot_say"
+    },
+    {
+      "line": 148,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "js[0].read_text()",
+      "round": "R386_what_the_artifact_cannot_say"
+    },
+    {
+      "line": 185,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: Path(...)",
+      "src": "pathlib.Path(ROOT / v[\"artifact\"]).read_text()",
+      "round": "R386_what_the_artifact_cannot_say"
+    },
+    {
+      "line": 129,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"README.md\").read_text()",
+      "round": "R387_is_the_debt_collectable"
+    },
+    {
+      "line": 121,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"README.md\").read_text()",
+      "round": "R388_one_unit_of_the_debt"
+    },
+    {
+      "line": 116,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"README.md\").read_text()",
+      "round": "R389_the_reading_burden"
+    },
+    {
+      "line": 164,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(d / \"run.py\").read_text()",
+      "round": "R389_the_reading_burden"
+    },
+    {
+      "line": 148,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(d / \"run.py\").read_text()",
+      "round": "R389_the_reading_burden"
+    },
+    {
+      "line": 141,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R389.read_text()",
+      "round": "R390_does_the_untitled_tier_state_anything"
+    },
+    {
+      "line": 112,
+      "verdict": "RESOLVED",
+      "n_files": 663,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "p.read_text()",
+      "round": "R391_step_or_orphan"
+    },
+    {
+      "line": 117,
+      "verdict": "RESOLVED",
+      "n_files": 77,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "p.read_text()",
+      "round": "R391_step_or_orphan"
+    },
+    {
+      "line": 118,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R389.read_text()",
+      "round": "R392_how_much_is_infrastructure"
+    },
+    {
+      "line": 128,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "p.read_text()",
+      "round": "R392_how_much_is_infrastructure"
+    },
+    {
+      "line": 121,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R392.read_text()",
+      "round": "R393_what_the_gate_will_cost"
+    },
+    {
+      "line": 185,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R393.read_text()",
+      "round": "R394_is_the_source_hash_a_valid_key"
+    },
+    {
+      "line": 145,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: Path(...)",
+      "src": "pathlib.Path(f\"/proc/{pid}/stat\").read_text()",
+      "round": "R394_is_the_source_hash_a_valid_key"
+    },
+    {
+      "line": 117,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R394.read_text()",
+      "round": "R395_can_a_gauge_test_replace_the_rerun"
+    },
+    {
+      "line": 118,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R393.read_text()",
+      "round": "R395_can_a_gauge_test_replace_the_rerun"
+    },
+    {
+      "line": 137,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "PLANT.read_text()",
+      "round": "R395_can_a_gauge_test_replace_the_rerun"
+    },
+    {
+      "line": 160,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text()",
+      "round": "R395_can_a_gauge_test_replace_the_rerun"
+    },
+    {
+      "line": 177,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text()",
+      "round": "R395_can_a_gauge_test_replace_the_rerun"
+    },
+    {
+      "line": 104,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R394.read_text()",
+      "round": "R397_did_the_stable_subjects_actually_succeed"
+    },
+    {
+      "line": 122,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "DEFN.read_text()",
+      "round": "R401_can_n99_resolve_anything"
+    },
+    {
+      "line": 129,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R400.read_text()",
+      "round": "R401_can_n99_resolve_anything"
+    },
+    {
+      "line": 145,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R399.read_text()",
+      "round": "R402_does_the_harness_fire_before_the_judge"
+    },
+    {
+      "line": 125,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "SRC.read_text()",
+      "round": "R404_which_conjunct_of_clause_three_does_the_work"
+    },
+    {
+      "line": 126,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R360.read_text()",
+      "round": "R404_which_conjunct_of_clause_three_does_the_work"
+    },
+    {
+      "line": 103,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R360.read_text()",
+      "round": "R405_at_its_own_strictest_reading_the_definition_admits_nothing"
+    },
+    {
+      "line": 104,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R327.read_text()",
+      "round": "R405_at_its_own_strictest_reading_the_definition_admits_nothing"
+    },
+    {
+      "line": 118,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R331.read_text()",
+      "round": "R406_the_universal_reading_was_not_universal"
+    },
+    {
+      "line": 119,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R327.read_text()",
+      "round": "R406_the_universal_reading_was_not_universal"
+    },
+    {
+      "line": 133,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(R360D / \"run.py\").read_text()",
+      "round": "R407_the_universal_reading_answered_without_an_ordering"
+    },
+    {
+      "line": 115,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R360.read_text()",
+      "round": "R407_the_universal_reading_answered_without_an_ordering"
+    },
+    {
+      "line": 116,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R331.read_text()",
+      "round": "R407_the_universal_reading_answered_without_an_ordering"
+    },
+    {
+      "line": 114,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R360.read_text()",
+      "round": "R408_the_literal_test_at_the_universal_reference"
+    },
+    {
+      "line": 148,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R360.read_text()",
+      "round": "R408_the_literal_test_at_the_universal_reference"
+    },
+    {
+      "line": 114,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R408.read_text()",
+      "round": "R409_is_the_ordering_of_the_five_information"
+    },
+    {
+      "line": 117,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R408.read_text()",
+      "round": "R410_size_and_provenance_decomposed"
+    },
+    {
+      "line": 114,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R408.read_text()",
+      "round": "R411_are_the_two_effects_even_commensurable"
+    },
+    {
+      "line": 115,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R402.read_text()",
+      "round": "R411_are_the_two_effects_even_commensurable"
+    },
+    {
+      "line": 116,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R401.read_text()",
+      "round": "R411_are_the_two_effects_even_commensurable"
+    },
+    {
+      "line": 126,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R411.read_text()",
+      "round": "R412_the_clustering_that_decides_the_power"
+    },
+    {
+      "line": 149,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R411.read_text()",
+      "round": "R413_does_score_escape_the_clustering"
+    },
+    {
+      "line": 150,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R412.read_text()",
+      "round": "R413_does_score_escape_the_clustering"
+    },
+    {
+      "line": 118,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R408.read_text()",
+      "round": "R414_does_the_effect_replicate_at_the_second_judge"
+    },
+    {
+      "line": 120,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R408.read_text()",
+      "round": "R415_the_pipelines_own_noise_floor"
+    },
+    {
+      "line": 99,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R415.read_text()",
+      "round": "R416_the_rerun_pairs_are_not_scoring_replicates"
+    },
+    {
+      "line": 127,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "a.read_text()",
+      "round": "R416_the_rerun_pairs_are_not_scoring_replicates"
+    },
+    {
+      "line": 127,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "b.read_text()",
+      "round": "R416_the_rerun_pairs_are_not_scoring_replicates"
+    },
+    {
+      "line": 154,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "JUDGE.read_text()",
+      "round": "R417_the_judge_has_no_stochastic_step"
+    },
+    {
+      "line": 165,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "CALLER.read_text()",
+      "round": "R417_the_judge_has_no_stochastic_step"
+    },
+    {
+      "line": 105,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "R130.read_text()",
+      "round": "R418_what_differed_was_not_the_claims"
+    },
+    {
+      "line": 103,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R396.read_text()",
+      "round": "R418_what_differed_was_not_the_claims"
+    },
+    {
+      "line": 116,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R415.read_text()",
+      "round": "R419_the_scoring_only_floor_measured"
+    },
+    {
+      "line": 115,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R408.read_text()",
+      "round": "R419_the_scoring_only_floor_measured"
+    },
+    {
+      "line": 110,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "SEL.read_text()",
+      "round": "R420_is_selection_deterministic_too"
+    },
+    {
+      "line": 159,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "a.read_text()",
+      "round": "R420_is_selection_deterministic_too"
+    },
+    {
+      "line": 159,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "b.read_text()",
+      "round": "R420_is_selection_deterministic_too"
+    },
+    {
+      "line": 146,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "cj.read_text()",
+      "round": "R422_did_the_judge_differ_or_only_the_selection"
+    },
+    {
+      "line": 131,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "cj.read_text()",
+      "round": "R423_the_join_key_or_the_emitter"
+    },
+    {
+      "line": 203,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R422.read_text()",
+      "round": "R423_the_join_key_or_the_emitter"
+    },
+    {
+      "line": 123,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text()",
+      "round": "R424_name_the_foreign_emitter"
+    },
+    {
+      "line": 186,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "p.read_text()",
+      "round": "R425_how_far_does_the_unknown_instrument_reach"
+    },
+    {
+      "line": 205,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a function ARGUMENT \u2014 resolvable only per call site",
+      "src": "p.read_text()",
+      "round": "R425_how_far_does_the_unknown_instrument_reach"
+    },
+    {
+      "line": 116,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text()",
+      "round": "R426_the_emitter_was_excluded_by_my_own_filter"
+    },
+    {
+      "line": 170,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R427J.read_text()",
+      "round": "R430_is_the_null_gap_the_null_or_the_weighting"
+    },
+    {
+      "line": 129,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "cp.read_text()",
+      "round": "R433_does_clause_two_transport_with_its_subject"
+    },
+    {
+      "line": 158,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(SAT / \"core_gen_second.json\").read_text()",
+      "round": "R433_does_clause_two_transport_with_its_subject"
+    },
+    {
+      "line": 132,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(A24 / \"R436_does_clause_four_exclude_anything_at_home\" /\n            ",
+      "round": "R437_do_the_two_bars_invert_between_releases"
+    },
+    {
+      "line": 156,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(A24 / \"R434_does_the_definition_have_a_utility_floor\" /\n             ",
+      "round": "R437_do_the_two_bars_invert_between_releases"
+    },
+    {
+      "line": 189,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(A24 / \"R436_does_clause_four_exclude_anything_at_home\" /\n            ",
+      "round": "R439_is_clause_four_a_reparameterisation_of_two"
+    },
+    {
+      "line": 191,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(A24 / \"R436_does_clause_four_exclude_anything_at_home\" /\n            ",
+      "round": "R439_is_clause_four_a_reparameterisation_of_two"
+    },
+    {
+      "line": 107,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "f360.read_text()",
+      "round": "R440_the_four_clauses_on_one_arm_space"
+    },
+    {
+      "line": 108,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "f436.read_text()",
+      "round": "R440_the_four_clauses_on_one_arm_space"
+    },
+    {
+      "line": 125,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "f360.read_text()",
+      "round": "R441_is_the_size_clause_a_clause"
+    },
+    {
+      "line": 125,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "f436.read_text()",
+      "round": "R441_is_the_size_clause_a_clause"
+    },
+    {
+      "line": 99,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text()",
+      "round": "R441_is_the_size_clause_a_clause"
+    },
+    {
+      "line": 142,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "f360.read_text()",
+      "round": "R442_the_extension_under_clause_three_as_written"
+    },
+    {
+      "line": 192,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "f446.read_text()",
+      "round": "R447_is_the_judge_emptiness_a_reference_artifact"
+    },
+    {
+      "line": 103,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "DOC.read_text()",
+      "round": "R461_every_difference_must_name_its_comparator"
+    },
+    {
+      "line": 102,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "DOC.read_text()",
+      "round": "R462_is_oldest_first_the_right_ordering"
+    },
+    {
+      "line": 93,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "DOC.read_text()",
+      "round": "R463_the_ordering_is_arbitrary_and_says_so"
+    },
+    {
+      "line": 128,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a comprehension variable",
+      "src": "ff.read_text()",
+      "round": "R468_the_join_exists_and_is_exact"
+    },
+    {
+      "line": 113,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "MAP.read_text()",
+      "round": "R469_containment_cannot_implement_clause_three"
+    },
+    {
+      "line": 126,
+      "verdict": "RESOLVED",
+      "n_files": 95,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "f.read_text()",
+      "round": "R469_containment_cannot_implement_clause_three"
+    },
+    {
+      "line": 85,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "pathlib.Path(\"E05_the_space_of_compilers/DEFINITION.md\").read_text()",
+      "round": "R476_what_fraction_of_the_document_is_checked"
+    },
+    {
+      "line": 97,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text()",
+      "round": "R484_how_many_detectors_read_their_own_prose"
+    },
+    {
+      "line": 105,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a function ARGUMENT \u2014 resolvable only per call site",
+      "src": "gate.read_text()",
+      "round": "R484_how_many_detectors_read_their_own_prose"
+    },
+    {
+      "line": 33,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "pathlib.Path(\"assurance/KNOWN_TYPED_ARM_POPULATION.json\").read_text()",
+      "round": "R488_a_class_is_what_a_rule_admits"
+    },
+    {
+      "line": 35,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT/\"E05_the_space_of_compilers\"/\"DEFINITION.md\").read_text()",
+      "round": "R489_the_second_release_is_not_hidden"
+    },
+    {
+      "line": 61,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "gen.read_text()",
+      "round": "R490_the_announced_compute_was_already_built"
+    },
+    {
+      "line": 44,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "cfg.read_text()",
+      "round": "R491_the_third_wall_was_also_false"
+    },
+    {
+      "line": 47,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "si.read_text()",
+      "round": "R491_the_third_wall_was_also_false"
+    },
+    {
+      "line": 74,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ASSUR/\"run_all.py\").read_text()",
+      "round": "R498_the_auditor_of_auditors_cannot_run_in_the_suite"
+    },
+    {
+      "line": 80,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ASSUR/\"run_all.py\").read_text()",
+      "round": "R498_the_auditor_of_auditors_cannot_run_in_the_suite"
+    },
+    {
+      "line": 97,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT/\"RETRACTIONS.md\").read_text()",
+      "round": "R500_do_other_artifacts_assert_worlds_the_record_overturned"
+    },
+    {
+      "line": 81,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05/\"DEFINITION.md\").read_text()",
+      "round": "R500_do_other_artifacts_assert_worlds_the_record_overturned"
+    },
+    {
+      "line": 81,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05/\"STATEMENT.md\").read_text()",
+      "round": "R500_do_other_artifacts_assert_worlds_the_record_overturned"
+    },
+    {
+      "line": 88,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R500_do_other_artifacts_assert_worlds_the_record_overturned"
+    },
+    {
+      "line": 71,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text()",
+      "round": "R502_the_admissible_side_is_one_responsive_arm_and_six_random_ones"
+    },
+    {
+      "line": 56,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(R/\"core_full.json\").read_text()",
+      "round": "R503_the_two_sides_of_clause_three_draw_from_the_same_pool"
+    },
+    {
+      "line": 57,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "f.read_text()",
+      "round": "R503_the_two_sides_of_clause_three_draw_from_the_same_pool"
+    },
+    {
+      "line": 63,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(R/\"core_full.json\").read_text()",
+      "round": "R508_selection_position_is_a_partial_provenance_surrogate"
+    },
+    {
+      "line": 76,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "f.read_text()",
+      "round": "R508_selection_position_is_a_partial_provenance_surrogate"
+    },
+    {
+      "line": 57,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "R508.read_text()",
+      "round": "R509_a_checkable_clause_three_does_not_rescue_the_definition"
+    },
+    {
+      "line": 51,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT/\"E05_the_space_of_compilers/A24_what_the_definition_costs/\"\n    ",
+      "round": "R512_the_position_proxy_inverts_against_the_actual_ratings"
+    },
+    {
+      "line": 73,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text()",
+      "round": "R512_the_position_proxy_inverts_against_the_actual_ratings"
+    },
+    {
+      "line": 30,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "g.read_text()",
+      "round": "R513_the_size_of_my_own_assurance_surface"
+    },
+    {
+      "line": 27,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "f.read_text()",
+      "round": "R514_clause_one_is_subsumed_by_clause_two"
+    },
+    {
+      "line": 52,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R516_does_a_per_prompt_clause_one_exclude_any_admitted_arm"
+    },
+    {
+      "line": 36,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: Path(...)",
+      "src": "pathlib.Path(glob.glob(str(root/\"E05_the_space_of_compilers/*/R436*/re",
+      "round": "R517_has_clause_four_ever_been_testable"
+    },
+    {
+      "line": 37,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: Path(...)",
+      "src": "pathlib.Path(glob.glob(str(root/\"E05_the_space_of_compilers/*/R434*/re",
+      "round": "R517_has_clause_four_ever_been_testable"
+    },
+    {
+      "line": 38,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: Path(...)",
+      "src": "pathlib.Path(glob.glob(str(root/\"E05_the_space_of_compilers/*/R436*/re",
+      "round": "R518_clause_four_is_redundant_where_the_definition_lives"
+    },
+    {
+      "line": 36,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R518_clause_four_is_redundant_where_the_definition_lives"
+    },
+    {
+      "line": 33,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R519_only_clause_three_narrows_what_two_admits"
+    },
+    {
+      "line": 36,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: Path(...)",
+      "src": "pathlib.Path(glob.glob(str(root/\"E05_the_space_of_compilers/*/R436*/re",
+      "round": "R519_only_clause_three_narrows_what_two_admits"
+    },
+    {
+      "line": 49,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"corebench/select_core.py\").read_text()",
+      "round": "R520_is_the_provenance_set_complete"
+    },
+    {
+      "line": 62,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: Path(...)",
+      "src": "pathlib.Path(glob.glob(str(root/\"E05_the_space_of_compilers/*/R436*/re",
+      "round": "R520_is_the_provenance_set_complete"
+    },
+    {
+      "line": 60,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R520_is_the_provenance_set_complete"
+    },
+    {
+      "line": 55,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: Path(...)",
+      "src": "pathlib.Path(glob.glob(str(root/\"E05_the_space_of_compilers/*/R436*/re",
+      "round": "R521_what_the_declared_literal_costs_on_the_wider_population"
+    },
+    {
+      "line": 53,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R521_what_the_declared_literal_costs_on_the_wider_population"
+    },
+    {
+      "line": 47,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R522_the_six_candidacies_become_verdicts"
+    },
+    {
+      "line": 56,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R523_are_the_six_arms_three_or_aliases"
+    },
+    {
+      "line": 45,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: Path(...)",
+      "src": "pathlib.Path(glob.glob(str(ROOT/\"E05_the_space_of_compilers/*/R436*/re",
+      "round": "R524_how_many_objects_are_in_the_fifty_six_tags"
+    },
+    {
+      "line": 52,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"corebench/select_core.py\").read_text()",
+      "round": "R525_the_variants_that_were_supposed_to_differ"
+    },
+    {
+      "line": 60,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R525_the_variants_that_were_supposed_to_differ"
+    },
+    {
+      "line": 54,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"corebench/rebuild_selection_08b.sh\").read_text()",
+      "round": "R526_the_recorded_natural_experiment"
+    },
+    {
+      "line": 48,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R527_is_clause_two_a_choice"
+    },
+    {
+      "line": 44,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R528_where_the_definition_empties"
+    },
+    {
+      "line": 55,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"data/DATASET_CARD.md\").read_text()",
+      "round": "R529_which_human_labels_does_clause_three_mean"
+    },
+    {
+      "line": 56,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"corebench/select_core.py\").read_text()",
+      "round": "R529_which_human_labels_does_clause_three_mean"
+    },
+    {
+      "line": 52,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R529_which_human_labels_does_clause_three_mean"
+    },
+    {
+      "line": 38,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R530_what_the_empty_world_costs"
+    },
+    {
+      "line": 60,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R531_prompt_responsiveness_derived_not_declared"
+    },
+    {
+      "line": 45,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R532_what_the_fork_costs_in_a2"
+    },
+    {
+      "line": 51,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"corebench/select_core.py\").read_text()",
+      "round": "R534_three_input_classes_not_two"
+    },
+    {
+      "line": 63,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R534_three_input_classes_not_two"
+    },
+    {
+      "line": 43,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"E05_the_space_of_compilers/A24_what_the_definition_costs\"\n   ",
+      "round": "R535_how_remote_is_the_third_reading"
+    },
+    {
+      "line": 45,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"corebench/select_core.py\").read_text()",
+      "round": "R535_how_remote_is_the_third_reading"
+    },
+    {
+      "line": 50,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"corebench/select_core.py\").read_text()",
+      "round": "R536_does_the_ordering_survive_a_second_judge"
+    },
+    {
+      "line": 40,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(pathlib.Path(__file__).resolve().parents[3] / \"corebench/judge_core.p",
+      "round": "R541_the_throughput_was_measured_on_the_wrong_operation"
+    },
+    {
+      "line": 38,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"corebench/generate_core.py\").read_text()",
+      "round": "R542_every_model_was_wrong_every_log_was_right"
+    },
+    {
+      "line": 39,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "p.read_text(errors=\"ignore\")",
+      "round": "R547_the_register_sorted_on_the_wrong_axis"
+    },
+    {
+      "line": 30,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"corebench/judge_core.py\").read_text()",
+      "round": "R549_every_on_site_row_is_gated_by_a_missing_flag"
+    },
+    {
+      "line": 31,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"covalx/judge.py\").read_text()",
+      "round": "R549_every_on_site_row_is_gated_by_a_missing_flag"
+    },
+    {
+      "line": 32,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / \"corebench/generate_core.py\").read_text()",
+      "round": "R549_every_on_site_row_is_gated_by_a_missing_flag"
+    },
+    {
+      "line": 28,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(root / \"E05_the_space_of_compilers\" / \"DEFINITION.md\").read_text()",
+      "round": "R551_did_the_reasoning_document_stop_being_written"
+    },
+    {
+      "line": 101,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "j.read_text()",
+      "round": "R551_did_the_reasoning_document_stop_being_written"
+    },
+    {
+      "line": 17,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(root / p).read_text()",
+      "round": "R552_the_cost_column_was_denominated_in_the_wrong_unit"
+    },
+    {
+      "line": 48,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "idx.read_text()",
+      "round": "R554_the_flag_needs_a_checkpoint_to_point_at"
+    },
+    {
+      "line": 66,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "a.read_text()",
+      "round": "R556_the_second_release_row_five_asks_for_is_on_disk"
+    },
+    {
+      "line": 55,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "a.read_text()",
+      "round": "R556_the_second_release_row_five_asks_for_is_on_disk"
+    },
+    {
+      "line": 29,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"E05_the_space_of_compilers\" / \"STATEMENT.md\").read_text()",
+      "round": "R558_the_target_is_missing_from_the_scope_column"
+    },
+    {
+      "line": 30,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"E05_the_space_of_compilers\" / \"A24_what_the_definition_costs\"",
+      "round": "R558_the_target_is_missing_from_the_scope_column"
+    },
+    {
+      "line": 32,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "an element of a collection built at runtime",
+      "src": "fs[0].read_text()",
+      "round": "R559_the_recommendation_rests_on_one_cell_of_a_two_cell_curve"
+    },
+    {
+      "line": 27,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"E05_the_space_of_compilers\" / \"STATEMENT.md\").read_text()",
+      "round": "R560_which_of_the_four_scope_dimensions_each_claim_states"
+    },
+    {
+      "line": 28,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "RM.read_text()",
+      "round": "R564_the_round_index_is_236_rounds_behind"
+    },
+    {
+      "line": 51,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text()",
+      "round": "R564_the_round_index_is_236_rounds_behind"
+    },
+    {
+      "line": 25,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"A24_what_the_definition_costs\" / \"README.md\").read_text()",
+      "round": "R565_nine_arcs_the_deliverable_may_not_reach"
+    },
+    {
+      "line": 26,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R565_nine_arcs_the_deliverable_may_not_reach"
+    },
+    {
+      "line": 35,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text()",
+      "round": "R566_a_third_deliverable_document_nobody_opened"
+    },
+    {
+      "line": 28,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "the result of a call: next(...)",
+      "src": "next((E05 / \"A23_is_the_admissibility_gate_the_right_gate\" /\n         ",
+      "round": "R567_does_the_a23_floor_reach_a24_and_does_a24_clear_its_own"
+    },
+    {
+      "line": 49,
+      "verdict": "RESOLVED",
+      "n_files": 374,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "f.read_text()",
+      "round": "R567_does_the_a23_floor_reach_a24_and_does_a24_clear_its_own"
+    },
+    {
+      "line": 31,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text()",
+      "round": "R568_the_convention_exists_and_it_names_my_error"
+    },
+    {
+      "line": 45,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "p.read_text()",
+      "round": "R574_meta_gates_are_a_structural_partition_not_a_count"
+    },
+    {
+      "line": 174,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "STMT.read_text()",
+      "round": "R591_where_the_four_orphan_values_actually_live"
+    },
+    {
+      "line": 153,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R591_where_the_four_orphan_values_actually_live"
+    },
+    {
+      "line": 157,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a comprehension variable",
+      "src": "f.read_text(errors=\"ignore\")",
+      "round": "R591_where_the_four_orphan_values_actually_live"
+    },
+    {
+      "line": 155,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a comprehension variable",
+      "src": "f.read_text(errors=\"ignore\")",
+      "round": "R591_where_the_four_orphan_values_actually_live"
+    },
+    {
+      "line": 119,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "STMT.read_text()",
+      "round": "R592_are_the_codeless_rounds_the_ones_the_statement_leans_on"
+    },
+    {
+      "line": 258,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "STMT.read_text()",
+      "round": "R593_do_the_codeless_artifacts_carry_their_own_scope"
+    },
+    {
+      "line": 95,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R593_do_the_codeless_artifacts_carry_their_own_scope"
+    },
+    {
+      "line": 102,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R594_is_world_an_enum_or_free_text_wearing_its_name"
+    },
+    {
+      "line": 96,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R595_is_the_singleton_tail_translatable_or_is_world_an_enum_set"
+    },
+    {
+      "line": 101,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a comprehension variable",
+      "src": "rm.read_text()",
+      "round": "R595_is_the_singleton_tail_translatable_or_is_world_an_enum_set"
+    },
+    {
+      "line": 120,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R596_what_the_provenance_gate_actually_accepts"
+    },
+    {
+      "line": 131,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "GATE.read_text()",
+      "round": "R596_what_the_provenance_gate_actually_accepts"
+    },
+    {
+      "line": 143,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R596_what_the_provenance_gate_actually_accepts"
+    },
+    {
+      "line": 107,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R597_is_the_repaired_allowance_reachable_in_this_document"
+    },
+    {
+      "line": 125,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "path.read_text()",
+      "round": "R597_is_the_repaired_allowance_reachable_in_this_document"
+    },
+    {
+      "line": 130,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(d / \"README.md\").read_text()",
+      "round": "R597_is_the_repaired_allowance_reachable_in_this_document"
+    },
+    {
+      "line": 81,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R597_is_the_repaired_allowance_reachable_in_this_document"
+    },
+    {
+      "line": 119,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(ROOT / \"assurance\" / g).read_text()",
+      "round": "R598_which_deliverable_documents_are_actually_gated"
+    },
+    {
+      "line": 143,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "r519.read_text()",
+      "round": "R599_does_the_deliverable_state_one_definition_or_several"
+    },
+    {
+      "line": 159,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text()",
+      "round": "R599_does_the_deliverable_state_one_definition_or_several"
+    },
+    {
+      "line": 133,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a comprehension variable",
+      "src": "p.read_text()",
+      "round": "R599_does_the_deliverable_state_one_definition_or_several"
+    },
+    {
+      "line": 107,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R600_the_rounds_the_deliverable_leans_on_that_the_gate_never_sees"
+    },
+    {
+      "line": 86,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R600_the_rounds_the_deliverable_leans_on_that_the_gate_never_sees"
+    },
+    {
+      "line": 170,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R600_the_rounds_the_deliverable_leans_on_that_the_gate_never_sees"
+    },
+    {
+      "line": 116,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R601_does_the_claim_set_carry_the_cross_release_result"
+    },
+    {
+      "line": 104,
+      "verdict": "RESOLVED",
+      "n_files": 902,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "f.read_text(errors=\"ignore\")",
+      "round": "R601_does_the_claim_set_carry_the_cross_release_result"
+    },
+    {
+      "line": 109,
+      "verdict": "RESOLVED",
+      "n_files": 426,
+      "reason": "path built per outer-loop element",
+      "src": "(d / \"README.md\").read_text()",
+      "round": "R601_does_the_claim_set_carry_the_cross_release_result"
+    },
+    {
+      "line": 98,
+      "verdict": "RESOLVED",
+      "n_files": 471,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "f.read_text(errors=\"ignore\")",
+      "round": "R604_does_clause_twos_baseline_name_exist_in_any_artifact"
+    },
+    {
+      "line": 70,
+      "verdict": "RESOLVED",
+      "n_files": 15871,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "p.read_text(errors=\"ignore\")",
+      "round": "R605_can_clause_twos_comparator_be_rebuilt_from_this_repo"
+    },
+    {
+      "line": 77,
+      "verdict": "RESOLVED",
+      "n_files": 3,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "p.read_text(errors=\"ignore\")",
+      "round": "R605_can_clause_twos_comparator_be_rebuilt_from_this_repo"
+    },
+    {
+      "line": 127,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R606_does_provenance_reach_the_rounds_the_page_cites"
+    },
+    {
+      "line": 85,
+      "verdict": "RESOLVED",
+      "n_files": 471,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "f.read_text()",
+      "round": "R606_does_provenance_reach_the_rounds_the_page_cites"
+    },
+    {
+      "line": 101,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R607_which_eras_drive_the_provenance_gap"
+    },
+    {
+      "line": 87,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R607_which_eras_drive_the_provenance_gap"
+    },
+    {
+      "line": 122,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R608_what_separates_the_documented_cited_rounds_of_era_three"
+    },
+    {
+      "line": 91,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R608_what_separates_the_documented_cited_rounds_of_era_three"
+    },
+    {
+      "line": 124,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R609_is_there_a_transition_at_all_or_only_a_slope"
+    },
+    {
+      "line": 90,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R609_is_there_a_transition_at_all_or_only_a_slope"
+    },
+    {
+      "line": 146,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R610_does_the_switch_appear_in_the_uncited_rounds_too"
+    },
+    {
+      "line": 91,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R610_does_the_switch_appear_in_the_uncited_rounds_too"
+    },
+    {
+      "line": 84,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R611_what_else_changed_at_the_boundary"
+    },
+    {
+      "line": 89,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R612_a_swap_or_two_trends_that_cross"
+    },
+    {
+      "line": 83,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R613_how_much_of_the_definition_rests_on_the_documented_era"
+    },
+    {
+      "line": 85,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R614_narrow_by_necessity_or_by_habit"
+    },
+    {
+      "line": 103,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R615_can_the_outcome_question_be_asked_at_all"
+    },
+    {
+      "line": 95,
+      "verdict": "RESOLVED",
+      "n_files": 471,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "f.read_text()",
+      "round": "R615_can_the_outcome_question_be_asked_at_all"
+    },
+    {
+      "line": 105,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R616_is_the_cited_sets_form_rate_more_than_chance"
+    },
+    {
+      "line": 87,
+      "verdict": "RESOLVED",
+      "n_files": 471,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "f.read_text()",
+      "round": "R616_is_the_cited_sets_form_rate_more_than_chance"
+    },
+    {
+      "line": 108,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R617_does_the_controls_key_track_running_controls"
+    },
+    {
+      "line": 92,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "doc.read_text(errors=\"ignore\")",
+      "round": "R617_does_the_controls_key_track_running_controls"
+    },
+    {
+      "line": 96,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "p.read_text(errors=\"ignore\")",
+      "round": "R617_does_the_controls_key_track_running_controls"
+    },
+    {
+      "line": 88,
+      "verdict": "RESOLVED",
+      "n_files": 471,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "f.read_text()",
+      "round": "R617_does_the_controls_key_track_running_controls"
+    },
+    {
+      "line": 102,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "path.read_text()",
+      "round": "R621_what_the_gate_suite_actually_covers"
+    },
+    {
+      "line": 160,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "S.read_text()",
+      "round": "R621_what_the_gate_suite_actually_covers"
+    },
+    {
+      "line": 160,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "DD.read_text()",
+      "round": "R621_what_the_gate_suite_actually_covers"
+    },
+    {
+      "line": 100,
+      "verdict": "RESOLVED",
+      "n_files": 373,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "f.read_text(errors=\"ignore\")",
+      "round": "R622_how_much_of_the_definition_is_re_derived"
+    },
+    {
+      "line": 155,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "path.read_text()",
+      "round": "R622_how_much_of_the_definition_is_re_derived"
+    },
+    {
+      "line": 123,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(E05 / n).read_text()",
+      "round": "R623_what_the_automatic_rule_would_flag"
+    },
+    {
+      "line": 91,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text(errors=\"ignore\")",
+      "round": "R623_what_the_automatic_rule_would_flag"
+    },
+    {
+      "line": 124,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(E05 / n).read_text()",
+      "round": "R624_the_binding_unit_is_a_specification_axis"
+    },
+    {
+      "line": 86,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text(errors=\"ignore\")",
+      "round": "R624_the_binding_unit_is_a_specification_axis"
+    },
+    {
+      "line": 127,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(E05 / n).read_text()",
+      "round": "R625_adjudicating_the_82"
+    },
+    {
+      "line": 87,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text(errors=\"ignore\")",
+      "round": "R625_adjudicating_the_82"
+    },
+    {
+      "line": 96,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(E05 / n).read_text()",
+      "round": "R626_does_anchoring_carry_any_information"
+    },
+    {
+      "line": 81,
+      "verdict": "RESOLVED",
+      "n_files": 373,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "f.read_text(errors=\"ignore\")",
+      "round": "R626_does_anchoring_carry_any_information"
+    },
+    {
+      "line": 104,
+      "verdict": "RESOLVED",
+      "n_files": 317,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "f.read_text(errors=\"ignore\")",
+      "round": "R627_the_multiplicity_threshold_swept"
+    },
+    {
+      "line": 81,
+      "verdict": "RESOLVED",
+      "n_files": 373,
+      "reason": "loop over a statically resolvable iterable",
+      "src": "f.read_text(errors=\"ignore\")",
+      "round": "R627_the_multiplicity_threshold_swept"
+    },
+    {
+      "line": 74,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "S.read_text()",
+      "round": "R628_the_bound_as_four_interventions"
+    },
+    {
+      "line": 74,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "D.read_text()",
+      "round": "R628_the_bound_as_four_interventions"
+    },
+    {
+      "line": 61,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"FORMULATION.md\").read_text()",
+      "round": "R629_what_formulation_asserts_alone"
+    },
+    {
+      "line": 62,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"DEFINITION.md\").read_text()",
+      "round": "R629_what_formulation_asserts_alone"
+    },
+    {
+      "line": 62,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R629_what_formulation_asserts_alone"
+    },
+    {
+      "line": 72,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"FORMULATION.md\").read_text()",
+      "round": "R630_are_the_ungoverned_findings_live"
+    },
+    {
+      "line": 74,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"RETRACTIONS.md\").read_text()",
+      "round": "R630_are_the_ungoverned_findings_live"
+    },
+    {
+      "line": 73,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"DEFINITION.md\").read_text()",
+      "round": "R630_are_the_ungoverned_findings_live"
+    },
+    {
+      "line": 73,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R630_are_the_ungoverned_findings_live"
+    },
+    {
+      "line": 63,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R630_are_the_ungoverned_findings_live"
+    },
+    {
+      "line": 87,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"RETRACTIONS.md\").read_text()",
+      "round": "R631_the_unrecorded_retraction"
+    },
+    {
+      "line": 88,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"FORMULATION.md\").read_text()",
+      "round": "R631_the_unrecorded_retraction"
+    },
+    {
+      "line": 89,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"DEFINITION.md\").read_text()",
+      "round": "R631_the_unrecorded_retraction"
+    },
+    {
+      "line": 89,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R631_the_unrecorded_retraction"
+    },
+    {
+      "line": 80,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R631_the_unrecorded_retraction"
+    },
+    {
+      "line": 75,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"FORMULATION.md\").read_text()",
+      "round": "R632_how_much_the_ledger_overstates"
+    },
+    {
+      "line": 77,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(ROOT / \"RETRACTIONS.md\").read_text()",
+      "round": "R632_how_much_the_ledger_overstates"
+    },
+    {
+      "line": 76,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"DEFINITION.md\").read_text()",
+      "round": "R632_how_much_the_ledger_overstates"
+    },
+    {
+      "line": 76,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "(E05 / \"STATEMENT.md\").read_text()",
+      "round": "R632_how_much_the_ledger_overstates"
+    },
+    {
+      "line": 68,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R632_how_much_the_ledger_overstates"
+    },
+    {
+      "line": 91,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "rp.read_text(errors=\"ignore\")",
+      "round": "R633_conclusions_under_superseded_instruments"
+    },
+    {
+      "line": 88,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(d / \"run.py\").read_text(errors=\"ignore\")",
+      "round": "R634_how_many_definitions_of_its_own_terms"
+    },
+    {
+      "line": 131,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(d / \"run.py\").read_text(errors=\"ignore\")",
+      "round": "R634_how_many_definitions_of_its_own_terms"
+    },
+    {
+      "line": 135,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(d / \"run.py\").read_text(errors=\"ignore\")",
+      "round": "R634_how_many_definitions_of_its_own_terms"
+    },
+    {
+      "line": 84,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(d / \"run.py\").read_text(errors=\"ignore\")",
+      "round": "R635_who_reads_a_key_they_reject"
+    },
+    {
+      "line": 116,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(A24 / r / \"run.py\").read_text(errors=\"ignore\")",
+      "round": "R635_who_reads_a_key_they_reject"
+    },
+    {
+      "line": 70,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R635_who_reads_a_key_they_reject"
+    },
+    {
+      "line": 66,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text()",
+      "round": "R636_what_actually_moved"
+    },
+    {
+      "line": 78,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a comprehension variable",
+      "src": "src.read_text()",
+      "round": "R636_what_actually_moved"
+    },
+    {
+      "line": 48,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "p.read_text()",
+      "round": "R637_the_observer_in_the_population"
+    },
+    {
+      "line": 79,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(d / \"run.py\").read_text(errors=\"ignore\")",
+      "round": "R638_can_the_exit_codes_be_decoded"
+    },
+    {
+      "line": 74,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(d / \"run.py\").read_text(errors=\"ignore\")",
+      "round": "R639_is_the_world_live"
+    },
+    {
+      "line": 90,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(r636 / \"run.py\").read_text(errors=\"ignore\")",
+      "round": "R639_is_the_world_live"
+    },
+    {
+      "line": 125,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(d / \"run.py\").read_text(errors=\"ignore\")",
+      "round": "R639_is_the_world_live"
+    },
+    {
+      "line": 91,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(A24 / h / \"run.py\").read_text(errors=\"ignore\")",
+      "round": "R640_how_many_classify"
+    },
+    {
+      "line": 86,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a comprehension variable",
+      "src": "src639.read_text()",
+      "round": "R640_how_many_classify"
+    },
+    {
+      "line": 119,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a `base / literal` whose BASE is not statically known",
+      "src": "(A24 / r[\"harness\"] / \"run.py\").read_text(errors=\"ignore\")",
+      "round": "R640_how_many_classify"
+    },
+    {
+      "line": 51,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "p.read_text()",
+      "round": "R641_preventive_not_corrective"
+    },
+    {
+      "line": 39,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "p.read_text()",
+      "round": "R642_the_restore_destroyed_its_subject"
+    },
+    {
+      "line": 36,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "p.read_text()",
+      "round": "R643_verified_and_the_ledger_does_not_collapse"
+    },
+    {
+      "line": 48,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "p.read_text()",
+      "round": "R645_every_row_is_single_object_bound"
+    },
+    {
+      "line": 34,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "p.read_text()",
+      "round": "R646_the_number_I_carried_and_the_alarm_I_raised"
+    },
+    {
+      "line": 35,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "p.read_text()",
+      "round": "R647_the_summary_disagrees_with_its_own_listing"
+    },
+    {
+      "line": 40,
+      "verdict": "RESOLVED",
+      "n_files": 1,
+      "reason": "a single literal path",
+      "src": "p.read_text()",
+      "round": "R648_the_suite_was_consistent_and_i_truncated_it"
+    },
+    {
+      "line": 237,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a name bound by nothing resolvable in scope",
+      "src": "p.read_text(errors=\"ignore\")",
+      "round": "R649_a_truncation_only_matters_when_the_cap_binds"
+    },
+    {
+      "line": 350,
+      "verdict": "UNRESOLVABLE",
+      "n_files": null,
+      "reason": "a loop variable over an UNRESOLVABLE iterable",
+      "src": "f.read_text(errors=\"ignore\")",
+      "round": "R649_a_truncation_only_matters_when_the_cap_binds"
+    }
+  ],
+  "check251": "R649's NEXT line called the hand-written table 'a control that fails toward nothing to see'. FALSE -- R649 prints the UNVERIFIED count and carries it into its verdict. The three-valued discipline was working; I accused my own code of P6's failure. Retracted.",
+  "impossible": "runtime-dependent populations (a path from a computed string, a glob pattern built per iteration) cannot be resolved statically and are reported UNRESOLVABLE with the reason; resolving them would require executing 324 programs, which is a different instrument."
+}

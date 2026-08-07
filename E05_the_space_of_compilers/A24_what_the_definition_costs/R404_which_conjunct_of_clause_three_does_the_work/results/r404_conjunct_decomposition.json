@@ -1,0 +1,106 @@
+{
+  "admitted_2": [
+    "coval_core",
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "oracle_k4",
+    "oracle_k4_fit1",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "admitted_2a": [
+    "coval_core",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "admitted_2ab": [
+    "coval_core",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "admitted_2abc": [
+    "coval_core"
+  ],
+  "b_beyond_a": [],
+  "c_beyond_a": [
+    "full",
+    "full_sham",
+    "topabs_k4",
+    "topvar_k4",
+    "topw_k1",
+    "topw_k12",
+    "topw_k2",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_sham",
+    "topw_k6",
+    "topw_k8",
+    "topwvar_k4"
+  ],
+  "controls": {
+    "fake_rule_ok": true,
+    "key_reproduces": true,
+    "nested": true
+  },
+  "excl_3a": [
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "oracle_k4",
+    "oracle_k4_fit1"
+  ],
+  "excl_3b": [
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "oracle_k4_fit1"
+  ],
+  "excl_3c": [
+    "full",
+    "full_sham",
+    "topabs_k4",
+    "topvar_k4",
+    "topw_k1",
+    "topw_k12",
+    "topw_k2",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_sham",
+    "topw_k6",
+    "topw_k8",
+    "topwvar_k4"
+  ],
+  "fit_rules": [
+    "greedy_k",
+    "indep_k",
+    "oracle_k"
+  ],
+  "head": "891ff6ad622c",
+  "n_arms": 42,
+  "published": [
+    "coval_core",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "ranking_rules": [
+    "greedy_k",
+    "indep_k",
+    "oracle_k"
+  ],
+  "rubric_rules": [
+    "full",
+    "topabs_k",
+    "topvar_k",
+    "topw_k",
+    "topwvar_k"
+  ],
+  "source_name": "run.py",
+  "source_sha256": "be66f7201db0e0349bfa0f70abc67b792242be051144a432697f8848ace9ceae",
+  "verdict": "W-3C-BINDS"
+}

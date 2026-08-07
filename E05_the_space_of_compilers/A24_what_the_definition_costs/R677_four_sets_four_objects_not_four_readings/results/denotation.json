@@ -1,0 +1,81 @@
+{
+  "world": "\u2b50\u2b50\u2b50 NOT IDENTIFIED \u2014 AND THAT IS THE RESULT. The number of five-member sets that denote a \u2462-reading extension is 0\u20131 ({'majority': 0, 'any_three': 1, 'earliest': 1}), decided entirely by whether a set's denotation is taken from its PRODUCER or from its 21 RE-CITATIONS. Nothing in these artifacts marks which citation produced a set, so a lineage question silently becomes a popularity contest. \u26d4 R676's headline is RETRACTED: 'four extension readings sharing coval_core' is not merely mis-attributed, it is a quantity this corpus cannot currently pin down \u2014 and my registered point of 1 scored INSIDE under one aggregator and OUTSIDE under another, which is the tell. \u2b50 THE STANDING FINDING IS THE MISSING FIELD: an artifact that stores a set must record whether it COMPUTED it or COPIED it, and none of the 32 citations here does.",
+  "controls_ok": true,
+  "tree_sha": "9939ec8e05df7430cbd36657a97440387ad47726",
+  "n_sets": 6,
+  "n_three_extensions": 0,
+  "kill_fired": true,
+  "survivor_intersection": [],
+  "spec_curve_aggregator": {
+    "majority": 0,
+    "any_three": 1,
+    "earliest": 1
+  },
+  "identified": false,
+  "directional_holds": false,
+  "per_set": [
+    {
+      "members": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "denotes": "d_other"
+    },
+    {
+      "members": [
+        "full",
+        "topabs_k",
+        "topvar_k",
+        "topw_k",
+        "topwvar_k"
+      ],
+      "denotes": "d_other"
+    },
+    {
+      "members": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "topvar_k4",
+        "topwvar_k4"
+      ],
+      "denotes": "d_other"
+    },
+    {
+      "members": [
+        "coval_core",
+        "topabs_k4",
+        "topvar_k4",
+        "topw_k4",
+        "topwvar_k4"
+      ],
+      "denotes": "c_publication_list"
+    },
+    {
+      "members": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "denotes": "b_before_three"
+    },
+    {
+      "members": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "topw_k4"
+      ],
+      "denotes": "b_before_three"
+    }
+  ],
+  "registered": "1 [1,3] survivors; every survivor contains coval_core; kill if 0",
+  "check278": "R676's NEXT asserted each set came from a different \u2462 variant. R470.P is the extension BEFORE \u2462; R442.published_five is CoVal's published list; R509.five sits in a round whose answer is ONE. The attribution was never checked.",
+  "identification_limit": "a docstring states INTENT, not what the code computed; this is an upper bound on field-name/object agreement."
+}

@@ -1,0 +1,77 @@
+{
+ "n_pairs": 5758,
+ "min_raters_per_pair": 4,
+ "pooled": {
+  "own": 0.7495658214657868,
+  "donor": 0.575720736366794,
+  "attribution": 0.17384508509899277
+ },
+ "bins": [
+  {
+   "lo": 0.5,
+   "hi": 0.6,
+   "n": 847,
+   "own": 0.5324675324675324,
+   "donor": 0.5041322314049587,
+   "attribution": 0.02833530106257376,
+   "own_over_chance": 0.03246753246753242,
+   "donor_over_chance": 0.004132231404958664,
+   "ratio_over_chance": 7.857142857142873
+  },
+  {
+   "lo": 0.6,
+   "hi": 0.7,
+   "n": 1031,
+   "own": 0.6459747817652765,
+   "donor": 0.533462657613967,
+   "attribution": 0.1125121241513094,
+   "own_over_chance": 0.14597478176527645,
+   "donor_over_chance": 0.03346265761396705,
+   "ratio_over_chance": 4.362318840579707
+  },
+  {
+   "lo": 0.7,
+   "hi": 0.8,
+   "n": 1052,
+   "own": 0.7309885931558935,
+   "donor": 0.5456273764258555,
+   "attribution": 0.18536121673003803,
+   "own_over_chance": 0.23098859315589348,
+   "donor_over_chance": 0.04562737642585546,
+   "ratio_over_chance": 5.062500000000004
+  },
+  {
+   "lo": 0.8,
+   "hi": 0.9,
+   "n": 1357,
+   "own": 0.8216654384672071,
+   "donor": 0.5976418570375829,
+   "attribution": 0.2240235814296242,
+   "own_over_chance": 0.3216654384672071,
+   "donor_over_chance": 0.09764185703758288,
+   "ratio_over_chance": 3.2943396226415103
+  },
+  {
+   "lo": 0.9,
+   "hi": 1.0,
+   "n": 1471,
+   "own": 0.893949694085656,
+   "donor": 0.6478585995921142,
+   "attribution": 0.24609109449354183,
+   "own_over_chance": 0.39394969408565605,
+   "donor_over_chance": 0.14785859959211423,
+   "ratio_over_chance": 2.664367816091954
+  }
+ ],
+ "rise": 0.21775579343096807,
+ "monotone_steps": 4,
+ "over_chance_ratio_span": 2.9489707876248055,
+ "highest_bin_ci95": [
+  0.22025832766825293,
+  0.27124405166553367
+ ],
+ "world": "D DILUTED",
+ "outcome_variable_scope": "Agreement with the HUMAN MAJORITY ordering of each unordered response pair, own rubric versus a donor rubric under seed 20260727. Consensus is computed from released rankings only and is independent of both rubrics and of the judge.",
+ "scope": "Conditioning on consensus conditions on the outcome's reliability. It is symmetric between the arms -- unlike entry 215's margin binning -- but a noisy target attenuates both arms toward chance, so this cannot separate larger specificity from lighter attenuation. Pairs with fewer than 4 raters are excluded because consensus is not estimable.",
+ "verdict": "D DILUTED. The package reports source specificity as one number, pooled over every human-ranked pair regardless of whether the humans agreed. Conditioned on HUMAN CONSENSUS -- the share of raters ordering a pair the same way, a property of the raters that neither rubric and no judge touches -- it is not one number: attribution runs +0.0283 on pairs where consensus is barely above chance to +0.2461 where it is near-unanimous [+0.2203,+0.2712], 4 of 4 steps non-decreasing, against a pooled +0.1738. THE HIGH-CONSENSUS FIGURE IS THE INTERPRETABLE ONE, because where consensus is near 0.5 the human target is itself a coin flip and no estimator can beat it. THIS IS NOT ENTRY 215'S ARTIFACT: that binned on a rubric's own decision margin, which selects for that rubric being right and flipped direction when the donor was used instead. Consensus is computed from rankings alone and is symmetric between the arms -- the donor arm is reported in every bin for exactly that reason. THE CONFOUND, WRITTEN BEFORE THE RUN AND NOT RESOLVED: conditioning on consensus conditions on the OUTCOME's reliability, and a noisy target attenuates every estimator toward chance, so a rising contrast is expected even if the underlying specificity is constant. The over-chance ratio (own-0.5)/(donor-0.5) spans 2.95x across bins rather than staying constant, which is NOT what pure attenuation of a single underlying effect would produce -- but this round does not claim that settles it. WHAT IS ESTABLISHED: the pooled figure averages over pairs whose human target is unreliable, and the figure describing comparisons humans actually agree on is roughly twice it. WHAT IS NOT: whether that is larger specificity or lighter attenuation."
+}

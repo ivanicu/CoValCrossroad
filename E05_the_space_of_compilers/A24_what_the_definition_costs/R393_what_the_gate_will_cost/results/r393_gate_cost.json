@@ -1,0 +1,87 @@
+{
+  "cap_s": 90,
+  "censored_share": 0.13333333333333333,
+  "controls": {
+    "neg_ok": true,
+    "pos_ok": true,
+    "timer_noop_s": 0.01,
+    "timer_sleep_s": 3.01
+  },
+  "head": "6f6becee97d8",
+  "median_s": 3.4,
+  "n_censored": 2,
+  "n_owing": 154,
+  "n_sample": 15,
+  "n_timed": 15,
+  "per_round_lower_bound_s": 15.1,
+  "projected_lower_bound_s": 2324.4,
+  "rows": {
+    "R114_demographic_subject": {
+      "secs": 90,
+      "status": "CENSORED"
+    },
+    "R130_judge_gauge": {
+      "secs": 90,
+      "status": "CENSORED"
+    },
+    "R153_the_menu_itself": {
+      "secs": 0.4,
+      "status": "COMPLETE"
+    },
+    "R159_which_outcome": {
+      "secs": 4.7,
+      "status": "COMPLETE"
+    },
+    "R165_gauge_admissibility": {
+      "secs": 5.8,
+      "status": "COMPLETE"
+    },
+    "R208_welldefinedness": {
+      "secs": 3.4,
+      "status": "COMPLETE"
+    },
+    "R250_can_provenance_be_reconstructed": {
+      "secs": 4.4,
+      "status": "COMPLETE"
+    },
+    "R297_why_k1_loses": {
+      "secs": 0.4,
+      "status": "COMPLETE"
+    },
+    "R299_where_the_selection_boundary_is": {
+      "secs": 2.4,
+      "status": "COMPLETE"
+    },
+    "R42_equivalence": {
+      "secs": 5.8,
+      "status": "COMPLETE"
+    },
+    "R51_judge_lexical": {
+      "secs": 7.4,
+      "status": "COMPLETE"
+    },
+    "R57_outcome_reliability": {
+      "secs": 2.7,
+      "status": "COMPLETE"
+    },
+    "R64_satisfaction_substudy_power": {
+      "secs": 2.7,
+      "status": "COMPLETE"
+    },
+    "R66_r56_reconstruction": {
+      "secs": 3.4,
+      "status": "COMPLETE"
+    },
+    "R91_precision_budget": {
+      "secs": 2.9,
+      "status": "COMPLETE"
+    }
+  },
+  "sample_total_s": 226.4,
+  "seed": 1,
+  "source_name": "run.py",
+  "source_sha256": "412945294edef72c71a1e6c6e28b1668427c73dbe52713cecd1d4fdd5a551601",
+  "tail_seconds": 180,
+  "tail_share": 0.795,
+  "verdict": "W_CACHE_JUSTIFIED"
+}

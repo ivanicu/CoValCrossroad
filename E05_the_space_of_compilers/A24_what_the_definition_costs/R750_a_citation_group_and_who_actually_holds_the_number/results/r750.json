@@ -1,0 +1,343 @@
+{
+  "P1_median_support": 1,
+  "P2_share_ge2": 0.4117647058823529,
+  "P3_sham_base_rate": 0.7837837837837838,
+  "P4_support_zero": 2,
+  "P5_prefix_manufactured_orphans": 2,
+  "by_group_size": {
+    "2": {
+      "mean": 1.1666666666666667,
+      "n": 12
+    },
+    "3": {
+      "mean": 1.3333333333333333,
+      "n": 3
+    },
+    "4": {
+      "mean": 4,
+      "n": 1
+    },
+    "8": {
+      "mean": 4,
+      "n": 1
+    }
+  },
+  "controls": {
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "g0": true
+  },
+  "directional_no_growth_with_size": true,
+  "directional_underpowered": false,
+  "grid": {
+    "prefix (R590's broken rule)|multi-cited": {
+      "median": 1,
+      "n": 17,
+      "share_0": 0.23529411764705882,
+      "share_ge2": 0.4117647058823529
+    },
+    "prefix (R590's broken rule)|single-cited (SHAM)": {
+      "median": 1,
+      "n": 37,
+      "share_0": 0.4594594594594595,
+      "share_ge2": 0.0
+    },
+    "rounded (its repair)|multi-cited": {
+      "median": 1,
+      "n": 17,
+      "share_0": 0.11764705882352941,
+      "share_ge2": 0.4117647058823529
+    },
+    "rounded (its repair)|single-cited (SHAM)": {
+      "median": 1,
+      "n": 37,
+      "share_0": 0.21621621621621623,
+      "share_ge2": 0.0
+    },
+    "tolerance|multi-cited": {
+      "median": 1,
+      "n": 17,
+      "share_0": 0.11764705882352941,
+      "share_ge2": 0.47058823529411764
+    },
+    "tolerance|single-cited (SHAM)": {
+      "median": 1,
+      "n": 37,
+      "share_0": 0.21621621621621623,
+      "share_ge2": 0.0
+    }
+  },
+  "hashseed": "13579",
+  "multi_number_sentences": 7,
+  "n_multi": 17,
+  "n_single": 37,
+  "per_sentence": {
+    "BASELINE.** R494\u2013R497 decomposed `coval_core \u2212 gen` and reported it reliable at **r = 0.9355**, true": {
+      "cites": [
+        494,
+        497
+      ],
+      "numbers": [
+        "0.9355"
+      ],
+      "per_number": {
+        "0.9355": 1
+      },
+      "support": 1
+    },
+    "The PAIR comparison's random baseline is **0.3321** *(R504, R505)* \u2014 same name,": {
+      "cites": [
+        504,
+        505
+      ],
+      "numbers": [
+        "0.3321"
+      ],
+      "per_number": {
+        "0.3321": 2
+      },
+      "support": 2
+    },
+    "The rounds that scored \u2461 record the comparator as **`sat_genericpool16[:4]`**, a key in **13** scoring artifacts across R391\u00b7R392\u00b7R426\u00b7R449\u00b7R477\u00b7R479\u00b7": {
+      "cites": [
+        391,
+        392,
+        426,
+        449,
+        477,
+        479,
+        485,
+        499
+      ],
+      "numbers": [
+        "13"
+      ],
+      "per_number": {
+        "13": 4
+      },
+      "support": 4
+    },
+    "The row offers two alternatives and **one is already on disk**: `data/utterances.jsonl`, a second release, used by **3** rounds *(R556)* \u2014 the artifac": {
+      "cites": [
+        398,
+        427,
+        433,
+        556
+      ],
+      "numbers": [
+        "3"
+      ],
+      "per_number": {
+        "3": 4
+      },
+      "support": 4
+    },
+    "The ten rows cite **18** distinct rounds; **2** carry no `run.py` at all (**R580, R581**), and of the": {
+      "cites": [
+        580,
+        581
+      ],
+      "numbers": [
+        "18",
+        "2"
+      ],
+      "per_number": {
+        "18": 0,
+        "2": 2
+      },
+      "support": 2
+    },
+    "calls a core \u2014 0.5640 in A2 against the 0.5404 prompt-blind ceiling *(R475, R485)*.": {
+      "cites": [
+        475,
+        485
+      ],
+      "numbers": [
+        "0.5404",
+        "0.5640"
+      ],
+      "per_number": {
+        "0.5404": 1,
+        "0.5640": 1
+      },
+      "support": 1
+    },
+    "| **10** | \u2462-any is **1.29 MDE** from non-empty; \u2462-judge is **4.24** *(R530, R535)* | R294's census; the closest arms are `gen` and `topvar_k4` |": {
+      "cites": [
+        294,
+        530,
+        535
+      ],
+      "numbers": [
+        "10",
+        "4.24"
+      ],
+      "per_number": {
+        "10": 0,
+        "4.24": 1
+      },
+      "support": 1
+    },
+    "| **2** *(row 8: \u2462 misses 2 distinct objects)* | R520, R523, R525 | \u26d4 **UNRESOLVED** \u2014 R520 holds no identity relation, and the row's cell depends on ": {
+      "cites": [
+        520,
+        523,
+        525
+      ],
+      "numbers": [
+        "2"
+      ],
+      "per_number": {
+        "2": 2
+      },
+      "support": 2
+    },
+    "| **2** | \u2462 is **three clauses, not one**: \u2462-rank (extension **5**\u2020), \u2462-any (**0**\u2020), \u2462-judge (**0**\u2020) *(R529, R534)*.": {
+      "cites": [
+        529,
+        534
+      ],
+      "numbers": [
+        "0",
+        "2",
+        "5"
+      ],
+      "per_number": {
+        "0": 1,
+        "2": 2,
+        "5": 1
+      },
+      "support": 2
+    },
+    "| **5** | independent replication | **a second team or a second release** | \u26d4 **R556's ARGUMENT IS OVERTURNED AND ITS CONCLUSION SURVIVES** *(R603)*.": {
+      "cites": [
+        556,
+        603
+      ],
+      "numbers": [
+        "5"
+      ],
+      "per_number": {
+        "5": 1
+      },
+      "support": 1
+    },
+    "| **6** | That curve **replicates under a second judge** at ~0.70\u20130.74\u00d7 *(R537)*, as does the topw-vs-topvar ordering *(R536)* | 0.8B judge, 968 promp": {
+      "cites": [
+        536,
+        537
+      ],
+      "numbers": [
+        "6"
+      ],
+      "per_number": {
+        "6": 1
+      },
+      "support": 1
+    },
+    "| **7** | The release's own rationale \u2014 spread-selection is *\"the direct fix\"* \u2014 is **refuted**: weights beat spread by **0.0779** *(R535)*, and it su": {
+      "cites": [
+        535,
+        536
+      ],
+      "numbers": [
+        "0.0779",
+        "7"
+      ],
+      "per_number": {
+        "0.0779": 1,
+        "7": 0
+      },
+      "support": 1
+    },
+    "| **8** | \u2462's implementation misses **2 distinct objects**, all traceable to **variant runs that produced no variant** *(R520, R523, R525)* | the 56-t": {
+      "cites": [
+        520,
+        523,
+        525
+      ],
+      "numbers": [
+        "8"
+      ],
+      "per_number": {
+        "8": 1
+      },
+      "support": 1
+    },
+    "| **\u2460** | behavioural | **0 of 41** arms | \u26d4 **DELETABLE.** Globally **subsumed by \u2461** \u2014 empirically on all 41 arms, the tightest \u2461-passer clearing it": {
+      "cites": [
+        514,
+        515
+      ],
+      "numbers": [
+        "+0.0582",
+        "0.0200"
+      ],
+      "per_number": {
+        "+0.0582": 0,
+        "0.0200": 0
+      },
+      "support": 0
+    },
+    "\u26a0 The old text \u2014 *\"`Qwen2.5-7B-Instruct` is present (29 GB, 4/4 shards) but OOMs in bf16\"* \u2014 also had the size wrong: every copy measures **15.23** GB": {
+      "cites": [
+        548,
+        549
+      ],
+      "numbers": [
+        "15.23"
+      ],
+      "per_number": {
+        "15.23": 0
+      },
+      "support": 0
+    },
+    "\u26d4 **But the size was overstated twice, and the correction is a UNIT one** *(R730)*: R729's **7** was a": {
+      "cites": [
+        729,
+        730
+      ],
+      "numbers": [
+        "7"
+      ],
+      "per_number": {
+        "7": 2
+      },
+      "support": 2
+    },
+    "\u2b50 **Priced: the closest prompt-responsive \u2462-any arm, `gen`, is `c2 = \u22120.0153` against its own MDE of 0.0119 \u2014 1.29 MDE short** *(R530)* | **a `gen`-li": {
+      "cites": [
+        530,
+        546
+      ],
+      "numbers": [
+        "0.0119",
+        "0.0153"
+      ],
+      "per_number": {
+        "0.0119": 1,
+        "0.0153": 0
+      },
+      "support": 1
+    }
+  },
+  "positive_detail": {
+    "pair": [
+      294,
+      426
+    ],
+    "value": "0.0316"
+  },
+  "readme_median": 1,
+  "round": "R750",
+  "sham_share_ge2_is_structurally_zero": true,
+  "support_le_group_size_is_a_derivation": true,
+  "thin_group_sizes_excluded": [
+    4,
+    8
+  ],
+  "tree_sha": "45876fcdabd8955c1922be97b5a625cc37147df0",
+  "why": "the group does not ground the number -- the page must name WHICH citation computed each figure",
+  "world": "B"
+}

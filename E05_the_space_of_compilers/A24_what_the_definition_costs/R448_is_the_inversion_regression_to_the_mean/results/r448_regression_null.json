@@ -1,0 +1,272 @@
+{
+  "source_sha": "619891d3e4a2511683458ed187de38bb52f240cd",
+  "world": "W-ARM",
+  "n_prompts": 968,
+  "n_refs": 1820,
+  "observed": {
+    "coval_core": {
+      "q2b": 1.0,
+      "q08": 0.6983516483516483,
+      "a2_2b": 0.5715105601469237,
+      "a2_08": 0.4711891643709825,
+      "shift": -0.3016483516483517
+    },
+    "gen": {
+      "q2b": 0.260989010989011,
+      "q08": 0.7928571428571428,
+      "a2_2b": 0.5374196510560147,
+      "a2_08": 0.4742883379247016,
+      "shift": 0.5318681318681318
+    },
+    "gen_sham": {
+      "q2b": 0.0,
+      "q08": 0.0,
+      "a2_2b": 0.4867998163452709,
+      "a2_08": 0.4361799816345271,
+      "shift": 0.0
+    }
+  },
+  "grid": [
+    {
+      "arm": "coval_core",
+      "band": 0.02,
+      "drop_ties": false,
+      "p": 0.02702702702702703,
+      "n_band": 37,
+      "band_median_shift": -0.01979109400769663,
+      "survives_bh": true
+    },
+    {
+      "arm": "coval_core",
+      "band": 0.02,
+      "drop_ties": true,
+      "p": 0.02702702702702703,
+      "n_band": 37,
+      "band_median_shift": -0.01979109400769663,
+      "survives_bh": true
+    },
+    {
+      "arm": "coval_core",
+      "band": 0.05,
+      "drop_ties": false,
+      "p": 0.01098901098901099,
+      "n_band": 91,
+      "band_median_shift": -0.03683342495876851,
+      "survives_bh": true
+    },
+    {
+      "arm": "coval_core",
+      "band": 0.05,
+      "drop_ties": true,
+      "p": 0.01098901098901099,
+      "n_band": 91,
+      "band_median_shift": -0.03683342495876851,
+      "survives_bh": true
+    },
+    {
+      "arm": "coval_core",
+      "band": 0.1,
+      "drop_ties": false,
+      "p": 0.06043956043956044,
+      "n_band": 182,
+      "band_median_shift": -0.03875755909840578,
+      "survives_bh": false
+    },
+    {
+      "arm": "coval_core",
+      "band": 0.1,
+      "drop_ties": true,
+      "p": 0.06043956043956044,
+      "n_band": 182,
+      "band_median_shift": -0.03875755909840578,
+      "survives_bh": false
+    },
+    {
+      "arm": "coval_core",
+      "band": 0.15,
+      "drop_ties": false,
+      "p": 0.06227106227106227,
+      "n_band": 273,
+      "band_median_shift": -0.03848268279274336,
+      "survives_bh": false
+    },
+    {
+      "arm": "coval_core",
+      "band": 0.15,
+      "drop_ties": true,
+      "p": 0.06227106227106227,
+      "n_band": 273,
+      "band_median_shift": -0.03848268279274336,
+      "survives_bh": false
+    },
+    {
+      "arm": "coval_core",
+      "band": 0.25,
+      "drop_ties": false,
+      "p": 0.07472527472527472,
+      "n_band": 455,
+      "band_median_shift": -0.0390324354040682,
+      "survives_bh": false
+    },
+    {
+      "arm": "coval_core",
+      "band": 0.25,
+      "drop_ties": true,
+      "p": 0.07472527472527472,
+      "n_band": 455,
+      "band_median_shift": -0.0390324354040682,
+      "survives_bh": false
+    },
+    {
+      "arm": "gen",
+      "band": 0.02,
+      "drop_ties": false,
+      "p": 0.0,
+      "n_band": 73,
+      "band_median_shift": 0.015393073117097311,
+      "survives_bh": true
+    },
+    {
+      "arm": "gen",
+      "band": 0.02,
+      "drop_ties": true,
+      "p": 0.0,
+      "n_band": 73,
+      "band_median_shift": 0.015393073117097311,
+      "survives_bh": true
+    },
+    {
+      "arm": "gen",
+      "band": 0.05,
+      "drop_ties": false,
+      "p": 0.005494505494505495,
+      "n_band": 182,
+      "band_median_shift": 0.02803738317757007,
+      "survives_bh": true
+    },
+    {
+      "arm": "gen",
+      "band": 0.05,
+      "drop_ties": true,
+      "p": 0.005494505494505495,
+      "n_band": 182,
+      "band_median_shift": 0.02803738317757007,
+      "survives_bh": true
+    },
+    {
+      "arm": "gen",
+      "band": 0.1,
+      "drop_ties": false,
+      "p": 0.005494505494505495,
+      "n_band": 364,
+      "band_median_shift": 0.05415063221550301,
+      "survives_bh": true
+    },
+    {
+      "arm": "gen",
+      "band": 0.1,
+      "drop_ties": true,
+      "p": 0.005494505494505495,
+      "n_band": 364,
+      "band_median_shift": 0.05415063221550301,
+      "survives_bh": true
+    },
+    {
+      "arm": "gen",
+      "band": 0.15,
+      "drop_ties": false,
+      "p": 0.005494505494505495,
+      "n_band": 546,
+      "band_median_shift": 0.046179219351291906,
+      "survives_bh": true
+    },
+    {
+      "arm": "gen",
+      "band": 0.15,
+      "drop_ties": true,
+      "p": 0.005494505494505495,
+      "n_band": 546,
+      "band_median_shift": 0.046179219351291906,
+      "survives_bh": true
+    },
+    {
+      "arm": "gen",
+      "band": 0.25,
+      "drop_ties": false,
+      "p": 0.0032967032967032967,
+      "n_band": 910,
+      "band_median_shift": 0.04260582737768004,
+      "survives_bh": true
+    },
+    {
+      "arm": "gen",
+      "band": 0.25,
+      "drop_ties": true,
+      "p": 0.0032967032967032967,
+      "n_band": 910,
+      "band_median_shift": 0.04260582737768004,
+      "survives_bh": true
+    }
+  ],
+  "X": {
+    "all_pairs": {
+      "X_coval": 0.60436753902663,
+      "X_gen": 0.6302226813590451,
+      "X_gen_sham": 0.5901342975206612,
+      "paired_delta": -0.025855142332415062,
+      "mde": 0.015262261963231811,
+      "ci": [
+        -0.03692249196510561,
+        -0.015006958792470158
+      ],
+      "resolved": true,
+      "X_pool16": 0.58992983815427,
+      "coval_core_vs_pool": {
+        "delta": 0.014437700872359963,
+        "mde": 0.014745835367228318,
+        "resolved": false
+      },
+      "gen_vs_pool": {
+        "delta": 0.04029284320477502,
+        "mde": 0.014281385514052121,
+        "resolved": true
+      }
+    },
+    "drop_ties": {
+      "X_coval": 0.6818269405033662,
+      "X_gen": 0.7049671738457741,
+      "X_gen_sham": 0.6681721984432565,
+      "paired_delta": -0.023140233342407935,
+      "mde": 0.015609773886085535,
+      "ci": [
+        -0.03442684254753742,
+        -0.012292926582470387
+      ],
+      "resolved": true,
+      "X_pool16": 0.670630323587315,
+      "coval_core_vs_pool": {
+        "delta": 0.011196616916051247,
+        "mde": 0.015327723651348534,
+        "resolved": false
+      },
+      "gen_vs_pool": {
+        "delta": 0.03433685025845919,
+        "mde": 0.01470857202031238,
+        "resolved": true
+      }
+    }
+  },
+  "controls": {
+    "positive_floor": 0.0,
+    "observed_mean_abs_shift": 0.13607827027288272,
+    "ceiling": 0.3330546309105957,
+    "positive_ok": true,
+    "negative_ok": true,
+    "band_regresses": true,
+    "g0": 0.0,
+    "tie_rate_2b": 0.045023148148148145,
+    "tie_rate_08b": 0.08002314814814815
+  },
+  "affine_gauge": "A2 exactly invariant under s->a*s+b, a>0 (score.py:41 + mean) \u2014 the announced variance statistic is that invariant part",
+  "levels_comparable_across_judges": false
+}

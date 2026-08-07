@@ -1,0 +1,45 @@
+{
+ "prompts": 250,
+ "grid": {
+  "core|True|unit": [
+   0.813843642579152,
+   0.6993661068542988,
+   0.1144775357248532
+  ],
+  "full|False|unit": [
+   0.9387592157389056,
+   0.9254948290272687,
+   0.013264386711636988
+  ],
+  "full|False|weighted": [
+   0.9450284636490438,
+   0.9281329239549753,
+   0.01689553969406854
+  ],
+  "full|True|unit": [
+   0.7333950320054133,
+   0.5680778619204555,
+   0.16531717008495783
+  ],
+  "full|True|weighted": [
+   0.7604042301957674,
+   0.6209987751385411,
+   0.13940545505722635
+  ]
+ },
+ "rank1_class_full": 0.444,
+ "rank1_class_core": 0.6,
+ "r231_floor": [
+  0.3836,
+  0.3657,
+  0.4019
+ ],
+ "controls": {
+  "positive_lambda": 0.9984103872130387,
+  "positive_class": 1.0,
+  "sham_lambda": 0.5188731674819844,
+  "placebo_lambda": 1.0000000000000002,
+  "construction_floor": 0.3333333333333333
+ },
+ "verdict": "W-RANK1 -- a rank-1 reconstruction reproduces the full rubric's class on 0.4440 of prompts against a random-4 floor of 0.3836 [0.3657, 0.4019], with lambda1_share 0.7604 against a measured permutation null of 0.6210 (excess +0.1394). THE OBJECT CHANGES: a core is a noisy estimator of ONE number, every Q-class is a thresholding of it, and k=1 is right for a reason that has nothing to do with any capacity bound."
+}

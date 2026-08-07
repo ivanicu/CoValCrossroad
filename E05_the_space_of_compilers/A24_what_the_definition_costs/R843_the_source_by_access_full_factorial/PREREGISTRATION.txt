@@ -1,0 +1,117 @@
+R843 · THE SOURCE × ACCESS FULL FACTORIAL — closing the cell R811 called structurally absent
+
+WHY THIS ROUND AND NOT ANOTHER NEXT. An external reading of the last 116 commits found the loop had
+entered a self-audit attractor: it kept discovering that the previous audit's object, unit,
+population or control had drifted, and stopped moving the world model. Its prescription was ONE
+remaining internal closure, then leave this universe. This is that closure.
+
+R811 decomposed a confounded gap into SOURCE (whose criteria) and RULE (how they are chosen) and
+reported them SEPARATELY, with one cell missing:
+
+    "⚠ pool x informative CANNOT be built: the pool is a FIXED generic set of 16 with no
+     per-prompt human weights."
+
+⭐ THAT SENTENCE IS TRUE ABOUT THE ARTIFACT AND FALSE ABOUT THE LOGIC. It says the pool has no
+per-prompt HUMAN WEIGHTS. It does not say the pool cannot be selected from per prompt — only that
+the one selector anyone had built reads human weights. A selector reading the PROMPT TEXT and
+nothing else is label-free, constructible today, and lands exactly in the empty cell. And once the
+axis is written as ACCESS rather than as RULE, the 2x2 is revealed to have been a 2x4 all along.
+
+⛔ AND REPORTING TWO EFFECTS SEPARATELY ASSUMES THEY ADD. R811 gave a RULE effect and a SOURCE
+effect at matched k without ever measuring their interaction, because the missing cell is precisely
+the one that identifies it. If Y(S,A) != alpha_S + beta_A then neither number means what it was
+reported to mean, and that is a claim about work already published in FORMULATION.md.
+
+────────────────────────────────────────────────────────────────────────────────────────────────
+THE DESIGN
+
+SOURCE (whose criteria are in the candidate set)
+  S1  the prompt's OWN human rubric              — per-prompt, authored against this conversation
+  S2  the FIXED generic pool of 16               — identical for all 968 prompts
+
+ACCESS (what information the selector may consume, in increasing order)
+  A0  none          uninformative / random selection
+  A1  prompt text   ⭐ reads the conversation, reads NO human label anywhere
+  A2  other labels  fit on OTHER prompts' human importance, never this prompt's
+  A3  this prompt   ranks by THIS prompt's human importance — the leaky upper bound
+
+Eight cells, k in {2,4,8}. EVERY CELL IS SCORED FROM COMMITTED SATISFACTION MATRICES: `sat_full`
+carries every rubric criterion and `sat_genericpool16` carries all sixteen, for all four responses
+of every prompt. So the factorial requires NO new judging — the only new object is the SELECTOR,
+which is why the missing cell was never a compute problem.
+
+ESTIMANDS
+  E1  the 8-cell table Y(S,A) at each k, Y = A2 agreement on the even-indexed annotator half
+  E2  Δ_source(a) = Y(S1,a) − Y(S2,a)          — does whose-criteria matter, AT EACH ACCESS LEVEL
+  E3  Δ_access(s) = Y(s,A_{j+1}) − Y(s,A_j)    — the dose-response in label access, per source
+  E4  ⭐ Γ = Δ_source(A1) − Δ_source(A0)        — NON-ADDITIVITY. R811's separate reporting is only
+                                                 licensed if Γ sits on its own floor.
+  E5  does S2×A1 (generic criteria, contextualised, no labels) reach S1×A3 (own rubric, human
+      weights)? If it does, the object is CONTEXTUALISATION, not authorship.
+
+DERIVED FIRST — BEFORE ANY COMPUTE
+  D1  A3 >= A0 IS NOT FORCED. Ranking by human importance optimises a stated weight, not agreement;
+      R811 measured `topw` beating `random`, so the direction is empirical, but its SIZE is what
+      this round reads and no algebra fixes it.
+  D2  ⛔ A0 FOR S2 IS ENUMERABLE, NOT SAMPLED. C(16,2)=120, C(16,4)=1820, C(16,8)=12870 — the whole
+      subset distribution is computed, so S2×A0 is an EXACT mean, not an estimate, and `POOL[0:k]`
+      (which R811 showed sits near the 96th percentile) is NOT used as the cell.
+  D3  A1 AND A2 SELECT FROM THE SAME CANDIDATE SET AS A0 AND A3 within a source. Any difference is
+      the selector, never the candidates. This is what makes the row a dose-response rather than
+      four unrelated arms.
+  D4  This round cannot show that NO label-free selector reaches A3 — that quantifies over an
+      infinite class. It shows where two constructible ones land.
+
+WORLDS
+  W-ACCESS   the table is ordered by ACCESS and barely by SOURCE: A0<A1<A2<A3 within both rows,
+             |Δ_source| small at every level. The target rewards label consumption, clause ③
+             forbids it, and the conflict is structural.
+  W-SOURCE   the table is ordered by SOURCE: S1 dominates S2 at matched access. Prompt-specific
+             authorship carries the content and clause ③ costs little.
+  W-CONTEXT  S2×A1 reaches S1×A3. Neither authorship nor labels is the object — APPLICABILITY is,
+             and a fixed pool correctly contextualised is as good as a bespoke rubric.
+  W-JOINT    Γ is resolvably non-zero. Source and access do not decompose; R811's two numbers are
+             not separately interpretable and FORMULATION.md inherits the correction.
+  ⚠ These are NOT exclusive. W-JOINT can hold with any of the others, and the kill evaluates it
+    independently rather than picking one winner — a forced choice among non-exclusive worlds is
+    how a prediction matrix manufactures a verdict.
+
+PREDICTION MATRIX
+  W-ACCESS  -> both rows monotone in A, every step above its floor; max_a |Δ_source(a)| <= floor
+  W-SOURCE  -> Δ_source(a) > floor at every a, and > any single Δ_access step
+  W-CONTEXT -> Y(S2,A1) >= Y(S1,A3) − floor
+  W-JOINT   -> |Γ| > 1.96 se(Γ), se from the paired prompt bootstrap
+
+CONTROLS
+  OBJECT    S1×A3 at k in {2,4,8} must reproduce the committed `topw_k*` arms, and S1×A0 the
+            committed `random_k*_s0`, to <2e-3. These are the SAME selections recomputed by this
+            round's own code from `sat_full`; if they disagree, the selector is not what the arm
+            is and nothing below is comparable to the record. Exit 2.
+  FORCED    every cell <= CEIL_ATT 0.686265 (R804's in-sample supremum over weak orders). A
+            DERIVATION, asserted, not evidence.
+  PLACEBO   the A1 relevance scores replaced by a permutation of themselves ACROSS prompts, so a
+            criterion keeps its score but meets the wrong conversation. Must land at A0.
+  SHAM      A1 with random relevance, matched in selection cardinality. ⭐ This is the control that
+            makes A1 mean anything: any per-prompt selector, informative or not, differs from a
+            single fixed subset, and only the excess over the sham is the text's contribution.
+  NEGATIVE  a synthetic arm resampled from the cell's own per-prompt distribution.
+  POSITIVE  dose-response against a PLANT: a synthetic target generated from a known criterion
+            subset, on which A3 must recover it and A0 must not, at g=1 and g=0.
+  NOISE     A0 over >=5 seeds for S1; for S2 the exact enumeration replaces the seed spread.
+  MULTIPLICITY  8 cells x 3 k = 24, plus 6 contrasts. BH q=0.05, non-survivors printed.
+
+PRE-REGISTERED KILL — conditional, gated on the controls
+  if OBJECT reproduces and PLACEBO lands at A0 and SHAM is below A1 and POSITIVE recovers at g=1
+     and fails at g=0 and no cell exceeds CEIL_ATT:
+         report each world's predicate INDEPENDENTLY, W-JOINT first because it conditions the
+         interpretation of the other three
+  else:
+         UNVERIFIED — never OVERTURNED, never CONFIRMED
+
+STOPPING RULE  Γ resolvably non-zero forces a correction to FORMULATION.md's separate SOURCE and
+RULE effects in the same commit. W-CONTEXT holding forces the clause-② discussion to be restated in
+terms of applicability rather than blindness or curation. Whatever lands, THIS ARC DOES NOT OPEN
+ANOTHER INTERNAL NEXT: the next action is the source × menu × fresh-behaviour experiment outside
+this release.
+
+BUDGET  CPU only, under 20 minutes, no judging. Two seeds byte-identical or no ship.

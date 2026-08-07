@@ -1,0 +1,89 @@
+{
+ "source_sha": "c8169a090a305e96",
+ "n_prompts": 968,
+ "cells": {
+  "pearson|random_k4_s0|random_k4_s1": {
+   "r": 0.5328205306588466,
+   "lo": 0.47141697877667166,
+   "hi": 0.5856817871942568,
+   "p": 0.0,
+   "label": "FLOOR \u2014 shared subtrahend, no shared mechanism"
+  },
+  "pearson|random_k4_s0|random_k4_s2": {
+   "r": 0.5580556958024859,
+   "lo": 0.5007753068581242,
+   "hi": 0.6086651411245219,
+   "p": 0.0,
+   "label": "FLOOR (2nd seed pair)"
+  },
+  "pearson|random_k4_s1|random_k4_s2": {
+   "r": 0.5290489047345516,
+   "lo": 0.47095732115849626,
+   "hi": 0.5833016182184315,
+   "p": 0.0,
+   "label": "FLOOR (3rd seed pair)"
+  },
+  "pearson|topw_k4|topabs_k4": {
+   "r": 0.6004722032879037,
+   "lo": 0.5490962957158563,
+   "hi": 0.6499113262625568,
+   "p": 0.0,
+   "label": "CEILING REF \u2014 same metadata, different rule"
+  },
+  "pearson|coval_core|topw_k4": {
+   "r": 0.6855801241172531,
+   "lo": 0.6317042789774372,
+   "hi": 0.7354013539586703,
+   "p": 0.0,
+   "label": "THE QUESTION"
+  },
+  "spearman|random_k4_s0|random_k4_s1": {
+   "r": 0.5210754901515379,
+   "lo": 0.46562841295214896,
+   "hi": 0.5711329808329265,
+   "p": 0.0,
+   "label": "FLOOR \u2014 shared subtrahend, no shared mechanism"
+  },
+  "spearman|random_k4_s0|random_k4_s2": {
+   "r": 0.5370407173913889,
+   "lo": 0.48443907740887415,
+   "hi": 0.584965396077372,
+   "p": 0.0,
+   "label": "FLOOR (2nd seed pair)"
+  },
+  "spearman|random_k4_s1|random_k4_s2": {
+   "r": 0.53327427871334,
+   "lo": 0.47917345832467156,
+   "hi": 0.583698607729692,
+   "p": 0.0,
+   "label": "FLOOR (3rd seed pair)"
+  },
+  "spearman|topw_k4|topabs_k4": {
+   "r": 0.6284142032623223,
+   "lo": 0.5821919438153865,
+   "hi": 0.6701137365234734,
+   "p": 0.0,
+   "label": "CEILING REF \u2014 same metadata, different rule"
+  },
+  "spearman|coval_core|topw_k4": {
+   "r": 0.6247805924976942,
+   "lo": 0.5794213748144057,
+   "hi": 0.6681170195870522,
+   "p": 0.0,
+   "label": "THE QUESTION"
+  }
+ },
+ "bh_survivors": [
+  "pearson|coval_core|topw_k4",
+  "pearson|random_k4_s0|random_k4_s1",
+  "pearson|random_k4_s0|random_k4_s2",
+  "pearson|random_k4_s1|random_k4_s2",
+  "pearson|topw_k4|topabs_k4",
+  "spearman|coval_core|topw_k4",
+  "spearman|random_k4_s0|random_k4_s1",
+  "spearman|random_k4_s0|random_k4_s2",
+  "spearman|random_k4_s1|random_k4_s2",
+  "spearman|topw_k4|topabs_k4"
+ ],
+ "w_one_supported": false
+}

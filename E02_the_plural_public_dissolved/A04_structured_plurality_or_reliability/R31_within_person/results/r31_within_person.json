@@ -1,0 +1,94 @@
+{
+ "annotators": 1012,
+ "cut": 6,
+ "session_identifier_present": false,
+ "position_curve": [
+  {
+   "position": 1,
+   "n": 1012,
+   "mean": 290.1333992094862,
+   "attrition_ratio": null
+  },
+  {
+   "position": 2,
+   "n": 1012,
+   "mean": 285.7905138339921,
+   "attrition_ratio": 1.0
+  },
+  {
+   "position": 3,
+   "n": 997,
+   "mean": 285.15045135406217,
+   "attrition_ratio": 0.9851778656126482
+  },
+  {
+   "position": 4,
+   "n": 995,
+   "mean": 300.85929648241205,
+   "attrition_ratio": 0.9979939819458375
+  },
+  {
+   "position": 5,
+   "n": 994,
+   "mean": 336.19919517102613,
+   "attrition_ratio": 0.9989949748743718
+  },
+  {
+   "position": 6,
+   "n": 933,
+   "mean": 157.30010718113613,
+   "attrition_ratio": 0.9386317907444668
+  },
+  {
+   "position": 7,
+   "n": 929,
+   "mean": 157.18083961248655,
+   "attrition_ratio": 0.9957127545551983
+  },
+  {
+   "position": 8,
+   "n": 927,
+   "mean": 168.34735706580366,
+   "attrition_ratio": 0.9978471474703983
+  },
+  {
+   "position": 9,
+   "n": 926,
+   "mean": 163.9827213822894,
+   "attrition_ratio": 0.9989212513484358
+  },
+  {
+   "position": 10,
+   "n": 924,
+   "mean": 159.232683982684,
+   "attrition_ratio": 0.9978401727861771
+  },
+  {
+   "position": 11,
+   "n": 923,
+   "mean": 161.49837486457204,
+   "attrition_ratio": 0.9989177489177489
+  },
+  {
+   "position": 12,
+   "n": 922,
+   "mean": 154.84056399132322,
+   "attrition_ratio": 0.9989165763813651
+  }
+ ],
+ "within_person": {
+  "n": 933,
+  "mean_delta": -179.2272240085745,
+  "ci": [
+   -196.21808681672024,
+   -162.329474812433
+  ],
+  "relative_to_own_baseline": -0.5325785081852348,
+  "excludes_zero": true
+ },
+ "between_person_change": -0.5321222970176451,
+ "attrition_at_boundary": 0.06136820925553321,
+ "composition_ruled_out": true,
+ "verdict": "REAL AND WITHIN-PERSON, MECHANISM UNIDENTIFIED. The same 933 people write 179 fewer characters at position 6 than at position 5 (-53.3%, CI excludes zero), so the 6.1% attrition at the boundary cannot be the cause. But position 6 is the study's minimum-task boundary AND, for anyone whose first batch held five prompts, the first task of a LATER SESSION. The release carries no session identifier and no timestamp, so within-session fatigue and between-session habituation are not separable here. || FROZEN LINE (FROZEN.md section 2): the task-position regime reading -- r02, r24, r31 -- is FROZEN as MECHANISM-UNIDENTIFIABLE. What survives is established: the discontinuity is real and WITHIN-PERSON, -179.2 chars [-196.2,-162.3], -53.3%, on the 933 people present at both positions against 6.1% attrition, so composition is excluded. What is frozen is the INTERPRETATION. DATASET_CARD.md:81 sets a five-task minimum and sessions of 5 or 15 prompts, and the release carries NO session identifier and NO timestamp -- verified field by field. So for anyone whose first batch held five prompts, position 6 is the first task of a LATER SESSION, and within-session fatigue is not separable from between-session habituation. Do not call this fatigue. It unfreezes only with session ids or timestamps, which would have to come from OpenAI.",
+ "note": "r02 and r24 measured this between-person and defended it with a null that shuffles positions globally, which destroys the censoring process and therefore cannot detect a composition change. The dataset card (line 81) sets a five-task minimum, putting the study's continuation boundary at exactly the estimated breakpoint."
+}

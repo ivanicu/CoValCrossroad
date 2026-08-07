@@ -1,0 +1,260 @@
+{
+  "commit": "8c12ac1d053eab371797a5067df4baa20e3dbe44",
+  "world": "A",
+  "n_files": 74,
+  "n_checks": 66,
+  "excluded_as_tooling": [
+    "DEFECTS",
+    "HEADLINES",
+    "_poscontrol_defects_unrepaired",
+    "apply_freeze_status",
+    "apply_outcome_scope",
+    "generate_round_index",
+    "manifest",
+    "pueue_wait"
+  ],
+  "static_plant": {
+    "_isolated": true,
+    "_one_home_per_claim_UNVALIDATED": true,
+    "_repair": true,
+    "a_commit_body_names_its_own_round": true,
+    "a_control_that_cannot_fail": true,
+    "a_detector_marker_matches_something": true,
+    "a_next_names_the_check_that_cleared_it": true,
+    "a_scored_artifact_records_its_configuration": true,
+    "a_seed_must_be_stable": true,
+    "a_share_carries_its_counts": false,
+    "a_statement_is_current_with_the_arc": true,
+    "a_verdict_threshold_is_named": false,
+    "an_ear_label_matches_its_path": true,
+    "an_mde_records_its_denominator": true,
+    "arm_population_is_derived": true,
+    "artifacts_are_internally_coherent": true,
+    "attack_every_check": true,
+    "attack_no_withdrawn_framings": true,
+    "attack_outcome_variable_declared": true,
+    "attack_scope_reaches_the_reader": false,
+    "attack_the_suite": true,
+    "audit_the_auditors": true,
+    "backfilled_findings_are_rederivable": true,
+    "clause3_as_written": false,
+    "code_states_a_bound_the_reader_never_sees": true,
+    "comparator_scope": true,
+    "consistency": false,
+    "corrections_propagated": true,
+    "definition_matches_the_record": true,
+    "donor_numbers_carry_their_draw_scope": true,
+    "every_round_is_committed": true,
+    "every_round_reaches_the_readme": true,
+    "frozen_frame_verifies": true,
+    "interval_is_centred_on_its_point": false,
+    "kill_is_wired_into_the_branch": true,
+    "markdown_tables_are_well_formed": true,
+    "next_gradient_is_new": true,
+    "next_gradient_labels_its_hypotheses": true,
+    "next_line_quantifiers_are_computed": true,
+    "no_withdrawn_framings": true,
+    "null_is_informative": false,
+    "outcome_variable_declared": false,
+    "point_and_interval_share_a_source": true,
+    "readme_agrees_with_results": true,
+    "readme_row_carries_the_verdict": true,
+    "register_requirements": true,
+    "registries_are_satisfied": true,
+    "release_names_resolve_to_one_set": true,
+    "residue_debt": true,
+    "results_are_not_degenerate": false,
+    "results_match_their_code": false,
+    "retired_framing_in_assertion_positions": false,
+    "retired_framing_in_emittable_source": true,
+    "retraction_reaches_the_artifact": true,
+    "round_links_resolve": false,
+    "run_all": true,
+    "scope_reaches_the_reader": false,
+    "seed_filter_is_disclosed": false,
+    "source_stamp_is_current": true,
+    "statement_provenance": true,
+    "synthesis_cites_recent_work": false,
+    "the_clustered_estimator_is_sound": false,
+    "token_boundaries": true,
+    "tree_survives_the_sweep": true,
+    "verdict_cites_its_own_contrasts": false,
+    "what_did_each_check_actually_read": true
+  },
+  "static_empty_refusal": {
+    "_isolated": false,
+    "_one_home_per_claim_UNVALIDATED": false,
+    "_repair": true,
+    "a_commit_body_names_its_own_round": true,
+    "a_control_that_cannot_fail": true,
+    "a_detector_marker_matches_something": true,
+    "a_next_names_the_check_that_cleared_it": true,
+    "a_scored_artifact_records_its_configuration": true,
+    "a_seed_must_be_stable": true,
+    "a_share_carries_its_counts": true,
+    "a_statement_is_current_with_the_arc": true,
+    "a_verdict_threshold_is_named": true,
+    "an_ear_label_matches_its_path": false,
+    "an_mde_records_its_denominator": true,
+    "arm_population_is_derived": false,
+    "artifacts_are_internally_coherent": true,
+    "attack_every_check": false,
+    "attack_no_withdrawn_framings": false,
+    "attack_outcome_variable_declared": false,
+    "attack_scope_reaches_the_reader": false,
+    "attack_the_suite": true,
+    "audit_the_auditors": true,
+    "backfilled_findings_are_rederivable": true,
+    "clause3_as_written": false,
+    "code_states_a_bound_the_reader_never_sees": false,
+    "comparator_scope": true,
+    "consistency": true,
+    "corrections_propagated": true,
+    "definition_matches_the_record": true,
+    "donor_numbers_carry_their_draw_scope": true,
+    "every_round_is_committed": true,
+    "every_round_reaches_the_readme": true,
+    "frozen_frame_verifies": false,
+    "interval_is_centred_on_its_point": true,
+    "kill_is_wired_into_the_branch": true,
+    "markdown_tables_are_well_formed": false,
+    "next_gradient_is_new": true,
+    "next_gradient_labels_its_hypotheses": true,
+    "next_line_quantifiers_are_computed": true,
+    "no_withdrawn_framings": true,
+    "null_is_informative": false,
+    "outcome_variable_declared": true,
+    "point_and_interval_share_a_source": true,
+    "readme_agrees_with_results": false,
+    "readme_row_carries_the_verdict": true,
+    "register_requirements": true,
+    "registries_are_satisfied": true,
+    "release_names_resolve_to_one_set": true,
+    "residue_debt": false,
+    "results_are_not_degenerate": true,
+    "results_match_their_code": false,
+    "retired_framing_in_assertion_positions": true,
+    "retired_framing_in_emittable_source": true,
+    "retraction_reaches_the_artifact": false,
+    "round_links_resolve": true,
+    "run_all": true,
+    "scope_reaches_the_reader": true,
+    "seed_filter_is_disclosed": false,
+    "source_stamp_is_current": true,
+    "statement_provenance": true,
+    "synthesis_cites_recent_work": false,
+    "the_clustered_estimator_is_sound": true,
+    "token_boundaries": false,
+    "tree_survives_the_sweep": true,
+    "verdict_cites_its_own_contrasts": true,
+    "what_did_each_check_actually_read": true
+  },
+  "dynamic": {
+    "a_share_carries_its_counts": {
+      "exit": 1,
+      "fired": true
+    },
+    "a_verdict_threshold_is_named": {
+      "exit": 1,
+      "fired": true
+    },
+    "attack_scope_reaches_the_reader": {
+      "exit": 0,
+      "fired": false
+    },
+    "clause3_as_written": {
+      "exit": 0,
+      "fired": false
+    },
+    "consistency": {
+      "exit": 0,
+      "fired": false
+    },
+    "interval_is_centred_on_its_point": {
+      "exit": 0,
+      "fired": false
+    },
+    "null_is_informative": {
+      "exit": 0,
+      "fired": false
+    },
+    "outcome_variable_declared": {
+      "exit": 1,
+      "fired": true
+    },
+    "results_are_not_degenerate": {
+      "exit": 0,
+      "fired": false
+    },
+    "results_match_their_code": {
+      "exit": 0,
+      "fired": false
+    },
+    "retired_framing_in_assertion_positions": {
+      "exit": 0,
+      "fired": false
+    },
+    "round_links_resolve": {
+      "exit": 0,
+      "fired": false
+    },
+    "scope_reaches_the_reader": {
+      "exit": 0,
+      "fired": false
+    },
+    "seed_filter_is_disclosed": {
+      "exit": 1,
+      "fired": true
+    },
+    "synthesis_cites_recent_work": {
+      "exit": 2,
+      "fired": true
+    },
+    "the_clustered_estimator_is_sound": {
+      "exit": 0,
+      "fired": false
+    },
+    "verdict_cites_its_own_contrasts": {
+      "exit": 2,
+      "fired": true
+    }
+  },
+  "timed_out_unknown": [],
+  "pass_on_silence": [
+    "attack_scope_reaches_the_reader",
+    "clause3_as_written",
+    "consistency",
+    "interval_is_centred_on_its_point",
+    "null_is_informative",
+    "results_are_not_degenerate",
+    "results_match_their_code",
+    "retired_framing_in_assertion_positions",
+    "round_links_resolve",
+    "scope_reaches_the_reader",
+    "the_clustered_estimator_is_sound"
+  ],
+  "plantless_but_fired": [
+    "a_share_carries_its_counts",
+    "a_verdict_threshold_is_named",
+    "outcome_variable_declared",
+    "seed_filter_is_disclosed",
+    "synthesis_cites_recent_work",
+    "verdict_cites_its_own_contrasts"
+  ],
+  "share_pass_on_silence": 0.16666666666666666,
+  "units": {
+    "static": "source contains a plant token",
+    "claim": "has been shown to return non-zero here",
+    "made_equal_by": "the intersection: no plant AND zero findings"
+  },
+  "destruction_hazard": {
+    "what": "assurance/attack_the_suite.py moves the live E0* trees to /tmp, then rmtree's the live path before moving the stash back",
+    "effect": "anything created at the live path during its run is destroyed",
+    "evidence": "this round was written, run and its artifact printed, then the directory did not exist; every COMMITTED round survived",
+    "known_before": "the gate itself prints that R428 found 21 untracked artifacts existing only inside an orphaned stash",
+    "remedy": "commit before running the suite, or do not run it while working"
+  },
+  "bounded_one_side": "'has a plant token' is not 'has a WORKING plant'",
+  "unit_note": "counts are CHECKS",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

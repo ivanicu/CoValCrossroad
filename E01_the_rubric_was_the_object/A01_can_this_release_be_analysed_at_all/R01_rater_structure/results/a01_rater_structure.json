@@ -1,0 +1,32 @@
+{
+ "prompts": 975,
+ "observed_style_removed": {
+  "n_pairs": 16597,
+  "rho": 0.14706642337979528,
+  "mean_agreement": 2.2108242455596533e-18
+ },
+ "spearman_brown_centred": 0.2576368582911037,
+ "spearman_brown_style_removed": 0.25642180850602997,
+ "observed_raw": {
+  "n_pairs": 16597,
+  "rho": 0.16136297240649847,
+  "mean_agreement": 0.258243220477684
+ },
+ "observed_prompt_centred": {
+  "n_pairs": 16597,
+  "rho": 0.14786633860861834,
+  "mean_agreement": 7.549155960447597e-19
+ },
+ "null_mean": 0.0022974697186539934,
+ "null_sd": 0.008749292874839061,
+ "null_ci": [
+  -0.014304056340866629,
+  0.01520261732204111
+ ],
+ "resample_spread": [
+  0.14119781103622175,
+  0.15512060248687995
+ ],
+ "z_vs_null": 16.637786728107923,
+ "verdict": "STRUCTURE (M2): agreement persists across prompts beyond the null || FROZEN LINE (queue item 2, see FROZEN.md): this round belongs to the rater-structure ontology -- r01, r23, r25, r26, r27, r28 -- which is FROZEN as UNRESOLVED. Four separators failed for four unrelated reasons: r23's sharper test read z=+10.26 at 2 null reps and +1.40 at 40; r26's centred residual gives 'below average' and 'actually disagreeing' the same number when mean agreement is +0.25; r27's agreeable-pair control selects same-bloc pairs under unequal bloc sizes and so could not have found blocs if they existed; r28's design was rank-deficient by exactly 1, its z moved with PYTHONHASHSEED, and its held-out R2 spanned [-1.64,+0.51]. The numbers below are correct about this round's own data. They do NOT establish that value blocs exist, and they do not establish that they do not. Neither reading is available from this release."
+}

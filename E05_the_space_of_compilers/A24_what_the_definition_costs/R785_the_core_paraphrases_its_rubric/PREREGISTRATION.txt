@@ -1,0 +1,179 @@
+R785 · the released core is a PARAPHRASE of its rubric, not a subset — and whether `gen` is too
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-06.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R784's NEXT proposed a gate that fails a push when a scope line names a population without its frame.
+CHECK #387 declined to build it, for a reason that is arithmetic rather than taste: **every scope line
+in 780+ round READMEs says "968"**, so the only implementable form is a FREEZE baseline that fails
+only new lines — the shape `next_line_quantifiers_are_computed.py` already has — and the frozen ones
+stay wrong. That is infrastructure whose benefit is bounded by what it cannot reach, and the
+deliverable it would protect is one file. **Correcting `STATEMENT.md` is production; gating 780
+READMEs is not.** The gate is re-registered as a smaller, later step and this round goes elsewhere.
+
+⭐ AND CHECK #387 FOUND THE OBJECT QUESTION THE ARC HAS NEVER ASKED. R782 gave the first properly
+populated table: **`coval_core` clears clause ② at q_resolved 0.9978 while `gen` — also produced from
+the conversation — sits at 0.0396.** Both are k=4, both prompt-specific, and the definition's retracted
+clause *"drawn from a rubric"* was killed because a conversation-only core is admissible. So what
+separates them?
+
+MEASURED IN CHECK #387, and the two instruments disagree, which IS the finding:
+    EXACT  core criteria appearing VERBATIM in the prompt's own `coval_full`:
+           mean **0.0668**, median **0.0000**, and **792 of 986** records share nothing at all.
+           Only **1 of 986** cores is entirely inside its rubric.
+    TOKEN  best-match Jaccard over 4+ character tokens, per core criterion:
+           mean **0.4951**, median **0.4849**; the best-matched criterion per core averages
+           **0.7676** and exceeds 0.5 in **822 of 986** records.
+    NULL   the same measure against ANOTHER conversation's rubric: **0.0555**.
+           Difference **+0.4396** against an MDE of **0.0145** — thirty times — and **986 of 986**
+           records point the same way.
+
+⇒ **The released core is NOT a subset of its rubric and IS a near-paraphrase of it.** That is a third
+state the definition has no word for: it retracted *"drawn from a rubric"* because the relation is not
+containment, and it has never said what the relation IS.
+
+--------------------------------------------------------------------------------
+DISCLOSURE -- what was already known when this was written
+--------------------------------------------------------------------------------
+E1's numbers above come from check #387 and are quoted, not re-derived for effect; they are re-run
+here under controls because §3 forbids a cheap attack and because the round's headline must be
+persisted with a source hash. **E2, E3 and E4 are NOT known** — in particular nothing has been
+computed about `gen`'s rubric affinity — and the world is gated on E2.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the overlap between `coval_core` and the prompt's own `coval_full`, under TWO instruments —
+    verbatim string identity and token Jaccard — with the cross-conversation null for the second.
+    Claim unit = a CONVERSATION; instrument unit = a criterion-to-criterion comparison. **Not equal**,
+    and the claim is therefore stated per conversation over its criteria, never per criterion.
+E2  ⭐ THE SAME FOR `gen`, the conversation-only generated core. **Does the arm that FAILS clause ②
+    track the rubric less than the arm that passes it?** This is the discriminating cell and the
+    reason the round exists.
+E3  whether rubric affinity predicts clause-② standing across the modal-k=4 population R782 defined:
+    correlation between an arm's mean best-match Jaccard to the rubric and its q_resolved.
+E4  what the definition would have to say. If the released core is a paraphrase of its rubric, the
+    clause that was retracted as *containment* returns as a question about *content*, and the
+    definition currently has no clause for it.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1 exact for the verbatim instrument. The token instrument is a CHOICE (4+ char tokens, Jaccard), so
+   it is swept over token lengths {3, 4, 5} and the whole curve reported — a single tokenisation
+   reported alone would be one cell of a specification.
+E2 IDENTIFIED via R468's join, which R783 rebuilt exactly (968 of 968, 0 unmatched, 0 ambiguous):
+   `core_gen.json` is ranking-space, the rubric is release-space, and the rubric criterion texts key
+   both. ⚠ Any prompt whose join fails is dropped and counted, never silently skipped.
+E3 PARTIALLY IDENTIFIED: only arms whose criterion TEXTS exist can be compared, and R782 established
+   that `coval_core` has no `core_*.json` while its texts live in the release. Arms scored from sat
+   indices alone have no text and are excluded — the count is reported and the correlation is stated
+   over the arms that have text, never over "the arms".
+E4 not a measurement; it is the round's statement of what the numbers oblige the definition to say.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  986 released conversations (E1) · the joined subset for E2 · R782's modal-k=4 arms (E3)
+instrument  verbatim set intersection · token Jaccard at lengths {3, 4, 5}
+baseline    the cross-conversation pairing is the null for every similarity number
+regime      first release, this tree_sha
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  A SIMILARITY NUMBER WITHOUT ITS CROSS-PAIR NULL IS UNINTERPRETABLE. Two English sentences about
+    AI values share tokens by topic alone; 0.4951 means nothing until the same measure is run on
+    unrelated pairs. **DERIVATION**, and the reason the null is computed in the same pass rather than
+    argued about.
+D2  THE CROSS-CONVERSATION PAIRING IS A VALID PERMUTATION HERE. It destroys the conversation pairing
+    while preserving both marginals — unlike the arm-side permutations of ledger 1125 and 1129, which
+    were void because a paired mean is invariant under them. Stated so the distinction is on the page
+    rather than in my memory.
+D3  ⚠ AND THE SHAM IS THE SAME OBJECT AS THE NEGATIVE HERE. The ingredient is *being the same
+    conversation*; removing it IS the cross-conversation pairing. **So no separate sham is built**,
+    and this is recorded as a decision rather than an omission — ledger 1131's remedy applied before
+    the fact for the second round running.
+D4  AN EXACT-MATCH INSTRUMENT ON TEXT MEASURES STRING IDENTITY AND THE CLAIM IS ABOUT CONTENT. §4's
+    row. The verbatim number is reported as a measurement of *containment*, never of *relatedness*,
+    and the two are given different sentences.
+
+STRONGEST CONFOUND, written BEFORE the run: a core criterion and a rubric criterion may share tokens
+because both describe the same CONVERSATION, not because one paraphrases the other — topic, not
+derivation. CONTROL IN THE SAME ITERATION: the cross-conversation null already removes shared topic
+only if topics differ across conversations; so the null is reported BOTH globally and restricted to
+the nearest-topic conversation available, and if the restricted null rises the claim weakens by that
+amount and is stated at the weaker level.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · RUBRIC AFFINITY SEPARATES THEM. `coval_core` tracks its rubric well above the null and `gen`
+    tracks it resolvedly less. Then the difference between the arm that passes clause ② and the one
+    that fails is rubric affinity, the retracted containment clause returns as a content question, and
+    the definition needs a clause it does not have.
+B · BOTH TRACK IT. `gen` matches `coval_core`'s affinity within resolution. Then rubric affinity is a
+    property of generated cores generally, cannot explain the ② gap, and the ② gap must be sought
+    elsewhere — which is a real narrowing.
+C · THE MEASURE IS NOT DETECTING CONTENT. The own-rubric and cross-rubric numbers do not separate
+    resolvedly under some tokenisation in the sweep. Then E1's headline is UNVERIFIED and the round's
+    product is a warning about the instrument.
+
+PREDICTION MATRIX
+  A -> coval_core - gen affinity difference exceeds its MDE, in coval_core's favour
+  B -> the difference is inside its MDE at every tokenisation in the sweep
+  C -> own-minus-cross fails to resolve at some tokenisation, for either object
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (both files parse; the join is exact and its failures counted -- exit 2 otherwise)
+   and PLACEBO fires (a rubric against itself returns Jaccard exactly 1.0)
+   and NULL fires (cross-conversation similarity is resolvedly below own-conversation)
+   and POSITIVE fires (a synthetically degraded paraphrase is tracked down a dose curve, and the
+   measure does NOT separate at zero degradation):
+        coval_core beats gen resolvedly       -> WORLD A
+        difference inside MDE at every token
+          length in the sweep                 -> WORLD B
+        own-vs-cross fails to resolve anywhere-> WORLD C
+        otherwise                             -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT      986 release records parse; `core_gen.json` loads; the join's exact/unmatched/ambiguous
+            counts printed. Exit 2 otherwise.
+PLACEBO     a rubric compared to itself: Jaccard exactly 1.0000.
+NULL        cross-conversation pairing, the valid permutation of D2, over the whole population.
+NULL-TOPIC  the confound's control: the null restricted to the most token-similar OTHER conversation,
+            so shared topic is subtracted rather than assumed absent.
+POSITIVE    take each rubric criterion, delete a fraction of its tokens {0, 0.25, 0.5, 0.75}, and
+            require the measure to fall monotonically; at fraction 0 it must return 1.0 and must NOT
+            indicate a difference. BAND, COMPUTED at both ends.
+SHAM        ⛔ NOT BUILT. D3: the ingredient is *being the same conversation*, and removing it IS the
+            NULL. A separate sham would be the same operation twice.
+SWEEP       token length {3, 4, 5}; the whole curve reported, including any length that kills it.
+UNIT        instrument unit = a criterion-to-criterion comparison; claim unit = a CONVERSATION.
+            **Explicitly unequal**, so every number is aggregated to the conversation before use.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+2 objects (`coval_core`, `gen`) x 2 instruments (verbatim, token) x 3 token lengths + 1 null + 1
+topic-restricted null + 4 degradation levels + the E3 correlation over the arms that have text.
+**6 primary cells** for the E2 comparison; the correction is over those 6 and non-survivors printed.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+semantic rather than lexical similarity   an embedding model; the token measure bounds the lexical
+                                          part only, and a paraphrase sharing no vocabulary is
+                                          invisible to it
+whether the core was DERIVED from the     the generator's inputs, off-repository (R605). Affinity is
+rubric or both from the conversation      compatible with either, and the round claims affinity only
+rubric affinity for arms with no text     `coval_core` has no `core_*.json` (R782); arms scored from
+                                          sat indices alone cannot be compared and are counted out
+independently replicated                  a second designer; the session prompt forbids agents

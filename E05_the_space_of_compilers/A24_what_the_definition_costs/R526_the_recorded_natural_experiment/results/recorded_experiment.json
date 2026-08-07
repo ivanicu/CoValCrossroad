@@ -1,0 +1,23 @@
+{
+  "pairs": {
+    "greedy_k4_fit1": {
+      "identical": false
+    },
+    "indep_k4_fit1": {
+      "identical": false
+    },
+    "oracle_k4": {
+      "identical": false
+    },
+    "topvar_k4": {
+      "identical": false
+    },
+    "topwvar_k4": {
+      "identical": false
+    }
+  },
+  "n_identical": 0,
+  "identical": [],
+  "positive_control_08b_differs_from_home": 5,
+  "world": "A"
+}

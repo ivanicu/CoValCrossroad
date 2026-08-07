@@ -1,0 +1,76 @@
+{
+  "commit": "0b1e70bdbacf0421f6b845950321d9956dc61682",
+  "world": "A",
+  "seed": 902,
+  "n_prompts": 968,
+  "marginal_gap": {
+    "point": 0.07479652364352415,
+    "ci95": [
+      0.06615922345879924,
+      0.08370161562308633
+    ]
+  },
+  "conditional_on_differing": {
+    "point": 0.10042029804012674,
+    "ci95": [
+      0.08917139443353145,
+      0.11196782688449367
+    ],
+    "n": 721
+  },
+  "share_structural_zero": 0.25516528925619836,
+  "bins": [
+    {
+      "lo": 0.0,
+      "hi": 0.2,
+      "n": 151,
+      "mean_gap": 0.1764362335159799,
+      "mean_abs_gap": 0.1983620958671288
+    },
+    {
+      "lo": 0.2,
+      "hi": 0.4,
+      "n": 255,
+      "mean_gap": 0.11831607689083536,
+      "mean_abs_gap": 0.13841728565902356
+    },
+    {
+      "lo": 0.4,
+      "hi": 0.6,
+      "n": 1,
+      "mean_gap": 0.15217391304347827,
+      "mean_abs_gap": 0.15217391304347827
+    },
+    {
+      "lo": 0.6,
+      "hi": 0.8,
+      "n": 314,
+      "mean_gap": 0.0491668474707386,
+      "mean_abs_gap": 0.05973050389093995
+    },
+    {
+      "lo": 0.8,
+      "hi": 1.0,
+      "n": 0
+    }
+  ],
+  "monotone": true,
+  "spread_across_bins": 0.13863159197618885,
+  "monotonicity_min_n": 50,
+  "bins_excluded_from_monotonicity": [
+    {
+      "lo": 0.4,
+      "hi": 0.6,
+      "n": 1,
+      "mean_gap": 0.15217391304347827,
+      "mean_abs_gap": 0.15217391304347827
+    }
+  ],
+  "monotonicity_note": "the first version included a bin of n=1 and printed 'non-monotone' on its strength; a single unit cannot overturn a trend across bins of 151/255/314",
+  "overturns_R901": "R901 compared a MARGINAL overlap to a MARGINAL gap and concluded the gap is not a selection difference. Conditioned, the curve is a clean dose-response and the conclusion inverts.",
+  "derivation_not_evidence": "at Jaccard = 1 the arms select the same criteria, so the gap is exactly 0 by construction. Used as the wiring test precisely because the answer is forced.",
+  "arithmetic_correction": "a mean over a population containing structural zeros is not the effect on the units that can show one; R900 and R901 both quoted the marginal number",
+  "not_causal": "overlap is not randomised",
+  "unit_note": "gaps are A2 units; J is a set overlap; n is PROMPTS",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

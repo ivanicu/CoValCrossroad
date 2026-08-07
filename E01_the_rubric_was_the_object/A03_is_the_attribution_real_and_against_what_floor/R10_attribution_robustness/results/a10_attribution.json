@@ -1,0 +1,36 @@
+{
+ "prompts": 300,
+ "cells": {
+  "qwen3.5-2b/A": {
+   "real": 0.6629556752278376,
+   "near": 0.6021644573322287,
+   "random": 0.5760666942833471,
+   "far": 0.5238711681855841,
+   "attribution_vs_random": 0.08688898094449049,
+   "attribution_vs_near": 0.06079121789560893,
+   "topic_share_of_gap": 0.3003575685339694
+  },
+  "qwen3.5-2b/B": {
+   "real": 0.6485604805302403,
+   "near": 0.6157829328914665,
+   "random": 0.589115575807788,
+   "far": 0.5569076222038111,
+   "attribution_vs_random": 0.05944490472245234,
+   "attribution_vs_near": 0.03277754763877383,
+   "topic_share_of_gap": 0.44860627177700313
+  },
+  "qwen3.5-0.8b/A": {
+   "real": 0.5405447390223695,
+   "near": 0.49394159072079535,
+   "random": 0.49559859154929575,
+   "far": 0.4653583264291632,
+   "attribution_vs_random": 0.044946147473073794,
+   "attribution_vs_near": 0.04660314830157419,
+   "topic_share_of_gap": -0.03686635944700422
+  }
+ },
+ "attribution_mean": 0.06376001104667221,
+ "attribution_sd": 0.017392822788816077,
+ "attribution_vs_near_mean": 0.04672397127865232,
+ "topic_share_mean": 0.2373658269546561
+}

@@ -1,0 +1,33 @@
+{
+  "world": "\u2b50\u2b50\u2b50 WORLD B \u2014 ALREADY NULLED, EXHAUSTIVELY. R361's hard-coded FIVE is not an untested input assumption: the round enumerates ALL 126 ways to split its 9 arms into a 4-group and its complement, exactly, and compares the observed rank gap against that full distribution. \u2b50 AND THE ANSWER IS A SCOPE CONDITION ON THE DEFINITION, not a fact about the arms: at the 2B judge the label/five rank split is RESOLVED; at 0.8B it is NOT \u2014 gap +2.25 at the 90.5th percentile of its own null, two-sided p = 0.2857. So the separation between the extension and the label-reading arms is INSTRUMENT-DEPENDENT. \u26a0 AND THE LABEL GROUP'S OWN SPREAD IS WHY: sd 3.59 at 0.8B against 1.58 for the five \u2014 the label-users SPLIT at the smaller judge, so a mean gap is the wrong summary there.",
+  "controls_ok": true,
+  "tree_sha": "d8abcd8a74cc5fb77cf99cbdc7c2008870cfabe0",
+  "null_size": 126,
+  "exact_expected": 126,
+  "arithmetic_ok": true,
+  "judges": [
+    {
+      "judge": "0.8B",
+      "n": 126,
+      "obs": 2.25,
+      "pct": 0.9047619047619048,
+      "two_sided_p": 0.2857142857142857,
+      "naive_two_sided": 0.19047619047619047,
+      "resolved": false
+    },
+    {
+      "judge": "2B",
+      "n": 126,
+      "obs": -4.5,
+      "pct": 0.007936507936507936,
+      "two_sided_p": 0.015873015873015872,
+      "naive_two_sided": 0.015873015873015872,
+      "resolved": true
+    }
+  ],
+  "directional_holds": true,
+  "r361_source_sha256": "5cb45a520f1149ed9fb41660b25f2f817bef4c1e023b3273ccd45c6910a7e8d8",
+  "check284": "R682's NEXT proposed ONE perturbation of R361's hard-coded set. R361 already enumerates all C(9,4)=126 membership assignments exactly. The proposal was strictly weaker than the committed instrument.",
+  "prior_art": "found by P4's gate BEFORE any code was written -- fourth time in this arc the answer sat in a committed artifact.",
+  "limit": "reads the artifact; does not re-execute R361. Internal consistency only."
+}

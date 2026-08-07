@@ -1,0 +1,50 @@
+{
+ "prompts": 150,
+ "gold_head_correlation": 0.4775477770508237,
+ "curve": [
+  {
+   "n": 1,
+   "gold_2b": 1.699499698169258,
+   "gold_08b": -9.854274580801906
+  },
+  {
+   "n": 2,
+   "gold_2b": 1.6939635253735155,
+   "gold_08b": -9.90952137062502
+  },
+  {
+   "n": 4,
+   "gold_2b": 1.6358668452393048,
+   "gold_08b": -10.049796995092105
+  },
+  {
+   "n": 8,
+   "gold_2b": 1.8898458911073082,
+   "gold_08b": -9.954128150145316
+  },
+  {
+   "n": 16,
+   "gold_2b": 2.225893556253654,
+   "gold_08b": -9.804409030730104
+  }
+ ],
+ "gold_2b_shared": {
+  "delta": 0.526393858084396,
+  "ci": [
+   0.06329949619020805,
+   0.9698547081269051
+  ],
+  "verdict": "rises"
+ },
+ "gold_08b_independent": {
+  "delta": 0.04986555007180198,
+  "ci": [
+   -0.4447454976436732,
+   0.528667009531577
+  ],
+  "verdict": "indistinguishable from zero"
+ },
+ "conclusion": "WEAKENED: the independent backbone cannot distinguish the change from zero, so A09's rise is not established; the no-gaming reading stands only as 'no effect detected either way'",
+ "independent_reproduces": false,
+ "outcome_variable_scope": "Scored against the r08 MODEL GOLD HEAD, not against human rankings -- no human ranked these generated responses. The retraction it establishes is therefore a statement about the proxy-world measurement, which is the correct scope for overturning r09 (also proxy-world), but is not a statement about human preference."
+}

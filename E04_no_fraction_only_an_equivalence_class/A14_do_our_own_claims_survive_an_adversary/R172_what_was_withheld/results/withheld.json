@@ -1,0 +1,33 @@
+{
+ "annotators": 1012,
+ "shipped_fields": {
+  "age": 1012,
+  "ai_concern_level": 1012,
+  "country_of_residence": 1012,
+  "education_level": 1012,
+  "gender": 1012,
+  "generative_ai_usage": 1012,
+  "ideal-model-behavior": 1012
+ },
+ "withheld": [
+  "race/ethnicity",
+  "employment status (multi-select)",
+  "country of origin",
+  "free text: brief self-description"
+ ],
+ "sanitization_mentions_demographics": false,
+ "free_text": {
+  "field": "ideal-model-behavior",
+  "n": 1012,
+  "median_chars": 200,
+  "max_chars": 1680,
+  "disclosure_hits": {
+   "first person": 803,
+   "occupation or role": 5,
+   "named place": 0,
+   "religion": 4,
+   "health or family": 3,
+   "contact string": 0
+  }
+ }
+}

@@ -1,0 +1,32 @@
+R693 · PRE-REGISTRATION — written before any predictor is fitted.
+
+THE GAP  R689 established the release ships ONE core. So 41 of the 42 scored arms are OUR
+         constructions, and clause ②'s entire discriminating power is exercised over OUR generator's
+         parameter space. If ②'s verdict is predicted by the generator's RULE FAMILY alone, ② is a
+         reparameterisation of how we built the arms rather than a property of cores.
+
+⚠ THE BASELINE THAT MAKES THIS FAILABLE. 9 of 42 arms pass ②, so ALWAYS PREDICTING REJECT scores
+  33/42 = 78.6%. Any accuracy at or below that is silence. The majority-class floor is computed in
+  the run and every registered row is stated against it.
+
+POINT A     rule family alone predicts ②'s verdict at 90% accuracy.
+INTERVAL A  [79%, 100%]   ⚠ the floor is 78.6%, so the whole interval lies ABOVE it and a result at
+            or below the floor falsifies this row. This is the failability ledger 803/808 records me
+            missing twice.
+POINT B     k alone predicts at 79% — i.e. no better than the floor, because R581 established k
+            varies INSIDE the admitted set.
+INTERVAL B  [70%, 88%]
+DIRECTIONAL (separately failable) rule family predicts better than k.
+KILL        if rule family does NOT beat the majority-class floor, ② is not a reparameterisation of
+            the generator and this finding dies. That is a live outcome.
+CONTROLS
+  POSITIVE  the ② verdict used as its own predictor must score 100% — the fitter must be able to
+            reach it.
+  g=0       a randomly permuted label must score at the floor, not above it.
+  NEGATIVE  shuffled rule families must score at the floor.
+  PLACEBO   run twice identical.
+  PERMUTATION NULL  1000 shuffles of the rule-family assignment; report the observed accuracy's
+            percentile, not merely whether it beats the floor.
+IDENTIFICATION LIMIT  "rule family predicts ②" does not establish that ② MEASURES the family. Both
+            could depend on a third thing (e.g. whether the rule reads labels). The round reports
+            prediction, and names that gap rather than closing it.

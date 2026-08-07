@@ -1,0 +1,59 @@
+{
+ "profile_axis_singular_share": 0.005413103235674686,
+ "utility": {
+  "contested_share": 0.08222222222222222,
+  "accuracy_all": 0.8568135165008685,
+  "accuracy_contested": 0.6662870159453302,
+  "ci": [
+   0.6433390300399437,
+   0.6884122224686933
+  ],
+  "contested_decisions": 2634,
+  "verdict": "above chance"
+ },
+ "majority": {
+  "contested_share": 0.09388888888888888,
+  "accuracy_all": 0.8541666666666666,
+  "accuracy_contested": 0.6455186304128903,
+  "ci": [
+   0.6231678130670223,
+   0.6686662426411857
+  ],
+  "contested_decisions": 2979,
+  "verdict": "above chance"
+ },
+ "consensus": {
+  "contested_share": 0.09972222222222223,
+  "accuracy_all": 0.8533451204495943,
+  "accuracy_contested": 0.6540642722117203,
+  "ci": [
+   0.6333839711936269,
+   0.6740095987664052
+  ],
+  "contested_decisions": 3174,
+  "verdict": "above chance"
+ },
+ "constituency": {
+  "contested_share": 0.1661111111111111,
+  "accuracy_all": 0.8353550669699267,
+  "accuracy_contested": 0.6635478327286615,
+  "ci": [
+   0.646441430692344,
+   0.6804504848294639
+  ],
+  "contested_decisions": 5237,
+  "verdict": "above chance"
+ },
+ "conflict_aware": {
+  "contested_share": 0.24027777777777778,
+  "accuracy_all": 0.8124664159054272,
+  "accuracy_contested": 0.6655754877569726,
+  "ci": [
+   0.652167886246201,
+   0.6793027297803749
+  ],
+  "contested_decisions": 7637,
+  "verdict": "above chance"
+ },
+ "conclusion": "ROUTING IS REAL: on contested items the learned router beats chance, so r17's conditional gain is not an artifact of free agreement. || FROZEN LINE (queue item 2, see FROZEN.md): the bloc / minority / constituency reading of r16-r18 is FROZEN. The partition is a median split on a principal component carrying 0.541% of the singular mass and is not any nameable constituency -- gender (1.145) and country (1.198) both fail r16's own 1.267 bar, and 148 of 1,160 criterion raters (12.8%) have no demographics at all. Read the partition as a 'latent profile split', never as a bloc, minority or constituency."
+}

@@ -1,0 +1,221 @@
+{
+  "n_admissible_aware": 30,
+  "schema_mismatch": [
+    "transport_gen",
+    "transport_generic",
+    "transport_randblind_s0",
+    "transport_randblind_s1",
+    "transport_randblind_s2",
+    "transport_vacuous"
+  ],
+  "rows": [
+    {
+      "arm": "gen",
+      "a2": 0.5336776859504132,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 32.582417582417584,
+      "clears": false
+    },
+    {
+      "arm": "random_k12_s0",
+      "a2": 0.5079975895316804,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "full",
+      "a2": 0.5077479338842975,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k12_s2",
+      "a2": 0.5053460743801653,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k12_s1",
+      "a2": 0.5032196969696969,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k8_s2",
+      "a2": 0.5025223829201102,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k8_s0",
+      "a2": 0.5001807851239669,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k8_s1",
+      "a2": 0.49835571625344355,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k4_s1",
+      "a2": 0.4974431818181818,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k4_s1_ctlS1",
+      "a2": 0.4974431818181818,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k6_s1",
+      "a2": 0.49446453168044074,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k6_s0",
+      "a2": 0.49395661157024795,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k6_s2",
+      "a2": 0.49384469696969696,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k3_s1",
+      "a2": 0.4931732093663912,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k4_s0",
+      "a2": 0.49204545454545456,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k4_s0_ctlS0",
+      "a2": 0.49204545454545456,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k3_s2",
+      "a2": 0.49069387052341595,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k4_s2",
+      "a2": 0.4888257575757576,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k3_s0",
+      "a2": 0.4884125344352617,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k2_s1",
+      "a2": 0.4883350550964187,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "topvar_k4",
+      "a2": 0.4854080578512397,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k2_s2",
+      "a2": 0.4768508953168044,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "random_k2_s0",
+      "a2": 0.47640323691460057,
+      "n": 968,
+      "cov": 1.0,
+      "pct": 0.0,
+      "clears": false
+    },
+    {
+      "arm": "provenance_probe",
+      "a2": 0.39375,
+      "n": 4,
+      "cov": 0.004132231404958678,
+      "pct": 0.0,
+      "clears": false
+    }
+  ],
+  "best": {
+    "arm": "gen",
+    "a2": 0.5336776859504132,
+    "n": 968,
+    "cov": 1.0,
+    "pct": 32.582417582417584,
+    "clears": false
+  },
+  "ceiling": 0.5404,
+  "controls": {
+    "positive": true,
+    "g0": true,
+    "placebo": true
+  },
+  "verdict": "MEASURED",
+  "world": "B (BOTH HOLD \u2014 best admissible p32.6 < p75; the state stays UNDETERMINED)"
+}

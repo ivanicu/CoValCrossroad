@@ -1,0 +1,90 @@
+R724 · could the producer have returned otherwise
+written BEFORE run.py. I have read R294's docstring, its admission lines (144-150) and
+corebench/report.py:verdict. I have NOT looked at any arm's margins except coval_core's, which
+appeared while inspecting the artifact schema. The grid below has never been run.
+
+ESTIMAND
+   Over the defensible decision-rule space of R294's OWN procedure, how many DISTINCT extensions
+   can it return, and what share of that space returns the released set
+   {coval_core, topw_k3, topw_k4, topw_k6, topw_k8}?
+   R723 left the deliverable resting on ONE computation, R294. A producer that could only ever have
+   returned one answer is a DERIVATION, and derivations do not support the output they compute.
+
+IDENTIFICATION
+   Identified for axes the persisted artifact fixes: each arm's effect, CI and MDE per clause, its
+   provenance flag, and its k-cap flag. Every decision rule is a function of those.
+   NOT identified from the artifact: bootstrap seed, NBOOT, the BH q, and the >=2-annotator
+   population filter. Those need a re-run of the census and are named in IMPOSSIBLE, not waived.
+   So the answer is a LOWER BOUND on the number of reachable extensions, never a count of them.
+
+SCOPE
+   population : the 41 judged arms in R294's full_census.json
+   instrument : re-derivation of the admission rule from the persisted per-arm statistics
+   baseline   : R294's own cell -- lo > 0 AND |eff| >= mde, clause ③ on, k-capped arms kept
+   regime     : this artifact at source_sha 2bc1124f6825df0f; no re-running of the bootstrap
+
+WORLDS
+   W-FORCED   the extension is invariant across the rule space. Then R294 measured nothing that
+              could have come out otherwise, and the deliverable's single support is a derivation.
+   W-FITTED   the extension varies and the released set is a rare cell. Then the number 5 is a
+              choice of rule presented as a measurement.
+   W-ROBUST   the extension varies at the edges and the released set is modal. Then the producer
+              survives, and the 5-set is the answer most defensible rules give.
+   prediction matrix
+      distinct == 1                        -> FORCED 0.95  FITTED 0.02  ROBUST 0.03
+      distinct > 1, released modal         -> FORCED 0.02  FITTED 0.10  ROBUST 0.90
+      distinct > 1, released share < 0.10  -> FORCED 0.02  FITTED 0.90  ROBUST 0.08
+
+GRID (specification curve, 100 cells, all reported)
+   clause ① rule x 5 : strict(lo>0 & |e|>=mde) · ci_only(lo>0) · point(e>0) · mde_only(e>=mde) ·
+                       conservative(lo>mde)
+   clause ② rule x 5 : the same five
+   clause ③        x 2 : on (as declared) · off
+   k-capped arms   x 2 : kept (R294's choice) · dropped
+
+REGISTERED POINTS (failable)
+   A  distinct extensions over the 100 cells                     = 12   [2, 100]
+   B  share of cells returning exactly the released 5-set        = 0.25 [0.00, 1.00]
+   C  extension size at R294's own ①② rule with ③ OFF           = 7    [5, 41]
+      ⚠ C IS A DERIVATION, NOT A MEASUREMENT. Turning ③ off can only ADD the arms it excluded,
+      so C = 5 + |{a in USES_PROMPT_LABELS : a clears ① and ②}| by algebra. It is registered to
+      make the arithmetic explicit and it will be LABELLED a derivation in the report, never
+      quoted as evidence.
+   DIRECTIONAL (separately failable): the released 5-set is the MODAL extension of the grid.
+
+KILL (CONDITIONAL -- evaluated only if the g=0 reconstruction and the NEGATIVE control both fire)
+   if reconstruction_exact and negative_destroys:
+       distinct == 1                      -> W-FORCED: the producer could not have returned
+                                             otherwise; the deliverable's one computation has zero
+                                             degrees of freedom and must be relabelled a derivation
+       released_share < 0.10              -> W-FITTED: the 5-set is a rule choice
+       otherwise                          -> evaluate A/B/C and the directional
+   else:
+       verdict = UNVERIFIED   # never OVERTURNED, never CONFIRMED
+
+POSITIVE CTRL / g=0   the reconstruction at R294's OWN cell must reproduce `admitted` EXACTLY on
+                      all 41 arms. threshold computed: floor 0 < t 41 <= ceiling 41 arms matched.
+                      A reconstruction that cannot reproduce the committed set licenses nothing.
+PLANT                 a synthetic arm with maximal margins must be admitted under all 5 rules; a
+                      synthetic arm with zero margins under NONE. The second is the g=0 half: the
+                      control must not pass when there is nothing to find.
+NEGATIVE CTRL         permute the arm -> statistics pairing and require the released set NOT to be
+                      recovered. World excluded: "the rule returns the same set whatever the data",
+                      which would make every cell above meaningless.
+SHAM                  the same census with the clause criteria removed -- admit everything -> must
+                      return all 41. Absence of the ingredient, not inversion of it.
+PLACEBO               the released cell against itself -> symmetric difference exactly 0.
+NOISE FLOOR           the re-derivation is deterministic given the artifact; the floor is 0 and is
+                      VERIFIED by two PYTHONHASHSEEDs, not assumed.
+UNIT                  instrument unit : "the extension recomputed from persisted per-arm statistics
+                                        under a decision rule"
+                      claim unit      : "what R294's procedure could have returned"
+                      EQUAL only over the axes the artifact fixes; the four axes it does not fix are
+                      listed in IMPOSSIBLE and make the answer a lower bound.
+MULTIPLICITY          100 cells; every distinct extension reported with its cell count, survivors
+                      and non-survivors alike.
+SEEDS                 deterministic; two hash seeds byte-identical
+ARTIFACT              results/r724_producer_degrees_of_freedom.json with tree_sha
+IMPOSSIBLE            bootstrap seed / NBOOT / BH q / annotator filter -> each needs a re-run of
+                      R294's census against the sat store, not reachable from the artifact
+                      independently replicated -> a second implementer

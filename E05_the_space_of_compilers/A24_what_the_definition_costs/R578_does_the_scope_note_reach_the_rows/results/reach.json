@@ -1,0 +1,14 @@
+{
+  "n_claims": 10,
+  "extension_rows": [
+    2
+  ],
+  "rows_naming_target": [],
+  "conditioned_but_silent": [
+    2
+  ],
+  "remedy": "a dagger marker on the conditioned number, resolving to the scope table",
+  "why_not_a_copy": "P16 forbids restating the fact per row; a pointer is not a copy",
+  "world": "B",
+  "world_means": "B = at least one conditioned row is silent about its condition, so the scope note did not reach it"
+}

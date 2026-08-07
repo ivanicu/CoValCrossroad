@@ -1,0 +1,85 @@
+R723 · the path was built, not written
+written BEFORE run.py, after an eyeball read that is DECLARED below.
+
+⚠ DISCLOSURE, because it changes how failable these points are.
+   Before writing this file I ran two diagnostic greps (in the session transcript) and READ
+   lines 95-114 of R404/R405/R408/R409/R667. So points A/B/C below are NOT blind: they are my
+   eyeball reading, registered so the INSTRUMENT can disagree with my eye. What remains genuinely
+   failable: (i) whether an AST instrument reproduces the eyeball set exactly, (ii) whether the
+   directional mechanism (pathlib-split vs single-literal) is the discriminator, (iii) every
+   control. A round that hides having looked is worse than one that registers what it saw.
+
+ESTIMAND
+   Of the 8 rounds R680 classified as DERIVING the ③ extension, how many READ A PRIOR ROUND'S
+   ARTIFACT -- measured at the claim's unit (an actual cross-round file read) rather than at
+   R680's instrument unit (a literal path substring)?
+   This bounds the deliverable's "at most SIX independent computations".
+
+IDENTIFICATION
+   Identified from source text alone: a read either names another round's directory or it does not.
+   NOT identified: whether a flagged read USES the value. That is R722's NEXT question and is
+   explicitly OUT OF SCOPE here -- this round measures dependence of INPUT, not of OUTPUT.
+   Partial identification is handled by reporting a CEILING on independence, never a count of it.
+
+SCOPE
+   population : the 8 derivers named in R680's artifact (R294 R353 R404 R405 R408 R409 R519 R667)
+   instrument : Python `ast` -- executable string literals (docstrings dropped) matched against
+                round-directory names on disk, conjoined with a read call in the same file
+   baseline   : R680's regex `results/[\w.]+\.json|R\d{3}[\w]*/results` over executable source
+   regime     : this arc's round tree as committed at this tree_sha; no other corpus
+
+WORLDS
+   W1 R680 IS RIGHT. Only 2 derivers read a prior artifact; the pathlib paths I eyeballed resolve
+      to the release's own data, not to round artifacts. Then the ceiling stays 6.
+   W2 R680'S INSTRUMENT IS BLIND TO CONSTRUCTED PATHS. The property (reads a prior artifact) is
+      not invariant under pathlib splitting; the measurement is. Then the ceiling collapses.
+   prediction matrix
+      new count == 2                 -> W1 0.90  W2 0.05
+      new count in 3..6              -> W1 0.10  W2 0.60
+      new count >= 7                 -> W1 0.02  W2 0.95
+      and the DISCRIMINATOR: if the misses are exactly the pathlib-split writers, W2; if they are
+      scattered across both styles, the mechanism is something else and BOTH worlds are wrong.
+
+REGISTERED POINTS (failable; my eyeball value first, interval second)
+   A  derivers reading a prior round's artifact (claim unit)      = 7   [2, 8]
+   B  corrected ceiling on independent computations               = 1   [0, 6]
+   C  R680's recall against the claim-unit reader set             = 0.29 [0.00, 1.00]
+   DIRECTIONAL (separately failable): the set R680 MISSES equals the set that builds its path from
+      multiple string operands. Fails if any missed round writes its path as a single literal, or
+      any caught round builds it from operands.
+
+KILL (CONDITIONAL -- evaluated only if POSITIVE and NEGATIVE controls both fire)
+   if positive_fires and negative_null:
+       if new_count <= 2 and R680_recall == 1.0:   -> ATTACK REFUTED, R680's six stands
+       else:                                        -> evaluate A/B/C against their intervals
+   else:
+       verdict = UNVERIFIED    # never OVERTURNED, never CONFIRMED
+
+POSITIVE CTRL   the two rounds R680 ITSELF caught (R353, R519) must ALSO be flagged by the new
+                instrument. This is the "run the pattern where the answer is known" remedy: a new
+                instrument that cannot see the old instrument's true positives is not stricter,
+                it is different. threshold computed, not chosen: floor 0 < t 2 <= ceiling 8.
+g=0             a synthetic source with every cross-round literal deleted -> must flag 0.
+NEGATIVE CTRL   R294 reads ROOT/"corebench"/"results" -- the RELEASE's own outputs. It must NOT be
+                flagged. World excluded: "any file read counts as dependence", which would make
+                reading the benchmark itself a form of copying and is false.
+SHAM            the same operation minus the ingredient: the cross-round path present ONLY in the
+                docstring, no read call. Must flag 0. (Not an inverted path -- absence, not poison.)
+PLACEBO         a round matched against ITS OWN round id (self-write / self-read). Must return
+                exactly 0.
+NOISE FLOOR     the instrument is deterministic over fixed source; floor is 0 by construction and
+                is VERIFIED by re-running under a changed PYTHONHASHSEED, not assumed.
+UNIT            instrument unit : "another round's directory name in an executable string literal,
+                                  in a file that performs a read"
+                claim unit      : "reads a prior round's artifact"
+                these are asserted EQUAL only up to the residue named under IDENTIFICATION, and
+                the residue is reported, not waived.
+MULTIPLICITY    8 rounds x 4 specifications = 32 classifications. All 32 reported, survivors and
+                non-survivors alike.
+SPECIFICATION   S1 R680's regex · S2 AST literal + read call · S3 AST literal alone ·
+                S4 resolve the expression and require the file to EXIST on disk (strictest)
+SEEDS           deterministic; two PYTHONHASHSEEDs required byte-identical
+ARTIFACT        results/r723_reader_recount.json with tree_sha
+IMPOSSIBLE      independently replicated  -> a second implementer; N/A here, single author
+                causally identified       -> would need to EDIT a round and re-run it to see the
+                                             output change; that is R722's NEXT question, not this

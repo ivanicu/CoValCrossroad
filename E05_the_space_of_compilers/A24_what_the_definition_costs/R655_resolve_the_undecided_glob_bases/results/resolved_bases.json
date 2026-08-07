@@ -1,0 +1,148 @@
+{
+  "world": "B THE RESIDUAL SURVIVES \u2014 25 of 25 stay undecided after one level of caller binding, so a glob base is no more decidable than a read population was, and the census must ship a bound permanently: [94, 119].",
+  "controls_ok": true,
+  "tree_sha": "888e08f42c8e89ae6a2daa9ec099ec7b8ef8c113",
+  "tree_sha_note": "the corpus this was counted over (R654's remedy)",
+  "rounds_at_this_tree": 330,
+  "r654_corpus_dependent": 94,
+  "r654_undecided": 25,
+  "decided": {
+    "STILL-UNRESOLVED": 25
+  },
+  "revised_corpus_dependent": 94,
+  "residual": 25,
+  "bound_before": [
+    94,
+    119
+  ],
+  "bound_after": [
+    94,
+    119
+  ],
+  "per_round": {
+    "R315_how_many_rounds_can_still_run": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R317_the_population_was_run_py": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R319_six_rounds_read_the_typo": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R322_the_matched_rerun_was_never_gpu_work": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R328_the_three_readings_are_one_budget": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R337_the_wall_is_the_population": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R347_does_clause_one_ever_bind": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R348_is_it_blindness_or_curation": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R353_the_admitted_set_under_every_pool_order": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R354_what_the_safe_reference_admits": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R379_the_exit_code_is_not_the_population": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R390_does_the_untitled_tier_state_anything": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R393_what_the_gate_will_cost": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R491_the_third_wall_was_also_false": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R513_the_size_of_my_own_assurance_surface": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R517_has_clause_four_ever_been_testable": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R518_clause_four_is_redundant_where_the_definition_lives": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R519_only_clause_three_narrows_what_two_admits": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R520_is_the_provenance_set_complete": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R521_what_the_declared_literal_costs_on_the_wider_population": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R524_how_many_objects_are_in_the_fifty_six_tags": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R538_the_released_core_has_no_second_judging": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R547_the_register_sorted_on_the_wrong_axis": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R554_the_flag_needs_a_checkpoint_to_point_at": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    },
+    "R555_row_two_named_a_model_where_it_meant_a_requirement": {
+      "verdict": "STILL-UNRESOLVED",
+      "notes": []
+    }
+  },
+  "reproduction_disagreements": [],
+  "check256": "R654's NEXT cited R653's '16 of 59' as evidence about GLOB BASES; that 16 was about the blocking PARAMETER of a D1 READ SITE -- a different population. And it called 93 an UNDERCOUNT, asserting a direction the evidence did not carry: an undecided round can resolve to OWN-SCOPE.",
+  "why_residual_survived": {
+    "shapes": {
+      "local name `ROOT`": 2,
+      "local name `d`": 4,
+      "local name `work`": 4,
+      "local name `A23`": 1,
+      "local name `a24`": 1,
+      "a `x / literal` expression": 5,
+      "MODULE `glob.glob`": 11,
+      "local name `wt`": 1,
+      "local name `src`": 2,
+      "local name `WT`": 3,
+      "local name `p`": 1,
+      "local name `RES`": 5,
+      "local name `root`": 1,
+      "local name `st`": 1,
+      "local name `s`": 1
+    },
+    "module_glob_sites": 11,
+    "note": "the interprocedural branch fired 0 times: the blocking bases are not parameters at all. 11 sites use the stdlib `glob.glob(pattern)`, which has no path base; the rest are function-LOCAL assignments, and PathEval binds only module-level names"
+  },
+  "impossible": "a base bound from a parameter two or more frames up needs a call graph across standalone scripts, which does not exist; those stay STILL-UNRESOLVED and are reported as a residual."
+}

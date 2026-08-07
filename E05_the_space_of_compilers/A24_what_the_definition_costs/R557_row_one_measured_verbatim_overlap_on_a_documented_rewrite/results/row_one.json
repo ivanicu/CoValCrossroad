@@ -1,0 +1,13 @@
+{
+  "world": "B",
+  "n_prompts": 968,
+  "n_core_items": 3828,
+  "n_known_verbatim": 298,
+  "verbatim_share": 0.07784743991640543,
+  "pos_ctrl_top1": 1.0,
+  "placebo_wrongprompt_ge": 0.0,
+  "margin_known_median": 0.8035105679392618,
+  "margin_unknown_median": 0.310062398707439,
+  "unknown_frac_clearing_known_p10": 0.21019830028328612,
+  "identification": "partial: accuracy identified only on the verbatim subset; elsewhere a sharpness BOUND, because no ground-truth mapping exists -- that absence IS register row 1"
+}

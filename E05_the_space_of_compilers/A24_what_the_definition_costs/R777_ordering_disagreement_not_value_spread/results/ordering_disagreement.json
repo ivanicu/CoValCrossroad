@@ -1,0 +1,82 @@
+{
+  "tree_sha": "7849dd5140c52e8d",
+  "n_prompts": 968,
+  "n_criteria": 16,
+  "orderdisagree_mean": 0.2618299471992654,
+  "orderdisagree_sd": 0.12098291952394084,
+  "tieshare_mean": 0.05239540289256198,
+  "corr_orderdisagree_poolspread": -0.5901349113466797,
+  "corr_orderdisagree_tieshare": 0.739247927736238,
+  "covariate": {
+    "Ra_random_s0": {
+      "raw": 0.06993310128219596,
+      "partial_tieshare": 0.03847551641317817,
+      "random_containing": true
+    },
+    "Rb_random_s1": {
+      "raw": 0.09937608700613314,
+      "partial_tieshare": 0.05504887324436604,
+      "random_containing": true
+    },
+    "Rc_random_s2": {
+      "raw": 0.09607876142368627,
+      "partial_tieshare": 0.023631940673689567,
+      "random_containing": true
+    },
+    "F1_committed": {
+      "raw": 0.2181741873302615,
+      "partial_tieshare": 0.1754890969692809,
+      "random_containing": false
+    },
+    "F3_target": {
+      "raw": 0.14606486761659154,
+      "partial_tieshare": 0.10886793149497376,
+      "random_containing": false
+    },
+    "M_mixed_sel": {
+      "raw": 0.09558574104827976,
+      "partial_tieshare": 0.06774888015042566,
+      "random_containing": true
+    }
+  },
+  "random_mean_abs": 0.09024342269007378,
+  "other_mean_abs": 0.18211952747342652,
+  "gap": -0.09187610478335274,
+  "n_random_above_030": 0,
+  "n_below_015": 5,
+  "n_partial_collapse": 1,
+  "E3": {
+    "Ra_random_s0": {
+      "raw": 0.601686630031395,
+      "partial": 0.5992059955124817,
+      "drop": 0.004122801463585679
+    },
+    "Rb_random_s1": {
+      "raw": 0.5916680548558031,
+      "partial": 0.5877564418741223,
+      "drop": 0.0066111613591071094
+    },
+    "Rc_random_s2": {
+      "raw": 0.5894755766016005,
+      "partial": 0.5856705463389252,
+      "drop": 0.006454941330414021
+    }
+  },
+  "mean_drop": 0.00572963471770227,
+  "controls": {
+    "placebo": 1.0,
+    "negative_lo": -0.060396241803083194,
+    "negative_hi": 0.0673807875617971,
+    "sham_mean": 0.0032595475166818538,
+    "dose": {
+      "0.0": null,
+      "0.25": 0.6260430456691045,
+      "0.5": 0.6502753295356118,
+      "1.0": 0.5465418974796988
+    },
+    "positive": true,
+    "g0": true,
+    "monotone": false
+  },
+  "world": "B - NOT THE AXIS EITHER: 5/6 families below 0.15"
+}

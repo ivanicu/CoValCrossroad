@@ -1,0 +1,138 @@
+{
+  "world": "\u2b50\u2b50\u2b50 8 of 20 rounds holding the \u2462 extension DERIVE it; 12 carry it as code literals. R679 measured 22 rounds cited by the deliverable's extension rows. \u2b50 SO THE CITATION COUNT AND THE COMPUTATION COUNT ARE DIFFERENT NUMBERS, and it is the second that bounds how much independent support the deliverable's central set has. \u26a0 AND THIS IS AN UPPER BOUND ON INDEPENDENCE, NOT A COUNT OF IT: a round with no code literals may still READ the set from another round's artifact, which is copying through a file and is not separated here. The honest reading is 'at most 8 independent computations', never 'exactly 8'. \u2b50 TIGHTENED INSIDE THIS ROUND: 2 of the 8 derivers read a prior round's results/ file, so the bound on independent computations is AT MOST 6.",
+  "controls_ok": true,
+  "tree_sha": "12bf9367603f92f0bf21f59c1a21e87af56e5e25",
+  "n_rounds_holding_set": 20,
+  "n_derive": 8,
+  "derive_share": 0.4,
+  "derivers": [
+    "R294",
+    "R353",
+    "R404",
+    "R405",
+    "R408",
+    "R409",
+    "R519",
+    "R667"
+  ],
+  "rounds": [
+    {
+      "round": "R294",
+      "literals": 0,
+      "derives": true
+    },
+    {
+      "round": "R301",
+      "literals": 1,
+      "derives": false
+    },
+    {
+      "round": "R330",
+      "literals": 2,
+      "derives": false
+    },
+    {
+      "round": "R332",
+      "literals": 1,
+      "derives": false
+    },
+    {
+      "round": "R339",
+      "literals": 2,
+      "derives": false
+    },
+    {
+      "round": "R353",
+      "literals": 0,
+      "derives": true
+    },
+    {
+      "round": "R354",
+      "literals": 1,
+      "derives": false
+    },
+    {
+      "round": "R360",
+      "literals": 5,
+      "derives": false
+    },
+    {
+      "round": "R361",
+      "literals": 5,
+      "derives": false
+    },
+    {
+      "round": "R404",
+      "literals": 0,
+      "derives": true
+    },
+    {
+      "round": "R405",
+      "literals": 0,
+      "derives": true
+    },
+    {
+      "round": "R408",
+      "literals": 0,
+      "derives": true
+    },
+    {
+      "round": "R409",
+      "literals": 0,
+      "derives": true
+    },
+    {
+      "round": "R442",
+      "literals": 2,
+      "derives": false
+    },
+    {
+      "round": "R519",
+      "literals": 0,
+      "derives": true
+    },
+    {
+      "round": "R529",
+      "literals": 1,
+      "derives": false
+    },
+    {
+      "round": "R534",
+      "literals": 1,
+      "derives": false
+    },
+    {
+      "round": "R667",
+      "literals": 0,
+      "derives": true
+    },
+    {
+      "round": "R676",
+      "literals": 5,
+      "derives": false
+    },
+    {
+      "round": "R677",
+      "literals": 1,
+      "derives": false
+    }
+  ],
+  "derivers_reading_prior_artifact": [
+    "R353",
+    "R519"
+  ],
+  "derivers_reading_none": [
+    "R294",
+    "R404",
+    "R405",
+    "R408",
+    "R409",
+    "R667"
+  ],
+  "independent_upper_bound": 6,
+  "kill_fired": false,
+  "directional_holds": true,
+  "registered": "A 3 [1,8]; B 30% [10,60]; R294 among derivers; kill if 0 derive",
+  "check281": "R679's proposed test -- set present as a VALUE in results/ -- is invariant under the recompute/restate distinction, so it is blind. Killed by a gauge test at zero compute.",
+  "upper_bound": "no code literals does not prove independent computation; a round may read the set from another round's artifact. At most N, never exactly N."
+}

@@ -1,0 +1,18 @@
+{
+  "commit": "5ddea4c579a130d861ba17cf955c524c79f4daee",
+  "world": "C",
+  "n_entries": 1149,
+  "n_entry_entry_edges": 4,
+  "n_entry_round_edges": 14,
+  "n_entries_linked": 8,
+  "n_entries_unlinked": 1141,
+  "n_hash_headings": 1338,
+  "my_prior_count_was_headings_not_entries": {
+    "claimed": 1338,
+    "actual_entries": 1149
+  },
+  "reading": "the ledger's class structure is not machine-readable; the \u00a70.2 question cannot be answered from its own text",
+  "bound": "this is a LOWER bound on class structure -- two entries can be the same error and say so nowhere",
+  "unit_note": "counts are LEDGER ENTRIES",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

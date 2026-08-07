@@ -1,0 +1,86 @@
+R817 · THE NORMALISATION CURVE — does the arc's ordering survive removing the tie handicap?
+written before the run · NBOOT 1200 · ZEFF 2.801585
+
+PROVOCATION
+R816 established that the `world`→`personal` shift is driven by the TIE RATE: a strict-signed arm
+cannot match a tied human pair, so its attainable A2 is bounded by 1 − tie_rate. Its NEXT proposed
+re-expressing each committed A2 as a fraction of its own prompt's attainable maximum.
+
+⛔ CHECK #419 FOUND THAT THIS ARC HAS ALREADY BEEN BURNED BY EXACTLY THAT OPERATION, TWICE.
+ (1) R793 swept three normalisations of a ceiling -- raw, ÷CEIL_H, ÷√CEIL_H -- and got
+     **WORLD A / WORLD B / WORLD A**. The verdict flipped with the choice, and R793 flagged a
+     "fraction of ceiling" of **1.0264** as proof the shipped quantity was not a proportion.
+     So a SINGLE normalisation is not an answer; the estimand is the CURVE.
+ (2) R807's g=0 control caught what happens when a denominator is estimated from the same data as
+     the numerator. Measured here: **corr(A2, att) = +0.6138 when both come from the same
+     annotators, +0.3798 when they come from disjoint halves.** About 0.23 of the coupling is
+     SHARED ANNOTATOR NOISE, and dividing by such a denominator injects it rather than removing it.
+ (3) The denominator is at least well-defined: per-prompt attainable max ranges **[0.426, 0.911]**,
+     mean **0.6863** (matching R804's committed CEIL_ATT 0.686265), with **0 prompts below 0.30**.
+     Per-prompt tie rate: mean 0.1397, sd 0.0857, range [0.000, 0.632].
+
+ESTIMAND
+E1  the arms' ordering under SIX normalisations: raw · ÷att(shared) · ÷att(SPLIT-HALF) · ÷(1−tie) ·
+    subtractive (A2 − att) · ÷√att. All six are defensible and all six are reported.
+E2  ⭐ each normalised ordering's rank correlation against the raw ordering, and whether any of the
+    arc's committed margins flips sign.
+E3  ⭐ the SHARED-NOISE PRICE: the difference between the shared-annotator and split-half versions
+    of the same normalisation — the quantity R793 never measured when it swept three.
+E4  which normalisation, if any, changes a definitional verdict.
+
+IDENTIFICATION
+Only the SPLIT-HALF normalisation is identified: numerator and denominator come from disjoint
+annotator halves. The shared version is reported as the CONFOUNDED contrast, never as an answer.
+⚠ Splitting halves the annotators behind both quantities, so the split-half cells are noisier; the
+half-split sd is reported beside every one of them.
+
+DERIVED BEFORE MEASURING
+D1 [DERIVATION] dividing every arm by the SAME per-prompt constant cannot change the ordering on a
+   single prompt, but CAN change it after averaging across prompts, because the weights change.
+   That is the entire mechanism under test, and stating it first is what stops a null being read as
+   "normalisation does nothing".
+D2 [DERIVATION] normalising by a constant (not per-prompt) leaves the pooled ordering EXACTLY
+   unchanged. PLACEBO.
+D3 R793's 1.0264 arose from dividing by CEIL_H = 0.5519, below the arms' own scores. Per-prompt att
+   has mean 0.6863, above every arm, so ratios should stay under 1 — and if any exceeds 1 the
+   denominator is not a ceiling and the round says so.
+D4 an arm whose A2 is proportional to att must normalise FLAT and must move in rank. POSITIVE.
+
+WORLDS
+A  ORDERING-ROBUST: every normalisation preserves the ordering (Spearman ≥ 0.9 vs raw) and no
+   committed margin flips -> the tie handicap does not drive the arc's conclusions.
+B  NORMALISATION-DEPENDENT: at least one defensible normalisation reorders or flips a margin ->
+   the arc's numbers are scoped to the raw scale, exactly as R793 warned.
+C  NOT IDENTIFIED: the shared and split-half versions of the same normalisation disagree on the
+   ordering -> the normalisation cannot be estimated here and the round says so.
+CHECKED FIRST: B, because it rescopes every committed number.
+
+PREDICTION MATRIX
+                              A                B                 C
+Spearman vs raw            >= 0.9           < 0.9 somewhere    any
+committed margin flips     none             >= 1               n/a
+shared vs split-half       agree            agree              disagree
+
+CONTROLS
+OBJECT   reproduce R804's CEIL_ATT **0.686265** as the mean per-prompt attainable max, and
+         `coval_core`'s committed A2 **0.5664774812**. Exit 2 otherwise.
+PLACEBO  D2: normalising by a CONSTANT leaves the ordering exactly unchanged, Spearman 1.0000.
+POSITIVE D4: a synthetic arm built proportional to att must (a) normalise flat and (b) change rank
+         between raw and normalised. g=0 check: an arm INDEPENDENT of att must NOT change rank.
+NEGATIVE att permuted across prompts -> the normalised ordering must revert toward raw.
+         200 permutations, reported as a distribution.
+NOISE FLOOR 20 independent annotator half-splits; the sd of every split-half cell.
+
+PRE-REGISTERED KILL -- conditional, never a bare threshold
+  if object_reproduces and placebo_is_exactly_unchanged and positive_moves_and_g0_does_not
+     and negative_reverts:
+      if shared and split-half orderings disagree (Spearman < 0.9 between them) -> WORLD C
+      elif any normalisation gives Spearman < 0.9 vs raw, or flips a margin     -> WORLD B
+      else                                                                       -> WORLD A
+  else:
+      UNVERIFIED   (never OVERTURNED, never CONFIRMED)
+
+MULTIPLICITY 9 arms x 6 normalisations reported in full as a curve; BH q=0.05 over the
+margin-flip family; non-survivors printed.
+STOPPING RULE one round. If any normalised value exceeds 1 the denominator is not a ceiling: print
+it, name it, and exclude that normalisation rather than quoting a proportion above 1.

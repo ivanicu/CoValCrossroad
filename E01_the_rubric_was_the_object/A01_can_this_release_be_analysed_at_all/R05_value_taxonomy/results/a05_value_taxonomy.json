@@ -1,0 +1,203 @@
+{
+ "criteria": 15248,
+ "lexicon_coverage": 0.6477570828961174,
+ "survival_threshold": 0.34,
+ "families": {
+  "safety_harm": {
+   "n": 1508,
+   "singleton_share": 0.6584880636604774,
+   "polarized_share": 0.11007957559681697,
+   "survival": 0.1836870026525199,
+   "survival_given_shared": 0.37281553398058254,
+   "survival_given_polarized": 0.12650602409638553,
+   "mean_score": 2.9538813418342698
+  },
+  "accuracy_evidence": {
+   "n": 2097,
+   "singleton_share": 0.6232713400095374,
+   "polarized_share": 0.07343824511206486,
+   "survival": 0.22699093943729137,
+   "survival_given_shared": 0.4506329113924051,
+   "survival_given_polarized": 0.09090909090909091,
+   "mean_score": 3.8352596319307084
+  },
+  "legality_policy": {
+   "n": 1437,
+   "singleton_share": 0.5713291579679889,
+   "polarized_share": 0.14126652748782184,
+   "survival": 0.21572720946416143,
+   "survival_given_shared": 0.375,
+   "survival_given_polarized": 0.11822660098522167,
+   "mean_score": 3.59686983675756
+  },
+  "autonomy_choice": {
+   "n": 132,
+   "singleton_share": 0.3106060606060606,
+   "polarized_share": 0.3106060606060606,
+   "survival": 0.17424242424242425,
+   "survival_given_shared": 0.1978021978021978,
+   "survival_given_polarized": 0.024390243902439025,
+   "mean_score": 2.9263552577565
+  },
+  "balance_plurality": {
+   "n": 560,
+   "singleton_share": 0.5857142857142857,
+   "polarized_share": 0.125,
+   "survival": 0.19107142857142856,
+   "survival_given_shared": 0.3620689655172414,
+   "survival_given_polarized": 0.04285714285714286,
+   "mean_score": 4.103035800479588
+  },
+  "neutrality_nonjudgment": {
+   "n": 905,
+   "singleton_share": 0.3988950276243094,
+   "polarized_share": 0.20441988950276244,
+   "survival": 0.2132596685082873,
+   "survival_given_shared": 0.3014705882352941,
+   "survival_given_polarized": 0.06486486486486487,
+   "mean_score": 4.1571487960641536
+  },
+  "empathy_tone": {
+   "n": 1107,
+   "singleton_share": 0.46612466124661245,
+   "polarized_share": 0.12195121951219512,
+   "survival": 0.21951219512195122,
+   "survival_given_shared": 0.3536379018612521,
+   "survival_given_polarized": 0.037037037037037035,
+   "mean_score": 3.972714582731078
+  },
+  "actionability": {
+   "n": 1609,
+   "singleton_share": 0.5195773772529522,
+   "polarized_share": 0.1124922311995028,
+   "survival": 0.26351771286513365,
+   "survival_given_shared": 0.45278137128072443,
+   "survival_given_polarized": 0.11602209944751381,
+   "mean_score": 3.5630038205507586
+  },
+  "clarity_format": {
+   "n": 2116,
+   "singleton_share": 0.5954631379962193,
+   "polarized_share": 0.12098298676748583,
+   "survival": 0.1833648393194707,
+   "survival_given_shared": 0.3294392523364486,
+   "survival_given_polarized": 0.0859375,
+   "mean_score": 4.004953253520894
+  },
+  "professional_referral": {
+   "n": 232,
+   "singleton_share": 0.5948275862068966,
+   "polarized_share": 0.06465517241379311,
+   "survival": 0.2629310344827586,
+   "survival_given_shared": 0.5,
+   "survival_given_polarized": 0.06666666666666667,
+   "mean_score": 5.04057971135385
+  },
+  "cultural_context": {
+   "n": 2554,
+   "singleton_share": 0.5951448707909162,
+   "polarized_share": 0.14291307752545027,
+   "survival": 0.1644479248238058,
+   "survival_given_shared": 0.2940038684719536,
+   "survival_given_polarized": 0.07671232876712329,
+   "mean_score": 2.486720562422697
+  },
+  "privacy_consent": {
+   "n": 164,
+   "singleton_share": 0.573170731707317,
+   "polarized_share": 0.08536585365853659,
+   "survival": 0.24390243902439024,
+   "survival_given_shared": 0.44285714285714284,
+   "survival_given_polarized": 0.14285714285714285,
+   "mean_score": 3.3766224173403785
+  },
+  "other": {
+   "n": 5371,
+   "singleton_share": 0.715881586296779,
+   "polarized_share": 0.11487618692980824,
+   "survival": 0.13349469372556322,
+   "survival_given_shared": 0.281127129750983,
+   "survival_given_polarized": 0.09562398703403566,
+   "mean_score": 1.3523324189758896
+  }
+ },
+ "polarization_penalty": {
+  "safety_harm": {
+   "polarized": 0.12650602409638553,
+   "consensus": 0.4899713467048711,
+   "penalty": -0.3634653226084855,
+   "n_pol": 166,
+   "n_non": 349
+  },
+  "accuracy_evidence": {
+   "polarized": 0.09090909090909091,
+   "consensus": 0.5377358490566038,
+   "penalty": -0.4468267581475128,
+   "n_pol": 154,
+   "n_non": 636
+  },
+  "legality_policy": {
+   "polarized": 0.11822660098522167,
+   "consensus": 0.5012106537530266,
+   "penalty": -0.382984052767805,
+   "n_pol": 203,
+   "n_non": 413
+  },
+  "autonomy_choice": {
+   "polarized": 0.024390243902439025,
+   "consensus": 0.34,
+   "penalty": -0.315609756097561,
+   "n_pol": 41,
+   "n_non": 50
+  },
+  "balance_plurality": {
+   "polarized": 0.04285714285714286,
+   "consensus": 0.5,
+   "penalty": -0.45714285714285713,
+   "n_pol": 70,
+   "n_non": 162
+  },
+  "neutrality_nonjudgment": {
+   "polarized": 0.06486486486486487,
+   "consensus": 0.4233983286908078,
+   "penalty": -0.3585334638259429,
+   "n_pol": 185,
+   "n_non": 359
+  },
+  "empathy_tone": {
+   "polarized": 0.037037037037037035,
+   "consensus": 0.4473684210526316,
+   "penalty": -0.41033138401559455,
+   "n_pol": 135,
+   "n_non": 456
+  },
+  "actionability": {
+   "polarized": 0.11602209944751381,
+   "consensus": 0.5557432432432432,
+   "penalty": -0.4397211437957294,
+   "n_pol": 181,
+   "n_non": 592
+  },
+  "clarity_format": {
+   "polarized": 0.0859375,
+   "consensus": 0.43333333333333335,
+   "penalty": -0.34739583333333335,
+   "n_pol": 256,
+   "n_non": 600
+  },
+  "cultural_context": {
+   "polarized": 0.07671232876712329,
+   "consensus": 0.4125560538116592,
+   "penalty": -0.3358437250445359,
+   "n_pol": 365,
+   "n_non": 669
+  },
+  "other": {
+   "polarized": 0.09562398703403566,
+   "consensus": 0.40704070407040704,
+   "penalty": -0.3114167170363714,
+   "n_pol": 617,
+   "n_non": 909
+  }
+ }
+}

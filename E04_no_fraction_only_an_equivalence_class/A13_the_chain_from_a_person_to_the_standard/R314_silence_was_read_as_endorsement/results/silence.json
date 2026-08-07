@@ -1,0 +1,62 @@
+{
+ "source_sha": "d01f9530c1d6366f",
+ "world": "W-DILUTION",
+ "n_assessments": 18678,
+ "n_asked": 5006,
+ "n_never_posed": 13672,
+ "r150_header_assessments": 18562,
+ "header_shortfall": 116,
+ "buggy": {
+  "testable": 1091,
+  "change_rate": 0.0614115490375802,
+  "served_plurality": 0.6654518538706938,
+  "served_veto": 0.6498783353251337,
+  "served_delta": -0.015573518545560106,
+  "ci": [
+   -0.02033467973859942,
+   -0.010812357352520792
+  ],
+  "se": 0.0024291638739996502,
+  "dist": {
+   "0": 0.8285206335524189,
+   "1": 0.098857881693783,
+   "2": 0.04282943648313759,
+   "3": 0.019286714793664474,
+   "4": 0.010505333476996013
+  },
+  "n_veto_rows": 18562
+ },
+ "corrected": {
+  "testable": 322,
+  "change_rate": 0.2080745341614907,
+  "served_plurality": 0.6455537722444356,
+  "served_veto": 0.5927875960543547,
+  "served_delta": -0.05276617619008084,
+  "ci": [
+   -0.0681713224764816,
+   -0.03736102990368008
+  ],
+  "se": 0.007859768513469775,
+  "dist": {
+   "0": 0.3641630043947263,
+   "1": 0.3665601278465841,
+   "2": 0.15880942868557732,
+   "3": 0.07151418298042349,
+   "4": 0.03895325609268877
+  },
+  "n_veto_rows": 5006
+ },
+ "placebo": 0.0,
+ "permutation_mean": -0.2755765331987938,
+ "permutation_sd": 0.013109343113150028,
+ "permutation_n_seeds": 200,
+ "permutation_envelope": [
+  -0.3036964689681441,
+  -0.25093362396577656
+ ],
+ "first_negative_control": "permuted WHICH PERSON held each veto set; a NO-OP because the statistic reads per-response veto COUNTS, invariant to relabelling people. sd exactly 0. Replaced, both reported.",
+ "positive_ok": true,
+ "g0_ok": true,
+ "negative_ok": true,
+ "ci_excludes_zero": true
+}

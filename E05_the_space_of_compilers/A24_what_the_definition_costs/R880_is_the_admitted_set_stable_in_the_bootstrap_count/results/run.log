@@ -1,0 +1,28 @@
+  prompts 968 · arms 99
+  ⛔ DERIVATION, not a finding: Monte-Carlo error falls as NBOOT -> inf, so the largest
+     budget is the best estimate BY ARITHMETIC. What is measured is the CONVERGENCE.
+
+    NBOOT  n(s1)  n(s2)  J vs ref  J seed-vs-seed   flips vs ref
+      250     28     28    1.0000          1.0000              0
+      500     28     28    1.0000          1.0000              0
+     1000     28     28    1.0000          1.0000              0
+     2000     28     28    1.0000          1.0000              0
+     4000     28     28    1.0000          1.0000              0
+     8000     28     28    1.0000          1.0000              0
+
+  ① POSITIVE `oracle_k4` admitted at EVERY budget: True  PASS
+  ② NEGATIVE `random_k4_s0` admitted at NO budget: True  PASS
+  ③ SEED-vs-BUDGET  mean seed-agreement 1.0000 >= mean adjacent-budget agreement 1.0000: True  PASS
+     Without this arm a budget effect and plain Monte-Carlo noise are
+     indistinguishable, and the round would report the second as the first.
+  ④ every budget admits >=1 arm: True  PASS
+
+  ⭐ admitted counts across budgets: [28, 28, 28, 28, 28, 28]  (spread 0)
+  ⭐ R878/R879 ran at NBOOT=500: 28 arms, Jaccard vs the 8000-set 1.0000, 0 flip(s)
+  ⭐ first budget reaching Jaccard >= 0.95 vs the reference: 250
+  ⭐ WORLD A: the set is stable from a low budget — 500 was enough and every downstream round is safe on this axis
+     ⚠ The reference is best BY DERIVATION, not by measurement. This round measures
+       convergence speed; it cannot tell you the 8000-set is 'right', only that it is
+       the least Monte-Carlo-noisy estimate available here.
+
+  artifact: results/nboot_stability.json @ 1ab20d8f

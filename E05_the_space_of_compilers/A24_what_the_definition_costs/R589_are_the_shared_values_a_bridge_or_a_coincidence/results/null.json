@@ -1,0 +1,15 @@
+{
+  "world": "B",
+  "n_statement": 93,
+  "n_formulation": 732,
+  "observed": 24,
+  "null_mean": 10.6375,
+  "null_sd": 2.400227853767221,
+  "null_min": 4,
+  "null_max": 18,
+  "share_ge_observed": 0.0,
+  "n_draws": 400,
+  "null_design": "digit-shuffle after the decimal point: preserves integer part, length and digit multiset; destroys value identity",
+  "pos_control": true,
+  "neg_control": true
+}

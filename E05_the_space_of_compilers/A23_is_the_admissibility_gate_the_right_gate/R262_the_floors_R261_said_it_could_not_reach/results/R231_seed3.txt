@@ -1,0 +1,31 @@
+  join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}
+prompts 968
+
+=== controls first ===
+ PLACEBO  full vs itself, same judge : 1.0000  OK
+ CEILING  full vs full across judges base|phi       : 0.2386
+ CEILING  full vs full across judges base|qwen3b    : 0.2386
+ CEILING  full vs full across judges phi|qwen3b     : 0.2304
+ FLOOR    random 4-criterion arm, 20 draws  : 0.3879  [0.3750, 0.4060]
+
+ ⚠ cross-judge agreement 0.2359 is BELOW the random-criterion floor 0.3879.
+   That is not a ceiling, it is a different axis: same criteria + different judge moves
+   the class MORE than same judge + 11 of 15 criteria dropped. The ceiling on a FIXED
+   judge is 1.0, and the placebo verifies it.
+
+=== the measurement: does the OFFICIAL core preserve the Q-class? ===
+comparand                              base         phi      qwen3b     swapped  no_fewshot
+core_vs_full_same_judge              0.3864      0.2893      0.3068      0.4300      0.3300
+core_vs_human                        0.1529      0.1674      0.1674      0.1600      0.0533
+full_vs_human                        0.2004      0.1632      0.1880      0.1967      0.1067
+
+=== band check (covalx.control_band) ===
+ (ceiling 1.0 is placebo-verified: Full reproduces its own class exactly)
+ floor 0.3879  ceiling 1.0000  midpoint threshold 0.6940  observed 0.3864
+ headroom used: -0% of the band between random and the instrument's own limit
+
+==============================================================================
+VERDICT
+==============================================================================
+
+  On Q = reproduce Full's exact weak ordering, the official core scores 0.3864 against a random-4 floor of 0.3879 [0.3750, 0.4060] -- a difference of -0.0015, INSIDE the floor's own draw spread. On THIS Q the official core is indistinguishable from picking four criteria at random. R220 measured the opposite on a DIFFERENT Q (predicting human pairwise preferences: core 0.6602 against a random range of 0.645-0.659), and both are correct -- which is the C6 claim, measured: the answer is a function of Q. Against the humans' own consensus class the core is 0.1529 and the full rubric 0.2004.

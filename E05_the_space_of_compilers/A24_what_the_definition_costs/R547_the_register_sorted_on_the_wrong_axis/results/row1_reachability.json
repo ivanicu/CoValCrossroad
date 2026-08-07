@@ -1,0 +1,10 @@
+{
+  "field": "source_rubric_item_ids",
+  "in_data": [],
+  "in_code": [],
+  "positive_control": {
+    "annotator_id": 5,
+    "ranking_blocks": 4
+  },
+  "world": "B"
+}

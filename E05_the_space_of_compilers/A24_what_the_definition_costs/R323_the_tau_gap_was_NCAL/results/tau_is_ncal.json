@@ -1,0 +1,38 @@
+{
+ "source_sha": "57f7acd84e6f6df6",
+ "world": "W-NCAL",
+ "n_draws": 3000,
+ "n_distinct_values": 48,
+ "cal_mean": 0.38012133333333326,
+ "cal_sd": 0.02777742389463469,
+ "comparisons": [
+  {
+   "round": "R268",
+   "ncal": 200,
+   "computed": 0.416,
+   "committed": 0.416,
+   "diff": 0.0,
+   "match": true
+  },
+  {
+   "round": "R274",
+   "ncal": 3000,
+   "computed": 0.424,
+   "committed": 0.424,
+   "diff": 0.0,
+   "match": true
+  }
+ ],
+ "prefix_sweep": {
+  "100": 0.42419999999999997,
+  "200": 0.416,
+  "400": 0.428,
+  "500": 0.428,
+  "1000": 0.424,
+  "2000": 0.424,
+  "3000": 0.424
+ },
+ "positive_ok": true,
+ "estimator_moves": true,
+ "negative_ok": true
+}

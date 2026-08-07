@@ -1,0 +1,87 @@
+R806 · IS R295's LEAK VERDICT A SCALE ARTIFACT — and does R805's WORLD A survive stratification?
+written before the run · NBOOT 1200 · ZEFF 2.801585
+
+PROVOCATION
+CHECK #408 killed R805's NEXT: R295 ALREADY ran the low-agreement stratification, with the honest
+arm's slope subtracted as a floor, and committed `killed = True` -> W-LEAK. But the same check found
+a live CONTRADICTION I introduced:
+  R805 concluded WORLD A -- "fitting a core to a prompt's own humans has real content", +0.0553
+        [+0.0456, +0.0653] pooled over all prompts.
+  R295 committed that `oracle_k4_fit1`'s margin is -0.0054 in the quintile where the two annotator
+        halves DISAGREE, rising to +0.0815 where they agree.
+Both cannot be the headline. R805 cited R295 for a lower-bound caveat and never reconciled them.
+
+AND R295's VERDICT ITSELF HAS TWO UNRESOLVED CONFOUNDS, both cheap to test:
+ (1) MULTIPLICATIVE vs ADDITIVE. R295 subtracts the honest arm's slope as a floor (`excess`). If
+     half-agreement scales EVERY margin multiplicatively -- prompts where annotators agree are
+     prompts where any predictor scores better -- then an arm with a LARGER pooled margin gets a
+     larger slope with no leak at all. realstat §4 `difference of two bounded scores`: a covariate
+     raising both arms yields a differential proportional to their gap. Additive subtraction cannot
+     remove a multiplicative confound.
+ (2) SHARED TERM. R295's binning variable is agreement between parity-1 and parity-0, while the
+     outcome is scored on parity-0. R295 NAMED this in its own docstring and did not fix it. A
+     binning variable containing the outcome's own draw inflates any slope.
+
+ESTIMAND
+E1  reproduce R295's committed profile exactly (OBJECT).
+E2  ⭐ the MULTIPLICATIVE test: each arm's quintile margin divided by its OWN pooled margin. The
+    estimand is the DIFFERENCE in relative profile between fitted and honest arms.
+E3  ⭐ an INDEPENDENT binning variable: agreement WITHIN parity-1 only, which never touches the
+    parity-0 outcome. Quintiles and slopes recomputed under it.
+E4  the reconciliation: the fitted arms' bottom-quintile margin under the independent binning, with
+    the honest floor subtracted, and an explicit verdict on which of R805/R295 stands.
+
+IDENTIFICATION
+E1/E2/E3 exact. ⚠ E2 is only informative if the honest arms have a NON-ZERO pooled margin -- a
+ratio to something near zero is unbounded. `coval_core` +0.0236 and `topw_k4` +0.0215 on parity-0
+(R805) are far from zero at the design's resolution, and the ratio's own CI is reported.
+
+DERIVED BEFORE MEASURING
+D1 [DERIVATION] a synthetic arm that IS parity-1's modal class must show the steepest agreement
+   profile of anything, because agreement is exactly what makes parity-1 predict parity-0. This is
+   the PERFECT-LEAK ceiling and it is the positive control.
+D2 [DERIVATION] the pool against itself is exactly 0 in every quintile. PLACEBO.
+D3 within-parity-1 agreement and half-agreement are correlated -- both measure annotator consensus
+   on the prompt -- so E3 is a WEAKER instrument, not an independent replication. The correlation
+   is reported and it bounds how much of the shared term is removed.
+D4 R295's own positive control FAILED and it recorded why: `oracle_k4` was fitted on ALL annotators
+   so it does not NEED the halves to agree. That prediction is inverted here, not reused.
+
+WORLDS
+A  W-LEAK CONFIRMED: fitted arms' RELATIVE profile is steeper than honest arms' AND the effect
+   survives the independent binning -> R805's WORLD A must narrow to "content only where the
+   annotators agree".
+B  W-SCALE: relative profiles indistinguishable -> R295's verdict is a scale artifact, must be
+   retracted, and R805's WORLD A stands as written.
+C  W-SHARED: the effect exists under R295's binning and vanishes under the independent one -> the
+   binning variable carried the outcome and BOTH prior conclusions rest on it.
+CHECKED FIRST: B, because it is the world that would excuse R805.
+
+PREDICTION MATRIX
+                                   A                B                 C
+relative profile, fitted-honest   separably > 0    CI holds 0        either
+slope under independent binning   survives         n/a               collapses to 0
+bottom quintile, fitted           <= 0             > 0               > 0
+
+CONTROLS
+OBJECT   reproduce R295's committed `oracle_k4_fit1` slope 0.033719 and floor 0.008548 to 1e-6, and
+         its quintile vector. Exit 2 otherwise.
+PLACEBO  D2: the k=4 pool against itself, flat 0 in all five quintiles, exactly.
+POSITIVE D1: a SYNTHETIC perfect-leak arm -- parity-1's modal class used as the predictor -- must
+         show the steepest profile of any arm. Band computed at both ends.
+NEGATIVE the binning variable PERMUTED across prompts: every slope must collapse to 0.
+NOISE FLOOR 20 resamples of the parity-1 half used to build the independent binning variable.
+
+PRE-REGISTERED KILL -- conditional, never a bare threshold
+  if object_reproduces and placebo_exactly_zero and positive_is_steepest and negative_collapses:
+      if (relative slope fitted - honest) CI contains 0           -> WORLD B
+      elif independent-binning slope CI contains 0 for fitted     -> WORLD C
+      elif fitted bottom quintile <= 0 and honest bottom > 0      -> WORLD A
+      else                                                        -> NO WORLD CLAIMED
+  else:
+      UNVERIFIED   (never OVERTURNED, never CONFIRMED)
+
+MULTIPLICITY 7 arms x 2 binning variables x {absolute, relative} reported in full; BH q=0.05 over
+the arm-slope family under each binning; non-survivors printed.
+STOPPING RULE one round. Prompts with fewer than 2 parity-1 annotators cannot carry the independent
+binning variable: they are dropped and the count is PRINTED, never silent.

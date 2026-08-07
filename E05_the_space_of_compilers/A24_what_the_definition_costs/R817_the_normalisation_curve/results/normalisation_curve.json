@@ -1,0 +1,125 @@
+{
+ "claim_unit": "a NORMALISATION",
+ "controls": {
+  "g0_ok": true,
+  "gate": true,
+  "halfsplit_sd": 0.004630378094721577,
+  "negative_ok": true,
+  "null_spearman": 1.0,
+  "placebo_ok": true,
+  "placebo_spearman": 1.0,
+  "positive_moves": true
+ },
+ "e1": {
+  "div_1_minus_tie": {
+   "coval_core": 0.6565510853690094,
+   "full": 0.5899092679784564,
+   "gen_sham": 0.5598999403159238,
+   "genericpool16": 0.6290881399600952,
+   "greedy_k4_fit1": 0.7072955213437752,
+   "indep_k4_fit1": 0.6882155320067918,
+   "oracle_k4_fit1": 0.7115837071763043,
+   "random_k4_s0": 0.571406213100823,
+   "topw_k4": 0.6541614456913138
+  },
+  "div_att_shared": {
+   "coval_core": 0.8226078885454996,
+   "full": 0.7416064176968369,
+   "gen_sham": 0.708228001301957,
+   "genericpool16": 0.7895265536934902,
+   "greedy_k4_fit1": 0.8849845784308973,
+   "indep_k4_fit1": 0.8612356077751924,
+   "oracle_k4_fit1": 0.8895567254674305,
+   "random_k4_s0": 0.7195819561591175,
+   "topw_k4": 0.8199503856536206
+  },
+  "div_att_splithalf": {
+   "coval_core": 0.8131904471004574,
+   "full": 0.7266342595548232,
+   "gen_sham": 0.6925299140022252,
+   "genericpool16": 0.7763647007241262,
+   "greedy_k4_fit1": 0.8730380444607376,
+   "indep_k4_fit1": 0.8481136297572124,
+   "oracle_k4_fit1": 0.877962190108505,
+   "random_k4_s0": 0.7015644365729311,
+   "topw_k4": 0.8059335163230538
+  },
+  "div_sqrt_att": {
+   "coval_core": 0.6809215215959965,
+   "full": 0.6126467512934182,
+   "gen_sham": 0.583224395420321,
+   "genericpool16": 0.652639926280217,
+   "greedy_k4_fit1": 0.7333059423935582,
+   "indep_k4_fit1": 0.713522370654813,
+   "oracle_k4_fit1": 0.7373243252051241,
+   "random_k4_s0": 0.5938670721310649,
+   "topw_k4": 0.6784526125310054
+  },
+  "raw": {
+   "coval_core": 0.5664774811929549,
+   "full": 0.5087225653570847,
+   "gen_sham": 0.4828005940208897,
+   "genericpool16": 0.5422329001435965,
+   "greedy_k4_fit1": 0.6106288918892805,
+   "indep_k4_fit1": 0.594064640728269,
+   "oracle_k4_fit1": 0.6141628276205653,
+   "random_k4_s0": 0.49268699779697217,
+   "topw_k4": 0.5641806235396515
+  },
+  "subtractive": {
+   "coval_core": -0.1197874093001145,
+   "full": -0.17754232513598459,
+   "gen_sham": -0.2034642964721796,
+   "genericpool16": -0.1440319903494728,
+   "greedy_k4_fit1": -0.07563599860378879,
+   "indep_k4_fit1": -0.09220024976480014,
+   "oracle_k4_fit1": -0.07210206287250391,
+   "random_k4_s0": -0.19357789269609713,
+   "topw_k4": -0.12208426695341786
+  }
+ },
+ "e2": {
+  "div_1_minus_tie": {
+   "flips": 0,
+   "spearman": 1.0,
+   "which": []
+  },
+  "div_att_shared": {
+   "flips": 0,
+   "spearman": 1.0,
+   "which": []
+  },
+  "div_att_splithalf": {
+   "flips": 0,
+   "spearman": 1.0,
+   "which": []
+  },
+  "div_sqrt_att": {
+   "flips": 0,
+   "spearman": 1.0,
+   "which": []
+  },
+  "raw": {
+   "flips": 0,
+   "spearman": 1.0,
+   "which": []
+  },
+  "subtractive": {
+   "flips": 0,
+   "spearman": 1.0,
+   "which": []
+  }
+ },
+ "e3": {
+  "corr_disjoint": 0.3798317690870513,
+  "corr_shared": 0.6138316855513606,
+  "spearman_shared_vs_split": 1.0
+ },
+ "instrument_unit": "a PROMPT",
+ "object": {
+  "ceil_att": 0.6862648904930693,
+  "coval_core": 0.5664774811929549,
+  "n": 968
+ },
+ "world": "A"
+}

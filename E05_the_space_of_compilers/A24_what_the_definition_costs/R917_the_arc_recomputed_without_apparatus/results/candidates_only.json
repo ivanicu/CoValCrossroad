@@ -1,0 +1,394 @@
+{
+  "commit": "a83d9693cdbf0a757decd9410a9a6e520f8950b0",
+  "world": "A",
+  "seed": 917,
+  "ndraw": 2000,
+  "corrects_own_premise": {
+    "was": "R908's topw 16 contains topw_k4_sham, a poison in the signed group",
+    "why_wrong": "R906 types topw_k4_sham as OTHER_SOURCE; R908 reads its population from RUBRIC_SELECTOR, so the sham was never in the topw denominator",
+    "measured_anyway": {
+      "arm": "topw_k4_sham",
+      "margin": -0.051343,
+      "lo": -0.060777,
+      "admitted": false
+    }
+  },
+  "judge_mixing": {
+    "rubric_selector_built": 86,
+    "of_which_second_judge": 37,
+    "topw_16_is": "9 arms judged by 2B + 7 judged by 0.8B",
+    "admitted_second_judge_arms": [
+      "oracle_k4_08bR"
+    ],
+    "source_of_rule": "R895's committed not_pooled statement"
+  },
+  "dropped": {
+    "apparatus": [
+      "full"
+    ],
+    "second_judge": [
+      "greedy_k4_fit1_08b",
+      "greedy_k4_fit1_08bR",
+      "indep_k4_fit1_08b",
+      "indep_k4_fit1_08bR",
+      "oracle_k4_08b",
+      "oracle_k4_08bR",
+      "oracle_k4_fit1_08b",
+      "random_k12_s0_08b",
+      "random_k12_s1_08b",
+      "random_k12_s2_08b",
+      "random_k2_s0_08b",
+      "random_k2_s1_08b",
+      "random_k2_s2_08b",
+      "random_k3_s0_08b",
+      "random_k3_s1_08b",
+      "random_k3_s2_08b",
+      "random_k4_s0_08b",
+      "random_k4_s1_08b",
+      "random_k4_s2_08b",
+      "random_k6_s0_08b",
+      "random_k6_s1_08b",
+      "random_k6_s2_08b",
+      "random_k8_s0_08b",
+      "random_k8_s1_08b",
+      "random_k8_s2_08b",
+      "topabs_k4_08b",
+      "topvar_k4_08b",
+      "topvar_k4_08bR",
+      "topw_k12_08b",
+      "topw_k1_08b",
+      "topw_k2_08b",
+      "topw_k3_08b",
+      "topw_k4_08b",
+      "topw_k6_08b",
+      "topw_k8_08b",
+      "topwvar_k4_08b",
+      "topwvar_k4_08bR"
+    ],
+    "candidates": 48
+  },
+  "rules": [
+    {
+      "rule": "random",
+      "mixed": [
+        0,
+        38
+      ],
+      "matched": [
+        0,
+        20
+      ],
+      "share_mixed": 0.0,
+      "share_matched": 0.0,
+      "wilson_mixed": [
+        0.0,
+        0.09181293258383999
+      ],
+      "wilson_matched": [
+        0.0,
+        0.16113012549493322
+      ],
+      "numerator_moved": false
+    },
+    {
+      "rule": "topw",
+      "mixed": [
+        7,
+        16
+      ],
+      "matched": [
+        7,
+        9
+      ],
+      "share_mixed": 0.4375,
+      "share_matched": 0.7777777777777778,
+      "wilson_mixed": [
+        0.2309836333518552,
+        0.6682180439322347
+      ],
+      "wilson_matched": [
+        0.4525833436728054,
+        0.9367762376877727
+      ],
+      "numerator_moved": false
+    },
+    {
+      "rule": "greedy",
+      "mixed": [
+        6,
+        8
+      ],
+      "matched": [
+        6,
+        6
+      ],
+      "share_mixed": 0.75,
+      "share_matched": 1.0,
+      "wilson_mixed": [
+        0.40926987910258916,
+        0.9285223111419724
+      ],
+      "wilson_matched": [
+        0.6096569663469354,
+        0.9999999999999999
+      ],
+      "numerator_moved": false
+    },
+    {
+      "rule": "indep",
+      "mixed": [
+        5,
+        8
+      ],
+      "matched": [
+        5,
+        6
+      ],
+      "share_mixed": 0.625,
+      "share_matched": 0.8333333333333334,
+      "wilson_mixed": [
+        0.30573785458380187,
+        0.863158240538479
+      ],
+      "wilson_matched": [
+        0.43649056343635395,
+        0.9699474141282697
+      ],
+      "numerator_moved": false
+    },
+    {
+      "rule": "oracle",
+      "mixed": [
+        5,
+        7
+      ],
+      "matched": [
+        4,
+        4
+      ],
+      "share_mixed": 0.7142857142857143,
+      "share_matched": 1.0,
+      "wilson_mixed": [
+        0.35892909014821267,
+        0.9177828342909844
+      ],
+      "wilson_matched": [
+        0.5100999795960008,
+        1.0
+      ],
+      "numerator_moved": true
+    },
+    {
+      "rule": "topvar",
+      "mixed": [
+        0,
+        3
+      ],
+      "matched": [
+        0,
+        1
+      ],
+      "share_mixed": 0.0,
+      "share_matched": 0.0,
+      "wilson_mixed": [
+        0.0,
+        0.5615060804490177
+      ],
+      "wilson_matched": [
+        0.0,
+        0.7934567085261071
+      ],
+      "numerator_moved": false
+    },
+    {
+      "rule": "topwvar",
+      "mixed": [
+        0,
+        3
+      ],
+      "matched": [
+        0,
+        1
+      ],
+      "share_mixed": 0.0,
+      "share_matched": 0.0,
+      "wilson_mixed": [
+        0.0,
+        0.5615060804490177
+      ],
+      "wilson_matched": [
+        0.0,
+        0.7934567085261071
+      ],
+      "numerator_moved": false
+    },
+    {
+      "rule": "topabs",
+      "mixed": [
+        0,
+        2
+      ],
+      "matched": [
+        0,
+        1
+      ],
+      "share_mixed": 0.0,
+      "share_matched": 0.0,
+      "wilson_mixed": [
+        0.0,
+        0.6576280471103807
+      ],
+      "wilson_matched": [
+        0.0,
+        0.7934567085261071
+      ],
+      "numerator_moved": false
+    }
+  ],
+  "placebo": {
+    "greedy": {
+      "n_drop": 2,
+      "obs": 1.0,
+      "null_mean": 0.7460833333333332,
+      "null_ci": [
+        0.6666666666666666,
+        1.0
+      ],
+      "outside": false
+    },
+    "indep": {
+      "n_drop": 2,
+      "obs": 0.8333333333333334,
+      "null_mean": 0.62475,
+      "null_ci": [
+        0.5,
+        0.8333333333333334
+      ],
+      "outside": false
+    },
+    "oracle": {
+      "n_drop": 3,
+      "obs": 1.0,
+      "null_mean": 0.713125,
+      "null_ci": [
+        0.5,
+        1.0
+      ],
+      "outside": false
+    },
+    "random": {
+      "n_drop": 18,
+      "obs": 0.0,
+      "null_mean": 0.0,
+      "null_ci": [
+        0.0,
+        0.0
+      ],
+      "outside": false
+    },
+    "topabs": {
+      "n_drop": 1,
+      "obs": 0.0,
+      "null_mean": 0.0,
+      "null_ci": [
+        0.0,
+        0.0
+      ],
+      "outside": false
+    },
+    "topvar": {
+      "n_drop": 2,
+      "obs": 0.0,
+      "null_mean": 0.0,
+      "null_ci": [
+        0.0,
+        0.0
+      ],
+      "outside": false
+    },
+    "topw": {
+      "n_drop": 7,
+      "obs": 0.7777777777777778,
+      "null_mean": 0.435,
+      "null_ci": [
+        0.2222222222222222,
+        0.6666666666666666
+      ],
+      "outside": true
+    },
+    "topwvar": {
+      "n_drop": 2,
+      "obs": 0.0,
+      "null_mean": 0.0,
+      "null_ci": [
+        0.0,
+        0.0
+      ],
+      "outside": false
+    }
+  },
+  "r911_specs": [
+    {
+      "spec": "PRIMARY k-matched",
+      "signed_mixed": [
+        8,
+        11
+      ],
+      "signed": [
+        8,
+        8
+      ],
+      "other": [
+        0,
+        12
+      ],
+      "wilson_signed": [
+        0.6755843804891231,
+        1.0
+      ],
+      "wilson_other": [
+        0.0,
+        0.2425007574992425
+      ],
+      "disjoint": true,
+      "gap": 0.43308362298988057
+    },
+    {
+      "spec": "pooled over k",
+      "signed_mixed": [
+        10,
+        19
+      ],
+      "signed": [
+        10,
+        12
+      ],
+      "other": [
+        0,
+        12
+      ],
+      "wilson_signed": [
+        0.5519636426153274,
+        0.9530358523851776
+      ],
+      "wilson_other": [
+        0.0,
+        0.2425007574992425
+      ],
+      "disjoint": true,
+      "gap": 0.3094628851160849
+    }
+  ],
+  "not_forced": {
+    "numerators_that_moved": {
+      "oracle": [
+        5,
+        4
+      ]
+    },
+    "why_it_matters": "if no numerator moved this would be a denominator DERIVATION, not a measurement"
+  },
+  "unit_note": "counts are ARMS; share = admitted/built within a rule",
+  "not_an_admission_probability": "the arms were built, not sampled (R906's caveat)",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

@@ -1,0 +1,93 @@
+{
+ "n_prompts": 317,
+ "vocabulary": 11039,
+ "features": [
+  {
+   "feature": "similarity_max",
+   "r": -0.11082590054089271,
+   "n": 316,
+   "p": 0.04897635967054992,
+   "ci95": [
+    -0.21848895161413368,
+    -0.0004972590580942938
+   ],
+   "bh": false
+  },
+  {
+   "feature": "hedge_density",
+   "r": -0.0754950268784106,
+   "n": 317,
+   "p": 0.1801395247831934,
+   "ci95": [
+    -0.18412406548801455,
+    0.03495600340843841
+   ],
+   "bh": false
+  },
+  {
+   "feature": "length_mean",
+   "r": -0.0659087108665798,
+   "n": 317,
+   "p": 0.2421616294285911,
+   "ci95": [
+    -0.17479988872265922,
+    0.04457524551844205
+   ],
+   "bh": false
+  },
+  {
+   "feature": "hedge_share",
+   "r": -0.06513721518311334,
+   "n": 317,
+   "p": 0.24773393470848282,
+   "ci95": [
+    -0.17404863958407157,
+    0.0453485013569369
+   ],
+   "bh": false
+  },
+  {
+   "feature": "similarity_mean",
+   "r": -0.048528727679380185,
+   "n": 316,
+   "p": 0.390210451802691,
+   "ci95": [
+    -0.15801736088080648,
+    0.06213870999693182
+   ],
+   "bh": false
+  },
+  {
+   "feature": "length_spread",
+   "r": 0.026478038968967242,
+   "n": 317,
+   "p": 0.6388539715984534,
+   "ci95": [
+    -0.08392707870588528,
+    0.1362409640767374
+   ],
+   "bh": false
+  },
+  {
+   "feature": "similarity_min",
+   "r": -0.014858274071373623,
+   "n": 316,
+   "p": 0.7926360967321653,
+   "ci95": [
+    -0.12498809258908863,
+    0.09563322740650947
+   ],
+   "bh": false
+  }
+ ],
+ "dropped": [
+  "refusal_any",
+  "refusal_share"
+ ],
+ "held_out": {},
+ "verdict": "NEITHER -- no response-text feature survives BH; the largest is |r|=0.1108 against an MDE of 0.1567, so nothing explains more than about 1.2% of the variance",
+ "mde_r_at_80pct": 0.1567,
+ "n_bh_survivors": 0,
+ "largest_abs_r": 0.1108,
+ "instrument": "none -- TF-IDF cosine computed here; no model executed"
+}

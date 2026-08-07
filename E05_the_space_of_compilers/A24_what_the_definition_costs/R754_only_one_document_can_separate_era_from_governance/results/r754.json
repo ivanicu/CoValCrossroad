@@ -1,0 +1,139 @@
+{
+  "P2_spanning_figures": 4,
+  "P3_mde_figures": 0.25453465113488355,
+  "P3_mde_lines": 0.3633728680263031,
+  "P4_reject_at_analytic": 0.7938833333333334,
+  "P5_unidentifiable_pairs": 2,
+  "controls": {
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "SHAM": true,
+    "g0": true
+  },
+  "definition_split": {
+    "diff": -0.009572072072072113,
+    "lines_new": 50,
+    "lines_old": 20,
+    "n_new": 74,
+    "n_old": 48,
+    "rate_new": 0.40540540540540543,
+    "rate_old": 0.3958333333333333
+  },
+  "directional_closer_to_formulation": false,
+  "empirical_over_analytic": 1.0075842760607954,
+  "empty_bin_is_definitional": true,
+  "era_bins": {
+    "DEFINITION.md": [
+      5,
+      43,
+      55,
+      19
+    ],
+    "FORMULATION.md": [
+      110,
+      15,
+      0,
+      0
+    ],
+    "STATEMENT.md": [
+      4,
+      6,
+      86,
+      88
+    ]
+  },
+  "formulation_split": {
+    "diff": null,
+    "lines_new": 0,
+    "lines_old": 57,
+    "n_new": 0,
+    "n_old": 125,
+    "rate_new": null,
+    "rate_old": 0.8
+  },
+  "hashseed": "11223",
+  "identifiability": {
+    "DEFINITION.md|FORMULATION.md": {
+      "empty_joint_bins": 2,
+      "identifiable": false,
+      "joint_bins": 2
+    },
+    "STATEMENT.md|DEFINITION.md": {
+      "empty_joint_bins": 0,
+      "identifiable": true,
+      "joint_bins": 4
+    },
+    "STATEMENT.md|FORMULATION.md": {
+      "empty_joint_bins": 2,
+      "identifiable": false,
+      "joint_bins": 2
+    }
+  },
+  "ladder": [
+    [
+      0.0,
+      0.0504
+    ],
+    [
+      0.1282325560980644,
+      0.28325
+    ],
+    [
+      0.2564651121961288,
+      0.79905
+    ],
+    [
+      0.5129302243922575,
+      1.0
+    ]
+  ],
+  "ladder_monotone": true,
+  "mde_empirical": 0.2564651121961288,
+  "negative_null_ci": [
+    -0.1813063063063063,
+    0.16216216216216217
+  ],
+  "negative_null_sd": 0.09152433222771096,
+  "pbar": 0.4016393442622951,
+  "real_diff_percentile_of_null": 0.1454,
+  "reject_at_null": 0.049716666666666666,
+  "round": "R754",
+  "sham_arbitrary_splits": [
+    [
+      523,
+      0.019496632399858216
+    ],
+    [
+      480,
+      0.07629204265791634
+    ],
+    [
+      495,
+      0.023203802068772705
+    ],
+    [
+      515,
+      -0.014037433155080214
+    ],
+    [
+      479,
+      0.049242424242424254
+    ]
+  ],
+  "sham_max_abs": 0.07629204265791634,
+  "split_at": 450,
+  "statement_split": {
+    "diff": 0.3390804597701149,
+    "lines_new": 60,
+    "lines_old": 8,
+    "n_new": 174,
+    "n_old": 10,
+    "rate_new": 0.16091954022988506,
+    "rate_old": 0.5
+  },
+  "tree_sha": "633d1a89ca75443c1267812073e4b69e974711bf",
+  "undefined_is_not_zero": true,
+  "why": "era does not explain it where it CAN be measured, so the governance reading survives its strongest confound -- which is the most it can do, since the decisive contrast is unidentifiable",
+  "world": "B"
+}

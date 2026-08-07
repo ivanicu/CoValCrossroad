@@ -1,0 +1,201 @@
+{
+ "prompts": 968,
+ "grid": {
+  "all": {
+   "equal": {
+    "accuracy": 0.5899092679784564,
+    "ci": [
+     0.5783055027787228,
+     0.6007672858408993
+    ],
+    "prompts": 968,
+    "mean_criteria": 15.479338842975206
+   },
+   "sign": {
+    "accuracy": 0.6775467365253874,
+    "ci": [
+     0.6681175139267218,
+     0.6869496240563358
+    ],
+    "prompts": 968,
+    "mean_criteria": 15.479338842975206
+   },
+   "signed_magnitude": {
+    "accuracy": 0.6830826685074977,
+    "ci": [
+     0.6740119871446618,
+     0.6919063531879951
+    ],
+    "prompts": 968,
+    "mean_criteria": 15.454545454545455
+   },
+   "signed_mag_x_visibility": {
+    "accuracy": 0.6696743074010405,
+    "ci": [
+     0.6601682508348382,
+     0.6793747630310434
+    ],
+    "prompts": 968,
+    "mean_criteria": 15.454545454545455
+   }
+  },
+  "seed": {
+   "equal": {
+    "accuracy": 0.5835504755614423,
+    "ci": [
+     0.5720653039084836,
+     0.5950148286747181
+    ],
+    "prompts": 965,
+    "mean_criteria": 5.660103626943005
+   },
+   "sign": {
+    "accuracy": 0.6465831240005724,
+    "ci": [
+     0.6366559361830615,
+     0.6565512221486505
+    ],
+    "prompts": 965,
+    "mean_criteria": 5.660103626943005
+   },
+   "signed_magnitude": {
+    "accuracy": 0.6618254580157059,
+    "ci": [
+     0.6517304406313728,
+     0.6717137184300235
+    ],
+    "prompts": 965,
+    "mean_criteria": 5.636269430051813
+   },
+   "signed_mag_x_visibility": {
+    "accuracy": 0.6624515176597908,
+    "ci": [
+     0.652797074049151,
+     0.6722113818846045
+    ],
+    "prompts": 965,
+    "mean_criteria": 5.636269430051813
+   }
+  },
+  "writein": {
+   "equal": {
+    "accuracy": 0.5768106310644594,
+    "ci": [
+     0.5650914015427797,
+     0.5884656220680621
+    ],
+    "prompts": 929,
+    "mean_criteria": 10.21205597416577
+   },
+   "sign": {
+    "accuracy": 0.6704693037503416,
+    "ci": [
+     0.6604986968617617,
+     0.6804319846326112
+    ],
+    "prompts": 929,
+    "mean_criteria": 10.21205597416577
+   },
+   "signed_magnitude": {
+    "accuracy": 0.6682964251108028,
+    "ci": [
+     0.6582230428132074,
+     0.6780244982722419
+    ],
+    "prompts": 929,
+    "mean_criteria": 10.210979547900969
+   },
+   "signed_mag_x_visibility": {
+    "accuracy": 0.6682964251108028,
+    "ci": [
+     0.6580341875956173,
+     0.6778945109847372
+    ],
+    "prompts": 929,
+    "mean_criteria": 10.210979547900969
+   }
+  }
+ },
+ "channels": {
+  "all": {
+   "polarity  (equal -> sign)": {
+    "delta": 0.08763746854693091,
+    "ci": [
+     0.07844746955632484,
+     0.09758068063554881
+    ],
+    "excludes_zero": true
+   },
+   "magnitude (sign -> signed_magnitude)": {
+    "delta": 0.005535931982110127,
+    "ci": [
+     0.0017960936399726995,
+     0.00941372974572213
+    ],
+    "excludes_zero": true
+   },
+   "visibility(signed_mag -> x n_raters)": {
+    "delta": -0.013408361106457104,
+    "ci": [
+     -0.019527139483348676,
+     -0.007304049593730918
+    ],
+    "excludes_zero": true
+   }
+  },
+  "seed": {
+   "polarity  (equal -> sign)": {
+    "delta": 0.06303264843913016,
+    "ci": [
+     0.05394916860125085,
+     0.07264236655573131
+    ],
+    "excludes_zero": true
+   },
+   "magnitude (sign -> signed_magnitude)": {
+    "delta": 0.015242334015133549,
+    "ci": [
+     0.010363368562916428,
+     0.02035446779147582
+    ],
+    "excludes_zero": true
+   },
+   "visibility(signed_mag -> x n_raters)": {
+    "delta": 0.0006260596440848743,
+    "ci": [
+     -5.2788402452384586e-05,
+     0.001396093641470965
+    ],
+    "excludes_zero": false
+   }
+  },
+  "writein": {
+   "polarity  (equal -> sign)": {
+    "delta": 0.09365867268588232,
+    "ci": [
+     0.08127761724439214,
+     0.10631958517688668
+    ],
+    "excludes_zero": true
+   },
+   "magnitude (sign -> signed_magnitude)": {
+    "delta": -0.00217287863953889,
+    "ci": [
+     -0.006436572414483626,
+     0.002038214820046348
+    ],
+    "excludes_zero": false
+   },
+   "visibility(signed_mag -> x n_raters)": {
+    "delta": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "excludes_zero": false
+   }
+  }
+ },
+ "verdict": "POST-CHOICE POLARITY IS A CHANNEL: moving from an unweighted mean to the human-rated SIGN moves accuracy by +0.0876 [0.07844746955632484, 0.09758068063554881]. That sign was supplied after the rater had already ranked the candidates, so a rubric score built on it is not response-blind however early the sentence was written. It is also a channel r04 and r13 dropped entirely: an unweighted mean rewards a response for satisfying a criterion the raters marked NEGATIVE.",
+ "scope": "Evaluation pairs come from the ORIGINAL rankings on the same four candidates these criteria were rated against. Internal concordance on the elicitation manifold, not out-of-sample validation (entry 36). Differences BETWEEN arms are the object; every arm shares the limitation equally."
+}

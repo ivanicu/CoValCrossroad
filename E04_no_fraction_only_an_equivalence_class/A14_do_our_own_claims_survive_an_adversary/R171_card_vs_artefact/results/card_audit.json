@@ -1,0 +1,98 @@
+[
+ {
+  "claim": "It selects up to four rubric items with the HIGHEST AVERAGE RATINGS",
+  "verdict": "FAILS",
+  "measured": "of 1181 core items matchable to a source at 0.80, 329 (27.9%) came from the top slots by |mean rating|; mean normalised rating-rank 0.471 where 0.5 is chance",
+  "note": "only 30.9% of core items match any source at all, so this tests the matchable subset; if the unmatched 69% were the high-rated ones the rule could still hold on the part that cannot be seen. CORRECTED BY r181: the rule as WORDED still fails -- core items do not come from the top slots by |mean rating|. But weight is unmistakably doing work in the selection. Survival of a self-authored criterion into the core runs 3.0% / 5.1% / 10.1% across |weight| bands 0-3, 3-7, 7-10, a 3.4x gradient over 9,452 attributable criteria. So FAILS is right about the stated mechanism and would be wrong as 'ratings are ignored'. The defensible verdict is that selection is rating-SENSITIVE but not rating-ORDERED."
+ },
+ {
+  "claim": "Order randomized beyond anchors",
+  "verdict": "PARTLY",
+  "measured": "anchors are documented as existing; the most-assessed prompt carries 1012 assessments against a median of 16, consistent with an anchor. No field identifies which prompts are anchors.",
+  "note": "CORRECTS my own wave-four finding, which called this undocumented. The card documents that anchors exist; the DATA does not say which prompts they are"
+ },
+ {
+  "claim": "Candidate-to-label assignment randomized per prompt, to mitigate possible position bias",
+  "verdict": "PARTLY",
+  "measured": "first-place counts on 16530 unique-first rankings {'A': 4215, 'B': 3664, 'C': 4268, 'D': 4383}, chi-square 74.4 on 3 df against 16.27 at p=.001 -- a residual slot asymmetry survives. It is worth 0.0007 of concordance, so the mitigation substantially worked.",
+  "note": "if assignment really is randomized then slot carries no content, and a surviving asymmetry is RATER position bias rather than a failure of the randomization"
+ },
+ {
+  "claim": "1,078 unique comparisons",
+  "verdict": "HOLDS",
+  "measured": "1078 unique prompt_ids",
+  "note": ""
+ },
+ {
+  "claim": "1,012 unique annotators",
+  "verdict": "HOLDS",
+  "measured": "1012 unique annotator_ids",
+  "note": ""
+ },
+ {
+  "claim": "18,384 assessments in comparisons.jsonl",
+  "verdict": "HOLDS",
+  "measured": "18384 in comparisons.jsonl, 18678 in annotators.jsonl (difference 294)",
+  "note": "the card gives a count for one file only; the other holds more and the card never says so"
+ },
+ {
+  "claim": "986 unique prompt-specific rubrics",
+  "verdict": "HOLDS",
+  "measured": "986 rubric records",
+  "note": ""
+ },
+ {
+  "claim": "Every prompt in this release has exactly four candidates",
+  "verdict": "HOLDS",
+  "measured": "responses per prompt: {4: 1078}",
+  "note": ""
+ },
+ {
+  "claim": "Most prompts end up with four core rubric items (about 95%), the remainder two or three",
+  "verdict": "HOLDS",
+  "measured": "core sizes: {2: 1, 3: 43, 4: 942}; four-item share 95.5%",
+  "note": ""
+ },
+ {
+  "claim": "Signed weights ranging from -10 to +10",
+  "verdict": "HOLDS",
+  "measured": "observed range [-10, 10] over 102147 ratings",
+  "note": ""
+ },
+ {
+  "claim": "Each person completed a minimum of 5 tasks and up to 20 tasks per session",
+  "verdict": "UNTESTABLE",
+  "measured": "assessments per annotator range 2 to 39; 48 annotators exceed 20 in total. Min is 2, below the stated floor of 5.",
+  "note": "the claim is PER SESSION and no session field exists, so neither the floor nor the ceiling can be checked; the totals are consistent with multiple sessions"
+ },
+ {
+  "claim": "Recruited via an online platform requiring English literacy",
+  "verdict": "UNTESTABLE",
+  "measured": "no field in the release bears on this",
+  "note": "listed rather than waved through: an untestable claim is not a verified one"
+ },
+ {
+  "claim": "Median time to complete a task was approximately 22 minutes",
+  "verdict": "UNTESTABLE",
+  "measured": "no field in the release bears on this",
+  "note": "listed rather than waved through: an untestable claim is not a verified one"
+ },
+ {
+  "claim": "Base pay USD $60 for the survey plus 5-task sequence",
+  "verdict": "UNTESTABLE",
+  "measured": "no field in the release bears on this",
+  "note": "listed rather than waved through: an untestable claim is not a verified one"
+ },
+ {
+  "claim": "Core built with language-model-assisted synthesis and human review",
+  "verdict": "UNTESTABLE",
+  "measured": "no field in the release bears on this",
+  "note": "listed rather than waved through: an untestable claim is not a verified one"
+ },
+ {
+  "claim": "Process first rewrites all rubric items to have positive weight",
+  "verdict": "UNTESTABLE",
+  "measured": "no field in the release bears on this",
+  "note": "listed rather than waved through: an untestable claim is not a verified one"
+ }
+]

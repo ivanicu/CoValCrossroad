@@ -1,0 +1,30 @@
+{
+  "world": "B",
+  "retracts": "R571's claim that three gates 'do not terminate' / 'hang rather than run slowly'",
+  "localisation": [
+    {
+      "step": "module import",
+      "result": "completes, rc=0"
+    },
+    {
+      "step": "ensure_worktree()",
+      "secs": 0.0
+    },
+    {
+      "step": "restore(wt)",
+      "secs": 0.1
+    },
+    {
+      "step": "loop over scripts",
+      "note": "runs EVERY assurance/*.py inside the worktree"
+    }
+  ],
+  "refuted_hypotheses_this_round": [
+    "the re-entrancy guard explains it -- it is a RE-ENTRANCY guard and cannot fire standalone",
+    "it hangs at import -- import completes",
+    "the git worktree ops are slow on a 293M repo -- 0.0s and 0.1s"
+  ],
+  "corrected_reading": "it is a META-GATE running ~46 gates under a 90s cap; the suite itself takes 4-5 minutes serially, so 90s is unreachable by arithmetic",
+  "consequence": "the exact 90.09s is a cap-kill mid-work, not a deadlock; ERROR 3 is a BUDGET mismatch, not three non-terminating processes",
+  "still_open": "whether backfilled_findings_are_rederivable is the same shape (it makes 4 subprocess calls) -- not established here"
+}

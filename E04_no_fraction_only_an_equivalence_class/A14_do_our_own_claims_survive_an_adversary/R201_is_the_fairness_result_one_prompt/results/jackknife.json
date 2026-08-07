@@ -1,0 +1,29 @@
+{
+ "strata": 851,
+ "mean": 0.041758773040852085,
+ "se": 0.01270730094594016,
+ "z": 3.286203200703572,
+ "published": 0.0418,
+ "reproduced_within": 4.1226959147912245e-05,
+ "guard": {
+  "observation": 0.041758773040852085,
+  "group": 0.04152430810548155,
+  "gap": 0.0002344649353705347,
+  "max_share": 0.0023501762632197414
+ },
+ "anchor_in_pool": false,
+ "calibration": {
+  "reference_kill_k_mean": 18.38,
+  "p10": 1.0,
+  "p90": 36.0,
+  "draws": 200
+ },
+ "jackknife": {
+  "loo_min": 0.03945495983266485,
+  "loo_max": 0.044160842185606036,
+  "kill_at_k": 11,
+  "kill_share": 0.012925969447708578,
+  "top5_share_of_positive": 0.09938075074899626
+ },
+ "robust": true
+}

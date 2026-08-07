@@ -1,0 +1,39 @@
+{
+ "prompts": 250,
+ "real_mean": 0.5481032973499512,
+ "real_sd": 0.23990740666266652,
+ "uniform_sd": 0.2886751345948129,
+ "controls": {
+  "positive": true,
+  "identity": true,
+  "sham": true,
+  "placebo": 1
+ },
+ "per_k": {
+  "1": {
+   "median_rowperm_minus_real": 1.4000000000000004,
+   "n_up": 210,
+   "n_down": 30,
+   "sign_p": 1.9103641781151097e-34,
+   "median_uniform_minus_real": 0.5999999999999996,
+   "median_gauss_minus_real": 0.5999999999999996
+  },
+  "2": {
+   "median_rowperm_minus_real": 5.399999999999999,
+   "n_up": 228,
+   "n_down": 19,
+   "sign_p": 1.1264691751716725e-46,
+   "median_uniform_minus_real": 4.800000000000001,
+   "median_gauss_minus_real": 4.6000000000000005
+  },
+  "3": {
+   "median_rowperm_minus_real": 5.800000000000001,
+   "n_up": 230,
+   "n_down": 18,
+   "sign_p": 5.011457255912804e-48,
+   "median_uniform_minus_real": 6.299999999999999,
+   "median_gauss_minus_real": 5.800000000000001
+  }
+ },
+ "verdict": "CLAIM 8 SURVIVES ITS STRONGEST CONFOUND. Destroying only the cross-criterion alignment, with every criterion's marginal held EXACTLY fixed, raises A_real at every k (median [1.4, 5.4, 5.8], sign test p ['1.9e-34', '1.1e-46', '5.0e-48']). The collapse is the criteria agreeing with one another, not the width of the value distribution -- and the uniform rival R248 used did overstate it: [0.6, 4.8, 6.3] vs [1.4, 5.4, 5.8]."
+}

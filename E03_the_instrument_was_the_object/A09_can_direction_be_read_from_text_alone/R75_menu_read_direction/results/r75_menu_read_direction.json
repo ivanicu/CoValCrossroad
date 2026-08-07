@@ -1,0 +1,36 @@
+{
+ "n_write_ins": 9122,
+ "dropped_no_ranking": 147,
+ "dropped_no_author": 0,
+ "n_positive": 6242,
+ "n_negative": 2880,
+ "arms": {
+  "raw": {
+   "positive_mean": 0.04070242338248123,
+   "negative_mean": 0.0038577012383765566,
+   "gap": 0.03684472214410467,
+   "gap_ci": [
+    0.029755204593795454,
+    0.043857356871674705
+   ]
+  },
+  "length_residualised": {
+   "positive_mean": 0.01754594316897278,
+   "negative_mean": -0.002707371992237023,
+   "gap": 0.020253315161209803,
+   "gap_ci": [
+    0.014736585337332513,
+    0.025682624873772725
+   ]
+  }
+ },
+ "controls": {
+  "shuffled_sign_gap_raw": -0.0033371917376945476,
+  "shuffled_sign_gap_residualised": -0.003946926652687234,
+  "all_pass": true
+ },
+ "world": "M MENU-READ",
+ "outcome_variable_scope": "Sign is the single author's own score on their own write-in; the ranking is that same author's own world block. No aggregation across raters, no judge, no model gold head.",
+ "scope": "Containment is lexical and is r51/r54's measure. Ties in a rater's ranking share a rank and are averaged; raters who ranked all four equal are excluded. The length control residualises containment on response word count WITHIN prompt, so it removes the linear part only. This measures association within a rater, not causation: it cannot say whether the menu created the direction or supplied the words for a direction already held -- that separation needs S_pre.",
+ "verdict": "M MENU-READ. Queue item 1 records shared-menu endogeneity as NOT excluded -- r34 ruled out same-rater circularity, and nothing had measured the path from the menu into the criterion. This measures it in the one place it is directly visible: a write-in carries its author's annotator_id, and that same author's own world ranking of the four responses is in the release, so the criterion, its sign, and its writer's own ordering join with no aggregation across people. Over 9122 write-ins, the criterion's lexical overlap with the response THAT RATER ranked best minus the one they ranked worst is +0.04070 for criteria they scored positive and +0.00386 for criteria they scored negative, a gap of +0.03684 [+0.02976,+0.04386] under a prompt-clustered bootstrap. THE CONFOUND WAS WRITTEN BEFORE THE RUN and is controlled in the same iteration: longer responses overlap everything more and are ranked higher, so containment is also residualised on response word count within prompt, leaving +0.02025 [+0.01474,+0.02568]. Shuffling the signs collapses the raw gap to -0.00334. WHAT IT MEANS: a rater's positive criteria describe the answer they preferred and their negative criteria describe the answer they rejected, in the rater's own words, within their own ranking -- the menu is visible IN the criterion. That is the M -> S_i path stated as unexcluded in queue item 1, now observed rather than inferred. WHAT IT IS NOT: evidence that the criteria are WRONG, or that no prior value was involved. A person with a firm prior who is shown four answers will still describe it using the answer in front of them. This bounds the mechanism, not its legitimacy."
+}

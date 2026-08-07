@@ -1,0 +1,226 @@
+{
+ "bh_q": 0.05,
+ "conclusion": "Six units, two statistics each, one permutation floor each, 400 draws, Benjamini-Hochberg at q=0.05 over all 12 tests. A dimension counts only if BOTH a harm RATE (breadth, threshold-sensitive) and a tail-MASS concentration (size, outlier-sensitive) clear the correction, because a threshold artifact moves the first alone and a single outlier moves the second alone. CROSS-VERIFIED: U1_person, U2_prompt, U3_subjectivity, U4_stratum, U6_contested. One statistic only: U5_label. Neither: none. WORLD: W-MULTIDIMENSIONAL. Sacrifice under this compiled rule is carried on at least two structurally different units, so 'who is sacrificed' cannot be answered by naming people alone.",
+ "dimensions": {
+  "U1_person": {
+   "bh_A": true,
+   "bh_B": true,
+   "cross_verified": true,
+   "estimand": "harm rate / tail mass",
+   "floorA": 0.10633036597428287,
+   "floorB": 0.9559395003490232,
+   "levels": null,
+   "n_units": 1011,
+   "pA": 0.00997506234413965,
+   "pB": 0.012468827930174564,
+   "statA": 0.12462908011869436,
+   "statB": 0.9153545448570957,
+   "statB_direction": "below floor"
+  },
+  "U2_prompt": {
+   "bh_A": true,
+   "bh_B": true,
+   "cross_verified": true,
+   "estimand": "harm rate / tail mass",
+   "floorA": 0.11211260330578511,
+   "floorB": 0.9425155380101953,
+   "levels": null,
+   "n_units": 968,
+   "pA": 0.0024937655860349127,
+   "pB": 0.0024937655860349127,
+   "statA": 0.17045454545454544,
+   "statB": 0.8501804329454536,
+   "statB_direction": "below floor"
+  },
+  "U3_subjectivity": {
+   "bh_A": true,
+   "bh_B": true,
+   "cross_verified": true,
+   "estimand": "spread/variance of level means",
+   "floorA": 0.010179115357793415,
+   "floorB": 1.8498725177154977e-05,
+   "levels": {
+    "I'm unsure whether there is a single correct answer to this question": -0.06635802469135804,
+    "The correct answer depends on a person's values or culture": -0.06017413284651024,
+    "The correct answer depends on something else (the time, the weather, etc)": -0.04700754618787407,
+    "There is a single correct answer to this prompt": -0.08966800655054308
+   },
+   "n_units": 4,
+   "pA": 0.0024937655860349127,
+   "pB": 0.0024937655860349127,
+   "statA": 0.04266046036266901,
+   "statB": 0.00023869995372511097,
+   "statB_direction": "above floor"
+  },
+  "U4_stratum": {
+   "bh_A": true,
+   "bh_B": true,
+   "cross_verified": true,
+   "estimand": "spread/variance of level means",
+   "floorA": 0.0037825022164207057,
+   "floorB": 5.4714344809919065e-06,
+   "levels": {
+    "both_forms": -0.08463526708788034,
+    "world_only": -0.0639618885096698
+   },
+   "n_units": 2,
+   "pA": 0.0024937655860349127,
+   "pB": 0.0024937655860349127,
+   "statA": 0.02067337857821054,
+   "statB": 0.00010684714545950363,
+   "statB_direction": "above floor"
+  },
+  "U5_label": {
+   "bh_A": false,
+   "bh_B": true,
+   "cross_verified": false,
+   "estimand": "spread/variance of level means",
+   "floorA": 0.007085893896937289,
+   "floorB": 8.903604678564411e-06,
+   "levels": {
+    "A": -0.06323733104074127,
+    "B": -0.0638839399338254,
+    "C": -0.06325572573379487,
+    "D": -0.07522546419098143
+   },
+   "n_units": 4,
+   "pA": 0.06733167082294264,
+   "pB": 0.029925187032418952,
+   "statA": 0.011988133150240166,
+   "statB": 2.602707763396654e-05,
+   "statB_direction": "above floor"
+  },
+  "U6_contested": {
+   "bh_A": true,
+   "bh_B": true,
+   "cross_verified": true,
+   "estimand": "spread/variance of level means",
+   "floorA": 0.03814426090428208,
+   "floorB": 0.00020917685153943967,
+   "levels": {
+    "0-15%": -0.11351082133478221,
+    "15-30%": -0.057166876839007986,
+    "30-45%": -0.01855185518551855,
+    "45-50%": -0.0009857072449482504,
+    "unanimous": -0.1269859813084112
+   },
+   "n_units": 5,
+   "pA": 0.0024937655860349127,
+   "pB": 0.0024937655860349127,
+   "statA": 0.12600027406346295,
+   "statB": 0.00250000303837854,
+   "statB_direction": "above floor"
+  }
+ },
+ "eps": 0.01,
+ "n_cells": 15202,
+ "n_pairs": 80521,
+ "n_perm": 400,
+ "positive_control": {
+  "U1_person": {
+   "increment": 0.05044510385756676,
+   "moves": true,
+   "recovery": 0.5044510385756675,
+   "stat0": 0.12462908011869436,
+   "stat1": 0.17507418397626112
+  },
+  "U2_prompt": {
+   "increment": 0.05061983471074383,
+   "moves": true,
+   "recovery": 0.5061983471074383,
+   "stat0": 0.17045454545454544,
+   "stat1": 0.22107438016528927
+  },
+  "U3_subjectivity": {
+   "increment": 0.0868334133413643,
+   "moves": true,
+   "recovery": NaN,
+   "stat0": 0.04266046036266901,
+   "stat1": 0.1294938737040333
+  },
+  "U4_stratum": {
+   "increment": 0.05865324284357863,
+   "moves": true,
+   "recovery": NaN,
+   "stat0": 0.02067337857821054,
+   "stat1": 0.07932662142178917
+  },
+  "U5_label": {
+   "increment": 0.09998160530696018,
+   "moves": true,
+   "recovery": NaN,
+   "stat0": 0.011988133150240166,
+   "stat1": 0.11196973845720035
+  },
+  "U6_contested": {
+   "increment": 0.08243385205940848,
+   "moves": true,
+   "recovery": NaN,
+   "stat0": 0.12600027406346295,
+   "stat1": 0.20843412612287143
+  }
+ },
+ "source_name": "run.py",
+ "source_sha256": "9c87f5f02730b5eb215fb42ee0f405afc8fb4bf54a789b6d4857d1bec3820887",
+ "survivors": [
+  "U1_person",
+  "U2_prompt",
+  "U3_subjectivity",
+  "U4_stratum",
+  "U6_contested"
+ ],
+ "tail_q": 0.1,
+ "u6_vs_accuracy_gap_line": {
+  "0-15%": {
+   "departure": -0.03288939932089549,
+   "e_core": 0.22643303450149416,
+   "e_full": 0.3399438558362764,
+   "headroom": 0.1600561441637236,
+   "n": 22086,
+   "obs_d": -0.11351082133478221,
+   "pred_d": -0.08062142201388672
+  },
+  "15-30%": {
+   "departure": -0.02201959452905229,
+   "e_core": 0.3730559058427911,
+   "e_full": 0.4302227826817991,
+   "headroom": 0.06977721731820091,
+   "n": 23790,
+   "obs_d": -0.057166876839007986,
+   "pred_d": -0.035147282309955695
+  },
+  "30-45%": {
+   "departure": -0.012406013539259398,
+   "e_core": 0.46924692469246926,
+   "e_full": 0.4877987798779878,
+   "headroom": 0.01220122012201219,
+   "n": 19998,
+   "obs_d": -0.01855185518551855,
+   "pred_d": -0.006145841646259153
+  },
+  "45-50%": {
+   "departure": -0.0020200984397840687,
+   "e_core": 0.5010678495153607,
+   "e_full": 0.5020535567603088,
+   "headroom": -0.002053556760308828,
+   "n": 6087,
+   "obs_d": -0.0009857072449482504,
+   "pred_d": 0.0010343911948358182
+  },
+  "unanimous": {
+   "departure": 0.0,
+   "e_core": 0.12091121495327103,
+   "e_full": 0.24789719626168225,
+   "headroom": 0.2521028037383177,
+   "n": 8560,
+   "obs_d": -0.1269859813084112,
+   "pred_d": -0.1269859813084112
+  }
+ },
+ "withheld_decisions": {
+  "both": 80521,
+  "core_only": 0,
+  "full_only": 21
+ },
+ "world": "W-MULTIDIMENSIONAL"
+}

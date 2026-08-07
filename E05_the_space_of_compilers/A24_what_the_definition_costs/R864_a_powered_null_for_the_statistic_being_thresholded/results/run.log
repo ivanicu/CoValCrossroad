@@ -1,0 +1,29 @@
+  prompts 968 · family 1820 · C precomputed 10.6 MB (target-independent, so every null is an array compare)
+  KILL ①  blind max |Δ|=0.000e+00 · coval_core |Δ|=0.000e+00  PASS
+    Doubles as the positive control ON THE OPTIMISATION: a wrong C cannot produce these.
+  KILL ②  R860 MDE |Δ|=0.000e+00  PASS
+  PLACEBO  argmax vs itself: margin +0.000e+00  PASS
+
+  POSITIVE CONTROL  planted dose-response (must reproduce R863's first-clear g=0.01)
+    g=0.0    ratio +0.8683  below
+    g=0.005  ratio +1.3505  below
+    g=0.01   ratio +1.8327  CLEARS
+    g=0.02   ratio +2.7972  CLEARS
+    g=0.04   ratio +4.7262  CLEARS
+    monotone True · fails at g=0 True · first clear 0.01  PASS
+
+  null                     mean       sd      p95      max   >=1.5  obs pct
+  N1_pair_shuffle       -0.3380   0.2592  +0.0269  +0.0567    0.0%   100.0%
+  N2_cross_prompt       -0.3030   0.3454  +0.2656  +0.3809    0.0%   100.0%
+  N3_uniform            -0.4398   0.2982  -0.0021  +0.0102    0.0%   100.0%
+
+  KILL ③  every null has non-zero SPREAD across seeds: True  PASS
+    R863's KILL ③ accepted `>0 positive margins` and passed a null arithmetic had
+    already determined. The threshold here is on SPREAD, which degeneracy cannot fake.
+
+  ⭐ null means span -0.4398 .. -0.3030  (disagreement 0.1368 vs observed effect 0.8683)
+  ⭐ largest null p95 = +0.2656  vs floor 1.5
+  ⭐ WORLD A: all three nulls sit far below the observed ratio and none reaches 1.5 — the floor is OVER-STRICT for a max comparator, and coval_core's failure is a property of the BAR
+     observed +0.8683 sits above 100.0–100.0% of null draws across the three
+
+  artifact: results/powered_null.json @ 7020b376

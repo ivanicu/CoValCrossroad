@@ -1,0 +1,98 @@
+{
+ "source_sha": "c1225924f91f2413",
+ "n_prompts": 968,
+ "ceilings": {
+  "(a) human vs human \u2014 MATCHES the arms": 0.5518804915980327,
+  "(b) human vs consensus of others": 0.6352006652307957,
+  "(c) per-prompt oracle class": 0.6861549842816651
+ },
+ "chance": 0.5,
+ "band": 0.16855134386172238,
+ "mde_median": 0.013409923619469164,
+ "band_in_mde_units": 12.56915017897727,
+ "arms": {
+  "coval_core": {
+   "a2": 0.5664774811929548,
+   "own_chance": 0.4313824529016782,
+   "above_own": 0.13509502829127662,
+   "units": 10.07425784999545
+  },
+  "topw_k4": {
+   "a2": 0.5641806235396515,
+   "own_chance": 0.4311064366519382,
+   "above_own": 0.13307418688771327,
+   "units": 9.923560391836226
+  },
+  "generic": {
+   "a2": 0.5513543391990778,
+   "own_chance": 0.4299702510675999,
+   "above_own": 0.12138408813147794,
+   "units": 9.05181055283915
+  },
+  "gen": {
+   "a2": 0.5351733494230959,
+   "own_chance": NaN,
+   "above_own": null,
+   "units": null
+  },
+  "full": {
+   "a2": 0.5087225653570847,
+   "own_chance": NaN,
+   "above_own": null,
+   "units": null
+  },
+  "topwvar_k4": {
+   "a2": 0.5039526127302921,
+   "own_chance": NaN,
+   "above_own": null,
+   "units": null
+  },
+  "random_k4_s0": {
+   "a2": 0.4926869977969721,
+   "own_chance": 0.42573101039538946,
+   "above_own": 0.06695598740158265,
+   "units": 4.99301780543871
+  },
+  "topabs_k4": {
+   "a2": 0.48938409989612724,
+   "own_chance": NaN,
+   "above_own": null,
+   "units": null
+  },
+  "topvar_k4": {
+   "a2": 0.48629078185423447,
+   "own_chance": NaN,
+   "above_own": null,
+   "units": null
+  },
+  "gen_sham": {
+   "a2": 0.4828005940208897,
+   "own_chance": NaN,
+   "above_own": null,
+   "units": null
+  }
+ },
+ "measured_chance": {
+  "human vs human": [
+   0.38332914773631027,
+   0.0076806000300141475
+  ],
+  "arm `coval_core` vs human": [
+   0.4313824529016782,
+   0.005960547415441457
+  ],
+  "arm `topw_k4` vs human": [
+   0.4311064366519382,
+   0.007565040797935492
+  ],
+  "arm `generic` vs human": [
+   0.4299702510675999,
+   0.0050337181520814485
+  ],
+  "arm `random_k4_s0` vs human": [
+   0.42573101039538946,
+   0.0030717022386203543
+  ]
+ },
+ "cramped": false
+}

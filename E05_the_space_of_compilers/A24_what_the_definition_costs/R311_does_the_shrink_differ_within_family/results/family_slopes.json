@@ -1,0 +1,49 @@
+{
+ "source_sha": "db9fd71d7287c14d",
+ "n_prompts": 968,
+ "world": "W-INTERACT",
+ "members": {
+  "topw_k": [
+   "topw_k1",
+   "topw_k12",
+   "topw_k2",
+   "topw_k3",
+   "topw_k4",
+   "topw_k6",
+   "topw_k8"
+  ],
+  "random_k": [
+   "random_k12_s0",
+   "random_k12_s1",
+   "random_k12_s2",
+   "random_k2_s0",
+   "random_k2_s1",
+   "random_k2_s2",
+   "random_k3_s0",
+   "random_k3_s1",
+   "random_k3_s2",
+   "random_k4_s1",
+   "random_k4_s2",
+   "random_k6_s0",
+   "random_k6_s1",
+   "random_k6_s2",
+   "random_k8_s0",
+   "random_k8_s1",
+   "random_k8_s2"
+  ]
+ },
+ "slope_topw": 0.7518417900948697,
+ "slope_random": -0.13674879359255412,
+ "diff": 0.8885905836874238,
+ "ci": [
+  0.5941627356233337,
+  1.0884292481431472
+ ],
+ "mde": 0.3559971732292271,
+ "placebo": 0.0,
+ "positive_ok": true,
+ "g0": true,
+ "perm_floor": 0.02953797366391601,
+ "perm_sd": 0.03596467262936069,
+ "negative_ok": true
+}

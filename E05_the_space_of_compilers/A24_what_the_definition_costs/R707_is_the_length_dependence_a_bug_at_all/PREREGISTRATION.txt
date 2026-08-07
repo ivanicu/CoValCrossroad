@@ -1,0 +1,90 @@
+R707 — PRE-REGISTERED BEFORE ANY CODE.  written 2026-08-05.
+
+CHECK #309 ON R706's NEXT LINE — ITS CITATION DOES NOT RESOLVE.
+  It says the decile rates are "from results/widening.json". ⛔ That artifact holds NO decile table,
+  no length-matched difference, no stratified null. The numbers 0.065 and 0.620 appear only inside
+  the `world` PROSE STRING. §5 requires an artifact carrying "what a LATER round needs to ATTACK
+  this", and R706's central result — the confound that overturned its own kill — was printed to a
+  terminal and never persisted as data. R707 recomputes and persists it rather than re-running a
+  committed artifact (ledger 848: re-running a committed round overwrites its evidence).
+
+⛔ AND THE CHEAPER QUESTION, WHICH THE NEXT LINE SKIPPED PAST.
+  R706 concluded the gate "measures verbosity, exactly the wrong direction". ⚠ But `flagged()` is a
+  PRESENCE detector: it answers "does this paragraph contain at least one unsourced quantifier over
+  our own work". A longer paragraph makes MORE CLAIMS, so it genuinely has more chances to contain
+  one. For a presence detector over n roughly-independent opportunities the rate is 1-(1-p)^n, which
+  RISES WITH LENGTH BY CONSTRUCTION. So the length dependence may be correct behaviour, and R706's
+  instrument finding may itself be the error. That must be settled before anything is normalised.
+
+ESTIMAND
+  (i)  PER-OPPORTUNITY RATE — flags divided by quantifier occurrences, per length decile. Flat
+       across deciles ⇒ the length dependence is opportunity count and nothing else.
+  (ii) CHANCE SHARE — the flag rate on a corpus whose words are shuffled WITHIN each paragraph
+       (syntax and proximity destroyed; length and vocabulary preserved exactly), as a share of the
+       real rate. This is the fraction of flagging explained by two words landing within 60
+       characters BY CHANCE.
+  (iii) whether the detector flags 20d1d1f's NEXT line and for the RIGHT reason.
+
+IDENTIFICATION
+  Fully identified: deterministic functions of the corpus and of `flagged()`, which is held FIXED.
+  ⚠ "opportunity" is operationalised as a QUANT match; that operationalisation is mine and is the
+  main assumption, so the per-opportunity rate is reported beside the raw counts, never alone.
+
+SCOPE
+  population : the 1067 NEXT paragraphs the R706 extractor finds over all 1270 commits
+  instrument : `flagged()` imported unchanged, plus a word-order permutation
+               instrument unit = A NEXT PARAGRAPH
+               claim unit      = THE DETECTOR'S BEHAVIOUR
+               ⚠ NOT EQUAL — a per-paragraph rate is not a property of the predicate until the
+               opportunity count is held constant, which is precisely what (i) does.
+  baseline   : the real corpus's own flag rate, 0.2774
+  regime     : this repository at HEAD, WINDOW = 60 characters
+
+WORLDS
+  A CORRECT BEHAVIOUR  per-opportunity rate flat AND shuffled rate well below real ⇒ length
+                       dependence is opportunity count; R706's "wrong direction" is RETRACTED
+  B PROXIMITY ARTIFACT shuffled rate ≈ real rate ⇒ the detector largely measures two words landing
+                       near each other by chance, and it is WORSE than R706 said
+  C RESIDUAL BIAS      per-opportunity rate rises with length even though the shuffle is low ⇒
+                       something else in long paragraphs trips it
+
+PREDICTION MATRIX               A            B             C
+  per-opportunity, short:long  ~1.0         ~1.0        rises
+  shuffled / real              low          ~1.0         low
+  R706's instrument finding  RETRACTED   STRENGTHENED   stands
+
+REGISTERED
+  POINT A  per-opportunity rate, longest decile / shortest decile: 1.0, interval [0.4, 2.5]
+  POINT B  word-shuffled flag rate: 0.20, interval [0.05, 0.50]  (real rate is 0.2774)
+  POINT C  the detector flags 20d1d1f's NEXT line, and the reason names the quantifier "the only"
+           rather than some other span: YES/YES.
+  DIRECTIONAL (separately failable)  shuffled rate < real rate, outside the shuffle's own spread.
+  KILL (conditional — evaluated ONLY if POSITIVE fires and g=0 returns ~0):
+     per-opportunity ratio inside [0.4,2.5] AND shuffled/real < 0.7 → world A, and R706's
+       "this gate measures verbosity, the wrong direction" is RETRACTED IN THE LEDGER;
+     shuffled/real >= 0.7 → world B, and the gate is reported as a proximity artifact.
+
+CONTROLS
+  POSITIVE   the 3 known-false NEXT lines the gate itself names must still flag, unchanged.
+  g=0        a corpus with every QUANT span deleted must flag at ~0 (bare-count matches excepted and
+             counted separately) — the detector must not fire when its trigger is absent.
+  NEGATIVE   the word shuffle IS the negative control, and the world it excludes is named: "the
+             detector responds to SYNTACTIC PROXIMITY, not to bag-of-words composition". Built by
+             permuting words within each paragraph, preserving length and vocabulary exactly.
+  SHAM       remove the ingredient — the proximity window. Set the window to the whole paragraph, so
+             any quantifier anywhere plus any artifact word anywhere flags. Size- and
+             compute-matched; it isolates what the 60-char proximity constraint is worth.
+  PLACEBO    two identical runs differ by exactly 0.
+  NOISE FLOOR the spread of the shuffled rate over >=1000 permutations, measured not assumed.
+
+SPECIFICATION SWEEP
+  window ∈ {0, 20, 60 (live), 200, whole paragraph} × decile ∈ 10 = 50 cells, all reported.
+MULTIPLICITY  50 cells; per-opportunity ratios reported for every window, non-survivors named.
+SEEDS  3 shuffle streams; the seed flag is verified to change the draws.
+ARTIFACT  results/length.json — and it MUST carry the decile table, the per-opportunity rates, the
+          shuffle distribution and the window sweep AS FIELDS, because check #309 is exactly the
+          failure of not doing that.
+IMPOSSIBLE
+  construct validity — no external standard says which NEXT lines OUGHT to be flagged; this round
+    tests the detector's mechanics and cannot test its correctness.
+  cross-release — the NEXT convention and the artifact vocabulary are this project's.

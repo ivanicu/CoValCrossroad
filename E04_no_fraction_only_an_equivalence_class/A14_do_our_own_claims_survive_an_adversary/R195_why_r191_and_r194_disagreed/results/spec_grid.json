@@ -1,0 +1,108 @@
+{
+ "pool": 1063,
+ "assessments": 16206,
+ "anchor_share": 0.05732444773540664,
+ "anchor_assessments": 929,
+ "grid": [
+  {
+   "weighting": "assessment (r191)",
+   "bins": "quartiles",
+   "anchor": "included",
+   "low": 0.32600896860986545,
+   "high": 0.37541974479516454,
+   "gap": 0.0494107761852991,
+   "z": 2.0602280520794936,
+   "n_low": 309,
+   "n_high": 258
+  },
+  {
+   "weighting": "assessment (r191)",
+   "bins": "quartiles",
+   "anchor": "excluded",
+   "low": 0.32600896860986545,
+   "high": 0.3315432447710571,
+   "gap": 0.005534276161191676,
+   "z": 0.2304959432553012,
+   "n_low": 309,
+   "n_high": 257
+  },
+  {
+   "weighting": "assessment (r191)",
+   "bins": "terciles",
+   "anchor": "included",
+   "low": 0.34524965999611423,
+   "high": 0.3812856879720022,
+   "gap": 0.03603602797588795,
+   "z": 1.6070891191903134,
+   "n_low": 352,
+   "n_high": 323
+  },
+  {
+   "weighting": "assessment (r191)",
+   "bins": "terciles",
+   "anchor": "excluded",
+   "low": 0.34524965999611423,
+   "high": 0.348,
+   "gap": 0.002750340003885743,
+   "z": 0.12253706196454998,
+   "n_low": 352,
+   "n_high": 322
+  },
+  {
+   "weighting": "prompt (r194)",
+   "bins": "quartiles",
+   "anchor": "included",
+   "low": 0.32579686360600374,
+   "high": 0.3249301379631373,
+   "gap": -0.0008667256428664394,
+   "z": -0.036138927998086094,
+   "n_low": 309,
+   "n_high": 258
+  },
+  {
+   "weighting": "prompt (r194)",
+   "bins": "quartiles",
+   "anchor": "excluded",
+   "low": 0.32579686360600374,
+   "high": 0.3240834893269642,
+   "gap": -0.001713374279039559,
+   "z": -0.07135997718472308,
+   "n_low": 309,
+   "n_high": 257
+  },
+  {
+   "weighting": "prompt (r194)",
+   "bins": "terciles",
+   "anchor": "included",
+   "low": 0.3414035824666165,
+   "high": 0.341802100033531,
+   "gap": 0.00039851756691450246,
+   "z": 0.017772581540424708,
+   "n_low": 352,
+   "n_high": 323
+  },
+  {
+   "weighting": "prompt (r194)",
+   "bins": "terciles",
+   "anchor": "excluded",
+   "low": 0.3414035824666165,
+   "high": 0.341178756128481,
+   "gap": -0.00022482633813553088,
+   "z": -0.01001678297536078,
+   "n_low": 352,
+   "n_high": 322
+  }
+ ],
+ "shift_from_weighting": 0.024034457254847874,
+ "shift_from_anchor": 0.019658045134333196,
+ "interaction": {
+  "assessment_anchor_in": 0.042723402080593526,
+  "assessment_anchor_out": 0.004142308082538709,
+  "prompt_anchor_in": -0.00023410403797596846,
+  "prompt_anchor_out": -0.0009691003085875449
+ },
+ "anchor_subjectivity": 0.8033596837944664,
+ "anchor_longest_first": 0.542518837459634,
+ "pool_median_subjectivity": 0.65,
+ "correction": "r194 attributed the r191 disagreement to cut points; both files computed them on their analysed population. The real driver is measured here."
+}

@@ -1,0 +1,62 @@
+R831 · why is the extension empty?
+registered 2026-08-06, BEFORE execution.
+
+⛔ MY PREVIOUS NEXT WAS AIMED AT A CLAUSE THAT CANNOT CHANGE THE OUTCOME, and that is corrected here
+   before anything runs. It asked whether clause ④ can be stated so the R826 saturation does not make
+   it vacuous. But R475 already settled ③ against the released core from the release's OWN dataset
+   card -- "select up to four rubric items with the highest average ratings" is topw_k, which is in
+   W_READERS -- so DEFINITION.md line 503 records "the extension is 0 under EVERY reading". No
+   restatement of ④ can rescue a conjunction ③ has already emptied. The gradient I named was flat.
+
+WHAT IS RECORDED, AND WHAT IS NOT
+  RECORDED: the extension is 0. ③'s partition over arms with a satisfaction file is 39 EXCLUDED /
+            43 ADMITTED / 19 UNKNOWN. Of the 5 arms admitted by ①∧②∧④, four are EXCLUDED by ③ and
+            coval_core is the fifth, excluded by R475.
+  NOT RECORDED, measured by search with a positive control: WHY it is 0. Zero occurrences in
+            DEFINITION.md of anti-correlat / self-contradictory / mutually exclusive / the two
+            halves / conjunction is empty / why the extension is empty.
+
+ESTIMAND
+  The rank distribution of ③-ADMITTED arms within the ②/④ performance ordering, against the same
+  distribution for ③-EXCLUDED arms. Named before the method.
+
+WORLDS
+  W-SELF-DEFEATING  ③-admitted arms sit systematically at the BOTTOM of the ordering. The conjunction
+                    is near-empty BY CONSTRUCTION: the definition asks for something that cannot
+                    exist on this site, and that is a fact about the DEFINITION.
+  W-NEAR-MISS       ③-admitted arms are spread across the ordering and the emptiness is a
+                    small-pool accident. A larger candidate pool could populate the extension, and
+                    that is a fact about the RELEASE, not the definition.
+
+⚠ STRONGEST CONFOUND, WRITTEN BEFORE THE RUN, WITH ITS CONTROL IN THE SAME ITERATION
+  ③ may admit mostly RANDOM and SHAM arms. If so they rank low because they are weak baselines I
+  chose to build, which is a SELECTION fact about my own arm inventory and says nothing about the
+  definition. CONTROL: partition the ③-admitted set into baseline-like (random_*, sham*, const*,
+  shuffle*) and substantive, and report the rank distribution of the SUBSTANTIVE subset separately.
+  If the substantive ③-admitted subset is empty, neither world is decidable and the verdict is
+  UNVERIFIED -- the design cannot separate them and says so.
+
+POSITIVE CONTROL
+  A synthetic arm set where ③-admission is assigned INDEPENDENTLY of rank must report NO separation;
+  one where ③-admission is assigned to the bottom half must report separation. Both required: the
+  first bounds over-firing, the second bounds blindness.
+NEGATIVE CONTROL / g=0
+  ③'s partition against itself -- the same partition compared to itself must give zero separation.
+  ⚠ NOT `x - x`: the partition is recomputed from source on both sides, so the comparison invokes
+  the producer twice. That is the idiom R828/R829 established and this round uses it deliberately.
+
+KILL -- a CONDITIONAL
+  if both positive controls behave AND the g=0 arm is null AND the substantive ③-admitted subset is
+  non-empty:
+      evaluate the rank separation -> W-SELF-DEFEATING if ③-admitted ranks are shifted low beyond
+      the permutation null, else W-NEAR-MISS
+  else:
+      UNVERIFIED, and no world is chosen.
+
+MULTIPLICITY  the ordering is computed under every A2 specification available in the committed
+              artifacts, and every cell is reported, survivors and non-survivors alike.
+SCOPE         population: arms with a committed satisfaction file. instrument: clause3_as_written
+              .partition plus committed A2 scores. baseline: the permutation of ③-labels over arms.
+ARTIFACT      results/r831_why_empty.json with source hash.
+IMPOSSIBLE    whether a LARGER pool would populate the extension is not answerable here; it needs
+              arms nobody has built. This round bounds the question, never answers it.

@@ -1,0 +1,351 @@
+{
+ "claim_unit": "an (arm, arm) PAIR",
+ "claim_unit_e3": "an ADMITTED SET",
+ "controls": {
+  "ceiling": 1,
+  "dose": {
+   "0.0": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "0.005": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "0.01": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "0.02": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "0.05": [
+    true,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  "floor": 0,
+  "gate": true,
+  "negative_a2_invariance": 2.220446049250313e-16,
+  "negative_moved": 0.021264892021600333,
+  "negative_ok": true,
+  "noise_floor_per_component": [
+   0.006316795613599331,
+   0.005017643570791005,
+   0.006571801171069358,
+   0.005034959428750155,
+   0.005623984657455612,
+   0.0058669423689933185
+  ],
+  "placebo_ok": true,
+  "placebo_worst": 0.0,
+  "positive_ok": true,
+  "specific": true,
+  "synthetic_resolved": 0
+ },
+ "e1": {
+  "component_cells": 1140,
+  "component_cells_resolved": 855,
+  "component_pairs_resolved": 152,
+  "identity_worst": 6.938893903907228e-17,
+  "scalar_cells": 190,
+  "scalar_resolved": 155
+ },
+ "e2": {
+  "coval_core__gen": {
+   "components": [
+    {
+     "eff": 0.028779146355859615,
+     "mde": 0.02219733128126171,
+     "p": 0.0008326394671107411,
+     "pair": "AB",
+     "survives": true,
+     "t": 3.632293617721692
+    },
+    {
+     "eff": 0.04275475203584909,
+     "mde": 0.022978987601032206,
+     "p": 0.0008326394671107411,
+     "pair": "AC",
+     "survives": true,
+     "t": 5.2126348672111975
+    },
+    {
+     "eff": 0.030702990879633494,
+     "mde": 0.021429083758712136,
+     "p": 0.0008326394671107411,
+     "pair": "AD",
+     "survives": true,
+     "t": 4.014032502371792
+    },
+    {
+     "eff": 0.030331728491080637,
+     "mde": 0.02337006694339404,
+     "p": 0.0008326394671107411,
+     "pair": "BC",
+     "survives": true,
+     "t": 3.6361434381215743
+    },
+    {
+     "eff": 0.02072631560532386,
+     "mde": 0.023036996360225288,
+     "p": 0.018333333333333333,
+     "pair": "BD",
+     "survives": false,
+     "t": 2.520577509201525
+    },
+    {
+     "eff": 0.03452985725140669,
+     "mde": 0.02198268374534965,
+     "p": 0.0008326394671107411,
+     "pair": "CD",
+     "survives": true,
+     "t": 4.40066059487149
+    }
+   ],
+   "scalar": {
+    "bh": true,
+    "eff": 0.03130413176985889,
+    "mde": 0.012230711940409623,
+    "p": 0.0008326394671107411,
+    "t": 7.170570808286316
+   }
+  },
+  "coval_core__generic": {
+   "components": [
+    {
+     "eff": 0.013275527313984384,
+     "mde": 0.020615717979870597,
+     "p": 0.07833333333333334,
+     "pair": "AB",
+     "survives": false,
+     "t": 1.8040855150552657
+    },
+    {
+     "eff": 0.026574043646811943,
+     "mde": 0.021481053854141462,
+     "p": 0.0008326394671107411,
+     "pair": "AC",
+     "survives": true,
+     "t": 3.4658188828058862
+    },
+    {
+     "eff": 0.00906116981196397,
+     "mde": 0.020574338110743863,
+     "p": 0.21833333333333332,
+     "pair": "AD",
+     "survives": false,
+     "t": 1.2338495309550088
+    },
+    {
+     "eff": 0.005431976539010262,
+     "mde": 0.021601469752480985,
+     "p": 0.52,
+     "pair": "BC",
+     "survives": false,
+     "t": 0.704495766557515
+    },
+    {
+     "eff": 0.011381274247530276,
+     "mde": 0.020648733362618164,
+     "p": 0.12833333333333333,
+     "pair": "BD",
+     "survives": false,
+     "t": 1.544191919805204
+    },
+    {
+     "eff": 0.025014860403960525,
+     "mde": 0.021912592712185548,
+     "p": 0.0008326394671107411,
+     "pair": "CD",
+     "survives": true,
+     "t": 3.198218421951397
+    }
+   ],
+   "scalar": {
+    "bh": true,
+    "eff": 0.015123141993876894,
+    "mde": 0.010693573481581896,
+    "p": 0.0008326394671107411,
+    "t": 3.9620775820065726
+   }
+  },
+  "coval_core__topw_k4": {
+   "components": [
+    {
+     "eff": 0.010331415988596658,
+     "mde": 0.01676560025511457,
+     "p": 0.08,
+     "pair": "AB",
+     "survives": false,
+     "t": 1.7264123933518403
+    },
+    {
+     "eff": 0.005510370951792511,
+     "mde": 0.017702079789839453,
+     "p": 0.36833333333333335,
+     "pair": "AC",
+     "survives": false,
+     "t": 0.8720880702299464
+    },
+    {
+     "eff": -0.0021397857359255505,
+     "mde": 0.017494649912001704,
+     "p": 0.76,
+     "pair": "AD",
+     "survives": false,
+     "t": 0.3426642802877941
+    },
+    {
+     "eff": -0.004865677379447196,
+     "mde": 0.019458560602880624,
+     "p": 0.47,
+     "pair": "BC",
+     "survives": false,
+     "t": 0.7005455870708426
+    },
+    {
+     "eff": 0.0013753800917959767,
+     "mde": 0.01736821043942572,
+     "p": 0.85,
+     "pair": "BD",
+     "survives": false,
+     "t": 0.2218561461995758
+    },
+    {
+     "eff": 0.0035694420030077216,
+     "mde": 0.017240479548299884,
+     "p": 0.5683333333333334,
+     "pair": "CD",
+     "survives": false,
+     "t": 0.5800357899547242
+    }
+   ],
+   "scalar": {
+    "bh": false,
+    "eff": 0.0022968576533033552,
+    "mde": 0.00852821613208787,
+    "p": 0.455,
+    "t": 0.7545355146920402
+   }
+  }
+ },
+ "e3": {
+  "component_admits": [
+   "coval_core",
+   "greedy_k4_fit1",
+   "greedy_k4_greedy_kA",
+   "greedy_k4_greedy_kB",
+   "indep_k4_fit1",
+   "indep_k4_indep_kA",
+   "indep_k4_indep_kB",
+   "oracle_k4",
+   "oracle_k4_fit1",
+   "oracle_k4_oracle_kA",
+   "oracle_k4_oracle_kB"
+  ],
+  "identical": false,
+  "scalar_admits": [
+   "coval_core",
+   "greedy_k4_fit1",
+   "greedy_k4_greedy_kA",
+   "greedy_k4_greedy_kB",
+   "indep_k4_fit1",
+   "indep_k4_indep_kA",
+   "indep_k4_indep_kB",
+   "oracle_k4",
+   "oracle_k4_fit1",
+   "oracle_k4_oracle_kA",
+   "oracle_k4_oracle_kB",
+   "topw_k4",
+   "topw_k4_detA",
+   "topw_k4_detB"
+  ]
+ },
+ "e4": {
+  "eigen_shares": [
+   0.9936103978358806,
+   0.003100573166598805,
+   0.001490147796412528,
+   0.0008999472976429848,
+   0.0006737665913988331,
+   0.0002251673120663656
+  ],
+  "first_share": 0.9936103978358806,
+  "shared_profile": [
+   0.5355988206159688,
+   0.5535558414997717,
+   0.5479295453426086,
+   0.534198678645992,
+   0.5410717754245914,
+   0.5458005314819936
+  ]
+ },
+ "instrument_unit": "an (arm, arm, component, prompt) paired difference",
+ "object": {
+  "alias_pairs": 9,
+  "components": 6,
+  "d1_worst": 1.1102230246251565e-16,
+  "named": 27,
+  "objects": 20,
+  "prompts": 968,
+  "worst_t_delta": 1.0658141036401503e-14
+ },
+ "spec": {
+  "ci_only": {
+   "component_pairs": 167,
+   "decisive_pair": false,
+   "scalar_pairs": 161
+  },
+  "conservative": {
+   "component_pairs": 138,
+   "decisive_pair": false,
+   "scalar_pairs": 145
+  },
+  "point": {
+   "component_pairs": 190,
+   "decisive_pair": true,
+   "scalar_pairs": 190
+  },
+  "seed31337": {
+   "component_pairs": 152,
+   "scalar": 155
+  },
+  "seed31338": {
+   "component_pairs": 152,
+   "scalar": 155
+  },
+  "seed31339": {
+   "component_pairs": 152,
+   "scalar": 155
+  },
+  "strict_mde": {
+   "component_pairs": 152,
+   "decisive_pair": false,
+   "scalar_pairs": 155
+  }
+ },
+ "units_distinct": true,
+ "world": "C"
+}

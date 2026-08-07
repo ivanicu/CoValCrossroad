@@ -1,0 +1,28 @@
+{
+ "cfg": {
+  "metric": "spearman",
+  "min_overlap": 3,
+  "standardize": true,
+  "centre": true,
+  "thr": "majority",
+  "min_prompts": 3
+ },
+ "null_reps": 200,
+ "tail_cut": -0.29346178923602095,
+ "n_pairs": 6457,
+ "median_prompts_per_pair": 4.0,
+ "s1_observed": 0.03636115203880629,
+ "s1_null_mean": 0.03365888945074326,
+ "s1_null_sd": 0.0005534487455320755,
+ "s1_z": 4.882588685936108,
+ "s1_p": 0.0,
+ "s2_observed": 0.0583862474833514,
+ "s2_null_mean": 0.05,
+ "s2_null_sd": 0.0024191945824869783,
+ "s2_z": 3.466545246337164,
+ "s2_p": 0.0,
+ "s1_exceeds_dyad_permutation_null": true,
+ "s2_exceeds_dyad_permutation_null": true,
+ "verdict": "M2: pair identity carries structure AND that structure is signed -- there are pairs that reliably disagree, which attenuation toward zero cannot produce || FROZEN LINE (queue item 2, see FROZEN.md): this round belongs to the rater-structure ontology -- r01, r23, r25, r26, r27, r28 -- which is FROZEN as UNRESOLVED. Four separators failed for four unrelated reasons: r23's sharper test read z=+10.26 at 2 null reps and +1.40 at 40; r26's centred residual gives 'below average' and 'actually disagreeing' the same number when mean agreement is +0.25; r27's agreeable-pair control selects same-bloc pairs under unequal bloc sizes and so could not have found blocs if they existed; r28's design was rank-deficient by exactly 1, its z moved with PYTHONHASHSEED, and its held-out R2 spanned [-1.64,+0.51]. The numbers below are correct about this round's own data. They do NOT establish that value blocs exist, and they do not establish that they do not. Neither reading is available from this release.",
+ "note": "no split-half anywhere. r23/r25 estimated the same quantity through a random half-split and returned z = 1.40, 2.26, 2.68 and 10.26 for the same data depending only on how many splits were averaged and whether the null used the same number. This uses each pair's full residual series, so there is no split variance to tune."
+}

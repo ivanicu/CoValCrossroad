@@ -1,0 +1,143 @@
+R744 · is NO_ARMS a measurement or silence?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R743 reported that 6 of the 16 cited rounds with code classify NO_ARMS -- they never load an arm
+artifact -- and that 11 have no identifiable arm population. The NO_ARMS verdict comes from a
+REGEX, `APD.LOADS`, matching a handful of `sat_` string shapes in the round's OWN source file.
+
+P5's ★ rule: a measured `0` / `not found` is INADMISSIBLE until that same instrument has passed a
+POSITIVE CONTROL. R743's positive control validated the DERIVED-vs-TYPED distinction AMONG rounds
+that already pass the LOADS gate. It never validated the gate itself, in the direction that matters:
+can this regex MISS a round that does reach the arm store? 163 A24 run.py files manipulate sys.path
+or import locally, so indirection is not hypothetical here.
+
+--------------------------------------------------------------------------------
+ESTIMAND
+--------------------------------------------------------------------------------
+Among the rounds R743 classified NO_ARMS, the number that reach the arm store through a static path
+the flat regex cannot see -- a locally imported module, or a cached artifact written by a round that
+itself reaches the store.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION -- PARTIAL, SO THE ANSWER IS A BOUND
+--------------------------------------------------------------------------------
+A transitive-closure detector can only ADD reach, never remove it, so it yields a LOWER bound on
+the number reaching the store and therefore an UPPER bound on the true NO_ARMS count. It cannot
+establish non-reachability: a path assembled at runtime is invisible to any static scan. The output
+is stated as an inequality. R650 already measured that only 172 of 364 file-read sites in A24
+resolve statically and concluded the general resolution question is undecidable -- this round does
+NOT reopen it, and asks only the binary question the bound can answer.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  the 16 cited rounds with code, and the 6 R743 called NO_ARMS in particular
+instrument  ast + import resolution within this repository, depth <= 2
+baseline    R743's flat detector, level 0
+regime      static analysis at this tree_sha; no execution
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · NO_ARMS IS A MEASUREMENT. The 6 touch no arm data by any static route; transitive closure adds
+    0. R743's count stands as written and the flat regex was adequate.
+B · NO_ARMS IS SILENCE. The regex is blind to indirection and >= 1 of the 6 reaches the store
+    transitively. R743's central count is then an artifact of the detector, and the sentence
+    "establish no arm population of their own" has to be narrowed to "does not name one in its own
+    file", which is a claim about FILES and not about ROUNDS.
+
+PREDICTION MATRIX      A -> transitive adds 0 of 6      B -> transitive adds >= 1 of 6
+
+--------------------------------------------------------------------------------
+THE THREE LEVELS -- the specification curve, not a robustness footnote
+--------------------------------------------------------------------------------
+L0  the flat regex on the round's own source            == R743's detector exactly
+L1  L0 over own source UNION locally imported modules resolvable inside this repository
+L2  L1 UNION any path literal resolving to a file inside a round directory whose own source is
+    L1-positive -- the cache edge, since R728/R730 committed caches built FROM the store
+
+--------------------------------------------------------------------------------
+REGISTERED POINTS -- each independently failable
+--------------------------------------------------------------------------------
+P1  of the 6 NO_ARMS rounds, how many reach at L1        registered  2   [0, 5]
+P2  of the 6, how many reach at L2                       registered  3   [0, 6]
+P3  L0 reproduces R743's per-round classes exactly       registered  16/16 -- a hard requirement,
+                                                         not a prediction; failure means this
+                                                         round's instrument is not R743's
+P4  local-import edges found among the 16 cited rounds   registered  >= 5
+
+DIRECTIONAL, separately failable
+D   the rounds that gain reach at L1/L2 are the ones with a local-import edge, not an arbitrary
+    subset -- i.e. every gaining round has >= 1 resolvable import.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE fires (blindness demonstrated on real refactored code) and PLACEBO is exactly zero
+and P3 holds (L0 == R743):
+        L2 adds 0 -> WORLD B KILLED. NO_ARMS was a measurement; R743's count stands.
+        L2 adds >= 1 -> WORLD A KILLED. NO_ARMS is an upper bound and must be reported as one.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE   THE ABSENCE DIRECTION, which is the one R743 never tested. Take R294 -- known to reach
+           the store, classified DERIVED -- and mechanically move its store-touching lines into a
+           helper module that the round imports. The FLAT detector must now return NO_ARMS
+           (blindness demonstrated on REAL code, not on a case I invented) while L1 must still
+           return reach. BAND, COMPUTED: floor = flat on the untouched source (reaches, so 1),
+           ceiling = L1 on the refactored source (reaches, so 1); the threshold is flat-on-
+           refactored == NO_ARMS, which sits strictly between only if the refactor actually moved
+           the literals -- asserted in code, not assumed.
+g=0        a helper module containing no store reference at all: importing it must add NOTHING at
+           L1. If merely HAVING an import raises reach, the detector is counting edges, not data.
+NEGATIVE   empty the import graph. L1 and L2 must then equal L0 on every round, exactly.
+SHAM       the same operation with the INGREDIENT ABSENT, not inverted. Ingredient = the local
+           import edge. Run L1 on the cited rounds that have ZERO resolvable imports: the gain
+           there must be 0 by construction, and if it is not, L1 is looser than L0 for reasons
+           unrelated to imports.
+PLACEBO    a contrast that must return exactly zero: L0 recomputed twice on the same sources must
+           differ by exactly 0, and L1 with the import graph emptied must equal L0 on all 16.
+NOISE      no rng. The variance is the LEVEL choice; three levels swept and all reported.
+UNIT       instrument unit = a source FILE reached; claim unit = a ROUND reaching the store. They
+           are NOT equal, and that inequality is the whole finding -- so both are printed as
+           separate columns and the claim is worded at the ROUND level only after the union over
+           its files is taken.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+3 levels x 3 populations (the 6 NO_ARMS, all 16 cited, the complement) = 9 cells, all reported.
+
+--------------------------------------------------------------------------------
+ARITHMETIC TRAP -- checked before the run
+--------------------------------------------------------------------------------
+Could this come out otherwise? YES. If none of the 6 imports anything resolvable, L1 == L0 by
+construction and the answer is 0. That is a real possible outcome and P4 registers the import-edge
+count separately so the two are not confounded.
+
+⛔ AND ONE RESULT HERE IS FORCED AND IS LABELLED A DERIVATION, NOT EVIDENCE: L1 >= L0 and L2 >= L1
+   always, because each level is a superset. The MONOTONICITY is algebra. Only the SIZE of the gain
+   is a measurement.
+
+--------------------------------------------------------------------------------
+CORRECTION CARRIED BY THIS ROUND
+--------------------------------------------------------------------------------
+R743's STATEMENT amendment, README headline and commit body say "11 of 16 never load an arm
+artifact". The artifact says 6 NO_ARMS and 5 NONE; the 11 is their sum and means "no identifiable
+arm population", which is a different and weaker claim. The script printed the right words and I
+transcribed the wrong ones. Corrected in STATEMENT.md, DEFINITION.md and the round README as part
+of this round, with a ledger entry -- a correction must reach the artifact that provoked it.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+proving non-reachability   execution tracing of every round, and a runtime path is still
+                           constructible; static analysis cannot close this
+independently replicated   a second team; the session prompt forbids dispatching agents
+cross-site                 more than one repository

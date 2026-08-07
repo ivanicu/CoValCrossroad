@@ -1,0 +1,39 @@
+{
+ "n_per_arm_grid": {
+  "0.6": {
+   "0.05": 2099,
+   "0.1": 531,
+   "0.15": 237
+  },
+  "0.7": {
+   "0.05": 1884,
+   "0.1": 488,
+   "0.15": 223
+  },
+  "0.8": {
+   "0.05": 1497,
+   "0.1": 402,
+   "0.15": 189
+  },
+  "0.9": {
+   "0.05": 939,
+   "0.1": 273,
+   "0.15": 137
+  }
+ },
+ "planning_base_rate": 0.8,
+ "planning_difference": 0.1,
+ "n_per_arm_planned": 402,
+ "n_total_planned": 804,
+ "design_effect_from_r61": 1.37,
+ "alpha": 0.05,
+ "power": 0.8,
+ "arms_required": 2,
+ "positive_control": {
+  "n_for_d=0.01": 35009,
+  "n_for_d=0.30": 53,
+  "all_pass": true
+ },
+ "scope": "The base agreement rate is UNMEASURED -- the release ships no satisfaction labels -- and is swept, never assumed. The design effect is r61's rater ICC on the same population; criterion-within-prompt clustering is a different quantity and this is an order-of-magnitude correction, labelled as such. This round sizes a study and tests no hypothesis.",
+ "verdict": "TWO ARMS OR NOTHING, AND THE SIZE IS 804 ADJUDICATIONS. The sub-study was specified as a single fresh-response arm, and a single fresh-arm agreement rate has NOTHING TO BE COMPARED AGAINST: the release ships no satisfaction labels at all -- rebuilding them is why r04 exists -- so the judge's agreement with humans is unmeasured on ORIGINAL responses too. The interpretable estimand is therefore Delta_sat = agreement on ORIGINAL minus agreement on FRESH, in which the judge's unknown absolute accuracy cancels. At a base rate of 0.80 and a difference of 0.10, that needs 402 adjudicated (criterion, response) pairs PER ARM, 804 in total, at alpha=0.05 and power 0.80 with a design effect of 1.37 carried over from r61. THE BASE RATE IS UNMEASURED and is swept across 0.60-0.90: the requirement ranges from 273 to 531 per arm across that sweep, so the pilot must estimate it before n is fixed. INVALIDATION RULE, committed: if Delta_sat is significantly positive AND its magnitude exceeds the observed change in the own-minus-reference gap, the transport failure is attributable to the satisfaction layer and H_fresh's primary result is reported UNVERIFIED for transport -- not annotated, not reworded."
+}

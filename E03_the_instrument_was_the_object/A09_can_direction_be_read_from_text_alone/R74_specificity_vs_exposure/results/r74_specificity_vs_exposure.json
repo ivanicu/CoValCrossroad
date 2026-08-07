@@ -1,0 +1,133 @@
+{
+ "n_write_ins": 9492,
+ "n_seeds": 5393,
+ "containment_mean_write_in": 0.1541416299716464,
+ "containment_mean_seed": 0.14709720550352745,
+ "tertiles": {
+  "low containment": {
+   "label": "low containment",
+   "n": 3179,
+   "marginal": 0.7194086190625983,
+   "accuracy": 0.7442592010066058,
+   "above_marginal": 0.024850581944007466,
+   "share_of_headroom": 0.08856502242152438,
+   "share_ci": [
+    0.06016053000382222,
+    0.11607215028815195
+   ],
+   "shuffled_above_marginal": -0.001572821642025879,
+   "in_sample_above_marginal": 0.1041207927021075
+  },
+  "mid containment": {
+   "label": "mid containment",
+   "n": 3182,
+   "marginal": 0.7008170961659334,
+   "accuracy": 0.7501571338780642,
+   "above_marginal": 0.0493400377121308,
+   "share_of_headroom": 0.16491596638655484,
+   "share_ci": [
+    0.13552462107070865,
+    0.1959928533062784
+   ],
+   "shuffled_above_marginal": -0.0009428032683845844,
+   "in_sample_above_marginal": 0.13262099308610942
+  },
+  "high containment": {
+   "label": "high containment",
+   "n": 3131,
+   "marginal": 0.640051101884382,
+   "accuracy": 0.7262855317789844,
+   "above_marginal": 0.0862344298946024,
+   "share_of_headroom": 0.23957409050576758,
+   "share_ci": [
+    0.2049089441267199,
+    0.2763114300248039
+   ],
+   "shuffled_above_marginal": -0.013094857872884003,
+   "in_sample_above_marginal": 0.2274033854998403
+  }
+ },
+ "length_control": {
+  "short": {
+   "label": "short",
+   "n": 3299,
+   "marginal": 0.6013943619278569,
+   "accuracy": 0.7341618672324947,
+   "above_marginal": 0.13276750530463777,
+   "share_of_headroom": 0.33307984790874523,
+   "share_ci": [
+    0.2965360033140506,
+    0.36883634992458514
+   ],
+   "shuffled_above_marginal": -0.023340406183692042,
+   "in_sample_above_marginal": 0.2785692634131556
+  },
+  "medium": {
+   "label": "medium",
+   "n": 3235,
+   "marginal": 0.6772797527047913,
+   "accuracy": 0.7239567233384853,
+   "above_marginal": 0.046676970633693915,
+   "share_of_headroom": 0.14463601532567033,
+   "share_ci": [
+    0.1128322009439917,
+    0.17682376921183246
+   ],
+   "shuffled_above_marginal": -0.00432766615146829,
+   "in_sample_above_marginal": 0.15146831530139104
+  },
+  "long": {
+   "label": "long",
+   "n": 2958,
+   "marginal": 0.7931034482758621,
+   "accuracy": 0.7941176470588235,
+   "above_marginal": 0.001014198782961384,
+   "share_of_headroom": 0.004901960784313358,
+   "share_ci": [
+    -0.001624902992836006,
+    0.012699452505549358
+   ],
+   "shuffled_above_marginal": 0.0,
+   "in_sample_above_marginal": 0.01487491548343467
+  }
+ },
+ "seed_reference": {
+  "label": "seeds",
+  "n": 5393,
+  "marginal": 0.8423882811051363,
+  "accuracy": 0.8438716855182644,
+  "above_marginal": 0.0014834044131281088,
+  "share_of_headroom": 0.009411764705882225,
+  "share_ci": [
+   -0.00738804206546114,
+   0.0263796373775621
+  ],
+  "shuffled_above_marginal": 0.0,
+  "in_sample_above_marginal": 0.014648618579640282
+ },
+ "length_matched_write_ins": {
+  "label": "length-matched write-ins",
+  "n": 5199,
+  "marginal": 0.6891709944220042,
+  "accuracy": 0.7395653010194269,
+  "above_marginal": 0.05039430659742261,
+  "share_of_headroom": 0.16212871287128724,
+  "share_ci": [
+   0.13587893424018713,
+   0.18846487411035232
+  ],
+  "shuffled_above_marginal": -0.00423158299673021,
+  "in_sample_above_marginal": 0.1550298134256588,
+  "seed_length_mean": 14.626923790098276,
+  "matched_length_mean": 14.904981727255242
+ },
+ "length_explains_class_contrast": false,
+ "containment_spread": 0.1510090680842432,
+ "length_spread": -0.32817788712443186,
+ "r73_seed_share": 0.012,
+ "r73_write_in_share": 0.264,
+ "world": "A EXPOSURE (attenuated) -- gradient present, floor still far above seeds | LENGTH moderates more than containment, but does NOT explain the class contrast",
+ "outcome_variable_scope": "The label is sign(mean score) over released human ratings. No judge and no model gold head enters this round. Responses are used ONLY to compute lexical containment, never to score anything.",
+ "scope": "Exposure is held constant by construction: every criterion in the tertile arms is a single-rated write-in, authored after the annotator read all four responses. Containment is r51/r54's lexical measure and is a PROXY for specificity; it is weakest exactly where a criterion paraphrases rather than quotes. Headroom normalisation is used throughout because the tertiles have different marginals.",
+ "verdict": "A EXPOSURE (attenuated) -- gradient present, floor still far above seeds | LENGTH moderates more than containment, but does NOT explain the class contrast. r73 reported that direction is recoverable from write-in text (26.4% of headroom) and not from pre-written seed text (1.2%), and read that as exposure: a rater who has seen the four responses writes the direction into the sentence. Two explanations were indistinguishable there, because seeds and write-ins differ in WHEN they were written AND in WHAT THEY SAY. Holding exposure constant -- every criterion here is a write-in -- and splitting on lexical containment into the four responses: low containment 8.9% [6.0%,11.6%], mid containment 16.5% [13.6%,19.6%], high containment 24.0% [20.5%,27.6%]. The least response-specific third captures 8.9% of its headroom against the seed class's 0.9% measured through the same pipeline, so specificity carries much of it and r73s exposure sentence needs narrowing. LENGTH CONTROL, run because a longer criterion simply carries more signal and would explain the gradient without either story: splitting the same write-ins by word count gives short 33.3%, medium 14.5%, long 0.5%, a spread of -32.8% against containment's +15.1%. AND THE LENGTH GRADIENT DOES NOT REACH r73's CONTRAST, which is the arm that decides it: write-ins resampled decile-by-decile to the seed length distribution (means 14.9 against 14.6 words) still capture 16.2% [13.6%,18.8%] against the seed class's 0.9% [-0.7%,2.6%], non-overlapping. So length is a strong WITHIN-class moderator and cannot be the BETWEEN-class explanation -- the two classes were already length-matched in the release (14.9 versus 14.6 words), which is why normalising by headroom was the operative correction and length was not. r73's exposure reading survives both threats. STATED BEFORE THE RUN AND STILL TRUE: containment is a LEXICAL proxy for specificity. A criterion referring to a response's content in words the response never uses lands in the low tertile while being highly specific, so a FLAT gradient is clean evidence for exposure while a STEEP one is consistent with both content and a proxy that degrades at the bottom."
+}

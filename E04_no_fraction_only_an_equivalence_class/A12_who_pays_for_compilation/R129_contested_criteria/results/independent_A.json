@@ -1,0 +1,671 @@
+{
+  "estimand": "For coval_full criteria with >=N_MIN raters: does sign-split disagreement among raters (contested) predict that the criterion's own satisfaction fingerprint across the 4 candidate responses fails to correlate with the compiled coval_core rubric's aggregate implied response ranking (|r(c)| smaller = more washed out = functionally dropped)? Among contested criteria whose fingerprint survives detectably, does the compiled ranking's correlation sign match the RATER MAJORITY's sign (majority wins) or the minority's (minority wins), or is it indistinguishable from a coin flip?",
+  "design_summary": "Text-provenance matching from coval_core back to coval_full is explicitly not recoverable (release note: core is LM-synthesized + rewritten-positive + merged, no IDs). Routed around this with a BEHAVIOURAL instrument: correlate each full criterion's precomputed judge-satisfaction vector over the 4 candidate responses against the mean satisfaction vector of that prompt's own compiled core criteria (both from 01_object_and_rebuild/r04_rebuild_satisfaction precomputed tensors, no LLM calls made in this script). A lexical TF-IDF matcher is run as an explicitly caveated SECONDARY convergence check only, since it is structurally blind to polarity-flipped retention.",
+  "pre_registered_thresholds": {
+    "N_MIN_primary": 10,
+    "N_MIN_grid": [
+      5,
+      10,
+      15
+    ],
+    "seeds": [
+      8101,
+      8102,
+      8103,
+      8104,
+      8105
+    ],
+    "n_boot": 2000,
+    "contested_definition": "sign-split among raters (min<0 and max>0)",
+    "null_construction": "per-prompt derangement donor, 5 independent draws, pooled",
+    "detection_floor_tau": 0.8989732730296874,
+    "detection_floor_definition": "90th pctl of |r_null| pooled over N_MIN=10 stratum",
+    "positive_control_gate": "exact-text-normalized full==core subset, one-sided MW p<0.01, n>=15",
+    "multiplicity": "Holm-Bonferroni over 5 pre-registered tests"
+  },
+  "strongest_confound_written_before_running": "Contested criteria mechanically have smaller |signed mean rating| than uncontested criteria of similar individual rater intensity (verified: mean|mean_score| = 3.41 contested vs 6.35 uncontested at N_MIN=10), and the documented compiler selection rule explicitly ranks by highest average rating -- so a magnitude confound is expected almost by construction, independent of any special role for disagreement per se.",
+  "data_facts_verified": {
+    "n_conversations": 986,
+    "n_joined_to_comparisons": 968,
+    "rater_count_bimodality": {
+      "share_exactly_1": 0.6351,
+      "share_3_to_9": 0.024,
+      "share_ge_10": 0.3404
+    },
+    "share_negative_mean_multirated_with_ge1_positive_rater": 0.991,
+    "n_exact_text_match_full_eq_core": 309
+  },
+  "positive_control": {
+    "n_exact_match": 304,
+    "n_conversations_with_exact_match": 222,
+    "median_r_exact": 0.8663748466636891,
+    "median_r_null": 0.007296122060719017,
+    "mean_r_exact": 0.6745725007048954,
+    "mean_r_null": 0.008449410319886165,
+    "mannwhitney_U": 386439.0,
+    "p_one_sided": 5.16001210658854e-77,
+    "gate": "n>=15 and p<0.01 and median_exact>median_null",
+    "passed": true
+  },
+  "population_level_validity_check": {
+    "median_true_r_N_MIN10": 0.6467433651689918,
+    "median_null_r_N_MIN10": 0.004947760663269036,
+    "p_one_sided": 0.0
+  },
+  "h1_dropping_test": {
+    "primary": {
+      "n_min": 10,
+      "n_contested": 4127,
+      "n_uncontested": 969,
+      "scope1_raw": {
+        "median_contested": 0.726746264606396,
+        "median_uncontested": 0.855138776467483,
+        "mean_contested": 0.6499500933408933,
+        "mean_uncontested": 0.7482069157145319,
+        "mean_diff": -0.09825682237363864,
+        "mannwhitney_U": 1578538.5,
+        "p_one_sided": 8.514228474421946e-25,
+        "cliffs_delta": -0.21054582035841896,
+        "share_detectable_contested": 0.27235279864308215,
+        "share_detectable_uncontested": 0.4117647058823529
+      },
+      "scope2_prompt_clustered": {
+        "mean_diff": -0.09825031761497825,
+        "ci95": [
+          -0.11735495047059114,
+          -0.07897005427120811
+        ],
+        "per_seed_mean": [
+          -0.09826740064462443,
+          -0.09801100743938665,
+          -0.09821115337621808,
+          -0.09862828378244903,
+          -0.09813374283221316
+        ]
+      },
+      "scope3_confound_adjusted_ols": {
+        "coef_contested": 0.003175827640516845,
+        "ci95": [
+          -0.018959250457837834,
+          0.02532881080618539
+        ],
+        "coef_abs_mean": 0.03553416178184912,
+        "coef_log_raters": 0.05194323970146591,
+        "coef_word_count_per100": 0.013392053066535903,
+        "coef_neg_cue": -0.003777215500455513
+      },
+      "scope4_magnitude_matched": {
+        "pooled_matched_diff": 0.007849304636367635,
+        "bins": [
+          {
+            "bin": 2,
+            "n_contested": 955,
+            "n_uncontested": 63,
+            "mean_contested": 0.666074404046567,
+            "mean_uncontested": 0.666418785982123,
+            "diff": -0.00034438193555597074
+          },
+          {
+            "bin": 3,
+            "n_contested": 753,
+            "n_uncontested": 266,
+            "mean_contested": 0.7240256194451917,
+            "mean_uncontested": 0.6918001613349691,
+            "diff": 0.03222545811022259
+          },
+          {
+            "bin": 4,
+            "n_contested": 383,
+            "n_uncontested": 640,
+            "mean_contested": 0.7719694309423863,
+            "mean_uncontested": 0.7797019920240715,
+            "diff": -0.007732561081685185
+          }
+        ]
+      },
+      "dose_response_spearman_minority_share_vs_abs_r": {
+        "rho": -0.2215219844366501,
+        "p": 4.745443679713471e-47,
+        "n": 4127
+      }
+    },
+    "robustness_grid": {
+      "5": {
+        "n_min": 5,
+        "n_contested": 4362,
+        "n_uncontested": 1084,
+        "scope1_raw": {
+          "median_contested": 0.7282914749485474,
+          "median_uncontested": 0.859454278975912,
+          "mean_contested": 0.64977486088736,
+          "mean_uncontested": 0.7516178246044354,
+          "mean_diff": -0.10184296371707535,
+          "mannwhitney_U": 1845974.5,
+          "p_one_sided": 2.3865164543665952e-29,
+          "cliffs_delta": -0.21919830099263848,
+          "share_detectable_contested": 0.2725813846859239,
+          "share_detectable_uncontested": 0.4188191881918819
+        },
+        "scope2_prompt_clustered": {
+          "mean_diff": -0.10183571441250956,
+          "ci95": [
+            -0.12048269240247436,
+            -0.0828388612926504
+          ],
+          "per_seed_mean": [
+            -0.10150825466899951,
+            -0.10192629135472424,
+            -0.10181540888929107,
+            -0.10206139615776624,
+            -0.1018672209917668
+          ]
+        },
+        "scope3_confound_adjusted_ols": {
+          "coef_contested": -0.0011310520367194452,
+          "ci95": [
+            -0.022667336840334586,
+            0.021039304612110694
+          ],
+          "coef_abs_mean": 0.03504207520344839,
+          "coef_log_raters": 0.02258214647177915,
+          "coef_word_count_per100": -0.02160189669150133,
+          "coef_neg_cue": -0.010524686083120176
+        },
+        "scope4_magnitude_matched": {
+          "pooled_matched_diff": 0.003879233158177016,
+          "bins": [
+            {
+              "bin": 2,
+              "n_contested": 992,
+              "n_uncontested": 83,
+              "mean_contested": 0.6660688251129668,
+              "mean_uncontested": 0.6910126651898985,
+              "diff": -0.024943840076931623
+            },
+            {
+              "bin": 3,
+              "n_contested": 805,
+              "n_uncontested": 296,
+              "mean_contested": 0.7211375014522987,
+              "mean_uncontested": 0.6939689754172792,
+              "diff": 0.027168526035019513
+            },
+            {
+              "bin": 4,
+              "n_contested": 392,
+              "n_uncontested": 703,
+              "mean_contested": 0.7748113273372111,
+              "mean_uncontested": 0.7824150421714611,
+              "diff": -0.0076037148342499306
+            }
+          ]
+        },
+        "dose_response_spearman_minority_share_vs_abs_r": {
+          "rho": -0.22099382285409844,
+          "p": 2.13991560210044e-49,
+          "n": 4362
+        }
+      },
+      "10": {
+        "n_min": 10,
+        "n_contested": 4127,
+        "n_uncontested": 969,
+        "scope1_raw": {
+          "median_contested": 0.726746264606396,
+          "median_uncontested": 0.855138776467483,
+          "mean_contested": 0.6499500933408933,
+          "mean_uncontested": 0.7482069157145319,
+          "mean_diff": -0.09825682237363864,
+          "mannwhitney_U": 1578538.5,
+          "p_one_sided": 8.514228474421946e-25,
+          "cliffs_delta": -0.21054582035841896,
+          "share_detectable_contested": 0.27235279864308215,
+          "share_detectable_uncontested": 0.4117647058823529
+        },
+        "scope2_prompt_clustered": {
+          "mean_diff": -0.09825031761497825,
+          "ci95": [
+            -0.11735495047059114,
+            -0.07897005427120811
+          ],
+          "per_seed_mean": [
+            -0.09826740064462443,
+            -0.09801100743938665,
+            -0.09821115337621808,
+            -0.09862828378244903,
+            -0.09813374283221316
+          ]
+        },
+        "scope3_confound_adjusted_ols": {
+          "coef_contested": 0.003175827640516845,
+          "ci95": [
+            -0.018959250457837834,
+            0.02532881080618539
+          ],
+          "coef_abs_mean": 0.03553416178184912,
+          "coef_log_raters": 0.05194323970146591,
+          "coef_word_count_per100": 0.013392053066535903,
+          "coef_neg_cue": -0.003777215500455513
+        },
+        "scope4_magnitude_matched": {
+          "pooled_matched_diff": 0.007849304636367635,
+          "bins": [
+            {
+              "bin": 2,
+              "n_contested": 955,
+              "n_uncontested": 63,
+              "mean_contested": 0.666074404046567,
+              "mean_uncontested": 0.666418785982123,
+              "diff": -0.00034438193555597074
+            },
+            {
+              "bin": 3,
+              "n_contested": 753,
+              "n_uncontested": 266,
+              "mean_contested": 0.7240256194451917,
+              "mean_uncontested": 0.6918001613349691,
+              "diff": 0.03222545811022259
+            },
+            {
+              "bin": 4,
+              "n_contested": 383,
+              "n_uncontested": 640,
+              "mean_contested": 0.7719694309423863,
+              "mean_uncontested": 0.7797019920240715,
+              "diff": -0.007732561081685185
+            }
+          ]
+        },
+        "dose_response_spearman_minority_share_vs_abs_r": {
+          "rho": -0.2215219844366501,
+          "p": 4.745443679713471e-47,
+          "n": 4127
+        }
+      },
+      "15": {
+        "n_min": 15,
+        "n_contested": 3068,
+        "n_uncontested": 648,
+        "scope1_raw": {
+          "median_contested": 0.7320507426409361,
+          "median_uncontested": 0.8597182913522684,
+          "mean_contested": 0.654386212547246,
+          "mean_uncontested": 0.7521362141624944,
+          "mean_diff": -0.09775000161524838,
+          "mannwhitney_U": 780496.0,
+          "p_one_sided": 3.8169102809954236e-18,
+          "cliffs_delta": -0.21481803402707356,
+          "share_detectable_contested": 0.27183833116036504,
+          "share_detectable_uncontested": 0.42592592592592593
+        },
+        "scope2_prompt_clustered": {
+          "mean_diff": -0.0973780408080882,
+          "ci95": [
+            -0.12098216569708818,
+            -0.07322312709272419
+          ],
+          "per_seed_mean": [
+            -0.09752163086710226,
+            -0.09760552573986643,
+            -0.09699247014884788,
+            -0.09743216881518044,
+            -0.0973384084694441
+          ]
+        },
+        "scope3_confound_adjusted_ols": {
+          "coef_contested": 0.007347569720013654,
+          "ci95": [
+            -0.01809216648913562,
+            0.03409705556601542
+          ],
+          "coef_abs_mean": 0.03658962985277789,
+          "coef_log_raters": 0.086774792160145,
+          "coef_word_count_per100": -0.02015410670642099,
+          "coef_neg_cue": 0.007916092407466586
+        },
+        "scope4_magnitude_matched": {
+          "pooled_matched_diff": 0.00967204807366987,
+          "bins": [
+            {
+              "bin": 2,
+              "n_contested": 710,
+              "n_uncontested": 33,
+              "mean_contested": 0.6718387341469441,
+              "mean_uncontested": 0.6467258358098478,
+              "diff": 0.02511289833709629
+            },
+            {
+              "bin": 3,
+              "n_contested": 576,
+              "n_uncontested": 170,
+              "mean_contested": 0.7259076384381997,
+              "mean_uncontested": 0.6973533416580947,
+              "diff": 0.028554296780105015
+            },
+            {
+              "bin": 4,
+              "n_contested": 304,
+              "n_uncontested": 445,
+              "mean_contested": 0.7783182028474954,
+              "mean_uncontested": 0.7808814519408882,
+              "diff": -0.002563249093392783
+            }
+          ]
+        },
+        "dose_response_spearman_minority_share_vs_abs_r": {
+          "rho": -0.23685065055841595,
+          "p": 2.210948499760184e-40,
+          "n": 3068
+        }
+      }
+    },
+    "holm": {
+      "raw_p": 8.514228474421946e-25,
+      "holm_adjusted_p": 8.514228474421946e-25
+    },
+    "confound_adjusted_ci_excludes_zero": false
+  },
+  "h2_whose_side_test": {
+    "primary": {
+      "n_min": 10,
+      "n_contested": 4127,
+      "n_detectable": 1124,
+      "n_majority_side": 997,
+      "n_minority_side": 127,
+      "n_washed_out": 3003,
+      "scope1_raw": {
+        "share_majority": 0.8870106761565836,
+        "binomial_p_two_sided": 5.705435420427859e-168
+      },
+      "scope2_prompt_clustered": {
+        "share_majority": 0.8870969645919661,
+        "ci95": [
+          0.8669031296709433,
+          0.907321594068582
+        ]
+      },
+      "scope3_confound_adjusted_lpm": {
+        "intercept_share_at_mean_covariates": 0.8740034577363196,
+        "coef_abs_mean": 0.04148204624866199,
+        "coef_log_raters": -0.026886340655237737,
+        "coef_minority_share": -0.43618363566813295,
+        "intercept_ci95": [
+          0.575638681479119,
+          1.1670004778252767
+        ]
+      },
+      "scope4_magnitude_matched": {
+        "bins": [
+          {
+            "bin": 0,
+            "n_detectable": 136,
+            "share_majority": 0.5808823529411765
+          },
+          {
+            "bin": 1,
+            "n_detectable": 153,
+            "share_majority": 0.7843137254901961
+          },
+          {
+            "bin": 2,
+            "n_detectable": 210,
+            "share_majority": 0.8857142857142857
+          },
+          {
+            "bin": 3,
+            "n_detectable": 260,
+            "share_majority": 0.9769230769230769
+          },
+          {
+            "bin": 4,
+            "n_detectable": 365,
+            "share_majority": 0.9808219178082191
+          }
+        ]
+      }
+    },
+    "robustness_grid": {
+      "5": {
+        "n_min": 5,
+        "n_contested": 4362,
+        "n_detectable": 1189,
+        "n_majority_side": 1048,
+        "n_minority_side": 141,
+        "n_washed_out": 3173,
+        "scope1_raw": {
+          "share_majority": 0.8814129520605551,
+          "binomial_p_two_sided": 1.011875210855262e-171
+        },
+        "scope2_prompt_clustered": {
+          "share_majority": 0.8813888189661054,
+          "ci95": [
+            0.8606553915595924,
+            0.9012030447848408
+          ]
+        },
+        "scope3_confound_adjusted_lpm": {
+          "intercept_share_at_mean_covariates": 0.7380618445468667,
+          "coef_abs_mean": 0.04529613101610709,
+          "coef_log_raters": 0.01359331083277392,
+          "coef_minority_share": -0.43469023064136075,
+          "intercept_ci95": [
+            0.4609085266965304,
+            1.0140921019722569
+          ]
+        },
+        "scope4_magnitude_matched": {
+          "bins": [
+            {
+              "bin": 0,
+              "n_detectable": 147,
+              "share_majority": 0.5578231292517006
+            },
+            {
+              "bin": 1,
+              "n_detectable": 161,
+              "share_majority": 0.7888198757763976
+            },
+            {
+              "bin": 2,
+              "n_detectable": 211,
+              "share_majority": 0.8767772511848341
+            },
+            {
+              "bin": 3,
+              "n_detectable": 283,
+              "share_majority": 0.9717314487632509
+            },
+            {
+              "bin": 4,
+              "n_detectable": 387,
+              "share_majority": 0.979328165374677
+            }
+          ]
+        }
+      },
+      "10": {
+        "n_min": 10,
+        "n_contested": 4127,
+        "n_detectable": 1124,
+        "n_majority_side": 997,
+        "n_minority_side": 127,
+        "n_washed_out": 3003,
+        "scope1_raw": {
+          "share_majority": 0.8870106761565836,
+          "binomial_p_two_sided": 5.705435420427859e-168
+        },
+        "scope2_prompt_clustered": {
+          "share_majority": 0.8870969645919661,
+          "ci95": [
+            0.8669031296709433,
+            0.907321594068582
+          ]
+        },
+        "scope3_confound_adjusted_lpm": {
+          "intercept_share_at_mean_covariates": 0.8740034577363196,
+          "coef_abs_mean": 0.04148204624866199,
+          "coef_log_raters": -0.026886340655237737,
+          "coef_minority_share": -0.43618363566813295,
+          "intercept_ci95": [
+            0.575638681479119,
+            1.1670004778252767
+          ]
+        },
+        "scope4_magnitude_matched": {
+          "bins": [
+            {
+              "bin": 0,
+              "n_detectable": 136,
+              "share_majority": 0.5808823529411765
+            },
+            {
+              "bin": 1,
+              "n_detectable": 153,
+              "share_majority": 0.7843137254901961
+            },
+            {
+              "bin": 2,
+              "n_detectable": 210,
+              "share_majority": 0.8857142857142857
+            },
+            {
+              "bin": 3,
+              "n_detectable": 260,
+              "share_majority": 0.9769230769230769
+            },
+            {
+              "bin": 4,
+              "n_detectable": 365,
+              "share_majority": 0.9808219178082191
+            }
+          ]
+        }
+      },
+      "15": {
+        "n_min": 15,
+        "n_contested": 3068,
+        "n_detectable": 834,
+        "n_majority_side": 739,
+        "n_minority_side": 95,
+        "n_washed_out": 2234,
+        "scope1_raw": {
+          "share_majority": 0.8860911270983214,
+          "binomial_p_two_sided": 2.398836535951323e-124
+        },
+        "scope2_prompt_clustered": {
+          "share_majority": 0.8860569520500998,
+          "ci95": [
+            0.8628141148156013,
+            0.9087454815676088
+          ]
+        },
+        "scope3_confound_adjusted_lpm": {
+          "intercept_share_at_mean_covariates": 0.8002245794789183,
+          "coef_abs_mean": 0.04751949731995873,
+          "coef_log_raters": -0.013602686331119353,
+          "coef_minority_share": -0.39908656647938784,
+          "intercept_ci95": [
+            0.3062917331777604,
+            1.276249791800962
+          ]
+        },
+        "scope4_magnitude_matched": {
+          "bins": [
+            {
+              "bin": 0,
+              "n_detectable": 94,
+              "share_majority": 0.5531914893617021
+            },
+            {
+              "bin": 1,
+              "n_detectable": 116,
+              "share_majority": 0.7844827586206896
+            },
+            {
+              "bin": 2,
+              "n_detectable": 159,
+              "share_majority": 0.8679245283018868
+            },
+            {
+              "bin": 3,
+              "n_detectable": 195,
+              "share_majority": 0.9846153846153847
+            },
+            {
+              "bin": 4,
+              "n_detectable": 270,
+              "share_majority": 0.9851851851851852
+            }
+          ]
+        }
+      }
+    },
+    "holm": {
+      "raw_p": 5.705435420427859e-168,
+      "holm_adjusted_p": 1.7116306261283577e-167
+    },
+    "ci_excludes_half": true,
+    "verdict_label": "MAJORITY WINS"
+  },
+  "secondary_lexical_convergence": {
+    "result": {
+      "n": 5097,
+      "positive_control": {
+        "median_true": 0.22098299796603213,
+        "median_null": 0.0,
+        "p_one_sided": 0.0
+      },
+      "contested_vs_uncontested": {
+        "median_contested": 0.13936261783837173,
+        "median_uncontested": 0.6348566818686128,
+        "p_one_sided": 1.3908088581700348e-99,
+        "caveat": "Blind to polarity-flipped retention (core rewrites negative-mean criteria into differently-worded positive antonyms) -- this can only UNDER-count retention, so it is a lower bound / convergent check, not a replacement for the satisfaction-based primary instrument."
+      }
+    },
+    "holm": {
+      "raw_p": 1.3908088581700348e-99,
+      "holm_adjusted_p": 2.7816177163400695e-99
+    }
+  },
+  "multiplicity_holm_bonferroni": {
+    "H1_raw_mannwhitney": {
+      "raw_p": 8.514228474421946e-25,
+      "holm_adjusted_p": 8.514228474421946e-25
+    },
+    "H2_share_vs_half": {
+      "raw_p": 5.705435420427859e-168,
+      "holm_adjusted_p": 1.7116306261283577e-167
+    },
+    "secondary_lexical_contested_vs_uncontested": {
+      "raw_p": 1.3908088581700348e-99,
+      "holm_adjusted_p": 2.7816177163400695e-99
+    }
+  },
+  "headline": {
+    "h1_mean_diff_absr_contested_minus_uncontested": -0.09825682237363864,
+    "h1_prompt_clustered_ci95": [
+      -0.11735495047059114,
+      -0.07897005427120811
+    ],
+    "h1_confound_adjusted_coef": 0.003175827640516845,
+    "h1_confound_adjusted_ci95": [
+      -0.018959250457837834,
+      0.02532881080618539
+    ],
+    "h1_magnitude_matched_diff": 0.007849304636367635,
+    "h2_share_majority_side_of_detectable": 0.8870969645919661,
+    "h2_prompt_clustered_ci95": [
+      0.8669031296709433,
+      0.907321594068582
+    ],
+    "h2_n_majority_minority_washed": [
+      997,
+      127,
+      3003
+    ]
+  },
+  "verdict": "UNVERIFIED",
+  "h2_verdict": "MAJORITY WINS",
+  "strongest_reason_result_might_be_wrong": "The primary instrument reduces 'does the compiled rubric represent criterion c' to correlation with a MEAN across 2-4 core items in only 4 response points (n=4 per criterion; Pearson r at n=4 has very high sampling variance, only partially offset by pooling over thousands of criteria). It also assumes the local Qwen judge is an unbiased, symmetric reader of both positively- and negatively-phrased criterion text; if the judge is systematically worse at scoring negatively-phrased ('avoid X') criteria than positively-phrased ones -- plausible, since the few-shot prompt only demonstrates positive-criterion scoring -- then majority-negative (and therefore disproportionately contested, since a large negative mean with 99% having >=1 positive rater is the modal contested case here) criteria would show attenuated |r(c)| for an instrument-noise reason having nothing to do with whether the compiler actually dropped them. This confound has the same predicted direction as the substantive H1 finding and was not independently ruled out.",
+  "wall_clock_seconds": 20.72421884536743
+}

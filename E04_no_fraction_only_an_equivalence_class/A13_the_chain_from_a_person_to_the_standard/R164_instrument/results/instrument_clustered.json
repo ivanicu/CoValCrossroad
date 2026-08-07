@@ -1,0 +1,230 @@
+{
+ "model_axis": {
+  "reference": {
+   "arms": {
+    "full_weighted": 0.6601,
+    "core_compiled": 0.638,
+    "raw_topk_weighted": 0.6396,
+    "full_unweighted": 0.581
+   },
+   "top_bottom_gap": 0.0791,
+   "weight_effect": {
+    "mean": 0.00152,
+    "se_iid": 0.00184,
+    "se_2way": 0.00425,
+    "inflation": 2.31,
+    "ci95_2way": [
+     -0.00681,
+     0.00986
+    ],
+    "z_2way": 0.36,
+    "n": 15593,
+    "n_prompts": 968,
+    "n_raters": 1012
+   }
+  },
+  "phi": {
+   "arms": {
+    "full_weighted": 0.6427,
+    "core_compiled": 0.6399,
+    "raw_topk_weighted": 0.6085,
+    "full_unweighted": 0.6019
+   },
+   "top_bottom_gap": 0.0407,
+   "weight_effect": {
+    "mean": -0.03135,
+    "se_iid": 0.0021,
+    "se_2way": 0.00519,
+    "inflation": 2.47,
+    "ci95_2way": [
+     -0.04153,
+     -0.02118
+    ],
+    "z_2way": -6.04,
+    "n": 15593,
+    "n_prompts": 968,
+    "n_raters": 1012
+   }
+  },
+  "qwen3b": {
+   "arms": {
+    "full_weighted": 0.6626,
+    "core_compiled": 0.644,
+    "raw_topk_weighted": 0.6265,
+    "full_unweighted": 0.625
+   },
+   "top_bottom_gap": 0.0375,
+   "weight_effect": {
+    "mean": -0.01754,
+    "se_iid": 0.00202,
+    "se_2way": 0.00488,
+    "inflation": 2.41,
+    "ci95_2way": [
+     -0.02711,
+     -0.00797
+    ],
+    "z_2way": -3.59,
+    "n": 15593,
+    "n_prompts": 968,
+    "n_raters": 1012
+   }
+  }
+ },
+ "prompt_axis": {
+  "default": {
+   "variant": {
+    "mean": 0.01043,
+    "se_iid": 0.00325,
+    "se_2way": 0.00731,
+    "inflation": 2.25,
+    "ci95_2way": [
+     -0.00389,
+     0.02475
+    ],
+    "z_2way": 1.43,
+    "n": 4874,
+    "n_prompts": 300,
+    "n_raters": 977
+   },
+   "reference_same_prompts": {
+    "mean": 0.00928,
+    "se_iid": 0.00324,
+    "se_2way": 0.00762,
+    "inflation": 2.35,
+    "ci95_2way": [
+     -0.00564,
+     0.02421
+    ],
+    "z_2way": 1.22,
+    "n": 4874,
+    "n_prompts": 300,
+    "n_raters": 977
+   }
+  },
+  "swapped": {
+   "variant": {
+    "mean": 0.01087,
+    "se_iid": 0.00317,
+    "se_2way": 0.00704,
+    "inflation": 2.22,
+    "ci95_2way": [
+     -0.00293,
+     0.02468
+    ],
+    "z_2way": 1.54,
+    "n": 4874,
+    "n_prompts": 300,
+    "n_raters": 977
+   },
+   "reference_same_prompts": {
+    "mean": 0.00928,
+    "se_iid": 0.00324,
+    "se_2way": 0.00762,
+    "inflation": 2.35,
+    "ci95_2way": [
+     -0.00564,
+     0.02421
+    ],
+    "z_2way": 1.22,
+    "n": 4874,
+    "n_prompts": 300,
+    "n_raters": 977
+   }
+  }
+ },
+ "rewriting": {
+  "reference": {
+   "overall": {
+    "mean": 0.01748,
+    "se_iid": 0.00137,
+    "se_2way": 0.00388,
+    "inflation": 2.83,
+    "ci95_2way": [
+     0.00986,
+     0.02509
+    ],
+    "z_2way": 4.5,
+    "n": 11335,
+    "n_prompts": 702,
+    "n_raters": 996
+   },
+   "bands": {
+    "heavier": {
+     "mean": 0.02687,
+     "z": 2.78
+    },
+    "moderate": {
+     "mean": 0.01692,
+     "z": 2.54
+    },
+    "near-identical": {
+     "mean": 0.01206,
+     "z": 2.43
+    }
+   },
+   "monotonic": true
+  },
+  "phi": {
+   "overall": {
+    "mean": 0.01571,
+    "se_iid": 0.00143,
+    "se_2way": 0.00378,
+    "inflation": 2.64,
+    "ci95_2way": [
+     0.0083,
+     0.02312
+    ],
+    "z_2way": 4.16,
+    "n": 11335,
+    "n_prompts": 702,
+    "n_raters": 996
+   },
+   "bands": {
+    "heavier": {
+     "mean": 0.01922,
+     "z": 2.05
+    },
+    "moderate": {
+     "mean": 0.01386,
+     "z": 2.19
+    },
+    "near-identical": {
+     "mean": 0.01552,
+     "z": 3.08
+    }
+   },
+   "monotonic": false
+  },
+  "qwen3b": {
+   "overall": {
+    "mean": 0.00515,
+    "se_iid": 0.00129,
+    "se_2way": 0.00315,
+    "inflation": 2.44,
+    "ci95_2way": [
+     -0.00102,
+     0.01131
+    ],
+    "z_2way": 1.64,
+    "n": 11335,
+    "n_prompts": 702,
+    "n_raters": 996
+   },
+   "bands": {
+    "heavier": {
+     "mean": 0.01376,
+     "z": 2.15
+    },
+    "moderate": {
+     "mean": 0.00029,
+     "z": 0.05
+    },
+    "near-identical": {
+     "mean": 0.00401,
+     "z": 0.97
+    }
+   },
+   "monotonic": false
+  }
+ }
+}

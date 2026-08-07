@@ -1,0 +1,38 @@
+{
+  "cells": {
+    "home \u00b7 prompt-BLIND": {
+      "crit": 0.15017422739827935,
+      "file": "sat_generic.npz",
+      "k": 4,
+      "ragged": 0,
+      "resid": 0.14691157455205275,
+      "resp": 0.7029141980496678,
+      "units": 968
+    },
+    "home \u00b7 prompt-SPECIFIC": {
+      "crit": 0.4851066810419615,
+      "file": "sat_full.npz",
+      "k": 15,
+      "ragged": 0,
+      "resid": 0.37844516697244973,
+      "resp": 0.13644815198558874,
+      "units": 968
+    },
+    "second \u00b7 prompt-BLIND": {
+      "crit": 0.3138850680733869,
+      "file": "sat_transport_generic.npz",
+      "k": 4,
+      "ragged": 0,
+      "resid": 0.12788951917499422,
+      "resp": 0.558225412751619,
+      "units": 7344
+    }
+  },
+  "controls": {
+    "plant_criterion": 1.0,
+    "plant_response": 3.2898330286350036e-33
+  },
+  "source_name": "criterion_effect_across.py",
+  "source_sha256": "2040e6c0e23d99723ccf408fa77086796fa0507e131bf9bcda7359883a66ef58",
+  "verdict": "W_CORPUS"
+}

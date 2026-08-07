@@ -1,0 +1,151 @@
+R745 · are the added arms candidate cores, or our own apparatus?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+The definition's headline number is the extension, 5. R728 re-ran R294's census over the store as
+it stands today -- 92 arms rather than the committed 41 -- and it admits 16, adding 11. R728 called
+that "not a correction to the extension, it is a scope condition", and its own residue says, in its
+own words, "whether R294's construction is the right one is not addressed here."
+
+Nobody has asked the prior question: ARE the 51 added arms candidate cores at all? If they are
+predominantly instruments we built to measure ourselves -- random baselines, target-reading oracles,
+second-judge replicas, ceiling arms -- then 16 is not a rival number to 5. It is the apparatus being
+counted as its own subject matter, which is R637's observer-in-the-population one level up: in the
+DEFINITION's population rather than in the file tree.
+
+--------------------------------------------------------------------------------
+ESTIMAND
+--------------------------------------------------------------------------------
+The class composition of the 51 arms present in the store today and absent from R294's committed 41,
+and separately of the 11 that the census newly admits, under a partition derived from the builder's
+own source.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+IDENTIFIED from `corebench/select_core.py`, not from my judgement:
+
+  :50-52  the rule vocabulary is a closed set of NINE
+          random_k · topw_k · topabs_k · oracle_k · full · topvar_k · topwvar_k · indep_k · greedy_k
+  :102    `if a.rule in ("oracle_k", "indep_k", "greedy_k"):` loads the HUMAN TARGET
+  :204    the tag is EMITTED by the builder as rule + k + optional _s{seed} (random only) +
+          optional _fit{parity} (target-reading only) + tag_suffix
+
+So the partition is READ OFF THE BUILDER:
+  TARGET-READING  oracle_k, indep_k, greedy_k       -- read the answer; clause ③ exists to exclude
+  RANDOM          random_k                          -- a seeded random baseline
+  CEILING         full                              -- every criterion; not a selection
+  SELECTOR        topw_k, topabs_k, topvar_k, topwvar_k  -- prompt-blind selection from weights or
+                                                          variance; the only candidate-core family
+
+⚠ GAUGE TEST, AND IT BOUNDS THE SCOPE. Name classification is invariant under renaming an arm while
+the property is not, so a name is blind IN GENERAL. It is admissible here ONLY because :204 shows
+the builder EMITS the tag from the rule -- which R743 established from the same lines. Therefore any
+arm whose tag does NOT parse under this grammar is OUTSIDE the instrument's scope and is reported
+as UNPARSED, never folded into a class. The unparsed share is measured, not assumed.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  R728's recorded `population_drift_new_arms` (51) and `extra_admits_today` (11)
+instrument  the tag grammar at corebench/select_core.py:50-52, 102, 204
+baseline    R294's committed 41 -- the same classifier on the population WITHOUT the addition
+regime      the store at R728's tree_sha, as its artifact recorded it; no recomputation of the census
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE ADDED ARMS ARE CANDIDATE CORES. The extension is genuinely population-indexed, 5 is a
+    small-sample number, and the page must carry 5-on-41 AND 16-on-92 with neither privileged.
+B · THE ADDED ARMS ARE APPARATUS. Admitting them counts our instruments as candidate cores; 16 is
+    a category error rather than a rival number, and R294's population is right for a reason that
+    has never been written down.
+C · MIXED, and the split itself is the scope the page is missing.
+
+PREDICTION MATRIX -- non-SELECTOR share among the 11 newly admitted
+    A -> 0            B -> >= 6 of 11            C -> 1..5 of 11
+
+--------------------------------------------------------------------------------
+REGISTERED POINTS -- each independently failable, each labelled BLIND or SIGHTED
+--------------------------------------------------------------------------------
+P1  BLIND    of the 51 added, share whose tag parses under the grammar   registered >= 0.70
+P2  BLIND    of the 51 added, share classified non-SELECTOR              registered 0.55 [0.20,0.90]
+P3  ⚠ PARTIALLY SIGHTED -- while checking that R728's artifact carries the objects at all, a
+    truncated print showed SIX of the eleven names. Declaring it because an undeclared sighting is
+    an unavailability claim in the flattering direction, which this standard forbids in both
+    directions.
+             of the 11 newly admitted, count non-SELECTOR               registered 9 [0, 11]
+P4  BLIND    of R294's committed 41, share non-SELECTOR                  registered 0.45 [0.10,0.85]
+
+DIRECTIONAL, separately failable
+D   the 11 newly admitted are MORE non-SELECTOR than the 51 added taken as a whole -- i.e. the
+    census does not admit the added arms uniformly; it preferentially admits the apparatus.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE fires and NEGATIVE destroys the classification and PLACEBO is exactly zero:
+        non-SELECTOR among the 11 == 0   -> WORLD B KILLED; the additions are cores
+        non-SELECTOR among the 11 >= 6   -> WORLD A KILLED; the wider population's admissions are
+                                            dominated by apparatus
+        otherwise                        -> WORLD C; publish the split as the scope
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE   two arms whose class is known independently of this classifier:
+             `random_k8_s0` -- named in R728's own artifact as a random cell -> must be RANDOM
+             `topw_k4`      -- a member of the committed extension           -> must be SELECTOR
+           BAND, COMPUTED NOT CHOSEN: floor = a classifier assigning everything one class (so the
+           two cannot differ), ceiling = every parsed arm correctly separated. The threshold is
+           "both recovered and they land in DIFFERENT classes", which is unreachable at the floor
+           by construction -- asserted in code, not argued.
+g=0        a tag that is not in the grammar must return UNPARSED, never a silent SELECTOR. This is
+           the direction that matters: an unrecognised name defaulting to "candidate core" would
+           manufacture World A.
+NEGATIVE   shuffle the rule -> class mapping while keeping the tags. The classification must change.
+           World excluded: "any partition of these names gives this answer."
+SHAM       the same operation with the INGREDIENT ABSENT, not inverted. Ingredient = being ADDED
+           since R294's census. Run the identical classifier on the committed 41. If the
+           non-SELECTOR share is the same there, the additions are not distinctive and the finding
+           is about the store, not about the drift.
+PLACEBO    classify strings that are not arm tags at all (prompt ids from the same artifact). Must
+           return 0 in every class and be reported as "0 of N", never "0 of 0".
+NOISE      no rng. The variance is the CLASSIFIER choice: three variants swept --
+             loose  substring match on the rule words anywhere in the tag
+             tight  the tag must MATCH the emission grammar of :204 from position 0
+             family the rule prefix only, ignoring k/seed/parity/suffix
+UNIT       instrument unit = one TAG; claim unit = one ARM. R730 measured that 7 tags were 4
+           objects, so tags OVERCOUNT arms. The class shares are therefore reported per TAG, and
+           the round states that a per-OBJECT share would need R525's partition -- which is named
+           as a limit rather than silently ignored.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+3 classifiers x 3 populations (51 added, 11 admitted, 41 committed) = 9 cells, all reported.
+
+--------------------------------------------------------------------------------
+ARITHMETIC TRAP -- checked before the run
+--------------------------------------------------------------------------------
+Could this come out otherwise? YES. The 51 could be dominated by `topw_k*`/`topabs_k*` variants,
+which are SELECTOR, and then World A stands.
+
+⛔ ONE RELATION IS FORCED AND IS LABELLED A DERIVATION: the 11 are a SUBSET of the 51, so any share
+   computed on the 11 is a conditional share of the 51 and the two are not independent samples. The
+   directional D compares them anyway -- but as a within-population contrast, not as two draws, and
+   no significance is claimed for it.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+per-OBJECT shares          R525's satisfaction-vector partition applied to today's 92; this round
+                           reports per TAG and says so
+whether a SELECTOR arm is
+a good core                the definition itself; this round classifies provenance, not quality
+independently replicated   a second team; the session prompt forbids dispatching agents
+cross-site                 more than one repository

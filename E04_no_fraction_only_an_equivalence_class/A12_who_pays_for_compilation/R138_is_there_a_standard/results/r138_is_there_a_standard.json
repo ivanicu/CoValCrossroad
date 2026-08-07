@@ -1,0 +1,30 @@
+{
+ "arithmetic_check": 0.2697775577606759,
+ "conclusion": "No model is involved anywhere in this round. Over 5,564 coval_full criteria rated by at least 4 people (92,463 ratings from 1,158 raters), the share of rating variance that is BETWEEN criteria rather than between raters of the same criterion is ICC(1) = 0.2698 [0.2586, 0.2809]. The floor that makes that number mean anything is a rater-style null -- each person's own ratings reassigned across the criteria they rated, preserving their scale usage and extremeness exactly -- which gives 0.0008 (sd 0.0012). Excess over the floor: +0.2689 against a pre-registered margin of 0.1. The estimator recovers planted ICCs of 0.0, 0.3 and 0.7 as 0.0002, 0.2975, 0.6996, and permuting within a criterion returns the observed value to 0.00e+00. On the scale itself, 16.5% of all ratings are exactly +10 or -10 and 20 of the 21 available values are used at all. WORLD: W-WEAK-STANDARD. Something shared exists and is swamped by disagreement: an aggregate summarises a minority of the variance in what people said mattered, and must be stated as such rather than as the panel's view.",
+ "distinct_values_used": 20,
+ "excess_over_null": 0.2689318547638893,
+ "icc_ci": [
+  0.25857801886392673,
+  0.28091542703405914
+ ],
+ "icc_observed": 0.2697775577606759,
+ "margin": 0.1,
+ "mean_rating": 3.2864280847474125,
+ "min_raters": 4,
+ "n_criteria": 5564,
+ "n_raters": 1158,
+ "n_ratings": 92463,
+ "positive_control": {
+  "0.0": 0.00016497426839680426,
+  "0.3": 0.2974899548037012,
+  "0.7": 0.6996197779795582
+ },
+ "rater_style_null_mean": 0.0008457029967865979,
+ "rater_style_null_sd": 0.0012110669394852758,
+ "sd_rating": 5.438366750474163,
+ "share_extreme_10": 0.16457393768318138,
+ "source_name": "run.py",
+ "source_sha256": "f645ade7d6efb381fcdc2465d928ad639cd54ca7e3ca2c74c66a590d099c625e",
+ "strong": 0.4,
+ "world": "W-WEAK-STANDARD"
+}

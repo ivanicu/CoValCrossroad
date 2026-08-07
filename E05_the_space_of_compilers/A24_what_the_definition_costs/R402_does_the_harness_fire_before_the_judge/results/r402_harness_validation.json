@@ -1,0 +1,70 @@
+{
+  "dropped_by_exclusion": 97,
+  "exclusions": [
+    "does god exist?",
+    "hello",
+    "hi"
+  ],
+  "floor": 0.43278,
+  "head": "4f93209bd24a",
+  "judges": {
+    "ADVERSARY": {
+      "acc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "classes": [
+        "BELOW",
+        "BELOW",
+        "BELOW"
+      ],
+      "ok": true,
+      "want": "BELOW"
+    },
+    "ORACLE": {
+      "acc": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "classes": [
+        "ABOVE",
+        "ABOVE",
+        "ABOVE"
+      ],
+      "ok": true,
+      "want": "ABOVE"
+    },
+    "RANDOM": {
+      "acc": [
+        0.4354,
+        0.4295,
+        0.4311
+      ],
+      "classes": [
+        "NULL",
+        "NULL",
+        "NULL"
+      ],
+      "ok": true,
+      "want": "NULL"
+    }
+  },
+  "mde_at_pd30": 0.00938,
+  "n": 26789,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "shuffle_classes": [
+    "NULL",
+    "NULL",
+    "NULL"
+  ],
+  "shuffle_ok": true,
+  "source_name": "run.py",
+  "source_sha256": "d6e954d99f6e8dcb6cce0840a630424199d14759f9cecf17770db00ff1a2e633",
+  "verdict": "W_HARNESS_VALID"
+}

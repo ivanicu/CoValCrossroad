@@ -1,0 +1,1683 @@
+{
+  "A_distinct_extensions": 6,
+  "B_released_share": 0.3,
+  "C_added_by_turning_clause3_off": [
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "oracle_k4",
+    "oracle_k4_fit1"
+  ],
+  "C_is_a_derivation": true,
+  "C_size_clause3_off": 9,
+  "cells": [
+    {
+      "c1_rule": "strict",
+      "c2_rule": "strict",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "strict",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "strict",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "strict",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "ci_only",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "ci_only",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "ci_only",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "ci_only",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "point",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "generic",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 7
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "point",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "generic",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 7
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "point",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 11
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "point",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 11
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "mde_only",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "mde_only",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "mde_only",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "mde_only",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "conservative",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "topw_k6"
+      ],
+      "n": 1
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "conservative",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "topw_k6"
+      ],
+      "n": 1
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "conservative",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "strict",
+      "c2_rule": "conservative",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "strict",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "strict",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "strict",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "strict",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "ci_only",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "ci_only",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "ci_only",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "ci_only",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "point",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "generic",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 7
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "point",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "generic",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 7
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "point",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 11
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "point",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 11
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "mde_only",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "mde_only",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "mde_only",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "mde_only",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "conservative",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "topw_k6"
+      ],
+      "n": 1
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "conservative",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "topw_k6"
+      ],
+      "n": 1
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "conservative",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "ci_only",
+      "c2_rule": "conservative",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "strict",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "strict",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "strict",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "strict",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "ci_only",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "ci_only",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "ci_only",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "ci_only",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "point",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "generic",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 7
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "point",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "generic",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 7
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "point",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 11
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "point",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 11
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "mde_only",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "mde_only",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "mde_only",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "mde_only",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "conservative",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "topw_k6"
+      ],
+      "n": 1
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "conservative",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "topw_k6"
+      ],
+      "n": 1
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "conservative",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "point",
+      "c2_rule": "conservative",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "strict",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "strict",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "strict",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "strict",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "ci_only",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "ci_only",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "ci_only",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "ci_only",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "point",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "generic",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 7
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "point",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "generic",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 7
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "point",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 11
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "point",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 11
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "mde_only",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "mde_only",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "mde_only",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "mde_only",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "conservative",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "topw_k6"
+      ],
+      "n": 1
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "conservative",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "topw_k6"
+      ],
+      "n": 1
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "conservative",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "mde_only",
+      "c2_rule": "conservative",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "strict",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "strict",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "strict",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "strict",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "ci_only",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "ci_only",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "ci_only",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "ci_only",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "point",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "generic",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 7
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "point",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "generic",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 7
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "point",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 11
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "point",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 11
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "mde_only",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "mde_only",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "mde_only",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "mde_only",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n": 9
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "conservative",
+      "clause3": true,
+      "drop_kcap": false,
+      "ext": [
+        "topw_k6"
+      ],
+      "n": 1
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "conservative",
+      "clause3": true,
+      "drop_kcap": true,
+      "ext": [
+        "topw_k6"
+      ],
+      "n": 1
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "conservative",
+      "clause3": false,
+      "drop_kcap": false,
+      "ext": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "n": 5
+    },
+    {
+      "c1_rule": "conservative",
+      "c2_rule": "conservative",
+      "clause3": false,
+      "drop_kcap": true,
+      "ext": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "n": 5
+    }
+  ],
+  "census_source_sha": "2bc1124f6825df0f",
+  "controls": {
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "PLANT": true,
+    "RECONSTRUCTION": true,
+    "SHAM": true,
+    "UNIT": true
+  },
+  "controls_ok": true,
+  "directional_released_is_modal": true,
+  "modal_cells": 30,
+  "modal_extension": [
+    "coval_core",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "n_arms": 41,
+  "n_cells": 100,
+  "registered": "A 12 [2,100]; B 0.25 [0,1]; C 7 [5,41] (derivation); directional released==modal",
+  "released": [
+    "coval_core",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "residue": "seed/NBOOT/q/annotator-filter unreachable from the artifact -> LOWER BOUND",
+  "source_sha": "99087b3107d83741",
+  "tally": [
+    {
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n_cells": 30,
+      "size": 5
+    },
+    {
+      "ext": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n_cells": 30,
+      "size": 9
+    },
+    {
+      "ext": [
+        "topw_k6"
+      ],
+      "n_cells": 10,
+      "size": 1
+    },
+    {
+      "ext": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "n_cells": 10,
+      "size": 5
+    },
+    {
+      "ext": [
+        "coval_core",
+        "generic",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n_cells": 10,
+      "size": 7
+    },
+    {
+      "ext": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n_cells": 10,
+      "size": 11
+    }
+  ],
+  "tree_sha": "3919d45b48965801c570a4d1e6ef124788baf1be",
+  "world": "\u2b50\u2b50\u2b50 W-ROBUST, WITH ITS SIZE STATED. 6 distinct extensions are reachable across 100 defensible cells and the released 5-set holds 30 of them (30.0%); the modal extension has size 5 and IS the released set. \u2b50 So R294 COULD have returned otherwise \u2014 the producer is a measurement, not a derivation, and R723's 'one independent computation' survives as one rather than collapsing to zero. \u26a0 AND IT IS A LOWER BOUND: the bootstrap seed, NBOOT, the BH q and the >=2-annotator filter are fixed inside the artifact and would need the census re-run, so the true rule space is at least this wide and no narrower."
+}

@@ -1,0 +1,12 @@
+{
+  "world": "A",
+  "artifacts_scanned": 376,
+  "n_second_corpus": 3,
+  "n_home_corpus": 14,
+  "second_corpus_files": [
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R398_is_there_a_second_object_on_disk/results/r398_second_object.json",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R427_does_the_definition_transport_at_all/results/r427_transport.json",
+    "E05_the_space_of_compilers/A24_what_the_definition_costs/R433_does_clause_two_transport_with_its_subject/results/r433_clause2_subject.json"
+  ],
+  "axis_note": "second JUDGE (0.8B, same release) is a DIFFERENT axis and is excluded here"
+}

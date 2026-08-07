@@ -1,0 +1,79 @@
+{
+  "commit": "79d1f1e5019bd0c4fbfd2e4895023a00c049fb8e",
+  "n_prompts": 968,
+  "pool": 16,
+  "n_subsets": 1820,
+  "world": "A",
+  "rows": [
+    {
+      "width": 1,
+      "ratio": 1.0,
+      "sd_over_draws": 0.0,
+      "switch_rate": 0.0,
+      "distinct_winners": 1.0,
+      "mde_fixed": 0.01103403587633117,
+      "mde_selective": 0.01103403587633117,
+      "cells": 15
+    },
+    {
+      "width": 30,
+      "ratio": 0.9900914159047093,
+      "sd_over_draws": 0.01046376757412072,
+      "switch_rate": 0.12388333333333335,
+      "distinct_winners": 5.666666666666667,
+      "mde_fixed": 0.010390070516810157,
+      "mde_selective": 0.01028636975024713,
+      "cells": 15
+    },
+    {
+      "width": 100,
+      "ratio": 0.9728861899822635,
+      "sd_over_draws": 0.013711511188478482,
+      "switch_rate": 0.44500000000000006,
+      "distinct_winners": 11.133333333333333,
+      "mde_fixed": 0.010277149983865225,
+      "mde_selective": 0.009996732915063625,
+      "cells": 15
+    },
+    {
+      "width": 300,
+      "ratio": 0.9697602775305586,
+      "sd_over_draws": 0.02127413853712023,
+      "switch_rate": 0.6019333333333333,
+      "distinct_winners": 19.466666666666665,
+      "mde_fixed": 0.010341069939469826,
+      "mde_selective": 0.010022750525758056,
+      "cells": 15
+    },
+    {
+      "width": 1000,
+      "ratio": 0.9631158698322534,
+      "sd_over_draws": 0.005256294491660239,
+      "switch_rate": 0.6067666666666667,
+      "distinct_winners": 26.666666666666668,
+      "mde_fixed": 0.010339935091184117,
+      "mde_selective": 0.00995807107095876,
+      "cells": 15
+    },
+    {
+      "width": 1820,
+      "ratio": 0.9563720124356383,
+      "sd_over_draws": 0.0030592764165202884,
+      "switch_rate": 0.6930833333333334,
+      "distinct_winners": 36.666666666666664,
+      "mde_fixed": 0.010390923193148638,
+      "mde_selective": 0.009937030179587919,
+      "cells": 3
+    }
+  ],
+  "trend_w30_to_full": -0.033719403469070985,
+  "r861_ratio_30_rules": 0.966,
+  "r860_margin_over_mde_published": 0.87,
+  "r860_margin_over_mde_corrected": 0.9096878502167054,
+  "ratio_needed_to_clear_1p5": 0.58,
+  "controls": {
+    "placebo_w1": true,
+    "switch_all_widths": true,
+    "reproduced_r860_mde": 0.010343530538451993
+  }
+}

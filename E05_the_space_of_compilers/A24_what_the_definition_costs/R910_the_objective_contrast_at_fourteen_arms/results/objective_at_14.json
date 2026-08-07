@@ -1,0 +1,117 @@
+{
+  "commit": "df1435ac9bf4b7b435b235840a81a209b54734ae",
+  "world": "A",
+  "seed": 910,
+  "nboot": 8000,
+  "n_prompts": 968,
+  "new_arms": [
+    {
+      "arm": "topvar_k2",
+      "margin": -0.0650033119498793,
+      "lo": -0.07505345408930916,
+      "admitted": false
+    },
+    {
+      "arm": "topvar_k8",
+      "margin": -0.04195669999620044,
+      "lo": -0.05071364592832602,
+      "admitted": false
+    },
+    {
+      "arm": "topwvar_k2",
+      "margin": -0.05425954999457719,
+      "lo": -0.06477680845115223,
+      "admitted": false
+    },
+    {
+      "arm": "topwvar_k8",
+      "margin": -0.03385052274431596,
+      "lo": -0.042514147901755006,
+      "admitted": false
+    },
+    {
+      "arm": "topabs_k2",
+      "margin": -0.06378726653083404,
+      "lo": -0.07551512715279722,
+      "admitted": false
+    },
+    {
+      "arm": "topabs_k8",
+      "margin": -0.03131152198022683,
+      "lo": -0.0406801965652115,
+      "admitted": false
+    }
+  ],
+  "n_new_admitted": 0,
+  "groups": [
+    {
+      "objective": "SIGNED_MEAN_WEIGHT",
+      "spec": "pooled over k",
+      "n_admitted": 7,
+      "n_built": 16,
+      "share": 0.4375,
+      "ci95": [
+        0.2309836333518552,
+        0.6682180439322347
+      ]
+    },
+    {
+      "objective": "SIGNED_MEAN_WEIGHT",
+      "spec": "matched k=4",
+      "n_admitted": 3,
+      "n_built": 4,
+      "share": 0.75,
+      "ci95": [
+        0.3006360524426366,
+        0.9544139373553637
+      ]
+    },
+    {
+      "objective": "VARIANCE_OR_MAGNITUDE",
+      "spec": "pooled over k",
+      "n_admitted": 0,
+      "n_built": 14,
+      "share": 0.0,
+      "ci95": [
+        0.0,
+        0.21531701192718142
+      ]
+    },
+    {
+      "objective": "VARIANCE_OR_MAGNITUDE",
+      "spec": "matched k=4",
+      "n_admitted": 0,
+      "n_built": 8,
+      "share": 0.0,
+      "ci95": [
+        0.0,
+        0.3244156195108769
+      ]
+    }
+  ],
+  "verdicts": {
+    "pooled over k": {
+      "disjoint": true,
+      "signed_lo_minus_other_hi": 0.015666621424673788
+    },
+    "matched k=4": {
+      "disjoint": false,
+      "signed_lo_minus_other_hi": -0.023779567068240304
+    }
+  },
+  "r909_prereg": "disjoint Wilson intervals in either specification, or WORLD B stands \u2014 quoted from R909's artifact, not restated",
+  "wiring": {
+    "reference": {
+      "topw_k4": 0.014402,
+      "topabs_k4": -0.063677,
+      "topvar_k4": -0.066342,
+      "topwvar_k4": -0.048203
+    },
+    "reproduced": true,
+    "why_numbers_not_just_flags": "a re-implementation agreeing on the verdict could still be a different estimator"
+  },
+  "arms_chosen_by": "k NOT YET BUILT, never by expected outcome",
+  "only_one_group_enlarged": "topw is still 16 arms / 4 at k=4; the comparison is asymmetric by design",
+  "unit_note": "counts are ARMS; margins are A2 units vs genericpool16",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

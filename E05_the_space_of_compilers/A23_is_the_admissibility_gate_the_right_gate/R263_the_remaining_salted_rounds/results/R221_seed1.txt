@@ -1,0 +1,57 @@
+  join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}
+prompts 968   |   chance k/(n+1) at k=4, one plant: 0.2713
+
+=== WHY THE POSITIVE CONTROL CANNOT FIRE: the objective is degenerate ===
+ prompts where SOME single criterion alone reproduces the full ranking : 100.0%
+ how many criteria TIE at that perfect score        median 3   mean 4.1
+ the rank_clone plant is AMONG the tied best        100.0%
+ the rank_clone plant is the UNIQUE best            12.7%
+ -> a greedy that breaks ties by array position selects the plant at the rate at which
+    it is uniquely best. Its selection rate measures LIST POSITION, not quality.
+
+=== selection rate, one plant at a time, k=4, mean over 3 seeds ===
+arm                 rank_clone       posthoc         inert     duplicate      permuted  style_length   chance
+C_signed_topk           0.0165        0.0165        0.0165        0.8244        0.1825        0.0165   0.2713
+D_decision              0.1477        0.0537        0.0341        0.0052        0.0286        0.0579   0.2713
+E_typed                 0.1477        0.0537        0.0341        0.0052        0.0286        0.0579   0.2713
+G_medoid                0.7338        0.7328        0.7231        0.7414        0.7338        0.7335   0.2713
+F_random                0.2638        0.2638        0.2638        0.2638        0.2638        0.2638   0.2713
+
+=== all five planted at once, k=4 ===
+arm                 rank_clone       posthoc         inert     duplicate      permuted  style_length
+C_signed_topk           0.0007        0.0000        0.0000        0.7948        0.1174        0.0000   chance 0.1981
+D_decision              0.0995        0.0224        0.0090        0.0003        0.0072        0.0083   chance 0.1981
+E_typed                 0.0995        0.0224        0.0090        0.0003        0.0072        0.0083   chance 0.1981
+G_medoid                0.2497        0.2486        0.2696        0.2741        0.2924        0.2827   chance 0.1981
+F_random                0.1983        0.1963        0.1983        0.2090        0.1952        0.1952   chance 0.1981
+
+=== specification curve over k (rank_clone = the positive control) ===
+C_signed_topk   k=3 0.0041 (chance 0.2035)  k=4 0.0165 (chance 0.2713)  k=5 0.1085 (chance 0.3392)
+D_decision      k=3 0.1426 (chance 0.2035)  k=4 0.1477 (chance 0.2713)  k=5 0.1519 (chance 0.3392)
+E_typed         k=3 0.1426 (chance 0.2035)  k=4 0.1477 (chance 0.2713)  k=5 0.1519 (chance 0.3392)
+G_medoid        k=3 0.7087 (chance 0.2035)  k=4 0.7338 (chance 0.2713)  k=5 0.7541 (chance 0.3392)
+F_random        k=3 0.2021 (chance 0.2035)  k=4 0.2638 (chance 0.2713)  k=5 0.3364 (chance 0.3392)
+
+=== human agreement, k=4: does the contamination HELP? ===
+arm                  clean     rank_clone       posthoc         inert     duplicate      permuted  style_length
+C_signed_topk       0.6617        -0.0002       -0.0003       -0.0000       -0.0107       -0.0047       -0.0005
+D_decision          0.6851        +0.0011       +0.0010       -0.0002       -0.0016       -0.0007       -0.0017
+E_typed             0.6851        +0.0011       +0.0010       -0.0002       -0.0016       -0.0007       -0.0017
+G_medoid            0.6567        +0.0107       +0.0024       -0.0140       -0.0096       -0.0242       -0.0365
+F_random            0.6502        +0.0031       -0.0004       -0.0045       -0.0041       -0.0093       -0.0129
+
+=== seed spread (rank_clone, k=4, one) ===
+C_signed_topk   0.0165 0.0165 0.0165   spread 0.0000
+D_decision      0.1477 0.1477 0.1477   spread 0.0000
+E_typed         0.1477 0.1477 0.1477   spread 0.0000
+G_medoid        0.7397 0.7159 0.7459   spread 0.0300
+F_random        0.2748 0.2438 0.2727   spread 0.0310
+
+==============================================================================
+PRE-REGISTERED KILL -- a conditional, not a threshold
+==============================================================================
+positive control  sel(D, rank_clone) = 0.1477  vs chance 0.2713   -> DOES NOT FIRE
+negative control  sel(D, inert)   = 0.0341  vs chance 0.2713   -> null
+matched real criteria (|w| within 10% of the plant's) sel = 0.2638
+
+  UNVERIFIED -- and the cause is identified: the objective is degenerate. 100.0% of prompts admit a SINGLE criterion that reproduces the whole ranking, with a median of 3 tied at that score. The plant is among the best 100.0% of the time and uniquely best 12.7%, and the greedy's selection rate tracks the latter. No contamination test can discriminate on an objective that cannot discriminate.

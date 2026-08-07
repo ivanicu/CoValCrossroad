@@ -1,0 +1,22 @@
+{
+ "source_sha": "30cc38ff415d70fa",
+ "world": "W-BOTH",
+ "own_mean": 0.059857266518742736,
+ "own_sd": 0.07078947003179628,
+ "other_mean": 0.002516328540098442,
+ "other_sd": 0.008732835858144251,
+ "lift": 0.05734093797864429,
+ "prompt_vs_prompt": 0.011188649123035056,
+ "eval_share": 0.8188636363636363,
+ "eval_control": {
+  "generic": 1.0,
+  "raw_prompts": 0.1025
+ },
+ "positive_copied": 0.6160866251887238,
+ "n": 2200,
+ "seeds": [
+  11,
+  22,
+  33
+ ]
+}

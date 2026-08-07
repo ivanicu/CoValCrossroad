@@ -1,0 +1,14 @@
+{
+  "quantisation": {
+    "bitsandbytes": false,
+    "optimum": false,
+    "auto_gptq": false,
+    "awq": false
+  },
+  "offload": {
+    "accelerate": true
+  },
+  "world": "B",
+  "not_measured": "offload throughput on 7B",
+  "expires": "next infra event"
+}

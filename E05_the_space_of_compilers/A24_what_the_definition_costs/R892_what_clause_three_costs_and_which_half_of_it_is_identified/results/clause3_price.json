@@ -1,0 +1,68 @@
+{
+  "verdict": "UNVERIFIED",
+  "reason": "the paired null's resolution floor is 0.125, so it cannot reject at 0.05 regardless of the data",
+  "controls": {
+    "positive_prompt_bootstrap": true,
+    "placebo_paired_signflip": false
+  },
+  "matched_cells": [
+    [
+      "greedy",
+      "4"
+    ],
+    [
+      "indep",
+      "4"
+    ],
+    [
+      "oracle",
+      "4"
+    ]
+  ],
+  "heldout_only_cells": [
+    [
+      "greedy",
+      "12"
+    ],
+    [
+      "greedy",
+      "2"
+    ],
+    [
+      "greedy",
+      "8"
+    ],
+    [
+      "indep",
+      "2"
+    ],
+    [
+      "indep",
+      "8"
+    ]
+  ],
+  "gap_unmatched_8v8": 0.019,
+  "gap_paired_within_rule_k4": 0.0064538177797466775,
+  "gap_paired_ci95_prompt_bootstrap": [
+    0.002875319494522396,
+    0.009993199052634473
+  ],
+  "share_of_effect_from_k_confound": 0.6603253800133327,
+  "paired_null": {
+    "median": -0.00042019824410673834,
+    "ci95": [
+      -0.0075910806720570845,
+      0.0075910806720570845
+    ],
+    "n_sign_patterns": 8,
+    "floor": 0.125
+  },
+  "retracted_in_this_round": "the docstring's claim that leaky-vs-held-out is IDENTIFIED because the arms share rule, family and k. They do not share k: leaky is all k=4, held-out spans k=2,4,8,12.",
+  "withdrawn_placebo": "the _kA/_kB replica placebo returned +0.0000 [0,0] \u2014 zero width, forced by the algebra (r = 1.000000). A derivation wearing a control's name.",
+  "what_would_resolve_it": "leaky arms at k=2, 8 and 12 \u2014 the generator can produce them (drop --fit-parity), so this is a MISSING RUN, not a structural impossibility",
+  "stratum_mean_margin": {
+    "label_free": 0.01956051926242543,
+    "held_out": 0.05147348712936416,
+    "leaky": 0.07043578657126724
+  }
+}

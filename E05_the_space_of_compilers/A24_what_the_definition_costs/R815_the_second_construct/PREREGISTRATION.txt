@@ -1,0 +1,83 @@
+R815 · THE SECOND CONSTRUCT — does the definition survive changing which human question is asked?
+written before the run · NBOOT 1200 · ZEFF 2.801585
+
+PROVOCATION
+R814 closed by saying the step was a WRITING decision, on the ground that the release "ships one
+judgement per (annotator, prompt) pair" so the rater x prompt interaction is unidentifiable.
+
+⛔ CHECK #417 FOUND THAT PREMISE FALSE, AND FOUND SOMETHING LARGER BEHIND IT.
+ (1) There are **111 repeated (prompt, annotator) pairs**, so the interaction is partially
+     identified. The NEXT stated a flat fact that was not one.
+ (2) ⭐ `ranking_blocks` carries THREE keys, not one: `world` (18,384 rankings), `personal` (4,901)
+     and `unacceptable` (4,901). **This entire arc has scored A2 against `world` alone.**
+     321 of 1,078 prompts carry BOTH `world` and `personal`, and where the SAME annotator answered
+     BOTH on the SAME prompt, the two rankings DIFFER in **2,374 of 4,901 cases — 48.4%**.
+
+That is a second human construct sitting inside the release. `corebench/score.py:34` registers
+`X1_construct_validity` as needing "an external gold standard"; this is not external, but it is a
+second question put to the same people about the same responses, and no round has used it.
+
+ESTIMAND
+E1  every load-bearing arm's A2 against `personal`, on the 321 prompts carrying both blocks.
+E2  ⭐ the PAIRED difference A2(world) - A2(personal), same prompts, same annotators.
+E3  ⭐ the ORDERING: rank correlation between the arms' ordering under `world` and under `personal`.
+    This is the quantity the definition depends on -- it speaks of "the human target" as if singular.
+E4  the arc's committed margins recomputed under `personal`: does the fitted-vs-honest ordering, and
+    does `coval_core`'s standing, survive the change of question?
+
+IDENTIFICATION
+Identified on the 321-prompt subpopulation. ⚠ 321 is a THIRD of 968, so intervals are ~1.7x wider by
+construction; the MDE is computed and reported BEFORE any null is called. A null here is a statement
+about power unless the MDE says otherwise.
+⚠ The `personal` block is a DIFFERENT QUESTION, not a replicate. It cannot serve as a reliability
+estimate for `world`, and this round never treats it as one.
+
+DERIVED BEFORE MEASURING
+D1 [DERIVATION] an arm built FROM the `personal` modal class must beat every real arm on `personal`.
+   POSITIVE, with a known direction; and it must NOT beat them on `world` by the same margin.
+D2 [DERIVATION] an arm against itself is exactly 0 on either target. PLACEBO.
+D3 the 321 prompts are not a random third: they are the prompts where annotators were ASKED the
+   second question. Any world-target number on them may differ from the 968-prompt figure for that
+   reason alone, so the round reports the world-target A2 on BOTH populations and never treats the
+   321 as a sample of the 968.
+D4 48.4% disagreement between the two blocks is a fact about ANNOTATORS, not about arms. It bounds
+   how different the two targets can be but does not predict which arms move.
+
+WORLDS
+A  TARGET-INVARIANT: the arms' ordering is preserved (rank correlation >= 0.9) and no committed
+   margin flips sign -> "human judgement" is one thing for the definition's purposes.
+B  TARGET-DEPENDENT: the ordering changes materially or a committed margin flips -> the definition
+   must name WHICH human question, and every number this arc has published is scoped to `world`.
+C  UNDERPOWERED: the 321-prompt MDE exceeds the margins under test -> report the MDE and claim
+   nothing.
+CHECKED FIRST: B, because it rescopes the whole arc.
+
+PREDICTION MATRIX
+                              A              B              C
+rank correlation           >= 0.9         < 0.9          any
+any committed margin flips  no             yes            n/a
+MDE vs margins             smaller        smaller        larger
+
+CONTROLS
+OBJECT   reproduce the arc's committed `world` A2 for `coval_core` on the full 968 (0.5664774812)
+         before restricting, so the pipeline is anchored to the record. Exit 2 otherwise.
+PLACEBO  D2: an arm minus itself on each target -> exactly 0.
+POSITIVE D1: a synthetic arm built from the `personal` modal class must top the `personal` table;
+         g=0 check -- the same arm built from `world` must NOT top `personal` by the same margin.
+NEGATIVE the block LABELS shuffled within each assessment (world<->personal at random) -> the paired
+         difference must collapse toward 0. 200 permutations.
+NOISE FLOOR 20 half-splits of the 321 prompts; the sd of every reported difference.
+MDE       computed for the 321-prompt paired design and reported BEFORE any null is interpreted.
+
+PRE-REGISTERED KILL -- conditional, never a bare threshold
+  if object_reproduces and placebo_zero and positive_tops_personal and negative_collapses:
+      if MDE > the smallest margin under test                  -> WORLD C
+      elif rank correlation < 0.9 or any committed margin flips -> WORLD B
+      else                                                      -> WORLD A
+  else:
+      UNVERIFIED   (never OVERTURNED, never CONFIRMED)
+
+MULTIPLICITY 9 arms x 2 targets reported in full; BH q=0.05 over the paired-difference family;
+non-survivors printed.
+STOPPING RULE one round. If fewer than 250 prompts carry both blocks with >=2 annotators each, the
+round returns UNVERIFIED rather than quoting a rank correlation over a thin population.

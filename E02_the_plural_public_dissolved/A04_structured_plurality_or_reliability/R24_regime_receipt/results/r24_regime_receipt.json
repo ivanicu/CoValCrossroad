@@ -1,0 +1,23 @@
+{
+ "metric": "rationale_chars",
+ "positions": 20,
+ "trend_r2": 0.44801197398429893,
+ "trend_slope": -5.30898125802141,
+ "step_r2_best": 0.9644112000064196,
+ "step_breakpoint_position": 6,
+ "step_r2_fixed_at_6": 0.9644112000064196,
+ "level_change": -0.3857114762677427,
+ "null_reps": 20000,
+ "null_mean": 0.1723644818223959,
+ "null_sd": 0.11177305374034054,
+ "null_p95": 0.40551994264485813,
+ "z_vs_selection_matched_null": 7.086204515955496,
+ "p_value": 0.0001,
+ "within_segment_slopes": {
+  "before": 6.840449669434953,
+  "after": 1.0389046719078578
+ },
+ "rises_within_every_segment": true,
+ "verdict": "REGIME: the step survives a breakpoint-selection-matched null AND effort rises within each segment || FROZEN LINE (FROZEN.md section 2): the task-position regime reading -- r02, r24, r31 -- is FROZEN as MECHANISM-UNIDENTIFIABLE. What survives is established: the discontinuity is real and WITHIN-PERSON, -179.2 chars [-196.2,-162.3], -53.3%, on the 933 people present at both positions against 6.1% attrition, so composition is excluded. What is frozen is the INTERPRETATION. DATASET_CARD.md:81 sets a five-task minimum and sessions of 5 or 15 prompts, and the release carries NO session identifier and NO timestamp -- verified field by field. So for anyone whose first batch held five prompts, position 6 is the first task of a LATER SESSION, and within-session fatigue is not separable from between-session habituation. Do not call this fatigue. It unfreezes only with session ids or timestamps, which would have to come from OpenAI.",
+ "note": "README carried step R^2=0.964 vs trend 0.448 with no code behind it. The arithmetic reproduces, but comparing a free-breakpoint step against a line charges the step nothing for choosing its breakpoint. The null here re-searches the breakpoint on every shuffle, so it absorbs that advantage."
+}

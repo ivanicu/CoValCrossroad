@@ -1,0 +1,16 @@
+{
+  "world": "A SELECTED FOR FORM \u2014 Delta=+0.3506 above the null's 97.5% of +0.2200: the page cites rounds whose verdicts take the six-token form more often than drawing 17 at random would give. \u26a0 FORM, not legibility or quality.",
+  "controls_ok": true,
+  "era_rate": 0.6842105263157895,
+  "n_era": 171,
+  "n_cited": 17,
+  "p_cited": 1.0,
+  "p_uncited": 0.6493506493506493,
+  "delta": 0.35064935064935066,
+  "null_lo": -0.2372039724980901,
+  "null_hi": 0.22001527883880823,
+  "null_median": 0.02406417112299475,
+  "ceiling_kill": false,
+  "check215": "R615's closing line called this property LEGIBILITY \u2014 writing a verdict in the corpus's shared vocabulary. The instrument measures first token in a six-member set; R591's own world value 'MIXED \u2014 \u2026' is a well-formed verdict the rule excludes. Renamed to SIX-TOKEN FORM.",
+  "impossible": "form is not legibility and neither is quality; rounds writing MIXED or W-LOSES are excluded by this measure and by nothing else"
+}

@@ -1,0 +1,156 @@
+{
+  "A_n_greedy_excluded": 919,
+  "B_se_maximal": 0.013757695623023022,
+  "C_excluding_zero": 1,
+  "D_admitted_target_reading_objects": 3,
+  "cells": {
+    "greedy|oracle_k4": {
+      "covers_zero": true,
+      "excess": 0.019238251120785588,
+      "global_covers": true,
+      "global_excess": 0.021114136997365973,
+      "global_se": 0.01618849548436113,
+      "hi": 0.0452408899843556,
+      "lo": -0.00783207763787186,
+      "n": 919,
+      "need": 8,
+      "se": 0.013757695623023022
+    },
+    "greedy|topw_k3": {
+      "covers_zero": true,
+      "excess": -0.022919247338020143,
+      "global_covers": true,
+      "global_excess": -0.0087610427692274,
+      "global_se": 0.030692930317208617,
+      "hi": 0.029865815633420056,
+      "lo": -0.07444928135331225,
+      "n": 950,
+      "need": 7,
+      "se": 0.02717052551152465
+    },
+    "greedy|topw_k4": {
+      "covers_zero": true,
+      "excess": -0.02019764929431833,
+      "global_covers": true,
+      "global_excess": -0.012224800445836792,
+      "global_se": 0.029642209980105347,
+      "hi": 0.02838502021250583,
+      "lo": -0.07122391208184886,
+      "n": 919,
+      "need": 8,
+      "se": 0.02565791061381294
+    },
+    "greedy|topw_k6": {
+      "covers_zero": true,
+      "excess": -0.01227437630304129,
+      "global_covers": true,
+      "global_excess": -0.011993276842733769,
+      "global_se": 0.026144762969221417,
+      "hi": 0.03266727609193676,
+      "lo": -0.06145479350660965,
+      "n": 859,
+      "need": 10,
+      "se": 0.024055842632537978
+    },
+    "greedy|topw_k8": {
+      "covers_zero": true,
+      "excess": -0.04113211645707271,
+      "global_covers": true,
+      "global_excess": -0.04113211645707271,
+      "global_se": 0.024524384626459023,
+      "hi": 0.005180584283247303,
+      "lo": -0.09163415749840365,
+      "n": 734,
+      "need": 12,
+      "se": 0.024524384626459023
+    },
+    "indep|oracle_k4": {
+      "covers_zero": true,
+      "excess": 0.00464364570919773,
+      "global_covers": true,
+      "global_excess": 0.017554398183077025,
+      "global_se": 0.02318636533512348,
+      "hi": 0.04163418095758897,
+      "lo": -0.03491642802650585,
+      "n": 919,
+      "need": 8,
+      "se": 0.019734856917170376
+    },
+    "indep|topw_k3": {
+      "covers_zero": true,
+      "excess": -0.03375311577129758,
+      "global_covers": true,
+      "global_excess": -0.02143882903927541,
+      "global_se": 0.029968749374266957,
+      "hi": 0.016908465501912273,
+      "lo": -0.08469998786111205,
+      "n": 950,
+      "need": 7,
+      "se": 0.026253346067599586
+    },
+    "indep|topw_k4": {
+      "covers_zero": true,
+      "excess": -0.02934660880599027,
+      "global_covers": true,
+      "global_excess": -0.023125031026214327,
+      "global_se": 0.028998163736504302,
+      "hi": 0.017659857219312403,
+      "lo": -0.07955004464587656,
+      "n": 919,
+      "need": 8,
+      "se": 0.024841056889493444
+    },
+    "indep|topw_k6": {
+      "covers_zero": true,
+      "excess": -0.027910962345188084,
+      "global_covers": true,
+      "global_excess": -0.03386609997115231,
+      "global_se": 0.024980668191383566,
+      "hi": 0.01572646700507052,
+      "lo": -0.07365333558412457,
+      "n": 859,
+      "need": 10,
+      "se": 0.022520405241776273
+    },
+    "indep|topw_k8": {
+      "covers_zero": false,
+      "excess": -0.05557231465778689,
+      "global_covers": false,
+      "global_excess": -0.05557231465778689,
+      "global_se": 0.02342715910522133,
+      "hi": -0.011566522432261639,
+      "lo": -0.10084099875167929,
+      "n": 734,
+      "need": 12,
+      "se": 0.02342715910522133
+    }
+  },
+  "controls": {
+    "G0": true,
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "SHAM": true
+  },
+  "controls_ok": true,
+  "directional_none_newly": true,
+  "extension": [
+    "coval_core",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "global_need": 12,
+  "newly_resolved": [],
+  "prior_art": [
+    "R294",
+    "R730",
+    "R741"
+  ],
+  "registered": "A 919 [0,968]; B 0.0145 [0,1]; C 1 [0,10]; D 3 [0,16]",
+  "residue": "per-cell populations are not comparable across cells; the ordering gap stays on the global population",
+  "source_sha": "568c97dd381ef637",
+  "tree_sha": "7192dad190f2fd6a52138f5bb89b34d08b1469eb",
+  "world": "\u2b50\u2b50\u2b50 W-STILL-UNRESOLVED. Giving every cell its own population recovers up to 216 prompts \u2014 the cell the arc turns on rises from 734 to 919 \u2014 and resolves NOTHING new: 1 of ten exclude zero, the same 1 cell as before. \u2b50 So the global threshold was not the binding constraint and the bounds stand as reported. \u26d4 AND THE SCOPE WORRY I CLOSED THE LAST ROUND WITH WAS ONE THIRD ITS STATED SIZE: clause \u2462 is a name lookup that consults no prompt and the extension comes from a census on each arm's own population, so only the excesses were ever restricted. The admission count is 3 and the extension is 5 members, both computed without any prompt restriction. \u26a0 The per-cell column is NOT comparable across cells \u2014 each is a different prompt set \u2014 which is why the global column is printed beside it and why the ordering gap is left on the global population, where an average across cells is defined."
+}

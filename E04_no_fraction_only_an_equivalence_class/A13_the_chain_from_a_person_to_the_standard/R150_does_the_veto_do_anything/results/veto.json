@@ -1,0 +1,96 @@
+{
+ "prompts": 1100,
+ "prompts_with_any_veto_block": 1100,
+ "assessments": 18562,
+ "assessments_with_block": 18562,
+ "coverage": 1.0,
+ "p_unacceptable_by_rank": {
+  "0": 0.0258,
+  "1": 0.0567,
+  "2": 0.0808,
+  "3": 0.1594
+ },
+ "veto_count_distribution": {
+  "0": 0.8285,
+  "1": 0.0989,
+  "2": 0.0428,
+  "3": 0.0193,
+  "4": 0.0105
+ },
+ "rank_only_pseudo_r2": 0.0559,
+ "testable_prompts": 1091,
+ "agrees_with_plurality": 1024,
+ "changes_winner": 67,
+ "change_rate": 0.0614,
+ "served_plurality": 0.6655,
+ "served_veto_respecting": 0.6499,
+ "served_delta": -0.01557,
+ "served_delta_ci95": [
+  -0.02033,
+  -0.01081
+ ],
+ "mean_vetoes_overall": 0.2845,
+ "group_extremes": [
+  {
+   "axis": "gender",
+   "group": "Prefer not to say",
+   "mean_vetoes": 0.4923,
+   "n": 65
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "Korea, Republic of",
+   "mean_vetoes": 0.3797,
+   "n": 79
+  },
+  {
+   "axis": "age",
+   "group": "65+",
+   "mean_vetoes": 0.3743,
+   "n": 342
+  },
+  {
+   "axis": "generative_ai_usage",
+   "group": "Almost constantly",
+   "mean_vetoes": 0.3326,
+   "n": 1888
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "Netherlands",
+   "mean_vetoes": 0.324,
+   "n": 2062
+  },
+  {
+   "axis": "generative_ai_usage",
+   "group": "Only a few times so far",
+   "mean_vetoes": 0.2245,
+   "n": 1029
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "United Kingdom",
+   "mean_vetoes": 0.2228,
+   "n": 1454
+  },
+  {
+   "axis": "generative_ai_usage",
+   "group": "Never",
+   "mean_vetoes": 0.2042,
+   "n": 240
+  },
+  {
+   "axis": "ai_concern_level",
+   "group": "Not sure / No answer",
+   "mean_vetoes": 0.1756,
+   "n": 279
+  },
+  {
+   "axis": "country_of_residence",
+   "group": "Canada",
+   "mean_vetoes": 0.1282,
+   "n": 78
+  }
+ ],
+ "instrument": "none -- human rankings and veto blocks only"
+}

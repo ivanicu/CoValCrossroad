@@ -1,0 +1,32 @@
+{
+  "controls": {
+    "g0": [
+      0.634575569358178,
+      0.6242236024844721,
+      0.5921325051759834
+    ],
+    "g0_ok": true,
+    "placebo": true,
+    "positive": "True",
+    "positive_score": 1.0
+  },
+  "n_external": 161,
+  "n_prompts": 968,
+  "rule_a": {
+    "mde": 0.015993062656358706,
+    "mean_08B": 0.4119843807592799,
+    "mean_2B": 0.5087225653570847,
+    "names": "2B",
+    "paired": 0.09673818459780477
+  },
+  "rule_b": {
+    "mde": 0.06382316055221106,
+    "mean_08B": 0.5838509316770186,
+    "mean_2B": 0.7018633540372671,
+    "names": "2B",
+    "paired": 0.11801242236024848
+  },
+  "source_name": "run.py",
+  "source_sha256": "e98709ce11c178d12d8e4ce064afef4cc1a8886e98e79ee41aec1647d7a7ea1b",
+  "verdict": "W_RULE_EXISTS"
+}

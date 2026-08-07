@@ -1,0 +1,33 @@
+{
+  "controls": {
+    "constant_plant_stable": true,
+    "cuda_ok": true,
+    "rng_plant_caught": true
+  },
+  "differing": [
+    "02",
+    "04",
+    "05",
+    "06",
+    "1.22",
+    "1.41",
+    "10",
+    "104.63",
+    "112.92",
+    "117",
+    "117.28",
+    "117.56"
+  ],
+  "head": "b9388bd55eb6",
+  "identical": false,
+  "n_numbers": 140,
+  "returncodes": [
+    0,
+    0
+  ],
+  "source_name": "run.py",
+  "source_sha256": "4b28d5fed8cfacdf84c799747fb5c0201f6296c01c49492761b28bdb9de2e2bc",
+  "subject": "R130_judge_gauge",
+  "subject_src_sha256": "01799bfde4cf2b2a311b5fffe65b82b5d0fb6db2b6ba5919beda5023253e7f51",
+  "verdict": "W_TAIL_MOVES"
+}

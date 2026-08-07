@@ -1,0 +1,14 @@
+{
+  "n_pass2": 9,
+  "ext_rank": [
+    "coval_core",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "ext_any": [],
+  "n_disagree_arms": 16,
+  "world": "B",
+  "positive_control": true
+}

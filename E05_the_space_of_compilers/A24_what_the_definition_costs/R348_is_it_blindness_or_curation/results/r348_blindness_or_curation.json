@@ -1,0 +1,76 @@
+{
+  "census_sha256_16": "ac06c51261654769",
+  "classB_mean_c1": -0.017028033823996713,
+  "controls": {
+    "direction": true,
+    "g0": true,
+    "positive_classA": true
+  },
+  "rows": [
+    {
+      "arm": "coval_core_sham",
+      "c1": 0.0029271903030969964,
+      "cls": "B crowd+blind",
+      "k": 4,
+      "mde1": 0.01517767600384124,
+      "verdict": "inside the MDE"
+    },
+    {
+      "arm": "full_sham",
+      "c1": -0.03225788225636945,
+      "cls": "B crowd+blind",
+      "k": 15,
+      "mde1": 0.015224080582480896,
+      "verdict": "resolvably WORSE"
+    },
+    {
+      "arm": "gen_sham",
+      "c1": -0.009886403776082476,
+      "cls": "B crowd+blind",
+      "k": 4,
+      "mde1": 0.016548912893946697,
+      "verdict": "inside the MDE"
+    },
+    {
+      "arm": "promptecho_sham",
+      "c1": -0.04412610632530284,
+      "cls": "B crowd+blind",
+      "k": 4,
+      "mde1": 0.025173616935994902,
+      "verdict": "resolvably WORSE"
+    },
+    {
+      "arm": "topw_k4_sham",
+      "c1": -0.0017969670653257936,
+      "cls": "B crowd+blind",
+      "k": 4,
+      "mde1": 0.015343059226954737,
+      "verdict": "inside the MDE"
+    },
+    {
+      "arm": "generic",
+      "c1": 0.05866734140210573,
+      "cls": "A curated+blind",
+      "k": 4,
+      "mde1": 0.014355902121240702,
+      "verdict": "resolvably better"
+    },
+    {
+      "arm": "topw_k4",
+      "c1": 0.07149362574267926,
+      "cls": "read the prompt",
+      "k": 4,
+      "mde1": 0.012808446637362067,
+      "verdict": "resolvably better"
+    },
+    {
+      "arm": "coval_core",
+      "c1": 0.07379048339598263,
+      "cls": "read the prompt",
+      "k": 4,
+      "mde1": 0.013160389775093493,
+      "verdict": "resolvably better"
+    }
+  ],
+  "verdict": "W2_CURATION"
+}

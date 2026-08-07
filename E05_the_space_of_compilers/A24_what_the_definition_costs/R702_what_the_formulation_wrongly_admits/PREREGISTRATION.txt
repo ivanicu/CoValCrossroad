@@ -1,0 +1,29 @@
+R702 · PRE-REGISTRATION — written before any k is looked up.
+
+THE TEST  §4's per-clause remedy has two sides and this arc has only ever run one. Every clause of
+          R701's formulation names an object it EXCLUDES. None names an object it ADMITS that a
+          reader would not call a core. **A clause admitting something obviously wrong is as broken
+          as one excluding something obviously right.**
+
+⚠ DISCLOSURE. Writing R701 I noticed F3 states "more than one criterion" and NO UPPER BOUND. So
+  "F3 has no ceiling" is an observation about text I wrote, not a forecast. What is blind is whether
+  the benchmark actually CONTAINS an admitted object that exceeds the release's own maximum.
+
+POINT A     of the formulation's 5 admitted members, 2 have k above 4 — the largest any core the
+            release ships.
+INTERVAL A  [0, 5]
+POINT B     F3 as written does NOT exclude them.   BINARY, can fail.
+DIRECTIONAL (separately failable) at least one admitted object exceeds the release's own maximum
+            core size, so the defect is real in this benchmark and not hypothetical.
+KILL        if no admitted member exceeds k=4, F3's missing ceiling admits nothing wrong HERE and
+            the defect is hypothetical — say that, and do not patch a clause against an empty
+            population.
+CONTROLS
+  POSITIVE  `coval_core` (k=4) must be WITHIN any bound the release's own card implies.
+  g=0       `topw_k1` must be EXCLUDED by F3's lower bound — the clause must be able to exclude.
+  NEGATIVE  an arm absent from the ledger is UNSCORED, never counted as admitted.
+  PLACEBO   run twice identical.
+IDENTIFICATION LIMIT  "a reader would not call it a core" is adjudicated here by the RELEASE'S OWN
+            CARD (up to four, ~95% four, remainder two or three). That is the strongest external
+            criterion this site has, and it is still the instance's distribution rather than the
+            category's — the same gap C1 names.

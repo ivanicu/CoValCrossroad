@@ -1,0 +1,147 @@
+R747 · 81 objects is the transitive closure of a relation that is not transitive
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R746 closed by proposing that I compute the object count of the census's 16 admitted tags by exact
+identity within the target-reading family. P4 found R730's committed artifact already holds it:
+`r729_seven_tags` are exactly the seven, `objects_of_the_seven` is 4, `n_tags` 93, and
+`n_objects_exact` 81. So the proposed round is prior art -- the third rebuild P4 has stopped in this
+arc -- AND R746's own identity half was a rebuild of the same artifact, which I did not notice
+because I ran P4 on the coverage question and not on the identity one.
+
+Reading R730's source to confirm that turned up something worth a round. Its relation is
+
+    same(A, B):  equal on the prompts they SHARE, provided
+                 len(shared) >= 0.5 * min(len(A.pids), len(B.pids))
+
+and its partition is built by UNION-FIND over that relation. Equality on a shared subset IS NOT
+TRANSITIVE: A can equal B on their shared prompts, B equal C on a different shared set, and A differ
+from C on theirs. Union-find takes the TRANSITIVE CLOSURE regardless. So `81` may merge tags the
+relation itself directly rejects.
+
+This matters because 81 is the denominator R730, R745 and R746 all rest on, and the deliverable's
+claim row 9 carries the analogous "56 tags are 46 objects" from R524.
+
+--------------------------------------------------------------------------------
+ESTIMAND
+--------------------------------------------------------------------------------
+E1  the number of R730's multi-tag classes that are NOT CLIQUES under its own `same()` -- i.e. that
+    contain at least one pair the relation directly rejects.
+E2  the object count under a well-defined alternative: the CLIQUE partition, where a class is merged
+    only if every pair inside it satisfies `same()` directly.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+EXACT and finite. 93 tags, 4,278 unordered pairs; the relation is deterministic and its inputs are
+the same cached vectors R730 committed. No sampling, no estimation.
+
+⚠ ONE THING IS NOT IDENTIFIED AND IS NOT CLAIMED: whether merging on a shared subset is the RIGHT
+modelling choice. R730's own residue says as much -- "whether NEAR-identical objects should merge is
+a modelling choice, not a measurement". This round does not adjudicate that. It asks only whether
+the count that was published is the count the stated relation yields.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  the 93 tags in R730's cached vectors
+instrument  R730's own `same()` and `build_vectors()`, imported, not re-implemented
+baseline    R730's committed n_objects_exact = 81 and its 8 multi-tag classes
+regime      exact equality, tol = 0.0, at this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · EVERY MULTI-TAG CLASS IS A CLIQUE. Union-find added nothing the relation did not already give,
+    81 is well defined, and R730/R745/R746 stand as written.
+B · AT LEAST ONE CLASS IS NOT A CLIQUE. Then 81 is the transitive closure of a non-transitive
+    relation, the object count is partly an artifact of chaining, and the well-defined count is
+    strictly larger. Every downstream count -- including the deliverable's -- inherits it.
+
+PREDICTION MATRIX      A -> 0 non-clique classes and clique_count == 81
+                       B -> >= 1 non-clique class and clique_count > 81
+
+--------------------------------------------------------------------------------
+REGISTERED POINTS -- each independently failable
+--------------------------------------------------------------------------------
+P1  non-clique multi-tag classes                       registered  1   [0, 8]
+P2  clique-partition object count                      registered  83  [81, 93]
+P3  R730's committed 81 is reproduced by importing its
+    own code and rerunning union-find                  registered  yes -- a HARD requirement; if
+                                                       this fails the round is measuring something
+                                                       other than R730 and must stop
+P4  pairs where `same()` returns False ONLY because of
+    the 0.5*min guard (shared set too small)           registered  >= 1
+
+DIRECTIONAL, separately failable
+D   any non-clique class contains a LOW-COVERAGE tag (fewer than 968 prompts). If violations occur
+    only among full-coverage tags, the guard is not the mechanism and the defect is in the relation
+    itself rather than in the population.
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+FORCED, and labelled a derivation, not evidence:
+  - clique_count >= union_find_count ALWAYS. The clique partition refines the closure. Reporting
+    "the count went up" is therefore not a finding; only the SIZE of the increase is.
+  - a class of size 2 CANNOT violate transitivity -- one pair, and it was merged because that pair
+    satisfied the relation. So only classes of size >= 3 are at risk, and R730 committed 8 multi-tag
+    classes of which the sizes are visible in its artifact.
+
+PREDICTED MECHANISM, written before the run: the 0.5*min guard lets a low-coverage tag merge with
+anything containing half its prompts. R746 measured coverage taking 4 distinct values from 4 to 968,
+so a 4-prompt tag can chain together arms that share nothing with each other. CONTROL IN THE SAME
+ITERATION: split violations by whether the class contains a low-coverage tag (D above).
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE fires on a SYNTHETIC non-transitive triple and g=0 does NOT fire on a clique and
+NEGATIVE returns 93 singletons and P3 reproduces 81:
+        E1 == 0  -> WORLD A KILLED... no: World B killed. 81 is well defined and stands.
+        E1 >= 1  -> WORLD A KILLED. 81 is a closure artifact; the well-defined count is E2 and every
+                    downstream number must carry it.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE   SYNTHETIC WORLD, ladder rung 4. Build three vectors by construction: A and B equal on
+           their shared prompts, B and C equal on theirs, A and C DIFFERENT on theirs. Union-find
+           must merge all three; the clique test must flag the class. BAND, COMPUTED: floor = a
+           checker that never flags (0 violations on a known-violating input), ceiling = 1 violation
+           on this input. Threshold 1, strictly inside, asserted in code.
+g=0        a synthetic CLIQUE triple -- all three mutually equal -- must NOT be flagged. This is the
+           direction that matters: a checker flagging every multi-tag class would manufacture World B.
+NEGATIVE   remove every edge (make `same()` always False). The partition must become 93 singletons
+           and violations must be 0. Excludes "the checker flags regardless of the relation".
+SHAM       the same operation with the INGREDIENT ABSENT, not inverted. Ingredient = the shared-
+           subset restriction. Re-run with `same()` requiring IDENTICAL prompt sets (full overlap).
+           If the violation count is unchanged, the restriction is not the cause.
+PLACEBO    singleton classes can never violate -> exactly 0 across all singletons, reported as
+           "0 of N" with N printed.
+NOISE      no rng. The variance is the GUARD THRESHOLD: sweep 0.0, 0.25, 0.5 (R730's), 0.75, 1.0 and
+           report objects and violations at each. That is the specification curve.
+UNIT       instrument unit = a PAIR of tags; claim unit = a CLASS of tags. Not equal -- a class is
+           a set of pairs -- so violations are counted per CLASS after taking the union over its
+           pairs, and the pair count is printed separately rather than substituted for it.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+5 guard thresholds x {objects, multi-tag classes, non-clique classes, clique count} = 20 reported
+cells, survivors and non-survivors alike.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether subset-merging is the right
+modelling choice                    a definition of object identity external to this benchmark;
+                                    R730's own residue says the same and this round does not
+                                    adjudicate it
+sameness outside the shared cells   judging the missing prompts, i.e. a scoring run
+independently replicated            a second team; the session prompt forbids dispatching agents
+cross-site                          more than one repository

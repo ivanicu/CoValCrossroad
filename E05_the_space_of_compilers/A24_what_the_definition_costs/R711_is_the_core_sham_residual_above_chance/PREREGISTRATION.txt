@@ -1,0 +1,90 @@
+R711 — PRE-REGISTERED BEFORE ANY CODE.  written 2026-08-05.
+
+CHECK #313 ON R710's NEXT LINE — ITS COUNTS HOLD, ITS CLOSING CLAIM IS FALSE.
+  ✓ R707/R708/R710 measured the gate and R709 the object; R392/R433/R709 are the three rounds that
+    ran the contains-versus-consumed treatment and none mentions coval_core_sham. Both verified.
+  ⛔ "That residual is a SINGLE ARM PAIR" is FALSE. R694's committed artifact names TWO mixed cells
+    — `coval_core/none` and `topw/4` — i.e. coval_core vs its sham AND topw_k4 vs its sham. Fourth
+    false closing-sentence claim in this arc, and this one the gate could not catch: it contains no
+    quantifier from any list, only a miscount.
+
+⭐ AND THE STRUCTURE THE CHECK EXPOSED, WHICH IS THE ROUND.
+  The ledger holds 5 sham pairs. Clause ② separates exactly 2 — coval_core and topw_k4 — and 0 of
+  the other 3, because it REJECTS BOTH MEMBERS of those. So separation is only POSSIBLE where the
+  base arm is admitted, and ② admits 9 of 42. ⭐ The "residual it genuinely owns" is therefore 2 of
+  2 possible, not 2 of 5, and the live question is whether 2 separations is more than a random
+  admission of the same size produces.
+
+ESTIMAND
+  The number of the 5 sham pairs that clause ② SEPARATES (admits one member, rejects the other),
+  against the EXACT distribution of that count under a uniformly random admission of the same size
+  (9 of 42) — with the exact P(separations >= observed), computed by enumeration and not sampled.
+
+IDENTIFICATION
+  Fully identified and EXACTLY computable: the null is a hypergeometric-style enumeration over the
+  5 pairs' membership given |admitted| = 9 and n = 42. No sampling error at all.
+  ⚠ The observed count itself is a DERIVATION from R360's committed verdicts — it could not have
+  come out otherwise given the ledger — so it is labelled and is not the evidence. The NULL is.
+
+SCOPE
+  population : the 5 sham pairs in R360's 42-arm ledger
+  instrument : exact enumeration of the separation count under random admission at fixed size
+               instrument unit = A SHAM PAIR
+               claim unit      = CLAUSE F2's JUSTIFICATION
+               ⚠ NOT EQUAL — a separation count over 5 pairs bounds what the clause distinguishes,
+               never why; the "prompt withheld" reading is an interpretation this cannot test.
+  baseline   : uniformly random admission of 9 of 42 arms
+  regime     : this repository at HEAD
+
+WORLDS
+  A REAL RESIDUAL   P(sep >= observed) < 0.05 ⇒ ② separates core-from-sham more than a same-size
+                    random admission, and F2's justification survives
+  B AT CHANCE       P >= 0.05 ⇒ the residual F2 is "kept for" is what a random 9-of-42 admission
+                    produces, and the justification must be downgraded to a bound
+  C UNRESOLVABLE    the statistic's range (0..5, observed 2) is too coarse for any p to separate the
+                    worlds — report the resolution floor as the finding
+
+PREDICTION MATRIX          A         B         C
+  exact P                < 0.05    >= 0.05    any
+  null mean               low      ~ 1.7      any
+  F2's justification    survives  downgraded  unchanged, unproven
+
+REGISTERED
+  POINT A  [DERIVED, not evidence]  separations under ②: 2.
+  POINT B  the null's MEAN separation count under random 9-of-42: 1.72, interval [1.0, 2.5]
+  POINT C  the EXACT P(separations >= 2): 0.60, interval [0.25, 0.95]
+  DIRECTIONAL (separately failable)  the observed 2 lies at or below the null's 95th percentile.
+  KILL (conditional — evaluated ONLY if POSITIVE fires and g=0 lands at the null mean):
+     exact P < 0.05  → world A, the residual is real;
+     exact P >= 0.05 → world B, and STATEMENT.md's "kept for the residual it genuinely owns" is
+                       DOWNGRADED — the separations are not distinguishable from a same-size
+                       random admission.
+
+CONTROLS
+  POSITIVE   a synthetic clause admitting exactly the 5 base arms and rejecting all 5 shams must give
+             5 separations with a tiny exact P. If the instrument cannot register a maximal plant it
+             cannot register anything. Compute FLOOR (null mean) and CEILING (5) and require
+             floor < observed-threshold < ceiling before the threshold is used.
+  g=0        a clause admitting 9 arms chosen with NO relation to the shams must land at the null
+             mean, not below or above it.
+  NEGATIVE   the null itself: admission permuted at fixed size 9. The world it excludes is named —
+             "② picks out sham pairs specifically rather than admitting 9 arms that happen to
+             include 2 bases".
+  SHAM       the same operation minus the ingredient (sham-ness): 5 arbitrary same-family arm pairs
+             that are NOT base/sham pairs. If ② "separates" those at the same rate, sham-ness is not
+             what is being measured.
+  PLACEBO    two identical runs differ by exactly 0.
+  EXACTNESS  the null is enumerated, not sampled; the round states that its p has NO Monte-Carlo
+             error, which is a resolution claim and must be checked against a sampled null agreeing
+             to 3 decimals.
+
+SPECIFICATION SWEEP
+  admission size ∈ {9 (observed), 5, 14} × pair set ∈ {the 5 sham pairs, the sham-control pairs}
+  = 6 cells, all reported — the size sweep shows how the null moves with the clause's strictness.
+MULTIPLICITY  6 cells; exact p reported for every one; none selected.
+SEEDS  used only for the sampled cross-check of the exact null; 3 streams.
+ARTIFACT  results/residual.json — the pair table, the exact null distribution, the sweep.
+IMPOSSIBLE
+  WHY the two pairs separate — "the prompt was withheld" is an interpretation of a verdict, and no
+    counterfactual over the generator exists in this release.
+  cross-release — one released core, and its sham is ours.

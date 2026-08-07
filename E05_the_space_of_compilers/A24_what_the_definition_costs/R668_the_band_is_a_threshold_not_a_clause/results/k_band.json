@@ -1,0 +1,51 @@
+{
+  "world": "A FORCED, AND MY 'UNSTATED CLAUSE' IS RETRACTED \u2014 the admitted set ['topw_k3', 'topw_k4', 'topw_k6', 'topw_k8'] IS a level set of P_arm at both seeds: the smallest admitted value exceeds the largest rejected value with margin +0.2325. So the k-band is exactly what a THRESHOLD does to a unimodal profile \u2014 \u2461 already says it, and no clause is missing. \u00a70's arithmetic trap: I read a shape forced by thresholding as a discovery about the definition. \u26a0 RESIDUAL, and it is real: the rise 1\u21926 is smooth (0.43 \u2192 0.72 \u2192 0.96 \u2192 0.99 \u2192 1.00) while the fall 8\u219212 is a CLIFF (0.96 \u2192 0.00). A unimodal story explains the band; it does not explain a hard zero, and that is about how topw_k12 is built, not about the definition.",
+  "controls_ok": true,
+  "tree_sha": "158016b89a9fd89644119d3ae578d1bf8fb56b6e",
+  "admitted": [
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "rejected": [
+    "topw_k1",
+    "topw_k12",
+    "topw_k2"
+  ],
+  "profile": {
+    "3531": {
+      "topw_k1": 0.43,
+      "topw_k2": 0.7225,
+      "topw_k3": 0.955,
+      "topw_k4": 0.985,
+      "topw_k6": 0.9975,
+      "topw_k8": 0.9625,
+      "topw_k12": 0.0
+    },
+    "3532": {
+      "topw_k1": 0.415,
+      "topw_k2": 0.685,
+      "topw_k3": 0.96,
+      "topw_k4": 0.9875,
+      "topw_k6": 0.9975,
+      "topw_k8": 0.9375,
+      "topw_k12": 0.0
+    }
+  },
+  "level_set": {
+    "3531": {
+      "is_level_set": true,
+      "min_admitted": 0.955,
+      "max_rejected": 0.7225
+    },
+    "3532": {
+      "is_level_set": true,
+      "min_admitted": 0.9375,
+      "max_rejected": 0.685
+    }
+  },
+  "check269": "R667's NEXT called the k-band 'a clause nobody wrote'. The admitted set is CONTIGUOUS in the available k grid and IS a level set of P_arm, which is what a threshold does to a unimodal profile. It also called the claim 'the FIRST in this arc that would ADD a clause' -- an uncomputed quantifier.",
+  "residual": "the rise 1->6 is smooth while the fall 8->12 is a hard zero; a unimodal story explains the band but not the cliff, and the cliff is about arm construction rather than the definition.",
+  "impossible": "WHY P_arm(k) has this shape is about how topw arms are built; this round settles only whether the band needs an extra clause."
+}

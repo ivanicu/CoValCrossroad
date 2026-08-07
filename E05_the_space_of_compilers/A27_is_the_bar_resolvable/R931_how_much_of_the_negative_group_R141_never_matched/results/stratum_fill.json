@@ -1,0 +1,224 @@
+{
+  "commit": "ae5779eb25a3f72b3f3b6e170a0166c500872cd1",
+  "world": "SHORTFALL_REFUTED_DUPLICATION_CONFIRMED",
+  "n_prompts": 986,
+  "n_units": 15248,
+  "n_negative": 3905,
+  "prediction_raters_largest": false,
+  "unmatched_share": {
+    "magnitude": 0.0,
+    "length": 0.0,
+    "raters": 0.0
+  },
+  "worst": "magnitude",
+  "per_stratifier": {
+    "magnitude": {
+      "rows": [
+        {
+          "lo": 0.04,
+          "hi": 3.0,
+          "want": 932,
+          "pool": 2276,
+          "filled": 932,
+          "shortfall": 0
+        },
+        {
+          "lo": 3.0,
+          "hi": 5.0,
+          "want": 819,
+          "pool": 3642,
+          "filled": 819,
+          "shortfall": 0
+        },
+        {
+          "lo": 5.0,
+          "hi": 8.0,
+          "want": 1424,
+          "pool": 5224,
+          "filled": 1424,
+          "shortfall": 0
+        },
+        {
+          "lo": 8.0,
+          "hi": 10.0,
+          "want": 1664,
+          "pool": 2654,
+          "filled": 1664,
+          "shortfall": 0
+        },
+        {
+          "lo": 10.0,
+          "hi": 10.0,
+          "want": 870,
+          "pool": 1233,
+          "filled": 870,
+          "shortfall": 0
+        }
+      ],
+      "sum_want": 5709,
+      "sum_filled": 5709,
+      "shortfall": 0,
+      "unmatched_share": 0.0,
+      "n_neg": 3905,
+      "boundary_double_count": 1804
+    },
+    "length": {
+      "rows": [
+        {
+          "lo": 16.0,
+          "hi": 61.0,
+          "want": 811,
+          "pool": 1165,
+          "filled": 811,
+          "shortfall": 0
+        },
+        {
+          "lo": 61.0,
+          "hi": 77.0,
+          "want": 810,
+          "pool": 1572,
+          "filled": 810,
+          "shortfall": 0
+        },
+        {
+          "lo": 77.0,
+          "hi": 92.0,
+          "want": 827,
+          "pool": 2434,
+          "filled": 827,
+          "shortfall": 0
+        },
+        {
+          "lo": 92.0,
+          "hi": 110.0,
+          "want": 824,
+          "pool": 2978,
+          "filled": 824,
+          "shortfall": 0
+        },
+        {
+          "lo": 110.0,
+          "hi": 550.0,
+          "want": 817,
+          "pool": 3690,
+          "filled": 817,
+          "shortfall": 0
+        }
+      ],
+      "sum_want": 4089,
+      "sum_filled": 4089,
+      "shortfall": 0,
+      "unmatched_share": 0.0,
+      "n_neg": 3905,
+      "boundary_double_count": 184
+    },
+    "raters": {
+      "rows": [
+        {
+          "lo": 1.0,
+          "hi": 1.0,
+          "want": 3015,
+          "pool": 6669,
+          "filled": 3015,
+          "shortfall": 0
+        },
+        {
+          "lo": 1.0,
+          "hi": 1.0,
+          "want": 3015,
+          "pool": 6669,
+          "filled": 3015,
+          "shortfall": 0
+        },
+        {
+          "lo": 1.0,
+          "hi": 1.0,
+          "want": 3015,
+          "pool": 6669,
+          "filled": 3015,
+          "shortfall": 0
+        },
+        {
+          "lo": 1.0,
+          "hi": 10.0,
+          "want": 3132,
+          "pool": 7126,
+          "filled": 3132,
+          "shortfall": 0
+        },
+        {
+          "lo": 10.0,
+          "hi": 49.0,
+          "want": 814,
+          "pool": 4377,
+          "filled": 814,
+          "shortfall": 0
+        }
+      ],
+      "sum_want": 12991,
+      "sum_filled": 12991,
+      "shortfall": 0,
+      "unmatched_share": 0.0,
+      "n_neg": 3905,
+      "boundary_double_count": 9086
+    }
+  },
+  "tied_cuts_and_duplication": {
+    "magnitude": {
+      "cuts": [
+        0.04,
+        3.0,
+        5.0,
+        8.0,
+        10.0,
+        10.0
+      ],
+      "distinct_cuts": 5,
+      "len_mp": 5709,
+      "len_set": 4896,
+      "duplicates": 813,
+      "dup_share": 0.14240672622175513
+    },
+    "length": {
+      "cuts": [
+        16.0,
+        61.0,
+        77.0,
+        92.0,
+        110.0,
+        550.0
+      ],
+      "distinct_cuts": 6,
+      "len_mp": 4089,
+      "len_set": 4014,
+      "duplicates": 75,
+      "dup_share": 0.018341892883345562
+    },
+    "raters": {
+      "cuts": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        10.0,
+        49.0
+      ],
+      "distinct_cuts": 3,
+      "len_mp": 12991,
+      "len_set": 7048,
+      "duplicates": 5943,
+      "dup_share": 0.4574705565391425
+    }
+  },
+  "duplication_worst": "raters",
+  "unifying_mechanism": "np.percentile on a low-cardinality integer covariate returns TIED cut points (raters: [1,1,1,1,10,49], 3 distinct of 6), and R141's bins are closed at both ends, so the same stratum is drawn up to four times. The point averages y[mp] WITH duplicates while the bootstrap filters through set(mp) WITHOUT them \u2014 different objects, and the gap is largest exactly where R929 found the incoherence",
+  "synthetic_controls": {
+    "balanced": 0.03189978044685522,
+    "planted": 0.3570581257413998
+  },
+  "r930_synthetic_for_contrast": 0.699,
+  "cheap_because": "stratum occupancy needs only the rubric scores; none of R141's text-similarity pipeline touches it",
+  "does_not_show": "that R141's conclusions are wrong \u2014 a shortfall makes the matching incomplete; the contrast is not recomputed here",
+  "unit_note": "counts are CRITERIA; shares are of sum(want)",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

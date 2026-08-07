@@ -1,0 +1,74 @@
+{
+ "claim_unit": "a VARIANCE COMPONENT",
+ "controls": {
+  "dose": {
+   "interaction-heavy": {
+    "planted": {
+     "criterion": 0.0001,
+     "interaction": 0.0144,
+     "prompt": 0.0009
+    },
+    "recovered": {
+     "criterion": 0.0001402415708393961,
+     "interaction": 0.01383643084607595,
+     "prompt": 0.0009011195079994018
+    }
+   },
+   "prompt-heavy": {
+    "planted": {
+     "criterion": 0.0001,
+     "interaction": 0.0009,
+     "prompt": 0.0144
+    },
+    "recovered": {
+     "criterion": 0.00015755331592316792,
+     "interaction": 0.0007252969085512983,
+     "prompt": 0.01501544888266356
+    }
+   }
+  },
+  "gate": true,
+  "negative_ok": true,
+  "placebo": 0.0,
+  "positive_ok": true,
+  "s2e": 0.003772720288023113,
+  "shuffled": {
+   "criterion": 4.328138445254938e-06,
+   "interaction": 0.005212874379652007,
+   "noise": 0.003772720288023113,
+   "prompt": 0.018181419750458484,
+   "total": 0.02717134255657886
+  }
+ },
+ "e1": {
+  "criterion": 0.00023690997350012282,
+  "interaction": 0.004964787088926816,
+  "noise": 0.003772720288023113,
+  "prompt": 0.018196925206128808,
+  "total": 0.027171342556578857
+ },
+ "e2": {
+  "corrected_share": 0.743185,
+  "mean": -0.05375510438234073,
+  "naive_share": 0.7334710743801653,
+  "noise_sd": 0.030903782294145556,
+  "obs_sd": 0.08851450160587522,
+  "signal_sd": 0.08294439845132728,
+  "wrong_noise_if_unpaired": 0.0868644954860513
+ },
+ "e3_unit": "a PROMPT",
+ "e4": {
+  "mean_nF": 15.479338842975206,
+  "raw": -0.05375510438234073,
+  "size_matched": -0.054347650023235446
+ },
+ "instrument_unit": "a (criterion, prompt, annotator) judgement",
+ "object": {
+  "C": 16,
+  "P": 968,
+  "cells": 15482,
+  "crit_sd": 0.01569005104417374,
+  "inst_sd": 0.16486926155112794
+ },
+ "world": "B"
+}

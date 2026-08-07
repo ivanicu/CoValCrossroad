@@ -1,0 +1,42 @@
+{
+ "n_write_ins": 9122,
+ "n_criteria": 9122,
+ "n_responses": 3872,
+ "lineages_run": [
+  "qwen",
+  "phi"
+ ],
+ "per_lineage": {
+  "qwen": {
+   "positive_mean": -0.011453676968812943,
+   "negative_mean": -0.017717674374580383,
+   "gap": 0.006263997405767441,
+   "ci": [
+    0.0038832249119877815,
+    0.008672983385622501
+   ],
+   "shuffled_null": -0.000729062594473362
+  },
+  "phi": {
+   "positive_mean": -0.0017024826956912875,
+   "negative_mean": -0.0021289335563778877,
+   "gap": 0.0004264508606866002,
+   "ci": [
+    0.00012528862862382084,
+    0.0007436980959028006
+   ],
+   "shuffled_null": 7.766380440443754e-05
+  }
+ },
+ "lineages_failed": {
+  "internlm": "produced 26611712 non-finite embedding values (100.0%) -- ran but did not work"
+ },
+ "lineages_agree_in_sign": true,
+ "all_cis_exclude_zero_positive": true,
+ "effect_size_ratio_across_lineages": 14.688673381224262,
+ "world": "A AGREES IN SIGN ONLY -- effect size differs 15x between lineages",
+ "max_tokens": 512,
+ "outcome_variable_scope": "Sign is the single author's own score; ranking is that same author's own world block. The backbones are used as passive ENCODERS -- no criterion satisfaction is scored, no attribution number is touched, and no response is generated.",
+ "scope": "Mean-pooled last hidden state, truncated at 512 tokens -- long responses are cut, which biases toward measuring their openings. Cosine is residualised on response word count within prompt exactly as the lexical arms are, so the two differ only in the similarity measure. Lineages that fail to load are counted and reported, never silently dropped.",
+ "verdict": "A AGREES IN SIGN ONLY -- effect size differs 15x between lineages. Entry 132 named the one rival I could not build from lexical data: every control so far varied the TOKENISER, not the decision to measure specificity by word overlap at all. This replaces `containment` with embedding cosine between the criterion and each response, in the three unrelated pretraining lineages this project already uses -- r39 cached them, r40 built on them, and r68 measured their inter-lineage agreement at 0.9132 on a different quantity, so disagreement here would be readable rather than unmeasured. \u26a0 1 of 3 lineages did not run and are named rather than quietly omitted: internlm (produced 26611712 non-finite embedding values (100.0%) -- ran but did not work). Over 9122 write-ins with each rater's own ranking, the length-residualised positive-minus-negative gap is qwen +0.00626 [+0.00388,+0.00867], phi +0.00043 [+0.00013,+0.00074], against shuffled-sign nulls of qwen -0.00073, phi +0.00008. The lineages agree in sign, but they disagree in MAGNITUDE by 15x, and that is the number worth carrying: r68 measured these same backbones agreeing at 0.9132 on a different quantity, so an order-of-magnitude spread here says the semantic effect is real in direction and instrument-dependent in size. Cosine and lexical containment are not on a common scale, so no comparison of +0.00626 against the lexical +0.02114 is licensed -- only the sign and the exclusion of zero transfer. WHAT THIS SETTLES: whether r75-r78 measured word REUSE or a semantic relation between the criterion and the answer the rater preferred. WHAT IT DOES NOT: the scope that has held since r75 and is not loosened by a better instrument -- this is association WITHIN a rater, and no measure of criterion-to-response similarity can separate a menu that CREATED the direction from one that SUPPLIED THE WORDS for a direction already held. That is S_pre, and it needs people, not FLOPs."
+}

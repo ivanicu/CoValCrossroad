@@ -1,0 +1,85 @@
+{
+  "commit": "4b37960763729b8850abe79464416c257dbb3168",
+  "world": "B",
+  "clauses": [
+    {
+      "clause": "\u2460",
+      "text": "better than a random draw of the prompt's own rubric",
+      "verdict": "DROPPED \u2014 DOMINATED",
+      "why": "bar ordering MEASURED: \u2461 0.5404-0.5462 > \u2460 0.4922 > \u2463' 0.4820 (R857). \u2460's binding region was already empty by arithmetic in R347 (ref_gap_min 0.0470, \u2461's reference exceeds \u2460's on EVERY arm, contingent: []).",
+      "comparator": "n/a \u2014 no comparator can rescue a dominated bar",
+      "criterion": "invariant (DERIVED clauses carry no threshold)"
+    },
+    {
+      "clause": "\u2461",
+      "text": "better than a prompt-blind set",
+      "verdict": "RETAINED \u2014 and it is the ONLY clause doing score work",
+      "why": "extension runs 29 -> 0 across six defensible comparators (R866) and 23-24 vs 29 across the two admissibility criteria, with A a STRICT subset of B at every seed (R865). Its meaningful window is 4 of 5 comparators and the published `argmax_arm` lies INSIDE it (R867).",
+      "comparator": "MUST BE NAMED. Published: argmax_arm. Vacuous at per_prompt_max (0 of 99 arms, oracle included).",
+      "criterion": "MUST BE NAMED. `ratio >= 1.5` is strictly stricter than BH q=0.05 + CI."
+    },
+    {
+      "clause": "\u2462",
+      "text": "consumes no prompt-specific labels",
+      "verdict": "RETAINED \u2014 provenance, no bar",
+      "why": "read from the source rather than hand-listed (R444). No threshold, no interval, no multiplicity, so nothing for a comparator or a criterion to act on.",
+      "comparator": "invariant",
+      "criterion": "invariant"
+    },
+    {
+      "clause": "\u2463",
+      "text": "better than every criterion-free rule",
+      "verdict": "DROPPED \u2014 VACUOUS OR UNMET, at every comparator tested",
+      "why": "its meaningful window is a SINGLE comparator, family_p90, and the published argmax_arm is OUTSIDE it: there random_k4_s0 scores +1.816 and CLEARS the bar. At family_p90, the one comparator where \u2463 has content, coval_core scores -0.565 and FAILS it. So at every comparator where the core passes \u2463, so does random noise (R867). R856 had already derived that \u2463 is dominated by \u2461.",
+      "comparator": "no comparator makes it both meaningful and satisfied",
+      "criterion": "UNVERIFIABLE \u2014 its negative control clears the clause (R865, R850 at 7 of 8 class sizes)"
+    }
+  ],
+  "retained": [
+    "\u2461",
+    "\u2462"
+  ],
+  "dropped": [
+    "\u2460",
+    "\u2463"
+  ],
+  "clause2_extension_by_comparator": [
+    28,
+    30,
+    13,
+    12,
+    17,
+    0
+  ],
+  "clause2_core_at_published_comparator": {
+    "comparator": "argmax_arm",
+    "in_monotone_chain": false,
+    "core_margin": 0.009002172366714738,
+    "core_ratio": 0.8639384282495016,
+    "core_passes_A": false,
+    "core_passes_B": true,
+    "count_A": [
+      13,
+      13,
+      13
+    ],
+    "count_B": [
+      17,
+      17,
+      17
+    ],
+    "pos_ctrl_A": true,
+    "neg_ctrl_B": false
+  },
+  "statement": "A CORE is a criterion set of size > 1 that consumes no prompt-specific labels and beats a NAMED prompt-blind comparator under a NAMED admissibility criterion.",
+  "size_bound": "more than one; 3 to 8 indistinguishable \u2014 no number stated",
+  "live_limitation": "the definition describes the instance; one core in the release",
+  "sources": {
+    "R347": "\u2460's region empty by arithmetic",
+    "R856": "\u2463 dominated by \u2461",
+    "R857": "bar ordering",
+    "R865": "criterion dependence, A \u2282 B",
+    "R866": "comparator sweep 29 -> 0",
+    "R867": "meaningful windows"
+  }
+}

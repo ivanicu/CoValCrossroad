@@ -1,0 +1,246 @@
+{
+  "commit": "496b0b2813c252ae325e353d34bee00cd89c663f",
+  "n_prompts": 968,
+  "world": "B",
+  "clauses": [
+    {
+      "clause": "\u2461",
+      "family_size": 1820,
+      "rows": [
+        {
+          "comparator": "family_mean",
+          "in_monotone_chain": true,
+          "in_window": true,
+          "coval_core": {
+            "clears": true,
+            "ratio": 2.816621947961527,
+            "stable": true
+          },
+          "oracle_k4": {
+            "clears": true,
+            "ratio": 8.780605764909453,
+            "stable": true
+          },
+          "random_k4_s0": {
+            "clears": false,
+            "ratio": -3.4196518221531083,
+            "stable": true
+          }
+        },
+        {
+          "comparator": "family_p75",
+          "in_monotone_chain": true,
+          "in_window": true,
+          "coval_core": {
+            "clears": false,
+            "ratio": -0.06829872183435869,
+            "stable": true
+          },
+          "oracle_k4": {
+            "clears": true,
+            "ratio": 6.156993426300861,
+            "stable": true
+          },
+          "random_k4_s0": {
+            "clears": false,
+            "ratio": -5.404806653976846,
+            "stable": true
+          }
+        },
+        {
+          "comparator": "family_p90",
+          "in_monotone_chain": true,
+          "in_window": true,
+          "coval_core": {
+            "clears": false,
+            "ratio": -1.8459230745876922,
+            "stable": true
+          },
+          "oracle_k4": {
+            "clears": true,
+            "ratio": 4.865803888494773,
+            "stable": true
+          },
+          "random_k4_s0": {
+            "clears": false,
+            "ratio": -6.775926546622863,
+            "stable": true
+          }
+        },
+        {
+          "comparator": "argmax_arm",
+          "in_monotone_chain": false,
+          "in_window": true,
+          "coval_core": {
+            "clears": false,
+            "ratio": 0.8639384282495012,
+            "stable": true
+          },
+          "oracle_k4": {
+            "clears": true,
+            "ratio": 6.699769883933167,
+            "stable": true
+          },
+          "random_k4_s0": {
+            "clears": false,
+            "ratio": -4.409041069352519,
+            "stable": true
+          }
+        },
+        {
+          "comparator": "per_prompt_max",
+          "in_monotone_chain": true,
+          "in_window": false,
+          "coval_core": {
+            "clears": false,
+            "ratio": -6.2433371984702015,
+            "stable": true
+          },
+          "oracle_k4": {
+            "clears": false,
+            "ratio": 0.5180737740150402,
+            "stable": true
+          },
+          "random_k4_s0": {
+            "clears": false,
+            "ratio": -9.650452470169958,
+            "stable": true
+          }
+        }
+      ],
+      "monotone": true,
+      "placebo": 0.0,
+      "window": [
+        "family_mean",
+        "family_p75",
+        "family_p90",
+        "argmax_arm"
+      ]
+    },
+    {
+      "clause": "\u2463",
+      "family_size": 30,
+      "rows": [
+        {
+          "comparator": "family_mean",
+          "in_monotone_chain": true,
+          "in_window": false,
+          "coval_core": {
+            "clears": true,
+            "ratio": 17.71019972404366,
+            "stable": true
+          },
+          "oracle_k4": {
+            "clears": true,
+            "ratio": 24.23377297704987,
+            "stable": true
+          },
+          "random_k4_s0": {
+            "clears": true,
+            "ratio": 11.584979061391897,
+            "stable": true
+          }
+        },
+        {
+          "comparator": "family_p75",
+          "in_monotone_chain": true,
+          "in_window": false,
+          "coval_core": {
+            "clears": true,
+            "ratio": 7.620221098617016,
+            "stable": true
+          },
+          "oracle_k4": {
+            "clears": true,
+            "ratio": 14.198785255747978,
+            "stable": true
+          },
+          "random_k4_s0": {
+            "clears": true,
+            "ratio": 2.0620109255569745,
+            "stable": true
+          }
+        },
+        {
+          "comparator": "family_p90",
+          "in_monotone_chain": true,
+          "in_window": true,
+          "coval_core": {
+            "clears": false,
+            "ratio": -0.5646993515660413,
+            "stable": true
+          },
+          "oracle_k4": {
+            "clears": true,
+            "ratio": 5.705895966964801,
+            "stable": true
+          },
+          "random_k4_s0": {
+            "clears": false,
+            "ratio": -5.624624934552462,
+            "stable": true
+          }
+        },
+        {
+          "comparator": "argmax_arm",
+          "in_monotone_chain": false,
+          "in_window": false,
+          "coval_core": {
+            "clears": true,
+            "ratio": 5.90404147566365,
+            "stable": true
+          },
+          "oracle_k4": {
+            "clears": true,
+            "ratio": 10.493519271423557,
+            "stable": true
+          },
+          "random_k4_s0": {
+            "clears": true,
+            "ratio": 1.8161507218342157,
+            "stable": true
+          }
+        },
+        {
+          "comparator": "per_prompt_max",
+          "in_monotone_chain": true,
+          "in_window": false,
+          "coval_core": {
+            "clears": false,
+            "ratio": -7.899963911262337,
+            "stable": true
+          },
+          "oracle_k4": {
+            "clears": false,
+            "ratio": -3.176413516479256,
+            "stable": true
+          },
+          "random_k4_s0": {
+            "clears": false,
+            "ratio": -11.430632219289249,
+            "stable": true
+          }
+        }
+      ],
+      "monotone": true,
+      "placebo": 0.0,
+      "window": [
+        "family_p90"
+      ]
+    }
+  ],
+  "window_clause_2": [
+    "family_mean",
+    "family_p75",
+    "family_p90",
+    "argmax_arm"
+  ],
+  "window_clause_4": [
+    "family_p90"
+  ],
+  "published_comparator_inside": {
+    "\u2461": true,
+    "\u2463": false
+  },
+  "definition": "a clause is MEANINGFUL at a comparator iff the negative control does NOT clear it and the positive control DOES"
+}

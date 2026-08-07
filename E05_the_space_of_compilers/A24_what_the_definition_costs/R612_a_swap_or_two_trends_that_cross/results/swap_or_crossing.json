@@ -1,0 +1,41 @@
+{
+  "world": "C/UNRESOLVABLE \u2014 every side has an expected cell below 5, so the 2x2 would be a story about one or two directories. The mirrored Deltas stand; whether they are a swap is NOT established.",
+  "controls_ok": true,
+  "B": 431,
+  "sides": {
+    "PRE-B  (< 431)": {
+      "n": 66,
+      "both": 0,
+      "prov_only": 63,
+      "world_only": 3,
+      "neither": 0,
+      "p_prov": 0.9545454545454546,
+      "p_world": 0.045454545454545456,
+      "exp_both": 2.8636363636363638,
+      "exp_neither": 2.8636363636363615,
+      "null_lo": 2,
+      "null_hi": 3,
+      "resolvable": false,
+      "below_null": true,
+      "smallest_cell": 0
+    },
+    "POST-B (>= 431)": {
+      "n": 52,
+      "both": 1,
+      "prov_only": 0,
+      "world_only": 50,
+      "neither": 1,
+      "p_prov": 0.019230769230769232,
+      "p_world": 0.9807692307692307,
+      "exp_both": 0.9807692307692307,
+      "exp_neither": 0.9807692307692328,
+      "null_lo": 1,
+      "null_hi": 1,
+      "resolvable": false,
+      "below_null": false,
+      "smallest_cell": 0
+    }
+  },
+  "check211": "R611's closing line proposed a 2x2 POOLED across B. Pooled, the two keys are anti-correlated by construction and the cells are a DERIVATION from marginals already in hand \u2014 the arithmetic trap. Conditioned on side here.",
+  "impossible": "absence of a key is not a decision: a round with no verdict has nothing to put in `world`, and one that consumed no file has nothing to hash"
+}

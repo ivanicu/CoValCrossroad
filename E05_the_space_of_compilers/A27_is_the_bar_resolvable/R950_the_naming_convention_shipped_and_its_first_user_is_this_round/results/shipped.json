@@ -1,0 +1,27 @@
+{
+  "attack": {
+    "vectors_total": 7,
+    "vectors_passing": 7,
+    "vector_pass_rate": 1.0
+  },
+  "gate": {
+    "floor_round": 950,
+    "baseline_before_this_round": 2,
+    "exit_with_this_round": 0
+  },
+  "r949_carried": {
+    "agreement": 0.2,
+    "permutation_floor_high": 0.139,
+    "ceiling": 0.983
+  },
+  "unit_note": "counts are ATTACK VECTORS; the rate is over vectors, not rounds",
+  "live_limitation": "the definition describes the instance; one release, one core",
+  "scope": "this gate bounds FUTURE divergence only and cannot repair committed rounds",
+  "controls": {
+    "attack_all_vectors": true,
+    "gate_passes_on_a_real_round": true,
+    "baseline_moved": true,
+    "attacked_after_the_fix": true
+  },
+  "commit": "e18faad5badef92380767dfc87200a134fe06459"
+}

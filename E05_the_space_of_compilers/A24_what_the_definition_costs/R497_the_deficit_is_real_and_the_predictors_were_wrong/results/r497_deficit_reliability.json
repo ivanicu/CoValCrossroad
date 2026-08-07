@@ -1,0 +1,16 @@
+{
+ "n": 968,
+ "mean": 0.031146694214876033,
+ "observed_sd": 0.13878204571439137,
+ "noise_floor": 0.035339026895211005,
+ "true_sd": 0.1342073373209191,
+ "reliability": 0.9355331496863227,
+ "verdict": "MEASURED",
+ "world": "RETRACTED by R499 \u2014 the same statistics on random_k4_s0/s1 (two seeds of one procedure, NO functional difference) return r=+0.9581, true sd 0.1553, higher on every statistic. This pair sits at percentile 0.0 of a no-difference null. The measured noise floor 0.0353 STANDS; the inference from reliability to mechanism does not.",
+ "world_original": "B (REAL STRUCTURE \u2014 the deficit is a reliable per-prompt quantity; the three predictors were wrong, the target is not absent)",
+ "retracted_by": "R499",
+ "what_survives": {
+  "measured_noise_floor": 0.0353,
+  "why": "a second annotator draw genuinely is a second draw of the same quantity; that half of the design was never in question"
+ }
+}

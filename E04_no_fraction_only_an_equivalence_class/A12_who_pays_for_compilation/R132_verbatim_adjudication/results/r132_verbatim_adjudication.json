@@ -1,0 +1,82 @@
+{
+ "conclusion": "The dispute between the two contested-criteria designs is adjudicated on the only ground truth the release offers: 365 of 3899 coval_core criteria (9.4%) have a verbatim twin in coval_full criterion, so for those, retention is a fact rather than a proxy. Among the 5,564 full criteria with at least 4 raters, 340 were copied; 10.9% of the copied are contested against 43.0% of the not-copied. Adjusted -- logistic on contestedness with |mean rating|, log rater count and the criterion's own across-response discriminability, cluster-bootstrapped over 986 prompts at 4000 fits over 5 seeds -- contested carries OR 0.3164 [0.1958, 0.4786], p 0.0002, while |mean rating| carries OR 1.5379 [1.3188, 1.8055]. A within-prompt permutation of the outcome puts the contested coefficient at -0.0618 (sd 0.1461), and the observed value sits -7.46 sd from it. WORLD: W-DISAGREEMENT-PENALISED. Disagreement costs a criterion its place even after the release's own stated selection signal is adjusted for, so the second design is right on ground truth. STRUCTURAL LIMIT, stated rather than argued away: verbatim copying is ONE retention pathway and 92% of core is rewritten rather than copied. If contested criteria are retained at the same rate but preferentially by rewriting, this design would read a change of pathway as a drop. That limit cuts identically for both disputants, and it is the only ground truth available.",
+ "contest_min": 0.2,
+ "contested_share_copied": 0.10882352941176471,
+ "contested_share_not_copied": 0.42955589586523735,
+ "contested_share_overall": 0.4099568655643422,
+ "min_raters": 4,
+ "n_boot_fits": 4000,
+ "n_copied": 340,
+ "n_core_side_verbatim": 365,
+ "n_core_total": 3899,
+ "n_criteria": 5564,
+ "n_full_side_copied": 340,
+ "per_seed_contested_coef": {
+  "20260730": -1.1583100409945812,
+  "271828": -1.1627264036564129,
+  "31337": -1.156895693956934,
+  "4409": -1.1616521187973377,
+  "8101": -1.1608270680857258
+ },
+ "placebo_mean": -0.061836119370262566,
+ "placebo_sd": 0.14606853023322983,
+ "placebo_z": -7.455622363407183,
+ "positive_control_moves": true,
+ "seeds": [
+  8101,
+  4409,
+  20260730,
+  31337,
+  271828
+ ],
+ "source_name": "run.py",
+ "source_sha256": "5dc389ffd321964e454d31f96539f8be172dbb28760101249ebe80205bd79902",
+ "terms": {
+  "contested": {
+   "coef": -1.1508679199671492,
+   "or": 0.316362073228956,
+   "or_ci": [
+    0.19579521926182117,
+    0.47858728653735944
+   ],
+   "p": 0.00024993751562109475
+  },
+  "discriminability": {
+   "coef": -0.10413741297384056,
+   "or": 0.9011014658812108,
+   "or_ci": [
+    0.8052731080639566,
+    1.0064787085648912
+   ],
+   "p": 0.0605
+  },
+  "intercept": {
+   "coef": -2.594930882470921,
+   "or": 0.07465103559125026,
+   "or_ci": [
+    0.06083899419465394,
+    0.08854973195927894
+   ],
+   "p": 0.00024993751562109475
+  },
+  "log raters": {
+   "coef": 0.002061768691631723,
+   "or": 1.002063895598179,
+   "or_ci": [
+    0.8774029178539764,
+    1.1470553601882376
+   ],
+   "p": 0.965
+  },
+  "|mean rating|": {
+   "coef": 0.430394371074172,
+   "or": 1.5378638930085509,
+   "or_ci": [
+    1.3187542570495825,
+    1.805492219440373
+   ],
+   "p": 0.00024993751562109475
+  }
+ },
+ "world": "W-DISAGREEMENT-PENALISED"
+}

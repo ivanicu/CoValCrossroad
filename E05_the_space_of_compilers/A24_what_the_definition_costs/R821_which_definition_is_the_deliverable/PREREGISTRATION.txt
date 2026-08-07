@@ -1,0 +1,92 @@
+R821 · WHICH DEFINITION IS THE DELIVERABLE — ②∧③∧④, or ②∧③?
+written before the run · this round may CLOSE a contradiction by DECISION, as R444 did
+
+PROVOCATION
+CHECK #423 went and read the head of `DEFINITION.md`, which eighteen rounds of this session have
+been appending to without opening. Two things followed.
+
+ (1) My working premise was WRONG and reading the object killed it: the file DOES state a
+     definition, at line 13, machine-checked by `assurance/definition_matches_the_record.py`.
+ (2) ⛔ **The file states TWO definitions and says so about itself.** The head conjoins
+     **② ∧ ③ ∧ ④** plus a size line; line 1820 carries *"the definition is **② ∧ ③**"* (R519, R599),
+     annotated with *"the retirement reached the claim table and not this sentence, which is why the
+     deliverable stated two different definitions for 80 rounds."* The contradiction is FLAGGED and
+     UNRESOLVED.
+
+⭐ AND THIS SESSION PRODUCED EVIDENCE BEARING DIRECTLY ON IT THAT NO ROUND HAS CONNECTED. Clause ④
+reads *"scores better than every rule computable from the response set alone"*. R803 built exactly
+such a family — six judge-free predictors, best **0.4557** — and measured **27 of 27** committed arms
+beating it. That is an independent replication of ④'s committed **0 of 42** (R440) on a different
+arm set and a better-characterised rule family.
+
+ESTIMAND
+E1  ④'s exclusion count on the CURRENT arm set against R803's floor: how many arms does it remove
+    that ② ∧ ③ already admit?
+E2  ⭐ THE CLAUSE-④ FALSIFIABILITY TEST, which no round has run: can ④ exclude ANYTHING at home?
+    A clause measured at 0 of 42 and 0 of 27 is either free-but-binding-elsewhere or unfalsifiable,
+    and the difference is testable — construct an arm BELOW the floor and check ④ removes it.
+E3  the contradiction, counted mechanically: every place the file states a definition, and which
+    conjunction each states.
+E4  the decision, with the evidence on both sides, and the repair to the artifact.
+
+IDENTIFICATION
+E1/E2 exact. E3 is a SEARCH and therefore an instrument: the pattern is run where the answer is
+known (the head at line 13 states ②∧③∧④; line 1820 states ②∧③) and a pattern that misses either is
+rejected before being used to count.
+⚠ E4 is a DECISION, not a measurement. R444 set the precedent — *"CLOSED by a DECISION rather than
+an experiment"* — and a decision must name what would reverse it.
+
+DERIVED BEFORE MEASURING
+D1 [DERIVATION] a constant weak order reads nothing at all, so it is a member of "rules computable
+   from the response set alone"; ④'s bar is therefore at least max(0.4557, 0.449421) = **0.4557**,
+   R803's floor. Stating this first is what stops the round quoting the weaker bar.
+D2 [DERIVATION] if an arm scores below the floor, ④ removes it — that is what the clause says. So
+   E2's positive control CANNOT fail for want of a mechanism; it can only fail if ④ is implemented
+   differently from how it is written, which is exactly what the test is for.
+D3 ④'s zero at home was defended in the file as *"the argument, not an embarrassment"* — free where
+   the definition works, binding on the second release where it removes all 7 (R434). That defence
+   is a SCOPE claim: it holds only if the definition is release-general.
+D4 this round cannot settle whether the definition SHOULD be release-general. It can settle what the
+   file says, what the evidence shows, and which of the two statements the evidence supports.
+
+WORLDS
+A  ④ IS FREE-BUT-REAL: it excludes 0 at home, removes a constructed below-floor arm, and removes 7
+   on the second release -> the head's ②∧③∧④ stands, line 1820's annotation is the stale one, and
+   the repair is to the annotation.
+B  ④ BINDS AT HOME: it excludes ≥1 arm that ②∧③ admit -> R519's retirement was premature and the
+   claim table is the stale one.
+C  ④ IS UNFALSIFIABLE AS IMPLEMENTED: it does not remove even a constructed below-floor arm -> the
+   clause cannot fail and must be retired on that ground, independently of either prior claim.
+CHECKED FIRST: C, because it would retire a clause the head still conjoins.
+
+PREDICTION MATRIX
+                              A            B            C
+④ excludes at home          0            >= 1         0
+removes a planted below-floor arm  yes    yes          NO
+which statement is stale    line 1820    the table    both
+
+CONTROLS
+OBJECT   reproduce R803's judge-free floor **0.4557** and the committed count **27 of 27** arms
+         beating it. Exit 2 otherwise.
+PLACEBO  the floor arm against ITSELF: it does not beat itself, so ④ must exclude it — exactly 0
+         margin, and the clause must fire.
+POSITIVE E2: plant arms at floor − delta for delta in {0.10, 0.05, 0.01, 0.00}; ④ must remove each
+         with delta > 0 and must NOT remove one at delta = 0 minus nothing — the g=0 check.
+NEGATIVE the floor itself permuted across prompts -> the bar collapses and ④'s exclusions change,
+         showing the count is a property of the floor and not of the arm set.
+NOISE FLOOR ④'s verdict is a comparison of means; the bootstrap CI on each arm-minus-floor margin
+         is reported, and an arm whose CI straddles zero is UNVERIFIED, never "passes".
+
+PRE-REGISTERED KILL -- conditional, never a bare threshold
+  if floor_reproduces and placebo_fires and positive_removes_planted_arms_and_not_at_delta0:
+      if ④ removes >= 1 arm that ②∧③ admit                       -> WORLD B
+      elif ④ removes no planted below-floor arm                   -> WORLD C
+      else                                                         -> WORLD A
+  else:
+      UNVERIFIED   (never OVERTURNED, never CONFIRMED)
+
+MULTIPLICITY every committed arm is tested against the floor and the whole table is printed,
+including the arms whose margin CI straddles zero.
+STOPPING RULE one round. If the round reaches a decision it is written into the ARTIFACT in the same
+commit — the contradiction has stood for 80 rounds because a retirement reached one place and not
+the other, and a repair that lands in only one place repeats exactly that.

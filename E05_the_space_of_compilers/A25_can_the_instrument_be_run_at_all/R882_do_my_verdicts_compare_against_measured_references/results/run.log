@@ -1,0 +1,30 @@
+  ① R876-shape `pr_obs > hi` (hi computed in-round) -> MEASURED: True  PASS
+  ② R881's real `closest / mde_typ < 0.25` -> BARE_LITERAL: True  PASS
+  ③ `ratio >= FLOOR` with FLOOR=1.5 at module level -> NAMED_CONSTANT: True  PASS
+    Arm ③ is the one that matters: without it the classifier scores every named
+    threshold as a measured reference and reports a flattering ceiling.
+<unknown>:126: SyntaxWarning: invalid escape sequence '\)'
+<unknown>:19: SyntaxWarning: invalid escape sequence '\s'
+<unknown>:159: SyntaxWarning: invalid escape sequence '\d'
+
+  159 round(s) assign a verdict with at least one comparison
+
+  BY ROUND — its WEAKEST reference decides its label (a round with one bare literal
+  is a bare-literal round, however many measured comparisons it also has):
+    BARE_LITERAL       64    0.403
+    NAMED_CONSTANT     11    0.069
+    MEASURED           50    0.314
+    STRUCTURAL         34    0.214
+
+  BY COMPARISON — 265 total:
+    BARE_LITERAL       82    0.309
+    NAMED_CONSTANT     18    0.068
+    MEASURED           77    0.291
+    STRUCTURAL         88    0.332
+
+  ⭐ WORLD B: NAMED CONSTANT dominates — the corpus's norm is a VISIBLE CHOICE, not a measured reference, and the gate enforces exactly that norm and no more
+     measured 0.291 · named constant 0.068 · bare literal 0.309
+     ⚠ THIS COUNTS THE FORM, NOT THE QUALITY. A round comparing against a null it
+       built badly lands in MEASURED. Stated before the numbers, not after.
+
+  artifact: results/verdict_reference_kind.json @ d8abfbb5

@@ -1,0 +1,20 @@
+{
+  "world": "UNVERIFIED",
+  "why": "both pairs fail for different reasons; neither licenses a count",
+  "statement_vs_formulation": {
+    "shared_labels": 0,
+    "verdict": "UNVERIFIED \u2014 no shared label, so no comparison exists; a zero here is silence, not agreement"
+  },
+  "definition_vs_formulation": {
+    "shared_labels": 1,
+    "apparent_disagreement": 1,
+    "resolved": "PREFIX COLLISION, not a disagreement",
+    "evidence": {
+      "definition": "| `coval_core` | 4 | **+0.0726** | 0.0031 |  -> an ADVANTAGE column",
+      "formulation": "| `coval_core` | 4 | 0.5665 | +0.0738 |  -> an A2 SCORE column"
+    },
+    "verdict": "two different quantities sharing the 26-char prefix 'coval core 4'"
+  },
+  "instrument_limit": "the label-prefix method worked between STATEMENT and DEFINITION (24 shared labels, 1 real disagreement) and does NOT transfer to FORMULATION: the documents do not share label phrasing, so it connects 1 of ~2000 decimals",
+  "my_error": "the branch printed WORLD B while its positive control printed FAIL \u2014 third occurrence this session"
+}

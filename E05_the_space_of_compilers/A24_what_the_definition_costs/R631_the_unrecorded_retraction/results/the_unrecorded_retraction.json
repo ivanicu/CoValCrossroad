@@ -1,0 +1,18 @@
+{
+  "world": "C UNRECORDED RETRACTION AND MISSING BOUND \u2014 FORMULATION.md retracts R335 in its own words; RETRACTIONS.md does not name R335; R335's artifact still records the settled verdict W-DECIDABLE; and the gated pair states no bound on clause \u2462's testability. So the ledger overstates what stands, R630's LIVE classification was an artifact of asking only the ledger, and the live definition's own limit lives solely in the document no gate reads.",
+  "controls_ok": true,
+  "formulation_says_retracts_r335": true,
+  "r335_in_ledger": false,
+  "r335_artifact_world": "W-DECIDABLE",
+  "bound_in_gated_pair": false,
+  "gated_phrase_hits": [],
+  "ledger_naming": 1,
+  "ledger_recording": 0,
+  "sibling_verdicts": {
+    "336": "W-QUALITY-METER",
+    "337": "W-SIGNATURE",
+    "338": "W-BLIND"
+  },
+  "check230": "'outside every gate' repeats check #228's overstatement one round after it was recorded -- the checks catch, they do not prevent",
+  "impossible": "correctness of the bound needs re-running R336-R338; only recording is decidable"
+}

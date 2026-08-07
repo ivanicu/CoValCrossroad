@@ -1,0 +1,24 @@
+{
+  "world": "C KEY IS EMPTY FORM \u2014 agreement with README prose 0.2339 and with code names 0.2865, below the pre-registered 0.60. The `controls` key does NOT track controls being run, so R616's closing line was wrong to call it the axis closest to evidential quality. Delta=-0.1623 is a fact about a schema habit.",
+  "controls_ok": true,
+  "tracks": false,
+  "n": 171,
+  "n_cited": 17,
+  "rate_key": 0.14619883040935672,
+  "rate_prose": 0.9005847953216374,
+  "rate_code": 0.8596491228070176,
+  "agree_prose": 0.23391812865497075,
+  "agree_code": 0.28654970760233917,
+  "shuffled_agreement": [
+    0.24561403508771928,
+    0.17543859649122806,
+    0.21052631578947367
+  ],
+  "p_cited": 0.0,
+  "p_uncited": 0.16233766233766234,
+  "delta": -0.16233766233766234,
+  "null_lo": -0.16233766233766234,
+  "null_hi": 0.16424751718869368,
+  "check216": "three consecutive closing lines promoted a KEY-PRESENCE measure to a substantive property: #214 'verdict class', #215 'legibility', #216 'evidential quality'",
+  "impossible": "README prose and code identifiers are proxies too; agreement bounds the construct from above and nothing here shows a round's controls were CORRECT, only that something control-shaped exists"
+}

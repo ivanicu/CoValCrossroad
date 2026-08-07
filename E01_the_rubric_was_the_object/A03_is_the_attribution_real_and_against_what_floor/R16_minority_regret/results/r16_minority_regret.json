@@ -1,0 +1,131 @@
+{
+ "profile": {
+  "utility": {
+   "min_segment": 3.9695768544579657,
+   "min_segment_ci": [
+    3.878213298387647,
+    4.057572202452359
+   ],
+   "regret": 1.8634754864425278,
+   "mean_segment": 4.90131459767923,
+   "prompts": 924
+  },
+  "majority": {
+   "min_segment": 3.994494598229558,
+   "min_segment_ci": [
+    3.909408713912584,
+    4.079008855978245
+   ],
+   "regret": 1.6626579957965217,
+   "mean_segment": 4.82582359612782,
+   "prompts": 924
+  },
+  "consensus": {
+   "min_segment": 3.846803952473834,
+   "min_segment_ci": [
+    3.7531813298230436,
+    3.9388205798903675
+   ],
+   "regret": 1.5489759239250365,
+   "mean_segment": 4.621291914436352,
+   "prompts": 924
+  },
+  "constituency": {
+   "min_segment": 3.2356943935349447,
+   "min_segment_ci": [
+    3.1276676166963657,
+    3.343122333234567
+   ],
+   "regret": 2.5581306835190625,
+   "mean_segment": 4.514759735294476,
+   "prompts": 924
+  },
+  "conflict_aware": {
+   "min_segment": 2.752398270530018,
+   "min_segment_ci": [
+    2.670204118152879,
+    2.8355519039990744
+   ],
+   "regret": 2.588298343241223,
+   "mean_segment": 4.04654744215063,
+   "prompts": 924
+  },
+  "random_k": {
+   "min_segment": 2.8345314559150765,
+   "min_segment_ci": [
+    2.745391636752072,
+    2.922986890498211
+   ],
+   "regret": 2.198034046490237,
+   "mean_segment": 3.933548479160195,
+   "prompts": 924
+  }
+ },
+ "random_splits": {
+  "utility": {
+   "min_segment": 4.370179356803023,
+   "min_segment_ci": [
+    4.298850878803789,
+    4.444149154543232
+   ],
+   "regret": 1.0800255311122322,
+   "mean_segment": 4.910192122359138,
+   "prompts": 924
+  },
+  "majority": {
+   "min_segment": 4.304321174296685,
+   "min_segment_ci": [
+    4.232113594847812,
+    4.379216450127143
+   ],
+   "regret": 1.055439779502223,
+   "mean_segment": 4.8320410640477975,
+   "prompts": 924
+  },
+  "consensus": {
+   "min_segment": 4.093281938320901,
+   "min_segment_ci": [
+    4.0048558470097655,
+    4.1829392973272785
+   ],
+   "regret": 1.0594902237226944,
+   "mean_segment": 4.623027050182248,
+   "prompts": 924
+  },
+  "constituency": {
+   "min_segment": 3.961518061154403,
+   "min_segment_ci": [
+    3.872821992933133,
+    4.050810434968135
+   ],
+   "regret": 1.1223745415780064,
+   "mean_segment": 4.522705331943407,
+   "prompts": 924
+  },
+  "conflict_aware": {
+   "min_segment": 3.4752946136407297,
+   "min_segment_ci": [
+    3.408206845241582,
+    3.5407809504859253
+   ],
+   "regret": 1.1496917706406795,
+   "mean_segment": 4.05014049896107,
+   "prompts": 924
+  },
+  "random_k": {
+   "min_segment": 3.3942969364075086,
+   "min_segment_ci": [
+    3.314416633029322,
+    3.4775661847765496
+   ],
+   "regret": 1.143152313482153,
+   "mean_segment": 3.9658730931485846,
+   "prompts": 924
+  }
+ },
+ "profile_regret_exceeds_random_by_1.15x": true,
+ "schema_note": "This key was called `blocs_are_real` until 2026-07-28. The name asserted the constituency reading that FROZEN.md section 3 withdraws, and a name is not reachable by any prose annotation. What the boolean means is exactly what it now says: the profile split's mean regret exceeds a random split's by the 1.15x bar. Read the partition as a latent profile split, never as a bloc, minority or constituency.",
+ "regret_profile": 2.0699287465691016,
+ "regret_random": 1.1016956933396649,
+ "frozen_line": "FROZEN LINE (queue item 2, see FROZEN.md): the bloc / minority / constituency reading of r16-r18 is FROZEN. The partition is a median split on a principal component carrying 0.541% of the singular mass and is not any nameable constituency -- gender (1.145) and country (1.198) both fail r16's own 1.267 bar, and 148 of 1,160 criterion raters (12.8%) have no demographics at all. Read the partition as a 'latent profile split', never as a bloc, minority or constituency."
+}

@@ -1,0 +1,61 @@
+{
+ "n": 968,
+ "rows": {
+  "ceiling_PAIR_predictors": {
+   "mean": 0.6466368227731865,
+   "lo": 0.6408402203856749,
+   "hi": 0.6534090909090909
+  },
+  "ceiling_RANKERS": {
+   "mean": 0.6229912764003673,
+   "lo": 0.6165633608815427,
+   "hi": 0.6305096418732782
+  },
+  "ceiling_insample": {
+   "mean": 0.6885904499540864,
+   "lo": 0.6800964187327823,
+   "hi": 0.697141873278237
+  },
+  "oracle_k4": {
+   "mean": 0.6325183654729108,
+   "lo": 0.6279269972451791,
+   "hi": 0.6355027548209367
+  },
+  "random": {
+   "mean": 0.33212809917355374,
+   "lo": 0.3274793388429752,
+   "hi": 0.3410812672176308
+  },
+  "ceiling_shuffled": {
+   "mean": 0.41437098255280075,
+   "lo": 0.40048209366391185,
+   "hi": 0.4225206611570248
+  },
+  "oracle_vs_itself": {
+   "mean": 0.6325183654729108,
+   "lo": 0.6279269972451791,
+   "hi": 0.6355027548209367
+  },
+  "transitive_rate": {
+   "mean": 0.665,
+   "lo": 0.0,
+   "hi": 0.0
+  },
+  "gap_vs_rankers": {
+   "mean": 0.009527089072543515,
+   "lo": 0.0,
+   "hi": 0.0
+  }
+ },
+ "floor": 0.02203856749311295,
+ "gap": -0.01411845730027561,
+ "gap_rank": 0.009527089072543515,
+ "transitive_rate": 0.665,
+ "controls": {
+  "modal attains the ceiling (it defines it)": true,
+  "in-sample ceiling EXCEEDS held-out": true,
+  "shuffled ceiling falls toward chance": true,
+  "random predictor is not zero": true
+ },
+ "world": "TWO CEILINGS \u2014 oracle_k4 is not above the RANKER bound and not above the PAIR-PREDICTOR bound; which one applies is a question about what a core is CONSTRAINED to emit, and the recommendation stands or falls on that, not on either number alone"
+}

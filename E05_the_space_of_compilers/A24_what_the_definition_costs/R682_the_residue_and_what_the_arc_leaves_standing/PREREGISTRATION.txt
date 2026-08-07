@@ -1,0 +1,25 @@
+R682 · PRE-REGISTRATION — labelled CLOSURE, not Frontier, and that label is the honest one.
+
+WHY CLOSURE. R681 left three rounds in OTHER_USE. Resolving them is one AST trace and it cannot
+change the arc's conclusion in either direction: whatever the three turn out to be, R680's ceiling of
+six independent computations and R681's "1 of 12 reaches an output field" stand. There is no fork
+here, so calling it a Frontier action would be a label I have not earned. What this round PROTECTS
+is the arc's standing claims; what it PRODUCES is their landing in the deliverable.
+
+POINT       of the 3 OTHER_USE rounds, 2 use the constant as a COMPARISON POPULATION and 1 as an
+            ANALYSIS POPULATION (statistics computed OVER the members).
+INTERVAL    [0, 3] for each category — deliberately uninformative, because with n=3 any narrower
+            interval would be theatre.
+DIRECTIONAL (separately failable) at least one of the three uses the set as an ANALYSIS population,
+            which is a third kind R681's category set did not contain.
+KILL        if all three turn out to be plain comparison fixtures, R681's OTHER_USE was merely an
+            unmodelled FIXTURE and no new category is warranted — say so and add none.
+CONTROLS
+  POSITIVE  a synthetic constant consumed by a statistic (np.mean over its members) must classify
+            ANALYSIS.
+  g=0       a synthetic constant only converted and compared must NOT classify ANALYSIS.
+  NEGATIVE  a constant bound and never loaded must classify DEAD.
+  PLACEBO   run twice identical.
+IDENTIFICATION LIMIT  "analysis population" is a claim about what the code consumes, not about
+            whether the round's conclusion depends on the set being right. A round may compute
+            statistics over a set purely to describe it. Reported as consumption, not as dependence.

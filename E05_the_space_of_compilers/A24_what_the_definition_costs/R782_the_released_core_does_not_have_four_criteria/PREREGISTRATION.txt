@@ -1,0 +1,157 @@
+R782 · the released core does not have four criteria, and every population filter here is exact-match
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-06.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R781's NEXT proposed extending its "baseline-conditional zone" to the 41-arm census. CHECK #384 found
+the population itself is broken, in three nested ways, and never got to the zone:
+
+  1. R781 selected arms with the NAME regex `_k4(_|$)`. That admits 19 arms and MISSES `generic` and
+     `generic_reprov`, which are k=4 objects whose names do not contain `_k4`. R781 patched `generic`
+     back by hand as a RECONSTRUCTION -- `POOL[0:4]` rebuilt from `sat_genericpool16.npz` -- while the
+     actually-scored `sat_generic.npz` sat on disk, excluded.
+  2. ⭐ THOSE TWO ARE NOT THE SAME OBJECT. Measured in check #384: A2 **0.550436** for the
+     reconstruction against **0.551354** for the scored arm, raw satisfaction arrays differing by up
+     to **0.121**, per-prompt A2 differing by up to **0.250**. **R604 registered exactly this as
+     UNVERIFIED** -- *"whether they denote the same arm is UNVERIFIED from names alone; it needs the
+     scorer, not a search"* -- and both objects have been on disk the whole time.
+  3. ⭐⭐ AND MY REPLACEMENT FILTER WAS ALSO EXACT-MATCH. Reading k from the object and demanding
+     `k == 4 on every prompt` admits 21 arms and STILL excludes **`coval_core`, the released core**,
+     because it is k=4 on **925** prompts, k=3 on **42**, and k=2 on **1**. `gen` likewise: k=4 on
+     966, k=3 on 1, k=1 on 1.
+
+⇒ **THE RELEASED CORE DOES NOT HAVE FOUR CRITERIA.** It has four on 95.6% of prompts and fewer on
+4.4%. §4's row already retracted *"four criteria"* as a clause because the k-sweep cannot separate 3
+from 8; this is the stronger statement: **the instance the clause was read off does not have a single
+k at all.** Every filter this thread has written -- name regex, strict-k, and the nominal `k` in a
+core file -- is an EXACT-MATCH rule applied to an object with a ragged tail.
+
+--------------------------------------------------------------------------------
+DISCLOSURE -- what was already known when this was written
+--------------------------------------------------------------------------------
+E1 and E2's DIRECTIONS are known from check #384 above and are quoted there. They are re-run here
+under controls because §3 forbids a cheap attack, and because the numbers must be persisted with a
+source hash. **E3 and E4 are NOT known**, and the world is gated on them.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  for every scored home-judge arm, the DISTRIBUTION of realised criterion-set size per prompt, read
+    from the sat file. Claim unit = an ARM; instrument unit = the count of distinct criterion indices
+    on a prompt. Named as two strings; they are not equal, and the claim is stated per arm over the
+    distribution, never as a single k.
+E1b whether `core_*.json` and `sat_*.npz` AGREE on set size, per arm. R605 established no script in
+    this tree writes 98 of 101 sat files, so agreement is not guaranteed and has never been checked.
+E2  `POOL[0:4]` versus `sat_generic.npz`: identical arrays? If not, is the A2 difference RESOLVABLE
+    against its own MDE? R604's question, closed either way.
+E3  the DISAGREEMENT SET of the three population filters -- name regex, strict-k-everywhere, and
+    "k=4 on a majority of prompts" -- over the scored arms. Which objects does each admit and miss?
+E4  whether R781's shape result survives the corrected population: recompute `q` and `q_resolved`
+    over the object-defined population including `coval_core`, `gen`, `generic`, `generic_reprov`.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1, E1b, E3 exact -- counting.
+E2 exact for identity; the resolution question is a paired difference on 968 prompts with its own MDE.
+E4 IDENTIFIED BUT INHERITS R781's LIMIT: the reference class has n_eff = 1.1 (R781), so `q` is not an
+   admission probability and is reported here ONLY as "fraction of a 0.043-wide band beaten", which is
+   what it measures. No distributional reading is claimed.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  every home-judge `sat_*.npz` with full coverage of the 968-prompt set
+instrument  distinct criterion indices per prompt (E1) · A2 over all annotators (E2, E4)
+baseline    the 1,820-subset class for E4, with n_eff stated beside it
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  AN EXACT-MATCH FILTER ON A RAGGED OBJECT EXCLUDES THE OBJECT. If an arm's size varies over prompts
+    then `k == 4 for all prompts` is false for it however typical 4 is. This is trivial arithmetic and
+    it is stated here because the round's whole point is that I applied it three times without
+    noticing. **DERIVATION, not a finding.**
+D2  A PERMUTATION OF ONE ARM ACROSS PROMPTS LEAVES A PAIRED MEAN INVARIANT, so the arm-side
+    permutation null is void -- the derivation R780 caught and R781 built anyway (ledger 1125).
+    **This round does not build it.** The negative role is played by REPLICA PAIRS instead: arms R766
+    established are within-pass replicas must return exactly 0.
+D3  IF THE TWO COMPARATORS DIFFER BY LESS THAN THE MDE, no published ② verdict can move, because every
+    such verdict is a comparison against one of them at a resolution coarser than their difference.
+    So E2 can settle R604's question at the OBJECT level and leave every CLAIM untouched, and those
+    are different sentences.
+
+STRONGEST CONFOUND, written BEFORE the run: `sat_generic.npz` and the pool may differ because the
+generic arm was scored in a different pass with different judge sampling, not because the criterion
+SETS differ. CONTROL IN THE SAME ITERATION: compare the raw satisfaction arrays, not only A2 -- if the
+sets were identical the satisfactions would differ only by judge noise, which is bounded and
+reportable; if the sets differ the per-prompt A2 differences will be large and sparse.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · ALIASES. The arrays are identical. The two names denote one object, R604's ambiguity dissolves,
+    and every page that says `POOL[0:4]` is exactly right.
+B · DIFFERENT OBJECTS, BELOW RESOLUTION. The arrays differ but the A2 difference is inside its MDE.
+    Then the names denote different arms, the pages must say which one they mean, and NO published
+    verdict moves. The correction is to the description, not to the evidence.
+C · DIFFERENT AND RESOLVABLE. |eff| >= MDE and the CI excludes zero. Then every ②-verdict computed
+    against the wrong comparator is suspect and the percentile 93.7 must be recomputed.
+
+PREDICTION MATRIX
+  A -> arrays identical, max |dY| = 0
+  B -> arrays differ AND |eff| < MDE AND CI includes 0
+  C -> arrays differ AND (|eff| >= MDE OR CI excludes 0)
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (both arms load over the same 968 prompts; the census is non-empty -- exit 2
+   otherwise) and PLACEBO fires (an arm against itself = exactly 0) and REPLICA fires (a known
+   within-pass replica pair returns exactly 0) and POSITIVE fires (a planted shift is recovered at a
+   dose it should be and NOT at g=0):
+        arrays identical                     -> WORLD A
+        differ, |eff| < MDE, CI includes 0   -> WORLD B
+        differ, resolvable                   -> WORLD C
+        otherwise                            -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT     both sat files cover the 968-prompt set; the size census is non-empty. Exit 2 otherwise.
+PLACEBO    an arm against itself: exactly 0.000000.
+REPLICA    `topw_k4` against `topw_k4_detA` -- R766 established these are within-pass replicas, so
+           this is the NEGATIVE's job done by a real pair rather than by a void permutation (D2).
+POSITIVE   plant a shift of a known size into one arm's predicted scores and require the paired test
+           to recover it; BAND, COMPUTED: floor at g=0 (must be UNRESOLVED) and ceiling at a shift of
+           4x the MDE (must resolve). The threshold lies strictly between two computed ends.
+g=0        the same file loaded twice: exactly 0, and the test must NOT resolve.
+SHAM       ⚠ R781's sham was a POISON -- it degraded the comparator rather than removing the arm's
+           ingredient, and returned a FLATTERING 1.0000. Here the ingredient is WHICH CRITERION SET an
+           arm carries, so the sham is the same scoring machinery applied to an arm whose criterion
+           set is a different arm's -- absent alignment, not destroyed references. Reported beside the
+           replica pair so benefit and misdirection are separable.
+CENSUS     the three filters printed side by side with their disagreement set, so the claim about
+           filters is a table and not an anecdote.
+UNIT       E1 instrument unit = distinct criterion indices on a prompt; claim unit = an ARM's size
+           DISTRIBUTION. Explicitly unequal, which is why no single k is reported.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+(all home-judge scored arms) x {size distribution, core-file agreement} + 3 filters x their admitted
+sets + 1 comparator pair x {identity, A2, MDE, CI} + 4 plant levels + the corrected-population q
+table. The whole census is printed, including arms whose size is exactly constant.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+why a criterion set is short on a prompt   the generator's logs, which are off-repository (R605: no
+                                           script in this tree writes 98 of 101 sat artifacts)
+a judge-free size                          the size is read from the sat file, which the judge wrote
+cross-release size comparison              release 2 ships `core_generic.json` at k=4 only
+independently replicated                   a second designer; the session prompt forbids agents

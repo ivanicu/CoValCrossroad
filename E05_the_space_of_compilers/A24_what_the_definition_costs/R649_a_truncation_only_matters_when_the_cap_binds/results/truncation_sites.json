@@ -1,0 +1,119 @@
+{
+  "world": "C LIVE \u2014 2 site(s) in 1 round(s) truncate a read that then feeds a search, and the cap BINDS on the site's OWN population: 4 file(s) it reads exceed cap 200000. That round is silently blind to those files' tails, so its counts are lower bounds of unknown size. 1 further site(s) UNVERIFIED \u2014 population not re-derivable.  \u26a0 BUT CONSEQUENCE: NONE TODAY \u2014 the cap binds on 4 files and none of their tails carries a second-corpus token the head lacks, so R601's published classification is unaffected. It is inert by luck, not by design: one >200,000-char artifact mentioning the second corpus would silently flip a round to home-only.",
+  "controls_ok": true,
+  "rounds_scanned": 324,
+  "parse_failures": 0,
+  "lower_bound_sites": [
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R601_does_the_claim_set_carry_the_cross_release_result/run.py",
+      "line": 109,
+      "cap": 110,
+      "kind": "READ",
+      "consumed": false,
+      "src": "(d / \"README.md\").read_text().split(\"\\n\")[0][:110]"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R601_does_the_claim_set_carry_the_cross_release_result/run.py",
+      "line": 104,
+      "cap": 200000,
+      "kind": "READ",
+      "consumed": false,
+      "src": "f.read_text(errors=\"ignore\")[:200000]"
+    }
+  ],
+  "upper_extra_sites": [
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R374_were_the_red_gates_ever_green/run.py",
+      "line": 207,
+      "cap": 12,
+      "kind": "NAME-READ",
+      "consumed": false,
+      "src": "sha[:12]"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R375_one_commit_or_six/run.py",
+      "line": 261,
+      "cap": 12,
+      "kind": "NAME-READ",
+      "consumed": false,
+      "src": "head[:12]"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R388_one_unit_of_the_debt/run.py",
+      "line": 225,
+      "cap": 12,
+      "kind": "NAME-READ",
+      "consumed": false,
+      "src": "head[:12]"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R390_does_the_untitled_tier_state_anything/run.py",
+      "line": 285,
+      "cap": 12,
+      "kind": "NAME-READ",
+      "consumed": false,
+      "src": "head[:12]"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R393_what_the_gate_will_cost/run.py",
+      "line": 257,
+      "cap": 12,
+      "kind": "NAME-READ",
+      "consumed": false,
+      "src": "head[:12]"
+    }
+  ],
+  "display_slices": 10,
+  "hash_slices": 188,
+  "stamp_slices": 35,
+  "binding": [
+    {
+      "cap": 200000,
+      "files_exceeding": 4
+    }
+  ],
+  "binding_undetermined": [
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R601_does_the_claim_set_carry_the_cross_release_result/run.py",
+      "line": 109,
+      "cap": 110,
+      "kind": "READ",
+      "consumed": false,
+      "src": "(d / \"README.md\").read_text().split(\"\\n\")[0][:110]"
+    }
+  ],
+  "consequence": "NONE TODAY \u2014 the cap binds on 4 files and none of their tails carries a second-corpus token the head lacks, so R601's published classification is unaffected. It is inert by luck, not by design: one >200,000-char artifact mentioning the second corpus would silently flip a round to home-only.",
+  "consequence_control": true,
+  "files_over_cap": [
+    {
+      "round": "R234_independent_A",
+      "file": "main_grid.json",
+      "chars": 246560,
+      "head": false,
+      "tail": false
+    },
+    {
+      "round": "R235_independent_B",
+      "file": "results.json",
+      "chars": 1360834,
+      "head": false,
+      "tail": false
+    },
+    {
+      "round": "R235_independent_B",
+      "file": "grid.json",
+      "chars": 1293774,
+      "head": false,
+      "tail": false
+    },
+    {
+      "round": "R341_is_the_skipped_population_real",
+      "file": "r341_skipped_population.json",
+      "chars": 2606865,
+      "head": false,
+      "tail": false
+    }
+  ],
+  "check250": "R648's 'three rounds spent on truncations' verified: R630 [:12], R646 head -3, R647 tail -25. Its RULE was too broad -- display truncation is correct; the defect is truncation before a COUNT.",
+  "impossible_RETRACTED": "The docstring registered 'whether any round's published NUMBER is wrong needs a different round' as IMPOSSIBLE. That was a wall I never checked, and it was one pass over 4 files: comparing the HEAD and TAIL of each over-cap file against R601's own recogniser answers it directly, no re-run needed. \u00a74's `a wall never checked` -- an unchecked wall is UNVERIFIED, never SETTLED. What IS still impossible: the same question for a site whose read population is not re-derivable."
+}

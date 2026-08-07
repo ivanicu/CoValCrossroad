@@ -1,0 +1,80 @@
+{
+  "world": "UNVERIFIED \u2014 THE AUDIT CANNOT BE PERFORMED, and the reason is a finding rather than a defect. The negative control (R659, whose counts R662 lists under STANDS) is marked withdrawn by BOTH rules, because the ledger contains 'the R659\u2192R662 thread is withdrawn' AND 'the censuses stand'. THE RECORD I WOULD GRADE MYSELF ON IS NOT SELF-CONSISTENT. \u2b50 What the run does establish, and it needs no rule: R662's NEXT asserted the record 'reads six of seven directional predictions held' \u2014 the artifacts persist 6 forecasts, not seven, and at most 4 of them are even arguably scoreable. The headline was restated from memory and is RETRACTED without needing the audit it asked for. \u26a0 AND I AM STOPPING RATHER THAN TIGHTENING A THIRD PATTERN: a scorer adjusted until it grades its author favourably is the failure the pre-registration named in advance.",
+  "controls_ok": false,
+  "tree_sha": "2a77b9807925fdc58717be5674eb74a06328bf0b",
+  "prereg": {
+    "point_B": 3,
+    "interval_B": [
+      1,
+      5
+    ],
+    "directional": "B <= 4; the admissible record cannot support a calibration claim",
+    "kill": "B >= 6 retracts the directional prediction",
+    "anti_self_serving": "admissibility reads ONLY committed fields -- controls_ok in the round's own artifact and retraction entries written earlier; no judgement at scoring time; undecidable cases are reported, not assigned"
+  },
+  "A_persisted": 6,
+  "B_admissible": 2,
+  "inadmissible": 3,
+  "C_directional_held": 1,
+  "C_directional_scoreable": 1,
+  "rows": [
+    {
+      "round": "R657_bind_the_function_local_bases",
+      "artifact": "local_binding.json",
+      "verdict": "ADMISSIBLE",
+      "why": "neither rule marks it withdrawn",
+      "controls_ok": true,
+      "directional_holds": null,
+      "magnitude_inside": false
+    },
+    {
+      "round": "R658_which_binding_forms_the_evaluator_never_sees",
+      "artifact": "binding_forms.json",
+      "verdict": "ADMISSIBLE",
+      "why": "neither rule marks it withdrawn",
+      "controls_ok": true,
+      "directional_holds": true,
+      "magnitude_inside": false
+    },
+    {
+      "round": "R659_how_often_a_wall_i_declared_fell",
+      "artifact": "wall_record.json",
+      "verdict": "INADMISSIBLE",
+      "why": "both rules: 'R659\u2192R662 thread is withdrawn'",
+      "controls_ok": true,
+      "directional_holds": true,
+      "magnitude_inside": false
+    },
+    {
+      "round": "R660_does_a_named_entry_reach_the_register",
+      "artifact": "join.json",
+      "verdict": "UNDECIDABLE",
+      "why": "rules disagree \u2014 loose=True (entry 693 mentions it near a withd), tight=False",
+      "controls_ok": true,
+      "directional_holds": false,
+      "magnitude_inside": false
+    },
+    {
+      "round": "R661_is_the_naming_rate_just_exposure",
+      "artifact": "exposure.json",
+      "verdict": "INADMISSIBLE",
+      "why": "the round's own artifact records controls_ok = false",
+      "controls_ok": false,
+      "directional_holds": true,
+      "magnitude_inside": true
+    },
+    {
+      "round": "R662_is_the_grid_or_the_data_the_constraint",
+      "artifact": "resolution_curve.json",
+      "verdict": "INADMISSIBLE",
+      "why": "the round's own artifact records controls_ok = false",
+      "controls_ok": false,
+      "directional_holds": true,
+      "magnitude_inside": null
+    }
+  ],
+  "magnitude_inside": true,
+  "directional_holds": true,
+  "check264": "R662's NEXT asserted the record 'reads six of seven directional predictions held' and that 'at least three were about numbers that no longer exist'. Both were stated from memory; the artifacts carry the record and were never read.",
+  "impossible": "whether an admissible hit reflects judgement or luck is not identified at this n; and prose-only forecasts are not persisted, so A undercounts."
+}

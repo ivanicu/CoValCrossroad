@@ -1,0 +1,45 @@
+{
+  "world": "\u2b50\u2b50\u2b50 A THE DEFINITION IS TWO PARAMETERS WE CHOSE, PLUS THE SHAM. Over 42 arms and 24 (family,k) cells, \u2461 is irreducible in 2 cell(s) and \u2461\u2227\u2462 in 2, and those cells are coval_core/none; topw/4 \u2014 the released core against its own sham, and topw_k4 against its sham. \u2b50 A MEMORISING (family,k) FIT SCORES 95.2% ON \u2461\u2227\u2462 BY CONSTRUCTION, so R693's proposed joint fit would have reported a DERIVATION as evidence. \u26a0 AND THE UNIT GAP IS THE READING: (family,k) is OUR parameterisation of arms WE built. A mixed cell shows the clause is not reducible to those two parameters; it does not show what the clause IS.",
+  "controls_ok": true,
+  "tree_sha": "57eb6e851487a3fdbe011cda2c4d1c43ba3fa0c0",
+  "n_arms": 42,
+  "rows": [
+    {
+      "reading": "\u2461",
+      "n_cells": 24,
+      "singletons": 12,
+      "mixed": [
+        "coval_core/none",
+        "topw/4"
+      ],
+      "n_mixed": 2,
+      "memorise_acc": 0.9523809523809523,
+      "errors": 2,
+      "floor": 0.7857142857142857,
+      "arith_ok": true,
+      "n_pass": 9
+    },
+    {
+      "reading": "\u2461\u2227\u2462",
+      "n_cells": 24,
+      "singletons": 12,
+      "mixed": [
+        "coval_core/none",
+        "topw/4"
+      ],
+      "n_mixed": 2,
+      "memorise_acc": 0.9523809523809523,
+      "errors": 2,
+      "floor": 0.8809523809523809,
+      "arith_ok": true,
+      "n_pass": 5
+    }
+  ],
+  "kill_fired": false,
+  "directional_holds": true,
+  "registered": "A 2 [0,6] mixed cells for \u2461\u2227\u2462; \u2461\u2227\u2462 <= \u2461; kill if zero",
+  "point_B": "UNCOMPUTED -- R360 holds no \u2462-alone verdict; a draft satisfied it by relabelling \u2461\u2227\u2462",
+  "killed_derivation": "R693's proposed joint (family,k) fit: 12 of 24 cells are singletons, so accuracy is forced by cell cardinality. Not evidence.",
+  "own_arithmetic_error": "the gauge test first computed errors as sum(min(counts)), charging every PURE cell an error, and printed 4.8% for a memorising fit that cannot go below the 78.6% floor. Caught by absurdity, not by a control -- an ARITHMETIC control now enforces acc >= floor.",
+  "limit": "(family,k) is OUR parameterisation of arms WE built."
+}

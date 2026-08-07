@@ -1,0 +1,139 @@
+R769 · contains vs consumed — 968 of 1,078 prompts, and what resolving the extension would cost
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R768 concluded the extension is an UNORDERED SET -- 0 of 10 committed pairs resolvably ordered, gaps
+of 0.0001-0.0072 against paired MDEs of 0.0054-0.0090 -- and its NEXT invoked §4's sham row, whose
+remedy is mechanical and comes FIRST: *"before accepting any resolution limit, count what the release
+actually contains and what your code actually consumed, and require those two numbers to match."*
+
+⛔ CHECK #371, THE COUNT, RUN BEFORE ANY DESIGN:
+   annotators : median **16**, total **15,593** consumed -- **exactly the release's own figure**, so
+                the ×5 gain §4's row found on a different design IS NOT AVAILABLE HERE. That lever is
+                already fully pulled, and saying otherwise would be the flattering direction.
+   prompts    : the release carries **1,078**; the estimator's population is **968**.
+                **110 prompts and 2,791 annotations -- 15.2% -- are not consumed.**
+   contains vs consumed = 15,593 / 18,384 = **0.8482**.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the ATTRIBUTION of the 110 dropped prompts to the exact clause of the population filter that
+    drops each: absent from `sat_random_k4_s0`, absent from `sat_genericpool16`, or fewer than 2
+    annotators. Counted per clause, with overlaps resolved, not a single total.
+E2  how many of the 110 are RECOVERABLE -- i.e. carry full coverage in the arms R768 compared -- so
+    the population could have been 1,078 rather than 968.
+E3  the POWER CURVE: paired MDE as a function of the number of prompts consumed, and the n required
+    to resolve each of R768's observed gaps. This converts "unordered" from a null into the
+    register's missing number.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1, E2 exact -- membership is a set operation over committed artifacts.
+E3 IDENTIFIED UNDER ONE ASSUMPTION, stated: that the difference vector's per-prompt sd is stable as n
+   grows, i.e. the 110 unused prompts are not systematically noisier. That assumption is TESTABLE only
+   for the recoverable subset, and the round tests it there and declares it for the rest.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  the release's 1,078 prompts; the estimator's 968; the recoverable subset
+instrument  R294's estimator, paired per-prompt differences, B = 1200
+baseline    none -- these are arm-vs-arm as R768
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING -- AND IT SAYS THIS ROUND CANNOT RESCUE R768
+--------------------------------------------------------------------------------
+D1  MDE ∝ 1/sqrt(n). Going 968 -> 1,078 multiplies the MDE by sqrt(968/1078) = **0.947** -- a 5.3%
+    reduction. R768's `coval_core` vs `topw_k4` gap is 0.0023 against an MDE of 0.0085, a factor of
+    **3.7**; closing that needs **n x 13.7 ≈ 13,200 prompts**. **THE 110 PROMPTS CANNOT CHANGE ANY
+    VERDICT, AND THAT IS ALGEBRA.** This round therefore does NOT rescue R768's null and says so
+    before running, so that a null result cannot be read as a discovery.
+D2  WHAT THE COUNT IS FOR IS SCOPE, NOT POWER. If the 110 are dropped by an ARM-COVERAGE accident
+    rather than by a property of the release, then every number in this campaign carries an unstated
+    **89.8%** population scope. That is the finding this round can actually produce.
+D3  n REQUIRED SCALES AS (MDE/gap)^2 x n. Reporting a required n is therefore a DERIVATION from the
+    measured sd, not a measurement -- it is labelled as one, and its assumption (D1's stable sd) is
+    the thing E3 tests where it can.
+
+STRONGEST CONFOUND, written BEFORE the run: the 110 dropped prompts might be systematically EASIER or
+HARDER -- if they are dropped for having few annotators, their A2 is noisier, and adding them could
+RAISE the MDE rather than lower it. CONTROL IN THE SAME ITERATION: compute the per-prompt difference
+sd separately on the recoverable subset and on the 968, and report both rather than assuming they
+match.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE DROP IS AN ARTIFACT OF ARM COVERAGE. Most of the 110 are absent from one scoring artifact,
+    not from the release, so the population is a property of which arms were scored -- and every ②
+    number in this campaign inherits a 968/1,078 scope nobody has stated.
+B · THE DROP IS A PROPERTY OF THE RELEASE. The 110 genuinely lack the annotators or the pool
+    coverage the estimand needs, so 968 is the right population and the scope is already correct.
+C · THE DROPPED PROMPTS ARE DIFFERENT IN KIND. Their difference-vector sd differs materially from
+    the 968's, so adding them would change the MDE in a direction the arithmetic alone cannot give.
+
+PREDICTION MATRIX
+  A -> >= 60 of 110 have >= 2 annotators AND full coverage in the compared arms
+  B -> >= 60 of 110 fail on annotators or on pool coverage
+  C -> the recoverable subset's difference sd differs from the 968's by more than 10%
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE fires (the measured MDE-vs-n curve follows 1/sqrt(n) to within 5% on the real data, so
+   the power instrument is calibrated against a law it did not choose)
+   and g=0 fires (at n = 968 the curve reproduces R768's committed MDEs exactly)
+   and PLACEBO fires (a subsample of size n drawn WITH replacement from the same 968 leaves the MDE
+   unchanged in expectation -- resampling is not new information):
+        >= 60 of 110 recoverable          -> WORLD A. The scope 968/1,078 goes on the page.
+        >= 60 fail on release properties  -> WORLD B. 968 is correct and the register says why.
+        sd differs by > 10%               -> WORLD C, reported ALONGSIDE A or B.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+⚠ NO BRANCH OF THIS KILL CHANGES R768's VERDICT. D1 forbids it. A round whose result is fixed in
+  advance on the headline question is CLOSURE on that question and FRONTIER only on scope, and it is
+  labelled that way in the report.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE  the MDE-vs-n curve must follow `MDE(n) = MDE(968) * sqrt(968/n)` to within 5% across
+          n in {100, 200, 400, 600, 800, 968}, averaged over 50 subsamples each. BAND, COMPUTED: a
+          flat curve (no n dependence) fails; a curve with the wrong exponent fails. The 1/sqrt law
+          is not fitted, it is asserted and checked.
+g=0       at n = 968 with no subsampling the curve must reproduce R768's committed paired MDEs
+          EXACTLY for the same pairs.
+NEGATIVE  destroy the pairing at each n and report the MDE ratio -- it must stay near R768's ×2.25 at
+          every n, showing the pairing's benefit is not an artifact of the full sample.
+SHAM      ingredient ABSENT, not inverted. Ingredient = NEW PROMPTS. Draw n prompts WITH replacement
+          from the same 968 -- the same count, no new information -- and report the MDE. If bootstrap
+          resampling lowers the MDE as much as real prompts would, the curve is measuring arithmetic
+          rather than information.
+PLACEBO   the difference of an arm with ITSELF must have MDE exactly 0 at every n.
+NOISE     50 subsamples per n, seeded; the spread is printed, never just the mean.
+UNIT      instrument unit = a PROMPT; claim unit = an ARM PAIR. The MDE is per-pair and the count is
+          per-prompt, and the required-n figure is stated per pair, never pooled.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+6 values of n x 50 subsamples x 10 committed pairs + the attribution table over 110 prompts + the
+sham and negative curves. The whole MDE curve is printed with its spread, and the required-n column
+is given for every pair including the ones it declares hopeless.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether n = 13,200 prompts would actually resolve
+  the gap                                        those prompts; the figure is a DERIVATION from the
+                                                 measured sd under D1's stability assumption
+whether the 110 dropped prompts are like the 968
+  in ways beyond difference sd                   scoring them under the arms, which needs the judge
+whether A2 is the right thing to order by        an external criterion
+independently replicated                         a second team; the session prompt forbids agents

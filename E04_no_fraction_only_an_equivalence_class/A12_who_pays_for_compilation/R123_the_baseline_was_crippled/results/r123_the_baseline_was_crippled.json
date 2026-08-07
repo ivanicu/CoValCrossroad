@@ -1,0 +1,24 @@
+{
+ "conclusion": "25.6% of full's criteria carry a negative mean human rating and the baseline used in every round averages them unflipped. Sign-corrected, full scores 0.32014 against core's 0.33632: core's published +0.0703 advantage becomes +0.0162. Per person the mean gain moves from -0.07030 to +0.01618 and the harm rate from 12.76% to 57.86%. A sham flip of a random 25.6% gives 0.43377, z=-18.2, so it is the NEGATIVE criteria that were inverted and not flipping per se. WORLD: W-BASELINE-ARTIFACT. Neither baseline is 'the' comparison: core structurally has no ratings, so full-equal removes an advantage core cannot have, while full-signed grants full information core lacks. The defensible statement is the third one -- compilation is a LOSSY conversion of rating information into wording, costing +0.0162 of concordance and buying independence from the ratings.",
+ "e_core": 0.3363226345005451,
+ "e_full_equal": 0.40661814242185484,
+ "e_full_signed": 0.32014072227737983,
+ "eps": 0.01,
+ "gain_vs_equal": -0.07029550792130969,
+ "gain_vs_signed": 0.016181912223165354,
+ "harm_vs_equal": 0.12759643916913946,
+ "harm_vs_signed": 0.5786350148367952,
+ "n_criteria": 15248,
+ "n_negative": 3905,
+ "n_people": 1011,
+ "neg_share": 0.25609916054564535,
+ "placebo_max_abs_delta": 0.0,
+ "sham_ci": [
+  0.42158421565941806,
+  0.4441402051366029
+ ],
+ "sham_mean": 0.4337681762609167,
+ "source_name": "run.py",
+ "source_sha256": "1d7649bddd06436262934e3b43d6e90b626baa2b213ac8b33065389b8cfd7645",
+ "world": "W-BASELINE-ARTIFACT"
+}

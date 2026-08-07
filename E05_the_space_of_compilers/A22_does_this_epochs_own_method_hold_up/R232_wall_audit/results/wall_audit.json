@@ -1,0 +1,37 @@
+{
+ "walls": [
+  {
+   "wall": "m = 4 candidate responses for every prompt",
+   "holds": true,
+   "evidence": "num_candidates over 18384 assessments: {4: 18384} | responses per prompt over 1078 prompts: {4: 1078}"
+  },
+  {
+   "wall": "the release ships no criterion-by-response satisfaction",
+   "holds": true,
+   "evidence": "rubric item fields: ['criterion', 'rubric_item_id', 'scores', 'scores.annotator_id', 'scores.score'] | satisfaction-like: none"
+  },
+  {
+   "wall": "the release ships no source_criterion_id (no lineage)",
+   "holds": true,
+   "evidence": "coval_core item fields across ALL 986 rubrics: ['criterion'] | lineage-like: none"
+  },
+  {
+   "wall": "the release ships no Y (outputs of a model trained on the standard)",
+   "holds": true,
+   "evidence": "top-level fields: ['annotator_id', 'assistant_turn_share', 'demographics', 'importance', 'metadata', 'num_candidates', 'prompt', 'prompt_id', 'ranking_blocks', 'representativeness', 'responses', 'subjectivity', 'turns_assistant', 'turns_user'] | Y-like: none"
+  },
+  {
+   "wall": "`unacceptable` covers only the long-form subset",
+   "holds": true,
+   "evidence": "non-empty in 4901 of 18384 = 0.2666 (R220 measured 0.2666)"
+  },
+  {
+   "wall": "the release ships no demographics  [POSITIVE CONTROL -- known FALSE]",
+   "holds": false,
+   "evidence": "demographics present on 18384 of 18384 rows"
+  }
+ ],
+ "positive_control_ok": true,
+ "negative_control_ok": true,
+ "verdict": "5 of the 5 load-bearing walls HOLD, checked against every row of the released files rather than asserted. None is false. They were asserted across six rounds and this is the first query run against any of them; they are now VERIFIED rather than UNVERIFIED, which is a change in their status even though not one of them moved."
+}

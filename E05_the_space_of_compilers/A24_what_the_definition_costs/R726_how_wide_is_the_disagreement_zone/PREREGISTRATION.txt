@@ -1,0 +1,91 @@
+R726 · how wide is the disagreement zone
+written BEFORE run.py. Derived on paper from R725's own artifact fields; no zone has been computed.
+
+ESTIMAND
+   R725 measured that the bootstrap-based rules and the analytic-t thresholds disagree on ZERO of
+   410 checks. That is a fact about where these 41 arms sit. The estimand here is the fact about the
+   RULE: for each threshold, the interval of t within which the two can disagree given the observed
+   spread of SE_ci/SE_mde, and how many of the 82 cells fall inside it.
+   A wide, unoccupied zone means R725's collapse is corpus-dependent luck. A narrow zone means the
+   collapse is a property of the rules and would survive a differently distributed arm set.
+
+DERIVATION, STATED FIRST SO IT IS NOT MISREAD AS A MEASUREMENT
+   Write r = SE_ci / SE_mde, so t_ci = t_mde / r. Then
+     point         eff > 0        -> independent of SE entirely -> zone width EXACTLY 0
+     ci_only       lo > 0         <-> t_ci > 1.959964      <-> t_mde > 1.959964 * r
+     mde_only      eff >= mde     -> uses only SE_mde       -> zone width EXACTLY 0
+     strict        lo>0 & eff>=mde-> binds on mde_only when eff>0 -> width 0
+     conservative  lo > mde       <-> t_mde > 2.801585 + 1.959964 * r
+   So only TWO of the five rules have an SE-dependent boundary, and each zone is an interval whose
+   width is proportional to the SPREAD of r, not to r itself:
+     ci_only      width = 1.959964 * (r_max - r_min)
+     conservative width = 1.959964 * (r_max - r_min)
+   THE TWO ZONES HAVE EQUAL WIDTH BY ALGEBRA. That is not a finding; it is the shape of the rules.
+   What is measurable: the numeric width from the observed r range, the OCCUPANCY, and whether the
+   width scales with the spread as the algebra says (the dose-response below).
+
+IDENTIFICATION
+   Identified from R725's persisted per-cell SE_ci and SE_mde. NOT identified: the r a NEW arm would
+   have -- the observed range is a sample of 82, so the zone is estimated from an empirical range
+   and its endpoints are extreme order statistics, which the standard names explicitly as a bad
+   interval. Reported as: the min/max range AND the 5th-95th percentile range, both, never one.
+
+SCOPE
+   population : 82 cells (41 arms x 2 measured clauses)
+   instrument : algebraic zone boundaries + occupancy count over the persisted t values
+   baseline   : R725's realised-disagreement count of 0
+   regime     : census source_sha 2bc1124f6825df0f
+
+WORLDS
+   W-LUCK       the zones are wide and unoccupied -> the collapse is corpus-dependent
+   W-STRUCTURE  the zones are narrow -> the collapse is a property of the rules
+   prediction matrix
+      occupancy 0 and width > 0.5    -> LUCK 0.75  STRUCTURE 0.25
+      occupancy 0 and width < 0.1    -> LUCK 0.10  STRUCTURE 0.90
+      occupancy > 0                  -> both wrong: R725's zero must then be explained by each
+                                        occupant's OWN r, which is a third world and is reported
+
+REGISTERED POINTS (failable)
+   A  zone width at ci_only, from the min-max r range                = 0.24 [0.00, 5.00]
+   B  cells of 82 inside ANY zone (min-max range)                    = 3    [0, 82]
+   C  cells that WOULD flip under the most adverse r in that range   = 0    [0, 82]
+   D  smallest r-spread multiplier at which occupancy becomes > 0    = 2.0  [0.0, 64.0]
+      (this is the design's RESOLUTION: how much wider the SE disagreement would have to be
+       before the collapse breaks)
+   DIRECTIONAL (separately failable): exactly TWO of the five rules have a non-zero zone, and their
+   widths are EQUAL. This is the derivation above; measuring it is a check on the implementation,
+   and it is labelled a derivation in the report.
+
+KILL (CONDITIONAL -- evaluated only if the POSITIVE and DOSE-RESPONSE controls both fire)
+   if positive_fires and dose_monotone:
+       C > 0                        -> R725's zero was luck for at least one cell; that cell is
+                                       named and its verdict is downgraded to rule-dependent
+       occupancy 0 and width > 0.5  -> W-LUCK: the collapse is reported as corpus-dependent
+       otherwise                    -> evaluate A/B/C/D and the directional
+   else:
+       verdict = UNVERIFIED   # never OVERTURNED, never CONFIRMED
+
+POSITIVE CTRL   a synthetic cell planted at the DEAD CENTRE of the ci_only zone must (i) be counted
+                as inside it and (ii) flip under the adverse end of the r range. threshold computed:
+                floor (a cell at t=10, far from every boundary) = 0 inside, 0 flips < planted 1
+                inside, 1 flip <= ceiling 82.
+g=0             that same far cell at t = 10 must be inside NO zone and flip under NO r. The
+                control must not fire where there is nothing to find.
+DOSE-RESPONSE   multiply the observed r spread by 0, 0.5, 1, 2, 4 about its midpoint. Zone width
+                must be monotone non-decreasing in the multiplier and EXACTLY 0 at multiplier 0.
+                A width that does not scale with the spread is arithmetic, not measurement.
+NEGATIVE CTRL   set every r to exactly 1 (destroy the SE disagreement, preserve every t). All zone
+                widths must be 0 and occupancy 0. excluded world: "the zones come from the
+                threshold arithmetic rather than from the SE spread".
+SHAM            the same zone computation applied to the point rule and to mde_only -- rules whose
+                predicates do not involve SE_ci at all. Width must be exactly 0. The ingredient is
+                ABSENT, not inverted.
+PLACEBO         a cell against itself under one rule -> 0 flips.
+NOISE FLOOR     the r range is an extreme order statistic of 82 draws; the 5th-95th percentile
+                range is reported beside it, and the gap between the two IS the floor.
+MULTIPLICITY    5 rules x 5 dose levels x 82 cells = 2050 classifications, all reported.
+SPECIFICATION   r range (min-max vs 5-95 percentile) x 5 rules x 5 dose levels
+SEEDS           deterministic; two PYTHONHASHSEEDs byte-identical
+ARTIFACT        results/r726_zone_width.json with tree_sha
+IMPOSSIBLE      the r of an unobserved arm -> needs a new arm judged by the same pipeline
+                independently replicated -> a second implementer

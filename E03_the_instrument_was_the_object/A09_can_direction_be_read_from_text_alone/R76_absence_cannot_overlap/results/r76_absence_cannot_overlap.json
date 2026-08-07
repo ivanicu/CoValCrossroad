@@ -1,0 +1,68 @@
+{
+ "n": 9122,
+ "absence_share": 0.04067090550317913,
+ "absence_share_positive": 0.036366549182954185,
+ "absence_share_negative": 0.05,
+ "cells": {
+  "positive/presence-type": {
+   "n": 6015,
+   "mean": 0.016768744628136788,
+   "ci": [
+    0.014229445663510813,
+    0.019293995238012382
+   ]
+  },
+  "positive/absence-type": {
+   "n": 227,
+   "mean": 0.03813999261006747,
+   "ci": [
+    0.02285089606422942,
+    0.05432069176010544
+   ]
+  },
+  "negative/presence-type": {
+   "n": 2736,
+   "mean": -0.002780829604777225,
+   "ci": [
+    -0.00732577647645995,
+    0.001684074742530661
+   ]
+  },
+  "negative/absence-type": {
+   "n": 144,
+   "mean": -0.0013116773539731683,
+   "ci": [
+    -0.017178971931548537,
+    0.015805691354990305
+   ]
+  }
+ },
+ "gaps": {
+  "presence-type": {
+   "gap": 0.019549574232914015,
+   "ci": [
+    0.013875217796549872,
+    0.025004117258458358
+   ]
+  },
+  "absence-type": {
+   "gap": 0.03945166996404064,
+   "ci": [
+    0.016908321714450673,
+    0.061337031644693236
+   ]
+  }
+ },
+ "controls": {
+  "shuffled_gaps": {
+   "presence-type": 0.0040868825063705115,
+   "absence-type": -0.002842467499428087
+  },
+  "all_pass": true
+ },
+ "presence_negatives_track_worst": false,
+ "world": "A ASYMMETRIC-ATTENTION -- the split does not explain it",
+ "outcome_variable_scope": "Sign is the single author's own score; the ranking is that same author's own world block. Containment is lexical. No judge, no model gold head.",
+ "scope": "ABSENT is a regex over criterion CONSTRUCTIONS, not a semantic classifier: it matches 'fails to', 'omits', 'lacks', 'no mention of' and similar, and deliberately does not match every sentence containing a negative word, because 'is not concise' describes a property the text HAS. Misclassification is therefore expected in both directions and would bias the split toward finding nothing. Cells below 100 items are reported with their count and not used.",
+ "verdict": "A ASYMMETRIC-ATTENTION -- the split does not explain it. r75 found that a rater's positive criteria overlap the response they ranked best while their negative criteria are flat, and entry 129 read that as a fact about raters: praise is drawn from the menu, criticism is not. There is a mechanical rival: a criterion about an ABSENCE -- 'fails to mention X', 'omits Y' -- cannot lexically overlap the text that lacks it, so negative criteria would look flat because most of them are absence-shaped, with no claim about attention involved. Absence-shaped wording is 4.1% of write-ins overall, 3.6% of positive ones and 5.0% of negative ones. Splitting the best-minus-worst overlap by both sign and shape: positive/presence-type +0.01677 [+0.01423,+0.01929], positive/absence-type +0.03814 [+0.02285,+0.05432], negative/presence-type -0.00278 [-0.00733,+0.00168], negative/absence-type -0.00131 [-0.01718,+0.01581]. THE DECIDING PREDICTION is one the attention story does not make: under the mechanical rival, PRESENCE-type negatives should track the WORST response, i.e. a negative cell mean. They DO NOT. The positive-minus-negative gap is +0.01955 among presence-type criteria and +0.03945 among absence-type, against shuffled-sign nulls of presence-type +0.00409, absence-type -0.00284. WHAT THIS DOES TO ENTRY 129: it survives the mechanical rival on the rivals own prediction, and the asymmetry remains a fact about what raters write rather than about what containment can see. SCOPE UNCHANGED: this is still association within a rater, and still cannot separate a menu that created the direction from a menu that supplied the words. That is S_pre."
+}

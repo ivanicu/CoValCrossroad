@@ -1,0 +1,76 @@
+{
+  "world": "A",
+  "label": "DERIVATION \u2014 secs/spawns, forced by the algebra",
+  "rows": [
+    {
+      "gate": "attack_scope_reaches_the_reader",
+      "caps": false,
+      "secs": 0.2,
+      "spawns": 5,
+      "s_per_spawn": 0.04,
+      "complete": true
+    },
+    {
+      "gate": "attack_every_check",
+      "caps": false,
+      "secs": 1.5,
+      "spawns": 11,
+      "s_per_spawn": 0.136,
+      "complete": true
+    },
+    {
+      "gate": "attack_outcome_variable_declared",
+      "caps": false,
+      "secs": 3.94,
+      "spawns": 5,
+      "s_per_spawn": 0.788,
+      "complete": true
+    },
+    {
+      "gate": "attack_no_withdrawn_framings",
+      "caps": false,
+      "secs": 6.18,
+      "spawns": 7,
+      "s_per_spawn": 0.883,
+      "complete": true
+    },
+    {
+      "gate": "what_did_each_check_actually_read",
+      "caps": true,
+      "secs": 25.0,
+      "spawns": 60,
+      "s_per_spawn": 0.417,
+      "complete": false
+    },
+    {
+      "gate": "attack_the_suite",
+      "caps": true,
+      "secs": 25.0,
+      "spawns": 22,
+      "s_per_spawn": 1.136,
+      "complete": false
+    },
+    {
+      "gate": "backfilled_findings_are_rederivable",
+      "caps": true,
+      "secs": 25.0,
+      "spawns": 9,
+      "s_per_spawn": 2.778,
+      "complete": false
+    }
+  ],
+  "capper_s_per_spawn": [
+    0.417,
+    1.136,
+    2.778
+  ],
+  "non_capper_s_per_spawn": [
+    0.04,
+    0.136,
+    0.788,
+    0.883
+  ],
+  "overlap": true,
+  "finding": "neither factor separates; their product IS total time, which separates by construction",
+  "caveat": "capper s/spawn uses a truncated 25s numerator AND a truncated spawn count -- both sides truncated, so the ratio is not even a clean bound"
+}

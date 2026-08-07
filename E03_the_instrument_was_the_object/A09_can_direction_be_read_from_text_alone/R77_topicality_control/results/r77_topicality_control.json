@@ -1,0 +1,36 @@
+{
+ "n": 9122,
+ "emptied_by_stripping": 14,
+ "mean_prompt_share_of_criterion_tokens": 0.16051376987499485,
+ "arms": {
+  "full vocabulary": {
+   "n": 9122,
+   "positive_mean": 0.01754594316897278,
+   "negative_mean": -0.002707371992237023,
+   "gap": 0.020253315161209803,
+   "ci": [
+    0.014880716255896589,
+    0.025876429359858944
+   ]
+  },
+  "prompt-stripped": {
+   "n": 9108,
+   "positive_mean": 0.013864137945612002,
+   "negative_mean": -0.007273570992368249,
+   "gap": 0.02113770893798025,
+   "ci": [
+    0.015693119419801987,
+    0.026473794510690436
+   ]
+  }
+ },
+ "retained_fraction": 1.0436666180193692,
+ "controls": {
+  "shuffled_sign_gap_stripped": 0.0005231089385479741,
+  "all_pass": true
+ },
+ "world": "R RESPONSE-SPECIFIC",
+ "outcome_variable_scope": "Sign is the single author's own score; ranking is that same author's own world block. No judge, no model gold head. Containment is lexical throughout.",
+ "scope": "Prompt stripping removes criterion tokens appearing anywhere in the prompt's messages. It is lossy: criteria made entirely of prompt vocabulary are emptied and dropped, and they are counted. Length residualisation is applied within prompt exactly as in r75, so the two arms differ only in the criterion vocabulary used.",
+ "verdict": "R RESPONSE-SPECIFIC. r75 and r76 both rest on lexical overlap between a criterion and the response its author ranked best, and neither controlled the most obvious rival: the best-ranked response is plausibly the one that engages the QUESTION most fully, so it reuses the prompt's vocabulary most, and a criterion is about that same question. Both would overlap the prompt's words and containment would report an association with no rater having read anything. r76 tested a different rival and left this one standing. Removing from every criterion the tokens the PROMPT already supplied -- 16.1% of a criterion's content words on average, emptying 14 of 9122 criteria entirely (0.2%, dropped and counted) -- the positive-minus-negative gap goes from +0.02025 [+0.01488,+0.02588] to +0.02114 [+0.01569,+0.02647], retaining 104%. Shuffled signs give +0.00052. SO THE OVERLAP IS WITH WHAT THAT ANSWER SAID, not with what the question was about. STATED BEFORE THE RUN AND STILL BINDING: stripping is lossy as well as conservative. The 14 criteria whose entire content was prompt vocabulary are dropped, and those are exactly the ones for which the topicality story is most likely true, so this arm cannot speak for them. A surviving gap is strong evidence for the response-specific reading; a collapsed one would have been consistent with topicality AND with having stripped the signal along with the confound."
+}

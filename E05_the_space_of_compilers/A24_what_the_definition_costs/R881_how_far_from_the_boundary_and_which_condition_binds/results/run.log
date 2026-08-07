@@ -1,0 +1,24 @@
+  prompts 968 · arms 99 · NBOOT 8000 (free: R880 showed budget-invariance)
+  ① WIRING  recomputed admission = 28 arms (R880's set): 28  PASS
+  ② POSITIVE `oracle_k4` in the top decile of CI slack: True  PASS   (its lo +0.07808 vs p90 +0.07430)
+  ③ NEGATIVE `random_k4_s0` has lo <= 0: True  PASS   (lo -0.05939)
+  ④ PLACEBO comparator vs itself margin +0.00e+00: True  PASS
+
+  ⭐ CI SLACK among the 28 admitted arms, in A2 units:
+     min +0.00314 · p25 +0.01415 · median +0.02070 · max +0.07808
+     typical per-arm MDE for comparison: 0.01126
+     ⭐ the CLOSEST admitted arm sits 0.28 MDEs above the boundary
+        topw_k2                      lo = +0.00314  (0.28 MDE)
+        greedy_k12_fit1              lo = +0.00435  (0.39 MDE)
+        generic                      lo = +0.00574  (0.51 MDE)
+        generic_reprov               lo = +0.00574  (0.51 MDE)
+        topw_k8                      lo = +0.00964  (0.86 MDE)
+
+  ⛔ DERIVATION (not measured): which condition binds is READ OFF the two slacks.
+     BH binds for 0 arm(s) · CI binds for 28 arm(s)
+  ⭐ WORLD B: one condition binds for EVERY admitted arm — the other is decoration, and clause ②'s criterion is simpler than it has been written
+     ⚠ R880 inferred 'not marginal' from zero flips. This measures it: the closest
+       admitted arm is 0.28 MDEs clear, which is the quantity that
+       inference was standing in for.
+
+  artifact: results/boundary_distance.json @ 1113b2fd

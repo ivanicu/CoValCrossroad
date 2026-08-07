@@ -1,0 +1,26 @@
+R674 · PRE-REGISTRATION — written before opening any cited file.
+
+WHY THIS ROUND EXISTS (and it is not the reason R673 gave)
+  R673 claimed R672's commit "took the provenance escape falsely". Check #275 measured the escape's
+  takers over all 1,233 commits: there is exactly ONE, 8da27ea, and neither R672 nor R673 is it.
+  R672's quantifier had no ARTIFACT word inside the gate's window, so it was never flagged and the
+  escape was never exercised. R673's evidence was an event that did not occur. The MECHANISM claim
+  (a regex cannot read a file) survives as a DERIVATION from the source; the INSTANCE is retracted.
+
+ESTIMAND    of every NEXT paragraph (commit body or README section) that cites an artifact path AND
+            states a number near it, what share of those numbers actually OCCUR in the cited file?
+POINT       40%
+INTERVAL    [15%, 70%]
+DIRECTIONAL (separately failable) README NEXT sections verify at a LOWER rate than commit bodies,
+            because a commit body is written next to the artifact it just produced.
+KILL        if fewer than 5 (path, number) pairs qualify, the round is UNRUNNABLE -- exit 2, never
+            a rate over a population too small to carry one.
+CONTROLS
+  POSITIVE  a synthetic window citing a file that DOES contain its number must verify. And it must
+            FAIL when the number is changed to one the file lacks (the g=0 check).
+  NEGATIVE  a synthetic window citing a real file that does NOT contain the number must fail.
+  PLACEBO   a window citing a nonexistent path must be classed UNRESOLVABLE -- never "verified",
+            and never silently dropped into the failing bucket, which would inflate the failure rate.
+SCOPE LIMIT files are read at HEAD, not at the commit that cited them. A number true when written
+            and edited since reads as a failure here. This biases the measured rate DOWN and is
+            stated rather than corrected.

@@ -1,0 +1,732 @@
+{
+  "controls": {
+    "planted": true,
+    "real_positive": true
+  },
+  "counts": {
+    "FRESH": 14,
+    "STALE": 33,
+    "UNVERIFIED": 32
+  },
+  "readers_of_the_key": [
+    "covalx/stamp.py"
+  ],
+  "rows": [
+    {
+      "current": "4025cdcd9fc221d3",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "e9c7ef15d9a636b6fc5f93e5e1e0cb5d4b5b54c822fd0efc73238e36097ffe4a"
+      ],
+      "round": "R113_accuracy_matched_arm",
+      "verdict": "STALE"
+    },
+    {
+      "current": "7c5a2dccf89bcf4d",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "ef7dfe0b993e3a6759733d581cc89214b235c8f71c5c941ddb6ef3119b92c4e7"
+      ],
+      "round": "R114_demographic_subject",
+      "verdict": "STALE"
+    },
+    {
+      "current": "460a97383588a51d",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "060f933a364b73a6e5d5afc700f899153ed5f949f21dfb41d601d88cac1e222b"
+      ],
+      "round": "R115_shrink_is_one_parameter",
+      "verdict": "STALE"
+    },
+    {
+      "current": "4d2ae4da1cfb156e",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "ad41cd1b1c4f69f8ac7d28a1d23fe0cf11293f29ae22bd834f7cef5e7e2ccd56"
+      ],
+      "round": "R116_no_invisible_sacrifice",
+      "verdict": "STALE"
+    },
+    {
+      "current": "3e719bbab89f6a6c",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "9c87f5f02730b5eb215fb42ee0f405afc8fb4bf54a789b6d4857d1bec3820887"
+      ],
+      "round": "R117_multidimensional_sacrifice",
+      "verdict": "STALE"
+    },
+    {
+      "current": "102ec97e0502526f",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "84686cddfbf5490d289a247db437a0277d9ad432f9fbf3a062b48eda349df7e8"
+      ],
+      "round": "R118_sacrifice_factorial",
+      "verdict": "STALE"
+    },
+    {
+      "current": "c6c56541d32cb966",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "55152f13d65fa471558c2f0fd9923f2fe583f364554248890282a5717db321d5"
+      ],
+      "round": "R119_rigor_axis",
+      "verdict": "STALE"
+    },
+    {
+      "current": "293edb40073206bd",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "11b797971774ff80242afead4ac1a688b29ce9f9350ea33d5341d32e97dfd783"
+      ],
+      "round": "R121_is_the_advantage_the_metric",
+      "verdict": "STALE"
+    },
+    {
+      "current": "4f92fd4afe0dab3e",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "3c242f6afc7ec1b012354084d2ac4eef615fe88643f38ed1680c39595e3eacf9"
+      ],
+      "round": "R122_metric_gauge_grid",
+      "verdict": "STALE"
+    },
+    {
+      "current": "7d078fc0c7229191",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "1d7649bddd06436262934e3b43d6e90b626baa2b213ac8b33065389b8cfd7645"
+      ],
+      "round": "R123_the_baseline_was_crippled",
+      "verdict": "STALE"
+    },
+    {
+      "current": "2efd2a628a2438ce",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "973fada1c7a48e7604bfdba2a10e274841083279638a68bca722ccc5d5d719e9"
+      ],
+      "round": "R127_whose_sign",
+      "verdict": "STALE"
+    },
+    {
+      "current": "01799bfde4cf2b2a",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "459fecbc79dfa393b54ea983c49afdda4578a85147de04a0c16f31934d080ad1",
+        "ddff0b675ab45f25b7d6822b0a360dc263bfe4e43784468fc3863d20381094ed"
+      ],
+      "round": "R130_judge_gauge",
+      "verdict": "STALE"
+    },
+    {
+      "current": "8557b85ae4260cda",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "34f860d60f570bb6b89eae71e0688ec00f622ba1aa98f8043448ca90456bc790"
+      ],
+      "round": "R131_who_is_served",
+      "verdict": "STALE"
+    },
+    {
+      "current": "5f7f6d89ff4d9e45",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "5dc389ffd321964e454d31f96539f8be172dbb28760101249ebe80205bd79902"
+      ],
+      "round": "R132_verbatim_adjudication",
+      "verdict": "STALE"
+    },
+    {
+      "current": "53f0bd0541262bb0",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "7a7c29d99b0001e58622d5f426b622a5bc0be21556f0e886f72c7d8523cce895"
+      ],
+      "round": "R133_the_veto",
+      "verdict": "STALE"
+    },
+    {
+      "current": "5014eec0c2961453",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "8fae4051b28730c532300b0e6a34c2add8849a0a81d81d3d208c5e46be4da3be"
+      ],
+      "round": "R134_do_ratings_individuate",
+      "verdict": "STALE"
+    },
+    {
+      "current": "8fac439b460ebb08",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "1ac1a0f992549d6d92a43ef538f6b57e561b9897484754d074cc0e25ad455aa6"
+      ],
+      "round": "R135_which_target",
+      "verdict": "STALE"
+    },
+    {
+      "current": "abaa418019301beb",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "7c2ef88a451cb5c2a5a1274221bd1318d74696d15abc0310529e217f76967515",
+        "7c2ef88a451cb5c2a5a1274221bd1318d74696d15abc0310529e217f76967515"
+      ],
+      "round": "R136_held_out_confirmation",
+      "verdict": "STALE"
+    },
+    {
+      "current": "7a08046708ae38f0",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "68b2f44031fae814d8bd27cd74bec862dfaf6afc0d5b40348c4644617e4e62bf"
+      ],
+      "round": "R137_batch_gauge",
+      "verdict": "STALE"
+    },
+    {
+      "current": "28e6eead35dc0c08",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "f645ade7d6efb381fcdc2465d928ad639cd54ca7e3ca2c74c66a590d099c625e"
+      ],
+      "round": "R138_is_there_a_standard",
+      "verdict": "STALE"
+    },
+    {
+      "current": "3a31139c19745797",
+      "how": "stamp(__file__)",
+      "recorded": [
+        "d23a80f2c16840d1969df7d4288e57c74339301a9f80d2033cd3e18cd3391dca"
+      ],
+      "round": "R141_verification",
+      "verdict": "STALE"
+    },
+    {
+      "current": "d01f9530c1d6366f",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "d01f9530c1d6366f"
+      ],
+      "round": "R314_silence_was_read_as_endorsement",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "8689fb85590f3a80",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "8689fb85590f3a80",
+        "8689fb85590f3a80"
+      ],
+      "round": "R235_independent_B",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "e875b8d3e5530d48",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "e875b8d3e5530d48"
+      ],
+      "round": "R276_is_generic_degenerate",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "ef8a4b0c01734fa9",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "c8169a090a305e96"
+      ],
+      "round": "R284_are_the_two_winners_one_mechanism",
+      "verdict": "STALE"
+    },
+    {
+      "current": "c356fbad0d984e3d",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "c1225924f91f2413"
+      ],
+      "round": "R285_how_wide_is_the_admissible_band",
+      "verdict": "STALE"
+    },
+    {
+      "current": "80c7fba20fe139bd",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "c126c1e38f6790f5"
+      ],
+      "round": "R286_is_clause_2_a_property_of_the_baseline",
+      "verdict": "STALE"
+    },
+    {
+      "current": "d62f5936c0d6191a",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "d62f5936c0d6191a"
+      ],
+      "round": "R287_how_much_selection_may_a_baseline_have",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "088f80d03557f76d",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "088f80d03557f76d"
+      ],
+      "round": "R288_does_the_partition_survive_the_target",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "52f573d05f7e9f95",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "52f573d05f7e9f95"
+      ],
+      "round": "R289_which_target_earns_the_definition",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "cb9f27ff1e89116a",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "cb9f27ff1e89116a"
+      ],
+      "round": "R290_does_the_partition_survive_the_judge",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "26de1e4fe8035bb7",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "26de1e4fe8035bb7"
+      ],
+      "round": "R291_the_register_was_never_audited",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "198c82b7c5395f56",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "765c5b43c521a6b3"
+      ],
+      "round": "R292_audit_every_published_cell",
+      "verdict": "STALE"
+    },
+    {
+      "current": "c76f594bf4aa3ccc",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "c76f594bf4aa3ccc"
+      ],
+      "round": "R293_does_the_definition_exclude_a_fitted_core",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "996477a5eb16c0d4",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "2bc1124f6825df0f"
+      ],
+      "round": "R294_the_definition_against_everything",
+      "verdict": "STALE"
+    },
+    {
+      "current": "571ca699fd42d092",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "571ca699fd42d092"
+      ],
+      "round": "R295_held_out_annotators_are_not_held_out_labels",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "1e88617afd3c2fbb",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "1e88617afd3c2fbb"
+      ],
+      "round": "R296_is_there_an_optimal_k",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "3ec101b277c98507",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "3ec101b277c98507"
+      ],
+      "round": "R297_why_k1_loses",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "f819b0678c1fd5b4",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "f819b0678c1fd5b4"
+      ],
+      "round": "R298_is_importance_monotone",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "4546487c1142473a",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "4546487c1142473a"
+      ],
+      "round": "R299_where_the_selection_boundary_is",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "a2411dd295c2e134",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "a2411dd295c2e134"
+      ],
+      "round": "R300_does_combination_generalise",
+      "verdict": "FRESH"
+    },
+    {
+      "current": "e458309fe54db3e5",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "bbd52b91d52fb1e9"
+      ],
+      "round": "R301_is_the_judge_a_shrink_or_a_reorder",
+      "verdict": "STALE"
+    },
+    {
+      "current": "655447bc0346748f",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "655447bc0346748f"
+      ],
+      "round": "R302_are_the_artifacts_reproducible",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "ebcd1d998eab6be0",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "9d6ebc2b28674d34"
+      ],
+      "round": "R303_the_mde_of_the_design_that_priced_it",
+      "verdict": "STALE"
+    },
+    {
+      "current": "73ee181fcf2e56dc",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "e6508693422f7ba1"
+      ],
+      "round": "R304_is_the_boundary_resolvable",
+      "verdict": "STALE"
+    },
+    {
+      "current": "3e1a94b174ebf0fd",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "e28c6a545f963bda"
+      ],
+      "round": "R305_what_would_resolve_the_boundary",
+      "verdict": "STALE"
+    },
+    {
+      "current": "1841eeba5a67112a",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "3444a0bd81069912"
+      ],
+      "round": "R306_the_table_at_every_annotator",
+      "verdict": "STALE"
+    },
+    {
+      "current": "4c946b228e592887",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "dfa84b9ba7e4a4ff"
+      ],
+      "round": "R307_a_size_matched_neutral_arm",
+      "verdict": "STALE"
+    },
+    {
+      "current": "34327489929bde5e",
+      "how": "inline sha256(__file__)",
+      "recorded": [
+        "47fa06849d4daaf5"
+      ],
+      "round": "R308_neutral_clause_at_matched_k4",
+      "verdict": "STALE"
+    },
+    {
+      "current": "ae912e6dfbdcf573",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "ae912e6dfbdcf573"
+      ],
+      "round": "R309_is_the_missing_r2_noise_or_structure",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "0571e5f5c29e18ee",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "0571e5f5c29e18ee"
+      ],
+      "round": "R310_what_the_structure_is",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "db9fd71d7287c14d",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "db9fd71d7287c14d"
+      ],
+      "round": "R311_does_the_shrink_differ_within_family",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "6427c7315fbeef40",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "6427c7315fbeef40"
+      ],
+      "round": "R312_is_the_shrink_the_arm_or_the_rule",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "7882fbb061c16664",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "7882fbb061c16664"
+      ],
+      "round": "R313_is_the_signed_shrink_precision_or_shared_noise",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "5ca5a600626473df",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "b47bdeae0168f601"
+      ],
+      "round": "R315_how_many_rounds_can_still_run",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "735c6ad456c093aa",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "735c6ad456c093aa"
+      ],
+      "round": "R316_did_the_repair_do_only_what_it_claimed",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "033735c97f844c52",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "5dc81ca17c0f1774",
+        "033735c97f844c52"
+      ],
+      "round": "R317_the_population_was_run_py",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "9fbe88de9e719567",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "9fbe88de9e719567"
+      ],
+      "round": "R318_is_the_site_mde_draw_dependent",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "393b3bf996e286f4",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "393b3bf996e286f4"
+      ],
+      "round": "R319_six_rounds_read_the_typo",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "aeb31dde2420c35e",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "aeb31dde2420c35e"
+      ],
+      "round": "R321_four_detectors_two_estimands",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "717141dd2d48b8c1",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "717141dd2d48b8c1"
+      ],
+      "round": "R322_the_matched_rerun_was_never_gpu_work",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "57f7acd84e6f6df6",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "57f7acd84e6f6df6"
+      ],
+      "round": "R323_the_tau_gap_was_NCAL",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "aa3eb6de4f0f4910",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "aa3eb6de4f0f4910"
+      ],
+      "round": "R324_the_dose_grid",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "0e47f828f03d8331",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "0e47f828f03d8331"
+      ],
+      "round": "R325_what_the_definition_can_and_cannot_see",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "bcfef4689153e41f",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "bcfef4689153e41f"
+      ],
+      "round": "R326_the_clause2_baseline_curve",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "295a3ca0909117bd",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "295a3ca0909117bd"
+      ],
+      "round": "R327_clause2_names_no_reference",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "78b559f145cd601d",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "51a7b257a392b31b"
+      ],
+      "round": "R328_the_three_readings_are_one_budget",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "1e8056c5c72e1d6e",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "f15047b3ea0f9a58"
+      ],
+      "round": "R329_the_budget_is_unobservable",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "1be68f2b5981b43a",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "1be68f2b5981b43a"
+      ],
+      "round": "R330_what_the_conservative_reading_costs",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "e370e129e90e4fcc",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "e370e129e90e4fcc"
+      ],
+      "round": "R331_what_makes_a_clause2_reference_safe",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "1646a62de001d2ef",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "1646a62de001d2ef"
+      ],
+      "round": "R332_the_closure_level_derives_reading_A",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "eb1be175af020d2d",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "eb1be175af020d2d"
+      ],
+      "round": "R333_the_resolution_floor",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "31555468cdb14ff4",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "31555468cdb14ff4"
+      ],
+      "round": "R334_why_clause_one_closes",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "cedb98105ba2003a",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "cedb98105ba2003a"
+      ],
+      "round": "R335_can_provenance_be_detected",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "8ce4596c8dbacba7",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "8ce4596c8dbacba7"
+      ],
+      "round": "R336_clause_three_tested_not_declared",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "0da674e6eb0a69d3",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "0da674e6eb0a69d3"
+      ],
+      "round": "R337_the_wall_is_the_population",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "a45899aa30aaf12b",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "a45899aa30aaf12b"
+      ],
+      "round": "R338_does_the_signature_transfer_to_a_new_rule",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "b4fbf3195d6ee049",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "b4fbf3195d6ee049"
+      ],
+      "round": "R339_the_conjunction_is_a_different_object",
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "current": "7b494270cf0b368f",
+      "how": "stamp-like key, but this round cannot establish it hashes THIS source",
+      "recorded": [
+        "7b494270cf0b368f"
+      ],
+      "round": "R340_the_definition_against_an_adversary",
+      "verdict": "UNVERIFIED"
+    }
+  ],
+  "verdict": "W2_RECORD_ROTS"
+}

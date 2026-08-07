@@ -1,0 +1,76 @@
+{
+ "n_prompts": 968,
+ "n_scored_all_arms": 968,
+ "K_min": 4,
+ "K_median": 15,
+ "K_max": 39,
+ "K_sd": 5.414205639183578,
+ "attribution": {
+  "matched": 0.1297335551637655,
+  "unrestricted": 0.12146457748752204,
+  "mismatched": 0.12869062104243756
+ },
+ "attribution_ci": {
+  "matched": [
+   0.11708901010888921,
+   0.14321827157910147
+  ],
+  "unrestricted": [
+   0.10960459413484229,
+   0.13307756769686263
+  ],
+  "mismatched": [
+   0.11556707507199834,
+   0.14175851892724942
+  ]
+ },
+ "mean_abs_K_gap": {
+  "matched": 0.07231404958677685,
+  "unrestricted": 5.965909090909091,
+  "mismatched": 8.421487603305785
+ },
+ "mean_donor_topic_cosine": {
+  "matched": 0.006370757161308448,
+  "unrestricted": 0.007312987747630715,
+  "mismatched": 0.007875157695399522
+ },
+ "matched_minus_unrestricted": {
+  "mean": 0.00838263393143997,
+  "ci": [
+   -0.00633016976027306,
+   0.023061556031007274
+  ]
+ },
+ "mismatched_minus_unrestricted": {
+  "mean": 0.007255765083514697,
+  "ci": [
+   -0.0069736672298102926,
+   0.020711531461649717
+  ]
+ },
+ "mismatched_minus_matched": {
+  "mean": -0.0011268688479252752,
+  "ci": [
+   -0.016292382959903824,
+   0.013623497961580647
+  ]
+ },
+ "matched_clear_of_zero": true,
+ "count_channel_share_of_unrestricted": -0.06807727690892372,
+ "count_channel_bound": 0.023061556031007274,
+ "count_channel_bound_as_share_of_attribution": 0.18986239863532534,
+ "equivalent_at_delta": false,
+ "point_estimate_direction": "UPWARD",
+ "monotone_trend_across_arms": false,
+ "topic_confound_present": false,
+ "rebuild_control_vs_r86": {
+  "r86_stored": 0.12146457748752204,
+  "here_unrestricted": 0.12146457748752204,
+  "delta": 0.0
+ },
+ "delta": 0.01,
+ "world": "S SOURCE",
+ "outcome_variable_scope": "Attribution against REAL HUMAN pairwise rankings. Satisfaction from r04's tensor, so the judge is in the loop for s(c,r) and the target is human. Only the donor PAIRING is intervened on -- no rubric text, response, ranking or judge changes across arms.",
+ "scope": "This tests the criterion-COUNT channel in the donor construction. It does not test the count channel in the OWN arm, which has no counterfactual in this release: every prompt has exactly one own rubric with exactly one K. A K-matched permutation still pairs each prompt with a DIFFERENT prompt's rubric, so 'matched' means matched in count, never in source.",
+ "verdict": "S SOURCE. The package's central contrast is own-minus-donor attribution, and r86's own scope note names a confound it declined to control: the OWN arm always evaluates prompt i at ITS OWN criterion count K, while the DONOR arm evaluates it at a scrambled K. The arms are matched in MEAN count to within a draw -- measured, not assumed, since the free construction samples WITH REPLACEMENT rather than permuting. What differs is the PAIRING, and if K tracks a prompt's intrinsic gradability that pairing alone yields positive attribution with zero source specificity. No round has tested this: r44 size-matches only within the compiler lineage. Three donor pairings on the identical tensor and the identical human rankings, ordered by |K_own-K_donor|: MATCHED (mean 0.07) gives +0.1297 [+0.1171,+0.1432]; UNRESTRICTED (mean 5.97) gives +0.1215 [+0.1096,+0.1331]; MISMATCHED (mean 8.42) gives +0.1287 [+0.1156,+0.1418]. Paired on the same bootstrap draws, matched-minus-unrestricted is +0.0084 [-0.0063,+0.0231] and mismatched-minus-matched is -0.0011 [-0.0163,+0.0136]. WHAT SURVIVES: attribution is CLEAR OF ZERO under K-matching. THE POINT ESTIMATE MOVES UPWARD when K is matched, by 6.8% of the unrestricted value -- the OPPOSITE sign to the confound's prediction, which required matching to REMOVE an advantage. But that interval straddles zero, so it BOUNDS the count channel rather than measuring one: any effect of the donor's criterion count is under 0.0231, which is 19.0% of the attribution level. That is WIDER than delta=0.01, so equivalence at 0.01 is NOT established and is not claimed; the bound is stated at the answerable margin instead. THE CONFOUND WRITTEN BEFORE THE RUN was that K strata are not random subsets -- similar-K prompts might share topic, and r19 showed a nearest-topic donor LOWERS attribution, so a drop under matching could be the topic channel wearing the K channel's clothes. Measured: mean donor TF-IDF cosine is 0.0064 matched against 0.0073 unrestricted, so the topic explanation is EXCLUDED: K-matched donors are not topically closer. A DOSE-RESPONSE rather than a single control: a real count channel should show a monotone trend across three arms ordered by |dK|, and it does NOT -- the absence of an ordered trend across three arms is stronger than any single control."
+}

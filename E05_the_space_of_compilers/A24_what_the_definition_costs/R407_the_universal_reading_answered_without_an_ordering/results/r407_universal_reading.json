@@ -1,0 +1,66 @@
+{
+  "brackets": {
+    "coval_core": [
+      99.5,
+      100.0
+    ],
+    "greedy_k4_fit1": [
+      100.0,
+      null
+    ],
+    "indep_k4_fit1": [
+      100.0,
+      null
+    ],
+    "oracle_k4": [
+      100.0,
+      null
+    ],
+    "oracle_k4_fit1": [
+      100.0,
+      null
+    ],
+    "topw_k3": [
+      95.5,
+      96.0
+    ],
+    "topw_k4": [
+      98.0,
+      98.5
+    ],
+    "topw_k6": [
+      99.5,
+      100.0
+    ],
+    "topw_k8": [
+      95.0,
+      95.5
+    ]
+  },
+  "controls": {
+    "expression_present": true,
+    "idx_hi": true,
+    "idx_lo": true,
+    "monotonicity_used": false
+  },
+  "head": "839cc4463bc0",
+  "label_free_admitted": [],
+  "labels": [
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "oracle_k4",
+    "oracle_k4_fit1"
+  ],
+  "literal_test_run": false,
+  "r331_k4_max": 0.55747530882624,
+  "source_name": "run.py",
+  "source_sha256": "f270806ecbe6a6fda7d59e52477ebc8cd3671417e03b61737c3a105a818d4914",
+  "strict_test": "e > 0 and abs(e) >= ZEFF*se",
+  "top_cell": [
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "oracle_k4",
+    "oracle_k4_fit1"
+  ],
+  "verdict": "W_UNIVERSAL_EMPTY"
+}

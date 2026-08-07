@@ -1,0 +1,12 @@
+{
+  "world": "B",
+  "placebo_model_unchanged": true,
+  "placebo_prompt_unchanged": true,
+  "model_flag_reaches_loader": true,
+  "fewshot_flag_works": true,
+  "load_sites_seen": 2,
+  "edit_lines": {
+    "insertions": 12,
+    "deletions": 3
+  }
+}

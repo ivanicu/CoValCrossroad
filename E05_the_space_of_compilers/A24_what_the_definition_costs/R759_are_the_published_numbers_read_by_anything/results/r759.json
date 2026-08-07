@@ -1,0 +1,184 @@
+{
+  "P1_read_share": 0.13636363636363635,
+  "P2_deliverable_share_NEAR_FORCED": 0.9454545454545454,
+  "P3_sham_share": 0.6153846153846154,
+  "P4_old_era_share": 0.1954459203036053,
+  "P5_read_by_two_or_more": 4,
+  "controls": {
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "SHAM": true,
+    "g0": true
+  },
+  "deliverable_appearance_is_near_forced": true,
+  "directional_age": true,
+  "document_pin": {
+    "DEFINITION.md": {
+      "lines": 4920,
+      "sha256": "0456d9f37bea15f3"
+    },
+    "FORMULATION.md": {
+      "lines": 2397,
+      "sha256": "36ae2fbc2875c9f4"
+    },
+    "STATEMENT.md": {
+      "lines": 1264,
+      "sha256": "35715c292f3d00f8"
+    }
+  },
+  "g0_readers": 0,
+  "hashseed": "31415",
+  "id_citations": {
+    "748": 3,
+    "749": 3,
+    "750": 6,
+    "751": 3,
+    "752": 3,
+    "753": 5,
+    "754": 3,
+    "755": 2,
+    "756": 2
+  },
+  "id_total": 30,
+  "most_read": [
+    {
+      "in_docs": [
+        "STATEMENT.md",
+        "DEFINITION.md"
+      ],
+      "pub": 753,
+      "readers": [
+        754,
+        756,
+        757,
+        758
+      ],
+      "value": "0.1793"
+    },
+    {
+      "in_docs": [
+        "STATEMENT.md",
+        "DEFINITION.md"
+      ],
+      "pub": 753,
+      "readers": [
+        754,
+        756,
+        757,
+        758
+      ],
+      "value": "0.3814"
+    },
+    {
+      "in_docs": [
+        "STATEMENT.md",
+        "DEFINITION.md"
+      ],
+      "pub": 753,
+      "readers": [
+        754,
+        756,
+        757,
+        758
+      ],
+      "value": "0.8000"
+    },
+    {
+      "in_docs": [
+        "STATEMENT.md",
+        "DEFINITION.md"
+      ],
+      "pub": 753,
+      "readers": [
+        754,
+        756,
+        757
+      ],
+      "value": "0.6207"
+    },
+    {
+      "in_docs": [
+        "STATEMENT.md",
+        "DEFINITION.md",
+        "FORMULATION.md"
+      ],
+      "pub": 751,
+      "readers": [
+        752
+      ],
+      "value": "0.0200"
+    },
+    {
+      "in_docs": [
+        "STATEMENT.md",
+        "DEFINITION.md",
+        "FORMULATION.md"
+      ],
+      "pub": 751,
+      "readers": [
+        752
+      ],
+      "value": "0.0400"
+    },
+    {
+      "in_docs": [
+        "STATEMENT.md",
+        "DEFINITION.md",
+        "FORMULATION.md"
+      ],
+      "pub": 751,
+      "readers": [
+        752
+      ],
+      "value": "0.0606"
+    },
+    {
+      "in_docs": [
+        "STATEMENT.md",
+        "DEFINITION.md",
+        "FORMULATION.md"
+      ],
+      "pub": 752,
+      "readers": [
+        754
+      ],
+      "value": "1.0000"
+    }
+  ],
+  "n_distinctive_new": 110,
+  "n_distinctive_old": 527,
+  "n_nondistinctive_new": 39,
+  "negative_shuffled": [
+    0.4818181818181818,
+    0.4909090909090909,
+    0.4909090909090909,
+    0.44545454545454544,
+    0.4636363636363636
+  ],
+  "newer_rounds_have_fewer_opportunities": true,
+  "positive_readers": [
+    754,
+    756,
+    757,
+    758
+  ],
+  "round": "R759",
+  "self_excluded_round": 759,
+  "sham_inflation": 4.512820512820514,
+  "tree_sha": "d1a6c437bffc8e051bcc25d7c974d97bed80c9c6",
+  "value_reads": {
+    "748": 0,
+    "749": 0,
+    "750": 0,
+    "751": 1,
+    "752": 1,
+    "753": 4,
+    "754": 1,
+    "755": 1,
+    "756": 1
+  },
+  "value_total": 9,
+  "why": "WRITE-ONLY -- only 13.6% of this arc's distinctive numbers are read by any later round. The debt is near zero and the provenance sub-arc CLOSES rather than proposing more hygiene",
+  "world": "B"
+}

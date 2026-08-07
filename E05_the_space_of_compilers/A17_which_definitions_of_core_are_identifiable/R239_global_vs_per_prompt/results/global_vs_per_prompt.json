@@ -1,0 +1,74 @@
+{
+ "prompts": 986,
+ "criteria": 15248,
+ "H_eff_bracket": [
+  1.02,
+  3.45
+ ],
+ "global_bits": [
+  1005.72,
+  3401.7000000000003
+ ],
+ "rows": [
+  {
+   "k": 1,
+   "per_prompt_bits": 3.9068905956085187,
+   "global_bits": 13.896332403909941,
+   "per_prompt": "no",
+   "global": "IDENT"
+  },
+  {
+   "k": 2,
+   "per_prompt_bits": 6.714245517666122,
+   "global_bits": 26.792570189355125,
+   "per_prompt": "no",
+   "global": "IDENT"
+  },
+  {
+   "k": 4,
+   "per_prompt_bits": 10.414685235807214,
+   "global_bits": 50.99979937930559,
+   "per_prompt": "no",
+   "global": "IDENT"
+  },
+  {
+   "k": 10,
+   "per_prompt_bits": 11.552188759557149,
+   "global_bits": 117.16800434858767,
+   "per_prompt": "no",
+   "global": "IDENT"
+  },
+  {
+   "k": 25,
+   "per_prompt_bits": null,
+   "global_bits": 263.6983966655368,
+   "per_prompt": "no",
+   "global": "IDENT"
+  },
+  {
+   "k": 50,
+   "per_prompt_bits": null,
+   "global_bits": 480.4924526888327,
+   "per_prompt": "no",
+   "global": "IDENT"
+  },
+  {
+   "k": 100,
+   "per_prompt_bits": null,
+   "global_bits": 864.3988789996157,
+   "per_prompt": "no",
+   "global": "IDENT"
+  },
+  {
+   "k": 250,
+   "per_prompt_bits": null,
+   "global_bits": 1835.0405707799355,
+   "per_prompt": "no",
+   "global": "edge"
+  }
+ ],
+ "k_max_global": 119,
+ "shared_token_sets": 1,
+ "distinct_token_sets": 15058,
+ "verdict": "DERIVATION: the identifiability failure six rounds found is a property of the PER-PROMPT FACTORING, not of the release's size. Within a prompt the observable is one ~1.0-bit consensus ordering and no number of raters raises it; across 986 prompts the observations are independent and the bits add to [1006, 3402]. A global core of up to k=119 is identifiable at the conservative end while a per-prompt core of 2 is not. CoVal ships the per-prompt object."
+}

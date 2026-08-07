@@ -1,0 +1,51 @@
+{
+ "prompts": 250,
+ "cells": {
+  "g0.020_c200": {
+   "tau": 0.416,
+   "alpha": 0.09333333333333334,
+   "mde": [
+    0.1,
+    0.12
+   ],
+   "pos_ok": true,
+   "cal_sd": 0.025214210279126334
+  },
+  "g0.020_c3000": {
+   "tau": 0.428,
+   "alpha": 0.03833333333333333,
+   "mde": [
+    0.12,
+    0.14
+   ],
+   "pos_ok": true,
+   "cal_sd": 0.02803260006968078
+  },
+  "g0.005_c200": {
+   "tau": 0.416,
+   "alpha": 0.09333333333333334,
+   "mde": [
+    0.1,
+    0.115
+   ],
+   "pos_ok": true,
+   "cal_sd": 0.025214210279126334
+  },
+  "g0.005_c3000": {
+   "tau": 0.428,
+   "alpha": 0.03833333333333333,
+   "mde": [
+    0.12,
+    0.13
+   ],
+   "pos_ok": true,
+   "cal_sd": 0.02803260006968078
+  }
+ },
+ "grid_effect": -0.0075,
+ "cal_effect": 0.01750000000000001,
+ "interaction": -0.005000000000000018,
+ "shamB": 0.0075,
+ "corner_ok": true,
+ "verdict": "W-CANCEL -- neither term dominates by more than one coarse step: grid -0.0075, calibration +0.0175, interaction -0.0050. R268's number was near-right FOR THE WRONG REASON -- two biases of comparable size and opposite sign -- which means an uncorrected cell in this arc is UNPREDICTABLE rather than merely biased, and that is worse than a known direction."
+}

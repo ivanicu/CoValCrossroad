@@ -1,0 +1,248 @@
+{
+ "world": "⭐⭐⭐ A STIPULATED — F1's EXCLUSIONS ARE ITS ARMS' NAMES, AND R712's NULL DOES NOT PRICE THEM. The predicate /oracle|_fit1/ reproduces F1's exclusion set EXACTLY — miss 0 of 42 arms — while F2's best predicate over the same families misses 5. ⭐ SO F1's p = 0.0003 measures that we built 4 label-reading arms AND a clause that excludes label-reading arms. A uniform random admission is a meaningful null for a clause whose exclusions are DISCOVERED and an empty one for a clause whose exclusions are STIPULATED, and the exact name match is what tells them apart here. ⛔ SO R712's 'the only clause above chance' MUST BE RE-READ: F1 is the most CONSTRUCTED of the three, not the most informative, and its low p is a consequence of construction rather than evidence against chance. ⚠ THIS IS NOT A DEFECT IN F1. A clause that says 'selected without reading outcome labels' SHOULD exclude exactly the arms built to read labels; exact agreement is the clause WORKING. What is void is the p, not the clause. ⚠ AND THE LIMIT IS THE CLAIM UNIT: exact name agreement is EVIDENCE about construction, never PROOF of it — that the arms were BUILT to be excluded is a fact about our history, not about the ledger, and this round measures reproducibility while REASONING about admissibility. ⚠ F3's exact k-match is a DERIVATION, since F3 IS that predicate. ⚠ UNIT GAP: instrument unit is AN ARM, claim unit is WHETHER A NULL IS ADMISSIBLE FOR A CLAUSE.",
+ "controls_ok": true,
+ "tree_sha": "c3539bdfc8de93284146595ca3cf439e1450ba13",
+ "n_arms": 42,
+ "exclusions": {
+  "F1 provenance": [
+   "greedy_k4_fit1",
+   "indep_k4_fit1",
+   "oracle_k4",
+   "oracle_k4_fit1"
+  ],
+  "F2 behaviour": [
+   "coval_core_sham",
+   "full",
+   "full_sham",
+   "gen",
+   "gen_sham",
+   "generic",
+   "promptecho",
+   "promptecho_sham",
+   "random_k12_s0",
+   "random_k12_s1",
+   "random_k12_s2",
+   "random_k2_s0",
+   "random_k2_s1",
+   "random_k2_s2",
+   "random_k3_s0",
+   "random_k3_s1",
+   "random_k3_s2",
+   "random_k4_s0",
+   "random_k4_s1",
+   "random_k4_s2",
+   "random_k6_s0",
+   "random_k6_s1",
+   "random_k6_s2",
+   "random_k8_s0",
+   "random_k8_s1",
+   "random_k8_s2",
+   "topabs_k4",
+   "topvar_k4",
+   "topw_k1",
+   "topw_k12",
+   "topw_k2",
+   "topw_k4_sham",
+   "topwvar_k4"
+  ],
+  "F3 size (repaired)": [
+   "full",
+   "full_sham",
+   "random_k12_s0",
+   "random_k12_s1",
+   "random_k12_s2",
+   "random_k6_s0",
+   "random_k6_s1",
+   "random_k6_s2",
+   "random_k8_s0",
+   "random_k8_s1",
+   "random_k8_s2",
+   "topw_k1",
+   "topw_k12",
+   "topw_k6",
+   "topw_k8"
+  ]
+ },
+ "cells": [
+  {
+   "clause": "F1 provenance",
+   "predicate": "generator-name /oracle|_fit1/",
+   "miss": 0,
+   "polarity": "matches exclusions",
+   "miss_as_exclusions": 0,
+   "miss_as_admissions": 42,
+   "exact": true
+  },
+  {
+   "clause": "F1 provenance",
+   "predicate": "generator-name /topw/",
+   "miss": 13,
+   "polarity": "matches exclusions",
+   "miss_as_exclusions": 13,
+   "miss_as_admissions": 29,
+   "exact": false
+  },
+  {
+   "clause": "F1 provenance",
+   "predicate": "generator-name /random|gen|promptecho|full|generic/",
+   "miss": 13,
+   "polarity": "matches ADMISSIONS",
+   "miss_as_exclusions": 29,
+   "miss_as_admissions": 13,
+   "exact": false
+  },
+  {
+   "clause": "F1 provenance",
+   "predicate": "k-value 1<k<=4",
+   "miss": 19,
+   "polarity": "matches ADMISSIONS",
+   "miss_as_exclusions": 23,
+   "miss_as_admissions": 19,
+   "exact": false
+  },
+  {
+   "clause": "F1 provenance",
+   "predicate": "sham-suffix /_sham$/",
+   "miss": 9,
+   "polarity": "matches exclusions",
+   "miss_as_exclusions": 9,
+   "miss_as_admissions": 33,
+   "exact": false
+  },
+  {
+   "clause": "F2 behaviour",
+   "predicate": "generator-name /oracle|_fit1/",
+   "miss": 5,
+   "polarity": "matches ADMISSIONS",
+   "miss_as_exclusions": 37,
+   "miss_as_admissions": 5,
+   "exact": false
+  },
+  {
+   "clause": "F2 behaviour",
+   "predicate": "generator-name /topw/",
+   "miss": 10,
+   "polarity": "matches ADMISSIONS",
+   "miss_as_exclusions": 32,
+   "miss_as_admissions": 10,
+   "exact": false
+  },
+  {
+   "clause": "F2 behaviour",
+   "predicate": "generator-name /random|gen|promptecho|full|generic/",
+   "miss": 8,
+   "polarity": "matches exclusions",
+   "miss_as_exclusions": 8,
+   "miss_as_admissions": 34,
+   "exact": false
+  },
+  {
+   "clause": "F2 behaviour",
+   "predicate": "k-value 1<k<=4",
+   "miss": 20,
+   "polarity": "matches exclusions",
+   "miss_as_exclusions": 20,
+   "miss_as_admissions": 22,
+   "exact": false
+  },
+  {
+   "clause": "F2 behaviour",
+   "predicate": "sham-suffix /_sham$/",
+   "miss": 14,
+   "polarity": "matches ADMISSIONS",
+   "miss_as_exclusions": 28,
+   "miss_as_admissions": 14,
+   "exact": false
+  },
+  {
+   "clause": "F3 size (repaired)",
+   "predicate": "generator-name /oracle|_fit1/",
+   "miss": 19,
+   "polarity": "matches exclusions",
+   "miss_as_exclusions": 19,
+   "miss_as_admissions": 23,
+   "exact": false
+  },
+  {
+   "clause": "F3 size (repaired)",
+   "predicate": "generator-name /topw/",
+   "miss": 16,
+   "polarity": "matches exclusions",
+   "miss_as_exclusions": 16,
+   "miss_as_admissions": 26,
+   "exact": false
+  },
+  {
+   "clause": "F3 size (repaired)",
+   "predicate": "generator-name /random|gen|promptecho|full|generic/",
+   "miss": 18,
+   "polarity": "matches exclusions",
+   "miss_as_exclusions": 18,
+   "miss_as_admissions": 24,
+   "exact": false
+  },
+  {
+   "clause": "F3 size (repaired)",
+   "predicate": "k-value 1<k<=4",
+   "miss": 0,
+   "polarity": "matches ADMISSIONS",
+   "miss_as_exclusions": 42,
+   "miss_as_admissions": 0,
+   "exact": true
+  },
+  {
+   "clause": "F3 size (repaired)",
+   "predicate": "sham-suffix /_sham$/",
+   "miss": 18,
+   "polarity": "matches exclusions",
+   "miss_as_exclusions": 18,
+   "miss_as_admissions": 24,
+   "exact": false
+  }
+ ],
+ "best_per_clause": {
+  "F1 provenance": {
+   "clause": "F1 provenance",
+   "predicate": "generator-name /oracle|_fit1/",
+   "miss": 0,
+   "polarity": "matches exclusions",
+   "miss_as_exclusions": 0,
+   "miss_as_admissions": 42,
+   "exact": true
+  },
+  "F2 behaviour": {
+   "clause": "F2 behaviour",
+   "predicate": "generator-name /oracle|_fit1/",
+   "miss": 5,
+   "polarity": "matches ADMISSIONS",
+   "miss_as_exclusions": 37,
+   "miss_as_admissions": 5,
+   "exact": false
+  },
+  "F3 size (repaired)": {
+   "clause": "F3 size (repaired)",
+   "predicate": "k-value 1<k<=4",
+   "miss": 0,
+   "polarity": "matches ADMISSIONS",
+   "miss_as_exclusions": 42,
+   "miss_as_admissions": 0,
+   "exact": true
+  }
+ },
+ "f1_miss": 0,
+ "f2_best_miss": 5,
+ "f3_best_miss": 0,
+ "g0_random_subset_hits": 0,
+ "g0_exact_chance": 8.93415527561869e-06,
+ "negative_scrambled_matches": 0,
+ "negative_draws": 3000,
+ "registered": "A F1 miss 0 [0,2]; B F2 best miss 4 [0,20]; C F3 0 [0,5] DERIVED; F1 < F2",
+ "observed": {
+  "A": 0,
+  "B": 5,
+  "C": 0,
+  "directional": true
+ },
+ "re_reads": "R712's 'the only clause above chance' — F1's low p follows from its exclusions being stipulated, so it is the most CONSTRUCTED clause, not the most informative. The p is void for F1; the clause is not.",
+ "limit": "exact name agreement is EVIDENCE about construction, never PROOF; that the arms were built to be excluded is a fact about our history, not about the ledger. This round measures reproducibility and REASONS about null admissibility."
+}

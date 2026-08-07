@@ -1,0 +1,22 @@
+rows 500 | candidates 8 x arms 2 = 16 cells | Bonferroni alpha 0.00313
+
+stratifier                  orig  rho (p)         fresh  rho (p)   verdict
+separation              -0.012 (p=0.8551)      -0.002 (p=0.9785)   fails
+n_criteria              +0.028 (p=0.6567)      +0.074 (p=0.2369)   fails
+len_dispersion          -0.018 (p=0.7796)      +0.013 (p=0.8481)   fails
+score_entropy           +0.062 (p=0.3413)      -0.050 (p=0.4218)   fails
+top2_margin             -0.023 (p=0.7241)      -0.061 (p=0.3268)   fails
+mean_abs_w              +0.007 (p=0.9085)      +0.051 (p=0.4108)   fails
+FLOOR_circular          -0.314 (p=0.0005)      -0.352 (p=0.0005)   VALID in both
+RANDOM_negctrl          -0.018 (p=0.7906)      -0.100 (p=0.1159)   fails
+
+=== controls ===
+ POSITIVE the floor -- definitionally related to core-floor -- is significant : OK
+          ⚠ and it is DISQUALIFIED from use for exactly that reason: circular
+ NEGATIVE a random per-prompt vector is not significant                       : OK
+
+==============================================================================
+PRE-REGISTERED KILL
+==============================================================================
+
+  NO VALID STRATIFIER EXISTS among the seven per-prompt variables this release carries. R233's arms cannot be matched by stratification here, and that is the answer to that line rather than a gap in it: the difference between the arms is not tracked by separation, criterion count, length dispersion, score entropy, top-2 margin or mean weight. If the cause is a property of the GENERATOR rather than of the prompt, no per-prompt variable can reach it.

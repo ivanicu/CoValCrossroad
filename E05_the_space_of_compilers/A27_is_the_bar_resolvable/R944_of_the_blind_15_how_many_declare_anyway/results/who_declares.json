@@ -1,0 +1,173 @@
+{
+  "commit": "e2cc4520e8f3f65f9440a51c87a351586977d209",
+  "world": "A",
+  "population_source": "R943 results/blind_side.json :: route_only_with_results",
+  "n_population": 15,
+  "confirmed_declared": [
+    "R08_gold_preference",
+    "R11_backbone_control"
+  ],
+  "unverified": [
+    "R04_rebuild_satisfaction",
+    "R10_attribution_robustness",
+    "R14_paraphrase_gauge",
+    "R15_indistribution_transfer",
+    "R20_paraphrase_transfer",
+    "R21_donor_distance",
+    "R22_cross_family",
+    "R79_semantic_menu_read",
+    "R80_panel_freeze",
+    "R130_judge_gauge",
+    "R257_label_order_gauge_propagation",
+    "R540_tokens_per_second_on_this_box",
+    "R553_the_generator_has_knobs_now"
+  ],
+  "unverified_with_no_results_file": [],
+  "share_confirmed": 0.13333333333333333,
+  "rows": [
+    {
+      "round": "R04_rebuild_satisfaction",
+      "n_files": 3,
+      "unreadable": [],
+      "verdict": "UNVERIFIED",
+      "file": null,
+      "json_path": null,
+      "phrase": null
+    },
+    {
+      "round": "R08_gold_preference",
+      "n_files": 2,
+      "unreadable": [],
+      "verdict": "CONFIRMED-DECLARED",
+      "file": "a08_gold_08b.json",
+      "json_path": "outcome_variable_scope",
+      "phrase": "MODEL PROXY"
+    },
+    {
+      "round": "R10_attribution_robustness",
+      "n_files": 1,
+      "unreadable": [],
+      "verdict": "UNVERIFIED",
+      "file": null,
+      "json_path": null,
+      "phrase": null
+    },
+    {
+      "round": "R11_backbone_control",
+      "n_files": 1,
+      "unreadable": [],
+      "verdict": "CONFIRMED-DECLARED",
+      "file": "a11_backbone_control.json",
+      "json_path": "outcome_variable_scope",
+      "phrase": "MODEL GOLD"
+    },
+    {
+      "round": "R14_paraphrase_gauge",
+      "n_files": 1,
+      "unreadable": [],
+      "verdict": "UNVERIFIED",
+      "file": null,
+      "json_path": null,
+      "phrase": null
+    },
+    {
+      "round": "R15_indistribution_transfer",
+      "n_files": 1,
+      "unreadable": [],
+      "verdict": "UNVERIFIED",
+      "file": null,
+      "json_path": null,
+      "phrase": null
+    },
+    {
+      "round": "R20_paraphrase_transfer",
+      "n_files": 1,
+      "unreadable": [],
+      "verdict": "UNVERIFIED",
+      "file": null,
+      "json_path": null,
+      "phrase": null
+    },
+    {
+      "round": "R21_donor_distance",
+      "n_files": 1,
+      "unreadable": [],
+      "verdict": "UNVERIFIED",
+      "file": null,
+      "json_path": null,
+      "phrase": null
+    },
+    {
+      "round": "R22_cross_family",
+      "n_files": 1,
+      "unreadable": [],
+      "verdict": "UNVERIFIED",
+      "file": null,
+      "json_path": null,
+      "phrase": null
+    },
+    {
+      "round": "R79_semantic_menu_read",
+      "n_files": 1,
+      "unreadable": [],
+      "verdict": "UNVERIFIED",
+      "file": null,
+      "json_path": null,
+      "phrase": null
+    },
+    {
+      "round": "R80_panel_freeze",
+      "n_files": 1,
+      "unreadable": [],
+      "verdict": "UNVERIFIED",
+      "file": null,
+      "json_path": null,
+      "phrase": null
+    },
+    {
+      "round": "R130_judge_gauge",
+      "n_files": 4,
+      "unreadable": [],
+      "verdict": "UNVERIFIED",
+      "file": null,
+      "json_path": null,
+      "phrase": null
+    },
+    {
+      "round": "R257_label_order_gauge_propagation",
+      "n_files": 1,
+      "unreadable": [],
+      "verdict": "UNVERIFIED",
+      "file": null,
+      "json_path": null,
+      "phrase": null
+    },
+    {
+      "round": "R540_tokens_per_second_on_this_box",
+      "n_files": 1,
+      "unreadable": [],
+      "verdict": "UNVERIFIED",
+      "file": null,
+      "json_path": null,
+      "phrase": null
+    },
+    {
+      "round": "R553_the_generator_has_knobs_now",
+      "n_files": 1,
+      "unreadable": [],
+      "verdict": "UNVERIFIED",
+      "file": null,
+      "json_path": null,
+      "phrase": null
+    }
+  ],
+  "proxy_ledger": {
+    "property": "the round tells its reader the outcome was model-scored",
+    "proxy": "a results string matches the gate's DECLARES regex",
+    "implication": "matches => declared; non-match does NOT imply silent",
+    "safe_side": "a non-match is UNVERIFIED, never `undeclared`"
+  },
+  "still_open": "whether any of these rounds SCORES its outcome with a model; this measures disclosure, not usage, and nothing on disk closes it",
+  "unit_note": "counts are ROUNDS",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

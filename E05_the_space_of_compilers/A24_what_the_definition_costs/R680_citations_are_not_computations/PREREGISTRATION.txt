@@ -1,0 +1,34 @@
+R680 · PRE-REGISTRATION — written after the gauge test, before any corpus-wide count.
+
+WHY R679's PROPOSED TEST IS NOT RUN AS SPECIFIED
+  It asked to separate "recomputed" from "restated" by checking whether the set appears as a VALUE in
+  a round's results/ output. A gauge test kills it for free: a value in results/ is produced
+  IDENTICALLY by recomputation and by a hard-coded literal. The measurement is invariant under the
+  distinction the property depends on, so it is blind. R676's census had already recorded
+  R529.ext_rank and R534.ext_rank, so the proposed test's answer was also already committed.
+  The separable test is whether the members appear as LITERALS IN THE ROUND'S CODE.
+
+ESTIMAND A  of the rounds whose committed results contain the ③-extension set, how many DERIVE it
+            (zero member literals in executable source) rather than restate it?
+POINT A     3          INTERVAL A [1, 8]
+ESTIMAND B  the share deriving it.
+POINT B     30%        INTERVAL B [10%, 60%]
+DIRECTIONAL (separately failable) R294, the producer identified by R678, is among the derivers.
+KILL        if ZERO rounds derive it, the classifier is broken — the set must be computed somewhere —
+            and the verdict is UNVERIFIED, never "nobody computed it".
+⚠ CONFOUND WRITTEN BEFORE THE RUN, WITH ITS CONTROL IN THE SAME ITERATION
+  Docstrings and comments in this corpus routinely quote arm names — every round's header does. A
+  literal count over raw source therefore measures PROSE, not code. Executable source is extracted by
+  stripping comments and string-literal docstrings via the tokenizer before counting, and the control
+  below checks that the strip actually removes a known docstring mention.
+CONTROLS
+  POSITIVE  a synthetic source containing all five members as list literals must classify RESTATES.
+  g=0       a synthetic source containing none must NOT classify RESTATES — the detector must be
+            able to return both values.
+  NEGATIVE  a synthetic source mentioning all five ONLY inside a docstring must classify DERIVES
+            after stripping — this is the confound's own control.
+  PLACEBO   the classification run twice is identical.
+IDENTIFICATION LIMIT  "derives from data" here means "does not contain the members as code literals".
+            A round could still read the set from another round's artifact and pass. That is COPYING
+            THROUGH A FILE, and it is not separated here — so the derive count is an UPPER BOUND on
+            independent computation, stated as such.

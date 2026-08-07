@@ -1,0 +1,42 @@
+{
+ "source_sha": "717141dd2d48b8c1",
+ "world": "W-TAU-INVARIANT",
+ "arc": {
+  "40": 0.09,
+  "100": 0.1,
+  "400": 0.115
+ },
+ "r321_curve_only": {
+  "40": 0.1076825,
+  "100": 0.11243,
+  "400": 0.11592
+ },
+ "matched": {
+  "40": {
+   "tau": 0.424,
+   "bracket": [
+    0.085,
+    0.125
+   ]
+  },
+  "100": {
+   "tau": 0.424,
+   "bracket": [
+    0.09,
+    0.125
+   ]
+  },
+  "400": {
+   "tau": 0.424,
+   "bracket": [
+    0.105,
+    0.125
+   ]
+  }
+ },
+ "tau_invariant_to_reps": true,
+ "failures": {},
+ "placebo_ok": true,
+ "knob_alive": true,
+ "gpu_required": false
+}

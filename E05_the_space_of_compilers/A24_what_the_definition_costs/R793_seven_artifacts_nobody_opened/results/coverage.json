@@ -1,0 +1,202 @@
+{
+ "claim_unit": "an ARM",
+ "claim_unit_e1": "an ARTIFACT",
+ "controls": {
+  "dose": {
+   "0.0": {
+    "crosses": false,
+    "eff": -0.21847430944065405
+   },
+   "0.05": {
+    "crosses": false,
+    "eff": -0.168474309440654
+   },
+   "0.1": {
+    "crosses": false,
+    "eff": -0.11847430944065407
+   },
+   "0.2": {
+    "crosses": false,
+    "eff": -0.01847430944065404
+   },
+   "0.3": {
+    "crosses": true,
+    "eff": 0.08152569055934594
+   }
+  },
+  "gate": true,
+  "negative_ok": true,
+  "negative_vf_shuffled": 0.4998278236914601,
+  "positive_ok": true,
+  "sham_vs_random_class": 0.734159779614325,
+  "split_half": 0.003522583741361335
+ },
+ "e1": {
+  "artifacts": 11,
+  "hits": {
+   "ablate_novel.json": [],
+   "dimension_curve.json": [],
+   "importance_recoverable.json": [],
+   "leaderboard.json": [
+    "R678"
+   ],
+   "learned.json": [
+    "R376",
+    "R481"
+   ],
+   "pairwise.json": [
+    "R276",
+    "R285",
+    "R288",
+    "R296",
+    "R297",
+    "R303",
+    "R304",
+    "R305",
+    "R306",
+    "R325",
+    "R333",
+    "R347",
+    "R399",
+    "R409",
+    "R412",
+    "R413",
+    "R430",
+    "R436",
+    "R437",
+    "R495",
+    "R506",
+    "R523",
+    "R524",
+    "R534",
+    "R562",
+    "R591",
+    "R676",
+    "R685",
+    "R696",
+    "R730",
+    "R753",
+    "R757",
+    "R768",
+    "R769",
+    "R771",
+    "R780",
+    "R781",
+    "R789",
+    "R791"
+   ],
+   "similarity_gradient.json": [],
+   "subgroup_coval_core_vs_topw_k4.json": [
+    "R792"
+   ],
+   "synthetic_world.json": [],
+   "unit_robustness.json": [],
+   "whose_verdicts.json": []
+  },
+  "negative": true,
+  "positive": true,
+  "run_files": 468,
+  "self_excluded": "R793_seven_artifacts_nobody_opened",
+  "unread": [
+   "ablate_novel.json",
+   "dimension_curve.json",
+   "importance_recoverable.json",
+   "similarity_gradient.json",
+   "synthetic_world.json",
+   "unit_robustness.json",
+   "whose_verdicts.json"
+  ]
+ },
+ "e2": {
+  "coval_core": {
+   "hi": -0.2024326676719815,
+   "lo": -0.23362380464652432,
+   "raw_diff": -0.21847430944065405,
+   "shipped_raw": -0.216712580348944,
+   "shipped_vs_human": 0.5682392102846648,
+   "vs_full": 0.7849517906336088,
+   "vs_human_all": 0.5664774811929549
+  },
+  "full": {
+   "hi": -0.48107656200598164,
+   "lo": -0.5008505656746266,
+   "raw_diff": -0.4912774346429153,
+   "shipped_raw": -0.4863980716253444,
+   "shipped_vs_human": 0.5136019283746557,
+   "vs_full": 1.0,
+   "vs_human_all": 0.5087225653570847
+  },
+  "gen": {
+   "hi": -0.1914375791167335,
+   "lo": -0.22165451979581272,
+   "raw_diff": -0.20621783514990688,
+   "shipped_raw": -0.20276629935720847,
+   "shipped_vs_human": 0.5386248852157942,
+   "vs_full": 0.7413911845730027,
+   "vs_human_all": 0.5351733494230959
+  },
+  "gen_sham": {
+   "hi": -0.20448810214020186,
+   "lo": -0.23425404330925276,
+   "raw_diff": -0.2195065685135456,
+   "shipped_raw": -0.21895087235996327,
+   "shipped_vs_human": 0.48335629017447196,
+   "vs_full": 0.7023071625344351,
+   "vs_human_all": 0.4828005940208897
+  },
+  "random_k4_s0": {
+   "hi": -0.317607851280491,
+   "lo": -0.34539767755393386,
+   "raw_diff": -0.33203752010936394,
+   "shipped_raw": -0.3242079889807163,
+   "shipped_vs_human": 0.5005165289256198,
+   "vs_full": 0.8247245179063362,
+   "vs_human_all": 0.49268699779697217
+  },
+  "topvar_k4": {
+   "hi": -0.35922305244074126,
+   "lo": -0.3844945086745056,
+   "raw_diff": -0.37235246883447076,
+   "shipped_raw": -0.37046602387511485,
+   "shipped_vs_human": 0.4881772268135905,
+   "vs_full": 0.8586432506887053,
+   "vs_human_all": 0.4862907818542346
+  },
+  "topw_k4": {
+   "hi": -0.2254603068864915,
+   "lo": -0.2566873822081988,
+   "raw_diff": -0.240743618884591,
+   "shipped_raw": -0.23989898989898992,
+   "shipped_vs_human": 0.5650252525252525,
+   "vs_full": 0.8049242424242425,
+   "vs_human_all": 0.5641806235396515
+  }
+ },
+ "e3": {
+  "ceil_ci": [
+   0.5449923347536937,
+   0.5589966470529342
+  ],
+  "ceil_h": 0.5518804915980327,
+  "ceiling_sweep_shareB": 1.0,
+  "cells_agree": false,
+  "curve": {
+   "ceiling": "B",
+   "raw": "A",
+   "sqrt": "A"
+  }
+ },
+ "e4": {
+  "consistent": true,
+  "r792_flips": 11,
+  "unit_order_same": true
+ },
+ "instrument_unit": "a (prompt, annotator) judgement for HUMAN, a PROMPT for FULL",
+ "object": {
+  "ann_median": 16,
+  "placebo": 1.0,
+  "prompts": 968,
+  "vs_full_worst": 1.1102230246251565e-16
+ },
+ "world": "A"
+}

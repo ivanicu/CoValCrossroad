@@ -1,0 +1,34 @@
+{
+  "assumption": "a standardised effect transports between A2 agreement and if_chosen accuracy",
+  "controls": {
+    "max_scale_delta": 1.3877787807814457e-17,
+    "min_noise_delta": 0.009002255219145914,
+    "min_noise_delta_uncentred_200reps": 0.009614983128882131,
+    "noise_shrinks": "True",
+    "scale_invariant": "True"
+  },
+  "d": 0.07814227454326311,
+  "e": 0.009002172366714738,
+  "head": "021fb68ab24a",
+  "n_source": 968,
+  "naive_ratio": 0.9617705519994377,
+  "naive_target_mde": 0.00936,
+  "sd": 0.11520233342748074,
+  "se": 0.0037027432352311506,
+  "source_name": "run.py",
+  "source_sha256": "28a56e7cbba7c7580d89ae662aab5087a6115bad5f6af6892327453338e2def6",
+  "targets": {
+    "conversations": {
+      "mde_d": 0.03130116036822882,
+      "n": 8011,
+      "ratio": 2.496465741972262
+    },
+    "interactions with one `if_chosen`": {
+      "mde_d": 0.017116917299069178,
+      "n": 26789,
+      "ratio": 4.565207226158212
+    }
+  },
+  "verdict": "W_MARGINAL",
+  "worst_ratio": 2.496465741972262
+}

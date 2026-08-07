@@ -1,0 +1,22 @@
+rows 500 | candidates 8 x arms 2 = 16 cells | Bonferroni alpha 0.00313
+
+stratifier                  orig  rho (p)         fresh  rho (p)   verdict
+separation              +0.005 (p=0.9355)      -0.000 (p=0.9985)   fails
+n_criteria              +0.023 (p=0.7336)      +0.118 (p=0.0620)   fails
+len_dispersion          +0.001 (p=0.9905)      +0.014 (p=0.8241)   fails
+score_entropy           +0.018 (p=0.7791)      -0.057 (p=0.3788)   fails
+top2_margin             +0.023 (p=0.7131)      -0.012 (p=0.8401)   fails
+mean_abs_w              +0.007 (p=0.9140)      +0.099 (p=0.1154)   fails
+FLOOR_circular          -0.214 (p=0.0010)      -0.163 (p=0.0045)   fails
+RANDOM_negctrl          -0.028 (p=0.6732)      -0.101 (p=0.1244)   fails
+
+=== controls ===
+ POSITIVE the floor -- definitionally related to core-floor -- is significant : MACHINERY BROKEN, no row readable
+          ⚠ and it is DISQUALIFIED from use for exactly that reason: circular
+ NEGATIVE a random per-prompt vector is not significant                       : OK
+
+==============================================================================
+PRE-REGISTERED KILL
+==============================================================================
+
+  UNVERIFIED -- the correlation machinery did not pass its own controls

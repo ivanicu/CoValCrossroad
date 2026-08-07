@@ -1,0 +1,63 @@
+{
+ "prompts": 250,
+ "core": 0.6,
+ "core_sizes": {
+  "4": 239,
+  "3": 11
+ },
+ "grid": {
+  "1": [
+   1.0,
+   0.0,
+   1.0,
+   1.0
+  ],
+  "2": [
+   0.6322000000000001,
+   0.15483268388812485,
+   0.49920000000000003,
+   0.632
+  ],
+  "3": [
+   0.5458,
+   0.18491176274104357,
+   0.39120000000000005,
+   0.5264000000000001
+  ],
+  "4": [
+   0.5134,
+   0.21477998044510574,
+   0.2928,
+   0.5192
+  ],
+  "5": [
+   0.48860000000000003,
+   0.22605317958392002,
+   0.284,
+   0.4824
+  ],
+  "6": [
+   0.474,
+   0.27749594591633225,
+   0.24320000000000003,
+   0.48560000000000003
+  ]
+ },
+ "delta_at_modal_size": 0.08660000000000001,
+ "controls": {
+  "positive": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "placebo_k1": 1.0
+ },
+ "r256_published": {
+  "full": 0.444,
+  "core": 0.6
+ },
+ "verdict": "W-SIZE -- R256's core-vs-full rank-1 gap is RETRACTED AS A SIZE EFFECT. At matched size the printed core scores 0.6000 against random subsets' 0.5134, a difference of +0.0866 inside the draw spread of 0.2148. The statistic falls from 1.0000 at k=1 to 0.4740 at k=6 BY CONSTRUCTION, so comparing a 4-criterion core to an 11-criterion rubric on it was comparing sizes. The sentence 'the core is more one-dimensional' may not be written in either direction."
+}

@@ -1,0 +1,36 @@
+{
+  "world": "CONFIRMED \u2014 the clean re-run passes all three controls and returns world B",
+  "clean_rerun": {
+    "ran": 38,
+    "failed": 5,
+    "wall_clock_s": 288,
+    "byte_identical": 38,
+    "artifacts_changed": 18,
+    "verdict_bearing_changes": 12,
+    "positive": "PASS",
+    "negative": "PASS",
+    "placebo": "PASS",
+    "verdict": "B SOME MOVE"
+  },
+  "first_pass_wall_clock_s": 284,
+  "check237_exclusion": "SUPPORTED \u2014 with no operator activity the negative control passes",
+  "exit_code_is_a_verdict": {
+    "rounds_declaring_EXIT_convention": 15,
+    "of": 43,
+    "misread_as_failures": [
+      "R433 W-LOSES",
+      "R437 W-INVERT",
+      "R441 W-DECORATION",
+      "R442 W-INSTANCE"
+    ],
+    "corrected": "42 ran, at most 1 genuinely failed"
+  },
+  "world_c_fires_on_nothing": {
+    "verdict_encoding_rounds": 15,
+    "threshold_rounds": 14.333333333333334,
+    "fires": true,
+    "label": "DERIVATION, not a measurement"
+  },
+  "wait_loop_self_match": "`until ! pgrep -f R636_.../run.py; do sleep 5; done` matches its own command line and can never terminate; three elapsed-time claims this turn measured that loop",
+  "impossible": "determinism of output says nothing about correctness of output"
+}

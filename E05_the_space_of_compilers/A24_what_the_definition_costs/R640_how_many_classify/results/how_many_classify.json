@@ -1,0 +1,59 @@
+{
+  "world": "B 5 OF 7 CLASSIFY \u2014 the repair is 5 site(s), not 7. The other 2 run rounds without ever forming a failure judgement, so editing them would change nothing.",
+  "controls_ok": true,
+  "n_harnesses": 7,
+  "n_classify": 5,
+  "rows": [
+    {
+      "harness": "R319_six_rounds_read_the_typo",
+      "rc_compare": true,
+      "fail_var": true,
+      "reaches_output": true,
+      "classifies": true
+    },
+    {
+      "harness": "R322_the_matched_rerun_was_never_gpu_work",
+      "rc_compare": true,
+      "fail_var": true,
+      "reaches_output": true,
+      "classifies": true
+    },
+    {
+      "harness": "R388_one_unit_of_the_debt",
+      "rc_compare": true,
+      "fail_var": true,
+      "reaches_output": true,
+      "classifies": true
+    },
+    {
+      "harness": "R390_does_the_untitled_tier_state_anything",
+      "rc_compare": true,
+      "fail_var": true,
+      "reaches_output": false,
+      "classifies": false
+    },
+    {
+      "harness": "R394_is_the_source_hash_a_valid_key",
+      "rc_compare": false,
+      "fail_var": true,
+      "reaches_output": true,
+      "classifies": false
+    },
+    {
+      "harness": "R396_is_the_slow_tail_stable_on_gpu",
+      "rc_compare": true,
+      "fail_var": true,
+      "reaches_output": true,
+      "classifies": true
+    },
+    {
+      "harness": "R636_what_actually_moved",
+      "rc_compare": true,
+      "fail_var": true,
+      "reaches_output": true,
+      "classifies": true
+    }
+  ],
+  "check241": "'six of the seven predate this arc' is false -- all seven are IN A24; and 'one predicate and seven call sites' was the fourth size claim in five rounds",
+  "impossible": "n_classify is a lower bound; implicit classification is invisible here"
+}

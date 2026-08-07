@@ -1,0 +1,18 @@
+{
+  "excesses": {
+    "generic|randblind_s0": 0.23460360598996957,
+    "generic|randblind_s1": 0.09750918147509056,
+    "randblind_s0|randblind_s1": 0.2927873691964601
+  },
+  "gap": 0.13709442451487902,
+  "mdes": {
+    "generic|randblind_s0": 0.024299906812510368,
+    "generic|randblind_s1": 0.02467612305476555,
+    "randblind_s0|randblind_s1": 0.02380834561891884
+  },
+  "ratio": 3.9585706524871305,
+  "resolution": 0.03463230457406235,
+  "source_name": "spread_resolution.py",
+  "source_sha256": "915888bca4aa5f848cb67cf02b690d2264116aa3df83ee2f434cfd2b4b809f89",
+  "verdict": "W_ALREADY_RESOLVED"
+}

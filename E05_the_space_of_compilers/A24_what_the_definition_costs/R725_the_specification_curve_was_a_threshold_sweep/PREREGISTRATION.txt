@@ -1,0 +1,94 @@
+R725 · the specification curve was a threshold sweep
+written BEFORE run.py. I have read R294:117-124 and 138 (mde = ZEFF*sd/sqrt(n), ZEFF = 1.959964 +
+0.841621, CI = percentile bootstrap of the mean) and derived the equivalences below on paper. I have
+NOT computed any arm's t-statistic.
+
+ESTIMAND -- two, and the first must be labelled correctly or the second is unreadable
+   (1) DERIVATION. R724 swept five "defensible readings" of each clause. Given mde = ZEFF*SE and a
+       percentile CI approximately eff +- 1.959964*SE, every rule is a threshold on the SAME
+       t = eff/SE:
+           point        eff > 0        <->  t > 0
+           ci_only      lo > 0         <->  t > 1.959964
+           mde_only     eff >= mde     <->  t >= 2.801585
+           strict       lo>0 & eff>=mde<->  t >= 2.801585        (identical to mde_only when eff>0)
+           conservative lo > mde       <->  t > 4.761549
+       So the five labels carry FOUR distinct thresholds, and R724's 5x5 grid has at most 4x4
+       distinct rule pairs. THIS IS ALGEBRA AND IS NOT EVIDENCE. What is measurable is whether the
+       equivalence HOLDS on the artifact, because the bootstrap SE and the analytic SE are two
+       different estimates and the percentile CI is not exactly symmetric.
+   (2) MEASUREMENT. R724's qualification -- that the conservative reading excludes coval_core -- was
+       computed treating every mde as exact. mde is estimated from the same sample as the effect.
+       Is the exclusion of coval_core flippable by the mde's OWN sampling error?
+
+IDENTIFICATION
+   (1) identified exactly from the artifact: t can be recovered two ways, from the CI half-width and
+       from mde/ZEFF, and their ratio is itself the diagnostic for whether the equivalence holds.
+   (2) PARTIALLY identified. The sampling distribution of a sample SD is chi-distributed UNDER
+       NORMALITY of the per-prompt differences, which this round cannot check because the raw
+       difference vectors are not in the artifact. So the crossing probability is MODEL-BASED and
+       is reported with its assumption attached, alongside an assumption-light distance in units of
+       the mde's own sampling SD.
+
+SCOPE
+   population : 41 arms x 2 measured clauses = 82 cells, from R294's full_census.json
+   instrument : algebraic re-expression of the admission rules + chi-square sampling model for sd
+   baseline   : R724's grid, which treated the five labels as five and every mde as exact
+   regime     : this artifact at census source_sha 2bc1124f6825df0f; n = each arm's own n
+
+WORLDS
+   W-COLLAPSE   the equivalence holds; R724's grid is a threshold sweep with duplicated cells, and
+                its "100 cells" overstate the dimensionality actually explored.
+   W-DISTINCT   the equivalence fails materially; bootstrap and analytic SE disagree enough that the
+                rules are genuinely different criteria and R724's grid was as wide as it looked.
+   W-FLIP       coval_core sits near enough to t = 4.761549 that resampling the mde moves it across,
+                so R724's qualification is an artifact of a noisy threshold.
+   W-STABLE     it does not, and the qualification stands as a property of the arm.
+   prediction matrix
+      mismatches == 0                       -> COLLAPSE 0.95  DISTINCT 0.05
+      mismatches > 10 of 410                -> COLLAPSE 0.05  DISTINCT 0.90
+      crossing probability > 0.05           -> FLIP 0.90  STABLE 0.05
+      crossing probability < 0.01           -> FLIP 0.02  STABLE 0.95
+
+REGISTERED POINTS (failable)
+   A  distinct t-thresholds among the five rules              = 4    [1, 5]   ⛔ DERIVATION
+   B  rule/threshold mismatches over 41 x 2 x 5 = 410 checks  = 0    [0, 410]
+   C  distinct (r1,r2) rule pairs after collapse, of 25       = 16   [1, 25]  ⛔ DERIVATION
+   D  coval_core clause-② distance from t = 4.761549, in units of the mde's own sampling SD
+                                                              = 7.0  [0, 100]
+   DIRECTIONAL (separately failable): the mde's sampling error CANNOT flip coval_core --
+   crossing probability < 0.01. NOTE THIS IS THE OPPOSITE of what R724's NEXT line suspected;
+   registering the refutation of my own proposed attack is the point of writing it down first.
+
+KILL (CONDITIONAL -- evaluated only if the POSITIVE and NEGATIVE controls both fire)
+   if positive_fires and negative_breaks:
+       B > 10                 -> W-DISTINCT: the collapse is wrong, R724's grid stands as swept
+       crossing_prob > 0.05   -> W-FLIP: R724's qualification is withdrawn as a threshold artifact
+       otherwise              -> evaluate A/B/C/D and the directional
+   else:
+       verdict = UNVERIFIED   # never OVERTURNED, never CONFIRMED
+
+POSITIVE CTRL   plant a synthetic arm at exactly t = 4.761549 and require the crossing probability
+                to land near 0.5. computed band: floor (t = 0) < t_planted <= ceiling (t = 20, which
+                must return ~0). A crossing probability that is 0 everywhere is an instrument that
+                cannot see, and this control is what distinguishes that from a real null.
+g=0             a synthetic arm at t = 0 -> crossing probability ~0 and NOT ~0.5. The control must
+                fail to fire where there is nothing to find.
+NEGATIVE CTRL   replace the recovered SE with an SE drawn independently of mde and require the
+                rule/threshold agreement to BREAK. excluded world: "any t-threshold reproduces these
+                rules", which would make B == 0 uninformative.
+SHAM            run the equivalence check with the threshold removed (predicate always true) and
+                show agreement is then trivially total -- the same operation minus the ingredient.
+PLACEBO         each rule against itself -> exactly 0 mismatches.
+NOISE FLOOR     the chi-square crossing probability is simulated; its own Monte-Carlo error is
+                reported from >= 3 seeds, measured, not assumed.
+UNIT            instrument unit : "a threshold on t recovered from the persisted CI and mde"
+                claim unit      : "the admission rule R294 actually applied"
+                EQUAL only if B == 0; if B > 0 the two units differ and every downstream statement
+                must be made about the recovered threshold, not about R294's rule.
+MULTIPLICITY    410 equivalence checks + 82 t-statistics + 3 seeds; all reported.
+SPECIFICATION   SE recovered two ways (CI half-width, mde/ZEFF) x 5 rules x 2 clauses
+SEEDS           >= 3 for the chi-square simulation; two PYTHONHASHSEEDs byte-identical
+ARTIFACT        results/r725_threshold_sweep.json with tree_sha
+IMPOSSIBLE      normality of the per-prompt differences -> needs the raw difference vectors, which
+                the artifact does not carry; a re-run of the census would supply them
+                independently replicated -> a second implementer

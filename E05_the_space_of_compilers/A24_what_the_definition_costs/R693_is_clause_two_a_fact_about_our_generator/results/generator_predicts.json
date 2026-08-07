@@ -1,0 +1,93 @@
+{
+  "world": "\u2b50\u2b50\u2b50 A REPARAMETERISATION \u2014 the generator's RULE FAMILY predicts clause \u2461's verdict at 88.1% against a 78.6% majority floor (+9.5%), at the 98.4th percentile of its own permutation null, and \u2461 is UNANIMOUS within 11 of 13 families. \u2b50 SO 'CLAUSE \u2461 CARRIES THE WHOLE BOUNDARY' IS A CLAIM ABOUT OUR ARM SPACE: with one released core and 41 constructions, \u2461 is sorting the generators we wrote. \u26a0 AND PREDICTION IS NOT MEASUREMENT \u2014 family and \u2461 could both depend on a third thing, most obviously whether the rule reads labels. This round reports that the boundary is recoverable from the generator's name; it does not establish that \u2461 measures the generator. \u26a0 Instrument unit: a NAME PREFIX. Claim unit: THE GENERATOR. Not equal. And a fit scored on its own data is a CEILING, stated as one. \u2b50\u2b50 AND THE READING IS PARTIAL, WHICH THE RESIDUAL SHOWS: the 11.9% the family predictor CANNOT explain is concentrated in 2 split families, and it includes 2 of 5 sham pairs -- the released core against its own sham, which is the one comparison the definition exists to make. \u2461 is 88% recoverable from a name we chose, and the part that is not is where it does its work.",
+  "controls_ok": true,
+  "tree_sha": "293676c141fa090c54c5a38a3769435ce9adc637",
+  "seed": 20260805,
+  "n_arms": 42,
+  "n_pass2": 9,
+  "majority_floor": 0.7857142857142857,
+  "acc_family": 0.8809523809523809,
+  "acc_k": 0.7857142857142857,
+  "null_percentile": 0.984,
+  "families": {
+    "coval_core": {
+      "pass": 1,
+      "n": 2
+    },
+    "full": {
+      "pass": 0,
+      "n": 2
+    },
+    "gen": {
+      "pass": 0,
+      "n": 2
+    },
+    "generic": {
+      "pass": 0,
+      "n": 1
+    },
+    "greedy": {
+      "pass": 1,
+      "n": 1
+    },
+    "indep": {
+      "pass": 1,
+      "n": 1
+    },
+    "oracle": {
+      "pass": 2,
+      "n": 2
+    },
+    "promptecho": {
+      "pass": 0,
+      "n": 2
+    },
+    "random": {
+      "pass": 0,
+      "n": 18
+    },
+    "topabs": {
+      "pass": 0,
+      "n": 1
+    },
+    "topvar": {
+      "pass": 0,
+      "n": 1
+    },
+    "topw": {
+      "pass": 4,
+      "n": 8
+    },
+    "topwvar": {
+      "pass": 0,
+      "n": 1
+    }
+  },
+  "n_unanimous_families": 11,
+  "n_families": 13,
+  "split_families": {
+    "coval_core": [
+      1,
+      2
+    ],
+    "topw": [
+      4,
+      8
+    ]
+  },
+  "sham_pairs": 5,
+  "sham_separated": [
+    [
+      "coval_core",
+      "coval_core_sham"
+    ],
+    [
+      "topw_k4",
+      "topw_k4_sham"
+    ]
+  ],
+  "kill_fired": false,
+  "directional_holds": true,
+  "registered": "A 90% [79,100]; B 79% [70,88]; family beats k; kill if family <= floor",
+  "limit": "prediction is not measurement; a name prefix is our label for the generator, not the generator; and a fit scored on its own data is a ceiling."
+}

@@ -1,0 +1,191 @@
+R791 · A2 is the mean of SIX pairwise comparisons — does the decomposition separate what the scalar
+       cannot?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-06.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R790 killed the membership formulation and closed with the first question in this arc that no
+re-threshold can answer: **should clause ② be a scalar comparison at all?** Four formulations have
+now failed the same way — `q` is A2's percentile (R787), `q_resolved` adds a variance term (R788), a
+stated cut forfeits the pairing (R789), a level moves with the threshold (R790) — and every one is a
+threshold on ONE SCALAR, on which `coval_core` sits `t` 0.75 from `topw_k4`.
+
+CHECK #393 — the GAUGE TEST, which is the cheapest rung of the attack ladder and the right one here.
+  A2 per prompt is `mean over annotators of mean over the SIX response-pairs of (sign == class)`.
+  Since the two means commute, **A2 is exactly the mean of six component agreements.** So:
+      the MEASUREMENT is invariant under permuting WHICH of the six comparisons an arm gets right.
+      the PROPERTY "is a core" is not obviously invariant under that.
+  Measurement invariant + property not ⇒ the measurement may be blind to a real difference, and the
+  difference is computable from data already on disk.
+
+CHECK #393 — P4, and the prior art is close but not this.
+  L1 live code   R733 (`a shared level or a shared profile`) built the per-prompt PROFILE comparison
+                 with a shared-subtrahend floor (0.5034) and an alias ceiling (1.000000).
+  L2 archive+git R457 established the per-prompt gap IS reliable — split-half reliability against a shuffled
+                 null of 0.0168 -- R733 quotes it as 0.8311; R457's own README says rho_full 0.8812,
+                 and the PRIMARY source governs (corrected in R792) — so per-prompt structure is not noise. That kills, in
+                 advance, the lazy world in which everything below the scalar is measurement error.
+  L3 this project R771/R772 sized a shared PROMPT factor; R774 found the scale is an arm property.
+  => every one of those decomposes across PROMPTS. **No round in this arc has decomposed across the
+     SIX COMPARISONS INSIDE a prompt.** That is the gap, and it is the finest decomposition the
+     release supports without a new instrument.
+
+--------------------------------------------------------------------------------
+DISCLOSURE -- what was already known when this was written
+--------------------------------------------------------------------------------
+KNOWN and quoted: R789's `coval_core` − `topw_k4` = +0.002297 [−0.00378, +0.00844], mde 0.00853,
+t 0.75; R790's P(same level) = 0.975; R457's reliability (see the correction in R792); R733's floor and ceiling. **NOT known:
+any component-level quantity.** Not the six effects, not their spread, not the effective rank of the
+component matrix, not how many of the 190 pairs a componentwise test resolves.
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  `A2 = (1/6) * sum_c component_c`, EXACTLY, because the mean over annotators and the mean over
+    the six pairs commute. **DERIVATION.** Consequences: the six component effects for a pair must
+    average to that pair's A2 effect, and the round prints that as a CHECK ON THE CODE, never as
+    evidence.
+D2  THEREFORE THE COMPONENTWISE TEST CANNOT RESOLVE FEWER PAIRS THAN THE SCALAR *AT THE SAME
+    NOMINAL LEVEL*, because the scalar is one of the linear combinations available. **But it CAN
+    resolve fewer after multiplicity**, since the componentwise family has 6× the cells. So "more
+    pairs resolve" is only a finding AFTER BH over the whole 6 × 190 grid, and before that it is
+    arithmetic. Registered so the flattering reading cannot be taken.
+D3  IF THE SIX COMPONENTS ARE PERFECTLY CORRELATED ACROSS ARMS, the decomposition is a
+    REPARAMETERISATION and carries no information the scalar lacks. The effective rank of the
+    (20 arms x 6 components) centred matrix bounds what the decomposition can add. **DERIVATION**,
+    and it is this round's arithmetic-trap control.
+D4  ALIAS PAIRS MUST RETURN ALL SIX COMPONENT EFFECTS EXACTLY 0, since their per-prompt vectors are
+    byte-identical. **DERIVATION**, and it is the placebo with an expected value known in advance.
+
+STRONGEST CONFOUND, written BEFORE the run: the six comparisons are not exchangeable — pair (A,B)
+and pair (C,D) involve different responses, and some pairs may simply be EASIER, so a component
+difference could reflect prompt-level difficulty rather than anything about the arm. CONTROL IN THE
+SAME ITERATION: every effect is a PAIRED difference between two arms on the SAME component, so a
+component's own difficulty cancels exactly; and the shared component profile (the mean over arms) is
+reported so its size can be seen beside the arm-specific residual.
+
+--------------------------------------------------------------------------------
+ESTIMANDS (before method)
+--------------------------------------------------------------------------------
+E1  the six component effects for every one of the 190 pairs among the 20 distinct objects, each
+    with a paired cluster-bootstrap CI over the 968 prompts and its own MDE, plus the D1 identity
+    check.
+E2  ⭐ THE DECISIVE PAIR: the six components of `coval_core` − `topw_k4`. Does ANY component resolve
+    after BH over the whole 6 x 190 grid, where the scalar (t = 0.75) does not?
+E3  ⭐ THE DEFINITION-LEVEL DECISION: how many of the 190 pairs the componentwise test resolves
+    against how many the scalar resolves, both after the same BH over their own whole grids — and
+    whether the two admitted sets for a clause ② built on each are the same set.
+E4  the effective rank of the (20 x 6) centred component matrix: eigenvalue shares, and the share
+    explained by the first component. D3's bound on what any decomposition can add.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1-E4 exact given the per-(prompt, component) agreement arrays, which are a deterministic function
+of the sat files and the targets.
+⚠ PARTIALLY IDENTIFIED: the bootstrap resamples PROMPTS, so all CIs are conditional on the observed
+annotator sets. R789 measured that a hierarchical bootstrap left every decisive verdict unchanged;
+that is a quoted prior result and the hierarchical cell is run again here rather than assumed.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  20 distinct objects (27 named arms, 9 alias pairs collapsed) x 968 prompts x 6 components
+instrument  per-(prompt, component) agreement with the annotators' class; paired mean difference
+baseline    the SCALAR test on A2, the incumbent clause ② measurement
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE COMPONENTS SEE WHAT THE SCALAR CANNOT. At least one component resolves `coval_core` from
+    `topw_k4` after BH over 6 x 190, AND the componentwise test resolves strictly more of the 190
+    pairs than the scalar does after each family's own BH. Then A2's averaging destroys a real
+    distinction and clause ② should be componentwise.
+B · THE COMPONENTS SEE NOTHING MORE. No component resolves the decisive pair after BH, and the
+    componentwise test resolves no more pairs than the scalar. Then `coval_core` and `topw_k4` are
+    the same object at this release's finest available resolution, and the search for a formulation
+    that separates THEM is over — which is a fact about the arms, not about the statistic.
+C · THE DECOMPOSITION IS A REPARAMETERISATION. The first eigenvalue takes ≥ 0.90 of the component
+    matrix's variance, so the six components carry one degree of freedom. Then any apparent gain is
+    multiplicity, and C is checked FIRST because it voids A's reading.
+
+PREDICTION MATRIX
+  A -> decisive pair has >=1 component surviving BH  AND  pairs_resolved(component) > pairs_resolved(scalar)
+  B -> decisive pair has 0 components surviving BH   AND  pairs_resolved(component) <= pairs_resolved(scalar)
+  C -> first eigenvalue share >= 0.90
+  mixed (a component survives but the pair count does not rise, or vice versa) -> report; CLAIM NO
+  WORLD. Registered now, because R780 taught that a branch set presupposing one arm's outcome
+  leaves the round unable to name a world honestly.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (D1's identity: |mean of the six components - A2| < 1e-12 for every arm, and the
+   190-pair scalar t values equal R789's committed matrix to 1e-9 -- exit 2 otherwise)
+   and PLACEBO returns all six component effects EXACTLY 0.0 on every alias pair (D4)
+   and POSITIVE fires component-specifically (a shift planted on ONE component resolves THAT
+       component and leaves the other five unresolved; at delta = 0 none resolves -- the floor must
+       fail -- and the band's two ends must differ)
+   and NEGATIVE fires (permuting the six component labels within each prompt leaves A2 EXACTLY
+       unchanged and destroys the component effects):
+        first eigenvalue share >= 0.90                              -> WORLD C   (checked FIRST)
+        decisive pair >=1 component after BH AND more pairs resolved -> WORLD A
+        decisive pair 0 components after BH AND not more pairs      -> WORLD B
+        otherwise                                                   -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT      D1's identity to 1e-12 on every arm; the scalar matrix against R789's committed t values
+            to 1e-9; 20 objects, 968 prompts, 6 components printed. Exit 2, never 0.
+PLACEBO     the 9 alias pairs: all six component effects EXACTLY 0.0, expected value fixed by D4
+            before the run. A contrast where no effect can exist.
+POSITIVE    BAND COMPUTED AT BOTH ENDS, AND COMPONENT-SPECIFIC. Plant delta on component 0 only of a
+            copy of the arm nearest the A2 median, sweeping delta in {0, 0.005, 0.01, 0.02, 0.05}.
+            Require: at delta = 0, ZERO components resolve (floor); at delta = 0.05, component 0
+            resolves and the other five do not (ceiling AND specificity). floor == ceiling is
+            DEGENERATE and fails. ⚠ The specificity half is the part that matters: an instrument
+            that fires on all six under a one-component plant is measuring the mean again.
+NEGATIVE    THE GAUGE OPERATION ITSELF: permute the six component labels within each prompt for one
+            arm. A2 must be EXACTLY unchanged (a derivation, checked) while the component effects
+            move. World it excludes: "the component differences are an artefact of which comparison
+            is indexed where." Built synthetically as well: an arm whose six components are drawn
+            i.i.d. with the observed marginal spread, where no componentwise structure exists.
+SHAM        the same machinery MINUS the decomposition: the scalar test on A2 alone, over the same
+            190 pairs with its own BH. The ingredient removed is the decomposition, not misdirected.
+NOISE FLOOR MEASURED: 20 annotator split-halves, the sd of the half-to-half component effect,
+            reported per component.
+UNIT        instrument unit = an (arm, arm, component, prompt) paired difference; claim unit = an
+            (arm, arm) PAIR for E2 and an ADMITTED SET for E3. Named separately, required unequal.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+6 x 190 = 1,140 componentwise cells and 190 scalar cells. BH at q = 0.05 over EACH family's OWN
+whole grid, and the two counts reported side by side — D2 makes the raw comparison arithmetic, so
+only the post-BH comparison is a finding. Cells tested, cells surviving, and the non-survivors are
+all printed.
+
+--------------------------------------------------------------------------------
+SPECIFICATION CURVE
+--------------------------------------------------------------------------------
+rule           point | ci_only | strict/mde | conservative   (R725's four thresholds on t)
+statistic      scalar A2 | componentwise max-|t| | componentwise after BH
+bootstrap      prompt-only | hierarchical (prompts, then annotators within prompt)
+NBOOT          1200
+seeds          3, and the round asserts the draws actually differ
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether a component difference MATTERS to a reader   an external criterion for what clause ② should
+                                                     admit (the construct-validity wall, R631)
+a decomposition finer than the six comparisons       graded judgements rather than pairwise signs;
+                                                     the release ships signs
+independently replicated                             a second designer; the session prompt forbids
+                                                     agents
+cross-release                                        a second values-annotation release

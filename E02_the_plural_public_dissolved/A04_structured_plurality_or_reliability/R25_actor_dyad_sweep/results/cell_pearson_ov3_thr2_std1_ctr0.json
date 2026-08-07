@@ -1,0 +1,24 @@
+{
+ "cfg": {
+  "metric": "pearson",
+  "min_overlap": 3,
+  "thr": "2",
+  "standardize": true,
+  "centre": false
+ },
+ "tag": "pearson_ov3_thr2_std1_ctr0",
+ "prompts": 975,
+ "actor_model_r2": 0.4720222556404369,
+ "raw_rho": 0.15700961475293893,
+ "actor_rho": 0.24781224945049143,
+ "resid_rho": 0.035853687982902095,
+ "resid_rho_sd": 0.002664173020910987,
+ "n_pairs": 16597,
+ "resid_z": 5.813256389855457,
+ "neg_both": 0.26028800385611855,
+ "neg_both_z": 2.75550492207856,
+ "pair_specific_share": 0.22835345490987508,
+ "null_mean": 0.00039361867937109143,
+ "null_sd": 0.006099863298580477,
+ "frozen_line": "FROZEN LINE (queue item 2, see FROZEN.md): this round belongs to the rater-structure ontology -- r01, r23, r25, r26, r27, r28 -- which is FROZEN as UNRESOLVED. Four separators failed for four unrelated reasons: r23's sharper test read z=+10.26 at 2 null reps and +1.40 at 40; r26's centred residual gives 'below average' and 'actually disagreeing' the same number when mean agreement is +0.25; r27's agreeable-pair control selects same-bloc pairs under unequal bloc sizes and so could not have found blocs if they existed; r28's design was rank-deficient by exactly 1, its z moved with PYTHONHASHSEED, and its held-out R2 spanned [-1.64,+0.51]. The numbers below are correct about this round's own data. They do NOT establish that value blocs exist, and they do not establish that they do not. Neither reading is available from this release."
+}

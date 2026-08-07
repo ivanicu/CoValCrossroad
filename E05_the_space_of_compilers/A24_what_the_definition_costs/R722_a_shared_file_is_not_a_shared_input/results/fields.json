@@ -1,0 +1,130 @@
+{
+ "world": "⭐⭐⭐ A SHARED INPUT, AND THE FILE-LEVEL COUNT UNDERSTATED IT. Of the 4 rounds reading `clause_ledger.json`, 4 parse and they share 4 field(s): {'clause23_admits': 3, 'clause2_admits': 2, 'sweep': 2, 'k': 2}, the most common being `clause23_admits` in 3 of 4. ⭐ SO THE SHARING IS NOT NOMINAL — two of the six derivations behind the number 5 take the SAME FIELD from the SAME FILE, which is a shared INPUT and not merely a shared path, and R721's qualification was right to call them not-disjoint. ⛔ AND THE COVERAGE IS THE OTHER HALF OF THE ANSWER: 0 of 4 readers match no pattern and are reported UNMEASURED, never as zero — the probe I ran last round would have printed those as 'no fields' and turned silence into a finding. ⚠ SO THIS IS A LOWER BOUND ON SHARING over the parsed rounds, and the unparsed count bounds how far it can be trusted; both numbers are on the page. ⚠ The negative control recovers 2 schema fields from R360, which WRITES the ledger, so the extractor is matching field NAMES rather than one reader's idiom. ⚠ UNIT GAP: instrument unit is A FIELD ACCESS IN SOURCE, claim unit is WHETHER TWO COMPUTATIONS SHARE AN INPUT — an access I cannot see is not an access that is absent.",
+ "controls_ok": true,
+ "tree_sha": "da7627be3fc9209df92c787dcad6310fc1c7cde0",
+ "readers": [
+  "R404",
+  "R405",
+  "R408",
+  "R667"
+ ],
+ "schema": [
+  "arms",
+  "clause23_admits",
+  "clause2_admits",
+  "controls",
+  "k",
+  "ledger",
+  "n_prompts",
+  "nonmonotone_levels",
+  "pool",
+  "purge_pct",
+  "retained_at_purge",
+  "source_name",
+  "source_sha256",
+  "sweep",
+  "verdict"
+ ],
+ "per_reader": {
+  "R404": {
+   "fields": [
+    "arms",
+    "clause23_admits",
+    "clause2_admits"
+   ],
+   "verdict": "PARSED"
+  },
+  "R405": {
+   "fields": [
+    "clause23_admits",
+    "sweep"
+   ],
+   "verdict": "PARSED"
+  },
+  "R408": {
+   "fields": [
+    "clause2_admits",
+    "k",
+    "sweep"
+   ],
+   "verdict": "PARSED"
+  },
+  "R667": {
+   "fields": [
+    "clause23_admits",
+    "k"
+   ],
+   "verdict": "PARSED"
+  }
+ },
+ "parsed": [
+  "R404",
+  "R405",
+  "R408",
+  "R667"
+ ],
+ "coverage": 1.0,
+ "unmeasured": [],
+ "shared_fields": {
+  "clause23_admits": 3,
+  "clause2_admits": 2,
+  "sweep": 2,
+  "k": 2
+ },
+ "most_shared": {
+  "field": "clause23_admits",
+  "n_readers": 3
+ },
+ "writer_schema_fields": [
+  "source_name",
+  "source_sha256"
+ ],
+ "negative_band": {
+  "floor": 0,
+  "threshold": 1,
+  "ceiling": 2
+ },
+ "cells": [
+  {
+   "patterns": "subscript",
+   "population": "the 4 readers",
+   "parsed": 4,
+   "shared_fields": 3
+  },
+  {
+   "patterns": "subscript",
+   "population": "R360 the writer",
+   "schema_fields": 0
+  },
+  {
+   "patterns": "+ .get",
+   "population": "the 4 readers",
+   "parsed": 4,
+   "shared_fields": 3
+  },
+  {
+   "patterns": "+ .get",
+   "population": "R360 the writer",
+   "schema_fields": 0
+  },
+  {
+   "patterns": "+ bare mention in code",
+   "population": "the 4 readers",
+   "parsed": 4,
+   "shared_fields": 4
+  },
+  {
+   "patterns": "+ bare mention in code",
+   "population": "R360 the writer",
+   "schema_fields": 2
+  }
+ ],
+ "registered": "A parsed 3 [1,4]; B shared fields 1 [0,5]; C most-shared count 2 [0,4]; directional coverage incomplete",
+ "observed": {
+  "A": 4,
+  "B": 4,
+  "C": 3,
+  "directional": false
+ },
+ "limit": "absence of a pattern match is NOT absence of access — unparsed rounds are UNMEASURED, and the sharing count is a LOWER BOUND over the parsed ones."
+}

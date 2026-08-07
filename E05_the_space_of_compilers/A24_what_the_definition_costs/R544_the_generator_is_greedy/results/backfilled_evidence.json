@@ -1,0 +1,15 @@
+{
+  "round": "R544_the_generator_is_greedy",
+  "backfilled_by": "R551",
+  "note": "re-verified against source; NOT a copy of the original conclusion",
+  "claims": [
+    {
+      "claim": "generation is greedy (do_sample=False), so a re-run is byte-identical",
+      "verified": true,
+      "file": "corebench/generate_core.py",
+      "sha256_16": "acb8b030d862bfbe"
+    }
+  ],
+  "world": "B",
+  "world_means": "B = every claim this round made still holds against source at the recorded hashes"
+}

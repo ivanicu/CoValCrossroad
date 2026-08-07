@@ -1,0 +1,150 @@
+R771 · is "which prompts separate cores" a question with an answer?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R770 established that ~85% of the per-pair difference variance is BETWEEN PROMPTS and that it sorts by
+none of the strata the release ships. Its NEXT registered the correlation matrix of the ten difference
+vectors and its leading eigenvalue share, to decide whether the heterogeneity is a single latent
+PROMPT factor (some prompts separate cores, some do not) or PAIR-SPECIFIC noise.
+
+⛔ CHECK #373, THE ARITHMETIC, RUN BEFORE ANY DESIGN -- AND IT REPAIRS THE REGISTERED QUANTITY:
+ ① THE RANK IS FORCED. The ten vectors are all pairwise differences among FIVE arms, so they span the
+   4-dimensional space of centred arm vectors. Measured: rank **4**, eigenvalues
+   **[3.791, 2.957, 1.771, 1.481, 0, 0, 0, 0, 0, 0]**. **So "there are only 4 non-zero components"
+   is ALGEBRA, and a leading share compared against 1/10 would be a manufactured finding.** The
+   uniform reference is **1/4 = 0.25**, not 1/10, and the observed leading share is **0.3791**.
+ ② MY FIRST ANALYTIC NULL WAS WRONG AND IS REPLACED HERE, BEFORE THE RUN. I predicted the
+   arm-sharing correlation as `v_a / sqrt(var(d_ab)*var(d_ac))` using the RAW arm variances, and it
+   returned **+0.9271** against an observed **+0.2687**. The raw variance is dominated by PROMPT
+   DIFFICULTY, which the difference removes; the null needs the RESIDUAL variances.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the residual (arm-specific) variances `v_a`, identified from the ten observed `var(d_ab)` under
+    the independence model `var(d_ab) = v_a + v_b` -- 5 unknowns, 10 equations, least squares, with
+    the residual of that fit reported as its own diagnostic.
+E2  the predicted correlation matrix under independence, `cov(d_ab, d_ac) = v_a` and `0` for disjoint
+    pairs, against the OBSERVED matrix. The estimand is the EXCESS: observed minus predicted, for
+    arm-sharing and disjoint pairs separately.
+E3  the leading eigenvalue share of the observed correlation matrix against the share the SAME
+    machinery returns on data simulated under the fitted independence model -- so the reference is
+    generated, not asserted.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1 IDENTIFIED: 10 equations, 5 unknowns, and the system is over-determined, so the fit's residual is
+   itself a test of the independence model's ADEQUACY, reported before anything is built on it.
+   ⚠ If any fitted `v_a` is NEGATIVE the model is refuted at that arm and the round says so rather
+   than clipping to zero -- clipping would hide exactly the failure the fit exists to detect.
+E2, E3 IDENTIFIED given E1.
+⚠ WHAT IS NOT IDENTIFIED: whether a common factor, if found, is a property of the PROMPTS or of the
+  JUDGE scoring them. That needs a second judge and is in the register.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  968 prompts; the 5 committed extension members; their 10 pairwise differences
+instrument  per-prompt A2 over all annotators; Pearson correlation across prompts
+baseline    the fitted independence model -- the null is GENERATED, not a number I chose
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  RANK 4 IS FORCED. 5 arms, differences remove one degree of freedom. Any statement of the form
+    "6 of 10 components are zero" is algebra and is reported as such.
+D2  ARM-SHARING PAIRS ARE CORRELATED EVEN UNDER PURE INDEPENDENCE. With equal residual variances,
+    `corr(d_ab, d_ac) = v_a / (v_a + v_b) = 0.5`. **So a positive mean correlation among arm-sharing
+    pairs is NOT evidence of a common prompt factor** -- it is what sharing an arm does. The
+    measurement is the EXCESS over the fitted prediction, in BOTH directions.
+D3  THE SIGN OF THE EXCESS IS THE FORK, NOT ITS SIZE. Excess ABOVE the independence prediction means
+    a common prompt factor (some prompts separate all arms). Excess BELOW means the arm residuals are
+    NEGATIVELY correlated -- prompts where one arm gains are prompts where another loses -- which is a
+    different world and points to a zero-sum structure, not to noise.
+    ⚠ The quick pre-round probe put observed arm-sharing at **+0.2687** and disjoint at **+0.0312**;
+      if the fitted prediction lands near 0.5, the excess is NEGATIVE and D3's second branch fires.
+      Registered here so that outcome cannot be re-narrated afterwards.
+
+STRONGEST CONFOUND, written BEFORE the run: unequal residual variances alone can push arm-sharing
+correlations well below 0.5 without any negative dependence -- `v_a/(v_a+v_b)` is small whenever
+`v_a << v_b`. CONTROL IN THE SAME ITERATION: the prediction is computed PER PAIR from the fitted
+`v_a`, never from a 0.5 constant, so unequal variances are inside the null rather than confused with
+the finding.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · ONE LATENT PROMPT FACTOR. Observed arm-sharing correlations exceed the fitted prediction and the
+    leading eigenvalue share exceeds the simulated reference. Then "which prompts separate cores" has
+    an answer, and stratifying on that factor could resolve pairs R768 could not.
+B · PAIR-SPECIFIC, NO FACTOR. Observed ≈ fitted, leading share ≈ simulated. The heterogeneity is
+    arm-specific residual and NO stratification could ever help -- which closes R770's fork and makes
+    R769's required-n the only lever.
+C · NEGATIVE DEPENDENCE. Observed falls materially BELOW the fitted prediction: prompts where one arm
+    gains are prompts where another loses. Then the extension is not merely unordered, it is
+    TRADE-OFF structured, and that is a different object from either A or B.
+
+PREDICTION MATRIX  (excess = observed − fitted, arm-sharing pairs; leading share vs simulated)
+  A -> excess >= +0.05 AND leading share above the simulated 97.5th percentile
+  B -> |excess| < 0.05 AND leading share inside the simulated interval
+  C -> excess <= −0.05
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE fires (a SYNTHETIC common factor injected into the arm residuals is recovered as a raised
+   leading share and a positive excess) and g=0 fires (injecting NO factor recovers neither)
+   and the E1 fit is admissible (all fitted `v_a` > 0, and the fit residual is small relative to the
+   observed `var(d)` spread):
+        excess >= +0.05 and share above the simulated 97.5 pct -> WORLD A. Name the factor's loading.
+        |excess| < 0.05 and share inside the interval          -> WORLD B. R770's fork closes; the
+                                                                  register gains "no stratification".
+        excess <= -0.05                                        -> WORLD C. Trade-off structure.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE  inject a common prompt factor into the five arm residuals at loading lambda, sweep
+          lambda in {0, 0.25, 0.5, 1.0} x the residual sd, and require the excess and the leading
+          share to rise MONOTONELY and to be detected at 1.0. BAND, COMPUTED: at lambda = 0 nothing
+          may be detected (g=0); at lambda = 1.0 it must be. The threshold sits strictly between two
+          computed ends, and the sweep makes it a dose-response rather than one tuned number.
+          ⚠ AND THE PLANT IS SIZED AGAINST THE STATISTIC THE TEST USES, not against a different one
+            -- the defect R770 caught in its own positive control one round ago.
+g=0       lambda = 0: the same machinery on unfactored residuals must return excess ~0 and a leading
+          share inside its own simulated interval.
+NEGATIVE  permute each difference vector's prompt order INDEPENDENTLY, 200 draws, and report the
+          leading share. World excluded: "any 10 vectors of rank 4 give this leading share" -- if the
+          permuted share matches the observed, the statistic is measuring the rank constraint alone.
+SHAM      ingredient ABSENT, not inverted. Ingredient = THE PROMPT PAIRING ACROSS PAIRS. Simulate the
+          arm residuals as INDEPENDENT gaussians with the fitted `v_a`, 200 draws, and report the
+          leading-share distribution. Same rank, same variances, no shared prompt structure.
+PLACEBO   include `topw_k4` vs `topw_k4_detA` -- an identical pair, difference exactly 0 -- and
+          confirm it contributes no correlation (its variance is 0 and it must be excluded by the
+          machinery rather than producing a division by zero).
+NOISE     200 draws for both SHAM and NEGATIVE; intervals printed, never just means.
+UNIT      instrument unit = a PROMPT (968 per vector); claim unit = the SET of five arms. The
+          correlation is between PAIRS, which are neither -- so the pair count (10) is reported
+          separately from the arm count (5) and the rank (4).
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+45 correlation cells (10 choose 2), split into 30 arm-sharing and 15 disjoint and reported
+separately; 4 lambda levels; 200 sham draws; 200 permutation draws. The whole correlation matrix is
+printed, not just its summary.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether a common factor is a property of the
+  PROMPTS or of the JUDGE                        a second judge scoring the same arms
+whether the factor, if found, is causal          an intervention on prompts
+whether A2 is the right thing to difference      an external criterion
+independently replicated                         a second team; the session prompt forbids agents

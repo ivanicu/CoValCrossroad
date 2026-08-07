@@ -1,0 +1,190 @@
+{
+ "source_sha": "11a963f90c69fea7",
+ "world": "W-WEIGHTING",
+ "hits": {
+  "CONV/PERM": 8,
+  "CONV/ANLY": 9,
+  "INTER/PERM": 2,
+  "INTER/ANLY": 2
+ },
+ "threshold": 8,
+ "n_pairs": 10,
+ "reproduction_control_ok": true,
+ "seeds": [
+  101,
+  202,
+  303
+ ],
+ "rows": [
+  {
+   "pair": "generic|vacuous",
+   "r427": 0.4115313272586,
+   "vals": {
+    "CONV/PERM": 0.41847071321986096,
+    "CONV/ANLY": 0.41968165006211794,
+    "INTER/PERM": 0.4313044662309369,
+    "INTER/ANLY": 0.4325862181694249
+   },
+   "reproduces": {
+    "CONV/PERM": true,
+    "CONV/ANLY": true,
+    "INTER/PERM": false,
+    "INTER/ANLY": false
+   },
+   "halfwidth": 0.008753229220274661
+  },
+  {
+   "pair": "generic|randblind_s0",
+   "r427": 0.41784973359973365,
+   "vals": {
+    "CONV/PERM": 0.41721681115601567,
+    "CONV/ANLY": 0.41963163271540616,
+    "INTER/PERM": 0.4306372549019608,
+    "INTER/ANLY": 0.4325368056912885
+   },
+   "reproduces": {
+    "CONV/PERM": true,
+    "CONV/ANLY": true,
+    "INTER/PERM": false,
+    "INTER/ANLY": false
+   },
+   "halfwidth": 0.010738282251208403
+  },
+  {
+   "pair": "generic|randblind_s1",
+   "r427": 0.4230038181515454,
+   "vals": {
+    "CONV/PERM": 0.41677167892082656,
+    "CONV/ANLY": 0.41939629428669645,
+    "INTER/PERM": 0.4301981209150327,
+    "INTER/ANLY": 0.43230230261158903
+   },
+   "reproduces": {
+    "CONV/PERM": true,
+    "CONV/ANLY": true,
+    "INTER/PERM": true,
+    "INTER/ANLY": true
+   },
+   "halfwidth": 0.011982443755739203
+  },
+  {
+   "pair": "generic|randblind_s2",
+   "r427": 0.40795526947799676,
+   "vals": {
+    "CONV/PERM": 0.4176015937660824,
+    "CONV/ANLY": 0.4196444708575241,
+    "INTER/PERM": 0.43075980392156865,
+    "INTER/ANLY": 0.43254670045311955
+   },
+   "reproduces": {
+    "CONV/PERM": false,
+    "CONV/ANLY": false,
+    "INTER/PERM": false,
+    "INTER/ANLY": false
+   },
+   "halfwidth": 0.010738593902940519
+  },
+  {
+   "pair": "randblind_s0|vacuous",
+   "r427": 0.4111421823126369,
+   "vals": {
+    "CONV/PERM": 0.4187860291223927,
+    "CONV/ANLY": 0.41976522843416614,
+    "INTER/PERM": 0.4316312636165577,
+    "INTER/ANLY": 0.43264714077702654
+   },
+   "reproduces": {
+    "CONV/PERM": true,
+    "CONV/ANLY": true,
+    "INTER/PERM": false,
+    "INTER/ANLY": false
+   },
+   "halfwidth": 0.014080636377511335
+  },
+  {
+   "pair": "randblind_s1|vacuous",
+   "r427": 0.417129403424858,
+   "vals": {
+    "CONV/PERM": 0.4183310149131172,
+    "CONV/ANLY": 0.4195531957271376,
+    "INTER/PERM": 0.4312023420479303,
+    "INTER/ANLY": 0.4324452129125379
+   },
+   "reproduces": {
+    "CONV/PERM": true,
+    "CONV/ANLY": true,
+    "INTER/PERM": false,
+    "INTER/ANLY": false
+   },
+   "halfwidth": 0.010651690213195897
+  },
+  {
+   "pair": "randblind_s2|vacuous",
+   "r427": 0.421478280557826,
+   "vals": {
+    "CONV/PERM": 0.418402797139729,
+    "CONV/ANLY": 0.4197500294915572,
+    "INTER/PERM": 0.4313112745098039,
+    "INTER/ANLY": 0.4326338784861758
+   },
+   "reproduces": {
+    "CONV/PERM": true,
+    "CONV/ANLY": true,
+    "INTER/PERM": false,
+    "INTER/ANLY": false
+   },
+   "halfwidth": 0.010810681064516298
+  },
+  {
+   "pair": "randblind_s0|randblind_s1",
+   "r427": 0.4291217835195108,
+   "vals": {
+    "CONV/PERM": 0.4169835624602669,
+    "CONV/ANLY": 0.41986502068235715,
+    "INTER/PERM": 0.43045002723311543,
+    "INTER/ANLY": 0.4327149691370507
+   },
+   "reproduces": {
+    "CONV/PERM": false,
+    "CONV/ANLY": true,
+    "INTER/PERM": true,
+    "INTER/ANLY": true
+   },
+   "halfwidth": 0.010672561639749167
+  },
+  {
+   "pair": "randblind_s0|randblind_s2",
+   "r427": 0.41874833625969987,
+   "vals": {
+    "CONV/PERM": 0.41912857385669877,
+    "CONV/ANLY": 0.4198087007741791,
+    "INTER/PERM": 0.43223039215686276,
+    "INTER/ANLY": 0.43268243630280817
+   },
+   "reproduces": {
+    "CONV/PERM": true,
+    "CONV/ANLY": true,
+    "INTER/PERM": false,
+    "INTER/ANLY": false
+   },
+   "halfwidth": 0.008327800261607066
+  },
+  {
+   "pair": "randblind_s1|randblind_s2",
+   "r427": 0.4195242005469278,
+   "vals": {
+    "CONV/PERM": 0.41997912595611453,
+    "CONV/ANLY": 0.4196498171595155,
+    "INTER/PERM": 0.4329044117647059,
+    "INTER/ANLY": 0.43253732053688326
+   },
+   "reproduces": {
+    "CONV/PERM": true,
+    "CONV/ANLY": true,
+    "INTER/PERM": false,
+    "INTER/ANLY": false
+   },
+   "halfwidth": 0.010739279375927113
+  }
+ ]
+}

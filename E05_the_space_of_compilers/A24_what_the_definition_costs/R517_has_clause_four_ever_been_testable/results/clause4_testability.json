@@ -1,0 +1,24 @@
+{
+  "populations": {
+    "home judge J": {
+      "n": 56,
+      "n_fail4": 0,
+      "n_pass2": null,
+      "note": "\u2463 fails NOBODY here (excluded_at_J == [])",
+      "expected_under_independence": 0.0,
+      "identified": "NO -- \u2463 marginal = 0"
+    },
+    "second release": {
+      "n": 7,
+      "n_fail4": 7,
+      "n_pass2": 0,
+      "note": "\u2461 passes NOBODY here",
+      "expected_under_independence": 0.0,
+      "identified": "NO -- \u2461 marginal = 0"
+    }
+  },
+  "world": "B",
+  "positive_control_n_excluded": 22,
+  "negative_control_expected": 6.623655913978495,
+  "kind": "DERIVATION where a marginal is 0"
+}

@@ -1,0 +1,1172 @@
+{
+  "controls": {
+    "title_neg_markers": 0,
+    "title_neg_ok": true,
+    "title_neg_titled": false,
+    "title_pos": {
+      "R21_donor_distance": true,
+      "R24_regime_receipt": true,
+      "R28_multiplicative": true
+    },
+    "title_pos_ok": true
+  },
+  "destroyed_and_rewritten": true,
+  "head": "e008290437c0",
+  "median_doc_lines": 47,
+  "n_my_format": 99,
+  "n_population": 226,
+  "n_titled": 158,
+  "paid": {
+    "R21_donor_distance": {
+      "out_lines": 25,
+      "self_verdict": true,
+      "wall_s": 21.3
+    },
+    "R24_regime_receipt": {
+      "out_lines": 20,
+      "self_verdict": true,
+      "wall_s": 2.0
+    },
+    "R28_multiplicative": {
+      "out_lines": 39,
+      "self_verdict": true,
+      "wall_s": 36.0
+    }
+  },
+  "rows": {
+    "R100_rater_reliability": {
+      "doc_lines": 51,
+      "markers": 2,
+      "titled": true
+    },
+    "R101_reliability_offset": {
+      "doc_lines": 46,
+      "markers": 1,
+      "titled": true
+    },
+    "R102_margin_calibration": {
+      "doc_lines": 45,
+      "markers": 1,
+      "titled": true
+    },
+    "R103_consensus_conditioned": {
+      "doc_lines": 48,
+      "markers": 1,
+      "titled": true
+    },
+    "R104_deattenuated_consensus": {
+      "doc_lines": 70,
+      "markers": 1,
+      "titled": true
+    },
+    "R105_specific_share_invariance": {
+      "doc_lines": 75,
+      "markers": 2,
+      "titled": true
+    },
+    "R107_joint_resample": {
+      "doc_lines": 57,
+      "markers": 1,
+      "titled": true
+    },
+    "R108_coinflip_stratum": {
+      "doc_lines": 74,
+      "markers": 1,
+      "titled": true
+    },
+    "R110_rater_component": {
+      "doc_lines": 69,
+      "markers": 3,
+      "titled": true
+    },
+    "R111_alpha_confound": {
+      "doc_lines": 96,
+      "markers": 3,
+      "titled": true
+    },
+    "R112_value_idiosyncrasy": {
+      "doc_lines": 84,
+      "markers": 3,
+      "titled": true
+    },
+    "R113_accuracy_matched_arm": {
+      "doc_lines": 84,
+      "markers": 3,
+      "titled": true
+    },
+    "R114_demographic_subject": {
+      "doc_lines": 75,
+      "markers": 3,
+      "titled": true
+    },
+    "R115_shrink_is_one_parameter": {
+      "doc_lines": 77,
+      "markers": 1,
+      "titled": true
+    },
+    "R116_no_invisible_sacrifice": {
+      "doc_lines": 81,
+      "markers": 2,
+      "titled": true
+    },
+    "R117_multidimensional_sacrifice": {
+      "doc_lines": 64,
+      "markers": 0,
+      "titled": true
+    },
+    "R118_sacrifice_factorial": {
+      "doc_lines": 51,
+      "markers": 0,
+      "titled": true
+    },
+    "R119_rigor_axis": {
+      "doc_lines": 29,
+      "markers": 0,
+      "titled": true
+    },
+    "R121_is_the_advantage_the_metric": {
+      "doc_lines": 65,
+      "markers": 0,
+      "titled": true
+    },
+    "R122_metric_gauge_grid": {
+      "doc_lines": 65,
+      "markers": 3,
+      "titled": true
+    },
+    "R123_the_baseline_was_crippled": {
+      "doc_lines": 53,
+      "markers": 3,
+      "titled": true
+    },
+    "R127_whose_sign": {
+      "doc_lines": 54,
+      "markers": 2,
+      "titled": true
+    },
+    "R130_judge_gauge": {
+      "doc_lines": 52,
+      "markers": 1,
+      "titled": true
+    },
+    "R131_who_is_served": {
+      "doc_lines": 41,
+      "markers": 1,
+      "titled": true
+    },
+    "R132_verbatim_adjudication": {
+      "doc_lines": 45,
+      "markers": 1,
+      "titled": true
+    },
+    "R133_the_veto": {
+      "doc_lines": 47,
+      "markers": 1,
+      "titled": true
+    },
+    "R134_do_ratings_individuate": {
+      "doc_lines": 53,
+      "markers": 1,
+      "titled": true
+    },
+    "R135_which_target": {
+      "doc_lines": 55,
+      "markers": 1,
+      "titled": true
+    },
+    "R136_held_out_confirmation": {
+      "doc_lines": 31,
+      "markers": 0,
+      "titled": true
+    },
+    "R137_batch_gauge": {
+      "doc_lines": 38,
+      "markers": 0,
+      "titled": true
+    },
+    "R138_is_there_a_standard": {
+      "doc_lines": 46,
+      "markers": 0,
+      "titled": true
+    },
+    "R142_provenance_recovery": {
+      "doc_lines": 37,
+      "markers": 0,
+      "titled": true
+    },
+    "R144_information_loss": {
+      "doc_lines": 39,
+      "markers": 0,
+      "titled": false
+    },
+    "R145_who_is_unserved": {
+      "doc_lines": 26,
+      "markers": 0,
+      "titled": false
+    },
+    "R147_tracking_vs_serving": {
+      "doc_lines": 36,
+      "markers": 0,
+      "titled": false
+    },
+    "R148_departure_from_the_line": {
+      "doc_lines": 34,
+      "markers": 1,
+      "titled": false
+    },
+    "R149_price_of_inclusion": {
+      "doc_lines": 32,
+      "markers": 0,
+      "titled": false
+    },
+    "R150_does_the_veto_do_anything": {
+      "doc_lines": 35,
+      "markers": 0,
+      "titled": false
+    },
+    "R151_none_of_the_above": {
+      "doc_lines": 31,
+      "markers": 0,
+      "titled": false
+    },
+    "R152_what_fails_the_menu": {
+      "doc_lines": 31,
+      "markers": 0,
+      "titled": false
+    },
+    "R153_the_menu_itself": {
+      "doc_lines": 27,
+      "markers": 0,
+      "titled": false
+    },
+    "R154_the_empty_list": {
+      "doc_lines": 49,
+      "markers": 0,
+      "titled": false
+    },
+    "R155_does_the_weight_matter": {
+      "doc_lines": 43,
+      "markers": 0,
+      "titled": false
+    },
+    "R156_the_compression_curve": {
+      "doc_lines": 25,
+      "markers": 0,
+      "titled": false
+    },
+    "R157_is_it_a_quality_detector": {
+      "doc_lines": 34,
+      "markers": 1,
+      "titled": false
+    },
+    "R158_the_rewriting_itself": {
+      "doc_lines": 30,
+      "markers": 0,
+      "titled": false
+    },
+    "R159_which_outcome": {
+      "doc_lines": 37,
+      "markers": 0,
+      "titled": false
+    },
+    "R160_out_of_sample": {
+      "doc_lines": 32,
+      "markers": 0,
+      "titled": false
+    },
+    "R161_the_join_underneath": {
+      "doc_lines": 35,
+      "markers": 1,
+      "titled": false
+    },
+    "R162_whose_ranking": {
+      "doc_lines": 35,
+      "markers": 0,
+      "titled": false
+    },
+    "R165_gauge_admissibility": {
+      "doc_lines": 47,
+      "markers": 0,
+      "titled": false
+    },
+    "R166_defect_census": {
+      "doc_lines": 24,
+      "markers": 0,
+      "titled": false
+    },
+    "R167_census_wave2": {
+      "doc_lines": 23,
+      "markers": 0,
+      "titled": false
+    },
+    "R168_census_wave3": {
+      "doc_lines": 23,
+      "markers": 0,
+      "titled": false
+    },
+    "R169_census_wave4": {
+      "doc_lines": 28,
+      "markers": 0,
+      "titled": false
+    },
+    "R170_census_wave5": {
+      "doc_lines": 25,
+      "markers": 0,
+      "titled": false
+    },
+    "R172_what_was_withheld": {
+      "doc_lines": 18,
+      "markers": 0,
+      "titled": false
+    },
+    "R173_why_people_veto": {
+      "doc_lines": 26,
+      "markers": 0,
+      "titled": false
+    },
+    "R174_did_the_second_question_collect_anything": {
+      "doc_lines": 24,
+      "markers": 0,
+      "titled": false
+    },
+    "R175_my_own_defect_list": {
+      "doc_lines": 32,
+      "markers": 0,
+      "titled": false
+    },
+    "R177_the_response_side": {
+      "doc_lines": 31,
+      "markers": 0,
+      "titled": false
+    },
+    "R182_who_dissents": {
+      "doc_lines": 30,
+      "markers": 0,
+      "titled": false
+    },
+    "R184_two_poles_or_two_islands": {
+      "doc_lines": 33,
+      "markers": 0,
+      "titled": false
+    },
+    "R185_country_or_consistency": {
+      "doc_lines": 32,
+      "markers": 0,
+      "titled": false
+    },
+    "R190_would_anyone_ask_this": {
+      "doc_lines": 31,
+      "markers": 0,
+      "titled": false
+    },
+    "R191_do_the_strata_describe_the_prompt": {
+      "doc_lines": 27,
+      "markers": 0,
+      "titled": false
+    },
+    "R194_one_variable_or_two": {
+      "doc_lines": 32,
+      "markers": 0,
+      "titled": false
+    },
+    "R195_why_r191_and_r194_disagreed": {
+      "doc_lines": 26,
+      "markers": 0,
+      "titled": false
+    },
+    "R196_reweighting_the_headline": {
+      "doc_lines": 29,
+      "markers": 0,
+      "titled": false
+    },
+    "R197_population_audit": {
+      "doc_lines": 29,
+      "markers": 0,
+      "titled": false
+    },
+    "R198_attack_the_guard": {
+      "doc_lines": 27,
+      "markers": 0,
+      "titled": false
+    },
+    "R200_which_rounds_left_a_trace": {
+      "doc_lines": 24,
+      "markers": 1,
+      "titled": false
+    },
+    "R201_is_the_fairness_result_one_prompt": {
+      "doc_lines": 25,
+      "markers": 0,
+      "titled": false
+    },
+    "R202_attack_the_standing_claims": {
+      "doc_lines": 24,
+      "markers": 0,
+      "titled": false
+    },
+    "R203_what_can_even_be_attacked": {
+      "doc_lines": 31,
+      "markers": 0,
+      "titled": false
+    },
+    "R205_mdes_for_the_three_unresolved_nulls": {
+      "doc_lines": 20,
+      "markers": 0,
+      "titled": false
+    },
+    "R207_detection_matrix": {
+      "doc_lines": 49,
+      "markers": 6,
+      "titled": false
+    },
+    "R208_welldefinedness": {
+      "doc_lines": 19,
+      "markers": 0,
+      "titled": false
+    },
+    "R209_repaired_design": {
+      "doc_lines": 31,
+      "markers": 1,
+      "titled": false
+    },
+    "R210_attack_the_matrix": {
+      "doc_lines": 30,
+      "markers": 0,
+      "titled": false
+    },
+    "R211_attack_the_readout": {
+      "doc_lines": 36,
+      "markers": 1,
+      "titled": false
+    },
+    "R212_rebuilt_on_decisions": {
+      "doc_lines": 38,
+      "markers": 3,
+      "titled": false
+    },
+    "R213_gauge": {
+      "doc_lines": 24,
+      "markers": 2,
+      "titled": false
+    },
+    "R214_head_to_head": {
+      "doc_lines": 33,
+      "markers": 0,
+      "titled": false
+    },
+    "R215_remaining": {
+      "doc_lines": 18,
+      "markers": 1,
+      "titled": false
+    },
+    "R216_derivation": {
+      "doc_lines": 10,
+      "markers": 0,
+      "titled": false
+    },
+    "R217_full": {
+      "doc_lines": 16,
+      "markers": 0,
+      "titled": false
+    },
+    "R218_gaps": {
+      "doc_lines": 12,
+      "markers": 0,
+      "titled": false
+    },
+    "R234_independent_A": {
+      "doc_lines": 192,
+      "markers": 5,
+      "titled": false
+    },
+    "R235_independent_B": {
+      "doc_lines": 197,
+      "markers": 5,
+      "titled": false
+    },
+    "R236_certificate_for_the_official_core": {
+      "doc_lines": 8,
+      "markers": 0,
+      "titled": true
+    },
+    "R237_the_noisy_channel_bound": {
+      "doc_lines": 39,
+      "markers": 4,
+      "titled": true
+    },
+    "R23_actor_vs_dyad": {
+      "doc_lines": 50,
+      "markers": 0,
+      "titled": true
+    },
+    "R240_fit_a_global_core": {
+      "doc_lines": 37,
+      "markers": 6,
+      "titled": true
+    },
+    "R246_is_it_a_modal_class_predictor": {
+      "doc_lines": 68,
+      "markers": 6,
+      "titled": true
+    },
+    "R247_is_the_selection_doing_the_work": {
+      "doc_lines": 63,
+      "markers": 6,
+      "titled": true
+    },
+    "R248_capacity_versus_realised_alphabet": {
+      "doc_lines": 91,
+      "markers": 6,
+      "titled": true
+    },
+    "R249_which_printed_criteria_do_work": {
+      "doc_lines": 102,
+      "markers": 6,
+      "titled": true
+    },
+    "R250_can_provenance_be_reconstructed": {
+      "doc_lines": 80,
+      "markers": 6,
+      "titled": true
+    },
+    "R251_substitution_is_the_dose_that_can_kill": {
+      "doc_lines": 79,
+      "markers": 6,
+      "titled": true
+    },
+    "R252_was_it_redundancy_or_the_marginal": {
+      "doc_lines": 69,
+      "markers": 6,
+      "titled": true
+    },
+    "R253_is_A_real_just_n_in_a_costume": {
+      "doc_lines": 72,
+      "markers": 6,
+      "titled": true
+    },
+    "R254_targeted_substitution_and_where_the_real_core_sits": {
+      "doc_lines": 79,
+      "markers": 7,
+      "titled": true
+    },
+    "R255_is_the_redundancy_lexical_at_all": {
+      "doc_lines": 68,
+      "markers": 6,
+      "titled": true
+    },
+    "R256_is_the_rubric_rank_one": {
+      "doc_lines": 74,
+      "markers": 6,
+      "titled": true
+    },
+    "R257_label_order_gauge_propagation": {
+      "doc_lines": 76,
+      "markers": 6,
+      "titled": true
+    },
+    "R258_size_matched_rank_one": {
+      "doc_lines": 55,
+      "markers": 6,
+      "titled": true
+    },
+    "R259_does_the_rate_survive_noise": {
+      "doc_lines": 62,
+      "markers": 7,
+      "titled": true
+    },
+    "R260_instrument_noise_intervals": {
+      "doc_lines": 69,
+      "markers": 6,
+      "titled": true
+    },
+    "R261_hash_seed_sweep": {
+      "doc_lines": 58,
+      "markers": 6,
+      "titled": true
+    },
+    "R262_the_floors_R261_said_it_could_not_reach": {
+      "doc_lines": 60,
+      "markers": 6,
+      "titled": true
+    },
+    "R263_the_remaining_salted_rounds": {
+      "doc_lines": 48,
+      "markers": 7,
+      "titled": true
+    },
+    "R264_how_often_does_R241_hold": {
+      "doc_lines": 57,
+      "markers": 6,
+      "titled": true
+    },
+    "R265_is_R241s_control_validated_by_noise": {
+      "doc_lines": 63,
+      "markers": 7,
+      "titled": true
+    },
+    "R266_which_noise_actually_binds": {
+      "doc_lines": 64,
+      "markers": 6,
+      "titled": true
+    },
+    "R267_what_this_release_can_resolve": {
+      "doc_lines": 61,
+      "markers": 6,
+      "titled": true
+    },
+    "R268_a_calibrated_detector_and_the_real_MDE": {
+      "doc_lines": 52,
+      "markers": 6,
+      "titled": true
+    },
+    "R269_a_sham_that_can_fail": {
+      "doc_lines": 28,
+      "markers": 0,
+      "titled": true
+    },
+    "R26_sign_no_split": {
+      "doc_lines": 58,
+      "markers": 0,
+      "titled": true
+    },
+    "R270_the_arc_chose_the_coarser_statistic": {
+      "doc_lines": 61,
+      "markers": 6,
+      "titled": true
+    },
+    "R271_the_clustering_inflation_with_a_number_on_it": {
+      "doc_lines": 56,
+      "markers": 6,
+      "titled": true
+    },
+    "R272_the_inflation_with_a_calibration_that_takes": {
+      "doc_lines": 42,
+      "markers": 6,
+      "titled": true
+    },
+    "R273_the_inflation_as_an_interval": {
+      "doc_lines": 44,
+      "markers": 6,
+      "titled": true
+    },
+    "R274_the_site_MDE_at_fine_resolution": {
+      "doc_lines": 54,
+      "markers": 6,
+      "titled": true
+    },
+    "R275_what_a_replication_can_and_cannot_catch": {
+      "doc_lines": 47,
+      "markers": 6,
+      "titled": true
+    },
+    "R276_is_generic_degenerate": {
+      "doc_lines": 57,
+      "markers": 6,
+      "titled": true
+    },
+    "R277_is_necessity_tolerance_free": {
+      "doc_lines": 56,
+      "markers": 6,
+      "titled": true
+    },
+    "R27_raw_negative_tail": {
+      "doc_lines": 43,
+      "markers": 0,
+      "titled": true
+    },
+    "R283_is_there_headroom_above_a_constant": {
+      "doc_lines": 103,
+      "markers": 6,
+      "titled": true
+    },
+    "R284_are_the_two_winners_one_mechanism": {
+      "doc_lines": 56,
+      "markers": 6,
+      "titled": true
+    },
+    "R285_how_wide_is_the_admissible_band": {
+      "doc_lines": 52,
+      "markers": 6,
+      "titled": true
+    },
+    "R286_is_clause_2_a_property_of_the_baseline": {
+      "doc_lines": 58,
+      "markers": 6,
+      "titled": true
+    },
+    "R287_how_much_selection_may_a_baseline_have": {
+      "doc_lines": 57,
+      "markers": 6,
+      "titled": true
+    },
+    "R288_does_the_partition_survive_the_target": {
+      "doc_lines": 48,
+      "markers": 6,
+      "titled": true
+    },
+    "R289_which_target_earns_the_definition": {
+      "doc_lines": 49,
+      "markers": 6,
+      "titled": true
+    },
+    "R290_does_the_partition_survive_the_judge": {
+      "doc_lines": 44,
+      "markers": 6,
+      "titled": true
+    },
+    "R291_the_register_was_never_audited": {
+      "doc_lines": 45,
+      "markers": 6,
+      "titled": true
+    },
+    "R292_audit_every_published_cell": {
+      "doc_lines": 29,
+      "markers": 6,
+      "titled": true
+    },
+    "R293_does_the_definition_exclude_a_fitted_core": {
+      "doc_lines": 48,
+      "markers": 6,
+      "titled": true
+    },
+    "R294_the_definition_against_everything": {
+      "doc_lines": 48,
+      "markers": 6,
+      "titled": true
+    },
+    "R295_held_out_annotators_are_not_held_out_labels": {
+      "doc_lines": 52,
+      "markers": 6,
+      "titled": true
+    },
+    "R296_is_there_an_optimal_k": {
+      "doc_lines": 31,
+      "markers": 6,
+      "titled": true
+    },
+    "R297_why_k1_loses": {
+      "doc_lines": 37,
+      "markers": 6,
+      "titled": true
+    },
+    "R298_is_importance_monotone": {
+      "doc_lines": 34,
+      "markers": 6,
+      "titled": true
+    },
+    "R299_where_the_selection_boundary_is": {
+      "doc_lines": 35,
+      "markers": 6,
+      "titled": true
+    },
+    "R29_gold_ood": {
+      "doc_lines": 56,
+      "markers": 0,
+      "titled": true
+    },
+    "R300_does_combination_generalise": {
+      "doc_lines": 39,
+      "markers": 6,
+      "titled": true
+    },
+    "R303_the_mde_of_the_design_that_priced_it": {
+      "doc_lines": 73,
+      "markers": 6,
+      "titled": true
+    },
+    "R304_is_the_boundary_resolvable": {
+      "doc_lines": 49,
+      "markers": 6,
+      "titled": true
+    },
+    "R305_what_would_resolve_the_boundary": {
+      "doc_lines": 54,
+      "markers": 6,
+      "titled": true
+    },
+    "R306_the_table_at_every_annotator": {
+      "doc_lines": 45,
+      "markers": 6,
+      "titled": true
+    },
+    "R307_a_size_matched_neutral_arm": {
+      "doc_lines": 58,
+      "markers": 6,
+      "titled": true
+    },
+    "R308_neutral_clause_at_matched_k4": {
+      "doc_lines": 47,
+      "markers": 6,
+      "titled": true
+    },
+    "R309_is_the_missing_r2_noise_or_structure": {
+      "doc_lines": 52,
+      "markers": 6,
+      "titled": true
+    },
+    "R30_scope_grid": {
+      "doc_lines": 48,
+      "markers": 0,
+      "titled": true
+    },
+    "R310_what_the_structure_is": {
+      "doc_lines": 56,
+      "markers": 6,
+      "titled": true
+    },
+    "R311_does_the_shrink_differ_within_family": {
+      "doc_lines": 55,
+      "markers": 6,
+      "titled": true
+    },
+    "R312_is_the_shrink_the_arm_or_the_rule": {
+      "doc_lines": 55,
+      "markers": 6,
+      "titled": true
+    },
+    "R316_did_the_repair_do_only_what_it_claimed": {
+      "doc_lines": 73,
+      "markers": 6,
+      "titled": true
+    },
+    "R31_within_person": {
+      "doc_lines": 55,
+      "markers": 0,
+      "titled": true
+    },
+    "R32_channel_decomposition": {
+      "doc_lines": 52,
+      "markers": 0,
+      "titled": true
+    },
+    "R33_core_launders_polarity": {
+      "doc_lines": 51,
+      "markers": 0,
+      "titled": true
+    },
+    "R34_global_rater_crossfit": {
+      "doc_lines": 68,
+      "markers": 0,
+      "titled": false
+    },
+    "R35_polarity_abstention": {
+      "doc_lines": 63,
+      "markers": 0,
+      "titled": false
+    },
+    "R36_channel_shapley": {
+      "doc_lines": 57,
+      "markers": 0,
+      "titled": false
+    },
+    "R37_leakage_topology": {
+      "doc_lines": 44,
+      "markers": 0,
+      "titled": false
+    },
+    "R38_human_sampling_power": {
+      "doc_lines": 46,
+      "markers": 0,
+      "titled": false
+    },
+    "R39_feature_cache": {
+      "doc_lines": 52,
+      "markers": 0,
+      "titled": false
+    },
+    "R40_ood_map": {
+      "doc_lines": 65,
+      "markers": 0,
+      "titled": false
+    },
+    "R41_criterion_support": {
+      "doc_lines": 43,
+      "markers": 0,
+      "titled": false
+    },
+    "R42_equivalence": {
+      "doc_lines": 24,
+      "markers": 0,
+      "titled": true
+    },
+    "R43_criterion_heterogeneity": {
+      "doc_lines": 33,
+      "markers": 1,
+      "titled": false
+    },
+    "R44_compiler_lineage": {
+      "doc_lines": 28,
+      "markers": 0,
+      "titled": false
+    },
+    "R46_spread_replication": {
+      "doc_lines": 22,
+      "markers": 0,
+      "titled": true
+    },
+    "R47_gold_is_length": {
+      "doc_lines": 18,
+      "markers": 0,
+      "titled": true
+    },
+    "R48_provenance_identified": {
+      "doc_lines": 28,
+      "markers": 2,
+      "titled": true
+    },
+    "R49_provenance_crossfit": {
+      "doc_lines": 22,
+      "markers": 0,
+      "titled": true
+    },
+    "R50_response_anchoring": {
+      "doc_lines": 17,
+      "markers": 0,
+      "titled": true
+    },
+    "R51_judge_lexical": {
+      "doc_lines": 16,
+      "markers": 0,
+      "titled": true
+    },
+    "R52_overlap_intervention": {
+      "doc_lines": 22,
+      "markers": 0,
+      "titled": true
+    },
+    "R53_join_audit": {
+      "doc_lines": 33,
+      "markers": 1,
+      "titled": true
+    },
+    "R54_overlap_transfer": {
+      "doc_lines": 29,
+      "markers": 1,
+      "titled": true
+    },
+    "R55_overlap_selectivity": {
+      "doc_lines": 32,
+      "markers": 1,
+      "titled": true
+    },
+    "R57_outcome_reliability": {
+      "doc_lines": 31,
+      "markers": 0,
+      "titled": true
+    },
+    "R58_equivalence_census": {
+      "doc_lines": 45,
+      "markers": 2,
+      "titled": true
+    },
+    "R59_criterion_influence": {
+      "doc_lines": 55,
+      "markers": 2,
+      "titled": true
+    },
+    "R60_world_vs_personal": {
+      "doc_lines": 53,
+      "markers": 2,
+      "titled": true
+    },
+    "R61_s_pre_power": {
+      "doc_lines": 45,
+      "markers": 2,
+      "titled": true
+    },
+    "R62_matching_floor": {
+      "doc_lines": 49,
+      "markers": 2,
+      "titled": true
+    },
+    "R63_r60_projection_audit": {
+      "doc_lines": 33,
+      "markers": 1,
+      "titled": true
+    },
+    "R64_satisfaction_substudy_power": {
+      "doc_lines": 41,
+      "markers": 2,
+      "titled": true
+    },
+    "R65_edit_symmetry_floor": {
+      "doc_lines": 44,
+      "markers": 2,
+      "titled": true
+    },
+    "R66_r56_reconstruction": {
+      "doc_lines": 48,
+      "markers": 2,
+      "titled": true
+    },
+    "R67_predictor_reliability": {
+      "doc_lines": 48,
+      "markers": 2,
+      "titled": true
+    },
+    "R68_r40_predictor_reliability": {
+      "doc_lines": 43,
+      "markers": 2,
+      "titled": true
+    },
+    "R69_r54_predictor_reliability": {
+      "doc_lines": 54,
+      "markers": 1,
+      "titled": true
+    },
+    "R70_outcome_criterion_axis": {
+      "doc_lines": 58,
+      "markers": 1,
+      "titled": true
+    },
+    "R71_r67_split_variance": {
+      "doc_lines": 47,
+      "markers": 1,
+      "titled": true
+    },
+    "R72_proxy_validity_coefficient": {
+      "doc_lines": 58,
+      "markers": 1,
+      "titled": true
+    },
+    "R73_direction_from_text_alone": {
+      "doc_lines": 63,
+      "markers": 1,
+      "titled": true
+    },
+    "R74_specificity_vs_exposure": {
+      "doc_lines": 57,
+      "markers": 2,
+      "titled": true
+    },
+    "R75_menu_read_direction": {
+      "doc_lines": 51,
+      "markers": 1,
+      "titled": true
+    },
+    "R76_absence_cannot_overlap": {
+      "doc_lines": 50,
+      "markers": 1,
+      "titled": true
+    },
+    "R77_topicality_control": {
+      "doc_lines": 47,
+      "markers": 2,
+      "titled": true
+    },
+    "R78_tokeniser_robustness": {
+      "doc_lines": 43,
+      "markers": 1,
+      "titled": true
+    },
+    "R79_semantic_menu_read": {
+      "doc_lines": 53,
+      "markers": 1,
+      "titled": true
+    },
+    "R80_panel_freeze": {
+      "doc_lines": 43,
+      "markers": 2,
+      "titled": true
+    },
+    "R81_stated_signal_by_length": {
+      "doc_lines": 56,
+      "markers": 2,
+      "titled": true
+    },
+    "R82_scale_use_by_provenance": {
+      "doc_lines": 47,
+      "markers": 1,
+      "titled": true
+    },
+    "R83_low_magnitude_drop": {
+      "doc_lines": 53,
+      "markers": 1,
+      "titled": true
+    },
+    "R84_core_polarity_in_words": {
+      "doc_lines": 54,
+      "markers": 2,
+      "titled": true
+    },
+    "R85_agreement_by_form": {
+      "doc_lines": 45,
+      "markers": 1,
+      "titled": true
+    },
+    "R86_attribution_by_form": {
+      "doc_lines": 47,
+      "markers": 1,
+      "titled": true
+    },
+    "R87_criterion_count_channel": {
+      "doc_lines": 74,
+      "markers": 1,
+      "titled": true
+    },
+    "R88_donor_draw_variance": {
+      "doc_lines": 63,
+      "markers": 1,
+      "titled": true
+    },
+    "R89_floor_draw_at_panel_size": {
+      "doc_lines": 60,
+      "markers": 1,
+      "titled": true
+    },
+    "R90_resampling_unit": {
+      "doc_lines": 67,
+      "markers": 2,
+      "titled": true
+    },
+    "R91_precision_budget": {
+      "doc_lines": 64,
+      "markers": 3,
+      "titled": true
+    },
+    "R92_writein_analysability": {
+      "doc_lines": 54,
+      "markers": 2,
+      "titled": true
+    },
+    "R93_clustering_unit_transfers": {
+      "doc_lines": 49,
+      "markers": 1,
+      "titled": true
+    },
+    "R94_donor_averaging_at_frame_size": {
+      "doc_lines": 46,
+      "markers": 2,
+      "titled": true
+    },
+    "R95_layer_separability": {
+      "doc_lines": 49,
+      "markers": 1,
+      "titled": true
+    },
+    "R96_separability_resolved": {
+      "doc_lines": 42,
+      "markers": 1,
+      "titled": true
+    },
+    "R97_rule_tournament_tost": {
+      "doc_lines": 48,
+      "markers": 1,
+      "titled": true
+    },
+    "R98_unverified_triage": {
+      "doc_lines": 40,
+      "markers": 1,
+      "titled": true
+    },
+    "R99_harvester_pairing": {
+      "doc_lines": 49,
+      "markers": 2,
+      "titled": true
+    }
+  },
+  "share": 0.6991150442477876,
+  "source_name": "run.py",
+  "source_sha256": "c7f4c9e370d5c10c849ebb4f2c84501a58eb500ba2ffacfa1847efc3b0fb7e11",
+  "verdict": "W_SPLIT"
+}

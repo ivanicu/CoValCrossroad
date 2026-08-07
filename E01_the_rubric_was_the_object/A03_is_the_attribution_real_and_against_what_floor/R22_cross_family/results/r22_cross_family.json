@@ -1,0 +1,73 @@
+{
+ "prompts": 300,
+ "floor": 0.55,
+ "judges": {
+  "qwen3.5-2b-base(ref)": {
+   "own": 0.6521684899986517,
+   "near": 0.5960886482167034,
+   "random": 0.5759068568489004,
+   "attribution_vs_random": 0.07626163314975128,
+   "ci": [
+    0.058472471211672004,
+    0.0944187051761592
+   ],
+   "attribution_vs_near": 0.05607984178194826,
+   "ci_near": [
+    0.03952019573244384,
+    0.07319760514171719
+   ],
+   "prompts": 300,
+   "positive_control_passed": true
+  },
+  "qwen2.5-3b-instruct": {
+   "own": 0.6660217087656912,
+   "near": 0.6153496058547535,
+   "random": 0.5766652249053985,
+   "attribution_vs_random": 0.08935648386029263,
+   "ci": [
+    0.06719664201538006,
+    0.11136792316740425
+   ],
+   "attribution_vs_near": 0.05067210291093761,
+   "ci_near": [
+    0.031890428620260224,
+    0.07043823306724309
+   ],
+   "prompts": 300,
+   "positive_control_passed": true
+  },
+  "phi-3.5-mini-instruct": {
+   "own": 0.6409626320962251,
+   "near": 0.621723694655909,
+   "random": 0.6052928692527342,
+   "attribution_vs_random": 0.035669762843491055,
+   "ci": [
+    0.018566506888414203,
+    0.054058470227479304
+   ],
+   "attribution_vs_near": 0.01923893744031623,
+   "ci_near": [
+    0.004366598228893559,
+    0.03467511247478265
+   ],
+   "prompts": 300,
+   "positive_control_passed": true
+  }
+ },
+ "usable": [
+  "qwen3.5-2b-base(ref)",
+  "qwen2.5-3b-instruct",
+  "phi-3.5-mini-instruct"
+ ],
+ "usable_families": [
+  "phi",
+  "qwen"
+ ],
+ "judge_families": {
+  "qwen3.5-2b-base(ref)": "qwen",
+  "qwen2.5-3b-instruct": "qwen",
+  "phi-3.5-mini-instruct": "phi",
+  "internlm2-chat-1.8b": "internlm"
+ },
+ "verdict": "SURVIVES A CHANGE OF FAMILY: usable judges span 2 families (phi, qwen) and every one shows a positive attribution with an interval clear of zero, so the decomposition is not an artifact of a single lineage."
+}

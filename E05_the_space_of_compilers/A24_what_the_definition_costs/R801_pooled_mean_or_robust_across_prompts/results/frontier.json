@@ -1,0 +1,116 @@
+{
+ "claim_unit": "an OBJECTIVE",
+ "controls": {
+  "dose": {
+   "0.02": {
+    "dec": 0.2725859501814882,
+    "mean_shift": 0.0,
+    "sd": 0.15001174932939146
+   },
+   "0.08": {
+    "dec": 0.24355243900610693,
+    "mean_shift": 0.0,
+    "sd": 0.17312153916302783
+   }
+  },
+  "gate": true,
+  "neg_mean": 0.42467937727911176,
+  "negative_ok": true,
+  "placebo": 0.0,
+  "positive_ok": true
+ },
+ "e1": {
+  "dec_range": [
+   0.22567698366427374,
+   0.2782830100823626
+  ],
+  "mean_range": [
+   0.5143751408452678,
+   0.55747530882624
+  ],
+  "mean_sd_across_subsets": 0.008157343111902323,
+  "noise_var": 0.003527471580915517,
+  "sd_range": [
+   0.14788897462914652,
+   0.1614258203380641
+  ]
+ },
+ "e2": {
+  "argmax_mean": 218,
+  "argmax_mean_subset": [
+   0,
+   3,
+   9,
+   14
+  ],
+  "neg cross-prompt sd": {
+   "argmax_resid": 1795,
+   "argmax_y": 465,
+   "r2": 0.7844174259397871,
+   "resid_sd": 0.0011934125394043335,
+   "slope": 0.2790671112557655
+  },
+  "neg noise-corrected sd": {
+   "argmax_resid": 1795,
+   "argmax_y": 465,
+   "r2": 0.7843003709673178,
+   "resid_sd": 0.0012925310658852608,
+   "slope": 0.30214038020625744
+  },
+  "worst-decile": {
+   "argmax_resid": 1232,
+   "argmax_y": 74,
+   "r2": 0.8366128424903292,
+   "resid_sd": 0.004174121032750046,
+   "slope": 1.1578961573852624
+  }
+ },
+ "e3": {
+  "mean_argmax_in_pareto": true,
+  "pareto_count": 4,
+  "worst-decile argmax": {
+   "forgone": 0.0008484207428182097,
+   "hi": 0.004285329547285537,
+   "lo": -0.002796621158386072,
+   "resolved": false,
+   "subset": [
+    0,
+    1,
+    9,
+    14
+   ]
+  },
+  "\u2212sd argmax": {
+   "forgone": 0.0035803066700264585,
+   "hi": 0.008181958898452225,
+   "lo": -0.001361497896231627,
+   "resolved": false,
+   "subset": [
+    1,
+    2,
+    3,
+    14
+   ]
+  }
+ },
+ "e3_unit": "a SUBSET",
+ "e4": {
+  "generic_dec": 0.2721019097854921,
+  "generic_mean": 0.5504358540422291,
+  "generic_mean_pct": 93.73626373626374,
+  "generic_sd": 0.15037439259994545,
+  "generic_sd_pct": 3.131868131868132
+ },
+ "instrument_unit": "a (subset, prompt) A2",
+ "object": {
+  "all16": 0.5422329001435965,
+  "anchor1_delta": 0.0,
+  "anchor2_delta": 0.0009184851568487806,
+  "generic_committed": 0.5513543391990778,
+  "generic_subset_a2": 0.5504358540422291,
+  "prompts": 968,
+  "r788_pass_delta": 0.005638,
+  "subsets": 1820
+ },
+ "world": "NO WORLD CLAIMED (the two robustness statistics disagree)"
+}

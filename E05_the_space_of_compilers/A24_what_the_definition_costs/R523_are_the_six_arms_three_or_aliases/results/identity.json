@@ -1,0 +1,19 @@
+{
+  "pairs_identical": 3,
+  "n_pairs": 3,
+  "aliases": {
+    "oracle_k4_oracle_kA": [
+      "oracle_k4"
+    ],
+    "oracle_k4_oracle_kB": [
+      "oracle_k4"
+    ],
+    "greedy_k4_greedy_kA": [],
+    "greedy_k4_greedy_kB": [],
+    "indep_k4_indep_kA": [],
+    "indep_k4_indep_kB": []
+  },
+  "n_alias": 2,
+  "world": "C",
+  "n_census_compared": 41
+}

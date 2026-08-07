@@ -1,0 +1,122 @@
+{
+  "commit": "4a112cb57875be6a95418d1102d68186e35c8868",
+  "world": "B",
+  "results": {
+    "attack_no_withdrawn_framings": {
+      "fixed": {
+        "exit": 0,
+        "vectors": [
+          5,
+          5
+        ]
+      },
+      "reverted": {
+        "exit": 1,
+        "vectors": [
+          0,
+          5
+        ]
+      }
+    },
+    "attack_outcome_variable_declared": {
+      "fixed": {
+        "exit": 1,
+        "vectors": [
+          2,
+          4
+        ]
+      },
+      "reverted": {
+        "exit": 1,
+        "vectors": [
+          2,
+          4
+        ]
+      }
+    },
+    "attack_every_check": {
+      "fixed": {
+        "exit": 1,
+        "vectors": null
+      },
+      "reverted": {
+        "exit": 1,
+        "vectors": null
+      }
+    },
+    "attack_scope_reaches_the_reader": {
+      "fixed": {
+        "exit": 0,
+        "vectors": [
+          4,
+          4
+        ]
+      },
+      "reverted": {
+        "exit": 0,
+        "vectors": [
+          4,
+          4
+        ]
+      }
+    }
+  },
+  "known_reproduced": {
+    "harness": "attack_no_withdrawn_framings",
+    "fixed": [
+      5,
+      5
+    ],
+    "reverted": [
+      0,
+      5
+    ]
+  },
+  "prediction_target": {
+    "harness": "attack_outcome_variable_declared",
+    "fixed": [
+      2,
+      4
+    ],
+    "reverted": [
+      2,
+      4
+    ],
+    "changed": false
+  },
+  "placebo_live_planters": {
+    "attack_every_check": {
+      "fixed": {
+        "exit": 1,
+        "vectors": null
+      },
+      "reverted": {
+        "exit": 1,
+        "vectors": null
+      }
+    },
+    "attack_scope_reaches_the_reader": {
+      "fixed": {
+        "exit": 0,
+        "vectors": [
+          4,
+          4
+        ]
+      },
+      "reverted": {
+        "exit": 0,
+        "vectors": [
+          4,
+          4
+        ]
+      }
+    }
+  },
+  "not_rerun": {
+    "attack_the_suite": "hides the live campaign trees; it does not use fixture_dir, so four extra runs would be cost with no information"
+  },
+  "restoration_verified": true,
+  "scope": "the FIXTURE-NAME channel only; a harness can be blind for other reasons",
+  "unit_note": "counts are VECTORS within a harness",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

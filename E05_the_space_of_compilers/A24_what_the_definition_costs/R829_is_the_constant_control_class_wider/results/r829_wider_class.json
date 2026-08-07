@@ -1,0 +1,20 @@
+{
+ "world": "W-SATURATED",
+ "verdict": "0 instances under any sound form -- the existing syntactic width already saturates this corpus at these forms",
+ "n_sound": 0,
+ "sound": [],
+ "n_nan_conditional": 67,
+ "nan_conditional_by_form": {
+  "x == x": 67
+ },
+ "positive": {
+  "F1_alias": true,
+  "F2_strict_self": true,
+  "F3_type_bounded": true
+ },
+ "g0_clean": true,
+ "negative_null": true,
+ "n_modules": 947,
+ "baseline_a_op_a_rule": 6,
+ "source_sha": "a371f55198791f60"
+}

@@ -1,0 +1,144 @@
+R763 · did the drift return, and does the answer depend on which UNIT you count?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS -- AND WHY IT IS NOT THE ROUND R762 ASKED FOR
+--------------------------------------------------------------------------------
+R762's NEXT proposed an interval on the Jaccard between each ③ implementation and the robust set.
+
+⛔ CHECK #365, TWO FINDINGS BEFORE ANY OF THAT.
+① THE ARITHMETIC IN MY OWN NEXT LINE IS WRONG. It says "if those two intervals cross" -- but two
+   overlapping MARGINAL intervals do not imply a non-significant PAIRED difference. Both Jaccards are
+   computed against the SAME resampled robust set in each draw, so they are paired by construction
+   and the marginal-overlap test is the wrong one. (The DIRECTION is not forced, checked: over 2,598
+   robust-set shapes with the name set a subset of the rule set, J(rule) < J(name) in 15.4% -- so the
+   comparison does have content. It is the TEST I specified that is wrong, not the question.)
+② P4 SURFACED A GATE I SHOULD HAVE RUN FIRST. R676 opens by noting that of the headlines of R672-675,
+   ZERO make a claim about the object -- and R664 measured exactly this eleven rounds before that:
+   **0 of 24 object headlines, R640-R663**, committed, with controls, verdict "the loop is the defect,
+   and the next round must move the definition or not run."
+   R762's NEXT is another instrument question. So is R761's. THE GATE HAS NOT BEEN RUN SINCE R664, and
+   R664's own glob is hardcoded to `R6[0-9][0-9]_*` -- **the instrument cannot see the current era.**
+
+⚠ AND THE INSTRUMENT HAS A BLIND SPOT ITS OWN README DECLARES: the rule is a KEYWORD TEST ON A
+  HEADLINE, so `A` is a LOWER bound and "the direction flatters me". R761's headline is about arms and
+  the extension and contains no keyword. §4's remedy is explicit -- a control sharing the instrument's
+  blind spot licenses nothing; NAME THE INSTRUMENT'S UNIT AND THE CLAIM'S UNIT AND REQUIRE THEM EQUAL.
+  Instrument unit: a HEADLINE STRING. Claim unit: DID THE ROUND CHANGE WHAT THE DELIVERABLE SAYS A
+  CORE IS. Those are not equal, so this round builds the second classifier rather than trusting the
+  first.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  C1 = R664's keyword rule, applied to the last 24 round headlines (R739-R762): how many OBJECT.
+E2  C2 = a STRUCTURAL test on the artifact: did the round's own commit edit any line inside
+    STATEMENT.md's `## The definition` block (bounded by the next `## ` heading) AS IT STOOD AT THAT
+    COMMIT? This is the claim's unit, not the headline's.
+E3  the 2x2 agreement table between C1 and C2, and the identity of every disagreeing round.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1 exact given the rule; the RULE is a proxy and is reported as one.
+E2 exact -- git holds every commit and every hunk header; the block bounds are recomputed at each
+   commit rather than assumed constant, because the page has grown 1177 -> 1313 lines in this arc.
+E3 exact given E1 and E2.
+⚠ NEITHER classifier measures WHETHER THE OBJECT WORK WAS GOOD. Both measure whether it was ATTEMPTED.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  the 24 rounds R739-R762 (matched to R664's n=24 so the two eras are comparable)
+instrument  C1 keyword-on-headline (R664's, verbatim) · C2 hunk-in-definition-block (new)
+baseline    R664's committed 0 of 24 over R640-R663
+regime      this repository, this tree_sha
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  C2 >= C1 IS NOT FORCED, AND NEITHER IS THE REVERSE. A round can edit the definition block while
+    carrying an apparatus headline (C2 only), or claim the object in its headline while editing only
+    the provenance sections (C1 only). Both cells must be checked; predicting one is empty is a
+    hypothesis, not algebra.
+D2  A ROUND THAT AMENDS A CAVEAT INSIDE THE DEFINITION BLOCK COUNTS AS C2-OBJECT. That is a CHOICE of
+    the classifier and it is stated here, before the run: editing "what the page says a core is"
+    includes narrowing it. If that reading is rejected, C2 measures something else, and the round
+    reports the count under both readings rather than picking.
+
+STRONGEST CONFOUND, written BEFORE the run: C2 could fire on every round simply because this arc's
+convention is that EVERY round amends STATEMENT.md somewhere. CONTROL IN THE SAME ITERATION: report,
+beside C2, the count of rounds that edited STATEMENT.md AT ALL -- if those two numbers are equal, C2
+is measuring the convention and not the content, and it must be reported as such.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE DRIFT RETURNED. Both classifiers say the window is overwhelmingly apparatus. R664's verdict
+    stands for a second era, the loop is again the defect, and R762's NEXT does not get run.
+B · THE DRIFT DID NOT RETURN. Both say a substantial share is object work. R762's NEXT is a
+    legitimate continuation and the next round runs it with the PAIRED test.
+C · THE CLASSIFIERS DISAGREE. Then "drift" is not identified without naming its unit, and R664's
+    "0 of 24" inherits a scope it never stated -- the finding is the metric, not the era.
+
+PREDICTION MATRIX  (C1 count, C2 count, over 24)
+  A -> C1 <= 4 and C2 <= 6
+  B -> C1 >= 10 and C2 >= 10
+  C -> |C1 - C2| >= 6
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE-1 fires (C1 re-run on R640-R663 reproduces R664's committed 0 of 24 EXACTLY)
+   and POSITIVE-2 fires (C2 fires on a round known to have edited the definition block)
+   and NEGATIVE fires (C1 does not classify a known apparatus round as OBJECT)
+   and g=0 fires (an empty headline is not OBJECT; a commit touching no STATEMENT.md is not C2):
+        |C1 - C2| >= 6                        -> WORLD C. Report the metric, not the era.
+        C1 <= 4 and C2 <= 6                   -> WORLD A. The next round must move the definition.
+        C1 >= 10 and C2 >= 10                 -> WORLD B. R762's NEXT is legitimate.
+        anything else                         -> report the counts, claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+⚠ THE STOPPING RULE IS BINDING ON THE NEXT ROUND, NOT ON THIS ONE. If WORLD A or C fires, R764 may
+  not be another apparatus round, and this preregistration is what makes that a commitment rather
+  than an intention.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE-1 C1 re-run over R664's OWN era must return EXACTLY 0 of 24. R664's artifact commits
+           `A_object_headlines: 0, n_rounds: 24`. BAND, COMPUTED: a rule matching nothing returns 0
+           on every era including this one (caught by POSITIVE-2 below and by the count on R739-762
+           being non-trivially reported); a rule matching everything returns 24 here. The threshold
+           "exactly 0 on that era" is unreachable from the matches-everything end.
+POSITIVE-2 C2 must fire on R760, whose commit is known to have amended the ② bullet INSIDE the
+           definition block. And C1 must fire on R527/R519, R664's own positive pair.
+NEGATIVE   C1 must NOT classify R654 as OBJECT (R664's committed negative), and C2 must NOT fire on
+           a round whose commit touches no STATEMENT.md at all.
+SHAM       ingredient ABSENT, not inverted. Ingredient for C2 = THE BLOCK BOUNDARY. Replace the
+           definition block with a RANDOM contiguous line range of the SAME LENGTH elsewhere in
+           STATEMENT.md, 200 draws, and report the C2 count distribution. If a random block of equal
+           size fires as often, C2 is measuring "did the round edit the page", not "the definition".
+PLACEBO    a synthetic headline with no keyword -> not OBJECT (R664's, kept).
+NOISE      C1 and C2 are deterministic censuses; the only rng is the SHAM's block placement, seeded,
+           200 draws, spread printed.
+UNIT       ⭐ THE POINT OF THE ROUND. instrument unit for C1 = a headline STRING; for C2 = a DIFF
+           HUNK. claim unit = A ROUND. All three named, and the two classifiers are never merged
+           into one score.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+2 classifiers x 24 rounds + the same 2 x R664's 24-round era + 4 controls + 200 sham draws. The whole
+2x2 table is printed with every disagreeing round NAMED, not just counted.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether the apparatus work was NECESSARY    an outcome the apparatus was supposed to protect, and a
+                                            counterfactual run without it (R664 registered this too)
+whether the object work was CORRECT         the object work's own controls; this counts attempts
+whether a headline honestly summarises its
+  round                                     a reader who is not the author
+independently replicated                    a second team; the session prompt forbids agents

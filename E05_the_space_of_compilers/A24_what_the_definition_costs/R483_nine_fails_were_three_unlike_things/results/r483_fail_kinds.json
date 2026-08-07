@@ -1,0 +1,57 @@
+{
+  "rows": [
+    {
+      "gate": "artifacts_are_internally_coherent",
+      "rc": 1,
+      "kind": "LIVE-DEBT"
+    },
+    {
+      "gate": "attack_every_check",
+      "rc": 1,
+      "kind": "LIVE-DEBT"
+    },
+    {
+      "gate": "attack_no_withdrawn_framings",
+      "rc": 1,
+      "kind": "BY-DESIGN"
+    },
+    {
+      "gate": "attack_outcome_variable_declared",
+      "rc": 1,
+      "kind": "LIVE-DEBT"
+    },
+    {
+      "gate": "every_round_reaches_the_readme",
+      "rc": 1,
+      "kind": "LIVE-DEBT"
+    },
+    {
+      "gate": "next_gradient_labels_its_hypotheses",
+      "rc": 1,
+      "kind": "CONTROL-BROKE"
+    },
+    {
+      "gate": "outcome_variable_declared",
+      "rc": 1,
+      "kind": "LIVE-DEBT"
+    },
+    {
+      "gate": "seed_filter_is_disclosed",
+      "rc": 1,
+      "kind": "LIVE-DEBT"
+    },
+    {
+      "gate": "source_stamp_is_current",
+      "rc": 0,
+      "kind": "PASS"
+    }
+  ],
+  "partition": {
+    "LIVE-DEBT": 6,
+    "BY-DESIGN": 1,
+    "CONTROL-BROKE": 1,
+    "PASS": 1
+  },
+  "classifier_selftest": true,
+  "world": "B (MIXED \u2014 the count is not a defect count)"
+}

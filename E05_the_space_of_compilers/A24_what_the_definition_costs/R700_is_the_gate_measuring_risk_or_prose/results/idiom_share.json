@@ -1,0 +1,148 @@
+{
+  "world": "\u2b50\u2b50 A MOSTLY EARNED \u2014 30 of 257 flagged occurrences (11.7%) are idiomatic; the rest are genuine universals over our own work. So the gate measures the risk it was built for, and its PASS means what it claims. \u26a0 AND THE IDIOM LIST BIASES THIS TOWARD 'EARNED': it is closed and hand-written, so any construction I did not think of counts as a real universal \u2014 11.7% is a FLOOR on the idiomatic share, not an estimate. \u26a0 AND A FLAGGED IDIOM IS STILL A FLAG SOMEONE MUST RESOLVE: instrument unit is a flagged occurrence, claim unit is an unearned flag, and the cost of the false ones is paid in attention regardless.",
+  "controls_ok": true,
+  "tree_sha": "ced9f89cc266dc025f459eaa62bec08be971675f",
+  "n_flagged": 257,
+  "n_idiomatic": 30,
+  "idiomatic_share": 0.11673151750972763,
+  "word_counts": {
+    "all": 55,
+    "none": 8,
+    "every": 78,
+    "entirely": 7,
+    "the last": 9,
+    "the only": 23,
+    "nothing": 29,
+    "the first": 16,
+    "never": 29,
+    "no other": 1,
+    "completely": 1,
+    "fully": 1
+  },
+  "idiomatic_examples": [
+    {
+      "word": "all",
+      "context": "any assurance script at all** \u2014 R566 found no gate",
+      "idiomatic": true,
+      "src": "README:R597"
+    },
+    {
+      "word": "all",
+      "context": "o verdict-shaped key at all**, because if that clas",
+      "idiomatic": true,
+      "src": "README:R600"
+    },
+    {
+      "word": "all",
+      "context": "nds in 431\u2013606 exist at all, and what fraction the",
+      "idiomatic": true,
+      "src": "README:R613"
+    },
+    {
+      "word": "all",
+      "context": "an `EXIT` convention at all** \u2014 the 15 figure is fr",
+      "idiomatic": true,
+      "src": "README:R637"
+    },
+    {
+      "word": "all",
+      "context": "hing about registers at all. **This is the same def",
+      "idiomatic": true,
+      "src": "README:R660"
+    },
+    {
+      "word": "all",
+      "context": "no core-construction at all.** \u00a74's `name an admiss",
+      "idiomatic": true,
+      "src": "README:R665"
+    },
+    {
+      "word": "all",
+      "context": "sweep results files at all, not just these three,",
+      "idiomatic": true,
+      "src": "commit:234dd3ac"
+    },
+    {
+      "word": "all",
+      "context": "any assurance script at all, because R566 found no",
+      "idiomatic": true,
+      "src": "commit:261c58d4"
+    },
+    {
+      "word": "all",
+      "context": "carry no round label at all -- they predate the lab",
+      "idiomatic": true,
+      "src": "commit:280d69dc"
+    },
+    {
+      "word": "all",
+      "context": "no stable behaviour at all and the arm is a distri",
+      "idiomatic": true,
+      "src": "commit:4574cb12"
+    },
+    {
+      "word": "all",
+      "context": "1 arms has a bracket at all, because coval_core doe",
+      "idiomatic": true,
+      "src": "commit:512ccf26"
+    },
+    {
+      "word": "all",
+      "context": "ow many rounds exist at all in 431 to 606 and what",
+      "idiomatic": true,
+      "src": "commit:61f68cd3"
+    },
+    {
+      "word": "all",
+      "context": "e with no instrument at all. The question that surv",
+      "idiomatic": true,
+      "src": "commit:7aa86603"
+    },
+    {
+      "word": "all",
+      "context": "r had theirs counted at all, so the next round coun",
+      "idiomatic": true,
+      "src": "commit:7e0246dc"
+    },
+    {
+      "word": "all",
+      "context": "t is not about gates at all -- the corpus's finding",
+      "idiomatic": true,
+      "src": "commit:7e76eb45"
+    },
+    {
+      "word": "all",
+      "context": "is is worth starting at all is cheap and I have not",
+      "idiomatic": true,
+      "src": "commit:7e76eb45"
+    },
+    {
+      "word": "all",
+      "context": "s not the definition at all: the claim and defect c",
+      "idiomatic": true,
+      "src": "commit:9505039e"
+    },
+    {
+      "word": "all",
+      "context": "o verdict-shaped key at all, because if that class",
+      "idiomatic": true,
+      "src": "commit:97fcf2dc"
+    },
+    {
+      "word": "all",
+      "context": "te should read prose at all, since a gate that cann",
+      "idiomatic": true,
+      "src": "commit:9b427f2c"
+    },
+    {
+      "word": "all",
+      "context": "ffer from their arms at all in the committed A2 mea",
+      "idiomatic": true,
+      "src": "commit:a100d4e9"
+    }
+  ],
+  "kill_fired": false,
+  "directional_holds": true,
+  "registered": "A 22% [5,60]; B `all` commonest; idioms a minority; kill above 50%",
+  "limit": "the idiom list is closed and hand-written, so the share is a FLOOR; and a flagged idiom is still a flag a reader must resolve."
+}

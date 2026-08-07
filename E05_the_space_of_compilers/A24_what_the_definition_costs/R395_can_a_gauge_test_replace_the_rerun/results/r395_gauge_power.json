@@ -1,0 +1,106 @@
+{
+  "censored": [
+    "R114_demographic_subject",
+    "R130_judge_gauge"
+  ],
+  "controls": {
+    "clean_hits": [],
+    "neg_ok": true,
+    "plant_hits": [
+      "unseeded_rng"
+    ],
+    "pos_ok": true
+  },
+  "false_positive_rate": 0.231,
+  "head": "a93f6d4b3385",
+  "n_false_positive": 3,
+  "n_labelled_stable": 13,
+  "rows": {
+    "R114_demographic_subject": {
+      "hits": [],
+      "label": "CENSORED",
+      "status": "SCANNED"
+    },
+    "R130_judge_gauge": {
+      "hits": [
+        "gpu"
+      ],
+      "label": "CENSORED",
+      "status": "SCANNED"
+    },
+    "R153_the_menu_itself": {
+      "hits": [
+        "builtin_hash"
+      ],
+      "label": "STABLE",
+      "status": "SCANNED"
+    },
+    "R159_which_outcome": {
+      "hits": [],
+      "label": "STABLE",
+      "status": "SCANNED"
+    },
+    "R165_gauge_admissibility": {
+      "hits": [
+        "fs_order"
+      ],
+      "label": "STABLE",
+      "status": "SCANNED"
+    },
+    "R208_welldefinedness": {
+      "hits": [
+        "fs_order"
+      ],
+      "label": "STABLE",
+      "status": "SCANNED"
+    },
+    "R250_can_provenance_be_reconstructed": {
+      "hits": [],
+      "label": "STABLE",
+      "status": "SCANNED"
+    },
+    "R297_why_k1_loses": {
+      "hits": [],
+      "label": "STABLE",
+      "status": "SCANNED"
+    },
+    "R299_where_the_selection_boundary_is": {
+      "hits": [],
+      "label": "STABLE",
+      "status": "SCANNED"
+    },
+    "R42_equivalence": {
+      "hits": [],
+      "label": "STABLE",
+      "status": "SCANNED"
+    },
+    "R51_judge_lexical": {
+      "hits": [],
+      "label": "STABLE",
+      "status": "SCANNED"
+    },
+    "R57_outcome_reliability": {
+      "hits": [],
+      "label": "STABLE",
+      "status": "SCANNED"
+    },
+    "R64_satisfaction_substudy_power": {
+      "hits": [],
+      "label": "STABLE",
+      "status": "SCANNED"
+    },
+    "R66_r56_reconstruction": {
+      "hits": [],
+      "label": "STABLE",
+      "status": "SCANNED"
+    },
+    "R91_precision_budget": {
+      "hits": [],
+      "label": "STABLE",
+      "status": "SCANNED"
+    }
+  },
+  "source_name": "run.py",
+  "source_sha256": "0356254c9d4670e63f86b5d32e430e03a06914619731ecb9ff04c6b596674421",
+  "verdict": "W_GAUGE_DECISIVE"
+}

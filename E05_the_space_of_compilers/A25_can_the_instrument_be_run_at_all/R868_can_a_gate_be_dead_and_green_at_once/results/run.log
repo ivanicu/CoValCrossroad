@@ -1,0 +1,65 @@
+  POSITIVE CONTROL  a gate that swallows its own fault is seen as DEAD_AND_GREEN: DEAD_AND_GREEN  PASS
+  g=0               a gate that propagates is seen as LOUD: LOUD  PASS
+    Without the first arm a count of zero dead gates is silence, not an acquittal.
+
+  70 candidate gate file(s) in assurance/
+     a_commit_body_names_its_own_round.py           base_rc=0  LOUD  (1 injection point(s))
+     a_control_that_cannot_fail.py                  base_rc=0  LOUD  (1 injection point(s))
+     a_next_names_the_check_that_cleared_it.py      base_rc=0  LOUD  (1 injection point(s))
+<unknown>:60: SyntaxWarning: invalid escape sequence '\('
+<unknown>:60: SyntaxWarning: invalid escape sequence '\('
+     a_scored_artifact_records_its_configuration.py base_rc=0  LOUD  (1 injection point(s))
+     an_ear_label_matches_its_path.py               base_rc=0  LOUD  (1 injection point(s))
+     an_mde_records_its_denominator.py              base_rc=0  LOUD  (1 injection point(s))
+     arm_population_is_derived.py                   base_rc=1  LOUD  (1 injection point(s))
+<unknown>:57: SyntaxWarning: invalid escape sequence '\d'
+     code_states_a_bound_the_reader_never_sees.py   base_rc=0  LOUD  (1 injection point(s))
+     comparator_scope.py                            base_rc=0  LOUD  (1 injection point(s))
+     corrections_propagated.py                      base_rc=0  LOUD  (1 injection point(s))
+     donor_numbers_carry_their_draw_scope.py        base_rc=2  LOUD  (1 injection point(s))
+     frozen_frame_verifies.py                       base_rc=0  LOUD  (1 injection point(s))
+     interval_is_centred_on_its_point.py            base_rc=0  LOUD  (1 injection point(s))
+     kill_is_wired_into_the_branch.py               base_rc=0  LOUD  (1 injection point(s))
+     next_gradient_is_new.py                        base_rc=0  LOUD  (1 injection point(s))
+     next_gradient_labels_its_hypotheses.py         base_rc=1  LOUD  (1 injection point(s))
+     outcome_variable_declared.py                   base_rc=1  LOUD  (1 injection point(s))
+     point_and_interval_share_a_source.py           base_rc=0  LOUD  (1 injection point(s))
+     pueue_wait.py                                  base_rc=2  LOUD  (1 injection point(s))
+     readme_row_carries_the_verdict.py              base_rc=0  LOUD  (1 injection point(s))
+     register_requirements.py                       base_rc=0  LOUD  (1 injection point(s))
+     registries_are_satisfied.py                    base_rc=0  LOUD  (1 injection point(s))
+     release_names_resolve_to_one_set.py            base_rc=0  LOUD  (1 injection point(s))
+     results_are_not_degenerate.py                  base_rc=0  LOUD  (1 injection point(s))
+  ⚠  results_match_their_code.py                    base_rc=0  NOT_REACHED  (1 injection point(s))
+     retired_framing_in_assertion_positions.py      base_rc=0  LOUD  (1 injection point(s))
+     retired_framing_in_emittable_source.py         base_rc=1  LOUD  (1 injection point(s))
+     scope_reaches_the_reader.py                    base_rc=0  LOUD  (1 injection point(s))
+     statement_provenance.py                        base_rc=0  LOUD  (1 injection point(s))
+  ⚠  verdict_cites_its_own_contrasts.py             base_rc=2  NOT_REACHED  (1 injection point(s))
+
+  tested 30 gate(s) · 30 injections
+  ⛔ 30 gate(s) EXCLUDED as WRITERS and left UNTESTED — an isolated
+     checkout would be required. Their liveness is UNKNOWN, not assumed good:
+       DEFECTS.py
+       HEADLINES.py
+       _isolated.py
+       _poscontrol_defects_unrepaired.py
+       _repair.py
+       a_seed_must_be_stable.py
+       apply_freeze_status.py
+       apply_outcome_scope.py
+       ... and 22 more (all in the artifact)
+  ⚠ EXCLUDED and REPORTED, not silently dropped: 10
+      _one_home_per_claim_UNVALIDATED.py  (unparseable)
+      backfilled_findings_are_rederivable.py  (baseline TIMEOUT)
+      clause3_as_written.py  (no main())
+      every_round_is_committed.py  (no injectable function)
+      null_is_informative.py  (no main())
+      residue_debt.py  (no injectable function)
+
+  ⭐ DEAD_AND_GREEN: 0  ·  NOT_REACHED: 2  ·  LOUD: 28
+  ⭐ WORLD A: every gate fails loud — last round's defect was specific to one file, not a pattern
+     ⚠ 2 gate(s) NOT_REACHED: the injected function is never called
+       on this repo's data. That is UNVERIFIED for those gates, not a pass.
+
+  artifact: results/gate_liveness.json @ 21fac40e

@@ -1,0 +1,87 @@
+R814 · DOES THE ANNOTATOR HAVE A MAIN EFFECT — is clause ③ holding out the right thing?
+written before the run · NPERM 500 · NBOOT 1200
+
+PROVOCATION
+R813 measured design effects of 1.14-1.30 and found, via a NEGATIVE control that separated by only
+0.0002 against an sd of 0.0007, that the annotator panel carries almost no shared error. Its NEXT
+called that a TENSION with R793's CEIL_H = 0.551880 -- annotators agreeing pairwise only 55% of the
+time while their errors look independent -- and proposed an ICC to resolve it.
+
+⛔ CHECK #416 KILLED THE FRAMING WITH A THREE-LINE GAUGE TEST, ZERO REAL DATA. Simulating a crossed
+panel at rater_sd = 0.0 / 0.15 / 0.35 gives pairwise agreement 0.6230 / 0.6244 / 0.6223 -- FLAT --
+while the rater ICC goes 0.0002 / 0.1751 / 0.3803. **Pairwise agreement and the rater main effect are
+INDEPENDENT quantities.** There was never a tension; R813's closing line asserted one. That is
+realstat §4's "the closing sentence is a claim and never gets a control", committed in a NEXT written
+one round after this project filed a ledger entry about that exact failure mode.
+
+⭐ BUT THE UNDERLYING QUESTION SURVIVES AND IS DECISION-RELEVANT, and the gauge test just supplied
+its positive control: the statistic discriminates 0.0002 from 0.3803 at known planted rater_sd.
+Clause ③ of the definition holds out the ANNOTATOR. If annotators have no main effect, that holdout
+protects against a source of variance that barely exists.
+
+ESTIMAND
+E1  the EXCESS variance of annotator mean agreement over a LABEL-PERMUTATION null -- identified by
+    construction, since the permutation destroys the rater effect and preserves everything else.
+E2  ⭐ the rater share: excess / total variance of the (prompt, annotator) agreement table.
+E3  ⭐ the dose-response: plant a rater offset of known g in the REAL table; the statistic must rise
+    monotonically and must NOT fire at g=0.
+E4  what clause ③ buys: the share of variance an annotator holdout can remove, stated as a number.
+
+IDENTIFICATION
+E1/E2 identified: the null is a permutation of annotator labels over assessment rows, which removes
+the rater main effect while preserving each prompt's row count and the marginal distribution of
+loads. ⚠ A permutation answers "did the labelling matter", never "why" -- so E3 builds the world the
+rival predicts (a real rater effect) synthetically and checks the instrument fires on it, which is
+the §1 requirement a bare permutation null does not meet.
+⚠ The agreement of annotator a on prompt p is computed LEAVE-ONE-OUT against the other annotators of
+that prompt, so a is never compared with itself. Prompts with fewer than 2 annotators cannot carry
+the statistic; they are dropped and the count is printed.
+
+DERIVED BEFORE MEASURING
+D1 [DERIVATION] under the null the expected excess is 0, so a negative point estimate is noise and is
+   reported as 0 with its interval, never as a negative variance.
+D2 [DERIVATION] pairwise agreement is INVARIANT to the rater main effect (gauge test above), so
+   CEIL_H cannot be used as evidence either way. Stating this before the run is what stops the
+   round re-importing R813's mistake.
+D3 an annotator's load varies (median 19 prompts, max 38); the statistic is weighted by load and the
+   unweighted version is reported beside it, because that is a defensible-choice axis.
+D4 the residual is whatever prompt and rater do not explain, and on a crossed design it absorbs the
+   interaction -- so a small rater share does NOT mean annotators are interchangeable, only that
+   they have no ADDITIVE main effect. The distinction is the round's main scope limit.
+
+WORLDS
+A  NO MAIN EFFECT: rater share < 0.02 -> clause ③'s annotator holdout is aimed at a near-empty
+   source, and the variance that matters is prompt plus interaction.
+B  REAL MAIN EFFECT: rater share > 0.10 -> the holdout does real work and clause ③ stands as
+   written.
+C  BETWEEN: 0.02 to 0.10 -> the holdout does something small; report the number and stop.
+CHECKED FIRST: B, because it vindicates the clause already in the definition.
+
+PREDICTION MATRIX
+                         A                B                C
+rater share           < 0.02           > 0.10           0.02-0.10
+excess vs null CI     contains 0       excludes 0       excludes 0
+clause ③ verdict      aimed wrong      stands           small effect
+
+CONTROLS
+OBJECT   reproduce R793's CEIL_H = 0.551880 from this round's own assessment table, exactly. It is
+         the one committed number this table can anchor to. Exit 2 otherwise.
+PLACEBO  the observed statistic computed against ITSELF (no permutation) minus itself: exactly 0.
+POSITIVE E3: planted rater offsets g in {0, 0.02, 0.05, 0.10, 0.20}; the rater share must rise
+         monotonically, and at g=0 it must NOT exceed the null band -- the g=0 cell is the check
+         that this control can fail.
+NEGATIVE the permutation null itself, 500 draws, reported as a distribution with its own spread.
+NOISE FLOOR the statistic recomputed on 20 half-splits of the annotator panel.
+
+PRE-REGISTERED KILL -- conditional, never a bare threshold
+  if ceil_h_reproduces and placebo_zero and positive_monotone_and_null_at_g0:
+      if rater share > 0.10 and its CI excludes 0     -> WORLD B
+      elif rater share < 0.02 or the CI contains 0    -> WORLD A
+      else                                             -> WORLD C
+  else:
+      UNVERIFIED   (never OVERTURNED, never CONFIRMED)
+
+MULTIPLICITY 5 dose cells x {weighted, unweighted} reported in full; the headline is one statistic
+and needs no correction, and saying so is not a licence to hide the grid.
+STOPPING RULE one round. If more than 10% of prompts cannot carry the leave-one-out statistic, the
+round returns UNVERIFIED rather than summarising over a shrinking population.

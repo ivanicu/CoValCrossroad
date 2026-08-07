@@ -1,0 +1,85 @@
+R729 · clause three is a blocklist and fails open
+written BEFORE run.py. DISCLOSED: I have read select_core.py:102 (three rules load the human target:
+oracle_k, indep_k, greedy_k) and :203-206 (the arm tag is EMITTED BY THE BUILDER from the rule, k,
+seed, fit parity and a suffix). I have also observed that core_oracle_k4_oracle_kA.json and
+core_oracle_k4.json share their first two selections on the sampled prompt. Nothing else is computed.
+
+ESTIMAND
+   Clause ③ -- "the evaluation annotator is held out from the core's own construction" -- is
+   implemented in R294:72 as a HARD-CODED SET of four arm names. Of the arms today's population
+   admits, how many are constructed by a rule that READS THE HUMAN TARGET, and therefore are objects
+   ③ was written to exclude but admits by default?
+   If that count is above zero, ③ is not a predicate. It is a blocklist, and a blocklist admits
+   every object nobody thought to list.
+
+IDENTIFICATION
+   Identified by TWO INDEPENDENT ROUTES, and their agreement is the evidence:
+     A NAME   parse the tag against select_core.py's own construction at :203-206. Legitimate
+              because the tag is emitted by the builder, not typed by a person -- but it is still a
+              search, so it gets a positive control like any other.
+     B CONTENT compare each arm's core_*.json selections, per prompt, against the canonical arm of
+              each rule, and assign by best mean Jaccard. This never reads the name.
+   NOT identified: any arm with no core_*.json. The released core has none -- it was not produced by
+   select_core.py -- so route B cannot classify it and that is reported, not filled in.
+   NOT identified either: whether a rule that reads the target actually LEAKS into this evaluation.
+   That is R295's question and is settled there; here the question is only whether ③ SEES the arm.
+
+SCOPE
+   population : the arms today's glob returns (R728 measured 92) and the 16 it admits
+   instrument : select_core.py's tag grammar (route A) + per-prompt Jaccard over core_*.json (route B)
+   baseline   : R294:72's four-name blocklist
+   regime     : corebench/results as it stands at this tree_sha
+
+WORLDS
+   W-OPEN     ③ admits arms built by target-reading rules. It is a blocklist and fails open; every
+              future arm passes unless someone edits a literal.
+   W-CLOSED   every target-reading arm in today's population is already on the list, so ③ happens to
+              be complete and the blocklist form is harmless here.
+   prediction matrix
+      target-reading admits > 0   -> OPEN 0.95  CLOSED 0.02
+      target-reading admits == 0  -> OPEN 0.10  CLOSED 0.85
+      routes A and B DISAGREE     -> neither world is readable; the round reports the disagreement
+                                     as the finding and claims nothing about ③
+
+REGISTERED POINTS (failable)
+   A  of the 16 admits, those built by a target-reading rule (A and B agreeing)  = 7  [0, 16]
+   B  arms where routes A and B disagree, of those both can classify             = 0  [0, 95]
+   C  of the 16 admits, how many clause ③ actually excludes                      = 0  [0, 16]
+   D  target-reading arms anywhere in today's population that ③ admits           = 7  [0, 92]
+   DIRECTIONAL (separately failable): no arm outside the four-name list is excluded by ③, whatever
+   its construction. Fails if any arm is excluded that is not literally one of the four.
+
+KILL (CONDITIONAL -- evaluated only if the POSITIVE and g=0 controls both fire)
+   if positive_fires and g0_null:
+       routes disagree on > 5 arms -> UNVERIFIED for the ③ question; report the disagreement
+       A == 0                      -> W-CLOSED: the blocklist is complete over this population and
+                                      the defect is latent rather than realised
+       otherwise                   -> W-OPEN, and every admitted target-reading arm is named
+   else:
+       verdict = UNVERIFIED   # never OVERTURNED, never CONFIRMED
+
+POSITIVE CTRL   the four arms R294 blocklists must be recovered as target-reading by BOTH routes,
+                from construction rather than from the list. threshold computed: floor 0 <
+                t = |blocklist ∩ population| <= ceiling |blocklist ∩ population|. An instrument that
+                cannot re-derive the four names R294 already knew licenses nothing about the rest.
+g=0             topw_k4 and random_k4_s0 -- rules select_core.py:72 calls satisfaction-blind -- must
+                be flagged by NEITHER route. The control must not fire where there is nothing.
+NEGATIVE CTRL   shuffle the core_*.json contents across arms and require route B's rule assignment
+                to collapse toward chance. excluded world: "route B assigns by something other than
+                the selections", e.g. by file size or prompt coverage.
+SHAM            route B comparing each arm ONLY to itself -- the comparison target ABSENT rather
+                than inverted -- must return a perfect trivial assignment, showing the route has
+                content only against other arms.
+PLACEBO         an arm against itself -> mean Jaccard exactly 1.0.
+NOISE FLOOR     the Jaccard margin between the best and second-best rule assignment, per arm,
+                reported as a distribution; assignments inside the floor are called AMBIGUOUS rather
+                than assigned.
+MULTIPLICITY    92 arms x 9 candidate rules for route B, plus 92 route-A parses = every arm
+                reported with both verdicts, agreements and disagreements alike.
+SPECIFICATION   route (A, B) x assignment rule (argmax Jaccard, argmax with a margin floor)
+SEEDS           the shuffle control uses >= 3 seeds; deterministic otherwise, two hash seeds
+                byte-identical
+ARTIFACT        results/r729_clause3_blocklist.json with tree_sha
+IMPOSSIBLE      whether target-reading actually leaks into THIS evaluation -> settled in R295, not
+                re-opened here · the released core's rule -> it has no core_*.json ·
+                independently replicated -> a second implementer

@@ -1,0 +1,63 @@
+{
+  "commit": "95ffbe79fbd1c34b0d667c486012d11f9fa05dd4",
+  "world": "A",
+  "rows": [
+    {
+      "rule": "greedy",
+      "shipped": "greedy_k4_greedy_kA",
+      "regen": "greedy_k4_regen",
+      "n_shipped_prompts": 968,
+      "n_regen_prompts": 968,
+      "n_compared": 968,
+      "r": 1.0,
+      "mean_abs_delta": 0.0,
+      "identical": true,
+      "shipped_leaky_minus_heldout": 0.01201691837424572
+    },
+    {
+      "rule": "indep",
+      "shipped": "indep_k4_indep_kA",
+      "regen": "indep_k4_regen",
+      "n_shipped_prompts": 968,
+      "n_regen_prompts": 968,
+      "n_compared": 968,
+      "r": 1.0,
+      "mean_abs_delta": 0.0,
+      "identical": true,
+      "shipped_leaky_minus_heldout": 0.009050429303459916
+    },
+    {
+      "rule": "oracle",
+      "shipped": "oracle_k4",
+      "regen": "oracle_k4_regen",
+      "n_shipped_prompts": 968,
+      "n_regen_prompts": 968,
+      "n_compared": 968,
+      "r": 1.0,
+      "mean_abs_delta": 0.0,
+      "identical": true,
+      "shipped_leaky_minus_heldout": 0.014140225277783303
+    }
+  ],
+  "identity_criterion": {
+    "r_min": 0.99999,
+    "mean_abs_delta_max": 1e-09
+  },
+  "controls": {
+    "positive_sees_k4_gap": true,
+    "same_prompts": true,
+    "control_gap_mean": 0.011735857651829646
+  },
+  "oracle_exception": "oracle_k4_regen sampled 31 of 968 prompts where C(n,k) > 20000 \u2014 the generator printed this itself. An oracle mismatch has a declared mechanism and is NOT evidence of a batch effect.",
+  "R893_defect_found_by_this_control": {
+    "what": "R893's cell key regex matched a PREFIX, pooling _08b and _08bR 0.8B-judge rebuilds into the held-out side of every k=4 cell",
+    "reported": 0.0866,
+    "judge_matched": null,
+    "effect": "the 10x k=4-vs-rest spread is largely a judge-mixing artifact; sign survives (no _08b variants exist at k=2,8,12) but magnitude and the k-curve do not",
+    "also": "the leaky side used exactly one arm by accident of dict-insertion order, not by design"
+  },
+  "consequence_for_R893": "k-dependence, not provenance: sign and p stand, and the pooled +0.0378 is an average over a curve",
+  "cannot_say": "that the SHIPPED arms were themselves produced by the committed code",
+  "unit_note": "r is a correlation; mean|\u0394| is in A2 units; counts are PROMPTS",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

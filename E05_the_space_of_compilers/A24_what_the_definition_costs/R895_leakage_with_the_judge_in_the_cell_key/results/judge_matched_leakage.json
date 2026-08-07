@@ -1,0 +1,75 @@
+{
+  "commit": "76993719268c2ce21356e066502465788a4a02fe",
+  "world": "A",
+  "seed": 895,
+  "cells_2B": [
+    {
+      "rule": "greedy",
+      "k": 2,
+      "gap": 0.015773956714221573
+    },
+    {
+      "rule": "greedy",
+      "k": 4,
+      "gap": 0.012016918374245731
+    },
+    {
+      "rule": "greedy",
+      "k": 8,
+      "gap": 0.0070643053757190565
+    },
+    {
+      "rule": "greedy",
+      "k": 12,
+      "gap": 0.004184549100407678
+    },
+    {
+      "rule": "indep",
+      "k": 2,
+      "gap": 0.010011733691539605
+    },
+    {
+      "rule": "indep",
+      "k": 4,
+      "gap": 0.009050429303459917
+    },
+    {
+      "rule": "indep",
+      "k": 8,
+      "gap": 0.005258175222717705
+    },
+    {
+      "rule": "oracle",
+      "k": 4,
+      "gap": 0.014140225277783284
+    }
+  ],
+  "cells_other_judge": [
+    {
+      "rule": "oracle",
+      "k": 4,
+      "judge": "_08b",
+      "gap": 0.0041650139067700015
+    }
+  ],
+  "paired_mean_2B": 0.009687536632511817,
+  "bootstrap_ci95": [
+    0.006798386789177937,
+    0.012709282376921783
+  ],
+  "signflip_p": 0.00735,
+  "signflip_floor": 0.0078125,
+  "mde": 0.0103,
+  "above_mde": false,
+  "cross_judge_sign_agrees": true,
+  "not_pooled": "2B and 0.8B gaps are never averaged \u2014 different instruments, same construct; pooling them is the defect this round repairs",
+  "supersedes": "R893's +0.0378, computed on judge-MIXED cells (prefix regex swept _08b and _08bR into the held-out side of every k=4 cell)",
+  "register_change": "cross-model REMOVED \u2014 the release ships a second judge and the leakage cell is complete under it",
+  "controls": {
+    "positive_oracle_2B": true,
+    "one_judge_per_cell": true,
+    "resolution_ge_100_patterns": true
+  },
+  "unit_note": "gaps are A2 margin units vs genericpool16; counts are CELLS",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

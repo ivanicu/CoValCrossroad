@@ -1,0 +1,38 @@
+{
+  "controls": {
+    "family_same": false,
+    "instrument": "full (INSTRUMENT CTRL)",
+    "instrument_ok": false
+  },
+  "d_2b": 0.07814227454326311,
+  "e_2b": 0.009002172366714738,
+  "families_identical": false,
+  "n_prompts_08b": 968,
+  "npool": 16,
+  "source_name": "run.py",
+  "source_sha256": "c02ae978195861ac0d1025cf6c970eacac92138959d283aeb490ac2b6cf184d1",
+  "stats": {
+    "coval_core": {
+      "d": -0.1401973208093558,
+      "e": -0.018812153473634532,
+      "k": 4,
+      "n": 968,
+      "se": 0.004312817889015202
+    },
+    "full (INSTRUMENT CTRL)": {
+      "d": -0.376932018452556,
+      "e": -0.055842997097496246,
+      "k": 15,
+      "n": 968,
+      "se": 0.004761765565184157
+    },
+    "topw_k4": {
+      "d": -0.14793889386582973,
+      "e": -0.022478159611370813,
+      "k": 4,
+      "n": 968,
+      "se": 0.004883606969697121
+    }
+  },
+  "verdict": "UNVERIFIED_JUDGE_CANNOT_RANK"
+}

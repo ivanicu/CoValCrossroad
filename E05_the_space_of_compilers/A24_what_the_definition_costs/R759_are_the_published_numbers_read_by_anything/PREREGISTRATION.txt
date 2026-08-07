@@ -1,0 +1,162 @@
+R759 · are the numbers this arc published read by anything?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R757 established that nine rounds resolved artifacts against one arc of ten. R758 proved the numbers
+are recomputable by pinning to the parent commit. What remains is a DEBT: R748-R756's figures were
+each computed on the narrow corpus.
+
+R758 closed by refusing to pay it blindly: "recomputing seven more figures no later round has cited
+would be spending compute to tidy a ledger. Measure first which of those numbers any later round or
+the deliverable actually reads."
+
+That is the question, and it has an uncomfortable possible answer. §0.2 of the operating constitution
+says: do not let the ledger become the product. If the numbers this arc published are read by
+NOTHING, then sixteen rounds of provenance work have been accumulating figures nothing consumes, and
+the honest output is to close the sub-arc rather than pay a debt nobody is owed.
+
+⚠ I AM DESIGNING THIS TO BE ABLE TO RETURN THAT. World B below is the unwelcome one.
+
+--------------------------------------------------------------------------------
+ESTIMAND
+--------------------------------------------------------------------------------
+Of the numbers published in the READMEs of R748-R756, the share that are subsequently READ -- i.e.
+appear in a LATER round's README, source or artifact.
+
+⛔ AND THE ARITHMETIC TRAP, CAUGHT BEFORE THE RUN: every round in this arc appends a section
+containing its own numbers to DEFINITION.md. So "appears in a deliverable" is NEAR-FORCED for any
+published number and is NOT evidence of readership. It is reported separately and is never summed
+with the later-round measure.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+IDENTIFIED for DISTINCTIVE values only. Measured during P4: R748-R756 publish 182 numbers, of which
+120 carry >= 4 decimal places. A 4-dp value is nearly unique in this corpus; `5`, `41` or `0.20` is
+not, and a string search for them measures how often those digits occur anywhere.
+
+⚠ GAUGE TEST, AND IT IS THE SAME DEFECT R756 AND R757 JUST ESTABLISHED: a forward trace is the same
+string-matching instrument, and it inherits the same size-sensitivity. The SHAM below runs the
+identical trace on the 62 NON-distinctive values precisely to price that inflation rather than
+assume it away.
+
+NOT IDENTIFIED, and reported rather than attempted: whether an appearance is a genuine USE or a
+coincidence of digits. A match is a match; this round measures readership as defined, not intent.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  the 120 distinctive numbers in R748-R756's READMEs
+instrument  exact string search, anchored to avoid substring hits inside longer numbers
+baseline    the same trace on numbers published by R700-R747, which have had longer to be read
+regime      this repository at HEAD
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · LOAD-BEARING. A substantial share of these numbers are read by later rounds, so the
+    recomputation debt R757 and R758 named is real work that a later round must do.
+B · WRITE-ONLY. Few are read. The arc has been accumulating figures nothing consumes; the debt is
+    near zero; and the honest move is to CLOSE the sub-arc rather than pay it. §0.2's exact concern,
+    measured rather than asserted.
+
+PREDICTION MATRIX -- share of the 120 read by a LATER ROUND
+    A -> >= 0.40            B -> <= 0.15            between -> mixed, publish the split
+
+--------------------------------------------------------------------------------
+⚠ SIGHTED, DECLARED BEFORE REGISTERING
+--------------------------------------------------------------------------------
+I ran the population count during check #361 and saw 182 / 120 and the per-round split. So the
+POPULATION SIZE is sighted and no blind prediction is registered for it. Twelfth declared sighting in
+fourteen rounds. Every READ SHARE below is blind.
+
+--------------------------------------------------------------------------------
+REGISTERED POINTS -- each independently failable
+--------------------------------------------------------------------------------
+P1  BLIND   share of the 120 read by a LATER ROUND                registered 0.15  [0.00, 0.60]
+P2  ⚠ NEAR-FORCED, REPORTED NOT SCORED: share appearing in a deliverable. Every round appends its own
+    numbers to DEFINITION.md, so a high value is construction rather than readership. Registered as a
+    QUANTITY TO PRINT, with no band, and explicitly excluded from the verdict.
+P3  BLIND   SHAM: read share of the 62 NON-distinctive values     registered 0.70  [0.30, 1.00]
+            -- fails LOW if <0.30, which would mean distinctiveness is not the inflating factor and
+               my account of the instrument's flaw is wrong
+P4  BLIND   base rate: read share of distinctive values published
+            by R700-R747, which have had longer to be read        registered 0.25  [0.00, 0.80]
+P5  BLIND   numbers read by TWO OR MORE later rounds              registered 8     [0, 120]
+
+DIRECTIONAL, separately failable
+D   the read share RISES with age -- R700-R747's numbers are read more than R748-R756's, because
+    they have had more rounds in which to be cited. If it does not rise, readership is not a function
+    of exposure and something else governs which numbers get reused.
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+FORCED, labelled, not evidence:
+  - a number published in round N can only be read by rounds > N, so the newest rounds have the
+    fewest opportunities. R756's numbers have had two rounds of exposure and R748's have had eight.
+    ANY decline toward the present is partly mechanical, which is why the base rate at R700-R747 is
+    measured rather than assumed comparable.
+  - "appears in DEFINITION.md" is near-forced by my own append habit. It is printed and excluded.
+  - a value appearing in its OWN round's README is self-reference and is excluded by construction:
+    downstream means STRICTLY LATER round directories.
+
+STRONGEST CONFOUND, written BEFORE the run: a number may be read WITHOUT being reprinted -- a later
+round can act on a finding while restating it in words. Then the trace under-counts readership, and
+the WRITE-ONLY verdict would be an artifact of measuring digits rather than influence. CONTROL IN THE
+SAME ITERATION: for the rounds that publish the most-read values, check whether later rounds cite the
+ROUND ID without reprinting its numbers, and report that count beside the value-level one. If round
+ids are cited far more often than values, the instrument is measuring the wrong channel and says so.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE fires (a value known to be read is detected) and g=0 holds (a fabricated distinctive
+value is read zero times) and the SHAM shows the expected inflation:
+        P1 >= 0.40 -> WORLD A. The debt is real; a later round pays it.
+        P1 <= 0.15 -> WORLD B. The arc is write-only; the debt is near zero and the sub-arc CLOSES.
+                      The round says so plainly rather than proposing more hygiene.
+        otherwise  -> MIXED; publish the split and name which numbers are the read ones.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE   `0.8000` is published by R753 and demonstrably read: it appears in R756's, R757's and
+           R758's READMEs and on STATEMENT.md. It must be detected as read by >= 2 later rounds.
+           BAND, COMPUTED: floor = a tracer that finds nothing (0 reads on a known-read value),
+           ceiling = the number of later rounds that exist. The threshold 2 sits strictly inside.
+g=0        a fabricated distinctive value (`0.847362`) must be read ZERO times. A tracer that finds
+           readers for an invented number is matching noise, and every share above it is inflated.
+NEGATIVE   shuffle which round is credited with publishing each value, then recompute "read by a
+           LATER round". The share must change, because readership depends on the publishing round's
+           POSITION. World excluded: "any assignment of values to rounds gives this share".
+SHAM       the same operation with the INGREDIENT ABSENT, not inverted. Ingredient = DISTINCTIVENESS.
+           Run the identical trace on the 62 values with < 4 decimal places. A materially higher
+           share there prices the spurious-match inflation directly, on this corpus, rather than
+           leaving it as a worry.
+PLACEBO    the same trace run twice -> exactly 0 differing, reported as 0 of N.
+NOISE      no rng except NEGATIVE's shuffle, seeded, over 5 seeds with the spread printed.
+UNIT       instrument unit = a (value, later-round) pair; claim unit = a published NUMBER's
+           readership. Not equal -- one number can be read by several rounds -- so both the pair
+           count and the distinct-number count are printed and never conflated.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+2 value classes (distinctive, non-distinctive) x 2 publishing eras (R700-R747, R748-R756) x
+{later-round reads, deliverable appearances} = 8 cells, all reported, plus 5 shuffle seeds and the
+round-id citation channel.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether an appearance is a USE      reading intent; a match is a match and the round says so
+whether a number was read WITHOUT
+being reprinted                     tracing influence rather than strings; the round-id channel is
+                                    reported as a partial proxy and named as partial
+generalising beyond this repo       a second repository
+independently replicated            a second team; the session prompt forbids dispatching agents

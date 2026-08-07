@@ -1,0 +1,60 @@
+{
+ "all": {
+  "n": 1185,
+  "gauge_full": 0.6393778188072738,
+  "gauge_core": 0.6359126587703317,
+  "delta": -0.003465160036942194,
+  "err_vs_arithmetic": 0.3863245389208135,
+  "err_vs_identity": 0.1246407345550347
+ },
+ "negative_source": {
+  "n": 158,
+  "gauge_full": 0.6188550026816493,
+  "gauge_core": 0.6251757033833151,
+  "delta": 0.0063207007016657935,
+  "err_vs_arithmetic": 0.23447451668001618,
+  "err_vs_identity": 0.29823521140939263
+ },
+ "negative_hi_lineage": {
+  "n": 43,
+  "gauge_full": 0.6462007605031747,
+  "gauge_core": 0.6237037935107518,
+  "delta": -0.022496966992422873,
+  "err_vs_arithmetic": 0.213187730416309,
+  "err_vs_identity": 0.2925906370199004
+ },
+ "positive_source": {
+  "n": 1027,
+  "gauge_full": 0.6425351751342929,
+  "gauge_core": 0.637564498060642,
+  "delta": -0.004970677073650953,
+  "err_vs_arithmetic": 0.40968608080401303,
+  "err_vs_identity": 0.09793389196205655
+ },
+ "verbatim": {
+  "n": 92,
+  "gauge_full": 0.6554671503063305,
+  "gauge_core": 0.6536858007158718,
+  "delta": -0.001781349590458725,
+  "err_vs_arithmetic": 0.41971324081532657,
+  "err_vs_identity": 0.019079660966425487
+ },
+ "shuffled_null": {
+  "delta_gauge_mean": -0.003465160036941979,
+  "arith_err_mean": 0.28758122593353064,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ "selection_reordering": {
+  "gauge_top4_by_rating": 0.6491105071742628,
+  "gauge_top4_by_abs_rating": 0.6384502260972647,
+  "delta": -0.010660281076998124,
+  "n_prompts": 300
+ },
+ "verdict": "REFUTED: the rewritten text is MORE instrument-dependent (+0.0063), so R222's +0.0343 gauge gain is not the text."
+}

@@ -1,0 +1,445 @@
+{
+  "controls": {
+    "extractor_neg_clean": true,
+    "extractor_neg_live": true,
+    "extractor_pos": true
+  },
+  "dynamic_total": 715,
+  "head": "efb2f2f78db1",
+  "joined": [],
+  "modules": {
+    "DEFECTS.py": {
+      "dead": [
+        "/results/"
+      ],
+      "dynamic": 15,
+      "is_red": false,
+      "n_literals": 2,
+      "regexes": [],
+      "round_files": null
+    },
+    "HEADLINES.py": {
+      "dead": [],
+      "dynamic": 62,
+      "is_red": false,
+      "n_literals": 1,
+      "regexes": [],
+      "round_files": null
+    },
+    "_isolated.py": {
+      "dead": [
+        "/tmp/claude-1000/-home-ivan/7d277876-c2fd-4a27-9b05-652b391121ff/scratchpad/assurance_wt",
+        "assurance/_noop_probe.py",
+        "assurance/_saboteur_probe.py"
+      ],
+      "dynamic": 10,
+      "is_red": false,
+      "n_literals": 6,
+      "regexes": [],
+      "round_files": null
+    },
+    "an_mde_records_its_denominator.py": {
+      "dead": [
+        "_*/results/*.json"
+      ],
+      "dynamic": 25,
+      "is_red": false,
+      "n_literals": 4,
+      "regexes": [
+        "ZEFF\\s*\\*\\s*(?P<sd>[^/\\n]+?)\\s*/\\s*math\\.sqrt\\(\\s*(?P<den>[^)]*\\([^)]*\\)[^)]*|[^)]*)\\)"
+      ],
+      "round_files": null
+    },
+    "apply_freeze_status.py": {
+      "dead": [
+        "results/**/*.json"
+      ],
+      "dynamic": 4,
+      "is_red": false,
+      "n_literals": 1,
+      "regexes": [],
+      "round_files": null
+    },
+    "apply_outcome_scope.py": {
+      "dead": [
+        "results/**/*.json"
+      ],
+      "dynamic": 7,
+      "is_red": false,
+      "n_literals": 2,
+      "regexes": [],
+      "round_files": null
+    },
+    "artifacts_are_internally_coherent.py": {
+      "dead": [],
+      "dynamic": 13,
+      "is_red": true,
+      "n_literals": 1,
+      "regexes": [],
+      "round_files": 593
+    },
+    "attack_every_check.py": {
+      "dead": [],
+      "dynamic": 19,
+      "is_red": true,
+      "n_literals": 5,
+      "regexes": [],
+      "round_files": 1
+    },
+    "attack_no_withdrawn_framings.py": {
+      "dead": [
+        "/home/ivan/research.trustworthy-ai.coval-deep-analysis.build.lg.private.editable",
+        "nested/v4.json"
+      ],
+      "dynamic": 6,
+      "is_red": true,
+      "n_literals": 4,
+      "regexes": [],
+      "round_files": 0
+    },
+    "attack_outcome_variable_declared.py": {
+      "dead": [
+        "/home/ivan/research.trustworthy-ai.coval-deep-analysis.build.lg.private.editable"
+      ],
+      "dynamic": 3,
+      "is_red": true,
+      "n_literals": 3,
+      "regexes": [],
+      "round_files": 0
+    },
+    "attack_scope_reaches_the_reader.py": {
+      "dead": [
+        "/home/ivan/research.trustworthy-ai.coval-deep-analysis.build.lg.private.editable"
+      ],
+      "dynamic": 4,
+      "is_red": false,
+      "n_literals": 5,
+      "regexes": [],
+      "round_files": null
+    },
+    "attack_the_suite.py": {
+      "dead": [],
+      "dynamic": 5,
+      "is_red": false,
+      "n_literals": 4,
+      "regexes": [],
+      "round_files": null
+    },
+    "audit_the_auditors.py": {
+      "dead": [
+        "*.py",
+        "results/auditor_audit.json"
+      ],
+      "dynamic": 19,
+      "is_red": false,
+      "n_literals": 4,
+      "regexes": [],
+      "round_files": null
+    },
+    "code_states_a_bound_the_reader_never_sees.py": {
+      "dead": [],
+      "dynamic": 7,
+      "is_red": false,
+      "n_literals": 2,
+      "regexes": [],
+      "round_files": null
+    },
+    "consistency.py": {
+      "dead": [
+        "/results/"
+      ],
+      "dynamic": 8,
+      "is_red": false,
+      "n_literals": 2,
+      "regexes": [],
+      "round_files": null
+    },
+    "corrections_propagated.py": {
+      "dead": [],
+      "dynamic": 10,
+      "is_red": false,
+      "n_literals": 2,
+      "regexes": [],
+      "round_files": null
+    },
+    "definition_matches_the_record.py": {
+      "dead": [],
+      "dynamic": 44,
+      "is_red": false,
+      "n_literals": 2,
+      "regexes": [],
+      "round_files": null
+    },
+    "donor_numbers_carry_their_draw_scope.py": {
+      "dead": [],
+      "dynamic": 14,
+      "is_red": true,
+      "n_literals": 3,
+      "regexes": [
+        "rounds/r8[89]_[a-z_]+\\)"
+      ],
+      "round_files": 0
+    },
+    "every_round_reaches_the_readme.py": {
+      "dead": [
+        "results/**/*.json"
+      ],
+      "dynamic": 10,
+      "is_red": false,
+      "n_literals": 1,
+      "regexes": [],
+      "round_files": null
+    },
+    "frozen_frame_verifies.py": {
+      "dead": [],
+      "dynamic": 31,
+      "is_red": false,
+      "n_literals": 1,
+      "regexes": [],
+      "round_files": null
+    },
+    "generate_round_index.py": {
+      "dead": [],
+      "dynamic": 26,
+      "is_red": false,
+      "n_literals": 6,
+      "regexes": [],
+      "round_files": null
+    },
+    "interval_is_centred_on_its_point.py": {
+      "dead": [],
+      "dynamic": 19,
+      "is_red": false,
+      "n_literals": 0,
+      "regexes": [],
+      "round_files": null
+    },
+    "manifest.py": {
+      "dead": [],
+      "dynamic": 45,
+      "is_red": false,
+      "n_literals": 21,
+      "regexes": [],
+      "round_files": null
+    },
+    "markdown_tables_are_well_formed.py": {
+      "dead": [],
+      "dynamic": 4,
+      "is_red": false,
+      "n_literals": 1,
+      "regexes": [],
+      "round_files": null
+    },
+    "next_gradient_is_new.py": {
+      "dead": [],
+      "dynamic": 15,
+      "is_red": false,
+      "n_literals": 7,
+      "regexes": [],
+      "round_files": null
+    },
+    "next_gradient_labels_its_hypotheses.py": {
+      "dead": [],
+      "dynamic": 29,
+      "is_red": false,
+      "n_literals": 0,
+      "regexes": [],
+      "round_files": null
+    },
+    "no_withdrawn_framings.py": {
+      "dead": [],
+      "dynamic": 14,
+      "is_red": false,
+      "n_literals": 1,
+      "regexes": [],
+      "round_files": null
+    },
+    "outcome_variable_declared.py": {
+      "dead": [
+        "results/**/*.json"
+      ],
+      "dynamic": 12,
+      "is_red": false,
+      "n_literals": 2,
+      "regexes": [],
+      "round_files": null
+    },
+    "point_and_interval_share_a_source.py": {
+      "dead": [],
+      "dynamic": 7,
+      "is_red": false,
+      "n_literals": 1,
+      "regexes": [],
+      "round_files": null
+    },
+    "pueue_wait.py": {
+      "dead": [],
+      "dynamic": 3,
+      "is_red": true,
+      "n_literals": 0,
+      "regexes": [],
+      "round_files": 0
+    },
+    "readme_agrees_with_results.py": {
+      "dead": [],
+      "dynamic": 32,
+      "is_red": false,
+      "n_literals": 1,
+      "regexes": [],
+      "round_files": null
+    },
+    "readme_row_carries_the_verdict.py": {
+      "dead": [],
+      "dynamic": 15,
+      "is_red": true,
+      "n_literals": 1,
+      "regexes": [],
+      "round_files": 587
+    },
+    "registries_are_satisfied.py": {
+      "dead": [
+        "results/**/*.json"
+      ],
+      "dynamic": 26,
+      "is_red": false,
+      "n_literals": 1,
+      "regexes": [],
+      "round_files": null
+    },
+    "results_are_not_degenerate.py": {
+      "dead": [],
+      "dynamic": 10,
+      "is_red": false,
+      "n_literals": 1,
+      "regexes": [],
+      "round_files": null
+    },
+    "results_match_their_code.py": {
+      "dead": [],
+      "dynamic": 20,
+      "is_red": false,
+      "n_literals": 1,
+      "regexes": [],
+      "round_files": null
+    },
+    "retired_framing_in_assertion_positions.py": {
+      "dead": [],
+      "dynamic": 8,
+      "is_red": false,
+      "n_literals": 0,
+      "regexes": [],
+      "round_files": null
+    },
+    "retired_framing_in_emittable_source.py": {
+      "dead": [],
+      "dynamic": 7,
+      "is_red": false,
+      "n_literals": 2,
+      "regexes": [],
+      "round_files": null
+    },
+    "round_links_resolve.py": {
+      "dead": [],
+      "dynamic": 5,
+      "is_red": false,
+      "n_literals": 1,
+      "regexes": [
+        "\\]\\(((?:E\\d\\d_[A-Za-z0-9_]+|\\d\\d_[a-z0-9_]+|rounds|data|assurance|covalx|scripts)/[A-Za-z0-9_./-]+)\\)"
+      ],
+      "round_files": null
+    },
+    "scope_reaches_the_reader.py": {
+      "dead": [],
+      "dynamic": 6,
+      "is_red": false,
+      "n_literals": 2,
+      "regexes": [],
+      "round_files": null
+    },
+    "seed_filter_is_disclosed.py": {
+      "dead": [
+        "/results/*.json"
+      ],
+      "dynamic": 12,
+      "is_red": true,
+      "n_literals": 4,
+      "regexes": [
+        "len\\(raters\\)\\s*\\+\\s*1\\)\\s*//\\s*2|>=\\s*thr\\b"
+      ],
+      "round_files": 382
+    },
+    "source_stamp_is_current.py": {
+      "dead": [
+        "results/*"
+      ],
+      "dynamic": 13,
+      "is_red": false,
+      "n_literals": 3,
+      "regexes": [],
+      "round_files": null
+    },
+    "synthesis_cites_recent_work.py": {
+      "dead": [],
+      "dynamic": 8,
+      "is_red": true,
+      "n_literals": 2,
+      "regexes": [
+        "(?:\\d\\d_[a-z0-9_]+/)?r(\\d+)_"
+      ],
+      "round_files": 0
+    },
+    "verdict_cites_its_own_contrasts.py": {
+      "dead": [],
+      "dynamic": 36,
+      "is_red": true,
+      "n_literals": 2,
+      "regexes": [],
+      "round_files": 529
+    },
+    "what_did_each_check_actually_read.py": {
+      "dead": [
+        "results/what_each_check_read.json"
+      ],
+      "dynamic": 27,
+      "is_red": false,
+      "n_literals": 5,
+      "regexes": [],
+      "round_files": null
+    }
+  },
+  "n_regex_separated": 5,
+  "regexes_in_red": {
+    "donor_numbers_carry_their_draw_scope.py": [
+      "rounds/r8[89]_[a-z_]+\\)"
+    ],
+    "seed_filter_is_disclosed.py": [
+      "len\\(raters\\)\\s*\\+\\s*1\\)\\s*//\\s*2|>=\\s*thr\\b"
+    ],
+    "synthesis_cites_recent_work.py": [
+      "(?:\\d\\d_[a-z0-9_]+/)?r(\\d+)_"
+    ]
+  },
+  "shared_prefixes": {},
+  "source_name": "run.py",
+  "source_sha256": "8cac56fd63cabe2490d9b912e6d9fe1985665086853bdb3f9af4068469c274b0",
+  "strong": {},
+  "verdict": "W_NOT_A_PATH_PROBLEM",
+  "with_dead": [
+    "DEFECTS.py",
+    "_isolated.py",
+    "an_mde_records_its_denominator.py",
+    "apply_freeze_status.py",
+    "apply_outcome_scope.py",
+    "attack_no_withdrawn_framings.py",
+    "attack_outcome_variable_declared.py",
+    "attack_scope_reaches_the_reader.py",
+    "audit_the_auditors.py",
+    "consistency.py",
+    "every_round_reaches_the_readme.py",
+    "outcome_variable_declared.py",
+    "registries_are_satisfied.py",
+    "seed_filter_is_disclosed.py",
+    "source_stamp_is_current.py",
+    "what_did_each_check_actually_read.py"
+  ]
+}

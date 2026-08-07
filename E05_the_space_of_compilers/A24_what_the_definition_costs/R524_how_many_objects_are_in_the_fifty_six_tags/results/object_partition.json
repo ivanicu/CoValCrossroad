@@ -1,0 +1,43 @@
+{
+  "n_tags": 56,
+  "n_objects": 46,
+  "n_duplicate_tags": 10,
+  "multi_tag_classes": [
+    [
+      "oracle_k4",
+      "oracle_k4_oracle_kA",
+      "oracle_k4_oracle_kB"
+    ],
+    [
+      "topw_k4",
+      "topw_k4_detA",
+      "topw_k4_detB"
+    ],
+    [
+      "coval_core_2bA",
+      "coval_core_2bB"
+    ],
+    [
+      "generic",
+      "generic_reprov"
+    ],
+    [
+      "greedy_k4_greedy_kA",
+      "greedy_k4_greedy_kB"
+    ],
+    [
+      "indep_k4_indep_kA",
+      "indep_k4_indep_kB"
+    ],
+    [
+      "random_k4_s0",
+      "random_k4_s0_ctlS0"
+    ],
+    [
+      "random_k4_s1",
+      "random_k4_s1_ctlS1"
+    ]
+  ],
+  "world": "B",
+  "unreadable": []
+}

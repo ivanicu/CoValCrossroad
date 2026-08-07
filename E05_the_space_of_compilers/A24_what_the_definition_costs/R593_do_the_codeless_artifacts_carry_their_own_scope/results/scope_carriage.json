@@ -1,0 +1,240 @@
+{
+  "world": "C THE ARTIFACT WAS NEVER THE CARRIER  AND  B DOUBLY THIN -- codeless carry FEWER, p=0.0012",
+  "spec_agree": true,
+  "n_rounds": 576,
+  "n_codeless": 24,
+  "cells": [
+    {
+      "depth": "top-level",
+      "world": "C THE ARTIFACT WAS NEVER THE CARRIER  AND  B DOUBLY THIN -- codeless carry FEWER, p=0.0012",
+      "why": "level: 0.2500 vs 0.3501 against a convention whose most common key reaches only 0.48 prevalence; difference: Delta=-0.1001, stratified p=0.0012 over 12000 draws",
+      "convention": [
+        "controls",
+        "n_prompts",
+        "verdict",
+        "world"
+      ],
+      "convention_prevalence_floor": 0.2,
+      "mean_coverage_codeless": 0.25,
+      "mean_coverage_codebearing": 0.3500905797101449,
+      "delta_raw": -0.1000905797101449,
+      "delta_is": "DERIVATION over a complete enumeration",
+      "p_unstratified": 0.03683026414465461,
+      "p_time_stratified": 0.0012498958420131656,
+      "perm_draws": 12000,
+      "pos_plant_delta": -0.3442028985507246,
+      "pos_plant_p": 8.332638946754438e-05,
+      "pos_g0_ok": true,
+      "dose_response": [
+        [
+          0.1,
+          0.0204,
+          0.6722
+        ],
+        [
+          0.25,
+          -0.063,
+          0.1299
+        ],
+        [
+          0.5,
+          -0.1984,
+          0.0007
+        ],
+        [
+          0.75,
+          -0.2609,
+          0.0007
+        ],
+        [
+          1.0,
+          -0.3442,
+          0.0007
+        ]
+      ],
+      "mde": [
+        0.5,
+        -0.19836956521739127
+      ],
+      "mde_is_for": "a concentrated plant, NOT comparable to the spread observed contrast",
+      "axis_level": "C THE ARTIFACT WAS NEVER THE CARRIER",
+      "axis_difference": "B DOUBLY THIN -- codeless carry FEWER, p=0.0012",
+      "tag": "C+B",
+      "max_convention_prevalence": 0.483695652173913,
+      "placebo": [
+        0.04121376811594207,
+        0.008605072463768126,
+        -0.05661231884057971
+      ],
+      "controls_fired": true,
+      "cited_codeless": {
+        "444": {
+          "coverage": 0.25,
+          "keys": [
+            "world"
+          ]
+        },
+        "544": {
+          "coverage": 0.25,
+          "keys": [
+            "world"
+          ]
+        },
+        "545": {
+          "coverage": 0.25,
+          "keys": [
+            "world"
+          ]
+        },
+        "546": {
+          "coverage": 0.25,
+          "keys": [
+            "world"
+          ]
+        },
+        "578": {
+          "coverage": 0.25,
+          "keys": [
+            "world"
+          ]
+        },
+        "580": {
+          "coverage": 0.25,
+          "keys": [
+            "world"
+          ]
+        },
+        "581": {
+          "coverage": 0.25,
+          "keys": [
+            "world"
+          ]
+        },
+        "585": {
+          "coverage": 0.25,
+          "keys": [
+            "world"
+          ]
+        }
+      },
+      "cited_codeless_mean": 0.25
+    },
+    {
+      "depth": "all-depth",
+      "world": "C THE ARTIFACT WAS NEVER THE CARRIER  AND  B DOUBLY THIN -- codeless carry FEWER, p=0.0002",
+      "why": "level: 0.2083 vs 0.3449 against a convention whose most common key reaches only 0.52 prevalence; difference: Delta=-0.1366, stratified p=0.0002 over 12000 draws",
+      "convention": [
+        "controls",
+        "n",
+        "n_prompts",
+        "verdict",
+        "world"
+      ],
+      "convention_prevalence_floor": 0.2,
+      "mean_coverage_codeless": 0.20833333333333334,
+      "mean_coverage_codebearing": 0.34492753623188405,
+      "delta_raw": -0.1365942028985507,
+      "delta_is": "DERIVATION over a complete enumeration",
+      "p_unstratified": 0.0012498958420131656,
+      "p_time_stratified": 0.00016665277893508876,
+      "perm_draws": 12000,
+      "pos_plant_delta": -0.33695652173913043,
+      "pos_plant_p": 8.332638946754438e-05,
+      "pos_g0_ok": true,
+      "dose_response": [
+        [
+          0.1,
+          0.0297,
+          0.5023
+        ],
+        [
+          0.25,
+          -0.0453,
+          0.2745
+        ],
+        [
+          0.5,
+          -0.187,
+          0.0007
+        ],
+        [
+          0.75,
+          -0.2453,
+          0.0007
+        ],
+        [
+          1.0,
+          -0.337,
+          0.0007
+        ]
+      ],
+      "mde": [
+        0.5,
+        -0.18695652173913044
+      ],
+      "mde_is_for": "a concentrated plant, NOT comparable to the spread observed contrast",
+      "axis_level": "C THE ARTIFACT WAS NEVER THE CARRIER",
+      "axis_difference": "B DOUBLY THIN -- codeless carry FEWER, p=0.0002",
+      "tag": "C+B",
+      "max_convention_prevalence": 0.5217391304347826,
+      "placebo": [
+        0.02862318840579714,
+        0.011231884057971042,
+        -0.0322463768115942
+      ],
+      "controls_fired": true,
+      "cited_codeless": {
+        "444": {
+          "coverage": 0.2,
+          "keys": [
+            "world"
+          ]
+        },
+        "544": {
+          "coverage": 0.2,
+          "keys": [
+            "world"
+          ]
+        },
+        "545": {
+          "coverage": 0.2,
+          "keys": [
+            "world"
+          ]
+        },
+        "546": {
+          "coverage": 0.2,
+          "keys": [
+            "world"
+          ]
+        },
+        "578": {
+          "coverage": 0.2,
+          "keys": [
+            "world"
+          ]
+        },
+        "580": {
+          "coverage": 0.2,
+          "keys": [
+            "world"
+          ]
+        },
+        "581": {
+          "coverage": 0.2,
+          "keys": [
+            "world"
+          ]
+        },
+        "585": {
+          "coverage": 0.2,
+          "keys": [
+            "world"
+          ]
+        }
+      },
+      "cited_codeless_mean": 0.2
+    }
+  ],
+  "upper_bound_note": "key PRESENCE is not key CONTENT; a round can write world: B and mean nothing by it. Every number bounds attackability from above"
+}

@@ -1,0 +1,162 @@
+R795 · is Q1's specificity about the RUBRIC's identity, or about the TARGET's SIZE?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-06.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R794 resolved Q1 for MATCHING (prompt-matched rubric 0.7850 against a shuffled one 0.4888, excess
++0.2961 [+0.2744, +0.3166]) and left SPECIFICITY as a point estimate: the gap to a random arm's
+class is +0.0487 with no interval. Its NEXT asked for that interval.
+
+CHECK #397 attacked the proposed comparison BEFORE building it, and it is confounded.
+
+  arm             mean criteria per prompt
+  `full`          15.48
+  every k4 arm     4.00
+  `genericpool16` 16.00   (prompt-BLIND -- size-matched to `full`, content-mismatched)
+
+⛔ SO `vs full` AGAINST `vs (a k=4 ARM'S CLASS)` VARIES TWO THINGS AT ONCE: whose criteria the
+target is built from, and HOW MANY. A class built by summing 15 criteria has a different tie and
+sign structure from one built by summing 4, before any question of content. Delivering R794's NEXT
+as written would have produced an interval around a confounded quantity — which is worse than the
+point estimate it replaces, because an interval reads as settled.
+
+P4: no round in this arc sweeps k as a property of the TARGET; every k-sweep in the campaign varies
+the ARM. The instrument is new and its confound is the reason the round exists.
+
+--------------------------------------------------------------------------------
+DISCLOSURE -- what was already known when this was written
+--------------------------------------------------------------------------------
+KNOWN and quoted: R794's Q1 numbers, the +0.0487 gap, the mean-k table above (computed in check
+#397 from `core_*.json`). **NOT known: any point of the size dose-response**, whether it is monotone,
+where `vs full` sits on it, or whether identity survives once size is matched.
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  AGREEMENT WITH A k-SUBSET OF `full` MUST RISE TOWARD 1.0 AS k -> ALL, because at k = all the
+    target IS `full` and the quantity is `vs full` exactly. **DERIVATION**, and it is this round's
+    POSITIVE control: the dose must be monotone and must terminate at the measured 0.7850.
+D2  AT k = 1 THE TARGET IS A SINGLE CRITERION, whose class is often degenerate (a criterion
+    satisfied equally by all four responses adds a constant and produces all-zero signs). So the low
+    end of the dose is not a clean floor and must be reported with the share of degenerate targets
+    rather than as a number. **DERIVATION.**
+D3  THE SIZE EFFECT AND THE IDENTITY EFFECT ARE SEPARABLE BY CONSTRUCTION: hold content fixed and
+    vary k (subsets of `full`), or hold k fixed and vary content (other arms' k=4 classes against
+    random 4-subsets of `full`). Two one-factor comparisons beat one two-factor one. **DERIVATION**,
+    and it is the design.
+D4  `coval_core`'s OWN CRITERIA ARE NOT NECESSARILY IN `full`. R785 measured the released core as
+    98.8% novel against its rubric, so a k-subset of `full` is NOT a superset of the core and the
+    dose cannot be read as "how much of the core's own text is in the target". **DERIVATION**, and
+    it forbids the tempting reading.
+
+STRONGEST CONFOUND, written BEFORE the run: the subset targets are drawn from `full`, so as k grows
+they converge on `full` BY CONSTRUCTION -- the dose measures convergence to a specific object, not
+"size" in general. CONTROL IN THE SAME ITERATION: the same dose is run on targets built from a
+DIFFERENT PROMPT's `full` at each k. If the mismatched dose is flat while the matched one rises, the
+rise is about content; if both rise, part of it is size alone.
+
+--------------------------------------------------------------------------------
+ESTIMANDS (before method)
+--------------------------------------------------------------------------------
+E1  ⭐ THE SIZE DOSE, CONTENT FIXED: `coval_core vs (random k-subset of its prompt's `full`)` for
+    k in {1, 2, 4, 8, 12, all}, 20 draws each, with the share of degenerate targets per k (D2).
+E2  ⭐ THE IDENTITY TEST AT MATCHED k: at k = 4, `coval_core vs (random 4-subset of `full`)` against
+    `coval_core vs (each other k=4 arm's class)`. Same target size, different content source.
+E3  ⭐ THE SPECIFICITY INTERVAL R794 ASKED FOR, now on a size-matched contrast: the difference
+    between the matched-content and mismatched-content cells at k = 4, with a cluster-bootstrap CI
+    over the 968 prompts.
+E4  the real size-matched comparator: `coval_core vs `genericpool16`'s class` (k = 16, prompt-blind)
+    beside `vs full` (k = 15.48, prompt-matched). One factor, cleanly.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1-E4 exact given the per-criterion satisfaction tensor, which is on disk in `sat_full.npz`.
+⚠ PARTIALLY IDENTIFIED: "identity" here means "built from this prompt's rubric text" and nothing
+finer. Whether the core tracks the rubric's MEANING rather than its scoring behaviour is the
+construct wall (`corebench/score.py:34`) and is not touched.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  968 prompts; targets built from `coval_full`'s per-criterion satisfactions
+instrument  pairwise-sign agreement between `coval_core`'s class and the target's class
+baseline    for E1 the mismatched-prompt dose; for E2/E3 the other k=4 arms' classes
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · IDENTITY MATTERS. At matched k = 4, agreement with `full`-derived targets exceeds agreement with
+    other arms' k=4 classes, resolved. Then "its own rubric" is licensed and R794's clause can keep
+    the word.
+B · SIZE EXPLAINS IT. At matched k = 4 the difference is unresolved, and the dose in k accounts for
+    the +0.0487. Then the specificity claim dies and the clause must say "a large target" rather
+    than "its own rubric".
+C · THE TARGET BARELY MATTERS. The dose is flat in k AND identical across content sources. Then Q1
+    is weak in a way R794 did not see, and the whole matching result needs re-reading.
+
+PREDICTION MATRIX
+  A -> E3's CI excludes 0 and is positive
+  B -> E3's CI contains 0, and the k=4 matched cell sits near the k=4 arms' cell
+  C -> the E1 dose is flat within its own draw spread from k=2 upward
+  any other pattern -> report; CLAIM NO WORLD.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (the k=all cell reproduces R794's `vs full` = 0.7850 to 1e-9 -- exit 2 otherwise,
+   since a dose whose endpoint disagrees with the committed number is measuring something else)
+   and PLACEBO returns exactly 1.0 for an arm against its own class
+   and POSITIVE fires (D1: the matched dose is MONOTONE non-decreasing in k and terminates at 0.7850)
+   and NEGATIVE fires (the mismatched-prompt dose is materially below the matched one at every
+       k >= 2):
+        E1 flat from k=2 upward                          -> WORLD C   (checked FIRST)
+        E3 CI excludes 0 and positive                    -> WORLD A
+        E3 CI contains 0                                 -> WORLD B
+        otherwise                                        -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT      the k=all cell must equal R794's committed `vs full` to 1e-9. Exit 2, never 0.
+PLACEBO     an arm against its OWN class: exactly 1.0.
+POSITIVE    D1's monotone dose, terminating at the committed value. BAND: the k=1 cell and the k=all
+            cell must differ; equality means the target size does nothing and no threshold is
+            admissible.
+NEGATIVE    the same dose with targets built from a DIFFERENT prompt's `full`. World it excludes:
+            "the dose measures target SIZE in general rather than convergence to this prompt's
+            rubric." Reported as a curve, not one point.
+DEGENERACY  per k, the share of targets whose class is all-zero (D2). A cell with a large share is
+            reported with it and is not compared as though it were clean.
+NOISE FLOOR MEASURED: the spread across the 20 subset draws at each k.
+UNIT        instrument unit = a (prompt, subset draw) target; claim unit = the k CELL; E3's unit =
+            a CONTRAST. Three strings, required unequal.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+6 k-cells x 2 content sources (matched, mismatched) = 12 dose cells, plus E2's comparison against
+each of the k=4 arms. BH at q = 0.05 over the whole set. Cells tested, surviving and non-survivors
+printed. The dose cells are a CURVE and are reported whole regardless of survival.
+
+--------------------------------------------------------------------------------
+SPECIFICATION CURVE
+--------------------------------------------------------------------------------
+k              1 | 2 | 4 | 8 | 12 | all
+content        this prompt's `full` | a different prompt's `full` | other arms' k=4 classes
+draws          20 subset draws per cell
+NBOOT          1200
+seeds          3
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether the core tracks the rubric's MEANING     an external gold standard -- `corebench/score.py:34`
+a k-subset that CONTAINS the core's own criteria the core is 98.8% novel (R785, D4), so no subset of
+                                                 `full` is a superset of it
+independently replicated                         a second designer; the session prompt forbids agents
+cross-release                                    a second values-annotation release

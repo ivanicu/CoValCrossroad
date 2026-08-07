@@ -1,0 +1,66 @@
+{
+  "world": "B",
+  "per_arc": {
+    "A16_what_a_compiler_is_and_what_its_operations_cost": {
+      "rounds": 4,
+      "indexed": 0,
+      "cited": 0
+    },
+    "A17_which_definitions_of_core_are_identifiable": {
+      "rounds": 9,
+      "indexed": 0,
+      "cited": 0
+    },
+    "A18_the_candidate_set_wall_was_wrong": {
+      "rounds": 3,
+      "indexed": 0,
+      "cited": 0
+    },
+    "A19_triple_blind": {
+      "rounds": 3,
+      "indexed": 0,
+      "cited": 0
+    },
+    "A20_is_a_global_core_real": {
+      "rounds": 3,
+      "indexed": 0,
+      "cited": 0
+    },
+    "A21_missing_weight_semantics": {
+      "rounds": 2,
+      "indexed": 0,
+      "cited": 0
+    },
+    "A22_does_this_epochs_own_method_hold_up": {
+      "rounds": 12,
+      "indexed": 0,
+      "cited": 0
+    },
+    "A23_is_the_admissibility_gate_the_right_gate": {
+      "rounds": 35,
+      "indexed": 0,
+      "cited": 0
+    },
+    "A24_what_the_definition_costs": {
+      "rounds": 264,
+      "indexed": 264,
+      "cited": 75
+    },
+    "A25_can_the_instrument_be_run_at_all": {
+      "rounds": 1,
+      "indexed": 1,
+      "cited": 0
+    }
+  },
+  "non_a24": {
+    "rounds": 72,
+    "indexed": 1,
+    "cited": 0
+  },
+  "a24": {
+    "rounds": 264,
+    "indexed": 264,
+    "cited": 75
+  },
+  "total_rounds": 336
+}

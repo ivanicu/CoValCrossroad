@@ -1,0 +1,321 @@
+{
+  "commit": "283e7596892fed0e73fed4bc7ffa0d755d149429",
+  "world": "B",
+  "seed": 901,
+  "n_prompts": 968,
+  "arms_used": [
+    "generic",
+    "topw_k2",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_detA",
+    "topw_k4_detB",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "arms_absent": [
+    "coval_core",
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "generic_reprov"
+  ],
+  "mean_k": {
+    "generic": 4.0,
+    "topw_k2": 2.0,
+    "topw_k3": 3.0,
+    "topw_k4": 4.0,
+    "topw_k4_detA": 4.0,
+    "topw_k4_detB": 4.0,
+    "topw_k6": 5.992768595041323,
+    "topw_k8": 7.9235537190082646
+  },
+  "equal_k_pairs": [
+    {
+      "a": "generic",
+      "b": "topw_k4",
+      "k_a": 4.0,
+      "k_b": 4.0,
+      "jaccard": 0.0,
+      "containment": 0.0,
+      "jaccard_ceiling": 1.0
+    },
+    {
+      "a": "generic",
+      "b": "topw_k4_detA",
+      "k_a": 4.0,
+      "k_b": 4.0,
+      "jaccard": 0.0,
+      "containment": 0.0,
+      "jaccard_ceiling": 1.0
+    },
+    {
+      "a": "generic",
+      "b": "topw_k4_detB",
+      "k_a": 4.0,
+      "k_b": 4.0,
+      "jaccard": 0.0,
+      "containment": 0.0,
+      "jaccard_ceiling": 1.0
+    },
+    {
+      "a": "topw_k4",
+      "b": "topw_k4_detA",
+      "k_a": 4.0,
+      "k_b": 4.0,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "jaccard_ceiling": 1.0
+    },
+    {
+      "a": "topw_k4",
+      "b": "topw_k4_detB",
+      "k_a": 4.0,
+      "k_b": 4.0,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "jaccard_ceiling": 1.0
+    },
+    {
+      "a": "topw_k4_detA",
+      "b": "topw_k4_detB",
+      "k_a": 4.0,
+      "k_b": 4.0,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "jaccard_ceiling": 1.0
+    }
+  ],
+  "unequal_k_pairs": [
+    {
+      "a": "generic",
+      "b": "topw_k2",
+      "k_a": 4.0,
+      "k_b": 2.0,
+      "jaccard": 0.0,
+      "containment": 0.0,
+      "jaccard_ceiling": 0.5
+    },
+    {
+      "a": "generic",
+      "b": "topw_k3",
+      "k_a": 4.0,
+      "k_b": 3.0,
+      "jaccard": 0.0,
+      "containment": 0.0,
+      "jaccard_ceiling": 0.75
+    },
+    {
+      "a": "generic",
+      "b": "topw_k6",
+      "k_a": 4.0,
+      "k_b": 5.992768595041323,
+      "jaccard": 0.0,
+      "containment": 0.0,
+      "jaccard_ceiling": 0.6674711256679883
+    },
+    {
+      "a": "generic",
+      "b": "topw_k8",
+      "k_a": 4.0,
+      "k_b": 7.9235537190082646,
+      "jaccard": 0.0,
+      "containment": 0.0,
+      "jaccard_ceiling": 0.5048239895697523
+    },
+    {
+      "a": "topw_k2",
+      "b": "topw_k3",
+      "k_a": 2.0,
+      "k_b": 3.0,
+      "jaccard": 0.6666666666666666,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.6666666666666666
+    },
+    {
+      "a": "topw_k2",
+      "b": "topw_k4",
+      "k_a": 2.0,
+      "k_b": 4.0,
+      "jaccard": 0.5006887052341598,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.5
+    },
+    {
+      "a": "topw_k2",
+      "b": "topw_k4_detA",
+      "k_a": 2.0,
+      "k_b": 4.0,
+      "jaccard": 0.5006887052341598,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.5
+    },
+    {
+      "a": "topw_k2",
+      "b": "topw_k4_detB",
+      "k_a": 2.0,
+      "k_b": 4.0,
+      "jaccard": 0.5006887052341598,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.5
+    },
+    {
+      "a": "topw_k2",
+      "b": "topw_k6",
+      "k_a": 2.0,
+      "k_b": 5.992768595041323,
+      "jaccard": 0.3352100550964187,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.33373556283399414
+    },
+    {
+      "a": "topw_k2",
+      "b": "topw_k8",
+      "k_a": 2.0,
+      "k_b": 7.9235537190082646,
+      "jaccard": 0.2546438410074774,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.25241199478487614
+    },
+    {
+      "a": "topw_k3",
+      "b": "topw_k4",
+      "k_a": 3.0,
+      "k_b": 4.0,
+      "jaccard": 0.7511191460055096,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.75
+    },
+    {
+      "a": "topw_k3",
+      "b": "topw_k4_detA",
+      "k_a": 3.0,
+      "k_b": 4.0,
+      "jaccard": 0.7511191460055096,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.75
+    },
+    {
+      "a": "topw_k3",
+      "b": "topw_k4_detB",
+      "k_a": 3.0,
+      "k_b": 4.0,
+      "jaccard": 0.7511191460055096,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.75
+    },
+    {
+      "a": "topw_k3",
+      "b": "topw_k6",
+      "k_a": 3.0,
+      "k_b": 5.992768595041323,
+      "jaccard": 0.5028409090909091,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.5006033442509912
+    },
+    {
+      "a": "topw_k3",
+      "b": "topw_k8",
+      "k_a": 3.0,
+      "k_b": 7.9235537190082646,
+      "jaccard": 0.3819780598189689,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.37861799217731423
+    },
+    {
+      "a": "topw_k4",
+      "b": "topw_k6",
+      "k_a": 4.0,
+      "k_b": 5.992768595041323,
+      "jaccard": 0.6695936639118456,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.6674711256679883
+    },
+    {
+      "a": "topw_k4",
+      "b": "topw_k8",
+      "k_a": 4.0,
+      "k_b": 7.9235537190082646,
+      "jaccard": 0.5086481700118064,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.5048239895697523
+    },
+    {
+      "a": "topw_k4_detA",
+      "b": "topw_k6",
+      "k_a": 4.0,
+      "k_b": 5.992768595041323,
+      "jaccard": 0.6695936639118456,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.6674711256679883
+    },
+    {
+      "a": "topw_k4_detA",
+      "b": "topw_k8",
+      "k_a": 4.0,
+      "k_b": 7.9235537190082646,
+      "jaccard": 0.5086481700118064,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.5048239895697523
+    },
+    {
+      "a": "topw_k4_detB",
+      "b": "topw_k6",
+      "k_a": 4.0,
+      "k_b": 5.992768595041323,
+      "jaccard": 0.6695936639118456,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.6674711256679883
+    },
+    {
+      "a": "topw_k4_detB",
+      "b": "topw_k8",
+      "k_a": 4.0,
+      "k_b": 7.9235537190082646,
+      "jaccard": 0.5086481700118064,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.5048239895697523
+    },
+    {
+      "a": "topw_k6",
+      "b": "topw_k8",
+      "k_a": 5.992768595041323,
+      "k_b": 7.9235537190082646,
+      "jaccard": 0.7592483274301456,
+      "containment": 1.0,
+      "jaccard_ceiling": 0.75632333767927
+    }
+  ],
+  "equal_k_jaccard": {
+    "mean": 0.5,
+    "min": 0.0,
+    "max": 1.0,
+    "n": 6
+  },
+  "unequal_k_containment": {
+    "mean": 0.8181818181818182,
+    "min": 0.0,
+    "n": 22
+  },
+  "reference_pair_jaccard": 0.5562,
+  "bimodal": {
+    "n_exact_zero": 3,
+    "n_exact_one": 3,
+    "n_between": 0,
+    "is_bimodal": true,
+    "replica_arms_in_the_one_mode": [
+      "topw_k4",
+      "topw_k4_detA",
+      "topw_k4_detB"
+    ],
+    "note": "the equal-k Jaccards take only 0.0000 and 1.0000; the mean of 0.5000 describes no pair. The 1.0000 pairs are determinism replicas of one arm (R890: r = 1.000000), so they are forced rather than observed; the independent evidence is the 0.0000 pairs \u2014 generic and topw_k4 share NO criteria and both are admitted."
+  },
+  "floor": {
+    "measured": 0.18198057849093835,
+    "R901": 0.182,
+    "reproduction": true
+  },
+  "arithmetic_ceiling_declared": "Jaccard <= min(k)/max(k); the 12 span k=2..8 so a k=2 vs k=8 pair cannot exceed 0.25. Raw Jaccard is therefore reported on EQUAL-k pairs only, and containment (ceiling 1.0) on all pairs. Never pooled.",
+  "does_not_show": "that the definition is wrong. It bounds what `admitted` licenses: not `these arms agree`, only `these arms clear the bar`.",
+  "unit_note": "J and C are set overlaps; k is CRITERIA per prompt",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

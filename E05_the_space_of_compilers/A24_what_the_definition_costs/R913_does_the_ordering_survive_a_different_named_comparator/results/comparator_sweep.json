@@ -1,0 +1,59 @@
+{
+  "verdict": "UNVERIFIED",
+  "results": {
+    "genericpool16": {
+      "n_admitted": 39,
+      "random": {
+        "a": 0,
+        "n": 38,
+        "share": 0.0
+      },
+      "signed": {
+        "a": 10,
+        "n": 20,
+        "share": 0.5
+      },
+      "other": {
+        "a": 0,
+        "n": 25,
+        "share": 0.0
+      },
+      "ordering_informed_above_random": false,
+      "ordering_signed_above_variance": true,
+      "per_rule": {
+        "greedy": [
+          10,
+          13
+        ],
+        "indep": [
+          8,
+          12
+        ],
+        "oracle": [
+          6,
+          8
+        ],
+        "random": [
+          0,
+          38
+        ],
+        "topabs": [
+          0,
+          7
+        ],
+        "topvar": [
+          0,
+          9
+        ],
+        "topw": [
+          10,
+          20
+        ],
+        "topwvar": [
+          0,
+          9
+        ]
+      }
+    }
+  }
+}

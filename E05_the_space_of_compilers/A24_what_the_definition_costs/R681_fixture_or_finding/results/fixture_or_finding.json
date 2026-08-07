@@ -1,0 +1,79 @@
+{
+  "world": "\u2b50\u2b50 1 of 12 restating rounds let the hard-coded set reach an OUTPUT field; 8 use it only as a comparison target, 3 use it in a way this classifier does not model (UNVERIFIED as to fixture-vs-finding, NOT 'unused'), and 0 never reference it. \u2b50 SO THE 12 RESTATERS ARE NOT ONE KIND OF THING \u2014 a fixture compared against is legitimate work, and R680's n_eff bound is unaffected by those; the ones that DUMP it publish a hard-coded set into an artifact that a later round can read as if measured, which is exactly the copy-through-a-file channel R680 could not separate. \u26a0 UPPER BOUND: dumping a fixture for provenance is good practice, not circularity \u2014 whether a dumped value is PRESENTED as a finding is a fact about the prose that quotes it, and no AST reads that.",
+  "controls_ok": true,
+  "tree_sha": "a7619c2155f6aafe324f93c22a5d73760b95a89c",
+  "population": 12,
+  "counts": {
+    "FIXTURE": 8,
+    "OTHER_USE": 3,
+    "BOTH": 1
+  },
+  "reaches_output": 1,
+  "five5_reaching_output": 0,
+  "rows": [
+    {
+      "round": "R301",
+      "kind": "FIXTURE",
+      "five5": false
+    },
+    {
+      "round": "R330",
+      "kind": "FIXTURE",
+      "five5": false
+    },
+    {
+      "round": "R332",
+      "kind": "FIXTURE",
+      "five5": false
+    },
+    {
+      "round": "R339",
+      "kind": "FIXTURE",
+      "five5": false
+    },
+    {
+      "round": "R354",
+      "kind": "FIXTURE",
+      "five5": false
+    },
+    {
+      "round": "R360",
+      "kind": "OTHER_USE",
+      "five5": true
+    },
+    {
+      "round": "R361",
+      "kind": "OTHER_USE",
+      "five5": true
+    },
+    {
+      "round": "R442",
+      "kind": "BOTH",
+      "five5": false
+    },
+    {
+      "round": "R529",
+      "kind": "FIXTURE",
+      "five5": false
+    },
+    {
+      "round": "R534",
+      "kind": "FIXTURE",
+      "five5": false
+    },
+    {
+      "round": "R676",
+      "kind": "OTHER_USE",
+      "five5": true
+    },
+    {
+      "round": "R677",
+      "kind": "FIXTURE",
+      "five5": false
+    }
+  ],
+  "kill_fired": false,
+  "directional_holds": false,
+  "registered": "A 5 [2,10]; B 2 [0,3]; R676 reaches output; kill if <half classified",
+  "upper_bound": "reaching an output field is not being reported as a finding; dumping a fixture for provenance is good practice. OUTPUT bounds circular use."
+}

@@ -1,0 +1,160 @@
+{
+  "A_n_true": 734,
+  "B_greedy_excl": 0.021114136997365973,
+  "C_excluding_zero": 1,
+  "D_gaps_excluding_zero": 0,
+  "cells": {
+    "greedy|oracle_k4": {
+      "covers_zero": true,
+      "hi": 0.052417475637640654,
+      "lo": -0.01163995585800981,
+      "pool_effect": 0.03869912258020314,
+      "r738": -0.017584985582837165,
+      "r740": 0.021114136997365973,
+      "se": 0.01618849548436113,
+      "true": 0.021114136997365973,
+      "union": -0.017584985582837165
+    },
+    "greedy|topw_k3": {
+      "covers_zero": true,
+      "hi": 0.04920470947954647,
+      "lo": -0.07153090117363231,
+      "pool_effect": 0.11246470063211578,
+      "r738": -0.12122574340134318,
+      "r740": -0.0087610427692274,
+      "se": 0.030692930317208617,
+      "true": -0.0087610427692274,
+      "union": -0.12122574340134318
+    },
+    "greedy|topw_k4": {
+      "covers_zero": true,
+      "hi": 0.04195515322410104,
+      "lo": -0.07180807099194797,
+      "pool_effect": 0.10784377487204672,
+      "r738": -0.12006857531788351,
+      "r740": -0.012224800445836792,
+      "se": 0.029642209980105347,
+      "true": -0.012224800445836792,
+      "union": -0.12006857531788351
+    },
+    "greedy|topw_k6": {
+      "covers_zero": true,
+      "hi": 0.03832609789541652,
+      "lo": -0.06530323120067905,
+      "pool_effect": 0.09072841358329187,
+      "r738": -0.10272169042602564,
+      "r740": -0.011993276842733769,
+      "se": 0.026144762969221417,
+      "true": -0.011993276842733769,
+      "union": -0.10272169042602564
+    },
+    "greedy|topw_k8": {
+      "covers_zero": true,
+      "hi": 0.005180584283247303,
+      "lo": -0.09163415749840365,
+      "pool_effect": 0.07528520254488769,
+      "r738": -0.1164173190019604,
+      "r740": -0.04113211645707271,
+      "se": 0.024524384626459023,
+      "true": -0.04113211645707271,
+      "union": -0.1164173190019604
+    },
+    "indep|oracle_k4": {
+      "covers_zero": true,
+      "hi": 0.06210052664551624,
+      "lo": -0.02939148253787549,
+      "pool_effect": 0.08134367733273462,
+      "r738": -0.0637892791496576,
+      "r740": 0.017554398183077025,
+      "se": 0.02318636533512348,
+      "true": 0.017554398183077025,
+      "union": -0.0637892791496576
+    },
+    "indep|topw_k3": {
+      "covers_zero": true,
+      "hi": 0.036003918506972266,
+      "lo": -0.07998633567604768,
+      "pool_effect": 0.10230270624305787,
+      "r738": -0.12374153528233328,
+      "r740": -0.02143882903927541,
+      "se": 0.029968749374266957,
+      "true": -0.02143882903927541,
+      "union": -0.12374153528233328
+    },
+    "indep|topw_k4": {
+      "covers_zero": true,
+      "hi": 0.03408636921042252,
+      "lo": -0.07863058815268209,
+      "pool_effect": 0.09500255572550176,
+      "r738": -0.11812758675171608,
+      "r740": -0.023125031026214327,
+      "se": 0.028998163736504302,
+      "true": -0.023125031026214327,
+      "union": -0.11812758675171608
+    },
+    "indep|topw_k6": {
+      "covers_zero": true,
+      "hi": 0.013390573537985562,
+      "lo": -0.08278088561737285,
+      "pool_effect": 0.08163147412961713,
+      "r738": -0.11549757410076944,
+      "r740": -0.03386609997115231,
+      "se": 0.024980668191383566,
+      "true": -0.03386609997115231,
+      "union": -0.11549757410076944
+    },
+    "indep|topw_k8": {
+      "covers_zero": false,
+      "hi": -0.011566522432261639,
+      "lo": -0.10084099875167929,
+      "pool_effect": 0.0717643008680352,
+      "r738": -0.1273366155258221,
+      "r740": -0.05557231465778689,
+      "se": 0.02342715910522133,
+      "true": -0.05557231465778689,
+      "union": -0.1273366155258221
+    }
+  },
+  "controls": {
+    "G0": true,
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "SHAM": true
+  },
+  "controls_ok": true,
+  "directional_r740_reproduces": true,
+  "gaps": {
+    "greedy": {
+      "excludes_zero": false,
+      "gap": 0.03964194612608364,
+      "hi": 0.0915245825234539,
+      "lo": -0.01093676500926466,
+      "se": 0.02612356502208786
+    },
+    "indep": {
+      "excludes_zero": false,
+      "gap": 0.05105496685668426,
+      "hi": 0.10231341473787496,
+      "lo": -0.00036312451589180783,
+      "se": 0.02632109805678572
+    }
+  },
+  "mean_abs_pool_effect": 0.08570659285114918,
+  "n_dropped": 234,
+  "n_true": 734,
+  "n_union": 968,
+  "pool_size_median_dropped": 10.0,
+  "pool_size_median_surviving": 16.5,
+  "prior_art": [
+    "R738",
+    "R739",
+    "R740"
+  ],
+  "r740_mismatches": 0,
+  "registered": "A 734 [0,968]; B 0.021 [-1,1]; C 1 [0,10]; D 0 [0,2]",
+  "residue": "pool uncertainty needs a second release; the surviving population is selected on pool size",
+  "source_sha": "fe82de871d945ac9",
+  "tree_sha": "c4a99375fccd1b046c5574aab840c1131720e58c",
+  "world": "\u2b50\u2b50\u2b50 W-POOL \u2014 THE DISAGREEMENT WAS THE POOL, AND R738's TEN EXCESSES ARE WITHDRAWN. R738 ran on 968 prompts against a pool built from the union of observed selections; R739 showed that pool is a sample of the candidate set biased by the rules under study; R740 silently used the true candidate set and 734 prompts. The mean absolute pool effect across the ten cells is 0.0857, several times the bootstrap SEs. \u2b50 On the corrected population R740's point estimates reproduce within their own SE in all ten cells, so R740's NUMBERS stand and only its COMPARISON to R738 was wrong \u2014 the sentence calling that difference a sign flip from sampling noise is retracted here. \u2b50\u2b50 The conclusions on one population: 1 of ten excesses exclude zero and 0 of two ordering gaps do, so the ordering remains unresolved and the honest report is a set of bounds. \u26a0 Correcting the pool DROPS 234 prompts, and that is a selection on pool size, not a random subsample; both pool-size distributions are printed above and the surviving population is not the release."
+}

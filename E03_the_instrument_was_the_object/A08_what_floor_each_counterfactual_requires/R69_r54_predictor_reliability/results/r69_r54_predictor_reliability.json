@@ -1,0 +1,36 @@
+{
+ "n_joined": 250,
+ "n_usable": 250,
+ "n_splittable_K_ge_4": 241,
+ "prompts_K_lt_4": 9,
+ "split_half_r": 0.2804955915742883,
+ "spearman_brown": 0.4381047360412022,
+ "level_split_half_r": 0.2080504334548953,
+ "level_spearman_brown": 0.344439979810931,
+ "split_half_r_all": 0.26944197048041557,
+ "spearman_brown_all": 0.424504588230128,
+ "transferred_reliability": 0.657,
+ "half_width_from_r54": 0.1336,
+ "floors": {
+  "optimistic": {
+   "transferred_0657": 0.25372750440230546,
+   "measured": 0.31071431243970243
+  },
+  "pessimistic": {
+   "transferred_0657": 0.2999302723541192,
+   "measured": 0.3672941511559518
+  }
+ },
+ "world": "U UNDER-CREDITED",
+ "controls": {
+  "self": 1.0,
+  "prompt_shuffled": 0.018576628244394648,
+  "positive_control_response_split": 0.6693993836219824,
+  "positive_control_spearman_brown": 0.8019643354241954,
+  "positive_control_shuffled": 0.0038736066070835023,
+  "all_pass": true
+ },
+ "outcome_variable_scope": "This round measures the reliability of r54's PREDICTOR only. The attribution r54 correlates that predictor against is scored by the r08 model gold head, not by humans (entry 50, r47), so the floor computed here still has a proxy-world outcome on the other side. A more reliable predictor does not make the outcome human.",
+ "scope": "Split-half over a prompt's core criteria, 2-2, Spearman-Brown corrected to full length. Both the K>=4 figure and the all-prompts figure are reported; the K<4 prompts split 1-1 and are counted. The donor permutation uses r54's seed over r54's full 250-item list, so the pairing is unchanged. Deterministic given the text: no judge is invoked anywhere in this round, which is the entire point. r54's own --gen default (a12_response_set.json) lacks prompt_ids and would raise KeyError; this round uses a12_fresh_generations.json, the file r54 was run on.",
+ "verdict": "U UNDER-CREDITED. r54's per-prompt overlap collapse is deterministic given the text -- the round calls it an exact text statistic -- and I expected that to mean a HIGH split-half reliability, above r67's 0.657. It is 0.4381, materially BELOW it. Splitting each prompt's core criteria 2-2 and recomputing r54's own containment on each half, over the 241 prompts with four core criteria: split-half +0.2805, Spearman-Brown 0.4381; over all 250 joined prompts including the 9 with three criteria, 0.4245. Controls first: a half against itself 1.0000, against a prompt-shuffled half +0.0186, and -- the load-bearing one -- splitting the RESPONSES instead of the criteria returns 0.8020, so the estimator CAN report a high reliability and its low value here is a fact about the criteria, not about the machinery. I had drawn that conclusion from a second low number before running this control, which would have been silence read as a measurement. WHAT I HAD CONFUSED: determinism is a property of the INSTRUMENT; reliability here is a property of the CRITERIA SAMPLE. A function with zero measurement error still has low split-half reliability when a prompt's own criteria disagree about the quantity. And the instability is not an artifact of the contrast: the raw containment LEVEL, split the same way, is 0.3444 -- already low before any difference is taken, so two criteria from one rubric simply do not share much lexical overlap with the same responses. CONSEQUENCE FOR THE LEDGER: r54's floor RISES from the 0.300 published to 0.367 at the pessimistic outcome reliability (0.311 at the optimistic), so the row already called the ledger's weakest test is weaker still. THE SINGLE RELIABILITY COLUMN IS WRONG IN BOTH DIRECTIONS: entry 117 measured r40's predictor at 0.9132, far ABOVE the transferred 0.657, and this measures r54's at 0.4381, far BELOW it. A ledger-wide reliability is not a conservative simplification -- it moved two rows in opposite directions, and only measuring each predictor separately can say which way."
+}

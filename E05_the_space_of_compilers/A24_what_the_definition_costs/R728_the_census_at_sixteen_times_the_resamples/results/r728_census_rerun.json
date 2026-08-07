@@ -1,0 +1,242 @@
+{
+  "A_at_risk_cells": 1,
+  "A_is_a_derivation": true,
+  "B_changes_at_19200": 0,
+  "B_is_a_derivation": true,
+  "C_changes_from_seed": 0,
+  "D_arms_reproduced": 41,
+  "anchor_extension_reproduced": true,
+  "anchor_matched": 41,
+  "by_B": {
+    "1200": {
+      "changes_vs_shipped": [],
+      "equals_committed": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n_admitted": 5
+    },
+    "19200": {
+      "changes_vs_shipped": [],
+      "equals_committed": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n_admitted": 5
+    },
+    "4800": {
+      "changes_vs_shipped": [],
+      "equals_committed": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n_admitted": 5
+    },
+    "76800": {
+      "changes_vs_shipped": [],
+      "equals_committed": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n_admitted": 5
+    }
+  },
+  "by_seed": {
+    "11": {
+      "changes": [],
+      "equals_committed": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n_admitted": 5
+    },
+    "22": {
+      "changes": [],
+      "equals_committed": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n_admitted": 5
+    },
+    "31337": {
+      "changes": [],
+      "equals_committed": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n_admitted": 5
+    },
+    "33": {
+      "changes": [],
+      "equals_committed": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n_admitted": 5
+    },
+    "44": {
+      "changes": [],
+      "equals_committed": true,
+      "ext": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "n_admitted": 5
+    }
+  },
+  "committed_extension": [
+    "coval_core",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "controls": {
+    "ANCHOR": true,
+    "G0": true,
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "SHAM": true
+  },
+  "controls_ok": true,
+  "directional_identical_everywhere": true,
+  "extension_over_todays_population": [
+    "coval_core",
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "greedy_k4_greedy_kA",
+    "greedy_k4_greedy_kB",
+    "indep_k4_indep_kA",
+    "indep_k4_indep_kB",
+    "oracle_k4_08bR",
+    "oracle_k4_oracle_kA",
+    "oracle_k4_oracle_kB",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_detA",
+    "topw_k4_detB",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "extra_admits_today": [
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "greedy_k4_greedy_kA",
+    "greedy_k4_greedy_kB",
+    "indep_k4_indep_kA",
+    "indep_k4_indep_kB",
+    "oracle_k4_08bR",
+    "oracle_k4_oracle_kA",
+    "oracle_k4_oracle_kB",
+    "topw_k4_detA",
+    "topw_k4_detB"
+  ],
+  "max_abs_delta_lo_vs_shipped": {
+    "1200": 0.0,
+    "19200": 0.001407965740337698,
+    "4800": 0.0013538102312253691,
+    "76800": 0.0011810223901543848
+  },
+  "n_arms_committed": 41,
+  "n_arms_rebuilt_today": 92,
+  "population_drift_absent": [],
+  "population_drift_new_arms": [
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "generic_reprov",
+    "greedy_k4_fit1_08b",
+    "greedy_k4_fit1_08bR",
+    "greedy_k4_greedy_kA",
+    "greedy_k4_greedy_kB",
+    "indep_k4_fit1_08b",
+    "indep_k4_fit1_08bR",
+    "indep_k4_indep_kA",
+    "indep_k4_indep_kB",
+    "oracle_k4_08b",
+    "oracle_k4_08bR",
+    "oracle_k4_fit1_08b",
+    "oracle_k4_oracle_kA",
+    "oracle_k4_oracle_kB",
+    "provenance_probe",
+    "random_k12_s0_08b",
+    "random_k12_s1_08b",
+    "random_k12_s2_08b",
+    "random_k2_s0_08b",
+    "random_k2_s1_08b",
+    "random_k2_s2_08b",
+    "random_k3_s0_08b",
+    "random_k3_s1_08b",
+    "random_k3_s2_08b",
+    "random_k4_s0_08b",
+    "random_k4_s0_ctlS0",
+    "random_k4_s1_08b",
+    "random_k4_s1_ctlS1",
+    "random_k4_s2_08b",
+    "random_k6_s0_08b",
+    "random_k6_s1_08b",
+    "random_k6_s2_08b",
+    "random_k8_s0_08b",
+    "random_k8_s1_08b",
+    "random_k8_s2_08b",
+    "topabs_k4_08b",
+    "topvar_k4_08b",
+    "topvar_k4_08bR",
+    "topw_k12_08b",
+    "topw_k1_08b",
+    "topw_k2_08b",
+    "topw_k3_08b",
+    "topw_k4_08b",
+    "topw_k4_detA",
+    "topw_k4_detB",
+    "topw_k6_08b",
+    "topw_k8_08b",
+    "topwvar_k4_08b",
+    "topwvar_k4_08bR"
+  ],
+  "registered": "A 1 [0,82] deriv; B 0 [0,41] deriv; C 0 [0,41]; D 41 [0,41]",
+  "residue": "whether R294's construction is the right one is not addressed here",
+  "sham_mde_only_sizes": {
+    "1200": 60,
+    "19200": 60,
+    "4800": 60,
+    "76800": 60
+  },
+  "source_sha": "64bfd1b43e0f4f95",
+  "tree_sha": "6cf36cb9affd84cab94441e7495c2c3010b6bb6d",
+  "world": "\u2b50\u2b50\u2b50 W-STABLE, AND FOR THE FIRST TIME AGAINST THE OBJECT. Re-running R294's census from the sat store reproduces its committed verdicts on 41 of 41 arms exactly. Raising the resample count 64-fold, from 1200 to 76800, changes NO admission and leaves the extension identical; so does changing the bootstrap seed at the shipped count, over 5 seeds. \u2b50 The 5-set is neither a resample-count artifact nor a seed artifact. \u26d4 AND MOST OF THAT IS ALGEBRA, NOT EVIDENCE: mde does not depend on B, only the CI lower bound does, and the single cell within Monte-Carlo reach of its CI boundary (random_k8_s0 clause 1, t = 2.1458) is already excluded by the B-invariant half. Zero was forced. What was NOT forced, and is the round's real content, is that my independent re-implementation reproduces the committed census exactly \u2014 every prior round in this arc read the summary and none had checked that the summary is what the object yields. \u26a0 The largest CI movement across the whole B sweep is 0.001408, which is what a null of this shape looks like when it is real rather than silent."
+}

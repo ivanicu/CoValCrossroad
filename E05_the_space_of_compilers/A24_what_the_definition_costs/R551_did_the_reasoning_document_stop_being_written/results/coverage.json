@@ -1,0 +1,37 @@
+{
+  "world": "B",
+  "n_rounds": 254,
+  "last_heading": 541,
+  "n_sections": 39,
+  "n_mentions": 140,
+  "after_last_heading": [
+    542,
+    543,
+    544,
+    545,
+    546,
+    547,
+    548,
+    549,
+    550,
+    551
+  ],
+  "after_with_heading": [],
+  "after_mentioned_only": [],
+  "section_gaps": {
+    "n": 38,
+    "median": 0.0,
+    "max": 71,
+    "tail": 10,
+    "pct_ge_tail": 0.05263157894736842
+  },
+  "mention_gaps": {
+    "n": 139,
+    "median": 0,
+    "max": 25,
+    "tail": 10,
+    "pct_ge_tail": 0.014388489208633094
+  },
+  "tail_anomalous": true,
+  "coverage_rate": 0.15354330708661418
+}

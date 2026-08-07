@@ -1,0 +1,1364 @@
+{
+  "arms": [
+    "coval_core",
+    "coval_core_sham",
+    "full",
+    "full_sham",
+    "gen",
+    "gen_sham",
+    "generic",
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "oracle_k4",
+    "oracle_k4_fit1",
+    "promptecho",
+    "promptecho_sham",
+    "random_k12_s0",
+    "random_k12_s1",
+    "random_k12_s2",
+    "random_k2_s0",
+    "random_k2_s1",
+    "random_k2_s2",
+    "random_k3_s0",
+    "random_k3_s1",
+    "random_k3_s2",
+    "random_k4_s0",
+    "random_k4_s1",
+    "random_k4_s2",
+    "random_k6_s0",
+    "random_k6_s1",
+    "random_k6_s2",
+    "random_k8_s0",
+    "random_k8_s1",
+    "random_k8_s2",
+    "topabs_k4",
+    "topvar_k4",
+    "topw_k1",
+    "topw_k12",
+    "topw_k2",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_sham",
+    "topw_k6",
+    "topw_k8",
+    "topwvar_k4"
+  ],
+  "clause23_admits": [
+    "coval_core",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "clause2_admits": [
+    "coval_core",
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "oracle_k4",
+    "oracle_k4_fit1",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "controls": {
+    "g0": true,
+    "monotone": true,
+    "positive": true,
+    "strongest": 4,
+    "weakest": 13
+  },
+  "k": {
+    "coval_core": 4,
+    "coval_core_sham": 4,
+    "full": 15,
+    "full_sham": 15,
+    "gen": 4,
+    "gen_sham": 4,
+    "generic": 4,
+    "greedy_k4_fit1": 4,
+    "indep_k4_fit1": 4,
+    "oracle_k4": 4,
+    "oracle_k4_fit1": 4,
+    "promptecho": 4,
+    "promptecho_sham": 4,
+    "random_k12_s0": 12,
+    "random_k12_s1": 12,
+    "random_k12_s2": 12,
+    "random_k2_s0": 2,
+    "random_k2_s1": 2,
+    "random_k2_s2": 2,
+    "random_k3_s0": 3,
+    "random_k3_s1": 3,
+    "random_k3_s2": 3,
+    "random_k4_s0": 4,
+    "random_k4_s1": 4,
+    "random_k4_s2": 4,
+    "random_k6_s0": 6,
+    "random_k6_s1": 6,
+    "random_k6_s2": 6,
+    "random_k8_s0": 8,
+    "random_k8_s1": 8,
+    "random_k8_s2": 8,
+    "topabs_k4": 4,
+    "topvar_k4": 4,
+    "topw_k1": 1,
+    "topw_k12": 12,
+    "topw_k2": 2,
+    "topw_k3": 3,
+    "topw_k4": 4,
+    "topw_k4_sham": 4,
+    "topw_k6": 6,
+    "topw_k8": 8,
+    "topwvar_k4": 4
+  },
+  "ledger": [
+    {
+      "clause": "\u2460",
+      "excludes": 0,
+      "objects": "none \u2014 the cell `\u2460 fails, \u2461 passes` is empty by arithmetic",
+      "status": "DERIVED (R347)"
+    },
+    {
+      "clause": "\u2461",
+      "excludes": 33,
+      "objects": "33 of 42 arms fail the blind-reference contrast",
+      "status": "MEASURED"
+    },
+    {
+      "clause": "\u2462",
+      "excludes": 4,
+      "objects": "['greedy_k4_fit1', 'indep_k4_fit1', 'oracle_k4', 'oracle_k4_fit1'] \u2014 forced: clause \u2462 IS `no prompt labels`",
+      "status": "DERIVED"
+    }
+  ],
+  "n_prompts": 968,
+  "nonmonotone_levels": [],
+  "pool": 16,
+  "purge_pct": null,
+  "retained_at_purge": null,
+  "source_name": "run.py",
+  "source_sha256": "ed485929522029a7d4456c6af90620e3d7595faeaa570553daa0eff46700425f",
+  "sweep": [
+    {
+      "admitted": [
+        "coval_core",
+        "gen",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 13,
+      "pct": 0.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 12,
+      "pct": 25.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 11,
+      "pct": 50.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 75.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "generic",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 10,
+      "pct": 80.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 80.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 81.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 81.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 82.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 82.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 83.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 83.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 84.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 84.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 85.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 85.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 86.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 86.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 87.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 87.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 88.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 88.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 89.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 89.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 90.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 90.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 91.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 91.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 92.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 92.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 93.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 93.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 94.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 94.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 9,
+      "pct": 95.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k3",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 8,
+      "pct": 95.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 7,
+      "pct": 96.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 7,
+      "pct": 96.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 7,
+      "pct": 97.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 7,
+      "pct": 97.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k4",
+        "topw_k6"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 7,
+      "pct": 98.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k6"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 6,
+      "pct": 98.5
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k6"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 6,
+      "pct": 99.0
+    },
+    {
+      "admitted": [
+        "coval_core",
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1",
+        "topw_k6"
+      ],
+      "five": [
+        "coval_core",
+        "topw_k6"
+      ],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 6,
+      "pct": 99.5
+    },
+    {
+      "admitted": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "five": [],
+      "labels": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "n": 4,
+      "pct": 100.0
+    }
+  ],
+  "verdict": "W_3_IRREPLACEABLE_MAXIMAL"
+}

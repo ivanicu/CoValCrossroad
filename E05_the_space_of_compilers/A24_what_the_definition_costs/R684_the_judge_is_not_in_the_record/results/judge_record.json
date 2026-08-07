@@ -1,0 +1,1586 @@
+{
+  "world": "\u2b50\u2b50\u2b50 B SILENT \u2014 of 90 rounds whose code references a judge, only 9 (10.0%) record one in their artifact, and 7 record two. \u2b50 SO A READER CANNOT TELL A ONE-JUDGE VERDICT FROM A TWO-JUDGE ONE WITHOUT OPENING THE CODE, and the deliverable inherits exactly that ambiguity \u2014 R683 showed the \u2462 separation resolves at 2B and not at 0.8B, so the judge is not a detail, it is the scope. \u26a0 AND THE CONFOUND IS WHY THIS NUMBER IS SMALL AND NOT ZERO: 270 rounds mention no judge anywhere and are EXCLUDED rather than counted as unrecorded \u2014 absence of a judge key is not evidence of one judge, and folding those in would have manufactured a far worse-looking gap.",
+  "controls_ok": true,
+  "tree_sha": "cfa6612515f3c5dc790674370e5e90943eccb916",
+  "n_rounds": 360,
+  "counts": {
+    "EXCLUDED_no_judge": 270,
+    "UNRECORDED": 81,
+    "RECORDED_MULTI": 7,
+    "RECORDED_ONE": 2
+  },
+  "population": 90,
+  "recorded": 9,
+  "recorded_share": 0.1,
+  "kill_fired": false,
+  "directional_holds": true,
+  "rows": [
+    {
+      "round": "R276",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R284",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R285",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R286",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R287",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R288",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R289",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R290",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R291",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R292",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R293",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R294",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R295",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R296",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R297",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R298",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R299",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R300",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R301",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R302",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R303",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R304",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R305",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R306",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R307",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R308",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R309",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R310",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R311",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R312",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R313",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R315",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R316",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R317",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R318",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R319",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R321",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R322",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R323",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R324",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R325",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R326",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R327",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R328",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R329",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R330",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R331",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R332",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R333",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R334",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R335",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R336",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R337",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R338",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R339",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R340",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R347",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R348",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R353",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R354",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R355",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R356",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R357",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R358",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R359",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R360",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R361",
+      "kind": "RECORDED_MULTI",
+      "keys": [
+        "0.8B",
+        "2B"
+      ]
+    },
+    {
+      "round": "R362",
+      "kind": "RECORDED_MULTI",
+      "keys": [
+        "0.8B",
+        "2B"
+      ]
+    },
+    {
+      "round": "R363",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R364",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R365",
+      "kind": "RECORDED_MULTI",
+      "keys": [
+        "0.8B",
+        "2B"
+      ]
+    },
+    {
+      "round": "R366",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R367",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R368",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R369",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R370",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R371",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R372",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R373",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R374",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R375",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R376",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R377",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R378",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R379",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R380",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R381",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R382",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R383",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R384",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R385",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R386",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R387",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R388",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R389",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R390",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R391",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R392",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R393",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R394",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R395",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R396",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R397",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R398",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R399",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R400",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R401",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R402",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R403",
+      "kind": "RECORDED_ONE",
+      "keys": [
+        "second"
+      ]
+    },
+    {
+      "round": "R404",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R405",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R406",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R407",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R408",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R409",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R410",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R411",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R412",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R413",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R414",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R415",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R416",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R417",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R418",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R419",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R420",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R421",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R422",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R423",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R424",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R425",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R426",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R427",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R429",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R430",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R431",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R432",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R433",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R434",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R435",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R436",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R437",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R438",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R439",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R440",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R441",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R442",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R443",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R445",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R446",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R447",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R448",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R449",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R450",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R451",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R452",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R453",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R454",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R455",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R456",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R457",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R458",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R459",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R460",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R461",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R462",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R463",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R464",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R465",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R466",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R467",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R468",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R469",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R470",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R475",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R476",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R477",
+      "kind": "RECORDED_MULTI",
+      "keys": [
+        "0.8B",
+        "2B"
+      ]
+    },
+    {
+      "round": "R478",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R479",
+      "kind": "RECORDED_MULTI",
+      "keys": [
+        "0.8B",
+        "2B"
+      ]
+    },
+    {
+      "round": "R480",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R481",
+      "kind": "RECORDED_MULTI",
+      "keys": [
+        "0.8B",
+        "2B"
+      ]
+    },
+    {
+      "round": "R482",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R483",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R484",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R485",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R486",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R487",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R488",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R489",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R490",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R491",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R492",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R493",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R494",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R495",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R496",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R497",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R498",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R499",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R500",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R501",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R502",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R503",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R504",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R505",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R506",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R507",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R508",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R509",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R512",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R513",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R514",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R515",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R516",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R517",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R518",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R519",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R520",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R521",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R522",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R523",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R524",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R525",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R526",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R527",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R528",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R529",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R530",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R531",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R532",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R533",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R534",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R535",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R536",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R537",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R538",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R539",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R540",
+      "kind": "RECORDED_MULTI",
+      "keys": [
+        "0.8B",
+        "2B"
+      ]
+    },
+    {
+      "round": "R541",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R542",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R547",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R548",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R549",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R550",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R551",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R552",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R553",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R554",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R555",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R556",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R557",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R558",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R559",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R560",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R561",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R562",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R563",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R564",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R565",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R566",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R567",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R568",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R569",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R571",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R574",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R576",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R591",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R592",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R593",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R594",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R595",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R596",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R597",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R598",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R599",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R600",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R601",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R602",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R603",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R604",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R605",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R606",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R607",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R608",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R609",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R610",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R611",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R612",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R613",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R614",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R615",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R616",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R617",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R618",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R619",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R620",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R621",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R622",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R623",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R624",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R625",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R626",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R627",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R628",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R629",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R630",
+      "kind": "UNRECORDED",
+      "keys": []
+    },
+    {
+      "round": "R631",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R632",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R633",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R634",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R635",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R636",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R637",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R638",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R639",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R640",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R641",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R642",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R643",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R644",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R645",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R646",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R647",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R648",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R649",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R650",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R651",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R652",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R653",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R654",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R655",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R656",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R657",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R658",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R659",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R660",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R661",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R662",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R663",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R664",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R665",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R666",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R667",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R668",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R669",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R670",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R671",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R672",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R673",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R674",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R675",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R676",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R677",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R678",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R679",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R680",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R681",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R682",
+      "kind": "EXCLUDED_no_judge"
+    },
+    {
+      "round": "R683",
+      "kind": "RECORDED_ONE",
+      "keys": [
+        "judge"
+      ]
+    },
+    {
+      "round": "R684",
+      "kind": "UNRECORDED",
+      "keys": []
+    }
+  ],
+  "multi_judge_rounds": [
+    "R361",
+    "R362",
+    "R365",
+    "R477",
+    "R479",
+    "R481",
+    "R540"
+  ],
+  "registered": "A 40% [10,80]; B 7 [2,14]; under-recording dominates; kill if pop<10",
+  "confound": "absence of a judge key is NOT one judge; rounds mentioning no judge are EXCLUDED, never counted unrecorded.",
+  "limit": "'code references a judge' is lexical; a round varying it without a catchable name is excluded, biasing the population DOWN and the share UP."
+}

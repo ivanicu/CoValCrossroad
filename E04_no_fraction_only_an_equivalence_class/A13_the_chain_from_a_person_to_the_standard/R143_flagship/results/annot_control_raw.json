@@ -1,0 +1,440 @@
+{
+ "phi35_mini": [
+  {
+   "field": "force",
+   "known": "veto",
+   "got": "veto",
+   "margin": 0.8565,
+   "correct": true
+  },
+  {
+   "field": "force",
+   "known": "veto",
+   "got": "veto",
+   "margin": 0.9931,
+   "correct": true
+  },
+  {
+   "field": "force",
+   "known": "veto",
+   "got": "veto",
+   "margin": 0.9666,
+   "correct": true
+  },
+  {
+   "field": "force",
+   "known": "soft_preference",
+   "got": "strong_default",
+   "margin": 0.7288,
+   "correct": false
+  },
+  {
+   "field": "force",
+   "known": "soft_preference",
+   "got": "soft_preference",
+   "margin": 0.7753,
+   "correct": true
+  },
+  {
+   "field": "force",
+   "known": "soft_preference",
+   "got": "soft_preference",
+   "margin": 0.7288,
+   "correct": true
+  },
+  {
+   "field": "normative_type",
+   "known": "veto",
+   "got": "veto",
+   "margin": 0.9998,
+   "correct": true
+  },
+  {
+   "field": "normative_type",
+   "known": "right",
+   "got": "right",
+   "margin": 0.4999,
+   "correct": true
+  },
+  {
+   "field": "normative_type",
+   "known": "procedure",
+   "got": "procedure",
+   "margin": 0.9965,
+   "correct": true
+  },
+  {
+   "field": "normative_type",
+   "known": "preference",
+   "got": "preference",
+   "margin": 0.9989,
+   "correct": true
+  },
+  {
+   "field": "normative_type",
+   "known": "principle",
+   "got": "principle",
+   "margin": 0.9971,
+   "correct": true
+  },
+  {
+   "field": "normative_type",
+   "known": "uncertainty",
+   "got": "uncertainty",
+   "margin": 0.999,
+   "correct": true
+  },
+  {
+   "field": "generality",
+   "known": "this_prompt_only",
+   "got": "this_prompt_only",
+   "margin": 0.9997,
+   "correct": true
+  },
+  {
+   "field": "generality",
+   "known": "this_prompt_only",
+   "got": "this_prompt_only",
+   "margin": 0.9997,
+   "correct": true
+  },
+  {
+   "field": "generality",
+   "known": "this_topic_class",
+   "got": "this_topic_class",
+   "margin": 0.8519,
+   "correct": true
+  },
+  {
+   "field": "generality",
+   "known": "this_topic_class",
+   "got": "this_topic_class",
+   "margin": 0.9397,
+   "correct": true
+  },
+  {
+   "field": "generality",
+   "known": "general_policy",
+   "got": "general_policy",
+   "margin": 0.9603,
+   "correct": true
+  },
+  {
+   "field": "generality",
+   "known": "general_policy",
+   "got": "this_prompt_only",
+   "margin": 0.8352,
+   "correct": false
+  },
+  {
+   "field": "confidence",
+   "known": "certain",
+   "got": "certain",
+   "margin": 0.9993,
+   "correct": true
+  },
+  {
+   "field": "confidence",
+   "known": "certain",
+   "got": "tentative",
+   "margin": 0.949,
+   "correct": false
+  },
+  {
+   "field": "confidence",
+   "known": "probable",
+   "got": "tentative",
+   "margin": 0.9984,
+   "correct": false
+  },
+  {
+   "field": "confidence",
+   "known": "probable",
+   "got": "tentative",
+   "margin": 0.97,
+   "correct": false
+  },
+  {
+   "field": "confidence",
+   "known": "tentative",
+   "got": "tentative",
+   "margin": 0.9998,
+   "correct": true
+  },
+  {
+   "field": "confidence",
+   "known": "tentative",
+   "got": "tentative",
+   "margin": 0.9998,
+   "correct": true
+  },
+  {
+   "field": "polarity",
+   "known": "require",
+   "got": "forbid",
+   "margin": 0.9335,
+   "correct": false
+  },
+  {
+   "field": "polarity",
+   "known": "forbid",
+   "got": "forbid",
+   "margin": 0.9946,
+   "correct": true
+  },
+  {
+   "field": "polarity",
+   "known": "prefer",
+   "got": "prefer",
+   "margin": 0.9987,
+   "correct": true
+  },
+  {
+   "field": "polarity",
+   "known": "discourage",
+   "got": "discourage",
+   "margin": 0.9818,
+   "correct": true
+  },
+  {
+   "field": "polarity",
+   "known": "permit",
+   "got": "permit",
+   "margin": 0.9857,
+   "correct": true
+  },
+  {
+   "field": "compensable",
+   "known": "false",
+   "got": "false",
+   "margin": 0.989,
+   "correct": true
+  },
+  {
+   "field": "compensable",
+   "known": "true",
+   "got": "true",
+   "margin": 0.852,
+   "correct": true
+  }
+ ],
+ "qwen25_3b": [
+  {
+   "field": "force",
+   "known": "veto",
+   "got": "veto",
+   "margin": 0.9575,
+   "correct": true
+  },
+  {
+   "field": "force",
+   "known": "veto",
+   "got": "veto",
+   "margin": 1.0,
+   "correct": true
+  },
+  {
+   "field": "force",
+   "known": "veto",
+   "got": "veto",
+   "margin": 1.0,
+   "correct": true
+  },
+  {
+   "field": "force",
+   "known": "soft_preference",
+   "got": "soft_preference",
+   "margin": 0.9998,
+   "correct": true
+  },
+  {
+   "field": "force",
+   "known": "soft_preference",
+   "got": "soft_preference",
+   "margin": 0.999,
+   "correct": true
+  },
+  {
+   "field": "force",
+   "known": "soft_preference",
+   "got": "soft_preference",
+   "margin": 0.999,
+   "correct": true
+  },
+  {
+   "field": "normative_type",
+   "known": "veto",
+   "got": "veto",
+   "margin": 0.9999,
+   "correct": true
+  },
+  {
+   "field": "normative_type",
+   "known": "right",
+   "got": "uncertainty",
+   "margin": 0.9962,
+   "correct": false
+  },
+  {
+   "field": "normative_type",
+   "known": "procedure",
+   "got": "procedure",
+   "margin": 1.0,
+   "correct": true
+  },
+  {
+   "field": "normative_type",
+   "known": "preference",
+   "got": "preference",
+   "margin": 1.0,
+   "correct": true
+  },
+  {
+   "field": "normative_type",
+   "known": "principle",
+   "got": "principle",
+   "margin": 0.9991,
+   "correct": true
+  },
+  {
+   "field": "normative_type",
+   "known": "uncertainty",
+   "got": "uncertainty",
+   "margin": 0.9998,
+   "correct": true
+  },
+  {
+   "field": "generality",
+   "known": "this_prompt_only",
+   "got": "this_topic_class",
+   "margin": 0.9395,
+   "correct": false
+  },
+  {
+   "field": "generality",
+   "known": "this_prompt_only",
+   "got": "this_prompt_only",
+   "margin": 0.9731,
+   "correct": true
+  },
+  {
+   "field": "generality",
+   "known": "this_topic_class",
+   "got": "this_topic_class",
+   "margin": 0.9952,
+   "correct": true
+  },
+  {
+   "field": "generality",
+   "known": "this_topic_class",
+   "got": "this_topic_class",
+   "margin": 0.9766,
+   "correct": true
+  },
+  {
+   "field": "generality",
+   "known": "general_policy",
+   "got": "general_policy",
+   "margin": 0.9689,
+   "correct": true
+  },
+  {
+   "field": "generality",
+   "known": "general_policy",
+   "got": "general_policy",
+   "margin": 0.9297,
+   "correct": true
+  },
+  {
+   "field": "confidence",
+   "known": "certain",
+   "got": "certain",
+   "margin": 0.7055,
+   "correct": true
+  },
+  {
+   "field": "confidence",
+   "known": "certain",
+   "got": "probable",
+   "margin": 0.9617,
+   "correct": false
+  },
+  {
+   "field": "confidence",
+   "known": "probable",
+   "got": "tentative",
+   "margin": 0.9146,
+   "correct": false
+  },
+  {
+   "field": "confidence",
+   "known": "probable",
+   "got": "probable",
+   "margin": 0.9997,
+   "correct": true
+  },
+  {
+   "field": "confidence",
+   "known": "tentative",
+   "got": "tentative",
+   "margin": 0.9235,
+   "correct": true
+  },
+  {
+   "field": "confidence",
+   "known": "tentative",
+   "got": "tentative",
+   "margin": 0.9922,
+   "correct": true
+  },
+  {
+   "field": "polarity",
+   "known": "require",
+   "got": "forbid",
+   "margin": 0.6513,
+   "correct": false
+  },
+  {
+   "field": "polarity",
+   "known": "forbid",
+   "got": "forbid",
+   "margin": 1.0,
+   "correct": true
+  },
+  {
+   "field": "polarity",
+   "known": "prefer",
+   "got": "prefer",
+   "margin": 1.0,
+   "correct": true
+  },
+  {
+   "field": "polarity",
+   "known": "discourage",
+   "got": "prefer",
+   "margin": 0.9816,
+   "correct": false
+  },
+  {
+   "field": "polarity",
+   "known": "permit",
+   "got": "permit",
+   "margin": 0.9999,
+   "correct": true
+  },
+  {
+   "field": "compensable",
+   "known": "false",
+   "got": "false",
+   "margin": 0.9994,
+   "correct": true
+  },
+  {
+   "field": "compensable",
+   "known": "true",
+   "got": "false",
+   "margin": 0.999,
+   "correct": false
+  }
+ ]
+}

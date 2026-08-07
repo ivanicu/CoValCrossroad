@@ -1,0 +1,319 @@
+{
+  "world": "B THE MISMATCH BITES \u2014 43 round(s) accept a narrower key set than the artifacts they reach use, so they read settled rounds as unsettled.",
+  "controls_ok": true,
+  "n_rounds": 310,
+  "n_readers": 195,
+  "groups": {
+    "['verdict']": 15,
+    "['verdict', 'world']": 24,
+    "['world']": 156
+  },
+  "verdict_only_artifacts": 77,
+  "at_risk": [
+    {
+      "round": "R364_how_much_does_the_rubric_channel_carry",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 2
+    },
+    {
+      "round": "R365_is_the_empty_channel_a_2B_statement",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 5
+    },
+    {
+      "round": "R429_is_the_tightest_pair_a_resolved_claim",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 2
+    },
+    {
+      "round": "R430_is_the_null_gap_the_null_or_the_weighting",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 2
+    },
+    {
+      "round": "R431_is_the_excess_statistic_size_confounded",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 1
+    },
+    {
+      "round": "R432_does_the_criteria_axis_have_any_headroom",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 2
+    },
+    {
+      "round": "R433_does_clause_two_transport_with_its_subject",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 2
+    },
+    {
+      "round": "R435_is_a_sufficiency_clause_even_statable",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 2
+    },
+    {
+      "round": "R437_do_the_two_bars_invert_between_releases",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 2
+    },
+    {
+      "round": "R438_does_the_gap_flip_inside_one_release",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 1
+    },
+    {
+      "round": "R440_the_four_clauses_on_one_arm_space",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 2
+    },
+    {
+      "round": "R441_is_the_size_clause_a_clause",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 2
+    },
+    {
+      "round": "R442_the_extension_under_clause_three_as_written",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 3
+    },
+    {
+      "round": "R443_does_clause_three_as_written_exclude_the_core_itself",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 1
+    },
+    {
+      "round": "R445_is_the_extension_empty_on_a_resolved_difference",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 1
+    },
+    {
+      "round": "R463_the_ordering_is_arbitrary_and_says_so",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R464_is_clause_one_vacuous_or_merely_unexercised",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 2
+    },
+    {
+      "round": "R500_do_other_artifacts_assert_worlds_the_record_overturned",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R541_the_throughput_was_measured_on_the_wrong_operation",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 1
+    },
+    {
+      "round": "R568_the_convention_exists_and_it_names_my_error",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 1
+    },
+    {
+      "round": "R591_where_the_four_orphan_values_actually_live",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R592_are_the_codeless_rounds_the_ones_the_statement_leans_on",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R593_do_the_codeless_artifacts_carry_their_own_scope",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R596_what_the_provenance_gate_actually_accepts",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R597_is_the_repaired_allowance_reachable_in_this_document",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R601_does_the_claim_set_carry_the_cross_release_result",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R602_re_derive_the_corpus_overlap_from_the_files",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 5
+    },
+    {
+      "round": "R606_does_provenance_reach_the_rounds_the_page_cites",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R607_which_eras_drive_the_provenance_gap",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R608_what_separates_the_documented_cited_rounds_of_era_three",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R609_is_there_a_transition_at_all_or_only_a_slope",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R610_does_the_switch_appear_in_the_uncited_rounds_too",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R613_how_much_of_the_definition_rests_on_the_documented_era",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R614_narrow_by_necessity_or_by_habit",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R615_can_the_outcome_question_be_asked_at_all",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R616_is_the_cited_sets_form_rate_more_than_chance",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R617_does_the_controls_key_track_running_controls",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R623_what_the_automatic_rule_would_flag",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R624_the_binding_unit_is_a_specification_axis",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R625_adjudicating_the_82",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R629_what_formulation_asserts_alone",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R631_the_unrecorded_retraction",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    },
+    {
+      "round": "R632_how_much_the_ledger_overstates",
+      "accepts": [
+        "world"
+      ],
+      "verdict_only_reachable": 77
+    }
+  ],
+  "closing_lines_examined": 12,
+  "closing_lines_claiming_own_prior_work": 7,
+  "check234": "R632's broken reader was the LEDGER test, not a verdict-key reader; and 'any round predating' drops the conditional that makes it true",
+  "impossible": "whether a conclusion CHANGES needs re-running that round"
+}

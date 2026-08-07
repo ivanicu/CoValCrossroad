@@ -1,0 +1,165 @@
+{
+  "commit": "fd373c8ca031241113be7f4edf05c8a76f27468c",
+  "world": "B",
+  "seed": 916,
+  "n_arms_examined": 129,
+  "n_prompts": 968,
+  "hits": {
+    "coval_core_sham": {
+      "signatures": [
+        "MISDIRECTED"
+      ],
+      "evidence": {
+        "share_equals_whole_rubric": 0.0,
+        "share_not_from_this_prompt": 1.0,
+        "identical_set_every_prompt": false
+      }
+    },
+    "full": {
+      "signatures": [
+        "WHOLE_RUBRIC"
+      ],
+      "evidence": {
+        "share_equals_whole_rubric": 1.0,
+        "share_not_from_this_prompt": 0.0,
+        "identical_set_every_prompt": false
+      }
+    },
+    "full_sham": {
+      "signatures": [
+        "MISDIRECTED"
+      ],
+      "evidence": {
+        "share_equals_whole_rubric": 0.0,
+        "share_not_from_this_prompt": 1.0,
+        "identical_set_every_prompt": false
+      }
+    },
+    "gen": {
+      "signatures": [
+        "MISDIRECTED"
+      ],
+      "evidence": {
+        "share_equals_whole_rubric": 0.0,
+        "share_not_from_this_prompt": 1.0,
+        "identical_set_every_prompt": false
+      }
+    },
+    "gen_sham": {
+      "signatures": [
+        "MISDIRECTED"
+      ],
+      "evidence": {
+        "share_equals_whole_rubric": 0.0,
+        "share_not_from_this_prompt": 1.0,
+        "identical_set_every_prompt": false
+      }
+    },
+    "generic": {
+      "signatures": [
+        "FIXED_CHECKLIST_not_apparatus"
+      ],
+      "evidence": {
+        "share_equals_whole_rubric": 0.0,
+        "share_not_from_this_prompt": 1.0,
+        "identical_set_every_prompt": true
+      }
+    },
+    "genericpool16": {
+      "signatures": [
+        "COMPARATOR",
+        "FIXED_CHECKLIST_not_apparatus"
+      ],
+      "evidence": {
+        "margin_vs_comparator": 0.0,
+        "share_equals_whole_rubric": 0.0,
+        "share_not_from_this_prompt": 1.0,
+        "identical_set_every_prompt": true
+      }
+    },
+    "promptecho": {
+      "signatures": [
+        "MISDIRECTED"
+      ],
+      "evidence": {
+        "share_equals_whole_rubric": 0.0,
+        "share_not_from_this_prompt": 1.0,
+        "identical_set_every_prompt": false
+      }
+    },
+    "promptecho_sham": {
+      "signatures": [
+        "MISDIRECTED"
+      ],
+      "evidence": {
+        "share_equals_whole_rubric": 0.0,
+        "share_not_from_this_prompt": 1.0,
+        "identical_set_every_prompt": false
+      }
+    },
+    "topw_k4_sham": {
+      "signatures": [
+        "MISDIRECTED"
+      ],
+      "evidence": {
+        "share_equals_whole_rubric": 0.0,
+        "share_not_from_this_prompt": 1.0,
+        "identical_set_every_prompt": false
+      }
+    }
+  },
+  "affected_cells": [
+    {
+      "round": "R906",
+      "cell": "FIXED_CHECKLIST",
+      "n_built": 2,
+      "apparatus": [
+        "genericpool16"
+      ]
+    },
+    {
+      "round": "R906",
+      "cell": "OTHER_SOURCE",
+      "n_built": 7,
+      "apparatus": [
+        "coval_core_sham",
+        "full_sham",
+        "gen",
+        "gen_sham",
+        "promptecho",
+        "promptecho_sham",
+        "topw_k4_sham"
+      ]
+    },
+    {
+      "round": "R906",
+      "cell": "RUBRIC_SELECTOR",
+      "n_built": 86,
+      "apparatus": [
+        "full"
+      ]
+    },
+    {
+      "round": "R908",
+      "cell": "topw",
+      "n_built": 16,
+      "apparatus": [
+        "topw_k4_sham"
+      ]
+    }
+  ],
+  "signatures": {
+    "COMPARATOR": "margin against the comparator is exactly 0 \u2014 it IS the comparator",
+    "WHOLE_RUBRIC": "its selection equals the prompt's ENTIRE criterion set; a core is a SUBSET, so the whole rubric is the reference not a candidate",
+    "MISDIRECTED": "its criteria are not drawn from the prompt it scores \u2014 a sham by construction, and \u00a74 calls that a poison"
+  },
+  "errs_toward_candidate": "only three mechanical signatures fire; anything else is left a candidate, so a null is not manufactured",
+  "does_not_decide": "whether an arm SHOULD count as a candidate \u2014 that is partly definitional and this round flags signatures, not intent",
+  "controls": {
+    "positive_comparator_flagged": true,
+    "negative_topw_k4_clean": true,
+    "whole_rubric_is_a_set_comparison": true
+  },
+  "unit_note": "counts are ARMS",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

@@ -1,0 +1,161 @@
+R786 · the rubric-affinity axis has ten points, not two, and R785's n=2 was typed rather than counted
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-06.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R785 measured that `coval_core` paraphrases its rubric (affinity 0.4951 against a 0.0555 null) while
+`gen` does not (0.0865), and that the two arms' clause-② standing runs the same way (q_resolved 0.9978
+against 0.0396). It then reported **"arms with criterion TEXT available: 2"**, declared a correlation
+undefined at n = 2, and closed by saying the axis could not be extended on this site.
+
+⛔ CHECK #388: **THAT POPULATION WAS A HARD-CODED DICT.** R785's E3 reads
+`q782 = {"coval_core": 0.9978, "gen": 0.0396}` — a literal I typed. It never enumerated anything, so
+its "n = 2" could not have come out otherwise. **A check that cannot fail, in the round that caught
+its own placebo.**
+
+⭐ ENUMERATED FROM THE OBJECT INSTEAD: of the arms carrying a `core_*.json`, **9 have criteria that
+are NOT the rubric's** (mean verbatim overlap with `core_full.json` below 0.5): `gen`, `generic`,
+`genericpool16`, `promptecho`, `coval_core_sham`, `full_sham`, `gen_sham`, `promptecho_sham`,
+`topw_k4_sham`. Adding `coval_core`, whose texts live in the release rather than a core file (R782),
+gives **10**. Every other arm with text is rubric-derived at verbatim ≥ 0.986 — affinity 1.0 by
+construction, which R785 asserted correctly and which this round verifies rather than assumes.
+
+⇒ **The correlation R785 called undefined is computable**, and the hypothesis it raised — that clause
+② may score rubric affinity rather than quality — becomes testable rather than merely available.
+
+--------------------------------------------------------------------------------
+DISCLOSURE -- what was already known when this was written
+--------------------------------------------------------------------------------
+The enumeration above (9 non-rubric-derived arms with text, the rest at ≥0.986) comes from check #388
+and is quoted. **No affinity value and no correlation has been computed for any arm other than
+`coval_core` and `gen`.** The world is gated on E3 and on the sham-exclusion specification, neither of
+which is known.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the ENUMERATED population: every arm with criterion text, its verbatim overlap with the prompt's
+    own rubric, and the rubric-derived / not partition. Claim unit = an ARM; instrument unit = a
+    criterion-to-criterion comparison aggregated to the arm. **Not equal**, so every number is
+    aggregated to the conversation and then to the arm, and never reported per criterion.
+E2  rubric affinity (best-match token Jaccard, R785's measure) for each non-rubric-derived arm,
+    with its own cross-conversation null.
+E3  ⭐ the correlation between an arm's rubric affinity and its clause-② standing `q_resolved`, read
+    from R782's persisted artifact rather than typed. **Reported with and without the SHAM arms**,
+    because a sham sits at q_resolved 0.0000 by construction and could manufacture the whole
+    relation.
+E4  what survives for the definition: whether clause ②'s discriminating power covaries with rubric
+    affinity over a population larger than a pair.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1, E2 exact.
+E3 IDENTIFIED ONLY OVER ARMS WITH BOTH QUANTITIES. `q_resolved` exists only for arms in R782's
+   modal-k=4 population; affinity exists only for arms with text. The intersection is the estimand's
+   population and its size is COUNTED IN CODE, never asserted — the specific defect this round exists
+   to repair. Any arm missing either quantity is listed, not silently dropped.
+⚠ AND THE CORRELATION IS OVER ARMS, NOT PROMPTS. n is single digits whatever the intersection turns
+   out to be, so the MDE on a correlation is large and is computed before the number is read.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  arms with a `core_*.json` plus `coval_core` from the release; 968 joined conversations
+instrument  verbatim set intersection and best-match token Jaccard at lengths {3, 4, 5}
+baseline    the cross-conversation pairing for affinity; R782's q_resolved for clause ② standing
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  A RUBRIC-DERIVED ARM HAS AFFINITY 1.0 BY CONSTRUCTION. Its criteria ARE rubric criteria, so the
+    best match is the criterion itself. **DERIVATION**, and it is used as a POSITIVE CONTROL on the
+    affinity instrument rather than reported as a result — an instrument that fails to return 1.0
+    there is broken.
+D2  A SHAM ARM SITS AT q_resolved 0.0000 BY CONSTRUCTION and, being built to break the ingredient,
+    also sits low on affinity. **Including shams could therefore manufacture a correlation from two
+    facts that are both definitional.** The specification is registered here: the correlation is
+    computed BOTH ways and the sham-free figure is the one the claim rests on.
+D3  A CORRELATION OVER SINGLE-DIGIT n HAS AN ENORMOUS MDE. With n arms the MDE on Pearson r at
+    z_eff = 2.80 is roughly `tanh(2.80 / sqrt(n - 3))`, which for n = 8 is about 0.87 and for n = 5
+    about 0.94. **So a "strong correlation" here is nearly uninformative and a null is silence.**
+    Registered before the number so the report cannot be written as though r settled anything.
+D4  R785's n = 2 WAS NOT A MEASUREMENT. A literal dict cannot return a different value, so its
+    population claim had no severity. **DERIVATION about my own code**, and the reason this round
+    counts in code and prints the count beside the list.
+
+STRONGEST CONFOUND, written BEFORE the run: affinity and q_resolved may both be driven by ARM QUALITY
+— a good arm scores well on the judge and also happens to be written in rubric-like language — so a
+correlation would be quality, not affinity. CONTROL IN THE SAME ITERATION: report each arm's raw A2
+beside both quantities, and give the affinity-to-q_resolved relation with A2 held at its observed
+spread, so a reader can see whether the ordering is anything but the A2 ordering.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · AFFINITY TRACKS CLAUSE ② BEYOND THE PAIR. The relation holds over the sham-free population and is
+    not merely the A2 ordering. Then R785's hypothesis has support beyond one bit and the definition
+    must record that ②'s discriminating power covaries with rubric affinity.
+B · THE PAIR WAS COINCIDENCE. Excluding shams, the relation disappears. Then R785's hypothesis is
+    withdrawn, `coval_core` versus `gen` is a two-point coincidence, and the definition records only
+    the paraphrase fact.
+C · UNDERPOWERED, AS D3 PREDICTS. The intersection is too small for any correlation to mean anything.
+    Then the round's product is the ENUMERATION — ten points where R785 said two — and an explicit
+    statement that the hypothesis remains untestable here, with the n that would test it.
+
+PREDICTION MATRIX
+  A -> sham-free relation is monotone in the same direction AND survives the A2 check
+  B -> sham-free relation reverses or vanishes
+  C -> the sham-free intersection has n < 5, where D3's MDE exceeds 0.94
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (R782's artifact loads and carries q_resolved; the enumeration is COMPUTED and its
+   count printed beside the list -- exit 2 otherwise) and PLACEBO fires (an arm against itself gives
+   affinity exactly 1.0) and POSITIVE fires (rubric-derived arms return affinity 1.0, D1) and NULL
+   fires (cross-conversation affinity is resolvedly below own-conversation):
+        sham-free relation monotone and not the A2 ordering  -> WORLD A
+        sham-free relation reverses or vanishes              -> WORLD B
+        sham-free n < 5                                      -> WORLD C
+        otherwise                                            -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT      R782's `size_and_comparator.json` loads and carries `q_resolved`; the arm enumeration is
+            computed in code and its count printed with the list. Exit 2 otherwise.
+PLACEBO     an arm's criteria against themselves: affinity exactly 1.0000.
+POSITIVE    the rubric-derived arms, D1: affinity must return 1.0. An instrument that does not is
+            broken, and this is a DERIVATION serving as an instrument check, not a finding.
+NULL        cross-conversation pairing per arm — R785's valid permutation.
+SHAM-SPLIT  the registered specification: correlation with and without the sham arms, both printed.
+A2-CHECK    the confound's control: each arm's raw A2 printed beside affinity and q_resolved.
+SWEEP       token length {3, 4, 5}.
+MDE         D3's correlation MDE printed BEFORE the correlation, for each population size used.
+UNIT        instrument unit = a criterion-to-criterion comparison; claim unit = an ARM. Unequal, and
+            aggregation is stated: criterion -> conversation -> arm.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+(non-rubric-derived arms) x 3 token lengths for affinity + 2 populations (with/without shams) x 3
+token lengths for the correlation = **6 primary correlation cells**; the whole set is printed with
+its MDE, and the enumeration table is printed entire including the rubric-derived arms that are
+excluded by construction.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+a correlation with useful resolution        tens of arms carrying BOTH criterion text and a
+                                            q_resolved; the intersection here is single digits and
+                                            D3 prices it before the number is read
+semantic rather than lexical affinity       an embedding model; the token measure bounds the lexical
+                                            part only (R785)
+whether affinity CAUSES ② standing          an intervention -- generating an arm at a chosen affinity
+                                            and scoring it, which needs the generator (R605)
+independently replicated                    a second designer; the session prompt forbids agents

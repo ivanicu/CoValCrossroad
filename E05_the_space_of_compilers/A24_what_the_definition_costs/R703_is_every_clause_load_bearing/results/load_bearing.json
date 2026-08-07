@@ -1,0 +1,61 @@
+{
+  "world": "\u2b50\u2b50 A ALL 3 CLAUSES ARE LOAD-BEARING on this population. Each excludes at least one arm the other two admit: F1 provenance -> ['greedy_k4_fit1', 'indep_k4_fit1', 'oracle_k4']; F2 behaviour -> ['coval_core_sham', 'gen', 'gen_sham']; F3 size (repaired) -> ['topw_k6', 'topw_k8']. \u2b50 SO THE FORMULATION IS MINIMAL HERE -- no clause is the decoration \u00a74 warns about, and R519's method that retired \u2460 and \u2463 retires none of these. \u26a0 AND THE UNIT GAP: a clause with unique exclusions on THIS population may be redundant on another, and 41 of these 42 arms are ours. Necessity here is not necessity in general.",
+  "controls_ok": true,
+  "tree_sha": "c05a7264afdd655c76ef3cb390408327cb340846",
+  "rows": [
+    {
+      "clause": "F1 provenance",
+      "n_unique": 4,
+      "unique": [
+        "greedy_k4_fit1",
+        "indep_k4_fit1",
+        "oracle_k4",
+        "oracle_k4_fit1"
+      ],
+      "load_bearing": true
+    },
+    {
+      "clause": "F2 behaviour",
+      "n_unique": 20,
+      "unique": [
+        "coval_core_sham",
+        "gen",
+        "gen_sham",
+        "generic",
+        "promptecho",
+        "promptecho_sham",
+        "random_k2_s0",
+        "random_k2_s1",
+        "random_k2_s2",
+        "random_k3_s0",
+        "random_k3_s1",
+        "random_k3_s2",
+        "random_k4_s0",
+        "random_k4_s1",
+        "random_k4_s2",
+        "topabs_k4",
+        "topvar_k4",
+        "topw_k2",
+        "topw_k4_sham",
+        "topwvar_k4"
+      ],
+      "load_bearing": true
+    },
+    {
+      "clause": "F3 size (repaired)",
+      "n_unique": 2,
+      "unique": [
+        "topw_k6",
+        "topw_k8"
+      ],
+      "load_bearing": true
+    }
+  ],
+  "n_load_bearing": 3,
+  "original_F3_unique": [],
+  "original_F3_was_decoration": true,
+  "kill_fired": false,
+  "directional_holds": true,
+  "registered": "A 3 of 3 load-bearing [0,3]; B F3 unique = 3 [0,10]; kill if any drops zero",
+  "limit": "clauses are tested AS THE LEDGER IMPLEMENTS THEM, not as R701's prose states them; and necessity on a population we built is not necessity in general."
+}

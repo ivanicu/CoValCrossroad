@@ -1,0 +1,78 @@
+{
+ "jaccard_survival_rate": 0.12014690451206715,
+ "tfidf_threshold_matched": 0.6692036714055836,
+ "per_family": {
+  "accuracy_evidence": {
+   "penalty_jaccard": -0.321448991260312,
+   "penalty_tfidf": -0.3135873560401863,
+   "n_pol": 154,
+   "n_non": 636
+  },
+  "actionability": {
+   "penalty_jaccard": -0.351248693444826,
+   "penalty_tfidf": -0.32376437210691356,
+   "n_pol": 181,
+   "n_non": 592
+  },
+  "autonomy_choice": {
+   "penalty_jaccard": -0.15560975609756098,
+   "penalty_tfidf": -0.15560975609756098,
+   "n_pol": 41,
+   "n_non": 50
+  },
+  "balance_plurality": {
+   "penalty_jaccard": -0.3151675485008818,
+   "penalty_tfidf": -0.3028218694885361,
+   "n_pol": 70,
+   "n_non": 162
+  },
+  "clarity_format": {
+   "penalty_jaccard": -0.26635416666666667,
+   "penalty_tfidf": -0.2763541666666667,
+   "n_pol": 256,
+   "n_non": 600
+  },
+  "cultural_context": {
+   "penalty_jaccard": -0.2406699838237402,
+   "penalty_tfidf": -0.2115240493887831,
+   "n_pol": 365,
+   "n_non": 669
+  },
+  "empathy_tone": {
+   "penalty_jaccard": -0.27080896686159844,
+   "penalty_tfidf": -0.24532163742690058,
+   "n_pol": 135,
+   "n_non": 456
+  },
+  "legality_policy": {
+   "penalty_jaccard": -0.26709526592635885,
+   "penalty_tfidf": -0.24764131251565502,
+   "n_pol": 203,
+   "n_non": 413
+  },
+  "neutrality_nonjudgment": {
+   "penalty_jaccard": -0.2297372581495144,
+   "penalty_tfidf": -0.19074004366483474,
+   "n_pol": 185,
+   "n_non": 359
+  },
+  "other": {
+   "penalty_jaccard": -0.23885938026541714,
+   "penalty_tfidf": -0.24876037036442705,
+   "n_pol": 617,
+   "n_non": 909
+  },
+  "safety_harm": {
+   "penalty_jaccard": -0.3162219076880588,
+   "penalty_tfidf": -0.3073324817896227,
+   "n_pol": 166,
+   "n_non": 349
+  }
+ },
+ "spearman_rho": 0.8909090909090911,
+ "spearman_p": 0.00023345817037873182,
+ "families_negative_under_both": 11,
+ "families": 11,
+ "verdict": "CONFIRMED under a second instrument: the polarization penalty is negative in every family under both, and the family ordering agrees",
+ "note": "supplies the second instrument r05's docstring assumed. The cited embedding result (0.736 vs 0.520) is computed nowhere in this repository or its history and remains UNVERIFIED. Both instruments here are lexical, so a shared blindness to paraphrase is not excluded."
+}

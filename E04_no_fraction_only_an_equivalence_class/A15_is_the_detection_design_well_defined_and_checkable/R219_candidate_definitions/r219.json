@@ -1,0 +1,199 @@
+{
+ "n_rubrics": 986,
+ "C1": {
+  "n_core": 3899,
+  "matched_median": 0.4444444444444444,
+  "matched_mean": 0.5031772427263771,
+  "shuffled_median": 0.05,
+  "shuffled_mean": 0.04883503114589008,
+  "zero_overlap_share": 0.00307771223390613,
+  "operations": {
+   "verbatim": 357,
+   "truncation": 300,
+   "merge": 2021,
+   "rewrite": 1221
+  },
+  "operation_shares": {
+   "verbatim": 0.09156193895870736,
+   "truncation": 0.07694280584765324,
+   "merge": 0.5183380353936907,
+   "rewrite": 0.3131572197999487
+  },
+  "dropped_share": 0.744294333683106
+ },
+ "C2": {
+  "pairs": 134307,
+  "near_parallel_pairs": 7618,
+  "near_parallel_share": 0.056720796384402895,
+  "scale_ratio_median": 1.256625571312164,
+  "scale_ratio_p90": 2.0976176963403033,
+  "norm_median": 15.329709716755891,
+  "norm_max_over_min": 37.416573867739416
+ },
+ "C3": {
+  "rankings": 4901,
+  "with_veto": 3108,
+  "veto_share": 0.6341562946337482,
+  "distinct_prompt_ranking_pairs": 3049,
+  "same_ranking_different_veto": 468,
+  "ambiguous_share": 0.15349294850770745
+ },
+ "C5": {
+  "rubrics": 986,
+  "top_criterion_changes_under_sign_flip": 986,
+  "share": 1.0
+ },
+ "walkthrough": {
+  "n_full": 14,
+  "n_core": 4,
+  "full": [
+   {
+    "criterion": "pick a clear side in the beef debate and argue for it instead of remaining strictly neutral",
+    "n": 14,
+    "mean": -5.57
+   },
+   {
+    "criterion": "respect and highlight cultural heritage as a valid reason for continuing beef consumption",
+    "n": 14,
+    "mean": 1.71
+   },
+   {
+    "criterion": "prioritize environmental impacts over other considerations when discussing whether to eat beef",
+    "n": 14,
+    "mean": 1.86
+   },
+   {
+    "criterion": "frame individual freedom and personal choice as the central criterion in deciding about beef",
+    "n": 14,
+    "mean": 5.43
+   },
+   {
+    "criterion": "stress animal welfare and cow sentience as the key moral factor against eating beef",
+    "n": 14,
+    "mean": 1
+   },
+   {
+    "criterion": "include concrete data or citations to support claims about beef\u2019s health, ethical, or environmental effects",
+    "n": 14,
+    "mean": 5
+   },
+   {
+    "criterion": "Guilt-trip the user into believing that consuming meat is unethical and immoral.",
+    "n": 1,
+    "mean": -5
+   },
+   {
+    "criterion": "Discourage the user against consuming any kinds of meat product.",
+    "n": 1,
+    "mean": -4
+   },
+   {
+    "criterion": "Not provide a moral response that blames people who eat or don't eat beef",
+    "n": 1,
+    "mean": 5
+   },
+   {
+    "criterion": "include optional information or citations about the benefits of vegetarianism or veganism in case the user wants to change their diet.",
+    "n": 1,
+    "mean": 4
+   },
+   {
+    "criterion": "Use facts and arguments from studies instead of the meaning from people",
+    "n": 1,
+    "mean": 9
+   },
+   {
+    "criterion": "Acknowledge regional differences in impact.",
+    "n": 1,
+    "mean": 4
+   },
+   {
+    "criterion": "Compare beef to alternative protein sources.",
+    "n": 1,
+    "mean": 5
+   },
+   {
+    "criterion": "gives arguments in favor and against beef eating",
+    "n": 1,
+    "mean": 8
+   }
+  ],
+  "core_match": [
+   {
+    "core": "Frame individual freedom and personal choice as the central criterion.",
+    "best": [
+     {
+      "jaccard": 0.778,
+      "criterion": "frame individual freedom and personal choice as the central criterion in deciding about beef",
+      "n": 14,
+      "mean": 5.43
+     },
+     {
+      "jaccard": 0.0,
+      "criterion": "pick a clear side in the beef debate and argue for it instead of remaining strictly neutral",
+      "n": 14,
+      "mean": -5.57
+     }
+    ]
+   },
+   {
+    "core": "Support claims with evidence from studies, using concrete data or citations.",
+    "best": [
+     {
+      "jaccard": 0.357,
+      "criterion": "include concrete data or citations to support claims about beef\u2019s health, ethical, or environmental effects",
+      "n": 14,
+      "mean": 5
+     },
+     {
+      "jaccard": 0.071,
+      "criterion": "Use facts and arguments from studies instead of the meaning from people",
+      "n": 1,
+      "mean": 9
+     }
+    ]
+   },
+   {
+    "core": "Give arguments both for and against eating beef.",
+    "best": [
+     {
+      "jaccard": 0.5,
+      "criterion": "gives arguments in favor and against beef eating",
+      "n": 1,
+      "mean": 8
+     },
+     {
+      "jaccard": 0.214,
+      "criterion": "stress animal welfare and cow sentience as the key moral factor against eating beef",
+      "n": 14,
+      "mean": 1
+     }
+    ]
+   },
+   {
+    "core": "Acknowledge regional differences in impact.",
+    "best": [
+     {
+      "jaccard": 1.0,
+      "criterion": "Acknowledge regional differences in impact.",
+      "n": 1,
+      "mean": 4
+     },
+     {
+      "jaccard": 0.0,
+      "criterion": "pick a clear side in the beef debate and argue for it instead of remaining strictly neutral",
+      "n": 14,
+      "mean": -5.57
+     }
+    ]
+   }
+  ]
+ },
+ "C1_shuffle_seeds": [
+  0.05,
+  0.05,
+  0.05,
+  0.05,
+  0.05
+ ]
+}

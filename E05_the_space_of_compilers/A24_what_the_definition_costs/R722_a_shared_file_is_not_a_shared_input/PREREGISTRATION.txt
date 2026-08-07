@@ -1,0 +1,82 @@
+R722 — PRE-REGISTERED BEFORE ANY CODE.  written 2026-08-05.
+
+CHECK #324 ON R721's NEXT LINE — IT HOLDS, AND MY FIRST PROBE OF IT WAS AN UNCONTROLLED SEARCH.
+  ✓ 11 sources with 3 shared, `clause_ledger.json` read by 4 of 6, and R680's `derivers` is a list of
+    ROUND ids — it counted rounds, not fields. All three confirmed from the committed artifacts.
+  ⛔ BUT THE PROBE I RAN TO ANSWER IT RETURNED FIELDS FOR R404 AND R405 AND NOTHING FOR R408 AND
+    R667. That is SILENCE, not zero: my regex matched a handful of subscript shapes and the other two
+    rounds access the ledger some other way. §4 — a search is an instrument and has no positive
+    control — and reporting "R408 reads no fields" would have been a fabricated zero.
+
+ESTIMAND
+  For the 4 rounds that read `clause_ledger.json`, WHICH FIELDS each reads, and how many fields are
+  read by more than one of them. A shared FILE is not a shared INPUT: two rounds reading disjoint
+  fields of one file share a path and no data.
+  Rounds the extractor cannot parse are reported UNMEASURED and are never counted as zero.
+
+IDENTIFICATION
+  Partially identified by construction. ⚠ Field access can be written in ways no fixed pattern
+  catches — a variable key, a helper, a comprehension over `.items()`. The estimand is therefore a
+  LOWER BOUND on sharing over the rounds the extractor parses, and the unparsed rounds bound how far
+  that can be trusted. Both numbers are reported.
+
+SCOPE
+  population : the 4 rounds R721 found reading `clause_ledger.json` — R404, R405, R408, R667
+  instrument : a field extractor over each round's executable source, with a coverage report
+               instrument unit = A FIELD ACCESS IN SOURCE
+               claim unit      = WHETHER TWO COMPUTATIONS SHARE AN INPUT
+               ⚠ NOT EQUAL — an access I cannot see is not an access that is absent, and the gap
+               between these two is the whole reason this round exists rather than the last one's
+               three-line probe.
+  baseline   : R721's file-level sharing — 3 shared files, one read by 4 of 6
+  regime     : this repository at HEAD
+
+WORLDS
+  A SHARED INPUT       the parsed readers converge on one or more common fields ⇒ the file-level
+                       sharing understates the dependence, and R721's qualification was right
+  B SHARED FILE ONLY   the parsed readers read disjoint fields ⇒ the sharing is nominal and R721's
+                       "not disjoint evidences" was too pessimistic
+  C UNMEASURABLE       coverage is too low to say ⇒ report the coverage as the finding, and leave
+                       R721's qualification standing unrefined
+
+PREDICTION MATRIX               A          B          C
+  parsed readers               >= 3       >= 3       <= 2
+  fields shared by >1          >= 1        0         n/a
+
+REGISTERED
+  POINT A  readers the extractor PARSES, of 4: 3, interval [1, 4]
+  POINT B  fields read by more than one PARSED reader: 1, interval [0, 5]
+  POINT C  the most-shared field's reader count: 2, interval [0, 4]
+  DIRECTIONAL (separately failable)  coverage is INCOMPLETE — at least one of the 4 is UNMEASURED,
+           so the round reports a lower bound rather than a count.
+  KILL (conditional — evaluated ONLY if the POSITIVE recovers a known field and g=0 returns none):
+     parsed readers <= 2 → world C, report coverage and refine nothing;
+     fields shared by >1 == 0 among parsed readers → world B, and R721's qualification is softened
+       with the coverage stated beside it.
+
+CONTROLS
+  POSITIVE   R404's access to `clause2_admits` is stateable independently — R360's ledger defines the
+             field and R404 is a clause-two round. The extractor must recover it. A field reader that
+             cannot find a field in the round whose subject IS that field is not reading fields.
+  g=0        a source with no ledger access — this round's own PREREGISTRATION — must yield zero
+             fields, and a round the extractor cannot parse must yield UNMEASURED, a DISTINCT value
+             from zero. The two must never print the same string.
+  NEGATIVE   run the extractor over R360 itself, which WRITES the ledger rather than reading it; the
+             fields it names are the file's schema, so recovering them shows the extractor is
+             matching field names and not reader-specific idiom.
+  SHAM       extract from each reader's DOCSTRING only. The executable body is the ingredient, and a
+             docstring-only pass should find far fewer fields.
+  PLACEBO    two identical runs differ by exactly 0.
+  COVERAGE   the share of the 4 that parse is reported as a first-class number, not a footnote.
+
+SPECIFICATION SWEEP
+  pattern set ∈ {subscript only, subscript + .get, subscript + .get + json.load-var tracking}
+  × population ∈ {the 4 readers, R360 the writer} = 6 cells, all reported with coverage.
+MULTIPLICITY  6 cells; counts are exact, so no p-values are computed and none are implied.
+SEEDS  not applicable — the extraction is deterministic; stated rather than faked.
+ARTIFACT  results/fields.json — per reader, the fields found, the pattern that found them, and the
+          parse verdict; plus the shared-field table.
+IMPOSSIBLE
+  proving a round does NOT read a field — absence of a match is not absence of access, which is why
+    UNMEASURED exists as a value.
+  cross-release.

@@ -1,0 +1,152 @@
+{
+ "world": "⭐⭐⭐ A THERE IS A RESIDUE, AND IT IS 2 OF 12 BLOCKS. Reported first because §0.2 requires it: the statement carries 2 asserting block(s) that no later round has amended — ⭐ §4's FALSIFIER DOES NOT FIRE AGAINST ③ *(R688)*; ⭐ LINEAGE OF THE EXTENSION — what supports the number 5 *(R6. ⭐ THAT IS WHAT THIS ARC HAS PRODUCED, and it is a claim with its scope attached rather than a count of my own retractions — which is the metric §0.2 opens by forbidding, and which R717's closing line asked me to compute. ⚠ WHAT IT COST, in one line: 12 blocks, 4 assert, 3 record a withdrawal, 3 qualify, and 3 carry a later round's amendment. ⛔⛔ AND THE LOAD-BEARING CAVEAT: STANDING UNAMENDED IS NOT TRUTH. It means unattacked. This arc withdrew F2's A2 justification, its sham residual and its exclusion count in three consecutive rounds, and every one of those blocks stood unamended until the round that killed it. ⚠ The marker reading is a CONVENTION I wrote, positive-controlled against two blocks whose status is independently stateable, and the amendment test is exact but blind to a correction that cites no round. ⚠ UNIT GAP: instrument unit is A CLAIM BLOCK, claim unit is WHAT THE CAMPAIGN HAS PRODUCED.",
+ "controls_ok": true,
+ "tree_sha": "8baeda06fcd6e4c0484b66f554e8511b569e383a",
+ "n_blocks": 12,
+ "n_asserts": 4,
+ "n_withdraws": 3,
+ "n_qualifies": 3,
+ "n_amended": 3,
+ "standing": [
+  "⭐ §4's FALSIFIER DOES NOT FIRE AGAINST ③ *(R688)*",
+  "⭐ LINEAGE OF THE EXTENSION — what supports the number 5 *(R676–R682)*"
+ ],
+ "blocks": [
+  {
+   "heading": "⭐⭐⭐ THE FORMULATION THE AUDIT SUPPORTS — THREE CLAUSES *(R701)*",
+   "marker": "ASSERTS",
+   "head_rounds": [
+    701
+   ],
+   "max_body": 715,
+   "amended": true,
+   "why": "body cites R715 > heading R701"
+  },
+  {
+   "heading": "⛔⛔ ② IS AN A2 THRESHOLD, SO ANY A2-BASED CHECK OF ② IS CIRCULAR *(R696)*",
+   "marker": "WITHDRAWS",
+   "head_rounds": [
+    696
+   ],
+   "max_body": 684,
+   "amended": false,
+   "why": "no body citation outranks R696"
+  },
+  {
+   "heading": "⚠ THE DEFINITION IS TWO PARAMETERS WE CHOSE, PLUS THE SHAM *(R694)*",
+   "marker": "QUALIFIES",
+   "head_rounds": [
+    694
+   ],
+   "max_body": null,
+   "amended": false,
+   "why": "no body citation outranks R694"
+  },
+  {
+   "heading": "⚠ ② IS 88.1% RECOVERABLE FROM THE GENERATOR'S NAME *(R693)*",
+   "marker": "QUALIFIES",
+   "head_rounds": [
+    693
+   ],
+   "max_body": null,
+   "amended": false,
+   "why": "no body citation outranks R693"
+  },
+  {
+   "heading": "⭐⭐⭐ HELD OUT, THE NAME IS WORTH `+0.000` — AND THAT BOUNDS THE TWO BLOCKS ABOVE *(R704)*",
+   "marker": "ASSERTS",
+   "head_rounds": [
+    704
+   ],
+   "max_body": 705,
+   "amended": true,
+   "why": "body cites R705 > heading R704"
+  },
+  {
+   "heading": "⛔⛔ THE RELEASE SHIPS ONE CORE **GENERATOR** AND **986 CORE INSTANCES** — `published_five` IS RETRACTED *(R689; unit corrected by R714)*",
+   "marker": "WITHDRAWS",
+   "head_rounds": [
+    689,
+    714
+   ],
+   "max_body": 714,
+   "amended": false,
+   "why": "no body citation outranks R714"
+  },
+  {
+   "heading": "⭐ §4's FALSIFIER DOES NOT FIRE AGAINST ③ *(R688)*",
+   "marker": "ASSERTS",
+   "head_rounds": [
+    688
+   ],
+   "max_body": 683,
+   "amended": false,
+   "why": "no body citation outranks R688"
+  },
+  {
+   "heading": "⛔ THE JUDGE IS RARELY IN THE RECORD *(R684)*",
+   "marker": "WITHDRAWS",
+   "head_rounds": [
+    684
+   ],
+   "max_body": 685,
+   "amended": true,
+   "why": "body cites R685 > heading R684"
+  },
+  {
+   "heading": "⚠ SCOPE CONDITION ON ③ — the separation is INSTRUMENT-DEPENDENT *(R683, from R361's exact null)*",
+   "marker": "QUALIFIES",
+   "head_rounds": [
+    683,
+    361
+   ],
+   "max_body": 361,
+   "amended": false,
+   "why": "no body citation outranks R683"
+  },
+  {
+   "heading": "⭐ LINEAGE OF THE EXTENSION — what supports the number 5 *(R676–R682)*",
+   "marker": "ASSERTS",
+   "head_rounds": [
+    676,
+    682
+   ],
+   "max_body": 682,
+   "amended": false,
+   "why": "no body citation outranks R682"
+  },
+  {
+   "heading": "`② ∧ ③` is evaluable on exactly ONE object, and no second object exists on this disk.",
+   "marker": "PLAIN",
+   "head_rounds": [],
+   "max_body": 644,
+   "amended": null,
+   "why": "UNKNOWN — the heading cites no round, so nothing can outrank it"
+  },
+  {
+   "heading": "Provenance cannot be INFERRED. It must be DECLARED, and then checked.",
+   "marker": "PLAIN",
+   "head_rounds": [],
+   "max_body": 631,
+   "amended": null,
+   "why": "UNKNOWN — the heading cites no round, so nothing can outrank it"
+  }
+ ],
+ "sham_definition_md": {
+  "blocks": 79,
+  "amended": 5
+ },
+ "negative_scrambled_counts": [
+  4,
+  4,
+  2
+ ],
+ "registered": "A blocks 12 [8,20]; B asserts 4 [2,10]; C asserts amended 2 [0,4]; directional withdrawals+qualifications > assertions",
+ "observed": {
+  "A": 12,
+  "B": 4,
+  "C": 2,
+  "directional": true
+ },
+ "limit": "STANDING UNAMENDED IS NOT TRUTH — it is unattacked. Three F2 blocks stood unamended until the round that killed each. And the marker reading is a convention, positive-controlled but not a measurement."
+}

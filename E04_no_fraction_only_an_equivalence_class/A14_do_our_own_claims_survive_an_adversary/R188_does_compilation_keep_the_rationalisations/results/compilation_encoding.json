@@ -1,0 +1,25 @@
+{
+ "criteria": 8217,
+ "survived": 612,
+ "mean_encoding": 0.05181912651810978,
+ "encoding_sd": 0.2169291453233282,
+ "groups_mixed": 373,
+ "within_group_diff": 0.013113967053362494,
+ "se": 0.012395970091632607,
+ "null_mean": -0.0007398022331279333,
+ "null_sd": 0.01261537396402649,
+ "z": 1.098165565760896,
+ "perms": 300,
+ "naive_diff": 0.006051336727960696,
+ "coherence_check": {
+  "corr_signed_weight_encoding": 0.3793279801196781,
+  "bands": {
+   "-10..-3": -0.07185417477617616,
+   "-3..3": 0.03945176408666631,
+   "3..7": 0.09682832783446753,
+   "7..10": 0.11993704125402761
+  },
+  "reading": "monotone in signed weight, which is what correct scale use predicts; a positive control on judge + text + weight + ranking agreeing"
+ },
+ "instrument": "Qwen3.5-2B-Base rebuilt judge; the contrast is within author and prompt so judge bias cannot align with survival"
+}

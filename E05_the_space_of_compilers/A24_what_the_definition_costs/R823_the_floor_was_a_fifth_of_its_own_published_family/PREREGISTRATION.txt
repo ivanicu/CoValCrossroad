@@ -1,0 +1,89 @@
+R823 · ④'s FLOOR WAS THE MAX OVER A FIFTH OF ITS OWN PUBLISHED FAMILY
+
+CHECK #425. R822's NEXT — "does any arm clear the 0.0028 swing" — FAILS THE ARITHMETIC RUNG: most
+arms' ② margins are an order of magnitude larger, so the answer is forced. That is the THIRD NEXT
+line in three rounds carrying a derivation, and ledger 1250 predicted exactly this.
+
+WHAT THE CHECK FOUND INSTEAD, and it attacks yesterday's commit directly.
+  · DEFINITION.md:118 states ④'s scope as "a 30-RULE hand-built family standing in for 'every
+    criterion-free rule'. The family is published in R435's artifact so that EXTENDING IT IS HOW
+    THIS CLAUSE GETS REFUTED." The file names its own refutation route and invites it.
+  · R803 built SIX rules: {characters, tokens, position} x {longer, shorter}. Its floor is 0.4557.
+  · ALL SIX ARE MEMBERS OF R435's THIRTY. R803 took the max over a 20% SUBSET of a family that was
+    already published, on the same object, for exactly this purpose.
+  · R821 (mine, yesterday) retained clause ④ as "free-but-real" on the strength of `0 of 58`
+    measured against THAT SUBSET's max.
+  · R435's unused 24 include max_distinct_words, max_sentences, max_commas, max_uppercase, several
+    of which outscore several arms on R435's own population.
+  · This is R528 transposed. R528 emptied ②∧③ by taking ②'s class maximum literally over 1,820
+    subsets instead of the published p93.7 comparator. Nobody did it for ④.
+
+ESTIMAND
+  E1  ④'s floor on R803's population under the FULL 30-rule family vs the 6-rule subset, and the
+      per-rule table so the gap is attributable
+  E2  ⭐ ④'s exclusion count over the 58 arms at the 30-rule floor. Does ④ bind at home?
+  E3  the HELD-OUT floor: max fitted on half the prompts, evaluated on the other half, at 6 and 30.
+      An in-sample max over a larger class is optimistic; ④ as written needs the generalising bar.
+  E4  the decision, and the repair to DEFINITION.md / STATEMENT.md if ④'s status changes
+
+DERIVED FIRST -- BEFORE ANY COMPUTE
+  D1  ⛔ MAX OVER A SUPERSET IS MONOTONE NON-DECREASING. "The floor rises" is FORCED and is NOT a
+      finding. The measurable questions are BY HOW MUCH, WHETHER IT CROSSES ANY ARM, and HOW MUCH
+      OF THE RISE IS WINNER'S CURSE. Reporting the rise itself as evidence is the arithmetic trap.
+  D2  A max over m draws rises with m even when every draw is pure noise. So the 6->30 rise
+      decomposes into REAL CLASS RICHNESS + SELECTION. The sham (30 RANDOM rules, matched size)
+      measures the selection part; only the excess over the sham is attributable to the features.
+  D3  R435's numbers are on 7,342 items / 2,200 conversations; R803's on 968 prompts. THE TWO ARE
+      NOT COMPARABLE AS PUBLISHED. Every rule is recomputed here on R803's population so the
+      comparison is within one population. R435's 0.5135 for max_len_chars is NOT expected to
+      reproduce and its non-reproduction is not evidence of anything.
+  D4  ④ says "better than EVERY rule computable from the response set alone". The in-sample max
+      over a finite family UNDERSTATES an infinite class; the held-out max is the honest estimate
+      of what a rule that must generalise can reach. Both are reported; neither alone is the bar.
+
+WORLDS
+  A  SATURATED — the 30-rule floor is within the noise floor of the 6-rule floor and crosses no arm.
+     R821's retention stands, now scoped to 30 rules instead of 6.
+  B  ④ BINDS AT HOME — the 30-rule floor crosses one or more arms. "④ excludes 0 of 58" is an
+     artifact of a 6-rule class, and yesterday's "free-but-real" verdict is DOWNGRADED: ④ is a
+     BINDING clause and the definition's extension shrinks.
+  C  SELECTION ONLY — the rise is inside the sham's own rise, so the extra 24 rules add nothing the
+     same number of random scorers would not. The floor is a function of CLASS SIZE, not of the
+     features, and ④'s bar is not well-defined without fixing m.
+
+PREDICTION MATRIX
+  A -> floor_30 - floor_6 < noise floor; exclusions stay 0; sham rise ~= real rise
+  B -> floor_30 crosses >=1 arm's CI; exclusion count > 0; rise EXCEEDS the sham's
+  C -> rise ~= sham rise but LARGE; exclusions may be >0 but are attributable to m, not to features
+
+CONTROLS
+  OBJECT     the 6-rule subset must reproduce R803's committed 0.4557 to <5e-5 on this population,
+             using THIS round's feature code. Exit 2 otherwise. This validates 30 new feature
+             implementations against a known answer before any of them is trusted.
+  PLACEBO    a rule against itself -> exactly 0.
+  POSITIVE   plant an arm at floor_30 - delta for delta in {0.10, 0.05, 0.01, 0.00}; ④ must remove
+             every delta>0 and NOT the one at delta=0 (the control must be able to fail).
+  NEGATIVE   each arm replaced by a synthetic arm RESAMPLED from the floor's own per-prompt
+             distribution. ⛔ NOT a permutation: R821 derived that ④'s statistic is
+             permutation-invariant by algebra. Enforced by assurance/null_is_informative.py.
+  SHAM       ⭐ THE LOAD-BEARING ONE. 30 RANDOM per-response scorers, matched in count, drawn from
+             the same distribution shape. Their max is the bar a class of this SIZE reaches on
+             noise. The 6->30 rise is attributable to the features ONLY in excess of this.
+  NOISE FLOOR  20 half-splits of the floor itself, computed at m=6 and m=30.
+
+MULTIPLICITY   58 arms x 2 families, BH q=0.05 over the whole grid; non-survivors printed.
+
+PRE-REGISTERED KILL -- conditional, gated on the controls
+  if placebo == 0 and positive fires at delta>0 and NOT at delta=0 and the negative sits on zero:
+      if floor_30 crosses >=1 arm (hi < 0) and (floor_30 - floor_6) > (sham_30 - sham_6):  WORLD B
+      elif floor_30 - floor_6 <= noise_floor_6 and exclusions == 0:                        WORLD A
+      else:                                                                                WORLD C
+  else:
+      UNVERIFIED   -- never OVERTURNED, never CONFIRMED
+
+STOPPING RULE   If WORLD B, R821's "free-but-real" verdict is DOWNGRADED and the repair lands in
+DEFINITION.md's head annotation, its R821 section, STATEMENT.md and the ledger IN THE SAME COMMIT.
+R821 itself retracted a repair that reached one place and not the other; a fourth instance here
+would be the pattern rather than the accident.
+
+BUDGET   one run under 25 min on the .venv; no GPU. Two seeds byte-identical or it does not ship.

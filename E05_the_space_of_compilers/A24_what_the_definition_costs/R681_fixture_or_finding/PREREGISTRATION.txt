@@ -1,0 +1,29 @@
+R681 · PRE-REGISTRATION — written before any AST is parsed for this question.
+
+THE GAP  R680 found 12 of 20 rounds carry the ③ extension as code literals, three of them as a
+         complete five-element list. A literal is not automatically a defect: a FIXTURE the round
+         compares against is legitimate, a value the round REPORTS as its own finding is circular.
+         Nothing in the corpus marks which is which.
+
+POPULATION  all 12 restating rounds, not only the three 5/5 ones. Restricting to the extreme cases
+            would be choosing the sample after seeing the values.
+
+POINT A     5 of the 12 have the literal reach an OUTPUT field (json.dump / a results dict).
+INTERVAL A  [2, 10]
+POINT B     of the three 5/5 rounds, 2 reach an output field.
+INTERVAL B  [0, 3]
+DIRECTIONAL (separately failable) R676 -- my own round, which censused set membership while
+            hard-coding a set -- has its literal reach an output field.
+KILL        if the AST cannot classify at least half the population as FIXTURE or OUTPUT, the test
+            is not identified here and no share is reported, only the classified subset with its
+            size stated.
+CONTROLS
+  POSITIVE  a synthetic source whose literal is passed to json.dump must classify OUTPUT.
+  g=0       a synthetic source whose literal is only COMPARED must classify FIXTURE, not OUTPUT --
+            the classifier must be able to return both.
+  NEGATIVE  a synthetic source whose literal is bound and never used must classify NEITHER, not
+            silently OUTPUT.
+  PLACEBO   classification run twice is identical.
+IDENTIFICATION LIMIT  reaching an output field is not the same as being REPORTED AS A FINDING: a
+            round may dump a fixture for provenance, which is good practice, not circularity. So
+            OUTPUT is an UPPER BOUND on circular use and is reported as one.

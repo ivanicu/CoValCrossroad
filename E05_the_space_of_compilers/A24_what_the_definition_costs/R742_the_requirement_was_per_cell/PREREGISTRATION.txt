@@ -1,0 +1,78 @@
+R742 · the requirement was per cell
+written BEFORE run.py. TWO ARITHMETIC STEPS ran first and both narrowed the round.
+
+⛔ DERIVATION 1 — MY OWN NEXT LINE OVERSTATED THE SCOPE WORRY
+   R741 closed asking whether the pool-size selection contaminates the three quantities the
+   deliverable still asserts. Two of them never touched that population. Clause ③ is a NAME lookup
+   at R294:144 -- `a not in USES_PROMPT_LABELS` -- and consults no prompt. The extension comes from
+   R294's census computed on each arm's OWN population, not from any constructed floor. So only the
+   EXCESSES were ever restricted, and the worry is one third the size I stated. Verified below rather
+   than asserted, because a derivation about my own code is still a claim.
+
+⭐ DERIVATION 2 — THE RESTRICTION WAS WORSE THAN IT NEEDED TO BE
+   R741 applied the WORST-CASE criterion requirement, 4 + 8 = 12 for the widest comparison, to EVERY
+   cell, giving 734 prompts throughout. Each cell needs only 4 + k_b of its own: 7 for topw_k3, 8 for
+   topw_k4 and the excluded object, 10 for topw_k6, 12 for topw_k8. Counted against the true pool
+   those give 950, 919, 919, 859 and 734 prompts. So the cell the whole arc turns on, greedy against
+   the excluded object, was computed on 734 prompts when 919 were available -- a 25% loss of sample
+   for no reason but a global threshold.
+
+ESTIMAND
+   (1) confirm the two population-independent quantities are what R730 and R294 say, computed without
+       any prompt restriction;
+   (2) the ten excesses and their intervals at MAXIMAL power, each on its own cell's population;
+   (3) does any cell resolve at maximal power that did not at 734?
+
+IDENTIFICATION
+   (1) exact. (2) identified per cell. (3) identified.
+   ⚠ AND THE TRADE-OFF IS REAL AND IS NOT HIDDEN: per-cell populations maximise power and make the
+   ten cells NON-COMPARABLE with each other, because each is measured on a different prompt set. The
+   global-population column from R741 is comparable and weaker. BOTH are reported side by side and
+   neither is called the answer on its own. An ordering gap averages across cells, so it is computed
+   ONLY on the global population where that average is defined.
+
+SCOPE
+   population : per cell, prompts whose full candidate set supplies 4 + k_b criteria · instrument
+                prompt bootstrap recomputing both terms · baseline R741's global-population column ·
+                regime default emitter
+WORLDS
+   W-STILL-UNRESOLVED  maximal power resolves nothing new; the bounds stand and the extra prompts
+                       were not the binding constraint.
+   W-RESOLVES          at least one further cell excludes zero, so R741's restriction was costing
+                       real resolution and its bounds were too weak.
+   prediction matrix
+      no new cell excludes zero -> UNRESOLVED 0.80  RESOLVES 0.10
+      >= 1 new cell excludes    -> UNRESOLVED 0.10  RESOLVES 0.85
+
+REGISTERED POINTS (failable)
+   A  prompts for greedy-vs-excluded at its OWN requirement                 = 919  [0, 968]
+   B  its bootstrap SE at maximal power                                     = 0.0145 [0.0000, 1.0000]
+   C  cells excluding zero on per-cell populations                          = 1    [0, 10]
+   D  target-reading objects clause ③ admits, recomputed with NO restriction = 3    [0, 16]
+   DIRECTIONAL (separately failable): no cell resolves at maximal power that did not at 734.
+
+KILL (CONDITIONAL -- evaluated only if the POSITIVE and g=0 controls both fire)
+   if positive_fires and g0_zero:
+       C > 1 -> W-RESOLVES: R741's bounds were too weak and the newly resolved cells are named
+       else  -> W-STILL-UNRESOLVED
+   else:
+       verdict = UNVERIFIED   # never OVERTURNED, never CONFIRMED
+
+POSITIVE CTRL   the bootstrap must reproduce sd/sqrt(n) within 5% ON EACH cell's own population, not
+                once globally -- a different population is a different instrument.
+g=0             a cell against itself -> 0 and [0,0] on its own population.
+NEGATIVE CTRL   resampling disabled -> SE exactly 0 on every population. excluded world: "the width
+                comes from the recomputation".
+SHAM            the same ten cells recomputed on the GLOBAL 734-prompt population -- the extra-prompt
+                ingredient ABSENT rather than inverted -- reported beside the per-cell column so the
+                power gain is visible rather than asserted, and so the non-comparability of the
+                per-cell column is legible.
+PLACEBO         a population against itself -> zero difference.
+NOISE FLOOR     3 bootstrap seeds x 2001 resamples per cell; each SE carries its Monte-Carlo error.
+MULTIPLICITY    10 cells x 2 populations + the two population-independent quantities; all reported.
+SPECIFICATION   population (per-cell, global) x cell x seed
+SEEDS           3 x 2001; two PYTHONHASHSEEDs byte-identical, writes verified
+ARTIFACT        results/r742_per_cell_power.json with tree_sha
+IMPOSSIBLE      an ordering gap on per-cell populations -> the average is not defined across
+                different prompt sets, so it is computed on the global population only ·
+                independently replicated -> a second implementer

@@ -1,0 +1,52 @@
+{
+  "commit": "dab75b370061f6a2659869b49168a64627435c31",
+  "world": "A",
+  "n_responses_per_prompt": 4,
+  "kinds": [
+    {
+      "kind": "FIXED_CHECKLIST",
+      "representative": "generic",
+      "subset_share": 0.0,
+      "mean_k": 4.0,
+      "n_prompts": 968,
+      "judge_calls_per_new_arm": 15488
+    },
+    {
+      "kind": "OTHER_SOURCE",
+      "representative": "coval_core_sham",
+      "subset_share": 0.0,
+      "mean_k": 3.9545454545454546,
+      "n_prompts": 968,
+      "judge_calls_per_new_arm": 15312
+    },
+    {
+      "kind": "PARAPHRASING_GENERATOR",
+      "representative": null,
+      "subset_share": null,
+      "mean_k": null,
+      "judge_calls_per_new_arm": null,
+      "note": "no committed selection file among this kind's arms"
+    },
+    {
+      "kind": "RUBRIC_SELECTOR",
+      "representative": "full",
+      "subset_share": 1.0,
+      "mean_k": 15.479338842975206,
+      "n_prompts": 968,
+      "judge_calls_per_new_arm": 0
+    }
+  ],
+  "retracts": "R906's closing sentence, on both halves: (a) `the generator already emits them` \u2014 no committed builder for generic/genericpool16 exists anywhere; (b) `that is a missing run, like R893's` \u2014 R893's was free because the subset-of-coval_full property held, and it does not here",
+  "why_R893_transferred_and_this_does_not": "select_core.py costs 0 judge calls because every arm is a SUBSET of coval_full; a fixed checklist is by definition not a subset",
+  "cost_unit_source": "score.py:254 E3_judge_calls_per_prompt = mean(k) * 4",
+  "pricing_is_a_derivation": "cost = k*4*prompts given non-subset is arithmetic; the MEASURED inputs are which kinds are subsets and their k",
+  "prices_calls_only": "not wall-clock or money \u2014 those need a judge choice",
+  "search_was_controlled": "an absence from an untested search is silence; the no-builder search was verified to FIND select_core.py when asked for a rule it does emit",
+  "controls": {
+    "cost_facts_from_source": true,
+    "subset_test_could_go_either_way": true,
+    "search_control_finds_select_core": true
+  },
+  "unit_note": "cost is JUDGE CALLS per new arm",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

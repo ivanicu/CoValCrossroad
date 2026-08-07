@@ -1,0 +1,25 @@
+R687 · PRE-REGISTRATION — written before any field name is read.
+
+THE DECISION THIS ROUND MAKES SAFE
+  R686 found 13 rounds encode the judge in a JSON value field. If those 13 share a field NAME, the
+  recording defect is fixable by a GATE. If they are 13 one-offs, no rule can be written and the
+  remedy is per-round by hand. That is a decision about what to build, and it is currently blocked
+  on an unread fact.
+
+POINT A     5 distinct field names across the 13.          INTERVAL A [1, 13]
+POINT B     the most common name covers 6 of the 13.       INTERVAL B [1, 13]
+DIRECTIONAL (separately failable) a single field name covers at least half — i.e. a convention
+            exists rather than a habit-per-round.
+KILL        if the 13 yield 13 distinct names, no rule is writable; the round reports that and
+            builds nothing. ⚠ AND IF A CONVENTION DOES EXIST, THIS ROUND BUILDS THE GATE -- the
+            production step, not a further measurement.
+CONTROLS
+  POSITIVE  a synthetic artifact with the judge under a known field name must attribute it to that
+            name.
+  g=0       a judge appearing OUTSIDE any field (in a path or a free string) must NOT be attributed
+            to a field name — the attributor must return both values.
+  NEGATIVE  an artifact with no judge -> no field name.
+  PLACEBO   run twice identical.
+IDENTIFICATION LIMIT  a shared field name shows a shared HABIT, not that the field means the same
+            thing in each round. A gate built on it enforces a spelling, not a semantics — and that
+            is worth saying in the gate itself rather than discovering later.

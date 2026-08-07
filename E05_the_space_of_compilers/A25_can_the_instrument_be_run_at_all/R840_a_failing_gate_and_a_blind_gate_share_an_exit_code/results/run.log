@@ -1,0 +1,12 @@
+  POSITIVE CONTROL  known-DARK  fd99c0f0 -> DARK         PASS   [control line reports failure: POSITIVE CONTROL  the two NEXT blocks R366 refuted must be flagged: 0/2 caught []  FAIL]
+                    known-FAIL  098784e9 -> FAILING      PASS   [2 control line(s), all PASS]
+  g=0               known-GREEN          -> GREEN        PASS   [exit 0]
+    The two arms are the SAME FILE at two PINNED hashes, differing only in the defect,
+    so a classifier that separates them is separating the defect and not the subject.
+
+  gate                                           exit  class         evidence
+  arm_population_is_derived.py                      1  FAILING       1 control line(s), all PASS
+  artifacts_are_internally_coherent.py              1  FAILING       1 control line(s), all PASS
+  attack_every_check.py                             1  UNCLASSIFIED  exit 1, 0 control line(s) found
+  attack_no_withdrawn_framings.py                   1  UNCLASSIFIED  exit 1, 0 control line(s) found
+  attack_outcome_variable_declared.py               1  UNCLASSIFIED  exit 1, 0 control line(s) found

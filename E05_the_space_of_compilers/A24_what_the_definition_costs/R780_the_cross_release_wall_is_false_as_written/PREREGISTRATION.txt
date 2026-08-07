@@ -1,0 +1,165 @@
+R780 · the cross-release wall is false as written, and the measurement it forbade is runnable
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R779's NEXT registered a 2-factor decomposition of a family's scale by k profile and selection rule
+"over the 6 families". CHECK #382 KILLED IT ON IDENTIFICATION, BEFORE ANY DESIGN: of the 8 selection
+rules on this site, only `random` and `topw` vary k at all -- the other 6 exist at k=4 exclusively.
+Over 6 families k and rule are not crossed. (At PAIR level it is identified: same-rule/dk=0 18,
+same-rule/dk>0 156, diff-rule/dk=0 18, diff-rule/dk>0 108 in the k-varying subset. That design
+survives and is registered as a later step, not this one.)
+
+THE CHECK THEN FOUND SOMETHING LARGER IN MY OWN OUTPUT. Every round's impossibility register carries
+a `cross-release` row, and R779's -- written one hour ago -- says `cross-release | a second release`.
+A second release IS ON DISK: `data/utterances.jsonl`, 2,200 conversations / 7,344 interactions, seven
+arms already scored as `sat_transport_*.npz`, with per-response human scores and a `chosen` flag.
+
+⚠ AND THE EXISTENCE IS NOT MINE TO CLAIM. **R556 established it** -- *"the second release is present,
+3 of 375 artifacts were computed on it"* -- and R398, R427, R433, R434 measured on it. So the
+discovery is prior art. **What is new is that the correction never reached the artifacts**: rounds
+written AFTER R556 keep asserting the wall.
+
+⭐ AND THE OBJECT ALREADY SCOPES IT CORRECTLY. `corebench/score.py:33` registers
+`H3_cross_release: "a second values-annotation release WITH THIS SCHEMA"`. Release 2 has no rubric
+and no annotator panel, so the SCHEMA-BOUND half of the wall is real. **The instrument is right and
+the round READMEs -- which drop "with this schema" -- are strictly stronger than the object supports.**
+That is the scope error 11 of 12 retractions in the audited programme shared.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the count of lines in this arc's round artifacts asserting an UNSCOPED cross-release
+    impossibility ("one release" / "a second release" / "N/A"), split by whether the round number is
+    above or below R556. Claim unit = a LINE in a round artifact; instrument unit = a regex match in
+    README.md or PREREGISTRATION.txt. Named as two strings and required to be equal, per §4.
+E2  the clause-② contrast -- a prompt-specific core against the prompt-blind reference -- computed on
+    BOTH releases with a GAUGE-MATCHED estimator, and its verdict under each release's own MDE.
+E3  if E2 does not resolve on release 2, the required n for it to resolve, so a null is separated
+    from a power failure BEFORE it is reported.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1 exact -- a census over files on disk, subject to the search being an instrument (controls below).
+E2 IDENTIFIED ONLY ON A MATCHED SUBSET, and the matching is the design:
+   - release 1 is 4 responses per prompt -> 6 pairs, always.
+   - release 2 is 2 / 3 / 4 responses -> 1 / 3 / 6 pairs (5,204 / 456 / 1,684 interactions).
+     A 2-response unit gives a BINARY per-unit statistic with chance 0.5 and variance 0.25; a
+     4-response unit averages 6 pairs. **They are not the same estimator**, so the cross-release
+     comparison is run on release 2's n=4 STRATUM ONLY (1,684 interactions), which is gauge-matched
+     to release 1 in pair count.
+   - targets are NOT matched: release 1 ships 16 annotator rankings, release 2 one score vector. The
+     matched target is release 1's MEAN ranking across annotators -> one score vector per prompt,
+     structurally identical to release 2's. The all-annotator version is run too, as the
+     higher-resolution specification, and both are reported.
+   - the blind reference IS matched exactly: `transport_generic` and release 1's `generic` are both
+     built from `corebench/results/core_generic.json`. Asserted in code, exit 2 otherwise.
+E3 exact given E2's variance.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  release 1: 968 prompts · release 2: the n=4 stratum, 1,684 interactions
+instrument  pairwise sign agreement against a single score vector, identical code both releases
+baseline    the prompt-blind reference `core_generic.json`, the same file on both releases
+regime      home judge Qwen3.5-2B-Base, k=4, this tree_sha
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  A 2-RESPONSE UNIT CANNOT BE POOLED WITH A 4-RESPONSE UNIT. Its statistic takes values in {0, 1}
+    with variance 0.25; a 4-response unit takes values in {0, 1/6, ..., 1} with variance at most
+    0.25/6 under independence. Pooling inflates the standard error by a factor set by the mixture,
+    not by the effect. **This is why the stratum exists**, and it is a DERIVATION, not a finding.
+D2  RELEASE 2's MDE WILL EXCEED RELEASE 1's EVEN AT EQUAL n, because 672 of 7,344 interactions carry
+    a score TIE, and a tie contributes a zero to the sign vector that no arm can match. Predicted
+    direction only; the magnitude is measured.
+D3  E1's two halves are not symmetric evidence. A wall asserted BEFORE R556 is a claim that was true
+    as far as its author knew. One asserted AFTER is a correction that did not reach the artifact.
+    **Only the second count is about my loop**, and it is the one to report.
+
+STRONGEST CONFOUND, written BEFORE the run: release 2's prompt-specific arm `transport_gen` is built
+by the same producer but on a different corpus, so a failure to transport could be the GENERATOR
+failing on harder conversations rather than the CLAUSE failing to transport. CONTROL IN THE SAME
+ITERATION: report `transport_gen_sham` and `transport_vacuous` beside it -- if the prompt-specific arm
+is at its own sham, the generator produced nothing release-2-specific, and the clause was never tested.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE CLAUSE TRANSPORTS. The prompt-specific arm beats the blind reference resolvedly on both
+    releases under the matched estimator. Then clause ② is a property of the definition, the wall was
+    costing real evidence, and the definition gains its first genuinely cross-object support.
+B · THE CLAUSE IS RELEASE-BOUND. Resolved on release 1, not on release 2, AND release 2's MDE is
+    small enough that a release-1-sized effect would have been detected. Then clause ② -- the only
+    MEASURED clause in the definition (R360: ① 0, ③ derived, ④ 0) -- describes release 1, and "the
+    definition describes the instance" is confirmed at the level of its load-bearing clause.
+C · UNRESOLVED BY POWER. Not resolved on release 2 and the MDE is too large to have detected a
+    release-1-sized effect. Then transport is UNVERIFIED, never OVERTURNED, and E3's required n is
+    the deliverable.
+
+PREDICTION MATRIX
+  A -> both verdicts BEATS
+  B -> release 1 BEATS, release 2 not BEATS, and MDE_2 < |eff_1|
+  C -> release 2 not BEATS and MDE_2 >= |eff_1|
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (same core_generic.json both releases; n=4 stratum non-empty; exit 2 otherwise)
+   and POSITIVE fires (a planted effect is recovered on BOTH releases)
+   and g=0 fires (an arm against an identical core returns exactly 0)
+   and PLACEBO fires (an arm against itself = 0.000000):
+        both BEATS                        -> WORLD A
+        R1 BEATS, R2 not, MDE_2 < |eff_1| -> WORLD B
+        R2 not BEATS, MDE_2 >= |eff_1|    -> WORLD C, and report required n
+        otherwise                         -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT    `transport_generic` and release-1 `generic` resolve to the same core file; the n=4 stratum
+          is non-empty; the two releases' id spaces are disjoint. Exit 2 otherwise.
+POSITIVE  plant a known effect by mixing a fraction w of the target's own sign vector into the blind
+          arm's predicted scores, sweep w, and require recovery on BOTH releases. BAND, COMPUTED:
+          floor at w=0 (must return ~0, the g=0 cell) and ceiling at w=1 (the arm becomes the target
+          and the contrast saturates); the threshold is required to lie strictly between two
+          COMPUTED ends, never typed.
+g=0       the blind arm against a byte-identical copy of its own core: exactly 0.
+NEGATIVE  permute the target across units, 200 draws, both releases -- the world excluded is
+          "any pair of distinct cores separates this much".
+SHAM      ingredient ABSENT, not inverted: the blind reference against ANOTHER prompt-blind arm
+          (`transport_randblind_s*`), i.e. the same contrast with prompt-specificity removed rather
+          than misdirected. Reported beside the arm's own sham so benefit and harm are separated.
+PLACEBO   an arm against itself = exactly 0.
+SEARCH    E1's regex is an instrument: a POSITIVE control requires it to flag lines whose status is
+          known (R779's own register line, which I wrote), and a NEGATIVE control requires it NOT to
+          flag the correctly-scoped lines already in the arc ("the partition and n are this
+          release's", "one released core, and its sham is ours").
+UNIT      E1 instrument unit = a regex match in a round artifact; claim unit = a line in a round
+          artifact. E2 instrument unit = an interaction (r2) / a prompt (r1); claim unit = a RELEASE.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+2 releases x 2 target definitions (mean-ranking, all-annotator) x 4 contrasts (gen-vs-blind,
+sham-vs-blind, vacuous-vs-blind, randblind-vs-blind) + 3 response strata reported separately + 5
+plant levels x 2 releases + 200 permutation draws x 2 releases. The whole table is printed, including
+the strata excluded from the headline and the contrasts that fail.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+a cross-release test of clause ①            release 2 ships NO RUBRIC, and ① is defined against the
+                                            prompt's own rubric. This half of the wall is REAL.
+a cross-release annotator-panel quantity    release 2 ships ONE score vector, not a panel; anything
+                                            resolved by annotator identity is schema-bound.
+a cross-release test of clause ③            provenance is shipped on release 2 and absent on release
+                                            1's sat files, so the predicate is checkable on one side
+                                            only -- it needs release 1 to ship construction provenance.
+a third release                             a third corpus
+independently replicated                    a second designer; the session prompt forbids agents

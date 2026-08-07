@@ -1,0 +1,158 @@
+{
+ "ops": [
+  [
+   "dose_g=-2 (invert)",
+   "weight"
+  ],
+  [
+   "dose_g=-1 (double)",
+   "weight"
+  ],
+  [
+   "dose_g=-0.5",
+   "weight"
+  ],
+  [
+   "dose_g=+0.5 (weaken)",
+   "weight"
+  ],
+  [
+   "dose_g=+1 (delete)",
+   "weight"
+  ],
+  [
+   "dose_saturate",
+   "weight"
+  ],
+  [
+   "set_add_inert",
+   "set"
+  ],
+  [
+   "set_add_cancelling",
+   "set"
+  ],
+  [
+   "set_duplicate",
+   "set"
+  ],
+  [
+   "set_fragment",
+   "set"
+  ],
+  [
+   "annot_drop_random",
+   "annotator"
+  ],
+  [
+   "annot_drop_dissenter",
+   "annotator"
+  ],
+  [
+   "annot_drop_conformer",
+   "annotator"
+  ],
+  [
+   "agg_median",
+   "aggregation"
+  ],
+  [
+   "agg_trimmed",
+   "aggregation"
+  ],
+  [
+   "agg_maximin",
+   "aggregation"
+  ],
+  [
+   "register_personal",
+   "register"
+  ],
+  [
+   "register_veto_blind",
+   "register"
+  ],
+  [
+   "path_core_direct",
+   "path"
+  ]
+ ],
+ "eig_share": [
+  0.2211397638864906,
+  0.17102016072639098,
+  0.11522516870975212,
+  0.0676893029152052,
+  0.055007017265056815,
+  0.052801372385158855,
+  0.05083486046157387,
+  0.04916795182199229,
+  0.04504984150127667,
+  0.04361438765320137,
+  0.028823156735491268,
+  0.027116900133592685,
+  0.02664599974108916,
+  0.01856457468820341,
+  0.01757453121161772,
+  0.00972501016390689,
+  2.5704204806395213e-18,
+  0.0,
+  0.0
+ ],
+ "rank95": 13,
+ "rank99": 15,
+ "prev_rank": 2,
+ "prediction": 5,
+ "verdict": "PREDICTION HELD",
+ "zero_ops": [],
+ "collinear_pairs": [
+  [
+   "dose_g=-1 (double)",
+   "set_duplicate",
+   0.9945980153158993
+  ],
+  [
+   "dose_g=+1 (delete)",
+   "set_add_cancelling",
+   0.9967487768025847
+  ],
+  [
+   "set_add_inert",
+   "set_fragment",
+   1.0000000000000004
+  ]
+ ],
+ "n_prompts": 290,
+ "channel_ablation": {
+  "score": {
+   "without": 14,
+   "alone": 9,
+   "live_alone": 15
+  },
+  "top1": {
+   "without": 13,
+   "alone": 11,
+   "live_alone": 15
+  },
+  "borda": {
+   "without": 13,
+   "alone": 11,
+   "live_alone": 15
+  },
+  "count": {
+   "without": 13,
+   "alone": 1,
+   "live_alone": 5
+  },
+  "veto_hit": {
+   "without": 12,
+   "alone": 12,
+   "live_alone": 16
+  },
+  "register": {
+   "without": 12,
+   "alone": 10,
+   "live_alone": 16
+  }
+ },
+ "full_rank": 13
+}

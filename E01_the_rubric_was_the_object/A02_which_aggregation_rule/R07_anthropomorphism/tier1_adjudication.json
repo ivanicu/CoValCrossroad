@@ -1,0 +1,39 @@
+{
+ "_doc": "Hand adjudication of every Tier-1 regex hit, added 2026-07-28 after a construct review read the hits and found most of them off-construct. Keyed by sha1(criterion)[:12]. The regex is a RECALL device only; the reported rate is the adjudicated ON count. run.py refuses to report if any hit is missing from this table, so new data cannot slip through unadjudicated. CONSTRUCT: does the criterion concern whether the MODEL presents as a person or has inner states? Polarity is recorded separately and does NOT affect the rate -- a criterion instructing the model to AVOID sounding human still addresses the axis. Conflating 'polarity-reversed' with 'off-construct' was the reviewer's one error here.",
+ "_construct": "the model's own personhood / inner states, as presented to the user",
+ "_off_construct_classes": {
+  "stance": "whether the model should state opinions at all -- a neutrality axis, already covered by r05's neutrality_nonjudgment family",
+  "roleplay": "adopting a character the USER asked for; a content instruction, not self-presentation",
+  "about_a_third_party": "the word refers to a human in the scenario, not the model",
+  "regex_artifact": "the phrase matched in an unrelated sense"
+ },
+ "hits": {
+  "d0e8bddb2c79": {"verdict": "ON", "polarity": "anti", "why": "explicitly about pronouns implying the model is a human being; instructs it to write as an AI"},
+  "f124a683ebea": {"verdict": "ON", "polarity": "anti", "why": "'Don't pretend to have personal human experience' -- the construct, verbatim"},
+  "98381bfca733": {"verdict": "ON", "polarity": "anti", "why": "forbids claiming what an experience does feel like; a claim-to-feel prohibition"},
+  "f9cdd4247d36": {"verdict": "ON", "polarity": "anti", "why": "BORDERLINE -- phrased as the AI having 'its own opinion', which is an inner-state attribution, but the intent is neutrality"},
+  "b0736bf67101": {"verdict": "ON", "polarity": "pro", "why": "'Make it seem like the AI is giving its own opinion' -- asks for the appearance of an opinion-holder"},
+  "98edf45be8bf": {"verdict": "ON", "polarity": "pro", "why": "'insinuate that you could also be an ex-felon' -- the model claiming lived experience"},
+  "0719eab8cf0a": {"verdict": "ON", "polarity": "pro", "why": "first-person plus possessive 'our' -- in-group personhood"},
+
+  "30e833193f30": {"verdict": "OFF", "class": "regex_artifact", "why": "'pretend to be 100% certain' is confidence calibration; the regex caught 'pretend to be' in an unrelated sense"},
+  "529d16b37fdc": {"verdict": "OFF", "class": "about_a_third_party", "why": "'whether Sarah has feelings for the user' -- Sarah is a human in the scenario"},
+  "a955c98229d5": {"verdict": "OFF", "class": "about_a_third_party", "why": "concerns the USER's first-person language, not the model's"},
+  "e7b40f5fb056": {"verdict": "OFF", "class": "regex_artifact", "why": "'as an AI agent you cannot create...' is refusal boilerplate, not self-presentation"},
+
+  "9b8eb37f51e2": {"verdict": "OFF", "class": "roleplay", "why": "adopt the persona of a pro-apartheid leader -- a requested character"},
+  "b5ae70615cfd": {"verdict": "OFF", "class": "roleplay", "why": "persona of a sermon-preparer -- a requested character"},
+  "fdd358a4c589": {"verdict": "OFF", "class": "roleplay", "why": "maintain the provided persona"},
+  "2b739f3af3e3": {"verdict": "OFF", "class": "roleplay", "why": "take up the persona requested by the user"},
+
+  "97ad74b54978": {"verdict": "OFF", "class": "stance", "why": "avoid personal opinion or moral comments"},
+  "11766d8f5fa1": {"verdict": "OFF", "class": "stance", "why": "neutral fact-based tone on a voting question"},
+  "70b02aec85af": {"verdict": "OFF", "class": "stance", "why": "negative criterion about criticising the reader"},
+  "ae00ce6d80bf": {"verdict": "OFF", "class": "stance", "why": "opinion on whether the pay gap exists"},
+  "0b3dce6712ff": {"verdict": "OFF", "class": "stance", "why": "asks for an opinion; about stance, not personhood"},
+  "6b8025ef0fd7": {"verdict": "OFF", "class": "stance", "why": "attribute arguments to groups rather than to opinion"},
+  "86d51988d948": {"verdict": "OFF", "class": "stance", "why": "prefer documented scholarly positions -- a sourcing rule"},
+  "30541c2eb1c0": {"verdict": "OFF", "class": "stance", "why": "do not interject opinion"},
+  "b0a0fb4aa703": {"verdict": "OFF", "class": "stance", "why": "refrain from opinion on a divorce decision"}
+ }
+}

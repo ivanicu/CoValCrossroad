@@ -1,0 +1,208 @@
+{
+  "P1_L1_gain": 0,
+  "P2_L2_loose_gain": 6,
+  "P2_L2_tight_gain": 5,
+  "P3_reproduces_R743": true,
+  "P4_rounds_with_import_edge": 8,
+  "cited": [
+    294,
+    519,
+    520,
+    523,
+    524,
+    525,
+    527,
+    528,
+    529,
+    530,
+    533,
+    534,
+    535,
+    536,
+    537,
+    558
+  ],
+  "controls": {
+    "NEGATIVE": true,
+    "P3_is_R743": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "SHAM": true,
+    "g0": true
+  },
+  "directional": false,
+  "files_examined": {
+    "519": {
+      "L0": 1,
+      "L1": 1,
+      "L2 loose": 155,
+      "L2 tight": 2
+    },
+    "520": {
+      "L0": 1,
+      "L1": 1,
+      "L2 loose": 155,
+      "L2 tight": 2
+    },
+    "529": {
+      "L0": 1,
+      "L1": 1,
+      "L2 loose": 2,
+      "L2 tight": 2
+    },
+    "530": {
+      "L0": 1,
+      "L1": 2,
+      "L2 loose": 3,
+      "L2 tight": 3
+    },
+    "534": {
+      "L0": 1,
+      "L1": 1,
+      "L2 loose": 2,
+      "L2 tight": 2
+    },
+    "558": {
+      "L0": 1,
+      "L1": 1,
+      "L2 loose": 2,
+      "L2 tight": 1
+    }
+  },
+  "gainers": [
+    519,
+    520,
+    529,
+    530,
+    534
+  ],
+  "grid": {
+    "L0|NO_ARMS(6)": {
+      "n": 6,
+      "reach": 0
+    },
+    "L0|all cited(16)": {
+      "n": 16,
+      "reach": 10
+    },
+    "L0|complement": {
+      "n": 404,
+      "reach": 142
+    },
+    "L1|NO_ARMS(6)": {
+      "n": 6,
+      "reach": 0
+    },
+    "L1|all cited(16)": {
+      "n": 16,
+      "reach": 10
+    },
+    "L1|complement": {
+      "n": 404,
+      "reach": 145
+    },
+    "L2 loose|NO_ARMS(6)": {
+      "n": 6,
+      "reach": 6
+    },
+    "L2 loose|all cited(16)": {
+      "n": 16,
+      "reach": 16
+    },
+    "L2 loose|complement": {
+      "n": 404,
+      "reach": 259
+    },
+    "L2 tight|NO_ARMS(6)": {
+      "n": 6,
+      "reach": 5
+    },
+    "L2 tight|all cited(16)": {
+      "n": 16,
+      "reach": 15
+    },
+    "L2 tight|complement": {
+      "n": 404,
+      "reach": 165
+    }
+  },
+  "hashseed": "99",
+  "import_edges": {
+    "294": 2,
+    "519": 0,
+    "520": 0,
+    "523": 0,
+    "524": 0,
+    "525": 0,
+    "527": 2,
+    "528": 2,
+    "529": 0,
+    "530": 1,
+    "533": 1,
+    "534": 0,
+    "535": 1,
+    "536": 1,
+    "537": 1,
+    "558": 0
+  },
+  "monotonicity_is_a_derivation": true,
+  "n_import_free": 8,
+  "no_arms": [
+    519,
+    520,
+    529,
+    530,
+    534,
+    558
+  ],
+  "per_no_arms_round": {
+    "519": {
+      "L0": false,
+      "L1": false,
+      "L2 loose": true,
+      "L2 tight": true
+    },
+    "520": {
+      "L0": false,
+      "L1": false,
+      "L2 loose": true,
+      "L2 tight": true
+    },
+    "529": {
+      "L0": false,
+      "L1": false,
+      "L2 loose": true,
+      "L2 tight": true
+    },
+    "530": {
+      "L0": false,
+      "L1": false,
+      "L2 loose": true,
+      "L2 tight": true
+    },
+    "534": {
+      "L0": false,
+      "L1": false,
+      "L2 loose": true,
+      "L2 tight": true
+    },
+    "558": {
+      "L0": false,
+      "L1": false,
+      "L2 loose": true,
+      "L2 tight": false
+    }
+  },
+  "positive_detail": {
+    "flat_after": false,
+    "flat_before": true,
+    "l1_after": true,
+    "refactor_parses": true
+  },
+  "round": "R744",
+  "sham_gain_on_import_free": 0,
+  "tree_sha": "a2687d6cfbb8dcbf7c5aea998a531c8b760635a8",
+  "unresolved_imports": {},
+  "why": "NO_ARMS is SILENCE -- it is an UPPER BOUND, and R743's sentence must be narrowed to a claim about FILES",
+  "world": "B"
+}

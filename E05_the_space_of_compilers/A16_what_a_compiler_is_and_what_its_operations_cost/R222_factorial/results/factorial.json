@@ -1,0 +1,323 @@
+{
+  "prompts": 968,
+  "ops": [
+    "R_polarity",
+    "M_merge",
+    "S_select",
+    "T_truncate",
+    "W_dropweights"
+  ],
+  "axes": [
+    "human_agreement",
+    "not_inverted",
+    "gauge_stability",
+    "pairwise_preservation_vs_Full",
+    "provenance",
+    "brevity"
+  ],
+  "degenerate_axes": [
+    "pairwise_preservation_vs_Full"
+  ],
+  "arms": {
+    "NONE(=Full)": {
+      "human_agreement": 0.6860023341858906,
+      "not_inverted": 1.0,
+      "gauge_stability": -0.07108585036284065,
+      "pairwise_preservation_vs_Full": 1.0,
+      "provenance": 1.0,
+      "brevity": -15.0
+    },
+    "R_polarity": {
+      "human_agreement": 0.6860023341858906,
+      "not_inverted": 0.9988184598276342,
+      "gauge_stability": -0.07108585036284065,
+      "pairwise_preservation_vs_Full": 1.0,
+      "provenance": 1.0,
+      "brevity": -15.0
+    },
+    "M_merge": {
+      "human_agreement": 0.6861761565394453,
+      "not_inverted": 0.9835279399499584,
+      "gauge_stability": -0.07189189661256157,
+      "pairwise_preservation_vs_Full": 0.9956955922865014,
+      "provenance": 0.9778547139577178,
+      "brevity": -14.0
+    },
+    "S_select": {
+      "human_agreement": 0.6576196270268928,
+      "not_inverted": 0.9181262162913539,
+      "gauge_stability": -0.12397177086557531,
+      "pairwise_preservation_vs_Full": 0.8648415977961432,
+      "provenance": 1.0,
+      "brevity": -4.0
+    },
+    "T_truncate": {
+      "human_agreement": 0.6558565717265527,
+      "not_inverted": 0.932860717264387,
+      "gauge_stability": -0.07970532280924192,
+      "pairwise_preservation_vs_Full": 0.8207644628099173,
+      "provenance": 1.0,
+      "brevity": -4.0
+    },
+    "W_dropweights": {
+      "human_agreement": 0.6805765935785056,
+      "not_inverted": 1.0,
+      "gauge_stability": -0.08527073126807472,
+      "pairwise_preservation_vs_Full": 0.9345730027548209,
+      "provenance": 1.0,
+      "brevity": -15.0
+    },
+    "M_merge+R_polarity": {
+      "human_agreement": 0.6861140771274614,
+      "not_inverted": 0.983666944676119,
+      "gauge_stability": -0.07280343751300544,
+      "pairwise_preservation_vs_Full": 0.9955234159779615,
+      "provenance": 0.9778547139577178,
+      "brevity": -14.0
+    },
+    "R_polarity+S_select": {
+      "human_agreement": 0.6617416999826178,
+      "not_inverted": 0.8971365026410898,
+      "gauge_stability": -0.052354153455928976,
+      "pairwise_preservation_vs_Full": 0.8622589531680441,
+      "provenance": 1.0,
+      "brevity": -4.0
+    },
+    "R_polarity+T_truncate": {
+      "human_agreement": 0.6558565717265527,
+      "not_inverted": 0.9329302196274674,
+      "gauge_stability": -0.07970532280924192,
+      "pairwise_preservation_vs_Full": 0.8207644628099173,
+      "provenance": 1.0,
+      "brevity": -4.0
+    },
+    "R_polarity+W_dropweights": {
+      "human_agreement": 0.6805765935785056,
+      "not_inverted": 1.0,
+      "gauge_stability": -0.08527073126807472,
+      "pairwise_preservation_vs_Full": 0.9345730027548209,
+      "provenance": 1.0,
+      "brevity": -15.0
+    },
+    "M_merge+S_select": {
+      "human_agreement": 0.6580665987931762,
+      "not_inverted": 0.9116624965248818,
+      "gauge_stability": -0.12386964688679347,
+      "pairwise_preservation_vs_Full": 0.8643250688705234,
+      "provenance": 0.9783057851239669,
+      "brevity": -4.0
+    },
+    "M_merge+T_truncate": {
+      "human_agreement": 0.655732412902585,
+      "not_inverted": 0.9295246038365305,
+      "gauge_stability": -0.0767615216200036,
+      "pairwise_preservation_vs_Full": 0.8223140495867769,
+      "provenance": 0.9594524793388429,
+      "brevity": -4.0
+    },
+    "M_merge+W_dropweights": {
+      "human_agreement": 0.6803282759305704,
+      "not_inverted": 0.9869335557408951,
+      "gauge_stability": -0.0838371495546335,
+      "pairwise_preservation_vs_Full": 0.9328512396694215,
+      "provenance": 0.9778547139577178,
+      "brevity": -14.0
+    },
+    "S_select+T_truncate": {
+      "human_agreement": 0.6576196270268928,
+      "not_inverted": 0.9181262162913539,
+      "gauge_stability": -0.12397177086557531,
+      "pairwise_preservation_vs_Full": 0.8648415977961432,
+      "provenance": 1.0,
+      "brevity": -4.0
+    },
+    "S_select+W_dropweights": {
+      "human_agreement": 0.657607211144496,
+      "not_inverted": 0.899013066444259,
+      "gauge_stability": -0.12490765047777841,
+      "pairwise_preservation_vs_Full": 0.8641528925619835,
+      "provenance": 1.0,
+      "brevity": -4.0
+    },
+    "T_truncate+W_dropweights": {
+      "human_agreement": 0.6420004469717663,
+      "not_inverted": 0.9273005282179594,
+      "gauge_stability": -0.0716508753622237,
+      "pairwise_preservation_vs_Full": 0.7883953168044077,
+      "provenance": 1.0,
+      "brevity": -4.0
+    },
+    "M_merge+R_polarity+S_select": {
+      "human_agreement": 0.6613568076283182,
+      "not_inverted": 0.8976925215457325,
+      "gauge_stability": -0.05576252377932778,
+      "pairwise_preservation_vs_Full": 0.8624311294765841,
+      "provenance": 0.9850206611570248,
+      "brevity": -4.0
+    },
+    "M_merge+R_polarity+T_truncate": {
+      "human_agreement": 0.6568498423182936,
+      "not_inverted": 0.9297331109257715,
+      "gauge_stability": -0.0777480508678623,
+      "pairwise_preservation_vs_Full": 0.8228305785123967,
+      "provenance": 0.9594524793388429,
+      "brevity": -4.0
+    },
+    "M_merge+R_polarity+W_dropweights": {
+      "human_agreement": 0.6802537806361898,
+      "not_inverted": 0.9891576313594662,
+      "gauge_stability": -0.08554470538827408,
+      "pairwise_preservation_vs_Full": 0.9335399449035813,
+      "provenance": 0.9778547139577178,
+      "brevity": -14.0
+    },
+    "R_polarity+S_select+T_truncate": {
+      "human_agreement": 0.6617416999826178,
+      "not_inverted": 0.8971365026410898,
+      "gauge_stability": -0.052354153455928976,
+      "pairwise_preservation_vs_Full": 0.8622589531680441,
+      "provenance": 1.0,
+      "brevity": -4.0
+    },
+    "R_polarity+S_select+W_dropweights": {
+      "human_agreement": 0.6612450646867473,
+      "not_inverted": 0.8839310536558243,
+      "gauge_stability": -0.05279010779961946,
+      "pairwise_preservation_vs_Full": 0.8607093663911846,
+      "provenance": 1.0,
+      "brevity": -4.0
+    },
+    "R_polarity+T_truncate+W_dropweights": {
+      "human_agreement": 0.6420004469717663,
+      "not_inverted": 0.9273005282179594,
+      "gauge_stability": -0.0716508753622237,
+      "pairwise_preservation_vs_Full": 0.7883953168044077,
+      "provenance": 1.0,
+      "brevity": -4.0
+    },
+    "M_merge+S_select+T_truncate": {
+      "human_agreement": 0.6580665987931762,
+      "not_inverted": 0.9116624965248818,
+      "gauge_stability": -0.12386964688679347,
+      "pairwise_preservation_vs_Full": 0.8643250688705234,
+      "provenance": 0.9783057851239669,
+      "brevity": -4.0
+    },
+    "M_merge+S_select+W_dropweights": {
+      "human_agreement": 0.6580665987931762,
+      "not_inverted": 0.8952599388379205,
+      "gauge_stability": -0.12430987730919463,
+      "pairwise_preservation_vs_Full": 0.862775482093664,
+      "provenance": 0.9783057851239669,
+      "brevity": -4.0
+    },
+    "M_merge+T_truncate+W_dropweights": {
+      "human_agreement": 0.6411065034391994,
+      "not_inverted": 0.9240339171531832,
+      "gauge_stability": -0.06694516637731174,
+      "pairwise_preservation_vs_Full": 0.790633608815427,
+      "provenance": 0.9594524793388429,
+      "brevity": -4.0
+    },
+    "S_select+T_truncate+W_dropweights": {
+      "human_agreement": 0.657607211144496,
+      "not_inverted": 0.899013066444259,
+      "gauge_stability": -0.12490765047777841,
+      "pairwise_preservation_vs_Full": 0.8641528925619835,
+      "provenance": 1.0,
+      "brevity": -4.0
+    },
+    "M_merge+R_polarity+S_select+T_truncate": {
+      "human_agreement": 0.6613568076283182,
+      "not_inverted": 0.8976925215457325,
+      "gauge_stability": -0.05576252377932778,
+      "pairwise_preservation_vs_Full": 0.8624311294765841,
+      "provenance": 0.9850206611570248,
+      "brevity": -4.0
+    },
+    "M_merge+R_polarity+S_select+W_dropweights": {
+      "human_agreement": 0.6608477564500509,
+      "not_inverted": 0.8861551292743953,
+      "gauge_stability": -0.057110019023462244,
+      "pairwise_preservation_vs_Full": 0.8605371900826446,
+      "provenance": 0.9850206611570248,
+      "brevity": -4.0
+    },
+    "M_merge+R_polarity+T_truncate+W_dropweights": {
+      "human_agreement": 0.6429813016811105,
+      "not_inverted": 0.9249374478732277,
+      "gauge_stability": -0.06813750344113623,
+      "pairwise_preservation_vs_Full": 0.7923553719008265,
+      "provenance": 0.9594524793388429,
+      "brevity": -4.0
+    },
+    "R_polarity+S_select+T_truncate+W_dropweights": {
+      "human_agreement": 0.6612450646867473,
+      "not_inverted": 0.8839310536558243,
+      "gauge_stability": -0.05279010779961946,
+      "pairwise_preservation_vs_Full": 0.8607093663911846,
+      "provenance": 1.0,
+      "brevity": -4.0
+    },
+    "M_merge+S_select+T_truncate+W_dropweights": {
+      "human_agreement": 0.6580665987931762,
+      "not_inverted": 0.8952599388379205,
+      "gauge_stability": -0.12430987730919463,
+      "pairwise_preservation_vs_Full": 0.862775482093664,
+      "provenance": 0.9783057851239669,
+      "brevity": -4.0
+    },
+    "M_merge+R_polarity+S_select+T_truncate+W_dropweights": {
+      "human_agreement": 0.6608477564500509,
+      "not_inverted": 0.8861551292743953,
+      "gauge_stability": -0.057110019023462244,
+      "pairwise_preservation_vs_Full": 0.8605371900826446,
+      "provenance": 0.9850206611570248,
+      "brevity": -4.0
+    }
+  },
+  "shapley": {
+    "human_agreement": {
+      "R_polarity": 0.0017415344375191454,
+      "M_merge": 7.449529438047225e-06,
+      "S_select": -0.006134273629493533,
+      "T_truncate": -0.01641979753834439,
+      "W_dropweights": -0.004349490534959009
+    },
+    "not_inverted": {
+      "R_polarity": -0.006545964229450475,
+      "M_merge": -0.0058161894171068216,
+      "S_select": -0.061475998517282936,
+      "T_truncate": -0.03258618293021963,
+      "W_dropweights": -0.007420535631544822
+    },
+    "gauge_stability": {
+      "R_polarity": 0.03425849143677562,
+      "M_merge": -0.0009452678766911269,
+      "S_select": -0.015765508797191945,
+      "T_truncate": 5.244388287556356e-06,
+      "W_dropweights": -0.0035771278118016943
+    },
+    "pairwise_preservation_vs_Full": {
+      "R_polarity": -0.0011019283746556455,
+      "M_merge": -0.0009727961432506628,
+      "S_select": -0.02654097796143251,
+      "T_truncate": -0.08321567952249771,
+      "W_dropweights": -0.027631427915518845
+    },
+    "provenance": {
+      "R_polarity": 0.0022382920110192903,
+      "M_merge": -0.022748497551284143,
+      "S_select": 0.008597905800435476,
+      "T_truncate": -0.003067039103145819,
+      "W_dropweights": 0.0
+    },
+    "brevity": {
+      "R_polarity": 0.0,
+      "M_merge": 0.3333333333333333,
+      "S_select": 5.333333333333332,
+      "T_truncate": 5.333333333333332,
+      "W_dropweights": 0.0
+    }
+  }
+}

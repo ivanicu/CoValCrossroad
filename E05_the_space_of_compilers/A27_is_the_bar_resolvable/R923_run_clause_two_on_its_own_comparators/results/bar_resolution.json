@@ -1,0 +1,113 @@
+{
+  "commit": "b73be0968b93aa37aec44d9a5a6e492e795ce954",
+  "world": "A",
+  "seed": 921,
+  "nboot": 8000,
+  "killed_my_own_next": {
+    "was": "compare the 0.0080 cut gap against R860's MDE of 0.0103",
+    "why_wrong": "R860's MDE is for a PAIRED DIFFERENCE BETWEEN TWO ARMS; the cut is a THRESHOLD ON MEAN A2 \u2014 different statistics, different scales. An inherited MDE is another design's resolution.",
+    "replaced_by": "clause \u2461 applied to the comparator pair, plus a resolution measured for this estimand"
+  },
+  "legitimate": [
+    "generic",
+    "genericpool16"
+  ],
+  "wiring": {
+    "generic": {
+      "cut": 0.5593110791885864,
+      "n": 24
+    },
+    "genericpool16": {
+      "cut": 0.5513543391990778,
+      "n": 28
+    }
+  },
+  "resolution_this_estimand": {
+    "median_half_width": 0.009955535149064998,
+    "iqr": [
+      0.008226726001340279,
+      0.011841787812769941
+    ],
+    "r860_mde_for_contrast_only": 0.0103
+  },
+  "dose_response": {
+    "anchor": "generic",
+    "grid": [
+      {
+        "offset": -0.02,
+        "lo": -0.014270349413127105,
+        "admitted": false
+      },
+      {
+        "offset": -0.01,
+        "lo": -0.004270349413127105,
+        "admitted": false
+      },
+      {
+        "offset": -0.005,
+        "lo": 0.000729650586872895,
+        "admitted": true
+      },
+      {
+        "offset": -0.002,
+        "lo": 0.003729650586872895,
+        "admitted": true
+      },
+      {
+        "offset": 0.0,
+        "lo": 0.005729650586872895,
+        "admitted": true
+      },
+      {
+        "offset": 0.002,
+        "lo": 0.007729650586872895,
+        "admitted": true
+      },
+      {
+        "offset": 0.005,
+        "lo": 0.010729650586872894,
+        "admitted": true
+      },
+      {
+        "offset": 0.01,
+        "lo": 0.015729650586872895,
+        "admitted": true
+      },
+      {
+        "offset": 0.02,
+        "lo": 0.025729650586872897,
+        "admitted": true
+      }
+    ],
+    "smallest_flipping_offset": -0.01,
+    "lo_at_zero": 0.005729650586872895,
+    "identity_lo_d_equals_lo0_plus_d_verified": true,
+    "forced_part": "linearity and the flip at d = -lo(0)",
+    "measured_part": "whether |lo(0)| for the arm nearest the bar falls inside the resolution band from \u2461"
+  },
+  "comparator_pair": {
+    "a": "generic",
+    "b": "genericpool16",
+    "margin_a_minus_b": 0.009102604212460431,
+    "ci": [
+      0.005729650586872895,
+      0.012487508894945307
+    ],
+    "a_beats_b": true,
+    "b_beats_a": false
+  },
+  "boundary_census": {
+    "admitted": 28,
+    "admitted_inside_resolution": [
+      "generic",
+      "generic_reprov",
+      "greedy_k12_fit1",
+      "topw_k2",
+      "topw_k8"
+    ],
+    "all_inside_resolution": 7
+  },
+  "unit_note": "margins and cuts are in mean-A2 units; counts are ARMS",
+  "cannot_say": "where the cut would fall for a comparator that does not exist on this release \u2014 still R914's 15,488 judge calls",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

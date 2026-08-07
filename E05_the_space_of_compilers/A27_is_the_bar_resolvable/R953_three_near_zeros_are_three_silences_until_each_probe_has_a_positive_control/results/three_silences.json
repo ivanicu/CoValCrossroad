@@ -1,0 +1,43 @@
+{
+  "commit": "82348f04591e8986f84b239dd1fb88c2d3362066",
+  "world": "A",
+  "n_entries": 1149,
+  "probes": [
+    {
+      "probe": "declared error class",
+      "real": 0.006962576153176675,
+      "synthetic": 0.995,
+      "stripped": 0.0,
+      "positive_ok": true,
+      "g0_ok": true
+    },
+    {
+      "probe": "\u00a74 mode match (t=2)",
+      "real": 0.09312445604873804,
+      "synthetic": 1.0,
+      "stripped": 0.0,
+      "positive_ok": true,
+      "g0_ok": true
+    },
+    {
+      "probe": "claim\u2192killer pair",
+      "real": 0.016536118363794605,
+      "synthetic": 1.0,
+      "stripped": 0.0,
+      "positive_ok": true,
+      "g0_ok": true
+    }
+  ],
+  "positive_all_ok": true,
+  "g0_all_ok": true,
+  "ledger_bytes": 1822204,
+  "deliverable_bytes": 663091,
+  "requirements": {
+    "are_they_the_same_error": "a class field written at retraction time",
+    "which_classes_ranked": "the same field plus a fixed vocabulary",
+    "did_we_learn_faster": "a claim-round and killer-round pair per entry"
+  },
+  "positive_control_gap": "the synthetic shows the probes CAN see; it cannot show that what they see is what the real entries would have said",
+  "unit_note": "counts are LEDGER ENTRIES",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

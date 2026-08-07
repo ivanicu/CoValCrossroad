@@ -1,0 +1,104 @@
+{
+ "conclusion": "The campaign's own standard detector reports `confirmatory` absent in all 128 rounds: every finding was discovered and tested on the same 968 prompts. This round splits them by a sha256 of the prompt id under a salt fixed in source before any number was computed -- 457 discovery, 511 confirmation -- and recomputes every settled headline on both. Of 7 headlines, 5 CONFIRMED (same sign, confirmation CI contains the discovery point), 1 ATTENUATED (same sign, discovery overstated the size), 1 FAILED. polarity_ratio_beta_neg_over_beta_pos: ATTENUATED; acc_core: CONFIRMED; acc_full_equal: CONFIRMED; acc_full_signed: CONFIRMED; contested_log_odds_of_verbatim_retention: CONFIRMED; veto_core_minus_human_peer: FAILED; own_minus_stranger_weights: CONFIRMED. WHAT THIS DOES NOT BUY: both halves come from one release, one annotator panel and one judge, so a surviving finding has been shown not to be an artifact of WHICH PROMPTS were read, and nothing more. It has not been shown to transfer to another release, panel, or judge, and the word replication is not available for it.",
+ "findings": {
+  "acc_core": {
+   "confirmation": [
+    0.6562118129786496,
+    0.6423518158613252,
+    0.6696570985597485
+   ],
+   "discovery": [
+    0.6565569047338136,
+    0.6429800449617511,
+    0.6705959212672972
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "acc_full_equal": {
+   "confirmation": [
+    0.5916471137843853,
+    0.5761608165571958,
+    0.6067509347835479
+   ],
+   "discovery": [
+    0.5879660749657004,
+    0.5719083128798077,
+    0.6035671108094075
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "acc_full_signed": {
+   "confirmation": [
+    0.6782122464206488,
+    0.6655087904795141,
+    0.6906217898566649
+   ],
+   "discovery": [
+    0.6768025886993949,
+    0.6637977309291284,
+    0.69056912451929
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "contested_log_odds_of_verbatim_retention": {
+   "confirmation": [
+    -1.1771365340152866,
+    -1.8632584455256915,
+    -0.5969219161934264
+   ],
+   "discovery": [
+    -1.1370217589653362,
+    -1.8104475319556403,
+    -0.5060735287069973
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "own_minus_stranger_weights": {
+   "confirmation": [
+    0.023469603003839178,
+    0.01734100113909632,
+    0.029604533181453827
+   ],
+   "discovery": [
+    0.026333523158694007,
+    0.01970144029992407,
+    0.03299710516324981
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "polarity_ratio_beta_neg_over_beta_pos": {
+   "confirmation": [
+    0.11684234613975089,
+    0.09477160418219803,
+    0.1398317290259344
+   ],
+   "discovery": [
+    0.07186070381876605,
+    0.05104503400369835,
+    0.09124863085038346
+   ],
+   "verdict": "ATTENUATED"
+  },
+  "veto_core_minus_human_peer": {
+   "confirmation": [
+    -0.01186727003073752,
+    -0.030088542325312186,
+    0.008125667513314581
+   ],
+   "discovery": [
+    -0.02237117617205785,
+    -0.04188757318318076,
+    -0.0019331809958972063
+   ],
+   "verdict": "FAILED"
+  }
+ },
+ "n_attenuated": 1,
+ "n_confirmation": 511,
+ "n_confirmed": 5,
+ "n_discovery": 457,
+ "n_failed": 1,
+ "salt": "split-1",
+ "source_name": "run.py",
+ "source_sha256": "7c2ef88a451cb5c2a5a1274221bd1318d74696d15abc0310529e217f76967515"
+}

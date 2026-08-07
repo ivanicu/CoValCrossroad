@@ -1,0 +1,12 @@
+{
+ "n": 100,
+ "agreement": {
+  "polarity": 0.71,
+  "force": 0.46,
+  "normative_type": 0.39,
+  "compensable": 0.99,
+  "generality": 0.16,
+  "subjectivity": 0.75,
+  "confidence": 0.26
+ }
+}

@@ -1,0 +1,84 @@
+R740 · is the shortfall resolvable at all
+written BEFORE run.py. P4 and the ARITHMETIC step ran first.
+
+WHY THIS ROUND, AND WHY IT IS NOT ANOTHER EXPLANATION
+   R738 measured ten negative excesses; R739 refuted the one explanation on offer and left them
+   unexplained. Three rounds have now reasoned about a quantity whose own resolution nobody has
+   measured. The standard's own history names this: a deficit inside its own floor's noise needs no
+   explanation.
+
+⛔ ARITHMETIC FIRST, AND IT ALREADY THREATENS THE NUMBERS
+   Three uncertainty sources, measured or derivable before this round:
+     construction seed spread over all curve points   0.0153
+     model held-out deviation, bounding interpolation 0.0100
+     sampling SE of r at n=968                        0.0110 at r=0.81 … 0.0244 at r=0.49
+   Quadrature gives ~0.0213 for the greedy-oracle cell. The two smallest excesses in the arc are
+   0.0176 (R738) and 0.0167 (R739). SEVERAL OF THE TEN SIT INSIDE THAT.
+   ⚠ AND QUADRATURE IS THE WRONG COMBINATION. r and the floor are computed on the SAME prompts, so
+   their errors are correlated and the difference is more stable than independence implies. This
+   round therefore does not use quadrature; it bootstraps the prompts and recomputes BOTH terms on
+   each resample, which is exact for the excess and needs no independence assumption. Quadrature is
+   carried only as a labelled naive comparator.
+
+ESTIMAND
+   For each of the ten (object, reference) cells, the bootstrap distribution of the EXCESS -- the
+   real correlation minus its overlap-matched floor -- with prompts resampled and both terms, and the
+   overlap itself, recomputed on every resample. Then: how many excesses have a 95% interval
+   excluding zero, and how many of the two ORDERING gaps do?
+
+IDENTIFICATION
+   Identified: prompts are the sampling unit and every quantity is a function of them. NOT
+   identified: uncertainty from the criterion pool itself, which is fixed by the release; a second
+   release would be needed to price that, and this round's interval is conditional on this pool.
+
+SCOPE
+   population : the prompts R738's curves were built on · instrument prompt bootstrap, both terms
+                recomputed together · baseline R738's point excesses · regime default emitter
+WORLDS
+   W-UNRESOLVED  a material share of the ten excesses have intervals covering zero. Then the arc has
+                 been explaining numbers its design cannot resolve, and the honest report is a bound.
+   W-RESOLVED    the intervals exclude zero. Then the shortfall is real at this resolution and its
+                 explanation is genuinely open.
+   prediction matrix
+      >= 4 of 10 cover zero -> UNRESOLVED 0.85  RESOLVED 0.05
+      <= 1 covers zero      -> UNRESOLVED 0.05  RESOLVED 0.90
+
+REGISTERED POINTS (failable)
+   A  quadrature estimate for the greedy-oracle cell -- a labelled NAIVE comparator = 0.021 [0.000, 1.000]
+   B  bootstrap SE of the greedy-oracle excess                                      = 0.020 [0.000, 1.000]
+   C  of the ten excesses, how many have a 95% interval EXCLUDING zero              = 5     [0, 10]
+   D  of the two ordering gaps, how many have an interval excluding zero            = 2     [0, 2]
+   DIRECTIONAL (separately failable): the bootstrap SE is SMALLER than the quadrature estimate,
+   because r and its floor share prompts and move together. Fails if it is larger.
+
+KILL (CONDITIONAL -- evaluated only if the POSITIVE and g=0 controls both fire)
+   if positive_fires and g0_zero:
+       C <= 6 -> W-UNRESOLVED: the excesses that cover zero are reported as UNRESOLVED, not as
+                 shortfalls, and every sentence in the record resting on them is amended
+       else   -> W-RESOLVED
+   else:
+       verdict = UNVERIFIED   # never OVERTURNED, never CONFIRMED
+
+POSITIVE CTRL   bootstrap a quantity whose standard error is known analytically -- the mean of a
+                per-prompt vector, SE = sd/sqrt(n) -- and require the bootstrap SE to match it within
+                5%. An interval estimator that cannot reproduce a known SE prices nothing.
+g=0             the excess of an arm against ITSELF is identically zero, so its bootstrap interval
+                must be exactly [0, 0]. The control must not manufacture width where there is none.
+NEGATIVE CTRL   run the bootstrap with resampling disabled (identity indices) and require every SE to
+                be exactly 0. excluded world: "the width comes from the recomputation, not from the
+                resampling".
+SHAM            bootstrap ONLY the correlation while holding the floor at its point value -- the
+                joint-resampling ingredient ABSENT rather than inverted -- and report that SE beside
+                the joint one. It should be LARGER, and if it is not, the two terms do not move
+                together and the directional above is wrong for a reason worth naming.
+PLACEBO         a cell against itself -> interval exactly [0, 0].
+NOISE FLOOR     the bootstrap's own Monte-Carlo error from >= 3 seeds at 2000 resamples, reported
+                beside every SE so no interval is quoted tighter than the estimator's own noise.
+MULTIPLICITY    10 cells + 2 ordering gaps, all reported with intervals, coverers and non-coverers
+                alike; BH over the ten where a p is defined.
+SPECIFICATION   resampling unit (prompt) x quantity (excess, ordering gap) x estimator (percentile,
+                basic) x seed
+SEEDS           3 bootstrap seeds x 2000 resamples; two PYTHONHASHSEEDs byte-identical, writes verified
+ARTIFACT        results/r740_resolution.json with tree_sha
+IMPOSSIBLE      uncertainty from the criterion pool itself -> a second release · independently
+                replicated -> a second implementer

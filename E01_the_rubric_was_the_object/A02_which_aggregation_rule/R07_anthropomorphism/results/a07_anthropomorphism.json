@@ -1,0 +1,67 @@
+{
+ "criteria_total": 15248,
+ "criteria_tier1_regex_recall": 24,
+ "criteria_tier1_anthropomorphism": 7,
+ "criteria_tier1_polarity": {
+  "anti": 4,
+  "pro": 3
+ },
+ "criteria_tier1_share_regex_upper_bound": 0.0015739769150052466,
+ "criteria_tier1_share": 0.0004590766002098636,
+ "criteria_tier2_affective": 120,
+ "criteria_tier2_share": 0.007869884575026232,
+ "term_hits": {
+  "\\bpretend(s|ing)? to (be|feel|have)\\b": 2,
+  "\\bpersona\\b": 4,
+  "\\bas an ai\\b": 2,
+  "\\bpersonal opinion\\b": 9,
+  "\\bits own (opinion|feelings|views)\\b": 2,
+  "\\bfirst[- ]person\\b": 4,
+  "\\bhas feelings\\b": 1
+ },
+ "responses": 4312,
+ "anthro_alone": {
+  "beta": 0.0968416346488965,
+  "se": 0.031535675852945935
+ },
+ "anthro_length_controlled": {
+  "beta": 0.10850695859061031,
+  "se": 0.032044885422944085
+ },
+ "per_family": {
+  "first_person_stance": {
+   "beta": 0.1144938327202701,
+   "se": 0.041637565655537855,
+   "t": 2.749772493124661
+  },
+  "self_as_agent": {
+   "beta": 0.1542118971598161,
+   "se": 0.13710840251834858,
+   "t": 1.124744321480798
+  },
+  "emotional_attunement": {
+   "beta": 0.02675609893685237,
+   "se": 0.13016672987553765,
+   "t": 0.20555251685615764
+  },
+  "user_directed_warmth": {
+   "beta": 0.45929163563970193,
+   "se": 0.08785932092770479,
+   "t": 5.227580076764205
+  },
+  "turn_taking": {
+   "beta": 0.06253654258358576,
+   "se": 0.08168528416138136,
+   "t": 0.7655790541174536
+  }
+ },
+ "rubric_absorption_test": {
+  "rubric_beta": 2.992033787423667,
+  "rubric_t": 20.52771675054438,
+  "anthro_beta": 0.13364985831488368,
+  "anthro_t": 4.022353963516904,
+  "length_beta": 0.3477492002692067,
+  "length_t": 3.940241671982071,
+  "rubric_is_blind": true
+ }
+}

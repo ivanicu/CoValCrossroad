@@ -1,0 +1,159 @@
+R797 · is the prompt's own rubric a WORSE human predictor than a generic pool — and does R796's
+       inverse relation exist at all?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-06.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R796's NEXT proposed asking what distinguishes `coval_core` from `topvar_k4` -- "an arm whose
+rubric-preference is +0.1608 higher and whose agreement with humans is 0.0802 lower."
+
+CHECK #399 attacked it and found TWO problems.
+
+(a) ⛔ THE PAIR IS NOT A LIVE QUESTION. `coval_core` and `topvar_k4` differ by 0.0802 on A2 against
+    an MDE near 0.011, and R789 already placed them in DIFFERENT LEVELS (topvar_k4 in the 9-arm floor
+    cluster at 0.4863, coval_core at 0.5665). They are among the best-separated pairs in the
+    population. The stuck pair was `topw_k4`, not this one.
+(b) ⛔ AND THE INVERSE RELATION IT GENERALISES FROM IS TWO ARMS. Measured across all 27 named arms,
+    `corr(rubric-preference, A2) = -0.2550`. At n = 20 distinct objects that is nowhere near
+    resolved. **R796's closing sentence built a pattern out of the two arms at the ends of it** --
+    §4's *the closing sentence is a claim and never gets a control*, in my own last round.
+
+⭐ BUT THE CHECK SURFACED SOMETHING SHARPER, AND IT IS A STATEMENT ABOUT THE RELEASE. The targets
+themselves differ as human predictors: `genericpool16` scores **A2 0.5422** while `full` scores
+**0.5087** (R793). If that gap is real, then **a generic 16-criterion pool predicts a prompt's own
+human rankings better than the prompt's own rubric does** -- which explains R796 mechanically
+(arms resembling a better predictor predict better) and is worth more than the correlation.
+
+--------------------------------------------------------------------------------
+DISCLOSURE -- what was already known when this was written
+--------------------------------------------------------------------------------
+KNOWN and quoted: the two A2 values (0.5422 from R789's ladder, 0.5087 from R793's table), the
+-0.2550 correlation, R796's per-arm preferences. **NOT known: any interval on the target gap**,
+the correlation's own CI or MDE, or whether a synthetic mixture reproduces the correlation.
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  THE TARGET GAP IS A SAME-TARGET COMPARISON. `full vs HUMAN` and `genericpool16 vs HUMAN` are both
+    proportions against the human annotators, so the comparison needs no ceiling and is paired per
+    prompt. **DERIVATION** (R794's D1, reused), and it is why this estimand is clean where the
+    ceiling questions were not.
+D2  A CORRELATION AT n = 20 IS WEAK BY CONSTRUCTION. |r| must reach about 0.44 for a two-sided test
+    at n = 20 to exclude zero. So -0.2550 is uninformative unless the design's MDE is reported
+    beside it. **DERIVATION**, and a null without it is silence.
+D3  THE ALIASES INFLATE n. R789 measured 27 named arms collapsing to 20 distinct objects; computing
+    a correlation over 27 counts seven arms twice. **DERIVATION**, and the correlation must be
+    recomputed on the 20.
+D4  IF ARMS WERE MIXTURES OF `full`-LIKE AND `pool`-LIKE CLASSES, an inverse relation between
+    rubric-preference and A2 would arise BY CONSTRUCTION whenever the pool is the better predictor.
+    **DERIVATION**, and it is why E4's synthetic control decides whether the correlation is a
+    finding or a restatement.
+
+STRONGEST CONFOUND, written BEFORE the run: `genericpool16` has 16 criteria and `full` has a mean of
+15.48, but `full`'s count VARIES per prompt (min 4, max 39) while the pool's is fixed. A prompt whose
+rubric has 4 criteria produces a noisier class than one with 39, so the gap could be a size-variance
+effect rather than a quality one. CONTROL IN THE SAME ITERATION: stratify the gap by the prompt's own
+criterion count and report the curve, plus the gap restricted to prompts with 12-20 criteria where
+the two targets are closest in size.
+
+--------------------------------------------------------------------------------
+ESTIMANDS (before method)
+--------------------------------------------------------------------------------
+E1  ⭐ THE TARGET GAP: `genericpool16 vs HUMAN` minus `full vs HUMAN`, paired per prompt over all
+    annotators, with a cluster-bootstrap CI and its own MDE.
+E2  ⭐ THE GAP STRATIFIED by the prompt's `full` criterion count -- the registered confound.
+E3  R796's INVERSE RELATION, tested properly: `corr(rubric-preference, A2)` over the **20 distinct
+    objects**, with a bootstrap CI over PROMPTS and an arm-label permutation null, **and its MDE**
+    (what |r| this design could have detected).
+E4  the derivation check: synthetic arms built as mixtures of `full`-like and pool-like classes, run
+    through the identical pipeline. If they reproduce the observed correlation, E3 is a restatement
+    of E1 and not an independent finding.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1, E2 exact. E3 identified but weak by D2, and the round commits to reporting its MDE whatever the
+result. E4 identified by construction and reported as a capability, never as an observation.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  968 prompts; 20 distinct objects for E3
+instrument  A2 -- pairwise-sign agreement with the human annotators, all of them
+baseline    `full` (the prompt's own rubric) for E1; a permuted arm labelling for E3
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE RUBRIC IS THE WORSE PREDICTOR. E1's gap is positive and resolved, and survives the
+    size-stratification. Then the release ships a rubric that predicts its own prompt's human
+    rankings worse than a generic pool does, and every "preserves the rubric" clause inherits it.
+B · THE GAP IS A SIZE ARTEFACT. E1 resolves but vanishes on the 12-20 criterion stratum. Then it is
+    about how many criteria a prompt happens to have, not about the rubric.
+C · NO GAP. E1 is unresolved. Then R796's mechanism has no basis and the -0.2550 correlation is the
+    only thing on the table -- which D2 says is uninformative at this n.
+
+PREDICTION MATRIX
+  A -> E1 CI excludes 0, positive, AND the 12-20 stratum keeps the sign and resolution
+  B -> E1 CI excludes 0 overall but the matched-size stratum is unresolved or reversed
+  C -> E1 CI contains 0
+  any other pattern -> report; CLAIM NO WORLD.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (`full vs HUMAN` reproduces R793's committed 0.5087 and `genericpool16`'s A2
+   reproduces R789's committed 0.542233, both to 1e-9 -- exit 2 otherwise)
+   and PLACEBO returns exactly 0 for a target against itself
+   and POSITIVE fires with a computed band (a planted shift on one target's human column moves the
+       gap monotonically and does not resolve at delta = 0)
+   and NEGATIVE fires (shuffling the human targets across prompts collapses BOTH columns toward
+       chance, so the gap is not a property of the targets alone):
+        E1 unresolved                                       -> WORLD C   (checked FIRST)
+        E1 resolved AND the 12-20 stratum keeps it          -> WORLD A
+        E1 resolved AND the stratum loses it                -> WORLD B
+        otherwise                                           -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT      two committed A2 values reproduced to 1e-9. Exit 2, never 0.
+PLACEBO     a target against ITSELF as the human proxy: exactly 0 gap. A contrast with no effect.
+POSITIVE    BAND COMPUTED AT BOTH ENDS: plant delta on `full`'s human column, sweep
+            {0, 0.01, 0.02, 0.05}; require no resolution at 0 and resolution at the top.
+NEGATIVE    shuffle the HUMAN classes across prompts. Both columns must collapse toward chance and
+            the gap toward 0. World it excludes: "the gap is a property of the two targets' internal
+            structure rather than of how they track THIS prompt's humans."
+CONFOUND    E2's size stratification, registered above.
+NOISE FLOOR MEASURED: annotator split-half on each target's human column.
+E3 MDE      the |r| this design could detect at n = 20, by simulation, reported WITH the result.
+UNIT        instrument unit = a (prompt, annotator) judgement; claim unit = a TARGET for E1 and an
+            ARM for E3. Named separately, required unequal.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+E1's one gap + E2's strata (5 bins) + E3's one correlation = 7 tests, BH at q = 0.05 over the whole
+set. Cells tested, surviving and non-survivors printed. E2's curve is reported whole.
+
+--------------------------------------------------------------------------------
+SPECIFICATION CURVE
+--------------------------------------------------------------------------------
+stratum        all prompts | criterion-count bins | the 12-20 matched-size stratum
+estimator      paired mean | median
+population     27 named arms | 20 distinct objects   (E3)
+NBOOT          1200
+seeds          3
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+why the rubric predicts worse                  the criteria's text and a relevance judgement, i.e.
+                                               the construct wall (`corebench/score.py:34`)
+a second generic pool                          the release ships one, of 16
+independently replicated                       a second designer; the session prompt forbids agents
+cross-release                                  a second values-annotation release

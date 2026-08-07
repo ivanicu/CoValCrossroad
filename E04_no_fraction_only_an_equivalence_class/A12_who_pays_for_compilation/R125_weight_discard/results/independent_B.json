@@ -1,0 +1,117 @@
+{
+  "estimand": "Within-prompt Pearson correlation of core's mean satisfaction across responses A-D against (a) an importance-weighted and (b) an unweighted, direction-preserving aggregate of full's satisfaction; Delta = r_weighted - r_unweighted, averaged across prompts (one Delta per prompt cluster).",
+  "seed": 4409,
+  "seeds_used": [
+    4409,
+    4410,
+    4411,
+    4412,
+    4413
+  ],
+  "thresholds_preregistered": {
+    "primary_alpha": 0.01,
+    "primary_min_effect_pearson_r": 0.05,
+    "secondary_alpha_holm": 0.01,
+    "donor_min_r_for_tracks_full_at_all": 0.1,
+    "nperm_per_seed": 2000,
+    "n_derangements": 200,
+    "winsor_percentile": 95,
+    "synthetic_noise_sd": 0.03
+  },
+  "population": {
+    "conversations_in_rubrics_file": 986,
+    "joined_to_comparisons": 968,
+    "usable_after_filters": 968,
+    "dropped_criteria_mismatch": 0,
+    "dropped_label_mismatch": 0,
+    "dropped_all_zero_weight": 0,
+    "dropped_zero_variance": 0
+  },
+  "headline": {
+    "mean_r_weighted": 0.7953760137088833,
+    "mean_r_unweighted": 0.804500940054032,
+    "mean_delta": -0.009124926345148672,
+    "median_delta": -0.0019352041777428164,
+    "delta_iqr": [
+      -0.032452404451536965,
+      0.020692618860149947
+    ],
+    "mae_core_vs_weighted": 0.2569154216259919,
+    "mae_core_vs_unweighted": 0.24368085059627403,
+    "mae_absolute_gap": -0.013234571029717868
+  },
+  "diagnostic_weighted_unweighted_collinearity": {
+    "note": "Not a hypothesis test -- run unconditionally to explain the primary result's achievable range. Explains the positive-control ceiling.",
+    "mean_corr_S_weighted_S_unweighted": 0.9572635623641548,
+    "median_corr_S_weighted_S_unweighted": 0.9915322719329197,
+    "p10_corr_S_weighted_S_unweighted": 0.9021096935137636,
+    "mean_abs_gap_S_weighted_minus_S_unweighted": 0.06782430986873303
+  },
+  "primary_permutation_test": {
+    "per_seed_p": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "mean_p": 1.0,
+    "sd_p": 0.0,
+    "significant_at_alpha": false,
+    "meaningful_at_min_effect": false
+  },
+  "positive_control": {
+    "synthetic_weighted_core_mean_delta": 0.03575248131258779,
+    "synthetic_weighted_core_per_seed": [
+      0.03335623073173,
+      0.03878936938253008,
+      0.03748097986207699,
+      0.03547875504898279,
+      0.0336570715376191
+    ],
+    "synthetic_unweighted_core_mean_delta": -0.032886517199861506,
+    "synthetic_unweighted_core_per_seed": [
+      -0.03246399812802658,
+      -0.030138387250020715,
+      -0.029912908339293387,
+      -0.03499267266551931,
+      -0.03692461961644755
+    ],
+    "passed": false
+  },
+  "strongest_confound_control": {
+    "name": "shuffled-donor generic-halo null",
+    "real_mean_r_unweighted": 0.804500940054032,
+    "donor_null_mean": 0.00022980585028103685,
+    "donor_null_sd": 0.020101610124408614,
+    "donor_null_max": 0.04880455155295816,
+    "p_donor_beats_real": 0.004975124378109453,
+    "tracks_full_at_all": true
+  },
+  "robustness_winsorized_weights": {
+    "winsor_cap": 10.0,
+    "mean_r_weighted_winsorized": 0.7953760137088833,
+    "mean_delta_winsorized": -0.00912492634514872,
+    "sign_matches_primary": true
+  },
+  "multiplicity_holm_bonferroni_secondary_tests": {
+    "donor_null": {
+      "raw_p": 0.004975124378109453,
+      "holm_adjusted_p": 0.009950248756218905,
+      "reject_at_alpha": true
+    },
+    "winsor_robustness": {
+      "raw_p": 1.0,
+      "holm_adjusted_p": 1.0,
+      "reject_at_alpha": false
+    }
+  },
+  "four_scopes": {
+    "population": "OpenAI Collective Alignment release, 968/968 prompts with both coval_full (scored) and coval_core criteria and all 4 response labels present in both precomputed satisfaction arms.",
+    "instrument": "Local Qwen3.5-2B-Base logit-gap satisfaction judge (a04 pipeline); its own positive control passed for both arms (full pairwise acc=0.686, core pairwise acc=0.660, both > shuffled-rubric and length-only nulls, per a04_full.json/a04_core.json). This result is conditional on that judge being a valid-enough satisfaction proxy.",
+    "baseline": "'Unweighted' is operationalized as equal-magnitude, sign-preserving averaging over full's criteria -- the minimal contrast that isolates MAGNITUDE alone. A different unweighted rule (e.g. plain unsigned mean) is not tested and would be incoherent here since several criteria are negatively rated.",
+    "regime": "Single free-response prompts with 4 candidate completions (A-D), the exact release format. Does not generalize to other rubric-compilation pipelines or other releases without re-running this pipeline on them."
+  },
+  "verdict": "UNVERIFIED",
+  "verdict_reason": "The positive control FAILED its pre-registered bar (mean synthetic Delta +0.0358 vs required >0.15, and >3x the unweighted-control Delta -0.0329). Diagnosis: S_weighted and S_unweighted are themselves near-collinear across a prompt's 4 responses (mean r=0.957, median r=0.992) -- averaging over ~15 criteria already washes out most of what magnitude-weighting could change, so even a synthetic core generated 100% from the weighted aggregate cannot be reliably told apart from one generated from the unweighted aggregate at this noise level. The real observed Delta (-0.0091) sits inside that same near-zero ceiling. This specific discriminating action (response-level aggregate correlation) therefore has NO power to separate 'core compiled as a weighted summary' from 'core compiled as an unweighted summary' in this release -- the two candidate worlds produce almost the same full-arm prediction to begin with, so a null result is silence, not an acquittal of either side. core DOES reliably track the same prompt's full satisfaction structure at all (donor-null beaten, p=0.0050, mean r_uw=+0.805) -- what is UNVERIFIED is specifically whether that tracking is weighted or unweighted."
+}

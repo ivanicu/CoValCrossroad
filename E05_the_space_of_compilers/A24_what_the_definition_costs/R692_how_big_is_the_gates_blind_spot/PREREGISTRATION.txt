@@ -1,0 +1,29 @@
+R692 · PRE-REGISTRATION — written before any scan for this question.
+
+THE GAP  R691 built `release_names_resolve_to_one_set.py` and stated in its own docstring that a
+         release claim under a NEUTRAL name is invisible to it. That caveat is currently an
+         assertion. A caveat measured is production; a caveat asserted is decoration.
+
+POINT A     45 literals in this repository bind >=2 arm names under a name matching NEITHER the
+            release pattern NOR an our-arms pattern.
+INTERVAL A  [10, 150]  ⚠ the plausible range is 0 to several hundred over 644 run.py, so 0-9 and
+            >150 are both live and each falsifies this row. Ledger 803, 808 and 816 record two
+            unfailable registrations and one that could fail; this one can.
+POINT B     3 of those bind a member set that ALSO appears under a release-asserting name elsewhere
+            — i.e. the same claim wearing an invisible name.
+INTERVAL B  [0, 20]
+DIRECTIONAL (separately failable) the blind-spot population is LARGER than the visible one, which is
+            1 name (`PUBLISHED_FIVE`). If it is not, the gate covers most of what matters.
+KILL        if ZERO neutral-named literals bind >=2 arm names, the gate has no blind spot, the
+            caveat was over-cautious, and I should say so rather than keep hedging.
+CONTROLS
+  POSITIVE  R361's `FIVE` is KNOWN to be a neutral-named literal binding 5 arm names; it must be
+            found.
+  g=0       `PUBLISHED_FIVE` must NOT be counted as blind-spot — it is what the gate SEES. The
+            classifier must return both values.
+  NEGATIVE  a literal of non-arm strings must not be counted.
+  PLACEBO   run twice identical.
+IDENTIFICATION LIMIT  a neutral-named literal binding arm names is not necessarily a CLAIM about the
+            release — most are our own arm lists, which is legitimate. So this counts the population
+            the gate cannot see, NOT the number of hidden false claims. The difference is stated
+            rather than collapsed.

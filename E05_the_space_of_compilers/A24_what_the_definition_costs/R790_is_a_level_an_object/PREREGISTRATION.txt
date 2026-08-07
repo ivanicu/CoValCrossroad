@@ -1,0 +1,187 @@
+R790 · is a LEVEL an object, or a threshold artefact? — the membership formulation, priced before
+       it is written
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-06.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R789's NEXT said the step is to stop writing clause ② as a RANKING claim and write it as a
+MEMBERSHIP one, because the released core shares its level with three arms it cannot be ordered
+against. A membership formulation needs LEVELS to be objects. This round asks whether they are.
+
+CHECK #392 — three findings, all before any design, and two of them hostile to my own NEXT.
+  (a) THE NEXT's FACTUAL CLAIM SURVIVES. *"every arm above `coval_core`'s level reads the target"*
+      is TRUE at the object: `corebench/select_core.py:161` (`indep_k`), `:168` (`greedy_k`) and
+      `:180` (oracle) each call `tgt.get(pid)`. Rare in this arc; recorded because a NEXT that
+      survives its own check is as informative as one that dies.
+  (b) P4 PRIOR ART, L1: **R768 already made the membership observation** — its title is *"the
+      extension is an unordered SET — the definition admits four arms and cannot rank them."* So
+      the OBSERVATION is not new. What no round has asked is whether the partition those levels
+      form is stable enough to carry a definition.
+  (c) ⛔ THE ARITHMETIC, RUN FIRST AND IT HURTS. "Same level" = "not resolved" is **NOT
+      TRANSITIVE**: over the 20 distinct objects, intransitive chains number **16 of 202 (7.9%)**
+      at the strict rule and **23 of 146 (15.8%)** at ci_only. **A relation that is not transitive
+      does not induce a partition**, so "level" is a CONSTRUCTION (adjacent vs greedy), not an
+      object — and R789 reported two constructions precisely because it had to.
+      ⛔ And: at the CONSERVATIVE rule **`coval_core` and `generic` fall in the SAME level**
+      (t = 3.962 < 4.761549). The released core is not separable from the prompt-blind baseline
+      under one of the four defensible rules R725 enumerated.
+
+--------------------------------------------------------------------------------
+DISCLOSURE -- what was already known when this was written
+--------------------------------------------------------------------------------
+KNOWN and quoted: everything in check #392 above, plus R789's matrix, ladder (9/10 at strict) and
+its four-rule curve (20 / 10 / 9 / 5 adjacent). **NOT known: any bootstrap quantity.** Specifically
+`P(coval_core and generic share a level)`, the distribution of the level count under resampling,
+the co-level probability matrix, and whether structureless arms with matched spread reproduce the
+partition. The worlds are gated on those, not on the point estimates above.
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  A NON-TRANSITIVE RELATION INDUCES NO PARTITION. If `a ~ b` and `b ~ c` but `a ≁ c`, then any
+    grouping must break a tie by a rule outside the relation. **DERIVATION.** So the existence of
+    two constructions is not a reporting choice; it is forced. What is a MEASUREMENT is the RATE.
+D2  THE ADJACENT CONSTRUCTION DEPENDS ON THE SORT ORDER, and the sort key is an estimate. So under
+    resampling the ORDER moves as well as the thresholds, and the partition must be recomputed
+    end-to-end per draw, never by re-thresholding a fixed order. DERIVATION, and it is a
+    specification of the method rather than a result.
+D3  `t = |A2_a − A2_b| · √P / sd(a − b)`, so at fixed effect a rule change is a pure rescaling of
+    the threshold. Every difference between the four rules' partitions is therefore attributable
+    to threshold placement alone. DERIVATION — and it is why the rule curve cannot settle whether
+    a level is real.
+D4  P(same level) IS BOUNDED BELOW BY THE ALIAS PAIRS. Seven arms are byte-identical copies of
+    another (R789), so nine pairs have `t = 0` in every draw and must return P = 1.000 exactly.
+    **DERIVATION, and it is this round's PLACEBO with an exact expected value.**
+
+STRONGEST CONFOUND, written BEFORE the run: the partition may be a property of the A2 SPACING
+alone — 20 numbers spread over a range, thresholded — and carry nothing about the arms. CONTROL IN
+THE SAME ITERATION: a synthetic population with the same marginal A2 spread and per-pair sds but no
+arm structure, run through the identical pipeline, with its level-count distribution reported beside
+the real one.
+
+--------------------------------------------------------------------------------
+ESTIMANDS (before method)
+--------------------------------------------------------------------------------
+E1  the intransitivity rate of "not resolved" over the 20 distinct objects × 4 rules, persisted.
+    ⚠ A MEASUREMENT, not a derivation: it comes out 0 at the point rule, so it could have come out
+    otherwise.
+E2  ⭐ THE STABILITY. Over B = 1000 cluster-bootstrap resamples of the 968 prompts, recompute all
+    190 pairwise `t` values, re-sort, and rebuild the partition end-to-end (D2). Report the level
+    count distribution and the full **co-level probability matrix**.
+E3  ⭐ THE DECISIVE PROBABILITY: `P(coval_core and generic share a level)` and
+    `P(coval_core and topw_k4 share a level)`, at the pre-registered strict rule, under both
+    constructions. This is what decides whether a membership formulation can safely say the core
+    is above the prompt-blind baseline.
+E4  the membership formulation, WRITTEN and made falsifiable: *"admissible iff strictly above the
+    prompt-blind baseline's level."* Per §4's remedy for *the definition describes the instance*,
+    name the admissible objects it EXCLUDES and those it ADMITS, and report that set's bootstrap
+    stability — the share of draws returning the same admitted set.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1, E3, E4 exact given the per-prompt A2 vectors. E2's co-level probabilities are bootstrap
+estimates whose own resolution is 1/B = 0.001; probabilities below that are reported as `< 0.001`,
+never as 0.
+⚠ PARTIALLY IDENTIFIED: the bootstrap resamples PROMPTS only, so every probability is conditional
+on the observed annotator sets. R789 measured that the hierarchical bootstrap left the ladder at
+9/10 with all 305 resolved pairs intact, so the annotator layer is not expected to bind — that is a
+quoted prior result, not an assumption, and the hierarchical partition is run here as a cell.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  20 distinct objects (R789's 27 named arms with 7 aliases collapsed) × 968 prompts
+instrument  A2 per prompt over all annotators; `t = eff/se` on the paired difference
+baseline    the point-estimate partition R789 published
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · A LEVEL IS A STABLE OBJECT. `P(coval_core ~ generic) < 0.05` at strict, the level count is
+    concentrated (its modal value holds ≥ 0.60 of draws), and the synthetic control's level-count
+    distribution is materially different. Then a membership formulation is well-founded and clause
+    ② can be rewritten as one.
+B · A LEVEL IS A THRESHOLD ARTEFACT. `P(coval_core ~ generic) ≥ 0.05` at strict, OR the level count
+    spans ≥ 4 distinct values across draws with no modal value above 0.60. Then membership inherits
+    exactly the arbitrariness the ranking formulation had, and R789's NEXT dies as a direction.
+C · THE PARTITION IS SPACING, NOT STRUCTURE. The synthetic matched-spread population reproduces the
+    level-count distribution (modal level count equal, and the two distributions overlapping).
+    Then the ladder is a fact about 20 numbers on a line and says nothing about the arms.
+
+PREDICTION MATRIX
+  A -> P(core ~ generic) < 0.05  AND  modal level count share >= 0.60  AND  synthetic differs
+  B -> P(core ~ generic) >= 0.05  OR  (level count spans >= 4 values AND no mode >= 0.60)
+  C -> synthetic modal level count == real modal level count AND their distributions overlap
+  A and C can BOTH fire -- if so, report C, because a stable partition that random numbers
+  reproduce is stable and empty. Registered now so the tie is not broken after seeing the result.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (190 pairs rebuilt; every `t` equal to R789's artifact to 1e-9 -- exit 2 otherwise)
+   and PLACEBO returns P(same level) EXACTLY 1.000 on all 9 alias pairs (D4)
+   and POSITIVE has a NON-DEGENERATE band (a planted copy at delta = 0 shares a level in 1.000 of
+       draws; at delta = 0.05 in <= 0.05 of draws; floor != ceiling)
+   and the NEGATIVE synthetic pipeline runs and returns a level-count distribution:
+        synthetic reproduces the real level-count mode and overlaps  -> WORLD C  (checked FIRST)
+        P(core ~ generic) >= 0.05 or the count is dispersed as above  -> WORLD B
+        P(core ~ generic) < 0.05 and mode share >= 0.60              -> WORLD A
+        otherwise                                                    -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT      the 190-pair matrix rebuilt from the sat files and checked against R789's artifact to
+            1e-9; the 7 aliases identified by sd == 0 and collapsed, with the count printed.
+            Empty population or any mismatch -> exit 2, never 0.
+PLACEBO     the 9 alias pairs: P(same level) must be EXACTLY 1.000, and their `t` exactly 0 in
+            every draw. Expected value known in advance by D4 — a contrast where no effect can
+            exist.
+POSITIVE    BAND COMPUTED AT BOTH ENDS. Plant a copy of the arm nearest the A2 median, shifted by
+            delta with zero-mean per-prompt noise at the population's median pairwise sd, and sweep
+            delta in {0, 0.005, 0.01, 0.02, 0.05}. Require P(same level) = 1.000 at delta = 0
+            (floor) and <= 0.05 at delta = 0.05 (ceiling). floor == ceiling is DEGENERATE and fails.
+NEGATIVE    THE SYNTHETIC WORLD THE CONFOUND PREDICTS: 20 arms whose per-prompt vectors are drawn
+            to match the real marginal A2 spread and the real median pairwise sd, with no arm
+            structure, pushed through the IDENTICAL partition pipeline. World it excludes: "the
+            level structure is a property of the arms." Reported as a distribution, not one draw.
+SHAM        the same construction MINUS the resolution test: partition A2 into the same number of
+            groups by EQUAL-WIDTH bins, and compare to the real partition by adjusted Rand index.
+            The ingredient removed is the significance test itself, not misdirected — if binning
+            reproduces the partition, the machinery buys nothing.
+NOISE FLOOR the bootstrap spread of the level count IS the floor, reported as a distribution.
+UNIT        instrument unit = an (arm, arm, bootstrap draw) resolution decision; claim unit = a
+            LEVEL, and for E4 an ADMITTED SET. Named as three separate strings, required unequal.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+190 unordered pairs among the 20 distinct objects (NOT 351 — the alias pairs are the placebo, not
+tests). The co-level probability matrix is published whole, all 190 entries, including the ones
+that make the partition look bad. Level counts reported as a full distribution over B draws, never
+as a mean.
+
+--------------------------------------------------------------------------------
+SPECIFICATION CURVE
+--------------------------------------------------------------------------------
+rule           point | ci_only | strict/mde | conservative     (R725's four thresholds on t)
+construction   adjacent | greedy-from-lowest
+bootstrap      prompt-only | hierarchical (prompts, then annotators within prompt)
+B              1000
+seeds          3, and the round asserts the draws actually differ
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether the levels are the RIGHT grouping         an external criterion for what clause ② should
+                                                  admit -- the construct-validity wall (R631)
+a partition that is not construction-dependent    a transitive resolution relation, which D1 shows
+                                                  this data does not supply
+independently replicated                          a second designer; the session prompt forbids
+                                                  agents
+levels for arms outside modal-k=4                 their own comparator class and sat files

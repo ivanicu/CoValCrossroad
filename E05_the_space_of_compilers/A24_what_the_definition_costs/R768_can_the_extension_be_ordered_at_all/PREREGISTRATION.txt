@@ -1,0 +1,138 @@
+R768 · can the extension be ORDERED at all, or is it a set the definition cannot rank?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R767's NEXT said "the k-curve peaks at k = 6 (eff/MDE 1.311), not at the released core's k = 4
+(1.264)", and registered the paired k6 - k4 difference as the next quantity.
+
+⛔ CHECK #370 KILLED THE PREMISE FROM MY OWN COMMITTED ARTIFACT, IN ONE ARITHMETIC STEP:
+      k = 4  eff 0.013745      k = 6  eff 0.013681      difference  -0.000063
+   **ON THE EFFECT ITSELF THE CURVE PEAKS AT k = 4.** `eff/MDE` orders arms by `eff / sd`, because
+   `MDE = z*sd/sqrt(n)` and nothing else varies -- implied sds are 0.1208 (k=4) and 0.1159 (k=6).
+   So "k = 6 outscores k = 4" is a statement about the DENOMINATOR, and I wrote it while the two
+   effects were printed side by side in my own table. **SIXTH NEXT line this arc killed by the first
+   check of the round that acted on it.**
+
+WHAT IS ACTUALLY OPEN, AND IT IS BIGGER THAN THE PAIR. `eff/MDE` is the right statistic for
+ADMISSION -- is this effect resolvable at all -- and the wrong one for ORDERING. Nothing in this
+campaign has asked whether the extension's members can be ORDERED. The deliverable presents
+`coval_core` as the released core; the page carries orderings; and **the pairwise question has never
+been posed**: every comparison is an arm against the BASELINE.
+⚠ AND THE ANSWER IS NOT FORCED. An arm-vs-arm paired difference shares prompt-level variance between
+  its two sides, so its MDE can be far SMALLER than either arm's MDE against the baseline. A gap of
+  +0.0023 (`coval_core` - `topw_k6`) may well be resolvable even though each arm's own MDE is ~0.010.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  for every pair of the five committed members (10 pairs), the paired difference of per-prompt A2
+    with its own CI and its own MDE, and the three-valued verdict.
+E2  the same over the `topw_k{1,2,3,4,6,8,12}` family (21 pairs), which carries the k-ordering claim.
+E3  multiplicity over the WHOLE grid of 31 pairs -- BH at q = 0.05 -- with cells tested beside cells
+    surviving, and the non-survivors printed.
+E4  the DECOMPOSITION: the arm ordering by `eff` against the ordering by `eff/MDE`, and how many
+    adjacent transpositions separate them.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1-E4 IDENTIFIED and exact given the bootstrap index matrix. The paired difference is a well-defined
+per-prompt quantity and both arms are measured on the same 968 prompts.
+⚠ WHAT IS NOT IDENTIFIED: whether A2 is the right thing to order arms BY. That needs an external
+  criterion and is in the register, not in the design.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  the 5 committed extension members and the 7-member `topw_k` family (11 distinct arms)
+instrument  R294's estimator, paired per-prompt differences, B = 1200, `report.verdict`
+baseline    ⭐ NONE — this round's comparisons are ARM vs ARM. The baseline appears only in controls.
+regime      first release, home judge, 968 prompts, this tree_sha
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  `eff/MDE` RANKS BY `eff/sd`. With n fixed and z fixed, MDE is a constant times sd, so ordering by
+    eff/MDE is ordering by eff/sd -- it REWARDS LOW VARIANCE, not high effect. Two arms with equal
+    effects order purely by their noise. That is algebra, and it is why R767's NEXT was wrong.
+D2  A PAIRED ARM-VS-ARM MDE IS NOT THE DIFFERENCE OF TWO ARM-VS-BASELINE MDEs.
+    var(a - b) = var(a) + var(b) - 2cov(a,b), and a and b are scored on the same prompts, so the
+    covariance is large and the paired sd is SMALL. Predicting the pairwise verdicts from the
+    marginal MDEs is therefore invalid in BOTH directions, and the round must measure them.
+D3  THE PAIRWISE MATRIX IS ANTISYMMETRIC. 31 pairs, not 62; and a verdict for (a,b) determines (b,a).
+    Reporting both halves would double-count in the multiplicity correction.
+
+STRONGEST CONFOUND, written BEFORE the run: a pairwise difference could be resolvable merely because
+the two arms share most of their criteria -- nested sets differ on few prompts, so their difference
+vector is mostly zeros and its sd is tiny. That would make resolution a function of OVERLAP, not of
+quality. CONTROL IN THE SAME ITERATION: report each pair's criterion-set overlap beside its verdict,
+and the correlation between overlap and |eff|/MDE across all 31 pairs.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · THE EXTENSION IS AN UNORDERED SET. No pair of the five committed members is resolvably ordered
+    after multiplicity. The definition admits four arms and CANNOT say which is better, including
+    whether the released core is best. The page's orderings need that scope.
+B · IT IS ORDERED, AND THE PAIRING BUYS THE RESOLUTION. At least one committed pair resolves, because
+    the paired sd is far below the marginal one -- and then the released core's position is a
+    measurable fact rather than an assumption.
+C · RESOLUTION TRACKS OVERLAP. The pairs that resolve are the ones sharing the most criteria, so the
+    matrix measures set similarity rather than quality, and no ordering claim is admissible.
+
+PREDICTION MATRIX
+  A -> 0 of 10 committed pairs survive BH
+  B -> >= 1 survives, and its overlap is not extreme within the 31-pair distribution
+  C -> the surviving pairs are the top-overlap pairs; corr(overlap, |eff|/MDE) is large and positive
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE fires (a known-large gap, `coval_core` vs `gen_sham`, is BEATS)
+   and g=0 fires (an arm against ITSELF gives eff exactly 0 and is not BEATS)
+   and PLACEBO fires (`topw_k4` vs `topw_k4_detA` gives eff exactly 0):
+        0 of 10 committed pairs survive BH      -> WORLD A. The page states the extension is a SET.
+        >= 1 survives, overlap not extreme      -> WORLD B. Name the pair and its direction.
+        survivors are the top-overlap pairs     -> WORLD C. The matrix measures similarity.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE  `coval_core` vs `gen_sham` -- a gap of roughly 0.07 in A2 -- must return BEATS. BAND,
+          COMPUTED: an instrument returning BEATS for everything also returns it for the g=0 and
+          PLACEBO cells below; one returning it for nothing fails here. Unreachable from either end.
+g=0       an arm compared against ITSELF: eff exactly 0.0, verdict not BEATS.
+NEGATIVE  destroy the pairing -- permute prompts on one side, 200 draws -- and report the MDE
+          INFLATION ratio. World excluded: "the paired MDE is small for reasons unrelated to the
+          pairing", which would make D2's mechanism wrong.
+SHAM      ingredient ABSENT, not inverted. Ingredient = THE PER-ARM sd in the ranking. Re-rank the k
+          family with every arm's sd replaced by the POOLED sd, and report how many adjacent
+          transpositions separate that order from the eff/MDE order. If the order changes, the
+          ranking was sd-driven -- which is D1, measured rather than asserted.
+PLACEBO   `topw_k4` vs `topw_k4_detA`: identical artifacts, so eff must be exactly 0.0.
+NOISE     B = 1200 for the CI; the MDE has no bootstrap in it (D1), so no B sweep is run and the
+          reason is stated rather than the sweep performed.
+UNIT      instrument unit = a PROMPT-PAIRED DIFFERENCE over 968 prompts; claim unit = an ORDERED PAIR
+          of arms. 31 pairs from 11 arms; `topw_k4`/`_detA` are one OBJECT (R730) and the placebo
+          uses exactly that fact.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+31 pairs (10 committed + 21 k-family), BH at q = 0.05 over the WHOLE grid, cells tested beside cells
+surviving, every non-survivor printed. ⚠ BH's threshold at rank k is q*k/C and the largest is q
+itself; q/C is Bonferroni and is not used.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether A2 is the right thing to order BY        an external criterion for core quality
+whether an unresolvable ordering is absent or
+  merely under-powered at n = 968                more prompts; the MDE is reported so the bound is
+                                                 stated rather than implied
+cross-release                                    a second release
+independently replicated                         a second team; the session prompt forbids agents

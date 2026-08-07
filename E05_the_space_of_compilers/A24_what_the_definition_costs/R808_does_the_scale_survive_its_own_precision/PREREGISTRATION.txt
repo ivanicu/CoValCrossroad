@@ -1,0 +1,85 @@
+R808 · DOES R807's SCALE SURVIVE ITS OWN PRECISION SWEEP — and does the leak proxy's IDENTITY matter?
+written before the run · NBOOT 1200 · ZEFF 2.801585
+
+PROVOCATION
+R807 built a disattenuated scale (honest floor ~0.34, pure copy 1.000, fitted arms 0.50-0.65) by
+dividing an observed slope by lambda = 0.4597. Its NEXT proposed sweeping the number of PARITY-1
+annotators "as lambda improves". CHECK #410 read R807's own definition: lambda is the slope of the
+leak's margin on parity-0 half B against half A -- it is the reliability of the EVALUATION draw, not
+of the proxy. More parity-1 annotators change WHAT THE LEAK IS; more parity-0 annotators change HOW
+NOISILY IT IS MEASURED. The NEXT conflated two axes, so this round separates them.
+
+⛔ AND THE SWEEP IS THE §4 REMEDY, AIMED AT MY OWN HEADLINE. "a control validated by its own
+instrument's noise": if an estimate moves as the instrument sharpens, the correction was never
+correcting anything. R807's whole scale is one division by an estimated lambda and has never been
+swept.
+
+ESTIMAND
+A-AXIS (evaluation precision). Hold the y-side (the arm's annotators) FIXED at one half of parity-0.
+  Vary the x-side (the leak's annotators) over k = 1,2,3,4 drawn from the complementary half.
+  Estimate lambda_k on the same k. Report the DISATTENUATED slope at each k.
+  ⭐ DERIVED: noise in y does not bias a slope; only noise in x attenuates it. So holding y fixed
+  and varying x isolates attenuation, and the disattenuated slope must be FLAT in k if the
+  correction works. This is the estimand R807's headline rests on.
+B-AXIS (proxy identity). Build the leak's modal class from j = 1,2,4,8 PARITY-1 annotators. This
+  changes the object, not its measurement error. Report the disattenuated slope at each j.
+  ⭐ DIFFERENTIAL PREDICTION: the FITTED arms were fitted on the FULL parity-1 set, so their slope
+  should RISE with j and peak at j = all. The HONEST arms never saw parity-1, so theirs should be
+  FLAT in j. That contrast is a leak test no previous round has run.
+
+IDENTIFICATION
+A-axis identified: lambda_k and the arm slope share no annotator by construction.
+B-axis identified as a comparison BETWEEN arms; the level at any single j is not interpretable on
+its own, because m1_j is a different object at each j.
+⚠ Small k means a very noisy x, so lambda_k is itself estimated with error and appears in a
+DENOMINATOR. Ratios to a small noisy number are unstable: the interval at k=1 is expected wide and
+is reported, never smoothed.
+
+DERIVED BEFORE MEASURING
+D1 [DERIVATION] lambda_k increases with k. If it does not, the split is not doing what I think.
+D2 [DERIVATION] the raw (un-disattenuated) slope also increases with k, for the same reason. So the
+   RAW slope drifting is NOT evidence against the scale; only the DISATTENUATED slope drifting is.
+D3 [DERIVATION] the leak regressed on itself, same draw, is exactly 1.000 at every k. PLACEBO.
+D4 the honest arms' B-axis profile is the floor for what "sensitivity to j" costs with no fitting.
+
+WORLDS
+A-STABLE   the disattenuated slope is flat in k -> R807's scale survives its own precision sweep.
+A-DRIFT    it drifts monotonically in k -> the disattenuation is not correcting and R807's 0.50-0.65
+           are artifacts of one lambda estimate.
+B-SPECIFIC fitted arms rise with j, honest arms flat -> the fitted arms track the SPECIFIC labels
+           they were fitted to, which is the sharpest leak evidence available here.
+B-GENERIC  both flat in j -> the leak proxy's identity does not matter and "the leak" is really
+           general annotator consensus.
+CHECKED FIRST: A-DRIFT, because it destroys the previous round's headline.
+
+PREDICTION MATRIX
+                            A-STABLE      A-DRIFT       B-SPECIFIC     B-GENERIC
+disatt. slope vs k          flat          monotone      n/a            n/a
+fitted slope vs j           n/a           n/a           rises          flat
+honest slope vs j           n/a           n/a           flat           flat
+
+CONTROLS
+OBJECT   reproduce R807's committed lambda 0.4597 and its five disattenuated values on R807's own
+         fixed split, to 1e-6. Exit 2 otherwise.
+PLACEBO  D3: the leak regressed on ITSELF at every k -> slope exactly 1.000000.
+POSITIVE the planted half-honest/half-leak arm must land at 0.5*(honest floor + 1.000) AT EVERY k.
+         A calibration that holds at one k and not another is the drift this round is looking for.
+         g=0 check: the PURE leak copy must land at 1.000 at every k, and if it does not, the
+         disattenuation is broken at that k and the cell is UNVERIFIED rather than reported.
+NEGATIVE permutation null (200 permutations) at the smallest and largest k.
+NOISE FLOOR 20 independent parity-0 splits at every k; the sd of every reported number.
+
+PRE-REGISTERED KILL -- conditional, never a bare threshold
+  if object_reproduces and placebo_exact_at_every_k and g0_lands_at_one_at_every_k:
+      A: if max-min of the disattenuated fitted slope across k > 3 * its across-split sd  -> A-DRIFT
+         else                                                                            -> A-STABLE
+      B: if fitted slope at j=all minus at j=1 exceeds the honest arms' same difference,
+         with a CI excluding 0                                                        -> B-SPECIFIC
+         else                                                                         -> B-GENERIC
+  else:
+      UNVERIFIED   (never OVERTURNED, never CONFIRMED)
+
+MULTIPLICITY 5 arms x 4 k-values x 4 j-values reported in full as two curves, not cells; BH q=0.05
+over the B-axis contrast family; non-survivors printed.
+STOPPING RULE one round. Any (k, j) cell whose g=0 check fails is printed as UNVERIFIED and excluded
+from the curve, with the count stated.

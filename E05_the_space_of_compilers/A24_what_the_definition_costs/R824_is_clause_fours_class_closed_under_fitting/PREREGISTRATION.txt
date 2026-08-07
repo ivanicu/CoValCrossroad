@@ -1,0 +1,88 @@
+R824 · IS ④'s CLASS CLOSED UNDER FITTING? THE TEXT IS SILENT AND THE EXTENSION MAY DEPEND ON IT
+
+CHECK #426. R823's NEXT — "fit a response-only predictor and measure its bar against 0.455679" —
+passes the gauge and arithmetic rungs (the outcome is not forced). BUT IT WALKS PAST ITS OWN
+PREMISE. ④ reads, verbatim (DEFINITION.md:24):
+
+    "scores better, under that same judge J, than EVERY RULE COMPUTABLE FROM THE RESPONSE SET ALONE"
+
+That sentence constrains what a rule CONSUMES AT INFERENCE. It is SILENT about what the rule's
+CONSTRUCTION consumed. R435's thirty are hand-built and read no labels ever. A supervised predictor
+reads only responses at inference but was FIT on human labels from other prompts. Two readings:
+
+  STRICT      a rule is a function of responses with no parameters fit on human data
+              -> the class is the 30 hand-built rules; bar = 0.455679 (R823)
+  PERMISSIVE  the rule at inference reads only responses; its parameters may come from other
+              prompts' labels -> the class contains every supervised response-only predictor
+
+Both are defensible English. NOBODY IN 400 ROUNDS HAS BUILT AN OBJECT THAT DISTINGUISHES THEM, and
+③'s own wording ("no information from THAT PROMPT's own human labels") shows the deliverable already
+uses the fit-on-other-prompts distinction elsewhere -- so the ambiguity is not hypothetical.
+
+ESTIMAND
+  E1  the HELD-OUT bar of the best supervised response-only predictor: fit on fit-half prompts,
+      A2 evaluated on the other half. Never in-sample.
+  E2  ④'s exclusion count over the 58 arms under each reading
+  E3  ⭐ the SPECIFICATION CURVE of the learned bar: model class x regularisation x feature set x
+      split. "The best learned rule" is not one cell, and G4 forbids reporting it as one.
+  E4  the decision, and the repair to ④'s TEXT if the extension depends on the reading
+
+DERIVED FIRST -- BEFORE ANY COMPUTE
+  D1  ⛔ A FITTED COMBINATION OF FEATURES CANNOT SCORE BELOW THE BEST SINGLE FEATURE IN SAMPLE
+      (the single feature is in the hypothesis class). So an IN-SAMPLE rise is FORCED and is not
+      evidence. Only the HELD-OUT bar can come out otherwise, and E1 is held-out for that reason.
+  D2  The permissive class CONTAINS the strict class, so permissive_bar >= strict_bar is forced in
+      sample. Held out it is NOT forced -- R823 measured the held-out floor FALLING from 0.456094
+      (m=6) to 0.454779 (m=30) as the class grew, so a bigger class can lower a generalising bar.
+  D3  ③ is a property of an ARM; ④'s class is a BAR. A predictor entering ④'s class does not have
+      to satisfy ③. Conflating them would import a constraint the text does not carry.
+  D4  This round settles whether the READING CHANGES THE EXTENSION. It does not choose the reading
+      on grounds of taste; if the extension is identical under both, the ambiguity is EMPIRICALLY
+      EMPTY and the text needs no repair -- which is a stronger outcome than picking a side.
+
+WORLDS
+  A  EMPIRICALLY EMPTY -- the held-out learned bar is within the noise floor of 0.455679 and
+     excludes the same arms. The ambiguity has no consequence; ④ stands as written.
+  B  THE READING DECIDES THE EXTENSION -- the learned bar exceeds 0.455679 and crosses >=1 arm.
+     ④ excludes 0 of 58 strictly and >0 permissively, so THE DEFINITION'S EXTENSION DEPENDS ON A
+     READING OF ITS OWN TEXT, and the text must be disambiguated in the deliverable.
+  C  RISES BUT CROSSES NOTHING -- the bar rises above 0.455679 yet no arm crosses. The text should
+     still be disambiguated but nothing in the extension moves today.
+
+PREDICTION MATRIX
+  A -> learned held-out bar <= 0.455679 + noise floor; exclusions 0 under both readings
+  B -> learned held-out bar > 0.455679 + noise floor AND >=1 arm's CI falls below it
+  C -> bar rises, 0 arms cross (the arms start at 0.4604, so the crossing region is narrow)
+
+CONTROLS
+  OBJECT     `max_len_chars` must reproduce 0.455679 on this population. Exit 2 otherwise.
+  PLACEBO    the same learner fit on SHUFFLED pairwise labels -> must land at chance, not above.
+  POSITIVE   plant a SYNTHETIC target that is a known linear function of the features and require
+             the learner to recover it; and check it does NOT pass at g=0 (no planted signal).
+  NEGATIVE   each arm replaced by a synthetic arm resampled from the bar's own per-prompt
+             distribution. ⛔ NOT a permutation (R821: ④'s statistic is permutation-invariant by
+             algebra). Enforced by assurance/null_is_informative.py.
+  SHAM ⭐    THE LOAD-BEARING ONE. The IDENTICAL fitting procedure on RANDOM features, matched in
+             count and dimension. Its held-out bar is what fitting buys on noise. The learned bar
+             is attributable to the FEATURES only in excess of this. R823's sham was built wrong
+             (it could not fail) and the corrected version is the only reason that round's zero
+             was admissible; this one is built random-first.
+  NOISE FLOOR  the held-out bar across >=20 independent splits, sd reported.
+
+MULTIPLICITY   the whole grid: model classes x regularisation x feature sets x splits, and 58 arms.
+               BH q=0.05 over all arm tests; non-survivors printed. The learned bar is reported as
+               the CURVE, with the max named as a max and not as "the" bar.
+
+PRE-REGISTERED KILL -- conditional, gated on the controls
+  if placebo at chance and positive recovers the plant and fails at g=0 and negative sits on zero:
+      if bar_learned_heldout > 0.455679 + noise_floor and n_excluded_permissive >= 1:  WORLD B
+      elif bar_learned_heldout <= 0.455679 + noise_floor:                              WORLD A
+      else:                                                                            WORLD C
+  else:
+      UNVERIFIED   -- never OVERTURNED, never CONFIRMED
+
+STOPPING RULE   If WORLD B, ④'s TEXT is repaired in DEFINITION.md's head, its clause table, and
+STATEMENT.md IN THE SAME COMMIT, together with the ledger. Three rounds in a row have now landed a
+repair in every place at once because R821 retracted one that did not; a miss here is the pattern.
+
+BUDGET   one run under 25 min on the .venv; CPU only, no GPU. Two seeds byte-identical or no ship.

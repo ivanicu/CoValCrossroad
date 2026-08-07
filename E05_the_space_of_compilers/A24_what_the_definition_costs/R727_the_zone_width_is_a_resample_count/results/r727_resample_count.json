@@ -1,0 +1,187 @@
+{
+  "A_ratio_observed_over_asymptotic": 0.9827655081248784,
+  "B_simulated_sd_r_1200": 0.0276985002726427,
+  "C_fitted_exponent": -0.49505208908641557,
+  "D_corr_zero_skew": 0.020184979014449878,
+  "asymptotic_prediction": 0.02782087137487119,
+  "controls": {
+    "DOSE": true,
+    "G0": true,
+    "NEGATIVE": true,
+    "PLACEBO": true,
+    "POSITIVE": true,
+    "SHAM": true,
+    "UNIT": true
+  },
+  "controls_ok": true,
+  "corr_detector_powered": false,
+  "corr_distinguishable_from_zero_skew": false,
+  "n_cells": 82,
+  "n_levels": {
+    "398": 4,
+    "968": 78
+  },
+  "n_unidentified_in_practice": true,
+  "observed_corr_r_asym": 0.1342025902569388,
+  "observed_mean_asym": -0.004098752406735857,
+  "observed_mean_asym_se": 0.0029605786645967307,
+  "permutation_null_mean": 0.0888290887557391,
+  "permutation_p": 0.2275,
+  "registered": "A 0.98 [0,10] disclosed; B 0.0278 [0,1]; C -0.50 [-2,0]; D 0.00 [-1,1]",
+  "residue": "the true skewness of the per-prompt differences needs the raw vectors, which the census artifact does not carry",
+  "sd_r_observed": 0.02734139279320217,
+  "sham_corr": 0.1739947653419776,
+  "sim_over_obs": 1.0130610566236158,
+  "simulation": {
+    "lognormal|1200": {
+      "corr": 0.09317672626854472,
+      "corr_sd": 0.041158065657284776,
+      "corr_seeds": [
+        0.10434018851507358,
+        0.12760148463951243,
+        0.04758850565104812
+      ],
+      "mean_asym": 0.023830643771230963,
+      "mean_asym_sd": 0.0007725174054863881,
+      "sd": 0.0276532294316756,
+      "sd_mcerr": 0.0012005695504829278,
+      "sd_seeds": [
+        0.02885214098947781,
+        0.02645100872929853,
+        0.027656538576250462
+      ]
+    },
+    "lognormal|19200": {
+      "corr": 0.19281173442388055,
+      "corr_sd": 0.14124274590735528,
+      "corr_seeds": [
+        0.034984955666153936,
+        0.23612253679464237,
+        0.30732771081084537
+      ],
+      "mean_asym": 0.023344836582902626,
+      "mean_asym_sd": 0.000437276457605751,
+      "sd": 0.006959228472371782,
+      "sd_mcerr": 0.0004974672002965861,
+      "sd_seeds": [
+        0.00741135142383888,
+        0.007040025665960828,
+        0.006426308327315638
+      ]
+    },
+    "lognormal|300": {
+      "corr": 0.0945047840300859,
+      "corr_sd": 0.04887284389145352,
+      "corr_seeds": [
+        0.08938922544538984,
+        0.14573419947033114,
+        0.04839092717453676
+      ],
+      "mean_asym": 0.021253987165616207,
+      "mean_asym_sd": 0.006741024085993193,
+      "sd": 0.05342934868238866,
+      "sd_mcerr": 0.0031803324986782616,
+      "sd_seeds": [
+        0.05707702014075209,
+        0.05123756662419996,
+        0.051973459282213925
+      ]
+    },
+    "lognormal|4800": {
+      "corr": 0.17134235289142122,
+      "corr_sd": 0.07454802549895433,
+      "corr_seeds": [
+        0.11215674915582775,
+        0.2550665351095538,
+        0.14680377440888215
+      ],
+      "mean_asym": 0.023064839880421666,
+      "mean_asym_sd": 0.0004158799774278901,
+      "sd": 0.013414454689702612,
+      "sd_mcerr": 0.0008426373454261237,
+      "sd_seeds": [
+        0.013193725896552228,
+        0.014345487591712591,
+        0.012704150580843019
+      ]
+    },
+    "normal|1200": {
+      "corr": 0.020184979014449878,
+      "corr_sd": 0.04363744241112525,
+      "corr_seeds": [
+        0.021477695889225143,
+        0.06316169981839419,
+        -0.0240844586642697
+      ],
+      "mean_asym": -6.81866043218753e-05,
+      "mean_asym_sd": 0.0011263426454139508,
+      "sd": 0.0276985002726427,
+      "sd_mcerr": 0.0005261259045767944,
+      "sd_seeds": [
+        0.028276736382212907,
+        0.02757075358662723,
+        0.027248010849087966
+      ]
+    },
+    "normal|19200": {
+      "corr": -0.06778829572732022,
+      "corr_sd": 0.021368074798473788,
+      "corr_seeds": [
+        -0.04545310861637837,
+        -0.06987573602788498,
+        -0.08803604253769733
+      ],
+      "mean_asym": -0.0005363213961227584,
+      "mean_asym_sd": 0.00043179849605763464,
+      "sd": 0.00684042394640861,
+      "sd_mcerr": 0.0006892763218495225,
+      "sd_seeds": [
+        0.007636211732814467,
+        0.0064544965530221425,
+        0.006430563553389223
+      ]
+    },
+    "normal|300": {
+      "corr": 0.023088799077269125,
+      "corr_sd": 0.02789726498159698,
+      "corr_seeds": [
+        -0.007734583038834853,
+        0.046605842049144364,
+        0.03039513822149786
+      ],
+      "mean_asym": -0.0020453237011659226,
+      "mean_asym_sd": 0.005108020298230897,
+      "sd": 0.05285901779027794,
+      "sd_mcerr": 0.0010486372527558816,
+      "sd_seeds": [
+        0.05250900566549798,
+        0.05203015198721514,
+        0.05403789571812072
+      ]
+    },
+    "normal|4800": {
+      "corr": 0.0018527970807250757,
+      "corr_sd": 0.08852236011852764,
+      "corr_seeds": [
+        -0.09876678965753308,
+        0.03657470045727013,
+        0.06775048044243817
+      ],
+      "mean_asym": -0.0006252796112137599,
+      "mean_asym_sd": 0.0008086236438543298,
+      "sd": 0.013367614144643119,
+      "sd_mcerr": 0.0008779600959624978,
+      "sd_seeds": [
+        0.012361206004400155,
+        0.01376512563441005,
+        0.01397651079511915
+      ]
+    }
+  },
+  "skew_detected_powered": false,
+  "source_sha": "a05e6daf450533e5",
+  "tree_sha": "313539cefd8a2fc6ff3a061a32a4775ccef97933",
+  "world": "\u2b50\u2b50\u2b50 W-MC \u2014 THE ZONE WIDTH IS A CONSTANT IN THE CODE. A synthetic NORMAL world at n=968 and B=1200, containing no skew and no arm-to-arm variation whatsoever, reproduces sd(r) = 0.027699 against the observed 0.027341, a ratio of 1.0131; the asymptotic quantile-error derivation independently gives 0.027821. Two routes, one answer. \u2b50 And sd(r) falls with the resample count at a fitted log-log slope of -0.4951, which is the -0.5 of Monte-Carlo error. \u2b50\u2b50 SO R726's DISAGREEMENT ZONE IS SET BY NBOOT, NOT BY THE ARMS: raising the resample count shrinks it, and 'the spread would have to double' describes a choice made in R294:117 rather than a property of the data. \u26a0 The skew question is NOT answered, it is DISSOLVED: r and the asymmetry are functionals of the same resamples, and the zero-skew simulation already produces |corr| = 0.0202 with no skew present, against an observed 0.1342 \u2014 indistinguishable at 3 simulation SDs -- and that comparison is UNDERPOWERED by this round's own CORR-POWER control, so it acquits nothing. On the statistic the positive control PROVES can see planted skew, the observed mean asymmetry is -0.00410 with SE 0.00296: z = -1.38 against zero skew and z = -9.43 against the planted lognormal world, so these cells carry no detectable skew by a powered test. \u26a0 And n cannot be tested here at all: it takes two values with 4 of 82 cells at the minority level. That is an unidentified covariate, reported as unidentified rather than as a null.",
+  "z_vs_planted_skew": -9.43376256539063,
+  "z_vs_zero_skew": -1.3844429995222438
+}

@@ -1,0 +1,172 @@
+R801 · pooled mean or robust across prompts — is that a real choice, or one statistic twice?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-06.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R800 located the variance -- prompt 67.0%, interaction 18.3%, noise 13.9%, criterion 0.9% -- and
+closed by asking whether a core selected to be ROBUST ACROSS PROMPTS differs from one selected to
+maximise the POOLED MEAN.
+
+CHECK #403 attacked that before designing, and found the question is only well-posed for HALF the
+population.
+
+(a) ⛔ `select_core.py:121` loops PER PROMPT and picks that prompt's criteria from that prompt's own
+    rubric. Every rubric-derived arm is therefore selected independently on each prompt: **there is
+    no cross-prompt objective to vary**, and "robust across prompts versus pooled mean" is not a
+    choice those arms can express. R800's NEXT was not well-posed for them, and saying so is part of
+    the finding rather than a preamble to it.
+(b) ⭐ THE CHOICE IS REAL FOR BLIND ARMS, where ONE criterion set serves all 968 prompts. The release
+    supplies `genericpool16`, so the full space of blind 4-criterion cores is **C(16,4) = 1,820**
+    subsets -- the same class R787, R788 and R796 built -- and each has both a pooled mean and a
+    cross-prompt spread. The frontier between them has never been computed.
+(c) ⛔⛔ AND THE ARITHMETIC TRAP IS THE WHOLE RISK. The pooled mean and any robustness statistic are
+    functions of the SAME per-prompt vector. If subsets differ from one another mainly by a LOCATION
+    SHIFT, then worst-decile = mean − constant and **the two argmaxes coincide by construction**,
+    making "robustness" a restatement. The registered control is to regress the robustness statistic
+    on the pooled mean across all 1,820 and report the RESIDUAL -- what robustness adds beyond the
+    mean -- rather than the raw ranking agreement.
+
+--------------------------------------------------------------------------------
+DISCLOSURE -- what was already known when this was written
+--------------------------------------------------------------------------------
+KNOWN and quoted: the per-prompt selection loop; the 1,820-subset class from R787/R788/R796;
+`genericpool16`'s committed A2 **0.5422329001** and `generic`'s **0.551354** (R789), where `generic`
+IS `POOL[0:4]` (R788). **NOT known: any subset's cross-prompt spread**, the frontier, the residual,
+or which subset maximises either objective.
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  THE ALL-16 SUBSET IS `genericpool16` EXACTLY, so its pooled mean must equal the committed
+    0.5422329001, and the subset `(0,1,2,3)` must equal `generic`'s 0.551354. **DERIVATION**, and
+    they are this round's two exact OBJECT anchors -- one for the whole pool, one for a named subset.
+D2  A ROBUSTNESS STATISTIC THAT IS AN AFFINE FUNCTION OF THE MEAN CANNOT DISAGREE WITH IT. So the
+    finding is not "do the rankings correlate" (they must) but "does the residual carry an argmax of
+    its own". **DERIVATION**, and it fixes the estimand as the residual, not the correlation.
+D3  A WORST-DECILE IS AN ORDER STATISTIC OF 968 NOISY PER-PROMPT VALUES, so it is biased downward and
+    its own sampling error is larger than the mean's. **DERIVATION**, and it is why the round reports
+    TWO robustness statistics -- the cross-prompt sd and the worst-decile -- rather than trusting an
+    extremum alone (§4's *min/max of N draws quoted as an interval*).
+D4  ALL 1,820 SUBSETS SHARE THE SAME 968 PROMPTS, so their per-prompt vectors are heavily correlated
+    and the spread ACROSS SUBSETS is far smaller than the spread across prompts. **DERIVATION**, and
+    it means a "difference between two subsets" must be judged against a paired bootstrap, never
+    against the across-prompt sd.
+
+STRONGEST CONFOUND, written BEFORE the run: a subset's cross-prompt sd is partly the ANNOTATOR noise
+on each prompt, which is larger for prompts with fewer annotators -- so a subset can look "robust"
+merely by being measured on the same prompts as everything else with noise that does not cancel.
+CONTROL IN THE SAME ITERATION: the annotator noise per prompt is measured by split-half and
+SUBTRACTED from each subset's cross-prompt variance before ranking, and both the raw and
+noise-corrected rankings are reported.
+
+--------------------------------------------------------------------------------
+ESTIMANDS (before method)
+--------------------------------------------------------------------------------
+E1  ⭐ for all 1,820 blind 4-subsets: the pooled mean A2 against the human, the cross-prompt sd, and
+    the worst-decile mean -- each on the same 968 prompts and all annotators.
+E2  ⭐ THE RESIDUAL (D2): regress each robustness statistic on the pooled mean across the 1,820, and
+    ask whether the residual has an argmax different from the mean's, and by how much on the mean's
+    own scale.
+E3  ⭐ the frontier: how many subsets are Pareto-optimal in (mean, robustness), and whether the
+    pooled-mean maximiser is among them.
+E4  where `generic` = `POOL[0:4]` sits in each ranking, and the well-posedness statement from check
+    #403(a): the rubric-derived arms cannot express this choice at all.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1-E4 exact for the blind class. ⛔ NOT identified for any rubric-derived arm: `select_core.py`
+chooses per prompt, so those arms have no cross-prompt objective (check #403a). The round states that
+rather than manufacturing a comparison.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  1,820 blind 4-subsets of `genericpool16` x 968 prompts x all annotators
+instrument  A2 -- pairwise-sign agreement with the human annotators
+baseline    the pooled-mean objective, which is what the campaign's selectors optimise
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · ROBUSTNESS IS A SEPARATE AXIS. The residual of the robustness statistic on the pooled mean has an
+    argmax different from the mean's, and the cost of choosing it -- the mean given up -- is
+    resolvable against a paired bootstrap. Then clause ② must SAY which objective it means.
+B · ROBUSTNESS IS A RESTATEMENT. The robustness statistic is near-affine in the mean (residual sd
+    small relative to its own range) and the argmaxes coincide. Then the definition need not choose,
+    and R800's NEXT dissolves rather than being answered.
+C · THE CHOICE EXISTS BUT IS UNRESOLVABLE. The argmaxes differ but the mean given up is inside the
+    paired-bootstrap noise. Then the axis is real and this release cannot price it, which is a
+    different statement from either A or B and must not be folded into them.
+
+PREDICTION MATRIX
+  A -> argmaxes differ AND the mean forgone excludes 0 on a paired bootstrap
+  B -> argmaxes coincide for BOTH robustness statistics
+  C -> argmaxes differ AND the mean forgone contains 0
+  any other pattern (e.g. the two robustness statistics disagree with each other) -> report; CLAIM
+  NO WORLD, and report the disagreement as the finding.
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT passes (D1: the all-16 subset reproduces `genericpool16`'s committed 0.5422329001 and the
+   subset (0,1,2,3) reproduces `generic`'s 0.551354, both to 1e-9 -- exit 2 otherwise)
+   and PLACEBO returns exactly 0 for a subset against itself
+   and POSITIVE fires (a planted per-prompt heteroscedastic perturbation that leaves the MEAN
+       unchanged must move the robustness statistics -- if it does not, the instrument cannot tell
+       the two objectives apart and no comparison is admissible; band computed at two magnitudes)
+   and NEGATIVE fires (shuffling the human classes across prompts collapses every subset toward
+       chance and destroys the frontier):
+        the two robustness statistics disagree on the argmax  -> report; CLAIM NO WORLD (checked FIRST)
+        argmaxes coincide for both                            -> WORLD B
+        argmaxes differ and the mean forgone excludes 0       -> WORLD A
+        argmaxes differ and the mean forgone contains 0       -> WORLD C
+        otherwise                                             -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT      D1's two exact anchors, to 1e-9. Exit 2, never 0.
+PLACEBO     a subset against itself: mean difference exactly 0 and residual exactly 0.
+POSITIVE    BAND COMPUTED AT TWO MAGNITUDES: add zero-mean per-prompt noise of sd s to one subset's
+            per-prompt vector for s in {0.02, 0.08}; the pooled mean must be unchanged to ~0 while
+            the cross-prompt sd and worst-decile must move monotonically. A statistic that does not
+            move is not measuring robustness.
+NEGATIVE    shuffle the human classes across prompts; every subset's mean must fall toward chance and
+            the mean-robustness relation must collapse. World it excludes: "the frontier is a
+            property of the criteria's internal structure rather than of their fit to the humans."
+CONFOUND    the annotator-noise correction: per-prompt split-half noise subtracted from each subset's
+            cross-prompt variance, with raw and corrected rankings both reported.
+NOISE FLOOR MEASURED: paired bootstrap over prompts on the difference between the two argmax subsets.
+UNIT        instrument unit = a (subset, prompt) A2; claim unit = an OBJECTIVE; E3's unit = a SUBSET.
+            Three strings, required unequal.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+1,820 subsets x 3 statistics = 5,460 computed quantities, but only ONE comparison is tested: the
+mean forgone by the robustness argmax, on a paired bootstrap. The 1,820 are a SEARCH SPACE and the
+argmax over them is a selection, so its value is reported with the selection bias named -- the
+winner's mean is an extremum of 1,820 correlated draws and is quoted as such, never as an estimate
+of that subset's population value.
+
+--------------------------------------------------------------------------------
+SPECIFICATION CURVE
+--------------------------------------------------------------------------------
+robustness     cross-prompt sd (negated) | worst-decile mean | noise-corrected sd
+k              4 (the released blind arm's size)
+NBOOT          1200
+seeds          3
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+the same question for rubric-derived arms   a selector with a cross-prompt objective; `select_core.py`
+                                            chooses per prompt (check #403a)
+a blind pool larger than 16                 the release ships one, of 16
+whether robustness is DESIRABLE             a stated purpose for the benchmark
+independently replicated                    a second designer; the session prompt forbids agents

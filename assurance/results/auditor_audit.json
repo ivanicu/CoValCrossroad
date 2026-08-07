@@ -1,112 +1,205 @@
 {
  "source_sha": "e35009c682b2ed6a",
- "world": "MORE-ARE-BLIND",
- "n_scripts": 54,
+ "world": "UNVERIFIED",
+ "n_scripts": 73,
  "flagged": [
-  "synthesis_cites_recent_work.py"
+  "DEFECTS.py",
+  "arm_population_is_derived.py",
+  "backfilled_findings_are_rederivable.py"
  ],
  "positive_control_ok": true,
- "fails_at_g0": true,
+ "fails_at_g0": false,
  "rows": {
   "DEFECTS.py": {
-   "exit": 0,
-   "wrote": [
-    "modified:DEFECTS.json"
-   ],
+   "exit": 2,
+   "wrote": [],
    "destroyed": [],
-   "empty_tell": false,
+   "empty_tell": true,
    "seconds": 0.0
   },
   "HEADLINES.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 2.5
+  },
+  "a_commit_body_names_its_own_round.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.4
+  },
+  "a_control_that_cannot_fail.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 4.5
+   "seconds": 0.1
+  },
+  "a_detector_marker_matches_something.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.1
+  },
+  "a_next_names_the_check_that_cleared_it.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "a_published_number_is_named.py": {
+   "exit": 2,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 2.1
+  },
+  "a_retraction_declares_its_class.py": {
+   "exit": 2,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
   },
   "a_scored_artifact_records_its_configuration.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.2
+   "seconds": 0.1
   },
-  "an_mde_records_its_denominator.py": {
+  "a_seed_must_be_stable.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.1
+   "seconds": 0.0
+  },
+  "a_share_carries_its_counts.py": {
+   "exit": 2,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "a_statement_is_current_with_the_arc.py": {
+   "exit": 2,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "a_verdict_threshold_is_named.py": {
+   "exit": 2,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "an_ear_label_matches_its_path.py": {
+   "exit": 2,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "an_mde_records_its_denominator.py": {
+   "exit": 2,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
   },
   "apply_freeze_status.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.9
+   "seconds": 2.2
   },
   "apply_outcome_scope.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.1
+   "seconds": 0.0
   },
   "arm_population_is_derived.py": {
-   "exit": 1,
+   "exit": 2,
    "wrote": [],
    "destroyed": [],
-   "empty_tell": false,
-   "seconds": 0.7
+   "empty_tell": true,
+   "seconds": 0.0
   },
   "artifacts_are_internally_coherent.py": {
-   "exit": 1,
+   "exit": 2,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 3.7
+   "seconds": 2.2
+  },
+  "attack_a_published_number_is_named.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 17.3
+  },
+  "attack_a_retraction_declares_its_class.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
   },
   "attack_every_check.py": {
    "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 1.9
+   "seconds": 0.1
   },
   "attack_no_withdrawn_framings.py": {
-   "exit": 1,
+   "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 7.7
+   "seconds": 2.2
   },
   "attack_outcome_variable_declared.py": {
-   "exit": 1,
+   "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 5.4
+   "seconds": 2.2
   },
   "attack_scope_reaches_the_reader.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.2
+   "seconds": 0.1
   },
   "attack_the_suite.py": {
-   "exit": null,
-   "wrote": [],
+   "exit": 1,
+   "wrote": [
+    "modified:.hide_in_progress.json"
+   ],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 120.1
+   "seconds": 50.5
   },
   "backfilled_findings_are_rederivable.py": {
-   "exit": null,
+   "exit": 1,
    "wrote": [],
    "destroyed": [],
-   "empty_tell": false,
-   "seconds": 120.1
+   "empty_tell": true,
+   "seconds": 0.0
   },
   "clause3_as_written.py": {
    "exit": 0,
@@ -120,7 +213,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 5.5
+   "seconds": 5.0
   },
   "comparator_scope.py": {
    "exit": 0,
@@ -148,9 +241,16 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.1
+   "seconds": 0.4
   },
   "donor_numbers_carry_their_draw_scope.py": {
+   "exit": 2,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.2
+  },
+  "every_round_is_committed.py": {
    "exit": 2,
    "wrote": [],
    "destroyed": [],
@@ -158,11 +258,11 @@
    "seconds": 0.1
   },
   "every_round_reaches_the_readme.py": {
-   "exit": 1,
+   "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 3.0
+   "seconds": 2.2
   },
   "frozen_frame_verifies.py": {
    "exit": 0,
@@ -176,14 +276,21 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.9
+   "seconds": 2.5
   },
   "interval_is_centred_on_its_point.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 3.4
+   "seconds": 2.4
+  },
+  "kill_is_wired_into_the_branch.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.1
   },
   "manifest.py": {
    "exit": 0,
@@ -193,7 +300,7 @@
    ],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.3
+   "seconds": 0.2
   },
   "markdown_tables_are_well_formed.py": {
    "exit": 0,
@@ -217,7 +324,7 @@
    "seconds": 0.0
   },
   "next_line_quantifiers_are_computed.py": {
-   "exit": 0,
+   "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
@@ -230,19 +337,26 @@
    "empty_tell": false,
    "seconds": 0.6
   },
+  "null_is_informative.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.1
+  },
   "outcome_variable_declared.py": {
    "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.3
+   "seconds": 0.2
   },
   "point_and_interval_share_a_source.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 1.1
+   "seconds": 1.2
   },
   "pueue_wait.py": {
    "exit": 2,
@@ -256,10 +370,10 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 3.1
+   "seconds": 3.2
   },
   "readme_row_carries_the_verdict.py": {
-   "exit": 2,
+   "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
@@ -277,7 +391,14 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 3.0
+   "seconds": 2.2
+  },
+  "release_names_resolve_to_one_set.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 1.2
   },
   "residue_debt.py": {
    "exit": 0,
@@ -291,7 +412,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 1.4
+   "seconds": 0.8
   },
   "results_match_their_code.py": {
    "exit": 0,
@@ -308,11 +429,11 @@
    "seconds": 0.0
   },
   "retired_framing_in_emittable_source.py": {
-   "exit": 0,
+   "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.2
+   "seconds": 2.3
   },
   "retraction_reaches_the_artifact.py": {
    "exit": 0,
@@ -329,14 +450,13 @@
    "seconds": 0.0
   },
   "run_all.py": {
-   "exit": null,
+   "exit": 1,
    "wrote": [
-    "created:.hide_in_progress.json",
-    "modified:run_all.py"
+    "modified:.hide_in_progress.json"
    ],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 120.1
+   "seconds": 69.0
   },
   "scope_reaches_the_reader.py": {
    "exit": 0,
@@ -350,27 +470,27 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.0
+   "seconds": 1.5
   },
   "source_stamp_is_current.py": {
-   "exit": 2,
+   "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.0
+   "seconds": 0.2
   },
   "statement_provenance.py": {
-   "exit": 2,
+   "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.0
+   "seconds": 0.2
   },
   "synthesis_cites_recent_work.py": {
    "exit": 2,
    "wrote": [],
    "destroyed": [],
-   "empty_tell": true,
+   "empty_tell": false,
    "seconds": 0.0
   },
   "the_clustered_estimator_is_sound.py": {
@@ -378,25 +498,41 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.2
+   "seconds": 0.1
   },
-  "verdict_cites_its_own_contrasts.py": {
-   "exit": 1,
+  "token_boundaries.py": {
+   "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
    "seconds": 0.0
+  },
+  "tree_survives_the_sweep.py": {
+   "exit": 0,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.0
+  },
+  "verdict_cites_its_own_contrasts.py": {
+   "exit": 2,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 0.1
   },
   "what_did_each_check_actually_read.py": {
    "exit": 3,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.1
+   "seconds": 0.0
   },
   "_poscontrol_defects_unrepaired.py": {
    "exit": 0,
-   "wrote": [],
+   "wrote": [
+    "modified:DEFECTS.json"
+   ],
    "destroyed": [],
    "empty_tell": true,
    "seconds": 0.0

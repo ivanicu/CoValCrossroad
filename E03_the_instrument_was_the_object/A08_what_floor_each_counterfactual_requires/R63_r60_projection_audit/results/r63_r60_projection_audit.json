@@ -1,0 +1,17 @@
+{
+ "r60_published_half_width": 0.03177542234885136,
+ "binomial_half_width": 0.025951060952375562,
+ "empirical_design_effect": 1.4992443749840096,
+ "uniform_redistribution_null_design_effect": 0.8879388665781655,
+ "prompts_contributing": 238,
+ "mean_pairs_per_prompt": 5.974789915966387,
+ "max_pairs_in_one_prompt": 21,
+ "prompts_carrying_half_the_pairs": 62,
+ "prompts_carrying_80pct": 128,
+ "implied_icc": 0.10035486591739383,
+ "deff_if_growth_adds_prompts": 1.4992443749840096,
+ "deff_if_growth_doubles_raters_per_prompt": 2.0988436158854133,
+ "world": "A EVEN",
+ "scope": "Arithmetic on r60's own pair-level output. It audits the PROJECTION, not the estimate: r60's 0.5267 [0.4951, 0.5587] is untouched. The rater-intensive figure is a projection under an assumed cluster size and is not measured anywhere.",
+ "verdict": "A EVEN -- r60's projection stands as published. The design effect implied by its own cluster bootstrap is 1.499: the published half-width 0.03178 against a binomial 0.02595, so the clustering was ALREADY inside the interval the projection was scaled from, not omitted from it. Reversed pairs come from 238 of 250 prompts at a mean of 5.97 each; the top 62 prompts (26.1%) carry half and the top 128 (53.8%) carry 80%, which is mild rather than the pile-up the objection posits. The uniform-redistribution null returns a design effect of 0.888, so the inflation is a property of the data and not of the estimator. THE GROWTH MODE IS WHAT SETTLES IT: the release's remaining reversed pairs live in the other 718 prompts, so scaling from 1,422 to 2,444 adds PROMPTS at a similar cluster size and holds the design effect at 1.499 -- exactly the condition the sqrt(n) step needs. Had the extra pairs come from more raters on the SAME prompts, the mean cluster would double and the design effect would rise to 2.099, inflating the requirement by 1.40x. OBJECTION 6 IS NOT UPHELD for the release projection. It remains the right question to have asked, and the answer is a measurement rather than an assurance."
+}

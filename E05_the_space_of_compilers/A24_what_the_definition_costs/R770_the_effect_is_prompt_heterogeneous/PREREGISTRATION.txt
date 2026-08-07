@@ -1,0 +1,141 @@
+R770 · the difference is prompt-heterogeneous — so is the extension unordered, or PARTITIONED?
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R769's NEXT registered "the per-prompt difference sd regressed on the strata the release ships".
+
+⛔ CHECK #372: THAT QUANTITY DOES NOT EXIST AS WRITTEN. The difference vector holds ONE value per
+   prompt, so it has no per-prompt sd -- an sd computed ACROSS prompts cannot be regressed ON prompts.
+   SEVENTH closing line in this arc that the next round's first check had to repair.
+   ⭐ BUT THE ANNOTATOR DIMENSION SUPPLIES A REAL ONE. `A2(p)` is a mean over that prompt's
+   annotators, so `d(p)` has its own standard error from the annotator draw, and prompts with more
+   annotators have smaller ones. That is the well-posed version of what I meant.
+
+MEASURED BEFORE DESIGNING (`coval_core` vs `topw_k4`, 968 prompts, all annotators):
+   per-prompt difference mean **+0.002297**, sd ACROSS prompts **0.094709**
+   per-prompt SE from the annotator draw: median **0.029264**
+   mean WITHIN-prompt variance **0.00168938**  ·  ACROSS-prompt variance **0.00896983**
+   ⭐ **ratio 5.310** -- the across-prompt variance is 5.3x the annotator variance.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  the variance decomposition of `d(p)` into a WITHIN-prompt (annotator) component and a BETWEEN-
+    prompt component, per committed pair, and the bound it places on the annotator lever.
+E2  the heterogeneity of the between-prompt component: I^2 and the share of prompts whose own
+    interval excludes the pooled mean, per pair.
+E3  ⭐ THE OBJECT QUESTION. If the effect is prompt-heterogeneous, "arm a beats arm b" is a
+    POPULATION AVERAGE that can hide each arm winning on a different subpopulation. So: is the
+    extension an UNORDERED SET (R768) or a PARTITION -- different members best on different prompts?
+    Measured as the sign balance of `d(p)` and as the ordering WITHIN pre-registered strata.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1, E2 IDENTIFIED and exact -- both components are computable from the annotator-level agreements.
+E3 IDENTIFIED ONLY FOR STRATA THAT ARE INDEPENDENT OF THE OUTCOME. §4's `conditioning on the outcome`
+   row forbids binning on `d(p)` or on either arm's own score. The admissible strata are therefore
+   fixed BEFORE the run and are properties of the PROMPT, not of the comparison:
+       S1 annotator count (quartiles of n_annotators)
+       S2 response-set size (number of distinct criteria the arms scored on that prompt)
+       S3 the BASELINE's A2 on that prompt -- admissible because the baseline is neither arm
+   ⚠ ANY stratum derived from `d(p)`, from `A2_a(p)` or from `A2_b(p)` is EXCLUDED BY CONSTRUCTION,
+     and the round names this rather than relying on care.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  968 prompts; the 5 committed extension members (10 pairs)
+instrument  annotator-level agreement vectors; paired per-prompt differences; B = 1200
+baseline    none for the pairs; the baseline appears only as stratum S3 and in controls
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+⛔ THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  THE ANNOTATOR LEVER IS BOUNDED BY THE DECOMPOSITION. total var = between + within/n_annot. With
+    a ratio of 5.31, driving the annotator count to INFINITY removes only the within share --
+    1/(1+5.31) = **15.8%** of the total -- so the MDE falls by at most 1 - sqrt(1-0.158) = **8.3%**.
+    **That is a DERIVATION and it confirms R769's "exhausted" from a second, independent direction,
+    with a number instead of a count.**
+D2  INVERSE-VARIANCE WEIGHTING IS NOT FREE PRECISION HERE. It is the efficient estimator of a COMMON
+    effect. With genuine between-prompt heterogeneity the per-prompt effects are not one number, so
+    weighting changes the ESTIMAND -- from "the average over this prompt population" to "a
+    precision-weighted average" -- and reporting it as a tighter interval on the same quantity would
+    be the G1 error this campaign has made at three levels. It is computed and labelled, never
+    substituted.
+D3  A SIGN SPLIT NEAR 50/50 IS EXPECTED WHENEVER THE MEAN IS SMALL RELATIVE TO THE SPREAD, and here
+    mean/sd = 0.0023/0.0947 = 0.024. **So "the signs are balanced" is nearly forced and is NOT
+    evidence of a partition.** The partition question must be answered by whether an ordering FLIPS
+    within a pre-registered stratum, not by the sign count.
+
+STRONGEST CONFOUND, written BEFORE the run: a stratum can produce an apparent flip purely by
+multiplicity -- 10 pairs x 3 strata x 4 levels is 120 cells, and some will differ by chance. CONTROL
+IN THE SAME ITERATION: BH over the whole 120-cell grid, and a SHAM stratum -- a random partition of
+the prompts into the same number of equally-sized levels -- reporting how many flips it produces.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · UNORDERED AND HOMOGENEOUS IN DIRECTION. The between-prompt spread is large but no pre-registered
+    stratum flips an ordering beyond what the sham produces. R768 stands unchanged and the extension
+    is a set, not a partition.
+B · PARTITIONED. At least one pair's ordering flips across levels of a pre-registered stratum, and
+    survives BH and the sham. Then the definition admits arms that are best on DIFFERENT prompts, and
+    "unordered" is the wrong word for it -- the ontology of the extension changes.
+C · THE HETEROGENEITY IS ANNOTATOR NOISE AFTER ALL. The between component is small once the within
+    component is removed properly, and the 5.31 ratio is an artifact of unequal annotator counts.
+
+PREDICTION MATRIX
+  A -> flips surviving BH and exceeding the sham: 0
+  B -> >= 1, named, with its stratum and both levels' intervals
+  C -> between-component share < 50% of total variance after the correction
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if POSITIVE fires (a SYNTHETIC partition planted into the difference vector is recovered by the
+   stratum machinery) and g=0 fires (planting NO partition yields no flip) and PLACEBO fires (an arm
+   against itself has zero variance in both components):
+        flips surviving BH and > sham mean  -> WORLD B. Name the pair, stratum, and both intervals.
+        0 such flips                        -> WORLD A. R768's "unordered set" stands as stated.
+        between share < 50%                 -> WORLD C. The decomposition is the finding.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+POSITIVE  plant a partition: add +delta to `d(p)` on a random half and -delta on the other, with
+          delta = 2x the pooled MDE, and require the stratum machinery to recover a flip on THAT
+          synthetic stratum. BAND, COMPUTED: at delta = 0 no flip may be found (g=0 below); at
+          delta = 2 MDE it must be. The threshold sits strictly between two computed ends.
+g=0       delta = 0 -- the same machinery on an unplanted vector must find no flip.
+NEGATIVE  permute the stratum labels across prompts, 200 draws, and report the flip count. World
+          excluded: "any partition of 968 prompts into 4 levels produces flips".
+SHAM      ingredient ABSENT, not inverted. Ingredient = THE STRATUM'S MEANING. A RANDOM partition
+          into the same number of equally-sized levels, 200 draws -- same machinery, same cell count,
+          no information. The real strata must beat its flip distribution.
+PLACEBO   an arm against ITSELF: both variance components exactly 0, no flip at any stratum.
+NOISE     the within-prompt component IS a measured noise floor; its distribution is printed, not
+          summarised by its mean alone.
+UNIT      instrument unit = an ANNOTATOR-LEVEL agreement; intermediate unit = a PROMPT; claim unit =
+          an ARM PAIR WITHIN A STRATUM LEVEL. Three levels, all named, never collapsed.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+10 pairs x 3 strata x 4 levels = 120 cells, BH at q = 0.05 over the WHOLE grid, cells tested beside
+cells surviving, non-survivors printed. Plus 200 sham partitions and 200 label permutations.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+whether a flip is CAUSED by the stratum          an intervention on prompts, which the release cannot
+                                                 support
+whether prompt heterogeneity is a property of
+  the arms or of the judge                       a second judge scoring the same arms
+whether A2 is the right thing to order by        an external criterion
+independently replicated                         a second team; the session prompt forbids agents

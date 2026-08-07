@@ -1,0 +1,38 @@
+  PLACEBO  all 17 arms against themselves are exactly 0: True  PASS
+
+  pair                    metric      margin                  95% CI      MDE   boot p  R711
+  coval_core/sham         graded     +0.0709   [+0.0615, +0.0806]   0.0137   0.0002  SEP
+  coval_core/sham         exact      +0.0265   [+0.0203, +0.0329]   0.0091   0.0002  SEP
+  full/sham               graded     +0.0483   [+0.0385, +0.0583]   0.0141   0.0002  —
+  full/sham               exact      +0.0167   [+0.0112, +0.0224]   0.0080   0.0002  —
+  gen/sham                graded     +0.0524   [+0.0416, +0.0637]   0.0156   0.0002  —
+  gen/sham                exact      +0.0228   [+0.0164, +0.0293]   0.0093   0.0002  —
+  promptecho/sham         graded     +0.0122   [-0.0067, +0.0302]   0.0260   0.1920  —
+  promptecho/sham         exact      +0.0130   [+0.0044, +0.0216]   0.0124   0.0035  —
+  topw_k4/sham            graded     +0.0733   [+0.0631, +0.0835]   0.0143   0.0002  SEP
+  topw_k4/sham            exact      +0.0286   [+0.0225, +0.0347]   0.0088   0.0002  SEP
+
+  MULTIPLICITY  10 cells tested · 9 survive BH at q=0.05 (threshold at rank k is 0.05*k/10)
+    non-survivor: promptecho/promptecho_sham graded  p=0.1920
+
+  MAGNITUDE REFERENCE  3 same-family NON-sham pairs (R711's control set)
+    ⚠ NOT a null — these arms genuinely differ, so a non-zero margin is expected.
+    They bound how large a margin mere ARM-DIFFERENCE produces.
+    oracle_k4/oracle_k4_fit1         graded  +0.0141  [+0.0101, +0.0184]
+    random_k12_s0/random_k12_s1          graded  +0.0051  [+0.0006, +0.0097]
+    topw_k1/topw_k12               graded  -0.0124  [-0.0216, -0.0035]
+
+  POISON CHECK  sham − genericpool16 (graded): below 0 = misdirection HURTS (poison),
+    at 0 = the ingredient is merely absent (placebo). R844 found poison for coval_core.
+    coval_core_sham           -0.0466  [-0.0558, -0.0376]  POISON
+    full_sham                 -0.0818  [-0.0919, -0.0718]  POISON
+    gen_sham                  -0.0594  [-0.0691, -0.0502]  POISON
+    promptecho_sham           -0.0954  [-0.1130, -0.0773]  POISON
+    topw_k4_sham              -0.0513  [-0.0606, -0.0420]  POISON
+
+  ⭐ WORLD B: 9 of 10 cells have a RESOLVED POSITIVE margin surviving BH, against R711's 2 of 5 binary separations (exact p 0.5727)
+     A margin resolving where the binary statistic saturated at its ceiling of 2 means
+     the binary null measured the CEILING, not the clause. A margin failing to resolve
+     would mean R844's one pair was the exception. Both were live before this ran.
+
+  artifact: results/margin_sweep.json @ bfaa2557

@@ -1,0 +1,299 @@
+{
+  "anchors": {
+    "neg_n": 587,
+    "neg_rate": 0.037998446400828584,
+    "neg_total": 15448,
+    "pos_n": 15440,
+    "pos_rate": 1.0,
+    "pos_total": 15440
+  },
+  "candidates": {
+    "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R04_rebuild_satisfaction/results/a04_full.npz": {
+      "oracle_k4_08b": {
+        "ok": 587,
+        "rate": 0.037998446400828584,
+        "total": 15448
+      },
+      "oracle_k4_08bR": {
+        "ok": 579,
+        "rate": 0.03745148771021992,
+        "total": 15460
+      },
+      "topw_k4": {
+        "ok": 15440,
+        "rate": 1.0,
+        "total": 15440
+      }
+    },
+    "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R164_instrument/results/sat_full_phi.npz": {
+      "oracle_k4_08b": {
+        "ok": 76,
+        "rate": 0.004919730709476955,
+        "total": 15448
+      },
+      "oracle_k4_08bR": {
+        "ok": 61,
+        "rate": 0.003945666235446313,
+        "total": 15460
+      },
+      "topw_k4": {
+        "ok": 87,
+        "rate": 0.005634715025906736,
+        "total": 15440
+      }
+    },
+    "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R164_instrument/results/sat_full_qwen3b.npz": {
+      "oracle_k4_08b": {
+        "ok": 0,
+        "rate": 0.0,
+        "total": 15448
+      },
+      "oracle_k4_08bR": {
+        "ok": 0,
+        "rate": 0.0,
+        "total": 15460
+      },
+      "topw_k4": {
+        "ok": 0,
+        "rate": 0.0,
+        "total": 15440
+      }
+    },
+    "_archive/work/a04_full.npz": {
+      "oracle_k4_08b": {
+        "ok": 587,
+        "rate": 0.037998446400828584,
+        "total": 15448
+      },
+      "oracle_k4_08bR": {
+        "ok": 579,
+        "rate": 0.03745148771021992,
+        "total": 15460
+      },
+      "topw_k4": {
+        "ok": 15440,
+        "rate": 1.0,
+        "total": 15440
+      }
+    },
+    "corebench/results/sat_full.npz": {
+      "oracle_k4_08b": {
+        "ok": 587,
+        "rate": 0.037998446400828584,
+        "total": 15448
+      },
+      "oracle_k4_08bR": {
+        "ok": 579,
+        "rate": 0.03745148771021992,
+        "total": 15460
+      },
+      "topw_k4": {
+        "ok": 15440,
+        "rate": 1.0,
+        "total": 15440
+      }
+    }
+  },
+  "named": [],
+  "skipped": [
+    [
+      "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R04_rebuild_satisfaction/results/_smoke/a04_smoke.npz",
+      "key set differs (952 keys)"
+    ],
+    [
+      "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R04_rebuild_satisfaction/results/a04_core.npz",
+      "key set differs (15,312 keys)"
+    ],
+    [
+      "E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R04_rebuild_satisfaction/results/a04_nulls.npz",
+      "key set differs (3,964 keys)"
+    ],
+    [
+      "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R08_gold_preference/results/a08_gold.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R08_gold_preference/results/a08_gold_08b.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E01_the_rubric_was_the_object/A02_which_aggregation_rule/R09_overoptimization/results/a09_overoptimization.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E01_the_rubric_was_the_object/A03_is_the_attribution_real_and_against_what_floor/R22_cross_family/results/r22_cross_family_per_prompt.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R39_feature_cache/results/r39_feature_cache.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R41_criterion_support/results/r41_satisfaction_phi.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R41_criterion_support/results/r41_satisfaction_qwen2b.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E02_the_plural_public_dissolved/A06_does_the_protocol_have_the_power_it_needs/R41_criterion_support/results/r46_satisfaction.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E03_the_instrument_was_the_object/A10_what_the_resampling_unit_is/R97_rule_tournament_tost/results/r97_per_prompt_rule_cells.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R100_rater_reliability/results/r100_split_half_pairs.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R102_margin_calibration/results/r102_margin_correct.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R104_deattenuated_consensus/results/r104_split_records.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R105_specific_share_invariance/results/r105_share_bootstrap.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R106_share_level_under_redraw/results/r106_share_draws.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R107_joint_resample/results/r107_joint_draws.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E03_the_instrument_was_the_object/A11_how_wide_every_interval_really_is/R108_coinflip_stratum/results/r108_untied_rise_draws.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R110_rater_component/results/r110_cells.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R111_alpha_confound/results/r111_alpha.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R112_value_idiosyncrasy/results/r112_cells.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R113_accuracy_matched_arm/results/r113_cells.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R114_demographic_subject/results/r114_cells.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A12_who_pays_for_compilation/R116_no_invisible_sacrifice/results/r116_people.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R164_instrument/results/sat_core_phi.npz",
+      "key set differs (15,312 keys)"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R164_instrument/results/sat_core_qwen3b.npz",
+      "key set differs (15,312 keys)"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R164_instrument/results/sat_core_variant_default.npz",
+      "key set differs (4,740 keys)"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R164_instrument/results/sat_core_variant_no_fewshot.npz",
+      "key set differs (4,740 keys)"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R164_instrument/results/sat_core_variant_swapped.npz",
+      "key set differs (4,740 keys)"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R164_instrument/results/sat_full_variant_default.npz",
+      "key set differs (18,524 keys)"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R164_instrument/results/sat_full_variant_no_fewshot.npz",
+      "key set differs (18,524 keys)"
+    ],
+    [
+      "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R164_instrument/results/sat_full_variant_swapped.npz",
+      "key set differs (18,524 keys)"
+    ],
+    [
+      "E05_the_space_of_compilers/A18_the_candidate_set_wall_was_wrong/R233_fresh_candidate_transport/results/sat_fresh_and_orig.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E05_the_space_of_compilers/A20_is_a_global_core_real/R240_fit_a_global_core/results/sat_global.npz",
+      "key set differs (160,000 keys)"
+    ],
+    [
+      "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R250_can_provenance_be_reconstructed/results/perturbed.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R251_substitution_is_the_dose_that_can_kill/results/substituted.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R254_targeted_substitution_and_where_the_real_core_sits/results/targeted.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E05_the_space_of_compilers/A23_is_the_admissibility_gate_the_right_gate/R257_label_order_gauge_propagation/results/instruments.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "E05_the_space_of_compilers/A24_what_the_definition_costs/R370_a_non_subset_floor_for_the_fresh_arm/results/sat_genericpool16_fresh.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "_archive/r257_first_pass/instruments_retyped_prompt.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "_archive/work/a04_core.npz",
+      "key set differs (15,312 keys)"
+    ],
+    [
+      "_archive/work/a04_nulls.npz",
+      "key set differs (3,964 keys)"
+    ],
+    [
+      "_archive/work/a04_smoke.npz",
+      "key set differs (952 keys)"
+    ],
+    [
+      "_archive/work/a08_gold.emb.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "_archive/work/a08_gold.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "_archive/work/a08_gold_08b.emb.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "_archive/work/a08_gold_08b.npz",
+      "no meta/sat or wrong meta shape"
+    ],
+    [
+      "_archive/work/a09_overoptimization.npz",
+      "no meta/sat or wrong meta shape"
+    ]
+  ],
+  "source_name": "run.py",
+  "source_sha256": "83db6eb4992fa0cae00b14f09c40f35e785fc431c92e5d0e4119d96db54d4319",
+  "verdict": "W_NOT_ON_DISK"
+}

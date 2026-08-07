@@ -1,0 +1,144 @@
+R778 · both arm-free covariates were computed on criteria NO ARM USES
+WRITTEN BEFORE ANY CODE FOR THIS ROUND. 2026-08-05.
+
+--------------------------------------------------------------------------------
+WHY THIS ROUND EXISTS
+--------------------------------------------------------------------------------
+R776 built `poolspread` and R777 built `orderdisagree`, both from `sat_genericpool16.npz`, and both
+returned clean nulls against a family co-movement of 0.59-0.72. R777's NEXT registered a uniformity
+check on the `random_k` arms' draws "from the pool".
+
+CHECK #380 KILLS THE PREMISE OF BOTH ROUNDS, AT THE OBJECT, BEFORE ANY DESIGN:
+  - the 16-criterion "pool" is PROMPT-BLIND: `core_genericpool16.json` holds ONE identical set for
+    all 968 prompts (distinct sets across prompts = 1).
+  - `random_k4_s0` uses **3,869 distinct criteria** across 968 prompts and its overlap with the pool
+    is **0**. `topw_k4` likewise: **0/968** of its sets are subsets of the pool.
+  - the arms draw from the PROMPT'S OWN RUBRIC: **968/968** of `random_k4_s0`'s sets are subsets of
+    `core_full.json`, whose per-prompt size is median **15**, range **4 to 39**.
+
+⇒ **Two rounds of "arm-free covariates" measured a criterion set that shares NOTHING with any arm's
+  criteria.** The nulls were guaranteed by construction. This is §4's unit rule exactly: the
+  instrument's unit was the generic pool's criteria, the claim's unit was the arms' criteria, and the
+  two sets are disjoint. Both nulls are retracted as evidence about prompts.
+
+AND THE RIGHT OBJECT SUGGESTS A MECHANISM THE POOL COULD NEVER HAVE SHOWN. Rubric size varies 4 to 39
+while k is fixed per arm, so `k / n_rubric` varies by an order of magnitude. Two `random_k4` draws
+from a 4-criterion rubric are IDENTICAL; from a 39-criterion rubric they rarely overlap at all. So
+`|d|` depends on rubric size, EVERY random family inherits that dependence, and their scales must
+co-move -- with no prompt property involved beyond how many criteria the rubric happens to hold.
+
+--------------------------------------------------------------------------------
+ESTIMAND (before method)
+--------------------------------------------------------------------------------
+E1  `n_rubric(p)` -- the number of criteria in the prompt's own rubric -- against each of the six
+    families' scales. Arm-free, and it is the quantity the draw geometry actually depends on.
+E2  `rubricdisagree(p)` and `rubricspread(p)`: R777's and R776's statistics recomputed on the RIGHT
+    criterion set, so the two failed rounds get their fair test.
+E3  whether conditioning on `n_rubric` removes the M x R co-movement (raw 0.59-0.60), and the same
+    for the two rubric statistics.
+
+--------------------------------------------------------------------------------
+IDENTIFICATION
+--------------------------------------------------------------------------------
+E1-E3 exact -- all three covariates are deterministic functions of `sat_full.npz` / `core_full.json`.
+⚠ AND THE STANDING BOUND: all of them read the same satisfaction machinery the scales do, so a
+  correlation shows the scale tracks a rubric property, not that it is a prompt property in a
+  judge-free sense. Unchanged from R776/R777 and still in the register.
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+population  968 prompts; R776's six disjoint families, unchanged, so all three rounds compare
+instrument  A2 per prompt over all annotators; covariates from the prompt's own rubric
+baseline    R776's and R777's pool-based nulls, which this round explains rather than repeats
+regime      first release, home judge, this tree_sha
+
+--------------------------------------------------------------------------------
+THE ARITHMETIC, DERIVED BEFORE MEASURING
+--------------------------------------------------------------------------------
+D1  THE TWO PRIOR NULLS WERE FORCED. A covariate computed on criteria disjoint from every arm's
+    cannot correlate with those arms' differences except through whatever the two sets share, and they
+    share nothing. **So R776 and R777 measured nothing about the arms**, and their "the pool does not
+    explain it" conclusions are retracted -- not because they are false, but because they were never
+    tests.
+D2  TWO k-SUBSET DRAWS FROM AN n-CRITERION RUBRIC OVERLAP IN EXPECTATION k^2/n, so their difference
+    shrinks as n falls and vanishes at n <= k. **A negative correlation between `n_rubric` and any
+    random family's |d| is therefore PARTLY FORCED**, and the measurement is (a) its size, (b) whether
+    the NON-random families show it too, and (c) whether it explains the M x R co-movement.
+D3  AT n_rubric <= k THE DRAW IS DEGENERATE: every arm takes the whole rubric and |d| = 0 exactly.
+    Those prompts must be counted and reported, because they are the same object as R772's 223 ties
+    seen from the construction side rather than the score side.
+
+STRONGEST CONFOUND, written BEFORE the run: `n_rubric` may correlate with prompt difficulty, so a
+correlation with the scale could be difficulty rather than draw geometry. CONTROL IN THE SAME
+ITERATION: report corr(`n_rubric`, the baseline arm's A2) and the partial holding it fixed, so a
+difficulty explanation is visible rather than assumed absent.
+
+--------------------------------------------------------------------------------
+WORLDS
+--------------------------------------------------------------------------------
+A · DRAW GEOMETRY. `n_rubric` correlates with the random families' scales substantially, more than
+    with the non-random ones, and conditioning on it materially reduces M x R. Then the entire
+    co-movement thread resolves to "how many criteria the rubric holds", which is not a prompt
+    property in any interesting sense and closes the line.
+B · A RUBRIC STATISTIC, NOT ITS SIZE. `n_rubric` does little but `rubricdisagree` or `rubricspread`
+    does what their pool versions could not. Then R776/R777's hypotheses were right and their object
+    was wrong.
+C · NEITHER. All three rubric covariates behave like the pool ones did. Then the co-movement is not
+    explained by any rubric statistic tried, and that is a much stronger statement than the pool
+    rounds could make, because this time the covariates are computed on criteria the arms use.
+
+PREDICTION MATRIX
+  A -> |corr(n_rubric, scale)| >= 0.30 for at least 3 of the 4 random families AND M x R drops >= 25%
+  B -> a rubric statistic reaches >= 0.30 for a majority while `n_rubric` stays < 0.15
+  C -> every covariate < 0.15 for a majority of families
+
+--------------------------------------------------------------------------------
+KILL -- CONDITIONAL, gated on the controls
+--------------------------------------------------------------------------------
+if OBJECT CHECK passes (the arms' criteria are subsets of the rubric and disjoint from the pool --
+   asserted in code, exit 2 otherwise) and POSITIVE fires (a synthetic rubric-size sweep recovers the
+   geometry) and g=0 fires (fixed rubric size -> no correlation) and PLACEBO fires (a family against
+   itself = 1.0):
+        A's two conditions hold           -> WORLD A. The thread closes on draw geometry.
+        a rubric statistic >= 0.30 while
+          n_rubric < 0.15                 -> WORLD B. Right hypothesis, wrong object, now corrected.
+        all covariates < 0.15             -> WORLD C. No rubric statistic explains it.
+        otherwise                         -> report; claim no world.
+else:
+        UNVERIFIED. Never OVERTURNED, never CONFIRMED.
+
+--------------------------------------------------------------------------------
+CONTROLS
+--------------------------------------------------------------------------------
+OBJECT     assert `random_k4_s0`'s sets are subsets of the rubric on every prompt AND share nothing
+           with the pool. Exit 2 otherwise -- the whole round rests on which criterion set the arms
+           use, and that must be verified in code rather than quoted from this file.
+POSITIVE   simulate arms as uniform k-subsets of synthetic rubrics whose size is swept, and require
+           the recovered corr(n, |d|) to be strongly negative and to weaken as size variation is
+           removed. BAND, COMPUTED: at fixed rubric size the correlation is UNDEFINED (no variation),
+           printed as undefined rather than as a small number -- the defect caught in R776 and
+           avoided in R777.
+g=0        fixed rubric size across prompts: undefined, not detected.
+NEGATIVE   permute `n_rubric` across prompts, 200 draws -> the correlation distribution.
+SHAM       ingredient ABSENT, not inverted. Ingredient = THE COVARIATE'S ALIGNMENT. A random vector
+           from `n_rubric`'s own empirical distribution, 200 draws.
+PLACEBO    a family's scale against itself = exactly 1.0.
+DEGENERATE the count of prompts with `n_rubric <= k` for each arm, reported, because there |d| = 0 by
+           construction (D3) and they are R772's 223 ties seen from the construction side.
+UNIT       instrument unit = a PROMPT; intermediate = an ARM PAIR within a family; claim unit = a
+           FAMILY (6) for E1/E2 and a FAMILY PAIR for E3.
+
+--------------------------------------------------------------------------------
+MULTIPLICITY
+--------------------------------------------------------------------------------
+3 covariates x 6 families x {raw, partial} + 3 M x R pairs x 3 covariates + 4 sweep levels + 200 sham
+draws + 200 permutation draws. The whole table is printed, including the covariates that fail.
+
+--------------------------------------------------------------------------------
+IMPOSSIBLE HERE -- each with what it would require
+--------------------------------------------------------------------------------
+a judge-free prompt property                    a prompt feature computed from the TEXT
+why the rubric has the size it does              the rubric's construction, which is off-repository
+cross-release                                    a second release
+independently replicated                         a second team; the session prompt forbids agents

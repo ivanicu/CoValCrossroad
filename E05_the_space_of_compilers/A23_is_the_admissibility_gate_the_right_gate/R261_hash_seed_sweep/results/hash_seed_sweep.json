@@ -1,0 +1,303 @@
+{
+ "static": [
+  {
+   "round": "R220",
+   "line": 313,
+   "tuple": [
+    "p",
+    "s"
+   ],
+   "string_keyed": true,
+   "why": [
+    "p"
+   ]
+  },
+  {
+   "round": "R220",
+   "line": 401,
+   "tuple": [
+    "p",
+    "\"boot\"",
+    "s"
+   ],
+   "string_keyed": true,
+   "why": [
+    "p",
+    "\"boot\""
+   ]
+  },
+  {
+   "round": "R221",
+   "line": 172,
+   "tuple": [
+    "p",
+    "seed"
+   ],
+   "string_keyed": true,
+   "why": [
+    "p"
+   ]
+  },
+  {
+   "round": "R221",
+   "line": 187,
+   "tuple": [
+    "p",
+    "seed",
+    "arm",
+    "k",
+    "mode"
+   ],
+   "string_keyed": true,
+   "why": [
+    "p",
+    "arm",
+    "mode"
+   ]
+  },
+  {
+   "round": "R221",
+   "line": 208,
+   "tuple": [
+    "p",
+    "seed",
+    "arm",
+    "k",
+    "\"base\""
+   ],
+   "string_keyed": true,
+   "why": [
+    "p",
+    "arm",
+    "\"base\""
+   ]
+  },
+  {
+   "round": "R227",
+   "line": 111,
+   "tuple": [
+    "pi",
+    "seed",
+    "eps",
+    "lev"
+   ],
+   "string_keyed": false,
+   "why": []
+  },
+  {
+   "round": "R227",
+   "line": 140,
+   "tuple": [
+    "pi",
+    "seed",
+    "eps",
+    "\"cal\""
+   ],
+   "string_keyed": true,
+   "why": [
+    "\"cal\""
+   ]
+  },
+  {
+   "round": "R228",
+   "line": 143,
+   "tuple": [
+    "pi",
+    "seed",
+    "eps",
+    "k"
+   ],
+   "string_keyed": false,
+   "why": []
+  },
+  {
+   "round": "R230",
+   "line": 112,
+   "tuple": [
+    "pi",
+    "seed",
+    "eps"
+   ],
+   "string_keyed": false,
+   "why": []
+  },
+  {
+   "round": "R231",
+   "line": 130,
+   "tuple": [
+    "p",
+    "d"
+   ],
+   "string_keyed": true,
+   "why": [
+    "p"
+   ]
+  },
+  {
+   "round": "R237",
+   "line": 138,
+   "tuple": [
+    "pi",
+    "seed",
+    "eps",
+    "R"
+   ],
+   "string_keyed": false,
+   "why": []
+  },
+  {
+   "round": "R233",
+   "line": 134,
+   "tuple": [
+    "pid",
+    "arm",
+    "d"
+   ],
+   "string_keyed": true,
+   "why": [
+    "pid",
+    "arm"
+   ]
+  },
+  {
+   "round": "R238",
+   "line": 79,
+   "tuple": [
+    "pid",
+    "arm",
+    "dd"
+   ],
+   "string_keyed": true,
+   "why": [
+    "pid",
+    "arm"
+   ]
+  },
+  {
+   "round": "R241",
+   "line": 93,
+   "tuple": [
+    "pid",
+    "arm",
+    "dd"
+   ],
+   "string_keyed": true,
+   "why": [
+    "pid",
+    "arm"
+   ]
+  },
+  {
+   "round": "R243",
+   "line": 92,
+   "tuple": [
+    "p",
+    "d"
+   ],
+   "string_keyed": true,
+   "why": [
+    "p"
+   ]
+  },
+  {
+   "round": "R244",
+   "line": 123,
+   "tuple": [
+    "p",
+    "sd",
+    "reading"
+   ],
+   "string_keyed": true,
+   "why": [
+    "p",
+    "reading"
+   ]
+  },
+  {
+   "round": "R245",
+   "line": 91,
+   "tuple": [
+    "pi",
+    "sd",
+    "target"
+   ],
+   "string_keyed": true,
+   "why": [
+    "target"
+   ]
+  },
+  {
+   "round": "R253",
+   "line": 192,
+   "tuple": [
+    "pi",
+    "seed",
+    "k"
+   ],
+   "string_keyed": false,
+   "why": []
+  },
+  {
+   "round": "R259",
+   "line": 178,
+   "tuple": [
+    "pi",
+    "seed",
+    "k",
+    "eps"
+   ],
+   "string_keyed": false,
+   "why": []
+  },
+  {
+   "round": "R261",
+   "line": 5,
+   "tuple": [
+    "p",
+    "d"
+   ],
+   "string_keyed": true,
+   "why": [
+    "p"
+   ]
+  },
+  {
+   "round": "R261",
+   "line": 14,
+   "tuple": [
+    "..."
+   ],
+   "string_keyed": false,
+   "why": []
+  },
+  {
+   "round": "R261",
+   "line": 86,
+   "tuple": [
+    "1",
+    "2",
+    "3"
+   ],
+   "string_keyed": false,
+   "why": []
+  },
+  {
+   "round": "R261",
+   "line": 101,
+   "tuple": [],
+   "string_keyed": false,
+   "why": []
+  }
+ ],
+ "n_string_keyed": 14,
+ "n_total": 23,
+ "positive_control_ok": true,
+ "rerun_spreads": {
+  "R231": [
+   0.3815,
+   0.3879,
+   0.006400000000000017
+  ]
+ },
+ "verdict": "W-SYSTEMIC -- 14 of 23 hash-seeded rngs in E05 are keyed on a STRING (61%), so the class RETRACTIONS calls 'rare: 2 in 83 rounds' is the MAJORITY here. That sentence was true of the sweep behind it and the sweep never covered this epoch."
+}

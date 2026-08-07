@@ -1,0 +1,98 @@
+{
+ "cfg": {
+  "metric": "pearson",
+  "min_overlap": 3,
+  "standardize": true,
+  "thr": "majority",
+  "min_prompts": 3
+ },
+ "null_reps": 200,
+ "pairs": 6457,
+ "mean_raw_agreement": 0.2512625197468561,
+ "thresholds": {
+  "+0.00": {
+   "observed": 0.22332352485674462,
+   "null_mean": 0.1858130710856435,
+   "null_sd": 0.0030090101353219276,
+   "ratio": 1.2018719864643543,
+   "z": 12.466044337408627,
+   "p": 0.0
+  },
+  "-0.05": {
+   "observed": 0.18476072479479635,
+   "null_mean": 0.14469955087501937,
+   "null_sd": 0.003065185341952886,
+   "ratio": 1.2768576244882668,
+   "z": 13.069739489613875,
+   "p": 0.0
+  },
+  "-0.10": {
+   "observed": 0.1451138299519901,
+   "null_mean": 0.11012931702028808,
+   "null_sd": 0.0029022202987857336,
+   "ratio": 1.3176675737057113,
+   "z": 12.054396054732601,
+   "p": 0.0
+  },
+  "-0.20": {
+   "observed": 0.07991327241753136,
+   "null_mean": 0.05911181663311135,
+   "null_sd": 0.002319473639327402,
+   "ratio": 1.3519001270681321,
+   "z": 8.968179427761815,
+   "p": 0.0
+  },
+  "-0.30": {
+   "observed": 0.041660213721542515,
+   "null_mean": 0.028864797893758714,
+   "null_sd": 0.001862158806634014,
+   "ratio": 1.4432879064277282,
+   "z": 6.871280674520534,
+   "p": 0.0
+  }
+ },
+ "all_negative_observed": 0.03019978318104383,
+ "all_negative_null": 0.019461824376645502,
+ "all_negative_z": 6.728928836945742,
+ "shape": {
+  "near_ratio": 1.2018719864643543,
+  "near_z": 12.466044337408627,
+  "far_ratio": 1.3519001270681321,
+  "far_z": 8.968179427761815
+ },
+ "actor_control_both_high": {
+  "+0.00": {
+   "observed": 0.06513194834362718,
+   "null_mean": 0.15681358787198202,
+   "ratio": 0.4153463308090303,
+   "z": -12.191091927164168
+  },
+  "-0.05": {
+   "observed": 0.047164514317798986,
+   "null_mean": 0.12040145985401458,
+   "ratio": 0.39172709678923684,
+   "z": -11.17420625398376
+  },
+  "-0.10": {
+   "observed": 0.029758562605277934,
+   "null_mean": 0.09030320044918586,
+   "ratio": 0.3295405086115774,
+   "z": -10.027721795384792
+  },
+  "-0.20": {
+   "observed": 0.011791128579449747,
+   "null_mean": 0.04707186973610331,
+   "ratio": 0.2504920379316514,
+   "z": -7.719393776651449
+  },
+  "-0.30": {
+   "observed": 0.0050533408197641775,
+   "null_mean": 0.02219539584503088,
+   "ratio": 0.2276751834050089,
+   "z": -4.998266608832297
+  }
+ },
+ "actor_control_n_pairs": 1781,
+ "verdict": "ACTOR EFFECT, NOT BLOCS: the raw negative tail is real against a within-prompt null (1.20x just below zero, 1.35x below -0.20) but it VANISHES among pairs of two generally-agreeable raters (far-tail z=-7.72, leave-one-out). It is carried by pairs involving generally-disagreeable raters. Under blocs, two raters could each sit inside a large bloc and still oppose each other; the data says that essentially does not happen. || FROZEN LINE (queue item 2, see FROZEN.md): this round belongs to the rater-structure ontology -- r01, r23, r25, r26, r27, r28 -- which is FROZEN as UNRESOLVED. Four separators failed for four unrelated reasons: r23's sharper test read z=+10.26 at 2 null reps and +1.40 at 40; r26's centred residual gives 'below average' and 'actually disagreeing' the same number when mean agreement is +0.25; r27's agreeable-pair control selects same-bloc pairs under unequal bloc sizes and so could not have found blocs if they existed; r28's design was rank-deficient by exactly 1, its z moved with PYTHONHASHSEED, and its held-out R2 spanned [-1.64,+0.51]. The numbers below are correct about this round's own data. They do NOT establish that value blocs exist, and they do not establish that they do not. Neither reading is available from this release.",
+ "note": "r23/r25/r26 tested the sign of the CENTRED residual, which scores 'below average' and 'actually disagreeing' identically -- and those are the two worlds the test existed to separate. Mean agreement is +0.25, so a zero-competence pair has a strongly negative residual while never once disagreeing. This asks on the raw scale, where zero is a real boundary, and reads the SHAPE of the excess across depth."
+}

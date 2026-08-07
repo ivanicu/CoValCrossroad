@@ -1,0 +1,58 @@
+{
+ "block": "world",
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "prompts": 968,
+ "arms": {
+  "full_weighted": {
+   "in_sample": 0.6597,
+   "held_out": 0.6472,
+   "shrinkage": 0.0125,
+   "n": 39775,
+   "held_out_ci95": [
+    0.6448,
+    0.6495
+   ]
+  },
+  "raw_topk_weighted": {
+   "in_sample": 0.6395,
+   "held_out": 0.6395,
+   "shrinkage": 0.0001,
+   "n": 39775,
+   "held_out_ci95": [
+    0.6372,
+    0.6418
+   ]
+  },
+  "core_compiled": {
+   "in_sample": 0.6377,
+   "held_out": 0.6377,
+   "shrinkage": 0.0,
+   "n": 39775,
+   "held_out_ci95": [
+    0.6354,
+    0.64
+   ]
+  },
+  "full_unweighted": {
+   "in_sample": 0.5804,
+   "held_out": 0.5804,
+   "shrinkage": 0.0,
+   "n": 39775,
+   "held_out_ci95": [
+    0.578,
+    0.5828
+   ]
+  }
+ },
+ "gap_in_sample": 0.022,
+ "gap_held_out": 0.0095,
+ "overfitting_cost": 0.0125,
+ "verdict": "NO MEASURABLE DEFENCE -- keeping everything still wins on raters who contributed nothing to the weights",
+ "instrument": "one rebuilt 2B judge for every arm; the split touches only the weights"
+}

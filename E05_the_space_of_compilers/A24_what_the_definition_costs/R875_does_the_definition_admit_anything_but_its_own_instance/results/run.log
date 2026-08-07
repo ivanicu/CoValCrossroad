@@ -1,0 +1,31 @@
+  prompts 968 · arms 99 (population DERIVED from the estimand, not globbed)
+  KILL ① `oracle_k4` ADMITTED by ②: True  PASS
+  KILL ② `random_k4_s0` NOT admitted: True  PASS
+  KILL ③ `coval_core` vs itself r = 0.9999999999999998: True  PASS
+
+  criterion A  ratio>=1.5: admits 25 arm(s) besides `coval_core`
+    r with core — min +0.5406 · p25 +0.7261 · median +0.7720 · max +1.0000
+      oracle_k4_08bR               r=+0.5406  ratio=+1.589
+      generic                      r=+0.6867  ratio=+1.846
+      generic_reprov               r=+0.6867  ratio=+1.846
+      greedy_k2_fit1               r=+0.7031  ratio=+5.860
+      indep_k2_fit1                r=+0.7206  ratio=+5.297
+      oracle_k4_fit1               r=+0.7240  ratio=+6.029
+
+  criterion B  BH+CI: admits 27 arm(s) besides `coval_core`
+    r with core — min +0.5406 · p25 +0.7251 · median +0.7599 · max +1.0000
+      oracle_k4_08bR               r=+0.5406  ratio=+1.589
+      generic                      r=+0.6867  ratio=+1.846
+      generic_reprov               r=+0.6867  ratio=+1.846
+      greedy_k2_fit1               r=+0.7031  ratio=+5.860
+      topw_k2                      r=+0.7056  ratio=+0.977
+      indep_k2_fit1                r=+0.7206  ratio=+5.297
+
+  ⭐ MINIMUM r among admitted arms (criterion B): +0.5406
+  ⭐ WORLD B: admitted arms span a wide correlation range including low values — the definition admits procedurally distant objects and is DEFINING, not describing
+     ⚠ PROXY, sound in ONE direction: low r ⇒ different procedure (same construction
+       cannot produce uncorrelated per-prompt scores). High r ⇏ same procedure.
+     ⚠ AND EVEN WORLD B DOES NOT RETIRE `describes the instance`. It shows the clauses
+       are not degenerate on THIS release. Retiring it needs a second release.
+
+  artifact: results/admits_beyond_instance.json @ 9718ba7b

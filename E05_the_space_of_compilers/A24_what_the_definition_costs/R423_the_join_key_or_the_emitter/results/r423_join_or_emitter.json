@@ -1,0 +1,81 @@
+{
+  "controls": {
+    "default_npz_bad": 0,
+    "default_npz_total": 15440,
+    "g0": true,
+    "plant": true,
+    "real_disjoint": 0,
+    "real_shared": 7728
+  },
+  "disjoint_rules": [
+    "oracle_k4",
+    "indep_k4_fit1"
+  ],
+  "pairs": {
+    "greedy_k4_fit1": {
+      "disjoint": 0,
+      "example": null,
+      "r422_differ": 9,
+      "shared": 7868,
+      "status": "uncontained",
+      "uncontained": 29723
+    },
+    "indep_k4_fit1": {
+      "disjoint": 1,
+      "example": [
+        "41aa2aaf-f8e4-5899-bfd6-6dc275a4a51c",
+        "The model should give roughly equal weight to the viewpoints of drivers, transport unions, commuters, companies, and government officials.",
+        "B"
+      ],
+      "r422_differ": 11,
+      "shared": 7516,
+      "status": "DISJOINT CELLS",
+      "uncontained": 29698
+    },
+    "oracle_k4": {
+      "disjoint": 2,
+      "example": [
+        "694336b7-fc69-5259-8439-a9af64cadf5c",
+        "back up its claims with concrete data, statistics, or cited sources.",
+        "D"
+      ],
+      "r422_differ": 5,
+      "shared": 8180,
+      "status": "DISJOINT CELLS",
+      "uncontained": 29742
+    },
+    "topvar_k4": {
+      "disjoint": 0,
+      "example": null,
+      "r422_differ": 14,
+      "shared": 7044,
+      "status": "uncontained",
+      "uncontained": 29430
+    },
+    "topwvar_k4": {
+      "disjoint": 0,
+      "example": null,
+      "r422_differ": 13,
+      "shared": 7760,
+      "status": "uncontained",
+      "uncontained": 29597
+    }
+  },
+  "source_name": "run.py",
+  "source_sha256": "b9bf83e006c4f0ea7f1410e18e7ff7bb61df6d2944b6ab01121c6c278f2f02ce",
+  "uncontained_rules": [
+    "oracle_k4",
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "topvar_k4",
+    "topwvar_k4"
+  ],
+  "usable": [
+    "oracle_k4",
+    "greedy_k4_fit1",
+    "indep_k4_fit1",
+    "topvar_k4",
+    "topwvar_k4"
+  ],
+  "verdict": "W_MIXED"
+}

@@ -1,0 +1,140 @@
+{
+ "source_sha": "735c6ad456c093aa",
+ "world": "W-OVERREACH",
+ "floor": {
+  "moved": 2,
+  "of": 300,
+  "broken_churn": 0,
+  "classes": {
+   "TIMEOUT->REACHED-WRITE": 2
+  }
+ },
+ "broken_before": [
+  "R06",
+  "R144",
+  "R146",
+  "R147",
+  "R148",
+  "R155",
+  "R156",
+  "R157",
+  "R158",
+  "R159",
+  "R160",
+  "R161",
+  "R162",
+  "R260",
+  "R261",
+  "R262",
+  "R263",
+  "R264",
+  "R265",
+  "R266",
+  "R267",
+  "R268",
+  "R269",
+  "R274",
+  "R275"
+ ],
+ "broken_after": [
+  "R260",
+  "R267",
+  "R268",
+  "R269",
+  "R274",
+  "R275"
+ ],
+ "targeted_resolver": [
+  "R06",
+  "R144",
+  "R146",
+  "R147",
+  "R148",
+  "R155",
+  "R156",
+  "R157",
+  "R158",
+  "R159",
+  "R160",
+  "R161",
+  "R162"
+ ],
+ "targeted_venv": [
+  "R261",
+  "R262",
+  "R263",
+  "R264",
+  "R265",
+  "R266"
+ ],
+ "targeted_moved": [
+  "R06",
+  "R144",
+  "R146",
+  "R147",
+  "R148",
+  "R155",
+  "R156",
+  "R157",
+  "R158",
+  "R159",
+  "R160",
+  "R161",
+  "R162",
+  "R261",
+  "R262",
+  "R263",
+  "R264",
+  "R265",
+  "R266"
+ ],
+ "targeted_stuck": [],
+ "untargeted_left": [],
+ "untargeted_entered": [],
+ "untargeted_regressed": [
+  [
+   "E04_no_fraction_only_an_equivalence_class/A13_the_chain_from_a_person_to_the_standard/R165_gauge_admissibility",
+   "OTHER-ERROR",
+   "REACHED-WRITE",
+   "IMPROVED"
+  ]
+ ],
+ "untargeted_direction": {
+  "IMPROVED": 1
+ },
+ "churn_classes": [
+  "TIMEOUT->REACHED-WRITE"
+ ],
+ "still_broken_by_design": [
+  "R260",
+  "R267",
+  "R268",
+  "R269",
+  "R274",
+  "R275"
+ ],
+ "transitions": {
+  "BROKEN-INPUT->TIMEOUT": 4,
+  "BROKEN-INPUT->REACHED-WRITE": 15,
+  "OTHER-ERROR->REACHED-WRITE": 1
+ },
+ "counts_before": {
+  "BROKEN-INPUT": 25,
+  "REACHED-WRITE": 207,
+  "COMPLETED": 0,
+  "OTHER-ERROR": 6,
+  "TIMEOUT": 40,
+  "SKIPPED-GPU": 22
+ },
+ "counts_after": {
+  "BROKEN-INPUT": 6,
+  "REACHED-WRITE": 224,
+  "COMPLETED": 0,
+  "OTHER-ERROR": 5,
+  "TIMEOUT": 44,
+  "SKIPPED-GPU": 23
+ },
+ "positive_ok": true,
+ "negative_ok": true,
+ "floor_ok": true
+}

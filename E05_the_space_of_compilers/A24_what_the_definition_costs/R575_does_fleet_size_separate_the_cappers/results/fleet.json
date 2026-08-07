@@ -1,0 +1,29 @@
+{
+  "world": "PARTIAL",
+  "established_by_direct_read": {
+    "what_did_each_check_actually_read": {
+      "fleet": 46,
+      "unit": "assurance/*.py",
+      "caps": true
+    },
+    "backfilled_findings_are_rederivable": {
+      "fleet": 265,
+      "unit": "round run.py",
+      "caps": true
+    }
+  },
+  "not_established": [
+    "the fleet of attack_the_suite",
+    "the fleet of the four non-capping meta-gates"
+  ],
+  "dead_instrument": {
+    "what": "static count of run( call sites",
+    "regex": "(?<![\\\\w.])run\\\\(\\\\s*[\\\"'f]",
+    "why_dead": "required a quote or f immediately after run(, but every call is run(check) with a variable",
+    "output": "0 for all seven gates",
+    "signature": "UNIFORM OUTPUT ACROSS A POPULATION THE INSTRUMENT WAS BUILT TO DISCRIMINATE"
+  },
+  "my_error": "I printed 'these do NOT separate' underneath seven identical zeros \u2014 a verdict computed on a blind instrument",
+  "hypothesis_status": "fleet size as the separator is CONSISTENT with the timings (46 and 265 against a handful) and NOT established; consistency is not identification",
+  "instrument_defects_this_session": 9
+}

@@ -1,0 +1,88 @@
+R816 · WHAT ACCOUNTS FOR THE SHIFT — target reliability, or the tie rate?
+written before the run · NBOOT 1200 · ZEFF 2.801585
+
+PROVOCATION
+R815 found nine arms each scoring 0.005-0.012 HIGHER against `personal` than against `world`, a
+uniform shift that left the ordering at Spearman 1.0000. Its NEXT proposed one explanation: compute
+`CEIL_H` on `personal` and see whether the target is simply more reliable.
+
+⛔ CHECK #418 FOUND THAT THE DIRECTION OF THAT INFERENCE IS NEARLY FORCED, and that a SECOND
+mechanism was never named.
+ (1) Higher inter-annotator agreement raises A2 for ANY predictor, so "does the ceiling point the
+     same way" is not evidence. The real question is whether it QUANTITATIVELY accounts for the
+     shift, and that is a slope, not a sign.
+ (2) Measured on the 293-prompt population: `CEIL_H` world **0.533454**, personal **0.543065**,
+     gap **+0.009611** -- close to the observed mean shift. But the TIE RATE is world **0.145080**,
+     personal **0.124460**, gap **-0.020620**, and [DERIVATION] a strict-signed arm can NEVER match
+     a tied human pair, so its attainable maximum is 1 - tie_rate. A tie-rate drop of 0.0206 makes
+     up to +0.0206 available -- MORE than the whole observed shift. Two mechanisms, both pointing
+     the same way, one of them able to over-explain it alone.
+ (3) The obvious third rival is ruled out by measurement, not assumption: annotators per prompt is
+     median 12 in BOTH blocks, so the shift is not panel depth.
+
+ESTIMAND
+E1  per arm, the per-prompt regression of (A2_personal - A2_world) on (CEIL_personal - CEIL_world):
+    slope, intercept, R^2.
+E2  ⭐ the pre-registered test: is the slope 1 and the intercept 0? A slope of 1 means the shift IS
+    the reliability shift; anything else means reliability is one term among others.
+E3  ⭐ the TIE mechanism as a rival, entered on its own and jointly: the per-prompt tie-rate
+    difference, and the joint model with both terms.
+E4  what is left after both -- the residual shift, with its interval.
+
+IDENTIFICATION
+Identified per prompt: every quantity is a within-prompt difference across two blocks answered about
+the SAME four responses. ⚠ The two regressors are themselves correlated -- a prompt where annotators
+agree more will also tie less -- so the JOINT model's coefficients are not separately interpretable
+if the correlation is high. That correlation is measured and reported BEFORE the joint fit, and if
+|r| > 0.7 the round reports bounds from the two single-term models instead of a decomposition.
+
+DERIVED BEFORE MEASURING
+D1 [DERIVATION] a strict-signed arm cannot match a tied human pair, so its attainable A2 is bounded
+   by 1 - tie_rate. This is why the tie term belongs in the model at all.
+D2 [DERIVATION] a HIGHER inter-annotator ceiling raises A2 for any predictor, so the SIGN of the
+   ceiling term is forced and only its MAGNITUDE is evidence. The round tests slope = 1, not
+   slope > 0.
+D3 the nine arms differ in how strict they are; an arm that ties more should be less sensitive to
+   the tie term. That is a testable ordering across arms, not an assumption.
+D4 [DERIVATION] the placebo -- an arm regressed on a zero difference -- has slope undefined and a
+   zero outcome; it is run as a numerical check that the pipeline returns 0, not as evidence.
+
+WORLDS
+A  RELIABILITY: the ceiling slope is indistinguishable from 1 and the tie term adds nothing once it
+   is in -> the shift IS the target's reliability and nothing about the arms is involved.
+B  TIES: the tie term dominates and the ceiling term collapses when both are entered -> the shift is
+   an artefact of how often humans tie, which is a property of the QUESTION and not of agreement.
+C  BOTH OR NEITHER: neither single term accounts for the shift -> report the decomposition and the
+   residual, and claim no single mechanism.
+CHECKED FIRST: B, because it is the mechanism R815's NEXT did not name and would have missed.
+
+PREDICTION MATRIX
+                          A                B                 C
+ceiling slope          ~ 1              ~ 0 when joint     between
+tie slope              ~ 0 when joint   large              between
+residual shift         ~ 0              ~ 0                non-zero
+
+CONTROLS
+OBJECT   reproduce R815's committed per-arm shifts to 1e-6 (coval_core -0.0119, gen_sham -0.0105)
+         and R793-style CEIL_H on `world` over this population. Exit 2 otherwise.
+PLACEBO  D4: an arm against itself -> outcome identically 0 at every prompt.
+POSITIVE plant a known per-prompt shift proportional to the ceiling difference with coefficient c in
+         {0, 0.5, 1.0, 2.0}; the recovered slope must track c. At c=0 it must NOT recover a slope
+         distinguishable from the unplanted one -- that is the g=0 check.
+NEGATIVE the per-prompt PAIRING between the two blocks destroyed (personal values attached to other
+         prompts) -> both slopes must collapse to 0. 200 permutations.
+NOISE FLOOR 20 half-splits of the 293 prompts; the sd of every slope.
+
+PRE-REGISTERED KILL -- conditional, never a bare threshold
+  if object_reproduces and placebo_zero and positive_tracks_c and negative_collapses:
+      if |r(ceiling, tie)| > 0.7                                  -> report BOUNDS, WORLD C
+      elif the tie slope's CI excludes 0 and the ceiling slope's contains 0   -> WORLD B
+      elif the ceiling slope's CI contains 1 and the tie slope's contains 0   -> WORLD A
+      else                                                                     -> WORLD C
+  else:
+      UNVERIFIED   (never OVERTURNED, never CONFIRMED)
+
+MULTIPLICITY 9 arms x 3 models (ceiling, tie, joint) reported in full; BH q=0.05 over the
+per-arm residual family; non-survivors printed.
+STOPPING RULE one round. If the two regressors correlate above 0.7 the round reports single-term
+bounds and does NOT quote joint coefficients, because they would not be separately interpretable.

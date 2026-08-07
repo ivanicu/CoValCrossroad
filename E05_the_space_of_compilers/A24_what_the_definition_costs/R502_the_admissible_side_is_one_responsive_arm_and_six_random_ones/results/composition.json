@@ -1,0 +1,165 @@
+{
+ "world": "ONE-ARM ADMISSIBLE SIDE \u2014 1 prompt-responsive full-coverage arm (gen), 6 random-varying, 2 prompt-blind, 3 partial-coverage; 14 prompt-varying arms on the \u2462-excluded side. \u2461\u2227\u2462's UNDETERMINED is a property of the ARM POPULATION, not of the definition.",
+ "rows": {
+  "gen": {
+   "prompts": 968,
+   "distinct": 950,
+   "fam": "free"
+  },
+  "generic": {
+   "prompts": 968,
+   "distinct": 1,
+   "fam": "free"
+  },
+  "genericpool16": {
+   "prompts": 968,
+   "distinct": 1,
+   "fam": "free"
+  },
+  "greedy_k4_fit1": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "indep_k4_fit1": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "oracle_k4": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "oracle_k4_fit1": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "promptecho": {
+   "prompts": 398,
+   "distinct": 398,
+   "fam": "free"
+  },
+  "randblind_k4_s0": {
+   "prompts": 1,
+   "distinct": 1,
+   "fam": "free"
+  },
+  "random_k3_s0": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "free"
+  },
+  "random_k4_s0": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "free"
+  },
+  "random_k4_s1": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "free"
+  },
+  "random_k4_s2": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "free"
+  },
+  "random_k6_s0": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "free"
+  },
+  "random_k8_s0": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "free"
+  },
+  "topabs_k4": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "topvar_k4": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "topw_k1": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "topw_k12": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "topw_k2": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "topw_k3": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "topw_k4": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "topw_k6": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "topw_k8": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "topwvar_k4": {
+   "prompts": 968,
+   "distinct": 968,
+   "fam": "reader"
+  },
+  "vacuous_k4": {
+   "prompts": 1,
+   "distinct": 1,
+   "fam": "free"
+  }
+ },
+ "composition": {
+  "responsive": [
+   "gen"
+  ],
+  "random-varying": [
+   "random_k3_s0",
+   "random_k4_s0",
+   "random_k4_s1",
+   "random_k4_s2",
+   "random_k6_s0",
+   "random_k8_s0"
+  ],
+  "blind": [
+   "generic",
+   "genericpool16"
+  ],
+  "partial-coverage": [
+   "promptecho",
+   "randblind_k4_s0",
+   "vacuous_k4"
+  ]
+ },
+ "spec_fragile": [],
+ "responsive": [
+  "gen"
+ ],
+ "positive_control": {
+  "generic": 1,
+  "oracle_k4": 968
+ }
+}

@@ -1,0 +1,49 @@
+  prompts 1078 · arms 99
+  ④′ comparator = `min_ttr` (0.452450) · ② comparator = `genericpool16` (0.540431)
+
+  clause ②   (comparator held fixed; ONE bootstrap, TWO decision rules)
+    seed 11: A(ratio>=1.5)  23 · B(BH+CI)  29 · both  23 · only-A   0 · only-B   6
+      POSITIVE `oracle_k4` under BOTH: True  PASS
+      NEGATIVE `random_k4_s0` under NEITHER: True  PASS
+      PLACEBO comparator vs itself +0.00e+00  PASS
+      DERIVATION (not a control): the two rules are two returns of ONE
+      `decide` call, so they read the same bootstrap by construction. The
+      first draft asserted this by comparing margins across two calls --
+      a check that cannot fail, since `marg` never touches the bootstrap.
+      `coval_core`: margin +0.024981 · ratio +2.2524 -> A True · B True
+    seed 22: A(ratio>=1.5)  23 · B(BH+CI)  29 · both  23 · only-A   0 · only-B   6
+    seed 33: A(ratio>=1.5)  24 · B(BH+CI)  29 · both  24 · only-A   0 · only-B   5
+
+  clause ④′   (comparator held fixed; ONE bootstrap, TWO decision rules)
+    seed 11: A(ratio>=1.5)  58 · B(BH+CI)  63 · both  58 · only-A   0 · only-B   5
+      POSITIVE `oracle_k4` under BOTH: True  PASS
+      NEGATIVE `random_k4_s0` under NEITHER: False  FAIL
+      PLACEBO comparator vs itself +0.00e+00  PASS
+      DERIVATION (not a control): the two rules are two returns of ONE
+      `decide` call, so they read the same bootstrap by construction. The
+      first draft asserted this by comparing margins across two calls --
+      a check that cannot fail, since `marg` never touches the bootstrap.
+      ⚠ ④′ NEGATIVE CONTROL FAILS -- and it is EXPECTED: R850
+        measured the same failure at 7 of 8 class sizes, and R856
+        reported ④′ as dominated by ②. A random 4-criteria set
+        really does clear this clause. ④′ is UNVERIFIED; the
+        other clause is NOT contaminated by it.
+      `coval_core`: margin +0.111683 · ratio +5.6986 -> A True · B True
+    seed 22: A(ratio>=1.5)  58 · B(BH+CI)  63 · both  58 · only-A   0 · only-B   5
+    seed 33: A(ratio>=1.5)  59 · B(BH+CI)  63 · both  59 · only-A   0 · only-B   4
+
+  READABLE CLAUSES: ['②'] of ['②', '④′']
+
+  KILL ④ clause ②: criterion gap 5.7 vs seed spread 1  -> READABLE
+    A disagreement smaller than the seed spread is not a disagreement. This is the
+    arm that replaced the one that could not fail.
+  ⚠ EXCLUDED from the verdict (own controls failed): ['④′']. Their counts are in
+    the artifact and are NOT folded into the world call.
+
+  ⭐ across both clauses × 3 seeds: only-A 0 · only-B 17
+  ⭐ WORLD A: A ⊂ B — the 1.5 floor is the BINDING constraint, and every published count is the floor's count rather than the clause's
+     ⛔ clauses ① and ③ are DERIVED and carry no threshold, so their verdicts are
+        criterion-INVARIANT by construction — a derivation, not a measurement, and
+        it is why at most 2 of the table's 4 rows could have moved at all.
+
+  artifact: results/criterion_invariance.json @ 941073f9

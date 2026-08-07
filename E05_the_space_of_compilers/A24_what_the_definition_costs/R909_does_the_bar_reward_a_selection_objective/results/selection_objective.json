@@ -1,0 +1,120 @@
+{
+  "commit": "77f88d581d8ba20cbf530a433fc4d6f4ded7db0d",
+  "world": "B",
+  "groups": [
+    {
+      "objective": "SIGNED_MEAN_WEIGHT",
+      "spec": "pooled over k",
+      "n_admitted": 7,
+      "n_built": 16,
+      "share": 0.4375,
+      "ci95": [
+        0.2309836333518552,
+        0.6682180439322347
+      ],
+      "ci_width": 0.4372344105803795
+    },
+    {
+      "objective": "SIGNED_MEAN_WEIGHT",
+      "spec": "matched k=4",
+      "n_admitted": 3,
+      "n_built": 4,
+      "share": 0.75,
+      "ci95": [
+        0.3006360524426366,
+        0.9544139373553637
+      ],
+      "ci_width": 0.6537778849127271
+    },
+    {
+      "objective": "VARIANCE_OR_MAGNITUDE",
+      "spec": "pooled over k",
+      "n_admitted": 0,
+      "n_built": 8,
+      "share": 0.0,
+      "ci95": [
+        0.0,
+        0.3244156195108769
+      ],
+      "ci_width": 0.3244156195108769
+    },
+    {
+      "objective": "VARIANCE_OR_MAGNITUDE",
+      "spec": "matched k=4",
+      "n_admitted": 0,
+      "n_built": 8,
+      "share": 0.0,
+      "ci95": [
+        0.0,
+        0.3244156195108769
+      ],
+      "ci_width": 0.3244156195108769
+    }
+  ],
+  "verdicts": {
+    "pooled over k": {
+      "disjoint": false,
+      "signed_lo_minus_other_hi": -0.09343198615902168
+    },
+    "matched k=4": {
+      "disjoint": false,
+      "signed_lo_minus_other_hi": -0.023779567068240304
+    }
+  },
+  "per_rule": {
+    "topw": {
+      "n_admitted": 7,
+      "n_built": 16,
+      "k_values": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        12
+      ]
+    },
+    "topabs": {
+      "n_admitted": 0,
+      "n_built": 2,
+      "k_values": [
+        4
+      ]
+    },
+    "topvar": {
+      "n_admitted": 0,
+      "n_built": 3,
+      "k_values": [
+        4
+      ]
+    },
+    "topwvar": {
+      "n_admitted": 0,
+      "n_built": 3,
+      "k_values": [
+        4
+      ]
+    }
+  },
+  "pooling_licence": {
+    "k_values_in_pool": [
+      4
+    ],
+    "constant": true,
+    "why": "R908 banned pooling to stop a k-COMPOSITION artifact, which needs k to VARY across pooled units; here every pooled rule is at k=4 and the check is in code"
+  },
+  "label_consuming_rules_excluded": [
+    "oracle",
+    "greedy",
+    "indep"
+  ],
+  "why_excluded": "R900/R907 established label access as a separate axis; mixing them in would reproduce that confound",
+  "objective_split_read_from_source": {
+    "topw": "highest MEAN importance score",
+    "topabs": "largest |mean|, most polarising either way"
+  },
+  "overlap_is_about_the_inventory": "if the intervals overlap that is a statement about inventory size, not evidence the objective is irrelevant",
+  "unit_note": "counts are ARMS; share = admitted/built",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

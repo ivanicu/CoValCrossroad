@@ -1,0 +1,84 @@
+R705 — PRE-REGISTERED BEFORE ANY CODE.  written 2026-08-05.
+
+CHECK #307 ON R704's NEXT LINE — ITS QUANTIFIER IS FALSE, AND MY OWN GATE COULD NOT SEE IT.
+  R704 closed: "Clause one is the ONLY clause whose exclusions the name touches AT ALL, at two arms
+  of forty-two." ⛔ FALSE from R704's own committed grid: F2's best gain is +0.0476 at
+  (family,k,sham) — IDENTICAL to F1's +0.0476 at (family,k). §4 names `only` as the exact tell, and
+  the sentence was written one round after I committed a block about verdict strings being computed.
+  ⛔ AND `assurance/next_line_quantifiers_are_computed.py` extracts `^NEXT:` — R704's commit body
+     wrote `NEXT.` — so the gate found no NEXT paragraph and passed on an EMPTY POPULATION.
+     Measured: 58 of 1269 commits (4.6%) write `NEXT.` and are invisible, R704's `20d1d1f` among
+     them. Fixed in a separate commit; the count is recorded here so the fix is not built blind.
+
+⛔ THE ARITHMETIC TRAP, DECLARED BEFORE THE RUN.
+  The gain statistic is bounded above by 1 − base_rate: a predictor cannot exceed accuracy 1, so the
+  most any partition can add to the majority-class baseline is exactly what the baseline leaves.
+  F1's base rate is 38/42 = 0.905 → CEILING 0.0952. F2's is 33/42 = 0.786 → CEILING 0.2143.
+  So F1's +0.0476 is 50.0% of what it could reach and F2's is 22.2% of what IT could reach.
+  ⭐ THE TWO EQUAL NUMBERS ARE NOT COMPARABLE, and check #307's "identical" reading is itself
+     misleading. This is a DERIVATION, labelled, and it is not what this round measures.
+
+ESTIMAND
+  The MINIMUM DETECTABLE GAIN of the leave-one-out cell-majority gain statistic on 42 arms: the
+  smallest TRUE partition-attributable gain at which the design rejects its own permutation null at
+  α = 0.05 with power ≥ 0.80 — reported in GAIN UNITS, the same units as the +0.0476 it must judge.
+
+IDENTIFICATION
+  Identified by simulation: the partition is fixed and known, so a graded plant traces dose→gain→power
+  exactly. ⚠ The MDE is a property of THIS partition at THIS n at a GIVEN base rate, and nothing else.
+
+SCOPE
+  population : the 42 arms of R360's ledger, with SYNTHETIC labels (the real labels are what is being
+               judged, so they cannot also be the measuring stick)
+  instrument : dose-response over count-preserving label swaps; power against a permutation null
+               instrument unit = A SYNTHETIC LABEL VECTOR
+               claim unit      = AN OBSERVED CLAUSE GAIN
+               ⚠ NOT EQUAL — an MDE bounds what the design can resolve, never whether a particular
+               observed value is true.
+  baseline   : the permutation null at the SAME positive count (nuisance-matched)
+  regime     : α = 0.05, power target 0.80, 2000 null draws, 400 replicates per dose
+
+WORLDS
+  A RESOLVABLE   MDE < 0.0476 → the observed gains are above the design's floor and may be read
+  B UNRESOLVABLE MDE > 0.0476 → both +0.0476 values are inside the noise and the F1-vs-F2 ordering
+                 must be withdrawn from STATEMENT.md
+  C MIS-CALIBRATED power at dose 0 exceeds 2α → the test is anti-conservative, no MDE is admissible,
+                 and R704's "survives its own null" verdicts are suspect
+
+PREDICTION MATRIX             A            B              C
+  power at +0.0476          > 0.80       < 0.80        any
+  power at dose 0           ≈ 0.05       ≈ 0.05        > 0.10
+  MDE reportable            yes          yes           NO — UNVERIFIED
+
+REGISTERED
+  POINT A  MDE in gain units at F2's base rate (m=9 positive), (family,k): 0.12, interval [0.03,0.35]
+  POINT B  power at gain = +0.0476, F2's base rate: 0.25, interval [0.02, 0.70]
+  POINT C  power at gain = +0.0476, F1's base rate (m=38): 0.40, interval [0.02, 0.90]
+  DIRECTIONAL (separately failable)  MDE at m=38 < MDE at m=9 in RAW gain units, because the ceiling
+           at m=38 is 0.0952 against 0.2143 and an MDE cannot exceed its own ceiling.
+  KILL (conditional — evaluated ONLY if POSITIVE fires and the calibration control is in band):
+     power at dose 0 outside [0, 2α] → world C, UNVERIFIED, no MDE reported;
+     MDE > 0.0476 at BOTH base rates → world B, and R704's ordering claim is withdrawn.
+
+CONTROLS
+  POSITIVE      at dose 1.0 (a pure cell function) power must be ≥ 0.95 — the design detects a
+                maximal plant. CEILING is 1−base_rate, computed, so the threshold is checked to lie
+                strictly between the dose-0 floor and that ceiling before it is used.
+  g=0 / CALIB   at dose 0.0 (structure fully destroyed, count preserved) power must be ≤ 2α. This is
+                the control that can condemn the whole instrument, and it is evaluated first.
+  NEGATIVE      shuffle the CELL ASSIGNMENT at dose 1.0 and refit → power must fall to ≈ α.
+  SHAM          single-cell partition at dose 1.0 → gain ≡ 0 by construction → power ≈ 0.
+  PLACEBO       two identical runs at one seed differ by exactly 0.
+  MONOTONICITY  power must be non-decreasing in dose across the sweep (Spearman ρ ≥ 0.9); a
+                non-monotone dose-response means the statistic is mis-behaved and the MDE is void.
+  NOISE FLOOR   the spread of observed gain at dose 0, measured over replicates, not assumed.
+
+SPECIFICATION SWEEP
+  base rate ∈ {m=9 (F2's), m=38 (F1's), m=21 (balanced)} × partition ∈ {(family,k), (family,k,sham)}
+  × dose ∈ 11 levels  = 66 cells; every cell reported.
+MULTIPLICITY  BH q=0.10 over the whole 66-cell grid on the per-cell power estimates' departure from α.
+SEEDS  3 independent replicate streams; the seed flag is verified to change the draws.
+ARTIFACT  results/mde.json with tree sha.
+IMPOSSIBLE
+  cross-release — the partition and n are this release's.
+  construct validity of "true gain" — a synthetic plant defines it; no external standard exists.
