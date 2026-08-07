@@ -1460,6 +1460,25 @@ version attached**, which is the same class of error R1060 and R1061 spent two r
 ⚠ **And no aggregate licenses a single token**: the floor makes the count readable, not any particular
 `this number has a source`. That is **one reading per token, and there are 131**.
 
+⛔⛔⛔ **AND R1070 RETRACTS R1069's HEADLINE ONE ROUND LATER: `31 of 38 clause decimals` ARE STORED BY
+NO ROUND AT ALL.** R1069's extractor pulled numbers out of **strings inside artifacts**, so a value
+merely **quoted in another round's verdict text** counted as sourced. **Quoter inflation, measured:
+mean `+4.8` candidate rounds per value, max `+59`.** Restricting candidacy to rounds that **stored**
+the value as a numeric leaf: unsourced **8 → 31 of 38 (`0.816`)**, ambiguous **28 → 6**, unique
+**2 → 1**. ⭐ **The clause's decimals are sourceable AS TEXT and largely not AS MEASUREMENTS.**
+⛔ **THE TELL WAS THE PRECISION CURVE RUNNING BACKWARDS.** Six-decimal values are nearly unique by
+construction, yet **0 of 19** resolved to a single round under the first extractor — which is not how
+precision behaves, and is what sent me back to the walker. Under the corrected one **all 19 are
+unsourced**: consistent, and much worse.
+⚠ **AND THE VERDICT IS NEITHER PRE-REGISTERED WORLD.** I registered *most are addressable* (≥0.50) and
+*ambiguity dominates* (≤0.20); the modal outcome is **UNSOURCED at `0.816`**. Reporting the category I
+did not anticipate, instead of forcing the result into one of my two, is the whole reason for naming
+bands in advance.
+⭐ **What survives is small and honest: `1` decimal whose provenance can be checked by opening one
+file instead of searching 820 rounds.** A single candidate is an **address**, never a proof of
+citation — and R1068's gate cannot be extended mechanically to the rest, because there is nothing
+stored to extend it to.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

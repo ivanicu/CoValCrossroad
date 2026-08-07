@@ -1,0 +1,54 @@
+{
+  "round": "R1070",
+  "decimals": 38,
+  "rounds_with_artifacts": 820,
+  "unique": 1,
+  "ambiguous": 6,
+  "unsourced": 31,
+  "unique_share": 0.02631578947368421,
+  "by_precision": {
+    "6": 19,
+    "4": 15,
+    "3": 2,
+    "1": 2
+  },
+  "random_unique_floor": {
+    "1": [
+      0.0,
+      0.0
+    ],
+    "3": [
+      0.0,
+      0.5
+    ],
+    "4": [
+      0.0,
+      0.2
+    ],
+    "6": [
+      0.0,
+      0.0
+    ]
+  },
+  "informative_precisions": [
+    1,
+    4,
+    6
+  ],
+  "addressable": [
+    {
+      "value": "7.8",
+      "round": "R248"
+    }
+  ],
+  "unsourced_share": 0.8157894736842105,
+  "quoter_inflation_mean": 4.7894736842105265,
+  "quoter_inflation_max": 59,
+  "retracts": "R1069's `decimals 0.789 sourceable` counted values appearing in artifact prose",
+  "world": "\u26d4 NEITHER PRE-REGISTERED WORLD \u2014 THE MODAL OUTCOME IS UNSOURCED. 31 of 38 clause decimals (0.816) are stored by NO round as a numeric leaf, including ALL 19 six-decimal values. Only 1 resolve uniquely and 6 are ambiguous. \u2b50\u2b50 AND THIS RETRACTS R1069's HEADLINE: its `decimals 0.789 sourceable` counted values that appear inside artifact PROSE \u2014 quoted in other rounds' verdict strings \u2014 not measured and stored. Quoter inflation here averages +4.8 candidate rounds per value and reaches +59. The clause's decimals are sourceable AS TEXT and largely not AS MEASUREMENTS.",
+  "controls": {
+    "positive_known_value_resolves": true,
+    "negative_absent_zero": true
+  },
+  "limitation": "a single candidate is an address, not a proof of citation"
+}

@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1070_*/results/decimal_addresses.json")
+    if d:
+        facts.append(("R1070", "most clause decimals are quoted, not stored; R1069's headline falls",
+                      f"unsourced {d['unsourced']} of {d['decimals']}, "
+                      f"inflation +{d['quoter_inflation_mean']:.1f}",
+                      [r"31\s+of\s+38\s+clause\s+decimals",
+                       r"sourceable\s+AS\s+TEXT"]))
+
     d = load("A27_*/R1069_*/results/clause_number_sources.json")
     if d:
         pc = d["per_class"]
